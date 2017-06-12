@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-06-12"
+lastupdated: "2017-05-08"
 
 ---
 
@@ -45,7 +45,7 @@ When you have your Facebook app ID and secret, and your Facebook for Developers 
 2. Enter the Facebook app ID and secret that you obtained from the Facebook for Developers website.
 3. Copy the URI that is in the **Redirect URI for Facebook for Developers** field. Paste the URI into the **Valid OAuth redirect URIs** field in the **Facebook Login** section of the Facebook Developers Portal.
 4. Click **Save**.
-5. Optional: For web apps, enter the redirect URL in the **Web Application Redirect URLs** field. This value is determined by the developer and used to access the redirect URL after the authorization process is completed.
+5. Optional: To configure authentication for web apps, enter the redirect URL in the **Web Application Redirect URLs** field. This value is determined by the developer and used to access the redirect URL after the authorization process is completed.
 
 
 ## Configuring Google authentication
@@ -75,29 +75,4 @@ When you have your Google client and secret, and your Google Developers console 
 3. Enter the Google Client ID and Secret that you obtained from the Google Developers console.
 4. Copy the URI that is in the **Redirect URI for Google for Developers** field. Paste the URI into the **Authorized redirect URIs** field that is under **Restrictions** in the **Client ID for web application** section of the Google Developers Portal.
 5. Click **Save**.
-6. Optional: For web apps, enter the redirect URI in the **Web Application Redirect URIs** field. This value is determined by the developer and used to access the redirect URI after the authorization process completes.
-
-
-## Configuring IBMid authentication
-
-You can configure the App ID service to use IBMid as an identity provider.
-
-### Getting a client ID and secret from IBMid
-
-To use IBMid as an identity provider, register a BlueID app to a preproduction or production environment and obtain a client ID and secret.
-
-1. On SSO Self-Service Provisioner - https://w3.innovate.ibm.com/tools/sso/home.html, log in to your BlueID account.
-2. Register a BlueID app. Be sure to select **preproduction** or **production** for identity provider.
-3. Create credentials by using OAuth. In **Client Details** enter the App ID redirect URL. You can get the redirect authorization URI from the IBMid configuration screen of your service dashboard.
-4. Be sure **Authorization Code** is selected.
-5. Make note of your BlueID client ID, secret, and the account identity provider type. Click **Continue & Finish**.
-
-### Configuring App ID for IBMid authentication
-
-Once you have your BlueID client and secret and you BlueID app is configured with the correct redirect URI, you can edit the BlueID authentication section of your service dashboard.
-
-1. From the **Manage** tab of your service dashboard, select **IBMid** and click **Edit**.
-2. Enter your BlueID client ID and secret.
-3. Copy the URI that is in the **Redirect URI for IBMid for Developers** field and paste it into **Redirect URIs**.
-4. Select preproduction or production for identity provider and click **Save**.
-5. Optional: For web apps, enter the redirect URI into the **Web Application Redirect URIs** field. This value is determined by the developer and used to access the redirect URI after the authorization.
+6. Optional: To configure authentication for web apps, enter the redirect URI in the **Web Application Redirect URIs** field. This value is determined by the developer and used to access the redirect URI after the authorization process completes.
