@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-06-01"
+lastupdated: "2017-06-05"
 
 ---
 
@@ -377,7 +377,7 @@ In your Swift app, replace `let webappKituraCredentialsPlugin = WebAppKituraCred
   {: pre}
 
 <table>
-<caption> Command components for Swift and Node.js apps explained </caption>
+<caption> Table 7. Command components for Swift and Node.js apps explained </caption>
   <tr>
     <th> Components </th>
     <th> Description </th>
