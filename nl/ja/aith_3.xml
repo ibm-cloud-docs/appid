@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with AI Text Handler 1.0.0 -->
+<ExtractedAITHs>
+<ExtractedAITH file="/services/appid/images/appidflow.ai">
+<text>ID
+プロバイダー</text>
+<text>要求</text>
+<text>有効な許可ヘッダーあり? いいえ</text>
+<text>Server SDK</text>
+<text>新規 Request().send()</text>
+<text>レルム・チャレンジ</text>
+<text>資格情報の入手</text>
+<text>Client SDK</text>
+<text></text>
+<text>チャレンジ応答の送信</text>
+<text>アプリ・コード</text>
+<text>バックエンド・
+リソース</text>
+<text>HTTP401 + 許可スコープ</text>
+<text>App ID サービス</text>
+<text>許可ヘッダーの取得</text>
+<text>有効な許可ヘッダーあり? はい</text>
+<text>資格情報の検証</text>
+<text>応答</text>
+<text>要求</text>
+<text>許可ヘッダー</text>
+<text>資格情報の取得</text>
+<text>要求 + 許可ヘッダー</text>
+<text>資格情報</text>
+<text>成功 + ユーザー ID</text>
+</ExtractedAITH>
+<ExtractedAITH file="/services/appid/images/appid_architecture2.ai">
+<text>Bluemix</text>
+<text>SDK</text>
+<text>ID プロバイダー</text>
+<text>Client SDK</text>
+<text>アプリケーション</text>
+<text>Node.js アプリ</text>
+<text>App ID </text>
+<text>Facebook</text>
+<text>Google</text>
+<text>Server SDK</text>
+<text>SDK</text>
+</ExtractedAITH>
+</ExtractedAITHs>

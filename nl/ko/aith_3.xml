@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with AI Text Handler 1.0.0 -->
+<ExtractedAITHs>
+<ExtractedAITH file="/services/appid/images/appidflow.ai">
+<text>ID
+제공자</text>
+<text>요청</text>
+<text>유효한 권한 헤더 있음? 아니오</text>
+<text>서버 SDK </text>
+<text>새 Request().send()</text>
+<text>영역 인증 확인</text>
+<text>신임 정보 얻기</text>
+<text>클라이언트 SDK</text>
+<text></text>
+<text>인증 확인 응답 제출</text>
+<text>앱 코드</text>
+<text>백엔드 리소스</text>
+<text>HTTP401 + 권한 범위</text>
+<text>App ID 서비스</text>
+<text>권한 헤더 가져오기</text>
+<text>유효한 권한 헤더 있음? 예</text>
+<text>신임 정보 유효성 검증</text>
+<text>응답</text>
+<text>요청</text>
+<text>권한 헤더</text>
+<text>신임 정보 가져오기</text>
+<text>요청 + 권한 헤더</text>
+<text>신임 정보</text>
+<text>성공 + 사용자 ID</text>
+</ExtractedAITH>
+<ExtractedAITH file="/services/appid/images/appid_architecture2.ai">
+<text>Bluemix</text>
+<text>SDK</text>
+<text>ID 제공자</text>
+<text>클라이언트 SDK</text>
+<text>애플리케이션</text>
+<text>Node.js 앱 </text>
+<text>App ID </text>
+<text>Facebook</text>
+<text>Google</text>
+<text>서버 SDK </text>
+<text>SDK</text>
+</ExtractedAITH>
+</ExtractedAITHs>
