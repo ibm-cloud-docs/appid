@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-05-08"
+lastupdated: "2017-06-10"
 
 ---
 
@@ -24,6 +24,8 @@ You can use {{site.data.keyword.appid_full}} with your existing application to a
 
 
 ## Adding {{site.data.keyword.appid_short_notm}} to an existing Android app
+
+You can add the App Id service to your existing Android applications.
 
 1. Add the JitPack repository to your root build.gradle file.
 
@@ -65,7 +67,7 @@ You can use {{site.data.keyword.appid_full}} with your existing application to a
   {: pre}
 
   <table>
-  <caption> Command components explained </caption>
+  <caption> Table 1. Command components explained </caption>
     <tr>
       <th> Components </th>
       <th> Description </th>
@@ -87,21 +89,38 @@ You can use {{site.data.keyword.appid_full}} with your existing application to a
     loginWidget.launch(this, new AuthorizationListener() {
           @Override
           public void onAuthorizationFailure (AuthorizationException exception) {
-            //Exception occurred
           }
 
           @Override
           public void onAuthorizationCanceled () {
-            //Authentication canceled by the user
           }
 
           @Override
           public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken) {
-            //User authenticated
           }
         });
   ```
   {: pre}
+
+  <table>
+  <caption> Table 2. Command components explained </caption>
+    <tr>
+      <th> Components </th>
+      <th> Description </th>
+    </tr>
+    <tr>
+      <td> <i> onAuthorizationFailure </i> </td>
+      <td> An exception occurred. </td>
+    </tr>
+    <tr>
+      <td> <i> onAuthorizationCanceled </i> </td>
+      <td> The authentication process was canceled by the user. </td>
+    </tr>
+    <tr>
+      <td> <i> onAuthorizationSuccess </i> </td>
+      <td> The user was authenticated. </td>
+    </tr>
+  </table>
 
 ## Adding {{site.data.keyword.appid_short_notm}} to an existing iOS Swift App
 
@@ -126,6 +145,7 @@ You can use {{site.data.keyword.appid_full}} with your existing application to a
 
   ```swift
   import BluemixAppID
+  import BMSCore
   ```
   {: pre}
 
@@ -137,7 +157,7 @@ You can use {{site.data.keyword.appid_full}} with your existing application to a
   {: pre}
 
   <table>
-  <caption> Command components explained </caption>
+  <caption> Table 3. Command components explained </caption>
     <tr>
       <th> Components </th>
       <th> Description </th>
@@ -158,29 +178,39 @@ You can use {{site.data.keyword.appid_full}} with your existing application to a
   func application(_ application: UIApplication, open url: URL, options :[UIApplicationOpenURLOptionsKey : Any]) -> Bool {
          	return AppID.sharedInstance.application(application, open: url, options: options)
      	}
-  ```
-  {: pre}
-
-9. After the {{site.data.keyword.appid_short_notm}} client SDK is initialized, you can authenticate your users by running the login widget.
-
-  ```swift
   class delegate : AuthorizationDelegate {
      public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, response:Response?) {
-         //User authenticated
      }
 
      public func onAuthorizationCanceled() {
-         //Authentication canceled by the user
      }
 
      public func onAuthorizationFailure(error: AuthorizationError) {
-         //Exception occurred
      }
   }
 
   AppID.sharedInstance.loginWidget?.launch(delegate: delegate())
   ```
   {: pre}
+  <table>
+  <caption> Table 4. Command components explained </caption>
+    <tr>
+      <th> Components </th>
+      <th> Description </th>
+    </tr>
+    <tr>
+      <td> <i> onAuthorizationSuccess </i> </td>
+      <td> The user was authenticated. </td>
+    </tr>
+    <tr>
+      <td> <i> onAuthorizationCanceled </i> </td>
+      <td> The authentication process was canceled by the user. </td>
+    </tr>
+    <tr>
+      <td> <i> onAuthorizationFailure </i> </td>
+      <td> An exception occurred. </td>
+    </tr>
+  </table>
 
 ## Adding {{site.data.keyword.appid_short_notm}} to an existing Node.js web app
 
@@ -200,7 +230,10 @@ You can use {{site.data.keyword.appid_full}} with your existing application to a
   ```
   {: pre}
 
-3. Add the following code to your app.js file.
+3. Add the following code to your app.js file to:
+    * Set up your express app to use express-session middleware. **Note**: You must configure the middleware with the proper session storage for production environments. For more information see the [expressjs docs](https://github.com/expressjs/session).
+    * Configure passportjs with serialization and deserialization. This is required for authenticated session persistence across HTTP requests. For more information, see the [passportjs docs](http://passportjs.org/docs).
+    * Retrieve access and identity tokens from the App ID service by running a get command on the call back URL.
 
   ```javaScript
   const express = require("express");
@@ -209,49 +242,33 @@ You can use {{site.data.keyword.appid_full}} with your existing application to a
   const WebAppStrategy = require("bluemix-appid").WebAppStrategy;
   const app = express();
   const CALLBACK_URL = "/ibm/bluemix/appid/callback";
-
-  // Setup express application to use express-session middleware
-  // Must be configured with proper session storage for production
-  // environments. See https://github.com/expressjs/session for
-  // additional documentation
   app.use(session({
-    secret: "123456",
-    resave: true,
-    saveUninitialized: true
-  }));
-
-  // Configure express application to use passportjs
+      secret: "123456",
+      resave: true,
+      saveUninitialized: true
+    }));
   app.use(passport.initialize());
-  app.use(passport.session());
+    app.use(passport.session());
 
-  passport.use(new WebAppStrategy());
-
-  // Configure passportjs with user serialization/deserialization. This is required
-  // for authenticated session persistence across HTTP requests. See passportjs docs
-  // for additional information http://passportjs.org/docs
+    passport.use(new WebAppStrategy());
   passport.serializeUser(function(user, cb) {
-    cb(null, user);
-  });
+      cb(null, user);
+    });
 
-  passport.deserializeUser(function(obj, cb) {
-    cb(null, obj);
-  });
-
-  // Callback to finish the authorization process. Will retrieve access and identity tokens/
-  // from AppID service and redirect to either (in the following order)
-  // 1. the original URL of the request that triggered authentication, as persisted in HTTP session under WebAppStrategy.ORIGINAL_URL key.
-  // 2. successRedirect as specified in passport.authenticate(name, {successRedirect: "...."}) invocation
-  // 3. application root ("/")
+    passport.deserializeUser(function(obj, cb) {
+      cb(null, obj);
+    });
   app.get(CALLBACK_URL, passport.authenticate(WebAppStrategy.STRATEGY_NAME));
-
-  // Protected area. If current user is not authenticated - redirect to the login widget will be returned.
-  // In case user is authenticated - a page with current user information will be returned.
-  app.get("/protected", passport.authenticate(WebAppStrategy.STRATEGY_NAME), function(req, res){
-  	//return the protected page with user info
-  		res.json(req.user);
-  });
+  app.get("/protected", passport.authenticate(WebAppStrategy.STRATEGY_NAME), function(req, res)
+    		res.json(req.user);
+    });
   ```
   {: pre}
+
+    **Note**: The service redirects in the following order:
+    1. The original URL of the request that triggered the  authentication process, as persisted in the HTTP session under the `WebAppStrategy.ORIGINAL_URL` key.
+    2. A successful redirect, as specified in `passport.authenticate(name, {successRedirect: "...."}).`
+    3. Application root ("/")
 
 4. Redeploy your application.
 
@@ -272,7 +289,9 @@ You can use {{site.data.keyword.appid_full}} with your existing application to a
     ```
     {: pre}
 
-2. Add the following code to your Swift application.
+2. Add the following code to your Swift application to:
+    * Set up Kitura to use session middleware. **Note**: You must configure Kitura with the proper session storage for production environments. For more information see the [the Kitura docs](https://github.com/IBM-Swift/Kitura-Session).
+    * Retrieve access and identity tokens from the App ID service by running a get command on the call back URL.
 
   ```swift
   import Foundation
@@ -281,30 +300,17 @@ You can use {{site.data.keyword.appid_full}} with your existing application to a
   import Credentials
   import SwiftyJSON
   import BluemixAppID
-
-  // The following URLs will be used for AppID OAuth flows
-  var CALLBACK_URL = "/ibm/bluemix/appid/callback"
-  var LANDING_PAGE_URL = "/index.html"
-
-  // Setup Kitura to use session middleware
-  // Must be configured with proper session storage for production
-  // environments. See https://github.com/IBM-Swift/Kitura-Session for
-  // additional documentation
   let router = Router()
   let session = Session(secret: "Some secret")
   router.all(middleware: session)
   let webappKituraCredentialsPlugin = WebAppKituraCredentialsPlugin()
   let kituraCredentials = Credentials()
   kituraCredentials.register(plugin: webappKituraCredentialsPlugin)
-
-  // Callback to finish the authorization process. Will retrieve access and identity tokens from AppID
   router.get(CALLBACK_URL,
     handler: kituraCredentials.authenticate(credentialsType: webappKituraCredentialsPlugin.name,
       successRedirect: LANDING_PAGE_URL,
       failureRedirect: LANDING_PAGE_URL
       ))
-
-  // Protected area
   router.get("/protected", handler: kituraCredentials.authenticate(credentialsType: webappKituraCredentialsPlugin.name), { (request, response, next) in
     let appIdAuthContext:JSON? = request.session?[WebAppKituraCredentialsPlugin.AuthContext]
     let identityTokenPayload:JSON? = appIdAuthContext?["identityTokenPayload"]
@@ -318,7 +324,23 @@ You can use {{site.data.keyword.appid_full}} with your existing application to a
   ```
   {: pre}
 
-4. Redeploy your application.
+  <table>
+  <caption> Table 6. Command components explained </caption>
+    <tr>
+      <th> Components </th>
+      <th> Description </th>
+    </tr>
+    <tr>
+      <td> <i> var CALLBACK_URL </i> </td>
+      <td> /ibm/bluemix/appid/callback </td>
+    </tr>
+    <tr>
+      <td> <i> var LANDING_PAGE_URL </i> </td>
+      <td> /index.html </td>
+    </tr>
+    </table>
+
+5. Redeploy your application.
 
 
 
@@ -356,7 +378,7 @@ In your Swift app, replace `let webappKituraCredentialsPlugin = WebAppKituraCred
   {: pre}
 
 <table>
-<caption> Command components for Swift and Node.js apps explained </caption>
+<caption> Table 7. Command components for Swift and Node.js apps explained </caption>
   <tr>
     <th> Components </th>
     <th> Description </th>
@@ -368,5 +390,9 @@ In your Swift app, replace `let webappKituraCredentialsPlugin = WebAppKituraCred
   <tr>
     <td> <i> app-url </i> </td>
     <td> Your application URL. </td>
+  </tr>
+  <tr>
+    <td> <i> CALLBACK_URL </i> </td>
+    <td> The URL for the page users see after they login. </td>
   </tr>
 </table>
