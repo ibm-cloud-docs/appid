@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-05-08"
+lastupdated: "2017-06-12"
 
 ---
 
@@ -104,7 +104,7 @@ Initialize the client SDK by passing the context, tenant ID, and region paramete
 ## Authenticate users by using the login widget
 {: #authenticate-login-widget}
 
-The login widget default configuration requires the use of both Facebook and Google for authentication. If you configure only one of them, the login widget does not start and the user is redirected to the configured IDP authentication screen.
+The login widget default configuration uses Facebook and Google as authentication options. If you configure only one of them, the login widget does not start and the user is redirected to the configured IDP authentication screen.
 
 After the {{site.data.keyword.appid_short_notm}} client SDK is initialized, you can authenticate your users by running the login widget.
 

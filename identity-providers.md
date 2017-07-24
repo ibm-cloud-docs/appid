@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-05-08"
+lastupdated: "2017-07-06"
 
 ---
 
@@ -14,7 +14,7 @@ lastupdated: "2017-05-08"
 # Configuring identity providers
 {: #setting-up-idp}
 
-You can configure Facebook, Google, or both to set up a single-sign on experience for your users. By using an identity provider, users are able to sign in with credentials they are already familiar with.
+You can configure Facebook, Google, or a combination of the two to set up a single sign-on experience for your users. By using an identity provider, users are able to sign in with credentials they are already familiar with.
 {:shortdesc}
 
 
@@ -45,7 +45,7 @@ When you have your Facebook app ID and secret, and your Facebook for Developers 
 2. Enter the Facebook app ID and secret that you obtained from the Facebook for Developers website.
 3. Copy the URI that is in the **Redirect URI for Facebook for Developers** field. Paste the URI into the **Valid OAuth redirect URIs** field in the **Facebook Login** section of the Facebook Developers Portal.
 4. Click **Save**.
-5. Optional: To configure authentication for web apps, enter the redirect URL in the **Web Application Redirect URLs** field. This value is determined by the developer and used to access the redirect URL after the authorization process is completed.
+5. Optional: For web apps, enter the redirect URL in the **Web Application Redirect URLs** field. This value is determined by the developer and used to access the redirect URL after the authorization process is completed.
 
 
 ## Configuring Google authentication
@@ -75,4 +75,4 @@ When you have your Google client and secret, and your Google Developers console 
 3. Enter the Google Client ID and Secret that you obtained from the Google Developers console.
 4. Copy the URI that is in the **Redirect URI for Google for Developers** field. Paste the URI into the **Authorized redirect URIs** field that is under **Restrictions** in the **Client ID for web application** section of the Google Developers Portal.
 5. Click **Save**.
-6. Optional: To configure authentication for web apps, enter the redirect URI in the **Web Application Redirect URIs** field. This value is determined by the developer and used to access the redirect URI after the authorization process completes.
+6. Optional: For web apps, enter the redirect URI in the **Web Application Redirect URIs** field. This value is determined by the developer and used to access the redirect URI after the authorization process completes.

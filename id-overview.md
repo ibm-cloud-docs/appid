@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-05-08"
+lastupdated: "2017-07-06"
 
 ---
 
@@ -19,9 +19,9 @@ Identity providers are used to provide authentication to your applications.
 
 You can use the following identity providers in your mobile and web applications:
 
-* **Facebook** - Your users log in to the mobile or web app with their Facebook credentials.
-* **Google** -  Your users log in to the mobile or web app with their Google+ credentials.
-<!--* **Custom** - Bring your own identity provider. The identity providers should be compliant with OIDC. -->
+* **Facebook** - Your users log in to mobile or web apps with their Facebook credentials.
+* **Google** -  Your users log in to mobile or web apps with their Google+ credentials.
+
 
 ## Using the default configuration
 {: #default-configuration}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-05-23"
+lastupdated: "2017-07-06"
 
 ---
 
@@ -42,7 +42,7 @@ Payload: {
 {:screen}
 
 <table>
-<caption> Access token components explained </caption>
+<caption> Table 1. Access token components explained </caption>
   <tr>
     <th> Component </th>
     <th> Description </th>
@@ -61,11 +61,11 @@ Payload: {
   </tr>
   <tr>
     <td> <i> sub </i> </td>
-    <td> The ID of the user who the token was issued to. </td>
+    <td> The ID of the user who the token is issued to. </td>
   </tr>
   <tr>
     <td> <i> aud </i> </td>
-    <td> The OAuth2 client id of the person the token intended for. </td>
+    <td> The client ID the token is intended for. </td>
   </tr>
   <tr>
     <td> <i> exp </i> </td>
@@ -73,11 +73,11 @@ Payload: {
   </tr>
   <tr>
     <td> <i> iat </i> </td>
-    <td> The time at which the timestamp was issued, specified in epoch time. </td>
+    <td> The time at which the timestamp is issued, specified in epoch time. </td>
   </tr>
   <tr>
     <td> <i> tenant </i> </td>
-    <td> The {{site.data.keyword.appid_short}} tenant ID for which the token was issued. </td>
+    <td> The tenant ID for which the token is issued. </td>
   </tr>
   <tr>
     <td> <i> amr </i> </td>
@@ -85,7 +85,7 @@ Payload: {
   </tr>
   <tr>
     <td> <i> scope </i> </td>
-    <td> the scope[s] this token was issued for </td>
+    <td> The scope the token is issued for. </td>
   </tr>
 </table>
 
@@ -129,7 +129,7 @@ Payload: {
 
 
 <table>
-<caption> Identity token components explained </caption>
+<caption> Table 2. Identity token components explained </caption>
   <tr>
     <th> Component </th>
     <th> Description </th>
@@ -144,7 +144,7 @@ Payload: {
   </tr>
   <tr>
     <td> <i> gender </i> </td>
-    <td> The user's gender as reported by the identity provider when available. </td>
+    <td> The user's gender as reported by the identity provider, when available. </td>
   </tr>
   <tr>
     <td> <i> locale </i> </td>
@@ -156,10 +156,10 @@ Payload: {
   </tr>
   <tr>
     <td> <i> identities: </br> <ul><li> provider <li> id <li> amr </ul></i></td>
-    <td> </br><ul><li> The identity provider used for authentication. This variable can be either <i>appid_facebook</i> or <i>appid_google</i>, and must be returned. <li> A unique user ID as reported by an identity provider. <li> A JSON object returned by that must be returned by the identity provider. </ul></i></td>
+    <td> </br><ul><li> The identity provider used for authentication. This variable can be either <code>appid_facebook</code> or <code>appid_google</code>, and must be returned. <li> A unique user ID as reported by an identity provider. <li> A JSON object that must be returned by the identity provider. </ul></i></td>
   </tr>
   <tr>
     <td> <i> oauth_client: </br> <ul><li> type <li> name <li> software_id <li> software_version</ul></i> </td>
-    <td> </br><ul><li> The type of application determined during client registration. The variable can be <i>serverapp</i> or <i>mobileapp</i>. <li> The client name as reported during client registration. <li> The software id as reported during client registration. <li> The version of software used during client registration. </ul></td>
+    <td> </br><ul><li> The type of application determined during client registration. The variable can be <i>serverapp</i> or <i>mobileapp</i>. <li> The client name as reported during client registration. <li> The software ID as reported during client registration. <li> The version of software used during client registration. </ul></td>
   </tr>
 </table>

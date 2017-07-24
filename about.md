@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-05-19"
+lastupdated: "2017-07-11"
 
 ---
 
@@ -58,7 +58,7 @@ Figure 1. {{site.data.keyword.appid_short_notm}} architecture diagram
   <dt> Bluemix </dt>
     <dd>  The server SDK extracts the access token from the request and validates it with {{site.data.keyword.appid_short_notm}}. After successful authentication, {{site.data.keyword.appid_short_notm}} returns authorization and identity tokens to your application. </dd>
   <dt> Identity Providers </dt>
-    <dd> You can configure Facebook, Google, or both to authenticate your apps.  </dd>
+    <dd> You can configure Facebook, Google, or a combination of the two to authenticate your apps.  </dd>
 </dl>
 
 
@@ -76,7 +76,7 @@ Figure 2. App ID request flow
 * The client SDK automatically detects the HTTP 401 and starts the authentication process.
 * When the client SDK contacts the service, the server SDK returns the login widget if more than one identity provider is configured. {{site.data.keyword.appid_short_notm}} calls the identity provider and presents the login form for that provider, or returns a grant code that allows them to authenticate if no identity providers are configured.
 * {{site.data.keyword.appid_short_notm}} asks the client app to authenticate by supplying an authentication challenge.
-* If Facebook or Google are configured, and the user logs in, the authentication is handled by the respective identity provider OAuth Flow.
+* If an identity provider is configured, and the user logs in, the authentication is handled by the respective OAuth flow.
 * If the authentication ends with the same grant code, the code is sent to the token endpoint. The endpoint returns two tokens: an access token and an identity token. From this point on, all requests that are made with the client SDK have a newly obtained authorization header.
 * The client SDK automatically resends the original request that triggered the authorization flow.
 * The server SDK extracts the authorization header from the request, validates the header with the service, and grants access to a back-end resource.

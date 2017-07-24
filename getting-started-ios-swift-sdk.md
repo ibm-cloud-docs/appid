@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-05-08"
+lastupdated: "2017-06-12"
 
 ---
 
@@ -113,7 +113,7 @@ The {{site.data.keyword.appid_short_notm}} client SDK is distributed with CocoaP
 ## Authenticate users by using the login widget
 {: #authenticate-login}
 
-After the {{site.data.keyword.appid_short_notm}} client SDK is initialized, you can authenticate your users by running the login widget. The login widget default configuration uses Facebook, Google, or both as authentication options. If you configure only one identity provider, the login widget does not start and the user is redirected to the configured IDP authentication screen.
+After the {{site.data.keyword.appid_short_notm}} client SDK is initialized, you can authenticate your users by running the login widget. The login widget default configuration uses Facebook and Google as authentication options. If you configure only one identity provider, the login widget does not start and the user is redirected to the configured IDP authentication screen.
 
 
 
