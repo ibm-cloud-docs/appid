@@ -2,14 +2,14 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-06-12"
+lastupdated: "2017-08-08"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen:.screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 # Setting up the Android SDK
 {: #android-sdk}
@@ -61,7 +61,7 @@ You need the following information:
 	    }
     }
   ```
-  {:pre}
+  {: codeblock}
 
 3. Open the `build.gradle` file for your application.
 
@@ -73,7 +73,7 @@ You need the following information:
        compile group: 'com.github.ibm-cloud-security:appid-clientsdk-android:1.+'
    }
   ```
-  {:pre}
+  {: codeblock}
 
 5. Find the defaultConfig section and add the following lines of code.
 
@@ -83,7 +83,7 @@ You need the following information:
   manifestPlaceholders = ['appIdRedirectScheme': android.defaultConfig.applicationId]
   }
   ```
-  {:pre}
+  {: codeblock}
 
 6. Synchronize your project with Gradle. Click **Tools** > **Android** > **Sync Project with Gradle Files**.
 
@@ -95,7 +95,7 @@ Initialize the client SDK by passing the context, tenant ID, and region paramete
   ```java
   AppID.getInstance().initialize(getApplicationContext(), <tenantId>, AppID.REGION_UK);
   ```
-  {:pre}
+  {: codeblock}
 
 1. Replace *tenantId* with the {{site.data.keyword.appid_short_notm}} service tenantId.
 2. Replace the AppID.REGION_UK with your {{site.data.keyword.Bluemix_notm}} region.
@@ -127,7 +127,7 @@ After the {{site.data.keyword.appid_short_notm}} client SDK is initialized, you 
         }
       });
   ```
-  {:pre}
+  {: codeblock}
 
 
 ## Accessing user attributes
@@ -148,7 +148,7 @@ When you obtain an access token, it is possible to gain access to the user prote
   void getAllAttributes(@NonNull UserAttributeResponseListener listener);
   void getAllAttributes(@NonNull AccessToken accessToken, @NonNull UserAttributeResponseListener listener);
   ```
-  {:pre}
+  {: codeblock}
 
 When an access token is not explicitly passed, {{site.data.keyword.appid_short_notm}} uses the last received token.
 
@@ -167,7 +167,7 @@ For example, you can call the following code to set a new attribute, or override
 		}
 	});
   ```
-  {:pre}
+  {: codeblock}
 
 ### Anonymous login
 {: #anonymous notoc}
@@ -192,7 +192,7 @@ With {{site.data.keyword.appid_short_notm}}, you can log in [anonymously](/docs/
 		}
 	});
   ```
-  {:pre}
+  {: codeblock}
 
 ### Progressive authentication
 {: #progressive notoc}
@@ -202,7 +202,7 @@ When the user holds an anonymous access token, they can become identified by pas
   ```java
   void launch (@NonNull final Activity activity, @NonNull final AuthorizationListener authorizationListener, String accessTokenString);
   ```
-  {:pre}
+  {: codeblock}
 
 After an anonymous login, progressive authentication occurs even if the login widget is called without passing an access token because the service used the last received token. If you want to clear your stored tokens, run the following command.
 
@@ -210,7 +210,7 @@ After an anonymous login, progressive authentication occurs even if the login wi
   	appIDAuthorizationManager = new AppIDAuthorizationManager(this.appId);
   appIDAuthorizationManager.clearAuthorizationData();
   ```
-  {:pre}
+  {: codeblock}
 
 
 ## Next steps

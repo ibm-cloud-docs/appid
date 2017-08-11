@@ -2,14 +2,14 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-07-12"
+lastupdated: "2017-08-08"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 
 # Adding {{site.data.keyword.appid_short_notm}} to an existing app
@@ -38,7 +38,7 @@ You can add the {{site.data.keyword.appid_short_notm}} service to your existing 
       		}
   }
   ```
-  {: pre}
+  {: codeblock}
 
 2. Open the build.gradle file for your application, find the dependencies section of the file, and add a compile dependency for the {{site.data.keyword.appid_short_notm}} client SDK.
 
@@ -47,7 +47,7 @@ You can add the {{site.data.keyword.appid_short_notm}} service to your existing 
       compile group: 'com.github.ibm-cloud-security:appid-clientsdk-android:1.+'
   }
   ```
-  {: pre}
+  {: codeblock}
 
 3. Find the defaultConfig section and add the following line of code.
 
@@ -57,7 +57,7 @@ You can add the {{site.data.keyword.appid_short_notm}} service to your existing 
             manifestPlaceholders = ['appIdRedirectScheme': android.defaultConfig.applicationId]
   }
   ```
-  {: pre}
+  {: codeblock}
 
 4. Synchronize your project with Gradle.
 5. Initialize the client SDK by passing the context, tenant ID, and region parameters to the initialize method. A common, though not mandatory, place to put the initialization code is in the onCreate method of the main activity in your Android application.
@@ -65,7 +65,7 @@ You can add the {{site.data.keyword.appid_short_notm}} service to your existing 
   ```Java
   AppID.getInstance().initialize(getApplicationContext(), <tenantId>, <AppID.REGION>);
   ```
-  {: pre}
+  {: codeblock}
 
     <table>
     <caption> Table 1. Command components explained </caption>
@@ -101,7 +101,7 @@ You can add the {{site.data.keyword.appid_short_notm}} service to your existing 
           }
         });
   ```
-  {: pre}
+  {: codeblock}
 
     <table>
     <caption> Table 2. Command components explained </caption>
@@ -133,7 +133,7 @@ You can add the {{site.data.keyword.appid_short_notm}} service to your existing 
   ```
   pod install --repo-update
   ```
-  {: pre}
+  {: codeblock}
 
 4. Open your Xcode project and enable keychain sharing. Under **Project Settings**, click **Capabilities** > **Keychain Sharing**.
 5. Under **Project Settings** > **Info** > **URL Types**, add a **URL Type**. Fill both the **Identifier** text box and the **URL Scheme** text box with the following value.
@@ -141,7 +141,7 @@ You can add the {{site.data.keyword.appid_short_notm}} service to your existing 
   ```
   $(PRODUCT_BUNDLE_IDENTIFIER)
   ```
-  {: pre}
+  {: codeblock}
 
 6. Add the following import to your AppDelegate.swift file.
 
@@ -149,14 +149,14 @@ You can add the {{site.data.keyword.appid_short_notm}} service to your existing 
   import BluemixAppID
   import BMSCore
   ```
-  {: pre}
+  {: codeblock}
 
 7. Initialize the client SDK by passing tenant ID and region parameters to the initialize method. A common, though not mandatory, place to put the initialization code is in the application:didFinishLaunchingWithOptions: method of the AppDelegate in your application.
 
   ```swift
   AppID.sharedInstance.initialize(tenantId: <tenantId>, bluemixRegion: <AppID.Region>)
   ```
-  {: pre}
+  {: codeblock}
 
     <table>
     <caption> Table 3. Command components explained </caption>
@@ -193,7 +193,7 @@ You can add the {{site.data.keyword.appid_short_notm}} service to your existing 
 
   AppID.sharedInstance.loginWidget?.launch(delegate: delegate())
   ```
-  {: pre}
+  {: codeblock}
 
     <table>
     <caption> Table 4. Command components explained </caption>
@@ -223,7 +223,7 @@ You can add the {{site.data.keyword.appid_short_notm}} service to your existing 
   ```javaScript
   npm install --save bluemix-appid
   ```
-  {: pre}
+  {: codeblock}
 
 2. Install the following modules if they are not installed already.
 
@@ -232,7 +232,7 @@ You can add the {{site.data.keyword.appid_short_notm}} service to your existing 
   npm install --save passport
   npm install --save express-session
   ```
-  {: pre}
+  {: codeblock}
 
 3. Add the following code to your app.js file to:
     * Set up your express app to use express-session middleware. **Note**: You must configure the middleware with the proper session storage for production environments. For more information see the [expressjs docs](https://github.com/expressjs/session).
@@ -267,7 +267,7 @@ You can add the {{site.data.keyword.appid_short_notm}} service to your existing 
     		res.json(req.user);
     });
   ```
-  {: pre}
+  {: codeblock}
 
     **Note**: The service redirects in the following order:
     1. The original URL of the request that triggered the  authentication process, as persisted in the HTTP session under the `WebAppStrategy.ORIGINAL_URL` key.
@@ -292,7 +292,7 @@ You can add the {{site.data.keyword.appid_short_notm}} service to your existing 
        		]
     )
     ```
-    {: pre}
+    {: codeblock}
 
 2. Add the following code to your Swift application to:
     * Set up Kitura to use session middleware. **Note**: You must configure Kitura with the proper session storage for production environments. For more information see the <a href="https://github.com/IBM-Swift/Kitura-Session" target="_blank">Kitura docs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
@@ -327,7 +327,7 @@ You can add the {{site.data.keyword.appid_short_notm}} service to your existing 
     next()
     })
   ```
-  {: pre}
+  {: codeblock}
 
   <table>
   <caption> Table 5. Command components explained </caption>
@@ -361,7 +361,7 @@ You can configure {{site.data.keyword.appid_short_notm}} to work with your exist
   <feature>appSecurity-2.0</feature>
   <feature>openidConnectClient-1.0</feature>  
   ```
-  {:pre}
+  {: codeblock}
 
 2. In your Open ID Connect Client feature, define the following placeholders. They are filled automatically by {{site.data.keyword.Bluemix_notm}} later. The instance name variable must match your {{site.data.keyword.appid_short_notm}} instance name exactly.
 
@@ -376,7 +376,7 @@ You can configure {{site.data.keyword.appid_short_notm}} to work with your exist
   signatureAlgorithm="RS256"
   authFilterid="myAuthFilter"
   ```
-  {: pre}
+  {: codeblock}
 
   **Note**: The issuerIdentifier variable changes according to your region. It can be one of the following variables:
   * issuerIdentifier="appid-oauth.ng.bluemix.net"
@@ -389,7 +389,7 @@ You can configure {{site.data.keyword.appid_short_notm}} to work with your exist
              <requestUrl id="myRequestUrl" urlPattern="/protected" matchType="contains"/>
     </authFilter>
   ```
-  {: pre}
+  {: codeblock}
 
 3. In your `server.xml` file, define your special subject type as ALL_AUTHENTICATED_USERS.
 
@@ -403,7 +403,7 @@ You can configure {{site.data.keyword.appid_short_notm}} to work with your exist
             </application-bnd>
         </application>
   ```
-  {: pre}
+  {: codeblock}
 
 4. In your `<application-bnd>` element, <a href="https://www.ibm.com/support/knowledgecenter/SSAW57_8.5.5/com.ibm.websphere.wlp.nd.doc/ae/cwlp_authorization.html?cp=SSAW57_8.5.5&cm_mc_uid=18498555367014888859884&cm_mc_sid_50200000=1494855872" target="_blank">define the roles <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> as found in your web app: `web.xml`.
 
@@ -430,7 +430,7 @@ You can configure {{site.data.keyword.appid_short_notm}} to work with your exist
   </user-data-constraint>
   </security-constraint>
   ```
-  {: pre}
+  {: codeblock}
 
 5. Get a certificate.
 
@@ -458,7 +458,7 @@ You can configure {{site.data.keyword.appid_short_notm}} to work with your exist
       ```
       keytool -importcert -keystore ./trust.jks -file ~/Documents/secbluemix.cer`
       ```
-      {: pre}       
+      {: codeblock}      
 
       **Note**: `~/Documents/[certificatename].cer` demonstrates the file location on your local drive.
 
@@ -482,7 +482,7 @@ You can configure {{site.data.keyword.appid_short_notm}} to work with your exist
   services:
   - AppID-Instance-Name
   ```
-  {: pre}
+  {: codeblock}
 
     An example `server.xml` file that is configured for {{site.data.keyword.appid_short_notm}}:
 
@@ -536,7 +536,7 @@ You can configure {{site.data.keyword.appid_short_notm}} to work with your exist
 
   </server>
   ```
-  {: screen}
+  {: codeblock}
 
 
 
@@ -557,7 +557,7 @@ In your Node.js app, replace `passport.use(new WebAppStrategy());` with the foll
       	redirectUri: "{app-url}" + CALLBACK_URL
       }));
   ```
-  {: pre}
+  {: codeblock}
 
 In your Swift app, replace `let webappKituraCredentialsPlugin = WebAppKituraCredentialsPlugin()` with the following code.
 
@@ -571,7 +571,7 @@ In your Swift app, replace `let webappKituraCredentialsPlugin = WebAppKituraCred
     ]
     let webappKituraCredentialsPlugin = WebAppKituraCredentialsPlugin(options: options)
   ```
-  {: pre}
+  {: codeblock}
 
   <table>
   <caption> Table 6. Command components for Swift and Node.js apps explained </caption>
@@ -607,7 +607,7 @@ In your Liberty for Java apps, complete the steps under [Adding {{site.data.keyw
   authFilterid="myAuthFilter"
   trustAliasName="my.bluemix.certificate"
   ```
-  {: pre}
+  {: codeblock}
 
   <table>
   <caption> Table 7. OIDC element variables for Liberty for Java apps that do not run on Bluemix </caption>

@@ -2,14 +2,14 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-05-08"
+lastupdated: "2017-08-11"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 # Protecting Node.js resources
 {: #protecting-resources-nodejs}
@@ -21,7 +21,7 @@ You can use the {{site.data.keyword.appid_short}} server SDK to protect resource
 {: #before-you-begin}
 
 * Be familiar with developing Node.js applications on {{site.data.keyword.Bluemix_notm}}.
-* The {{site.data.keyword.appid_short_notm}} server SDK requires that your Node.js server is implemented with the `<a href="http://expressjs.com/" target="_blank">Express framework <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>`.
+* The {{site.data.keyword.appid_short_notm}} server SDK requires that your Node.js server is implemented with the <a href="http://expressjs.com/" target="_blank">Express framework <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
 
 **Note**: Other frameworks use `Express` frameworks, such as LoopBack. You can use the {{site.data.keyword.appid_short_notm}} server SDK with any of these frameworks.
 
@@ -37,7 +37,7 @@ You can use the {{site.data.keyword.appid_short}} server SDK to protect resource
   npm install -save passport
   npm install -save bluemix-appid
   ```
-  {:pre}
+  {: codeblock}
 
 ## Protecting resources in Node.js
 {: #protecting-resources-nodesdk}
@@ -67,7 +67,7 @@ The following snippet demonstrates how to use `APIStrategy` in a simple Express 
 
   app.listen(process.env.PORT);
   ```
-  {:pre}
+  {: codeblock}
 
 You can use `WebAppStrategy` to protect web application resources.
 
@@ -77,6 +77,6 @@ You can use `WebAppStrategy` to protect web application resources.
   var passport = require('passport');
   var WebAppStrategy = require('bluemix-appid').WebAppStrategy;
   ```
-  {:pre}
+  {: codeblock}
 
 For more information, see the <a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs" target="_blank">{{site.data.keyword.appid_short_notm}} Node.js GitHub repository <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.

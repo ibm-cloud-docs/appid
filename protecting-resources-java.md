@@ -2,13 +2,13 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-07-11"
+lastupdated: "2017-08-08"
 
 ---
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 # Protecting Liberty for Java resources
 {: #protecting-liberty}
@@ -34,14 +34,14 @@ You can use {{site.data.keyword.appid_short_notm}} to protect endpoints in your 
   ```
   cf login
   ```
-  {: pre}
+  {: codeblock}
 
 4. Deploy the application. Running the following command creates a Liberty for Java instance with a name related to the tenantid.
 
   ```
   cf push
   ```
-  {: pre}
+  {: codeblock}
 
 5. Bind your service instance to the new Liberty for Java instance, and redeploy the application.
 

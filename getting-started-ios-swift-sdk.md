@@ -2,14 +2,14 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-06-12"
+lastupdated: "2017-08-08"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen:.screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 
 # Setting up the iOS Swift SDK
@@ -68,14 +68,14 @@ The {{site.data.keyword.appid_short_notm}} client SDK is distributed with CocoaP
      pod 'BluemixAppID'
   end
   ```
-  {:pre}
+  {: codeblock}
 
 4. To download the `BluemixAppID` dependency, run the following command.
 
   ```swift
   pod install --repo-update
   ```
-  {:pre}
+  {: codeblock}
 
 6. Open your Xcode project and enable keychain sharing. Under **Project Settings**, click **Capabilities** > **Keychain Sharing**.
 7. Under **Project Settings** > **Info** > **URL Types**, add a URL Type. Fill both the **Identifier** text box and the **URL Scheme** text box with this value: $(PRODUCT_BUNDLE_IDENTIFIER)
@@ -89,14 +89,14 @@ The {{site.data.keyword.appid_short_notm}} client SDK is distributed with CocoaP
   ```swift
   import BluemixAppID
   ```
-  {:pre}
+  {: codeblock}
 
 2. Initialize the client SDK by passing tenant ID and region parameters to the initialize method. A common, though not mandatory, place to put the initialization code is in the application:didFinishLaunchingWithOptions: method of the AppDelegate in your Swift application.
 
   ```swift
   AppID.sharedInstance.initialize(tenantId: <tenantId>, bluemixRegion: AppID.Region_UK)
   ```
-  {:pre}
+  {: codeblock}
 
   * Replace ״tenantId״ with the tenant ID for your App ID service.
   * Replace AppID.REGION_UK with your {{site.data.keyword.appid_short_notm}} region.
@@ -108,7 +108,7 @@ The {{site.data.keyword.appid_short_notm}} client SDK is distributed with CocoaP
           return AppID.sharedInstance.application(application, open: url, options: options)
       }
   ```
-  {:pre}
+  {: codeblock}
 
 ## Authenticate users by using the login widget
 {: #authenticate-login}
@@ -122,7 +122,7 @@ After the {{site.data.keyword.appid_short_notm}} client SDK is initialized, you 
   ```swift
   import BluemixAppID
   ```
-  {:pre}
+  {: codeblock}
 
 2. Run the following command to launch the widget.
 
@@ -143,7 +143,7 @@ After the {{site.data.keyword.appid_short_notm}} client SDK is initialized, you 
 
   AppID.sharedInstance.loginWidget?.launch(delegate: delegate())
   ```
-  {:pre}
+  {: codeblock}
 
 ## Accessing user attributes
 {: #accessing}
@@ -163,7 +163,7 @@ When obtaining an access token, it is possible to gain access to the user protec
   func deleteAttribute(key: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
   func deleteAttribute(key: String, accessTokenString: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
   ```
-  {:pre}
+  {: codeblock}
 
 When an access token is not explicitly passed, {{site.data.keyword.appid_short_notm}} uses the last received token.
 
@@ -178,7 +178,7 @@ For example, you can call the following code to set a new attribute, or override
       }
   })
   ```
-  {:pre}
+  {: codeblock}
 
 
 ### Anonymous login
@@ -204,7 +204,7 @@ With {{site.data.keyword.appid_short_notm}}, you can log in [anonymously](/docs/
 
   AppID.sharedInstance.loginAnonymously( authorizationDelegate: delegate())
   ```
-  {:pre}
+  {: codeblock}
 
 ### Progressive authentication
 {: #progressive notoc}
@@ -214,7 +214,7 @@ When you hold an anonymous access token, the user can become an identified user 
   ```swift
   func launch(accessTokenString: String? , delegate: AuthorizationDelegate)
   ```
-  {:pre}
+  {: codeblock}
 
 After an anonymous login, progressive authentication occurs even if the login widget is called without passing an access token because the service used the last received token. If you want to clear your stored tokens, run the following command.
 
@@ -222,7 +222,7 @@ After an anonymous login, progressive authentication occurs even if the login wi
   var appIDAuthorizationManager = AppIDAuthorizationManager(appid: AppID.sharedInstance)
   appIDAuthorizationManager.clearAuthorizationData()
   ```
-  {:pre}
+  {: codeblock}
 
 
 

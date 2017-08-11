@@ -2,14 +2,14 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-07-11"
+lastupdated: "2017-08-08"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 
 # How it works

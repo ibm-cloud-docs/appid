@@ -2,14 +2,14 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-05-08"
+lastupdated: "2017-08-08"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 # Protecting back-end resources
 {: #protecting-resources}
@@ -28,7 +28,7 @@ Calling a protected resource starts the login widget, if necessary. If a valid t
   ```swift
   import BMSCore
   ```
-  {:pre}
+  {: codeblock}
 
 2. Invoke a protected resource request.
 
@@ -40,7 +40,7 @@ Calling a protected resource starts the login widget, if necessary. If a valid t
       //code handling the response here
   })
   ```
-  {:pre}
+  {: codeblock}
 
 
 ## Using the Android SDK
@@ -66,4 +66,4 @@ Calling a protected resource starts the login widget, if necessary. If a valid t
       //code handling the failure here
   });
   ```
-  {:pre}
+  {: codeblock}

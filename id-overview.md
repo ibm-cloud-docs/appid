@@ -2,14 +2,14 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-07-06"
+lastupdated: "2017-08-08"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 # Identity providers overview
 {: #identity-providers-overview}

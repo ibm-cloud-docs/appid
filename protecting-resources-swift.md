@@ -2,14 +2,14 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-05-08"
+lastupdated: "2017-08-08"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 
 # Protecting Swift resources
@@ -41,7 +41,7 @@ You can use the {{site.data.keyword.appid_short}} server SDK to protect resource
       ]
   )
   ```
-  {:pre}
+  {: codeblock}
 
 ## Protecting resources in Swift
 {: #protecting}
@@ -136,6 +136,6 @@ The following code demonstrates how to use WebAppKituraCredentialsPlugin in a Ki
   // Start the Kitura runloop (this call never returns)
   Kitura.run()
   ```
-  {:pre}
+  {: codeblock}
 
 For more information see the <a href="https://github.com/ibm-cloud-security/appid-serversdk-swift" target="_blank">{{site.data.keyword.appid_short_notm}} Swift GitHub repository <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.

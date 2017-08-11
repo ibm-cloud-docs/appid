@@ -2,14 +2,14 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-06-12"
+lastupdated: "2017-08-08"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 # Setting up the sample app and SDKs
 {: #developing}
