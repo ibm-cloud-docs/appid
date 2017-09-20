@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-04-17"
+lastupdated: "2017-05-08"
 
 ---
 
@@ -21,16 +21,16 @@ lastupdated: "2017-04-17"
 {: #before-you-begin}
 
 * 熟悉如何在 {{site.data.keyword.Bluemix_notm}} 上开发 Node.js 应用程序。
-* {{site.data.keyword.appid_short_notm}} 服务器 SDK 要求 Node.js 服务器通过 <a href="http://expressjs.com/" target="_blank">Express 框架 <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a> 进行实施。
+* {{site.data.keyword.appid_short_notm}} 服务器 SDK 要求 Node.js 服务器通过 `<a href="http://expressjs.com/" target="_blank">Express 框架 <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a>` 进行实施。
 
-**注**：有其他框架使用 `Express` 框架，例如 LoopBack。可以将 {{site.data.keyword.appid_short_notm}} 服务器 SDK 与其中任意框架一起使用。
+**注**：其他框架会使用 `Express` 框架，例如 LoopBack。可以将 {{site.data.keyword.appid_short_notm}} 服务器 SDK 与其中任意框架一起使用。
 
 
 ## 安装服务器 SDK
 {: #protecting-resources-serversdk}
 
 1. 使用命令行打开包含 Node.js 应用程序的目录。
-2. 运行以下命令：
+2. 运行以下命令。
 
   ```
   npm install -save express
@@ -50,7 +50,7 @@ lastupdated: "2017-04-17"
 
   ```JavaScript
 
-  var express = require('express');
+var express = require('express');
   var passport = require('passport');
   var APIStrategy = require('bluemix-appid').APIStrategy;
 
@@ -69,11 +69,11 @@ lastupdated: "2017-04-17"
 ```
   {:pre}
 
-可以使用 `WebAppStrategy` 来保护 Web 应用程序资源：
+可以使用 `WebAppStrategy` 来保护 Web 应用程序资源。
 
   ```JavaScript
 
-  var express = require('express');
+var express = require('express');
   var passport = require('passport');
   var WebAppStrategy = require('bluemix-appid').WebAppStrategy;
   ```

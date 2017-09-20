@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-04-17"
+lastupdated: "2017-06-12"
 
 ---
 
@@ -57,7 +57,7 @@ lastupdated: "2017-04-17"
 {{site.data.keyword.appid_short_notm}} 클라이언트 SDK는 Swift 및 Objective-C Cocoa 프로젝트의 종속성 관리자인 CocoaPods를 사용하여 분배됩니다. CocoaPods는 아티팩트를 다운로드하고 프로젝트에서 아티팩트를 사용할 수 있게 합니다. 
 
 1. Xcode 프로젝트를 작성하거나 기존 프로젝트를 여십시오. 
-2. 프로젝트의 디렉토리에서 Podfile을 열거나 작성하십시오.
+2. 프로젝트의 디렉토리에서 podfile을 열거나 작성하십시오.
 3. 프로젝트의 대상 아래에 'BluemixAppID' 팟(pod)에 대한 종속성을 추가하십시오. `use_frameworks!` 명령도 대상 아래에 있는지 확인하십시오.
   
 
@@ -114,7 +114,7 @@ lastupdated: "2017-04-17"
 ## 로그인 위젯을 사용하여 사용자 인증
 {: #authenticate-login}
 
-{{site.data.keyword.appid_short_notm}} 클라이언트 SDK가 초기화된 후에 로그인 위젯을 실행하여 사용자를 인증할 수 있습니다. 로그인 위젯 기본 구성에서는 인증 옵션으로 Facebook, Google 또는 둘 다 사용합니다. 그 중에서 하나만 구성하는 경우에는 로그인 위젯이 실행되지 않으며 구성된 IDP 인증 화면으로 사용자가 경로 재지정됩니다. 
+{{site.data.keyword.appid_short_notm}} 클라이언트 SDK가 초기화된 후에 로그인 위젯을 실행하여 사용자를 인증할 수 있습니다. 로그인 위젯 기본 구성에서는 인증 옵션으로 Facebook 및 Google을 사용합니다. 하나의 ID 제공자만 구성하는 경우에는 로그인 위젯이 시작되지 않으며 구성된 IDP 인증 화면으로 사용자가 경로 재지정됩니다. 
 
 
 
@@ -165,7 +165,7 @@ lastupdated: "2017-04-17"
 
 액세스 토큰이 명시적으로 전달되지 않을 때 {{site.data.keyword.appid_short_notm}}는 마지막으로 수신된 토큰을 사용합니다. 
 
-예를 들어, 이 코드를 호출하여 새 속성을 설정하거나 기존 속성을 대체할 수 있습니다. 
+예를 들어, 다음과 같은 코드를 호출하여 새 속성을 설정하거나 기존 속성을 대체할 수 있습니다. 
 
   ```swift
   AppID.sharedInstance.userAttributeManager?.setAttribute("key", "value", completionHandler: { (error, result) in
@@ -182,7 +182,7 @@ lastupdated: "2017-04-17"
 ### 익명 로그인
 {: #anonymous notoc}
 
-{{site.data.keyword.appid_short_notm}}에서 사용자는 [익명으로](/docs/services/appid/user-profile.html#anonymous) 로그인할 수 있습니다.
+{{site.data.keyword.appid_short_notm}}에서 [익명으로](/docs/services/appid/user-profile.html#anonymous) 로그인할 수 있습니다.
 
   ```swift
   class delegate : AuthorizationDelegate {
@@ -206,14 +206,14 @@ lastupdated: "2017-04-17"
 ### 점진적 인증
 {: #progressive notoc}
 
-익명 액세스 토큰을 보유하고 있는 경우 사용자는 해당 토큰을 loginWidget.launch 메소드에 전달하여 식별된 사용자가 될 수 있습니다. 
+익명 액세스 토큰을 보유하고 있는 경우, 사용자는 해당 토큰을 `loginWidget.launch` 메소드에 전달하여 식별된 사용자가 될 수 있습니다. 
 
   ```swift
   func launch(accessTokenString: String? , delegate: AuthorizationDelegate)
   ```
   {:pre}
 
-익명 로그인 후에는 서비스가 마지막으로 수신된 토큰을 사용했기 때문에 액세스 토큰을 전달하지 않고 로그인 위젯이 호출되는 경우에도 점진적 인증이 발생합니다. 저장된 토큰을 지우려면 다음 명령을 실행하십시오.
+익명 로그인 후에는 서비스가 마지막으로 수신된 토큰을 사용했기 때문에 액세스 토큰을 전달하지 않고 로그인 위젯이 호출되는 경우에도 점진적 인증이 발생합니다. 저장된 토큰을 지우려는 경우 다음 명령을 실행하십시오.
 
   ```swift
   var appIDAuthorizationManager = AppIDAuthorizationManager(appid: AppID.sharedInstance)

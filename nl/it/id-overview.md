@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-04-17"
+lastupdated: "2017-06-12"
 
 ---
 
@@ -19,9 +19,10 @@ I provider di identità vengono utilizzati per fornire l'autenticazione alle tue
 
 Puoi utilizzare i seguenti provider di identità nelle tue applicazioni mobili e web:
 
-* **Facebook** - I tuoi utenti accedono all'applicazione mobile o web con le loro credenziali Facebook.
-* **Google** -  I tuoi utenti accedono all'applicazione mobile o web con le loro credenziali Google+.
-<!--* **Custom** - Bring your own identity provider. The identity providers should be compliant with OIDC. -->
+* **Facebook** - I tuoi utenti accedono alle applicazioni mobili o web con le loro credenziali Facebook. 
+* **Google** - I tuoi utenti accedono alle applicazioni mobili o web con le loro credenziali Google+. 
+* **ID IBM** - I tuoi utenti accedono alle applicazioni BlueID con le loro credenziali ID IBM.
+
 
 ## Utilizzo della configurazione predefinita
 {: #default-configuration}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-04-17"
+lastupdated: "2017-06-12"
 
 ---
 
@@ -21,7 +21,8 @@ ID 제공자는 애플리케이션에 대해 인증을 제공하는 데 사용�
 
 * **Facebook** - 사용자는 자신의 Facebook 신임 정보로 모바일 또는 웹 앱에 로그인합니다.
 * **Google** - 사용자는 자신의 Google+ 신임 정보로 모바일 또는 웹 앱에 로그인합니다.
-<!--* **Custom** - Bring your own identity provider. The identity providers should be compliant with OIDC. -->
+* **IBM ID** - 사용자는 자신의 IBM ID 신임 정보로 BlueID 애플리케이션에 로그인합니다.
+
 
 ## 기본 구성 사용
 {: #default-configuration}

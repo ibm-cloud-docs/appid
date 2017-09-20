@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-04-17"
+lastupdated: "2017-06-12"
 
 ---
 
@@ -13,7 +13,7 @@ lastupdated: "2017-04-17"
 # ユーザー・プロファイルの概要
 {: #user-profile}
 
-ユーザー・プロファイルは、{{site.data.keyword.appid_short}} によって保管され保守されるエンティティーです。プロファイルには、ユーザーの属性と ID が保持されます。プロファイルは匿名にすることも、ID プロバイダーが管理する ID にリンクすることもできます。
+ユーザー・プロファイルは、{{site.data.keyword.appid_full}} によって保管され保守されるエンティティーです。プロファイルには、ユーザーの属性と ID が保持されます。プロファイルは匿名にすることも、ID プロバイダーが管理する ID にリンクすることもできます。
 {:shortdesc}
 
 {{site.data.keyword.appid_short_notm}} には、匿名ログインまたは OpenId Connect (OIDC) [ID プロバイダー](/docs/services/appid/identity-providers.html#setting-up-idp)による認証を使用したログインのための API が用意されています。ユーザー・プロファイル属性 API エンドポイントは、ログインと許可のプロセス中に {{site.data.keyword.appid_short_notm}} が生成するアクセス・トークンによって保護されるリソースです。
@@ -22,19 +22,19 @@ lastupdated: "2017-04-17"
 ## ユーザー属性の保管、読み取り、削除
 {: #storing-data}
 
-{{site.data.keyword.appid_short_notm}} には、ユーザーの属性に対する CRUD 操作を実行するための <a href="https://appid-profiles.ng.bluemix.net/swagger-ui/index.html#/" target="_blank">REST API <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコンxternal link icon"></a>、および <a href="https://github.com/ibm-cloud-security/appid-clientsdk-android" target="_blank">Android <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> と <a href="https://github.com/ibm-cloud-security/appid-clientsdk-swift" target="_blank">Swift <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> のモバイル・クライアント用の SDK が用意されています。
+{{site.data.keyword.appid_short_notm}} には、ユーザーの属性に対する操作を作成、検索、更新、および削除するための <a href="https://appid-profiles.ng.bluemix.net/swagger-ui/index.html#/Attributes" target="_blank">REST API <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> が用意されています。このサービスには、<a href="https://github.com/ibm-cloud-security/appid-clientsdk-android" target="_blank">Android <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> および <a href="https://github.com/ibm-cloud-security/appid-clientsdk-swift" target="_blank">Swift <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> モバイル・クライアント用の SDK も用意されています。
 
 
 ## OAuth ID
 {: #oauth}
 
-OAuth ログイン API を呼び出す際、{{site.data.keyword.appid_short_notm}} は OAuth 2.0 プロトコルと OIDC プロトコルを使用して、選択された ID プロバイダーで呼び出し元の許可と認証を行います。いったん認証されると、ID は {{site.data.keyword.appid_short_notm}} ユーザー・レコードと関連付けられます。{{site.data.keyword.appid_short_notm}} は、ユーザーの属性にアクセスするために使用できるアクセス・トークンと、ID プロバイダーから提供された ID 情報を保持する識別トークンを返します。同じ ID で認証されたすべてのクライアントから、この同じユーザー・レコードと属性に再びアクセスできます。
+サービスが OAuth ログイン API を呼び出すと、{{site.data.keyword.appid_short_notm}} は OAuth 2.0 と OIDC プロトコルを使用して、選択された ID プロバイダーで呼び出し元の許可と認証を行います。認証された後、ID は {{site.data.keyword.appid_short_notm}} ユーザー・レコードと関連付けられます。{{site.data.keyword.appid_short_notm}} は、ユーザーの属性にアクセスするために使用できるアクセス・トークンと、ID プロバイダーから提供された ID 情報を保持する識別トークンを返します。同じ ID で認証されたすべてのクライアントから、この同じユーザー・レコードと属性に再びアクセスできます。
 
 
 ## 匿名ユーザー
 {: #anonymous}
 
-匿名でログインすると、{{site.data.keyword.appid_short_notm}} は匿名のマークが付いた一時的なユーザー・レコードを作成します。{{site.data.keyword.appid_short_notm}} は、匿名のアクセス・トークンと識別トークンを呼び出し元に返します。この匿名アクセス・トークンを使用して、ユーザー・アプリケーションは、ユーザー・レコードに保管される属性の作成、読み取り、更新、削除を行えます。例えば、開発者は、ユーザーがログインしなくてもすぐにショッピング・カートにアイテムを追加できるアプリケーションを作成できます。
+匿名でログインすると、{{site.data.keyword.appid_short_notm}} は匿名のマークが付いた一時的なユーザー・レコードを作成します。{{site.data.keyword.appid_short_notm}} は、匿名のアクセス・トークンと識別トークンを呼び出し元に返します。この匿名アクセス・トークンを使用して、ユーザー・アプリケーションは、ユーザー・レコードに保管される属性の作成、読み取り、更新、および削除を行うことができます。例えば、開発者は、ユーザーがログインしなくてもすぐにショッピング・カートにアイテムを追加できるアプリケーションを作成できます。
 
 
 ## 識別されたユーザー

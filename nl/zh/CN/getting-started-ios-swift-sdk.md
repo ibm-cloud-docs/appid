@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-04-17"
+lastupdated: "2017-06-12"
 
 ---
 
@@ -56,7 +56,7 @@ lastupdated: "2017-04-17"
 {{site.data.keyword.appid_short_notm}} 客户端 SDK 通过 CocoaPods 进行分发；CocoaPods 是用于 Swift 和 Objective-C Cocoa 项目的依赖项管理器。CocoaPods 会下载工件，并将其提供给项目使用。
 
 1. 创建 Xcode 项目或打开现有项目。
-2. 在项目的目录中打开或创建 Podfile。
+2. 在项目的目录中打开或创建 podfile。
 3. 在项目的目标下，添加“BluemixAppID”pod 的依赖项。确保 `use_frameworks!` 命令也位于目标下。
 
   例如：
@@ -70,7 +70,7 @@ lastupdated: "2017-04-17"
   ```
   {:pre}
 
-4. 要下载 `BluemixAppID` 依赖项，请运行以下命令：
+4. 要下载 `BluemixAppID` 依赖项，请运行以下命令。
 
   ```swift
   pod install --repo-update
@@ -84,7 +84,7 @@ lastupdated: "2017-04-17"
 ## 初始化客户端 SDK
 {: #initialize-client-sdk}
 
-1. 将以下 import 语句添加到 `AppDelegate.swift` 文件中：
+1. 将以下 import 语句添加到 `AppDelegate.swift` 文件中。
 
   ```swift
   import BluemixAppID
@@ -113,7 +113,7 @@ lastupdated: "2017-04-17"
 ## 使用登录窗口小部件认证用户
 {: #authenticate-login}
 
-初始化 {{site.data.keyword.appid_short_notm}} 客户端 SDK 后，可以通过运行登录窗口小部件来对用户进行认证。登录窗口小部件缺省配置使用 Facebook 和/或 Google 作为认证选项。如果仅配置了其中一项，那么登录窗口小部件不会启动，并且用户会重定向到已配置的 IDP 认证屏幕。
+初始化 {{site.data.keyword.appid_short_notm}} 客户端 SDK 后，可以通过运行登录窗口小部件来对用户进行认证。登录窗口小部件缺省配置使用 Facebook 和 Google 作为认证选项。如果仅配置了其中一个身份提供者，那么登录窗口小部件不会启动，并且用户会重定向到已配置的 IDP 认证屏幕。
 
 
 
@@ -148,7 +148,7 @@ lastupdated: "2017-04-17"
 ## 访问用户属性
 {: #accessing}
 
-获取访问令牌时，还可获取对用户保护的属性端点的访问权。使用以下 API 方法可获取访问权：
+获取访问令牌时，还可获取对用户保护的属性端点的访问权。这将通过使用以下 API 方法来实现。
 
   ```swift
   func setAttribute(key: String, value: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
@@ -164,7 +164,7 @@ lastupdated: "2017-04-17"
 
 未显式传递访问令牌时，{{site.data.keyword.appid_short_notm}} 会使用最后一次收到的令牌。
 
-例如，可以调用以下代码来设置新属性，或者覆盖现有属性：
+例如，可以调用以下代码来设置新属性，或者覆盖现有属性。
 
   ```swift
   AppID.sharedInstance.userAttributeManager?.setAttribute("key", "value", completionHandler: { (error, result) in
@@ -185,6 +185,7 @@ lastupdated: "2017-04-17"
 
   ```swift
   class delegate : AuthorizationDelegate {
+
       public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, response:Response?) {
           //User authenticated
       }
@@ -205,14 +206,14 @@ lastupdated: "2017-04-17"
 ### 渐进式认证
 {: #progressive notoc}
 
-持有匿名访问令牌时，用户可以通过将令牌传递到 loginWidget.launch 方法来成为已识别用户：
+持有匿名访问令牌时，用户可以通过将令牌传递到 `loginWidget.launch` 方法来成为已识别用户。
 
   ```swift
   func launch(accessTokenString: String? , delegate: AuthorizationDelegate)
   ```
   {:pre}
 
-匿名登录后，会执行渐进式认证，即便在未传递访问令牌的情况下调用了登录窗口小部件时也是如此，因为服务使用的是最后一次收到的令牌。如果要清除存储的令牌，请运行以下命令：
+匿名登录后，会执行渐进式认证，即便在未传递访问令牌的情况下调用了登录窗口小部件时也是如此，因为服务使用的是最后一次收到的令牌。如果要清除存储的令牌，请运行以下命令。
 
   ```swift
   var appIDAuthorizationManager = AppIDAuthorizationManager(appid: AppID.sharedInstance)

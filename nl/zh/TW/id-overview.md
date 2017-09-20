@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-04-17"
+lastupdated: "2017-06-12"
 
 ---
 
@@ -21,7 +21,8 @@ lastupdated: "2017-04-17"
 
 * **Facebook** - 您的使用者利用其 Facebook 認證來登入行動或 Web 應用程式。
 * **Google** - 您的使用者利用其 Google+ 認證來登入行動或 Web 應用程式。
-<!--* **Custom** - Bring your own identity provider. The identity providers should be compliant with OIDC. -->
+* **IBM ID** - 您的使用者利用其 IBM ID 認證來登入 BlueID 應用程式。
+
 
 ## 使用預設配置
 {: #default-configuration}

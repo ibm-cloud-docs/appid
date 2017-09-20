@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-04-17"
+lastupdated: "2017-06-12"
 
 ---
 
@@ -26,32 +26,70 @@ lastupdated: "2017-04-17"
 ```
 Header: {
 
-    "typ": "JOSE", // header type, according to spec
-
-    "alg": "RS256", // algorithm, according to spec
-
+    "typ": "JOSE",
+    "alg": "RS256",
 }
 Payload: {
-
-    "iss": "", // issuer, the AppID server that issued this token. StringOrURL
-
-    "sub": "", // subject, who this token was issued to. Most probably userId
-
-    "aud": "", // audience, who is this token intended for. OAuth2 client_id.
-
-    "exp: "", // expiration timestamp, epoch time
-
-    "iat": "", // issued at timestamp, epoch time
-
-    "tenant": "xxx", the AppID tenantId the token was issued for
-
-    "auth_by": "appid_anon / appid_facebook / appid_google",
-
-    "scope": "", // the scope[s] this token was issued for
-
+    "iss": "appid-oauth.ng.bluemix.net",
+    "exp": "1495562664",
+    "aud": "a3b87400-f03b-4956-844e-a52103ef26ba",
+    "amr": "facebook",
+    "sub": "de6a17d2-693d-4a43-8ea2-2140afd56a22",
+    "iat": "1495559064",
+    "tenant": "9781974b-6a1c-46c3-aebf-32b7e9bbbaee",
+    "scope": "appid_default appid_readprofile appid_readuserattr appid_writeuserattr",
 }
 ```
 {:screen}
+
+<table>
+<caption> 表 1. 說明的存取記號元件</caption>
+  <tr>
+    <th> 元件</th>
+    <th> 說明</th>
+  </tr>
+  <tr>
+    <td> <i> typ </i> </td>
+    <td> 標頭類型，指定為 "JOSE"。</td>
+  </tr>
+  <tr>
+    <td> <i> alg </i> </td>
+    <td> 已使用的演算法，指定為 "RS256"。</td>
+  </tr>
+  <tr>
+    <td> <i> iss </i> </td>
+    <td> 發出記號的 {{site.data.keyword.appid_short}} 伺服器；指定為字串或 URL。</td>
+  </tr>
+  <tr>
+    <td> <i> sub </i> </td>
+    <td> 對其發出記號的使用者的 ID。</td>
+  </tr>
+  <tr>
+    <td> <i> aud </i> </td>
+    <td> 要對其使用記號的用戶端 ID。</td>
+  </tr>
+  <tr>
+    <td> <i> exp </i> </td>
+    <td> 時間戳記的到期時間，以新紀元時間為單位指定。</td>
+  </tr>
+  <tr>
+    <td> <i> iat </i> </td>
+    <td> 時間戳記的發出時間，以新紀元時間為單位指定。</td>
+  </tr>
+  <tr>
+    <td> <i> tenant </i> </td>
+    <td> 對其發出記號的承租戶 ID。</td>
+  </tr>
+  <tr>
+    <td> <i> amr </i> </td>
+    <td> 用於鑑別的身分提供者。此變數可以是 <i>appid_facebook</i> 或 <i>appid_google</i>。</td>
+  </tr>
+  <tr>
+    <td> <i> scope </i> </td>
+    <td> 對其發出記號的範圍。</td>
+  </tr>
+</table>
+
 
 ## 身分記號
 {: #identity-tokens}
@@ -61,69 +99,69 @@ Payload: {
 ```
 Header: {
 
-    "typ": "JOSE", // header type, according to spec
-
-    "alg": "RS256", // algorithm, according to spec
-
+    "typ": "JOSE",
+    "alg": "RS256",
 }
 Payload: {
-
-    "iss": "", // issuer, the AppID server that issued this token. StringOrURL
-
-    "sub": "", // subject, who this token was issued to. AppID userid.
-
-    "aud": "", // audience, who is this token intended for. OAuth2 client_id.
-
-    "exp: "", // expiration timestamp, epoch time
-
-    "iat": "", // issued at timestamp, epoch time
-
-    "tenant": "xxx", // the AppID tenantId the token was issued for
-
-    "name": "John Smith", // user's full name as reported by IDP, mandatory,
-
-    "email": "js@mail.com", // user's email as reported by IDP, only if available,
-
-    "gender", "male", // user's gender as reported by IDP, only if available,
-
-    "locale": "en", // user's locale as reported by IDP, only if available
-
-    "picture": "https://url.to.photo", // URL to user's picture, only if available
-
-    "auth_by": "appid_facebook/appid_google", // the name of IDP used for authentication, mandatory
-
+    "iss": "appid-oauth.ng.bluemix.net",
+    "aud": "a3b87400-f03b-4956-844e-a52103ef26ba",
+    "exp: "1495562664",
+    "tenant": "9781974b-6a1c-46c3-aebf-32b7e9bbbaee",
+    "iat": "1495559064",
+    "name": "John Smith",
+    "email": "js@mail.com",
+    "gender", "male",
+    "locale": "en",
+    "picture": "https://url.to.photo",
+    "sub": "de6a17d2-693d-4a43-8ea2-2140afd56a22",
     "identities": [
-
-        "provider: "appid_facebook/appid_google", // mandatory
-
-        "id": "unique user id as reported by IDP", // mandatory
-
-        "profile": { ... } // JSON object returned by IDP,  mandatory
-
-      },
-
-      {...}, {...} // more linked identities
-
+        "provider": "facebook"
+        "id": "377440159275659",
+        "amr: "facebook",
     ],
-
     "oauth_client":{
-
-      "type": "serverapp/mobileapp from client registration", // mandatory
-
-      "name": "client_name as reported during client registration", // mandatory
-
-      "software_id": "software_id as reported during client registration", // mandatory
-
-      "software_version": "software_version as reported during client registration", // mandatory
-
-      "device_id": "device_id from client registration", //mobile only
-
-      "device_model": "device_model from client registration", //mobile only
-
-      "device_os": "device_os from client registration", //mobile only
-
+      "name": "BluemixApp",
+      "type": "serverapp",
+      "software_id": "cb638f8f-e24b-41d3-b770-23be158dd8e6.2b94e6bb-bac4-4455-8712-a43fa804d5cc.a3b87400-f03b-4956-844e-a52103ef26ba",
+      "software_version": "1.0.0",
     }
-
 }
 ```
 {:screen}
+
+
+<table>
+<caption> 表 2. 說明的身分記號元件</caption>
+  <tr>
+    <th> 元件</th>
+    <th> 說明</th>
+  </tr>
+  <tr>
+    <td> <i> name </i> </td>
+    <td> 身分提供者所報告的使用者完整名稱。這是必須傳回的項目。</td>
+  </tr>
+  <tr>
+    <td> <i> email </i> </td>
+    <td> 身分提供者所報告的使用者電子郵件。只有在可用時才傳回。</td>
+  </tr>
+  <tr>
+    <td> <i> gender </i> </td>
+    <td> 身分提供者所報告的使用者性別（可用時）。</td>
+  </tr>
+  <tr>
+    <td> <i> locale </i> </td>
+    <td> 身分提供者所報告的使用者語言環境。</td>
+  </tr>
+  <tr>
+    <td> <i> picture </i> </td>
+    <td> 使用者照片的 URL（可用時）。</td>
+  </tr>
+  <tr>
+    <td> <i> identities：</br> <ul><li> provider <li> id <li> amr </ul></i></td>
+    <td> </br><ul><li> 用於鑑別的身分提供者。此變數可以是 <code>appid_facebook</code>、<code>appid_google</code> 或 <code>appid_ibmid</code>，而且必須予以傳回。<li> 身分提供者所報告的唯一使用者 ID。<li> 身分提供者必須傳回的 JSON 物件。</ul></i></td>
+  </tr>
+  <tr>
+    <td> <i> oauth_client：</br> <ul><li> type <li> name <li> software_id <li> software_version</ul></i> </td>
+    <td> </br><ul><li> 用戶端登錄期間所判定的應用程式類型。變數可以是 <i>serverapp</i> 或 <i>mobileapp</i>。<li> 用戶端登錄期間所報告的用戶端名稱。<li> 用戶端登錄期間所報告的軟體 ID。<li> 用戶端登錄期間所使用的軟體版本。</ul></td>
+  </tr>
+</table>

@@ -1,7 +1,8 @@
 ---
 
 copyright:
-  years: 2017 lastupdated: "2017-04-17"
+  years: 2017
+lastupdated: "2017-06-12"
 
 ---
 
@@ -67,7 +68,7 @@ Studio<img src="../../icons/launch-glyph.svg" alt="ícone de Link externo"></a>,
 3. Abra o arquivo `build.gradle` para o seu aplicativo.
 
     **Nota**: certifique-se de abrir o arquivo para o seu app, não o arquivo `build.gradle` do projeto.
-4. Localize a seção de dependências do arquivo e inclua uma dependência de compilação para o SDK do cliente do {{site.data.keyword.appid_short_notm}}:
+4. Localize a seção de dependências do arquivo e inclua uma dependência de compilação para o SDK do cliente do {{site.data.keyword.appid_short_notm}}.
 
   ```gradle
    dependencies {
@@ -76,7 +77,7 @@ Studio<img src="../../icons/launch-glyph.svg" alt="ícone de Link externo"></a>,
   ```
   {:pre}
 
-5. Localize a seção de defaultConfig e inclua as linhas de código a seguir:
+5. Localize a seção defaultConfig e inclua as linhas de código a seguir.
 
   ```gradle
   defaultConfig {
@@ -99,15 +100,14 @@ Inicialize o SDK do cliente passando os parâmetros de contexto, ID do locatári
   ```
   {:pre}
 
-1. Substitua "tenantId" pelo tenantId de serviço do {{site.data.keyword.appid_short_notm}}.
+1. Substitua *tenantId* pelo tenantId do serviço {{site.data.keyword.appid_short_notm}}.
 2. Substitua o AppID.REGION_UK pela sua região do {{site.data.keyword.Bluemix_notm}}.
 
 
 ## Autentique os usuários usando o widget de login
 {: #authenticate-login-widget}
 
-A configuração padrão do widget de login requer o uso do Facebook e do Google para autenticação. Se você configurar apenas um deles, o widget de login não será
-ativado e o usuário será redirecionado para a tela de autenticação do IDP configurada.
+A configuração padrão do widget de login usa o Facebook e o Google como opções de autenticação. Se você configurar apenas um deles, o widget de login não será iniciado e o usuário será redirecionado para a tela de autenticação do IDP configurado.
 
 Após o SDK do cliente do {{site.data.keyword.appid_short_notm}} ser inicializado, será possível autenticar os seus usuários executando o widget de login.
 
@@ -136,7 +136,7 @@ Após o SDK do cliente do {{site.data.keyword.appid_short_notm}} ser inicializad
 ## Acessando atributos do usuário
 {: #accessing}
 
-Ao obter um token de acesso, é possível obter acesso ao terminal protegido de atributos do usuário. É possível obter acesso usando os métodos de API a seguir:
+Ao obter um token de acesso, é possível obter acesso ao terminal protegido de atributos do usuário. É possível obter acesso usando os métodos de API a seguir.
 
   ```java
   void setAttribute(@NonNull String name, @NonNull String value, UserAttributeResponseListener listener);
@@ -155,7 +155,7 @@ Ao obter um token de acesso, é possível obter acesso ao terminal protegido de 
 
 Quando um token de acesso não for transmitido explicitamente, o {{site.data.keyword.appid_short_notm}} usará o último token recebido.
 
-Por exemplo, é possível chamar esse código para configurar um novo atributo ou substituir um existente:
+Por exemplo, é possível chamar o código a seguir para configurar um novo atributo ou substituir um existente.
 
   ```java
   appId.getUserAttributeManager().setAttribute(name, value, useThisToken,new UserAttributeResponseListener() {
@@ -175,8 +175,7 @@ Por exemplo, é possível chamar esse código para configurar um novo atributo o
 ### Login anônimo
 {: #anonymous notoc}
 
-Com o {{site.data.keyword.appid_short_notm}} é possível efetuar login
-[anonimamente](/docs/services/appid/user-profile.html#anonymous).
+Com o {{site.data.keyword.appid_short_notm}} é possível efetuar login [anonimamente](/docs/services/appid/user-profile.html#anonymous).
 
   ```java
   appId.loginAnonymously(getApplicationContext(), new AuthorizationListener() {
@@ -209,7 +208,7 @@ Quando o usuário mantém um token de acesso anônimo, ele pode ser identificado
   {:pre}
 
 Após um login anônimo, a autenticação progressiva ocorrerá mesmo se o widget de login for chamado sem passar um token de acesso porque o serviço usou o último
-token recebido. Se você deseja limpar os seus tokens armazenados, execute o comando a seguir:
+token recebido. Se desejar limpar os tokens armazenados, execute o comando a seguir.
 
   ```java
   	appIDAuthorizationManager = new AppIDAuthorizationManager(this.appId);

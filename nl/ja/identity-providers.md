@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-04-17"
+lastupdated: "2017-06-19"
 
 ---
 
@@ -14,7 +14,7 @@ lastupdated: "2017-04-17"
 # ID プロバイダーの構成
 {: #setting-up-idp}
 
-ユーザーのシングル・サインオンをセットアップするために、Facebook と Google のいずれかまたは両方を構成できます。ID プロバイダーを使用すると、ユーザーは使い慣れた資格情報でサインインできるようになります。
+ユーザーのシングル・サインオン・エクスペリエンスをセットアップするために、Facebook、Google、IBM ID、またはこの 3 つの組み合わせを構成できます。ID プロバイダーを使用すると、ユーザーは使い慣れた資格情報でサインインできるようになります。
 {:shortdesc}
 
 
@@ -23,8 +23,6 @@ lastupdated: "2017-04-17"
 
 Facebook を ID プロバイダーとして使用するように {{site.data.keyword.appid_short}} サービスを構成します。
 
-<!--- ### Sequence diagram
-{: #facebook-sequence-diagram}--->
 
 ### Facebook からアプリ ID とアプリ・シークレットを取得する
 {: #getting-facebook-appid}
@@ -35,7 +33,7 @@ Facebook を ID プロバイダーとして使用するように {{site.data.key
 2. Facebook のアプリ ID とアプリ・シークレットをメモします。サービスのダッシュボードで Web プロジェクトの認証を構成するときに、これらの値が必要になります。
 3. Web プラットフォームを追加して、サイト URL を入力します。
 4. 製品リストから、**「Facebook ログイン」**を選択します。
-5. 「有効な OAuth リダイレクト URL」フィールドに、許可サーバーのコールバック・エンドポイント URL を入力します。以下のステップで {{site.data.keyword.appid_short_notm}} サービスを構成した後で、この値を追加できます。
+5. 「有効な OAuth リダイレクト URL」フィールドに、許可サーバーのコールバック・エンドポイント URL を入力します。サービス・インスタンスを構成した後、この値を追加できます。
 6. **「変更の保存」**をクリックします。
 
 ### Facebook 認証用の {{site.data.keyword.appid_short_notm}} の構成
@@ -45,9 +43,9 @@ Facebook のアプリ ID とアプリ・シークレットを取得し、Web ク
 
 1. サービスのダッシュボードの**「管理」**タブで、**「Facebook」**を選択して**「編集」**をクリックします。
 2. Facebook for Developers Web サイトから取得した Facebook のアプリ ID とアプリ・シークレットを入力します。
-3. **「Facebook for Developers のリダイレクト URI (Redirect URI for Facebook for Developers)」**フィールドにある URI をコピーします。この URI を Facebook Developers ポータルの**「Facebook ログイン」**セクションの**「有効な OAuth リダイレクト URI」**フィールドに貼り付けます。
+3. **「Facebook for Developers のリダイレクト URI (Redirect URI for Facebook for Developers)」**フィールドにある URI をコピーします。この URI を Facebook Developers ポータルの**「Facebook ログイン (Facebook Login)」**セクションの**「有効な OAuth リダイレクト URI (Valid OAuth redirect URIs)」**フィールドに貼り付けます。
 4. **「保存」**をクリックします。
-5. オプション: Web アプリの認証を構成する場合は、リダイレクト URL を「Web アプリケーションのリダイレクト URL (Web Application Redirect URLs)」に入力します。この値は、開発者が決定する値であり、許可プロセスの完了後にリダイレクト URL にアクセスするために使用されます。
+5. オプション: Web アプリの場合は、リダイレクト URL を**「Web アプリケーションのリダイレクト URL (Web Application Redirect URLs)」**フィールドに入力します。この値は、開発者が決定する値であり、許可プロセスの完了後にリダイレクト URL にアクセスするために使用されます。
 
 
 ## Google 認証の構成
@@ -55,8 +53,6 @@ Facebook のアプリ ID とアプリ・シークレットを取得し、Web ク
 
 Google を ID プロバイダーとして使用するように {{site.data.keyword.appid_short_notm}} サービスを構成します。
 
-<!--- ### Sequence diagram
-{: #google-sequence-diagram}--->
 
 ### Google からクライアント ID とシークレットを取得する
 {: #google-client-id}
@@ -65,8 +61,8 @@ Google を ID プロバイダーとして使用するには、Google のクラ�
 
 1. <a href="https://console.developers.google.com/apis/library" target="_blank">Google Developer Console<img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> で Google アプリケーションを開きます。
 2. Google+ API を追加します。
-3. OAuth を使用して資格情報を作成します。**「アプリケーションの種類」**フィールドで、**「ウェブ アプリケーション」**を選択します。**「承認済みのリダイレクト URI」**フィールドにこのアプリ ID のリダイレクト URI を入力します。App ID のリダイレクト許可 URI は、サービスのダッシュボードの Google 構成画面から取得できます。
-4. 変更内容を保存します。Google のクライアント ID とシークレットをメモします。
+3. OAuth を使用して資格情報を作成します。**「アプリケーションの種類」**フィールドで、**「ウェブ アプリケーション」**を選択します。**「承認済みのリダイレクト URI (Authorized redirect URIs)」**フィールドに、{{site.data.keyword.appid_short_notm}} リダイレクト URI を入力します。{{site.data.keyword.appid_short_notm}} のリダイレクト許可 URI は、サービスのダッシュボードの Google 構成画面から取得できます。
+4. Google のクライアント ID とシークレットをメモし、変更を保存します。
 
 
 
@@ -77,18 +73,32 @@ Google のクライアントとシークレットを取得し、Web クライア
 
 1. サービスのダッシュボードの**「管理」**タブで、**「Google」**を選択して**「編集」**をクリックします。
 3. Google Developers コンソールから取得した Google のクライアント ID とシークレットを入力します。
-4. **「Google for Developers のリダイレクト URI (Redirect URI for Google for Developers)」**フィールドにある URI をコピーします。この URI を、Google Developers Portal の**「Web アプリケーションのクライアント ID」**の**「制限事項」**の下にある**「承認済みのリダイレクト URI」** フィールドに貼り付けます。
+4. **「Google for Developers のリダイレクト URI (Redirect URI for Google for Developers)」**フィールドにある URI をコピーします。この URI を、Google Developers ポータルの**「Web アプリケーションのクライアント ID (Client ID for web application)」**セクションの**「制限事項 (Restrictions)」**の下にある**「承認済みのリダイレクト URI (Authorized redirect URIs)」** フィールドに貼り付けます。
 5. **「保存」**をクリックします。
-6. オプション: Web アプリの認証を構成する場合は、リダイレクト URI を「Web アプリケーションのリダイレクト URI (Web Application Redirect URIs)」フィールドに入力します。この値は、開発者が決定する値であり、許可プロセスの完了後にリダイレクト URI にアクセスするために使用されます。
+6. オプション: Web アプリの場合、リダイレクト URI を**「Web アプリケーションのリダイレクト URI (Web Application Redirect URIs)」**フィールドに入力します。この値は、開発者が決定する値であり、許可プロセスの完了後にリダイレクト URI にアクセスするために使用されます。
 
 
+## IBM ID 認証の構成
 
-<!---[## Bring your own OAuth2/OIDC identity provider
-{: #oauth2}
+IBM ID を ID プロバイダーとして使用する場合は、<a href="https://ibm.ent.box.com/notes/78040808400?v=IBMid-Federation-Guide" target="_blank">IBMid-Federation-Guide <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> を使用します。既に BlueID アプリを使用している場合は、BlueID クライアント ID とシークレットを取得します。
 
-### About
-{: #oauth2-about}
-### Sequence diagram
-{: #oauth2-sequence-diagram}
-### Configuring AppID for BYOIDP OAuth2 authentication
-{: #oauth2-appid} SHAWNA: Is this Interconnect?]--->
+
+### IBM ID からクライアント ID とシークレットを取得する
+
+クライアント ID とシークレットを取得するには、以下の手順を使用します。
+
+1. <a href="https://w3.innovate.ibm.com/tools/sso/home.html" target="_blank">SSO Self-Service Provisioner <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> で、BlueID アカウントにログインします。
+2. BlueID アプリを登録します。ID プロバイダーには、必ず**「実動前 (preproduction)」**または**「実動 (production)」**を選択してください。
+3. **「クライアントの詳細 (Client Details)」**に、App ID リダイレクト URL を入力します。リダイレクト許可 URI は、サービス・ダッシュボードの IBM ID 構成画面から取得できます。
+4. 必ず**「許可コード」**を選択してください。
+5. BlueID クライアント ID、シークレット、およびアカウント ID プロバイダー・タイプをメモします。**「続行」&「完了」**をクリックします。
+
+### IBM ID 認証用の App ID の構成
+
+BlueID クライアント ID とシークレットを取得し、BlueID アプリに正しいリダイレクト URI を構成すれば、サービス・ダッシュボードの BlueID 認証セクションを編集できます。
+
+1. サービスのダッシュボードの**「管理」**タブで、**「IBM ID」**を選択して**「編集」**をクリックします。
+2. BlueID クライアント ID とシークレットを入力します。
+3. **「IBMid for Developers のリダイレクト URI (Redirect URI for IBMid for Developers)」** フィールドにある URI をコピーして、**「リダイレクト URI (Redirect URIs)」**に貼り付けます。
+4. ID プロバイダーに**「実動前 (preproduction)」**または**「実動 (production)」**を選択し、**「保存」**をクリックします。
+5. オプション: Web アプリの場合は、リダイレクト URI を**「Web アプリケーションのリダイレクト URI (Web Application Redirect URIs)」**フィールドに入力します。この値は、開発者が決定する値であり、許可後にリダイレクト URI にアクセスするために使用されます。

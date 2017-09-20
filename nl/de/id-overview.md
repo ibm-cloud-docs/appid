@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-04-17"
+lastupdated: "2017-06-12"
 
 ---
 
@@ -19,9 +19,10 @@ Identitätsprovider werden eingesetzt, um die Authentifizierung für Ihre Anwend
 
 Sie können in Ihren mobilen Anwendungen sowie in Ihren Webanwendungen folgende Identitätsprovider verwenden:
 
-* **Facebook** - Ihre Benutzer melden sich bei der mobilen oder Web-App mit ihren Facebook-Berechtigungsnachweisen an.
-* **Google** - Ihre Benutzer melden sich bei der mobilen oder Web-App mit ihren Google+-Berechtigungsnachweisen an.
-<!--* **Custom** - Bring your own identity provider. The identity providers should be compliant with OIDC. -->
+* **Facebook** - Die Benutzer melden sich an mobilen Apps oder Web-Apps mit ihren Facebook-Berechtigungsnachweisen an. 
+* **Google** - Die Benutzer melden sich an mobilen Apps oder Web-Apps mit ihren Google+-Berechtigungsnachweisen an. 
+* **IBMid** - Die Benutzer melden Sie an BlueID-Anwendungen mit ihren IBMid-Berechtigungsnachweisen an. 
+
 
 ## Standardkonfiguration verwenden
 {: #default-configuration}

@@ -1,7 +1,8 @@
 ---
 
 copyright:
-  years: 2017 lastupdated: "2017-04-17"
+  years: 2017
+lastupdated: "2017-06-12"
 
 ---
 
@@ -13,5 +14,5 @@ copyright:
 
 O serviço do {{site.data.keyword.amafull}} está sendo substituído por {{site.data.keyword.appid_full}}. Se você for um usuário atual do
 {{site.data.keyword.amashort}}, será possível usar as suas instâncias do serviço e [acessar a
-documentação](/docs/services/mobileaccess/index.html). Qualquer instância nova do serviço que for criada será parte do serviço do {{site.data.keyword.appid_short_notm}}.
+documentação](/docs/services/mobileaccess/index.html). Quaisquer novas instâncias do serviço que forem criadas serão parte do serviço {{site.data.keyword.appid_short_notm}}.
 {:shortdesc}

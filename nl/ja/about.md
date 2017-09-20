@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-04-17"
+lastupdated: "2017-06-12"
 
 ---
 
@@ -15,7 +15,7 @@ lastupdated: "2017-04-17"
 # 仕組み
 {: #about}
 
-{{site.data.keyword.appid_short_notm}} を使用するコンポーネント、アーキテクチャー、要求フローについて説明します。
+{{site.data.keyword.appid_full}} を使用するコンポーネント、アーキテクチャー、要求フローについて説明します。
 {:shortdesc}
 
 
@@ -58,7 +58,7 @@ lastupdated: "2017-04-17"
   <dt> Bluemix</dt>
     <dd>  サーバー SDK は、要求からアクセス・トークンを抽出し、{{site.data.keyword.appid_short_notm}} で検証します。認証が成功すると、{{site.data.keyword.appid_short_notm}} から許可トークンと識別トークンがアプリケーションに返されます。</dd>
   <dt> ID プロバイダー</dt>
-    <dd> アプリの認証のために、Facebook と Google のいずれかまたは両方を構成できます。</dd>
+    <dd> アプリの認証のために、Facebook、Google、IBM ID、またはこの 3 つの組み合わせを構成できます。</dd>
 </dl>
 
 
@@ -69,13 +69,14 @@ lastupdated: "2017-04-17"
 
 ![{{site.data.keyword.appid_short_notm}} 要求フロー](/images/appidflow.png)
 
+図 2. App ID 要求フロー
 
 * {{site.data.keyword.appid_short_notm}} Client SDK を使用して、{{site.data.keyword.appid_short_notm}} Server SDK によって保護されているバックエンド・リソースへの要求を実行します。
 * {{site.data.keyword.appid_short_notm}} Server SDK は、無許可の要求を検出し、HTTP 401 と許可スコープを返します。
 * Client SDK は自動的に HTTP 401 を検出し、認証プロセスを開始します。
 * 複数の ID プロバイダーが構成されている場合、Client SDK がサービスに連絡を取ると、Server SDK はログイン・ウィジェットを返します。{{site.data.keyword.appid_short_notm}} は、ID プロバイダーを呼び出してそのプロバイダーのログイン・フォームを提示するか、ID プロバイダーが構成されていない場合には認証のための権限付与コードを返します。
 * {{site.data.keyword.appid_short_notm}} は、認証チャレンジを提供することによって、認証を行うようにクライアント・アプリに要求します。
-* Facebook または Google が構成されている場合、ユーザーがログインすると、認証はそれぞれの ID プロバイダーの OAuth フローで処理されます。
-* 認証が同じ権限付与コードで終了する場合、そのコードがトークン・エンドポイントに送信されます。エンドポイントは、アクセス・トークンと識別トークンという 2 つのトークンを返します。この時点以降、Client SDK で行われたすべての要求には、新しく取得された許可ヘッダーを含まれるようになります。
+* ID プロバイダーが構成されている場合、ユーザーがログインすると、認証はそれぞれの OAuth フローで処理されます。
+* 認証が同じ権限付与コードで終了する場合、そのコードがトークン・エンドポイントに送信されます。エンドポイントは、アクセス・トークンと識別トークンという 2 つのトークンを返します。この時点以降、Client SDK で行われたすべての要求は、新しく入手した許可ヘッダーを含むようになります。
 * Client SDK は、認証フローをトリガーしたオリジナルの要求を自動的に再送します。
 * Server SDK は、要求から許可ヘッダーを抽出し、サービスを使用してそのヘッダーを検証し、バックエンド・リソースへのアクセスを認可します。

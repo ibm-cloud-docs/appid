@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-04-17"
+lastupdated: "2017-06-12"
 
 ---
 
@@ -57,7 +57,7 @@ Hai bisogno delle seguenti informazioni:
 L'SDK client {{site.data.keyword.appid_short_notm}} è distribuito con CocoaPods, un gestore dipendenze per i progetti Swift e Objective-C Cocoa. CocoaPods scarica le risorse utente e le rende disponibili al tuo progetto.
 
 1. Crea un progetto Xcode oppure apri un progetto esistente.
-2. Apri o crea il Podfile nella directory del progetto.
+2. Apri o crea il podfile nella directory del progetto.
 3. Nella tua destinazione del progetto, aggiungi una dipendenza per il pod 'BluemixAppID'. Assicurati che anche il comando `use_frameworks!` sia nella tua destinazione.
 
   Ad esempio:
@@ -70,7 +70,7 @@ L'SDK client {{site.data.keyword.appid_short_notm}} è distribuito con CocoaPods
   ```
   {:pre}
 
-4. Per scaricare la dipendenza `BluemixAppID`, esegui il seguente comando:
+4. Per scaricare la dipendenza `BluemixAppID`, esegui il seguente comando.
 
   ```swift
   pod install --repo-update
@@ -84,7 +84,7 @@ L'SDK client {{site.data.keyword.appid_short_notm}} è distribuito con CocoaPods
 ## Inizializzazione dell'SDK client
 {: #initialize-client-sdk}
 
-1. Aggiungi la seguente importazione al tuo file `AppDelegate.swift`:
+1. Aggiungi la seguente importazione al tuo file `AppDelegate.swift`.
 
   ```swift
   import BluemixAppID
@@ -113,7 +113,7 @@ L'SDK client {{site.data.keyword.appid_short_notm}} è distribuito con CocoaPods
 ## Autentica gli utenti utilizzando il widget di accesso
 {: #authenticate-login}
 
-Dopo che l'SDK client {{site.data.keyword.appid_short_notm}} è stato inizializzato, puoi autenticare i tuoi utenti eseguendo il widget di accesso. La configurazione predefinita del widget di accesso utilizza Facebook, Google o entrambi come opzioni di autenticazione. Se configuri solo uno dei due, il widget di accesso non si avvia e l'utente viene reindirizzato alla schermata di autenticazione IDP configurata.
+Dopo che l'SDK client {{site.data.keyword.appid_short_notm}} è stato inizializzato, puoi autenticare i tuoi utenti eseguendo il widget di accesso. La configurazione predefinita del widget di accesso utilizza Facebook e Google come opzioni di autenticazione. Se configuri solo uno dei provider di identità, il widget di accesso non si avvia e l'utente viene reindirizzato alla schermata di autenticazione IDP configurata. 
 
 
 
@@ -148,7 +148,7 @@ Dopo che l'SDK client {{site.data.keyword.appid_short_notm}} è stato inizializz
 ## Accesso agli attributi dell'utente
 {: #accessing}
 
-Quando ottieni un token di accesso, è possibile ottenere l'accesso all'endpoint degli attributi protetti dell'utente. Questo viene fatto utilizzando i seguenti metodi API:
+Quando ottieni un token di accesso, è possibile ottenere l'accesso all'endpoint degli attributi protetti dell'utente. Questo viene fatto utilizzando i seguenti metodi API. 
 
   ```swift
   func setAttribute(key: String, value: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
@@ -167,7 +167,7 @@ Quando ottieni un token di accesso, è possibile ottenere l'accesso all'endpoint
 
 Quando il token di accesso non viene esplicitamente trasmesso, {{site.data.keyword.appid_short_notm}} utilizza l'ultimo token ricevuto.
 
-Ad esempio, puoi richiamare questo codice per impostare un nuovo attributo o sovrascriverne uno esistente:
+Ad esempio, puoi richiamare questo codice per impostare un nuovo attributo o sovrascriverne uno esistente. 
 
   ```swift
   AppID.sharedInstance.userAttributeManager?.setAttribute("key", "value", completionHandler: { (error, result) in
@@ -184,7 +184,7 @@ Ad esempio, puoi richiamare questo codice per impostare un nuovo attributo o sov
 ### Accesso anonimo
 {: #anonymous notoc}
 
-Con {{site.data.keyword.appid_short_notm}} puoi accedere a [in modo anonimo](/docs/services/appid/user-profile.html#anonymous).
+Con {{site.data.keyword.appid_short_notm}}, puoi accedere a [in modo anonimo](/docs/services/appid/user-profile.html#anonymous). 
 
   ```swift
   class delegate : AuthorizationDelegate {
@@ -209,14 +209,14 @@ Con {{site.data.keyword.appid_short_notm}} puoi accedere a [in modo anonimo](/do
 ### Autenticazione progressiva
 {: #progressive notoc}
 
-Quando ospiti un token di accesso anonimo, l'utente può essere identificato trasmettendolo al metodo loginWidget.launch:
+Quando ospiti un token di accesso anonimo, l'utente può essere identificato trasmettendolo al metodo `loginWidget.launch`.
 
   ```swift
   func launch(accessTokenString: String? , delegate: AuthorizationDelegate)
   ```
   {:pre}
 
-Dopo un accesso anonimo, si verifica l'autenticazione progressiva anche se il widget di accesso viene richiamato trasmettendo un token di accesso, perché il servizio ha utilizzato l'ultimo token ricevuto. Se desideri cancellare i tuoi token memorizzati, esegui il seguente comando:
+Dopo un accesso anonimo, si verifica l'autenticazione progressiva anche se il widget di accesso viene richiamato trasmettendo un token di accesso, perché il servizio ha utilizzato l'ultimo token ricevuto. Se desideri cancellare i tuoi token memorizzati, esegui il seguente comando.
 
   ```swift
   var appIDAuthorizationManager = AppIDAuthorizationManager(appid: AppID.sharedInstance)

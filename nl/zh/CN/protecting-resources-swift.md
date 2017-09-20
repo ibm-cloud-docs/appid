@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-04-17"
+lastupdated: "2017-05-08"
 
 ---
 
@@ -56,7 +56,7 @@ Swift SDK 提供了 Kitura 凭证插件，用于保护 Web 应用程序。使用
 
 WebAppKituraCredentialsPlugin 基于 OAuth2 authorization_code 授权流程，并且必须用于使用浏览器的 Web 应用程序。此插件提供了用于实施认证和授权流程的工具。此插件还提供了相应机制来检测对受保护资源的未经认证的访问尝试，并自动将用户的浏览器重定向到认证页面。成功认证后，用户会转至 Web 应用程序的回调 URL，该 URL 使用此插件从 {{site.data.keyword.appid_short_notm}} 获取访问令牌和身份令牌。获取这些令牌后，此插件会将其存储在 HTTP 会话中的 WebAppKituraCredentialsPlugin.AuthContext 下。
 
-以下代码演示了如何在 Kitura 应用程序中使用 WebAppKituraCredentialsPlugin 来保护 /protected 端点。
+以下代码演示了如何在 Kitura 应用程序中使用 WebAppKituraCredentialsPlugin 来保护 `/protected` 端点。
 
   ```swift
   import Foundation

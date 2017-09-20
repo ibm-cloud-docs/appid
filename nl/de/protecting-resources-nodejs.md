@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-04-17"
+lastupdated: "2017-05-08"
 
 ---
 
@@ -21,16 +21,16 @@ Sie können das {{site.data.keyword.appid_short}}-Server-SDK verwenden, um Resso
 {: #before-you-begin}
 
 * Sie sollten mit der Entwicklung von Node.js-Anwendungen in {{site.data.keyword.Bluemix_notm}} vertraut sein.
-* Das {{site.data.keyword.appid_short_notm}}-Server-SDK erfordert, dass Ihr Node.js-Server mit dem <a href="http://expressjs.com/" target="_blank">Express-Framework <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a> implementiert ist.
+* Das {{site.data.keyword.appid_short_notm}}-Server-SDK erfordert, dass Ihr Node.js-Server mit dem `<a href="http://expressjs.com/" target="_blank">Express-Framework <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a>` implementiert ist.
 
-**Hinweis**: Es gibt andere Frameworks, die `Express`-Frameworks verwenden, wie zum Beispiel LoopBack. Sie können das {{site.data.keyword.appid_short_notm}}-Server-SDK mit einem beliebigen dieser Frameworks verwenden.
+**Hinweis**: Von anderen Frameworks werden `Express`-Frameworks verwendet, wie zum Beispiel LoopBack. Sie können das {{site.data.keyword.appid_short_notm}}-Server-SDK mit einem beliebigen dieser Frameworks verwenden.
 
 
 ## Server-SDK installieren
 {: #protecting-resources-serversdk}
 
 1. Öffnen Sie mithilfe der Befehlszeile das Verzeichnis mit Ihrer Node.js-App.
-2. Führen Sie die folgenden Befehle aus:
+2. Führen Sie die folgenden Befehle aus. 
 
   ```
   npm install -save express
@@ -50,7 +50,7 @@ Das folgende Snippet demonstriert, wie `APIStrategy` in einer einfachen Express-
 
   ```JavaScript
 
-  var express = require('express');
+var express = require('express');
   var passport = require('passport');
   var APIStrategy = require('bluemix-appid').APIStrategy;
 
@@ -69,11 +69,11 @@ Das folgende Snippet demonstriert, wie `APIStrategy` in einer einfachen Express-
   ```
   {:pre}
 
-Sie können mit `WebAppStrategy` die Ressourcen von Webanwendungen schützen:
+Mit `WebAppStrategy` können Sie die Ressourcen von Webanwendungen schützen. 
 
   ```JavaScript
 
-  var express = require('express');
+var express = require('express');
   var passport = require('passport');
   var WebAppStrategy = require('bluemix-appid').WebAppStrategy;
   ```

@@ -1,7 +1,8 @@
 ---
 
 copyright:
-  years: 2017 lastupdated: "2017-04-17"
+  years: 2017
+lastupdated: "2017-06-12"
 
 ---
 
@@ -26,33 +27,70 @@ pelos filtros de autorização do {{site.data.keyword.appid_short_notm}}. O toke
 
 ```
 Header: {
-
-    "typ": "JOSE", // header type, according to spec
-
-    "alg": "RS256", // algorithm, according to spec
-
+    "typ": "JOSE",
+    "alg": "RS256",
 }
 Payload: {
-
-    "iss": "", // issuer, the AppID server that issued this token. StringOrURL
-
-    "sub": "", // subject, who this token was issued to. Most probably userId
-
-    "aud": "", // audience, who is this token intended for. OAuth2 client_id.
-
-    "exp: "", // expiration timestamp, epoch time
-
-    "iat": "", // issued at timestamp, epoch time
-
-    "tenant": "xxx", the AppID tenantId the token was issued for
-
-    "auth_by": "appid_anon / appid_facebook / appid_google",
-
-    "scope": "", // the scope[s] this token was issued for
-
+    "iss": "appid-oauth.ng.bluemix.net",
+    "exp": "1495562664",
+    "aud": "a3b87400-f03b-4956-844e-a52103ef26ba",
+    "amr": "facebook",
+    "sub": "de6a17d2-693d-4a43-8ea2-2140afd56a22",
+    "iat": "1495559064",
+    "tenant": "9781974b-6a1c-46c3-aebf-32b7e9bbbaee",
+    "scope": "appid_default appid_readprofile appid_readuserattr appid_writeuserattr",
 }
 ```
 {:screen}
+
+<table>
+<caption> Tabela 1. Componentes de token de acesso explicados </caption>
+  <tr>
+    <th> Componente </th>
+    <th> Descrição </th>
+  </tr>
+  <tr>
+    <td> <i> typ </i> </td>
+    <td> O tipo de cabeçalho, especificado como "JOSE".</td>
+  </tr>
+  <tr>
+    <td> <i> alg </i> </td>
+    <td> O algoritmo usado, especificado como "RS256". </td>
+  </tr>
+  <tr>
+    <td> <i> iss </i> </td>
+    <td> O servidor {{site.data.keyword.appid_short}} que emitiu o token; especificado como uma sequência ou uma URL. </td>
+  </tr>
+  <tr>
+    <td> <i> sub </i> </td>
+    <td> O ID do usuário para quem o token é emitido.</td>
+  </tr>
+  <tr>
+    <td> <i> aud </i> </td>
+    <td> O identificador de cliente para o qual o token se destina. </td>
+  </tr>
+  <tr>
+    <td> <i> exp </i> </td>
+    <td> O horário em que o registro de data e hora expira, especificado no tempo da época.</td>
+  </tr>
+  <tr>
+    <td> <i> iat </i> </td>
+    <td> O horário em que o registro de data e hora é emitido, especificado no tempo da época.</td>
+  </tr>
+  <tr>
+    <td> <i> tenant </i> </td>
+    <td> O ID do locatário para o qual o token é emitido.</td>
+  </tr>
+  <tr>
+    <td> <i> amr </i> </td>
+    <td> O provedor de identidade usado para autenticação. Essa variável pode ser <i>appid_facebook</i> ou <i>appid_google</i>. </td>
+  </tr>
+  <tr>
+    <td> <i> scope </i> </td>
+    <td> O escopo para o qual o token é emitido. </td>
+  </tr>
+</table>
+
 
 ## Token de identidade
 {: #identity-tokens}
@@ -61,70 +99,69 @@ O token de identidade contém informações sobre o usuário, incluindo nome, e-
 
 ```
 Header: {
-
-    "typ": "JOSE", // header type, according to spec
-
-    "alg": "RS256", // algorithm, according to spec
-
+    "typ": "JOSE",
+    "alg": "RS256",
 }
 Payload: {
-
-    "iss": "", // issuer, the AppID server that issued this token. StringOrURL
-
-    "sub": "", // subject, who this token was issued to. AppID userid.
-
-    "aud": "", // audience, who is this token intended for. OAuth2 client_id.
-
-    "exp: "", // expiration timestamp, epoch time
-
-    "iat": "", // issued at timestamp, epoch time
-
-    "tenant": "xxx", // the AppID tenantId the token was issued for
-
-    "name": "John Smith", // user's full name as reported by IDP, mandatory,
-
-    "email": "js@mail.com", // user's email as reported by IDP, only if available,
-
-    "gender", "male", // user's gender as reported by IDP, only if available,
-
-    "locale": "en", // user's locale as reported by IDP, only if available
-
-    "picture": "https://url.to.photo", // URL to user's picture, only if available
-
-    "auth_by": "appid_facebook/appid_google", // the name of IDP used for authentication, mandatory
-
+    "iss": "appid-oauth.ng.bluemix.net",
+    "aud": "a3b87400-f03b-4956-844e-a52103ef26ba",
+    "exp: "1495562664",
+    "tenant": "9781974b-6a1c-46c3-aebf-32b7e9bbbaee",
+    "iat": "1495559064",
+    "name": "John Smith",
+    "email": "js@mail.com",
+    "gender", "male",
+    "locale": "en",
+    "picture": "https://url.to.photo",
+    "sub": "de6a17d2-693d-4a43-8ea2-2140afd56a22",
     "identities": [
-
-        "provider: "appid_facebook/appid_google", // mandatory
-
-        "id": "unique user id as reported by IDP", // mandatory
-
-        "profile": { ... } // JSON object returned by IDP,  mandatory
-
-      },
-
-      {...}, {...} // more linked identities
-
+        "provider": "facebook"
+        "id": "377440159275659",
+        "amr: "facebook",
     ],
-
     "oauth_client":{
-
-      "type": "serverapp/mobileapp from client registration", // mandatory
-
-      "name": "client_name as reported during client registration", // mandatory
-
-      "software_id": "software_id as reported during client registration", // mandatory
-
-      "software_version": "software_version as reported during client registration", // mandatory
-
-      "device_id": "device_id from client registration", //mobile only
-
-      "device_model": "device_model from client registration", //mobile only
-
-      "device_os": "device_os from client registration", //mobile only
-
+      "name": "BluemixApp",
+      "type": "serverapp",
+      "software_id": "cb638f8f-e24b-41d3-b770-23be158dd8e6.2b94e6bb-bac4-4455-8712-a43fa804d5cc.a3b87400-f03b-4956-844e-a52103ef26ba",
+      "software_version": "1.0.0",
     }
-
 }
 ```
 {:screen}
+
+
+<table>
+<caption> Tabela 2. Componentes de token de identidade explicados </caption>
+  <tr>
+    <th> Componente </th>
+    <th> Descrição </th>
+  </tr>
+  <tr>
+    <td> <i>name</i> </td>
+    <td> O nome completo do usuário, conforme relatado pelo provedor de identidade. Isso deve ser retornado. </td>
+  </tr>
+  <tr>
+    <td> <i> email </i> </td>
+    <td> O e-mail do usuário, conforme relatado pelo provedor de identidade. Retornado somente quando disponível. </td>
+  </tr>
+  <tr>
+    <td> <i> gender </i> </td>
+    <td> O sexo do usuário, conforme relatado pelo provedor de identidade, quando disponível. </td>
+  </tr>
+  <tr>
+    <td> <i> locale </i> </td>
+    <td> O código de idioma do usuário, conforme relatado pelo provedor de identidade. </td>
+  </tr>
+  <tr>
+    <td> <i> picture </i> </td>
+    <td> A URL para a foto de um usuário, se disponível. </td>
+  </tr>
+  <tr>
+    <td> <i> identities: </br> <ul><li> provider <li> id <li> amr </ul></i></td>
+    <td> </br><ul><li> O provedor de identidade usado para autenticação. Essa variável pode ser <code>appid_facebook</code>, <code>appid_google</code> ou <code>appid_ibmid</code> e deve ser retornada. <li> Um ID de usuário exclusivo, conforme relatado por um provedor de identidade. <li> Um objeto JSON que deve ser retornado pelo provedor de identidade. </ul></i></td>
+  </tr>
+  <tr>
+    <td> <i> oauth_client: </br> <ul><li> type <li> name <li> software_id <li> software_version</ul></i> </td>
+    <td> </br><ul><li> O tipo de aplicativo determinado durante o registro do cliente. A variável pode ser <i>serverapp</i> ou <i>mobileapp</i>. <li> O nome do cliente, conforme relatado durante o registro do cliente. <li> O ID do software, conforme relatado durante o registro do cliente. <li> A versão de software usada durante o registro do cliente. </ul></td>
+  </tr>
+</table>

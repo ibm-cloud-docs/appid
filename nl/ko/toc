@@ -1,3 +1,5 @@
+<!-- Markdown Navigation -->
+
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
@@ -13,29 +15,23 @@ App ID
         id-overview.md
         access-identity.md
         authorization-resources.md
-        user-profile.md
-
-    {: .topicgroup}
-    동영상
-        [App ID 소개](https://www.youtube.com/watch?v=cTn7l_J3tPg)
-
-    {: .topicgroup}
-    블로그
-        [App ID 소개](https://www.ibm.com/blogs/bluemix/2017/03/introducing-ibm-bluemix-app-id-authentication-profiles-service-app-developers/)
-    {: .navgroup-end}
+        user-profile.md{: .navgroup-end}
 
     {: .navgroup id="reference"}
     [REST API](https://appid-oauth.ng.bluemix.net/swagger-ui/#!/Authorization_Server_V3/authorization)
 
     {: .topicgroup}
-    SDK
+SDK
         [Android 클라이언트 SDK](https://github.com/ibm-cloud-security/appid-clientsdk-android)
         [iOS Swift 클라이언트 SDK](https://github.com/ibm-cloud-security/appid-clientsdk-swift)
         [Node.js 서버 SDK](https://github.com/ibm-cloud-security/appid-serversdk-nodejs)
         [Swift 서버 SDK](https://github.com/ibm-cloud-security/appid-serversdk-swift)
+        relatedlinks.md
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
+    existing.md
+
     {: .topicgroup}
     SDK 및 샘플 앱 설정
         developing-apps.md

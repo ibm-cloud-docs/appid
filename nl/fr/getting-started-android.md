@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-04-17"
+lastupdated: "2017-06-12"
 
 ---
 
@@ -24,7 +24,8 @@ Construisez vos applications Android avec le SDK client d'{{site.data.keyword.ap
 Vous devez disposer des éléments suivants :
   * Une instance du service {{site.data.keyword.appid_short_notm}}.
   * Votre ID titulaire.
-    * Dans l'onglet **Données d'identification pour le service** de votre tableau de bord du service, cliquez sur **Afficher les données d'identification**. Votre ID titulaire est affiché dans la zone **tenantID**. Cette valeur est utilisée pour initialiser votre application.
+    * Dans l'onglet **Données d'identification pour le
+service** de votre tableau de bord du service, cliquez sur **Afficher les données d'identification**. Votre ID titulaire est affiché dans la zone **tenantID**. Cette valeur est utilisée pour initialiser votre application.
   * Votre région {{site.data.keyword.Bluemix}}. Vous pouvez identifier votre région en recherchant dans l'interface utilisateur. Cette valeur est utilisée pour initialiser votre application.
     <table> <caption> Tableau 1. Régions {{site.data.keyword.Bluemix_notm}} et valeurs de SDK correspondantes </caption>
     <tr>
@@ -66,8 +67,12 @@ fonctionner avec Gradle.
 
 3. Ouvrez le fichier `build.gradle` de votre application.
 
-    **Remarque** : prenez soin d'ouvrir le fichier correspondant à votre application et non pas le fichier `build.gradle` du projet.
-4. Localisez la section dependencies (dépendances) dans le fichier et ajoutez une dépendance de compilation pour le SDK client d'{{site.data.keyword.appid_short_notm}} :
+    **Remarque** : assurez-vous d'ouvrir le fichier
+correspondant à
+votre application et non pas le fichier `build.gradle` du projet.
+4. Recherchez la section dependencies dans le fichier et
+ajoutez une dépendance de compilation pour le SDK client
+d'{{site.data.keyword.appid_short_notm}} .
 
   ```gradle
    dependencies {
@@ -76,7 +81,8 @@ fonctionner avec Gradle.
   ```
   {:pre}
 
-5. Localisez la section defaultConfig et ajoutez les lignes de code suivantes :
+5. Recherchez la section defaultConfig et ajoutez les lignes de code ci-dessous.
+
 
   ```gradle
   defaultConfig {
@@ -91,21 +97,26 @@ fonctionner avec Gradle.
 ## Initialisation du SDK client
 {: #initialize-client-sdk}
 
-Initialisez le SDK client en transmettant les paramètres de contexte, d'ID du titulaire et de région à la méthode initialize. Bien que ceci ne soit pas obligatoire, le code d'initialisation est souvent placé dans la méthode onCreate de l'activité principale dans votre application Android.
+Initialisez le SDK client en transmettant les paramètres de contexte, d'ID titulaire et de région à la méthode initialize. Bien que ce ne soit pas obligatoire, le code d'initialisation est souvent placé dans la méthode onCreate de l'activité principale dans votre application Android.
 
   ```java
   AppID.getInstance().initialize(getApplicationContext(), <tenantId>, AppID.REGION_UK);
   ```
   {:pre}
 
-1. Remplacez "tenantId" par l'ID du titulaire du service {{site.data.keyword.appid_short_notm}}.
+1. Remplacez *tenantId* par l'ID titulaire du service
+{{site.data.keyword.appid_short_notm}}. 
 2. Remplacez AppID.REGION_UK par votre région {{site.data.keyword.Bluemix_notm}}.
 
 
 ## Authentification des utilisateurs à l'aide du widget de connexion
 {: #authenticate-login-widget}
 
-La configuration par défaut du widget de connexion exige d'utiliser à la fois Facebook et Google pour l'authentification. Si vous n'en configurez qu'un seul, le widget de connexion ne se lance pas et l'utilisateur est redirigé vers l'écran d'authentification du fournisseur d'identité (IDP) configuré.
+La configuration par défaut du widget de connexion utilise Facebook et Google comme options d'authentification. 
+Si vous ne configurez qu'une seule option, le widget de connexion ne démarre pas
+et
+l'utilisateur est redirigé vers l'écran d'authentification du fournisseur d'identité
+(IDP) configuré.
 
 Une fois que le SDK client d'{{site.data.keyword.appid_short_notm}} est initialisé, vous pouvez authentifier vos utilisateurs en exécutant le widget de connexion.
 
@@ -114,17 +125,15 @@ Une fois que le SDK client d'{{site.data.keyword.appid_short_notm}} est initiali
   loginWidget.launch(this, new AuthorizationListener() {
         @Override
         public void onAuthorizationFailure (AuthorizationException exception) {
-          //Une exception s'est produite
+          //Exception occurred
         }
-
         @Override
         public void onAuthorizationCanceled () {
-          //Authentification annulée par l'utilisateur
+          //Authentication canceled by the user
         }
-
         @Override
         public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken) {
-          //Utilisateur authentifié
+          //User authenticated
         }
       });
   ```
@@ -134,7 +143,9 @@ Une fois que le SDK client d'{{site.data.keyword.appid_short_notm}} est initiali
 ## Accès aux attributs utilisateur
 {: #accessing}
 
-En obtenant un jeton d'accès, vous pouvez accéder au noeud final des attributs utilisateur protégés. Ceci est réalisé en utilisant les méthodes d'API suivantes :
+En obtenant un jeton d'accès, vous pouvez accéder au noeud final des attributs utilisateur protégés. Vous
+pouvez y accéder avec les méthodes ci-dessous.
+
 
   ```java
   void setAttribute(@NonNull String name, @NonNull String value, UserAttributeResponseListener listener);
@@ -153,45 +164,34 @@ En obtenant un jeton d'accès, vous pouvez accéder au noeud final des attributs
 
 Lorsqu'un jeton d'accès n'est pas transmis explicitement, {{site.data.keyword.appid_short_notm}} utilise le dernier jeton reçu.
 
-Vous pouvez, par exemple utiliser le code ci-dessous pour définir un nouvel attribut ou prévaloir sur un attribut existant :
+Par exemple, vous pouvez utiliser le code ci-dessous pour définir un
+nouvel
+attribut ou remplacer un attribut existant. 
 
   ```java
   appId.getUserAttributeManager().setAttribute(name, value, useThisToken,new UserAttributeResponseListener() {
 		@Override
 		public void onSuccess(JSONObject attributes) {
-			//attributs reçus au format JSON si la réponse a abouti
-		}
-
-		@Override
-		public void onFailure(UserAttributesException e) {
-			//Une exception s'est produite
-		}
-	});
+			//attributes received in JSON format on successful response 		} 		@Override 		public
+void onFailure(UserAttributesException e) { 			//Exception occurred 		} 	});
   ```
   {:pre}
 
 ### Connexion anonyme
 {: #anonymous notoc}
 
-Avec {{site.data.keyword.appid_short_notm}}, vous pouvez vous connecter de manière [anonyme](/docs/services/appid/user-profile.html#anonymous).
+Avec {{site.data.keyword.appid_short_notm}}, vous pouvez vous connecter de
+manière [anonyme](/docs/services/appid/user-profile.html#anonymous).
 
   ```java
   appId.loginAnonymously(getApplicationContext(), new AuthorizationListener() {
 		@Override
 		public void onAuthorizationFailure(AuthorizationException exception) {
-			//Une exception s'est produite
-		}
-
-		@Override
+			//Exception occurred 		} 		@Override
 		public void onAuthorizationCanceled() {
-			//Authentification annulée par l'utilisateur
-		}
-
-		@Override
+			//Authentication canceled by the user 		} 		@Override
 		public void onAuthorizationSuccess(AccessToken accessToken, IdentityToken identityToken) {
-			//Utilisateur authentifié
-		}
-	});
+			//User authenticated 		} 	});
   ```
   {:pre}
 
@@ -205,7 +205,9 @@ Lorsqu'il dispose d'un jeton d'accès anonyme, l'utilisateur peut devenir un uti
   ```
   {:pre}
 
-Après une connexion anonyme, une authentification progressive a lieu même si le widget de connexion est appelé sans transmission d'un jeton d'accès vu que le service a utilisé le dernier jeton d'accès reçu. Si vous désirez effacer vos jetons stockés, exécutez la commande suivante :
+Après une connexion anonyme, une authentification progressive a lieu même si le widget de connexion est appelé sans transmission d'un jeton d'accès vu que le service a utilisé le dernier jeton d'accès reçu. Si
+vous voulez effacer les jetons que vous avez stockés, exécutez la commande ci-dessous.
+
 
   ```java
   	appIDAuthorizationManager = new AppIDAuthorizationManager(this.appId);

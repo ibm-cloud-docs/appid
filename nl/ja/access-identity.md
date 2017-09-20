@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-04-17"
+lastupdated: "2017-06-12"
 
 ---
 
@@ -14,7 +14,8 @@ lastupdated: "2017-04-17"
 # アクセス・トークンと識別トークン
 {: #access-and-identity}
 
-{{site.data.keyword.appid_short}} は、アクセス・トークンと識別トークンという 2 つのタイプのトークンを使用します。これらのトークンは、<a href="https://jwt.io/introduction/" target="_blank">JSON Web トークン<img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a>としてフォーマットされます。{:shortdesc}
+{{site.data.keyword.appid_short}} は、アクセス・トークンと識別トークンという 2 つのタイプのトークンを使用します。これらのトークンは、<a href="https://jwt.io/introduction/" target="_blank">JSON Web トークン<img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a>としてフォーマットされます。
+{:shortdesc}
 
 
 ## アクセス・トークン
@@ -25,32 +26,70 @@ lastupdated: "2017-04-17"
 ```
 Header: {
 
-    "typ": "JOSE", // ヘッダーのタイプ、仕様に従う
-
-    "alg": "RS256", // アルゴリズム、仕様に従う
-
+    "typ": "JOSE",
+    "alg": "RS256",
 }
 Payload: {
-
-    "iss": "", // 発行者、このトークンを発行した AppID。StringOrURL。
-
-    "sub": "", // 主体、このトークンがだれに対して発行されたのか。ほとんどの場合は userId。
-
-    "aud": "", // 対象者、このトークンがだれのためのものか。OAuth2 client_id。
-
-    "exp: "", // 有効期限のタイム・スタンプ、エポック時間
-
-    "iat": "", // 発行時刻のタイム・スタンプ、エポック時間
-
-    "tenant": "xxx", // トークンの発行対象の AppID の tenantId
-
-    "auth_by": "appid_anon / appid_facebook / appid_google",
-
-    "scope": "", // このトークンの発行範囲
-
+    "iss": "appid-oauth.ng.bluemix.net",
+    "exp": "1495562664",
+    "aud": "a3b87400-f03b-4956-844e-a52103ef26ba",
+    "amr": "facebook",
+    "sub": "de6a17d2-693d-4a43-8ea2-2140afd56a22",
+    "iat": "1495559064",
+    "tenant": "9781974b-6a1c-46c3-aebf-32b7e9bbbaee",
+    "scope": "appid_default appid_readprofile appid_readuserattr appid_writeuserattr",
 }
 ```
 {:screen}
+
+<table>
+<caption> 表 1. アクセス・トークンのコンポーネントの説明 </caption>
+  <tr>
+    <th> コンポーネント </th>
+    <th> 説明 </th>
+  </tr>
+  <tr>
+    <td> <i> typ </i> </td>
+    <td> ヘッダー・タイプ (「JOSE」として指定)。</td>
+  </tr>
+  <tr>
+    <td> <i> alg </i> </td>
+    <td> 使用されるアルゴリズム (「RS256」として指定)。</td>
+  </tr>
+  <tr>
+    <td> <i> iss </i> </td>
+    <td> トークンを発行した {{site.data.keyword.appid_short}} サーバー (ストリングまたは URL として指定)。</td>
+  </tr>
+  <tr>
+    <td> <i> sub </i> </td>
+    <td> トークンの発行先のユーザーの ID。</td>
+  </tr>
+  <tr>
+    <td> <i> aud </i> </td>
+    <td> トークンの対象のクライアント ID。</td>
+  </tr>
+  <tr>
+    <td> <i> exp </i> </td>
+    <td> タイム・スタンプ満了の時刻 (エポック・タイムで指定)。</td>
+  </tr>
+  <tr>
+    <td> <i> iat </i> </td>
+    <td> タイム・スタンプが出された時刻 (エポック・タイムで指定)。</td>
+  </tr>
+  <tr>
+    <td> <i> tenant </i> </td>
+    <td> トークンの発行対象のテナント ID。</td>
+  </tr>
+  <tr>
+    <td> <i> amr </i> </td>
+    <td> 認証に使用される ID プロバイダー。この変数は、<i>appid_facebook</i> または <i>appid_google</i> です。</td>
+  </tr>
+  <tr>
+    <td> <i> scope </i> </td>
+    <td> トークンの発行対象のスコープ。</td>
+  </tr>
+</table>
+
 
 ## 識別トークン
 {: #identity-tokens}
@@ -60,68 +99,69 @@ Payload: {
 ```
 Header: {
 
-    "typ": "JOSE", // ヘッダーのタイプ、仕様に従う
-
-    "alg": "RS256", // アルゴリズム、仕様に従う
-
+    "typ": "JOSE",
+    "alg": "RS256",
 }
 Payload: {
-
-    "iss": "", // 発行者、このトークンを発行した AppID。StringOrURL。
-
-    "sub": "", // 主体、このトークンがだれに対して発行されたのか。AppID userid。
-
-    "aud": "", // 対象者、このトークンがだれのためのものか。OAuth2 client_id。
-
-    "exp: "", // 有効期限のタイム・スタンプ、エポック時間
-
-    "iat": "", // 発行時刻のタイム・スタンプ、エポック時間
-
-    "tenant": "xxx", // トークンの発行対象の AppID の tenantId
-    "name": "John Smith", // IDP から報告されたユーザーの氏名、必須。
-
-    "email": "js@mail.com", // IDP から報告されたユーザーの E メール、該当する場合のみ
-
-    "gender", "male", // IDP から報告されたユーザーの性別、該当する場合のみ
-
-    "locale": "en", // IDP から報告されたユーザーのロケール、該当する場合のみ
-
-    "picture": "https://url.to.photo", // ユーザーの写真の URL、該当する場合のみ
-
-    "auth_by": "appid_facebook/appid_google", // 認証に使用された IDP の名前、必須
-
+    "iss": "appid-oauth.ng.bluemix.net",
+    "aud": "a3b87400-f03b-4956-844e-a52103ef26ba",
+    "exp: "1495562664",
+    "tenant": "9781974b-6a1c-46c3-aebf-32b7e9bbbaee",
+    "iat": "1495559064",
+    "name": "John Smith",
+    "email": "js@mail.com",
+    "gender", "male",
+    "locale": "en",
+    "picture": "https://url.to.photo",
+    "sub": "de6a17d2-693d-4a43-8ea2-2140afd56a22",
     "identities": [
-
-        "provider: "appid_facebook/appid_google", // 必須
-
-        "id": "unique user id as reported by IDP", // 必須
-
-        "profile": { ... } // IDP から返された JSON オブジェクト、必須
-
-      },
-
-      {...}, {...} // その他のリンクされている ID
-
+        "provider": "facebook"
+        "id": "377440159275659",
+        "amr: "facebook",
     ],
-
     "oauth_client":{
-
-      "type": "serverapp/mobileapp from client registration", // 必須
-
-      "name": "client_name as reported during client registration", // 必須
-
-      "software_id": "software_id as reported during client registration", // 必須
-
-      "software_version": "software_version as reported during client registration", // 必須
-
-      "device_id": "device_id from client registration", //モバイルのみ
-
-      "device_model": "device_model from client registration", //モバイルのみ
-
-      "device_os": "device_os from client registration", //モバイルのみ
-
+      "name": "BluemixApp",
+      "type": "serverapp",
+      "software_id": "cb638f8f-e24b-41d3-b770-23be158dd8e6.2b94e6bb-bac4-4455-8712-a43fa804d5cc.a3b87400-f03b-4956-844e-a52103ef26ba",
+      "software_version": "1.0.0",
     }
-
 }
 ```
 {:screen}
+
+
+<table>
+<caption> 表 2. 識別トークンのコンポーネントの説明</caption>
+  <tr>
+    <th> コンポーネント </th>
+    <th> 説明 </th>
+  </tr>
+  <tr>
+    <td> <i> name </i> </td>
+    <td> ID プロバイダーによって報告されたユーザーのフルネーム。これは、必ず返されなければなりません。</td>
+  </tr>
+  <tr>
+    <td> <i> email </i> </td>
+    <td> ID プロバイダーによって報告されたユーザーの E メール。使用可能な場合にのみ返されます。</td>
+  </tr>
+  <tr>
+    <td> <i> gender </i> </td>
+    <td> ID プロバイダーによって報告されたユーザーの性別 (使用可能な場合)。</td>
+  </tr>
+  <tr>
+    <td> <i> locale </i> </td>
+    <td> ID プロバイダーによって報告されたユーザーのロケール。</td>
+  </tr>
+  <tr>
+    <td> <i> picture </i> </td>
+    <td> ユーザーのピクチャーへの URL (使用可能な場合)。</td>
+  </tr>
+  <tr>
+    <td> <i> identities: </br> <ul><li> provider <li> id <li> amr </ul></i></td>
+    <td> </br><ul><li> 認証に使用される ID プロバイダー。この変数は、<code>appid_facebook</code>、<code>appid_google</code>、または <code>appid_ibmid</code> です。これは、必ず返されなければなりません。<li> ID プロバイダーによって報告された固有のユーザー ID。<li> ID プロバイダーによって返されなければならない JSON オブジェクト。</ul></i></td>
+  </tr>
+  <tr>
+    <td> <i> oauth_client: </br> <ul><li> type <li> name <li> software_id <li> software_version</ul></i> </td>
+    <td> </br><ul><li> クライアントの登録時に判別されたアプリケーションのタイプ。この変数は、<i>serverapp</i> または <i>mobileapp</i> です。 <li> クライアントの登録時に報告されたクライアント名。<li> クライアントの登録時に報告されたソフトウェア ID。<li> クライアントの登録時に使用されたソフトウェアのバージョン。</ul></td>
+  </tr>
+</table>

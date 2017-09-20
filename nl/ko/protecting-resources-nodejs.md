@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-04-17"
+lastupdated: "2017-05-08"
 
 ---
 
@@ -21,9 +21,9 @@ lastupdated: "2017-04-17"
 {: #before-you-begin}
 
 * {{site.data.keyword.Bluemix_notm}}에서 Node.js 애플리케이션 개발에 익숙해지십시오.
-* {{site.data.keyword.appid_short_notm}} 서버 SDK를 사용하려면 Node.js 서버를 <a href="http://expressjs.com/" target="_blank">Express 프레임워크 <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>으로 구현해야 합니다. 
+* {{site.data.keyword.appid_short_notm}} 서버 SDK를 사용하려면 Node.js 서버를 `<a href="http://expressjs.com/" target="_blank">Express 프레임워크 <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>`으로 구현해야 합니다. 
 
-**참고**: `Express` 프레임워크(예: LoopBack)를 사용하는 다른 프레임워크가 있습니다. 이러한 프레임워크와 함께 {{site.data.keyword.appid_short_notm}} 서버 SDK를 사용할 수 있습니다. 
+**참고**: 다른 프레임워크는 `Express` 프레임워크(예: LoopBack)를 사용합니다. 이러한 프레임워크와 함께 {{site.data.keyword.appid_short_notm}} 서버 SDK를 사용할 수 있습니다. 
 
 
 ## 서버 SDK 설치

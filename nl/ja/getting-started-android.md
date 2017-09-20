@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-04-17"
+lastupdated: "2017-06-12"
 
 ---
 
@@ -32,15 +32,15 @@ lastupdated: "2017-04-17"
     </tr>
     <tr>
       <td> 米国南部</td>
-      <td> AppID.REGION_US_SOUTH</td>
+      <td> AppID.REGION_US_SOUTH </td>
     </tr>
     <tr>
       <td> シドニー</td>
-      <td> AppID.REGION_SYDNEY</td>
+      <td> AppID.REGION_SYDNEY </td>
     </tr>
     <tr>
       <td> 英国</td>
-      <td> AppID.REGION_UK</td>
+      <td> AppID.REGION_UK </td>
     </tr>
   </table>
 
@@ -65,20 +65,20 @@ lastupdated: "2017-04-17"
 3. アプリケーションの `build.gradle` ファイルを開きます。
 
     **注**: プロジェクトの `build.gradle` ファイルではなくアプリのファイルを開いてください。
-4. ファイルの従属関係セクションを見つけ、{{site.data.keyword.appid_short_notm}} Client SDK 用のコンパイル従属関係を追加します。
+4. ファイルの従属関係セクションを見つけて、{{site.data.keyword.appid_short_notm}} Client SDK 用のコンパイル従属関係を追加します。
 
   ```gradle
-   dependencies {
-       compile group: 'com.github.ibm-cloud-security:appid-clientsdk-android:1.+'
+dependencies { 
+compile group: 'com.github.ibm-cloud-security:appid-clientsdk-android:1.+'
    }
   ```
   {:pre}
 
-5. defaultConfig セクションを見つけ、以下のコード行を追加します。
+5. defaultConfig セクションを見つけて、以下のコード行を追加します。
 
   ```gradle
-  defaultConfig {
-  ...
+defaultConfig {
+...
   manifestPlaceholders = ['appIdRedirectScheme': android.defaultConfig.applicationId]
   }
   ```
@@ -96,14 +96,14 @@ context、tenant ID、region パラメーターを initialize メソッドに渡
   ```
   {:pre}
 
-1. 「tenantId」を {{site.data.keyword.appid_short_notm}} サービスの tenantId に置き換えます。
+1. *tenantId* を {{site.data.keyword.appid_short_notm}} サービスの tenantId に置き換えます。
 2. AppID.REGION_UK を、該当する {{site.data.keyword.Bluemix_notm}} 地域に置き換えます。
 
 
 ## ログイン・ウィジェットを使用したユーザーの認証
 {: #authenticate-login-widget}
 
-ログイン・ウィジェットのデフォルト構成では、Facebook と Google の両方を認証に使用する必要があります。一方だけを構成した場合、ログイン・ウィジェットは起動せず、ユーザーは構成済みの IDP 認証画面にリダイレクトされます。
+ログイン・ウィジェットのデフォルト構成では、認証オプションとして Facebook と Google が使用されます。一方だけを構成した場合、ログイン・ウィジェットは開始せず、ユーザーは構成済みの IDP 認証画面にリダイレクトされます。
 
 {{site.data.keyword.appid_short_notm}} Client SDK が初期化されたら、ログイン・ウィジェットを実行してユーザーを認証できるようになります。
 

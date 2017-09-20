@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-04-17"
+lastupdated: "2017-06-12"
 
 ---
 
@@ -66,7 +66,7 @@ Necesita la siguiente información:
 3. Abra el archivo `build.gradle` para su aplicación.
 
     **Nota**: Asegúrese de abrir el archivo para su app, no el archivo `build.gradle` del proyecto.
-4. Busque la sección de dependencias del archivo y añada una dependencia de compilación para el SDK del cliente de {{site.data.keyword.appid_short_notm}}:
+4. Busque la sección de dependencias del archivo y añada una dependencia de compilación para el SDK del cliente de {{site.data.keyword.appid_short_notm}}.
 
   ```gradle
    dependencies {
@@ -75,7 +75,7 @@ Necesita la siguiente información:
   ```
   {:pre}
 
-5. Busque la sección defaultConfig y añada las siguientes líneas de código:
+5. Busque la sección defaultConfig y añada las siguientes líneas de código.
 
   ```gradle
   defaultConfig {
@@ -97,14 +97,14 @@ Inicialice el SDK del cliente pasando los parámetros context, tenant ID y regio
   ```
   {:pre}
 
-1. Sustituya "tenantId" por el tenantId del servicio de {{site.data.keyword.appid_short_notm}}.
+1. Sustituya *tenantId* por el tenantId del servicio de {{site.data.keyword.appid_short_notm}}.
 2. Sustituya el AppID.REGION_UK por la región de {{site.data.keyword.Bluemix_notm}}.
 
 
 ## Autenticar los usuarios utilizando el widget de inicio de sesión
 {: #authenticate-login-widget}
 
-La configuración predeterminada del widget de inicio de sesión requiere el uso de Facebook y de Google para la autenticación. Si sólo configura uno de ellos, el widget de inicio de sesión no se iniciará y se redirigirá al usuario a la pantalla de autenticación de IDP configurada.
+La configuración predeterminada del widget de inicio de sesión utiliza Facebook y Google como opciones de autenticación. Si sólo configura uno de ellos, el widget de inicio de sesión no se iniciará y se redirigirá al usuario a la pantalla de autenticación de IDP configurada.
 
 Después de inicializar el SDK del cliente de {{site.data.keyword.appid_short_notm}}, puede autenticar los usuarios ejecutando el widget de inicio de sesión.
 
@@ -133,7 +133,7 @@ Después de inicializar el SDK del cliente de {{site.data.keyword.appid_short_no
 ## Acceso a los atributos de usuario
 {: #accessing}
 
-Cuando obtenga una señal de acceso, es posible obtener acceso al punto final de los atributos protegidos del usuario. Puede obtener acceso utilizando los siguientes métodos de la API:
+Cuando obtenga una señal de acceso, es posible obtener acceso al punto final de los atributos protegidos del usuario. Puede obtener acceso utilizando los siguientes métodos de la API.
 
   ```java
   void setAttribute(@NonNull String name, @NonNull String value, UserAttributeResponseListener listener);
@@ -152,7 +152,7 @@ Cuando obtenga una señal de acceso, es posible obtener acceso al punto final de
 
 Cuando no se haya aprobado explícitamente una señal de acceso, {{site.data.keyword.appid_short_notm}} utilizará la última señal recibida.
 
-Por ejemplo, puede invocar este código para establecer un atributo nuevo, o para alterar temporalmente uno existente:
+Por ejemplo, puede llamar al código siguiente para establecer un atributo nuevo, o para alterar temporalmente uno existente.
 
   ```java
   appId.getUserAttributeManager().setAttribute(name, value, useThisToken,new UserAttributeResponseListener() {
@@ -172,7 +172,7 @@ Por ejemplo, puede invocar este código para establecer un atributo nuevo, o par
 ### Inicio de sesión anónimo
 {: #anonymous notoc}
 
-Con {{site.data.keyword.appid_short_notm}} puede iniciar sesión [de forma anónima](/docs/services/appid/user-profile.html#anonymous).
+Con {{site.data.keyword.appid_short_notm}}, puede iniciar sesión [de forma anónima](/docs/services/appid/user-profile.html#anonymous).
 
   ```java
   appId.loginAnonymously(getApplicationContext(), new AuthorizationListener() {
@@ -204,7 +204,7 @@ Cuando el usuario contiene una señal de acceso anónimo, puede ser identificado
   ```
   {:pre}
 
-Tras un inicio de sesión anónimo, se producirá la autenticación progresiva, aunque se invoque el widget de inicio de sesión sin pasar una señal de acceso porque el servicio ha utilizado la última señal recibida. Si desea borrar las señales almacenadas, ejecute el siguiente mandato:
+Tras un inicio de sesión anónimo, se producirá la autenticación progresiva, aunque se invoque el widget de inicio de sesión sin pasar una señal de acceso porque el servicio ha utilizado la última señal recibida. Si desea borrar las señales almacenadas, ejecute el siguiente mandato.
 
   ```java
   	appIDAuthorizationManager = new AppIDAuthorizationManager(this.appId);

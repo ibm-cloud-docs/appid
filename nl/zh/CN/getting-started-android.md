@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-04-17"
+lastupdated: "2017-06-12"
 
 ---
 
@@ -66,7 +66,7 @@ lastupdated: "2017-04-17"
 3. 打开应用程序的 `build.gradle` 文件。
 
     **注：**请确保打开应用程序的这一文件，而不是项目的 `build.gradle` 文件。
-4. 找到该文件的 dependencies 部分，并为 {{site.data.keyword.appid_short_notm}} 客户端 SDK 添加新的编译依赖项：
+4. 找到该文件的 dependencies 部分，并为 {{site.data.keyword.appid_short_notm}} 客户端 SDK 添加编译依赖项。
 
   ```gradle
    dependencies {
@@ -75,7 +75,7 @@ lastupdated: "2017-04-17"
   ```
   {:pre}
 
-5. 找到 defaultConfig 部分，并添加以下代码行：
+5. 找到 defaultConfig 部分，并添加以下代码行。
 
   ```gradle
   defaultConfig {
@@ -97,14 +97,14 @@ lastupdated: "2017-04-17"
   ```
   {:pre}
 
-1. 将“tenantId”替换为 {{site.data.keyword.appid_short_notm}} 服务 tenantId。
+1. 将 *tenantId* 替换为 {{site.data.keyword.appid_short_notm}} 服务 tenantId。
 2. 将 AppID.REGION_UK 替换为您所在的 {{site.data.keyword.Bluemix_notm}} 区域。
 
 
 ## 使用登录窗口小部件认证用户
 {: #authenticate-login-widget}
 
-登录窗口小部件缺省配置要求同时使用 Facebook 和 Google 进行认证。如果仅配置了其中一项，那么登录窗口小部件不会启动，并且用户会重定向到已配置的 IDP 认证屏幕。
+登录窗口小部件缺省配置使用 Facebook 和 Google 作为认证选项。如果仅配置了其中一项，那么登录窗口小部件不会启动，并且用户会重定向到已配置的 IDP 认证屏幕。
 
 初始化 {{site.data.keyword.appid_short_notm}} 客户端 SDK 后，可以通过运行登录窗口小部件来对用户进行认证。
 
@@ -133,7 +133,7 @@ lastupdated: "2017-04-17"
 ## 访问用户属性
 {: #accessing}
 
-获取访问令牌时，还可获取对用户保护的属性端点的访问权。您可以使用以下 API 方法来获取访问权：
+获取访问令牌时，还可获取对用户保护的属性端点的访问权。您可以使用以下 API 方法来获取访问权。
 
   ```java
   void setAttribute(@NonNull String name, @NonNull String value, UserAttributeResponseListener listener);
@@ -152,7 +152,7 @@ lastupdated: "2017-04-17"
 
 未显式传递访问令牌时，{{site.data.keyword.appid_short_notm}} 会使用最后一次收到的令牌。
 
-例如，可以调用以下代码来设置新属性，或者覆盖现有属性：
+例如，可以调用以下代码来设置新属性，或者覆盖现有属性。
 
   ```java
   appId.getUserAttributeManager().setAttribute(name, value, useThisToken,new UserAttributeResponseListener() {
@@ -204,7 +204,7 @@ lastupdated: "2017-04-17"
   ```
   {:pre}
 
-匿名登录后，会执行渐进式认证，即便在未传递访问令牌的情况下调用了登录窗口小部件时也是如此，因为服务使用的是最后一次收到的令牌。如果要清除存储的令牌，请运行以下命令：
+匿名登录后，会执行渐进式认证，即便在未传递访问令牌的情况下调用了登录窗口小部件时也是如此，因为服务使用的是最后一次收到的令牌。如果要清除存储的令牌，请运行以下命令。
 
   ```java
   	appIDAuthorizationManager = new AppIDAuthorizationManager(this.appId);

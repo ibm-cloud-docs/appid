@@ -2,7 +2,7 @@
 
 copyright:
   years:  2017
-lastupdated: "2017-04-17"
+lastupdated: "2017-05-08"
 
 ---
 {:new_window: target="_blank"}
@@ -27,7 +27,7 @@ Para utilizar {{site.data.keyword.appid_short_notm}} con un servidor de desarrol
 * APIStrategy: `oauthServerUrl`
 * WebAppStrategy: tenantId, clientId, secret, oauthServerUrl, redirectUri
 
-Defina el atributo 'redirectUri' para el puerto de la app de localhost con la vía de acceso de devolución de llamada, es decir: `http://localhost:<port>/callback`. El punto final de devolución de llamada finaliza el proceso de autorización.
+Defina el atributo 'redirectUri' para el puerto de la app de localhost con la vía de acceso de devolución de llamada. Por ejemplo: `http://localhost:<port>/callback`. El punto final de devolución de llamada finaliza el proceso de autorización.
 
 Para obtener las credenciales del servicio, realice los siguientes pasos:
 

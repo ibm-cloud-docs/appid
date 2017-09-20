@@ -1,7 +1,8 @@
 ---
 
 copyright:
-  years: 2017 lastupdated: "2017-04-17"
+  years: 2017
+lastupdated: "2017-06-12"
 
 ---
 
@@ -59,7 +60,7 @@ O SDK do cliente do {{site.data.keyword.appid_short_notm}} é distribuído com o
 Objective-C Cocoa. O CocoaPods faz download de artefatos e os torna disponíveis para o seu projeto.
 
 1. Crie um projeto Xcode ou abra um projeto existente.
-2. Abra ou crie o Arquivo pod no diretório do projeto.
+2. Abra ou crie o arquivo pod no diretório do projeto.
 3. Sob o seu destino de projeto inclua uma dependência para o pod 'BluemixAppID'. Certifique-se de que o comando `use_frameworks!` também
 esteja sob o seu destino.
 
@@ -73,7 +74,7 @@ esteja sob o seu destino.
   ```
   {:pre}
 
-4. Para fazer download da dependência do `BluemixAppID`, execute o comando a seguir:
+4. Para fazer download da dependência `BluemixAppID`, execute o comando a seguir.
 
   ```swift
   pod install --repo-update
@@ -91,7 +92,7 @@ $(PRODUCT_BUNDLE_IDENTIFIER)
 ## Inicializando o client SDK
 {: #initialize-client-sdk}
 
-1. Inclua a seguinte importação em seu arquivo `AppDelegate.swift`:
+1. Inclua a importação a seguir em seu arquivo `AppDelegate.swift`.
 
   ```swift
   import BluemixAppID
@@ -121,9 +122,7 @@ colocar o código de inicialização está no método application:didFinishLaunc
 ## Autentique os usuários usando o widget de login
 {: #authenticate-login}
 
-Após o SDK do cliente do {{site.data.keyword.appid_short_notm}} ser inicializado, será possível autenticar os seus usuários executando o widget de login. A
-configuração padrão do widget de login usa o Facebook, o Google ou ambos como opções de autenticação. Se você configurar apenas um deles, o widget de login não será
-ativado e o usuário será redirecionado para a tela de autenticação do IDP configurada.
+Após o SDK do cliente do {{site.data.keyword.appid_short_notm}} ser inicializado, será possível autenticar os seus usuários executando o widget de login. A configuração padrão do widget de login usa o Facebook e o Google como opções de autenticação. Se você configurar apenas um provedor de identidade, o widget de login não será iniciado e o usuário será redirecionado para a tela de autenticação do IDP configurado.
 
 
 
@@ -158,7 +157,7 @@ ativado e o usuário será redirecionado para a tela de autenticação do IDP co
 ## Acessando atributos do usuário
 {: #accessing}
 
-Ao obter um token de acesso, é possível obter acesso ao terminal protegido de atributos do usuário. Isso é feito usando os métodos de API a seguir:
+Ao obter um token de acesso, é possível obter acesso ao terminal protegido de atributos do usuário. Isso é feito usando os métodos de API a seguir.
 
   ```swift
   func setAttribute(key: String, value: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
@@ -177,7 +176,7 @@ Ao obter um token de acesso, é possível obter acesso ao terminal protegido de 
 
 Quando um token de acesso não for transmitido explicitamente, o {{site.data.keyword.appid_short_notm}} usará o último token recebido.
 
-Por exemplo, é possível chamar esse código para configurar um novo atributo ou substituir um existente:
+Por exemplo, é possível chamar o código a seguir para configurar um novo atributo ou substituir um existente.
 
   ```swift
   AppID.sharedInstance.userAttributeManager?.setAttribute("key", "value", completionHandler: { (error, result) in
@@ -219,8 +218,7 @@ Com o {{site.data.keyword.appid_short_notm}} é possível efetuar login [anonima
 ### Autenticação progressiva
 {: #progressive notoc}
 
-Quando você retém um token de acesso anônimo, o usuário pode se tornar um usuário identificado passando-o para o método de ativação
-loginWidget.launch:
+Quando você retém um token de acesso anônimo, o usuário pode se tornar um usuário identificado passando-o para o método `loginWidget.launch`.
 
   ```swift
   func launch(accessTokenString: String? , delegate: AuthorizationDelegate)
@@ -228,7 +226,7 @@ loginWidget.launch:
   {:pre}
 
 Após um login anônimo, a autenticação progressiva ocorrerá mesmo se o widget de login for chamado sem passar um token de acesso porque o serviço usou o último
-token recebido. Se você deseja limpar os seus tokens armazenados, execute o comando a seguir:
+token recebido. Se desejar limpar os tokens armazenados, execute o comando a seguir.
 
   ```swift
   var appIDAuthorizationManager = AppIDAuthorizationManager(appid: AppID.sharedInstance)

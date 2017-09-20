@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-04-17"
+lastupdated: "2017-05-08"
 
 ---
 
@@ -17,7 +17,7 @@ lastupdated: "2017-04-17"
 Puoi accedere alle risorse protette utilizzando le SDK client.
 {:shortdesc}
 
-Il richiamo di una risorsa protetta avvia il widget di accesso, se necessario. Se è già stato ottenuto un token valido, il widget di accesso non viene avviato e si accede direttamente alla risorsa.
+Il richiamo di una risorsa protetta avvia il widget di accesso, se necessario. Se è già stato ottenuto un token valido, il widget di accesso non viene avviato e si accede direttamente alla risorsa. 
 
 
 ## Utilizzo dell'SDK Swift iOS

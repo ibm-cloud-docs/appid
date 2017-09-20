@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-04-17"
+lastupdated: "2017-05-08"
 
 ---
 
@@ -46,7 +46,7 @@ lastupdated: "2017-04-17"
 ## 保護 Swift 中的資源
 {: #protecting}
 
-Swift SDK 提供用於保護 Web 應用程式的「Kitura 認證外掛程式」。使用此外掛程式時，未經鑑別的用戶端會收到 HTTP 302 回應。用戶端會重新導向至 {{site.data.keyword.appid_short_notm}} 所管理的登入頁面或是身分提供者的登入頁面（視配置而定）。
+Swift SDK 提供用於保護 Web 應用程式的「Kitura 認證」外掛程式。當您使用此外掛程式時，未經鑑別的用戶端會收到 HTTP 302 回應。用戶端會重新導向至 {{site.data.keyword.appid_short_notm}} 所管理的登入頁面或是身分提供者的登入頁面（視配置而定）。
 
 
 
@@ -55,7 +55,7 @@ Swift SDK 提供用於保護 Web 應用程式的「Kitura 認證外掛程式」�
 
 WebAppKituraCredentialsPlugin 是根據 OAuth2 authorization_code 授與流程，而且必須用於使用瀏覽器的 Web 應用程式。此外掛程式提供工具來實作鑑別及授權流程。此外掛程式也提供機制來偵測未經鑑別的受保護資源存取嘗試，並且會自動將使用者的瀏覽器重新導向至鑑別頁面。成功鑑別之後，會將使用者帶至 Web 應用程式的回呼 URL，以使用此外掛程式自 {{site.data.keyword.appid_short_notm}} 中取得存取及身分記號。取得這些記號之後，外掛程式會將它們儲存在 HTTP 階段作業的 WebAppKituraCredentialsPlugin.AuthContext 下方。
 
-下列程式碼示範如何在 Kitura 應用程式中使用 WebAppKituraCredentialsPlugin 來保護 /protected 端點。
+下列程式碼示範如何在 Kitura 應用程式中使用 WebAppKituraCredentialsPlugin 來保護 `/protected` 端點。
 
   ```swift
   import Foundation

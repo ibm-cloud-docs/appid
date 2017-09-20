@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-04-17"
+lastupdated: "2017-05-08"
 
 ---
 
@@ -46,7 +46,7 @@ lastupdated: "2017-04-17"
 ## Swift のリソースの保護
 {: #protecting}
 
-Swift SDK には、Web アプリケーションを保護するために使用する Kitura Credential プラグインが用意されています。このプラグインを使用する場合、非認証のクライアントは HTTP 302 応答を受け取ります。
+Swift SDK には、Web アプリケーションを保護するために使用する Kitura Credential プラグインが用意されています。このプラグインを使用している場合、非認証のクライアントは HTTP 302 応答を受け取ります。
 構成に応じて、クライアントは {{site.data.keyword.appid_short_notm}} によってホストされるログイン・ページか、ID プロバイダーのログイン・ページにリダイレクトされます。
 
 
@@ -56,7 +56,7 @@ Swift SDK には、Web アプリケーションを保護するために使用す
 
 WebAppKituraCredentialsPlugin は、OAuth2 の authorization_code 認可フローに基づくものであり、ブラウザーを使用する Web アプリケーションで使用する必要があります。このプラグインには、認証フローと許可フローを実装するためのツールが用意されています。プラグインはまた、保護リソースに対する非認証のアクセス試行を検出し、ユーザーのブラウザーを認証ページに自動的にリダイレクトするメカニズムも備えています。認証に成功すると、ユーザーは Web アプリケーションのコールバック URL に送られ、この URL がプラグインを使用して {{site.data.keyword.appid_short_notm}} からアクセス・トークンと識別トークンを取得します。それらのトークンを取得すると、プラグインはそれらを WebAppKituraCredentialsPlugin.AuthContext の下の HTTP セッションに保管します。
 
-以下のコードは、WebAppKituraCredentialsPlugin を Kitura アプリケーションで使用して /protected エンドポイントを保護する方法を示しています。
+以下のコードは、WebAppKituraCredentialsPlugin を Kitura アプリケーションで使用して `/protected` エンドポイントを保護する方法を示しています。
 
   ```swift
   import Foundation

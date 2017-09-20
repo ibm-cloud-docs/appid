@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-04-17"
+lastupdated: "2017-06-12"
 
 ---
 
@@ -26,7 +26,7 @@ lastupdated: "2017-04-17"
   * 테넌트 ID.
     * 서비스 대시보드의 **서비스 신임 정보** 탭에서 **신임 정보 보기**를 클릭하십시오. 테넌트 ID가 **tenantID** 필드에 표시됩니다. 이 값은 앱을 초기화하는 데 사용됩니다.
   * {{site.data.keyword.Bluemix}} 지역. UI에서 보고 지역을 찾을 수 있습니다. 이 값은 앱을 초기화하는 데 사용됩니다.
-    <table> <caption> 표 1. {{site.data.keyword.Bluemix_notm}} 지역 및 해당 SDK 값</caption>
+<table> <caption> 표 1. {{site.data.keyword.Bluemix_notm}} 지역 및 해당 SDK 값 </caption>
     <tr>
       <th> Bluemix 지역 </th>
       <th> SDK 값 </th>
@@ -97,14 +97,14 @@ initialize 메소드에 컨텍스트, 테넌트 ID 및 지역 매개변수를 �
   ```
   {:pre}
 
-1. "tenantId"를 {{site.data.keyword.appid_short_notm}} 서비스 tenantId로 바꾸십시오.
+1. *tenantId*를 {{site.data.keyword.appid_short_notm}} 서비스 tenantId로 바꾸십시오.
 2. AppID.REGION_UK를 사용자의 {{site.data.keyword.Bluemix_notm}} 지역으로 바꾸십시오.
 
 
 ## 로그인 위젯을 사용하여 사용자 인증
 {: #authenticate-login-widget}
 
-로그인 위젯 기본 구성에서는 인증을 위해 Facebook 및 Google을 사용해야 합니다. 그 중에서 하나만 구성하는 경우에는 로그인 위젯이 실행되지 않으며 구성된 IDP 인증 화면으로 사용자가 경로 재지정됩니다. 
+로그인 위젯 기본 구성에서는 인증 옵션으로 Facebook 및 Google을 사용합니다. 그 중에서 하나만 구성하는 경우에는 로그인 위젯이 시작되지 않으며 구성된 IDP 인증 화면으로 사용자가 경로 재지정됩니다. 
 
 {{site.data.keyword.appid_short_notm}} 클라이언트 SDK가 초기화된 후에 로그인 위젯을 실행하여 사용자를 인증할 수 있습니다. 
 
@@ -152,7 +152,7 @@ initialize 메소드에 컨텍스트, 테넌트 ID 및 지역 매개변수를 �
 
 액세스 토큰이 명시적으로 전달되지 않을 때 {{site.data.keyword.appid_short_notm}}는 마지막으로 수신된 토큰을 사용합니다. 
 
-예를 들어, 이 코드를 호출하여 새 속성을 설정하거나 기존 속성을 대체할 수 있습니다. 
+예를 들어, 다음과 같은 코드를 호출하여 새 속성을 설정하거나 기존 속성을 대체할 수 있습니다. 
 
   ```java
   appId.getUserAttributeManager().setAttribute(name, value, useThisToken,new UserAttributeResponseListener() {
@@ -172,7 +172,7 @@ initialize 메소드에 컨텍스트, 테넌트 ID 및 지역 매개변수를 �
 ### 익명 로그인
 {: #anonymous notoc}
 
-{{site.data.keyword.appid_short_notm}}에서 사용자는 [익명으로](/docs/services/appid/user-profile.html#anonymous) 로그인할 수 있습니다.
+{{site.data.keyword.appid_short_notm}}에서 [익명으로](/docs/services/appid/user-profile.html#anonymous) 로그인할 수 있습니다.
 
   ```java
   appId.loginAnonymously(getApplicationContext(), new AuthorizationListener() {
@@ -205,7 +205,7 @@ initialize 메소드에 컨텍스트, 테넌트 ID 및 지역 매개변수를 �
   ```
   {:pre}
 
-익명 로그인 후에는 서비스가 마지막으로 수신된 토큰을 사용했기 때문에 액세스 토큰을 전달하지 않고 로그인 위젯이 호출되는 경우에도 점진적 인증이 발생합니다. 저장된 토큰을 지우려면 다음 명령을 실행하십시오.
+익명 로그인 후에는 서비스가 마지막으로 수신된 토큰을 사용했기 때문에 액세스 토큰을 전달하지 않고 로그인 위젯이 호출되는 경우에도 점진적 인증이 발생합니다. 저장된 토큰을 지우려는 경우 다음 명령을 실행하십시오.
 
   ```java
   	appIDAuthorizationManager = new AppIDAuthorizationManager(this.appId);

@@ -2,7 +2,7 @@
 
 copyright:
   years:  2017
-lastupdated: "2017-04-17"
+lastupdated: "2017-05-08"
 
 ---
 {:new_window: target="_blank"}
@@ -27,7 +27,7 @@ Zur Verwendung von {{site.data.keyword.appid_short_notm}} mit einem lokalen Entw
 * APIStrategy: `oauthServerUrl`
 * WebAppStrategy: tenantId, clientId, secret, oauthServerUrl, redirectUri
 
-Legen Sie das Attribut 'redirectUri' auf den App-Port des lokalen Hosts mit dem Callback-Pfad fest, d. h.: `http://localhost:<port>/callback`. Der Callback-Endpunkt beendet den Berechtigungsprozess.
+Legen Sie das Attribut 'redirectUri' auf den App-Port des lokalen Hosts mit dem Callback-Pfad fest. Beispiel: `http://localhost:<port>/callback`. Der Callback-Endpunkt beendet den Berechtigungsprozess.
 
 Um Ihre Serviceberechtigungsnachweise abzurufen, führen Sie folgende Schritte aus:
 
@@ -69,9 +69,9 @@ Um Ihre Apps so zu konfigurieren, dass sie mit einem lokalen Entwicklungsserver 
 ### Android
 {: #android}
 ```java
-String baseRequestUrl = "http://localhost:<port>"; //auf Server festgelegt, der Port ausführt
+String baseRequestUrl = "http://localhost:<port>"; //set to your server running port
 String tenantId = "your-AppID-service-tenantID";
-String region = AppID.REGION_UK; //Region der App-ID-Anwendung hier festlegen. Aktuell mögliche Werte sind AppID.REGION_US_SOUTH, AppID.REGION_SYDNEY oder AppID.REGION_UK.
+String region = AppID.REGION_UK; //set your App ID application region here. Aktuell mögliche Werte sind AppID.REGION_US_SOUTH, AppID.REGION_SYDNEY oder AppID.REGION_UK.
 
 BMSClient bmsClient= BMSClient.getInstance();
 bmsClient.initialize(getApplicationContext(), region);
@@ -105,7 +105,7 @@ request.send(this, new ResponseListener() {
 {: #swift}
 ```swift
 
- let baseRequestUrl = "http://localhost:<port>"; //auf Server festgelegt, der den Port ausführt
+let baseRequestUrl = "http://localhost:<port>"; //auf Server festgelegt, der den Port ausführt
  let tenantId = "your-AppID-service-tenantID"
  let region = AppID.REGION_UK; //Region der App ID-Anwendung hier festlegen. Aktuell mögliche Werte sind AppID.REGION_US_SOUTH, AppID.REGION_SYDNEY oder AppID.REGION_UK.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-04-17"
+lastupdated: "2017-06-12"
 
 ---
 
@@ -15,14 +15,14 @@ lastupdated: "2017-04-17"
 # Fonctionnement
 {: #about}
 
-Cette rubrique fournit des informations sur les composants, l'architecture et le flux de demandes utilisé par {{site.data.keyword.appid_short_notm}}.
+Cette rubrique fournit des informations sur les composants, l'architecture et le flux de demandes utilisé par {{site.data.keyword.appid_full}}.
 {:shortdesc}
 
 
 Vous pouvez utiliser le service d'une des manières suivantes :
 
 * Pour ajouter une authentification à vos applications mobiles et Web
-* Pour accorder un accès aux ressources de back-end et aux applications Web protégées
+* Pour accorder un accès aux ressources de back end et aux applications Web protégées
 * Pour protéger les applications Node.js et Swift hébergées sur {{site.data.keyword.Bluemix_notm}}
 * Pour stocker des données utilisateur, telles que les préférences d'application ou des informations de leur profil social public
 * Pour utiliser des données stockées afin de construire des applications personnalisées
@@ -45,11 +45,12 @@ Vous pouvez utiliser le service d'une des manières suivantes :
 {: #architecture}
 
 Avec {{site.data.keyword.appid_short_notm}}, vous pouvez ajouter un niveau de sécurité à vos applications en demandant aux utilisateurs de se connecter. Vous pouvez également utiliser
-le SDK serveur pour protéger vos ressources de back-end.
+le SDK serveur pour protéger vos ressources de back end.
 
 Le diagramme suivant résume le fonctionnement du service {{site.data.keyword.appid_short_notm}}.
 
 ![Diagramme de l'architecture {{site.data.keyword.appid_short_notm}}](/images/appid_architecture2.png)
+
 
 Figure 1. Diagramme de l'architecture {{site.data.keyword.appid_short_notm}}
 
@@ -61,24 +62,38 @@ d'autorisation. </dd>
     <dd>  Le SDK serveur extrait de la demande le jeton d'accès et le valide auprès d'{{site.data.keyword.appid_short_notm}}. Une fois que l'authentification a réussi,
 {{site.data.keyword.appid_short_notm}} renvoie l'autorisation et les jetons d'identité à votre application. </dd>
   <dt> Fournisseurs d'identité </dt>
-    <dd> Vous pouvez configurer Facebook, Google ou les deux pour authentifier vos applications.  </dd>
+    <dd> Vous pouvez configurer Facebook, Google, IMBid (ou une combinaison des trois)
+pour authentifier vos applications.
+</dd>
 </dl>
 
 
 ## Flux de demandes
 {: #request}
 
-Le diagramme ci-dessous illustre un flux de demandes depuis le SDK client vers votre application de back-end et les fournisseurs d'identité.
+Le diagramme ci-dessous explique comment une demande est transmise du SDK
+client à
+votre application de back end et aux fournisseurs d'identité.
 
-![Flux de demandes {{site.data.keyword.appid_short_notm}}](/images/appidflow.png)
+![Flux dedemandes {{site.data.keyword.appid_short_notm}}](/images/appidflow.png)
 
 
-* Utilisez le SDK client {{site.data.keyword.appid_short_notm}} pour soumettre une demande à vos ressources de back-end protégées par le SDK serveur {{site.data.keyword.appid_short_notm}}.
+Figure 2. Flux de demandes App ID 
+
+* Utilisez le SDK client {{site.data.keyword.appid_short_notm}} pour soumettre une demande à vos ressources de back end protégées par le SDK serveur {{site.data.keyword.appid_short_notm}}.
 * Le SDK serveur {{site.data.keyword.appid_short_notm}} détecte les demandes dépourvues d'autorisation et renvoie une réponse HTTP 401 une portée d'autorisation.
 * Le SDK client détecte automatiquement la réponse HTTP 401 et lance la procédure d'autorisation.
 * Lorsque le SDK client contacte le service, le SDK serveur renvoie le widget de connexion si plusieurs fournisseurs d'identité ont été configurés. {{site.data.keyword.appid_short_notm}} appelle le fournisseur d'identité et lui présente son formulaire d'identification ou renvoie un code d'acceptation qui lui permet de s'authentifier si aucun fournisseur d'identité n'a été configuré.
 * {{site.data.keyword.appid_short_notm}} demande à l'application client de s'authentifier en répondant à une demande d'authentification.
-* Si Facebook ou Google sont configurés et que l'utilisateur se connecte, l'authentification est traitée par le flux du protocole d'autorisation OAuth du fournisseur d'identité correspondant.
-* Si l'authentification se conclut par le même code d'accord, celui-ci est envoyé au noeud final du jeton. Le noeud final renvoie deux jetons : un code d'accès et un jeton d'identification. Dès lors, toutes les demandes effectuées avec le SDK client ont le nouvel en-tête d'autorisation obtenu.
+* Si un fournisseur d'identité est configuré et que l'utilisateur se connecte,
+l'authentification est gérée par le flux OAuth correspondant.
+
+* Si l'authentification se conclut par le même code d'accord, celui-ci est envoyé
+au noeud final de jeton. Le noeud final renvoie deux jetons : un jeton d'accès et un
+jeton d'identité.
+
+Dès lors, toutes les demandes effectuées avec le SDK client obtiennent un nouvel
+en-tête d'autorisation.
+
 * Le SDK client renvoie automatiquement la demande d'origine ayant déclenché le flux d'autorisation.
-* Le SDK serveur extrait l'en-tête de l'autorisation depuis la demande, le valide auprès du service et octroie l'accès à une ressource de back-end.
+* Le SDK serveur extrait l'en-tête de l'autorisation depuis la demande, le valide auprès du service et octroie l'accès à une ressource de back end.

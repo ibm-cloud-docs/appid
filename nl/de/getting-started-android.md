@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-04-17"
+lastupdated: "2017-06-12"
 
 ---
 
@@ -66,7 +66,7 @@ Sie benötigen die folgenden Informationen:
 3. Öffnen Sie die Datei `build.gradle` für Ihre Anwendung.
 
     **Hinweis**: Stellen Sie sicher, dass Sie die Datei für Ihre App öffnen, nicht die Projektdatei `build.gradle`.
-4. Suchen Sie den Abschnitt für Abhängigkeiten ('dependencies') in der Datei und fügen Sie eine neue Abhängigkeit 'compile' für das {{site.data.keyword.appid_short_notm}}-Client-SDK hinzu:
+4. Suchen Sie den Abschnitt für Abhängigkeiten ('dependencies') in der Datei und fügen Sie die neue Abhängigkeit 'compile' für das {{site.data.keyword.appid_short_notm}}-Client-SDK hinzu. 
 
   ```gradle
    dependencies {
@@ -75,7 +75,7 @@ Sie benötigen die folgenden Informationen:
   ```
   {:pre}
 
-5. Suchen Sie den Abschnitt 'defaultConfig' und fügen Sie die folgenden Code-Zeilen hinzu:
+5. Suchen Sie den Abschnitt 'defaultConfig' und fügen Sie die folgenden Code-Zeilen hinzu. 
 
   ```gradle
   defaultConfig {
@@ -97,14 +97,14 @@ Initialisieren Sie das SDK, indem Sie die Parameter 'context', 'tenantID' und 'r
   ```
   {:pre}
 
-1. Ersetzen Sie "tenantId" durch die {{site.data.keyword.appid_short_notm}}-Service-Tenant-ID.
+1. Ersetzen Sie *tenantId* durch die Tenant-ID des {{site.data.keyword.appid_short_notm}}-Service. 
 2. Ersetzen Sie AppID.REGION_UK durch Ihre {{site.data.keyword.Bluemix_notm}}-Region.
 
 
 ## Benutzer über das Anmelde-Widget authentifizieren
 {: #authenticate-login-widget}
 
-Für die Standardkonfiguration des Anmelde-Widgets ist die Verwendung sowohl von Facebook als auch Google erforderlich. Wenn Sie nur Facebook oder Google konfigurieren, wird das Anmelde-Widget nicht gestartet und der Benutzer wird zur konfigurierten IDP-Authentifizierungsanzeige umgeleitet.
+Von der Standardkonfiguration des Anmelde-Widgets werden Facebook und Google als Authentifizierungsoptionen verwendet. Wenn Sie nur Facebook oder Google konfigurieren, wird das Anmelde-Widget nicht gestartet und der Benutzer wird zur konfigurierten IDP-Authentifizierungsanzeige umgeleitet. 
 
 Nach der Initialisierung des {{site.data.keyword.appid_short_notm}}-Client-SDK können Sie Benutzer authentifizieren, indem Sie das Anmelde-Widget ausführen.
 
@@ -133,7 +133,7 @@ Nach der Initialisierung des {{site.data.keyword.appid_short_notm}}-Client-SDK k
 ## Auf Benutzerattribute zugreifen
 {: #accessing}
 
-Wenn Sie ein Zugriffstoken anfordern, können Sie Zugriff auf den Endpunkt der geschützten Benutzerattribute zugreifen. Sie können Zugriff durch die folgenden API-Methoden erhalten:
+Wenn Sie ein Zugriffstoken anfordern, können Sie Zugriff auf den Endpunkt der geschützten Benutzerattribute zugreifen. Sie können Zugriff durch die folgenden API-Methoden erhalten. 
 
   ```java
   void setAttribute(@NonNull String name, @NonNull String value, UserAttributeResponseListener listener);
@@ -152,7 +152,7 @@ Wenn Sie ein Zugriffstoken anfordern, können Sie Zugriff auf den Endpunkt der g
 
 Wenn ein Zugriffstoken nicht explizit übergeben wird, verwendet {{site.data.keyword.appid_short_notm}} das zuletzt empfangene Token.
 
-Sie können beispielsweise diesen Code aufrufen, um ein neues Attribut festzulegen oder ein vorhandenes Attribut zu überschreiben:
+Sie können beispielsweise diesen Code aufrufen, um ein neues Attribut festzulegen oder ein vorhandenes Attribut zu überschreiben. 
 
   ```java
   appId.getUserAttributeManager().setAttribute(name, value, useThisToken,new UserAttributeResponseListener() {
@@ -172,7 +172,7 @@ Sie können beispielsweise diesen Code aufrufen, um ein neues Attribut festzuleg
 ### Anonyme Anmeldung
 {: #anonymous notoc}
 
-Mit {{site.data.keyword.appid_short_notm}} können Sie sich [anonym](/docs/services/appid/user-profile.html#anonymous) anmelden.
+Mit {{site.data.keyword.appid_short_notm}} können Sie sich [anonym](/docs/services/appid/user-profile.html#anonymous) anmelden. 
 
   ```java
   appId.loginAnonymously(getApplicationContext(), new AuthorizationListener() {
@@ -204,7 +204,7 @@ Benutzer mit einem anonymen Zugriffstoken können identifiziert werden, indem es
   ```
   {:pre}
 
-Nach einer anonymen Anmeldung tritt eine progressive Authentifizierung auf, sogar wenn das Anmelde-Widget aufgerufen wird, ohne dass dabei ein Zugriffstoken übergeben wird. Grund hierfür ist, dass der Service das zuletzt empfangene Token verwendet. Führen Sie den folgenden Befehl aus, um gespeicherte Token zu löschen:
+Nach einer anonymen Anmeldung tritt eine progressive Authentifizierung auf, sogar wenn das Anmelde-Widget aufgerufen wird, ohne dass dabei ein Zugriffstoken übergeben wird. Grund hierfür ist, dass der Service das zuletzt empfangene Token verwendet. Führen Sie den folgenden Befehl aus, um gespeicherte Token zu löschen. 
 
   ```java
   	appIDAuthorizationManager = new AppIDAuthorizationManager(this.appId);

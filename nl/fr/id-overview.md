@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-04-17"
+lastupdated: "2017-06-12"
 
 ---
 
@@ -19,9 +19,15 @@ Les fournisseurs d'identité sont utilisés pour fournir une authentification à
 
 Vous pouvez utiliser les fournisseurs d'identité suivants dans vos applications mobiles et Web :
 
-* **Facebook** - Vos utilisateurs se connectent à l'application mobile ou Web avec leurs données d'identification Facebook.
-* **Google** -  Vos utilisateurs se connectent à l'application mobile ou Web avec leurs données d'identification Google+.
-<!--* **Custom** - Bring your own identity provider. The identity providers should be compliant with OIDC. -->
+* **Facebook** - Vos utilisateurs se connectent à des
+applications mobiles ou Web avec leurs données d'identification Facebook.
+* **Google** -  Vos utilisateurs se connectent à des
+applications
+mobiles ou Web avec leurs données d'identification Google+.
+* **IBMid** - Vos utilisateurs se connectent à des applications
+BlueID avec leurs données d'identification IBMid.
+
+
 
 ## Utilisation de la configuration par défaut
 {: #default-configuration}

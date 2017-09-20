@@ -2,7 +2,7 @@
 
 copyright:
   years:  2017
-lastupdated: "2017-04-17"
+lastupdated: "2017-05-08"
 
 ---
 {:new_window: target="_blank"}
@@ -27,7 +27,7 @@ Per utilizzare {{site.data.keyword.appid_short_notm}} con un ambiente di svilupp
 * APIStrategy: `oauthServerUrl`
 * WebAppStrategy: tenantId, clientId, secret, oauthServerUrl, redirectUri
 
-Imposta il tuo attributo 'redirectUri' nella tua porta dell'applicazione localhost con il percorso di callback, ad es.: `http://localhost:<port>/callback`. L'endpoint di callback termina con il processo di autorizzazione.
+Imposta il tuo attributo 'redirectUri' nella tua porta dell'applicazione localhost con il percorso di callback. Ad esempio: `http://localhost:<port>/callback`. L'endpoint di callback termina con il processo di autorizzazione.
 
 Per ottenere le tue credenziali del servizio, completa la seguente procedura:
 

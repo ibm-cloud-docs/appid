@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-04-17"
+lastupdated: "2017-06-12"
 
 ---
 
@@ -14,7 +14,7 @@ lastupdated: "2017-04-17"
 # 设置样本应用程序和 SDK
 {: #developing}
 
-创建 {{site.data.keyword.appid_short}} 服务后，可以使用仪表板来下载 Android、iOS 和 Node.js 的样本应用程序。
+创建 {{site.data.keyword.appid_short}} 服务实例后，可以使用仪表板来下载 Android、iOS 和 Node.js 的样本应用程序。
 
 1. 单击要开发的 {{site.data.keyword.appid_short_notm}} 实例。
 2. 按照仪表板上的指示信息开始使用逐步样本。

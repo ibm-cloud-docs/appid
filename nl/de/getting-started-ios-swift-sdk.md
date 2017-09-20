@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-04-17"
+lastupdated: "2017-06-12"
 
 ---
 
@@ -57,8 +57,8 @@ Sie benötigen die folgenden Informationen:
 Das {{site.data.keyword.appid_short_notm}}-Client-SDK wird mit CocoaPods verteilt, einem Abhängigkeitenmanager für Swift- und Objective-C Cocoa-Projekte. CocoaPods lädt Artefakte herunter und stellt sie für Ihr Projekt zur Verfügung.
 
 1. Erstellen Sie ein Xcode-Projekt oder öffnen Sie ein vorhandenes Projekt.
-2. Öffnen oder erstellen Sie die Podfile im Projektverzeichnis.
-3. Fügen Sie unter dem Ziel Ihres Projekts eine Abhängigkeit für 'BluemixAppID' Pod hinzu. Stellen Sie sicher, dass sich der Befehl `use_frameworks!` auch unter dem Ziel befindet.
+2. Öffnen oder erstellen Sie die Podfile im Projektverzeichnis. 
+3. Fügen Sie unter dem Ziel Ihres Projekts eine Abhängigkeit für den Pod 'BluemixAppID' hinzu. Stellen Sie sicher, dass sich der Befehl `use_frameworks!` auch unter dem Ziel befindet.
 
   Beispiel:
 
@@ -70,7 +70,7 @@ Das {{site.data.keyword.appid_short_notm}}-Client-SDK wird mit CocoaPods verteil
   ```
   {:pre}
 
-4. Um die `BluemixAppID`-Abhängigkeit herunterzuladen, führen Sie den folgenden Befehl aus:
+4. Führen Sie den folgenden Befehl aus, um die Abhängigkeit `BluemixAppID` herunterzuladen. 
 
   ```swift
   pod install --repo-update
@@ -78,13 +78,13 @@ Das {{site.data.keyword.appid_short_notm}}-Client-SDK wird mit CocoaPods verteil
   {:pre}
 
 6. Öffnen Sie Ihr Xcode-Projekt und aktivieren Sie das Keychain-Sharing. Klicken Sie in **Projekteinstellungen** auf **Funktionen** > **Keychain-Sharing**.
-7. Fügen Sie unter **Projekteinstellungen** > **Info** > **URL-Typen** einen URL-Typ hinzu. Tragen Sie sowohl in das Textfeld **ID** als auch **URL-Schema** diesen Wert ein: $(PRODUCT_BUNDLE_IDENTIFIER)
+7. Fügen Sie unter **Projekteinstellungen** > **Info** > **URL-Typen** einen URL-Typ hinzu. Geben Sie in die Textfelder **ID** und **URL-Schema** den Wert $(PRODUCT_BUNDLE_IDENTIFIER) ein. 
 
 
 ## Client-SDK initialisieren
 {: #initialize-client-sdk}
 
-1. Fügen Sie den folgenden Import zu Ihrer Datei `AppDelegate.swift` hinzu:
+1. Fügen Sie den folgenden Import zur Datei `AppDelegate.swift` hinzu. 
 
   ```swift
   import BluemixAppID
@@ -113,7 +113,7 @@ Das {{site.data.keyword.appid_short_notm}}-Client-SDK wird mit CocoaPods verteil
 ## Benutzer über das Anmelde-Widget authentifizieren
 {: #authenticate-login}
 
-Nach der Initialisierung des {{site.data.keyword.appid_short_notm}}-Client-SDK können Sie Benutzer authentifizieren, indem Sie das Anmelde-Widget ausführen. Die Standardkonfiguration des Anmelde-Widgets verwendet Facebook, Google oder beides als Authentifizierungsoption. Wenn Sie nur Facebook oder Google konfigurieren, wird das Anmelde-Widget nicht gestartet und der Benutzer wird zur konfigurierten IDP-Authentifizierungsanzeige umgeleitet.
+Nach der Initialisierung des {{site.data.keyword.appid_short_notm}}-Client-SDK können Sie Benutzer authentifizieren, indem Sie das Anmelde-Widget ausführen. Von der Standardkonfiguration des Anmelde-Widgets werden Facebook und Google als Authentifizierungsoptionen verwendet. Wenn Sie nur einen Identitätsprovider konfigurieren, wird das Anmelde-Widget nicht gestartet und der Benutzer wird zur konfigurierten IDP-Authentifizierungsanzeige umgeleitet. 
 
 
 
@@ -148,7 +148,7 @@ Nach der Initialisierung des {{site.data.keyword.appid_short_notm}}-Client-SDK k
 ## Auf Benutzerattribute zugreifen
 {: #accessing}
 
-Wenn Sie ein Zugriffstoken anfordern, können Sie Zugriff auf den Endpunkt der geschützten Benutzerattribute zugreifen. Sie können Zugriff durch die folgenden API-Methoden erhalten:
+Wenn Sie ein Zugriffstoken anfordern, können Sie Zugriff auf den Endpunkt der geschützten Benutzerattribute zugreifen. Sie können Zugriff durch die folgenden API-Methoden erhalten. 
 
   ```swift
   func setAttribute(key: String, value: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
@@ -167,7 +167,7 @@ Wenn Sie ein Zugriffstoken anfordern, können Sie Zugriff auf den Endpunkt der g
 
 Wenn ein Zugriffstoken nicht explizit übergeben wird, verwendet {{site.data.keyword.appid_short_notm}} das zuletzt empfangene Token.
 
-Sie können beispielsweise diesen Code aufrufen, um ein neues Attribut festzulegen oder ein vorhandenes Attribut zu überschreiben:
+Sie können beispielsweise diesen Code aufrufen, um ein neues Attribut festzulegen oder ein vorhandenes Attribut zu überschreiben. 
 
   ```swift
   AppID.sharedInstance.userAttributeManager?.setAttribute("key", "value", completionHandler: { (error, result) in
@@ -184,7 +184,7 @@ Sie können beispielsweise diesen Code aufrufen, um ein neues Attribut festzuleg
 ### Anonyme Anmeldung
 {: #anonymous notoc}
 
-Mit {{site.data.keyword.appid_short_notm}} können Sie sich [anonym](/docs/services/appid/user-profile.html#anonymous) anmelden.
+Mit {{site.data.keyword.appid_short_notm}} können Sie sich [anonym](/docs/services/appid/user-profile.html#anonymous) anmelden. 
 
   ```swift
   class delegate : AuthorizationDelegate {
@@ -209,14 +209,14 @@ Mit {{site.data.keyword.appid_short_notm}} können Sie sich [anonym](/docs/servi
 ### Progressive Authentifizierung
 {: #progressive notoc}
 
-Benutzer mit einem anonymen Zugriffstoken können identifiziert werden, indem es der Methode 'loginWidget.launch' übergeben wird:
+Benutzer mit einem anonymen Zugriffstoken können identifiziert werden, indem es der Methode `loginWidget.launch` übergeben wird. 
 
   ```swift
   func launch(accessTokenString: String? , delegate: AuthorizationDelegate)
   ```
   {:pre}
 
-Nach einer anonymen Anmeldung tritt eine progressive Authentifizierung auf, sogar wenn das Anmelde-Widget aufgerufen wird, ohne dass dabei ein Zugriffstoken übergeben wird. Grund hierfür ist, dass der Service das zuletzt empfangene Token verwendet. Führen Sie den folgenden Befehl aus, um gespeicherte Token zu löschen:
+Nach einer anonymen Anmeldung tritt eine progressive Authentifizierung auf, sogar wenn das Anmelde-Widget aufgerufen wird, ohne dass dabei ein Zugriffstoken übergeben wird. Grund hierfür ist, dass der Service das zuletzt empfangene Token verwendet. Führen Sie den folgenden Befehl aus, um gespeicherte Token zu löschen. 
 
   ```swift
   var appIDAuthorizationManager = AppIDAuthorizationManager(appid: AppID.sharedInstance)

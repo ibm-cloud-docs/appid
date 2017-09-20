@@ -1,7 +1,8 @@
 ---
 
 copyright:
-  years: 2017 lastupdated: "2017-04-17"
+  years: 2017
+lastupdated: "2017-06-12"
 
 ---
 
@@ -37,8 +38,7 @@ Se um token for inválido ou estiver expirado, a estratégia de API retornará u
 scope="{scope}" error="{error}". O componente `error` é opcional.
 
 Se a solicitação retornar um token válido, o controle será transmitido para o próximo middleware e a propriedade `appIdAuthorizationContext`
-será injetada no objeto de solicitação. Essa propriedade contém acesso e tokens de identidade originais, bem como informações de carga útil decodificadas como simples
-objetos da JSON.
+será injetada no objeto de solicitação. Essa propriedade contém tokens de acesso e identidade originais, além de informações de carga útil decodificadas como objetos JSON simples.
 
 
 ### Estratégia de aplicativo da web

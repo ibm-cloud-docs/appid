@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-04-17"
+lastupdated: "2017-06-12"
 
 ---
 
@@ -15,7 +15,7 @@ lastupdated: "2017-04-17"
 # Come funziona
 {: #about}
 
-Puoi imparare ulteriori informazioni sui componenti, l'architettura e il flusso della richiesta che {{site.data.keyword.appid_short_notm}} utilizza.
+Puoi imparare ulteriori informazioni sui componenti, l'architettura e il flusso della richiesta che {{site.data.keyword.appid_full}} utilizza.
 {:shortdesc}
 
 
@@ -48,7 +48,7 @@ Con {{site.data.keyword.appid_short_notm}} puoi aggiungere un livello di sicurez
 
 Il seguente diagramma mostra una panoramica su come il servizio {{site.data.keyword.appid_short_notm}} funziona.
 
-![Diagramma architettura {{site.data.keyword.appid_short_notm}}](/images/appid_architecture2.png)
+![{{site.data.keyword.appid_short_notm}} diagramma architettura](/images/appid_architecture2.png)
 
 Figura 1. Diagramma architettura {{site.data.keyword.appid_short_notm}}
 
@@ -58,7 +58,7 @@ Figura 1. Diagramma architettura {{site.data.keyword.appid_short_notm}}
   <dt> Bluemix </dt>
     <dd>  L'SDK server estrae il token di accesso dalla richiesta e lo convalida con {{site.data.keyword.appid_short_notm}}. Dopo una corretta autenticazione, {{site.data.keyword.appid_short_notm}} restituisce i token di identità e autorizzazione alla tua applicazione. </dd>
   <dt> Provider di identità </dt>
-    <dd> Puoi configurare Facebook, Google o entrambi per autenticare le tue applicazioni. </dd>
+    <dd> Puoi configurare Facebook, Google, ID IBM o una loro combinazione per autenticare le tue applicazioni.  </dd>
 </dl>
 
 
@@ -67,15 +67,16 @@ Figura 1. Diagramma architettura {{site.data.keyword.appid_short_notm}}
 
 Il seguente diagramma descrive in che modo una richiesta fluisce dall'SDK client ai tuoi provider di identità e all'applicazione di back-end.
 
-![Flusso della richiesta {{site.data.keyword.appid_short_notm}}](/images/appidflow.png)
+![{{site.data.keyword.appid_short_notm}} flusso richiesta](/images/appidflow.png)
 
+Figura 2. Flusso richiesta ID applicazione
 
 * Usa l'SDK client {{site.data.keyword.appid_short_notm}} per effettuare una richiesta alle tue risorse di back-end protette con l'SDK server {{site.data.keyword.appid_short_notm}}.
 * L'SDK server {{site.data.keyword.appid_short_notm}} rileva una richiesta non autorizzata e restituisce il codice HTTP 401 e l'ambito di autorizzazione.
 * L'SDK client rileva automaticamente l'HTTP 401 e avvia il processo di autenticazione.
 * Quando l'SDK client contatta il servizio, l'SDK server restituisce il widget di accesso se è configurato più di un provider di identità. {{site.data.keyword.appid_short_notm}} richiama il provider di identità e presenta il modulo di accesso per tale provider o restituisce un codice concesso che permette l'autenticazione se non è stato configurato alcun provider di identità.
 * {{site.data.keyword.appid_short_notm}} chiede all'applicazione client di autenticarsi fornendo una richiesta di verifica dell'autenticazione.
-* Se sono configurati Facebook o Google e l'utente accede, l'autenticazione viene gestita dal flusso OAuth del provider di identità corrispondente.
-* Se l'autenticazione termina con lo stesso codice concesso, il codice viene inviato all'endpoint del token. L'endpoint restituisce due token: un token di accesso e un token di identità. Da questo punto in avanti, tutte le richieste effettuate con l'SDK client hanno un'intestazione di autorizzazione di nuova acquisizione.
+* Se è stato configurato un provider di identità e l'utente accede, l'autenticazione viene gestita dal flusso OAuth corrispondente.
+* Se l'autenticazione termina con lo stesso codice concesso, il codice viene inviato all'endpoint del token. L'endpoint restituisce due token: un token di accesso e un token di identità. Da questo punto in avanti, tutte le richieste effettuate con l'SDK client hanno un'intestazione di autorizzazione di nuova acquisizione. 
 * L'SDK client reinvia automaticamente la richiesta originale che ha attivato il flusso di autorizzazione.
 * L'SDK server estrae l'intestazione di autorizzazione dalla richiesta, convalida l'intestazione con il servizio e concede l'accesso a una risorsa di back-end.

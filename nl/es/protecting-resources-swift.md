@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-04-17"
+lastupdated: "2017-05-08"
 
 ---
 
@@ -46,7 +46,7 @@ Puede utilizar el SDK del servidor de {{site.data.keyword.appid_short}} para pro
 ## Protección de recursos en Swift
 {: #protecting}
 
-El SDK de Swift proporciona plugins de credenciales de Kitura que se utilizan para proteger aplicaciones web. Al utilizar este plugin, un cliente no autenticado recibe una respuesta HTTP 302. El cliente es redirigido a la página de inicio de sesión que aloja {{site.data.keyword.appid_short_notm}} o a la página de inicio de sesión del proveedor de identidad, en función de la configuración.
+El SDK de Swift proporciona un plugin de credenciales de Kitura que se utiliza para proteger aplicaciones web. Cuando utiliza este plugin, un cliente no autenticado recibe una respuesta HTTP 302. El cliente es redirigido a la página de inicio de sesión que aloja {{site.data.keyword.appid_short_notm}} o a la página de inicio de sesión del proveedor de identidad, en función de la configuración.
 
 
 
@@ -55,7 +55,7 @@ El SDK de Swift proporciona plugins de credenciales de Kitura que se utilizan pa
 
 WebAppKituraCredentialsPlugin se basa en el flujo de concesión authorization_code de OAuth2 y debe utilizarse para aplicaciones web que usan navegadores. El plugin proporciona herramientas para implementar flujos de autorización y autenticación. El plugin también proporciona mecanismos para detectar intentos no autenticados de acceder a los recursos protegidos y redirige automáticamente el navegador de un usuario a una página de autenticación. Tras la correcta autenticación, se conduce al usuario al URL de devolución de llamada de la aplicación web, que utiliza el plugin para obtener señales de acceso e identidad de {{site.data.keyword.appid_short_notm}}. Después de obtener estas señales, el plugin las almacena en una sesión HTTP bajo WebAppKituraCredentialsPlugin.AuthContext.
 
-El código siguiente muestra cómo utilizar WebAppKituraCredentialsPlugin en una aplicación Kitura para proteger el /punto final protegido.
+El código siguiente muestra cómo utilizar WebAppKituraCredentialsPlugin en una aplicación Kitura para proteger el punto final `/protegido`.
 
   ```swift
   import Foundation

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-04-17"
+lastupdated: "2017-05-08"
 
 ---
 
@@ -35,7 +35,7 @@ Sie können das {{site.data.keyword.appid_short}}-Server-SDK verwenden, um Resso
   ```swift
   import PackageDescription
 
-let package = Package(
+  let package = Package(
       dependencies: [
           .Package(url: "https://github.com/ibm-cloud-security/appid-serversdk-swift.git", majorVersion: 1)
       ]
@@ -46,7 +46,7 @@ let package = Package(
 ## Ressourcen in Swift schützen
 {: #protecting}
 
-Das Swift-SDK stellt Kitura Credential Plug-ins bereit, das zum Schützen von Webanwendungen verwendet wird. Wenn Sie dieses Plug-in verwenden, empfängt ein nicht authentifizierter Client eine HTTP 302-Antwort. Der Client wird je nach Konfiguration zur Anmeldeseite, die von {{site.data.keyword.appid_short_notm}} gehostet wird, oder zur Anmeldeseite des Identitätsproviders umgeleitet.
+Mit dem Swift-SDK wird ein Kitura Credential-Plug-in bereitgestellt, das zum Schützen von Webanwendungen verwendet wird. Wenn Sie dieses Plug-in verwenden, empfängt ein nicht authentifizierter Client eine HTTP 302-Antwort. Der Client wird je nach Konfiguration zur Anmeldeseite, die von {{site.data.keyword.appid_short_notm}} gehostet wird, oder zur Anmeldeseite des Identitätsproviders umgeleitet.
 
 
 
@@ -55,7 +55,7 @@ Das Swift-SDK stellt Kitura Credential Plug-ins bereit, das zum Schützen von We
 
 Das WebAppKituraCredentialsPlugin basiert auf dem Grant-Ablauf des OAuth2-Berechtigungscodes und muss für Webanwendungen verwendet werden, die Browser nutzen. Das Plug-in enthält Tools, um Authentifizierungs- und Berechtigungsabläufe zu implementieren. Das Plug-in stellt außerdem Mechanismen zur Verfügung, um nicht authentifizierte Versuche aufzudecken, auf geschützte Ressourcen zuzugreifen, und leitet einen Benutzerbrowser zur Authentifizierungsseite weiter. Nach einer erfolgreichen Authentifizierung wird der Benutzer zur Callback-URL der Webanwendung weitergeleitet, die das Plug-in verwendet, um Zugriff und Identitätstoken von {{site.data.keyword.appid_short_notm}} zu erhalten. Nach Erhalt dieser Token werden diese vom Plug-in in einer HTTP-Sitzung unter WebAppKituraCredentialsPlugin.AuthContext gespeichert.
 
-Der folgende Code demonstriert, wie WebAppKituraCredentialsPlugin in einer Kitura-Anwendung verwendet wird, um den Endpunkt '/protected' zu schützen.
+Der folgende Code demonstriert, wie WebAppKituraCredentialsPlugin in einer Kitura-Anwendung verwendet wird, um den Endpunkt `/protected` zu schützen. 
 
   ```swift
   import Foundation
@@ -65,7 +65,7 @@ Der folgende Code demonstriert, wie WebAppKituraCredentialsPlugin in einer Kitur
   import SwiftyJSON
   import BluemixAppID
 
-// Folgende URLs werden für AppID OAuth-Abläufe genutzt
+  // Folgende URLs werden für AppID OAuth-Abläufe genutzt
   var LOGIN_URL = "/ibm/bluemix/appid/login"
   var CALLBACK_URL = "/ibm/bluemix/appid/callback"
   var LOGOUT_URL = "/ibm/bluemix/appid/logout"

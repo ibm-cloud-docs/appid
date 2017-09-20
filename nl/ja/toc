@@ -1,9 +1,10 @@
+<!-- Markdown Navigation -->
+
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
 {: .toc subcollection="appid" audience="service" href="/docs/services/appid/index.html"}
-App ID
-
+App ID 
     {: .navgroup id="learn"}
     index.md
 
@@ -14,14 +15,6 @@ App ID
         access-identity.md
         authorization-resources.md
         user-profile.md
-
-    {: .topicgroup}
-    ビデオ
-        [App ID の説明](https://www.youtube.com/watch?v=cTn7l_J3tPg)
-
-    {: .topicgroup}
-    ブログ
-        [APP ID の概要](https://www.ibm.com/blogs/bluemix/2017/03/introducing-ibm-bluemix-app-id-authentication-profiles-service-app-developers/)
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
@@ -33,9 +26,13 @@ App ID
         [iOS Swift Client SDK](https://github.com/ibm-cloud-security/appid-clientsdk-swift)
         [Node.js Server SDK](https://github.com/ibm-cloud-security/appid-serversdk-nodejs)
         [Swift Server SDK](https://github.com/ibm-cloud-security/appid-serversdk-swift)
+
+    relatedlinks.md
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
+    existing.md
+
     {: .topicgroup}
     SDK とサンプル・アプリのセットアップ
         developing-apps.md
@@ -47,8 +44,7 @@ App ID
     login-widget.md
 
     {: .topicgroup}
-    リソースの保護
-        protecting-resources.md
+    リソースの保護        protecting-resources.md
         protecting-resources-nodejs.md
         protecting-resources-swift.md
     {: .navgroup-end}

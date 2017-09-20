@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-04-17"
+lastupdated: "2017-06-12"
 
 ---
 
@@ -55,7 +55,7 @@ lastupdated: "2017-04-17"
 {{site.data.keyword.appid_short_notm}} Client SDK には、Swift プロジェクトと Objective-C Cocoa プロジェクト用の従属関係マネージャーである CocoaPods が付属しています。CocoaPods は成果物をダウンロードし、プロジェクトで使用できるようにします。
 
 1. Xcode プロジェクトを作成するか、既存のプロジェクトを開きます。
-2. プロジェクトのディレクトリー内の Podfile を開くか、このディレクトリー内に Podfile を作成します。
+2. プロジェクトのディレクトリー内の podfile を開くか、このディレクトリー内に podfile を作成します。
 3. プロジェクトのターゲットの下に、「BluemixAppID」Pod の従属関係を追加します。ターゲットの下に `use_frameworks!` コマンドもあることを確認します。
   
 
@@ -112,7 +112,7 @@ lastupdated: "2017-04-17"
 ## ログイン・ウィジェットを使用したユーザーの認証
 {: #authenticate-login}
 
-{{site.data.keyword.appid_short_notm}} Client SDK が初期化されたら、ログイン・ウィジェットを実行してユーザーを認証できるようになります。ログイン・ウィジェットのデフォルト構成では、認証オプションとして Facebook、Google、またはその両方が使用されます。一方だけを構成した場合、ログイン・ウィジェットは起動せずに、ユーザーは構成済みの IDP 認証画面にリダイレクトされます。
+{{site.data.keyword.appid_short_notm}} Client SDK が初期化されたら、ログイン・ウィジェットを実行してユーザーを認証できるようになります。ログイン・ウィジェットのデフォルト構成では、認証オプションとして Facebook と Google が使用されます。一方の ID プロバイダーのみを構成した場合、ログイン・ウィジェットは開始せず、ユーザーは構成済みの IDP 認証画面にリダイレクトされます。
 
 
 
@@ -184,6 +184,7 @@ lastupdated: "2017-04-17"
 
   ```swift
   class delegate : AuthorizationDelegate {
+
       public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, response:Response?) {
           //ユーザーの認証
       }
@@ -204,7 +205,7 @@ lastupdated: "2017-04-17"
 ### 段階的な認証
 {: #progressive notoc}
 
-匿名のアクセス・トークンを保持している場合、このトークンを loginWidget.launch メソッドに渡すと、ユーザーを識別済みのユーザーにすることができます。
+匿名のアクセス・トークンを保持している場合、このトークンを `loginWidget.launch` メソッドに渡すと、ユーザーを識別済みのユーザーにすることができます。
 
   ```swift
   func launch(accessTokenString: String? , delegate: AuthorizationDelegate)

@@ -1,7 +1,8 @@
 ---
 
 copyright:
-  years: 2017 lastupdated: "2017-04-17"
+  years: 2017
+lastupdated: "2017-06-12"
 
 ---
 {:new_window: target="_blank"}
@@ -24,7 +25,6 @@ de serviço {{site.data.keyword.appid_short_notm}}.
 empresa.
 3. Faça upload do logotipo da sua empresa selecionando um arquivo PNG ou JPG em seu sistema local. O tamanho da imagem recomendado é 320 x 320 pixels. O tamanho máximo do arquivo é 100 Kb.
 4. Selecione uma cor de cabeçalho para o widget no selecionador de cor ou insira o código hexadecimal para outra cor.
-5. Inspecione a área de janela de visualização à direita da tela e clique em **Salvar mudanças** quando estiver satisfeito com as suas
-customizações. Uma mensagem de confirmação será exibida.
+5. Inspecione a área de janela de visualização e clique em **Salvar mudanças** quando estiver satisfeito com as suas customizações. Uma mensagem de confirmação será exibida.
 
 Não é necessário reconstruir o seu aplicativo. A imagem é armazenada no banco de dados do {{site.data.keyword.appid_short}} e é exibida no próximo login.

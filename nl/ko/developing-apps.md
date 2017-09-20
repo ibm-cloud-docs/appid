@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-04-17"
+lastupdated: "2017-06-12"
 
 ---
 
@@ -14,7 +14,7 @@ lastupdated: "2017-04-17"
 # 샘플 앱 및 SDK 설정
 {: #developing}
 
-{{site.data.keyword.appid_short}} 서비스를 작성한 후에 대시보드를 사용하여 Android, iOS 및 Node.js에 대한 샘플 앱을 다운로드할 수 있습니다.
+{{site.data.keyword.appid_short}} 서비스의 인스턴스를 작성한 후에 대시보드를 사용하여 Android, iOS 및 Node.js용 샘플 앱을 다운로드할 수 있습니다.
 
 1. 개발하려는 {{site.data.keyword.appid_short_notm}}의 인스턴스를 클릭하십시오.
 2. 대시보드에서 지시사항을 따라서 단계별 샘플을 시작하십시오.

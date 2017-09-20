@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-04-17"
+lastupdated: "2017-06-12"
 
 ---
 
@@ -57,7 +57,7 @@ lastupdated: "2017-04-17"
 {{site.data.keyword.appid_short_notm}} 用戶端 SDK 是使用 CocoaPods（Swift 及 Objective-C Cocoa 專案的相依關係管理程式）進行配送。CocoaPods 會下載構件，並讓它們可供您的專案使用。
 
 1. 建立 Xcode 專案，或開啟現有專案。
-2. 在專案的目錄中，開啟或建立 Podfile。
+2. 在專案的目錄中，開啟或建立 podfile。
 3. 在專案的目標下，新增 'BluemixAppID' 欄的相依關係。請確定，您的目標下也有 `use_frameworks!` 指令。
   
 
@@ -71,7 +71,7 @@ lastupdated: "2017-04-17"
   ```
   {:pre}
 
-4. 若要下載 `BluemixAppID` 相依關係，請執行下列指令：
+4. 若要下載 `BluemixAppID` 相依關係，請執行下列指令。
 
   ```swift
   pod install --repo-update
@@ -85,7 +85,7 @@ lastupdated: "2017-04-17"
 ## 起始設定用戶端 SDK
 {: #initialize-client-sdk}
 
-1. 將下列 import 新增至 `AppDelegate.swift` 檔案：
+1. 將下列 import 新增至 `AppDelegate.swift` 檔案。
 
   ```swift
   import BluemixAppID
@@ -114,7 +114,7 @@ lastupdated: "2017-04-17"
 ## 使用登入小組件鑑別使用者
 {: #authenticate-login}
 
-起始設定 {{site.data.keyword.appid_short_notm}} 用戶端 SDK 之後，即可執行登入小組件來鑑別使用者。登入小組件預設配置會使用 Facebook 及（或）Google 作為鑑別選項。如果您只配置其中一個，不會啟動登入小組件，並且會將使用者重新導向至已配置的 IDP 鑑別畫面。
+起始設定 {{site.data.keyword.appid_short_notm}} 用戶端 SDK 之後，即可執行登入小組件來鑑別使用者。登入小組件預設配置會使用 Facebook 及 Google 作為鑑別選項。如果您只配置一個身分提供者，不會啟動登入小組件，並且會將使用者重新導向至已配置的 IDP 鑑別畫面。
 
 
 
@@ -129,6 +129,7 @@ lastupdated: "2017-04-17"
 
   ```swift
   class delegate : AuthorizationDelegate {
+
       public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, response:Response?) {
           //User authenticated
       }
@@ -149,7 +150,7 @@ lastupdated: "2017-04-17"
 ## 存取使用者屬性
 {: #accessing}
 
-取得存取記號時，即可存取使用者保護的屬性端點。使用下列 API 方法，即可完成這項作業：
+取得存取記號時，即可存取使用者保護的屬性端點。使用下列 API 方法，即可完成這項作業。
 
   ```swift
   func setAttribute(key: String, value: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
@@ -165,7 +166,7 @@ lastupdated: "2017-04-17"
 
 若未明確地傳遞存取記號，{{site.data.keyword.appid_short_notm}} 會使用最後一個收到的記號。
 
-例如，您可以呼叫此程式碼來設定新屬性，或置換現有屬性：
+例如，您可以呼叫下列程式碼來設定新屬性，或置換現有屬性。
 
   ```swift
   AppID.sharedInstance.userAttributeManager?.setAttribute("key", "value", completionHandler: { (error, result) in
@@ -186,6 +187,7 @@ lastupdated: "2017-04-17"
 
   ```swift
   class delegate : AuthorizationDelegate {
+
       public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, response:Response?) {
           //User authenticated
       }
@@ -206,14 +208,14 @@ lastupdated: "2017-04-17"
 ### 漸進鑑別
 {: #progressive notoc}
 
-當您保留匿名存取記號時，使用者可以變成已識別的使用者，方法是將它傳遞給 loginWidget.launch 方法：
+當您保留匿名存取記號時，使用者可以變成已識別的使用者，方法是將它傳遞給 `loginWidget.launch` 方法。
 
   ```swift
   func launch(accessTokenString: String? , delegate: AuthorizationDelegate)
   ```
   {:pre}
 
-匿名登入之後，即使因服務已使用最後一個收到的記號而在未傳遞存取記號的情況下呼叫登入小組件，還是會進行漸進鑑別。如果您要清除儲存的記號，請執行下列指令：
+匿名登入之後，即使因服務已使用最後一個收到的記號而在未傳遞存取記號的情況下呼叫登入小組件，還是會進行漸進鑑別。如果您要清除儲存的記號，請執行下列指令。
 
   ```swift
   var appIDAuthorizationManager = AppIDAuthorizationManager(appid: AppID.sharedInstance)

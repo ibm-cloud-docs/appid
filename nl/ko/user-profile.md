@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-04-17"
+lastupdated: "2017-06-12"
 
 ---
 
@@ -13,7 +13,7 @@ lastupdated: "2017-04-17"
 # 사용자 프로파일 개요
 {: #user-profile}
 
-사용자 프로파일은 {{site.data.keyword.appid_short}}에서 저장하고 유지보수하는 엔티티입니다. 프로파일에는 사용자의 속성과 ID가 있으며 익명이거나 ID 제공자가 관리하는 ID에 링크할 수 있습니다.
+사용자 프로파일은 {{site.data.keyword.appid_full}}에서 저장하고 유지보수하는 엔티티입니다. 프로파일에는 사용자의 속성과 ID가 있으며 익명이거나 ID 제공자가 관리하는 ID에 링크할 수 있습니다.
 {:shortdesc}
 
 {{site.data.keyword.appid_short_notm}}는 익명으로 또는 OIDC(OpenId Connect) [ID 제공자](/docs/services/appid/identity-providers.html#setting-up-idp)로 인증하여 로그인을 위한 API를 제공합니다. 사용자 프로파일 속성 API 엔드포인트는 로그인 및 권한 부여 프로세스 중에 {{site.data.keyword.appid_short_notm}}에서 생성된 액세스 토큰이 보호하는 리소스입니다.
@@ -22,17 +22,13 @@ lastupdated: "2017-04-17"
 ## 사용자 속성 저장, 읽기 및 삭제
 {: #storing-data}
 
-{{site.data.keyword.appid_short_notm}}는 <a href="https://github.com/ibm-cloud-security/appid-clientsdk-android" target="_blank">Android
-<img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a> 및 <a href="https://github.com/ibm-cloud-security/appid-clientsdk-swift" target="_blank">Swift
-<img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a> 모바일 클라이언트용 SDK 뿐만 아니라 사용자 속성에서 CRUD 오퍼레이션을 수행하기 위한
-<a href="https://appid-profiles.ng.bluemix.net/swagger-ui/index.html#/" target="_blank">REST API <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>을
-제공합니다. 
+{{site.data.keyword.appid_short_notm}}는 사용자의 속성에서 작성, 검색, 업데이트 및 삭제 오퍼레이션을 수행하기 위해 <a href="https://appid-profiles.ng.bluemix.net/swagger-ui/index.html#/Attributes" target="_blank">REST API <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>을 제공합니다. 또한, 서비스는 <a href="https://github.com/ibm-cloud-security/appid-clientsdk-android" target="_blank">Android <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a> 및 <a href="https://github.com/ibm-cloud-security/appid-clientsdk-swift" target="_blank">Swift <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a> 모바일 클라이언트에 SDK를 제공합니다. 
 
 
 ## OAuth ID
 {: #oauth}
 
-OAuth 로그인 API를 호출할 때 {{site.data.keyword.appid_short_notm}}에서는 OAuth 2.0 및 OIDC 프로토콜을 사용하여 선택된 ID 제공자로 호출자에게 권한을 부여하고 인증합니다. 일단 인증이 되면 ID는 {{site.data.keyword.appid_short_notm}} 사용자 레코드와 연관됩니다. {{site.data.keyword.appid_short_notm}}에서는 사용자의 속성에 액세스하는 데 사용할 수 있는 액세스 토큰 및 ID 제공자에서 제공하는 ID 정보가 들어 있는 ID 토큰을 리턴합니다. 이와 동일한 ID로 인증하는 클라이언트에서 동일한 사용자 레코드와 그 속성에 다시 액세스할 수 있습니다. 
+서비스가 OAuth 로그인 API를 호출할 때 {{site.data.keyword.appid_short_notm}}에서는 OAuth 2.0 및 OIDC 프로토콜을 사용하여 선택된 ID 제공자로 호출자에게 권한을 부여하고 인증합니다. 인증 후에는 ID가 {{site.data.keyword.appid_short_notm}} 사용자 레코드와 연관됩니다. {{site.data.keyword.appid_short_notm}}에서는 사용자의 속성에 액세스하는 데 사용할 수 있는 액세스 토큰 및 ID 제공자에서 제공하는 ID 정보가 들어 있는 ID 토큰을 리턴합니다. 이와 동일한 ID로 인증하는 클라이언트에서 동일한 사용자 레코드와 그 속성에 다시 액세스할 수 있습니다. 
 
 
 ## 익명 사용자

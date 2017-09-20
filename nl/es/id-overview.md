@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-04-17"
+lastupdated: "2017-06-12"
 
 ---
 
@@ -19,9 +19,10 @@ Los proveedores de identidad se utilizan para proporcionar autenticación a sus 
 
 Puede utilizar los siguientes proveedores de identidad en sus aplicaciones web y móviles:
 
-* **Facebook**: Los usuarios inician sesión en la app móvil o web con las credenciales de Facebook.
-* **Google**: Los usuarios inician sesión en la app móvil o web con las credenciales de Google+.
-<!--* **Custom** - Bring your own identity provider. The identity providers should be compliant with OIDC. -->
+* **Facebook**: Los usuarios inician sesión en las apps móvil o web con las credenciales de Facebook.
+* **Google**: Los usuarios inician sesión en las apps móvil o web con las credenciales de Google+.
+* **IBMid**: Los usuarios pueden iniciar sesión en las aplicaciones BlueID con sus credenciales de IBMid.
+
 
 ## Utilización de la configuración predeterminada
 {: #default-configuration}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-04-17"
+lastupdated: "2017-05-08"
 
 ---
 
@@ -46,7 +46,7 @@ lastupdated: "2017-04-17"
 ## Swift의 리소스 보호
 {: #protecting}
 
-Swift SDK는 웹 애플리케이션 보호에 사용되는 Kitura 신임 정보 플러그인을 제공합니다. 이 플러그인을 사용하는 경우 인증되지 않은 클라이언트가 HTTP 302 응답을 수신합니다. 클라이언트는 구성에 따라서 {{site.data.keyword.appid_short_notm}}에서 호스팅하는 로그인 페이지로 경로 재지정되거나 ID 제공자의 로그인 페이지로 경로 재지정됩니다. 
+Swift SDK는 웹 애플리케이션 보호에 사용되는 Kitura 신임 정보 플러그인을 제공합니다. 이 플러그인을 사용할 때 인증되지 않은 클라이언트는 HTTP 302 응답을 수신합니다. 클라이언트는 구성에 따라서 {{site.data.keyword.appid_short_notm}}에서 호스팅하는 로그인 페이지로 경로 재지정되거나 ID 제공자의 로그인 페이지로 경로 재지정됩니다. 
 
 
 
@@ -55,7 +55,7 @@ Swift SDK는 웹 애플리케이션 보호에 사용되는 Kitura 신임 정보 
 
 WebAppKituraCredentialsPlugin은 OAuth2 authorization_code 권한 부여 플로우를 기반으로 하며 브라우저를 사용하는 웹 애플리케이션에 사용해야 합니다. 플러그인은 권한 및 인증 플로우를 구현하기 위한 도구를 제공합니다. 또한, 플러그인은 보호된 리소스에 액세스하려는 인증되지 않은 시도를 발견하기 위한 메커니즘을 제공하며 사용자의 브라우저를 인증 페이지로 자동으로 경로 재지정합니다. 인증에 성공하면 사용자는 웹 애플리케이션의 콜백 URL로 이동하며 {{site.data.keyword.appid_short_notm}}에서 액세스 및 ID 토큰을 확보하기 위해 플러그인을 사용합니다. 해당 토큰을 확보한 후에 플러그인은 WebAppKituraCredentialsPlugin.AuthContext 아래의 HTTP 세션에 토큰을 저장합니다.
 
-다음 코드는 /protected 엔드포인트를 보호하기 위해 Kitura 애플리케이션에서 WebAppKituraCredentialsPlugin을 사용하는 방법을 보여줍니다. 
+다음 코드는 `/protected` 엔드포인트를 보호하기 위해 Kitura 애플리케이션에서 WebAppKituraCredentialsPlugin을 사용하는 방법을 보여줍니다. 
 
   ```swift
   import Foundation

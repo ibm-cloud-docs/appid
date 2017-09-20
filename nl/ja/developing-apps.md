@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-04-17"
+lastupdated: "2017-06-12"
 
 ---
 
@@ -14,7 +14,7 @@ lastupdated: "2017-04-17"
 # サンプル・アプリと SDK のセットアップ
 {: #developing}
 
-{{site.data.keyword.appid_short}} サービスを作成したら、ダッシュボードを使用して Android、iOS、Node.js 用のサンプル・アプリをダウンロードできます。
+{{site.data.keyword.appid_short}} サービスのインスタンスを作成した後、ダッシュボードを使用して Android、iOS、および Node.js 用のサンプル・アプリをダウンロードできます。
 
 1. 開発する {{site.data.keyword.appid_short_notm}} のインスタンスをクリックします。
 2. ダッシュボードの説明に従って、ステップバイステップのサンプルを開始します。

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-04-17"
+lastupdated: "2017-06-12"
 
 ---
 
@@ -21,7 +21,8 @@ lastupdated: "2017-04-17"
 
 * **Facebook** - 用户使用自己的 Facebook 凭证登录到移动或 Web 应用程序。
 * **Google** - 用户使用自己的 Google+ 凭证登录到移动或 Web 应用程序。
-<!--* **Custom** - Bring your own identity provider. The identity providers should be compliant with OIDC. -->
+* **IBM 标识** - 用户可以使用自己的 IBM 标识凭证登录到 BlueID 应用程序。
+
 
 ## 使用缺省配置
 {: #default-configuration}

@@ -2,7 +2,7 @@
 
 copyright:
   years:  2017
-lastupdated: "2017-04-17"
+lastupdated: "2017-05-08"
 
 ---
 {:new_window: target="_blank"}
@@ -27,7 +27,7 @@ lastupdated: "2017-04-17"
 * APIStrategy：`oauthServerUrl`
 * WebAppStrategy：tenantId、clientId、secret、oauthServerUrl、redirectUri
 
-請將 'redirectUri' 屬性設為具有回呼路徑的本端主機應用程式埠，亦即：`http://localhost:<port>/callback`。回呼端點會完成授權處理程序。
+請將 'redirectUri' 屬性設為具有回呼路徑的本端主機應用程式埠。例如：`http://localhost:<port>/callback`。回呼端點會完成授權處理程序。
 
 若要取得服務認證，請完成下列步驟：
 
@@ -105,7 +105,7 @@ request.send(this, new ResponseListener() {
 {: #swift}
 ```swift
 
- let baseRequestUrl = "http://localhost:<port>"; //set to your server running port
+let baseRequestUrl = "http://localhost:<port>"; //set to your server running port
  let tenantId = "your-AppID-service-tenantID"
  let region = AppID.REGION_UK; //set your App ID application region here. Currently possible values are AppID.REGION_US_SOUTH, AppID.REGION_SYDNEY, or AppID.REGION_UK.
 

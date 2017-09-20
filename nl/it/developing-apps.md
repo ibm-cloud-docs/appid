@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-04-17"
+lastupdated: "2017-06-12"
 
 ---
 
@@ -11,10 +11,10 @@ lastupdated: "2017-04-17"
 {:screen: .screen}
 {:pre: .pre}
 
-# Configurazione delle SDK e dell'applicazione di esempio 
+# Configurazione delle SDK e dell'applicazione di esempio
 {: #developing}
 
-Dopo aver creato il servizio {{site.data.keyword.appid_short}}, puoi scaricare le applicazioni di esempio per Android, iOS e Node.js utilizzando il dashboard.
+Dopo aver creato il servizio {{site.data.keyword.appid_short}}, puoi scaricare le applicazioni di esempio per Android, iOS e Node.js utilizzando il dashboard. 
 
 1. Fai clic sull'istanza di {{site.data.keyword.appid_short_notm}} che desideri sviluppare.
 2. Segui le istruzioni nel dashboard per un'introduzione all'esempio dettagliato.

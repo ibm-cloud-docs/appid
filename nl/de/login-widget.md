@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-04-17"
+lastupdated: "2017-06-12"
 
 ---
 {:new_window: target="_blank"}
@@ -23,6 +23,6 @@ Führen Sie die folgenden Schritte aus, um Ihr Anmelde-Widget anzupassen:
 2. Wählen Sie den Abschnitt **Anpassung der Anmeldung**, in dem Sie das Aussehen des Anmelde-Widgets an Ihre Unternehmensmarke anpassen können.
 3. Laden Sie Ihr Unternehmenslogo hoch. Wählen Sie dazu eine PNG- oder JPG von Ihrem lokalen System aus. Die empfohlene Bildgröße ist 320 x 320 Pixel. Die maximale Dateigröße ist 100 KB.
 4. Wählen Sie eine Headerfarbe für das Widget aus der Farbauswahl aus oder geben Sie den hexadezimalen Code für eine andere Farbe ein.
-5. Prüfen Sie das Aussehen im Vorschaubereich rechts und klicken Sie auf **Änderungen speichern**, wenn Sie mit den Anpassungen zufrieden sind. Eine Bestätigungsnachricht wird angezeigt.
+5. Prüfen Sie das Aussehen im Vorschaubereich und klicken Sie auf **Änderungen speichern**, wenn Sie mit den Anpassungen zufrieden sind. Eine Bestätigungsnachricht wird angezeigt.
 
 Sie müssen Ihre Anwendung nicht neu erstellen. Das Bild wird in der {{site.data.keyword.appid_short}}-Datenbank gespeichert und bei der nächsten Anmeldung angezeigt. 

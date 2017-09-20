@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-04-17"
+lastupdated: "2017-06-12"
 
 ---
 
@@ -57,7 +57,7 @@ Necesita la siguiente información:
 El SDK del cliente de {{site.data.keyword.appid_short_notm}} se distribuye con CocoaPods, un gestor de dependencias para proyectos de Swift y de Objective-C Cocoa. CocoaPods descarga artefactos, y los pone a disposición de su proyecto.
 
 1. Cree un proyecto de Xcode, o abra uno ya existente.
-2. Abra, o cree, el Podfile en el directorio de proyecto.
+2. Abra o cree el podfile en el directorio de proyecto.
 3. En el destino del proyecto, añada una dependencia para el pod de 'BluemixAppID'. Asegúrese de que el mandato `use_frameworks!` también esté bajo su destino.
 
   Por ejemplo:
@@ -70,7 +70,7 @@ El SDK del cliente de {{site.data.keyword.appid_short_notm}} se distribuye con C
   ```
   {:pre}
 
-4. Para descargar la dependencia de `BluemixAppID`, ejecute el mandato siguiente:
+4. Para descargar la dependencia de `BluemixAppID`, ejecute el mandato siguiente.
 
   ```swift
   pod install --repo-update
@@ -84,7 +84,7 @@ El SDK del cliente de {{site.data.keyword.appid_short_notm}} se distribuye con C
 ## Inicialización del SDK del cliente
 {: #initialize-client-sdk}
 
-1. Añada la siguiente importación al archivo `AppDelegate.swift`:
+1. Añada la siguiente importación al archivo `AppDelegate.swift`.
 
   ```swift
   import BluemixAppID
@@ -113,7 +113,7 @@ El SDK del cliente de {{site.data.keyword.appid_short_notm}} se distribuye con C
 ## Autenticar los usuarios utilizando el widget de inicio de sesión
 {: #authenticate-login}
 
-Después de inicializar el SDK del cliente de {{site.data.keyword.appid_short_notm}}, puede autenticar los usuarios ejecutando el widget de inicio de sesión. La configuración predeterminada del widget de inicio de sesión utiliza Facebook, Google, o ambas como opciones de autenticación. Si configura sólo uno de ellos, el widget de inicio de sesión no se iniciará y se redirigirá al usuario a la pantalla de autenticación de IDP configurada.
+Después de inicializar el SDK del cliente de {{site.data.keyword.appid_short_notm}}, puede autenticar los usuarios ejecutando el widget de inicio de sesión. La configuración predeterminada del widget de inicio de sesión utiliza Facebook y Google como opciones de autenticación. Si sólo configura un proveedor de identidad, el widget de inicio de sesión no se iniciará y se redirigirá al usuario a la pantalla de autenticación de IDP configurada.
 
 
 
@@ -148,7 +148,7 @@ Después de inicializar el SDK del cliente de {{site.data.keyword.appid_short_no
 ## Acceso a los atributos de usuario
 {: #accessing}
 
-Cuando obtenga una señal de acceso, es posible obtener acceso al punto final de los atributos protegidos del usuario. Esta operación se realiza mediante los siguientes métodos de la API:
+Cuando obtenga una señal de acceso, es posible obtener acceso al punto final de los atributos protegidos del usuario. Esta operación se realiza mediante los siguientes métodos de la API.
 
   ```swift
   func setAttribute(key: String, value: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
@@ -167,7 +167,7 @@ Cuando obtenga una señal de acceso, es posible obtener acceso al punto final de
 
 Cuando no se haya aprobado explícitamente una señal de acceso, {{site.data.keyword.appid_short_notm}} utilizará la última señal recibida.
 
-Por ejemplo, puede invocar este código para establecer un atributo nuevo, o para alterar temporalmente uno existente:
+Por ejemplo, puede llamar al código siguiente para establecer un atributo nuevo, o para alterar temporalmente uno existente.
 
   ```swift
   AppID.sharedInstance.userAttributeManager?.setAttribute("key", "value", completionHandler: { (error, result) in
@@ -184,7 +184,7 @@ Por ejemplo, puede invocar este código para establecer un atributo nuevo, o par
 ### Inicio de sesión anónimo
 {: #anonymous notoc}
 
-Con {{site.data.keyword.appid_short_notm}} puede iniciar sesión [de forma anónima](/docs/services/appid/user-profile.html#anonymous).
+Con {{site.data.keyword.appid_short_notm}}, puede iniciar sesión [de forma anónima](/docs/services/appid/user-profile.html#anonymous).
 
   ```swift
   class delegate : AuthorizationDelegate {
@@ -209,14 +209,14 @@ Con {{site.data.keyword.appid_short_notm}} puede iniciar sesión [de forma anón
 ### Autenticación progresiva
 {: #progressive notoc}
 
-Cuando alberga una señal de acceso anónimo, el usuario puede convertirse en un usuario identificado si lo pasa al método loginWidget.launch:
+Cuando alberga una señal de acceso anónimo, el usuario puede convertirse en un usuario identificado si lo pasa al método `loginWidget.launch`.
 
   ```swift
   func launch(accessTokenString: String? , delegate: AuthorizationDelegate)
   ```
   {:pre}
 
-Tras un inicio de sesión anónimo, se producirá la autenticación progresiva, aunque se invoque el widget de inicio de sesión sin pasar una señal de acceso porque el servicio ha utilizado la última señal recibida. Si desea borrar las señales almacenadas, ejecute el siguiente mandato:
+Tras un inicio de sesión anónimo, se producirá la autenticación progresiva, aunque se invoque el widget de inicio de sesión sin pasar una señal de acceso porque el servicio ha utilizado la última señal recibida. Si desea borrar las señales almacenadas, ejecute el siguiente mandato.
 
   ```swift
   var appIDAuthorizationManager = AppIDAuthorizationManager(appid: AppID.sharedInstance)

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-04-17"
+lastupdated: "2017-06-12"
 
 ---
 
@@ -33,7 +33,7 @@ API 전략은 요청에 올바른 액세스 토큰이 있는 권한 헤더가 �
 
 토큰이 올바르지 않거나 만료된 경우, API 전략은 다음 정보가 포함된 HTTP 401 오류를 리턴합니다: Www-Authenticate=Bearer scope="{scope}" error="{error}". `error` 컴포넌트는 선택사항입니다. 
 
-요청이 올바른 토큰을 리턴하는 경우, 제어가 다음 미들웨어에 전달되며 `appIdAuthorizationContext` 특성이 요청 오브젝트에 삽입됩니다. 이 특성에는 일반 JSON 오브젝트로 디코드된 페이로드 정보 뿐만 아니라 원래 액세스 및 ID 토큰이 포함됩니다. 
+요청이 올바른 토큰을 리턴하는 경우, 제어가 다음 미들웨어에 전달되며 `appIdAuthorizationContext` 특성이 요청 오브젝트에 삽입됩니다. 이 특성에는 원래 액세스 및 ID 토큰, 일반 JSON 오브젝트로 디코드된 페이로드 정보가 포함됩니다. 
 
 
 ### 웹 앱 전략

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-04-17"
+lastupdated: "2017-05-08"
 
 ---
 
@@ -20,9 +20,9 @@ lastupdated: "2017-04-17"
 {: #before-you-begin}
 
 * {{site.data.keyword.Bluemix_notm}} での Node.js アプリケーションの開発に精通している必要があります。
-* {{site.data.keyword.appid_short_notm}} Server SDK には、Node.js サーバーが <a href="http://expressjs.com/" target="_blank">Express フレームワーク<img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a>を使用して実装されていることが必要です。
+* {{site.data.keyword.appid_short_notm}} Server SDK には、Node.js サーバーが `<a href="http://expressjs.com/" target="_blank">Express フレームワーク<img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a>`を使用して実装されていることが必要です。
 
-**注**: `Express` フレームワークを使用するフレームワークは他にもあります (LoopBack など)。{{site.data.keyword.appid_short_notm}} Server SDK は、それらのどのフレームワークでも使用できます。
+**注**: その他のフレームワークは `Express` フレームワーク (LoopBack など) を使用します。{{site.data.keyword.appid_short_notm}} Server SDK は、それらのどのフレームワークでも使用できます。
 
 
 ## Server SDK のインストール
@@ -49,7 +49,7 @@ lastupdated: "2017-04-17"
 
   ```JavaScript
 
-  var express = require('express');
+var express = require('express');
   var passport = require('passport');
   var APIStrategy = require('bluemix-appid').APIStrategy;
 
@@ -72,7 +72,7 @@ lastupdated: "2017-04-17"
 
   ```JavaScript
 
-  var express = require('express');
+var express = require('express');
   var passport = require('passport');
   var WebAppStrategy = require('bluemix-appid').WebAppStrategy;
   ```

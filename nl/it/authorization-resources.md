@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-04-17"
+lastupdated: "2017-06-12"
 
 ---
 
@@ -33,7 +33,7 @@ La strategia API si attende che le richieste contengano un'intestazione di autor
 
 Se un token non è valido o è scaduto, la strategia API restituisce un errore HTTP 401 che contiene le seguenti informazioni: Www-Authenticate=Bearer scope="{scope}" error="{error}". Il componente `error` è facoltativo.
 
-Se la richiesta restituisce un token valido, il controllo viene passato al prossimo middleware e la proprietà `appIdAuthorizationContext` viene trasmessa nell'oggetto della richiesta. Questa proprietà contiene i token di identità e di accesso originali, così come le informazioni sul payload decodificate come oggetti JSON semplici.
+Se la richiesta restituisce un token valido, il controllo viene passato al prossimo middleware e la proprietà `appIdAuthorizationContext` viene trasmessa nell'oggetto della richiesta. Questa proprietà contiene i token di identità e di accesso originali e le informazioni sul payload decodificate come oggetti JSON semplici. 
 
 
 ### Strategia applicazione web

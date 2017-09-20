@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-04-17"
+lastupdated: "2017-06-12"
 
 ---
 
@@ -15,7 +15,7 @@ lastupdated: "2017-04-17"
 # 工作原理
 {: #about}
 
-您可以了解 {{site.data.keyword.appid_short_notm}} 所使用的组件、体系结构和请求流程。
+您可以了解 {{site.data.keyword.appid_full}} 所使用的组件、体系结构和请求流程。
 {:shortdesc}
 
 
@@ -58,7 +58,7 @@ lastupdated: "2017-04-17"
   <dt> Bluemix</dt>
     <dd>  服务器 SDK 从请求中抽取访问令牌，并使用 {{site.data.keyword.appid_short_notm}} 进行验证。成功认证后，{{site.data.keyword.appid_short_notm}} 会将授权和身份令牌返回到应用程序。</dd>
   <dt> 身份提供者</dt>
-    <dd> 您可以配置 Facebook 和/或 Google 来认证应用程序。</dd>
+    <dd> 您可以配置 Facebook、Google、IBM 标识或这三者的组合来认证应用程序。</dd>
 </dl>
 
 
@@ -69,13 +69,14 @@ lastupdated: "2017-04-17"
 
 ![{{site.data.keyword.appid_short_notm}} 请求流程](/images/appidflow.png)
 
+图 2. App ID 请求流
 
 * 使用 {{site.data.keyword.appid_short_notm}} 客户端 SDK 对受 {{site.data.keyword.appid_short_notm}} 服务器 SDK 保护的后端资源发起请求。
 * {{site.data.keyword.appid_short_notm}} 服务器 SDK 检测到未授权的请求，然后返回 HTTP 401 和授权作用域。
 * 客户端 SDK 自动检测到 HTTP 401，然后启动认证过程。
 * 当客户端 SDK 联系服务时，如果配置了多个身份提供者，那么服务器 SDK 返回登录窗口小部件。{{site.data.keyword.appid_short_notm}} 会调用身份提供者并为该提供者呈现登录表单，如果没有配置身份提供者，那么将返回授权代码，以允许他们进行认证。
 * {{site.data.keyword.appid_short_notm}} 通过提供认证质询，要求客户端进行认证。
-* 如果已配置 Facebook 或 Google，那么在用户登录时，各自的身份提供者 OAuth 流程会处理认证。
-* 如果认证以相同的授权代码结束，那么该代码会发送到令牌端点。端点会返回两个令牌：访问令牌和身份令牌。从此刻开始，通过客户端 SDK 发起的请求全部具有新获取的授权头。
+* 如果已配置身份提供者，那么在用户登录时，相应的 OAuth 流程会处理认证。
+* 如果认证以相同的授权代码结束，那么该代码会发送到令牌端点。端点会返回两个令牌：访问令牌和身份令牌。从此刻开始，通过客户端 SDK 发起的所有请求都有新获取的授权头。
 * 客户端 SDK 自动重新发送触发了授权流程的原始请求。
 * 服务器 SDK 从请求中抽取授权头，通过服务对该头进行验证，然后授予对后端资源的访问权。

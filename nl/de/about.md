@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-04-17"
+lastupdated: "2017-06-12"
 
 ---
 
@@ -15,7 +15,7 @@ lastupdated: "2017-04-17"
 # Funktionsweise
 {: #about}
 
-Sie können Informationen zu den von {{site.data.keyword.appid_short_notm}} verwendeten Komponenten, zur Architektur und zum Anforderungsablauf abrufen.
+Sie können Informationen zu den von {{site.data.keyword.appid_full}} verwendeten Komponenten, zur Architektur und zum Anforderungsablauf abrufen.
 {:shortdesc}
 
 
@@ -59,7 +59,7 @@ Abbildung 1: {{site.data.keyword.appid_short_notm}} - Architekturdiagramm
     <dd>  Das Server-SDK extrahiert das Zugriffstoken aus der Anforderung und validiert es mit {{site.data.keyword.appid_short_notm}}.
 Nach der erfolgreichen Authentifizierung gibt {{site.data.keyword.appid_short_notm}} Berechtigungs- und Identitätstoken an die Anwendung zurück. </dd>
   <dt> Identitätsprovider</dt>
-    <dd> Sie können Facebook, Google oder beide für die Authentifizierung Ihrer Apps konfigurieren. </dd>
+    <dd> Sie können Facebook, Google, eine IBMid oder eine Kombination der drei Möglichkeiten für die Authentifizierung Ihrer Apps konfigurieren. </dd>
 </dl>
 
 
@@ -70,13 +70,14 @@ Das folgende Diagramm zeigt, wie eine Anforderung aus dem Client-SDK an Ihre Bac
 
 ![{{site.data.keyword.appid_short_notm}}-Anforderungsablauf](/images/appidflow.png)
 
+Abbildung 2. Anforderungsablauf von App ID
 
 * Verwenden Sie das {{site.data.keyword.appid_short_notm}}-Client-SDK zum Senden einer Anforderung an Ihre Back-End-Ressourcen, die mit dem {{site.data.keyword.appid_short_notm}}-Server-SDK geschützt werden.
 * Das {{site.data.keyword.appid_short_notm}}-Server-SDK erkennt eine nicht autorisierte Anforderung und gibt einen HTTP 401- und Berechtigungsbereich zurück.
 * Das Client-SDK erkennt HTTP 401 automatisch und startet den Authentifizierungsprozess.
-* Wenn das Client-SDK Kontakt mit dem Service aufnimmt, gibt das Server-SDK das Anmeldewidget zurück, falls mehr als ein Identitätsprovider konfiguriert ist. {{site.data.keyword.appid_short_notm}} ruft den Identitätsprovider auf und präsentiert das Anmeldeformular für diesen Provider oder gibt einen Bewilligungscode zurück, mit dem die Authentifizierung ohne konfigurierte Identitätsprovider möglich ist.
+* Wenn das Client-SDK Kontakt mit dem Service aufnimmt, gibt das Server-SDK das Anmelde-Widget zurück, falls mehr als ein Identitätsprovider konfiguriert ist. {{site.data.keyword.appid_short_notm}} ruft den Identitätsprovider auf und präsentiert das Anmeldeformular für diesen Provider oder gibt einen Bewilligungscode zurück, mit dem die Authentifizierung ohne konfigurierte Identitätsprovider möglich ist.
 * {{site.data.keyword.appid_short_notm}} fordert die Client-App auf, sich durch die Bereitstellung einer Authentifizierungsanforderung (Challenge) zu authentifizieren.
-* Ist Facebook oder Google konfiguriert und meldet sich der Benutzer an, wird die Authentifizierung durch den jeweiligen Identitätsprovider-OAuth-Ablauf verarbeitet.
-* Wenn die Authentifizierung mit demselben Bewilligungscode beendet wird, wird der Code an den Tokenendpunkt gesendet. Der Endpunkt gibt zwei Tokens zurück: ein Zugriffstoken und eine Identitätstoken. Von diesem Punkt an haben alle Anforderungen, die mit dem Client-SDK gesendet werden, einen neu abgerufenen Berechtigungsheader.
+* Ist ein Identitätsprovider konfiguriert und meldet sich der Benutzer an, wird die Authentifizierung durch den jeweiligen OAuth-Ablauf verarbeitet. 
+* Wenn die Authentifizierung mit demselben Bewilligungscode beendet wird, wird der Code an den Tokenendpunkt gesendet. Der Endpunkt gibt zwei Tokens zurück: ein Zugriffstoken und eine Identitätstoken. Von diesem Punkt an verfügen alle Anforderungen, die mit dem Client-SDK gesendet werden, über einen neu abgerufenen Berechtigungsheader. 
 * Das Client-SDK wiederholt automatisch das Senden der ursprünglichen Anforderung, die den Berechtigungsablauf ausgelöst hat.
 * Das Server-SDK extrahiert den Berechtigungsheader aus der Anforderung, validiert den Header mit dem Service und erteilt den Zugriff auf eine Back-End-Ressource.

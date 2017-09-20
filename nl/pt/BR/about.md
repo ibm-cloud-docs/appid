@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-04-17"
+lastupdated: "2017-06-12"
 
 ---
 
@@ -15,7 +15,7 @@ lastupdated: "2017-04-17"
 # Como funciona
 {: #about}
 
-É possível aprender sobre os componentes, a arquitetura e o fluxo de solicitação que o {{site.data.keyword.appid_short_notm}} usa.
+É possível aprender sobre os componentes, a arquitetura e o fluxo de solicitação que o {{site.data.keyword.appid_full}} usa.
 {:shortdesc}
 
 
@@ -57,12 +57,12 @@ Figura 1. Diagrama de arquitetura do {{site.data.keyword.appid_short_notm}}
 <dl>
   <dt> Client SDK </dt>
     <dd> O SDK do cliente fornece uma classe de solicitação para se comunicar com os seus recursos em nuvem. O SDK do cliente automaticamente inicia o processo de
-autenticação quando ele detecta um desafio de autorização.</dd>
+autenticação quando ele detecta um desafio de autorização. </dd>
   <dt> Bluemix </dt>
     <dd>  O SDK do servidor extrai o token de acesso da solicitação e a valida com o {{site.data.keyword.appid_short_notm}}. Após a autenticação bem-sucedida,
 o {{site.data.keyword.appid_short_notm}} retorna tokens de autorização e identidade para o seu aplicativo. </dd>
   <dt> Provedores de identidade </dt>
-    <dd> É possível configurar o Facebook, o Google ou ambos para autenticar os seus apps. </dd>
+    <dd> É possível configurar o Facebook, o Google, o IBMid ou uma combinação dos três para autenticar os seus apps. </dd>
 </dl>
 
 
@@ -73,6 +73,7 @@ O diagrama a seguir descreve como uma solicitação flui do SDK do cliente para 
 
 ![{{site.data.keyword.appid_short_notm}} fluxo de solicitação](/images/appidflow.png)
 
+Figura 2. Fluxo de solicitação do ID do app
 
 * Use o SDK do cliente {{site.data.keyword.appid_short_notm}} para fazer uma solicitação aos seus recursos de backend que são protegidos
 com o SDK do servidor {{site.data.keyword.appid_short_notm}}.
@@ -80,7 +81,7 @@ com o SDK do servidor {{site.data.keyword.appid_short_notm}}.
 * O SDK do cliente detecta automaticamente o HTTP 401 e inicia o processo de autenticação.
 * Quando o SDK do cliente entra em contato com o serviço, o SDK do servidor retorna o widget de login se mais de um provedor de identidade é configurado. {{site.data.keyword.appid_short_notm}} chama o provedor de identidade e apresenta o formulário de login para esse provedor ou retorna um código de concessão que permite autenticar se nenhum provedor de identidade é configurado.
 * {{site.data.keyword.appid_short_notm}} solicita que o aplicativo do cliente autentique fornecendo um desafio de autenticação.
-* Se o Facebook ou o Google for configurado, e o usuário efetuar login, a autenticação será manipulada pelo respectivo provedor de identidade OAuth Flow.
+* Se um provedor de identidade estiver configurado e o usuário efetuar login, a autenticação será manipulada pelo respectivo fluxo de OAuth.
 * Se a autenticação terminar com o mesmo código de concessão, o código será enviado para o terminal do token. O terminal retorna dois tokens: um de acesso e um de identidade. Desse ponto em diante, todas as solicitações feitas com o SDK do cliente terão um cabeçalho de autorização recém-obtido.
 * O SDK do cliente reenvia automaticamente a solicitação original que acionou o fluxo de autorização.
 * O SDK do servidor extrai o cabeçalho de autorização da solicitação, valida o cabeçalho com o serviço e concede acesso a um recurso de backend.

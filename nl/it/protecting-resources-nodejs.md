@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-04-17"
+lastupdated: "2017-05-08"
 
 ---
 
@@ -21,16 +21,16 @@ Puoi utilizzare l'SDK server {{site.data.keyword.appid_short}} per proteggere ri
 {: #before-you-begin}
 
 * Devi avere dimestichezza con lo sviluppo di applicazioni Node.js su {{site.data.keyword.Bluemix_notm}}.
-* L'SDK server {{site.data.keyword.appid_short_notm}} richiede che il tuo server Node.js sia implementato con il <a href="http://expressjs.com/" target="_blank">framework Express <img src="../../icons/launch-glyph.svg" alt="icona link esterno"></a>.
+* L'SDK server {{site.data.keyword.appid_short_notm}} richiede che il tuo server Node.js sia implementato con il `<a href="http://expressjs.com/" target="_blank">framework Express <img src="../../icons/launch-glyph.svg" alt="icona link esterno"></a>`.
 
-**Nota**: ci sono altri framework che utilizzano i framework `Express`, come ad esempio LoopBack. Puoi utilizzare l'SDK server {{site.data.keyword.appid_short_notm}} con uno qualsiasi di questi framework.
+**Nota**: altri framework utilizzano i framework `Express`, come ad esempio LoopBack. Puoi utilizzare l'SDK server {{site.data.keyword.appid_short_notm}} con uno qualsiasi di questi framework.
 
 
 ## Installazione dell'SDK server
 {: #protecting-resources-serversdk}
 
 1. Utilizzando la riga di comando, apri la directory con la tua applicazione Node.js.
-2. Emettere i seguenti comandi:
+2. Emetti i seguenti comandi.
 
   ```
   npm install -save express
@@ -69,7 +69,7 @@ Il seguente frammento di codice illustra come utilizzare `APIStrategy` in un'app
   ```
   {:pre}
 
-Puoi utilizzare `WebAppStrategy` per proteggere le risorse dell'applicazione web:
+Puoi utilizzare `WebAppStrategy` per proteggere le risorse dell'applicazione web.
 
   ```JavaScript
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-04-17"
+lastupdated: "2017-05-08"
 
 ---
 
@@ -17,7 +17,7 @@ lastupdated: "2017-04-17"
 Mithilfe der Client-SDKs können Sie auf geschützte Ressourcen zugreifen.
 {:shortdesc}
 
-Beim Aufrufen einer geschützten Ressource wird ggf. das Anmelde-Widget gestartet. Wenn bereits ein gültiges Token angefordert wurde, wird das Anmelde-Widget nicht gestartet. Auf die Ressource kann dann direkt zugegriffen werden.
+Beim Aufrufen einer geschützten Ressource wird ggf. das Anmelde-Widget gestartet. Wenn bereits ein gültiges Token angefordert wurde, wird das Anmelde-Widget nicht gestartet. Auf die Ressource kann dann direkt zugegriffen werden. 
 
 
 ## iOS-Swift-SDK verwenden

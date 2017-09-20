@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-04-17"
+lastupdated: "2017-06-12"
 
 ---
 
@@ -66,7 +66,7 @@ lastupdated: "2017-04-17"
 3. 開啟應用程式的 `build.gradle` 檔案。
 
     **附註**：請務必開啟您應用程式的檔案，而非專案 `build.gradle` 檔案。
-4. 尋找檔案的 dependencies 區段，並新增 {{site.data.keyword.appid_short_notm}} 用戶端 SDK 的編譯相依關係：
+4. 尋找檔案的 dependencies 區段，並新增 {{site.data.keyword.appid_short_notm}} 用戶端 SDK 的編譯相依關係。
 
   ```gradle
    dependencies {
@@ -75,7 +75,7 @@ lastupdated: "2017-04-17"
   ```
   {:pre}
 
-5. 尋找 defaultConfig 區段，並新增下列這幾行程式碼：
+5. 尋找 defaultConfig 區段，並新增下列這幾行程式碼。
 
   ```gradle
   defaultConfig {
@@ -97,14 +97,14 @@ lastupdated: "2017-04-17"
   ```
   {:pre}
 
-1. 將 "tenantId" 取代為 {{site.data.keyword.appid_short_notm}} 服務承租戶 ID。
+1. 將 *tenantId* 取代為 {{site.data.keyword.appid_short_notm}} 服務承租戶 ID。
 2. 將 AppID.REGION_UK 取代為 {{site.data.keyword.Bluemix_notm}} 地區。
 
 
 ## 使用登入小組件鑑別使用者
 {: #authenticate-login-widget}
 
-登入小組件預設配置需要使用 Facebook 及 Google 兩者進行鑑別。如果您只配置其中一個，不會啟動登入小組件，並且會將使用者重新導向至已配置的 IDP 鑑別畫面。
+登入小組件預設配置會使用 Facebook 及 Google 作為鑑別選項。如果您只配置其中一個，不會啟動登入小組件，並且會將使用者重新導向至已配置的 IDP 鑑別畫面。
 
 起始設定 {{site.data.keyword.appid_short_notm}} 用戶端 SDK 之後，即可執行登入小組件來鑑別使用者。
 
@@ -133,7 +133,7 @@ lastupdated: "2017-04-17"
 ## 存取使用者屬性
 {: #accessing}
 
-取得存取記號時，即可存取使用者保護的屬性端點。您可以使用下列 API 方法來取得存取權：
+取得存取記號時，即可存取使用者保護的屬性端點。您可以使用下列 API 方法來取得存取權。
 
   ```java
   void setAttribute(@NonNull String name, @NonNull String value, UserAttributeResponseListener listener);
@@ -152,7 +152,7 @@ lastupdated: "2017-04-17"
 
 若未明確地傳遞存取記號，{{site.data.keyword.appid_short_notm}} 會使用最後一個收到的記號。
 
-例如，您可以呼叫此程式碼來設定新屬性，或置換現有屬性：
+例如，您可以呼叫下列程式碼來設定新屬性，或置換現有屬性。
 
   ```java
   appId.getUserAttributeManager().setAttribute(name, value, useThisToken,new UserAttributeResponseListener() {
@@ -204,7 +204,7 @@ lastupdated: "2017-04-17"
   ```
   {:pre}
 
-匿名登入之後，即使因服務已使用最後一個收到的記號而在未傳遞存取記號的情況下呼叫登入小組件，還是會進行漸進鑑別。如果您要清除儲存的記號，請執行下列指令：
+匿名登入之後，即使因服務已使用最後一個收到的記號而在未傳遞存取記號的情況下呼叫登入小組件，還是會進行漸進鑑別。如果您要清除儲存的記號，請執行下列指令。
 
   ```java
   	appIDAuthorizationManager = new AppIDAuthorizationManager(this.appId);

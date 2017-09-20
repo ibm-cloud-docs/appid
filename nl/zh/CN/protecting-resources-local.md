@@ -2,7 +2,7 @@
 
 copyright:
   years:  2017
-lastupdated: "2017-04-17"
+lastupdated: "2017-05-08"
 
 ---
 {:new_window: target="_blank"}
@@ -27,7 +27,7 @@ lastupdated: "2017-04-17"
 * APIStrategy：`oauthServerUrl`
 * WebAppStrategy：tenantId、clientId、secret、oauthServerUrl 和 redirectUri
 
-将“redirectUri”属性设置为包含回调路径的 localhost 应用程序端口，即：`http://localhost:<port>/callback`。回调端点会完成授权过程。
+将“redirectUri”属性设置为包含回调路径的 localhost 应用程序端口。例如：`http://localhost:<port>/callback`。回调端点会完成授权过程。
 
 要获取服务凭证，请完成以下步骤：
 
@@ -105,7 +105,7 @@ request.send(this, new ResponseListener() {
 {: #swift}
 ```swift
 
- let baseRequestUrl = "http://localhost:<port>"; //set to your server running port
+let baseRequestUrl = "http://localhost:<port>"; //set to your server running port
  let tenantId = "your-AppID-service-tenantID"
  let region = AppID.REGION_UK; //set your App ID application region here. Currently possible values are AppID.REGION_US_SOUTH, AppID.REGION_SYDNEY, or AppID.REGION_UK.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years:  2017
-lastupdated: "2017-04-17"
+lastupdated: "2017-05-08"
 
 ---
 {:new_window: target="_blank"}
@@ -27,7 +27,7 @@ lastupdated: "2017-04-17"
 * APIStrategy: `oauthServerUrl`
 * WebAppStrategy: tenantId、clientId、secret、oauthServerUrl、redirectUri
 
-「redirectUri」属性には、ローカル・ホストのアプリ・ポートとコールバック・パス (`http://localhost:<port>/callback`) を設定します。コールバック・エンドポイントで許可プロセスは完了します。
+「redirectUri」属性には、ローカル・ホストのアプリ・ポートとコールバック・パスを設定します。例: `http://localhost:<port>/callback`。コールバック・エンドポイントで許可プロセスは完了します。
 
 サービスの資格情報を取得するには、以下の手順を実行します。
 
@@ -105,7 +105,7 @@ request.send(this, new ResponseListener() {
 {: #swift}
 ```swift
 
- let baseRequestUrl = "http://localhost:<port>"; //サーバーの実行ポートを設定
+let baseRequestUrl = "http://localhost:<port>"; //サーバーの実行ポートを設定
  let tenantId = "your-AppID-service-tenantID"
  let region = AppID.REGION_UK; //App ID アプリケーションの地域をここで設定。現在使用可能な値は AppID.REGION_US_SOUTH、AppID.REGION_SYDNEY、または AppID.REGION_UK。
 

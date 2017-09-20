@@ -1,7 +1,8 @@
 ---
 
 copyright:
-  years: 2017 lastupdated: "2017-04-17"
+  years: 2017
+lastupdated: "2017-05-08"
 
 ---
 
@@ -45,8 +46,7 @@ copyright:
 ## Protegendo recursos no Swift
 {: #protecting}
 
-O SDK do Swift fornece o Kitura Credential Plug-ins que é usado para proteger aplicativos da web. Ao usar esse plug-in, um cliente não autenticado recebe uma
-resposta HTTP 302. O cliente é redirecionado para a página de login que é hospedada pelo {{site.data.keyword.appid_short_notm}} ou para a página de login do
+O SDK do Swift fornece um plug-in Kitura Credential que é usado para proteger aplicativos da web. Quando você está usando esse plug-in, um cliente não autenticado recebe uma resposta HTTP 302. O cliente é redirecionado para a página de login que é hospedada pelo {{site.data.keyword.appid_short_notm}} ou para a página de login do
 provedor de identidade, dependendo da configuração.
 
 
@@ -60,7 +60,7 @@ para acessar recursos protegidos e automaticamente redireciona um navegador do u
 levado para a URL de retorno de chamada do aplicativo da web, que usa o plug-in para obter tokens de acesso e a identidade do
 {{site.data.keyword.appid_short_notm}}. Após obter esses tokens, o plug-in os armazena em uma sessão de HTTP sob WebAppKituraCredentialsPlugin.AuthContext.
 
-O código a seguir demonstra como usar WebAppKituraCredentialsPlugin em um aplicativo Kitura para proteger o terminal /protected.
+O código a seguir demonstra como usar o WebAppKituraCredentialsPlugin em um aplicativo Kitura para proteger o terminal `/protected`.
 
   ```swift
   import Foundation

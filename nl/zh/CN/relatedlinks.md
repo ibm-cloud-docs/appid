@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-04-17"
+lastupdated: "2017-05-08"
 
 ---
 
@@ -12,28 +12,18 @@ lastupdated: "2017-04-17"
 
 # 相关链接
 
-您可以使用下列相关链接来了解服务并与之交互。
+您可以使用以下相关链接来了解有关服务的更多信息并与之交互。
 {:shortdesc}
 
-## API 参考
-{: #api}
+## 样本
+{: #samples}
 
-* <a href="https://appid-oauth.ng.bluemix.net/swagger-ui/#!/Authorization_Server_V3/authorization" target="_blank">{{site.data.keyword.appid_short_notm}} oauth-flows <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a>
-
-
-## SDK
-{: #sdk}
-
-* <a href="https://github.com/ibm-cloud-security/appid-clientsdk-android" target="_blank">{{site.data.keyword.appid_short_notm}} Android 客户端 SDK <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a>
-* <a href="https://github.com/ibm-cloud-security/appid-clientsdk-swift" target="_blank">{{site.data.keyword.appid_short_notm}} iOS-Swift 客户端 SDK <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a>
-* <a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs" target="_blank">{{site.data.keyword.appid_short_notm}} Nodejs 服务器 SDK <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a>
-* <a href="https://github.com/ibm-cloud-security/appid-serversdk-swift" target="_blank">{{site.data.keyword.appid_short_notm}} Swift 服务器 SDK <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a>
-
+* <a href="https://github.com/mnsn/appid-python-flask-example" target="_blank">将 {{site.data.keyword.appid_short_notm}} 与 Python 一起使用 <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a>
 
 ## 视频
 {: #videos}
 
-* <a href="https://www.youtube.com/watch?v=cTn7l_J3tPg" target="_blank">介绍 {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a>
+* <a href="https://www.youtube.com/watch?v=cTn7l_J3tPg" target="_blank">Tell me about {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a>
 
 
 ## 博客

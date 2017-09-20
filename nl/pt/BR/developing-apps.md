@@ -1,7 +1,8 @@
 ---
 
 copyright:
-  years: 2017 lastupdated: "2017-04-17"
+  years: 2017
+lastupdated: "2017-06-12"
 
 ---
 
@@ -13,8 +14,7 @@ copyright:
 # Configurando app de amostra e SDKs
 {: #developing}
 
-Após criar o serviço do {{site.data.keyword.appid_short}}, será possível fazer download de apps de amostra para o Android, iOS e Node.js usando o
-painel.
+Depois de criar uma instância do serviço {{site.data.keyword.appid_short}}, será possível fazer download de apps de amostra do Android, do iOS e do Node.js usando o painel.
 
 1. Clique na instância do {{site.data.keyword.appid_short_notm}} que você deseja desenvolver.
 2. Siga as instruções no painel para começar com uma amostra passo a passo.

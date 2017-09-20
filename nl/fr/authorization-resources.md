@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-04-17"
+lastupdated: "2017-06-12"
 
 ---
 
@@ -15,7 +15,8 @@ lastupdated: "2017-04-17"
 # Filtres d'autorisation et en-têtes
 {: #auth}
 
-Le SDK serveur d'{{site.data.keyword.appid_short}} fournit des stratégies pour protéger deux types de ressources : API et applications Web.
+Le SDK serveur d'{{site.data.keyword.appid_short}} fournit des stratégies
+pour protéger deux types de ressource : les API et les applications Web.
 {:shortdesc}
 
 
@@ -31,9 +32,12 @@ La stratégie de protection de l'API renvoie une réponse HTTP 401 avec une list
 
 La stratégie d'API s'attend à ce que les demandes contiennent un en-tête d'autorisation avec un jeton d'accès valide. La réponse peut également contenir un jeton d'identité, mais ceci n'est pas obligatoire. Voir [Jetons d'accès et d'identité](/docs/services/appid/access-identity.html#access-and-identity).
 
-Si un jeton n'est pas valide ou a expiré, la stratégie d'API renvoie une erreur HTTP 401 contenant les informations suivantes : Www-Authenticate=Bearer scope="{scope}" error="{error}". Le composant `error` est facultatif.
+Si un jeton n'est pas valide ou a expiré, la stratégie d'API renvoie une erreur
+HTTP 401 contenant les informations suivantes : www-Authenticate=Bearer scope="{scope}" error="{error}". Le composant `error` est facultatif.
 
-Si la demande renvoie un jeton valide, le contrôle passe au middleware suivant et la propriété `appIdAuthorizationContext` est injectée dans l'objet de demande. Cette propriété contient les jetons d'accès et d'identité originaux, ainsi que les informations de contenu décodées sous forme d'objets JSON ordinaires.
+Si la demande renvoie un jeton valide, le contrôle passe au middleware suivant et la propriété `appIdAuthorizationContext` est injectée dans l'objet de demande. 
+Cette propriété contient les jetons d'accès et d'identité originaux, ainsi que les
+informations de contenu décodées sous forme d'objets JSON ordinaires.
 
 
 ### Stratégie d'application Web
@@ -44,4 +48,7 @@ Lorsque la classe de stratégie d'application Web détecte des tentatives non au
 ## En-tête d'autorisation
 {: #auth-header}
 
-L'en-tête d'autorisation dans la demande entrante est composé de trois parties séparées par des espaces : Bearer, Access Token et ID Token. Access Token (jeton d'accès) est un composant obligatoire et ID Token (jeton d'identité) est facultatif. La structure d'en-tête attendue est la suivante : Authorization=Bearer {jeton_d'accès} [jeton_d'identité}]
+L'en-tête d'autorisation dans la demande entrante est composé de trois parties
+séparées par des espaces : Bearer, jeton d'accès et jeton d'identité. Le jeton d'accès
+est un composant obligatoire et le jeton d'identité est
+facultatif. La structure d'en-tête attendue est la suivante : Authorization=Bearer {jeton_d'accès} [jeton_d'identité}]

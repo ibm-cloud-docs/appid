@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-04-17"
+lastupdated: "2017-06-12"
 
 ---
 
@@ -66,7 +66,7 @@ Hai bisogno delle seguenti informazioni:
 3. Apri il file `build.gradle` per la tua applicazione.
 
     **Nota**: assicurati di aprire il file per la tua applicazione, non il file `build.gradle` del progetto.
-4. Trova la sezione delle dipendenze del file e aggiungi una dipendenza di compilazione per l'SDK client {{site.data.keyword.appid_short_notm}}:
+4. Trova la sezione delle dipendenze del file e aggiungi una dipendenza di compilazione per l'SDK client {{site.data.keyword.appid_short_notm}}.
 
   ```gradle
    dependencies {
@@ -75,7 +75,7 @@ Hai bisogno delle seguenti informazioni:
   ```
   {:pre}
 
-5. Trova la sezione defaultConfig e aggiungi le seguenti righe di codice:
+5. Trova la sezione defaultConfig e aggiungi le seguenti righe di codice.
 
   ```gradle
   defaultConfig {
@@ -97,14 +97,14 @@ Inizializza l'SDK client passando i parametri contesto, ID tenant e regione al m
   ```
   {:pre}
 
-1. Sostituisci "tenantId" con l'ID tenant del servizio {{site.data.keyword.appid_short_notm}}.
+1. Sostituisci *tenantId* con l'ID tenant del servizio {{site.data.keyword.appid_short_notm}}.
 2. Sostituisci AppID.REGION_UK con la tua regione {{site.data.keyword.Bluemix_notm}}.
 
 
 ## Autentica gli utenti utilizzando il widget di accesso
 {: #authenticate-login-widget}
 
-La configurazione predefinita del widget di accesso richiede l'utilizzo sia di Facebook che di Google per l'autenticazione. Se configuri solo uno dei due, il widget di accesso non si avvia e l'utente viene reindirizzato alla schermata di autenticazione IDP configurata.
+La configurazione predefinita del widget di accesso utilizza Facebook e Google come opzioni di autenticazione. Se configuri solo uno dei due, il widget di accesso non si avvia e l'utente viene reindirizzato alla schermata di autenticazione IDP configurata. 
 
 Dopo che l'SDK client {{site.data.keyword.appid_short_notm}} è stato inizializzato, puoi autenticare i tuoi utenti eseguendo il widget di accesso.
 
@@ -133,7 +133,7 @@ Dopo che l'SDK client {{site.data.keyword.appid_short_notm}} è stato inizializz
 ## Accesso agli attributi dell'utente
 {: #accessing}
 
-Quando ottieni un token di accesso, è possibile ottenere l'accesso all'endpoint degli attributi protetti dell'utente. Puoi ottenere l'accesso utilizzando i seguenti metodi API:
+Quando ottieni un token di accesso, è possibile ottenere l'accesso all'endpoint degli attributi protetti dell'utente. Puoi ottenere l'accesso utilizzando i seguenti metodi API.
 
   ```java
   void setAttribute(@NonNull String name, @NonNull String value, UserAttributeResponseListener listener);
@@ -152,7 +152,7 @@ Quando ottieni un token di accesso, è possibile ottenere l'accesso all'endpoint
 
 Quando il token di accesso non viene esplicitamente trasmesso, {{site.data.keyword.appid_short_notm}} utilizza l'ultimo token ricevuto.
 
-Ad esempio, puoi richiamare questo codice per impostare un nuovo attributo o sovrascriverne uno esistente:
+Ad esempio, puoi richiamare questo codice per impostare un nuovo attributo o sovrascriverne uno esistente. 
 
   ```java
   appId.getUserAttributeManager().setAttribute(name, value, useThisToken,new UserAttributeResponseListener() {
@@ -172,7 +172,7 @@ Ad esempio, puoi richiamare questo codice per impostare un nuovo attributo o sov
 ### Accesso anonimo
 {: #anonymous notoc}
 
-Con {{site.data.keyword.appid_short_notm}} puoi accedere a [in modo anonimo](/docs/services/appid/user-profile.html#anonymous).
+Con {{site.data.keyword.appid_short_notm}}, puoi accedere a [in modo anonimo](/docs/services/appid/user-profile.html#anonymous). 
 
   ```java
   appId.loginAnonymously(getApplicationContext(), new AuthorizationListener() {
@@ -204,7 +204,7 @@ Quando l'utente contiene un token di accesso anonimo, può essere identificato t
   ```
   {:pre}
 
-Dopo un accesso anonimo, si verifica l'autenticazione progressiva anche se il widget di accesso viene richiamato trasmettendo un token di accesso, perché il servizio ha utilizzato l'ultimo token ricevuto. Se desideri cancellare i tuoi token memorizzati, esegui il seguente comando:
+Dopo un accesso anonimo, si verifica l'autenticazione progressiva anche se il widget di accesso viene richiamato trasmettendo un token di accesso, perché il servizio ha utilizzato l'ultimo token ricevuto. Se desideri cancellare i tuoi token memorizzati, esegui il seguente comando.
 
   ```java
   	appIDAuthorizationManager = new AppIDAuthorizationManager(this.appId);

@@ -1,7 +1,8 @@
 ---
 
 copyright:
-  years: 2017 lastupdated: "2017-04-17"
+  years:  2017
+lastupdated: "2017-05-08"
 
 ---
 {:new_window: target="_blank"}
@@ -28,8 +29,7 @@ criando a sua estratégia, com os atributos a seguir:
 * APIStrategy: `oauthServerUrl`
 * WebAppStrategy: tenantId, clientId, secret, oauthServerUrl, redirectUri
 
-Configure o seu atributo 'redirectUri' para a sua porta de app de host local com o caminho de retorno de chamada, ou seja:
-`http://localhost:<port>/callback`. O terminal de retorno de chamada conclui o processo de autorização.
+Configure o seu atributo 'redirectUri' para a porta de app de host local com o caminho de retorno de chamada. Por exemplo: `http://localhost:<port>/callback`. O terminal de retorno de chamada conclui o processo de autorização.
 
 Para obter as suas credenciais de serviço, conclua as etapas a seguir:
 

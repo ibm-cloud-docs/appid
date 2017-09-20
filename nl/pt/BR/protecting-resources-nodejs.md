@@ -1,7 +1,8 @@
 ---
 
 copyright:
-  years: 2017 lastupdated: "2017-04-17"
+  years: 2017
+lastupdated: "2017-05-08"
 
 ---
 
@@ -21,9 +22,9 @@ copyright:
 
 * Familiarize-se com o desenvolvimento de aplicativos Node.js no {{site.data.keyword.Bluemix_notm}}.
 * O SDK do servidor {{site.data.keyword.appid_short_notm}} requer que o seu servidor Node.js seja implementado com a
-<a href="http://expressjs.com/" target="_blank">estrutura Express <img src="../../icons/launch-glyph.svg" alt="ícone de Link externo"></a>.
+`<a href="http://expressjs.com/" target="_blank">estrutura Express <img src="../../icons/launch-glyph.svg" alt="ícone de Link externo"></a>`.
 
-**Nota**: há outras estruturas que usam estruturas `Express`, como LoopBack. É possível usar o SDK do servidor
+**Nota**: outras estruturas usam estruturas `Express`, como LoopBack. É possível usar o SDK do servidor
 {{site.data.keyword.appid_short_notm}} com qualquer uma dessas estruturas.
 
 
@@ -31,7 +32,7 @@ copyright:
 {: #protecting-resources-serversdk}
 
 1. Usando a linha de comandos, abra o diretório como seu app Node.js.
-2. Execute os seguintes comandos:
+2. Execute os comandos a seguir.
 
   ```
   npm install -save express
@@ -74,7 +75,7 @@ O fragmento a seguir demonstra como usar `APIStrategy` em um aplicativo Express 
   ```
   {:pre}
 
-É possível usar a `WebAppStrategy` para proteger recursos de aplicativo da web:
+É possível usar `WebAppStrategy` para proteger recursos de aplicativo da web.
 
   ```JavaScript
 

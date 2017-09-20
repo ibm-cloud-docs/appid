@@ -1,3 +1,5 @@
+<!-- Markdown Navigation -->
+
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
@@ -14,14 +16,6 @@ App ID
         access-identity.md
         authorization-resources.md
         user-profile.md
-
-    {: .topicgroup}
-    Vídeos
-        [Más información sobre App ID](https://www.youtube.com/watch?v=cTn7l_J3tPg)
-
-    {: .topicgroup}
-    Blogs
-        [Introducción a App ID](https://www.ibm.com/blogs/bluemix/2017/03/introducing-ibm-bluemix-app-id-authentication-profiles-service-app-developers/)
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
@@ -29,13 +23,17 @@ App ID
 
     {: .topicgroup}
     SDK
-        [SDK de cliente de Android](https://github.com/ibm-cloud-security/appid-clientsdk-android)
-        [SDK de cliente de Swift de iOS](https://github.com/ibm-cloud-security/appid-clientsdk-swift)
-        [SDK de servidor de Node.js](https://github.com/ibm-cloud-security/appid-serversdk-nodejs)
-        [SDK de servidor de Swift](https://github.com/ibm-cloud-security/appid-serversdk-swift)
+        [SDK del cliente Android](https://github.com/ibm-cloud-security/appid-clientsdk-android)
+        [SDK del cliente iOS Swift](https://github.com/ibm-cloud-security/appid-clientsdk-swift)
+        [SDK del servidor de Node.js](https://github.com/ibm-cloud-security/appid-serversdk-nodejs)
+        [SDK del servidor de Swift](https://github.com/ibm-cloud-security/appid-serversdk-swift)
+
+    relatedlinks.md
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
+    existing.md
+
     {: .topicgroup}
     Configuración de los SDK y la app de ejemplo
         developing-apps.md

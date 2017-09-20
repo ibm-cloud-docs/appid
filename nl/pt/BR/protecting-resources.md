@@ -1,7 +1,8 @@
 ---
 
 copyright:
-  years: 2017 lastupdated: "2017-04-17"
+  years: 2017
+lastupdated: "2017-05-08"
 
 ---
 
@@ -16,8 +17,7 @@ copyright:
 É possível acessar recursos protegidos usando os SDKs do cliente.
 {:shortdesc}
 
-Chamar um recurso protegido ativa o widget de login, se necessário. Se um token válido já foi obtido, o widget de login não será ativado e o recurso será
-acessado diretamente.
+Chamar um recurso protegido iniciará o widget de login, se necessário. Se um token válido já tiver sido obtido, o widget de login não será iniciado e o recurso será acessado diretamente.
 
 
 ## Usando o SDK do Swift do iOS
