@@ -85,16 +85,16 @@ Request request = new Request(baseRequestUrl + "/resource/path", Request.GET);
 request.send(this, new ResponseListener() {
     @Override
     public void onSuccess (Response response) {
-        Log.d("Myapp", "onSuccess :: " + response.getResponseText());
+        Log.d("MyapponSuccess :: " + response.getResponseText());
     }
     @Override
     public void onFailure (Response response, Throwable t, JSONObject extendedInfo) {
         if (null != t) {
-            Log.d("Myapp", "onFailure :: " + t.getMessage());
+            Log.d("MyapponFailure :: " + t.getMessage());
         } else if (null != extendedInfo) {
-            Log.d("Myapp", "onFailure :: " + extendedInfo.toString());
+            Log.d("MyapponFailure :: " + extendedInfo.toString());
         } else {
-            Log.d("Myapp", "onFailure :: " + response.getResponseText());
+            Log.d("MyapponFailure :: " + response.getResponseText());
         }
     }
 });

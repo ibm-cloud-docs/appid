@@ -108,7 +108,7 @@ Payload: {
     "iat": "1495559064",
     "name": "John Smith",
     "email": "js@mail.com",
-    "gender", "male",
+    "gendermale",
     "locale": "en",
     "picture": "https://url.to.photo",
     "sub": "de6a17d2-693d-4a43-8ea2-2140afd56a22",

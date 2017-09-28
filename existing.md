@@ -32,10 +32,10 @@ You can add the {{site.data.keyword.appid_short_notm}} service to your existing 
 
   ```gradle
   allprojects {
-      		repositories {
-         	 ...
-         	 maven { url 'https://jitpack.io' }
-      		}
+        repositories {
+           ...
+           maven { url 'https://jitpack.io' }
+        }
   }
   ```
   {: codeblock}
@@ -54,7 +54,7 @@ You can add the {{site.data.keyword.appid_short_notm}} service to your existing 
   ```gradle
   defaultConfig {
                          ...
-            manifestPlaceholders = ['appIdRedirectScheme': android.defaultConfig.applicationId]
+            manifestPlaceholders = appIdRedirectScheme': android.defaultConfig.applicationId]
   }
   ```
   {: codeblock}
@@ -178,8 +178,8 @@ You can add the {{site.data.keyword.appid_short_notm}} service to your existing 
 
   ```swift
   func application(_ application: UIApplication, open url: URL, options :[UIApplicationOpenURLOptionsKey : Any]) -> Bool {
-         	return AppID.sharedInstance.application(application, open: url, options: options)
-     	}
+          return AppID.sharedInstance.application(application, open: url, options: options)
+      }
   class delegate : AuthorizationDelegate {
      public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, response:Response?) {
      }
@@ -264,7 +264,7 @@ You can add the {{site.data.keyword.appid_short_notm}} service to your existing 
     });
   app.get(CALLBACK_URL, passport.authenticate(WebAppStrategy.STRATEGY_NAME));
   app.get("/protected", passport.authenticate(WebAppStrategy.STRATEGY_NAME)), function(req, res)
-    		res.json(req.user);
+      res.json(req.user);
     });
   ```
   {: codeblock}
@@ -287,9 +287,9 @@ You can add the {{site.data.keyword.appid_short_notm}} service to your existing 
     import PackageDescription
 
     let package = Package(
-       	dependencies: [
-           	.Package(url: "https://github.com/ibm-cloud-security/appid-serversdk-swift.git", majorVersion: 1)
-       		]
+        dependencies: [
+            .Package(url: "https://github.com/ibm-cloud-security/appid-serversdk-swift.git", majorVersion: 1)
+         ]
     )
     ```
     {: codeblock}
@@ -318,7 +318,7 @@ You can add the {{site.data.keyword.appid_short_notm}} service to your existing 
       ))
   router.get("/protected", handler: kituraCredentials.authenticate(credentialsType: webappKituraCredentialsPlugin.name), { (request, response, next) in
     let appIdAuthContext:JSON? = request.session?[WebAppKituraCredentialsPlugin.AuthContext]
-    let identityTokenPayload:JSON? = appIdAuthContext?["identityTokenPayload"]
+    let identityTokenPayload:JSON? = appIdAuthContext?["identityTokenPayloa
     guard appIdAuthContext?.dictionary != nil, identityTokenPayload?.dictionary != nil else {
       response.status(.unauthorized)
       return next()
@@ -550,11 +550,11 @@ In your Node.js app, replace `passport.use(new WebAppStrategy());` with the foll
 
   ```javaScript
   passport.use(new WebAppStrategy({
-    	  tenantId: "{tenant-id}",
-   	    clientId: "{client-id}",
-      	secret: "{secret}",
-      	oauthServerUrl: "{oauth-server-url}",
-      	redirectUri: "{app-url}" + CALLBACK_URL
+       tenantId: "{tenant-id}",
+        clientId: "{client-id}",
+       secret: "{secret}",
+       oauthServerUrl: "{oauth-server-url}",
+       redirectUri: "{app-url}" + CALLBACK_URL
       }));
   ```
   {: codeblock}

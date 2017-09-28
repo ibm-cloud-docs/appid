@@ -15,7 +15,7 @@ lastupdated: "2017-08-08"
 {{site.data.keyword.appid_full}} helps you to add authentication to your mobile and web apps and protects your back-end systems.
 {: shortdesc}
 
-**Note:** The {{site.data.keyword.appid_short_notm}} service was formerly known as {{site.data.keyword.amafull}}.
+**Note:**The {{site.data.keyword.appid_short_notm}} service was formerly known as {{site.data.keyword.amafull}}.
 
 
 1. In the {{site.data.keyword.Bluemix}} catalog, select {{site.data.keyword.appid_short_notm}}. The service configuration screen opens.

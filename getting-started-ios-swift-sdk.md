@@ -98,7 +98,7 @@ The {{site.data.keyword.appid_short_notm}} client SDK is distributed with CocoaP
   ```
   {: codeblock}
 
-  * Replace ״tenantId״ with the tenant ID for your App ID service.
+  * Replace \xd7\xb4tenantId\xd7\xb4 with the tenant ID for your App ID service.
   * Replace AppID.REGION_UK with your {{site.data.keyword.appid_short_notm}} region.
 
 3. Add the following code to your AppDelegate file.
@@ -170,7 +170,7 @@ When an access token is not explicitly passed, {{site.data.keyword.appid_short_n
 For example, you can call the following code to set a new attribute, or override an existing one.
 
   ```swift
-  AppID.sharedInstance.userAttributeManager?.setAttribute("key", "value", completionHandler: { (error, result) in
+  AppID.sharedInstance.userAttributeManager?.setAttribute("keyvalue", completionHandler: { (error, result) in
       if error = nil {
           //Attributes recieved as a Dictionary
       } else {

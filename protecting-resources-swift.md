@@ -80,11 +80,11 @@ The following code demonstrates how to use WebAppKituraCredentialsPlugin in a Ki
   router.all(middleware: session)
 
   let options = [
-  	"clientId": "{client-id}",
-  	"secret": "{secret}",
-  	"tenantId": "{tenant-id}",
-  	"oauthServerUrl": "{oauth-server-url}",
-  	"redirectUri": "{app-url}" + CALLBACK_URL
+   "clientId": "{client-id}",
+   "secret": "{secret}",
+   "tenantId": "{tenant-id}",
+   "oauthServerUrl": "{oauth-server-url}",
+   "redirectUri": "{app-url}" + CALLBACK_URL
   ]
   let webappKituraCredentialsPlugin = WebAppKituraCredentialsPlugin(options: options)
   let kituraCredentials = Credentials()
@@ -92,29 +92,29 @@ The following code demonstrates how to use WebAppKituraCredentialsPlugin in a Ki
 
   // Explicit login endpoint
   router.get(LOGIN_URL,
-  		   handler: kituraCredentials.authenticate(credentialsType: webappKituraCredentialsPlugin.name,
-  												   successRedirect: LANDING_PAGE_URL,
-  												   failureRedirect: LANDING_PAGE_URL
+       handler: kituraCredentials.authenticate(credentialsType: webappKituraCredentialsPlugin.name,
+                 successRedirect: LANDING_PAGE_URL,
+                 failureRedirect: LANDING_PAGE_URL
   ))
 
   // Callback to finish the authorization process. Will retrieve access and identity tokens from AppID
   router.get(CALLBACK_URL,
-  		   handler: kituraCredentials.authenticate(credentialsType: webappKituraCredentialsPlugin.name,
-  												   successRedirect: LANDING_PAGE_URL,
-  												   failureRedirect: LANDING_PAGE_URL
+       handler: kituraCredentials.authenticate(credentialsType: webappKituraCredentialsPlugin.name,
+                 successRedirect: LANDING_PAGE_URL,
+                 failureRedirect: LANDING_PAGE_URL
   ))
 
   // Logout endpoint. Clears authentication information from session
   router.get(LOGOUT_URL, handler:  { (request, response, next) in
-  	kituraCredentials.logOut(request: request)
-  	webappKituraCredentialsPlugin.logout(request: request)
-  	_ = try? response.redirect(LANDING_PAGE_URL)
+   kituraCredentials.logOut(request: request)
+   webappKituraCredentialsPlugin.logout(request: request)
+   _ = try? response.redirect(LANDING_PAGE_URL)
   })
 
   // Protected area
   router.get("/protected", handler: kituraCredentials.authenticate(credentialsType: webappKituraCredentialsPlugin.name), { (request, response, next) in
       let appIdAuthContext:JSON? = request.session?[WebAppKituraCredentialsPlugin.AuthContext]
-      let identityTokenPayload:JSON? = appIdAuthContext?["identityTokenPayload"]
+      let identityTokenPayload:JSON? = appIdAuthContext?["identityTokenPayloa
 
       guard appIdAuthContext?.dictionary != nil, identityTokenPayload?.dictionary != nil else {
           response.status(.unauthorized)
@@ -125,7 +125,7 @@ The following code demonstrates how to use WebAppKituraCredentialsPlugin in a Ki
       next()
   })
   var port = 3000
-  if let portString = ProcessInfo.processInfo.environment["PORT"]{
+  if let portString = ProcessInfo.processInfo.environment["POR{
       port = Int(portString)!
   }
   print("Starting on \(port)")

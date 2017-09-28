@@ -55,10 +55,10 @@ You need the following information:
 
   ```gradle
     allprojects {
-	    repositories {
-		    ...
-		    maven { url 'https://jitpack.io' }
-	    }
+     repositories {
+      ...
+      maven { url 'https://jitpack.io' }
+     }
     }
   ```
   {: codeblock}
@@ -80,7 +80,7 @@ You need the following information:
   ```gradle
   defaultConfig {
   ...
-  manifestPlaceholders = ['appIdRedirectScheme': android.defaultConfig.applicationId]
+  manifestPlaceholders = appIdRedirectScheme': android.defaultConfig.applicationId]
   }
   ```
   {: codeblock}
@@ -156,16 +156,16 @@ For example, you can call the following code to set a new attribute, or override
 
   ```java
   appId.getUserAttributeManager().setAttribute(name, value, useThisToken,new UserAttributeResponseListener() {
-		@Override
-		public void onSuccess(JSONObject attributes) {
-			//attributes received in JSON format on successful response
-		}
+  @Override
+  public void onSuccess(JSONObject attributes) {
+   //attributes received in JSON format on successful response
+  }
 
-		@Override
-		public void onFailure(UserAttributesException e) {
-			//Exception occurred
-		}
-	});
+  @Override
+  public void onFailure(UserAttributesException e) {
+   //Exception occurred
+  }
+ });
   ```
   {: codeblock}
 
@@ -176,21 +176,21 @@ With {{site.data.keyword.appid_short_notm}}, you can log in [anonymously](/docs/
 
   ```java
   appId.loginAnonymously(getApplicationContext(), new AuthorizationListener() {
-		@Override
-		public void onAuthorizationFailure(AuthorizationException exception) {
-			//Exception occurred
-		}
+  @Override
+  public void onAuthorizationFailure(AuthorizationException exception) {
+   //Exception occurred
+  }
 
-		@Override
-		public void onAuthorizationCanceled() {
-			//Authentication canceled by the user
-		}
+  @Override
+  public void onAuthorizationCanceled() {
+   //Authentication canceled by the user
+  }
 
-		@Override
-		public void onAuthorizationSuccess(AccessToken accessToken, IdentityToken identityToken) {
-			//User authenticated
-		}
-	});
+  @Override
+  public void onAuthorizationSuccess(AccessToken accessToken, IdentityToken identityToken) {
+   //User authenticated
+  }
+ });
   ```
   {: codeblock}
 
@@ -207,7 +207,7 @@ When the user holds an anonymous access token, they can become identified by pas
 After an anonymous login, progressive authentication occurs even if the login widget is called without passing an access token because the service used the last received token. If you want to clear your stored tokens, run the following command.
 
   ```java
-  	appIDAuthorizationManager = new AppIDAuthorizationManager(this.appId);
+   appIDAuthorizationManager = new AppIDAuthorizationManager(this.appId);
   appIDAuthorizationManager.clearAuthorizationData();
   ```
   {: codeblock}
