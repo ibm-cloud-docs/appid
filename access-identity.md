@@ -163,3 +163,4 @@ Payload: {
     <td> </br><ul><li> The type of application determined during client registration. The variable can be <i>serverapp</i> or <i>mobileapp</i>. <li> The client name as reported during client registration. <li> The software ID as reported during client registration. <li> The version of software used during client registration. </ul></td>
   </tr>
 </table>
+

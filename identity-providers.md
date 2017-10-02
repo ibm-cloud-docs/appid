@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-08-08"
+lastupdated: "2017-09-28"
 
 ---
 
@@ -15,6 +15,7 @@ lastupdated: "2017-08-08"
 {: #setting-up-idp}
 
 You can configure Facebook, Google, or a combination of the two to set up a single sign-on experience for your users. By using an identity provider, users are able to sign in with credentials they are already familiar with.
+
 {:shortdesc}
 
 
