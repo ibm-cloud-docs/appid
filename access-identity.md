@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-08-08"
+lastupdated: "2017-10-20"
 
 ---
 
@@ -12,7 +12,6 @@ lastupdated: "2017-08-08"
 {:codeblock: .codeblock}
 
 # Access and identity tokens
-{: #access-and-identity}
 
 {{site.data.keyword.appid_short}} uses two types of tokens: access and identity. The tokens are formatted as <a href="https://jwt.io/introduction/" target="_blank">JSON Web Tokens <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
 {:shortdesc}
@@ -163,4 +162,3 @@ Payload: {
     <td> </br><ul><li> The type of application determined during client registration. The variable can be <i>serverapp</i> or <i>mobileapp</i>. <li> The client name as reported during client registration. <li> The software ID as reported during client registration. <li> The version of software used during client registration. </ul></td>
   </tr>
 </table>
-
