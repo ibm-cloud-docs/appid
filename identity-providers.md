@@ -19,6 +19,7 @@ You can configure Facebook, Google, or a combination of the two to set up a sing
 {:shortdesc}
 
 
+
 ## Configuring Facebook authentication
 {: #facebook}
 
