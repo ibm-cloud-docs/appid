@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-09-28"
+lastupdated: "2017-10-24"
 
 ---
 
@@ -15,7 +15,6 @@ lastupdated: "2017-09-28"
 {: #setting-up-idp}
 
 You can configure Facebook, Google, or a combination of the two to set up a single sign-on experience for your users. By using an identity provider, users are able to sign in with credentials they are already familiar with.
-
 {:shortdesc}
 
 
@@ -23,13 +22,11 @@ You can configure Facebook, Google, or a combination of the two to set up a sing
 ## Configuring Facebook authentication
 {: #facebook}
 
-Configure the {{site.data.keyword.appid_short}} service to use Facebook as an identity provider.
-
+You can configure the {{site.data.keyword.appid_short}} service to use Facebook as an identity provider.
 
 ### Getting an app ID and secret from Facebook
-{: #getting-facebook-appid}
 
-To use Facebook as an identity provider on your mobile or web apps, you must add and configure the website platform on your Facebook application.
+To use Facebook as an identity provider, you must add and configure the website platform on your Facebook application.
 
 1. Log in to your account on the <a href="https://developers.facebook.com/docs/apps/register" target="_blank">Facebook for Developers site <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
 2. Make note of the Facebook app ID and secret. These values are needed to configure your web project for authentication in your service dashboard.
@@ -39,7 +36,6 @@ To use Facebook as an identity provider on your mobile or web apps, you must add
 6. Click **Save Changes**.
 
 ### Configuring {{site.data.keyword.appid_short_notm}} for Facebook authentication
-{: #configuring-facebook-appid}
 
 When you have your Facebook app ID and secret, and your Facebook for Developers app is configured to serve web clients, you can edit the Facebook authentication in your service dashboard.
 
@@ -53,28 +49,32 @@ When you have your Facebook app ID and secret, and your Facebook for Developers 
 ## Configuring Google authentication
 {: #google}
 
-Configure the {{site.data.keyword.appid_short_notm}} service to use Google as an identity provider.
-
+You can configure the {{site.data.keyword.appid_short}} service to use Google as an identity provider.
 
 ### Getting a client ID and secret from Google
-{: #google-client-id}
 
-To use Google as an identity provider, obtain a Google client ID and secret and create a project in the Google Developer Console.
+Create a project in the Google Developers Console, configure the project to serve web clients, and obtain a client ID and secret.
 
-1. Open your Google application in the <a href="https://console.developers.google.com/apis/library" target="_blank">Google Developer Console <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
-2. Add the Google+ API.
-3. Create credentials by using OAuth. In the **Application Type** field, select **Web application**. In the **Authorized redirect URIs** field, enter the {{site.data.keyword.appid_short_notm}} redirect URI. You can obtain the {{site.data.keyword.appid_short_notm}} redirect authorization URI from the Google configuration screen of the service dashboard.
-4. Make note of the Google client ID and secret and save your changes.
+1. Create a project.
+2. Add the Google+ API to your Google project.
+3. Add credentials to the Google+ API.
+    1. Select Google+ API as the type of API.
+    2. Select **Web Browser** as where you'll be calling the API.
+    3. Choose **User data**.
+    4. Fill out the required fields to create a client ID. A secret is created at the same time.
+4. Make note of the Google client ID and secret. In the credentials tab, select the ID that you created to obtain your secret and client ID.
 
+### Configuring {{site.data.keyword.appid_short}} for Google authentication
 
-
-### Configuring {{site.data.keyword.appid_short_notm}} for Google authentication
-{: #google-client-appid}
-
-When you have your Google client and secret, and your Google Developers console is configured to serve web clients, you can edit the Google authentication in your service dashboard.
+After you've configured your Google project and have your client ID and secret, you can edit your service dashboard for Google authentication.
 
 1. From the **Manage** tab of your service dashboard, select **Google** and click **Edit**.
-3. Enter the Google Client ID and Secret that you obtained from the Google Developers console.
-4. Copy the URI that is in the **Redirect URI for Google for Developers** field. Paste the URI into the **Authorized redirect URIs** field that is under **Restrictions** in the **Client ID for web application** section of the Google Developers Portal.
-5. Click **Save**.
-6. Optional: For web apps, enter the redirect URI in the **Web Application Redirect URIs** field. This value is determined by the developer and used to access the redirect URI after the authorization process completes.
+2. Enter the client ID and secret that you obtained from the Google Developers Console.
+3. Authorize the {{site.data.keyword.appid_short}} URL.
+    1. Copy the **Redirect URL for Google Developer Console** from the Google identity provider details.
+    2. In the credentials tab of your Google project, select the client ID that you created for this integration.
+    3. Paste the URL from {{site.data.keyword.appid_short}} into the **Authorized redirect URIs** field and click **Save**.
+4. Click **Save** to update your Google configuration in {{site.data.keyword.appid_short}}.
+5. Optional: For web apps, enter a redirect URL in the **Mangage** tab. After the authorization process completes, a user is sent to this URL.
+
+
