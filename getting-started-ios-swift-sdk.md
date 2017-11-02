@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-08-08"
+lastupdated: "2017-11-05"
 
 ---
 
@@ -113,7 +113,10 @@ The {{site.data.keyword.appid_short_notm}} client SDK is distributed with CocoaP
 ## Authenticate users by using the login widget
 {: #authenticate-login}
 
+
 After the {{site.data.keyword.appid_short_notm}} client SDK is initialized, you can authenticate your users by running the login widget. The login widget default configuration uses Facebook and Google as authentication options. If you configure only one identity provider, the login widget does not start and the user is redirected to the configured IDP authentication screen.
+
+
 
 
 
@@ -229,4 +232,4 @@ After an anonymous login, progressive authentication occurs even if the login wi
 ## Next steps
 {: #next-steps}
 
-{{site.data.keyword.appid_short_notm}} provides a default configuration when you initially set up your identity providers. You can use the default configuration in development mode only. Before you publish your application, update the default [Facebook](/docs/services/appid/identity-providers.html#facebook) and [Google](/docs/services/appid/identity-providers.html#google) configuration to your own credentials.
+{{site.data.keyword.appid_short_notm}} provides a default configuration when you initially set up your identity providers. You can use the default configuration in development mode only. Before you publish your application, [update the default configuration to your own credentials](/docs/services/appid/identity-providers.html).
