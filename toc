@@ -4,15 +4,14 @@
 {:topicgroup: .topicgroup}
 
 {: .toc subcollection="appid" audience="service" href="/docs/services/appid/index.html"}
-App ID
+IBM Cloud App ID
 
     {: .navgroup id="learn"}
     index.md
 
     {: .topicgroup}
-    About App ID
+    About
         about.md
-        id-overview.md
         access-identity.md
         authorization-resources.md
         user-profile.md
