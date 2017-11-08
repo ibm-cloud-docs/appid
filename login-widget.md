@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-08-08"
+lastupdated: "2017-11-08"
 
 ---
 {:new_window: target="_blank"}
@@ -24,4 +24,4 @@ When the {{site.data.keyword.appid_short}} service is configured with two or mor
 4. Select a header color for the widget from the color picker, or enter the hex code for another color.
 5. Inspect the preview pane, and click **Save Changes** when you are happy with your customizations. A confirmation message is displayed.
 
-You are not required to rebuild your application. The image is stored in the {{site.data.keyword.appid_short}} database and is displayed at the next login.
+**Note**: You are not required to rebuild your application. The image is stored in the {{site.data.keyword.appid_short}} database and is displayed at the next login.
