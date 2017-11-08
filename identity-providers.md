@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-10-31"
+lastupdated: "2017-11-07"
 
 ---
 
@@ -14,15 +14,36 @@ lastupdated: "2017-10-31"
 # Configuring identity providers
 {: #setting-up-idp}
 
-You can configure Facebook, Google, or a combination of the two to set up a single sign-on experience for your users. By using an identity provider, users are able to sign in with credentials they are already familiar with.
-{:shortdesc}
+Identity providers provide an extra level of authentication for your mobile and web apps. With {{site.data.keyword.appid_full}} you can configure one or several identity providers to set up a single sign-on experience for your app.
+{: shortdesc}
+
+You can use the following identity providers:
+
+<dl>
+  <dt> Facebook </dt>
+    <dd> Users log in to your application by using the same password and email that they use to login into their Facebook account. </dd>
+  <dt> Google </dt>
+    <dd> Users log in to your application by using the same password and email that they use to login to their Google accounts. </dd>
+</dl>
 
 
+
+## Default configuration
+{: #default}
+
+{{site.data.keyword.appid_short_notm}} provides a default configuration to help with the initial set up of your identity providers. The default should only be used for development purposes. The default credentials are set up for Facebook and Google and are limited to 100 uses per instance, per day. Before you publish your app, update the configuration to your credentials.
+
+
+
+</br>
+</br>
+</br>
 
 ## Configuring Facebook
 {: #facebook}
 
 You can configure the {{site.data.keyword.appid_short}} service to use Facebook as an identity provider.
+{: shortdesc}
 
 ### Getting an app ID and secret from Facebook
 
@@ -46,11 +67,15 @@ When you have your Facebook app ID and secret, and your Facebook for Developers 
 4. Click **Save**.
 5. Optional: For web apps, enter the redirect URL in the **Web Application Redirect URLs** field. This value is determined by the developer and used to access the redirect URL after the authorization process is completed.
 
+</br>
+</br>
+</br>
 
 ## Configuring Google
 {: #google}
 
 You can configure the {{site.data.keyword.appid_short}} service to use Google as an identity provider.
+{: shortdesc}
 
 ### Getting a client ID and secret from Google
 
