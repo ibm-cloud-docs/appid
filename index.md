@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-08-08"
+lastupdated: "2017-11-07"
 
 ---
 
@@ -23,6 +23,7 @@ lastupdated: "2017-08-08"
 3. To bind your instance, select an app from the **Connect to** menu. If you select **Leave unbound**, you can bind the service instance later.
 4. Select your pricing plan and click **Create**.
 5. Optional: Use the instructions in the UI to download the sample apps. The samples help you to get up and running with {{site.data.keyword.appid_short_notm}}.
-6. Download and set up the [SDKs](/docs/services/appid/relatedlinks.html) needed to work with your particular application.
-7. Configure your [identity providers](/docs/services/appid/identity-providers.html) for authentication and authorization.
-8. Optional: If you enabled more than one identity provider, customize your [login widget](/docs/services/appid/login-widget.html).
+
+Now that you have an instance of {{site.data.keyword.appid_short_notm}}, download the SDK for your preferred programing language and start authenticating users!
+
+
