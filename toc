@@ -15,6 +15,7 @@ IBM Cloud App ID
         access-identity.md
         authorization-resources.md
         user-profile.md
+    
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
