@@ -44,7 +44,8 @@ App ID
     login-widget.md
 
     {: .topicgroup}
-    リソースの保護        protecting-resources.md
+    リソースの保護        
+        protecting-resources.md
         protecting-resources-nodejs.md
         protecting-resources-swift.md
     {: .navgroup-end}
