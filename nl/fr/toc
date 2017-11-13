@@ -22,14 +22,11 @@ App ID
     [API REST](https://appid-oauth.ng.bluemix.net/swagger-ui/#!/Authorization_Server_V3/authorization)
 
     {: .topicgroup}
-    Logiciels SDK        [SDK
-client Android](https://github.com/ibm-cloud-security/appid-clientsdk-android)
-        [SDK
-client iOS Swift](https://github.com/ibm-cloud-security/appid-clientsdk-swift)
-        [SDK
-serveur Node.js](https://github.com/ibm-cloud-security/appid-serversdk-nodejs)
-        [SDK
-serveur Swift](https://github.com/ibm-cloud-security/appid-serversdk-swift)
+    Logiciels SDK
+        [SDK client Android](https://github.com/ibm-cloud-security/appid-clientsdk-android)
+        [SDK client iOS Swift](https://github.com/ibm-cloud-security/appid-clientsdk-swift)
+        [SDK serveur Node.js](https://github.com/ibm-cloud-security/appid-serversdk-nodejs)
+        [SDK serveur Swift](https://github.com/ibm-cloud-security/appid-serversdk-swift)
 
     relatedlinks.md
     {: .navgroup-end}
