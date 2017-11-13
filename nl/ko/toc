@@ -15,7 +15,8 @@ App ID
         id-overview.md
         access-identity.md
         authorization-resources.md
-        user-profile.md{: .navgroup-end}
+        user-profile.md
+        {: .navgroup-end}
 
     {: .navgroup id="reference"}
     [REST API](https://appid-oauth.ng.bluemix.net/swagger-ui/#!/Authorization_Server_V3/authorization)
