@@ -29,7 +29,6 @@ You can use the following identity providers:
 
 </br>
 </br>
-</br>
 
 ## Default configuration
 {: #default}
@@ -37,11 +36,9 @@ You can use the following identity providers:
 {{site.data.keyword.appid_short_notm}} provides a default configuration to help with the initial set up of your identity providers.
 {: shortdesc}
 
-The default credentials are set up for Facebook and Google. You are limited to 100 uses of the credentials per instance, per day. Because they are {{site.data.keyword.ibm_notm}} credentials, they should be used in your applications only in development mode. Prior to publishing your app, [update the configuration to your own credentials](/docs/services/appid/identity-providers.html).
+The default credentials are set up for Facebook and Google. You are limited to 100 uses of the credentials per instance, per day. Because they are IBM credentials, they should be used in your applications only in development mode. Prior to publishing your app, [update the configuration to your own credentials](/docs/services/appid/identity-providers.html).
 
 
-</br>
-</br>
 </br>
 
 ## Configuring Facebook
@@ -72,8 +69,7 @@ When you have your Facebook app ID and secret, and your Facebook for Developers 
 4. Click **Save**.
 5. Optional: For web apps, enter the redirect URL in the **Web Application Redirect URLs** field. This value is determined by the developer and used to access the redirect URL after the authorization process is completed.
 
-</br>
-</br>
+
 </br>
 
 ## Configuring Google
