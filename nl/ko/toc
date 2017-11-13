@@ -21,7 +21,7 @@ App ID
     [REST API](https://appid-oauth.ng.bluemix.net/swagger-ui/#!/Authorization_Server_V3/authorization)
 
     {: .topicgroup}
-SDK
+    SDK
         [Android 클라이언트 SDK](https://github.com/ibm-cloud-security/appid-clientsdk-android)
         [iOS Swift 클라이언트 SDK](https://github.com/ibm-cloud-security/appid-clientsdk-swift)
         [Node.js 서버 SDK](https://github.com/ibm-cloud-security/appid-serversdk-nodejs)
