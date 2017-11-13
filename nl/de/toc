@@ -4,7 +4,8 @@
 {:topicgroup: .topicgroup}
 
 {: .toc subcollection="appid" audience="service" href="/docs/services/appid/index.html"}
-App ID 
+App ID
+
     {: .navgroup id="learn"}
     index.md
 
