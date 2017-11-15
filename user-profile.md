@@ -54,6 +54,8 @@ An anonymous user with an identity that is provided by an identity provider can 
 Attributes that are contained by this user while it was anonymous are accessible with the new access token. New tokens can be added, changed, or deleted. Going forward, the user and their attributes are resolved and accessible when they log in with the same identity from any client.
 
 
+
+
 ## Data separation and encryption
 {: #data}
 
