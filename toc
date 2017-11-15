@@ -15,19 +15,7 @@ IBM Cloud App ID
         access-identity.md
         authorization-resources.md
         user-profile.md
-    {: .navgroup-end}
-
-    {: .navgroup id="reference"}
-    [REST API](https://appid-oauth.ng.bluemix.net/swagger-ui/#!/Authorization_Server_V3/authorization)
-
-    {: .topicgroup}
-    SDKs
-        [Android client SDK](https://github.com/ibm-cloud-security/appid-clientsdk-android)
-        [iOS Swift client SDK](https://github.com/ibm-cloud-security/appid-clientsdk-swift)
-        [Node.js server SDK](https://github.com/ibm-cloud-security/appid-serversdk-nodejs)
-        [Swift server SDK](https://github.com/ibm-cloud-security/appid-serversdk-swift)
-
-    relatedlinks.md
+    
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
@@ -49,6 +37,20 @@ IBM Cloud App ID
         protecting-resources-nodejs.md
         protecting-resources-swift.md
         protecting-resources-java.md
+    {: .navgroup-end}
+
+    {: .navgroup id="reference"}
+    [Management REST API](https://appid-management.ng.bluemix.net/swagger-ui/#/Config)
+    [Profiles REST API](https://appid-profiles.ng.bluemix.net/swagger-ui/index.html)
+
+    {: .topicgroup}
+    SDKs
+        [Android client SDK](https://github.com/ibm-cloud-security/appid-clientsdk-android)
+        [iOS Swift client SDK](https://github.com/ibm-cloud-security/appid-clientsdk-swift)
+        [Node.js server SDK](https://github.com/ibm-cloud-security/appid-serversdk-nodejs)
+        [Swift server SDK](https://github.com/ibm-cloud-security/appid-serversdk-swift)
+
+    relatedlinks.md
     {: .navgroup-end}
 
     {: .navgroup id="help"}
