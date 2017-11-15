@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-11-07"
+lastupdated: "2017-11-14"
 
 ---
 
@@ -18,7 +18,6 @@ Identity providers provide an extra level of authentication for your mobile and 
 {: shortdesc}
 
 You can use the following identity providers:
-
 <dl>
   <dt> Facebook </dt>
     <dd> Users log in to your application by using the same password and email that they use to login into their Facebook account. </dd>
@@ -27,19 +26,7 @@ You can use the following identity providers:
 </dl>
 
 
-</br>
-</br>
 
-## Default configuration
-{: #default}
-
-{{site.data.keyword.appid_short_notm}} provides a default configuration to help with the initial set up of your identity providers.
-{: shortdesc}
-
-The default credentials are set up for Facebook and Google. You are limited to 100 uses of the credentials per instance, per day. Because they are IBM credentials, they should be used in your applications only in development mode. Prior to publishing your app, [update the configuration to your own credentials](/docs/services/appid/identity-providers.html).
-
-
-</br>
 
 ## Configuring Facebook
 {: #facebook}
@@ -69,8 +56,6 @@ When you have your Facebook app ID and secret, and your Facebook for Developers 
 4. Click **Save**.
 5. Optional: For web apps, enter the redirect URL in the **Web Application Redirect URLs** field. This value is determined by the developer and used to access the redirect URL after the authorization process is completed.
 
-
-</br>
 
 ## Configuring Google
 {: #google}
