@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-11-07"
+lastupdated: "2017-11-17"
 
 ---
 
@@ -15,20 +15,12 @@ lastupdated: "2017-11-07"
 
 # Authorization and authentication
 
-Authorization is the process by which you grant access to your apps. The {{site.data.keyword.appid_short}} service uses tokens, filters, and a header to authorize users.
+Authorization is the process by which you grant access to your apps. The {{site.data.keyword.appid_short}} service uses tokens, filters, and a header to authenticate users.
 {: shortdesc}
 
-## Headers
-{: #auth-header}
 
-An authorization header is the combination of tokens returned. For {{site.data.keyword.appid_short}}, the authorization header consists of three different tokens that are separated by white space: Bearer, Access, and Identity. Bearer and access tokens are required to grant access to your apps. An identity token is optional and is mainly used to store information about those using your app.
 
-Example header structure:
 
-```
-Authorization=Bearer {access_token} [{id_token}]
-```
-{: screen}
 
 ## Access and identity tokens
 
@@ -114,7 +106,7 @@ Payload: {
 ### Identity tokens
 {: #identity-tokens}
 
-Identity tokens contain information about the user. They can give you information about their name, email, gender, and location. The token can also return a URL to an image of the user.
+An identity token contains information about the user. It can give you information about their name, email, gender, and location. A token can also return a URL to an image of the user.
 
 Example token:
 
@@ -186,6 +178,18 @@ Payload: {
     <td> </br><ul><li> The type of application determined during client registration. The variable can be <i>serverapp</i> or <i>mobileapp</i>. <li> The client name as reported during client registration. <li> The software ID as reported during client registration. <li> The version of software used during client registration. </ul></td>
   </tr>
 </table>
+
+## Headers
+{: #auth-header}
+
+An authorization header is the combination of tokens returned. For {{site.data.keyword.appid_short}}, the authorization header consists of three different tokens that are separated by white space: Bearer, Access, and Identity. Bearer and access tokens are required to grant access to your apps. An identity token is optional and is mainly used to store information about those using your app.
+
+Example header structure:
+
+```
+Authorization=Bearer {access_token} [{id_token}]
+```
+{: screen}
 
 
 ## Filters

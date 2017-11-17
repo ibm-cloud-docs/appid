@@ -8,17 +8,44 @@ IBM Cloud App ID
 
     {: .navgroup id="learn"}
     index.md
-    
+
     {: .topicgroup}
-    About
-        about.md
-        access-identity.md
-        authorization-resources.md
-        user-profile.md
+    about.md
+    authorization.md
+    {: .navgroup-end}
+
+    {: .navgroup id="howto"}
+    {: .topicgroup}
+    Setting up the SDKs
+        developing-apps.md
+        protecting-resources-local.md
+        getting-started-android.md
+        getting-started-ios-swift-sdk.md
+
+    existing.md
+
+    {: .topicgroup}
+    Configuring sign in
+        cloud-directory.md
+        identity-providers.md
+        login-widget.md
+
+    {: .topicgroup}
+    Protecting resources
+        protecting-resources.md
+        protecting-resources-nodejs.md
+        protecting-resources-swift.md
+        protecting-resources-java.md
+
+    user-profile.md
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
-    [REST API](https://appid-oauth.ng.bluemix.net/swagger-ui/#!/Authorization_Server_V3/authorization)
+    {: .topic group}
+    APIs
+        [Authorization](http://mobileclientaccess.mybluemix.net/swagger-ui/#/Authorization_Server_V3)
+        [Management](https://appid-management.ng.bluemix.net/swagger-ui/#/Config)
+        [Profiles](https://appid-profiles.ng.bluemix.net/swagger-ui/index.html)
 
     {: .topicgroup}
     SDKs
@@ -28,27 +55,6 @@ IBM Cloud App ID
         [Swift server SDK](https://github.com/ibm-cloud-security/appid-serversdk-swift)
 
     relatedlinks.md
-    {: .navgroup-end}
-
-    {: .navgroup id="howto"}
-    existing.md
-
-    {: .topicgroup}
-    Setting up the SDKs and sample app
-        developing-apps.md
-        protecting-resources-local.md
-        getting-started-android.md
-        getting-started-ios-swift-sdk.md
-
-    identity-providers.md
-    login-widget.md
-
-    {: .topicgroup}
-    Protecting resources
-        protecting-resources.md
-        protecting-resources-nodejs.md
-        protecting-resources-swift.md
-        protecting-resources-java.md
     {: .navgroup-end}
 
     {: .navgroup id="help"}
