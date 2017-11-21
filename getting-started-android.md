@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-11-02"
+lastupdated: "2017-11-19"
 
 ---
 
@@ -101,7 +101,7 @@ Initialize the client SDK by passing the context, tenant ID, and region paramete
 2. Replace the AppID.REGION_UK with your {{site.data.keyword.Bluemix_notm}} region.
 
 
-## Authenticate users by using the login widget
+## Authenticating users by using the login widget
 {: #authenticate-login-widget}
 
 The login widget default configuration uses Facebook and Google as authentication options. If you configure only one of them, the login widget does not start and the user is redirected to the configured IDP authentication screen.
