@@ -60,3 +60,4 @@ Attributes that are contained by this user while it was anonymous are accessible
 {{site.data.keyword.appid_short_notm}} stores and encrypts user profile attributes. As a multi-tenant service, every tenant has a designated encryption key and user data in each tenant is encrypted with only that tenant's key.
 
 {{site.data.keyword.appid_short_notm}} ensures that private information is encrypted before it is stored.
+
