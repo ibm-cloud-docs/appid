@@ -2,14 +2,14 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-06-12"
+lastupdated: "2017-11-02"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen:.screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 # Android SDK 설정
 {: #android-sdk}
@@ -61,7 +61,7 @@ lastupdated: "2017-06-12"
 	    }
     }
   ```
-  {:pre}
+  {: codeblock}
 
 3. 사용자의 애플리케이션에 대한 `build.gradle` 파일을 여십시오. 
 
@@ -69,21 +69,21 @@ lastupdated: "2017-06-12"
 4. 파일의 종속성 섹션을 찾아서 {{site.data.keyword.appid_short_notm}} 클라이언트 SDK에 대한 컴파일 종속성을 추가하십시오. 
 
   ```gradle
-   dependencies {
-       compile group: 'com.github.ibm-cloud-security:appid-clientsdk-android:1.+'
+dependencies {
+compile group: 'com.github.ibm-cloud-security:appid-clientsdk-android:1.+'
    }
   ```
-  {:pre}
+  {: codeblock}
 
 5. defaultConfig 섹션을 찾아서 다음의 코드 행을 추가하십시오. 
 
   ```gradle
-  defaultConfig {
-  ...
+defaultConfig {
+...
   manifestPlaceholders = ['appIdRedirectScheme': android.defaultConfig.applicationId]
   }
   ```
-  {:pre}
+  {: codeblock}
 
 6. 프로젝트를 Gradle과 동기화하십시오. **도구** > **Android** > **Gradle 파일과 프로젝트 동기화**를 클릭하십시오.
 
@@ -95,7 +95,7 @@ initialize 메소드에 컨텍스트, 테넌트 ID 및 지역 매개변수를 �
   ```java
   AppID.getInstance().initialize(getApplicationContext(), <tenantId>, AppID.REGION_UK);
   ```
-  {:pre}
+  {: codeblock}
 
 1. *tenantId*를 {{site.data.keyword.appid_short_notm}} 서비스 tenantId로 바꾸십시오.
 2. AppID.REGION_UK를 사용자의 {{site.data.keyword.Bluemix_notm}} 지역으로 바꾸십시오.
@@ -105,6 +105,8 @@ initialize 메소드에 컨텍스트, 테넌트 ID 및 지역 매개변수를 �
 {: #authenticate-login-widget}
 
 로그인 위젯 기본 구성에서는 인증 옵션으로 Facebook 및 Google을 사용합니다. 그 중에서 하나만 구성하는 경우에는 로그인 위젯이 시작되지 않으며 구성된 IDP 인증 화면으로 사용자가 경로 재지정됩니다. 
+
+
 
 {{site.data.keyword.appid_short_notm}} 클라이언트 SDK가 초기화된 후에 로그인 위젯을 실행하여 사용자를 인증할 수 있습니다. 
 
@@ -127,7 +129,7 @@ initialize 메소드에 컨텍스트, 테넌트 ID 및 지역 매개변수를 �
         }
       });
   ```
-  {:pre}
+  {: codeblock}
 
 
 ## 사용자 속성 액세스
@@ -148,7 +150,7 @@ initialize 메소드에 컨텍스트, 테넌트 ID 및 지역 매개변수를 �
   void getAllAttributes(@NonNull UserAttributeResponseListener listener);
   void getAllAttributes(@NonNull AccessToken accessToken, @NonNull UserAttributeResponseListener listener);
   ```
-  {:pre}
+  {: codeblock}
 
 액세스 토큰이 명시적으로 전달되지 않을 때 {{site.data.keyword.appid_short_notm}}는 마지막으로 수신된 토큰을 사용합니다. 
 
@@ -167,7 +169,7 @@ initialize 메소드에 컨텍스트, 테넌트 ID 및 지역 매개변수를 �
 		}
 	});
   ```
-  {:pre}
+  {: codeblock}
 
 ### 익명 로그인
 {: #anonymous notoc}
@@ -192,7 +194,7 @@ initialize 메소드에 컨텍스트, 테넌트 ID 및 지역 매개변수를 �
 		}
 	});
   ```
-  {:pre}
+  {: codeblock}
 
 ### 점진적 인증
 {: #progressive notoc}
@@ -203,7 +205,7 @@ initialize 메소드에 컨텍스트, 테넌트 ID 및 지역 매개변수를 �
   ```java
   void launch (@NonNull final Activity activity, @NonNull final AuthorizationListener authorizationListener, String accessTokenString);
   ```
-  {:pre}
+  {: codeblock}
 
 익명 로그인 후에는 서비스가 마지막으로 수신된 토큰을 사용했기 때문에 액세스 토큰을 전달하지 않고 로그인 위젯이 호출되는 경우에도 점진적 인증이 발생합니다. 저장된 토큰을 지우려는 경우 다음 명령을 실행하십시오.
 
@@ -211,10 +213,10 @@ initialize 메소드에 컨텍스트, 테넌트 ID 및 지역 매개변수를 �
   	appIDAuthorizationManager = new AppIDAuthorizationManager(this.appId);
   appIDAuthorizationManager.clearAuthorizationData();
   ```
-  {:pre}
+  {: codeblock}
 
 
 ## 다음 단계
 {: #next-steps}
 
-{{site.data.keyword.appid_short_notm}}는 ID 제공자를 처음 설정할 때 기본 구성을 제공합니다. 개발 모드에서만 기본 구성을 사용할 수 있습니다. 애플리케이션을 공개하기 전에 기본 [Facebook](/docs/services/appid/identity-providers.html#facebook) 및 [Google](/docs/services/appid/identity-providers.html#google) 구성을 사용자 자신의 신임 정보에 업데이트하십시오.
+{{site.data.keyword.appid_short_notm}}는 ID 제공자를 처음 설정할 때 기본 구성을 제공합니다. 개발 모드에서만 기본 구성을 사용할 수 있습니다. 애플리케이션을 공개하기 전에 [자체 신임 정보에 대한 기본 구성을 업데이트](/docs/services/appid/identity-providers.html)하십시오. 

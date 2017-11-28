@@ -2,17 +2,16 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-06-12"
+lastupdated: "2017-11-02"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 # アクセス・トークンと識別トークン
-{: #access-and-identity}
 
 {{site.data.keyword.appid_short}} は、アクセス・トークンと識別トークンという 2 つのタイプのトークンを使用します。これらのトークンは、<a href="https://jwt.io/introduction/" target="_blank">JSON Web トークン<img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a>としてフォーマットされます。
 {:shortdesc}
@@ -158,7 +157,7 @@ Payload: {
   </tr>
   <tr>
     <td> <i> identities: </br> <ul><li> provider <li> id <li> amr </ul></i></td>
-    <td> </br><ul><li> 認証に使用される ID プロバイダー。この変数は、<code>appid_facebook</code>、<code>appid_google</code>、または <code>appid_ibmid</code> です。これは、必ず返されなければなりません。<li> ID プロバイダーによって報告された固有のユーザー ID。<li> ID プロバイダーによって返されなければならない JSON オブジェクト。</ul></i></td>
+    <td> </br><ul><li> 認証に使用される ID プロバイダー。この変数は、<code>appid_facebook</code> と <code>appid_google</code> のいずれかです。必ず返されなければなりません。</li><li> ID プロバイダーによって報告された固有のユーザー ID。</li><li> ID プロバイダーによって返されなければならない JSON オブジェクト。</li></ul></td>
   </tr>
   <tr>
     <td> <i> oauth_client: </br> <ul><li> type <li> name <li> software_id <li> software_version</ul></i> </td>

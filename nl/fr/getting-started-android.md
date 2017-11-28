@@ -2,14 +2,14 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-06-12"
+lastupdated: "2017-11-02"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen:.screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 # Configuration du logiciel SDK Android
 {: #android-sdk}
@@ -63,7 +63,7 @@ fonctionner avec Gradle.
 	    }
     }
   ```
-  {:pre}
+  {: codeblock}
 
 3. Ouvrez le fichier `build.gradle` de votre application.
 
@@ -79,10 +79,9 @@ d'{{site.data.keyword.appid_short_notm}} .
        compile group: 'com.github.ibm-cloud-security:appid-clientsdk-android:1.+'
    }
   ```
-  {:pre}
+  {: codeblock}
 
 5. Recherchez la section defaultConfig et ajoutez les lignes de code ci-dessous.
-
 
   ```gradle
   defaultConfig {
@@ -90,7 +89,7 @@ d'{{site.data.keyword.appid_short_notm}} .
   manifestPlaceholders = ['appIdRedirectScheme': android.defaultConfig.applicationId]
   }
   ```
-  {:pre}
+  {: codeblock}
 
 6. Synchronisez votre projet avec Gradle. Cliquez sur **Tools** > **Android** > **Sync Project with Gradle Files (Synchroniser le projet avec les fichiers Gradle)**.
 
@@ -102,21 +101,22 @@ Initialisez le SDK client en transmettant les paramètres de contexte, d'ID titu
   ```java
   AppID.getInstance().initialize(getApplicationContext(), <tenantId>, AppID.REGION_UK);
   ```
-  {:pre}
+  {: codeblock}
 
 1. Remplacez *tenantId* par l'ID titulaire du service
-{{site.data.keyword.appid_short_notm}}. 
+{{site.data.keyword.appid_short_notm}}.
 2. Remplacez AppID.REGION_UK par votre région {{site.data.keyword.Bluemix_notm}}.
 
 
 ## Authentification des utilisateurs à l'aide du widget de connexion
 {: #authenticate-login-widget}
 
-La configuration par défaut du widget de connexion utilise Facebook et Google comme options d'authentification. 
-Si vous ne configurez qu'une seule option, le widget de connexion ne démarre pas
+La configuration par défaut du widget de connexion utilise Facebook et Google comme options d'authentification. Si vous ne configurez qu'une seule option, le widget de connexion ne démarre pas
 et
 l'utilisateur est redirigé vers l'écran d'authentification du fournisseur d'identité
 (IDP) configuré.
+
+
 
 Une fois que le SDK client d'{{site.data.keyword.appid_short_notm}} est initialisé, vous pouvez authentifier vos utilisateurs en exécutant le widget de connexion.
 
@@ -127,17 +127,19 @@ Une fois que le SDK client d'{{site.data.keyword.appid_short_notm}} est initiali
         public void onAuthorizationFailure (AuthorizationException exception) {
           //Exception occurred
         }
+
         @Override
         public void onAuthorizationCanceled () {
           //Authentication canceled by the user
         }
+
         @Override
         public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken) {
           //User authenticated
         }
       });
   ```
-  {:pre}
+  {: codeblock}
 
 
 ## Accès aux attributs utilisateur
@@ -145,7 +147,6 @@ Une fois que le SDK client d'{{site.data.keyword.appid_short_notm}} est initiali
 
 En obtenant un jeton d'accès, vous pouvez accéder au noeud final des attributs utilisateur protégés. Vous
 pouvez y accéder avec les méthodes ci-dessous.
-
 
   ```java
   void setAttribute(@NonNull String name, @NonNull String value, UserAttributeResponseListener listener);
@@ -160,22 +161,26 @@ pouvez y accéder avec les méthodes ci-dessous.
   void getAllAttributes(@NonNull UserAttributeResponseListener listener);
   void getAllAttributes(@NonNull AccessToken accessToken, @NonNull UserAttributeResponseListener listener);
   ```
-  {:pre}
+  {: codeblock}
 
 Lorsqu'un jeton d'accès n'est pas transmis explicitement, {{site.data.keyword.appid_short_notm}} utilise le dernier jeton reçu.
 
 Par exemple, vous pouvez utiliser le code ci-dessous pour définir un
 nouvel
-attribut ou remplacer un attribut existant. 
+attribut ou remplacer un attribut existant.
 
   ```java
   appId.getUserAttributeManager().setAttribute(name, value, useThisToken,new UserAttributeResponseListener() {
 		@Override
 		public void onSuccess(JSONObject attributes) {
-			//attributes received in JSON format on successful response 		} 		@Override 		public
-void onFailure(UserAttributesException e) { 			//Exception occurred 		} 	});
+			//attributes received in JSON format on successful response 		}
+
+		@Override 		public
+void onFailure(UserAttributesException e) {
+			//Exception occurred 		}
+	});
   ```
-  {:pre}
+  {: codeblock}
 
 ### Connexion anonyme
 {: #anonymous notoc}
@@ -187,13 +192,18 @@ manière [anonyme](/docs/services/appid/user-profile.html#anonymous).
   appId.loginAnonymously(getApplicationContext(), new AuthorizationListener() {
 		@Override
 		public void onAuthorizationFailure(AuthorizationException exception) {
-			//Exception occurred 		} 		@Override
+			//Exception occurred 		}
+
+		@Override
 		public void onAuthorizationCanceled() {
-			//Authentication canceled by the user 		} 		@Override
+			//Authentication canceled by the user 		}
+
+		@Override
 		public void onAuthorizationSuccess(AccessToken accessToken, IdentityToken identityToken) {
-			//User authenticated 		} 	});
+			//User authenticated 		}
+	});
   ```
-  {:pre}
+  {: codeblock}
 
 ### Authentification progressive
 {: #progressive notoc}
@@ -203,20 +213,19 @@ Lorsqu'il dispose d'un jeton d'accès anonyme, l'utilisateur peut devenir un uti
   ```java
   void launch (@NonNull final Activity activity, @NonNull final AuthorizationListener authorizationListener, String accessTokenString);
   ```
-  {:pre}
+  {: codeblock}
 
 Après une connexion anonyme, une authentification progressive a lieu même si le widget de connexion est appelé sans transmission d'un jeton d'accès vu que le service a utilisé le dernier jeton d'accès reçu. Si
 vous voulez effacer les jetons que vous avez stockés, exécutez la commande ci-dessous.
-
 
   ```java
   	appIDAuthorizationManager = new AppIDAuthorizationManager(this.appId);
   appIDAuthorizationManager.clearAuthorizationData();
   ```
-  {:pre}
+  {: codeblock}
 
 
 ## Etapes suivantes
 {: #next-steps}
 
-{{site.data.keyword.appid_short_notm}} fournit une configuration par défaut lorsque vous mettez en place initialement vos fournisseurs d'identité. Vous ne pouvez utiliser la configuration par défaut qu'en mode développement. Avant de publier votre application, mettez à jour la configuration [Facebook](/docs/services/appid/identity-providers.html#facebook) et [Google](/docs/services/appid/identity-providers.html#google) par défaut en spécifiant vos propres données d'identification.
+{{site.data.keyword.appid_short_notm}} fournit une configuration par défaut lorsque vous mettez en place initialement vos fournisseurs d'identité. Vous ne pouvez utiliser la configuration par défaut qu'en mode développement. Avant de publier votre application, [mettez à jour la configuration par défaut avec vos propres données d'identification](/docs/services/appid/identity-providers.html).

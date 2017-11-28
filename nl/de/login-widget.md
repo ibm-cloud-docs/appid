@@ -2,13 +2,13 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-06-12"
+lastupdated: "2017-11-08"
 
 ---
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 # Anmelde-Widget anpassen
 {: #login-widget}
@@ -16,8 +16,7 @@ lastupdated: "2017-06-12"
 Sie können das Anmelde-Widget so konfigurieren, dass das jeweilige Logo in den gewünschten Farben angezeigt wird.
 {:shortdesc}
 
-Wenn der {{site.data.keyword.appid_short}}-Service mit zwei oder mehreren Identitätsprovidern konfiguriert wird, kann der Benutzer einen Identitätsprovider im Anmelde-Widget auswählen.
-Führen Sie die folgenden Schritte aus, um Ihr Anmelde-Widget anzupassen:
+Wenn der {{site.data.keyword.appid_short}}-Service mit zwei oder mehreren Identitätsprovidern konfiguriert wird, kann der Benutzer einen Identitätsprovider im Anmelde-Widget auswählen. Führen Sie die folgenden Schritte aus, um Ihr Anmelde-Widget anzupassen:
 
 1. Öffnen Sie das {{site.data.keyword.appid_short_notm}}-Service-Dashboard.
 2. Wählen Sie den Abschnitt **Anpassung der Anmeldung**, in dem Sie das Aussehen des Anmelde-Widgets an Ihre Unternehmensmarke anpassen können.
@@ -25,4 +24,4 @@ Führen Sie die folgenden Schritte aus, um Ihr Anmelde-Widget anzupassen:
 4. Wählen Sie eine Headerfarbe für das Widget aus der Farbauswahl aus oder geben Sie den hexadezimalen Code für eine andere Farbe ein.
 5. Prüfen Sie das Aussehen im Vorschaubereich und klicken Sie auf **Änderungen speichern**, wenn Sie mit den Anpassungen zufrieden sind. Eine Bestätigungsnachricht wird angezeigt.
 
-Sie müssen Ihre Anwendung nicht neu erstellen. Das Bild wird in der {{site.data.keyword.appid_short}}-Datenbank gespeichert und bei der nächsten Anmeldung angezeigt. 
+**Hinweis**: Sie müssen Ihre Anwendung nicht neu erstellen. Das Bild wird in der {{site.data.keyword.appid_short}}-Datenbank gespeichert und bei der nächsten Anmeldung angezeigt.

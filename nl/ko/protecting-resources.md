@@ -2,14 +2,14 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-05-08"
+lastupdated: "2017-11-02"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 # 백엔드 리소스 보호
 {: #protecting-resources}
@@ -28,7 +28,7 @@ lastupdated: "2017-05-08"
   ```swift
   import BMSCore
   ```
-  {:pre}
+  {: codeblock}
 
 2. 보호된 리소스 요청을 호출하십시오.
 
@@ -40,7 +40,7 @@ lastupdated: "2017-05-08"
       //code handling the response here
   })
   ```
-  {:pre}
+  {: codeblock}
 
 
 ## Android SDK 사용
@@ -66,4 +66,4 @@ lastupdated: "2017-05-08"
 			//code handling the failure here
   });
   ```
-  {:pre}
+  {: codeblock}

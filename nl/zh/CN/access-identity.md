@@ -2,17 +2,16 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-06-12"
+lastupdated: "2017-11-02"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 # 访问令牌和身份令牌
-{: #access-and-identity}
 
 {{site.data.keyword.appid_short}} 使用两种类型的令牌：访问令牌和身份令牌。令牌的格式为 <a href="https://jwt.io/introduction/" target="_blank">JSON Web 令牌 <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a>。
 {:shortdesc}
@@ -158,7 +157,7 @@ Payload: {
   </tr>
   <tr>
     <td> <i>identities:</br> <ul><li> provider<li> id<li> amr</ul></i></td>
-    <td> </br><ul><li> 用于认证的身份提供者。此变量可以是 <code>appid_facebook</code>、<code>appid_google</code> 或 <code>appid_ibmid</code>，并且必须返回此变量。<li> 身份提供者所报告的唯一用户标识。<li> 必须由身份提供者返回的 JSON 对象。</ul></i></td>
+    <td> </br><ul><li> 用于认证的身份提供者。此变量可以是 <code>appid_facebook</code> 或 <code>appid_google</code>，并且必须返回此变量。</li><li> 身份提供者所报告的唯一用户标识。</li><li> 必须由身份提供者返回的 JSON 对象。</li></ul></td>
   </tr>
   <tr>
     <td> <i>oauth_client:</br> <ul><li> type<li> name<li> software_id<li> software_version</ul></i> </td>

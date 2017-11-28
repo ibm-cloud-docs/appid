@@ -2,42 +2,64 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-06-19"
+lastupdated: "2017-11-07"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 # ID プロバイダーの構成
 {: #setting-up-idp}
 
-ユーザーのシングル・サインオン・エクスペリエンスをセットアップするために、Facebook、Google、IBM ID、またはこの 3 つの組み合わせを構成できます。ID プロバイダーを使用すると、ユーザーは使い慣れた資格情報でサインインできるようになります。
-{:shortdesc}
+ID プロバイダーによって、モバイル・アプリケーションや Web アプリケーションに認証レベルを追加できます。{{site.data.keyword.appid_full}} では、1 つ以上の ID プロバイダーを構成して、アプリケーションのシングル・サインオンをセットアップできます。
+{: shortdesc}
+
+以下の ID プロバイダーを使用できます。
+
+<dl>
+  <dt> Facebook</dt>
+    <dd> ユーザーは、Facebook アカウントにログインする時と同じパスワードと E メール・アドレスを使用してアプリケーションにログインします。</dd>
+  <dt> Google</dt>
+    <dd> ユーザーは、Google アカウントにログインする時と同じパスワードと E メール・アドレスを使用してアプリケーションにログインします。</dd>
+</dl>
 
 
-## Facebook 認証の構成
+</br>
+</br>
+
+## デフォルト構成
+{: #default}
+
+{{site.data.keyword.appid_short_notm}} には、ID プロバイダーの初期セットアップに役立つデフォルト構成が用意されています。
+{: shortdesc}
+
+デフォルトの資格情報のセットアップは、Facebook と Google を対象にしています。資格情報の使用は、1 インスタンスあたり毎日 100 回に制限されています。IBM の資格情報なので、アプリケーションでの使用は、開発モードの時だけに限定してください。アプリケーションの公開前に、[構成を自分の資格情報になるように更新してください](/docs/services/appid/identity-providers.html)。
+
+
+</br>
+
+## Facebook の構成
 {: #facebook}
 
-Facebook を ID プロバイダーとして使用するように {{site.data.keyword.appid_short}} サービスを構成します。
-
+Facebook を ID プロバイダーとして使用するように {{site.data.keyword.appid_short}} サービスを構成できます。
+{: shortdesc}
 
 ### Facebook からアプリ ID とアプリ・シークレットを取得する
-{: #getting-facebook-appid}
 
-モバイル・アプリや Web アプリで Facebook を ID プロバイダーとして使用するには、Facebook アプリケーションで Web サイトのプラットフォームを追加して構成する必要があります。
+Facebook を ID プロバイダーとして使用するには、Facebook アプリケーションで Web サイトのプラットフォームを追加して構成する必要があります。
 
-1. <a href="https://developers.facebook.com/docs/apps/register" target="_blank">Facebook for Developers サイト<img src="../../icons/launch-glyph.svg" alt="アイコン・アイコン"></a>で自分のアカウントにログインします。
+1. <a href="https://developers.facebook.com/docs/apps/register" target="_blank">Facebook for developers サイト<img src="../../icons/launch-glyph.svg" alt="アイコン・アイコン"></a>で自分のアカウントにログインします。
 2. Facebook のアプリ ID とアプリ・シークレットをメモします。サービスのダッシュボードで Web プロジェクトの認証を構成するときに、これらの値が必要になります。
 3. Web プラットフォームを追加して、サイト URL を入力します。
 4. 製品リストから、**「Facebook ログイン」**を選択します。
 5. 「有効な OAuth リダイレクト URL」フィールドに、許可サーバーのコールバック・エンドポイント URL を入力します。サービス・インスタンスを構成した後、この値を追加できます。
 6. **「変更の保存」**をクリックします。
 
+
 ### Facebook 認証用の {{site.data.keyword.appid_short_notm}} の構成
-{: #configuring-facebook-appid}
 
 Facebook のアプリ ID とアプリ・シークレットを取得し、Web クライアントを処理できるように Facebook for Developers アプリを構成すると、サービスのダッシュボードで Facebook 認証を編集できます。
 
@@ -48,57 +70,36 @@ Facebook のアプリ ID とアプリ・シークレットを取得し、Web ク
 5. オプション: Web アプリの場合は、リダイレクト URL を**「Web アプリケーションのリダイレクト URL (Web Application Redirect URLs)」**フィールドに入力します。この値は、開発者が決定する値であり、許可プロセスの完了後にリダイレクト URL にアクセスするために使用されます。
 
 
-## Google 認証の構成
+</br>
+
+## Google の構成
 {: #google}
 
-Google を ID プロバイダーとして使用するように {{site.data.keyword.appid_short_notm}} サービスを構成します。
-
+Google を ID プロバイダーとして使用するように {{site.data.keyword.appid_short}} サービスを構成できます。
+{: shortdesc}
 
 ### Google からクライアント ID とシークレットを取得する
-{: #google-client-id}
 
-Google を ID プロバイダーとして使用するには、Google のクライアント ID とシークレットを取得して Google Developer Console でプロジェクトを作成します。
+<a href="https://developers.google.com/" target="_blank">Google Developers Console <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> でプロジェクトを作成し、Web クライアントに対応できるようにプロジェクトを構成し、クライアント ID とシークレットを取得します。
 
-1. <a href="https://console.developers.google.com/apis/library" target="_blank">Google Developer Console<img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> で Google アプリケーションを開きます。
-2. Google+ API を追加します。
-3. OAuth を使用して資格情報を作成します。**「アプリケーションの種類」**フィールドで、**「ウェブ アプリケーション」**を選択します。**「承認済みのリダイレクト URI (Authorized redirect URIs)」**フィールドに、{{site.data.keyword.appid_short_notm}} リダイレクト URI を入力します。{{site.data.keyword.appid_short_notm}} のリダイレクト許可 URI は、サービスのダッシュボードの Google 構成画面から取得できます。
-4. Google のクライアント ID とシークレットをメモし、変更を保存します。
+1. プロジェクトを作成します。
+2. Google プロジェクトに Google+ API を追加します。
+3. Google+ API に資格情報を追加します。
+    1. API のタイプとして Google+ API を選択します。
+    2. API を呼び出す場所として**「Web ブラウザー」**を選択します。
+    3. **「ユーザー・データ」**を選択します。
+    4. 必須フィールドに値を入力して、クライアント ID を作成します。同時にシークレットも作成されます。
+4. Google のクライアント ID とシークレットをメモします。資格情報のタブで、作成した ID を選択し、シークレットとクライアント ID を取得します。
 
+### Google 認証用の {{site.data.keyword.appid_short}} の構成
 
-
-### Google 認証用の {{site.data.keyword.appid_short_notm}} の構成
-{: #google-client-appid}
-
-Google のクライアントとシークレットを取得し、Web クライアントを処理できるように Google Developers コンソールを構成すると、サービスのダッシュボードで Google 認証を編集できます。
+Google プロジェクトを構成し、クライアント ID とシークレットを取得したら、Google 認証のためにサービス・ダッシュボードを編集します。
 
 1. サービスのダッシュボードの**「管理」**タブで、**「Google」**を選択して**「編集」**をクリックします。
-3. Google Developers コンソールから取得した Google のクライアント ID とシークレットを入力します。
-4. **「Google for Developers のリダイレクト URI (Redirect URI for Google for Developers)」**フィールドにある URI をコピーします。この URI を、Google Developers ポータルの**「Web アプリケーションのクライアント ID (Client ID for web application)」**セクションの**「制限事項 (Restrictions)」**の下にある**「承認済みのリダイレクト URI (Authorized redirect URIs)」** フィールドに貼り付けます。
-5. **「保存」**をクリックします。
-6. オプション: Web アプリの場合、リダイレクト URI を**「Web アプリケーションのリダイレクト URI (Web Application Redirect URIs)」**フィールドに入力します。この値は、開発者が決定する値であり、許可プロセスの完了後にリダイレクト URI にアクセスするために使用されます。
-
-
-## IBM ID 認証の構成
-
-IBM ID を ID プロバイダーとして使用する場合は、<a href="https://ibm.ent.box.com/notes/78040808400?v=IBMid-Federation-Guide" target="_blank">IBMid-Federation-Guide <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> を使用します。既に BlueID アプリを使用している場合は、BlueID クライアント ID とシークレットを取得します。
-
-
-### IBM ID からクライアント ID とシークレットを取得する
-
-クライアント ID とシークレットを取得するには、以下の手順を使用します。
-
-1. <a href="https://w3.innovate.ibm.com/tools/sso/home.html" target="_blank">SSO Self-Service Provisioner <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> で、BlueID アカウントにログインします。
-2. BlueID アプリを登録します。ID プロバイダーには、必ず**「実動前 (preproduction)」**または**「実動 (production)」**を選択してください。
-3. **「クライアントの詳細 (Client Details)」**に、App ID リダイレクト URL を入力します。リダイレクト許可 URI は、サービス・ダッシュボードの IBM ID 構成画面から取得できます。
-4. 必ず**「許可コード」**を選択してください。
-5. BlueID クライアント ID、シークレット、およびアカウント ID プロバイダー・タイプをメモします。**「続行」&「完了」**をクリックします。
-
-### IBM ID 認証用の App ID の構成
-
-BlueID クライアント ID とシークレットを取得し、BlueID アプリに正しいリダイレクト URI を構成すれば、サービス・ダッシュボードの BlueID 認証セクションを編集できます。
-
-1. サービスのダッシュボードの**「管理」**タブで、**「IBM ID」**を選択して**「編集」**をクリックします。
-2. BlueID クライアント ID とシークレットを入力します。
-3. **「IBMid for Developers のリダイレクト URI (Redirect URI for IBMid for Developers)」** フィールドにある URI をコピーして、**「リダイレクト URI (Redirect URIs)」**に貼り付けます。
-4. ID プロバイダーに**「実動前 (preproduction)」**または**「実動 (production)」**を選択し、**「保存」**をクリックします。
-5. オプション: Web アプリの場合は、リダイレクト URI を**「Web アプリケーションのリダイレクト URI (Web Application Redirect URIs)」**フィールドに入力します。この値は、開発者が決定する値であり、許可後にリダイレクト URI にアクセスするために使用されます。
+2. Google Developers Console コンソールから取得したクライアント ID とシークレットを入力します。
+3. {{site.data.keyword.appid_short}} の URL を許可します。
+    1. Google ID プロバイダーの詳細情報から **Google Developer Console のリダイレクト URL** をコピーします。
+    2. Google プロジェクトの資格情報のタブで、この統合のために作成したクライアント ID を選択します。
+    3. {{site.data.keyword.appid_short}} の URL を**「許可されたリダイレクト URI」**フィールドに貼り付けて、**「保存」**をクリックします。
+4. **「保存」**をクリックして、{{site.data.keyword.appid_short}} の Google 構成を更新します。
+5. オプション: Web アプリケーションの場合は、**「管理」**タブでリダイレクト URL を入力します。許可プロセスが完了すると、ユーザーがその URL に送信されます。

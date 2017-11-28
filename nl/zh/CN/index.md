@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-06-12"
+lastupdated: "2017-11-07"
 
 ---
 
@@ -23,6 +23,7 @@ lastupdated: "2017-06-12"
 3. 要绑定实例，请从**连接到**菜单中选择一个应用程序。如果选择**保持未绑定**，可以在将来绑定该服务实例。
 4. 选择定价套餐，然后单击**创建**。
 5. 可选：使用 UI 中的指示信息来下载样本应用程序。样本可帮助您快速入门和熟悉运用 {{site.data.keyword.appid_short_notm}}。
-6. 下载并设置使用特定应用程序所需的 [SDK](/docs/services/appid/relatedlinks.html)。
-7. 配置[身份提供者](/docs/services/appid/identity-providers.html)以进行认证和授权。
-8. 可选：如果启用的身份提供者不只一个，请定制[登录窗口小部件](/docs/services/appid/login-widget.html)。
+
+现在您有了一个 {{site.data.keyword.appid_short_notm}} 实例，可以根据自己的首选编程语言来下载相应的 SDK 并开始认证用户！
+
+

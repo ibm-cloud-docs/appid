@@ -2,14 +2,14 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-06-12"
+lastupdated: "2017-11-02"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen:.screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 
 # iOS Swift SDK 설정
@@ -69,14 +69,14 @@ lastupdated: "2017-06-12"
      pod 'BluemixAppID'
   end
   ```
-  {:pre}
+  {: codeblock}
 
 4. `BluemixAppID` 종속성을 다운로드하려면 다음 명령을 실행하십시오. 
 
   ```swift
   pod install --repo-update
   ```
-  {:pre}
+  {: codeblock}
 
 6. Xcode 프로젝트를 열고 키 체인 공유를 사용 설정하십시오. **프로젝트 설정** 아래에서 **기능** > **키 체인 공유**를 클릭하십시오.
 7. **프로젝트 설정** > **정보** > **URL 유형** 아래에 URL 유형을 추가하십시오. **ID** 텍스트 상자 및 **URL 체계** 텍스트 상자를 모두 $(PRODUCT_BUNDLE_IDENTIFIER) 값으로 채우십시오. 
@@ -90,14 +90,14 @@ lastupdated: "2017-06-12"
   ```swift
   import BluemixAppID
   ```
-  {:pre}
+  {: codeblock}
 
 2. initialize 메소드에 테넌트 ID 및 지역 매개변수를 전달하여 클라이언트 SDK를 초기화하십시오. 필수는 아니지만 일반적으로 초기화 코드를 넣는 위치는 application:didFinishLaunchingWithOptions: Swift 애플리케이션에서 AppDelegate의 메소드에 있습니다. 
 
   ```swift
   AppID.sharedInstance.initialize(tenantId: <tenantId>, bluemixRegion: AppID.Region_UK)
   ```
-  {:pre}
+  {: codeblock}
 
   * tenantId를 사용자의 App ID 서비스에 대한 테넌트 ID로 바꾸십시오.
   * AppID.REGION_UK를 {{site.data.keyword.appid_short_notm}} 지역으로 바꾸십시오. 
@@ -109,12 +109,15 @@ lastupdated: "2017-06-12"
           return AppID.sharedInstance.application(application, open: url, options: options)
       }
   ```
-  {:pre}
+  {: codeblock}
 
 ## 로그인 위젯을 사용하여 사용자 인증
 {: #authenticate-login}
 
+
 {{site.data.keyword.appid_short_notm}} 클라이언트 SDK가 초기화된 후에 로그인 위젯을 실행하여 사용자를 인증할 수 있습니다. 로그인 위젯 기본 구성에서는 인증 옵션으로 Facebook 및 Google을 사용합니다. 하나의 ID 제공자만 구성하는 경우에는 로그인 위젯이 시작되지 않으며 구성된 IDP 인증 화면으로 사용자가 경로 재지정됩니다. 
+
+
 
 
 
@@ -123,13 +126,13 @@ lastupdated: "2017-06-12"
   ```swift
   import BluemixAppID
   ```
-  {:pre}
+  {: codeblock}
 
 2. 다음 명령을 실행하여 위젯을 시작하십시오. 
 
   ```swift
-  class delegate : AuthorizationDelegate {
-      public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, response:Response?) {
+class delegate : AuthorizationDelegate {
+     public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, response:Response?) {
           //User authenticated
       }
 
@@ -144,7 +147,7 @@ lastupdated: "2017-06-12"
 
   AppID.sharedInstance.loginWidget?.launch(delegate: delegate())
   ```
-  {:pre}
+  {: codeblock}
 
 ## 사용자 속성 액세스
 {: #accessing}
@@ -161,7 +164,7 @@ lastupdated: "2017-06-12"
   func deleteAttribute(key: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
   func deleteAttribute(key: String, accessTokenString: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
   ```
-  {:pre}
+  {: codeblock}
 
 액세스 토큰이 명시적으로 전달되지 않을 때 {{site.data.keyword.appid_short_notm}}는 마지막으로 수신된 토큰을 사용합니다. 
 
@@ -176,7 +179,7 @@ lastupdated: "2017-06-12"
       }
   })
   ```
-  {:pre}
+  {: codeblock}
 
 
 ### 익명 로그인
@@ -185,8 +188,8 @@ lastupdated: "2017-06-12"
 {{site.data.keyword.appid_short_notm}}에서 [익명으로](/docs/services/appid/user-profile.html#anonymous) 로그인할 수 있습니다.
 
   ```swift
-  class delegate : AuthorizationDelegate {
-      public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, response:Response?) {
+class delegate : AuthorizationDelegate {
+     public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, response:Response?) {
           //User authenticated
       }
 
@@ -201,7 +204,7 @@ lastupdated: "2017-06-12"
 
   AppID.sharedInstance.loginAnonymously( authorizationDelegate: delegate())
   ```
-  {:pre}
+  {: codeblock}
 
 ### 점진적 인증
 {: #progressive notoc}
@@ -211,7 +214,7 @@ lastupdated: "2017-06-12"
   ```swift
   func launch(accessTokenString: String? , delegate: AuthorizationDelegate)
   ```
-  {:pre}
+  {: codeblock}
 
 익명 로그인 후에는 서비스가 마지막으로 수신된 토큰을 사용했기 때문에 액세스 토큰을 전달하지 않고 로그인 위젯이 호출되는 경우에도 점진적 인증이 발생합니다. 저장된 토큰을 지우려는 경우 다음 명령을 실행하십시오.
 
@@ -219,11 +222,11 @@ lastupdated: "2017-06-12"
   var appIDAuthorizationManager = AppIDAuthorizationManager(appid: AppID.sharedInstance)
   appIDAuthorizationManager.clearAuthorizationData()
   ```
-  {:pre}
+  {: codeblock}
 
 
 
 ## 다음 단계
 {: #next-steps}
 
-{{site.data.keyword.appid_short_notm}}는 ID 제공자를 처음 설정할 때 기본 구성을 제공합니다. 개발 모드에서만 기본 구성을 사용할 수 있습니다. 애플리케이션을 공개하기 전에 기본 [Facebook](/docs/services/appid/identity-providers.html#facebook) 및 [Google](/docs/services/appid/identity-providers.html#google) 구성을 사용자 자신의 신임 정보에 업데이트하십시오.
+{{site.data.keyword.appid_short_notm}}는 ID 제공자를 처음 설정할 때 기본 구성을 제공합니다. 개발 모드에서만 기본 구성을 사용할 수 있습니다. 애플리케이션을 공개하기 전에 [자체 신임 정보에 대한 기본 구성을 업데이트](/docs/services/appid/identity-providers.html)하십시오. 

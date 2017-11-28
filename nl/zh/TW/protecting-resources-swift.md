@@ -2,14 +2,14 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-05-08"
+lastupdated: "2017-11-02"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 
 # 保護 Swift 資源
@@ -41,7 +41,7 @@ lastupdated: "2017-05-08"
       ]
   )
   ```
-  {:pre}
+  {: codeblock}
 
 ## 保護 Swift 中的資源
 {: #protecting}
@@ -136,6 +136,6 @@ WebAppKituraCredentialsPlugin 是根據 OAuth2 authorization_code 授與流程�
   // Start the Kitura runloop (this call never returns)
   Kitura.run()
   ```
-  {:pre}
+  {: codeblock}
 
 如需相關資訊，請參閱 <a href="https://github.com/ibm-cloud-security/appid-serversdk-swift" target="_blank">{{site.data.keyword.appid_short_notm}} Swift GitHub 儲存庫 <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>。

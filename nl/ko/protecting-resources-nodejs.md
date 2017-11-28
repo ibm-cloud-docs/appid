@@ -2,14 +2,14 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-05-08"
+lastupdated: "2017-11-02"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 # Node.js 리소스 보호
 {: #protecting-resources-nodejs}
@@ -21,7 +21,7 @@ lastupdated: "2017-05-08"
 {: #before-you-begin}
 
 * {{site.data.keyword.Bluemix_notm}}에서 Node.js 애플리케이션 개발에 익숙해지십시오.
-* {{site.data.keyword.appid_short_notm}} 서버 SDK를 사용하려면 Node.js 서버를 `<a href="http://expressjs.com/" target="_blank">Express 프레임워크 <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>`으로 구현해야 합니다. 
+* {{site.data.keyword.appid_short_notm}} 서버 SDK를 사용하려면 Node.js 서버를 <a href="http://expressjs.com/" target="_blank">Express 프레임워크 <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>로 구현해야 합니다. 
 
 **참고**: 다른 프레임워크는 `Express` 프레임워크(예: LoopBack)를 사용합니다. 이러한 프레임워크와 함께 {{site.data.keyword.appid_short_notm}} 서버 SDK를 사용할 수 있습니다. 
 
@@ -37,7 +37,7 @@ lastupdated: "2017-05-08"
   npm install -save passport
   npm install -save bluemix-appid
   ```
-  {:pre}
+  {: codeblock}
 
 ## Node.js의 리소스 보호
 {: #protecting-resources-nodesdk}
@@ -51,7 +51,7 @@ lastupdated: "2017-05-08"
 
   ```JavaScript
 
-  var express = require('express');
+var express = require('express');
   var passport = require('passport');
   var APIStrategy = require('bluemix-appid').APIStrategy;
 
@@ -68,16 +68,16 @@ lastupdated: "2017-05-08"
 
   app.listen(process.env.PORT);
 ```
-  {:pre}
+  {: codeblock}
 
 `WebAppStrategy`를 사용하여 웹 애플리케이션 리소스를 보호할 수 있습니다. 
 
   ```JavaScript
 
-  var express = require('express');
+var express = require('express');
   var passport = require('passport');
   var WebAppStrategy = require('bluemix-appid').WebAppStrategy;
   ```
-  {:pre}
+  {: codeblock}
 
-자세한 정보는 <a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs" target="_blank">{{site.data.keyword.appid_short_notm}} Node.js GitHub 저장소 <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>을 참조하십시오. 
+자세한 정보는 <a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs" target="_blank">{{site.data.keyword.appid_short_notm}} Node.js GitHub 저장소 <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>를 참조하십시오. 

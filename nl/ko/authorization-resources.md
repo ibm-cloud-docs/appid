@@ -2,17 +2,17 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-06-12"
+lastupdated: "2017-11-02"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 
-# 권한 부여 필터 및 헤더
+# 권한 필터 및 헤더
 {: #auth}
 
 {{site.data.keyword.appid_short}} 서버 SDK는 두 가지 유형의 리소스(API 및 웹 애플리케이션)를 보호하기 위한 전략을 제공합니다.
@@ -29,7 +29,7 @@ API 보호 전략은 인증되지 않은 클라이언트에 대한 권한을 확
 ### API 전략
 {: #api}
 
-API 전략은 요청에 올바른 액세스 토큰이 있는 권한 헤더가 포함될 것으로 예상합니다. 응답에도 ID 토큰이 포함될 수 있지만 필수는 아닙니다. [액세스 및 ID 토큰](/docs/services/appid/access-identity.html#access-and-identity)을 참조하십시오.
+API 전략은 요청에 올바른 액세스 토큰이 있는 권한 헤더가 포함될 것으로 예상합니다. 응답에도 ID 토큰이 포함될 수 있지만 필수는 아닙니다. [액세스 및 ID 토큰](/docs/services/appid/access-identity.html)을 참조하십시오.
 
 토큰이 올바르지 않거나 만료된 경우, API 전략은 다음 정보가 포함된 HTTP 401 오류를 리턴합니다: Www-Authenticate=Bearer scope="{scope}" error="{error}". `error` 컴포넌트는 선택사항입니다. 
 

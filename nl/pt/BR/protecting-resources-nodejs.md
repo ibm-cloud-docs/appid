@@ -2,14 +2,14 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-05-08"
+lastupdated: "2017-11-02"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 # Protegendo recursos de Node.js
 {: #protecting-resources-nodejs}
@@ -22,7 +22,7 @@ lastupdated: "2017-05-08"
 
 * Familiarize-se com o desenvolvimento de aplicativos Node.js no {{site.data.keyword.Bluemix_notm}}.
 * O SDK do servidor {{site.data.keyword.appid_short_notm}} requer que o seu servidor Node.js seja implementado com a
-`<a href="http://expressjs.com/" target="_blank">estrutura Express <img src="../../icons/launch-glyph.svg" alt="ícone de Link externo"></a>`.
+<a href="http://expressjs.com/" target="_blank">estrutura Express <img src="../../icons/launch-glyph.svg" alt="ícone de Link externo"></a>.
 
 **Nota**: outras estruturas usam estruturas `Express`, como LoopBack. É possível usar o SDK do servidor
 {{site.data.keyword.appid_short_notm}} com qualquer uma dessas estruturas.
@@ -39,7 +39,7 @@ lastupdated: "2017-05-08"
   npm install -save passport
   npm install -save bluemix-appid
   ```
-  {:pre}
+  {: codeblock}
 
 ## Protegendo recursos no Node.js
 {: #protecting-resources-nodesdk}
@@ -73,7 +73,7 @@ O fragmento a seguir demonstra como usar `APIStrategy` em um aplicativo Express 
 
   app.listen(process.env.PORT);
   ```
-  {:pre}
+  {: codeblock}
 
 É possível usar `WebAppStrategy` para proteger recursos de aplicativo da web.
 
@@ -83,6 +83,6 @@ O fragmento a seguir demonstra como usar `APIStrategy` em um aplicativo Express 
   var passport = require('passport');
   var WebAppStrategy = require('bluemix-appid').WebAppStrategy;
   ```
-  {:pre}
+  {: codeblock}
 
 Para obter mais informações, consulte o <a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs" target="_blank">{{site.data.keyword.appid_short_notm}} repositório do GitHub Node.js <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a>.

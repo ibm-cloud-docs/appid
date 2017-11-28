@@ -2,14 +2,14 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-05-08"
+lastupdated: "2017-11-02"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 # Protection des ressources Node.js
 {: #protecting-resources-nodejs}
@@ -21,7 +21,7 @@ Vous pouvez utiliser le SDK serveur d'{{site.data.keyword.appid_short}} pour pro
 {: #before-you-begin}
 
 * Familiarisez-vous avec le développement d'applications Node.js sur {{site.data.keyword.Bluemix_notm}}.
-* Le SDK serveur d'{{site.data.keyword.appid_short_notm}} exige que votre serveur Node.js soit implémenté avec l'`<a href="http://expressjs.com/" target="_blank">infrastructure Express<img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a>`.
+* Le SDK serveur d'{{site.data.keyword.appid_short_notm}} exige que votre serveur Node.js soit implémenté avec l'<a href="http://expressjs.com/" target="_blank">infrastructure Express<img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a>.
 
 **Remarque** : d'autres infrastructures, notamment LoopBack,
 utilisent des infrastructures `Express`. Vous pouvez utiliser le SDK
@@ -33,14 +33,14 @@ serveur d'{{site.data.keyword.appid_short_notm}} avec toutes ces infrastructures
 
 1. Depuis la ligne de commande, ouvrez le répertoire dans lequel se trouve votre
 application Node.js.
-2. Exécutez les commandes ci-dessous. 
+2. Exécutez les commandes ci-dessous.
 
   ```
   npm install -save express
   npm install -save passport
   npm install -save bluemix-appid
   ```
-  {:pre}
+  {: codeblock}
 
 ## Protection des ressources dans Node.js
 {: #protecting-resources-nodesdk}
@@ -70,11 +70,10 @@ Le fragment de code suivant illustre comment utiliser la stratégie `APIStrategy
 
   app.listen(process.env.PORT);
   ```
-  {:pre}
+  {: codeblock}
 
 Vous pouvez utiliser `WebAppStrategy` pour protéger des ressources
 d'application Web.
-
 
   ```JavaScript
 
@@ -82,7 +81,7 @@ d'application Web.
   var passport = require('passport');
   var WebAppStrategy = require('bluemix-appid').WebAppStrategy;
   ```
-  {:pre}
+  {: codeblock}
 
 Pour plus d'informations, voir
 le

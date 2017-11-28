@@ -2,14 +2,14 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-05-08"
+lastupdated: "2017-11-02"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 # 保护后端资源
 {: #protecting-resources}
@@ -28,7 +28,7 @@ lastupdated: "2017-05-08"
   ```swift
   import BMSCore
   ```
-  {:pre}
+  {: codeblock}
 
 2. 调用受保护资源请求。
 
@@ -40,7 +40,7 @@ lastupdated: "2017-05-08"
       //code handling the response here
   })
   ```
-  {:pre}
+  {: codeblock}
 
 
 ## 使用 Android SDK
@@ -66,4 +66,4 @@ lastupdated: "2017-05-08"
 		//code handling the failure here
   });
   ```
-  {:pre}
+  {: codeblock}

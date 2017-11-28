@@ -2,14 +2,14 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-06-12"
+lastupdated: "2017-11-02"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen:.screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 # 設定 Android SDK
 {: #android-sdk}
@@ -61,7 +61,7 @@ lastupdated: "2017-06-12"
 	    }
     }
   ```
-  {:pre}
+  {: codeblock}
 
 3. 開啟應用程式的 `build.gradle` 檔案。
 
@@ -73,7 +73,7 @@ lastupdated: "2017-06-12"
        compile group: 'com.github.ibm-cloud-security:appid-clientsdk-android:1.+'
    }
   ```
-  {:pre}
+  {: codeblock}
 
 5. 尋找 defaultConfig 區段，並新增下列這幾行程式碼。
 
@@ -83,7 +83,7 @@ lastupdated: "2017-06-12"
   manifestPlaceholders = ['appIdRedirectScheme': android.defaultConfig.applicationId]
   }
   ```
-  {:pre}
+  {: codeblock}
 
 6. 將專案與 Gradle 同步化。按一下**工具** > **Android** > **將專案與 Gradle 檔案同步化**。
 
@@ -95,7 +95,7 @@ lastupdated: "2017-06-12"
   ```java
   AppID.getInstance().initialize(getApplicationContext(), <tenantId>, AppID.REGION_UK);
   ```
-  {:pre}
+  {: codeblock}
 
 1. 將 *tenantId* 取代為 {{site.data.keyword.appid_short_notm}} 服務承租戶 ID。
 2. 將 AppID.REGION_UK 取代為 {{site.data.keyword.Bluemix_notm}} 地區。
@@ -105,6 +105,8 @@ lastupdated: "2017-06-12"
 {: #authenticate-login-widget}
 
 登入小組件預設配置會使用 Facebook 及 Google 作為鑑別選項。如果您只配置其中一個，不會啟動登入小組件，並且會將使用者重新導向至已配置的 IDP 鑑別畫面。
+
+
 
 起始設定 {{site.data.keyword.appid_short_notm}} 用戶端 SDK 之後，即可執行登入小組件來鑑別使用者。
 
@@ -127,7 +129,7 @@ lastupdated: "2017-06-12"
         }
       });
   ```
-  {:pre}
+  {: codeblock}
 
 
 ## 存取使用者屬性
@@ -148,7 +150,7 @@ lastupdated: "2017-06-12"
   void getAllAttributes(@NonNull UserAttributeResponseListener listener);
   void getAllAttributes(@NonNull AccessToken accessToken, @NonNull UserAttributeResponseListener listener);
   ```
-  {:pre}
+  {: codeblock}
 
 若未明確地傳遞存取記號，{{site.data.keyword.appid_short_notm}} 會使用最後一個收到的記號。
 
@@ -167,7 +169,7 @@ lastupdated: "2017-06-12"
 		}
 	});
   ```
-  {:pre}
+  {: codeblock}
 
 ### 匿名登入
 {: #anonymous notoc}
@@ -192,7 +194,7 @@ lastupdated: "2017-06-12"
 		}
 	});
   ```
-  {:pre}
+  {: codeblock}
 
 ### 漸進鑑別
 {: #progressive notoc}
@@ -202,7 +204,7 @@ lastupdated: "2017-06-12"
   ```java
   void launch (@NonNull final Activity activity, @NonNull final AuthorizationListener authorizationListener, String accessTokenString);
   ```
-  {:pre}
+  {: codeblock}
 
 匿名登入之後，即使因服務已使用最後一個收到的記號而在未傳遞存取記號的情況下呼叫登入小組件，還是會進行漸進鑑別。如果您要清除儲存的記號，請執行下列指令。
 
@@ -210,10 +212,10 @@ lastupdated: "2017-06-12"
   	appIDAuthorizationManager = new AppIDAuthorizationManager(this.appId);
   appIDAuthorizationManager.clearAuthorizationData();
   ```
-  {:pre}
+  {: codeblock}
 
 
 ## 後續步驟
 {: #next-steps}
 
-{{site.data.keyword.appid_short_notm}} 會在您一開始設定身分提供者時提供預設配置。您只能在開發模式中使用預設配置。發佈應用程式之前，請將預設 [Facebook](/docs/services/appid/identity-providers.html#facebook) 及 [Google](/docs/services/appid/identity-providers.html#google) 配置更新為您自己的認證。
+{{site.data.keyword.appid_short_notm}} 會在您一開始設定身分提供者時提供預設配置。您只能在開發模式中使用預設配置。發佈應用程式之前，請[將預設配置更新為您自己的認證](/docs/services/appid/identity-providers.html)。

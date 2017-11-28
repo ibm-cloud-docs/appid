@@ -2,14 +2,14 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-06-12"
+lastupdated: "2017-11-02"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 
 # 授权过滤器和头
@@ -29,7 +29,7 @@ API 保护策略会返回 HTTP 401 响应，其中包含用于为未经认证的
 ### API 策略
 {: #api}
 
-API 策略期望请求包含带有有效访问令牌的授权头。响应还可以包含身份令牌，但这并不是必需的；请参阅[访问令牌和身份令牌](/docs/services/appid/access-identity.html#access-and-identity)。
+API 策略期望请求包含带有有效访问令牌的授权头。响应还可以包含身份令牌，但这并不是必需的；请参阅[访问令牌和身份令牌](/docs/services/appid/access-identity.html)。
 
 如果令牌无效或到期，那么 API 策略会返回 HTTP 401 错误，其中包含以下信息：Www-Authenticate=Bearer scope="{scope}" error="{error}"。`error` 组成部分是可选的。
 

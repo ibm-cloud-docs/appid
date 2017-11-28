@@ -2,13 +2,13 @@
 
 copyright:
   years:  2017
-lastupdated: "2017-05-08"
+lastupdated: "2017-11-02"
 
 ---
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 
 
@@ -29,8 +29,7 @@ Pour utiliser {{site.data.keyword.appid_short_notm}} avec un serveur de dévelop
 * WebAppStrategy: tenantId, clientId, secret, oauthServerUrl, redirectUri
 
 Pour votre attribut 'redirectUri', définissez le port de votre application
-localhost avec le chemin callback.
-Exemple : `http://localhost:<port>/callback`. Le noeud final de rappel conclut le processus d'authentification.
+localhost avec le chemin callback. Exemple : `http://localhost:<port>/callback`. Le noeud final de rappel conclut le processus d'authentification.
 
 Pour obtenir vos données d'identification pour le service, procédez comme suit :
 
@@ -77,6 +76,7 @@ String baseRequestUrl = "http://localhost:<port>"; //set to your server running
 port String tenantId = "your-AppID-service-tenantID"; String region = AppID.REGION_UK;
 //set your App ID application region here. Currently possible values are
 AppID.REGION_US_SOUTH, AppID.REGION_SYDNEY, or AppID.REGION_UK.
+
 BMSClient bmsClient= BMSClient.getInstance();
 bmsClient.initialize(getApplicationContext(), region);
 AppID appId = AppID.getInstance();
@@ -103,7 +103,7 @@ request.send(this, new ResponseListener() {
     }
 });
 ```
-{:pre}
+{: codeblock}
 
 ### iOS - Swift
 {: #swift}
@@ -113,6 +113,7 @@ request.send(this, new ResponseListener() {
  let tenantId = "your-AppID-service-tenantID"
  let region = AppID.REGION_UK; //set your App ID application region here. Currently
 possible values are AppID.REGION_US_SOUTH, AppID.REGION_SYDNEY, or AppID.REGION_UK.
+
 BMSClient.sharedInstance.initialize(bluemixRegion: region)
 BMSClient.sharedInstance.authorizationManager = AppIDAuthorizationManager(appid:AppID.sharedInstance)
 
@@ -128,4 +129,4 @@ request.send(completionHandler: {(response:Response?, error:Error?) in
         }
 });
 ```
-{:pre}
+{: codeblock}

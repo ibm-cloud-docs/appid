@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-06-12"
+lastupdated: "2017-11-07"
 
 ---
 
@@ -10,11 +10,10 @@ lastupdated: "2017-06-12"
 {:shortdesc: .shortdesc}
 
 
-# Visão geral de perfis do usuário
+# Perfis do usuário
 {: #user-profile}
 
-Um perfil de usuário é uma entidade que é armazenada e mantida pelo {{site.data.keyword.appid_full}}. O perfil retém os atributos e a identidade de um
-usuário e pode ser anônimo ou vinculado a uma identidade gerenciada por um provedor de identidade.
+Um perfil de usuário é uma entidade que é armazenada e mantida pelo {{site.data.keyword.appid_full}}. O perfil contém os atributos e a identidade de um usuário e pode ser anônimo ou vinculado a uma identidade gerenciada por um provedor de identidade.
 {:shortdesc}
 
 O {{site.data.keyword.appid_short_notm}} fornece uma API para efetuar login, seja anonimamente, seja por autenticação com

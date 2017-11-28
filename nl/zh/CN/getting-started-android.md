@@ -2,14 +2,14 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-06-12"
+lastupdated: "2017-11-02"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen:.screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 # 设置 Android SDK
 {: #android-sdk}
@@ -61,7 +61,7 @@ lastupdated: "2017-06-12"
 	    }
     }
   ```
-  {:pre}
+  {: codeblock}
 
 3. 打开应用程序的 `build.gradle` 文件。
 
@@ -73,7 +73,7 @@ lastupdated: "2017-06-12"
        compile group: 'com.github.ibm-cloud-security:appid-clientsdk-android:1.+'
    }
   ```
-  {:pre}
+  {: codeblock}
 
 5. 找到 defaultConfig 部分，并添加以下代码行。
 
@@ -83,7 +83,7 @@ lastupdated: "2017-06-12"
   manifestPlaceholders = ['appIdRedirectScheme': android.defaultConfig.applicationId]
   }
   ```
-  {:pre}
+  {: codeblock}
 
 6. 使用 Gradle 同步项目。单击**工具 ** > **Android ** > **使用 Gradle 文件同步项目**。
 
@@ -95,7 +95,7 @@ lastupdated: "2017-06-12"
   ```java
   AppID.getInstance().initialize(getApplicationContext(), <tenantId>, AppID.REGION_UK);
   ```
-  {:pre}
+  {: codeblock}
 
 1. 将 *tenantId* 替换为 {{site.data.keyword.appid_short_notm}} 服务 tenantId。
 2. 将 AppID.REGION_UK 替换为您所在的 {{site.data.keyword.Bluemix_notm}} 区域。
@@ -105,6 +105,8 @@ lastupdated: "2017-06-12"
 {: #authenticate-login-widget}
 
 登录窗口小部件缺省配置使用 Facebook 和 Google 作为认证选项。如果仅配置了其中一项，那么登录窗口小部件不会启动，并且用户会重定向到已配置的 IDP 认证屏幕。
+
+
 
 初始化 {{site.data.keyword.appid_short_notm}} 客户端 SDK 后，可以通过运行登录窗口小部件来对用户进行认证。
 
@@ -127,7 +129,7 @@ lastupdated: "2017-06-12"
         }
       });
   ```
-  {:pre}
+  {: codeblock}
 
 
 ## 访问用户属性
@@ -148,7 +150,7 @@ lastupdated: "2017-06-12"
   void getAllAttributes(@NonNull UserAttributeResponseListener listener);
   void getAllAttributes(@NonNull AccessToken accessToken, @NonNull UserAttributeResponseListener listener);
   ```
-  {:pre}
+  {: codeblock}
 
 未显式传递访问令牌时，{{site.data.keyword.appid_short_notm}} 会使用最后一次收到的令牌。
 
@@ -167,7 +169,7 @@ lastupdated: "2017-06-12"
 		}
 	});
   ```
-  {:pre}
+  {: codeblock}
 
 ### 匿名登录
 {: #anonymous notoc}
@@ -192,7 +194,7 @@ lastupdated: "2017-06-12"
 		}
 	});
   ```
-  {:pre}
+  {: codeblock}
 
 ### 渐进式认证
 {: #progressive notoc}
@@ -202,7 +204,7 @@ lastupdated: "2017-06-12"
   ```java
   void launch (@NonNull final Activity activity, @NonNull final AuthorizationListener authorizationListener, String accessTokenString);
   ```
-  {:pre}
+  {: codeblock}
 
 匿名登录后，会执行渐进式认证，即便在未传递访问令牌的情况下调用了登录窗口小部件时也是如此，因为服务使用的是最后一次收到的令牌。如果要清除存储的令牌，请运行以下命令。
 
@@ -210,10 +212,10 @@ lastupdated: "2017-06-12"
   	appIDAuthorizationManager = new AppIDAuthorizationManager(this.appId);
   appIDAuthorizationManager.clearAuthorizationData();
   ```
-  {:pre}
+  {: codeblock}
 
 
 ## 后续步骤
 {: #next-steps}
 
-初始设置身份提供者时，{{site.data.keyword.appid_short_notm}} 提供了缺省配置。缺省配置只能用于开发方式。在发布应用程序之前，请将缺省 [Facebook](/docs/services/appid/identity-providers.html#facebook) 和 [Google](/docs/services/appid/identity-providers.html#google) 配置更新为您自己的凭证。
+初始设置身份提供者时，{{site.data.keyword.appid_short_notm}} 提供了缺省配置。缺省配置只能用于开发方式。在发布应用程序之前，请将[缺省配置更新为您自己的凭证](/docs/services/appid/identity-providers.html)。

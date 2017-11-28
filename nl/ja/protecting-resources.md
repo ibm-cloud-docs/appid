@@ -2,14 +2,14 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-05-08"
+lastupdated: "2017-11-02"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 # バックエンド・リソースの保護
 {: #protecting-resources}
@@ -28,7 +28,7 @@ Client SDK を使用して保護リソースにアクセスできます。
   ```swift
   import BMSCore
   ```
-  {:pre}
+  {: codeblock}
 
 2. 保護リソース要求を呼び出します。
 
@@ -40,7 +40,7 @@ Client SDK を使用して保護リソースにアクセスできます。
       //応答処理コードをここに記述
   })
   ```
-  {:pre}
+  {: codeblock}
 
 
 ## Android SDK の使用
@@ -66,4 +66,4 @@ Client SDK を使用して保護リソースにアクセスできます。
 			//エラー処理コードをここに記述
   });
   ```
-  {:pre}
+  {: codeblock}

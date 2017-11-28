@@ -2,13 +2,13 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-06-12"
+lastupdated: "2017-11-08"
 
 ---
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 # 로그인 위젯 사용자 정의
 {: #login-widget}
@@ -25,4 +25,4 @@ lastupdated: "2017-06-12"
 4. 색상 선택도구에서 위젯에 대한 헤더 색상을 선택하거나 다른 색상의 16진 코드를 입력하십시오.
 5. 미리보기 분할창을 확인하고 사용자 정의 내용에 만족하면 **변경사항 저장**을 클릭하십시오. 확인 메시지가 표시됩니다. 
 
-애플리케이션을 다시 빌드할 필요가 없습니다. 이미지는 {{site.data.keyword.appid_short}} 데이터베이스에 저장되며 다음 로그인 시에 표시됩니다. 
+**참고**: 애플리케이션을 다시 빌드할 필요는 없습니다. 이미지는 {{site.data.keyword.appid_short}} 데이터베이스에 저장되며 다음 로그인 시에 표시됩니다. 

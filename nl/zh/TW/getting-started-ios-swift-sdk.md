@@ -2,14 +2,14 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-06-12"
+lastupdated: "2017-11-02"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen:.screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 
 # 設定 iOS Swift SDK
@@ -69,14 +69,14 @@ lastupdated: "2017-06-12"
      pod 'BluemixAppID'
   end
   ```
-  {:pre}
+  {: codeblock}
 
 4. 若要下載 `BluemixAppID` 相依關係，請執行下列指令。
 
   ```swift
   pod install --repo-update
   ```
-  {:pre}
+  {: codeblock}
 
 6. 開啟 Xcode 專案，並啟用金鑰鏈共用。在**專案設定**下，按一下**功能** > **金鑰鏈共用**。
 7. 在**專案設定** > **資訊** > **URL 類型**下，新增「URL 類型」。請將下列值填入 **ID** 文字框及 **URL 架構**文字框：$(PRODUCT_BUNDLE_IDENTIFIER)
@@ -90,14 +90,14 @@ lastupdated: "2017-06-12"
   ```swift
   import BluemixAppID
   ```
-  {:pre}
+  {: codeblock}
 
 2. 將承租戶 ID 及地區參數傳遞給起始設定方法，以起始設定用戶端 SDK。放置起始設定碼的一般（但非強制）位置是在 Swift 應用程式中 AppDelegate 的 application:didFinishLaunchingWithOptions: 方法。
 
   ```swift
   AppID.sharedInstance.initialize(tenantId: <tenantId>, bluemixRegion: AppID.Region_UK)
   ```
-  {:pre}
+  {: codeblock}
 
   * 將 tenantId 取代為「應用程式 ID」服務的承租戶 ID。
   * 將 AppID.REGION_UK 取代為 {{site.data.keyword.appid_short_notm}} 地區。
@@ -109,12 +109,15 @@ lastupdated: "2017-06-12"
           return AppID.sharedInstance.application(application, open: url, options: options)
       }
   ```
-  {:pre}
+  {: codeblock}
 
 ## 使用登入小組件鑑別使用者
 {: #authenticate-login}
 
+
 起始設定 {{site.data.keyword.appid_short_notm}} 用戶端 SDK 之後，即可執行登入小組件來鑑別使用者。登入小組件預設配置會使用 Facebook 及 Google 作為鑑別選項。如果您只配置一個身分提供者，不會啟動登入小組件，並且會將使用者重新導向至已配置的 IDP 鑑別畫面。
+
+
 
 
 
@@ -123,7 +126,7 @@ lastupdated: "2017-06-12"
   ```swift
   import BluemixAppID
   ```
-  {:pre}
+  {: codeblock}
 
 2. 執行下列指令，以啟動小組件。
 
@@ -145,7 +148,7 @@ lastupdated: "2017-06-12"
 
   AppID.sharedInstance.loginWidget?.launch(delegate: delegate())
   ```
-  {:pre}
+  {: codeblock}
 
 ## 存取使用者屬性
 {: #accessing}
@@ -162,7 +165,7 @@ lastupdated: "2017-06-12"
   func deleteAttribute(key: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
   func deleteAttribute(key: String, accessTokenString: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
   ```
-  {:pre}
+  {: codeblock}
 
 若未明確地傳遞存取記號，{{site.data.keyword.appid_short_notm}} 會使用最後一個收到的記號。
 
@@ -177,7 +180,7 @@ lastupdated: "2017-06-12"
       }
   })
   ```
-  {:pre}
+  {: codeblock}
 
 
 ### 匿名登入
@@ -203,7 +206,7 @@ lastupdated: "2017-06-12"
 
   AppID.sharedInstance.loginAnonymously( authorizationDelegate: delegate())
   ```
-  {:pre}
+  {: codeblock}
 
 ### 漸進鑑別
 {: #progressive notoc}
@@ -213,7 +216,7 @@ lastupdated: "2017-06-12"
   ```swift
   func launch(accessTokenString: String? , delegate: AuthorizationDelegate)
   ```
-  {:pre}
+  {: codeblock}
 
 匿名登入之後，即使因服務已使用最後一個收到的記號而在未傳遞存取記號的情況下呼叫登入小組件，還是會進行漸進鑑別。如果您要清除儲存的記號，請執行下列指令。
 
@@ -221,11 +224,11 @@ lastupdated: "2017-06-12"
   var appIDAuthorizationManager = AppIDAuthorizationManager(appid: AppID.sharedInstance)
   appIDAuthorizationManager.clearAuthorizationData()
   ```
-  {:pre}
+  {: codeblock}
 
 
 
 ## 後續步驟
 {: #next-steps}
 
-{{site.data.keyword.appid_short_notm}} 會在您一開始設定身分提供者時提供預設配置。您只能在開發模式中使用預設配置。發佈應用程式之前，請將預設 [Facebook](/docs/services/appid/identity-providers.html#facebook) 及 [Google](/docs/services/appid/identity-providers.html#google) 配置更新為您自己的認證。
+{{site.data.keyword.appid_short_notm}} 會在您一開始設定身分提供者時提供預設配置。您只能在開發模式中使用預設配置。發佈應用程式之前，請[將預設配置更新為您自己的認證](/docs/services/appid/identity-providers.html)。

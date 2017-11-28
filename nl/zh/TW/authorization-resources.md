@@ -2,14 +2,14 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-06-12"
+lastupdated: "2017-11-02"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 
 # 授權過濾器及標頭
@@ -29,7 +29,7 @@ API 保護策略會傳回 HTTP 401 回應，其具有可取得未經鑑別用戶
 ### API 策略
 {: #api}
 
-API 策略預期要求要包含具有有效存取記號的授權標頭。回應也可以包括身分記號，但它不是必要項目；請參閱[存取及身分記號](/docs/services/appid/access-identity.html#access-and-identity)。
+API 策略預期要求要包含具有有效存取記號的授權標頭。回應也可以包括身分記號，但它不是必要項目；請參閱[存取及身分記號](/docs/services/appid/access-identity.html)。
 
 如果記號無效或過期，則 API 策略會傳回包含下列資訊的 HTTP 401 錯誤：Www-Authenticate=Bearer scope="{scope}" error="{error}"。`error` 是選用元件。
 

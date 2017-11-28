@@ -2,13 +2,13 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-06-12"
+lastupdated: "2017-11-08"
 
 ---
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 # Personnalisation du widget de connexion
 {: #login-widget}
@@ -26,4 +26,4 @@ Lorsque le service {{site.data.keyword.appid_short}} est configuré avec deux fo
 sur **Sauvegarder les modifications** lorsque vous êtes satisfait de
 vos personnalisations. Un message de confirmation s'affiche.
 
-Il n'est pas nécessaire de régénérer votre application. L'image est stockée dans la base de données d'{{site.data.keyword.appid_short}} et s'affiche lors de la prochaine connexion.
+**Remarque** : Il n'est pas nécessaire de régénérer votre application. L'image est stockée dans la base de données d'{{site.data.keyword.appid_short}} et s'affiche lors de la prochaine connexion.

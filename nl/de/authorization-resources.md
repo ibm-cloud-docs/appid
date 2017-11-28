@@ -2,14 +2,14 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-06-12"
+lastupdated: "2017-11-02"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 
 # Berechtigungsfilter und -header
@@ -29,11 +29,11 @@ Die API-Schutzstrategie gibt eine HTTP 401-Antwort mit einer Liste von Geltungsb
 ### API-Strategie
 {: #api}
 
-Die API-Strategie erwartet Anforderungen, die einen Autorisierungsheader mit einem gültigen Zugriffstoken enthalten. Die Antwort kann auch ein Identitätstoken enthalten; siehe [Zugriffs- und Identitätstoken](/docs/services/appid/access-identity.html#access-and-identity).
+Die API-Strategie erwartet Anforderungen, die einen Autorisierungsheader mit einem gültigen Zugriffstoken enthalten. Die Antwort kann auch ein Identitätstoken enthalten; siehe [Zugriffs- und Identitätstoken](/docs/services/appid/access-identity.html).
 
 Wenn ein Token ungültig oder abgelaufen ist, gibt die API-Strategie einen HTTP 401-Fehler zurück, der die folgende Information enthält: Www-Authenticate=Bearer scope="{scope}" error="{error}". Die `error`-Komponente ist optional.
 
-Wenn die Anforderung ein gültiges Token zurückgibt, wird die Steuerung an die nächste Middleware übergeben und die Eigenschaft `appIdAuthorizationContext` wird in das Anforderungsobjekt eingefügt. Diese Eigenschaft enthält die ursprünglichen Zugriffs- und Identitätstoken sowie die decodierten Nutzdaten als einfache JSON-Objekte. 
+Wenn die Anforderung ein gültiges Token zurückgibt, wird die Steuerung an die nächste Middleware übergeben und die Eigenschaft `appIdAuthorizationContext` wird in das Anforderungsobjekt eingefügt. Diese Eigenschaft enthält die ursprünglichen Zugriffs- und Identitätstoken sowie die decodierten Nutzdaten als einfache JSON-Objekte.
 
 
 ### Web-App-Strategie

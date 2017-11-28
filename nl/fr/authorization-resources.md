@@ -2,14 +2,14 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-06-12"
+lastupdated: "2017-11-02"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 
 # Filtres d'autorisation et en-têtes
@@ -30,13 +30,12 @@ La stratégie de protection de l'API renvoie une réponse HTTP 401 avec une list
 ### Stratégie d'API
 {: #api}
 
-La stratégie d'API s'attend à ce que les demandes contiennent un en-tête d'autorisation avec un jeton d'accès valide. La réponse peut également contenir un jeton d'identité, mais ceci n'est pas obligatoire. Voir [Jetons d'accès et d'identité](/docs/services/appid/access-identity.html#access-and-identity).
+La stratégie d'API s'attend à ce que les demandes contiennent un en-tête d'autorisation avec un jeton d'accès valide. La réponse peut également contenir un jeton d'identité, mais ceci n'est pas obligatoire. Voir [Jetons d'accès et d'identité](/docs/services/appid/access-identity.html).
 
 Si un jeton n'est pas valide ou a expiré, la stratégie d'API renvoie une erreur
 HTTP 401 contenant les informations suivantes : www-Authenticate=Bearer scope="{scope}" error="{error}". Le composant `error` est facultatif.
 
-Si la demande renvoie un jeton valide, le contrôle passe au middleware suivant et la propriété `appIdAuthorizationContext` est injectée dans l'objet de demande. 
-Cette propriété contient les jetons d'accès et d'identité originaux, ainsi que les
+Si la demande renvoie un jeton valide, le contrôle passe au middleware suivant et la propriété `appIdAuthorizationContext` est injectée dans l'objet de demande. Cette propriété contient les jetons d'accès et d'identité originaux, ainsi que les
 informations de contenu décodées sous forme d'objets JSON ordinaires.
 
 

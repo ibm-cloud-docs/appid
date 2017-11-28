@@ -2,14 +2,14 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-05-08"
+lastupdated: "2017-11-02"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 # Protection des ressources de back end
 {: #protecting-resources}
@@ -17,8 +17,7 @@ lastupdated: "2017-05-08"
 Vous pouvez accéder aux ressources protégées à l'aide des SDK client.
 {:shortdesc}
 
-L'appel d'une ressource protégée démarre le widget de connexion, si nécessaire.
-Si un jeton d'accès valide a déjà été obtenu, le widget de connexion n'est pas
+L'appel d'une ressource protégée démarre le widget de connexion, si nécessaire. Si un jeton d'accès valide a déjà été obtenu, le widget de connexion n'est pas
 démarré et
 l'accès direct à la ressource est autorisé.
 
@@ -31,7 +30,7 @@ l'accès direct à la ressource est autorisé.
   ```swift
   import BMSCore
   ```
-  {:pre}
+  {: codeblock}
 
 2. Appel d'une demande de ressource protégée.
 
@@ -44,7 +43,7 @@ AppIDAuthorizationManager(appid:AppID.sharedInstance)
       //code handling the response here
   })
   ```
-  {:pre}
+  {: codeblock}
 
 
 ## Utilisation du SDK Android
@@ -70,4 +69,4 @@ AppIDAuthorizationManager(appid:AppID.sharedInstance)
       //code handling the failure here
   });
   ```
-  {:pre}
+  {: codeblock}

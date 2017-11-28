@@ -2,14 +2,14 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-05-08"
+lastupdated: "2017-11-02"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 
 # Protection des ressources Swift
@@ -41,15 +41,14 @@ Vous pouvez utiliser le SDK serveur {{site.data.keyword.appid_short}} pour prot�
       ]
   )
   ```
-  {:pre}
+  {: codeblock}
 
 ## Protection des ressources dans Swift
 {: #protecting}
 
 Le SDK Swift fournit un plug-in de données d'identification Kitura qui permet de
 protéger les applications Web. Si vous utilisez ce plug-in, les clients non authentifiés
-reçoivent une réponse HTTP 302.
-Ils sont redirigés vers la page de connexion hébergée par
+reçoivent une réponse HTTP 302. Ils sont redirigés vers la page de connexion hébergée par
 {{site.data.keyword.appid_short_notm}} ou vers la page de connexion du fournisseur d'identité, selon votre configuration.
 
 
@@ -62,7 +61,6 @@ Le plug-in WebAppKituraCredentialsPlugin est basé sur le flux d'octroi d'autori
 Le code ci-dessous explique comment utiliser le plug-in
 WebAppKituraCredentialsPlugin dans une application Kitura pour protéger le noeud final
 `/protected`.
-
 
   ```swift
   import Foundation
@@ -77,6 +75,7 @@ WebAppKituraCredentialsPlugin dans une application Kitura pour protéger le noeu
   var CALLBACK_URL = "/ibm/bluemix/appid/callback"
   var LOGOUT_URL = "/ibm/bluemix/appid/logout"
   var LANDING_PAGE_URL = "/index.html"
+
   // Setup Kitura to use session middleware
   // Must be configured with proper session storage for production
   // environments. See https://github.com/IBM-Swift/Kitura-Session for
@@ -84,6 +83,7 @@ WebAppKituraCredentialsPlugin dans une application Kitura pour protéger le noeu
   let router = Router()
   let session = Session(secret: "Some secret")
   router.all(middleware: session)
+
   let options = [
   	"clientId": "{client-id}",
   	"secret": "{secret}",
@@ -102,6 +102,7 @@ webappKituraCredentialsPlugin.name,
   												   successRedirect: LANDING_PAGE_URL,
   												   failureRedirect: LANDING_PAGE_URL
   ))
+
   // Callback to finish the authorization process. Will retrieve access and identity
 tokens from AppID
   router.get(CALLBACK_URL,
@@ -110,6 +111,7 @@ webappKituraCredentialsPlugin.name,
   												   successRedirect: LANDING_PAGE_URL,
   												   failureRedirect: LANDING_PAGE_URL
   ))
+
   // Logout endpoint. Clears authentication information from session
   router.get(LOGOUT_URL, handler:  { (request, response, next) in
   	kituraCredentials.logOut(request: request)
@@ -139,10 +141,11 @@ webappKituraCredentialsPlugin.name), { (request, response, next) in
 
   // Add an HTTP server and connect it to the router
   Kitura.addHTTPServer(onPort: port, with: router)
+
   // Start the Kitura runloop (this call never returns)
   Kitura.run()
   ```
-  {:pre}
+  {: codeblock}
 
 Pour plus d'informations, voir le
 <a href="https://github.com/ibm-cloud-security/appid-serversdk-swift" target="_blank">référentiel

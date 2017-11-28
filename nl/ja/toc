@@ -4,14 +4,13 @@
 {:topicgroup: .topicgroup}
 
 {: .toc subcollection="appid" audience="service" href="/docs/services/appid/index.html"}
-App ID 
+IBM Cloud App ID
+
     {: .navgroup id="learn"}
     index.md
-
+    
     {: .topicgroup}
-    App ID の概要
-        about.md
-        id-overview.md
+    概要        about.md
         access-identity.md
         authorization-resources.md
         user-profile.md
@@ -44,10 +43,10 @@ App ID
     login-widget.md
 
     {: .topicgroup}
-    リソースの保護        
-        protecting-resources.md
+    リソースの保護        protecting-resources.md
         protecting-resources-nodejs.md
         protecting-resources-swift.md
+        protecting-resources-java.md
     {: .navgroup-end}
 
     {: .navgroup id="help"}

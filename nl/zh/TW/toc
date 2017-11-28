@@ -4,15 +4,14 @@
 {:topicgroup: .topicgroup}
 
 {: .toc subcollection="appid" audience="service" href="/docs/services/appid/index.html"}
-應用程式 ID
+IBM Cloud App ID
 
     {: .navgroup id="learn"}
     index.md
-
+    
     {: .topicgroup}
-    關於應用程式 ID
+    關於
         about.md
-        id-overview.md
         access-identity.md
         authorization-resources.md
         user-profile.md
@@ -49,6 +48,7 @@
         protecting-resources.md
         protecting-resources-nodejs.md
         protecting-resources-swift.md
+        protecting-resources-java.md
     {: .navgroup-end}
 
     {: .navgroup id="help"}

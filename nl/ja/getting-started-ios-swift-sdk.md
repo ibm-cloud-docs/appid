@@ -2,14 +2,14 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-06-12"
+lastupdated: "2017-11-02"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen:.screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 
 # iOS Swift SDK のセットアップ
@@ -67,14 +67,14 @@ lastupdated: "2017-06-12"
      pod 'BluemixAppID'
   end
   ```
-  {:pre}
+  {: codeblock}
 
 4. `BluemixAppID` の従属関係をダウンロードするには、以下のコマンドを実行します。
 
   ```swift
   pod install --repo-update
   ```
-  {:pre}
+  {: codeblock}
 
 6. Xcode プロジェクトを開き、キーチェーン共有を使用可能にします。**「Project Settings」**の下で、**「Capabilities」** > **「Keychain Sharing」**をクリックします。
 7. **「Project Settings」** > **「Info」** > **「URL Types」**の下で、URL タイプを追加します。**「Identifier」**テキスト・ボックスと**「URL Scheme」**テキスト・ボックスに値 $(PRODUCT_BUNDLE_IDENTIFIER) を入力します。
@@ -88,14 +88,14 @@ lastupdated: "2017-06-12"
   ```swift
   import BluemixAppID
   ```
-  {:pre}
+  {: codeblock}
 
 2. tenant ID パラメーターと region パラメーターを initialize メソッドに渡して、Client SDK を初期化します。初期化コードの配置場所として一般的な (必須ではありません) 場所は、Swift アプリケーションの AppDelegate の application:didFinishLaunchingWithOptions: メソッド内です。
 
   ```swift
   AppID.sharedInstance.initialize(tenantId: <tenantId>, bluemixRegion: AppID.Region_UK)
   ```
-  {:pre}
+  {: codeblock}
 
   * 「tenantId」を App ID サービスのテナント ID に置き換えます。
   * AppID.REGION_UK を、該当する {{site.data.keyword.appid_short_notm}} 地域に置き換えます。
@@ -107,12 +107,15 @@ lastupdated: "2017-06-12"
           return AppID.sharedInstance.application(application, open: url, options: options)
       }
   ```
-  {:pre}
+  {: codeblock}
 
 ## ログイン・ウィジェットを使用したユーザーの認証
 {: #authenticate-login}
 
+
 {{site.data.keyword.appid_short_notm}} Client SDK が初期化されたら、ログイン・ウィジェットを実行してユーザーを認証できるようになります。ログイン・ウィジェットのデフォルト構成では、認証オプションとして Facebook と Google が使用されます。一方の ID プロバイダーのみを構成した場合、ログイン・ウィジェットは開始せず、ユーザーは構成済みの IDP 認証画面にリダイレクトされます。
+
+
 
 
 
@@ -121,7 +124,7 @@ lastupdated: "2017-06-12"
   ```swift
   import BluemixAppID
   ```
-  {:pre}
+  {: codeblock}
 
 2. 以下のコマンドを実行してウィジェットを起動します。
 
@@ -142,7 +145,7 @@ lastupdated: "2017-06-12"
 
   AppID.sharedInstance.loginWidget?.launch(delegate: delegate())
   ```
-  {:pre}
+  {: codeblock}
 
 ## ユーザー属性へのアクセス
 {: #accessing}
@@ -159,7 +162,7 @@ lastupdated: "2017-06-12"
   func deleteAttribute(key: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
   func deleteAttribute(key: String, accessTokenString: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
   ```
-  {:pre}
+  {: codeblock}
 
 アクセス・トークンを明示的に渡さないと、{{site.data.keyword.appid_short_notm}} は最後に受け取ったトークンを使用します。
 
@@ -174,7 +177,7 @@ lastupdated: "2017-06-12"
       }
   })
   ```
-  {:pre}
+  {: codeblock}
 
 
 ### 匿名ログイン
@@ -200,7 +203,7 @@ lastupdated: "2017-06-12"
 
   AppID.sharedInstance.loginAnonymously( authorizationDelegate: delegate())
   ```
-  {:pre}
+  {: codeblock}
 
 ### 段階的な認証
 {: #progressive notoc}
@@ -210,7 +213,7 @@ lastupdated: "2017-06-12"
   ```swift
   func launch(accessTokenString: String? , delegate: AuthorizationDelegate)
   ```
-  {:pre}
+  {: codeblock}
 
 匿名ログインの後には、アクセス・トークンを渡さずにログイン・ウィジェットを呼び出した場合であっても段階的な認証が行われます。最後に受け取ったトークンがサービスで使用されるからです。保管されているトークンをクリアする場合は、以下のコマンドを実行します。
 
@@ -218,11 +221,11 @@ lastupdated: "2017-06-12"
   var appIDAuthorizationManager = AppIDAuthorizationManager(appid: AppID.sharedInstance)
   appIDAuthorizationManager.clearAuthorizationData()
   ```
-  {:pre}
+  {: codeblock}
 
 
 
 ## 次のステップ
 {: #next-steps}
 
-初めて ID プロバイダーをセットアップするときに、{{site.data.keyword.appid_short_notm}} からデフォルト構成が示されます。このデフォルト構成は開発モードのみで使用できます。アプリケーションを公開する前に、デフォルトの [Facebook](/docs/services/appid/identity-providers.html#facebook) と [Google](/docs/services/appid/identity-providers.html#google) の構成を自分の資格情報に更新してください。
+初めて ID プロバイダーをセットアップするときに、{{site.data.keyword.appid_short_notm}} からデフォルト構成が示されます。このデフォルト構成は開発モードのみで使用できます。アプリケーションを公開する前に、[デフォルトの構成から自分の資格情報になるように更新してください](/docs/services/appid/identity-providers.html)。

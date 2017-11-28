@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-06-12"
+lastupdated: "2017-11-07"
 
 ---
 
@@ -10,11 +10,10 @@ lastupdated: "2017-06-12"
 {:shortdesc: .shortdesc}
 
 
-# ユーザー・プロファイルの概要
+# ユーザー・プロファイル
 {: #user-profile}
 
-ユーザー・プロファイルは、{{site.data.keyword.appid_full}} によって保管され保守されるエンティティーです。プロファイルには、ユーザーの属性と ID が保持されます。プロファイルは匿名にすることも、ID プロバイダーが管理する ID にリンクすることもできます。
-{:shortdesc}
+ユーザー・プロファイルは、{{site.data.keyword.appid_full}} によって保管され保守されるエンティティーです。プロファイルには、ユーザーの属性と ID が入ります。プロファイルは、匿名にすることも、ID プロバイダーによって管理されている ID にリンクすることもできます。{:shortdesc}
 
 {{site.data.keyword.appid_short_notm}} には、匿名ログインまたは OpenId Connect (OIDC) [ID プロバイダー](/docs/services/appid/identity-providers.html#setting-up-idp)による認証を使用したログインのための API が用意されています。ユーザー・プロファイル属性 API エンドポイントは、ログインと許可のプロセス中に {{site.data.keyword.appid_short_notm}} が生成するアクセス・トークンによって保護されるリソースです。
 

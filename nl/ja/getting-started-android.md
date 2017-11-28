@@ -2,14 +2,14 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-06-12"
+lastupdated: "2017-11-02"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen:.screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 # Android SDK のセットアップ
 {: #android-sdk}
@@ -60,7 +60,7 @@ lastupdated: "2017-06-12"
 	    }
     }
   ```
-  {:pre}
+  {: codeblock}
 
 3. アプリケーションの `build.gradle` ファイルを開きます。
 
@@ -72,7 +72,7 @@ dependencies {
 compile group: 'com.github.ibm-cloud-security:appid-clientsdk-android:1.+'
    }
   ```
-  {:pre}
+  {: codeblock}
 
 5. defaultConfig セクションを見つけて、以下のコード行を追加します。
 
@@ -82,7 +82,7 @@ defaultConfig {
   manifestPlaceholders = ['appIdRedirectScheme': android.defaultConfig.applicationId]
   }
   ```
-  {:pre}
+  {: codeblock}
 
 6. プロジェクトを Gradle と同期化します。**「ツール」** > **「Android」** > **「プロジェクトを Gradle ファイルと同期 (Sync Project with Gradle Files)」**をクリックします。
 
@@ -94,7 +94,7 @@ context、tenant ID、region パラメーターを initialize メソッドに渡
   ```java
   AppID.getInstance().initialize(getApplicationContext(), <tenantId>, AppID.REGION_UK);
   ```
-  {:pre}
+  {: codeblock}
 
 1. *tenantId* を {{site.data.keyword.appid_short_notm}} サービスの tenantId に置き換えます。
 2. AppID.REGION_UK を、該当する {{site.data.keyword.Bluemix_notm}} 地域に置き換えます。
@@ -104,6 +104,8 @@ context、tenant ID、region パラメーターを initialize メソッドに渡
 {: #authenticate-login-widget}
 
 ログイン・ウィジェットのデフォルト構成では、認証オプションとして Facebook と Google が使用されます。一方だけを構成した場合、ログイン・ウィジェットは開始せず、ユーザーは構成済みの IDP 認証画面にリダイレクトされます。
+
+
 
 {{site.data.keyword.appid_short_notm}} Client SDK が初期化されたら、ログイン・ウィジェットを実行してユーザーを認証できるようになります。
 
@@ -126,7 +128,7 @@ context、tenant ID、region パラメーターを initialize メソッドに渡
         }
       });
   ```
-  {:pre}
+  {: codeblock}
 
 
 ## ユーザー属性へのアクセス
@@ -147,7 +149,7 @@ context、tenant ID、region パラメーターを initialize メソッドに渡
   void getAllAttributes(@NonNull UserAttributeResponseListener listener);
   void getAllAttributes(@NonNull AccessToken accessToken, @NonNull UserAttributeResponseListener listener);
   ```
-  {:pre}
+  {: codeblock}
 
 アクセス・トークンを明示的に渡さないと、{{site.data.keyword.appid_short_notm}} は最後に受け取ったトークンを使用します。
 
@@ -166,7 +168,7 @@ context、tenant ID、region パラメーターを initialize メソッドに渡
 		}
 	});
   ```
-  {:pre}
+  {: codeblock}
 
 ### 匿名ログイン
 {: #anonymous notoc}
@@ -191,7 +193,7 @@ context、tenant ID、region パラメーターを initialize メソッドに渡
 		}
 	});
   ```
-  {:pre}
+  {: codeblock}
 
 ### 段階的な認証
 {: #progressive notoc}
@@ -201,7 +203,7 @@ context、tenant ID、region パラメーターを initialize メソッドに渡
   ```java
   void launch (@NonNull final Activity activity, @NonNull final AuthorizationListener authorizationListener, String accessTokenString);
   ```
-  {:pre}
+  {: codeblock}
 
 匿名ログインの後には、アクセス・トークンを渡さずにログイン・ウィジェットを呼び出した場合であっても段階的な認証が行われます。最後に受け取ったトークンがサービスで使用されるからです。保管されているトークンをクリアする場合は、以下のコマンドを実行します。
 
@@ -209,10 +211,10 @@ context、tenant ID、region パラメーターを initialize メソッドに渡
   	appIDAuthorizationManager = new AppIDAuthorizationManager(this.appId);
   appIDAuthorizationManager.clearAuthorizationData();
   ```
-  {:pre}
+  {: codeblock}
 
 
 ## 次のステップ
 {: #next-steps}
 
-初めて ID プロバイダーをセットアップするときに、{{site.data.keyword.appid_short_notm}} からデフォルト構成が示されます。このデフォルト構成は開発モードのみで使用できます。アプリケーションを公開する前に、デフォルトの [Facebook](/docs/services/appid/identity-providers.html#facebook) と [Google](/docs/services/appid/identity-providers.html#google) の構成を自分の資格情報に更新してください。
+初めて ID プロバイダーをセットアップするときに、{{site.data.keyword.appid_short_notm}} からデフォルト構成が示されます。このデフォルト構成は開発モードのみで使用できます。アプリケーションを公開する前に、[デフォルトの構成から自分の資格情報になるように更新してください](/docs/services/appid/identity-providers.html)。

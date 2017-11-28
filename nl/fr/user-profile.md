@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-06-12"
+lastupdated: "2017-11-07"
 
 ---
 
@@ -10,14 +10,13 @@ lastupdated: "2017-06-12"
 {:shortdesc: .shortdesc}
 
 
-# Présentation des profils utilisateurs
+# Profils utilisateur
 {: #user-profile}
 
 Un profil utilisateur est une entité stockée et gérée par {{site.data.keyword.appid_full}}. Le profil contient les attributs et l'identité d'un utilisateur et peut être anonyme ou lié à une identité gérée par un fournisseur d'identité.
 {:shortdesc}
 
-{{site.data.keyword.appid_short_notm}} fournit une API pour la connexion, anonyme ou bien avec authentification, via un [fournisseur d'identité](/docs/services/appid/identity-providers.html#setting-up-idp) OpenId Connect (OIDC). 
-Le noeud final d'API d'attribut de profil utilisateur est une ressource qui est protégée
+{{site.data.keyword.appid_short_notm}} fournit une API pour la connexion, anonyme ou bien avec authentification, via un [fournisseur d'identité](/docs/services/appid/identity-providers.html#setting-up-idp) OpenId Connect (OIDC). Le noeud final d'API d'attribut de profil utilisateur est une ressource qui est protégée
 par
 le jeton d'accès généré par {{site.data.keyword.appid_short_notm}} au cours du
 processus de connexion et d'authentification.
@@ -30,8 +29,7 @@ processus de connexion et d'authentification.
 <a href="https://appid-profiles.ng.bluemix.net/swagger-ui/index.html#/Attributes" target="_blank">API
 REST <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a> permettant
 d'effectuer des opérations de création, d'extraction, de mise à jour et de suppression
-des attributs d'un utilisateur.
-Le service fournit également un logiciel SDK pour
+des attributs d'un utilisateur. Le service fournit également un logiciel SDK pour
 les
 clients
 mobiles <a href="https://github.com/ibm-cloud-security/appid-clientsdk-android" target="_blank">Android
@@ -39,7 +37,6 @@ mobiles <a href="https://github.com/ibm-cloud-security/appid-clientsdk-android" 
 et
 <a href="https://github.com/ibm-cloud-security/appid-clientsdk-swift" target="_blank">Swift
 <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a>.
-
 
 
 ## Identité OAuth
@@ -50,8 +47,7 @@ Lorsque le service appelle l'API de connexion OAuth,
 pour autoriser et authentifier l'appelant avec le fournisseur d'identité sélectionné. Après
 l'authentification, l'identité est associée à un enregistrement
 utilisateur
-{{site.data.keyword.appid_short_notm}}. 
-{{site.data.keyword.appid_short_notm}} renvoie un jeton d'accès qui peut être
+{{site.data.keyword.appid_short_notm}}. {{site.data.keyword.appid_short_notm}} renvoie un jeton d'accès qui peut être
 utilisé pour accéder aux attributs de l'utilisateur, et un jeton d'accès qui
 contient les
 informations d'identité indiquées par le fournisseur d'identité. Le même enregistrement utilisateur et ses attributs sont accessibles à nouveau par n'importe quel client qui s'authentifie avec cette même identité.
@@ -60,8 +56,7 @@ informations d'identité indiquées par le fournisseur d'identité. Le même enr
 ## Utilisateur anonyme
 {: #anonymous}
 
-Lorsque vous vous connectez de manière anonyme, {{site.data.keyword.appid_short_notm}} crée un enregistrement utilisateur qui est marqué comme anonyme. {{site.data.keyword.appid_short_notm}} renvoie des jetons d'accès et d'identité anonyme à l'appelant. 
-En utilisant le jeton d'accès anonyme, l'application utilisateur peut créer, lire, mettre
+Lorsque vous vous connectez de manière anonyme, {{site.data.keyword.appid_short_notm}} crée un enregistrement utilisateur qui est marqué comme anonyme. {{site.data.keyword.appid_short_notm}} renvoie des jetons d'accès et d'identité anonyme à l'appelant. En utilisant le jeton d'accès anonyme, l'application utilisateur peut créer, lire, mettre
 à jour et supprimer des attributs, lesquels sont stockés dans l'enregistrement
 utilisateur. Par exemple, un développeur peut créer une application dans laquelle un utilisateur peut commencer immédiatement à ajouter des articles à un panier d'achat sans avoir à se connecter.
 
@@ -77,8 +72,7 @@ Un utilisateur anonyme disposant d'une identité émise par un fournisseur d'ide
 d'utilisateur anonyme qui est défini par le jeton d'accès et lui affecte l'identité
 soumise.
 
-    **Remarque** : l'identité ne peut être affectée à l'enregistrement d'utilisateur anonyme que si cette même identité n'a pas déjà été affectée à un autre utilisateur. 
-Si l'identité est déjà associée à un autre utilisateur
+    **Remarque** : l'identité ne peut être affectée à l'enregistrement d'utilisateur anonyme que si cette même identité n'a pas déjà été affectée à un autre utilisateur. Si l'identité est déjà associée à un autre utilisateur
 {{site.data.keyword.appid_short_notm}}, le jeton d'accès et le jeton d'identité
 contiennent les informations de l'enregistrement de cet autre utilisateur et permettent
 l'accès à ses attributs. L'utilisateur anonyme précédent et ses attributs ne sont pas

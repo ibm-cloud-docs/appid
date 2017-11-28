@@ -2,14 +2,14 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-05-08"
+lastupdated: "2017-11-02"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 
 # Swift 리소스 보호
@@ -41,7 +41,7 @@ lastupdated: "2017-05-08"
       ]
   )
   ```
-  {:pre}
+  {: codeblock}
 
 ## Swift의 리소스 보호
 {: #protecting}
@@ -136,6 +136,6 @@ WebAppKituraCredentialsPlugin은 OAuth2 authorization_code 권한 부여 플로�
   // Start the Kitura runloop (this call never returns)
   Kitura.run()
   ```
-  {:pre}
+  {: codeblock}
 
-자세한 정보는 <a href="https://github.com/ibm-cloud-security/appid-serversdk-swift" target="_blank">{{site.data.keyword.appid_short_notm}} Swift GitHub 저장소 <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>을 참조하십시오. 
+자세한 정보는 <a href="https://github.com/ibm-cloud-security/appid-serversdk-swift" target="_blank">{{site.data.keyword.appid_short_notm}} Swift GitHub 저장소 <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>를 참조하십시오. 

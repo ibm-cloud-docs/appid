@@ -2,14 +2,14 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-05-08"
+lastupdated: "2017-11-02"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 # Node.js リソースの保護
 {: #protecting-resources-nodejs}
@@ -20,7 +20,7 @@ lastupdated: "2017-05-08"
 {: #before-you-begin}
 
 * {{site.data.keyword.Bluemix_notm}} での Node.js アプリケーションの開発に精通している必要があります。
-* {{site.data.keyword.appid_short_notm}} Server SDK には、Node.js サーバーが `<a href="http://expressjs.com/" target="_blank">Express フレームワーク<img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a>`を使用して実装されていることが必要です。
+* {{site.data.keyword.appid_short_notm}} Server SDK には、Node.js サーバーが <a href="http://expressjs.com/" target="_blank">Express フレームワーク<img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a>を使用して実装されていることが必要です。
 
 **注**: その他のフレームワークは `Express` フレームワーク (LoopBack など) を使用します。{{site.data.keyword.appid_short_notm}} Server SDK は、それらのどのフレームワークでも使用できます。
 
@@ -36,7 +36,7 @@ lastupdated: "2017-05-08"
   npm install -save passport
   npm install -save bluemix-appid
   ```
-  {:pre}
+  {: codeblock}
 
 ## Node.js のリソースの保護
 {: #protecting-resources-nodesdk}
@@ -66,7 +66,7 @@ var express = require('express');
 
   app.listen(process.env.PORT);
 ```
-  {:pre}
+  {: codeblock}
 
 `WebAppStrategy` を使用して Web アプリケーション・リソースを保護できます。
 
@@ -76,6 +76,6 @@ var express = require('express');
   var passport = require('passport');
   var WebAppStrategy = require('bluemix-appid').WebAppStrategy;
   ```
-  {:pre}
+  {: codeblock}
 
 詳細については、<a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs" target="_blank">{{site.data.keyword.appid_short_notm}}Node.js GitHub リポジトリー <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> を参照してください。

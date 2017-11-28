@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-06-12"
+lastupdated: "2017-11-07"
 
 ---
 
@@ -10,10 +10,10 @@ lastupdated: "2017-06-12"
 {:shortdesc: .shortdesc}
 
 
-# 사용자 프로파일 개요
+# 사용자 프로파일
 {: #user-profile}
 
-사용자 프로파일은 {{site.data.keyword.appid_full}}에서 저장하고 유지보수하는 엔티티입니다. 프로파일에는 사용자의 속성과 ID가 있으며 익명이거나 ID 제공자가 관리하는 ID에 링크할 수 있습니다.
+사용자 프로파일은 {{site.data.keyword.appid_full}}에서 저장하고 유지보수하는 엔티티입니다. 프로파일에는 사용자의 속성 및 ID가 포함되며, 이는 익명이거나 ID 제공자가 관리하는 ID에 링크될 수 있습니다.
 {:shortdesc}
 
 {{site.data.keyword.appid_short_notm}}는 익명으로 또는 OIDC(OpenId Connect) [ID 제공자](/docs/services/appid/identity-providers.html#setting-up-idp)로 인증하여 로그인을 위한 API를 제공합니다. 사용자 프로파일 속성 API 엔드포인트는 로그인 및 권한 부여 프로세스 중에 {{site.data.keyword.appid_short_notm}}에서 생성된 액세스 토큰이 보호하는 리소스입니다.
@@ -22,7 +22,7 @@ lastupdated: "2017-06-12"
 ## 사용자 속성 저장, 읽기 및 삭제
 {: #storing-data}
 
-{{site.data.keyword.appid_short_notm}}는 사용자의 속성에서 작성, 검색, 업데이트 및 삭제 오퍼레이션을 수행하기 위해 <a href="https://appid-profiles.ng.bluemix.net/swagger-ui/index.html#/Attributes" target="_blank">REST API <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>을 제공합니다. 또한, 서비스는 <a href="https://github.com/ibm-cloud-security/appid-clientsdk-android" target="_blank">Android <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a> 및 <a href="https://github.com/ibm-cloud-security/appid-clientsdk-swift" target="_blank">Swift <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a> 모바일 클라이언트에 SDK를 제공합니다. 
+{{site.data.keyword.appid_short_notm}}는 사용자의 속성에서 작성, 검색, 업데이트 및 삭제 오퍼레이션을 수행하기 위해 <a href="https://appid-profiles.ng.bluemix.net/swagger-ui/index.html#/Attributes" target="_blank">REST API <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>를 제공합니다. 또한, 서비스는 <a href="https://github.com/ibm-cloud-security/appid-clientsdk-android" target="_blank">Android <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a> 및 <a href="https://github.com/ibm-cloud-security/appid-clientsdk-swift" target="_blank">Swift <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a> 모바일 클라이언트에 SDK를 제공합니다. 
 
 
 ## OAuth ID
@@ -58,6 +58,6 @@ ID 제공자에서 제공된 ID가 있는 익명 사용자는 식별된 사용�
 ## 데이터 분리 및 암호화
 {: #data}
 
-{{site.data.keyword.appid_short_notm}}는 사용자 프로파일 속성을 저장하고 암호화합니다. 다중 테넌트 서비스로서 모든 테넌트에는 지정된 암호화 키가 있으며 각 테넌트의 사용자 데이터는 그 테넌트의 키로만 암호화됩니다.
+{{site.data.keyword.appid_short_notm}}는 사용자 프로파일 속성을 저장하고 암호화합니다. 다중 테넌트 서비스로서 모든 테넌트에는 지정된 암호화 키가 있으며 각 테넌트의 사용자 데이터는 해당 테넌트의 키로만 암호화됩니다.
 
 {{site.data.keyword.appid_short_notm}}는 개인 정보를 저장하기 전에 암호화되었는지 확인합니다.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-06-12"
+lastupdated: "2017-11-07"
 
 ---
 
@@ -23,6 +23,7 @@ lastupdated: "2017-06-12"
 3. 若要連結實例，請從**連接至**功能表中選取應用程式。如果您選取**維持不連結**，可於稍後連結服務實例。
 4. 選取定價方案，然後按一下**建立**。
 5. 選用項目：利用使用者介面中的指示，下載範例應用程式。這些範例可協助您開始進行 {{site.data.keyword.appid_short_notm}}。
-6. 下載並設定使用特定應用程式所需的 [SDK](/docs/services/appid/relatedlinks.html)。
-7. 配置[身分提供者](/docs/services/appid/identity-providers.html)以進行鑑別和授權。
-8. 選用項目：如果您已啟用多個身分提供者，請自訂[登入小組件](/docs/services/appid/login-widget.html)。
+
+現在您已有 {{site.data.keyword.appid_short_notm}} 的實例，那麼請下載您偏好程式語言的 SDK，開始鑑別使用者吧！
+
+

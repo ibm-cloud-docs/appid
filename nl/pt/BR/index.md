@@ -2,15 +2,14 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-06-12"
+lastupdated: "2017-11-07"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 
-# Introdução ao
-{{site.data.keyword.appid_short_notm}}
+# Introdução ao {{site.data.keyword.appid_short_notm}}
 {: #gettingstarted}
 
 O {{site.data.keyword.appid_full}} o ajuda a incluir autenticação em seu dispositivo móvel e apps da web e protege os seus sistemas de backend.
@@ -27,6 +26,8 @@ será possível ligar a instância de serviço posteriormente.
 4. Selecione o seu plano de precificação e clique em **Criar**.
 5. Opcional: use as instruções na UI para fazer download dos aplicativos de amostra. As amostras ajudam você na introdução e
 execução com o {{site.data.keyword.appid_short_notm}}.
-6. Faça download e configure os [SDKs](/docs/services/appid/relatedlinks.html) necessários para trabalhar com o seu aplicativo específico.
-7. Configure os seus [provedores de identidade](/docs/services/appid/identity-providers.html) para autenticação e autorização.
-8. Opcional: se você tiver ativado mais de um provedor de identidade, customize o seu [widget de login](/docs/services/appid/login-widget.html).
+
+Agora que você tem uma instância do {{site.data.keyword.appid_short_notm}}, faça download
+do SDK para sua linguagem de programação preferencial e inicie a autenticação dos usuários.
+
+

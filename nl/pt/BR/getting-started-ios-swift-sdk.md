@@ -2,14 +2,14 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-06-12"
+lastupdated: "2017-11-02"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen:.screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 
 # Configurando o iOS Swift SDK
@@ -72,14 +72,14 @@ esteja sob o seu destino.
      pod 'BluemixAppID'
   end
   ```
-  {:pre}
+  {: codeblock}
 
 4. Para fazer download da dependência `BluemixAppID`, execute o comando a seguir.
 
   ```swift
   pod install --repo-update
   ```
-  {:pre}
+  {: codeblock}
 
 6. Abra o seu projeto Xcode e ative o compartilhamento de keychain. Sob **Configurações de projeto**, clique
 em **Recursos** >
@@ -97,7 +97,7 @@ $(PRODUCT_BUNDLE_IDENTIFIER)
   ```swift
   import BluemixAppID
   ```
-  {:pre}
+  {: codeblock}
 
 2. Inicialize o SDK do cliente passando os parâmetros de ID do locatário e região para o método de inicialização. Um local comum, mas não obrigatório, para
 colocar o código de inicialização está no método application:didFinishLaunchingWithOptions: do AppDelegate em seu aplicativo Swift.
@@ -105,7 +105,7 @@ colocar o código de inicialização está no método application:didFinishLaunc
   ```swift
   AppID.sharedInstance.initialize(tenantId: <tenantId>, bluemixRegion: AppID.Region_UK)
   ```
-  {:pre}
+  {: codeblock}
 
   * Substitua o tenantId pelo ID do locatário para o seu serviço de ID do App
   * Substitua AppID.REGION_UK pela sua região do {{site.data.keyword.appid_short_notm}}.
@@ -117,12 +117,15 @@ colocar o código de inicialização está no método application:didFinishLaunc
           return AppID.sharedInstance.application(application, open: url, options: options)
       }
   ```
-  {:pre}
+  {: codeblock}
 
 ## Autentique os usuários usando o widget de login
 {: #authenticate-login}
 
+
 Após o SDK do cliente do {{site.data.keyword.appid_short_notm}} ser inicializado, será possível autenticar os seus usuários executando o widget de login. A configuração padrão do widget de login usa o Facebook e o Google como opções de autenticação. Se você configurar apenas um provedor de identidade, o widget de login não será iniciado e o usuário será redirecionado para a tela de autenticação do IDP configurado.
+
+
 
 
 
@@ -131,7 +134,7 @@ Após o SDK do cliente do {{site.data.keyword.appid_short_notm}} ser inicializad
   ```swift
   import BluemixAppID
   ```
-  {:pre}
+  {: codeblock}
 
 2. Execute o comando a seguir para ativar o widget.
 
@@ -152,7 +155,7 @@ Após o SDK do cliente do {{site.data.keyword.appid_short_notm}} ser inicializad
 
   AppID.sharedInstance.loginWidget?.launch(delegate: delegate())
   ```
-  {:pre}
+  {: codeblock}
 
 ## Acessando atributos do usuário
 {: #accessing}
@@ -172,7 +175,7 @@ Ao obter um token de acesso, é possível obter acesso ao terminal protegido de 
   func deleteAttribute(key: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
   func deleteAttribute(key: String, accessTokenString: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
   ```
-  {:pre}
+  {: codeblock}
 
 Quando um token de acesso não for transmitido explicitamente, o {{site.data.keyword.appid_short_notm}} usará o último token recebido.
 
@@ -187,7 +190,7 @@ Por exemplo, é possível chamar o código a seguir para configurar um novo atri
       }
   })
   ```
-  {:pre}
+  {: codeblock}
 
 
 ### Login anônimo
@@ -213,7 +216,7 @@ Com o {{site.data.keyword.appid_short_notm}} é possível efetuar login [anonima
 
   AppID.sharedInstance.loginAnonymously( authorizationDelegate: delegate())
   ```
-  {:pre}
+  {: codeblock}
 
 ### Autenticação progressiva
 {: #progressive notoc}
@@ -223,7 +226,7 @@ Quando você retém um token de acesso anônimo, o usuário pode se tornar um us
   ```swift
   func launch(accessTokenString: String? , delegate: AuthorizationDelegate)
   ```
-  {:pre}
+  {: codeblock}
 
 Após um login anônimo, a autenticação progressiva ocorrerá mesmo se o widget de login for chamado sem passar um token de acesso porque o serviço usou o último
 token recebido. Se desejar limpar os tokens armazenados, execute o comando a seguir.
@@ -232,7 +235,7 @@ token recebido. Se desejar limpar os tokens armazenados, execute o comando a seg
   var appIDAuthorizationManager = AppIDAuthorizationManager(appid: AppID.sharedInstance)
   appIDAuthorizationManager.clearAuthorizationData()
   ```
-  {:pre}
+  {: codeblock}
 
 
 
@@ -240,6 +243,4 @@ token recebido. Se desejar limpar os tokens armazenados, execute o comando a seg
 {: #next-steps}
 
 O {{site.data.keyword.appid_short_notm}} fornecerá uma configuração padrão quando você inicialmente configurar os seus provedores de identidade. É
-possível usar a configuração padrão apenas no modo de desenvolvimento. Antes de publicar o seu aplicativo, atualize a configuração padrão do
-[Facebook](/docs/services/appid/identity-providers.html#facebook) e do [Google](/docs/services/appid/identity-providers.html#google)
-para as suas próprias credenciais.
+possível usar a configuração padrão apenas no modo de desenvolvimento. Antes de publicar o seu aplicativo, [atualize a configuração padrão para as suas próprias credenciais](/docs/services/appid/identity-providers.html).

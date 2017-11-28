@@ -2,14 +2,14 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-05-08"
+lastupdated: "2017-11-02"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 
 # Protegendo recursos do Swift
@@ -41,7 +41,7 @@ lastupdated: "2017-05-08"
       ]
   )
   ```
-  {:pre}
+  {: codeblock}
 
 ## Protegendo recursos no Swift
 {: #protecting}
@@ -141,6 +141,6 @@ O código a seguir demonstra como usar o WebAppKituraCredentialsPlugin em um apl
   // Start the Kitura runloop (this call never returns)
   Kitura.run()
   ```
-  {:pre}
+  {: codeblock}
 
 Para obter mais informações, consulte o <a href="https://github.com/ibm-cloud-security/appid-serversdk-swift" target="_blank">{{site.data.keyword.appid_short_notm}} repositório GitHub do Swift <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a>.

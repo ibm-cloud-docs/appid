@@ -1,14 +1,14 @@
 ---
 
 copyright:
-  years:  2017
-lastupdated: "2017-05-08"
+  years: 2017
+lastupdated: "2017-11-02"
 
 ---
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 
 
@@ -34,7 +34,7 @@ lastupdated: "2017-05-08"
 1. {{site.data.keyword.Bluemix_notm}} 대시보드를 열고 **서비스 신임 정보** 탭을 클릭하십시오.
 2. **신임 정보 표시**를 클릭하십시오. 액세스 신임 정보가 JSON 오브젝트로 표시됩니다.
 
-샘플 및 자세한 정보는 <a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs" target="_blank">서버 SDK GitHub 저장소 <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>을 참조하십시오.
+샘플 및 자세한 정보는 <a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs" target="_blank">서버 SDK GitHub 저장소 <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>를 참조하십시오.
 
 
 ## 로컬 개발 서버에 대해 작업할 수 있도록 {{site.data.keyword.appid_short_notm}} 애플리케이션 구성
@@ -99,13 +99,13 @@ request.send(this, new ResponseListener() {
 	}
 });
 ```
-{:pre}
+{: codeblock}
 
 ### iOS - Swift
 {: #swift}
 ```swift
 
- let baseRequestUrl = "http://localhost:<port>"; //set to your server running port
+let baseRequestUrl = "http://localhost:<port>"; //set to your server running port
  let tenantId = "your-AppID-service-tenantID"
  let region = AppID.REGION_UK; //set your App ID application region here. Currently possible values are AppID.REGION_US_SOUTH, AppID.REGION_SYDNEY, or AppID.REGION_UK.
 
@@ -124,4 +124,4 @@ request.send(completionHandler: {(response:Response?, error:Error?) in
         }
     });
 ```
-{:pre}
+{: codeblock}

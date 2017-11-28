@@ -2,26 +2,25 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-06-12"
+lastupdated: "2017-11-02"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 # 액세스 및 ID 토큰
-{: #access-and-identity}
 
-{{site.data.keyword.appid_short}}에서는 두 가지 유형의 토큰(액세스 및 ID)을 사용합니다. 토큰은 <a href="https://jwt.io/introduction/" target="_blank">JSON Web Tokens <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>으로 형식화됩니다.
+{{site.data.keyword.appid_short}}에서는 두 가지 유형의 토큰(액세스 및 ID)을 사용합니다. 토큰은 <a href="https://jwt.io/introduction/" target="_blank">JSON Web Tokens <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>로 형식화됩니다.
 {:shortdesc}
 
 
 ## 액세스 토큰
 {: #access-tokens}
 
-액세스 토큰을 사용하면 {{site.data.keyword.appid_short_notm}} 권한 부여 필터로 보호되는 [백엔드 리소스](/docs/services/appid/protecting-resources.html)와의 통신이 가능합니다. 토큰은 JOSE(JavaScript Object Signing and Encryption) 스펙을 준수하며 형식은 다음과 같습니다. 
+액세스 토큰을 사용하면 {{site.data.keyword.appid_short_notm}} 권한 필터에 의해 보호되는 [백엔드 리소스](/docs/services/appid/protecting-resources.html)와의 통신이 가능합니다. 토큰은 JOSE(JavaScript Object Signing and Encryption) 스펙을 준수하며 형식은 다음과 같습니다. 
 
 ```
 Header: {
@@ -158,7 +157,7 @@ Payload: {
   </tr>
   <tr>
     <td> <i> identities: </br> <ul><li> provider <li> id <li> amr </ul></i></td>
-    <td> </br><ul><li> 인증에 사용된 ID 제공자입니다. 이 변수는 <code>appid_facebook</code>, <code>appid_google</code> 또는 <code>appid_ibmid</code>가 가능하며 리턴되어야 합니다. <li> ID 제공자가 보고한 고유 사용자 ID입니다. <li> ID 제공자가 리턴해야 하는 JSON 오브젝트입니다. </ul></i></td>
+    <td> </br><ul><li> 인증에 사용된 ID 제공자입니다. 이 변수는 <code>appid_facebook</code> 또는 <code>appid_google</code> 중 하나일 수 있으며 반드시 리턴되어야 합니다. </li><li> ID 제공자가 보고한 고유 사용자 ID입니다. </li><li> ID 제공자가 리턴해야 하는 JSON 오브젝트입니다. </li></ul></td>
   </tr>
   <tr>
     <td> <i> oauth_client: </br> <ul><li> type <li> name <li> software_id <li> software_version</ul></i> </td>

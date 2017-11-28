@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-06-12"
+lastupdated: "2017-11-07"
 
 ---
 
@@ -10,10 +10,10 @@ lastupdated: "2017-06-12"
 {:shortdesc: .shortdesc}
 
 
-# 用户概要文件概述
+# 用户概要文件
 {: #user-profile}
 
-用户概要文件是由 {{site.data.keyword.appid_full}} 存储并维护的实体。概要文件保存用户的属性和身份，可以是匿名的，也可以链接到身份提供者管理的身份。
+用户概要文件是由 {{site.data.keyword.appid_full}} 存储并维护的实体。概要文件包含用户的属性和身份，可以是匿名的，也可以链接到身份提供者管理的身份。
 {:shortdesc}
 
 {{site.data.keyword.appid_short_notm}} 提供用于登录的 API，可以匿名登录，也可以使用 OpenId Connect (OIDC) [身份提供者](/docs/services/appid/identity-providers.html#setting-up-idp)进行认证。用户概要文件属性 API 端点是通过在登录和授权过程中由 {{site.data.keyword.appid_short_notm}} 生成的访问令牌保护的资源。

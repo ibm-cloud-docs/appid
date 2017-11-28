@@ -2,14 +2,14 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-06-12"
+lastupdated: "2017-11-02"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 
 # Filtros de autorização e cabeçalhos
@@ -32,7 +32,7 @@ serviço do {{site.data.keyword.appid_short_notm}} ou diretamente para uma pági
 {: #api}
 
 A estratégia de API espera que as solicitações contenham um cabeçalho de autorização com um token de acesso válido. A resposta também pode incluir um token de
-identidade, mas ele não é necessário; veja [Tokens de acesso e de identidade](/docs/services/appid/access-identity.html#access-and-identity).
+identidade, mas ele não é necessário; veja [Tokens de acesso e de identidade](/docs/services/appid/access-identity.html).
 
 Se um token for inválido ou estiver expirado, a estratégia de API retornará um erro HTTP 401 que conterá as informações a seguir: Www-Authenticate=Bearer
 scope="{scope}" error="{error}". O componente `error` é opcional.

@@ -2,14 +2,14 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-05-08"
+lastupdated: "2017-11-02"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 # 保护 Node.js 资源
 {: #protecting-resources-nodejs}
@@ -21,7 +21,7 @@ lastupdated: "2017-05-08"
 {: #before-you-begin}
 
 * 熟悉如何在 {{site.data.keyword.Bluemix_notm}} 上开发 Node.js 应用程序。
-* {{site.data.keyword.appid_short_notm}} 服务器 SDK 要求 Node.js 服务器通过 `<a href="http://expressjs.com/" target="_blank">Express 框架 <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a>` 进行实施。
+* {{site.data.keyword.appid_short_notm}} 服务器 SDK 要求 Node.js 服务器通过 <a href="http://expressjs.com/" target="_blank">Express 框架 <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a> 进行实施。
 
 **注**：其他框架会使用 `Express` 框架，例如 LoopBack。可以将 {{site.data.keyword.appid_short_notm}} 服务器 SDK 与其中任意框架一起使用。
 
@@ -37,7 +37,7 @@ lastupdated: "2017-05-08"
   npm install -save passport
   npm install -save bluemix-appid
   ```
-  {:pre}
+  {: codeblock}
 
 ## 在 Node.js 中保护资源
 {: #protecting-resources-nodesdk}
@@ -67,7 +67,7 @@ var express = require('express');
 
   app.listen(process.env.PORT);
 ```
-  {:pre}
+  {: codeblock}
 
 可以使用 `WebAppStrategy` 来保护 Web 应用程序资源。
 
@@ -77,6 +77,6 @@ var express = require('express');
   var passport = require('passport');
   var WebAppStrategy = require('bluemix-appid').WebAppStrategy;
   ```
-  {:pre}
+  {: codeblock}
 
 有关更多信息，请参阅 <a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs" target="_blank">{{site.data.keyword.appid_short_notm}} Node.js GitHub 存储库 <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a>。

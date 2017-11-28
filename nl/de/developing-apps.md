@@ -2,19 +2,19 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-06-12"
+lastupdated: "2017-11-02"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 # Beispiel-App und -SDKs einrichten
 {: #developing}
 
-Sobald der {{site.data.keyword.appid_short}}-Service erstellt wurde, können Sie Beispielapps für Android, iOS und Node.js über das Dashboard herunterladen. 
+Sobald der {{site.data.keyword.appid_short}}-Service erstellt wurde, können Sie Beispielapps für Android, iOS und Node.js über das Dashboard herunterladen.
 
 1. Klicken Sie auf die Instanz von {{site.data.keyword.appid_short_notm}}, die Sie entwickeln möchten.
 2. Folgen Sie den Anweisungen im Dashboard, um mit einem Schritt-für-Schritt-Beispiel die Entwicklung zu beginnen.

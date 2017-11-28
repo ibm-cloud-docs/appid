@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-06-12"
+lastupdated: "2017-11-07"
 
 ---
 
@@ -23,6 +23,7 @@ lastupdated: "2017-06-12"
 3. インスタンスをバインドするには、**「接続」**メニューからアプリを選択します。**「アンバインドのまま」**を選択した場合、後でサービス・インスタンスをバインドすることができます。
 4. 料金プランを選択し、**「作成」**をクリックします。
 5. オプション: UI の説明に従ってサンプル・アプリをダウンロードします。サンプルは、{{site.data.keyword.appid_short_notm}} の使用を開始するために役立ちます。
-6. 目的のアプリケーションを使用するのに必要な [SDK](/docs/services/appid/relatedlinks.html) をダウンロードしてセットアップします。
-7. 認証と許可のために [ID プロバイダー](/docs/services/appid/identity-providers.html)を構成します。
-8. オプション: 複数の ID プロバイダーを有効にした場合は、[ログイン・ウィジェット](/docs/services/appid/login-widget.html)をカスタマイズします。
+
+{{site.data.keyword.appid_short_notm}} のインスタンスを作成できたので、好みのプログラミング言語に対応した SDK をダウンロードして、ユーザーの認証を開始してください。
+
+

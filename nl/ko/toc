@@ -4,19 +4,18 @@
 {:topicgroup: .topicgroup}
 
 {: .toc subcollection="appid" audience="service" href="/docs/services/appid/index.html"}
-App ID
+IBM Cloud App ID
 
     {: .navgroup id="learn"}
     index.md
-
+    
     {: .topicgroup}
-    App ID 정보
+    정보
         about.md
-        id-overview.md
         access-identity.md
         authorization-resources.md
         user-profile.md
-        {: .navgroup-end}
+    {: .navgroup-end}
 
     {: .navgroup id="reference"}
     [REST API](https://appid-oauth.ng.bluemix.net/swagger-ui/#!/Authorization_Server_V3/authorization)
@@ -27,7 +26,8 @@ App ID
         [iOS Swift 클라이언트 SDK](https://github.com/ibm-cloud-security/appid-clientsdk-swift)
         [Node.js 서버 SDK](https://github.com/ibm-cloud-security/appid-serversdk-nodejs)
         [Swift 서버 SDK](https://github.com/ibm-cloud-security/appid-serversdk-swift)
-        relatedlinks.md
+
+    relatedlinks.md
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
@@ -48,6 +48,7 @@ App ID
         protecting-resources.md
         protecting-resources-nodejs.md
         protecting-resources-swift.md
+        protecting-resources-java.md
     {: .navgroup-end}
 
     {: .navgroup id="help"}

@@ -2,14 +2,14 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-05-08"
+lastupdated: "2017-11-02"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 # Protegendo recursos de backend
 {: #protecting-resources}
@@ -28,7 +28,7 @@ Chamar um recurso protegido iniciará o widget de login, se necessário. Se um t
   ```swift
   import BMSCore
   ```
-  {:pre}
+  {: codeblock}
 
 2. Chame uma solicitação de recurso protegido.
 
@@ -40,7 +40,7 @@ Chamar um recurso protegido iniciará o widget de login, se necessário. Se um t
       //code handling the response here
   })
   ```
-  {:pre}
+  {: codeblock}
 
 
 ## Usando o SDK do Android
@@ -66,4 +66,4 @@ Chamar um recurso protegido iniciará o widget de login, se necessário. Se um t
       //code handling the failure here
   });
   ```
-  {:pre}
+  {: codeblock}

@@ -2,14 +2,14 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-06-12"
+lastupdated: "2017-11-02"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen:.screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 
 # 设置 iOS Swift SDK
@@ -68,14 +68,14 @@ lastupdated: "2017-06-12"
      pod 'BluemixAppID'
   end
   ```
-  {:pre}
+  {: codeblock}
 
 4. 要下载 `BluemixAppID` 依赖项，请运行以下命令。
 
   ```swift
   pod install --repo-update
   ```
-  {:pre}
+  {: codeblock}
 
 6. 打开 Xcode 项目并启用密钥链共享。在**项目设置**下，单击**功能** > **密钥链共享**。
 7. 在**项目设置** > **信息** > **URL 类型**下，添加 URL 类型。使用以下值填充**标识**文本框和 **URL 方案**文本框：$(PRODUCT_BUNDLE_IDENTIFIER)
@@ -89,14 +89,14 @@ lastupdated: "2017-06-12"
   ```swift
   import BluemixAppID
   ```
-  {:pre}
+  {: codeblock}
 
 2. 通过将租户标识和区域参数传递到 initialize 方法来初始化客户端 SDK。在 Swift 应用程序中，通常会将初始化代码放置在 AppDelegate 的 application:didFinishLaunchingWithOptions: 方法中，但这不是强制性的。
 
   ```swift
   AppID.sharedInstance.initialize(tenantId: <tenantId>, bluemixRegion: AppID.Region_UK)
   ```
-  {:pre}
+  {: codeblock}
 
   * 将 tenantId 替换为 App ID 服务的租户标识。
   * 将 AppID.REGION_UK 替换为您所在的 {{site.data.keyword.appid_short_notm}} 区域。
@@ -108,12 +108,15 @@ lastupdated: "2017-06-12"
           return AppID.sharedInstance.application(application, open: url, options: options)
       }
   ```
-  {:pre}
+  {: codeblock}
 
 ## 使用登录窗口小部件认证用户
 {: #authenticate-login}
 
+
 初始化 {{site.data.keyword.appid_short_notm}} 客户端 SDK 后，可以通过运行登录窗口小部件来对用户进行认证。登录窗口小部件缺省配置使用 Facebook 和 Google 作为认证选项。如果仅配置了其中一个身份提供者，那么登录窗口小部件不会启动，并且用户会重定向到已配置的 IDP 认证屏幕。
+
+
 
 
 
@@ -122,7 +125,7 @@ lastupdated: "2017-06-12"
   ```swift
   import BluemixAppID
   ```
-  {:pre}
+  {: codeblock}
 
 2. 运行以下命令来启动该窗口小部件。
 
@@ -143,7 +146,7 @@ lastupdated: "2017-06-12"
 
   AppID.sharedInstance.loginWidget?.launch(delegate: delegate())
   ```
-  {:pre}
+  {: codeblock}
 
 ## 访问用户属性
 {: #accessing}
@@ -160,7 +163,7 @@ lastupdated: "2017-06-12"
   func deleteAttribute(key: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
   func deleteAttribute(key: String, accessTokenString: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
   ```
-  {:pre}
+  {: codeblock}
 
 未显式传递访问令牌时，{{site.data.keyword.appid_short_notm}} 会使用最后一次收到的令牌。
 
@@ -175,7 +178,7 @@ lastupdated: "2017-06-12"
       }
   })
   ```
-  {:pre}
+  {: codeblock}
 
 
 ### 匿名登录
@@ -201,7 +204,7 @@ lastupdated: "2017-06-12"
 
   AppID.sharedInstance.loginAnonymously( authorizationDelegate: delegate())
   ```
-  {:pre}
+  {: codeblock}
 
 ### 渐进式认证
 {: #progressive notoc}
@@ -211,7 +214,7 @@ lastupdated: "2017-06-12"
   ```swift
   func launch(accessTokenString: String? , delegate: AuthorizationDelegate)
   ```
-  {:pre}
+  {: codeblock}
 
 匿名登录后，会执行渐进式认证，即便在未传递访问令牌的情况下调用了登录窗口小部件时也是如此，因为服务使用的是最后一次收到的令牌。如果要清除存储的令牌，请运行以下命令。
 
@@ -219,11 +222,11 @@ lastupdated: "2017-06-12"
   var appIDAuthorizationManager = AppIDAuthorizationManager(appid: AppID.sharedInstance)
   appIDAuthorizationManager.clearAuthorizationData()
   ```
-  {:pre}
+  {: codeblock}
 
 
 
 ## 后续步骤
 {: #next-steps}
 
-初始设置身份提供者时，{{site.data.keyword.appid_short_notm}} 提供了缺省配置。缺省配置只能用于开发方式。在发布应用程序之前，请将缺省 [Facebook](/docs/services/appid/identity-providers.html#facebook) 和 [Google](/docs/services/appid/identity-providers.html#google) 配置更新为您自己的凭证。
+初始设置身份提供者时，{{site.data.keyword.appid_short_notm}} 提供了缺省配置。缺省配置只能用于开发方式。在发布应用程序之前，请将[缺省配置更新为您自己的凭证](/docs/services/appid/identity-providers.html)。

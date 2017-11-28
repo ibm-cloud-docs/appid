@@ -2,13 +2,13 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-06-12"
+lastupdated: "2017-11-08"
 
 ---
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 # ログイン・ウィジェットのカスタマイズ
 {: #login-widget}
@@ -25,4 +25,4 @@ lastupdated: "2017-06-12"
 4. ウィジェットのヘッダー・カラーをカラー・ピッカーから選択するか、または別のカラーの 16 進コードを入力します。
 5. プレビュー・ペインでカスタマイズを検査し、問題がなければ**「変更を保存」**をクリックします。確認メッセージが表示されます。
 
-アプリケーションを再ビルドする必要はありません。画像が {{site.data.keyword.appid_short}} データベースに保管され、次回のログイン時に表示されます。
+**注**: アプリケーションを再ビルドする必要はありません。画像が {{site.data.keyword.appid_short}} データベースに保管され、次回のログイン時に表示されます。

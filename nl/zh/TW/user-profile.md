@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-06-12"
+lastupdated: "2017-11-07"
 
 ---
 
@@ -10,10 +10,10 @@ lastupdated: "2017-06-12"
 {:shortdesc: .shortdesc}
 
 
-# 使用者設定檔概觀
+# 使用者設定檔
 {: #user-profile}
 
-使用者設定檔是 {{site.data.keyword.appid_full}} 所儲存及維護的實體。設定檔會保留使用者的屬性及身分，而且可以匿名或鏈結至身分提供者所管理的身分。
+使用者設定檔是 {{site.data.keyword.appid_full}} 所儲存及維護的實體。設定檔包含使用者的屬性及身分，而且可以匿名或鏈結至身分提供者所管理的身分。
 {:shortdesc}
 
 {{site.data.keyword.appid_short_notm}} 提供 API，以透過匿名方式或使用 OpenId Connect (OIDC) [身分提供者](/docs/services/appid/identity-providers.html#setting-up-idp)進行鑑別來登入。使用者設定檔屬性 API 端點是 {{site.data.keyword.appid_short_notm}} 所產生的存取記號在登入及授權處理程序期間所保護的資源。

@@ -2,14 +2,14 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-05-08"
+lastupdated: "2017-11-02"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 # Back-End-Ressourcen schützen
 {: #protecting-resources}
@@ -17,7 +17,7 @@ lastupdated: "2017-05-08"
 Mithilfe der Client-SDKs können Sie auf geschützte Ressourcen zugreifen.
 {:shortdesc}
 
-Beim Aufrufen einer geschützten Ressource wird ggf. das Anmelde-Widget gestartet. Wenn bereits ein gültiges Token angefordert wurde, wird das Anmelde-Widget nicht gestartet. Auf die Ressource kann dann direkt zugegriffen werden. 
+Beim Aufrufen einer geschützten Ressource wird ggf. das Anmelde-Widget gestartet. Wenn bereits ein gültiges Token angefordert wurde, wird das Anmelde-Widget nicht gestartet. Auf die Ressource kann dann direkt zugegriffen werden.
 
 
 ## iOS-Swift-SDK verwenden
@@ -28,7 +28,7 @@ Beim Aufrufen einer geschützten Ressource wird ggf. das Anmelde-Widget gestarte
   ```swift
   import BMSCore
   ```
-  {:pre}
+  {: codeblock}
 
 2. Rufen Sie eine Anforderung für die geschützte Ressource auf.
 
@@ -40,7 +40,7 @@ Beim Aufrufen einer geschützten Ressource wird ggf. das Anmelde-Widget gestarte
       //Code-Handling der Antwort hier
   })
   ```
-  {:pre}
+  {: codeblock}
 
 
 ## Das Android-SDK verwenden
@@ -66,4 +66,4 @@ Beim Aufrufen einer geschützten Ressource wird ggf. das Anmelde-Widget gestarte
       //Code-Handling des Fehlers hier
   });
   ```
-  {:pre}
+  {: codeblock}

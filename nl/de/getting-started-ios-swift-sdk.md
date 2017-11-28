@@ -2,14 +2,14 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-06-12"
+lastupdated: "2017-11-02"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen:.screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 
 # iOS-Swift-SDK einrichten
@@ -57,7 +57,7 @@ Sie benötigen die folgenden Informationen:
 Das {{site.data.keyword.appid_short_notm}}-Client-SDK wird mit CocoaPods verteilt, einem Abhängigkeitenmanager für Swift- und Objective-C Cocoa-Projekte. CocoaPods lädt Artefakte herunter und stellt sie für Ihr Projekt zur Verfügung.
 
 1. Erstellen Sie ein Xcode-Projekt oder öffnen Sie ein vorhandenes Projekt.
-2. Öffnen oder erstellen Sie die Podfile im Projektverzeichnis. 
+2. Öffnen oder erstellen Sie die Podfile im Projektverzeichnis.
 3. Fügen Sie unter dem Ziel Ihres Projekts eine Abhängigkeit für den Pod 'BluemixAppID' hinzu. Stellen Sie sicher, dass sich der Befehl `use_frameworks!` auch unter dem Ziel befindet.
 
   Beispiel:
@@ -68,35 +68,35 @@ Das {{site.data.keyword.appid_short_notm}}-Client-SDK wird mit CocoaPods verteil
      pod 'BluemixAppID'
   end
   ```
-  {:pre}
+  {: codeblock}
 
-4. Führen Sie den folgenden Befehl aus, um die Abhängigkeit `BluemixAppID` herunterzuladen. 
+4. Führen Sie den folgenden Befehl aus, um die Abhängigkeit `BluemixAppID` herunterzuladen.
 
   ```swift
   pod install --repo-update
   ```
-  {:pre}
+  {: codeblock}
 
 6. Öffnen Sie Ihr Xcode-Projekt und aktivieren Sie das Keychain-Sharing. Klicken Sie in **Projekteinstellungen** auf **Funktionen** > **Keychain-Sharing**.
-7. Fügen Sie unter **Projekteinstellungen** > **Info** > **URL-Typen** einen URL-Typ hinzu. Geben Sie in die Textfelder **ID** und **URL-Schema** den Wert $(PRODUCT_BUNDLE_IDENTIFIER) ein. 
+7. Fügen Sie unter **Projekteinstellungen** > **Info** > **URL-Typen** einen URL-Typ hinzu. Geben Sie in die Textfelder **ID** und **URL-Schema** den Wert $(PRODUCT_BUNDLE_IDENTIFIER) ein.
 
 
 ## Client-SDK initialisieren
 {: #initialize-client-sdk}
 
-1. Fügen Sie den folgenden Import zur Datei `AppDelegate.swift` hinzu. 
+1. Fügen Sie den folgenden Import zur Datei `AppDelegate.swift` hinzu.
 
   ```swift
   import BluemixAppID
   ```
-  {:pre}
+  {: codeblock}
 
 2. Initialisieren Sie das SDK, indem Sie die Parameter 'tenantID' und 'region' an die Methode 'initialize' übergeben. Eine gängige, wenngleich nicht verbindliche, Position für den Initialisierungscode ist die Methode 'application:didFinishLaunchingWithOptions:' von AppDelegate in Ihrer Swift-Anwendung.
 
   ```swift
   AppID.sharedInstance.initialize(tenantId: <tenantId>, bluemixRegion: AppID.Region_UK)
   ```
-  {:pre}
+  {: codeblock}
 
   * Ersetzen Sie 'tenantId' durch die Tenant-ID für Ihren App-ID-Service.
   * Ersetzen Sie AppID.REGION_UK durch Ihre {{site.data.keyword.appid_short_notm}}-Region.
@@ -108,12 +108,15 @@ Das {{site.data.keyword.appid_short_notm}}-Client-SDK wird mit CocoaPods verteil
           return AppID.sharedInstance.application(application, open: url, options: options)
       }
   ```
-  {:pre}
+  {: codeblock}
 
 ## Benutzer über das Anmelde-Widget authentifizieren
 {: #authenticate-login}
 
-Nach der Initialisierung des {{site.data.keyword.appid_short_notm}}-Client-SDK können Sie Benutzer authentifizieren, indem Sie das Anmelde-Widget ausführen. Von der Standardkonfiguration des Anmelde-Widgets werden Facebook und Google als Authentifizierungsoptionen verwendet. Wenn Sie nur einen Identitätsprovider konfigurieren, wird das Anmelde-Widget nicht gestartet und der Benutzer wird zur konfigurierten IDP-Authentifizierungsanzeige umgeleitet. 
+
+Nach der Initialisierung des {{site.data.keyword.appid_short_notm}}-Client-SDK können Sie Benutzer authentifizieren, indem Sie das Anmelde-Widget ausführen. Von der Standardkonfiguration des Anmelde-Widgets werden Facebook und Google als Authentifizierungsoptionen verwendet. Wenn Sie nur einen Identitätsprovider konfigurieren, wird das Anmelde-Widget nicht gestartet und der Benutzer wird zur konfigurierten IDP-Authentifizierungsanzeige umgeleitet.
+
+
 
 
 
@@ -122,7 +125,7 @@ Nach der Initialisierung des {{site.data.keyword.appid_short_notm}}-Client-SDK k
   ```swift
   import BluemixAppID
   ```
-  {:pre}
+  {: codeblock}
 
 2. Führen Sie den folgenden Befehl aus, um das Widget zu starten:
 
@@ -143,12 +146,12 @@ Nach der Initialisierung des {{site.data.keyword.appid_short_notm}}-Client-SDK k
 
   AppID.sharedInstance.loginWidget?.launch(delegate: delegate())
   ```
-  {:pre}
+  {: codeblock}
 
 ## Auf Benutzerattribute zugreifen
 {: #accessing}
 
-Wenn Sie ein Zugriffstoken anfordern, können Sie Zugriff auf den Endpunkt der geschützten Benutzerattribute zugreifen. Sie können Zugriff durch die folgenden API-Methoden erhalten. 
+Wenn Sie ein Zugriffstoken anfordern, können Sie Zugriff auf den Endpunkt der geschützten Benutzerattribute zugreifen. Sie können Zugriff durch die folgenden API-Methoden erhalten.
 
   ```swift
   func setAttribute(key: String, value: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
@@ -163,11 +166,11 @@ Wenn Sie ein Zugriffstoken anfordern, können Sie Zugriff auf den Endpunkt der g
   func deleteAttribute(key: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
   func deleteAttribute(key: String, accessTokenString: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
   ```
-  {:pre}
+  {: codeblock}
 
 Wenn ein Zugriffstoken nicht explizit übergeben wird, verwendet {{site.data.keyword.appid_short_notm}} das zuletzt empfangene Token.
 
-Sie können beispielsweise diesen Code aufrufen, um ein neues Attribut festzulegen oder ein vorhandenes Attribut zu überschreiben. 
+Sie können beispielsweise diesen Code aufrufen, um ein neues Attribut festzulegen oder ein vorhandenes Attribut zu überschreiben.
 
   ```swift
   AppID.sharedInstance.userAttributeManager?.setAttribute("key", "value", completionHandler: { (error, result) in
@@ -178,13 +181,13 @@ Sie können beispielsweise diesen Code aufrufen, um ein neues Attribut festzuleg
       }
   })
   ```
-  {:pre}
+  {: codeblock}
 
 
 ### Anonyme Anmeldung
 {: #anonymous notoc}
 
-Mit {{site.data.keyword.appid_short_notm}} können Sie sich [anonym](/docs/services/appid/user-profile.html#anonymous) anmelden. 
+Mit {{site.data.keyword.appid_short_notm}} können Sie sich [anonym](/docs/services/appid/user-profile.html#anonymous) anmelden.
 
   ```swift
   class delegate : AuthorizationDelegate {
@@ -204,29 +207,29 @@ Mit {{site.data.keyword.appid_short_notm}} können Sie sich [anonym](/docs/servi
 
   AppID.sharedInstance.loginAnonymously( authorizationDelegate: delegate())
   ```
-  {:pre}
+  {: codeblock}
 
 ### Progressive Authentifizierung
 {: #progressive notoc}
 
-Benutzer mit einem anonymen Zugriffstoken können identifiziert werden, indem es der Methode `loginWidget.launch` übergeben wird. 
+Benutzer mit einem anonymen Zugriffstoken können identifiziert werden, indem es der Methode `loginWidget.launch` übergeben wird.
 
   ```swift
   func launch(accessTokenString: String? , delegate: AuthorizationDelegate)
   ```
-  {:pre}
+  {: codeblock}
 
-Nach einer anonymen Anmeldung tritt eine progressive Authentifizierung auf, sogar wenn das Anmelde-Widget aufgerufen wird, ohne dass dabei ein Zugriffstoken übergeben wird. Grund hierfür ist, dass der Service das zuletzt empfangene Token verwendet. Führen Sie den folgenden Befehl aus, um gespeicherte Token zu löschen. 
+Nach einer anonymen Anmeldung tritt eine progressive Authentifizierung auf, sogar wenn das Anmelde-Widget aufgerufen wird, ohne dass dabei ein Zugriffstoken übergeben wird. Grund hierfür ist, dass der Service das zuletzt empfangene Token verwendet. Führen Sie den folgenden Befehl aus, um gespeicherte Token zu löschen.
 
   ```swift
   var appIDAuthorizationManager = AppIDAuthorizationManager(appid: AppID.sharedInstance)
   appIDAuthorizationManager.clearAuthorizationData()
   ```
-  {:pre}
+  {: codeblock}
 
 
 
 ## Nächste Schritte
 {: #next-steps}
 
-{{site.data.keyword.appid_short_notm}} stellt eine Standardkonfiguration bereit, wenn Sie Ihre Identitätsprovider erstmalig einrichten. Die Standardkonfiguration können Sie nur im Entwicklungsmodus verwenden. Bevor Sie Ihre Anwendung veröffentlichen, aktualisieren Sie die Standardkonfiguration für [Facebook](/docs/services/appid/identity-providers.html#facebook) und [Google](/docs/services/appid/identity-providers.html#google) mit Ihren eigenen Berechtigungsnachweisen.
+{{site.data.keyword.appid_short_notm}} stellt eine Standardkonfiguration bereit, wenn Sie Ihre Identitätsprovider erstmalig einrichten. Die Standardkonfiguration können Sie nur im Entwicklungsmodus verwenden. Bevor Sie Ihre Anwendung veröffentlichen, [aktualisieren Sie die Standardkonfiguration so, dass Ihre eigenen Berechtigungsnachweise verwendet werden](/docs/services/appid/identity-providers.html).

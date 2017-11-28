@@ -2,13 +2,13 @@
 
 copyright:
   years:  2017
-lastupdated: "2017-05-08"
+lastupdated: "2017-11-02"
 
 ---
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 
 
@@ -104,7 +104,7 @@ request.send(this, new ResponseListener() {
     }
 });
 ```
-{:pre}
+{: codeblock}
 
 ### iOS - Swift
 {: #swift}
@@ -130,4 +130,4 @@ request.send(completionHandler: {(response:Response?, error:Error?) in
         }
 });
 ```
-{:pre}
+{: codeblock}

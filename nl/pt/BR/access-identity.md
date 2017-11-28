@@ -2,17 +2,16 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-06-12"
+lastupdated: "2017-11-02"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 # Tokens de acesso e de identidade
-{: #access-and-identity}
 
 O {{site.data.keyword.appid_short}} usa dois tipos de tokens: de acesso e de identidade. Os tokens são formatados como
 <a href="https://jwt.io/introduction/" target="_blank">Tokens da web da JSON <img src="../../icons/launch-glyph.svg" alt="ícone de Link externo"></a>.
@@ -51,7 +50,7 @@ Payload: {
   </tr>
   <tr>
     <td> <i> typ </i> </td>
-    <td> O tipo de cabeçalho, especificado como "JOSE".</td>
+    <td> O tipo de cabeçalho, especificado como "JOSE". </td>
   </tr>
   <tr>
     <td> <i> alg </i> </td>
@@ -63,7 +62,7 @@ Payload: {
   </tr>
   <tr>
     <td> <i> sub </i> </td>
-    <td> O ID do usuário para quem o token é emitido.</td>
+    <td> O ID do usuário para quem o token é emitido. </td>
   </tr>
   <tr>
     <td> <i> aud </i> </td>
@@ -71,15 +70,15 @@ Payload: {
   </tr>
   <tr>
     <td> <i> exp </i> </td>
-    <td> O horário em que o registro de data e hora expira, especificado no tempo da época.</td>
+    <td> O horário em que o registro de data e hora expira, especificado no tempo da época. </td>
   </tr>
   <tr>
     <td> <i> iat </i> </td>
-    <td> O horário em que o registro de data e hora é emitido, especificado no tempo da época.</td>
+    <td> O horário em que o registro de data e hora é emitido, especificado no tempo da época. </td>
   </tr>
   <tr>
     <td> <i> tenant </i> </td>
-    <td> O ID do locatário para o qual o token é emitido.</td>
+    <td> O ID do locatário para o qual o token é emitido. </td>
   </tr>
   <tr>
     <td> <i> amr </i> </td>
@@ -158,7 +157,7 @@ Payload: {
   </tr>
   <tr>
     <td> <i> identities: </br> <ul><li> provider <li> id <li> amr </ul></i></td>
-    <td> </br><ul><li> O provedor de identidade usado para autenticação. Essa variável pode ser <code>appid_facebook</code>, <code>appid_google</code> ou <code>appid_ibmid</code> e deve ser retornada. <li> Um ID de usuário exclusivo, conforme relatado por um provedor de identidade. <li> Um objeto JSON que deve ser retornado pelo provedor de identidade. </ul></i></td>
+    <td> </br><ul><li> O provedor de identidade usado para autenticação. Essa variável pode ser <code>appid_facebook</code> ou <code>appid_google</code> e deve ser retornada. </li><li> Um ID de usuário exclusivo, conforme relatado por um provedor de identidade. </li><li> Um objeto JSON que deve ser retornado pelo provedor de identidade. </li></ul></td>
   </tr>
   <tr>
     <td> <i> oauth_client: </br> <ul><li> type <li> name <li> software_id <li> software_version</ul></i> </td>

@@ -2,14 +2,14 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-05-08"
+lastupdated: "2017-11-02"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 
 # Swift リソースの保護
@@ -41,7 +41,7 @@ lastupdated: "2017-05-08"
       ]
   )
   ```
-  {:pre}
+  {: codeblock}
 
 ## Swift のリソースの保護
 {: #protecting}
@@ -137,6 +137,6 @@ WebAppKituraCredentialsPlugin は、OAuth2 の authorization_code 認可フロ�
   // Start the Kitura runloop (this call never returns)
   Kitura.run()
   ```
-  {:pre}
+  {: codeblock}
 
 詳しくは、<a href="https://github.com/ibm-cloud-security/appid-serversdk-swift" target="_blank">{{site.data.keyword.appid_short_notm}}Swift GitHub リポジトリー <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> を参照してください。

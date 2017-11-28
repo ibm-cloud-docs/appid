@@ -2,13 +2,13 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-06-12"
+lastupdated: "2017-11-08"
 
 ---
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 # 定制登录窗口小部件
 {: #login-widget}
@@ -25,4 +25,4 @@ lastupdated: "2017-06-12"
 4. 从颜色选取器中选择窗口小部件的标题颜色，或者输入其他颜色的十六进制代码。
 5. 检查预览窗格，对定制满意后，单击**保存更改**。此时将显示确认消息。
 
-您无需重新构建应用程序。该图像会存储在 {{site.data.keyword.appid_short}} 数据库中，并在下次登录时显示。
+**注**：您无需重新构建应用程序。该图像会存储在 {{site.data.keyword.appid_short}} 数据库中，并在下次登录时显示。

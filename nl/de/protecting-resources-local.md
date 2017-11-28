@@ -2,13 +2,13 @@
 
 copyright:
   years:  2017
-lastupdated: "2017-05-08"
+lastupdated: "2017-11-02"
 
 ---
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 
 
@@ -99,13 +99,13 @@ request.send(this, new ResponseListener() {
     }
 });
 ```
-{:pre}
+{: codeblock}
 
 ### iOS - Swift
 {: #swift}
 ```swift
 
-let baseRequestUrl = "http://localhost:<port>"; //auf Server festgelegt, der den Port ausführt
+ let baseRequestUrl = "http://localhost:<port>"; //auf Server festgelegt, der den Port ausführt
  let tenantId = "your-AppID-service-tenantID"
  let region = AppID.REGION_UK; //Region der App ID-Anwendung hier festlegen. Aktuell mögliche Werte sind AppID.REGION_US_SOUTH, AppID.REGION_SYDNEY oder AppID.REGION_UK.
 
@@ -124,4 +124,4 @@ request.send(completionHandler: {(response:Response?, error:Error?) in
         }
 });
 ```
-{:pre}
+{: codeblock}

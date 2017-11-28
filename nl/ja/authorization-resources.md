@@ -2,14 +2,14 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-06-12"
+lastupdated: "2017-11-02"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 
 # 許可フィルターと許可ヘッダー
@@ -29,7 +29,7 @@ API の保護戦略は、非認証クライアントに対する許可を取得�
 ### API 戦略
 {: #api}
 
-API 戦略では、有効なアクセス・トークンを含む許可ヘッダーが要求に含まれていなければなりません。識別トークンも要求に含めることができますが、これは必須ではありません。[アクセス・トークンと識別トークン](/docs/services/appid/access-identity.html#access-and-identity)を参照してください。
+API 戦略では、有効なアクセス・トークンを含む許可ヘッダーが要求に含まれていなければなりません。識別トークンも要求に含めることができますが、これは必須ではありません。[アクセス・トークンと識別トークン](/docs/services/appid/access-identity.html)を参照してください。
 
 トークンが無効または期限切れの場合、API 戦略は次の情報を含む HTTP 401 エラーを返します: Www-Authenticate=Bearer scope="{scope}" error="{error}"。`error` の部分はオプションです。
 

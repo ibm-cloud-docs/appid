@@ -2,14 +2,14 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-06-12"
+lastupdated: "2017-11-02"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen:.screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 # Android-SDK einrichten
 {: #android-sdk}
@@ -45,7 +45,7 @@ Sie benötigen die folgenden Informationen:
     </tr>
   </table>
 
-  * <a href="https://developers.google.com/web/tools/setup/" target="_blank">Android Studio-Projekt<img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a>, das für das Arbeiten mit Gradle eingerichtet ist. 
+  * <a href="https://developers.google.com/web/tools/setup/" target="_blank">Android Studio-Projekt<img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a>, das für das Arbeiten mit Gradle eingerichtet ist.
 
 ## Client-SDK installieren
 {: #install-appid-sdk}
@@ -61,21 +61,21 @@ Sie benötigen die folgenden Informationen:
 	    }
     }
   ```
-  {:pre}
+  {: codeblock}
 
 3. Öffnen Sie die Datei `build.gradle` für Ihre Anwendung.
 
     **Hinweis**: Stellen Sie sicher, dass Sie die Datei für Ihre App öffnen, nicht die Projektdatei `build.gradle`.
-4. Suchen Sie den Abschnitt für Abhängigkeiten ('dependencies') in der Datei und fügen Sie die neue Abhängigkeit 'compile' für das {{site.data.keyword.appid_short_notm}}-Client-SDK hinzu. 
+4. Suchen Sie den Abschnitt für Abhängigkeiten ('dependencies') in der Datei und fügen Sie die neue Abhängigkeit 'compile' für das {{site.data.keyword.appid_short_notm}}-Client-SDK hinzu.
 
   ```gradle
    dependencies {
        compile group: 'com.github.ibm-cloud-security:appid-clientsdk-android:1.+'
    }
   ```
-  {:pre}
+  {: codeblock}
 
-5. Suchen Sie den Abschnitt 'defaultConfig' und fügen Sie die folgenden Code-Zeilen hinzu. 
+5. Suchen Sie den Abschnitt 'defaultConfig' und fügen Sie die folgenden Code-Zeilen hinzu.
 
   ```gradle
   defaultConfig {
@@ -83,7 +83,7 @@ Sie benötigen die folgenden Informationen:
   manifestPlaceholders = ['appIdRedirectScheme': android.defaultConfig.applicationId]
   }
   ```
-  {:pre}
+  {: codeblock}
 
 6. Synchronisieren Sie Ihr Projekt mit Gradle. Klicken Sie auf **Tools** > **Android** > **Sync Project with Gradle Files**.
 
@@ -95,16 +95,18 @@ Initialisieren Sie das SDK, indem Sie die Parameter 'context', 'tenantID' und 'r
   ```java
   AppID.getInstance().initialize(getApplicationContext(), <tenantId>, AppID.REGION_UK);
   ```
-  {:pre}
+  {: codeblock}
 
-1. Ersetzen Sie *tenantId* durch die Tenant-ID des {{site.data.keyword.appid_short_notm}}-Service. 
+1. Ersetzen Sie *tenantId* durch die Tenant-ID des {{site.data.keyword.appid_short_notm}}-Service.
 2. Ersetzen Sie AppID.REGION_UK durch Ihre {{site.data.keyword.Bluemix_notm}}-Region.
 
 
 ## Benutzer über das Anmelde-Widget authentifizieren
 {: #authenticate-login-widget}
 
-Von der Standardkonfiguration des Anmelde-Widgets werden Facebook und Google als Authentifizierungsoptionen verwendet. Wenn Sie nur Facebook oder Google konfigurieren, wird das Anmelde-Widget nicht gestartet und der Benutzer wird zur konfigurierten IDP-Authentifizierungsanzeige umgeleitet. 
+Von der Standardkonfiguration des Anmelde-Widgets werden Facebook und Google als Authentifizierungsoptionen verwendet. Wenn Sie nur Facebook oder Google konfigurieren, wird das Anmelde-Widget nicht gestartet und der Benutzer wird zur konfigurierten IDP-Authentifizierungsanzeige umgeleitet.
+
+
 
 Nach der Initialisierung des {{site.data.keyword.appid_short_notm}}-Client-SDK können Sie Benutzer authentifizieren, indem Sie das Anmelde-Widget ausführen.
 
@@ -127,13 +129,13 @@ Nach der Initialisierung des {{site.data.keyword.appid_short_notm}}-Client-SDK k
         }
       });
   ```
-  {:pre}
+  {: codeblock}
 
 
 ## Auf Benutzerattribute zugreifen
 {: #accessing}
 
-Wenn Sie ein Zugriffstoken anfordern, können Sie Zugriff auf den Endpunkt der geschützten Benutzerattribute zugreifen. Sie können Zugriff durch die folgenden API-Methoden erhalten. 
+Wenn Sie ein Zugriffstoken anfordern, können Sie Zugriff auf den Endpunkt der geschützten Benutzerattribute zugreifen. Sie können Zugriff durch die folgenden API-Methoden erhalten.
 
   ```java
   void setAttribute(@NonNull String name, @NonNull String value, UserAttributeResponseListener listener);
@@ -148,11 +150,11 @@ Wenn Sie ein Zugriffstoken anfordern, können Sie Zugriff auf den Endpunkt der g
   void getAllAttributes(@NonNull UserAttributeResponseListener listener);
   void getAllAttributes(@NonNull AccessToken accessToken, @NonNull UserAttributeResponseListener listener);
   ```
-  {:pre}
+  {: codeblock}
 
 Wenn ein Zugriffstoken nicht explizit übergeben wird, verwendet {{site.data.keyword.appid_short_notm}} das zuletzt empfangene Token.
 
-Sie können beispielsweise diesen Code aufrufen, um ein neues Attribut festzulegen oder ein vorhandenes Attribut zu überschreiben. 
+Sie können beispielsweise diesen Code aufrufen, um ein neues Attribut festzulegen oder ein vorhandenes Attribut zu überschreiben.
 
   ```java
   appId.getUserAttributeManager().setAttribute(name, value, useThisToken,new UserAttributeResponseListener() {
@@ -167,12 +169,12 @@ Sie können beispielsweise diesen Code aufrufen, um ein neues Attribut festzuleg
 		}
 	});
   ```
-  {:pre}
+  {: codeblock}
 
 ### Anonyme Anmeldung
 {: #anonymous notoc}
 
-Mit {{site.data.keyword.appid_short_notm}} können Sie sich [anonym](/docs/services/appid/user-profile.html#anonymous) anmelden. 
+Mit {{site.data.keyword.appid_short_notm}} können Sie sich [anonym](/docs/services/appid/user-profile.html#anonymous) anmelden.
 
   ```java
   appId.loginAnonymously(getApplicationContext(), new AuthorizationListener() {
@@ -192,7 +194,7 @@ Mit {{site.data.keyword.appid_short_notm}} können Sie sich [anonym](/docs/servi
 		}
 	});
   ```
-  {:pre}
+  {: codeblock}
 
 ### Progressive Authentifizierung
 {: #progressive notoc}
@@ -202,18 +204,18 @@ Benutzer mit einem anonymen Zugriffstoken können identifiziert werden, indem es
   ```java
   void launch (@NonNull final Activity activity, @NonNull final AuthorizationListener authorizationListener, String accessTokenString);
   ```
-  {:pre}
+  {: codeblock}
 
-Nach einer anonymen Anmeldung tritt eine progressive Authentifizierung auf, sogar wenn das Anmelde-Widget aufgerufen wird, ohne dass dabei ein Zugriffstoken übergeben wird. Grund hierfür ist, dass der Service das zuletzt empfangene Token verwendet. Führen Sie den folgenden Befehl aus, um gespeicherte Token zu löschen. 
+Nach einer anonymen Anmeldung tritt eine progressive Authentifizierung auf, sogar wenn das Anmelde-Widget aufgerufen wird, ohne dass dabei ein Zugriffstoken übergeben wird. Grund hierfür ist, dass der Service das zuletzt empfangene Token verwendet. Führen Sie den folgenden Befehl aus, um gespeicherte Token zu löschen.
 
   ```java
   	appIDAuthorizationManager = new AppIDAuthorizationManager(this.appId);
   appIDAuthorizationManager.clearAuthorizationData();
   ```
-  {:pre}
+  {: codeblock}
 
 
 ## Nächste Schritte
 {: #next-steps}
 
-{{site.data.keyword.appid_short_notm}} stellt eine Standardkonfiguration bereit, wenn Sie Ihre Identitätsprovider erstmalig einrichten. Die Standardkonfiguration können Sie nur im Entwicklungsmodus verwenden. Bevor Sie Ihre Anwendung veröffentlichen, aktualisieren Sie die Standardkonfiguration für [Facebook](/docs/services/appid/identity-providers.html#facebook) und [Google](/docs/services/appid/identity-providers.html#google) mit Ihren eigenen Berechtigungsnachweisen.
+{{site.data.keyword.appid_short_notm}} stellt eine Standardkonfiguration bereit, wenn Sie Ihre Identitätsprovider erstmalig einrichten. Die Standardkonfiguration können Sie nur im Entwicklungsmodus verwenden. Bevor Sie Ihre Anwendung veröffentlichen, [aktualisieren Sie die Standardkonfiguration so, dass Ihre eigenen Berechtigungsnachweise verwendet werden](/docs/services/appid/identity-providers.html).

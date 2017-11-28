@@ -2,17 +2,16 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-06-12"
+lastupdated: "2017-11-02"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 # Zugriffs- und Identitätstoken
-{: #access-and-identity}
 
 {{site.data.keyword.appid_short}} verwendet zwei Typen von Token: Zugriffs- und Identitätstoken. Die Token sind als <a href="https://jwt.io/introduction/" target="_blank">JSON-Web-Token <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a> formatiert.
 {:shortdesc}
@@ -21,11 +20,10 @@ lastupdated: "2017-06-12"
 ## Zugriffstoken
 {: #access-tokens}
 
-Das Zugriffstoken ermöglicht die Kommunikation mit [Back-End-Ressourcen](/docs/services/appid/protecting-resources.html), die durch die {{site.data.keyword.appid_short_notm}}-Berechtigungsfilter geschützt sind. Das Token entspricht den JOSE-Spezifikationen (JOSE = JavaScript Object Signing and Encryption) und weist das folgende Format auf: 
+Das Zugriffstoken ermöglicht die Kommunikation mit [Back-End-Ressourcen](/docs/services/appid/protecting-resources.html), die durch die {{site.data.keyword.appid_short_notm}}-Berechtigungsfilter geschützt sind. Das Token entspricht den JOSE-Spezifikationen (JOSE = JavaScript Object Signing and Encryption) und weist das folgende Format auf:
 
 ```
 Header: {
-
     "typ": "JOSE",
     "alg": "RS256",
 }
@@ -43,10 +41,10 @@ Payload: {
 {:screen}
 
 <table>
-<caption> Tabelle 1. Erklärungen für Komponenten der Zugriffstoken</caption>
+<caption> Tabelle 1. Erklärungen für Komponenten der Zugriffstoken </caption>
   <tr>
-    <th> Komponente</th>
-    <th> Beschreibung</th>
+    <th> Komponente </th>
+    <th> Beschreibung </th>
   </tr>
   <tr>
     <td> <i> typ </i> </td>
@@ -98,7 +96,6 @@ Das Identitätstoken enthält Informationen über den Benutzer, einschließlich 
 
 ```
 Header: {
-
     "typ": "JOSE",
     "alg": "RS256",
 }
@@ -131,10 +128,10 @@ Payload: {
 
 
 <table>
-<caption> Tabelle 2. Erklärungen für Komponenten der Identitätstoken</caption>
+<caption> Tabelle 2. Erklärungen für Komponenten der Identitätstoken </caption>
   <tr>
-    <th> Komponente</th>
-    <th> Beschreibung</th>
+    <th> Komponente </th>
+    <th> Beschreibung </th>
   </tr>
   <tr>
     <td> <i> name </i> </td>
@@ -158,15 +155,11 @@ Payload: {
   </tr>
   <tr>
     <td> <i> identities: </br> <ul><li> provider <li> id <li> amr </ul></i></td>
-    <td> </br><ul><li> Der Identitätsprovider, der für die Authentifizierung verwendet wird. Für diese Variable kann entweder <code>appid_facebook</code>, <code>appid_google</code> oder <code>appid_ibmid</code> angegeben werden; ein Wert für diese Variable muss zurückgegeben werden.
-<li> Eine eindeutige Benutzer-ID, wie sie von einem Identitätsprovider bereitgestellt wird.
-<li> Ein JSON-Objekt, das vom Identitätsprovider zurückgegeben werden muss. </ul></i></td>
+    <td> </br><ul><li> Der Identitätsprovider, der für die Authentifizierung verwendet wird. Für diese Variable kann entweder <code>appid_facebook</code> oder <code>appid_google</code> angegeben werden; ein Wert für diese Variable muss zurückgegeben werden.
+</li><li> Eine eindeutige Benutzer-ID, wie sie von einem Identitätsprovider bereitgestellt wird. </li><li> Ein JSON-Objekt, das vom Identitätsprovider zurückgegeben werden muss. </li></ul></td>
   </tr>
   <tr>
     <td> <i> oauth_client: </br> <ul><li> type <li> name <li> software_id <li> software_version</ul></i> </td>
-    <td> </br><ul><li> Der Typ der Anwendung, ermittelt während der Clientregistrierung. Die Variable kann <i>serverapp</i> oder <i>mobileapp</i> lauten.
-<li> Der Clientname, wie er während der Clientregistrierung dokumentiert wurde.
-<li> Die Software-ID, wie sie während der Clientregistrierung dokumentiert wurde.
-<li> Die Version der Software, die während der Clientregistrierung verwendet wurde. </ul></td>
+    <td> </br><ul><li> Der Typ der Anwendung, ermittelt während der Clientregistrierung. Die Variable kann <i>serverapp</i> oder <i>mobileapp</i> lauten. <li> Der Clientname, wie er während der Clientregistrierung dokumentiert wurde. <li> Die Software-ID, wie sie während der Clientregistrierung dokumentiert wurde. <li> Die Version der Software, die während der Clientregistrierung verwendet wurde. </ul></td>
   </tr>
 </table>

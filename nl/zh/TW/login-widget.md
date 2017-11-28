@@ -2,13 +2,13 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-06-12"
+lastupdated: "2017-11-08"
 
 ---
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 # 自訂登入小組件
 {: #login-widget}
@@ -24,4 +24,4 @@ lastupdated: "2017-06-12"
 4. 從顏色選取器中選取小組件的標頭顏色，或輸入另一個顏色的十六進位碼。
 5. 檢查預覽窗格，然後在滿意自訂時按一下**儲存變更**。即會顯示一則確認訊息。
 
-您不需要重建應用程式。影像會儲存在 {{site.data.keyword.appid_short}} 資料庫中，並在下次登入時顯示。
+**附註**：您不需要重建應用程式。影像會儲存在 {{site.data.keyword.appid_short}} 資料庫中，並在下次登入時顯示。

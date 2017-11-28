@@ -2,17 +2,16 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-06-12"
+lastupdated: "2017-11-02"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 # 存取及身分記號
-{: #access-and-identity}
 
 {{site.data.keyword.appid_short}} 使用兩種類型的記號：存取及身分。記號會格式化為 <a href="https://jwt.io/introduction/" target="_blank">JSON Web 記號 <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>。
 {:shortdesc}
@@ -158,7 +157,7 @@ Payload: {
   </tr>
   <tr>
     <td> <i> identities：</br> <ul><li> provider <li> id <li> amr </ul></i></td>
-    <td> </br><ul><li> 用於鑑別的身分提供者。此變數可以是 <code>appid_facebook</code>、<code>appid_google</code> 或 <code>appid_ibmid</code>，而且必須予以傳回。<li> 身分提供者所報告的唯一使用者 ID。<li> 身分提供者必須傳回的 JSON 物件。</ul></i></td>
+    <td> </br><ul><li> 用於鑑別的身分提供者。此變數可以是 <code>appid_facebook</code> 或 <code>appid_google</code>，而且必須予以傳回。</li><li> 身分提供者所報告的唯一使用者 ID。</li><li> 身分提供者必須傳回的 JSON 物件。</li></ul></td>
   </tr>
   <tr>
     <td> <i> oauth_client：</br> <ul><li> type <li> name <li> software_id <li> software_version</ul></i> </td>

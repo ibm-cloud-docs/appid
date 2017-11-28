@@ -2,14 +2,14 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-05-08"
+lastupdated: "2017-11-02"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 # Node.js-Ressourcen schützen
 {: #protecting-resources-nodejs}
@@ -21,7 +21,7 @@ Sie können das {{site.data.keyword.appid_short}}-Server-SDK verwenden, um Resso
 {: #before-you-begin}
 
 * Sie sollten mit der Entwicklung von Node.js-Anwendungen in {{site.data.keyword.Bluemix_notm}} vertraut sein.
-* Das {{site.data.keyword.appid_short_notm}}-Server-SDK erfordert, dass Ihr Node.js-Server mit dem `<a href="http://expressjs.com/" target="_blank">Express-Framework <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a>` implementiert ist.
+* Das {{site.data.keyword.appid_short_notm}}-Server-SDK erfordert, dass Ihr Node.js-Server mit dem <a href="http://expressjs.com/" target="_blank">Express-Framework <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a> implementiert ist.
 
 **Hinweis**: Von anderen Frameworks werden `Express`-Frameworks verwendet, wie zum Beispiel LoopBack. Sie können das {{site.data.keyword.appid_short_notm}}-Server-SDK mit einem beliebigen dieser Frameworks verwenden.
 
@@ -30,27 +30,27 @@ Sie können das {{site.data.keyword.appid_short}}-Server-SDK verwenden, um Resso
 {: #protecting-resources-serversdk}
 
 1. Öffnen Sie mithilfe der Befehlszeile das Verzeichnis mit Ihrer Node.js-App.
-2. Führen Sie die folgenden Befehle aus. 
+2. Führen Sie die folgenden Befehle aus.
 
   ```
   npm install -save express
   npm install -save passport
   npm install -save bluemix-appid
   ```
-  {:pre}
+  {: codeblock}
 
 ## Ressourcen in Node.js schützen
 {: #protecting-resources-nodesdk}
 
 Das {{site.data.keyword.appid_short_notm}}-Server-SDK stellt eine ApiStrategy-Passwort-Strategie zur Verfügung, die in Back-End-Anwendungen verwendet werden, die in {{site.data.keyword.Bluemix_notm}} bereitgestellt werden. Zum Schutz Ihrer App gegen unbefugten Zugriff müssen Sie Ihren Node.js-Server mit ApiStrategy instrumentieren. Das NPM-Modul `appid-serversdk-nodejs` stellt die Passport-Strategie 'ApiStrategy' und eine Verifizierungsmethode bereit, um das von {{site.data.keyword.appid_short_notm}} ausgegebene Zugriffstoken und ID-Token zu validieren.
 
-Das {{site.data.keyword.appid_short_notm}}-Server-SDK verwendet das <a href="http://passportjs.org/" target="_blank">Passport-Framework <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a> zur Umsetzung der Berechtigung. 
+Das {{site.data.keyword.appid_short_notm}}-Server-SDK verwendet das <a href="http://passportjs.org/" target="_blank">Passport-Framework <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a> zur Umsetzung der Berechtigung.
 
 Das folgende Snippet demonstriert, wie `APIStrategy` in einer einfachen Express-Anwendung zum Schutz der GET-Methoden für den Endpunkt `/protected` verwendet wird.
 
   ```JavaScript
 
-var express = require('express');
+  var express = require('express');
   var passport = require('passport');
   var APIStrategy = require('bluemix-appid').APIStrategy;
 
@@ -67,16 +67,16 @@ var express = require('express');
 
   app.listen(process.env.PORT);
   ```
-  {:pre}
+  {: codeblock}
 
-Mit `WebAppStrategy` können Sie die Ressourcen von Webanwendungen schützen. 
+Mit `WebAppStrategy` können Sie die Ressourcen von Webanwendungen schützen.
 
   ```JavaScript
 
-var express = require('express');
+  var express = require('express');
   var passport = require('passport');
   var WebAppStrategy = require('bluemix-appid').WebAppStrategy;
   ```
-  {:pre}
+  {: codeblock}
 
 Weitere Informationen finden Sie im Abschnitt zum <a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs" target="_blank">{{site.data.keyword.appid_short_notm}}-Node.js GitHub-Repository <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a>.
