@@ -2,14 +2,14 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-06-12"
+lastupdated: "2017-11-02"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen:.screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 
 # Configuración del SDK de Swift de iOS
@@ -68,14 +68,14 @@ El SDK del cliente de {{site.data.keyword.appid_short_notm}} se distribuye con C
      pod 'BluemixAppID'
   end
   ```
-  {:pre}
+  {: codeblock}
 
 4. Para descargar la dependencia de `BluemixAppID`, ejecute el mandato siguiente.
 
   ```swift
   pod install --repo-update
   ```
-  {:pre}
+  {: codeblock}
 
 6. Abra el proyecto Xcode y habilite el uso compartido de la cadena de claves. En **Valores de proyecto**, pulse **Prestaciones** > **Uso compartido de la cadena de claves**.
 7. En **Valores de proyecto** > **Info** > **Tipos de URL**, añada un Tipo de URL. Rellene los recuadros de texto **Identificador** y **Esquema de URL** con este valor: $(PRODUCT_BUNDLE_IDENTIFIER)
@@ -89,14 +89,14 @@ El SDK del cliente de {{site.data.keyword.appid_short_notm}} se distribuye con C
   ```swift
   import BluemixAppID
   ```
-  {:pre}
+  {: codeblock}
 
 2. Inicialice el SDK del cliente pasando los parámetros de tenant ID y de region al método initialize. Un lugar habitual, pero no obligatorio, donde poner el código de inicialización es en el método application:didFinishLaunchingWithOptions: del AppDelegate de la aplicación Swift.
 
   ```swift
   AppID.sharedInstance.initialize(tenantId: <tenantId>, bluemixRegion: AppID.Region_UK)
   ```
-  {:pre}
+  {: codeblock}
 
   * Sustituya "tenantId" por el ID de arrendatario para el servicio de ID de app.
   * Sustituya AppID.REGION_UK por la región de {{site.data.keyword.appid_short_notm}}.
@@ -108,12 +108,15 @@ El SDK del cliente de {{site.data.keyword.appid_short_notm}} se distribuye con C
           return AppID.sharedInstance.application(application, open: url, options: options)
       }
   ```
-  {:pre}
+  {: codeblock}
 
 ## Autenticar los usuarios utilizando el widget de inicio de sesión
 {: #authenticate-login}
 
+
 Después de inicializar el SDK del cliente de {{site.data.keyword.appid_short_notm}}, puede autenticar los usuarios ejecutando el widget de inicio de sesión. La configuración predeterminada del widget de inicio de sesión utiliza Facebook y Google como opciones de autenticación. Si sólo configura un proveedor de identidad, el widget de inicio de sesión no se iniciará y se redirigirá al usuario a la pantalla de autenticación de IDP configurada.
+
+
 
 
 
@@ -122,7 +125,7 @@ Después de inicializar el SDK del cliente de {{site.data.keyword.appid_short_no
   ```swift
   import BluemixAppID
   ```
-  {:pre}
+  {: codeblock}
 
 2. Ejecute el siguiente mandato para iniciar el widget.
 
@@ -143,7 +146,7 @@ Después de inicializar el SDK del cliente de {{site.data.keyword.appid_short_no
 
   AppID.sharedInstance.loginWidget?.launch(delegate: delegate())
   ```
-  {:pre}
+  {: codeblock}
 
 ## Acceso a los atributos de usuario
 {: #accessing}
@@ -163,7 +166,7 @@ Cuando obtenga una señal de acceso, es posible obtener acceso al punto final de
   func deleteAttribute(key: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
   func deleteAttribute(key: String, accessTokenString: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
   ```
-  {:pre}
+  {: codeblock}
 
 Cuando no se haya aprobado explícitamente una señal de acceso, {{site.data.keyword.appid_short_notm}} utilizará la última señal recibida.
 
@@ -178,7 +181,7 @@ Por ejemplo, puede llamar al código siguiente para establecer un atributo nuevo
       }
   })
   ```
-  {:pre}
+  {: codeblock}
 
 
 ### Inicio de sesión anónimo
@@ -204,7 +207,7 @@ Con {{site.data.keyword.appid_short_notm}}, puede iniciar sesión [de forma anó
 
   AppID.sharedInstance.loginAnonymously( authorizationDelegate: delegate())
   ```
-  {:pre}
+  {: codeblock}
 
 ### Autenticación progresiva
 {: #progressive notoc}
@@ -214,7 +217,7 @@ Cuando alberga una señal de acceso anónimo, el usuario puede convertirse en un
   ```swift
   func launch(accessTokenString: String? , delegate: AuthorizationDelegate)
   ```
-  {:pre}
+  {: codeblock}
 
 Tras un inicio de sesión anónimo, se producirá la autenticación progresiva, aunque se invoque el widget de inicio de sesión sin pasar una señal de acceso porque el servicio ha utilizado la última señal recibida. Si desea borrar las señales almacenadas, ejecute el siguiente mandato.
 
@@ -222,11 +225,11 @@ Tras un inicio de sesión anónimo, se producirá la autenticación progresiva, 
   var appIDAuthorizationManager = AppIDAuthorizationManager(appid: AppID.sharedInstance)
   appIDAuthorizationManager.clearAuthorizationData()
   ```
-  {:pre}
+  {: codeblock}
 
 
 
 ## Pasos siguientes
 {: #next-steps}
 
-{{site.data.keyword.appid_short_notm}} proporciona una configuración predeterminada cuando se configuran inicialmente los proveedores de identidad. Puede utilizar la configuración predeterminada sólo en modalidad de desarrollo. Antes de publicar la aplicación, actualice la configuración predeterminada de [Facebook](/docs/services/appid/identity-providers.html#facebook) y [Google](/docs/services/appid/identity-providers.html#google) a sus propias credenciales.
+{{site.data.keyword.appid_short_notm}} proporciona una configuración predeterminada cuando se configuran inicialmente los proveedores de identidad. Puede utilizar la configuración predeterminada sólo en modalidad de desarrollo. Antes de publicar la aplicación, [actualice la configuración predeterminada con sus propias credenciales](/docs/services/appid/identity-providers.html).

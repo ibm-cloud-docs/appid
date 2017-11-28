@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-06-12"
+lastupdated: "2017-11-07"
 
 ---
 
@@ -10,7 +10,7 @@ lastupdated: "2017-06-12"
 {:shortdesc: .shortdesc}
 
 
-# Visión general de los perfiles de usuario
+# Perfiles de usuario
 {: #user-profile}
 
 Un perfil de usuario es una entidad que {{site.data.keyword.appid_full}} almacena y mantiene. El perfil contiene los atributos y la identidad de un usuario y puede ser anónimo o bien estar vinculado a una identidad gestionada por un proveedor de identidad.

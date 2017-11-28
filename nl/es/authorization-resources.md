@@ -2,14 +2,14 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-06-12"
+lastupdated: "2017-11-02"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 
 # Filtros y cabeceras de autorización
@@ -29,7 +29,7 @@ La estrategia de protección de API devuelve una respuesta HTTP 401 con una list
 ### Estrategia de API
 {: #api}
 
-La estrategia de API espera que las solicitudes contengan una cabecera de autorización con una señal de acceso válida. La respuesta también puede incluir una señal de identidad, pero no es obligatorio; consulte [Señales de acceso e identidad](/docs/services/appid/access-identity.html#access-and-identity).
+La estrategia de API espera que las solicitudes contengan una cabecera de autorización con una señal de acceso válida. La respuesta también puede incluir una señal de identidad, pero no es obligatorio; consulte [Señales de acceso e identidad](/docs/services/appid/access-identity.html).
 
 Si una señal no es válida o ha caducado, la estrategia de API devuelve un error HTTP 401 que contiene la siguiente información: Www-Authenticate=Bearer scope="{scope}" error="{error}". El componente `error` es opcional.
 

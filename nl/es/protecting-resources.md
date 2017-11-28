@@ -2,14 +2,14 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-05-08"
+lastupdated: "2017-11-02"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 # Protección de recursos de fondo
 {: #protecting-resources}
@@ -28,7 +28,7 @@ Llamar a un recurso protegido inicia el widget de inicio de sesión, en caso nec
   ```swift
   import BMSCore
   ```
-  {:pre}
+  {: codeblock}
 
 2. Invoque una solicitud de recurso protegido.
 
@@ -40,7 +40,7 @@ Llamar a un recurso protegido inicia el widget de inicio de sesión, en caso nec
       //el código maneja la respuesta aquí
   })
   ```
-  {:pre}
+  {: codeblock}
 
 
 ## Utilización del SDK de Android
@@ -66,4 +66,4 @@ Llamar a un recurso protegido inicia el widget de inicio de sesión, en caso nec
       //el código maneja el error aquí
   });
   ```
-  {:pre}
+  {: codeblock}

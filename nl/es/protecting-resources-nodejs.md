@@ -2,14 +2,14 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-05-08"
+lastupdated: "2017-11-02"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 # Protección de recursos Node.js
 {: #protecting-resources-nodejs}
@@ -21,7 +21,7 @@ Puede utilizar el SDK del servidor de {{site.data.keyword.appid_short}} para pro
 {: #before-you-begin}
 
 * Familiarícese con el desarrollo de aplicaciones Node.js en {{site.data.keyword.Bluemix_notm}}.
-* El SDK del servidor de {{site.data.keyword.appid_short_notm}} necesita que se implemente el servidor de Node.js con la `<a href="http://expressjs.com/" target="_blank">infraestructura Express <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>`.
+* El SDK del servidor de {{site.data.keyword.appid_short_notm}} necesita que se implemente el servidor de Node.js con la <a href="http://expressjs.com/" target="_blank">infraestructura Express <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>.
 
 **Nota**: otras infraestructuras utilizan infraestructuras `Express`, como LoopBack. Puede utilizar el SDK del servidor de {{site.data.keyword.appid_short_notm}} con cualquiera de estas infraestructuras.
 
@@ -37,7 +37,7 @@ Puede utilizar el SDK del servidor de {{site.data.keyword.appid_short}} para pro
   npm install -save passport
   npm install -save bluemix-appid
   ```
-  {:pre}
+  {: codeblock}
 
 ## Protección de recursos en Node.js
 {: #protecting-resources-nodesdk}
@@ -67,7 +67,7 @@ El siguiente fragmento de código muestra cómo utilizar `APIStrategy` en una ap
 
   app.listen(process.env.PORT);
   ```
-  {:pre}
+  {: codeblock}
 
 Puede utilizar `WebAppStrategy` para proteger los recursos de aplicaciones web.
 
@@ -77,6 +77,6 @@ Puede utilizar `WebAppStrategy` para proteger los recursos de aplicaciones web.
   var passport = require('passport');
   var WebAppStrategy = require('bluemix-appid').WebAppStrategy;
   ```
-  {:pre}
+  {: codeblock}
 
 Para obtener más información, consulte el <a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs" target="_blank">Repositorio GitHub de Node.js de {{site.data.keyword.appid_short_notm}}<img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>.

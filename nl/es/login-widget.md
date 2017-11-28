@@ -2,13 +2,13 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-06-12"
+lastupdated: "2017-11-08"
 
 ---
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 # Personalización del widget de inicio de sesión
 {: #login-widget}
@@ -24,4 +24,4 @@ Cuando se configura el servicio {{site.data.keyword.appid_short}} con dos o más
 4. Seleccione un color de cabecera para el widget desde el selector de color, o especifique el código hexadecimal para otro color.
 5. Inspeccione el panel de vista previa y pulse **Guardar cambios** cuando esté satisfecho con las personalizaciones. Aparecerá un mensaje de confirmación.
 
-No es necesario que vuelva a crear la aplicación. La imagen se almacena en la base de datos de the {{site.data.keyword.appid_short}} y se mostrará la próxima vez que inicie sesión.
+**Nota**: no es necesario que vuelva a crear la aplicación. La imagen se almacena en la base de datos de the {{site.data.keyword.appid_short}} y se mostrará la próxima vez que inicie sesión.

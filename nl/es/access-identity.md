@@ -2,17 +2,16 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-06-12"
+lastupdated: "2017-11-02"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 # Señales de identidad y de acceso
-{: #access-and-identity}
 
 {{site.data.keyword.appid_short}} utiliza dos tipos de señales: acceso e identidad. Las señales están formateadas como <a href="https://jwt.io/introduction/" target="_blank">Señales web JSON <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>.
 {:shortdesc}
@@ -42,7 +41,7 @@ Payload: {
 {:screen}
 
 <table>
-<caption> Tabla 1. Explicación de componentes de señal de acceso</caption>
+<caption> Tabla 1. Explicación de componentes de señal de acceso </caption>
   <tr>
     <th> Componente </th>
     <th> Descripción </th>
@@ -156,7 +155,7 @@ Payload: {
   </tr>
   <tr>
     <td> <i> identities: </br> <ul><li> provider <li> id <li> amr </ul></i></td>
-    <td> </br><ul><li> El proveedor de identidad utilizado para la autenticación. Esta variable puede ser <code>appid_facebook</code>, <code>appid_google</code> o <code>appid_ibmid</code>, y se debe devolver. <li> Un ID de usuario exclusivo, tal como lo indica el proveedor de identidad. <li> Un objeto JSON que debe devolver el proveedor de identidad. </ul></i></td>
+    <td> </br><ul><li> El proveedor de identidad utilizado para la autenticación. Esta variable puede ser <code>appid_facebook</code> o <code>appid_google</code> y debe devolverse. </li><li> Un ID de usuario exclusivo, tal como lo indica el proveedor de identidad. </li><li> Un objeto JSON que debe devolver el proveedor de identidad. </li></ul></td>
   </tr>
   <tr>
     <td> <i> oauth_client: </br> <ul><li> type <li> name <li> software_id <li> software_version</ul></i> </td>

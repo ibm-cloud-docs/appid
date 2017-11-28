@@ -2,14 +2,14 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-06-12"
+lastupdated: "2017-11-02"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen:.screen}
-{:pre: .pre}
+{:codeblock: .codeblock}
 
 # Configuración del SDK de Android
 {: #android-sdk}
@@ -61,7 +61,7 @@ Necesita la siguiente información:
 	    }
     }
   ```
-  {:pre}
+  {: codeblock}
 
 3. Abra el archivo `build.gradle` para su aplicación.
 
@@ -73,7 +73,7 @@ Necesita la siguiente información:
        compile group: 'com.github.ibm-cloud-security:appid-clientsdk-android:1.+'
    }
   ```
-  {:pre}
+  {: codeblock}
 
 5. Busque la sección defaultConfig y añada las siguientes líneas de código.
 
@@ -83,7 +83,7 @@ Necesita la siguiente información:
   manifestPlaceholders = ['appIdRedirectScheme': android.defaultConfig.applicationId]
   }
   ```
-  {:pre}
+  {: codeblock}
 
 6. Sincronice el proyecto con Gradle. Pulse **Tools** > **Android** > **Sync Project with Gradle Files**.
 
@@ -95,7 +95,7 @@ Inicialice el SDK del cliente pasando los parámetros context, tenant ID y regio
   ```java
   AppID.getInstance().initialize(getApplicationContext(), <tenantId>, AppID.REGION_UK);
   ```
-  {:pre}
+  {: codeblock}
 
 1. Sustituya *tenantId* por el tenantId del servicio de {{site.data.keyword.appid_short_notm}}.
 2. Sustituya el AppID.REGION_UK por la región de {{site.data.keyword.Bluemix_notm}}.
@@ -105,6 +105,8 @@ Inicialice el SDK del cliente pasando los parámetros context, tenant ID y regio
 {: #authenticate-login-widget}
 
 La configuración predeterminada del widget de inicio de sesión utiliza Facebook y Google como opciones de autenticación. Si sólo configura uno de ellos, el widget de inicio de sesión no se iniciará y se redirigirá al usuario a la pantalla de autenticación de IDP configurada.
+
+
 
 Después de inicializar el SDK del cliente de {{site.data.keyword.appid_short_notm}}, puede autenticar los usuarios ejecutando el widget de inicio de sesión.
 
@@ -127,7 +129,7 @@ Después de inicializar el SDK del cliente de {{site.data.keyword.appid_short_no
         }
       });
   ```
-  {:pre}
+  {: codeblock}
 
 
 ## Acceso a los atributos de usuario
@@ -148,7 +150,7 @@ Cuando obtenga una señal de acceso, es posible obtener acceso al punto final de
   void getAllAttributes(@NonNull UserAttributeResponseListener listener);
   void getAllAttributes(@NonNull AccessToken accessToken, @NonNull UserAttributeResponseListener listener);
   ```
-  {:pre}
+  {: codeblock}
 
 Cuando no se haya aprobado explícitamente una señal de acceso, {{site.data.keyword.appid_short_notm}} utilizará la última señal recibida.
 
@@ -167,7 +169,7 @@ Por ejemplo, puede llamar al código siguiente para establecer un atributo nuevo
 		}
 	});
   ```
-  {:pre}
+  {: codeblock}
 
 ### Inicio de sesión anónimo
 {: #anonymous notoc}
@@ -192,7 +194,7 @@ Con {{site.data.keyword.appid_short_notm}}, puede iniciar sesión [de forma anó
 		}
 	});
   ```
-  {:pre}
+  {: codeblock}
 
 ### Autenticación progresiva
 {: #progressive notoc}
@@ -202,7 +204,7 @@ Cuando el usuario contiene una señal de acceso anónimo, puede ser identificado
   ```java
   void launch (@NonNull final Activity activity, @NonNull final AuthorizationListener authorizationListener, String accessTokenString);
   ```
-  {:pre}
+  {: codeblock}
 
 Tras un inicio de sesión anónimo, se producirá la autenticación progresiva, aunque se invoque el widget de inicio de sesión sin pasar una señal de acceso porque el servicio ha utilizado la última señal recibida. Si desea borrar las señales almacenadas, ejecute el siguiente mandato.
 
@@ -210,10 +212,10 @@ Tras un inicio de sesión anónimo, se producirá la autenticación progresiva, 
   	appIDAuthorizationManager = new AppIDAuthorizationManager(this.appId);
   appIDAuthorizationManager.clearAuthorizationData();
   ```
-  {:pre}
+  {: codeblock}
 
 
 ## Pasos siguientes
 {: #next-steps}
 
-{{site.data.keyword.appid_short_notm}} proporciona una configuración predeterminada cuando se configuran inicialmente los proveedores de identidad. Puede utilizar la configuración predeterminada sólo en modalidad de desarrollo. Antes de publicar la aplicación, actualice la configuración predeterminada de [Facebook](/docs/services/appid/identity-providers.html#facebook) y [Google](/docs/services/appid/identity-providers.html#google) a sus propias credenciales.
+{{site.data.keyword.appid_short_notm}} proporciona una configuración predeterminada cuando se configuran inicialmente los proveedores de identidad. Puede utilizar la configuración predeterminada sólo en modalidad de desarrollo. Antes de publicar la aplicación, [actualice la configuración predeterminada con sus propias credenciales](/docs/services/appid/identity-providers.html).
