@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-11-02"
+lastupdated: "2017-11-19"
 
 ---
 
@@ -110,7 +110,7 @@ The {{site.data.keyword.appid_short_notm}} client SDK is distributed with CocoaP
   ```
   {: codeblock}
 
-## Authenticate users by using the login widget
+## Authenticating users by using the login widget
 {: #authenticate-login}
 
 

@@ -6,12 +6,16 @@ lastupdated: "2017-11-19"
 
 ---
 
-{:new_window: target="_blank"}
+{:new_window: target="blank"}
 {:shortdesc: .shortdesc}
 {:screen:.screen}
 {:codeblock: .codeblock}
 
-# Setting up the Android SDK
+
+
+
+
+# Protecting apps with the Android SDK
 {: #android-sdk}
 
 Build your Android apps with the {{site.data.keyword.appid_short}} client SDK, initialize the SDK, authenticate users, and make requests to protected and unprotected resources.
