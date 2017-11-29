@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-11-07"
+lastupdated: "2017-11-28"
 
 ---
 
@@ -11,24 +11,11 @@ lastupdated: "2017-11-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 
-# Configuring identity providers
+# Social identity providers
 {: #setting-up-idp}
 
 Identity providers provide an extra level of authentication for your mobile and web apps. With {{site.data.keyword.appid_full}} you can configure one or several identity providers to set up a single sign-on experience for your app.
 {: shortdesc}
-
-You can use the following identity providers:
-
-<dl>
-  <dt> Facebook </dt>
-    <dd> Users log in to your application by using the same password and email that they use to login into their Facebook account. </dd>
-  <dt> Google </dt>
-    <dd> Users log in to your application by using the same password and email that they use to login to their Google accounts. </dd>
-</dl>
-
-
-</br>
-</br>
 
 ## Default configuration
 {: #default}
@@ -38,8 +25,6 @@ You can use the following identity providers:
 
 The default credentials are set up for Facebook and Google. You are limited to 100 uses of the credentials per instance, per day. Because they are IBM credentials, they should be used in your applications only in development mode. Prior to publishing your app, [update the configuration to your own credentials](/docs/services/appid/identity-providers.html).
 
-
-</br>
 
 ## Configuring Facebook
 {: #facebook}
@@ -69,8 +54,6 @@ When you have your Facebook app ID and secret, and your Facebook for Developers 
 4. Click **Save**.
 5. Optional: For web apps, enter the redirect URL in the **Web Application Redirect URLs** field. This value is determined by the developer and used to access the redirect URL after the authorization process is completed.
 
-
-</br>
 
 ## Configuring Google
 {: #google}
