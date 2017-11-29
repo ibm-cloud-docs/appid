@@ -1,5 +1,3 @@
-<!-- Markdown Navigation -->
-
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
@@ -8,17 +6,36 @@ IBM Cloud App ID
 
     {: .navgroup id="learn"}
     index.md
+    about.md
+    authorization.md
+    {: .navgroup-end}
+
+    {: .navgroup id="howto"}
+    install.md
     
     {: .topicgroup}
-    About
-        about.md
-        access-identity.md
-        authorization-resources.md
-        user-profile.md
+    Protecting your mobile and web apps
+        protecting-resources-local.md
+        existing.md
+
+    {: .topicgroup}
+    Authenticating users
+        cloud-directory.md
+        identity-providers.md
+        login-widget.md
+
+    protecting-resources.md
+    accessing-resources.md
+    user-profile.md
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
-    [REST API](https://appid-oauth.ng.bluemix.net/swagger-ui/#!/Authorization_Server_V3/authorization)
+    
+    {: .topicgroup}
+    APIs
+        [Authorization](http://mobileclientaccess.mybluemix.net/swagger-ui/#/Authorization_Server_V3)
+        [Management](https://appid-management.ng.bluemix.net/swagger-ui/#/Config)
+        [Profiles](https://appid-profiles.ng.bluemix.net/swagger-ui/index.html)
 
     {: .topicgroup}
     SDKs
@@ -26,29 +43,8 @@ IBM Cloud App ID
         [iOS Swift client SDK](https://github.com/ibm-cloud-security/appid-clientsdk-swift)
         [Node.js server SDK](https://github.com/ibm-cloud-security/appid-serversdk-nodejs)
         [Swift server SDK](https://github.com/ibm-cloud-security/appid-serversdk-swift)
-
+    
     relatedlinks.md
-    {: .navgroup-end}
-
-    {: .navgroup id="howto"}
-    existing.md
-
-    {: .topicgroup}
-    Setting up the SDKs and sample app
-        developing-apps.md
-        protecting-resources-local.md
-        getting-started-android.md
-        getting-started-ios-swift-sdk.md
-
-    identity-providers.md
-    login-widget.md
-
-    {: .topicgroup}
-    Protecting resources
-        protecting-resources.md
-        protecting-resources-nodejs.md
-        protecting-resources-swift.md
-        protecting-resources-java.md
     {: .navgroup-end}
 
     {: .navgroup id="help"}
