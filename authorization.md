@@ -2,11 +2,9 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-11-07"
+lastupdated: "2017-11-28"
 
 ---
-
-
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
@@ -14,21 +12,16 @@ lastupdated: "2017-11-07"
 
 
 # Authorization and authentication
+{: authorization}
 
-Authorization is the process by which you grant access to your apps. The {{site.data.keyword.appid_short}} service uses tokens, filters, and a header to authorize users.
+Authorization is the process by which you grant access to your apps. The {{site.data.keyword.appid_short}} service uses tokens, filters, and a header to authenticate users.
 {: shortdesc}
 
-## Headers
-{: #auth-header}
 
-An authorization header is the combination of tokens returned. For {{site.data.keyword.appid_short}}, the authorization header consists of three different tokens that are separated by white space: Bearer, Access, and Identity. Bearer and access tokens are required to grant access to your apps. An identity token is optional and is mainly used to store information about those using your app.
+## OAuth identity
+{: #oauth}
 
-Example header structure:
-
-```
-Authorization=Bearer {access_token} [{id_token}]
-```
-{: screen}
+When the service calls the OAuth login API, {{site.data.keyword.appid_short_notm}} uses OAuth 2.0 and OIDC protocols to authorize and authenticate the caller with a selected identity provider. After authentication, the identity is associated with an {{site.data.keyword.appid_short_notm}} user record. {{site.data.keyword.appid_short_notm}} returns an access token that can be used to access user's attributes, and an identity token that is holding the identity information provided by the identity provider. The same user record and its attributes can be accessed again from any client that authenticates with this same identity.
 
 ## Access and identity tokens
 
@@ -114,7 +107,7 @@ Payload: {
 ### Identity tokens
 {: #identity-tokens}
 
-Identity tokens contain information about the user. They can give you information about their name, email, gender, and location. The token can also return a URL to an image of the user.
+An identity token contains information about the user. It can give you information about their name, email, gender, and location. A token can also return a URL to an image of the user.
 
 Example token:
 
@@ -187,6 +180,18 @@ Payload: {
   </tr>
 </table>
 
+## Headers
+{: #auth-header}
+
+An authorization header is the combination of tokens returned. For {{site.data.keyword.appid_short}}, the authorization header consists of three different tokens that are separated by white space: Bearer, Access, and Identity. Bearer and access tokens are required to grant access to your apps. An identity token is optional and is mainly used to store information about those using your app.
+
+Example header structure:
+
+```
+Authorization=Bearer {access_token} [{id_token}]
+```
+{: screen}
+
 
 ## Filters
 {: #auth-filter}
@@ -212,3 +217,27 @@ If the request returns a valid token, control is passed to the next middleware a
 {: #web}
 
 When the web app strategy class detects unauthenticated attempts to access a protected resource, it automatically redirects a user's browser to the authentication page. After successful authentication, the user is returned to the web application's callback URL. The service uses the web app strategy class to obtain access and identity tokens. After obtaining these tokens, the web app strategy class stores them in an HTTP session under `WebAppStrategy.AUTH_CONTEXT`. It is up to the user to decide whether to store access and identity tokens in the application database.
+
+
+## Progressive authentication
+{: #oauth}
+
+{{site.data.keyword.appid_short_notm}} uses OAuth 2.0 and OIDC protocols to authorize and authenticate a user. After authentication, their identity is associated with a user record. The service returns an access token that can be used to access the user's attributes and an identity token that contains the information about the user that was provided by the identity provider. The record and its attributes can be accessed again from any client that authenticates with the same identity.
+
+Now, you might ask, "what if I want sign in to be optional?" {{site.data.keyword.appid_short_notm}} uses what is known as progressive authentication to create profiles on users, even when they're anonymous.
+
+<a href="../api/content/services/appid/images/authenticationtrail.png" ><img src="images/authenticationtrail.png" width="800" alt="A map that shows the path from an unknown user to becoming an identified user." style="width:800px; border-style: none"/></a>
+
+
+When a user chooses to remain anonymous, {{site.data.keyword.appid_short_notm}} creates an ad hoc user record and calls the OAuth login API which returns anonymous access and identity tokens. By using those tokens, the app can create, read, update, and delete the attributes that are stored in the user record. As an example, a user could immediately start adding items to a shopping cart without having to log in to the application.
+
+
+When a user chooses to log in to an app, they become an identified user. Information about the user is obtained from the identity provider that they choose to log in with. They receive access and identity tokens that contain information about the user. An anonymous user can choose to become an identified user.
+
+But how does that work?
+
+The anonymous access token is passed to the login API. The service authenticates the call with an identity provider. The service uses the access token to find the anonymous record and attaches the identity to it. The new access identity tokens contain the public information that shared by the identity provider. After a user is identified, their anonymous tokens become invalid. However, a user is still able to access their attributes because they are accessible with the new token.
+
+**Note**: An identity can only be assigned to an anonymous record if it has not already been assigned to another user. If the identity if already associated with another app id user, the tokens contain information of that user record and provide access to their attributes. The previous anonymous users attributes are not accessible through the new token. Until the token expires, the information can still be accessed through the anonymous access token. During development, you can choose how to merge the anonymous attributes to the known user.
+
+</staging>
