@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-11-09"
+lastupdated: "2017-12-04"
 
 ---
 
@@ -31,16 +31,16 @@ Why would you want to use {{site.data.keyword.appid_short_notm}}? Check out the 
     <th> Reason </th>
   </tr>
   <tr>
-    <td> You want to add security to your mobile and web applications. </td>
-    <td> {{site.data.keyword.appid_short_notm}} makes it easy to add an authentication step to your applications. You can use the service to communicate with identity providers to manage access to your applications. </td>
+    <td> You need to add [authorization and authentication](/docs/services/appid/authorization.html) to your mobile and web applications but don't have a background in security. </td>
+    <td> {{site.data.keyword.appid_short_notm}} makes it easy to add an authentication step to your applications. You can use the service to communicate with [identity providers](/docs/services/appid/identity-providers.html) to manage access to your applications. </td>
   </tr>
   <tr>
     <td> You want to limit access to your apps and back-end resources. </td>
-    <td> The service gives you the ability to protect your resources for both authenticated and anonymous users. </td>
+    <td> The service gives you the ability to [protect your resources](/docs/services/appid/protecting-resources.html) for both authenticated and anonymous users. </td>
   </tr>
   <tr>
     <td> You want to build personalized app experiences for your users. </td>
-    <td> {{site.data.keyword.appid_short_notm}} allows you to store user data such as app preferences or information from their public social profiles. You can use that data to ensure that your users have an experience that is customized for them. </td>
+    <td> {{site.data.keyword.appid_short_notm}} allows you to [store user data](/docs/services/appid/user-profile.html) such as app preferences or information from their public social profiles. You can use that data to ensure that your users have an experience that is customized for them. </td>
   </tr>
 </table>
 
@@ -50,7 +50,7 @@ Why would you want to use {{site.data.keyword.appid_short_notm}}? Check out the 
 ## Architecture
 {: #architecture}
 
-With {{site.data.keyword.appid_short_notm}} you can add a level of security to your applications by requiring users to sign in. You can also use the server SDK to protect your back end resources.
+With {{site.data.keyword.appid_short_notm}} you can add a level of security to your applications by requiring users to sign in. You can also use the server SDK to protect your back-end resources.
 
 The following diagram shows an overview of how the {{site.data.keyword.appid_short_notm}} service works.
 
@@ -63,18 +63,20 @@ Figure 1. {{site.data.keyword.appid_short_notm}} architecture diagram
 
 <dl>
   <dt> Application </dt>
-    <dd> The client SDK provides a request class to communicate with your cloud resources. The client SDK automatically starts the authentication process when it detects an authorization challenge. </dd>
+    <dd> Server SDK: You can protect your back-end resources that are hosted on {{site.data.keyword.Bluemix_notm}} by using the server SDK. It extracts the access token from a request and validates it with {{site.data.keyword.appid_short_notm}}.</br>
+    Client SDK: You can protect your mobile and web apps with the Android or iOS client SDK. The client SDK communicates with your cloud resources to start the authentication process when it detects an authorization challenge.</dd>
   <dt> {{site.data.keyword.Bluemix_notm}} </dt>
-    <dd>  The server SDK extracts the access token from the request and validates it with {{site.data.keyword.appid_short_notm}}. After successful authentication, {{site.data.keyword.appid_short_notm}} returns access and identity tokens to your application. </dd>
-  <dt> Identity providers </dt>
-    <dd> The service arranges a redirect to the identity provider and verifies the authentication to provide access to your application. {{site.data.keyword.appid_short_notm}} verifies the credentials without having access to the actual passphrase. </dd>
+    <dd> App ID: After successful authentication, {{site.data.keyword.appid_short_notm}} returns access and identity tokens to your application.</br>
+    Cloud Directory: Users can sign up for your service with their email and a password. You can then manage your users in a list view through the UI. </dd>
+  <dt> External (3rd party) </dt>
+    <dd>  {{site.data.keyword.appid_short_notm}} supports two social identity providers: Facebook and Google+. The service arranges a redirect to the identity provider and provides access to your app after verifying authentication. {{site.data.keyword.appid_short_notm}} verifies the credentials without having access to the actual passphrase. </dd>
 </dl>
 
 
 ## Request flow
 {: #request}
 
-The following diagram describes how a request flows from the client SDK to your back-end application and identity providers.
+The following diagram describes how a request flows from the client SDK to your back-end resources and identity providers.
 
 ![{{site.data.keyword.appid_short_notm}} request flow](/images/appidrequestflow.png)
 
@@ -90,33 +92,3 @@ Figure 2. {{site.data.keyword.appid_short_notm}} request flow
 * If the authentication ends with the same grant code, the code is sent to the token endpoint. The endpoint returns two tokens: an access token and an identity token. From this point on, all requests that are made with the client SDK have a newly obtained authorization header.
 * The client SDK automatically resends the original request that triggered the authorization flow.
 * The server SDK extracts the authorization header from the request, validates the header with the service, and grants access to a back-end resource.
-
-
-## Components
-{: #components}
-
-The service is comprised of the following components.
-
-<dl>
-  <dt> Dashboard </dt>
-    <dd> In the service dashboard you can download on-boarding samples, see activity logs, and configure authentication and identity providers. </dd>
-  <dt> Client SDK </dt>
-    <dd> You can use the client SDK with your mobile and web apps to implement user authentication. </br></br>
-    Prerequisites for Android:
-    <ul><ul><li> API 25 or higher </li>
-    <li> Java 8.x </li>
-    <li> Android SDK tools 25.2.5 or higher </li>
-    <li> Android SDK platform tools 25.0.3 or higher </li>
-    <li> Android Build Tools version 25.0.2 or higher </li></ul></ul></br>
-    Prerequisites for iOS:
-    </br>
-    <ul><ul><li> iOS9 or higher </li>
-    <li> MacOS 10.11.5 </li>
-    <li>Xcode 8.2 </li></ul></ul></dd>
-  <dt> Server SDK </dt>
-    <dd> You can protect your back-end resources that are hosted on {{site.data.keyword.Bluemix_notm}} </br>
-    Supported runtimes:
-    <ul><ul><li> Node.js </li>
-    <li> Liberty for Java </li>
-    <li> Swift </li></ul></ul></dd>
-</dl>
