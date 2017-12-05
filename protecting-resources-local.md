@@ -2,7 +2,7 @@
 
 copyright:
   years:  2017
-lastupdated: "2017-11-02"
+lastupdated: "2017-12-04"
 
 ---
 {:new_window: target="_blank"}
@@ -12,29 +12,17 @@ lastupdated: "2017-11-02"
 
 
 
-# Using {{site.data.keyword.appid_short_notm}} with a local development environment
+#  Configuring a local development server to work with {{site.data.keyword.appid_short_notm}}
 {: #protecting-local}
 
 You can configure your local environment to use the {{site.data.keyword.appid_short}} service. Specifically, you can develop code locally by using the {{site.data.keyword.appid_short_notm}} server SDK to send requests to the development server.
 {:shortdesc}
 
 
-## Setting up the server SDK
-{: #serversetup}
+## Before you begin
+{: #begin}
 
-To use {{site.data.keyword.appid_short_notm}} with a local development server, you must pass the option parameter when you are creating your strategy, with the following attributes:
-
-* APIStrategy: `oauthServerUrl`
-* WebAppStrategy: tenantId, clientId, secret, oauthServerUrl, redirectUri
-
-Set your 'redirectUri' attribute to your localhost app port with the callback path. For example: `http://localhost:<port>/callback`. The callback endpoint finishes the authorization process.
-
-To get your service credentials, complete the following steps:
-
-1. Open your {{site.data.keyword.Bluemix_notm}} dashboard and click the **Service Credentials** tab.
-2. Click **Show Credentials**. Your access credentials are displayed as a JSON Object.
-
-For samples and more information, see <a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs" target="_blank">the server SDK GitHub repository <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
+Be sure you've completed the [server SDK installation](/docs/services/appid/install.html#nodejs-setup).
 
 
 ## Configuring {{site.data.keyword.appid_short_notm}} applications to work with a local development server
