@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-11-02"
+lastupdated: "2017-12-06"
 
 ---
 
@@ -12,7 +12,7 @@ lastupdated: "2017-11-02"
 {:codeblock: .codeblock}
 
 
-# Adding {{site.data.keyword.appid_short_notm}} to an existing app
+# Adding App ID to an existing app
 
 You can use {{site.data.keyword.appid_full}} with your existing application to authenticate and store profile information about your users.
 
@@ -28,7 +28,7 @@ You can use {{site.data.keyword.appid_full}} with your existing application to a
 
 You can add the {{site.data.keyword.appid_short_notm}} service to your existing Android applications.
 
-1. Add the JitPack repository to your root build.gradle file.
+1. Add the JitPack repository to your root `build.gradle` file.
 
   ```gradle
   allprojects {
@@ -40,7 +40,7 @@ You can add the {{site.data.keyword.appid_short_notm}} service to your existing 
   ```
   {: codeblock}
 
-2. Open the build.gradle file for your application, find the dependencies section of the file, and add a compile dependency for the {{site.data.keyword.appid_short_notm}} client SDK.
+2. Open the `build.gradle` file for your application, find the dependencies section of the file, and add a compile dependency for the {{site.data.keyword.appid_short_notm}} client SDK.
 
   ```gradle
   dependencies {
@@ -143,7 +143,7 @@ You can add the {{site.data.keyword.appid_short_notm}} service to your existing 
   ```
   {: codeblock}
 
-6. Add the following import to your AppDelegate.swift file.
+6. Add the following import to your `AppDelegate.swift` file.
 
   ```swift
   import BluemixAppID
@@ -234,8 +234,8 @@ You can add the {{site.data.keyword.appid_short_notm}} service to your existing 
   ```
   {: codeblock}
 
-3. Add the following code to your app.js file to:
-    * Set up your express app to use express-session middleware. **Note**: You must configure the middleware with the proper session storage for production environments. For more information see the [expressjs docs](https://github.com/expressjs/session).
+3. Add the following code to your `app.js` file to:
+    * Set up your express app to use express-session middleware. **Note**: You must configure the middleware with the proper session storage for production environments. For more information see the <a href="https://github.com/expressjs/session" target="_blank">expressjs docs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
     * Configure passportjs with serialization and deserialization. This is required for authenticated session persistence across HTTP requests. For more information, see the <a href="http://passportjs.org/docs" target="_blank">passportjs docs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.  
     * Retrieve access and identity tokens from the {{site.data.keyword.appid_short_notm}} service by running a get command on the call back URL.
 
@@ -543,7 +543,7 @@ You can configure {{site.data.keyword.appid_short_notm}} to work with your exist
 ## Adding {{site.data.keyword.appid_short_notm}} to an existing application that does not run on {{site.data.keyword.Bluemix_notm}}
 {: #existing}
 
-If you have a Node.js or Swift application that does not run on Bluemix, you can configure the WebAppStrategy or the WebAppKituraCredentialsPlugin to work remotely. For a Liberty for Java app that doesn't run on Bluemix, configure the OIDC element variables.
+If you have a Node.js or Swift application that does not run on {{site.data.keyword.Bluemix_notm}}, you can configure the WebAppStrategy or the WebAppKituraCredentialsPlugin to work remotely. For a Liberty for Java app that doesn't run on Bluemix, configure the OIDC element variables.
 
 
 In your Node.js app, replace `passport.use(new WebAppStrategy());` with the following code.
