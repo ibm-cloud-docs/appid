@@ -12,7 +12,7 @@ lastupdated: "2017-12-06"
 {:codeblock: .codeblock}
 
 
-# Adding {{site.data.keyword.appid_short_notm}} to an existing app
+# Adding App ID to an existing app
 
 You can use {{site.data.keyword.appid_full}} with your existing application to authenticate and store profile information about your users.
 
