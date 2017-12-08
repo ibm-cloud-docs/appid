@@ -22,6 +22,16 @@ lastupdated: "2017-12-06"
 3. To bind your instance, select an app from the **Connect to** menu. If you select **Leave unbound**, you can bind the service instance later.
 4. Select your pricing plan and click **Create**.
 5. Optional: Use the instructions in the UI to download the sample apps. The samples help you to get up and running with {{site.data.keyword.appid_short_notm}}.
+<!---STAGING CONTENT
+## Using {{site.data.keyword.appid_short_notm}} with your web apps
+
+By integrating {{site.data.keyword.appid_short_notm}}, you enable any web app, regardless of the technology it implements, to take advantage of the OAuth2 protocol.
+
+### Before you begin
+
+- Download the Node.js sample app from the {{site.data.keyword.appid_short_notm}} UI.
+For information about setting up your web app to access the {{site.data.keyword.appid_short_notm}} service, see the <a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs" target="_blank">Node.js server SDK GitHub repository <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
+--->
 
 Now that you have an instance of {{site.data.keyword.appid_short_notm}}, download an SDK and start authenticating users!
 
