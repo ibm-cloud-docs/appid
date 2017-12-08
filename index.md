@@ -23,6 +23,7 @@ lastupdated: "2017-12-06"
 4. Select your pricing plan and click **Create**.
 5. Optional: Use the instructions in the UI to download the sample apps. The samples help you to get up and running with {{site.data.keyword.appid_short_notm}}.
 
+
 Now that you have an instance of {{site.data.keyword.appid_short_notm}}, download an SDK and start authenticating users!
 
 <!--- STAGING commenting out until I can update image

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-12-06"
+lastupdated: "2017-12-08"
 
 ---
 
@@ -110,7 +110,7 @@ After an anonymous login, progressive authentication occurs even if the login wi
   {: codeblock}
 
 
-## Accessing user attributes
+## Accessing user attributes with the iOS SDK
 {: #accessing}
 
 When obtaining an access token, it is possible to gain access to the user protected attributes endpoint. This is done by using the following API methods.
