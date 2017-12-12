@@ -51,6 +51,10 @@ A template is an example of an email message that you may send to your users. Yo
           <td> %{display.logo} </td>
           <td> Displays the image that you configured for your login widget. </td>
         </tr>
+	 <tr>
+          <td> %{display.headerColor} </td>
+          <td> Displays the header color that you configured for your login widget. </td>
+        </tr>
         <tr>
           <td> %{user.displayName} </td>
           <td> Displays the screen name a user has chosen to use when interacting with the app. </td>
