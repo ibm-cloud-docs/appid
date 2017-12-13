@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-12-06"
+lastupdated: "2017-12-13"
 
 ---
 
@@ -17,7 +17,6 @@ lastupdated: "2017-12-06"
 
 You can use {{site.data.keyword.appid_full}} to add authentication to your apps and protect your back-end resources.
 {:shortdesc}
-
 
 ## Reasons to use the service
 {: #reasons}
@@ -45,15 +44,12 @@ Why would you want to use {{site.data.keyword.appid_short_notm}}? Check out the 
 </table>
 
 
-
-
 ## Architecture
 {: #architecture}
 
 With {{site.data.keyword.appid_short_notm}} you can add a level of security to your apps by requiring users to sign in. You can also use the server SDK to protect your back-end resources.
 
 The following diagram shows an overview of how the {{site.data.keyword.appid_short_notm}} service works.
-
 
 ![{{site.data.keyword.appid_short_notm}} architecture diagram](/images/appid_architecture.png)
 

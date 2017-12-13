@@ -29,7 +29,6 @@ IBM Cloud App ID
     {: .topicgroup}
     APIs
         [Authorization](http://mobileclientaccess.mybluemix.net/swagger-ui/#/Authorization_Server_V3)
-        [Management](https://appid-management.ng.bluemix.net/swagger-ui/#/Config)
         [Profiles](https://appid-profiles.ng.bluemix.net/swagger-ui/index.html)
 
     {: .topicgroup}
@@ -43,6 +42,7 @@ IBM Cloud App ID
     {: .navgroup-end}
 
     {: .navgroup id="help"}
+    faq.md
     ts_index.md
     mca.md
     {: .navgroup-end}
