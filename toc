@@ -29,7 +29,6 @@ IBM Cloud App ID
     {: .topicgroup}
     APIs
         [Authorization](http://mobileclientaccess.mybluemix.net/swagger-ui/#/Authorization_Server_V3)
-        [Profiles](https://appid-profiles.ng.bluemix.net/swagger-ui/index.html)
 
     {: .topicgroup}
     SDKs
