@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-11-02"
+lastupdated: "2017-12-08"
 
 ---
 
@@ -29,7 +29,7 @@ lastupdated: "2017-11-02"
 É possível incluir o serviço {{site.data.keyword.appid_short_notm}} em seus aplicativos
 Android existentes.
 
-1. Inclua o repositório do JitPack no arquivo raiz build.gradle.
+1. Inclua o repositório do JitPack em seu arquivo raiz `build.gradle`.
 
   ```gradle
   allprojects {
@@ -41,7 +41,7 @@ Android existentes.
   ```
   {: codeblock}
 
-2. Abra o arquivo build.gradle de seu aplicativo, localize a seção de dependências do arquivo e inclua uma dependência de compilação para o SDK do cliente do {{site.data.keyword.appid_short_notm}}.
+2. Abra o arquivo `build.gradle` de seu aplicativo, localize a seção de dependências do arquivo e inclua uma dependência de compilação para o SDK cliente do {{site.data.keyword.appid_short_notm}}.
 
   ```gradle
   dependencies {
@@ -148,7 +148,7 @@ em **Recursos** >
   ```
   {: codeblock}
 
-6. Inclua a importação a seguir no arquivo AppDelegate.swift.
+6. Inclua a importação a seguir em seu arquivo `AppDelegate.swift`.
 
   ```swift
   import BluemixAppID
@@ -239,8 +239,8 @@ em **Recursos** >
   ```
   {: codeblock}
 
-3. Inclua o código a seguir no arquivo app.js para:
-    * Configurar seu app express para usar o middleware express-session. **Nota**: deve-se configurar o middleware com o armazenamento de sessão adequado para ambientes de produção. Para obter mais informações, veja os [docs de expressjs](https://github.com/expressjs/session).
+3. Inclua o código a seguir em seu arquivo `app.js` para:
+    * Configurar seu app express para usar o middleware express-session. **Nota**: deve-se configurar o middleware com o armazenamento de sessão adequado para ambientes de produção. Para obter mais informações, consulte o <a href="https://github.com/expressjs/session" target="_blank">expressjs docs <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a>.
     * Configurar passportjs com serialização e desserialização. Isso é necessário para persistência de sessão autenticada em solicitações de HTTP. Para obter mais informações, veja os <a href="http://passportjs.org/docs" target="_blank">docs do passportjs <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a>.  
     * Recupere tokens de acesso e de identidade do serviço {{site.data.keyword.appid_short_notm}}
 executando um comando get na URL de retorno de chamada.
@@ -338,7 +338,7 @@ executando um comando get na URL de retorno de chamada.
   {: codeblock}
 
   <table>
-  <caption> Tabela 5. Componentes de comando explicados</caption>
+  <caption> Tabela 5. Componentes de comando explicados </caption>
     <tr>
       <th> Componentes </th>
       <th> Descrição </th>
@@ -564,7 +564,7 @@ o local do arquivo em sua unidade local.
 ## Incluindo o {{site.data.keyword.appid_short_notm}} em um aplicativo existente que não seja executado no {{site.data.keyword.Bluemix_notm}}
 {: #existing}
 
-Se você tiver um aplicativo Node.js ou Swift que não seja executado no Bluemix, será possível configurar o WebAppStrategy ou o WebAppKituraCredentialsPlugin para trabalhar remotamente. Para um app Liberty
+Se você tiver um aplicativo Node.js ou Swift que não é executado no {{site.data.keyword.Bluemix_notm}}, será possível configurar o WebAppStrategy ou o WebAppKituraCredentialsPlugin para trabalhar remotamente. Para um app Liberty
 for Java que não é executado no Bluemix, configure as variáveis do elemento OIDC.
 
 

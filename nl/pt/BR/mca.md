@@ -2,14 +2,14 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-11-02"
+lastupdated: "2017-11-06"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 
-# O {{site.data.keyword.amashort}} foi substituído pelo {{site.data.keyword.appid_short_notm}}
+# O Mobile Client Access é substituído pelo ID do app
 {: #mca}
 
 O serviço do {{site.data.keyword.amafull}} está sendo substituído por {{site.data.keyword.appid_full}}. Se você for um usuário atual do

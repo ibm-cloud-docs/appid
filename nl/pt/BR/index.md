@@ -2,21 +2,23 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-11-07"
+lastupdated: "2017-12-13"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 
-# Introdução ao {{site.data.keyword.appid_short_notm}}
+# Tutorial Introdução
 {: #gettingstarted}
 
-O {{site.data.keyword.appid_full}} o ajuda a incluir autenticação em seu dispositivo móvel e apps da web e protege os seus sistemas de backend.
+O {{site.data.keyword.appid_full}} ajuda você a incluir autenticação em seus apps móveis e da web e protege seus recursos de backend.
 {: shortdesc}
 
-**Nota:** o serviço do {{site.data.keyword.appid_short_notm}} era conhecido anteriormente como {{site.data.keyword.amafull}}.
+## Criando uma instância do {{site.data.keyword.appid_short_notm}}
+{: #create}
 
+Crie uma instância do serviço para começar.
 
 1. No catálogo do {{site.data.keyword.Bluemix}}, selecione {{site.data.keyword.appid_short_notm}}. A tela de configuração de
 serviço é aberta.
@@ -24,10 +26,5 @@ serviço é aberta.
 3. Para ligar a instância, selecione um app no menu **Conectar a**. Se você selecionar **Deixar desvinculado**,
 será possível ligar a instância de serviço posteriormente.
 4. Selecione o seu plano de precificação e clique em **Criar**.
-5. Opcional: use as instruções na UI para fazer download dos aplicativos de amostra. As amostras ajudam você na introdução e
-execução com o {{site.data.keyword.appid_short_notm}}.
-
-Agora que você tem uma instância do {{site.data.keyword.appid_short_notm}}, faça download
-do SDK para sua linguagem de programação preferencial e inicie a autenticação dos usuários.
 
 

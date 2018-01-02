@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-11-02"
+lastupdated: "2017-12-06"
 
 ---
 {:new_window: target="_blank"}
@@ -27,7 +27,7 @@ Quando tiver problemas ao usar o {{site.data.keyword.appid_short_notm}}, conside
 desenvolvimento do {{site.data.keyword.Bluemix_notm}}.
   * Se você tiver questões técnicas sobre o {{site.data.keyword.appid_short_notm}}, poste
 a sua questão no <a href="http://stackoverflow.com/search?q=appid+ibm-bluemix" target="_blank">Stack Overflow <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a> e identifique-a com "ibm-appid".
-  * Para perguntas sobre o serviço e instruções de introdução, use o fórum <a href="https://developer.ibm.com/answers/search.html?f=&type=question&redirect=search%2Fsearch&sort=relevance&q=appid%20[bluemix]" target="_blank">dW Answers <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a>. Inclua a tag "ibm-appid".
+  * Para perguntas sobre o serviço e instruções de introdução, use o fórum <a href="https://developer.ibm.com/answers/search.html?f=&type=question&redirect=search%2Fsearch&sort=relevance&q=appid%20[bluemix]" target="_blank">dW Answers <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a>. Inclua a tag "appid".
 
 Veja [Obtendo
 ajuda](/docs/support/index.html#getting-help) para obter mais detalhes sobre o uso dos fóruns.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-11-09"
+lastupdated: "2017-12-13"
 
 ---
 
@@ -15,10 +15,8 @@ lastupdated: "2017-11-09"
 # Sobre
 {: #about}
 
-O {{site.data.keyword.appid_full}} fornece a você a capacidade de gerenciar o acesso
-aos seus aplicativos de forma fácil e simples.
+É possível usar o {{site.data.keyword.appid_full}} para incluir a autenticação em seus apps e proteger seus recursos de backend.
 {:shortdesc}
-
 
 ## Razões para usar o serviço
 {: #reasons}
@@ -30,53 +28,45 @@ a seguir para ver se algum deles se aplica a você.
 <table>
   <tr>
     <th> Cenário </th>
-    <th> Motivo</th>
+    <th> Motivo </th>
   </tr>
   <tr>
-    <td> Você deseja incluir segurança em seus aplicativos móveis e da web. </td>
-    <td> O {{site.data.keyword.appid_short_notm}} facilita a inclusão de uma etapa de autenticação
-em seus aplicativos. É possível usar o serviço para se comunicar com os provedores de identidade para
-gerenciar o acesso aos seus aplicativos. </td>
+    <td> É necessário incluir [autorização e autenticação](/docs/services/appid/authorization.html) em seus apps móveis e da web, mas não há um plano de fundo de segurança. </td>
+    <td> O {{site.data.keyword.appid_short_notm}} facilita a inclusão de uma etapa de autenticação em seus apps. É possível usar o serviço para se comunicar com os [provedores de identidade](/docs/services/appid/identity-providers.html) para gerenciar o acesso aos seus apps. </td>
   </tr>
   <tr>
     <td> Você deseja limitar o acesso aos seus apps e recursos de backend. </td>
-    <td> O serviço fornece a você a capacidade de proteger seus recursos para usuários autenticados e anônimos. </td>
+    <td> O serviço fornece a capacidade de [proteger seus recursos](/docs/services/appid/protecting-resources.html) para usuários autenticados e anônimos. </td>
   </tr>
   <tr>
     <td> Você deseja construir experiências de app personalizadas para seus usuários. </td>
-    <td> O {{site.data.keyword.appid_short_notm}} permite armazenar dados do usuário, como
-preferências de app ou informações de seus perfis sociais públicos. É possível usar esses dados para
+    <td> O {{site.data.keyword.appid_short_notm}} permite que você [armazene dados do usuário](/docs/services/appid/user-profile.html), como preferências de app ou informações de seus perfis sociais públicos. É possível usar esses dados para
 assegurar que seus usuários tenham uma experiência que seja customizada para eles. </td>
   </tr>
 </table>
-
-**Nota**: os protocolos implementados são totalmente compatíveis com o OpenID Connect (OIDC).
 
 
 ## Software
 {: #architecture}
 
-Com o {{site.data.keyword.appid_short_notm}} é possível incluir um nível de segurança em seus aplicativos solicitando aos usuários para se conectarem. Também
-é possível usar o servidor SDK para proteger os seus recursos de backend.
+Com o {{site.data.keyword.appid_short_notm}}, é possível incluir um nível de segurança a seus apps, solicitando aos usuários que se conectem. Também é possível usar o servidor SDK para proteger seus recursos de backend.
 
 O diagrama a seguir mostra uma visão geral de como o serviço do {{site.data.keyword.appid_short_notm}} funciona.
 
-
-![{{site.data.keyword.appid_short_notm}} diagrama de arquitetura](/images/appid_architecture2.png)
+![{{site.data.keyword.appid_short_notm}} diagrama de arquitetura](/images/appid_architecture.png)
 
 Figura 1. Diagrama de arquitetura do {{site.data.keyword.appid_short_notm}}
 
 
-
 <dl>
   <dt> Aplicativo </dt>
-    <dd> O SDK do cliente fornece uma classe de solicitação para se comunicar com os seus recursos em nuvem. O SDK do cliente automaticamente inicia o processo de
-autenticação quando ele detecta um desafio de autorização. </dd>
+    <dd> SDK do servidor: é possível proteger seus recursos de backend que estão hospedados no {{site.data.keyword.Bluemix_notm}} e seus apps da web usando o SDK do servidor. Ele extrai o token de acesso de uma solicitação e o valida com o {{site.data.keyword.appid_short_notm}}. </br>
+    SDK do cliente: é possível proteger seus apps móveis com o SDK cliente Android ou iOS. O SDK cliente se comunica com seus recursos em nuvem para iniciar o processo de autenticação quando ele detecta um desafio de autorização.</dd>
   <dt> {{site.data.keyword.Bluemix_notm}} </dt>
-    <dd>  O SDK do servidor extrai o token de acesso da solicitação e a valida com o {{site.data.keyword.appid_short_notm}}. Após a autenticação bem-sucedida, o {{site.data.keyword.appid_short_notm}} retorna tokens de acesso e de identidade para o seu aplicativo. </dd>
-  <dt> Provedores de identidade </dt>
-    <dd> O serviço organiza um redirecionamento para o provedor de identidade e verifica a autenticação
-para fornecer acesso a seu aplicativo. O {{site.data.keyword.appid_short_notm}} verifica as
+    <dd> ID do app: após a autenticação bem-sucedida, o {{site.data.keyword.appid_short_notm}} retorna tokens de acesso e de identidade para seu app.</br>
+    Cloud Directory: os usuários podem inscrever-se para o seu serviço com e-mail e senha. É possível, então, gerenciar seus usuários em uma visualização de lista por meio da UI. </dd>
+  <dt> Externo (terceiros) </dt>
+    <dd>  O {{site.data.keyword.appid_short_notm}} suporta dois provedores de identidade social: Facebook e Google+. O serviço organiza um redirecionamento para o provedor de identidade e fornece acesso a seu app após a verificação de autenticação. O {{site.data.keyword.appid_short_notm}} verifica as
 credenciais sem ter acesso à passphrase real. </dd>
 </dl>
 
@@ -84,7 +74,7 @@ credenciais sem ter acesso à passphrase real. </dd>
 ## Fluxo de Pedido
 {: #request}
 
-O diagrama a seguir descreve como uma solicitação flui do SDK do cliente para seu aplicativo backend e provedores de identidade.
+O diagrama a seguir descreve como uma solicitação flui do SDK do cliente para seus recursos de backend e provedores de identidade.
 
 ![{{site.data.keyword.appid_short_notm}} fluxo de solicitação](/images/appidrequestflow.png)
 
@@ -103,32 +93,4 @@ será manipulada pelo respectivo fluxo de OAuth.
 * O SDK do cliente reenvia automaticamente a solicitação original que acionou o fluxo de autorização.
 * O SDK do servidor extrai o cabeçalho de autorização da solicitação, valida o cabeçalho com o serviço e concede acesso a um recurso de backend.
 
-
-## Componentes
-{: #components}
-
-O serviço é composto dos componentes a seguir.
-
-<dl>
-  <dt> Painel </dt>
-    <dd> No painel de serviço, é possível fazer download de amostras de migração, ver os logs de atividade e configurar provedores de autenticação e identidade. </dd>
-  <dt> Client SDK </dt>
-    <dd> É possível usar o SDK do cliente com seus apps móveis e da web para implementar a autenticação do usuário. </br></br>
-    Pré-requisitos para Android:
-    <ul><ul><li> API 25 ou superior </li>
-    <li> Java 8.x </li>
-    <li> Ferramentas Android SDK 25.2.5 ou superior </li>
-    <li> Ferramentas da plataforma Android SDK 25.0.3 ou superior </li>
-    <li> Ferramentas de construção Android versão 25.0.2 ou superior </li></ul></ul></br>
-    Pré-requisitos para o iOS:
-    </br>
-    <ul><ul><li> iOS9 ou superior </li>
-    <li> MacOS 10.11.5 </li>
-    <li>Xcode 8.2</li></ul></ul></dd>
-  <dt> SDK do servidor </dt>
-    <dd> É possível proteger seus recursos de backend hospedados no {{site.data.keyword.Bluemix_notm}} </br>
-    Tempos de execução suportados:
-    <ul><ul><li> Node.js </li>
-    <li> Liberty for Java </li>
-    <li> Swift </li></ul></ul></dd>
-</dl>
+**Nota**: os protocolos implementados são totalmente compatíveis com o OpenID Connect (OIDC).

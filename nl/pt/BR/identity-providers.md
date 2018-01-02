@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-11-07"
+lastupdated: "2017-12-06"
 
 ---
 
@@ -11,26 +11,11 @@ lastupdated: "2017-11-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 
-# Configurando provedores de identidade
+# Configurando provedores de identidade social
 {: #setting-up-idp}
 
 Provedores de identidade fornecem um nível extra de autenticação para seus apps móveis e da web. Com o {{site.data.keyword.appid_full}}, é possível configurar um ou vários provedores de identidade para configurar uma experiência de conexão única para seu app.
 {: shortdesc}
-
-É possível usar os provedores de identidade a seguir:
-
-<dl>
-  <dt> Facebook </dt>
-    <dd> Os usuários efetuam login no seu aplicativo usando a mesma senha e o mesmo e-mail que eles usam
-para efetuar login em suas contas do Facebook. </dd>
-  <dt> Google </dt>
-    <dd> Os usuários efetuam login no seu aplicativo usando a mesma senha e o mesmo e-mail que eles usam
-para efetuar login em suas contas do Google. </dd>
-</dl>
-
-
-</br>
-</br>
 
 ## Configuração padrão
 {: #default}
@@ -40,11 +25,8 @@ com a configuração inicial dos provedores de identidade.
 {: shortdesc}
 
 As credenciais padrão são configuradas para o Facebook e o Google. Você tem o limite de 100 usos das
-credenciais por instância, por dia. Como elas são credenciais da IBM, elas devem ser usadas em seus
-aplicativos somente no modo de desenvolvimento. Antes de publicar seu app, [atualize a configuração para as suas próprias credenciais](/docs/services/appid/identity-providers.html).
+credenciais por instância, por dia. Como elas são credenciais da IBM, elas devem ser usadas em seus aplicativos somente no modo de desenvolvimento. Antes de publicar seu app, [atualize a configuração para as suas próprias credenciais](/docs/services/appid/identity-providers.html).
 
-
-</br>
 
 ## Configurando o Facebook
 {: #facebook}
@@ -58,7 +40,7 @@ como um provedor de identidade.
 Para usar o Facebook como um provedor de identidade, deve-se incluir e configurar a plataforma
 do website em seu aplicativo Facebook.
 
-1. Efetue login em sua conta no <a href="https://developers.facebook.com/docs/apps/register" target="_blank">site Facebook for developers
+1. Efetue login em sua conta no <a href="https://developers.facebook.com/docs/apps/register" target="_blank">site do Facebook para desenvolvedores
 <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a>.
 2. Tome nota do ID e do segredo do app Facebook. Esses valores são necessários para configurar o seu projeto da web para autenticação em seu painel de serviço.
 3. Inclua a plataforma da web e insira a URL do site.
@@ -79,8 +61,6 @@ a autenticação do Facebook em seu painel de serviço.
 5. Opcional: para apps da web, insira a URL de redirecionamento no campo **URLs de redirecionamento de aplicativo da web**. Esse
 valor é determinado pelo desenvolvedor e usado para acessar a URL de redirecionamento após o processo de autorização ser concluído.
 
-
-</br>
 
 ## Configurando o Google
 {: #google}
@@ -115,6 +95,6 @@ editar seu painel de serviço para a autenticação do Google.
 nos detalhes do provedor de identidade do Google.
     2. Na guia de credenciais do projeto do Google, selecione o identificador de cliente criado para essa integração.
     3. Cole a URL do {{site.data.keyword.appid_short}} no campo **URIs de
-redirecionamento autorizadas** e clique em **Salvar**.
+redirecionamento autorizados** e clique em **Salvar**.
 4. Clique em **Salvar** para atualizar sua configuração do Google no {{site.data.keyword.appid_short}}.
 5. Opcional: para apps da web, insira uma URL de redirecionamento na guia **Gerenciar**. Após a conclusão do processo de autorização, um usuário será enviado para essa URL.

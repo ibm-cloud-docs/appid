@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years:  2017
-lastupdated: "2017-11-02"
+  years: 2017
+lastupdated: "2017-12-06"
 
 ---
 {:new_window: target="_blank"}
@@ -12,7 +12,7 @@ lastupdated: "2017-11-02"
 
 
 
-# Usando o {{site.data.keyword.appid_short_notm}} com um ambiente de desenvolvimento local
+#  Configurando um servidor de desenvolvimento local para trabalhar com o {{site.data.keyword.appid_short_notm}}
 {: #protecting-local}
 
 É possível configurar o seu ambiente local para usar o serviço do {{site.data.keyword.appid_short}}. Especificamente, é possível desenvolver o código
@@ -20,24 +20,10 @@ localmente usando o SDK do servidor {{site.data.keyword.appid_short_notm}} para 
 {:shortdesc}
 
 
-## Configurando o SDK do servidor
-{: #serversetup}
+## Antes de iniciar
+{: #begin}
 
-Para usar o {{site.data.keyword.appid_short_notm}} com um servidor de desenvolvimento local, deve-se passar o parâmetro de opção quando você estiver
-criando a sua estratégia, com os atributos a seguir:
-
-* APIStrategy: `oauthServerUrl`
-* WebAppStrategy: tenantId, clientId, secret, oauthServerUrl, redirectUri
-
-Configure o seu atributo 'redirectUri' para a porta de app de host local com o caminho de retorno de chamada. Por exemplo: `http://localhost:<port>/callback`. O terminal de retorno de chamada conclui o processo de autorização.
-
-Para obter as suas credenciais de serviço, conclua as etapas a seguir:
-
-1. Abra o seu painel do {{site.data.keyword.Bluemix_notm}} e clique na guia **Credenciais de serviço**.
-2. Clique em **Mostrar credenciais**. As suas credenciais de acesso são exibidas como um Objeto da JSON.
-
-Para obter amostras e mais informações, veja <a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs" target="_blank">o repositório do GitHub
-do SDK do servidor <img src="../../icons/launch-glyph.svg" alt="ícone de Link externo"></a>.
+Certifique-se de ter concluído a [instalação do SDK do servidor](/docs/services/appid/install.html#nodejs-setup).
 
 
 ## Configurando aplicativos {{site.data.keyword.appid_short_notm}} para trabalhar com um servidor de desenvolvimento local

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-11-07"
+lastupdated: "2017-12-08"
 
 ---
 
@@ -10,14 +10,16 @@ lastupdated: "2017-11-07"
 {:shortdesc: .shortdesc}
 
 
-# Perfis do usuário
+# Acessando atributos do usuário
 {: #user-profile}
 
-Um perfil de usuário é uma entidade que é armazenada e mantida pelo {{site.data.keyword.appid_full}}. O perfil contém os atributos e a identidade de um usuário e pode ser anônimo ou vinculado a uma identidade gerenciada por um provedor de identidade.
+É possível gerenciar dados do usuário final que podem ser usados para construir experiências de app personalizadas.
 {:shortdesc}
 
+Um atributo do usuário é um segmento de informações em uma entidade que são armazenadas e mantidas pelo {{site.data.keyword.appid_full}}. O perfil contém os atributos e a identidade de um usuário e pode ser anônimo ou vinculado a uma identidade gerenciada por um provedor de identidade.
+
 O {{site.data.keyword.appid_short_notm}} fornece uma API para efetuar login, seja anonimamente, seja por autenticação com
-[provedores de identidade](/docs/services/appid/identity-providers.html#setting-up-idp) OpenId Connect (OIDC). O terminal de API do atributo de perfil do usuário é um recurso protegido pelo token de acesso gerado pelo {{site.data.keyword.appid_short_notm}} durante o processo de login e de autorização.
+[provedores de identidade](/docs/services/appid/identity-providers.html) OpenId Connect (OIDC). O terminal de API do atributo de perfil do usuário é um recurso protegido pelo token de acesso gerado pelo {{site.data.keyword.appid_short_notm}} durante o processo de login e de autorização.
 
 
 ## Armazenando, lendo e excluindo atributos do usuário
@@ -25,40 +27,169 @@ O {{site.data.keyword.appid_short_notm}} fornece uma API para efetuar login, sej
 
 O {{site.data.keyword.appid_short_notm}} fornece uma <a href="https://appid-profiles.ng.bluemix.net/swagger-ui/index.html#/Attributes" target="_blank">API de REST <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a> para executar operações de criação, recuperação, atualização e exclusão em atributos do usuário. O serviço também fornece um SDK para <a href="https://github.com/ibm-cloud-security/appid-clientsdk-android" target="_blank">Android <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a> e clientes móveis do <a href="https://github.com/ibm-cloud-security/appid-clientsdk-swift" target="_blank">Swift <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a>.
 
+## Acessando atributos do usuário com o SDK Android
+{: #accessing}
 
-## Identidade do OAuth
-{: #oauth}
+Ao obter um token de acesso, é possível obter acesso ao terminal protegido de atributos do usuário. É possível obter acesso usando os métodos de API a seguir.
 
-Quando o serviço chama a API de login do OAuth, o {{site.data.keyword.appid_short_notm}} usa os protocolos OAuth 2.0 e OIDC para autorizar e autenticar o responsável pela chamada com um provedor de identidade selecionado. Após a autenticação, a identidade é associada a um registro do usuário do {{site.data.keyword.appid_short_notm}}. O {{site.data.keyword.appid_short_notm}} retorna um token de acesso que pode ser usado para acessar os atributos do usuário e um token de identidade que está retendo as informações de identidade fornecidas pelo provedor de identidade. O mesmo registro
-do usuário e seus atributos poderão ser acessados novamente por meio de qualquer cliente que se autenticar com essa mesma identidade.
+  ```java
+  void setAttribute(@NonNull String name, @NonNull String value, UserAttributeResponseListener listener);
+  void setAttribute(@NonNull String name, @NonNull String value, @NonNull AccessToken accessToken, UserAttributeResponseListener listener);
+
+  void getAttribute(@NonNull String name, UserAttributeResponseListener listener);
+  void getAttribute(@NonNull String name, @NonNull AccessToken accessToken, UserAttributeResponseListener listener);
+
+  void deleteAttribute(@NonNull String name, UserAttributeResponseListener listener);
+  void deleteAttribute(@NonNull String name, @NonNull AccessToken accessToken, UserAttributeResponseListener listener);
+
+  void getAllAttributes(@NonNull UserAttributeResponseListener listener);
+  void getAllAttributes(@NonNull AccessToken accessToken, @NonNull UserAttributeResponseListener listener);
+  ```
+  {: codeblock}
+
+Quando um token de acesso não for transmitido explicitamente, o {{site.data.keyword.appid_short_notm}} usará o último token recebido.
+
+Por exemplo, é possível chamar o código a seguir para configurar um novo atributo ou substituir um existente.
+
+  ```java
+  appId.getUserAttributeManager().setAttribute(name, value, useThisToken,new UserAttributeResponseListener() {
+		@Override
+		public void onSuccess(JSONObject attributes) {
+			//attributes received in JSON format on successful response
+		}
+
+		@Override
+		public void onFailure(UserAttributesException e) {
+			//Exception occurred
+		}
+	});
+  ```
+  {: codeblock}
+
+### Login anônimo
+{: #anonymous notoc}
+
+Com o {{site.data.keyword.appid_short_notm}} é possível efetuar login [anonimamente](/docs/services/appid/user-profile.html#anonymous).
+
+  ```java
+  appId.loginAnonymously(getApplicationContext(), new AuthorizationListener() {
+		@Override
+		public void onAuthorizationFailure(AuthorizationException exception) {
+			//Exception occurred
+		}
+
+		@Override
+		public void onAuthorizationCanceled() {
+			//Authentication canceled by the user
+		}
+
+		@Override
+		public void onAuthorizationSuccess(AccessToken accessToken, IdentityToken identityToken) {
+			//User authenticated
+		}
+	});
+  ```
+  {: codeblock}
+
+### Autenticação progressiva
+{: #progressive notoc}
+
+Quando o usuário mantém um token de acesso anônimo, ele pode ser identificado passando-o para o método `loginWidget.launch`.
+
+  ```java
+  void launch (@NonNull final Activity activity, @NonNull final AuthorizationListener authorizationListener, String accessTokenString);
+  ```
+  {: codeblock}
+
+Após um login anônimo, a autenticação progressiva ocorrerá mesmo se o widget de login for chamado sem passar um token de acesso porque o serviço usou o último
+token recebido. Se desejar limpar os tokens armazenados, execute o comando a seguir.
+
+  ```java
+  	appIDAuthorizationManager = new AppIDAuthorizationManager(this.appId);
+  appIDAuthorizationManager.clearAuthorizationData();
+  ```
+  {: codeblock}
 
 
-## Usuário Anônimo
-{: #anonymous}
+## Acessando atributos do usuário com o SDK iOS
+{: #accessing}
 
-Quando você efetuar login anonimamente, o {{site.data.keyword.appid_short_notm}} criará um registro do usuário ad hoc que será marcado como anônimo. O
-{{site.data.keyword.appid_short_notm}} retorna acesso anônimo e tokens de identidade para o responsável pela chamada. Usando o token de acesso anônimo, o aplicativo de usuário pode criar, ler, atualizar e excluir atributos, que são armazenados no registro do usuário. Como um exemplo, um desenvolvedor pode criar
-um aplicativo no qual um usuário pode começar imediatamente a incluir itens em um carrinho de compras sem precisar efetuar login.
+Ao obter um token de acesso, é possível obter acesso ao terminal protegido de atributos do usuário. Isso é feito usando os métodos de API a seguir.
+
+  ```swift
+  func setAttribute(key: String, value: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
+  func setAttribute(key: String, value: String, accessTokenString: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
+
+  func getAttribute(key: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
+  func getAttribute(key: String, accessTokenString: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
+
+  func getAttributes(completionHandler: @escaping(Error?, [String:Any]?) -> Void)
+  func getAttributes(accessTokenString: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
+
+  func deleteAttribute(key: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
+  func deleteAttribute(key: String, accessTokenString: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
+  ```
+  {: codeblock}
+
+Quando um token de acesso não for transmitido explicitamente, o {{site.data.keyword.appid_short_notm}} usará o último token recebido.
+
+Por exemplo, é possível chamar o código a seguir para configurar um novo atributo ou substituir um existente.
+
+  ```swift
+  AppID.sharedInstance.userAttributeManager?.setAttribute("key", "value", completionHandler: { (error, result) in
+      if error = nil {
+          //Attributes recieved as a Dictionary
+      } else {
+          // An error has occurred
+      }
+  })
+  ```
+  {: codeblock}
 
 
-## Usuário identificado
-{: #identified}
+### Login anônimo
+{: #anonymous notoc}
 
-Um usuário anônimo com uma identidade fornecida por um provedor de identidade pode se tornar um usuário identificado. O fluxo para mover de um usuário anônimo para um usuário identificado é esboçado nas etapas a seguir:
+Com o {{site.data.keyword.appid_short_notm}} é possível efetuar login [anonimamente](/docs/services/appid/user-profile.html#anonymous).
 
-* O desenvolvedor passa o token de acesso anônimo para a API de login.
-* O {{site.data.keyword.appid_short_notm}} autentica o responsável pela chamada com o provedor de identidade.
-* O {{site.data.keyword.appid_short_notm}} localiza o registro do usuário anônimo definido pelo token de acesso e designa a identidade a ele.
+  ```swift
+  class delegate : AuthorizationDelegate {
 
-    **Nota**: a identidade poderá ser designada ao registro anônimo somente se a mesma identidade ainda não foi designada a outro usuário. Se a identidade já estiver associada a outro usuário do {{site.data.keyword.appid_short_notm}}, os tokens de acesso e de identidade conterão informações do registro desse usuário e fornecerão acesso aos seus atributos. O usuário anônimo anterior e os seus atributos não serão acessíveis por meio do novo token de acesso. Até o token expirar, as informações ainda poderão ser acessadas através do token de acesso anônimo. O desenvolvedor poderá escolher como ele deseja mesclar os
-atributos anônimos do usuário anônimo e o usuário conhecido.
+      public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, response:Response?) {
+          //User authenticated
+      }
 
-* Os novos tokens de acesso e de identidade recebidos do {{site.data.keyword.appid_short_notm}} apontam para o usuário conhecido e o token de identidade contém as informações públicas que são recebidas do provedor de identidade.
-* Os tokens anônimos tornam-se inválidos para o usuário.
+      public func onAuthorizationCanceled() {
+          //Authentication canceled by the user
+      }
 
-Os atributos que eram contidos por esse usuário enquanto ele estava anônimo serão acessíveis com o novo token de acesso. Novos tokens podem ser incluídos, mudados
-ou excluídos. Ao avançarem, o usuário e os seus atributos serão resolvidos e acessíveis quando efetuarem login com a mesma identidade de qualquer cliente.
+      public func onAuthorizationFailure(error: AuthorizationError) {
+          //Error occurred
+      }
+   }
 
+  AppID.sharedInstance.loginAnonymously( authorizationDelegate: delegate())
+  ```
+  {: codeblock}
+
+### Autenticação progressiva
+{: #progressive notoc}
+
+Quando você retém um token de acesso anônimo, o usuário pode se tornar um usuário identificado passando-o para o método `loginWidget.launch`.
+
+  ```swift
+  func launch(accessTokenString: String? , delegate: AuthorizationDelegate)
+  ```
+  {: codeblock}
+
+Após um login anônimo, a autenticação progressiva ocorrerá mesmo se o widget de login for chamado sem passar um token de acesso porque o serviço usou o último
+token recebido. Se desejar limpar os tokens armazenados, execute o comando a seguir.
+
+  ```swift
+  var appIDAuthorizationManager = AppIDAuthorizationManager(appid: AppID.sharedInstance)
+  appIDAuthorizationManager.clearAuthorizationData()
+  ```
+  {: codeblock}
 
 ## Separação e criptografia de dados
 {: #data}
