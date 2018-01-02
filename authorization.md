@@ -220,7 +220,7 @@ When the web app strategy class detects unauthenticated attempts to access a pro
 
 
 ## Progressive authentication
-{: #oauth}
+{: #progressive-authentication}
 
 {{site.data.keyword.appid_short_notm}} uses OAuth 2.0 and OIDC protocols to authorize and authenticate a user. After authentication, their identity is associated with a user record. The service returns an access token that can be used to access the user's attributes and an identity token that contains the information about the user that was provided by the identity provider. The record and its attributes can be accessed again from any client that authenticates with the same identity.
 
