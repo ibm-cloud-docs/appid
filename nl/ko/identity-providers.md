@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-11-07"
+lastupdated: "2017-12-06"
 
 ---
 
@@ -11,24 +11,11 @@ lastupdated: "2017-11-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 
-# ID 제공자 구성
+# 소셜 ID 제공자 구성
 {: #setting-up-idp}
 
 ID 제공자는 모바일 및 웹 앱에 대한 추가 인증 레벨을 제공합니다. {{site.data.keyword.appid_full}}를 사용하면 앱에 대한 싱글 사인온 환경을 설정할 수 있도록 하나 이상의 ID 제공자를 구성할 수 있습니다.
 {: shortdesc}
-
-다음의 ID 제공자를 사용할 수 있습니다. 
-
-<dl>
-  <dt> Facebook</dt>
-    <dd> 사용자는 자체 Facebook 계정에 로그인하는 데 사용하는 동일한 비밀번호와 이메일을 사용하여 애플리케이션에 로그인합니다. </dd>
-  <dt> Google</dt>
-    <dd> 사용자는 자체 Google 계정에 로그인하는 데 사용하는 동일한 비밀번호와 이메일을 사용하여 애플리케이션에 로그인합니다. </dd>
-</dl>
-
-
-</br>
-</br>
 
 ## 기본 구성
 {: #default}
@@ -36,10 +23,8 @@ ID 제공자는 모바일 및 웹 앱에 대한 추가 인증 레벨을 제공�
 {{site.data.keyword.appid_short_notm}}는 ID 제공자의 초기 설정에 도움이 되도록 기본 구성을 제공합니다.
 {: shortdesc}
 
-기본 신임 정보가 Facebook 및 Google에 맞게 설정되어 있습니다. 매일 인스턴스당 최대 100개까지만 신임 정보를 사용할 수 있습니다. IBM 신임 정보이므로, 이는 개발 모드에서만 애플리케이션에서 사용되어야 합니다. 앱을 공개하기 전에 [자체 신임 정보로 구성을 업데이트](/docs/services/appid/identity-providers.html)하십시오. 
+기본 신임 정보가 Facebook 및 Google에 맞게 설정되어 있습니다. 매일 인스턴스당 최대 100개까지만 신임 정보를 사용할 수 있습니다. IBM 신임 정보이므로, 이는 개발 모드에서만 앱에서 사용되어야 합니다. 앱을 공개하기 전에 [자체 신임 정보로 구성을 업데이트](/docs/services/appid/identity-providers.html)하십시오. 
 
-
-</br>
 
 ## Facebook 구성
 {: #facebook}
@@ -69,8 +54,6 @@ Facebook 앱 ID와 본인확인정보가 있으며 개발자용 Facebook 앱이 
 4. **저장**을 클릭하십시오.
 5. 선택사항: 웹 앱의 경우 **웹 애플리케이션 경로 재지정 URL** 필드에 경로 재지정 URL을 입력하십시오. 이 값은 개발자가 판별하며 권한 부여 프로세스가 완료된 후에 경로 재지정 URL에 액세스하는 데 사용됩니다. 
 
-
-</br>
 
 ## Google 구성
 {: #google}

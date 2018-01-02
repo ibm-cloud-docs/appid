@@ -1,5 +1,3 @@
-<!-- Markdown Navigation -->
-
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
@@ -8,50 +6,42 @@ IBM Cloud App ID
 
     {: .navgroup id="learn"}
     index.md
-    
+    about.md
+    authorization.md
+    {: .navgroup-end}
+
+    {: .navgroup id="howto"}
+    install.md
+
     {: .topicgroup}
-    Produktinformationen
-        about.md
-        access-identity.md
-        authorization-resources.md
-        user-profile.md
+    Benutzer authentifizieren
+        login-widget.md
+        cloud-directory.md
+        identity-providers.md
+
+    protecting-resources.md
+    user-profile.md
+    protecting-resources-local.md
+    existing.md
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
-    [REST-API](https://appid-oauth.ng.bluemix.net/swagger-ui/#!/Authorization_Server_V3/authorization)
+    {: .topicgroup}
+    APIs
+        [Berechtigung](http://mobileclientaccess.mybluemix.net/swagger-ui/#/Authorization_Server_V3)
 
     {: .topicgroup}
     SDKs
         [Android-Client-SDK](https://github.com/ibm-cloud-security/appid-clientsdk-android)
-        [iOS Swift-Client-SDK](https://github.com/ibm-cloud-security/appid-clientsdk-swift)
+        [iOS-Swift-Client-SDK](https://github.com/ibm-cloud-security/appid-clientsdk-swift)
         [Node.js-Server-SDK](https://github.com/ibm-cloud-security/appid-serversdk-nodejs)
         [Swift-Server-SDK](https://github.com/ibm-cloud-security/appid-serversdk-swift)
-
+    
     relatedlinks.md
     {: .navgroup-end}
 
-    {: .navgroup id="howto"}
-    existing.md
-
-    {: .topicgroup}
-    SDKs und Beispiel-App einrichten
-        developing-apps.md
-        protecting-resources-local.md
-        getting-started-android.md
-        getting-started-ios-swift-sdk.md
-
-    identity-providers.md
-    login-widget.md
-
-    {: .topicgroup}
-    Ressourcen schützen
-        protecting-resources.md
-        protecting-resources-nodejs.md
-        protecting-resources-swift.md
-        protecting-resources-java.md
-    {: .navgroup-end}
-
     {: .navgroup id="help"}
+    faq.md
     ts_index.md
     mca.md
     {: .navgroup-end}

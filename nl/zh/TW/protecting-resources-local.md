@@ -2,7 +2,7 @@
 
 copyright:
   years:  2017
-lastupdated: "2017-11-02"
+lastupdated: "2017-12-06"
 
 ---
 {:new_window: target="_blank"}
@@ -12,29 +12,17 @@ lastupdated: "2017-11-02"
 
 
 
-# 搭配使用 {{site.data.keyword.appid_short_notm}} 與本端開發環境
+#  將本端開發伺服器配置為使用 {{site.data.keyword.appid_short_notm}}
 {: #protecting-local}
 
 您可以配置本端環境來使用 {{site.data.keyword.appid_short}} 服務。尤其，您可以在本端使用 {{site.data.keyword.appid_short_notm}} 伺服器 SDK 來開發程式碼，將要求傳送至開發伺服器。
 {:shortdesc}
 
 
-## 設定伺服器 SDK
-{: #serversetup}
+## 開始之前
+{: #begin}
 
-若要搭配使用 {{site.data.keyword.appid_short_notm}} 與本端開發伺服器，您必須使用下列屬性，在建立策略時傳遞選項參數：
-
-* APIStrategy：`oauthServerUrl`
-* WebAppStrategy：tenantId、clientId、secret、oauthServerUrl、redirectUri
-
-請將 'redirectUri' 屬性設為具有回呼路徑的本端主機應用程式埠。例如：`http://localhost:<port>/callback`。回呼端點會完成授權處理程序。
-
-若要取得服務認證，請完成下列步驟：
-
-1. 開啟 {{site.data.keyword.Bluemix_notm}} 儀表板，然後按一下**服務認證**標籤。
-2. 按一下**顯示認證**。您的存取認證會顯示為「JSON 物件」。
-
-如需範例及相關資訊，請參閱<a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs" target="_blank">伺服器 SDK GitHub 儲存庫 <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>。
+確定您已完成[伺服器 SDK 安裝](/docs/services/appid/install.html#nodejs-setup)。
 
 
 ## 配置 {{site.data.keyword.appid_short_notm}} 應用程式以使用本端開發伺服器

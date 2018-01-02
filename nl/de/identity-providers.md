@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-11-07"
+lastupdated: "2017-12-06"
 
 ---
 
@@ -11,24 +11,11 @@ lastupdated: "2017-11-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 
-# Identitätsprovider konfigurieren
+# Social Media-Identitätsprovider konfigurieren
 {: #setting-up-idp}
 
 Identitätsprovider bieten eine zusätzliche Authentifizierungsstufe für Ihre mobilen Apps und Web-Apps. Mit {{site.data.keyword.appid_full}} können Sie einen oder mehrere Identitätsprovider konfigurieren und so Single Sign-on-Funktionalität für Ihre App einrichten.
 {: shortdesc}
-
-Die folgenden Identitätsprovider können verwendet werden:
-
-<dl>
-  <dt> Facebook </dt>
-    <dd> Benutzer melden sich bei Ihrer App an, indem sie dasselbe Kennwort und dieselbe E-Mail-Adresse wie für die Anmeldung bei ihrem Facebook-Konto verwenden. </dd>
-  <dt> Google </dt>
-    <dd> Benutzer melden sich bei Ihrer App an, indem sie dasselbe Kennwort und dieselbe E-Mail-Adresse wie für die Anmeldung bei ihren Google-Konten verwenden. </dd>
-</dl>
-
-
-</br>
-</br>
 
 ## Standardkonfiguration
 {: #default}
@@ -36,10 +23,8 @@ Die folgenden Identitätsprovider können verwendet werden:
 {{site.data.keyword.appid_short_notm}} stellt eine Standardkonfiguration bereit, die Sie bei der ersten Einrichtung der Identitätsprovider unterstützt.
 {: shortdesc}
 
-Die Standardberechtigungsnachweise sind für Facebook und Google eingerichtet. Der Grenzwert beträgt 100 Verwendungen der Berechtigungsnachweise pro Instanz und Tag. Da es sich um IBM Berechtigungsnachweise handelt, dürfen sie in den Anwendungen nur im Entwicklungsmodus verwendet werden. Bevor Sie die App veröffentlichen, [aktualisieren Sie die Konfiguration so, dass Ihre eigenen Berechtigungsnachweise verwendet werden](/docs/services/appid/identity-providers.html).
+Die Standardberechtigungsnachweise sind für Facebook und Google eingerichtet. Der Grenzwert beträgt 100 Verwendungen der Berechtigungsnachweise pro Instanz und Tag. Da es sich um IBM Berechtigungsnachweise handelt, dürfen sie in den Apps nur im Entwicklungsmodus verwendet werden. Bevor Sie die App veröffentlichen, [aktualisieren Sie die Konfiguration so, dass Ihre eigenen Berechtigungsnachweise verwendet werden](/docs/services/appid/identity-providers.html).
 
-
-</br>
 
 ## Konfiguration für Facebook
 {: #facebook}
@@ -69,8 +54,6 @@ Nachdem Sie Ihre Facebook-App-ID und den geheimen Schlüssel erhalten haben und 
 4. Klicken Sie auf **Speichern**.
 5. Optional: Geben Sie für Web-Apps die Weiterleitungs-URL in das Feld für die Weiterleitungs-URLs der Webanwendung ein. Dieser Wert wird vom Entwickler festgelegt und wird verwendet, um auf die Weiterleitungs-URL zuzugreifen, wenn der Berechtigungsprozess beendet ist.
 
-
-</br>
 
 ## Konfiguration für Google
 {: #google}

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years:  2017
-lastupdated: "2017-11-02"
+  years: 2017
+lastupdated: "2017-12-06"
 
 ---
 {:new_window: target="_blank"}
@@ -12,7 +12,7 @@ lastupdated: "2017-11-02"
 
 
 
-# Utilisation d'{{site.data.keyword.appid_short_notm}} avec un environnement de développement local
+#  Configuration d'un serveur de développement local pour travailler avec {{site.data.keyword.appid_short_notm}}
 {: #protecting-local}
 
 Vous pouvez configurer votre environnement local afin d'utiliser le service {{site.data.keyword.appid_short}}. Plus précisément, vous pouvez développer le code en local à
@@ -20,24 +20,10 @@ l'aide du SDK serveur d'{{site.data.keyword.appid_short_notm}} pour envoyer des 
 {:shortdesc}
 
 
-## Configuration du SDK serveur
-{: #serversetup}
+## Avant de commencer
+{: #begin}
 
-Pour utiliser {{site.data.keyword.appid_short_notm}} avec un serveur de développement local, vous devez transmettre le paramètre d'option avec les attributs suivants lorsque vous créez votre stratégie :
-
-* APIStrategy: `oauthServerUrl`
-* WebAppStrategy: tenantId, clientId, secret, oauthServerUrl, redirectUri
-
-Pour votre attribut 'redirectUri', définissez le port de votre application
-localhost avec le chemin callback. Exemple : `http://localhost:<port>/callback`. Le noeud final de rappel conclut le processus d'authentification.
-
-Pour obtenir vos données d'identification pour le service, procédez comme suit :
-
-1. Ouvrez votre tableau de bord {{site.data.keyword.Bluemix_notm}} et cliquez sur l'onglet **Données d'identification pour le service**.
-2. Cliquez sur **Afficher les données d'identification**. Vos identifiants d'accès sont affichées sous forme d'objet JSON.
-
-Pour consulter des exemples et pour plus d'informations, voir le
-<a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs" target="_blank">référentiel GitHub du SDK serveur <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a>.
+Assurez-vous d'avoir effectué l'[installation du SDK du serveur](/docs/services/appid/install.html#nodejs-setup).
 
 
 ## Configuration d'applications {{site.data.keyword.appid_short_notm}} pour leur utilisation avec un serveur de développement local
@@ -74,8 +60,8 @@ Pour configurer vos applications afin d'utiliser un serveur de développement lo
 ```java
 String baseRequestUrl = "http://localhost:<port>"; //set to your server running
 port String tenantId = "your-AppID-service-tenantID"; String region = AppID.REGION_UK;
-//set your App ID application region here. Currently possible values are
-AppID.REGION_US_SOUTH, AppID.REGION_SYDNEY, or AppID.REGION_UK.
+//set your App ID application region here. Currently
+possible values are AppID.REGION_US_SOUTH, AppID.REGION_SYDNEY, or AppID.REGION_UK.
 
 BMSClient bmsClient= BMSClient.getInstance();
 bmsClient.initialize(getApplicationContext(), region);

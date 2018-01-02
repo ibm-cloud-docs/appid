@@ -2,7 +2,7 @@
 
 copyright:
   years:  2017
-lastupdated: "2017-11-02"
+lastupdated: "2017-12-06"
 
 ---
 {:new_window: target="_blank"}
@@ -12,29 +12,17 @@ lastupdated: "2017-11-02"
 
 
 
-# {{site.data.keyword.appid_short_notm}} mit einer lokalen Entwicklungsumgebung verwenden
+#  Lokalen Entwicklungsserver für die Verwendung mit {{site.data.keyword.appid_short_notm}} konfigurieren
 {: #protecting-local}
 
 Sie können Ihre lokale Umgebung so konfigurieren, dass sie den {{site.data.keyword.appid_short}}-Service verwendet. Insbesondere können Sie Code lokal entwickeln, indem Sie das {{site.data.keyword.appid_short_notm}}-Server-SDK verwenden, um Anforderungen an den Entwicklungsserver senden.
 {:shortdesc}
 
 
-## Server-SDK einrichten
-{: #serversetup}
+## Vorbereitungen
+{: #begin}
 
-Zur Verwendung von {{site.data.keyword.appid_short_notm}} mit einem lokalen Entwicklungsserver müssen Sie den Optionsparameter beim Erstellen Ihre Strategie übergeben. Verwenden Sie dazu folgende Attribute:
-
-* APIStrategy: `oauthServerUrl`
-* WebAppStrategy: tenantId, clientId, secret, oauthServerUrl, redirectUri
-
-Legen Sie das Attribut 'redirectUri' auf den App-Port des lokalen Hosts mit dem Callback-Pfad fest. Beispiel: `http://localhost:<port>/callback`. Der Callback-Endpunkt beendet den Berechtigungsprozess.
-
-Um Ihre Serviceberechtigungsnachweise abzurufen, führen Sie folgende Schritte aus:
-
-1. Öffnen Sie Ihr {{site.data.keyword.Bluemix_notm}}-Dashboard und klicken Sie auf die Registerkarte **Serviceberechtigungsnachweise**.
-2. Klicken Sie auf **Berechtigungsnachweise anzeigen**. Ihre Zugriffsberechtigungsnachweise werden als JSON-Objekt angezeigt.
-
-Beispiele und Informationen finden Sie im <a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs" target="_blank">GitHub-Repository des Server-SDK <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a>.
+Die [Server-SDK-Installation](/docs/services/appid/install.html#nodejs-setup) muss abgeschlossen sein.
 
 
 ## {{site.data.keyword.appid_short_notm}}-Anwendungen zur Arbeit mit einem lokalen Entwicklungsserver konfigurieren

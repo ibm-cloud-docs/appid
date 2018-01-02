@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-11-02"
+lastupdated: "2017-12-08"
 
 ---
 
@@ -28,7 +28,7 @@ lastupdated: "2017-11-02"
 
 您可以將 {{site.data.keyword.appid_short_notm}} 服務新增至現有 Android 應用程式。
 
-1. 將 JitPack 儲存庫新增至根 build.gradle 檔案。
+1. 將 JitPack 儲存庫新增至根 `build.gradle` 檔案。
 
   ```gradle
   allprojects {
@@ -40,7 +40,7 @@ lastupdated: "2017-11-02"
   ```
   {: codeblock}
 
-2. 開啟應用程式的 build.gradle 檔案、尋找檔案的 dependencies 區段，並新增 {{site.data.keyword.appid_short_notm}} 用戶端 SDK 的編譯相依關係。
+2. 開啟應用程式的 `build.gradle` 檔案、尋找檔案的 dependencies 區段，並新增 {{site.data.keyword.appid_short_notm}} 用戶端 SDK 的編譯相依關係。
 
   ```gradle
   dependencies {
@@ -143,7 +143,7 @@ lastupdated: "2017-11-02"
   ```
   {: codeblock}
 
-6. 將下列 import 新增至 AppDelegate.swift 檔案。
+6. 將下列 import 新增至 `AppDelegate.swift` 檔案。
 
   ```swift
   import BluemixAppID
@@ -234,8 +234,8 @@ lastupdated: "2017-11-02"
   ```
   {: codeblock}
 
-3. 將下列程式碼新增至 app.js 檔案，以：
-    * 設定 express 應用程式，以使用 express-session 中介軟體。**附註**：針對正式作業環境，您必須配置具有適當階段作業儲存空間的中介軟體。如需相關資訊，請參閱 [expressjs 文件](https://github.com/expressjs/session)。
+3. 將下列程式碼新增至 `app.js` 檔案，以：
+    * 設定 express 應用程式，以使用 express-session 中介軟體。**附註**：針對正式作業環境，您必須配置具有適當階段作業儲存空間的中介軟體。如需相關資訊，請參閱 <a href="https://github.com/expressjs/session" target="_blank">expressjs 文件 <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>。
     * 使用序列化及解除序列化來配置 passportjs。這是 HTTP 要求的已鑑別階段作業持續性的必要項目。如需相關資訊，請參閱 <a href="http://passportjs.org/docs" target="_blank">passportjs 文件 <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>。  
     * 在回呼 URL 上執行 get 指令，以從 {{site.data.keyword.appid_short_notm}} 服務擷取存取及身分記號。
 
@@ -543,7 +543,7 @@ lastupdated: "2017-11-02"
 ## 將 {{site.data.keyword.appid_short_notm}} 新增至不在 {{site.data.keyword.Bluemix_notm}} 上執行的現有應用程式
 {: #existing}
 
-如果您的 Node.js 或 Swift 應用程式未在 Bluemix 上執行，則可以配置 WebAppStrategy 或 WebAppKituraCredentialsPlugin，以在遠端工作。對於不在 Bluemix 上執行的 Liberty for Java 應用程式，請配置 OIDC 元素變數。
+如果您的 Node.js 或 Swift 應用程式未在 {{site.data.keyword.Bluemix_notm}} 上執行，則可以配置 WebAppStrategy 或 WebAppKituraCredentialsPlugin，以在遠端工作。對於不在 Bluemix 上執行的 Liberty for Java 應用程式，請配置 OIDC 元素變數。
 
 
 在 Node.js 應用程式中，請將 `passport.use(new WebAppStrategy());` 取代為下列程式碼。

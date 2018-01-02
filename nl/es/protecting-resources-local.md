@@ -2,7 +2,7 @@
 
 copyright:
   years:  2017
-lastupdated: "2017-11-02"
+lastupdated: "2017-12-06"
 
 ---
 {:new_window: target="_blank"}
@@ -12,29 +12,17 @@ lastupdated: "2017-11-02"
 
 
 
-# Uso de {{site.data.keyword.appid_short_notm}} con un entorno de desarrollo local
+#  Configuración de un servidor de desarrollo local para trabajar con {{site.data.keyword.appid_short_notm}}
 {: #protecting-local}
 
 Puede configurar su entorno local para que utilice el servicio {{site.data.keyword.appid_short}}. Específicamente, puede desarrollar código de forma local utilizando el SDK de servidor de {{site.data.keyword.appid_short_notm}} para enviar solicitudes al servidor de desarrollo.
 {:shortdesc}
 
 
-## Configuración del SDK del servidor
-{: #serversetup}
+## Antes de empezar
+{: #begin}
 
-Para utilizar {{site.data.keyword.appid_short_notm}} con un servidor de desarrollo local, debe pasar el parámetro de opción cuando esté creando la estrategia, con los siguientes parámetros:
-
-* APIStrategy: `oauthServerUrl`
-* WebAppStrategy: tenantId, clientId, secret, oauthServerUrl, redirectUri
-
-Defina el atributo 'redirectUri' para el puerto de la app de localhost con la vía de acceso de devolución de llamada. Por ejemplo: `http://localhost:<port>/callback`. El punto final de devolución de llamada finaliza el proceso de autorización.
-
-Para obtener las credenciales del servicio, realice los siguientes pasos:
-
-1. Abra el panel de control de {{site.data.keyword.Bluemix_notm}} y pulse el separador **Credenciales del servicio**.
-2. Pulse **Mostrar credenciales**. Las credenciales de acceso se visualizan como un objeto JSON.
-
-Para obtener ejemplos y más información, consulte <a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs" target="_blank">el repositorio de GitHub de SDK de servidor <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>.
+Asegúrese de que ha completado la [instalación del SDK de servidor](/docs/services/appid/install.html#nodejs-setup).
 
 
 ## Configuración de aplicaciones de {{site.data.keyword.appid_short_notm}} para que funcionen con un servidor de desarrollo local

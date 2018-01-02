@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-11-02"
+lastupdated: "2017-12-08"
 
 ---
 
@@ -28,7 +28,7 @@ Sie können {{site.data.keyword.appid_full}} mit einer vorhandenen Anwendung zum
 
 Sie können den {{site.data.keyword.appid_short_notm}}-Service zu den vorhandenen Android-Anwendungen hinzufügen.
 
-1. Fügen Sie das JitPack-Repository zur Stammdatei 'build.gradle' hinzu.
+1. Fügen Sie das JitPack-Repository zur Stammdatei `build.gradle` hinzu.
 
   ```gradle
   allprojects {
@@ -40,7 +40,7 @@ Sie können den {{site.data.keyword.appid_short_notm}}-Service zu den vorhandene
   ```
   {: codeblock}
 
-2. Öffnen Sie die Datei 'build.gradle' für Ihre Anwendung, suchen Sie den Abschnitt für die Abhängigkeiten der Datei und fügen Sie eine Kompilierungsabhängigkeit für das {{site.data.keyword.appid_short_notm}}-Client-SDK hinzu.
+2. Öffnen Sie die Datei `build.gradle` für Ihre Anwendung, suchen Sie den Abschnitt für die Abhängigkeiten der Datei und fügen Sie eine Kompilierungsabhängigkeit für das {{site.data.keyword.appid_short_notm}}-Client-SDK hinzu.
 
   ```gradle
   dependencies {
@@ -143,7 +143,7 @@ Sie können den {{site.data.keyword.appid_short_notm}}-Service zu den vorhandene
   ```
   {: codeblock}
 
-6. Fügen Sie den folgenden Import zur Datei 'AppDelegate.swift' hinzu.
+6. Fügen Sie den folgenden Import zur Datei `AppDelegate.swift` hinzu.
 
   ```swift
   import BluemixAppID
@@ -234,10 +234,10 @@ Sie können den {{site.data.keyword.appid_short_notm}}-Service zu den vorhandene
   ```
   {: codeblock}
 
-3. Fügen Sie Ihrer Anwendung die folgende app.js-Datei hinzu:
-    * Richten Sie die Express-App so ein, dass Middleware des Typs 'express-session' verwendet wird. **Hinweis**: Sie müssen die Middleware mit dem passenden Sitzungsspeicher für die Produktionsumgebungen konfigurieren. Weitere Informationen finden Sie unter [expressjs-Dokumente](https://github.com/expressjs/session).
+3. Fügen Sie den nachfolgend dargestellten Code zur Datei `app.js`, um die folgenden Schritte durchzuführen:
+    * Richten Sie die Express-App so ein, dass Middleware des Typs 'express-session' verwendet wird. **Hinweis**: Sie müssen die Middleware mit dem passenden Sitzungsspeicher für die Produktionsumgebungen konfigurieren. Weitere Informationen finden Sie in den <a href="https://github.com/expressjs/session" target="_blank">expressjs-Dokumenten <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a>.
     * Konfigurieren Sie passportjs mit Serialisierung und ohne Deserialisierung. Dies ist für eine authentifizierte Sitzungsfortdauer für HTTP-Anforderungen erforderlich. Weitere Informationen finden Sie in den <a href="http://passportjs.org/docs" target="_blank">passportjs-Dokumenten <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a>.  
-    * Rufen Sie durch Ausführen eines Abrufbefehls für die Callback-URL die Zugriffs- und Identitätstoken vom {{site.data.keyword.appid_short_notm}}-Service ab. 
+    * Rufen Sie durch Ausführen eines Abrufbefehls für die Callback-URL die Zugriffs- und Identitätstoken vom {{site.data.keyword.appid_short_notm}}-Service ab.
 
   ```javaScript
   const express = require("express");
@@ -296,7 +296,7 @@ Sie können den {{site.data.keyword.appid_short_notm}}-Service zu den vorhandene
 
 2. Fügen Sie den folgenden Code zur Ihrer Swift-Anwendung hinzu:
     * Richten Sie Kitura zur Verwendung als Sitzungs-Middleware ein. **Hinweis**: Sie müssen Kitura mit dem passenden Sitzungsspeicher für die Produktionsumgebungen konfigurieren. Weitere Informationen finden Sie in den <a href="https://github.com/IBM-Swift/Kitura-Session" target="_blank">Kitura-Dokumenten <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a>.
-    * Rufen Sie durch Ausführen eines Abrufbefehls für die Callback-URL die Zugriffs- und Identitätstoken vom {{site.data.keyword.appid_short_notm}}-Service ab. 
+    * Rufen Sie durch Ausführen eines Abrufbefehls für die Callback-URL die Zugriffs- und Identitätstoken vom {{site.data.keyword.appid_short_notm}}-Service ab.
 
   ```swift
   import Foundation
@@ -330,7 +330,7 @@ Sie können den {{site.data.keyword.appid_short_notm}}-Service zu den vorhandene
   {: codeblock}
 
   <table>
-  <caption> Tabelle 5. Erklärungen für Komponenten der Befehle</caption>
+  <caption> Tabelle 5. Erklärungen für Komponenten der Befehle </caption>
     <tr>
       <th> Komponenten </th>
       <th> Beschreibung </th>
@@ -543,7 +543,7 @@ Sie können {{site.data.keyword.appid_short_notm}} so konfigurieren, dass die vo
 ## {{site.data.keyword.appid_short_notm}} zu einer vorhandenen Anwendung hinzufügen, auf der {{site.data.keyword.Bluemix_notm}} nicht ausgeführt wird
 {: #existing}
 
-Wenn Sie über eine Node.js- oder Swift-Anwendung verfügen, auf der Bluemix nicht ausgeführt wird, können Sie WebAppStrategy oder WebAppKituraCredentialsPlugin für die Arbeit über Fernzugriff konfigurieren. Konfigurieren Sie für eine Liberty for Java-App, die nicht unter Bluemix ausgeführt wird, die OIDC-Elementvariablen.
+Wenn Sie über eine Node.js- oder Swift-Anwendung verfügen, auf der {{site.data.keyword.Bluemix_notm}} nicht ausgeführt wird, können Sie WebAppStrategy oder WebAppKituraCredentialsPlugin für die Arbeit über Fernzugriff konfigurieren. Konfigurieren Sie für eine Liberty for Java-App, die nicht unter Bluemix ausgeführt wird, die OIDC-Elementvariablen.
 
 
 Ersetzen Sie in der Node.js-App `passport.use(new WebAppStrategy());` durch den folgenden Code.
@@ -574,7 +574,7 @@ Ersetzen Sie in der Swift-App `let webappKituraCredentialsPlugin = WebAppKituraC
   {: codeblock}
 
   <table>
-  <caption> Tabelle 6. Erklärungen für Befehlskomponenten für Swift- und Node.js-Apps</caption>
+  <caption> Tabelle 6. Erklärungen für Befehlskomponenten für Swift- und Node.js-Apps </caption>
     <tr>
       <th> Komponenten </th>
       <th> Beschreibung </th>

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-11-07"
+lastupdated: "2017-12-06"
 
 ---
 
@@ -11,24 +11,11 @@ lastupdated: "2017-11-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 
-# Configuration des fournisseurs d'identité
+# Configuration des fournisseurs d'identité de réseaux sociaux
 {: #setting-up-idp}
 
 Les fournisseurs d'identité offrent un niveau d'authentification supplémentaire pour vos applications Web et mobiles. Avec {{site.data.keyword.appid_full}}, vous pouvez configurer un ou plusieurs fournisseurs pour proposer une expérience de connexion unique à votre application.
 {: shortdesc}
-
-Vous pouvez utiliser les fournisseurs d'identité suivants :
-
-<dl>
-  <dt> Facebook </dt>
-    <dd> Les utilisateurs se connectent à votre application avec le mot de passe et l'adresse de courrier électronique qu'ils utilisent pour se connecter à leur compte Facebook. </dd>
-  <dt> Google </dt>
-    <dd> Les utilisateurs se connectent à votre application avec le mot de passe et l'adresse de courrier électronique qu'ils utilisent pour se connecter à leurs comptes Google. </dd>
-</dl>
-
-
-</br>
-</br>
 
 ## Configuration par défaut
 {: #default}
@@ -38,8 +25,6 @@ Vous pouvez utiliser les fournisseurs d'identité suivants :
 
 Les données d'identification par défaut sont définies pour Facebook et Google. Ces données d'identification sont limitées à 100 utilisations par instance, par jour. Etant donné qu'il s'agit de données d'identification IBM, elles ne peuvent être utilisées dans vos applications qu'en mode développement. Avant de publier votre application, [mettez à jour la configuration avec vos propres données d'identification](/docs/services/appid/identity-providers.html).
 
-
-</br>
 
 ## Configuration de Facebook
 {: #facebook}
@@ -55,7 +40,7 @@ Pour utiliser Facebook comme fournisseur d'identité, vous devez ajouter et conf
 2. Notez l'ID et la valeur confidentielle de l'application Facebook. Ces valeurs sont requises pour configurer votre projet Web pour l'authentification dans votre tableau de bord du service.
 3. Ajoutez la plateforme Web et indiquez l'URL du site.
 4. Dans la liste des produits, sélectionnez **Facebook Login**.
-5. Dans la zone URL de redirection OAuth valides, entrez l'URL de noeud final de rappel du serveur d'autorisation. Vous
+5. Dans la zone URL de redirection OAuth valides, entrez l'URL du point d'extrémité de rappel du serveur d'autorisation. Vous
 pouvez ajouter cette valeur après
 avoir configuré votre instance de service.
 6. Cliquez sur **Sauvegarder les modifications**.
@@ -74,8 +59,6 @@ section **Facebook Login** du portail des développeurs Facebook.
 5. Facultatif : pour les applications Web, entrez l'URL de redirection dans
 la zone **URL de redirection d'application Web**. Cette valeur définie par le développeur est utilisée pour accéder à l'URL de redirection une fois le processus d'autorisation terminé.
 
-
-</br>
 
 ## Configuration de Google
 {: #google}

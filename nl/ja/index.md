@@ -2,28 +2,27 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-11-07"
+lastupdated: "2017-12-13"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 
-# {{site.data.keyword.appid_short_notm}} 概説
+# 概説チュートリアル
 {: #gettingstarted}
 
-{{site.data.keyword.appid_full}} は、モバイル・アプリや Web アプリに認証を追加してバックエンド・システムを保護するのに役立ちます。
+{{site.data.keyword.appid_full}} は、モバイル・アプリや Web アプリに認証を追加するのに役立ち、バックエンド・リソースを保護します。
 {: shortdesc}
 
-**注:** {{site.data.keyword.appid_short_notm}} サービスは、以前は {{site.data.keyword.amafull}} と呼ばれていました。
+## {{site.data.keyword.appid_short_notm}} のインスタンスの作成
+{: #create}
 
+開始するためにサービスのインスタンスを作成します。
 
-1. {{site.data.keyword.Bluemix}} カタログで、{{site.data.keyword.appid_short_notm}} を選択します。サービス構成画面が開きます。
+1. {{site.data.keyword.Bluemix}} カタログで、{{site.data.keyword.appid_short_notm}} を選択します。 サービス構成画面が開きます。
 2. サービス・インスタンスに名前を付けます。または、事前設定された名前を使用します。
-3. インスタンスをバインドするには、**「接続」**メニューからアプリを選択します。**「アンバインドのまま」**を選択した場合、後でサービス・インスタンスをバインドすることができます。
+3. インスタンスをバインドするには、**「接続」**メニューからアプリを選択します。 **「アンバインドのまま」**を選択した場合、後でサービス・インスタンスをバインドすることができます。
 4. 料金プランを選択し、**「作成」**をクリックします。
-5. オプション: UI の説明に従ってサンプル・アプリをダウンロードします。サンプルは、{{site.data.keyword.appid_short_notm}} の使用を開始するために役立ちます。
-
-{{site.data.keyword.appid_short_notm}} のインスタンスを作成できたので、好みのプログラミング言語に対応した SDK をダウンロードして、ユーザーの認証を開始してください。
 
 

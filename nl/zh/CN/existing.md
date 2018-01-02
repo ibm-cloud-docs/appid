@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-11-02"
+lastupdated: "2017-12-08"
 
 ---
 
@@ -28,7 +28,7 @@ lastupdated: "2017-11-02"
 
 可以将 {{site.data.keyword.appid_short_notm}} 服务添加到现有 Android 应用程序。
 
-1. 将 JitPack 存储库添加到根 build.gradle 文件。
+1. 将 JitPack 存储库添加到根 `build.gradle` 文件。
 
   ```gradle
   allprojects {
@@ -40,7 +40,7 @@ lastupdated: "2017-11-02"
   ```
   {: codeblock}
 
-2. 打开应用程序的 build.gradle 文件，找到该文件的 dependencies 部分，并为 {{site.data.keyword.appid_short_notm}} 客户端 SDK 添加编译依赖项。
+2. 打开应用程序的 `build.gradle` 文件，找到该文件的 dependencies 部分，并为 {{site.data.keyword.appid_short_notm}} 客户端 SDK 添加编译依赖项。
 
   ```gradle
   dependencies {
@@ -143,7 +143,7 @@ lastupdated: "2017-11-02"
   ```
   {: codeblock}
 
-6. 将以下 import 语句添加到 AppDelegate.swift 文件中。
+6. 将以下 import 语句添加到 `AppDelegate.swift` 文件中。
 
   ```swift
   import BluemixAppID
@@ -234,8 +234,8 @@ lastupdated: "2017-11-02"
   ```
   {: codeblock}
 
-3. 将以下代码添加到 app.js 文件中，以便：
-    * 将 express 应用程序设置为使用 express-session 中间件。**注**：必须针对生产环境为中间件配置合适的会话存储量。有关更多信息，请参阅 [expressjs 文档](https://github.com/expressjs/session)。
+3. 将以下代码添加到 `app.js` 文件中，以便：
+    * 将 express 应用程序设置为使用 express-session 中间件。**注**：必须针对生产环境为中间件配置合适的会话存储量。有关更多信息，请参阅 <a href="https://github.com/expressjs/session" target="_blank">expressjs 文档 <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a>。
     * 使用序列化和反序列化来配置 passportjs。这对于跨 HTTP 请求的已认证会话持久性是必需的。有关更多信息，请参阅 <a href="http://passportjs.org/docs" target="_blank">passportjs 文档 <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a>。  
     * 通过对回调 URL 运行 get 命令，从 {{site.data.keyword.appid_short_notm}} 服务中检索访问令牌和身份令牌。
 
@@ -271,7 +271,7 @@ lastupdated: "2017-11-02"
 
     **注**：服务将按以下顺序重定向：
     1. 触发认证流程的请求的原始 URL，此 URL 持久存储在 HTTP 会话中的 `WebAppStrategy.ORIGINAL_URL` 键下。
-    2. 成功重定向，如 `passport.authenticate(name, {successRedirect: "...."}) 中所指定。`
+    2. 成功重定向，如 `passport.authenticate(name, {successRedirect: "...."}).`
     3. 应用程序根目录（“/”）
 
 4. 重新部署应用程序。
@@ -544,7 +544,7 @@ lastupdated: "2017-11-02"
 ## 向不在 {{site.data.keyword.Bluemix_notm}} 上运行的现有应用程序添加 {{site.data.keyword.appid_short_notm}}
 {: #existing}
 
-如果您有一个不在 Bluemix 上运行的 Node.js 或 Swift 应用程序，那么可以将 WebAppStrategy 或 WebAppKituraCredentialsPlugin 配置为远程工作。对于不在 Bluemix 上运行的 Liberty for Java 应用程序，请配置 OIDC 元素变量。
+如果您有一个不在 {{site.data.keyword.Bluemix_notm}} 上运行的 Node.js 或 Swift 应用程序，那么可以将 WebAppStrategy 或 WebAppKituraCredentialsPlugin 配置为远程工作。对于不在 Bluemix 上运行的 Liberty for Java 应用程序，请配置 OIDC 元素变量。
 
 
 在 Node.js 应用程序中，将 `passport.use(new WebAppStrategy());` 替换为以下代码。

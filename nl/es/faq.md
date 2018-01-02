@@ -1,0 +1,35 @@
+---
+
+copyright:
+  years: 2017
+lastupdated: "2017-12-12"
+
+---
+{:new_window: target="_blank"}
+{:shortdesc: .shortdesc}
+
+
+# Preguntas más frecuentes (FAQ)
+
+Estas preguntas más frecuentes proporcionan respuestas a preguntas comunes sobre el servicio de {{site.data.keyword.appid_full}}.
+{: shortdesc}
+
+
+## ¿Cómo calcula {{site.data.keyword.appid_short_notm}} los precios?
+{: #pricing}
+
+Con {{site.data.keyword.appid_short_notm}} paga menos cuantos más recursos utiliza.
+{: shortdesc}
+
+El plan de niveles graduado consta de dos partes: El número de sucesos de autenticación y el de usuarios autorizados. Se le facturará cada mes en función del resumen de las dos partes. El precio total es el cargo acumulado de cada nivel de uso que consiste en la cantidad multiplicada por el precio unitario en ese nivel.
+
+### Sucesos de autenticación
+
+Un suceso de autenticación ocurre cuando se emite una señal nueva de {{site.data.keyword.appid_short_notm}}. Para los usuarios identificados, cada nueva señal es válida durante una hora. Para los usuarios anónimos las señales son válidas durante un mes. Cuando la señal caduca debe crear una nueva para acceder a los recursos protegidos. Cuando utiliza el ID de app para la autenticación móvil las señales de usuario se almacenan en `key-store/key-chain` y se agregan a cada solicitud futura. Las señales son accesibles utilizando el SDK de Swift de Android o iOS de {{site.data.keyword.appid_short_notm}}. Cuando utiliza el servicio para la autenticación web, <a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs" target="_blank">almacene la señal de usuario<img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a> en las cookies de sesión.
+
+### Usuarios autorizados
+
+Un usuario autorizado es un usuario exclusivo que inicia sesión con su servicio directa o indirectamente. Se le factura un usuario autorizado cada vez que un nuevo usuario inicia sesión desde cada proveedor de identidad, incluyendo los usuarios anónimos. Por ejemplo, si un usuario inicia sesión con Facebook y más adelante con Google, se consideran dos usuarios autorizados diferentes.
+
+
+Para obtener más información sobre los precios por nivel graduado, consulte los [documentos de precios de {{site.data.keyword.Bluemix_notm}}](/docs/pricing/index.html#pricing).

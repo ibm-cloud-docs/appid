@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-11-07"
+lastupdated: "2017-12-06"
 
 ---
 
@@ -11,24 +11,11 @@ lastupdated: "2017-11-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 
-# ID プロバイダーの構成
+# ソーシャル ID プロバイダーの構成
 {: #setting-up-idp}
 
-ID プロバイダーによって、モバイル・アプリケーションや Web アプリケーションに認証レベルを追加できます。{{site.data.keyword.appid_full}} では、1 つ以上の ID プロバイダーを構成して、アプリケーションのシングル・サインオンをセットアップできます。
+ID プロバイダーによって、モバイル・アプリケーションや Web アプリケーションに認証レベルを追加できます。 {{site.data.keyword.appid_full}} では、1 つ以上の ID プロバイダーを構成して、アプリケーションのシングル・サインオンをセットアップできます。
 {: shortdesc}
-
-以下の ID プロバイダーを使用できます。
-
-<dl>
-  <dt> Facebook</dt>
-    <dd> ユーザーは、Facebook アカウントにログインする時と同じパスワードと E メール・アドレスを使用してアプリケーションにログインします。</dd>
-  <dt> Google</dt>
-    <dd> ユーザーは、Google アカウントにログインする時と同じパスワードと E メール・アドレスを使用してアプリケーションにログインします。</dd>
-</dl>
-
-
-</br>
-</br>
 
 ## デフォルト構成
 {: #default}
@@ -36,10 +23,8 @@ ID プロバイダーによって、モバイル・アプリケーションや W
 {{site.data.keyword.appid_short_notm}} には、ID プロバイダーの初期セットアップに役立つデフォルト構成が用意されています。
 {: shortdesc}
 
-デフォルトの資格情報のセットアップは、Facebook と Google を対象にしています。資格情報の使用は、1 インスタンスあたり毎日 100 回に制限されています。IBM の資格情報なので、アプリケーションでの使用は、開発モードの時だけに限定してください。アプリケーションの公開前に、[構成を自分の資格情報になるように更新してください](/docs/services/appid/identity-providers.html)。
+デフォルトの資格情報のセットアップは、Facebook と Google を対象にしています。 資格情報の使用は、1 インスタンスあたり毎日 100 回に制限されています。 これらは IBM の資格情報なので、アプリでの使用は、開発モードの時だけに限定してください。アプリケーションの公開前に、[構成を自分の資格情報になるように更新してください](/docs/services/appid/identity-providers.html)。
 
-
-</br>
 
 ## Facebook の構成
 {: #facebook}
@@ -52,10 +37,10 @@ Facebook を ID プロバイダーとして使用するように {{site.data.key
 Facebook を ID プロバイダーとして使用するには、Facebook アプリケーションで Web サイトのプラットフォームを追加して構成する必要があります。
 
 1. <a href="https://developers.facebook.com/docs/apps/register" target="_blank">Facebook for developers サイト<img src="../../icons/launch-glyph.svg" alt="アイコン・アイコン"></a>で自分のアカウントにログインします。
-2. Facebook のアプリ ID とアプリ・シークレットをメモします。サービスのダッシュボードで Web プロジェクトの認証を構成するときに、これらの値が必要になります。
+2. Facebook のアプリ ID とアプリ・シークレットをメモします。 サービスのダッシュボードで Web プロジェクトの認証を構成するときに、これらの値が必要になります。
 3. Web プラットフォームを追加して、サイト URL を入力します。
 4. 製品リストから、**「Facebook ログイン」**を選択します。
-5. 「有効な OAuth リダイレクト URL」フィールドに、許可サーバーのコールバック・エンドポイント URL を入力します。サービス・インスタンスを構成した後、この値を追加できます。
+5. 「有効な OAuth リダイレクト URL」フィールドに、許可サーバーのコールバック・エンドポイント URL を入力します。 サービス・インスタンスを構成した後、この値を追加できます。
 6. **「変更の保存」**をクリックします。
 
 
@@ -65,12 +50,10 @@ Facebook のアプリ ID とアプリ・シークレットを取得し、Web ク
 
 1. サービスのダッシュボードの**「管理」**タブで、**「Facebook」**を選択して**「編集」**をクリックします。
 2. Facebook for Developers Web サイトから取得した Facebook のアプリ ID とアプリ・シークレットを入力します。
-3. **「Facebook for Developers のリダイレクト URI (Redirect URI for Facebook for Developers)」**フィールドにある URI をコピーします。この URI を Facebook Developers ポータルの**「Facebook ログイン (Facebook Login)」**セクションの**「有効な OAuth リダイレクト URI (Valid OAuth redirect URIs)」**フィールドに貼り付けます。
+3. **「Facebook for Developers のリダイレクト URI (Redirect URI for Facebook for Developers)」**フィールドにある URI をコピーします。 この URI を Facebook Developers ポータルの**「Facebook ログイン (Facebook Login)」**セクションの**「有効な OAuth リダイレクト URI (Valid OAuth redirect URIs)」**フィールドに貼り付けます。
 4. **「保存」**をクリックします。
-5. オプション: Web アプリの場合は、リダイレクト URL を**「Web アプリケーションのリダイレクト URL (Web Application Redirect URLs)」**フィールドに入力します。この値は、開発者が決定する値であり、許可プロセスの完了後にリダイレクト URL にアクセスするために使用されます。
+5. オプション: Web アプリの場合は、リダイレクト URL を**「Web アプリケーションのリダイレクト URL (Web Application Redirect URLs)」**フィールドに入力します。 この値は、開発者が決定する値であり、許可プロセスの完了後にリダイレクト URL にアクセスするために使用されます。
 
-
-</br>
 
 ## Google の構成
 {: #google}
@@ -88,8 +71,8 @@ Google を ID プロバイダーとして使用するように {{site.data.keywo
     1. API のタイプとして Google+ API を選択します。
     2. API を呼び出す場所として**「Web ブラウザー」**を選択します。
     3. **「ユーザー・データ」**を選択します。
-    4. 必須フィールドに値を入力して、クライアント ID を作成します。同時にシークレットも作成されます。
-4. Google のクライアント ID とシークレットをメモします。資格情報のタブで、作成した ID を選択し、シークレットとクライアント ID を取得します。
+    4. 必須フィールドに値を入力して、クライアント ID を作成します。 同時にシークレットも作成されます。
+4. Google のクライアント ID とシークレットをメモします。 資格情報のタブで、作成した ID を選択し、シークレットとクライアント ID を取得します。
 
 ### Google 認証用の {{site.data.keyword.appid_short}} の構成
 
@@ -102,4 +85,4 @@ Google プロジェクトを構成し、クライアント ID とシークレッ
     2. Google プロジェクトの資格情報のタブで、この統合のために作成したクライアント ID を選択します。
     3. {{site.data.keyword.appid_short}} の URL を**「許可されたリダイレクト URI」**フィールドに貼り付けて、**「保存」**をクリックします。
 4. **「保存」**をクリックして、{{site.data.keyword.appid_short}} の Google 構成を更新します。
-5. オプション: Web アプリケーションの場合は、**「管理」**タブでリダイレクト URL を入力します。許可プロセスが完了すると、ユーザーがその URL に送信されます。
+5. オプション: Web アプリケーションの場合は、**「管理」**タブでリダイレクト URL を入力します。 許可プロセスが完了すると、ユーザーがその URL に送信されます。

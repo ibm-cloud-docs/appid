@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-11-07"
+lastupdated: "2017-12-08"
 
 ---
 
@@ -10,13 +10,16 @@ lastupdated: "2017-11-07"
 {:shortdesc: .shortdesc}
 
 
-# 使用者設定檔
+# 存取使用者屬性
 {: #user-profile}
 
-使用者設定檔是 {{site.data.keyword.appid_full}} 所儲存及維護的實體。設定檔包含使用者的屬性及身分，而且可以匿名或鏈結至身分提供者所管理的身分。
+您可以管理您可以用來建置個人化應用程式體驗的一般使用者資料。
 {:shortdesc}
 
-{{site.data.keyword.appid_short_notm}} 提供 API，以透過匿名方式或使用 OpenId Connect (OIDC) [身分提供者](/docs/services/appid/identity-providers.html#setting-up-idp)進行鑑別來登入。使用者設定檔屬性 API 端點是 {{site.data.keyword.appid_short_notm}} 所產生的存取記號在登入及授權處理程序期間所保護的資源。
+使用者屬性是實體中由 {{site.data.keyword.appid_full}} 儲存及維護的資訊區段。設定檔包含使用者的屬性及身分，而且可以匿名或鏈結至身分提供者所管理的身分。
+
+
+{{site.data.keyword.appid_short_notm}} 提供 API，以透過匿名方式或使用 OpenId Connect (OIDC) [身分提供者](/docs/services/appid/identity-providers.html)進行鑑別來登入。使用者設定檔屬性 API 端點是 {{site.data.keyword.appid_short_notm}} 所產生的存取記號在登入及授權處理程序期間所保護的資源。
 
 
 ## 儲存、讀取及刪除使用者屬性
@@ -24,35 +27,164 @@ lastupdated: "2017-11-07"
 
 {{site.data.keyword.appid_short_notm}} 提供 <a href="https://appid-profiles.ng.bluemix.net/swagger-ui/index.html#/Attributes" target="_blank">REST API <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>，以對使用者的屬性執行 create、retrieve、update 及 delete 作業。此服務也會提供適用於 <a href="https://github.com/ibm-cloud-security/appid-clientsdk-android" target="_blank">Android <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a> 及 <a href="https://github.com/ibm-cloud-security/appid-clientsdk-swift" target="_blank">Swift <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a> 行動用戶端的 SDK。
 
+## 使用 Android SDK 存取使用者屬性
+{: #accessing}
 
-## OAuth 身分
-{: #oauth}
+取得存取記號時，即可存取使用者保護的屬性端點。您可以使用下列 API 方法來取得存取權。
 
-此服務呼叫 OAuth 登入 API 時，{{site.data.keyword.appid_short_notm}} 會使用 OAuth 2.0 及 OIDC 通訊協定，以透過選取的身分提供者來授權及鑑別呼叫者。鑑別之後，身分會與 {{site.data.keyword.appid_short_notm}} 使用者記錄相關聯。{{site.data.keyword.appid_short_notm}} 會傳回可用來存取使用者屬性的存取記號，以及保留身分提供者所提供的身分資訊的身分記號。從這個相同身分所鑑別的任何用戶端，都可以存取相同的使用者記錄及其屬性。
+  ```java
+  void setAttribute(@NonNull String name, @NonNull String value, UserAttributeResponseListener listener);
+  void setAttribute(@NonNull String name, @NonNull String value, @NonNull AccessToken accessToken, UserAttributeResponseListener listener);
+
+  void getAttribute(@NonNull String name, UserAttributeResponseListener listener);
+  void getAttribute(@NonNull String name, @NonNull AccessToken accessToken, UserAttributeResponseListener listener);
+
+  void deleteAttribute(@NonNull String name, UserAttributeResponseListener listener);
+  void deleteAttribute(@NonNull String name, @NonNull AccessToken accessToken, UserAttributeResponseListener listener);
+
+  void getAllAttributes(@NonNull UserAttributeResponseListener listener);
+  void getAllAttributes(@NonNull AccessToken accessToken, @NonNull UserAttributeResponseListener listener);
+  ```
+  {: codeblock}
+
+若未明確地傳遞存取記號，{{site.data.keyword.appid_short_notm}} 會使用最後一個收到的記號。
+
+例如，您可以呼叫下列程式碼來設定新屬性，或置換現有屬性。
+
+  ```java
+  appId.getUserAttributeManager().setAttribute(name, value, useThisToken,new UserAttributeResponseListener() {
+		@Override
+		public void onSuccess(JSONObject attributes) {
+			//attributes received in JSON format on successful response
+		}
+
+		@Override
+		public void onFailure(UserAttributesException e) {
+			//Exception occurred
+		}
+	});
+  ```
+  {: codeblock}
+
+### 匿名登入
+{: #anonymous notoc}
+
+使用 {{site.data.keyword.appid_short_notm}}，您可以[匿名](/docs/services/appid/user-profile.html#anonymous)登入。
+
+  ```java
+  appId.loginAnonymously(getApplicationContext(), new AuthorizationListener() {
+		@Override
+		public void onAuthorizationFailure(AuthorizationException exception) {
+			//Exception occurred
+		}
+
+		@Override
+		public void onAuthorizationCanceled() {
+			//Authentication canceled by the user
+		}
+
+		@Override
+		public void onAuthorizationSuccess(AccessToken accessToken, IdentityToken identityToken) {
+			//User authenticated
+		}
+	});
+  ```
+  {: codeblock}
+
+### 漸進鑑別
+{: #progressive notoc}
+
+若使用者保有匿名存取記號，將它傳遞給 `loginWidget.launch` 方法，即可識別。
+
+  ```java
+  void launch (@NonNull final Activity activity, @NonNull final AuthorizationListener authorizationListener, String accessTokenString);
+  ```
+  {: codeblock}
+
+匿名登入之後，即使因服務已使用最後一個收到的記號而在未傳遞存取記號的情況下呼叫登入小組件，還是會進行漸進鑑別。如果您要清除儲存的記號，請執行下列指令。
+
+  ```java
+  	appIDAuthorizationManager = new AppIDAuthorizationManager(this.appId);
+  appIDAuthorizationManager.clearAuthorizationData();
+  ```
+  {: codeblock}
 
 
-## 匿名使用者
-{: #anonymous}
+## 使用 iOS SDK 存取使用者屬性
+{: #accessing}
 
-以匿名方式登入時，{{site.data.keyword.appid_short_notm}} 會建立標示為匿名的特定使用者記錄。{{site.data.keyword.appid_short_notm}} 會將匿名存取及身分記號傳回給呼叫者。使用匿名存取記號，使用者應用程式可以建立、讀取、更新及刪除使用者記錄中所儲存的屬性。例如，開發人員可以建立應用程式，使用者可以在其中立即開始將項目新增至購物車，而不需要登入。
+取得存取記號時，即可存取使用者保護的屬性端點。使用下列 API 方法，即可完成這項作業。
+
+  ```swift
+  func setAttribute(key: String, value: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
+  func setAttribute(key: String, value: String, accessTokenString: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
+  func getAttribute(key: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
+  func getAttribute(key: String, accessTokenString: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
+  func getAttributes(completionHandler: @escaping(Error?, [String:Any]?) -> Void)
+  func getAttributes(accessTokenString: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
+  func deleteAttribute(key: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
+  func deleteAttribute(key: String, accessTokenString: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
+  ```
+  {: codeblock}
+
+若未明確地傳遞存取記號，{{site.data.keyword.appid_short_notm}} 會使用最後一個收到的記號。
+
+例如，您可以呼叫下列程式碼來設定新屬性，或置換現有屬性。
+
+  ```swift
+  AppID.sharedInstance.userAttributeManager?.setAttribute("key", "value", completionHandler: { (error, result) in
+      if error = nil {
+          //Attributes recieved as a Dictionary
+      } else {
+          // An error has occurred
+      }
+  })
+  ```
+  {: codeblock}
 
 
-## 已識別的使用者
-{: #identified}
+### 匿名登入
+{: #anonymous notoc}
 
-具有身分提供者所提供身分的匿名使用者可以成為已識別的使用者。下列步驟概述從匿名使用者移至已識別的使用者的流程：
+使用 {{site.data.keyword.appid_short_notm}}，您可以[匿名](/docs/services/appid/user-profile.html#anonymous)登入。
 
-* 開發人員將匿名存取記號傳遞給登入 API。
-* {{site.data.keyword.appid_short_notm}} 向身分提供者鑑別呼叫者。
-* {{site.data.keyword.appid_short_notm}} 尋找存取記號所定義的匿名使用者記錄，並指派它的身分。
+  ```swift
+  class delegate : AuthorizationDelegate {
 
-    **附註**：只有在尚未將身分指派給另一位使用者時，才能將相同的身分指派給匿名記錄。如果身分已與另一個 {{site.data.keyword.appid_short_notm}} 使用者相關聯，則存取及身分記號會包含該使用者記錄的資訊，並提供其屬性的存取權。透過新的存取記號，無法存取前一個匿名使用者及其屬性。除非記號到期，否則仍然可以透過匿名存取記號來存取這項資訊。開發人員可以選擇要如何合併匿名使用者與已知使用者的匿名屬性。
+      public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, response:Response?) {
+          //User authenticated
+      }
 
-* 接收自 {{site.data.keyword.appid_short_notm}} 的新存取及身分記號會指向已知使用者，而且身分記號會包含接收自身分提供者的公用資訊。
-* 使用者的匿名記號會變成無效。
+      public func onAuthorizationCanceled() {
+          //Authentication canceled by the user
+      }
 
-使用新的存取記號，可以存取此使用者所包含的匿名使用者屬性。您可以新增、變更或刪除新記號。從現在開始，使用者從任何用戶端使用相同的身分登入時，都可以解析及存取使用者與其屬性。
+      public func onAuthorizationFailure(error: AuthorizationError) {
+          //Error occurred
+      }
+   }
 
+  AppID.sharedInstance.loginAnonymously( authorizationDelegate: delegate())
+  ```
+  {: codeblock}
+
+### 漸進鑑別
+{: #progressive notoc}
+
+當您保留匿名存取記號時，使用者可以變成已識別的使用者，方法是將它傳遞給 `loginWidget.launch` 方法。
+
+  ```swift
+  func launch(accessTokenString: String? , delegate: AuthorizationDelegate)
+  ```
+  {: codeblock}
+
+匿名登入之後，即使因服務已使用最後一個收到的記號而在未傳遞存取記號的情況下呼叫登入小組件，還是會進行漸進鑑別。如果您要清除儲存的記號，請執行下列指令。
+
+  ```swift
+  var appIDAuthorizationManager = AppIDAuthorizationManager(appid: AppID.sharedInstance)
+  appIDAuthorizationManager.clearAuthorizationData()
+  ```
+  {: codeblock}
 
 ## 資料分隔及加密
 {: #data}

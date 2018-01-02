@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-11-07"
+lastupdated: "2017-12-08"
 
 ---
 
@@ -10,53 +10,188 @@ lastupdated: "2017-11-07"
 {:shortdesc: .shortdesc}
 
 
-# ユーザー・プロファイル
+# ユーザー属性へのアクセス
 {: #user-profile}
 
-ユーザー・プロファイルは、{{site.data.keyword.appid_full}} によって保管され保守されるエンティティーです。プロファイルには、ユーザーの属性と ID が入ります。プロファイルは、匿名にすることも、ID プロバイダーによって管理されている ID にリンクすることもできます。{:shortdesc}
+個人別設定の可能なアプリ操作環境の構築に使用できるエンド・ユーザー・データを管理できます。
+{:shortdesc}
 
-{{site.data.keyword.appid_short_notm}} には、匿名ログインまたは OpenId Connect (OIDC) [ID プロバイダー](/docs/services/appid/identity-providers.html#setting-up-idp)による認証を使用したログインのための API が用意されています。ユーザー・プロファイル属性 API エンドポイントは、ログインと許可のプロセス中に {{site.data.keyword.appid_short_notm}} が生成するアクセス・トークンによって保護されるリソースです。
+ユーザー属性は、{{site.data.keyword.appid_full}} によって保管され保守されるエンティティー内の情報のセグメントです。プロファイルには、ユーザーの属性と ID が入ります。プロファイルは、匿名にすることも、ID プロバイダーによって管理されている ID にリンクすることもできます。
+
+{{site.data.keyword.appid_short_notm}} には、匿名ログインまたは OpenId Connect (OIDC) [ID プロバイダー](/docs/services/appid/identity-providers.html)による認証を使用したログインのための API が用意されています。 ユーザー・プロファイル属性 API エンドポイントは、ログインと許可のプロセス中に {{site.data.keyword.appid_short_notm}} が生成するアクセス・トークンによって保護されるリソースです。
 
 
 ## ユーザー属性の保管、読み取り、削除
 {: #storing-data}
 
-{{site.data.keyword.appid_short_notm}} には、ユーザーの属性に対する操作を作成、検索、更新、および削除するための <a href="https://appid-profiles.ng.bluemix.net/swagger-ui/index.html#/Attributes" target="_blank">REST API <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> が用意されています。このサービスには、<a href="https://github.com/ibm-cloud-security/appid-clientsdk-android" target="_blank">Android <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> および <a href="https://github.com/ibm-cloud-security/appid-clientsdk-swift" target="_blank">Swift <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> モバイル・クライアント用の SDK も用意されています。
+{{site.data.keyword.appid_short_notm}} には、ユーザーの属性に対する操作を作成、検索、更新、および削除するための <a href="https://appid-profiles.ng.bluemix.net/swagger-ui/index.html#/Attributes" target="_blank">REST API <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> が用意されています。 このサービスには、<a href="https://github.com/ibm-cloud-security/appid-clientsdk-android" target="_blank">Android <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> および <a href="https://github.com/ibm-cloud-security/appid-clientsdk-swift" target="_blank">Swift <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> モバイル・クライアント用の SDK も用意されています。
+
+## Android SDK を使用したユーザー属性へのアクセス
+{: #accessing}
+
+アクセス・トークンを取得すれば、ユーザーの保護された属性のエンドポイントにアクセスできます。 以下の API メソッドを使用してアクセスできます。
+
+  ```java
+  void setAttribute(@NonNull String name, @NonNull String value, UserAttributeResponseListener listener);
+  void setAttribute(@NonNull String name, @NonNull String value, @NonNull AccessToken accessToken, UserAttributeResponseListener listener);
+
+  void getAttribute(@NonNull String name, UserAttributeResponseListener listener);
+  void getAttribute(@NonNull String name, @NonNull AccessToken accessToken, UserAttributeResponseListener listener);
+
+  void deleteAttribute(@NonNull String name, UserAttributeResponseListener listener);
+  void deleteAttribute(@NonNull String name, @NonNull AccessToken accessToken, UserAttributeResponseListener listener);
+
+  void getAllAttributes(@NonNull UserAttributeResponseListener listener);
+  void getAllAttributes(@NonNull AccessToken accessToken, @NonNull UserAttributeResponseListener listener);
+  ```
+  {: codeblock}
+
+アクセス・トークンを明示的に渡さないと、{{site.data.keyword.appid_short_notm}} は最後に受け取ったトークンを使用します。
+
+例えば、以下のコードを呼び出して、新しい属性を設定したり既存の属性をオーバーライドしたりできます。
+
+  ```java
+  appId.getUserAttributeManager().setAttribute(name, value, useThisToken,new UserAttributeResponseListener() {
+		@Override
+		public void onSuccess(JSONObject attributes) {
+			//正常な応答から受け取った JSON 形式の属性
+		}
+
+		@Override
+		public void onFailure(UserAttributesException e) {
+			//例外の発生
+		}
+	});
+  ```
+  {: codeblock}
+
+### 匿名ログイン
+{: #anonymous notoc}
+
+{{site.data.keyword.appid_short_notm}} では、[匿名](/docs/services/appid/user-profile.html#anonymous)ログインが可能です。
+
+  ```java
+  appId.loginAnonymously(getApplicationContext(), new AuthorizationListener() {
+		@Override
+		public void onAuthorizationFailure(AuthorizationException exception) {
+			//例外の発生
+		}
+
+		@Override
+		public void onAuthorizationCanceled() {
+			//ユーザーによる認証の取り消し
+		}
+
+		@Override
+		public void onAuthorizationSuccess(AccessToken accessToken, IdentityToken identityToken) {
+			//ユーザーの認証
+		}
+	});
+  ```
+  {: codeblock}
+
+### 段階的な認証
+{: #progressive notoc}
+
+匿名のアクセス・トークンを保持しているユーザーは、そのトークンを `loginWidget.launch` メソッドに渡すと、識別済みユーザーとなることができます。
+
+  ```java
+  void launch (@NonNull final Activity activity, @NonNull final AuthorizationListener authorizationListener, String accessTokenString);
+  ```
+  {: codeblock}
+
+匿名ログインの後には、アクセス・トークンを渡さずにログイン・ウィジェットを呼び出した場合であっても段階的な認証が行われます。最後に受け取ったトークンがサービスで使用されるからです。 保管されているトークンをクリアする場合は、以下のコマンドを実行します。
+
+  ```java
+  	appIDAuthorizationManager = new
+    AppIDAuthorizationManager(this.appId);
+    appIDAuthorizationManager.clearAuthorizationData();
+  ```
+  {: codeblock}
 
 
-## OAuth ID
-{: #oauth}
+## iOS SDK を使用したユーザー属性へのアクセス
+{: #accessing}
 
-サービスが OAuth ログイン API を呼び出すと、{{site.data.keyword.appid_short_notm}} は OAuth 2.0 と OIDC プロトコルを使用して、選択された ID プロバイダーで呼び出し元の許可と認証を行います。認証された後、ID は {{site.data.keyword.appid_short_notm}} ユーザー・レコードと関連付けられます。{{site.data.keyword.appid_short_notm}} は、ユーザーの属性にアクセスするために使用できるアクセス・トークンと、ID プロバイダーから提供された ID 情報を保持する識別トークンを返します。同じ ID で認証されたすべてのクライアントから、この同じユーザー・レコードと属性に再びアクセスできます。
+アクセス・トークンを取得すれば、ユーザーの保護された属性のエンドポイントにアクセスできます。 以下の API メソッドを使用すると、アクセスできるようになります。
+
+  ```swift
+  func setAttribute(key: String, value: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
+  func setAttribute(key: String, value: String, accessTokenString: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
+
+  func getAttribute(key: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
+  func getAttribute(key: String, accessTokenString: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
+
+  func getAttributes(completionHandler: @escaping(Error?, [String:Any]?) -> Void)
+  func getAttributes(accessTokenString: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
+
+  func deleteAttribute(key: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
+  func deleteAttribute(key: String, accessTokenString: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
+  ```
+  {: codeblock}
+
+アクセス・トークンを明示的に渡さないと、{{site.data.keyword.appid_short_notm}} は最後に受け取ったトークンを使用します。
+
+例えば、以下のコードを呼び出して、新しい属性を設定したり既存の属性をオーバーライドしたりできます。
+
+  ```swift
+  AppID.sharedInstance.userAttributeManager?.setAttribute("key", "value", completionHandler: { (error, result) in
+      if error = nil {
+          //Attributes recieved as a Dictionary
+      } else {
+          // An error has occurred
+      }
+  })
+  ```
+  {: codeblock}
 
 
-## 匿名ユーザー
-{: #anonymous}
+### 匿名ログイン
+{: #anonymous notoc}
 
-匿名でログインすると、{{site.data.keyword.appid_short_notm}} は匿名のマークが付いた一時的なユーザー・レコードを作成します。{{site.data.keyword.appid_short_notm}} は、匿名のアクセス・トークンと識別トークンを呼び出し元に返します。この匿名アクセス・トークンを使用して、ユーザー・アプリケーションは、ユーザー・レコードに保管される属性の作成、読み取り、更新、および削除を行うことができます。例えば、開発者は、ユーザーがログインしなくてもすぐにショッピング・カートにアイテムを追加できるアプリケーションを作成できます。
+{{site.data.keyword.appid_short_notm}} では、[匿名](/docs/services/appid/user-profile.html#anonymous)ログインが可能です。
 
+  ```swift
+  class delegate : AuthorizationDelegate {
 
-## 識別されたユーザー
-{: #identified}
+      public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, response:Response?) {
+          //ユーザーの認証
+      }
 
-ID プロバイダーによって提供された ID を持っている匿名ユーザーは、識別されたユーザーになることができます。匿名ユーザーから識別済みユーザーになるまでのフローをまとめると、次のようなステップになります。
+      public func onAuthorizationCanceled() {
+          //ユーザーによる認証の取り消し
+      }
 
+      public func onAuthorizationFailure(error: AuthorizationError) {
+          //エラーの発生
+      }
+   }
 
-* 開発者が匿名アクセス・トークンをログイン API に渡します。
-* {{site.data.keyword.appid_short_notm}} が、呼び出し元を ID プロバイダーを使用して認証します。
-* {{site.data.keyword.appid_short_notm}} が、アクセス・トークンで定義された匿名ユーザー・レコードを見つけ、ID を割り当てます。
+  AppID.sharedInstance.loginAnonymously( authorizationDelegate: delegate())
+  ```
+  {: codeblock}
 
-    **注**: ID を匿名レコードに割り当てることができるのは、その同じ ID が他のユーザーにまだ割り当てられていない場合のみです。ID が既に別の {{site.data.keyword.appid_short_notm}} ユーザーと関連付けられている場合、アクセス・トークンと識別トークンにはそのユーザーのレコードの情報が含まれ、そのユーザーの属性へのアクセスを提供します。前の匿名ユーザーとその属性に、新しいアクセス・トークンを使用してアクセスすることはできません。トークンの有効期限が切れるまでは、匿名アクセス・トークンにより引き続き情報にアクセスできます。開発者は、匿名ユーザーと既知のユーザーの匿名属性をマージする方法を選択できます。
+### 段階的な認証
+{: #progressive notoc}
 
-* {{site.data.keyword.appid_short_notm}} から受け取る新しいアクセス・トークンと識別トークンは既知のユーザーを指し、識別トークンには ID プロバイダーから受け取った公開情報が含まれています。
-* 匿名トークンは、そのユーザーでは無効になります。
+匿名のアクセス・トークンを保持している場合、このトークンを `loginWidget.launch` メソッドに渡すと、ユーザーを識別済みのユーザーにすることができます。
 
-このユーザーが匿名であったときの属性には、新規アクセス・トークンでアクセスできます。新規トークンは、追加、変更、削除できます。この後、どのクライアントからでも同じ ID でユーザーがログインすると、ユーザーと属性は解決されてアクセス可能になります。
+  ```swift
+  func launch(accessTokenString: String? , delegate: AuthorizationDelegate)
+  ```
+  {: codeblock}
 
+匿名ログインの後には、アクセス・トークンを渡さずにログイン・ウィジェットを呼び出した場合であっても段階的な認証が行われます。最後に受け取ったトークンがサービスで使用されるからです。 保管されているトークンをクリアする場合は、以下のコマンドを実行します。
+
+  ```swift
+  var appIDAuthorizationManager = AppIDAuthorizationManager(appid: AppID.sharedInstance)
+  appIDAuthorizationManager.clearAuthorizationData()
+  ```
+  {: codeblock}
 
 ## データ分離と暗号化
 {: #data}
 
-{{site.data.keyword.appid_short_notm}} は、ユーザー・プロファイル属性を保管して暗号化します。マルチテナント・サービスでは、すべてのテナントには指定された暗号鍵がありそれぞれのテナントのユーザー・データはそのテナントの鍵だけで暗号化されます。
+{{site.data.keyword.appid_short_notm}} は、ユーザー・プロファイル属性を保管して暗号化します。 マルチテナント・サービスでは、すべてのテナントには指定された暗号鍵がありそれぞれのテナントのユーザー・データはそのテナントの鍵だけで暗号化されます。
 
 {{site.data.keyword.appid_short_notm}} は必ず、プライベートな資料を暗号化してから保管します。

@@ -1,5 +1,3 @@
-<!-- Markdown Navigation -->
-
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
@@ -8,50 +6,42 @@ IBM Cloud App ID
 
     {: .navgroup id="learn"}
     index.md
-    
-    {: .topicgroup}
-    A propos de
-        about.md
-        access-identity.md
-        authorization-resources.md
-        user-profile.md
-    {: .navgroup-end}
-
-    {: .navgroup id="reference"}
-    [API REST](https://appid-oauth.ng.bluemix.net/swagger-ui/#!/Authorization_Server_V3/authorization)
-
-    {: .topicgroup}
-    Logiciels SDK
-        [SDK client Android](https://github.com/ibm-cloud-security/appid-clientsdk-android)
-        [SDK client iOS Swift](https://github.com/ibm-cloud-security/appid-clientsdk-swift)
-        [SDK serveur Node.js](https://github.com/ibm-cloud-security/appid-serversdk-nodejs)
-        [SDK serveur Swift](https://github.com/ibm-cloud-security/appid-serversdk-swift)
-
-    relatedlinks.md
+    about.md
+    authorization.md
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
+    install.md
+
+    {: .topicgroup}
+    Authentification des utilisateurs
+        login-widget.md
+        cloud-directory.md
+        identity-providers.md
+
+    protecting-resources.md
+    user-profile.md
+    protecting-resources-local.md
     existing.md
+    {: .navgroup-end}
+
+    {: .navgroup id="reference"}
+    {: .topicgroup}
+    API
+        [Autorisation](http://mobileclientaccess.mybluemix.net/swagger-ui/#/Authorization_Server_V3)
 
     {: .topicgroup}
-    Configuration des logiciels SDK et du modèle d'application
-        developing-apps.md
-        protecting-resources-local.md
-        getting-started-android.md
-        getting-started-ios-swift-sdk.md
-
-    identity-providers.md
-    login-widget.md
-
-    {: .topicgroup}
-    Protection des ressources
-        protecting-resources.md
-        protecting-resources-nodejs.md
-        protecting-resources-swift.md
-        protecting-resources-java.md
+    SDKs
+        [SDK du client Android](https://github.com/ibm-cloud-security/appid-clientsdk-android)
+        [SDK du client iOS Swift](https://github.com/ibm-cloud-security/appid-clientsdk-swift)
+        [SDK du serveur Node.js](https://github.com/ibm-cloud-security/appid-serversdk-nodejs)
+        [SDK du serveur Swift](https://github.com/ibm-cloud-security/appid-serversdk-swift)
+    
+    relatedlinks.md
     {: .navgroup-end}
 
     {: .navgroup id="help"}
+    faq.md
     ts_index.md
     mca.md
     {: .navgroup-end}

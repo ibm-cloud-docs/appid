@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-11-09"
+lastupdated: "2017-12-13"
 
 ---
 
@@ -15,9 +15,8 @@ lastupdated: "2017-11-09"
 # 关于
 {: #about}
 
-使用 {{site.data.keyword.appid_full}}，可以通过用户友好的方式管理对应用程序的访问权。
+您可以使用 {{site.data.keyword.appid_full}} 向应用程序添加认证，并保护后端资源。
 {:shortdesc}
-
 
 ## 使用此服务的原因
 {: #reasons}
@@ -31,20 +30,18 @@ lastupdated: "2017-11-09"
     <th> 原因 </th>
   </tr>
   <tr>
-    <td> 您想要为移动和 Web 应用程序添加安全性。</td>
-    <td> 使用 {{site.data.keyword.appid_short_notm}}，可以轻松地向您的应用程序中添加认证步骤。您可以使用该服务与身份提供者进行通信，以管理对应用程序的访问权。</td>
+    <td> 您需要向移动和 Web 应用程序添加[授权和认证](/docs/services/appid/authorization.html)，但不具有安全后台。</td>
+    <td> 使用 {{site.data.keyword.appid_short_notm}}，可以轻松地向您的应用程序中添加认证步骤。您可以使用该服务与[身份提供者](/docs/services/appid/identity-providers.html)进行通信，以管理对应用程序的访问权。</td>
   </tr>
   <tr>
     <td> 您想要限制对应用程序和后端资源的访问权。</td>
-    <td> 使用该服务，可以针对已认证用户和匿名用户来保护您的资源。</td>
+    <td> 使用该服务，可以针对已认证用户和匿名用户来[保护您的资源](/docs/services/appid/protecting-resources.html)。</td>
   </tr>
   <tr>
     <td> 您想要为用户构建个性化的应用程序体验。</td>
-    <td> {{site.data.keyword.appid_short_notm}} 支持存储用户数据，例如应用程序首选项或用户公共社交个人档案中的信息。您可以使用该数据来确保为用户提供量身定制的体验。</td>
+    <td> {{site.data.keyword.appid_short_notm}} 支持[存储用户数据](/docs/services/appid/user-profile.html)，例如应用程序首选项或用户公共社交个人档案中的信息。您可以使用该数据来确保为用户提供量身定制的体验。</td>
   </tr>
 </table>
-
-**注**：实施的协议完全符合 OpenID Connect (OIDC)。
 
 
 ## 体系结构
@@ -54,27 +51,27 @@ lastupdated: "2017-11-09"
 
 下图显示了 {{site.data.keyword.appid_short_notm}} 服务的工作原理概述。
 
-
-![{{site.data.keyword.appid_short_notm}} 体系结构图](/images/appid_architecture2.png)
+![{{site.data.keyword.appid_short_notm}} 体系结构图](/images/appid_architecture.png)
 
 图 1. {{site.data.keyword.appid_short_notm}} 体系结构图
 
 
-
 <dl>
   <dt> 应用程序</dt>
-    <dd> 客户端 SDK 用于与云资源进行通信的请求类。客户端 SDK 在检测到授权质询时将自动启动认证流程。</dd>
+    <dd> 服务器 SDK：您可以使用服务器 SDK 保护在 {{site.data.keyword.Bluemix_notm}} 上托管的后端资源以及您的 Web 应用程序。其会从请求中抽取访问令牌，并使用 {{site.data.keyword.appid_short_notm}} 进行验证。</br>
+    客户端 SDK：您可以使用 Android 或 iOS 客户端 SDK 保护您的移动应用程序。客户端 SDK 在检测到授权质询时将与云资源通信，以启动认证流程。</dd>
   <dt> {{site.data.keyword.Bluemix_notm}} </dt>
-    <dd>  服务器 SDK 从请求中抽取访问令牌，并使用 {{site.data.keyword.appid_short_notm}} 进行验证。成功认证后，{{site.data.keyword.appid_short_notm}} 会将访问令牌和身份令牌返回到应用程序。</dd>
-  <dt> 身份提供者 </dt>
-    <dd> 该服务会安排“重定向到身份提供者”，并进行身份验证，以提供对应用程序的访问权。{{site.data.keyword.appid_short_notm}} 会验证凭证，而无需访问实际口令。</dd>
+    <dd> App ID：成功认证后，{{site.data.keyword.appid_short_notm}} 会将访问令牌和身份令牌返回到应用程序。</br>
+    Cloud Directory：用户可以使用其电子邮件和密码注册服务。然后，您可以通过 UI 管理列表视图中的用户。</dd>
+  <dt> 外部（第三方）</dt>
+    <dd>  {{site.data.keyword.appid_short_notm}} 支持两种社交身份提供者：Facebook 和 Google+。该服务会安排“重定向到身份提供者”，并在验证认证之后提供对应用程序的访问权。{{site.data.keyword.appid_short_notm}} 会验证凭证，而无需访问实际口令。</dd>
 </dl>
 
 
 ## 请求流程
 {: #request}
 
-下图描述了请求是如何从客户端 SDK 流向后端应用程序和身份提供者的。
+下图描述了请求是如何从客户端 SDK 流向后端资源和身份提供者的。
 
 ![{{site.data.keyword.appid_short_notm}} 请求流程](/images/appidrequestflow.png)
 
@@ -91,32 +88,4 @@ lastupdated: "2017-11-09"
 * 客户端 SDK 自动重新发送触发了授权流程的原始请求。
 * 服务器 SDK 从请求中抽取授权头，通过服务对该头进行验证，然后授予对后端资源的访问权。
 
-
-## 组件
-{: #components}
-
-该服务由以下组件组成。
-
-<dl>
-  <dt> 仪表板 </dt>
-    <dd> 在服务仪表板中，可以下载上线样本，查看活动日志以及配置认证和身份提供者。</dd>
-  <dt> 客户端 SDK</dt>
-    <dd> 可以将客户端 SDK 与您的移动和 Web 应用程序配合使用来实施用户认证。</br></br>
-    Android 的必备软件：
-    <ul><ul><li> API 25 或更高版本 </li>
-    <li> Java 8.x </li>
-    <li> Android SDK Tools 25.2.5 或更高版本 </li>
-    <li> Android SDK Platform Tools 25.0.3 或更高版本 </li>
-    <li> Android Build Tools V25.0.2 或更高版本 </li></ul></ul></br>
-    iOS 的必备软件：
-    </br>
-    <ul><ul><li> iOS9 或更高版本 </li>
-    <li> MacOS 10.11.5 </li>
-    <li>Xcode 8.2 </li></ul></ul></dd>
-  <dt> 服务器 SDK</dt>
-    <dd> 可以保护在 {{site.data.keyword.Bluemix_notm}} 上托管的后端资源</br>
-    支持的运行时：
-    <ul><ul><li> Node.js </li>
-    <li> Liberty for Java </li>
-    <li> Swift </li></ul></ul></dd>
-</dl>
+**注**：实施的协议完全符合 OpenID Connect (OIDC)。

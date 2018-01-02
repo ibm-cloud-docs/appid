@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-11-07"
+lastupdated: "2017-12-06"
 
 ---
 
@@ -11,24 +11,11 @@ lastupdated: "2017-11-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 
-# 配置身份提供者
+# 配置社交身份提供者
 {: #setting-up-idp}
 
 身份提供者能够为移动和 Web 应用程序提供额外级别的认证。使用 {{site.data.keyword.appid_full}}，可以配置一个或多个身份提供者来为应用程序设置单点登录体验。
 {: shortdesc}
-
-可以使用以下身份提供者：
-
-<dl>
-  <dt> Facebook</dt>
-    <dd> 用户使用其在登录到 Facebook 帐户时使用的密码和电子邮件来登录到您的应用程序。</dd>
-  <dt> Google</dt>
-    <dd> 用户使用其在登录到 Google 帐户时使用的密码和电子邮件来登录到您的应用程序。</dd>
-</dl>
-
-
-</br>
-</br>
 
 ## 缺省配置
 {: #default}
@@ -38,8 +25,6 @@ lastupdated: "2017-11-07"
 
 为 Facebook 和 Google 设置了缺省凭证。每个实例每天对凭证的使用次数只有 100 次。这些凭证是 IBM 凭证，因此只能在开发方式下用于您的应用程序。在发布应用程序之前，请将[该配置更新为您自己的凭证](/docs/services/appid/identity-providers.html)。
 
-
-</br>
 
 ## 配置 Facebook
 {: #facebook}
@@ -69,8 +54,6 @@ lastupdated: "2017-11-07"
 4. 单击**保存**。
 5. 可选：对于 Web 应用程序，请在 **Web 应用程序重定向 URL** 字段中输入重定向 URL。此值由开发者确定，并用于在完成授权过程之后访问该重定向 URL。
 
-
-</br>
 
 ## 配置 Google
 {: #google}

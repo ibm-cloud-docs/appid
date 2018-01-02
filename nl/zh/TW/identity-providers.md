@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-11-07"
+lastupdated: "2017-12-06"
 
 ---
 
@@ -11,24 +11,11 @@ lastupdated: "2017-11-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 
-# 配置身分提供者
+# 配置社交身分提供者
 {: #setting-up-idp}
 
 身分提供者為您的行動及 Web 應用程式提供額外的一層鑑別。使用 {{site.data.keyword.appid_full}}，您可以配置一個或數個身分提供者，以設定應用程式的單一登入體驗。
 {: shortdesc}
-
-您可以使用下列身分提供者：
-
-<dl>
-  <dt> Facebook</dt>
-    <dd> 使用者利用他們用來登入 Facebook 帳戶的相同密碼與電子郵件登入您的應用程式。</dd>
-  <dt> Google</dt>
-    <dd> 使用者利用他們用來登入 Google 帳戶的相同密碼與電子郵件登入您的應用程式。</dd>
-</dl>
-
-
-</br>
-</br>
 
 ## 預設配置
 {: #default}
@@ -38,8 +25,6 @@ lastupdated: "2017-11-07"
 
 預設認證是針對 Facebook 及 Google 設定。您有每天每個實例 100 次認證使用的限制。因為它們是 IBM 認證，所以只應該以開發模式用於您的應用程式中。發佈應用程式之前，請[將配置更新為您自己的認證](/docs/services/appid/identity-providers.html)。
 
-
-</br>
 
 ## 配置 Facebook
 {: #facebook}
@@ -69,8 +54,6 @@ lastupdated: "2017-11-07"
 4. 按一下**儲存**。
 5. 選用項目：針對 Web 應用程式，在 **Web 應用程式重新導向 URL** 欄位中輸入重新導向 URL。此值是由開發人員所判定，並且用來在授權處理程序完成之後存取重新導向 URL。
 
-
-</br>
 
 ## 配置 Google
 {: #google}

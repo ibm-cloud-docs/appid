@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-11-09"
+lastupdated: "2017-12-13"
 
 ---
 
@@ -15,9 +15,8 @@ lastupdated: "2017-11-09"
 # Produktinformationen
 {: #about}
 
-Mit {{site.data.keyword.appid_full}} können Sie den Zugriff auf Ihre Anwendungen benutzerfreundlich verwalten.
+Mit {{site.data.keyword.appid_full}} können Sie eine Authentifizierung zu Ihren Apps hinzufügen und die Back-End-Ressourcen schützen.
 {:shortdesc}
-
 
 ## Gründe für die Verwendung des Service
 {: #reasons}
@@ -31,50 +30,48 @@ Zahlreiche Gründe sprechen für die Verwendung von {{site.data.keyword.appid_sh
     <th> Grund </th>
   </tr>
   <tr>
-    <td> Sie möchten Ihre mobilen Anwendungen und Webanwendungen sicherer machen. </td>
-    <td> Mit {{site.data.keyword.appid_short_notm}} können Sie ohne großen Aufwand einen Authentifizierungsschritt in Ihre Anwendungen integrieren. Sie können den Service nutzen, um mit Identitätsprovidern zu kommunizieren und so den Zugriff auf Ihre Anwendungen zu verwalten.</td>
+    <td> Sie müssen eine Funktion für die [Berechtigung und Authentifizierung](/docs/services/appid/authorization.html) zu Ihren mobilen Apps und Web-Apps hinzufügen, verfügen jedoch nicht über Hintergrundkenntnisse im Bereich der Sicherheit.</td>
+    <td> Mit {{site.data.keyword.appid_short_notm}} können Sie ohne großen Aufwand einen Authentifizierungsschritt in Ihre Apps integrieren. Sie können den Service nutzen, um mit [Identitätsprovidern](/docs/services/appid/identity-providers.html) zu kommunizieren und so den Zugriff auf Ihre Apps zu verwalten.</td>
   </tr>
   <tr>
     <td> Sie möchten den Zugriff auf Ihre Apps und Back-End-Ressourcen begrenzen. </td>
-    <td> Der Service bietet die Möglichkeit, Ressourcen sowohl für authentifizierte Benutzer als auch für anonyme Benutzer zu schützen.</td>
+    <td> Der Service bietet die Möglichkeit, sowohl für authentifizierte Benutzer als auch für anonyme Benutzer [Ressourcen zu schützen](/docs/services/appid/protecting-resources.html).</td>
   </tr>
   <tr>
     <td> Sie möchten personalisierte App-Umgebungen für Ihre Benutzer erstellen. </td>
-    <td> {{site.data.keyword.appid_short_notm}} ermöglicht das Speichern von Benutzerdaten, wie z. B. App-Benutzervorgaben oder Informationen aus den öffentlichen Social Media-Profilen der Benutzer. Mithilfe dieser Daten können Sie dafür sorgen, dass den Benutzern individuell angepasste Umgebungen zur Verfügung stehen.</td>
+    <td> {{site.data.keyword.appid_short_notm}} ermöglicht das [Speichern von Benutzerdaten](/docs/services/appid/user-profile.html), wie z. B. App-Benutzervorgaben oder Informationen aus den öffentlichen Social Media-Profilen der Benutzer. Mithilfe dieser Daten können Sie dafür sorgen, dass den Benutzern individuell angepasste Umgebungen zur Verfügung stehen. </td>
   </tr>
 </table>
-
-**Hinweis**: Die implementierten Protokolle sind mit OpenID Connect (OIDC) vollständig kompatibel.
 
 
 ## Architektur
 {: #architecture}
 
-Mit {{site.data.keyword.appid_short_notm}} können Sie eine zusätzliche Sicherheitsstufe in Ihren Anwendungen implementieren, indem Sie es erforderlich machen, dass die Benutzer eine Anmeldung durchführen. Darüber hinaus können Sie das Server-SDK verwenden, um Ihre Back-End-Ressourcen zu schützen.
+Mit {{site.data.keyword.appid_short_notm}} können Sie eine zusätzliche Sicherheitsstufe in Ihren Apps implementieren, indem Sie es erforderlich machen, dass die Benutzer eine Anmeldung durchführen. Darüber hinaus können Sie das Server-SDK verwenden, um Ihre Back-End-Ressourcen zu schützen. 
 
 Im folgenden Diagramm ist eine Übersicht der Funktionsweise des {{site.data.keyword.appid_short_notm}}-Service dargestellt.
 
-
-![{{site.data.keyword.appid_short_notm}}-Architekturdiagramm](/images/appid_architecture2.png)
+![{{site.data.keyword.appid_short_notm}}-Architekturdiagramm](/images/appid_architecture.png)
 
 Abbildung 1: {{site.data.keyword.appid_short_notm}} - Architekturdiagramm
 
 
-
 <dl>
   <dt> Anwendung </dt>
-    <dd> Das Client-SDK stellt eine Anfrageklasse für die Kommunikation mit den Cloudressourcen bereit. Das Client-SDK startet den Authentifizierungsprozess automatisch, wenn es eine Berechtigungsanforderung (Challenge) feststellt. </dd>
+    <dd> Server-SDK: Sie können die Back-End-Ressourcen, die in {{site.data.keyword.Bluemix_notm}} bereitgestellt werden, und die Web-Apps mit dem Server-SDK schüten. Das Server-SDK extrahiert das Zugriffstoken aus einer Anforderung und validiert es mit {{site.data.keyword.appid_short_notm}}.</br>
+    Client-SDK: Sie können mobile Apps mit dem Android- oder iOS-Client-SDK schützen. Das Client-SDK kommuniziert mit den Cloud-Ressourcen, um den Authentifizierungsprozess zu starten, sobald es eine Berechtigungsanforderung (Challenge) feststellt.</dd>
   <dt> {{site.data.keyword.Bluemix_notm}} </dt>
-    <dd>  Das Server-SDK extrahiert das Zugriffstoken aus der Anforderung und validiert es mit {{site.data.keyword.appid_short_notm}}. Nach der erfolgreichen Authentifizierung gibt {{site.data.keyword.appid_short_notm}} Zugriffs- und Identitätstoken an die Anwendung zurück. </dd>
-  <dt> Identitätsprovider </dt>
-    <dd> Der Service veranlasst eine Weiterleitung an den Identitätsprovider und verifiziert die Authentifizierung für den Zugriff auf Ihre Anwendung. {{site.data.keyword.appid_short_notm}} verifiziert die Berechtigungsnachweise, ohne über Zugriff auf die tatsächliche Kennphrase zu Verfügen.</dd>
+    <dd> App ID: Nach der erfolgreichen Authentifizierung gibt {{site.data.keyword.appid_short_notm}} Zugriffs- und Identitätstoken an die Anwendung zurück.</br>
+    Cloud Directory: Benutzer können sich mit ihrer E-Mail-Adresse und einem Kennwort bei Ihrem Service anmelden. Sie können die Benutzer dann in einer Listenansicht über die Benutzerschnittstelle verwalten.</dd>
+  <dt> Extern (anderer Anbieter)</dt>
+    <dd>  {{site.data.keyword.appid_short_notm}} unterstützt zwei Social Media-Identitätsprovider: Facebook und Google+. Der Service veranlasst eine Weiterleitung an den Identitätsprovider und ermöglicht nach dem Verifizieren der Authentifizierung den Zugriff auf Ihre App. {{site.data.keyword.appid_short_notm}} verifiziert die Berechtigungsnachweise, ohne über Zugriff auf die tatsächliche Kennphrase zu Verfügen. </dd>
 </dl>
 
 
 ## Anforderungsablauf
 {: #request}
 
-Das folgende Diagramm zeigt, wie eine Anforderung aus dem Client-SDK an Ihre Back-End-Anwendung und an Identitätsprovider geleitet wird.
+Das folgende Diagramm zeigt, wie eine Anforderung aus dem Client-SDK an Ihre Back-End-Ressourcen und an Identitätsprovider geleitet wird.
 
 ![{{site.data.keyword.appid_short_notm}}-Anforderungsablauf](/images/appidrequestflow.png)
 
@@ -91,32 +88,4 @@ Abbildung 2. Anforderungsablauf von {{site.data.keyword.appid_short_notm}}
 * Das Client-SDK wiederholt automatisch das Senden der ursprünglichen Anforderung, die den Berechtigungsablauf ausgelöst hat.
 * Das Server-SDK extrahiert den Berechtigungsheader aus der Anforderung, validiert den Header mit dem Service und erteilt den Zugriff auf eine Back-End-Ressource.
 
-
-## Komponenten
-{: #components}
-
-Der Service besteht aus den folgenden Komponenten.
-
-<dl>
-  <dt> Dashboard </dt>
-    <dd> Im Service-Dashboard können Sie Onboarding-Beispiele herunterladen, Aktivitätenprotokolle anzeigen sowie die Authentifizierung und die Identitätsprovider konfigurieren.</dd>
-  <dt> Client-SDK </dt>
-    <dd> Sie können das Client-SDK für Ihre mobilen Apps und Web-Apps verwenden, um die Benutzerauthentifizierung zu implementieren.</br></br>
-    Voraussetzungen für Android:
-    <ul><ul><li> API 25 oder höher </li>
-    <li> Java 8.x </li>
-    <li> Android SDK-Tools 25.2.5 oder höher </li>
-    <li> Android SDK-Plattformtools 25.0.3 oder höher </li>
-    <li> Android Build-Tools Version 25.0.2 oder höher </li></ul></ul></br>
-    Voraussetzungen für iOS:
-    </br>
-    <ul><ul><li> iOS9 oder höher </li>
-    <li> MacOS 10.11.5 </li>
-    <li>Xcode 8.2 </li></ul></ul></dd>
-  <dt> Server-SDK </dt>
-    <dd> Sie können die Back-End-Ressourcen schützen, die in {{site.data.keyword.Bluemix_notm}} bereitgestellt werden. </br>
-    Unterstützte Laufzeiten:
-    <ul><ul><li> Node.js </li>
-    <li> Liberty for Java </li>
-    <li> Swift </li></ul></ul></dd>
-</dl>
+**Hinweis**: Die implementierten Protokolle sind mit OpenID Connect (OIDC) vollständig kompatibel.

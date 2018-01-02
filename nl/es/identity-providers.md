@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-11-07"
+lastupdated: "2017-12-06"
 
 ---
 
@@ -11,24 +11,11 @@ lastupdated: "2017-11-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 
-# Configuración de los proveedores de identidad
+# Configuración de los proveedores de identidad social
 {: #setting-up-idp}
 
 Los proveedores de identidad proporcionan un nivel adicional de autenticación para sus apps móviles y web. Con {{site.data.keyword.appid_full}} puede configurar uno o varios proveedores de identidad para establecer un inicio de sesión único para su app.
 {: shortdesc}
-
-Puede utilizar los proveedores de identidad siguientes:
-
-<dl>
-  <dt> Facebook </dt>
-    <dd> Los usuarios inician sesión en su aplicación mediante la misma contraseña y la misma dirección de correo electrónico que utilizan para iniciar sesión en su cuenta de Facebook. </dd>
-  <dt> Google </dt>
-    <dd> Los usuarios inician sesión en su aplicación mediante la misma contraseña y la misma dirección de correo electrónico que utilizan para iniciar sesión en su cuenta de Google. </dd>
-</dl>
-
-
-</br>
-</br>
 
 ## Configuración predeterminada
 {: #default}
@@ -38,8 +25,6 @@ Puede utilizar los proveedores de identidad siguientes:
 
 Las credenciales predeterminadas están configuradas para Facebook y Google. Está limitado a 100 usos de las credenciales por instancia y por día. Dado que son credenciales de IBM, solo deberían utilizarse en su aplicación en modo de desarrollo. Antes de publicar la app, [actualice la configuración con sus propias credenciales](/docs/services/appid/identity-providers.html).
 
-
-</br>
 
 ## Configuración de Facebook
 {: #facebook}
@@ -69,8 +54,6 @@ Una vez que tenga el ID y secreto de la app de Facebook, y que la app de Faceboo
 4. Pulse **Guardar**.
 5. Opcional: para apps web, especifique el URL de redirección en el campo **URL de redirección de la aplicación web**. Este valor está determinado por el desarrollador y se utiliza para acceder al URL de redirección una vez completado el proceso de autorización.
 
-
-</br>
 
 ## Configuración de Google
 {: #google}

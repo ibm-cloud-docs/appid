@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-11-02"
+lastupdated: "2017-12-08"
 
 ---
 
@@ -17,7 +17,7 @@ lastupdated: "2017-11-02"
 사용자에 대한 프로파일 정보를 인증하고 저장하기 위해 기존 애플리케이션과 함께 {{site.data.keyword.appid_full}}를 사용할 수 있습니다.
 
 
-## 필수 소프트웨어
+## 전제조건
 
 * 기존 iOS Swift, Android, Node.js, Swift 또는 Liberty for Java 애플리케이션. 
 * {{site.data.keyword.appid_short_notm}}의 기존 인스턴스. 
@@ -28,7 +28,7 @@ lastupdated: "2017-11-02"
 
 기존 Android 애플리케이션에 {{site.data.keyword.appid_short_notm}} 서비스를 추가할 수 있습니다. 
 
-1. 루트 build.gradle 파일에 JitPack 저장소를 추가하십시오.
+1. 루트 `build.gradle` 파일에 JitPack 저장소를 추가하십시오.
 
   ```gradle
   allprojects {
@@ -40,7 +40,7 @@ lastupdated: "2017-11-02"
   ```
   {: codeblock}
 
-2. 사용자의 애플리케이션에 해당하는 build.gradle 파일을 열고 파일의 종속성 섹션을 찾아서 {{site.data.keyword.appid_short_notm}} 클라이언트 SDK에 대한 컴파일 종속성을 추가하십시오. 
+2. 사용자의 애플리케이션에 해당하는 `build.gradle` 파일을 열고 파일의 종속성 섹션을 찾아서 {{site.data.keyword.appid_short_notm}} 클라이언트 SDK에 대한 컴파일 종속성을 추가하십시오. 
 
   ```gradle
 dependencies {
@@ -143,7 +143,7 @@ defaultConfig {
   ```
   {: codeblock}
 
-6. AppDelegate.swift 파일에 다음 가져오기를 추가하십시오.
+6. `AppDelegate.swift` 파일에 다음과 같이 가져오기를 추가하십시오. 
 
   ```swift
   import BluemixAppID
@@ -234,8 +234,8 @@ defaultConfig {
   ```
   {: codeblock}
 
-3. 다음 코드를 app.js 파일에 추가하십시오. 
-    * express-session 미들웨어를 사용하도록 express 앱을 설정하십시오. **참고**: 프로덕션 환경에 적합한 세션 스토리지로 미들웨어를 구성해야 합니다. 자세한 정보는 [expressjs 문서](https://github.com/expressjs/session)를 참조하십시오.
+3. 다음 코드를 `app.js` 파일에 추가하십시오. 
+    * express-session 미들웨어를 사용하도록 express 앱을 설정하십시오. **참고**: 프로덕션 환경에 적합한 세션 스토리지로 미들웨어를 구성해야 합니다. 자세한 정보는 <a href="https://github.com/expressjs/session" target="_blank">expressjs 문서 <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>를 참조하십시오. 
     * 직렬화 및 직렬화 해제로 passportjs를 구성하십시오. 이는 HTTP 요청 전체에 걸쳐 인증된 세션 지속성에 필요합니다. 자세한 정보는 <a href="http://passportjs.org/docs" target="_blank">passportjs 문서 <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>를 참조하십시오.   
     * 콜백 URL에서 get 명령을 실행하여 {{site.data.keyword.appid_short_notm}} 서비스에서 액세스 및 ID 토큰을 검색하십시오. 
 
@@ -544,7 +544,7 @@ defaultConfig {
 ## {{site.data.keyword.Bluemix_notm}}에서 실행되지 않는 기존 애플리케이션에 {{site.data.keyword.appid_short_notm}} 추가
 {: #existing}
 
-Bluemix에서 실행되지 않는 Node.js 또는 Swift 애플리케이션이 있는 경우, 원격에서 작업하도록 WebAppStrategy 또는 WebAppKituraCredentialsPlugin을 구성할 수 있습니다. Bluemix에서 실행되지 않는 Liberty for Java 앱의 경우에는 OIDC 요소 변수를 구성하십시오. 
+{{site.data.keyword.Bluemix_notm}}에서 실행되지 않는 Node.js 또는 Swift 애플리케이션이 있는 경우, 원격에서 작업하도록 WebAppStrategy 또는 WebAppKituraCredentialsPlugin을 구성할 수 있습니다.  Bluemix에서 실행되지 않는 Liberty for Java 앱의 경우에는 OIDC 요소 변수를 구성하십시오. 
 
 
 Node.js 앱에서 `passport.use(new WebAppStrategy());`을 다음 코드로 바꾸십시오. 

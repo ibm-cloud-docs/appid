@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-11-02"
+lastupdated: "2017-12-08"
 
 ---
 
@@ -28,7 +28,7 @@ Puede utilizar {{site.data.keyword.appid_full}} con su aplicación existente par
 
 Puede añadir el servicio {{site.data.keyword.appid_short_notm}} a sus aplicaciones de Android existentes.
 
-1. Añada el repositorio de JitPack a su archivo build.gradle raíz.
+1. Añada el repositorio de JitPack a su archivo `build.gradle` raíz.
 
   ```gradle
   allprojects {
@@ -40,7 +40,7 @@ Puede añadir el servicio {{site.data.keyword.appid_short_notm}} a sus aplicacio
   ```
   {: codeblock}
 
-2. Abra el archivo build.gradle de su aplicación, busque la sección de dependencias del archivo y añada una dependencia de compilación para el SDK del cliente de {{site.data.keyword.appid_short_notm}}.
+2. Abra el archivo `build.gradle` de su aplicación, busque la sección de dependencias del archivo y añada una dependencia de compilación para el SDK del cliente de {{site.data.keyword.appid_short_notm}}.
 
   ```gradle
   dependencies {
@@ -143,7 +143,7 @@ Puede añadir el servicio {{site.data.keyword.appid_short_notm}} a sus aplicacio
   ```
   {: codeblock}
 
-6. Añada la siguiente importación al archivo AppDelegate.swift.
+6. Añada la siguiente importación al archivo `AppDelegate.swift`.
 
   ```swift
   import BluemixAppID
@@ -234,8 +234,8 @@ Puede añadir el servicio {{site.data.keyword.appid_short_notm}} a sus aplicacio
   ```
   {: codeblock}
 
-3. Añada el código siguiente al archivo app.js para:
-    * Configurar la app express para utilizar el middleware de sesión express. **Nota**: debe configurar el middleware con el almacenamiento de sesión adecuado para entornos de producción. Para obtener más información, consulte los [documentos de expressjs](https://github.com/expressjs/session).
+3. Añada el código siguiente al archivo `app.js` para:
+    * Configurar la app express para utilizar el middleware de sesión express. **Nota**: debe configurar el middleware con el almacenamiento de sesión adecuado para entornos de producción. Para obtener más información, consulte la <a href="https://github.com/expressjs/session" target="_blank">documentación de expressjs <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>.
     * Configurar passportjs con serialización y deserialización. Esto es necesario para que la sesión autenticada persista en todas las solicitudes HTTP. Para obtener más información, consulte la <a href="http://passportjs.org/docs" target="_blank">documentación de passportjs <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>.  
     * Recuperar las señales de identidad y de acceso del servicio de {{site.data.keyword.appid_short_notm}} ejecutando un mandato get en el URL de devolución de llamada.
 
@@ -543,7 +543,7 @@ Puede configurar {{site.data.keyword.appid_short_notm}} para trabajar con sus ap
 ## Cómo añadir {{site.data.keyword.appid_short_notm}} a una aplicación existente que no se ejecuta en {{site.data.keyword.Bluemix_notm}}
 {: #existing}
 
-Si tiene una aplicación Node.js o Swift que no se ejecuta en Bluemix, puede configurar WebAppStrategy o WebAppKituraCredentialsPlugin para que trabajen de forma remota. Para una app de Liberty for Java que no se ejecuta en Bluemix, configure las variables del elemento de OIDC.
+Si tiene una aplicación Node.js o Swift que no se ejecuta en {{site.data.keyword.Bluemix_notm}}, puede configurar WebAppStrategy o WebAppKituraCredentialsPlugin para que trabajen de forma remota. Para una app de Liberty for Java que no se ejecuta en Bluemix, configure las variables del elemento de OIDC.
 
 
 En su Node.js, sustituya `passport.use(new WebAppStrategy());` por el código siguiente.

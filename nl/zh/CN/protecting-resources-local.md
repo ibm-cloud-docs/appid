@@ -2,7 +2,7 @@
 
 copyright:
   years:  2017
-lastupdated: "2017-11-02"
+lastupdated: "2017-12-06"
 
 ---
 {:new_window: target="_blank"}
@@ -12,29 +12,17 @@ lastupdated: "2017-11-02"
 
 
 
-# 将 {{site.data.keyword.appid_short_notm}} 用于本地开发环境
+#  配置本地开发服务器以用于 {{site.data.keyword.appid_short_notm}}
 {: #protecting-local}
 
 您可以将本地环境配置为使用 {{site.data.keyword.appid_short}} 服务。具体来说，您可以使用 {{site.data.keyword.appid_short_notm}} 服务器 SDK 在本地开发代码，以向开发服务器发送请求。
 {:shortdesc}
 
 
-## 设置服务器 SDK
-{: #serversetup}
+## 开始之前
+{: #begin}
 
-要将 {{site.data.keyword.appid_short_notm}} 用于本地开发服务器，必须在创建策略时通过以下属性传递选项参数：
-
-* APIStrategy：`oauthServerUrl`
-* WebAppStrategy：tenantId、clientId、secret、oauthServerUrl 和 redirectUri
-
-将“redirectUri”属性设置为包含回调路径的 localhost 应用程序端口。例如：`http://localhost:<port>/callback`。回调端点会完成授权过程。
-
-要获取服务凭证，请完成以下步骤：
-
-1. 打开 {{site.data.keyword.Bluemix_notm}} 仪表板，然后单击**服务凭证**选项卡。
-2. 单击**显示凭证**。访问凭证将显示为 JSON 对象。
-
-有关样本和更多信息，请参阅<a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs" target="_blank">服务器 SDK GitHub 存储库 <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a>。
+确保已完成[服务器 SDK 安装](/docs/services/appid/install.html#nodejs-setup)。
 
 
 ## 将 {{site.data.keyword.appid_short_notm}} 应用程序配置为使用本地开发服务器
