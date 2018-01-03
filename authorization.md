@@ -233,7 +233,7 @@ Figure 2. A map showing the path to become an identified user
 When a user chooses to remain anonymous, {{site.data.keyword.appid_short_notm}} creates an ad hoc user record and calls the OAuth login API which returns anonymous access and identity tokens. By using those tokens, the app can create, read, update, and delete the attributes that are stored in the user record. As an example, a user could immediately start adding items to a shopping cart without having to sign-in to an app.
 
 
-When a user chooses to sign-in to an app, they become an identified user. Information about the user is obtained from the identity provider that they choose to sing-in with. They receive access and identity tokens that contain information about the user.
+When a user chooses to sign-in to an app, they become an identified user. Information about the user is obtained from the identity provider that they choose to sign-in with. They receive access and identity tokens that contain information about the user.
 
 An anonymous user can choose to become an identified user. But, how does that work?
 
