@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-12-06"
+  years: 2017, 2018
+lastupdated: "2018-01-02"
 
 ---
 
@@ -50,10 +50,6 @@ A template is an example of an email message that you may send to your users. Yo
         <tr>
           <td> %{display.logo} </td>
           <td> Displays the image that you configured for your login widget. </td>
-        </tr>
-	 <tr>
-          <td> %{display.headerColor} </td>
-          <td> Displays the header color that you configured for your login widget. </td>
         </tr>
         <tr>
           <td> %{user.displayName} </td>
