@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-12-06"
+  years: 2017, 2018
+lastupdated: "2018-01-02"
 
 ---
 {:new_window: target="_blank"}
@@ -10,19 +10,21 @@ lastupdated: "2017-12-06"
 {:screen: .screen}
 {:codeblock: .codeblock}
 
-# Managing the log in experience
-You can get a sign in flow up and running in minutes with the login widget. You can update your widget or theme at any time without adding, removing, or changing the sign in source code.
+# Managing the sign in experience
+You can get a sign in flow up and running in minutes. You can update your widget or theme at any time without adding, removing, or changing the source code.
 {: shortdesc}
 
-
-
-## Customizing the login widget
+## Customizing your sign in screen
 {: #login-widget}
 
-You can configure your login widget to display the logo and colors of your choice.
+You can configure your sign in screen to display the logo and colors of your choice.
 {: shortdesc}
 
-When the {{site.data.keyword.appid_short}} service is configured with two or more identity providers, the user can select an identity provider in the login widget. You can customize your login widget by completing the following steps:
+When the service is configured with more than one identity provider, a user can choose the provider with which they want to sign in to your app.
+
+![Customized sign in experience example](/images/customize.gif)
+
+You can customize the sign in screen that they see by completing the following steps:
 
 1. Open the {{site.data.keyword.appid_short_notm}} service dashboard.
 2. Select the **Login Customization** section, where you can modify the appearance of the login widget to align with your company's brand.
@@ -30,12 +32,12 @@ When the {{site.data.keyword.appid_short}} service is configured with two or mor
 4. Select a header color for the widget from the color picker, or enter the hex code for another color.
 5. Inspect the preview pane, and click **Save Changes** when you are happy with your customizations. A confirmation message is displayed.
 
-**Note**: You are not required to rebuild your application. The image is stored in the {{site.data.keyword.appid_short}} database and is displayed at the next login.
+**Note**: You are not required to rebuild your application. The image is stored in the {{site.data.keyword.appid_short}} database and is displayed at .
 
 ## Running the login widget with the Android SDK
 {: #authenticate-android}
 
-When you configure more than one identity provider, users are shown a login widget upon visiting your app. As a default, if you configure only one, the user is redirected to the configured identity providers authentication screen.
+When you configure more than one identity provider, users are shown a sign in screen upon visiting your app. As a default, if you configure only one, the user is redirected to the configured identity providers authentication screen.
 
 
 After the {{site.data.keyword.appid_short_notm}} client SDK is initialized, you can authenticate your users by running the login widget.
