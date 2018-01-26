@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-12-06"
+  years: 2017, 2018
+lastupdated: "2018-01-25"
 
 ---
 {:new_window: target="_blank"}
@@ -28,7 +28,7 @@ When the service calls the OAuth login API, {{site.data.keyword.appid_short_notm
 {{site.data.keyword.appid_short}} uses two types of tokens: access and identity.
 {:shortdesc}
 
-**Note**: The tokens are formatted as <a href="https://jwt.io/introduction/" target="_blank">JSON Web Tokens <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
+**Note**: The tokens are formatted as <a href="https://jwt.io/introduction/" target="blank">JSON Web Tokens <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
 
 ### Access token
 {: #access-tokens}
@@ -233,10 +233,13 @@ Figure 2. A map showing the path to become an identified user
 When a user chooses to remain anonymous, {{site.data.keyword.appid_short_notm}} creates an ad hoc user record and calls the OAuth login API which returns anonymous access and identity tokens. By using those tokens, the app can create, read, update, and delete the attributes that are stored in the user record. As an example, a user could immediately start adding items to a shopping cart without having to sign-in to an app.
 
 
-When a user chooses to sign-in to an app, they become an identified user. Information about the user is obtained from the identity provider that they choose to sign-in with. They receive access and identity tokens that contain information about the user.
+When a user chooses to sign-in to an app, they become an identified user. Information about the user is obtained from the identity provider that they choose to sing-in with. They receive access and identity tokens that contain information about the user.
 
 An anonymous user can choose to become an identified user. But, how does that work?
 
 The anonymous access token is passed to the login API. The service authenticates the call with an identity provider. The service uses the access token to find the anonymous record and attaches the identity to it. The new access identity tokens contain the public information that shared by the identity provider. After a user is identified, their anonymous tokens become invalid. However, a user is still able to access their attributes because they're accessible with the new token.
 
 **Note**: An identity can only be assigned to an anonymous record if it has not already been assigned to another user. If the identity if already associated with another {{site.data.keyword.appid_short_notm}} user, the tokens contain information of that user record and provide access to their attributes. The previous anonymous users attributes are not accessible through the new token. Until the token expires, the information can still be accessed through the anonymous access token. During development, you can choose how to merge the anonymous attributes to the known user.
+
+
+
