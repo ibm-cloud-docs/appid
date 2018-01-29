@@ -150,7 +150,7 @@ A template is an example of an email message that you may send to your users. Yo
     </table></dd>
 </dl>
 
-
+**NOTE**: {{site.data.keyword.appid_short_notm}} uses SendGrid as a mail delivery service. All emails are sent using a single SendGrid account. For more information see www.sendgrid.com.
 
 ## Managing Cloud Directory with the Android SDK
 {: #managing-android}
