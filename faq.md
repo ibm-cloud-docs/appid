@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-12-12"
+  years: 2017, 2018
+lastupdated: "2018-01-31"
 
 ---
 {:new_window: target="_blank"}
@@ -31,5 +31,6 @@ An authentication event occurs when a new {{site.data.keyword.appid_short_notm}}
 
 An authorized user is a unique user that logs in with your service whether directly or indirectly. You are charged for one authorized user every time a new user logs in from each identity provider, including anonymous users. For example, if a user logs in with Facebook, and later logs in by using Google, they are considered two separate authorized users.
 
+For more information on graduated tier pricing, see the [{{site.data.keyword.Bluemix_notm}} pricing docs](/docs/billing-usage/how_charged.html#services).
 
-For more information on graduated tier pricing, see the [{{site.data.keyword.Bluemix_notm}} pricing docs](/docs/pricing/index.html#pricing).
+
