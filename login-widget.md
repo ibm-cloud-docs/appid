@@ -1,82 +1,82 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-12-06"
+  years: 2017, 2018
+lastupdated: "2018-02-01"
 
 ---
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
+{:pre: .pre}
 
-# Managing the log in experience
-You can get a sign in flow up and running in minutes with the login widget. You can update your widget or theme at any time without adding, removing, or changing the sign in source code.
+# Managing the sign in experience
+
+With the login widget, you can update your sign in flow at any time without adding, removing, or changing the source code. You can be up and running in minutes by using the code provided in our sample apps.
 {: shortdesc}
 
+**Note**: When you configure social identity providers such as Facebook, the [Oauth2 Authorization Grant flow](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html) is used to call the login widget.
 
-
-## Customizing the login widget
+</br>
+## Customizing the sample app code
 {: #login-widget}
 
-You can configure your login widget to display the logo and colors of your choice.
+You can customize the preconfigured sign in screen to display the logo and colors of your choice. If you want to display your own branded UI's, check out [cloud directory](/docs/services/appid/cloud-directory.html).
 {: shortdesc}
 
-When the {{site.data.keyword.appid_short}} service is configured with two or more identity providers, the user can select an identity provider in the login widget. You can customize your login widget by completing the following steps:
+![Customized sign in experience example](/images/customize.gif)
+
+To customize the screen:
 
 1. Open the {{site.data.keyword.appid_short_notm}} service dashboard.
 2. Select the **Login Customization** section, where you can modify the appearance of the login widget to align with your company's brand.
 3. Upload your company's logo by selecting a PNG or JPG file from your local system. The recommended image size is 320 x 320 pixels. The maximum file size is 100 Kb.
 4. Select a header color for the widget from the color picker, or enter the hex code for another color.
 5. Inspect the preview pane, and click **Save Changes** when you are happy with your customizations. A confirmation message is displayed.
-
-**Note**: You are not required to rebuild your application. The image is stored in the {{site.data.keyword.appid_short}} database and is displayed at the next login.
-
-## Running the login widget with the Android SDK
-{: #authenticate-android}
-
-When you configure more than one identity provider, users are shown a login widget upon visiting your app. As a default, if you configure only one, the user is redirected to the configured identity providers authentication screen.
+6. Verify your changes by visiting your app. You are not required to rebuild your app. Your images are stored in the {{site.data.keyword.appid_short}} database and is displayed the next time the login widget is called.
 
 
-After the {{site.data.keyword.appid_short_notm}} client SDK is initialized, you can authenticate your users by running the login widget.
+</br>
+## Calling the login widget with the Android SDK
 
-  ```java
-  LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
-  loginWidget.launch(this, new AuthorizationListener() {
-        @Override
-        public void onAuthorizationFailure (AuthorizationException exception) {
-          //Exception occurred
-        }
+With social identity providers enabled, you can call the preconfigured sign in screen with the Android SDK.
+{: shortdesc}
 
-        @Override
-        public void onAuthorizationCanceled () {
-          //Authentication canceled by the user
-        }
+1. Configure your identity providers.
+2. Place the following command in your code.
+    ```java
+    LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
+    loginWidget.launch(this, new AuthorizationListener() {
+          @Override
+          public void onAuthorizationFailure (AuthorizationException exception) {
+            //Exception occurred
+          }
 
-        @Override
-        public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken) {
-          //User authenticated
-        }
-      });
-  ```
-  {: codeblock}
+          @Override
+          public void onAuthorizationCanceled () {
+            //Authentication canceled by the user
+          }
 
-## Running the login widget with the iOS SDK
-{: #authenticate-ios}
+          @Override
+          public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken) {
+            //User authenticated
+          }
+        });
+    ```
+    {: codeblock}
 
-When you configure more than one identity provider, users are shown a login widget upon visiting your app. As a default, if you configure only one, the user is redirected to the configured identity providers authentication screen.
 
+</br>
+## Calling the login widget with the iOS Swift SDK
 
-1. Add the following import to the file in which you want to use the SDK.
+With social identity providers enabled, you can call the preconfigured sign in screen with the iOS Swift SDK.
+{: shortdesc}
 
+1. Configure your identity providers.
+2. Add the following command to your app code.
   ```swift
   import BluemixAppID
-  ```
-  {: codeblock}
-
-2. Run the following command to launch the widget.
-
-  ```swift
   class delegate : AuthorizationDelegate {
       public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, response:Response?) {
           //User authenticated
@@ -95,24 +95,31 @@ When you configure more than one identity provider, users are shown a login widg
   ```
   {: codeblock}
 
-## Running the login widget with the Node.js SDK
-{: #authenticate-nodejs}
 
-You can use `WebAppStrategy` to protect web application resources.
+</br>
+## Calling the login widget with the Node.js SDK
 
-  ```JavaScript
+With social identity providers enabled, you can call the preconfigured sign in screen with the Node.js SDK.
+{: shortdesc}
 
-  var express = require('express');
-  var passport = require('passport');
-  var WebAppStrategy = require('bluemix-appid').WebAppStrategy;
-  ```
-  {: codeblock}
+1. Configure your identity providers.
+2. Add the following command to your code.
+    ```JavaScript
+
+    var express = require('express');
+    var passport = require('passport');
+    var WebAppStrategy = require('bluemix-appid').WebAppStrategy;
+    ```
+    {: codeblock}
 
 
-## Running the login widget with the Swift SDK
-{: #authenticate-swift}
+</br>
+## Calling the login widget with the Swift SDK
 
-The WebAppKituraCredentialsPlugin is based on the OAuth2 authorization_code grant flow and must be used for web applications that use browsers. The plug-in provides tools to implement authentication and authorization flows. The plug-in also provides mechanisms to detect unauthenticated attempts to access protected resources and automatically redirects a user's browser to the authentication page. After successful authentication, a user is taken to the web application's callback URL, which uses the plug-in to obtain access and identity tokens from {{site.data.keyword.appid_short_notm}}. After obtaining these tokens, the plug-in stores them in an HTTP session under WebAppKituraCredentialsPlugin.AuthContext.
+With social identity providers enabled, you can call the preconfigured sign in screen with the Swift SDK.
+{: shortdesc}
+
+The WebAppKituraCredentialsPlugin is based on the OAuth2 authorization code grant flow and must be used for web applications that use browsers. The plug-in provides tools to implement authentication and authorization flows. The plug-in also provides mechanisms to detect unauthenticated attempts to access protected resources and automatically redirects a user's browser to the authentication page. After successful authentication, a user is taken to the web application's callback URL, which uses the plug-in to obtain access and identity tokens from {{site.data.keyword.appid_short_notm}}. After obtaining these tokens, the plug-in stores them in an HTTP session under WebAppKituraCredentialsPlugin.AuthContext.
 
 The following code demonstrates how to use WebAppKituraCredentialsPlugin in a Kitura application to protect the `/protected` endpoint.
 

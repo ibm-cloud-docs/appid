@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-12-06"
+  years: 2017, 2018
+lastupdated: "2018-02-01"
 
 ---
 {:new_window: target="_blank"}
@@ -10,233 +10,106 @@ lastupdated: "2017-12-06"
 {:screen: .screen}
 {:codeblock: .codeblock}
 
-
 # Authorization and authentication
 {: authorization}
 
-Authorization is the process by which you grant access to your apps. The {{site.data.keyword.appid_short}} service uses tokens, filters, and a header to authenticate users.
+With {{site.data.keyword.appid_full}}, users can leverage tokens and authorization filters to ensure their apps are protected. Before a user can grant authorization, their identity must be authenticated by an identity provider.
 {: shortdesc}
 
 
-## OAuth identity
-{: #oauth}
+## Key concepts
+{: key-concepts}
 
-When the service calls the OAuth login API, {{site.data.keyword.appid_short_notm}} uses OAuth 2.0 and OpenID Connect (OIDC) protocols to authorize and authenticate the caller with a selected identity provider. After authentication, the identity is associated with an {{site.data.keyword.appid_short_notm}} user record. {{site.data.keyword.appid_short_notm}} returns an access token that can be used to access user's attributes, and an identity token that is holding the identity information provided by the identity provider. The same user record and its attributes can be accessed again from any client that authenticates with this same identity.
+In order to truly understand the way that the service breaks down the authorization and authentication process, you'll need to have an understanding of some key terms.
 
-## Access and identity tokens
-
-{{site.data.keyword.appid_short}} uses two types of tokens: access and identity.
-{:shortdesc}
-
-**Note**: The tokens are formatted as <a href="https://jwt.io/introduction/" target="_blank">JSON Web Tokens <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
-
-### Access token
-{: #access-tokens}
-
-Access tokens enable communication with with [back-end resources](/docs/services/appid/protecting-resources.html) that are protected by authorization filters that are set by App ID. The token conforms to JavaScript Object Signing and Encryption (JOSE) specifications.
-
-Example token:
-
-```
-Header: {
-    "typ": "JOSE",
-    "alg": "RS256",
-}
-Payload: {
-    "iss": "appid-oauth.ng.bluemix.net",
-    "exp": "1495562664",
-    "aud": "a3b87400-f03b-4956-844e-a52103ef26ba",
-    "amr": ["facebook"],
-    "sub": "de6a17d2-693d-4a43-8ea2-2140afd56a22",
-    "iat": "1495559064",
-    "tenant": "9781974b-6a1c-46c3-aebf-32b7e9bbbaee",
-    "scope": "appid_default appid_readprofile appid_readuserattr appid_writeuserattr",
-}
-```
-{:screen}
-
-<table>
-<caption> Table 1. Access token components explained </caption>
-  <tr>
-    <th> Component </th>
-    <th> Description </th>
-  </tr>
-  <tr>
-    <td><i> typ </i></td>
-    <td> The header type, specified as "JOSE". </td>
-  </tr>
-  <tr>
-    <td><i> alg </i></td>
-    <td> The algorithm used, specified as "RS256". </td>
-  </tr>
-  <tr>
-    <td><i> iss </i></td>
-    <td> The {{site.data.keyword.appid_short}} server that issued the token; specified as a string or URL. </td>
-  </tr>
-  <tr>
-    <td><i> sub </i></td>
-    <td> The ID of the user to whom the token is issued. </td>
-  </tr>
-  <tr>
-    <td><i> aud </i></td>
-    <td> The client ID the token is intended for. </td>
-  </tr>
-  <tr>
-    <td><i> exp </i></td>
-    <td> The time at which the timestamp expires, specified in epoch time. </td>
-  </tr>
-  <tr>
-    <td><i> iat </i></td>
-    <td> The time at which the timestamp is issued, specified in epoch time. </td>
-  </tr>
-  <tr>
-    <td><i> tenant </i></td>
-    <td> The unique user identifier issued with the token. </td>
-  </tr>
-  <tr>
-    <td><i> amr </i></td>
-    <td> The identity provider used for authentication. This variable can be <i>appid_facebook</i>,  <i>appid_google</i> or <i>cloud_directory</i>. </td>
-  </tr>
-  <tr>
-    <td><i> scope </i></td>
-    <td> The scope the token is issued for. </td>
-  </tr>
-</table>
-
-
-### Identity tokens
-{: #identity-tokens}
-
-An identity token contains information about the user. It can give you information about their name, email, gender, and location. A token can also return a URL to an image of the user.
-
-Example token:
-
-```
-Header: {
-    "typ": "JOSE",
-    "alg": "RS256",
-}
-Payload: {
-    "iss": "appid-oauth.ng.bluemix.net",
-    "aud": "a3b87400-f03b-4956-844e-a52103ef26ba",
-    "exp: "1495562664",
-    "tenant": "9781974b-6a1c-46c3-aebf-32b7e9bbbaee",
-    "iat": "1495559064",
-    "name": "John Smith",
-    "email": "js@mail.com",
-    "gender", "male",
-    "locale": "en",
-    "picture": "https://url.to.photo",
-    "sub": "de6a17d2-693d-4a43-8ea2-2140afd56a22",
-    "identities": [
-        "provider": "facebook"
-        "id": "377440159275659"
-    ],
-    "amr": ["facebook"],
-    "oauth_client":{
-      "name": "BluemixApp",
-      "type": "serverapp",
-      "software_id": "cb638f8f-e24b-41d3-b770-23be158dd8e6.2b94e6bb-bac4-4455-8712-a43fa804d5cc.a3b87400-f03b-4956-844e-a52103ef26ba",
-      "software_version": "1.0.0",
+<dl>
+  <dt>OAuth 2</dt>
+    <dd><a href="https://tools.ietf.org/html/rfc6749" target="_blank">OAuth 2 <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> is open standard protocol that is used to provide app authorization.</dd>
+  <dt>Open ID Connect (OIDC)</dt>
+    <dd><a href="http://openid.net/developers/specs/" target="_blank">OIDC <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> is an authentication layer that works on top of OAuth 2.</dd>
+  <dt>Access tokens</dt>
+    <dd><p>Access tokens represent authorization and enable communication with with [back-end resources](/docs/services/appid/protecting-resources.html) that are protected by authorization filters that are set by {{site.data.keyword.appid_short}}. The token conforms to JavaScript Object Signing and Encryption (JOSE) specifications. The tokens are formatted as <a href="https://jwt.io/introduction/" target="blank">JSON Web Tokens <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.</br>
+    Example:</p>
+    <pre><code>Header: {
+        "typ": "JOSE",
+        "alg": "RS256",
     }
-}
-```
-{:screen}
+    Payload: {
+        "iss": "appid-oauth.ng.bluemix.net",
+        "exp": "1495562664",
+        "aud": "a3b87400-f03b-4956-844e-a52103ef26ba",
+        "amr": ["facebook"],
+        "sub": "de6a17d2-693d-4a43-8ea2-2140afd56a22",
+        "iat": "1495559064",
+        "tenant": "9781974b-6a1c-46c3-aebf-32b7e9bbbaee",
+        "scope": "appid_default appid_readprofile appid_readuserattr appid_writeuserattr",
+    </code></pre></dd>
+  <dt>Identity tokens</dt>
+    <dd><p>Identity tokens represent authentication and contain information about the user. It can give you information about their name, email, gender, and location. A token can also return a URL to an image of the user.</br>
+    Example:</p>
+    <pre><code>Header: {
+        "typ": "JOSE",
+        "alg": "RS256",
+    }
+    Payload: {
+        "iss": "appid-oauth.ng.bluemix.net",
+        "aud": "a3b87400-f03b-4956-844e-a52103ef26ba",
+        "exp: "1495562664",
+        "tenant": "9781974b-6a1c-46c3-aebf-32b7e9bbbaee",
+        "iat": "1495559064",
+        "name": "John Smith",
+        "email": "js@mail.com",
+        "gender", "male",
+        "locale": "en",
+        "picture": "https://url.to.photo",
+        "sub": "de6a17d2-693d-4a43-8ea2-2140afd56a22",
+        "identities": [
+            "provider": "facebook"
+            "id": "377440159275659"
+        ],
+        "amr": ["facebook"],
+        "oauth_client":{
+          "name": "BluemixApp",
+          "type": "serverapp",
+          "software_id": "cb638f8f-e24b-41d3-b770-23be158dd8e6.2b94e6bb-bac4-4455-8712-a43fa804d5cc.a3b87400-f03b-4956-844e-a52103ef26ba",
+          "software_version": "1.0.0",
+        }
+    }
+    </pre></code></dd>
+  <dt>Authorization headers</dt>
+    <dd><p>{{site.data.keyword.appid_short}} complies with the <a href="https://tools.ietf.org/html/rfc6750" target="blank">token bearer specification <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> and uses a combination of access and identity tokens that are sent as an HTTP Authorization header. The Authorization header contains three different parts that are separated by white space. The tokens are base64 encoded. The identity token is optional.</br>
+    Example:</p>
+    <pre><code>Authorization=Bearer {access_token} [{id_token}]</pre></code></dd>
+  <dt>API Strategy</dt>
+    <dd><p>The API strategy expects requests to contain an authorization header with a valid access token. The request can also include an identity token, but it is not required. If a token is invalid or expired, the API strategy returns an HTTP 401 error that contains the following HTTP header:</p> <pre><code>Www-Authenticate=Bearer scope="{scope}" error="{error}"</code></pre>
+    <p>If the request returns a valid token, control is passed to the next middleware and the <code>appIdAuthorizationContext</code> property is injected into the request object. This property contains original access and identity tokens, and decoded payload information as plain JSON objects.</dd>
+  <dt>Web app strategy</dt>
+    <dd>When the web app strategy detects unauthorized attempts to access a protected resource, it automatically redirects a user's browser to the authentication page, which can be provided by {{site.data.keyword.appid_short}}. After successful authentication, the user is returned to the web app's callback URL. The web app strategy obtains access and identity tokens and stores them in an HTTP session under <code>WebAppStrategy.AUTH_CONTEXT</code>. It is up to the user to decide whether to store access and identity tokens in the app database.</dd>
+</dl>
 
+</br>
+## How the process works
+{: #process}
 
-<table>
-<caption> Table 2. Identity token components explained </caption>
-  <tr>
-    <th> Component </th>
-    <th> Description </th>
-  </tr>
-  <tr>
-    <td> <i> name </i> </td>
-    <td> The user's full name as reported by the identity provider. This must be returned. </td>
-  </tr>
-  <tr>
-    <td> <i> email </i> </td>
-    <td> The user's email as reported by the identity provider. Returned only when available. </td>
-  </tr>
-  <tr>
-    <td> <i> gender </i> </td>
-    <td> The user's gender as reported by the identity provider, when available. </td>
-  </tr>
-  <tr>
-    <td> <i> locale </i> </td>
-    <td> The user's locale as reported by the identity provider. </td>
-  </tr>
-  <tr>
-    <td> <i> picture </i> </td>
-    <td> The URL to a user's picture, if available. </td>
-  </tr>
-  <tr>
-    <td> <i> identities: </br> <ul><li> provider <li> id </ul></i></td>
-    <td> </br><ul><li> The identity provider used for authentication. This variable can be either <code>appid_facebook</code>, <code>appid_google</code>, or <code>cloud_directory</code>, and must be returned. <li> A unique user ID as reported by an identity provider. <li> A JSON object that must be returned by the identity provider. </ul></i></td>
-  </tr>
-  <tr>
-    <td> <i> oauth_client: </br> <ul><li> type </br><li> name <li> software_id <li> software_version<li> device_id <li>device_model<li>device_os<li>device_os_version </ul></i> </td>
-    <td> </br><ul><li> The type of app determined during client registration. The variable can be <em>serverapp</em> or <em>mobileapp</em>. <li> The client name as reported during client registration. <li> The software ID as reported during client registration. <li> The version of software used during client registration. <li> The mobile client device ID. <li> The mobile client device model. <li> The mobile client device OS. <li> The mobile client device OS version.</ul></td>
-  </tr>
-</table>
+When coding apps, one of the biggest concerns is security. How can you ensure that only those with the right access, are using your app? You use an authorization process. In most applications, the authorization and authentication process is coupled together; making changes to your security policies and identity providers complicated. With {{site.data.keyword.appid_short}}, authorization and authentication are separate processes.
+{: shortdesc}
 
-## Headers
-{: #auth-header}
+When you configure social identity providers such as Facebook, the [Oauth2 Authorization Grant flow](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html) is used to call the login widget. With cloud directory as your identity provider, the [Resource Owner Password Credentials flow](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/password.html) is used to provide access and identity tokens.
 
-An authorization header is the combination of tokens returned. For {{site.data.keyword.appid_short}}, the authorization header consists of three different tokens that are separated by white space: Bearer, Access, and Identity. Bearer and access tokens are required to grant access to your apps. An identity token is optional and is mainly used to store information about those using your app.
+![The path to becoming an identified user.](/images/authenticationtrail.png)
 
-Example header structure:
+When a user chooses to sign-in, they become an identified user. Information about the user is obtained from the identity provider that they've signed in with. The identity provider returns access and identity tokens to {{site.data.keyword.appid_short}} that contain information about the user. The service takes the provided tokens and determines whether a user has the proper credentials to access an app. If the tokens are validated then the service authorizes the users access. After a user is authorized, their authentication information is associated with a user record. The record and its attributes can be accessed again from any client that authenticates with the same identity.
 
-```
-Authorization=Bearer {access_token} [{id_token}]
-```
-{: screen}
+### Progressive authentication
 
+With {{site.data.keyword.appid_short_notm}}, an anonymous user can choose to become an identified user.
 
-## Filters
-{: #auth-filter}
+But how does that work?
 
-The {{site.data.keyword.appid_short}} server SDK provides strategies for protecting two types of resources: APIs and web applications.
-{:shortdesc}
+When a user chooses not to sign in immediately, they are considered an anonymous user. As an example, a user could immediately start adding items to a shopping cart without signing in. For anonymous users, {{site.data.keyword.appid_short_notm}} creates an ad hoc user record and calls the OAuth login API which returns anonymous access and identity tokens. By using those tokens, the app can create, read, update, and delete the attributes that are stored in the user record.
 
-The API protection strategy returns an HTTP 401 response with a list of scopes to obtain authorization for an unauthenticated client. The web app protection strategy returns an HTTP 302 redirect. The redirect sends an unauthenticated client to the sign-in page that is hosted by the {{site.data.keyword.appid_short_notm}} service, or directly to an identity provider sign-in page, depending on your configuration.
+![The path to becoming an identified user when they start as anonymous.](/images/anon-authenticationtrail.png)
 
+When an anonymous user signs-in, the anonymous access token is passed to the login API. The service authenticates the call with an identity provider. The service uses the access token to find the anonymous record and attaches the identity to it. The new access and identity tokens contain the public information that is shared by the identity provider. After a user is identified, their anonymous tokens become invalid. However, a user is still able to access their attributes because they're accessible with the new token.
 
-
-### API strategy
-{: #api}
-
-The API strategy expects requests to contain an authorization header with a valid access token. The response can also include an identity token, but it is not required.
-
-If a token is invalid or expired, the API strategy returns an HTTP 401 error that contains the following information: Www-Authenticate=Bearer scope="{scope}" error="{error}". The `error` component is optional.
-
-If the request returns a valid token, control is passed to the next middleware and the `appIdAuthorizationContext` property is injected into the request object. This property contains original access and identity tokens, and decoded payload information as plain JSON objects.
-
-
-### Web app strategy
-{: #web}
-
-When the web app strategy class detects unauthenticated attempts to access a protected resource, it automatically redirects a user's browser to the authentication page. After successful authentication, the user is returned to the web app's callback URL. The service uses the web app strategy class to obtain access and identity tokens. After obtaining these tokens, the web app strategy class stores them in an HTTP session under `WebAppStrategy.AUTH_CONTEXT`. It is up to the user to decide whether to store access and identity tokens in the app database.
-
-
-## Progressive authentication
-{: #oauth}
-
-{{site.data.keyword.appid_short_notm}} uses OAuth 2.0 and OIDC protocols to authorize and authenticate a user. After authentication, their identity is associated with a user record. The service returns an access token that can be used to access the user's attributes and an identity token that contains the information about the user that was provided by the identity provider. The record and its attributes can be accessed again from any client that authenticates with the same identity.
-
-Now, you might ask, "what if I want sign in to be optional?" {{site.data.keyword.appid_short_notm}} uses what is known as progressive authentication to create [user profiles](/docs/services/appid/user-profile.html), even when they're anonymous. You can then transfer that information to a known user profile after a user signs-in.
-
-![A map that shows the path to becoming an identified user.](/images/authenticationtrail.png)
-
-Figure 2. A map showing the path to become an identified user
-
-When a user chooses to remain anonymous, {{site.data.keyword.appid_short_notm}} creates an ad hoc user record and calls the OAuth login API which returns anonymous access and identity tokens. By using those tokens, the app can create, read, update, and delete the attributes that are stored in the user record. As an example, a user could immediately start adding items to a shopping cart without having to sign-in to an app.
-
-
-When a user chooses to sign-in to an app, they become an identified user. Information about the user is obtained from the identity provider that they choose to sign-in with. They receive access and identity tokens that contain information about the user.
-
-An anonymous user can choose to become an identified user. But, how does that work?
-
-The anonymous access token is passed to the login API. The service authenticates the call with an identity provider. The service uses the access token to find the anonymous record and attaches the identity to it. The new access identity tokens contain the public information that shared by the identity provider. After a user is identified, their anonymous tokens become invalid. However, a user is still able to access their attributes because they're accessible with the new token.
-
-**Note**: An identity can only be assigned to an anonymous record if it has not already been assigned to another user. If the identity if already associated with another {{site.data.keyword.appid_short_notm}} user, the tokens contain information of that user record and provide access to their attributes. The previous anonymous users attributes are not accessible through the new token. Until the token expires, the information can still be accessed through the anonymous access token. During development, you can choose how to merge the anonymous attributes to the known user.
+**Note**: An identity can only be assigned to an anonymous record if it has not already been assigned to another user. If the identity is already associated with another {{site.data.keyword.appid_short_notm}} user, the tokens contain information of that user record and provide access to their attributes. The previous anonymous users attributes are not accessible through the new token. Until the token expires, the information can still be accessed through the anonymous access token. During development, you can choose how to merge the anonymous attributes to the known user.
