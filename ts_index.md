@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-12-06"
+  years: 2017, 2018
+lastupdated: "2018-02-01"
 
 ---
 {:new_window: target="_blank"}
@@ -27,6 +27,4 @@ You can get help by searching for information or by asking questions through a f
   * If you have technical questions about {{site.data.keyword.appid_short_notm}}, post your question on <a href="http://stackoverflow.com/search?q=appid+ibm-bluemix" target="_blank">Stack Overflow <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> and tag your question with "ibm-appid".
   * For questions about the service and getting started instructions, use the <a href="https://developer.ibm.com/answers/search.html?f=&type=question&redirect=search%2Fsearch&sort=relevance&q=appid%20[bluemix]" target="_blank">dW Answers <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> forum. Include the "appid" tag.
 
-See [Getting help](/docs/support/index.html#getting-help) for more details about using the forums.
-
-For information about opening an IBM support ticket, or about support levels and ticket severities, see [Contacting support](/docs/support/index.html#contacting-support).
+For more information about IBM support tickets or using the forums, see [How do I get the support I need?](/docs/get-support/howtogetsupport.html#getting-customer-support).
