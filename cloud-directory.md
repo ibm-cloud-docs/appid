@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-12-06"
+  years: 2017, 2018
+lastupdated: "2018-02-01"
 
 ---
 
@@ -10,38 +10,49 @@ lastupdated: "2017-12-06"
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
+{:pre: .pre}
 
-# Managing Cloud Directory
+# Configuring cloud directory
 {: #cd}
 
-You can configure {{site.data.keyword.appid_short_notm}} to use Cloud Directory as an identity provider. When users sign in with their email and a password, they are added to your directory and you can manage your users from the service GUI.
+You can configure {{site.data.keyword.appid_short_notm}} to use cloud directory as an identity provider. Users can sign-up and sign-in to your mobile and web apps by using an email and a password. A cloud directory is a user registry that is maintained in the cloud. When a user signs up for your app with their email and a password, they're added to your directory of users. With this feature, end users have the freedom to manage their own account within your app.
 {: shortdesc}
 
-<!--- What is a cloud directory? --->
+</br>
 
 ## Managing directory settings
+{: #cd-settings}
 
-You can configure the notifications and level of user control for your app. In the **Directory Settings** tab of the GUI, you can decide how much self service your users will be able to do.
+You can configure the notifications and level of user control for your app. Setting up your cloud directory can be done quickly, as shown in the following image. These settings can be updated at any time from the service dashboard.
+{: shortdesc}
 
-1. To allow users to use an email to sign up, you must set **Allow users to sign up and reset their password** to **On**. You can still add users through the console when it's set to **Off**, but only for development purposes.
-2. Configure your sender details. Specify the email that will send the messages, who will appear as the sender, and to whom your users can reply.
+![Configuring cloud directory](/images/cloud-directory.png)
+
+1. Be sure that cloud directory is turned on as an identity provider and set **Allow users to sign up and reset their password** to **On**. You can still add users through the console when it's set to **Off**, but only for development purposes.
+2. Configure your sender details. Specify the email address from which your messages appear to be from, the sender, and to whom your users can reply.
   **Note**: Be sure when configuring your action URL that you give enough time for a user to click the link. A user must verify their email to have certain options, such as the ability to request a reset of their password.
 3. Determine the types of emails a user receives and the sender information.
+4. Using the templates provided, customize your messages with your brand, or personalized messages. For more information see [Managing messages](/docs/services/appid/cloud-directory.html#cd-messages).
+5. See who's signed-up for your app in the **Users** tab of the GUI.
 
-
+</br>
 
 ## Managing messages
+{: #cd-messages}
 
 A template is an example of an email message that you may send to your users. You can customize the template by updating the content and layout of the message. You can set these messages to **On** or **Off** in the directory settings tab.
+{: shortdesc}
 
 1. Select a **Message type**.
 2. Customize your message by changing the content and design of the message. You can use parameters to personalize your messages. Don't forget to save your changes!
 
 ### Types of messages
 
+There are several types of messages that you can send to your users. You can choose to send the example message that it programmed into the UI or you can customize the content for a more personal app experience.
+
 <dl>
-  <dt> Welcome </dt>
-    <dd>You can welcome a user to your application via email, after they've registered. To welcome and retain your users, make your message as engaging as possible.
+  <dt>Welcome</dt>
+    <dd><p>You can welcome a user to your application via email, after they've registered. To welcome and retain your users, make your message as engaging as possible.</p>
     <table>
       <thead>
         <th colspan=2><img src="images/idea.png"/> Parameters that can be used in any type of message </th>
@@ -50,10 +61,6 @@ A template is an example of an email message that you may send to your users. Yo
         <tr>
           <td> %{display.logo} </td>
           <td> Displays the image that you configured for your login widget. </td>
-        </tr>
-	 <tr>
-          <td> %{display.headerColor} </td>
-          <td> Displays the header color that you configured for your login widget. </td>
         </tr>
         <tr>
           <td> %{user.displayName} </td>
@@ -77,11 +84,9 @@ A template is an example of an email message that you may send to your users. Yo
         </tr>
       </tbody>
     </table>
-
-    **Note**: If a user does not supply the information pulled by the parameter, it appears blank.</dd>
-  <dt> Forgot password </dt>
-    <dd> A user can ask to have their password reset should they forget or need to update it for any reason. You can customize the email response to their request. When a user requests a change, their password remains unchanged until they click the link in this email.
-
+    <p>**Note**: If a user does not supply the information pulled by the parameter, it appears blank.</p></dd>
+  <dt>Forgot password</dt>
+    <dd><p>A user can ask to have their password reset should they forget or need to update it for any reason. You can customize the email response to their request. When a user requests a change, their password remains unchanged until they click the link in this email.</p>
     <table>
       <thead>
         <th colspan=2><img src="images/idea.png"/> Password change parameters </th>
@@ -104,9 +109,10 @@ A template is an example of an email message that you may send to your users. Yo
           <td> Displays the link that a user clicks to reset their password. </td>
         </tr>
        </tbody>
-    </table></dd>
-  <dt> Verification </dt>
-    <dd> You can request that a user verifies their account via email. By requesting a verification, you limit the number of fake accounts that can sign up for your app. You can restrict access to your app until a user has verified their email, or use it as a way to manage which users you create profiles for.
+    </table>
+    </dd>
+  <dt>Verification</dt>
+    <dd><p>You can request that a user verifies their account via email. By requesting a verification, you limit the number of fake accounts that can sign up for your app. You can restrict access to your app until a user has verified their email, or use it as a way to manage which users you create profiles for.</p>
     <table>
       <thead>
         <th colspan=2><img src="images/idea.png"/> Verification message parameters </th>
@@ -129,10 +135,10 @@ A template is an example of an email message that you may send to your users. Yo
           <td> Displays the action URL that you specified in settings. </td>
         </tr>
       </tbody>
-    </table></dd>
-  <dt> Password change </dt>
-    <dd> You can let a user know when their password has been updated. This is helpful if a they did not request their password be changed. They can take the proper steps to re-secure their account.
-
+    </table>
+    </dd>
+  <dt>Password change</dt>
+    <dd><p>You can let a user know when their password has been updated. This is helpful if a they did not request their password be changed. They can take the proper steps to re-secure their account.</p>
     <table>
       <thead>
         <th colspan=2><img src="images/idea.png"/> Password change parameters </th>
@@ -147,360 +153,20 @@ A template is an example of an email message that you may send to your users. Yo
           <td> Displays the IP address from which the password change was requested. </td>
         </tr>
       </tbody>
-    </table></dd>
+    </table>
+    </dd>
 </dl>
-
-**NOTE**: {{site.data.keyword.appid_short_notm}} uses SendGrid as a mail delivery service. All emails are sent using a single SendGrid account. For more information see www.sendgrid.com.
-
-## Managing Cloud Directory with the Android SDK
-{: #managing-android}
-
-Be sure to set **Cloud Directory identity provider** to **ON** when using the following APIs.
-
-### Login using Resource Owner Password
-You can obtain an access and ID token by supplying the end user's username and password.
-
- ```java
- AppID.getInstance().obtainTokensWithROP(getApplicationContext(), username, password,
-         new TokenResponseListener() {
-         @Override
-          public void onAuthorizationFailure (AuthorizationException exception) {
-             //Exception occurred
-          }
-
-          @Override
-          public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken) {
-            //User authenticated
-          }
-         });
- ```
- {: codeblock}
-
-### Sign Up
-
-Make sure to set **Allow users to sign up and reset their password** to **ON** in the settings for Cloud Directory.
-
- Use the LoginWidget class to start the sign up flow.
- ```java
- LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
- loginWidget.launchSignUp(this, new AuthorizationListener() {
-			 @Override
-			 public void onAuthorizationFailure (AuthorizationException exception) {
-				 //Exception occurred
-			 }
-
-			 @Override
-			 public void onAuthorizationCanceled () {
-				 //Sign up canceled by the user
-			 }
-
-			 @Override
-			 public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken) {
-				 if (accessToken != null && identityToken != null) {
-				     //User authenticated
-				 } else {
-				     //email verification is required
-				 }
-
-			 }
-		 });
- ```
- {: codeblock}
-
-### Forgot Password
-Be sure to set **Allow users to sign up and reset their password** and **Forgot password email** to **ON** in the settings for Cloud Directory.
-
-Use the LoginWidget class to start the forgot password flow.
-  ```java
-  LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
-  loginWidget.launchForgotPassword(this, new AuthorizationListener() {
- 			 @Override
- 			 public void onAuthorizationFailure (AuthorizationException exception) {
- 				 //Exception occurred
- 			 }
-
- 			 @Override
- 			 public void onAuthorizationCanceled () {
- 				 //forogt password canceled by the user
- 			 }
-
- 			 @Override
- 			 public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken) {
- 				 //forgot password finished, in this case accessToken and identityToken will be null.
-
- 			 }
- 		 });
-  ```
-  {: codeblock}
-
-### Change Details
-Be sure to set **Allow users to sign up and reset their password** to **ON** in the settings for Cloud Directory. Use the LoginWidget class to start the change details flow. This API can be used only when the user logs in by using Cloud Directory as their identity provider.
-   ```java
-   LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
-   loginWidget.launchChangeDetails(this, new AuthorizationListener() {
-  			 @Override
-  			 public void onAuthorizationFailure (AuthorizationException exception) {
-  				 //Exception occurred
-  			 }
-
-  			 @Override
-  			 public void onAuthorizationCanceled () {
-  				 //changed details canceled by the user
-  			 }
-
-  			 @Override
-  			 public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken) {
-  				 //User authenticated, and fresh tokens received
-  			 }
-  		 });
-   ```
-   {: codeblock}
-
-### Change Password
-Make sure to set **Allow users to sign up and reset their password** to **ON**, in the settings for Cloud Directory.
-
-Use the LoginWidget class to start the change password flow. This API can be used only when the user logged in by using Cloud Directory as their identity provider.
-
-   ```java
-    LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
-    loginWidget.launchChangePassword(this, new AuthorizationListener() {
-   			 @Override
-   			 public void onAuthorizationFailure (AuthorizationException exception) {
-   				 //Exception occurred
-   			 }
-
-   			 @Override
-   			 public void onAuthorizationCanceled () {
-   				 //change password canceled by the user
-   			 }
-
-   			 @Override
-   			 public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken) {
-   				   //User authenticated, and fresh tokens received
-   			 }
-   		 });
-   ```
-   {: codeblock}
-
-## Managing Cloud Directory with the iOS Swift SDK
-
-
-### Login using Resource Owner Password
-
-You can obtain an access and ID token by supplying the end user's username and password.
-  ```swift
-  class delegate : TokenResponseDelegate {
-      public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, response:Response?) {
-      //User authenticated
-      }
-
-      public func onAuthorizationFailure(error: AuthorizationError) {
-      //Exception occurred
-      }
-  }
-
-  AppID.sharedInstance.obtainTokensWithROP(username: username, password: password, delegate: delegate())
-  ```
-  {: codeblock}
-
-### Sign Up
-
-Make sure to set **Allow users to sign up and reset their password** to **ON**, in the settings for Cloud Directory.
-
-Use the LoginWidget class to start the sign up flow.
-  ```swift
-  class delegate : AuthorizationDelegate {
-    public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, response:Response?) {
-       if accessToken == nil && identityToken == nil {
-        //email verification is required
-        return
-       }
-     //User authenticated
-    }
-
-    public func onAuthorizationCanceled() {
-        //Sign up canceled by the user
-    }
-
-    public func onAuthorizationFailure(error: AuthorizationError) {
-        //Exception occurred
-    }
-  }
-
-  AppID.sharedInstance.loginWidget?.launchSignUp(delegate: delegate())
-  ```
-  {: codeblock}
-
-### Forgot Password
-Make sure to set **Allow users to sign up and reset their password** and **Forgot password email** to **ON** in the settings for Cloud Directory.
-
-Use the LoginWidget class to start the forgot password flow.
-  ```swift
-  class delegate : AuthorizationDelegate {
-     public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, response:Response?) {
-        //forgot password finished, in this case accessToken and identityToken will be null.
-     }
-
-     public func onAuthorizationCanceled() {
-         //forgot password canceled by the user
-     }
-
-     public func onAuthorizationFailure(error: AuthorizationError) {
-         //Exception occurred
-     }
-  }
-
-  AppID.sharedInstance.loginWidget?.launchForgotPassword(delegate: delegate())
-  ```
-  {: codeblock}
-
-### Change Details
-
-Make sure to set **Allow users to sign up and reset their password** to **ON** in the settings for Cloud Directory.
-
-Use the LoginWidget class to start the change details flow. This API can be used only when the user logs in by using Cloud Directory as their identity provider.
-  ```swift
-
-   class delegate : AuthorizationDelegate {
-       public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, response:Response?) {
-          //User authenticated, and fresh tokens received
-       }
-
-       public func onAuthorizationCanceled() {
-           //changed details canceled by the user
-       }
-
-       public func onAuthorizationFailure(error: AuthorizationError) {
-           //Exception occurred
-       }
-   }
-
-   AppID.sharedInstance.loginWidget?.launchChangeDetails(delegate: delegate())
-  ```
-  {: codeblock}
-
-### Change Password
-
-Make sure to set **Allow users to sign up and reset their password** to **ON** in the settings for Cloud Directory.
-
-Use the LoginWidget class to start the change password flow. This API can be used only when the user logs in by using Cloud Directory as an identity provider.
-  ```swift
-   class delegate : AuthorizationDelegate {
-       public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, response:Response?) {
-           //User authenticated, and fresh tokens received
-       }
-
-       public func onAuthorizationCanceled() {
-           //change password canceled by the user
-       }
-
-       public func onAuthorizationFailure(error: AuthorizationError) {
-            //Exception occurred
-       }
-    }
-
-    AppID.sharedInstance.loginWidget?.launchChangePassword(delegate: delegate())
-  ```
-  {: codeblock}
-
-
-## Managing Cloud Directory with the Node.js SDK
-Make sure that the Cloud Directory identity provider is set to **ON** and include the callback endpoint.
-
-### Login using resource owner password flow
-WebAppStrategy allows users to login to your web application by using a username and password.
-After a successful login, the user's access token is persisted in the HTTP session, and is available as long as the HTTP session is kept alive. Once the HTTP session is destroyed or expired, the token is destroyed as well.
-
-To allow user's to login using a username and password, add to your app a post route that will be called with the username and password parameters.
-
-  ```javascript
-  app.post("/form/submit", bodyParser.urlencoded({extended: false}), passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
-  	successRedirect: LANDING_PAGE_URL,
-  	failureRedirect: ROP_LOGIN_PAGE_URL,
-  	failureFlash : true // allow flash messages
-  }));
-  ```
-  {: codeblock}
-
-  <table>
-    <thead>
-      <th colspan=2><img src="images/idea.png"/> Understanding this commands components </th>
-    </thead>
-    <tbody>
-      <tr>
-        <td><code> successRedirect </code></td>
-        <td> Set this value to the URL where you want to redirect a user after successful authentication. The default is the original request URL. Example: <code>/form/submit</code> </td>
-      </tr>
-      <tr>
-        <td><code> failureRedirect </code></td>
-        <td> Set this value to the URL where you want to redirect a user if their authentication fails. The default is the original request URL.</td>
-      </tr>
-      <tr>
-        <td><code> failureFlash </code></td>
-        <td> Set this value to <code>true</code> to receive an error message that is returned from Cloud Directory. The default value is false. </td>
-      </tr>
-     </tbody>
-  </table>
-
-
-**Note**:
-  * If you submit the request using an HTML form, use [body-parser](https://www.npmjs.com/package/body-parser) middleware.
-  * Use [connect-flash](https://www.npmjs.com/package/connect-flash) for getting the returned error message. See the `web-app-sample-server.js`.
-
-### Sign up
-To launch the {{site.data.keyword.appid_short_notm}} sign up form, pass the WebAppStrategy "show" property and set it to `WebAppStrategy.SIGN_UP`.
-  ```javascript
-  app.get("/sign_up", passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
-  	successRedirect: LANDING_PAGE_URL,
-  	show: WebAppStrategy.SIGN_UP
-  }));
-  ```
-  {: codeblock}
-
-    **Note**:
-    * If in your Cloud directory settings, **Allow users to sign-in without email verification** is set to **No**, the process ends without retrieving {{site.data.keyword.appid_short_notm}} access and ID tokens.
-    * Be sure to set **Allow users to sign up and reset their password** to **ON** in the Cloud directory settings.
-
-
-### Forgot Password
-To launch the {{site.data.keyword.appid_short_notm}} forgot password form, pass the WebAppStrategy `show` property and set it to `WebAppStrategy.FORGOT_PASSWORD`.
-  ```javascript
-  app.get("/forgot_password", passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
-  	successRedirect: LANDING_PAGE_URL,
-  	show: WebAppStrategy.FORGOT_PASSWORD
-  }));
-  ```
-  {: codeblock}
-
-**Note**:
-* If in your Cloud directory settings, **Allow users to sign-in without email verification** is set to **No**, the process ends without retrieving {{site.data.keyword.appid_short_notm}} access and ID tokens.
-* Be sure to set **Allow users to sign up and reset their password** and **Forgot password email** to **ON** in the Cloud directory settings.
-
-### Change Details
-To launch the {{site.data.keyword.appid_short_notm}} change details form, pass the WebAppStrategy `show` property and set it to `WebAppStrategy.CHANGE_DETAILS`.
-  ```javascript
-  app.get("/change_details", passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
-  	successRedirect: LANDING_PAGE_URL,
-  	show: WebAppStrategy.CHANGE_DETAILS
-  }));
-  ```
-  {: codeblock}
-
-**Note**:
-* A user must be authenticated by using Cloud Directory as the identity provider.
-* Be sure to set **Allow users to sign up and reset their password** to **ON** in the Cloud directory settings.
-
-
-### Change Password
-To launch the {{site.data.keyword.appid_short_notm}} change password form, pass the WebAppStrategy `show` property and set it to `WebAppStrategy.CHANGE_PASSWORD`.
-  ```javascript
-  app.get("/change_password", passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
-  	successRedirect: LANDING_PAGE_URL,
-  	show: WebAppStrategy.CHANGE_PASSWORD
-  }));
-  ```
-  {: codeblock}
-
-**Note**:
-* A user must be authenticated by using Cloud Directory as the identity provider.
-* Be sure to set **Allow users to sign up and reset their password** to **ON** in the Cloud directory settings.
+</br>
+**NOTE**: {{site.data.keyword.appid_short_notm}} uses <a href="https://www.sendgrid.com" target="_blank">SendGrid <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> as a mail delivery service. All emails are sent using a single SendGrid account.
+
+</br>
+## Next steps
+Now that you've configured cloud directory, you're ready to add the code for the loginwidget into your app code. Click on an SDK language icon in the following image to see what you need to do.
+{: shortdesc}
+
+<img usemap="#options-map" border="0" class="image" id="options" src="images/options.png" width="750" alt="Click on an SDK language icon to get started with cloud directory in your apps." style="width:750px;" />
+<map name="options-map" id="options-map">
+<area href="login-widget.html#authenticate-android" alt="Managing the sign in experience with the Android SDK" shape="rect" coords="187, 6, 305, 120" />
+<area href="login-widget.html#authenticate-ios" alt="Managing the sign in experience with the iOS Swift SDK." shape="rect" coords="333, 6, 448, 125" />
+<area href="login-widget.html#authenticate-nodejs" alt="Managing the sign in experience with the Node.js SDK." shape="rect" coords="472, 7, 590, 121" />
+</map>
