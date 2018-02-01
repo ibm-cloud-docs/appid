@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-12-13"
+  years: 2017, 2018
+lastupdated: "2018-02-01"
 
 ---
 
@@ -10,7 +10,7 @@ lastupdated: "2017-12-13"
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
-
+{:pre: .pre}
 
 # About
 {: #about}
@@ -39,7 +39,11 @@ Why would you want to use {{site.data.keyword.appid_short_notm}}? Check out the 
   </tr>
   <tr>
     <td> You want to build personalized app experiences for your users. </td>
-    <td> {{site.data.keyword.appid_short_notm}} allows you to [store user data](/docs/services/appid/user-profile.html) such as app preferences or information from their public social profiles. You can use that data to ensure that your users have an experience that is customized for them. </td>
+    <td> With {{site.data.keyword.appid_short_notm}}, you can [store user data](/docs/services/appid/user-profile.html) such as app preferences or information from their public social profiles, and then use that data to customize each experience of your app. </td>
+  </tr>
+  <tr>
+    <td> You want to give users the ability to gain access to your app with their email and a password. </td>
+    <td> {{site.data.keyword.appid_short_notm}} provides the ability to create a [cloud directory](/docs/services/appid/cloud-directory.html). This makes it possible for you to add user sign-up and sign-in to your mobile and web apps. Cloud directory provides you with the framework to maintain a user registry that can scale with your user base. With the pre-built functionality for self service, such as email verification and password resets, you can be sure that your app is authenticating users securely. </td>
   </tr>
 </table>
 
@@ -48,13 +52,9 @@ Why would you want to use {{site.data.keyword.appid_short_notm}}? Check out the 
 {: #architecture}
 
 With {{site.data.keyword.appid_short_notm}} you can add a level of security to your apps by requiring users to sign in. You can also use the server SDK to protect your back-end resources.
-
-The following diagram shows an overview of how the {{site.data.keyword.appid_short_notm}} service works.
+{: shortdesc}
 
 ![{{site.data.keyword.appid_short_notm}} architecture diagram](/images/appid_architecture.png)
-
-Figure 1. {{site.data.keyword.appid_short_notm}} architecture diagram
-
 
 <dl>
   <dt> Application </dt>
@@ -72,10 +72,9 @@ Figure 1. {{site.data.keyword.appid_short_notm}} architecture diagram
 {: #request}
 
 The following diagram describes how a request flows from the client SDK to your back-end resources and identity providers.
+{: shortdesc}
 
 ![{{site.data.keyword.appid_short_notm}} request flow](/images/appidrequestflow.png)
-
-Figure 2. {{site.data.keyword.appid_short_notm}} request flow
 
 
 * The {{site.data.keyword.appid_short_notm}} client SDK to makes a request to your back-end resources that are protected with the {{site.data.keyword.appid_short_notm}} server SDK.
