@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2017, 2018
-lastupdated: "2018-01-02"
+lastupdated: "2018-02-13"
 
 ---
 {:new_window: target="_blank"}
@@ -133,7 +133,7 @@ You need the following information:
     </tr>
   </table>
 
-  * An Xcode project (version 8.1 or higher).
+  * An Xcode project (version 9.0.1 or higher).
   * CocoaPods (version 1.1.0 or higher).
 
 
