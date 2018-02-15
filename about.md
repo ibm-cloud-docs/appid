@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-02-01"
+lastupdated: "2018-02-14"
 
 ---
 
@@ -46,6 +46,7 @@ Why would you want to use {{site.data.keyword.appid_short_notm}}? Check out the 
     <td> {{site.data.keyword.appid_short_notm}} provides the ability to create a [cloud directory](/docs/services/appid/cloud-directory.html). This makes it possible for you to add user sign-up and sign-in to your mobile and web apps. Cloud directory provides you with the framework to maintain a user registry that can scale with your user base. With the pre-built functionality for self service, such as email verification and password resets, you can be sure that your app is authenticating users securely. </td>
   </tr>
 </table>
+
 
 
 ## Architecture
