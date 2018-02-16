@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-02-15"
+lastupdated: "2018-02-16"
 
 ---
 
@@ -16,7 +16,7 @@ lastupdated: "2018-02-15"
 # Configuring cloud directory
 {: #cd}
 
-You can configure {{site.data.keyword.appid_short_notm}} to use cloud directory as an identity provider. Users can sign up and sign in to your mobile and web apps by using an email and a password. A cloud directory is a user registry that is maintained in the cloud. When a user signs up for your app with their email and a password, they're added to your directory of users. With this feature, users have the freedom to manage their own account within your app.
+You can configure {{site.data.keyword.appid_short_notm}} to use cloud directory as an identity provider. Users can sign up and sign in to your mobile and web apps by using an email and a password. A cloud directory is a user registry that is maintained in the cloud. When a user signs up for your app with an email and a password, they're added to your directory of users. With this feature, users have the freedom to manage their own account within your app.
 {: shortdesc}
 
 </br>
@@ -29,12 +29,12 @@ You can configure the notifications and level of user control for your app. Sett
 
 ![Configuring cloud directory](/images/cloud-directory.png)
 
-1. Be sure that cloud directory is turned on as an identity provider and set **Allow users to sign up and reset their password** to **On**. You can still add users through the console when it's set to **Off**, but only for development purposes.
+1. Be sure that cloud directory is turned on as an identity provider and set **Allow users to sign up and reset their password** to **On**. If set to **Off**, you can still add users through the console for development purposes.
 2. Configure your sender details. Specify the email address from which your messages appear to be from, the sender, and to whom your users can reply.
-  Be sure when configuring your action URL that you give enough time for a user to click the link. A user must verify their email to have certain options, such as the ability to request a reset of their password.
+  When you configure your action URL, be sure that you give enough time for a user to click the link. A user must verify their email to have certain options, such as the ability to request a reset of their password.
   {: tip}
 3. Determine the types of emails a user receives and the sender information.
-4. Using the templates provided, customize your messages with your brand, or personalized messages. For more information see [Managing messages](/docs/services/appid/cloud-directory.html#cd-messages).
+4. With the templates provided, customize your messages with your brand or personalized messages. For more information, see [Managing messages](/docs/services/appid/cloud-directory.html#cd-messages).
 5. See who's signed-up for your app in the **Users** tab of the GUI.
 
 </br>
@@ -42,7 +42,7 @@ You can configure the notifications and level of user control for your app. Sett
 ## Managing messages
 {: #cd-messages}
 
-A template is an example of an email message that you may send to your users. You can customize the template by updating the content and layout of the message. You can set these messages to **On** or **Off** in the directory settings tab.
+A template is an example of an email message that you might send to your users. You can customize the template by updating the content and layout of the message. You can set these messages to **On** or **Off** in the directory settings tab.
 {: shortdesc}
 
 1. Select a **Message type**.
@@ -50,14 +50,14 @@ A template is an example of an email message that you may send to your users. Yo
 
 ### Types of messages
 
-There are several types of messages that you can send to your users. You can choose to send the example message that it programmed into the UI or you can customize the content for a more personal app experience.
+You can send several types of messages to your users. You can choose to send the example message that it programmed into the UI or you can customize the content for a more personal app experience.
 
 <dl>
   <dt>Welcome</dt>
-    <dd><p>You can welcome a user to your application via email, after they've registered. To welcome and retain your users, make your message as engaging as possible.</p>
+    <dd><p>After they've registered, you can welcome a user to your application via email. To welcome and retain your users, make your message as engaging as possible.</p>
     <table>
       <thead>
-        <th colspan=2><img src="images/idea.png"/> Parameters that can be used in any type of message </th>
+        <th colspan=2><img src="images/idea.png"/> All message parameters </th>
       </thead>
       <tbody>
         <tr>
@@ -66,7 +66,7 @@ There are several types of messages that you can send to your users. You can cho
         </tr>
         <tr>
           <td> %{user.displayName} </td>
-          <td> Displays the screen name a user has chosen to use when interacting with the app. </td>
+          <td> Displays the screen name a user chose to use when interacting with the app. </td>
         </tr>
         <tr>
           <td> %{user.email} </td>
@@ -88,7 +88,7 @@ There are several types of messages that you can send to your users. You can cho
     </table>
     <p>**Note**: If a user does not supply the information pulled by the parameter, it appears blank.</p></dd>
   <dt>Forgot password</dt>
-    <dd><p>A user can ask to have their password reset should they forget or need to update it for any reason. You can customize the email response to their request. When a user requests a change, their password remains unchanged until they click the link in this email.</p>
+    <dd><p>A user can ask to have their password reset if they forget it or need to update it for any reason. You can customize the email response to their request. When a user requests a change, their password remains unchanged until they click the link in this email.</p>
     <table>
       <thead>
         <th colspan=2><img src="images/idea.png"/> Password change parameters </th>
@@ -104,7 +104,7 @@ There are several types of messages that you can send to your users. You can cho
         </tr>
         <tr>
           <td> %{resetPassword.code} </td>
-          <td> Displays a one-time passcode as part of the URL. This would mean that each person would have a different code. Example: <code>https://appid-wfm.bluemix.net/verify/6574839563478 </code> </td>
+          <td> Displays a one-time passcode as part of the URL. This means that each person would have a different code. Example: <code>https://appid-wfm.bluemix.net/verify/6574839563478</code> </td>
         </tr>
         <tr>
           <td> %{resetPassword.link} </td>
@@ -140,7 +140,7 @@ There are several types of messages that you can send to your users. You can cho
     </table>
     </dd>
   <dt>Password change</dt>
-    <dd><p>You can let a user know when their password has been updated. This is helpful if they did not request their password be changed. They can take the proper steps to re-secure their account.</p>
+    <dd><p>You can let a user know when their password has been updated. This is helpful if they did not request that their password be changed. They can take the proper steps to resecure their account.</p>
     <table>
       <thead>
         <th colspan=2><img src="images/idea.png"/> Password change parameters </th>
@@ -159,7 +159,7 @@ There are several types of messages that you can send to your users. You can cho
     </dd>
 </dl>
 </br>
-**NOTE**: {{site.data.keyword.appid_short_notm}} uses <a href="https://www.sendgrid.com" target="_blank">SendGrid <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> as a mail delivery service. All emails are sent using a single SendGrid account.
+**NOTE**: {{site.data.keyword.appid_short_notm}} uses <a href="https://www.sendgrid.com" target="_blank">SendGrid <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> as a mail delivery service. All emails are sent with a single SendGrid account.
 
 </br>
 ## Next steps

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-02-15"
+lastupdated: "2018-02-16"
 
 ---
 
@@ -21,7 +21,7 @@ You can display your own customized screens and take advantage of the authentica
 With cloud directory as your identity provider, the [Resource Owner Password Credentials flow](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/password.html) is used to provide access and identity tokens.
 
 
-Customized sign-in pages can only be shown when cloud directory is the only option configured. If you have any other identity providers set to **on**, the preconfigured sign-in screen displays.
+Cloud directory must be the only configured identity provider to bring your own sign-up screens. If you have any other identity providers set to **on**, the preconfigured sign-in screen displays.
 {: tip}
 
 ## Displaying customized screens with the Android SDK
@@ -180,7 +180,7 @@ With cloud directory enabled, you can call customized screens with the iOS Swift
 **Sign up**
 
 1. Set **Allow users to sign up and reset their password** to **On**, in the settings for cloud directory.
-2. Call the LoginWidget to start the sign up flow.
+2. Call the LoginWidget to start the sign-up flow.
   ```swift
   class delegate : AuthorizationDelegate {
     public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, response:Response?) {
@@ -290,7 +290,7 @@ With cloud directory enabled, you can call customized screens with the Node.js S
     }));
     ```
     {: pre}
-    `WebAppStrategy` allows users to sign in to your web apps with a username and password. After a successful login, a user's access token is stored in the HTTP session and is available for the duration of the session. Once the HTTP session is destroyed or expired, the token is invalid.
+    `WebAppStrategy` allows users to sign in to your web apps with a username and password. After a successful login, a user's access token is stored in the HTTP session and is available during the session. Once the HTTP session is destroyed or expired, the token is invalid.
     {: tip}
 
 </br>
