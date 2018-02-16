@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2017, 2018
-lastupdated: "2018-01-02"
+lastupdated: "2018-02-15"
 
 ---
 {:new_window: target="_blank"}
@@ -24,11 +24,11 @@ Build your Android apps with the {{site.data.keyword.appid_short}} client SDK, i
 
 You need the following information:
   * An instance of the {{site.data.keyword.appid_short_notm}} service.
-  * Your tenant ID. In the **Service Credentials** tab of your service dashboard, click **View Credentials**. Your tenant ID is displayed in the **tenantID** field. This is a unique identifier that is used to initialize your app.
+  * Your tenant ID. In the **Service Credentials** tab of your service dashboard, click **View Credentials**. Your tenant ID is a unique identifier that is used to initialize your app.
   * Your {{site.data.keyword.Bluemix}} region. You can find your region by looking in the UI. The value is used for initializing your app.
     <table> <caption> Table 1. {{site.data.keyword.Bluemix_notm}} regions and corresponding SDK values </caption>
     <tr>
-      <th> Bluemix Region </th>
+      <th> {{site.data.keyword.Bluemix}} Region </th>
       <th> SDK value </th>
     </tr>
     <tr>
@@ -84,7 +84,7 @@ You need the following information:
   ```
   {: codeblock}
 
-6. Synchronize your project with Gradle. Click **Tools** > **Android** > **Sync Project with Gradle Files**.
+6. Synchronize your project with Gradle. Click **Tools > Android > Sync Project with Gradle Files**.
 
 ### Initializing the client SDK
 
@@ -98,7 +98,7 @@ Initialize the client SDK by passing the context, tenant ID, and region paramete
 1. Replace *tenantId* with your service tenantId.
 2. Replace the *AppID.REGION_UK* with your {{site.data.keyword.Bluemix_notm}} region.
 
-For more information, see the <a href="https://github.com/ibm-cloud-security/appid-clientsdk-android" target="_blank">{{site.data.keyword.appid_short_notm}} Android GitHub repository <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
+For more information, see the <a href="https://github.com/ibm-cloud-security/appid-clientsdk-android" target="_blank">{{site.data.keyword.appid_short_notm}} Android GitHub repository<img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
 
 ## Setting up the iOS Swift SDK
 {: #ios-setup}
@@ -111,12 +111,12 @@ Build your Swift applications with the {{site.data.keyword.appid_short}} client 
 
 You need the following information:
   * An instance of {{site.data.keyword.appid_short_notm}}.
-  * Your Tenant ID. In the **Service Credentials** tab of your service dashboard, click **View Credentials**. Your Tenant ID is displayed in the **TenantID** field. This is a unique identifier that is used to initialize your app.
+  * Your Tenant ID. In the **Service Credentials** tab of your service dashboard, click **View Credentials**. Your Tenant ID is a unique identifier that is used to initialize your app.
   * Your {{site.data.keyword.Bluemix_notm}} Region.
   You can find your region by looking in the UI. The value is used for initializing your app.
     <table> <caption> Table 1. {{site.data.keyword.Bluemix_notm}} regions and corresponding SDK values </caption>
     <tr>
-      <th> Bluemix Region </th>
+      <th> {{site.data.keyword.Bluemix}} Region </th>
       <th> SDK value </th>
     </tr>
     <tr>
@@ -133,7 +133,7 @@ You need the following information:
     </tr>
   </table>
 
-  * An Xcode project (version 8.1 or higher).
+  * An Xcode project (version 9.0.1 or higher).
   * CocoaPods (version 1.1.0 or higher).
 
 
@@ -143,7 +143,7 @@ The {{site.data.keyword.appid_short_notm}} client SDK is distributed with CocoaP
 
 1. Create an Xcode project, or open an existing project.
 2. Open, or create, the podfile in the project's directory.
-3. Under your project's target add a dependency for the 'BluemixAppID' pod. Make sure the `use_frameworks!` command is also under your target.
+3. Following your project's target add a dependency for the 'BluemixAppID' pod and the `use_frameworks!` command.
 
   For example:
 
@@ -162,13 +162,13 @@ The {{site.data.keyword.appid_short_notm}} client SDK is distributed with CocoaP
   ```
   {: codeblock}
 
-6. Open your Xcode project and enable keychain sharing. Under **Project Settings**, click **Capabilities > Keychain Sharing**.
-7. Under **Project Settings > Info > URL Types**, add a **URL Type**. Fill both the **Identifier** text box and the **URL Scheme** text box with this value: `$(PRODUCT_BUNDLE_IDENTIFIER)`
+6. Open your Xcode project and enable keychain sharing. Navigate to **Project Settings > Capabilities > Keychain Sharing** and select **Enable keychain sharing**.
+7. Open **Project Settings > Info > URL Types**, and add a **URL Type**. Place `$(PRODUCT_BUNDLE_IDENTIFIER)` in both the **Identifier** and the **URL Scheme** text boxes.
 
 
 ### Initializing the client SDK
 
-1. Add the following import to your `AppDelegate.swift` file.
+1. Add the following import to your `AppDelegate` file.
 
   ```swift
   import BluemixAppID
@@ -201,7 +201,7 @@ For more information, see the <a href="https://github.com/ibm-cloud-security/app
 
 ### Before you begin
 
-* Be familiar with developing Node.js applications on {{site.data.keyword.Bluemix_notm}}.
+* Be familiar with developing Node.js apps on {{site.data.keyword.Bluemix_notm}}.
 * The {{site.data.keyword.appid_short_notm}} server SDK requires that your Node.js server is implemented with the <a href="http://expressjs.com/" target="_blank">Express framework <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
 
 **Note**: Other frameworks use `Express` frameworks, such as LoopBack. You can use the {{site.data.keyword.appid_short_notm}} server SDK with any of these frameworks.
@@ -247,4 +247,4 @@ For more information, see the <a href="https://github.com/ibm-cloud-security/app
   ```
   {: codeblock}
 
-For more information see the <a href="https://github.com/ibm-cloud-security/appid-serversdk-swift" target="_blank">{{site.data.keyword.appid_short_notm}} Swift GitHub repository <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
+For more information, see the <a href="https://github.com/ibm-cloud-security/appid-serversdk-swift" target="_blank">{{site.data.keyword.appid_short_notm}} Swift GitHub repository <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.

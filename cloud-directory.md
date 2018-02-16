@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-02-01"
+lastupdated: "2018-02-15"
 
 ---
 
@@ -11,11 +11,12 @@ lastupdated: "2018-02-01"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
 # Configuring cloud directory
 {: #cd}
 
-You can configure {{site.data.keyword.appid_short_notm}} to use cloud directory as an identity provider. Users can sign-up and sign-in to your mobile and web apps by using an email and a password. A cloud directory is a user registry that is maintained in the cloud. When a user signs up for your app with their email and a password, they're added to your directory of users. With this feature, end users have the freedom to manage their own account within your app.
+You can configure {{site.data.keyword.appid_short_notm}} to use cloud directory as an identity provider. Users can sign up and sign in to your mobile and web apps by using an email and a password. A cloud directory is a user registry that is maintained in the cloud. When a user signs up for your app with their email and a password, they're added to your directory of users. With this feature, users have the freedom to manage their own account within your app.
 {: shortdesc}
 
 </br>
@@ -30,7 +31,8 @@ You can configure the notifications and level of user control for your app. Sett
 
 1. Be sure that cloud directory is turned on as an identity provider and set **Allow users to sign up and reset their password** to **On**. You can still add users through the console when it's set to **Off**, but only for development purposes.
 2. Configure your sender details. Specify the email address from which your messages appear to be from, the sender, and to whom your users can reply.
-  **Note**: Be sure when configuring your action URL that you give enough time for a user to click the link. A user must verify their email to have certain options, such as the ability to request a reset of their password.
+  Be sure when configuring your action URL that you give enough time for a user to click the link. A user must verify their email to have certain options, such as the ability to request a reset of their password.
+  {: tip}
 3. Determine the types of emails a user receives and the sender information.
 4. Using the templates provided, customize your messages with your brand, or personalized messages. For more information see [Managing messages](/docs/services/appid/cloud-directory.html#cd-messages).
 5. See who's signed-up for your app in the **Users** tab of the GUI.
@@ -72,7 +74,7 @@ There are several types of messages that you can send to your users. You can cho
         </tr>
         <tr>
           <td> %{user.firstName} </td>
-          <td> Displays the user's specified first name. </td>
+          <td> Displays the user's specified given name. </td>
         </tr>
         <tr>
           <td> %{user.formattedName} </td>
@@ -80,7 +82,7 @@ There are several types of messages that you can send to your users. You can cho
         </tr>
         <tr>
           <td> %{user.lastName} </td>
-          <td> Displays the user's specified last name. </td>
+          <td> Displays the user's specified surname. </td>
         </tr>
       </tbody>
     </table>
@@ -138,7 +140,7 @@ There are several types of messages that you can send to your users. You can cho
     </table>
     </dd>
   <dt>Password change</dt>
-    <dd><p>You can let a user know when their password has been updated. This is helpful if a they did not request their password be changed. They can take the proper steps to re-secure their account.</p>
+    <dd><p>You can let a user know when their password has been updated. This is helpful if they did not request their password be changed. They can take the proper steps to re-secure their account.</p>
     <table>
       <thead>
         <th colspan=2><img src="images/idea.png"/> Password change parameters </th>
@@ -161,10 +163,10 @@ There are several types of messages that you can send to your users. You can cho
 
 </br>
 ## Next steps
-Now that you've configured cloud directory, you're ready to add the code for the loginwidget into your app code. Click on an SDK language icon in the following image to see what you need to do.
+Now that you've configured cloud directory, you're ready to add the code for the login widget into your app code. Click an SDK language icon in the following image to see what you need to do.
 {: shortdesc}
 
-<img usemap="#options-map" border="0" class="image" id="options" src="images/options.png" width="750" alt="Click on an SDK language icon to get started with cloud directory in your apps." style="width:750px;" />
+<img usemap="#options-map" border="0" class="image" id="options" src="images/options.png" width="750" alt="Click an SDK language icon to get started with cloud directory in your apps." style="width:750px;" />
 <map name="options-map" id="options-map">
 <area href="branded.html#branded-ui-android" alt="Managing the sign in experience with the Android SDK" shape="rect" coords="187, 6, 305, 120" />
 <area href="branded.html#branded-ui-ios-swift" alt="Managing the sign in experience with the iOS Swift SDK." shape="rect" coords="333, 6, 448, 125" />

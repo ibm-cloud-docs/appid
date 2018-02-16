@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-01-02"
+lastupdated: "2018-02-15"
 
 ---
 {:new_window: target="_blank"}
@@ -22,7 +22,7 @@ You can configure your local environment to use the {{site.data.keyword.appid_sh
 ## Before you begin
 {: #begin}
 
-Be sure you've completed the [server SDK installation](/docs/services/appid/install.html#nodejs-setup).
+Be sure that you have the [server SDK installed](/docs/services/appid/install.html#nodejs-setup).
 
 
 ## Configuring {{site.data.keyword.appid_short_notm}} applications to work with a local development server
@@ -35,7 +35,7 @@ To configure your apps to work with a local development server, use the local ho
 
 <table> <caption> Table 1. {{site.data.keyword.Bluemix_notm}} regions and corresponding {{site.data.keyword.appid_short_notm}} regions for Android and iOS </caption>
 <tr>
-  <th> Bluemix Region </th>
+  <th> {{site.data.keyword.Bluemix_notm}} Region </th>
   <th> Android and iOS </th>
 </tr>
 <tr>
