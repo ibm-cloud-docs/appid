@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-01-02"
+lastupdated: "2018-02-15"
 
 ---
 
@@ -14,16 +14,16 @@ lastupdated: "2018-01-02"
 # Configuring social identity providers
 {: #setting-up-idp}
 
-Identity providers provide an extra level of authentication for your mobile and web apps. With {{site.data.keyword.appid_full}} you can configure one or several identity providers to set up a single sign-on experience for your app.
+Identity providers provide an extra level of authentication for your mobile and web apps. With {{site.data.keyword.appid_full}}, you can configure one or several identity providers to set up a single sign-on experience for your app.
 {: shortdesc}
 
 ## Default configuration
 {: #default}
 
-{{site.data.keyword.appid_short_notm}} provides a default configuration to help with the initial set up of your identity providers.
+{{site.data.keyword.appid_short_notm}} provides a default configuration to help with the initial set-up of your identity providers.
 {: shortdesc}
 
-The default credentials are set up for Facebook and Google. You are limited to 100 uses of the credentials per instance, per day. Because they are IBM credentials, they should be used in your apps only in development mode. Prior to publishing your app, [update the configuration to your own credentials](/docs/services/appid/identity-providers.html).
+The default credentials are set up for Facebook and Google. You are limited to 100 uses of the credentials per instance, per day. Because they are IBM credentials, they are meant to be used only in development mode. Before publishing your app, update the configuration to your own credentials.
 
 
 ## Configuring Facebook
@@ -40,7 +40,7 @@ To use Facebook as an identity provider, you must add and configure the website 
 2. Make note of the Facebook app ID and secret. These values are needed to configure your web project for authentication in your service dashboard.
 3. Add the web platform and enter the site URL.
 4. From the products list, select **Facebook Login**.
-5. In the Valid OAuth redirect URLs field, enter the authorization server callback endpoint URL. After configuring your service instance, you can add this value.
+5. In the Valid OAuth redirect URLs field, enter the authorization server callback endpoint URL. After you configure your service instance, you can add this value.
 6. Click **Save Changes**.
 
 
@@ -69,14 +69,14 @@ Create a project in the <a href="https://developers.google.com/" target="_blank"
 2. Add the Google+ API to your Google project.
 3. Add credentials to the Google+ API.
     1. Select Google+ API as the type of API.
-    2. Select **Web Browser** as where you'll be calling the API.
+    2. Select **Web Browser** as where you are calling the API.
     3. Choose **User data**.
-    4. Fill out the required fields to create a client ID. A secret is created at the same time.
+    4. Complete the required fields to create a client ID. A secret is created at the same time.
 4. Make note of the Google client ID and secret. In the credentials tab, select the ID that you created to obtain your secret and client ID.
 
 ### Configuring {{site.data.keyword.appid_short}} for Google authentication
 
-After you've configured your Google project and have your client ID and secret, you can edit your service dashboard for Google authentication.
+After you configure your Google project and have your client ID and secret, you can edit your service dashboard for Google authentication.
 
 1. From the **Manage** tab of your service dashboard, select **Google** and click **Edit**.
 2. Enter the client ID and secret that you obtained from the Google Developers Console.
@@ -85,4 +85,4 @@ After you've configured your Google project and have your client ID and secret, 
     2. In the credentials tab of your Google project, select the client ID that you created for this integration.
     3. Paste the URL from {{site.data.keyword.appid_short}} into the **Authorized redirect URIs** field and click **Save**.
 4. Click **Save** to update your Google configuration in {{site.data.keyword.appid_short}}.
-5. Optional: For web apps, enter a redirect URL in the **Mangage** tab. After the authorization process completes, a user is sent to this URL.
+5. Optional: For web apps, enter a redirect URL in the **Manage** tab. After the authorization process completes, a user is sent to this URL.

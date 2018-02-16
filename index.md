@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-02-01"
+lastupdated: "2018-02-15"
 
 ---
 
@@ -36,19 +36,18 @@ Out of the box, the sample apps are configured with two identity providers and t
 
 To configure a sample app from the GUI:
 
-1. After you've created instance of the service, you can choose a sample app in a language in which you feel comfortable working. You can choose from iOS Swift, Android, Node.js, and Java. Don't want to use an SDK? Check out our blog on <a href="https://github.com/mnsn/appid-python-flask-example" target="_blank">using {{site.data.keyword.appid_short_notm}} with other languages, such as Python <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
-2. Follow the steps in the GUI to **Build and Run** your sample app. Each language is configured slightly differently, so be sure to select the language of the app that you downloaded from the drop-down. Once your app is configured, you can open it in a browser and login by using your credentials.
-  **Note**: Ensure that you have the prerequisites installed for the language with which you want to work.
+1. After you create an instance of the service, you can choose a sample app in a language in which you feel comfortable working. You can choose from iOS Swift, Android, Node.js, and Java. Don't want to use an SDK? Check out this blog on <a href="https://github.com/mnsn/appid-python-flask-example" target="_blank">using {{site.data.keyword.appid_short_notm}} with other languages, such as Python <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
+2. Follow the steps in the GUI to **Build and run** your sample app. Each language is configured slightly differently, so be sure to select the language of the app that you downloaded from the drop-down. Once your app is configured, you can open it in a browser and login by using your credentials. Be sure the prerequisites for your app language are installed.
   <dl>
     <dt> Android </dt>
       <dd><ul><li> Android API 25 or higher </li><li> Java 8.x </li><li> Android SDK Tools 25.2.5+ </li><li> Android SDK Platform Tools 25.0.3+ </li><li> Android Build Tools version 25.0.2 </li></ul></dd>
     <dt> iOS Swift </dt>
-      <dd><ul><li> CocoaPods (version 1.1.0 or higher) </li><li> iOS 9 or higher </li><li> MacOS 10.11.5 </li><li> Xcode 8.1 25.0.3+ </li></ul></dd>
+      <dd><ul><li> CocoaPods (version 1.1.0 or higher) </li><li> iOS 9 or higher </li><li> MacOS 10.11.5 </li><li> Xcode (version 9.0.1 or higher) </li></ul></dd>
     <dt> Node.js </dt>
       <dd><ul><li> The Cloud Foundry CLI </li></ul></dd>
     <dt> Java </dt>
       <dd><ul><li> The Cloud Foundry CLI </li><li> Maven </li></ul></dd>
   </dl>
-3. Click **Review Activity** to see the authentication events that have occurred. You should see at least one event if you have logged in.
-4. Customize your login experience. You can select an image, such as your logo and a header color. You can select one of the color options or insert a hex value. When you are happy with the preview, click **Save Changes**. You can see an example of the sample sign in experience in the following image.
+3. Click **Review Activity** to see the authentication events that occurred. After you log in, you can see an event.
+4. Customize your login experience. You can select an image, such as your logo and a header color. You can select one of the color options or insert a hex value. When you are happy with the preview, click **Save Changes**.
 5. In your browser, refresh your login page. The changes that you made in the previous step are already visible.

@@ -2,30 +2,32 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-02-01"
+lastupdated: "2018-02-15"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
-{:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-# Branding the sign in experience
+# Branding the sign-in experience
 {: #branding}
 
-You can display your own customized UI's while taking advantage of the authentication and authorization capabilities of {{site.data.keyword.appid_full}}. With cloud directory as your identity provider, your users are able to interact with your app with less help from you. They're able to sign in, sign up, change their password, and more without asking for help.
+You can display your own customized screens and take advantage of the authentication and authorization capabilities of {{site.data.keyword.appid_full}}. With cloud directory as your identity provider, your users are able to interact with your app with less help from you. They're able to sign in, sign up, change their password, and more without asking for help.
 {: shortdesc}
 
 With cloud directory as your identity provider, the [Resource Owner Password Credentials flow](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/password.html) is used to provide access and identity tokens.
 
-**Note**: You are only able to bring customized sign in pages when cloud directory is the only option configured. If you have any other identity providers set to **on**, then the preconfigured sign in screen displays.
+
+Customized sign-in pages can only be shown when cloud directory is the only option configured. If you have any other identity providers set to **on**, the preconfigured sign-in screen displays.
+{: tip}
 
 ## Displaying customized screens with the Android SDK
 {: #branded-ui-android}
 
-With cloud directory enabled, you can call customized screens with the Android SDK. You can choose the combination of the screens that you'd like your users to be able to interact with. <a href="https://www.ibm.com/blogs/bluemix/2018/01/use-branded-ui-user-sign-app-id/" target="blank">Check out our blog! <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
+With cloud directory enabled, you can call customized screens with the Android SDK. You can choose the combination of the screens that you'd like your users to be able to interact with. <a href="https://www.ibm.com/blogs/bluemix/2018/01/use-branded-ui-user-sign-app-id/" target="blank">Check out this blog! <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 {: shortdesc}
 
 </br>
@@ -47,13 +49,13 @@ With cloud directory enabled, you can call customized screens with the Android S
           }
          });
   ```
-  {: codeblock}
+  {: pre}
 
 </br>
 **Sign up**
 
 1. Set **Allow users to sign up and reset their password** to **On** in the settings for cloud directory.
-2. Call the LoginWidget to start the sign up flow.
+2. Call the LoginWidget to start the sign-up flow.
   ```java
   LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
   loginWidget.launchSignUp(this, new AuthorizationListener() {
@@ -74,7 +76,7 @@ With cloud directory enabled, you can call customized screens with the Android S
   		 }
   	 });
   ```
-  {: codeblock}
+  {: pre}
 
 </br>
 **Forgot password**
@@ -97,7 +99,7 @@ With cloud directory enabled, you can call customized screens with the Android S
    			 }
    		 });
     ```
-    {: codeblock}
+    {: pre}
 
 </br>
 **Account details**
@@ -120,7 +122,7 @@ With cloud directory enabled, you can call customized screens with the Android S
   			 }
   		 });
    ```
-   {: codeblock}
+   {: pre}
 
 </br>
 **Change password**
@@ -143,7 +145,7 @@ With cloud directory enabled, you can call customized screens with the Android S
    			 }
    		 });
    ```
-   {: codeblock}
+   {: pre}
 
 </br>
 </br>
@@ -151,14 +153,14 @@ With cloud directory enabled, you can call customized screens with the Android S
 ## Displaying customized screens with the iOS Swift SDK
 {: #branded-ui-ios-swift}
 
-With cloud directory enabled, you can call customized screens with the ios Swift SDK. You can choose the combination of the screens that you'd like your users to be able to interact with.
+With cloud directory enabled, you can call customized screens with the iOS Swift SDK. You can choose the combination of the screens that you'd like your users to be able to interact with.
 {: shortdesc}
 
 </br>
 **Sign in**
 
 1. In the identity provider tab on the GUI, set cloud directory to **On**.
-2. Log in by using the resource owner password. You can obtain an access and ID token by supplying the end user's username and password.
+2. Log in by using the resource owner password. Access and identity tokens are obtained when a user attempts to log in by using their username and password.
   ```swift
   class delegate : TokenResponseDelegate {
       public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, response:Response?) {
@@ -172,7 +174,7 @@ With cloud directory enabled, you can call customized screens with the ios Swift
 
   AppID.sharedInstance.obtainTokensWithROP(username: username, password: password, delegate: delegate())
   ```
-  {: codeblock}
+  {: pre}
 
 </br>
 **Sign up**
@@ -200,7 +202,7 @@ With cloud directory enabled, you can call customized screens with the ios Swift
 
   AppID.sharedInstance.loginWidget?.launchSignUp(delegate: delegate())
   ```
-  {: codeblock}
+  {: pre}
 
 </br>
 **Forgot password**
@@ -224,7 +226,7 @@ With cloud directory enabled, you can call customized screens with the ios Swift
 
   AppID.sharedInstance.loginWidget?.launchForgotPassword(delegate: delegate())
   ```
-  {: codeblock}
+  {: pre}
 
 </br>
 **Account details**
@@ -246,7 +248,7 @@ With cloud directory enabled, you can call customized screens with the ios Swift
 
    AppID.sharedInstance.loginWidget?.launchChangeDetails(delegate: delegate())
   ```
-  {: codeblock}
+  {: pre}
 
 </br>
 **Change password**
@@ -267,7 +269,7 @@ With cloud directory enabled, you can call customized screens with the ios Swift
 
     AppID.sharedInstance.loginWidget?.launchChangePassword(delegate: delegate())
   ```
-  {: codeblock}
+  {: pre}
 
 </br>
 
@@ -280,7 +282,6 @@ With cloud directory enabled, you can call customized screens with the Node.js S
 **Sign in**
 1. Set cloud directory to **On** in your identity provider settings and specify a callback endpoint.
 2. Add a post route to your app that can be called with the username and password parameters and log in by using the resource owner password.
-    **Note**: `WebAppStrategy` allows users to log in to your web apps with a username and password. After successful login, a user's access token is stored in the HTTP session and is available for the duration of the session. Once the HTTP session is destroyed or has expired, the token is no longer valid.
     ```javascript
     app.post("/form/submit", bodyParser.urlencoded({extended: false}), passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
     	successRedirect: LANDING_PAGE_URL,
@@ -288,12 +289,14 @@ With cloud directory enabled, you can call customized screens with the Node.js S
     	failureFlash : true // allow flash messages
     }));
     ```
-    {: codeblock}
+    {: pre}
+    `WebAppStrategy` allows users to sign in to your web apps with a username and password. After a successful login, a user's access token is stored in the HTTP session and is available for the duration of the session. Once the HTTP session is destroyed or expired, the token is invalid.
+    {: tip}
 
 </br>
 **Sign up**
 
-1. Set **Allow users to sign up and reset their password** to **On** in the cloud directory settings. If this is set to no, the process ends without retreiving access and identity tokens.
+1. Set **Allow users to sign up and reset their password** to **On** in the cloud directory settings. If set to no, the process ends without retrieving access and identity tokens.
 2. Pass the WebAppStrategy `show` property and set it to `WebAppStrategy.SIGN_UP`.
   ```javascript
   app.get("/sign_up", passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
@@ -301,12 +304,12 @@ With cloud directory enabled, you can call customized screens with the Node.js S
   	show: WebAppStrategy.SIGN_UP
   }));
   ```
-  {: codeblock}
+  {: pre}
 
 </br>
 **Forgot password**
 
-1. Set **Allow users to sign up and reset their password** and **Forgot password email** to **ON** in the cloud directory settings. If this is set to no, the process ends without retrieving access and identity tokens.
+1. Set **Allow users to sign up and reset their password** and **Forgot password email** to **ON** in the cloud directory settings. If set to no, the process ends without retrieving access and identity tokens.
 2. Pass the WebAppStrategy `show` property and set it to `WebAppStrategy.FORGOT_PASSWORD`.
   ```javascript
   app.get("/forgot_password", passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
@@ -314,7 +317,7 @@ With cloud directory enabled, you can call customized screens with the Node.js S
   	show: WebAppStrategy.FORGOT_PASSWORD
   }));
   ```
-  {: codeblock}
+  {: pre}
 
 </br>
 **Account details**
@@ -326,7 +329,7 @@ With cloud directory enabled, you can call customized screens with the Node.js S
   	show: WebAppStrategy.CHANGE_DETAILS
   }));
   ```
-  {: codeblock}
+  {: pre}
 
 </br>
 **Change password**
@@ -338,4 +341,4 @@ With cloud directory enabled, you can call customized screens with the Node.js S
   	show: WebAppStrategy.CHANGE_PASSWORD
   }));
   ```
-  {: codeblock}
+  {: pre}
