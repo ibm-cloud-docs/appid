@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-12-06"
+  years: 2017, 2018
+lastupdated: "2018-01-02"
 
 ---
 
@@ -23,7 +23,7 @@ Los proveedores de identidad proporcionan un nivel adicional de autenticación p
 {{site.data.keyword.appid_short_notm}} proporciona una configuración predeterminada para facilitar la configuración inicial de sus proveedores de identidad.
 {: shortdesc}
 
-Las credenciales predeterminadas están configuradas para Facebook y Google. Está limitado a 100 usos de las credenciales por instancia y por día. Dado que son credenciales de IBM, solo deberían utilizarse en su aplicación en modo de desarrollo. Antes de publicar la app, [actualice la configuración con sus propias credenciales](/docs/services/appid/identity-providers.html).
+Las credenciales predeterminadas están configuradas para Facebook y Google. Está limitado a 100 usos de las credenciales por instancia y por día. Dado que son credenciales de IBM, solo deberían utilizarse en su app en modo de desarrollo. Antes de publicar la app, [actualice la configuración con sus propias credenciales](/docs/services/appid/identity-providers.html).
 
 
 ## Configuración de Facebook

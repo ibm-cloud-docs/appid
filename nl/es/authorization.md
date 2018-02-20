@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-12-06"
+  years: 2017, 2018
+lastupdated: "2018-02-01"
 
 ---
 {:new_window: target="_blank"}
@@ -10,234 +10,107 @@ lastupdated: "2017-12-06"
 {:screen: .screen}
 {:codeblock: .codeblock}
 
-
 # Autorización y autenticación
 {: authorization}
 
-La autorización es el proceso mediante el cual puede otorgar acceso a sus apps. El servicio de {{site.data.keyword.appid_short}} utiliza señales, filtros y una cabecera para autenticar usuarios.
+Con {{site.data.keyword.appid_full}}, los usuarios pueden aprovechar las señales y los filtros de autenticación para garantizar que sus apps están protegidas. Para que un usuario pueda otorgar autorización, un proveedor de identidad debe autenticad su identidad.
 {: shortdesc}
 
 
-## Identidad OAuth
-{: #oauth}
+## Conceptos clave
+{: key-concepts}
 
-Cuando el servicio llama a la API de inicio de sesión de OAuth, {{site.data.keyword.appid_short_notm}} utiliza los protocolos OAuth 2.0 y OIDC para autorizar y autenticar al interlocutor con un proveedor de identidad seleccionado. Tras la autenticación, la identidad se asocia con un registro de usuario de {{site.data.keyword.appid_short_notm}}. {{site.data.keyword.appid_short_notm}} devuelve una señal de acceso que se puede utilizar para acceder a los atributos de usuario, y una señal de identidad que contiene la información de identidad proporcionada por el proveedor de identidad. Se puede volver a acceder al mismo registro de usuario y sus atributos desde cualquier cliente que se autentique con esta misma identidad.
+Para comprender realmente la forma en que el servicio divide el proceso de autenticación y autorización, deberá conocer algunos términos clave.
 
-## Señales de identidad y de acceso
-
-{{site.data.keyword.appid_short}} utiliza dos tipos de señales: acceso e identidad.
-{:shortdesc}
-
-**Nota**: Las señales están formateadas como <a href="https://jwt.io/introduction/" target="_blank">Señales web JSON <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>.
-
-
-### Señal de acceso
-{: #access-tokens}
-
-Las señales de acceso permiten la comunicación con [recursos de fondo](/docs/services/appid/protecting-resources.html) que están protegidos por filtros de autorización definidos por ID de app. La señal se ajusta a las especificaciones de JOSE (JavaScript Object Signing and Encryption).
-
-Señal de ejemplo:
-
-```
-Header: {
-    "typ": "JOSE",
-    "alg": "RS256",
-}
-Payload: {
-    "iss": "appid-oauth.ng.bluemix.net",
-    "exp": "1495562664",
-    "aud": "a3b87400-f03b-4956-844e-a52103ef26ba",
-    "amr": ["facebook"],
-    "sub": "de6a17d2-693d-4a43-8ea2-2140afd56a22",
-    "iat": "1495559064",
-    "tenant": "9781974b-6a1c-46c3-aebf-32b7e9bbbaee",
-    "scope": "appid_default appid_readprofile appid_readuserattr appid_writeuserattr",
-}
-```
-{:screen}
-
-<table>
-<caption> Tabla 1. Explicación de componentes de señal de acceso </caption>
-  <tr>
-    <th> Componente </th>
-    <th> Descripción </th>
-  </tr>
-  <tr>
-    <td><i> typ </i></td>
-    <td> El tipo de cabecera, especificado como "JOSE". </td>
-  </tr>
-  <tr>
-    <td><i> alg </i></td>
-    <td> El algoritmo utilizado, especificado como "RS256". </td>
-  </tr>
-  <tr>
-    <td><i> iss </i></td>
-    <td> El servidor de {{site.data.keyword.appid_short}} que ha emitido la señal, especificado como serie o como URL. </td>
-  </tr>
-  <tr>
-    <td><i> sub </i></td>
-    <td> El ID del usuario para el que se ha emitido la señal. </td>
-  </tr>
-  <tr>
-    <td><i> aud </i></td>
-    <td> El ID de cliente para el que está pensada la señal. </td>
-  </tr>
-  <tr>
-    <td><i> exp </i></td>
-    <td> La hora a la que caduca la indicación de fecha y hora, especificada en tiempo de época. </td>
-  </tr>
-  <tr>
-    <td><i> iat </i></td>
-    <td> La hora a la que se emite la indicación de fecha y hora, especificada en tiempo de época. </td>
-  </tr>
-  <tr>
-    <td><i> tenant </i></td>
-    <td> El identificador de usuario único emitido con la señal.</td>
-  </tr>
-  <tr>
-    <td><i> amr </i></td>
-    <td> El proveedor de identidad utilizado para la autenticación. Esta variable puede ser <i>appid_facebook</i>, <i>appid_google</i> o <i>cloud_directory</i>. </td>
-  </tr>
-  <tr>
-    <td><i> scope </i></td>
-    <td> El ámbito para el que se emite la señal. </td>
-  </tr>
-</table>
-
-
-### Señales de identidad
-{: #identity-tokens}
-
-Una señal de identidad contiene información sobre el usuario. Puede darle información sobre su nombre, correo electrónico, género y ubicación. También puede devolver el URL de una imagen del usuario.
-
-Señal de ejemplo:
-
-```
-Header: {
-    "typ": "JOSE",
-    "alg": "RS256",
-}
-Payload: {
-    "iss": "appid-oauth.ng.bluemix.net",
-    "aud": "a3b87400-f03b-4956-844e-a52103ef26ba",
-    "exp: "1495562664",
-    "tenant": "9781974b-6a1c-46c3-aebf-32b7e9bbbaee",
-    "iat": "1495559064",
-    "name": "John Smith",
-    "email": "js@mail.com",
-    "gender", "male",
-    "locale": "en",
-    "picture": "https://url.to.photo",
-    "sub": "de6a17d2-693d-4a43-8ea2-2140afd56a22",
-    "identities": [
-        "provider": "facebook"
-        "id": "377440159275659"
-    ],
-    "amr": ["facebook"],
-    "oauth_client":{
-      "name": "BluemixApp",
-      "type": "serverapp",
-      "software_id": "cb638f8f-e24b-41d3-b770-23be158dd8e6.2b94e6bb-bac4-4455-8712-a43fa804d5cc.a3b87400-f03b-4956-844e-a52103ef26ba",
-      "software_version": "1.0.0",
+<dl>
+  <dt>OAuth 2</dt>
+    <dd><a href="https://tools.ietf.org/html/rfc6749" target="_blank">OAuth 2 <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a> es un protocolo estándar que se utiliza para proporcionar autorización de apps.</dd>
+  <dt>Open ID Connect (OIDC)</dt>
+    <dd><a href="http://openid.net/developers/specs/" target="_blank">OIDC <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a> es una capa de autenticación que funciona sobre OAuth 2.</dd>
+  <dt>Señales de acceso</dt>
+    <dd><p>Las señales de acceso representan una autorización y permiten la comunicación con [recursos de fondo](/docs/services/appid/protecting-resources.html) que están protegidos por filtros de autorización definidos por {{site.data.keyword.appid_short}}. La señal se ajusta a las especificaciones de JOSE (JavaScript Object Signing and Encryption). Las señales están formateadas como <a href="https://jwt.io/introduction/" target="blank">Señales web JSON <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>.</br>
+    Ejemplo:</p>
+    <pre><code>Header: {
+        "typ": "JOSE",
+        "alg": "RS256",
     }
-}
-```
-{:screen}
+    Payload: {
+        "iss": "appid-oauth.ng.bluemix.net",
+        "exp": "1495562664",
+        "aud": "a3b87400-f03b-4956-844e-a52103ef26ba",
+        "amr": ["facebook"],
+        "sub": "de6a17d2-693d-4a43-8ea2-2140afd56a22",
+        "iat": "1495559064",
+        "tenant": "9781974b-6a1c-46c3-aebf-32b7e9bbbaee",
+        "scope": "appid_default appid_readprofile appid_readuserattr appid_writeuserattr",
+    </code></pre></dd>
+  <dt>Señales de identidad</dt>
+    <dd><p>Las señales de identidad representan una autenticación y contienen información sobre el usuario. Puede darle información sobre su nombre, correo electrónico, género y ubicación. También puede devolver el URL de una imagen del usuario.</br>
+    Ejemplo:</p>
+    <pre><code>Header: {
+        "typ": "JOSE",
+        "alg": "RS256",
+    }
+    Payload: {
+        "iss": "appid-oauth.ng.bluemix.net",
+        "aud": "a3b87400-f03b-4956-844e-a52103ef26ba",
+        "exp: "1495562664",
+        "tenant": "9781974b-6a1c-46c3-aebf-32b7e9bbbaee",
+        "iat": "1495559064",
+        "name": "John Smith",
+        "email": "js@mail.com",
+        "gender", "male",
+        "locale": "en",
+        "picture": "<URL-to-photo>",
+        "sub": "de6a17d2-693d-4a43-8ea2-2140afd56a22",
+        "identities": [
+            "provider": "facebook"
+            "id": "377440159275659"
+        ],
+        "amr": ["facebook"],
+        "oauth_client":{
+          "name": "BluemixApp",
+          "type": "serverapp",
+          "software_id": "cb638f8f-e24b-41d3-b770-23be158dd8e6.2b94e6bb-bac4-4455-8712-a43fa804d5cc.a3b87400-f03b-4956-844e-a52103ef26ba",
+          "software_version": "1.0.0",
+        }
+    }
+    </pre></code></dd>
+  <dt>Cabeceras de autorización</dt>
+    <dd><p>{{site.data.keyword.appid_short}} cumple con la <a href="https://tools.ietf.org/html/rfc6750" target="blank">especificación de señal de portador <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a> y utiliza una combinación de señales de acceso e identidad que se envían como una cabecera de autorización HTTP. La cabecera de autorización contiene tres partes distintas separadas con un espacio en blanco. Las señales están codificadas en base64. La señal de identidad es opcional.</br>
+    Ejemplo:</p>
+    <pre><code>Authorization=Bearer {access_token} [{id_token}]</pre></code></dd>
+  <dt>Estrategia de API</dt>
+    <dd><p>La estrategia de API espera que las solicitudes contengan una cabecera de autorización con una señal de acceso válida. La solicitud también puede incluir una señal de identidad, pero no es obligatorio. Si una señal no es válida o ha caducado, la estrategia de API devuelve un error HTTP 401 que contiene la siguiente cabecera HTTP:</p> <pre><code>Www-Authenticate=Bearer scope="{scope}" error="{error}"</code></pre>
+    <p>Si la solicitud devuelve una señal válida, el control se pasa al siguiente middleware y la propiedad <code>appIdAuthorizationContext</code> se inyecta en el objeto de solicitud. Esta propiedad contiene señales de acceso e identidad originales, e información de carga útil descodificada como objetos JSON simples.</dd>
+  <dt>Estrategia de app web</dt>
+    <dd>Cuando la estrategia de app web detecta intentos no autorizados de acceso a un recurso protegido, automáticamente redirige el navegador de un usuario a la página de autenticación, que puede estar proporcionada por {{site.data.keyword.appid_short}}. Tras la correcta autenticación, el usuario vuelve al URL de devolución de llamada de la app web. La estrategia de app web obtiene las señales de acceso e identidad y las almacena en una sesión HTTP bajo <code>WebAppStrategy.AUTH_CONTEXT</code>. Depende del usuario decidir si desea almacenar las señales de acceso e identidad en la base de datos de la app.</dd>
+</dl>
 
+</br>
 
-<table>
-<caption> Tabla 2. Explicación de componentes de señal de identidad </caption>
-  <tr>
-    <th> Componente </th>
-    <th> Descripción </th>
-  </tr>
-  <tr>
-    <td> <i> name </i> </td>
-    <td> El nombre completo del usuario, tal como lo indica el proveedor de identidad. Se debe devolver. </td>
-  </tr>
-  <tr>
-    <td> <i> email </i> </td>
-    <td> El correo electrónico del usuario, tal como lo indica el proveedor de identidad. Devuelto sólo cuando esté disponible. </td>
-  </tr>
-  <tr>
-    <td> <i> gender </i> </td>
-    <td> El género del usuario, tal como lo indica el proveedor de identidad, cuando esté disponible. </td>
-  </tr>
-  <tr>
-    <td> <i> locale </i> </td>
-    <td> El entorno local del usuario, tal como lo indica el proveedor de identidad. </td>
-  </tr>
-  <tr>
-    <td> <i> picture </i> </td>
-    <td> El URL de la imagen de un usuario, si está disponible. </td>
-  </tr>
-  <tr>
-    <td> <i> identities: </br> <ul><li> provider <li> id </ul></i></td>
-    <td> </br><ul><li> El proveedor de identidad utilizado para la autenticación. Esta variable puede ser <code>appid_facebook</code>, <code>appid_google</code> o <code>cloud_directory</code> y debe devolverse. <li> Un ID de usuario exclusivo, tal como lo indica el proveedor de identidad. <li> Un objeto JSON que debe devolver el proveedor de identidad. </ul></li></td>
-  </tr>
-  <tr>
-    <td> <i> oauth_client: </br> <ul><li> type </br><li> name <li> software_id <li> software_version<li> device_id <li>device_model<li>device_os<li>device_os_version </ul></i> </td>
-    <td> </br><ul><li> El tipo de aplicación determinada durante el registro del cliente. La variable puede ser <em>serverapp</em> o <em>mobileapp</em>. <li> El nombre del cliente, tal como se haya indicado durante el registro del cliente. <li> El ID de software, tal como se haya indicado durante el registro del cliente. <li> La versión del software utilizado durante el registro del cliente. <li> El ID de dispositivo de cliente móvil. <li> El modelo de dispositivo de cliente móvil. <li> El sistema operativo del dispositivo de cliente móvil. <li> La versión del sistema operativo del dispositivo de cliente móvil. </ul></td>
-  </tr>
-</table>
+## Cómo funciona el proceso
+{: #process}
 
-## Cabeceras
-{: #auth-header}
+Al programar apps, una de las mayores preocupaciones es la seguridad. ¿Cómo puede garantizar que solo están utilizando su app aquellos usuarios que tienen el acceso correcto? Utilizando un proceso de autorización. En muchas aplicaciones, el proceso de autenticación y de autorización se realizan de forma conjunta; esto hace que los cambios en las políticas de seguridad y proveedores de identidad sean complicados. Con {{site.data.keyword.appid_short}}, la autorización y la autenticación son procesos separados.
+{: shortdesc}
 
-Una cabecera de autenticación es la combinación de las señales devueltas. Para {{site.data.keyword.appid_short}}, la cabecera de autorización consta de tres señales diferentes que están separadas por espacios en blanco: Portador, Acceso e Identidad. Las señales de portador y acceso son necesarias para otorgar acceso a sus apps. La señal de identidad es opcional y se utiliza principalmente para almacenar información sobre aquellos que utilizan la app.
+Cuando configura proveedores de identidad social como Facebook, se utiliza el [flujo de otorgamiento de autorización de Oauth2](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html) para llamar al widget de inicio de sesión. Con el directorio en la nube como proveedor de identidad, se utiliza el [flujo ROPC (credenciales de contraseña de propietario de recurso)](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/password.html) para proporcionar señales de acceso e identidad.
 
-Estructura de cabecera de ejemplo:
+![Recorrido para convertirse en un usuario identificado.](/images/authenticationtrail.png)
 
-```
-Authorization=Bearer {access_token} [{id_token}]
-```
-{: screen}
+Cuando un usuario elige iniciar sesión, pasa a ser un usuario identificado. Se obtiene información sobre el usuario del proveedor de identidad en el que han iniciado la sesión. El proveedor de identidad devuelve señales de acceso e identidad a {{site.data.keyword.appid_short}} que contienen información sobre el usuario. El servicio toma las señales proporcionadas y determina si un usuario tiene las credenciales suficientes para acceder a la app. Si las señales son validadas, el servicio autoriza el acceso del usuario. Cuando un usuario ha sido autorizado, su información de autenticación se asocia con un registro de usuario. Se puede volver a acceder al registro de usuario y a sus atributos desde cualquier cliente que se autentique con la misma identidad.
 
+### Autenticación progresiva
 
-## Filtros
-{: #auth-filter}
+Con {{site.data.keyword.appid_short_notm}}, un usuario anónimo puede elegir pasar a ser un usuario identificado.
 
-El SDK del servidor de {{site.data.keyword.appid_short}} proporciona estrategias para proteger dos tipos de recursos: API y aplicaciones web.
-{:shortdesc}
+Pero, ¿cómo funciona?
 
-La estrategia de protección de API devuelve una respuesta HTTP 401 con una lista de ámbitos para obtener la autorización para un cliente no autenticado. La estrategia de protección de aplicaciones web devuelve una redirección HTTP 302. La redirección envía a un cliente no autenticado a la página de inicio de sesión que aloja el servicio {{site.data.keyword.appid_short_notm}}, o bien directamente a la página de inicio de sesión de un proveedor de identidad, en función de su configuración.
+Cuando un usuario no inicia la sesión inmediatamente, se considera como un usuario anónimo. Por ejemplo, un usuario puede empezar a añadir artículos al carro de la compra sin iniciar la sesión. Para los usuarios anónimos, {{site.data.keyword.appid_short_notm}} crea un registro de usuario ad hoc y llama a la API de inicio de sesión OAuth que devuelve señales de acceso e identidad anónimas. Al utilizar esas señales, la app puede crear, leer, actualizar y suprimir los atributos almacenados en el registro de usuario.
 
+![Recorrido para convertirse en un usuario identificado cuando se empieza como anónimo.](/images/anon-authenticationtrail.png)
 
+Cuando un usuario anónimo inicia la sesión, la señal de acceso anónimo pasa a la API de inicio de sesión. El servicio autentica la llamada con un proveedor de identidad. El servicio utiliza la señal de acceso para encontrar el registro anónimo y le adjunta la identidad. Las nuevas señales de acceso e identidad contienen la información pública compartida por el proveedor de identidad. Cuando se identifica un usuario, sus señales anónimas pasan a ser no válidas. Sin embargo, el usuario aún puede acceder a sus atributos ya que son accesibles con la nueva señal.
 
-### Estrategia de API
-{: #api}
-
-La estrategia de API espera que las solicitudes contengan una cabecera de autorización con una señal de acceso válida. La respuesta también puede incluir una señal de identidad, pero no es obligatorio. 
-
-Si una señal no es válida o ha caducado, la estrategia de API devuelve un error HTTP 401 que contiene la siguiente información: Www-Authenticate=Bearer scope="{scope}" error="{error}". El componente `error` es opcional.
-
-Si la solicitud devuelve una señal válida, el control se pasa al siguiente middleware y la propiedad `appIdAuthorizationContext` se inyecta en el objeto de solicitud. Esta propiedad contiene señales de acceso e identidad originales, e información de carga útil descodificada como objetos JSON simples.
-
-
-### Estrategia de app web
-{: #web}
-
-Cuando la estrategia de app web detecta intentos no autenticados de acceso a un recurso protegido, automáticamente redirige el navegador de un usuario a la página de autenticación. Tras la correcta autenticación, el usuario vuelve al URL de devolución de llamada de la aplicación web. El servicio utiliza la clase de estrategia de app web para obtener señales de acceso e identidad. Después de obtener estas señales, la clase de estrategia de app web las almacena en una sesión HTTP bajo `WebAppStrategy.AUTH_CONTEXT`. Depende del usuario decidir si desea almacenar las señales de acceso e identidad en la base de datos de la aplicación.
-
-
-## Autenticación progresiva
-{: #oauth}
-
-{{site.data.keyword.appid_short_notm}} utiliza protocolos OAuth 2.0 y OIDC para autorizar y autenticar usuarios. Tras la autenticación, su identidad se asocia con un registro de usuario. El servicio devuelve una señal de acceso que se puede utilizar para acceder a los atributos de usuario y una señal de identidad que contiene la información sobre el usuario proporcionada por el proveedor de identidad. Se puede volver a acceder al registro de usuario y a sus atributos desde cualquier cliente que se autentique con la misma identidad.
-
-Es posible que se pregunte "¿Y si quiero que el inicio de sesión sea opcional?" {{site.data.keyword.appid_short_notm}} utiliza lo que se conoce como autenticación progresiva para crear [perfiles de usuario](/docs/services/appid/user-profile.html), incluso cuando son anónimos. Entonces puede transferir esa información a un perfil de usuario conocido cuando el usuario inicie sesión. 
-
-![Mapa que muestra la vía de acceso para pasar a ser un usuario identificado.](/images/authenticationtrail.png)
-
-Figura 2. Mapa que muestra la vía de acceso para pasar a ser un usuario identificado
-
-Cuando un usuario elige permanecer anónimo, {{site.data.keyword.appid_short_notm}} crea un registro de usuario ad hoc y llama a la API de inicio de sesión OAuth que devuelve señales de acceso e identidad anónimas. Al utilizar esas señales, la app puede crear, leer, actualizar y suprimir los atributos almacenados en el registro de usuario. Por ejemplo, un usuario puede empezar a añadir artículos al carro de la compra sin tener que iniciar sesión en la app.
-
-
-Cuando un usuario elige iniciar sesión en una app pasa a ser un usuario identificado. Se obtiene información sobre el usuario del proveedor de identidad que eligió para iniciar sesión. Reciben señales de acceso e identidad que contienen información sobre el usuario.
-
-Un usuario anónimo puede elegir pasar a ser un usuario identificado. Pero, ¿cómo funciona?
-
-La señal de acceso anónimo pasa a la API de inicio de sesión. El servicio autentica la llamada con un proveedor de identidad. Utiliza la señal de acceso para encontrar el registro anónimo y le adjunta la identidad. Las nuevas señales de identidad de acceso contienen la información pública compartida por el proveedor de identidad. Cuando se identifica un usuario, sus señales anónimas pasan a ser no válidas. Sin embargo, el usuario aun puede acceder a sus atributos ya que son accesibles con la nueva señal.
-
-**Nota**: Solo se puede asignar una identidad a un registro anónimo si no ha sido asignada aun a otro usuario. Si la identidad ya está asociada con otro usuario de {{site.data.keyword.appid_short_notm}}, las señales contienen la información de ese registro de usuario y proporcionan acceso a sus atributos. Los atributos del usuario anónimo anterior no son accesibles a través de la nueva señal. Hasta que la señal caduque, aún se podrá acceder a la información a través de la señal de acceso anónimo. Durante el desarrollo, puede elegir cómo fusionar los atributos anónimos con los usuarios conocidos.
+**Nota**: Solo se puede asignar una identidad a un registro anónimo si todavía no ha sido asignada a otro usuario. Si la identidad ya está asociada con otro usuario de {{site.data.keyword.appid_short_notm}}, las señales contienen la información de ese registro de usuario y proporcionan acceso a sus atributos. Los atributos del usuario anónimo anterior no son accesibles a través de la nueva señal. Hasta que la señal caduque, aún se podrá acceder a la información a través de la señal de acceso anónimo. Durante el desarrollo, puede elegir cómo fusionar los atributos anónimos con los usuarios conocidos.

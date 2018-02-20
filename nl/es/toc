@@ -2,7 +2,7 @@
 {:topicgroup: .topicgroup}
 
 {: .toc subcollection="appid" audience="service" href="/docs/services/appid/index.html"}
-ID de app de IBM Cloud
+IBM Cloud App ID
 
     {: .navgroup id="learn"}
     index.md
@@ -14,10 +14,11 @@ ID de app de IBM Cloud
     install.md
 
     {: .topicgroup}
-    Autenticación de usuarios
+    Authenticating users
         login-widget.md
-        cloud-directory.md
         identity-providers.md
+        cloud-directory.md
+        branded.md
 
     protecting-resources.md
     user-profile.md

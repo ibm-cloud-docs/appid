@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2017
-lastupdated: "2017-12-06"
+  years: 2017, 2018
+lastupdated: "2018-01-02"
 
 ---
 {:new_window: target="_blank"}
@@ -24,7 +24,7 @@ lastupdated: "2017-12-06"
 
 以下の情報が必要です。
   * {{site.data.keyword.appid_short_notm}} サービスのインスタンス。
-  * テナント ID。サービスのダッシュボードの**「サービス資格情報」**タブの**「資格情報の表示」**をクリックします。 **「tenantID」**フィールドに、テナント ID が表示されます。 これは、アプリの初期化に使用される固有 ID です。
+  * テナント ID。 サービスのダッシュボードの**「サービス資格情報」**タブの**「資格情報の表示」**をクリックします。 **「tenantID」**フィールドに、テナント ID が表示されます。 これは、アプリの初期化に使用される固有 ID です。
   * {{site.data.keyword.Bluemix}} 地域。 地域は UI に表示されています。 その値をアプリの初期化に使用します。
     <table> <caption> 表 1. {{site.data.keyword.Bluemix_notm}} 地域と対応する SDK 値 </caption>
     <tr>
@@ -111,7 +111,7 @@ context、tenant ID、region パラメーターを initialize メソッドに渡
 
 以下の情報が必要です。
   * {{site.data.keyword.appid_short_notm}} のインスタンス。
-  * テナント ID。サービスのダッシュボードの**「サービス資格情報」**タブの**「資格情報の表示」**をクリックします。 **「TenantID」**フィールドに、テナント ID が表示されます。 これは、アプリの初期化に使用される固有 ID です。
+  * テナント ID。 サービスのダッシュボードの**「サービス資格情報」**タブの**「資格情報の表示」**をクリックします。 **「TenantID」**フィールドに、テナント ID が表示されます。 これは、アプリの初期化に使用される固有 ID です。
   * {{site.data.keyword.Bluemix_notm}} 地域。
   地域は UI に表示されています。 その値をアプリの初期化に使用します。
     <table> <caption> 表 1. {{site.data.keyword.Bluemix_notm}} 地域と対応する SDK 値 </caption>
@@ -163,7 +163,7 @@ context、tenant ID、region パラメーターを initialize メソッドに渡
   {: codeblock}
 
 6. Xcode プロジェクトを開き、キーチェーン共有を使用可能にします。 **「Project Settings」**の下で、**「Capabilities」>「Keychain Sharing」**をクリックします。
-7. **「Project Settings」>「Info」>「URL Types」**の下で、**「URL Type」**を追加します。**「Identifier」**テキスト・ボックスと**「URL Scheme」**テキスト・ボックスの両方に値 `$(PRODUCT_BUNDLE_IDENTIFIER)` を入力します
+7. **「Project Settings」>「Info」>「URL Types」**の下で、**「URL Type」**を追加します。 **「Identifier」**テキスト・ボックスと**「URL Scheme」**テキスト・ボックスの両方に値 `$(PRODUCT_BUNDLE_IDENTIFIER)` を入力します
 
 
 ### Client SDK の初期化
@@ -175,7 +175,7 @@ context、tenant ID、region パラメーターを initialize メソッドに渡
   ```
   {: codeblock}
 
-2. tenant ID パラメーターと region パラメーターを initialize メソッドに渡すことによって、Client SDK を初期化します。初期化コードの配置場所として一般的な (必須ではありません) 場所は、Swift アプリケーションの AppDelegate の `application:didFinishLaunchingWithOptions` メソッド内です。
+2. tenant ID パラメーターと region パラメーターを initialize メソッドに渡すことによって、Client SDK を初期化します。 初期化コードの配置場所として一般的な (必須ではありません) 場所は、Swift アプリケーションの AppDelegate の `application:didFinishLaunchingWithOptions` メソッド内です。
 
   ```swift
   AppID.sharedInstance.initialize(tenantId: <tenantId>, bluemixRegion: AppID.Region_UK)

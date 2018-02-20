@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-12-06"
+  years: 2017, 2018
+lastupdated: "2018-02-01"
 
 ---
 {:new_window: target="_blank"}
@@ -27,6 +27,4 @@ lastupdated: "2017-12-06"
   * {{site.data.keyword.appid_short_notm}} についての技術的な質問がある場合は、質問を<a href="http://stackoverflow.com/search?q=appid+ibm-bluemix" target="_blank">スタック・オーバーフロー <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a>に投稿し、質問に「ibm-appid」のタグを付けてください。
   * サービスや開始手順についての質問は、<a href="https://developer.ibm.com/answers/search.html?f=&type=question&redirect=search%2Fsearch&sort=relevance&q=appid%20[bluemix]" target="_blank">dW Answers <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> フォーラムをご利用ください。 「appid」のタグを付けてください。
 
-フォーラムの使用について詳しくは、[ヘルプの利用](/docs/support/index.html#getting-help)を参照してください。
-
-IBM サポート・チケットのオープン、またはサポート・レベルとチケットの重大度については、[サポートへのお問い合わせ](/docs/support/index.html#contacting-support)を参照してください。
+IBM サポート・チケットまたはフォーラムの使用方法について詳しくは、[必要なサポートを利用するには](/docs/get-support/howtogetsupport.html#getting-customer-support)を参照してください。

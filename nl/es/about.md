@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-12-13"
+  years: 2017, 2018
+lastupdated: "2018-02-01"
 
 ---
 
@@ -10,7 +10,7 @@ lastupdated: "2017-12-13"
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
-
+{:pre: .pre}
 
 # Acerca de
 {: #about}
@@ -30,8 +30,8 @@ Puede utilizar {{site.data.keyword.appid_full}} para añadir autenticación a su
     <th> Motivo </th>
   </tr>
   <tr>
-    <td> Debe añadir [autorización y autenticación](/docs/services/appid/authorization.html) a sus aplicaciones web y móvil pero no tiene un fondo de seguridad.</td>
-    <td> {{site.data.keyword.appid_short_notm}} permite añadir fácilmente un paso de autenticación a sus aplicaciones. Puede utilizar el servicio para comunicarse con los [proveedores de identidad](/docs/services/appid/identity-providers.html) para gestionar el acceso a sus aplicaciones. </td>
+    <td> Debe añadir [autorización y autenticación](/docs/services/appid/authorization.html) a sus apps web y móvil pero no tiene un fondo de seguridad. </td>
+    <td> {{site.data.keyword.appid_short_notm}} permite añadir fácilmente un paso de autenticación a sus apps. Puede utilizar el servicio para comunicarse con los [proveedores de identidad](/docs/services/appid/identity-providers.html) para gestionar el acceso a sus apps. </td>
   </tr>
   <tr>
     <td> Desea limitar el acceso a sus apps y recursos de fondo. </td>
@@ -39,7 +39,11 @@ Puede utilizar {{site.data.keyword.appid_full}} para añadir autenticación a su
   </tr>
   <tr>
     <td> Desea crear experiencias de la app personalizadas para sus usuarios. </td>
-    <td> {{site.data.keyword.appid_short_notm}} le permite [almacenar datos de usuario](/docs/services/appid/user-profile.html) como preferencias de la app o información de sus perfiles sociales públicos. Puede utilizar dichos datos para asegurarse que sus usuarios tienen una experiencia personalizada. </td>
+    <td> Con {{site.data.keyword.appid_short_notm}} puede [almacenar datos de usuario](/docs/services/appid/user-profile.html) como preferencias de la app o información de sus perfiles sociales públicos y entonces utilizar esos datos para personalizar cada experiencia de su app. </td>
+  </tr>
+  <tr>
+    <td> Desea ofrecer a los usuarios la posibilidad de obtener acceso a su app con su correo electrónico y una contraseña. </td>
+    <td> {{site.data.keyword.appid_short_notm}} ofrece la posibilidad de crear un [directorio en la nube](/docs/services/appid/cloud-directory.html). De esta manera, puede añadir el registro e inicio de sesión de usuarios a sus apps web y móviles. El directorio en la nube le proporciona la infraestructura para mantener un registro de usuarios que puede escalar con su base de usuarios. Con la funcionalidad integrada para el autoservicio, como verificación de correo electrónico y restablecimiento de contraseñas, puede garantizar la seguridad de la autenticación de los usuarios de su app. </td>
   </tr>
 </table>
 
@@ -47,22 +51,18 @@ Puede utilizar {{site.data.keyword.appid_full}} para añadir autenticación a su
 ## Arquitectura
 {: #architecture}
 
-Con {{site.data.keyword.appid_short_notm}} puede añadir un nivel de seguridad a sus aplicaciones solicitando a los usuarios que inicien la sesión. También puede utilizar el SDK del servidor para proteger sus recursos de fondo.
-
-El siguiente diagrama muestra una visión general del funcionamiento del servicio {{site.data.keyword.appid_short_notm}}.
+Con {{site.data.keyword.appid_short_notm}} puede añadir un nivel de seguridad a sus apps solicitando a los usuarios que inicien la sesión. También puede utilizar el SDK del servidor para proteger sus recursos de fondo.
+{: shortdesc}
 
 ![Diagrama de arquitectura de {{site.data.keyword.appid_short_notm}}](/images/appid_architecture.png)
 
-Figura 1. Diagrama de la arquitectura de {{site.data.keyword.appid_short_notm}}
-
-
 <dl>
   <dt> Aplicación </dt>
-    <dd> SDK del servidor: Puede proteger sus recursos de programa de fondo alojados en {{site.data.keyword.Bluemix_notm}} y sus aplicaciones web utilizando el SDK del servidor. Extrae la señal de acceso de la solicitud y la valida con {{site.data.keyword.appid_short_notm}}. </br>
-    SDK del cliente: Puede proteger sus aplicaciones móviles con el SDK del cliente de Android o iOS. El SDK del cliente se comunica con sus recursos en la nube para iniciar el proceso de autenticación cuando detecta un desafío de autorización. </dd>
+    <dd> SDK del servidor: Puede proteger sus recursos de programa de fondo alojados en {{site.data.keyword.Bluemix_notm}} y sus apps web utilizando el SDK del servidor. Extrae la señal de acceso de la solicitud y la valida con {{site.data.keyword.appid_short_notm}}. </br>
+    SDK del cliente: Puede proteger sus apps móviles con el SDK del cliente de Android o iOS. El SDK del cliente se comunica con sus recursos en la nube para iniciar el proceso de autenticación cuando detecta un desafío de autorización.</dd>
   <dt> {{site.data.keyword.Bluemix_notm}} </dt>
-    <dd> ID de app: Tras la correcta autenticación, {{site.data.keyword.appid_short_notm}} devuelve las señales de identidad y de acceso a la aplicación. </br>
-    Directorio de nube: Los usuarios pueden registrarse en su servicio con su correo electrónico y contraseña. Luego podrá gestionar sus usuarios en una vista de lista a través de la IU. </dd>
+    <dd> App ID: Tras la correcta autenticación, {{site.data.keyword.appid_short_notm}} devuelve las señales de identidad y de acceso a la app.</br>
+    Directorio en la nube: Los usuarios pueden registrarse en su servicio con su correo electrónico y contraseña. Luego podrá gestionar sus usuarios en una vista de lista a través de la IU. </dd>
   <dt> Externa (de terceros) </dt>
     <dd>  {{site.data.keyword.appid_short_notm}} admite dos proveedores de identidad social: Facebook y Google+. El servicio organiza una redirección al proveedor de identidades y proporciona acceso a su app después de verificar la autenticación. {{site.data.keyword.appid_short_notm}} verifica las credenciales sin tener acceso a la contraseña en sí. </dd>
 </dl>
@@ -72,10 +72,9 @@ Figura 1. Diagrama de la arquitectura de {{site.data.keyword.appid_short_notm}}
 {: #request}
 
 En el diagrama siguiente se describe el flujo de una solicitud, desde el SDK del cliente a los proveedores de identidad y de recursos de programa de fondo.
+{: shortdesc}
 
 ![{{site.data.keyword.appid_short_notm}} flujo de solicitudes](/images/appidrequestflow.png)
-
-Figura 2. Flujo de solicitudes de {{site.data.keyword.appid_short_notm}}
 
 
 * El SDK del cliente de {{site.data.keyword.appid_short_notm}} realiza una solicitud a los recursos de fondo protegidos por el SDK del servidor de {{site.data.keyword.appid_short_notm}}.

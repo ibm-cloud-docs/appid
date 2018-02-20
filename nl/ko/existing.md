@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-12-08"
+  years: 2017, 2018
+lastupdated: "2018-01-02"
 
 ---
 
@@ -19,48 +19,48 @@ lastupdated: "2017-12-08"
 
 ## 전제조건
 
-* 기존 iOS Swift, Android, Node.js, Swift 또는 Liberty for Java 애플리케이션. 
-* {{site.data.keyword.appid_short_notm}}의 기존 인스턴스. 
+* 기존 iOS Swift, Android, Node.js, Swift 또는 Liberty for Java 애플리케이션.
+* {{site.data.keyword.appid_short_notm}}의 기존 인스턴스.
 
 
 ## 기존 Android 앱에 {{site.data.keyword.appid_short_notm}} 추가
 {: #existing-android}
 
-기존 Android 애플리케이션에 {{site.data.keyword.appid_short_notm}} 서비스를 추가할 수 있습니다. 
+기존 Android 애플리케이션에 {{site.data.keyword.appid_short_notm}} 서비스를 추가할 수 있습니다.
 
 1. 루트 `build.gradle` 파일에 JitPack 저장소를 추가하십시오.
 
   ```gradle
   allprojects {
       		repositories {
-		    ...
+         	 ...
          	 maven { url 'https://jitpack.io' }
 	    }
-    }
+  }
   ```
   {: codeblock}
 
-2. 사용자의 애플리케이션에 해당하는 `build.gradle` 파일을 열고 파일의 종속성 섹션을 찾아서 {{site.data.keyword.appid_short_notm}} 클라이언트 SDK에 대한 컴파일 종속성을 추가하십시오. 
+2. 사용자의 애플리케이션에 해당하는 `build.gradle` 파일을 열고 파일의 종속성 섹션을 찾아서 {{site.data.keyword.appid_short_notm}} 클라이언트 SDK에 대한 컴파일 종속성을 추가하십시오.
 
   ```gradle
 dependencies {
-compile group: 'com.github.ibm-cloud-security:appid-clientsdk-android:1.+'
+      compile group: 'com.github.ibm-cloud-security:appid-clientsdk-android:1.+'
    }
   ```
   {: codeblock}
 
-3. defaultConfig 섹션을 찾아서 다음의 코드 행을 추가하십시오. 
+3. defaultConfig 섹션을 찾아서 다음의 코드 행을 추가하십시오.
 
   ```gradle
 defaultConfig {
-...
+                         ...
             manifestPlaceholders = ['appIdRedirectScheme': android.defaultConfig.applicationId]
   }
   ```
   {: codeblock}
 
-4. 프로젝트를 Gradle과 동기화하십시오. 
-5. initialize 메소드에 컨텍스트, 테넌트 ID 및 지역 매개변수를 전달하여 클라이언트 SDK를 초기화하십시오. 필수는 아니지만 일반적으로 초기화 코드를 넣는 위치는 Android 애플리케이션에서 기본 활동의 onCreate 메소드에 있습니다. 
+4. 프로젝트를 Gradle과 동기화하십시오.
+5. initialize 메소드에 컨텍스트, 테넌트 ID 및 지역 매개변수를 전달하여 클라이언트 SDK를 초기화하십시오. 필수는 아니지만 일반적으로 초기화 코드를 넣는 위치는 Android 애플리케이션에서 기본 활동의 onCreate 메소드에 있습니다.
 
   ```Java
   AppID.getInstance().initialize(getApplicationContext(), <tenantId>, <AppID.REGION>);
@@ -68,9 +68,9 @@ defaultConfig {
   {: codeblock}
 
     <table>
-    <caption> 표 1. 명령 컴포넌트 설명</caption>
+    <caption> 표 1. 명령 컴포넌트 설명 </caption>
       <tr>
-        <th> 컴포넌트</th>
+        <th> 컴포넌트 </th>
         <th> 설명 </th>
       </tr>
       <tr>
@@ -83,7 +83,7 @@ defaultConfig {
       </tr>
     </table>
 
-6. {{site.data.keyword.appid_short_notm}} 클라이언트 SDK가 초기화된 후에 로그인 위젯을 실행하여 사용자를 인증할 수 있습니다. 
+6. {{site.data.keyword.appid_short_notm}} 클라이언트 SDK가 초기화된 후에 로그인 위젯을 실행하여 사용자를 인증할 수 있습니다.
 
   ```Java
   LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
@@ -104,9 +104,9 @@ defaultConfig {
   {: codeblock}
 
     <table>
-    <caption> 표 2. 명령 컴포넌트 설명</caption>
+    <caption> 표 2. 명령 컴포넌트 설명 </caption>
       <tr>
-        <th> 컴포넌트</th>
+        <th> 컴포넌트 </th>
         <th> 설명 </th>
       </tr>
       <tr>
@@ -126,9 +126,9 @@ defaultConfig {
 ## 기존 iOS Swift 앱에 {{site.data.keyword.appid_short_notm}} 추가
 {: #existing-ios}
 
-1. 프로젝트의 디렉토리에서 podfile을 여십시오. 
-2. 프로젝트의 대상 아래에 'BluemixAppID' 팟(pod)에 대한 종속성을 추가하십시오. `use_frameworks!` 명령도 대상 아래에 있는지 확인하십시오. 
-3. `BluemixAppID` 종속성을 다운로드하려면 다음 명령을 실행하십시오. 
+1. 프로젝트의 디렉토리에서 podfile을 여십시오.
+2. 프로젝트의 대상 아래에 'BluemixAppID' 팟(pod)에 대한 종속성을 추가하십시오. `use_frameworks!` 명령도 대상 아래에 있는지 확인하십시오.
+3. `BluemixAppID` 종속성을 다운로드하려면 다음 명령을 실행하십시오.
 
   ```
   pod install --repo-update
@@ -136,14 +136,14 @@ defaultConfig {
   {: codeblock}
 
 4. Xcode 프로젝트를 열고 키 체인 공유를 사용 설정하십시오. **프로젝트 설정** 아래에서 **기능** > **키 체인 공유**를 클릭하십시오.
-5. **프로젝트 설정** > **정보** > **URL 유형** 아래에 **URL 유형**을 추가하십시오. **ID** 텍스트 상자 및 **URL 체계** 텍스트 상자를 모두 다음 값으로 채우십시오. 
+5. **프로젝트 설정** > **정보** > **URL 유형** 아래에 **URL 유형**을 추가하십시오. **ID** 텍스트 상자 및 **URL 체계** 텍스트 상자를 모두 다음 값으로 채우십시오.
 
   ```
   $(PRODUCT_BUNDLE_IDENTIFIER)
   ```
   {: codeblock}
 
-6. `AppDelegate.swift` 파일에 다음과 같이 가져오기를 추가하십시오. 
+6. `AppDelegate.swift` 파일에 다음과 같이 가져오기를 추가하십시오.
 
   ```swift
   import BluemixAppID
@@ -151,7 +151,7 @@ defaultConfig {
   ```
   {: codeblock}
 
-7. initialize 메소드에 테넌트 ID 및 지역 매개변수를 전달하여 클라이언트 SDK를 초기화하십시오. 필수는 아니지만 일반적으로 초기화 코드를 넣는 위치는 application:didFinishLaunchingWithOptions: 사용자의 애플리케이션에서 AppDelegate의 메소드에 있습니다. 
+7. initialize 메소드에 테넌트 ID 및 지역 매개변수를 전달하여 클라이언트 SDK를 초기화하십시오. 필수는 아니지만 일반적으로 초기화 코드를 넣는 위치는 application:didFinishLaunchingWithOptions: 사용자의 애플리케이션에서 AppDelegate의 메소드에 있습니다.
 
   ```swift
   AppID.sharedInstance.initialize(tenantId: <tenantId>, bluemixRegion: <AppID.Region>)
@@ -159,9 +159,9 @@ defaultConfig {
   {: codeblock}
 
     <table>
-    <caption> 표 3. 명령 컴포넌트 설명</caption>
+    <caption> 표 3. 명령 컴포넌트 설명 </caption>
       <tr>
-        <th> 컴포넌트</th>
+        <th> 컴포넌트 </th>
         <th> 설명 </th>
       </tr>
       <tr>
@@ -174,11 +174,11 @@ defaultConfig {
       </tr>
     </table>
 
-8. AppDelegate 파일에 다음 코드를 추가하십시오. 
+8. AppDelegate 파일에 다음 코드를 추가하십시오.
 
   ```swift
   func application(_ application: UIApplication, open url: URL, options :[UIApplicationOpenURLOptionsKey : Any]) -> Bool {
-          return AppID.sharedInstance.application(application, open: url, options: options)
+         	return AppID.sharedInstance.application(application, open: url, options: options)
       }
   class delegate : AuthorizationDelegate {
      public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, response:Response?) {
@@ -196,9 +196,9 @@ defaultConfig {
   {: codeblock}
 
     <table>
-    <caption> 표 4. 명령 컴포넌트 설명</caption>
+    <caption> 표 4. 명령 컴포넌트 설명 </caption>
       <tr>
-        <th> 컴포넌트</th>
+        <th> 컴포넌트 </th>
         <th> 설명 </th>
       </tr>
       <tr>
@@ -218,14 +218,14 @@ defaultConfig {
 ## 기존 Node.js 앱에 {{site.data.keyword.appid_short_notm}} 추가
 {: #existing-node}
 
-1. `bluemix-appid` 모듈을 Node.js 애플리케이션에 추가하십시오. 
+1. `bluemix-appid` 모듈을 Node.js 애플리케이션에 추가하십시오.
 
   ```javaScript
   npm install --save bluemix-appid
   ```
   {: codeblock}
 
-2. 다음 모듈이 아직 설치되지 않은 경우 설치하십시오. 
+2. 다음 모듈이 아직 설치되지 않은 경우 설치하십시오.
 
   ```javaScript
   npm install --save express
@@ -234,10 +234,10 @@ defaultConfig {
   ```
   {: codeblock}
 
-3. 다음 코드를 `app.js` 파일에 추가하십시오. 
-    * express-session 미들웨어를 사용하도록 express 앱을 설정하십시오. **참고**: 프로덕션 환경에 적합한 세션 스토리지로 미들웨어를 구성해야 합니다. 자세한 정보는 <a href="https://github.com/expressjs/session" target="_blank">expressjs 문서 <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>를 참조하십시오. 
-    * 직렬화 및 직렬화 해제로 passportjs를 구성하십시오. 이는 HTTP 요청 전체에 걸쳐 인증된 세션 지속성에 필요합니다. 자세한 정보는 <a href="http://passportjs.org/docs" target="_blank">passportjs 문서 <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>를 참조하십시오.   
-    * 콜백 URL에서 get 명령을 실행하여 {{site.data.keyword.appid_short_notm}} 서비스에서 액세스 및 ID 토큰을 검색하십시오. 
+3. 다음 코드를 `app.js` 파일에 추가하십시오.
+    * express-session 미들웨어를 사용하도록 express 앱을 설정하십시오. **참고**: 프로덕션 환경에 적합한 세션 스토리지로 미들웨어를 구성해야 합니다. 자세한 정보는 <a href="https://github.com/expressjs/session" target="_blank">expressjs 문서 <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>를 참조하십시오.
+    * 직렬화 및 직렬화 해제로 passportjs를 구성하십시오. 이는 HTTP 요청 전체에 걸쳐 인증된 세션 지속성에 필요합니다. 자세한 정보는 <a href="http://passportjs.org/docs" target="_blank">passportjs 문서 <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>를 참조하십시오.  
+    * 콜백 URL에서 get 명령을 실행하여 {{site.data.keyword.appid_short_notm}} 서비스에서 액세스 및 ID 토큰을 검색하십시오.
 
   ```javaScript
   const express = require("express");
@@ -269,33 +269,34 @@ defaultConfig {
   ```
   {: codeblock}
 
-    **참고**: 서비스는 다음 순서로 경로 재지정됩니다. 
+    **참고**: 서비스는 다음 순서로 경로 재지정됩니다.
     1. `WebAppStrategy.ORIGINAL_URL` 키 아래에서 HTTP 세션에서 지속된 대로 인증 프로세스를 트리거한 요청의 원래 URL.
     2. `passport.authenticate(name, {successRedirect: "...."})`에 지정된 대로 성공적인 경로 재지정
     3. 애플리케이션 루트("/")
 
-4. 애플리케이션을 재배치하십시오. 
+4. 애플리케이션을 재배치하십시오.
 
 
 ## 기존 Swift 웹 애플리케이션에 {{site.data.keyword.appid_short_notm}} 추가
 {: #existing-swift}
 
-1. Swift 앱의 디렉토리에서 `Package.swift` 파일을 열고 `appid-serversdk-swift` 종속성을 추가하십시오. 예를 들면 다음과 같습니다. 
+1. Swift 앱의 디렉토리에서 `Package.swift` 파일을 열고 `appid-serversdk-swift` 종속성을 추가하십시오.
+  예를 들면 다음과 같습니다.
 
     ```swift
     import PackageDescription
 
     let package = Package(
       dependencies: [
-          .Package(url: "https://github.com/ibm-cloud-security/appid-serversdk-swift.git", majorVersion: 1)
+           	.Package(url: "https://github.com/ibm-cloud-security/appid-serversdk-swift.git", majorVersion: 1)
       ]
-  )
+    )
     ```
     {: codeblock}
 
-2. 다음 코드를 Swift 애플리케이션에 추가하십시오. 
-    * 세션 미들웨어를 사용하도록 Kitura를 설정하십시오. **참고**: 프로덕션 환경에 적합한 세션 스토리지로 Kitura를 구성해야 합니다. 자세한 정보는 <a href="https://github.com/IBM-Swift/Kitura-Session" target="_blank">Kitura 문서 <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>를 참조하십시오. 
-    * 콜백 URL에서 get 명령을 실행하여 {{site.data.keyword.appid_short_notm}} 서비스에서 액세스 및 ID 토큰을 검색하십시오. 
+2. 다음 코드를 Swift 애플리케이션에 추가하십시오.
+    * 세션 미들웨어를 사용하도록 Kitura를 설정하십시오. **참고**: 프로덕션 환경에 적합한 세션 스토리지로 Kitura를 구성해야 합니다. 자세한 정보는 <a href="https://github.com/IBM-Swift/Kitura-Session" target="_blank">Kitura 문서 <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>를 참조하십시오.
+    * 콜백 URL에서 get 명령을 실행하여 {{site.data.keyword.appid_short_notm}} 서비스에서 액세스 및 ID 토큰을 검색하십시오.
 
   ```swift
   import Foundation
@@ -322,17 +323,16 @@ defaultConfig {
       response.status(.unauthorized)
           return next()
       }
-
-      response.send(json: identityTokenPayload!)
-      next()
-  })
+    response.send(json: identityTokenPayload!)
+    next()
+    })
   ```
   {: codeblock}
 
   <table>
-  <caption> 표 5. 명령 컴포넌트 설명</caption>
+  <caption> 표 5. 명령 컴포넌트 설명 </caption>
     <tr>
-      <th> 컴포넌트</th>
+      <th> 컴포넌트 </th>
       <th> 설명 </th>
     </tr>
     <tr>
@@ -345,16 +345,16 @@ defaultConfig {
     </tr>
     </table>
 
-5. 애플리케이션을 재배치하십시오. 
+5. 애플리케이션을 재배치하십시오.
 
 
 
 ## 기존 Liberty for Java 앱에 {{site.data.keyword.appid_short_notm}} 추가
 {: #existing-liberty}
 
-기존 Liberty for Java 웹 애플리케이션에서 작동하도록 {{site.data.keyword.appid_short_notm}}를 구성할 수 있습니다. 
+기존 Liberty for Java 웹 애플리케이션에서 작동하도록 {{site.data.keyword.appid_short_notm}}를 구성할 수 있습니다.
 
-1. <a href="https://www.ibm.com/support/knowledgecenter/en/SSD28V_8.5.5/com.ibm.websphere.wlp.core.doc/ae/twlp_config_oidc_rp.html" target="_blank">OpenID Connect 기능 <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>을 `server.xml`에 추가하십시오. 
+1. <a href="https://www.ibm.com/support/knowledgecenter/en/SSD28V_8.5.5/com.ibm.websphere.wlp.core.doc/ae/twlp_config_oidc_rp.html" target="_blank">OpenID Connect 기능 <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>을 `server.xml`에 추가하십시오.
 
   ```xml
   <feature manager>
@@ -363,7 +363,7 @@ defaultConfig {
   ```
   {: codeblock}
 
-2. Open ID Connect 클라이언트 기능에서 다음 플레이스홀더를 정의하십시오. 나중에 {{site.data.keyword.Bluemix_notm}}에서 이를 자동으로 채웁니다. 인스턴스 이름 변수는 {{site.data.keyword.appid_short_notm}} 인스턴스 이름과 정확히 일치해야 합니다. 
+2. Open ID Connect 클라이언트 기능에서 다음 플레이스홀더를 정의하십시오. 나중에 {{site.data.keyword.Bluemix_notm}}에서 이를 자동으로 채웁니다. 인스턴스 이름 변수는 {{site.data.keyword.appid_short_notm}} 인스턴스 이름과 정확히 일치해야 합니다.
 
   ```
   clientId='${cloud.services.AppID-Instance-Name.credentials.clientId}'
@@ -378,12 +378,12 @@ defaultConfig {
   ```
   {: codeblock}
 
-  **참고**: issuerIdentifier 변수는 사용자의 지역에 따라 변경됩니다. 이는 다음 변수 중 하나일 수 있습니다. 
+  **참고**: issuerIdentifier 변수는 사용자의 지역에 따라 변경됩니다. 이는 다음 변수 중 하나일 수 있습니다.
   * issuerIdentifier="appid-oauth.ng.bluemix.net"
   * issuerIdentifier="appid-oauth.eu-gb.bluemix.net"
   * issuerIdentifier="appid-oauth.au-syd.bluemix.net"</ul> </td>
 
-3. 보호된 리소스를 지정하기 위한 권한 필터를 정의하십시오. 필터가 <a href="https://www.ibm.com/support/knowledgecenter/en/SSD28V_8.5.5/com.ibm.websphere.wlp.core.doc/ae/rwlp_auth_filter.html" target="_blank">정의되지 <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a> 않은 경우에는 서비스가 모든 리소스를 보호합니다. 
+3. 보호된 리소스를 지정하기 위한 권한 필터를 정의하십시오. 필터가 <a href="https://www.ibm.com/support/knowledgecenter/en/SSD28V_8.5.5/com.ibm.websphere.wlp.core.doc/ae/rwlp_auth_filter.html" target="_blank">정의되지 <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a> 않은 경우에는 서비스가 모든 리소스를 보호합니다.
   ```
   <authFilter id="myAuthFilter">
              <requestUrl id="myRequestUrl" urlPattern="/protected" matchType="contains"/>
@@ -391,7 +391,7 @@ defaultConfig {
   ```
   {: codeblock}
 
-3. `server.xml` 파일에서 특수 주제 유형을 ALL_AUTHENTICATED_USERS로 정의하십시오. 
+3. `server.xml` 파일에서 특수 주제 유형을 ALL_AUTHENTICATED_USERS로 정의하십시오.
 
   ```xml
   <application type="war" id="ProtectedServlet" context-root="/appidSample"
@@ -405,7 +405,7 @@ defaultConfig {
   ```
   {: codeblock}
 
-4. `<application-bnd>` 요소에서, 웹 앱 `web.xml`에서 찾은 <a href="https://www.ibm.com/support/knowledgecenter/SSAW57_8.5.5/com.ibm.websphere.wlp.nd.doc/ae/cwlp_authorization.html?cp=SSAW57_8.5.5&cm_mc_uid=18498555367014888859884&cm_mc_sid_50200000=1494855872" target="_blank">역할을 정의 <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>하십시오. 
+4. `<application-bnd>` 요소에서, 웹 앱 `web.xml`에서 찾은 <a href="https://www.ibm.com/support/knowledgecenter/SSAW57_8.5.5/com.ibm.websphere.wlp.nd.doc/ae/cwlp_authorization.html?cp=SSAW57_8.5.5&cm_mc_uid=18498555367014888859884&cm_mc_sid_50200000=1494855872" target="_blank">역할을 정의 <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>하십시오.
 
   ```xml
   <security-role>
@@ -432,40 +432,40 @@ defaultConfig {
   ```
   {: codeblock}
 
-5. 인증서를 가져오십시오. 
+5. 인증서를 가져오십시오.
 
-    a. {{site.data.keyword.appid_short_notm}} 대시보드에서 서비스 신임 정보를 클릭하십시오. 
+    a. {{site.data.keyword.appid_short_notm}} 대시보드에서 서비스 신임 정보를 클릭하십시오.
 
-    b. **신임 정보 보기**를 클릭하고 `oauthServerUrl`을 복사하십시오. 
+    b. **신임 정보 보기**를 클릭하고 `oauthServerUrl`을 복사하십시오.
 
-    c. `/token`을 URL에 추가하십시오. Firefox를 사용하여 출력 URL을 찾아보고 인증서를 가져오십시오. 다음 URL을 예로 사용할 수 있습니다. 
+    c. `/token`을 URL에 추가하십시오. Firefox를 사용하여 출력 URL을 찾아보고 인증서를 가져오십시오. 다음 URL을 예로 사용할 수 있습니다.
 
     ```
     https://appid-oauth.eu-gb.bluemix.net/oauth/v3/5d12852e-b0a0-46a3-9547-67a4a33a7164/token
     ```
     {: screen}
 
-    d. Firefox 주소 표시줄에서 잠금 아이콘 > **오른쪽 화살표** > **자세한 정보** > **인증서 보기**을 클릭하십시오. 
+    d. Firefox 주소 표시줄에서 잠금 아이콘 > **오른쪽 화살표** > **자세한 정보** > **인증서 보기**을 클릭하십시오.
 
-    e. **보안** 탭에서 **인증서 보기** > **세부사항**을 클릭하십시오. 
+    e. **보안** 탭에서 **인증서 보기** > **세부사항**을 클릭하십시오.
 
-    f. 인증서를 내보내고 이를 PEM 파일로서 로컬 드라이브에 저장하십시오. 
+    f. 인증서를 내보내고 이를 PEM 파일로서 로컬 드라이브에 저장하십시오.
 
 6. <a href="https://www.ibm.com/support/knowledgecenter/SSYKE2_6.0.0/com.ibm.java.security.component.60.doc/security-component/keytoolDocs/keytool_overview.html" target="_blank">Liberty Keytool <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>을 사용하여 Liberty for Java truststore.jks 파일에 인증서를 추가하고 OIDC 요소의 인증서 별명에 참조를 추가하십시오. 
-`.jks 파일`은 서버 디렉토리: **리소스** > **보안** > **<i>신뢰 저장소 파일 이름</i>** > **`.jks 파일`**에 있습니다. 다음 옵션 중 하나를 사용하여 파일에 인증서를 추가하십시오. 
+`.jks 파일`은 서버 디렉토리: **리소스** > **보안** > **<i>신뢰 저장소 파일 이름</i>** > **`.jks 파일`**에 있습니다. 다음 옵션 중 하나를 사용하여 파일에 인증서를 추가하십시오.
 
-    * 터미널에서 Liberty for Java 보안 폴더: wlp > usr > 서버 > <i>servername</i> > 리소스 > 보안으로 이동하고 다음 명령을 사용하여 인증서를 추가하십시오. 
+    * 터미널에서 Liberty for Java 보안 폴더: wlp > usr > 서버 > <i>servername</i> > 리소스 > 보안으로 이동하고 다음 명령을 사용하여 인증서를 추가하십시오.
 
       ```
       keytool -importcert -keystore ./trust.jks -file ~/Documents/secbluemix.cer`
       ```
       {: codeblock}      
 
-      **참고**: `~/Documents/[certificatename].cer`은 로컬 드라이브에서 파일 위치를 보여줍니다. 
+      **참고**: `~/Documents/[certificatename].cer`은 로컬 드라이브에서 파일 위치를 보여줍니다.
 
-    * <a href="http://keystore-explorer.org/index.html" target="_blank">KeyStore 탐색기 <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>를 사용하여 인증서를 추가할 수 있습니다. KeyStore 탐색기를 열고 **기존 KeyStore 열기**를 선택하십시오. 
+    * <a href="http://keystore-explorer.org/index.html" target="_blank">KeyStore 탐색기 <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>를 사용하여 인증서를 추가할 수 있습니다. KeyStore 탐색기를 열고 **기존 KeyStore 열기**를 선택하십시오.
 
-7. `manifest.yml` 파일에서 {{site.data.keyword.appid_short_notm}} 인스턴스를 정의하십시오. 
+7. `manifest.yml` 파일에서 {{site.data.keyword.appid_short_notm}} 인스턴스를 정의하십시오.
 
   ```yml
   services:
@@ -485,11 +485,11 @@ defaultConfig {
   ```
   {: codeblock}
 
-    {{site.data.keyword.appid_short_notm}}용으로 구성된 예제 `server.xml` 파일: 
+    {{site.data.keyword.appid_short_notm}}용으로 구성된 예제 `server.xml` 파일:
 
   ```xml
   <?xml version="1.0" encoding="UTF-8"?>
-<server description="sample server">
+  <server description="sample server">
 
       <featureManager>
         <feature>ssl-1.0</feature>
@@ -532,7 +532,7 @@ defaultConfig {
 
       <httpEndpoint id="defaultHttpEndpoint" httpPort="9080" host="*" httpsPort="9443" />
 
-      <!-- Automatically expand WAR files and EAR files -->
+      
       <applicationManager autoExpand="true"/>
 
   </server>
@@ -544,10 +544,10 @@ defaultConfig {
 ## {{site.data.keyword.Bluemix_notm}}에서 실행되지 않는 기존 애플리케이션에 {{site.data.keyword.appid_short_notm}} 추가
 {: #existing}
 
-{{site.data.keyword.Bluemix_notm}}에서 실행되지 않는 Node.js 또는 Swift 애플리케이션이 있는 경우, 원격에서 작업하도록 WebAppStrategy 또는 WebAppKituraCredentialsPlugin을 구성할 수 있습니다.  Bluemix에서 실행되지 않는 Liberty for Java 앱의 경우에는 OIDC 요소 변수를 구성하십시오. 
+{{site.data.keyword.Bluemix_notm}}에서 실행되지 않는 Node.js 또는 Swift 애플리케이션이 있는 경우, 원격에서 작업하도록 WebAppStrategy 또는 WebAppKituraCredentialsPlugin을 구성할 수 있습니다.  Bluemix에서 실행되지 않는 Liberty for Java 앱의 경우에는 OIDC 요소 변수를 구성하십시오.
 
 
-Node.js 앱에서 `passport.use(new WebAppStrategy());`을 다음 코드로 바꾸십시오. 
+Node.js 앱에서 `passport.use(new WebAppStrategy());`을 다음 코드로 바꾸십시오.
 
   ```javaScript
   passport.use(new WebAppStrategy({
@@ -564,20 +564,20 @@ Swift 앱에서 `let webappKituraCredentialsPlugin = WebAppKituraCredentialsPlug
 
   ```swift
 let options = [
-  	"clientId": "{client-id}",
+        "clientId": "{client-id}",
   	"secret": "{secret}",
   	"tenantId": "{tenant-id}",
   	"oauthServerUrl": "{oauth-server-url}",
   	"redirectUri": "{app-url}" + CALLBACK_URL
   ]
-  let webappKituraCredentialsPlugin = WebAppKituraCredentialsPlugin(options: options)
+    let webappKituraCredentialsPlugin = WebAppKituraCredentialsPlugin(options: options)
   ```
   {: codeblock}
 
   <table>
   <caption> 표 6. Swift 및 Node.js 앱에 대한 명령 컴포넌트 설명 </caption>
     <tr>
-      <th> 컴포넌트</th>
+      <th> 컴포넌트 </th>
       <th> 설명 </th>
     </tr>
     <tr>
@@ -594,7 +594,7 @@ let options = [
     </tr>
   </table>
 
-Liberty for Java 앱에서 [기존 Liberty for Java 앱에 {{site.data.keyword.appid_short_notm}} 추가](/docs/services/appid/existing.html#existing-liberty) 아래의 단계를 완료하되, OIDC 클라이언트 요소 변수를 다음 코드로 대체하십시오. 
+Liberty for Java 앱에서 [기존 Liberty for Java 앱에 {{site.data.keyword.appid_short_notm}} 추가](/docs/services/appid/existing.html#existing-liberty) 아래의 단계를 완료하되, OIDC 클라이언트 요소 변수를 다음 코드로 대체하십시오.
 
   ```
   clientId='App ID client_ID'
@@ -611,7 +611,7 @@ Liberty for Java 앱에서 [기존 Liberty for Java 앱에 {{site.data.keyword.a
   {: codeblock}
 
   <table>
-  <caption> 표 7. Bluemix에서 실행되지 않는 Liberty for Java 앱에 대한 OIDC 요소 변수</caption>
+  <caption> 표 7. Bluemix에서 실행되지 않는 Liberty for Java 앱에 대한 OIDC 요소 변수 </caption>
     <tr>
       <th> 컴포넌트 </th>
       <th> 설명 </th>
@@ -634,7 +634,7 @@ Liberty for Java 앱에서 [기존 Liberty for Java 앱에 {{site.data.keyword.a
     </tr>
     <tr>
       <td> <i> issuerIdentifier </i> </td>
-      <td> 사용자의 지역에 따라 다릅니다. 다음 중 하나일 수 있습니다.</br><ul><li> issuerIdentifier="appid-oauth.ng.bluemix.net" </br><li> issuerIdentifier="appid-oauth.eu-gb.bluemix.net" </br><li> issuerIdentifier="appid-oauth.au-syd.bluemix.net" </ul></td>
+      <td> 사용자의 지역에 따라 다릅니다. 다음 중 하나일 수 있습니다. </br><ul><li> issuerIdentifier="appid-oauth.ng.bluemix.net" </br><li> issuerIdentifier="appid-oauth.eu-gb.bluemix.net" </br><li> issuerIdentifier="appid-oauth.au-syd.bluemix.net" </ul></td>
     </tr>
     <tr>
       <td> <i> tokenEndpointAuthMethod </i> </td>

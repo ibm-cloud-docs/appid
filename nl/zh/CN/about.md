@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-12-13"
+  years: 2017, 2018
+lastupdated: "2018-02-01"
 
 ---
 
@@ -10,7 +10,7 @@ lastupdated: "2017-12-13"
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
-
+{:pre: .pre}
 
 # 关于
 {: #about}
@@ -39,7 +39,11 @@ lastupdated: "2017-12-13"
   </tr>
   <tr>
     <td> 您想要为用户构建个性化的应用程序体验。</td>
-    <td> {{site.data.keyword.appid_short_notm}} 支持[存储用户数据](/docs/services/appid/user-profile.html)，例如应用程序首选项或用户公共社交个人档案中的信息。您可以使用该数据来确保为用户提供量身定制的体验。</td>
+    <td> 利用 {{site.data.keyword.appid_short_notm}}，可以[存储用户数据](/docs/services/appid/user-profile.html)（如应用程序首选项或公共社交个人档案中的信息），然后使用这些数据来定制每一种应用程序体验。</td>
+  </tr>
+  <tr>
+    <td> 应该让用户能够通过电子邮件使用密码来访问应用程序。 </td>
+    <td> {{site.data.keyword.appid_short_notm}} 提供创建 [Cloud Directory](/docs/services/appid/cloud-directory.html) 的功能。因此您可以将用户注册和用户登录添加到移动应用程序和 Web 应用程序。Cloud Directory 为您提供的框架可以维护用户注册表，该表会随着用户数量的增加而扩展。利用预先构建的自助服务（如电子邮件验证和密码重置），就可以确信应用程序会对用户进行安全的认证。</td>
   </tr>
 </table>
 
@@ -48,13 +52,9 @@ lastupdated: "2017-12-13"
 {: #architecture}
 
 利用 {{site.data.keyword.appid_short_notm}}，您可以通过要求用户登录来提高应用程序安全性级别。您还可以使用服务器 SDK 来保护后端资源。
-
-下图显示了 {{site.data.keyword.appid_short_notm}} 服务的工作原理概述。
+{: shortdesc}
 
 ![{{site.data.keyword.appid_short_notm}} 体系结构图](/images/appid_architecture.png)
-
-图 1. {{site.data.keyword.appid_short_notm}} 体系结构图
-
 
 <dl>
   <dt> 应用程序</dt>
@@ -72,10 +72,9 @@ lastupdated: "2017-12-13"
 {: #request}
 
 下图描述了请求是如何从客户端 SDK 流向后端资源和身份提供者的。
+{: shortdesc}
 
 ![{{site.data.keyword.appid_short_notm}} 请求流程](/images/appidrequestflow.png)
-
-图 2. {{site.data.keyword.appid_short_notm}} 请求流
 
 
 * {{site.data.keyword.appid_short_notm}} 客户端 SDK 对受 {{site.data.keyword.appid_short_notm}} 服务器 SDK 保护的后端资源发起请求。

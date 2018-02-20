@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-12-06"
+  years: 2017, 2018
+lastupdated: "2018-01-02"
 
 ---
 {:new_window: target="_blank"}
@@ -13,8 +13,7 @@ lastupdated: "2017-12-06"
 
 # Protección de recursos de fondo
 
-Puede utilizar el SDK del servidor de {{site.data.keyword.appid_short_notm}} para proteger y acceder a los puntos finales en las apps.
-También puede utilizar los SDK del cliente para acceder a recursos protegidos.
+Puede utilizar el SDK del servidor de {{site.data.keyword.appid_short_notm}} para proteger y acceder a los puntos finales en las apps. También puede utilizar los SDK del cliente para acceder a recursos protegidos.
 
 **Nota**: Llamar a un recurso protegido inicia el widget de inicio de sesión, en caso necesario. Si ya se ha obtenido una señal válida, el widget de inicio de sesión no se inicia, y se accede al recurso directamente.
 
@@ -24,7 +23,7 @@ También puede utilizar los SDK del cliente para acceder a recursos protegidos.
 Puede utilizar {{site.data.keyword.appid_short_notm}} para proteger los puntos finales de apps de IBM Liberty for Java. Liberty for Java tiene la capacidad integrada para gestionar solicitudes de Open ID Connect (OIDC).
 
 Antes de empezar:
-* Es necesario disponer de una [aplicación de IBM Liberty for Java](https://console.bluemix.net/catalog/starters/liberty-for-java) desenlazada. Para familiarizarse con el desarrollo de apps de Liberty for Java, consulte [la documentación](/docs/runtimes/liberty/index.html).
+* Es necesario disponer de una [app de IBM Liberty for Java](https://console.bluemix.net/catalog/starters/liberty-for-java) desenlazada. Para familiarizarse con el desarrollo de apps de Liberty for Java, consulte [la documentación](/docs/runtimes/liberty/index.html).
 * Asegúrese de que tenga instalado [Apache Maven](https://maven.apache.org/download.cgi).
 * Obtenga información sobre cómo funciona OIDC con Liberty for Java.
 
@@ -46,17 +45,17 @@ Para proteger sus recursos:
   ```
   {: codeblock}
 
-5. Enlace su instancia de servicio a la nueva instancia de Liberty for Java y redespliegue la aplicación.
-6. Abra la aplicación en un navegador e inicie la sesión con sus credenciales para revisar las actividades de autenticación.
+5. Enlace su instancia de servicio a la nueva instancia de Liberty for Java y redespliegue la app.
+6. Abra la app en un navegador e inicie la sesión con sus credenciales para revisar las actividades de autenticación.
 
 ## Protección de recursos en Node.js
 {: #protecting-resources-nodesdk}
 
-El SDK del servidor de {{site.data.keyword.appid_short_notm}} proporciona una estrategia de pasaporte de ApiStrategy que se utiliza en aplicaciones de fondo que se despliegan en {{site.data.keyword.Bluemix_notm}}. Para proteger la app de accesos no autorizados, debe instrumentar el servidor Node.js con ApiStrategy. El `módulo appid-serversdk-nodejs npm` proporciona la estrategia de pasaporte ApiStrategy y el método de verificación para validar la señal de acceso y la señal de ID que emite {{site.data.keyword.appid_short_notm}}.
+El SDK del servidor de {{site.data.keyword.appid_short_notm}} proporciona una estrategia de pasaporte de ApiStrategy que se utiliza en apps de fondo que se despliegan en {{site.data.keyword.Bluemix_notm}}. Para proteger la app de accesos no autorizados, debe instrumentar el servidor Node.js con ApiStrategy. El `módulo appid-serversdk-nodejs npm` proporciona la estrategia de pasaporte ApiStrategy y el método de verificación para validar la señal de acceso y la señal de ID que emite {{site.data.keyword.appid_short_notm}}.
 
 El SDK del servidor de {{site.data.keyword.appid_short_notm}} utiliza la <a href="http://passportjs.org/" target="_blank">infraestructura Passport <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a> para imponer la autorización.
 
-El siguiente fragmento de código muestra cómo utilizar `APIStrategy` en una aplicación Express sencilla para proteger los métodos GET del punto final `/protected`.
+El siguiente fragmento de código muestra cómo utilizar `APIStrategy` en una app Express sencilla para proteger los métodos GET del punto final `/protected`.
 
   ```JavaScript
 

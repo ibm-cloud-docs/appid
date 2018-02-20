@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-12-08"
+  years: 2017, 2018
+lastupdated: "2018-01-02"
 
 ---
 
@@ -19,17 +19,17 @@ Puede utilizar los siguientes enlaces relacionados para obtener más informació
 {: #blogs}
 
 * <a href="https://www.ibm.com/blogs/bluemix/2017/03/introducing-ibm-bluemix-app-id-authentication-profiles-service-app-developers/" target="_blank">Introducción a {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>
-* <a href="https://www.ibm.com/blogs/bluemix/2017/10/build-cloud-apps-5-minutes/" target="_blank">Construir aplicaciones en la nube en 5 minutos <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>
-* <a href="https://www.ibm.com/blogs/bluemix/2017/08/cloud-app-security-makes-secure-app/" target="_blank">Seguridad de aplicación en la nube: ¿Qué hace que una app sea segura?<img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>
+* <a href="https://www.ibm.com/blogs/bluemix/2017/10/build-cloud-apps-5-minutes/" target="_blank">Construir apps en la nube en 5 minutos <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>
+* <a href="https://www.ibm.com/blogs/bluemix/2017/08/cloud-app-security-makes-secure-app/" target="_blank">Seguridad de apps en la nube: ¿Qué hace que una app sea segura?<img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>
 * <a href="https://www.ibm.com/blogs/bluemix/2017/08/developing-finance-application-using-ibm-cloud/" target="_blank">Desarrollo de una aplicación de finanzas utilizando IBM Cloud <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>
 
 ## Ejemplos
 {: #samples}
 
 * <a href="https://github.com/mnsn/appid-python-flask-example" target="_blank">Uso de {{site.data.keyword.appid_short_notm}} con Python <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>
-* <a href="https://www.ibm.com/blogs/bluemix/2017/09/securing-single-page-apps-app-id-service/" target="_blank">Protección de aplicaciones de página única con {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>
+* <a href="https://www.ibm.com/blogs/bluemix/2017/09/securing-single-page-apps-app-id-service/" target="_blank">Protección de apps de página única con {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>
 * <a href="https://console.bluemix.net/docs/tutorials/serverless-mobile-backend.html#mobile-application-with-a-serverless-backend" target="_blank">Aplicación móvil con un programa de fondo sin servidor <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>
-
+* <a href="https://www.ibm.com/cloud/garage/content/architecture/securityArchitecture/security-for-application" target="_blank">Seguridad para proteger y supervisar sus apps <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>
 
 ## Vídeos
 {: #videos}

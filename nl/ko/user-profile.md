@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-12-08"
+  years: 2017, 2018
+lastupdated: "2018-01-02"
 
 ---
 
@@ -13,11 +13,10 @@ lastupdated: "2017-12-08"
 # 사용자 속성 액세스
 {: #user-profile}
 
-개인화된 앱 경험을 빌드하는 데 사용할 수 있는 일반 사용자 데이터를 관리할 수 있습니다.
+개인화된 앱 환경을 빌드하는 데 사용할 수 있는 일반 사용자 데이터를 관리할 수 있습니다.
 {:shortdesc}
 
 사용자 속성은 {{site.data.keyword.appid_full}}에서 저장하고 유지보수하는 엔티티에 포함된 정보의 한 부분입니다. 프로파일에는 사용자의 속성 및 ID가 포함되며, 이는 익명이거나 ID 제공자가 관리하는 ID에 링크될 수 있습니다.
-
 
 {{site.data.keyword.appid_short_notm}}는 익명으로 또는 OIDC(OpenId Connect) [ID 제공자](/docs/services/appid/identity-providers.html)로 인증하여 로그인을 위한 API를 제공합니다. 사용자 프로파일 속성 API 엔드포인트는 로그인 및 권한 부여 프로세스 중에 {{site.data.keyword.appid_short_notm}}에서 생성된 액세스 토큰이 보호하는 리소스입니다.
 
@@ -25,12 +24,12 @@ lastupdated: "2017-12-08"
 ## 사용자 속성 저장, 읽기 및 삭제
 {: #storing-data}
 
-{{site.data.keyword.appid_short_notm}}는 사용자의 속성에서 작성, 검색, 업데이트 및 삭제 오퍼레이션을 수행하기 위해 <a href="https://appid-profiles.ng.bluemix.net/swagger-ui/index.html#/Attributes" target="_blank">REST API <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>를 제공합니다. 또한, 서비스는 <a href="https://github.com/ibm-cloud-security/appid-clientsdk-android" target="_blank">Android <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a> 및 <a href="https://github.com/ibm-cloud-security/appid-clientsdk-swift" target="_blank">Swift <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a> 모바일 클라이언트에 SDK를 제공합니다. 
+{{site.data.keyword.appid_short_notm}}는 사용자의 속성에서 작성, 검색, 업데이트 및 삭제 오퍼레이션을 수행하기 위해 <a href="https://appid-profiles.ng.bluemix.net/swagger-ui/index.html#/Attributes" target="_blank">REST API <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>를 제공합니다. 또한, 서비스는 <a href="https://github.com/ibm-cloud-security/appid-clientsdk-android" target="_blank">Android <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a> 및 <a href="https://github.com/ibm-cloud-security/appid-clientsdk-swift" target="_blank">Swift <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a> 모바일 클라이언트에 SDK를 제공합니다.
 
 ## Android SDK로 사용자 속성 액세스
 {: #accessing}
 
-액세스 토큰을 확보할 때 사용자 보호 속성 엔드포인트에 대한 액세스 권한을 얻을 수 있습니다. 다음과 같은 API 메소드를 사용하여 액세스 권한을 얻을 수 있습니다. 
+액세스 토큰을 확보할 때 사용자 보호 속성 엔드포인트에 대한 액세스 권한을 얻을 수 있습니다. 다음과 같은 API 메소드를 사용하여 액세스 권한을 얻을 수 있습니다.
 
   ```java
   void setAttribute(@NonNull String name, @NonNull String value, UserAttributeResponseListener listener);
@@ -47,9 +46,9 @@ lastupdated: "2017-12-08"
   ```
   {: codeblock}
 
-액세스 토큰이 명시적으로 전달되지 않을 때 {{site.data.keyword.appid_short_notm}}는 마지막으로 수신된 토큰을 사용합니다. 
+액세스 토큰이 명시적으로 전달되지 않을 때 {{site.data.keyword.appid_short_notm}}는 마지막으로 수신된 토큰을 사용합니다.
 
-예를 들어, 다음과 같은 코드를 호출하여 새 속성을 설정하거나 기존 속성을 대체할 수 있습니다. 
+예를 들어, 다음과 같은 코드를 호출하여 새 속성을 설정하거나 기존 속성을 대체할 수 있습니다.
 
   ```java
   appId.getUserAttributeManager().setAttribute(name, value, useThisToken,new UserAttributeResponseListener() {
@@ -95,7 +94,7 @@ lastupdated: "2017-12-08"
 {: #progressive notoc}
 
 사용자가 익명 액세스 토큰을 보유하고 있는 경우 해당 토큰을 `loginWidget.launch`
-메소드에 전달하여 식별된 사용자가 될 수 있습니다. 
+메소드에 전달하여 식별된 사용자가 될 수 있습니다.
 
   ```java
   void launch (@NonNull final Activity activity, @NonNull final AuthorizationListener authorizationListener, String accessTokenString);
@@ -114,23 +113,26 @@ lastupdated: "2017-12-08"
 ## iOS SDK로 사용자 속성 액세스
 {: #accessing}
 
-액세스 토큰을 확보할 때 사용자 보호 속성 엔드포인트에 대한 액세스 권한을 얻을 수 있습니다. 이는 다음과 같은 API 메소드를 사용하여 수행됩니다. 
+액세스 토큰을 확보할 때 사용자 보호 속성 엔드포인트에 대한 액세스 권한을 얻을 수 있습니다. 이는 다음과 같은 API 메소드를 사용하여 수행됩니다.
 
   ```swift
   func setAttribute(key: String, value: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
   func setAttribute(key: String, value: String, accessTokenString: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
+
   func getAttribute(key: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
   func getAttribute(key: String, accessTokenString: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
+
   func getAttributes(completionHandler: @escaping(Error?, [String:Any]?) -> Void)
   func getAttributes(accessTokenString: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
+
   func deleteAttribute(key: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
   func deleteAttribute(key: String, accessTokenString: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
   ```
   {: codeblock}
 
-액세스 토큰이 명시적으로 전달되지 않을 때 {{site.data.keyword.appid_short_notm}}는 마지막으로 수신된 토큰을 사용합니다. 
+액세스 토큰이 명시적으로 전달되지 않을 때 {{site.data.keyword.appid_short_notm}}는 마지막으로 수신된 토큰을 사용합니다.
 
-예를 들어, 다음과 같은 코드를 호출하여 새 속성을 설정하거나 기존 속성을 대체할 수 있습니다. 
+예를 들어, 다음과 같은 코드를 호출하여 새 속성을 설정하거나 기존 속성을 대체할 수 있습니다.
 
   ```swift
   AppID.sharedInstance.userAttributeManager?.setAttribute("key", "value", completionHandler: { (error, result) in
@@ -151,7 +153,8 @@ lastupdated: "2017-12-08"
 
   ```swift
 class delegate : AuthorizationDelegate {
-     public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, response:Response?) {
+
+      public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, response:Response?) {
           //User authenticated
       }
 
@@ -171,7 +174,7 @@ class delegate : AuthorizationDelegate {
 ### 점진적 인증
 {: #progressive notoc}
 
-익명 액세스 토큰을 보유하고 있는 경우, 사용자는 해당 토큰을 `loginWidget.launch` 메소드에 전달하여 식별된 사용자가 될 수 있습니다. 
+익명 액세스 토큰을 보유하고 있는 경우, 사용자는 해당 토큰을 `loginWidget.launch` 메소드에 전달하여 식별된 사용자가 될 수 있습니다.
 
   ```swift
   func launch(accessTokenString: String? , delegate: AuthorizationDelegate)

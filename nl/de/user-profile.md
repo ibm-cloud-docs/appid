@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-12-08"
+  years: 2017, 2018
+lastupdated: "2018-01-02"
 
 ---
 
@@ -59,8 +59,8 @@ Sie können beispielsweise diesen Code aufrufen, um ein neues Attribut festzuleg
 
 		@Override
 		public void onFailure(UserAttributesException e) {
-			//Ausnahmebedingung aufgetreten
-		}
+			//Ausnahmebedingung aufgetreten.
+  			 }
 	});
   ```
   {: codeblock}
@@ -73,9 +73,9 @@ Mit {{site.data.keyword.appid_short_notm}} können Sie sich [anonym](/docs/servi
   ```java
   appId.loginAnonymously(getApplicationContext(), new AuthorizationListener() {
 		@Override
-		public void onAuthorizationFailure(AuthorizationException exception) {
-			//Ausnahmebedingung aufgetreten
-		}
+			 public void onAuthorizationFailure (AuthorizationException exception) {
+			//Ausnahmebedingung aufgetreten.
+  			 }
 
 		@Override
 		public void onAuthorizationCanceled() {
@@ -83,7 +83,7 @@ Mit {{site.data.keyword.appid_short_notm}} können Sie sich [anonym](/docs/servi
 		}
 
 		@Override
-		public void onAuthorizationSuccess(AccessToken accessToken, IdentityToken identityToken) {
+ 			 public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken) {
 			//Benutzer authentifiziert
 		}
 	});

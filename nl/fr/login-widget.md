@@ -1,31 +1,34 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-12-06"
+  years: 2017, 2018
+lastupdated: "2018-02-01"
 
 ---
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
+{:pre: .pre}
 
-# Gestion de l'expérience de connexion
-Avec le widget de connexion, quelques minutes suffisent pour mettre en place
-un mécanisme de connexion.
-A tout moment, vous pouvez mettre à jour le widget ou son thème sans ajouter ni supprimer ou changer
-le code source du mécanisme sous-jacent.
+# Gestion de la connexion
+
+Le widget de connexion, vous permet de mettre à jour votre flux de connexion à tout moment sans ajouter ni supprimer ou modifier du code source. Vous pouvez être opérationnel en quelques minutes en utilisant le code fourni dans nos modèles d'application.
 {: shortdesc}
 
+**Remarque** : Lorsque vous configurez des fournisseurs d'identité de réseaux sociaux tels que Facebook, le [flux d'octroi d'autorisation Oauth2](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html) est utilisé pour appeler le widget de connexion.
 
+</br>
 
-## Personnalisation du widget de connexion
+## Personnalisation du code du modèle d'application
 {: #login-widget}
 
-Vous pouvez configurer votre widget de connexion pour afficher le logo et les couleurs de votre choix.
+Vous pouvez personnaliser l'écran de connexion préconfiguré de sorte qu'il affiche le logo et les couleurs de votre choix. Si vous voulez afficher votre propre interface utilisateur personnalisée, voir [répertoire cloud](/docs/services/appid/cloud-directory.html).
 {: shortdesc}
 
-Lorsque le service {{site.data.keyword.appid_short}} est configuré avec deux fournisseurs d'identité (ou plus), l'utilisateur peut en sélectionner un dans le widget de connexion. Vous pouvez personnaliser votre widget de connexion en procédant comme suit :
+![Exemple d'écran de connexion personnalisé](/images/customize.gif)
+
+Pour personnaliser l'écran :
 
 1. Ouvrez le tableau de bord du service {{site.data.keyword.appid_short_notm}}.
 2. Sélectionnez la section **Personnalisation de la connexion**, dans laquelle vous pouvez modifier l'apparence du widget de connexion pour l'adapter à l'image de marque de votre entreprise.
@@ -34,65 +37,53 @@ Lorsque le service {{site.data.keyword.appid_short}} est configuré avec deux fo
 5. Examinez le panneau de prévisualisation, puis cliquez
 sur **Sauvegarder les modifications** lorsque vous êtes satisfait de
 vos personnalisations. Un message de confirmation s'affiche.
-
-**Remarque** : Il n'est pas nécessaire de régénérer votre application. L'image est stockée dans la base de données d'{{site.data.keyword.appid_short}} et s'affiche lors de la prochaine connexion.
-
-## Exécution du widget de connexion avec le SDK Android
-
-{: #authenticate-android}
-
-Si vous configurez plusieurs fournisseurs d'identité, en visitant votre application,
-les utilisateurs se verront présenter un widget de connexion.
-Par défaut, si vous ne configurez qu'un seul fournisseur d'identité, l'utilisateur sera redirigé vers l'écran d'authentification dudit
-fournisseur.
+6. Vérifiez vos modifications en accédant à votre application. Il n'est pas nécessaire de régénérer votre application. Vos images sont stockées dans la base de données d'{{site.data.keyword.appid_short}} et s'affichent lors du prochain appel du widget de connexion.
 
 
+</br>
 
-Une fois que le SDK client d'{{site.data.keyword.appid_short_notm}} est initialisé, vous pouvez authentifier vos utilisateurs en exécutant le widget de connexion.
+## Appel du widget de connexion avec le SDK Android
+{: #android}
 
-  ```java
-  LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
+Lorsque les fournisseurs d'identité de réseaux sociaux sont activés, vous pouvez appeler l'écran de connexion préconfiguré avec le SDK Android.
+{: shortdesc}
+
+1. Configurez vos fournisseurs d'identité.
+2. Placez la commande suivante dans votre code.
+    ```java
+    LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
   loginWidget.launch(this, new AuthorizationListener() {
-        @Override
+          @Override
         public void onAuthorizationFailure (AuthorizationException exception) {
-          //Exception occurred
+            //Exception occurred
+      }
+
+          @Override
+          public void onAuthorizationCanceled () {
+            //Authentication canceled by the user
         }
 
-        @Override
-        public void onAuthorizationCanceled () {
-          //Authentication canceled by the user
-        }
-
-        @Override
+          @Override
         public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken) {
-          //User authenticated
+            //User authenticated
         }
-      });
-  ```
-  {: codeblock}
-
-## Exécution du widget de connexion avec le SDK iOS
-
-{: #authenticate-ios}
-
-Si vous configurez plusieurs fournisseurs d'identité, en visitant votre application,
-les utilisateurs se verront présenter un widget de connexion.
-Par défaut, si vous ne configurez qu'un seul fournisseur d'identité, l'utilisateur sera redirigé vers l'écran d'authentification dudit
-fournisseur.
+        });
+    ```
+    {: codeblock}
 
 
+</br>
 
-1. Ajoutez l'importation ci-dessous au fichier dans lequel utiliser
-le SDK.
+## Appel du widget de connexion avec le SDK Swift iOS
+{: ios-swift}
 
+Lorsque les fournisseurs d'identité de réseaux sociaux sont activés, vous pouvez appeler l'écran de connexion préconfiguré avec le SDK Swift iOS.
+{: shortdesc}
+
+1. Configurez vos fournisseurs d'identité.
+2. Ajoutez la commande suivante à votre code d'application.
   ```swift
   import BluemixAppID
-  ```
-  {: codeblock}
-
-2. Exécutez la commande ci-dessous pour lancer le widget.
-
-  ```swift
   class delegate : AuthorizationDelegate {
       public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, response:Response?) {
           //User authenticated
@@ -109,31 +100,37 @@ le SDK.
   ```
   {: codeblock}
 
-## Exécution du widget de connexion avec le SDK Node.js
 
-{: #authenticate-nodejs}
+</br>
 
-Vous pouvez utiliser `WebAppStrategy` pour protéger des ressources
-d'application Web.
+## Appel du widget de connexion avec le SDK Node.js
+{: #nodejs}
 
-  ```JavaScript
+Lorsque les fournisseurs d'identité de réseaux sociaux sont activés, vous pouvez appeler l'écran de connexion préconfiguré avec le SDK Node.js.
+{: shortdesc}
 
-  var express = require('express');
+1. Configurez vos fournisseurs d'identité.
+2. Ajoutez la commande suivante à votre code.
+    ```JavaScript
+
+    var express = require('express');
   var passport = require('passport');
   var WebAppStrategy = require('bluemix-appid').WebAppStrategy;
-  ```
-  {: codeblock}
+    ```
+    {: codeblock}
 
 
-## Exécution du widget de connexion avec le SDK Swift
+</br>
 
-{: #authenticate-swift}
+## Appel du widget de connexion avec le SDK Swift
+{: #swift}
 
-Le plug-in WebAppKituraCredentialsPlugin est basé sur le flux d'octroi d'autorisation OAuth2 authorization_code et doit être utilisé pour les applications Web utilisant des navigateurs. Le plug-in fournit des outils pour implémenter les flux d'authentification et d'autorisation. Il fournit également des mécanismes pour détecter des tentatives non authentifiées d'accès à des ressources protégées et redirige alors automatiquement le navigateur de l'utilisateur vers la page d'authentification. Si l'authentification aboutit, l'utilisateur est dirigé vers l'URL de rappel de l'application Web, laquelle utilise le plug-in pour obtenir des jetons d'accès et d'identité auprès d'{{site.data.keyword.appid_short_notm}}. Après avoir obtenu ces jetons, le plug-in les stocke dans une session HTTP sous WebAppKituraCredentialsPlugin.AuthContext.
+Lorsque les fournisseurs d'identité de réseaux sociaux sont activés, vous pouvez appeler l'écran de connexion préconfiguré avec le SDK Swift.
+{: shortdesc}
 
-Le code ci-dessous explique comment utiliser le plug-in
-WebAppKituraCredentialsPlugin dans une application Kitura pour protéger le noeud final
-`/protected`.
+Le plug-in WebAppKituraCredentialsPlugin est basé sur le flux d'octroi de code d'autorisation OAuth2 et doit être utilisé pour les applications Web utilisant des navigateurs. Le plug-in fournit des outils pour implémenter les flux d'authentification et d'autorisation. Il fournit également des mécanismes pour détecter des tentatives non authentifiées d'accès à des ressources protégées et redirige alors automatiquement le navigateur de l'utilisateur vers la page d'authentification. Si l'authentification aboutit, l'utilisateur est dirigé vers l'URL de rappel de l'application Web, laquelle utilise le plug-in pour obtenir des jetons d'accès et d'identité auprès d'{{site.data.keyword.appid_short_notm}}. Après avoir obtenu ces jetons, le plug-in les stocke dans une session HTTP sous WebAppKituraCredentialsPlugin.AuthContext.
+
+Le code ci-dessous montre comment utiliser le plug-in WebAppKituraCredentialsPlugin dans une application Kitura pour protéger le noeud final `/protected`.
 
   ```swift
   import Foundation

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-12-08"
+  years: 2017, 2018
+lastupdated: "2018-01-02"
 
 ---
 
@@ -29,7 +29,7 @@ lastupdated: "2017-12-08"
 * <a href="https://github.com/mnsn/appid-python-flask-example" target="_blank">Python과 함께 {{site.data.keyword.appid_short_notm}} 사용 <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>
 * <a href="https://www.ibm.com/blogs/bluemix/2017/09/securing-single-page-apps-app-id-service/" target="_blank">{{site.data.keyword.appid_short_notm}}로 단일 페이지 앱 보안 설정 <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>
 * <a href="https://console.bluemix.net/docs/tutorials/serverless-mobile-backend.html#mobile-application-with-a-serverless-backend" target="_blank">모바일 애플리케이션용 서버 없는 백엔드 <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>
-
+* <a href="https://www.ibm.com/cloud/garage/content/architecture/securityArchitecture/security-for-application" target="_blank">앱을 보호하고 모니터하기 위한 보안 <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>
 
 ## 동영상
 {: #videos}
@@ -38,5 +38,5 @@ lastupdated: "2017-12-08"
 * <a href="https://www.youtube.com/watch?v=HYomAFlNxqw" target="_blank">{{site.data.keyword.appid_short_notm}} 데모 <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>
 * <a href="https://www.youtube.com/watch?v=JrnwFXclKcI" target="_blank">IBM Cloud CLI 개발자 플러그인을 사용하여 웹 앱 빌드 <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>
 * <a href="https://www.youtube.com/watch?v=Glb412s4X3Q" target="_blank">로그인 및 사용자 환경 설정을 앱에 추가 <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>
-* <a href="https://www.youtube.com/watch?v=VVWw5AjYg48" target="_blank">개인화된 앱 경험 작성 <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>
+* <a href="https://www.youtube.com/watch?v=VVWw5AjYg48" target="_blank">개인화된 앱 환경 작성 <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>
 * <a href="https://www.youtube.com/watch?v=Fa9YD2NGZiE" target="_blank">APIC 및 {{site.data.keyword.appid_short_notm}}를 사용한 단순하고 빠른 소셜 로그인 OAUTH <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>

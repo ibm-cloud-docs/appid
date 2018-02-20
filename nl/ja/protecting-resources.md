@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-12-06"
+  years: 2017, 2018
+lastupdated: "2018-01-02"
 
 ---
 {:new_window: target="_blank"}
@@ -13,9 +13,9 @@ lastupdated: "2017-12-06"
 
 # バックエンド・リソースの保護
 
-{{site.data.keyword.appid_short_notm}} Server SDK を使用して、アプリ内のエンドポイントを保護したりアクセスしたりすることができます。Client SDK を使用して保護リソースにアクセスすることもできます。
+{{site.data.keyword.appid_short_notm}} Server SDK を使用して、アプリ内のエンドポイントを保護したりアクセスしたりすることができます。 Client SDK を使用して保護リソースにアクセスすることもできます。
 
-**注**: 必要な場合は、保護リソースの呼び出しによってログイン・ウィジェットが開始します。有効なトークンが既に取得されている場合、ログイン・ウィジェットは開始されず、リソースに直接アクセスします。
+**注**: 必要な場合は、保護リソースの呼び出しによってログイン・ウィジェットが開始します。 有効なトークンが既に取得されている場合、ログイン・ウィジェットは開始されず、リソースに直接アクセスします。
 
 ## Liberty for Java のリソースの保護
 {: #protecting-liberty}
@@ -23,7 +23,7 @@ lastupdated: "2017-12-06"
 {{site.data.keyword.appid_short_notm}} を使用して、IBM Liberty for Java アプリケーションのエンドポイントを保護できます。 Liberty for Java には、Open ID Connect (OIDC) 要求を処理するための組み込み機能があります。
 
 開始前に、以下のことを行います。
-* まだバインドしていない既存の [IBM Liberty for Java アプリ](https://console.bluemix.net/catalog/starters/liberty-for-java)が必要です。Liberty for Java アプリケーションの開発の詳細については、[この資料](/docs/runtimes/liberty/index.html)を参照してください。
+* まだバインドしていない既存の [IBM Liberty for Java アプリ](https://console.bluemix.net/catalog/starters/liberty-for-java)が必要です。 Liberty for Java アプリケーションの開発の詳細については、[この資料](/docs/runtimes/liberty/index.html)を参照してください。
 * [Apache Maven](https://maven.apache.org/download.cgi) がインストールされていることを確認してください。
 * OIDC と Liberty for Java の連係動作を確認してください。
 
@@ -38,7 +38,7 @@ lastupdated: "2017-12-06"
   ```
   {: codeblock}
 
-4. アプリをデプロイします。以下のコマンドを実行すると、tenantid に関連した名前で Liberty for Java インスタンスが作成されます。
+4. アプリをデプロイします。 以下のコマンドを実行すると、tenantid に関連した名前で Liberty for Java インスタンスが作成されます。
 
   ```
   cf push
@@ -51,7 +51,7 @@ lastupdated: "2017-12-06"
 ## Node.js のリソースの保護
 {: #protecting-resources-nodesdk}
 
-{{site.data.keyword.appid_short_notm}} Server SDK には、{{site.data.keyword.Bluemix_notm}} にデプロイされたバックエンド・アプリで使用する ApiStrategy パスポート戦略が用意されています。ご使用のアプリを無許可アクセスから保護するには、Node.js サーバーに ApiStrategy を装備する必要があります。 `appid-serversdk-nodejs npm モジュール`には、ApiStrategy パスポート戦略の他に、{{site.data.keyword.appid_short_notm}} から発行されたアクセス・トークンと ID トークンを検証するための検証メソッドも用意されています。
+{{site.data.keyword.appid_short_notm}} Server SDK には、{{site.data.keyword.Bluemix_notm}} にデプロイされたバックエンド・アプリで使用する ApiStrategy パスポート戦略が用意されています。 ご使用のアプリを無許可アクセスから保護するには、Node.js サーバーに ApiStrategy を装備する必要があります。 `appid-serversdk-nodejs npm モジュール`には、ApiStrategy パスポート戦略の他に、{{site.data.keyword.appid_short_notm}} から発行されたアクセス・トークンと ID トークンを検証するための検証メソッドも用意されています。
 
 {{site.data.keyword.appid_short_notm}} Server SDK は、<a href="http://passportjs.org/" target="_blank">Passport フレームワーク <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> を使用して許可を実施します。
 

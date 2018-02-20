@@ -14,10 +14,11 @@ IBM Cloud App ID
     install.md
 
     {: .topicgroup}
-    Benutzer authentifizieren
+    Authenticating users
         login-widget.md
-        cloud-directory.md
         identity-providers.md
+        cloud-directory.md
+        branded.md
 
     protecting-resources.md
     user-profile.md

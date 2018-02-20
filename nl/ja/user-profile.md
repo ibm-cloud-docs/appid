@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-12-08"
+  years: 2017, 2018
+lastupdated: "2018-01-02"
 
 ---
 
@@ -16,7 +16,7 @@ lastupdated: "2017-12-08"
 個人別設定の可能なアプリ操作環境の構築に使用できるエンド・ユーザー・データを管理できます。
 {:shortdesc}
 
-ユーザー属性は、{{site.data.keyword.appid_full}} によって保管され保守されるエンティティー内の情報のセグメントです。プロファイルには、ユーザーの属性と ID が入ります。プロファイルは、匿名にすることも、ID プロバイダーによって管理されている ID にリンクすることもできます。
+ユーザー属性は、{{site.data.keyword.appid_full}} によって保管され保守されるエンティティー内の情報のセグメントです。 プロファイルには、ユーザーの属性と ID が入ります。プロファイルは、匿名にすることも、ID プロバイダーによって管理されている ID にリンクすることもできます。
 
 {{site.data.keyword.appid_short_notm}} には、匿名ログインまたは OpenId Connect (OIDC) [ID プロバイダー](/docs/services/appid/identity-providers.html)による認証を使用したログインのための API が用意されています。 ユーザー・プロファイル属性 API エンドポイントは、ログインと許可のプロセス中に {{site.data.keyword.appid_short_notm}} が生成するアクセス・トークンによって保護されるリソースです。
 

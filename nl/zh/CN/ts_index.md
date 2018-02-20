@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-12-06"
+  years: 2017, 2018
+lastupdated: "2018-02-01"
 
 ---
 {:new_window: target="_blank"}
@@ -28,7 +28,4 @@ lastupdated: "2017-12-06"
   * 如果是关于使用 {{site.data.keyword.appid_short_notm}} 的技术问题，请在 <a href="http://stackoverflow.com/search?q=appid+ibm-bluemix" target="_blank">Stack Overflow <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a> 上发帖提问，并使用“ibm-appid”标记您的问题。
   * 有关服务和入门指示信息的问题，请使用 <a href="https://developer.ibm.com/answers/search.html?f=&type=question&redirect=search%2Fsearch&sort=relevance&q=appid%20[bluemix]" target="_blank">dW Answers <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a> 论坛。请包含“appid”标记。
 
-请参阅[获取
-帮助](/docs/support/index.html#getting-help)了解有关如何使用论坛的更多详细信息。
-
-有关开具 IBM 支持凭单的信息，或有关支持级别和凭单严重性的信息，请参阅[联系支持人员](/docs/support/index.html#contacting-support)。
+有关 IBM 支持凭单或使用论坛的更多信息，请参阅[如何获得我需要的支持？](/docs/get-support/howtogetsupport.html#getting-customer-support)。

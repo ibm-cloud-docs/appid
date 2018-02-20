@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-12-08"
+  years: 2017, 2018
+lastupdated: "2018-01-02"
 
 ---
 
@@ -13,7 +13,7 @@ lastupdated: "2017-12-08"
 # Acceso a los atributos de usuario
 {: #user-profile}
 
-Puede gestionar los datos de usuario final que puede utilizar para construir experiencias de aplicación personalizadas.
+Puede gestionar los datos de usuario final que puede utilizar para construir experiencias de app personalizadas.
 {:shortdesc}
 
 Un atributo de usuario es un segmento de información en una entidad que {{site.data.keyword.appid_full}} almacena y mantiene. El perfil contiene los atributos y la identidad de un usuario y puede ser anónimo o bien estar vinculado a una identidad gestionada por un proveedor de identidad.

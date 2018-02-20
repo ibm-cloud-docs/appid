@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-12-06"
+  years: 2017, 2018
+lastupdated: "2018-01-02"
 
 ---
 {:new_window: target="_blank"}
@@ -13,11 +13,9 @@ lastupdated: "2017-12-06"
 
 # Sécurisation des ressources de back-end
 
-Vous pouvez utiliser les SDK de serveur {{site.data.keyword.appid_short_notm}} pour protéger les points d'extrémité et y accéder dans vos applications.
-Vous pouvez également utiliser les SDK de client pour accéder aux ressources protégées.
+Vous pouvez utiliser les SDK de serveur {{site.data.keyword.appid_short_notm}} pour protéger les points d'extrémité et y accéder dans vos applications. Vous pouvez également utiliser les SDK de client pour accéder aux ressources protégées.
 
-**Remarque** : L'appel d'une ressource protégée démarre le widget de connexion, si nécessaire.
-Si un jeton d'accès valide a déjà été obtenu, le widget de connexion n'est pas
+**Remarque** : L'appel d'une ressource protégée démarre le widget de connexion, si nécessaire. Si un jeton d'accès valide a déjà été obtenu, le widget de connexion n'est pas
 démarré et
 l'accès direct à la ressource est autorisé.
 

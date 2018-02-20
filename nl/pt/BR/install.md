@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2017
-lastupdated: "2017-12-06"
+  years: 2017, 2018
+lastupdated: "2018-01-02"
 
 ---
 {:new_window: target="_blank"}
@@ -182,7 +182,7 @@ esteja sob o seu destino.
   ```
   {: codeblock}
 
-2. Inicialize o SDK cliente passando os parâmetros de ID e de região do locatário para o método de inicialização. Um lugar comum, mas não obrigatório, para colocar o código de inicialização é no método `application:didFinishLaunchingWithOptions` do AppDelegate em seu aplicativo Swift.
+2. Inicialize o SDK do cliente passando os parâmetros de ID e de região do locatário para o método de inicialização. Um lugar comum, mas não obrigatório, para colocar o código de inicialização é no método `application:didFinishLaunchingWithOptions` do AppDelegate em seu aplicativo Swift.
 
   ```swift
   AppID.sharedInstance.initialize(tenantId: <tenantId>, bluemixRegion: AppID.Region_UK)

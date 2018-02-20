@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-12-08"
+  years: 2017, 2018
+lastupdated: "2018-01-02"
 
 ---
 
@@ -41,7 +41,7 @@ Android existentes.
   ```
   {: codeblock}
 
-2. Abra o arquivo `build.gradle` de seu aplicativo, localize a seção de dependências do arquivo e inclua uma dependência de compilação para o SDK cliente do {{site.data.keyword.appid_short_notm}}.
+2. Abra o arquivo `build.gradle` de seu aplicativo, localize a seção de dependências do arquivo e inclua uma dependência de compilação para o SDK do cliente do {{site.data.keyword.appid_short_notm}}.
 
   ```gradle
   dependencies {
@@ -552,7 +552,7 @@ o local do arquivo em sua unidade local.
 
       <httpEndpoint id="defaultHttpEndpoint" httpPort="9080" host="*" httpsPort="9443" />
 
-      <!-- Automatically expand WAR files and EAR files -->
+      
       <applicationManager autoExpand="true"/>
 
   </server>

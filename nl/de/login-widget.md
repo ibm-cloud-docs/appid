@@ -1,82 +1,87 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-12-06"
+  years: 2017, 2018
+lastupdated: "2018-02-01"
 
 ---
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
+{:pre: .pre}
 
 # Anmeldeschnittstelle verwalten
-Mit dem Anmeldewidget können Sie in wenigen Minuten einen Anmeldeablauf einrichten und betriebsbereit machen. Sie können das Widget oder Motiv zu jedem beliebigen Zeitpunkt aktualisieren, ohne dass Anmeldequellcode hinzugefügt, entfernt oder geändert werden muss.
+
+Mit dem Anmeldewidget können Sie den Anmeldeablauf zu jedem beliebigen Zeitpunkt aktualisieren, ohne dass Quellcode hinzugefügt, entfernt oder geändert werden muss. Ihre Apps sind innerhalb von Minuten betriebsbereit, wenn Sie den in den Beispiel-Apps bereitgestellten Code verwenden.
 {: shortdesc}
 
+**Hinweis**: Wenn Sie Social Media-Identitätsprovider wie z. B. Facebook konfigurieren, wird der [Oauth2-Berechtigungserteilungsablauf](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html) verwendet, um das Anmeldewidget aufzurufen.
 
+</br>
 
-## Anmelde-Widget anpassen
+## Code der Beispiel-App anpassen
 {: #login-widget}
 
-Sie können das Anmelde-Widget so konfigurieren, dass das jeweilige Logo in den gewünschten Farben angezeigt wird.
+Sie können die vorkonfigurierte Anmeldeanzeige so anpassen, dass das jeweilige Logo in den gewünschten Farben angezeigt wird. Wenn Sie eigene Benutzerschnittstellen mit geschützten Marken anzeigen möchten, lesen Sie die Informationen in [Cloud Directory](/docs/services/appid/cloud-directory.html).
 {: shortdesc}
 
-Wenn der {{site.data.keyword.appid_short}}-Service mit zwei oder mehreren Identitätsprovidern konfiguriert wird, kann der Benutzer einen Identitätsprovider im Anmelde-Widget auswählen. Führen Sie die folgenden Schritte aus, um Ihr Anmelde-Widget anzupassen:
+![Angepasstes Beispiel für die Anmeldeschnitttelle](/images/customize.gif)
+
+Anpassen der Anzeige:
 
 1. Öffnen Sie das {{site.data.keyword.appid_short_notm}}-Service-Dashboard.
 2. Wählen Sie den Abschnitt **Anpassung der Anmeldung**, in dem Sie das Aussehen des Anmelde-Widgets an Ihre Unternehmensmarke anpassen können.
 3. Laden Sie Ihr Unternehmenslogo hoch. Wählen Sie dazu eine PNG- oder JPG von Ihrem lokalen System aus. Die empfohlene Bildgröße ist 320 x 320 Pixel. Die maximale Dateigröße ist 100 KB.
 4. Wählen Sie eine Headerfarbe für das Widget aus der Farbauswahl aus oder geben Sie den hexadezimalen Code für eine andere Farbe ein.
 5. Prüfen Sie das Aussehen im Vorschaubereich und klicken Sie auf **Änderungen speichern**, wenn Sie mit den Anpassungen zufrieden sind. Eine Bestätigungsnachricht wird angezeigt.
-
-**Hinweis**: Sie müssen Ihre Anwendung nicht neu erstellen. Das Bild wird in der {{site.data.keyword.appid_short}}-Datenbank gespeichert und bei der nächsten Anmeldung angezeigt.
-
-## Anmeldewidget mit dem Android-SDK ausführen
-{: #authenticate-android}
-
-Wenn Sie mehr als einen Identitätsprovider konfigurieren, wird den Benutzern ein Anmeldewidget angezeigt, sobald sie Ihre App aufrufen. Wenn Sie nur einen Identitätsprovider konfigurieren, wird der Benutzer standardmäßig zur Authentifizierungsanzeige des konfigurierten Identitätsproviders weitergeleitet.
+6. Überprüfen Sie die Änderungen, indem Sie die App aufrufen. Ein Rebuild der App ist nicht erforderlich. Die Bilder werden in der {{site.data.keyword.appid_short}}-Datenbank gespeichert und beim nächsten Aufrufen des Anmeldewidgets angezeigt.
 
 
-Nach der Initialisierung des {{site.data.keyword.appid_short_notm}}-Client-SDK können Sie Benutzer authentifizieren, indem Sie das Anmelde-Widget ausführen.
+</br>
 
-  ```java
-  LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
+## Anmeldewidget mit dem Android-SDK aufrufen
+{: #android}
+
+Wenn die Social Media-Identitätsprovider aktiviert sind, können Sie die vorkonfigurierte Anmeldeanzeige mit dem Android-SDK aufrufen.
+{: shortdesc}
+
+1. Konfigurieren Sie die Identitätsprovider.
+2. Fügen Sie den folgenden Befehl in den Code ein.
+    ```java
+    LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
   loginWidget.launch(this, new AuthorizationListener() {
-        @Override
-        public void onAuthorizationFailure (AuthorizationException exception) {
-          //Ausnahmebedingung aufgetreten
-        }
+          @Override
+          public void onAuthorizationFailure (AuthorizationException exception) {
+            //Ausnahmebedingung aufgetreten.
+  			 }
 
-        @Override
+          @Override
         public void onAuthorizationCanceled () {
-          //Authentifizierung von Benutzer abgebrochen
+            //Authentifizierung von Benutzer abgebrochen
         }
 
-        @Override
-        public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken) {
-          //Benutzer authentifiziert
-        }
-      });
-  ```
-  {: codeblock}
-
-## Anmeldewidget mit dem iOS-SDK ausführen
-{: #authenticate-ios}
-
-Wenn Sie mehr als einen Identitätsprovider konfigurieren, wird den Benutzern ein Anmeldewidget angezeigt, sobald sie Ihre App aufrufen. Wenn Sie nur einen Identitätsprovider konfigurieren, wird der Benutzer standardmäßig zur Authentifizierungsanzeige des konfigurierten Identitätsproviders weitergeleitet.
+          @Override
+          public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken) {
+            //Benutzer authentifiziert.
+          }
+        });
+    ```
+    {: codeblock}
 
 
-1. Fügen Sie den folgenden Import zu der Datei hinzu, in der das SDK verwendet werden soll.
+</br>
 
+## Anmeldewidget mit dem iOS Swift-SDK aufrufen
+{: ios-swift}
+
+Wenn die Social Media-Identitätsprovider aktiviert sind, können Sie die vorkonfigurierte Anmeldeanzeige mit dem iOS Swift-SDK aufrufen.
+{: shortdesc}
+
+1. Konfigurieren Sie die Identitätsprovider.
+2. Fügen Sie den folgenden Befehl zum App-Code hinzu.
   ```swift
   import BluemixAppID
-  ```
-  {: codeblock}
-
-2. Führen Sie den folgenden Befehl aus, um das Widget zu starten:
-
-  ```swift
   class delegate : AuthorizationDelegate {
       public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, response:Response?) {
           //Benutzer authentifiziert
@@ -87,32 +92,43 @@ Wenn Sie mehr als einen Identitätsprovider konfigurieren, wird den Benutzern ei
       }
 
       public func onAuthorizationFailure(error: AuthorizationError) {
-          //Ausnahmebedingung aufgetreten
-      }
+          //Ausnahmebedingung aufgetreten.
+  			 }
   }
 
   AppID.sharedInstance.loginWidget?.launch(delegate: delegate())
   ```
   {: codeblock}
 
-## Anmeldewidget mit dem Node.js-SDK ausführen
-{: #authenticate-nodejs}
 
-Mit `WebAppStrategy` können Sie die Ressourcen von Webanwendungen schützen.
+</br>
 
-  ```JavaScript
+## Anmeldewidget mit dem Node.js-SDK aufrufen
+{: #nodejs}
 
-  var express = require('express');
+Wenn die Social Media-Identitätsprovider aktiviert sind, können Sie die vorkonfigurierte Anmeldeanzeige mit dem Node.js-SDK aufrufen.
+{: shortdesc}
+
+1. Konfigurieren Sie die Identitätsprovider.
+2. Fügen Sie den folgenden Befehl zum Code hinzu.
+    ```JavaScript
+
+    var express = require('express');
   var passport = require('passport');
   var WebAppStrategy = require('bluemix-appid').WebAppStrategy;
-  ```
-  {: codeblock}
+    ```
+    {: codeblock}
 
 
-## Anmeldewidget mit dem Swift-SDK ausführen
-{: #authenticate-swift}
+</br>
 
-Das WebAppKituraCredentialsPlugin basiert auf dem Grant-Ablauf des OAuth2-Berechtigungscodes und muss für Webanwendungen verwendet werden, die Browser nutzen. Das Plug-in enthält Tools, um Authentifizierungs- und Berechtigungsabläufe zu implementieren. Das Plug-in stellt außerdem Mechanismen zur Verfügung, um nicht authentifizierte Versuche aufzudecken, auf geschützte Ressourcen zuzugreifen, und leitet einen Benutzerbrowser zur Authentifizierungsseite weiter. Nach einer erfolgreichen Authentifizierung wird der Benutzer zur Callback-URL der Webanwendung weitergeleitet, die das Plug-in verwendet, um Zugriff und Identitätstoken von {{site.data.keyword.appid_short_notm}} zu erhalten. Nach Erhalt dieser Token werden diese vom Plug-in in einer HTTP-Sitzung unter WebAppKituraCredentialsPlugin.AuthContext gespeichert.
+## Anmeldewidget mit dem Swift-SDK aufrufen.
+{: #swift}
+
+Wenn die Social Media-Identitätsprovider aktiviert sind, können Sie die vorkonfigurierte Anmeldeanzeige mit dem Swift-SDK aufrufen.
+{: shortdesc}
+
+Das WebAppKituraCredentialsPlugin basiert auf dem Berechtigungserteilungsablauf des OAuth2-Berechtigungscodes und muss für Webanwendungen verwendet werden, die Browser nutzen. Das Plug-in enthält Tools, um Authentifizierungs- und Berechtigungsabläufe zu implementieren. Das Plug-in stellt außerdem Mechanismen zur Verfügung, um nicht authentifizierte Versuche aufzudecken, auf geschützte Ressourcen zuzugreifen, und leitet einen Benutzerbrowser zur Authentifizierungsseite weiter. Nach einer erfolgreichen Authentifizierung wird der Benutzer zur Callback-URL der Webanwendung weitergeleitet, die das Plug-in verwendet, um Zugriff und Identitätstoken von {{site.data.keyword.appid_short_notm}} zu erhalten. Nach Erhalt dieser Token werden diese vom Plug-in in einer HTTP-Sitzung unter WebAppKituraCredentialsPlugin.AuthContext gespeichert.
 
 Der folgende Code demonstriert, wie WebAppKituraCredentialsPlugin in einer Kitura-Anwendung verwendet wird, um den Endpunkt `/protected` zu schützen.
 

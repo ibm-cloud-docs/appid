@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2017
-lastupdated: "2017-12-06"
+  years: 2017, 2018
+lastupdated: "2018-01-02"
 
 ---
 {:new_window: target="_blank"}
@@ -13,7 +13,7 @@ lastupdated: "2017-12-06"
 {: #configuring}
 
 
-## Configuration du SDK Android
+## Configuration du logiciel SDK Android
 {: #android-setup}
 
 Construisez vos applications Android avec le SDK client d'{{site.data.keyword.appid_short}}, initialisez le SDK, authentifiez les utilisateurs et soumettez des demandes à des ressources protégées et non protégées.
@@ -83,7 +83,6 @@ d'{{site.data.keyword.appid_short_notm}} .
 
 5. Recherchez la section `defaultConfig` et ajoutez-y les lignes de code suivantes.
 
-
   ```gradle
   defaultConfig {
   ...
@@ -104,7 +103,6 @@ Initialisez le SDK client en transmettant les paramètres de contexte, d'ID titu
   {: codeblock}
 
 1. Remplacez *tenantId* par votre ID de titulaire du service.
-
 2. Remplacez *AppID.REGION_UK* par votre région {{site.data.keyword.Bluemix_notm}}.
 
 Pour plus d'informations, consultez le
@@ -177,8 +175,7 @@ commande ci-dessous.
 
 6. Ouvrez votre projet Xcode et activez le partage de chaîne de certificats. Sous **Paramètres du projet**,
 cliquez sur **Fonctions > Partage de chaîne de certificats**.
-7. Sous **Paramètres du projet > Information > Types d'URL**, ajoutez un **type d'URL**.
-Renseignez les deux zones de texte **Identificateur** et **Schéma d'URL** avec
+7. Sous **Paramètres du projet > Information > Types d'URL**, ajoutez un **type d'URL**. Renseignez les deux zones de texte **Identificateur** et **Schéma d'URL** avec
 cette valeur : `$(PRODUCT_BUNDLE_IDENTIFIER)`
 
 
@@ -193,8 +190,7 @@ cette valeur : `$(PRODUCT_BUNDLE_IDENTIFIER)`
   {: codeblock}
 
 2. Initialisez le SDK du client en passant les paramètres ID de titulaire et région à sa méthode
-initialize.
-Bien
+initialize. Bien
 que ce ne soit pas obligatoire, le code d'initialisation est souvent placé dans la
 méthode `application:didFinishLaunchingWithOptions` du fichier AppDelegate dans votre application Swift.
 
@@ -204,7 +200,6 @@ méthode `application:didFinishLaunchingWithOptions` du fichier AppDelegate dans
   {: codeblock}
 
   * Remplacez *tenantId* par l'ID de titulaire de votre service.
-
   * Remplacez AppID.REGION_UK par votre région {{site.data.keyword.appid_short_notm}}.
 
 3. Ajoutez le code suivant à votre fichier AppDelegate.

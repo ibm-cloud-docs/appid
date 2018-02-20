@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-12-06"
+  years: 2017, 2018
+lastupdated: "2018-02-01"
 
 ---
 {:new_window: target="_blank"}
@@ -31,8 +31,4 @@ vous utilisez les forums pour poser une question, prenez soin d'étiqueter cette
   * IEn cas de questions d'ordre technique sur {{site.data.keyword.appid_short_notm}}, posez votre question sur le forum <a href="http://stackoverflow.com/search?q=appid+ibm-bluemix" target="_blank">Stack Overflow <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a>, accompagnée de la balise "ibm-appid".
   * Pour des questions relatives au service et aux instructions de mise en route, utilisez le forum <a href="https://developer.ibm.com/answers/search.html?f=&type=question&redirect=search%2Fsearch&sort=relevance&q=appid%20[bluemix]" target="_blank">dW Answers <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a>. Incluez la balise "appid".
 
-Voir la rubrique expliquant comment [obtenir de l'aide](/docs/support/index.html#getting-help) pour plus de détails sur l'utilisation des forums.
-
-Pour plus d'informations sur l'ouverture d'un ticket de demande de service IBM, sur
-les niveaux de support disponibles ou les niveaux de gravité des tickets, voir la
-rubrique expliquant comment [contacter le support](/docs/support/index.html#contacting-support).
+Pour plus d'informations sur les tickets de demande de service IBM ou l'utilisation des forums, voir [Comment obtenir l'aide dont j'ai besoin ?](/docs/get-support/howtogetsupport.html#getting-customer-support).

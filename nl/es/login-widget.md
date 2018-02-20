@@ -1,82 +1,87 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-12-06"
+  years: 2017, 2018
+lastupdated: "2018-02-01"
 
 ---
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
+{:pre: .pre}
 
 # Gestión de la experiencia de inicio de sesión
-Puede obtener un flujo de inicio de sesión en funcionamiento en pocos minutos con el widget de inicio de sesión. Puede actualizar su widget o tema en cualquier momento sin tener que agregar, eliminar o cambiar el código fuente del inicio de sesión.
+
+Con el widget de inicio de sesión, puede actualizar el flujo de inicio de sesión en cualquier momento sin tener que añadir, eliminar o cambiar el código fuente. Puede estar listo en cuestión de minutos utilizando el código proporcionado en las apps de ejemplo.
 {: shortdesc}
 
+**Nota**: Cuando configura proveedores de identidad social como Facebook, se utiliza el [flujo de otorgamiento de autorización de Oauth2](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html) para llamar al widget de inicio de sesión.
 
+</br>
 
-## Personalización del widget de inicio de sesión
+## Personalización del código de la app de ejemplo
 {: #login-widget}
 
-Puede configurar el widget de inicio de sesión para mostrar el logotipo y los colores de su elección.
+Puede personalizar la pantalla de inicio de sesión preconfigurada para mostrar el logotipo y los colores de su elección. Si desea mostrar la IU con su propia marca, consulte el [directorio en la nube](/docs/services/appid/cloud-directory.html).
 {: shortdesc}
 
-Cuando se configura el servicio {{site.data.keyword.appid_short}} con dos o más proveedores de identidad, el usuario puede seleccionar un proveedor de identidad en el widget de inicio de sesión. Puede personalizar el widget de inicio de sesión realizando los pasos siguientes:
+![Ejemplo de experiencia de inicio de sesión personalizada](/images/customize.gif)
+
+Para personalizar la pantalla:
 
 1. Abra el panel de control del servicio de {{site.data.keyword.appid_short_notm}}.
 2. Seleccione la sección **Personalización de inicio de sesión**, donde puede modificar el aspecto del widget de inicio de sesión para alinearlo con la marca de su empresa.
 3. Suba el logotipo de su empresa seleccionando un archivo PNG o JPG del sistema local. El tamaño de imagen recomendado es de 320 x 320 píxeles. El tamaño de archivo máximo es 100 Kb.
 4. Seleccione un color de cabecera para el widget desde el selector de color, o especifique el código hexadecimal para otro color.
 5. Inspeccione el panel de vista previa y pulse **Guardar cambios** cuando esté satisfecho con las personalizaciones. Aparecerá un mensaje de confirmación.
-
-**Nota**: no es necesario que vuelva a crear la aplicación. La imagen se almacena en la base de datos de the {{site.data.keyword.appid_short}} y se mostrará la próxima vez que inicie sesión.
-
-## Ejecución del widget de inicio de sesión con el SDK de Android
-{: #authenticate-android}
-
-Cuando configura más de un proveedor de identidad, se muestra a los usuarios un widget de inicio de sesión al visitar la aplicación. De forma predeterminada, si solo configura uno, se redirigirá al usuario a la pantalla de autenticación de proveedores de identidad configurada.
+6. Verifique sus cambios visitando su app. No es necesario que vuelva a compilar la app. Sus imágenes se almacenan en la base de datos de {{site.data.keyword.appid_short}} y se mostrarán la próxima vez que llame al widget de inicio de sesión.
 
 
-Después de inicializar el SDK del cliente de {{site.data.keyword.appid_short_notm}}, puede autenticar los usuarios ejecutando el widget de inicio de sesión.
+</br>
 
-  ```java
-  LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
-  loginWidget.launch(this, new AuthorizationListener() {
-        @Override
+## Llamada al widget de inicio de sesión con el SDK de Android
+{: #android}
+
+Con los proveedores de identidad social habilitados, puede llamar a la pantalla de inicio de sesión preconfigurada con el SDK de Android.
+{: shortdesc}
+
+1. Configure los proveedores de identidad.
+2. Añada el mandato siguiente a su código.
+    ```java
+    LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
+    loginWidget.launch(this, new AuthorizationListener() {
+          @Override
         public void onAuthorizationFailure (AuthorizationException exception) {
-          //Se ha producido una excepción
+            //Se ha producido una excepción
         }
 
-        @Override
-        public void onAuthorizationCanceled () {
-          //Autenticación cancelada por el usuario
+          @Override
+          public void onAuthorizationCanceled () {
+            //Autenticación cancelada por el usuario
         }
 
-        @Override
+          @Override
         public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken) {
-          //Usuario autenticado
+            //Usuario autenticado
         }
-      });
-  ```
-  {: codeblock}
-
-## Ejecución del widget de inicio de sesión con el SDK de iOS
-{: #authenticate-ios}
-
-Cuando configura más de un proveedor de identidad, se muestra a los usuarios un widget de inicio de sesión al visitar la aplicación. De forma predeterminada, si solo configura uno, se redirigirá al usuario a la pantalla de autenticación de proveedores de identidad configurada.
+        });
+    ```
+    {: codeblock}
 
 
-1. Añada la siguiente importación al archivo en el cual desea utilizar el SDK.
+</br>
 
+## Llamada al widget de inicio de sesión con el SDK de iOS Swift
+{: ios-swift}
+
+Con los proveedores de identidad social habilitados, puede llamar a la pantalla de inicio de sesión preconfigurada con el SDK de iOS Swift.
+{: shortdesc}
+
+1. Configure los proveedores de identidad.
+2. Añada el mandato siguiente al código de su app.
   ```swift
   import BluemixAppID
-  ```
-  {: codeblock}
-
-2. Ejecute el siguiente mandato para iniciar el widget.
-
-  ```swift
   class delegate : AuthorizationDelegate {
       public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, response:Response?) {
           //Usuario autenticado
@@ -95,26 +100,37 @@ Cuando configura más de un proveedor de identidad, se muestra a los usuarios un
   ```
   {: codeblock}
 
-## Ejecución del widget de inicio de sesión con el SDK de Node.js
-{: #authenticate-nodejs}
 
-Puede utilizar `WebAppStrategy` para proteger los recursos de aplicaciones web.
+</br>
 
-  ```JavaScript
+## Llamada al widget de inicio de sesión con el SDK de Node.js
+{: #nodejs}
 
-  var express = require('express');
+Con los proveedores de identidad social habilitados, puede llamar a la pantalla de inicio de sesión preconfigurada con el SDK de Node.js.
+{: shortdesc}
+
+1. Configure los proveedores de identidad.
+2. Añada el mandato siguiente al código.
+    ```JavaScript
+
+    var express = require('express');
   var passport = require('passport');
   var WebAppStrategy = require('bluemix-appid').WebAppStrategy;
-  ```
-  {: codeblock}
+    ```
+    {: codeblock}
 
 
-## Ejecución del widget de inicio de sesión con el SDK de Swift
-{: #authenticate-swift}
+</br>
 
-WebAppKituraCredentialsPlugin se basa en el flujo de concesión authorization_code de OAuth2 y debe utilizarse para aplicaciones web que usan navegadores. El plugin proporciona herramientas para implementar flujos de autorización y autenticación. El plugin también proporciona mecanismos para detectar intentos no autenticados de acceder a los recursos protegidos y redirige automáticamente el navegador de un usuario a una página de autenticación. Tras la correcta autenticación, se conduce al usuario al URL de devolución de llamada de la aplicación web, que utiliza el plugin para obtener señales de acceso e identidad de {{site.data.keyword.appid_short_notm}}. Después de obtener estas señales, el plugin las almacena en una sesión HTTP bajo WebAppKituraCredentialsPlugin.AuthContext.
+## Llamada al widget de inicio de sesión con el SDK de Swift
+{: #swift}
 
-El código siguiente muestra cómo utilizar WebAppKituraCredentialsPlugin en una aplicación Kitura para proteger el punto final `/protegido`.
+Con los proveedores de identidad social habilitados, puede llamar a la pantalla de inicio de sesión preconfigurada con el SDK de Swift.
+{: shortdesc}
+
+WebAppKituraCredentialsPlugin se basa en el flujo de concesión de código de autorización de OAuth2 y debe utilizarse para aplicaciones web que usan navegadores. El plugin proporciona herramientas para implementar flujos de autorización y autenticación. El plugin también proporciona mecanismos para detectar intentos no autenticados de acceder a los recursos protegidos y redirige automáticamente el navegador de un usuario a una página de autenticación. Tras la correcta autenticación, se conduce al usuario al URL de devolución de llamada de la aplicación web, que utiliza el plugin para obtener señales de acceso e identidad de {{site.data.keyword.appid_short_notm}}. Después de obtener estas señales, el plugin las almacena en una sesión HTTP bajo WebAppKituraCredentialsPlugin.AuthContext.
+
+El código siguiente muestra cómo utilizar WebAppKituraCredentialsPlugin en una aplicación Kitura para proteger el punto final `/protected`.
 
   ```swift
   import Foundation

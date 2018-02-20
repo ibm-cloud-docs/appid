@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-12-08"
+  years: 2017, 2018
+lastupdated: "2018-01-02"
 
 ---
 
@@ -29,7 +29,7 @@ Verwenden Sie die folgenden zugehörigen Links, um weitere Informationen aufzuru
 * <a href="https://github.com/mnsn/appid-python-flask-example" target="_blank">{{site.data.keyword.appid_short_notm}} mit Python verwenden<img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a>
 * <a href="https://www.ibm.com/blogs/bluemix/2017/09/securing-single-page-apps-app-id-service/" target="_blank">Apps mit einer einzelnen Seite mithilfe von {{site.data.keyword.appid_short_notm}} schützen <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a>
 * <a href="https://console.bluemix.net/docs/tutorials/serverless-mobile-backend.html#mobile-application-with-a-serverless-backend" target="_blank">Mobile Anwendung mit einem Back-End ohne Server <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a>
-
+* <a href="https://www.ibm.com/cloud/garage/content/architecture/securityArchitecture/security-for-application" target="_blank">Sicherheitsfunktionen zur Sicherung und Überwachung Ihrer Apps<img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a>
 
 ## Videos
 {: #videos}

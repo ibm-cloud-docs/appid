@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-12-08"
+  years: 2017, 2018
+lastupdated: "2018-01-02"
 
 ---
 
@@ -531,7 +531,7 @@ lastupdated: "2017-12-08"
 
       <httpEndpoint id="defaultHttpEndpoint" httpPort="9080" host="*" httpsPort="9443" />
 
-      <!-- Automatically expand WAR files and EAR files -->
+      
       <applicationManager autoExpand="true"/>
 
   </server>
@@ -543,7 +543,7 @@ lastupdated: "2017-12-08"
 ## {{site.data.keyword.Bluemix_notm}} 上で実行されない既存のアプリケーションへの {{site.data.keyword.appid_short_notm}} の追加
 {: #existing}
 
-{{site.data.keyword.Bluemix_notm}} 上で実行されない Node.js または Swift のアプリケーションがある場合、リモート側から作業するように WebAppStrategy または WebAppKituraCredentialsPlugin を構成できます。Bluemix で実行しない Liberty for Java アプリケーションについては、OIDC 要素変数を構成してください。
+{{site.data.keyword.Bluemix_notm}} 上で実行されない Node.js または Swift のアプリケーションがある場合、リモート側から作業するように WebAppStrategy または WebAppKituraCredentialsPlugin を構成できます。 Bluemix で実行しない Liberty for Java アプリケーションについては、OIDC 要素変数を構成してください。
 
 
 Node.js アプリでは、`passport.use(new WebAppStrategy());` を以下のコードに置き換えます。

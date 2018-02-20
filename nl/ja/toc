@@ -16,8 +16,9 @@ IBM Cloud App ID
     {: .topicgroup}
     ユーザーの認証
         login-widget.md
-        cloud-directory.md
         identity-providers.md
+        cloud-directory.md
+        branded.md
 
     protecting-resources.md
     user-profile.md

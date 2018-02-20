@@ -1,82 +1,87 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-12-06"
+  years: 2017, 2018
+lastupdated: "2018-02-01"
 
 ---
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
+{:pre: .pre}
 
-# ログイン操作環境の管理
-ログイン・ウィジェットを使用して、サインインの流れを数分間で準備できます。サインイン・ソース・コードの追加、削除、変更を行わずに、いつでもウィジェットまたはテーマを更新できます。
+# サインイン操作環境の管理
+
+ログイン・ウィジェットによって、ソース・コードの追加、削除、変更を行わずに、いつでもサインイン・フローを更新できます。サンプル・アプリとして用意されているコードを使用して、数分で稼働させることができます。
 {: shortdesc}
 
+**注**: Facebook などのソーシャル ID プロバイダーを構成した場合は、[Oauth2 許可付与フロー](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html)によってログイン・ウィジェットが呼び出されます。
 
+</br>
 
-## ログイン・ウィジェットのカスタマイズ
+## サンプル・アプリのコードのカスタマイズ
 {: #login-widget}
 
-自分で選択したロゴや色が表示されるように、ログイン・ウィジェットを構成することができます。
+自分で選択したロゴや色が表示されるように、事前構成されたサインイン画面をカスタマイズすることができます。独自にブランド化した UI を表示する場合は、[クラウド・ディレクトリー](/docs/services/appid/cloud-directory.html)を参照してください。
 {: shortdesc}
 
-{{site.data.keyword.appid_short}} サービスに 2 つ以上の ID プロバイダーを構成した場合、ユーザーはログイン・ウィジェットで ID プロバイダーを選択できます。 ログイン・ウィジェットをカスタマイズする手順は、次のとおりです。
+![カスタマイズしたサインイン操作環境の例](/images/customize.gif)
+
+画面をカスタマイズするには、以下のようにします。
 
 1. {{site.data.keyword.appid_short_notm}} サービス・ダッシュボードを開きます。
 2. **「ログインのカスタマイズ (Login Customization)」**セクションを選択します。ここで、ログイン・ウィジェットの外観を企業のブランドに合うように変更できます。
 3. ローカル・システムにある PNG ファイルまたは JPG ファイルを選択し、企業のロゴをアップロードします。 推奨される画像サイズは 320 x 320 ピクセルです。 ファイルの最大サイズは 100 KB です。
 4. ウィジェットのヘッダー・カラーをカラー・ピッカーから選択するか、または別のカラーの 16 進コードを入力します。
 5. プレビュー・ペインでカスタマイズを検査し、問題がなければ**「変更を保存」**をクリックします。 確認メッセージが表示されます。
-
-**注**: アプリケーションを再ビルドする必要はありません。 画像が {{site.data.keyword.appid_short}} データベースに保管され、次回のログイン時に表示されます。
-
-## Android SDK を使用したログイン・ウィジェットの実行
-{: #authenticate-android}
-
-複数の ID プロバイダーを構成している場合、ユーザーには、アプリへのアクセス時にログイン・ウィジェットが表示されます。1 つしか構成していない場合、デフォルトでは、ユーザーは構成済みの ID プロバイダー認証画面にリダイレクトされます。
+6. アプリにアクセスして、変更内容を確認します。アプリを再ビルドする必要はありません。画像は {{site.data.keyword.appid_short}} データベースに保管されて、ログイン・ウィジェットが次に呼び出されたときに表示されます。
 
 
-{{site.data.keyword.appid_short_notm}} Client SDK が初期化されたら、ログイン・ウィジェットを実行してユーザーを認証できるようになります。
+</br>
 
-  ```java
-  LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
+## Android SDK を使用したログイン・ウィジェットの呼び出し
+{: #android}
+
+ソーシャル ID プロバイダーを有効にした場合は、事前構成されたサインイン画面を Android SDK で呼び出せます。
+{: shortdesc}
+
+1. ID プロバイダーを構成します。
+2. 以下のコマンドをコードに挿入します。
+    ```java
+    LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
   loginWidget.launch(this, new AuthorizationListener() {
-        @Override
+          @Override
         public void onAuthorizationFailure (AuthorizationException exception) {
-          //例外の発生
+            //例外の発生
         }
 
-        @Override
+          @Override
         public void onAuthorizationCanceled () {
-          //ユーザーによる認証の取り消し
+            //ユーザーによる認証の取り消し
         }
 
-        @Override
+          @Override
         public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken) {
-          //ユーザーの認証
+            //ユーザーの認証
         }
-      });
-  ```
-  {: codeblock}
-
-## iOS SDK を使用したログイン・ウィジェットの実行
-{: #authenticate-ios}
-
-複数の ID プロバイダーを構成している場合、ユーザーには、アプリへのアクセス時にログイン・ウィジェットが表示されます。1 つしか構成していない場合、デフォルトでは、ユーザーは構成済みの ID プロバイダー認証画面にリダイレクトされます。
+        });
+    ```
+    {: codeblock}
 
 
-1. SDK を使用するファイルに以下のインポートを追加します。
+</br>
 
+## iOS Swift SDK を使用したログイン・ウィジェットの呼び出し
+{: ios-swift}
+
+ソーシャル ID プロバイダーを有効にした場合は、事前構成されたサインイン画面を iOS Swift SDK で呼び出せます。
+{: shortdesc}
+
+1. ID プロバイダーを構成します。
+2. アプリのコードに以下のコマンドを追加します。
   ```swift
   import BluemixAppID
-  ```
-  {: codeblock}
-
-2. 以下のコマンドを実行してウィジェットを起動します。
-
-  ```swift
   class delegate : AuthorizationDelegate {
       public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, response:Response?) {
           //ユーザーの認証
@@ -95,24 +100,35 @@ lastupdated: "2017-12-06"
   ```
   {: codeblock}
 
-## Node.js SDK を使用したログイン・ウィジェットの実行
-{: #authenticate-nodejs}
 
-`WebAppStrategy` を使用して Web アプリケーション・リソースを保護できます。
+</br>
 
-  ```JavaScript
+## Node.js SDK を使用したログイン・ウィジェットの呼び出し
+{: #nodejs}
 
-  var express = require('express');
+ソーシャル ID プロバイダーを有効にした場合は、事前構成されたサインイン画面を Node.js SDK で呼び出せます。
+{: shortdesc}
+
+1. ID プロバイダーを構成します。
+2. 以下のコマンドをコードに追加します。
+    ```JavaScript
+
+    var express = require('express');
   var passport = require('passport');
   var WebAppStrategy = require('bluemix-appid').WebAppStrategy;
-  ```
-  {: codeblock}
+    ```
+    {: codeblock}
 
 
-## Swift SDK を使用したログイン・ウィジェットの実行
-{: #authenticate-swift}
+</br>
 
-WebAppKituraCredentialsPlugin は、OAuth2 の authorization_code 認可フローに基づくものであり、ブラウザーを使用する Web アプリケーションで使用する必要があります。 このプラグインには、認証フローと許可フローを実装するためのツールが用意されています。 プラグインはまた、保護リソースに対する非認証のアクセス試行を検出し、ユーザーのブラウザーを認証ページに自動的にリダイレクトするメカニズムも備えています。 認証に成功すると、ユーザーは Web アプリケーションのコールバック URL に送られ、この URL がプラグインを使用して {{site.data.keyword.appid_short_notm}} からアクセス・トークンと識別トークンを取得します。 それらのトークンを取得すると、プラグインはそれらを WebAppKituraCredentialsPlugin.AuthContext の下の HTTP セッションに保管します。
+## Swift SDK でログイン・ウィジェットを呼び出しています。
+{: #swift}
+
+ソーシャル ID プロバイダーを有効にした場合は、事前構成されたサインイン画面を Swift SDK で呼び出せます。
+{: shortdesc}
+
+WebAppKituraCredentialsPlugin は、OAuth2 の許可コードの認可フローに基づくものであり、ブラウザーを使用する Web アプリケーションで使用する必要があります。このプラグインには、認証フローと許可フローを実装するためのツールが用意されています。 プラグインはまた、保護リソースに対する非認証のアクセス試行を検出し、ユーザーのブラウザーを認証ページに自動的にリダイレクトするメカニズムも備えています。 認証に成功すると、ユーザーは Web アプリケーションのコールバック URL に送られ、この URL がプラグインを使用して {{site.data.keyword.appid_short_notm}} からアクセス・トークンと識別トークンを取得します。それらのトークンを取得すると、プラグインは HTTP セッションの WebAppKituraCredentialsPlugin.AuthContext の下に保管します。
 
 以下のコードは、WebAppKituraCredentialsPlugin を Kitura アプリケーションで使用して `/protected` エンドポイントを保護する方法を示しています。
 

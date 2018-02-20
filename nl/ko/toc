@@ -16,8 +16,9 @@ IBM Cloud App ID
     {: .topicgroup}
     사용자 인증
         login-widget.md
-        cloud-directory.md
         identity-providers.md
+        cloud-directory.md
+        branded.md
 
     protecting-resources.md
     user-profile.md
@@ -36,7 +37,7 @@ IBM Cloud App ID
         [iOS Swift 클라이언트 SDK](https://github.com/ibm-cloud-security/appid-clientsdk-swift)
         [Node.js 서버 SDK](https://github.com/ibm-cloud-security/appid-serversdk-nodejs)
         [Swift 서버 SDK](https://github.com/ibm-cloud-security/appid-serversdk-swift)
-        
+    
     relatedlinks.md
     {: .navgroup-end}
 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-12-13"
+  years: 2017, 2018
+lastupdated: "2018-02-01"
 
 ---
 
@@ -10,7 +10,7 @@ lastupdated: "2017-12-13"
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
-
+{:pre: .pre}
 
 # 關於
 {: #about}
@@ -39,7 +39,11 @@ lastupdated: "2017-12-13"
   </tr>
   <tr>
     <td> 您想要為使用者建置個人化的應用程式體驗。</td>
-    <td> {{site.data.keyword.appid_short_notm}} 容許您[儲存使用者資料](/docs/services/appid/user-profile.html)（例如其公用社交設定檔中的應用程式喜好設定或資訊）。您可以使用該資料來確定使用者擁有為他們而自訂的體驗。</td>
+    <td> 使用 {{site.data.keyword.appid_short_notm}}，您可以[儲存使用者資料](/docs/services/appid/user-profile.html)（例如其公用社交設定檔中的應用程式喜好設定或資訊），然後使用該資料來自訂您應用程式的每一個體驗。</td>
+  </tr>
+  <tr>
+    <td> 您要讓使用者可以使用其電子郵件及密碼來存取您的應用程式。</td>
+    <td> {{site.data.keyword.appid_short_notm}} 可讓您建立[雲端目錄](/docs/services/appid/cloud-directory.html)。這可讓您新增使用者對行動及 Web 應用程式的註冊及登入。雲端目錄提供架構來維護可隨著使用者族群調整的使用者登錄。使用自助的預先建置功能（例如電子郵件驗證及密碼重設），您可以確定應用程式安全地鑑別使用者。</td>
   </tr>
 </table>
 
@@ -48,13 +52,9 @@ lastupdated: "2017-12-13"
 {: #architecture}
 
 使用 {{site.data.keyword.appid_short_notm}}，您可以藉由要求使用者登入，將安全等級新增至應用程式。您也可以使用伺服器 SDK 來保護後端資源。
-
-下圖顯示 {{site.data.keyword.appid_short_notm}} 服務運作方式的概觀。
+{: shortdesc}
 
 ![{{site.data.keyword.appid_short_notm}} 架構圖](/images/appid_architecture.png)
-
-圖 1. {{site.data.keyword.appid_short_notm}} 架構圖
-
 
 <dl>
   <dt> 應用程式</dt>
@@ -72,10 +72,9 @@ lastupdated: "2017-12-13"
 {: #request}
 
 下圖說明要求如何從用戶端 SDK 流向後端資源及身分提供者。
+{: shortdesc}
 
 ![{{site.data.keyword.appid_short_notm}} 要求流程](/images/appidrequestflow.png)
-
-圖 2. {{site.data.keyword.appid_short_notm}} 要求流程
 
 
 * {{site.data.keyword.appid_short_notm}} 用戶端 SDK 會對使用 {{site.data.keyword.appid_short_notm}} 伺服器 SDK 保護的後端資源提出要求。

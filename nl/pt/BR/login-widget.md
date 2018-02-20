@@ -1,29 +1,34 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-12-06"
+  years: 2017, 2018
+lastupdated: "2018-02-01"
 
 ---
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
+{:pre: .pre}
 
-# Gerenciando o log em experiência
-É possível obter um fluxo de conexão funcionando em minutos com o widget de login. É possível atualizar seu widget ou tema em qualquer momento sem incluir, remover ou mudar o sinal no código-fonte.
+# Gerenciando a experiência de conexão
+
+Com o widget de login, é possível atualizar seu fluxo de conexão a qualquer momento sem incluir, remover ou mudar o código-fonte. O funcionamento pode ocorrer em minutos usando o código fornecido em nossos aplicativos de amostra.
 {: shortdesc}
 
+**Nota**: ao configurar provedores de identidade social como o Facebook, o [Fluxo de concessão de autorização Oauth2](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html) é usado para chamar o widget de login.
 
+</br>
 
-## Customizando o widget de login
+## Customizando o código do aplicativo de amostra
 {: #login-widget}
 
-É possível configurar o seu widget de login para exibir o logotipo e as cores de sua preferência.
+É possível customizar a tela de conexão pré-configurada para exibir o logotipo e as cores de sua escolha. Se você deseja exibir suas próprias UIs com marca, consulte [diretório da nuvem](/docs/services/appid/cloud-directory.html).
 {: shortdesc}
 
-Quando o serviço do {{site.data.keyword.appid_short}} estiver configurado com dois ou mais provedores de identidade, o usuário poderá selecionar um
-provedor de identidade no widget de login. É possível customizar o seu widget de login concluindo as etapas a seguir:
+![Exemplo de experiência de conexão customizada](/images/customize.gif)
+
+Para customizar a tela:
 
 1. Abra o painel
 de serviço {{site.data.keyword.appid_short_notm}}.
@@ -32,54 +37,53 @@ empresa.
 3. Faça upload do logotipo da sua empresa selecionando um arquivo PNG ou JPG em seu sistema local. O tamanho da imagem recomendado é 320 x 320 pixels. O tamanho máximo do arquivo é 100 Kb.
 4. Selecione uma cor de cabeçalho para o widget no selecionador de cor ou insira o código hexadecimal para outra cor.
 5. Inspecione a área de janela de visualização e clique em **Salvar mudanças** quando estiver satisfeito com as suas customizações. Uma mensagem de confirmação será exibida.
-
-**Nota**: não será necessário reconstruir o seu aplicativo. A imagem é armazenada no banco de dados do {{site.data.keyword.appid_short}} e é exibida no próximo login.
-
-## Executando o widget de login com o SDK Android
-{: #authenticate-android}
-
-Quando você configura mais de um provedor de identidade, os usuários exibem um widget de login ao visitar seu app. Como padrão, se você configurar somente um, o usuário será redirecionado para a tela de autenticação de provedores de identidade configurados.
+6. Verifique suas mudanças visitando seu app. Não é necessário reconstruir o seu app. Suas imagens serão armazenadas no banco de dados do {{site.data.keyword.appid_short}} e serão exibidas na próxima vez que o widget de login for chamado.
 
 
-Após o SDK do cliente do {{site.data.keyword.appid_short_notm}} ser inicializado, será possível autenticar os seus usuários executando o widget de login.
+</br>
 
-  ```java
-  LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
+## Chamando o widget de login com o SDK Android
+{: #android}
+
+Com os provedores de identidade social ativados, é possível chamar a tela de conexão pré-configurada com o SDK Android.
+{: shortdesc}
+
+1. Configure seus provedores de identidade.
+2. Coloque o comando a seguir em seu código.
+    ```java
+    LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
   loginWidget.launch(this, new AuthorizationListener() {
-        @Override
+          @Override
         public void onAuthorizationFailure (AuthorizationException exception) {
-          //Exception occurred
-        }
+            //Exception occurred
+      }
 
-        @Override
+          @Override
         public void onAuthorizationCanceled () {
-          //Authentication canceled by the user
+            //Authentication canceled by the user
         }
 
-        @Override
+          @Override
         public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken) {
-          //User authenticated
+            //User authenticated
         }
-      });
-  ```
-  {: codeblock}
-
-## Executando o widget de login com o SDK iOS
-{: #authenticate-ios}
-
-Quando você configura mais de um provedor de identidade, os usuários exibem um widget de login ao visitar seu app. Como padrão, se você configurar somente um, o usuário será redirecionado para a tela de autenticação de provedores de identidade configurados.
+        });
+    ```
+    {: codeblock}
 
 
-1. Inclua a importação a seguir no arquivo no qual você deseja usar o SDK.
+</br>
 
+## Chamando o widget de login com o SDK iOS Swift
+{: ios-swift}
+
+Com os provedores de identidade social ativados, é possível chamar a tela de conexão pré-configurada com o SDK iOS Swift.
+{: shortdesc}
+
+1. Configure seus provedores de identidade.
+2. Inclua o comando a seguir em seu código de app.
   ```swift
   import BluemixAppID
-  ```
-  {: codeblock}
-
-2. Execute o comando a seguir para ativar o widget.
-
-  ```swift
   class delegate : AuthorizationDelegate {
       public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, response:Response?) {
           //User authenticated
@@ -98,30 +102,41 @@ Quando você configura mais de um provedor de identidade, os usuários exibem um
   ```
   {: codeblock}
 
-## Executando o widget de login com o SDK Node.js
-{: #authenticate-nodejs}
 
-É possível usar `WebAppStrategy` para proteger recursos de aplicativo da web.
+</br>
 
-  ```JavaScript
+## Chamando o widget de login com o SDK Node.js
+{: #nodejs}
 
-  var express = require('express');
+Com os provedores de identidade social ativados, é possível chamar a tela de conexão pré-configurada com o SDK Node.js.
+{: shortdesc}
+
+1. Configure seus provedores de identidade.
+2. Inclua o comando a seguir em seu código.
+    ```JavaScript
+
+    var express = require('express');
   var passport = require('passport');
   var WebAppStrategy = require('bluemix-appid').WebAppStrategy;
-  ```
-  {: codeblock}
+    ```
+    {: codeblock}
 
 
-## Executando o widget de login com o SDK Swift
-{: #authenticate-swift}
+</br>
 
-O WebAppKituraCredentialsPlugin é baseado no fluxo de concessão authorization_code do OAuth2 e deve ser usado para aplicativos da web que usam navegadores. O
+## Chamando o widget de login com o SDK Swift
+{: #swift}
+
+Com os provedores de identidade social ativados, é possível chamar a tela de conexão pré-configurada com o SDK Swift.
+{: shortdesc}
+
+O WebAppKituraCredentialsPlugin é baseado no fluxo de concessão de código de autorização OAuth2 e deve ser usado para aplicativos da web que usam navegadores. O
 plug-in fornece ferramentas para implementar fluxos de autenticação e de autorização. O plug-in também fornece mecanismos para detectar tentativas não autenticadas
 para acessar recursos protegidos e automaticamente redireciona um navegador do usuário para a página de autenticação. Após a autenticação bem-sucedida, um usuário é
 levado para a URL de retorno de chamada do aplicativo da web, que usa o plug-in para obter tokens de acesso e a identidade do
 {{site.data.keyword.appid_short_notm}}. Após obter esses tokens, o plug-in os armazena em uma sessão de HTTP sob WebAppKituraCredentialsPlugin.AuthContext.
 
-O código a seguir demonstra como usar o WebAppKituraCredentialsPlugin em um aplicativo Kitura para proteger o terminal `/protected`.
+O código a seguir demonstra como usar WebAppKituraCredentialsPlugin em um aplicativo Kitura para proteger o terminal `/protected`.
 
   ```swift
   import Foundation

@@ -14,10 +14,11 @@ IBM Cloud App ID
     install.md
 
     {: .topicgroup}
-    Authenticating users
+    Autenticando usuários
         login-widget.md
-        cloud-directory.md
         identity-providers.md
+        cloud-directory.md
+        branded.md
 
     protecting-resources.md
     user-profile.md
@@ -27,8 +28,7 @@ IBM Cloud App ID
 
     {: .navgroup id="reference"}
     {: .topicgroup}
-
-        [APIs de autorização](http://mobileclientaccess.mybluemix.net/swagger-ui/#/Authorization_Server_V3)
+    [APIs de autorização](http://mobileclientaccess.mybluemix.net/swagger-ui/#/Authorization_Server_V3)
 
     {: .topicgroup}
     SDKs

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-12-13"
+  years: 2017, 2018
+lastupdated: "2018-02-01"
 
 ---
 
@@ -10,7 +10,7 @@ lastupdated: "2017-12-13"
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
-
+{:pre: .pre}
 
 # Sobre
 {: #about}
@@ -40,8 +40,11 @@ a seguir para ver se algum deles se aplica a você.
   </tr>
   <tr>
     <td> Você deseja construir experiências de app personalizadas para seus usuários. </td>
-    <td> O {{site.data.keyword.appid_short_notm}} permite que você [armazene dados do usuário](/docs/services/appid/user-profile.html), como preferências de app ou informações de seus perfis sociais públicos. É possível usar esses dados para
-assegurar que seus usuários tenham uma experiência que seja customizada para eles. </td>
+    <td> Com o {{site.data.keyword.appid_short_notm}}, é possível [armazenar dados do usuário](/docs/services/appid/user-profile.html) como preferências de app ou informações de seus perfis sociais públicos e, em seguida, usar esses dados para customizar cada experiência de seu app. </td>
+  </tr>
+  <tr>
+    <td> Você deseja fornecer aos usuários a capacidade de acessar seu app com seus e-mails e uma senha. </td>
+    <td> O {{site.data.keyword.appid_short_notm}} fornece a capacidade de criar um [diretório da nuvem](/docs/services/appid/cloud-directory.html). Isso torna possível incluir a inscrição do usuário e conectar-se aos apps móveis e da web. O diretório da nuvem fornece a estrutura para manter um registro do usuário que pode escalar com sua base de usuários. Com a funcionalidade pré-construída para autoatendimento, como verificação de e-mail e reconfigurações de senha, é possível ter certeza que seu app está autenticando usuários com segurança. </td>
   </tr>
 </table>
 
@@ -49,19 +52,15 @@ assegurar que seus usuários tenham uma experiência que seja customizada para e
 ## Software
 {: #architecture}
 
-Com o {{site.data.keyword.appid_short_notm}}, é possível incluir um nível de segurança a seus apps, solicitando aos usuários que se conectem. Também é possível usar o servidor SDK para proteger seus recursos de backend.
-
-O diagrama a seguir mostra uma visão geral de como o serviço do {{site.data.keyword.appid_short_notm}} funciona.
+Com o {{site.data.keyword.appid_short_notm}}, é possível incluir um nível de segurança a seus apps, solicitando aos usuários que se conectem. Também é possível usar o SDK do servidor para proteger seus recursos de backend.
+{: shortdesc}
 
 ![{{site.data.keyword.appid_short_notm}} diagrama de arquitetura](/images/appid_architecture.png)
-
-Figura 1. Diagrama de arquitetura do {{site.data.keyword.appid_short_notm}}
-
 
 <dl>
   <dt> Aplicativo </dt>
     <dd> SDK do servidor: é possível proteger seus recursos de backend que estão hospedados no {{site.data.keyword.Bluemix_notm}} e seus apps da web usando o SDK do servidor. Ele extrai o token de acesso de uma solicitação e o valida com o {{site.data.keyword.appid_short_notm}}. </br>
-    SDK do cliente: é possível proteger seus apps móveis com o SDK cliente Android ou iOS. O SDK cliente se comunica com seus recursos em nuvem para iniciar o processo de autenticação quando ele detecta um desafio de autorização.</dd>
+    SDK do cliente: é possível proteger seus apps móveis com o SDK do cliente Android ou iOS. O SDK cliente se comunica com seus recursos em nuvem para iniciar o processo de autenticação quando ele detecta um desafio de autorização.</dd>
   <dt> {{site.data.keyword.Bluemix_notm}} </dt>
     <dd> ID do app: após a autenticação bem-sucedida, o {{site.data.keyword.appid_short_notm}} retorna tokens de acesso e de identidade para seu app.</br>
     Cloud Directory: os usuários podem inscrever-se para o seu serviço com e-mail e senha. É possível, então, gerenciar seus usuários em uma visualização de lista por meio da UI. </dd>
@@ -75,10 +74,9 @@ credenciais sem ter acesso à passphrase real. </dd>
 {: #request}
 
 O diagrama a seguir descreve como uma solicitação flui do SDK do cliente para seus recursos de backend e provedores de identidade.
+{: shortdesc}
 
 ![{{site.data.keyword.appid_short_notm}} fluxo de solicitação](/images/appidrequestflow.png)
-
-Figura 2. Fluxo de solicitação do {{site.data.keyword.appid_short_notm}}
 
 
 * O SDK do cliente {{site.data.keyword.appid_short_notm}} faz uma solicitação a

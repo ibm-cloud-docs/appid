@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-12-08"
+  years: 2017, 2018
+lastupdated: "2018-01-02"
 
 ---
 
@@ -532,7 +532,6 @@ lastupdated: "2017-12-08"
 
       <httpEndpoint id="defaultHttpEndpoint" httpPort="9080" host="*" httpsPort="9443" />
 
-      <!-- Automatically expand WAR files and EAR files -->
       <applicationManager autoExpand="true"/>
 
   </server>

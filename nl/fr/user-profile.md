@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-12-08"
+  years: 2017, 2018
+lastupdated: "2018-01-02"
 
 ---
 
@@ -16,8 +16,7 @@ lastupdated: "2017-12-08"
 Vous pouvez gérer les données sur l'utilisateur final que vous utilisez pour construire une expérience personnalisée.
 {:shortdesc}
 
-Un attribut d'utilisateur est un segment d'information d'une entité stockée et gérée par {{site.data.keyword.appid_full}}.
-Le profil contient les attributs et l'identité d'un utilisateur et peut être anonyme ou lié à une identité gérée par un fournisseur d'identité.
+Un attribut d'utilisateur est un segment d'information d'une entité stockée et gérée par {{site.data.keyword.appid_full}}. Le profil contient les attributs et l'identité d'un utilisateur et peut être anonyme ou lié à une identité gérée par un fournisseur d'identité.
 
 {{site.data.keyword.appid_short_notm}} fournit une API pour la connexion, anonyme ou bien avec authentification, via un [fournisseur d'identité](/docs/services/appid/identity-providers.html) OpenId Connect (OIDC). Le noeud final d'API d'attribut de profil utilisateur est une ressource qui est protégée
 par
@@ -42,7 +41,6 @@ et
 <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a>.
 
 ## Accès aux attributs d'utilisateur avec le SDK Android
-
 {: #accessing}
 
 En obtenant un jeton d'accès, vous pouvez accéder au noeud final des attributs utilisateur protégés. Vous
@@ -65,7 +63,8 @@ pouvez y accéder avec les méthodes ci-dessous.
 
 Lorsqu'un jeton d'accès n'est pas transmis explicitement, {{site.data.keyword.appid_short_notm}} utilise le dernier jeton reçu.
 
-Par exemple, vous pouvez utiliser le code ci-dessous pour définir un nouvel
+Par exemple, vous pouvez utiliser le code ci-dessous pour définir un
+nouvel
 attribut ou remplacer un attribut existant.
 
   ```java
@@ -114,7 +113,8 @@ Lorsqu'il dispose d'un jeton d'accès anonyme, l'utilisateur peut devenir un uti
   ```
   {: codeblock}
 
-Après une connexion anonyme, une authentification progressive a lieu même si le widget de connexion est appelé sans transmission d'un jeton d'accès vu que le service a utilisé le dernier jeton d'accès reçu. Si vous voulez effacer les jetons que vous avez stockés, exécutez la commande ci-dessous.
+Après une connexion anonyme, une authentification progressive a lieu même si le widget de connexion est appelé sans transmission d'un jeton d'accès vu que le service a utilisé le dernier jeton d'accès reçu. Si
+vous voulez effacer les jetons que vous avez stockés, exécutez la commande ci-dessous.
 
   ```java
   	appIDAuthorizationManager = new AppIDAuthorizationManager(this.appId);
@@ -124,7 +124,6 @@ Après une connexion anonyme, une authentification progressive a lieu même si l
 
 
 ## Accès aux attributs d'utilisateur avec le SDK iOS
-
 {: #accessing}
 
 En obtenant un jeton d'accès, vous pouvez accéder au noeud final des attributs utilisateur protégés. Pour
@@ -147,7 +146,8 @@ ce faire, utilisez les méthodes d'API ci-dessous.
 
 Lorsqu'un jeton d'accès n'est pas transmis explicitement, {{site.data.keyword.appid_short_notm}} utilise le dernier jeton reçu.
 
-Par exemple, vous pouvez utiliser le code ci-dessous pour définir un nouvel
+Par exemple, vous pouvez utiliser le code ci-dessous pour définir un
+nouvel
 attribut ou remplacer un attribut existant.
 
   ```swift
@@ -198,7 +198,8 @@ utilisateur identifié en transmettant le jeton à la méthode
   ```
   {: codeblock}
 
-Après une connexion anonyme, une authentification progressive a lieu même si le widget de connexion est appelé sans transmission d'un jeton d'accès vu que le service a utilisé le dernier jeton d'accès reçu. Si vous voulez effacer les jetons que vous avez stockés, exécutez la commande ci-dessous.
+Après une connexion anonyme, une authentification progressive a lieu même si le widget de connexion est appelé sans transmission d'un jeton d'accès vu que le service a utilisé le dernier jeton d'accès reçu. Si
+vous voulez effacer les jetons que vous avez stockés, exécutez la commande ci-dessous.
 
   ```swift
   var appIDAuthorizationManager = AppIDAuthorizationManager(appid: AppID.sharedInstance)

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-12-13"
+  years: 2017, 2018
+lastupdated: "2018-02-01"
 
 ---
 
@@ -10,7 +10,7 @@ lastupdated: "2017-12-13"
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
-
+{:pre: .pre}
 
 # A propos de
 {: #about}
@@ -32,11 +32,9 @@ Pourquoi utiliser {{site.data.keyword.appid_short_notm}} ? Vérifiez si l'un des
   <tr>
     <td> Vous devez ajouter un mécanisme
 d'[autorisation et d'authentification](/docs/services/appid/authorization.html) à vos applications mobiles et
-web, mais vous n'avez pas d'expérience de la sécurité.
-</td>
+web, mais vous n'avez pas d'expérience de la sécurité. </td>
     <td> {{site.data.keyword.appid_short_notm}} facilite l'ajout d'une étape d'authentification à vos applications. Vous pouvez utiliser
-le service pour communiquer avec des [fournisseurs d'identité](/docs/services/appid/identity-providers.html) afin de gérer l'accès à vos applications.
-</td>
+le service pour communiquer avec des [fournisseurs d'identité](/docs/services/appid/identity-providers.html) afin de gérer l'accès à vos applications. </td>
   </tr>
   <tr>
     <td> Vous voulez limiter l'accès à vos applications et ressources de back end. </td>
@@ -45,9 +43,11 @@ des utilisateurs authentifiés et des utilisateurs anonymes. </td>
   </tr>
   <tr>
     <td> Vous voulez générer des applications personnalisées pour vos utilisateurs. </td>
-    <td> {{site.data.keyword.appid_short_notm}} vous permet de [stocker des données sur les utilisateurs](/docs/services/appid/user-profile.html),
-telles que leurs préférences d'utilisation des applications ou des informations issues de leurs profils publics dans les réseaux sociaux.
-Vous pouvez utiliser ces données pour vous assurer que vos utilisateurs bénéficient d'applications personnalisées. </td>
+    <td> {{site.data.keyword.appid_short_notm}} vous permet de [stocker des données sur les utilisateurs](/docs/services/appid/user-profile.html), telles que leurs préférences d'utilisation des applications ou des informations issues de leurs profils publics dans les réseaux sociaux, puis d'utiliser ces données afin de personnaliser chaque expérience de votre application. </td>
+  </tr>
+  <tr>
+    <td> Vous voulez autoriser les utilisateurs à accéder à votre application à l'aide de leur e-mail et d'un mot de passe. </td>
+    <td> {{site.data.keyword.appid_short_notm}} offre la possibilité de créer un [répertoire cloud](/docs/services/appid/cloud-directory.html). Vous pouvez ainsi ajouter l'inscription et la connexion des utilisateurs à vos applications mobiles et Web. Le répertoire cloud met à votre disposition l'infrastructure vous permettant de gérer un registre d'utilisateurs que vous pouvez mettre à l'échelle avec votre base utilisateur. Avec la fonctionnalité préconfigurée de libre-service, telle que la vérification et la réinitialisation du mot de passe, vous avez la garantie que votre application authentifie les utilisateurs en toute sécurité. </td>
   </tr>
 </table>
 
@@ -56,15 +56,10 @@ Vous pouvez utiliser ces données pour vous assurer que vos utilisateurs bénéf
 {: #architecture}
 
 Avec {{site.data.keyword.appid_short_notm}}, vous pouvez ajouter un niveau
-de sécurité à vos applications en demandant aux utilisateurs de se connecter.
-Vous pouvez également utiliser le SDK du serveur pour protéger vos ressources de back-end.
-
-Le diagramme suivant résume le fonctionnement du service {{site.data.keyword.appid_short_notm}}.
+de sécurité à vos applications en demandant aux utilisateurs de se connecter. Vous pouvez également utiliser le SDK du serveur pour protéger vos ressources de back-end.
+{: shortdesc}
 
 ![{{site.data.keyword.appid_short_notm}} - Diagramme de l'architecture](/images/appid_architecture.png)
-
-Figure 1. Diagramme de l'architecture {{site.data.keyword.appid_short_notm}}
-
 
 <dl>
   <dt> Application </dt>
@@ -73,16 +68,13 @@ vos applications web en utilisant le SDK du serveur. Celui-ci
 extrait le jeton d'accès d'une demande et le valide avec {{site.data.keyword.appid_short_notm}}. </br>
     SDK du client : vous pouvez protéger vos applications mobiles avec le SDK du client Android ou iOS. Le
 SDK du client communique avec vos ressources cloud pour démarrer le processus
-d'authentification lorsqu'il détecte une demande d'autorisation.
-</dd>
+d'authentification lorsqu'il détecte une demande d'autorisation.</dd>
   <dt> {{site.data.keyword.Bluemix_notm}} </dt>
-    <dd> App ID : une fois que l'authentification a réussi, {{site.data.keyword.appid_short_notm}} renvoie les jetons d'identité et d'accès à votre application. </br>
-    Cloud Directory : les utilisateurs peuvent s'inscrire à votre service avec leur adresse e-mail et un mot de passe. Vous pouvez les gérer dans une liste visible dans l'interface utilisateur.</dd>
+    <dd> App ID : une fois que l'authentification a réussi, {{site.data.keyword.appid_short_notm}} renvoie les jetons d'identité et d'accès à votre application.</br>
+    Cloud Directory : les utilisateurs peuvent s'inscrire à votre service avec leur adresse e-mail et un mot de passe. Vous pouvez les gérer dans une liste visible dans l'interface utilisateur. </dd>
   <dt> Externe (tierce partie) </dt>
     <dd>  {{site.data.keyword.appid_short_notm}} reconnaît deux fournisseurs d'identité de réseaux sociaux : Facebook et Google+. Le service met en oeuvre une redirection
-vers le fournisseur d'identité et accorde l'accès à votre application une fois l'utilisateur authentifié.
-{{site.data.keyword.appid_short_notm}} vérifie les données d'identification sans accéder à la phrase de passe proprement dite.
-</dd>
+vers le fournisseur d'identité et accorde l'accès à votre application une fois l'utilisateur authentifié. {{site.data.keyword.appid_short_notm}} vérifie les données d'identification sans accéder à la phrase de passe proprement dite. </dd>
 </dl>
 
 
@@ -90,10 +82,9 @@ vers le fournisseur d'identité et accorde l'accès à votre application une foi
 {: #request}
 
 Le diagramme ci-dessous illustre le cheminement d'une demande entre le SDK du client et vos ressources de back-end et les fournisseurs d'identité.
+{: shortdesc}
 
 ![{{site.data.keyword.appid_short_notm}} - Flux d'une demande](/images/appidrequestflow.png)
-
-Figure 2. Flux d'une demande {{site.data.keyword.appid_short_notm}}
 
 
 * Le SDK client {{site.data.keyword.appid_short_notm}} soumet une demande à vos ressources de back end protégées par le SDK serveur {{site.data.keyword.appid_short_notm}}.

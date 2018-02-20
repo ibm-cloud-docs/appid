@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-12-08"
+  years: 2017, 2018
+lastupdated: "2018-01-02"
 
 ---
 
@@ -29,7 +29,7 @@ lastupdated: "2017-12-08"
 * <a href="https://github.com/mnsn/appid-python-flask-example" target="_blank">将 {{site.data.keyword.appid_short_notm}} 与 Python 一起使用 <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a>
 * <a href="https://www.ibm.com/blogs/bluemix/2017/09/securing-single-page-apps-app-id-service/" target="_blank">使用 {{site.data.keyword.appid_short_notm}} 保护单个页面的安全 <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a>
 * <a href="https://console.bluemix.net/docs/tutorials/serverless-mobile-backend.html#mobile-application-with-a-serverless-backend" target="_blank">具有无服务器后端的移动应用程序 <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a>
-
+* <a href="https://www.ibm.com/cloud/garage/content/architecture/securityArchitecture/security-for-application" target="_blank">用于保护和监视应用程序的安全性 <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a>
 
 ## 视频
 {: #videos}

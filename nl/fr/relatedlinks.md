@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-12-08"
+  years: 2017, 2018
+lastupdated: "2018-01-02"
 
 ---
 
@@ -34,7 +34,7 @@ d'{{site.data.keyword.appid_short_notm}} avec Python
 <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a>
 * <a href="https://www.ibm.com/blogs/bluemix/2017/09/securing-single-page-apps-app-id-service/" target="_blank">Sécuriser les applications à une seule page avec {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 * <a href="https://console.bluemix.net/docs/tutorials/serverless-mobile-backend.html#mobile-application-with-a-serverless-backend" target="_blank">Application pour mobile avec un back-end sans serveur <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
-
+* <a href="https://www.ibm.com/cloud/garage/content/architecture/securityArchitecture/security-for-application" target="_blank">Sécurité de protection et de surveillance de vos applications<img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 
 ## Vidéos
 {: #videos}
