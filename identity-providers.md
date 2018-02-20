@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-02-15"
+lastupdated: "2018-02-16"
 
 ---
 
@@ -23,7 +23,7 @@ Identity providers provide an extra level of authentication for your mobile and 
 {{site.data.keyword.appid_short_notm}} provides a default configuration to help with the initial set-up of your identity providers.
 {: shortdesc}
 
-The default credentials are set up for Facebook and Google. You are limited to 100 uses of the credentials per instance, per day. Because they are IBM credentials, they are meant to be used only in development mode. Before publishing your app, update the configuration to your own credentials.
+The default credentials are set up for Facebook and Google. You are limited to 100 uses of the credentials per instance, per day. Because they are IBM credentials, they are meant to be used only in development mode. Before you publish your app, update the configuration to your own credentials.
 
 
 ## Configuring Facebook

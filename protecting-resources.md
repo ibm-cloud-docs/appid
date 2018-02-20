@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-02-15"
+lastupdated: "2018-02-16"
 
 ---
 {:new_window: target="_blank"}
@@ -28,7 +28,7 @@ You can use {{site.data.keyword.appid_short_notm}} to protect endpoints in your 
 
 Before you begin:
 * You need an existing, unbound, [IBM Liberty for Java app](https://console.bluemix.net/catalog/starters/liberty-for-java). To become familiar with developing Liberty for Java apps, see [the docs](/docs/runtimes/liberty/index.html).
-* Be sure you have [Apache Maven](https://maven.apache.org/download.cgi) installed.
+* Be sure that you have [Apache Maven](https://maven.apache.org/download.cgi) installed.
 * Learn about how OIDC works with Liberty for Java.
 
 To protect your resources:
@@ -41,7 +41,7 @@ To protect your resources:
   ```
   {: codeblock}
 
-4. Deploy the app. Running the following command creates a Liberty for Java instance with a name that is related to the tenant id.
+4. Deploy the app. Running the following command creates a Liberty for Java instance with a name that is related to the tenant ID.
   ```
   cf push
   ```
