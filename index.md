@@ -2,18 +2,22 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-02-15"
+lastupdated: "2018-03-08"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
+{:tip: .tip}
 
 # Getting started tutorial
 {: #gettingstarted}
 
 {{site.data.keyword.appid_full}} helps you to add authentication to your mobile and web apps and protects your back-end resources.
 {: shortdesc}
+
+As an account owner, you can now set policies that define how members of your team can interact with instances of {{site.data.keyword.appid_short_notm}}. You can decide who can create, update, and delete instances of the service. For more information see [Service access management](/docs/services/appid/iam.html).
+{:tip}
 
 ## Creating a service instance
 {: #create}
