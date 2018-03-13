@@ -2,12 +2,13 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-02-15"
+lastupdated: "2018-03-09"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
+{:tip: .tip}
 
 # Getting started tutorial
 {: #gettingstarted}
@@ -15,16 +16,25 @@ lastupdated: "2018-02-15"
 {{site.data.keyword.appid_full}} helps you to add authentication to your mobile and web apps and protects your back-end resources.
 {: shortdesc}
 
+
+
 ## Creating a service instance
 {: #create}
 
-Create an instance of {{site.data.keyword.appid_short_notm}} to get started.
+Create and bind an instance of {{site.data.keyword.appid_short_notm}} to your app to get started.
 {: shortdesc}
 
 1. In the {{site.data.keyword.Bluemix}} catalog, select {{site.data.keyword.appid_short_notm}}. The service configuration screen opens.
 2. Give your service instance a name, or use the preset name.
-3. To bind your instance, select an app from the **Connect to** menu. If you select **Leave unbound**, you can bind the service instance later.
-4. Select your pricing plan and click **Create**.
+3. Select your pricing plan and click **Create**.
+4. Bind your instance of {{site.data.keyword.appid_short_notm}}.
+    1. To see a list of apps that you can bind to your service instance, click **Connections**.
+    2. Click **Create connection**. A page opens with all of the apps that you have the option to bind.
+    3. Click **Connect** on the app that you want to bind.
+    4. Click **Restage** do apply the change.
+
+That's it! You're ready to start configuring your application settings.
+
 
 ## Configuring a sample app
 {: #sample-app}

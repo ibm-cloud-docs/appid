@@ -83,7 +83,7 @@ With {{site.data.keyword.appid_short_notm}}, you can log in [anonymously](/docs/
 		}
 
 		@Override
-		public void onAuthorizationSuccess(AccessToken accessToken, IdentityToken identityToken) {
+		public void onAuthorizationSuccess(AccessToken accessToken, IdentityToken identityToken, RefreshToken refreshToken) {
 			//User authenticated
 		}
 	});
@@ -154,7 +154,7 @@ With {{site.data.keyword.appid_short_notm}}, you can log in [anonymously](/docs/
   ```swift
   class delegate : AuthorizationDelegate {
 
-      public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, response:Response?) {
+      public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, refreshToken: RefreshToken?, response:Response?) {
           //User authenticated
       }
 
