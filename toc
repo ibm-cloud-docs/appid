@@ -15,21 +15,24 @@ IBM Cloud App ID
 
     {: .topicgroup}
     Authenticating users
-        login-widget.md
         identity-providers.md
         cloud-directory.md
-        branded.md
+        login-widget.md
 
     protecting-resources.md
     user-profile.md
     protecting-resources-local.md
     existing.md
+    iam.md
+    api-reference.md
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
     {: .topicgroup}
     APIs
         [Authorization](http://mobileclientaccess.mybluemix.net/swagger-ui/#/Authorization_Server_V3)
+        [Management](https://appid-management.ng.bluemix.net/swagger-ui/)
+        [Profiles](https://appid-profiles.ng.bluemix.net/swagger-ui/index.html)
 
     {: .topicgroup}
     SDKs
@@ -37,7 +40,6 @@ IBM Cloud App ID
         [iOS Swift client SDK](https://github.com/ibm-cloud-security/appid-clientsdk-swift)
         [Node.js server SDK](https://github.com/ibm-cloud-security/appid-serversdk-nodejs)
         [Swift server SDK](https://github.com/ibm-cloud-security/appid-serversdk-swift)
-    
     relatedlinks.md
     {: .navgroup-end}
 

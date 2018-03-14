@@ -97,7 +97,7 @@ You can add the {{site.data.keyword.appid_short_notm}} service to your existing 
           }
 
           @Override
-          public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken) {
+          public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, RefreshToken refreshToken) {
           }
         });
   ```
@@ -181,7 +181,7 @@ You can add the {{site.data.keyword.appid_short_notm}} service to your existing 
          	return AppID.sharedInstance.application(application, open: url, options: options)
      	}
   class delegate : AuthorizationDelegate {
-     public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, response:Response?) {
+     public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, refreshToken: RefreshToken? response:Response?) {
      }
 
      public func onAuthorizationCanceled() {
