@@ -2,10 +2,10 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-03-14"
+lastupdated: "2018-03-15"
 
 ---
-{:new_window: target="_blank"}
+{:new_window: target="blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -536,7 +536,7 @@ With cloud directory enabled, you can call customized screens with the Android S
 1. Set **Cloud Directory** to **On** as an identity provider.
 2. Place the following command in your code.
   ```java
-  AppID.getInstance().obtainTokensWithROP(getApplicationContext(), username, password,
+  AppID.getInstance().signinWithResourceOwnerPassword(getApplicationContext(), username, password,
          new TokenResponseListener() {
          @Override
           public void onAuthorizationFailure (AuthorizationException exception) {
@@ -550,7 +550,6 @@ With cloud directory enabled, you can call customized screens with the Android S
          });
   ```
   {: pre}
-
 </br>
 </br>
 
@@ -576,7 +575,7 @@ With cloud directory enabled, you can call customized screens with the iOS Swift
       }
   }
 
-  AppID.sharedInstance.obtainTokensWithROP(username: username, password: password, delegate: delegate())
+  AppID.sharedInstance.signinWithResourceOwnerPassword(username: username, password: password, delegate: delegate())
   ```
   {: pre}
 </br>
@@ -585,7 +584,7 @@ With cloud directory enabled, you can call customized screens with the iOS Swift
 ### Displaying customized screens with the Node.js SDK
 {: #branded-ui-nodejs}
 
-With cloud directory enabled, you can call customized screens with the Node.js SDK. If you choose a Node.js backend you can use our self-Service module that in the App ID Node.js SDK (link).
+With cloud directory enabled, you can call customized screens with the Node.js SDK. You can choose the combination of the screens that you'd like your users to be able to interact with. If you choose a Node.js backend you can use our self-Service module that in the App ID Node.js SDK (link).
 {: shortdesc}
 
 **Sign in**
