@@ -16,6 +16,7 @@ IBM Cloud App ID
     {: .topicgroup}
     Authenticating users
         identity-providers.md
+        enterprise.md
         cloud-directory.md
         login-widget.md
 
