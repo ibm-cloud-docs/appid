@@ -189,17 +189,7 @@ The actions are customized and defined by the {{site.data.keyword.Bluemix_notm}}
     <td><code>appid-mgmt-delete-email-template</code></td>
     <td>Delete a cloud directory email template.</td>
     <td>Writer, Manager</td>
-  </tr><staging>
-  <tr>
-    <td><code>appid-mgmt-get-saml-metadata</code></td>
-    <td>View cloud directory's SAML service provider (SP) metadata.</td>
-    <td>Reader, Writer, Manager</td>
   </tr>
-  <tr>
-    <td><code>appid-mgmt-post-saml-logo</code></td>
-    <td>Set or update the image in the login widget for the SAML identity provider.</td>
-    <td>Writer, Manager</td>
-  </tr></staging>
   <tr>
     <td><code>appid-mgmt-send-email-cd</code></td>
     <td>Send an email to a user based on a template.</td>
