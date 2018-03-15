@@ -31,15 +31,15 @@ How does it work?
 
 ### SAML assertions and identity token claims
 
-A SAML assertion is a package of information that contains one or more statements. The assertion contains the authorization decision, but it might contain identity information about the user.
+A SAML assertion is a package of information that contains one or more statements. The assertion contains the authorization decision, and it might contain identity information about the user.
 
-When a user signs in with an identity provider, that provider sends an assertion to App ID. App ID propagates user identity information that is returned in the SAML assertion to your app as OIDC token claims. The SAML attribute must correspond to on of the following OIDC claims to be added to the identity token.
+When a user signs in with an identity provider, that provider sends an assertion to App ID. App ID propagates user identity information that is returned in the SAML assertion to your app as OIDC token claims. The SAML attribute must correspond to 1 of the following OIDC claims to be added to the identity token.
 
 The following claims can be added:
-* Name
-* Email
-* Locale
-* Picture
+* `name`
+* `email`
+* `locale`
+* `picture`
 
 The remaining SAML attribute elements that do not correspond to any of the standard names are ignored.
 
@@ -78,7 +78,7 @@ To configure your app, you need to provide information to a SAML compatible iden
       <td>The way in which the identity provider knows which identifier format it needs to send in the subject of an assertion. The way in which {{site.data.keyword.appid_short_notm}} identifies users.</td>
     </tr>
     <tr>
-      <td><code>WantAssertationsSigned<code></td>
+      <td><code>WantAssertionsSigned<code></td>
       <td>The way in which the identity provider knows which identifier format it needs to send in the subject of an assertion. The way in which {{site.data.keyword.appid_short_notm}} identifies users.</td>
     </tr>
   </table>
