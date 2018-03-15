@@ -604,7 +604,7 @@ With cloud directory enabled, you can call customized screens with the Node.js S
 
 </br>
 </br>
-<staging>
+
 ## Displaying customized screens with the API
 {: #branding}
 
@@ -705,5 +705,3 @@ When the user details are updated, the endpoint gets the updated user data in th
 
 Their email address cannot be changed.
 {: tip}
-
-</staging>
