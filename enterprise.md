@@ -26,7 +26,7 @@ SAML is an open standard for exchanging authentication and authorization data be
 
 How does it work?
 
-{{site.data.keyword.appid_short_notm}} functions as a service provider and initiates a single sign on (SSO) login to a third-party provider such as Active Directory Federation Services. The <a href="http://saml.xml.org/saml-specifications" target="_blank">SAML <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> protocol supports different profiles and bind options. {{site.data.keyword.appid_short_notm}} supports the web browser SSO profile, with HHTP Post binding.
+{{site.data.keyword.appid_short_notm}} functions as a service provider and initiates a single sign on (SSO) login to a third-party provider such as Active Directory Federation Services. The <a href="http://saml.xml.org/saml-specifications" target="_blank">SAML <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> protocol supports different profiles and bind options. {{site.data.keyword.appid_short_notm}} supports the web browser SSO profile, with HTTP Post binding.
 
 
 ### SAML assertions and identity token claims
