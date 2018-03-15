@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-02-28"
+lastupdated: "2018-03-15"
 
 ---
 {:new_window: target="_blank"}
@@ -12,14 +12,14 @@ lastupdated: "2018-02-28"
 {:tip: .tip}
 
 # Authorization and authentication
-{: authorization}
+{: #authorization}
 
 With {{site.data.keyword.appid_full}}, users can leverage tokens and authorization filters to ensure that their apps are protected. Before a user is able to grant authorization to an app, an identity provider must authenticate their identity.
 {: shortdesc}
 
 
 ## Key concepts
-{: key-concepts}
+{: #key-concepts}
 
 These key terms can help you understand the way that the service breaks down the authorization and authentication process.
 
