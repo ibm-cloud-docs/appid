@@ -5,7 +5,7 @@ copyright:
 lastupdated: "2018-03-15"
 
 ---
-{:new_window: target="blank"}
+{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -550,6 +550,7 @@ With cloud directory enabled, you can call customized screens with the Android S
          });
   ```
   {: pre}
+
 </br>
 </br>
 
@@ -604,3 +605,103 @@ With cloud directory enabled, you can call customized screens with the Node.js S
 </br>
 </br>
 
+## Displaying customized screens with the API
+{: #branding}
+
+You can display your own customized screens and take advantage of the authentication and authorization capabilities of {{site.data.keyword.appid_short_notm}}. With cloud directory as your identity provider, your users are able to interact with your app with less help from you. They're able to sign in, sign up, reset their password, and more without asking for help.
+{: shortdesc}
+
+To make this possible, {{site.data.keyword.appid_short_notm}} exposed REST APIs. You can use the REST API to build a back-end server that serves your web apps, or to interact with a mobile app with your own custom screens.
+
+The management API is secured with IBM Cloud Identity and Access Management generated tokens. This means that account owners can specify who on their team has which level of access for each service instance. For more information about how IAM and {{site.data.keyword.appid_short_notm}} work together, see [Service access management](/docs/services/appid/iam.html).
+
+When a user clicks sign-in from your customized screen, the [Resource Owner Password Credentials flow](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/password.html) is used to gain access and identity tokens directly from your web or mobile apps.
+
+After you've configured your [settings](/docs/services/appid/cloud-directory.html),
+
+
+**Sign up**
+You can use the `/sign_up` endpoint to allow users to sign themselves up for your app.
+Supply the following data in the request body:
+    * Your tenantID.
+    * Cloud directory user data. See [SCIM Full User Representation](https://tools.ietf.org/html/rfc7643#section-8.2) for more details.
+        * A `password` attribute.
+        * In the email array with a `primary` attribute that is set to `true`, you must have at least 1 email address.
+
+Depending on your [email configurations](/docs/services/appid/cloud-directory.html), a user might receive a request for verification, or an email that welcomes them when they sign up for you app. Both types of emails are triggered when a user signs up for your app. The verification email contains a **Verify** button. After they press the button and confirm their identity, a screen is displayed by {{site.data.keyword.appid_short_notm}} that thanks them for verifying.  
+
+You can present your own post verification page:
+
+1. Navigate to the **Custom Landing Pages** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
+2. Input the URL for your landing page in the **URL for your custom email address verification page**
+
+When this value is provided, {{site.data.keyword.appid_short_notm}} calls the URL along with a `context` query. When you call the `/sign_up/confirmation_result` endpoint and pass the received `context` parameter, the result tells you whether your user has verified their account. If they have, then you can display your custom page.
+
+</br>
+**Forgot password**
+
+You can use the `/forgot_password` endpoint to allow users to recover their password should they forget it.
+
+Supply the following data in the request body:
+    * Your tenantID.
+    * The email of the cloud directory user.
+
+When the endpoint is called, a reset password email is sent to the user. The email contains a **Reset** button. After they press the button, a screen is displayed by {{site.data.keyword.appid_short_notm}} that allows them to reset their password.
+
+You can present your own post reset password page:
+
+1. Navigate to the **Custom Landing Pages** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
+2. Input the URL for your landing page in the **URL for your custom reset password page**  
+
+When this value is provided, {{site.data.keyword.appid_short_notm}} calls the URL along with a `context` query. The `context` parameter is used to receive the result when `/forgot_password/confirmation_result` is called. If the result is successful, then you can display your custom page.
+
+Add a random string to your custom reset password page and pass it to your back-end when the request is submitted. Have your handler validate the string and call the `/change_password` endpoint only if it is valid. By doing so you can reduce vulnerability of your back-end reset password endpoint.
+{: tip}
+
+</br>
+**Change password**
+
+You can use the `/change_password` endpoint  in two ways. When a user submits a reset request, or when a user is signed in to your app and wants to update their password.
+
+To update their password after a reset request:
+
+Supply the following data in the request body:
+    * Your tenantID.
+    * The users new password
+    * The cloud directory user UUID.
+    * Optional: the IP address from which the password reset was performed. If you choose to pass the IP address, then the placeholder `%{passwordChangeInfo.ipAddress}` is available for the change password email template.
+
+Depending on your configuration, when a password is changed {{site.data.keyword.appid_short_notm}} might send an email to the user letting them know that there was a change.
+
+</br>
+To allow users to change their password while signed in to your app:
+
+Supply the following data in the request body:
+    * Your tenantID.
+    * The users new password
+    * The cloud directory user UUID.
+
+Your change password page should prompt the user to enter their current password and their new password.
+{: tip}
+
+Your back-end validates the user's current password with the ROP API, and if valid, calls the endpoint with the new password. Depending on your configuration, when a password is changed {{site.data.keyword.appid_short_notm}} might send an email to the user letting them know that there was a change.
+
+</br>
+**Resend**
+
+You can use the `/resend/{templateName}` to resent an email when a user does not receive it for some reason.
+
+Supply the following data in the request body:
+    * The tenantID.
+    * The template name
+    * The cloud directory user UUID.
+
+
+**Change details**
+
+When a user is signed in to your app, they can update some of their information. You can use the `/Users/{userId}` to get and update their information.
+
+When the user details are updated, the endpoint gets the updated user data in the request body in [SCIM format](https://tools.ietf.org/html/rfc7643#section-8.2). Be sure that you change only the relevant details.
+
+Their email address cannot be changed.
+{: tip}
