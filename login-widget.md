@@ -623,10 +623,10 @@ After you've configured your [settings](/docs/services/appid/cloud-directory.htm
 **Sign up**
 You can use the `/sign_up` endpoint to allow users to sign themselves up for your app.
 Supply the following data in the request body:
-    * Your tenantID.
-    * Cloud directory user data. See [SCIM Full User Representation](https://tools.ietf.org/html/rfc7643#section-8.2) for more details.
-        * A `password` attribute.
-        * In the email array with a `primary` attribute that is set to `true`, you must have at least 1 email address.
+  * Your tenantID.
+  * Cloud directory user data. See [SCIM Full User Representation](https://tools.ietf.org/html/rfc7643#section-8.2) for more details.
+    * A `password` attribute.
+    * In the email array with a `primary` attribute that is set to `true`, you must have at least 1 email address.
 
 Depending on your [email configurations](/docs/services/appid/cloud-directory.html), a user might receive a request for verification, or an email that welcomes them when they sign up for you app. Both types of emails are triggered when a user signs up for your app. The verification email contains a **Verify** button. After they press the button and confirm their identity, a screen is displayed by {{site.data.keyword.appid_short_notm}} that thanks them for verifying.  
 
@@ -643,8 +643,8 @@ When this value is provided, {{site.data.keyword.appid_short_notm}} calls the UR
 You can use the `/forgot_password` endpoint to allow users to recover their password should they forget it.
 
 Supply the following data in the request body:
-    * Your tenantID.
-    * The email of the cloud directory user.
+  * Your tenantID.
+  * The email of the cloud directory user.
 
 When the endpoint is called, a reset password email is sent to the user. The email contains a **Reset** button. After they press the button, a screen is displayed by {{site.data.keyword.appid_short_notm}} that allows them to reset their password.
 
@@ -666,10 +666,10 @@ You can use the `/change_password` endpoint  in two ways. When a user submits a 
 To update their password after a reset request:
 
 Supply the following data in the request body:
-    * Your tenantID.
-    * The users new password
-    * The cloud directory user UUID.
-    * Optional: the IP address from which the password reset was performed. If you choose to pass the IP address, then the placeholder `%{passwordChangeInfo.ipAddress}` is available for the change password email template.
+  * Your tenantID.
+  * The users new password
+  * The cloud directory user UUID.
+  * Optional: the IP address from which the password reset was performed. If you choose to pass the IP address, then the placeholder `%{passwordChangeInfo.ipAddress}` is available for the change password email template.
 
 Depending on your configuration, when a password is changed {{site.data.keyword.appid_short_notm}} might send an email to the user letting them know that there was a change.
 
@@ -677,9 +677,9 @@ Depending on your configuration, when a password is changed {{site.data.keyword.
 To allow users to change their password while signed in to your app:
 
 Supply the following data in the request body:
-    * Your tenantID.
-    * The users new password
-    * The cloud directory user UUID.
+  * Your tenantID.
+  * The users new password
+  * The cloud directory user UUID.
 
 Your change password page should prompt the user to enter their current password and their new password.
 {: tip}
@@ -692,9 +692,9 @@ Your back-end validates the user's current password with the ROP API, and if val
 You can use the `/resend/{templateName}` to resent an email when a user does not receive it for some reason.
 
 Supply the following data in the request body:
-    * The tenantID.
-    * The template name
-    * The cloud directory user UUID.
+  * The tenantID.
+  * The template name
+  * The cloud directory user UUID.
 
 
 **Change details**
