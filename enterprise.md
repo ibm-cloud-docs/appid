@@ -28,7 +28,6 @@ How does it work?
 
 {{site.data.keyword.appid_short_notm}} functions as a service provider and initiates a single sign on (SSO) login to a third-party provider such as Active Directory Federation Services. The <a href="http://saml.xml.org/saml-specifications" target="_blank">SAML <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> protocol supports different profiles and bind options. {{site.data.keyword.appid_short_notm}} supports the web browser SSO profile, with HTTP Post binding.
 
-
 ### SAML assertions and identity token claims
 
 A SAML assertion is a package of information that contains one or more statements. The assertion contains the authorization decision, and it might contain identity information about the user.
@@ -42,7 +41,6 @@ The following claims can be added:
 * `picture`
 
 The remaining SAML attribute elements that do not correspond to any of the standard names are ignored.
-
 
 ## Configuring your app to work with an external SAML identity provider
 {: #configuring-saml}
@@ -125,5 +123,5 @@ You can test the configuration between your SAML Identity Provider and {{site.da
 2. Navigate to the **SAML 2.0** tab of the {{site.data.keyword.appid_short_notm}} dashboard and click **Test**. A new tab opens.
 3. Login in with a user that your identity provider has already authenticated.
 4. After you complete the form, you are redirected to another page.
-  * Successful authentication: The connection between {{site.data.keyword.appid_short_notm}} and the Identity Provider is working correctly. The page displays valid [access and Identity tokens](/doc/services/appid/about.html#key-concepts).
+  * Successful authentication: The connection between {{site.data.keyword.appid_short_notm}} and the Identity Provider is working correctly. The page displays valid [access and identity tokens](/docs/services/appid/about.html#key-concepts).
   * Failed authentication: The connection is broken. The page displays the errors and the SAML response XML file.
