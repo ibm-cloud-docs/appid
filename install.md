@@ -1,13 +1,14 @@
 ---
 copyright:
   years: 2017, 2018
-lastupdated: "2018-02-15"
+lastupdated: "2018-03-19"
 
 ---
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
+{:tip: .tip}
 
 # Configuring the SDKs
 {: #configuring}
@@ -225,9 +226,16 @@ For more information, see the <a href="https://github.com/ibm-cloud-security/app
 ## Setting up the Swift SDK
 {: #swift-setup}
 
+Protect your back-ends and APIs with the {{site.data.keyword.appid_short}} server SDK.
+{:shortdesc}
+
+
 ### Before you begin
 
-* Be familiar with developing Swift applications on {{site.data.keyword.Bluemix}}.
+Prior to working with the Swift SDK, you must have the following prerequisites:
+
+* Either MacOS or Linux
+* OpenSSL 1.0.2 on Linux
 * Install Swift 3.0.2
 * Install Kitura 1.6
 
@@ -237,14 +245,31 @@ For more information, see the <a href="https://github.com/ibm-cloud-security/app
 1. Open the `Package.swift` file in the directory of your Swift app and add the `appid-serversdk-swift` dependency. For example:
 
   ```swift
-  import PackageDescription
-
   let package = Package(
+      name: “myApp",
       dependencies: [
-          .Package(url: "https://github.com/ibm-cloud-security/appid-serversdk-swift.git", majorVersion: 1)
+          .package(url: "https://github.com/ibm-cloud-security/appid-serversdk-swift.git", .upToNextMinor(from: “4.0.0")),
+      ],
+      targets: [
+          .target(
+              name: "myApp",
+              dependencies: ["BluemixAppID"]),
       ]
   )
   ```
   {: codeblock}
 
-For more information, see the <a href="https://github.com/ibm-cloud-security/appid-serversdk-swift" target="_blank">{{site.data.keyword.appid_short_notm}} Swift GitHub repository <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
+2. For MacOS: When you build on the command line, all packages should include the following flags.
+  ```
+  swift build -Xlinker -L/usr/local/opt/openssl/lib -Xcc -I/usr/local/opt/openssl/include
+  ```
+  {: pre}
+
+3. Use the following command when you create an xcodeproject:
+  ```
+  swift package generate-xcodeproj --xcconfig-overrides openssl.xcconfig
+  ```
+  {: pre}
+
+  You can copy the openssl.xcconfig from the <a href="https://github.com/ibm-cloud-security/appid-serversdk-swift" target="__blank">{{site.data.keyword.appid_short_notm}} Swift GitHub <img src="../../icons/launch-glyph.svg" alt="External link icon">.
+  {: tip}
