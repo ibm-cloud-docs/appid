@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-02-15"
+lastupdated: "2018-03-21"
 
 ---
 {:new_window: target="_blank"}
@@ -24,7 +24,7 @@ When you have problems while you are working with {{site.data.keyword.appid_shor
 {: #gettinghelp}
 
 You can get help by searching for information or by asking questions through a forum. You can also open a support ticket. When you are using the forums to ask a question, tag your question so that it is seen by the {{site.data.keyword.Bluemix_notm}} development teams.
-  * If you have technical questions about {{site.data.keyword.appid_short_notm}}, post your question on <a href="http://stackoverflow.com/search?q=appid+ibm-bluemix" target="_blank">Stack Overflow <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> and tag your question with "ibm-appid".
+  * If you have technical questions about {{site.data.keyword.appid_short_notm}}, post your question on <a href="http://stackoverflow.com/search?q=ibm+appid" target="_blank">Stack Overflow <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> and tag your question with "ibm-appid".
   * For questions about the service and getting started instructions, use the <a href="https://developer.ibm.com/answers/search.html?f=&type=question&redirect=search%2Fsearch&sort=relevance&q=appid%20[bluemix]" target="_blank">dW Answers <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> forum. Include the `appid` tag.
 
 For more information about getting support, see [How do I get the support that I need?](/docs/get-support/howtogetsupport.html#getting-customer-support).
