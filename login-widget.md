@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-03-15"
+lastupdated: "2018-03-23"
 
 ---
 {:new_window: target="_blank"}
@@ -56,6 +56,7 @@ Check out the following table to see which screens you can display for each type
     <tr>
       <th>Display screen</th>
       <th>Social identity provider</th>
+      <th>Enterprise identity provider</th>
       <th>Cloud directory</th>
     </tr>
   </thead>
@@ -64,24 +65,29 @@ Check out the following table to see which screens you can display for each type
       <td>Sign in</td>
       <td><img src="images/confirm.png" width="32" alt="Feature available" style="width:32px;" /></td>
       <td><img src="images/confirm.png" width="32" alt="Feature available" style="width:32px;" /></td>
+      <td><img src="images/confirm.png" width="32" alt="Feature available" style="width:32px;" /></td>
     </tr>
     <tr>
       <td>Sign up</td>
+      <td> </td>
       <td> </td>
       <td><img src="images/confirm.png" width="32" alt="Feature available" style="width:32px;" /></td>
     </tr>
     <tr>
       <td>Forgot password</td>
       <td> </td>
+      <td> </td>
       <td><img src="images/confirm.png" width="32" alt="Feature available" style="width:32px;" /></td>
     </tr>
     <tr>
       <td>Change password</td>
       <td> </td>
+      <td> </td>
       <td><img src="images/confirm.png" width="32" alt="Feature available" style="width:32px;" /></td>
     </tr>
     <tr>
       <td>Account details</td>
+      <td> </td>
       <td> </td>
       <td><img src="images/confirm.png" width="32" alt="Feature available" style="width:32px;" /></td>
     </tr>
@@ -585,7 +591,7 @@ With cloud directory enabled, you can call customized screens with the iOS Swift
 ### Displaying customized screens with the Node.js SDK
 {: #branded-ui-nodejs}
 
-With cloud directory enabled, you can call customized screens with the Node.js SDK. You can choose the combination of the screens that you'd like your users to be able to interact with. If you choose a Node.js backend you can use our self-Service module that in the App ID Node.js SDK (link).
+With cloud directory enabled, you can call customized screens with the Node.js SDK. You can choose the combination of the screens that you'd like your users to be able to interact with. If you choose a Node.js backend you can use our self-Service module that in the {{site.data.keyword.appid_short_notm}} Node.js SDK (link).
 {: shortdesc}
 
 **Sign in**
