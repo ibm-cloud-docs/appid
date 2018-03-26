@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-03-15"
+lastupdated: "2018-03-23"
 
 ---
 
@@ -32,7 +32,7 @@ How does it work?
 
 A SAML assertion is a package of information that contains one or more statements. The assertion contains the authorization decision, and it might contain identity information about the user.
 
-When a user signs in with an identity provider, that provider sends an assertion to App ID. App ID propagates user identity information that is returned in the SAML assertion to your app as OIDC token claims. The SAML attribute must correspond to 1 of the following OIDC claims to be added to the identity token.
+When a user signs in with an identity provider, that provider sends an assertion to {{site.data.keyword.appid_short_notm}}. {{site.data.keyword.appid_short_notm}} propagates user identity information that is returned in the SAML assertion to your app as OIDC token claims. The SAML attribute must correspond to 1 of the following OIDC claims to be added to the identity token.
 
 The following claims can be added:
 * `name`
@@ -77,7 +77,7 @@ To configure your app, you need to provide information to a SAML compatible iden
     </tr>
     <tr>
       <td><code>WantAssertionsSigned<code></td>
-      <td>The way in which the identity provider knows which identifier format it needs to send in the subject of an assertion. The way in which {{site.data.keyword.appid_short_notm}} identifies users.</td>
+      <td>The way that an identity provider checks to see if it needs to sign the assertion. The service expects that the assertion is signed, but does not support encrypted assertions.</td>
     </tr>
   </table>
 
@@ -123,5 +123,5 @@ You can test the configuration between your SAML Identity Provider and {{site.da
 2. Navigate to the **SAML 2.0** tab of the {{site.data.keyword.appid_short_notm}} dashboard and click **Test**. A new tab opens.
 3. Login in with a user that your identity provider has already authenticated.
 4. After you complete the form, you are redirected to another page.
-  * Successful authentication: The connection between {{site.data.keyword.appid_short_notm}} and the Identity Provider is working correctly. The page displays valid [access and identity tokens](/docs/services/appid/about.html#key-concepts).
+  * Successful authentication: The connection between {{site.data.keyword.appid_short_notm}} and the Identity Provider is working correctly. The page displays valid [access and identity tokens](/docs/services/appid/authorization.html#key-concepts).
   * Failed authentication: The connection is broken. The page displays the errors and the SAML response XML file.

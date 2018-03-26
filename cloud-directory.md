@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-02-16"
+lastupdated: "2018-03-23"
 
 ---
 
@@ -16,7 +16,7 @@ lastupdated: "2018-02-16"
 # Configuring cloud directory
 {: #cd}
 
-You can configure {{site.data.keyword.appid_short_notm}} to use cloud directory as an identity provider. Users can sign up and sign in to your mobile and web apps by using an email and a password. A cloud directory is a user registry that is maintained in the cloud. When a user signs up for your app with an email and a password, they're added to your directory of users. With this feature, users have the freedom to manage their own account within your app.
+Users can sign up and sign in to your mobile and web apps by using an email and a password. A cloud directory is a user registry that is maintained in the cloud. When a user signs up for your app with an email and a password, they're added to your directory of users. With this feature, users have the freedom to manage their own account within your app.
 {: shortdesc}
 
 </br>
@@ -168,7 +168,7 @@ Now that you've configured cloud directory, you're ready to add the code for the
 
 <img usemap="#options-map" border="0" class="image" id="options" src="images/options.png" width="750" alt="Click an SDK language icon to get started with cloud directory in your apps." style="width:750px;" />
 <map name="options-map" id="options-map">
-<area href="branded.html#branded-ui-android" alt="Managing the sign in experience with the Android SDK" shape="rect" coords="187, 6, 305, 120" />
-<area href="branded.html#branded-ui-ios-swift" alt="Managing the sign in experience with the iOS Swift SDK." shape="rect" coords="333, 6, 448, 125" />
-<area href="branded.html#branded-ui-nodejs" alt="Managing the sign in experience with the Node.js SDK." shape="rect" coords="472, 7, 590, 121" />
+<area href="login-widget.html#branded-ui-android" alt="Managing the sign in experience with the Android SDK" shape="rect" coords="187, 6, 305, 120" />
+<area href="login-widget.html#branded-ui-ios-swift" alt="Managing the sign in experience with the iOS Swift SDK." shape="rect" coords="333, 6, 448, 125" />
+<area href="login-widget.html#branded-ui-nodejs" alt="Managing the sign in experience with the Node.js SDK." shape="rect" coords="472, 7, 590, 121" />
 </map>
