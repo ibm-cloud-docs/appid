@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-02-16"
+lastupdated: "2018-03-23"
 
 ---
 
@@ -10,6 +10,7 @@ lastupdated: "2018-02-16"
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
+{: tip: .tip}
 
 # Configuring social identity providers
 {: #setting-up-idp}
@@ -24,6 +25,19 @@ Identity providers provide an extra level of authentication for your mobile and 
 {: shortdesc}
 
 The default credentials are set up for Facebook and Google. You are limited to 100 uses of the credentials per instance, per day. Because they are IBM credentials, they are meant to be used only in development mode. Before you publish your app, update the configuration to your own credentials.
+
+## Whitelisting your redirect URL
+{: #redirect}
+
+A redirect URL is the callback endpoint of your app. To prevent phishing attacks, App ID validates the URL against the whitelist of redirect URLs. When phishing occurs, there is a chance that an attacker may gain access to your users tokens.
+
+To add your URL to the whitelist:
+
+1. Navigate to **Identity Providers > Manage**.
+2. In the **Add web redirect URL** field, type the URL and click **+**.
+
+Do not include any query parameters in your URL. They are ignored in the validation process. Example URL: `http://host:[port]/path`
+{: tip}
 
 
 ## Configuring Facebook
@@ -85,4 +99,4 @@ After you configure your Google project and have your client ID and secret, you 
     2. In the credentials tab of your Google project, select the client ID that you created for this integration.
     3. Paste the URL from {{site.data.keyword.appid_short}} into the **Authorized redirect URIs** field and click **Save**.
 4. Click **Save** to update your Google configuration in {{site.data.keyword.appid_short}}.
-5. Optional: For web apps, enter a redirect URL in the **Manage** tab. After the authorization process completes, a user is sent to this URL.
+5. For web apps, enter a redirect URL in the **Manage** tab. After the authorization process completes, a user is sent to this URL.
