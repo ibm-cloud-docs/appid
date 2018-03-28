@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-03-26"
+lastupdated: "2018-03-28"
 
 ---
 {:new_window: target="_blank"}
@@ -133,7 +133,7 @@ You can use any of the following algorithms to process XML digital signatures.
     <td><ul><li><a href="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" target="_blank">Canonicalization <img src="../../icons/launch-glyph.svg" alt="External link icon"></a></li>
     <li><a href="http://www.w3.org/TR/2001/REC-xml-c14n-20010315#WithComments" target="_blank">Canonicalization with comments <img src="../../icons/launch-glyph.svg" alt="External link icon"></a></li>
     <li><a href="http://www.w3.org/2001/10/xml-exc-c14n#" target="_blank">Exclusive Canonicalization <img src="../../icons/launch-glyph.svg" alt="External link icon"></a></li>
-    <li><a href="Exclusive Canonicalization with comments" target="_blank">http://www.w3.org/2001/10/xml-exc-c14n#WithComments <img src="../../icons/launch-glyph.svg" alt="External link icon"></a></li>
+    <li><a href="Exclusive Canonicalization with comments" target="_blank">https://www.w3.org/TR/2002/REC-xml-exc-c14n-20020718/#WithComments <img src="../../icons/launch-glyph.svg" alt="External link icon"></a></li>
     <li><a href=" http://www.w3.org/2000/09/xmldsig#enveloped-signature" target="_blank">Enveloped Signature transform <img src="../../icons/launch-glyph.svg" alt="External link icon"></a></li></ul></td>
   </tr>
   <tr>
