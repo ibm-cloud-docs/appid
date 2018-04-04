@@ -47,5 +47,4 @@ IBM Cloud App ID
     {: .navgroup id="help"}
     faq.md
     ts_index.md
-    mca.md
     {: .navgroup-end}
