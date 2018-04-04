@@ -105,9 +105,9 @@ The actions are customized and defined by the {{site.data.keyword.Bluemix_notm}}
 
 <table>
   <tr>
+    <th>Command</th>
+    <th>Explanation</th>
     <th>Role</th>
-    <th>Permissions</th>
-    <th>Example actions</th>
   </tr>
   <tr>
     <td><code>appid-mgmt-get-redirect-uris</code></td>
