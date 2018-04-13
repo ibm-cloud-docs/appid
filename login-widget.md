@@ -2,15 +2,20 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-03-23"
+lastupdated: "2018-04-13"
 
 ---
-{:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
+{:java: #java .ph data-hd-programlang='java'}
+{:swift: #swift .ph data-hd-programlang='swift'}
+{:ios: data-hd-operatingsystem="ios"}
+{:android: data-hd-operatingsystem="android"}
 {:codeblock: .codeblock}
-{:pre: .pre}
+{:screen: .screen}
 {:tip: .tip}
+{:pre: .pre}
+{:new_window: target="blank"}
+{:shortdesc: .shortdesc}
+
 
 # Managing the sign-in experience
 
@@ -28,7 +33,7 @@ The service uses OAuth 2 grant types to map the authorization process. When you 
 ## Customizing the default sign-in screen
 {: #login-widget}
 
-You can customize the preconfigured sign-in screen to display the logo and colors of your choice.
+You can customize the default sign-in screen to display the logo and colors of your choice.
 {: shortdesc}
 
 To customize the screen:
@@ -110,12 +115,9 @@ Click on the language of your choice in the following image to start implementin
 
 ### Displaying the default screens with the Android SDK
 {: #android}
-
 You can call the preconfigured screens with the Android SDK.
 {: shortdesc}
-
 </br>
-
 **Sign in**
 1. Place the following command in your code.
     ```java
@@ -138,10 +140,8 @@ You can call the preconfigured screens with the Android SDK.
         });
     ```
   {: pre}
-
 </br>
 **Sign up**
-
 1. Set **Allow users to sign up and reset their password** to **On** in the settings for cloud directory.
 2. Call the LoginWidget to start the sign-up flow.
   ```java
@@ -165,10 +165,8 @@ You can call the preconfigured screens with the Android SDK.
   	 });
   ```
   {: pre}
-
 </br>
 **Forgot password**
-
 1. Set **Allow users to sign up and reset their password** and **Forgot password email** to **On** in the settings for cloud directory.
 2. Call the LoginWidget to start the forgot password flow.
     ```java
@@ -188,10 +186,8 @@ You can call the preconfigured screens with the Android SDK.
    		 });
     ```
     {: pre}
-
 </br>
 **Account details**
-
 1. Set **Allow users to sign up and reset their password** to **On** in the settings for cloud directory.
 2. Call the LoginWidget to start the change details flow.
    ```java
@@ -211,10 +207,8 @@ You can call the preconfigured screens with the Android SDK.
   		 });
    ```
    {: pre}
-
 </br>
 **Change password**
-
 1. Set **Allow users to sign up and reset their password** to **ON**, in the settings for cloud directory.
 2. Call the LoginWidget to start the change password flow.
    ```java
@@ -234,18 +228,17 @@ You can call the preconfigured screens with the Android SDK.
    		 });
    ```
    {: pre}
+   {: android}
 </br>
 </br>
+
 
 ### Displaying the default screens with the iOS Swift SDK
 {: #ios-swift}
-
 You can call the preconfigured screens with the iOS Swift SDK.
 {: shortdesc}
-
 </br>
 **Sign in**
-
 1. Place the following command in your code.
   ```swift
   import BluemixAppID
@@ -266,11 +259,8 @@ You can call the preconfigured screens with the iOS Swift SDK.
   AppID.sharedInstance.loginWidget?.launch(delegate: delegate())
   ```
   {: pre}
-
-
 </br>
 **Sign up**
-
 1. Set **Allow users to sign up and reset their password** to **On**, in the settings for cloud directory.
 2. Call the LoginWidget to start the sign-up flow.
   ```swift
@@ -295,10 +285,8 @@ You can call the preconfigured screens with the iOS Swift SDK.
   AppID.sharedInstance.loginWidget?.launchSignUp(delegate: delegate())
   ```
   {: pre}
-
 </br>
 **Forgot password**
-
 1. Set **Allow users to sign up and reset their password** and **Forgot password email** to **On** in the settings for cloud directory.
 2. Call the LoginWidget to start the forgot password flow.
   ```swift
@@ -319,10 +307,8 @@ You can call the preconfigured screens with the iOS Swift SDK.
   AppID.sharedInstance.loginWidget?.launchForgotPassword(delegate: delegate())
   ```
   {: pre}
-
 </br>
 **Account details**
-
 1. Set **Allow users to sign up and reset their password** to **On** in the settings for cloud directory.
 2. Call the LoginWidget to start the change details flow.
   ```swift
@@ -344,7 +330,6 @@ You can call the preconfigured screens with the iOS Swift SDK.
 
 </br>
 **Change password**
-
 1. Set **Allow users to sign up and reset their password** to **On** in the settings for cloud directory.
 2. Call the LoginWidget to start the change password flow.
   ```swift
@@ -362,6 +347,8 @@ You can call the preconfigured screens with the iOS Swift SDK.
     AppID.sharedInstance.loginWidget?.launchChangePassword(delegate: delegate())
   ```
   {: pre}
+  {: ios}
+
 </br>
 </br>
 
