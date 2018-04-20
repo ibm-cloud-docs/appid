@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-03-26"
+lastupdated: "2018-4-20"
 
 ---
 
@@ -18,9 +18,9 @@ Application security can be incredibly complicated. For most developers, it's on
 
 By requiring users to sign in to your app, you can store user data such as app preferences or information from the public social profiles, and then use that data to customize each experience of your app. App ID provides a log in framework for you, but you can also bring your own branded sign in screens when working with cloud directory.
 
-
 As an account owner, you can now set policies that define how members of your team can interact with instances of {{site.data.keyword.appid_short_notm}}. You can decide who can create, update, and delete instances of the service. For more information see [Service access management](/docs/services/appid/iam.html).
 {:tip}
+
 
 ## Creating a service instance
 {: #create}
@@ -65,3 +65,4 @@ To configure a sample app from the GUI:
 3. Click **Review Activity** to see the authentication events that occurred. After you log in, you can see an event.
 4. Customize your login experience. You can select an image, such as your logo and a header color. You can select one of the color options or insert a hex value. When you are happy with the preview, click **Save Changes**.
 5. In your browser, refresh your login page. The changes that you made in the previous step are already visible.
+
