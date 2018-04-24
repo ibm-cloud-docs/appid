@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-01-02"
+lastupdated: "2018-4-24"
 
 ---
 
@@ -11,13 +11,13 @@ lastupdated: "2018-01-02"
 {:screen: .screen}
 {:codeblock: .codeblock}
 
-
 # Adding {{site.data.keyword.appid_short_notm}} to an existing app
 
 You can use {{site.data.keyword.appid_full}} with your existing application to authenticate and store profile information about your users.
 
 
 ## Prerequisites
+{: prereq}
 
 * An existing iOS Swift, Android, Node.js, Swift, or Liberty for Java application.
 * An existing instance of {{site.data.keyword.appid_short_notm}}.
@@ -531,7 +531,7 @@ You can configure {{site.data.keyword.appid_short_notm}} to work with your exist
 
       <httpEndpoint id="defaultHttpEndpoint" httpPort="9080" host="*" httpsPort="9443" />
 
-      
+
       <applicationManager autoExpand="true"/>
 
   </server>
