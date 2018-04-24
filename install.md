@@ -1,9 +1,11 @@
 ---
+
 copyright:
   years: 2017, 2018
-lastupdated: "2018-03-19"
+lastupdated: "2018-4-24"
 
 ---
+
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
@@ -29,20 +31,24 @@ You need the following information:
   * Your {{site.data.keyword.Bluemix}} region. You can find your region by looking in the UI. The value is used for initializing your app.
     <table> <caption> Table 1. {{site.data.keyword.Bluemix_notm}} regions and corresponding SDK values </caption>
     <tr>
-      <th> {{site.data.keyword.Bluemix}} Region </th>
-      <th> SDK value </th>
+      <th>{{site.data.keyword.Bluemix}} Region</th>
+      <th>SDK value</th>
     </tr>
     <tr>
-      <td> US South </td>
-      <td> AppID.REGION_US_SOUTH </td>
+      <td>US South</td>
+      <td><code>AppID.REGION_US_SOUTH</code> </td>
     </tr>
     <tr>
-      <td> Sydney </td>
-      <td> AppID.REGION_SYDNEY </td>
+      <td>Sydney</td>
+      <td><code>AppID.REGION_SYDNEY</code></td>
     </tr>
     <tr>
-      <td> United Kingdom </td>
-      <td> AppID.REGION_UK </td>
+      <td>United Kingdom</td>
+      <td><code>AppID.REGION_UK</code></td>
+    </tr>
+    <tr>
+      <td>Germany</td>
+      <td><code>AppID.REGION_GERMANY</code></td>
     </tr>
   </table>
 
@@ -115,22 +121,26 @@ You need the following information:
   * Your Tenant ID. In the **Service Credentials** tab of your service dashboard, click **View Credentials**. Your Tenant ID is a unique identifier that is used to initialize your app.
   * Your {{site.data.keyword.Bluemix_notm}} Region.
   You can find your region by looking in the UI. The value is used for initializing your app.
-    <table> <caption> Table 1. {{site.data.keyword.Bluemix_notm}} regions and corresponding SDK values </caption>
+  <table> <caption> Table 1. {{site.data.keyword.Bluemix_notm}} regions and corresponding SDK values </caption>
     <tr>
-      <th> {{site.data.keyword.Bluemix}} Region </th>
-      <th> SDK value </th>
+      <th>{{site.data.keyword.Bluemix}} Region</th>
+      <th>SDK value</th>
     </tr>
     <tr>
-      <td> US South </td>
-      <td> AppID.REGION_US_SOUTH </td>
+      <td>US South</td>
+      <td><code>AppID.REGION_US_SOUTH</code> </td>
     </tr>
     <tr>
-      <td> Sydney </td>
-      <td> AppID.REGION_SYDNEY </td>
+      <td>Sydney</td>
+      <td><code>AppID.REGION_SYDNEY</code></td>
     </tr>
     <tr>
-      <td> United Kingdom </td>
-      <td> AppID.REGION_UK </td>
+      <td>United Kingdom</td>
+      <td><code>AppID.REGION_UK</code></td>
+    </tr>
+    <tr>
+      <td>Germany</td>
+      <td><code>AppID.REGION_GERMANY</code></td>
     </tr>
   </table>
 
