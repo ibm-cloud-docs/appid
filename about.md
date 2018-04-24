@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-03-23"
+lastupdated: "2018-4-24"
 
 ---
 
@@ -59,13 +59,13 @@ With {{site.data.keyword.appid_short_notm}}, you can add a level of security to 
 
 <dl>
   <dt> Application </dt>
-    <dd><em>Server SDK</em>: You can protect your back-end resources that are hosted on {{site.data.keyword.Bluemix_notm}} and your web apps by using the server SDK. It extracts the access token from a request and validates it with {{site.data.keyword.appid_short_notm}}. </br>
-    <em>Client SDK</em>: You can protect your mobile apps with the Android or iOS client SDK. The client SDK communicates with your cloud resources to start the authentication process when it detects an authorization challenge.</dd>
+    <dd><strong>Server SDK</strong>: You can protect your back-end resources that are hosted on {{site.data.keyword.Bluemix_notm}} and your web apps by using the server SDK. It extracts the access token from a request and validates it with {{site.data.keyword.appid_short_notm}}. </br>
+    <strong>Client SDK</strong>: You can protect your mobile apps with the Android or iOS client SDK. The client SDK communicates with your cloud resources to start the authentication process when it detects an authorization challenge.</dd>
   <dt>{{site.data.keyword.Bluemix_notm}}</dt>
-    <dd> <em>{{site.data.keyword.appid_short_notm}}</em>: After successful authentication, {{site.data.keyword.appid_short_notm}} returns access and identity tokens to your app.</br>
-    <em>Cloud directory</em>: Users can sign up for your service with their email and a password. You can then manage your users in a list view through the UI. With cloud directory, {{site.data.keyword.appid_short_notm}} functions as your identity provider.</dd>
+    <dd><strong>{{site.data.keyword.appid_short_notm}}</strong>: After successful authentication, {{site.data.keyword.appid_short_notm}} returns access and identity tokens to your app.</br>
+    <strong>Cloud directory</strong>: Users can sign up for your service with their email and a password. You can then manage your users in a list view through the UI. With cloud directory, {{site.data.keyword.appid_short_notm}} functions as your identity provider.</dd>
   <dt> External (third party) </dt>
-    <dd><em>Social and enterprise identity providers</em>:{{site.data.keyword.appid_short_notm}} supports two social identity providers: Facebook and Google+, and one enterprise identity provider: SAML 2.0 Federation. The service arranges a redirect to the identity provider and verifies the returned authentication tokens. If the tokens are valid, the service grants access to your app without ever having access to the actual passphrase.</dd>
+    <dd><strong>Social and enterprise identity providers</strong>:{{site.data.keyword.appid_short_notm}} supports two social identity providers: Facebook and Google+, and one enterprise identity provider: SAML 2.0 Federation. The service arranges a redirect to the identity provider and verifies the returned authentication tokens. If the tokens are valid, the service grants access to your app without ever having access to the actual passphrase.</dd>
 </dl>
 
 
