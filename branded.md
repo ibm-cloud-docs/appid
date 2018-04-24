@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-03-07"
+lastupdated: "2018-4-24"
 
 ---
 
@@ -41,7 +41,7 @@ With cloud directory enabled, you can call customized screens with the Android S
           }
 
           @Override
-          public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, RefreshToken refreshToken) {
+          public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken) {
             //User authenticated
           }
          });
@@ -64,7 +64,7 @@ With cloud directory enabled, you can call customized screens with the iOS Swift
 2. Log in by using the resource owner password. Access and identity tokens are obtained when a user attempts to log in by using their username and password.
   ```swift
   class delegate : TokenResponseDelegate {
-      public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, refreshToken: RefreshToken?, response:Response?) {
+      public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, response:Response?) {
       //User authenticated
       }
 
