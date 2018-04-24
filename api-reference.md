@@ -2,9 +2,10 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-03-21"
+lastupdated: "2018-4-24"
 
 ---
+
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
@@ -25,7 +26,8 @@ With the API, you can:
 * set and customize capabilities through your app back-end, such as your login widget configuration, sign-up process, and user management.
 
 
-Calls to the management api point to the following endpoint:
+Calls to the management api endpoint take the following structure:
+
 ```
 appid-oauth.<region>.bluemix.net
 ```
@@ -35,22 +37,24 @@ You can find the region by looking in the following table.
 
 <table>
   <tr>
-    <th> {{site.data.keyword.Bluemix}} Region </th>
-    <th> Endpoint </th>
+    <th>{{site.data.keyword.Bluemix}} Region</th>
+    <th>Endpoint</th>
   </tr>
   <tr>
-    <td> United Kingdom </td>
-    <td> appid-oauth.eu-gb.bluemix.net </td>
+    <td>United Kingdom</td>
+    <td><code>appid-oauth.eu-gb.bluemix.net</code></td>
   </tr>
   <tr>
-    <td> US South </td>
-    <td> appid-oauth.ng.bluemix.net </td>
+    <td>US South</td>
+    <td><code>appid-oauth.ng.bluemix.net</code></td>
   </tr>
   <tr>
-    <td> Sydney </td>
-    <td> appid-oauth.au-syd.bluemix.net </td>
+    <td>Sydney</td>
+    <td><code>appid-oauth.au-syd.bluemix.net</code></td>
   </tr>
 </table>
+
+
 
 ## Prerequisites
 {: #api-prereq}
