@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-02-15"
+lastupdated: "2018-4-24"
 
 ---
 
@@ -154,7 +154,7 @@ With {{site.data.keyword.appid_short_notm}}, you can log in [anonymously](/docs/
   ```swift
   class delegate : AuthorizationDelegate {
 
-      public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, refreshToken: RefreshToken?, response:Response?) {
+      public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, RefreshToken: refreshToken?, response:Response?) {
           //User authenticated
       }
 
