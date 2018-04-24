@@ -2,9 +2,10 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-04-19"
+lastupdated: "2018-4-24"
 
 ---
+
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
@@ -79,8 +80,9 @@ These key terms can help you understand the way that the service breaks down the
     </pre></code></dd>
   <dt>Refresh Token</dt>
       <dd>{{site.data.keyword.appid_short}} supports the ability to acquire new access and identity tokens without reauthentication, as defined in <a href="http://openid.net/specs/openid-connect-core-1_0.html#RefreshTokens" target="_blank">OIDC <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
-      By using refresh tokens, your user's need to reauthenticate less often. Generally, refresh tokens are configured to have a longer life span than a regular access token.</p>
-      To take full advantage of refresh tokens, persist the tokens for their full life span. A user cannot directly access resources with just a refresh token, which makes them much safer to persist than an access token. For examples of working with refresh tokens, check out the getting started samples.</dd>
+      When signing in with a refresh token, a user doesn't have to take any actions, such as providing credentials.
+      Generally, refresh tokens are configured to have a longer life span than a regular access token.</p>
+      To take full advantage of refresh tokens, persist the tokens for their full life span. A user cannot directly access resources with just a refresh token, which makes them much safer to persist than an access token. For examples of working with refresh tokens and how to use them to implement a *remember me* functionality, check out the getting started samples.</dd>
   <dt>Authorization headers</dt>
     <dd><p>{{site.data.keyword.appid_short}} complies with the <a href="https://tools.ietf.org/html/rfc6750" target="blank">token bearer specification <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> and uses a combination of access and identity tokens that are sent as an HTTP Authorization header. The Authorization header contains three different parts that are separated by white space. The tokens are base64 encoded. The identity token is optional.</br>
     Example:</p>
