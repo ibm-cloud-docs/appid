@@ -29,7 +29,7 @@ With the API, you can:
 Calls to the management api endpoint take the following structure:
 
 ```
-appid-oauth.<region>.bluemix.net
+appid-management.<region>.bluemix.net
 ```
 {: codeblock}
 
