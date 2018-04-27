@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-04-27"
 
 ---
 
@@ -47,6 +47,24 @@ Why would you want to use {{site.data.keyword.appid_short_notm}}? Check out the 
   </tr>
 </table>
 
+
+## Integrations
+{: #integrations}
+
+You can use {{site.data.keyword.appid_short_notm}} with other {{site.data.keyword.Bluemix_notm}} offerings.
+{:shortdesc}
+
+
+<dl>
+  <dt>{{site.data.keyword.containerlong_notm}}</dt>
+    <dd>By configuring ingress in a standard cluster, you can secure your apps at the cluster level. Check out the {{site.data.keyword.appid_short_notm}} authentication ingress annotation to get started.</dd>
+  <dt>{{site.data.keyword.openwhisk}} and API Connect</dt>
+    <dd>When you create your APIs with [{{site.data.keyword.openwhisk_short}}](/docs/openwhisk/index.html) and [API Connect](/docs/apis/management/manage_apis.html), you can secure your applications at the gateway rather than in your app code. To see the integration in action, watch <a href="https://www.youtube.com/watch?v=Fa9YD2NGZiE" target="_blank">Simple and fast social login OAUTH with APIC and {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.</dd>
+  <dt>Cloud Foundry</dt>
+    <dd>Try out one of our sample Cloud Foundry apps to see how you can integrate app id into your apps.</dd>
+  <dt>iOS Programming Guide</dt>
+    <dd>Do you develop apps for Apple? Try out the <a href="https://console.bluemix.net/docs/swift/index.html#overview" target="_blank">iOS Programming Guide <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to learn, experiment, and enhance your existing iOS apps with {{site.data.keyword.Bluemix_notm}}.</dd>
+</dl>
 
 
 ## Architecture
