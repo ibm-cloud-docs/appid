@@ -2,11 +2,11 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-05-2"
 
 ---
 
-{:new_window: target="_blank"}
+{:new_window: target="blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -91,8 +91,10 @@ These key terms can help you understand the way that the service breaks down the
     <p>If the request returns a valid token, control is passed to the next middleware and the <code>appIdAuthorizationContext</code> property is injected into the request object. This property contains original access and identity tokens, and decoded payload information as plain JSON objects.</dd>
   <dt>Web app strategy</dt>
     <dd>When the web app strategy detects unauthorized attempts to access a protected resource, it automatically redirects a user's browser to the authentication page, which can be provided by {{site.data.keyword.appid_short}}. After successful authentication, the user is returned to the web app's callback URL. The web app strategy obtains access and identity tokens and stores them in an HTTP session under <code>WebAppStrategy.AUTH_CONTEXT</code>. It is up to the user to decide whether to store access and identity tokens in the app database.</dd>
+  <dt>Data separation and encryption</dt>
+    <dd><p>{{site.data.keyword.appid_short_notm}} stores and encrypts user profile attributes. As a multi-tenant service, every tenant has a designated encryption key and user data in each tenant is encrypted with only that tenant's key.</p>
+    <p>{{site.data.keyword.appid_short_notm}} ensures that private information is encrypted before it is stored.</p></dd>
 </dl>
-
 </br>
 
 ## How the process works
