@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-05-07"
+lastupdated: "2018-05-10"
 
 ---
 
@@ -12,7 +12,7 @@ lastupdated: "2018-05-07"
 {:codeblock: .codeblock}
 {:tip: .tip}
 
-# Terminology
+# Mobile use case
 {: #terms}
 
 
