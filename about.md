@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-04-27"
+lastupdated: "2018-05-15"
 
 ---
 
@@ -65,6 +65,23 @@ You can use {{site.data.keyword.appid_short_notm}} with other {{site.data.keywor
   <dt>iOS Programming Guide</dt>
     <dd>Do you develop apps for Apple? Try out the <a href="https://console.bluemix.net/docs/swift/index.html#overview" target="_blank">iOS Programming Guide <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to learn, experiment, and enhance your existing iOS apps with {{site.data.keyword.Bluemix_notm}}.</dd>
 </dl>
+
+## Cross regional disaster recovery
+{: #recovery}
+
+Issues can arise when working with technology. With that in mind, {{site.data.keyword.appid_short_notm}} is built to support disaster recovery. You can build your apps with recovery in mind as well.
+{: shortdesc}
+
+{{site.data.keyword.appid_short_notm}} is a highly resilient service that is run on  {{site.data.keyword.containerlong_notm}} which provides the ability to replicate clusters, worker nodes, and pods across regions. With multiple regions that support several availability zones, we are able to provide regional high availability.
+
+You can implement cross-regional disaster recovery for your services by using the {{site.data.keyword.appid_short_notm}} management API. With the API, you can perform administrative tasks like copying service configurations across instances of the service in different regions or synchronizing Cloud Directory and user profiles. With the API, you can ensure that the changes that you apply to an {{site.data.keyword.appid_short_notm}} instance in your primary region are applied across the board.
+
+To ensure updates and failover across {{site.data.keyword.appid_short_notm}} instances in different regions, you might want to consider the following:
+
+* Synchronize your service instance configuration. This might include your identity provider, login widget customization, or email templates.
+* Synchronize Cloud Directory users and user profiles by using the management API.
+* Synchronize app failover from a primary instance to a secondary instance by adding both instance configurations. This might include URLs, client_ids, secrets, and more.
+* Synchronize any other areas that you want to replicate.
 
 
 ## Architecture
