@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-05-14"
+lastupdated: "2018-05-15"
 
 ---
 
@@ -15,10 +15,10 @@ lastupdated: "2018-05-14"
 # Storing and accessing user profiles
 {: #user-profile}
 
-With {{site.data.keyword.appid_full}}, you can build personalized app experiences by accessing the information about your users that is automatically stored by app id.
+With {{site.data.keyword.appid_full}}, you can build personalized app experiences by accessing the information about your users that is automatically stored by {{site.data.keyword.appid_short_notm}}.
 {: shortdesc}
 
-A user profile is a collection of attributes that are stored by app id. Attributes are pieces of information about the users that interact with your app. There are two types that can be obtained: `user` and `custom`. A user attribute is returned as a token from an identity provider when a user signs into your app. The token can include their name, age, gender, or other publicly available information. Custom attributes are learned about your users as they interact with your app. This might be their preferred language, the font size the use, or even items that they have placed in a shopping cart.
+A user profile is a collection of attributes that are stored by {{site.data.keyword.appid_short_notm}}. Attributes are pieces of information about the users that interact with your app. There are two types that can be obtained: `user` and `custom`. A user attribute is returned as a token from an identity provider when a user signs into your app. The token can include their name, age, gender, or other publicly available information. Custom attributes are learned about your users as they interact with your app. This might be their preferred language, the font size the use, or even items that they have placed in a shopping cart.
 
 
 ![{{site.data.keyword.appid_short_notm}} user profile architecture](/images/user-profile.png)
@@ -77,10 +77,134 @@ Typically, the returned information takes the following form:
 ## Accessing additional user information
 {: #accessing}
 
-You can view custom or identity provider specific information about your users by using the protected `/userinfo` endpoint.
+You can view custom or identity provider specific information about your users.
 {: shortdesc}
 
-To view the additional information:
+**Accessing user information with the iOS SDK**
+
+If new tokens are not explicitly passed to the SDK, {{site.data.keyword.appid_short_notm}} uses the last received tokens to retrieve and validate the response.
+
+For example, you can execute the following code after a successful authentication and the SDK retrieves additional information about the user.
+
+```swift
+AppID.sharedInstance.userProfileManager.getUserInfo { (error: Error?, info: [String: Any]?) in
+	guard error == nil, let info = info else {
+		return
+	}
+	// Use the user info response
+}
+
+```
+{: pre}
+
+Alternatively, you can explicitly pass access and identity tokens. The identity token is optional, but when passed, it is used to validate the user info response.
+
+```swift
+AppID.sharedInstance.userProfileManager.getUserInfo(accessToken: String, identityToken: String?) { (error: Error?, info: [String: Any]?) in
+
+}
+```
+{: pre}
+
+**Accessing user information with the Android SDK**
+
+If new tokens are not explicitly passed to the SDK, {{site.data.keyword.appid_short_notm}} uses the last received tokens to retrieve and validate the response.
+
+For example, you can execute the following code after a successful authentication and the SDK retrieves additional information about the user.
+
+```java
+AppID appId = AppID.getInstance();
+
+appId..getUserProfileManager().getUserInfo(new UserProfileResponseListener() {
+    @Override
+    public void onSuccess(JSONObject userInfo) {
+        // retrieved user info successfully
+    }
+
+    @Override
+    public void onFailure(UserInfoException e) {
+        // Exception occurred
+    }
+});
+```
+{: pre}
+
+Alternatively, you can explicitly pass access and identity tokens. The identity token is optional, but when passed, it is used to validate the user info response.
+
+```java
+AppID appId = AppID.getInstance();
+
+appId.getUserProfileManager().getUserInfo(accessToken, identityToken, new UserProfileResponseListener() {
+    @Override
+    public void onSuccess(JSONObject userInfo) {
+        // Got attribute "name" successfully
+    }
+
+    @Override
+    public void onFailure(UserInfoException e) {
+        // Exception occurred
+    }
+});
+```
+{: pre}
+
+**Accessing user info with the Node.js Server SDK**
+
+By using a server-side SDK, you can retrieve additional information about your users. You can call the following method by using the stored access and identity tokens, or you can explicitly pass the tokens. The identity token is optional, but when passed, it's used to validate the user info response.
+
+
+```javascript
+let userProfileManager = UserProfileManager(options: options)
+
+let accessToken = req.session[WebAppStrategy.AUTH_CONTEXT].accessToken;
+let identityToken = req.session[WebAppStrategy.AUTH_CONTEXT].identityToken;
+
+
+// Retrieve user info and validate against the given identity token
+userProfileManager.getUserInfo(accessToken, identityToken).then(function (profile) {
+
+	});
+
+// Retrieve user info without validation
+userProfileManager.getUserInfo(accessToken).then(function (profile) {
+
+	});
+```
+{: pre}
+
+**Accessing user information with the Swift Server SDK**
+
+
+By using a server-side SDK, you can retrieve additional information about your users. You can call the following method by using the stored access and identity tokens, or you can explicitly pass the tokens. The identity token is optional, but when passed, it's used to validate the user info response.
+
+
+```swift
+let userProfileManager = UserProfileManager(options: options)
+
+let accessToken = "<access token>"
+let identityToken = "<identity token>"
+
+// If identity token is provided (recommended approach), response is validated against the identity token
+userProfileManager.getUserInfo(accessToken: accessToken, identityToken: identityToken) { (err, userInfo) in
+	guard let userInfo = userInfo, err == nil {
+		return
+	}
+	// Use user info response
+}
+
+// Retrieve the UserInfo without any validation
+userProfileManager.getUserInfo(accessToken: accessToken) { (err, userInfo) in
+	guard let userInfo = userInfo, err == nil {
+		return
+	}
+	// Use user info response
+}
+```
+{: pre}
+
+**Accessing user info with the API**
+
+You can view additional information through the `/userinfo` endpoint.
 
 1. Be sure that you have a valid access token with an `openid` scope. You can verify that your token is valid by using the `/introspect` endpoint.
 
@@ -121,11 +245,10 @@ To view the additional information:
   ```
   {: screen}
 
-3. Verify that the `sub` claim exactly matches the `sub` claim in the identity token. If these do not match, do not use the returned information. To learn more about token substitution, see the <a href="http://openid.net/specs/openid-connect-core-1_0.html#TokenSubstitution" target="blank">OIDC specification <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
+3. Verify that the `sub` claim exactly matches the `sub` claim in the identity token. If these do not match, do not use the returned information. To learn more about token substitution, see the <a href="http://openid.net/specs/openid-connect-core-1_0.html#TokenSubstitution" target="__blank">OIDC specification <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
 
 If changes are made by an external identity provider, you can get the updated information when your users log in again. Your new tokens retrieve the most up-to-date data.
 {: tip}
-
 
 
 ## Accessing user attributes
@@ -134,7 +257,7 @@ If changes are made by an external identity provider, you can get the updated in
 When you obtain an access token, it is possible to gain access to the user protected attributes endpoint.
 {: shortdesc}
 
-{{site.data.keyword.appid_short_notm}} provides a <a href="https://appid-profiles.ng.bluemix.net/swagger-ui/index.html#/Attributes" target="blank">REST API <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> that allows log in, either anonymously or by authenticating, with a supported [identity provider](/docs/services/appid/identity-providers.html). The API endpoint is a resource that is protected by the access token that is generated by {{site.data.keyword.appid_short_notm}} during the login and authorization process.
+{{site.data.keyword.appid_short_notm}} provides a <a href="https://appid-profiles.ng.bluemix.net/swagger-ui/index.html#/Attributes" target="_blank">REST API <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> that allows log in, either anonymously or by authenticating, with a supported [identity provider](/docs/services/appid/identity-providers.html). The API endpoint is a resource that is protected by the access token that is generated by {{site.data.keyword.appid_short_notm}} during the login and authorization process.
 
 
 
@@ -160,7 +283,7 @@ When an access token is not explicitly passed, {{site.data.keyword.appid_short_n
 For example, you can call the following code to set a new attribute, or override an existing one.
 
   ```java
-  appId.getUserAttributeManager().setAttribute(name, value, useThisToken,new UserAttributeResponseListener() {
+  appId.getUserProfileManager().setAttribute(name, value, useThisToken, new UserProfileResponseListener() {
 		@Override
 		public void onSuccess(JSONObject attributes) {
 			//attributes received in JSON format on successful response
@@ -174,7 +297,7 @@ For example, you can call the following code to set a new attribute, or override
   ```
   {: pre}
 
-For more information about working in Android, check out the <a href="https://github.com/ibm-cloud-security/appid-clientsdk-android" target="blank">SDK <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
+For more information about working in Android, check out the <a href="https://github.com/ibm-cloud-security/appid-clientsdk-android" target="_blank">SDK <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
 {: tip}
 
 
@@ -203,7 +326,7 @@ When an access token is not explicitly passed, {{site.data.keyword.appid_short_n
 For example, you can call the following code to set a new attribute, or override an existing one.
 
   ```swift
-  AppID.sharedInstance.userAttributeManager?.setAttribute("key", "value", completionHandler: { (error, result) in
+  AppID.sharedInstance.userProfileManager?.setAttribute("key", "value") { (error, result) in
       if error = nil {
           //Attributes recieved as a Dictionary
       } else {
@@ -213,5 +336,5 @@ For example, you can call the following code to set a new attribute, or override
   ```
   {: pre}
 
-  For more information about working in iOS Swift, check out the <a href="https://github.com/ibm-cloud-security/appid-clientsdk-swift" target="blank">SDK <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
+  For more information about working in iOS Swift, check out the <a href="https://github.com/ibm-cloud-security/appid-clientsdk-swift" target="_blank">SDK <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
   {: tip}
