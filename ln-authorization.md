@@ -2,11 +2,11 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-05-07"
+lastupdated: "2018-05-17"
 
 ---
 
-{:new_window: target="blank"}
+{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -15,16 +15,14 @@ lastupdated: "2018-05-07"
 # Authorization and authentication
 {: #authorization}
 
-With {{site.data.keyword.appid_full}}, users can leverage tokens and authorization filters to ensure that their apps are protected. Before a user is able to grant authorization to an app, an identity provider must authenticate their identity.
-{: shortdesc}
-
 
 THIS CONTENT IS ONLY IN STAGING AND SHOULD NOT BE PROMOTED TO PRODUCTION!
 {: tip}
 
+With {{site.data.keyword.appid_full}}, users can leverage tokens and authorization filters to ensure that their apps are protected. Before a user is able to grant authorization to an app, an identity provider must authenticate their identity.
+{: shortdesc}
 
 
-CONTENT NEEDED
 
 
 ## How the process works
