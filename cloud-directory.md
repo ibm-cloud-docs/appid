@@ -57,7 +57,7 @@ You can send several types of messages to your users. You can choose to send the
     <dd><p>After they've registered, you can welcome a user to your application via email. To welcome and retain your users, make your message as engaging as possible.</p>
     <table>
       <thead>
-        <th colspan=2><img src="images/idea.png" alt="More information icon"/> All message parameters</th>
+        <th colspan=2><img src="images/idea.png"/> All message parameters </th>
       </thead>
       <tbody>
         <tr>
@@ -91,7 +91,7 @@ You can send several types of messages to your users. You can choose to send the
     <dd><p>A user can ask to have their password reset if they forget it or need to update it for any reason. You can customize the email response to their request. When a user requests a change, their password remains unchanged until they click the link in this email.</p>
     <table>
       <thead>
-        <th colspan=2><img src="images/idea.png" alt="More information icon"/> Password change parameters</th>
+        <th colspan=2><img src="images/idea.png"/> Password change parameters </th>
       </thead>
       <tbody>
         <tr>
@@ -117,7 +117,7 @@ You can send several types of messages to your users. You can choose to send the
     <dd><p>You can request that a user verifies their account via email. By requesting a verification, you limit the number of fake accounts that can sign up for your app. You can restrict access to your app until a user has verified their email, or use it as a way to manage which users you create profiles for.</p>
     <table>
       <thead>
-        <th colspan=2><img src="images/idea.png" alt="More information"/> Verification message parameters </th>
+        <th colspan=2><img src="images/idea.png"/> Verification message parameters </th>
       </thead>
       <tbody>
         <tr>
@@ -140,10 +140,10 @@ You can send several types of messages to your users. You can choose to send the
     </table>
     </dd>
   <dt>Password change</dt>
-    <dd><p>You can let a user know when their password has been updated. This is helpful if they did not request that their password be changed. They can take the proper steps to re-secure their account.</p>
+    <dd><p>You can let a user know when their password has been updated. This is helpful if they did not request that their password be changed. They can take the proper steps to resecure their account.</p>
     <table>
       <thead>
-        <th colspan=2><img src="images/idea.png" alt="More information"/> Password change parameters </th>
+        <th colspan=2><img src="images/idea.png"/> Password change parameters </th>
       </thead>
       <tbody>
         <tr>

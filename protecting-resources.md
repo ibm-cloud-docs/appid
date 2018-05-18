@@ -88,7 +88,7 @@ The following snippet demonstrates how to use `APIStrategy` in a simple Express 
 
 
 ## Protecting resources with the Swift SDK
-{: #protecting-swift}
+{: #requesting-swift}
 
 You can use {{site.data.keyword.appid_short_notm}} to protect your server side resources by using the Swift SDK.
 {: shortdesc}
