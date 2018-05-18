@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-05-18"
 
 ---
 
@@ -24,6 +24,7 @@ Build your Android apps with the {{site.data.keyword.appid_short}} client SDK, i
 
 
 ### Before you begin
+{: #before-android}
 
 You need the following information:
   * An instance of the {{site.data.keyword.appid_short_notm}} service.
@@ -55,6 +56,7 @@ You need the following information:
   * An <a href="https://developers.google.com/web/tools/setup/" target="_blank">Android Studio project<img src="../../icons/launch-glyph.svg" alt="External link icon"></a>, set up to work with Gradle.
 
 ### Installing the client SDK
+{: #install-android}
 
 1. Create an Android Studio project, or open an existing project.
 2. Add the JitPack repository to your root `build.gradle` file.
@@ -94,6 +96,7 @@ You need the following information:
 6. Synchronize your project with Gradle. Click **Tools > Android > Sync Project with Gradle Files**.
 
 ### Initializing the client SDK
+{: #initialize-android}
 
 Initialize the client SDK by passing the context, tenant ID, and region parameters to the initialize method. A common, though not mandatory, place to put the initialization code is in the onCreate method of the main activity in your Android application.
 
@@ -115,6 +118,7 @@ Build your Swift applications with the {{site.data.keyword.appid_short}} client 
 
 
 ### Before you begin
+{: #before-ios}
 
 You need the following information:
   * An instance of {{site.data.keyword.appid_short_notm}}.
@@ -149,6 +153,7 @@ You need the following information:
 
 
 ### Installing the client SDK
+{: #install-ios}
 
 The {{site.data.keyword.appid_short_notm}} client SDK is distributed with CocoaPods, a dependency manager for Swift and Objective-C Cocoa projects. CocoaPods downloads artifacts, and makes them available to your project.
 
@@ -178,6 +183,7 @@ The {{site.data.keyword.appid_short_notm}} client SDK is distributed with CocoaP
 
 
 ### Initializing the client SDK
+{: #initialize-ios}
 
 1. Add the following import to your `AppDelegate` file.
 
@@ -211,6 +217,7 @@ For more information, see the <a href="https://github.com/ibm-cloud-security/app
 {: #nodejs-setup}
 
 ### Before you begin
+{: #before-nodejs}
 
 * Be familiar with developing Node.js apps on {{site.data.keyword.Bluemix_notm}}.
 * The {{site.data.keyword.appid_short_notm}} server SDK requires that your Node.js server is implemented with the <a href="http://expressjs.com/" target="_blank">Express framework <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
@@ -219,6 +226,7 @@ For more information, see the <a href="https://github.com/ibm-cloud-security/app
 
 
 ### Installing the server SDK
+{: #install-nodejs}
 
 
 1. Using the command line, open the directory with your Node.js app.
@@ -241,6 +249,7 @@ Protect your back-ends and APIs with the {{site.data.keyword.appid_short}} serve
 
 
 ### Before you begin
+{: #before-swift}
 
 Prior to working with the Swift SDK, you must have the following prerequisites:
 
@@ -251,6 +260,7 @@ Prior to working with the Swift SDK, you must have the following prerequisites:
 
 
 ### Installing the SDK
+{: #install-swift}
 
 1. Open the `Package.swift` file in the directory of your Swift app and add the `appid-serversdk-swift` dependency. For example:
 
@@ -281,5 +291,5 @@ Prior to working with the Swift SDK, you must have the following prerequisites:
   ```
   {: pre}
 
-  You can copy the openssl.xcconfig from the <a href="https://github.com/ibm-cloud-security/appid-serversdk-swift" target="__blank">{{site.data.keyword.appid_short_notm}} Swift GitHub <img src="../../icons/launch-glyph.svg" alt="External link icon">.
+  You can copy the openssl.xcconfig from the <a href="https://github.com/ibm-cloud-security/appid-serversdk-swift" target="_blank">{{site.data.keyword.appid_short_notm}} Swift GitHub <img src="../../icons/launch-glyph.svg" alt="External link icon"</a>.
   {: tip}

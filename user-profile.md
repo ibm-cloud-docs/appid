@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-05-15"
+lastupdated: "2018-05-18"
 
 ---
 
@@ -75,7 +75,7 @@ Typically, the returned information takes the following form:
 
 
 ## Accessing additional user information
-{: #accessing}
+{: #accessing-user-info}
 
 You can view custom or identity provider specific information about your users.
 {: shortdesc}
@@ -87,11 +87,11 @@ If new tokens are not explicitly passed to the SDK, {{site.data.keyword.appid_sh
 For example, you can execute the following code after a successful authentication and the SDK retrieves additional information about the user.
 
 ```swift
-AppID.sharedInstance.userProfileManager.getUserInfo { (error: Error?, userInfo: [String: Any]?) in
-	guard let userInfo = userInfo, err == nil {
-		return // an error has occurred
+AppID.sharedInstance.userProfileManager.getUserInfo { (error: Error?, info: [String: Any]?) in
+	guard error == nil, let info = info else {
+		return
 	}
-	// retrieved user info successfully
+	// Use the user info response
 }
 
 ```
@@ -100,11 +100,8 @@ AppID.sharedInstance.userProfileManager.getUserInfo { (error: Error?, userInfo: 
 Alternatively, you can explicitly pass access and identity tokens. The identity token is optional, but when passed, it is used to validate the user info response.
 
 ```swift
-AppID.sharedInstance.userProfileManager.getUserInfo(accessToken: String, identityToken: String?) { (error: Error?, userInfo: [String: Any]?) in
-	guard let userInfo = userInfo, err == nil {
-		return // an error has occurred
-	}
-	// retrieved user info successfully
+AppID.sharedInstance.userProfileManager.getUserInfo(accessToken: String, identityToken: String?) { (error: Error?, info: [String: Any]?) in
+
 }
 ```
 {: pre}
@@ -118,16 +115,16 @@ For example, you can execute the following code after a successful authenticatio
 ```java
 AppID appId = AppID.getInstance();
 
-appId.getUserProfileManager().getUserInfo(new UserProfileResponseListener() {
-	@Override
-	public void onSuccess(JSONObject userInfo) {
-		// retrieved user info successfully
-	}
+appId..getUserProfileManager().getUserInfo(new UserProfileResponseListener() {
+    @Override
+    public void onSuccess(JSONObject userInfo) {
+        // retrieved user info successfully
+    }
 
-	@Override
-	public void onFailure(UserInfoException e) {
-		// exception occurred
-	}
+    @Override
+    public void onFailure(UserInfoException e) {
+        // Exception occurred
+    }
 });
 ```
 {: pre}
@@ -138,15 +135,15 @@ Alternatively, you can explicitly pass access and identity tokens. The identity 
 AppID appId = AppID.getInstance();
 
 appId.getUserProfileManager().getUserInfo(accessToken, identityToken, new UserProfileResponseListener() {
-	@Override
-	public void onSuccess(JSONObject userInfo) {
-		// retrieved attribute "name" successfully
-	}
+    @Override
+    public void onSuccess(JSONObject userInfo) {
+        // Got attribute "name" successfully
+    }
 
-	@Override
-	public void onFailure(UserInfoException e) {
-		// exception occurred
-	}
+    @Override
+    public void onFailure(UserInfoException e) {
+        // Exception occurred
+    }
 });
 ```
 {: pre}
@@ -165,13 +162,13 @@ let identityToken = req.session[WebAppStrategy.AUTH_CONTEXT].identityToken;
 
 // Retrieve user info and validate against the given identity token
 userProfileManager.getUserInfo(accessToken, identityToken).then(function (profile) {
-	// retrieved user info successfully
-});
+
+	});
 
 // Retrieve user info without validation
 userProfileManager.getUserInfo(accessToken).then(function (profile) {
-	// retrieved user info successfully
-});
+
+	});
 ```
 {: pre}
 
@@ -190,17 +187,17 @@ let identityToken = "<identity token>"
 // If identity token is provided (recommended approach), response is validated against the identity token
 userProfileManager.getUserInfo(accessToken: accessToken, identityToken: identityToken) { (err, userInfo) in
 	guard let userInfo = userInfo, err == nil {
-		return // an error has occurred 
+		return
 	}
-	// retrieved user info successfully
+	// Use user info response
 }
 
 // Retrieve the UserInfo without any validation
 userProfileManager.getUserInfo(accessToken: accessToken) { (err, userInfo) in
 	guard let userInfo = userInfo, err == nil {
-		return // an error has occurred
+		return
 	}
-	// retrieved user info successfully
+	// Use user info response
 }
 ```
 {: pre}
@@ -289,12 +286,12 @@ For example, you can call the following code to set a new attribute, or override
   appId.getUserProfileManager().setAttribute(name, value, useThisToken, new UserProfileResponseListener() {
 		@Override
 		public void onSuccess(JSONObject attributes) {
-			// attributes received in JSON format on successful response
+			//attributes received in JSON format on successful response
 		}
 
 		@Override
 		public void onFailure(UserAttributesException e) {
-			// exception occurred
+			//Exception occurred
 		}
 	});
   ```
@@ -329,77 +326,15 @@ When an access token is not explicitly passed, {{site.data.keyword.appid_short_n
 For example, you can call the following code to set a new attribute, or override an existing one.
 
   ```swift
-	AppID.sharedInstance.userProfileManager?.setAttribute("key", "value") { (error, result) in
-		guard let result = result, error == nil else {
-	  		return // an error has occurred
-		}
-		// attributes recieved as a Dictionary
-	})
+  AppID.sharedInstance.userProfileManager?.setAttribute("key", "value") { (error, result) in
+      if error = nil {
+          //Attributes recieved as a Dictionary
+      } else {
+          // An error has occurred
+      }
+  })
   ```
   {: pre}
 
   For more information about working in iOS Swift, check out the <a href="https://github.com/ibm-cloud-security/appid-clientsdk-swift" target="_blank">SDK <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
-  {: tip}
-
-**Accessing user attributes with the Swift Server SDK**
-
-Access to the users attributes by passing an access token through the following API methods.
-
-  ```swift
-  func getAllAttributes(accessToken: String, completionHandler: (Swift.Error?, [String: Any]?) -> Void)
-  func getAttribute(accessToken: String, attributeName: String, completionHandler: (Swift.Error?, [String: Any]?) -> Void)
-  func setAttribute(accessToken: String, attributeName: String, attributeValue : "abc", completionHandler: (Swift.Error?, [String: Any]?) -> Void)
-  func deleteAllAttributes(accessToken: String, completionHandler: (Swift.Error?, [String: Any]?) -> Void)
-  ```
-  {: pre}
-  
-  Example Usage:
-  
-  ```swift
-	
-	let userProfileManager = UserProfileManager(options: options)
-	let accesstoken = "access token"
-
-	userProfileManager.setAttribute(accessToken: accessToken, attributeName: "name", attributeValue : "abc") { (error, response) in
-		guard let response = response, error == error else {
-			return // an error has occurred
-		}
-		// attributes recieved as a Dictionary
-	}
-  ```
-  
-  {: pre}
-  
-  For more information about working in Swift Server Sdk, check out the <a href="https://github.com/ibm-cloud-security/appid-serversdk-swift" target="_blank">SDK <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
-  {: tip}
-
-**Accessing user attributes with the Node.js Server SDK**
-
-Access to the users attributes by passing an access token through the following API methods.
-
-  ```javascript
-	function getAllAttributes(accessTokenString) {}
-	function getAttribute(accessTokenString, key) {}
-	function setAttribute(accessTokenString, key, value) {}
-	function deleteAttribute(accessTokenString, name) {}
-  ```
-  {: pre}
-  
-  Example Usage:
-  
-  ```javascript
-
-	const userProfileManager = require("bluemix-appid").UserProfileManager;
-	userProfileManager.init();
-
-	var accessToken = req.session[WebAppStrategy.AUTH_CONTEXT].accessToken;
-
-	userProfileManager.setAttribute(accessToken, name, value).then(function (attributes) {
-		// attributes returned as dictionary
-	});
-  ```
-  
-  {: pre}
-  
-  For more information about working in Node.js Server Sdk, check out the <a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs" target="_blank">SDK <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
   {: tip}
