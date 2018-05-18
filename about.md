@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-05-15"
+lastupdated: "2018-05-18"
 
 ---
 
@@ -69,12 +69,12 @@ You can use {{site.data.keyword.appid_short_notm}} with other {{site.data.keywor
 ## Cross regional disaster recovery
 {: #recovery}
 
-Issues can arise when working with technology. With that in mind, {{site.data.keyword.appid_short_notm}} is built to support disaster recovery. You can build your apps with recovery in mind as well.
+{{site.data.keyword.appid_short_notm}} is built as a highly available regional service. Because technology can fail, the service is designed with failover in mind. By using {{site.data.keyword.appid_short_notm}} you can build disaster recovery into your apps too.
 {: shortdesc}
 
-{{site.data.keyword.appid_short_notm}} is a highly resilient service that is run on  {{site.data.keyword.containerlong_notm}} which provides the ability to replicate clusters, worker nodes, and pods across regions. With multiple regions that support several availability zones, we are able to provide regional high availability.
+{{site.data.keyword.appid_short_notm}} is a highly resilient service that is run on  {{site.data.keyword.containerlong_notm}} which provides the ability to replicate clusters, worker nodes, and pods across a region. With multiple regions that support several availability zones, we are able to provide regional high availability.
 
-You can implement cross-regional disaster recovery for your services by using the {{site.data.keyword.appid_short_notm}} management API. With the API, you can perform administrative tasks like copying service configurations across instances of the service in different regions or synchronizing Cloud Directory and user profiles. With the API, you can ensure that the changes that you apply to an {{site.data.keyword.appid_short_notm}} instance in your primary region are applied across the board.
+You can implement cross-regional disaster recovery for your apps by using the {{site.data.keyword.appid_short_notm}} management API. With the API, you can perform administrative tasks like copying service configurations across instances of the service in different regions or synchronizing Cloud Directory and user profiles. With the API, you can ensure that the changes that you apply to an {{site.data.keyword.appid_short_notm}} instance in your primary region are applied across the board.
 
 To ensure updates and failover across {{site.data.keyword.appid_short_notm}} instances in different regions, you might want to consider the following:
 

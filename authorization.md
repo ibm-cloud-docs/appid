@@ -2,11 +2,11 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-05-2"
+lastupdated: "2018-05-18"
 
 ---
 
-{:new_window: target="blank"}
+{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -28,7 +28,36 @@ These key terms can help you understand the way that the service breaks down the
   <dt>OAuth 2</dt>
     <dd><a href="https://tools.ietf.org/html/rfc6749" target="_blank">OAuth 2 <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> is open standard protocol that is used to provide app authorization.</dd>
   <dt>Open ID Connect (OIDC)</dt>
-    <dd><a href="http://openid.net/developers/specs/" target="_blank">OIDC <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> is an authentication layer that works on top of OAuth 2.</dd>
+    <dd><p><a href="http://openid.net/developers/specs/" target="_blank">OIDC <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> is an authentication layer that works on top of OAuth 2.</p>
+    <p>When you use OIDC and {{site.data.keyword.appid_short_notm}} together, your service credentials help to configure your OAuth endpoints. When you use the SDK the endpoint URLs are built automatically. But, you can also build the URLs yourself by using your service credentials. You can see how to put together the URL in the following example and table.</p>
+    <pre class="codeblock">
+    <code>{
+      "version": 3,
+      "clientId": "e8ac1132-5151-4d8a-934e-0141de8e2b34",
+      "secret": "XYZ5ZYXzXYZtNyz5Yi00YzQ2LXYwMZctXyM5ODA4NjFhYxYZ",
+      "tenantId": "3x176051-a23x-40y4-9645-804943z660q0",
+      "oauthServerUrl": "https://appid-oauth.ng.bluemix.net/oauth/v3/x176051-a23x-40y4-9645-804943z660q0",
+      "profilesUrl": "https://appid-profiles.ng.bluemix.net"
+    }</code></pre>
+    <table>
+      <tr>
+        <th>Endpoint</th>
+        <th>Format</th>
+      </tr>
+      <tr>
+        <td>Authorization</td>
+        <td>{oauthServerUrl}/authorization</td>
+      </tr>
+      <tr>
+        <td>Token</td>
+        <td>{oauthServerUrl}/token</td>
+      </tr>
+      <tr>
+        <td>JWKS</td>
+        <td>{oauthServerUrl}/publickeys</td>
+      </tr>
+    </table>
+    <p><strong>Note</strong>: When you use the SDK the endpoint URLs are built automatically.</p></dd>
   <dt>Access tokens</dt>
     <dd><p>Access tokens represent authorization and enable communication with [back-end resources](/docs/services/appid/protecting-resources.html) that are protected by authorization filters that are set by {{site.data.keyword.appid_short}}. The token conforms to JavaScript Object Signing and Encryption (JOSE) specifications. The tokens are formatted as <a href="https://jwt.io/introduction/" target="blank">JSON Web Tokens <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.</br>
     Example:</p>
@@ -91,10 +120,36 @@ These key terms can help you understand the way that the service breaks down the
     <p>If the request returns a valid token, control is passed to the next middleware and the <code>appIdAuthorizationContext</code> property is injected into the request object. This property contains original access and identity tokens, and decoded payload information as plain JSON objects.</dd>
   <dt>Web app strategy</dt>
     <dd>When the web app strategy detects unauthorized attempts to access a protected resource, it automatically redirects a user's browser to the authentication page, which can be provided by {{site.data.keyword.appid_short}}. After successful authentication, the user is returned to the web app's callback URL. The web app strategy obtains access and identity tokens and stores them in an HTTP session under <code>WebAppStrategy.AUTH_CONTEXT</code>. It is up to the user to decide whether to store access and identity tokens in the app database.</dd>
+  <dt>Open ID Connect (OIDC)</dt>
+    <dd><p><a href="http://openid.net/developers/specs/" target="_blank">OIDC <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> is an authentication layer that works on top of OAuth 2.</p>
+    <p>When you use OIDC clients to work with App ID, your service credentials contain the information that you need to create the configuration. In the <strong>Service credentials</strong> tab of the App ID dashboard you can find your credentials. By using the provided <code>oauthserverURL</code> you can form your OIDC endpoint.</p>
+    <pre class="codeblock">
+    <code>{
+      "version": 3,
+      "clientId": "e8ac1132-5151-4d8a-934e-0141de8e2b34",
+      "secret": "NDE5ZWEzZDYtNjg5Yi00NzQ2LWEwMTctMjM5ODA4NjFhYjBl",
+      "tenantId": "5b167052-a79a-40c7-9562-809493c660a6",
+      "oauthServerUrl": "https://appid-oauth.ng.bluemix.net/oauth/v3/5b167052-a79a-40c7-9562-809493c660a6",
+      "profilesUrl": "https://appid-profiles.ng.bluemix.net"
+    }</code></pre>
+    <table>
+      <tr>
+        <th>Endpoint</th>
+        <th>Format</th>
+      </tr>
+      <tr>
+        <td>Authorization</td>
+        <td>{oauthServerUrl}/authorization</td>
+      </tr>
+      <tr>
+        <td>Token</td>
+        <td>{oauthServerUrl}/token</td>
+      </tr></dd>
   <dt>Data separation and encryption</dt>
     <dd><p>{{site.data.keyword.appid_short_notm}} stores and encrypts user profile attributes. As a multi-tenant service, every tenant has a designated encryption key and user data in each tenant is encrypted with only that tenant's key.</p>
     <p>{{site.data.keyword.appid_short_notm}} ensures that private information is encrypted before it is stored.</p></dd>
 </dl>
+
 </br>
 
 ## How the process works
