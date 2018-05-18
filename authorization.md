@@ -144,7 +144,12 @@ These key terms can help you understand the way that the service breaks down the
       <tr>
         <td>Token</td>
         <td>{oauthServerUrl}/token</td>
-      </tr></dd>
+      </tr>
+      <tr>
+        <td>JWKS</td>
+        <td>{oauthServerUrl}/public keys</td>
+      </tr>
+    </table></dd>
   <dt>Data separation and encryption</dt>
     <dd><p>{{site.data.keyword.appid_short_notm}} stores and encrypts user profile attributes. As a multi-tenant service, every tenant has a designated encryption key and user data in each tenant is encrypted with only that tenant's key.</p>
     <p>{{site.data.keyword.appid_short_notm}} ensures that private information is encrypted before it is stored.</p></dd>
