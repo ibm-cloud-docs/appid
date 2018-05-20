@@ -2,13 +2,16 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-05-18"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:pre: .pre}
+{:tip: .tip}
+
+
 
 
 # Accessing user attributes
@@ -188,9 +191,4 @@ After an anonymous login, progressive authentication occurs even if the login wi
   ```
   {: pre}
 
-## Data separation and encryption
-{: #data}
 
-{{site.data.keyword.appid_short_notm}} stores and encrypts user profile attributes. As a multi-tenant service, every tenant has a designated encryption key and user data in each tenant is encrypted with only that tenant's key.
-
-{{site.data.keyword.appid_short_notm}} ensures that private information is encrypted before it is stored.

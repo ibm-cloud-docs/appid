@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-05-17"
 
 ---
 
@@ -593,7 +593,7 @@ With cloud directory enabled, you can call customized screens with the iOS Swift
 ### Displaying customized screens with the Node.js SDK
 {: #branded-ui-nodejs}
 
-With cloud directory enabled, you can call customized screens with the Node.js SDK. You can choose the combination of the screens that you'd like your users to be able to interact with. If you choose a Node.js backend you can use our self-Service module that in the {{site.data.keyword.appid_short_notm}} Node.js SDK (link).
+With cloud directory enabled, you can call customized screens with the Node.js SDK. You can choose the combination of the screens that you'd like your users to be able to interact with.
 {: shortdesc}
 
 **Sign in**
