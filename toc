@@ -46,5 +46,9 @@ IBM Cloud App ID
 
     {: .navgroup id="help"}
     faq.md
-    ts_index.md
+
+    {: .topicgroup}
+    Troubleshooting
+        ts_index.md
+        ts_saml.md
     {: .navgroup-end}
