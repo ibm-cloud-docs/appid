@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-05-29"
+lastupdated: "2018-05-30"
 
 ---
 
@@ -39,7 +39,7 @@ Review the following table for explanations and resolutions for the most common 
     </tr>
     <tr>
       <td><code>Invalid attribute without name. Contact your identity provider administrator.</code></td>
-      <td>There is a <code><saml:Attribute></code> without a defined value. Contact your identity provider administrator.</td>
+      <td>There is a <code>&lt;saml:Attribute&gt;</code> without a defined value. Contact your identity provider administrator.</td>
     </tr>
     <tr>
       <td><code>SAML response body must contain RelayState.</code></td>
@@ -51,7 +51,7 @@ Review the following table for explanations and resolutions for the most common 
     </tr>
     <tr>
       <td><code>Error in assertion validation. SAML Assertion signature check failed! Certificate .. may be invalid.</code></td>
-      <td>A valid signature and digest must be included in the assertion. The signature must be created by using the private key associated with the certificate that is provided in the SAML configuration; either secondary or primary can be used. <em>Note</em>: {{site.data.keyword.appid_short_notm}} does not support encrypted assertion. If your identity provider does this to your SAML assertion, disable encryption.</td>
+      <td>A valid signature and digest must be included in the assertion. The signature must be created by using the private key associated with the certificate that is provided in the SAML configuration; either secondary or primary can be used. <strong>Note</strong>: {{site.data.keyword.appid_short_notm}} does not support encrypted assertion. If your identity provider does this to your SAML assertion, disable encryption.</td>
     </tr>
   </tbody>
 </table>

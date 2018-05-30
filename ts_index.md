@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-05-29"
+lastupdated: "2018-05-30"
 
 ---
 
@@ -14,7 +14,7 @@ lastupdated: "2018-05-29"
 {:tsCauses: .tsCauses}
 {:tsResolve: .tsResolve}
 
-# Troubleshooting
+# General troubleshooting
 {: #troubleshooting}
 
 If you have problems while you're working with {{site.data.keyword.appid_full}}, consider these techniques for troubleshooting and getting help.

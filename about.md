@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-05-29"
+lastupdated: "2018-05-30"
 
 ---
 
@@ -108,24 +108,3 @@ The following diagram describes how a request flows from the client SDK to your 
 * The server SDK extracts the authorization header from the request, validates the header with the service, and grants access to a back-end resource.
 
 **Note**: The implemented protocols are fully compliant with OpenID Connect (OIDC).
-
-
-## Cross regional disaster recovery
-{: #recovery}
-
-{{site.data.keyword.appid_short_notm}} is built as a highly available regional service. In addition to regional resiliency capabilities, the service provides ways for you to implement cross-regional disaster recovery scenarios.
-{: shortdesc}
-
-{{site.data.keyword.appid_short_notm}} is a resilient service that is run on {{site.data.keyword.containerlong_notm}}. With Kubernetes, you can easily replicate clusters, worker nodes, and pods across zones. By having backups in multiple zones in each region, {{site.data.keyword.appid_short_notm}} provides regional high availability.
-
-You can implement cross-regional disaster recovery for your apps by using the {{site.data.keyword.appid_short_notm}} management API. With the API, you can perform administrative tasks like copying service configurations across instances of the service in different regions or synchronizing Cloud Directory and user profiles. With the API, you can ensure that the changes that you apply to an {{site.data.keyword.appid_short_notm}} instance in your primary region are applied across the board.
-
-Your apps can use {{site.data.keyword.appid_short_notm}} from any zone. This means that your apps and your instance of {{site.data.keyword.appid_short_notm}} do not have to be in the same location.
-{: tip}
-
-To ensure updates and failover across {{site.data.keyword.appid_short_notm}} instances in different regions, you might want to consider the following:
-
-* Ensure that your service instances are in sync. This might include your identity provider configuration, login widget customization, or email templates.
-* Check that your Cloud Directory users and their profiles are in sync by using the management API.
-* Enable app failover from a primary instance to a secondary instance by adding both instance configurations to your apps. This might include URLs, client_ids, secrets, and more.
-* Synchronize any other areas that you want to replicate.
