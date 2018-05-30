@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-05-29"
+lastupdated: "2018-05-30"
 
 ---
 
@@ -125,17 +125,3 @@ You can test the configuration between your SAML Identity Provider and {{site.da
 4. After you complete the form, you are redirected to another page.
   * Successful authentication: The connection between {{site.data.keyword.appid_short_notm}} and the Identity Provider is working correctly. The page displays valid [access and identity tokens](/docs/services/appid/authorization.html#key-concepts).
   * Failed authentication: The connection is broken. The page displays the errors and the SAML response XML file.
-
-
-### Password policy requirements
-
-You can set the policy requirements that are required as part of a SAML sign-in process.
-{: shortdesc}
-
-A strong password policy makes it difficult, or even improbable, for someone to guess the password through in either a manual or automated way. Password strength and policies are set as a regex string.
-
-Some common password strength rules:
-
-- Must contain 1 number, 1 lower case letter, and 1 capital letter. Example code: `(?:(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).*)$`
-- Can contain only english letters and numbers. Example code: `[A-Za-z0-9]*$`
-- There must be at least 1 unique character. Example code: `(\w)\w*?(?!\1)\w+$`
