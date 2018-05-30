@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-01-02"
+lastupdated: "2018-4-24"
 
 ---
 
@@ -10,20 +10,34 @@ lastupdated: "2018-01-02"
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
+{: tip: .tip}
 
 # Configuración de los proveedores de identidad social
 {: #setting-up-idp}
 
-Los proveedores de identidad proporcionan un nivel adicional de autenticación para sus apps móviles y web. Con {{site.data.keyword.appid_full}} puede configurar uno o varios proveedores de identidad para establecer un inicio de sesión único para su app.
+Los proveedores de identidad proporcionan un nivel adicional de autenticación para sus apps móviles y web. Con {{site.data.keyword.appid_full}}, puede configurar uno o varios proveedores de identidad para establecer una experiencia de inicio de sesión único para la app.
 {: shortdesc}
 
 ## Configuración predeterminada
 {: #default}
 
-{{site.data.keyword.appid_short_notm}} proporciona una configuración predeterminada para facilitar la configuración inicial de sus proveedores de identidad.
+{{site.data.keyword.appid_short_notm}} proporciona una configuración predeterminada para ayudar con la configuración inicial de los proveedores de identidad.
 {: shortdesc}
 
-Las credenciales predeterminadas están configuradas para Facebook y Google. Está limitado a 100 usos de las credenciales por instancia y por día. Dado que son credenciales de IBM, solo deberían utilizarse en su app en modo de desarrollo. Antes de publicar la app, [actualice la configuración con sus propias credenciales](/docs/services/appid/identity-providers.html).
+Las credenciales predeterminadas están configuradas para Facebook y Google. Está limitado a 100 usos de las credenciales por instancia y por día. Dado que son credenciales de IBM, están pensadas para utilizarse solo en modalidad de desarrollo. Antes de publicar la app, actualice la configuración a sus propias credenciales.
+
+## Incluir en la lista blanca el URL de redirección
+{: #redirect}
+
+Un URL de redirección es el punto final de devolución de llamada de la app. Para evitar ataques de phishing, el ID de App valida el URL en la lista blanca de las URL de redirección. Cuando se produce phishing, hay una posibilidad de que un atacante obtenga acceso a las señales del usuario.
+
+Para añadir el URL a la lista blanca:
+
+1. Vaya a **Proveedores de identidad > Gestionar**.
+2. En el campo **Añadir URL de redirección web**, escriba el URL y pulse **+**.
+
+No incluya ningún parámetro de consulta en el URL. Se omitirán en el proceso de validación. URL de ejemplo: `http://host:[port]/path`
+{: tip}
 
 
 ## Configuración de Facebook
@@ -71,12 +85,12 @@ Cree un proyecto en la <a href="https://developers.google.com/" target="_blank">
     1. Seleccione la API de Google+ como tipo de API.
     2. Seleccione **Navegador web** como espacio en el que llamará la API.
     3. Seleccione **Datos de usuario**.
-    4. Rellene los campos obligatorios para crear un ID de cliente. Se crea un secreto al mismo tiempo.
+    4. Complete los campos necesarios para crear un ID de cliente. Se crea un secreto al mismo tiempo.
 4. Anote el ID de cliente y secreto de Google. En el separador de credenciales, seleccione el ID que ha creado para obtener su secreto e ID de cliente.
 
 ### Configuración de {{site.data.keyword.appid_short}} para la autenticación de Google
 
-Una vez que haya configurado su proyecto de Google y tenga su ID de cliente y su secreto, puede editar el panel de control de servicio para la autenticación de Google.
+Después de configurar el proyecto de Google y de tener el ID de cliente y el secreto, puede editar el panel de control de servicio para la autenticación de Google.
 
 1. Desde el separador **Gestionar** del panel de control del servicio, seleccione **Google** y pulse **Editar**.
 2. Especifique el ID de cliente y el secreto que haya obtenido de la consola de Google Developers.
@@ -85,4 +99,4 @@ Una vez que haya configurado su proyecto de Google y tenga su ID de cliente y su
     2. En el separador de credenciales de su proyecto de Google, seleccione el ID de cliente que haya creado para esta integración.
     3. Pegue el URL de {{site.data.keyword.appid_short}} en el campo **URI de redirección autorizados** y haga clic en **Guardar**.
 4. Haga clic en **Guardar** para actualizar su configuración de Google en {{site.data.keyword.appid_short}}.
-5. Opcional: para las apps web, introduzca un URL de redirección en el separador **Gestionar**. Una vez que se haya completado el proceso de autorización, se envía un usuario a este URL.
+5. Para apps web, introduzca un URL de redirección en el separador **Gestionar**. Una vez que se haya completado el proceso de autorización, se envía un usuario a este URL.

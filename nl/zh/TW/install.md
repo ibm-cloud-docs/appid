@@ -1,13 +1,16 @@
 ---
+
 copyright:
   years: 2017, 2018
-lastupdated: "2018-01-02"
+lastupdated: "2018-4-24"
 
 ---
+
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
+{:tip: .tip}
 
 # 配置 SDK
 {: #configuring}
@@ -24,24 +27,28 @@ lastupdated: "2018-01-02"
 
 您需要下列資訊：
   * {{site.data.keyword.appid_short_notm}} 服務的實例。
-  * 您的承租戶 ID。在服務儀表板的**服務認證**標籤中，按一下**檢視認證**。您的承租戶 ID 會顯示在 **tenantID** 欄位中。這是用來起始設定您應用程式的唯一 ID。
+  * 您的承租戶 ID。在服務儀表板的**服務認證**標籤中，按一下**檢視認證**。您的承租戶 ID 是用來起始設定您應用程式的唯一 ID。
   * 您的 {{site.data.keyword.Bluemix}} 地區。您可以在使用者介面中尋找，以找到您的地區。此值用於起始設定應用程式。
     <table> <caption> 表 1. {{site.data.keyword.Bluemix_notm}} 地區及對應的 SDK 值</caption>
     <tr>
-      <th> Bluemix 地區</th>
-      <th> SDK 值</th>
+      <th>{{site.data.keyword.Bluemix}} 地區</th>
+      <th>SDK 值</th>
     </tr>
     <tr>
-      <td> 美國南部</td>
-      <td> AppID.REGION_US_SOUTH </td>
+      <td>美國南部</td>
+      <td><code>AppID.REGION_US_SOUTH</code> </td>
     </tr>
     <tr>
-      <td> 雪梨</td>
-      <td> AppID.REGION_SYDNEY </td>
+      <td>雪梨</td>
+      <td><code>AppID.REGION_SYDNEY </code></td>
     </tr>
     <tr>
-      <td> 英國</td>
-      <td> AppID.REGION_UK </td>
+      <td>英國</td>
+      <td><code>AppID.REGION_UK </code></td>
+    </tr>
+    <tr>
+      <td>德國</td>
+      <td><code>AppID.REGION_GERMANY</code></td>
     </tr>
   </table>
 
@@ -84,7 +91,7 @@ lastupdated: "2018-01-02"
   ```
   {: codeblock}
 
-6. 將專案與 Gradle 同步化。按一下**工具** > **Android** > **將專案與 Gradle 檔案同步化**。
+6. 將專案與 Gradle 同步化。按一下**工具 > Android > 將專案與 Gradle 檔案同步化**。
 
 ### 起始設定用戶端 SDK
 
@@ -111,30 +118,35 @@ lastupdated: "2018-01-02"
 
 您需要下列資訊：
   * {{site.data.keyword.appid_short_notm}} 的實例。
-  * 您的承租戶 ID。在服務儀表板的**服務認證**標籤中，按一下**檢視認證**。您的「承租戶 ID」會顯示在 **TenantID** 欄位中。這是用來起始設定您應用程式的唯一 ID。
+  * 您的承租戶 ID。在服務儀表板的**服務認證**標籤中，按一下**檢視認證**。您的「承租戶 ID」是用來起始設定您應用程式的唯一 ID。
   * 您的 {{site.data.keyword.Bluemix_notm}} 地區。
   您可以在使用者介面中尋找，以找到您的地區。此值用於起始設定應用程式。
-    <table> <caption> 表 1. {{site.data.keyword.Bluemix_notm}} 地區及對應的 SDK 值</caption>
+    
+  <table> <caption> 表 1. {{site.data.keyword.Bluemix_notm}} 地區及對應的 SDK 值</caption>
     <tr>
-      <th> Bluemix 地區</th>
-      <th> SDK 值</th>
+      <th>{{site.data.keyword.Bluemix}} 地區</th>
+      <th>SDK 值</th>
     </tr>
     <tr>
-      <td> 美國南部</td>
-      <td> AppID.REGION_US_SOUTH </td>
+      <td>美國南部</td>
+      <td><code>AppID.REGION_US_SOUTH</code> </td>
     </tr>
     <tr>
-      <td> 雪梨</td>
-      <td> AppID.REGION_SYDNEY </td>
+      <td>雪梨</td>
+      <td><code>AppID.REGION_SYDNEY </code></td>
     </tr>
     <tr>
-      <td> 英國</td>
-      <td> AppID.REGION_UK </td>
+      <td>英國</td>
+      <td><code>AppID.REGION_UK </code></td>
+    </tr>
+    <tr>
+      <td>德國</td>
+      <td><code>AppID.REGION_GERMANY</code></td>
     </tr>
   </table>
 
-  * Xcode 專案（8.1 版或更新版本）。
-  * CocoaPods（1.1.0 版或更新版本）。
+  * Xcode 專案（9.0.1 版或更高版本）。
+  * CocoaPods（1.1.0 版或更高版本）。
 
 
 ### 安裝用戶端 SDK
@@ -143,8 +155,7 @@ lastupdated: "2018-01-02"
 
 1. 建立 Xcode 專案，或開啟現有專案。
 2. 在專案的目錄中，開啟或建立 podfile。
-3. 在專案的目標下，新增 'BluemixAppID' 欄的相依關係。請確定，您的目標下也有 `use_frameworks!` 指令。
-  
+3. 遵循專案的目標，新增 'BluemixAppID' Pod 及 `use_frameworks!` 指令的相依關係。
 
   例如：
 
@@ -163,13 +174,13 @@ lastupdated: "2018-01-02"
   ```
   {: codeblock}
 
-6. 開啟 Xcode 專案，並啟用金鑰鏈共用。在**專案設定**下，按一下**功能 > 金鑰鏈共用**。
-7. 在**專案設定 > 資訊 > URL 類型**下，新增 **URL 類型**。請將下列值填入 **ID** 文字框及 **URL 架構**文字框：`$(PRODUCT_BUNDLE_IDENTIFIER)`
+6. 開啟 Xcode 專案，並啟用金鑰鏈共用。導覽至**專案設定 > 功能 > 金鑰鏈共用**，然後選取**啟用金鑰鏈共用**。
+7. 開啟**專案設定 > 資訊 > URL 類型**，然後新增 **URL 類型**。將 `$(PRODUCT_BUNDLE_IDENTIFIER)` 同時置於 **ID** 及 **URL 架構**文字框中。
 
 
 ### 起始設定用戶端 SDK
 
-1. 將下列 import 新增至 `AppDelegate.swift` 檔案。
+1. 將下列 import 新增至 `AppDelegate` 檔案。
 
   ```swift
   import BluemixAppID
@@ -226,9 +237,16 @@ lastupdated: "2018-01-02"
 ## 設定 Swift SDK
 {: #swift-setup}
 
+使用 {{site.data.keyword.appid_short}} 伺服器 SDK 保護後端及 API。
+{:shortdesc}
+
+
 ### 開始之前
 
-* 熟悉如何在 {{site.data.keyword.Bluemix}} 上開發 Swift 應用程式。
+在使用 Swift SDK 之前，您必須具有下列必備項目：
+
+* MacOS 或 Linux
+* OpenSSL 1.0.2 on Linux
 * 安裝 Swift 3.0.2
 * 安裝 Kitura 1.6
 
@@ -238,14 +256,31 @@ lastupdated: "2018-01-02"
 1. 開啟 Swift 應用程式的目錄中的 `Package.swift` 檔案，並新增 `appid-serversdk-swift` 相依關係。例如：
 
   ```swift
-  import PackageDescription
-
   let package = Package(
+      name: “myApp",
       dependencies: [
-          .Package(url: "https://github.com/ibm-cloud-security/appid-serversdk-swift.git", majorVersion: 1)
+          .package(url: "https://github.com/ibm-cloud-security/appid-serversdk-swift.git", .upToNextMinor(from: “4.0.0")),
+      ],
+      targets: [
+          .target(
+              name: "myApp",
+              dependencies: ["BluemixAppID"]),
       ]
   )
   ```
   {: codeblock}
 
-如需相關資訊，請參閱 <a href="https://github.com/ibm-cloud-security/appid-serversdk-swift" target="_blank">{{site.data.keyword.appid_short_notm}} Swift GitHub 儲存庫 <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>。
+2. 若為 MacOS：當您在指令行上建置時，所有套件都應該包括下列旗標。
+  ```
+  swift build -Xlinker -L/usr/local/opt/openssl/lib -Xcc -I/usr/local/opt/openssl/include
+  ```
+  {: pre}
+
+3. 當您建立 xcodeproject 時，請使用下列指令：
+  ```
+  swift package generate-xcodeproj --xcconfig-overrides openssl.xcconfig
+  ```
+  {: pre}
+
+  您可以從 <a href="https://github.com/ibm-cloud-security/appid-serversdk-swift" target="_blank">{{site.data.keyword.appid_short_notm}} Swift GitHub <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a> 複製 openssl.xcconfig。
+  {: tip}

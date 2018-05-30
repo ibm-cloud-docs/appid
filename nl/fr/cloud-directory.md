@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-02-01"
+lastupdated: "2018-4-24"
 
 ---
 
@@ -11,11 +11,12 @@ lastupdated: "2018-02-01"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
 # Configuration du répertoire cloud
 {: #cd}
 
-{{site.data.keyword.appid_short_notm}} peut être configuré pour utiliser un répertoire cloud comme fournisseur d'identité. Les utilisateurs peuvent se connecter et s'inscrire à vos applications mobiles et Web à l'aide d'un e-mail et d'un mot de passe. Un répertoire cloud est un registre d'utilisateurs géré dans le cloud. Lorsqu'un utilisateur s'inscrit à votre application avec un e-mail et un mot de passe, il est ajouté dans votre répertoire d'utilisateurs. Avec cette fonction, l'utilisateur final a la liberté de gérer son propre compte au sein de votre application.
+Les utilisateurs peuvent s'inscrire et se connecter à vos applications mobiles et Web à l'aide d'un e-mail et d'un mot de passe. Un répertoire cloud est un registre d'utilisateurs géré dans le cloud. Lorsqu'un utilisateur s'inscrit à votre application avec un e-mail et un mot de passe, il est ajouté à votre répertoire d'utilisateurs. Avec cette fonction, l'utilisateur final a la liberté de gérer son propre compte au sein de votre application.
 {: shortdesc}
 
 </br>
@@ -28,12 +29,12 @@ Vous pouvez configurer les notifications et le niveau de contrôle de votre appl
 
 ![Configuration du répertoire cloud](/images/cloud-directory.png)
 
-1. Assurez-vous que le répertoire cloud est activé en tant que fournisseur d'identité et définissez **Autoriser les utilisateurs à s'inscrire et à réinitialiser leur mot de passe** sur **On**. Lorsque cette option est **désactivée**, vous pouvez toujours ajouter des utilisateurs via la console,
-mais seulement pour vos besoins de développement.
+1. Assurez-vous que le répertoire cloud est activé en tant que fournisseur d'identité et définissez **Autoriser les utilisateurs à s'inscrire et à réinitialiser leur mot de passe** sur **On**. Si cette option est définie sur **Off**, vous pouvez toujours ajouter des utilisateurs via la console à des fins de développement.
 2. Configurez les détails de l'expéditeur. Spécifiez l'adresse e-mail à partir de laquelle vos messages seront envoyés, quel nom d'expéditeur apparaîtra et à qui les utilisateurs pourront répondre.
-**Remarque **: Lors de la configuration de votre URL d'action, accordez à l'utilisateur un délai suffisant pour lui laisser le temps de cliquer sur le lien. Pour bénéficier de certaines options, telles que la possibilité de demander une réinitialisation de son mot de passe, l'utilisateur doit confirmer la validité (l'existence) de son adresse e-mail.
+  Lorsque vous configurez votre URL d'action, veillez à accorder à l'utilisateur un temps suffisant pour cliquer sur le lien. Pour bénéficier de certaines options, telles que la possibilité de demander une réinitialisation de son mot de passe, l'utilisateur doit confirmer la validité (l'existence) de son adresse e-mail.
+  {: tip}
 3. Déterminez les types d'e-mails reçus par l'utilisateur et les informations sur l'expéditeur.
-4. A l'aide des modèles fournis, personnalisez vos messages avec votre marque ou des contenus personnalisés. Pour plus d'informations, voir [Gestion des messages](/docs/services/appid/cloud-directory.html#cd-messages).
+4. Avec les modèles fournis, personnalisez vos messages avec votre marque ou des contenus personnalisés. Pour plus d'informations, voir [Gestion des messages](/docs/services/appid/cloud-directory.html#cd-messages).
 5. Vérifiez dans l'onglet **Utilisateurs** de l'interface graphique qui s'est inscrit à votre application.
 
 </br>
@@ -49,15 +50,14 @@ Un modèle est un exemple d'e-mail que vous pouvez envoyer à vos utilisateurs. 
 
 ### Types de messages
 
-Il existe plusieurs types de messages que vous pouvez envoyer à vos utilisateurs. Vous pouvez envoyer l'exemple de message programmé dans l'interface utilisateur ou personnaliser le contenu du message pour une expérience d'application plus personnelle.
+Vous pouvez envoyer plusieurs types de message à vos utilisateurs. Vous pouvez envoyer l'exemple de message programmé dans l'interface utilisateur ou personnaliser le contenu du message pour une expérience d'application plus personnelle.
 
 <dl>
   <dt>Bienvenue</dt>
-    <dd><p>Vous pouvez envoyer un e-mail de bienvenue à chaque utilisateur de votre application venant de s'inscrire. Réservez le meilleur accueil à vos utilisateurs. Pour les fidéliser, choisissez un message aussi engageant que
-possible.</p>
+    <dd><p>Une fois qu'un utilisateur est enregistré, vous pouvez lui adresse un e-mail de bienvenue dans votre application. Réservez le meilleur accueil à vos utilisateurs. Pour les fidéliser, choisissez un message aussi engageant que possible.</p>
     <table>
       <thead>
-        <th colspan=2><img src="images/idea.png"/> Paramètres utilisables dans tous les types de messages </th>
+        <th colspan=2><img src="images/idea.png"/> Paramètres pour tous les messages </th>
       </thead>
       <tbody>
         <tr>
@@ -66,7 +66,7 @@ possible.</p>
         </tr>
         <tr>
           <td> %{user.displayName} </td>
-          <td> Affiche le pseudonyme (appelé nom d'écran dans l'interface) que l'utilisateur a choisi d'utiliser lorsqu'il interagit avec l'application. </td>
+          <td> Affiche le pseudonyme (appelé nom d'écran dans l'interface) que l'utilisateur choisit d'utiliser lorsqu'il interagit avec l'application. </td>
         </tr>
         <tr>
           <td> %{user.email} </td>
@@ -88,8 +88,7 @@ possible.</p>
     </table>
     <p>**Remarque **: un blanc apparaîtra à la place d'un paramètre si l'utilisateur n'a pas fourni l'information correspondante.</p></dd>
   <dt>Mot de passe oublié</dt>
-    <dd><p>Un utilisateur peut demander à faire réinitialiser son mot de passe s'il l'a
-oublié ou s'il doit en changer pour une raison quelconque. Vous pouvez personnaliser l'e-mail de réponse à cette demande. Le mot de passe restera inchangé tant que l'utilisateur n'aura pas cliqué sur le lien figurant dans cet e-mail de réponse.</p>
+    <dd><p>Un utilisateur peut demander à faire réinitialiser son mot de passe s'il l'a oublié ou s'il doit en changer pour une raison quelconque. Vous pouvez personnaliser l'e-mail de réponse à cette demande. Le mot de passe restera inchangé tant que l'utilisateur n'aura pas cliqué sur le lien figurant dans cet e-mail de réponse.</p>
     <table>
       <thead>
         <th colspan=2><img src="images/idea.png"/> Paramètres de changement de mot de passe </th>
@@ -142,7 +141,7 @@ Utilisable aussi comme moyen de gérer pour quels utilisateurs vous créez des p
     </table>
     </dd>
   <dt>Changement du mot de passe</dt>
-    <dd><p>Vous pouvez faire savoir à l'utilisateur que son mot de passe a changé. C'est particulièrement utile s'il n'en a pas fait la demande. Il peut alors prendre les mesures appropriées pour sécuriser à nouveau son compte.</p>
+    <dd><p>Vous pouvez faire savoir à l'utilisateur que son mot de passe a changé. Cette option est particulièrement utile s'il n'en a pas fait la demande. Il peut alors prendre les mesures appropriées pour sécuriser à nouveau son compte.</p>
     <table>
       <thead>
         <th colspan=2><img src="images/idea.png"/> Paramètres de changement de mot de passe </th>
@@ -161,16 +160,16 @@ Utilisable aussi comme moyen de gérer pour quels utilisateurs vous créez des p
     </dd>
 </dl>
 </br>
-**REMARQUE** : {{site.data.keyword.appid_short_notm}} utilise <a href="https://www.sendgrid.com" target="_blank">SendGrid <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> comme service de distribution de courrier. Tous les courriers électroniques sont envoyés à l'aide d'un seul compte SendGrid.
+**REMARQUE** : {{site.data.keyword.appid_short_notm}} utilise <a href="https://www.sendgrid.com" target="_blank">SendGrid <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a> comme service de distribution de courrier. Tous les courriers électroniques sont envoyés à l'aide d'un seul compte SendGrid.
 
 </br>
 ## Etapes suivantes
 Maintenant que vous avez configuré le répertoire cloud, vous êtes prêt à ajouter le code du widget de connexion à votre code d'application. Cliquez sur une icône de langage SDK dans l'image suivante pour voir ce que vous devez faire.
 {: shortdesc}
 
-<img usemap="#options-map" border="0" class="image" id="options" src="images/options.png" width="750" alt="Cliquez sur une icône de langage SDK pour commencer à utiliser le répertoire cloud dans vos applications." style="width:750px;" />
+<img usemap="#options-map" border="0" class="image" id="options" src="images/options.png" width="750" alt="Cliquez sur une icône de langage SDK pour débuter avec le répertoire cloud dans vos applications." style="width:750px;" />
 <map name="options-map" id="options-map">
-<area href="branded.html#branded-ui-android" alt="Gestion de l'expérience de connexion avec le SDK Android" shape="rect" coords="187, 6, 305, 120" />
-<area href="branded.html#branded-ui-ios-swift" alt="Gestion de l'expérience de connexion avec le SDK Swift iOS." shape="rect" coords="333, 6, 448, 125" />
-<area href="branded.html#branded-ui-nodejs" alt="Gestion de l'expérience de connexion avec le SDK Node.js." shape="rect" coords="472, 7, 590, 121" />
+<area href="login-widget.html#branded-ui-android" alt="Gestion de l'expérience de connexion avec le SDK Android" shape="rect" coords="187, 6, 305, 120" />
+<area href="login-widget.html#branded-ui-ios-swift" alt="Gestion de l'expérience de connexion avec le SDK Swift iOS." shape="rect" coords="333, 6, 448, 125" />
+<area href="login-widget.html#branded-ui-nodejs" alt="Gestion de l'expérience de connexion avec le SDK Node.js." shape="rect" coords="472, 7, 590, 121" />
 </map>

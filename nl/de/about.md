@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-02-01"
+lastupdated: "2018-04-27"
 
 ---
 
@@ -39,32 +39,51 @@ Zahlreiche Gründe sprechen für die Verwendung von {{site.data.keyword.appid_sh
   </tr>
   <tr>
     <td> Sie möchten personalisierte App-Umgebungen für Ihre Benutzer erstellen. </td>
-    <td> {{site.data.keyword.appid_short_notm}} ermöglicht das [Speichern von Benutzerdaten](/docs/services/appid/user-profile.html), wie z. B. App-Benutzervorgaben oder Informationen aus den öffentlichen Social Media-Profilen der Benutzer, und das Verwenden dieser Daten zur Anpassung der verschiedenen Schnittstellen Ihrer App.</td>
+    <td> {{site.data.keyword.appid_short_notm}} ermöglicht das [Speichern von Benutzerdaten](/docs/services/appid/user-profile.html), wie z. B. App-Benutzervorgaben oder Informationen aus den öffentlichen Social Media-Profilen der Benutzer, und das Verwenden dieser Daten zur Anpassung der verschiedenen Schnittstellen Ihrer App. </td>
   </tr>
   <tr>
-    <td> Sie möchten es Benutzern ermöglichen, mit ihrer E-Mail-Adresse und einem Kennwort auf Ihre App zuzugreifen.</td>
-    <td> {{site.data.keyword.appid_short_notm}} bietet die Möglichkeit, ein [Cloudverzeichnis](/docs/services/appid/cloud-directory.html) zu erstellen. Damit können Sie Benutzeranmeldefunktionalität zu mobilen Apps und Web-Apps hinzufügen. Cloud Directory stellt das Framework zur Verwaltung einer Benutzerregistry bereit, die dem jeweiligen Benutzerstamm entsprechend skaliert werden kann. Mit der vordefinierten Self-Service-Funktionalität, z. B. für die E-Mail-Verifizierung und das Zurücksetzen von Kennwörtern, können Sie sich darauf verlassen, dass Ihre App eine sichere Benutzerauthentifizierung bietet.</td>
+    <td> Sie möchten es Benutzern ermöglichen, mit ihrer E-Mail-Adresse und einem Kennwort auf Ihre App zuzugreifen. </td>
+    <td> {{site.data.keyword.appid_short_notm}} ermöglicht Ihnen, ein [Cloudverzeichnis](/docs/services/appid/cloud-directory.html) zu erstellen, womit Sie Anmelde- und Registrierungsfunktionen für Benutzer zu mobilen Apps und Web-Apps hinzufügen können. Cloud Directory stellt das Framework zur Verwaltung einer Benutzerregistry bereit, die dem jeweiligen Benutzerstamm entsprechend skaliert werden kann. Mit der vordefinierten Self-Service-Funktionalität, z. B. für die E-Mail-Verifizierung und das Zurücksetzen von Kennwörtern, können Sie sich darauf verlassen, dass Ihre App eine sichere Benutzerauthentifizierung bietet. </td>
   </tr>
 </table>
+
+
+## Integrationen
+{: #integrations}
+
+Sie können {{site.data.keyword.appid_short_notm}} mit anderen {{site.data.keyword.Bluemix_notm}}-Angeboten nutzen.
+{:shortdesc}
+
+
+<dl>
+  <dt>{{site.data.keyword.containerlong_notm}}</dt>
+    <dd>Durch die Konfiguration von Ingress in einem Standardcluster können Sie Ihre Apps auf Clusterebene schützen. Entnehmen Sie die Ingress-Annotation der {{site.data.keyword.appid_short_notm}}-Authentifizierung, um zu beginnen. </dd>
+  <dt>{{site.data.keyword.openwhisk}} und API Connect</dt>
+    <dd>Wenn Sie Ihre APIs mit [{{site.data.keyword.openwhisk_short}}](/docs/openwhisk/index.html) und [API Connect](/docs/apis/management/manage_apis.html) erstellen, können Sie Ihre Anwendungen auf dem Gateway anstatt in Ihrem App-Code sichern. Um die Integration in Aktion zu erleben, sehen Sie sich <a href="https://www.youtube.com/watch?v=Fa9YD2NGZiE" target="_blank">Einfache und schnelle Social Media-OAUTH-Registrierung mit APIC und {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a> an.</dd>
+  <dt>Cloud Foundry</dt>
+    <dd>Probieren Sie eine unserer Cloud Foundry-Beispielapps aus, um zu sehen, wie Sie die App-ID in Ihre Apps integrieren können. </dd>
+  <dt>iOS Programming Guide</dt>
+    <dd>Entwickeln Sie Apps für Apple? Lesen Sie im <a href="https://console.bluemix.net/docs/swift/index.html#overview" target="_blank">iOS Programming Guide <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a>, um mehr über Ihre vorhandenen iOS-Apps mit {{site.data.keyword.Bluemix_notm}} zu erfahren, damit zu experimentieren und sie zu verbessern. </dd>
+</dl>
 
 
 ## Architektur
 {: #architecture}
 
-Mit {{site.data.keyword.appid_short_notm}} können Sie eine zusätzliche Sicherheitsstufe in Ihren Apps implementieren, indem Sie es erforderlich machen, dass die Benutzer eine Anmeldung durchführen. Darüber hinaus können Sie das Server-SDK verwenden, um Ihre Back-End-Ressourcen zu schützen.
+Mit {{site.data.keyword.appid_short_notm}} können Sie eine zusätzliche Sicherheitsstufe in Ihren Apps implementieren, indem Sie es erforderlich machen, dass die Benutzer eine Registrierung durchführen. Darüber hinaus können Sie das Server-SDK verwenden, um Ihre Back-End-Ressourcen zu schützen.
 {: shortdesc}
 
 ![{{site.data.keyword.appid_short_notm}}-Architekturdiagramm](/images/appid_architecture.png)
 
 <dl>
   <dt> Anwendung </dt>
-    <dd> Server-SDK: Sie können die Back-End-Ressourcen, die in {{site.data.keyword.Bluemix_notm}} bereitgestellt werden, und die Web-Apps mit dem Server-SDK schützen. Das Server-SDK extrahiert das Zugriffstoken aus einer Anforderung und validiert es mit {{site.data.keyword.appid_short_notm}}. </br>
-    Client-SDK: Sie können mobile Apps mit dem Android- oder iOS-Client-SDK schützen. Das Client-SDK kommuniziert mit den Cloud-Ressourcen, um den Authentifizierungsprozess zu starten, sobald es eine Berechtigungsanforderung (Challenge) feststellt.</dd>
-  <dt> {{site.data.keyword.Bluemix_notm}} </dt>
-    <dd> App ID: Nach der erfolgreichen Authentifizierung gibt {{site.data.keyword.appid_short_notm}} Zugriffs- und Identitätstoken an die Anwendung zurück.</br>
-    Cloud Directory: Benutzer können sich mit ihrer E-Mail-Adresse und einem Kennwort bei Ihrem Service anmelden. Sie können die Benutzer dann in einer Listenansicht über die Benutzerschnittstelle verwalten. </dd>
-  <dt> Extern (anderer Anbieter) </dt>
-    <dd>  {{site.data.keyword.appid_short_notm}} unterstützt zwei Social Media-Identitätsprovider: Facebook und Google+. Der Service veranlasst eine Weiterleitung an den Identitätsprovider und ermöglicht nach dem Verifizieren der Authentifizierung den Zugriff auf Ihre App. {{site.data.keyword.appid_short_notm}} verifiziert die Berechtigungsnachweise, ohne über Zugriff auf die tatsächliche Kennphrase zu Verfügen.</dd>
+    <dd><strong>Server-SDK</strong>: Sie können die Back-End-Ressourcen, die in {{site.data.keyword.Bluemix_notm}} bereitgestellt werden, und die Web-Apps mit dem Server-SDK schützen. Das Server-SDK extrahiert das Zugriffstoken aus einer Anforderung und validiert es mit {{site.data.keyword.appid_short_notm}}. </br>
+    <strong>Client-SDK</strong>: Sie können mobile Apps mit dem Android- oder iOS-Client-SDK schützen. Das Client-SDK kommuniziert mit den Cloud-Ressourcen, um den Authentifizierungsprozess zu starten, sobald es eine Berechtigungsanforderung (Challenge) feststellt.</dd>
+  <dt>{{site.data.keyword.Bluemix_notm}}</dt>
+    <dd><strong>{{site.data.keyword.appid_short_notm}}</strong>: Nach der erfolgreichen Authentifizierung gibt {{site.data.keyword.appid_short_notm}}  Zugriffs- und Identitätstoken an die App zurück.</br>
+    <strong>Cloudverzeichnis</strong>: Benutzer können sich mit ihrer E-Mail-Adresse und einem Kennwort bei Ihrem Service registrieren. Sie können die Benutzer dann in einer Listenansicht über die Benutzerschnittstelle verwalten. Mit dem Cloudverzeichnis fungiert {{site.data.keyword.appid_short_notm}} wie Ihr Identitätsprovider. </dd>
+  <dt>Extern (anderer Anbieter)</dt>
+    <dd><strong>Social Media- und Unternehmensidentitätsprovider</strong>:{{site.data.keyword.appid_short_notm}} unterstützt zwei Social Media-Identitätsprovider: Facebook und Google+ sowie einen Unternehmensidentitätsprovider: SAML 2.0 Federation. Der Service veranlasst eine Weiterleitung an den Identitätsprovider und überprüft die zurückgegebenen Authentifizierungstokens. Wenn die Tokens gültig sind, gewährt der Service Zugriff auf Ihre App, ohne dass Zugriff auf die tatsächliche Kennphrase besteht. </dd>
 </dl>
 
 

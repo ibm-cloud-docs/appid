@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-02-01"
+lastupdated: "2018-4-24"
 
 ---
 
@@ -11,11 +11,12 @@ lastupdated: "2018-02-01"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
 # 클라우드 디렉토리 구성
 {: #cd}
 
-{{site.data.keyword.appid_short_notm}}를 구성하여 ID 제공자로 클라우드 디렉토리를 사용할 수 있습니다. 이메일과 비밀번호를 사용하여 모바일과 엡 앱에 등록 및 사인인할 수 있습니다. 클라우드 디렉토리는 클라우드에서 유지보수되는 사용자 레지스트리입니다. 사용자가 이메일과 비밀번호를 사용하여 앱에 등록하면 사용자 디렉토리에 추가됩니다. 이 기능을 사용하면 일반 사용자가 앱에서 고유 계정을 자유롭게 관리할 수 있습니다.
+사용자는 이메일과 비밀번호를 사용하여 모바일 및 웹 앱에 등록하고 사인인할 수 있습니다. 클라우드 디렉토리는 클라우드에서 유지보수되는 사용자 레지스트리입니다. 이메일과 비밀번호를 사용하여 앱에 등록하는 경우, 해당 사용자는 사용자 디렉토리에 추가됩니다. 이 기능을 사용하여 사용자는 앱 내에서 자신의 계정을 자유롭게 관리할 수 있습니다.
 {: shortdesc}
 
 </br>
@@ -28,11 +29,12 @@ lastupdated: "2018-02-01"
 
 ![클라우드 디렉토리 구성](/images/cloud-directory.png)
 
-1. 클라우드 디렉토리가 ID 제공자로 설정되어 있는지 확인하고 **사용자가 등록하고 비밀번호를 재설정할 수 있도록 허용**을 **설정**으로 지정하십시오. **끄기**로 설정된 경우 콘솔을 통해 계속해서 사용자를 추가할 수 있으나, 이는 개발 목적으로만 가능합니다.
+1. 클라우드 디렉토리가 ID 제공자로 설정되어 있는지 확인하고 **사용자가 등록하고 비밀번호를 재설정할 수 있도록 허용**을 **설정**으로 지정하십시오. **끄기**로 설정된 경우에도 여전히 개발 용도로 콘솔을 통해 사용자를 추가할 수 있습니다. 
 2. 발신인 세부사항을 구성하십시오. 메시지가 표시될 이메일 주소, 발신인 및 사용자가 회신할 대상을 지정하십시오.
-  **참고**: 사용자가 링크를 클릭하는 데 충분한 시간을 지정하도록 조치 URL을 구성하는 시기를 확인하십시오. 사용자는 이메일에 비밀번호 재설정을 요청하는 기능과 같은 특정 옵션이 있는지 확인해야 합니다.
+  조치 URL을 구성하는 경우에는 사용자가 링크를 클릭할 수 있도록 충분한 시간을 제공하십시오. 사용자는 이메일에 비밀번호 재설정을 요청하는 기능과 같은 특정 옵션이 있는지 확인해야 합니다.
+  {: tip}
 3. 사용자가 수신하는 이메일의 유형 및 발신인 정보의 유형을 결정하십시오.
-4. 제공된 템플리트를 사용하여 사용자의 브랜드 또는 개인화된 메시지로 메시지를 사용자 정의하십시오. 자세한 정보는 [메시지 관리](/docs/services/appid/cloud-directory.html#cd-messages)를 참조하십시오.
+4. 제공된 템플리트를 사용하여 브랜드가 있는 메시지나 개인화된 메시지를 사용자 정의하십시오. 자세한 정보는 [메시지 관리](/docs/services/appid/cloud-directory.html#cd-messages)를 참조하십시오. 
 5. GUI의 **사용자** 탭에서 앱에 등록한 사용자를 확인하십시오.
 
 </br>
@@ -40,7 +42,7 @@ lastupdated: "2018-02-01"
 ## 메시지 관리
 {: #cd-messages}
 
-템플리트는 사용자에게 전송할 수 있는 이메일 메시지의 예제입니다. 메시지의 컨텐츠 및 레이아웃을 업데이트하여 템플리트를 사용자 정의할 수 있습니다. 디렉토리 설정 탭에서 이 메시지를 **설정** 또는 **해제**로 설정할 수 있습니다.
+템플리트는 사용자에게 전송할 수 있는 이메일 메시지의 예입니다. 메시지의 컨텐츠 및 레이아웃을 업데이트하여 템플리트를 사용자 정의할 수 있습니다. 디렉토리 설정 탭에서 이 메시지를 **설정** 또는 **해제**로 설정할 수 있습니다.
 {: shortdesc}
 
 1. **메시지 유형**을 선택하십시오.
@@ -48,14 +50,14 @@ lastupdated: "2018-02-01"
 
 ### 메시지 유형
 
-사용자에게 보낼 수 있는 메시지 유형은 여러 가지가 있습니다. UI로 프로그래밍된 예제 메시지를 보내도록 선택하거나 더 개인적인 앱 환경을 위해 컨텐츠를 사용자 정의할 수 있습니다.
+다양한 유형의 메시지를 사용자에게 발송할 수 있습니다. UI로 프로그래밍된 예제 메시지를 보내도록 선택하거나 더 개인적인 앱 환경을 위해 컨텐츠를 사용자 정의할 수 있습니다.
 
 <dl>
   <dt>환영</dt>
-    <dd><p>사용자가 애플리케이션에 등록한 후 이메일을 통해 사용자를 환영할 수 있습니다. 사용자를 환영하거나 보류하려면 최대한 메시지를 관련시키십시오.</p>
+    <dd><p>사용자가 등록을 마치면 애플리케이션을 이용하는 사용자를 이메일을 통해 환영할 수 있습니다. 사용자를 환영하거나 보류하려면 최대한 메시지를 관련시키십시오.</p>
     <table>
       <thead>
-        <th colspan=2><img src="images/idea.png"/> 모든 유형의 메시지에 사용할 수 있는 매개변수 </th>
+        <th colspan=2><img src="images/idea.png"/> 모든 메시지 매개변수 </th>
       </thead>
       <tbody>
         <tr>
@@ -86,7 +88,7 @@ lastupdated: "2018-02-01"
     </table>
     <p>**참고**: 사용자가 매개변수로 수집된 정보를 제공하지 않는 경우 공백으로 표시됩니다.</p></dd>
   <dt>비밀번호 찾기</dt>
-    <dd><p>어떠한 이유로든 잊어버린 비밀번호를 재설정해야 하는지 또는 업데이트해야 하는지를 물어볼 수 있습니다. 요청에 대한 이메일 응답을 사용자 정의할 수 있습니다. 사용자가 변경을 요청한 경우 이메일의 링크를 클릭할 때까지 비밀번호는 변경되지 않습니다.</p>
+    <dd><p>비밀번호를 잊었거나 어떤 이유로든 이의 업데이트가 필요한 경우, 사용자는 비밀번호 재설정을 요청할 수 있습니다. 요청에 대한 이메일 응답을 사용자 정의할 수 있습니다. 사용자가 변경을 요청한 경우 이메일의 링크를 클릭할 때까지 비밀번호는 변경되지 않습니다.</p>
     <table>
       <thead>
         <th colspan=2><img src="images/idea.png"/> 비밀번호 변경 매개변수 </th>
@@ -138,7 +140,7 @@ lastupdated: "2018-02-01"
     </table>
     </dd>
   <dt>비밀번호 변경</dt>
-    <dd><p>비밀번호가 업데이트될 때 사용자에게 알릴 수 있습니다. 비밀번호 변경을 요청하지 않은 경우 유용합니다. 계정의 보안을 재설정하기 위한 적절한 단계를 수행할 수 있습니다.</p>
+    <dd><p>비밀번호가 업데이트될 때 사용자에게 알릴 수 있습니다. 이는 사용자가 비밀번호 변경을 요청하지 않은 경우에 유용합니다. 사용자는 적절한 단계를 수행하여 계정을 재차 보호할 수 있습니다. </p>
     <table>
       <thead>
         <th colspan=2><img src="images/idea.png"/> 비밀번호 변경 매개변수 </th>
@@ -157,16 +159,16 @@ lastupdated: "2018-02-01"
     </dd>
 </dl>
 </br>
-**참고**: {{site.data.keyword.appid_short_notm}}에서는 <a href="https://www.sendgrid.com" target="_blank">SendGrid <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>를 메일 전달 서비스로 사용합니다. 모든 이메일은 하나의 SendGrid 계정을 사용하여 보냅니다.
+**참고**: {{site.data.keyword.appid_short_notm}}에서는 <a href="https://www.sendgrid.com" target="_blank">SendGrid <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>를 메일 전달 서비스로 사용합니다. 모든 이메일은 단일 SendGrid 계정으로 발송됩니다. 
 
 </br>
 ## 다음 단계
-이제 클라우드 디렉토리를 구성했으므로 loginwidget의 코드를 앱 코드에 추가할 준비가 되었습니다. 다음 이미지에서 SDK 언어 아이콘을 클릭하여 수행해야 하는 작업을 확인하십시오.
+이제 클라우드 디렉토리를 구성했으므로 로그인 위젯의 코드를 앱 코드에 추가할 준비가 되었습니다. 다음 이미지에서 SDK 언어 아이콘을 클릭하여 수행해야 할 작업을 볼 수 있습니다.
 {: shortdesc}
 
-<img usemap="#options-map" border="0" class="image" id="options" src="images/options.png" width="750" alt="SDK 언어 아이콘을 클릭하여 앱에서 클라우드 디렉토리를 시작하십시오." style="width:750px;" />
+<img usemap="#options-map" border="0" class="image" id="options" src="images/options.png" width="750" alt="SDK 언어 아이콘을 클릭하여 앱에서 클라우드 디렉토리를 시작할 수 있습니다. " style="width:750px;" />
 <map name="options-map" id="options-map">
-<area href="branded.html#branded-ui-android" alt="Android SDK로 사인인 환경 관리" shape="rect" coords="187, 6, 305, 120" />
-<area href="branded.html#branded-ui-ios-swift" alt="iOS Swift SDK로 사인인 환경 관리" shape="rect" coords="333, 6, 448, 125" />
-<area href="branded.html#branded-ui-nodejs" alt="Node.js SDK로 사인인 환경 관리" shape="rect" coords="472, 7, 590, 121" />
+<area href="login-widget.html#branded-ui-android" alt="Android SDK로 사인인 환경 관리" shape="rect" coords="187, 6, 305, 120" />
+<area href="login-widget.html#branded-ui-ios-swift" alt="iOS Swift SDK로 사인인 환경 관리" shape="rect" coords="333, 6, 448, 125" />
+<area href="login-widget.html#branded-ui-nodejs" alt="Node.js SDK로 사인인 환경 관리" shape="rect" coords="472, 7, 590, 121" />
 </map>

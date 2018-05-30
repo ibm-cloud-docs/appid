@@ -1,0 +1,50 @@
+{:navgroup: .navgroup}
+{:topicgroup: .topicgroup}
+
+{: .toc subcollection="appid" audience="service" href="/docs/services/appid/index.html"}
+ID applicazione IBM Cloud
+
+    {: .navgroup id="learn"}
+    index.md
+    about.md
+    authorization.md
+    {: .navgroup-end}
+
+    {: .navgroup id="howto"}
+    install.md
+
+    {: .topicgroup}
+    Autenticazione degli utenti
+        identity-providers.md
+        enterprise.md
+        cloud-directory.md
+        login-widget.md
+
+    protecting-resources.md
+    user-profile.md
+    protecting-resources-local.md
+    existing.md
+    iam.md
+    api-reference.md
+    {: .navgroup-end}
+
+    {: .navgroup id="reference"}
+    {: .topicgroup}
+    API
+        [Autorizzazione](http://mobileclientaccess.mybluemix.net/swagger-ui/#/Authorization_Server_V3)
+        [Gestione](https://appid-management.ng.bluemix.net/swagger-ui/)
+        [Profili](https://appid-profiles.ng.bluemix.net/swagger-ui/index.html)
+
+    {: .topicgroup}
+    SDK
+        [SDK client Android](https://github.com/ibm-cloud-security/appid-clientsdk-android)
+        [SDK client iOS Swift](https://github.com/ibm-cloud-security/appid-clientsdk-swift)
+        [SDK server Node.js](https://github.com/ibm-cloud-security/appid-serversdk-nodejs)
+        [SDK server Swift](https://github.com/ibm-cloud-security/appid-serversdk-swift)
+    relatedlinks.md
+    {: .navgroup-end}
+
+    {: .navgroup id="help"}
+    faq.md
+    ts_index.md
+    {: .navgroup-end}

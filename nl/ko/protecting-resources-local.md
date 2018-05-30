@@ -2,9 +2,10 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-01-02"
+lastupdated: "2018-4-24"
 
 ---
+
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
@@ -22,7 +23,7 @@ lastupdated: "2018-01-02"
 ## 시작하기 전에
 {: #begin}
 
-[서버 SDK 설치](/docs/services/appid/install.html#nodejs-setup)를 완료했는지 확인하십시오.
+[서버 SDK가 설치](/docs/services/appid/install.html#nodejs-setup)되어 있는지 확인하십시오. 
 
 
 ## 로컬 개발 서버에 대해 작업할 수 있도록 {{site.data.keyword.appid_short_notm}} 애플리케이션 구성
@@ -35,7 +36,7 @@ lastupdated: "2018-01-02"
 
 <table> <caption> 표 1. {{site.data.keyword.Bluemix_notm}} 지역 및 해당하는 Android 및 iOS용 {{site.data.keyword.appid_short_notm}} 지역 </caption>
 <tr>
-  <th> Bluemix 지역 </th>
+  <th> {{site.data.keyword.Bluemix_notm}} 지역</th>
   <th> Android 및 iOS </th>
 </tr>
 <tr>
