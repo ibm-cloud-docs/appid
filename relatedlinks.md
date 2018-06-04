@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-05-30"
+lastupdated: "2018-06-04"
 
 ---
 
@@ -28,6 +28,11 @@ You can use the following related links to learn more about and interact with th
 * <a href="https://www.ibm.com/blogs/bluemix/2018/04/ibm-cloud-app-id-technical-white-paper-now-available/" target="_blank">{{site.data.keyword.appid_long}} Technical White Paper - Now Available <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 * <a href="https://www.ibm.com/blogs/bluemix/2018/04/securing-angularnode-js-applications-using-app-id/" target="_blank">Securing Angular + Node.js Applications using {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 * <a href="https://www.ibm.com/blogs/bluemix/2018/05/announcing-app-id-integration-ibm-cloud-kubernetes-service/" target="_blank">Announcing {{site.data.keyword.appid_short_notm}} integration to {{site.data.keyword.containerlong}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
+* <a href="https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-azure-active-directory/" target="_blank">Setting up {{site.data.keyword.appid_long}} with your Azure Active Directory <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
+* <a href="https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-ping-one/" target="_blank">Setting up {{site.data.keyword.appid_long}} with Ping One <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
+* <a href="https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-active-directory-federation-service/" target="_blank">Setting up {{site.data.keyword.appid_long}} with your Active Directory Federation Service <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
+* <a href="https://www.ibm.com/blogs/bluemix/2018/06/creating-spring-boot-applications-app-id/" target="_blank">Creating Spring Boot applications with {{site.data.keyword.appid_long}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
+
 
 ## Samples
 {: #samples}
