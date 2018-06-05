@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-05-18"
+lastupdated: "2018-06-05"
 
 ---
 
@@ -30,7 +30,7 @@ A user attribute is a segment of information in an entity that is stored and mai
 {{site.data.keyword.appid_short_notm}} provides a <a href="https://appid-profiles.ng.bluemix.net/swagger-ui/index.html#/Attributes" target="_blank">REST API <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> for performing create, retrieve, update, and delete operations on user's attributes. The service also provides an SDK for <a href="https://github.com/ibm-cloud-security/appid-clientsdk-android" target="_blank">Android <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> and <a href="https://github.com/ibm-cloud-security/appid-clientsdk-swift" target="_blank">Swift <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> mobile clients.
 
 ## Accessing user attributes with the Android SDK
-{: #accessing}
+{: #accessing-android}
 
 When you obtain an access token, it is possible to gain access to the user protected attributes endpoint. You can gain access by using the following API methods.
 
