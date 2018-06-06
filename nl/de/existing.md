@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-01-02"
 
 ---
 
@@ -11,13 +11,13 @@ lastupdated: "2018-4-24"
 {:screen: .screen}
 {:codeblock: .codeblock}
 
+
 # {{site.data.keyword.appid_short_notm}} zu einer vorhandenen App hinzufügen
 
 Sie können {{site.data.keyword.appid_full}} mit einer vorhandenen Anwendung zum Authentifizieren und Speichern von Profilinformationen von Benutzern verwenden.
 
 
 ## Voraussetzungen
-{: prereq}
 
 * Eine vorhandene iOS Swift-, Android-, Node.js-, Swift- oder Liberty for Java-Anwendung.
 * Eine vorhandene Instanz von {{site.data.keyword.appid_short_notm}}.
@@ -97,7 +97,7 @@ Sie können den {{site.data.keyword.appid_short_notm}}-Service zu den vorhandene
           }
 
           @Override
-          public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, RefreshToken refreshToken) {
+          public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken) {
           }
         });
   ```
@@ -181,7 +181,7 @@ Sie können den {{site.data.keyword.appid_short_notm}}-Service zu den vorhandene
          	return AppID.sharedInstance.application(application, open: url, options: options)
       }
   class delegate : AuthorizationDelegate {
-     public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, refreshToken: RefreshToken? response:Response?) {
+     public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, response:Response?) {
      }
 
      public func onAuthorizationCanceled() {
@@ -531,7 +531,7 @@ Sie können {{site.data.keyword.appid_short_notm}} so konfigurieren, dass die vo
 
       <httpEndpoint id="defaultHttpEndpoint" httpPort="9080" host="*" httpsPort="9443" />
 
-
+      
       <applicationManager autoExpand="true"/>
 
   </server>
@@ -589,7 +589,7 @@ Ersetzen Sie in der Swift-App `let webappKituraCredentialsPlugin = WebAppKituraC
     </tr>
     <tr>
       <td> <i> CALLBACK_URL </i> </td>
-      <td> Die URL für die Seite, die den Benutzern nach ihrer Registrierung angezeigt wird. </td>
+      <td> Die URL für die Seite, die den Benutzern nach ihrer Anmeldung angezeigt wird. </td>
     </tr>
   </table>
 

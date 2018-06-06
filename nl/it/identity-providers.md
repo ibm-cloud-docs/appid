@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-01-02"
 
 ---
 
@@ -10,34 +10,20 @@ lastupdated: "2018-4-24"
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
-{: tip: .tip}
 
-# Configurazione dei provider di identità sociali
+# Configurazione dei provider di identità sociali 
 {: #setting-up-idp}
 
-I provider di identità forniscono un ulteriore livello di autenticazione per le tue applicazioni web e mobili. Con {{site.data.keyword.appid_full}}, puoi configurare uno o più provider di identità per configurare un'esperienza di single sign-on per la tua applicazione.
+I provider di identità forniscono un ulteriore livello di autenticazione per le tue applicazioni web e mobili. Con {{site.data.keyword.appid_full}} puoi configurare uno o diversi provider di identità per impostare un'esperienza SSO (single sign-on) per la tua applicazione.
 {: shortdesc}
 
 ## Configurazione predefinita
 {: #default}
 
-{{site.data.keyword.appid_short_notm}} fornisce una configurazione predefinita per aiutarti con l'impostazione iniziale dei tuoi provider di identità.
+{{site.data.keyword.appid_short_notm}} fornisce una configurazione predefinita per aiutarti con la configurazione iniziale dei tuoi provider di identità.
 {: shortdesc}
 
-Le credenziali predefinite sono impostate per Facebook e Google. Sei limitato a 100 utilizzi delle credenziali per istanza, al giorno. Poiché sono credenziali IBM, sono pensate per essere utilizzate solo in modalità di sviluppo. Prima di pubblicare la tua applicazione, aggiorna la configurazione con le tue proprie credenziali.
-
-## Inserimento del tuo URL di reindirizzamento nella whitelist
-{: #redirect}
-
-Un URL di reindirizzamento è l'endpoint di callback della tua applicazione. Per impedire gli attacchi di phishing, App ID convalida l'URL rispetto alla whitelist degli URL di reindirizzamento. Quando si verifica il phishing, esiste la possibilità che un utente malintenzionato possa accedere ai token dei tuoi utenti.
-
-Per aggiungere il tuo URL alla whitelist:
-
-1. Passa a **Identity Providers > Manage**.
-2. Nel campo **Add web redirect URL**, immetti l'URL e fai clic su **+**.
-
-Non includere parametri di query nel tuo URL. Vengono ignorati nel processo di convalida. URL di esempio: `http://host:[port]/path`
-{: tip}
+Le credenziali predefinite sono impostate per Facebook e Google. Sei limitato a 100 utilizzi delle credenziali per istanza, al giorno. Poiché sono credenziali IBM, dovrebbero essere utilizzate solo nelle tue applicazioni nella modalità di sviluppo. Prima di pubblicare la tua applicazione, [aggiorna la configurazione con le tue proprie credenziali](/docs/services/appid/identity-providers.html).
 
 
 ## Configurazione di Facebook
@@ -85,12 +71,12 @@ Crea un progetto in <a href="https://developers.google.com/" target="_blank">Goo
     1. Seleziona l'API Google+ come il tipo di API.
     2. Seleziona **Web Browser** come posizione da cui stai richiamando l'API.
     3. Scegli **User data**.
-    4. Completa i campi richiesti per creare un ID client. Viene contemporaneamente creato un segreto.
+    4. Riempi i campi obbligatori e crea un ID client. Viene contemporaneamente creato un segreto.
 4. Prendi nota del segreto e dell'ID client Google. Nella scheda delle credenziali, seleziona l'ID che hai creato per ottenere i tuoi ID client e segreto.
 
 ### Configurazione di {{site.data.keyword.appid_short}} per l'autenticazione Google
 
-Una volta che hai configurato il tuo progetto Google e disponi del segreto e ID client, puoi modificare il tuo dashboard del servizio per l'autenticazione Google.
+Dopo aver configurato il tuo progetto Google e disporre di segreto e di un ID client, puoi modificare il tuo dashboard del servizio per l'autenticazione con Google.
 
 1. Dalla scheda **Manage** del tuo dashboard del servizio, seleziona **Google** e fai clic su **Edit**.
 2. Immetti il segreto e l'ID client ottenuti da Google Developers Console.
@@ -99,4 +85,4 @@ Una volta che hai configurato il tuo progetto Google e disponi del segreto e ID 
     2. Nella scheda delle credenziali del tuo progetto Google, seleziona l'ID client che hai creato per questa integrazione.
     3. Incolla l'URL da {{site.data.keyword.appid_short}} nel campo **Authorized redirect URIs** e fai clic su **Save**.
 4. Fai clic su **Save** per aggiornare la tua configurazione di Google in {{site.data.keyword.appid_short}}.
-5. Per le applicazioni web, immetti un URL di reindirizzamento nella scheda **Manage**. Dopo il completamento del processo di autorizzazione, viene inviato un utente a questo URL.
+5. Facoltativo: per le applicazioni web, immetti un URL di reindirizzamento nella scheda **Mangage**. Dopo il completamento del processo di autorizzazione, viene inviato un utente a questo URL.

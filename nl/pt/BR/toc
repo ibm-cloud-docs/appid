@@ -15,36 +15,33 @@ IBM Cloud App ID
 
     {: .topicgroup}
     Autenticando usuários
-        identity-providers.md
-        enterprise.md
-        cloud-directory.md
         login-widget.md
+        identity-providers.md
+        cloud-directory.md
+        branded.md
 
     protecting-resources.md
     user-profile.md
     protecting-resources-local.md
     existing.md
-    iam.md
-    api-reference.md
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
     {: .topicgroup}
-    APIs
-        [Autorização](http://mobileclientaccess.mybluemix.net/swagger-ui/#/Authorization_Server_V3)
-        [Gerenciamento](https://appid-management.ng.bluemix.net/swagger-ui/)
-        [Perfis](https://appid-profiles.ng.bluemix.net/swagger-ui/index.html)
+    [APIs de autorização](http://mobileclientaccess.mybluemix.net/swagger-ui/#/Authorization_Server_V3)
 
     {: .topicgroup}
     SDKs
-        [SDK do cliente Android](https://github.com/ibm-cloud-security/appid-clientsdk-android)
-        [SDK do cliente iOS Swift](https://github.com/ibm-cloud-security/appid-clientsdk-swift)
-        [SDK do servidor Node.js](https://github.com/ibm-cloud-security/appid-serversdk-nodejs)
-        [SDK do servidor Swift](https://github.com/ibm-cloud-security/appid-serversdk-swift)
+        [Android client SDK](https://github.com/ibm-cloud-security/appid-clientsdk-android)
+        [iOS Swift client SDK](https://github.com/ibm-cloud-security/appid-clientsdk-swift)
+        [Node.js server SDK](https://github.com/ibm-cloud-security/appid-serversdk-nodejs)
+        [Swift server SDK](https://github.com/ibm-cloud-security/appid-serversdk-swift)
+    
     relatedlinks.md
     {: .navgroup-end}
 
     {: .navgroup id="help"}
     faq.md
     ts_index.md
+    mca.md
     {: .navgroup-end}

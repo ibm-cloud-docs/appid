@@ -1,16 +1,13 @@
 ---
-
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-01-02"
 
 ---
-
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
-{:tip: .tip}
 
 # SDKs konfigurieren
 {: #configuring}
@@ -27,28 +24,24 @@ Erstellen Sie Ihre Android-Apps mit dem {{site.data.keyword.appid_short}}-Client
 
 Sie benötigen die folgenden Informationen:
   * Eine Instanz des {{site.data.keyword.appid_short_notm}}-Service.
-  * Ihre Tenant-ID. Klicken Sie in der Registerkarte **Serviceberechtigungsnachweise** Ihres Service-Dashboards auf **Berechtigungsnachweise anzeigen**. Ihre Tenant-ID ist eine eindeutige ID zur Initialisierung der App.
+  * Ihre Tenant-ID. Klicken Sie in der Registerkarte **Serviceberechtigungsnachweise** Ihres Service-Dashboards auf **Berechtigungsnachweise anzeigen**. Ihre Tenant-ID wird im Feld **Tenant-ID** angezeigt. Hierbei handelt es sich um eine eindeutige ID zur Initialisierung der App.
   * Ihre {{site.data.keyword.Bluemix}}-Region. Sie finden Ihre Region in Ihrer Benutzerschnittstelle. Der Wert wird für die Initialisierung Ihrer App verwendet.
     <table> <caption> Tabelle 1: {{site.data.keyword.Bluemix_notm}}-Regionen und entsprechende SDK-Werte </caption>
     <tr>
-      <th>{{site.data.keyword.Bluemix}}-Region </th>
-      <th>SDK-Wert</th>
+      <th> Bluemix-Region </th>
+      <th> SDK-Wert </th>
     </tr>
     <tr>
-      <td>Vereinigte Staaten (Süden)</td>
-      <td><code>AppID.REGION_US_SOUTH</code> </td>
+      <td> Vereinigte Staaten (Süden) </td>
+      <td> AppID.REGION_US_SOUTH </td>
     </tr>
     <tr>
-      <td>Sydney</td>
-      <td><code>AppID.REGION_SYDNEY </code></td>
+      <td> Sydney </td>
+      <td> AppID.REGION_SYDNEY </td>
     </tr>
     <tr>
-      <td>Vereinigtes Königreich</td>
-      <td><code>AppID.REGION_UK </code></td>
-    </tr>
-    <tr>
-      <td>Deutschland</td>
-      <td><code>AppID.REGION_GERMANY</code></td>
+      <td> Vereinigtes Königreich </td>
+      <td> AppID.REGION_UK </td>
     </tr>
   </table>
 
@@ -91,7 +84,7 @@ Sie benötigen die folgenden Informationen:
   ```
   {: codeblock}
 
-6. Synchronisieren Sie Ihr Projekt mit Gradle. Klicken Sie auf **Tools > Android > Sync Project with Gradle Files**.
+6. Synchronisieren Sie Ihr Projekt mit Gradle. Klicken Sie auf **Tools** > **Android** > **Sync Project with Gradle Files**.
 
 ### Client-SDK initialisieren
 
@@ -118,33 +111,29 @@ Erstellen Sie Ihre Swift-Anwendungen mit dem {{site.data.keyword.appid_short}}-C
 
 Sie benötigen die folgenden Informationen:
   * Eine Instanz von {{site.data.keyword.appid_short_notm}}.
-  * Ihre Tenant-ID. Klicken Sie in der Registerkarte **Serviceberechtigungsnachweise** Ihres Service-Dashboards auf **Berechtigungsnachweise anzeigen**. Ihre Tenant-ID ist eine eindeutige ID zur Initialisierung der App.
+  * Ihre Tenant-ID. Klicken Sie in der Registerkarte **Serviceberechtigungsnachweise** Ihres Service-Dashboards auf **Berechtigungsnachweise anzeigen**. Ihre Tenant-ID wird im Feld **Tenant-ID** angezeigt. Hierbei handelt es sich um eine eindeutige ID zur Initialisierung der App.
   * Ihre {{site.data.keyword.Bluemix_notm}}-Region.
   Sie finden Ihre Region in Ihrer Benutzerschnittstelle. Der Wert wird für die Initialisierung Ihrer App verwendet.
-  <table> <caption> Tabelle 1: {{site.data.keyword.Bluemix_notm}}-Regionen und entsprechende SDK-Werte </caption>
+    <table> <caption> Tabelle 1: {{site.data.keyword.Bluemix_notm}}-Regionen und entsprechende SDK-Werte </caption>
     <tr>
-      <th>{{site.data.keyword.Bluemix}}-Region </th>
-      <th>SDK-Wert</th>
+      <th> Bluemix-Region </th>
+      <th> SDK-Wert </th>
     </tr>
     <tr>
-      <td>Vereinigte Staaten (Süden)</td>
-      <td><code>AppID.REGION_US_SOUTH</code> </td>
+      <td> Vereinigte Staaten (Süden) </td>
+      <td> AppID.REGION_US_SOUTH </td>
     </tr>
     <tr>
-      <td>Sydney</td>
-      <td><code>AppID.REGION_SYDNEY </code></td>
+      <td> Sydney </td>
+      <td> AppID.REGION_SYDNEY </td>
     </tr>
     <tr>
-      <td>Vereinigtes Königreich</td>
-      <td><code>AppID.REGION_UK </code></td>
-    </tr>
-    <tr>
-      <td>Deutschland</td>
-      <td><code>AppID.REGION_GERMANY</code></td>
+      <td> Vereinigtes Königreich </td>
+      <td> AppID.REGION_UK </td>
     </tr>
   </table>
 
-  * Ein Xcode-Projekt (Version 9.0.1 oder höher).
+  * Ein Xcode-Projekt (Version 8.1 oder höher).
   * CocoaPods (Version 1.1.0 oder höher).
 
 
@@ -154,7 +143,7 @@ Das {{site.data.keyword.appid_short_notm}}-Client-SDK wird mit CocoaPods verteil
 
 1. Erstellen Sie ein Xcode-Projekt oder öffnen Sie ein vorhandenes Projekt.
 2. Öffnen oder erstellen Sie die Podfile im Projektverzeichnis.
-3. Fügen Sie nach dem Ziel Ihres Projekts eine Abhängigkeit für den Pod 'BluemixAppID' und den Befehl `use_frameworks!` hinzu. 
+3. Fügen Sie unter dem Ziel Ihres Projekts eine Abhängigkeit für den Pod 'BluemixAppID' hinzu. Stellen Sie sicher, dass sich der Befehl `use_frameworks!` auch unter dem Ziel befindet.
 
   Beispiel:
 
@@ -173,13 +162,13 @@ Das {{site.data.keyword.appid_short_notm}}-Client-SDK wird mit CocoaPods verteil
   ```
   {: codeblock}
 
-6. Öffnen Sie Ihr Xcode-Projekt und aktivieren Sie das Keychain-Sharing. Navigieren Sie zu **Projekteinstellungen > Funktionen > Keychain-Sharing** und wählen Sie **Keychain-Sharing aktivieren** aus.
-7. Öffnen Sie **Projekteinstellungen > Info > URL-Typen** und fügen Sie einen **URL-Typ** hinzu. Stellen Sie `$(PRODUCT_BUNDLE_IDENTIFIER)` in die beiden Textfelder **ID** und **URL-Schema**. 
+6. Öffnen Sie Ihr Xcode-Projekt und aktivieren Sie das Keychain-Sharing. Klicken Sie unter **Projekteinstellungen** auf **Funktionen > Keychain-Sharing**.
+7. Fügen Sie unter **Projekteinstellungen > Info > URL-Typen** einen **URL-Typ** hinzu. Geben Sie in die Textfelder **ID** und **URL-Schema** den Wert `$(PRODUCT_BUNDLE_IDENTIFIER)` ein.
 
 
 ### Client-SDK initialisieren
 
-1. Fügen Sie folgenden Import zu Ihrer Datei `AppDelegate` hinzu. 
+1. Fügen Sie den folgenden Import zur Datei `AppDelegate.swift` hinzu.
 
   ```swift
   import BluemixAppID
@@ -212,7 +201,7 @@ Weitere Informationen finden Sie im Abschnitt zum <a href="https://github.com/ib
 
 ### Vorbereitungen
 
-* Sie sollten mit der Entwicklung von Node.js-Apps in {{site.data.keyword.Bluemix_notm}} vertraut sein.
+* Sie sollten mit der Entwicklung von Node.js-Anwendungen in {{site.data.keyword.Bluemix_notm}} vertraut sein.
 * Das {{site.data.keyword.appid_short_notm}}-Server-SDK erfordert, dass Ihr Node.js-Server mit dem <a href="http://expressjs.com/" target="_blank">Express-Framework <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a> implementiert ist.
 
 **Hinweis**: Von anderen Frameworks werden `Express`-Frameworks verwendet, wie zum Beispiel LoopBack. Sie können das {{site.data.keyword.appid_short_notm}}-Server-SDK mit einem beliebigen dieser Frameworks verwenden.
@@ -236,16 +225,9 @@ Weitere Informationen finden Sie im Abschnitt zum <a href="https://github.com/ib
 ## Swift-SDK einrichten
 {: #swift-setup}
 
-Schützen Sie Ihre Back-Ends und APIs mit dem {{site.data.keyword.appid_short}}-Server-SDK.
-{:shortdesc}
-
-
 ### Vorbereitungen
 
-Vor der Arbeit mit dem Swift-SDK müssen Sie folgende Voraussetzungen erfüllen: 
-
-* Entweder MacOS oder Linux
-* OpenSSL 1.0.2 unter Linux
+* Sie sollten mit der Entwicklung von Swift-Anwendungen in {{site.data.keyword.Bluemix}} vertraut sein.
 * Installieren Sie Swift 3.0.2.
 * Installieren Sie Kitura 1.6.
 
@@ -255,31 +237,14 @@ Vor der Arbeit mit dem Swift-SDK müssen Sie folgende Voraussetzungen erfüllen:
 1. Öffnen Sie die Datei `Package.swift`, die sich im Verzeichnis Ihrer Swift-App befindet, und fügen Sie die Abhängigkeit `appid-serversdk-swift` hinzu. Beispiel:
 
   ```swift
+  import PackageDescription
+
   let package = Package(
-      name: “myApp",
       dependencies: [
-          .package(url: "https://github.com/ibm-cloud-security/appid-serversdk-swift.git", .upToNextMinor(from: “4.0.0")),
-      ],
-      targets: [
-          .target(
-              name: "myApp",
-              dependencies: ["BluemixAppID"]),
+          .Package(url: "https://github.com/ibm-cloud-security/appid-serversdk-swift.git", majorVersion: 1)
       ]
   )
   ```
   {: codeblock}
 
-2. Bei MacOS: Wenn Sie den Build über die Befehlszeile erstellen, sollten alle Pakete die folgenden Flags enthalten. 
-  ```
-  swift build -Xlinker -L/usr/local/opt/openssl/lib -Xcc -I/usr/local/opt/openssl/include
-  ```
-  {: pre}
-
-3. Verwenden Sie folgenden Befehl, wenn Sie ein xcodeproject erstellen:
-  ```
-  swift package generate-xcodeproj --xcconfig-overrides openssl.xcconfig
-  ```
-  {: pre}
-
-  Sie können die Datei openssl.xcconfig vom <a href="https://github.com/ibm-cloud-security/appid-serversdk-swift" target="_blank">{{site.data.keyword.appid_short_notm}} Swift GitHub <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a> kopieren.
-  {: tip}
+Weitere Informationen finden Sie im Abschnitt zum <a href="https://github.com/ibm-cloud-security/appid-serversdk-swift" target="_blank">{{site.data.keyword.appid_short_notm}}-Swift GitHub-Repository <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a>.

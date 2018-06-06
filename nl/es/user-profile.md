@@ -2,21 +2,21 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-01-02"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
-{:pre: .pre}
 
 
 # Acceso a los atributos de usuario
 {: #user-profile}
 
-Un atributo de usuario es un segmento de información en una entidad que {{site.data.keyword.appid_full}} almacena y mantiene. El perfil contiene los atributos y la identidad de un usuario que gestiona un proveedor de identidad o que puede ser anónimo. Puede utilizar los perfiles para crear experiencias personalizadas de su app para cada usuario.
+Puede gestionar los datos de usuario final que puede utilizar para construir experiencias de app personalizadas.
 {:shortdesc}
 
+Un atributo de usuario es un segmento de información en una entidad que {{site.data.keyword.appid_full}} almacena y mantiene. El perfil contiene los atributos y la identidad de un usuario y puede ser anónimo o bien estar vinculado a una identidad gestionada por un proveedor de identidad.
 
 {{site.data.keyword.appid_short_notm}} proporciona una API para iniciar sesión, ya sea de forma anónima o autenticándose con [proveedores de identidad](/docs/services/appid/identity-providers.html) OpenId Connect (OIDC). El punto final de API de atributos de perfil de usuario es un recurso protegido por una señal de acceso, que genera {{site.data.keyword.appid_short_notm}} durante el proceso de inicio de sesión y autorización.
 
@@ -44,7 +44,7 @@ Cuando obtenga una señal de acceso, es posible obtener acceso al punto final de
   void getAllAttributes(@NonNull UserAttributeResponseListener listener);
   void getAllAttributes(@NonNull AccessToken accessToken, @NonNull UserAttributeResponseListener listener);
   ```
-  {: pre}
+  {: codeblock}
 
 Cuando no se haya aprobado explícitamente una señal de acceso, {{site.data.keyword.appid_short_notm}} utilizará la última señal recibida.
 
@@ -63,7 +63,7 @@ Por ejemplo, puede llamar al código siguiente para establecer un atributo nuevo
 		}
 	});
   ```
-  {: pre}
+  {: codeblock}
 
 ### Inicio de sesión anónimo
 {: #anonymous notoc}
@@ -83,12 +83,12 @@ Con {{site.data.keyword.appid_short_notm}}, puede iniciar sesión [de forma anó
 		}
 
 		@Override
-		public void onAuthorizationSuccess(AccessToken accessToken, IdentityToken identityToken, RefreshToken refreshToken) {
+		public void onAuthorizationSuccess(AccessToken accessToken, IdentityToken identityToken) {
 			//Usuario autenticado
 		}
 	});
   ```
-  {: pre}
+  {: codeblock}
 
 ### Autenticación progresiva
 {: #progressive notoc}
@@ -98,7 +98,7 @@ Cuando el usuario contiene una señal de acceso anónimo, puede ser identificado
   ```java
   void launch (@NonNull final Activity activity, @NonNull final AuthorizationListener authorizationListener, String accessTokenString);
   ```
-  {: pre}
+  {: codeblock}
 
 Tras un inicio de sesión anónimo, se producirá la autenticación progresiva, aunque se invoque el widget de inicio de sesión sin pasar una señal de acceso porque el servicio ha utilizado la última señal recibida. Si desea borrar las señales almacenadas, ejecute el siguiente mandato.
 
@@ -106,14 +106,13 @@ Tras un inicio de sesión anónimo, se producirá la autenticación progresiva, 
   	appIDAuthorizationManager = new AppIDAuthorizationManager(this.appId);
   appIDAuthorizationManager.clearAuthorizationData();
   ```
-  {: pre}
+  {: codeblock}
 
 
 ## Acceder a los atributos de usuario con el SDK de iOS
 {: #accessing}
 
-Acceso a los atributos de los usuarios pasando una señal de acceso mediante los siguientes métodos de API.
-{: shortdesc}
+Cuando obtenga una señal de acceso, es posible obtener acceso al punto final de los atributos protegidos del usuario. Esta operación se realiza mediante los siguientes métodos de la API.
 
   ```swift
   func setAttribute(key: String, value: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
@@ -128,7 +127,7 @@ Acceso a los atributos de los usuarios pasando una señal de acceso mediante los
   func deleteAttribute(key: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
   func deleteAttribute(key: String, accessTokenString: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
   ```
-  {: pre}
+  {: codeblock}
 
 Cuando no se haya aprobado explícitamente una señal de acceso, {{site.data.keyword.appid_short_notm}} utilizará la última señal recibida.
 
@@ -143,17 +142,18 @@ Por ejemplo, puede llamar al código siguiente para establecer un atributo nuevo
       }
   })
   ```
-  {: pre}
+  {: codeblock}
 
 
 ### Inicio de sesión anónimo
+{: #anonymous notoc}
 
 Con {{site.data.keyword.appid_short_notm}}, puede iniciar sesión [de forma anónima](/docs/services/appid/user-profile.html#anonymous).
 
   ```swift
   class delegate : AuthorizationDelegate {
 
-      public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, refreshToken: RefreshToken?, response:Response?) {
+      public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, response:Response?) {
           //Usuario autenticado
       }
 
@@ -168,16 +168,17 @@ Con {{site.data.keyword.appid_short_notm}}, puede iniciar sesión [de forma anó
 
   AppID.sharedInstance.loginAnonymously( authorizationDelegate: delegate())
   ```
-  {: pre}
+  {: codeblock}
 
 ### Autenticación progresiva
+{: #progressive notoc}
 
 Cuando alberga una señal de acceso anónimo, el usuario puede convertirse en un usuario identificado si lo pasa al método `loginWidget.launch`.
 
   ```swift
   func launch(accessTokenString: String? , delegate: AuthorizationDelegate)
   ```
-  {: pre}
+  {: codeblock}
 
 Tras un inicio de sesión anónimo, se producirá la autenticación progresiva, aunque se invoque el widget de inicio de sesión sin pasar una señal de acceso porque el servicio ha utilizado la última señal recibida. Si desea borrar las señales almacenadas, ejecute el siguiente mandato.
 
@@ -185,7 +186,7 @@ Tras un inicio de sesión anónimo, se producirá la autenticación progresiva, 
   var appIDAuthorizationManager = AppIDAuthorizationManager(appid: AppID.sharedInstance)
   appIDAuthorizationManager.clearAuthorizationData()
   ```
-  {: pre}
+  {: codeblock}
 
 ## Separación y cifrado de datos
 {: #data}

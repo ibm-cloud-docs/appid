@@ -2,21 +2,21 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-01-02"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
-{:pre: .pre}
 
 
 # ユーザー属性へのアクセス
 {: #user-profile}
 
-ユーザー属性は、{{site.data.keyword.appid_full}} によって保管され保守されるエンティティー内の情報のセグメントです。 プロファイルに ID プロバイダーが管理するユーザーの属性と ID を含めることもできますし、匿名にすることもできます。プロファイルを使用して、ユーザーごとに個別設定されたアプリの操作環境を作成することができます。
+個人別設定の可能なアプリ操作環境の構築に使用できるエンド・ユーザー・データを管理できます。
 {:shortdesc}
 
+ユーザー属性は、{{site.data.keyword.appid_full}} によって保管され保守されるエンティティー内の情報のセグメントです。 プロファイルには、ユーザーの属性と ID が入ります。プロファイルは、匿名にすることも、ID プロバイダーによって管理されている ID にリンクすることもできます。
 
 {{site.data.keyword.appid_short_notm}} には、匿名ログインまたは OpenId Connect (OIDC) [ID プロバイダー](/docs/services/appid/identity-providers.html)による認証を使用したログインのための API が用意されています。 ユーザー・プロファイル属性 API エンドポイントは、ログインと許可のプロセス中に {{site.data.keyword.appid_short_notm}} が生成するアクセス・トークンによって保護されるリソースです。
 
@@ -44,7 +44,7 @@ lastupdated: "2018-4-24"
   void getAllAttributes(@NonNull UserAttributeResponseListener listener);
   void getAllAttributes(@NonNull AccessToken accessToken, @NonNull UserAttributeResponseListener listener);
   ```
-  {: pre}
+  {: codeblock}
 
 アクセス・トークンを明示的に渡さないと、{{site.data.keyword.appid_short_notm}} は最後に受け取ったトークンを使用します。
 
@@ -63,7 +63,7 @@ lastupdated: "2018-4-24"
 		}
 	});
   ```
-  {: pre}
+  {: codeblock}
 
 ### 匿名ログイン
 {: #anonymous notoc}
@@ -83,12 +83,12 @@ lastupdated: "2018-4-24"
 		}
 
 		@Override
-		public void onAuthorizationSuccess(AccessToken accessToken, IdentityToken identityToken, RefreshToken refreshToken) {
+		public void onAuthorizationSuccess(AccessToken accessToken, IdentityToken identityToken) {
 			//ユーザーの認証
 		}
 	});
   ```
-  {: pre}
+  {: codeblock}
 
 ### 段階的な認証
 {: #progressive notoc}
@@ -98,7 +98,7 @@ lastupdated: "2018-4-24"
   ```java
   void launch (@NonNull final Activity activity, @NonNull final AuthorizationListener authorizationListener, String accessTokenString);
   ```
-  {: pre}
+  {: codeblock}
 
 匿名ログインの後には、アクセス・トークンを渡さずにログイン・ウィジェットを呼び出した場合であっても段階的な認証が行われます。最後に受け取ったトークンがサービスで使用されるからです。 保管されているトークンをクリアする場合は、以下のコマンドを実行します。
 
@@ -107,14 +107,13 @@ lastupdated: "2018-4-24"
     AppIDAuthorizationManager(this.appId);
     appIDAuthorizationManager.clearAuthorizationData();
   ```
-  {: pre}
+  {: codeblock}
 
 
 ## iOS SDK を使用したユーザー属性へのアクセス
 {: #accessing}
 
-以下の API メソッドを介してアクセス・トークンを渡すことによって、ユーザー属性にアクセスします。
-{: shortdesc}
+アクセス・トークンを取得すれば、ユーザーの保護された属性のエンドポイントにアクセスできます。 以下の API メソッドを使用すると、アクセスできるようになります。
 
   ```swift
   func setAttribute(key: String, value: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
@@ -129,7 +128,7 @@ lastupdated: "2018-4-24"
   func deleteAttribute(key: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
   func deleteAttribute(key: String, accessTokenString: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
   ```
-  {: pre}
+  {: codeblock}
 
 アクセス・トークンを明示的に渡さないと、{{site.data.keyword.appid_short_notm}} は最後に受け取ったトークンを使用します。
 
@@ -144,17 +143,18 @@ lastupdated: "2018-4-24"
       }
   })
   ```
-  {: pre}
+  {: codeblock}
 
 
 ### 匿名ログイン
+{: #anonymous notoc}
 
 {{site.data.keyword.appid_short_notm}} では、[匿名](/docs/services/appid/user-profile.html#anonymous)ログインが可能です。
 
   ```swift
   class delegate : AuthorizationDelegate {
 
-      public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, refreshToken: RefreshToken?, response:Response?) {
+      public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, response:Response?) {
           //ユーザーの認証
       }
 
@@ -169,16 +169,17 @@ lastupdated: "2018-4-24"
 
   AppID.sharedInstance.loginAnonymously( authorizationDelegate: delegate())
   ```
-  {: pre}
+  {: codeblock}
 
 ### 段階的な認証
+{: #progressive notoc}
 
 匿名のアクセス・トークンを保持している場合、このトークンを `loginWidget.launch` メソッドに渡すと、ユーザーを識別済みのユーザーにすることができます。
 
   ```swift
   func launch(accessTokenString: String? , delegate: AuthorizationDelegate)
   ```
-  {: pre}
+  {: codeblock}
 
 匿名ログインの後には、アクセス・トークンを渡さずにログイン・ウィジェットを呼び出した場合であっても段階的な認証が行われます。最後に受け取ったトークンがサービスで使用されるからです。 保管されているトークンをクリアする場合は、以下のコマンドを実行します。
 
@@ -186,7 +187,7 @@ lastupdated: "2018-4-24"
   var appIDAuthorizationManager = AppIDAuthorizationManager(appid: AppID.sharedInstance)
   appIDAuthorizationManager.clearAuthorizationData()
   ```
-  {: pre}
+  {: codeblock}
 
 ## データ分離と暗号化
 {: #data}

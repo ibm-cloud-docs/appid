@@ -2,10 +2,9 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-02-01"
 
 ---
-
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
@@ -17,7 +16,7 @@ lastupdated: "2018-4-24"
 # トラブルシューティング
 {: #troubleshooting}
 
-{{site.data.keyword.appid_full}} の操作中に問題が生じた場合は、ここに示すトラブルシューティング手法やヘルプの利用手法を検討してください。
+{{site.data.keyword.appid_short_notm}} の使用中に問題が生じた場合は、ここに示すトラブルシューティング手法やヘルプの利用手法を検討してください。
 {: shortdesc}
 
 
@@ -25,108 +24,7 @@ lastupdated: "2018-4-24"
 {: #gettinghelp}
 
 情報を検索したり、フォーラムで質問したりして、ヘルプを利用することができます。 また、サポート・チケットを開くことができます。 フォーラムを使用して質問するときは、{{site.data.keyword.Bluemix_notm}} 開発チームの目に止まるように、質問にタグを付けてください。
-  * {{site.data.keyword.appid_short_notm}} についての技術的な質問がある場合は、質問を<a href="http://stackoverflow.com/search?q=ibm+" target="_blank">スタック・オーバーフロー <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a>に投稿し、質問に「ibm-appid」のタグを付けてください。
-  * サービスや開始手順についての質問は、<a href="https://developer.ibm.com/answers/search.html?f=&type=question&redirect=search%2Fsearch&sort=relevance&q=appid%20[bluemix]" target="_blank">dW Answers <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> フォーラムをご利用ください。 `appid` のタグを付けてください。
+  * {{site.data.keyword.appid_short_notm}} についての技術的な質問がある場合は、質問を<a href="http://stackoverflow.com/search?q=appid+ibm-bluemix" target="_blank">スタック・オーバーフロー <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a>に投稿し、質問に「ibm-appid」のタグを付けてください。
+  * サービスや開始手順についての質問は、<a href="https://developer.ibm.com/answers/search.html?f=&type=question&redirect=search%2Fsearch&sort=relevance&q=appid%20[bluemix]" target="_blank">dW Answers <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> フォーラムをご利用ください。 「appid」のタグを付けてください。
 
-サポートについて詳しくは、[必要なサポートを利用するには](/docs/get-support/howtogetsupport.html#getting-customer-support)を参照してください。
-
-</br>
-
-## サインイン後にアプリにリダイレクトされない
-{: #signin-fail}
-
-{: tsSymptoms}
-ユーザーが ID プロバイダーのサインイン・ページ経由でアプリケーションにサインインすると、何も起こらないかサインインが失敗します。
-
-{: tsCauses}
-以下の理由でサインインに失敗している可能性があります。
-
-* リダイレクト URL が[ホワイトリスト](identity-providers.html#redirect)に正しく追加されていない。
-* ユーザーが許可されていない。
-* ユーザーが誤った資格情報でサインインしようとした。
-
-{: tsResolve}
-リダイレクトが行われるようにするには、以下のようにします。
-
-* リダイレクト URL が正しいことを確認してください。これが正確でないとリダイレクトが機能しません。
-* ユーザーが正しい資格情報でサインインしているか確認してください。
-* ID プロバイダーのユーザー設定で各ユーザーが構成されているか確認してください。
-
-</br>
-
-## SAML の操作時によく発生する問題
-{: #common-saml}
-
-以下の表で、SAML の操作時によく発生する問題の説明と解決法を確認してください。
-
-<table summary="表の行はすべて左から右に読みます。1 列目はクラスターの状態、2 列目は説明です。">
-  <thead>
-    <th>メッセージ</th>
-    <th>説明</th>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>Could not parse assertion xml.</code></td>
-      <td>SAML からの応答の形式が誤っていました。</td>
-    </tr>
-    <tr>
-      <td><code>Invalid attribute without name. Contact your identity provider administrator.</code></td>
-      <td><code>定義された値を持たない <saml:Attribute> があります。ID プロバイダー管理者に問い合わせてください。</code></td>
-    </tr>
-    <tr>
-      <td><code>SAML response body must contain RelayState.</code></td>
-      <td>RelayState パラメーターが SAML 応答本文に含まれていませんでした。{{site.data.keyword.appid_short_notm}} はこのパラメーターを要求の一部として ID プロバイダーに提供するため、正確なパラメーターが応答で返される必要があります。このパラメーターが変更されている場合は、ID プロバイダー管理者に問い合わせてください。</td>
-    </tr>
-    <tr>
-      <td><code>SAML Configuration must have certificates, entityID and signInUrl of the IdP.</code></td>
-      <td>SAML ID プロバイダーが正しく構成されていません。構成を検証してください。詳しくは、<a href="enterprise.html#configuring-saml" target="_blank">外部 SAML ID プロバイダーと連動するようにアプリを構成する</a>を参照してください。</td>
-    </tr>
-    <tr>
-      <td><code>Error in assertion validation. SAML Assertion signature check failed! Certificate .. may be invalid.</code></td>
-      <td>有効な署名とダイジェストがアサーションに含まれている必要があります。この署名は、SAML 構成で指定された証明書に関連付けられた秘密鍵を使用して作成する必要があります (2 次または 1 次のいずれかを使用できます)。<em>注</em>: {{site.data.keyword.appid_short_notm}} では暗号化されたアサーションはサポートされません。ご使用の ID プロバイダーが SAML アサーションを暗号化する場合は、暗号化を無効にしてください。</td>
-    </tr>
-  </tbody>
-</table>
-
-
-## SAML の使用時に、ID プロバイダーにリダイレクトされない
-{: #saml-redirect}
-
-{: tsSymptoms}
-ユーザーがアプリケーションにサインインしようとして要求を出しても、サインイン・ページが表示されません。
-
-{: tsCauses}
-ID プロバイダーが以下のような理由で失敗している可能性があります。
-
-* 構成済みのリダイレクト URL が正しくない。
-* ID プロバイダーが認証要求を認識しない。
-* ID プロバイダーが HTTP-POST バインディングを必要としている。
-* ID プロバイダーが署名済み authnRequest を必要としている。
-
-{: tsResolve}
-以下のような解決法を試行できます。
-
-* サインイン URL を更新します。この URL は authnRequest の一部として送信されるため、正確でなければなりません。
-* {{site.data.keyword.appid_short_notm}} メタデータが ID プロバイダー設定で正しく設定されていることを確認します。
-* HTTP リダイレクトで authnRequest を受け入れるように ID プロバイダーを構成します。
-* {{site.data.keyword.appid_short_notm}} では、authnRequest の署名はサポートされていません。
-
-これらの方法で解決できない場合は、接続の問題がある可能性があります。
-
-</br>
-
-## SAML の使用時に属性に誤った値が表示される
-{: #saml-attribute}
-
-{: tsSymptoms}
-ユーザー・プロファイルに属性値がありますが、正しい属性に接続されていません。
-
-{: tsCauses}
-ユーザー・プロファイル属性が正しくマップされていません。
-
-{: tsResolve}
-ID プロバイダー設定で属性をマップします。{{site.data.keyword.appid_short_notm}} は以下の属性を必要としています。
-* `name `
-* `email`
-* `locale`
-* `picture`
+IBM サポート・チケットまたはフォーラムの使用方法について詳しくは、[必要なサポートを利用するには](/docs/get-support/howtogetsupport.html#getting-customer-support)を参照してください。

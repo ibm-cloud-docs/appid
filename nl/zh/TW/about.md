@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-04-27"
+lastupdated: "2018-02-01"
 
 ---
 
@@ -43,28 +43,9 @@ lastupdated: "2018-04-27"
   </tr>
   <tr>
     <td> 您要讓使用者可以使用其電子郵件及密碼來存取您的應用程式。</td>
-    <td> {{site.data.keyword.appid_short_notm}} 可讓您建立[雲端目錄](/docs/services/appid/cloud-directory.html)，使您可新增使用者註冊並登入至您的應用程式。雲端目錄提供架構來維護可隨著使用者族群調整的使用者登錄。使用自助的預先建置功能（例如電子郵件驗證及密碼重設），您可以確定應用程式安全地鑑別使用者。</td>
+    <td> {{site.data.keyword.appid_short_notm}} 可讓您建立[雲端目錄](/docs/services/appid/cloud-directory.html)。這可讓您新增使用者對行動及 Web 應用程式的註冊及登入。雲端目錄提供架構來維護可隨著使用者族群調整的使用者登錄。使用自助的預先建置功能（例如電子郵件驗證及密碼重設），您可以確定應用程式安全地鑑別使用者。</td>
   </tr>
 </table>
-
-
-## 整合
-{: #integrations}
-
-您可以使用 {{site.data.keyword.appid_short_notm}} 與其他 {{site.data.keyword.Bluemix_notm}} 供應項目搭配。
-{:shortdesc}
-
-
-<dl>
-  <dt>{{site.data.keyword.containerlong_notm}}</dt>
-    <dd>藉由在標準叢集中配置 Ingress，您可以在叢集層次上保護應用程式的安全。請查看 {{site.data.keyword.appid_short_notm}} 鑑別 Ingress 註釋以開始。</dd>
-  <dt>{{site.data.keyword.openwhisk}} 及 API Connect</dt>
-    <dd>使用 [{{site.data.keyword.openwhisk_short}}](/docs/openwhisk/index.html) 和 [API Connect](/docs/apis/management/manage_apis.html) 來建立 API 時，您可以在閘道而不是在應用程式碼中保護應用程式的安全。若要查看動作中的整合，請觀看 <a href="https://www.youtube.com/watch?v=Fa9YD2NGZiE" target="_blank">Simple and fast social login OAUTH with APIC and {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>。</dd>
-  <dt>Cloud Foundry</dt>
-    <dd>試用我們的其中一個範例 Cloud Foundry 應用程式，以瞭解如何將 App ID 整合至應用程式。</dd>
-  <dt>iOS Programming Guide</dt>
-    <dd>您要為 Apple 開發應用程式嗎？請嘗試 <a href="https://console.bluemix.net/docs/swift/index.html#overview" target="_blank">iOS Programming Guide <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>，以學習、實驗及加強您現有的 iOS 應用程式與 {{site.data.keyword.Bluemix_notm}} 的搭配。</dd>
-</dl>
 
 
 ## 架構
@@ -77,13 +58,13 @@ lastupdated: "2018-04-27"
 
 <dl>
   <dt> 應用程式</dt>
-    <dd><strong>伺服器 SDK</strong>：您可以使用伺服器 SDK，來保護 {{site.data.keyword.Bluemix_notm}} 及 Web 應用程式上管理的後端資源。它會要求擷取存取記號，並向 {{site.data.keyword.appid_short_notm}} 驗證它。</br>
-    <strong>用戶端 SDK</strong>：您可以使用 Android 或 iOS 用戶端 SDK 來保護行動應用程式。用戶端 SDK 會與您的雲端資源通訊，以在偵測到授權盤查時啟動鑑別處理程序。</dd>
-  <dt>{{site.data.keyword.Bluemix_notm}}</dt>
-    <dd><strong>{{site.data.keyword.appid_short_notm}}</strong>：在成功鑑別之後，{{site.data.keyword.appid_short_notm}} 會將存取及身分記號傳回給您的應用程式。</br>
-    <strong>雲端目錄</strong>：使用者可以使用其電子郵件及密碼進行註冊，以取得您的服務。然後，您可以透過使用者介面以清單視圖管理您的使用者。搭配雲端目錄，{{site.data.keyword.appid_short_notm}} 可以作為您的身分提供者。</dd>
-  <dt>外部（協力廠商）</dt>
-    <dd><strong>社交及企業身分提供者</strong>：{{site.data.keyword.appid_short_notm}} 支援兩種社交身分提供者：Facebook 及 Google+，以及一種企業身分提供者：SAML 2.0 Federation。服務會安排重新導向至身分提供者，並驗證所傳回的鑑別記號。如果記號有效，則服務甚至不必對實際通行詞組具有存取權，即可有權存取您的應用程式。</dd>
+    <dd> 伺服器 SDK：您可以使用伺服器 SDK，保護 {{site.data.keyword.Bluemix_notm}} 及 Web 應用程式上管理的後端資源。它會要求擷取存取記號，並向 {{site.data.keyword.appid_short_notm}} 驗證它。</br>
+    用戶端 SDK：您可以使用 Android 或 iOS 用戶端 SDK 來保護行動應用程式。用戶端 SDK 會與您的雲端資源通訊，以在偵測到授權盤查時啟動鑑別處理程序。</dd>
+  <dt> {{site.data.keyword.Bluemix_notm}} </dt>
+    <dd> App ID：在成功鑑別之後，{{site.data.keyword.appid_short_notm}} 會將存取及身分記號傳回給您的應用程式。</br>
+    雲端目錄：使用者可以使用其電子郵件及密碼進行註冊，以取得您的服務。然後，您可以透過使用者介面以清單視圖管理您的使用者。</dd>
+  <dt> 外部（協力廠商）</dt>
+    <dd>  {{site.data.keyword.appid_short_notm}} 支援兩個社交身分提供者：Facebook 及 Google+。服務會安排重新導向至身分提供者，並在驗證鑑別之後提供應用程式的存取權。{{site.data.keyword.appid_short_notm}} 會驗證認證而不必具有實際通行詞組的存取權。</dd>
 </dl>
 
 

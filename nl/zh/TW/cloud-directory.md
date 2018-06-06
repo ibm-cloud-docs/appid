@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-02-01"
 
 ---
 
@@ -11,12 +11,11 @@ lastupdated: "2018-4-24"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
-{:tip: .tip}
 
 # 配置雲端目錄
 {: #cd}
 
-使用者可以使用電子郵件及密碼來註冊與登入行動及 Web 應用程式。雲端目錄是雲端中所維護的使用者登錄。使用者利用電子郵件及密碼來註冊應用程式時，即會將它們新增至使用者目錄。使用此特性，使用者可以在應用程式內自由管理自己的帳戶。
+您可以將 {{site.data.keyword.appid_short_notm}} 配置為使用雲端目錄作為身分提供者。使用者可以使用電子郵件及密碼來註冊與登入行動及 Web 應用程式。雲端目錄是雲端中所維護的使用者登錄。使用者利用其電子郵件及密碼來註冊應用程式時，即會將他們新增至使用者目錄。使用此特性之後，一般使用者可以在應用程式內自由管理自己的帳戶。
 {: shortdesc}
 
 </br>
@@ -29,11 +28,11 @@ lastupdated: "2018-4-24"
 
 ![配置雲端目錄](/images/cloud-directory.png)
 
-1. 確定以身分提供者身分來開啟雲端目錄，並將**容許使用者註冊及重設其密碼**設為**開啟**。設為**關閉**時，則基於開發目的，您仍然可以透過主控台新增使用者。
-2. 配置寄件者詳細資料。指定訊息的來源電子郵件位址、寄件者，以及您的使用者可以回覆給誰。當您配置動作 URL 時，請確定您提供足夠時間，可讓使用者按一下鏈結。使用者必須驗證其電子郵件具有特定選項，例如能夠要求重設其密碼。
-  {: tip}
+1. 確定以身分提供者身分來開啟雲端目錄，並將**容許使用者註冊及重設其密碼**設為**開啟**。當設為**關閉**時，您仍然可以透過主控台新增使用者，但僅基於開發目的。
+2. 配置寄件者詳細資料。指定訊息的來源電子郵件位址、寄件者，以及您的使用者可以回覆給誰。
+  **附註**：當配置動作 URL，請確定您提供足夠時間，可讓使用者按一下鏈結。使用者必須驗證其電子郵件具有特定選項，例如能夠要求重設其密碼。
 3. 判斷使用者接收的電子郵件類型及寄件者資訊。
-4. 使用提供的範本，搭配特有風格或個人化訊息來自訂訊息。如需相關資訊，請參閱[管理訊息](/docs/services/appid/cloud-directory.html#cd-messages)。
+4. 使用提供的範本，利用品牌或個人化訊息來自訂訊息。如需相關資訊，請參閱[管理訊息](/docs/services/appid/cloud-directory.html#cd-messages)。
 5. 在 GUI 的**使用者**標籤中，查看應用程式的註冊人員。
 
 </br>
@@ -49,14 +48,14 @@ lastupdated: "2018-4-24"
 
 ### 訊息類型
 
-您可將數種類型的訊息傳送給您的使用者。您可以選擇傳送透過程式設計方式編寫至使用者介面的範例訊息，或自訂更個人的應用程式體驗的內容。
+有數種可傳送給使用者的訊息類型。您可以選擇傳送透過程式設計方式編寫至使用者介面的範例訊息，或自訂更個人的應用程式體驗的內容。
 
 <dl>
   <dt>歡迎使用</dt>
-    <dd><p>在使用者完成登錄之後，您可以透過電子郵件歡迎使用者使用您的應用程式。若要歡迎並留住您的使用者，請讓您的訊息儘可能吸引人。</p>
+    <dd><p>在使用者完成登錄之後，您可以歡迎使用者使用您的應用程式。若要歡迎並留住您的使用者，請讓您的訊息儘可能吸引人。</p>
     <table>
       <thead>
-        <th colspan=2><img src="images/idea.png"/> 所有訊息參數</th>
+        <th colspan=2><img src="images/idea.png"/>可在任何類型之訊息中使用的參數</th>
       </thead>
       <tbody>
         <tr>
@@ -65,7 +64,7 @@ lastupdated: "2018-4-24"
         </tr>
         <tr>
           <td> %{user.displayName} </td>
-          <td> 顯示使用者選擇要在與應用程式互動時使用的畫面名稱。</td>
+          <td> 顯示使用者已選擇要在與應用程式互動時使用的畫面名稱。</td>
         </tr>
         <tr>
           <td> %{user.email} </td>
@@ -81,13 +80,13 @@ lastupdated: "2018-4-24"
         </tr>
         <tr>
           <td> %{user.lastName} </td>
-          <td> 顯示使用者的指定暱稱。</td>
+          <td> 顯示使用者的指定姓氏。</td>
         </tr>
       </tbody>
     </table>
     <p>**附註**：如果使用者未提供參數所取回的資訊，則它會出現空白。</p></dd>
   <dt>忘記密碼</dt>
-    <dd><p>如果使用者忘記其密碼，或基於任何原因而需要更新其密碼，使用者可以要求重設其密碼。您可以自訂對其要求的電子郵件回應。當使用者要求變更時，其密碼會保持不變，直到他們按一下此電子郵件中的鏈結。
+    <dd><p>如果使用者忘記或基於任何原因而需要更新其密碼，使用者可以要求重設該密碼。您可以自訂對其要求的電子郵件回應。當使用者要求變更時，其密碼會保持不變，直到他們按一下此電子郵件中的鏈結。
 
     </p>
     <table>
@@ -105,7 +104,7 @@ lastupdated: "2018-4-24"
         </tr>
         <tr>
           <td> %{resetPassword.code} </td>
-          <td> 將一次性通行碼顯示為 URL 的一部分。這表示每一個人員都將具有不同的通行碼。範例：<code>https://appid-wfm.bluemix.net/verify/6574839563478 </code> </td>
+          <td> 將一次性通行碼顯示為 URL 的一部分。這將表示每一個人員都將具有不同的通行碼。範例：<code>https://appid-wfm.bluemix.net/verify/6574839563478 </code> </td>
         </tr>
         <tr>
           <td> %{resetPassword.link} </td>
@@ -141,7 +140,9 @@ lastupdated: "2018-4-24"
     </table>
     </dd>
   <dt>密碼變更</dt>
-    <dd><p>您可以讓使用者知道其密碼何時已更新。如果他們並未要求變更其密碼，此舉很有用。他們可以採取適當的步驟來重新保護其帳戶的安全。</p>
+    <dd><p>您可以讓使用者知道其密碼何時已更新。如果他們並未要求變更其密碼，此舉很有用。他們可以採取適當的步驟來重新保護其帳戶的安全。
+
+    </p>
     <table>
       <thead>
         <th colspan=2><img src="images/idea.png"/> 密碼變更參數</th>
@@ -164,12 +165,12 @@ lastupdated: "2018-4-24"
 
 </br>
 ## 後續步驟
-既然您已配置雲端目錄，就已準備好將登入小組件的程式碼新增至應用程式碼。按一下下圖中的 SDK 語言圖示，以查看您需要執行的作業。
+既然您已配置雲端目錄，就已準備好將 loginwidget 的程式碼新增至應用程式碼。按一下下圖中的 SDK 語言圖示，以查看您需要執行的作業。
 {: shortdesc}
 
-<img usemap="#options-map" border="0" class="image" id="options" src="images/options.png" width="750" alt="按一下 SDK 語言圖示，在您的應用程式中開始使用雲端目錄。" style="width:750px;" />
+<img usemap="#options-map" border="0" class="image" id="options" src="images/options.png" width="750" alt="按一下 SDK 語言圖示，以在應用程式中開始使用雲端目錄。" style="width:750px;" />
 <map name="options-map" id="options-map">
-<area href="login-widget.html#branded-ui-android" alt="使用 Android SDK 管理登入體驗" shape="rect" coords="187, 6, 305, 120" />
-<area href="login-widget.html#branded-ui-ios-swift" alt="使用 iOS Swift SDK 管理登入體驗。" shape="rect" coords="333, 6, 448, 125" />
-<area href="login-widget.html#branded-ui-nodejs" alt="使用 Node.js SDK 管理登入體驗。" shape="rect" coords="472, 7, 590, 121" />
+<area href="branded.html#branded-ui-android" alt="使用 Android SDK 管理登入體驗" shape="rect" coords="187, 6, 305, 120" />
+<area href="branded.html#branded-ui-ios-swift" alt="使用 iOS Swift SDK 管理登入體驗。" shape="rect" coords="333, 6, 448, 125" />
+<area href="branded.html#branded-ui-nodejs" alt="使用 Node.js SDK 管理登入體驗。" shape="rect" coords="472, 7, 590, 121" />
 </map>

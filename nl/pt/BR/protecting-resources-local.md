@@ -2,10 +2,9 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-01-02"
 
 ---
-
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
@@ -24,7 +23,7 @@ localmente usando o SDK do servidor {{site.data.keyword.appid_short_notm}} para 
 ## Antes de iniciar
 {: #begin}
 
-Certifique-se de que você tenha o [SDK do servidor instalado](/docs/services/appid/install.html#nodejs-setup).
+Certifique-se de ter concluído a [instalação do SDK do servidor](/docs/services/appid/install.html#nodejs-setup).
 
 
 ## Configurando aplicativos {{site.data.keyword.appid_short_notm}} para trabalhar com um servidor de desenvolvimento local
@@ -38,7 +37,7 @@ serviço.
 
 <table> <caption> Tabela 1. Regiões do {{site.data.keyword.Bluemix_notm}} e regiões do {{site.data.keyword.appid_short_notm}} correspondentes para Android e iOS </caption>
 <tr>
-  <th> {{site.data.keyword.Bluemix_notm}} Região </th>
+  <th> Região do Bluemix </th>
   <th> Android e iOS </th>
 </tr>
 <tr>

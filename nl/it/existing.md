@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-01-02"
 
 ---
 
@@ -11,13 +11,13 @@ lastupdated: "2018-4-24"
 {:screen: .screen}
 {:codeblock: .codeblock}
 
+
 # Aggiunta di {{site.data.keyword.appid_short_notm}} a un'applicazione esistente
 
 Puoi utilizzare {{site.data.keyword.appid_full}} con la tua applicazione esistente per autenticare e archiviare le informazioni sul profilo per i tuoi utenti.
 
 
 ## Prerequisiti
-{: prereq}
 
 * Un'applicazione iOS Swift, Android, Node.js, Swift o Liberty for Java esistente.
 * Un'istanza esistente di {{site.data.keyword.appid_short_notm}}.
@@ -97,7 +97,7 @@ Puoi aggiungere il servizio {{site.data.keyword.appid_short_notm}} alle tue appl
           }
 
           @Override
-          public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, RefreshToken refreshToken) {
+          public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken) {
           }
         });
   ```
@@ -181,7 +181,7 @@ Puoi aggiungere il servizio {{site.data.keyword.appid_short_notm}} alle tue appl
          	return AppID.sharedInstance.application(application, open: url, options: options)
       }
   class delegate : AuthorizationDelegate {
-     public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, refreshToken: RefreshToken? response:Response?) {
+     public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, response:Response?) {
      }
 
      public func onAuthorizationCanceled() {
@@ -531,7 +531,7 @@ Puoi configurare {{site.data.keyword.appid_short_notm}} per utilizzare le tue ap
 
       <httpEndpoint id="defaultHttpEndpoint" httpPort="9080" host="*" httpsPort="9443" />
 
-
+      
       <applicationManager autoExpand="true"/>
 
   </server>

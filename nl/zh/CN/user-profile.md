@@ -2,20 +2,21 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-01-02"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
-{:pre: .pre}
 
 
 # 访问用户属性
 {: #user-profile}
 
-用户属性是由 {{site.data.keyword.appid_full}} 存储并维护的实体中的信息段。概要文件包含由身份提供者管理的用户属性和身份，也可以是匿名的。您可以使用这些概要文件为每个用户创建个性化的应用程序体验。
+您可以管理可用于构建个性化应用程序体验的最终用户数据。
 {:shortdesc}
+
+用户属性是由 {{site.data.keyword.appid_full}} 存储并维护的实体中的信息段。概要文件包含用户的属性和身份，可以是匿名的，也可以链接到身份提供者管理的身份。
 
 
 {{site.data.keyword.appid_short_notm}} 提供用于登录的 API，可以匿名登录，也可以使用 OpenId Connect (OIDC) [身份提供者](/docs/services/appid/identity-providers.html)进行认证。用户概要文件属性 API 端点是通过在登录和授权过程中由 {{site.data.keyword.appid_short_notm}} 生成的访问令牌保护的资源。
@@ -44,7 +45,7 @@ lastupdated: "2018-4-24"
   void getAllAttributes(@NonNull UserAttributeResponseListener listener);
   void getAllAttributes(@NonNull AccessToken accessToken, @NonNull UserAttributeResponseListener listener);
   ```
-  {: pre}
+  {: codeblock}
 
 未显式传递访问令牌时，{{site.data.keyword.appid_short_notm}} 会使用最后一次收到的令牌。
 
@@ -63,7 +64,7 @@ lastupdated: "2018-4-24"
 		}
 	});
   ```
-  {: pre}
+  {: codeblock}
 
 ### 匿名登录
 {: #anonymous notoc}
@@ -83,12 +84,12 @@ lastupdated: "2018-4-24"
 		}
 
 		@Override
-		public void onAuthorizationSuccess(AccessToken accessToken, IdentityToken identityToken, RefreshToken refreshToken) {
+		public void onAuthorizationSuccess(AccessToken accessToken, IdentityToken identityToken) {
 			//User authenticated
 		}
 	});
   ```
-  {: pre}
+  {: codeblock}
 
 ### 渐进式认证
 {: #progressive notoc}
@@ -98,7 +99,7 @@ lastupdated: "2018-4-24"
   ```java
   void launch (@NonNull final Activity activity, @NonNull final AuthorizationListener authorizationListener, String accessTokenString);
   ```
-  {: pre}
+  {: codeblock}
 
 匿名登录后，会执行渐进式认证，即便在未传递访问令牌的情况下调用了登录窗口小部件时也是如此，因为服务使用的是最后一次收到的令牌。如果要清除存储的令牌，请运行以下命令。
 
@@ -106,14 +107,13 @@ lastupdated: "2018-4-24"
   	appIDAuthorizationManager = new AppIDAuthorizationManager(this.appId);
   appIDAuthorizationManager.clearAuthorizationData();
   ```
-  {: pre}
+  {: codeblock}
 
 
 ## 使用 iOS SDK 访问用户属性
 {: #accessing}
 
-通过以下 API 方法传递访问令牌来访问用户属性。
-{: shortdesc}
+获取访问令牌时，还可获取对用户保护的属性端点的访问权。这将通过使用以下 API 方法来实现。
 
   ```swift
   func setAttribute(key: String, value: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
@@ -125,7 +125,7 @@ lastupdated: "2018-4-24"
   func deleteAttribute(key: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
   func deleteAttribute(key: String, accessTokenString: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
   ```
-  {: pre}
+  {: codeblock}
 
 未显式传递访问令牌时，{{site.data.keyword.appid_short_notm}} 会使用最后一次收到的令牌。
 
@@ -140,17 +140,18 @@ lastupdated: "2018-4-24"
       }
   })
   ```
-  {: pre}
+  {: codeblock}
 
 
 ### 匿名登录
+{: #anonymous notoc}
 
 通过 {{site.data.keyword.appid_short_notm}}，您可以[匿名](/docs/services/appid/user-profile.html#anonymous)登录。
 
   ```swift
   class delegate : AuthorizationDelegate {
 
-      public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, refreshToken: RefreshToken?, response:Response?) {
+      public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, response:Response?) {
           //User authenticated
       }
 
@@ -165,16 +166,17 @@ lastupdated: "2018-4-24"
 
   AppID.sharedInstance.loginAnonymously( authorizationDelegate: delegate())
   ```
-  {: pre}
+  {: codeblock}
 
 ### 渐进式认证
+{: #progressive notoc}
 
 持有匿名访问令牌时，用户可以通过将令牌传递到 `loginWidget.launch` 方法来成为已识别用户。
 
   ```swift
   func launch(accessTokenString: String? , delegate: AuthorizationDelegate)
   ```
-  {: pre}
+  {: codeblock}
 
 匿名登录后，会执行渐进式认证，即便在未传递访问令牌的情况下调用了登录窗口小部件时也是如此，因为服务使用的是最后一次收到的令牌。如果要清除存储的令牌，请运行以下命令。
 
@@ -182,7 +184,7 @@ lastupdated: "2018-4-24"
   var appIDAuthorizationManager = AppIDAuthorizationManager(appid: AppID.sharedInstance)
   appIDAuthorizationManager.clearAuthorizationData()
   ```
-  {: pre}
+  {: codeblock}
 
 ## 数据分隔和加密
 {: #data}

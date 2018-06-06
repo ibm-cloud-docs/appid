@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-04-27"
+lastupdated: "2018-02-01"
 
 ---
 
@@ -21,7 +21,8 @@ lastupdated: "2018-04-27"
 ## Razões para usar o serviço
 {: #reasons}
 
-Por que você deseja usar o {{site.data.keyword.appid_short_notm}}? Confira os cenários a seguir para ver se algum deles se aplica a você.
+Por que você deseja usar o {{site.data.keyword.appid_short_notm}}? Confira os cenários
+a seguir para ver se algum deles se aplica a você.
 {: shortdesc}
 
 <table>
@@ -43,47 +44,29 @@ Por que você deseja usar o {{site.data.keyword.appid_short_notm}}? Confira os c
   </tr>
   <tr>
     <td> Você deseja fornecer aos usuários a capacidade de acessar seu app com seus e-mails e uma senha. </td>
-    <td> O {{site.data.keyword.appid_short_notm}} permite criar um [diretório da nuvem](/docs/services/appid/cloud-directory.html), que torna possível para você incluir a inscrição do usuário e conectar-se aos seus apps. O diretório da nuvem fornece a estrutura para manter um registro do usuário que pode escalar com sua base de usuários. Com a funcionalidade pré-construída para autoatendimento, como verificação de e-mail e reconfigurações de senha, é possível ter certeza que seu app está autenticando usuários com segurança. </td>
+    <td> O {{site.data.keyword.appid_short_notm}} fornece a capacidade de criar um [diretório da nuvem](/docs/services/appid/cloud-directory.html). Isso torna possível incluir a inscrição do usuário e conectar-se aos apps móveis e da web. O diretório da nuvem fornece a estrutura para manter um registro do usuário que pode escalar com sua base de usuários. Com a funcionalidade pré-construída para autoatendimento, como verificação de e-mail e reconfigurações de senha, é possível ter certeza que seu app está autenticando usuários com segurança. </td>
   </tr>
 </table>
-
-
-## Integrações
-{: #integrations}
-
-É possível usar o {{site.data.keyword.appid_short_notm}} com outras ofertas do {{site.data.keyword.Bluemix_notm}}.
-{:shortdesc}
-
-
-<dl>
-  <dt>{{site.data.keyword.containerlong_notm}}</dt>
-    <dd>Configurando o ingresso em um cluster padrão, é possível proteger seus apps no nível do cluster. Veja a anotação de ingresso de autenticação do {{site.data.keyword.appid_short_notm}} para começar.</dd>
-  <dt>{{site.data.keyword.openwhisk}} e API Connect</dt>
-    <dd>Quando você cria suas APIs com o [{{site.data.keyword.openwhisk_short}}](/docs/openwhisk/index.html) e o [API Connect](/docs/apis/management/manage_apis.html), é possível proteger seus aplicativos no gateway em vez de em seu código de app. Para ver a integração em ação, veja <a href="https://www.youtube.com/watch?v=Fa9YD2NGZiE" target="_blank">Login social simples e rápido OAUTH com APIC e {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a>.</dd>
-  <dt>Cloud Foundry</dt>
-    <dd>Experimente um dos nossos apps Cloud Foundry de amostra para ver como é possível integrar o ID do app em seus apps.</dd>
-  <dt>Guia de Programação do iOS</dt>
-    <dd>Você desenvolve apps para a Apple? Experimente o <a href="https://console.bluemix.net/docs/swift/index.html#overview" target="_blank">Guia de Programação do iOS <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a> para aprender, experimentar e aprimorar seu apps iOS existentes com o {{site.data.keyword.Bluemix_notm}}.</dd>
-</dl>
 
 
 ## Software
 {: #architecture}
 
-Com o {{site.data.keyword.appid_short_notm}}, é possível incluir um nível de segurança em seus apps requerendo que os usuários se conectem. Também é possível usar o SDK do servidor para proteger seus recursos de backend.
+Com o {{site.data.keyword.appid_short_notm}}, é possível incluir um nível de segurança a seus apps, solicitando aos usuários que se conectem. Também é possível usar o SDK do servidor para proteger seus recursos de backend.
 {: shortdesc}
 
 ![{{site.data.keyword.appid_short_notm}} diagrama de arquitetura](/images/appid_architecture.png)
 
 <dl>
   <dt> Aplicativo </dt>
-    <dd><strong>SDK do servidor</strong>: é possível proteger seus recursos de backend que estão hospedados no {{site.data.keyword.Bluemix_notm}} e seus apps da web usando o SDK do servidor. Ele extrai o token de acesso de uma solicitação e o valida com o {{site.data.keyword.appid_short_notm}}. </br>
-    <strong>SDK do cliente</strong>: é possível proteger seus apps móveis com o SDK do cliente Android ou iOS. O SDK cliente se comunica com seus recursos em nuvem para iniciar o processo de autenticação quando ele detecta um desafio de autorização.</dd>
-  <dt>{{site.data.keyword.Bluemix_notm}}</dt>
-    <dd><strong>{{site.data.keyword.appid_short_notm}}</strong>: após a autenticação bem-sucedida, o {{site.data.keyword.appid_short_notm}} retorna tokens de acesso e de identidade para seu app.</br>
-    <strong>Diretório da nuvem</strong>: os usuários podem se inscrever para seu serviço com seus e-mails e uma senha. É possível, então, gerenciar seus usuários em uma visualização de lista por meio da UI. Com o diretório da nuvem, o {{site.data.keyword.appid_short_notm}} funciona como seu provedor de identidade.</dd>
-  <dt>Externo (terceiro)</dt>
-    <dd><strong>Provedores de identidade social e corporativa</strong>: o {{site.data.keyword.appid_short_notm}} suporta dois provedores de identidade social, que são o Facebook e o Google+, e um provedor de identidade corporativa, que é a Federação do SAML 2.0. O serviço determina um redirecionamento para o provedor de identidade e verifica os tokens de autenticação retornados. Se os tokens forem válidos, o serviço concederá acesso a seu app sem ter acesso à passphrase real.</dd>
+    <dd> SDK do servidor: é possível proteger seus recursos de backend que estão hospedados no {{site.data.keyword.Bluemix_notm}} e seus apps da web usando o SDK do servidor. Ele extrai o token de acesso de uma solicitação e o valida com o {{site.data.keyword.appid_short_notm}}. </br>
+    SDK do cliente: é possível proteger seus apps móveis com o SDK do cliente Android ou iOS. O SDK cliente se comunica com seus recursos em nuvem para iniciar o processo de autenticação quando ele detecta um desafio de autorização.</dd>
+  <dt> {{site.data.keyword.Bluemix_notm}} </dt>
+    <dd> ID do app: após a autenticação bem-sucedida, o {{site.data.keyword.appid_short_notm}} retorna tokens de acesso e de identidade para seu app.</br>
+    Cloud Directory: os usuários podem inscrever-se para o seu serviço com e-mail e senha. É possível, então, gerenciar seus usuários em uma visualização de lista por meio da UI. </dd>
+  <dt> Externo (terceiros) </dt>
+    <dd>  O {{site.data.keyword.appid_short_notm}} suporta dois provedores de identidade social: Facebook e Google+. O serviço organiza um redirecionamento para o provedor de identidade e fornece acesso a seu app após a verificação de autenticação. O {{site.data.keyword.appid_short_notm}} verifica as
+credenciais sem ter acesso à passphrase real. </dd>
 </dl>
 
 
@@ -96,7 +79,8 @@ O diagrama a seguir descreve como uma solicitação flui do SDK do cliente para 
 ![{{site.data.keyword.appid_short_notm}} fluxo de solicitação](/images/appidrequestflow.png)
 
 
-* O SDK do cliente do {{site.data.keyword.appid_short_notm}} faz uma solicitação para seus recursos de backend que são protegidos com o SDK do servidor do {{site.data.keyword.appid_short_notm}}.
+* O SDK do cliente {{site.data.keyword.appid_short_notm}} faz uma solicitação a
+seus recursos de backend protegidos com o SDK do servidor {{site.data.keyword.appid_short_notm}}.
 * O {{site.data.keyword.appid_short_notm}} SDK do servidor detecta uma solicitação não autorizada e retorna um HTTP 401 e escopo de autorização.
 * O SDK do cliente detecta automaticamente o HTTP 401 e inicia o processo de autenticação.
 * Quando o SDK do cliente entra em contato com o serviço, o SDK do servidor retorna o widget de login se mais de um provedor de identidade é configurado. {{site.data.keyword.appid_short_notm}} chama o provedor de identidade e apresenta o formulário de login para esse provedor ou retorna um código de concessão que permite autenticar se nenhum provedor de identidade é configurado.

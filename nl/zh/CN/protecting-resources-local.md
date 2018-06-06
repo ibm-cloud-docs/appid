@@ -2,10 +2,9 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-01-02"
 
 ---
-
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
@@ -23,7 +22,7 @@ lastupdated: "2018-4-24"
 ## 开始之前
 {: #begin}
 
-确保[已安装服务器 SDK](/docs/services/appid/install.html#nodejs-setup)。
+确保已完成[服务器 SDK 安装](/docs/services/appid/install.html#nodejs-setup)。
 
 
 ## 将 {{site.data.keyword.appid_short_notm}} 应用程序配置为使用本地开发服务器
@@ -36,7 +35,7 @@ lastupdated: "2018-4-24"
 
 <table> <caption> 表 1. {{site.data.keyword.Bluemix_notm}} 区域及对应的 Android 和 iOS {{site.data.keyword.appid_short_notm}} 区域</caption>
 <tr>
-  <th> {{site.data.keyword.Bluemix_notm}} 区域</th>
+  <th> Bluemix 区域</th>
   <th> Android 和 iOS </th>
 </tr>
 <tr>

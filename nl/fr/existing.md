@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-01-02"
 
 ---
 
@@ -10,6 +10,7 @@ lastupdated: "2018-4-24"
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
+
 
 # Ajout d'{{site.data.keyword.appid_short_notm}} à une application existante
 
@@ -19,7 +20,6 @@ vos utilisateurs.
 
 
 ## Conditions requises
-{: prereq}
 
 * Une application iOS Swift, Android, Node.js, Swift ou Liberty for Java existante.
 * Une instance existante d'{{site.data.keyword.appid_short_notm}}
@@ -102,7 +102,7 @@ client d'{{site.data.keyword.appid_short_notm}}.
           }
 
           @Override
-          public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, RefreshToken refreshToken) {
+          public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken) {
           }
         });
   ```
@@ -187,7 +187,7 @@ client d'{{site.data.keyword.appid_short_notm}}.
          	return AppID.sharedInstance.application(application, open: url, options: options)
       }
   class delegate : AuthorizationDelegate {
-     public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, refreshToken: RefreshToken? response:Response?) {
+     public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, response:Response?) {
      }
 
      public func onAuthorizationCanceled() {
@@ -538,7 +538,7 @@ Vous pouvez configurer {{site.data.keyword.appid_short_notm}} pour qu'il fonctio
 
       <httpEndpoint id="defaultHttpEndpoint" httpPort="9080" host="*" httpsPort="9443" />
 
-
+      
       <applicationManager autoExpand="true"/>
 
   </server>

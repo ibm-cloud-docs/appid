@@ -2,10 +2,9 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-01-02"
 
 ---
-
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
@@ -24,7 +23,7 @@ l'aide du SDK serveur d'{{site.data.keyword.appid_short_notm}} pour envoyer des 
 ## Avant de commencer
 {: #begin}
 
-Assurez-vous que [le serveur SDK est installé](/docs/services/appid/install.html#nodejs-setup).
+Assurez-vous d'avoir effectué l'[installation du SDK du serveur](/docs/services/appid/install.html#nodejs-setup).
 
 
 ## Configuration d'applications {{site.data.keyword.appid_short_notm}} pour leur utilisation avec un serveur de développement local
@@ -37,7 +36,7 @@ Pour configurer vos applications afin d'utiliser un serveur de développement lo
 
 <table> <caption> Tableau 1. Régions {{site.data.keyword.Bluemix_notm}} et régions {{site.data.keyword.appid_short_notm}} correspondantes pour Android et iOS </caption>
 <tr>
-  <th> Région {{site.data.keyword.Bluemix_notm}}</th>
+  <th> Région Bluemix </th>
   <th> Android et iOS </th>
 </tr>
 <tr>

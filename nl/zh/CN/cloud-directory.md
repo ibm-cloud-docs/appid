@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-02-01"
 
 ---
 
@@ -11,12 +11,11 @@ lastupdated: "2018-4-24"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
-{:tip: .tip}
 
 # 配置 Cloud Directory
 {: #cd}
 
-用户可以使用电子邮件和密码注册并登录到移动应用程序和 Web 应用程序。Cloud Directory 是在云中维护的用户注册表。当用户使用电子邮件和密码注册应用程序时，会将其添加到您的用户目录中。利用此功能，用户可以在应用程序中自由管理自己的帐户。
+您可以配置 {{site.data.keyword.appid_short_notm}}，以将 Cloud Directory 用作身份提供者。用户可以使用电子邮件和密码注册并登录到移动应用程序和 Web 应用程序。Cloud Directory 是在云中维护的用户注册表。当用户使用电子邮件和密码注册应用程序时，会将其添加到您的用户目录中。利用此功能，最终用户可以在应用程序中自由管理自己的帐户。
 {: shortdesc}
 
 </br>
@@ -29,12 +28,11 @@ lastupdated: "2018-4-24"
 
 ![配置 Cloud Directory](/images/cloud-directory.png)
 
-1. 确保开启 Cloud Directory 作为身份提供者，并将**允许用户注册并重置密码**设置为**开启**。如果设置为**关闭**，那么仍可以通过控制台添加用户以用于开发目的。
+1. 确保开启 Cloud Directory 作为身份提供者，并将**允许用户注册并重置密码**设置为**开启**。当其设置为**关闭**时，您仍可通过控制台添加用户，但仅适用于开发目的。
 2. 配置发件人详细信息。指定发件人的电子邮件地址，电子邮件消息将显示为从该地址发送，用户可以回复到该地址。
-配置操作 URL 时，一定要为用户提供足够的时间来单击链接。用户必须验证其电子邮件中包含特定选项，例如，请求重置其密码的功能。
-  {: tip}
+**注**：确保在配置操作 URL 时，为用户提供足够用于单击链接的时间。用户必须验证其电子邮件中包含特定选项，例如，请求重置其密码的功能。
 3. 确定用户将接收的电子邮件类型以及发件人信息。
-4. 借助提供的模板，使用您的品牌或个性化消息来定制消息。有关更多信息，请参阅[管理消息](/docs/services/appid/cloud-directory.html#cd-messages)。
+4. 使用提供的模板，使用品牌定制消息，或个性化消息。有关更多信息，请参阅[管理消息](/docs/services/appid/cloud-directory.html#cd-messages)。
 5. 在 GUI 的**用户**选项卡中查看谁注册了您的应用程序。
 
 </br>
@@ -50,7 +48,7 @@ lastupdated: "2018-4-24"
 
 ### 消息的类型
 
-您可以向用户发送多种类型的消息。您既可以选择发送已编程为 UI 的示例消息发送，也可以定制更为个性化的应用程序体验内容。
+您可以将几种类型的消息发送给用户。您既可以选择发送已编程为 UI 的示例消息发送，也可以定制更为个性化的应用程序体验内容。
 
 <dl>
   <dt>欢迎</dt>
@@ -58,7 +56,7 @@ lastupdated: "2018-4-24"
     </p>
     <table>
       <thead>
-        <th colspan=2><img src="images/idea.png"/>所有消息参数</th>
+        <th colspan=2><img src="images/idea.png"/> 任何消息类型中均可使用的参数</th>
       </thead>
       <tbody>
         <tr>
@@ -67,7 +65,7 @@ lastupdated: "2018-4-24"
         </tr>
         <tr>
           <td> %{user.displayName} </td>
-          <td> 显示用户所选的在与应用程序交互时要使用的屏幕名称。</td>
+          <td> 显示用户所选在与应用程序交互时要使用的屏幕名称。</td>
         </tr>
         <tr>
           <td> %{user.email} </td>
@@ -143,7 +141,8 @@ lastupdated: "2018-4-24"
     </table>
     </dd>
   <dt>密码更改</dt>
-    <dd><p>您可以在用户密码进行更新后告知用户。在用户并未请求更改密码时，该功能很有用。他们可以采取适当步骤来重新保护帐户的安全。
+    <dd><p>您可以在用户密码进行更新后告知用户。如果用户并未请求更改密码，这将很有用。他们可以采取适当步骤来重新保护帐户的安全。
+
     </p>
     <table>
       <thead>
@@ -167,12 +166,12 @@ lastupdated: "2018-4-24"
 
 </br>
 ## 后续步骤
-现在您已经配置了 Cloud Directory，就可以将登录窗口小部件的代码添加到应用程序代码中。单击下图中的 SDK 语言图标以查看需要执行的操作。
+现在您已经配置了 Cloud Directory，就可以将 loginwidget 的代码添加到应用程序代码中。单击下图中的 SDK 语言图标以查看需要执行的操作。
 {: shortdesc}
 
-<img usemap="#options-map" border="0" class="image" id="options" src="images/options.png" width="750" alt="单击 SDK 语言图标，开始在您的应用程序中使用 Dloud Directory。" style="width:750px;" />
+<img usemap="#options-map" border="0" class="image" id="options" src="images/options.png" width="750" alt="单击 SDK 语言图标以开始在应用程序中使用 Cloud Directory。" style="width:750px;" />
 <map name="options-map" id="options-map">
-<area href="login-widget.html#branded-ui-android" alt="使用 Android SDK 管理登录体验。" shape="rect" coords="187, 6, 305, 120" />
-<area href="login-widget.html#branded-ui-ios-swift" alt="使用 iOS Swift SDK 管理登录体验。" shape="rect" coords="333, 6, 448, 125" />
-<area href="login-widget.html#branded-ui-nodejs" alt="使用 Node.js SDK 管理登录体验。" shape="rect" coords="472, 7, 590, 121" />
+<area href="branded.html#branded-ui-android" alt="使用 Android SDK 管理登录体验。" shape="rect" coords="187, 6, 305, 120" />
+<area href="branded.html#branded-ui-ios-swift" alt="使用 iOS Swift SDK 管理登录体验。" shape="rect" coords="333, 6, 448, 125" />
+<area href="branded.html#branded-ui-nodejs" alt="使用 Node.js SDK 管理登录体验。" shape="rect" coords="472, 7, 590, 121" />
 </map>

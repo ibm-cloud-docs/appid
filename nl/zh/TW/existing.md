@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-01-02"
 
 ---
 
@@ -11,13 +11,13 @@ lastupdated: "2018-4-24"
 {:screen: .screen}
 {:codeblock: .codeblock}
 
+
 # 將 {{site.data.keyword.appid_short_notm}} 新增至現有應用程式
 
 您可以搭配使用 {{site.data.keyword.appid_full}} 與現有應用程式，以鑑別及儲存使用者的設定檔資訊。
 
 
 ## 必要條件
-{: prereq}
 
 * 現有 iOS Swift、Android、Node.js、Swift 或 Liberty for Java 應用程式。
 * 現有 {{site.data.keyword.appid_short_notm}} 實例。
@@ -97,7 +97,7 @@ lastupdated: "2018-4-24"
           }
 
           @Override
-          public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, RefreshToken refreshToken) {
+          public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken) {
           }
         });
   ```
@@ -181,7 +181,7 @@ lastupdated: "2018-4-24"
          	return AppID.sharedInstance.application(application, open: url, options: options)
      	}
   class delegate : AuthorizationDelegate {
-     public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, refreshToken: RefreshToken? response:Response?) {
+     public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, response:Response?) {
      }
 
      public func onAuthorizationCanceled() {

@@ -1,16 +1,13 @@
 ---
-
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-01-02"
 
 ---
-
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
-{:tip: .tip}
 
 # SDK 구성
 {: #configuring}
@@ -27,28 +24,24 @@ lastupdated: "2018-4-24"
 
 다음 정보가 필요합니다.
   * {{site.data.keyword.appid_short_notm}} 서비스의 인스턴스.
-  * 테넌트 ID. 서비스 대시보드의 **서비스 신임 정보** 탭에서 **신임 정보 보기**를 클릭하십시오. 테넌트 ID는 앱을 초기화하는 데 사용되는 고유한 ID입니다. 
+  * 테넌트 ID. 서비스 대시보드의 **서비스 신임 정보** 탭에서 **신임 정보 보기**를 클릭하십시오. 테넌트 ID가 **tenantID** 필드에 표시됩니다. 이는 앱을 초기화하는 데 사용되는 고유한 ID입니다.
   * {{site.data.keyword.Bluemix}} 지역. UI에서 보고 지역을 찾을 수 있습니다. 이 값은 앱을 초기화하는 데 사용됩니다.
     <table> <caption> 표 1. {{site.data.keyword.Bluemix_notm}} 지역 및 해당 SDK 값 </caption>
     <tr>
-      <th>{{site.data.keyword.Bluemix}} 지역</th>
-      <th>SDK 값</th>
+      <th> Bluemix 지역 </th>
+      <th> SDK 값 </th>
     </tr>
     <tr>
-      <td>미국 남부</td>
-      <td><code>AppID.REGION_US_SOUTH</code> </td>
+      <td> 미국 남부 </td>
+      <td> AppID.REGION_US_SOUTH </td>
     </tr>
     <tr>
-      <td>시드니</td>
-      <td><code>AppID.REGION_SYDNEY </code></td>
+      <td> 시드니 </td>
+      <td> AppID.REGION_SYDNEY </td>
     </tr>
     <tr>
-      <td>영국</td>
-      <td><code>AppID.REGION_UK </code></td>
-    </tr>
-    <tr>
-      <td>독일</td>
-      <td><code>AppID.REGION_GERMANY</code></td>
+      <td> 영국 </td>
+      <td> AppID.REGION_UK </td>
     </tr>
   </table>
 
@@ -91,7 +84,7 @@ defaultConfig {
   ```
   {: codeblock}
 
-6. 프로젝트를 Gradle과 동기화하십시오. **도구 > Android > Gradle 파일과 프로젝트 동기화**를 클릭하십시오. 
+6. 프로젝트를 Gradle과 동기화하십시오. **도구** > **Android** > **Gradle 파일과 프로젝트 동기화**를 클릭하십시오.
 
 ### 클라이언트 SDK 초기화
 
@@ -118,33 +111,29 @@ initialize 메소드에 컨텍스트, 테넌트 ID 및 지역 매개변수를 �
 
 다음 정보가 필요합니다.
   * {{site.data.keyword.appid_short_notm}}의 인스턴스.
-  * 테넌트 ID. 서비스 대시보드의 **서비스 신임 정보** 탭에서 **신임 정보 보기**를 클릭하십시오. 테넌트 ID는 앱을 초기화하는 데 사용되는 고유한 ID입니다. 
+  * 테넌트 ID. 서비스 대시보드의 **서비스 신임 정보** 탭에서 **신임 정보 보기**를 클릭하십시오. 테넌트 ID가 **TenantID** 필드에 표시됩니다. 이는 앱을 초기화하는 데 사용되는 고유한 ID입니다.
   * {{site.data.keyword.Bluemix_notm}} 지역.
   UI에서 보고 지역을 찾을 수 있습니다. 이 값은 앱을 초기화하는 데 사용됩니다.
-  <table> <caption> 표 1. {{site.data.keyword.Bluemix_notm}} 지역 및 해당 SDK 값 </caption>
+    <table> <caption> 표 1. {{site.data.keyword.Bluemix_notm}} 지역 및 해당 SDK 값 </caption>
     <tr>
-      <th>{{site.data.keyword.Bluemix}} 지역</th>
-      <th>SDK 값</th>
+      <th> Bluemix 지역 </th>
+      <th> SDK 값 </th>
     </tr>
     <tr>
-      <td>미국 남부</td>
-      <td><code>AppID.REGION_US_SOUTH</code> </td>
+      <td> 미국 남부 </td>
+      <td> AppID.REGION_US_SOUTH </td>
     </tr>
     <tr>
-      <td>시드니</td>
-      <td><code>AppID.REGION_SYDNEY </code></td>
+      <td> 시드니 </td>
+      <td> AppID.REGION_SYDNEY </td>
     </tr>
     <tr>
-      <td>영국</td>
-      <td><code>AppID.REGION_UK </code></td>
-    </tr>
-    <tr>
-      <td>독일</td>
-      <td><code>AppID.REGION_GERMANY</code></td>
+      <td> 영국 </td>
+      <td> AppID.REGION_UK </td>
     </tr>
   </table>
 
-  * Xcode 프로젝트(버전 9.0.1 이상).
+  * Xcode 프로젝트(버전 8.1 이상).
   * CocoaPods(버전 1.1.0 이상).
 
 
@@ -154,7 +143,7 @@ initialize 메소드에 컨텍스트, 테넌트 ID 및 지역 매개변수를 �
 
 1. Xcode 프로젝트를 작성하거나 기존 프로젝트를 여십시오.
 2. 프로젝트의 디렉토리에서 podfile을 열거나 작성하십시오.
-3. 프로젝트의 대상에 따라 `use_frameworks!` 명령 및 'BluemixAppID' 팟(Pod)에 대한 종속성을 추가하십시오. 
+3. 프로젝트의 대상 아래에 'BluemixAppID' 팟(pod)에 대한 종속성을 추가하십시오. `use_frameworks!` 명령도 대상 아래에 있는지 확인하십시오.
 
   예를 들면 다음과 같습니다.
 
@@ -173,13 +162,13 @@ initialize 메소드에 컨텍스트, 테넌트 ID 및 지역 매개변수를 �
   ```
   {: codeblock}
 
-6. Xcode 프로젝트를 열고 키 체인 공유를 사용 설정하십시오. **프로젝트 설정 > 기능 > 키 체인 공유**로 이동하고 **키 체인 공유 사용**을 선택하십시오. 
-7. **프로젝트 설정 > 정보 > URL 유형**을 열고 **URL 유형**을 추가하십시오. **ID** 및 **URL 스킴** 텍스트 상자 모두에 `$(PRODUCT_BUNDLE_IDENTIFIER)`를 두십시오. 
+6. Xcode 프로젝트를 열고 키 체인 공유를 사용 설정하십시오. **프로젝트 설정** 아래에서 **기능 > 키 체인 공유**를 클릭하십시오.
+7. **프로젝트 설정 > 정보 > URL 유형** 아래에서 **URL 유형**을 추가하십시오. **ID** 텍스트 상자 및 **URL 체계** 텍스트 상자를 모두 `$(PRODUCT_BUNDLE_IDENTIFIER)` 값으로 채우십시오.
 
 
 ### 클라이언트 SDK 초기화
 
-1. `AppDelegate` 파일로 다음의 가져오기를 추가하십시오. 
+1. `AppDelegate.swift` 파일에 다음과 같이 가져오기를 추가하십시오.
 
   ```swift
   import BluemixAppID
@@ -212,7 +201,7 @@ initialize 메소드에 컨텍스트, 테넌트 ID 및 지역 매개변수를 �
 
 ### 시작하기 전에
 
-* {{site.data.keyword.Bluemix_notm}}에서 Node.js 앱 개발에 익숙해지십시오. 
+* {{site.data.keyword.Bluemix_notm}}에서 Node.js 애플리케이션 개발에 익숙해지십시오.
 * {{site.data.keyword.appid_short_notm}} 서버 SDK를 사용하려면 Node.js 서버를 <a href="http://expressjs.com/" target="_blank">Express 프레임워크 <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>로 구현해야 합니다.
 
 **참고**: 다른 프레임워크는 `Express` 프레임워크(예: LoopBack)를 사용합니다. 이러한 프레임워크와 함께 {{site.data.keyword.appid_short_notm}} 서버 SDK를 사용할 수 있습니다.
@@ -236,16 +225,9 @@ initialize 메소드에 컨텍스트, 테넌트 ID 및 지역 매개변수를 �
 ## Swift SDK 설정
 {: #swift-setup}
 
-{{site.data.keyword.appid_short}} 서버 SDK로 백엔드 및 API를 보호합니다.
-{:shortdesc}
-
-
 ### 시작하기 전에
 
-Swift SDK 관련 작업을 수행하려면 우선 다음의 전제조건이 필요합니다. 
-
-* MacOS 또는 Linux
-* OpenSSL 1.0.2(Linux)
+* {{site.data.keyword.Bluemix}}에서 Swift 애플리케이션 개발에 익숙해지십시오.
 * Swift 3.0.2 설치
 * Kitura 1.6 설치
 
@@ -255,31 +237,14 @@ Swift SDK 관련 작업을 수행하려면 우선 다음의 전제조건이 필�
 1. Swift 앱의 디렉토리에서 `Package.swift` 파일을 열고 `appid-serversdk-swift` 종속성을 추가하십시오. 예를 들면 다음과 같습니다.
 
   ```swift
+  import PackageDescription
+
   let package = Package(
-      name: “myApp",
       dependencies: [
-          .package(url: "https://github.com/ibm-cloud-security/appid-serversdk-swift.git", .upToNextMinor(from: “4.0.0")),
-      ],
-      targets: [
-          .target(
-              name: "myApp",
-              dependencies: ["BluemixAppID"]),
+          .Package(url: "https://github.com/ibm-cloud-security/appid-serversdk-swift.git", majorVersion: 1)
       ]
   )
   ```
   {: codeblock}
 
-2. MacOS의 경우: 명령행에서 빌드할 때 모든 패키지에는 다음 플래그가 포함되어야 합니다. 
-  ```
-  swift build -Xlinker -L/usr/local/opt/openssl/lib -Xcc -I/usr/local/opt/openssl/include
-  ```
-  {: pre}
-
-3. xcodeproject를 작성할 때 다음 명령을 사용하십시오. 
-  ```
-  swift package generate-xcodeproj --xcconfig-overrides openssl.xcconfig
-  ```
-  {: pre}
-
-  <a href="https://github.com/ibm-cloud-security/appid-serversdk-swift" target="_blank">{{site.data.keyword.appid_short_notm}} Swift GitHub <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>에서 openssl.xcconfig를 복사할 수 있습니다.
-  {: tip}
+자세한 정보는 <a href="https://github.com/ibm-cloud-security/appid-serversdk-swift" target="_blank">{{site.data.keyword.appid_short_notm}} Swift GitHub 저장소 <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>를 참조하십시오.

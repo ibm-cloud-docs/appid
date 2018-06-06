@@ -2,21 +2,21 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-01-02"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
-{:pre: .pre}
 
 
 # Accès aux attributs utilisateur
 {: #user-profile}
 
-Un attribut d'utilisateur est un segment d'information d'une entité stockée et gérée par {{site.data.keyword.appid_full}}. Le profil contient les attributs d'un utilisateur et l'identité qui est gérée par un fournisseur d'identité ou bien être anonyme. Vous pouvez utiliser les profils pour créer des expériences personnalisées de votre application pour chaque utilisateur.
+Vous pouvez gérer les données sur l'utilisateur final que vous utilisez pour construire une expérience personnalisée.
 {:shortdesc}
 
+Un attribut d'utilisateur est un segment d'information d'une entité stockée et gérée par {{site.data.keyword.appid_full}}. Le profil contient les attributs et l'identité d'un utilisateur et peut être anonyme ou lié à une identité gérée par un fournisseur d'identité.
 
 {{site.data.keyword.appid_short_notm}} fournit une API pour la connexion, anonyme ou bien avec authentification, via un [fournisseur d'identité](/docs/services/appid/identity-providers.html) OpenId Connect (OIDC). Le noeud final d'API d'attribut de profil utilisateur est une ressource qui est protégée
 par
@@ -59,7 +59,7 @@ pouvez y accéder avec les méthodes ci-dessous.
   void getAllAttributes(@NonNull UserAttributeResponseListener listener);
   void getAllAttributes(@NonNull AccessToken accessToken, @NonNull UserAttributeResponseListener listener);
   ```
-  {: pre}
+  {: codeblock}
 
 Lorsqu'un jeton d'accès n'est pas transmis explicitement, {{site.data.keyword.appid_short_notm}} utilise le dernier jeton reçu.
 
@@ -78,7 +78,7 @@ void onFailure(UserAttributesException e) {
 			//Exception occurred 		}
 	});
   ```
-  {: pre}
+  {: codeblock}
 
 ### Connexion anonyme
 {: #anonymous notoc}
@@ -97,11 +97,11 @@ manière [anonyme](/docs/services/appid/user-profile.html#anonymous).
 			//Authentication canceled by the user 		}
 
 		@Override
-		public void onAuthorizationSuccess(AccessToken accessToken, IdentityToken identityToken, RefreshToken refreshToken) {
+		public void onAuthorizationSuccess(AccessToken accessToken, IdentityToken identityToken) {
 			//User authenticated 		}
 	});
   ```
-  {: pre}
+  {: codeblock}
 
 ### Authentification progressive
 {: #progressive notoc}
@@ -111,23 +111,23 @@ Lorsqu'il dispose d'un jeton d'accès anonyme, l'utilisateur peut devenir un uti
   ```java
   void launch (@NonNull final Activity activity, @NonNull final AuthorizationListener authorizationListener, String accessTokenString);
   ```
-  {: pre}
+  {: codeblock}
 
-Après une connexion anonyme, une authentification progressive a lieu même si le widget de connexion est appelé sans transmission d'un jeton d'accès car le service a utilisé le dernier jeton d'accès reçu. Si
+Après une connexion anonyme, une authentification progressive a lieu même si le widget de connexion est appelé sans transmission d'un jeton d'accès vu que le service a utilisé le dernier jeton d'accès reçu. Si
 vous voulez effacer les jetons que vous avez stockés, exécutez la commande ci-dessous.
 
   ```java
   	appIDAuthorizationManager = new AppIDAuthorizationManager(this.appId);
   appIDAuthorizationManager.clearAuthorizationData();
   ```
-  {: pre}
+  {: codeblock}
 
 
 ## Accès aux attributs d'utilisateur avec le SDK iOS
 {: #accessing}
 
-Acéez aux attributs utilisateur en transmettant un jeton d'accès à l'aide des méthodes d'API suivantes.
-{: shortdesc}
+En obtenant un jeton d'accès, vous pouvez accéder au noeud final des attributs utilisateur protégés. Pour
+ce faire, utilisez les méthodes d'API ci-dessous.
 
   ```swift
   func setAttribute(key: String, value: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
@@ -142,7 +142,7 @@ Acéez aux attributs utilisateur en transmettant un jeton d'accès à l'aide des
   func deleteAttribute(key: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
   func deleteAttribute(key: String, accessTokenString: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
   ```
-  {: pre}
+  {: codeblock}
 
 Lorsqu'un jeton d'accès n'est pas transmis explicitement, {{site.data.keyword.appid_short_notm}} utilise le dernier jeton reçu.
 
@@ -159,10 +159,11 @@ attribut ou remplacer un attribut existant.
       }
   })
   ```
-  {: pre}
+  {: codeblock}
 
 
 ### Connexion anonyme
+{: #anonymous notoc}
 
 Avec {{site.data.keyword.appid_short_notm}}, vous pouvez vous connecter de
 manière [anonyme](/docs/services/appid/user-profile.html#anonymous).
@@ -170,7 +171,7 @@ manière [anonyme](/docs/services/appid/user-profile.html#anonymous).
   ```swift
   class delegate : AuthorizationDelegate {
 
-      public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, refreshToken: RefreshToken?, response:Response?) {
+      public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, response:Response?) {
           //User authenticated
       }
       public func onAuthorizationCanceled() {
@@ -183,9 +184,10 @@ manière [anonyme](/docs/services/appid/user-profile.html#anonymous).
 
   AppID.sharedInstance.loginAnonymously( authorizationDelegate: delegate())
   ```
-  {: pre}
+  {: codeblock}
 
 ### Authentification progressive
+{: #progressive notoc}
 
 S'il dispose d'un jeton d'accès anonyme, l'utilisateur peut devenir un
 utilisateur identifié en transmettant le jeton à la méthode
@@ -194,20 +196,20 @@ utilisateur identifié en transmettant le jeton à la méthode
   ```swift
   func launch(accessTokenString: String? , delegate: AuthorizationDelegate)
   ```
-  {: pre}
+  {: codeblock}
 
-Après une connexion anonyme, une authentification progressive a lieu même si le widget de connexion est appelé sans transmission d'un jeton d'accès car le service a utilisé le dernier jeton d'accès reçu. Si
+Après une connexion anonyme, une authentification progressive a lieu même si le widget de connexion est appelé sans transmission d'un jeton d'accès vu que le service a utilisé le dernier jeton d'accès reçu. Si
 vous voulez effacer les jetons que vous avez stockés, exécutez la commande ci-dessous.
 
   ```swift
   var appIDAuthorizationManager = AppIDAuthorizationManager(appid: AppID.sharedInstance)
   appIDAuthorizationManager.clearAuthorizationData()
   ```
-  {: pre}
+  {: codeblock}
 
 ## Séparation et chiffrement des données
 {: #data}
 
-{{site.data.keyword.appid_short_notm}} stocke et chiffre les attributs de profil utilisateur. Comme il s'agit d'un service partagé, chaque titulaire est associé à une clé de chiffrement dédiée et les données utilisateur de chaque titulaire sont chiffrées avec sa propre clé.
+{{site.data.keyword.appid_short_notm}} stocke et chiffre les attributs de profil utilisateur. Etant donné qu'il s'agit d'un service partagé, chaque titulaire est associé à une clé de chiffrement dédiée et les données utilisateur de chaque titulaire sont chiffrées avec sa propre clé.
 
 {{site.data.keyword.appid_short_notm}} garantit que les informations privées soient chiffrées avant leur stockage.

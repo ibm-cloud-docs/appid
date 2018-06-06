@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-01-02"
 
 ---
 
@@ -11,13 +11,13 @@ lastupdated: "2018-4-24"
 {:screen: .screen}
 {:codeblock: .codeblock}
 
+
 # 기존 앱에 {{site.data.keyword.appid_short_notm}} 추가
 
 사용자에 대한 프로파일 정보를 인증하고 저장하기 위해 기존 애플리케이션과 함께 {{site.data.keyword.appid_full}}를 사용할 수 있습니다.
 
 
 ## 전제조건
-{: prereq}
 
 * 기존 iOS Swift, Android, Node.js, Swift 또는 Liberty for Java 애플리케이션.
 * {{site.data.keyword.appid_short_notm}}의 기존 인스턴스.
@@ -97,7 +97,7 @@ defaultConfig {
           }
 
           @Override
-          public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, RefreshToken refreshToken) {
+          public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken) {
           }
         });
   ```
@@ -181,7 +181,7 @@ defaultConfig {
          	return AppID.sharedInstance.application(application, open: url, options: options)
       }
   class delegate : AuthorizationDelegate {
-     public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, refreshToken: RefreshToken? response:Response?) {
+     public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, response:Response?) {
      }
 
      public func onAuthorizationCanceled() {
@@ -452,7 +452,7 @@ defaultConfig {
     f. 인증서를 내보내고 이를 PEM 파일로서 로컬 드라이브에 저장하십시오.
 
 6. <a href="https://www.ibm.com/support/knowledgecenter/SSYKE2_6.0.0/com.ibm.java.security.component.60.doc/security-component/keytoolDocs/keytool_overview.html" target="_blank">Liberty Keytool <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>을 사용하여 Liberty for Java truststore.jks 파일에 인증서를 추가하고 OIDC 요소의 인증서 별명에 참조를 추가하십시오. 
-`.jks file`은 서버 디렉토리: **리소스** > **보안** > **<i>신뢰 저장소 파일 이름</i>** > **`.jks file`**에 있습니다. 다음 옵션 중 하나를 사용하여 파일에 인증서를 추가하십시오.
+`.jks 파일`은 서버 디렉토리: **리소스** > **보안** > **<i>신뢰 저장소 파일 이름</i>** > **`.jks 파일`**에 있습니다. 다음 옵션 중 하나를 사용하여 파일에 인증서를 추가하십시오.
 
     * 터미널에서 Liberty for Java 보안 폴더: wlp > usr > 서버 > <i>servername</i> > 리소스 > 보안으로 이동하고 다음 명령을 사용하여 인증서를 추가하십시오.
 
@@ -532,7 +532,7 @@ defaultConfig {
 
       <httpEndpoint id="defaultHttpEndpoint" httpPort="9080" host="*" httpsPort="9443" />
 
-
+      
       <applicationManager autoExpand="true"/>
 
   </server>

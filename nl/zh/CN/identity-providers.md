@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-01-02"
 
 ---
 
@@ -10,7 +10,6 @@ lastupdated: "2018-4-24"
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
-{: tip: .tip}
 
 # 配置社交身份提供者
 {: #setting-up-idp}
@@ -24,20 +23,7 @@ lastupdated: "2018-4-24"
 {{site.data.keyword.appid_short_notm}} 提供了可帮助您完成身份提供者初始设置的缺省配置。
 {: shortdesc}
 
-为 Facebook 和 Google 设置了缺省凭证。每个实例每天对凭证的使用次数只有 100 次。由于它们是 IBM 凭证，因此只能在开发方式下使用。在发布应用程序之前，请将配置更新为您自己的凭证。
-
-## 将您的重定向 URL 列入白名单
-{: #redirect}
-
-重定向 URL 是应用程序的回调端点。为防止钓鱼攻击，App ID 会针对重定向 URL 的白名单验证 URL。发生钓鱼攻击时，攻击者可能获取您的用户令牌的访问权。
-
-要将 URL 添加到白名单，请执行以下操作：
-
-1. 浏览到**身份提供者 > 管理**。
-2. 在**添加 Web 重定向 URL** 字段中，输入 URL 并单击 **+**。
-
-不要在 URL 中包含任何查询参数。在验证过程中将忽略这些参数。URL 示例：`http://host:[port]/path`
-{: tip}
+为 Facebook 和 Google 设置了缺省凭证。每个实例每天对凭证的使用次数只有 100 次。这些凭证是 IBM 凭证，因此只能在开发方式下用于您的应用程序。在发布应用程序之前，请将[该配置更新为您自己的凭证](/docs/services/appid/identity-providers.html)。
 
 
 ## 配置 Facebook
@@ -90,7 +76,7 @@ lastupdated: "2018-4-24"
 
 ### 配置 {{site.data.keyword.appid_short}} 进行 Google 认证
 
-配置 Google 项目并获得客户端标识和私钥后，可以编辑服务仪表板来进行 Google 认证。
+配置完 Google 项目并获得客户端标识和私钥后，可以编辑服务仪表板来进行 Google 认证。
 
 1. 在服务仪表板的**管理**选项卡中，选择 **Google**，然后单击**编辑**。
 2. 输入从 Google Developers Console 获取的客户端标识和私钥。
@@ -99,4 +85,4 @@ lastupdated: "2018-4-24"
     2. 在 Google 项目的凭证选项卡中，选择您为此集成创建的客户端标识。
     3. 将 URL 从 {{site.data.keyword.appid_short}} 粘贴到**授权重定向 URI** 字段中，然后单击**保存**。
 4. 单击**保存**，以更新 {{site.data.keyword.appid_short}} 中的 Google 配置。
-5. 对于 Web 应用程序，请在**管理**选项卡中输入重定向 URL。授权过程完成后，用户将被发送到此 URL。
+5. 可选：对于 Web 应用程序，请在**管理**选项卡中输入重定向 URL。授权过程完成后，用户将被发送到此 URL。

@@ -2,10 +2,9 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-01-02"
 
 ---
-
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
@@ -23,7 +22,7 @@ Sie können Ihre lokale Umgebung so konfigurieren, dass sie den {{site.data.keyw
 ## Vorbereitungen
 {: #begin}
 
-Stellen Sie sicher, dass das [Server-SDK installiert](/docs/services/appid/install.html#nodejs-setup) ist.
+Die [Server-SDK-Installation](/docs/services/appid/install.html#nodejs-setup) muss abgeschlossen sein.
 
 
 ## {{site.data.keyword.appid_short_notm}}-Anwendungen zur Arbeit mit einem lokalen Entwicklungsserver konfigurieren
@@ -36,7 +35,7 @@ Um Ihre Apps so zu konfigurieren, dass sie mit einem lokalen Entwicklungsserver 
 
 <table> <caption> Tabelle 1. {{site.data.keyword.Bluemix_notm}}-Regionen und entsprechende {{site.data.keyword.appid_short_notm}}-Regionen für Android und iOS </caption>
 <tr>
-  <th> {{site.data.keyword.Bluemix_notm}}-Region </th>
+  <th> Bluemix-Region </th>
   <th> Android und iOS </th>
 </tr>
 <tr>
@@ -58,9 +57,9 @@ Um Ihre Apps so zu konfigurieren, dass sie mit einem lokalen Entwicklungsserver 
 ### Android
 {: #android}
 ```java
-String baseRequestUrl = "http://localhost:<port>"; //Auf den aktiven Port Ihres Servers festlegen.
+String baseRequestUrl = "http://localhost:<port>"; //set to your server running port
 String tenantId = "your-AppID-service-tenantID";
-String region = AppID.REGION_UK; //Hier die Anwendungsregion Ihrer App-ID festlegen. Aktuell mögliche Werte sind AppID.REGION_US_SOUTH, AppID.REGION_SYDNEY oder AppID.REGION_UK.
+String region = AppID.REGION_UK; //set your App ID application region here. Aktuell mögliche Werte sind AppID.REGION_US_SOUTH, AppID.REGION_SYDNEY oder AppID.REGION_UK.
 
 BMSClient bmsClient= BMSClient.getInstance();
 bmsClient.initialize(getApplicationContext(), region);
