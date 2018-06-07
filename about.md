@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-05-30"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -65,6 +65,8 @@ You can use {{site.data.keyword.appid_short_notm}} with other {{site.data.keywor
     <dd>Try out one of our sample Cloud Foundry apps to see how you can integrate app id into your apps.</dd>
   <dt>iOS Programming Guide</dt>
     <dd>Do you develop apps for Apple? Try out the <a href="https://console.bluemix.net/docs/swift/index.html#overview" target="_blank">iOS Programming Guide <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to learn, experiment, and enhance your existing iOS apps with {{site.data.keyword.Bluemix_notm}}.</dd>
+  <dt>{{site.data.keyword.cloudaccesstrailshort}}</dt>
+    <dd>You can monitor administrative activity that is made in {{site.data.keyword.appid_short_notm}} such as changes to the dashboard configuration, by using the [{{site.data.keyword.cloudaccesstrailshort}} service](/docs/services/cloud-activity-tracker/index.html).</dd>
 </dl>
 
 
