@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -218,10 +218,10 @@ You can add the {{site.data.keyword.appid_short_notm}} service to your existing 
 ## Adding {{site.data.keyword.appid_short_notm}} to an existing Node.js web app
 {: #existing-node}
 
-1. Add the `bluemix-appid` module to your Node.js application.
+1. Add the `<staging>ibmcloud</stagingbluemix-appid` module to your Node.js application.
 
   ```javaScript
-  npm install --save bluemix-appid
+  npm install --save <staging>ibmcloud</stagingbluemix-appid
   ```
   {: codeblock}
 

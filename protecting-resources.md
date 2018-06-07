@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-05-30"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -69,7 +69,7 @@ The following snippet demonstrates how to use `APIStrategy` in a simple Express 
 
   var express = require('express');
   var passport = require('passport');
-  var APIStrategy = require('bluemix-appid').APIStrategy;
+  var APIStrategy = require('<staging>ibmcloud</stagingbluemix-appid').APIStrategy;
 
   passport.use(new APIStrategy());
   var app = express();

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-05-30"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -235,7 +235,7 @@ For more information, see the <a href="https://github.com/ibm-cloud-security/app
   ```
   npm install -save express
   npm install -save passport
-  npm install -save bluemix-appid
+  npm install -save <staging>ibmcloud</stagingbluemix-appid
   ```
   {: codeblock}
 
