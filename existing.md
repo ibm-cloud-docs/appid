@@ -146,7 +146,7 @@ You can add the {{site.data.keyword.appid_short_notm}} service to your existing 
 6. Add the following import to your `AppDelegate.swift` file.
 
   ```swift
-  import BluemixAppID</prod
+  import BluemixAppID
   import BMSCore
   ```
   {: codeblock}
@@ -218,7 +218,77 @@ You can add the {{site.data.keyword.appid_short_notm}} service to your existing 
 ## Adding {{site.data.keyword.appid_short_notm}} to an existing Node.js web app
 {: #existing-node}
 
-1. Add the `)
+1. Add the `bluemix-appid` module to your Node.js application.
+
+  ```javaScript
+  npm install --save bluemix-appid
+  ```
+  {: codeblock}
+
+2. Install the following modules if they are not installed already.
+
+  ```javaScript
+  npm install --save express
+  npm install --save passport
+  npm install --save express-session
+  ```
+  {: codeblock}
+
+3. Add the following code to your `app.js` file to:
+    * Set up your express app to use express-session middleware. **Note**: You must configure the middleware with the proper session storage for production environments. For more information see the <a href="https://github.com/expressjs/session" target="_blank">expressjs docs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
+    * Configure passportjs with serialization and deserialization. This is required for authenticated session persistence across HTTP requests. For more information, see the <a href="http://passportjs.org/docs" target="_blank">passportjs docs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.  
+    * Retrieve access and identity tokens from the {{site.data.keyword.appid_short_notm}} service by running a get command on the call back URL.
+
+  ```javaScript
+  const express = require("express");
+  const session = require("express-session");
+  const passport = require("passport");
+  const WebAppStrategy = require("bluemix-appid").WebAppStrategy;
+  const app = express();
+  const CALLBACK_URL = "/ibm/bluemix/appid/callback";
+  app.use(session({
+      secret: "123456",
+      resave: true,
+      saveUninitialized: true
+    }));
+  app.use(passport.initialize());
+    app.use(passport.session());
+
+    passport.use(new WebAppStrategy());
+  passport.serializeUser(function(user, cb) {
+      cb(null, user);
+    });
+
+    passport.deserializeUser(function(obj, cb) {
+      cb(null, obj);
+    });
+  app.get(CALLBACK_URL, passport.authenticate(WebAppStrategy.STRATEGY_NAME));
+  app.get("/protected", passport.authenticate(WebAppStrategy.STRATEGY_NAME)), function(req, res)
+    		res.json(req.user);
+    });
+  ```
+  {: codeblock}
+
+    **Note**: The service redirects in the following order:
+    1. The original URL of the request that triggered the  authentication process, as persisted in the HTTP session under the `WebAppStrategy.ORIGINAL_URL` key.
+    2. A successful redirect, as specified in `passport.authenticate(name, {successRedirect: "...."}).`
+    3. Application root ("/")
+
+4. Redeploy your application.
+
+
+## Adding {{site.data.keyword.appid_short_notm}} to an existing Swift web application
+{: #existing-swift}
+
+1. Open the `Package.swift` file in the directory of your Swift app and add the `appid-serversdk-swift` dependency.
+  For example:
+
+    ```swift
+    import PackageDescription
+
+    let package = Package(
+       	dependencies: [
+           	.Package(url: "https://github.com/ibm-cloud-security/appid-serversdk-swift.git", majorVersion: 1)
        		]
     )
     ```
