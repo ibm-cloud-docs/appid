@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-06-11"
 
 ---
 
@@ -132,7 +132,7 @@ You need the following information:
     </tr>
     <tr>
       <td>US South</td>
-      <td><code>AppID.REGION_US_SOUTH</code> </td>
+      <td><code>AppID.REGION_US_SOUTH</code></td>
     </tr>
     <tr>
       <td>Sydney</td>
@@ -195,85 +195,7 @@ The {{site.data.keyword.appid_short_notm}} client SDK is distributed with CocoaP
 2. Initialize the client SDK by passing the tenant ID and region parameters to the initialize method. A common, though not mandatory, place to put the initialization code is in the `application:didFinishLaunchingWithOptions` method of the AppDelegate in your Swift application.
 
   ```swift
-  AppID.sharedInstance.initialize(tenantId: <tenantId>, bluemixRegion: AppID.Region_UK)
-  ```
-  {: codeblock}
-
-  * Replace *tenantId* with the tenant ID for your service.
-  * Replace AppID.REGION_UK with your {{site.data.keyword.appid_short_notm}} region.
-
-3. Add the following code to your AppDelegate file.
-
-  ```swift
-  func application(_ application: UIApplication, open url: URL, options :[UIApplicationOpenURLOptionsKey : Any]) -> Bool {
-          return AppID.sharedInstance.application(application, open: url, options: options)
-      }
-  ```
-  {: codeblock}
-
-For more information, see the <a href="https://github.com/ibm-cloud-security/appid-clientsdk-swift" target="_blank">{{site.data.keyword.appid_short_notm}} iOS GitHub repository <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
-
-## Setting up the Node.js SDK
-{: #nodejs-setup}
-
-### Before you begin
-{: #before-nodejs}
-
-* Be familiar with developing Node.js apps on {{site.data.keyword.Bluemix_notm}}.
-* The {{site.data.keyword.appid_short_notm}} server SDK requires that your Node.js server is implemented with the <a href="http://expressjs.com/" target="_blank">Express framework <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
-
-**Note**: Other frameworks use `Express` frameworks, such as LoopBack. You can use the {{site.data.keyword.appid_short_notm}} server SDK with any of these frameworks.
-
-
-### Installing the server SDK
-{: #install-nodejs}
-
-
-1. Using the command line, open the directory with your Node.js app.
-2. Run the following commands.
-
-  ```
-  npm install -save express
-  npm install -save passport
-  npm install -save <staging>ibmcloud</stagingbluemix-appid
-  ```
-  {: codeblock}
-
-For more information, see the <a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs" target="_blank">{{site.data.keyword.appid_short_notm}} Node.js GitHub repository <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
-
-## Setting up the Swift SDK
-{: #swift-setup}
-
-Protect your back-ends and APIs with the {{site.data.keyword.appid_short}} server SDK.
-{:shortdesc}
-
-
-### Before you begin
-{: #before-swift}
-
-Prior to working with the Swift SDK, you must have the following prerequisites:
-
-* Either MacOS or Linux
-* OpenSSL 1.0.2 on Linux
-* Install Swift 3.0.2
-* Install Kitura 1.6
-
-
-### Installing the SDK
-{: #install-swift}
-
-1. Open the `Package.swift` file in the directory of your Swift app and add the `appid-serversdk-swift` dependency. For example:
-
-  ```swift
-  let package = Package(
-      name: “myApp",
-      dependencies: [
-          .package(url: "https://github.com/ibm-cloud-security/appid-serversdk-swift.git", .upToNextMinor(from: “4.0.0")),
-      ],
-      targets: [
-          .target(
-              name: "myApp",
-              dependencies: ["BluemixAppID"]),
+  AppID.sharedInstance.initialize(tenantId: <tenantId>, bluemixRegion: AppID.Region_UK"]),
       ]
   )
   ```
