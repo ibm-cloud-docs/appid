@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-05-30"
+  years: 2017, [{CURRENT_YEAR}]
+lastupdated: "[{LAST_UPDATED_DATE}]"
 
 ---
 
@@ -132,19 +132,19 @@ You need the following information:
     </tr>
     <tr>
       <td>US South</td>
-      <td><code>AppID.REGION_US_SOUTH</code> </td>
+      <td><prod><code>AppID.REGION_US_SOUTH</code></prod><staging><code>AppID.regionUSSouth</code></staging> </td>
     </tr>
     <tr>
       <td>Sydney</td>
-      <td><code>AppID.REGION_SYDNEY</code></td>
+      <td><prod><code>AppID.REGION_SYDNEY</code></prod><staging><code>AppID.regionSydney</code></staging></td>
     </tr>
     <tr>
       <td>United Kingdom</td>
-      <td><code>AppID.REGION_UK</code></td>
+      <td><prod><code>AppID.REGION_UK</code></prod><staging><code>AppID.regionUK</code></staging></td>
     </tr>
     <tr>
       <td>Germany</td>
-      <td><code>AppID.REGION_GERMANY</code></td>
+      <td><prod><code>AppID.REGION_GERMANY</code></prod><staging><code>AppID.regionGermany</code></staging></td>
     </tr>
   </table>
 
@@ -159,19 +159,19 @@ The {{site.data.keyword.appid_short_notm}} client SDK is distributed with CocoaP
 
 1. Create an Xcode project, or open an existing project.
 2. Open, or create, the podfile in the project's directory.
-3. Following your project's target add a dependency for the 'BluemixAppID' pod and the `use_frameworks!` command.
+3. Following your project's target add a dependency for the <prod>'BluemixAppID'</prod><staging>'IBMCloudAppID'</staging> pod and the `use_frameworks!` command.
 
   For example:
 
   ```swift
   target '<yourTarget>' do
      use_frameworks!
-     pod 'BluemixAppID'
+     pod <prod>'BluemixAppID'</prod><staging>'IBMCloudAppID'</staging>
   end
   ```
   {: codeblock}
 
-4. To download the `BluemixAppID` dependency, run the following command.
+4. To download the <prod>'BluemixAppID'</prod><staging>'IBMCloudAppID'</staging> dependency, run the following command.
 
   ```swift
   pod install --repo-update
@@ -188,19 +188,19 @@ The {{site.data.keyword.appid_short_notm}} client SDK is distributed with CocoaP
 1. Add the following import to your `AppDelegate` file.
 
   ```swift
-  import BluemixAppID
+  import <prod>'BluemixAppID'</prod><staging>'IBMCloudAppID'</staging>
   ```
   {: codeblock}
 
 2. Initialize the client SDK by passing the tenant ID and region parameters to the initialize method. A common, though not mandatory, place to put the initialization code is in the `application:didFinishLaunchingWithOptions` method of the AppDelegate in your Swift application.
 
   ```swift
-  AppID.sharedInstance.initialize(tenantId: <tenantId>, bluemixRegion: AppID.Region_UK)
+  AppID.sharedInstance.initialize(tenantId: <tenantId>, <prod>bluemixRegion: AppID.Region_UK</prod><staging>region: AppID.regionUK<staging>)
   ```
   {: codeblock}
 
   * Replace *tenantId* with the tenant ID for your service.
-  * Replace AppID.REGION_UK with your {{site.data.keyword.appid_short_notm}} region.
+  * Replace <prod>AppID.Region_UK</prod><staging>AppID.regionUK<staging> with your {{site.data.keyword.appid_short_notm}} region.
 
 3. Add the following code to your AppDelegate file.
 
@@ -235,7 +235,7 @@ For more information, see the <a href="https://github.com/ibm-cloud-security/app
   ```
   npm install -save express
   npm install -save passport
-  npm install -save bluemix-appid
+  npm install -save <staging>ibmcloud</staging<prod>bluemix</prod>-appid
   ```
   {: codeblock}
 
@@ -268,12 +268,12 @@ Prior to working with the Swift SDK, you must have the following prerequisites:
   let package = Package(
       name: “myApp",
       dependencies: [
-          .package(url: "https://github.com/ibm-cloud-security/appid-serversdk-swift.git", .upToNextMinor(from: “4.0.0")),
+          .package(url: "https://github.com/ibm-cloud-security/appid-serversdk-swift.git", .upToNextMinor(from: <prod>“4.0.0"</prod><staging>“5.0.0"</staging>)),
       ],
       targets: [
           .target(
               name: "myApp",
-              dependencies: ["BluemixAppID"]),
+              dependencies: [<prod>"BluemixAppID"</prod><staging>"IBMCloudAppID"</staging>]),
       ]
   )
   ```
