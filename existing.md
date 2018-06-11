@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-4-24"
+  years: 2017, [{CURRENT_YEAR}]
+lastupdated: "[{LAST_UPDATED_DATE}]"
 
 ---
 
@@ -127,8 +127,8 @@ You can add the {{site.data.keyword.appid_short_notm}} service to your existing 
 {: #existing-ios}
 
 1. Open the podfile in the project's directory.
-2. Under your project's target, add a dependency for the 'BluemixAppID' pod. Be sure the `use_frameworks!` command is also under your target.
-3. To download the `BluemixAppID` dependency, run the following command.
+2. Under your project's target, add a dependency for the <prod>`BluemixAppID`</prod><staging>`IBMCloudAppID`</staging> pod. Be sure the `use_frameworks!` command is also under your target.
+3. To download the <prod>`BluemixAppID`</prod><staging>`IBMCloudAppID`</staging> dependency, run the following command.
 
   ```
   pod install --repo-update
@@ -146,7 +146,7 @@ You can add the {{site.data.keyword.appid_short_notm}} service to your existing 
 6. Add the following import to your `AppDelegate.swift` file.
 
   ```swift
-  import BluemixAppID
+  import <prod>BluemixAppID</prod><staging>IBMCloudAppID</staging>
   import BMSCore
   ```
   {: codeblock}
@@ -154,7 +154,7 @@ You can add the {{site.data.keyword.appid_short_notm}} service to your existing 
 7. Initialize the client SDK by passing tenant ID and region parameters to the initialize method. A common, though not mandatory, place to put the initialization code is in the application:didFinishLaunchingWithOptions: method of the AppDelegate in your application.
 
   ```swift
-  AppID.sharedInstance.initialize(tenantId: <tenantId>, bluemixRegion: <AppID.Region>)
+  AppID.sharedInstance.initialize(tenantId: <tenantId>, <prod>bluemixRegion</prod><staging>region</staging>: <AppID.Region>)
   ```
   {: codeblock}
 
@@ -170,7 +170,7 @@ You can add the {{site.data.keyword.appid_short_notm}} service to your existing 
       </tr>
       <tr>
         <td> <i> AppID.REGION </i> </td>
-        <td> You can find your region in the UI. Options are `AppID.REGION_US_SOUTH`, `AppID.REGION_UK`, or `AppID.REGION_Sydney`. </td>
+        <td> You can find your region in the UI. Options are <prod>`AppID.REGION_US_SOUTH`, `AppID.REGION_UK`, or `AppID.REGION_Sydney`.</prod><staging>`AppID.regionUSSouth`, `AppID.regionUK`, or `AppID.regionSydney`.</staging></td>
       </tr>
     </table>
 
@@ -218,10 +218,10 @@ You can add the {{site.data.keyword.appid_short_notm}} service to your existing 
 ## Adding {{site.data.keyword.appid_short_notm}} to an existing Node.js web app
 {: #existing-node}
 
-1. Add the `bluemix-appid` module to your Node.js application.
+1. Add the `<staging>ibmcloud</staging><prod>bluemix</prod>-appid` module to your Node.js application.
 
   ```javaScript
-  npm install --save bluemix-appid
+  npm install --save <staging>ibmcloud</staging<prod>bluemix</prod>-appid
   ```
   {: codeblock}
 
@@ -288,8 +288,8 @@ You can add the {{site.data.keyword.appid_short_notm}} service to your existing 
 
     let package = Package(
        	dependencies: [
-           	.Package(url: "https://github.com/ibm-cloud-security/appid-serversdk-swift.git", majorVersion: 1)
-       		]
+                .Package(url: "https://github.com/ibm-cloud-security/appid-serversdk-swift.git", majorVersion: <prod>1</prod><staging>5</staging>)
+                ]
     )
     ```
     {: codeblock}
@@ -304,7 +304,7 @@ You can add the {{site.data.keyword.appid_short_notm}} service to your existing 
   import KituraSession
   import Credentials
   import SwiftyJSON
-  import BluemixAppID
+  import <prod>BluemixAppID</prod><staging>IBMCloudAppID</staging>
   let router = Router()
   let session = Session(secret: "Some secret")
   router.all(middleware: session)

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-05-30"
+  years: 2017, [{CURRENT_YEAR}]
+lastupdated: "[{LAST_UPDATED_DATE}]"
 
 ---
 
@@ -69,7 +69,7 @@ The following snippet demonstrates how to use `APIStrategy` in a simple Express 
 
   var express = require('express');
   var passport = require('passport');
-  var APIStrategy = require('bluemix-appid').APIStrategy;
+  var APIStrategy = require('<staging>ibmcloud</staging<prod>bluemix</prod>-appid').APIStrategy;
 
   passport.use(new APIStrategy());
   var app = express();
@@ -101,7 +101,7 @@ See the following code snippet for an example of how to protect the `/protectede
 import Foundation
 import Kitura              // server
 import Credentials         // middleware
-import BluemixAppID        // SDK
+import <prod>BluemixAppID</prod><staging>IBMCloudAppID</staging>      // SDK
 
 // setup routes
 let router = Router()
