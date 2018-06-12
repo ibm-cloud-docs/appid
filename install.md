@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-05-30"
+lastupdated: "2018-06-12"
 
 ---
 
@@ -132,7 +132,7 @@ You need the following information:
     </tr>
     <tr>
       <td>US South</td>
-      <td><code>AppID.REGION_US_SOUTH</code> </td>
+      <td><code>AppID.REGION_US_SOUTH</code></td>
     </tr>
     <tr>
       <td>Sydney</td>

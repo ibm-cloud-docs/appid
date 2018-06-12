@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-06-12"
 
 ---
 
@@ -49,7 +49,7 @@ You can add the {{site.data.keyword.appid_short_notm}} service to your existing 
   ```
   {: codeblock}
 
-3. Find the defaultConfig section and add the following line of code.
+3. Find the `defaultConfig` section and add the following line of code.
 
   ```gradle
   defaultConfig {
@@ -127,7 +127,7 @@ You can add the {{site.data.keyword.appid_short_notm}} service to your existing 
 {: #existing-ios}
 
 1. Open the podfile in the project's directory.
-2. Under your project's target, add a dependency for the 'BluemixAppID' pod. Be sure the `use_frameworks!` command is also under your target.
+2. Under your project's target, add a dependency for the `BluemixAppID` pod. Be sure the `use_frameworks!` command is also under your target.
 3. To download the `BluemixAppID` dependency, run the following command.
 
   ```
@@ -441,7 +441,7 @@ You can configure {{site.data.keyword.appid_short_notm}} to work with your exist
     c. Add `/token` to the URL. Use Firefox to browse the output URL and get the certificate. You can use the following URL as an example.
 
     ```
-    https://appid-oauth.eu-gb.bluemix.net/oauth/v3/5d12852e-b0a0-46a3-9547-67a4a33a7164/token
+    https://appid-oauth.ng.bluemix.net/oauth/v3/5d12852e-b0a0-46a3-9547-67a4a33a7164/token
     ```
     {: screen}
 
