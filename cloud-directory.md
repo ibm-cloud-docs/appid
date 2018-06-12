@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-05"
+lastupdated: "2018-06-12"
 
 ---
 
@@ -161,7 +161,28 @@ You can send several types of messages to your users. You can choose to send the
 </br>
 **NOTE**: {{site.data.keyword.appid_short_notm}} uses <a href="https://www.sendgrid.com" target="_blank">SendGrid <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> as a mail delivery service. All emails are sent with a single SendGrid account.
 
+
 </br>
+
+## Managing password strength
+
+You can set the requirements for the passwords that can be used with Cloud Directory.
+{: shortdesc}
+
+A strong password makes it difficult, or even improbable for someone to guess the password through in either a manual or automated way. Password strength is set as a regex string.
+
+Some common password strength examples:
+
+- Must be at least 8 characters. Example regex: `^.{8,}$`
+- Must contain 1 number, 1 lower case letter, and 1 capital letter. Example regex: `^(?:(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).*)$`
+- Must contain only English letters and numbers. Example regex: `^[A-Za-z0-9]*$`
+- Must be at least 1 unique character. Example regex: `^(\w)\w*?(?!\1)\w+$`
+
+To set the requirements, you must use <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/set_cloud_directory_password_regex" target="_blank">the API <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
+
+
+</br>
+
 ## Next steps
 Now that you've configured cloud directory, you're ready to add the code for the login widget into your app code. Click an SDK language icon in the following image to see what you need to do.
 {: shortdesc}
@@ -172,6 +193,3 @@ Now that you've configured cloud directory, you're ready to add the code for the
 <area href="login-widget.html#branded-ui-ios-swift" alt="Managing the sign in experience with the iOS Swift SDK." shape="rect" coords="333, 6, 448, 125" />
 <area href="login-widget.html#branded-ui-nodejs" alt="Managing the sign in experience with the Node.js SDK." shape="rect" coords="472, 7, 590, 121" />
 </map>
-
-
-

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-06-12"
 
 ---
 
@@ -281,7 +281,7 @@ To update access permissions, the admin completes the following steps:
        "secret": "appsecret"
      }
     }' \
-    'https://appid-management.stage1.ng.bluemix.net/management/v4/<tenantId>/config/idps/facebook'
+    'https://appid-management.ng.bluemix.net/management/v4/<tenantId>/config/idps/facebook'
     ```
     {: codeblock}
 
