@@ -273,7 +273,7 @@ Prior to working with the Swift SDK, you must have the following prerequisites:
       targets: [
           .target(
               name: "myApp",
-              dependencies: [""BluemixAppID""]),
+              dependencies: ["BluemixAppID"]),
       ]
   )
   ```
