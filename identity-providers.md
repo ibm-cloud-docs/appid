@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-06-12"
 
 ---
 
@@ -54,7 +54,7 @@ To use Facebook as an identity provider, you must add and configure the website 
 2. Make note of the Facebook app ID and secret. These values are needed to configure your web project for authentication in your service dashboard.
 3. Add the web platform and enter the site URL.
 4. From the products list, select **Facebook Login**.
-5. In the Valid OAuth redirect URLs field, enter the authorization server callback endpoint URL. After you configure your service instance, you can add this value.
+5. In the Valid OAuth redirect URLs field, enter the authorization server callback endpoint URL.
 6. Click **Save Changes**.
 
 
@@ -66,7 +66,7 @@ When you have your Facebook app ID and secret, and your Facebook for Developers 
 2. Enter the Facebook app ID and secret that you obtained from the Facebook for Developers website.
 3. Copy the URI that is in the **Redirect URI for Facebook for Developers** field. Paste the URI into the **Valid OAuth redirect URIs** field in the **Facebook Login** section of the Facebook Developers Portal.
 4. Click **Save**.
-5. Optional: For web apps, enter the redirect URL in the **Web Application Redirect URLs** field. This value is determined by the developer and used to access the redirect URL after the authorization process is completed.
+5. Optional: For web apps, enter the redirect URL in the **Web Application Redirect URLs** field. This value is determined by the developer and used to access the redirect URL after the authorization process is completed. The URL must follow an `http` or `https` scheme.
 
 
 ## Configuring Google
