@@ -138,7 +138,7 @@ Check out the [{{site.data.keyword.cloudaccesstrailshort}} docs](/docs/services/
 Every user that accesses the {{site.data.keyword.appid_short_notm}} service in your account must be assigned an access policy with an IAM user role defined. That policy determines what actions the user can perform within the context of the service or instance you select.
 {: shortdesc}
 
-The actions are customized and defined by the {{site.data.keyword.Bluemix_notm}} service as operations that are allowed to be performed in the service. The actions are then mapped to IAM user roles. Some of the actions taken, you can track with the {{site.data.keyword.cloudaccesstrailshort}} service. In the following table the actions and permissions for {{site.data.keyword.appid_short_notm}} are mapped.
+The actions are customized and defined by the {{site.data.keyword.Bluemix_notm}} service as operations that are allowed to be performed in the service. The actions are then mapped to IAM user roles. Some of the actions taken you can track with the {{site.data.keyword.cloudaccesstrailshort}} service. In the following table, the actions and required permissions for {{site.data.keyword.appid_short_notm}} are mapped.
 
 <table>
   <tr>
