@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-11"
+lastupdated: "2018-06-12"
 
 ---
 
@@ -101,7 +101,7 @@ See the following code snippet for an example of how to protect the `/protectede
 import Foundation
 import Kitura              // server
 import Credentials         // middleware
-import BluemixAppID         // SDK
+import BluemixAppID        // SDK
 
 // setup routes
 let router = Router()
