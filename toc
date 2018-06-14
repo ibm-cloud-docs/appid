@@ -17,8 +17,7 @@ IBM Cloud App ID
     Authenticating users
         identity-providers.md
         enterprise.md
-        cloud-directory.md<Staging>
-        custom.md</staging>
+        cloud-directory.md
         login-widget.md
 
     protecting-resources.md
