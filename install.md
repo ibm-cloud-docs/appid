@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-12"
+lastupdated: "2018-06-15"
 
 ---
 
@@ -78,7 +78,7 @@ You need the following information:
 
   ```gradle
    dependencies {
-       compile group: 'com.github.ibm-cloud-security:appid-clientsdk-android:1.+'
+       compile group:  'com.github.ibm-cloud-security:appid-clientsdk-android:1.+' 
    }
   ```
   {: codeblock}
@@ -132,7 +132,7 @@ You need the following information:
     </tr>
     <tr>
       <td>US South</td>
-      <td><code>AppID.REGION_US_SOUTH</code></td>
+      <td><code>AppID.REGION_US_SOUTH</code> </td>
     </tr>
     <tr>
       <td>Sydney</td>

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-12"
+lastupdated: "2018-06-15"
 
 ---
 
@@ -170,7 +170,7 @@ You can add the {{site.data.keyword.appid_short_notm}} service to your existing 
       </tr>
       <tr>
         <td> <i> AppID.REGION </i> </td>
-        <td> You can find your region in the UI. Options are `AppID.REGION_US_SOUTH`, `AppID.REGION_UK`, or `AppID.REGION_Sydney`. </td>
+        <td> You can find your region in the UI. Options are `AppID.REGION_US_SOUTH`, `AppID.REGION_UK`, or `AppID.REGION_Sydney`.</td>
       </tr>
     </table>
 
