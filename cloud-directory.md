@@ -199,620 +199,707 @@ You can use the API to set the language in which your user communication can be 
 
 <table>
   <col width="20%">
-  <col width="30%">
-  <col width="0%">
+  <col width="18%">
+  <col width="22%">
   <col width="20%">
-  <col width="30%">
+  <col width="18%">
+  <col width="22%">
   <tr>
     <th>Code</th>
-    <th>Language and region</th>
-    <th> </th>
+    <th>Language</th>
+    <th>region</th>
     <th>Code</th>
-    <th>Language and region</th>
+    <th>Language</th>
+    <th>region</th>
   </tr>
   <tr>
     <td><code>af-ZA</code></td>
-    <td>Afrikaans (South Africa)</td>
-    <td> </td>
+    <td>Afrikaans</td>
+    <td>South Africa</td>
     <td><code>sq-AL</code></td>
-    <td>Albanian (Albania)</td>
+    <td>Albanian</td>
+    <td>Albania</td>
   </tr>
   <tr>
     <td><code>am-ET</code></td>
-    <td>Amharic (Ethiopia)</td>
-    <td> </td>
+    <td>Amharic</td>
+    <td>Ethiopia</td>
     <td><code>ar-DZ</code></td>
-    <td>Arabic (Algeria)</td>
+    <td>Arabic</td>
+    <td>Algeria</td>
   </tr>
   <tr>
     <td><code>ar-BH</code></td>
-    <td>Arabic (Bahrain)</td>
-    <td> </td>
+    <td>Arabic</td>
+    <td>Bahrain</td>
     <td><code>ar-EG</code></td>
-    <td>Arabic (Egypt)</td>
+    <td>Arabic</td>
+    <td>Egypt</td>
   </tr>
   <tr>
     <td><code>ar-IQ</code></td>
-    <td>Arabic (Iraq)</td>
-    <td> </td>
+    <td>Arabic</td>
+    <td>Iraq</td>
     <td><code>ar-JO</code></td>
-    <td>Arabic (Jordan)</td>
+    <td>Arabic</td>
+    <td>Jordan</td>
   </tr>
   <tr>
     <td><code>ar-KW</code></td>
-    <td>Arabic (Kuwait)</td>
-    <td> </td>
+    <td>Arabic</td>
+    <td>Kuwait</td>
     <td><code>ar-LB</code></td>
-    <td>Arabic (Lebanon)</td>
+    <td>Arabic</td>
+    <td>Lebanon</td>
   </tr>
   <tr>
     <td><code>ar-LY</code></td>
-    <td>Arabic (Libya)</td>
-    <td> </td>
+    <td>Arabic</td>
+    <td>Libya</td>
     <td><code>ar-MR</code></td>
-    <td>Arabic (Mauritania)</td>
+    <td>Arabic</td>
+    <td>Mauritania</td>
   </tr>
   <tr>
     <td><code>ar-MA</code></td>
-    <td>Arabic (Morroco)</td>
-    <td> </td>
+    <td>Arabic</td>
+    <td>Morroco</td>
     <td><code>ar-OM</code></td>
-    <td>Arabic (Oman)</td>
+    <td>Arabic</td>
+    <td>Oman</td>
   </tr>
   <tr>
     <td><code>ar-QA</code></td>
-    <td>Arabic (Qatar)</td>
-    <td> </td>
+    <td>Arabic</td>
+    <td>Qatar</td>
     <td><code>ar-SA</code></td>
-    <td>Arabic (Saudi Arabia)</td>
+    <td>Arabic</td>
+    <td>Saudi Arabia</td>
   </tr>
   <tr>
     <td><code>ar-SY</code></td>
-    <td>Arabic (Syria)</td>
-    <td> </td>
+    <td>Arabic</td>
+    <td>Syria</td>
     <td><code>ar-YE</code></td>
-    <td>Arabic (Tunisia)</td>
+    <td>Arabic</td>
+    <td>Tunisia</td>
   </tr>
   <tr>
     <td><code>ar-AE</code></td>
-    <td>Arabic (United Arab Emirates)</td>
-    <td> </td>
+    <td>Arabic</td>
+    <td>United Arab Emirates</td>
     <td><code>ar-YE</code></td>
-    <td>Arabic (Yemen)</td>
+    <td>Arabic</td>
+    <td>Yemen</td>
   </tr>
   <tr>
     <td><code>hy-AM</code></td>
-    <td>Armenian (Armenia)</td>
-    <td> </td>
+    <td>Armenian</td>
+    <td>Armenia</td>
     <td><code>as-IN</code></td>
-    <td>Assamese (India)</td>
+    <td>Assamese</td>
+    <td>India</td>
   </tr>
   <tr>
     <td><code>az-AZ</code></td>
-    <td>Azerbaijani (Azerbaijan)</td>
-    <td> </td>
+    <td>Azerbaijani</td>
+    <td>Azerbaijan</td>
     <td><code>eu-ES</code></td>
-    <td>Basque (Spain)</td>
+    <td>Basque</td>
+    <td>Spain</td>
   </tr>
   <tr>
     <td><code>be-BY</code></td>
-    <td>Belarusian (Belarus)</td>
-    <td> </td>
+    <td>Belarusian</td>
+    <td>Belarus</td>
     <td><code>bn-BD</code></td>
-    <td>Bengali (Bangladesh)</td>
+    <td>Bengali</td>
+    <td>Bangladesh</td>
   </tr>
   <tr>
     <td><code>be-BY</code></td>
-    <td>Belarusian (Belarus)</td>
-    <td> </td>
+    <td>Belarusian</td>
+    <td>Belarus</td>
     <td><code>bn-BD</code></td>
-    <td>Bengali (Bangladesh)</td>
+    <td>Bengali</td>
+    <td>Bangladesh</td>
   </tr>
   <tr>
     <td><code>bn-IN</code></td>
-    <td>Bengali (India)</td>
-    <td> </td>
+    <td>Bengali</td>
+    <td>India</td>
     <td><code>bs-Latn-BA</code></td>
-    <td>Bosnian (Bosnia)</td>
+    <td>Bosnian</td>
+    <td>Bosnia</td>
   </tr>
   <tr>
     <td><code>bg-BG</code></td>
-    <td>Bulgarian (Bulgaria)</td>
-    <td> </td>
+    <td>Bulgarian</td>
+    <td>Bulgaria</td>
     <td><code>my-MM</code></td>
-    <td>Burmese (Myanmar)</td>
+    <td>Burmese</td>
+    <td>Myanmar</td>
   </tr>
   <tr>
     <td><code>ca-ES</code></td>
-    <td>Catalan (Spain)</td>
-    <td> </td>
+    <td>Catalan</td>
+    <td>Spain</td>
     <td><code>zh-Hans-CN</code></td>
-    <td>Chinese-simplified (China)</td>
+    <td>Chinese-simplified</td>
+    <td>China</td>
   </tr>
   <tr>
     <td><code>zh-Hans-SG</code></td>
-    <td>Chinese-simplified (Singapore)</td>
-    <td> </td>
+    <td>Chinese-simplified</td>
+    <td>Singapore</td>
     <td><code>zh-Hant-HK</code></td>
-    <td>Chinese-traditional (Hong Kong S.A.R. of China)</td>
+    <td>Chinese-traditional</td>
+    <td>Hong Kong S.A.R. of China</td>
   </tr>
   <tr>
     <td><code>zh-Hant-MO</code></td>
-    <td>Chinese-traditional (Macao)</td>
-    <td> </td>
+    <td>Chinese-traditional</td>
+    <td>Macao</td>
     <td><code>zh-Hant-TW</code></td>
-    <td>Chinese-traditional (Taiwan)</td>
+    <td>Chinese-traditional</td>
+    <td>Taiwan</td>
   </tr>
   <tr>
     <td><code>hr-HR</code></td>
-    <td>Croatian (Croatia)</td>
-    <td> </td>
+    <td>Croatian</td>
+    <td>Croatia</td>
     <td><code>cs-CZ</code></td>
-    <td>Czech (Czech Republic)</td>
+    <td>Czech</td>
+    <td>Czech Republic</td>
   </tr>
   <tr>
     <td><code>da-DK</code></td>
-    <td>Danish (Denmark)</td>
-    <td> </td>
+    <td>Danish</td>
+    <td>Denmark</td>
     <td><code>nl-BE</code></td>
-    <td>Dutch (Belgium)</td>
+    <td>Dutch</td>
+    <td>Belgium</td>
   </tr>
   <tr>
     <td><code>nl-NL</code></td>
-    <td>Dutch (The Netherlands)</td>
-    <td> </td>
+    <td>Dutch</td>
+    <td>The Netherlands</td>
     <td><code>en-AU</code></td>
-    <td>English (Australia)</td>
+    <td>English</td>
+    <td>Australia</td>
   </tr>
   <tr>
     <td><code>eu-BE</code></td>
-    <td>English (Belgium)</td>
-    <td> </td>
+    <td>English</td>
+    <td>Belgium</td>
     <td><code>en-CM</code></td>
-    <td>English (Cameroon)</td>
+    <td>English</td>
+    <td>Cameroon</td>
   </tr>
   <tr>
     <td><code>eu-CA</code></td>
-    <td>English (Canada)</td>
-    <td> </td>
+    <td>English</td>
+    <td>Canada</td>
     <td><code>en-GH</code></td>
-    <td>English (Ghana)</td>
+    <td>English</td>
+    <td>Ghana</td>
   </tr>
   <tr>
     <td><code>eu-HK</code></td>
-    <td>English (Hong Kong S.A.R. of China)</td>
-    <td> </td>
+    <td>English</td>
+    <td>Hong Kong S.A.R. of China</td>
     <td><code>en-IN</code></td>
-    <td>English (India)</td>
+    <td>English</td>
+    <td>India</td>
   </tr>
   <tr>
     <td><code>en-IE</code></td>
-    <td>English (Ireland)</td>
-    <td> </td>
+    <td>English</td>
+    <td>Ireland</td>
     <td><code>en-KE</code></td>
-    <td>English (Kenya)</td>
+    <td>English</td>
+    <td>Kenya</td>
   </tr>
   <tr>
     <td><code>en-MU</code></td>
-    <td>English (Mauritius)</td>
-    <td> </td>
+    <td>English</td>
+    <td>Mauritius</td>
     <td><code>en-NZ</code></td>
-    <td>English (New Zealand)</td>
+    <td>English</td>
+    <td>New Zealand</td>
   </tr>
   <tr>
     <td><code>en-NG</code></td>
-    <td>English (Nigeria)</td>
-    <td> </td>
+    <td>English</td>
+    <td>Nigeria</td>
     <td><code>en-PH</code></td>
-    <td>English (Philippines)</td>
+    <td>English</td>
+    <td>Philippines</td>
   </tr>
   <tr>
     <td><code>en-SG</code></td>
-    <td>English (Singapore)</td>
-    <td> </td>
+    <td>English</td>
+    <td>Singapore</td>
     <td><code>en-ZA</code></td>
-    <td>English (South Africa)</td>
+    <td>English</td>
+    <td>South Africa</td>
   </tr>
   <tr>
     <td><code>en-TZ</code></td>
-    <td>English (Tanzania)</td>
-    <td> </td>
+    <td>English</td>
+    <td>Tanzania</td>
     <td><code>en-GB</code></td>
-    <td>English (United Kingdom)</td>
+    <td>English</td>
+    <td>United Kingdom</td>
   </tr>
   <tr>
     <td><code>en-US</code></td>
-    <td>English (United States)</td>
-    <td> </td>
+    <td>English</td>
+    <td>United States</td>
     <td><code>en-ZM</code></td>
-    <td>English (Zambia)</td>
+    <td>English</td>
+    <td>Zambia</td>
   </tr>
   <tr>
     <td><code>en</code></td>
     <td>English</td>
     <td> </td>
     <td><code>et-EE</code></td>
-    <td>Estonian (Estonia)</td>
+    <td>Estonian</td>
+    <td>Estonia</td>
   </tr>
   <tr>
     <td><code>fil-PH</code></td>
-    <td>Filipino (Philippines)</td>
-    <td> </td>
+    <td>Filipino</td>
+    <td>Philippines</td>
     <td><code>fi-FI</code></td>
-    <td>Finnish (Finland)</td>
+    <td>Finnish</td>
+    <td>Finland</td>
   </tr>
   <tr>
     <td><code>fr-DZ</code></td>
-    <td>French (Algeria)</td>
-    <td> </td>
+    <td>French</td>
+    <td>Algeria</td>
     <td><code>fr-CM</code></td>
-    <td>French (Cameroon)</td>
+    <td>French</td>
+    <td>Cameroon</td>
   </tr>
   <tr>
     <td><code>fr-CD</code></td>
-    <td>French (Democratic Republic of the Congo)</td>
-    <td> </td>
+    <td>French</td>
+    <td>Democratic Republic of the Congo</td>
     <td><code>fr-BE</code></td>
-    <td>French (Belgium)</td>
+    <td>French</td>
+    <td>Belgium</td>
   </tr>
   <tr>
     <td><code>fr-CA</code></td>
-    <td>French (Canada)</td>
-    <td> </td>
+    <td>French</td>
+    <td>Canada</td>
     <td><code>fr-FR</code></td>
-    <td>French (France)</td>
+    <td>French</td>
+    <td>France</td>
   </tr>
   <tr>
     <td><code>fr-CI</code></td>
-    <td>French (Ivory Coast [Côte d’Ivoire])</td>
-    <td> </td>
+    <td>French</td>
+    <td>Ivory Coast (Côte d’Ivoire)</td>
     <td><code>fr-LU</code></td>
-    <td>French (Luxembourg)</td>
+    <td>French</td>
+    <td>Luxembourg</td>
   </tr>
   <tr>
     <td><code>fr-MR</code></td>
-    <td>French (Mauritania)</td>
-    <td> </td>
+    <td>French</td>
+    <td>Mauritania</td>
     <td><code>fr-MU</code></td>
-    <td>French (Mauritius)</td>
+    <td>French</td>
+    <td>Mauritius</td>
   </tr>
   <tr>
     <td><code>fr-MA</code></td>
-    <td>French (Morocco)</td>
-    <td> </td>
+    <td>French</td>
+    <td>Morocco</td>
     <td><code>fr-SN</code></td>
-    <td>French (Senegal)</td>
+    <td>French</td>
+    <td>Senegal</td>
   </tr>
   <tr>
     <td><code>fr-CH</code></td>
-    <td>French (Switzerland)</td>
-    <td> </td>
+    <td>French</td>
+    <td>Switzerland</td>
     <td><code>fr-TN</code></td>
-    <td>French (Tunisia)</td>
+    <td>French</td>
+    <td>Tunisia</td>
   </tr>
   <tr>
     <td><code>gl-ES</code></td>
-    <td>Galician (Spain)</td>
-    <td> </td>
+    <td>Galician</td>
+    <td>Spain</td>
     <td><code>lg-UG</code></td>
-    <td>Ganda (Uganda)</td>
+    <td>Ganda</td>
+    <td>Uganda</td>
   </tr>
   <tr>
     <td><code>ka-GE</code></td>
-    <td>Georgian (Georgia)</td>
-    <td> </td>
+    <td>Georgian</td>
+    <td>Georgia</td>
     <td><code>de-AT</code></td>
-    <td>German (Austria)</td>
+    <td>German</td>
+    <td>Austria</td>
   </tr>
   <tr>
     <td><code>de-DE</code></td>
-    <td>German (Germany)</td>
-    <td> </td>
+    <td>German</td>
+    <td>Germany</td>
     <td><code>de-LU</code></td>
-    <td>German (Luxembourg)</td>
+    <td>German</td>
+    <td>Luxembourg</td>
   </tr>
   <tr>
     <td><code>de-CH</code></td>
-    <td>German (Switzerland)</td>
-    <td> </td>
+    <td>German</td>
+    <td>Switzerland</td>
     <td><code>el-GR</code></td>
-    <td>Greek (Greece)</td>
+    <td>Greek</td>
+    <td>Greece</td>
   </tr>
   <tr>
     <td><code>gu-IN</code></td>
-    <td>Gujarati (India)</td>
-    <td> </td>
+    <td>Gujarati</td>
+    <td>India</td>
     <td><code>ha-NG</code></td>
-    <td>Hausa (Nigeria)</td>
+    <td>Hausa</td>
+    <td>Nigeria</td>
   </tr>
   <tr>
     <td><code>he-IL</code></td>
-    <td>Hebrew (Israel)</td>
-    <td> </td>
+    <td>Hebrew</td>
+    <td>Israel</td>
     <td><code>hi-IN</code></td>
-    <td>Hindi (India)</td>
+    <td>Hindi</td>
+    <td>India</td>
   </tr>
   <tr>
     <td><code>hu-HU</code></td>
-    <td>Hungarian (Hungary)</td>
-    <td> </td>
+    <td>Hungarian</td>
+    <td>Hungary</td>
     <td><code>is-IS</code></td>
-    <td>Icelandic (Iceland)</td>
+    <td>Icelandic</td>
+    <td>Iceland</td>
   </tr>
   <tr>
     <td><code>ig-NG</code></td>
-    <td>Igbo (Nigeria)</td>
-    <td> </td>
+    <td>Igbo</td>
+    <td>Nigeria</td>
     <td><code>id-ID</code></td>
-    <td>Indonesian (Indonesia)</td>
+    <td>Indonesian</td>
+    <td>Indonesia</td>
   </tr>
   <tr>
     <td><code>it-IT</code></td>
-    <td>Italian (Italy)</td>
-    <td> </td>
+    <td>Italian</td>
+    <td>Italy</td>
     <td><code>it-CH</code></td>
-    <td>Italian (Switzerland)</td>
+    <td>Italian</td>
+    <td>Switzerland</td>
   </tr>
   <tr>
     <td><code>ja-JP</code></td>
-    <td>Japanese (Japan)</td>
-    <td> </td>
+    <td>Japanese</td>
+    <td>Japan</td>
     <td><code>kn-IN</code></td>
-    <td>Kannada (India)</td>
+    <td>Kannada</td>
+    <td>India</td>
   </tr>
   <tr>
     <td><code>kk-KZ</code></td>
-    <td>Kazakh (Kazakhstan)</td>
-    <td> </td>
+    <td>Kazakh</td>
+    <td>Kazakhstan</td>
     <td><code>km-KH</code></td>
-    <td>Khmer (Cambodia)</td>
+    <td>Khmer</td>
+    <td>Cambodia</td>
   </tr>
   <tr>
     <td><code>rw-RW</code></td>
-    <td>Kinyarwanda (Rwanda)</td>
-    <td> </td>
+    <td>Kinyarwanda</td>
+    <td>Rwanda</td>
     <td><code>kok-IN</code></td>
-    <td>Konkani (India)</td>
+    <td>Konkani</td>
+    <td>India</td>
   </tr>
   <tr>
     <td><code>ko-KR</code></td>
-    <td>Korean (Korea, South)</td>
-    <td> </td>
+    <td>Korean</td>
+    <td>South Korea</td>
     <td><code>lo-LA</code></td>
-    <td>Lithuanian (Lithuania)</td>
+    <td>Lithuanian</td>
+    <td>Lithuania</td>
   </tr>
   <tr>
     <td><code>lv-LV</code></td>
-    <td>Latvian (Latvia)</td>
-    <td> </td>
+    <td>Latvian</td>
+    <td>Latvia</td>
     <td><code>lt-LT</code></td>
-    <td>Khmer (Cambodia)</td>
+    <td>Khmer</td>
+    <td>Cambodia</td>
   </tr>
   <tr>
     <td><code>mk-MK</code></td>
-    <td>Macedonian (Macedonia)</td>
-    <td> </td>
+    <td>Macedonian</td>
+    <td>Macedonia</td>
     <td><code>ms-Latn-MY</code></td>
-    <td>Malay-Latin (Malaysia)</td>
+    <td>Malay-Latin</td>
+    <td>Malaysia</td>
   </tr>
   <tr>
     <td><code>ml-IN</code></td>
-    <td>Malayalam (India)</td>
-    <td> </td>
+    <td>Malayalam</td>
+    <td>India</td>
     <td><code>mt-MT</code></td>
-    <td>Maltese (Malta)</td>
+    <td>Maltese</td>
+    <td>Malta</td>
   </tr>
   <tr>
     <td><code>mr-IN</code></td>
-    <td>Marathi (India)</td>
-    <td> </td>
+    <td>Marathi</td>
+    <td>India</td>
     <td><code>mn-Cyrl-MN</code></td>
-    <td>Mongolian-Cyrillic (Mongolia)</td>
+    <td>Mongolian-Cyrillic</td>
+    <td>Mongolia</td>
   </tr>
   <tr>
     <td><code>ne-IN</code></td>
-    <td>Nepali (India)</td>
-    <td> </td>
+    <td>Nepali</td>
+    <td>India</td>
     <td><code>ne-NP</code></td>
-    <td>Nepali (Nepal)</td>
+    <td>Nepali</td>
+    <td>Nepal</td>
   </tr>
   <tr>
     <td><code>nb-NO</code></td>
-    <td>Norwegian Bokmål (Norway)</td>
-    <td> </td>
+    <td>Norwegian Bokmål</td>
+    <td>Norway</td>
     <td><code>nn-NO</code></td>
-    <td>Norwegian Nynorsk (Norway)</td>
+    <td>Norwegian Nynorsk</td>
+    <td>Norway</td>
   </tr>
   <tr>
     <td><code>or-IN</code></td>
-    <td>Oriya [aka, Odia] (India)</td>
-    <td> </td>
+    <td>Oriya (Odia)</td>
+    <td>India</td>
     <td><code>om-ET</code></td>
-    <td>Oromo (Ethiopia)</td>
+    <td>Oromo</td>
+    <td>Ethiopia</td>
   </tr>
   <tr>
     <td><code>pl-PL</code></td>
-    <td>Polish (Poland)</td>
-    <td> </td>
+    <td>Polish</td>
+    <td>Poland</td>
     <td><code>pt-AO</code></td>
-    <td>Portuguese (Angola)</td>
+    <td>Portuguese</td>
+    <td>Angola</td>
   </tr>
   <tr>
     <td><code>pt-BR</code></td>
-    <td>Portuguese (Brazil)</td>
-    <td> </td>
+    <td>Portuguese</td>
+    <td>Brazil</td>
     <td><code>pt-MO</code></td>
-    <td>Portuguese (Macao)</td>
+    <td>Portuguese</td>
+    <td>Macao</td>
   </tr>
   <tr>
     <td><code>pt-MZ</code></td>
-    <td>Portuguese (Mozambique)</td>
-    <td> </td>
+    <td>Portuguese</td>
+    <td>Mozambique</td>
     <td><code>pt-PT</code></td>
-    <td>Portuguese (Portugal)</td>
+    <td>Portuguese</td>
+    <td>Portugal</td>
   </tr>
   <tr>
     <td><code>pa-IN</code></td>
-    <td>Punjabi (India)</td>
-    <td> </td>
+    <td>Punjabi</td>
+    <td>India</td>
     <td><code>ro-RO</code></td>
-    <td>Romanian (Romania)</td>
+    <td>Romanian</td>
+    <td>Romania</td>
   </tr>
   <tr>
     <td><code>ru-RU</code></td>
-    <td>Russian (Russia)</td>
-    <td> </td>
+    <td>Russian</td>
+    <td>Russia</td>
     <td><code>sr-Cyrl-RS</code></td>
-    <td>Serbian-Cyrillic (Serbia)</td>
+    <td>Serbian-Cyrillic</td>
+    <td>Serbia</td>
   </tr>
   <tr>
     <td><code>sr-Latn-ME</code></td>
-    <td>Serbian-Latin (Montenegro)</td>
-    <td> </td>
+    <td>Serbian-Latin</td>
+    <td>Montenegro</td>
     <td><code>sr-Latn-RS</code></td>
-    <td>Serbian-Latin (Serbia)</td>
+    <td>Serbian-Latin</td>
+    <td>Serbia</td>
   </tr>
   <tr>
     <td><code>si-LK</code></td>
-    <td>Sinhala (Sri Lanka)</td>
-    <td> </td>
+    <td>Sinhala</td>
+    <td>Sri Lanka</td>
     <td><code>sk-SK</code></td>
-    <td>Slovak (Slovakia)</td>
+    <td>Slovak</td>
+    <td>Slovakia</td>
   </tr>
   <tr>
     <td><code>sl-SI</code></td>
-    <td>Slovenian (Slovenia)</td>
-    <td> </td>
+    <td>Slovenian</td>
+    <td>Slovenia</td>
     <td><code>es-AR</code></td>
-    <td>Spanish (Argentina)</td>
+    <td>Spanish</td>
+    <td>Argentina</td>
   </tr>
   <tr>
     <td><code>es-BO</code></td>
-    <td>Spanish (Bolivia)</td>
-    <td> </td>
+    <td>Spanish</td>
+    <td>Bolivia</td>
     <td><code>es-CL</code></td>
-    <td>Spanish (Chile)</td>
+    <td>Spanish</td>
+    <td>Chile</td>
   </tr>
   <tr>
     <td><code>es-CO</code></td>
-    <td>Spanish (Colombia)</td>
-    <td> </td>
+    <td>Spanish</td>
+    <td>Colombia</td>
     <td><code>es-CR</code></td>
-    <td>Spanish (Costa Rica)</td>
+    <td>Spanish</td>
+    <td>Costa Rica</td>
   </tr>
   <tr>
     <td><code>es-DO</code></td>
-    <td>Spanish (Dominican Republic)</td>
-    <td> </td>
+    <td>Spanish</td>
+    <td>Dominican Republic</td>
     <td><code>es-EC</code></td>
-    <td>Spanish (Ecuador)</td>
+    <td>Spanish</td>
+    <td>Ecuador</td>
   </tr>
   <tr>
     <td><code>es-SV</code></td>
-    <td>Spanish (El Salvador)</td>
-    <td> </td>
+    <td>Spanish</td>
+    <td>El Salvador</td>
     <td><code>es-GT</code></td>
-    <td>Spanish (Guatemala)</td>
+    <td>Spanish</td>
+    <td>Guatemala</td>
   </tr>
   <tr>
     <td><code>es-HN</code></td>
-    <td>Spanish (Honduras)</td>
-    <td> </td>
+    <td>Spanish</td>
+    <td>Honduras</td>
     <td><code>es-MX</code></td>
-    <td>Spanish (Mexico)</td>
+    <td>Spanish</td>
+    <td>Mexico</td>
   </tr>
   <tr>
     <td><code>es-NI</code></td>
-    <td>Spanish (Nicaragua)</td>
-    <td> </td>
+    <td>Spanish</td>
+    <td>Nicaragua</td>
     <td><code>es-PA</code></td>
-    <td>Spanish (Panama)</td>
+    <td>Spanish</td>
+    <td>Panama</td>
   </tr>
   <tr>
     <td><code>es-PY</code></td>
-    <td>Spanish (Paraguay)</td>
-    <td> </td>
+    <td>Spanish</td>
+    <td>Paraguay</td>
     <td><code>es-PE</code></td>
-    <td>Spanish (Peru)</td>
+    <td>Spanish</td>
+    <td>Peru</td>
   </tr>
   <tr>
     <td><code>es-PR</code></td>
-    <td>Spanish (Puerto Rico)</td>
-    <td> </td>
+    <td>Spanish</td>
+    <td>Puerto Rico</td>
     <td><code>es-ES</code></td>
-    <td>Spanish (Spain)</td>
+    <td>Spanish</td>
+    <td>Spain</td>
   </tr>
   <tr>
     <td><code>es-US</code></td>
-    <td>Spanish (United States)</td>
-    <td> </td>
+    <td>Spanish</td>
+    <td>United States</td>
     <td><code>es-UY</code></td>
-    <td>Spanish (Uruguay)</td>
+    <td>Spanish</td>
+    <td>Uruguay</td>
   </tr>
   <tr>
     <td><code>es-VE</code></td>
-    <td>Spanish (Venezuela)</td>
-    <td> </td>
+    <td>Spanish</td>
+    <td>Venezuela</td>
     <td><code>sw-KE</code></td>
-    <td>Swahili (Kenya)</td>
+    <td>Swahili</td>
+    <td>Kenya</td>
   </tr>
   <tr>
     <td><code>sw-TZ</code></td>
-    <td>Swahili (Tanzania)</td>
-    <td> </td>
+    <td>Swahili</td>
+    <td>Tanzania</td>
     <td><code>sv-SE</code></td>
-    <td>Swedish (Sweden)</td>
+    <td>Swedish</td>
+    <td>Sweden</td>
   </tr>
   <tr>
     <td><code>ta-IN</code></td>
-    <td>Tamil (India)</td>
-    <td> </td>
+    <td>Tamil</td>
+    <td>India</td>
     <td><code>te-IN</code></td>
-    <td>Telugu (India)</td>
+    <td>Telugu</td>
+    <td>India</td>
   </tr>
   <tr>
     <td><code>th-TH</code></td>
-    <td>Thai (Thailand)</td>
-    <td> </td>
+    <td>Thai</td>
+    <td>Thailand</td>
     <td><code>tr-TR</code></td>
-    <td>Turkish (Turkey)</td>
+    <td>Turkish</td>
+    <td>Turkey</td>
   </tr>
   <tr>
     <td><code>uk-UA</code></td>
-    <td>Ukrainian (Ukraine)</td>
-    <td> </td>
+    <td>Ukrainian</td>
+    <td>Ukraine</td>
     <td><code>ur-IN</code></td>
-    <td>Urdu (India)</td>
+    <td>Urdu</td>
+    <td>India</td>
   </tr>
   <tr>
     <td><code>ur-PK</code></td>
-    <td>Urdu (Pakistan)</td>
-    <td> </td>
+    <td>Urdu</td>
+    <td>Pakistan</td>
     <td><code>uz-Cyrl-UZ</code></td>
-    <td>Uzbek-Cyrillic (Uzbekistan)</td>
+    <td>Uzbek-Cyrillic</td>
+    <td>Uzbekistan</td>
   </tr>
   <tr>
     <td><code>uz-Latn-UZ</code></td>
-    <td>Uzbek-Latin (Uzbekistan)</td>
-    <td> </td>
+    <td>Uzbek-Latin</td>
+    <td>Uzbekistan</td>
     <td><code>vi-VN</code></td>
-    <td>Vietnamese (Vietnam)</td>
+    <td>Vietnamese</td>
+    <td>Vietnam</td>
   </tr>
   <tr>
     <td><code>cy-GB</code></td>
-    <td>Welsh (United Kingdom)</td>
-    <td> </td>
+    <td>Welsh</td>
+    <td>United Kingdom</td>
     <td><code>yo-NG</code></td>
-    <td>Yoruba (Nigeria)</td>
+    <td>Yoruba</td>
+    <td>Nigeria</td>
   </tr>
   <tr>
     <td><code>zu-ZA</code></td>
-    <td>Zulu (South Africa)</td>
+    <td>Zulu</td>
+    <td>South Africa</td>
     <td> </td>
     <td> </td>
     <td> </td>
   </tr>
-
 </table>
 
 
