@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-12"
+lastupdated: "2018-06-20"
 
 ---
 
@@ -48,6 +48,9 @@ A template is an example of an email message that you might send to your users. 
 1. Select a **Message type**.
 2. Customize your message by changing the content and design of the message. You can use parameters to personalize your messages. Don't forget to save your changes!
 
+You can write your messages in any language!
+{: tip}
+
 ### Types of messages
 
 You can send several types of messages to your users. You can choose to send the example message that it programmed into the UI or you can customize the content for a more personal app experience.
@@ -78,7 +81,7 @@ You can send several types of messages to your users. You can choose to send the
         </tr>
         <tr>
           <td> %{user.formattedName} </td>
-          <td> Displays a user's full name. </td>
+          <td> Displays the user's full name. </td>
         </tr>
         <tr>
           <td> %{user.lastName} </td>
