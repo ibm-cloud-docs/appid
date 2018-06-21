@@ -107,19 +107,19 @@ You can send several types of messages to your users. You can choose to send the
       </thead>
       <tbody>
         <tr>
-          <td> %{linkExpiration.hours} </td>
+          <td><code>%{linkExpiration.hours}</code></td>
           <td> Displays the number of hours the link is valid. </td>
         </tr>
         <tr>
-          <td> %{linkExpiration.minutes} </td>
+          <td><code>%{linkExpiration.minutes}</code></td>
           <td> Displays the number of minutes the link is valid. </td>
         </tr>
         <tr>
-          <td> %{resetPassword.code} </td>
+          <td><code>%{resetPassword.code}</code></td>
           <td> Displays a one-time passcode as part of the URL. This means that each person would have a different code. Example: <code>https://appid-wfm.bluemix.net/verify/6574839563478</code> </td>
         </tr>
         <tr>
-          <td> %{resetPassword.link} </td>
+          <td><code>%{resetPassword.link}</code></td>
           <td> Displays the link that a user clicks to reset their password. </td>
         </tr>
        </tbody>
@@ -133,19 +133,19 @@ You can send several types of messages to your users. You can choose to send the
       </thead>
       <tbody>
         <tr>
-          <td> %{linkExpiration.hours} </td>
+          <td><code>%{linkExpiration.hours}</code></td>
           <td> Displays the number of hours the link is valid. </td>
         </tr>
         <tr>
-          <td> %{linkExpiration.minutes} </td>
+          <td><code>%{linkExpiration.minutes}</code></td>
           <td> Displays the number of minutes the link is valid. </td>
         </tr>
         <tr>
-          <td> %{verify.code} </td>
+          <td><code>%{verify.code}</code></td>
           <td> Displays a one-time verification URL. </td>
         </tr>
         <tr>
-          <td> %{verify.link} </td>
+          <td><code>%{verify.link}</code></td>
           <td> Displays the action URL that you specified in settings. </td>
         </tr>
       </tbody>
@@ -159,7 +159,7 @@ You can send several types of messages to your users. You can choose to send the
       </thead>
       <tbody>
         <tr>
-          <td> %{passwordChangeInfo.time} </td>
+          <td><code>%{passwordChangeInfo.time}</code></td>
           <td> Displays the time at which a new password went into effect. </td>
         </tr>
         <tr>

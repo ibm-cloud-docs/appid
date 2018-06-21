@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-05-30"
+lastupdated: "2018-06-21"
 
 ---
 
@@ -83,7 +83,7 @@ To configure your app, you need to provide information to a SAML compatible iden
 
 3. Provide the data to your identity provider. If your identity provider supports uploading the metadata file, you can do so. If it doesn't, configure the properties manually. Not every identity provider will use the same properties, so if you don't use all of them, it's okay.
 
-The property names may differ between identity providers.
+The property names might differ between identity providers.
 {: tip}
 
 ### Providing metadata to {{site.data.keyword.appid_short_notm}}
