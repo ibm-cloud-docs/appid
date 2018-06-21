@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-20"
+lastupdated: "2018-06-21"
 
 ---
 
@@ -16,7 +16,7 @@ lastupdated: "2018-06-20"
 # Configuring cloud directory
 {: #cd}
 
-Users can sign up and sign in to your mobile and web apps by using an email and a password. A cloud directory is a user registry that is maintained in the cloud. When a user signs up for your app with an email and a password, they're added to your directory of users. With this feature, users have the freedom to manage their own account within your app.
+Users can sign up and sign in to your mobile and web apps by using an email and a password or username and password. A cloud directory is a user registry that is maintained in the cloud. When a user signs up for your app they're added to your directory of users. With this feature, users have the freedom to manage their own account within your app.
 {: shortdesc}
 
 </br>
@@ -30,12 +30,14 @@ You can configure the notifications and level of user control for your app. Sett
 ![Configuring cloud directory](/images/cloud-directory.png)
 
 1. Be sure that cloud directory is turned on as an identity provider and set **Allow users to sign up and reset their password** to **On**. If set to **Off**, you can still add users through the console for development purposes.
-2. Configure your sender details. Specify the email address from which your messages appear to be from, the sender, and to whom your users can reply.
+2. Choose the whether your users will authenticate with a specified username or an email. This field is used for the sign-up, sign in and forgot password flows. **Note:** You can switch between options only when there are no users in your Cloud 
+Directory.
+3. Configure your sender details. Specify the email address from which your messages appear to be from, the sender, and to whom your users can reply.
   When you configure your action URL, be sure that you give enough time for a user to click the link. A user must verify their email to have certain options, such as the ability to request a reset of their password.
   {: tip}
-3. Determine the types of emails a user receives and the sender information.
-4. With the templates provided, customize your messages with your brand or personalized messages. For more information, see [Managing messages](/docs/services/appid/cloud-directory.html#cd-messages).
-5. See who's signed-up for your app in the **Users** tab of the GUI.
+4. Determine the types of emails a user receives and the sender information.
+5. With the templates provided, customize your messages with your brand or personalized messages. For more information, see [Managing messages](/docs/services/appid/cloud-directory.html#cd-messages).
+6. See who's signed-up for your app in the **Users** tab of the GUI.
 
 </br>
 
