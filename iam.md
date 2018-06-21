@@ -230,8 +230,6 @@ To monitor administrative activity:
     * For **Filter**, input **appid**.
 5. Click **Filter**.
 
-
-
 For more information about how the service works see the [{{site.data.keyword.cloudaccesstrailshort}} docs](/docs/services/cloud-activity-tracker/index.html).
 
 </br>
