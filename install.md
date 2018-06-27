@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-21"
+lastupdated: "2018-06-27"
 
 ---
 
@@ -78,7 +78,7 @@ You need the following information:
 
   ```gradle
    dependencies {
-       compile group: 'com.github.ibm-cloud-security:appid-clientsdk-android:1.+'
+       compile group: 'com.github.ibm-cloud-security:appid-clientsdk-android:4.+'
    }
   ```
   {: codeblock}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-21"
+lastupdated: "2018-06-27"
 
 ---
 
@@ -44,7 +44,7 @@ You can add the {{site.data.keyword.appid_short_notm}} service to your existing 
 
   ```gradle
   dependencies {
-      compile group: 'com.github.ibm-cloud-security:appid-clientsdk-android:1.+'
+      compile group: 'com.github.ibm-cloud-security:appid-clientsdk-android:4.+'
   }
   ```
   {: codeblock}
@@ -170,7 +170,7 @@ You can add the {{site.data.keyword.appid_short_notm}} service to your existing 
       </tr>
       <tr>
         <td> <i> AppID.REGION </i> </td>
-        <td> You can find your region in the UI. Options are `AppID.REGION_US_SOUTH`, `AppID.REGION_UK`, `AppID.REGION_Sydney`, or `AppID.REGION_Germany`. </td>
+        <td> You can find your region in the UI. Options are `AppID.REGION_US_SOUTH`, `AppID.REGION_UK`, `AppID.REGION_Sydney`, or `AppID.REGION_Germany`.</td>
       </tr>
     </table>
 

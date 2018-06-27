@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-21"
+lastupdated: "2018-06-27"
 
 ---
 
@@ -56,8 +56,6 @@ A template is an example of an email message that you might send to your users. 
 3. Select a **Message type**.
 
 4. Customize your message by changing the content and design of the message. You can use parameters to personalize your messages. Don't forget to save your changes!
-
-
 
 ### Types of messages
 
