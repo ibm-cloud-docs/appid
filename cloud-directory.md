@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-21"
+lastupdated: "2018-06-27"
 
 ---
 
@@ -16,7 +16,7 @@ lastupdated: "2018-06-21"
 # Configuring cloud directory
 {: #cd}
 
-Users can sign up and sign in to your mobile and web apps by using an email and a password. A cloud directory is a user registry that is maintained in the cloud. When a user signs up for your app they're added to your directory of users. With this feature, users have the freedom to manage their own account within your app.
+Users can sign up and sign in to your mobile and web apps by using an email and a password. A cloud directory is a user registry that is maintained in the cloud. When a user signs up for your app with either an email and password or a username and password, they're added to your directory of users. With this feature, users have the freedom to manage their own account within your app.
 {: shortdesc}
 
 </br>
@@ -27,33 +27,16 @@ Users can sign up and sign in to your mobile and web apps by using an email and 
 You can configure the notifications and level of user control for your app. Setting up your cloud directory can be done quickly, as shown in the following image. These settings can be updated at any time from the service dashboard.
 {: shortdesc}
 
+
 ![Configuring cloud directory](/images/cloud-directory.png)
+Figure. The configuration journey for Cloud Directory
+
 
 1. Be sure that cloud directory is turned on as an identity provider and set **Allow users to sign up and reset their password** to **On**. If set to **Off**, you can still add users through the console for development purposes.
-3. Configure your sender details. Specify the email address from which your messages appear to be from, the sender, and to whom your users can reply.
-  When you configure your action URL, be sure that you give enough time for a user to click the link. A user must verify their email to have certain options, such as the ability to request a reset of their password.
-  {: tip}
-4. Determine the types of emails a user receives and the sender information.
-5. With the templates provided, customize your messages with your brand or personalized messages. For more information, see [Managing messages](/docs/services/appid/cloud-directory.html#cd-messages).
-6. See who's signed-up for your app in the **Users** tab of the GUI.
-
-</br>
-
-## Managing messages
-{: #cd-messages}
-
-A template is an example of an email message that you might send to your users. You can customize the template by updating the content and layout of the message.
-{: shortdesc}
-
-1. In the **Identity Providers > Cloud Directory > Settings** tab of the dashboard, set the messages that you want to send to **On** .
-
-2. *Optional*: Use <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/updateLocalization" target="_blank">the language management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to set another language that you want to use in your message templates. For a list of supported language codes, see [Supported languages](#languages).
 
 3. Select a **Message type**.
 
 4. Customize your message by changing the content and design of the message. You can use parameters to personalize your messages. Don't forget to save your changes!
-
-
 
 ### Types of messages
 
@@ -68,28 +51,31 @@ You can send several types of messages to your users. You can choose to send the
       </thead>
       <tbody>
         <tr>
-          <td> %{display.logo} </td>
+          <td><code>%{display.logo}</code></td>
           <td> Displays the image that you configured for your login widget. </td>
         </tr>
         <tr>
-          <td> %{user.displayName} </td>
+          <td><code>%{user.displayName}</code></td>
           <td> Displays the screen name a user chose to use when interacting with the app. </td>
         </tr>
         <tr>
-          <td> %{user.email} </td>
+          <td><code>%{user.email}</code></td>
           <td> Displays the user's registered email address. </td>
         </tr>
+        <tr>
+          <td><code>%{user.username}</code></td>
+          <td> Displays the user's specified username when the authentication method is set to username and password. </td>
         </tr>
         <tr>
-          <td> %{user.firstName} </td>
+          <td><code>%{user.firstName}</code></td>
           <td> Displays the user's specified given name. </td>
         </tr>
         <tr>
-          <td> %{user.formattedName} </td>
+          <td><code>%{user.formattedName}</code></td>
           <td> Displays the user's full name. </td>
         </tr>
         <tr>
-          <td> %{user.lastName} </td>
+          <td><code>%{user.lastName}</code></td>
           <td> Displays the user's specified surname. </td>
         </tr>
       </tbody>
@@ -103,19 +89,19 @@ You can send several types of messages to your users. You can choose to send the
       </thead>
       <tbody>
         <tr>
-          <td> %{linkExpiration.hours} </td>
-          <td> Displays the number of hours the link is valid. </td>
+          <td><code>%{linkExpiration.hours}</code></td>
+          <td> Displays the number of hours that the link is valid. </td>
         </tr>
         <tr>
-          <td> %{linkExpiration.minutes} </td>
-          <td> Displays the number of minutes the link is valid. </td>
+          <td><code>%{linkExpiration.minutes}</code></td>
+          <td> Displays the number of minutes that the link is valid. </td>
         </tr>
         <tr>
-          <td> %{resetPassword.code} </td>
+          <td><code>%{resetPassword.code}</code></td>
           <td> Displays a one-time passcode as part of the URL. This means that each person would have a different code. Example: <code>https://appid-wfm.bluemix.net/verify/6574839563478</code> </td>
         </tr>
         <tr>
-          <td> %{resetPassword.link} </td>
+          <td><code>%{resetPassword.link}</code></td>
           <td> Displays the link that a user clicks to reset their password. </td>
         </tr>
        </tbody>
@@ -129,19 +115,19 @@ You can send several types of messages to your users. You can choose to send the
       </thead>
       <tbody>
         <tr>
-          <td> %{linkExpiration.hours} </td>
+          <td><code>%{linkExpiration.hours}</code></td>
           <td> Displays the number of hours the link is valid. </td>
         </tr>
         <tr>
-          <td> %{linkExpiration.minutes} </td>
+          <td><code>%{linkExpiration.minutes}</code></td>
           <td> Displays the number of minutes the link is valid. </td>
         </tr>
         <tr>
-          <td> %{verify.code} </td>
+          <td><code>%{verify.code}</code></td>
           <td> Displays a one-time verification URL. </td>
         </tr>
         <tr>
-          <td> %{verify.link} </td>
+          <td><code>%{verify.link}</code></td>
           <td> Displays the action URL that you specified in settings. </td>
         </tr>
       </tbody>
@@ -155,7 +141,7 @@ You can send several types of messages to your users. You can choose to send the
       </thead>
       <tbody>
         <tr>
-          <td> %{passwordChangeInfo.time} </td>
+          <td><code>%{passwordChangeInfo.time}</code></td>
           <td> Displays the time at which a new password went into effect. </td>
         </tr>
         <tr>
@@ -190,6 +176,7 @@ Some common password strength examples:
 To set the requirements, you must use <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/set_cloud_directory_password_regex" target="_blank">the API <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
 
 </br>
+
 
 ## Next steps
 {: #next}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-15"
+lastupdated: "2018-06-27"
 
 ---
 
@@ -78,7 +78,7 @@ You need the following information:
 
   ```gradle
    dependencies {
-       compile group:  'com.github.ibm-cloud-security:appid-clientsdk-android:1.+' 
+       compile group: 'com.github.ibm-cloud-security:appid-clientsdk-android:4.+'
    }
   ```
   {: codeblock}
@@ -132,7 +132,7 @@ You need the following information:
     </tr>
     <tr>
       <td>US South</td>
-      <td><code>AppID.REGION_US_SOUTH</code> </td>
+      <td><code>AppID.REGION_US_SOUTH</code></td>
     </tr>
     <tr>
       <td>Sydney</td>
@@ -291,5 +291,5 @@ Prior to working with the Swift SDK, you must have the following prerequisites:
   ```
   {: pre}
 
-  You can copy the openssl.xcconfig from the <a href="https://github.com/ibm-cloud-security/appid-serversdk-swift" target="_blank">{{site.data.keyword.appid_short_notm}} Swift GitHub <img src="../../icons/launch-glyph.svg" alt="External link icon"</a>
+  You can copy the openssl.xcconfig from the <a href="https://github.com/ibm-cloud-security/appid-serversdk-swift" target="_blank">{{site.data.keyword.appid_short_notm}} Swift GitHub <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
   {: tip}
