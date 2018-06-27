@@ -16,7 +16,7 @@ lastupdated: "2018-06-27"
 # Configuring cloud directory
 {: #cd}
 
-Users can sign up and sign in to your mobile and web apps by using an email and a password. A cloud directory is a user registry that is maintained in the cloud. When a user signs up for your app with an email and a password, they're added to your directory of users. With this feature, users have the freedom to manage their own account within your app.
+Users can sign up and sign in to your mobile and web apps by using an email and a password. A cloud directory is a user registry that is maintained in the cloud. When a user signs up for your app with either an email and password or a username and password, they're added to your directory of users. With this feature, users have the freedom to manage their own account within your app.
 {: shortdesc}
 
 </br>
@@ -28,30 +28,11 @@ You can configure the notifications and level of user control for your app. Sett
 {: shortdesc}
 
 
-
 ![Configuring cloud directory](/images/cloud-directory.png)
 Figure. The configuration journey for Cloud Directory
 
 
-
 1. Be sure that cloud directory is turned on as an identity provider and set **Allow users to sign up and reset their password** to **On**. If set to **Off**, you can still add users through the console for development purposes.
-3. Configure your sender details. Specify the email address from which your messages appear to be from, the sender, and to whom your users can reply.
-  When you configure your action URL, be sure that you give enough time for a user to click the link. A user must verify their email to have certain options, such as the ability to request a reset of their password.
-  {: tip}
-4. Determine the types of emails a user receives and the sender information.
-5. With the templates provided, customize your messages with your brand or personalized messages. For more information, see [Managing messages](/docs/services/appid/cloud-directory.html#cd-messages).
-6. See who's signed-up for your app in the **Users** tab of the GUI.
-</br>
-
-## Managing messages
-{: #cd-messages}
-
-A template is an example of an email message that you might send to your users. You can customize the template by updating the content and layout of the message.
-{: shortdesc}
-
-1. In the **Identity Providers > Cloud Directory > Settings** tab of the dashboard, set the messages that you want to send to **On** .
-
-2. *Optional*: Use <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/updateLocalization" target="_blank">the language management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to set another language that you want to use in your message templates. 
 
 3. Select a **Message type**.
 
@@ -81,6 +62,9 @@ You can send several types of messages to your users. You can choose to send the
           <td><code>%{user.email}</code></td>
           <td> Displays the user's registered email address. </td>
         </tr>
+        <tr>
+          <td><code>%{user.username}</code></td>
+          <td> Displays the user's specified username when the authentication method is set to username and password. </td>
         </tr>
         <tr>
           <td><code>%{user.firstName}</code></td>
@@ -106,11 +90,11 @@ You can send several types of messages to your users. You can choose to send the
       <tbody>
         <tr>
           <td><code>%{linkExpiration.hours}</code></td>
-          <td> Displays the number of hours the link is valid. </td>
+          <td> Displays the number of hours that the link is valid. </td>
         </tr>
         <tr>
           <td><code>%{linkExpiration.minutes}</code></td>
-          <td> Displays the number of minutes the link is valid. </td>
+          <td> Displays the number of minutes that the link is valid. </td>
         </tr>
         <tr>
           <td><code>%{resetPassword.code}</code></td>
