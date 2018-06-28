@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-06-28"
 
 ---
 
@@ -36,6 +36,9 @@ An authorized user is a unique user that logs in with your service whether direc
 For more information on graduated tier pricing, see the [{{site.data.keyword.Bluemix_notm}} pricing docs](/docs/billing-usage/how_charged.html#services).
 
 </br>
+
+
+
 
 ## What does {{site.data.keyword.appid_short_notm}} expect a SAML assertion to look like?
 {: #saml-example}
