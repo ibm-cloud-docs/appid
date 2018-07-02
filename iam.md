@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-27"
+lastupdated: "2018-07-02"
 
 ---
 
@@ -207,8 +207,8 @@ The actions are customized and defined by the {{site.data.keyword.Bluemix_notm}}
     <td>Writer, Manager</td>
   </tr>
   <tr>
-    <td>code>appid-mgmt-revoke-refresh-token</code></td>
-    <td>Revoke user's refresh token by user ID.</td>
+    <td><code>appid-mgmt-revoke-refresh-token</code></td>
+    <td>Revoke a user's refresh token by using their user ID.</td>
     <td>Writer, Manager</td>
   </tr>
 </table>
