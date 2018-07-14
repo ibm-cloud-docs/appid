@@ -20,6 +20,7 @@ IBM Cloud App ID
         cloud-directory.md
         login-widget.md
 
+    tokens.md
     protecting-resources.md
     user-profile.md
     protecting-resources-local.md
@@ -31,7 +32,7 @@ IBM Cloud App ID
     {: .navgroup id="reference"}
     {: .topicgroup}
     APIs
-        [Authorization](https://appid-oauth.ng.bluemix.net/swagger-ui/#/Authorization_Server_V3)
+        [Authorization](http://mobileclientaccess.bluemix.net/swagger-ui/#/Authorization_Server_V3)
         [Management](https://appid-management.ng.bluemix.net/swagger-ui/)
         [Profiles](https://appid-profiles.ng.bluemix.net/swagger-ui/index.html)
 
