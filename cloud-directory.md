@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-28"
+lastupdated: "2018-07-14"
 
 ---
 
@@ -180,10 +180,8 @@ To set the requirements, you must use <a href="https://appid-management.ng.bluem
 ## Supported languages
 {: #languages}
 
-You can use <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/updateLocalization" target="_blank">the language management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to set the language in which your user communication can be written. However, only English is available out of the box. You are responsible for the translation of the messages. After you update your app
+You can use <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/updateLocalization" target="_blank">the language management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to set the language in which your user communication can be written. However, only English is available out of the box. You are responsible for the translation of the messages. 
 {: shortdesc}
-
-need to emphasis that only english is coming out of the box. App ID provides a way for Dave to add language of choice. Also say that once more language are added then UI changes to allow Dave to change the template text. Point to management API doesn’t take to anything specific.
 
 <table>
   <col width="20%">
