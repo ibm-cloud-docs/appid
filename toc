@@ -19,7 +19,7 @@ IBM Cloud App ID
         enterprise.md
         cloud-directory.md
         login-widget.md
-
+    
     protecting-resources.md
     user-profile.md
     protecting-resources-local.md

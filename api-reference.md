@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-07-15"
 
 ---
 
@@ -19,11 +19,11 @@ lastupdated: "2018-4-24"
 You can use the management API for DevOps automation, customization, and management of your instances of {{site.data.keyword.appid_full}}.
 {: shortdesc}
 
-The management API is secured with IBM Cloud Identity and Access Management generated tokens. This means that account owners can specify who on their team has which level of access for each service instance. For more information about how IAM and {{site.data.keyword.appid_short_notm}} work together, see [Service access management](/docs/services/appid/iam.html).
+The management API is secured with {{site.data.keyword.cloudaccesstraillong}} generated tokens. With IAM, account owners can specify who on their team has which level of access for each service instance. For more information about how IAM and {{site.data.keyword.appid_short_notm}} work together, see [Service Access Management](/docs/services/appid/iam.html).
 
 With the API, you can:
-* automate the configuration of {{site.data.keyword.appid_short_notm}} in your app of your DevOps process.
-* set and customize capabilities through your app back-end, such as your login widget configuration, sign-up process, and user management.
+* Automate the configuration of {{site.data.keyword.appid_short_notm}} in your app of your DevOps process.
+* Set and customize capabilities through your app back-end, such as your login widget configuration, sign-up process, and user management.
 
 
 Calls to the management api endpoint take the following structure:
@@ -63,8 +63,8 @@ You can find the region by looking in the following table.
 ## Prerequisites
 {: #api-prereq}
 
-<ul><ul><li>A service instance that was created after March 15th, 2018. If you have an instance of the service created prior to that date, create a new instance and configure it to match your current instance. Be sure to update your apps to use the new instance.</li>
-<li>The [{{site.data.keyword.Bluemix_notm}} CLI](/docs/cli/reference/bluemix_cli/get_started.html) installed.</li></ul></ul>
+<ul><ul><li>A service instance that was created after 15 March 2018. If you have an instance of the service that was created before that date, create a new instance and configure it to match your current instance. Be sure to update your apps to use the new instance.</li>
+<li>The [{{site.data.keyword.Bluemix_notm}} CLI](/docs/cli/index.html) installed.</li></ul></ul>
 
 ## Example usage
 {: #api-example}

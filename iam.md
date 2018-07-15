@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-07-02"
+lastupdated: "2018-07-08"
 
 ---
 
@@ -207,7 +207,7 @@ The actions are customized and defined by the {{site.data.keyword.Bluemix_notm}}
     <td>Writer, Manager</td>
   </tr>
   <tr>
-    <td><code>appid-mgmt-revoke-refresh-token</code></td>
+    <td>code>appid-mgmt-revoke-refresh-token</code></td>
     <td>Revoke a user's refresh token by using their user ID.</td>
     <td>Writer, Manager</td>
   </tr>
@@ -429,7 +429,7 @@ In this scenario, an administrator created an instance of {{site.data.keyword.ap
 {: shortdesc}
 
 Before you begin:
-* Install the [{{site.data.keyword.Bluemix_notm}} CLI](/docs/cli/reference/bluemix_cli/get_started.html).
+* Install the [{{site.data.keyword.Bluemix_notm}} CLI](/docs/cli/index.html).
 
 To update access permissions, the admin completes the following steps:
 
