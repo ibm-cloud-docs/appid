@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-07-08"
+lastupdated: "2018-07-15"
 
 ---
 
@@ -29,7 +29,7 @@ With the API, you can:
 Calls to the management api endpoint take the following structure:
 
 ```
-appid-oauth.<region>.bluemix.net
+appid-management.<region>.bluemix.net
 ```
 {: codeblock}
 
