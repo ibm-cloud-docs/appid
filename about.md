@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-07-15"
 
 ---
 
@@ -62,7 +62,7 @@ You can use {{site.data.keyword.appid_short_notm}} with other {{site.data.keywor
   <dt>{{site.data.keyword.openwhisk}} and API Connect</dt>
     <dd>When you create your APIs with [{{site.data.keyword.openwhisk_short}}](/docs/openwhisk/index.html) and [API Connect](/docs/apis/management/manage_apis.html), you can secure your applications at the gateway rather than in your app code. To see the integration in action, watch <a href="https://www.youtube.com/watch?v=Fa9YD2NGZiE" target="_blank">Simple and fast social login OAUTH with APIC and {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.</dd>
   <dt>Cloud Foundry</dt>
-    <dd>Try out one of our sample Cloud Foundry apps to see how you can integrate app id into your apps.</dd>
+    <dd>Try out one of the provided sample Cloud Foundry apps to see how you can integrate {{site.data.keyword.appid_short_notm}} into your apps.</dd>
   <dt>iOS Programming Guide</dt>
     <dd>Do you develop apps for Apple? Try out the <a href="https://console.bluemix.net/docs/swift/index.html#overview" target="_blank">iOS Programming Guide <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to learn, experiment, and enhance your existing iOS apps with {{site.data.keyword.Bluemix_notm}}.</dd>
   <dt>{{site.data.keyword.cloudaccesstrailshort}}</dt>
@@ -79,25 +79,26 @@ With {{site.data.keyword.appid_short_notm}}, you can add a level of security to 
 ![{{site.data.keyword.appid_short_notm}} architecture diagram](/images/appid_architecture.png)
 
 <dl>
-  <dt> Application </dt>
+  <dt>Application</dt>
     <dd><strong>Server SDK</strong>: You can protect your back-end resources that are hosted on {{site.data.keyword.Bluemix_notm}} and your web apps by using the server SDK. It extracts the access token from a request and validates it with {{site.data.keyword.appid_short_notm}}. </br>
     <strong>Client SDK</strong>: You can protect your mobile apps with the Android or iOS client SDK. The client SDK communicates with your cloud resources to start the authentication process when it detects an authorization challenge.</dd>
   <dt>{{site.data.keyword.Bluemix_notm}}</dt>
     <dd><strong>{{site.data.keyword.appid_short_notm}}</strong>: After successful authentication, {{site.data.keyword.appid_short_notm}} returns access and identity tokens to your app.</br>
     <strong>Cloud directory</strong>: Users can sign up for your service with their email and a password. You can then manage your users in a list view through the UI. With cloud directory, {{site.data.keyword.appid_short_notm}} functions as your identity provider.</dd>
   <dt>External (third party)</dt>
-    <dd><strong>Social and enterprise identity providers</strong>:{{site.data.keyword.appid_short_notm}} supports two social identity providers: Facebook and Google+, and one enterprise identity provider: SAML 2.0 Federation. The service arranges a redirect to the identity provider and verifies the returned authentication tokens. If the tokens are valid, the service grants access to your app without ever having access to the actual passphrase.</dd>
+    <dd><strong>Social and enterprise identity providers</strong>: {{site.data.keyword.appid_short_notm}} supports Facebook, Google+,and  SAML 2.0 Federation as identity provider options. The service arranges a redirect to the identity provider and verifies the returned authentication tokens. If the tokens are valid, the service grants access to your app without ever having access to the actual passphrase.</dd>
 </dl>
 
 
 ## Request flow
 {: #request}
 
+
+
 The following diagram describes how a request flows from the client SDK to your back-end resources and identity providers.
 {: shortdesc}
 
 ![{{site.data.keyword.appid_short_notm}} request flow](/images/appidrequestflow.png)
-
 
 * The {{site.data.keyword.appid_short_notm}} client SDK makes a request to your back-end resources that are protected with the {{site.data.keyword.appid_short_notm}} server SDK.
 * The {{site.data.keyword.appid_short_notm}} server SDK detects an unauthorized request and returns an HTTP 401 and authorization scope.
@@ -110,3 +111,7 @@ The following diagram describes how a request flows from the client SDK to your 
 * The server SDK extracts the authorization header from the request, validates the header with the service, and grants access to a back-end resource.
 
 **Note**: The implemented protocols are fully compliant with OpenID Connect (OIDC).
+
+
+
+
