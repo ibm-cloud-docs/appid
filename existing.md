@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-27"
+lastupdated: "2018-07-17"
 
 ---
 
@@ -391,7 +391,7 @@ You can configure {{site.data.keyword.appid_short_notm}} to work with your exist
   ```
   {: codeblock}
 
-3. In your `server.xml` file, define your special subject type as ALL_AUTHENTICATED_USERS.
+4. In your `server.xml` file, define your special subject type as ALL_AUTHENTICATED_USERS.
 
   ```xml
   <application type="war" id="ProtectedServlet" context-root="/appidSample"
@@ -405,7 +405,7 @@ You can configure {{site.data.keyword.appid_short_notm}} to work with your exist
   ```
   {: codeblock}
 
-4. In your `<application-bnd>` element, <a href="https://www.ibm.com/support/knowledgecenter/SSAW57_8.5.5/com.ibm.websphere.wlp.nd.doc/ae/cwlp_authorization.html?cp=SSAW57_8.5.5&cm_mc_uid=18498555367014888859884&cm_mc_sid_50200000=1494855872" target="_blank">define the roles <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> as found in your web app: `web.xml`.
+5. In your `<application-bnd>` element, <a href="https://www.ibm.com/support/knowledgecenter/SSAW57_8.5.5/com.ibm.websphere.wlp.nd.doc/ae/cwlp_authorization.html?cp=SSAW57_8.5.5&cm_mc_uid=18498555367014888859884&cm_mc_sid_50200000=1494855872" target="_blank">define the roles <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> as found in your web app: `web.xml`.
 
   ```xml
   <security-role>
@@ -432,7 +432,7 @@ You can configure {{site.data.keyword.appid_short_notm}} to work with your exist
   ```
   {: codeblock}
 
-5. Get a certificate.
+6. Get a certificate.
 
     a. In your {{site.data.keyword.appid_short_notm}} dashboard, click Service Credentials.
 
@@ -451,7 +451,7 @@ You can configure {{site.data.keyword.appid_short_notm}} to work with your exist
 
     f. Export the certificate and save it on your local drive as a PEM file.
 
-6. Add the certificate to your Liberty for Java truststore.jks file by using the <a href="https://www.ibm.com/support/knowledgecenter/SSYKE2_6.0.0/com.ibm.java.security.component.60.doc/security-component/keytoolDocs/keytool_overview.html" target="_blank">Liberty Keytool <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> and add a reference to the certificate alias in the OIDC element. Your `.jks file` is located in your server directory: **resources** > **security** > **<i>truststore file name</i>** > **`.jks file`**. You can use one of the following options to add your certificate to the file.
+7. Add the certificate to your Liberty for Java truststore.jks file by using the <a href="https://www.ibm.com/support/knowledgecenter/SSYKE2_6.0.0/com.ibm.java.security.component.60.doc/security-component/keytoolDocs/keytool_overview.html" target="_blank">Liberty Keytool <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> and add a reference to the certificate alias in the OIDC element. Your `.jks file` is located in your server directory: **resources** > **security** > **<i>truststore file name</i>** > **`.jks file`**. You can use one of the following options to add your certificate to the file.
 
     * In terminal, go to your Liberty for Java security folder: wlp > usr > servers > <i>servername</i> > resources > security and use the following command to add the certificate.
 
@@ -464,7 +464,9 @@ You can configure {{site.data.keyword.appid_short_notm}} to work with your exist
 
     * You can use <a href="http://keystore-explorer.org/index.html" target="_blank">KeyStore Explorer <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to add the certificate. Open KeyStore Explorer and select **Open an existing KeyStore**.
 
-7. In your `manifest.yml` file, define your {{site.data.keyword.appid_short_notm}} instance.
+    **Note**: The certificate might be expired/changed, in this case you should update your trustore with the new certificate.
+
+8. In your `manifest.yml` file, define your {{site.data.keyword.appid_short_notm}} instance.
 
   ```yml
   services:
@@ -507,7 +509,6 @@ You can configure {{site.data.keyword.appid_short_notm}} to work with your exist
          tokenEndpointAuthMethod="basic"
          signatureAlgorithm="RS256"
          authFilterid="myAuthFilter"
-         trustAliasName="my.bluemix.certificate "
       />
       <authFilter id="myAuthFilter">
                <requestUrl id="myRequestUrl" urlPattern="/protected" matchType="contains"/>
