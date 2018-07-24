@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-28"
+lastupdated: "2018-07-24"
 
 ---
 
@@ -27,7 +27,10 @@ The graduated tier plan consists of two parts: the number of authentication even
 
 ### Authentication events
 
-An authentication event occurs when a new {{site.data.keyword.appid_short_notm}} token is issued. For identified users, each new token is valid for 1 hour. Anonymous tokens are valid for 1 month. After the token expires, you must create a new token to access protected resources. When you use {{site.data.keyword.appid_short_notm}} for mobile authentication, user tokens are stored in `key-store/key-chain` and are added to every future request. The tokens are accessible by using the {{site.data.keyword.appid_short_notm}} Android or iOS Swift SDK. When you use the service for web authentication, <a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs" target="_blank">store the user token <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> in the session cookies.
+An authentication event occurs when a new access token, regular or anonymous, is issued. For identified users, each new access token is valid by default for 1 hour (be it through real user authentication or via refresh tokens). Anonymous tokens are valid by default for 1 month. After the token expires, you must create a new token to access protected resources. You can update the expiration time of {{site.data.keyword.appid_short_notm}} tokens on the **Sign-in Expiration** page in the {{site.data.keyword.appid_short_notm}} dashboard.
+
+When you use {{site.data.keyword.appid_short_notm}} in mobile applications, tokens are stored in key-store or key-chain and are added to every future request. The tokens are accessible by using the App ID Android or iOS SDK. When you use {{site.data.keyword.appid_short_notm}} in web applications, it is recommended to store the tokens in application session cookies.
+
 
 ### Authorized users
 
