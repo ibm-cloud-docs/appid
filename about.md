@@ -22,8 +22,10 @@ You can use {{site.data.keyword.appid_full}} to add authentication to your apps 
 ## Reasons to use the service
 {: #reasons}
 
-Why would you want to use {{site.data.keyword.appid_short_notm}}? Check out the following scenarios to see whether any of them apply to you.
+App ID helps developers to easily add authentication to their web and mobile apps with few lines of code, and secure their Cloud-native applications and services on IBM Cloud. App ID also helps manage user specific data that developers can use to build personalized app experiences.
 {: shortdesc}
+
+Why would you want to use {{site.data.keyword.appid_short_notm}}? Check out the following scenarios to see whether any of them apply to you.
 
 <table>
   <tr>
@@ -31,30 +33,30 @@ Why would you want to use {{site.data.keyword.appid_short_notm}}? Check out the 
     <th> Reason </th>
   </tr>
   <tr>
-    <td> You need to add [authorization and authentication](/docs/services/appid/authorization.html) to your mobile and web apps but don't have a background in security. </td>
-    <td> {{site.data.keyword.appid_short_notm}} makes it easy to add an authentication step to your apps. You can use the service to communicate with [identity providers](/docs/services/appid/identity-providers.html) to manage access to your apps. </td>
+    <td>You need to add [authorization and authentication](/docs/services/appid/authorization.html) to your mobile and web apps but don't have a background in security.</td>
+    <td>{{site.data.keyword.appid_short_notm}} makes it easy to add an authentication step to your apps. You can add email or username sign in, social sign in, or enterprise sign in to your apps with APIs, SDKs, prebuilt UIs, or your own branded UIs. </td>
   </tr>
   <tr>
-    <td> You want to limit access to your apps and back-end resources. </td>
-    <td> The service gives you the ability to [protect your resources](/docs/services/appid/protecting-resources.html) for both authenticated and anonymous users. </td>
+    <td>You want to limit access to your apps and back-end resources.</td>
+    <td>You can secure your apps, back-end resources, and APIs easily by using the standards based authentication provided by {{site.data.keyword.appid_short_notm}}.</td>
   </tr>
   <tr>
     <td> You want to build personalized app experiences for your users. </td>
     <td> With {{site.data.keyword.appid_short_notm}}, you can [store user data](/docs/services/appid/user-profile.html) such as app preferences or information from their public social profiles, and then use that data to customize each experience of your app. </td>
   </tr>
   <tr>
-    <td> You want to give users the ability to gain access to your app with their email and a password. </td>
-    <td> {{site.data.keyword.appid_short_notm}} allows you to create a [cloud directory](/docs/services/appid/cloud-directory.html), which makes it possible for you to add user sign-up and sign-in to your apps. Cloud directory provides you with the framework to maintain a user registry that can scale with your user base. With the pre-built functionality for self service, such as email verification and password resets, you can be sure that your app is authenticating users securely. </td>
+    <td>You want to manage users in a scalable way.</td>
+    <td> {{site.data.keyword.appid_short_notm}} allows you to create a [Cloud Directory](/docs/services/appid/cloud-directory.html), which makes it possible for you to add user sign-up and sign-in to your apps. Cloud Directory provides you with the framework to maintain a user registry that can scale with your user base. With the pre-built functionality for self service, such as email verification and password resets, you can be sure that your app is authenticating users securely.</td>
   </tr>
 </table>
 
-To read more about how {{site.data.keyword.appid_short_notm}} authenticates and authorizes your mobile and web apps, check out the [Cloud App Security – What makes a secure app ![External link icon](../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/blogs/bluemix/2017/08/cloud-app-security-makes-secure-app/) blog post.
 
 ## Integrations
 {: #integrations}
 
 You can use {{site.data.keyword.appid_short_notm}} with other {{site.data.keyword.Bluemix_notm}} offerings.
 {:shortdesc}
+
 
 <dl>
   <dt>{{site.data.keyword.containerlong_notm}}</dt>
@@ -69,13 +71,14 @@ You can use {{site.data.keyword.appid_short_notm}} with other {{site.data.keywor
     <dd>You can monitor administrative activity that is made in {{site.data.keyword.appid_short_notm}} such as changes to the dashboard configuration, by using the [{{site.data.keyword.cloudaccesstrailshort}} service](/docs/services/cloud-activity-tracker/index.html).</dd>
 </dl>
 
+
 ## Architecture
 {: #architecture}
 
 With {{site.data.keyword.appid_short_notm}}, you can add a level of security to your apps by requiring users to sign in. You can also use the server SDK to protect your back-end resources.
 {: shortdesc}
 
-![{{site.data.keyword.appid_short_notm}} architecture diagram](/images/appid_architecture.png)
+![{{site.data.keyword.appid_short_notm}} architecture diagram](/images/appid_architecture1.png)
 
 <dl>
   <dt>Application</dt>
@@ -88,7 +91,6 @@ With {{site.data.keyword.appid_short_notm}}, you can add a level of security to 
     <dd><strong>Social and enterprise identity providers</strong>: {{site.data.keyword.appid_short_notm}} supports Facebook, Google+,and  SAML 2.0 Federation as identity provider options. The service arranges a redirect to the identity provider and verifies the returned authentication tokens. If the tokens are valid, the service grants access to your app without ever having access to the actual passphrase.</dd>
 </dl>
 
-For more information about the architecture and components of {{site.data.keyword.appid_short_notm}}, check out the [{{site.data.keyword.appid_short_notm}} whitepaper ![External link icon](../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/blogs/bluemix/2018/04/ibm-cloud-app-id-technical-white-paper-now-available/).
 
 ## Request flow
 {: #request}
@@ -111,7 +113,6 @@ The following diagram describes how a request flows from the client SDK to your 
 * The server SDK extracts the authorization header from the request, validates the header with the service, and grants access to a back-end resource.
 
 **Note**: The implemented protocols are fully compliant with OpenID Connect (OIDC).
-
 
 
 
