@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-07-15"
+lastupdated: "2018-07-24"
 
 ---
 
@@ -48,6 +48,7 @@ Why would you want to use {{site.data.keyword.appid_short_notm}}? Check out the 
   </tr>
 </table>
 
+To read more about how {{site.data.keyword.appid_short_notm}} authenticates and authorizes your mobile and web apps, check out the [Cloud App Security – What makes a secure app ![External link icon](../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/blogs/bluemix/2017/08/cloud-app-security-makes-secure-app/) blog post.
 
 ## Integrations
 {: #integrations}
@@ -55,10 +56,9 @@ Why would you want to use {{site.data.keyword.appid_short_notm}}? Check out the 
 You can use {{site.data.keyword.appid_short_notm}} with other {{site.data.keyword.Bluemix_notm}} offerings.
 {:shortdesc}
 
-
 <dl>
   <dt>{{site.data.keyword.containerlong_notm}}</dt>
-    <dd>By configuring ingress in a standard cluster, you can secure your apps at the cluster level. Check out the {{site.data.keyword.appid_short_notm}} authentication ingress annotation to get started.</dd>
+    <dd>By configuring ingress in a standard cluster, you can secure your apps at the cluster level. Check out the <a href="/docs/containers/cs_annotations.html#appid-auth">{{site.data.keyword.appid_short_notm}} authentication Ingress annotation</a> or the <a href="https://www.ibm.com/blogs/bluemix/2018/05/announcing-app-id-integration-ibm-cloud-kubernetes-service/">Announcing App ID integration to IBM Cloud Kubernetes Service <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> blog post to get started.</dd>
   <dt>{{site.data.keyword.openwhisk}} and API Connect</dt>
     <dd>When you create your APIs with [{{site.data.keyword.openwhisk_short}}](/docs/openwhisk/index.html) and [API Connect](/docs/apis/management/manage_apis.html), you can secure your applications at the gateway rather than in your app code. To see the integration in action, watch <a href="https://www.youtube.com/watch?v=Fa9YD2NGZiE" target="_blank">Simple and fast social login OAUTH with APIC and {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.</dd>
   <dt>Cloud Foundry</dt>
@@ -68,7 +68,6 @@ You can use {{site.data.keyword.appid_short_notm}} with other {{site.data.keywor
   <dt>{{site.data.keyword.cloudaccesstrailshort}}</dt>
     <dd>You can monitor administrative activity that is made in {{site.data.keyword.appid_short_notm}} such as changes to the dashboard configuration, by using the [{{site.data.keyword.cloudaccesstrailshort}} service](/docs/services/cloud-activity-tracker/index.html).</dd>
 </dl>
-
 
 ## Architecture
 {: #architecture}
@@ -89,6 +88,7 @@ With {{site.data.keyword.appid_short_notm}}, you can add a level of security to 
     <dd><strong>Social and enterprise identity providers</strong>: {{site.data.keyword.appid_short_notm}} supports Facebook, Google+,and  SAML 2.0 Federation as identity provider options. The service arranges a redirect to the identity provider and verifies the returned authentication tokens. If the tokens are valid, the service grants access to your app without ever having access to the actual passphrase.</dd>
 </dl>
 
+For more information about the architecture and components of {{site.data.keyword.appid_short_notm}}, check out the [{{site.data.keyword.appid_short_notm}} whitepaper ![External link icon](../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/blogs/bluemix/2018/04/ibm-cloud-app-id-technical-white-paper-now-available/).
 
 ## Request flow
 {: #request}
