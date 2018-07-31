@@ -1,207 +1,202 @@
----
-copyright:
-  years: 2018
-lastupdated: "2018-07-26"
----
-{:new_window: target="____blank"}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:codeblock: .codeblock}
-{:tip: .tip}
 
-## User Profile Preregistration
+
+## Signing up users in advance
 {: #overview}
 
-{{site.data.keyword.appid_full}} allows you to associate attributes with a user that has not yet signed in to your application through the process of user preregistration.
+With {{site.data.keyword.appid_full}}, you can start building a profile for users that haven't signed in to your application yet. This way, if you already know who is accessing your app, you can preregister your users by associating specific attributes with each person.
+{: shortdesc}
 
-This workflow is useful in scenarios where you as the developer already know your user base and would like to set certain default attributes on them. In most cases, you may not want a user to modify these default attributes in which case it is important to turn off user profiles. See [Security Considerations] for more details on the best practices for user preregistration.
+**Why would I want to add someone to my app before they sign in for the first time?**
 
-To preregister custom attributes for a specific user using {{site.data.keyword.appid_short_notm}}'s [/users Management API endpoint](link to endpoint or swagger), the developer must know two pieces of information:
+There are times in which you might want to authorize users that you already know by using {{site.data.keyword.appid_short_notm}}. For example: Consider an application where you use {{site.data.keyword.appid_short_notm}} to federate existing users from your SAML identity provider. You might want certain users to have `admin` access immediately upon signing into the application for the first time. To make this happen, you can use the preregistration endpoint to set a custom `admin` attribute for those users which grants them access to the administration console without any further action on your part.
 
-1. The identity provider the user will use to authenticate to the app.
+**How are users identified?**
 
-2. The Identity Provider (IdP) provided unique identifier of the user to preregister.
+You can identify your users by using one of the following:
 
-{{site.data.keyword.appid_short_notm}} allows you to identify a user in multiple ways depending on your identity provider. See [Identifying Users using their IdP-Identity](#supported-ipds) for information on the supported Ids.
+* The user's unique ID, called the **GUID**, in the identity provider. Although this identifier always exists and is guaranteed to be unique, it is not always readily available or easy to understand. For instance, Cloud Directory uses a random 16 byte random GUID.
+* If available, the user's **email** or **username**.
 
-When they sign in to the application for the first time, {{site.data.keyword.appid_short_notm}} will search its database of preregistered users. If found, the user will inherit the preregistered {{site.data.keyword.appid_short_notm}} identity and, with it, all of the custom attributes that were set in the process.
+**How do I know which identity provider gives what information?**
 
-### Security Considerations
+Check out the following table to see which type of identity information that you can use.
 
-Each {{site.data.keyword.appid_short_notm}} user profile contains two types of user information that can be retrieved by the `/profile` endpoint.
-
-1. The IdP profile claims that are directly obtained from the IdP and cannot be modified by the developer or the application
-
-2. Custom attributes that are explicitly set by the developer or the application using a valid access token
-
-During preregistration, it is these custom attributes that are being set.
-
-Unlike the IdP profile attributes, custom attributes are modifiable and only protected by an {{site.data.keyword.appid_short_notm}} access token. This means that without taking proper precautions either the user or the application can update their custom attributes immediately following their first login leading to unintended consequences. For example, a user could potentially change their role from user to admin exposing administrative privileges to malicious users.
-
-*WARNING* If you are setting administrative or another read-only attribute, you _must_ disable `User Profiles` from the dashboard to prevent clients from modifying their access rights.
-
-### Example Use Case
-{: #use-cases}
-
-Consider an application where you are using {{site.data.keyword.appid_short_notm}} to federate existing users from your SAML identity provider. You may want certain users to have `admin` access immediately upon signing in to the application for the first time.
-
-Once you have configured your SAML connection and disabled `User Profiles` to mitigate privilege changes, you can use the preregistration endpoint to set a custom `admin` attribute for specific users. After these users have signed-in, they will have inherited the `admin` attribute granting them access to your administration console without any action.
-
-### API Usage
-{: #usage}
-
-The registration process starts with a POST request to the [/users endpoint](link to endpoint or swagger) containing a JSON payload describing the user and the custom profile attributes to set.
-
-```
-POST /<tenantId>/users HTTP/1.1
-     Host: <management-server-url>
-     Authorization: 'Bearer <IAM_TOKEN>'
-     Content-Type: application/json
-```
-{: pre}
-
-You can retrieve your IAM token using the [IBM Cloud command line tools](https://console.bluemix.net/docs/cli/reference/bluemix_cli/bx_cli.html#ibmcloud_iam_oauth_tokens)
-{:tip}
-
-##### Request Body
-```
- {
-     "idp": "<Identity Provider>",
-     "idp-identity": "<User's unique identifier>",
-     "profile": {
-         "attributes": {}
-     }
- }
-```
-{: pre}
 
 <table>
   <thead>
-    <th colspan=2><img src="images/idea.png" alt="Idea icon"/> Understanding the components</th>
+    <tr>
+      <th>Identity provider</th>
+      <th>GUID</th>
+      <th>Email</th>
+      <th>Username</th>
+      <th>Sub</th>
+    </tr>
   </thead>
   <tbody>
     <tr>
-      <td><code><em>idp</em></code></td>
-      <td>The identity provider the user will authenticate with. One of `saml`, `cloud_directory`, `facebook`, `google`, `appid_custom`, `ibmid`</td>
+      <td>Cloud Directory</td>
+      <td><img src="images/confirm.png" width="32" alt="Feature available" style="width:32px;" /></td>
+      <td><img src="images/confirm.png" width="32" alt="Feature available" style="width:32px;" /></td>
+      <td><img src="images/confirm.png" width="32" alt="Feature available" style="width:32px;" /></td>
     </tr>
     <tr>
-      <td><code><em>idp-identity</em></code></td>
-      <td>The unique identifier provided by the IdP. See [Identifying the User](#supported-idps) for details.</td>
+      <td>Custom</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td><img src="images/confirm.png" width="32" alt="Feature available" style="width:32px;" /></td>
     </tr>
     <tr>
-      <td><code><em>profile</em></code></td>
-      <td>The preregistered user's profile containing the custom attribute JSON mapping.</td>
+      <td>Facebook</td>
+      <td><img src="images/confirm.png" width="32" alt="Feature available" style="width:32px;" /></td>
+      <td><img src="images/confirm.png" width="32" alt="Feature available" style="width:32px;" /></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Google</td>
+      <td><img src="images/confirm.png" width="32" alt="Feature available" style="width:32px;" /></td>
+      <td><img src="images/confirm.png" width="32" alt="Feature available" style="width:32px;" /></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>SAML</td>
+      <td> </td>
+      <td><img src="images/confirm.png" width="32" alt="Feature available" style="width:32px;" /></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>IBMID</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
     </tr>
   </tbody>
 </table>
 
-##### Example Request
 
-```curl
-$ curl --request POST \
+**Is there anything different about working with Cloud Directory?**
+
+During the registration flow, a user provides an email or username only. During the registration flow, {{site.data.keyword.appid_short_notm}} enforces this restriction in addition to `email` and custom `username` formatting requirements.
+
+Prior to registering users, you can switch between email and username in the service instance dashboard or by using the <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Identity_Providers/set_cloud_directory_idp" target="____blank">Management APIs<img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
+
+**Is there anything special that I need to do when I'm using a custom identity provider?**
+
+When you add a user to your application in advance, you can use any unique identifier that is provided by the authentication flow. The identifier must _exactly_ match the `sub` of the signed JSON Web Token that is sent during the authorization request. If the identifier does not match, then the profile that you want to add is not linked successfully.
+
+
+## Security considerations
+{: security}
+
+Unlike the predefined attributes, custom attributes are modifiable by default and can be updated using an {{site.data.keyword.appid_short_notm}} access token from a client application. This means that without taking proper precautions either the user or the application can update custom attributes immediately following the first user login, potentially leading to unintended consequences. For example, a user could potentially change their role from user to admin exposing administrative privileges to malicious users.
+
+Every user profile contains two types of user information that can be retrieved by the `/profile` endpoint:
+
+* The claims that are directly obtained from the identity provider and cannot be modified by the developer or the app.
+* Custom attributes that are explicitly set. The attributes can be set by the developer or the application by using a valid access token.
+
+During preregistration, you set custom attributes.
+
+If you are setting administrative or another read-only attribute, you _must_ disable `User Profiles` attribute modification from the dashboard to prevent clients from modifying their access rights.
+{: tip}
+
+
+## Tutorial: Adding users to your app
+
+Now that you've learned about preregistration and considered your security implications, try preregistering a user.
+
+**Before you begin:**
+
+To preregister custom attributes for a specific user by using the [/users Management API endpoint](link to endpoint or swagger), you must know the following information:
+
+* Which identity provider that the user with authenticate with.
+* The user's unique identifier that is provided by the identity provider.
+
+When a user signs into your app for the first time, {{site.data.keyword.appid_short_notm}} searches the database of preregistered users. If found, the user inherits the  identity that you assigned as part of preregistration. If the user is not found, then a new user is created based on the information provided by the identity provider.
+
+
+**To preregister users:**
+
+1. Log into IBM Cloud.
+  ```
+  ibmcloud login
+  ```
+  {: pre}
+
+2. Find your IAM token by running the following command.
+  ```
+  ibmcloud iam oauth-tokens
+  ```
+  {: pre}
+
+3. Make a POST request to the `/users` endpoint that contains a description of the user and the attributes that you want to set as a JSON object.
+
+  Header:
+  ```
+  POST /<tenantId>/users HTTP/1.1
+       Host: <management-server-url>
+       Authorization: 'Bearer <IAM_TOKEN>'
+       Content-Type: application/json
+  ```
+  {: pre}
+
+  Body:
+  ```
+   {
+       "idp": "<Identity Provider>",
+       "idp-identity": "<User's unique identifier>",
+       "profile": {
+           "attributes": {}
+       }
+   }
+  ```
+  {: pre}
+
+  <table>
+    <thead>
+      <th colspan=2><img src="images/idea.png" alt="Idea icon"/> Understanding the components</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code><em>idp</em></code></td>
+        <td>The identity provider that the user will authenticate with. Options include: `saml`, `cloud_directory`, `facebook`, `google`, `appid_custom`, `ibmid`.</td>
+      </tr>
+      <tr>
+        <td><code><em>idp-identity</em></code></td>
+        <td>The unique identifier provided by the identity provider.</td>
+      </tr>
+      <tr>
+        <td><code><em>profile</em></code></td>
+        <td>The preregistered user's profile containing the custom attribute JSON mapping.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  Example request:
+  ```
+  $ curl --request POST \
        --url 'https://{Management_URI}/users \
        --header 'Authorization: Bearer {IAM_TOKEN}' \
        --header 'Content-Type: application/json' \
        --data '{"idp": "saml", "idp-identity": "user@ibm.com", "profile": { "attributes": { "role": "admin",
        "frequent_flyer_points": 1000 }}}'
-```
-{: pre}
+  ```
+  {: screen}
 
-#### Identifying Users Using their IdP-identity
-{: #supported-idps}
+3. Verify that registration was successful in one of the following ways:
+  * Check for the user ID in the response.
+    ```
+    {
+        "id": "<{{site.data.keyword.appid_short_notm}} User Id>"
+    }
+    ```
+    {: screen}    
+  * Check for the user profile that was created.
 
-{{site.data.keyword.appid_short_notm}} allows you to identify your user in different ways depending on the identity provider.
+Keep in mind that a user's identity provider attributes are empty until their first authentication, but they are for all intents and purposes a fully authenticated user. You can use their unique ID just as you would someone who had already signed in. For instance, you can modify, search, or delete the profile.
 
-For each IdP, preregistration supports at least one of the following identifiers:
-
-1. The user's unique ID, called the **GUID**, in the identity provider.
-
-    Although this identifier always exists and is guaranteed to be unique, it is not always readily available or easy to understand. For instance, Cloud Directory uses a random 16 byte random GUID.
-
-2. User's **email** or **username** depending on the identity provider.
-
-    This user-friendly and convenient identifier is generally available, but not guaranteed to be supported.
-
-When you preregister a user, you may identify the user in any of the supported methods available for the specific identity provider. Because multiple Ids are supported for many of the IdPs, it is possible (but not recommended!) to preregister the same users multiple times using different identifiers. If this occurs, {{site.data.keyword.appid_short_notm}} will prioritize the IdP's GUID when an authenticated user signs in for the first time.
-
-<table>
-    <thead>
-      <th colspan=3><img src="images/idea.png" alt="Idea icon"/> Supported Identity Providers</th>
-    </thead>
-    <tbody>
-      <tr>
-        <td rowspan=3 colspan=2>
-            <div>
-                <h5>Cloud Directory</h5>
-                <p>\*See additional details [here]()</p>
-            </div>
-        </td>
-        <td>guid</td>
-      </tr>
-      <tr>
-        <td>email</td>
-      </tr>
-      <tr>
-        <td>username</td>
-      </tr>
-      <tr>
-        <td colspan=2>
-            <div>
-                <h5>Custom Identity</h5>
-                <p>\*See additional implementation details [here]()</p>
-            </div>
-        </td>
-        <td>sub</td>
-      </tr>
-      <tr>
-        <td rowspan=2 colspan=2>Facebook / Google</td>
-        <td>guid</td>
-      </tr>
-      <tr>
-        <td>email</td>
-      </tr>
-      <tr>
-        <td colspan=2>SAML</td>
-        <td>email</td>
-      </tr>
-    </tbody>
-</table>
-
-##### Cloud Directory
-{: #cloud-directory}
-
-Cloud Directory users can be preregistered using their user's `GUID`, `email`, or `username`.
-
-Keep in mind that Cloud Directory restricts applications to either `email` or `username` based authentication. During the registration flow, {{site.data.keyword.appid_short_notm}} enforces this restriction in addition to `email` and custom `username` formatting requirements.
-
-When your database is empty, you can change your Cloud Directory instance authorization method from the dashboard or using the <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Identity_Providers/set_cloud_directory_idp" target="____blank">Management APIs<img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
-{: tip}
-
-
-##### Custom Identity
-{: #custom-identity}
-
-Preregistering a user using custom authentication can use any unique identifier provided by its authentication flow. This identifier must *exactly* match the `sub` of the signed JWT sent during the authorization request to ensure the nominated profile is linked successfully.
-
-> For more information on the Custom Identity Flow see our [documentation](./custom).
-
-### Preregistered Users
-{: #preregistered-users}
-
-During a successful registration request, a new {{site.data.keyword.appid_short_notm}} user profile will be created with the provided custom attributes. In response, the server will return the user's {{site.data.keyword.appid_short_notm}} user Id.
-
-```
-{
-    "id": "<{{site.data.keyword.appid_short_notm}} User Id>"
-}
-```
-{: pre}
-
-Since a new {{site.data.keyword.appid_short_notm}} user profile is created for each preregistered user, you can use their unique Id just as you would fully authenticated users.
-
-For instance, you can modify, search, and delete authenticated and preregistered user profiles enabling you to keep your current workflow.
-
-Keep in mind that their IdP profile attributes will be empty until their first authentication.
-
-### Next Steps
-Now that you have nominated your users, try setting up a custom login page to streamline their sign-up experience!
+Now that you have nominated your users, try setting up a custom sign in page to streamline their experience!

@@ -21,7 +21,13 @@ IBM Cloud App ID
 
     login-widget.md
     protecting-resources.md
-    user-profile.md
+
+    {: .topicgroup}
+    Storing and accessing user profiles
+        user-profile.md
+        predefined.md
+        custom-attributes.md
+        preregistration.md
     protecting-resources-local.md
     {: .navgroup-end}
 
