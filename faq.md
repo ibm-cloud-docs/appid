@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-07-24"
+lastupdated: "2018-08-01"
 
 ---
 
@@ -41,7 +41,44 @@ For more information on graduated tier pricing, see the [{{site.data.keyword.Blu
 </br>
 
 
+## How does encryption work in {{site.data.keyword.appid_short_notm}}?
+{: #encryption}
 
+Check out the following table for answers to commonly asked questions about encryption.
+
+<table>
+  <thead>
+    <th colspan=2><img src="images/idea.png" alt="More information icon"/>  </th>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Why do you use encryption?</td>
+      <td>The service encrypts customer data at rest.</td>
+    </tr>
+    <tr>
+      <td>Did you build your own algorithms? Which ones do you use in your code?</td>
+      <td>We did not build our own, the service uses <code>AES</code> and <code>SHA-256</code> with salting.</td>
+    </tr>
+    <tr>
+      <td>Do you use public or open source encryption modules or providers? Do you ever expose encryption functions? </td>
+      <td>The service uses <code>javax.crypto</code> Java libraries, but never exposes an encryption functions.</td>
+    </tr>
+    <tr>
+      <td>How do you store keys?</td>
+      <td>Keys are generated and then stored locally after being encrypted by using a master key that is specific to each region. The master keys are stored in {{site.data.keyword.keymanagementserviceshort}}.</td>
+    </tr>
+    <tr>
+      <td>What is the key strength that you use?</td>
+      <td>The service uses 16 bytes.</td>
+    </tr>
+    <tr>
+      <td>Do you invoke any remote APIs that expose encryption capabilities?</td>
+      <td>No, we do not.</td>
+    </tr>
+  </tbody>
+</table>
+
+</br>
 
 ## What does {{site.data.keyword.appid_short_notm}} expect a SAML assertion to look like?
 {: #saml-example}
