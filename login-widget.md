@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-05-17"
+lastupdated: "2018-08-01"
 
 ---
 
@@ -10,7 +10,7 @@ lastupdated: "2018-05-17"
 {:screen: .screen}
 {:tip: .tip}
 {:pre: .pre}
-{:new_window: target="_blank"}
+{:new_window: target="blank"}
 {:shortdesc: .shortdesc}
 
 
@@ -532,6 +532,42 @@ With social identity providers enabled, you can call the preconfigured sign-in s
 </br>
 
 
+
+## Branding your app
+{: branding}
+
+With Cloud Directory enabled, you can use your own screens in your sign up and sign in flows.
+
+
+### Displaying customized screens with the iOS Swift SDK
+{: #branded-ui-ios-swift}
+
+With cloud directory enabled, you can call customized screens with the iOS Swift SDK.
+{: shortdesc}
+
+</br>
+**Sign in**
+
+1. In the identity provider tab on the GUI, set cloud directory to **On**.
+2. Log in by using the resource owner password. Access and identity tokens are obtained when a user attempts to log in by using their username and password.
+  ```swift
+  class delegate : TokenResponseDelegate {
+      public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, response:Response?) {
+      //User authenticated
+      }
+
+      public func onAuthorizationFailure(error: AuthorizationError) {
+      //Exception occurred
+      }
+  }
+
+  AppID.sharedInstance.signinWithResourceOwnerPassword(username: username, password: password, delegate: delegate())
+  ```
+  {: pre}
+</br>
+</br>
+
+
 ### Displaying customized screens with the Android SDK
 {: #branded-ui-android}
 
@@ -562,33 +598,7 @@ With cloud directory enabled, you can call customized screens with the Android S
 </br>
 </br>
 
-### Displaying customized screens with the iOS Swift SDK
-{: #branded-ui-ios-swift}
 
-With cloud directory enabled, you can call customized screens with the iOS Swift SDK.
-{: shortdesc}
-
-</br>
-**Sign in**
-
-1. In the identity provider tab on the GUI, set cloud directory to **On**.
-2. Log in by using the resource owner password. Access and identity tokens are obtained when a user attempts to log in by using their username and password.
-  ```swift
-  class delegate : TokenResponseDelegate {
-      public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, response:Response?) {
-      //User authenticated
-      }
-
-      public func onAuthorizationFailure(error: AuthorizationError) {
-      //Exception occurred
-      }
-  }
-
-  AppID.sharedInstance.signinWithResourceOwnerPassword(username: username, password: password, delegate: delegate())
-  ```
-  {: pre}
-</br>
-</br>
 
 ### Displaying customized screens with the Node.js SDK
 {: #branded-ui-nodejs}
