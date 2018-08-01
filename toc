@@ -28,6 +28,7 @@ IBM Cloud App ID
         predefined.md
         custom-attributes.md
         preregistration.md
+    
     protecting-resources-local.md
     {: .navgroup-end}
 
