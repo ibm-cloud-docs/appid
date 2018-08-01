@@ -21,7 +21,7 @@ You can display your own customized screens and take advantage of the authentica
 When you use your own screens, the [Resource Owner Password Credentials flow](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/password.html) is used to provide access and identity tokens.
 
 
-### Displaying customized screens with the iOS Swift SDK
+## Displaying customized screens with the iOS Swift SDK
 {: #branded-ui-ios-swift}
 
 With cloud directory enabled, you can call customized screens with the iOS Swift SDK.
@@ -50,7 +50,7 @@ With cloud directory enabled, you can call customized screens with the iOS Swift
 </br>
 
 
-### Displaying customized screens with the Android SDK
+## Displaying customized screens with the Android SDK
 {: #branded-ui-android}
 
 With cloud directory enabled, you can call customized screens with the Android SDK. You can choose the combination of the screens that you'd like your users to be able to interact with.<a href="https://www.ibm.com/blogs/bluemix/2018/01/use-branded-ui-user-sign-app-id/" target="blank">Check out this blog<img src="../../icons/launch-glyph.svg" alt="External link icon"></a> for a detailed example!
@@ -81,7 +81,7 @@ With cloud directory enabled, you can call customized screens with the Android S
 </br>
 
 
-### Displaying customized screens with the Node.js SDK
+## Displaying customized screens with the Node.js SDK
 {: #branded-ui-nodejs}
 
 With cloud directory enabled, you can call customized screens with the Node.js SDK. You can choose the combination of the screens that you'd like your users to be able to interact with.
@@ -104,7 +104,7 @@ With cloud directory enabled, you can call customized screens with the Node.js S
 </br>
 </br>
 
-### Displaying customized screens with the API
+## Displaying customized screens with the API
 {: #branded-ui-api}
 
 You can display your own customized screens and take advantage of the authentication and authorization capabilities of {{site.data.keyword.appid_short_notm}}. With cloud directory as your identity provider, your users are able to interact with your app with less help from you. They're able to sign in, sign up, reset their password, and more without asking for help.
