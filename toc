@@ -19,7 +19,11 @@ IBM Cloud App ID
         enterprise.md
         cloud-directory.md
 
-    login-widget.md
+    {: .topicgroup}
+    Managing the sign in experience
+        login-widget.md
+        branded.md
+
     protecting-resources.md
 
     {: .topicgroup}
@@ -27,8 +31,6 @@ IBM Cloud App ID
         user-profile.md
         predefined.md
         custom-attributes.md
-        preregistration.md
-    
     protecting-resources-local.md
     {: .navgroup-end}
 

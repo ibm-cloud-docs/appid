@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-07-17"
+lastupdated: "2018-08-01"
 
 ---
 
@@ -36,7 +36,7 @@ These key terms can help you understand the way that the service breaks down the
       "clientId": "e8ac1132-5151-4d8a-934e-0141de8e2b34",
       "secret": "XYZ5ZYXzXYZtNyz5Yi00YzQ2LXYwMZctXyM5ODA4NjFhYxYZ",
       "tenantId": "3x176051-a23x-40y4-9645-804943z660q0",
-      "oauthServerUrl": "https://appid-oauth.ng.bluemix.net/oauth/v3/x176051-a23x-40y4-9645-804943z660q0",
+      "oauthServerUrl": "https://appid-oauth.ng.bluemix.net/oauth/v3/3x176051-a23x-40y4-9645-804943z660q0",
       "profilesUrl": "https://appid-profiles.ng.bluemix.net/"
     }</code></pre>
     <table>
@@ -59,7 +59,7 @@ These key terms can help you understand the way that the service breaks down the
     </table>
     <p><strong>Note</strong>: When you use the SDK the endpoint URLs are built automatically.</p></dd>
   <dt>Tokens</dt>
-    <dd>The service uses three different types of tokens to provide authentication. Access tokens represent authorization and enable communication with [back-end resources](/docs/services/appid/protecting-resources.html) that are protected by authorization filters that are set by {{site.data.keyword.appid_short}}. Identity tokens represent authentication and contain information about the user. A refresh token is an access token with an extended life span. By using refresh tokens, users can allow their information to be remembered by the application. This way they can remain signed in. For more information about tokens and how they're used in {{site.data.keyword.appid_short}}, check out [Validating tokens](/docs/services/appid/tokens.html).
+    <dd>The service uses three different types of tokens to provide authentication. Access tokens represent authorization and enable communication with [back-end resources](/docs/services/appid/protecting-resources.html) that are protected by authorization filters that are set by {{site.data.keyword.appid_short}}. Identity tokens represent authentication and contain information about the user. A refresh token is an access token with an extended life span. By using refresh tokens, users can allow their information to be remembered by the application. This way they can remain signed in. 
   </dd>
   <dt>Authorization headers</dt>
     <dd><p>{{site.data.keyword.appid_short}} complies with the <a href="https://tools.ietf.org/html/rfc6750" target="blank">token bearer specification <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> and uses a combination of access and identity tokens that are sent as an HTTP Authorization header. The Authorization header contains three different parts that are separated by white space. The tokens are base64 encoded. The identity token is optional.</br>
