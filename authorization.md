@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-07-02"
+lastupdated: "2018-08-01"
 
 ---
 
@@ -36,8 +36,8 @@ These key terms can help you understand the way that the service breaks down the
       "clientId": "e8ac1132-5151-4d8a-934e-0141de8e2b34",
       "secret": "XYZ5ZYXzXYZtNyz5Yi00YzQ2LXYwMZctXyM5ODA4NjFhYxYZ",
       "tenantId": "3x176051-a23x-40y4-9645-804943z660q0",
-      "oauthServerUrl": "https://appid-oauth.ng.bluemix.net/oauth/v3/x176051-a23x-40y4-9645-804943z660q0",
-      "profilesUrl": "https://appid-profiles.ng.bluemix.net"
+      "oauthServerUrl": "https://appid-oauth.ng.bluemix.net/oauth/v3/3x176051-a23x-40y4-9645-804943z660q0",
+      "profilesUrl": "https://appid-profiles.ng.bluemix.net/"
     }</code></pre>
     <table>
       <tr>
@@ -58,60 +58,9 @@ These key terms can help you understand the way that the service breaks down the
       </tr>
     </table>
     <p><strong>Note</strong>: When you use the SDK the endpoint URLs are built automatically.</p></dd>
-  <dt>Access tokens</dt>
-    <dd><p>Access tokens represent authorization and enable communication with [back-end resources](/docs/services/appid/protecting-resources.html) that are protected by authorization filters that are set by {{site.data.keyword.appid_short}}. The token conforms to JavaScript Object Signing and Encryption (JOSE) specifications. The tokens are formatted as <a href="https://jwt.io/introduction/" target="blank">JSON Web Tokens <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.</br>
-    Example:</p>
-    <pre><code>Header: {
-        "typ": "JOSE",
-        "alg": "RS256",
-    }
-    Payload: {
-        "iss": "appid-oauth.ng.bluemix.net",
-        "exp": "1495562664",
-        "aud": "a3b87400-f03b-4956-844e-a52103ef26ba",
-        "amr": ["facebook"],
-        "sub": "de6a17d2-693d-4a43-8ea2-2140afd56a22",
-        "iat": "1495559064",
-        "tenant": "9781974b-6a1c-46c3-aebf-32b7e9bbbaee",
-        "scope": "appid_default appid_readprofile appid_readuserattr appid_writeuserattr",
-    </code></pre></dd>
-  <dt>Identity tokens</dt>
-    <dd><p>Identity tokens represent authentication and contain information about the user. It can give you information about their name, email, gender, and location. A token can also return a URL to an image of the user.</br>
-    Example:</p>
-    <pre><code>Header: {
-        "typ": "JOSE",
-        "alg": "RS256",
-    }
-    Payload: {
-        "iss": "appid-oauth.ng.bluemix.net",
-        "aud": "a3b87400-f03b-4956-844e-a52103ef26ba",
-        "exp: "1495562664",
-        "tenant": "9781974b-6a1c-46c3-aebf-32b7e9bbbaee",
-        "iat": "1495559064",
-        "name": "John Smith",
-        "email": "js@mail.com",
-        "gender", "male",
-        "locale": "en",
-        "picture": "<URL-to-photo>",
-        "sub": "de6a17d2-693d-4a43-8ea2-2140afd56a22",
-        "identities": [
-            "provider": "facebook"
-            "id": "377440159275659"
-        ],
-        "amr": ["facebook"],
-        "oauth_client":{
-          "name": "BluemixApp",
-          "type": "serverapp",
-          "software_id": "cb638f8f-e24b-41d3-b770-23be158dd8e6.2b94e6bb-bac4-4455-8712-a43fa804d5cc.a3b87400-f03b-4956-844e-a52103ef26ba",
-          "software_version": "1.0.0",
-        }
-    }
-    </pre></code></dd>
-  <dt>Refresh Token</dt>
-      <dd><p>{{site.data.keyword.appid_short}} supports the ability to acquire new access and identity tokens without reauthentication, as defined in <a href="http://openid.net/specs/openid-connect-core-1_0.html#RefreshTokens" target="_blank">OIDC <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
-      When signing in with a refresh token, a user doesn't have to take any actions, such as providing credentials. Generally, refresh tokens are configured to have a longer life span than a regular access token.</p><p>
-      To take full advantage of refresh tokens, persist the tokens for their full life span. A user cannot directly access resources with just a refresh token, which makes them much safer to persist than an access token. For examples of working with refresh tokens and how to use them to implement a *remember me* functionality, check out the getting started samples.</p><p>As a best practice, refresh tokens should be securely stored by the client that received them, and should only be sent to the authorization server that issued them.</p>
-      <p>There are some cases when you would want to have the refresh token revoked, for example when its believed to be compromised. There are two methods of revoking a refresh token. If you have the refresh token, you can revoke it with this <a href="https://appid-oauth.ng.bluemix.net/swagger-ui/#!/Authorization_Server_V3/tokenRevocation" target="_blank">API</a> which is based on the procedures defined in <a href="https://tools.ietf.org/html/rfc7009#section-2" target="_blank">RFC7009</a>. Alternatively, if you have the user id, you can revoke the refresh token by using <a href="https://appid-management.ng.bluemix.net/swagger-ui-management/#!/Users/users_revoke_refresh_token" target="_blank">the Management API</a>. For more information about accessing the management API see <a href="https://console.bluemix.net/docs/services/appid/iam.html#service-access-management" target="_blank">managing service access</a>. <strong>Note</strong>: Revoking the use of either method revokes all active refresh tokens that are assigned to that user that were created before revocation.</p></dd>
+  <dt>Tokens</dt>
+    <dd>The service uses three different types of tokens to provide authentication. Access tokens represent authorization and enable communication with [back-end resources](/docs/services/appid/protecting-resources.html) that are protected by authorization filters that are set by {{site.data.keyword.appid_short}}. Identity tokens represent authentication and contain information about the user. A refresh token is an access token with an extended life span. By using refresh tokens, users can allow their information to be remembered by the application. This way they can remain signed in. 
+  </dd>
   <dt>Authorization headers</dt>
     <dd><p>{{site.data.keyword.appid_short}} complies with the <a href="https://tools.ietf.org/html/rfc6750" target="blank">token bearer specification <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> and uses a combination of access and identity tokens that are sent as an HTTP Authorization header. The Authorization header contains three different parts that are separated by white space. The tokens are base64 encoded. The identity token is optional.</br>
     Example:</p>

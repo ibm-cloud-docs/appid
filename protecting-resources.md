@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-12"
+lastupdated: "2018-07-17"
 
 ---
 
@@ -40,21 +40,8 @@ Before you begin:
 To protect your resources:
 
 1. Download the Liberty for Java sample from the UI. The sample contains a compressed file with the standard Liberty files.
-2. Open terminal at the directory where you extracted the sample.
-3. Log in to {{site.data.keyword.Bluemix_notm}} by using the Cloud Foundry command line. When prompted, input your credentials.
-  ```
-  cf login
-  ```
-  {: codeblock}
-
-4. Deploy the app. Running the following command creates a Liberty for Java instance with a name that is related to the tenant ID.
-  ```
-  cf push
-  ```
-  {: codeblock}
-
-5. Bind your service instance to the new Liberty for Java instance, and redeploy the app.
-6. Open your app in a browser and login by using your credentials to review authentication activities.
+2. Follow the instructions given in th UI to deploy your application to IBM-Cloud.
+3. Open your app in a browser and login by using your credentials to review authentication activities.
 
 ## Protecting resources in Node.js
 {: #protecting-resources-nodesdk}

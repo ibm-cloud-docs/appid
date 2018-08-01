@@ -14,18 +14,24 @@ IBM Cloud App ID
     install.md
 
     {: .topicgroup}
-    Authenticating users
+    Configuring identity providers
         identity-providers.md
         enterprise.md
         cloud-directory.md
+
+    {: .topicgroup}
+    Managing the sign in experience
         login-widget.md
-    
+        branded.md
+
     protecting-resources.md
-    user-profile.md
+
+    {: .topicgroup}
+    Storing and accessing user profiles
+        user-profile.md
+        predefined.md
+        custom-attributes.md
     protecting-resources-local.md
-    existing.md
-    iam.md
-    api-reference.md
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
@@ -42,6 +48,8 @@ IBM Cloud App ID
         [Node.js server SDK](https://github.com/ibm-cloud-security/appid-serversdk-nodejs)
         [Swift server SDK](https://github.com/ibm-cloud-security/appid-serversdk-swift)
     relatedlinks.md
+    iam.md
+    api-reference.md
     {: .navgroup-end}
 
     {: .navgroup id="help"}

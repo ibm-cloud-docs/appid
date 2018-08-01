@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-28"
+lastupdated: "2018-08-01"
 
 ---
 
@@ -27,7 +27,10 @@ The graduated tier plan consists of two parts: the number of authentication even
 
 ### Authentication events
 
-An authentication event occurs when a new {{site.data.keyword.appid_short_notm}} token is issued. For identified users, each new token is valid for 1 hour. Anonymous tokens are valid for 1 month. After the token expires, you must create a new token to access protected resources. When you use {{site.data.keyword.appid_short_notm}} for mobile authentication, user tokens are stored in `key-store/key-chain` and are added to every future request. The tokens are accessible by using the {{site.data.keyword.appid_short_notm}} Android or iOS Swift SDK. When you use the service for web authentication, <a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs" target="_blank">store the user token <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> in the session cookies.
+An authentication event occurs when a new access token, regular or anonymous, is issued. For identified users, each new access token is valid by default for 1 hour (be it through real user authentication or via refresh tokens). Anonymous tokens are valid by default for 1 month. After the token expires, you must create a new token to access protected resources. You can update the expiration time of {{site.data.keyword.appid_short_notm}} tokens on the **Sign-in Expiration** page in the {{site.data.keyword.appid_short_notm}} dashboard.
+
+When you use {{site.data.keyword.appid_short_notm}} in mobile applications, tokens are stored in key-store or key-chain and are added to every future request. The tokens are accessible by using the App ID Android or iOS SDK. When you use {{site.data.keyword.appid_short_notm}} in web applications, it is recommended to store the tokens in application session cookies.
+
 
 ### Authorized users
 
@@ -38,7 +41,44 @@ For more information on graduated tier pricing, see the [{{site.data.keyword.Blu
 </br>
 
 
+## How does encryption work in {{site.data.keyword.appid_short_notm}}?
+{: #encryption}
 
+Check out the following table for answers to commonly asked questions about encryption.
+
+<table>
+  <thead>
+    <th colspan=2><img src="images/idea.png" alt="More information icon"/>  </th>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Why do you use encryption?</td>
+      <td>The service encrypts customer data at rest.</td>
+    </tr>
+    <tr>
+      <td>Did you build your own algorithms? Which ones do you use in your code?</td>
+      <td>We did not build our own, the service uses <code>AES</code> and <code>SHA-256</code> with salting.</td>
+    </tr>
+    <tr>
+      <td>Do you use public or open source encryption modules or providers? Do you ever expose encryption functions? </td>
+      <td>The service uses <code>javax.crypto</code> Java libraries, but never exposes an encryption functions.</td>
+    </tr>
+    <tr>
+      <td>How do you store keys?</td>
+      <td>Keys are generated and then stored locally after being encrypted by using a master key that is specific to each region. The master keys are stored in {{site.data.keyword.keymanagementserviceshort}}.</td>
+    </tr>
+    <tr>
+      <td>What is the key strength that you use?</td>
+      <td>The service uses 16 bytes.</td>
+    </tr>
+    <tr>
+      <td>Do you invoke any remote APIs that expose encryption capabilities?</td>
+      <td>No, we do not.</td>
+    </tr>
+  </tbody>
+</table>
+
+</br>
 
 ## What does {{site.data.keyword.appid_short_notm}} expect a SAML assertion to look like?
 {: #saml-example}
