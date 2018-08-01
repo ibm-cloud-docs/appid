@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-07-24"
+lastupdated: "2018-08-01"
 
 ---
 
@@ -11,11 +11,12 @@ lastupdated: "2018-07-24"
 
 
 # Related links
+{: #rel-links}
 
 You can use the following related links to learn more about and interact with the service. For the latest blogs see https://www.ibm.com/blogs/bluemix/tag/app-id/.
 {: shortdesc}
 
-We’d love to hear from you with feedback and questions! To get started with App ID, check it out in the IBM Cloud Catalog.
+We’d love to hear from you with feedback and questions! To get started with App ID, check it out in the {{site.data.keyword.Bluemix_notm}} catalog.
 * If you have technical questions about {{site.data.keyword.appid_short_notm}}, post your question on <a href="http://stackoverflow.com/search?q=ibm+" target="_blank">Stack Overflow <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> and tag your question with "ibm-appid".
 * For questions about the service and getting started instructions, use the <a href="https://developer.ibm.com/answers/search.html?f=&type=question&redirect=search%2Fsearch&sort=relevance&q=appid%20[bluemix]" target="_blank">dW Answers <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> forum. Include the `appid` tag.
 
@@ -50,7 +51,9 @@ Just getting started? Try walking through some of our tutorials and blogs for he
 * <a href="https://youtu.be/aGcfqBGevxM" target="_blank">Securing your serverless mobile backend with {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 * <a href="https://console.bluemix.net/docs/tutorials/serverless-github-traffic-analytics.html" target="_blank">Tutorial: GitHub traffic analytics with Cloud Functions and Cloud Foundry <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 * <a href="https://www.ibm.com/developerworks/security/library/iot-trs-secure-iot-solutions3/index.html" target="_blank">Design and build secure IoT solutions, part 3: Securing IoT applications <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
-* <a href="https://www.ibm.com/blogs/bluemix/2017/08/developing-finance-application-using-ibm-cloud/" target="_blank">Developing a finance application by using IBM Cloud <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
+* <a href="https://www.ibm.com/blogs/bluemix/2017/08/developing-finance-application-using-ibm-cloud/" target="_blank">Developing a finance application by using {{site.data.keyword.Bluemix_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
+* <a href="https://console.bluemix.net/docs/services/IoT/reference/security/app_id.html#app_id" target="_blank">{{site.data.keyword.appid_short_notm}} Authentication for Watson IoT Platform (Beta) <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
+* <a href="https://www.ibm.com/blogs/bluemix/2018/07/how-to-configure-ibm-cloud-app-id-from-the-toolchain/" target="_blank">Configuring {{site.data.keyword.appid_short_notm}} From the Toolchain <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 
 
 
@@ -72,6 +75,14 @@ Want to have a custom experience for your users? Not a problem.
 
 * <a href="https://www.ibm.com/blogs/bluemix/2018/01/use-branded-ui-user-sign-app-id/" target="_blank">Use you own branded UI for user sign-in with {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 * <a href="https://www.ibm.com/blogs/bluemix/2018/06/custom-login-page-app-id-integration/" target="_blank">Use a custom login page with  {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
+
+## Programming guides
+{: #guide}
+
+Are you working in a specific language and want to see how {{site.data.keyword.appid_short_notm}} fits in with other {{site.data.keyword.Bluemix_notm}} services? Check out one of the programming guides.
+
+* <a href="https://console.bluemix.net/docs/swift/authenticate/app_id.html" target="_blank">Programming with Swift on {{site.data.keyword.Bluemix_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
+* <a href="https://console.bluemix.net/docs/node/index.html#getting-started-tutorial" target="_blank">Programming with Node.js on {{site.data.keyword.Bluemix_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 
 
 ## White paper
