@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-07-31"
+lastupdated: "2018-08-01"
 
 ---
 
@@ -12,7 +12,7 @@ lastupdated: "2018-07-31"
 {:tip: .tip}
 {:screen: .screen}
 
-## Accessing custom user attributes
+# Accessing custom user attributes
 {: #custom}
 
 When you obtain an access token, it is possible to gain access to the user protected attributes endpoint.
