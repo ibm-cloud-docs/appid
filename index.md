@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-15"
+lastupdated: "2018-08-03"
 
 ---
 
@@ -17,7 +17,6 @@ Application security can be incredibly complicated. For most developers, it's on
 {: shortdesc}
 
 By requiring users to sign in to your app, you can store user data such as app preferences or information from the public social profiles, and then use that data to customize each experience of your app. App ID provides a log in framework for you, but you can also bring your own branded sign in screens when working with cloud directory.
-
 
 As an account owner, you can now set policies that define how members of your team can interact with instances of {{site.data.keyword.appid_short_notm}}. You can decide who can create, update, and delete instances of the service. For more information see [Service access management](/docs/services/appid/iam.html).
 {:tip}
@@ -50,18 +49,30 @@ Out of the box, the sample apps are configured with two identity providers and t
 
 To configure a sample app from the GUI:
 
-1. After you create an instance of the service, you can choose a sample app in a language in which you feel comfortable working. You can choose from iOS Swift, Android, Node.js, and Java. Don't want to use an SDK? Check out this example to start <a href="https://github.com/mnsn/appid-python-flask-example" target="_blank">using {{site.data.keyword.appid_short_notm}} with other languages, such as Python <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
+1. After you create an instance of the service, you can choose a sample app in a language in which you feel comfortable working. You can choose from iOS Swift, Android, Node.js, and Java. Don't want to use an SDK? You can integrate {{site.data.keyword.appid_short_notm}} by using the APIs.
 2. Follow the steps in the GUI to **Build and run** your sample app. Each language is configured slightly differently, so be sure to select the language of the app that you downloaded from the drop-down. Once your app is configured, you can open it in a browser and login by using your credentials. Be sure the prerequisites for your app language are installed.
   <dl>
     <dt> Android </dt>
-      <dd><ul><li> Android API 25 or higher </li><li> Java 8.x </li><li> Android SDK Tools 25.2.5+ </li><li> Android SDK Platform Tools 25.0.3+ </li><li> Android Build Tools version 25.0.2 </li></ul></dd>
+      <dd><ul><li> Android API 27 or higher </li><li> Java 8.x </li><li> Android SDK Tools 25.2.5+ </li><li> Android SDK Platform Tools 26.1.1+ </li><li> Android Build Tools version 27.0.0+</li></ul></dd>
     <dt> iOS Swift </dt>
       <dd><ul><li> CocoaPods (version 1.1.0 or higher) </li><li> iOS 9 or higher </li><li> MacOS 10.11.5 </li><li> Xcode (version 9.0.1 or higher) </li></ul></dd>
     <dt> Node.js </dt>
-      <dd><ul><li> The Cloud Foundry CLI </li></ul></dd>
+      <dd><ul><li> The {{site.data.keyword.Bluemix_notm}} CLI</li></ul></dd>
     <dt> Java </dt>
-      <dd><ul><li> The Cloud Foundry CLI </li><li> Maven </li></ul></dd>
+      <dd><ul><li> The {{site.data.keyword.Bluemix_notm}} CLI </li><li> Maven </li></ul></dd>
   </dl>
+
+  Don't see the language you're looking for? Don't worry! You can take advantage of {{site.data.keyword.appid_short_notm}} through the APIs. You can also check out <a href="https://www.ibm.com/blogs/bluemix/tag/app-id/" target="_blank">our blogs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> for extra help in other languages.
+  {: tip}
+
 3. Click **Review Activity** to see the authentication events that occurred. After you log in, you can see an event.
 4. Customize your login experience. You can select an image, such as your logo and a header color. You can select one of the color options or insert a hex value. When you are happy with the preview, click **Save Changes**.
 5. In your browser, refresh your login page. The changes that you made in the previous step are already visible.
+
+## Next steps
+{: #next}
+
+Ready to jump in and get started with your own apps? Start by [adding the service to your app](/docs/services/appid/install.md). The service provides SDKs for the most used languages, but if you don't see an SDK for the language that your app is written in, you can still use the API.
+
+</br>
+</br>

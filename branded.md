@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-01"
+lastupdated: "2018-08-03"
 
 ---
 
@@ -15,7 +15,7 @@ lastupdated: "2018-08-01"
 # Branding your app
 {: #branding}
 
-You can display your own customized screens and take advantage of the authentication and authorization capabilities of {{site.data.keyword.appid_full}}. With cloud directory as your identity provider, your users are able to interact with your app with less help from you. They're able to sign in, sign up, change their password, and more  without asking for help.
+You can display your own customized screens and take advantage of the authentication and authorization capabilities of {{site.data.keyword.appid_full}}. With cloud directory as your identity provider, your users are able to interact with your app with less help from you. They're able to sign in, sign up, change their password, and more without asking for help.
 {: shortdesc}
 
 When you use your own screens, the [Resource Owner Password Credentials flow](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/password.html) is used to provide access and identity tokens.
@@ -24,14 +24,14 @@ When you use your own screens, the [Resource Owner Password Credentials flow](ht
 ## Displaying customized screens with the iOS Swift SDK
 {: #branded-ui-ios-swift}
 
-With cloud directory enabled, you can call customized screens with the iOS Swift SDK.
+With Cloud Directory enabled, you can call customized screens with the iOS Swift SDK.
 {: shortdesc}
 
 </br>
 **Sign in**
 
-1. In the identity provider tab on the GUI, set cloud directory to **On**.
-2. Log in by using the resource owner password. Access and identity tokens are obtained when a user attempts to log in by using their username and password.
+1. In the identity provider tab on the GUI, set Cloud Directory to **On**.
+2. Log in by using the resource owner password. Access and identity tokens are obtained when a user attempts to log in by using their username or email, and a password.
   ```swift
   class delegate : TokenResponseDelegate {
       public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, response:Response?) {
@@ -110,11 +110,9 @@ With cloud directory enabled, you can call customized screens with the Node.js S
 You can display your own customized screens and take advantage of the authentication and authorization capabilities of {{site.data.keyword.appid_short_notm}}. With cloud directory as your identity provider, your users are able to interact with your app with less help from you. They're able to sign in, sign up, reset their password, and more without asking for help.
 {: shortdesc}
 
-To make this possible, {{site.data.keyword.appid_short_notm}} exposed REST APIs. You can use the REST API to build a back-end server that serves your web apps, or to interact with a mobile app with your own custom screens.
+To make this possible, {{site.data.keyword.appid_short_notm}} exposes REST APIs. You can use the REST API to build a back-end server that serves your web apps, or to interact with a mobile app with your own custom screens.
 
 The management API is secured with IBM Cloud Identity and Access Management generated tokens. This means that account owners can specify who on their team has which level of access for each service instance. For more information about how IAM and {{site.data.keyword.appid_short_notm}} work together, see [Service access management](/docs/services/appid/iam.html).
-
-When a user clicks sign-in from your customized screen, the [Resource Owner Password Credentials flow](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/password.html) is used to gain access and identity tokens directly from your web or mobile apps.
 
 After you've configured your [settings](/docs/services/appid/cloud-directory.html),
 
@@ -162,9 +160,7 @@ Add a random string to your custom reset password page and pass it to your back-
 
 You can use the `/change_password` endpoint  in two ways. When a user submits a reset request, or when a user is signed in to your app and wants to update their password.
 
-To update their password after a reset request:
-
-Supply the following data in the request body:
+Supply the following data in the request body to update their password after a reset request:
   * Your tenantID.
   * The users new password
   * The cloud directory user UUID.
@@ -188,7 +184,7 @@ Your back-end validates the user's current password with the ROP API, and if val
 </br>
 **Resend**
 
-You can use the `/resend/{templateName}` to resent an email when a user does not receive it for some reason.
+You can use the `/resend/{templateName}` to resend an email when a user does not receive it for some reason.
 
 Supply the following data in the request body:
   * The tenantID.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-01"
+lastupdated: "2018-08-03"
 
 ---
 
@@ -15,16 +15,15 @@ lastupdated: "2018-08-01"
 
 
 # Displaying the default screens
+{: #default}
 
 {{site.data.keyword.appid_full}} provides a login widget that lets you give your users secure sign-in options.
 {: shortdesc}
 
-When your app is configured to use an identity provider, visitors to your app are directed to a sign in screen by the login widget. As a default, when only one provider is set to on, visitors are redirected to that identity providers authentication screen. With the login widget you can display a default sign in screen or, with cloud directory, you can reuse your existing UI's.
+When your app is configured to use an identity provider, visitors to your app are directed to a sign in screen by the login widget. As a default, when only one provider is set to **On**, visitors are redirected to that identity providers authentication screen. With the login widget you can display a default sign in screen or, with cloud directory, you can reuse your existing UI's. And, as an added bonus, you can update your sign-in flow at any time, without changing your source code in any way!
 
-You can update your sign-in flow at any time, without changing your source code in any way!
-{: tip}
 
-The service uses OAuth 2 grant types to map the authorization process. When you configure social identity providers such as Facebook, the [Oauth2 Authorization Grant flow](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html) is used to call the log in widget. When you display your own UI screens, the [Resource Owner Password Credentials flow](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/password.html) is used to log in and gain access and identity tokens.
+The service uses OAuth 2 grant types to map the authorization process. When you configure social identity providers such as Facebook, the [Oauth2 Authorization Grant flow](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html) is used to call the log in widget.
 
 Want to create an experience that's unique to your app? You can [bring your own screens](/docs/services/appid/branded.html)!
 {: tip}
@@ -46,8 +45,8 @@ To customize the screen:
 6. In your browser, refresh your login page to verify your changes.
 
 
-## Displaying the default screens
-{: #default}
+## Planning which screens to display
+{: #plan}
 
 {{site.data.keyword.appid_short_notm}} provides a default login screen that you can call if you don't have your own UI screens to display.
 {: shortdesc}
@@ -102,18 +101,25 @@ Check out the following table to see which screens you can display for each type
 After you've configured your settings for [social identity providers](/docs/services/appid/identity-providers.html), and [cloud directory](/docs/services/appid/cloud-directory.html), click on the language of your choice in the following image to start implementing the code.
 
 
-Click on the language of your choice in the following image to start implementing the code.
+Click on the image to use one of the provided SDKs or the APIs. Don't forget, you can take advantage of App ID with other languages too. By using our APIs you can set up a cloud directory in any app. For help with languages that aren't listed in the image, check out check out <a href="https://www.ibm.com/blogs/bluemix/tag/app-id/" target="_blank">our blogs<img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
+{: shortdesc}
+
+
 
 <img usemap="#default-options-map" border="0" class="image" id="options" src="images/default-options.png" width="750" alt="Click an SDK language icon to get started with cloud directory in your apps." style="width:750px;" />
 <map name="default-options-map" id="default-options-map">
-<area href="login-widget.html#android" alt="Managing the sign in experience with the Android SDK" shape="rect" coords="113, 8, 224, 123" />
-<area href="login-widget.html#ios-swift" alt="Managing the sign in experience with the iOS Swift SDK." shape="rect" coords="251, 12, 362, 127" />
-<area href="login-widget.html#nodejs" alt="Managing the sign in experience with the Node.js SDK." shape="rect" coords="387, 10, 498, 125" />
-<area href="login-widget.html#swift" alt="Managing the sign in experience with the Swift SDK." shape="rect" coords="525, 10, 636, 125" />
+<area href="login-widget.html#android" alt="Displaying the default with the Android SDK" shape="rect" coords="113, 8, 224, 123" />
+<area href="login-widget.html#ios-swift" alt="Displaying the default with the iOS Swift SDK." shape="rect" coords="251, 12, 362, 127" />
+<area href="login-widget.html#nodejs" alt="Displaying the default with the Node.js SDK." shape="rect" coords="387, 10, 498, 125" />
+<area href="login-widget.html#swift" alt="Displaying the default with the Swift SDK." shape="rect" coords="525, 10, 636, 125" />
 </map>
+
+
+
+
 </br>
 
-### Displaying the default screens with the Android SDK
+## Displaying the default screens with the Android SDK
 {: #android}
 
 You can call the preconfigured screens with the Android SDK.
@@ -242,7 +248,7 @@ You can call the preconfigured screens with the Android SDK.
 </br>
 </br>
 
-### Displaying the default screens with the iOS Swift SDK
+## Displaying the default screens with the iOS Swift SDK
 {: #ios-swift}
 
 You can call the preconfigured screens with the iOS Swift SDK.
@@ -370,7 +376,7 @@ You can call the preconfigured screens with the iOS Swift SDK.
 </br>
 </br>
 
-### Displaying the default screens with the Node.js SDK
+## Displaying the default screens with the Node.js SDK
 {: #nodejs}
 
 You can call the preconfigured screens with the Node.js SDK.
@@ -443,7 +449,7 @@ You can call the preconfigured screens with the Node.js SDK.
 
 </br>
 </br>
-### Displaying the default UI with the Swift SDK
+## Displaying the default screens with the Swift SDK
 {: #swift}
 
 With social identity providers enabled, you can call the preconfigured sign-in screen with the Swift SDK.
@@ -533,3 +539,6 @@ With social identity providers enabled, you can call the preconfigured sign-in s
   {: codeblock}
 </br>
 </br>
+
+
+

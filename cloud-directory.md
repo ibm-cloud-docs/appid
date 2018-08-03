@@ -2,11 +2,11 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-01"
+lastupdated: "2018-08-03"
 
 ---
 
-{:new_window: target="blank"}
+{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -32,7 +32,29 @@ You can configure the notifications and level of user control for your app. Sett
 Figure. The configuration journey for Cloud Directory
 
 
-1. Be sure that cloud directory is turned on as an identity provider and set **Allow users to sign up and reset their password** to **On**. If set to **Off**, you can still add users through the console for development purposes.
+1. Be sure that Cloud Directory is turned on as an identity provider and set **Allow users to sign up and reset their password** to **On**. If set to **Off**, you can still add users through the console for development purposes.
+2. Choose the whether your users will authenticate with a specified username or an email. This field is used for the sign-up, sign in and forgot password flows. If you allow users to sign in with a username and password, the username must be at least 8 characters and can not contain a space, comma or slash. **Note:** You can switch between options only when there are no users in your Cloud Directory.
+3. Configure your sender details. Specify the email address from which your messages appear to be from, the sender, and to whom your users can reply.
+  When you configure your action URL, be sure that you give enough time for a user to click the link. A user must verify their email to have certain options, such as the ability to request a reset of their password.
+  {: tip}
+4. Determine the types of emails a user receives and the sender information.
+5. With the templates provided, customize your messages with your brand or personalized messages. For more information, see [Managing messages](/docs/services/appid/cloud-directory.html#cd-messages).
+6. See who's signed-up for your app in the **Users** tab of the GUI.
+
+A single user can sign in up to 5 times a minute. If a sixth attempt is made, an error is displayed.
+{: tip}
+
+</br>
+
+## Managing messages
+{: #cd-messages}
+
+A template is an example of an email message that you might send to your users. You can customize the template by updating the content and layout of the message.
+{: shortdesc}
+
+1. In the **Identity Providers > Cloud Directory > Settings** tab of the dashboard, set the messages that you want to send to **On** .
+
+2. Optional: Use <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/updateLocalization" target="_blank">the language management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to set another language that you want to use in your message templates. For a list of supported language codes, see [Supported languages](#languages).
 
 3. Select a **Message type**.
 
@@ -180,16 +202,13 @@ To set the requirements, you must use <a href="https://appid-management.ng.bluem
 ## Supported languages
 {: #languages}
 
-You can use <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/updateLocalization" target="_blank">the language management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to set the language in which your user communication can be written. However, only English is available out of the box. You are responsible for the translation of the messages. After you update your app
+You can use <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/updateLocalization" target="_blank">the language management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to set the language in which your user communication can be written. However, only English is available out of the box. You are responsible for the translation of the messages. After you make set the configuration with the API, the UI updates so that you are able to change the template text.
 {: shortdesc}
-
-need to emphasis that only english is coming out of the box. App ID provides a way for Dave to add language of choice. Also say that once more language are added then UI changes to allow Dave to change the template text. Point to management API doesn’t take to anything specific.
 
 <table>
   <col width="20%">
   <col width="25%">
   <col width="35%">
-
   <tr>
     <th>Code</th>
     <th>Language</th>
@@ -1055,12 +1074,13 @@ need to emphasis that only english is coming out of the box. App ID provides a w
 ## Next steps
 {: #next}
 
-Now that you've configured cloud directory, you're ready to add the code for the login widget into your app code. Click an SDK language icon in the following image to see what you need to do.
+Now that you've configured Cloud Directory, you're ready to add the code for the login widget into your app code. Click on the image to use one of the provided SDKs or the APIs. You can take advantage of App ID with other languages too. By using our APIs you can set up a cloud directory in any app. For help with languages that aren't listed in the image, check out <a href="https://www.ibm.com/blogs/bluemix/tag/app-id/" target="_blank">our blogs<img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
 {: shortdesc}
 
 <img usemap="#options-map" border="0" class="image" id="options" src="images/options.png" width="750" alt="Click an SDK language icon to get started with cloud directory in your apps." style="width:750px;" />
 <map name="options-map" id="options-map">
-<area href="login-widget.html#branded-ui-android" alt="Managing the sign in experience with the Android SDK" shape="rect" coords="187, 6, 305, 120" />
-<area href="login-widget.html#branded-ui-ios-swift" alt="Managing the sign in experience with the iOS Swift SDK." shape="rect" coords="333, 6, 448, 125" />
-<area href="login-widget.html#branded-ui-nodejs" alt="Managing the sign in experience with the Node.js SDK." shape="rect" coords="472, 7, 590, 121" />
+<area href="branded.html#branded-ui-android" alt="Branding your application with the Android SDK" shape="rect" coords="187, 6, 305, 120" />
+<area href="branded.html#branded-ui-ios-swift" alt="Branding your application with the iOS Swift SDK." shape="rect" coords="333, 6, 448, 125" />
+<area href="branded.html#branded-ui-nodejs" alt="Branding your application with the SDK." shape="rect" coords="472, 7, 590, 121" />
+<area href="branded.html#branded-ui-nodejs" alt="Branding your application with the API." shape="rect" coords="472, 7, 590, 121" />
 </map>
