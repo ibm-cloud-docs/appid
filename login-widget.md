@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-03"
+lastupdated: "2018-08-06"
 
 ---
 
@@ -105,7 +105,6 @@ Click on the image to use one of the provided SDKs or the APIs. Don't forget, yo
 {: shortdesc}
 
 
-
 <img usemap="#default-options-map" border="0" class="image" id="options" src="images/default-options.png" width="750" alt="Click an SDK language icon to get started with cloud directory in your apps." style="width:750px;" />
 <map name="default-options-map" id="default-options-map">
 <area href="login-widget.html#android" alt="Displaying the default with the Android SDK" shape="rect" coords="113, 8, 224, 123" />
@@ -113,7 +112,6 @@ Click on the image to use one of the provided SDKs or the APIs. Don't forget, yo
 <area href="login-widget.html#nodejs" alt="Displaying the default with the Node.js SDK." shape="rect" coords="387, 10, 498, 125" />
 <area href="login-widget.html#swift" alt="Displaying the default with the Swift SDK." shape="rect" coords="525, 10, 636, 125" />
 </map>
-
 
 
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-03"
+lastupdated: "2018-08-06"
 
 ---
 
@@ -605,17 +605,15 @@ You can configure {{site.data.keyword.appid_short_notm}} to work with your Liber
 
     An example `server.xml` file that is configured for {{site.data.keyword.appid_short_notm}}:
 
-  ```xml
+  ```
   <?xml version="1.0" encoding="UTF-8"?>
   <server description="sample server">
-
       <featureManager>
         <feature>ssl-1.0</feature>
         <feature>servlet-3.1</feature>
         <feature>appSecurity-2.0</feature>
         <feature>openidConnectClient-1.0</feature>  
       </featureManager>
-
       <openidConnectClient id="MyDefaultRP"
          clientId='${cloud.services.AppID-Instance-Name.credentials.clientId}'
          clientSecret='${cloud.services.AppID-Instance-Name.credentials.clientSecret}'
@@ -625,12 +623,10 @@ You can configure {{site.data.keyword.appid_short_notm}} to work with your Liber
          issuerIdentifier='${cloud.services.AppID-Instance-Name.credentials.appid-oauth.ng.bluemix.net}'
          tokenEndpointAuthMethod="basic"
          signatureAlgorithm="RS256"
-         authFilterid="myAuthFilter"
-      />
+         authFilterid="myAuthFilter"/>
       <authFilter id="myAuthFilter">
                <requestUrl id="myRequestUrl" urlPattern="/protected" matchType="contains"/>
       </authFilter>
-
       <application type="war" id="ProtectedServlet" context-root="/appidSample" location="${server.config.dir}/apps/libertySample-1.0.0.war">
           <application-bnd>
               <security-role name="myrole">
@@ -638,20 +634,13 @@ You can configure {{site.data.keyword.appid_short_notm}} to work with your Liber
               </security-role>
           </application-bnd>
       </application>
-
    <applicationManager autoExpand="true"/>
-
   <keyStore id="defaultKeyStore" password="Password"/>
   <keyStore id="defaulttrustore" password="Liberty" location="<FileContainingCertificated>.jks"/>
-
   <ssl id="defaultSSLSettings" keyStoreRef="defaultKeyStore" trustStoreRef="defaulttrustore"/>
   <sslDefault sslRef="defaultSSLSettings"/>
-
       <httpEndpoint id="defaultHttpEndpoint" httpPort="9080" host="*" httpsPort="9443" />
-
-
       <applicationManager autoExpand="true"/>
-
   </server>
   ```
   {: codeblock}
@@ -671,7 +660,7 @@ You can add {{site.data.keyword.appid_short_notm}} to applications that don't ru
 
 In your Node.js app, replace `passport.use(new WebAppStrategy());` with the following code.
 
-  ```javaScript
+  ```
   passport.use(new WebAppStrategy({
     	  tenantId: "{tenant-id}",
    	    clientId: "{client-id}",
@@ -681,6 +670,7 @@ In your Node.js app, replace `passport.use(new WebAppStrategy());` with the foll
       }));
   ```
   {: codeblock}
+
   <table>
   <caption> Table. Command components for Node.js apps explained </caption>
     <tr>

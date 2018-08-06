@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-03"
+lastupdated: "2018-08-06"
 
 ---
 
@@ -55,7 +55,7 @@ To configure a sample app from the GUI:
     <dt> Android </dt>
       <dd><ul><li> Android API 27 or higher </li><li> Java 8.x </li><li> Android SDK Tools 25.2.5+ </li><li> Android SDK Platform Tools 26.1.1+ </li><li> Android Build Tools version 27.0.0+</li></ul></dd>
     <dt> iOS Swift </dt>
-      <dd><ul><li> CocoaPods (version 1.1.0 or higher) </li><li> iOS 9 or higher </li><li> MacOS 10.11.5 </li><li> Xcode (version 9.0.1 or higher) </li></ul></dd>
+      <dd><ul><li> CocoaPods (version 1.1.0 or higher) </li><li> iOS 10.0 or higher</li><li> MacOS 10.11.5 </li><li> Xcode (version 9.0.1 or higher) </li></ul></dd>
     <dt> Node.js </dt>
       <dd><ul><li> The {{site.data.keyword.Bluemix_notm}} CLI</li></ul></dd>
     <dt> Java </dt>
