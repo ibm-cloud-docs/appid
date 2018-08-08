@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-06"
+lastupdated: "2018-08-08"
 
 ---
 
@@ -447,6 +447,7 @@ You can call the preconfigured screens with the Node.js SDK.
 
 </br>
 </br>
+
 ## Displaying the default screens with the Swift SDK
 {: #swift}
 

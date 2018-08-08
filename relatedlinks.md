@@ -45,7 +45,7 @@ What to know the gritty details about how the service works? Check out the techn
 ## Securing apps
 {: #secure-apps}
 
-Just getting started? Try walking through some of our tutorials and blogs for help integrating {{site.data.keyword.appid_short_notm}} into your apps!
+Interested in securing your applications? Check out the blogs and samples here to see how it's done.
 
 * <a href="https://www.ibm.com/blogs/bluemix/2018/04/securing-angularnode-js-applications-using-app-id/" target="_blank">Securing Angular + Node.js Applications using {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 * <a href="https://www.ibm.com/blogs/bluemix/2017/09/securing-single-page-apps-app-id-service/" target="_blank">Securing single page apps with {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
@@ -55,6 +55,8 @@ Just getting started? Try walking through some of our tutorials and blogs for he
 
 ## Securing Runtime, APIs, and backends
 {: #secure-apps}
+
+Just getting started? Try walking through some of our tutorials and blogs for help integrating {{site.data.keyword.appid_short_notm}} into your apps!
 
 * <a href="https://www.ibm.com/blogs/bluemix/2018/05/announcing-app-id-integration-ibm-cloud-kubernetes-service/" target="_blank">Announcing {{site.data.keyword.appid_short_notm}} integration to {{site.data.keyword.containerlong}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 * <a href="https://www.ibm.com/blogs/bluemix/2018/02/using-app-id-secure-docker-kubernetes-applications/" target="_blank">Using {{site.data.keyword.appid_short_notm}} to secure Docker and Kubernetes applications <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
@@ -66,6 +68,8 @@ Just getting started? Try walking through some of our tutorials and blogs for he
 
 ## Market examples
 {: #market-examples}
+
+See {{site.data.keyword.appid_short_notm}} in action in these real world examples.
 
 * <a href="https://console.bluemix.net/docs/services/IoT/reference/security/app_id.html#app_id" target="_blank">{{site.data.keyword.appid_short_notm}} Authentication for Watson IoT Platform (Beta) <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 * <a href="https://www.ibm.com/developerworks/security/library/iot-trs-secure-iot-solutions3/index.html" target="_blank">Design and build secure IoT solutions, part 3: Securing IoT applications <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>

@@ -1074,17 +1074,3 @@ You can use <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Confi
     <td>South Africa</td>
   </tr>
 </table>
-
-## Next steps
-{: #next}
-
-Now that you've configured Cloud Directory, you're ready to add the code for the login widget into your app code. Click on the image to use one of the provided SDKs or the APIs. You can take advantage of App ID with other languages too! By using our APIs you can set up a cloud directory in any app.
-{: shortdesc}
-
-<img usemap="#options-map" border="0" class="image" id="options" src="images/options.png" width="750" alt="Click an SDK language icon to get started with cloud directory in your apps." style="width:750px;" />
-<map name="options-map" id="options-map">
-<area href="branded.html#branded-ui-android" alt="Branding your application with the Android SDK" shape="rect" coords="187, 6, 305, 120" />
-<area href="branded.html#branded-ui-ios-swift" alt="Branding your application with the iOS Swift SDK." shape="rect" coords="333, 6, 448, 125" />
-<area href="branded.html#branded-ui-nodejs" alt="Branding your application with the SDK." shape="rect" coords="472, 7, 590, 121" />
-<area href="branded.html#branded-ui-nodejs" alt="Branding your application with the API." shape="rect" coords="472, 7, 590, 121" />
-</map>
