@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-03"
+lastupdated: "2018-08-08"
 
 ---
 
@@ -198,6 +198,65 @@ Some common password strength examples:
 To set the requirements, you must use <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/set_cloud_directory_password_regex" target="_blank">the API <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
 
 </br>
+
+## Custom Email Sender
+You can define a web hook as an email dispatcher
+
+The hook will be called by App ID whenever an email message needs to be sent. It will contain all the info about hte email message, including the final content of the email body.
+
+The request will be an HTTP POST request, with a JSON body in the form
+
+```
+{
+    "to": "recipient@mail.com",
+    "from": {
+        "name": "My Awesome Company",
+        "address": "no-reply@company.com"
+    },
+    "replyTo": {
+        "name": "My Awesome Company Feedback",
+        "address": "feedback@company.com"
+    },
+    "subject": "Test Email",
+    "body": "<h3>This is a test email</h3><p>If you can read this our Cloud Function works.</p>"
+}
+```
+NOTE: Only the `to`, `subject`, `body`, and `from.address` are mandatory. Other fields may or may not be present, according to the Sender Details.
+
+Any response with a status code in the range 200 - 299 will be considered a success. Any other response is onsidered a failure.
+
+Use this endpoint to configure the the web hook. You need to provide the URL, and authorization information. The authorization mechanism that are supported are Basic Authorization and a constant Authorization header value.
+
+Here are examples of valid configurations:
+```
+
+{
+  "custom": {
+    "url": "https://example.com/send_mail",
+    "authorization": {
+      "type": "basic",
+      "username": "username",
+      "password": "password"
+    }
+  }
+}
+```
+
+```
+
+{
+  "custom": {
+    "url": "https://example.com/send_mail",
+    "authorization": {
+      "type": "value",
+      "value": "myApiKey"
+    }
+  }
+}
+```
+
+### Testing
+You can use this endpoint to test your configured email dispathcher. Triggering this test endpint will send a request to your configured dispatcher. You can use this to test and debug your email dispatcher.
 
 ## Supported languages
 {: #languages}
@@ -1084,3 +1143,4 @@ Now that you've configured Cloud Directory, you're ready to add the code for the
 <area href="branded.html#branded-ui-nodejs" alt="Branding your application with the SDK." shape="rect" coords="472, 7, 590, 121" />
 <area href="branded.html#branded-ui-nodejs" alt="Branding your application with the API." shape="rect" coords="472, 7, 590, 121" />
 </map>
+
