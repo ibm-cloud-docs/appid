@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-03"
+lastupdated: "2018-08-08"
 
 ---
 
@@ -104,7 +104,7 @@ While your request flow might vary depending on your application configuration, 
 ### Web app request flow
 {: #web-flow}
 
-![{{site.data.keyword.appid_short_notm}} request flow](/images/web_flow.png)
+![{{site.data.keyword.appid_short_notm}} request flow](/images/web_flow1.png)
 
 1. By using a browser, a user performs an action that triggers a request to the App ID SDK.
 2. If the user is unauthorized, a redirect to App ID is started.

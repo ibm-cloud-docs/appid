@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-01"
+lastupdated: "2018-08-08"
 
 ---
 
@@ -34,9 +34,16 @@ Get to know more about {{site.data.keyword.appid_short_notm}} by reading through
 * <a href="https://www.youtube.com/watch?v=VVWw5AjYg48" target="_blank">Create personalized app experiences <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 
 
+## White paper
+{: #paper}
 
-## Securing Apps, APIs and back-sends
-{: #secure}
+What to know the gritty details about how the service works? Check out the technical white paper.
+
+* <a href="https://www.ibm.com/blogs/bluemix/2018/04/ibm-cloud-app-id-technical-white-paper-now-available/" target="_blank">{{site.data.keyword.appid_long}} Technical White Paper - Now Available <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
+
+
+## Securing apps
+{: #secure-apps}
 
 Just getting started? Try walking through some of our tutorials and blogs for help integrating {{site.data.keyword.appid_short_notm}} into your apps!
 
@@ -45,16 +52,24 @@ Just getting started? Try walking through some of our tutorials and blogs for he
 * <a href="https://www.ibm.com/blogs/bluemix/2018/06/creating-spring-boot-applications-app-id/" target="_blank">Creating Spring Boot applications with {{site.data.keyword.appid_long}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 * <a href="https://github.com/mnsn/appid-python-flask-example" target="_blank">Using {{site.data.keyword.appid_short_notm}} with Python <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 * <a href="https://github.com/IBM-Cloud/github-traffic-stats" target="_blank">Using Python Flask-pyoidc with {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
+
+## Securing Runtime, APIs, and backends
+{: #secure-apps}
+
 * <a href="https://www.ibm.com/blogs/bluemix/2018/05/announcing-app-id-integration-ibm-cloud-kubernetes-service/" target="_blank">Announcing {{site.data.keyword.appid_short_notm}} integration to {{site.data.keyword.containerlong}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 * <a href="https://www.ibm.com/blogs/bluemix/2018/02/using-app-id-secure-docker-kubernetes-applications/" target="_blank">Using {{site.data.keyword.appid_short_notm}} to secure Docker and Kubernetes applications <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 * <a href="https://www.youtube.com/watch?v=Fa9YD2NGZiE" target="_blank">Simple and fast social login OAUTH with APIC and {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 * <a href="https://youtu.be/aGcfqBGevxM" target="_blank">Securing your serverless mobile backend with {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 * <a href="https://console.bluemix.net/docs/tutorials/serverless-github-traffic-analytics.html" target="_blank">Tutorial: GitHub traffic analytics with Cloud Functions and Cloud Foundry <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
-* <a href="https://www.ibm.com/developerworks/security/library/iot-trs-secure-iot-solutions3/index.html" target="_blank">Design and build secure IoT solutions, part 3: Securing IoT applications <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
-* <a href="https://www.ibm.com/blogs/bluemix/2017/08/developing-finance-application-using-ibm-cloud/" target="_blank">Developing a finance application by using {{site.data.keyword.Bluemix_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
-* <a href="https://console.bluemix.net/docs/services/IoT/reference/security/app_id.html#app_id" target="_blank">{{site.data.keyword.appid_short_notm}} Authentication for Watson IoT Platform (Beta) <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 * <a href="https://www.ibm.com/blogs/bluemix/2018/07/how-to-configure-ibm-cloud-app-id-from-the-toolchain/" target="_blank">Configuring {{site.data.keyword.appid_short_notm}} From the Toolchain <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 
+
+## Market examples
+{: #market-examples}
+
+* <a href="https://console.bluemix.net/docs/services/IoT/reference/security/app_id.html#app_id" target="_blank">{{site.data.keyword.appid_short_notm}} Authentication for Watson IoT Platform (Beta) <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
+* <a href="https://www.ibm.com/developerworks/security/library/iot-trs-secure-iot-solutions3/index.html" target="_blank">Design and build secure IoT solutions, part 3: Securing IoT applications <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
+* <a href="https://www.ibm.com/blogs/bluemix/2017/08/developing-finance-application-using-ibm-cloud/" target="_blank">Developing a finance application by using {{site.data.keyword.Bluemix_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 
 
 ## Integrating with your enterprise user directory
@@ -83,11 +98,3 @@ Are you working in a specific language and want to see how {{site.data.keyword.a
 
 * <a href="https://console.bluemix.net/docs/swift/authenticate/app_id.html" target="_blank">Programming with Swift on {{site.data.keyword.Bluemix_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 * <a href="https://console.bluemix.net/docs/node/index.html#getting-started-tutorial" target="_blank">Programming with Node.js on {{site.data.keyword.Bluemix_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
-
-
-## White paper
-{: #paper}
-
-What to know the gritty details about how the service works? Check out the technical white paper.
-
-* <a href="https://www.ibm.com/blogs/bluemix/2018/04/ibm-cloud-app-id-technical-white-paper-now-available/" target="_blank">{{site.data.keyword.appid_long}} Technical White Paper - Now Available <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
