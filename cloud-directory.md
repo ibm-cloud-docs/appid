@@ -206,7 +206,7 @@ You must use <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Conf
 ## Supported languages
 {: #languages}
 
-You can use <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/updateLocalization" target="_blank">the language management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to set the language in which your user communication can be written. However, only English is available out of the box. You are responsible for the translation of the messages. After you make set the configuration with the API, the GUI updates so that you are able to change the template text.
+You can use <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/updateLocalization" target="_blank">the language management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to set the language in which your user communication can be written. However, only English is available out of the box. You are responsible for the translation of the messages. After you set the configuration with the API, the GUI updates so that you are able to change the template text.
 {: shortdesc}
 
 <table>
