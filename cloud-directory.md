@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-08"
+lastupdated: "2018-08-09"
 
 ---
 
@@ -195,7 +195,7 @@ Some common password strength examples:
 - Must contain only English letters and numbers. Example regex: `^[A-Za-z0-9]*$`
 - Must be at least 1 unique character. Example regex: `^(\w)\w*?(?!\1)\w+$`
 
-To set the requirements, you must use <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/set_cloud_directory_password_regex" target="_blank">the API <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
+You must use <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/set_cloud_directory_password_regex" target="_blank">the management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to set the requirements.
 
 </br>
 
@@ -206,7 +206,7 @@ To set the requirements, you must use <a href="https://appid-management.ng.bluem
 ## Supported languages
 {: #languages}
 
-You can use <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/updateLocalization" target="_blank">the language management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to set the language in which your user communication can be written. However, only English is available out of the box. You are responsible for the translation of the messages. After you make set the configuration with the API, the UI updates so that you are able to change the template text.
+You can use <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/updateLocalization" target="_blank">the language management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to set the language in which your user communication can be written. However, only English is available out of the box. You are responsible for the translation of the messages. After you make set the configuration with the API, the GUI updates so that you are able to change the template text.
 {: shortdesc}
 
 <table>
