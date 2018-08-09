@@ -2,23 +2,23 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-01-02"
+lastupdated: "2018-4-24"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
+{:pre: .pre}
 
 
 # Auf Benutzerattribute zugreifen
 {: #user-profile}
 
-Sie können Endbenutzerdaten verwalten, die Sie zur Erstellung personalisierter Apps verwenden können.
+Ein Benutzerattribut ist ein Informationssegment in einer Entität, die von {{site.data.keyword.appid_full}} verwaltet wird. Das Profil enthält die Attribute und Identität eines Benutzers, die von einem von einem Identitätsprovider verwaltet wird oder anonym sein kann. Sie können die Profile verwenden, um personalisierte Erfahrungen Ihrer App für jeden Benutzer zu erstellen.
 {:shortdesc}
 
-Ein Benutzerattribut ist ein Informationssegment in einer Entität, die von {{site.data.keyword.appid_full}} verwaltet wird. Das Profil enthält die Attribute und Identität eines Benutzers. Es kann anonym oder mit einer Identität verknüpft sein, die von einem Identitätsprovider verwaltet wird.
 
-{{site.data.keyword.appid_short_notm}} stellt eine API bereit, die eine anonyme Anmeldung oder eine Anmeldung mit einer Authentifizierung über einen OIDC-[Identitätsprovider](/docs/services/appid/identity-providers.html) (OIDC = OpenId Connect) ermöglicht. Der API-Endpunkt des Benutzerprofilattributs ist eine Ressource, die durch ein Zugriffstoken geschützt ist, das beim Anmelde- und Berechtigungsprozess von {{site.data.keyword.appid_short_notm}} generiert wird.
+{{site.data.keyword.appid_short_notm}} stellt eine API bereit, die eine anonyme Registrierung oder eine Registrierung mit einer Authentifizierung über einen OIDC-[Identitätsprovider](/docs/services/appid/identity-providers.html) (OIDC = OpenId Connect) ermöglicht. Der API-Endpunkt des Benutzerprofilattributs ist eine Ressource, die durch ein Zugriffstoken geschützt ist, das beim Anmelde- und Berechtigungsprozess von {{site.data.keyword.appid_short_notm}} generiert wird.
 
 
 ## Benutzerattribute speichern, lesen und löschen
@@ -44,7 +44,7 @@ Wenn Sie ein Zugriffstoken anfordern, können Sie Zugriff auf den Endpunkt der g
   void getAllAttributes(@NonNull UserAttributeResponseListener listener);
   void getAllAttributes(@NonNull AccessToken accessToken, @NonNull UserAttributeResponseListener listener);
   ```
-  {: codeblock}
+  {: pre}
 
 Wenn ein Zugriffstoken nicht explizit übergeben wird, verwendet {{site.data.keyword.appid_short_notm}} das zuletzt empfangene Token.
 
@@ -63,9 +63,9 @@ Sie können beispielsweise diesen Code aufrufen, um ein neues Attribut festzuleg
   			 }
 	});
   ```
-  {: codeblock}
+  {: pre}
 
-### Anonyme Anmeldung
+### Anonyme Registrierung
 {: #anonymous notoc}
 
 Mit {{site.data.keyword.appid_short_notm}} können Sie sich [anonym](/docs/services/appid/user-profile.html#anonymous) anmelden.
@@ -83,12 +83,12 @@ Mit {{site.data.keyword.appid_short_notm}} können Sie sich [anonym](/docs/servi
 		}
 
 		@Override
- 			 public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken) {
+		public void onAuthorizationSuccess(AccessToken accessToken, IdentityToken identityToken, RefreshToken refreshToken) {
 			//Benutzer authentifiziert
 		}
 	});
   ```
-  {: codeblock}
+  {: pre}
 
 ### Progressive Authentifizierung
 {: #progressive notoc}
@@ -98,21 +98,22 @@ Benutzer mit einem anonymen Zugriffstoken können identifiziert werden, indem es
   ```java
   void launch (@NonNull final Activity activity, @NonNull final AuthorizationListener authorizationListener, String accessTokenString);
   ```
-  {: codeblock}
+  {: pre}
 
-Nach einer anonymen Anmeldung tritt eine progressive Authentifizierung auf, sogar wenn das Anmelde-Widget aufgerufen wird, ohne dass dabei ein Zugriffstoken übergeben wird. Grund hierfür ist, dass der Service das zuletzt empfangene Token verwendet. Führen Sie den folgenden Befehl aus, um gespeicherte Token zu löschen.
+Nach einer anonymen Registrierung tritt eine progressive Authentifizierung auf, sogar wenn das Anmelde-Widget aufgerufen wird, ohne dass dabei ein Zugriffstoken übergeben wird. Grund hierfür ist, dass der Service das zuletzt empfangene Token verwendet. Führen Sie den folgenden Befehl aus, um gespeicherte Token zu löschen.
 
   ```java
   	appIDAuthorizationManager = new AppIDAuthorizationManager(this.appId);
   appIDAuthorizationManager.clearAuthorizationData();
   ```
-  {: codeblock}
+  {: pre}
 
 
 ## Über das iOS-SDK auf Benutzerattribute zugreifen
 {: #accessing}
 
-Wenn Sie ein Zugriffstoken anfordern, können Sie Zugriff auf den Endpunkt der geschützten Benutzerattribute zugreifen. Sie können Zugriff durch die folgenden API-Methoden erhalten.
+Zugriff auf die Benutzerattribute durch Übergabe eines Zugriffstokens über die folgenden API-Methoden.
+{: shortdesc}
 
   ```swift
   func setAttribute(key: String, value: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
@@ -127,7 +128,7 @@ Wenn Sie ein Zugriffstoken anfordern, können Sie Zugriff auf den Endpunkt der g
   func deleteAttribute(key: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
   func deleteAttribute(key: String, accessTokenString: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
   ```
-  {: codeblock}
+  {: pre}
 
 Wenn ein Zugriffstoken nicht explizit übergeben wird, verwendet {{site.data.keyword.appid_short_notm}} das zuletzt empfangene Token.
 
@@ -142,18 +143,17 @@ Sie können beispielsweise diesen Code aufrufen, um ein neues Attribut festzuleg
       }
   })
   ```
-  {: codeblock}
+  {: pre}
 
 
-### Anonyme Anmeldung
-{: #anonymous notoc}
+### Anonyme Registrierung
 
 Mit {{site.data.keyword.appid_short_notm}} können Sie sich [anonym](/docs/services/appid/user-profile.html#anonymous) anmelden.
 
   ```swift
   class delegate : AuthorizationDelegate {
 
-      public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, response:Response?) {
+      public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, refreshToken: RefreshToken?, response:Response?) {
           //Benutzer authentifiziert
       }
 
@@ -168,25 +168,24 @@ Mit {{site.data.keyword.appid_short_notm}} können Sie sich [anonym](/docs/servi
 
   AppID.sharedInstance.loginAnonymously( authorizationDelegate: delegate())
   ```
-  {: codeblock}
+  {: pre}
 
 ### Progressive Authentifizierung
-{: #progressive notoc}
 
 Benutzer mit einem anonymen Zugriffstoken können identifiziert werden, indem es der Methode `loginWidget.launch` übergeben wird.
 
   ```swift
   func launch(accessTokenString: String? , delegate: AuthorizationDelegate)
   ```
-  {: codeblock}
+  {: pre}
 
-Nach einer anonymen Anmeldung tritt eine progressive Authentifizierung auf, sogar wenn das Anmelde-Widget aufgerufen wird, ohne dass dabei ein Zugriffstoken übergeben wird. Grund hierfür ist, dass der Service das zuletzt empfangene Token verwendet. Führen Sie den folgenden Befehl aus, um gespeicherte Token zu löschen.
+Nach einer anonymen Registrierung tritt eine progressive Authentifizierung auf, sogar wenn das Anmelde-Widget aufgerufen wird, ohne dass dabei ein Zugriffstoken übergeben wird. Grund hierfür ist, dass der Service das zuletzt empfangene Token verwendet. Führen Sie den folgenden Befehl aus, um gespeicherte Token zu löschen.
 
   ```swift
   var appIDAuthorizationManager = AppIDAuthorizationManager(appid: AppID.sharedInstance)
   appIDAuthorizationManager.clearAuthorizationData()
   ```
-  {: codeblock}
+  {: pre}
 
 ## Datentrennung und -verschlüsselung
 {: #data}

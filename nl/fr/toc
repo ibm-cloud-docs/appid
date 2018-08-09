@@ -15,34 +15,36 @@ IBM Cloud App ID
 
     {: .topicgroup}
     Authentification des utilisateurs
-        login-widget.md
         identity-providers.md
+        enterprise.md
         cloud-directory.md
-        branded.md
+        login-widget.md
 
     protecting-resources.md
     user-profile.md
     protecting-resources-local.md
     existing.md
+    iam.md
+    api-reference.md
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
     {: .topicgroup}
-    API
+    APIs
         [Autorisation](http://mobileclientaccess.mybluemix.net/swagger-ui/#/Authorization_Server_V3)
+        [Gestion](https://appid-management.ng.bluemix.net/swagger-ui/)
+        [Profils](https://appid-profiles.ng.bluemix.net/swagger-ui/index.html)
 
     {: .topicgroup}
-    SDKs
-        [SDK du client Android](https://github.com/ibm-cloud-security/appid-clientsdk-android)
-        [SDK du client iOS Swift](https://github.com/ibm-cloud-security/appid-clientsdk-swift)
-        [SDK du serveur Node.js](https://github.com/ibm-cloud-security/appid-serversdk-nodejs)
-        [SDK du serveur Swift](https://github.com/ibm-cloud-security/appid-serversdk-swift)
-    
+    Logiciels SDK
+        [SDK client Android](https://github.com/ibm-cloud-security/appid-clientsdk-android)
+        [SDK client iOS Swift](https://github.com/ibm-cloud-security/appid-clientsdk-swift)
+        [SDK serveur Node.js](https://github.com/ibm-cloud-security/appid-serversdk-nodejs)
+        [SDK serveur Swift](https://github.com/ibm-cloud-security/appid-serversdk-swift)
     relatedlinks.md
     {: .navgroup-end}
 
     {: .navgroup id="help"}
     faq.md
     ts_index.md
-    mca.md
     {: .navgroup-end}

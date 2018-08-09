@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-01-02"
+lastupdated: "2018-4-24"
 
 ---
 
@@ -11,13 +11,13 @@ lastupdated: "2018-01-02"
 {:screen: .screen}
 {:codeblock: .codeblock}
 
-
 # Incluindo o {{site.data.keyword.appid_short_notm}} em um app existente
 
 É possível usar o {{site.data.keyword.appid_full}} com seu aplicativo existente para autenticar e armazenar as informações de perfil sobre seus usuários.
 
 
 ## Pré-requisitos
+{: prereq}
 
 * Um aplicativo iOS Swift, Android, Node.js, Swift ou Liberty for Java existente.
 * Uma instância existente do {{site.data.keyword.appid_short_notm}}.
@@ -98,7 +98,7 @@ Android existentes.
           }
 
           @Override
-          public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken) {
+          public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, RefreshToken refreshToken) {
           }
         });
   ```
@@ -186,7 +186,7 @@ em **Recursos** >
          	return AppID.sharedInstance.application(application, open: url, options: options)
       }
   class delegate : AuthorizationDelegate {
-     public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, response:Response?) {
+     public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, refreshToken: RefreshToken? response:Response?) {
      }
 
      public func onAuthorizationCanceled() {
@@ -552,7 +552,7 @@ o local do arquivo em sua unidade local.
 
       <httpEndpoint id="defaultHttpEndpoint" httpPort="9080" host="*" httpsPort="9443" />
 
-      
+
       <applicationManager autoExpand="true"/>
 
   </server>

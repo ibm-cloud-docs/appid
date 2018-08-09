@@ -15,21 +15,25 @@ IBM Cloud App ID
 
     {: .topicgroup}
     ユーザーの認証
-        login-widget.md
         identity-providers.md
+        enterprise.md
         cloud-directory.md
-        branded.md
+        login-widget.md
 
     protecting-resources.md
     user-profile.md
     protecting-resources-local.md
     existing.md
+    iam.md
+    api-reference.md
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
     {: .topicgroup}
     API
         [許可](http://mobileclientaccess.mybluemix.net/swagger-ui/#/Authorization_Server_V3)
+        [管理](https://appid-management.ng.bluemix.net/swagger-ui/)
+        [プロファイル](https://appid-profiles.ng.bluemix.net/swagger-ui/index.html)
 
     {: .topicgroup}
     SDK
@@ -37,12 +41,10 @@ IBM Cloud App ID
         [iOS Swift Client SDK](https://github.com/ibm-cloud-security/appid-clientsdk-swift)
         [Node.js Server SDK](https://github.com/ibm-cloud-security/appid-serversdk-nodejs)
         [Swift Server SDK](https://github.com/ibm-cloud-security/appid-serversdk-swift)
-    
     relatedlinks.md
     {: .navgroup-end}
 
     {: .navgroup id="help"}
     faq.md
     ts_index.md
-    mca.md
     {: .navgroup-end}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-01-02"
+lastupdated: "2018-4-24"
 
 ---
 
@@ -10,6 +10,7 @@ lastupdated: "2018-01-02"
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
+{: tip: .tip}
 
 # Configurando provedores de identidade social
 {: #setting-up-idp}
@@ -20,12 +21,24 @@ Provedores de identidade fornecem um nível extra de autenticação para seus ap
 ## Configuração padrão
 {: #default}
 
-O {{site.data.keyword.appid_short_notm}} fornece uma configuração padrão para ajudar
-com a configuração inicial dos provedores de identidade.
+O {{site.data.keyword.appid_short_notm}} fornece uma configuração padrão para ajudar com a configuração inicial de seus provedores de identidade.
 {: shortdesc}
 
 As credenciais padrão são configuradas para o Facebook e o Google. Você tem o limite de 100 usos das
-credenciais por instância, por dia. Como elas são credenciais da IBM, elas devem ser usadas em seus aplicativos somente no modo de desenvolvimento. Antes de publicar seu app, [atualize a configuração para as suas próprias credenciais](/docs/services/appid/identity-providers.html).
+credenciais por instância, por dia. Como elas são credenciais IBM, elas devem ser usadas somente no modo de desenvolvimento. Antes de publicar o seu app, atualize a configuração para as suas próprias credenciais.
+
+## Incluindo sua URL de redirecionamento na lista de desbloqueio
+{: #redirect}
+
+Uma URL de redirecionamento é o terminal de retorno de chamada de seu app. Para evitar ataques de phishing, o ID do app valida a URL com relação à lista de desbloqueio de URLs de redirecionamento. Quando o phishing ocorre, há uma chance de que um invasor possa obter acesso a seus tokens de usuários.
+
+Para incluir sua URL na lista de desbloqueio:
+
+1. Navegue para **Provedores > Gerenciar**.
+2. No campo **Incluir URL de redirecionamento da web**, digite a URL e clique em **+**.
+
+Não inclua quaisquer parâmetros de consulta em sua URL. Eles são ignorados no processo de validação. URL de exemplo: `http://host:[port]/path`
+{: tip}
 
 
 ## Configurando o Facebook
@@ -77,16 +90,15 @@ clientes da web e obtenha um segredo e um identificador de cliente.
 2. Inclua a API do Google+ em seu projeto do Google.
 3. Inclua credenciais na API do Google+.
     1. Selecione a API do Google+ como o tipo de API.
-    2. Selecione **Navegador da web** como o local do qual você chamará a API.
+    2. Selecione **Navegador da web** como o local do qual você está chamando a API.
     3. Escolha **Dados do usuário**.
-    4. Preencha os campos necessários para criar um identificador de cliente. Um segredo é criado ao mesmo tempo.
+    4. Conclua os campos obrigatórios para criar um ID de cliente. Um segredo é criado ao mesmo tempo.
 4. Tome nota do identificador de cliente e segredo do Google. Na guia de credenciais, selecione o
 ID que você criou para obter o segredo e o identificador de cliente.
 
 ### Configurando o {{site.data.keyword.appid_short}} para autenticação do Google
 
-Depois de ter configurado seu projeto do Google e ter seu segredo e seu identificador de cliente, será possível
-editar seu painel de serviço para a autenticação do Google.
+Depois de configurar seu projeto do Google e ter seu ID de cliente e segredo, é possível editar seu painel de serviço para a autenticação do Google.
 
 1. Na guia **Gerenciar** de seu painel de serviço, selecione **Google** e clique em **Editar**.
 2. Insira o segredo e o identificador de cliente obtidos do Google Developers Console.
@@ -97,4 +109,4 @@ nos detalhes do provedor de identidade do Google.
     3. Cole a URL do {{site.data.keyword.appid_short}} no campo **URIs de
 redirecionamento autorizados** e clique em **Salvar**.
 4. Clique em **Salvar** para atualizar sua configuração do Google no {{site.data.keyword.appid_short}}.
-5. Opcional: para apps da web, insira uma URL de redirecionamento na guia **Gerenciar**. Após a conclusão do processo de autorização, um usuário será enviado para essa URL.
+5. Para apps da web, insira uma URL de redirecionamento na guia **Gerenciar**. Após a conclusão do processo de autorização, um usuário será enviado para essa URL.

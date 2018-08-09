@@ -2,9 +2,10 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-01-02"
+lastupdated: "2018-4-24"
 
 ---
+
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
@@ -35,7 +36,7 @@ lastupdated: "2018-01-02"
 
 <table> <caption> 表 1。{{site.data.keyword.Bluemix_notm}} 地域と対応する Android および iOS の {{site.data.keyword.appid_short_notm}} 地域 </caption>
 <tr>
-  <th> Bluemix 地域 </th>
+  <th> {{site.data.keyword.Bluemix_notm}} 地域</th>
   <th> Android と iOS </th>
 </tr>
 <tr>

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-02-01"
+lastupdated: "2018-04-27"
 
 ---
 
@@ -21,7 +21,7 @@ Puede utilizar {{site.data.keyword.appid_full}} para añadir autenticación a su
 ## Motivos para utilizar el servicio
 {: #reasons}
 
-¿Por qué desea utilizar {{site.data.keyword.appid_short_notm}}? Compruebe los casos de ejemplo siguientes para saber si se le aplica alguno.
+¿Por qué desea utilizar {{site.data.keyword.appid_short_notm}}? Consulte los siguientes casos de ejemplo para ver si alguno de ellos se aplican a usted.
 {: shortdesc}
 
 <table>
@@ -43,28 +43,47 @@ Puede utilizar {{site.data.keyword.appid_full}} para añadir autenticación a su
   </tr>
   <tr>
     <td> Desea ofrecer a los usuarios la posibilidad de obtener acceso a su app con su correo electrónico y una contraseña. </td>
-    <td> {{site.data.keyword.appid_short_notm}} ofrece la posibilidad de crear un [directorio en la nube](/docs/services/appid/cloud-directory.html). De esta manera, puede añadir el registro e inicio de sesión de usuarios a sus apps web y móviles. El directorio en la nube le proporciona la infraestructura para mantener un registro de usuarios que puede escalar con su base de usuarios. Con la funcionalidad integrada para el autoservicio, como verificación de correo electrónico y restablecimiento de contraseñas, puede garantizar la seguridad de la autenticación de los usuarios de su app. </td>
+    <td> {{site.data.keyword.appid_short_notm}} le permite crear un [directorio en la nube](/docs/services/appid/cloud-directory.html), que hace posible añadir el registro e inicio de sesión de usuarios a sus apps. El directorio en la nube le proporciona la infraestructura para mantener un registro de usuarios que puede escalar con su base de usuarios. Con la funcionalidad integrada para el autoservicio, como verificación de correo electrónico y restablecimiento de contraseñas, puede garantizar la seguridad de la autenticación de los usuarios de su app. </td>
   </tr>
 </table>
+
+
+## Integraciones
+{: #integrations}
+
+Puede utilizar {{site.data.keyword.appid_short_notm}} con otras ofertas de {{site.data.keyword.Bluemix_notm}}.
+{:shortdesc}
+
+
+<dl>
+  <dt>{{site.data.keyword.containerlong_notm}}</dt>
+    <dd>Al configurar el ingreso en un clúster estándar, puede proteger sus apps en el nivel de clúster. Consulte la anotación de ingreso de autenticación de {{site.data.keyword.appid_short_notm}} para empezar.</dd>
+  <dt>{{site.data.keyword.openwhisk}} y API Connect</dt>
+    <dd>Al crear sus API con [{{site.data.keyword.openwhisk_short}}](/docs/openwhisk/index.html) y [API Connect](/docs/apis/management/manage_apis.html), puede proteger sus aplicaciones en la pasarela en lugar de en el código de la app. Para ver la integración en acción, vea <a href="https://www.youtube.com/watch?v=Fa9YD2NGZiE" target="_blank">OAUTH de inicio de sesión en redes sociales rápido y simple con APIC y {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>.</dd>
+  <dt>Cloud Foundry</dt>
+    <dd>Pruebe una de nuestras apps de Cloud Foundry de muestra para ver cómo puede integrar el ID de app en sus apps.</dd>
+  <dt>Guía de programación de iOS</dt>
+    <dd>¿Desarrolla apps para Apple? Pruebe la <a href="https://console.bluemix.net/docs/swift/index.html#overview" target="_blank">Guía de programación de iOS <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a> para aprender, experimentar y mejorar sus apps de iOS existentes con {{site.data.keyword.Bluemix_notm}}.</dd>
+</dl>
 
 
 ## Arquitectura
 {: #architecture}
 
-Con {{site.data.keyword.appid_short_notm}} puede añadir un nivel de seguridad a sus apps solicitando a los usuarios que inicien la sesión. También puede utilizar el SDK del servidor para proteger sus recursos de fondo.
+Con {{site.data.keyword.appid_short_notm}}, puede añadir un nivel de seguridad a sus apps solicitando a los usuarios que inicien la sesión. También puede utilizar el SDK del servidor para proteger sus recursos de fondo.
 {: shortdesc}
 
 ![Diagrama de arquitectura de {{site.data.keyword.appid_short_notm}}](/images/appid_architecture.png)
 
 <dl>
   <dt> Aplicación </dt>
-    <dd> SDK del servidor: Puede proteger sus recursos de programa de fondo alojados en {{site.data.keyword.Bluemix_notm}} y sus apps web utilizando el SDK del servidor. Extrae la señal de acceso de la solicitud y la valida con {{site.data.keyword.appid_short_notm}}. </br>
-    SDK del cliente: Puede proteger sus apps móviles con el SDK del cliente de Android o iOS. El SDK del cliente se comunica con sus recursos en la nube para iniciar el proceso de autenticación cuando detecta un desafío de autorización.</dd>
-  <dt> {{site.data.keyword.Bluemix_notm}} </dt>
-    <dd> App ID: Tras la correcta autenticación, {{site.data.keyword.appid_short_notm}} devuelve las señales de identidad y de acceso a la app.</br>
-    Directorio en la nube: Los usuarios pueden registrarse en su servicio con su correo electrónico y contraseña. Luego podrá gestionar sus usuarios en una vista de lista a través de la IU. </dd>
-  <dt> Externa (de terceros) </dt>
-    <dd>  {{site.data.keyword.appid_short_notm}} admite dos proveedores de identidad social: Facebook y Google+. El servicio organiza una redirección al proveedor de identidades y proporciona acceso a su app después de verificar la autenticación. {{site.data.keyword.appid_short_notm}} verifica las credenciales sin tener acceso a la contraseña en sí. </dd>
+    <dd><strong>SDK del servidor</strong>: Puede proteger sus recursos de programa de fondo alojados en {{site.data.keyword.Bluemix_notm}} y sus apps web utilizando el SDK del servidor. Extrae la señal de acceso de la solicitud y la valida con {{site.data.keyword.appid_short_notm}}. </br>
+    <strong>SDK del cliente</strong>: Puede proteger sus apps móviles con el SDK del cliente de Android o iOS. El SDK del cliente se comunica con sus recursos en la nube para iniciar el proceso de autenticación cuando detecta un desafío de autorización.</dd>
+  <dt>{{site.data.keyword.Bluemix_notm}}</dt>
+    <dd><strong>{{site.data.keyword.appid_short_notm}}</strong>: Tras la correcta autenticación, {{site.data.keyword.appid_short_notm}} devuelve las señales de identidad y de acceso a la app.</br>
+    <strong>Directorio en la nube</strong>: Los usuarios pueden registrarse en su servicio con su correo electrónico y contraseña. Luego podrá gestionar sus usuarios en una vista de lista a través de la IU. Con el directorio en la nube, {{site.data.keyword.appid_short_notm}} funciona como proveedor de identidad.</dd>
+  <dt>Externa (de terceros)</dt>
+    <dd><strong>Proveedores de identidad sociales y empresariales</strong>:{{site.data.keyword.appid_short_notm}} admite dos proveedores de identidad sociales: Facebook y Google+, y un proveedor de identidad empresarial: SAML 2.0 Federation. El servicio organiza una redirección al proveedor de identidad y verifica las señales de autenticación devueltas. Si las señales son válidas, el servicio otorga acceso a la app incluso sin tener acceso a la frase de contraseña real.</dd>
 </dl>
 
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-01-02"
+lastupdated: "2018-4-24"
 
 ---
 
@@ -11,13 +11,13 @@ lastupdated: "2018-01-02"
 {:screen: .screen}
 {:codeblock: .codeblock}
 
-
 # 既存のアプリへの {{site.data.keyword.appid_short_notm}} の追加
 
 既存のアプリケーションで {{site.data.keyword.appid_full}} を使用して、認証を行い、ユーザーに関するプロファイル情報を保管できます。
 
 
 ## 前提条件
+{: prereq}
 
 * iOS Swift、Android、Node.js、Swift、Liberty for Java の既存のアプリケーション。
 * {{site.data.keyword.appid_short_notm}} の既存のインスタンス。
@@ -97,7 +97,7 @@ lastupdated: "2018-01-02"
           }
 
           @Override
-          public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken) {
+          public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, RefreshToken refreshToken) {
           }
         });
   ```
@@ -181,7 +181,7 @@ lastupdated: "2018-01-02"
          	return AppID.sharedInstance.application(application, open: url, options: options)
       }
   class delegate : AuthorizationDelegate {
-     public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, response:Response?) {
+     public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, refreshToken: RefreshToken? response:Response?) {
      }
 
      public func onAuthorizationCanceled() {
@@ -531,7 +531,7 @@ lastupdated: "2018-01-02"
 
       <httpEndpoint id="defaultHttpEndpoint" httpPort="9080" host="*" httpsPort="9443" />
 
-      
+
       <applicationManager autoExpand="true"/>
 
   </server>

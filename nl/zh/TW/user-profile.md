@@ -2,21 +2,20 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-01-02"
+lastupdated: "2018-4-24"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
+{:pre: .pre}
 
 
 # 存取使用者屬性
 {: #user-profile}
 
-您可以管理您可以用來建置個人化應用程式體驗的一般使用者資料。
+使用者屬性是實體中由 {{site.data.keyword.appid_full}} 儲存及維護的資訊區段。設定檔包含使用者的屬性，以及由身分提供者管理或其可以是匿名的身分。您可以使用設定檔，為每一位使用者建立您應用程式的個人化體驗。
 {:shortdesc}
-
-使用者屬性是實體中由 {{site.data.keyword.appid_full}} 儲存及維護的資訊區段。設定檔包含使用者的屬性及身分，而且可以匿名或鏈結至身分提供者所管理的身分。
 
 
 {{site.data.keyword.appid_short_notm}} 提供 API，以透過匿名方式或使用 OpenId Connect (OIDC) [身分提供者](/docs/services/appid/identity-providers.html)進行鑑別來登入。使用者設定檔屬性 API 端點是 {{site.data.keyword.appid_short_notm}} 所產生的存取記號在登入及授權處理程序期間所保護的資源。
@@ -45,7 +44,7 @@ lastupdated: "2018-01-02"
   void getAllAttributes(@NonNull UserAttributeResponseListener listener);
   void getAllAttributes(@NonNull AccessToken accessToken, @NonNull UserAttributeResponseListener listener);
   ```
-  {: codeblock}
+  {: pre}
 
 若未明確地傳遞存取記號，{{site.data.keyword.appid_short_notm}} 會使用最後一個收到的記號。
 
@@ -64,7 +63,7 @@ lastupdated: "2018-01-02"
 		}
 	});
   ```
-  {: codeblock}
+  {: pre}
 
 ### 匿名登入
 {: #anonymous notoc}
@@ -84,12 +83,12 @@ lastupdated: "2018-01-02"
 		}
 
 		@Override
-		public void onAuthorizationSuccess(AccessToken accessToken, IdentityToken identityToken) {
+		public void onAuthorizationSuccess(AccessToken accessToken, IdentityToken identityToken, RefreshToken refreshToken) {
 			//User authenticated
 		}
 	});
   ```
-  {: codeblock}
+  {: pre}
 
 ### 漸進鑑別
 {: #progressive notoc}
@@ -99,7 +98,7 @@ lastupdated: "2018-01-02"
   ```java
   void launch (@NonNull final Activity activity, @NonNull final AuthorizationListener authorizationListener, String accessTokenString);
   ```
-  {: codeblock}
+  {: pre}
 
 匿名登入之後，即使因服務已使用最後一個收到的記號而在未傳遞存取記號的情況下呼叫登入小組件，還是會進行漸進鑑別。如果您要清除儲存的記號，請執行下列指令。
 
@@ -107,13 +106,14 @@ lastupdated: "2018-01-02"
   	appIDAuthorizationManager = new AppIDAuthorizationManager(this.appId);
   appIDAuthorizationManager.clearAuthorizationData();
   ```
-  {: codeblock}
+  {: pre}
 
 
 ## 使用 iOS SDK 存取使用者屬性
 {: #accessing}
 
-取得存取記號時，即可存取使用者保護的屬性端點。使用下列 API 方法，即可完成這項作業。
+透過下列 API 方法來傳遞存取記號，以存取使用者屬性。
+{: shortdesc}
 
   ```swift
   func setAttribute(key: String, value: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
@@ -125,7 +125,7 @@ lastupdated: "2018-01-02"
   func deleteAttribute(key: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
   func deleteAttribute(key: String, accessTokenString: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
   ```
-  {: codeblock}
+  {: pre}
 
 若未明確地傳遞存取記號，{{site.data.keyword.appid_short_notm}} 會使用最後一個收到的記號。
 
@@ -140,18 +140,17 @@ lastupdated: "2018-01-02"
       }
   })
   ```
-  {: codeblock}
+  {: pre}
 
 
 ### 匿名登入
-{: #anonymous notoc}
 
 使用 {{site.data.keyword.appid_short_notm}}，您可以[匿名](/docs/services/appid/user-profile.html#anonymous)登入。
 
   ```swift
   class delegate : AuthorizationDelegate {
 
-      public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, response:Response?) {
+      public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, refreshToken: RefreshToken?, response:Response?) {
           //User authenticated
       }
 
@@ -166,17 +165,16 @@ lastupdated: "2018-01-02"
 
   AppID.sharedInstance.loginAnonymously( authorizationDelegate: delegate())
   ```
-  {: codeblock}
+  {: pre}
 
 ### 漸進鑑別
-{: #progressive notoc}
 
 當您保留匿名存取記號時，使用者可以變成已識別的使用者，方法是將它傳遞給 `loginWidget.launch` 方法。
 
   ```swift
   func launch(accessTokenString: String? , delegate: AuthorizationDelegate)
   ```
-  {: codeblock}
+  {: pre}
 
 匿名登入之後，即使因服務已使用最後一個收到的記號而在未傳遞存取記號的情況下呼叫登入小組件，還是會進行漸進鑑別。如果您要清除儲存的記號，請執行下列指令。
 
@@ -184,7 +182,7 @@ lastupdated: "2018-01-02"
   var appIDAuthorizationManager = AppIDAuthorizationManager(appid: AppID.sharedInstance)
   appIDAuthorizationManager.clearAuthorizationData()
   ```
-  {: codeblock}
+  {: pre}
 
 ## 資料分隔及加密
 {: #data}

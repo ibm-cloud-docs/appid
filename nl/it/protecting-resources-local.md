@@ -2,9 +2,10 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-01-02"
+lastupdated: "2018-4-24"
 
 ---
+
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
@@ -22,7 +23,7 @@ Puoi configurare il tuo ambiente locale per utilizzare il servizio {{site.data.k
 ## Prima di cominciare
 {: #begin}
 
-Assicurati di aver completato l'[installazione dell'SDK server](/docs/services/appid/install.html#nodejs-setup).
+Assicurati di aver installato l'[SDK server](/docs/services/appid/install.html#nodejs-setup).
 
 
 ## Configurazione delle applicazioni {{site.data.keyword.appid_short_notm}} per lavorare con un server di sviluppo locale
@@ -35,7 +36,7 @@ Per configurare le tue applicazioni in modo che utilizzino un server di sviluppo
 
 <table> <caption> Tabella 1. Regioni {{site.data.keyword.Bluemix_notm}} e regioni SDK Android e iOS {{site.data.keyword.appid_short_notm}} corrispondenti </caption>
 <tr>
-  <th> Regione Bluemix </th>
+  <th> Regione {{site.data.keyword.Bluemix_notm}}</th>
   <th> Android e iOS </th>
 </tr>
 <tr>
