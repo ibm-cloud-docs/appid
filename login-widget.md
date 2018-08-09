@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-08"
+lastupdated: "2018-08-09"
 
 ---
 
@@ -103,17 +103,6 @@ After you've configured your settings for [social identity providers](/docs/serv
 
 Click on the image to use one of the provided SDKs or the APIs. Don't forget, you can take advantage of App ID with other languages too. By using our APIs you can set up a cloud directory in any app. For help with languages that aren't listed in the image, check out check out <a href="https://www.ibm.com/blogs/bluemix/tag/app-id/" target="_blank">our blogs<img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
 {: shortdesc}
-
-
-<img usemap="#default-options-map" border="0" class="image" id="options" src="images/default-options.png" width="750" alt="Click an SDK language icon to get started with cloud directory in your apps." style="width:750px;" />
-<map name="default-options-map" id="default-options-map">
-<area href="login-widget.html#android" alt="Displaying the default with the Android SDK" shape="rect" coords="113, 8, 224, 123" />
-<area href="login-widget.html#ios-swift" alt="Displaying the default with the iOS Swift SDK." shape="rect" coords="251, 12, 362, 127" />
-<area href="login-widget.html#nodejs" alt="Displaying the default with the Node.js SDK." shape="rect" coords="387, 10, 498, 125" />
-<area href="login-widget.html#swift" alt="Displaying the default with the Swift SDK." shape="rect" coords="525, 10, 636, 125" />
-</map>
-
-
 
 </br>
 
