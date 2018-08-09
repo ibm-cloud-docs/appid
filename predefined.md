@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-07-31"
+lastupdated: "2018-08-08"
 
 ---
 
@@ -24,71 +24,71 @@ You can view identity provider specific information about your users.
 
 If new tokens are not explicitly passed to the SDK, {{site.data.keyword.appid_short_notm}} uses the last received tokens to retrieve and validate the response. For example, you can execute the following code after a successful authentication and the SDK retrieves additional information about the user.
 
-    ```swift
-    AppID.sharedInstance.userProfileManager.getUserInfo { (error: Error?, userInfo: [String: Any]?) in
-    	guard let userInfo = userInfo, err == nil {
-    		return // an error has occurred
-    	}
-    	// retrieved user info successfully
-    }
+```
+AppID.sharedInstance.userProfileManager.getUserInfo { (error: Error?, userInfo: [String: Any]?) in
+	guard let userInfo = userInfo, err == nil {
+		return // an error has occurred
+	}
+	// retrieved user info successfully
+}
 
-    ```
-    {: pre}
+```
+{: pre}
 
-  Alternatively, you can explicitly pass access and identity tokens. The identity token is optional, but when passed, it is used to validate the user info response.
+Alternatively, you can explicitly pass access and identity tokens. The identity token is optional, but when passed, it is used to validate the user info response.
 
-    ```swift
-    AppID.sharedInstance.userProfileManager.getUserInfo(accessToken: String, identityToken: String?) { (error: Error?, userInfo: [String: Any]?) in
-    	guard let userInfo = userInfo, err == nil {
-    		return // an error has occurred
-    	}
-    	// retrieved user info successfully
-    }
-    ```
-    {: pre}
+```
+AppID.sharedInstance.userProfileManager.getUserInfo(accessToken: String, identityToken: String?) { (error: Error?, userInfo: [String: Any]?) in
+	guard let userInfo = userInfo, err == nil {
+		return // an error has occurred
+	}
+	// retrieved user info successfully
+}
+```
+{: pre}
 
 </br>
 
 ## Accessing with the Android SDK
 {: #android}
 
-  If new tokens are not explicitly passed to the SDK, {{site.data.keyword.appid_short_notm}} uses the last received tokens to retrieve and validate the response. For example, you can execute the following code after a successful authentication and the SDK retrieves additional information about the user.
+If new tokens are not explicitly passed to the SDK, {{site.data.keyword.appid_short_notm}} uses the last received tokens to retrieve and validate the response. For example, you can execute the following code after a successful authentication and the SDK retrieves additional information about the user.
 
-    ```java
-    AppID appId = AppID.getInstance();
+```
+AppID appId = AppID.getInstance();
 
-    appId.getUserProfileManager().getUserInfo(new UserProfileResponseListener() {
-    	@Override
-    	public void onSuccess(JSONObject userInfo) {
-    		// retrieved user info successfully
-    	}
+appId.getUserProfileManager().getUserInfo(new UserProfileResponseListener() {
+	@Override
+	public void onSuccess(JSONObject userInfo) {
+		// retrieved user info successfully
+	}
 
-    	@Override
-    	public void onFailure(UserInfoException e) {
-    		// exception occurred
-    	}
-    });
-    ```
-    {: pre}
+	@Override
+	public void onFailure(UserInfoException e) {
+		// exception occurred
+	}
+});
+```
+{: pre}
 
-  Alternatively, you can explicitly pass access and identity tokens. The identity token is optional, but when passed, it is used to validate the user info response.
+Alternatively, you can explicitly pass access and identity tokens. The identity token is optional, but when passed, it is used to validate the user info response.
 
-    ```java
-    AppID appId = AppID.getInstance();
+```
+AppID appId = AppID.getInstance();
 
-    appId.getUserProfileManager().getUserInfo(accessToken, identityToken, new UserProfileResponseListener() {
-    	@Override
-    	public void onSuccess(JSONObject userInfo) {
-    		// retrieved attribute "name" successfully
-    	}
+appId.getUserProfileManager().getUserInfo(accessToken, identityToken, new UserProfileResponseListener() {
+	@Override
+	public void onSuccess(JSONObject userInfo) {
+		// retrieved attribute "name" successfully
+	}
 
-    	@Override
-    	public void onFailure(UserInfoException e) {
-    		// exception occurred
-    	}
-    });
-    ```
-    {: pre}
+	@Override
+	public void onFailure(UserInfoException e) {
+		// exception occurred
+	}
+});
+```
+{: pre}
 
 </br>
 

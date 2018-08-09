@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-07-25"
+lastupdated: "2018-08-08"
 
 ---
 
@@ -14,6 +14,9 @@ lastupdated: "2018-07-25"
 
 # Adding {{site.data.keyword.appid_short}} to your app
 {: #configuring}
+
+Get started with {{site.data.keyword.appid_short}} by setting up the service in your application. 
+{: shortdesc}
 
 
 ## Setting up the Android SDK
@@ -55,7 +58,7 @@ You need the following information:
 
   * An <a href="https://developers.google.com/web/tools/setup/" target="_blank">Android Studio project<img src="../../icons/launch-glyph.svg" alt="External link icon"></a>, set up to work with Gradle.
 
-### Installing the client SDK
+### Installing the SDK
 {: #install-android}
 
 1. Create an Android Studio project, or open an existing project.
@@ -92,7 +95,7 @@ You need the following information:
 
 6. Synchronize your project with Gradle. Click **Tools > Android > Sync Project with Gradle Files**.
 
-### Initializing the client SDK
+### Initializing the SDK
 {: #initialize-android}
 
 Initialize the client SDK by passing the context, tenant ID, and region parameters to the initialize method. A common, though not mandatory, place to put the initialization code is in the onCreate method of the main activity in your Android application.
@@ -165,24 +168,24 @@ You need the following information:
   * CocoaPods (version 1.1.0 or higher).
 
 
-### Installing the client SDK
+### Installing the SDK
 {: #install-ios}
 
 The {{site.data.keyword.appid_short_notm}} client SDK is distributed with CocoaPods, a dependency manager for Swift and Objective-C Cocoa projects. CocoaPods downloads artifacts, and makes them available to your project.
 
 1. Create an Xcode project, or open an existing project.
 2. Open, or create, the podfile in the project's directory.
-3. Following your project's target, add a dependency for the 'BluemixAppID' pod and the `use_frameworks!` command.
+3. Following your project's target, add a dependency for the 'IBMCloudAppID' pod and the `use_frameworks!` command.
 
   ```swift
   target '<yourTarget>' do
      use_frameworks!
-     pod 'BluemixAppID'
+     pod 'IBMCloudAppID'
   end
   ```
   {: codeblock}
 
-4. Download the `BluemixAppID` dependency.
+4. Download the 'IBMCloudAppID' dependency.
 
   ```swift
   pod install --repo-update
@@ -197,13 +200,13 @@ The {{site.data.keyword.appid_short_notm}} client SDK is distributed with CocoaP
   {: codeblock}
 
 
-### Initializing the client SDK
+### Initializing the SDK
 {: #initialize-ios}
 
 1. Initialize the client SDK by passing the tenant ID and region parameters to the initialize method. A common, though not mandatory, place to put the initialization code is in the `application:didFinishLaunchingWithOptions` method of the AppDelegate in your Swift application.
 
   ```swift
-  AppID.sharedInstance.initialize(tenantId: <tenantId>, bluemixRegion: AppID.Region_UK)
+  AppID.sharedInstance.initialize(tenantId: <tenantId>, region: AppID.Region_UK)
   ```
   {: codeblock}
 
@@ -226,7 +229,7 @@ The {{site.data.keyword.appid_short_notm}} client SDK is distributed with CocoaP
 2. Add the following import to your `AppDelegate` file.
 
     ```swift
-    import BluemixAppID
+    import IBMCloudAppID
     ```
     {: codeblock}
 
@@ -265,7 +268,7 @@ Be sure that you have the following prerequisites ready to go:
 **Note**: Other frameworks use `Express` frameworks, such as LoopBack. You can use the {{site.data.keyword.appid_short_notm}} server SDK with any of these frameworks.
 
 
-### Installing the server SDK
+### Installing the SDK
 {: #install-nodejs}
 
 1. Using the command line, open the directory with your Node.js app.
@@ -275,7 +278,7 @@ Be sure that you have the following prerequisites ready to go:
   ```
   {: codeblock}
 
-## Step 3. Initializing the SDK
+### Initializing the SDK
 {: #initialize}
 
 1. Add the following `require` definitions to your `server.js` file.
@@ -355,7 +358,7 @@ Be sure that you have the following prerequisites ready to go:
 5. Add the following code to your `server.js` file to issue the service redirects:
    ```
    app.get(CALLBACK_URL, passport.authenticate(WebAppStrategy.STRATEGY_NAME));
-   app.get("/protected", passport.authenticate(WebAppStrategy.STRATEGY_NAME)), function(req, res)
+   app.get('/protected', passport.authenticate(WebAppStrategy.STRATEGY_NAME)), function(req, res)
         res.json(req.user);
    });
    ```
@@ -402,7 +405,7 @@ Prior to working with the Swift SDK, you must have the following prerequisites:
       targets: [
           .target(
               name: "myApp",
-              dependencies: ["BluemixAppID"]),
+              dependencies: ["IBMCloudAppID"]),
       ]
   )
   ```
@@ -433,7 +436,7 @@ Prior to working with the Swift SDK, you must have the following prerequisites:
     import KituraSession
     import Credentials
     import SwiftyJSON
-    import BluemixAppID
+    import IBMCloudAppID
     let router = Router()
     let session = Session(secret: "Some secret")
     router.all(middleware: session)
@@ -465,7 +468,7 @@ Prior to working with the Swift SDK, you must have the following prerequisites:
 ## Setting up the Liberty for Java SDK
 {: #lfj-setup}
 
-You can configure {{site.data.keyword.appid_short_notm}} to work with your existing Liberty for Java web applications.
+You can configure {{site.data.keyword.appid_short_notm}} to work with your Liberty for Java web applications.
 {:shortdesc}
 
 1. Add an <a href="https://www.ibm.com/support/knowledgecenter/en/SSD28V_8.5.5/com.ibm.websphere.wlp.core.doc/ae/twlp_config_oidc_rp.html" target="_blank">OpenID Connect feature <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to your `server.xml`.
@@ -602,17 +605,15 @@ You can configure {{site.data.keyword.appid_short_notm}} to work with your exist
 
     An example `server.xml` file that is configured for {{site.data.keyword.appid_short_notm}}:
 
-  ```xml
+  ```
   <?xml version="1.0" encoding="UTF-8"?>
   <server description="sample server">
-
       <featureManager>
         <feature>ssl-1.0</feature>
         <feature>servlet-3.1</feature>
         <feature>appSecurity-2.0</feature>
         <feature>openidConnectClient-1.0</feature>  
       </featureManager>
-
       <openidConnectClient id="MyDefaultRP"
          clientId='${cloud.services.AppID-Instance-Name.credentials.clientId}'
          clientSecret='${cloud.services.AppID-Instance-Name.credentials.clientSecret}'
@@ -622,12 +623,10 @@ You can configure {{site.data.keyword.appid_short_notm}} to work with your exist
          issuerIdentifier='${cloud.services.AppID-Instance-Name.credentials.appid-oauth.ng.bluemix.net}'
          tokenEndpointAuthMethod="basic"
          signatureAlgorithm="RS256"
-         authFilterid="myAuthFilter"
-      />
+         authFilterid="myAuthFilter"/>
       <authFilter id="myAuthFilter">
                <requestUrl id="myRequestUrl" urlPattern="/protected" matchType="contains"/>
       </authFilter>
-
       <application type="war" id="ProtectedServlet" context-root="/appidSample" location="${server.config.dir}/apps/libertySample-1.0.0.war">
           <application-bnd>
               <security-role name="myrole">
@@ -635,23 +634,17 @@ You can configure {{site.data.keyword.appid_short_notm}} to work with your exist
               </security-role>
           </application-bnd>
       </application>
-
    <applicationManager autoExpand="true"/>
-
   <keyStore id="defaultKeyStore" password="Password"/>
   <keyStore id="defaulttrustore" password="Liberty" location="<FileContainingCertificated>.jks"/>
-
   <ssl id="defaultSSLSettings" keyStoreRef="defaultKeyStore" trustStoreRef="defaulttrustore"/>
   <sslDefault sslRef="defaultSSLSettings"/>
-
       <httpEndpoint id="defaultHttpEndpoint" httpPort="9080" host="*" httpsPort="9443" />
-
-
       <applicationManager autoExpand="true"/>
-
   </server>
   ```
   {: codeblock}
+
 
 
 </br>
@@ -659,12 +652,15 @@ You can configure {{site.data.keyword.appid_short_notm}} to work with your exist
 ## Adding {{site.data.keyword.appid_short_notm}} to an existing application that does not run on {{site.data.keyword.Bluemix_notm}}
 {: #existing}
 
-If you have a Node.js or Swift application that does not run on {{site.data.keyword.Bluemix_notm}}, you can configure the WebAppStrategy or the WebAppKituraCredentialsPlugin to work remotely. For a Liberty for Java app that doesn't run on Bluemix, configure the OIDC element variables.
+You can add {{site.data.keyword.appid_short_notm}} to applications that don't run on {{site.data.keyword.Bluemix_notm}}. You can see some examples in this topic, but these are not the only languages that you can use the service with.
 
+</br>
+
+**Node.js**
 
 In your Node.js app, replace `passport.use(new WebAppStrategy());` with the following code.
 
-  ```javaScript
+  ```
   passport.use(new WebAppStrategy({
     	  tenantId: "{tenant-id}",
    	    clientId: "{client-id}",
@@ -674,6 +670,30 @@ In your Node.js app, replace `passport.use(new WebAppStrategy());` with the foll
       }));
   ```
   {: codeblock}
+
+  <table>
+  <caption> Table. Command components for Node.js apps explained </caption>
+    <tr>
+      <th> Components </th>
+      <th> Description </th>
+    </tr>
+    <tr>
+      <td><code>tenant-id</code> </br> <code>clientID</code> </br> <code>secret</code> </br> <code>oauth-server-url</code> </br></td>
+      <td> You can find these values by clicking **View credentials** in the **service credentials** tab of your service dashboard. </td>
+    </tr>
+    <tr>
+      <td><code>app-url<code></td>
+      <td>Your application URL.</td>
+    </tr>
+    <tr>
+      <td><code>CALLBACK_URL</code></td>
+      <td> The URL for the page users see after they login. </td>
+    </tr>
+  </table>
+
+</br>
+
+**Swift**
 
 In your Swift app, replace `let webappKituraCredentialsPlugin = WebAppKituraCredentialsPlugin()` with the following code.
 
@@ -690,26 +710,31 @@ In your Swift app, replace `let webappKituraCredentialsPlugin = WebAppKituraCred
   {: codeblock}
 
   <table>
-  <caption> Table 6. Command components for Swift and Node.js apps explained </caption>
+  <caption>Table. Command components for Swift apps explained</caption>
     <tr>
       <th> Components </th>
       <th> Description </th>
     </tr>
     <tr>
-      <td> <i> tenantID </i> </br> <i> clientID </i> </br> <i> secret </i> </br> <i> oauth-server-url </i> </br> </td>
+      <td><code>tenant-id</code> </br> <code>clientID</code> </br> <code>secret</code> </br> <code>oauth-server-url</code> </br></td>
       <td> You can find these values by clicking **View credentials** in the **service credentials** tab of your service dashboard. </td>
     </tr>
     <tr>
-      <td> <i> app-url </i> </td>
-      <td> Your application URL. </td>
+      <td><code>app-url<code></td>
+      <td>Your application URL.</td>
     </tr>
     <tr>
-      <td> <i> CALLBACK_URL </i> </td>
+      <td><code>CALLBACK_URL</code></td>
       <td> The URL for the page users see after they login. </td>
     </tr>
   </table>
 
-In your Liberty for Java apps, complete the steps under [Adding {{site.data.keyword.appid_short_notm}} to an existing Liberty for Java app](/docs/services/appid/existing.html#existing-liberty), but replace the OIDC client element variables with the following code.
+
+</br>
+
+**Liberty for Java**
+
+In your Liberty for Java apps, complete the steps under [Setting up the Liberty for Java SDK](#lfj-setup), but replace the OIDC client element variables with the following code.
 
   ```
   clientId='App ID client_ID'
@@ -726,45 +751,45 @@ In your Liberty for Java apps, complete the steps under [Adding {{site.data.keyw
   {: codeblock}
 
   <table>
-  <caption> Table 7. OIDC element variables for Liberty for Java apps that do not run on Bluemix </caption>
+  <caption>Table. OIDC element variables for Liberty for Java apps</caption>
     <tr>
       <th> Component </th>
       <th> Description </th>
     </tr>
     <tr>
-    <td> <i> clientID </i> </br> <i> secret </i> </br> <i> oauth-server-url </i> </br> </td>
-    <td> You can find these values by clicking **View credentials** in the **service credentials** tab of your service dashboard. </td>
+    <td><code>clientID</code> </br> <code>secret</code> </br> <code>oauth-server-url</code> </br></td>
+    <td>You can find these values by clicking **View credentials** in the **service credentials** tab of your service dashboard.</td>
     </tr>
     <tr>
-      <td> <i> authorizationEndpointURL </i> </td>
-      <td> Add `/authorization` to the end of your oauthServerURL. </td>
+      <td><code>authorizationEndpointURL</code></td>
+      <td> Add `/authorization` to the end of your oauthServerURL.</td>
     </tr>
     <tr>
-      <td> <i> tokenEndpointUrl </i> </td>
-      <td> Add `/token` to the end of your oauthServerURL. </td>
+      <td><code>tokenEndpointUrl</code></td>
+      <td>Add `/token` to the end of your oauthServerURL.</td>
     </tr>
     <tr>
-      <td> <i> jwkEndpointUrl </i> </td>
-      <td> Add `/publickeys` to the end of your oauthServerURL. </td>
+      <td><code>jwkEndpointUrl</code></td>
+      <td>Add `/publickeys` to the end of your oauthServerURL.</td>
     </tr>
     <tr>
-      <td> <i> issuerIdentifier </i> </td>
-      <td> Changes based on your region. It can be one of the following: </br><ul><li> issuerIdentifier="appid-oauth.ng.bluemix.net" </br><li> issuerIdentifier="appid-oauth.eu-gb.bluemix.net" </br><li> issuerIdentifier="appid-oauth.au-syd.bluemix.net" </ul></td>
+      <td><code>issuerIdentifier</code></td>
+      <td>Changes based on your region. It can be one of the following: </br><ul><li>issuerIdentifier="appid-oauth.ng.bluemix.net" </br><li> issuerIdentifier="appid-oauth.eu-gb.bluemix.net" </br><li>issuerIdentifier="appid-oauth.au-syd.bluemix.net"</ul></td>
     </tr>
     <tr>
-      <td> <i> tokenEndpointAuthMethod </i> </td>
-      <td> Specified as "basic". </td>
+      <td><code>tokenEndpointAuthMethod</code></td>
+      <td>Specified as "basic".</td>
     </tr>
     <tr>
-      <td> <i> signatureAlgorithm </i> </td>
-      <td> Specified as "RS256". </td>
+      <td><code>signatureAlgorithm</code></td>
+      <td>Specified as "RS256".</td>
     </tr>
     <tr>
-      <td> <i> authFilterid </i> </td>
-      <td> The list of resources to protect. </td>
+      <td><code>authFilterid</code></td>
+      <td>The list of resources to protect.</td>
     </tr>
     <tr>
-      <td> <i> trustAliasName </i> </td>
-      <td> The name of your certificate within your truststore. </td>
+      <td><code>trustAliasName</code></td>
+      <td>The name of your certificate within your truststore.</td>
     </tr>
   </table>

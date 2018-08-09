@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-07-08"
+lastupdated: "2018-08-06"
 
 ---
 
@@ -192,6 +192,16 @@ The actions are customized and defined by the {{site.data.keyword.Bluemix_notm}}
     <td>Writer, Manager</td>
   </tr>
   <tr>
+    <td><code>appid-mgmt-get-saml-metadata</code></td>
+    <td>View cloud directory's SAML service provider (SP) metadata.</td>
+    <td>Reader, Writer, Manager</td>
+  </tr>
+  <tr>
+    <td><code>appid-mgmt-post-saml-logo</code></td>
+    <td>Set or update the image in the login widget for the SAML identity provider.</td>
+    <td>Writer, Manager</td>
+  </tr>
+  <tr>
     <td><code>appid-mgmt-send-email-cd</code></td>
     <td>Send an email to a user based on a template.</td>
     <td>Writer, Manager</td>
@@ -207,8 +217,8 @@ The actions are customized and defined by the {{site.data.keyword.Bluemix_notm}}
     <td>Writer, Manager</td>
   </tr>
   <tr>
-    <td>code>appid-mgmt-revoke-refresh-token</code></td>
-    <td>Revoke a user's refresh token by using their user ID.</td>
+    <td><code>appid-mgmt-revoke-refresh-token</code></td>
+    <td>Revoke a user's refresh token with their user ID.</td>
     <td>Writer, Manager</td>
   </tr>
 </table>

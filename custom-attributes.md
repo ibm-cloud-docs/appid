@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-01"
+lastupdated: "2018-08-03"
 
 ---
 
@@ -22,8 +22,7 @@ When you obtain an access token, it is possible to gain access to the user prote
 
 </br>
 
-
-## Accessing custom attributes with the iOS SDK
+## Accessing with the iOS SDK
 {: #ios}
 
  You can access custom attributes by passing an access token through the following API methods.
@@ -63,7 +62,7 @@ For example, you can call the following code to set a new attribute, or override
 </br>
 
 
-## Accessing custom attributes with the Android SDK
+## Accessing with the Android SDK
 {: #android}
 
 You can access custom attributes by passing an access token through the following API methods.
@@ -107,7 +106,7 @@ For more information about working in Android, check out the <a href="https://gi
 
 </br>
 
-## Accessing custom attributes with the Swift Server SDK
+## Accessing with the Swift Server SDK
 {: #swift}
 
 You can access custom attributes by passing an access token through the following API methods.
@@ -142,7 +141,7 @@ You can access custom attributes by passing an access token through the followin
 
 </br>
 
-## Accessing custom attributes with the Node.js Server SDK
+## Accessing with the Node.js Server SDK
 {: #node}
 
 You can access custom attributes by passing an access token through the following API methods.
@@ -155,7 +154,7 @@ You can access custom attributes by passing an access token through the followin
   ```
   {: pre}
 
-  Example Usage:
+  Example usage:
 
   ```javascript
 
@@ -172,3 +171,6 @@ You can access custom attributes by passing an access token through the followin
 
   For more information about working in Node.js Server Sdk, check out the <a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs" target="_blank">SDK <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
   {: tip}
+
+
+

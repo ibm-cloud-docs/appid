@@ -1,7 +1,7 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="appid" audience="service" href="/docs/services/appid/index.html"}
+{: .toc subcollection="appid" audience="service" arm="2093952" href="/docs/services/appid/index.html"}
 IBM Cloud App ID
 
     {: .navgroup id="learn"}
@@ -31,7 +31,6 @@ IBM Cloud App ID
         user-profile.md
         predefined.md
         custom-attributes.md
-        
     protecting-resources-local.md
     {: .navgroup-end}
 

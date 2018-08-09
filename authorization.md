@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-01"
+lastupdated: "2018-08-06"
 
 ---
 
@@ -51,6 +51,10 @@ These key terms can help you understand the way that the service breaks down the
       <tr>
         <td>Token</td>
         <td>{oauthServerUrl}/token</td>
+      </tr>
+      <tr>
+        <td>Userinfo</td>
+        <td>{oauthServerUrl}/userinfo</td>
       </tr>
       <tr>
         <td>JWKS</td>

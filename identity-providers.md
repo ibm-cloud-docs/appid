@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-21"
+lastupdated: "2018-08-06"
 
 ---
 
@@ -66,7 +66,7 @@ When you have your Facebook app ID and secret, and your Facebook for Developers 
 2. Enter the Facebook app ID and secret that you obtained from the Facebook for Developers website.
 3. Copy the URI that is in the **Redirect URI for Facebook for Developers** field. Paste the URI into the **Valid OAuth redirect URIs** field in the **Facebook Login** section of the Facebook Developers Portal.
 4. Click **Save**.
-5. Optional: For web apps, enter the redirect URL in the **Web Application Redirect URLs** field. This value is determined by the developer and used to access the redirect URL after the authorization process is completed. 
+5. Optional: For web apps, enter the redirect URL in the **Web Application Redirect URLs** field. This value is determined by the developer and used to access the redirect URL after the authorization process is completed. The URL must follow an `http` or `https` scheme. For a higher level of security, use an `https` scheme.
 
 
 ## Configuring Google
@@ -99,4 +99,4 @@ After you configure your Google project and have your client ID and secret, you 
     2. In the credentials tab of your Google project, select the client ID that you created for this integration.
     3. Paste the URL from {{site.data.keyword.appid_short}} into the **Authorized redirect URIs** field and click **Save**.
 4. Click **Save** to update your Google configuration in {{site.data.keyword.appid_short}}.
-5. For web apps, enter a redirect URL in the **Manage** tab. After the authorization process completes, a user is sent to this URL. 
+5. For web apps, enter a redirect URL in the **Manage** tab. After the authorization process completes, a user is sent to this URL. The URL must follow an `http` or `https` scheme. For a higher level of security, use an `https` scheme.

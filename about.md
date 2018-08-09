@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-07-26"
+lastupdated: "2018-08-08"
 
 ---
 
@@ -67,19 +67,21 @@ You can use {{site.data.keyword.appid_short_notm}} with other {{site.data.keywor
   <dt>Cloud Foundry</dt>
     <dd>Try out one of the provided sample Cloud Foundry apps to see how you can integrate {{site.data.keyword.appid_short_notm}} into your apps.</dd>
   <dt>iOS Programming Guide</dt>
-    <dd>Do you develop apps for Apple? Try out the <a href="https://console.bluemix.net/docs/swift/index.html#overview" target="_blank">iOS Programming Guide <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to learn, experiment, and enhance your existing iOS apps with {{site.data.keyword.Bluemix_notm}}.</dd>
+    <dd>Do you develop apps for Apple? Try out the <a href="https://console.bluemix.net/docs/swift/index.html#overview" target="_blank">iOS programming guide <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to learn, experiment, and enhance your existing iOS apps with {{site.data.keyword.Bluemix_notm}}.</dd>
   <dt>{{site.data.keyword.cloudaccesstrailshort}}</dt>
     <dd>You can monitor administrative activity that is made in {{site.data.keyword.appid_short_notm}} such as changes to the dashboard configuration, by using the [{{site.data.keyword.cloudaccesstrailshort}} service](/docs/services/cloud-activity-tracker/index.html).</dd>
+  <dt>Node.js programming guide</dt>
+    <dd>Do you develop apps in Node.js? Try out the <a href="https://console.bluemix.net/docs/node/index.html#getting-started-tutorial" target="_blank">Node.js programming guide <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to learn, experiment, and enhance your existing Node.js apps with {{site.data.keyword.Bluemix_notm}}.</dd>
 </dl>
 
 
 ## Architecture
 {: #architecture}
 
-With {{site.data.keyword.appid_short_notm}}, you can add a level of security to your apps by requiring users to sign in. You can also use the server SDK to protect your back-end resources.
+With {{site.data.keyword.appid_short_notm}}, you can add a level of security to your apps by requiring users to sign in. You can also use the server SDK or APIs to protect your back-end resources.
 {: shortdesc}
 
-![{{site.data.keyword.appid_short_notm}} architecture diagram](/images/appid_architecture.png)
+![{{site.data.keyword.appid_short_notm}} architecture diagram](/images/appid_architecture1.png)
 
 <dl>
   <dt>Application</dt>
@@ -96,24 +98,43 @@ With {{site.data.keyword.appid_short_notm}}, you can add a level of security to 
 ## Request flow
 {: #request}
 
-
-
-The following diagram describes how a request flows from the client SDK to your back-end resources and identity providers.
+While your request flow might vary depending on your application configuration, there are three main flows that you might encounter while working with App ID. You might create a mobile app flow, a web app flow, or protect your resources with a different flow. Check out some of the example flows to see if you might be able to start there when configuring your app.
 {: shortdesc}
 
-![{{site.data.keyword.appid_short_notm}} request flow](/images/appidrequestflow.png)
+### Web app request flow
+{: #web-flow}
 
-* The {{site.data.keyword.appid_short_notm}} client SDK makes a request to your back-end resources that are protected with the {{site.data.keyword.appid_short_notm}} server SDK.
-* The {{site.data.keyword.appid_short_notm}} server SDK detects an unauthorized request and returns an HTTP 401 and authorization scope.
-* The client SDK automatically detects the HTTP 401 and starts the authentication process.
-* When the client SDK contacts the service, the server SDK returns the login widget if more than one identity provider is configured. {{site.data.keyword.appid_short_notm}} calls the identity provider and presents the login form for that provider, or returns a grant code that allows them to authenticate if no identity providers are configured.
-* {{site.data.keyword.appid_short_notm}} asks the client app to authenticate by supplying an authentication challenge.
-* If an identity provider is configured when the user logs in, the authentication is handled by the respective OAuth flow.
-* If the authentication ends with the same grant code, the code is sent to the token endpoint. The endpoint returns two tokens: an access token and an identity token. From this point on, all requests that are made with the client SDK have a newly obtained authorization header.
-* The client SDK automatically resends the original request that triggered the authorization flow.
-* The server SDK extracts the authorization header from the request, validates the header with the service, and grants access to a back-end resource.
+![{{site.data.keyword.appid_short_notm}} request flow](/images/web_flow1.png)
 
-**Note**: The implemented protocols are fully compliant with OpenID Connect (OIDC).
+1. By using a browser, a user performs an action that triggers a request to the App ID SDK.
+2. If the user is unauthorized, a redirect to App ID is started.
+3. App ID launches the login widget and sends it to the browser.
+4. The user chooses an identity provider to authenticate with and completes the sign in process.
+5. The identity provider redirects back to the App ID SDK with an identity token.
+6. The App ID SDK gets access tokens from the App ID service.
+7. The tokens are saved by the App ID SDK and a redirect occurs.
+8. The user is granted access to the application.
 
+### Mobile request flow
+{: #mobile-flow}
 
+![{{site.data.keyword.appid_short_notm}} request flow](/images/mobile_flow.png)
 
+1. A user performs an action the triggers a request by the client application to the App ID SDK.
+2. If the user does not have valid access tokens, the App ID SDK starts the authorization process.
+3. The login widget is displayed to the user.
+4. By using one of the configured identity providers, the user authenticates.
+5. Once the user has an identity token, then the SDK gets an access token from the App ID service.
+6. With both tokens, the SDK performs the request again.
+7. If the tokens are valid, the user is granted access to the application.
+
+### Protected resource request flow
+{: #pr-flow}
+
+![{{site.data.keyword.appid_short_notm}} request flow](/images/pr_flow.png)
+
+1. Before a request to the resource can be made, a client application must have a set of public keys.
+2. With the public keys, a request is made by a client application.
+3. If there is not a valid access token, the application receives an error.
+4. After obtaining a valid token, the client app can make the request again. But this time, include the token.
+5. When the application can validate the permissions that are granted by the access token, then the application is granted access to the protected resource.
