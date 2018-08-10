@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-01"
+lastupdated: "2018-08-10"
 
 ---
 
@@ -53,7 +53,7 @@ Check out the following table for answers to commonly asked questions about encr
   <tbody>
     <tr>
       <td>Why do you use encryption?</td>
-      <td>The service encrypts customer data at rest.</td>
+      <td>The service encrypts customer data at rest with per-tenant keys. This is one way of protecting our users information.</td>
     </tr>
     <tr>
       <td>Did you build your own algorithms? Which ones do you use in your code?</td>
@@ -65,7 +65,7 @@ Check out the following table for answers to commonly asked questions about encr
     </tr>
     <tr>
       <td>How do you store keys?</td>
-      <td>Keys are generated and then stored locally after being encrypted by using a master key that is specific to each region. The master keys are stored in {{site.data.keyword.keymanagementserviceshort}}.</td>
+      <td>Keys are generated and then stored locally after being encrypted by using a master key that is specific to each region. The master keys are stored in {{site.data.keyword.keymanagementserviceshort}}. Storage and middleware levels have service level encryption which means that there is one key for all customers. The application level and customer by customer encryption which means that each customer has their own encryption key.</td>
     </tr>
     <tr>
       <td>What is the key strength that you use?</td>
