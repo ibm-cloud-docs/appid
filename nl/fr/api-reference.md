@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-07-15"
 
 ---
 
@@ -19,11 +19,11 @@ lastupdated: "2018-4-24"
 Vous pouvez utiliser l'API de gestion pour l'automatisation DevOps, la personnalisation et la gestion de vos instances d'{{site.data.keyword.appid_full}}.
 {: shortdesc}
 
-L'API de gestion est sécurisée via des jetons générés par IBM Cloud Identity et Access Management. Cela signifie que les propriétaires de compte peuvent spécifier quels membres de leur équipe dispose de tel ou tel niveau d'accès pour chaque instance de service. Pour plus d'informations sur la façon dont IAM et {{site.data.keyword.appid_short_notm}} fonctionnent ensemble, voir [Gestion des accès de service](/docs/services/appid/iam.html).
+L'API de gestion est sécurisée avec des jetons générés par {{site.data.keyword.cloudaccesstraillong}}. Avec IAM, les propriétaires de compte peuvent spécifier le niveau d'accès de chaque membre de leur équipe pour chaque instance de service. Pour plus d'informations sur la façon dont IAM et {{site.data.keyword.appid_short_notm}} fonctionnent ensemble, voir [Gestion des accès de service](/docs/services/appid/iam.html).
 
 Avec l'API, vous pouvez :
-* automatiser la configuration d'{{site.data.keyword.appid_short_notm}} dans votre application et votre processus DevOps
-* définir et personnaliser des fonctions via votre système de back end d'application, comme la configuration du widget de connexion, le processus de connexion ou la gestion des utilisateurs.
+* Automatiser la configuration d'{{site.data.keyword.appid_short_notm}} dans votre application dans votre processus DevOps. 
+* Définir et personnaliser des fonctions via votre systèmes de back end d'application, comme la configuration de votre widget de connexion, le processus d'inscription et la gestion des utilisateurs. 
 
 
 Les appels du noeud final d'API possèdent la structure suivante :
@@ -63,13 +63,13 @@ Pour déterminer la région, consultez le tableau ci-après.
 ## Conditions requises
 {: #api-prereq}
 
-<ul><ul><li>Une instance de service a été créé après le 15 mars 2018. Si votre instance de service a été créée avant cette date, créez-en une nouvelle et configurez-la pour qu'elle corresponde à votre instance en cours. Veillez à mettre à jour vos applications pour qu'elles utilisent la nouvelle instance.</li>
-<li>Interface de ligne de commande [CLI {{site.data.keyword.Bluemix_notm}}](/docs/cli/reference/bluemix_cli/get_started.html) installée.</li></ul></ul>
+<ul><ul><li>Une instance de service créée après le 15 mars 2018. Si vous disposez d'une instance de service qui a été créée avant cette date, créez une nouvelle instance et configurez-la comme votre instance en cours. Veillez à mettre à jour vos applications pour qu'elles utilisent la nouvelle instance.</li>
+<li>L'[interface de ligne de commande d'{{site.data.keyword.Bluemix_notm}}](/docs/cli/index.html) est installée. </li></ul></ul>
 
-## Exemple de syntaxe
+## Exemple d'utilisation 
 {: #api-example}
 
-Dans l'exemple suivant, vous pouvez voir comment utiliser l'API pour changer le logo du titulaire {{site.data.keyword.appid_short_notm}} avec Python.
+L'exemple suivant montre comment utiliser l'API pour changer le logo du titulaire {{site.data.keyword.appid_short_notm}} avec Python.
 
 ```
 import requests

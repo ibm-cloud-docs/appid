@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-08-01"
 
 ---
 
@@ -27,7 +27,10 @@ Der Plan mit gestaffelten Preisstufen besteht aus zwei Teilen: der Anzahl von Au
 
 ### Authentifizierungsereignisse
 
-Ein Authentifizierungsereignis findet statt, wenn ein neues {{site.data.keyword.appid_short_notm}}-Token ausgegeben wird. Für identifizierte Benutzer ist jedes neue Token eine Stunde lang gültig. Anonyme Tokens sind einen Monat lang gültig. Nach dem Ablaufen des Tokens müssen Sie ein neues Token erstellen, um auf geschützte Ressourcen zuzugreifen. Wenn Sie {{site.data.keyword.appid_short_notm}} für die mobile Authentifizierung verwenden, werden Benutzertokens in `key-store/key-chain` gespeichert und zu jeder zukünftigen Anforderung hinzugefügt. Auf die Tokens kann über das Android- oder iOS-Swift-SDK von {{site.data.keyword.appid_short_notm}} zugegriffen werden. Wenn Sie den Service für die Webauthentifizierung nutzen, <a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs" target="_blank">speichern Sie das Benutzertoken <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a> in den Sitzungscookies.
+Ein Authentifizierungsereignis findet statt, wenn ein neues reguläres oder anonymes Zugriffstoken ausgegeben wird. Für identifizierte Benutzer ist jedes neue Zugriffstoken standardmäßig für eine Stunde gültig, unabhängig davon, ob es über eine tatsächliche Benutzerauthentifizierung oder über Aktualisierungstoken generiert wurde. Anonyme Token sind standardmäßig einen Monat gültig. Nach dem Ablaufen des Tokens müssen Sie ein neues Token erstellen, um auf geschützte Ressourcen zuzugreifen. Sie können die Ablaufzeit der {{site.data.keyword.appid_short_notm}}-Token auf der Seite für die Ablaufzeit bei der Anmeldung**** im {{site.data.keyword.appid_short_notm}}-Dashboard aktualisieren. 
+
+Wenn Sie {{site.data.keyword.appid_short_notm}} in mobilen Anwendungen verwenden, werden Token im Keystore oder in einer Schlüsselkette (Keychain) gespeichert und späteren Anforderungen hinzugefügt. Auf die Token kann über das Android- oder iOS-Swift-SDK für APP ID zugegriffen werden. Wenn Sie {{site.data.keyword.appid_short_notm}} in Webanwendungen verwenden, empfiehlt es sich, die Token in Cookies für die Anwendungssitzung zu speichern. 
+
 
 ### Berechtigte Benutzer
 
@@ -37,53 +40,50 @@ Weitere Informationen zu gestaffelten Preisstufen finden Sie in der [{{site.data
 
 </br>
 
-## Welcher Aktivitätstyp wird von {{site.data.keyword.appid_short_notm}} überwacht?
-{: #activity-monitor}
 
-Sie können Aktivitäten verfolgen, die in der App generiert werden, die an die Serviceinstanz gebunden ist. Darüber hinaus können Sie administrative Aktivitäten, die in {{site.data.keyword.appid_short_notm}} stattfinden, mithilfe des {{site.data.keyword.cloudaccesstrailshort}}-Service überwachen.
+## Wie funktioniert die Verschlüsselung in {{site.data.keyword.appid_short_notm}}?
+{: #encryption}
 
-Gehen Sie wie folgt vor, um die Aktivität anzuzeigen, die von Ihrer App generiert wurde. 
+In der folgenden Tabelle finden Sie Antworten auf häufige Fragen zur Verschlüsselung. 
 
-1. Melden Sie sich bei Ihrem {{site.data.keyword.Bluemix_notm}}-Konto an. 
-2. Wählen Sie im Dashboard Ihre Instanz von {{site.data.keyword.appid_short_notm}} aus.
-3. Klicken Sie auf die Registerkarte **Übersicht**.
-4. Zeigen Sie die Aktivität an, die im **Aktivitätenprotokoll** aufgelistet ist.
-
-</br>
-Überwachen administrativer Aktivitäten:
-
-1. Melden Sie sich bei Ihrem {{site.data.keyword.Bluemix_notm}}-Konto an. Navigieren Sie zu der Organisation und dem Bereich, in der bzw. dem Ihre {{site.data.keyword.appid_short_notm}}-Instanz bereitgestellt wird.
-2. Stellen Sie über den Katalog eine Instanz des {{site.data.keyword.cloudaccesstrailshort}}-Service bereit. Stellen Sie sicher, dass Sie sich im selben Bereich befinden wie Ihre {{site.data.keyword.appid_short_notm}}-Instanz.
-3. Klicken Sie im {{site.data.keyword.cloudaccesstrailshort}}-Dashboard auf die Registerkarte **Verwalten**. 
-4. Wählen Sie in der Dropdown-Liste die folgenden Konfigurationen aus, um nach Ereignissen zu suchen, die von {{site.data.keyword.appid_short_notm}} generiert wurden.
 <table>
-  <tr>
-    <th> Feld </th>
-    <th> Konfiguration </th>
-  </tr>
-  <tr>
-    <td>Protokolle anzeigen</td>
-    <td>Bereichsprotokolle</td>
-  </tr>
-  <tr>
-    <td>Suchen</td>
-    <td>Ziel.Name (target.name)</td>
-  </tr>
-  <tr>
-    <td>Filtern</td>
-    <td>appid</td>
-  </tr>
+  <thead>
+    <th colspan=2><img src="images/idea.png" alt="Symbol für weitere Informationen"/>  </th>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Wozu dient die Verschlüsselung?</td>
+      <td>Vom Service werden gespeicherte Kundendaten verschlüsselt. </td>
+    </tr>
+    <tr>
+      <td>Haben Sie einen eigenen Algorithmus erstellt? Welcher Algorithmus wird im Code verwendet?</td>
+      <td>Wir haben keinen eigenen Algorithmus erstellt. Der Service verwendet <code>AES</code> und <code>SHA-256</code> mit Salting. </td>
+    </tr>
+    <tr>
+      <td>Werden öffentliche oder Open-Source-Verschlüsselungsmodule oder -provider verwendet? Werden die Verschlüsselungsfunktionen offengelegt? </td>
+      <td>Vom Service werden die Java-Bibliotheken <code>javax.crypto</code> verwendet. Die Verschlüsselungsfunktionen werden jedoch niemals offengelegt. </td>
+    </tr>
+    <tr>
+      <td>Wie werden Schlüssel gespeichert?</td>
+      <td>Schlüssel werden nach dem Generieren lokal gespeichert, nachdem sie mit einem regionsspezifischen Hauptschlüssel verschlüsselt wurden. Die Hauptschlüssel werden in {{site.data.keyword.keymanagementserviceshort}} gespeichert. </td>
+    </tr>
+    <tr>
+      <td>Welche Schlüssellänge wird verwendet? </td>
+      <td>Der Service verwendet 16 Byte. </td>
+    </tr>
+    <tr>
+      <td>Werden ferne APIs aufgerufen, die Verschlüsselungsfunktionalität offenlegen? </td>
+      <td>Nein. </td>
+    </tr>
+  </tbody>
 </table>
-5. Klicken Sie auf **Filtern**.
-
-Weitere Informationen zur Funktionsweise des Service finden Sie in der [{{site.data.keyword.cloudaccesstrailshort}}-Dokumentation](/docs/services/cloud-activity-tracker/index.html). 
 
 </br>
 
-## Welches Aussehen einer SAML-Zusicherung erwartet {{site.data.keyword.appid_short_notm}}?
+## Wie muss die SAML-Zusicherung für {{site.data.keyword.appid_short_notm}} gestaltet sein?
 {: #saml-example}
 
-Der Service erwartet, dass die SAML-Zusicherung wie im folgenden Beispiel aussieht. 
+Der Service erwartet, dass eine SAML-Zusicherung dem folgenden Beispiel entspricht. 
 
 ```
 <samlp:Response xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol" ID="s2202bbbbafa9d270d1c15990b738f4ab36139d463" InResponseTo="_e4a78780-35da-012e-8ea7-0050569200d8" Version="2.0" IssueInstant="2011-03-21T11:22:02Z" Destination="https://example.example.com/">
@@ -119,15 +119,15 @@ Der Service erwartet, dass die SAML-Zusicherung wie im folgenden Beispiel aussie
 
 </br>
 
-## Welche Algorithmen werden für SAML-Signaturen unterstützt? 
+## Welche Algorithmen werden für SAML-Signaturen unterstützt?
 {: #saml-signatures}
 
-Sie können einen beliebigen der folgenden Algorithmen verwenden, um digitale XML-Signaturen zu verarbeiten. 
+Sie können einen beliebigen der folgenden Algorithmen verwenden, um digitale XML-Signaturen zu verarbeiten.
 
 <table>
   <tr>
-    <th> Typ des Algorithmus</th>
-    <th> Algorithmusoptionen</th>
+    <th> Typ des Algorithmus </th>
+    <th> Algorithmusoptionen </th>
   </tr>
   <tr>
     <td>Kanonisierungs- und Transformationsalgorithmen mit Kommentaren und ohne Kommentare</td>

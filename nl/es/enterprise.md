@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-07-24"
 
 ---
 
@@ -40,13 +40,16 @@ Se pueden añadir las siguientes reclamaciones:
 * `entorno local`
 * `imagen`
 
-Los elementos de atributos SAML restantes que no se correspondan con ninguno de los nombres estándares se omitirán.
+Los elementos de atributos SAML restantes que no se correspondan con ninguno de los nombres estándares se omitirán. Tenga en cuenta que, si uno o varios de estos valores cambian en el lado del proveedor, los nuevos valores estarán disponibles solo después de que el usuario inicie sesión de nuevo.
 
 ## Configuración de la app para trabajar con un proveedor de identidad SAML externo
 {: #configuring-saml}
 
 Puede configurar el servicio de {{site.data.keyword.appid_short_notm}} para que utilice un proveedor de identidad SAML (Security Assertion Markup Language).
 {: shortdesc}
+
+Para ver los pasos sobre cómo utilizar un proveedor de identidad SAML específico, consulte estas publicaciones de blog sobre la configuración de {{site.data.keyword.appid_short_notm}} con [Ping One ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo")](https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-ping-one/), [Azure Active Directory ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo")](https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-azure-active-directory/) o [Active Directory Federation Service ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo")](https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-active-directory-federation-service/).
+{: tip}
 
 ### Suministro de metadatos a su proveedor de identidad
 

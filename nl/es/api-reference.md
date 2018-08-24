@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-07-15"
 
 ---
 
@@ -19,11 +19,11 @@ lastupdated: "2018-4-24"
 Puede utilizar la API de gestión para la automatización, la personalización y la gestión de DevOps de sus instancias de {{site.data.keyword.appid_full}}.
 {: shortdesc}
 
-La API de gestión está protegida con las señales generadas de IBM Cloud Identity and Access Management. Esto significa que los propietarios de las cuentas pueden especificar qué persona de su equipo tiene qué nivel de acceso para cada instancia de servicio. Para obtener más información sobre cómo funcionan juntos IAM y {{site.data.keyword.appid_short_notm}}, consulte [Gestión de acceso de servicio](/docs/services/appid/iam.html).
+La API de gestión está protegida con las señales generadas de {{site.data.keyword.cloudaccesstraillong}}. Con IAM, los propietarios de las cuentas pueden especificar qué persona de su equipo tiene qué nivel de acceso para cada instancia de servicio. Para obtener más información sobre cómo funcionan juntos IAM y {{site.data.keyword.appid_short_notm}}, consulte [Gestión de acceso de servicio](/docs/services/appid/iam.html).
 
 Con la API, puede:
-* automatizar la configuración de {{site.data.keyword.appid_short_notm}} en su app del proceso de DevOps.
-* establecer y personalizar las funciones a través de la app de fondo, como la configuración del widget de inicio de sesión, el proceso de registro y la gestión de usuarios.
+* Automatizar la configuración de {{site.data.keyword.appid_short_notm}} en su app del proceso de DevOps.
+* Establecer y personalizar las funciones a través de la app de fondo, como la configuración del widget de inicio de sesión, el proceso de registro y la gestión de usuarios.
 
 
 Las llamadas al punto final de la api de gestión toman la siguiente estructura:
@@ -63,8 +63,8 @@ Puede encontrar la región consultando en la tabla siguiente.
 ## Requisitos previos
 {: #api-prereq}
 
-<ul><ul><li>Una instancia de servicio que se ha creado después del 15 de marzo de 2018. Si tiene una instancia del servicio creada antes de esa fecha, cree una instancia nueva y configúrela para que coincida con la instancia actual. Asegúrese de actualizar sus apps para utilizar la instancia nueva.</li>
-<li>La [CLI de {{site.data.keyword.Bluemix_notm}}](/docs/cli/reference/bluemix_cli/get_started.html) se ha instalado.</li></ul></ul>
+<ul><ul><li>Una instancia de servicio que se haya creado después del 15 de marzo de 2018. Si tiene una instancia del servicio que se ha creado antes de esa fecha, cree una instancia nueva y configúrela para que coincida con la instancia actual. Asegúrese de actualizar sus apps para utilizar la instancia nueva.</li>
+<li>La [CLI de {{site.data.keyword.Bluemix_notm}}](/docs/cli/index.html) instalada.</li></ul></ul>
 
 ## Uso de ejemplo
 {: #api-example}

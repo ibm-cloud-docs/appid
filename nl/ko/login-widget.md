@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-08-09"
 
 ---
 
@@ -10,21 +10,23 @@ lastupdated: "2018-4-24"
 {:screen: .screen}
 {:tip: .tip}
 {:pre: .pre}
-{:new_window: target="_blank"}
+{:new_window: target="blank"}
 {:shortdesc: .shortdesc}
 
 
-# 사인인 환경 관리
+# 기본 화면 표시
+{: #default}
 
 {{site.data.keyword.appid_full}}는 사용자에게 안전한 사인인 옵션을 제공할 수 있도록 하는 로그인 위젯을 제공합니다.
 {: shortdesc}
 
-ID 제공자를 사용하도록 앱이 구성된 경우, 앱 방문자는 로그인 위젯에 의해 사인인 화면으로 경로 지정됩니다. 기본적으로, 하나의 제공자만 설정된 경우에는 방문자가 해당 ID 제공자 인증 화면으로 경로 재지정됩니다. 로그인 위젯으로 기본 사인인 화면을 표시하거나, 클라우드 디렉토리로 기존 UI의 화면을 재사용할 수 있습니다. 
+ID 제공자를 사용하도록 앱이 구성된 경우, 앱 방문자는 로그인 위젯에 의해 사인인 화면으로 경로 지정됩니다. 기본적으로, 하나의 제공자만 **설정**으로 지정된 경우에는 방문자가 해당 ID 제공자 인증 화면으로 경로 재지정됩니다. 로그인 위젯으로 기본 사인인 화면을 표시하거나, 클라우드 디렉토리로 기존 UI의 화면을 재사용할 수 있습니다. 이와 더불어 어떤 방식으로든 소스 코드를 변경하지 않고도 언제든지 사인인 플로우를 업데이트할 수 있습니다!
 
-어떤 방식으로든 소스 코드를 변경하지 않고도 언제든지 사인인 플로우를 업데이트할 수 있습니다!
+
+서비스는 OAuth 2 권한 부여 유형을 사용하여 권한 부여 프로세스를 맵핑합니다. Facebook 등의 소셜 ID 제공자를 구성할 때는 [Oauth2 Authorization Grant flow](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html)를 사용하여 로그인 위젯을 호출합니다.
+
+앱에 고유한 환경을 작성하고 싶으십니까? [사용자 고유의 화면을 가져올](/docs/services/appid/branded.html) 수 있습니다!
 {: tip}
-
-서비스는 OAuth 2 권한 부여 유형을 사용하여 권한 부여 프로세스를 맵핑합니다. Facebook 등의 소셜 ID 제공자를 구성할 때는 [Oauth2 Authorization Grant flow](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html)를 사용하여 로그인 위젯을 호출합니다. 자체 UI 화면을 표시할 때는 [Resource Owner Password Credentials flow](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/password.html)를 사용하여 로그인하고 액세스 및 ID 토큰을 가져옵니다. 
 
 
 ## 기본 사인인 화면의 사용자 정의
@@ -36,22 +38,22 @@ ID 제공자를 사용하도록 앱이 구성된 경우, 앱 방문자는 로그
 화면을 사용자 정의하려면 다음을 수행하십시오.
 
 1. {{site.data.keyword.appid_short_notm}} 서비스 대시보드를 여십시오.
-2. **로그인 사용자 정의** 섹션을 선택하십시오. 회사의 브랜드에 맞추어 로그인 위젯의 모양을 수정할 수 있습니다. 
+2. **로그인 사용자 정의** 섹션을 선택하십시오. 회사의 브랜드에 맞추어 로그인 위젯의 모양을 수정할 수 있습니다.
 3. 로컬 시스템에서 PNG 또는 JPG 파일을 선택하여 회사의 로고를 업로드하십시오. 권장하는 이미지 크기는 320 x 320픽셀입니다. 최대 파일 크기는 100KB입니다.
 4. 색상 선택도구에서 위젯에 대한 헤더 색상을 선택하거나 다른 색상의 16진 코드를 입력하십시오.
 5. 미리보기 분할창을 확인하고 사용자 정의 내용에 만족하면 **변경사항 저장**을 클릭하십시오. 확인 메시지가 표시됩니다.
-6. 브라우저에서 로그인 페이지를 새로 고쳐서 변경사항을 확인하십시오. 
+6. 브라우저에서 로그인 페이지를 새로 고쳐서 변경사항을 확인하십시오.
 
 
-## 기본 화면 표시
-{: #default}
+## 표시할 화면 계획
+{: #plan}
 
 {{site.data.keyword.appid_short_notm}}는 표시할 자체 UI 화면이 없을 때 호출할 수 있는 기본 로그인 화면을 제공합니다.
 {: shortdesc}
 
-ID 제공자 구성에 따라 표시 가능한 화면은 서로 다릅니다. 사용자 계정 정보에 대한 액세스 권한이 없으므로, 서비스는 소셜 ID 제공자에 대한 고급 기능을 제공하지 않습니다. 사용자는 ID 제공자로 이동하여 자체 정보를 관리해야 합니다. 예를 들어, 자체 Facebook 비밀번호를 변경하려는 경우에 사용자는 www.facebook.com으로 이동해야 합니다. 
+ID 제공자 구성에 따라 표시 가능한 화면은 서로 다릅니다. 사용자 계정 정보에 대한 액세스 권한이 없으므로, 서비스는 소셜 ID 제공자에 대한 고급 기능을 제공하지 않습니다. 사용자는 ID 제공자로 이동하여 자체 정보를 관리해야 합니다. 예를 들어, 자체 Facebook 비밀번호를 변경하려는 경우에 사용자는 www.facebook.com으로 이동해야 합니다.
 
-각 유형의 ID 제공자에 대해 표시할 수 있는 화면을 보려면 다음의 표를 체크아웃하십시오. 
+각 유형의 ID 제공자에 대해 표시할 수 있는 화면을 보려면 다음의 표를 체크아웃하십시오.
 
 <table>
   <thead>
@@ -96,21 +98,16 @@ ID 제공자 구성에 따라 표시 가능한 화면은 서로 다릅니다. �
   </tbody>
 </table>
 
-[소셜 ID 제공자](/docs/services/appid/identity-providers.html) 및 [클라우드 디렉토리](/docs/services/appid/cloud-directory.html)에 대한 설정을 구성한 후에는 다음 이미지에서 원하는 언어를 클릭하여 코드 구현을 시작하십시오. 
+[소셜 ID 제공자](/docs/services/appid/identity-providers.html) 및 [클라우드 디렉토리](/docs/services/appid/cloud-directory.html)에 대한 설정을 구성한 후에는 다음 이미지에서 원하는 언어를 클릭하여 코드 구현을 시작하십시오.
 
 
-다음 이미지에서 원하는 언어를 클릭하여 코드 구현을 시작하십시오. 
+제공된 SDK 또는 API 중 하나를 사용하려면 이미지를 클릭하십시오. 잊지 마십시오. 다른 언어로도 App ID를 활용할 수 있습니다. API를 사용하여 앱에서 클라우드 디렉토리를 설정할 수 있습니다. 이미지에 나열되지 않은 언어에 대한 도움을 받으려면
+<a href="https://www.ibm.com/blogs/bluemix/tag/app-id/" target="_blank">IBM Cloud 블로그 <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>를 확인하십시오.
+{: shortdesc}
 
-<img usemap="#default-options-map" border="0" class="image" id="options" src="images/default-options.png" width="750" alt="앱에서 클라우드 디렉토리를 시작하려면 SDK 언어 아이콘을 클릭하십시오. " style="width:750px;" />
-<map name="default-options-map" id="default-options-map">
-<area href="login-widget.html#android" alt="Android SDK로 사인인 환경 관리" shape="rect" coords="113, 8, 224, 123" />
-<area href="login-widget.html#ios-swift" alt="iOS Swift SDK로 사인인 환경 관리" shape="rect" coords="251, 12, 362, 127" />
-<area href="login-widget.html#nodejs" alt="Node.js SDK로 사인인 환경 관리" shape="rect" coords="387, 10, 498, 125" />
-<area href="login-widget.html#swift" alt="Swift SDK로 사인인 환경 관리" shape="rect" coords="525, 10, 636, 125" />
-</map>
 </br>
 
-### Android SDK로 기본 화면 표시
+## Android SDK로 기본 화면 표시
 {: #android}
 
 Android SDK로 사전 구성된 화면을 호출할 수 있습니다.
@@ -126,14 +123,14 @@ Android SDK로 사전 구성된 화면을 호출할 수 있습니다.
           @Override
           public void onAuthorizationFailure (AuthorizationException exception) {
             //Exception occurred
-          }
+     }
 
           @Override
           public void onAuthorizationCanceled () {
             //Authentication canceled by the user
           }
 
-          @Override
+@Override
           public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, refreshToken: RefreshToken) {
             //User authenticated
           }
@@ -145,7 +142,7 @@ Android SDK로 사전 구성된 화면을 호출할 수 있습니다.
 **등록**
 
 1. 클라우드 디렉토리 설정에서 **사용자가 등록하고 비밀번호를 재설정할 수 있도록 허용**을 **설정**으로 지정하십시오.
-2. LoginWidget을 호출하여 등록 플로우를 시작하십시오. 
+2. LoginWidget을 호출하여 등록 플로우를 시작하십시오.
   ```java
   LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
   loginWidget.launchSignUp(this, new AuthorizationListener() {
@@ -177,11 +174,11 @@ Android SDK로 사전 구성된 화면을 호출할 수 있습니다.
     LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
     loginWidget.launchForgotPassword(this, new AuthorizationListener() {
    			 @Override
-   			 public void onAuthorizationFailure (AuthorizationException exception) {
+		public void onAuthorizationFailure(AuthorizationException exception) {
    			 }
 
    			 @Override
-   			 public void onAuthorizationCanceled () {
+		public void onAuthorizationCanceled() {
    			 }
 
    			 @Override
@@ -239,7 +236,7 @@ Android SDK로 사전 구성된 화면을 호출할 수 있습니다.
 </br>
 </br>
 
-### iOS Swift SDK로 기본 화면 표시
+## iOS Swift SDK로 기본 화면 표시
 {: #ios-swift}
 
 iOS Swift SDK로 사전 구성된 화면을 호출할 수 있습니다.
@@ -274,7 +271,7 @@ iOS Swift SDK로 사전 구성된 화면을 호출할 수 있습니다.
 **등록**
 
 1. 클라우드 디렉토리 설정에서 **사용자가 등록하고 비밀번호를 재설정할 수 있도록 허용**을 **설정**으로 지정하십시오.
-2. LoginWidget을 호출하여 등록 플로우를 시작하십시오. 
+2. LoginWidget을 호출하여 등록 플로우를 시작하십시오.
   ```swift
   class delegate : AuthorizationDelegate {
     public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, refreshToken: RefreshToken?) {
@@ -367,7 +364,7 @@ iOS Swift SDK로 사전 구성된 화면을 호출할 수 있습니다.
 </br>
 </br>
 
-### Node.js SDK로 기본 화면 표시
+## Node.js SDK로 기본 화면 표시
 {: #nodejs}
 
 Node.js SDK로 사전 구성된 화면을 호출할 수 있습니다.
@@ -391,7 +388,7 @@ Node.js SDK로 사전 구성된 화면을 호출할 수 있습니다.
 </br>
 **등록**
 
-1. 클라우드 디렉토리 설정에서 **사용자가 등록하고 비밀번호를 재설정할 수 있도록 허용**을 **설정**으로 지정하십시오. '아니오'로 설정되면 액세스 및 ID 토큰을 검색하지 않고 프로세스가 종료됩니다. 
+1. 클라우드 디렉토리 설정에서 **사용자가 등록하고 비밀번호를 재설정할 수 있도록 허용**을 **설정**으로 지정하십시오. '아니오'로 설정되면 액세스 및 ID 토큰을 검색하지 않고 프로세스가 종료됩니다.
 2. WebAppStrategy `show` 특성을 전달하고 `WebAppStrategy.SIGN_UP`으로 설정하십시오.
   ```javascript
   app.get("/sign_up", passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
@@ -404,7 +401,7 @@ Node.js SDK로 사전 구성된 화면을 호출할 수 있습니다.
 </br>
 **비밀번호 찾기**
 
-1. 클라우드 디렉토리 설정에서 **사용자가 등록하고 비밀번호를 재설정할 수 있도록 허용** 및 **비밀번호 이메일 찾기**를 **설정**으로 지정하십시오. '아니오'로 설정되면 액세스 및 ID 토큰을 검색하지 않고 프로세스가 종료됩니다. 
+1. 클라우드 디렉토리 설정에서 **사용자가 등록하고 비밀번호를 재설정할 수 있도록 허용** 및 **비밀번호 이메일 찾기**를 **설정**으로 지정하십시오. '아니오'로 설정되면 액세스 및 ID 토큰을 검색하지 않고 프로세스가 종료됩니다.
 2. WebAppStrategy `show` 특성을 전달하고 `WebAppStrategy.FORGOT_PASSWORD`로 설정하십시오.
   ```javascript
   app.get("/forgot_password", passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
@@ -440,7 +437,8 @@ Node.js SDK로 사전 구성된 화면을 호출할 수 있습니다.
 
 </br>
 </br>
-### Swift SDK로 기본 UI 표시
+
+## Swift SDK로 기본 화면 표시
 {: #swift}
 
 소셜 ID 제공자가 사용되는 경우에는 Swift SDK로 사전 구성된 사인인 화면을 호출할 수 있습니다.
@@ -532,184 +530,4 @@ Node.js SDK로 사전 구성된 화면을 호출할 수 있습니다.
 </br>
 
 
-### Android SDK로 사용자 정의된 화면 표시
-{: #branded-ui-android}
 
-클라우드 디렉토리를 사용하면 Android SDK로 사용자 정의된 화면을 호출할 수 있습니다. 사용자가 상호작용할 수 있도록 할 화면을 조합해서 선택할 수 있습니다. 세부 예제는 <a href="https://www.ibm.com/blogs/bluemix/2018/01/use-branded-ui-user-sign-app-id/" target="blank">이 블로그를 체크아웃 <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>하십시오!
-{: shortdesc}
-
-</br>
-**사인인**
-
-1. ID 제공자로서 **클라우드 디렉토리**를 **설정**으로 지정하십시오.
-2. 코드에 다음 명령을 두십시오.
-  ```java
-  AppID.getInstance().signinWithResourceOwnerPassword(getApplicationContext(), username, password,
-         new TokenResponseListener() {
-         @Override
-          public void onAuthorizationFailure (AuthorizationException exception) {
-             //Exception occurred
-          }
-
-          @Override
-          public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken) {
-            //User authenticated
-          }
-         });
-  ```
-  {: pre}
-
-</br>
-</br>
-
-### iOS Swift SDK로 사용자 정의된 화면 표시
-{: #branded-ui-ios-swift}
-
-클라우드 디렉토리가 사용되는 경우에는 iOS Swift SDK로 사용자 정의된 화면을 호출할 수 있습니다.
-{: shortdesc}
-
-</br>
-**사인인**
-
-1. GUI의 ID 제공자 탭에서 클라우드 디렉토리를 **설정**으로 지정하십시오.
-2. 리소스 소유자 비밀번호를 사용하여 로그인하십시오. 액세스 및 ID 토큰은 사용자가 자신의 사용자 이름과 비밀번호를 사용하여 로그인을 시도할 때 가져옵니다. 
-  ```swift
-  class delegate : TokenResponseDelegate {
-      public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, response:Response?) {
-      //User authenticated
-      }
-
-      public func onAuthorizationFailure(error: AuthorizationError) {
-      //Exception occurred
-      }
-  }
-
-  AppID.sharedInstance.signinWithResourceOwnerPassword(username: username, password: password, delegate: delegate())
-  ```
-  {: pre}
-</br>
-</br>
-
-### Node.js SDK로 사용자 정의된 화면 표시
-{: #branded-ui-nodejs}
-
-클라우드 디렉토리를 사용하면 Node.js SDK로 사용자 정의된 화면을 호출할 수 있습니다. 사용자가 상호 작용할 수 있게 할 화면 조합을 선택할 수 있습니다. Node.js 백엔드를 선택하는 경우에는 {{site.data.keyword.appid_short_notm}} Node.js SDK(링크)에 있는 셀프 서비스 모듈을 사용할 수 있습니다.
-{: shortdesc}
-
-**사인인**
-1. ID 제공자 설정에서 클라우드 디렉토리를 **설정**으로 지정하고 콜백 엔드포인트를 지정하십시오.
-2. 사용자 이름과 비밀번호 매개변수로 호출할 수 있는 사후 라우트를 앱에 추가하고 리소스 소유자 비밀번호를 사용하여 로그인하십시오.
-    ```javascript
-    app.post("/form/submit", bodyParser.urlencoded({extended: false}), passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
-    	successRedirect: LANDING_PAGE_URL,
-    	failureRedirect: ROP_LOGIN_PAGE_URL,
-    	failureFlash : true // allow flash messages
-    }));
-    ```
-    {: pre}
-    `WebAppStrategy`를 사용하여 사용자는 사용자 이름과 비밀번호로 웹 앱에 로그인할 수 있습니다. 로그인에 성공한 후에 사용자의 액세스 토큰은 HTTP 세션에 저장되며 세션 중에 사용 가능합니다. 일단 HTTP 세션이 영구 삭제되거나 만료되면 토큰이 더 이상 유효하지 않습니다.
-    {: tip}
-
-</br>
-</br>
-
-## API로 사용자 정의된 화면 표시
-{: #branding}
-
-사용자 정의된 화면을 표시하고 {{site.data.keyword.appid_short_notm}}의 인증 및 권한 부여 기능을 활용할 수 있습니다. 클라우드 디렉토리를 ID 제공자로 사용하면 지원을 덜 받으면서 사용자가 앱과 상호 작용할 수 있습니다. 사용자는 도움을 요청하지 않고도 사인인, 등록 및 자체 비밀번호 재설정 등을 수행할 수 있습니다.
-{: shortdesc}
-
-이를 가능하게 하도록 {{site.data.keyword.appid_short_notm}}는 REST API를 공개했습니다. REST API를 사용하면 웹 앱을 서비스하는 백엔드 서버를 빌드하거나 자체 사용자 정의 화면에서 모바일 앱과 상호작용할 수 있습니다. 
-
-관리 API는 IBM Cloud IAM(Identity and Access Management) 생성 토큰으로 보호됩니다. 이는 계정 소유자가 자체 팀의 어떤 구성원이 각 서비스 인스턴스에 대해 어떤 액세스 레벨을 보유하는지를 지정할 수 있음을 의미합니다. IAM 및 {{site.data.keyword.appid_short_notm}}가 함께 작동되는 방법에 대한 자세한 정보는 [서비스 액세스 관리](/docs/services/appid/iam.html)를 참조하십시오. 
-
-사용자 정의된 화면에서 사용자가 사인인을 클릭하는 경우에는 [Resource Owner Password Credentials flow](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/password.html)를 사용하여 웹 또는 모바일 앱에서 직접 액세스 및 ID 토큰을 가져올 수 있습니다. 
-
-[설정](/docs/services/appid/cloud-directory.html)을 구성한 이후: 
-
-
-**등록**
-`/sign_up` 엔드포인트를 사용하면 사용자가 앱에 자신을 등록할 수 있도록 허용할 수 있습니다.
-요청 본문에서 다음 데이터를 제공하십시오. 
-  * tenantID.
-  * 클라우드 디렉토리 사용자 데이터. 세부사항은 [SCIM 전체 사용자 표시](https://tools.ietf.org/html/rfc7643#section-8.2)를 참조하십시오. 
-    * `password` 속성. 
-    * `true`로 설정된 `primary` 속성의 이메일 배열에서, 최소한 1개의 이메일 주소가 있어야 합니다. 
-
-[이메일 구성](/docs/services/appid/cloud-directory.html)에 따라 사용자는 확인 요청을 받거나 앱에 등록 시에 환영 이메일을 받을 수 있습니다. 두 가지 유형의 이메일 모두 사용자가 앱에 등록할 때 트리거됩니다. 확인 이메일에는 **확인** 단추가 포함되어 있습니다. 단추를 누르고 자체 ID를 확인한 후에는 확인에 대해 감사하는 화면이 {{site.data.keyword.appid_short_notm}}에 의해 표시됩니다.   
-
-사후 확인 페이지를 제시할 수 있습니다. 
-
-1. {{site.data.keyword.appid_short_notm}} 대시보드의 **사용자 정의 랜딩 페이지** 탭으로 이동하십시오. 
-2. **사용자 정의 이메일 주소 확인 페이지의 URL**에서 랜딩 페이지의 URL을 입력하십시오. 
-
-이 값이 제공된 경우, {{site.data.keyword.appid_short_notm}}는 `context` 조회와 함께 URL을 호출합니다. `/sign_up/confirmation_result` 엔드포인트를 호출하고 수신된 `context` 매개변수를 전달하면 결과에서 사용자가 자체 계정을 확인했는지 여부를 알려줍니다. 해당되는 경우에는 사용자 정의 페이지를 표시할 수 있습니다. 
-
-</br>
-**비밀번호 찾기**
-
-`/forgot_password` 엔드포인트를 사용하면 사용자가 자체 비밀번호를 잊은 경우에 이를 복구하도록 허용할 수 있습니다. 
-
-요청 본문에서 다음 데이터를 제공하십시오. 
-  * tenantID.
-  * 클라우드 디렉토리 사용자의 이메일. 
-
-엔드포인트가 호출된 경우에는 비밀번호 재설정 이메일이 사용자에게 발송됩니다. 이메일에는 **재설정** 단추가 포함되어 있습니다. 사용자가 단추를 누르면 {{site.data.keyword.appid_short_notm}}에 의해 화면이 표시되며, 이를 사용하여 자체 비밀번호를 재설정할 수 있습니다. 
-
-사후 비밀번호 재설정 페이지를 제시할 수 있습니다. 
-
-1. {{site.data.keyword.appid_short_notm}} 대시보드의 **사용자 정의 랜딩 페이지** 탭으로 이동하십시오. 
-2. **사용자 정의 비밀번호 재설정 페이지의 URL**에서 랜딩 페이지의 URL을 입력하십시오.   
-
-이 값이 제공된 경우, {{site.data.keyword.appid_short_notm}}는 `context` 조회와 함께 URL을 호출합니다. `context` 매개변수를 사용하면 `/forgot_password/confirmation_result`가 호출될 때 결과를 수신할 수 있습니다. 결과가 성공적이면 사용자 정의 페이지를 표시할 수 있습니다. 
-
-랜덤 문자열을 사용자 정의 비밀번호 재설정 페이지에 추가하고 요청이 제출되면 이를 백엔드에 전달하십시오. 핸들러가 문자열을 유효성 검증하도록 하고, 유효한 경우에만 `/change_password` 엔드포인트를 호출하십시오. 이를 수행하면 백엔드 비밀번호 재설정 엔드포인트의 취약성을 낮출 수 있습니다.
-{: tip}
-
-</br>
-**비밀번호 변경**
-
-두 가지 방법으로 `/change_password` 엔드포인트를 사용할 수 있습니다. 사용자가 재설정 요청을 제출하는 경우 또는 사용자가 앱에 사인인하고 자체 비밀번호를 업데이트하고자 하는 경우입니다. 
-
-재설정 요청 이후 비밀번호 업데이트: 
-
-요청 본문에서 다음 데이터를 제공하십시오. 
-  * tenantID.
-  * 사용자 새 비밀번호. 
-  * 클라우드 디렉토리 사용자 UUID.
-  * 선택사항: 비밀번호 재설정이 수행된 IP 주소. IP 주소 전달을 선택한 경우에는 비밀번호 변경 이메일 템플리트에 대해 `%{passwordChangeInfo.ipAddress}`  플레이스홀더가 사용 가능합니다. 
-
-구성에 따라서는 비밀번호가 변경될 때 {{site.data.keyword.appid_short_notm}}에 변경사항이 있었음을 알려주는 이메일을 사용자에게 발송할 수 있습니다. 
-
-</br>
-앱에 사인인한 동안 사용자가 자체 비밀번호를 변경할 수 있도록 허용하려면 다음을 수행하십시오. 
-
-요청 본문에서 다음 데이터를 제공하십시오. 
-  * tenantID.
-  * 사용자 새 비밀번호. 
-  * 클라우드 디렉토리 사용자 UUID.
-
-비밀번호 변경 페이지가 사용자에게 현재 비밀번호와 새 비밀번호를 입력하도록 프롬프트를 표시해야 합니다.
-{: tip}
-
-백엔드는 ROP API로 사용자의 현재 비밀번호를 유효성 검증하며, 유효한 경우에는 새 비밀번호를 사용하여 엔드포인트를 호출합니다. 구성에 따라서는 비밀번호가 변경될 때 {{site.data.keyword.appid_short_notm}}에 변경사항이 있었음을 알려주는 이메일을 사용자에게 발송할 수 있습니다. 
-
-</br>
-**재발송**
-
-사용자가 어떤 이유로 인해 이메일을 받지 못한 경우에는 `/resend/{templateName}`을 사용하여 이메일을 재발송할 수 있습니다. 
-
-요청 본문에서 다음 데이터를 제공하십시오. 
-  * tenantID.
-  * 템플리트 이름. 
-  * 클라우드 디렉토리 사용자 UUID.
-
-
-**세부사항 변경**
-
-사용자가 앱에 사인인한 경우에는 일부 자체 정보를 업데이트할 수 있습니다. `/Users/{userId}`를 사용하여 해당 정보를 가져오고 업데이트할 수 있습니다. 
-
-사용자 세부사항이 업데이트되는 경우, 엔드포인트는 [SCIM 형식](https://tools.ietf.org/html/rfc7643#section-8.2)으로 요청 본문의 업데이트된 사용자 데이터를 가져옵니다. 반드시 관련 세부사항만 변경하십시오. 
-
-사용자의 이메일 주소는 변경할 수 없습니다.
-{: tip}

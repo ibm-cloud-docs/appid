@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-08-06"
 
 ---
 
@@ -33,29 +33,16 @@ lastupdated: "2018-4-24"
 시작하기 전에:
 * 기존의 바인드 해제된 <a href="https://console.bluemix.net/catalog/starters/liberty-for-java" target="_blank">{{site.data.keyword.Bluemix_notm}} Liberty for Java 앱 <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>이 필요합니다. 
 Liberty for Java 앱 개발에 친숙해지려면 [앱](/docs/runtimes/liberty/index.html)을 참조하십시오.
-* <a href="https://maven.apache.org/download.cgi" target="_blank">Apache Maven <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>이 설치되어 있는지 확인하십시오. 
+* <a href="https://maven.apache.org/download.cgi" target="_blank">Apache Maven <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>이 설치되어 있는지 확인하십시오.
 * Liberty for Java에서 OIDC가 작동하는 방법을 학습하십시오.
 
 
 
 리소스 보호:
 
-1. UI에서 Liberty for Java 샘플을 다운로드하십시오. 샘플에는 표준 Liberty 파일의 압축 파일이 포함되어 있습니다. 
-2. 샘플의 압축이 풀린 디렉토리에서 터미널을 여십시오.
-3. Cloud Foundry 명령행을 사용하여 {{site.data.keyword.Bluemix_notm}}에 로그인하십시오. 프롬프트가 나타나면 신임 정보를 입력하십시오.
-  ```
-  cf login
-  ```
-  {: codeblock}
-
-4. 앱을 배치하십시오. 다음 명령을 실행하면 테넌트 ID와 관련된 이름의 Liberty for Java 인스턴스가 작성됩니다. 
-  ```
-  cf push
-  ```
-  {: codeblock}
-
-5. 서비스 인스턴스를 새 Liberty for Java 인스턴스에 바인드하고 앱을 재배치하십시오.
-6. 브라우저에서 앱을 열고 신임 정보를 사용하여 로그인하여 인증 활동을 검토하십시오.
+1. UI에서 Liberty for Java 샘플을 다운로드하십시오. 샘플에는 표준 Liberty 파일의 압축 파일이 포함되어 있습니다.
+2. UI에서 제공된 지시사항에 따라 애플리케이션을 IBM Cloud에 배치하십시오.
+3. 브라우저에서 앱을 열고 신임 정보를 사용하여 로그인하여 인증 활동을 검토하십시오.
 
 ## Node.js의 리소스 보호
 {: #protecting-resources-nodesdk}
@@ -69,9 +56,9 @@ Liberty for Java 앱 개발에 친숙해지려면 [앱](/docs/runtimes/liberty/i
 단순 Express 앱에서 `APIStrategy`를 사용하는 방법을 보여줍니다.
   ```JavaScript
 
-var express = require('express');
+  var express = require('express');
   var passport = require('passport');
-  var APIStrategy = require('bluemix-appid').APIStrategy;
+  var APIStrategy = require('ibmcloud-appid').APIStrategy;
 
   passport.use(new APIStrategy());
   var app = express();
@@ -90,20 +77,20 @@ var express = require('express');
 
 
 ## Swift SDK로 리소스 보호
-{: #requesting-swift}
+{: #protecting-swift}
 
 {{site.data.keyword.appid_short_notm}}를 사용하면 Swift SDK를 이용하여 서버 측 리소스를 보호할 수 있습니다.
 {: shortdesc}
 
-{{site.data.keyword.appid_short_notm}} Swift 서버 SDK는 백엔드 앱을 보호하는 데 사용되는 API 보호 미들웨어 플러그인을 제공합니다. API를 미들웨어와 연관시킴으로써 무단 액세스로부터 앱을 보호할 수 있습니다. API가 보호된 후에 미들웨어는 {{site.data.keyword.appid_short_notm}}에 의해 생성된 토큰이 유효성 검증되는지 확인합니다. 그리고 유효성 검증 결과에 따라 API의 작동을 수정할 수 있습니다. 
+{{site.data.keyword.appid_short_notm}} Swift 서버 SDK는 백엔드 앱을 보호하는 데 사용되는 API 보호 미들웨어 플러그인을 제공합니다. API를 미들웨어와 연관시킴으로써 무단 액세스로부터 앱을 보호할 수 있습니다. API가 보호된 후에 미들웨어는 {{site.data.keyword.appid_short_notm}}에 의해 생성된 토큰이 유효성 검증되는지 확인합니다. 그리고 유효성 검증 결과에 따라 API의 작동을 수정할 수 있습니다.
 
-`/protectedendpoint` API를 보호하는 방법의 예제는 다음의 코드 스니펫을 참조하십시오. 
+`/protectedendpoint` API를 보호하는 방법의 예제는 다음의 코드 스니펫을 참조하십시오.
 
 ```Swift
 import Foundation
 import Kitura              // server
 import Credentials         // middleware
-import BluemixAppID        // SDK
+import IBMCloudAppID       // SDK
 
 // setup routes
 let router = Router()

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-06-27"
 
 ---
 
@@ -36,7 +36,7 @@ lastupdated: "2018-4-24"
 
 <table> <caption> 表 1。{{site.data.keyword.Bluemix_notm}} 地域と対応する Android および iOS の {{site.data.keyword.appid_short_notm}} 地域 </caption>
 <tr>
-  <th> {{site.data.keyword.Bluemix_notm}} 地域</th>
+  <th> {{site.data.keyword.Bluemix_notm}} 地域 </th>
   <th> Android と iOS </th>
 </tr>
 <tr>
@@ -51,6 +51,10 @@ lastupdated: "2018-4-24"
   <td> 英国 </td>
   <td> AppID.REGION_UK </td>
 </tr>
+<tr>
+  <td> ドイツ </td>
+  <td> AppID.REGION_GERMANY </td>
+</tr>
 </table>
 
 
@@ -60,7 +64,7 @@ lastupdated: "2018-4-24"
 ```java
 String baseRequestUrl = "http://localhost:<port>"; //サーバーの実行ポートを設定
 String tenantId = "your-AppID-service-tenantID";
-String region = AppID.REGION_UK; //App ID アプリケーションの地域をここで設定。 現在使用可能な値は AppID.REGION_US_SOUTH、AppID.REGION_SYDNEY、または AppID.REGION_UK。
+String region = AppID.REGION_UK; //App ID アプリケーションの地域をここで設定。 現在使用可能な値は AppID.REGION_US_SOUTH、AppID.REGION_SYDNEY、 AppID.REGION_GERMANY、または AppID.REGION_UK。
 
 BMSClient bmsClient= BMSClient.getInstance();
 bmsClient.initialize(getApplicationContext(), region);
@@ -96,7 +100,7 @@ request.send(this, new ResponseListener() {
 
  let baseRequestUrl = "http://localhost:<port>"; //サーバーの実行ポートを設定
  let tenantId = "your-AppID-service-tenantID"
- let region = AppID.REGION_UK; //App ID アプリケーションの地域をここで設定。 現在使用可能な値は AppID.REGION_US_SOUTH、AppID.REGION_SYDNEY、または AppID.REGION_UK。
+ let region = AppID.REGION_UK; //App ID アプリケーションの地域をここで設定。 現在使用可能な値は AppID.REGION_US_SOUTH、AppID.REGION_SYDNEY、 AppID.REGION_GERMANY、または AppID.REGION_UK。
 
 BMSClient.sharedInstance.initialize(bluemixRegion: region)
 BMSClient.sharedInstance.authorizationManager = AppIDAuthorizationManager(appid:AppID.sharedInstance)

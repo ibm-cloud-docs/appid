@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-06-27"
 
 ---
 
@@ -53,6 +53,10 @@ serviço.
   <td> United Kingdom </td>
   <td> AppID.REGION_UK </td>
 </tr>
+<tr>
+  <td> Alemanha </td>
+  <td> AppID.REGION_GERMANY </td>
+</tr>
 </table>
 
 
@@ -62,8 +66,7 @@ serviço.
 ```java
 String baseRequestUrl = "http://localhost:<port>"; //set to your server running port
 String tenantId = "your-AppID-service-tenantID";
-String region = AppID.REGION_UK; //set your App ID application region here. Currently possible values are AppID.REGION_US_SOUTH, AppID.REGION_SYDNEY, or
-AppID.REGION_UK.
+String region = AppID.REGION_UK; //set your App ID application region here. Atualmente, os valores possíveis são AppID.REGION_US_SOUTH, AppID.REGION_SYDNEY, AppID.REGION_GERMANY ou AppID.REGION_UK.
 
 BMSClient bmsClient= BMSClient.getInstance();
 bmsClient.initialize(getApplicationContext(), region);
@@ -99,8 +102,7 @@ request.send(this, new ResponseListener() {
 
  let baseRequestUrl = "http://localhost:<port>"; //set to your server running port
  let tenantId = "your-AppID-service-tenantID"
- let region = AppID.REGION_UK; //set your App ID application region here. Currently possible values are AppID.REGION_US_SOUTH, AppID.REGION_SYDNEY, or
-AppID.REGION_UK.
+ let region = AppID.REGION_UK; //set your App ID application region here. Atualmente, os valores possíveis são AppID.REGION_US_SOUTH, AppID.REGION_SYDNEY, AppID.REGION_GERMANY ou AppID.REGION_UK.
 
 BMSClient.sharedInstance.initialize(bluemixRegion: region)
 BMSClient.sharedInstance.authorizationManager = AppIDAuthorizationManager(appid:AppID.sharedInstance)

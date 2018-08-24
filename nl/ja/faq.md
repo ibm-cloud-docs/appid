@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-08-01"
 
 ---
 
@@ -27,7 +27,10 @@ lastupdated: "2018-4-24"
 
 ### 認証イベント
 
-認証イベントは、新しい {{site.data.keyword.appid_short_notm}} トークンの発行時に発生します。 識別されたユーザーの場合、新しいトークンはそれぞれ 1 時間有効になります。匿名トークンは 1 カ月有効です。トークンの期限が切れた後に保護リソースにアクセスするには、新しいトークンを作成する必要があります。 {{site.data.keyword.appid_short_notm}} を使用してモバイル認証を行う場合、ユーザー・トークンは `key-store/key-chain` に保管され、以後のすべての要求に追加されます。{{site.data.keyword.appid_short_notm}} の Android または iOS の Swift SDK を使用してトークンにアクセスできます。 このサービスを使用して Web 認証を行う場合、セッション Cookie に<a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs" target="_blank">ユーザー・トークンを保管 <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> します。
+認証イベントは、正規または匿名の新しいアクセス・トークンが発行されたときに発生します。識別されたユーザーの場合、新しいアクセス・トークンはそれぞれデフォルトで 1 時間有効になります (実際のユーザー認証による場合でもリフレッシュ・トークンを介した場合でも同じです)。匿名トークンは、デフォルトで 1 カ月有効です。 トークンの期限が切れた後に保護リソースにアクセスするには、新しいトークンを作成する必要があります。 {{site.data.keyword.appid_short_notm}} ダッシュボードの**「サインイン有効期限 (Sign-in Expiration)」**ページで、{{site.data.keyword.appid_short_notm}} トークンの有効期限を更新できます。
+
+{{site.data.keyword.appid_short_notm}} をモバイル・アプリケーションで使用する場合、トークンは key-store または key-chain に保管され、以後のすべての要求に追加されます。トークンには、App ID Android または iOS SDK を使用してアクセスできます。{{site.data.keyword.appid_short_notm}} を Web アプリケーションで使用する場合は、トークンをアプリケーション・セッションの Cookie に保管することをお勧めします。
+
 
 ### 許可ユーザー
 
@@ -37,46 +40,43 @@ lastupdated: "2018-4-24"
 
 </br>
 
-## どのようなタイプのアクティビティーが {{site.data.keyword.appid_short_notm}} によってモニターされますか?
-{: #activity-monitor}
 
-サービス・インスタンスにバインドされたアプリ内で生成されたアクティビティーを追跡できます。 さらに {{site.data.keyword.cloudaccesstrailshort}} サービスを使用することにより、{{site.data.keyword.appid_short_notm}} 内で行われた管理アクティビティーをモニターすることもできます。
+## 暗号化は {{site.data.keyword.appid_short_notm}} でどのように機能しますか?
+{: #encryption}
 
-アプリによって生成されたアクティビティーを参照するには、以下のようにします。
+暗号化に関するよくある質問の答えは、以下の表を参照してください。
 
-1. 自分の {{site.data.keyword.Bluemix_notm}} アカウントにログインします。
-2. ダッシュボードから、{{site.data.keyword.appid_short_notm}} のインスタンスを選択します。
-3. **「概要」**タブをクリックします。
-4. **「アクティビティー・ログ」**にリストされたアクティビティーを参照します。
-
-</br>
-管理アクティビティーをモニターするには、以下のようにします。
-
-1. 自分の {{site.data.keyword.Bluemix_notm}} アカウントにログインします。{{site.data.keyword.appid_short_notm}} のインスタンスがプロビジョンされている組織とスペースに移動します。
-2. カタログから、{{site.data.keyword.cloudaccesstrailshort}} サービスのインスタンスをプロビジョンします。必ず {{site.data.keyword.appid_short_notm}} のインスタンスと同じスペースで作業してください。
-3. {{site.data.keyword.cloudaccesstrailshort}} ダッシュボードで、**「管理」**タブをクリックします。
-4. ドロップダウン・リストから以下の構成を選択して、{{site.data.keyword.appid_short_notm}} によって生成されたイベントを検索します。
 <table>
-  <tr>
-    <th> フィールド </th>
-    <th> 構成 </th>
-  </tr>
-  <tr>
-    <td>ログの表示</td>
-    <td>スペース・ログ</td>
-  </tr>
-  <tr>
-    <td>検索</td>
-    <td>target.name</td>
-  </tr>
-  <tr>
-    <td>フィルター</td>
-    <td>appid</td>
-  </tr>
+  <thead>
+    <th colspan=2><img src="images/idea.png" alt="詳細情報アイコン"/>  </th>
+  </thead>
+  <tbody>
+    <tr>
+      <td>暗号化を使用のはなぜですか?</td>
+      <td>このサービスでは、お客様の保存データの暗号化を行います。</td>
+    </tr>
+    <tr>
+      <td>独自のアルゴリズムを作成したのですか？ どのアルゴリズムをコードで使用しますか?</td>
+      <td>当社は独自のものを作成してはいません。このサービスでは、<code>AES</code> および <code>SHA-256</code> をソルト処理と共に使用します。</td>
+    </tr>
+    <tr>
+      <td>公開済みまたはオープン・ソースの暗号化モジュールまたはプロバイダーを使用していますか? 暗号化機能を公開したことがありますか? </td>
+      <td>このサービスでは <code>javax.crypto</code> Java ライブラリーを使用しますが、暗号化機能を公開したことはありません。</td>
+    </tr>
+    <tr>
+      <td>鍵を格納するには、どのようにすればよいですか?</td>
+      <td>鍵が生成されると、それぞれの領域に固有のマスター鍵を使用して暗号化された後に、ローカルに保管されます。マスター鍵は {{site.data.keyword.keymanagementserviceshort}} に格納されます。</td>
+    </tr>
+    <tr>
+      <td>使用する鍵の強度は何ですか?</td>
+      <td>サービスは 16 バイトを使用します。</td>
+    </tr>
+    <tr>
+      <td>暗号化機能を公開するリモート API を呼び出していますか?</td>
+      <td>いいえ、していません。</td>
+    </tr>
+  </tbody>
 </table>
-5. **「フィルター」**をクリックします。
-
-このサービスの動作について詳しくは、[{{site.data.keyword.cloudaccesstrailshort}} の資料](/docs/services/cloud-activity-tracker/index.html)を参照してください。
 
 </br>
 
@@ -126,8 +126,8 @@ lastupdated: "2018-4-24"
 
 <table>
   <tr>
-    <th> アルゴリズムのタイプ</th>
-    <th> アルゴリズムのオプション</th>
+    <th> アルゴリズムのタイプ </th>
+    <th> アルゴリズムのオプション </th>
   </tr>
   <tr>
     <td>正規化および変換アルゴリズム (コメントあり/なし)</td>

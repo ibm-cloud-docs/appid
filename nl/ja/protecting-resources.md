@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-08-06"
 
 ---
 
@@ -19,7 +19,7 @@ lastupdated: "2018-4-24"
 {{site.data.keyword.appid_short_notm}} Server SDK を使用して、アプリ内のエンドポイントを保護したりアクセスしたりすることができます。 Client SDK を使用して保護リソースにアクセスすることもできます。
 {: shortdesc}
 
-必要な場合は、保護リソースの呼び出しによってログイン・ウィジェットが開始します。有効なトークンが既に取得されている場合、ログイン・ウィジェットは開始されず、リソースに直接アクセスします。
+必要な場合は、保護リソースの呼び出しによってログイン・ウィジェットが開始します。 有効なトークンが既に取得されている場合、ログイン・ウィジェットは開始されず、リソースに直接アクセスします。
 {: tip}
 
 ## Liberty for Java のリソースの保護
@@ -31,7 +31,7 @@ lastupdated: "2018-4-24"
 
 
 開始前に、以下のことを行います。
-* まだバインドしていない既存の <a href="https://console.bluemix.net/catalog/starters/liberty-for-java" target="_blank">{{site.data.keyword.Bluemix_notm}} Liberty for Java アプリ <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> が必要です。Liberty for Java アプリケーションの開発の詳細については、[この資料](/docs/runtimes/liberty/index.html)を参照してください。
+* まだバインドしていない既存の <a href="https://console.bluemix.net/catalog/starters/liberty-for-java" target="_blank">{{site.data.keyword.Bluemix_notm}} Liberty for Java アプリ <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> が必要です。 Liberty for Java アプリケーションの開発の詳細については、[この資料](/docs/runtimes/liberty/index.html)を参照してください。
 * <a href="https://maven.apache.org/download.cgi" target="_blank">Apache Maven <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> がインストールされていることを確認してください。
 * OIDC と Liberty for Java の連係動作を確認してください。
 
@@ -40,21 +40,8 @@ lastupdated: "2018-4-24"
 リソースを保護するには、以下のようにします。
 
 1. UI から Liberty for Java サンプルをダウンロードします。 サンプルには、標準の Liberty ファイルを格納した圧縮ファイルが入っています。
-2. 端末を開いて、サンプルを解凍したディレクトリーに移動します。
-3. Cloud Foundry コマンド・ラインを使用して {{site.data.keyword.Bluemix_notm}} にログインします。 資格情報のプロンプトが表示されたら、入力してください。
-  ```
-  cf login
-  ```
-  {: codeblock}
-
-4. アプリをデプロイします。 次のコマンドを実行すると、テナント ID に関連した名前で Liberty for Java インスタンスが作成されます。
-  ```
-  cf push
-  ```
-  {: codeblock}
-
-5. サービス・インスタンスを新しい Liberty for Java インスタンスにバインドして、アプリを再デプロイします。
-6. ブラウザーでアプリを開き、自分の資格情報でログインして、認証アクティビティーを確認します。
+2. UI に示されている手順に従ってアプリケーションを IBM-Cloud にデプロイします。
+3. ブラウザーでアプリを開き、自分の資格情報でログインして、認証アクティビティーを確認します。
 
 ## Node.js のリソースの保護
 {: #protecting-resources-nodesdk}
@@ -69,7 +56,7 @@ lastupdated: "2018-4-24"
 
   var express = require('express');
   var passport = require('passport');
-  var APIStrategy = require('bluemix-appid').APIStrategy;
+  var APIStrategy = require('ibmcloud-appid').APIStrategy;
 
   passport.use(new APIStrategy());
   var app = express();
@@ -88,12 +75,12 @@ lastupdated: "2018-4-24"
 
 
 ## Swift SDK を使用したリソースの保護
-{: #requesting-swift}
+{: #protecting-swift}
 
 {{site.data.keyword.appid_short_notm}} を使用し、Swift SDK によってサーバー・サイド・リソースを保護することができます。
 {: shortdesc}
 
-{{site.data.keyword.appid_short_notm}} Swift サーバー SDK には、バックエンド・アプリの保護に使用する API 保護ミドルウェア・プラグインが用意されています。API をミドルウェアと関連付けることで、アプリを不正アクセスから保護することができます。API を保護した後、{{site.data.keyword.appid_short_notm}} が生成したトークンがこのミドルウェアによって確実に検証されます。その検証結果に応じて API の動作を変更できます。
+{{site.data.keyword.appid_short_notm}} Swift サーバー SDK には、バックエンド・アプリの保護に使用する API 保護ミドルウェア・プラグインが用意されています。 API をミドルウェアと関連付けることで、アプリを不正アクセスから保護することができます。 API を保護した後、{{site.data.keyword.appid_short_notm}} が生成したトークンがこのミドルウェアによって確実に検証されます。 その検証結果に応じて API の動作を変更できます。
 
 `/protectedendpoint` API を保護する方法の例について、以下のコード・スニペットを参照してください。
 
@@ -101,7 +88,7 @@ lastupdated: "2018-4-24"
 import Foundation
 import Kitura              // server
 import Credentials         // middleware
-import BluemixAppID        // SDK
+import IBMCloudAppID       // SDK
 
 // setup routes
 let router = Router()

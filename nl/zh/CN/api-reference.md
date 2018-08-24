@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-07-15"
 
 ---
 
@@ -19,7 +19,7 @@ lastupdated: "2018-4-24"
 您可以使用管理 API 进行 DevOps 自动化，定制和管理您的 {{site.data.keyword.appid_full}} 实例。
 {: shortdesc}
 
-管理 API 通过 IBM Cloud Identity and Access Management 生成的令牌进行保护。这意味着帐户所有者可以指定团队成员对每个服务实例的访问级别。有关 IAM 和 {{site.data.keyword.appid_short_notm}} 如何协作的更多信息，请参阅[服务访问管理](/docs/services/appid/iam.html)。
+管理 API 通过 {{site.data.keyword.cloudaccesstraillong}} 生成的令牌进行保护。使用 IAM，帐户所有者可以指定团队成员对每个服务实例的访问级别。有关 IAM 和 {{site.data.keyword.appid_short_notm}} 如何协作的更多信息，请参阅[服务访问管理](/docs/services/appid/iam.html)。
 
 使用 API，您能够：
 * 在您的 DevOps 流程应用程序中自动配置 {{site.data.keyword.appid_short_notm}}。
@@ -64,7 +64,7 @@ appid-management.<region>.bluemix.net
 {: #api-prereq}
 
 <ul><ul><li>2018 年 3 月 15 日之后创建的服务实例。如果您的服务实例创建于该日期之前，请创建新实例并将其配置为与当前实例匹配。请确保更新应用程序以使用新实例。</li>
-<li>已安装 [{{site.data.keyword.Bluemix_notm}} CLI](/docs/cli/reference/bluemix_cli/get_started.html)。</li></ul></ul>
+<li>已安装 [{{site.data.keyword.Bluemix_notm}} CLI](/docs/cli/index.html)。</li></ul></ul>
 
 ## 用法示例
 {: #api-example}

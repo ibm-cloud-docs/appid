@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-08-06"
 
 ---
 
@@ -54,7 +54,7 @@ Para utilizar Facebook como proveedor de identidad, debe añadir y configurar la
 2. Anote el ID y el secreto de la app de Facebook. Estos valores son necesarios configurar el proyecto web para la autenticación en el panel de control de servicio.
 3. Añada la plataforma web y especifique el URL del sitio.
 4. En la lista de productos, seleccione **Inicio de sesión de Facebook **.
-5. En el campo URL de redirección de OAuth válidos, especifique el URL de punto final de devolución de llamada del servidor de autorización. Tras configurar la instancia de servicio, puede añadir este valor.
+5. En el campo URL de redirección de OAuth válidos, especifique el URL de punto final de devolución de llamada del servidor de autorización.
 6. Pulse **Guardar cambios**.
 
 
@@ -66,7 +66,7 @@ Una vez que tenga el ID y secreto de la app de Facebook, y que la app de Faceboo
 2. Especifique el ID y el secreto de la app de Facebook que ha obtenido del sitio web de Facebook for Developers.
 3. Copie el URI que está en el campo **URI de redirección para Facebook for Developers**. Copie el URI en el campo **URI de redirección de OAuth válido** en la sección **Inicio de sesión de Facebook** del portal de desarrolladores de Facebook.
 4. Pulse **Guardar**.
-5. Opcional: para apps web, especifique el URL de redirección en el campo **URL de redirección de la aplicación web**. Este valor está determinado por el desarrollador y se utiliza para acceder al URL de redirección una vez completado el proceso de autorización.
+5. Opcional: para apps web, especifique el URL de redirección en el campo **URL de redirección de la aplicación web**. Este valor está determinado por el desarrollador y se utiliza para acceder al URL de redirección una vez completado el proceso de autorización. El URL debe seguir un esquema `http` o `https`. Para obtener un mayor nivel de seguridad, utilice un esquema `https`.
 
 
 ## Configuración de Google
@@ -99,4 +99,4 @@ Después de configurar el proyecto de Google y de tener el ID de cliente y el se
     2. En el separador de credenciales de su proyecto de Google, seleccione el ID de cliente que haya creado para esta integración.
     3. Pegue el URL de {{site.data.keyword.appid_short}} en el campo **URI de redirección autorizados** y haga clic en **Guardar**.
 4. Haga clic en **Guardar** para actualizar su configuración de Google en {{site.data.keyword.appid_short}}.
-5. Para apps web, introduzca un URL de redirección en el separador **Gestionar**. Una vez que se haya completado el proceso de autorización, se envía un usuario a este URL.
+5. Para apps web, introduzca un URL de redirección en el separador **Gestionar**. Una vez que se haya completado el proceso de autorización, se envía un usuario a este URL. El URL debe seguir un esquema `http` o `https`. Para obtener un mayor nivel de seguridad, utilice un esquema `https`.

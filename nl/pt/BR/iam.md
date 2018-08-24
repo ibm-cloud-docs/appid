@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-08-06"
 
 ---
 
@@ -96,19 +96,22 @@ A tabela a seguir detalha as ações que são mapeadas para as funções de aces
 
 Para obter mais informações sobre como designar funções de usuário na IU, veja [Gerenciando o acesso ao IAM](/docs/iam/mngiam.html#iammanidaccser).
 
+
 ## Políticas de acesso do {{site.data.keyword.appid_short_notm}}
 {: #access}
 
 A todo usuário que acessa o serviço {{site.data.keyword.appid_short_notm}} em sua conta deve ser designada uma política de acesso com uma função de usuário do IAM definida. Essa política determina quais ações o usuário pode executar dentro do contexto do serviço ou instância que você seleciona.
 {: shortdesc}
 
-As ações são customizadas e definidas pelo serviço {{site.data.keyword.Bluemix_notm}} como operações que podem ser executadas no serviço. As ações são então mapeadas para as funções de usuário do IAM. Para o {{site.data.keyword.appid_short_notm}}, as ações a seguir existem:
+As ações são customizadas e definidas pelo serviço {{site.data.keyword.Bluemix_notm}} como operações que podem ser executadas no serviço. As ações são então mapeadas para as funções de usuário do IAM. 
+É possível controlar algumas das ações tomadas com o serviço {{site.data.keyword.cloudaccesstrailshort}}. Na tabela a
+seguir, as ações e as permissões necessárias para o {{site.data.keyword.appid_short_notm}} são mapeadas.
 
 <table>
   <tr>
-    <th></th>
+    <th>Ação</th>
     <th>Explicação</th>
-    <th>Função</th>
+    <th>Função requerida</th>
   </tr>
   <tr>
     <td><code>appid-mgmt-get-redirect-uris</code></td>
@@ -192,6 +195,16 @@ As ações são customizadas e definidas pelo serviço {{site.data.keyword.Bluem
     <td>Gravador, Gerenciador</td>
   </tr>
   <tr>
+    <td><code> appid-mgmt-get-saml-metadata </code></td>
+    <td>Visualize os metadados do provedor de serviços (SP) SAML do diretório da nuvem.</td>
+    <td>Leitor, Gravador, Gerenciador</td>
+  </tr>
+  <tr>
+    <td><code> appid-mgmt-post-saml-logotipo </code></td>
+    <td>Configure ou atualize a imagem no widget de login para o provedor de identidade SAML.</td>
+    <td>Gravador, Gerenciador</td>
+  </tr>
+  <tr>
     <td><code>appid-mgmt-send-email-cd</code></td>
     <td>Envie um e-mail para um usuário com base em um modelo.</td>
     <td>Gravador, Gerenciador</td>
@@ -206,10 +219,223 @@ As ações são customizadas e definidas pelo serviço {{site.data.keyword.Bluem
     <td>Atualize os detalhes do remetente.</td>
     <td>Gravador, Gerenciador</td>
   </tr>
+  <tr>
+    <td><code> appid-mgmt-revoke-refresh-token </code></td>
+    <td>Revogue o token de atualização de um usuário com o ID do usuário dele.</td>
+    <td>Gravador, Gerenciador</td>
+  </tr>
+</table>
+
+## Rastreando mudanças em suas instâncias do  {{site.data.keyword.appid_short_notm}}
+{: #tracking}
+
+É possível visualizar, gerenciar e auditar a atividade de configuração que é feita em sua instância do {{site.data.keyword.appid_short_notm}} usando o serviço {{site.data.keyword.cloudaccesstrailshort}}.
+{: shortdesc}
+
+Para monitorar a atividade administrativa:
+
+1. Efetue login em sua conta do {{site.data.keyword.Bluemix_notm}}.
+2. No catálogo, forneça uma instância do serviço {{site.data.keyword.cloudaccesstrailshort}} na mesma
+conta da sua instância do {{site.data.keyword.appid_short_notm}}.
+3. No painel {{site.data.keyword.cloudaccesstrailshort}}, clique na guia **Gerenciar**.
+4. Na lista suspensa, faça as configurações a seguir para procurar os eventos que são gerados pelo {{site.data.keyword.appid_short_notm}}.
+    * Para  ** Visualizar logs **, selecione  ** Registros de contas **.
+    * Para  ** Procurar **, selecione  ** target. Management **.
+    * Para  ** Filtro **, insira  ** appid **.
+5. Clique em **Filtrar**.
+
+
+Confira a tabela a seguir para obter uma lista dos eventos enviados para o {{site.data.keyword.cloudaccesstrailshort}}.
+
+<table>
+  <tr>
+    <th>Ação</th>
+    <th>Descrição</th>
+    <th>Local da UI</th>
+  </tr>
+  <tr>
+    <td><code> read.recentActivity </code></td>
+    <td>Visualizar atividade recente.</td>
+    <td>Pode ser localizado na caixa <strong>Log de atividades</strong> na guia <strong>Visão geral</strong>.</td>
+  </tr>
+  <tr>
+    <td><code> read.idpConfig </code></td>
+    <td>Visualize a configuração do provedor de identidade.</td>
+    <td>Pode ser localizado na guia <strong>Fornecedores de identidade > Gerenciar</strong>.</td>
+  </tr>
+  <tr>
+    <td><code> update.idpConfig </code></td>
+    <td>Atualize a configuração do provedor de identidade.</td>
+    <td>Pode ser atualizado na guia <strong>Provedores de identidade > Gerenciar</strong>.</td>
+  </tr>
+  <tr>
+    <td><code> read.tokensConfig </code></td>
+    <td>Visualize a configuração de expiração do token.</td>
+    <td>Pode ser localizado na guia <strong>Provedores de identidade > Expiração de token</strong>.</td>
+  </tr>
+  <tr>
+    <td><code> read.isProfilesActive </code></td>
+    <td>Visualize a configuração de armazenamento de perfil do usuário.</td>
+    <td>Pode ser localizado no <strong>Log de atividades</strong> na guia <strong>Visão geral</strong>.</td>
+  </tr>
+  <tr>
+    <td><code> update.isProfilesActive </code></td>
+    <td>Atualize a configuração de armazenamento de perfil do usuário.</td>
+    <td>Pode ser localizado na guia <strong>Perfis</strong>.</td>
+  </tr>
+  <tr>
+    <td><code> read.themeColor </code></td>
+    <td>Visualize a cor do tema do cabeçalho do widget de login.</td>
+    <td>Pode ser localizado na guia <strong>Customização de login</strong>.</td>
+  </tr>
+  <tr>
+    <td><code>update.themeColor</code></td>
+    <td>Atualize a cor do tema do cabeçalho do widget de login.</td>
+    <td>Pode ser atualizado na guia <strong>Customização de login</strong>.</td>
+  </tr>
+  <tr>
+    <td><code> read.media </code></td>
+    <td>Visualize a imagem que é exibida no widget de login.</td>
+    <td>Pode ser localizado na guia <strong>Customização de login</strong>.</td>
+  </tr>
+  <tr>
+    <td><code> update.media </code></td>
+    <td>Atualize a imagem que é exibida no widget de login.</td>
+    <td>Pode ser atualizado na guia <strong>Customização de login</strong>.</td>
+  </tr>
+  <tr>
+    <td><code> read.uiConfiguration </code></td>
+    <td>Visualize a configuração da UI do widget de login incluindo a cor do cabeçalho e a imagem.</td>
+    <td>Pode ser localizado na guia <strong>Customização de login</strong>.</td>
+  </tr>
+  <tr>
+    <td><code> read.uiLanguages </code></td>
+    <td>Visualizar uma lista de idiomas suportados.</td>
+    <td>Deve ser visualizado a partir da API.</td>
+  </tr>
+  <tr>
+    <td><code> update.uiLanguages </code></td>
+    <td>Atualize seus idiomas suportados.</td>
+    <td>Deve ser atualizado por meio da API.</td>
+  </tr>
+  <tr>
+    <td><code> read.samlMetadata </code></td>
+    <td>Visualize os metadados do SAML do ID do app.</td>
+    <td>Pode ser localizado na guia <strong>Provedores de identidade > Federação SAML 2.0</strong>.</td>
+  </tr>
+  <tr>
+    <td><code> read.cloudDirectoryUser </code></td>
+    <td>Visualizar um usuário do Cloud Directory.</td>
+    <td>Pode ser localizado na guia <strong>Usuários</strong>.</td>
+  </tr>
+  <tr>
+    <td><code> update.cloudDirectoryUser </code></td>
+    <td>Atualizar um usuário do Cloud Directory.</td>
+    <td>Pode ser atualizado na guia <strong>Usuários</strong>.</td>
+  </tr>
+  <tr>
+    <td><code>delete.cloudDirectoryUser</code></td>
+    <td>Excluir um usuário do Cloud Directory.</td>
+    <td>Pode ser excluído na guia <strong>Usuários</strong>.</td>
+  </tr>
+  <tr>
+    <td><code> read.cloudDirectoryUsers </code></td>
+    <td>Visualize uma lista de usuários do Cloud Directory.</td>
+    <td>Pode ser localizado na guia <strong>Usuários</strong>.</td>
+  </tr>
+  <tr>
+    <td><code> update.cloudDirectoryUsers </code></td>
+    <td>Atualize a lista de usuários do Cloud Directory.</td>
+    <td>Pode ser atualizado na guia <strong>Usuários</strong>.</td>
+  </tr>
+  <tr>
+    <td><code> delete.cloudDirectoryUsers </code></td>
+    <td>Exclua uma lista de usuários do Cloud Directory.</td>
+    <td>Pode ser excluído na guia <strong>Usuários</strong>.</td>
+  </tr>
+  <tr>
+    <td><code> read.emailTemplate </code></td>
+    <td>Visualizar um modelo de e-mail.</td>
+    <td>Pode ser localizado na guia <strong>Provedores de identidade > Cloud Directory > Modelos</strong>.</td>
+  </tr>
+  <tr>
+    <td><code> update.emailTemplate </code></td>
+    <td>Atualizar um modelo de e-mail.</td>
+    <td>Pode ser localizado na guia <strong>Provedores de identidade > Cloud Directory > Modelos</strong>.</td>
+  </tr>
+  <tr>
+    <td><code> delete.emailTemplate </code></td>
+    <td>Exclua um modelo de e-mail para reconfigurar para o padrão.</td>
+    <td>Pode ser localizado na guia <strong>Provedores de identidade > Cloud Directory > Modelos</strong>.</td>
+  </tr>
+  <tr>
+    <td><code> read.senderDetails </code></td>
+    <td>Visualize os detalhes do emissor.</td>
+    <td>Pode ser localizado na guia <strong>Provedores de identidade > Cloud Directory > Configurações</strong>.</td>
+  </tr>
+  <tr>
+    <td><code> update.senderDetails </code></td>
+    <td>Atualizar os Detalhes do Remetente</td>
+    <td>Pode ser localizado na guia <strong>Provedores de identidade > Cloud Directory > Configurações</strong>.</td>
+  </tr>
+  <tr>
+    <td><code> update.resendNotification </code></td>
+    <td>Reenviar notificações do usuário.</td>
+    <td>Pode ser localizado na guia <strong>Provedores de identidade > Cloud Directory > Configurações</strong>.</td>
+  </tr>
+  <tr>
+    <td><code> update.selfForgotPassword </code></td>
+    <td>Atualize o processo de senha esquecida.</td>
+    <td>Pode ser localizado na guia <strong>Provedores de identidade > Cloud Directory > Configurações</strong>.</td>
+  </tr>
+  <tr>
+    <td><code> update.forgotPasswordResult </code></td>
+    <td>Visualize o resultado de confirmação de senha esquecida.</td>
+    <td>Deve ser feito por meio da API.</td>
+  </tr>
+  <tr>
+    <td><code> update.selfSignUp </code></td>
+    <td>Atualize o processo de conexão.</td>
+    <td>Pode ser localizado na guia <strong>Provedores de identidade > Cloud Directory > Configurações</strong>.</td>
+  </tr>
+  <tr>
+    <td><code> update.signUpResult </code></td>
+    <td>Visualize a confirmação do resultado da assinatura.</td>
+    <td>Deve ser feito por meio da API.</td>
+  </tr>
+  <tr>
+    <td><code> read.action_url </code></td>
+    <td>Visualize a URL customizada chamada quando uma ação é executada.</td>
+    <td>Pode ser localizada na guia <strong>Provedores de identidade > Cloud Directory > Páginas de entrada customizada</strong>.</td>
+  </tr>
+  <tr>
+    <td><code>update.action_url</code></td>
+    <td>Atualize a URL customizada chamada quando uma ação é executada.</td>
+    <td>Pode ser localizado na guia <strong>Provedores de identidade > Cloud Directory > Configurações</strong>.</td>
+  </tr>
+  <tr>
+    <td><code> update.changePassword </code></td>
+    <td>Altere a senha do usuário do Cloud Directory.</td>
+    <td>Pode ser localizado na guia <strong>Provedores de identidade > Cloud Directory > Configurações</strong>.</td>
+  </tr>
+  <tr>
+    <td><code> read.loginWidgetConfig </code></td>
+    <td>Visualize a configuração do seu widget de login.</td>
+    <td>Pode ser localizado na guia <strong>Customização de login</strong>.</td>
+  </tr>
+  <tr>
+    <td><code> update.loginWidgetConfig </code></td>
+    <td>Atualize a configuração do seu widget de login.</td>
+    <td>Pode ser atualizado na guia <strong>Customização de login</strong>.</td>
+  </tr>
 </table>
 
 
+Para obter mais informações sobre como o serviço funciona, consulte os
+[docs do {{site.data.keyword.cloudaccesstrailshort}}](/docs/services/cloud-activity-tracker/index.html).
 
+</br>
+</br>
 
 ## Exemplo: fornecendo a outro usuário acesso a uma instância do {{site.data.keyword.appid_short_notm}}
 {: #example}
@@ -218,7 +444,7 @@ Neste cenário, um administrador criou uma instância do {{site.data.keyword.app
 {: shortdesc}
 
 Antes de iniciar:
-* Instale a [CLI do {{site.data.keyword.Bluemix_notm}}](/docs/cli/reference/bluemix_cli/get_started.html).
+* Instale a CLI do [{{site.data.keyword.Bluemix_notm}}](/docs/cli/index.html).
 
 Para atualizar permissões de acesso, o administrador conclui as etapas a seguir:
 
@@ -248,7 +474,7 @@ Para atualizar permissões de acesso, o administrador conclui as etapas a seguir
        "secret": "appsecret"
      }
     }' \
-    'https://appid-management.stage1.ng.bluemix.net/management/v4/<tenantId>/config/idps/facebook'
+    'https://appid-management.ng.bluemix.net/management/v4/ < tenantId> /config/idps/facebook '
     ```
     {: codeblock}
 

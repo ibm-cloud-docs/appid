@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-07-15"
 
 ---
 
@@ -19,7 +19,7 @@ lastupdated: "2018-4-24"
 {{site.data.keyword.appid_full}} のインスタンスの DevOps 自動化、カスタマイズ、および管理に管理 API を使用できます。
 {: shortdesc}
 
-管理 API は、IBM Cloud Identity and Access Management で生成されたトークンにより保護されます。つまり、アカウント所有者は、各サービス・インスタンスに対して自分のチームの誰がどのレベルのアクセス権限を持つかを指定できます。IAM と {{site.data.keyword.appid_short_notm}} の連動方法について詳しくは、[サービス・アクセス管理](/docs/services/appid/iam.html)を参照してください。
+管理 API は、{{site.data.keyword.cloudaccesstraillong}} で生成されたトークンにより保護されます。IAM を使用して、アカウント所有者は、各サービス・インスタンスに対して自分のチームの誰がどのレベルのアクセス権限を持つかを指定できます。 IAM と {{site.data.keyword.appid_short_notm}} の連動方法について詳しくは、[サービス・アクセス管理](/docs/services/appid/iam.html)を参照してください。
 
 API を使用して、以下の操作を行えます。
 * DevOps プロセスのアプリで {{site.data.keyword.appid_short_notm}} の構成を自動化する。
@@ -41,15 +41,15 @@ appid-management.<region>.bluemix.net
     <th>エンドポイント</th>
   </tr>
   <tr>
-    <td>英国 </td>
+    <td>英国</td>
     <td><code>appid-management.eu-gb.bluemix.net</code></td>
   </tr>
   <tr>
-    <td>米国南部 </td>
+    <td>米国南部</td>
     <td><code>appid-management.ng.bluemix.net</code></td>
   </tr>
   <tr>
-    <td>シドニー </td>
+    <td>シドニー</td>
     <td><code>appid-management.au-syd.bluemix.net</code></td>
   </tr>
   <tr>
@@ -63,8 +63,8 @@ appid-management.<region>.bluemix.net
 ## 前提条件
 {: #api-prereq}
 
-<ul><ul><li>2018 年 3 月 15 日より後にサービス・インスタンスが作成されていること。この日付より前にサービスのインスタンスが作成されている場合は、新しいインスタンスを作成し、現行インスタンスと合うように構成してください。新しいインスタンスを使用するようにアプリを更新する必要があります。</li>
-<li>[{{site.data.keyword.Bluemix_notm}} CLI](/docs/cli/reference/bluemix_cli/get_started.html) がインストールされていること。</li></ul></ul>
+<ul><ul><li>2018 年 3 月 15 日より後にサービス・インスタンスが作成されていること。 この日付より前にサービスのインスタンスが作成されている場合は、新しいインスタンスを作成し、現行インスタンスと合うように構成してください。 新しいインスタンスを使用するようにアプリを更新する必要があります。</li>
+<li>[{{site.data.keyword.Bluemix_notm}} CLI](/docs/cli/index.html) がインストールされていること。</li></ul></ul>
 
 ## 使用例
 {: #api-example}

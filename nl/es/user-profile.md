@@ -2,194 +2,49 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-08-03"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:pre: .pre}
+{:tip: .tip}
+{:screen: .screen}
 
-
-# Acceso a los atributos de usuario
+# Descripción de los perfiles de usuario
 {: #user-profile}
 
-Un atributo de usuario es un segmento de información en una entidad que {{site.data.keyword.appid_full}} almacena y mantiene. El perfil contiene los atributos y la identidad de un usuario que gestiona un proveedor de identidad o que puede ser anónimo. Puede utilizar los perfiles para crear experiencias personalizadas de su app para cada usuario.
-{:shortdesc}
-
-
-{{site.data.keyword.appid_short_notm}} proporciona una API para iniciar sesión, ya sea de forma anónima o autenticándose con [proveedores de identidad](/docs/services/appid/identity-providers.html) OpenId Connect (OIDC). El punto final de API de atributos de perfil de usuario es un recurso protegido por una señal de acceso, que genera {{site.data.keyword.appid_short_notm}} durante el proceso de inicio de sesión y autorización.
-
-
-## Cómo almacenar, leer y suprimir atributos de usuario
-{: #storing-data}
-
-{{site.data.keyword.appid_short_notm}} proporciona una <a href="https://appid-profiles.ng.bluemix.net/swagger-ui/index.html#/Attributes" target="_blank">API REST <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a> para realizar operaciones de creación, recuperación, actualización y supresión en los atributos de usuario. El servicio también proporciona un SDK para los clientes de dispositivos móviles <a href="https://github.com/ibm-cloud-security/appid-clientsdk-android" target="_blank">Android <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a> y <a href="https://github.com/ibm-cloud-security/appid-clientsdk-swift" target="_blank">Swift <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>.
-
-## Acceder a los atributos de usuario con el SDK de Android
-{: #accessing}
-
-Cuando obtenga una señal de acceso, es posible obtener acceso al punto final de los atributos protegidos del usuario. Puede obtener acceso utilizando los siguientes métodos de la API.
-
-  ```java
-  void setAttribute(@NonNull String name, @NonNull String value, UserAttributeResponseListener listener);
-  void setAttribute(@NonNull String name, @NonNull String value, @NonNull AccessToken accessToken, UserAttributeResponseListener listener);
-
-  void getAttribute(@NonNull String name, UserAttributeResponseListener listener);
-  void getAttribute(@NonNull String name, @NonNull AccessToken accessToken, UserAttributeResponseListener listener);
-
-  void deleteAttribute(@NonNull String name, UserAttributeResponseListener listener);
-  void deleteAttribute(@NonNull String name, @NonNull AccessToken accessToken, UserAttributeResponseListener listener);
-
-  void getAllAttributes(@NonNull UserAttributeResponseListener listener);
-  void getAllAttributes(@NonNull AccessToken accessToken, @NonNull UserAttributeResponseListener listener);
-  ```
-  {: pre}
-
-Cuando no se haya aprobado explícitamente una señal de acceso, {{site.data.keyword.appid_short_notm}} utilizará la última señal recibida.
-
-Por ejemplo, puede llamar al código siguiente para establecer un atributo nuevo, o para alterar temporalmente uno existente.
-
-  ```java
-  appId.getUserAttributeManager().setAttribute(name, value, useThisToken,new UserAttributeResponseListener() {
-		@Override
-		public void onSuccess(JSONObject attributes) {
-			//atributos recibidos en formato JSON con una respuesta satisfactoria
-		}
-
-		@Override
-		public void onFailure(UserAttributesException e) {
-			//Se ha producido una excepción
-		}
-	});
-  ```
-  {: pre}
-
-### Inicio de sesión anónimo
-{: #anonymous notoc}
-
-Con {{site.data.keyword.appid_short_notm}}, puede iniciar sesión [de forma anónima](/docs/services/appid/user-profile.html#anonymous).
-
-  ```java
-  appId.loginAnonymously(getApplicationContext(), new AuthorizationListener() {
-		@Override
-		public void onAuthorizationFailure(AuthorizationException exception) {
-			//Se ha producido una excepción
-		}
-
-		@Override
-		public void onAuthorizationCanceled() {
-			//Autenticación cancelada por el usuario
-		}
-
-		@Override
-		public void onAuthorizationSuccess(AccessToken accessToken, IdentityToken identityToken, RefreshToken refreshToken) {
-			//Usuario autenticado
-		}
-	});
-  ```
-  {: pre}
-
-### Autenticación progresiva
-{: #progressive notoc}
-
-Cuando el usuario contiene una señal de acceso anónimo, puede ser identificado pasándola al método `loginWidget.launch`.
-
-  ```java
-  void launch (@NonNull final Activity activity, @NonNull final AuthorizationListener authorizationListener, String accessTokenString);
-  ```
-  {: pre}
-
-Tras un inicio de sesión anónimo, se producirá la autenticación progresiva, aunque se invoque el widget de inicio de sesión sin pasar una señal de acceso porque el servicio ha utilizado la última señal recibida. Si desea borrar las señales almacenadas, ejecute el siguiente mandato.
-
-  ```java
-  	appIDAuthorizationManager = new AppIDAuthorizationManager(this.appId);
-  appIDAuthorizationManager.clearAuthorizationData();
-  ```
-  {: pre}
-
-
-## Acceder a los atributos de usuario con el SDK de iOS
-{: #accessing}
-
-Acceso a los atributos de los usuarios pasando una señal de acceso mediante los siguientes métodos de API.
+Con {{site.data.keyword.appid_full}}, puede crear experiencias de app personalizadas accediendo a la información acerca de los usuarios que almacena {{site.data.keyword.appid_short_notm}}.
 {: shortdesc}
 
-  ```swift
-  func setAttribute(key: String, value: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
-  func setAttribute(key: String, value: String, accessTokenString: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
+## Conceptos clave
+{: #key-concepts}
 
-  func getAttribute(key: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
-  func getAttribute(key: String, accessTokenString: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
+**¿Qué es un perfil de usuario?**
 
-  func getAttributes(completionHandler: @escaping(Error?, [String:Any]?) -> Void)
-  func getAttributes(accessTokenString: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
+Un perfil de usuario es una recopilación de atributos almacenados por {{site.data.keyword.appid_short_notm}}. Los atributos son partes de información acerca de los usuarios que interactúan con la app. Hay dos tipos de atributos que se pueden obtener: `predefinidos` y `personalizados`.
 
-  func deleteAttribute(key: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
-  func deleteAttribute(key: String, accessTokenString: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
-  ```
-  {: pre}
+**¿Qué son los atributos predefinidos?**
 
-Cuando no se haya aprobado explícitamente una señal de acceso, {{site.data.keyword.appid_short_notm}} utilizará la última señal recibida.
+El proveedor de identidad devuelve los atributos predefinidos cuando el usuario inicia la sesión en la app. Los atributos pueden incluir su nombre de usuario, edad o género.
 
-Por ejemplo, puede llamar al código siguiente para establecer un atributo nuevo, o para alterar temporalmente uno existente.
+**¿Qué son atributos personalizados?**
 
-  ```swift
-  AppID.sharedInstance.userAttributeManager?.setAttribute("key", "value", completionHandler: { (error, result) in
-      if error = nil {
-          //Atributos recibidos como un diccionario
-      } else {
-          // Se ha producido un error
-      }
-  })
-  ```
-  {: pre}
+Los atributos personalizados sobre los usuarios se conocen a medida que estos interactúan con la app.  Pueden ser el tamaño de letra que utilizan o los elementos que han colocado en un carro de la compra. Los atributos personalizados se pueden editar.
+
+## Acceso a los atributos de usuario
+{: #access}
+
+Existen diferentes maneras de acceder a la información de perfil de usuario. Después de una autenticación de usuario satisfactoria, la app recibe señales de acceso y de identidad. La señal de identidad contiene un subconjunto normalizado de atributos de usuario devueltos por un proveedor de identidad. Para obtener la lista completa de atributos de usuario, puede utilizar el punto final de OIDC `/userinfo`. Para gestionar atributos personalizados, puede utilizar la `API REST`. Tanto el punto final de información de usuario como el de atributo personalizado están protegidos por la señal de acceso que genera {{site.data.keyword.appid_short_notm}} al final del proceso de autenticación.
 
 
-### Inicio de sesión anónimo
 
-Con {{site.data.keyword.appid_short_notm}}, puede iniciar sesión [de forma anónima](/docs/services/appid/user-profile.html#anonymous).
+![ Arquitectura de perfil de usuario de {{site.data.keyword.appid_short_notm}}](/images/user-profile1.png)
 
-  ```swift
-  class delegate : AuthorizationDelegate {
+Figura. Flujo de información de perfil de usuario
 
-      public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, refreshToken: RefreshToken?, response:Response?) {
-          //Usuario autenticado
-      }
+Para ver los atributos personalizados, puede utilizar la <a href="https://appid-profiles.ng.bluemix.net/swagger-ui/index.html#/Attributes" target="_blank">API REST <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>.
 
-      public func onAuthorizationCanceled() {
-          //Autenticación cancelada por el usuario
-      }
-
-      public func onAuthorizationFailure(error: AuthorizationError) {
-          //Se ha producido un error
-      }
-   }
-
-  AppID.sharedInstance.loginAnonymously( authorizationDelegate: delegate())
-  ```
-  {: pre}
-
-### Autenticación progresiva
-
-Cuando alberga una señal de acceso anónimo, el usuario puede convertirse en un usuario identificado si lo pasa al método `loginWidget.launch`.
-
-  ```swift
-  func launch(accessTokenString: String? , delegate: AuthorizationDelegate)
-  ```
-  {: pre}
-
-Tras un inicio de sesión anónimo, se producirá la autenticación progresiva, aunque se invoque el widget de inicio de sesión sin pasar una señal de acceso porque el servicio ha utilizado la última señal recibida. Si desea borrar las señales almacenadas, ejecute el siguiente mandato.
-
-  ```swift
-  var appIDAuthorizationManager = AppIDAuthorizationManager(appid: AppID.sharedInstance)
-  appIDAuthorizationManager.clearAuthorizationData()
-  ```
-  {: pre}
-
-## Separación y cifrado de datos
-{: #data}
-
-{{site.data.keyword.appid_short_notm}} almacena y cifra atributos de perfil de usuario. Como servicio multiarrendatario, cada arrendatario tiene una clave de cifrado designada y los datos de usuario de cada uno se cifran únicamente con la clave de dicho arrendatario.
-
-{{site.data.keyword.appid_short_notm}} garantiza que la información privada se cifre antes de que se almacene.
+</br>
+</br>

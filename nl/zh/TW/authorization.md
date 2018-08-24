@@ -2,11 +2,11 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-05-2"
+lastupdated: "2018-08-06"
 
 ---
 
-{:new_window: target="blank"}
+{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -28,63 +28,43 @@ lastupdated: "2018-05-2"
   <dt>OAuth 2</dt>
     <dd><a href="https://tools.ietf.org/html/rfc6749" target="_blank">OAuth 2 <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a> 是用來提供應用程式授權的開放式標準通訊協定。</dd>
   <dt>Open ID Connect (OIDC)</dt>
-    <dd><a href="http://openid.net/developers/specs/" target="_blank">OIDC <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a> 是比 OAuth 2 優先使用的鑑別層。</dd>
-  <dt>存取記號</dt>
-    <dd><p>存取記號代表授權，並啟用與[後端資源](/docs/services/appid/protecting-resources.html)的通訊，這些資源會受到 {{site.data.keyword.appid_short}} 所設定的授權過濾器保護。此記號符合「JavaScript 物件簽署及加密 (JOSE)」規格。記號會格式化為 <a href="https://jwt.io/introduction/" target="blank">JSON Web 記號 <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>。
-</br>
-範例：</p>
-    <pre><code>Header: {
-"typ": "JOSE",
-    "alg": "RS256",
-}
-Payload: {
-            "iss": "appid-oauth.ng.bluemix.net",
-        "exp": "1495562664",
-        "aud": "a3b87400-f03b-4956-844e-a52103ef26ba",
-        "amr": ["facebook"],
-        "sub": "de6a17d2-693d-4a43-8ea2-2140afd56a22",
-        "iat": "1495559064",
-        "tenant": "9781974b-6a1c-46c3-aebf-32b7e9bbbaee",
-        "scope": "appid_default appid_readprofile appid_readuserattr appid_writeuserattr",
-    </code></pre></dd>
-  <dt>身分記號</dt>
-    <dd><p>身分記號代表鑑別，並包含使用者的相關資訊。它可以將使用者名稱、電子郵件、性別及位置的相關資訊提供給您。記號也可以傳回使用者影像的 URL。</br>
-範例：</p>
-    <pre><code>Header: {
-"typ": "JOSE",
-    "alg": "RS256",
-}
-Payload: {
-            "iss": "appid-oauth.ng.bluemix.net",
-        "aud": "a3b87400-f03b-4956-844e-a52103ef26ba",
-        "exp: "1495562664",
-        "tenant": "9781974b-6a1c-46c3-aebf-32b7e9bbbaee",
-        "iat": "1495559064",
-        "name": "John Smith",
-        "email": "js@mail.com",
-        "gender", "male",
-        "locale": "en",
-        "picture": "<URL-to-photo>",
-        "sub": "de6a17d2-693d-4a43-8ea2-2140afd56a22",
-"identities": [
-
-        "provider": "facebook"
-        "id": "377440159275659"
-            ],
-        "amr": ["facebook"],
-"oauth_client":{
-
-      "name": "BluemixApp",
-      "type": "serverapp",
-      "software_id": "cb638f8f-e24b-41d3-b770-23be158dd8e6.2b94e6bb-bac4-4455-8712-a43fa804d5cc.a3b87400-f03b-4956-844e-a52103ef26ba",
-      "software_version": "1.0.0",
-    }
-    }
-    </pre></code></dd>
-  <dt>重新整理記號</dt>
-      <dd><p>{{site.data.keyword.appid_short}} 支援在沒有重新鑑別的情況下獲得新存取和身分記號的能力，如 <a href="http://openid.net/specs/openid-connect-core-1_0.html#RefreshTokens" target="_blank">OIDC <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a> 中所定義。
-      使用重新整理記號登入時，使用者無需採取任何動作，例如提供認證。一般而言，重新整理記號會配置為比一般存取記號具有更久的生命跨度。</p><p>
-      若要充分利用重新整理記號，請持續保存這些記號，直到其完整生命跨度結束。使用者無法只利用重新整理記號來直接存取資源，這使得它們比存取記號更能安全地持續保存。如需使用重新整理記號，以及如何使用它們來實作 *remember me* 功能的範例，請查看入門範例。</p><p>最佳作法是，重新整理記號應該由接收它們的用戶端安全地儲存，且只應該傳送給發出它們的授權伺服器。</p></dd>
+    <dd><p><a href="http://openid.net/developers/specs/" target="_blank">OIDC <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a> 是比 OAuth 2 優先使用的鑑別層。</p>
+    <p>當您同時使用 OIDC 及 {{site.data.keyword.appid_short_notm}} 時，您的服務認證有助於配置 OAuth 端點。當您使用 SDK 時，會自動建置端點 URL。但是，您也可以使用服務憑證自行建置 URL。您可以看到如何將 URL 放在下列範例及表格中。</p>
+    <pre class="codeblock">
+    <code>{
+      "version": 3,
+      "clientId": "e8ac1132-5151-4d8a-934e-0141de8e2b34",
+      "secret": "XYZ5ZYXzXYZtNyz5Yi00YzQ2LXYwMZctXyM5ODA4NjFhYxYZ",
+      "tenantId": "3x176051-a23x-40y4-9645-804943z660q0",
+      "oauthServerUrl": "https://appid-oauth.ng.bluemix.net/oauth/v3/3x176051-a23x-40y4-9645-804943z660q0",
+      "profilesUrl": "https://appid-profiles.ng.bluemix.net/"
+    }</code></pre>
+    <table>
+      <tr>
+        <th>端點</th>
+        <th>格式</th>
+      </tr>
+      <tr>
+        <td>授權</td>
+        <td>{oauthServerUrl}/authorization</td>
+      </tr>
+      <tr>
+        <td>記號</td>
+        <td>{oauthServerUrl}/token</td>
+      </tr>
+      <tr>
+        <td>Userinfo</td>
+        <td>{oauthServerUrl}/userinfo</td>
+      </tr>
+      <tr>
+        <td>JWKS</td>
+        <td>{oauthServerUrl}/publickeys</td>
+      </tr>
+    </table>
+    <p><strong>附註</strong>：當您使用 SDK 時，會自動建置端點 URL。</p></dd>
+  <dt>記號</dt>
+    <dd>服務使用三種不同類型的記號來提供鑑別。存取記號代表授權，並啟用與[後端資源](/docs/services/appid/protecting-resources.html)的通訊，這些資源會受到 {{site.data.keyword.appid_short}} 所設定的授權過濾器保護。身分記號代表鑑別，並包含使用者的相關資訊。重新整理記號是具有延伸生命期限的存取記號。藉由使用重新整理記號，使用者可以容許應用程式記住其資訊。因此，他們可以保持登入狀態。
+  </dd>
   <dt>授權標頭</dt>
     <dd><p>{{site.data.keyword.appid_short}} 符合<a href="https://tools.ietf.org/html/rfc6750" target="blank">記號載送規格 <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>，並使用傳送為 HTTP Authorization 標頭的存取及身分記號組合。Authorization 標頭包含依空格區隔的三個不同部分。這些記號是 base64 編碼。身分記號是選用項目。</br>
 範例：</p>
@@ -98,6 +78,7 @@ Payload: {
     <dd><p>{{site.data.keyword.appid_short_notm}} 儲存及加密使用者設定檔屬性。身為多方承租戶服務，每個承租戶都會有一個指定的加密金鑰，而且只會使用該承租戶的金鑰來加密每一個承租戶中的使用者資料。</p>
     <p>{{site.data.keyword.appid_short_notm}} 確定專用資訊在儲存之前已進行加密。</p></dd>
 </dl>
+
 </br>
 
 ## 處理程序運作方式

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-07-15"
 
 ---
 
@@ -19,11 +19,15 @@ lastupdated: "2018-4-24"
 É possível usar a API de gerenciamento para automação, customização e gerenciamento do DevOps de suas instâncias do {{site.data.keyword.appid_full}}.
 {: shortdesc}
 
-O gerenciamento de API é assegurado pelos tokens gerados pelo IBM Cloud Identity e Access Management. Isso significa que os proprietários de conta podem especificar quem na equipe terá qual nível de acesso para cada instância de serviço. Para mais informações sobre como o IAM e {{site.data.keyword.appid_short_notm}} trabalham juntos, consulte [Serviço de gerenciamento de acesso](/docs/services/appid/iam.html).
+A API de gerenciamento é protegida com tokens gerados pelo {{site.data.keyword.cloudaccesstraillong}}. Com o IAM, os
+proprietários da conta podem especificar qual o nível de acesso que alguém da equipe tem para cada instância de
+serviço. Para mais informações sobre como o IAM e o {{site.data.keyword.appid_short_notm}} trabalham juntos, consulte
+[Gerenciamento de acesso de serviço](/docs/services/appid/iam.html).
 
 Com a API, é possível:
-* automatizar a configuração do {{site.data.keyword.appid_short_notm}} em seu app de seu processo do DevOps.
-* configurar e customizar os recursos por meio do backend do seu app, como a configuração do widget de login, o processo de inscrição e o gerenciamento de usuários.
+* Automatize a configuração do {{site.data.keyword.appid_short_notm}} no aplicativo do seu processo DevOps.
+* Configure e customize os recursos por meio do backend do aplicativo, como a configuração do widget de login, o processo de
+inscrição e o gerenciamento de usuários.
 
 
 As chamadas para o terminal de API de gerenciamento assumem a estrutura a seguir:
@@ -63,8 +67,9 @@ appid-management.<region>.bluemix.net
 ## Pré-requisitos
 {: #api-prereq}
 
-<ul><ul><li>Uma instância de serviço que foi criada após 15 de março de 2018. Se você tiver uma instância do serviço criada antes dessa data, crie uma nova instância e configure-a para corresponder à sua instância atual. Certifique-se de atualizar seus apps para usarem a nova instância.</li>
-<li>A [CLI do {{site.data.keyword.Bluemix_notm}}](/docs/cli/reference/bluemix_cli/get_started.html) instalada.</li></ul></ul>
+<ul><ul><li>Uma instância de serviço que foi criada após 15 de março de 2018. Se você tiver uma instância do serviço que foi criada
+antes dessa data, crie uma nova instância e configure-a para corresponder à sua instância atual. Certifique-se de atualizar seus apps para usarem a nova instância.</li>
+<li>O  [ {{site.data.keyword.Bluemix_notm}}  CLI ](/docs/cli/index.html)  instalado.</li></ul></ul>
 
 ## Exemplo de uso
 {: #api-example}

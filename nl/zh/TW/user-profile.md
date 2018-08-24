@@ -2,191 +2,49 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-08-03"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:pre: .pre}
+{:tip: .tip}
+{:screen: .screen}
 
-
-# 存取使用者屬性
+# 瞭解使用者設定檔
 {: #user-profile}
 
-使用者屬性是實體中由 {{site.data.keyword.appid_full}} 儲存及維護的資訊區段。設定檔包含使用者的屬性，以及由身分提供者管理或其可以是匿名的身分。您可以使用設定檔，為每一位使用者建立您應用程式的個人化體驗。
-{:shortdesc}
-
-
-{{site.data.keyword.appid_short_notm}} 提供 API，以透過匿名方式或使用 OpenId Connect (OIDC) [身分提供者](/docs/services/appid/identity-providers.html)進行鑑別來登入。使用者設定檔屬性 API 端點是 {{site.data.keyword.appid_short_notm}} 所產生的存取記號在登入及授權處理程序期間所保護的資源。
-
-
-## 儲存、讀取及刪除使用者屬性
-{: #storing-data}
-
-{{site.data.keyword.appid_short_notm}} 提供 <a href="https://appid-profiles.ng.bluemix.net/swagger-ui/index.html#/Attributes" target="_blank">REST API <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>，以對使用者的屬性執行 create、retrieve、update 及 delete 作業。此服務也會提供適用於 <a href="https://github.com/ibm-cloud-security/appid-clientsdk-android" target="_blank">Android <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a> 及 <a href="https://github.com/ibm-cloud-security/appid-clientsdk-swift" target="_blank">Swift <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a> 行動用戶端的 SDK。
-
-## 使用 Android SDK 存取使用者屬性
-{: #accessing}
-
-取得存取記號時，即可存取使用者保護的屬性端點。您可以使用下列 API 方法來取得存取權。
-
-  ```java
-  void setAttribute(@NonNull String name, @NonNull String value, UserAttributeResponseListener listener);
-  void setAttribute(@NonNull String name, @NonNull String value, @NonNull AccessToken accessToken, UserAttributeResponseListener listener);
-
-  void getAttribute(@NonNull String name, UserAttributeResponseListener listener);
-  void getAttribute(@NonNull String name, @NonNull AccessToken accessToken, UserAttributeResponseListener listener);
-
-  void deleteAttribute(@NonNull String name, UserAttributeResponseListener listener);
-  void deleteAttribute(@NonNull String name, @NonNull AccessToken accessToken, UserAttributeResponseListener listener);
-
-  void getAllAttributes(@NonNull UserAttributeResponseListener listener);
-  void getAllAttributes(@NonNull AccessToken accessToken, @NonNull UserAttributeResponseListener listener);
-  ```
-  {: pre}
-
-若未明確地傳遞存取記號，{{site.data.keyword.appid_short_notm}} 會使用最後一個收到的記號。
-
-例如，您可以呼叫下列程式碼來設定新屬性，或置換現有屬性。
-
-  ```java
-  appId.getUserAttributeManager().setAttribute(name, value, useThisToken,new UserAttributeResponseListener() {
-		@Override
-		public void onSuccess(JSONObject attributes) {
-			//attributes received in JSON format on successful response
-		}
-
-		@Override
-		public void onFailure(UserAttributesException e) {
-			//Exception occurred
-		}
-	});
-  ```
-  {: pre}
-
-### 匿名登入
-{: #anonymous notoc}
-
-使用 {{site.data.keyword.appid_short_notm}}，您可以[匿名](/docs/services/appid/user-profile.html#anonymous)登入。
-
-  ```java
-  appId.loginAnonymously(getApplicationContext(), new AuthorizationListener() {
-		@Override
-		public void onAuthorizationFailure(AuthorizationException exception) {
-			//Exception occurred
-		}
-
-		@Override
-		public void onAuthorizationCanceled() {
-			//Authentication canceled by the user
-		}
-
-		@Override
-		public void onAuthorizationSuccess(AccessToken accessToken, IdentityToken identityToken, RefreshToken refreshToken) {
-			//User authenticated
-		}
-	});
-  ```
-  {: pre}
-
-### 漸進鑑別
-{: #progressive notoc}
-
-若使用者保有匿名存取記號，將它傳遞給 `loginWidget.launch` 方法，即可識別。
-
-  ```java
-  void launch (@NonNull final Activity activity, @NonNull final AuthorizationListener authorizationListener, String accessTokenString);
-  ```
-  {: pre}
-
-匿名登入之後，即使因服務已使用最後一個收到的記號而在未傳遞存取記號的情況下呼叫登入小組件，還是會進行漸進鑑別。如果您要清除儲存的記號，請執行下列指令。
-
-  ```java
-  	appIDAuthorizationManager = new AppIDAuthorizationManager(this.appId);
-  appIDAuthorizationManager.clearAuthorizationData();
-  ```
-  {: pre}
-
-
-## 使用 iOS SDK 存取使用者屬性
-{: #accessing}
-
-透過下列 API 方法來傳遞存取記號，以存取使用者屬性。
+使用 {{site.data.keyword.appid_full}}，您可以藉由存取 {{site.data.keyword.appid_short_notm}} 所儲存使用者的相關資訊來建置個人化應用程式體驗。
 {: shortdesc}
 
-  ```swift
-  func setAttribute(key: String, value: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
-  func setAttribute(key: String, value: String, accessTokenString: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
-  func getAttribute(key: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
-  func getAttribute(key: String, accessTokenString: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
-  func getAttributes(completionHandler: @escaping(Error?, [String:Any]?) -> Void)
-  func getAttributes(accessTokenString: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
-  func deleteAttribute(key: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
-  func deleteAttribute(key: String, accessTokenString: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
-  ```
-  {: pre}
+## 主要概念
+{: #key-concepts}
 
-若未明確地傳遞存取記號，{{site.data.keyword.appid_short_notm}} 會使用最後一個收到的記號。
+**什麼是使用者設定檔？**
 
-例如，您可以呼叫下列程式碼來設定新屬性，或置換現有屬性。
+使用者設定檔是 {{site.data.keyword.appid_short_notm}} 所儲存的屬性集合。屬性是與您應用程式互動之使用者的資訊片段。您可以取得兩種類型的屬性：`預先定義`及`自訂`。
 
-  ```swift
-  AppID.sharedInstance.userAttributeManager?.setAttribute("key", "value", completionHandler: { (error, result) in
-      if error = nil {
-          //Attributes recieved as a Dictionary
-      } else {
-          // An error has occurred
-      }
-  })
-  ```
-  {: pre}
+**什麼是預先定義屬性？**
+
+當您的使用者登入您的應用程式時，身分提供者會傳回預先定義屬性。這些屬性可能包括其使用者名稱、年齡或性別。
+
+**什麼是自訂屬性？**
+
+使用者與應用程式互動時，會學習使用者的自訂屬性。這可能是他們所使用的字型大小，或他們放在購物車中的項目。自訂屬性可以進行編輯。
+
+## 存取使用者屬性
+{: #access}
+
+您可以使用不同的方式來存取使用者設定檔資訊。在成功使用者鑑別之後，您的應用程式會接收到存取及身分記號。身分記號包含身分提供者所傳回之使用者屬性的正規化子集。若要取得完整的使用者屬性清單，您可以使用 OIDC `/userinfo` 端點。若要管理自訂屬性，您可以使用 `REST API`。userinfo 及 custom 屬性端點是透過 {{site.data.keyword.appid_short_notm}} 在鑑別處理程序結束時所產生的存取記號所保護。
 
 
-### 匿名登入
 
-使用 {{site.data.keyword.appid_short_notm}}，您可以[匿名](/docs/services/appid/user-profile.html#anonymous)登入。
+![{{site.data.keyword.appid_short_notm}} 使用者設定檔架構](/images/user-profile1.png)
 
-  ```swift
-  class delegate : AuthorizationDelegate {
+圖. 使用者設定檔資訊流程
 
-      public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, refreshToken: RefreshToken?, response:Response?) {
-          //User authenticated
-      }
+若要查看自訂屬性，您可以使用 <a href="https://appid-profiles.ng.bluemix.net/swagger-ui/index.html#/Attributes" target="_blank">REST API <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>。
 
-      public func onAuthorizationCanceled() {
-          //Authentication canceled by the user
-      }
-
-      public func onAuthorizationFailure(error: AuthorizationError) {
-          //Error occurred
-      }
-   }
-
-  AppID.sharedInstance.loginAnonymously( authorizationDelegate: delegate())
-  ```
-  {: pre}
-
-### 漸進鑑別
-
-當您保留匿名存取記號時，使用者可以變成已識別的使用者，方法是將它傳遞給 `loginWidget.launch` 方法。
-
-  ```swift
-  func launch(accessTokenString: String? , delegate: AuthorizationDelegate)
-  ```
-  {: pre}
-
-匿名登入之後，即使因服務已使用最後一個收到的記號而在未傳遞存取記號的情況下呼叫登入小組件，還是會進行漸進鑑別。如果您要清除儲存的記號，請執行下列指令。
-
-  ```swift
-  var appIDAuthorizationManager = AppIDAuthorizationManager(appid: AppID.sharedInstance)
-  appIDAuthorizationManager.clearAuthorizationData()
-  ```
-  {: pre}
-
-## 資料分隔及加密
-{: #data}
-
-{{site.data.keyword.appid_short_notm}} 儲存及加密使用者設定檔屬性。身為多方承租戶服務，每個承租戶都會有一個指定的加密金鑰，而且只會使用該承租戶的金鑰來加密每一個承租戶中的使用者資料。
-
-{{site.data.keyword.appid_short_notm}} 確定專用資訊在儲存之前已進行加密。
+</br>
+</br>

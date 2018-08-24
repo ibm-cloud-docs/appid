@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-08-01"
 
 ---
 
@@ -27,63 +27,63 @@ Le plan à tranches graduées comprend deux parties : le nombre d'événements d
 
 ### Evénements d'authentification
 
-Un événement d'authentification se produit lorsqu'un nouveau jeton {{site.data.keyword.appid_short_notm}} est émis. Pour les utilisateurs identifiés, chaque nouveau jeton est valide une heure. Les jetons sont valides pour une durée d'un mois. A l'expiration du jeton, vous devez en créer un nouveau pour accéder aux ressources protégées. Lorsque vous utilisez {{site.data.keyword.appid_short_notm}} pour l'authentification sur mobile, les jetons des utilisateurs sont stockés dans `key-store/key-chain` et sont ajoutés à chaque future demande. Ils sont accessibles via l'utilisation du SDK {{site.data.keyword.appid_short_notm}} pour Android ou iOS Swift. Lorsque vous utilisez le service pour l'authentification Web, <a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs" target="_blank">stockez le jeton de l'utilisateur <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a> dans les cookies de session.
+Un événement d'authentification survient lorsqu'un nouveau jeton d'accès, ordinaire ou anonyme, est émis. Pour les utilisateurs identifiés, chaque nouveau jeton d'accès est valide par défaut pendant une heure (par le biais d'une authentification d'utilisateur réelle ou de jetons d'actualisation). Les jetons anonymes sont valides par défaut pendant un mois. A l'expiration du jeton, vous devez en créer un nouveau pour accéder aux ressources protégées. Vous pouvez mettre à jour l'heure d'expiration des jetons {{site.data.keyword.appid_short_notm}} dans la page d'**expiration de la connexion** du tableau de bord {{site.data.keyword.appid_short_notm}}. 
+
+Lorsque vous utilisez {{site.data.keyword.appid_short_notm}} dans des applications mobiles, les jetons sont stockés dans un magasin de clés ou une chaîne de certificats et ajoutés à chaque demande effectuée. Les jetons sont accessibles à l'aide du logiciel SDK Android ou iOS d'App ID. Lorsque vous utilisez {{site.data.keyword.appid_short_notm}} dans des applications Web, il est recommandé de stocker les jetons dans des cookies de session d'application. 
+
 
 ### Utilisateurs autorisés
 
-Un utilisateur autorisé est un utilisateur unique qui se connecte avec votre service directement ou indirectement. Vous êtes facturé pour un utilisateur autorisé chaque fois qu'un nouvel utilisateur se connecte depuis chaque fournisseur d'identité, y compris dans le cas d'un utilisateur anonyme. Par exemple, si un utilisateur se connecte avec son identité Facebook, puis plus tard avec son profil Google, deux utilisateurs autorisés distincts seront considérés.
+Un utilisateur autorisé est un utilisateur unique qui se connecte avec votre service directement ou indirectement. Vous êtes facturé pour un utilisateur autorisé chaque fois qu'un nouvel utilisateur se connecte depuis un fournisseur d'identité, y compris dans le cas d'un utilisateur anonyme. Par exemple, si un utilisateur se connecte avec son identité Facebook, puis plus tard avec son profil Google, ils seront considérés comme deux utilisateurs autorisés distincts. 
 
 Pour plus d'informations sur la tarification à tranches graduées, consultez les [documents de tarification {{site.data.keyword.Bluemix_notm}}](/docs/billing-usage/how_charged.html#services).
 
 </br>
 
-## Type d'activité surveillé par {{site.data.keyword.appid_short_notm}}
-{: #activity-monitor}
 
-Vous pouvez procéder au suivi de l'activité générée au sein de l'application liée à l'instance de service. Vous pouvez également surveiller l'activité d'administration effectuée dans {{site.data.keyword.appid_short_notm}} à l'aide du service {{site.data.keyword.cloudaccesstrailshort}}.
+## Fonctionnement du chiffrement dans {{site.data.keyword.appid_short_notm}} 
+{: #encryption}
 
-Pour afficher l'activité générée par votre application :
+Consultez le tableau ci-dessous pour obtenir des réponses aux questions fréquemment posées sur le chiffrement. 
 
-1. Connectez-vous à votre compte {{site.data.keyword.Bluemix_notm}}.
-2. Depuis le tableau de bord, sélectionnez votre instance d'{{site.data.keyword.appid_short_notm}}.
-3. Cliquez sur l'onglet **Vue d'ensemble**.
-4. Consultez l'activité répertoriée dans le **Journal d'activité**.
-
-</br>
-Pour surveiller l'activité d'administration :
-
-1. Connectez-vous à votre compte {{site.data.keyword.Bluemix_notm}}. Accédez à l'organisation et de l'espace dans lesquels votre instance d'{{site.data.keyword.appid_short_notm}} est mise à disposition.
-2. Dans le catalogue, mettez à disposition une instance du service {{site.data.keyword.cloudaccesstrailshort}}. Veillez à vous trouver dans le même espace que votre instance d'{{site.data.keyword.appid_short_notm}}.
-3. Dans le tableau de bord {{site.data.keyword.cloudaccesstrailshort}}, cliquez sur l'onglet **Gérer**.
-4. Dans la liste déroulante, sélectionnez les configurations suivantes afin de rechercher les événements générés par {{site.data.keyword.appid_short_notm}}.
 <table>
-  <tr>
-    <th> Zone </th>
-    <th> Configuration </th>
-  </tr>
-  <tr>
-    <td>Affichage des journaux </td>
-    <td>Journaux d'espace</td>
-  </tr>
-  <tr>
-    <td>Rechercher</td>
-    <td>target.name</td>
-  </tr>
-  <tr>
-    <td>Filtrer</td>
-    <td>appid</td>
-  </tr>
+  <thead>
+    <th colspan=2><img src="images/idea.png" alt="Icône Plus d'informations"/>  </th>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Pourquoi utilisez-vous le chiffrement ?</td>
+      <td>Le service chiffre les données client au repos. </td>
+    </tr>
+    <tr>
+      <td>Avez-vous généré vos propres algorithmes ? Lesquels utilisez-vous dans votre code ? </td>
+      <td>Nous n'avons pas généré nos propres algorithmes, mais le service utilise les algorithmes <code>AES</code> et <code>SHA-256</code> associés au salage. </td>
+    </tr>
+    <tr>
+      <td>Utilisez-vous des fournisseurs ou des modules de chiffrement publics ou open source ? Vous arrive-t-il d'exposer les fonctions de chiffrement ? </td>
+      <td>Le service utilise des bibliothèques Java <code>javax.crypto</code> mais n'expose jamais les fonctions de chiffrement. </td>
+    </tr>
+    <tr>
+      <td>Comment stockez-vous les clés ? </td>
+      <td>Les clés sont générées puis stockées localement une fois chiffrées à l'aide d'une clé principale propre à chaque région. Les clés principales sont stockées dans {{site.data.keyword.keymanagementserviceshort}}.</td>
+    </tr>
+    <tr>
+      <td>Quel niveau de chiffrement de la clé utilisez-vous ? </td>
+      <td>Le service utilise un niveau de chiffrement de 16 octets. </td>
+    </tr>
+    <tr>
+      <td>Appelez-vous des API distantes qui exposent les fonctions de chiffrement ? </td>
+      <td>Non. </td>
+    </tr>
+  </tbody>
 </table>
-5. Cliquez sur **Filtre**.
-
-Pour plus d'informations sur le fonctionnement du service, voir la [documentation {{site.data.keyword.cloudaccesstrailshort}}](/docs/services/cloud-activity-tracker/index.html).
 
 </br>
 
 ## Pour {{site.data.keyword.appid_short_notm}}, aspect attendu d'une assertion SAML
 {: #saml-example}
 
-Le service s'attend à ce qu'une assertion SAML ressemble à l'exemple suivant.
+Le service s'attend à ce qu'une assertion SAML ressemble à l'exemple ci-dessous. 
 
 ```
 <samlp:Response xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol" ID="s2202bbbbafa9d270d1c15990b738f4ab36139d463" InResponseTo="_e4a78780-35da-012e-8ea7-0050569200d8" Version="2.0" IssueInstant="2011-03-21T11:22:02Z" Destination="https://example.example.com/">
@@ -122,7 +122,7 @@ Le service s'attend à ce qu'une assertion SAML ressemble à l'exemple suivant.
 ## Types d'algorithme pris en charge pour les signatures SAML
 {: #saml-signatures}
 
-Vous pouvez utiliser l'un des algorithmes suivants pour traiter les signatures numériques XML.
+Vous pouvez utiliser l'un des algorithmes ci-dessous pour traiter les signatures numériques XML.
 
 <table>
   <tr>

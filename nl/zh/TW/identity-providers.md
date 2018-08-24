@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-08-06"
 
 ---
 
@@ -54,7 +54,7 @@ lastupdated: "2018-4-24"
 2. 記下 Facebook 應用程式 ID 及密碼。在服務儀表板中，需要這些值才能配置 Web 專案以進行鑑別。
 3. 新增 Web 平台，並輸入網站 URL。
 4. 從產品清單中，選取 **Facebook 登入**。
-5. 在「有效 OAuth 重新導向 URL」欄位中，輸入授權伺服器回呼端點 URL。在配置服務實例之後，即可新增此值。
+5. 在「有效 OAuth 重新導向 URL」欄位中，輸入授權伺服器回呼端點 URL。
 6. 按一下**儲存變更**。
 
 
@@ -66,7 +66,7 @@ lastupdated: "2018-4-24"
 2. 輸入自 Facebook for Developers 網站取得的 Facebook 應用程式 ID 及密碼。
 3. 複製 **Facebook for Developers 的重新導向 URI** 欄位中的 URI。將 URI 貼入「Facebook Developers 入口網站」的 **Facebook 登入**區段中的**有效 OAuth 重新導向 URI** 欄位。
 4. 按一下**儲存**。
-5. 選用項目：針對 Web 應用程式，在 **Web 應用程式重新導向 URL** 欄位中輸入重新導向 URL。此值是由開發人員所判定，並且用來在授權處理程序完成之後存取重新導向 URL。
+5. 選用項目：針對 Web 應用程式，在 **Web 應用程式重新導向 URL** 欄位中輸入重新導向 URL。此值是由開發人員所判定，並且用來在授權處理程序完成之後存取重新導向 URL。URL 必須遵循 `http` 或 `https` 架構。若要獲得更高安全等級，請使用 `https` 架構。
 
 
 ## 配置 Google
@@ -99,4 +99,4 @@ lastupdated: "2018-4-24"
     2. 在您的 Google 專案的認證標籤中，選取您為此整合建立的用戶端 ID。
     3. 將來自 {{site.data.keyword.appid_short}} 的 URL 貼到**已授權的重新導向 URI** 欄位，然後按一下**儲存**。
 4. 按一下**儲存**以在 {{site.data.keyword.appid_short}} 中更新您的 Google 配置。
-5. 若為 Web 應用程式，在**管理**標籤中輸入重新導向 URL。授權處理程序完成之後，使用者會被傳送至這個 URL。
+5. 若為 Web 應用程式，在**管理**標籤中輸入重新導向 URL。授權處理程序完成之後，使用者會被傳送至這個 URL。URL 必須遵循 `http` 或 `https` 架構。若要獲得更高安全等級，請使用 `https` 架構。

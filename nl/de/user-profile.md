@@ -2,194 +2,49 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-08-03"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:pre: .pre}
+{:tip: .tip}
+{:screen: .screen}
 
-
-# Auf Benutzerattribute zugreifen
+# Wissenswertes zu Benutzerprofilen
 {: #user-profile}
 
-Ein Benutzerattribut ist ein Informationssegment in einer Entität, die von {{site.data.keyword.appid_full}} verwaltet wird. Das Profil enthält die Attribute und Identität eines Benutzers, die von einem von einem Identitätsprovider verwaltet wird oder anonym sein kann. Sie können die Profile verwenden, um personalisierte Erfahrungen Ihrer App für jeden Benutzer zu erstellen.
-{:shortdesc}
-
-
-{{site.data.keyword.appid_short_notm}} stellt eine API bereit, die eine anonyme Registrierung oder eine Registrierung mit einer Authentifizierung über einen OIDC-[Identitätsprovider](/docs/services/appid/identity-providers.html) (OIDC = OpenId Connect) ermöglicht. Der API-Endpunkt des Benutzerprofilattributs ist eine Ressource, die durch ein Zugriffstoken geschützt ist, das beim Anmelde- und Berechtigungsprozess von {{site.data.keyword.appid_short_notm}} generiert wird.
-
-
-## Benutzerattribute speichern, lesen und löschen
-{: #storing-data}
-
-{{site.data.keyword.appid_short_notm}} stellt eine <a href="https://appid-profiles.ng.bluemix.net/swagger-ui/index.html#/Attributes" target="_blank">REST-API <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a> zum Ausführen von Operationen zum Erstellen, Abrufen, Aktualisieren und Löschen für Benutzerattribute bereit. Der Service stellt auch ein SDK für mobile Clients für <a href="https://github.com/ibm-cloud-security/appid-clientsdk-android" target="_blank">Android <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a> und <a href="https://github.com/ibm-cloud-security/appid-clientsdk-swift" target="_blank">Swift <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a> bereit.
-
-## Über das Android-SDK auf Benutzerattribute zugreifen
-{: #accessing}
-
-Wenn Sie ein Zugriffstoken anfordern, können Sie Zugriff auf den Endpunkt der geschützten Benutzerattribute zugreifen. Sie können Zugriff durch die folgenden API-Methoden erhalten.
-
-  ```java
-  void setAttribute(@NonNull String name, @NonNull String value, UserAttributeResponseListener listener);
-  void setAttribute(@NonNull String name, @NonNull String value, @NonNull AccessToken accessToken, UserAttributeResponseListener listener);
-
-  void getAttribute(@NonNull String name, UserAttributeResponseListener listener);
-  void getAttribute(@NonNull String name, @NonNull AccessToken accessToken, UserAttributeResponseListener listener);
-
-  void deleteAttribute(@NonNull String name, UserAttributeResponseListener listener);
-  void deleteAttribute(@NonNull String name, @NonNull AccessToken accessToken, UserAttributeResponseListener listener);
-
-  void getAllAttributes(@NonNull UserAttributeResponseListener listener);
-  void getAllAttributes(@NonNull AccessToken accessToken, @NonNull UserAttributeResponseListener listener);
-  ```
-  {: pre}
-
-Wenn ein Zugriffstoken nicht explizit übergeben wird, verwendet {{site.data.keyword.appid_short_notm}} das zuletzt empfangene Token.
-
-Sie können beispielsweise diesen Code aufrufen, um ein neues Attribut festzulegen oder ein vorhandenes Attribut zu überschreiben.
-
-  ```java
-  appId.getUserAttributeManager().setAttribute(name, value, useThisToken,new UserAttributeResponseListener() {
-		@Override
-		public void onSuccess(JSONObject attributes) {
-			//Attribute im JSON-Format nach erfolgreicher Antwort empfangen
-		}
-
-		@Override
-		public void onFailure(UserAttributesException e) {
-			//Ausnahmebedingung aufgetreten.
-  			 }
-	});
-  ```
-  {: pre}
-
-### Anonyme Registrierung
-{: #anonymous notoc}
-
-Mit {{site.data.keyword.appid_short_notm}} können Sie sich [anonym](/docs/services/appid/user-profile.html#anonymous) anmelden.
-
-  ```java
-  appId.loginAnonymously(getApplicationContext(), new AuthorizationListener() {
-		@Override
-			 public void onAuthorizationFailure (AuthorizationException exception) {
-			//Ausnahmebedingung aufgetreten.
-  			 }
-
-		@Override
-		public void onAuthorizationCanceled() {
-			//Authentifizierung von Benutzer abgebrochen
-		}
-
-		@Override
-		public void onAuthorizationSuccess(AccessToken accessToken, IdentityToken identityToken, RefreshToken refreshToken) {
-			//Benutzer authentifiziert
-		}
-	});
-  ```
-  {: pre}
-
-### Progressive Authentifizierung
-{: #progressive notoc}
-
-Benutzer mit einem anonymen Zugriffstoken können identifiziert werden, indem es der Methode `loginWidget.launch` übergeben wird.
-
-  ```java
-  void launch (@NonNull final Activity activity, @NonNull final AuthorizationListener authorizationListener, String accessTokenString);
-  ```
-  {: pre}
-
-Nach einer anonymen Registrierung tritt eine progressive Authentifizierung auf, sogar wenn das Anmelde-Widget aufgerufen wird, ohne dass dabei ein Zugriffstoken übergeben wird. Grund hierfür ist, dass der Service das zuletzt empfangene Token verwendet. Führen Sie den folgenden Befehl aus, um gespeicherte Token zu löschen.
-
-  ```java
-  	appIDAuthorizationManager = new AppIDAuthorizationManager(this.appId);
-  appIDAuthorizationManager.clearAuthorizationData();
-  ```
-  {: pre}
-
-
-## Über das iOS-SDK auf Benutzerattribute zugreifen
-{: #accessing}
-
-Zugriff auf die Benutzerattribute durch Übergabe eines Zugriffstokens über die folgenden API-Methoden.
+Mit {{site.data.keyword.appid_full}} können Sie für Ihre App individuelle Benutzererfahrungen gestalten, indem Sie auf Informationen zu Ihren Benutzern zugreifen, die von {{site.data.keyword.appid_short_notm}} gespeichert werden.
 {: shortdesc}
 
-  ```swift
-  func setAttribute(key: String, value: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
-  func setAttribute(key: String, value: String, accessTokenString: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
+## Zentrale Konzepte
+{: #key-concepts}
 
-  func getAttribute(key: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
-  func getAttribute(key: String, accessTokenString: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
+**Was ist ein Benutzerprofil?**
 
-  func getAttributes(completionHandler: @escaping(Error?, [String:Any]?) -> Void)
-  func getAttributes(accessTokenString: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
+Bei einem Benutzerprofil handelt es sich um eine Gruppe von Attributen, die von {{site.data.keyword.appid_short_notm}} gespeichert werden. Bei den Attributen handelt es sich um Angaben über die Benutzer, die mit Ihrer App interagieren. Es können zwei Typen von Attributen abgerufen werden: `vordefinierte` und `angepasste` Attribute. 
 
-  func deleteAttribute(key: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
-  func deleteAttribute(key: String, accessTokenString: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
-  ```
-  {: pre}
+**Was sind vordefinierte Attribute?**
 
-Wenn ein Zugriffstoken nicht explizit übergeben wird, verwendet {{site.data.keyword.appid_short_notm}} das zuletzt empfangene Token.
+Vordefinierte Attribute werden vom Identitätsprovider zurückgegeben, wenn ein Benutzer sich bei Ihrer App anmeldet. Die Attribute umfassen den zugehörigen Benutzernamen sowie Alter und Geschlecht. 
 
-Sie können beispielsweise diesen Code aufrufen, um ein neues Attribut festzulegen oder ein vorhandenes Attribut zu überschreiben.
+**Was sind angepasste Attribute?**
 
-  ```swift
-  AppID.sharedInstance.userAttributeManager?.setAttribute("key", "value", completionHandler: { (error, result) in
-      if error = nil {
-          //Attribute als Wörterbuch erhalten
-      } else {
-          // Ein Fehler ist aufgetreten
-      }
-  })
-  ```
-  {: pre}
+Angepasste Attribute zu Ihren Benutzern werden im Laufe der Interaktion mit Ihrer App erfasst. Dabei kann es sich um die verwendete Schriftgröße oder Elemente handeln, die vom Benutzer in einen Warenkorb platziert wurden. Angepasste Attribute können bearbeitet werden. 
+
+## Auf Benutzerattribute zugreifen
+{: #access}
+
+Sie können auf unterschiedliche Weise auf Benutzerprofilinformationen zugreifen. Nach einer erfolgreichen Benutzerauthentifizierung empfängt Ihre App Zugriffs- und Identitätstoken. Das Identitätstoken enthält eine normalisierte Untergruppe von Benutzerattributen, die von einem Identitätsprovider zurückgegeben wurden. Eine vollständige Liste der Benutzerattribute können Sie über den OIDC-Endpunkt `/userinfo` abrufen. Zur Verwaltung von angepassten Attributen eignet sich die `REST-API`. Die Endpunkte für Benutzerinformationen und für angepasste Attribute werden über das Zugriffstoken geschützt, das von {{site.data.keyword.appid_short_notm}} zum Ende des Authentifizierungsprozesses generiert wird. 
 
 
-### Anonyme Registrierung
 
-Mit {{site.data.keyword.appid_short_notm}} können Sie sich [anonym](/docs/services/appid/user-profile.html#anonymous) anmelden.
+![{{site.data.keyword.appid_short_notm}}-Benutzerprofilarchitektur](/images/user-profile1.png)
 
-  ```swift
-  class delegate : AuthorizationDelegate {
+Abbildung. Datenfluss der Benutzerprofilinformationen
 
-      public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, refreshToken: RefreshToken?, response:Response?) {
-          //Benutzer authentifiziert
-      }
+Verwenden Sie zum Anzeigen von angepassten Attributen die <a href="https://appid-profiles.ng.bluemix.net/swagger-ui/index.html#/Attributes" target="_blank">REST-API <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a>.
 
-      public func onAuthorizationCanceled() {
-          //Authentifizierung von Benutzer abgebrochen
-      }
-
-      public func onAuthorizationFailure(error: AuthorizationError) {
-          //Fehler aufgetreten
-      }
-   }
-
-  AppID.sharedInstance.loginAnonymously( authorizationDelegate: delegate())
-  ```
-  {: pre}
-
-### Progressive Authentifizierung
-
-Benutzer mit einem anonymen Zugriffstoken können identifiziert werden, indem es der Methode `loginWidget.launch` übergeben wird.
-
-  ```swift
-  func launch(accessTokenString: String? , delegate: AuthorizationDelegate)
-  ```
-  {: pre}
-
-Nach einer anonymen Registrierung tritt eine progressive Authentifizierung auf, sogar wenn das Anmelde-Widget aufgerufen wird, ohne dass dabei ein Zugriffstoken übergeben wird. Grund hierfür ist, dass der Service das zuletzt empfangene Token verwendet. Führen Sie den folgenden Befehl aus, um gespeicherte Token zu löschen.
-
-  ```swift
-  var appIDAuthorizationManager = AppIDAuthorizationManager(appid: AppID.sharedInstance)
-  appIDAuthorizationManager.clearAuthorizationData()
-  ```
-  {: pre}
-
-## Datentrennung und -verschlüsselung
-{: #data}
-
-{{site.data.keyword.appid_short_notm}} speichert und verschlüsselt die Attribute von Benutzerprofilen. Als Multi-Tenant-Service besitzt jeder Tenant einen designierten Verschlüsselungsschlüssel. Die Benutzerdaten in jedem Tenant werden nur mit dem Schlüssel des Tenants verschlüsselt.
-
-{{site.data.keyword.appid_short_notm}} stellt sicher, dass die privaten Daten vor dem Speichern verschlüsselt werden.
+</br>
+</br>

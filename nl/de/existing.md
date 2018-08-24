@@ -35,7 +35,7 @@ Sie können den {{site.data.keyword.appid_short_notm}}-Service zu den vorhandene
       		repositories {
          	 ...
          	 maven { url 'https://jitpack.io' }
-	    }
+      		}
   }
   ```
   {: codeblock}
@@ -60,7 +60,7 @@ Sie können den {{site.data.keyword.appid_short_notm}}-Service zu den vorhandene
   {: codeblock}
 
 4. Synchronisieren Sie Ihr Projekt mit Gradle.
-5. Initialisieren Sie das SDK, indem Sie die Parameter 'context', 'tenantID' und 'region' an die Methode 'initialize' übergeben. Eine gängige, wenngleich nicht verbindliche, Position für den Initialisierungscode ist die Methode 'onCreate' der Hauptaktivität in Ihrer Android-Anwendung.
+5. Initialisieren Sie das Client-SDK, indem Sie die Parameter 'context', 'tenantID' und 'region' an die Methode 'initialize' übergeben. Eine gängige, wenngleich nicht verbindliche, Position für den Initialisierungscode ist die Methode 'onCreate' der Hauptaktivität in Ihrer Android-Anwendung.
 
   ```Java
   AppID.getInstance().initialize(getApplicationContext(), <tenantId>, <AppID.REGION>);
@@ -151,7 +151,7 @@ Sie können den {{site.data.keyword.appid_short_notm}}-Service zu den vorhandene
   ```
   {: codeblock}
 
-7. Initialisieren Sie das SDK, indem Sie die Parameter 'tenantID' und 'region' an die Methode 'initialize' übergeben. Eine gängige, wenngleich nicht verbindliche, Position für den Initialisierungscode ist die Methode 'application:didFinishLaunchingWithOptions:' von AppDelegate in Ihrer Anwendung.
+7. Initialisieren Sie das Client-SDK, indem Sie die Parameter 'tenantID' und 'region' an die Methode 'initialize' übergeben. Eine gängige, wenngleich nicht verbindliche, Position für den Initialisierungscode ist die Methode 'application:didFinishLaunchingWithOptions:' von AppDelegate in Ihrer Anwendung.
 
   ```swift
   AppID.sharedInstance.initialize(tenantId: <tenantId>, bluemixRegion: <AppID.Region>)
@@ -179,7 +179,7 @@ Sie können den {{site.data.keyword.appid_short_notm}}-Service zu den vorhandene
   ```swift
   func application(_ application: UIApplication, open url: URL, options :[UIApplicationOpenURLOptionsKey : Any]) -> Bool {
          	return AppID.sharedInstance.application(application, open: url, options: options)
-      }
+     	}
   class delegate : AuthorizationDelegate {
      public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, refreshToken: RefreshToken? response:Response?) {
      }
@@ -234,9 +234,9 @@ Sie können den {{site.data.keyword.appid_short_notm}}-Service zu den vorhandene
   ```
   {: codeblock}
 
-3. Fügen Sie den nachfolgend dargestellten Code zur Datei `app.js`, um die folgenden Schritte durchzuführen:
-    * Richten Sie die Express-App so ein, dass Middleware des Typs 'express-session' verwendet wird. **Hinweis**: Sie müssen die Middleware mit dem passenden Sitzungsspeicher für die Produktionsumgebungen konfigurieren. Weitere Informationen finden Sie in den <a href="https://github.com/expressjs/session" target="_blank">expressjs-Dokumenten <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a>.
-    * Konfigurieren Sie passportjs mit Serialisierung und ohne Deserialisierung. Dies ist für eine authentifizierte Sitzungsfortdauer für HTTP-Anforderungen erforderlich. Weitere Informationen finden Sie in den <a href="http://passportjs.org/docs" target="_blank">passportjs-Dokumenten <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a>.  
+3. Fügen Sie den nachfolgend dargestellten Code in der Datei `app.js` hinzu, um die folgenden Schritte durchzuführen:
+    * Richten Sie die Express-App so ein, dass Middleware des Typs 'express-session' verwendet wird. **Hinweis**: Sie müssen die Middleware mit dem passenden Sitzungsspeicher für die Produktionsumgebungen konfigurieren. Weitere Informationen finden Sie in der <a href="https://github.com/expressjs/session" target="_blank">Dokumentation zu expressjs<img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a>.
+    * Konfigurieren Sie passportjs mit Serialisierung und ohne Deserialisierung. Dies ist für eine authentifizierte Sitzungsfortdauer für HTTP-Anforderungen erforderlich. Weitere Informationen finden Sie in der <a href="http://passportjs.org/docs" target="_blank">Dokumentation zu passportjs<img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a>.  
     * Rufen Sie durch Ausführen eines Abrufbefehls für die Callback-URL die Zugriffs- und Identitätstoken vom {{site.data.keyword.appid_short_notm}}-Service ab.
 
   ```javaScript
@@ -295,7 +295,7 @@ Sie können den {{site.data.keyword.appid_short_notm}}-Service zu den vorhandene
     {: codeblock}
 
 2. Fügen Sie den folgenden Code zur Ihrer Swift-Anwendung hinzu:
-    * Richten Sie Kitura zur Verwendung als Sitzungs-Middleware ein. **Hinweis**: Sie müssen Kitura mit dem passenden Sitzungsspeicher für die Produktionsumgebungen konfigurieren. Weitere Informationen finden Sie in den <a href="https://github.com/IBM-Swift/Kitura-Session" target="_blank">Kitura-Dokumenten <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a>.
+    * Richten Sie Kitura zur Verwendung als Sitzungs-Middleware ein. **Hinweis**: Sie müssen Kitura mit dem passenden Sitzungsspeicher für die Produktionsumgebungen konfigurieren. Weitere Informationen finden Sie in der <a href="https://github.com/IBM-Swift/Kitura-Session" target="_blank">Dokumentation zu Kitura<img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a>.
     * Rufen Sie durch Ausführen eines Abrufbefehls für die Callback-URL die Zugriffs- und Identitätstoken vom {{site.data.keyword.appid_short_notm}}-Service ab.
 
   ```swift
@@ -318,11 +318,11 @@ Sie können den {{site.data.keyword.appid_short_notm}}-Service zu den vorhandene
       ))
   router.get("/protected", handler: kituraCredentials.authenticate(credentialsType: webappKituraCredentialsPlugin.name), { (request, response, next) in
     let appIdAuthContext:JSON? = request.session?[WebAppKituraCredentialsPlugin.AuthContext]
-      let identityTokenPayload:JSON? = appIdAuthContext?["identityTokenPayload"]
+    let identityTokenPayload:JSON? = appIdAuthContext?["identityTokenPayload"]
     guard appIdAuthContext?.dictionary != nil, identityTokenPayload?.dictionary != nil else {
       response.status(.unauthorized)
-          return next()
-      }
+      return next()
+    }
     response.send(json: identityTokenPayload!)
     next()
     })
@@ -354,7 +354,7 @@ Sie können den {{site.data.keyword.appid_short_notm}}-Service zu den vorhandene
 
 Sie können {{site.data.keyword.appid_short_notm}} so konfigurieren, dass die vorhandenen Liberty for Java-Webanwendungen verwendet werden.
 
-1. Fügen Sie ein <a href="https://www.ibm.com/support/knowledgecenter/en/SSD28V_8.5.5/com.ibm.websphere.wlp.core.doc/ae/twlp_config_oidc_rp.html" target="_blank">OpenID Connect-Feature <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a> zur Datei `server.xml` hinzu.
+1. Fügen Sie ein <a href="https://www.ibm.com/support/knowledgecenter/en/SSD28V_8.5.5/com.ibm.websphere.wlp.core.doc/ae/twlp_config_oidc_rp.html" target="_blank">OpenID Connect-Feature <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a> in der Datei `server.xml` hinzu.
 
   ```xml
   <feature manager>
@@ -451,7 +451,7 @@ Sie können {{site.data.keyword.appid_short_notm}} so konfigurieren, dass die vo
 
     f. Exportieren Sie das Zertifikat und speichern Sie es im lokalen Laufwerk als PEM-Datei.
 
-6. Fügen Sie das Zertifikat zur Liberty for Java-Datei 'truststore.jks' hinzu, indem Sie das <a href="https://www.ibm.com/support/knowledgecenter/SSYKE2_6.0.0/com.ibm.java.security.component.60.doc/security-component/keytoolDocs/keytool_overview.html" target="_blank">Liberty Keytool <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a> verwenden, und fügen Sie einen Verweis auf den Zertifikatsaliasnamen im OIDC-Element hinzu. Die `.jks`-Datei befindet sich im Serververzeichnis: **Ressourcen** > **Sicherheit** > **<i>Truststore-Dateiname</i>** > **`.jks`-Datei**. Sie können eine der folgenden Optionen verwenden, um das Zertifikat zur Datei hinzuzufügen.
+6. Fügen Sie das Zertifikat zur Liberty for Java-Datei 'truststore.jks' hinzu, indem Sie das <a href="https://www.ibm.com/support/knowledgecenter/SSYKE2_6.0.0/com.ibm.java.security.component.60.doc/security-component/keytoolDocs/keytool_overview.html" target="_blank">Liberty Keytool <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a> verwenden, und fügen Sie einen Verweis auf den Zertifikatsaliasnamen im OIDC-Element hinzu. Die `.jks`-Datei befindet sich im Serververzeichnis: **Ressourcen** > **Sicherheit** > **<i>Truststore-Dateiname</i>** > **`.jks`-Datei**. Sie können eine der folgenden Optionen verwenden, um das Zertifikat in der Datei hinzuzufügen.
 
     * Rufen Sie auf dem Terminal den Liberty for Java-Sicherheitsordner auf: wlp > usr > servers > <i>Servername</i> > resources > security. Verwenden Sie den folgenden Befehl, um das Zertifikat hinzuzufügen.
 
@@ -564,11 +564,11 @@ Ersetzen Sie in der Swift-App `let webappKituraCredentialsPlugin = WebAppKituraC
   ```swift
   let options = [
         "clientId": "{client-id}",
-  	"secret": "{secret}",
-  	"tenantId": "{tenant-id}",
-  	"oauthServerUrl": "{oauth-server-url}",
-  	"redirectUri": "{app-url}" + CALLBACK_URL
-  ]
+        "secret": "{secret}",
+        "tenantId": "{tenant-id}",
+        "oauthServerUrl": "{oauth-server-url}",
+        "redirectUri": "{app-url}" + CALLBACK_URL
+    ]
     let webappKituraCredentialsPlugin = WebAppKituraCredentialsPlugin(options: options)
   ```
   {: codeblock}

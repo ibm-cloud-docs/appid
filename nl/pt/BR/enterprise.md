@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-07-24"
 
 ---
 
@@ -41,13 +41,22 @@ As solicitações a seguir podem ser incluídas:
 * `locale`
 * `picture`
 
-Os elementos de atributo SAML restantes que não correspondem a nenhum dos nomes padrão são ignorados.
+Os elementos de atributo SAML restantes que não correspondem a nenhum dos nomes padrão são ignorados. Observe que se um ou
+mais desses valores mudarem no lado do provedor, os novos valores estarão disponíveis somente após o usuário efetuar login novamente.
 
 ## Configurando seu app para trabalhar com um provedor de identidade SAML externo
 {: #configuring-saml}
 
 É possível configurar o serviço {{site.data.keyword.appid_short_notm}} para usar um provedor de identidade Security Assertion Markup Language (SAML).
 {: shortdesc}
+
+Para obter as etapas sobre como usar um provedor de identidade SAML específico, consulte essas postagens de
+blog sobre a configuração do {{site.data.keyword.appid_short_notm}} com o [Ping One
+![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo")](https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-ping-one/),
+[um Azure Active Directory
+![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo")](https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-azure-active-directory/) ou
+[um Active Directory Federation Service ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo")](https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-active-directory-federation-service/).
+{: tip}
 
 ### Fornecendo metadados para seu provedor de identidade
 
@@ -84,7 +93,7 @@ Para configurar seu app, você precisa fornecer informações para um provedor d
 
 3. Forneça os dados para seu provedor de identidade. Se seu provedor de identidade suporta upload do arquivo de metadados, é possível fazer isso. Se não, configure as propriedades manualmente. Nem todo provedor de identidade usará as mesmas propriedades, então, se você não usar todas elas, tudo bem.
 
-Os nomes de propriedades podem diferir entre os provedores de identidade.
+Os nomes da propriedade podem diferir entre os provedores de identidade.
 {: tip}
 
 ### Fornecendo metadados para o {{site.data.keyword.appid_short_notm}}

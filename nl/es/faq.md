@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-08-01"
 
 ---
 
@@ -27,7 +27,10 @@ El plan de niveles graduado consta de dos partes: El número de sucesos de auten
 
 ### Sucesos de autenticación
 
-Un suceso de autenticación ocurre cuando se emite una señal nueva de {{site.data.keyword.appid_short_notm}}. Para los usuarios identificados, cada nueva señal es válida durante una hora. Las señales anónimas son válidas durante un mes. Cuando la señal caduca debe crear una nueva para acceder a los recursos protegidos. Cuando se utilice {{site.data.keyword.appid_short_notm}} para la autenticación móvil, las señales del usuario se almacenarán en `key-store/key-chain` y se añadirán a cada solicitud futura. Las señales son accesibles utilizando el SDK de Swift de Android o iOS de {{site.data.keyword.appid_short_notm}}. Cuando utiliza el servicio para la autenticación web, <a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs" target="_blank">almacene la señal de usuario <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a> en las cookies de sesión.
+Se produce un suceso de autenticación cuando se emite una nueva señal de acceso, normal o anónima. Para los usuarios identificados, cada nueva señal de acceso es válida de forma predeterminada durante 1 hora (ya sea mediante la autenticación de usuario real o mediante señales de renovación). Las señales anónimas son válidas de forma predeterminada durante 1 mes. Cuando la señal caduca debe crear una nueva para acceder a los recursos protegidos. Puede actualizar la hora de caducidad de las señales de {{site.data.keyword.appid_short_notm}} en la página **Caducidad de inicio de sesión** en el panel de control de {{site.data.keyword.appid_short_notm}}.
+
+Cuando se utiliza {{site.data.keyword.appid_short_notm}} en aplicaciones móviles, las señales se almacenan en el almacén de claves o en la cadena de claves y se añaden a cada solicitud futura. Se puede acceder a las señales utilizando el SDK de Android o iOS de App ID. Cuando se utiliza {{site.data.keyword.appid_short_notm}} en aplicaciones web, se recomienda almacenar las señales en las cookies de sesión de aplicación.
+
 
 ### Usuarios autorizados
 
@@ -37,46 +40,43 @@ Para obtener más información sobre los precios por nivel graduado, consulte lo
 
 </br>
 
-## ¿Qué tipo de actividad está supervisada por {{site.data.keyword.appid_short_notm}}?
-{: #activity-monitor}
 
-Puede realizar el seguimiento de la actividad que se ha generado dentro de la app que está enlazada con la instancia de servicio. También puede supervisar la actividad administrativa que se realiza en {{site.data.keyword.appid_short_notm}} utilizando el servicio {{site.data.keyword.cloudaccesstrailshort}}.
+## ¿Cómo funciona el cifrado en {{site.data.keyword.appid_short_notm}}?
+{: #encryption}
 
-Para ver la actividad generada por su app:
+Consulte la tabla siguiente para obtener respuestas a las preguntas más frecuentes sobre el cifrado.
 
-1. Inicie sesión en su cuenta de {{site.data.keyword.Bluemix_notm}}.
-2. Desde el panel de control, seleccione su instancia de {{site.data.keyword.appid_short_notm}}.
-3. Pulse el separador **Visión general**.
-4. Visualice la actividad listada en el **Registro de actividad**.
-
-</br>
-Para supervisar la actividad administrativa:
-
-1. Inicie sesión en su cuenta de {{site.data.keyword.Bluemix_notm}}. Vaya a la organización y al espacio donde ha suministrado la instancia de {{site.data.keyword.appid_short_notm}}.
-2. Desde el catálogo, suministre una instancia del servicio de {{site.data.keyword.cloudaccesstrailshort}}. Asegúrese de estar en el mismo espacio que la instancia de {{site.data.keyword.appid_short_notm}}.
-3. En el panel de control de {{site.data.keyword.cloudaccesstrailshort}}, pulse el separador **Gestionar**.
-4. En la lista desplegable, seleccione las configuraciones siguientes para buscar todos los sucesos generados por {{site.data.keyword.appid_short_notm}}.
 <table>
-  <tr>
-    <th> Campo </th>
-    <th> Configuración </th>
-  </tr>
-  <tr>
-    <td>Ver registros</td>
-    <td>Registros de espacio</td>
-  </tr>
-  <tr>
-    <td>Buscar</td>
-    <td>target.name</td>
-  </tr>
-  <tr>
-    <td>Filtro</td>
-    <td>appid</td>
-  </tr>
+  <thead>
+    <th colspan=2><img src="images/idea.png" alt="Icono de más información"/>  </th>
+  </thead>
+  <tbody>
+    <tr>
+      <td>¿Por qué se utiliza el cifrado?</td>
+      <td>El servicio cifra los datos del cliente en reposo.</td>
+    </tr>
+    <tr>
+      <td>¿Se han creado algoritmos propios? ¿Cuáles se utilizan en el código?</td>
+      <td>No hemos creado algoritmos propios, el servicio utiliza <code>AES</code> y <code>SHA-256</code> con salting.</td>
+    </tr>
+    <tr>
+      <td>¿Se utilizan módulos o proveedores de cifrado de código abierto o público? ¿Se exponen las funciones de cifrado en algún momento? </td>
+      <td>El servicio utiliza bibliotecas Java <code>javax.crypto</code>, pero nunca expone las funciones de cifrado.</td>
+    </tr>
+    <tr>
+      <td>¿Cómo se almacenan las claves?</td>
+      <td>Las claves se generan y luego se almacenan localmente después de ser cifradas utilizando una clave maestra que es específica de cada región. Las claves maestras se almacenan en {{site.data.keyword.keymanagementserviceshort}}.</td>
+    </tr>
+    <tr>
+      <td>¿Qué fortaleza de clave se utiliza?</td>
+      <td>El servicio utiliza 16 bytes.</td>
+    </tr>
+    <tr>
+      <td>¿Se invoca alguna API remota que exponga las capacidades de cifrado?</td>
+      <td>No, no se hace.</td>
+    </tr>
+  </tbody>
 </table>
-5. Pulse **Filtrar**.
-
-Consulte la [documentación de {{site.data.keyword.cloudaccesstrailshort}}](/docs/services/cloud-activity-tracker/index.html) para obtener más información sobre cómo funciona el servicio.
 
 </br>
 

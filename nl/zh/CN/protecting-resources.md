@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-08-06"
 
 ---
 
@@ -41,21 +41,8 @@ lastupdated: "2018-4-24"
 要保护您的资源，请执行以下操作：
 
 1. 从 UI 下载 Liberty for Java 样本。该样本包含一个压缩文件，其中含有标准 Liberty 文件。
-2. 在解压缩样本的目录中打开终端。
-3. 使用 Cloud Foundry 命令行，登录到 {{site.data.keyword.Bluemix_notm}}。根据提示，输入您的凭证。
-  ```
-  cf login
-  ```
-  {: codeblock}
-
-4. 部署应用程序。运行以下命令会创建一个名称与租户标识相关的 Liberty for Java 实例。
-  ```
-  cf push
-  ```
-  {: codeblock}
-
-5. 将您的服务实例绑定到新的 Liberty for Java 实例，然后重新部署应用程序。
-6. 在浏览器中打开您的应用程序，然后使用您的凭证进行登录，以查看认证活动。
+2. 遵循 UI 中给出的指示信息以将应用程序部署到 IBM-Cloud。
+3. 在浏览器中打开您的应用程序，然后使用您的凭证进行登录，以查看认证活动。
 
 ## 在 Node.js 中保护资源
 {: #protecting-resources-nodesdk}
@@ -68,9 +55,9 @@ lastupdated: "2018-4-24"
 以下片段演示了如何在简单 Express 应用程序中使用 `APIStrategy` 来保护 `/protected` 端点 GET 方法。
   ```JavaScript
 
-var express = require('express');
+  var express = require('express');
   var passport = require('passport');
-  var APIStrategy = require('bluemix-appid').APIStrategy;
+  var APIStrategy = require('ibmcloud-appid').APIStrategy;
 
   passport.use(new APIStrategy());
   var app = express();
@@ -89,7 +76,7 @@ var express = require('express');
 
 
 ## 使用 Swift SDK 保护资源
-{: #requesting-swift}
+{: #protecting-swift}
 
 您可以使用 {{site.data.keyword.appid_short_notm}} 通过 Swift SDK 来保护服务器端的资源。
 {: shortdesc}
@@ -102,7 +89,7 @@ var express = require('express');
 import Foundation
 import Kitura              // server
 import Credentials         // middleware
-import BluemixAppID        // SDK
+import IBMCloudAppID       // SDK
 
 // setup routes
 let router = Router()

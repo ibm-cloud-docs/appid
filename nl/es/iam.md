@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-08-06"
 
 ---
 
@@ -95,19 +95,20 @@ La tabla siguiente detalla las acciones que se correlacionan con roles de acceso
 
 Para obtener más información sobre la asignación de roles de usuario en la IU, consulte [Gestión del acceso IAM](/docs/iam/mngiam.html#iammanidaccser).
 
+
 ## Políticas de acceso de {{site.data.keyword.appid_short_notm}}
 {: #access}
 
 Cada usuario que acceda al servicio de {{site.data.keyword.appid_short_notm}} en su cuenta debe tener asignada una política de acceso con un rol de usuario de IAM definido. Esa política determina qué acciones puede realizar el usuario dentro del contexto del servicio o de la instancia que seleccione.
 {: shortdesc}
 
-Las acciones son personalizadas y están definidas por el servicio de {{site.data.keyword.Bluemix_notm}} como operaciones permitidas para realizarse en el servicio. Las acciones se correlacionarán entonces con los roles de usuario de IAM. Para {{site.data.keyword.appid_short_notm}}, existen las acciones siguientes:
+Las acciones son personalizadas y están definidas por el servicio de {{site.data.keyword.Bluemix_notm}} como operaciones permitidas para realizarse en el servicio. Las acciones se correlacionarán entonces con los roles de usuario de IAM. Con el servicio {{site.data.keyword.cloudaccesstrailshort}}, se puede realizar un seguimiento de algunas de las acciones que se realizan. En la tabla siguiente, se correlacionan las acciones y los permisos necesarios para {{site.data.keyword.appid_short_notm}}.
 
 <table>
   <tr>
-    <th>Mandato</th>
+    <th>Acción</th>
     <th>Explicación</th>
-    <th>Rol</th>
+    <th>Rol necesario</th>
   </tr>
   <tr>
     <td><code>appid-mgmt-get-redirect-uris</code></td>
@@ -191,6 +192,16 @@ Las acciones son personalizadas y están definidas por el servicio de {{site.dat
     <td>Lector, Gestor</td>
   </tr>
   <tr>
+    <td><code>appid-mgmt-get-saml-metadata</code></td>
+    <td>Ver los metadatos del proveedor de servicios (SP) SAML del Directorio en la nube.</td>
+    <td>Lector, Escritor, Gestor</td>
+  </tr>
+  <tr>
+    <td><code>appid-mgmt-post-saml-logo</code></td>
+    <td>Establecer o actualizar la imagen en el widget de inicio de sesión del proveedor de identidad SAML.</td>
+    <td>Lector, Gestor</td>
+  </tr>
+  <tr>
     <td><code>appid-mgmt-send-email-cd</code></td>
     <td>Enviar un correo electrónico a un usuario basándose en una plantilla.</td>
     <td>Lector, Gestor</td>
@@ -205,10 +216,221 @@ Las acciones son personalizadas y están definidas por el servicio de {{site.dat
     <td>Actualizar los detalles del remitente.</td>
     <td>Lector, Gestor</td>
   </tr>
+  <tr>
+    <td><code>appid-mgmt-revoke-refresh-token</code></td>
+    <td>Revocar la señal para renovación de un usuario con su ID de usuario.</td>
+    <td>Lector, Gestor</td>
+  </tr>
+</table>
+
+## Seguimiento de cambios en las instancias de {{site.data.keyword.appid_short_notm}}
+{: #tracking}
+
+Puede ver, gestionar y auditar la actividad de configuración que se realiza en la instancia de {{site.data.keyword.appid_short_notm}} mediante el servicio de {{site.data.keyword.cloudaccesstrailshort}}.
+{: shortdesc}
+
+Para supervisar la actividad administrativa:
+
+1. Inicie sesión en su cuenta de {{site.data.keyword.Bluemix_notm}}.
+2. Desde el catálogo, suministre una instancia del servicio de {{site.data.keyword.cloudaccesstrailshort}} en la misma cuenta que la instancia de {{site.data.keyword.appid_short_notm}}.
+3. En el panel de control de {{site.data.keyword.cloudaccesstrailshort}}, pulse el separador **Gestionar**.
+4. En la lista desplegable, seleccione las configuraciones siguientes para buscar los sucesos generados por {{site.data.keyword.appid_short_notm}}.
+    * Para **Ver registros**, seleccione **Registros de cuenta**.
+    * Para **Buscar**, seleccione **target.Management**.
+    * Para **Filtro**, escriba **appid**.
+5. Pulse **Filtrar**.
+
+
+Consulte la tabla siguiente para obtener una lista de los sucesos que se envían a {{site.data.keyword.cloudaccesstrailshort}}.
+
+<table>
+  <tr>
+    <th>Acción</th>
+    <th>Descripción</th>
+    <th>Ubicación de IU</th>
+  </tr>
+  <tr>
+    <td><code>read.recentActivity</code></td>
+    <td>Ver actividad reciente.</td>
+    <td>Se puede encontrar en el recuadro <strong>Registro de actividad</strong> en el separador <strong>Visión general</strong>.</td>
+  </tr>
+  <tr>
+    <td><code>read.idpConfig</code></td>
+    <td>Ver la configuración del proveedor de identidad.</td>
+    <td>Se puede encontrar en el separador <strong>Proveedores de identidad > Gestionar</strong>.</td>
+  </tr>
+  <tr>
+    <td><code>update.idpConfig</code></td>
+    <td>Actualizar la configuración del proveedor de identidad.</td>
+    <td>Se puede actualizar en el separador <strong>Proveedores de identidad > Gestionar</strong>.</td>
+  </tr>
+  <tr>
+    <td><code>read.tokensConfig</code></td>
+    <td>Ver la configuración de caducidad de la señal.</td>
+    <td>Se puede encontrar en el separador <strong>Proveedores de identidad > Caducidad de la señal</strong>.</td>
+  </tr>
+  <tr>
+    <td><code>read.isProfilesActive</code></td>
+    <td>Ver la configuración de almacenamiento del perfil de usuario.</td>
+    <td>Se puede encontrar en <strong>Registro de actividad</strong> en el separador <strong>Visión general</strong>.</td>
+  </tr>
+  <tr>
+    <td><code>update.isProfilesActive</code></td>
+    <td>Actualizar la configuración de almacenamiento del perfil de usuario.</td>
+    <td>Se puede encontrar en el separador <strong>Perfiles</strong>.</td>
+  </tr>
+  <tr>
+    <td><code>read.themeColor</code></td>
+    <td>Ver el color del tema de la cabecera del widget de inicio de sesión.</td>
+    <td>Se puede encontrar en el separador <strong>Personalización de inicio de sesión</strong>.</td>
+  </tr>
+  <tr>
+    <td><code>update.themeColor</code></td>
+    <td>Actualizar el color del tema de la cabecera del widget de inicio de sesión.</td>
+    <td>Se puede actualizar en el separador <strong>Personalización de inicio de sesión</strong>.</td>
+  </tr>
+  <tr>
+    <td><code>read.media</code></td>
+    <td>Ver la imagen que se visualiza en el widget de inicio de sesión.</td>
+    <td>Se puede encontrar en el separador <strong>Personalización de inicio de sesión</strong>.</td>
+  </tr>
+  <tr>
+    <td><code>update.media</code></td>
+    <td>Actualizar la imagen que se visualiza en el widget de inicio de sesión.</td>
+    <td>Se puede actualizar en el separador <strong>Personalización de inicio de sesión</strong>.</td>
+  </tr>
+  <tr>
+    <td><code>read.uiConfiguration</code></td>
+    <td>Ver la configuración de la IU del widget de inicio de sesión, incluida la imagen y el color de la cabecera.</td>
+    <td>Se puede encontrar en el separador <strong>Personalización de inicio de sesión</strong>.</td>
+  </tr>
+  <tr>
+    <td><code>read.uiLanguages</code></td>
+    <td>Ver una lista de idiomas soportados.</td>
+    <td>Se debe ver desde la API.</td>
+  </tr>
+  <tr>
+    <td><code>update.uiLanguages</code></td>
+    <td>Actualizar los idiomas soportados.</td>
+    <td>Se debe actualizar a través de la API.</td>
+  </tr>
+  <tr>
+    <td><code>read.samlMetadata</code></td>
+    <td>Ver los metadatos SAML de App ID.</td>
+    <td>Se puede encontrar en el separador <strong>Proveedores de identidad > Federación de SAML 2.0</strong>.</td>
+  </tr>
+  <tr>
+    <td><code>read.cloudDirectoryUser</code></td>
+    <td>Ver un usuario del Directorio en la nube.</td>
+    <td>Se puede encontrar en el separador <strong>Usuarios</strong>.</td>
+  </tr>
+  <tr>
+    <td><code>update.cloudDirectoryUser</code></td>
+    <td>Actualizar un usuario del Directorio en la nube.</td>
+    <td>Se puede actualizar en el separador <strong>Usuarios</strong>.</td>
+  </tr>
+  <tr>
+    <td><code>delete.cloudDirectoryUser</code></td>
+    <td>Suprimir un usuario del Directorio en la nube.</td>
+    <td>Se puede suprimir en el separador <strong>Usuarios</strong>.</td>
+  </tr>
+  <tr>
+    <td><code>read.cloudDirectoryUsers</code></td>
+    <td>Ver una lista de los usuarios del Directorio en la nube.</td>
+    <td>Se puede encontrar en el separador <strong>Usuarios</strong>.</td>
+  </tr>
+  <tr>
+    <td><code>update.cloudDirectoryUsers</code></td>
+    <td>Actualizar la lista de usuarios del Directorio en la nube.</td>
+    <td>Se puede actualizar en el separador <strong>Usuarios</strong>.</td>
+  </tr>
+  <tr>
+    <td><code>delete.cloudDirectoryUsers</code></td>
+    <td>Suprimir una lista de usuarios del Directorio en la nube.</td>
+    <td>Se puede suprimir en el separador <strong>Usuarios</strong>.</td>
+  </tr>
+  <tr>
+    <td><code>read.emailTemplate</code></td>
+    <td>Ver una plantilla de correo electrónico.</td>
+    <td>Se puede encontrar en el separador <strong>Proveedores de identidad > Directorio en la nube > Plantillas</strong>.</td>
+  </tr>
+  <tr>
+    <td><code>update.emailTemplate</code></td>
+    <td>Actualizar una plantilla de correo electrónico.</td>
+    <td>Se puede encontrar en el separador <strong>Proveedores de identidad > Directorio en la nube > Plantillas</strong>.</td>
+  </tr>
+  <tr>
+    <td><code>delete.emailTemplate</code></td>
+    <td>Suprimir una plantilla de correo electrónico para restablecer el valor predeterminado.</td>
+    <td>Se puede encontrar en el separador <strong>Proveedores de identidad > Directorio en la nube > Plantillas</strong>.</td>
+  </tr>
+  <tr>
+    <td><code>read.senderDetails</code></td>
+    <td>Ver los detalles del remitente.</td>
+    <td>Se puede encontrar en el separador <strong>Proveedores de identidad > Directorio en la nube > Valores</strong>.</td>
+  </tr>
+  <tr>
+    <td><code>update.senderDetails</code></td>
+    <td>Actualizar los detalles del remitente</td>
+    <td>Se puede encontrar en el separador <strong>Proveedores de identidad > Directorio en la nube > Valores</strong>.</td>
+  </tr>
+  <tr>
+    <td><code>update.resendNotification</code></td>
+    <td>Reenviar notificaciones de usuario.</td>
+    <td>Se puede encontrar en el separador <strong>Proveedores de identidad > Directorio en la nube > Valores</strong>.</td>
+  </tr>
+  <tr>
+    <td><code>update.selfForgotPassword</code></td>
+    <td>Actualizar el proceso de contraseña olvidada.</td>
+    <td>Se puede encontrar en el separador <strong>Proveedores de identidad > Directorio en la nube > Valores</strong>.</td>
+  </tr>
+  <tr>
+    <td><code>update.forgotPasswordResult</code></td>
+    <td>Ver el resultado de la confirmación de contraseña olvidada.</td>
+    <td>Debe realizarse a través de la API.</td>
+  </tr>
+  <tr>
+    <td><code>update.selfSignUp</code></td>
+    <td>Actualizar el proceso de registro.</td>
+    <td>Se puede encontrar en el separador <strong>Proveedores de identidad > Directorio en la nube > Valores</strong>.</td>
+  </tr>
+  <tr>
+    <td><code>update.signUpResult</code></td>
+    <td>Ver la confirmación del resultado del registro.</td>
+    <td>Debe realizarse a través de la API.</td>
+  </tr>
+  <tr>
+    <td><code>read.action_url</code></td>
+    <td>Ver el URL personalizado al que se llama cuando se realiza una acción.</td>
+    <td>Se puede encontrar en el separador <strong>Proveedores de identidad > Directorio en la nube > Páginas de destino personalizadas</strong>.</td>
+  </tr>
+  <tr>
+    <td><code>update.action_url</code></td>
+    <td>Actualizar el URL personalizado al que se llama cuando se realiza una acción.</td>
+    <td>Se puede encontrar en el separador <strong>Proveedores de identidad > Directorio en la nube > Valores</strong>.</td>
+  </tr>
+  <tr>
+    <td><code>update.changePassword</code></td>
+    <td>Cambiar la contraseña de usuario del Directorio en la nube.</td>
+    <td>Se puede encontrar en el separador <strong>Proveedores de identidad > Directorio en la nube > Valores</strong>.</td>
+  </tr>
+  <tr>
+    <td><code>read.loginWidgetConfig</code></td>
+    <td>Ver la configuración del widget de inicio de sesión.</td>
+    <td>Se puede encontrar en el separador <strong>Personalización de inicio de sesión</strong>.</td>
+  </tr>
+  <tr>
+    <td><code>update.loginWidgetConfig</code></td>
+    <td>Actualizar la configuración del widget de inicio de sesión.</td>
+    <td>Se puede actualizar en el separador <strong>Personalización de inicio de sesión</strong>.</td>
+  </tr>
 </table>
 
 
+Para obtener más información sobre cómo funciona el servicio, consulte la [documentación de {{site.data.keyword.cloudaccesstrailshort}}](/docs/services/cloud-activity-tracker/index.html).
 
+</br>
+</br>
 
 ## Ejemplo: dar acceso a otro usuario a una instancia de {{site.data.keyword.appid_short_notm}}
 {: #example}
@@ -217,7 +439,7 @@ En este caso de ejemplo, un administrador ha creado una instancia de {{site.data
 {: shortdesc}
 
 Antes de empezar:
-* Instale la [CLI de {{site.data.keyword.Bluemix_notm}}](/docs/cli/reference/bluemix_cli/get_started.html).
+* Instale la [CLI de {{site.data.keyword.Bluemix_notm}}](/docs/cli/index.html).
 
 Para actualizar los permisos de acceso, el administrador completa los pasos siguientes:
 
@@ -246,7 +468,7 @@ Para actualizar los permisos de acceso, el administrador completa los pasos sigu
        "secret": "appsecret"
      }
     }' \
-    'https://appid-management.stage1.ng.bluemix.net/management/v4/<tenantId>/config/idps/facebook'
+    'https://appid-management.ng.bluemix.net/management/v4/<tenantId>/config/idps/facebook'
     ```
     {: codeblock}
 

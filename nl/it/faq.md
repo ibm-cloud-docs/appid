@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-08-01"
 
 ---
 
@@ -27,7 +27,10 @@ Il piano di livello graduale è composto da due parti: il numero di eventi di au
 
 ### Eventi di autenticazione
 
-Un evento di autenticazione si verifica quando viene emesso un nuovo token {{site.data.keyword.appid_short_notm}}. Per gli utenti identificati, ogni nuovo token è valido per 1 ora. I token anonimi sono validi per 1 mese. Dopo che il token scade, devi creare un nuovo token per accedere alle risorse protette. Quando utilizzi{{site.data.keyword.appid_short_notm}} per l'autenticazione mobile, i token utente vengono memorizzati in `key-store/key-chain` e vengono aggiunti a ogni richiesta futura. È possibile accedere ai token utilizzando l'SDK Android o iOS Swift {{site.data.keyword.appid_short_notm}}. Quando utilizzi il servizio per l'autenticazione web, <a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs" target="_blank">archivia il token dell'utente <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a> nei cookie della sessione.
+Un evento di autenticazione si verifica quando viene emesso un nuovo token regolare o anonimo. Per gli utenti identificati, ogni nuovo token di accesso è valido per impostazione predefinita per 1 ora (tramite l'autenticazione utente reale o mediante i token di aggiornamento). I token anonimi sono validi per impostazione predefinita per 1 mese. Dopo che il token scade, devi creare un nuovo token per accedere alle risorse protette. Puoi aggiornare il tempo di scadenza dei token {{site.data.keyword.appid_short_notm}} nella pagina **Sign-in Expiration** nel dashboard {{site.data.keyword.appid_short_notm}}.
+
+Quando utilizzi {{site.data.keyword.appid_short_notm}} nelle applicazioni mobili, i token vengono memorizzati in keystore o keychain e vengono aggiunti ad ogni richiesta futura. È possibile accedere ai token utilizzando l'SDK iOS o Android ID applicazione. Quando utilizzi {{site.data.keyword.appid_short_notm}} nelle applicazioni web, si consiglia di memorizzare i token nei cookie di sessione dell'applicazione.
+
 
 ### Utenti autorizzati
 
@@ -37,46 +40,43 @@ Per ulteriori informazioni sui prezzi del livello graduale, consulta la [Documen
 
 </br>
 
-## Che tipo di attività è monitorata da {{site.data.keyword.appid_short_notm}}?
-{: #activity-monitor}
 
-Puoi tenere traccia dell'attività che è stata generata all'interno dell'applicazione che è associata all'istanza del servizio. Puoi anche monitorare l'attività amministrativa effettuata in {{site.data.keyword.appid_short_notm}} utilizzando il servizio {{site.data.keyword.cloudaccesstrailshort}}.
+## Come funziona la crittografia in {{site.data.keyword.appid_short_notm}}?
+{: #encryption}
 
-Per visualizzare l'attività generata dalla tua applicazione:
+Consulta la seguente tabella per le risposte alle domande più frequenti sulla crittografia.
 
-1. Accedi al tuo account {{site.data.keyword.Bluemix_notm}}.
-2. Dal dashboard, seleziona la tua istanza di {{site.data.keyword.appid_short_notm}}.
-3. Fai clic sulla scheda **Panoramica**.
-4. Visualizza l'attività elencata in **Log attività**.
-
-</br>
-Per monitorare l'attività amministrativa:
-
-1. Accedi al tuo account {{site.data.keyword.Bluemix_notm}}. Passa all'organizzazione e allo spazio in cui è stato eseguito il provisioning della tua istanza {{site.data.keyword.appid_short_notm}}.
-2. Dal catalogo, esegui il provisioning di un'istanza del servizio {{site.data.keyword.cloudaccesstrailshort}}. Assicurati di essere nello stesso spazio della tua istanza {{site.data.keyword.appid_short_notm}}.
-3. Nel dashboard {{site.data.keyword.cloudaccesstrailshort}}, fai clic sulla scheda **Gestisci**.
-4. Dall'elenco a discesa, seleziona le seguenti configurazioni per ricercare gli eventi generati da {{site.data.keyword.appid_short_notm}}.
 <table>
-  <tr>
-    <th> Campo </th>
-    <th> Configurazione </th>
-  </tr>
-  <tr>
-    <td>Visualizza log</td>
-    <td>Log spazio</td>
-  </tr>
-  <tr>
-    <td>Ricerca</td>
-    <td>target.name</td>
-  </tr>
-  <tr>
-    <td>Filtro</td>
-    <td>appid</td>
-  </tr>
+  <thead>
+    <th colspan=2><img src="images/idea.png" alt="Icona ulteriori informazioni"/>  </th>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Perché utilizzate la crittografia?</td>
+      <td>Il servizio codifica i dati del cliente a riposo.</td>
+    </tr>
+    <tr>
+      <td>Avete creato i vostri algoritmi? Quali utilizzate nel vostro codice?</td>
+      <td>Non abbiamo creato i nostri, il servizio utilizza <code>AES</code> e <code>SHA-256</code> con salting.</td>
+    </tr>
+    <tr>
+      <td>Utilizzate provider o moduli di crittografia open source o pubblici? Avete mai esposto le funzioni di crittografia? </td>
+      <td>Il servizio utilizza le librerie Java <code>javax.crypto</code>, ma non espone mai le funzioni di crittografia.</td>
+    </tr>
+    <tr>
+      <td>Come memorizzate le chiavi?</td>
+      <td>Le chiavi sono generate e poi memorizzate localmente dopo che sono state codificate utilizzando una chiave master specifica per ogni regione. Le chiavi master sono memorizzate in {{site.data.keyword.keymanagementserviceshort}}.</td>
+    </tr>
+    <tr>
+      <td>Quale è la complessità della chiave che utilizzate?</td>
+      <td>Il servizio utilizza 16 byte.</td>
+    </tr>
+    <tr>
+      <td>Richiamate delle API remote che espongono le funzionalità di crittografia?</td>
+      <td>No, non lo facciamo.</td>
+    </tr>
+  </tbody>
 </table>
-5. Fai clic su **Filtro**.
-
-Consulta la [Documentazione di {{site.data.keyword.cloudaccesstrailshort}}](/docs/services/cloud-activity-tracker/index.html) per ulteriori informazioni su come funziona il servizio.
 
 </br>
 

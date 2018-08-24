@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-08-01"
 
 ---
 
@@ -27,7 +27,10 @@ lastupdated: "2018-4-24"
 
 ### 鑑別事件
 
-發出新的 {{site.data.keyword.appid_short_notm}} 記號時，即會發生鑑別事件。若為已識別的使用者，每一個新的記號，其有效時間為 1 小時。匿名記號的有效期限為 1 個月。在記號到期之後，您必須建立新的記號，才能存取受保護資源。當您使用 {{site.data.keyword.appid_short_notm}} 進行行動鑑別時，使用者記號會儲存在 `key-store/key-chain` 中，並新增至每個未來要求。您可以使用 {{site.data.keyword.appid_short_notm}} Android 或 iOS Swift SDK 存取這些記號。當您使用服務進行 Web 鑑別時，請<a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs" target="_blank">將使用者記號 <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a> 儲存在階段作業 Cookie 中。
+發出新的存取記號（一般或匿名）時，即會發生鑑別事件。若為已識別的使用者，依預設，每個新存取記號的有效期限為 1 小時（透過實際使用者鑑別或透過重新整理記號進行）。依預設，匿名記號的有效期限為 1 個月。在記號到期之後，您必須建立新的記號，才能存取受保護資源。您可以在 {{site.data.keyword.appid_short_notm}} 儀表板的**登入有效期限**頁面上更新 {{site.data.keyword.appid_short_notm}} 記號的有效期限。
+
+當您在行動應用程式中使用 {{site.data.keyword.appid_short_notm}} 時，記號會儲存在金鑰儲存庫或金鑰鏈中，並新增至每個未來要求。您可以使用 App ID Android 或 iOS SDK 存取這些記號。當您在 Web 應用程式中使用 {{site.data.keyword.appid_short_notm}} 時，建議將記號儲存至應用程式階段作業 Cookie 中。
+
 
 ### 授權使用者
 
@@ -37,46 +40,43 @@ lastupdated: "2018-4-24"
 
 </br>
 
-## {{site.data.keyword.appid_short_notm}} 監視哪種類型的活動？
-{: #activity-monitor}
 
-您可以追蹤在連結至服務實例的應用程式內產生的活動。您也可以使用 {{site.data.keyword.cloudaccesstrailshort}} 服務，監視 {{site.data.keyword.appid_short_notm}} 中所進行的管理活動。
+## 加密在 {{site.data.keyword.appid_short_notm}} 中如何運作？
+{: #encryption}
 
-若要檢視應用程式所產生的活動，請執行下列動作：
+請查看下表，以取得加密常見問題的答案。
 
-1. 登入您的 {{site.data.keyword.Bluemix_notm}} 帳戶。
-2. 從儀表板中，選取您的 {{site.data.keyword.appid_short_notm}} 實例。
-3. 按一下**概觀**標籤。
-4. 檢視**活動日誌**中所列出的活動。
-
-</br>
-若要監視管理活動，請執行下列動作：
-
-1. 登入您的 {{site.data.keyword.Bluemix_notm}} 帳戶。導覽至在其中佈建 {{site.data.keyword.appid_short_notm}} 實例的組織及空間。
-2. 從型錄中，佈建 {{site.data.keyword.cloudaccesstrailshort}} 服務的實例。請確定您位在與 {{site.data.keyword.appid_short_notm}} 實例相同的空間中。
-3. 在 {{site.data.keyword.cloudaccesstrailshort}} 儀表板中，按一下**管理**標籤。
-4. 從下拉清單中，選取下列配置，以搜尋 {{site.data.keyword.appid_short_notm}} 所產生的任何事件。
 <table>
-  <tr>
-    <th> 欄位</th>
-    <th> 配置</th>
-  </tr>
-  <tr>
-    <td>檢視日誌</td>
-    <td>空間日誌</td>
-  </tr>
-  <tr>
-    <td>搜尋</td>
-    <td>target.name</td>
-  </tr>
-  <tr>
-    <td>過濾</td>
-    <td>appid</td>
-  </tr>
+  <thead>
+    <th colspan=2><img src="images/idea.png" alt="相關資訊圖示"/>  </th>
+  </thead>
+  <tbody>
+    <tr>
+      <td>您為何使用加密？</td>
+      <td>服務會加密靜止中客戶資料。</td>
+    </tr>
+    <tr>
+      <td>您建置過自己的演算法嗎？您在程式碼中使用哪些演算法？</td>
+      <td>我們未曾建置自己的演算法，服務會搭配使用 <code>AES</code> 及 <code>SHA-256</code> 與 salt。</td>
+    </tr>
+    <tr>
+      <td>您是否使用公用或開放程式碼加密模組或提供者？您是否曾經公開加密功能？</td>
+      <td>服務使用 <code>javax.crypto</code> Java 程式庫，但從未公開過加密功能。</td>
+    </tr>
+    <tr>
+      <td>您如何儲存金鑰？</td>
+      <td>使用每個地區特有的主要金鑰加密之後，會產生金鑰，並將其儲存在本端。主要金鑰儲存在 {{site.data.keyword.keymanagementserviceshort}} 中。</td>
+    </tr>
+    <tr>
+      <td>您使用的金鑰強度為何？</td>
+      <td>服務使用 16 個位元組。</td>
+    </tr>
+    <tr>
+      <td>您是否呼叫任何公開加密功能的遠端 API？</td>
+      <td>否，我們沒有。</td>
+    </tr>
+  </tbody>
 </table>
-5. 按一下**過濾**。
-
-如需服務運作方式的相關資訊，請查看 [{{site.data.keyword.cloudaccesstrailshort}} 文件](/docs/services/cloud-activity-tracker/index.html)。
 
 </br>
 

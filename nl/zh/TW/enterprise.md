@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-07-24"
 
 ---
 
@@ -40,13 +40,16 @@ SAML 主張是包含一個以上陳述式的資訊套件。主張包含授權決
 * `locale`
 * `picture`
 
-其餘未對應於任何標準名稱的 SAML 屬性元素都會被忽略。
+其餘未對應於任何標準名稱的 SAML 屬性元素都會被忽略。請注意，如果提供者端的其中一個或多個值變更，則只有在使用者重新登入之後才會提供新的值。
 
 ## 配置應用程式以使用外部 SAML 身分提供者
 {: #configuring-saml}
 
 您可以將 {{site.data.keyword.appid_short_notm}} 服務配置為使用「安全主張標記語言 (SAML) 」身分提供者。
 {: shortdesc}
+
+如需如何使用特定 SAML 身分提供者的步驟，請查看有關下列作業的這些部落格文章：使用 [Ping One ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")](https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-ping-one/)、[Azure Active Directory ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")](https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-azure-active-directory/) 或 [Active Directory Federation Service ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")](https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-active-directory-federation-service/) 來設定 {{site.data.keyword.appid_short_notm}}。
+{: tip}
 
 ### 提供 meta 資料給您的身分提供者
 

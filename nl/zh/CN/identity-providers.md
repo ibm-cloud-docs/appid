@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-08-06"
 
 ---
 
@@ -54,7 +54,7 @@ lastupdated: "2018-4-24"
 2. 记录 Facebook 应用程序标识和私钥。在服务仪表板中配置 Web 项目进行认证时，需要这些值。
 3. 添加 Web 平台并输入站点 URL。
 4. 从产品列表中，选择 **Facebook 登录**。
-5. 在“有效的 OAuth 重定向 URL”字段中，输入授权服务器回调端点 URL。配置服务实例后，可以添加此值。
+5. 在“有效的 OAuth 重定向 URL”字段中，输入授权服务器回调端点 URL。
 6. 单击**保存更改**。
 
 
@@ -66,7 +66,7 @@ lastupdated: "2018-4-24"
 2. 输入从 Facebook for Developers Web 站点获取的 Facebook 应用程序标识和私钥。
 3. 复制 **Facebook for Developers 的重定向 URI** 字段中的 URI。将此 URI 粘贴到 Facebook 开发者门户网站上 **Facebook 登录**部分中的**有效的 OAuth 重定向 URI** 字段中。
 4. 单击**保存**。
-5. 可选：对于 Web 应用程序，请在 **Web 应用程序重定向 URL** 字段中输入重定向 URL。此值由开发者确定，并用于在完成授权过程之后访问该重定向 URL。
+5. 可选：对于 Web 应用程序，请在 **Web 应用程序重定向 URL** 字段中输入重定向 URL。此值由开发者确定，并用于在完成授权过程之后访问该重定向 URL。URL 必须遵循 `http` 或 `https` 方案。要获取更高级别的安全性，请使用 `https` 方案。
 
 
 ## 配置 Google
@@ -99,4 +99,4 @@ lastupdated: "2018-4-24"
     2. 在 Google 项目的凭证选项卡中，选择您为此集成创建的客户端标识。
     3. 将 URL 从 {{site.data.keyword.appid_short}} 粘贴到**授权重定向 URI** 字段中，然后单击**保存**。
 4. 单击**保存**，以更新 {{site.data.keyword.appid_short}} 中的 Google 配置。
-5. 对于 Web 应用程序，请在**管理**选项卡中输入重定向 URL。授权过程完成后，用户将被发送到此 URL。
+5. 对于 Web 应用程序，请在**管理**选项卡中输入重定向 URL。授权过程完成后，用户将被发送到此 URL。URL 必须遵循 `http` 或 `https` 方案。要获取更高级别的安全性，请使用 `https` 方案。

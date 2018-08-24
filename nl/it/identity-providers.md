@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-08-06"
 
 ---
 
@@ -54,7 +54,7 @@ Per utilizzare Facebook come provider di identità, devi aggiungere e impostare 
 2. Prendi nota del segreto e dell'ID applicazione di Facebook. Hai bisogno di questi valori per configurare il tuo progetto web per l'autenticazione nel tuo dashboard del servizio.
 3. Aggiungi la piattaforma web e immetti l'URL del sito.
 4. Dall'elenco dei prodotti, seleziona **Facebook Login**.
-5. Nel campo Valid OAuth redirect URLs, immetti l'URL dell'endpoint di callback del server di autenticazione. Dopo aver configurato la tua istanza del servizio, puoi aggiungere questo valore.
+5. Nel campo Valid OAuth redirect URLs, immetti l'URL dell'endpoint di callback del server di autenticazione.
 6. Fai clic su **Save Changes**.
 
 
@@ -66,7 +66,7 @@ Quando disponi del tuo ID applicazione e del segreto Facebook e la tua applicazi
 2. Immetti l'ID applicazione e il segreto di Facebook che hai ottenuto dal sito web Facebook for Developers.
 3. Copia l'URI nel campo **Redirect URI for Facebook for Developers**. Incolla l'URI nel campo **Valid OAuth redirect URIs** nella sezione **Facebook Login** del portale Facebook Developers.
 4. Fai clic su **Save**.
-5. Facoltativo: per le applicazioni web, immetti l'URL di reindirizzamento nel campo **Web Application Redirect URLs**. Questo valore viene determinato dallo sviluppatore e utilizzato per accedere all'URL di reindirizzamento dopo il completamento del processo di autorizzazione.
+5. Facoltativo: per le applicazioni web, immetti l'URL di reindirizzamento nel campo **Web Application Redirect URLs**. Questo valore viene determinato dallo sviluppatore e utilizzato per accedere all'URL di reindirizzamento dopo il completamento del processo di autorizzazione. L'URL deve seguire uno schema `http` o `https`. Per un maggiore livello di sicurezza, utilizza uno schema `https`.
 
 
 ## Configurazione di Google
@@ -99,4 +99,4 @@ Una volta che hai configurato il tuo progetto Google e disponi del segreto e ID 
     2. Nella scheda delle credenziali del tuo progetto Google, seleziona l'ID client che hai creato per questa integrazione.
     3. Incolla l'URL da {{site.data.keyword.appid_short}} nel campo **Authorized redirect URIs** e fai clic su **Save**.
 4. Fai clic su **Save** per aggiornare la tua configurazione di Google in {{site.data.keyword.appid_short}}.
-5. Per le applicazioni web, immetti un URL di reindirizzamento nella scheda **Manage**. Dopo il completamento del processo di autorizzazione, viene inviato un utente a questo URL.
+5. Per le applicazioni web, immetti un URL di reindirizzamento nella scheda **Manage**. Dopo il completamento del processo di autorizzazione, viene inviato un utente a questo URL. L'URL deve seguire uno schema `http` o `https`. Per un maggiore livello di sicurezza, utilizza uno schema `https`.

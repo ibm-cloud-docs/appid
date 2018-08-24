@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-07-24"
 
 ---
 
@@ -41,13 +41,16 @@ SAML 断言是包含一条或多条语句的信息包。该断言包含授权决
 * `locale`
 * `picture`
 
-将忽略不对应于任何标准名称的其余 SAML 属性元素。
+将忽略不对应于任何标准名称的其余 SAML 属性元素。请注意，如果在提供者侧其中一个或多个值发生更改，那么只有在用户重新登录后新值才可用。
 
 ## 配置应用程序以使用外部 SAML 身份提供者
 {: #configuring-saml}
 
 您可以将 {{site.data.keyword.appid_short_notm}} 服务配置为使用安全性断言标记语言 (SAML) 身份提供者。
 {: shortdesc}
+
+有关如何使用特定 SAML 身份提供者的步骤，请查看以下有关设置 {{site.data.keyword.appid_short_notm}} 的博客帖子：[Ping One ![外部链接图标](../icons/launch-glyph.svg "外部链接图标")](https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-ping-one/)、[an Azure Active Directory ![外部链接图标](../icons/launch-glyph.svg "外部链接图标")](https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-azure-active-directory/) 或 [an Active Directory Federation Service ![外部链接图标](../icons/launch-glyph.svg "外部链接图标")](https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-active-directory-federation-service/)。
+{: tip}
 
 ### 为身份提供者提供元数据
 

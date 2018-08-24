@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-07-24"
 
 ---
 
@@ -40,13 +40,16 @@ Quando un utente accede con un provider di identità, quel provider invia un'ass
 * `locale`
 * `picture`
 
-Gli elementi di attributo SAML rimanenti che non corrispondono a nessuno dei nomi standard vengono ignorati.
+Gli elementi di attributo SAML rimanenti che non corrispondono a nessuno dei nomi standard vengono ignorati. Nota che se uno o più di questi valori viene modificato sul lato del provider, i nuovi valori sono disponibili solo dopo che l'utente ha effettuato di nuovo l'accesso.
 
 ## Configurazione della tua applicazione per lavorare con un provider di identità SAML esterno
 {: #configuring-saml}
 
 Puoi configurare il servizio {{site.data.keyword.appid_short_notm}} per utilizzare un provider di identità SAML (Security Assertion Markup Language).
 {: shortdesc}
+
+Per i passi su come utilizzare un provider di identità SAML specifico, consulta questi post di blog sulla configurazione di {{site.data.keyword.appid_short_notm}} con [Ping One ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno")](https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-ping-one/), [an Azure Active Directory ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno")](https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-azure-active-directory/) o [an Active Directory Federation Service ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno")](https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-active-directory-federation-service/).
+{: tip}
 
 ### Fornitura di metadati al tuo provider di identità
 
@@ -83,7 +86,7 @@ Per configurare la tua applicazione, devi fornire informazioni a un provider di 
 
 3. Fornisci i dati al tuo provider di identità. Se il tuo provider di identità supporta il caricamento del file di metadati, puoi farlo. In caso contrario, configura le proprietà manualmente. Non tutti i provider di identità utilizzeranno le stesse proprietà, quindi se non le usi tutte, va bene.
 
-I nomi delle proprietà possono differire tra i provider di identità.
+I nomi delle proprietà potrebbero differire tra i provider di identità.
 {: tip}
 
 ### Fornitura di metadati a {{site.data.keyword.appid_short_notm}}

@@ -2,11 +2,11 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-05-2"
+lastupdated: "2018-08-06"
 
 ---
 
-{:new_window: target="blank"}
+{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -28,60 +28,43 @@ Questi termini chiave possono aiutarti a comprendere il modo in cui il servizio 
   <dt>OAuth 2</dt>
     <dd><a href="https://tools.ietf.org/html/rfc6749" target="_blank">OAuth 2 <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a> è un protocollo open standard utilizzato per fornire l'autorizzazione dell'applicazione.</dd>
   <dt>Open ID Connect (OIDC)</dt>
-    <dd><a href="http://openid.net/developers/specs/" target="_blank">OIDC <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a> è un livello di autenticazione che funziona con OAuth 2.</dd>
-  <dt>Token di accesso</dt>
-    <dd><p>I token di accesso rappresentano l'autorizzazione e abilitano la comunicazione con le [risorse di back-end](/docs/services/appid/protecting-resources.html) che sono protette dai filtri di autorizzazione impostati da {{site.data.keyword.appid_short}}. Il token è conforme alle specifiche JavaScript Object Signing and Encryption (JOSE). I token sono creati come <a href="https://jwt.io/introduction/" target="blank">JSON Web Tokens <img src="../../icons/launch-glyph.svg" alt="icona link esterno"></a>.</br>
-    Esempio:</p>
-    <pre><code>Header: {
-        "typ": "JOSE",
-    "alg": "RS256",
-}
-Payload: {
-        "iss": "appid-oauth.ng.bluemix.net",
-        "exp": "1495562664",
-        "aud": "a3b87400-f03b-4956-844e-a52103ef26ba",
-        "amr": ["facebook"],
-        "sub": "de6a17d2-693d-4a43-8ea2-2140afd56a22",
-        "iat": "1495559064",
-        "tenant": "9781974b-6a1c-46c3-aebf-32b7e9bbbaee",
-        "scope": "appid_default appid_readprofile appid_readuserattr appid_writeuserattr",
-    </code></pre></dd>
-  <dt>Token di identità</dt>
-    <dd><p>I token di identità rappresentano l'autenticazione e contengono le informazioni sull'utente. Può fornirti le informazioni sui loro nome, email, sesso e ubicazione. Un token può anche restituire un URL a un'immagine dell'utente.</br>
-    Esempio:</p>
-    <pre><code>Header: {
-        "typ": "JOSE",
-    "alg": "RS256",
-}
-Payload: {
-        "iss": "appid-oauth.ng.bluemix.net",
-        "aud": "a3b87400-f03b-4956-844e-a52103ef26ba",
-        "exp: "1495562664",
-        "tenant": "9781974b-6a1c-46c3-aebf-32b7e9bbbaee",
-        "iat": "1495559064",
-        "name": "John Smith",
-        "email": "js@mail.com",
-        "gender", "male",
-        "locale": "en",
-        "picture": "<URL-to-photo>",
-        "sub": "de6a17d2-693d-4a43-8ea2-2140afd56a22",
-        "identities": [
-            "provider": "facebook"
-            "id": "377440159275659"
-        ],
-        "amr": ["facebook"],
-        "oauth_client":{
-          "name": "BluemixApp",
-      "type": "serverapp",
-      "software_id": "cb638f8f-e24b-41d3-b770-23be158dd8e6.2b94e6bb-bac4-4455-8712-a43fa804d5cc.a3b87400-f03b-4956-844e-a52103ef26ba",
-      "software_version": "1.0.0",
-    }
-    }
-    </pre></code></dd>
-  <dt>Token di aggiornamento</dt>
-      <dd><p>{{site.data.keyword.appid_short}} supporta la capacità di acquisire nuovi token di accesso e identità senza la riautenticazione, come definito in <a href="http://openid.net/specs/openid-connect-core-1_0.html#RefreshTokens" target="_blank">OIDC <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a>.
-      Quando si effettua l'accesso con un token di aggiornamento, un utente non deve effettuare alcuna azione, come ad esempio fornire le credenziali. Generalmente, i token di aggiornamento sono configurati per avere una durata maggiore rispetto a un normale token di accesso.</p><p>
-      Per sfruttare appieno i token di aggiornamento, conserva i token per tutta la loro durata. Un utente non può accedere direttamente alle risorse con un solo token di aggiornamento, il che li rende molto più sicuri da conservare rispetto a un token di accesso. Per esempi di utilizzo dei token di aggiornamento e di come usarli per implementare una funzionalità *ricordami*, consulta gli esempi introduttivi.</p><p>Come procedura ottimale, i token di aggiornamento devono essere memorizzati in modo sicuro dal client che li ha ricevuti e devono essere inviati solo al server di autorizzazione che li ha emessi.</p></dd>
+    <dd><p><a href="http://openid.net/developers/specs/" target="_blank">OIDC <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a> è un livello di autenticazione che funziona con OAuth 2.</p>
+    <p>Quando utilizzi contemporaneamente OIDC e {{site.data.keyword.appid_short_notm}}, le tue credenziali del servizio ti consentono di configurare i tuoi endpoint OAuth. Quando utilizzi l'SDK, gli URL dell'endpoint vengono creati automaticamente. Tuttavia, puoi anche creare gli URL utilizzando le tue credenziali di servizio. Puoi visualizzare il modo in cui assemblare l'URL nei seguenti esempio e tabella.</p>
+    <pre class="codeblock">
+    <code>{
+      "version": 3,
+      "clientId": "e8ac1132-5151-4d8a-934e-0141de8e2b34",
+      "secret": "XYZ5ZYXzXYZtNyz5Yi00YzQ2LXYwMZctXyM5ODA4NjFhYxYZ",
+      "tenantId": "3x176051-a23x-40y4-9645-804943z660q0",
+      "oauthServerUrl": "https://appid-oauth.ng.bluemix.net/oauth/v3/3x176051-a23x-40y4-9645-804943z660q0",
+      "profilesUrl": "https://appid-profiles.ng.bluemix.net/"
+    }</code></pre>
+    <table>
+      <tr>
+        <th>Endpoint</th>
+        <th>Formato </th>
+      </tr>
+      <tr>
+        <td>Autorizzazione</td>
+        <td>{oauthServerUrl}/authorization</td>
+      </tr>
+      <tr>
+        <td>Token</td>
+        <td>{oauthServerUrl}/token</td>
+      </tr>
+      <tr>
+        <td>Userinfo</td>
+        <td>{oauthServerUrl}/userinfo</td>
+      </tr>
+      <tr>
+        <td>JWKS</td>
+        <td>{oauthServerUrl}/publickeys</td>
+      </tr>
+    </table>
+    <p><strong>Nota</strong>: quando utilizzi l'SDK, gli URL dell'endpoint vengono creati automaticamente.</p></dd>
+  <dt>Token </dt>
+    <dd>Il servizio utilizza tre diversi tipi di token per fornire l'autenticazione. I token di accesso rappresentano l'autorizzazione e abilitano la comunicazione con le [risorse di back-end](/docs/services/appid/protecting-resources.html) che sono protette dai filtri di autorizzazione impostati da {{site.data.keyword.appid_short}}. I token di identità rappresentano l'autenticazione e contengono le informazioni sull'utente. Un token di aggiornamento è un token di accesso con una durata estesa. Utilizzando i token di aggiornamento, gli utenti possono consentire che le relative informazioni vengano ricordate dall'applicazione. In questo modo possono rimanere collegati.
+  </dd>
   <dt>Intestazioni di autorizzazione</dt>
     <dd><p>{{site.data.keyword.appid_short}} è conforme alla <a href="https://tools.ietf.org/html/rfc6750" target="blank">specifica di connessione del token <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a> e utilizza una combinazione di token di accesso e di identità che vengono inviati come un'intestazione di autorizzazione HTTP. L'intestazione di autorizzazione contiene tre parti diverse che sono separate da spazi vuoti. I token sono codificati base64. Il token di identità è facoltativo.</br>
     Esempio:</p>
@@ -95,6 +78,7 @@ Payload: {
     <dd><p>{{site.data.keyword.appid_short_notm}} archivia e codifica gli attributi del profilo utente. Come un servizio a più tenant, ogni tenant ha una chiave di codifica e i dati utente in ogni tenant sono codificati con solo tale chiave.</p>
     <p>{{site.data.keyword.appid_short_notm}} assicura che le informazioni private siano codificate prima dell'archiviazione.</p></dd>
 </dl>
+
 </br>
 
 ## Come funziona il processo

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-08-06"
 
 ---
 
@@ -25,7 +25,8 @@ Das Aufrufen geschützter Ressourcen startet bei Bedarf das Anmeldewidget. Wenn 
 ## Ressourcen in Liberty for Java schützen
 {: #protecting-liberty}
 
-Mit {{site.data.keyword.appid_short_notm}} können Sie Endpunkte in Ihren IBM Liberty for Java-Apps schützen. Liberty for Java bietet die integrierte Funktionalität für die Verarbeitung von Open ID Connect-Anforderungen (OIDC-Anforderungen).{: shortdesc}
+Mit {{site.data.keyword.appid_short_notm}} können Sie Endpunkte in Ihren IBM Liberty for Java-Apps schützen. Liberty for Java bietet die integrierte Funktionalität für die Verarbeitung von Open ID Connect-Anforderungen (OIDC-Anforderungen).
+{: shortdesc}
 
 
 
@@ -39,21 +40,8 @@ Vorbereitungen:
 Schützen der Ressourcen:
 
 1. Laden Sie das Liberty for Java-Beispiel von der Benutzerschnittstelle herunter. Das Beispiel enthält eine komprimierte Datei mit den Liberty-Standarddateien.
-2. Öffnen Sie das Terminal in dem Verzeichnis, in dem Sie das Beispiel entpackt haben.
-3. Melden Sie sich bei {{site.data.keyword.Bluemix_notm}} über die Cloud Foundry-Befehlszeile an. Geben Sie Ihre Berechtigungsnachweise ein, wenn Sie dazu aufgefordert werden.
-  ```
-  cf login
-  ```
-  {: codeblock}
-
-4. Stellen Sie die App bereit. Mit dem folgenden Befehl wird eine Liberty for Java-Instanz mit einem Namen erstellt, der der Tenant-ID zugeordnet ist.
-  ```
-  cf push
-  ```
-  {: codeblock}
-
-5. Binden Sie die Serviceinstanz an die neue Liberty for Java-Instanz und stellen Sie die App erneut bereit.
-6. Öffnen Sie die App in einem Browser und melden Sie sich mit Ihren Berechtigungsnachweisen an, um die Authentifizierungsaktivitäten zu überprüfen.
+2. Stellen Sie Ihre Anwendung wie in der Benutzerschnittstelle beschrieben in IBM Cloud bereit. 
+3. Öffnen Sie die App in einem Browser und melden Sie sich mit Ihren Berechtigungsnachweisen an, um die Authentifizierungsaktivitäten zu überprüfen.
 
 ## Ressourcen in Node.js schützen
 {: #protecting-resources-nodesdk}
@@ -68,7 +56,7 @@ Das folgende Snippet demonstriert, wie `APIStrategy` in einer einfachen Express-
 
   var express = require('express');
   var passport = require('passport');
-  var APIStrategy = require('bluemix-appid').APIStrategy;
+  var APIStrategy = require('ibmcloud-appid').APIStrategy;
 
   passport.use(new APIStrategy());
   var app = express();
@@ -87,12 +75,12 @@ Das folgende Snippet demonstriert, wie `APIStrategy` in einer einfachen Express-
 
 
 ## Ressourcen mit dem Swift-SDK schützen
-{: #requesting-swift}
+{: #protecting-swift}
 
 Sie können {{site.data.keyword.appid_short_notm}} verwenden, um Ihre Ressourcen auf der Serverseite mithilfe des Swift-SDK zu schützen.
 {: shortdesc}
 
-Das {{site.data.keyword.appid_short_notm}} Swift-Server-SDK stellt ein Middleware-Plug-in für den API-Schutz zur Verfügung, das zum Schutz Ihrer Back-End-Apps verwendet wird. Durch die Zuordnung Ihrer APIs zur Middleware können Sie Ihre App vor unbefugtem Zugriff schützen. Nachdem die API geschützt ist, stellt die Middleware sicher, dass die Tokens, die von {{site.data.keyword.appid_short_notm}} generiert wurden, validiert werden. Sie können dann das Verhalten der API abhängig von den Validierungsergebnissen ändern. 
+Das {{site.data.keyword.appid_short_notm}} Swift-Server-SDK stellt ein Middleware-Plug-in für den API-Schutz zur Verfügung, das zum Schutz Ihrer Back-End-Apps verwendet wird. Durch die Zuordnung Ihrer APIs zur Middleware können Sie Ihre App vor unbefugtem Zugriff schützen. Nachdem die API geschützt ist, stellt die Middleware sicher, dass die Token, die von {{site.data.keyword.appid_short_notm}} generiert wurden, validiert werden. Sie können dann das Verhalten der API abhängig von den Validierungsergebnissen ändern.
 
 Das folgende Code-Snippet ist ein Beispiel für den Schutz der `/protectedendpoint`-API.
 
@@ -100,7 +88,7 @@ Das folgende Code-Snippet ist ein Beispiel für den Schutz der `/protectedendpoi
 import Foundation
 import Kitura              // Server
 import Credentials         // Middleware
-import BluemixAppID        // SDK
+import IBMCloudAppID       // SDK
 
 // Routen einrichten
 let router = Router()

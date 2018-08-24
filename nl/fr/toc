@@ -1,7 +1,7 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="appid" audience="service" href="/docs/services/appid/index.html"}
+{: .toc subcollection="appid" audience="service" arm="2093952" href="/docs/services/appid/index.html"}
 IBM Cloud App ID
 
     {: .navgroup id="learn"}
@@ -14,24 +14,30 @@ IBM Cloud App ID
     install.md
 
     {: .topicgroup}
-    Authentification des utilisateurs
+    Configuration des fournisseurs d'identité
         identity-providers.md
         enterprise.md
         cloud-directory.md
+
+    {: .topicgroup}
+    Gestion de l'expérience de connexion
         login-widget.md
+        branded.md
 
     protecting-resources.md
-    user-profile.md
+
+    {: .topicgroup}
+    Stockage des profils utilisateur et accès
+        user-profile.md
+        predefined.md
+        custom-attributes.md
     protecting-resources-local.md
-    existing.md
-    iam.md
-    api-reference.md
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
     {: .topicgroup}
-    APIs
-        [Autorisation](http://mobileclientaccess.mybluemix.net/swagger-ui/#/Authorization_Server_V3)
+    API
+        [Autorisation](https://appid-oauth.ng.bluemix.net/swagger-ui/#/Authorization_Server_V3)
         [Gestion](https://appid-management.ng.bluemix.net/swagger-ui/)
         [Profils](https://appid-profiles.ng.bluemix.net/swagger-ui/index.html)
 
@@ -42,9 +48,15 @@ IBM Cloud App ID
         [SDK serveur Node.js](https://github.com/ibm-cloud-security/appid-serversdk-nodejs)
         [SDK serveur Swift](https://github.com/ibm-cloud-security/appid-serversdk-swift)
     relatedlinks.md
+    iam.md
+    api-reference.md
     {: .navgroup-end}
 
     {: .navgroup id="help"}
     faq.md
-    ts_index.md
+
+    {: .topicgroup}
+    Traitement des incidents
+        ts_index.md
+        ts_saml.md
     {: .navgroup-end}

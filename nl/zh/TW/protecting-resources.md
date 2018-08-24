@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-08-06"
 
 ---
 
@@ -40,21 +40,8 @@ lastupdated: "2018-4-24"
 若要保護您的資源，請執行下列動作：
 
 1. 從使用者介面下載 Liberty for Java 範例。此範例包含具有標準 Liberty 檔案的壓縮檔案。
-2. 在您擷取範例所在的目錄開啟終端機。
-3. 使用 Cloud Foundry 指令行登入 {{site.data.keyword.Bluemix_notm}}。提示時，輸入您的認證。
-  ```
-  cf login
-  ```
-  {: codeblock}
-
-4. 部署應用程式。執行下列指令會建立名稱與承租戶 ID 相關的 Liberty for Java 實例。
-  ```
-  cf push
-  ```
-  {: codeblock}
-
-5. 將您的服務實例連結至新的 Liberty for Java 實例，然後重新部署應用程式。
-6. 在瀏覽器中開啟您的應用程式，並使用您的認證登入，以檢閱鑑別活動。
+2. 遵循使用者介面中提供的指示，將您的應用程式部署至 IBM-Cloud。
+3. 在瀏覽器中開啟您的應用程式，並使用您的認證登入，以檢閱鑑別活動。
 
 ## 保護 Node.js 中的資源
 {: #protecting-resources-nodesdk}
@@ -69,7 +56,7 @@ lastupdated: "2018-4-24"
 
   var express = require('express');
   var passport = require('passport');
-  var APIStrategy = require('bluemix-appid').APIStrategy;
+  var APIStrategy = require('ibmcloud-appid').APIStrategy;
 
   passport.use(new APIStrategy());
   var app = express();
@@ -88,7 +75,7 @@ lastupdated: "2018-4-24"
 
 
 ## 使用 Swift SDK 保護資源
-{: #requesting-swift}
+{: #protecting-swift}
 
 您可以使用 {{site.data.keyword.appid_short_notm}}，利用 Swift SDK 來保護伺服器端資源。
 {: shortdesc}
@@ -101,7 +88,7 @@ lastupdated: "2018-4-24"
 import Foundation
 import Kitura              // server
 import Credentials         // middleware
-import BluemixAppID        // SDK
+import IBMCloudAppID       // SDK
 
 // setup routes
 let router = Router()

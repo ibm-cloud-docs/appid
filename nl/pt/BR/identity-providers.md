@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-08-06"
 
 ---
 
@@ -58,7 +58,7 @@ do website em seu aplicativo Facebook.
 2. Tome nota do ID e do segredo do app Facebook. Esses valores são necessários para configurar o seu projeto da web para autenticação em seu painel de serviço.
 3. Inclua a plataforma da web e insira a URL do site.
 4. Na lista de produtos, selecione **Login do Facebook**.
-5. No campo URLs válidas de redirecionamento de OAuth, insira a URL de terminal de retorno de chamada de servidor de autorizações. Depois de configurar sua instância de serviço, é possível incluir esse valor.
+5. No campo URLs válidas de redirecionamento de OAuth, insira a URL de terminal de retorno de chamada de servidor de autorizações.
 6. Clique em **Salvar mudanças**.
 
 
@@ -72,7 +72,7 @@ a autenticação do Facebook em seu painel de serviço.
 3. Copie o URI que estiver no campo **URI de redirecionamento para o Facebook for Developers**. Cole o URI no campo **URIs válidos de redirecionamento de OAuth** na seção **Login do Facebook** do Portal de desenvolvedores do Facebook.
 4. Clique em **Salvar**.
 5. Opcional: para apps da web, insira a URL de redirecionamento no campo **URLs de redirecionamento de aplicativo da web**. Esse
-valor é determinado pelo desenvolvedor e usado para acessar a URL de redirecionamento após o processo de autorização ser concluído.
+valor é determinado pelo desenvolvedor e usado para acessar a URL de redirecionamento após o processo de autorização ser concluído. A URL deve seguir um esquema `http` ou `https`. Para um nível mais alto de segurança, use um esquema `https`.
 
 
 ## Configurando o Google
@@ -109,4 +109,4 @@ nos detalhes do provedor de identidade do Google.
     3. Cole a URL do {{site.data.keyword.appid_short}} no campo **URIs de
 redirecionamento autorizados** e clique em **Salvar**.
 4. Clique em **Salvar** para atualizar sua configuração do Google no {{site.data.keyword.appid_short}}.
-5. Para apps da web, insira uma URL de redirecionamento na guia **Gerenciar**. Após a conclusão do processo de autorização, um usuário será enviado para essa URL.
+5. Para apps da web, insira uma URL de redirecionamento na guia **Gerenciar**. Após a conclusão do processo de autorização, um usuário será enviado para essa URL. A URL deve seguir um esquema `http` ou `https`. Para um nível mais alto de segurança, use um esquema `https`.

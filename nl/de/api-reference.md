@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-07-15"
 
 ---
 
@@ -19,25 +19,25 @@ lastupdated: "2018-4-24"
 Sie können die Verwaltungs-API für die DevOps-Automation sowie für die Anpassung und Verwaltung Ihrer Instanzen von {{site.data.keyword.appid_full}} verwenden.
 {: shortdesc}
 
-Die Verwaltungs-API ist mit IBM Cloud Identity und von Access Management generierten Tokens gesichert. Das heißt, dass Kontoeigner angeben können, wer in ihrem Team über welche Zugriffsebene für die jeweilige Serviceinstanz verfügen soll. Weitere Informationen dazu, wie IAM und {{site.data.keyword.appid_short_notm}} zusammenarbeiten, finden Sie in [Servicezugriffsverwaltung](/docs/services/appid/iam.html).
+Die Verwaltungs-API wird mit Token geschützt, die von {{site.data.keyword.cloudaccesstraillong}} generiert werden. Mit IAM können Kontoeigner angeben, wer in ihrem Team über welche Zugriffsebene für die einzelnen Serviceinstanzen verfügen soll. Weitere Informationen zum Zusammenspiel von IAM und {{site.data.keyword.appid_short_notm}} finden Sie in [Servicezugriffsverwaltung](/docs/services/appid/iam.html). 
 
-Mit der API können Sie: 
-* die Konfiguration von {{site.data.keyword.appid_short_notm}} in der App Ihres DevOps-Prozesses automatisieren.
-* Funktionen wie die Widgetkonfiguration für die Registrierung, den Registrierungsprozess und die Benutzerverwaltung über das App-Back-End festlegen und anpassen. 
+Mit der API können Sie:
+* Die Konfiguration von {{site.data.keyword.appid_short_notm}} in der App Ihres DevOps-Prozesses automatisieren.
+* Funktionen wie die Anmeldewidgetkonfiguration, den Registrierungsprozess und das Benutzermanagement über das App-Back-End festlegen und anpassen. 
 
 
-Aufrufe an den API-Verwaltungsendpunkt haben die folgende Struktur: 
+Aufrufe an den API-Verwaltungsendpunkt haben die folgende Struktur:
 
 ```
 appid-management.<region>.bluemix.net
 ```
 {: codeblock}
 
-Sie finden die Region in der folgenden Tabelle. 
+Sie finden die Region in der folgenden Tabelle.
 
 <table>
   <tr>
-    <th>{{site.data.keyword.Bluemix}} Region</th>
+    <th>{{site.data.keyword.Bluemix}}-Region</th>
     <th>Endpunkt</th>
   </tr>
   <tr>
@@ -63,8 +63,8 @@ Sie finden die Region in der folgenden Tabelle.
 ## Voraussetzungen
 {: #api-prereq}
 
-<ul><ul><li>Eine Serviceinstanz, die nach dem 15. März 2018 erstellt wurde. Wenn Sie über eine Instanz des Service verfügen, die vor diesem Datum erstellt wurde, erstellen Sie eine neue Instanz und konfigurieren sie so, dass Sie mit Ihrer aktuellen Instanz übereinstimmt. Stellen Sie sicher, dass Sie Ihre Apps für die Verwendung der neuen Instanz aktualisieren. </li>
-<li>Die [{{site.data.keyword.Bluemix_notm}}-CLI](/docs/cli/reference/bluemix_cli/get_started.html) ist installiert.</li></ul></ul>
+<ul><ul><li>Eine Serviceinstanz, die nach dem 15. März 2018 erstellt wurde. Wenn Sie über eine Instanz des Service verfügen, die vor diesem Datum erstellt wurde, erstellen Sie eine neue Instanz und konfigurieren Sie sie so, dass sie mit Ihrer aktuellen Instanz übereinstimmt. Stellen Sie sicher, dass Sie Ihre Apps für die Verwendung der neuen Instanz aktualisieren.</li>
+<li>Die [{{site.data.keyword.Bluemix_notm}}-CLI](/docs/cli/index.html) ist installiert.</li></ul></ul>
 
 ## Beispielverwendung
 {: #api-example}

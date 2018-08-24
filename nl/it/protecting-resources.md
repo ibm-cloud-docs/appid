@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-08-06"
 
 ---
 
@@ -40,21 +40,8 @@ Prima di cominciare:
 Per proteggere le tue risorse:
 
 1. Scarica l'esempio Liberty for Java dalla IU. L'esempio contiene un file compresso con i file Liberty standard.
-2. Apri il terminale nella directory in cui hai estratto l'esempio.
-3. Accedi a {{site.data.keyword.Bluemix_notm}} utilizzando la riga di comando Cloud Foundry. Quando richiesto, immetti le tue credenziali.
-  ```
-  cf login
-  ```
-  {: codeblock}
-
-4. Distribuisci l'applicazione. L'esecuzione del seguente comando crea un'istanza Liberty for Java con un nome correlato all'ID tenant ID.
-  ```
-  cf push
-  ```
-  {: codeblock}
-
-5. Associa la tua istanza del servizio alla nuova istanza Liberty for Java e ridistribuisci l'applicazione.
-6. Apri la tua applicazione in un browser e accedi utilizzando le tue credenziali per verificare le attività di autenticazione.
+2. Segui le istruzioni fornite nell'IU per distribuire l'applicazione a IBM Cloud.
+3. Apri la tua applicazione in un browser e accedi utilizzando le tue credenziali per verificare le attività di autenticazione.
 
 ## Protezione di risorse in Node.js
 {: #protecting-resources-nodesdk}
@@ -69,7 +56,7 @@ Il seguente frammento di codice illustra come utilizzare `APIStrategy` in un'app
 
   var express = require('express');
   var passport = require('passport');
-  var APIStrategy = require('bluemix-appid').APIStrategy;
+  var APIStrategy = require('ibmcloud-appid').APIStrategy;
 
   passport.use(new APIStrategy());
   var app = express();
@@ -88,7 +75,7 @@ Il seguente frammento di codice illustra come utilizzare `APIStrategy` in un'app
 
 
 ## Protezione delle risorse con Swift SDK
-{: #requesting-swift}
+{: #protecting-swift}
 
 Puoi utilizzare {{site.data.keyword.appid_short_notm}} per proteggere le tue risorse lato server utilizzando l'SDK Swift.
 {: shortdesc}
@@ -101,7 +88,7 @@ Vedi il seguente frammento di codice per un esempio di come proteggere l'API `/p
 import Foundation
 import Kitura              // server
 import Credentials         // middleware
-import BluemixAppID        // SDK
+import IBMCloudAppID       // SDK
 
 // setup routes
 let router = Router()

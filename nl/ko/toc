@@ -1,7 +1,7 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="appid" audience="service" href="/docs/services/appid/index.html"}
+{: .toc subcollection="appid" audience="service" arm="2093952" href="/docs/services/appid/index.html"}
 IBM Cloud App ID
 
     {: .navgroup id="learn"}
@@ -14,24 +14,30 @@ IBM Cloud App ID
     install.md
 
     {: .topicgroup}
-    사용자 인증
+    ID 제공자 구성
         identity-providers.md
         enterprise.md
         cloud-directory.md
+
+    {: .topicgroup}
+    사인인 환경 관리
         login-widget.md
+        branded.md
 
     protecting-resources.md
-    user-profile.md
+
+    {: .topicgroup}
+    사용자 프로파일 저장 및 액세스
+        user-profile.md
+        predefined.md
+        custom-attributes.md
     protecting-resources-local.md
-    existing.md
-    iam.md
-    api-reference.md
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
     {: .topicgroup}
-    API
-        [권한 부여](http://mobileclientaccess.mybluemix.net/swagger-ui/#/Authorization_Server_V3)
+API
+        [권한 부여](https://appid-oauth.ng.bluemix.net/swagger-ui/#/Authorization_Server_V3)
         [관리](https://appid-management.ng.bluemix.net/swagger-ui/)
         [프로파일](https://appid-profiles.ng.bluemix.net/swagger-ui/index.html)
 
@@ -42,9 +48,15 @@ IBM Cloud App ID
         [Node.js 서버 SDK](https://github.com/ibm-cloud-security/appid-serversdk-nodejs)
         [Swift 서버 SDK](https://github.com/ibm-cloud-security/appid-serversdk-swift)
     relatedlinks.md
+    iam.md
+    api-reference.md
     {: .navgroup-end}
 
     {: .navgroup id="help"}
-     faq.md
-    ts_index.md
+    faq.md
+
+    {: .topicgroup}
+    문제점 해결
+        ts_index.md
+        ts_saml.md
     {: .navgroup-end}

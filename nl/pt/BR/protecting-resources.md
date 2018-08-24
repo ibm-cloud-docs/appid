@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-08-06"
 
 ---
 
@@ -42,22 +42,8 @@ apps Liberty for Java, veja [os docs](/docs/runtimes/liberty/index.html).
 Para proteger seus recursos:
 
 1. Faça download da amostra do Liberty for Java na UI. A amostra contém um arquivo compactado com os arquivos Liberty padrão.
-2. Abra o terminal no diretório no qual você extraiu a amostra.
-3. Efetue login no {{site.data.keyword.Bluemix_notm}} usando a linha de comandos do
-Cloud Foundry. Quando solicitado, insira suas credenciais.
-  ```
-  cf login
-  ```
-  {: codeblock}
-
-4. Implemente o app. Executar o comando a seguir cria uma instância do Liberty for Java com um nome que está relacionado ao ID do locatário.
-  ```
-  cf push
-  ```
-  {: codeblock}
-
-5. Conecte a instância de serviço à nova instância do Liberty for Java e reimplemente o app.
-6. Abra seu app em um navegador e efetue login usando suas credenciais para revisar as atividades de autenticação.
+2. Siga as instruções fornecidas na UI para implementar o aplicativo no IBM Cloud.
+3. Abra seu app em um navegador e efetue login usando suas credenciais para revisar as atividades de autenticação.
 
 ## Protegendo recursos no Node.js
 {: #protecting-resources-nodesdk}
@@ -75,7 +61,7 @@ O fragmento a seguir demonstra como usar o `APIStrategy` em um app Express simpl
 
   var express = require('express');
   var passport = require('passport');
-  var APIStrategy = require('bluemix-appid').APIStrategy;
+  var APIStrategy = require('ibmcloud-appid').APIStrategy;
 
   passport.use(new APIStrategy());
   var app = express();
@@ -94,7 +80,7 @@ O fragmento a seguir demonstra como usar o `APIStrategy` em um app Express simpl
 
 
 ## Protegendo recursos com o SDK Swift
-{: #requesting-swift}
+{: #protecting-swift}
 
 É possível usar o {{site.data.keyword.appid_short_notm}} para proteger seus recursos do lado do servidor usando o SDK Swift.
 {: shortdesc}
@@ -107,7 +93,7 @@ Veja o fragmento de código a seguir para um exemplo de como proteger a API `/pr
 import Foundation
 import Kitura              // server
 import Credentials         // middleware
-import BluemixAppID        // SDK
+import IBMCloudAppID       // SDK
 
 // setup routes
 let router = Router()

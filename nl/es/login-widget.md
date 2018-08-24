@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-08-09"
 
 ---
 
@@ -10,21 +10,23 @@ lastupdated: "2018-4-24"
 {:screen: .screen}
 {:tip: .tip}
 {:pre: .pre}
-{:new_window: target="_blank"}
+{:new_window: target="blank"}
 {:shortdesc: .shortdesc}
 
 
-# Gestión de la experiencia de inicio de sesión
+# Visualización de las pantallas predeterminadas
+{: #default}
 
 {{site.data.keyword.appid_full}} proporciona un widget de inicio de sesión que permite dar a los usuarios opciones de inicio de sesión seguras.
 {: shortdesc}
 
-Cuando la app está configurada para utilizar un proveedor de identidad, el widget de inicio de sesión dirigirá a los visitantes de su app a una pantalla de inicio de sesión. De forma predeterminada, cuando solo se establece en activado un proveedor, los visitantes serán redirigidos a dicha pantalla de autenticación de proveedores de identidad. Con el widget de inicio de sesión puede mostrar una pantalla de inicio de sesión predeterminada o, con el directorio en la nube, puede reutilizar la IU existente.
+Cuando la app está configurada para utilizar un proveedor de identidad, el widget de inicio de sesión dirigirá a los visitantes de su app a una pantalla de inicio de sesión. De forma predeterminada, cuando solo se establece en **Activado** un proveedor, los visitantes serán redirigidos a dicha pantalla de autenticación de proveedores de identidad. Con el widget de inicio de sesión puede mostrar una pantalla de inicio de sesión predeterminada o, con el directorio en la nube, puede reutilizar la IU existente. Y, además, puede actualizar su flujo de inicio de sesión en cualquier momento, sin cambiar el código fuente de ninguna forma.
 
-Puede actualizar su flujo de inicio de sesión en cualquier momento, sin cambiar el código fuente de ninguna forma.
+
+El servicio utiliza tipos de concesión OAuth 2 para correlacionar el proceso de autorización. Cuando configura los proveedores de identidad social como Facebook, se utilizará el [flujo de concesión de autorización de Oauth 2](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html) para llamar al widget de inicio de sesión.
+
+¿Desea crear una experiencia que sea exclusiva de su app? Puede [aportar sus propias pantallas](/docs/services/appid/branded.html).
 {: tip}
-
-El servicio utiliza tipos de concesión OAuth 2 para correlacionar el proceso de autorización. Cuando configura los proveedores de identidad social como Facebook, se utilizará el [flujo de concesión de autorización de Oauth 2](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html) para llamar al widget de inicio de sesión. Cuando visualice sus propias pantallas de IU, se utiliza el [flujo de Credenciales de contraseña del propietario de recursos](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/password.html) para iniciar sesión y obtener señales de acceso y de identidad.
 
 
 ## Personalización de la pantalla de inicio de sesión predeterminada
@@ -43,8 +45,8 @@ Para personalizar la pantalla:
 6. En el navegador, renueve la página de inicio de sesión para verificar los cambios.
 
 
-## Visualización de las pantallas predeterminadas
-{: #default}
+## Planificación de las pantallas que se van a mostrar
+{: #plan}
 
 {{site.data.keyword.appid_short_notm}} proporciona una pantalla de inicio de sesión predeterminada que puede llamar si no tiene sus propias pantallas de IU para mostrar.
 {: shortdesc}
@@ -99,18 +101,12 @@ Consulte la tabla siguiente para ver qué pantallas puede visualizar para cada t
 Después de haber configurado los valores para [proveedores de identidad social](/docs/services/appid/identity-providers.html), y [directorio en la nube](/docs/services/appid/cloud-directory.html), pulse en el idioma de su elección en la imagen siguiente para empezar a implementar el código.
 
 
-Pulse en el idioma de su elección en la imagen siguiente para empezar a implementar el código.
+Pulse en la imagen para utilizar una de las API o de los SDK proporcionados. No olvide que también puede utilizar App ID con otros idiomas. Al utilizar nuestras API, puede configurar un directorio en la nube en cualquier app. Para obtener ayuda con los idiomas que no aparecen en la imagen, consulte <a href="https://www.ibm.com/blogs/bluemix/tag/app-id/" target="_blank">nuestros blogs<img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>.
+{: shortdesc}
 
-<img usemap="#default-options-map" border="0" class="image" id="options" src="images/default-options.png" width="750" alt="Pulse un icono del lenguaje SDK para empezar con el directorio en la nube en sus apps." style="width:750px;" />
-<map name="default-options-map" id="default-options-map">
-<area href="login-widget.html#android" alt="Gestión de la experiencia de inicio de sesión con el SDK de Android" shape="rect" coords="113, 8, 224, 123" />
-<area href="login-widget.html#ios-swift" alt="Gestión de la experiencia de inicio de sesión con el SDK de iOS Swift." shape="rect" coords="251, 12, 362, 127" />
-<area href="login-widget.html#nodejs" alt="Gestión de la experiencia de inicio de sesión con el SDK de Node.js." shape="rect" coords="387, 10, 498, 125" />
-<area href="login-widget.html#swift" alt="Gestión de la experiencia de inicio de sesión con el SDK de Swift." shape="rect" coords="525, 10, 636, 125" />
-</map>
 </br>
 
-### Visualización de las pantallas predeterminadas con el SDK de Android
+## Visualización de las pantallas predeterminadas con el SDK de Android
 {: #android}
 
 Puede llamar las pantallas preconfiguradas con el SDK de Android.
@@ -175,14 +171,14 @@ Puede llamar las pantallas preconfiguradas con el SDK de Android.
 2. Llame al LoginWidget para iniciar el flujo de contraseña olvidada.
     ```java
     LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
-  loginWidget.launchForgotPassword(this, new AuthorizationListener() {
+    loginWidget.launchForgotPassword(this, new AuthorizationListener() {
    			 @Override
-          public void onAuthorizationFailure (AuthorizationException exception) {
-          }
+        public void onAuthorizationFailure (AuthorizationException exception) {
+   			 }
 
    			 @Override
           public void onAuthorizationCanceled () {
-          }
+   			 }
 
    			 @Override
    			 public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, refreshToken: RefreshToken) {
@@ -239,7 +235,7 @@ Puede llamar las pantallas preconfiguradas con el SDK de Android.
 </br>
 </br>
 
-### Visualización de las pantallas predeterminadas con el SDK de Swift de iOS
+## Visualización de las pantallas predeterminadas con el SDK de Swift de iOS
 {: #ios-swift}
 
 Puede llamar las pantallas preconfiguradas con el SDK de Swift de iOS.
@@ -368,7 +364,7 @@ Puede llamar las pantallas preconfiguradas con el SDK de Swift de iOS.
 </br>
 </br>
 
-### Visualización de las pantallas predeterminadas con el SDK de Node.js
+## Visualización de las pantallas predeterminadas con el SDK de Node.js
 {: #nodejs}
 
 Puede llamar las pantallas preconfiguradas con el SDK de Node.js.
@@ -441,7 +437,8 @@ Puede llamar las pantallas preconfiguradas con el SDK de Node.js.
 
 </br>
 </br>
-### Visualización de la IU predeterminada con el SDK de Swift
+
+## Visualización de las pantallas predeterminadas con el SDK de Swift
 {: #swift}
 
 Con los proveedores de identidad social habilitados, puede llamar a la pantalla de inicio de sesión preconfigurada con el SDK de Swift.
@@ -533,184 +530,4 @@ Con los proveedores de identidad social habilitados, puede llamar a la pantalla 
 </br>
 
 
-### Visualización de pantallas personalizadas con el SDK de Android
-{: #branded-ui-android}
 
-Con el directorio en la nube habilitado, puede llamar a pantallas personalizadas con el SDK de Android. Puede elegir la combinación de las pantallas con las que desea que sus usuarios puedan interactuar.<a href="https://www.ibm.com/blogs/bluemix/2018/01/use-branded-ui-user-sign-app-id/" target="blank">Consulte este blog<img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a> para obtener un ejemplo detallado.
-{: shortdesc}
-
-</br>
-**Iniciar la sesión**
-
-1. Establezca **Directorio en la nube** en **Activado** como proveedor de identidad.
-2. Añada el mandato siguiente a su código.
-  ```java
-  AppID.getInstance().signinWithResourceOwnerPassword(getApplicationContext(), username, password,
-         new TokenResponseListener() {
-         @Override
-        public void onAuthorizationFailure (AuthorizationException exception) {
-             //Se ha producido una excepción
-        }
-
-          @Override
-        public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken) {
-            //Usuario autenticado
-        }
-         });
-  ```
-  {: pre}
-
-</br>
-</br>
-
-### Visualización de pantallas personalizadas con el SDK de iOS Swift
-{: #branded-ui-ios-swift}
-
-Con el directorio en la nube habilitado, puede llamar a pantallas personalizadas con el SDK de Swift de iOS.
-{: shortdesc}
-
-</br>
-**Iniciar la sesión**
-
-1. En el separador de proveedor de identidad de la GUI, establezca el directorio en la nube en **Activado**.
-2. Inicie la sesión utilizando la contraseña del propietario del recurso. Las señales de acceso e identidad se obtienen cuando un usuario intenta iniciar sesión utilizando su nombre de usuario y contraseña.
-  ```swift
-  class delegate : TokenResponseDelegate {
-      public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, response:Response?) {
-      //Usuario autenticado
-      }
-
-      public func onAuthorizationFailure(error: AuthorizationError) {
-      //Se ha producido una excepción
-        }
-  }
-
-  AppID.sharedInstance.signinWithResourceOwnerPassword(username: username, password: password, delegate: delegate())
-  ```
-  {: pre}
-</br>
-</br>
-
-### Visualización de pantallas personalizadas con el SDK de Node.js
-{: #branded-ui-nodejs}
-
-Con el directorio en la nube habilitado, puede llamar a pantallas personalizadas con el SDK de Node.js. Puede elegir la combinación de las pantallas con que desea que sus usuarios puedan interactuar. Si elige un fondo Node.js, puede utilizar nuestro módulo de autoservicio que se encuentra en el SDK de Node.js de {{site.data.keyword.appid_short_notm}} (enlace).
-{: shortdesc}
-
-**Iniciar la sesión**
-1. Establezca el directorio en la nube en **Activado** en los valores de proveedor de identidad y especifique un punto final de devolución de llamada.
-2. Añada una ruta de envío a su app a la que pueda llamarse con los parámetros de nombre de usuario y contraseña e inicie la sesión utilizando la contraseña del propietario del recurso.
-    ```javascript
-    app.post("/form/submit", bodyParser.urlencoded({extended: false}), passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
-    	successRedirect: LANDING_PAGE_URL,
-  	failureRedirect: ROP_LOGIN_PAGE_URL,
-  	failureFlash : true //permitir mensajes flash
-  }));
-    ```
-    {: pre}
-    `WebAppStrategy` permite a los usuarios iniciar sesión en sus apps web con un nombre de usuario y una contraseña. Después de un inicio de sesión satisfactorio, la señal de acceso de un usuario se almacena en la sesión HTTP y está disponible durante la sesión. Cuando la sesión HTTP se ha destruido o ha caducado, la señal deja de ser válida.
-    {: tip}
-
-</br>
-</br>
-
-## Visualización de pantallas personalizadas con la API
-{: #branding}
-
-Puede mostrar sus propias pantallas personalizadas y aprovechar las posibilidades de autenticación y autorización de {{site.data.keyword.appid_short_notm}}. Con el directorio en la nube como proveedor de identidad, sus usuarios pueden interactuar con su app requiriendo menos ayuda. Son capaces de iniciar la sesión, registrarse, restablecer su contraseña, etc., sin necesidad de solicitar ayuda.
-{: shortdesc}
-
-Para hacer esto posible, {{site.data.keyword.appid_short_notm}} expuso API REST. Puede utilizar la API REST para crear un servidor de fondo que sirva a sus apps web, o para interactuar con una app móvil con sus propias pantallas personalizadas.
-
-La API de gestión está protegida con las señales generadas de IBM Cloud Identity and Access Management. Esto significa que los propietarios de las cuentas pueden especificar qué persona de su equipo tiene qué nivel de acceso para cada instancia de servicio. Para obtener más información sobre cómo funcionan juntos IAM y {{site.data.keyword.appid_short_notm}}, consulte [Gestión de acceso de servicio](/docs/services/appid/iam.html).
-
-Cuando un usuario pulsa el inicio de sesión desde la pantalla personalizada, el [flujo de Credenciales de contraseña de propietario de recurso](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/password.html) se utiliza para obtener acceso y señales de identidad directamente desde sus apps web o móviles.
-
-Después de haber configurado los [valores](/docs/services/appid/cloud-directory.html),
-
-
-**Regístrese**
-Puede utilizar el punto final `/sign_up` para permitir que los usuarios se registren ellos mismos para su app.
-Proporcione los datos siguientes en el cuerpo de solicitud:
-  * Su tenantID.
-  * Datos de usuario del directorio en la nube. Consulte [Representación de usuario completo de SCIM](https://tools.ietf.org/html/rfc7643#section-8.2) para obtener más detalles.
-    * Un atributo `password`.
-    * En la matriz de correo electrónico con un atributo `primary` establecido en `true`, debe tener al menos una dirección de correo electrónico.
-
-Dependiendo de las [configuraciones de correo electrónico](/docs/services/appid/cloud-directory.html), un usuario podría recibir una solicitud para su verificación, o un correo electrónico que le da la bienvenida cuando se registra para su app. Ambos tipos de correos electrónicos se desencadenan cuando un usuario se registra para su app. El correo electrónico de verificación contiene un botón **Verificar**. Después de pulsar el botón y confirmar su identidad, se mostrará una pantalla mediante {{site.data.keyword.appid_short_notm}} que agradece al usuario que se haya verificado.  
-
-Puede presentar su propia página postverificación:
-
-1. Vaya al separador **Páginas de destino personalizadas** del panel de control de {{site.data.keyword.appid_short_notm}}.
-2. Especifique el URL para la página de destino en el **URL para su página de verificación de dirección de correo electrónico personalizada**
-
-Cuando se proporcione este valor, {{site.data.keyword.appid_short_notm}} llama al URL junto con una consulta `context`. Cuando llama al punto final `/sign_up/confirmation_result` y pasa el parámetro `context` recibido, el resultado le indica si el usuario ha verificado su cuenta. Si lo ha hecho, puede mostrar su página personalizada.
-
-</br>
-**Contraseña olvidada**
-
-Puede utilizar el punto final `/forgot_password` para permitir que los usuarios recuperen su contraseña si la olvidan.
-
-Proporcione los datos siguientes en el cuerpo de solicitud:
-  * Su tenantID.
-  * El correo electrónico del usuario del directorio en la nube.
-
-Cuando se llame al punto final, se enviará un correo electrónico de restablecimiento de contraseña al usuario. El correo electrónico contiene un botón **Restablecer**. Una vez que pulsen el botón, se mostrará una pantalla mediante {{site.data.keyword.appid_short_notm}} que les permite restablecer su contraseña.
-
-Puede presentar su propia página de restablecimiento de contraseña:
-
-1. Vaya al separador **Páginas de destino personalizadas** del panel de control de {{site.data.keyword.appid_short_notm}}.
-2. Especifique el URL de la página de destino en el **URL para su página de restablecimiento de contraseña personalizada**  
-
-Cuando se proporcione este valor, {{site.data.keyword.appid_short_notm}} llama al URL junto con una consulta `context`. El parámetro `context` se utiliza para recibir el resultado cuando se llame a `/forgot_password/confirmation_result`. Si el resultado es correcto, puede mostrar su página personalizada.
-
-Añada una serie aleatoria a la página de restablecimiento de contraseña personalizada y pásela a su programa de fondo cuando se envíe la solicitud. Haga que el manejador valide la serie y llame al punto final `/change_password` solo si es válido. De esta manera, puede reducir la vulnerabilidad del punto final de programa de fondo del programa de fondo.
-{: tip}
-
-</br>
-**Cambiar contraseña**
-
-Puede utilizar el punto final `/change_password` de dos formas. Cuando un usuario envía una solicitud de restablecimiento, o cuando un usuario ha iniciado sesión en la app y desea actualizar su contraseña.
-
-Para actualizar su contraseña después de una solicitud de restablecimiento:
-
-Proporcione los datos siguientes en el cuerpo de solicitud:
-  * Su tenantID.
-  * La nueva contraseña de los usuarios.
-  * El UUID del usuario del directorio en la nube.
-  * Opcional: la dirección IP desde la que se ha realizado el restablecimiento de contraseña. Si elige pasar la dirección IP, el marcador `%{passwordChangeInfo.ipAddress}` estará disponible para la plantilla de correo electrónico de cambio de contraseña.
-
-Dependiendo de la configuración, cuando se modifica una contraseña, {{site.data.keyword.appid_short_notm}} podría enviar un correo electrónico al usuario haciéndole saber que hubo un cambio.
-
-</br>
-Para permitir a los usuarios cambiar su contraseña mientras estén dentro de su app:
-
-Proporcione los datos siguientes en el cuerpo de solicitud:
-  * Su tenantID.
-  * La nueva contraseña de los usuarios.
-  * El UUID del usuario del directorio en la nube.
-
-La página de cambio de contraseña debe aparecerle al usuario para que especifique su contraseña actual y su nueva contraseña.
-{: tip}
-
-El programa de fondo valida la contraseña actual del usuario con la API ROP, y si es válida, llama al punto final con la contraseña nueva. Dependiendo de la configuración, cuando se modifica una contraseña, {{site.data.keyword.appid_short_notm}} podría enviar un correo electrónico al usuario haciéndole saber que hubo un cambio.
-
-</br>
-**Reenviar**
-
-Puede utilizar `/resend/{templateName}` para volver a enviar un correo electrónico cuando un usuario no lo recibe por cualquier motivo.
-
-Proporcione los datos siguientes en el cuerpo de solicitud:
-  * El tenantID.
-  * El nombre de la plantilla.
-  * El UUID del usuario del directorio en la nube.
-
-
-**Cambiar detalles**
-
-Cuando un usuario haya iniciado sesión en su app, puede actualizar una parte de su información. Puede utilizar `/Users/{userId}` para obtener y actualizar su información.
-
-Cuando se actualizan los detalles de usuario, el punto final obtiene los datos de usuario actualizados en el cuerpo de solicitud en [formato SCIM](https://tools.ietf.org/html/rfc7643#section-8.2). Asegúrese de cambiar únicamente los detalles relevantes.
-
-Su dirección de correo electrónico no se puede cambiar.
-{: tip}

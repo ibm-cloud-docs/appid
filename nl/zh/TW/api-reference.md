@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-07-15"
 
 ---
 
@@ -19,7 +19,7 @@ lastupdated: "2018-4-24"
 您可以使用管理 API，對您的 {{site.data.keyword.appid_full}} 實例進行 DevOps 自動化、自訂及管理。
 {: shortdesc}
 
-管理 API 是使用 IBM Cloud Identity and Access Management 產生的記號來保護。這表示帳戶擁有者可以指定其團隊成員對每一個服務實例的存取層次。如需 IAM 與 {{site.data.keyword.appid_short_notm}} 如何合作的相關資訊，請參閱[服務存取管理](/docs/services/appid/iam.html)。
+管理 API 是使用 {{site.data.keyword.cloudaccesstraillong}} 產生的記號來保護。使用 IAM，帳戶擁有者可以指定其團隊成員對每個服務實例的存取層次。如需 IAM 與 {{site.data.keyword.appid_short_notm}} 如何合作的相關資訊，請參閱[服務存取管理](/docs/services/appid/iam.html)。
 
 使用 API，您可以：
 * 在 DevOps 處理程序的應用程式中自動配置 {{site.data.keyword.appid_short_notm}}。
@@ -63,8 +63,8 @@ appid-management.<region>.bluemix.net
 ## 必要條件
 {: #api-prereq}
 
-<ul><ul><li>一個在 2018 年 3 月 15 日之後建立的服務實例。如果您的服務實例是在該日期之前建立的，請建立新的實例，並將它配置為符合您的現行實例。請務必更新您的應用程式以使用新的實例。</li>
-<li>已安裝 [{{site.data.keyword.Bluemix_notm}} CLI](/docs/cli/reference/bluemix_cli/get_started.html)。</li></ul></ul>
+<ul><ul><li>一個在 2018 年 3 月 15 日之後建立的服務實例。如果您的服務實例是在該日期之前所建立，請建立新的實例，並將它配置為符合您的現行實例。請務必更新您的應用程式以使用新的實例。</li>
+<li>已安裝 [{{site.data.keyword.Bluemix_notm}} CLI](/docs/cli/index.html)。</li></ul></ul>
 
 ## 範例用法
 {: #api-example}

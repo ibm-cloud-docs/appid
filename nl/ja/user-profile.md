@@ -2,195 +2,49 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-08-03"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:pre: .pre}
+{:tip: .tip}
+{:screen: .screen}
 
-
-# ユーザー属性へのアクセス
+# ユーザー・プロファイルの理解
 {: #user-profile}
 
-ユーザー属性は、{{site.data.keyword.appid_full}} によって保管され保守されるエンティティー内の情報のセグメントです。 プロファイルに ID プロバイダーが管理するユーザーの属性と ID を含めることもできますし、匿名にすることもできます。プロファイルを使用して、ユーザーごとに個別設定されたアプリの操作環境を作成することができます。
-{:shortdesc}
-
-
-{{site.data.keyword.appid_short_notm}} には、匿名ログインまたは OpenId Connect (OIDC) [ID プロバイダー](/docs/services/appid/identity-providers.html)による認証を使用したログインのための API が用意されています。 ユーザー・プロファイル属性 API エンドポイントは、ログインと許可のプロセス中に {{site.data.keyword.appid_short_notm}} が生成するアクセス・トークンによって保護されるリソースです。
-
-
-## ユーザー属性の保管、読み取り、削除
-{: #storing-data}
-
-{{site.data.keyword.appid_short_notm}} には、ユーザーの属性に対する操作を作成、検索、更新、および削除するための <a href="https://appid-profiles.ng.bluemix.net/swagger-ui/index.html#/Attributes" target="_blank">REST API <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> が用意されています。 このサービスには、<a href="https://github.com/ibm-cloud-security/appid-clientsdk-android" target="_blank">Android <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> および <a href="https://github.com/ibm-cloud-security/appid-clientsdk-swift" target="_blank">Swift <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> モバイル・クライアント用の SDK も用意されています。
-
-## Android SDK を使用したユーザー属性へのアクセス
-{: #accessing}
-
-アクセス・トークンを取得すれば、ユーザーの保護された属性のエンドポイントにアクセスできます。 以下の API メソッドを使用してアクセスできます。
-
-  ```java
-  void setAttribute(@NonNull String name, @NonNull String value, UserAttributeResponseListener listener);
-  void setAttribute(@NonNull String name, @NonNull String value, @NonNull AccessToken accessToken, UserAttributeResponseListener listener);
-
-  void getAttribute(@NonNull String name, UserAttributeResponseListener listener);
-  void getAttribute(@NonNull String name, @NonNull AccessToken accessToken, UserAttributeResponseListener listener);
-
-  void deleteAttribute(@NonNull String name, UserAttributeResponseListener listener);
-  void deleteAttribute(@NonNull String name, @NonNull AccessToken accessToken, UserAttributeResponseListener listener);
-
-  void getAllAttributes(@NonNull UserAttributeResponseListener listener);
-  void getAllAttributes(@NonNull AccessToken accessToken, @NonNull UserAttributeResponseListener listener);
-  ```
-  {: pre}
-
-アクセス・トークンを明示的に渡さないと、{{site.data.keyword.appid_short_notm}} は最後に受け取ったトークンを使用します。
-
-例えば、以下のコードを呼び出して、新しい属性を設定したり既存の属性をオーバーライドしたりできます。
-
-  ```java
-  appId.getUserAttributeManager().setAttribute(name, value, useThisToken,new UserAttributeResponseListener() {
-		@Override
-		public void onSuccess(JSONObject attributes) {
-			//正常な応答から受け取った JSON 形式の属性
-		}
-
-		@Override
-		public void onFailure(UserAttributesException e) {
-			//例外の発生
-		}
-	});
-  ```
-  {: pre}
-
-### 匿名ログイン
-{: #anonymous notoc}
-
-{{site.data.keyword.appid_short_notm}} では、[匿名](/docs/services/appid/user-profile.html#anonymous)ログインが可能です。
-
-  ```java
-  appId.loginAnonymously(getApplicationContext(), new AuthorizationListener() {
-		@Override
-		public void onAuthorizationFailure(AuthorizationException exception) {
-			//例外の発生
-		}
-
-		@Override
-		public void onAuthorizationCanceled() {
-			//ユーザーによる認証の取り消し
-		}
-
-		@Override
-		public void onAuthorizationSuccess(AccessToken accessToken, IdentityToken identityToken, RefreshToken refreshToken) {
-			//ユーザーの認証
-		}
-	});
-  ```
-  {: pre}
-
-### 段階的な認証
-{: #progressive notoc}
-
-匿名のアクセス・トークンを保持しているユーザーは、そのトークンを `loginWidget.launch` メソッドに渡すと、識別済みユーザーとなることができます。
-
-  ```java
-  void launch (@NonNull final Activity activity, @NonNull final AuthorizationListener authorizationListener, String accessTokenString);
-  ```
-  {: pre}
-
-匿名ログインの後には、アクセス・トークンを渡さずにログイン・ウィジェットを呼び出した場合であっても段階的な認証が行われます。最後に受け取ったトークンがサービスで使用されるからです。 保管されているトークンをクリアする場合は、以下のコマンドを実行します。
-
-  ```java
-  	appIDAuthorizationManager = new
-    AppIDAuthorizationManager(this.appId);
-    appIDAuthorizationManager.clearAuthorizationData();
-  ```
-  {: pre}
-
-
-## iOS SDK を使用したユーザー属性へのアクセス
-{: #accessing}
-
-以下の API メソッドを介してアクセス・トークンを渡すことによって、ユーザー属性にアクセスします。
+{{site.data.keyword.appid_full}} では、{{site.data.keyword.appid_short_notm}} によって保管されているユーザーに関する情報にアクセスすることによって、個別設定されたアプリ操作環境を構築できます。
 {: shortdesc}
 
-  ```swift
-  func setAttribute(key: String, value: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
-  func setAttribute(key: String, value: String, accessTokenString: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
+## 主要な概念
+{: #key-concepts}
 
-  func getAttribute(key: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
-  func getAttribute(key: String, accessTokenString: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
+**ユーザー・プロファイルとは**
 
-  func getAttributes(completionHandler: @escaping(Error?, [String:Any]?) -> Void)
-  func getAttributes(accessTokenString: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
+ユーザー・プロファイルとは、{{site.data.keyword.appid_short_notm}} によって保管されている属性をまとめたものです。属性とは、アプリと対話するユーザーに関する情報の特定の側面を示すそれぞれの部分のことです。取得可能な属性には、`事前定義`と`カスタム`の 2 つのタイプがあります。
 
-  func deleteAttribute(key: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
-  func deleteAttribute(key: String, accessTokenString: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
-  ```
-  {: pre}
+**事前定義属性とは?**
 
-アクセス・トークンを明示的に渡さないと、{{site.data.keyword.appid_short_notm}} は最後に受け取ったトークンを使用します。
+事前定義属性は、ユーザーがアプリにサインインするときに ID プロバイダーから返されます。その属性には、ユーザー名、年齢、性別などが含まれる可能性があります。
 
-例えば、以下のコードを呼び出して、新しい属性を設定したり既存の属性をオーバーライドしたりできます。
+**カスタム属性とは**
 
-  ```swift
-  AppID.sharedInstance.userAttributeManager?.setAttribute("key", "value", completionHandler: { (error, result) in
-      if error = nil {
-          //Attributes recieved as a Dictionary
-      } else {
-          // An error has occurred
-      }
-  })
-  ```
-  {: pre}
+カスタム属性は、ユーザーがアプリと対話する際に学習される、ユーザーについての情報です。これには、使用するフォント・サイズやショッピング・カートに入れた品目などが含まれる可能性があります。カスタム属性は編集できます。
+
+## ユーザー属性へのアクセス
+{: #access}
+
+ユーザー・プロファイル情報には、いくつかの異なる方法でアクセスできます。ユーザー認証が成功した後に、アプリはアクセス・トークンと識別トークンを受け取ります。識別トークンには、ID プロバイダーによって返されるユーザー属性の正規化されたサブセットが格納されます。ユーザー属性の完全なリストを取得するときには、OIDC `/userinfo` エンドポイントを使用できます。カスタム属性を管理するときには、`REST API` を使用できます。userinfo エンドポイントとカスタム属性エンドポイントはどちらも、認証プロセスの最後に {{site.data.keyword.appid_short_notm}} によって生成されるアクセス・トークンによって保護されます。
 
 
-### 匿名ログイン
 
-{{site.data.keyword.appid_short_notm}} では、[匿名](/docs/services/appid/user-profile.html#anonymous)ログインが可能です。
+![{{site.data.keyword.appid_short_notm}} ユーザー・プロファイルのアーキテクチャー](/images/user-profile1.png)
 
-  ```swift
-  class delegate : AuthorizationDelegate {
+図. ユーザー・プロファイル情報のフロー
 
-      public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, refreshToken: RefreshToken?, response:Response?) {
-          //ユーザーの認証
-      }
+カスタム属性を表示するには、<a href="https://appid-profiles.ng.bluemix.net/swagger-ui/index.html#/Attributes" target="_blank">REST API <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> を使用できます。
 
-      public func onAuthorizationCanceled() {
-          //ユーザーによる認証の取り消し
-      }
-
-      public func onAuthorizationFailure(error: AuthorizationError) {
-          //エラーの発生
-      }
-   }
-
-  AppID.sharedInstance.loginAnonymously( authorizationDelegate: delegate())
-  ```
-  {: pre}
-
-### 段階的な認証
-
-匿名のアクセス・トークンを保持している場合、このトークンを `loginWidget.launch` メソッドに渡すと、ユーザーを識別済みのユーザーにすることができます。
-
-  ```swift
-  func launch(accessTokenString: String? , delegate: AuthorizationDelegate)
-  ```
-  {: pre}
-
-匿名ログインの後には、アクセス・トークンを渡さずにログイン・ウィジェットを呼び出した場合であっても段階的な認証が行われます。最後に受け取ったトークンがサービスで使用されるからです。 保管されているトークンをクリアする場合は、以下のコマンドを実行します。
-
-  ```swift
-  var appIDAuthorizationManager = AppIDAuthorizationManager(appid: AppID.sharedInstance)
-  appIDAuthorizationManager.clearAuthorizationData()
-  ```
-  {: pre}
-
-## データ分離と暗号化
-{: #data}
-
-{{site.data.keyword.appid_short_notm}} は、ユーザー・プロファイル属性を保管して暗号化します。 マルチテナント・サービスでは、すべてのテナントには指定された暗号鍵がありそれぞれのテナントのユーザー・データはそのテナントの鍵だけで暗号化されます。
-
-{{site.data.keyword.appid_short_notm}} は必ず、プライベートな資料を暗号化してから保管します。
+</br>
+</br>

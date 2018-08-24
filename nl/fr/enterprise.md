@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-07-24"
 
 ---
 
@@ -32,7 +32,7 @@ Principes de fonctionnement
 
 Une assertion SAML est un package d'informations comportant une ou plusieurs instructions. L'assertion contient la décision d'autorisation et peut comporter des informations d'identité relatives à l'utilisateur.
 
-Quand un utilisateur se connecte avec un fournisseur d'identité, ce fournisseur envoie une assertion à {{site.data.keyword.appid_short_notm}}. {{site.data.keyword.appid_short_notm}} propage à votre application les informations d'identité utilisateur renvoyées dans l'assertion SAML en tant que réclamations de jeton OIDC. L'attribut SAML doit correspondre à l'une des réclamations OIDC suivantes pour être ajouté au jeton d'identité. 
+Quand un utilisateur se connecte avec un fournisseur d'identité, ce fournisseur envoie une assertion à {{site.data.keyword.appid_short_notm}}. {{site.data.keyword.appid_short_notm}} propage à votre application les informations d'identité utilisateur renvoyées dans l'assertion SAML en tant que réclamations de jeton OIDC. L'attribut SAML doit correspondre à l'une des réclamations OIDC suivantes pour être ajouté au jeton d'identité.
 
 Les réclamations suivantes peuvent être ajoutées :
 * `name`
@@ -40,13 +40,16 @@ Les réclamations suivantes peuvent être ajoutées :
 * `locale`
 * `picture`
 
-Les éléments d'attribut SAML restants qui ne correspondent pas à un nom standard sont ignorés.
+Les éléments d'attribut SAML restants qui ne correspondent pas à un nom standard sont ignorés. Notez que si une ou plusieurs de ces valeurs changent côté fournisseur, les nouvelles valeurs ne sont disponibles qu'après la reconnexion de l'utilisateur. 
 
 ## Configuration de votre application pour une utilisation d'un fournisseur d'identité SAML externe
 {: #configuring-saml}
 
 Vous pouvez configurer le service {{site.data.keyword.appid_short_notm}} pour qu'il utilise un fournisseur d'identité SAML.
 {: shortdesc}
+
+Pour apprendre à utiliser un fournisseur d'identité SAML spécifique, consultez les articles de blogue relatifs à la configuration d'{{site.data.keyword.appid_short_notm}} avec [Ping One ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe")](https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-ping-one/), [Azure Active Directory ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe")](https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-azure-active-directory/) ou [Active Directory Federation Services ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe")](https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-active-directory-federation-service/).
+{: tip}
 
 ### Fourniture de métadonnées à votre fournisseur d'identité
 
@@ -121,7 +124,7 @@ Vous pouvez tester la configuration entre votre fournisseur d'identité SAML et 
 
 1. Veillez à sauvegarder votre configuration.
 2. Accédez à l'onglet **SAML 2.0** du tableau de bord {{site.data.keyword.appid_short_notm}} et cliquez sur **Test**. Un nouvel onglet s'ouvre.
-3. Connectez-vous à l'aide d'un utilisateur que votre fournisseur d'identité a déjà authentifié. 
+3. Connectez-vous à l'aide d'un utilisateur que votre fournisseur d'identité a déjà authentifié.
 4. Une fois le formulaire complété, vous êtes redirigé vers une autre page.
   * Authentification réussie : La connexion entre {{site.data.keyword.appid_short_notm}} et le fournisseur d'identité fonctionne correctement. La page affiche des [jetons d'accès et d'identité](/docs/services/appid/authorization.html#key-concepts) valides.
   * Echec de l'authentification : La connexion est interrompue. La page affiche les erreurs et le fichier XML de réponse SAML.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-06-27"
 
 ---
 
@@ -23,7 +23,7 @@ lastupdated: "2018-4-24"
 ## 시작하기 전에
 {: #begin}
 
-[서버 SDK가 설치](/docs/services/appid/install.html#nodejs-setup)되어 있는지 확인하십시오. 
+[서버 SDK가 설치](/docs/services/appid/install.html#nodejs-setup)되어 있는지 확인하십시오.
 
 
 ## 로컬 개발 서버에 대해 작업할 수 있도록 {{site.data.keyword.appid_short_notm}} 애플리케이션 구성
@@ -36,7 +36,7 @@ lastupdated: "2018-4-24"
 
 <table> <caption> 표 1. {{site.data.keyword.Bluemix_notm}} 지역 및 해당하는 Android 및 iOS용 {{site.data.keyword.appid_short_notm}} 지역 </caption>
 <tr>
-  <th> {{site.data.keyword.Bluemix_notm}} 지역</th>
+  <th> {{site.data.keyword.Bluemix_notm}} 지역 </th>
   <th> Android 및 iOS </th>
 </tr>
 <tr>
@@ -51,6 +51,10 @@ lastupdated: "2018-4-24"
   <td> 영국 </td>
   <td> AppID.REGION_UK </td>
 </tr>
+<tr>
+  <td> 독일</td>
+  <td> AppID.REGION_GERMANY </td>
+</tr>
 </table>
 
 
@@ -60,7 +64,7 @@ lastupdated: "2018-4-24"
 ```java
 String baseRequestUrl = "http://localhost:<port>"; //set to your server running port
 String tenantId = "your-AppID-service-tenantID";
-String region = AppID.REGION_UK; //set your App ID application region here. Currently possible values are AppID.REGION_US_SOUTH, AppID.REGION_SYDNEY, or AppID.REGION_UK.
+String region = AppID.REGION_UK; //set your App ID application region here. Currently possible values are AppID.REGION_US_SOUTH, AppID.REGION_SYDNEY, AppID.REGION_GERMANY, or AppID.REGION_UK.
 
 BMSClient bmsClient= BMSClient.getInstance();
 bmsClient.initialize(getApplicationContext(), region);
@@ -96,7 +100,7 @@ request.send(this, new ResponseListener() {
 
 let baseRequestUrl = "http://localhost:<port>"; //set to your server running port
  let tenantId = "your-AppID-service-tenantID"
- let region = AppID.REGION_UK; //set your App ID application region here. Currently possible values are AppID.REGION_US_SOUTH, AppID.REGION_SYDNEY, or AppID.REGION_UK.
+ let region = AppID.REGION_UK; //set your App ID application region here. Currently possible values are AppID.REGION_US_SOUTH, AppID.REGION_SYDNEY, AppID.REGION_GERMANY, or AppID.REGION_UK.
 
 BMSClient.sharedInstance.initialize(bluemixRegion: region)
 BMSClient.sharedInstance.authorizationManager = AppIDAuthorizationManager(appid:AppID.sharedInstance)

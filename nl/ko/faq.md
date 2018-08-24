@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-4-24"
+lastupdated: "2018-08-01"
 
 ---
 
@@ -27,7 +27,10 @@ lastupdated: "2018-4-24"
 
 ### 인증 이벤트
 
-새 {{site.data.keyword.appid_short_notm}} 토큰이 발행될 때 인증 이벤트가 발생합니다. 식별된 사용자의 경우 각각의 새 토큰은 한 시간 동안 유효합니다. 익명 토큰은 1개월 동안 유효합니다. 토큰이 만료된 후 보호된 리소스에 액세스하려면 새 토큰을 작성해야 합니다. 모바일 인증에 {{site.data.keyword.appid_short_notm}}를 사용하면 사용자 토큰이 `key-store/key-chain`에 저장되며 이후의 모든 요청에 추가됩니다. {{site.data.keyword.appid_short_notm}} Android 또는 iOS Swift SDK를 사용하여 토큰에 액세스할 수 있습니다. 웹 인증을 위해 서비스를 사용하는 경우 세션 쿠키에서 <a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs" target="_blank">사용자 토큰 저장 <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>을 수행하십시오.
+새 액세스 토큰(일반 또는 익명)이 발행될 때 인증 이벤트가 발생합니다. 식별된 사용자의 경우 각각의 새 토큰은 1시간 동안 유효합니다(실제 사용자 인증 또는 새로 고치기 토큰을 통해 유효하게 됨). 익명 토큰은 기본적으로 1개월 동안 유효합니다. 토큰이 만료된 후 보호된 리소스에 액세스하려면 새 토큰을 작성해야 합니다. {{site.data.keyword.appid_short_notm}} 대시보드의 **사인인 만기** 페이지에서 {{site.data.keyword.appid_short_notm}} 토큰의 만기 시간을 업데이트할 수 있습니다.
+
+모바일 애플리케이션에서 {{site.data.keyword.appid_short_notm}}를 사용하는 경우 토큰이 key-store 또는 key-chain에 저장되며 이후의 모든 요청에 추가됩니다. App ID Android 또는 iOS SDK를 사용하여 토큰에 액세스할 수 있습니다. 웹 애플리케이션에서 {{site.data.keyword.appid_short_notm}}를 사용하는 경우 애플리케이션 세션 쿠키에 토큰을 저장하도록 권장합니다.
+
 
 ### 권한이 부여된 사용자
 
@@ -37,53 +40,50 @@ lastupdated: "2018-4-24"
 
 </br>
 
-## {{site.data.keyword.appid_short_notm}}에서 모니터하는 활동의 유형은 무엇입니까?
-{: #activity-monitor}
 
-서비스 인스턴스에 바인딩된 앱에 생성된 활동을 추적할 수 있습니다. {{site.data.keyword.cloudaccesstrailshort}} 서비스를 사용하여 {{site.data.keyword.appid_short_notm}}에서 작성된 관리 활동을 모니터할 수도 있습니다. 
+## {{site.data.keyword.appid_short_notm}}에서 암호화가 어떻게 작동합니까?
+{: #encryption}
 
-앱에서 생성한 활동을 보려면 다음을 수행하십시오.
+암호화에 대한 자주 묻는 질문의 답변은 다음 표를 확인하십시오.
 
-1. {{site.data.keyword.Bluemix_notm}} 계정에 로그인하십시오. 
-2. 대시보드에서 {{site.data.keyword.appid_short_notm}}의 인스턴스를 선택하십시오. 
-3. **개요** 탭을 클릭합니다.
-4. **활동 로그**에 나열된 활동을 보십시오. 
-
-</br>
-관리 활동을 모니터하려면 다음을 수행하십시오.
-
-1. {{site.data.keyword.Bluemix_notm}} 계정에 로그인하십시오. {{site.data.keyword.appid_short_notm}}의 인스턴스가 프로비저닝된 조직과 영역으로 이동하십시오. 
-2. 카탈로그에서 {{site.data.keyword.cloudaccesstrailshort}} 서비스의 인스턴스를 프로비저닝하십시오. 자신이 {{site.data.keyword.appid_short_notm}}의 인스턴스와 동일한 영역에 있는지 확인하십시오. 
-3. {{site.data.keyword.cloudaccesstrailshort}} 대시보드에서 **관리** 탭을 클릭하십시오. 
-4. 드롭 다운 목록에서 다음 구성을 선택하여 {{site.data.keyword.appid_short_notm}}에 의해 생성된 이벤트를 검색하십시오. 
 <table>
-  <tr>
-    <th> 필드 </th>
-    <th> 구성 </th>
-  </tr>
-  <tr>
-    <td>로그 보기</td>
-    <td>영역 로그</td>
-  </tr>
-  <tr>
-    <td>검색</td>
-    <td>target.name</td>
-  </tr>
-  <tr>
-    <td>필터</td>
-    <td>appid</td>
-  </tr>
+  <thead>
+    <th colspan=2><img src="images/idea.png" alt="자세한 정보 아이콘"/>  </th>
+  </thead>
+  <tbody>
+    <tr>
+      <td>암호화를 사용하는 이유는 무엇입니까?</td>
+      <td>서비스가 고객의 저장 데이터를 암호화합니다.</td>
+    </tr>
+    <tr>
+      <td>고유 알고리즘을 빌드했습니까? 코드에서 어떤 알고리즘을 사용합니까?</td>
+      <td>고유 알고리즘을 빌드하지 않았습니다. 서비스에서 솔트(salt)와 함께 <code>AES</code> 및 <code>SHA-256</code>을 사용합니다.</td>
+    </tr>
+    <tr>
+      <td>공용 또는 오픈 소스 암호화 모듈이나 제공자를 사용합니까? 암호화 기능을 노출한 적이 있습니까?</td>
+      <td>서비스에서 <code>javax.crypto</code> Java 라이브러리를 사용하지만 암호화 기능을 노출하지 않습니다.</td>
+    </tr>
+    <tr>
+      <td>키를 어떻게 저장합니까?</td>
+      <td>키가 생성된 다음 각 지역에 특정한 마스터 키를 사용하여 암호화된 후 로컬로 저장됩니다. 마스터 키는 {{site.data.keyword.keymanagementserviceshort}}에 저장됩니다.</td>
+    </tr>
+    <tr>
+      <td>사용자는 키 등급은 무엇입니까?</td>
+      <td>서비스에서는 16바이트를 사용합니다.</td>
+    </tr>
+    <tr>
+      <td>암호화 기능을 노출하는 원격 API를 호출합니까?</td>
+      <td>아니오, 호출하지 않습니다.</td>
+    </tr>
+  </tbody>
 </table>
-5. **필터**를 클릭하십시오.
-
-서비스 작동 방식에 대한 자세한 정보는 [{{site.data.keyword.cloudaccesstrailshort}} 문서](/docs/services/cloud-activity-tracker/index.html)를 체크아웃하십시오. 
 
 </br>
 
-## {{site.data.keyword.appid_short_notm}}가 SAML 어설션의 형태를 어떻게 예상합니까? 
+## {{site.data.keyword.appid_short_notm}}가 SAML 어설션의 형태를 어떻게 예상합니까?
 {: #saml-example}
 
-서비스는 SAML 어설션의 형태가 다음 예제와 유사하다고 예상합니다. 
+서비스는 SAML 어설션의 형태가 다음 예제와 유사하다고 예상합니다.
 
 ```
 <samlp:Response xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol" ID="s2202bbbbafa9d270d1c15990b738f4ab36139d463" InResponseTo="_e4a78780-35da-012e-8ea7-0050569200d8" Version="2.0" IssueInstant="2011-03-21T11:22:02Z" Destination="https://example.example.com/">
@@ -122,7 +122,7 @@ lastupdated: "2018-4-24"
 ## SAML 서명에 지원되는 알고리즘의 유형
 {: #saml-signatures}
 
-다음 알고리즘을 사용하여 XML 디지털 서명을 처리할 수 있습니다. 
+다음 알고리즘을 사용하여 XML 디지털 서명을 처리할 수 있습니다.
 
 <table>
   <tr>
@@ -150,4 +150,4 @@ lastupdated: "2018-4-24"
   </tr>
 </table>
 
-SAML ID 제공자 사용에 대한 자세한 정보는 [엔터프라이즈 ID 제공자 구성](enterprise.html)을 참조하십시오. 
+SAML ID 제공자 사용에 대한 자세한 정보는 [엔터프라이즈 ID 제공자 구성](enterprise.html)을 참조하십시오.
