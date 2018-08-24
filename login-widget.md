@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-09"
+lastupdated: "2018-08-10"
 
 ---
 
@@ -98,11 +98,8 @@ Check out the following table to see which screens you can display for each type
   </tbody>
 </table>
 
-After you've configured your settings for [social identity providers](/docs/services/appid/identity-providers.html), and [cloud directory](/docs/services/appid/cloud-directory.html), click on the language of your choice in the following image to start implementing the code.
-
-
-Click on the image to use one of the provided SDKs or the APIs. Don't forget, you can take advantage of App ID with other languages too. By using our APIs you can set up a cloud directory in any app. For help with languages that aren't listed in the image, check out check out <a href="https://www.ibm.com/blogs/bluemix/tag/app-id/" target="_blank">our blogs<img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
-{: shortdesc}
+Don't forget! You can take advantage of App ID with other languages too. If you don't see an SDK for the language you're working in, you can alway use our APIs. Check out check out <a href="https://www.ibm.com/blogs/bluemix/tag/app-id/" target="_blank">our blogs<img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
+{: tip}
 
 </br>
 

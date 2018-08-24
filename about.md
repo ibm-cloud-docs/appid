@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-08"
+lastupdated: "2018-08-10"
 
 ---
 
@@ -23,7 +23,7 @@ Application security can be incredibly complicated. For most developers, it's on
 ## Reasons to use the service
 {: #reasons}
 
-{{site.data.keyword.appid_short_notm}} helps developers to easily add authentication to their web and mobile apps with few lines of code, and secure their Cloud-native applications and services on {{site.data.keyword.Bluemix_notm}}. By requiring users to sign in to your app, you can store user data such as app preferences, or information from public social profiles, and then leverage that data to customize each user's experience within the app. {{site.data.keyword.appid_short_notm}} provides a log-in framework for you, but you can also bring your own branded sign-in screens to use with cloud directory.
+{{site.data.keyword.appid_short_notm}} helps developers to easily add authentication to their web and mobile apps with few lines of code, and secure their Cloud-native applications and services on {{site.data.keyword.Bluemix_notm}}. By requiring users to sign in to your app, you can store user data such as app preferences, or information from public social profiles, and then leverage that data to customize each user's experience within the app. {{site.data.keyword.appid_short_notm}} provides a log-in framework for you, but you can also bring your own branded sign in screens to use with cloud directory.
 {: shortdesc}
 
 Why would you want to use {{site.data.keyword.appid_short_notm}}? Check out the following scenarios to see whether any of them apply to you.
@@ -98,7 +98,7 @@ With {{site.data.keyword.appid_short_notm}}, you can add a level of security to 
 ## Request flow
 {: #request}
 
-While your request flow might vary depending on your application configuration, there are three main flows that you might encounter while working with App ID. You might create a mobile app flow, a web app flow, or protect your resources with a different flow. Check out some of the example flows to see if you might be able to start there when configuring your app.
+While your request flow might vary depending on your application configuration, there are three main flows that you might encounter while working with {{site.data.keyword.appid_short_notm}}. You might create a mobile app flow, a web app flow, or protect your resources with a different flow. Check out some of the example flows to see if you might be able to start there when configuring your app.
 {: shortdesc}
 
 ### Web app request flow
@@ -106,13 +106,13 @@ While your request flow might vary depending on your application configuration, 
 
 ![{{site.data.keyword.appid_short_notm}} request flow](/images/web_flow1.png)
 
-1. By using a browser, a user performs an action that triggers a request to the App ID SDK.
-2. If the user is unauthorized, a redirect to App ID is started.
-3. App ID launches the login widget and sends it to the browser.
+1. By using a browser, a user performs an action that triggers a request to the {{site.data.keyword.appid_short_notm}} SDK.
+2. If the user is unauthorized, a redirect to {{site.data.keyword.appid_short_notm}} is started.
+3. {{site.data.keyword.appid_short_notm}} launches the login widget and sends it to the browser.
 4. The user chooses an identity provider to authenticate with and completes the sign in process.
-5. The identity provider redirects back to the App ID SDK with an identity token.
-6. The App ID SDK gets access tokens from the App ID service.
-7. The tokens are saved by the App ID SDK and a redirect occurs.
+5. The identity provider redirects back to the {{site.data.keyword.appid_short_notm}} SDK with an identity token.
+6. The {{site.data.keyword.appid_short_notm}} SDK gets access tokens from the {{site.data.keyword.appid_short_notm}} service.
+7. The tokens are saved by the {{site.data.keyword.appid_short_notm}} SDK and a redirect occurs.
 8. The user is granted access to the application.
 
 ### Mobile request flow
@@ -120,11 +120,11 @@ While your request flow might vary depending on your application configuration, 
 
 ![{{site.data.keyword.appid_short_notm}} request flow](/images/mobile_flow.png)
 
-1. A user performs an action the triggers a request by the client application to the App ID SDK.
-2. If the user does not have valid access tokens, the App ID SDK starts the authorization process.
+1. A user performs an action the triggers a request by the client application to the {{site.data.keyword.appid_short_notm}} SDK.
+2. If the user does not have valid access tokens, the {{site.data.keyword.appid_short_notm}} SDK starts the authorization process.
 3. The login widget is displayed to the user.
 4. By using one of the configured identity providers, the user authenticates.
-5. Once the user has an identity token, then the SDK gets an access token from the App ID service.
+5. Once the user has an identity token, then the SDK gets an access token from the {{site.data.keyword.appid_short_notm}} service.
 6. With both tokens, the SDK performs the request again.
 7. If the tokens are valid, the user is granted access to the application.
 
@@ -138,3 +138,5 @@ While your request flow might vary depending on your application configuration, 
 3. If there is not a valid access token, the application receives an error.
 4. After obtaining a valid token, the client app can make the request again. But this time, include the token.
 5. When the application can validate the permissions that are granted by the access token, then the application is granted access to the protected resource.
+
+

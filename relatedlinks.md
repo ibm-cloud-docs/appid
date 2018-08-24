@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-08"
+lastupdated: "2018-08-17"
 
 ---
 
@@ -54,7 +54,7 @@ Interested in securing your applications? Check out the blogs and samples here t
 * <a href="https://github.com/IBM-Cloud/github-traffic-stats" target="_blank">Using Python Flask-pyoidc with {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 
 ## Securing Runtime, APIs, and backends
-{: #secure-apps}
+{: #secure}
 
 Just getting started? Try walking through some of our tutorials and blogs for help integrating {{site.data.keyword.appid_short_notm}} into your apps!
 
