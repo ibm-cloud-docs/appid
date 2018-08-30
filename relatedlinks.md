@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-17"
+lastupdated: "2018-08-30"
 
 ---
 
@@ -10,10 +10,10 @@ lastupdated: "2018-08-17"
 {:shortdesc: .shortdesc}
 
 
-# Related links
+# Samples
 {: #rel-links}
 
-You can use the following related links to learn more about and interact with the service. For the latest blogs see https://www.ibm.com/blogs/bluemix/tag/app-id/.
+You can use the following related links and Samples to learn more about and interact with the service. For the latest blogs see https://www.ibm.com/blogs/bluemix/tag/app-id/.
 {: shortdesc}
 
 We’d love to hear from you with feedback and questions! To get started with App ID, check it out in the {{site.data.keyword.Bluemix_notm}} catalog.

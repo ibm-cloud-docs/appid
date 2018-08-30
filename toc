@@ -8,6 +8,7 @@ IBM Cloud App ID
     index.md
     about.md
     authorization.md
+    relatedlinks.md
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
@@ -24,14 +25,16 @@ IBM Cloud App ID
         login-widget.md
         branded.md
 
-    protecting-resources.md
+    {: .topicgroup}
+    Securing backend resources
+        protecting-resources-local.md
+        accessing-resources.md
 
     {: .topicgroup}
     Storing and accessing user profiles
         user-profile.md
         predefined.md
         custom-attributes.md
-    protecting-resources-local.md
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
@@ -47,7 +50,6 @@ IBM Cloud App ID
         [iOS Swift client SDK](https://github.com/ibm-cloud-security/appid-clientsdk-swift)
         [Node.js server SDK](https://github.com/ibm-cloud-security/appid-serversdk-nodejs)
         [Swift server SDK](https://github.com/ibm-cloud-security/appid-serversdk-swift)
-    relatedlinks.md
     iam.md
     api-reference.md
     {: .navgroup-end}
