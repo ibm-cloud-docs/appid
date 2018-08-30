@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-08"
+lastupdated: "2018-08-30"
 
 ---
 
@@ -18,8 +18,9 @@ Application security can be incredibly complicated. For most developers, it's on
 
 By requiring users to sign in to your app, you can store user data such as app preferences or information from the public social profiles, and then use that data to customize each experience of your app. App ID provides a log in framework for you, but you can also bring your own branded sign in screens when working with cloud directory.
 
-As an account owner, you can now set policies that define how members of your team can interact with instances of {{site.data.keyword.appid_short_notm}}. You can decide who can create, update, and delete instances of the service. For more information see [Service access management](/docs/services/appid/iam.html).
-{:tip}
+We’d love to hear from you with feedback and questions! To get started with App ID, check it out in the {{site.data.keyword.Bluemix_notm}} catalog.
+* If you have technical questions about {{site.data.keyword.appid_short_notm}}, post your question on <a href="http://stackoverflow.com/search?q=ibm+" target="_blank">Stack Overflow <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> and tag your question with "ibm-appid".
+* For questions about the service and getting started instructions, use the <a href="https://developer.ibm.com/answers/search.html?f=&type=question&redirect=search%2Fsearch&sort=relevance&q=appid%20[bluemix]" target="_blank">dW Answers <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> forum. Include the `appid` tag.
 
 ## Creating a service instance
 {: #create}
