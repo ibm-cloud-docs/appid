@@ -16,6 +16,9 @@ lastupdated: "2018-08-30"
 You can use the following related links and Samples to learn more about and interact with the service. For the latest blogs see https://www.ibm.com/blogs/bluemix/tag/app-id/.
 {: shortdesc}
 
+## Contact us
+{: contact}
+
 We’d love to hear from you with feedback and questions! To get started with App ID, check it out in the {{site.data.keyword.Bluemix_notm}} catalog.
 * If you have technical questions about {{site.data.keyword.appid_short_notm}}, post your question on <a href="http://stackoverflow.com/search?q=ibm+" target="_blank">Stack Overflow <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> and tag your question with "ibm-appid".
 * For questions about the service and getting started instructions, use the <a href="https://developer.ibm.com/answers/search.html?f=&type=question&redirect=search%2Fsearch&sort=relevance&q=appid%20[bluemix]" target="_blank">dW Answers <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> forum. Include the `appid` tag.
