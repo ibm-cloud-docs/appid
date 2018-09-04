@@ -27,8 +27,10 @@ IBM Cloud App ID
 
     {: .topicgroup}
     Securing backend resources
-        protecting-resources-local.md
+        protecting-resources.md
         accessing-resources.md
+
+    protecting-resources-local.md
 
     {: .topicgroup}
     Storing and accessing user profiles
