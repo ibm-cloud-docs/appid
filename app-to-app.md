@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-30"
+lastupdated: "2018-09-05"
 
 ---
 
@@ -16,9 +16,8 @@ lastupdated: "2018-08-30"
 # Securing app to app communication
 {: #app}
 
-With App ID, you can secure app to app communication by leveraging OAuth2.0 capabilities.
+With {{site.data.keyword.appid_short_notm}}, you can secure app to app communication by leveraging OAuth2.0 capabilities.
 {: shortdesc}
-
 
 
 ## Understanding the communication flow
@@ -27,38 +26,45 @@ With App ID, you can secure app to app communication by leveraging OAuth2.0 capa
 
 **How does the grant flow work?**
 
-App ID leverages the OAuth2.0 client credentials grant flow to facilitate communication. After an app registers with App ID, the app itself obtains a client ID and secret. With this information, the app can request an access token from App ID and be authorized to access a protected resource or API. In the app-to-app flow, the application is granted only an access token. It does not obtain an identity token or a refresh token. For more information about tokens, see [Understanding tokens](tokens.html#tokens).
+{{site.data.keyword.appid_short_notm}} leverages the OAuth2.0 client credentials grant flow to facilitate communication. After an app registers with {{site.data.keyword.appid_short_notm}}, the app itself obtains a client ID and secret. With this information, the app can request an access token from {{site.data.keyword.appid_short_notm}} and be authorized to access a protected resource or API. In the app-to-app flow, the application is granted only an access token. It does not obtain an identity token or a refresh token. For more information about tokens, see [Understanding tokens](tokens.html#tokens).
 
 The application always holds the client secret. This work flow is meant to be used only with trusted applications where there is no risk of the secret being misused or leaked.
 {: tip}
+
+</br>
 
 **What does the grant flow look like?**
 
 In the following image, you can see the direction of communication between the service and your application.
 
-
 ![{{site.data.keyword.appid_short_notm}} app-to-app flow](/images/app-to-app-flow.svg)
 
 
-1. A service registers with App iD to obtain a client ID and secret.
-2. The application makes a request to App ID by sending the credentials retrieved in the previous step.
-3. App ID validates the request, authenticates the app, and returns a response that contains an access token.
+1. A service registers with {{site.data.keyword.appid_short_notm}} to obtain a client ID and secret.
+2. The application makes a request to {{site.data.keyword.appid_short_notm}} by sending the credentials retrieved in the previous step.
+3. {{site.data.keyword.appid_short_notm}} validates the request, authenticates the app, and returns a response that contains an access token.
 4. The application is now able to use the access token to send requests to a protected resource.
 
-**When would this flow be useful?**
-There are several reasons that you might want one application to communicate with another service or app without any user intervention. For example, a non-interactive app that needs to access a backend cloud-based service to store data that it uses to perform its work, rather than data that is specifically owned by an end-user. Other examples could include processes, CLIs, daemons, or an IoT device that monitors and reports environment variables to an upstream server. The specific use case is unique to each app, but the most important thing to remember is that the requests are exchanged on behalf of the app, not on an end user, and it is the app that is authenticated and authorized.
+</br>
 
+**When would this flow be useful?**
+
+There are several reasons that you might want one application to communicate with another service or app without any user intervention. For example, a non-interactive app that needs to access a backend cloud-based service to store data that it uses to perform its work, rather than data that is specifically owned by an end-user. Other examples could include processes, CLIs, daemons, or an IoT device that monitors and reports environment variables to an upstream server. The specific use case is unique to each app, but the most important thing to remember is that the requests are exchanged on behalf of the app, not on an end user, and it is the app that is authenticated and authorized.
 
 
 
 ## Registering your app
 {: #registering}
 
+</br>
+
 **Registering your app with the GUI**
 
-1. In the **Application** tab of the App ID dashboard, click **Add Application**.
+1. In the **Application** tab of the {{site.data.keyword.appid_short_notm}} dashboard, click **Add Application**.
 2. Add your application name and click **Save** to return to a list of your registered apps. The name of your application cannot exceed 50 characters.
 3. From the list of registered apps, select the application that you added in the previous step. The row expands to show your credentials.
+
+</br>
 
 **Registering your app with the API**
 
@@ -90,8 +96,7 @@ There are several reasons that you might want one application to communicate wit
 ## Obtaining an access token
 {: #obtain-token}
 
-
-After your app is registered with App ID and you have obtained your credentials, you can make a request to the App ID authorization server to get an Access Token.
+After your app is registered with {{site.data.keyword.appid_short_notm}} and you have obtained your credentials, you can make a request to the {{site.data.keyword.appid_short_notm}} authorization server to get an Access Token.
 
 1. Make an HTTP POST request to the `/management/{tenantId}/token` endpoint. The authorization for the request is `Basic auth` with the client ID and secret being used as the username and password which are base 64 encoded.
 
