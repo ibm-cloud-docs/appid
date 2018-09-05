@@ -23,6 +23,11 @@ With {{site.data.keyword.appid_short_notm}}, you can secure app to app communica
 ## Understanding the communication flow
 {: #understanding}
 
+**When would this flow be useful?**
+
+There are several reasons that you might want one application to communicate with another service or app without any user intervention. For example, a non-interactive app that needs to access a backend cloud-based service to perform its work. This could include processes, CLIs, daemons, or an IoT device that monitors and reports environment variables to an upstream server. The specific use case is unique to each app, but the most important thing to remember is that the requests are exchanged on behalf of the app, not on an end user, and it is the app that is authenticated and authorized.
+
+</br>
 
 **How does the grant flow work?**
 
@@ -46,10 +51,6 @@ In the following image, you can see the direction of communication between the s
 4. The application is now able to use the access token to send requests to a protected resource.
 
 </br>
-
-**When would this flow be useful?**
-
-There are several reasons that you might want one application to communicate with another service or app without any user intervention. For example, a non-interactive app that needs to access a backend cloud-based service to store data that it uses to perform its work, rather than data that is specifically owned by an end-user. Other examples could include processes, CLIs, daemons, or an IoT device that monitors and reports environment variables to an upstream server. The specific use case is unique to each app, but the most important thing to remember is that the requests are exchanged on behalf of the app, not on an end user, and it is the app that is authenticated and authorized.
 
 
 
