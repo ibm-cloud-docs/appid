@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-10"
+lastupdated: "2018-09-05"
 
 ---
 
@@ -39,6 +39,22 @@ An authorized user is a unique user that logs in with your service whether direc
 For more information on graduated tier pricing, see the [{{site.data.keyword.Bluemix_notm}} pricing docs](/docs/billing-usage/how_charged.html#services).
 
 </br>
+
+## Why do I need to whitelist my redirect URL?
+{: #redirect}
+
+A redirect URL is the callback endpoint of your app. To prevent phishing attacks, App ID validates the URL against the whitelist of redirect URLs. When phishing occurs, there is a chance that an attacker may gain access to your users tokens.
+
+To add your URL to the whitelist:
+
+1. Navigate to **Identity Providers > Manage**.
+2. In the **Add web redirect URL** field, type the URL and click **+**.
+
+Do not include any query parameters in your URL. They are ignored in the validation process. Example URL: `http://host:[port]/path`
+{: tip}
+
+</br>
+
 
 
 ## How does encryption work in {{site.data.keyword.appid_short_notm}}?
