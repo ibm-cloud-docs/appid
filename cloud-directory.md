@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-09"
+lastupdated: "2018-09-07"
 
 ---
 
@@ -24,45 +24,60 @@ Users can sign up and sign in to your mobile and web apps by using an email or u
 ## Managing directory settings
 {: #cd-settings}
 
-You can configure the notifications and level of user control for your app. Setting up your cloud directory can be done quickly, as shown in the following image. These settings can be updated at any time from the service dashboard.
+You can configure the notifications and level of user control for your app. Setting up cloud directory can be done quickly, as shown in the following image. These settings can be updated at any time from the service dashboard.
 {: shortdesc}
 
 
 ![Configuring cloud directory](/images/cloud-directory.png)
 Figure. The configuration journey for Cloud Directory
 
+1. In the **Manage** tab of the App ID dashboard, be sure that Cloud Directory is set to **On**.
 
-1. Be sure that Cloud Directory is turned on as an identity provider and set **Allow users to sign up and reset their password** to **On**. If set to **Off**, you can still add users through the console for development purposes.
-2. Choose the whether your users will authenticate with a specified username or an email. This field is used for the sign-up, sign in and forgot password flows. If you allow users to sign in with a username and password, the username must be at least 8 characters and can not contain a space, comma or slash. **Note:** You can switch between options only when there are no users in your Cloud Directory.
-3. Configure your sender details. Specify the email address from which your messages appear to be from, the sender, and to whom your users can reply.
-  When you configure your action URL, be sure that you give enough time for a user to click the link. A user must verify their email to have certain options, such as the ability to request a reset of their password.
-  {: tip}
-4. Determine the types of emails a user receives and the sender information.
-5. With the templates provided, customize your messages with your brand or personalized messages. For more information, see [Managing messages](/docs/services/appid/cloud-directory.html#cd-messages).
-6. See who's signed-up for your app in the **Users** tab of the GUI.
+2. Configure your general settings.
+  1. Decide whether you want your users to create a username or use their email when they sign in. Both options require a password. After users have been added to your directory, you can no longer toggle between the options.
+  2. Click **Edit** in the password criteria row to specify any requirements that you want to put in place. Password criteria is given as regex. For help determining strength or to see common examples see, [Managing password strength](#strength). Click **Save** to put your requirements into action.
+  3. Set **Allow users to sign up to your app** to **Yes**. You can still add users through the console if it's set to **No**. However, you should add users through the console only for development purposes.
+  4. Set **Allow users to manage their account from your app** to **Yes** if you want your users to be able to reset their password, change their password, or reset their details. If you want to limit your users self-service, set the value to **No**.
+  5. Click **Edit** in the **Sender details** row to update your email settings. The email settings apply for all of the communication that is sent through App ID. Specify the email address that should send the email, their name, and leave a separate email for users to send a response.
+  6. Click **Save**.
 
-A single user can sign in up to 5 times a minute. If a sixth attempt is made, an error is displayed.
-{: tip}
+3. Configure your verification email settings.
+  1. To have your users verify their email address set **Email verification** to **On**. When a user signs up for your application, they receive an email that asks them to confirm that they've signed up for the app.
+  2. If you've decided that you want your users to verify their email, your next decision is whether you want to allow users into your application prior to them verifying their email address. Depending on your preference, set **Allow users to sign0in to your app without first verifying their email address** to **Yes** or **No**.
+  3. Customize the content and design the appearance of your message. There is a template for the message, but you can update the text with your own message. You can use a [language](#languages) other than English, but you are responsible for the translation of the text. To choose another language, use the <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/updateLocalization" target="_blank">language management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
+  4. Give the verification URL an expiration time limit, specified as minutes.  When this time is set here, it also affects the length of time that your reset password link is valid for.
+  5. Enter your own verification page URL if you have a specific page that you want your users to see when they click the link. If you leave the **Custom verification page URL** field blank, a default page provided by App ID is used.
+  6. Click **Save**.
+
+4. Configure your welcome email settings.
+  1. To welcome users through email when they sign up for your app, set **Welcome email** to **On**.
+  2. Customize the content and design the appearance of your message. There is an example message that you can use, but you can update the text with your own message. You can use a [language](#languages) other than English, but you are responsible for the translation of the text. To choose another language, use the <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/updateLocalization" target="_blank">language management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
+  3. Click **Save**.
+
+5. Configure your password reset settings.
+  1. To allow users to request a reset of their password, set **Forgot password email** to **On**. **Note**: A user must have validated their email prior to reseting their password. This means that you must require email verification to allow password resets.
+  2. Customize the content and design the appearance of your message. There is an example message that you can use, but you can update the text with your own message. You can use a [language](#languages) other than English, but you are responsible for the translation of the text. To choose another language, use the <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/updateLocalization" target="_blank">language management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
+  3. Give the reset password URL an expiration time limit, specified as minutes. When this time is set here, it also affects the length of time that your email verification link is valid for.
+  4. Enter your own password reset URL if you have a specific page that you want your users to see when they click the link. If you leave the **Custom verification page URL** field blank, a default page provided by App ID is used.
+  5. Click **Save**.
+
+6. Configure your change password settings.
+  1. To notify users about any changes made to their password, set **Password changed email** to **On**.
+  2. Customize the content and design the appearance of your message. There is an example message that you can use, but you can update the text with your own message. You can use a [language](#languages) other than English, but you are responsible for the translation of the text. To choose another language, use the <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/updateLocalization" target="_blank">language management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
+  3. Click **Save**.
+
+7. In the **Users** tab you can see who has signed-up for your app. A single user can sign up to 5 times in a minute. If a sixth attempt is made, an error is displayed.
 
 </br>
 
-## Managing messages
-{: #cd-messages}
 
-A template is an example of an email message that you might send to your users. You can customize the template by updating the content and layout of the message.
-{: shortdesc}
+## Types of messages
+{: #types}
 
-1. In the **Identity Providers > Cloud Directory > Settings** tab of the dashboard, set the messages that you want to send to **On** .
+You can send several types of messages to your users. You can choose to send the example message that is provided by the service or you can customize the content for a more personal app experience. {{site.data.keyword.appid_short_notm}} uses <a href="https://www.sendgrid.com" target="_blank">SendGrid <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> as a mail delivery service. All emails are sent with a single SendGrid account.
 
-2. Optional: Use <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/updateLocalization" target="_blank">the language management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to set another language that you want to use in your message templates. For a list of supported language codes, see [Supported languages](#languages).
-
-3. Select a **Message type**.
-
-4. Customize your message by changing the content and design of the message. You can use parameters to personalize your messages. Don't forget to save your changes!
-
-### Types of messages
-
-You can send several types of messages to your users. You can choose to send the example message that it programmed into the UI or you can customize the content for a more personal app experience.
+If a user does not supply the information pulled by the parameter, it appears blank.
+{: tip}
 
 <dl>
   <dt>Welcome</dt>
@@ -101,8 +116,7 @@ You can send several types of messages to your users. You can choose to send the
           <td> Displays the user's specified surname. </td>
         </tr>
       </tbody>
-    </table>
-    <p>**Note**: If a user does not supply the information pulled by the parameter, it appears blank.</p></dd>
+    </table></dd>
   <dt>Forgot password</dt>
     <dd><p>A user can ask to have their password reset if they forget it or need to update it for any reason. You can customize the email response to their request. When a user requests a change, their password remains unchanged until they click the link in this email.</p>
     <table>
@@ -175,7 +189,6 @@ You can send several types of messages to your users. You can choose to send the
     </dd>
 </dl>
 </br>
-**NOTE**: {{site.data.keyword.appid_short_notm}} uses <a href="https://www.sendgrid.com" target="_blank">SendGrid <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> as a mail delivery service. All emails are sent with a single SendGrid account.
 
 
 </br>
