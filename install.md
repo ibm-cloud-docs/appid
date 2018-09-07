@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-06"
+lastupdated: "2018-09-07"
 
 ---
 
@@ -253,7 +253,7 @@ Now you're ready to configure your identity providers and start authenticating u
 {: #before-nodejs}
 
 Be sure that you have the following prerequisites ready to go:
-1. Install the [IBM Cloud CLI](../cli/index.html).
+1. Install the [IBM Cloud CLI](/docs/cli/reference/ibmcloud/download_cli.html).
 2. Implement your Node.js server with the <a href="http://expressjs.com/" target="_blank">Express framework <img src="../icons/launch-glyph.svg" alt="External link icon"></a>. To install the Express framework, use the command line to open the directory with your Node.js app, and run the following command:
   ```
   npm install --save express
