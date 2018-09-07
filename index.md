@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-05"
+lastupdated: "2018-09-07"
 
 ---
 
@@ -16,9 +16,9 @@ lastupdated: "2018-09-05"
 Application security can be incredibly complicated. For most developers, it's one of the hardest parts of creating an app. How can you be sure that you are protecting your users information? By integrating {{site.data.keyword.appid_full}} into your apps, you can secure resources and add authentication; even when you don't have a lot of security experience.
 {: shortdesc}
 
-By requiring users to sign in to your app, you can store user data such as app preferences or information from the public social profiles, and then use that data to customize each experience of your app. App ID provides a log in framework for you, but you can also bring your own branded sign in screens when working with cloud directory.
+By requiring users to sign in to your app, you can store user data such as app preferences or information from the public social profiles, and then use that data to customize each experience of your app. {{site.data.keyword.appid_short_notm}} provides a log in framework for you, but you can also bring your own branded sign in screens when working with cloud directory.
 
-We’d love to hear from you with feedback and questions! To get started with App ID, check it out in the {{site.data.keyword.Bluemix_notm}} catalog.
+We’d love to hear from you with feedback and questions!
 * If you have technical questions about {{site.data.keyword.appid_short_notm}}, post your question on <a href="http://stackoverflow.com/search?q=ibm+" target="_blank">Stack Overflow <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> and tag your question with `ibm-appid`.
 * For questions about the service and getting started instructions, use the <a href="https://developer.ibm.com/answers/search.html?f=&type=question&redirect=search%2Fsearch&sort=relevance&q=appid%20[bluemix]" target="_blank">dW Answers <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> forum. Include the `appid` tag.
 
@@ -35,10 +35,9 @@ Create and bind an instance of {{site.data.keyword.appid_short_notm}} to your ap
     1. To see a list of apps that you can bind to your service instance, click **Connections**.
     2. Click **Create connection**. A page opens with all of the apps that you have the option to bind.
     3. Click **Connect** on the app that you want to bind.
-    4. Click **Restage** to apply the change.
+    4. Click **Re-stage** to apply the change.
 
 That's it! You're ready to start configuring your application settings.
-
 
 ## Configuring a sample app
 {: #sample-app}
@@ -46,34 +45,29 @@ That's it! You're ready to start configuring your application settings.
 You can use one of the preconfigured sample apps to get familiar with working with the service.
 {: shortdesc}
 
-Out of the box, the sample apps are configured with two identity providers and the ability to review authentication. You can also use the login widget feature to customize a sign-in page and see how quickly the updates that you make are shown in your app.
+Out of the box, the sample apps are configured with two identity providers and the ability to review authentication. Sample apps are offered in `iOS Swift`, `Android`, `Node.js`, and `Java`. If you don't see a language in which you feel comfortable working, don't worry! You can integrate {{site.data.keyword.appid_short_notm}} into your own sample application by using the provided APIs.
 
-To configure a sample app from the GUI:
+To build a sample app:
 
-1. After you create an instance of the service, you can choose a sample app in a language in which you feel comfortable working. You can choose from iOS Swift, Android, Node.js, and Java. Don't want to use an SDK? You can integrate {{site.data.keyword.appid_short_notm}} by using the APIs.
-2. Follow the steps in the GUI to **Build and run** your sample app. Each language is configured slightly differently, so be sure to select the language of the app that you downloaded from the drop-down. Once your app is configured, you can open it in a browser and login by using your credentials. Be sure the prerequisites for your app language are installed.
-  <dl>
-    <dt> Android </dt>
-      <dd><ul><li> Android API 27 or higher </li><li> Java 8.x </li><li> Android SDK Tools 25.2.5+ </li><li> Android SDK Platform Tools 26.1.1+ </li><li> Android Build Tools version 27.0.0+</li></ul></dd>
-    <dt> iOS Swift </dt>
-      <dd><ul><li> CocoaPods (version 1.1.0 or higher) </li><li> iOS 10.0 or higher</li><li> MacOS 10.11.5 </li><li> Xcode (version 9.0.1 or higher) </li></ul></dd>
-    <dt> Node.js </dt>
-      <dd><ul><li> The {{site.data.keyword.Bluemix_notm}} CLI</li></ul></dd>
-    <dt> Java </dt>
-      <dd><ul><li> The {{site.data.keyword.Bluemix_notm}} CLI </li><li> Maven </li></ul></dd>
-  </dl>
-
+1. Click **Download Sample**.
+2. Click on the language of your choice to download the sample.
   Don't see the language you're looking for? Don't worry! You can take advantage of {{site.data.keyword.appid_short_notm}} through the APIs. You can also check out <a href="https://www.ibm.com/blogs/bluemix/tag/app-id/" target="_blank">our blogs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> for extra help in other languages.
   {: tip}
+3. Be sure that you have the pre-requisites installed or completed.
+4. Follow the **Build & Run** steps to set up your sample with {{site.data.keyword.appid_short_notm}}.
+5. Click **Review Activity** to see any authentication events that occurred. Any type of sign in creates an event that is visible on this page.
+6. Customize the sign in widget.
+  1. Add an image such as a brand logo by clicking **Select** and browsing your local system for an image to upload.
+  2. Choose a color scheme by either selecting one of the color options or specifying in a hex value.
+  3. Change between web and mobile to see how the color scheme looks on each type of device.
+  4. When you're happy with your choices, click **Save Changes**.
+7. In a browser, refresh your login page. The changes that you made in the previous step are already visible.
 
-3. Click **Review Activity** to see the authentication events that occurred. After you log in, you can see an event.
-4. Customize your login experience. You can select an image, such as your logo and a header color. You can select one of the color options or insert a hex value. When you are happy with the preview, click **Save Changes**.
-5. In your browser, refresh your login page. The changes that you made in the previous step are already visible.
 
 ## Next steps
 {: #next}
 
-Ready to jump in and get started with your own apps? Start by [adding the service to your app](/docs/services/appid/install.html). The service provides SDKs for the most used languages, but if you don't see an SDK for the language that your app is written in, you can still use the API.
+Ready to jump in and get started with your own apps? Start by [adding the service to your app](/docs/services/appid/install.html). The service provides SDKs for the most used languages, but if you don't see an SDK for the language that your app is written in, you can still take advantage of {{site.data.keyword.appid_short_notm}} by using the APIs.
 
 </br>
 </br>

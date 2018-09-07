@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-07-24"
+lastupdated: "2018-09-07"
 
 ---
 
@@ -48,9 +48,6 @@ The remaining SAML attribute elements that do not correspond to any of the stand
 You can configure the {{site.data.keyword.appid_short_notm}} service to use a Security Assertion Markup Language (SAML) identity provider.
 {: shortdesc}
 
-For steps on how to use a specific SAML identity provider, check out these blog posts on setting up {{site.data.keyword.appid_short_notm}} with [Ping One ![External link icon](../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-ping-one/), [an Azure Active Directory ![External link icon](../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-azure-active-directory/), or [an Active Directory Federation Service ![External link icon](../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-active-directory-federation-service/).
-{: tip}
-
 ### Providing metadata to your identity provider
 
 To configure your app, you need to provide information to a SAML compatible identity provider. The information is exchanged through a metadata XML file that also contains configuration data that is used to establish trust.
@@ -75,11 +72,11 @@ To configure your app, you need to provide information to a SAML compatible iden
       <td>The instructions on how the identity provider should send the SAML response.</td>
     </tr>
     <tr>
-      <td><code>NameID Format<code></td>
+      <td><code>NameID Format</code></td>
       <td>The way in which the identity provider knows which identifier format it needs to send in the subject of an assertion. The way in which {{site.data.keyword.appid_short_notm}} identifies users.</td>
     </tr>
     <tr>
-      <td><code>WantAssertionsSigned<code></td>
+      <td><code>WantAssertionsSigned</code></td>
       <td>The way that an identity provider checks to see if it needs to sign the assertion. The service expects that the assertion is signed, but does not support encrypted assertions.</td>
     </tr>
   </table>
@@ -91,7 +88,7 @@ The property names might differ between identity providers.
 
 ### Providing metadata to {{site.data.keyword.appid_short_notm}}
 
-You'll need to obtain data from the identity provider and provide it to {{site.data.keyword.appid_short_notm}}.
+Obtain data from your identity provider and provide it to {{site.data.keyword.appid_short_notm}}.
 
 1. Navigate to the **SAML 2.0** tab of the {{site.data.keyword.appid_short_notm}} dashboard. Input the following metadata that you obtained from the identity provider in the **Provide Metadata from SAML IdP** section.
   <table>
@@ -114,9 +111,15 @@ You'll need to obtain data from the identity provider and provide it to {{site.d
   </table>
 
 2. Optional: Provide a **Secondary certificate** that is used if signature validation fails on the primary certificate. If the signing key remains the same, {{site.data.keyword.appid_short_notm}} does not block authentication for expired certificates.
-
-3. Update the **Provider Name**, and click **Save**. The default name is SAML.
-
+3. Optional: Provide an **Authentication Context**. Your app uses this value from your SAML provider to verify the quality of the authentication and quality of the SAML assertions. The authentication context is made up of two parameters: `class` and `comparison`.
+  <dl>
+    <dt>`class`</dt>
+      <dd>The `class` value is an ordered array that consists of strings that describe the type of method that is used. Each string must match one of the values that is listed in section 3.3.2.2.1 of the SAML protocol.</dd>
+    <dt>`comparison`</dt>
+      <dd>The `comparison` value is a string that describes the authentications that are provided in the class array. The value must match one of the values that is listed in section 3.4 of the SAML protocol.</dd>
+  </dl>
+  **Note**: The identity provider that you use is responsible for interpreting and honoring the authentication context that is requested.
+4. Update the **Provider Name**, and click **Save**. The default name is SAML.
 
 ### Testing your configuration
 
