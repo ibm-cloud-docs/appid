@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-07"
+lastupdated: "2018-09-10"
 
 ---
 
@@ -187,10 +187,7 @@ If a user does not supply the information pulled by the parameter, it appears bl
       </tbody>
     </table>
     </dd>
-</dl>
-</br>
-
-
+  </dl>
 </br>
 
 ## Managing password strength
@@ -210,7 +207,6 @@ Some common password strength examples:
 
 You must use <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/set_cloud_directory_password_regex" target="_blank">the management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to set the requirements.
 
-</br>
 
 
 
