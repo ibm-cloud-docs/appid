@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-05"
+lastupdated: "2018-09-10"
 
 ---
 
@@ -54,8 +54,6 @@ Do not include any query parameters in your URL. They are ignored in the validat
 {: tip}
 
 </br>
-
-
 
 ## How does encryption work in {{site.data.keyword.appid_short_notm}}?
 {: #encryption}

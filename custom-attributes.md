@@ -2,11 +2,11 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-05"
+lastupdated: "2018-09-10"
 
 ---
 
-{:new_window: target="_blank"}
+{:new_window: target="blank"}
 {:shortdesc: .shortdesc}
 {:pre: .pre}
 {:tip: .tip}
@@ -19,7 +19,6 @@ When you obtain an access token, it is possible to gain access to the user prote
 {: shortdesc}
 
 </br>
-
 
 
 

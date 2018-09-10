@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-07"
+lastupdated: "2018-09-10"
 
 ---
 
@@ -45,6 +45,7 @@ The application always holds the client secret. This work flow is meant to be us
 In the following image, you can see the direction of communication between the service and your application.
 
 ![{{site.data.keyword.appid_short_notm}} app to app flow](/images/app-to-app-flow.svg)
+Figure. App to app flow
 
 1. A service registers with {{site.data.keyword.appid_short_notm}} to obtain a client ID and secret.
 2. Application A makes a request to {{site.data.keyword.appid_short_notm}} by sending the credentials retrieved in the previous step.
