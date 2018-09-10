@@ -120,29 +120,27 @@ If a user does not supply the information pulled by the parameter, it appears bl
   <dt>Forgot password</dt>
     <dd><p>A user can ask to have their password reset if they forget it or need to update it for any reason. You can customize the email response to their request. When a user requests a change, their password remains unchanged until they click the link in this email.</p>
     <table>
-      <thead>
-        <th colspan=2><img src="images/idea.png" alt="More information icon"/> Password change parameters </th>
-      </thead>
-      <tbody>
-        <tr>
-          <td><code>%{linkExpiration.hours}</code></td>
-          <td> Displays the number of hours that the link is valid. </td>
-        </tr>
-        <tr>
-          <td><code>%{linkExpiration.minutes}</code></td>
-          <td> Displays the number of minutes that the link is valid. </td>
-        </tr>
-        <tr>
-          <td><code>%{resetPassword.code}</code></td>
-          <td> Displays a one-time passcode as part of the URL. This means that each person would have a different code. Example: <code>https://appid-wfm.bluemix.net/verify/6574839563478</code> </td>
-        </tr>
-        <tr>
-          <td><code>%{resetPassword.link}</code></td>
-          <td> Displays the link that a user clicks to reset their password. </td>
-        </tr>
-       </tbody>
-    </table>
-    </dd>
+      <tr>
+        <th colspan=2><img src="images/idea.png" alt="More information icon"/> Forgot password parameters </th>
+      </tr>
+      <tr>
+        <td><code>%{linkExpiration.hours}</code></td>
+        <td> Displays the number of hours that the link is valid.</td>
+      </tr>
+      <tr>
+        <td><code>%{linkExpiration.minutes}</code></td>
+        <td>Displays the number of minutes that the link is valid.</td>
+      </tr>
+      <tr>
+        <td><code>%{resetPassword.code}</code></td>
+        <td> Displays a one-time passcode as part of the URL. This means that each person would have a different code. Example: <code>https://appid-wfm.bluemix.net/verify/6574839563478</code> </td>
+      </tr>
+      <tr>
+        <td><code>%{resetPassword.link}</code></td>
+        <td> Displays the link that a user clicks to reset their password. </td>
+      </tr>
+     </tbody>
+  </table></dd>
   <dt>Verification</dt>
     <dd><p>You can request that a user verifies their account via email. By requesting a verification, you limit the number of fake accounts that can sign up for your app. You can restrict access to your app until a user has verified their email, or use it as a way to manage which users you create profiles for.</p>
     <table>
@@ -167,13 +165,12 @@ If a user does not supply the information pulled by the parameter, it appears bl
           <td> Displays the action URL that you specified in settings. </td>
         </tr>
       </tbody>
-    </table>
-    </dd>
+    </table></dd>
   <dt>Password change</dt>
     <dd><p>You can let a user know when their password has been updated. This is helpful if they did not request that their password be changed. They can take the proper steps to re-secure their account.</p>
     <table>
       <thead>
-        <th colspan=2><img src="images/idea.png" alt="More information icon"/> Password change parameters </th>
+        <th colspan=2><img src="images/idea.png" alt="More information icon"/> Password change parameters</th>
       </thead>
       <tbody>
         <tr>
@@ -181,14 +178,11 @@ If a user does not supply the information pulled by the parameter, it appears bl
           <td> Displays the time at which a new password went into effect. </td>
         </tr>
         <tr>
-          <td> %{passwordChangeInfo.ipAddress} </td>
+          <td><code>%{passwordChangeInfo.ipAddress}</code></td>
           <td> Displays the IP address from which the password change was requested. </td>
         </tr>
       </tbody>
-    </table>
-    </dd>
-  </dl>
-</br>
+    </table></dd></dl>
 
 ## Managing password strength
 {: #strength}
