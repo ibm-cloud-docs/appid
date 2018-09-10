@@ -12,6 +12,7 @@ lastupdated: "2018-09-10"
 
 
 # FAQ
+{: #faq}
 
 This FAQ provides answers to common questions about the {{site.data.keyword.appid_full}} service.
 {: shortdesc}
