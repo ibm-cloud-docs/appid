@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-10"
+lastupdated: "2018-09-11"
 
 ---
 
@@ -46,7 +46,7 @@ Figure. The configuration journey for Cloud Directory
   2. If you've decided that you want your users to verify their email, your next decision is whether you want to allow users into your application prior to them verifying their email address. Depending on your preference, set **Allow users to sign0in to your app without first verifying their email address** to **Yes** or **No**.
   3. Customize the content and design the appearance of your message. There is a template for the message, but you can update the text with your own message. You can use a [language](#languages) other than English, but you are responsible for the translation of the text. To choose another language, use the <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/updateLocalization" target="_blank">language management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
   4. Give the verification URL an expiration time limit, specified as minutes.  When this time is set here, it also affects the length of time that your reset password link is valid for.
-  5. Enter your own verification page URL if you have a specific page that you want your users to see when they click the link. If you leave the **Custom verification page URL** field blank, a default page provided by App ID is used.
+  5. Enter your own verification page URL if you have a specific page that you want your users to see when they click the link. If you leave the **Custom verification page URL** field blank, a default verification page is provided by App ID.
   6. Click **Save**.
 
 4. Configure your welcome email settings.
@@ -58,7 +58,7 @@ Figure. The configuration journey for Cloud Directory
   1. To allow users to request a reset of their password, set **Forgot password email** to **On**. **Note**: A user must have validated their email prior to reseting their password. This means that you must require email verification to allow password resets.
   2. Customize the content and design the appearance of your message. There is an example message that you can use, but you can update the text with your own message. You can use a [language](#languages) other than English, but you are responsible for the translation of the text. To choose another language, use the <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/updateLocalization" target="_blank">language management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
   3. Give the reset password URL an expiration time limit, specified as minutes. When this time is set here, it also affects the length of time that your email verification link is valid for.
-  4. Enter your own password reset URL if you have a specific page that you want your users to see when they click the link. If you leave the **Custom verification page URL** field blank, a default page provided by App ID is used.
+  4. Enter your own password reset URL if you have a specific page that you want your users to see when they click the link. If you leave the **Reset password page URL** field blank, a default reset password page is provided by App ID.
   5. Click **Save**.
 
 6. Configure your change password settings.
