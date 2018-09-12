@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-07"
+lastupdated: "2018-09-12"
 
 ---
 
@@ -23,6 +23,9 @@ If you already have an existing user repository and a certified way to authentic
 
 SAML is an open standard for exchanging authentication and authorization data between an identity provider who asserts the user identity and a service provider who consumes the user identity information.
 {: shortdesc}
+
+For steps on how to use a specific SAML identity provider, check out these blog posts on setting up {{site.data.keyword.appid_short_notm}} with [Ping One ![External link icon](../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-ping-one/), [an Azure Active Directory ![External link icon](../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-azure-active-directory/), or [an Active Directory Federation Service ![External link icon](../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-active-directory-federation-service/).
+{: tip}
 
 How does it work?
 
@@ -111,14 +114,6 @@ Obtain data from your identity provider and provide it to {{site.data.keyword.ap
   </table>
 
 2. Optional: Provide a **Secondary certificate** that is used if signature validation fails on the primary certificate. If the signing key remains the same, {{site.data.keyword.appid_short_notm}} does not block authentication for expired certificates.
-3. Optional: Provide an **Authentication Context**. Your app uses this value from your SAML provider to verify the quality of the authentication and quality of the SAML assertions. The authentication context is made up of two parameters: `class` and `comparison`.
-  <dl>
-    <dt>`class`</dt>
-      <dd>The `class` value is an ordered array that consists of strings that describe the type of method that is used. Each string must match one of the values that is listed in section 3.3.2.2.1 of the SAML protocol.</dd>
-    <dt>`comparison`</dt>
-      <dd>The `comparison` value is a string that describes the authentications that are provided in the class array. The value must match one of the values that is listed in section 3.4 of the SAML protocol.</dd>
-  </dl>
-  **Note**: The identity provider that you use is responsible for interpreting and honoring the authentication context that is requested.
 4. Update the **Provider Name**, and click **Save**. The default name is SAML.
 
 ### Testing your configuration
