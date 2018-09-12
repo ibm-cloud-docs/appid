@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-06"
+lastupdated: "2018-09-07"
 
 ---
 
@@ -15,8 +15,9 @@ lastupdated: "2018-08-06"
 # Configuring social identity providers
 {: #setting-up-idp}
 
-Identity providers provide an extra level of authentication for your mobile and web apps. With {{site.data.keyword.appid_full}}, you can configure one or several identity providers to set up a single sign-on experience for your app.
+With {{site.data.keyword.appid_full}}, you can configure social identity providers to set up a single sign-on experience for your app. By allowing a user to sign in with their social profiles, they no longer have to remember several different passwords for different applications. 
 {: shortdesc}
+
 
 ## Default configuration
 {: #default}
@@ -25,19 +26,6 @@ Identity providers provide an extra level of authentication for your mobile and 
 {: shortdesc}
 
 The default credentials are set up for Facebook and Google. You are limited to 100 uses of the credentials per instance, per day. Because they are IBM credentials, they are meant to be used only in development mode. Before you publish your app, update the configuration to your own credentials.
-
-## Whitelisting your redirect URL
-{: #redirect}
-
-A redirect URL is the callback endpoint of your app. To prevent phishing attacks, App ID validates the URL against the whitelist of redirect URLs. When phishing occurs, there is a chance that an attacker may gain access to your users tokens.
-
-To add your URL to the whitelist:
-
-1. Navigate to **Identity Providers > Manage**.
-2. In the **Add web redirect URL** field, type the URL and click **+**.
-
-Do not include any query parameters in your URL. They are ignored in the validation process. Example URL: `http://host:[port]/path`
-{: tip}
 
 
 ## Configuring Facebook

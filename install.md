@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-08"
+lastupdated: "2018-09-07"
 
 ---
 
@@ -253,7 +253,7 @@ Now you're ready to configure your identity providers and start authenticating u
 {: #before-nodejs}
 
 Be sure that you have the following prerequisites ready to go:
-1. Install the [IBM Cloud CLI](../cli/index.html).
+1. Install the [IBM Cloud CLI](/docs/cli/reference/ibmcloud/download_cli.html).
 2. Implement your Node.js server with the <a href="http://expressjs.com/" target="_blank">Express framework <img src="../icons/launch-glyph.svg" alt="External link icon"></a>. To install the Express framework, use the command line to open the directory with your Node.js app, and run the following command:
   ```
   npm install --save express
@@ -357,10 +357,7 @@ Be sure that you have the following prerequisites ready to go:
 
 5. Add the following code to your `server.js` file to issue the service redirects:
    ```
-   app.get(CALLBACK_URL, passport.authenticate(WebAppStrategy.STRATEGY_NAME));
-   app.get('/protected', passport.authenticate(WebAppStrategy.STRATEGY_NAME)), function(req, res)
-        res.json(req.user);
-   });
+   app.get(CALLBACK_URL, passport.authenticate(WebAppStrategy.STRATEGY_NAME)); app.get(‘/protected’, passport.authenticate(WebAppStrategy.STRATEGY_NAME)), function(req, res) res.json(req.user); });
    ```
    {: codeblock}
 
@@ -682,7 +679,7 @@ In your Node.js app, replace `passport.use(new WebAppStrategy());` with the foll
       <td> You can find these values by clicking **View credentials** in the **service credentials** tab of your service dashboard. </td>
     </tr>
     <tr>
-      <td><code>app-url<code></td>
+      <td><code>app-url</code></td>
       <td>Your application URL.</td>
     </tr>
     <tr>

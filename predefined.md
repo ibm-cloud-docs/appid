@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-08"
+lastupdated: "2018-09-12"
 
 ---
 
@@ -12,10 +12,10 @@ lastupdated: "2018-08-08"
 {:tip: .tip}
 {:screen: .screen}
 
-# Accessing predefined user information
+# Predefined user attributes
 {: #predefined}
 
-You can view identity provider specific information about your users.
+With {{site.data.keyword.appid_long}}, you can view identity provider specific information about your users.
 {: shortdesc}
 
 
