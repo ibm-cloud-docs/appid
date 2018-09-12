@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-10"
+lastupdated: "2018-09-12"
 
 ---
 
@@ -13,7 +13,7 @@ lastupdated: "2018-09-10"
 {:tip: .tip}
 
 
-# Accessing protected resources
+# Accessing protected resources from mobile apps
 {: #access-backend}
 
 You can use the {{site.data.keyword.appid_full}} client SDKs to access endpoints in your apps.

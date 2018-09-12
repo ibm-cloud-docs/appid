@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-11"
+lastupdated: "2018-09-12"
 
 ---
 
@@ -66,7 +66,7 @@ Figure. The configuration journey for Cloud Directory
   2. Customize the content and design the appearance of your message. There is an example message that you can use, but you can update the text with your own message. You can use a [language](#languages) other than English, but you are responsible for the translation of the text. To choose another language, use the <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/updateLocalization" target="_blank">language management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
   3. Click **Save**.
 
-7. In the **Users** tab you can see who has signed-up for your app. A single user can sign up to 5 times in a minute. If a sixth attempt is made, an error is displayed.
+7. In the **Users** tab you can see who has signed-up for your app. Note: A single user can attempt to sign in up to 5 times in 60 seconds. If a sixth attempt is made, an error is displayed.
 
 </br>
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-11"
+lastupdated: "2018-09-12"
 
 ---
 
@@ -145,7 +145,7 @@ While your request flow might vary depending on your application configuration, 
 {{site.data.keyword.appid_short_notm}} is a highly available, regional service.
 {: shortdesc}
 
-In each supported region, the service runs in several availability zones. Each zone has its own Kubernetes cluster with several worker nodes. Each worker node runs on several instances of {{site.data.keyword.appid_short_notm}} components. Each region is fronted by a Global Load Balancer and a Web Application Firewall.
+In each supported region, the service runs in several availability zones. Each zone has its own Kubernetes cluster with several worker nodes. Each worker node runs several instances of {{site.data.keyword.appid_short_notm}} components. Each region is fronted by a Global Load Balancer and a Web Application Firewall.
 
 Data that is stored in {{site.data.keyword.appid_short_notm}} is encrypted and persisted in a database cluster that is spread across availability zones. The data is also back up in a separate encrypted object storage.
 
