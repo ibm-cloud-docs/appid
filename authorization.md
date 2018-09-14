@@ -30,9 +30,9 @@ These key terms can help you understand the way that the service breaks down the
 
 <dl>
   <dt>OAuth 2</dt>
-    <dd><a href="https://tools.ietf.org/html/rfc6749" target="_blank">OAuth 2 <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> is open standard protocol that is used to provide app authorization.</dd>
+    <dd><a href="https://tools.ietf.org/html/rfc6749" target="_">OAuth 2 <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> is open standard protocol that is used to provide app authorization.</dd>
   <dt>Open ID Connect (OIDC)</dt>
-    <dd><p><a href="http://openid.net/developers/specs/" target="_blank">OIDC <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> is an authentication layer that works on top of OAuth 2.</p>
+    <dd><p><a href="http://openid.net/developers/specs/" target="_">OIDC <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> is an authentication layer that works on top of OAuth 2.</p>
     <p>When you use OIDC and {{site.data.keyword.appid_short_notm}} together, your service credentials help to configure your OAuth endpoints. When you use the SDK the endpoint URLs are built automatically. But, you can also build the URLs yourself by using your service credentials. You can see how to put together the URL in the following example and table.</p>
     <pre class="codeblock">
     <code>{
@@ -70,7 +70,7 @@ These key terms can help you understand the way that the service breaks down the
     <dd>The service uses three different types of tokens. Access tokens represent authorization and enable communication with [back-end resources](/docs/services/appid/protecting-resources.html) that are protected by authorization filters that are set by {{site.data.keyword.appid_short}}. Identity tokens represent authentication and contain information about the user. A refresh token can be used to obtain a new access token without re-authenticating the user. By using refresh tokens, users can allow their information to be remembered by the application. This way they can remain signed in. For more information about tokens and how they're used in {{site.data.keyword.appid_short}}, check out [Validating tokens](#tokens).
   </dd>
   <dt>Authorization headers</dt>
-    <dd><p>{{site.data.keyword.appid_short}} complies with the <a href="https://tools.ietf.org/html/rfc6750" target="blank">token bearer specification <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> and uses a combination of access and identity tokens that are sent as an HTTP Authorization header. The Authorization header contains three different parts that are separated by white space. The tokens are base64 encoded. The identity token is optional.</br>
+    <dd><p>{{site.data.keyword.appid_short}} complies with the <a href="https://tools.ietf.org/html/rfc6750" target="Because each identity provider returns its own unique set of [standardized](http://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) claims. App ID automatically normalizes common properties that are passed into the identity token to create normalized claims.">token bearer specification <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> and uses a combination of access and identity tokens that are sent as an HTTP Authorization header. The Authorization header contains three different parts that are separated by white space. The tokens are base64 encoded. The identity token is optional.</br>
     Example:</p>
     <pre><code>Authorization=Bearer {access_token} [{id_token}]</pre></code></dd>
   <dt>API Strategy</dt>
@@ -96,7 +96,7 @@ When a user is successfully authenticated, the application receives tokens from 
 
 **What is an access token?**
 
-Access tokens represent authorization and enable communication with [back-end resources](/docs/services/appid/protecting-resources.html) that are protected by authorization filters that are set by {{site.data.keyword.appid_short}}. The token conforms to JavaScript Object Signing and Encryption (JOSE) specifications. The token is formatted as <a href="https://jwt.io/introduction/" target="blank">JSON Web Tokens <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> are signed with a JSON Web Key that uses the RS256 algorithm.
+Access tokens represent authorization and enable communication with [back-end resources](/docs/services/appid/protecting-resources.html) that are protected by authorization filters that are set by {{site.data.keyword.appid_short}}. The token conforms to JavaScript Object Signing and Encryption (JOSE) specifications. The token is formatted as <a href="https://jwt.io/introduction/" target="Because each identity provider returns its own unique set of [standardized](http://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) claims. App ID automatically normalizes common properties that are passed into the identity token to create normalized claims.">JSON Web Tokens <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> are signed with a JSON Web Key that uses the RS256 algorithm.
 
 Example token:
   ```
@@ -118,7 +118,7 @@ Example token:
 
 **What is an identity token?**
 
-Identity tokens represent authentication and contain information about the user. It can give you information about their name, email, gender, and location. A token can also return a URL to an image of the user. The token is formatted as <a href="https://jwt.io/introduction/" target="blank">JSON Web Tokens <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> are signed with a JSON Web Key that uses the RS256 algorithm.
+Identity tokens represent authentication and contain information about the user. It can give you information about their name, email, gender, and location. A token can also return a URL to an image of the user. The token is formatted as <a href="https://jwt.io/introduction/" target="Because each identity provider returns its own unique set of [standardized](http://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) claims. App ID automatically normalizes common properties that are passed into the identity token to create normalized claims.">JSON Web Tokens <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> are signed with a JSON Web Key that uses the RS256 algorithm.
 
 Example token:
   ```
@@ -155,9 +155,9 @@ Example token:
 
 **What is a refresh token?**
 
-{{site.data.keyword.appid_short}} supports the ability to acquire new access and identity tokens without reauthentication, as defined in <a href="http://openid.net/specs/openid-connect-core-1_0.html#RefreshTokens" target="blank">OIDC <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>. When signing in with a refresh token, a user doesn't have to take any actions, such as providing credentials. Generally, refresh tokens are configured to have a longer life span than a regular access token. To take full advantage of refresh tokens, persist the tokens for their full life span. A user cannot directly access resources with just a refresh token, which makes them much safer to persist than an access token. For examples of working with refresh tokens and how to use them to implement a *remember me* functionality, check out the getting started samples. As a best practice, refresh tokens should be securely stored by the client that received them, and should only be sent to the authorization server that issued them.
+{{site.data.keyword.appid_short}} supports the ability to acquire new access and identity tokens without reauthentication, as defined in <a href="http://openid.net/specs/openid-connect-core-1_0.html#RefreshTokens" target="Because each identity provider returns its own unique set of [standardized](http://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) claims. App ID automatically normalizes common properties that are passed into the identity token to create normalized claims.">OIDC <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>. When signing in with a refresh token, a user doesn't have to take any actions, such as providing credentials. Generally, refresh tokens are configured to have a longer life span than a regular access token. To take full advantage of refresh tokens, persist the tokens for their full life span. A user cannot directly access resources with just a refresh token, which makes them much safer to persist than an access token. For examples of working with refresh tokens and how to use them to implement a *remember me* functionality, check out the getting started samples. As a best practice, refresh tokens should be securely stored by the client that received them, and should only be sent to the authorization server that issued them.
 
-There are some cases when you would want to have the refresh token revoked, for example when its believed to be compromised. There are two methods of revoking a refresh token. If you have the refresh token, you can revoke it based on <a href="https://tools.ietf.org/html/rfc7009#section-2" target="blank">RFC7009</a>. Alternatively, if you have the user ID, you can revoke the refresh token by using <a href="https://appid-management.ng.bluemix.net/swagger-ui/" target="blank">the Management API</a>. For more information about accessing the management API see [managing service access](/docs/services/appid/iam.html#service-access-management).
+There are some cases when you would want to have the refresh token revoked, for example when its believed to be compromised. There are two methods of revoking a refresh token. If you have the refresh token, you can revoke it based on <a href="https://tools.ietf.org/html/rfc7009#section-2" target="Because each identity provider returns its own unique set of [standardized](http://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) claims. App ID automatically normalizes common properties that are passed into the identity token to create normalized claims.">RFC7009</a>. Alternatively, if you have the user ID, you can revoke the refresh token by using <a href="https://appid-management.ng.bluemix.net/swagger-ui/" target="Because each identity provider returns its own unique set of [standardized](http://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) claims. App ID automatically normalizes common properties that are passed into the identity token to create normalized claims.">the Management API</a>. For more information about accessing the management API see [managing service access](/docs/services/appid/iam.html#service-access-management).
 
 Revoking the use of either method revokes all active refresh tokens that are assigned to that user that were created before revocation.
 {: tip}
@@ -218,7 +218,7 @@ If the identity is already associated with another {{site.data.keyword.appid_sho
 
 </li></ul></dd>
   <dt>Authorization headers</dt>
-    <dd><p>{{site.data.keyword.appid_short}} complies with the <a href="https://tools.ietf.org/html/rfc6750" target="blank">token bearer specification <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> and uses a combination of access and identity tokens that are sent as an HTTP Authorization header. The Authorization header contains three different parts that are separated by white space. The tokens are base64 encoded. The identity token is optional.</br>
+    <dd><p>{{site.data.keyword.appid_short}} complies with the <a href="https://tools.ietf.org/html/rfc6750" target="_blank">token bearer specification <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> and uses a combination of access and identity tokens that are sent as an HTTP Authorization header. The Authorization header contains three different parts that are separated by white space. The tokens are base64 encoded. The identity token is optional.</br>
     Example:</p>
     <pre><code>Authorization=Bearer {access_token} [{id_token}]</pre></code></dd>
   <dt>API Strategy</dt>
@@ -250,14 +250,14 @@ If the identity is already associated with another {{site.data.keyword.appid_sho
 
 OAuth 2 is an open standard protocol that is used to provide authorization for apps. It enables a user to grant temporary access to protected resources on another server without directly passing their credentials to it.
 
-When a grant flow completes successfully, <a href="https://tools.ietf.org/html/rfc6749" target="blank">OAuth 2 <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> provides an access token. The token then acts as verified credentials by describing the protected actions that a particular entity can make.
+When a grant flow completes successfully, <a href="https://tools.ietf.org/html/rfc6749" target="_blank">OAuth 2 <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> provides an access token. The token then acts as verified credentials by describing the protected actions that a particular entity can make.
 
 To solidify your understanding of OAuth 2, check out the following key terms.
 
 <dl>
   <dt>Oauth credentials</dt>
-    <dd><ul><li>Client ID: The unique identifier of a client. Specified as <code>client_id</code> when interacting with the resource server.</li>
-    <li>Client secret: The secret that is associated with a specific client ID. Specified as <code>client_secret</code> when interacting with the resource server.</li></ul></dd>
+    <dd><p>Client ID: The unique identifier of a client. Specified as <code>client_id</code> when interacting with the resource server.</p>
+    <p>Client secret: The secret that is associated with a specific client ID. Specified as <code>client_secret</code> when interacting with the resource server.</p></dd>
 
   <dt>Resource owner</dt>
     <dd>Typically, this is the end-user of your app but can also be used to grant access to a protected resource.</dd>
@@ -272,37 +272,36 @@ To solidify your understanding of OAuth 2, check out the following key terms.
     <dd>The server that authenticates the resource owner and issues access tokens to clients that can be used to access protected resources from the resource server. As an example, App ID is an OAuth 2 authorization server.</dd>
 
   <dt>Client profiles</dt>
-    <dd>Each type of client is different and has different security needs.</br>
-    <i>Server-side web app</i></br>
+    <dd><p>Each type of client is different and has different security needs.</p></br>
+    <p><strong>Server-side web app</strong></p>
     The most basic OAuth client is a web app that runs on a server. The web app is accessed by a resource owner or user and the app makes the appropriate API calls by using a server-side programing language. The user has no access to the client secret or any access tokens that were issued by the authorization server.</br>
-    <i>Client-side app that runs in a web browser</i></br>
-    An OAuth client that runs in a user's web browser where the client has access to the app code and/or API requests. The apps could could be distributed as JavaScript that is included in a web page, a browser extension, or a plugin. Single-page apps that run Angular or React are also included. In these cases the OAuth 2 credentials are not trusted to be kept confidential from the resource owner. This means that some API providers refuse to issue client secrets for apps that use this profile.</br>
-    <i>Native app</i></br>
-    Unlike web apps that run in the browser, these are OAuth clients that are installed by the user onto their device, such as an iPhone or Android app. Because these are client apps, they cannot be trusted to keep credentials secure. However, at the same time, it may not have access to the full capabilities of a web browser.</br></dd>
+    <p><strong>Client-side app that runs in a web browser</strong></p>
+    <p>An OAuth client that runs in a user's web browser where the client has access to the app code and/or API requests. The apps could could be distributed as JavaScript that is included in a web page, a browser extension, or a plugin. Single-page apps that run Angular or React are also included. In these cases the OAuth 2 credentials are not trusted to be kept confidential from the resource owner. This means that some API providers refuse to issue client secrets for apps that use this profile.</p>
+    <p><strong>Native app</strong></p>
+    <p>Unlike web apps that run in the browser, these are OAuth clients that are installed by the user onto their device, such as an iPhone or Android app. Because these are client apps, they cannot be trusted to keep credentials secure. However, at the same time, it may not have access to the full capabilities of a web browser.</p></dd>
 
   <dt>Authorization grant types</dt>
-    <dd>When implementing OAuth solutions, each client profile must utilize an appropriate protocol flow in order to obtain authorization from the resource owner in a secure manner. Before starting the authorization flow, each client registers with an OAuth 2 authentication server to obtain client credentials that can be used to authenticate future requests that are made to the server. After it is registered, the core OAuth 2 protocol and its extension RFCs define several grant types that can be used to obtain authorization.</br>
-    <i>Authorization code</i></br>
-    <b>Used by<b>: Web apps executing on a server and mobile apps</br>
-    This grant type is most appropriate for server-side web applications. After the resource owner has authorized access to their data, they are redirected back to the web application with an authorization code as a query parameter in the URL. The client can then exchange this code with the authorization server for an access token. This exchange is done server-to-server and requires both the client_id and client_secret, preventing even the resource owner from obtaining the access token. This grant type also allows for long-lived access to an API by using refresh tokens.</br>
-    <i>Resource-owner password</i>
-    <b>Used by</b>: Trusted applications</br>
-    This grant type enables a resource owner’s username and password to be exchanged for an OAuth access token. It is used for only highly-trusted clients, such as a mobile app written by the API provider. While the user’s password is still exposed to the client, it does not need to be stored on the device. After the initial authentication, only the OAuth token needs to be stored. Because the password is not stored, the user can revoke access to the app without changing the password, and the token is scoped to a limited set of data, so this grant type still provides enhanced security over traditional username/password authentication.</br>
-    <i>Client credentials</i></br>
-    <b>Used by</b>: App to app communication</b></br>
-    The client credentials grant type allows an application to obtain an access token for resources that are owned by the client or when authorization has been previously arranged with an authorization server. This grant type is appropriate for applications that need to access APIs, such as storage services or databases, on behalf of themselves rather than on behalf of a specific user.</br>
-    <i>Implicit Grant</i></br>
-    <b>Used by</b>: Single page apps or apps that only run in a web browser</br>
-    <i>JWT-Bearer</i><br>
-    <b>Used by</b>: Custom authentication flows</dd>
+    <dd><p>When implementing OAuth solutions, each client profile must utilize an appropriate protocol flow in order to obtain authorization from the resource owner in a secure manner. Before starting the authorization flow, each client registers with an OAuth 2 authentication server to obtain client credentials that can be used to authenticate future requests that are made to the server. After it is registered, the core OAuth 2 protocol and its extension RFCs define several grant types that can be used to obtain authorization.</p>
+    <p><strong>Authorization code</strong></p>
+    <p>Used by: Web apps executing on a server and mobile apps</p>
+    <p>This grant type is most appropriate for server-side web applications. After the resource owner has authorized access to their data, they are redirected back to the web application with an authorization code as a query parameter in the URL. The client can then exchange this code with the authorization server for an access token. This exchange is done server-to-server and requires both the client_id and client_secret, preventing even the resource owner from obtaining the access token. This grant type also allows for long-lived access to an API by using refresh tokens.</p>
+    <p><strong>Resource-owner password</strong></p>
+    <p>Used by: Trusted applications</p>
+    <p>This grant type enables a resource owner’s username and password to be exchanged for an OAuth access token. It is used for only highly-trusted clients, such as a mobile app written by the API provider. While the user’s password is still exposed to the client, it does not need to be stored on the device. After the initial authentication, only the OAuth token needs to be stored. Because the password is not stored, the user can revoke access to the app without changing the password, and the token is scoped to a limited set of data, so this grant type still provides enhanced security over traditional username/password authentication.</p>
+    <p><strong>Client credentials</strong></p>
+    <p>Used by: App to app communication</p>
+    <p>The client credentials grant type allows an application to obtain an access token for resources that are owned by the client or when authorization has been previously arranged with an authorization server. This grant type is appropriate for applications that need to access APIs, such as storage services or databases, on behalf of themselves rather than on behalf of a specific user.</p>
+    <p><strong>Implicit Grant</strong></p>
+    <p>Used by: Single page apps or apps that only run in a web browser</p>
+    <p><strong>JWT-Bearer</strong></p>
+    <p>Used by: Custom authentication flows</p></dd>
 </dl>
-
 
 
 ## OpenID Connect
 {: #connect}
 
-OpenID Connect (<a href="http://openid.net/developers/specs/" target="blank">OIDC <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>) is an identity protocol layer that extends OAuth 2 by allowing clients to verify an end-user's identity and obtain basic profile information about them. In App ID, OIDC provides authentication while the underlying OAuth 2 is responsible for the authorization in the form of an access token.
+OpenID Connect (<a href="http://openid.net/developers/specs/" target="_blank">OIDC <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>) is an identity protocol layer that extends OAuth 2 by allowing clients to verify an end-user's identity and obtain basic profile information about them. In App ID, OIDC provides authentication while the underlying OAuth 2 is responsible for the authorization in the form of an access token.
 
 When you use OIDC and {{site.data.keyword.appid_short_notm}} together, your service credentials help to configure your OAuth endpoints. When you use the SDK the endpoint URLs are built automatically. But, you can also build the URLs yourself by using your service credentials. You can see how to put together the URL in the following example and table.
 
@@ -358,14 +357,11 @@ At a high level, OIDC defines a set of scopes and processes that enable resource
     <dd>The UserInfo Endpoint is an OAuth 2.0 Protected Resource that returns claims about the authenticated end-user. In order to retrieve the claims, a client makes a request to the UserInfo endpoint by using an Access Token that they obtained through OIDC Authentication.</dd>
 </dl>
 
-
-
 ## SAML
 {: #about-saml}
 
 SAML (Security Assertion Markup Language) is an open standard for exchanging authentication and authorization data between an identity provider who asserts the user identity and a service provider who consumes the user identity information.
 {: shortdesc}
-
 
 A SAML assertion is a package of information. It contains the authorization decision and might also contain identity information about the user. When a user signs in, the SAML provider sends an assertion to App ID. App ID propagates the user identity information from the SAML assertion to your applications through OIDC token claims. The remaining SAML attribute assertions that do not correspond to any of the standard claims are stored in a user profile and can be viewed by using the `/userinfo` endpoint.
 
@@ -381,9 +377,9 @@ When a user is successfully authenticated, the application receives tokens from 
 
 ### Access tokens
 
-Access tokens represent authorization and enable communication with [back-end resources](/docs/services/appid/protecting-resources.html) that are protected by authorization filters that are set by {{site.data.keyword.appid_short}}. The token conforms to JavaScript Object Signing and Encryption (JOSE) specifications. The token is formatted as <a href="https://jwt.io/introduction/" target="blank">JSON Web Tokens <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> are signed with a JSON Web Key that uses the RS256 algorithm.
+Access tokens represent authorization and enable communication with [back-end resources](/docs/services/appid/protecting-resources.html) that are protected by authorization filters that are set by {{site.data.keyword.appid_short}}. The token conforms to JavaScript Object Signing and Encryption (JOSE) specifications. The token is formatted as <a href="https://jwt.io/introduction/" target="_blank">JSON Web Tokens <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> are signed with a JSON Web Key that uses the RS256 algorithm.
 
-In general, access tokens have a short lifespan for for improved for improved security. After it is expired, a user must authenticate again. By default, App ID access tokens expire after an hour; however, this can be configured to meet your app's specific needs.
+In general, access tokens have a short lifespan for for improved for improved security. After it is expired, a user must authenticate again. By default, App ID access tokens expire after an hour; however, this can be configured to meet your app's specific needs. An access token scope field determines the amount and type of privileges that are granted to a particular token. With App ID, you can enforce that any scope or combination of scopes exists to moderate access to your APIs. By default, App ID adds several default scopes that provide access to its user profile management capabilities.
 
 Example token:
   ```
@@ -402,8 +398,6 @@ Example token:
       "scope": "appid_default appid_readprofile appid_readuserattr appid_writeuserattr",
   ```
   {: screen}
-
-An access token scope field determines the amount and type of privileges that are granted to a particular token. With App ID, you can enforce that any scope or combination of scopes exists to moderate access to your APIs. By default, App ID adds several default scopes that provide access to its user profile management capabilities.
 
 <table>
   <tr>
@@ -434,11 +428,11 @@ You can add custom scopes to your tokens by using the App ID custom identity flo
 
 ### Identity tokens
 
-Identity tokens represent authentication and contain information about the user. It can give you information about a user's name, email, gender, and/or location. A token can also return a URL to an image of the user. The token is formatted as a <a href="https://jwt.io/introduction/" target="blank">JSON Web Token <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> and are signed with a JSON Web Key that uses the RS256 algorithm. These tokens can be used within your app to customize your user experience and to authenticate users against other servers or apps.
+Identity tokens represent authentication and contain information about the user. It can give you information about a user's name, email, gender, and/or location. A token can also return a URL to an image of the user. The token is formatted as a <a href="https://jwt.io/introduction/" target="_blank">JSON Web Token <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> and are signed with a JSON Web Key that uses the RS256 algorithm. These tokens can be used within your app to customize your user experience and to authenticate users against other servers or apps.
 
 As with access tokens, identity tokens have a short lifespan. By default, App ID identity tokens expire after an hour; however, this can be configured to meet your app's specific needs.
 
-When an identity token is passed to another API, its expiration date and signature must be verified before its identity claims can be trusted.
+When an identity token is passed to another API, its expiration date and signature must be verified before its identity claims can be trusted. Because each identity provider returns its own unique set of [standardized](http://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) claims. App ID automatically normalizes common properties that are passed into the identity token to create normalized claims.
 
 Example token:
   ```
@@ -473,8 +467,6 @@ Example token:
   ```
   {: screen}
 
-Because each identity provider returns its own unique set of [standardized](http://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) claims. App ID automatically normalizes common properties that are passed into the identity token to create normalized claims.
-
 <table>
   <tr>
     <th>Claim</th>
@@ -506,15 +498,13 @@ Because each identity provider returns its own unique set of [standardized](http
   </tr>
 </table>
 
-
-
 ### Refresh tokens
 
-{{site.data.keyword.appid_short}} supports the ability to acquire new access and identity tokens without reauthentication, as defined in <a href="http://openid.net/specs/openid-connect-core-1_0.html#RefreshTokens" target="blank">OIDC <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>. When signing in with a refresh token, a user doesn't have to take any actions, such as providing credentials. Generally, refresh tokens are configured to have a longer life span than a regular access token. To take full advantage of refresh tokens, persist the tokens for their full life span.By default, refresh tokens expire after 30 days. However, this can be configured to meet your app's specific needs.
+{{site.data.keyword.appid_short}} supports the ability to acquire new access and identity tokens without reauthentication, as defined in <a href="http://openid.net/specs/openid-connect-core-1_0.html#RefreshTokens" target="_blank">OIDC <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>. When signing in with a refresh token, a user doesn't have to take any actions, such as providing credentials. Generally, refresh tokens are configured to have a longer life span than a regular access token. To take full advantage of refresh tokens, persist the tokens for their full life span.By default, refresh tokens expire after 30 days. However, this can be configured to meet your app's specific needs.
 
 A user cannot directly access resources with just a refresh token, which makes them much safer to persist than an access token. For examples of working with refresh tokens and how to use them to implement a *remember me* functionality, check out the getting started samples. As a best practice, refresh tokens should be securely stored by the client that received them, and should only be sent to the authorization server that issued them.
 
-There are some cases when you would want to have the refresh token revoked, for example when its believed to be compromised. There are two methods of revoking a refresh token. If you have the refresh token, you can revoke it based on <a href="https://tools.ietf.org/html/rfc7009#section-2" target="blank">RFC7009</a>. Alternatively, if you have the user ID, you can revoke the refresh token by using <a href="https://appid-management.ng.bluemix.net/swagger-ui/" target="blank">the Management API</a>. For more information about accessing the management API see [managing service access](/docs/services/appid/iam.html#service-access-management).
+There are some cases when you would want to have the refresh token revoked, for example when its believed to be compromised. There are two methods of revoking a refresh token. If you have the refresh token, you can revoke it based on <a href="https://tools.ietf.org/html/rfc7009#section-2" target="_blank">RFC7009</a>. Alternatively, if you have the user ID, you can revoke the refresh token by using <a href="https://appid-management.ng.bluemix.net/swagger-ui/" target="_blank">the Management API</a>. For more information about accessing the management API see [managing service access](/docs/services/appid/iam.html#service-access-management).
 
 Revoking the use of either method revokes all active refresh tokens that are assigned to that user that were created before revocation.
 {: tip}
@@ -535,12 +525,12 @@ The tokens are received by your app after a successful authentication. You app c
 
 Example request:
 
-  ```
-  GET /resource HTTP/1.1
-  Host: server.example.com
-  Authorization: Bearer  mF_9.B5f-4.1JqM mF_9.B5f-4.1JqM
-  ```
-  {: screen}
+```
+GET /resource HTTP/1.1
+Host: server.example.com
+Authorization: Bearer  mF_9.B5f-4.1JqM mF_9.B5f-4.1JqM
+```
+{: screen}
 
 </br>
 </br>
@@ -551,9 +541,9 @@ Example request:
 
 ### Login widget
 
-App ID provides a login widget that lets you give your users secure sign-in options through a browser interface.
+App ID provides a login widget that lets you give your users secure sign in options through a browser interface.
 
-When your app is configured to use an identity provider, visitors to your app are directed to a sign in screen called the login widget. By default, when only one provider is set to on, visitors to your app are redirected to that identity providers authentication screen directly. With the login widget you can display a default sign in screen, or with Cloud directory, you can reuse your existing UIs.
+When your app is configured to use an identity provider, visitors to your app are directed to a sign in screen called the login widget. By default, when only one provider is set to on, visitors to your app are redirected to that identity providers authentication screen directly. With the login widget you can display a default sign in screen, or with Cloud Directory, you can reuse your existing UIs.
 
 You can update your sign in flow at any time without changing your source code in any way!
 {: tip}
@@ -573,7 +563,7 @@ The [Runtime APIs](https://appid-oauth.ng.bluemix.net/swagger-ui/#/Authorization
 For example:
 
 ```
- Authorization: Basic clientId + ":" + secret
+Authorization: Basic clientId + ":" + secret
 ```
 {: screen}
 
