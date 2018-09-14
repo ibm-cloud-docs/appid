@@ -20,13 +20,12 @@ IBM Cloud App ID
         identity-providers.md
         enterprise.md
         cloud-directory.md
-    
 
     {: .topicgroup}
     Managing the sign in experience
         login-widget.md
         branded.md
-    
+
     {: .topicgroup}
     Securing backend resources
         protecting-resources.md
