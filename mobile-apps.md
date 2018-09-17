@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-14"
+lastupdated: "2018-09-17"
 
 ---
 
@@ -22,13 +22,13 @@ Using {{site.data.keyword.appid_short}}, you can quickly construct an authentica
 
 **When would this flow be useful?**
 
-When you are developing a desktop or mobile phone application that is installed on a user's device, known as a native application, you can use the {{site.data.keyword.appid_short}} mobile flow to obtain user identity information. As an example, you can authenticate users on your mobile app in order to provide personalized user experiences across devices.
+When you are developing a desktop or mobile phone application that will be installed on a user's device (a native application), you can use the {{site.data.keyword.appid_short}} mobile flow to obtain user identity information. Using this flow, you can securely authenticate users on your app in order to provide personalized user experiences across devices.
 
 **What is the flow's technical basis?**
 
-Since native application data are installed directly on a user's device, private credentials can be extracted by third-parties with relative ease. By default, these types of applications are known as untrusted clients meaning they cannot be trusted to global credentials. Additionally, untrusted clients are unable to securely store refresh tokens. Because of this users on untrusted clients are required to input their credentials every time their access tokens expire.
+Since native applications are installed directly on a user's device, private user information and application credentials can be extracted by third-parties with relative ease. By default, these types of applications are known as untrusted clients as they cannot store global credentials or user refresh tokens. As a result, untrusted clients require users to input their credentials every time their access tokens expire.
 
-In order to convert your application into a trusted client, {{site.data.keyword.appid_short}} leverages [Dynamic Client Registration](https://tools.ietf.org/html/rfc7591).Before your application begins authenticating users, each application instance registers as an OAuth2 client with {{site.data.keyword.appid_short}}. As a result of client registration, your app receives an installation-specific client ID and secret enabling it to become a confidential client. This process minimizes your app's risk of exposing your credentials indefinitely and greatly improves the user experience.
+In order to convert your application into a trusted client, {{site.data.keyword.appid_short}} leverages [Dynamic Client Registration](https://tools.ietf.org/html/rfc7591). Before your application begins authenticating users, each application instance registers as an OAuth2 client with {{site.data.keyword.appid_short}}. As a result of client registration, your app receives an installation-specific client ID and secret converting it into a confidential client. This process minimizes your app's risk of exposing credentials indefinitely and greatly improve the user experience by allowing automatic token refresh.
 
 Following registration, your users authenticate using either the OAuth2 `authorization code` or `resource owner password` [authorization grant](https://tools.ietf.org/html/rfc6749#section-1.3) flows to authenticate users.
 
@@ -38,8 +38,8 @@ Following registration, your users authenticate using either the OAuth2 `authori
 
 Dynamic Client Registration
 
-1. A user performs an action the triggers a request by the client application to the {{site.data.keyword.appid_short}} SDK.
-2. If your app has not registered as a mobile client with {{site.data.keyword.appid_short}}, your app initiates a dynamic registration flow.
+1. A user performs an action that triggers a request by the client application to the {{site.data.keyword.appid_short}} SDK.
+2. If your app has not yet registered as a mobile client, the SDK initiates a dynamic registration flow.
 3. On a successful registration, {{site.data.keyword.appid_short}} returns your installation specific client ID and secret.
 
 Authorization Flow
