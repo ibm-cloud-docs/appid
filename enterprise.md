@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-12"
+lastupdated: "2018-09-18"
 
 ---
 
@@ -93,6 +93,8 @@ The property names might differ between identity providers.
 
 Obtain data from your identity provider and provide it to {{site.data.keyword.appid_short_notm}}.
 
+**Configuring by GUI**
+
 1. Navigate to the **SAML 2.0** tab of the {{site.data.keyword.appid_short_notm}} dashboard. Input the following metadata that you obtained from the identity provider in the **Provide Metadata from SAML IdP** section.
   <table>
     <tr>
@@ -114,7 +116,7 @@ Obtain data from your identity provider and provide it to {{site.data.keyword.ap
   </table>
 
 2. Optional: Provide a **Secondary certificate** that is used if signature validation fails on the primary certificate. If the signing key remains the same, {{site.data.keyword.appid_short_notm}} does not block authentication for expired certificates.
-4. Update the **Provider Name**, and click **Save**. The default name is SAML.
+5. Update the **displayName**, and send the request. The default name is SAML.
 
 ### Testing your configuration
 
