@@ -6,7 +6,7 @@ lastupdated: "2018-09-18"
 
 ---
 
-{:new_window: target="_blank"}
+{:new_window: target="blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -29,7 +29,7 @@ For steps on how to use a specific SAML identity provider, check out these blog 
 
 How does it work?
 
-{{site.data.keyword.appid_short_notm}} functions as a service provider and initiates a single sign on (SSO) login to a third-party provider such as Active Directory Federation Services. The <a href="http://saml.xml.org/saml-specifications" target="_blank">SAML <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> protocol supports different profiles and bind options. {{site.data.keyword.appid_short_notm}} supports the web browser SSO profile, with HTTP Post binding.
+{{site.data.keyword.appid_short_notm}} functions as a service provider and initiates a single sign on (SSO) login to a third-party provider such as Active Directory Federation Services. The <a href="http://saml.xml.org/saml-specifications" target="blank">SAML <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> protocol supports different profiles and bind options. {{site.data.keyword.appid_short_notm}} supports the web browser SSO profile, with HTTP Post binding.
 
 ### SAML assertions and identity token claims
 
@@ -93,7 +93,7 @@ The property names might differ between identity providers.
 
 Obtain data from your identity provider and provide it to {{site.data.keyword.appid_short_notm}}.
 
-**Configuring by GUI**
+**Providing metadata with the GUI**
 
 1. Navigate to the **SAML 2.0** tab of the {{site.data.keyword.appid_short_notm}} dashboard. Input the following metadata that you obtained from the identity provider in the **Provide Metadata from SAML IdP** section.
   <table>
@@ -116,7 +116,6 @@ Obtain data from your identity provider and provide it to {{site.data.keyword.ap
   </table>
 
 2. Optional: Provide a **Secondary certificate** that is used if signature validation fails on the primary certificate. If the signing key remains the same, {{site.data.keyword.appid_short_notm}} does not block authentication for expired certificates.
-5. Update the **displayName**, and send the request. The default name is SAML.
 
 ### Testing your configuration
 
