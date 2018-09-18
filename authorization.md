@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-15"
+lastupdated: "2018-09-18"
 
 ---
 
@@ -216,7 +216,11 @@ If the identity is already associated with another {{site.data.keyword.appid_sho
 
 
 
-</li></ul></p></dd>
+</li>
+    </ul>  </dd>
+  <dt>Federation</dt>
+    <dd>A federated application is an application which consumes the identity information an identity provider serves to represent an entity (such as a user). This identity information is called the federated identity of the entity.
+    <p>An identity federation service manages and links a user's identity across multiple identity management systems.</p> </bb>
   <dt>Authorization headers</dt>
     <dd><p>{{site.data.keyword.appid_short}} complies with the <a href="https://tools.ietf.org/html/rfc6750" target="_blank">token bearer specification <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> and uses a combination of access and identity tokens that are sent as an HTTP Authorization header. The Authorization header contains three different parts that are separated by white space. The tokens are base64 encoded. The identity token is optional.</br>
     Example:</p>
