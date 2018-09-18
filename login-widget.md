@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-10"
+lastupdated: "2018-09-18"
 
 ---
 
@@ -10,29 +10,34 @@ lastupdated: "2018-08-10"
 {:screen: .screen}
 {:tip: .tip}
 {:pre: .pre}
-{:new_window: target="blank"}
+{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 
 
-# Displaying the default screens
+# Displaying the default screen
 {: #default}
 
 {{site.data.keyword.appid_full}} provides a login widget that lets you give your users secure sign-in options.
 {: shortdesc}
 
-When your app is configured to use an identity provider, visitors to your app are directed to a sign in screen by the login widget. As a default, when only one provider is set to **On**, visitors are redirected to that identity providers authentication screen. With the login widget you can display a default sign in screen or, with cloud directory, you can reuse your existing UI's. And, as an added bonus, you can update your sign-in flow at any time, without changing your source code in any way!
-
-
-The service uses OAuth 2 grant types to map the authorization process. When you configure social identity providers such as Facebook, the [Oauth2 Authorization Grant flow](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html) is used to call the log in widget.
+When your app is configured to use an identity provider, visitors to your app are directed to a sign in screen by the login widget. With the login widget you can display a default sign in screen. And, as an added bonus, you can update your sign-in flow at any time, without changing your source code in any way!
 
 Want to create an experience that's unique to your app? You can [bring your own screens](/docs/services/appid/branded.html)!
 {: tip}
+
+**What is the default?**
+
+You can take advantage of App ID, even without your own UI screens, by displaying the login widget. By default, when only one provider is set to **On**, visitors are redirected to that identity providers authentication screen. But, when more than one identity provider is configured, the user is redirected to the login widget. There, the user can choose the identity provider that they want to sign in to your app with.
+
+**Why can't I display more than the login widget by default?**
+
+The service doesn't provide advanced functionality, such as "reset password" or "sign-up", for social or enterprise identity providers because the service never has access to a users account information. Users have to go to the identity provider to manage their information. For example, if a user signs into your app with Facebook, and then wanted to change their password, they must go to www.facebook.com to do so.
 
 
 ## Customizing the default sign-in screen
 {: #login-widget}
 
-You can customize the preconfigured sign-in screen to display the logo and colors of your choice.
+{{site.data.keyword.appid_short_notm}} provides a default login screen that you can call if you don't have your own UI screens to display. You can customize the screen to display the logo and colors of your choice.
 {: shortdesc}
 
 To customize the screen:
@@ -44,75 +49,20 @@ To customize the screen:
 5. Inspect the preview pane, and click **Save Changes** when you are happy with your customizations. A confirmation message is displayed.
 6. In your browser, refresh your login page to verify your changes.
 
-
-## Planning which screens to display
-{: #plan}
-
-{{site.data.keyword.appid_short_notm}} provides a default login screen that you can call if you don't have your own UI screens to display.
-{: shortdesc}
-
-Depending on your identity provider configuration, the screens that you can display differ. The service doesn't provide advanced functionality for social identity providers because we never have access to a users account information. Users have to go to the identity provider to manage their information. For example, if they wanted to change their Facebook password, they would need to go to www.facebook.com.
-
-Check out the following table to see which screens you can display for each type of identity provider.
-
-<table>
-  <thead>
-    <tr>
-      <th>Display screen</th>
-      <th>Social identity provider</th>
-      <th>Enterprise identity provider</th>
-      <th>Cloud directory</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Sign in</td>
-      <td><img src="images/confirm.png" width="32" alt="Feature available" style="width:32px;" /></td>
-      <td><img src="images/confirm.png" width="32" alt="Feature available" style="width:32px;" /></td>
-      <td><img src="images/confirm.png" width="32" alt="Feature available" style="width:32px;" /></td>
-    </tr>
-    <tr>
-      <td>Sign up</td>
-      <td> </td>
-      <td> </td>
-      <td><img src="images/confirm.png" width="32" alt="Feature available" style="width:32px;" /></td>
-    </tr>
-    <tr>
-      <td>Forgot password</td>
-      <td> </td>
-      <td> </td>
-      <td><img src="images/confirm.png" width="32" alt="Feature available" style="width:32px;" /></td>
-    </tr>
-    <tr>
-      <td>Change password</td>
-      <td> </td>
-      <td> </td>
-      <td><img src="images/confirm.png" width="32" alt="Feature available" style="width:32px;" /></td>
-    </tr>
-    <tr>
-      <td>Account details</td>
-      <td> </td>
-      <td> </td>
-      <td><img src="images/confirm.png" width="32" alt="Feature available" style="width:32px;" /></td>
-    </tr>
-  </tbody>
-</table>
-
-Don't forget! You can take advantage of App ID with other languages too. If you don't see an SDK for the language you're working in, you can alway use our APIs. Check out check out <a href="https://www.ibm.com/blogs/bluemix/tag/app-id/" target="_blank">our blogs<img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
+Don't forget! You can take advantage of App ID with other languages too. If you don't see an SDK for the language you're working in, you can alway use our APIs. Check out check out <a href="https://www.ibm.com/blogs/bluemix/tag/app-id/" target="blank">our blogs<img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
 {: tip}
 
 </br>
 
-## Displaying the default screens with the Android SDK
+## Displaying the login widget with the Android SDK
 {: #android}
 
-You can call the preconfigured screens with the Android SDK.
+You can call the preconfigured sign in screen with the Android SDK.
 {: shortdesc}
 
-</br>
 
-**Sign in**
-1. Place the following command in your code.
+Place the following command in your code.
+
     ```java
     LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
     loginWidget.launch(this, new AuthorizationListener() {
@@ -132,116 +82,19 @@ You can call the preconfigured screens with the Android SDK.
           }
         });
     ```
-  {: pre}
+  {: codeblock}
 
-</br>
-**Sign up**
-
-1. Set **Allow users to sign up and reset their password** to **On** in the settings for cloud directory.
-2. Call the LoginWidget to start the sign-up flow.
-  ```java
-  LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
-  loginWidget.launchSignUp(this, new AuthorizationListener() {
-  		 @Override
-  		 public void onAuthorizationFailure (AuthorizationException exception) {
-  		 }
-
-  		 @Override
-  		 public void onAuthorizationCanceled () {
-  		 }
-
-  		 @Override
-  		 public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, refreshToken: RefreshToken) {
-  			 if (accessToken != null && identityToken != null) {
-  			 } else {
-  			 }
-
-  		 }
-  	 });
-  ```
-  {: pre}
-
-</br>
-**Forgot password**
-
-1. Set **Allow users to sign up and reset their password** and **Forgot password email** to **On** in the settings for cloud directory.
-2. Call the LoginWidget to start the forgot password flow.
-    ```java
-    LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
-    loginWidget.launchForgotPassword(this, new AuthorizationListener() {
-   			 @Override
-   			 public void onAuthorizationFailure (AuthorizationException exception) {
-   			 }
-
-   			 @Override
-   			 public void onAuthorizationCanceled () {
-   			 }
-
-   			 @Override
-   			 public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, refreshToken: RefreshToken) {
-   			 }
-   		 });
-    ```
-    {: pre}
-
-</br>
-**Account details**
-
-1. Set **Allow users to sign up and reset their password** to **On** in the settings for cloud directory.
-2. Call the LoginWidget to start the change details flow.
-   ```java
-   LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
-   loginWidget.launchChangeDetails(this, new AuthorizationListener() {
-  			 @Override
-  			 public void onAuthorizationFailure (AuthorizationException exception) {
-  			 }
-
-  			 @Override
-  			 public void onAuthorizationCanceled () {
-  			 }
-
-  			 @Override
-  			 public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, refreshToken: RefreshToken) {
-  			 }
-  		 });
-   ```
-   {: pre}
-
-</br>
-**Change password**
-
-1. Set **Allow users to sign up and reset their password** to **ON**, in the settings for cloud directory.
-2. Call the LoginWidget to start the change password flow.
-   ```java
-    LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
-    loginWidget.launchChangePassword(this, new AuthorizationListener() {
-   			 @Override
-   			 public void onAuthorizationFailure (AuthorizationException exception) {
-   			 }
-
-   			 @Override
-   			 public void onAuthorizationCanceled () {
-   			 }
-
-   			 @Override
-   			 public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, refreshToken: RefreshToken) {
-   			 }
-   		 });
-   ```
-   {: pre}
 </br>
 </br>
 
-## Displaying the default screens with the iOS Swift SDK
+## Displaying the login widget with the iOS Swift SDK
 {: #ios-swift}
 
-You can call the preconfigured screens with the iOS Swift SDK.
+You can call a preconfigured sign in screen with the iOS Swift SDK.
 {: shortdesc}
 
-</br>
-**Sign in**
+Place the following command in your code.
 
-1. Place the following command in your code.
   ```swift
   import BluemixAppID
   class delegate : AuthorizationDelegate {
@@ -260,116 +113,19 @@ You can call the preconfigured screens with the iOS Swift SDK.
 
   AppID.sharedInstance.loginWidget?.launch(delegate: delegate())
   ```
-  {: pre}
+  {: codeblock}
 
-
-</br>
-**Sign up**
-
-1. Set **Allow users to sign up and reset their password** to **On**, in the settings for cloud directory.
-2. Call the LoginWidget to start the sign-up flow.
-  ```swift
-  class delegate : AuthorizationDelegate {
-    public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, refreshToken: RefreshToken?) {
-       if accessToken == nil && identityToken == nil {
-        //email verification is required
-        return
-       }
-     //User authenticated
-    }
-
-    public func onAuthorizationCanceled() {
-        //Sign up canceled by the user
-    }
-
-    public func onAuthorizationFailure(error: AuthorizationError) {
-        //Exception occurred
-    }
-  }
-
-  AppID.sharedInstance.loginWidget?.launchSignUp(delegate: delegate())
-  ```
-  {: pre}
-
-</br>
-**Forgot password**
-
-1. Set **Allow users to sign up and reset their password** and **Forgot password email** to **On** in the settings for cloud directory.
-2. Call the LoginWidget to start the forgot password flow.
-  ```swift
-  class delegate : AuthorizationDelegate {
-     public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, refreshToken: RefreshToken?) {
-        //forgot password finished, in this case accessToken and identityToken will be null.
-     }
-
-     public func onAuthorizationCanceled() {
-         //forgot password canceled by the user
-     }
-
-     public func onAuthorizationFailure(error: AuthorizationError) {
-         //Exception occurred
-     }
-  }
-
-  AppID.sharedInstance.loginWidget?.launchForgotPassword(delegate: delegate())
-  ```
-  {: pre}
-
-</br>
-**Account details**
-
-1. Set **Allow users to sign up and reset their password** to **On** in the settings for cloud directory.
-2. Call the LoginWidget to start the change details flow.
-  ```swift
-
-   class delegate : AuthorizationDelegate {
-       public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, refreshToken: RefreshToken?) {
-       }
-
-       public func onAuthorizationCanceled() {
-       }
-
-       public func onAuthorizationFailure(error: AuthorizationError) {
-       }
-   }
-
-   AppID.sharedInstance.loginWidget?.launchChangeDetails(delegate: delegate())
-  ```
-  {: pre}
-
-</br>
-**Change password**
-
-1. Set **Allow users to sign up and reset their password** to **On** in the settings for cloud directory.
-2. Call the LoginWidget to start the change password flow.
-  ```swift
-   class delegate : AuthorizationDelegate {
-       public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, refreshToken: RefreshToken?) {
-       }
-
-       public func onAuthorizationCanceled() {
-       }
-
-       public func onAuthorizationFailure(error: AuthorizationError) {
-       }
-    }
-
-    AppID.sharedInstance.loginWidget?.launchChangePassword(delegate: delegate())
-  ```
-  {: pre}
 </br>
 </br>
 
-## Displaying the default screens with the Node.js SDK
+## Displaying the login widget with the Node.js SDK
 {: #nodejs}
 
-You can call the preconfigured screens with the Node.js SDK.
+You can call a preconfigured sign in screen with the Node.js SDK.
 {: shortdesc}
 
-</br>
-**Sign in**
-1. Set cloud directory to **On** in your identity provider settings and specify a callback endpoint.
-2. Add a post route to your app that can be called with the username and password parameters and log in by using the resource owner password.
+Add a post route to your app that can be called with the username and password parameters and log in by using the resource owner password.
+
     ```javascript
     app.post("/form/submit", bodyParser.urlencoded({extended: false}), passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
     	successRedirect: LANDING_PAGE_URL,
@@ -377,153 +133,11 @@ You can call the preconfigured screens with the Node.js SDK.
     	failureFlash : true // allow flash messages
     }));
     ```
-    {: pre}
-    `WebAppStrategy` allows users to sign in to your web apps with a username and password. After a successful login, a user's access token is stored in the HTTP session and is available during the session. Once the HTTP session is destroyed or expired, the token is invalid.
-    {: tip}
+    {: codeblock}
 
-</br>
-**Sign up**
+`WebAppStrategy` allows users to sign in to your web apps with a username and password. After a successful login, a user's access token is stored in the HTTP session and is available during the session. After the HTTP session is destroyed or expired, the token is invalid.
+{: tip}
 
-1. Set **Allow users to sign up and reset their password** to **On** in the cloud directory settings. If set to no, the process ends without retrieving access and identity tokens.
-2. Pass the WebAppStrategy `show` property and set it to `WebAppStrategy.SIGN_UP`.
-  ```javascript
-  app.get("/sign_up", passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
-  	successRedirect: LANDING_PAGE_URL,
-  	show: WebAppStrategy.SIGN_UP
-  }));
-  ```
-  {: pre}
-
-</br>
-**Forgot password**
-
-1. Set **Allow users to sign up and reset their password** and **Forgot password email** to **ON** in the cloud directory settings. If set to no, the process ends without retrieving access and identity tokens.
-2. Pass the WebAppStrategy `show` property and set it to `WebAppStrategy.FORGOT_PASSWORD`.
-  ```javascript
-  app.get("/forgot_password", passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
-  	successRedirect: LANDING_PAGE_URL,
-  	show: WebAppStrategy.FORGOT_PASSWORD
-  }));
-  ```
-  {: pre}
-
-</br>
-**Account details**
-1. Set **Allow users to sign up and reset their password** to **On** in the cloud directory settings
-2. Pass the WebAppStrategy `show` property and set it to `WebAppStrategy.CHANGE_DETAILS`.
-  ```javascript
-  app.get("/change_details", passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
-  	successRedirect: LANDING_PAGE_URL,
-  	show: WebAppStrategy.CHANGE_DETAILS
-  }));
-  ```
-  {: pre}
-
-</br>
-**Change password**
-1. Set **Allow users to sign up and reset their password** to **On** in the cloud directory settings.
-2. Pass the WebAppStrategy `show` property and set it to `WebAppStrategy.CHANGE_PASSWORD`.
-  ```javascript
-  app.get("/change_password", passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
-  	successRedirect: LANDING_PAGE_URL,
-  	show: WebAppStrategy.CHANGE_PASSWORD
-  }));
-  ```
-  {: pre}
-
-</br>
-</br>
-
-## Displaying the default screens with the Swift SDK
-{: #swift}
-
-With social identity providers enabled, you can call the preconfigured sign-in screen with the Swift SDK.
-{: shortdesc}
-
-1. The following code demonstrates how to use WebAppKituraCredentialsPlugin in a Kitura app to protect the `/protected` endpoint.
-
-  ```swift
-  import Foundation
-  import Kitura
-  import KituraSession
-  import Credentials
-  import SwiftyJSON
-  import BluemixAppID
-
-  // The following URLs will be used for AppID OAuth flows
-  var LOGIN_URL = "/ibm/bluemix/appid/login"
-  var CALLBACK_URL = "/ibm/bluemix/appid/callback"
-  var LOGOUT_URL = "/ibm/bluemix/appid/logout"
-  var LANDING_PAGE_URL = "/index.html"
-
-  // Setup Kitura to use session middleware
-  // Must be configured with proper session storage for production
-  // environments. See https://github.com/IBM-Swift/Kitura-Session for
-  // additional documentation
-  let router = Router()
-  let session = Session(secret: "Some secret")
-  router.all(middleware: session)
-
-  let options = [
-  	"clientId": "{client-id}",
-  	"secret": "{secret}",
-  	"tenantId": "{tenant-id}",
-  	"oauthServerUrl": "{oauth-server-url}",
-  	"redirectUri": "{app-url}" + CALLBACK_URL
-  ]
-  let webappKituraCredentialsPlugin = WebAppKituraCredentialsPlugin(options: options)
-  let kituraCredentials = Credentials()
-  kituraCredentials.register(plugin: webappKituraCredentialsPlugin)
-
-  // Explicit login endpoint
-  router.get(LOGIN_URL,
-  		   handler: kituraCredentials.authenticate(credentialsType: webappKituraCredentialsPlugin.name,
-  												   successRedirect: LANDING_PAGE_URL,
-  												   failureRedirect: LANDING_PAGE_URL
-  ))
-
-  // Callback to finish the authorization process. Will retrieve access and identity tokens from AppID
-  router.get(CALLBACK_URL,
-  		   handler: kituraCredentials.authenticate(credentialsType: webappKituraCredentialsPlugin.name,
-  												   successRedirect: LANDING_PAGE_URL,
-  												   failureRedirect: LANDING_PAGE_URL
-  ))
-
-  // Logout endpoint. Clears authentication information from session
-  router.get(LOGOUT_URL, handler:  { (request, response, next) in
-  	kituraCredentials.logOut(request: request)
-  	webappKituraCredentialsPlugin.logout(request: request)
-  	_ = try? response.redirect(LANDING_PAGE_URL)
-  })
-
-  // Protected area
-  router.get("/protected", handler: kituraCredentials.authenticate(credentialsType: webappKituraCredentialsPlugin.name), { (request, response, next) in
-      let appIdAuthContext:JSON? = request.session?[WebAppKituraCredentialsPlugin.AuthContext]
-      let identityTokenPayload:JSON? = appIdAuthContext?["identityTokenPayload"]
-
-      guard appIdAuthContext?.dictionary != nil, identityTokenPayload?.dictionary != nil else {
-          response.status(.unauthorized)
-          return next()
-      }
-
-      response.send(json: identityTokenPayload!)
-      next()
-  })
-  var port = 3000
-  if let portString = ProcessInfo.processInfo.environment["PORT"]{
-      port = Int(portString)!
-  }
-  print("Starting on \(port)")
-
-  // Add an HTTP server and connect it to the router
-  Kitura.addHTTPServer(onPort: port, with: router)
-
-  // Start the Kitura runloop (this call never returns)
-  Kitura.run()
-  ```
-  {: codeblock}
-</br>
-</br>
 
 
 
