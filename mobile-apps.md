@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-17"
+lastupdated: "2018-09-18"
 
 ---
 
@@ -45,11 +45,11 @@ Dynamic Client Registration
 Authorization Flow
 
 <ol start="4">
-  <li>The {{site.data.keyword.appid_short}} SDK starts the authorization process.</li>
+  <li>The {{site.data.keyword.appid_short}} SDK starts the authorization process using the {{site.data.keyword.appid_short_notm}} `/authorization` endpoint.</li>
   <li>The login widget is displayed to the user.</li>
   <li>The user authenticates using one of the configured identity providers.</li>
   <li>{{site.data.keyword.appid_short}} returns an authorization grant.</li>
-  <li>The authorization grant is exchanged for access, identity, and refresh tokens.</li>
+  <li>The authorization grant is exchanged for access, identity, and refresh tokens from the {{site.data.keyword.appid_short_notm}} `/token` endpoint.</li>
 </ol>
 
 ## Configuring your mobile app with the {{site.data.keyword.appid_short}} SDKs
@@ -152,59 +152,48 @@ You will need the following information:
 
 {: #initialize-android}
 
-Pass the context, tenant ID, and region parameters to the initialize method to configure the SDK.
+1. Pass the context, tenant ID, and region parameters to the initialize method to configure the SDK.
 
-A common, though not mandatory, place to put the initialization code is in the onCreate method of the main activity in your Android application.
-{: tip}
+    A common, though not mandatory, place to put the initialization code is in the onCreate method of the main activity in your Android application.
+    {: tip}
 
-  ```java
-  AppID.getInstance().initialize(getApplicationContext(), <tenantId>, <region>);
-  ```
-  {: codeblock}
-
-  <table>
-  <caption> Table. Command components explained </caption>
-    <tr>
-      <th> Components </th>
-      <th> Description </th>
-    </tr>
-    <tr>
-      <td> <i> tenantID </i> </td>
-      <td> You can find this value by clicking **View credentials** in the **service credentials** tab of your service dashboard. </td>
-    </tr>
-    <tr>
-      <td> <i> AppID.REGION </i> </td>
-      <td> You can find your region in the UI. Options are `AppID.REGION_US_SOUTH`, `AppID.REGION_UK`, `AppID.REGION_Sydney`, or `AppID.REGION_Germany`. </td>
-    </tr>
-  </table>
+    ```java
+    AppID.getInstance().initialize(getApplicationContext(), <tenantId>, <region>);
+    ```
+    {: codeblock}
 
 </br>
 
 **Starting the Authorization Flow**
 
-{: #initialize-ios}
+{: #start-android}
 
-Use the LoginWidget class to start an authorization flow.
+1. Define an AuthorizationListener to handle authentication flow events.
 
-```java
-LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
-loginWidget.launch(this, new AuthorizationListener() {
-    @Override
-    public void onAuthorizationFailure (AuthorizationException exception) {
-        //Exception occurred
-    }
+    ```java
+    AuthorizationListener listener = new AuthorizationListener() {
+        @Override
+        public void onAuthorizationFailure (AuthorizationException exception) {
+            //Exception occurred
+        }
 
-    @Override
-    public void onAuthorizationCanceled () {
-        //Authentication canceled by the user
-    }
+        @Override
+        public void onAuthorizationCanceled () {
+            //Authentication canceled by the user
+        }
 
-    @Override
-    public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, RefreshToken refreshToken) {
-        //User authenticated
-    }
-});
-```
+        @Override
+        public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, RefreshToken refreshToken) {
+            //User authenticated
+        }
+    });
+    ```
+
+2. Start an authorization flow using the LoginWidget.
+
+    ```java
+    AppID.getInstance().getLoginWidget().launch(this, listener);
+    ```
 
 Check out our other documentation to learn more about [managing the user sign-in](/docs/services/appid/login-widget.html#default) experience!
 {: tip}
@@ -271,29 +260,12 @@ The {{site.data.keyword.appid_short_notm}} client SDK is distributed with CocoaP
 1. Initialize the client SDK by passing the tenant ID and region parameters to the initialize method.
 
     A common, though not mandatory, place to put the initialization code is in the `application:didFinishLaunchingWithOptions` method of the AppDelegate in your Swift application.
-
     {: tip}
 
-  ```swift
-  AppID.sharedInstance.initialize(tenantId: <tenantId>, region: <region>)
-  ```
-  {: codeblock}
-
-  <table>
-  <caption> Table. Command components explained </caption>
-    <tr>
-      <th> Components </th>
-      <th> Description </th>
-    </tr>
-    <tr>
-      <td> <i> tenantID </i> </td>
-      <td> You can find this value by clicking **View credentials** in the **service credentials** tab of your service dashboard. </td>
-    </tr>
-    <tr>
-      <td> <i> AppID.REGION </i> </td>
-      <td> You can find your region in the UI. Options are `AppID.REGION_US_SOUTH`, `AppID.REGION_UK`, `AppID.REGION_Sydney`, or `AppID.REGION_Germany`.</td>
-    </tr>
-  </table>
+    ```swift
+      AppID.sharedInstance.initialize(tenantId: <tenantId>, region: <region>)
+    ```
+    {: codeblock}
 
 2. Import the {{site.data.keyword.appid_short}} SDK to your `AppDelegate` file.
 
@@ -315,7 +287,7 @@ The {{site.data.keyword.appid_short_notm}} client SDK is distributed with CocoaP
 
 **Starting the Authorization Flow**
 
-{: #initialize-ios}
+{: #start-ios}
 
 1. Create an AuthorizationDelegate class in your application
 
