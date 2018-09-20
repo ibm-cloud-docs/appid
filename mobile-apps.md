@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-18"
+lastupdated: "2018-09-20"
 
 ---
 
@@ -15,7 +15,8 @@ lastupdated: "2018-09-18"
 # Adding {{site.data.keyword.appid_short}} to your mobile apps
 {: #adding-mobile}
 
-Using {{site.data.keyword.appid_short}}, you can quickly construct an authentication layer for your native or hybrid mobile application.
+With {{site.data.keyword.appid_short}}, you can quickly construct an authentication layer for your native or hybrid mobile app.
+{: shortdesc}
 
 ## Understanding the flow
 {: #understanding}
@@ -34,23 +35,22 @@ Following registration, your users authenticate using either the OAuth2 `authori
 
 **What does this flow look like?**
 
-![{{site.data.keyword.appid_short_notm}} app to app flow](./images/mobile-auth-flow.png)
+![{{site.data.keyword.appid_short_notm}} app to app flow](./images/mobile_flow.svg)
 
-Dynamic Client Registration
+  **Dynamic Client Registration**
 
 1. A user performs an action that triggers a request by the client application to the {{site.data.keyword.appid_short}} SDK.
 2. If your app has not yet registered as a mobile client, the SDK initiates a dynamic registration flow.
 3. On a successful registration, {{site.data.keyword.appid_short}} returns your installation specific client ID and secret.
 
-Authorization Flow
+  **Authorization Flow**
 
-<ol start="4">
-  <li>The {{site.data.keyword.appid_short}} SDK starts the authorization process using the {{site.data.keyword.appid_short_notm}} `/authorization` endpoint.</li>
-  <li>The login widget is displayed to the user.</li>
-  <li>The user authenticates using one of the configured identity providers.</li>
-  <li>{{site.data.keyword.appid_short}} returns an authorization grant.</li>
-  <li>The authorization grant is exchanged for access, identity, and refresh tokens from the {{site.data.keyword.appid_short_notm}} `/token` endpoint.</li>
-</ol>
+4. The {{site.data.keyword.appid_short}} SDK starts the authorization process using the {{site.data.keyword.appid_short_notm}} `/authorization` endpoint.
+5. The login widget is displayed to the user.
+6. The user authenticates using one of the configured identity providers.
+7. {{site.data.keyword.appid_short}} returns an authorization grant.
+8. The authorization grant is exchanged for access, identity, and refresh tokens from the {{site.data.keyword.appid_short_notm}} `/token` endpoint.
+
 
 ## Configuring your mobile app with the {{site.data.keyword.appid_short}} SDKs
 {: #configuring}
