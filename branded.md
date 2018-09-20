@@ -2,11 +2,11 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-18"
+lastupdated: "2018-09-20"
 
 ---
 
-{:new_window: target="blank"}
+{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -20,20 +20,20 @@ You can display your own customized screens and take advantage of the authentica
 
 **Why would I want to display my own screens?**
 
-When you reuse your existing UIs, you can create a cohesive sign in flow for your app. By using the same imagery, colors, and branding, your users are more likely to recognize your brand even when not directly interacting with your app.
+When you reuse your existing UIs, you can create a cohesive sign in flow for your app. By using the same imagery, colors, and branding, your users are more likely to recognize your brand, even when not directly interacting with your app.
 
 **What kind of configuration is required to display my own screens?**
 
-To display your own UIs, you must use Cloud Directory as your identity provider. There are several different ways that Cloud Directory can be [configured](cloud-directory.html). You can decide the types of messages that you want to send, and customize the content and design. Don't know what to say? Not a problem. There's an example message in the GUI that you can use.
+To display your own UIs, you must use Cloud Directory as your identity provider. There are several different ways that Cloud Directory can be [configured](cloud-directory.html). You can decide the types of messages that you want to send, and customize the content and design. Don't know what to say? Not a problem. There's are example messages in the GUI that you can use.
 
-Want to use a [language](cloud-directory.html#languages) other than English? You can choose another language by using the <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/updateLocalization" target="_blank">language management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>, to display your own translated content.
+Want to use a [language](cloud-directory.html#languages) other than English? You can choose another language by using the <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/updateLocalization" target="blank">language management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>, to display your own translated content.
 {: tip}
 
 **How are the flows technically different?**
 
-The service uses OAuth 2 grant types to map the authorization process. When you configure social identity providers such as Facebook, the <a href="https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html" target="_blank">Oauth2 Authorization Grant flow <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> is used to call the login widget. When you use your own screens, the <a href="https://oauthlib.readthedocs.io/en/stable/oauth2/grants/password.html" target="_blank">Resource Owner Password Credentials flow <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> is used to provide access and identity tokens.
+The service uses OAuth 2 grant flows to map the authorization process. When you configure social identity providers such as Facebook, the <a href="https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html" target="_blank">Authorization Grant flow <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> is used to call the login widget. When you use your own screens, the <a href="https://oauthlib.readthedocs.io/en/stable/oauth2/grants/password.html" target="_blank">Resource Owner Password Credentials flow <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> is used to provide access and identity tokens that allow you to call the login widget.
 
-**Do you have an examples of how to implement this from start to finish?**
+**Do you have any example apps that show how this works?**
 
 Yes! Check out any of the following examples to see Cloud Directory in action:
 
