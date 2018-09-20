@@ -458,6 +458,7 @@ The management API is secured with IBM Cloud Identity and Access Management gene
 After you've configured your [settings](/docs/services/appid/cloud-directory.html), you can call the following endpoints to display each screen.
 
 **Sign up**
+
 You can use the `/sign_up` endpoint to allow users to sign themselves up for your app.
 Supply the following data in the request body:
   * Your tenantID.
@@ -465,7 +466,7 @@ Supply the following data in the request body:
     * A `password` attribute.
     * In the email array with a `primary` attribute that is set to `true`, you must have at least 1 email address.
 
-Depending on your [email configurations](/docs/services/appid/cloud-directory.html), a user might receive a request for verification, or an email that welcomes them when they sign up for you app. Both types of emails are triggered when a user signs up for your app. The verification email contains a **Verify** button. After they press the button and confirm their identity, a screen is displayed by {{site.data.keyword.appid_short_notm}} that thanks them for verifying.  
+Depending on your [email configuration](/docs/services/appid/cloud-directory.html), a user might receive a request for verification, an email that welcomes them when they sign up for you app, or both. Both types of emails are triggered when a user signs up for your app. The verification email contains a link that the user can click to confirm their identity; a screen is displayed by {{site.data.keyword.appid_short_notm}} that thanks them for verifying.  
 
 You can present your own post verification page:
 
