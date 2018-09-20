@@ -31,7 +31,7 @@ Want to use a [language](cloud-directory.html#languages) other than English? You
 
 **How are the flows technically different?**
 
-The service uses OAuth 2 grant flows to map the authorization process. When you configure social identity providers such as Facebook, the <a href="https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html" target="_blank">Authorization Grant flow <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> is used to call the login widget. When you use your own screens, the <a href="https://oauthlib.readthedocs.io/en/stable/oauth2/grants/password.html" target="_blank">Resource Owner Password Credentials flow <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> is used to provide access and identity tokens that allow you to call the login widget.
+The service uses OAuth2 grant flows to map the authorization process. When you configure social identity providers such as Facebook, the <a href="https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html" target="_blank">Authorization Grant flow <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> is used to call the login widget. When you use your own screens, the <a href="https://oauthlib.readthedocs.io/en/stable/oauth2/grants/password.html" target="_blank">Resource Owner Password Credentials flow <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> is used to provide access and identity tokens that allow you to call the login widget.
 
 **Do you have any example apps that show how this works?**
 
