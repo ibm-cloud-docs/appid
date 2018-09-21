@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-14"
+lastupdated: "2018-09-21"
 
 ---
 
@@ -13,16 +13,18 @@ lastupdated: "2018-09-14"
 {:screen: .screen}
 
 # Anonymous authentication
-When developing apps, one of the biggest concerns is security. How can you ensure that only users with the right access, are using your app? You need to use an authorization process. In most processes authorization and authentication are coupled together, which can make changing your security policies and identity providers complicated. With {{site.data.keyword.appid_short}}, authorization and authentication are separate processes.
+{: #anonymous}
+
+When developing apps, one of the biggest concerns is security. How can you ensure that only users with the right access, are using your app? You need to use an authorization process. In most processes authorization and authentication are coupled together, which can make changing your security policies and identity providers complicated. With {{site.data.keyword.appid_full}}, authorization and authentication are separate processes.
 {: shortdesc}
 
-When you configure social identity providers such as Facebook, the [OAuth 2 Authorization Grant flow](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html) is used to call the login widget. With cloud directory as your identity provider, the [Resource Owner Password Credentials flow](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/password.html) is used to provide access and identity tokens.
 
 ![The path to becoming an identified user.](/images/authenticationtrail.png)
 
 When a user successfully signs in, they become an identified user. The identity provider returns access and identity tokens, that contain information about the user to {{site.data.keyword.appid_short}}. The service takes the provided tokens and determines whether a user has the proper credentials to access an app. If the tokens are validated, then the service authorizes the users access to the app. The authentication information is associated with the user's record after they are authorized. The record and its attributes can be accessed again from any client that authenticates with the same identity provider.
 
-### Progressive authentication
+## Progressive authentication
+{: #progressive}
 
 With {{site.data.keyword.appid_short_notm}}, an anonymous user can choose to become an identified user.
 

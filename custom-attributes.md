@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-10"
+lastupdated: "2018-09-21"
 
 ---
 
@@ -15,7 +15,7 @@ lastupdated: "2018-09-10"
 # Accessing custom user attributes
 {: #custom}
 
-When you obtain an access token, it is possible to gain access to the user protected attributes endpoint.
+With {{site.data.keyword.appid_full}}, you can save and access your custom attributes through API endpoints.
 {: shortdesc}
 
 </br>

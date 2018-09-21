@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-15"
+lastupdated: "2018-09-21"
 
 ---
 
@@ -13,7 +13,7 @@ lastupdated: "2018-09-15"
 # Discover
 {: #rel-links}
 
-You can use the following related links and Samples to learn more about and interact with the service. For the latest blogs see https://www.ibm.com/blogs/bluemix/tag/app-id/.
+You can use the following related links and Samples to learn more about and interact with {{site.data.keyword.appid_full}}. For the latest blogs see https://www.ibm.com/blogs/bluemix/tag/app-id/.
 {: shortdesc}
 
 ## Contact us

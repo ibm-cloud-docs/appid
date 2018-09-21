@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-12"
+lastupdated: "2018-09-21"
 
 ---
 
@@ -15,7 +15,7 @@ lastupdated: "2018-09-12"
 # Predefined user attributes
 {: #predefined}
 
-With {{site.data.keyword.appid_long}}, you can view identity provider specific information about your users.
+With {{site.data.keyword.appid_full}}, you can view identity provider specific information about your users.
 {: shortdesc}
 
 
