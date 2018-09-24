@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-12"
+lastupdated: "2018-09-24"
 
 ---
 
@@ -13,7 +13,7 @@ lastupdated: "2018-09-12"
 {:pre: .pre}
 {:tip: .tip}
 
-# About
+# About {{site.data.keyword.appid_short_notm}}
 {: #about}
 
 Application security can be incredibly complicated. For most developers, it's one of the hardest parts of creating an app. How can you be sure that you are protecting your user's information? By integrating {{site.data.keyword.appid_full}} into your apps, you can secure resources and add authentication, even when you don't have much security experience.
@@ -95,6 +95,7 @@ With {{site.data.keyword.appid_short_notm}}, you can add a level of security to 
 </dl>
 
 
+
 ## Request flow
 {: #request}
 
@@ -138,6 +139,8 @@ While your request flow might vary depending on your application configuration, 
 3. If there is not a valid access token, the application receives an error.
 4. After obtaining a valid token, the client app can make the request again. But this time, include the token.
 5. When the application can validate the permissions that are granted by the access token, then the application is granted access to the protected resource.
+
+
 
 ## Regional high-availability
 {: #ha-dr}

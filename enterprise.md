@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-20"
+lastupdated: "2018-09-24"
 
 ---
 
@@ -24,12 +24,11 @@ If you already have an existing user repository and a certified way to authentic
 SAML is an open standard for exchanging authentication and authorization data between an identity provider who asserts the user identity and a service provider who consumes the user identity information.
 {: shortdesc}
 
+{{site.data.keyword.appid_short_notm}} functions as a service provider and initiates a single sign on (SSO) login to a third-party provider such as Active Directory Federation Services. The <a href="http://saml.xml.org/saml-specifications" target="blank">SAML <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> protocol supports different profiles and bind options. {{site.data.keyword.appid_short_notm}} supports the web browser SSO profile, with HTTP Post binding.
+
 For steps on how to use a specific SAML identity provider, check out these blog posts on setting up {{site.data.keyword.appid_short_notm}} with [Ping One ![External link icon](../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-ping-one/), [an Azure Active Directory ![External link icon](../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-azure-active-directory/), or [an Active Directory Federation Service ![External link icon](../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-active-directory-federation-service/).
 {: tip}
 
-How does it work?
-
-{{site.data.keyword.appid_short_notm}} functions as a service provider and initiates a single sign on (SSO) login to a third-party provider such as Active Directory Federation Services. The <a href="http://saml.xml.org/saml-specifications" target="blank">SAML <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> protocol supports different profiles and bind options. {{site.data.keyword.appid_short_notm}} supports the web browser SSO profile, with HTTP Post binding.
 
 ### SAML assertions and identity token claims
 

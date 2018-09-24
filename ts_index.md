@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-20"
+lastupdated: "2018-09-24"
 
 ---
 
@@ -51,16 +51,3 @@ The limitations are in place for security purposes.
 To resolve the issue, verify the URL is correct. If your URL does not meet the requirements, you can create an HTTPS endpoint in your app to redirect the received grant code to your custom URL. Specify the created endpoint as your redirect URL in the {{site.data.keyword.appid_short_notm}} console.
 
 </br>
-
-## Why do I need to whitelist my redirect URL?
-{: #redirect}
-
-A redirect URL is the callback endpoint of your app. To prevent phishing attacks, App ID validates the URL against the whitelist of redirect URLs. When phishing occurs, there is a chance that an attacker may gain access to your users tokens.
-
-To add your URL to the whitelist:
-
-1. Navigate to **Identity Providers > Manage**.
-2. In the **Add web redirect URL** field, type the URL and click **+**.
-
-Do not include any query parameters in your URL. They are ignored in the validation process. Example URL: `http://host:[port]/path`
-{: tip}
