@@ -20,6 +20,7 @@ IBM Cloud App ID
         identity-providers.md
         enterprise.md
         cloud-directory.md
+        custom.md
 
     {: .topicgroup}
     Adding App ID to your app
