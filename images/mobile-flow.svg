@@ -211,13 +211,13 @@
                 <text id="Start-authorizaton" font-size="22">
                     <tspan x="456.77" y="497.49">Start authorizaton</tspan>
                 </text>
-                <text id="Dynamic-client" transform="translate(19.725000, 339.990000) rotate(-90.000000) translate(-19.725000, -339.990000) " font-size="27">
-                    <tspan x="-69.775" y="348.915">Dynamic client</tspan>
-                </text>
                 <text id="Authorization" transform="translate(19.725000, 718.090000) rotate(-90.000000) translate(-19.725000, -718.090000) " font-size="27">
                     <tspan x="-61.775" y="727.015">Authorization</tspan>
                 </text>
             </g>
         </g>
+        <text id="Dynamic-client-regis" fill="#000000" transform="translate(130.075000, 315.000000) rotate(-90.000000) translate(-130.075000, -315.000000) " font-family="IBMPlexSans, IBM Plex Sans" font-size="27" font-weight="normal">
+            <tspan x="-87.925" y="323.925">Dynamic client registration</tspan>
+        </text>
     </g>
 </svg>
