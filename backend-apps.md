@@ -35,7 +35,7 @@ For more information about how tokens are used in {{site.data.keyword.appid_shor
 
 **What does this flow look like?**
 
-![{{site.data.keyword.appid_short_notm}} backend flow. Steps are listed in order following the image.](/docs/services/appid/images/backend-flow.svg)
+![{{site.data.keyword.appid_short_notm}} backend flow. Steps are listed in order following the image.](/docs/services/appid/images/backend-flow.png)
 
 1. A client makes a POST request to the {{site.data.keyword.appid_short_notm}} authorization server to obtain an access token. A POST request generally takes the following form:
 
