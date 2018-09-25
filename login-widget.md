@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-18"
+lastupdated: "2018-09-25"
 
 ---
 
@@ -63,26 +63,26 @@ You can call the preconfigured sign in screen with the Android SDK.
 
 Place the following command in your code.
 
-    ```java
-    LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
-    loginWidget.launch(this, new AuthorizationListener() {
-          @Override
-          public void onAuthorizationFailure (AuthorizationException exception) {
-            //Exception occurred
-          }
+  ```java
+  LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
+  loginWidget.launch(this, new AuthorizationListener() {
+        @Override
+        public void onAuthorizationFailure (AuthorizationException exception) {
+          //Exception occurred
+        }
 
-          @Override
-          public void onAuthorizationCanceled () {
-            //Authentication canceled by the user
-          }
+        @Override
+        public void onAuthorizationCanceled () {
+          //Authentication canceled by the user
+        }
 
-          @Override
-          public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, refreshToken: RefreshToken) {
-            //User authenticated
-          }
-        });
-    ```
-  {: codeblock}
+        @Override
+        public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, refreshToken: RefreshToken) {
+          //User authenticated
+        }
+      });
+  ```
+{: codeblock}
 
 </br>
 </br>

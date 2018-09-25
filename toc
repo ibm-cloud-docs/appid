@@ -22,14 +22,17 @@ IBM Cloud App ID
         cloud-directory.md
 
     {: .topicgroup}
+    Adding App ID to your app
+        web-apps.md
+        mobile-apps.md
+        backend-apps.md
+        custom-auth.md
+        progressive.md
+
+    {: .topicgroup}
     Managing the sign in experience
         login-widget.md
         branded.md
-
-    {: .topicgroup}
-    Securing backend resources
-        protecting-resources.md
-        accessing-resources.md
 
     protecting-resources-local.md
 
@@ -38,6 +41,8 @@ IBM Cloud App ID
         user-profile.md
         predefined.md
         custom-attributes.md
+
+    tokens.md
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
