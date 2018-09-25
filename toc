@@ -13,8 +13,6 @@ IBM Cloud App ID
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
-    install.md
-
     {: .topicgroup}
     Configuring identity providers
         identity-providers.md
