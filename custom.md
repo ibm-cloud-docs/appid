@@ -2,11 +2,11 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-25"
+lastupdated: "2018-09-26"
 
 ---
 
-{:new_window: target="_blank"}
+{:new_window: target="blank"}
 {:shortdesc: .shortdesc}
 {:pre: .pre}
 {:tip: .tip}
@@ -16,6 +16,8 @@ lastupdated: "2018-09-25"
 
 # Configuring custom identity
 {: #custom-identity}
+
+In the “before you begin” section it would be nice to explain why RSA keys are required. something like “In order to establish trust between App ID and your custom identity provider….“.
 
 You can use your own custom identity provider when authenticating. Your identity provider can conform to any authentication mechanism alternate to those supported by {{site.data.keyword.appid_full}}, including proprietary.
 {: shortdesc}
@@ -30,13 +32,14 @@ You can use the following steps to configure your custom identity provider to wo
 
 **Before you begin**
 
-You need an RSA PEM key pair with a minimum length of 2048. Be sure to securely back up any keys used in production.
+To establish trust between {{site.data.keyword.appid_short_notm}} and your custom identity provider, you must have an RSA PEM key pair with a minimum length of 2048. Be sure that you securely back up any keys that you use in production.
 
-- Your private key is used in your application or identity provider to sign JWTs.
+How are the keys used?
 
+- Your private key is used in your app or identity provider to sign JWTs.
 - Your public key is used by {{site.data.keyword.appid_short_notm}} to validate the JWT that contains user information.
 
-To generate an RSA PEM key pair by using Open SSL:
+To generate an RSA PEM key pair by using Open SSL run the following command:
 
 ```
 $ openssl genpkey -algorithm RSA -out private_key.pem -pkeyopt rsa_keygen_bits:2048

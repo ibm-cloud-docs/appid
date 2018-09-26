@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-25"
+lastupdated: "2018-09-26"
 
 ---
 
@@ -13,7 +13,7 @@ lastupdated: "2018-09-25"
 {:screen: .screen}
 {:codeblock: .codeblock}
 
-# Custom identity
+# Adding custom identity to your app
 {: #custom-identity}
 
 You can use your own custom identity provider when authenticating. Your identity provider can conform to any authentication mechanism alternate to those supported by {{site.data.keyword.appid_full}}, including proprietary.
@@ -24,7 +24,7 @@ When {{site.data.keyword.appid_short_notm}} does not provide direct support for 
 ## Overview
 {: #overview}
 
-By bringing your own identity provider you can create a custom authorization flow that uses your own protocols. You have more control, such as information that you want to share or information that is stored.
+By bringing your own identity provider you can create a custom authentication flow that uses your own protocols. You have more control, such as information that you want to share or information that is stored.
 {: shortdesc}
 
 </br>

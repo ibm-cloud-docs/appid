@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-25"
+lastupdated: "2018-09-26"
 
 ---
 
@@ -14,27 +14,31 @@ lastupdated: "2018-09-25"
 {:shortdesc: .shortdesc}
 
 
-# Displaying the default screen
+# Displaying the login widget
 {: #default}
 
 {{site.data.keyword.appid_full}} provides a login widget that lets you give your users secure sign-in options.
 {: shortdesc}
 
-When your app is configured to use an identity provider, visitors to your app are directed to a sign in screen by the login widget. With the login widget you can display a default sign in screen. And, as an added bonus, you can update your sign-in flow at any time, without changing your source code in any way!
+When your app is configured to use an identity provider, visitors to your app are directed to a sign in screen by the login widget. With the login widget you can display a default sign in screen. And, as an added bonus, you can update your sign in flow at any time, without changing your source code in any way!
 
 Want to create an experience that's unique to your app? You can [bring your own screens](/docs/services/appid/branded.html)!
 {: tip}
 
 **What is the default?**
 
-You can take advantage of App ID, even without your own UI screens, by displaying the login widget. By default, when only one provider is set to **On**, visitors are redirected to that identity providers authentication screen. But, when more than one identity provider is configured, the user is redirected to the login widget. There, the user can choose the identity provider that they want to sign in to your app with.
+You can take advantage of {{site.data.keyword.appid_short_notm}}, even without your own UI screens, by displaying the login widget. By default, when only one provider is set to **On**, visitors are redirected to that identity providers authentication screen. But, when more than one identity provider is configured, the user is redirected to the login widget. There, the user can choose the identity provider that they want to sign in to your app with.
 
-**Why can't I display more than the login widget by default?**
+**How much information does {{site.data.keyword.appid_short_notm}} obtain from an identity provider?**
 
-The service doesn't provide advanced functionality, such as "reset password" or "sign-up", for social or enterprise identity providers because the service never has access to a users account information. Users have to go to the identity provider to manage their information. For example, if a user signs into your app with Facebook, and then wanted to change their password, they must go to www.facebook.com to do so.
+When you use social or enterprise identity providers, {{site.data.keyword.appid_short_notm}} never has access to a users account information. The service uses a token that is issued by the identity provider to verify that a user is who they say that they are. Because the service never has access to user information, users must go through their chosen identity provider to do any other actions such as resetting their password. For example, if a user signs into your app with Facebook, and then wanted to change their password, they must go to www.facebook.com to do so.
 
+When you use [Cloud Directory](/docs/services/appid/cloud-directory.html), {{site.data.keyword.appid_short_notm}} is the identity provider. The service uses your registry to verify your users identity. Because {{site.data.keyword.appid_short_notm}} is the provider, users can take advantage of advanced functionality, such as resetting their password, directly in your app.
 
-## Customizing the default sign-in screen
+</br>
+</br>
+
+## Customizing the default sign in screen
 {: #login-widget}
 
 {{site.data.keyword.appid_short_notm}} provides a default login screen that you can call if you don't have your own UI screens to display. You can customize the screen to display the logo and colors of your choice.
@@ -49,7 +53,7 @@ To customize the screen:
 5. Inspect the preview pane, and click **Save Changes** when you are happy with your customizations. A confirmation message is displayed.
 6. In your browser, refresh your login page to verify your changes.
 
-Don't forget! You can take advantage of App ID with other languages too. If you don't see an SDK for the language you're working in, you can alway use our APIs. Check out check out <a href="https://www.ibm.com/blogs/bluemix/tag/app-id/" target="blank">our blogs<img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
+Don't forget! You can take advantage of {{site.data.keyword.appid_short_notm}} with other languages too. If you don't see an SDK for the language you're working in, you can alway use the APIs. Check out check out <a href="https://www.ibm.com/blogs/bluemix/tag/app-id/" target="blank">our blogs<img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
 {: tip}
 
 </br>
@@ -137,7 +141,6 @@ Add a post route to your app that can be called with the username and password p
 
 `WebAppStrategy` allows users to sign in to your web apps with a username and password. After a successful login, a user's access token is stored in the HTTP session and is available during the session. After the HTTP session is destroyed or expired, the token is invalid.
 {: tip}
-
 
 
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-25"
+lastupdated: "2018-09-26"
 
 ---
 
@@ -22,80 +22,21 @@ Token validation is a very important part of modern app development. By validati
 For more information about how tokens are used in {{site.data.keyword.appid_short_notm}}, see [Understanding tokens](authorization.html#tokens).
 {: tip}
 
+**What is token validation?**
 
+Tokens are used to verify that a person is who they say that they are, as well as confirm any access permissions that the user might hold, for a specified period of time. When a user signs into your application and is issued a token, your app must validate the user before they are given access to your app. In general, the App ID SDKs handle both obtaining and validating your tokens.
 
-## Retrieving tokens from {{site.data.keyword.appid_short_notm}}
-{: #retrieve}
+**What if I'm working in a language that App ID doesn't have an SDK for?**
 
-To exchange your verified user information for {{site.data.keyword.appid_short_notm}} tokens, you can make a request to the [`/token` endpoint](https://appid-oauth.ng.bluemix.net/swagger-ui/#!/Authorization_Server_V3/token).
+Don't worry! You have two options:
 
-  ```
-  Post /token
-  Content-Type: application/x-www-from-urlencoded
-  grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer
-  assertion=<payload>
-  scope="<space separated scope array>"
-  ```
-  {: codeblock}
+* Use any OIDC compliant open source SDK.
+* Implement your own validation logic by using the App ID APIs.
 
-  <table>
-    <thead>
-      <th colspan=2><img src="images/idea.png" alt="More information icon"/> Request Construction</th>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Content-type</td>
-        <td><code>applications/x-www-from-urlencoded</code></td>
-      </tr>
-      <tr>
-        <td>grant_type</td>
-        <td><code>urn:ietf:params:oauth:grant-type:jwt-bearer</code></td>
-      </tr>
-      <tr>
-        <td>assertion</td>
-        <td>A JWS payload string.</td>
-      </tr>
-      <tr>
-        <td>scope</td>
-        <td>A white space separated list of your custom scopes.</td>
-      </tr>
-    </tbody>
-  </table>
-
-
-## Validating tokens remotely
-{: #remote-validation}
-
-By using introspection, you can use {{site.data.keyword.appid_short_notm}} to validate your tokens.
-{: shortdesc}
-
-1. Send a POST request to the [/introspect](https://appid-oauth.ng.bluemix.net/swagger-ui/#!/Authorization_Server_V3/introspect) API endpoint to validate your token. The request must contain the token and a basic authorization header which contains the client ID and secret.
-
-  Example Request:
-    ```
-    POST /oauth/v3/{tenant_id}/introspect HTTP/1.1
-    Host: appid-oauth.ng.bluemix.net
-    Content-Type: application/x-www-form-urlencoded
-    Authorization: Basic jdFlUaGlZUzAwTW0Tjk15TmpFMw==
-    Cache-Control: no-cache
-
-    token=XXXXX.YYYYY.ZZZZZ
-    ```
-    {: screen}
-
-2. The server checks the expiry and signature of the token and returns a JSON object that tells whether the token is active or inactive.
-
-  Example Response:
-    ```
-    {
-      "active": true
-    }
-    ```
-    {: screen}
+The second is a preferred solution, for most.
 
 </br>
 </br>
-
 
 ## Validating tokens locally
 {: #local-validation}
@@ -104,8 +45,10 @@ You can validate your tokens locally by parsing the token, verifying the token s
 {: shortdesc}
 
 
-1. Parse the tokens. The [JSON Web Token (JWT)](https://tools.ietf.org/html/rfc7519) is a standard way of securely passing information. It consists of 3 main parts: Header, Payload, and Signature. They are base64URL encoded and separated by a dot(.). You can use any base64URL decoder available to parse the token. Alternatively, you can use any of the [libraries listed](https://jwt.io/) to parse the token.
+1. Parse the tokens. The [JSON Web Token (JWT)](https://tools.ietf.org/html/rfc7519) is a standard way of securely passing information. It consists of 3 main parts: Header, Payload, and Signature. They are base64URL encoded and separated by a dot(.). You can use any base64URL decoder available to parse the token. Alternatively, you can use any of the [libraries listed](https://jwt.io/#libraries-io) to parse the token.
+
   Example encoded token:
+
     ```
     eyJhbGciOiJSUzI1NiIsInR5cCI6IkpPU0UiLCJraWQiOiJhMmszIn0
     .eyJpc3MiOiJhcHBpZC1vYXV0aCIsImF1ZCI6ImFiYzEyMyIsImV4cCI6MTU2NDU2Nn0
@@ -116,6 +59,7 @@ You can validate your tokens locally by parsing the token, verifying the token s
     {: screen}
 
   Example decoded header:
+
     ```
     {
       "alg": "RS256",
@@ -126,6 +70,7 @@ You can validate your tokens locally by parsing the token, verifying the token s
     {: screen}
 
   Decoded payload:
+
     ```
     {
       "iss": "appid-oauth",
@@ -136,7 +81,9 @@ You can validate your tokens locally by parsing the token, verifying the token s
     {: screen}
 
 2. Retrieve your public keys by making a call to the [/publickeys endpoint](https://appid-oauth.ng.bluemix.net/swagger-ui/#!/Authorization_Server_V3/publicKeys). The public keys that are returned are formatted as [JSON Web Keys (JWK)](https://tools.ietf.org/html/rfc7517).
+
   Example Request:
+
     ```
     GET /oauth/v3/{tenant_id}/publickeys HTTP/1.1
     Host: appid-oauth.ng.bluemix.net
@@ -146,7 +93,10 @@ You can validate your tokens locally by parsing the token, verifying the token s
 
 3. Store the keys in your app cache for future use. This speeds up the process and prevents network delay if an additional call is made.
 
-4. Import the public key parameters. Example Response:
+4. Import the public key parameters.
+
+  Example Response:
+
     ```]
     {
       "keys": [
@@ -161,6 +111,7 @@ You can validate your tokens locally by parsing the token, verifying the token s
     }
     ```
     {: screen}
+
   <table>
     <thead>
       <th colspan=2><img src="images/idea.png" alt="More information icon"/> Public key parameters </th>
@@ -219,3 +170,38 @@ You can validate your tokens locally by parsing the token, verifying the token s
       </tr>
     </tbody>
   </table>
+
+## Validating tokens remotely
+{: #remote-validation}
+
+By using introspection, you can use {{site.data.keyword.appid_short_notm}} to validate your tokens.
+{: shortdesc}
+
+1. Send a POST request to the [/introspect](https://appid-oauth.ng.bluemix.net/swagger-ui/#!/Authorization_Server_V3/introspect) API endpoint to validate your token. The request must contain the token and a basic authorization header which contains the client ID and secret.
+
+  Example Request:
+
+    ```
+    POST /oauth/v3/{tenant_id}/introspect HTTP/1.1
+    Host: appid-oauth.ng.bluemix.net
+    Content-Type: application/x-www-form-urlencoded
+    Authorization: Basic jdFlUaGlZUzAwTW0Tjk15TmpFMw==
+    Cache-Control: no-cache
+
+    token=XXXXX.YYYYY.ZZZZZ
+    ```
+    {: screen}
+
+2. The server checks the expiry and signature of the token and returns a JSON object that tells whether the token is active or inactive.
+
+  Example Response:
+
+    ```
+    {
+      "active": true
+    }
+    ```
+    {: screen}
+
+</br>
+</br>
