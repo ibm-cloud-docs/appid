@@ -38,6 +38,7 @@ IBM Cloud App ID
     Storing and accessing user profiles
         user-profile.md
         predefined.md
+        pre-sign-in.md
         custom-attributes.md
 
     tokens.md
