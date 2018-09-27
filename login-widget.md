@@ -17,10 +17,10 @@ lastupdated: "2018-09-27"
 # Displaying the Login Widget
 {: #default}
 
-{{site.data.keyword.appid_full}} provides a Login Widget that lets you give your users secure sign-in options.
+{{site.data.keyword.appid_full}} provides a Login Widget that lets you give your users secure sign in options.
 {: shortdesc}
 
-When your app is configured to use an identity provider, visitors to your app are directed to a sign in screen by the Login Widget. With the Login Widget you can display a preconfigured screens for your sign in flows. As an added bonus, you can update your sign in flow at any time, without changing your source code in any way!
+When your app is configured to use an identity provider, visitors to your app are directed to a sign in screen by the Login Widget. With the Login Widget you can display a preconfigured screens for your sign in flows. As an added bonus, you can update your sign in flow at any time without changing your source code in any way!
 
 Want to create an experience that's unique to your app? You can [bring your own screens](/docs/services/appid/branded.html)!
 {: tip}
@@ -34,11 +34,11 @@ You can take advantage of {{site.data.keyword.appid_short_notm}}, even without y
 
 **What is the default?**
 
- By default, when only one provider is set to **On**, visitors are redirected to that identity providers authentication screen. But, when more than one identity provider is configured, the user is redirected to the Login Widget. There, the user can choose the identity provider that they want to sign in to your app with.
+By default, when only one provider is set to **On**, visitors are redirected to that identity providers authentication screen. But, when more than one identity provider is configured, the user is redirected to the Login Widget. There, the user can choose the identity provider that they want to sign in to your app with.
 
 **How much information does {{site.data.keyword.appid_short_notm}} obtain from an identity provider?**
 
-When you use social or enterprise identity providers, {{site.data.keyword.appid_short_notm}} never has access to a users account information. The service uses a token that is issued by the identity provider to verify that a user is who they say that they are. Because the service never has access to user information, users must go through their chosen identity provider to do any other actions such as resetting their password. For example, if a user signs into your app with Facebook, and then wanted to change their password, they must go to www.facebook.com to do so.
+When you use social or enterprise identity providers, {{site.data.keyword.appid_short_notm}} never has write access to a users account information. The service uses a token or the assertions that are returned by the identity provider to verify that a user is who they say that they are. Because the service never has write access to the information, users must go through their chosen identity provider to do actions, such as resetting their password. For example, if a user signs into your app with Facebook, and then wanted to change their password, they must go to www.facebook.com to do so.
 
 When you use [Cloud Directory](/docs/services/appid/cloud-directory.html), {{site.data.keyword.appid_short_notm}} is the identity provider. The service uses your registry to verify your users identity. Because {{site.data.keyword.appid_short_notm}} is the provider, users can take advantage of advanced functionality, such as resetting their password, directly in your app.
 
@@ -116,7 +116,6 @@ Don't forget! You can take advantage of {{site.data.keyword.appid_short_notm}} w
 
 You can call the preconfigured sign in screen with the Android SDK.
 {: shortdesc}
-
 
 Place the following command in your code.
 
