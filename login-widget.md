@@ -42,6 +42,8 @@ When you use social or enterprise identity providers, {{site.data.keyword.appid_
 
 When you use [Cloud Directory](/docs/services/appid/cloud-directory.html), {{site.data.keyword.appid_short_notm}} is the identity provider. The service uses your registry to verify your users identity. Because {{site.data.keyword.appid_short_notm}} is the provider, users can take advantage of advanced functionality, such as resetting their password, directly in your app.
 
+**What kind of screens can be displayed for each type of provider?**
+
 Check out the following table to see which screens you can display for each type of identity provider.
 
 <table>
