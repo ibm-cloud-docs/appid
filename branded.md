@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-20"
+lastupdated: "2018-09-27"
 
 ---
 
@@ -26,12 +26,12 @@ When you reuse your existing UIs, you can create a cohesive sign in flow for you
 
 To display your own UIs, you must use Cloud Directory as your identity provider. There are several different ways that Cloud Directory can be [configured](cloud-directory.html). You can decide the types of messages that you want to send, and customize the content and design. Don't know what to say? Not a problem. There's are example messages in the GUI that you can use.
 
-Want to use a [language](cloud-directory.html#languages) other than English? You can choose another language by using the <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/updateLocalization" target="blank">language management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>, to display your own translated content.
+Want to use a [language](cloud-directory.html#languages) other than English? You can choose another language by using the <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/updateLocalization" target="_blank">language management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>, to display your own translated content.
 {: tip}
 
 **How are the flows technically different?**
 
-The service uses OAuth2 grant flows to map the authorization process. When you configure social identity providers such as Facebook, the <a href="https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html" target="_blank">Authorization Grant flow <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> is used to call the login widget. When you use your own screens, the <a href="https://oauthlib.readthedocs.io/en/stable/oauth2/grants/password.html" target="_blank">Resource Owner Password Credentials flow <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> is used to provide access and identity tokens that allow you to call the login widget.
+The service uses OAuth2 grant flows to map the authorization process. When you configure social identity providers such as Facebook, the <a href="https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html" target="_blank">Authorization Grant flow <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> is used to call the Login Widget. When you use your own screens, the <a href="https://oauthlib.readthedocs.io/en/stable/oauth2/grants/password.html" target="_blank">Resource Owner Password Credentials flow <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> is used to provide access and identity tokens that allow you to call your default screens.
 
 **Do you have any example apps that show how this works?**
 
@@ -71,123 +71,6 @@ With cloud directory enabled, you can call customized screens with the Android S
   ```
   {: pre}
 
-</br>
-
-**Sign up**
-
-1. Configure your Cloud Directory [settings](cloud-directory.html#cd-settings) in the GUI. Both **Allow users to sign-up to your app** and **Allow users to manage their account from your app** must be set to **On**.
-2. Add the following code to your app. When a user signs up for your app from your custom screen, the sign up flow is started. The following call not only registers the user, but also sends a verification email to complete the registration depending on your Cloud Directory configurations.
-
-  ```java
-  LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
-  loginWidget.launchSignUp(this, new AuthorizationListener() {
-      @Override
-      public void onAuthorizationFailure (AuthorizationException exception) {
-          //Exception occurred
-      }
-
-      @Override
-      public void onAuthorizationCanceled () {
-          //Sign up canceled by the user
-      }
-
-      @Override
-      public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, RefreshToken refreshToken) {
-          if (accessToken != null && identityToken != null) {
-              //User authenticated
-          } else {
-              //email verification is required
-          }
-      }
-  });
-  ```
-  {: pre}
-
-</br>
-
-**Forgot password**
-
-1. Configure your Cloud Directory [settings](cloud-directory.html#cd-settings) in the GUI. **Allow users to manage their account from your app** must be set to **On**.
-2. In the **Reset Password** tab of the service dashboard, be sure that **Forgot password email** is set to **On**.
-3. Add the following code to your app. When a user clicks "forgot password" in your application, the SDK calls the forgot_password API to send an email to the user that allows them to reset their password.
-
-  ```java
-  LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
-  loginWidget.launchForgotPassword(this, new AuthorizationListener() {
-      @Override
-   	public void onAuthorizationFailure (AuthorizationException exception) {
-          //Exception occurred
-      }
-
-      @Override
-      public void onAuthorizationCanceled () {
-          // Forogt password canceled by the user
-      }
-
-      @Override
-      public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, RefreshToken refreshToken) {
-          // Forgot password finished, in this case accessToken and identityToken will be null.
-      }
-  });
-  ```
-  {: codeblock}
-
-</br>
-
-**Change details**
-
-1. Configure your Cloud Directory [settings](cloud-directory.html#cd-settings) in the GUI. Both **Allow users to sign-up to your app** and **Allow users to manage their account from your app** must be set to **On**.
-2. In the **Password changed** tab of the service dashboard, set **Password changed email** to
-3. Call the login widget to start the change details flow.
-
-  ```java
-  LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
-  loginWidget.launchChangeDetails(this, new AuthorizationListener() {
-      @Override
-      public void onAuthorizationFailure (AuthorizationException exception) {
-          // Exception occurred
-      }
-
-      @Override
-      public void onAuthorizationCanceled () {
-          // Changed details canceled by the user
-      }
-
-      @Override
-      public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, RefreshToken refreshToken) {
-          // User authenticated, and fresh tokens received
-      }
-  });
-  ```
-  {: codeblock}
-
-</br>
-
-**Change password**
-
-1. Configure your Cloud Directory [settings](cloud-directory.html#cd-settings) in the GUI. Both **Allow users to sign-up to your app** and **Allow users to manage their account from your app** must be set to **On**.
-2. Place the following code in your app to start the change password flow.
-
-  ```java
-  LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
-  loginWidget.launchChangePassword(this, new AuthorizationListener() {
-      @Override
-      public void onAuthorizationFailure (AuthorizationException exception) {
-          // Exception occurred
-      }
-
-      @Override
-      public void onAuthorizationCanceled () {
-          // Change password canceled by the user
-      }
-
-      @Override
-      public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, RefreshToken refreshToken) {
-          // User authenticated, and fresh tokens received
-      }
-  });
-  ```
-  {: codeblock}
 
 </br>
 </br>
@@ -203,7 +86,7 @@ With Cloud Directory enabled, you can call your own branded screens with the [iO
 **Sign in**
 
 1. Configure your Cloud Directory [settings](cloud-directory.html#cd-settings) in the GUI.
-2. Place the following code in your application. When a user attempts to sign in, the login widget is called and the authorization and authentication process starts with your customized sign in page.
+2. Place the following code in your application. When a user attempts to sign in, your sign in screen is called and the authorization and authentication process starts with your customized sign in page.
 
   ```swift
   class delegate : TokenResponseDelegate {
@@ -217,116 +100,6 @@ With Cloud Directory enabled, you can call your own branded screens with the [iO
   }
 
   AppID.sharedInstance.signinWithResourceOwnerPassword(username: username, password: password, delegate: delegate())
-  ```
-  {: codeblock}
-
-</br>
-
-**Sign up**
-
-1. Configure your Cloud Directory [settings](cloud-directory.html#cd-settings) in the GUI. Both **Allow users to sign-up to your app** and **Allow users to manage their account from your app** must be set to **On**.
-2. Place the following code in your application. When a user attempts to sign up for your application, the login widget is called and displays your custom sign up page.
-
-  ```swift
-  class delegate : AuthorizationDelegate {
-    public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, refreshToken: RefreshToken?, response:Response?) {
-       if accessToken == nil && identityToken == nil {
-        //email verification is required
-        return
-       }
-     //User authenticated
-    }
-
-    public func onAuthorizationCanceled() {
-        //Sign up canceled by the user
-    }
-
-    public func onAuthorizationFailure(error: AuthorizationError) {
-        //Exception occurred
-    }
-  }
-
-  AppID.sharedInstance.loginWidget?.launchSignUp(delegate: delegate())
-  ```
-  {: codeblock}
-
-</br>
-
-**Forgot password**
-
-1. Configure your Cloud Directory [settings](cloud-directory.html#cd-settings) in the GUI. **Allow users to manage their account from your app** must be set to **On**.
-2. In the **Reset Password** tab of the service dashboard, be sure that **Forgot password email** is set to **On**.
-3. Place the following code in your application. When a user requests that their password to your app be updated, the login widget is called and the  process starts.
-
-  ```swift
-  class delegate : AuthorizationDelegate {
-     public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, refreshToken: RefreshToken?, response:Response?) {
-        //forgot password finished, in this case accessToken and identityToken will be null.
-     }
-
-     public func onAuthorizationCanceled() {
-         //forgot password canceled by the user
-     }
-
-     public func onAuthorizationFailure(error: AuthorizationError) {
-         //Exception occurred
-     }
-  }
-
-  AppID.sharedInstance.loginWidget?.launchForgotPassword(delegate: delegate())
-  ```
-  {: codeblock}
-
-</br>
-
-**Change details**
-
-1. Configure your Cloud Directory [settings](cloud-directory.html#cd-settings) in the GUI. Both **Allow users to sign-up to your app** and **Allow users to manage their account from your app** must be set to **On**.
-2. In the **Password changed** tab of the service dashboard, set **Password changed email** to
-3. Call the login widget to start the change details flow.
-
-  ```swift
-  class delegate : AuthorizationDelegate {
-      public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, refreshToken: RefreshToken?, response:Response?) {
-         //User authenticated, and fresh tokens received
-      }
-
-      public func onAuthorizationCanceled() {
-          //changed details canceled by the user
-      }
-
-      public func onAuthorizationFailure(error: AuthorizationError) {
-          //Exception occurred
-      }
-  }
-
-  AppID.sharedInstance.loginWidget?.launchChangeDetails(delegate: delegate())
-  ```
-  {: codeblock}
-
-</br>
-
-**Change password**
-
-1. Configure your Cloud Directory [settings](cloud-directory.html#cd-settings) in the GUI. Both **Allow users to sign-up to your app** and **Allow users to manage their account from your app** must be set to **On**.
-2. Place the following code in your app to start the change password flow.
-
-  ```swift
-  class delegate : AuthorizationDelegate {
-      public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, refreshToken: RefreshToken?, response:Response?) {
-          //User authenticated, and fresh tokens received
-      }
-
-      public func onAuthorizationCanceled() {
-          //change password canceled by the user
-      }
-
-      public func onAuthorizationFailure(error: AuthorizationError) {
-           //Exception occurred
-      }
-   }
-
-   AppID.sharedInstance.loginWidget?.launchChangePassword(delegate: delegate())
   ```
   {: codeblock}
 
@@ -346,7 +119,7 @@ By using the WebAppStrategy users can sign in to your web apps with their userna
 
 
 1. Configure your Cloud Directory [settings](cloud-directory.html#cd-settings) in the GUI.
-2. Place the following code in your application. When a user attempts to sign in, the login widget is called and the authorization and authentication process starts with your customized sign in page.
+2. Place the following code in your application. When a user attempts to sign in, your sign in screen is called and the authorization and authentication process starts with your customized sign in page.
 
   ```javascript
   app.post("/form/submit", bodyParser.urlencoded({extended: false}), passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
@@ -378,69 +151,6 @@ By using the WebAppStrategy users can sign in to your web apps with their userna
   </table>
 
 **Note**: If you submit the request in HTML, you can use <a href="https://www.npmjs.com/package/body-parser" target="blank">body parser <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> middleware. To see the returned error message you can use <a href="https://www.npmjs.com/package/connect-flash" target="blank">connect-flash <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>. To see it in action, check out the <a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs/blob/master/samples/web-app-sample.js" target="blank">web app sample <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
-
-</br>
-
-**Sign up**
-
-1. Configure your Cloud Directory [settings](cloud-directory.html#cd-settings) in the GUI. Both **Allow users to sign-up to your app** and **Allow users to manage their account from your app** must be set to **On**.
-2. Place the following code in your application. When a user attempts to sign up for your application, the login widget is called and displays your custom sign up page.
-
-  ```javascript
-  app.get("/sign_up", passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
-  	successRedirect: LANDING_PAGE_URL,
-  	show: WebAppStrategy.SIGN_UP
-  }));
-  ```
-  {: codeblock}
-
-</br>
-
-**Forgot password**
-
-1. Configure your Cloud Directory [settings](cloud-directory.html#cd-settings) in the GUI. **Allow users to manage their account from your app** must be set to **On**.
-2. In the **Reset Password** tab of the service dashboard, be sure that **Forgot password email** is set to **On**.
-3. Place the following code in your application to pass the *show* property to `WebAppStrategy.FORGOT_PASSWORD`. When a user requests that their password to your app be updated, the login widget is called and the  process starts.
-
-  ```javascript
-  app.get("/forgot_password", passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
-  	successRedirect: LANDING_PAGE_URL,
-  	show: WebAppStrategy.FORGOT_PASSWORD
-  }));
-  ```
-  {: codeblock}
-
-</br>
-
-**Change details**
-
-1. Configure your Cloud Directory [settings](cloud-directory.html#cd-settings) in the GUI. Both **Allow users to sign-up to your app** and **Allow users to manage their account from your app** must be set to **On**.
-2. In the **Password changed** tab of the service dashboard, set **Password changed email** to
-3. Place the following code in your application to pass the *show* property to `WebAppStrategy.FORGOT_PASSWORD` to launch the change details form.
-
-  ```javascript
-  app.get("/change_details", passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
-  	successRedirect: LANDING_PAGE_URL,
-  	show: WebAppStrategy.CHANGE_DETAILS
-  }));
-  ```
-  {: codeblock}
-
-</br>
-
-**Change password**
-
-1. Configure your Cloud Directory [settings](cloud-directory.html#cd-settings) in the GUI. Both **Allow users to sign-up to your app** and **Allow users to manage their account from your app** must be set to **On**.
-2. In the **Password changed** tab of the service dashboard, set **Password changed email** to
-3. Place the following code in your application to pass the *show* property to `WebAppStrategy.FORGOT_PASSWORD` to launch the change details form.
-
-  ```javascript
-  app.get("/change_password", passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
-  	successRedirect: LANDING_PAGE_URL,
-  	show: WebAppStrategy.CHANGE_PASSWORD
-  }));
-  ```
-  {: codeblock}
 
 </br>
 </br>
