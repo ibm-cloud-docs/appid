@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-26"
+lastupdated: "2018-09-27"
 
 ---
 
@@ -16,8 +16,6 @@ lastupdated: "2018-09-26"
 
 # Configuring custom identity
 {: #custom-identity}
-
-In the “before you begin” section it would be nice to explain why RSA keys are required. something like “In order to establish trust between App ID and your custom identity provider….“.
 
 You can use your own custom identity provider when authenticating. Your identity provider can conform to any authentication mechanism alternate to those supported by {{site.data.keyword.appid_full}}, including proprietary.
 {: shortdesc}
