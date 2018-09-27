@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-25"
+lastupdated: "2018-09-27"
 
 ---
 
@@ -98,7 +98,7 @@ You must have the following prerequisites:
         secret: "123456",
         resave: true,
         saveUninitialized: true
-        }));
+    }));
     app.use(passport.initialize());
     app.use(passport.session());
     ```
@@ -124,7 +124,7 @@ You must have the following prerequisites:
           <th>Description</th>
         </tr>
       <tr>
-          <td><i>tenantID</i> </br> <i>clientID</i> </br> <i>secret</i> </br> <i>oauth-server-url</i> </br> </td>
+          <td><i>tenantId</i> </br> <i>clientId</i> </br> <i>secret</i> </br> <i>oauth-server-url</i> </br> </td>
           <td>You can find these values by clicking **View Credentials** in the **Service Credentials** tab of your service dashboard.</td>
       </tr>
       <tr>

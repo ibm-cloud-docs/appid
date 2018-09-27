@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-25"
+lastupdated: "2018-09-27"
 
 ---
 
@@ -87,13 +87,13 @@ You must have the following prerequisites before you can get started:
 
 **Initializing the SDK**
 
-You can initialize the SDK by using a `tenant ID` and `oauth server url`.
+You can initialize the SDK by using an `oauth server url`.
 
-1. Obtain your `tenant ID` and `oauth server url`.
+1. Obtain your `oauth server url`.
   1. Navigate to the **Service Credentials** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
   2. If you don't already have a set of credentials, click **New credential** and then click **Add** to create a new set. If you do, skip this step.
   3. Click the **View credentials** toggle to see your information.
-  4. Copy your `tenant ID` and the `oauth server url` to use in the next step.
+  4. Copy your `oauth server url` to use in the next step.
 
 2. Initialize the {{site.data.keyword.appid_short_notm}} passport strategy as shown in the following example.
 
@@ -101,8 +101,7 @@ You can initialize the SDK by using a `tenant ID` and `oauth server url`.
 var express = require('express'); 
 var passport = require('passport');
 var APIStrategy = require('ibmcloud-appid').APIStrategy; 
-passport.use(new APIStrategy({oauthServerUrl: "{oauth-server-url}",
-	tenantId: "{tenant-id}")}); 
+passport.use(new APIStrategy({ oauthServerUrl: "{oauth-server-url}" })); 
 var app = express();
 app.use(passport.initialize());
 ```
@@ -117,15 +116,15 @@ If your Node.js app runs on {{site.data.keyword.Bluemix_notm}} and is bound to y
 The following snippet demonstrates how to use `ApiStrategy` in an Express app to protect the `/protected` GET API.
 
 ```javascript
- app.get('/protected', passport.authenticate('APIStrategy.STRATEGY_NAME', {session: false }), function(request, response){
-    console.log("Securty context", request.securityContext);
+ app.get('/protected', passport.authenticate('APIStrategy.STRATEGY_NAME', { session: false }), function(request, response){
+    console.log("Security context", request.appIdAuthorizationContext);
     response.send(200, "Success!");
     }
  );
  ```
 {: codeblock}
 
-When the tokens are valid, the next middleware in the request chain is called and the `appIdAuthorizationContext` property is added to the request object. The property contains the original access and identity tokens, as well as decoded payload information.
+When the tokens are valid, the next middleware in the request chain is called and the `appIdAuthorizationContext` property is added to the request object. The property contains the original access and identity tokens, as well as the decoded payload information of the respective tokens.
 
 
 ## Protecting resources with the Swift SDK
