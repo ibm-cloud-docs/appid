@@ -97,15 +97,15 @@ You can initialize the SDK by using an `oauth server url`.
 
 2. Initialize the {{site.data.keyword.appid_short_notm}} passport strategy as shown in the following example.
 
-```javascript
-var express = require('express'); 
-var passport = require('passport');
-var APIStrategy = require('ibmcloud-appid').APIStrategy; 
-passport.use(new APIStrategy({ oauthServerUrl: "{oauth-server-url}" })); 
-var app = express();
-app.use(passport.initialize());
-```
-{: codeblock}
+  ```javascript
+  var express = require('express'); 
+  var passport = require('passport');
+  var APIStrategy = require('ibmcloud-appid').APIStrategy; 
+  passport.use(new APIStrategy({ oauthServerUrl: "{oauth-server-url}" })); 
+  var app = express();
+  app.use(passport.initialize());
+  ```
+  {: codeblock}
 
 
 If your Node.js app runs on {{site.data.keyword.Bluemix_notm}} and is bound to your instance of {{site.data.keyword.appid_short_notm}}, there's no need to provide the API strategy configuration. The {{site.data.keyword.appid_short_notm}} configuration obtains the information by using the VCAP_SERVICES environment variable.
@@ -115,14 +115,14 @@ If your Node.js app runs on {{site.data.keyword.Bluemix_notm}} and is bound to y
 
 The following snippet demonstrates how to use `ApiStrategy` in an Express app to protect the `/protected` GET API.
 
-```javascript
- app.get('/protected', passport.authenticate('APIStrategy.STRATEGY_NAME', { session: false }), function(request, response){
-    console.log("Security context", request.appIdAuthorizationContext);
-    response.send(200, "Success!");
-    }
- );
- ```
-{: codeblock}
+  ```javascript
+   app.get('/protected', passport.authenticate('APIStrategy.STRATEGY_NAME', { session: false }), function(request, response){
+      console.log("Security context", request.appIdAuthorizationContext);
+      response.send(200, "Success!");
+      }
+   );
+   ```
+  {: codeblock}
 
 When the tokens are valid, the next middleware in the request chain is called and the `appIdAuthorizationContext` property is added to the request object. The property contains the original access and identity tokens, as well as the decoded payload information of the respective tokens.
 
@@ -197,4 +197,4 @@ if #available(OSX 10.12, *) {
 {: secure-api}
 
 Securing your backend apps and protected resources involves validating tokens. There are
-several ways to validate the {{site.data.keyword.appid_short_notm}} access and identity tokens. For help validating tokens, check out [Validate tokens](tokens.html).
+several ways to validate the {{site.data.keyword.appid_short_notm}} access and identity tokens. For help validating tokens, check out [Validating tokens](/docs/services/appid/tokens.html).

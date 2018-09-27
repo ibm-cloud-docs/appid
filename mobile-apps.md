@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-25"
+lastupdated: "2018-09-27"
 
 ---
 
@@ -161,44 +161,6 @@ You must have the following prerequisites prior to getting started:
     {: codeblock}
 
 </br>
-
-**Starting the authorization flow**
-
-1. Define an AuthorizationListener to handle authentication flow events.
-
-  ```java
-  AuthorizationListener listener = new AuthorizationListener() {
-      @Override
-      public void onAuthorizationFailure (AuthorizationException exception) {
-          //Exception occurred
-      }
-
-      @Override
-      public void onAuthorizationCanceled () {
-          //Authentication canceled by the user
-      }
-
-      @Override
-      public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, RefreshToken refreshToken) {
-          //User authenticated
-      }
-  });
-  ```
-  {: codeblock}
-
-2. Start an authorization flow by using the LoginWidget.
-
-  ```java
-  AppID.getInstance().getLoginWidget().launch(this, listener);
-  ```
-  {: codeblock}
-
-Check out our other documentation to learn more about [managing the user sign-in experience](/docs/services/appid/login-widget.html#default)!
-{: tip}
-
-Now, you're ready to configure your identity providers and start authenticating users! For more information on the Android SDK, see the <a href="https://github.com/ibm-cloud-security/appid-clientsdk-android" target="blank">{{site.data.keyword.appid_short_notm}} Android GitHub repository<img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
-
-</br>
 </br>
 
 ## Authenticating with the iOS Swift SDK
@@ -283,41 +245,6 @@ The {{site.data.keyword.appid_short_notm}} client SDK is distributed with CocoaP
   }
   ```
   {: codeblock}
-
-</br>
-
-**Starting the authorization flow**
-
-1. Create an AuthorizationDelegate class in your application
-
-    ```swift
-    class Delegate: AuthorizationDelegate {
-        public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, refreshToken: RefreshToken?, response:Response?) {
-            //User authenticated
-        }
-
-        public func onAuthorizationCanceled() {
-            //Authentication canceled by the user
-        }
-
-        public func onAuthorizationFailure(error: AuthorizationError) {
-            //Exception occurred
-        }
-    }
-    ```
-    {: codeblock}
-
-2. Launch the login widget from your controller.
-
-    ```swift
-    AppID.sharedInstance.loginWidget?.launch(delegate: Delegate())
-    ```
-    {: codeblock}
-
-Check out our other documentation to learn more about [managing the user sign-in](/docs/services/appid/login-widget.html#default) experience!
-{: tip}
-
-Now, you're ready to configure your identity providers and start authenticating users! For more information about the iOS SDK, see the <a href="https://github.com/ibm-cloud-security/appid-clientsdk-swift" target="blank">{{site.data.keyword.appid_short_notm}} iOS GitHub repository <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
 
 </br>
 </br>
@@ -414,3 +341,16 @@ Example request format:
   Authorization: Bearer <access token> <optional identity token>
   ```
   {: screen}
+
+</br>
+</br>
+
+## Next steps
+{: #next}
+
+With App ID installed in your application, you're almost ready to start authenticating users! Try doing one of the following activities next:
+
+* Configure your [identity providers](/docs/services/appid/identity-providers.html)
+* Customize and configure [the Login Widget](/docs/services/appid/login-widget.html)
+* Learn more about the <a href="https://github.com/ibm-cloud-security/appid-clientsdk-android" target="_blank">Android SDK<img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
+* Learn more about the <a href="https://github.com/ibm-cloud-security/appid-clientsdk-swift" target="_blank">iOS SDK<img src="../../icons/launch-glyph.svg" alt="External link icon"></a>

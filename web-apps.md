@@ -67,7 +67,7 @@ You must have the following prerequisites:
 * Your redirect URI set in the {{site.data.keyword.appid_short_notm}} service dashboard
 
 
-### Installing the Node.js SDK
+### Installing the SDK
 
 1. By using the command line, change to the directory that contains your Node.js app.
 
@@ -77,7 +77,7 @@ You must have the following prerequisites:
   ```
   {: codeblock}
 
-### Initialize Node SDK
+### Initializing the SDK
 
 1. Add the following `require` definitions to your `server.js` file.
 
@@ -289,6 +289,22 @@ You can configure {{site.data.keyword.appid_short_notm}} to work with your Liber
   ```
   {: codeblock}
 
+</br>
+</br>
+
 ## Using {{site.data.keyword.appid_short_notm}} with other languages
+{: #other}
 
 With an OIDC compliant client SDK, you can use {{site.data.keyword.appid_short_notm}} with other languages. Check out a list of <a href="https://openid.net/developers/certified/">certified libraries</a> for more information.
+
+</br>
+</br>
+
+## Next steps
+{: #next}
+
+With App ID installed in your application, you're almost ready to start authenticating users! Try doing one of the following activities next:
+
+* Configure your [identity providers](/docs/services/appid/identity-providers.html)
+* Customize and configure [the Login Widget](/docs/services/appid/login-widget.html)
+* Learn more about the <a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs" target="_blank">Node.js SDK<img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
