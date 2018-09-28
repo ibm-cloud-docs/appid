@@ -27,6 +27,7 @@ IBM Cloud App ID
         custom-auth.md
         progressive.md
         protecting-resources-local.md
+        tokens.md
 
     {: .topicgroup}
     Managing the sign in experience
@@ -40,7 +41,6 @@ IBM Cloud App ID
         custom-attributes.md
         pre-sign-in.md
 
-    tokens.md
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
