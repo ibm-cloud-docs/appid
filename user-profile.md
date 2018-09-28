@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-25"
+lastupdated: "2018-09-28"
 
 ---
 
@@ -40,7 +40,7 @@ There are different ways in which you can access user profile information. After
 
 For more information about identity and access tokens, see [Understanding tokens](/docs/services/appid/authorization.html#tokens) or [Validating tokens](/docs/services/appid/tokens.html).
 
-![{{site.data.keyword.appid_short_notm}} user profile architecture](/images/user-profile1.png)
+![{{site.data.keyword.appid_short_notm}} user profile architecture](images/user-profile1.png)
 
 Figure. User profile information flow
 

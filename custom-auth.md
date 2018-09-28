@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-26"
+lastupdated: "2018-09-28"
 
 ---
 
@@ -13,13 +13,11 @@ lastupdated: "2018-09-26"
 {:screen: .screen}
 {:codeblock: .codeblock}
 
-# Adding custom identity to your app
+# Using custom identity in your app
 {: #custom-identity}
 
-You can use your own custom identity provider when authenticating. Your identity provider can conform to any authentication mechanism alternate to those supported by {{site.data.keyword.appid_full}}, including proprietary.
+You can use your own custom identity provider when authenticating. Your identity provider can conform to any authentication mechanism alternate to those supported by {{site.data.keyword.appid_full}}, including proprietary or legacy.
 {: shortdesc}
-
-When {{site.data.keyword.appid_short_notm}} does not provide direct support for a particular identity provider, you can use the custom identity flow to bridge the authentication protocol to {{site.data.keyword.appid_short_notm}}'s existing authentication flow. For example, you want to use GitHub or LinkedIn to allow your users to sign in. You can use the identity providers existing SDK to facilitate user authentication information before packaging and exchanging it with {{site.data.keyword.appid_short_notm}}. In many enterprise scenarios, a legacy identity provider might use its own custom authentication protocol, but you still want to leverage the capabilities of {{site.data.keyword.appid_short_notm}}. For this type of scenario, the custom identity flow provides a decoupled means of securely authenticating your users without exposing their credentials.
 
 ## Overview
 {: #overview}
@@ -31,7 +29,7 @@ By bringing your own identity provider you can create a custom authentication fl
 
 **When would I want to use this flow?**
 
-When you have an authentication protocol that is unique to your application and not supported by {{site.data.keyword.appid_short_notm}}, you can leverage custom identity to incorporate {{site.data.keyword.appid_short_notm}} into your application.
+When {{site.data.keyword.appid_short_notm}} does not provide direct support for a particular identity provider, you can use the custom identity flow to bridge the authentication protocol to {{site.data.keyword.appid_short_notm}}'s existing authentication flow. For example, you want to use GitHub or LinkedIn to allow your users to sign in. You can use the identity provider's existing SDK to facilitate user authentication information before packaging and exchanging it with {{site.data.keyword.appid_short_notm}}.
 
 There are many scenarios where a different authentication flow is necessary:
 
@@ -39,7 +37,7 @@ There are many scenarios where a different authentication flow is necessary:
  - Third party identity providers 
  - Complicated authentication flows, which can include proprietary multi-factor mechanisms 
 
-Unlike other {{site.data.keyword.appid_short_notm}} flows, the custom identity flow completely decouples authentication from authorization which allows you to adopt _any_ authentication mechanism of your choice and then provide the resulting authentication information to {{site.data.keyword.appid_short_notm}}.
+Occasionally, a legacy provider might use their own custom authentication protocol. Because the custom identity flow completely decouples authentication from authorization you can adopt any authentication mechanism of your choice and then provide the resulting authentication information to {{site.data.keyword.appid_short_notm}}. All without exposing a users credentials.
 
 </br>
 
@@ -49,27 +47,20 @@ The custom identity workflow is built on the the JWT-Bearer extension grant type
 
 </br>
 
-**Deciding on your trust architecture**
+**What does the flow looks like?**
 
 As with all authentication flows, custom identity requires that the application is capable of establishing a degree of trust with {{site.data.keyword.appid_short_notm}} to ensure the integrity of identity provider user information. Custom identity employs an asymmetric RSA public/private key pair to establish its trust relationship. Depending on your architectural requirements, custom identity supports two trust models differing only in the storage location and usage of the private key.
 
-</br>
 
-**What does the flow looks like?**
-
-![Custom authentication request flow](/docs/services/appid/images/customauth.png)
+![Custom authentication request flow](images/customauth.png)
 Figure. The request flows for custom authentication
 
-
-**1. Identity provider signed**
-
-Just as with traditional OAuth 2.0 flows, the most secure trust model creates a relationship between your identity provider and authorization server; in this case {{site.data.keyword.appid_short_notm}}) directly. Under this model, your identity provider is responsible for storing the private key and signing JWT assertions. When passed to {{site.data.keyword.appid_short_notm}}, these assertions are validated with the matching public key which ensures that the user information from your identity provider has not been maliciously altered during transport.
-
-</br>
-
-**2. Application signed**
-
-Alternatively, you can base your trust model on the relationship between your app and {{site.data.keyword.appid_short_notm}}. In this workflow, your private key is stored in your server-side application. After a successful authentication, your app is responsible for converting the identity providers response into a JWT and signing it with its private key before sending it to {{site.data.keyword.appid_short_notm}}. Since this identity provider has no relationship with {{site.data.keyword.appid_short_notm}}, this architecture creates a weaker trust model. Although {{site.data.keyword.appid_short_notm}} can trust the information sent by the server-side application, it cannot be certain the data was the original sent by the identity provider.
+<dl>
+  <dt>1. Identity provider signed</dt>
+    <dd>Just as with traditional OAuth 2.0 flows, the most secure trust model creates a relationship between your identity provider and authorization server; in this case {{site.data.keyword.appid_short_notm}}) directly. Under this model, your identity provider is responsible for storing the private key and signing JWT assertions. When passed to {{site.data.keyword.appid_short_notm}}, these assertions are validated with the matching public key which ensures that the user information from your identity provider has not been maliciously altered during transport.</dd>
+  <dt>2. Application signed</dt>
+    <dd>Alternatively, you can base your trust model on the relationship between your app and {{site.data.keyword.appid_short_notm}}. In this workflow, your private key is stored in your server-side application. After a successful authentication, your app is responsible for converting the identity providers response into a JWT and signing it with its private key before sending it to {{site.data.keyword.appid_short_notm}}. Since this identity provider has no relationship with {{site.data.keyword.appid_short_notm}}, this architecture creates a weaker trust model. Although {{site.data.keyword.appid_short_notm}} can trust the information sent by the server-side application, it cannot be certain the data was the original sent by the identity provider.</dd>
+</dl>
 
 </br>
 
@@ -138,7 +129,7 @@ Token payload:
     </tr>
     <tr>
       <td>Normalized claims</td>
-      <td>All [normalized claims](/docs/services/appid/user-profile.html#identity) are provided in the identity token that is returned in response to this request. Additional custom claims can be found by using the [user info endpoint](/docs/services/appid/user-profile.html#accessing-user).</td>
+      <td>All [normalized claims](/docs/services/appid/authorization.html#tokens) are provided in the identity token that is returned in response to this request. Additional custom claims can be found by using the [user info endpoint](/docs/services/appid/custom-attributes.html).</td>
     </tr>
     <tr>
       <td>Scope</td>

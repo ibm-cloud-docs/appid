@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-27"
+lastupdated: "2018-09-28"
 
 ---
 
@@ -15,7 +15,7 @@ lastupdated: "2018-09-27"
 # Branding your app
 {: #branding}
 
-You can display your own customized screens and take advantage of the authentication and authorization capabilities of {{site.data.keyword.appid_full}}. With Cloud Directory as your identity provider, your users are able to interact with your app with less help from you. They're able to sign in, sign up, change their password, and more without asking for help.
+You can display your own customized screens, use your own sign in flows, and take advantage of the authentication and authorization capabilities of {{site.data.keyword.appid_full}}. With Cloud Directory as your identity provider, your users are able to interact with your app with less help from you. They're able to sign in, sign up, change their password, and more without asking for help.
 {: shortdesc}
 
 **Why would I want to display my own screens?**
@@ -177,12 +177,13 @@ Supply the following data in the request body:
     * A `password` attribute.
     * In the email array with a `primary` attribute that is set to `true`, you must have at least 1 email address.
 
-Depending on your [email configuration](/docs/services/appid/cloud-directory.html), a user might receive a request for verification, an email that welcomes them when they sign up for you app, or both. Both types of emails are triggered when a user signs up for your app. The verification email contains a link that the user can click to confirm their identity; a screen is displayed by {{site.data.keyword.appid_short_notm}} that thanks them for verifying.  
+Depending on your [email configuration](/docs/services/appid/cloud-directory.html), a user might receive a request for verification, an email that welcomes them when they sign up for you app, or both. Both types of emails are triggered when a user signs up for your app. The verification email contains a link that the user can click to confirm their identity; a screen is displayed, that thanks them for verifying or confirms that their verification is complete.  
 
-You can present your own post verification page:
+To present your own post verification page:
 
-1. Navigate to the **Custom Landing Pages** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
-2. Input the URL for your landing page in the **URL for your custom email address verification page**
+1. Navigate to the Cloud Directory identity provider in the {site.data.keyword.appid_short_notm}} dashboard.
+2. Click the **Email verification** tab.
+3. In the **custom verification page URL** input the URL for your landing page.
 
 When this value is provided, {{site.data.keyword.appid_short_notm}} calls the URL along with a `context` query. When you call the `/sign_up/confirmation_result` endpoint and pass the received `context` parameter, the result tells you whether your user has verified their account. If they have, then you can display your custom page.
 
@@ -243,7 +244,6 @@ Supply the following data in the request body:
   * The tenantID.
   * The template name
   * The cloud directory user UUID.
-
 
 **Change details**
 

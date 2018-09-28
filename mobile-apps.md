@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-27"
+lastupdated: "2018-09-28"
 
 ---
 
@@ -35,7 +35,7 @@ Following registration, your users authenticate using either the OAuth2 `authori
 
 **What does this flow look like?**
 
-![{{site.data.keyword.appid_short_notm}} app to app flow](/docs/services/appid/images/mobile-flow.png)
+![{{site.data.keyword.appid_short_notm}} app to app flow](images/mobile-flow.png)
 
 **Dynamic Client Registration**
 

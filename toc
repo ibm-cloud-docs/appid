@@ -26,20 +26,19 @@ IBM Cloud App ID
         backend-apps.md
         custom-auth.md
         progressive.md
+        protecting-resources-local.md
 
     {: .topicgroup}
     Managing the sign in experience
         login-widget.md
         branded.md
 
-    protecting-resources-local.md
-
     {: .topicgroup}
     Storing and accessing user profiles
         user-profile.md
         predefined.md
-        pre-sign-in.md
         custom-attributes.md
+        pre-sign-in.md
 
     tokens.md
     {: .navgroup-end}

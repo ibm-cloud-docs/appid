@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-27"
+lastupdated: "2018-09-28"
 
 ---
 
@@ -15,7 +15,7 @@ lastupdated: "2018-09-27"
 
 
 # Displaying the Login Widget
-{: #default}
+{: #login-widget}
 
 {{site.data.keyword.appid_full}} provides a Login Widget that lets you give your users secure sign in options.
 {: shortdesc}
@@ -34,11 +34,11 @@ You can take advantage of {{site.data.keyword.appid_short_notm}}, even without y
 
 **What is the default?**
 
-By default, when only one provider is set to **On**, visitors are redirected to that identity providers authentication screen. But, when more than one identity provider is configured, the user is redirected to the Login Widget. There, the user can choose the identity provider that they want to sign in to your app with.
+When more than one identity provider is configured, a user is redirected to the Login Widget when they try to sign in to your application. By using the Login Widget, users can choose the provider that they want to verify their identity with. But, when only one provider is set to **On**, visitors are redirected to that identity providers authentication screen.
 
 **How much information does {{site.data.keyword.appid_short_notm}} obtain from an identity provider?**
 
-When you use social or enterprise identity providers, {{site.data.keyword.appid_short_notm}} never has write access to a users account information. The service uses a token or the assertions that are returned by the identity provider to verify that a user is who they say that they are. Because the service never has write access to the information, users must go through their chosen identity provider to do actions, such as resetting their password. For example, if a user signs into your app with Facebook, and then wanted to change their password, they must go to www.facebook.com to do so.
+When you use social or enterprise identity providers, {{site.data.keyword.appid_short_notm}} has read access to a users account information. The service uses a token and the assertions that are returned by the identity provider to verify that a user is who they say that they are. Because the service never has write access to the information, users must go through their chosen identity provider to do actions, such as resetting their password. For example, if a user signs into your app with Facebook, and then wanted to change their password, they must go to www.facebook.com to do so.
 
 When you use [Cloud Directory](/docs/services/appid/cloud-directory.html), {{site.data.keyword.appid_short_notm}} is the identity provider. The service uses your registry to verify your users identity. Because {{site.data.keyword.appid_short_notm}} is the provider, users can take advantage of advanced functionality, such as resetting their password, directly in your app.
 
@@ -92,8 +92,8 @@ Check out the following table to see which screens you can display for each type
 </br>
 </br>
 
-## Customizing the default sign in screen
-{: #login-widget}
+## Customizing the Login Widget
+{: #customize}
 
 {{site.data.keyword.appid_short_notm}} provides a default login screen that you can call if you don't have your own UI screens to display. You can customize the screen to display the logo and colors of your choice.
 {: shortdesc}
@@ -107,14 +107,14 @@ To customize the screen:
 5. Inspect the preview pane, and click **Save Changes** when you are happy with your customizations. A confirmation message is displayed.
 6. In your browser, refresh your login page to verify your changes.
 
-Don't forget! You can take advantage of {{site.data.keyword.appid_short_notm}} with other languages too. If you don't see an SDK for the language you're working in, you can alway use the APIs. Check out check out <a href="https://www.ibm.com/blogs/bluemix/tag/app-id/" target="blank">our blogs<img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
+Don't forget! You can take advantage of {{site.data.keyword.appid_short_notm}} with other languages too. If you don't see an SDK for the language you're working in, you can alway use the APIs. Check out <a href="https://www.ibm.com/blogs/bluemix/tag/app-id/" target="blank">our blogs<img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
 {: tip}
 
 
 ## Displaying the Login Widget with the Android SDK
 {: #android}
 
-You can call the preconfigured sign in screen with the Android SDK.
+You can call preconfigured screens with the Android SDK.
 {: shortdesc}
 
 Place the following command in your code.
@@ -265,7 +265,7 @@ Place the following command in your code.
 ## Displaying the Login Widget with the iOS Swift SDK
 {: #ios-swift}
 
-You can call a preconfigured sign in screen with the iOS Swift SDK.
+You can call preconfigured screens with the iOS Swift SDK.
 {: shortdesc}
 
 Place the following command in your code.
@@ -406,7 +406,7 @@ Place the following command in your code.
 ## Displaying the Login Widget with the Node.js SDK
 {: #nodejs}
 
-You can call a preconfigured sign in screen with the Node.js SDK.
+You can call preconfigured screens with the Node.js SDK.
 {: shortdesc}
 
 Add a post route to your app that can be called with the username and password parameters and log in by using the resource owner password.
@@ -486,6 +486,6 @@ Add a post route to your app that can be called with the username and password p
   ```
   {: codeblock}
 
-</br>
+</br>x
 
 

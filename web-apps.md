@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-27"
+lastupdated: "2018-09-28"
 
 ---
 
@@ -31,7 +31,7 @@ Web apps often require users to authenticate in order to access protected conten
 
 **How does this flow work?**
 
-![{{site.data.keyword.appid_short_notm}} request flow](/docs/services/appid/images/web-flow.png)
+![{{site.data.keyword.appid_short_notm}} request flow](images/web-flow.png)
 
 1. A user initiates the authorization flow by sending a request to the `/authorization` endpoint via the {{site.data.keyword.appid_short_notm}} SDK or API.
 

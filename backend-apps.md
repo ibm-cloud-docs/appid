@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-27"
+lastupdated: "2018-09-28"
 
 ---
 
@@ -35,7 +35,7 @@ For more information about how tokens are used in {{site.data.keyword.appid_shor
 
 **What does this flow look like?**
 
-![{{site.data.keyword.appid_short_notm}} backend flow. Steps are listed in order following the image.](/docs/services/appid/images/backend-flow.png)
+![{{site.data.keyword.appid_short_notm}} backend flow. Steps are listed in order following the image.](images/backend-flow.png)
 
 1. A client makes a POST request to the {{site.data.keyword.appid_short_notm}} authorization server to obtain an access token. A POST request generally takes the following form:
 
@@ -193,7 +193,7 @@ if #available(OSX 10.12, *) {
 ```
 {: codeblock}
 
-## Protecting resources with the APIs
+## Protecting resources manually
 {: secure-api}
 
 Securing your backend apps and protected resources involves validating tokens. There are

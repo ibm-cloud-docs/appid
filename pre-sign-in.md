@@ -2,11 +2,11 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-26"
+lastupdated: "2018-09-28"
 
 ---
 
-{:new_window: target="blank"}
+{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:pre: .pre}
 {:tip: .tip}
@@ -22,10 +22,6 @@ With {{site.data.keyword.appid_full}}, you can start building a profile for user
 **Why would I want to add information about a user to my app before they sign in for the first time?**
 
 Consider an application where you use {{site.data.keyword.appid_short_notm}} to federate existing users from your SAML identity provider. You might want certain users to have `admin` access immediately upon signing into the application for the first time. To make this happen, you can use the preregistration endpoint to set a custom `admin` attribute for those users and grant them access to the administration console without any further action on your part. Be sure to consider the [security issues](#security) that can arise by changing the default setting.
-
-**Is there a limit to the amount of information that can be stored for each user?**
-
-You can store 100KB of information for each user.
 
 **How are users identified?**
 
@@ -103,8 +99,12 @@ Cloud Directory places additional requirements on its users.
 
 When you add user information to your application in advance, you can use any unique identifier that is provided by the authentication flow. The identifier must _exactly_ match the `sub` of the signed JSON Web Token that is sent during the authorization request. If the identifier does not match, then the profile that you want to add is not linked successfully.
 
+**Is there a limit to the amount of information that can be stored for each user?**
 
-### Security considerations
+You can store 100KB of information for each user.
+
+
+## Security considerations
 {: #security}
 
 Every user profile contains two types of user information:
@@ -122,14 +122,14 @@ To prevent your users from changing the attributes that you give them, set **Cha
 
 
 
-### Adding user information to your app
+## Adding user information to your app
 {: #add}
 
 Now that you've learned about the process and considered your security implications, try adding a user.
 
 **Before you begin:**
 
-To add custom attributes for a specific user by using the [/users](link to endpoint or swagger) Management API endpoint, you must know the following information:
+To add custom attributes for a specific user with the [/users](https://appid-management.ng.bluemix.net/swagger-ui/#!/Users/users_search_user_profile) Management API endpoint, you must know the following information:
 
 * Which identity provider that the user is going to use to sign in.
 * The user's unique identifier that is provided by the identity provider.
@@ -218,7 +218,7 @@ When a user signs into your app for the first time, {{site.data.keyword.appid_sh
 
 Keep in mind that a user's predefined attributes are empty until their first authentication, but the user is, for all intents and purposes, a fully authenticated user. You can use their unique ID just as you would someone who had already signed in. For instance, you can modify, search, or delete the profile.
 
-Now that you have associated a user with specific attributes, try setting up a [custom sign in page](custom.html) to streamline their experience!
+Now that you have associated a user with specific attributes, try [accessing attributes](/docs/services/appid/custom-attributes.html)!
 
 
 </br>

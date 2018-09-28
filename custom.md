@@ -2,11 +2,11 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-27"
+lastupdated: "2018-09-28"
 
 ---
 
-{:new_window: target="blank"}
+{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:pre: .pre}
 {:tip: .tip}
