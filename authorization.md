@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-12"
+lastupdated: "2018-09-28"
 
 ---
 
@@ -11,6 +11,9 @@ lastupdated: "2018-09-12"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:tip: .tip}
+
+
+
 
 # Key concepts
 {: #key-concepts}
@@ -87,7 +90,7 @@ These key terms can help you understand the way that the service breaks down the
 ## Understanding tokens
 {: #tokens}
 
-When a user is successfully authenticated, the application receives tokens from App ID. The service uses three main types of tokens to complete the authentication process.
+When a user is successfully authenticated, the application receives tokens from {{site.data.keyword.appid_short_notm}}. The service uses three main types of tokens to complete the authentication process.
 {: shortdesc}
 
 
@@ -161,11 +164,11 @@ Revoking the use of either method revokes all active refresh tokens that are ass
 
 **Where do the tokens come from?**
 
-Tokens are issued through the App ID OAuth Server and are formatted as [JSON Web Tokens (JWT)](https://jwt.io/introduction/). The tokens have been signed with a [JSON Web Key (JWK)](https://tools.ietf.org/html/rfc7517) with the RS256 algorithm.
+Tokens are issued through the {{site.data.keyword.appid_short_notm}} OAuth Server and are formatted as [JSON Web Tokens (JWT)](https://jwt.io/introduction/). The tokens have been signed with a [JSON Web Key (JWK)](https://tools.ietf.org/html/rfc7517) with the RS256 algorithm.
 
 **What happens to the information that the token contains?**
 
-The access token contains a set of standard JWT claims and a set of App ID specific claims such as a tenant ID. The identity token contains user specific information. The information in the tokens is stored as claims as part of a [user's profile](/docs/services/appid/user-profile.html).
+The access token contains a set of standard JWT claims and a set of {{site.data.keyword.appid_short_notm}} specific claims such as a tenant ID. The identity token contains user specific information. The information in the tokens is stored as claims as part of a [user's profile](/docs/services/appid/user-profile.html).
 
 **How are tokens received?**
 
@@ -180,32 +183,6 @@ Example request:
   ```
   {: screen}
 
-</br>
-</br>
 
-## How authorization and authentication work
-{: #authorization}
 
-When coding apps, one of the biggest concerns is security. How can you ensure that only users with the right access, are using your app? You use an authorization process. In most processes authorization and authentication are coupled together, which can make changing your security policies and identity providers complicated. With {{site.data.keyword.appid_short}}, authorization and authentication are separate processes.
-{: shortdesc}
 
-When you configure social identity providers such as Facebook, the [Oauth2 Authorization Grant flow](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html) is used to call the login widget. With cloud directory as your identity provider, the [Resource Owner Password Credentials flow](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/password.html) is used to provide access and identity tokens.
-
-![The path to becoming an identified user.](/images/authenticationtrail.png)
-
-When a user chooses to sign in, they become an identified user. The identity provider returns access and identity tokens to {{site.data.keyword.appid_short}} that contain information about the user. The service takes the provided tokens and determines whether a user has the proper credentials to access an app. If the tokens are validated, then the service authorizes the users access. The authentication information is associated with the user's record after they're authorized. The record and its attributes can be accessed again from any client that authenticates with the same identity.
-
-### Progressive authentication
-
-With {{site.data.keyword.appid_short_notm}}, an anonymous user can choose to become an identified user.
-
-When a user chooses not to sign in immediately, they are considered an anonymous user. As an example, a user might immediately start adding items to a shopping cart without signing in. For anonymous users, {{site.data.keyword.appid_short_notm}} creates an ad hoc user record and calls the OAuth login API that returns anonymous access and identity tokens. By using those tokens, the app can create, read, update, and delete the attributes that are stored in the user record.
-
-![The path to becoming an identified user when they start as anonymous.](/images/anon-authenticationtrail.png)
-
-When an anonymous user signs in, their access token is passed to the login API. The service authenticates the call with an identity provider. The service uses the access token to find the anonymous record and attaches the identity to it. The new access and identity tokens contain the public information that is shared by the identity provider. After a user is identified, their anonymous token becomes invalid. However, a user is still able to access their attributes because they're accessible with the new token.
-
-An identity can be assigned to an anonymous record only if it is not already assigned to another user.
-{: tip}
-
-If the identity is already associated with another {{site.data.keyword.appid_short_notm}} user, the tokens contain information of that user record and provide access to their attributes. The previous anonymous users attributes are not accessible through the new token. Until the token expires, the information can still be accessed through the anonymous access token. During development, you can choose how to merge the anonymous attributes to the known user.

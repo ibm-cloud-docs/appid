@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-07"
+lastupdated: "2018-09-13"
 
 ---
 
@@ -15,7 +15,7 @@ lastupdated: "2018-09-07"
 # Configuring social identity providers
 {: #setting-up-idp}
 
-With {{site.data.keyword.appid_full}}, you can configure social identity providers to set up a single sign-on experience for your app. By allowing a user to sign in with their social profiles, they no longer have to remember several different passwords for different applications. 
+With {{site.data.keyword.appid_full}}, you can configure social identity providers to set up a single sign-on experience for your app. By allowing a user to sign in with their social profiles, they no longer have to remember several different passwords for different applications.
 {: shortdesc}
 
 
@@ -42,7 +42,7 @@ To use Facebook as an identity provider, you must add and configure the website 
 2. Make note of the Facebook app ID and secret. These values are needed to configure your web project for authentication in your service dashboard.
 3. Add the web platform and enter the site URL.
 4. From the products list, select **Facebook Login**.
-5. In the Valid OAuth redirect URLs field, enter the authorization server callback endpoint URL.
+5. In the **Valid OAuth redirect URLs** field, enter the authorization server callback endpoint URL.
 6. Click **Save Changes**.
 
 
