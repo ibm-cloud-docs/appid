@@ -40,7 +40,6 @@ IBM Cloud App ID
         predefined.md
         custom-attributes.md
         pre-sign-in.md
-
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
