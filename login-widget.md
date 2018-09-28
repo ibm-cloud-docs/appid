@@ -486,6 +486,6 @@ Add a post route to your app that can be called with the username and password p
   ```
   {: codeblock}
 
-</br>x
+</br>
 
 
