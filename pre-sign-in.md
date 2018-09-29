@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-28"
+lastupdated: "2018-09-29"
 
 ---
 
@@ -73,12 +73,6 @@ Check out the following table to see which type of identity information that you
       <td> </td>
       <td> </td>
       <td><img src="images/confirm.png" width="32" alt="Feature available" style="width:32px;" /></td>
-    </tr>
-    <tr>
-      <td>IBMID</td>
-      <td> </td>
-      <td><img src="images/confirm.png" width="32" alt="Feature available" style="width:32px;" /></td>
-      <td> </td>
     </tr>
   </tbody>
 </table>
