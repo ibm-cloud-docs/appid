@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-28"
+lastupdated: "2018-10-02"
 
 ---
 
@@ -12,7 +12,7 @@ lastupdated: "2018-09-28"
 {:tip: .tip}
 {:screen: .screen}
 
-# Adding {{site.data.keyword.appid_short_notm}} to your backend apps
+# Backend apps
 {: #adding-backend}
 
 You can use the {{site.data.keyword.appid_full}} SDKs and APIs to protect your backend application endpoints and APIs.
