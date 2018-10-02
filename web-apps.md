@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-28"
+lastupdated: "2018-10-02"
 
 ---
 
@@ -13,7 +13,7 @@ lastupdated: "2018-09-28"
 {:screen: .screen}
 
 
-# Adding App ID to your web apps
+# Web apps
 {: #adding-web}
 
 With {{site.data.keyword.appid_full}}, you can quickly construct an authentication layer for your web applications.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-28"
+lastupdated: "2018-10-02"
 
 ---
 
@@ -12,7 +12,7 @@ lastupdated: "2018-09-28"
 {:tip: .tip}
 {:screen: .screen}
 
-# Adding {{site.data.keyword.appid_short}} to your mobile apps
+# Mobile apps
 {: #adding-mobile}
 
 With {{site.data.keyword.appid_full}}, you can quickly construct an authentication layer for your native or hybrid mobile app.
