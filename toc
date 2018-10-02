@@ -7,7 +7,18 @@ IBM Cloud App ID
     {: .navgroup id="learn"}
     index.md
     about.md
-    authorization.md
+    authorization.md<staging>
+
+    {: .topicgroup}
+    Use cases
+        web-use-case.md
+        backend-use-case.md
+        single-page-use-case.md
+        mobile-use-case.md
+        app-to-app-use-case.md
+        custom-use-case.md
+        anon-use-case.md
+    </staging>
     relatedlinks.md
     {: .navgroup-end}
 
@@ -17,7 +28,8 @@ IBM Cloud App ID
         identity-providers.md
         enterprise.md
         cloud-directory.md
-        custom.md
+        custom.md<staging>
+        w3.md</staging>
 
     {: .topicgroup}
     Adding App ID to your app
@@ -28,6 +40,8 @@ IBM Cloud App ID
         progressive.md
         protecting-resources-local.md
         tokens.md
+        app-to-app.md<staging>
+        well-known.md</staging>
 
     {: .topicgroup}
     Managing the sign in experience
