@@ -136,7 +136,7 @@ You can validate your tokens locally by parsing the token, verifying the token s
     </tbody>
   </table>
 
-5. Verify the token's signature. The token header contains the algorithm that was used to sign the token and the Key ID or `kid` claim of the matching public key. Because public keys do not frequently change, you can cache pubic keys in your app and occasionally refresh them. If your cached key is missing the `kid` claim. then you'll need to validate locally.
+5. Verify the token's signature. The token header contains the algorithm that was used to sign the token and the Key ID or `kid` claim of the matching public key. Because public keys do not frequently change, you can cache public keys in your app and occasionally refresh them. If your cached key is missing the `kid` claim. then you'll need to validate locally.
 
   1. Have your application verify that the contents of the incoming token header match the parameters of the public key.
   2. Check specifically that the same algorithms were used and that your public key cache contains a key with the relevant Key ID.
