@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-10-02"
+lastupdated: "2018-10-03"
 
 ---
 
@@ -12,10 +12,18 @@ lastupdated: "2018-10-02"
 {:codeblock: .codeblock}
 {:tip: .tip}
 
-# App to app authorization
+Sequence diagrams, enable on dashboard, REST calls for authorization/callback, get back token
+Login Widget
+SDK code samples in Node.js
+SDK code samples in Swift
+SDK code samples in Liberty for Java
+SDK code samples in Spring for Java
+Non-SDK way of using App ID **
+
+# Application identity and authorization
 {: #app}
 
-With {{site.data.keyword.appid_short_notm}}, you can authorize app to app communication by leveraging OAuth2.0 capabilities.
+With {{site.data.keyword.appid_short_notm}}, you can secure applications using the application identity and authorization flow by leveraging OAuth2.0 capabilities.
 {: shortdesc}
 
 ## Understanding the communication flow
@@ -25,9 +33,9 @@ With {{site.data.keyword.appid_short_notm}}, you can authorize app to app commun
 
 There are several reasons that you might want one application to communicate with another service or app without any user intervention. For example, a non-interactive app that needs to access another application to perform its work. This could include processes, CLIs, daemons, or an IoT device that monitors and reports environment variables to an upstream server. The specific use case is unique to each application, but the most important thing to remember is that the requests are exchanged on behalf of the app, not on an end user, and it is the app that is authenticated and authorized.
 
-**How does the app to app flow work?**
+**How does the application identity and authorization flow work?**
 
-{{site.data.keyword.appid_short_notm}} leverages the OAuth2.0 client credentials  flow to protect communication. After an app registers with {{site.data.keyword.appid_short_notm}}, the app obtains a client ID and secret. With this information, the app can request an access token from {{site.data.keyword.appid_short_notm}} and be authorized to access a protected resource or API. In the app to app flow, the application is granted only an access token. It does not obtain an identity token or a refresh token. For more information about tokens, see [Understanding tokens](/docs/services/appid/tokens.html).
+{{site.data.keyword.appid_short_notm}} leverages the OAuth2.0 client credentials  flow to protect communication. After an app registers with {{site.data.keyword.appid_short_notm}}, the app obtains a client ID and secret. With this information, the app can request an access token from {{site.data.keyword.appid_short_notm}} and be authorized to access a protected resource or API. In the application identity and authorization flow, the application is granted only an access token. It does not obtain an identity token or a refresh token. For more information about tokens, see [Understanding tokens](/docs/services/appid/tokens.html).
 
 This work flow is meant to be used only with trusted applications where there is no risk of the secret being misused or leaked. The application always holds the client secret. It will not work for mobile apps.
 {: tip}
@@ -36,8 +44,8 @@ This work flow is meant to be used only with trusted applications where there is
 
 In the following image, you can see the direction of communication between the service and your application.
 
-![{{site.data.keyword.appid_short_notm}} app to app flow](images/app-to-app-flow.png)
-Figure. App to app flow
+![{{site.data.keyword.appid_short_notm}} application identity and authorization flow](images/app-to-app-flow.png)
+Figure. application identity and authorization flow
 
 1. Application A registers with {{site.data.keyword.appid_short_notm}} to obtain a client ID and secret.
 2. Application A makes a request to {{site.data.keyword.appid_short_notm}} by sending the credentials retrieved in the previous step.
@@ -55,7 +63,7 @@ Figure. App to app flow
 
 **Registering your app with the API**
 
-1. Make a POST request to the [`/management/v4/{tenantId}/applications` endpoint](https://appid-management.ng.bluemix.net/swagger-ui/#!/Applications/getAllApplications).
+1. Make a POST request to the [`/management/v4/{tenantId}/applications` endpoint](https://appid-management.ng.bluemix.net/swagger-ui/#!/Applications/registerApplication).
 
   Request:
   ```
@@ -112,7 +120,7 @@ After your app is registered with {{site.data.keyword.appid_short_notm}} and you
 
 1. Obtain an [access token](authorization.html#tokens) in one of the following ways:
 
-  * From the {{site.data.keyword.appid_short_notm}} Node.js SDK by using the token manager. Initialize the token manager with your app credentials and make a call to the `getAppIdentityToken()` method to obtain the token.
+  * From the {{site.data.keyword.appid_short_notm}} Node.js SDK by using the token manager. Initialize the token manager with your app credentials and make a call to the `getApplicationIdentityToken()` method to obtain the token.
 
     ```
     const TokenManager = require('ibmcloud-appid').TokenManager;
@@ -125,7 +133,7 @@ After your app is registered with {{site.data.keyword.appid_short_notm}} and you
 
     const tokenManager = new TokenManager(config);
 
-    tokenManager.getAppIdentityToken().then((appIdAuthContext) => {
+    tokenManager.getApplicationIdentityToken().then((appIdAuthContext) => {
      console.log(' Access tokens from SDK : ' + JSON.stringify(appIdAuthContext));
     }).catch((err) => {
      //console.error('Error retrieving tokens : ' + err);
