@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-28"
+lastupdated: "2018-10-02"
 
 ---
 
@@ -22,6 +22,8 @@ You can display your own customized screens, use your own sign in flows, and tak
 
 When you reuse your existing UIs, you can create a cohesive sign in flow for your app. By using the same imagery, colors, and branding, your users are more likely to recognize your brand, even when not directly interacting with your app.
 
+</br>
+
 **What kind of configuration is required to display my own screens?**
 
 To display your own UIs, you must use Cloud Directory as your identity provider. There are several different ways that Cloud Directory can be [configured](cloud-directory.html). You can decide the types of messages that you want to send, and customize the content and design. Don't know what to say? Not a problem. There's are example messages in the GUI that you can use.
@@ -29,9 +31,15 @@ To display your own UIs, you must use Cloud Directory as your identity provider.
 Want to use a [language](cloud-directory.html#languages) other than English? You can choose another language by using the <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/updateLocalization" target="_blank">language management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>, to display your own translated content.
 {: tip}
 
+</br>
+
+
+
 **How are the flows technically different?**
 
 The service uses OAuth2 grant flows to map the authorization process. When you configure social identity providers such as Facebook, the <a href="https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html" target="_blank">Authorization Grant flow <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> is used to call the Login Widget. When you use your own screens, the <a href="https://oauthlib.readthedocs.io/en/stable/oauth2/grants/password.html" target="_blank">Resource Owner Password Credentials flow <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> is used to provide access and identity tokens that allow you to call your sign in screens.
+
+</br>
 
 **Do you have any example apps that show how this works?**
 
@@ -47,7 +55,7 @@ Yes! Check out any of the following examples to see Cloud Directory in action:
 ## Branding your app with the Android SDK
 {: #branded-ui-android}
 
-With cloud directory enabled, you can call customized screens with the Android SDK. You can choose the combination of the screens that you'd like your users to be able to interact with.<a href="https://www.ibm.com/blogs/bluemix/2018/01/use-branded-ui-user-sign-app-id/" target="blank">Check out this blog<img src="../../icons/launch-glyph.svg" alt="External link icon"></a> for a detailed example!
+With Cloud Directory enabled, you can call customized screens with the Android SDK. You can choose the combination of the screens that you'd like your users to be able to interact with.<a href="https://www.ibm.com/blogs/bluemix/2018/01/use-branded-ui-user-sign-app-id/" target="blank">Check out this blog<img src="../../icons/launch-glyph.svg" alt="External link icon"></a> for a detailed example!
 {: shortdesc}
 
 </br>
@@ -71,7 +79,6 @@ With cloud directory enabled, you can call customized screens with the Android S
   });
   ```
   {: pre}
-
 
 </br>
 </br>
@@ -106,7 +113,6 @@ With Cloud Directory enabled, you can call your own branded screens with the [iO
 
 </br>
 </br>
-
 
 ## Branding your app with the Node.js SDK
 {: #branded-ui-nodejs}
@@ -159,7 +165,7 @@ By using the WebAppStrategy users can sign in to your web apps with their userna
 ## Branding your app with the API
 {: #branded-ui-api}
 
-You can display your own customized screens and take advantage of the authentication and authorization capabilities of {{site.data.keyword.appid_short_notm}}. With cloud directory as your identity provider, your users are able to interact with your app with less help from you. They're able to sign in, sign up, reset their password, and more without asking for help.
+You can display your own customized screens and take advantage of the authentication and authorization capabilities of {{site.data.keyword.appid_short_notm}}. With Cloud Directory as your identity provider, your users are able to interact with your app with less help from you. They're able to sign in, sign up, reset their password, and more without asking for help.
 {: shortdesc}
 
 To make this possible, {{site.data.keyword.appid_short_notm}} exposes REST APIs. You can use the REST APIs to build a back-end server that serves your web apps, or to interact with a mobile app with your own custom screens.
@@ -173,7 +179,7 @@ After you've configured your [settings](/docs/services/appid/cloud-directory.htm
 You can use the `/sign_up` endpoint to allow users to sign themselves up for your app.
 Supply the following data in the request body:
   * Your tenantID.
-  * Cloud directory user data. See [SCIM Full User Representation](https://tools.ietf.org/html/rfc7643#section-8.2) for more details.
+  * Cloud Directory user data. See [SCIM Full User Representation](https://tools.ietf.org/html/rfc7643#section-8.2) for more details.
     * A `password` attribute.
     * In the email array with a `primary` attribute that is set to `true`, you must have at least 1 email address.
 
@@ -194,7 +200,7 @@ You can use the `/forgot_password` endpoint to allow users to recover their pass
 
 Supply the following data in the request body:
   * Your tenantID.
-  * The email of the cloud directory user.
+  * The email of the Cloud Directory user.
 
 When the endpoint is called, a reset password email is sent to the user. The email contains a **Reset** button. After they press the button, a screen is displayed by {{site.data.keyword.appid_short_notm}} that allows them to reset their password.
 
@@ -217,7 +223,7 @@ You can use the `/change_password` endpoint  in two ways. When a user submits a 
 Supply the following data in the request body to update their password after a reset request:
   * Your tenantID.
   * The users new password
-  * The cloud directory user UUID.
+  * The Cloud Directory user UUID.
   * Optional: the IP address from which the password reset was performed. If you choose to pass the IP address, then the placeholder `%{passwordChangeInfo.ipAddress}` is available for the change password email template.
 
 Depending on your configuration, when a password is changed {{site.data.keyword.appid_short_notm}} might send an email to the user letting them know that there was a change.
@@ -228,7 +234,7 @@ To allow users to change their password while signed in to your app:
 Supply the following data in the request body:
   * Your tenantID.
   * The users new password
-  * The cloud directory user UUID.
+  * The Cloud Directory user UUID.
 
 Your change password page should prompt the user to enter their current password and their new password.
 {: tip}
@@ -243,7 +249,7 @@ You can use the `/resend/{templateName}` to resend an email when a user does not
 Supply the following data in the request body:
   * The tenantID.
   * The template name
-  * The cloud directory user UUID.
+  * The Cloud Directory user UUID.
 
 **Change details**
 
