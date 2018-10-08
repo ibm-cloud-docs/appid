@@ -12,14 +12,6 @@ lastupdated: "2018-10-03"
 {:codeblock: .codeblock}
 {:tip: .tip}
 
-Sequence diagrams, enable on dashboard, REST calls for authorization/callback, get back token
-Login Widget
-SDK code samples in Node.js
-SDK code samples in Swift
-SDK code samples in Liberty for Java
-SDK code samples in Spring for Java
-Non-SDK way of using App ID **
-
 # Application identity and authorization
 {: #app}
 
