@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-28"
+lastupdated: "2018-10-11"
 
 ---
 
@@ -14,7 +14,7 @@ lastupdated: "2018-09-28"
 {:codeblock: .codeblock}
 
 
-# Configuring custom identity
+# Custom
 {: #custom-identity}
 
 You can use your own custom identity provider when authenticating. Your identity provider can conform to any authentication mechanism alternate to those supported by {{site.data.keyword.appid_full}}, including proprietary.

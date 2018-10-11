@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-28"
+lastupdated: "2018-10-11"
 
 ---
 
@@ -13,7 +13,7 @@ lastupdated: "2018-09-28"
 {:pre: .pre}
 {:tip: .tip}
 
-# Configuring Cloud Directory
+# Cloud Directory
 {: #cd}
 
 With {{site.data.keyword.appid_full}}, users can sign up and sign in to your mobile and web apps by using an email or username and a password. A cloud directory is a user registry that is maintained in the cloud. When a user signs up for your app, they're added to your directory of users. With this feature, users have the freedom to manage their own account within your app.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-25"
+lastupdated: "2018-10-11"
 
 ---
 
@@ -12,7 +12,7 @@ lastupdated: "2018-09-25"
 {:codeblock: .codeblock}
 {:tip: .tip}
 
-# Configuring enterprise identity providers
+# Enterprise
 {: #enterprise}
 
 If you already have an existing user repository and a certified way to authenticate users to your internal systems you can configure the {{site.data.keyword.appid_full}} service to use an enterprise identity provider.
