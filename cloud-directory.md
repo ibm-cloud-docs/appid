@@ -1077,3 +1077,12 @@ You can use <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Confi
     <td>South Africa</td>
   </tr>
 </table>
+
+## Users Export Import
+
+In case you need to use new App ID instance, and you have Cloud directory users in your current App ID instance, you can use this App ID [export](https://appid-management.ng.bluemix.net/swagger-ui/#!/Cloud_Directory_Users/cloudDirectoryExport) and [import](https://appid-management.ng.bluemix.net/swagger-ui/#!/Cloud_Directory_Users/cloudDirectoryImport) management APIs in order to copy the Cloud directory users to your new App ID instance.
+
+
+Note: 
+1. You need to have Manager previlage for your App ID instance, for the export import APIs to work.
+2. The Export API return your Cloud Directory users and their profiles, and does not return users from other IDPs such as Facebook for example.
