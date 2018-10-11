@@ -31,14 +31,14 @@ You can configure the notifications and level of user control for your app. Sett
 ![Configuring cloud directory](images/cloud-directory.png)
 Figure. The configuration journey for Cloud Directory
 
-1. In the **Manage** tab of the App ID dashboard, be sure that Cloud Directory is set to **On**.
+1. In the **Manage** tab of the {{site.data.keyword.appid_short_notm}} dashboard, be sure that Cloud Directory is set to **On**.
 
 2. Configure your general settings.
   1. Decide whether you want your users to create a username or use their email when they sign in. Both options require a password. After users have been added to your directory, you can no longer toggle between the options.
   2. Click **Edit** in the password criteria row to specify any requirements that you want to put in place. Password criteria is given as regex. For help determining strength or to see common examples see, [Managing password strength](#strength). Click **Save** to put your requirements into action.
   3. Set **Allow users to sign up to your app** to **Yes**. You can still add users through the console if it's set to **No**. However, you should add users through the console only for development purposes.
   4. Set **Allow users to manage their account from your app** to **Yes** if you want your users to be able to reset their password, change their password, or reset their details. If you want to limit your users self-service, set the value to **No**.
-  5. Click **Edit** in the **Sender details** row to update your email settings. The email settings apply for all of the communication that is sent through App ID. Specify the email address that should send the email, their name, and leave a separate email for users to send a response.
+  5. Click **Edit** in the **Sender details** row to update your email settings. The email settings apply for all of the communication that is sent through {{site.data.keyword.appid_short_notm}}. Specify the email address that should send the email, their name, and leave a separate email for users to send a response.
   6. Click **Save**.
 
 3. Configure your verification email settings.
@@ -46,7 +46,7 @@ Figure. The configuration journey for Cloud Directory
   2. If you've decided that you want your users to verify their email, your next decision is whether you want to allow users into your application prior to them verifying their email address. Depending on your preference, set **Allow users to sign0in to your app without first verifying their email address** to **Yes** or **No**.
   3. Customize the content and design the appearance of your message. There is a template for the message, but you can update the text with your own message. You can use a [language](#languages) other than English, but you are responsible for the translation of the text. To choose another language, use the <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/updateLocalization" target="_blank">language management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
   4. Give the verification URL an expiration time limit, specified as minutes.  When this time is set here, it also affects the length of time that your reset password link is valid for.
-  5. Enter your own verification page URL if you have a specific page that you want your users to see when they click the link. If you leave the **Custom verification page URL** field blank, a default verification page is provided by App ID.
+  5. Enter your own verification page URL if you have a specific page that you want your users to see when they click the link. If you leave the **Custom verification page URL** field blank, a default verification page is provided by {{site.data.keyword.appid_short_notm}}.
   6. Click **Save**.
 
 4. Configure your welcome email settings.
@@ -58,7 +58,7 @@ Figure. The configuration journey for Cloud Directory
   1. To allow users to request a reset of their password, set **Forgot password email** to **On**. **Note**: A user must have validated their email prior to reseting their password. This means that you must require email verification to allow password resets.
   2. Customize the content and design the appearance of your message. There is an example message that you can use, but you can update the text with your own message. You can use a [language](#languages) other than English, but you are responsible for the translation of the text. To choose another language, use the <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/updateLocalization" target="_blank">language management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
   3. Give the reset password URL an expiration time limit, specified as minutes. When this time is set here, it also affects the length of time that your email verification link is valid for.
-  4. Enter your own password reset URL if you have a specific page that you want your users to see when they click the link. If you leave the **Reset password page URL** field blank, a default reset password page is provided by App ID.
+  4. Enter your own password reset URL if you have a specific page that you want your users to see when they click the link. If you leave the **Reset password page URL** field blank, a default reset password page is provided by {{site.data.keyword.appid_short_notm}}.
   5. Click **Save**.
 
 6. Configure your change password settings.
@@ -69,7 +69,7 @@ Figure. The configuration journey for Cloud Directory
 7. In the **Users** tab you can see who has signed-up for your app. Note: A single user can attempt to sign in up to 5 times in 60 seconds. If a sixth attempt is made, an error is displayed.
 
 </br>
-
+</br>
 
 ## Types of messages
 {: #types}
@@ -184,6 +184,9 @@ If a user does not supply the information pulled by the parameter, it appears bl
       </tbody>
     </table></dd></dl>
 
+</br>
+</br>
+
 ## Managing password strength
 {: #strength}
 
@@ -203,8 +206,11 @@ You must use <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Conf
 
 
 
-
 </br>
+</br>
+
+
+
 
 ## Supported languages
 {: #languages}
@@ -1077,12 +1083,3 @@ You can use <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Confi
     <td>South Africa</td>
   </tr>
 </table>
-
-## Users Export Import
-
-In case you need to use new App ID instance, and you have Cloud directory users in your current App ID instance, you can use this App ID [export](https://appid-management.ng.bluemix.net/swagger-ui/#!/Cloud_Directory_Users/cloudDirectoryExport) and [import](https://appid-management.ng.bluemix.net/swagger-ui/#!/Cloud_Directory_Users/cloudDirectoryImport) management APIs in order to copy the Cloud directory users to your new App ID instance.
-
-
-Note: 
-1. You need to have Manager previlage for your App ID instance, for the export import APIs to work.
-2. The Export API return your Cloud Directory users and their profiles, and does not return users from other IDPs such as Facebook for example.
