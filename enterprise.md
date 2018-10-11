@@ -225,7 +225,7 @@ Want to set an authentication context? You can do so through the API.
     }
     ```
     {: screen}
-
+    {: #configuring-saml-new}
   3. Optional: Add an authentication context by adding a class array and comparison string to your code. Be sure to update both the `class` and `comparison` parameters with your values. An Authentication context is used to verify the quality of the authentication and SAML assertions.
 
     Example:
