@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-28"
+lastupdated: "2018-10-15"
 
 ---
 
@@ -152,6 +152,8 @@ Example token:
   }
   ```
   {: screen}
+
+Identity tokens only contain partial user information. To see all of the information that is provided by the identity provider, you can use the [user info endpoint](/docs/services/appid/predefined.html#api).
 
 **What is a refresh token?**
 
