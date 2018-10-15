@@ -153,6 +153,8 @@ Example token:
   ```
   {: screen}
 
+Identity tokens contain only partial user information, to get the full information as provided by the IDP you can use the [user info endpoint](/docs/services/appid/predefined.html#api)
+
 **What is a refresh token?**
 
 {{site.data.keyword.appid_short}} supports the ability to acquire new access and identity tokens without reauthentication, as defined in <a href="http://openid.net/specs/openid-connect-core-1_0.html#RefreshTokens" target="blank">OIDC <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>. When signing in with a refresh token, a user doesn't have to take any actions, such as providing credentials. Generally, refresh tokens are configured to have a longer life span than a regular access token. To take full advantage of refresh tokens, persist the tokens for their full life span. A user cannot directly access resources with just a refresh token, which makes them much safer to persist than an access token. For examples of working with refresh tokens and how to use them to implement a *remember me* functionality, check out the getting started samples. As a best practice, refresh tokens should be securely stored by the client that received them, and should only be sent to the authorization server that issued them.
