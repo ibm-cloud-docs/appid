@@ -153,7 +153,7 @@ Example token:
   ```
   {: screen}
 
-Identity tokens contain only partial user information, to get the full information as provided by the IDP you can use the [user info endpoint](/docs/services/appid/predefined.html#api)
+Identity tokens only contain partial user information. To see all of the information that is provided by the identity provider, you can use the [user info endpoint](/docs/services/appid/predefined.html#api).
 
 **What is a refresh token?**
 
