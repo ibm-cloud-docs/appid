@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-10-02"
+lastupdated: "2018-10-15"
 
 ---
 
@@ -348,7 +348,7 @@ Example request format:
 ## Next steps
 {: #next}
 
-With App ID installed in your application, you're almost ready to start authenticating users! Try doing one of the following activities next:
+With {{site.data.keyword.appid_short}} installed in your application, you're almost ready to start authenticating users! Try doing one of the following activities next:
 
 * Configure your [identity providers](/docs/services/appid/identity-providers.html)
 * Customize and configure [the Login Widget](/docs/services/appid/login-widget.html)

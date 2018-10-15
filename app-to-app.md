@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-10-08"
+lastupdated: "2018-10-15"
 
 ---
 
@@ -25,9 +25,11 @@ With {{site.data.keyword.appid_short_notm}}, you can secure applications using t
 
 There are several reasons that you might want one application to communicate with another service or app without any user intervention. For example, a non-interactive app that needs to access another application to perform its work. This could include processes, CLIs, daemons, or an IoT device that monitors and reports environment variables to an upstream server. The specific use case is unique to each application, but the most important thing to remember is that the requests are exchanged on behalf of the app, not on an end user, and it is the app that is authenticated and authorized.
 
+Check out this example on <a href="https://www.ibm.com/blogs/bluemix/2018/02/using-app-id-secure-docker-kubernetes-applications/" target="_blank">Using {{site.data.keyword.appid_short_notm}} to secure Docker and Kubernetes applications <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
+
 **How does the application identity and authorization flow work?**
 
-{{site.data.keyword.appid_short_notm}} leverages the OAuth2.0 client credentials  flow to protect communication. After an app registers with {{site.data.keyword.appid_short_notm}}, the app obtains a client ID and secret. With this information, the app can request an access token from {{site.data.keyword.appid_short_notm}} and be authorized to access a protected resource or API. In the application identity and authorization flow, the application is granted only an access token. It does not obtain an identity token or a refresh token. For more information about tokens, see [Understanding tokens](/docs/services/appid/tokens.html).
+{{site.data.keyword.appid_short_notm}} leverages the OAuth2.0 client credentials  flow to protect communication. After an app registers with {{site.data.keyword.appid_short_notm}}, the app obtains a client ID and secret. With this information, the app can request an access token from {{site.data.keyword.appid_short_notm}} and be authorized to access a protected resource or API. In the application identity and authorization flow, the application is granted only an access token. It does not obtain an identity token or a refresh token. For more information about tokens, see [Understanding tokens](/docs/services/appid/authorization.html#tokens).
 
 This work flow is meant to be used only with trusted applications where there is no risk of the secret being misused or leaked. The application always holds the client secret. It will not work for mobile apps.
 {: tip}
@@ -110,9 +112,9 @@ After your app is registered with {{site.data.keyword.appid_short_notm}} and you
 ## Tutorial: End-to-end flow with the Node.js SDK
 {: tutorial-node}
 
-1. Obtain an [access token](authorization.html#tokens) in one of the following ways:
+1. Obtain an [access token](/docs/services/appid/authorization.html#tokens) in one of the following ways:
 
-  * From the {{site.data.keyword.appid_short_notm}} Node.js SDK by using the token manager. Initialize the token manager with your app credentials and make a call to the `getApplicationIdentityToken()` method to obtain the token.
+  * From the {{site.data.keyword.appid_short_notm}} [Node.js server SDK](https://github.com/ibm-cloud-security/appid-serversdk-nodejs) by using the token manager. Initialize the token manager with your app credentials and make a call to the `getApplicationIdentityToken()` method to obtain the token.
 
     ```
     const TokenManager = require('ibmcloud-appid').TokenManager;
@@ -189,7 +191,7 @@ After your app is registered with {{site.data.keyword.appid_short_notm}} and you
   ```
   {: codeblock}
 
-3. Secure your protected resources by using the API strategy from the {{site.data.keyword.appid_short_notm}} Node SDK.
+3. Secure your protected resources by using the API strategy from the {{site.data.keyword.appid_short_notm}} Node.js SDK.
 
   ```
   const express = require('express'),

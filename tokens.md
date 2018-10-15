@@ -2,11 +2,11 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-10-08"
+lastupdated: "2018-10-15"
 
 ---
 
-{:new_window: target="blank"}
+{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -25,6 +25,7 @@ For more information about how tokens are used in {{site.data.keyword.appid_shor
 **What is token validation?**
 
 Tokens are used to verify that a person is who they say that they are, as well as confirm any access permissions that the user might hold, for a specified period of time. When a user signs into your application and is issued a token, your app must validate the user before they are given access.
+</br>
 
 **What if I'm working in a language that {{site.data.keyword.appid_short_notm}} doesn't have an SDK for?**
 

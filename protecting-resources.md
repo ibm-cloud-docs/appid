@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-30"
+lastupdated: "2018-10-15"
 
 ---
 
@@ -20,7 +20,7 @@ You can use the {{site.data.keyword.appid_full}} server SDKs to protect your app
 {: shortdesc}
 
 
-## Protecting resources in Liberty for Java
+## Protecting resources with Liberty for Java
 {: #protecting-liberty}
 
 You can use {{site.data.keyword.appid_short_notm}} to protect endpoints in your {{site.data.keyword.Bluemix_notm}} Liberty for Java apps. Liberty for Java has the built-in ability to handle Open ID Connect (OIDC) requests.

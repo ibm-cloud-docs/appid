@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-21"
+lastupdated: "2018-10-15"
 
 ---
 
@@ -19,7 +19,7 @@ You can use the following related links and Samples to learn more about and inte
 ## Contact us
 {: contact}
 
-We’d love to hear from you with feedback and questions! To get started with App ID, check it out in the {{site.data.keyword.Bluemix_notm}} catalog.
+We’d love to hear from you with feedback and questions! To get started with {{site.data.keyword.appid_short}}, check it out in the {{site.data.keyword.Bluemix_notm}} catalog.
 * If you have technical questions about {{site.data.keyword.appid_short_notm}}, post your question on <a href="https://stackoverflow.com/search?q=ibm-appid" target="_blank">Stack Overflow <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> and tag your question with "ibm-appid".
 * For questions about the service and getting started instructions, use the <a href="https://developer.ibm.com/answers/topics/appid/" target="_blank">dW Answers <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> forum. Include the `appid` tag.
 
@@ -88,7 +88,6 @@ Need help integrating with your enterprise apps? Don't worry! {{site.data.keywor
 * <a href="https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-azure-active-directory/" target="_blank">Setting up {{site.data.keyword.appid_long}} with your Azure Active Directory <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 * <a href="https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-ping-one/" target="_blank">Setting up {{site.data.keyword.appid_long}} with Ping One <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 * <a href="https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-active-directory-federation-service/" target="_blank">Setting up {{site.data.keyword.appid_long}} with your Active Directory Federation Service <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
-* <a href="https://console.bluemix.net/docs/swift/authenticate/app_id.html" target="_blank">Programming with Swift on IBM Cloud <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 
 
 ## Custom sign-in experience

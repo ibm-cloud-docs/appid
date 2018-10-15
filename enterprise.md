@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-10-11"
+lastupdated: "2018-10-15"
 
 ---
 
@@ -49,6 +49,8 @@ The remaining SAML attribute elements that do not correspond to any of the stand
 
 You can configure the {{site.data.keyword.appid_short_notm}} service to use a Security Assertion Markup Language (SAML) identity provider.
 {: shortdesc}
+
+Looking for an example? Check out <a href="https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-azure-active-directory/" target="_blank">Setting up {{site.data.keyword.appid_long}} with your Azure Active Directory <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> or <a href="https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-ping-one/" target="_blank">Setting up {{site.data.keyword.appid_long}} with Ping One <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
 
 ### Providing metadata to your identity provider
 
@@ -225,7 +227,7 @@ Want to set an authentication context? You can do so through the API.
     }
     ```
     {: screen}
-    {: #configuring-saml-new}
+  {: #configuring-saml-new}
   3. Optional: Add an authentication context by adding a class array and comparison string to your code. Be sure to update both the `class` and `comparison` parameters with your values. An Authentication context is used to verify the quality of the authentication and SAML assertions.
 
     Example:
@@ -284,3 +286,7 @@ You can test the configuration between your SAML Identity Provider and {{site.da
 4. After you complete the form, you are redirected to another page.
   * Successful authentication: The connection between {{site.data.keyword.appid_short_notm}} and the Identity Provider is working correctly. The page displays valid [access and identity tokens](/docs/services/appid/authorization.html#tokens).
   * Failed authentication: The connection is broken. The page displays the errors and the SAML response XML file.
+
+
+Having trouble? Check out [Troubleshooting identity provider configurations](/docs/services/appid/ts_saml.html).
+{: tip}
