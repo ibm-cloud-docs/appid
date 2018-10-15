@@ -25,10 +25,10 @@ IBM Cloud App ID
 
     {: .topicgroup}
     Configuring identity providers
-        identity-providers.md
-        enterprise.md
         cloud-directory.md
         custom.md
+        identity-providers.md
+        enterprise.md
 
     {: .topicgroup}
     Managing the sign in experience
