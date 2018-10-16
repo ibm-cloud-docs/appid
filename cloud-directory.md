@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-10-15"
+lastupdated: "2018-10-16"
 
 ---
 
@@ -207,10 +207,10 @@ You must use <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Conf
 
 
 </br>
-</br>
 
 
 
+</staging>
 
 ## Supported languages
 {: #languages}
