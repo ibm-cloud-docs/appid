@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-10-15"
+lastupdated: "2018-10-16"
 
 ---
 
@@ -199,8 +199,6 @@ if #available(OSX 10.12, *) {
 Securing your backend apps and protected resources involves validating tokens. There are
 several ways to validate the {{site.data.keyword.appid_short_notm}} access and identity tokens. For help validating tokens, check out [Validating tokens](/docs/services/appid/tokens.html).
 
-## Next steps
-{: #next}
 
 ## Next steps
 {: #next}
