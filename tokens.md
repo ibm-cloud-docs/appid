@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-26"
+lastupdated: "2018-10-16"
 
 ---
 
@@ -16,7 +16,7 @@ lastupdated: "2018-09-26"
 # Validating tokens
 {: #token-validation}
 
-Token validation is a very important part of modern app development. By validating tokens, you can protect your app or APIs from unauthorized users. {{site.data.keyword.appid_full}} uses access and identity tokens to ensure that an end-user or app is authenticated before they are granted access.  
+Token validation is a very important part of modern app development. By validating tokens, you can protect your app or APIs from unauthorized users. {{site.data.keyword.appid_full}} uses access and identity tokens to ensure that an end-user or app is authenticated before they are granted access. If you're using one of the SDKs provided by {{site.data.keyword.appid_short_notm}}, both obtaining and validating your tokens is done for you!
 {: shortdesc}
 
 For more information about how tokens are used in {{site.data.keyword.appid_short_notm}}, see [Understanding tokens](authorization.html#tokens).
@@ -24,21 +24,58 @@ For more information about how tokens are used in {{site.data.keyword.appid_shor
 
 **What is token validation?**
 
-Tokens are used to verify that a person is who they say that they are, as well as confirm any access permissions that the user might hold, for a specified period of time. When a user signs into your application and is issued a token, your app must validate the user before they are given access to your app. In general, the App ID SDKs handle both obtaining and validating your tokens.
+Tokens are used to verify that a person is who they say that they are, as well as confirm any access permissions that the user might hold, for a specified period of time. When a user signs into your application and is issued a token, your app must validate the user before they are given access.
 
-**What if I'm working in a language that App ID doesn't have an SDK for?**
+</br>
 
-Don't worry! You have two options:
+**What if I'm working in a language that {{site.data.keyword.appid_short_notm}} doesn't have an SDK for?**
 
-* Use any OIDC compliant open source SDK.
-* Implement your own validation logic by using the App ID APIs.
+Don't worry! You have three options:
 
-The second is a preferred solution, for most.
+* Work with the {{site.data.keyword.appid_short_notm}} APIs
+* Implement your own validation logic
+* Use any OIDC compliant open source SDK
+
+Based on feedback, option 1 is usually the easiest way to go.
+{: tip}
 
 </br>
 </br>
 
-## Validating tokens locally
+## Using the {{site.data.keyword.appid_short_notm}} APIs
+{: #remote-validation}
+
+By using introspection, you can use {{site.data.keyword.appid_short_notm}} to validate your tokens.
+{: shortdesc}
+
+1. Send a POST request to the [/introspect](https://appid-oauth.ng.bluemix.net/swagger-ui/#!/Authorization_Server_V3/introspect) API endpoint to validate your token. The request must contain the token and a basic authorization header which contains the client ID and secret.
+
+  Example Request:
+
+    ```
+    POST /oauth/v3/{tenant_id}/introspect HTTP/1.1
+    Host: appid-oauth.ng.bluemix.net
+    Content-Type: application/x-www-form-urlencoded
+    Authorization: Basic jdFlUaGlZUzAwTW0Tjk15TmpFMw==
+    Cache-Control: no-cache
+
+    token=XXXXX.YYYYY.ZZZZZ
+    ```
+    {: screen}
+
+2. The server checks the expiry and signature of the token and returns a JSON object that tells whether the token is active or inactive.
+
+  Example Response:
+
+    ```
+    {
+      "active": true
+    }
+    ```
+    {: screen}
+
+
+## Manually Validating Tokens
 {: #local-validation}
 
 You can validate your tokens locally by parsing the token, verifying the token signature, and validating the claims that are stored in the token.
@@ -170,38 +207,6 @@ You can validate your tokens locally by parsing the token, verifying the token s
       </tr>
     </tbody>
   </table>
-
-## Validating tokens remotely
-{: #remote-validation}
-
-By using introspection, you can use {{site.data.keyword.appid_short_notm}} to validate your tokens.
-{: shortdesc}
-
-1. Send a POST request to the [/introspect](https://appid-oauth.ng.bluemix.net/swagger-ui/#!/Authorization_Server_V3/introspect) API endpoint to validate your token. The request must contain the token and a basic authorization header which contains the client ID and secret.
-
-  Example Request:
-
-    ```
-    POST /oauth/v3/{tenant_id}/introspect HTTP/1.1
-    Host: appid-oauth.ng.bluemix.net
-    Content-Type: application/x-www-form-urlencoded
-    Authorization: Basic jdFlUaGlZUzAwTW0Tjk15TmpFMw==
-    Cache-Control: no-cache
-
-    token=XXXXX.YYYYY.ZZZZZ
-    ```
-    {: screen}
-
-2. The server checks the expiry and signature of the token and returns a JSON object that tells whether the token is active or inactive.
-
-  Example Response:
-
-    ```
-    {
-      "active": true
-    }
-    ```
-    {: screen}
 
 </br>
 </br>

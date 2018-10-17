@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-28"
+lastupdated: "2018-10-15"
 
 ---
 
@@ -24,6 +24,9 @@ You can use your own custom identity provider when authenticating. Your identity
 
 By bringing your own identity provider you can create a custom authentication flow that uses your own protocols. You have more control, such as information that you want to share or information that is stored.
 {: shortdesc}
+
+Be sure to [configure your custom provider](/docs/services/appid/custom.html) before you add it to your application.
+{: tip}
 
 </br>
 
@@ -141,7 +144,7 @@ Token payload:
 ## Retrieving {{site.data.keyword.appid_short_notm}} tokens
 {: #exchanging-jwts}
 
-To create the bridge between your custom provider and App ID, you need to have App ID tokens. To obtain service tokens, exchange your verified user information by using the [`/token` endpoint](https://appid-oauth.ng.bluemix.net/swagger-ui/#!/Authorization_Server_V3/token).
+To create the bridge between your custom provider and {{site.data.keyword.appid_short_notm}}, you need to have {{site.data.keyword.appid_short_notm}} tokens. To obtain service tokens, exchange your verified user information by using the [`/token` endpoint](https://appid-oauth.ng.bluemix.net/swagger-ui/#!/Authorization_Server_V3/token).
 {: shortdesc}
 
   ```

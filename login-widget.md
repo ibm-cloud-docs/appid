@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-28"
+lastupdated: "2018-10-15"
 
 ---
 
@@ -52,7 +52,7 @@ Check out the following table to see which screens you can display for each type
       <th>Login Widget screen</th>
       <th>Social identity provider</th>
       <th>Enterprise identity provider</th>
-      <th>Cloud directory</th>
+      <th>Cloud Directory</th>
     </tr>
   </thead>
   <tbody>
@@ -114,7 +114,7 @@ Don't forget! You can take advantage of {{site.data.keyword.appid_short_notm}} w
 ## Displaying the Login Widget with the Android SDK
 {: #android}
 
-You can call preconfigured screens with the Android SDK.
+You can call preconfigured screens with the [Android client SDK](https://github.com/ibm-cloud-security/appid-clientsdk-android).
 {: shortdesc}
 
 Place the following command in your code.
@@ -265,7 +265,7 @@ Place the following command in your code.
 ## Displaying the Login Widget with the iOS Swift SDK
 {: #ios-swift}
 
-You can call preconfigured screens with the iOS Swift SDK.
+You can call preconfigured screens with the [iOS Swift client SDK](https://github.com/ibm-cloud-security/appid-clientsdk-swift).
 {: shortdesc}
 
 Place the following command in your code.
@@ -406,19 +406,19 @@ Place the following command in your code.
 ## Displaying the Login Widget with the Node.js SDK
 {: #nodejs}
 
-You can call preconfigured screens with the Node.js SDK.
+You can call preconfigured screens with the [Node.js server SDK](https://github.com/ibm-cloud-security/appid-serversdk-nodejs).
 {: shortdesc}
 
 Add a post route to your app that can be called with the username and password parameters and log in by using the resource owner password.
 
-    ```javascript
-    app.post("/form/submit", bodyParser.urlencoded({extended: false}), passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
-    	successRedirect: LANDING_PAGE_URL,
-    	failureRedirect: ROP_LOGIN_PAGE_URL,
-    	failureFlash : true // allow flash messages
-    }));
-    ```
-    {: codeblock}
+  ```javascript
+  app.post("/form/submit", bodyParser.urlencoded({extended: false}), passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
+  	successRedirect: LANDING_PAGE_URL,
+  	failureRedirect: ROP_LOGIN_PAGE_URL,
+  	failureFlash : true // allow flash messages
+  }));
+  ```
+  {: codeblock}
 
 `WebAppStrategy` allows users to sign in to your web apps with a username and password. After a successful login, a user's access token is stored in the HTTP session and is available during the session. After the HTTP session is destroyed or expired, the token is invalid.
 {: tip}

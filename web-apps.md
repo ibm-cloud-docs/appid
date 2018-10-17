@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-10-02"
+lastupdated: "2018-10-15"
 
 ---
 
@@ -289,8 +289,6 @@ You can configure {{site.data.keyword.appid_short_notm}} to work with your Liber
   ```
   {: codeblock}
 
-</br>
-</br>
 
 ## Using {{site.data.keyword.appid_short_notm}} with other languages
 {: #other}
@@ -303,7 +301,7 @@ With an OIDC compliant client SDK, you can use {{site.data.keyword.appid_short_n
 ## Next steps
 {: #next}
 
-With App ID installed in your application, you're almost ready to start authenticating users! Try doing one of the following activities next:
+With {{site.data.keyword.appid_short_notm}} installed in your application, you're almost ready to start authenticating users! Try doing one of the following activities next:
 
 * Configure your [identity providers](/docs/services/appid/identity-providers.html)
 * Customize and configure [the Login Widget](/docs/services/appid/login-widget.html)

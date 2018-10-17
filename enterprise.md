@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-25"
+lastupdated: "2018-10-17"
 
 ---
 
@@ -12,7 +12,7 @@ lastupdated: "2018-09-25"
 {:codeblock: .codeblock}
 {:tip: .tip}
 
-# Configuring enterprise identity providers
+# Enterprise
 {: #enterprise}
 
 If you already have an existing user repository and a certified way to authenticate users to your internal systems you can configure the {{site.data.keyword.appid_full}} service to use an enterprise identity provider.
@@ -49,6 +49,8 @@ The remaining SAML attribute elements that do not correspond to any of the stand
 
 You can configure the {{site.data.keyword.appid_short_notm}} service to use a Security Assertion Markup Language (SAML) identity provider.
 {: shortdesc}
+
+Looking for an example? Check out <a href="https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-azure-active-directory/" target="_blank">Setting up {{site.data.keyword.appid_long}} with your Azure Active Directory <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> or <a href="https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-ping-one/" target="_blank">Setting up {{site.data.keyword.appid_long}} with Ping One <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
 
 ### Providing metadata to your identity provider
 
@@ -173,7 +175,7 @@ Want to set an authentication context? You can do so through the API.
   1. In the following metadata example, replace the variables with your own information.
 
     ```
-    Put {Management URI}/config/idps/custom
+    Put {Management URI}/config/idps/saml
     Content-Type: application/json
     {
       "isActive": true,
@@ -225,7 +227,7 @@ Want to set an authentication context? You can do so through the API.
     }
     ```
     {: screen}
-
+  {: #configuring-saml-new}
   3. Optional: Add an authentication context by adding a class array and comparison string to your code. Be sure to update both the `class` and `comparison` parameters with your values. An Authentication context is used to verify the quality of the authentication and SAML assertions.
 
     Example:
@@ -249,7 +251,7 @@ Want to set an authentication context? You can do so through the API.
 3. Make the request. If you chose to add the optional values, your request should look similar to the following example.
 
   ```
-  Put {Management URI}/config/idps/custom
+  Put {Management URI}/config/idps/saml
   Content-Type: application/json
   {
     "isActive": true,
@@ -284,3 +286,7 @@ You can test the configuration between your SAML Identity Provider and {{site.da
 4. After you complete the form, you are redirected to another page.
   * Successful authentication: The connection between {{site.data.keyword.appid_short_notm}} and the Identity Provider is working correctly. The page displays valid [access and identity tokens](/docs/services/appid/authorization.html#tokens).
   * Failed authentication: The connection is broken. The page displays the errors and the SAML response XML file.
+
+
+Having trouble? Check out [Troubleshooting identity provider configurations](/docs/services/appid/ts_saml.html).
+{: tip}

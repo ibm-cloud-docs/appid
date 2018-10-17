@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-28"
+lastupdated: "2018-10-15"
 
 ---
 
@@ -14,7 +14,7 @@ lastupdated: "2018-09-28"
 {:codeblock: .codeblock}
 
 
-# Configuring custom identity
+# Custom
 {: #custom-identity}
 
 You can use your own custom identity provider when authenticating. Your identity provider can conform to any authentication mechanism alternate to those supported by {{site.data.keyword.appid_full}}, including proprietary.
@@ -76,7 +76,7 @@ Content-Type: application/json
 ```
 {: codeblock}
 
-## Testing Your Configuration
+## Testing your configuration
 {: #testing}
 
 After you configure your {{site.data.keyword.appid_short_notm}} instance with a valid public key, you can use the test application provided by the service to verify that your configuration is correctly set up. In the example app, you can see {{site.data.keyword.appid_short_notm}} access and identity token payloads that are returned during a standard sign in flow.
@@ -88,3 +88,8 @@ After you configure your {{site.data.keyword.appid_short_notm}} instance with a 
 3. Paste your JWT into the box labeled **JSON Web Token** and click **Test** to execute a sample authentication.
 
 If successful, you can now see the decoded {{site.data.keyword.appid_short_notm}} identity and access tokens that would be available to your application in a standard sign in flow.
+
+## Next steps
+{: #next}
+
+Now that you've configured your custom identity provider, [add it to your application](/docs/services/appid/custom-auth.html)!
