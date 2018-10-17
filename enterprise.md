@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-10-15"
+lastupdated: "2018-10-17"
 
 ---
 
@@ -175,7 +175,7 @@ Want to set an authentication context? You can do so through the API.
   1. In the following metadata example, replace the variables with your own information.
 
     ```
-    Put {Management URI}/config/idps/custom
+    Put {Management URI}/config/idps/saml
     Content-Type: application/json
     {
       "isActive": true,
@@ -251,7 +251,7 @@ Want to set an authentication context? You can do so through the API.
 3. Make the request. If you chose to add the optional values, your request should look similar to the following example.
 
   ```
-  Put {Management URI}/config/idps/custom
+  Put {Management URI}/config/idps/saml
   Content-Type: application/json
   {
     "isActive": true,
