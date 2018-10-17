@@ -208,10 +208,6 @@ You must use <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Conf
 
 </br>
 
-
-
-</staging>
-
 ## Supported languages
 {: #languages}
 
