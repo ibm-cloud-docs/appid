@@ -142,7 +142,7 @@ If a user does not supply the information pulled by the parameter, it appears bl
      </tbody>
   </table></dd>
   <dt>Verification</dt>
-    <dd><p>You can request that a user verifies their account via email. By requesting a verification, you limit the number of fake accounts that can sign up for your app. You can restrict access to your app until a user has verified their email, or use it as a way to manage which users you create profiles for.</p>
+    <dd><p>You can request that a user verifies their account via email. By requesting a verification, you limit the number of fake accounts that can sign up for your app. You can restrict access to your app until a user has verified their email, or use it as a way to manage which users you create profiles for. Note that users who were manually added via the {{site.data.keyword.appid_short_notm}} dashboard or the create user API do not automatically receive this email.</p>
     <table>
       <thead>
         <th colspan=2><img src="images/idea.png" alt="More information icon"/> Verification message parameters </th>
