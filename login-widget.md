@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-10-15"
+lastupdated: "2018-10-18"
 
 ---
 
@@ -30,7 +30,6 @@ Want to create an experience that's unique to your app? You can [bring your own 
 
 You can take advantage of {{site.data.keyword.appid_short_notm}}, even without your own UI screens, by displaying the Login Widget.
 {: shortdesc}
-
 
 **What is the default?**
 

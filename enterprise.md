@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-10-17"
+lastupdated: "2018-10-18"
 
 ---
 
@@ -12,16 +12,11 @@ lastupdated: "2018-10-17"
 {:codeblock: .codeblock}
 {:tip: .tip}
 
-# Enterprise
+# SAML
 {: #enterprise}
 
-If you already have an existing user repository and a certified way to authenticate users to your internal systems you can configure the {{site.data.keyword.appid_full}} service to use an enterprise identity provider.
-{: shortdesc}
 
-## Understanding SAML
-{: #saml}
-
-SAML is an open standard for exchanging authentication and authorization data between an identity provider who asserts the user identity and a service provider who consumes the user identity information.
+Security Assertion Markup Language (SAML) is an open standard for exchanging authentication and authorization data between an identity provider who asserts the user identity and a service provider who consumes the user identity information.
 {: shortdesc}
 
 {{site.data.keyword.appid_short_notm}} functions as a service provider and initiates a single sign on (SSO) login to a third-party provider such as Active Directory Federation Services. The <a href="http://saml.xml.org/saml-specifications" target="blank">SAML <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> protocol supports different profiles and bind options. {{site.data.keyword.appid_short_notm}} supports the web browser SSO profile, with HTTP Post binding.
@@ -30,7 +25,7 @@ For steps on how to use a specific SAML identity provider, check out these blog 
 {: tip}
 
 
-### SAML assertions and identity token claims
+## SAML assertions and identity token claims
 
 A SAML assertion is a package of information that contains one or more statements. The assertion contains the authorization decision, and it might contain identity information about the user.
 
@@ -44,17 +39,14 @@ The following claims can be added:
 
 The remaining SAML attribute elements that do not correspond to any of the standard names are ignored. Note that if one or more of those values change on the provider's side, the new values are available only after the user logs in again.
 
-## Configuring your app to work with an external SAML identity provider
-{: #configuring-saml}
-
-You can configure the {{site.data.keyword.appid_short_notm}} service to use a Security Assertion Markup Language (SAML) identity provider.
-{: shortdesc}
 
 Looking for an example? Check out <a href="https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-azure-active-directory/" target="_blank">Setting up {{site.data.keyword.appid_long}} with your Azure Active Directory <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> or <a href="https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-ping-one/" target="_blank">Setting up {{site.data.keyword.appid_long}} with Ping One <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
 
-### Providing metadata to your identity provider
+## Providing metadata to your identity provider
+{: #provide-idp}
 
 To configure your app, you need to provide information to a SAML compatible identity provider. The information is exchanged through a metadata XML file that also contains configuration data that is used to establish trust.
+{: shortdesc}
 
 1. In the **Manage** tab of the {{site.data.keyword.appid_short_notm}} dashboard, set **SAML 2.0** to **On**. Then, click **Edit** to configure your SAML settings.
 2. Click **Download SAML Metadata file**. Your identity provider expects the following information from the file.
@@ -90,9 +82,11 @@ To configure your app, you need to provide information to a SAML compatible iden
 The property names might differ between identity providers.
 {: tip}
 
-### Providing metadata to {{site.data.keyword.appid_short_notm}}
+## Providing metadata to {{site.data.keyword.appid_short_notm}}
+{: #provide-appid}
 
 Obtain data from your identity provider and provide it to {{site.data.keyword.appid_short_notm}}.
+{: shortdesc}
 
 **Providing metadata with the GUI**
 
@@ -276,7 +270,8 @@ Want to set an authentication context? You can do so through the API.
   {: codeblock}
 
 
-### Testing your configuration
+## Testing your configuration
+{: #testing}
 
 You can test the configuration between your SAML Identity Provider and {{site.data.keyword.appid_short_notm}}.
 
