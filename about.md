@@ -95,14 +95,4 @@ With {{site.data.keyword.appid_short_notm}}, you can add a level of security to 
 </dl>
 
 
-## Regional high-availability
-{: #ha-dr}
 
-{{site.data.keyword.appid_short_notm}} is a highly available, regional service.
-{: shortdesc}
-
-In each supported region, the service runs in several availability zones. Each zone has its own Kubernetes cluster with several worker nodes. Each worker node runs several instances of {{site.data.keyword.appid_short_notm}} components. Each region is fronted by a Global Load Balancer and a Web Application Firewall.
-
-
-
-Because {{site.data.keyword.appid_short_notm}} is a regional service, it does not provide automated cross-regional failover or cross-regional disaster recovery. However, {{site.data.keyword.appid_short_notm}} does provide an extensive <a href="https://appid-management.ng.bluemix.net/swagger-ui" target="_blank">Management API<img src="../../icons/launch-glyph.svg" alt="External link icon"></a> that might allow developers to manually synchronize their service configuration with another instance or instances of {{site.data.keyword.appid_short_notm}}.
