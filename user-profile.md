@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-28"
+lastupdated: "2018-10-23"
 
 ---
 
@@ -32,6 +32,20 @@ Predefined attributes are returned by the identity provider when your user signs
 **What are custom attributes?**
 
 Custom attributes are learned about your users as they interact with your app. Custom attributes can also be set by you prior to the user signing into your app for the first time. This might be the font size that they use or items that they have placed in a shopping cart. Custom attributes can be edited.
+
+## Security considerations
+{: #security}
+
+Every user profile contains two types of user information:
+
+* Predefined attributes that are directly obtained from the identity provider and cannot be modified by the developer or the app.
+* Custom attributes that are explicitly set by either the developer or an app with a valid access token.
+
+Unlike predefined attributes, custom attributes are modifiable by default and can be updated using an {{site.data.keyword.appid_short_notm}} access token from a client application. This means that without taking proper precautions either the user or the application can update custom attributes immediately following the first user sign in, provided that they have access to an access token. This can potentially lead to unintended consequences. For example, a user could change their role from user to admin which might expose administrative privileges to malicious users.
+
+**What can I do to prevent this?**
+
+To prevent your users from changing the attributes that you give them, set **Change custom attributes from the app** to **Off** on the **Profiles** tab of the {{site.data.keyword.appid_short_notm}} dashboard. By default, **Change custom attributes from the app** is set to **On**.
 
 ## Accessing user attributes
 {: #access}
