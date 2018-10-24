@@ -1,13 +1,24 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="appid" audience="service" arm="2093952" href="/docs/services/appid/index.html"}
+{: .toc subcollection="appid" audience="service" arm="2093952" href="/docs/services/appid/index.html" path="services/appid"}
 IBM Cloud App ID
 
     {: .navgroup id="learn"}
     index.md
     about.md
     authorization.md
+
+    {: .topicgroup}
+    Use cases
+        web-use-case.md
+        backend-use-case.md
+        single-page-use-case.md
+        mobile-use-case.md
+        app-to-app-use-case.md
+        custom-use-case.md
+        anon-use-case.md
+    
     relatedlinks.md
     {: .navgroup-end}
 
@@ -22,13 +33,16 @@ IBM Cloud App ID
         protecting-resources-local.md
         tokens.md
         app-to-app.md
+        well-known.md
 
     {: .topicgroup}
     Configuring identity providers
+        manageidp.md
         cloud-directory.md
         enterprise.md
         identity-providers.md
         custom.md
+        w3.md
 
     {: .topicgroup}
     Managing the sign in experience
