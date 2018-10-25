@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-28"
+lastupdated: "2018-10-25"
 
 ---
 
@@ -68,7 +68,7 @@ Review the following table for explanations and resolutions for the most common 
     </tr>
     <tr>
       <td><code>SAML Configuration must have certificates, entityID and signInUrl of the IdP.</code></td>
-      <td>The SAML identity provider is not correctly configured. Validate your configuration. For help, see <a href="enterprise.html#configuring-saml" target="_blank">Configuring your app to work with an external SAML identity provider.</a></td>
+      <td>The SAML identity provider is not <a href="enterprise.html" target="_blank">correctly configured</a>. Validate your configuration.</td>
     </tr>
     <tr>
       <td><code>Error in assertion validation. SAML Assertion signature check failed! Certificate .. may be invalid.</code></td>

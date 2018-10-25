@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-29"
+lastupdated: "2018-10-25"
 
 ---
 
@@ -19,9 +19,13 @@ lastupdated: "2018-09-29"
 With {{site.data.keyword.appid_full}}, you can start building a profile for users that you know are going to need access to your app, prior to their initial sign-in.
 {: shortdesc}
 
+
+To learn more about the types of attributes and any security measures that you need to consider, [Understanding user profiles](/docs/services/appid/user-profile.html).
+{: tip}
+
 **Why would I want to add information about a user to my app before they sign in for the first time?**
 
-Consider an application where you use {{site.data.keyword.appid_short_notm}} to federate existing users from your SAML identity provider. You might want certain users to have `admin` access immediately upon signing into the application for the first time. To make this happen, you can use the preregistration endpoint to set a custom `admin` attribute for those users and grant them access to the administration console without any further action on your part. Be sure to consider the [security issues](#security) that can arise by changing the default setting.
+Consider an application where you use {{site.data.keyword.appid_short_notm}} to federate existing users from your SAML identity provider. You might want certain users to have `admin` access immediately upon signing into the application for the first time. To make this happen, you can use the preregistration endpoint to set a custom `admin` attribute for those users and grant them access to the administration console without any further action on your part. Be sure to consider the [security issues](user-profile.html#security) that can arise by changing the default setting.
 
 **How are users identified?**
 
@@ -96,24 +100,6 @@ When you add user information to your application in advance, you can use any un
 **Is there a limit to the amount of information that can be stored for each user?**
 
 You can store 100KB of information for each user.
-
-
-## Security considerations
-{: #security}
-
-Every user profile contains two types of user information:
-
-* Predefined attributes that are directly obtained from the identity provider and cannot be modified by the developer or the app
-* Custom attributes that are explicitly set by either the developer or an app with a valid access token
-
-For information about how to access user attributes, [check out the docs](/docs/services/appid/user-profile.html#access).
-
-During this process, you set custom attributes. Unlike predefined attributes, custom attributes are modifiable by default and can be updated using an {{site.data.keyword.appid_short_notm}} access token from a client application. This means that without taking proper precautions either the user or the application can update custom attributes immediately following the first user sign in, provided that they have access to an access token. This can potentially lead to unintended consequences. For example, a user could change their role from user to admin which might expose administrative privileges to malicious users.
-
-**What can I do to prevent this?**
-
-To prevent your users from changing the attributes that you give them, set **Change custom attributes from the app** to **Off** on the **Profiles** tab of the {{site.data.keyword.appid_short_notm}} dashboard. By default, **Change custom attributes from the app** is set to **On**
-
 
 
 ## Adding user information to your app

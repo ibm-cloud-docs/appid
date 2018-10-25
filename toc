@@ -1,7 +1,7 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="appid" audience="service" arm="2093952" href="/docs/services/appid/index.html"}
+{: .toc subcollection="appid" audience="service" arm="2093952" href="/docs/services/appid/index.html" path="services/appid"}
 IBM Cloud App ID
 
     {: .navgroup id="learn"}
@@ -26,9 +26,9 @@ IBM Cloud App ID
     {: .topicgroup}
     Configuring identity providers
         cloud-directory.md
-        custom.md
-        identity-providers.md
         enterprise.md
+        identity-providers.md
+        custom.md
 
     {: .topicgroup}
     Managing the sign in experience

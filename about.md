@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-28"
+lastupdated: "2018-10-21"
 
 ---
 
@@ -93,4 +93,5 @@ With {{site.data.keyword.appid_short_notm}}, you can add a level of security to 
   <dt>External (third party)</dt>
     <dd><strong>Social and enterprise identity providers</strong>: {{site.data.keyword.appid_short_notm}} supports Facebook, Google+,and  SAML 2.0 Federation as identity provider options. The service arranges a redirect to the identity provider and verifies the returned authentication tokens. If the tokens are valid, the service grants access to your app without ever having access to the actual passphrase.</dd>
 </dl>
+
 

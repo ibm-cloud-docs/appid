@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-07-15"
+lastupdated: "2018-10-25"
 
 ---
 
@@ -29,11 +29,10 @@ With the API, you can:
 Calls to the management api endpoint take the following structure:
 
 ```
-appid-management.<region>.bluemix.net
+appid-management.<region-endpoint>.bluemix.net
 ```
 {: codeblock}
 
-You can find the region by looking in the following table.
 
 <table>
   <tr>
@@ -42,19 +41,19 @@ You can find the region by looking in the following table.
   </tr>
   <tr>
     <td>United Kingdom</td>
-    <td><code>appid-management.eu-gb.bluemix.net</code></td>
+    <td><code>eu-gb</code></td>
   </tr>
   <tr>
     <td>US South</td>
-    <td><code>appid-management.ng.bluemix.net</code></td>
+    <td><code>ng</code></td>
   </tr>
   <tr>
     <td>Sydney</td>
-    <td><code>appid-management.au-syd.bluemix.net</code></td>
+    <td><code>au-syd</code></td>
   </tr>
   <tr>
     <td>Germany</td>
-    <td><code>appid-management.eu-de.bluemix.net</code></td>
+    <td><code>eu-de</code></td>
   </tr>
 </table>
 

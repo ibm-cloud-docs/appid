@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-10-16"
+lastupdated: "2018-10-25"
 
 ---
 
@@ -142,7 +142,7 @@ If a user does not supply the information pulled by the parameter, it appears bl
      </tbody>
   </table></dd>
   <dt>Verification</dt>
-    <dd><p>You can request that a user verifies their account via email. By requesting a verification, you limit the number of fake accounts that can sign up for your app. You can restrict access to your app until a user has verified their email, or use it as a way to manage which users you create profiles for.</p>
+    <dd><p>You can request that a user verifies their account via email. By requesting a verification, you limit the number of fake accounts that can sign up for your app. You can restrict access to your app until a user has verified their email, or use it as a way to manage which users you create profiles for. Note that users who are manually added via the {{site.data.keyword.appid_short_notm}} dashboard or the create user API do not automatically receive this email.</p>
     <table>
       <thead>
         <th colspan=2><img src="images/idea.png" alt="More information icon"/> Verification message parameters </th>
@@ -204,9 +204,196 @@ Some common password strength examples:
 
 You must use <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/set_cloud_directory_password_regex" target="_blank">the management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to set the requirements.
 
+</br>
 
+## Using a custom email sender
+{: #custom-email}
+
+With {{site.data.keyword.appid_short_notm}}, you can define a custom extension point to send your Cloud Directory email messages. By defining an extension point, you have full control of how the emails are sent and you can use your own domain name.
+ {: shortdesc}
+
+**Why would I want to use a custom email sender?**
+
+By default, {{site.data.keyword.appid_short_notm}} uses SendGrid to deliver messages on your behalf. By configuring your own custom email sender, you can further enhance the branded experience for your app users.
+
+Some more specific examples:
+- **Personalized domain**
+By configuring a custom email dispatcher, you have full control over how the email messages are sent. This includes customising the email domain which may further reduce the chances of emails being filtered as spam.
+- **Insights and troubleshooting**
+Gain insights from your email provider, such as: the number of people that opened the emails or which messages were not delivered. Because you can track individual messages, and see overall statistics, this can help solve issues.
 
 </br>
+
+**How does it work?**
+
+After the extension point is configured, it is called by {{site.data.keyword.appid_short_notm}} whenever an email message needs to be sent. The extension point contains all of the information about the message, including the final content of the email body.
+
+</br>
+
+**To create a custom email sender:**
+
+1. In order to configure the {{site.data.keyword.appid_short_notm}} instance to use custom disparcher, use <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/set_cloud_directory_email_dispatcher" target="_blank">the management API </a>.</br>
+You must provide the URL, Additionaly you may provide authorization information. The supported authorization types are:  `Basic authorization` or a `constant authorization header value`.
+
+  Valid configuration examples:
+  ```
+  {
+    "custom": {
+      "url": "https://example.com/send_mail"
+    }
+  }
+  ```
+  {: screen}
+
+  ```
+  {
+    "custom": {
+      "url": "https://example.com/send_mail",
+      "authorization": {
+        "type": "basic",
+        "username": "username",
+        "password": "password"
+      }
+    }
+  }
+  ```
+  {: screen}
+
+  ```
+  {
+    "custom": {
+      "url": "https://example.com/send_mail",
+      "authorization": {
+        "type": "value",
+        "value": "myApiKey"
+      }
+    }
+  }
+  ```
+  {: screen}
+
+2. Configure an extension point that can listen to post request. This endpoint should be able to read the paload comming from {{site.data.keyword.appid_short_notm}} and send the email with your custom email sender.
+
+3. The body sent from {{site.data.keyword.appid_short_notm}} is in the following format: `{"jws": "jws-format-string"}`. </br> After you decode and verify the payload, the content is a JSON string.</br>
+  ```
+    {
+      "tenant": "tenant-id",
+      "iss" : "appid-oauth.ng.bluemix.net",
+      "iat": 1539173126,
+      "jti": "uniq-id",
+      "message": {
+          "to": "your@mail.com",
+          "from": {
+              "name": "My Awesome Service",
+              "address": "no-reply@company.com"
+          },
+          "replyTo": {
+              "name": "My Awesome Service",
+              "address": "yes-reply@company.com"
+          },
+          "subject": "Welcome to My Awesome Service",
+          "body": "<p>Hello<p><br/><p>Thanks for signing up John Doe</p>"
+      }
+    }
+  ```
+  {: screen}
+
+  - tenant: App ID instance tenantId
+  - iat: timestamp of when the message was sent
+  - iss: identifies principal that issued the JWS.
+  - jti: uniq transaction ID
+  - message: message to send, consists of the following fields:
+    - to: recepiance email address
+    - from: sender information, consists of the following fields:
+      - name: optional, sender name
+      - address: sender address
+    - reply to: optional, consists of the following fields:
+      - name: optional, sender name
+      - address: optional, sender address
+    - subject: email subject
+    - body: email body, in html format
+
+  You can verify that your request was successful by checking the response status code. Anything in the range of 200 - 299 is considered a success. If you receive any other response, try to make your request again.
+  {: tip}
+
+4. Every HTTP payload that is sent from {{site.data.keyword.appid_short_notm}} is automatically signed according to the JWS standard by using an asymmetric key pair.
+For every {{site.data.keyword.appid_short_notm}} instance, a private and a public key is generated that are not shared across other instances. The private key is used to sign the HTTP payload, and you can use the public key to verify that the payload is generated by {{site.data.keyword.appid_short_notm}} and is not altered by a third party, <a href="https://appid-oauth.ng.bluemix.net/swagger-ui/#!/Authorization_Server_V3/publicKeys" target="_blank">Public keys endpoint </a>.
+
+5. Example code for the extension point (JavaScript)
+  ```
+  const sgMail = require('@sendgrid/mail');
+  const {promisify} = require('bluebird');
+  const request = promisify(require('request'));
+  const jwtVerify = promisify(require('jsonwebtoken').verify);
+  const jwtDecode = require('jsonwebtoken').decode;
+  const jwkToPem = require('jwk-to-pem');
+
+  async function obtainPublicKeys() {
+  	// Your App ID instance tenant ID
+  	const tenantId = '<TENANT-ID>';
+
+  	// Send request to App ID's public keys endpoint
+  	const keysOptions = {
+  		method: 'GET',
+  		url: `https://appid-oauth.<REGION>.bluemix.net/oauth/v3/${tenantId}/publickeys`
+  	};
+  	const keysResponse = await request(keysOptions);
+  	return JSON.parse(keysResponse.body).keys;
+  }
+
+  async function verifySignature(keysArray, kid, jws) {
+  	const keyJson = keysArray.find(key => key.kid === kid);
+  	if (keyJson) {
+  		const pem = jwkToPem(keyJson);
+  		await jwtVerify(jws, pem);
+  		return;
+  	}
+  	throw new Error ("Unable to verify signature");
+  }
+
+  async function verifyAndSendMail(jws) {
+  	// The API key for Sendgrid
+  	const sgApiKey = '<SENDGRID-API-KEY>';
+
+  	// Init Sendgrind
+  	sgMail.setApiKey(sgApiKey);
+
+  	// Decode message to get information
+  	const data = jwtDecode(jws, {complete: true});
+
+  	// Extract kid from header
+  	const kid = data.header.kid;
+
+  	const keysArray = await obtainPublicKeys();
+
+  	// Verify the signature of the payload with the public keys
+  	await verifySignature(keysArray, kid ,jws);
+
+  	// Send the email with Your Sendgrid account
+  	const message = data.payload.message;
+  	const msg = {
+  		to: message.to,
+  		from: message.from.address,
+  		subject: message.subject,
+  		html: message.body,
+  	};
+  	console.log(`Sending email to ${message.to}`);
+  	let sendgridResponse = await sgMail.send(msg);
+
+  	return {result : 'email_sent',sendgridResponse};
+  }
+  ```
+  {: codeblock}
+
+6. Verify that your configuration is correctly set up by testing your email dispatcher. Use the <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/post_email_dispatcher_test" target="_blank">test API</a> to trigger a request to your configured custom email sender.
+
+For full working example, see <a href="https://www.ibm.com/blogs/bluemix/2018/10/use-ibm-cloud-app-id-and-your-email-provider-to-brand-mails-sent-to-app-users/" target="_blank">Use your own provider for mail sent with {{site.data.keyword.appid_full}}</a>.
+
+</br>
+</br>
+
+
+
 
 ## Supported languages
 {: #languages}
