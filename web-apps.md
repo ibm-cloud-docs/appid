@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-10-23"
+lastupdated: "2018-10-15"
 
 ---
 
@@ -11,7 +11,6 @@ lastupdated: "2018-10-23"
 {:pre: .pre}
 {:tip: .tip}
 {:screen: .screen}
-{:codeblock: .codeblock}
 
 
 # Web apps
@@ -174,43 +173,28 @@ For more information, see the <a href="https://github.com/ibm-cloud-security/app
 You can configure {{site.data.keyword.appid_short_notm}} to work with your Liberty for Java web applications.
 {:shortdesc}
 
-**Before you begin**
-
-You must have the following prerequisites:
-* An instance of the {{site.data.keyword.appid_short_notm}} service
-* A set of service credentials
-* Apache Maven 3.5 or higher
-* Java 1.8
-* A Liberty for Java web application
-
-### Installing the SDK
-
 1. Add an <a href="https://www.ibm.com/support/knowledgecenter/en/SSD28V_8.5.5/com.ibm.websphere.wlp.core.doc/ae/twlp_config_oidc_rp.html" target="_blank">OpenID Connect feature <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to your `server.xml`.
 
   ```xml
-  <featureManager>
-      <feature>ssl-1.0</feature>
-      <feature>appSecurity-2.0</feature>
-      <feature>openidConnectClient-1.0</feature>
-  </featureManager>
+  <feature manager>
+  <feature>appSecurity-2.0</feature>
+  <feature>openidConnectClient-1.0</feature>  
   ```
   {: codeblock}
 
-2. Create an Open ID Connect Client feature and define the following placeholders. Use the service credentials to fill the placeholders.
+2. In your Open ID Connect Client feature, define the following placeholders. Use the service credentials to fill the placeholders.
 
-  ```xml
-  <openidConnectClient
-    clientId='App ID client_ID'
-    clientSecret='App ID Secret'
-    authorizationEndpointUrl='oauthServerUrl/authorization'
-    tokenEndpointUrl='oauthServerUrl/token'
-    jwkEndpointUrl='oauthServerUrl/publickeys'
-    issuerIdentifier='Changed according to the region'
-    tokenEndpointAuthMethod="basic"
-    signatureAlgorithm="RS256"
-    authFilterid="myAuthFilter"
-    trustAliasName="my.bluemix.certificate"
-  />
+  ```
+  clientId='App ID client_ID'
+  clientSecret='App ID Secret'      
+  authorizationEndpointUrl='oauthServerUrl/authorization'       
+  tokenEndpointUrl='oauthServerUrl/token'
+  jwkEndpointUrl='oauthServerUrl/publickeys'
+  issuerIdentifier='Changed according to the region'
+  tokenEndpointAuthMethod="basic"
+  signatureAlgorithm="RS256"
+  authFilterid="myAuthFilter"
+  trustAliasName="my.bluemix.certificate"
   ```
   {: codeblock}
 
@@ -258,160 +242,58 @@ You must have the following prerequisites:
     </tr>
   </table>
 
-### Initializing the SDK
+3. Define an authorization filter to specify protected resources. If a filter is not <a href="https://www.ibm.com/support/knowledgecenter/en/SSD28V_8.5.5/com.ibm.websphere.wlp.core.doc/ae/rwlp_auth_filter.html" target="_blank">defined <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>, the service protects all resources.
 
-1. In your `server.xml` file, define an authorization filter to specify protected resources. If a filter is not <a href="https://www.ibm.com/support/knowledgecenter/en/SSD28V_8.5.5/com.ibm.websphere.wlp.core.doc/ae/rwlp_auth_filter.html" target="_blank">defined <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>, the service protects all resources.
-
-  ```xml
+  ```
   <authFilter id="myAuthFilter">
-      <requestUrl id="myRequestUrl" urlPattern="/protected" matchType="contains"/>
-  </authFilter>
+             <requestUrl id="myRequestUrl" urlPattern="/protected" matchType="contains"/>
+    </authFilter>
   ```
   {: codeblock}
 
-2. Define your special subject type as `ALL_AUTHENTICATED_USERS`.
+4. In your `server.xml` file, define your special subject type as `ALL_AUTHENTICATED_USERS`.
 
   ```xml
-  <application type="war" id="ProtectedServlet" context-root="/appidSample" location="${server.config.dir}/apps/libertySample-1.0.0.war">
-      <application-bnd>
-          <security-role name="myrole">
-              <special-subject type="ALL_AUTHENTICATED_USERS"/>
-          </security-role>
-      </application-bnd>
-  </application>
+  <application type="war" id="ProtectedServlet" context-root="/appidSample"
+  location="${server.config.dir}/apps/libertySample-1.0.0.war">
+    <application-bnd>
+        <security-role name="myrole">
+        <special-subject type="ALL_AUTHENTICATED_USERS"/>
+        </security-role>
+            </application-bnd>
+        </application>
   ```
   {: codeblock}
 
-3. Download the `libertySample-1.0.0.war` file from <a href="https://github.com/ibm-cloud-security/appid-sample-code-snippets/tree/master/liberty-for-java" target="_blank">GitHub <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> and place it in your server's apps folder. For example, if your server is named defaultServer, the war file would go here `target/liberty/wlp/usr/servers/defaultServer/apps/`.
-
-4. Configure SSL by adding the following to your `server.xml` file. You will also need to <a href="" target="_blank">create a truststore <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
-
-```xml
-  <keyStore id="defaultKeyStore" password="myPassword"/>
-  <keyStore id="appidtruststore" password="Liberty" location="${server.config.dir}/mytruststore.jks"/>
-  <ssl id="defaultSSLConfig" keyStoreRef="defaultKeyStore" trustStoreRef="appidtruststore"/>
-```
-{: codeblock}
-
-By default SSL configuration requires the truststore be configured for OpenID Connect. Learn more about <a href="https://www.ibm.com/support/knowledgecenter/en/SSEQTP_liberty/com.ibm.websphere.wlp.doc/ae/twlp_config_oidc_rp.html" target="_blank">configuring an OpenID Connect Client in Liberty <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
-{: tip}
-
-
-## Configuring Spring Boot for Java SDK
-{: #configuring-spring-boot}
-
-You can configure {{site.data.keyword.appid_short_notm}} to work with your Spring Boot applications.
-{:shortdesc}
-
-**Before you begin**
-
-You must have the following prerequisites:
-
-* An instance of the {{site.data.keyword.appid_short_notm}} service
-* A set of service credentials
-* A Java + Maven project
-* Apache Maven 3.5 or higher
-* Java 1.8
-* Spring Boot 2.0 and Security OAuth 2.0 or higher
-
-
-### Initializing the Spring Boot framework
-
-1. Add the following between the `<project> </project>` tags in your Maven `pom.xml` file.
-
+5. In your `<application-bnd>` element, <a href="https://www.ibm.com/support/knowledgecenter/SSAW57_8.5.5/com.ibm.websphere.wlp.nd.doc/ae/cwlp_authorization.html?cp=SSAW57_8.5.5&cm_mc_uid=18498555367014888859884&cm_mc_sid_50200000=1494855872" target="_blank">define the roles <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> as found in your web app: `web.xml`.
   ```xml
-  <parent>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-parent</artifactId>
-      <version>2.0.2.RELEASE</version>
-      <relativePath/>
-  </parent>
+  <security-role>
+  <role-name>myrole</role-name>
+  </security-role>
+  <security-constraint>
+  <web-resource-collection>
+  <web-resource-name>ProtectedServlet</web-resource-name>
+  <url-pattern>/ProtectedServlet/*</url-pattern>
+  <http-method>GET</http-method>
+  <http-method>PUT</http-method>
+  <http-method>POST</http-method>
+  <http-method>DELETE</http-method>
+  </web-resource-collection>
+  <auth-constraint>
+  <role-name>myrole</role-name>
+  </auth-constraint>
+  <user-data-constraint>
+  <transport-guarantee>NONE</transport-guarantee>
+  </user-data-constraint>
+  </security-constraint>
   ```
   {: codeblock}
 
-2. Add the following dependencies to your Maven `pom.xml` file.
-
-  ```xml
-  <dependencies>
-      <dependency>
-          <groupId>org.springframework.boot</groupId>
-          <artifactId>spring-boot-starter-web</artifactId>
-      </dependency>
-      <dependency>
-          <groupId>org.springframework.boot</groupId>
-          <artifactId>spring-boot-starter-security</artifactId>
-      </dependency>
-      <dependency>
-          <groupId>org.springframework.security.oauth.boot</groupId>
-          <artifactId>spring-security-oauth2-autoconfigure</artifactId>
-          <version>2.0.0.RELEASE</version>
-      </dependency>
-  </dependencies>
-  ```
-  {: codeblock}
-
-3. In the same file, include the Maven plugin.
-
-  ```xml
-  <plugin>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-maven-plugin</artifactId>
-  </plugin>
-  ```
-  {: codeblock}
-
-### Initializing OAuth2
-
-1. Add the following annotations to your Java file.
-
-  ```java
-  @SpringBootApplication
-  @EnableOAuth2Sso
-  ```
-  {: codeblock}
-
-2. Extend the class with `WebSecurityConfigurerAdapter`.
-3. Override any security configuration and register your protected endpoint.
-
-  ```java
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-                .antMatchers("/protectedResource").authenticated()
-                .and().logout().logoutSuccessUrl("/").permitAll();
-    }
-  ```
-  {: codeblock}
-
-
-### Adding credentials
-
-1. Add an `application.yml` configuration file to the `/springbootsample/src/main/resources/` directory. You can complete your configuration with the information from your service credentials.
-
-  ```
-  security:
-  oauth2:
-    client:
-      clientId: {client ID}
-      clientSecret: {client Secret}
-      accessTokenUri: {oauthServerUrl}/token
-      userAuthorizationUri: {oauthServerUrl}/authorization
-    resource:
-      userInfoUri: {oauthServerUrl}/userinfo
-  ```
-  {: codeblock}
-
-
-For a step-by-step example, check out <a href="https://www.ibm.com/blogs/bluemix/2018/06/creating-spring-boot-applications-app-id/" target="_blank">this blog</a>!
-
-</br>
-</br>
 
 ## Using {{site.data.keyword.appid_short_notm}} with other languages
 {: #other}
 
 With an OIDC compliant client SDK, you can use {{site.data.keyword.appid_short_notm}} with other languages. Check out a list of <a href="https://openid.net/developers/certified/">certified libraries</a> for more information.
-
 
 </br>
 </br>
