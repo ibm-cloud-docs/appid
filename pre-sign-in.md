@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-10-25"
+lastupdated: "2018-10-26"
 
 ---
 
@@ -20,7 +20,7 @@ With {{site.data.keyword.appid_full}}, you can start building a profile for user
 {: shortdesc}
 
 
-To learn more about the types of attributes and any security measures that you need to consider, [Understanding user profiles](/docs/services/appid/user-profile.html).
+To learn more about the types of attributes and any security measures that you need to consider, check out [Understanding user profiles](/docs/services/appid/user-profile.html).
 {: tip}
 
 **Why would I want to add information about a user to my app before they sign in for the first time?**
