@@ -55,6 +55,9 @@ Interested in securing your applications? Check out the blogs and samples here t
 * <a href="https://www.ibm.com/blogs/bluemix/2018/06/creating-spring-boot-applications-app-id/" target="_blank">Creating Spring Boot applications with {{site.data.keyword.appid_long}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 * <a href="https://github.com/mnsn/appid-python-flask-example" target="_blank">Using {{site.data.keyword.appid_short_notm}} with Python <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 * <a href="https://github.com/IBM-Cloud/github-traffic-stats" target="_blank">Using Python Flask-pyoidc with {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
+* <a href="https://github.com/ibmets/appid-vue-client" target="_blank">Using VueJS to access a secured resource from an API server, secure routes, and integrate {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
+
+
 
 ## Securing Runtime, APIs, and backends
 {: #secure}
@@ -78,6 +81,8 @@ See {{site.data.keyword.appid_short_notm}} in action in these market examples.
 * <a href="https://www.ibm.com/developerworks/security/library/iot-trs-secure-iot-solutions3/index.html" target="_blank">Design and build secure IoT solutions, part 3: Securing IoT applications <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 * <a href="https://www.ibm.com/blogs/bluemix/2017/08/developing-finance-application-using-ibm-cloud/" target="_blank">Developing a finance application by using {{site.data.keyword.Bluemix_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 * <a href="https://console.bluemix.net/docs/tutorials/cloud-e2e-security.html#apply-end-to-end-security-to-a-cloud-application" target="_blank">Apply end to end security to a cloud application <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
+
+
 
 
 ## Integrating with your enterprise user directory
