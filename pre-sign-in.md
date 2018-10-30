@@ -90,7 +90,7 @@ In order to ensure the integrity of the preregistered user attributes, Cloud Dir
 2. Users preregistered using their email, must have their email address confirmed. You can confirm a users identity in one of two ways: through email or manually.
 
   * To verify a users identity through email, set **Email verification** to **On** in the **Cloud Directory** tab of the service dashboard. If a user is added by you and signs in to your app without first verifying their email, the sign in completes successfully, but their predefined attribute is deleted.
-  * To verify users manually you must be an administrator and use the [management APIs](https://appid-management.ng.bluemix.net/swagger-ui/).
+  * To verify users manually you must be an administrator and use the Cloud Directory [management APIs](https://appid-management.ng.bluemix.net/swagger-ui/#!/Cloud_Directory_Users/createCloudDirectoryUser). When creating or updating a user, you should explicitly set the `status` field to `CONFIRMED` within your user data payload.
 
 **Is there anything special that I need to do when using a custom identity provider?**
 
