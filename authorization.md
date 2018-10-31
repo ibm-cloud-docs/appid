@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-10-15"
+lastupdated: "2018-10-31"
 
 ---
 
@@ -157,12 +157,17 @@ Identity tokens only contain partial user information. To see all of the informa
 
 **What is a refresh token?**
 
-{{site.data.keyword.appid_short}} supports the ability to acquire new access and identity tokens without reauthentication, as defined in <a href="http://openid.net/specs/openid-connect-core-1_0.html#RefreshTokens" target="blank">OIDC <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>. When signing in with a refresh token, a user doesn't have to take any actions, such as providing credentials. Generally, refresh tokens are configured to have a longer life span than a regular access token. To take full advantage of refresh tokens, persist the tokens for their full life span. A user cannot directly access resources with just a refresh token, which makes them much safer to persist than an access token. For examples of working with refresh tokens and how to use them to implement a *remember me* functionality, check out the getting started samples. As a best practice, refresh tokens should be securely stored by the client that received them, and should only be sent to the authorization server that issued them.
+{{site.data.keyword.appid_short}} supports the ability to acquire new access and identity tokens without reauthentication, as defined in <a href="http://openid.net/specs/openid-connect-core-1_0.html#RefreshTokens" target="_blank">OIDC <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>. A refresh token can be used to renew the access token so a user doesn't have to take any action to sign in, such as providing credentials. Similar to access tokens, refresh tokens contain data allowing {{site.data.keyword.appid_short_notm}} to determine whether you authorized. However, these tokens are opaque. They are encoded so only {{site.data.keyword.appid_short_notm}} can interpret the data they contain.
 
-There are some cases when you would want to have the refresh token revoked, for example when its believed to be compromised. There are two methods of revoking a refresh token. If you have the refresh token, you can revoke it based on <a href="https://tools.ietf.org/html/rfc7009#section-2" target="blank">RFC7009</a>. Alternatively, if you have the user ID, you can revoke the refresh token by using <a href="https://appid-management.ng.bluemix.net/swagger-ui/" target="blank">the Management API</a>. For more information about accessing the management API see [managing service access](/docs/services/appid/iam.html#service-access-management).
+Refresh tokens are configured to have a longer life span than a regular access token so when an access token expires, the refresh token will still be valid and can be used to renew the access token. {{site.data.keyword.appid_short_notm}}’s refresh tokens can be configured to last 1 to 90 days. To take full advantage of refresh tokens, persist the tokens for their full life span, or until they are renewed. A user cannot directly access resources with just a refresh token, which makes them much safer to persist than an access token. As best practice, refresh tokens should be securely stored by the client that received them and sent only to the authorization server that issued them.
 
-Revoking the use of either method revokes all active refresh tokens that are assigned to that user that were created before revocation.
-{: tip}
+For added convenience, {{site.data.keyword.appid_short_notm}} also renews its refresh token — and its expiration date — when the access token is renewed, allowing the user to remain logged in as long as they are active at some point before the current refresh token expires. On the other hand, if you would like to use refresh tokens yet force the user to log in periodically, your app could only use the refresh tokens returned when the user logs in by entering their credentials. However, we recommend always using the latest refresh token received from App ID, as described by the <a href="https://tools.ietf.org/html/rfc6749#page-47" target="_blank">Oauth specifications <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
+
+
+Although these tokens can streamline the login process, your app should not depend on them, as they can be revoked at any time, such as when you believe your refresh tokens have been compromised. If you need to revoke a refresh token, there are two methods of revoking a refresh token. If you have the refresh token, you can revoke it based on <a href="https://tools.ietf.org/html/rfc7009#section-2" target="_blank">RFC7009 <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>. Alternatively, if you have the user ID, you can revoke the refresh token by using <a href="https://appid-management.ng.bluemix.net/swagger-ui/" target="_blank">the Management API <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>. For more information about accessing the management API see [managing service access](iam.html#service-access-management).
+
+For examples of working with refresh tokens and how to use them to implement a remember-me functionality, check out the [getting started samples](index.html).
+
 
 **Where do the tokens come from?**
 
