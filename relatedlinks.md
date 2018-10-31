@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-10-30"
+lastupdated: "2018-10-31"
 
 ---
 
@@ -55,7 +55,7 @@ Interested in securing your applications? Check out the blogs and samples here t
 * <a href="https://www.ibm.com/blogs/bluemix/2018/06/creating-spring-boot-applications-app-id/" target="_blank">Creating Spring Boot applications with {{site.data.keyword.appid_long}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 * <a href="https://github.com/mnsn/appid-python-flask-example" target="_blank">Using {{site.data.keyword.appid_short_notm}} with Python <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 * <a href="https://github.com/IBM-Cloud/github-traffic-stats" target="_blank">Using Python Flask-pyoidc with {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
-* <a href="https://github.com/ibmets/appid-vue-client" target="_blank">Using VueJS to access a secured resource from an API server, secure routes, and integrate {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
+* <a href="https://github.com/ibmets/appid-vue-client" target="_blank">Securing a VueJS app by using {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 
 
 
