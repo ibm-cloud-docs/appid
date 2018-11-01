@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-01"
 
 ---
 
@@ -16,7 +16,7 @@ lastupdated: "2018-10-31"
 # Using the OIDC discovery endpoint
 {: #discovery}
 
-By using the OpenID Connect protocol, you can obtain a discovery document. The document contains information that you can use to configure your apps and authenticate users such as tokens and public keys.
+OpenID Connect supports a discovery protocol which contains information that you can use to configure your apps and authenticate users such as tokens and public keys.
 {: shortdesc}
 
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-11-01"
 
 ---
 
@@ -412,11 +412,27 @@ Before you can add your users to the new instance, you need to export them from 
 Example cURL command:
 
 ```
-curl -X GET --header ‘Accept: application/json’ --header ‘Authorization: Bearer <iam-token>’ ’https://appid-management.eu-gb.bluemix.net/management/v4/111c9bj3-xxxx-4b5b-zzzz-24ad9440k8j9/cloud_directory/import?encryption_secret=myCoolSecret'
+curl -X GET --header ‘Accept: application/json’ --header ‘Authorization: Bearer <iam-token>’ ’https://appid-management.eu-gb.bluemix.net/management/v4/111c9bj3-xxxx-4b5b-zzzz-24ad9440k8j9/cloud_directory/export?encryption_secret=myCoolSecret'
 ```
 {: codeblock}
 
-Note: Only your Cloud Directory users and their profiles are returned. Users from other identity provider's are not.
+<table>
+  <tr>
+    <th>Variable</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><code>encryption_secret</code></td>
+    <td>A custom string that is used to encrypt and decrypt a users hashed password.</td>
+  </tr>
+  <tr>
+    <td><code>tenantID</code></td>
+    <td>The service tenant ID can be found in your service credentials. You can find your service credentials in the App ID dashboard.</td>
+  </tr>
+</table>
+
+Only your Cloud Directory users and their profiles are returned. Users from other identity provider's are not.
+{: note}
 
 </br>
 
@@ -488,7 +504,7 @@ Before you get started, be sure you have the following parameter information:
 
 To run the script:
 
-1. Clone the <a href="https://github.ibm.com/ROTEMBR/exportImportCloudDirectoryUsers" target="_blank">repository <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
+1. Clone the <a href="https://github.com/ibm-cloud-security/appid-sample-code-snippets/tree/master/export-import-cloud-directory-users" target="_blank">repository <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
 2. Open terminal and navigate to the folder that you cloned the repo into.
 3. Run the following command.
 
