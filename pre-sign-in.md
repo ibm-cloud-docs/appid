@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-10-26"
+lastupdated: "2018-10-30"
 
 ---
 
@@ -20,7 +20,7 @@ With {{site.data.keyword.appid_full}}, you can start building a profile for user
 {: shortdesc}
 
 
-To learn more about the types of attributes and any security measures that you need to consider, check out [Understanding user profiles](/docs/services/appid/user-profile.html).
+To learn more about the types of attributes, check out [Understanding user profiles](/docs/services/appid/user-profile.html). To review security implications before editing custom attributes, read [Security considerations](custom-attribtues.html#security).
 {: tip}
 
 **Why would I want to add information about a user to my app before they sign in for the first time?**
@@ -83,10 +83,9 @@ Check out the following table to see which type of identity information that you
 
 **Is Cloud Directory handled differently?**
 
-In order to ensure the integrity of the preregistered user attributes,
-Cloud Directory places additional requirements on its users.
+In order to ensure the integrity of the preregistered user attributes, Cloud Directory places additional requirements on its users.
 
-1. User preregistration can only occur, while set to **email/password** mode. This can be changed from the dashboard or management APIs, see [configuring cloud directory](/cloud-directory.html#cd) for details
+1. User preregistration can only occur while set to **email/password** mode. This can be changed from the dashboard or management APIs, see [configuring cloud directory](/cloud-directory.html#cd) for details.
 
 2. Users preregistered using their email, must have their email address confirmed. You can confirm a users identity in one of two ways: through email or manually.
 
@@ -97,9 +96,6 @@ Cloud Directory places additional requirements on its users.
 
 When you add user information to your application in advance, you can use any unique identifier that is provided by the authentication flow. The identifier must _exactly_ match the `sub` of the signed JSON Web Token that is sent during the authorization request. If the identifier does not match, then the profile that you want to add is not linked successfully.
 
-**Is there a limit to the amount of information that can be stored for each user?**
-
-You can store 100KB of information for each user.
 
 
 ## Adding user information to your app

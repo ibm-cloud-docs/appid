@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-10-15"
+lastupdated: "2018-10-31"
 
 ---
 
@@ -55,6 +55,9 @@ Interested in securing your applications? Check out the blogs and samples here t
 * <a href="https://www.ibm.com/blogs/bluemix/2018/06/creating-spring-boot-applications-app-id/" target="_blank">Creating Spring Boot applications with {{site.data.keyword.appid_long}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 * <a href="https://github.com/mnsn/appid-python-flask-example" target="_blank">Using {{site.data.keyword.appid_short_notm}} with Python <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 * <a href="https://github.com/IBM-Cloud/github-traffic-stats" target="_blank">Using Python Flask-pyoidc with {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
+* <a href="https://github.com/ibmets/appid-vue-client" target="_blank">Securing a VueJS app by using {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
+
+
 
 ## Securing Runtime, APIs, and backends
 {: #secure}
@@ -80,6 +83,8 @@ See {{site.data.keyword.appid_short_notm}} in action in these market examples.
 * <a href="https://console.bluemix.net/docs/tutorials/cloud-e2e-security.html#apply-end-to-end-security-to-a-cloud-application" target="_blank">Apply end to end security to a cloud application <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 
 
+
+
 ## Integrating with your enterprise user directory
 {: #enterprise}
 
@@ -98,6 +103,7 @@ Want to have a custom experience for your users? Not a problem.
 * <a href="https://www.ibm.com/blogs/bluemix/2018/01/use-branded-ui-user-sign-app-id/" target="_blank">Use your own branded UI for user sign-in with {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 * <a href="https://www.ibm.com/blogs/bluemix/2018/06/use-ui-flows-user-sign-sign-app-id/" target="_blank">Use your own UI and Flows for User Sign-Up and Sign-in with with {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 * <a href="https://www.ibm.com/blogs/bluemix/2018/06/custom-login-page-app-id-integration/" target="_blank">Use a custom login page with  {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
+* <a href="https://www.ibm.com/blogs/bluemix/2018/10/use-ibm-cloud-app-id-and-your-email-provider-to-brand-mails-sent-to-app-users/" target="_blank">Use Your Own Provider for Mail Sent with {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 
 ## Programming guides
 {: #guide}
