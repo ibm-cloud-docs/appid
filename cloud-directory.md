@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-11-01"
+lastupdated: "2018-11-02"
 
 ---
 
@@ -198,11 +198,11 @@ A strong password makes it difficult, or even improbable for someone to guess th
 Some common password strength examples:
 
 - Must be at least 8 characters. Example regex: `^.{8,}$`
-- Must contain 1 number, 1 lower case letter, and 1 capital letter. Example regex: `^(?:(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).*)$`
+- Must contain 1 number, 1 lower case letter, and 1 capital letter. Example regex: `^(?:(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).*)$`
 - Must contain only English letters and numbers. Example regex: `^[A-Za-z0-9]*$`
 - Must be at least 1 unique character. Example regex: `^(\w)\w*?(?!\1)\w+$`
 
-You must use <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/set_cloud_directory_password_regex" target="_blank">the management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to set the requirements.
+Password strength may be set in the Cloud Directory settings page in App ID Console, or using <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/set_cloud_directory_password_regex" target="_blank">the management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
 
 </br>
 
