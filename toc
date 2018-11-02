@@ -21,9 +21,11 @@ IBM Cloud App ID
         progressive.md
         protecting-resources-local.md
         app-to-app.md
+        well-known.md
 
     {: .topicgroup}
     Configuring identity providers
+        manageidp.md
         cloud-directory.md
         enterprise.md
         identity-providers.md
