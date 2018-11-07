@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-10-30"
+lastupdated: "2018-11-07"
 
 ---
 
@@ -18,7 +18,6 @@ lastupdated: "2018-10-30"
 
 With {{site.data.keyword.appid_full}}, you can start building a profile for users that you know are going to need access to your app, prior to their initial sign-in.
 {: shortdesc}
-
 
 To learn more about the types of attributes, check out [Understanding user profiles](/docs/services/appid/user-profile.html). To review security implications before editing custom attributes, read [Security considerations](custom-attribtues.html#security).
 {: tip}
@@ -83,11 +82,13 @@ Check out the following table to see which type of identity information that you
 
 **Is Cloud Directory handled differently?**
 
-In order to ensure the integrity of the preregistered user attributes, Cloud Directory places additional requirements on its users.
+In order to ensure the integrity of the preregistered user attributes, Cloud Directory places additional requirements on its users. Preregistration can only occur when email validation is enabled and verified. If you preregister a Cloud Directory user with specific attributes, then those attributes are intended for a specific person. If the email is not verified first, it is possible for another user to claim the email address and any attributes that are assigned to it.
 
-1. User preregistration can only occur while set to **email/password** mode. This can be changed from the dashboard or management APIs, see [configuring cloud directory](/cloud-directory.html#cd) for details.
+How do I do that?
 
-2. Users preregistered using their email, must have their email address confirmed. You can confirm a users identity in one of two ways: through email or manually.
+1. Set Cloud Directory to email and password mode. You can do this through the UI in the general settings on the **Cloud Directory** tab. You can also set it through the [management APIs](https://appid-management.ng.bluemix.net/swagger-ui/#!/Cloud_Directory_Users/createCloudDirectoryUser).
+
+2. Verify the users email address to confirm their identity in one of the following ways:
 
   * To verify a users identity through email, set **Email verification** to **On** in the **Cloud Directory** tab of the service dashboard. If a user is added by you and signs in to your app without first verifying their email, the sign in completes successfully, but their predefined attribute is deleted.
   * To verify users manually you must be an administrator and use the Cloud Directory [management APIs](https://appid-management.ng.bluemix.net/swagger-ui/#!/Cloud_Directory_Users/createCloudDirectoryUser). When creating or updating a user, you should explicitly set the `status` field to `CONFIRMED` within your user data payload.
@@ -195,6 +196,5 @@ When a user signs into your app for the first time, {{site.data.keyword.appid_sh
 Keep in mind that a user's predefined attributes are empty until their first authentication, but the user is, for all intents and purposes, a fully authenticated user. You can use their unique ID just as you would someone who had already signed in. For instance, you can modify, search, or delete the profile.
 
 Now that you have associated a user with specific attributes, try [accessing attributes](/docs/services/appid/custom-attributes.html)!
-
 
 </br>
