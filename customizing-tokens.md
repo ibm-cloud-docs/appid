@@ -2,15 +2,16 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-11-08"
+lastupdated: "2018-11-02"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
+{:screen: .screen}
+{:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
-{:screen: .screen}
 
 
 # Customizing Tokens
@@ -31,31 +32,15 @@ Token validity periods can be configured for each token type on per service inst
 
 Adjusting the lifetime of these tokens is a trade-off between system performance and application security. A longer token lifespan reduces the number of times a client has to initiate a token refresh flow. However, this also means that if your application is ever compromised, a malicious actor has more time to abuse stolen tokens.
 
-system performance = user experience = normal app is user experience but if using app to app then it would be system performance.
-User focused is probs the best for now
-
-If you steal my access token then its compromised ... but if I get into your entire app is compromised. Access token
-
 The default lifespan of these tokens is 1 hour. You can set your token expiration (in minutes) to any value between 5 and 1440.
 
-Figure out how to merge token information.
-
 After expiration, the client must acquire new tokens using a refresh token or by forcing the user to re-authenticate.
-
-
-
 
 **Refresh Tokens**
 
 [Refresh Tokens](authorization.html#tokens) are used exclusively for retrieving new access and identity tokens. If using a confidential client, such as a backend server, these can be securely persisted allowing them to have much longer lifespans.
 
-Can have a longer lifespan provided that you can host it on a confidential client. More positive and make sure to explain how refresh tokens get refreshed.
-
-confidential client: need a link (backend server something in OAuth 2 that's trusted to secure user information)
-
 The default lifespan of these tokens is 30 days. You can set your refresh token's expiration (in days) to any value between 1 and 90.
-
-Increase refresh token for better app user experience (no need to explicitly sign-in) without compromising security (i.e. Without reducing access token expiration).
 
 After expiration, if a new refresh token has not been requested, the user must re-authenticate.
 
@@ -65,12 +50,9 @@ Anonymous tokens are issued to users who have not yet authenticated. These acces
 
 The default lifespan of these tokens is 30 days. You can set anonymous token's expiration (in days) to any value between 1 and 90.
 
-Merge the anonymous token information
-
 </br>
 
 To configure your token lifetime, see our walkthrough on [configuring tokens](#configuring-tokens).
-
 
 ## Custom Claim Mapping
 {: #claim-mapping}
@@ -78,27 +60,11 @@ To configure your token lifetime, see our walkthrough on [configuring tokens](#c
 You can map any user attribute to your access and identity tokens.
 {: shortdesc}
 
-Benefits:
-
-You don't have to go to the user info endpoint or to the custom attributes because it's already in the token ... anything that your app may need to know about a user or what they can do is already in the token. Cut down on network calls.
-
-Add scopes or roles for specific users. Invent your own scopes. Create
-
-You have a lot of control over the way that your app is built. -> in the token is signed
-
-More efficient assuming your data isn't massive.
-
-
-Update your token configuration to fine-tune your expiration settings, enable or disable refresh and anonymous tokens, or customize access and ID token claims. If you already have custom settings that you want to keep, be sure to include them in your request. If a value is left blank then the default is used.
-
 ### Claim Sets
 
 Default claims provided by {{site.data.keyword.appid_short_notm}} fall into several categories differentiated by their level of customization: core claims, restricted claims, and normalized claims.
 
 #### Core claims
-Registered claim name
-
-If your claim is restricted we ignore it.
 
 Certain fields in {{site.data.keyword.appid_short_notm}}'s access and identity tokens cannot be overridden by custom claim mappings. These *core claims* are defined by {{site.data.keyword.appid_short_notm}} and exist in all of its tokens.
 
@@ -135,11 +101,6 @@ The normalized claims cannot be explicitly omitted, but can be overridden by cus
 ## Claim Mapping Object
 {: #claim-mapping-object}
 
-Define the value of claim mapping
-what you can and can't do
-How do you use it?
-
-
 Each claim mapping is defined by its data source object and the key identifying the claim to retrieve from it.
 
 Custom claims are set for each token type separately and are sequentially applied. You can register up to 100 claims for each token to a maximum payload of 100KB.
@@ -165,10 +126,6 @@ Custom claims are set for each token type separately and are sequentially applie
 
 You can reference nested fields in your claim mappings using the dot syntax. `e.g. nested.attribute`
 {:tip}
-
-This can be merged with the above -> how do you take information from one of your identity providers and use
-
-
 
 ## Configuring {{site.data.keyword.appid_short_notm}} tokens
 {: #configuring-tokens}
