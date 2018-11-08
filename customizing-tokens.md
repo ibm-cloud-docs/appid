@@ -6,12 +6,11 @@ lastupdated: "2018-11-08"
 
 ---
 
-{:new_window: target="blank"}
+{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
-{:screen: .screen}
-{:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:screen: .screen}
 
 
 # Customizing Tokens
