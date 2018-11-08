@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-11-07"
+lastupdated: "2018-11-08"
 
 ---
 
@@ -19,7 +19,7 @@ lastupdated: "2018-11-07"
 With {{site.data.keyword.appid_full}}, you can start building a profile for users that you know are going to need access to your app, prior to their initial sign-in.
 {: shortdesc}
 
-To learn more about the types of attributes, check out [Understanding user profiles](/docs/services/appid/user-profile.html). To review security implications before editing custom attributes, read [Security considerations](custom-attribtues.html#security).
+To learn more about the types of attributes, check out [Understanding user profiles](/docs/services/appid/user-profile.html). To learn more about custom attributes and their security considerations, check out [Custom attributes](custom-attributes.html).
 {: tip}
 
 **Why would I want to add information about a user to my app before they sign in for the first time?**
@@ -196,5 +196,6 @@ When a user signs into your app for the first time, {{site.data.keyword.appid_sh
 Keep in mind that a user's predefined attributes are empty until their first authentication, but the user is, for all intents and purposes, a fully authenticated user. You can use their unique ID just as you would someone who had already signed in. For instance, you can modify, search, or delete the profile.
 
 Now that you have associated a user with specific attributes, try [accessing attributes](/docs/services/appid/custom-attributes.html)!
+
 
 </br>
