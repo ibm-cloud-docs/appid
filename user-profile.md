@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-10-30"
+lastupdated: "2018-11-08"
 
 ---
 
@@ -35,7 +35,7 @@ Predefined attributes are returned by the identity provider when your user signs
 
 **What are custom attributes?**
 
-Custom attributes are learned about your users as they interact with your app. Custom attributes can also be set by you prior to the user signing into your app for the first time. An example might be the font size that they prefer or items that they have placed in a shopping cart. Custom attributes can be edited. Be sure to check out the [security implications](custom-attributes.html#security) that can occur by allowing users to edit their attributes prior to changing the default.
+Custom attributes are learned about your users as they interact with your app. Custom attributes can also be set by you prior to the user signing into your app for the first time. An example might be the font size that they prefer or items that they have placed in a shopping cart. Custom attributes can be edited. Be sure to check out the [security implications](custom-attributes.html) that can occur by allowing users to edit their attributes prior to changing the default.
 
 </br>
 </br>

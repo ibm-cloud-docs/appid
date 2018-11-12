@@ -64,6 +64,7 @@ IBM Cloud App ID
         [Swift server SDK](https://github.com/ibm-cloud-security/appid-serversdk-swift)
     iam.md
     api-reference.md
+    at-events.md
     {: .navgroup-end}
 
     {: .navgroup id="help"}
