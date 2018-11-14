@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-10-15"
+lastupdated: "2018-11-14"
 
 ---
 
@@ -17,10 +17,10 @@ lastupdated: "2018-10-15"
 # Custom
 {: #custom-identity}
 
-You can use your own custom identity provider when authenticating. Your identity provider can conform to any authentication mechanism alternate to those supported by {{site.data.keyword.appid_full}}, including proprietary.
+You can use your own custom identity provider when you authenticate. Your identity provider can conform to any authentication mechanism that is not specifically supported by {{site.data.keyword.appid_full}}, including proprietary.
 {: shortdesc}
 
-When {{site.data.keyword.appid_short_notm}} does not provide direct support for a particular identity provider, you can use the custom identity flow to bridge the authentication protocol to {{site.data.keyword.appid_short_notm}}'s existing authentication flow. For example, you want to use GitHub or LinkedIn to allow your users to sign in. You can use the identity providers existing SDK to facilitate user authentication information before packaging and exchanging it with {{site.data.keyword.appid_short_notm}}. In many enterprise scenarios, a legacy identity provider might use its own custom authentication protocol, but you still want to leverage the capabilities of {{site.data.keyword.appid_short_notm}}. For this type of scenario, the custom identity flow provides a decoupled means of securely authenticating your users without exposing their credentials.
+When {{site.data.keyword.appid_short_notm}} does not provide direct support for a particular identity provider, you can use the custom identity flow to bridge the authentication protocol to {{site.data.keyword.appid_short_notm}}'s existing authentication flow. For example, you want to use GitHub or LinkedIn to allow your users to sign in. You can use the identity provider's existing SDK to facilitate user authentication information before packaging and exchanging it with {{site.data.keyword.appid_short_notm}}. In many enterprise scenarios, a legacy identity provider might use its own custom authentication protocol, but you still want to leverage the capabilities of {{site.data.keyword.appid_short_notm}}. For this type of scenario, the custom identity flow provides a decoupled means of securely authenticating your users without exposing their credentials.
 
 ## Configuring custom identity
 {: #custom-configure}
@@ -37,7 +37,7 @@ How are the keys used?
 - Your private key is used in your app or identity provider to sign JWTs.
 - Your public key is used by {{site.data.keyword.appid_short_notm}} to validate the JWT that contains user information.
 
-To generate an RSA PEM key pair by using Open SSL run the following command:
+To generate an RSA PEM key pair by using Open SSL, run the following command:
 
 ```
 $ openssl genpkey -algorithm RSA -out private_key.pem -pkeyopt rsa_keygen_bits:2048
@@ -79,17 +79,17 @@ Content-Type: application/json
 ## Testing your configuration
 {: #testing}
 
-After you configure your {{site.data.keyword.appid_short_notm}} instance with a valid public key, you can use the test application provided by the service to verify that your configuration is correctly set up. In the example app, you can see {{site.data.keyword.appid_short_notm}} access and identity token payloads that are returned during a standard sign in flow.
+After you configure your {{site.data.keyword.appid_short_notm}} instance with a valid public key, you can use the test application that is provided by the service to verify that your configuration is correctly set up. In the example app, you can see {{site.data.keyword.appid_short_notm}} access and identity token payloads that are returned during a standard sign-in flow.
 
 1. From the **Custom Identity Provider** tab, click **Test** to open the test application.
 
-2. Create an example JWT using [JWT.io](https://jwt.io/) following the custom identity [protocol](/docs/services/appid/custom-auth.html#creating-jwts).
+2. Create an example JWT by using [JWT.io](https://jwt.io/) following the custom identity [protocol](/docs/services/appid/custom-auth.html#creating-jwts).
 
-3. Paste your JWT into the box labeled **JSON Web Token** and click **Test** to execute a sample authentication.
+3. Paste your JWT into the box that is labeled **JSON Web Token** and click **Test** to execute a sample authentication.
 
-If successful, you can now see the decoded {{site.data.keyword.appid_short_notm}} identity and access tokens that would be available to your application in a standard sign in flow.
+If successful, you can now see the decoded {{site.data.keyword.appid_short_notm}} identity and access tokens that would be available to your application in a standard sign-in flow.
 
 ## Next steps
 {: #next}
 
-Now that you've configured your custom identity provider, [add it to your application](/docs/services/appid/custom-auth.html)!
+Now that your custom identity provider is configured, [add it to your application](/docs/services/appid/custom-auth.html)!

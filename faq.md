@@ -32,7 +32,7 @@ The graduated tier plan consists of two parts: the number of authentication even
 
 An authentication event occurs when a new access token, regular or anonymous, is issued. For identified users, each new access token is valid by default for 1 hour (be it through real user authentication or via refresh tokens). Anonymous tokens are valid by default for 1 month. After the token expires, you must create a new token to access protected resources. You can update the expiration time of {{site.data.keyword.appid_short_notm}} tokens on the **Sign-in Expiration** page in the {{site.data.keyword.appid_short_notm}} dashboard.
 
-When you use {{site.data.keyword.appid_short_notm}} in mobile applications, tokens are stored in key-store or key-chain and are added to every future request. The tokens are accessible by using the App ID Android or iOS SDK. When you use {{site.data.keyword.appid_short_notm}} in web applications, it is recommended to store the tokens in application session cookies.
+When you use {{site.data.keyword.appid_short_notm}} in mobile applications, tokens are stored in keystore or key-chain and are added to every future request. The tokens are accessible by using the {{site.data.keyword.appid_short_notm}} Android or iOS SDK. When you use {{site.data.keyword.appid_short_notm}} in web applications, it is recommended to store the tokens in application session cookies.
 
 
 ### Authorized users
@@ -47,7 +47,7 @@ For more information on graduated tier pricing, see the [{{site.data.keyword.Blu
 {: #redirect}
 {: faq}
 
-A redirect URL is the callback endpoint of your app. To prevent phishing attacks, App ID validates the URL against the whitelist of redirect URLs. When phishing occurs, there is a chance that an attacker may gain access to your users tokens.
+A redirect URL is the callback endpoint of your app. To prevent phishing attacks, {{site.data.keyword.appid_short_notm}} validates the URL against the whitelist of redirect URLs. When phishing occurs, the possibility that an attacker can gain access to your users tokens exists.
 
 To add your URL to the whitelist:
 
@@ -72,7 +72,7 @@ Check out the following table for answers to commonly asked questions about encr
   <tbody>
     <tr>
       <td>Why do you use encryption?</td>
-      <td>The service encrypts customer data at rest with per-tenant keys. This is one way of protecting our users information.</td>
+      <td>One way that we protect our users information is by encrypting customer data at rest The service encrypts customer data at rest with per-tenant keys.</td>
     </tr>
     <tr>
       <td>Did you build your own algorithms? Which ones do you use in your code?</td>
@@ -84,7 +84,7 @@ Check out the following table for answers to commonly asked questions about encr
     </tr>
     <tr>
       <td>How do you store keys?</td>
-      <td>Keys are generated and then stored locally after being encrypted by using a master key that is specific to each region. The master keys are stored in {{site.data.keyword.keymanagementserviceshort}}. Storage and middleware levels have service level encryption which means that there is one key for all customers. The application level and customer by customer encryption which means that each customer has their own encryption key.</td>
+      <td>Keys are generated, encrypted with a master key that is specific to each region, and then stored locally. The master keys are stored in {{site.data.keyword.keymanagementserviceshort}}. At the storage and middleware levels, there is service level encryption which means that there is one key for all customers. At the app level, each customer has their own encryption key.</td>
     </tr>
     <tr>
       <td>What is the key strength that you use?</td>

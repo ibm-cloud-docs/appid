@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-11-01"
+lastupdated: "2018-11-14"
 
 ---
 
@@ -16,14 +16,14 @@ lastupdated: "2018-11-01"
 # Using the OIDC discovery endpoint
 {: #discovery}
 
-OpenID Connect supports a discovery protocol which contains information that you can use to configure your apps and authenticate users such as tokens and public keys.
+OpenID Connect supports a discovery protocol that contains information that you can use to configure your apps and authenticate users such as tokens and public keys.
 {: shortdesc}
 
 
 ## Calling the endpoint
 {: #call-wellknown}
 
-By making a call to the `.well-known` endpoint, you can obtain the discovery document and the information that it contains.
+You can obtain the discovery document and the information that it contains by calling the `.well-known` endpoint.
 {: shortdesc}
 
 
@@ -40,7 +40,7 @@ You can find the endpoint at the following URL:
 
 **How do I make the call to the endpoint?**
 
-To make a call to the endpoint you must have a valid `tenantID` and you must hard-code the discovery document URI in your application.
+To make a call to the endpoint you must have a valid `tenantID` and you must hardcode the discovery document URI in your application.
 
 Check out the following sample cURL request:
 
@@ -53,7 +53,7 @@ Check out the following sample cURL request:
 
 **What can I expect the call to return?**
 
-The response that you receive will be similar to the following example:
+The response should look similar to the following example:
 
   ```bash
   {
@@ -145,7 +145,7 @@ The response that you receive will be similar to the following example:
     </tr>
     <tr>
       <td><code>grant_types_supported</code></td>
-      <td>A JSON array containing a list of the OAuth 2.0 grant type values that {{site.data.keyword.appid_short_notm}} supports.</td>
+      <td>A JSON array that contains a list of the OAuth 2.0 grant type values that {{site.data.keyword.appid_short_notm}} supports.</td>
     </tr>
     <tr>
       <td><code>profiles_endpoint</code></td>

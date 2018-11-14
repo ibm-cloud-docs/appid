@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-11-02"
+lastupdated: "2018-11-14"
 
 ---
 
@@ -43,7 +43,7 @@ Figure. The configuration journey for Cloud Directory
 
 3. Configure your verification email settings.
   1. To have your users verify their email address set **Email verification** to **On**. When a user signs up for your application, they receive an email that asks them to confirm that they've signed up for the app.
-  2. If you've decided that you want your users to verify their email, your next decision is whether you want to allow users into your application prior to them verifying their email address. Depending on your preference, set **Allow users to sign in to your app without first verifying their email address** to **Yes** or **No**.
+  2. If you've decided that you want your users to verify their email, your next decision is whether you want to allow users into your application before them verifying their email address. Depending on your preference, set **Allow users to sign in to your app without first verifying their email address** to **Yes** or **No**.
   3. Customize the content and design the appearance of your message. There is a template for the message, but you can update the text with your own message. You can use a [language](/docs/services/appid/cloud-directory.html#languages) other than English, but you are responsible for the translation of the text. To choose another language, use the <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/updateLocalization" target="_blank">language management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
   4. Give the verification URL an expiration time limit, specified as minutes.  When this time is set here, it also affects the length of time that your reset password link is valid for.
   5. Enter your own verification page URL if you have a specific page that you want your users to see when they click the link. If you leave the **Custom verification page URL** field blank, a default verification page is provided by {{site.data.keyword.appid_short_notm}}.
@@ -55,7 +55,7 @@ Figure. The configuration journey for Cloud Directory
   3. Click **Save**.
 
 5. Configure your password reset settings.
-  1. To allow users to request a reset of their password, set **Forgot password email** to **On**. **Note**: A user must have validated their email prior to reseting their password. This means that you must require email verification to allow password resets.
+  1. To allow users to request a reset of their password, set **Forgot password email** to **On**. **Note**: A user must have validated their email before reseting their password. This means that you must require email verification to allow password resets.
   2. Customize the content and design the appearance of your message. There is an example message that you can use, but you can update the text with your own message. You can use a [language](#languages) other than English, but you are responsible for the translation of the text. To choose another language, use the <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/updateLocalization" target="_blank">language management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
   3. Give the reset password URL an expiration time limit, specified as minutes. When this time is set here, it also affects the length of time that your email verification link is valid for.
   4. Enter your own password reset URL if you have a specific page that you want your users to see when they click the link. If you leave the **Reset password page URL** field blank, a default reset password page is provided by {{site.data.keyword.appid_short_notm}}.
@@ -197,12 +197,12 @@ A strong password makes it difficult, or even improbable for someone to guess th
 
 Some common password strength examples:
 
-- Must be at least 8 characters. Example regex: `^.{8,}$`
-- Must contain 1 number, 1 lower case letter, and 1 capital letter. Example regex: `^(?:(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).*)$`
+- Must be at least eight characters. Example regex: `^.{8,}$`
+- Must contain one number, one lowercase letter, and one capital letter. Example regex: `^(?:(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).*)$`
 - Must contain only English letters and numbers. Example regex: `^[A-Za-z0-9]*$`
-- Must be at least 1 unique character. Example regex: `^(\w)\w*?(?!\1)\w+$`
+- Must be at least one unique character. Example regex: `^(\w)\w*?(?!\1)\w+$`
 
-Password strength may be set in the Cloud Directory settings page in App ID Console, or using <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/set_cloud_directory_password_regex" target="_blank">the management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
+Password strength can be set in the Cloud Directory settings page in App ID Console, or by using <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/set_cloud_directory_password_regex" target="_blank">the management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
 
 </br>
 
@@ -218,7 +218,7 @@ By default, {{site.data.keyword.appid_short_notm}} uses SendGrid to deliver mess
 
 Some more specific examples:
 - **Personalized domain**
-By configuring a custom email dispatcher, you have full control over how the email messages are sent. This includes customising the email domain which may further reduce the chances of emails being filtered as spam.
+By configuring a custom email dispatcher, you have full control over how the email messages are sent. This includes customizing the email domain which might further reduce the chances of emails being filtered as spam.
 - **Insights and troubleshooting**
 Gain insights from your email provider, such as: the number of people that opened the emails or which messages were not delivered. Because you can track individual messages, and see overall statistics, this can help solve issues.
 
@@ -232,8 +232,8 @@ After the extension point is configured, it is called by {{site.data.keyword.app
 
 **To create a custom email sender:**
 
-1. In order to configure the {{site.data.keyword.appid_short_notm}} instance to use custom disparcher, use <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/set_cloud_directory_email_dispatcher" target="_blank">the management API </a>.</br>
-You must provide the URL, Additionaly you may provide authorization information. The supported authorization types are:  `Basic authorization` or a `constant authorization header value`.
+1. In order to configure the {{site.data.keyword.appid_short_notm}} instance to use custom dispatcher, use <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/set_cloud_directory_email_dispatcher" target="_blank">the management API </a>.</br>
+You must provide the URL. Additionally you can provide authorization information. The supported authorization types are: `Basic authorization` or a `constant authorization header value`.
 
   Valid configuration examples:
   ```
@@ -272,7 +272,7 @@ You must provide the URL, Additionaly you may provide authorization information.
   ```
   {: screen}
 
-2. Configure an extension point that can listen to post request. This endpoint should be able to read the paload comming from {{site.data.keyword.appid_short_notm}} and send the email with your custom email sender.
+2. Configure an extension point that can listen to post request. This endpoint should be able to read the payload that comes from {{site.data.keyword.appid_short_notm}} and send the email with your custom email sender.
 
 3. The body sent from {{site.data.keyword.appid_short_notm}} is in the following format: `{"jws": "jws-format-string"}`. </br> After you decode and verify the payload, the content is a JSON string.</br>
   ```
@@ -498,7 +498,7 @@ Before you get started, be sure you have the following parameter information:
   </tr>
   <tr>
     <td>IAM token</td>
-    <td>Be sure that you have <code>manager</code> permissions prior to obtaining the token. For help obtaining an IAM token, check out <a href="https://console.bluemix.net/docs/iam/apikey_iamtoken.html#iamtoken_from_apikey" target="_blank">the docs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.</td>
+    <td>Be sure that you have <code>manager</code> permissions before you obtain the token. For help obtaining an IAM token, check out <a href="https://console.bluemix.net/docs/iam/apikey_iamtoken.html#iamtoken_from_apikey" target="_blank">the docs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.</td>
   </tr>
 </table>
 
