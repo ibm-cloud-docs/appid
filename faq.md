@@ -2,13 +2,14 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-10"
+lastupdated: "2018-11-14"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
+{:faq: data-hd-content-type='faq'}
 
 
 # FAQ
@@ -20,6 +21,7 @@ This FAQ provides answers to common questions about the {{site.data.keyword.appi
 
 ## How does {{site.data.keyword.appid_short_notm}} calculate pricing?
 {: #pricing}
+{: faq}
 
 With {{site.data.keyword.appid_short_notm}}, you pay less as you use more resources.
 {: shortdesc}
@@ -43,6 +45,7 @@ For more information on graduated tier pricing, see the [{{site.data.keyword.Blu
 
 ## Why do I need to whitelist my redirect URL?
 {: #redirect}
+{: faq}
 
 A redirect URL is the callback endpoint of your app. To prevent phishing attacks, App ID validates the URL against the whitelist of redirect URLs. When phishing occurs, there is a chance that an attacker may gain access to your users tokens.
 
@@ -58,6 +61,7 @@ Do not include any query parameters in your URL. They are ignored in the validat
 
 ## How does encryption work in {{site.data.keyword.appid_short_notm}}?
 {: #encryption}
+{: faq}
 
 Check out the following table for answers to commonly asked questions about encryption.
 
@@ -97,6 +101,7 @@ Check out the following table for answers to commonly asked questions about encr
 
 ## What does {{site.data.keyword.appid_short_notm}} expect a SAML assertion to look like?
 {: #saml-example}
+{: faq}
 
 The service expects a SAML assertion to look like the following example.
 
@@ -136,6 +141,7 @@ The service expects a SAML assertion to look like the following example.
 
 ## What type of algorithms are supported for SAML signatures
 {: #saml-signatures}
+{: faq}
 
 You can use any of the following algorithms to process XML digital signatures.
 
