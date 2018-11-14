@@ -68,7 +68,7 @@ You must have the following prerequisites:
 * Your redirect URI set in the {{site.data.keyword.appid_short_notm}} service dashboard
 
 
-### Installing the SDK
+### Installing the Node.js SDK
 
 1. By using the command line, change to the directory that contains your Node.js app.
 
@@ -78,7 +78,7 @@ You must have the following prerequisites:
   ```
   {: codeblock}
 
-### Initializing the SDK
+### Initializing the Node.js SDK
 
 1. Add the following `require` definitions to your `server.js` file.
 
@@ -183,7 +183,7 @@ You must have the following prerequisites:
 * Java 1.8
 * A Liberty for Java web application
 
-### Installing the SDK
+### Installing the Liberty for Java SDK
 
 1. Add an OpenID Connect feature to your `server.xml`.
 
@@ -258,7 +258,7 @@ You must have the following prerequisites:
     </tr>
   </table>
 
-### Initializing the SDK
+### Initializing the Liberty for Java SDK
 
 1. In your `server.xml` file, define an authorization filter to specify protected resources. If a filter is not <a href="https://www.ibm.com/support/knowledgecenter/en/SSD28V_8.5.5/com.ibm.websphere.wlp.core.doc/ae/rwlp_auth_filter.html" target="_blank">defined <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>, the service protects all resources.
 
