@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-10-16"
+lastupdated: "2018-11-14"
 
 ---
 
@@ -16,7 +16,7 @@ lastupdated: "2018-10-16"
 # Validating tokens
 {: #token-validation}
 
-Token validation is a very important part of modern app development. By validating tokens, you can protect your app or APIs from unauthorized users. {{site.data.keyword.appid_full}} uses access and identity tokens to ensure that an end-user or app is authenticated before they are granted access. If you're using one of the SDKs provided by {{site.data.keyword.appid_short_notm}}, both obtaining and validating your tokens is done for you!
+Token validation is an important part of modern app development. By validating tokens, you can protect your app or APIs from unauthorized users. {{site.data.keyword.appid_full}} uses access and identity tokens to ensure that a user or app is authenticated before they are granted access. If you're using one of the SDKs provided by {{site.data.keyword.appid_short_notm}}, both obtaining and validating your tokens is done for you!
 {: shortdesc}
 
 For more information about how tokens are used in {{site.data.keyword.appid_short_notm}}, see [Understanding tokens](authorization.html#tokens).
@@ -24,7 +24,7 @@ For more information about how tokens are used in {{site.data.keyword.appid_shor
 
 **What is token validation?**
 
-Tokens are used to verify that a person is who they say that they are, as well as confirm any access permissions that the user might hold, for a specified period of time. When a user signs into your application and is issued a token, your app must validate the user before they are given access.
+Tokens are used to verify that a person is who they say that they are. They confirm any access permissions that the user might hold, for a specified length of time. When a user signs into your application and is issued a token, your app must validate the user before they are given access.
 
 </br>
 
@@ -34,7 +34,7 @@ Don't worry! You have three options:
 
 * Work with the {{site.data.keyword.appid_short_notm}} APIs
 * Implement your own validation logic
-* Use any OIDC compliant open source SDK
+* Use any OIDC-compliant open source SDK
 
 Based on feedback, option 1 is usually the easiest way to go.
 {: tip}
@@ -48,9 +48,9 @@ Based on feedback, option 1 is usually the easiest way to go.
 By using introspection, you can use {{site.data.keyword.appid_short_notm}} to validate your tokens.
 {: shortdesc}
 
-1. Send a POST request to the [/introspect](https://appid-oauth.ng.bluemix.net/swagger-ui/#!/Authorization_Server_V3/introspect) API endpoint to validate your token. The request must contain the token and a basic authorization header which contains the client ID and secret.
+1. Send a POST request to the [/introspect](https://appid-oauth.ng.bluemix.net/swagger-ui/#!/Authorization_Server_V3/introspect) API endpoint to validate your token. The request must provide the token and a basic authorization header that contains the client ID and secret.
 
-  Example Request:
+  Example request:
 
     ```
     POST /oauth/v3/{tenant_id}/introspect HTTP/1.1
@@ -65,7 +65,7 @@ By using introspection, you can use {{site.data.keyword.appid_short_notm}} to va
 
 2. The server checks the expiry and signature of the token and returns a JSON object that tells whether the token is active or inactive.
 
-  Example Response:
+  Example response:
 
     ```
     {
@@ -82,7 +82,7 @@ You can validate your tokens locally by parsing the token, verifying the token s
 {: shortdesc}
 
 
-1. Parse the tokens. The [JSON Web Token (JWT)](https://tools.ietf.org/html/rfc7519) is a standard way of securely passing information. It consists of 3 main parts: Header, Payload, and Signature. They are base64URL encoded and separated by a dot(.). You can use any base64URL decoder available to parse the token. Alternatively, you can use any of the [libraries listed](https://jwt.io/#libraries-io) to parse the token.
+1. Parse the tokens. The [JSON Web Token (JWT)](https://tools.ietf.org/html/rfc7519) is a standard way of securely passing information. It consists of three main parts: Header, Payload, and Signature. They are base64URL encoded and separated by a dot(.). You can use any base64URL decoder available to parse the token. Alternatively, you can use any of the [libraries that are listed](https://jwt.io/#libraries-io) to parse the token.
 
   Example encoded token:
 
@@ -117,9 +117,9 @@ You can validate your tokens locally by parsing the token, verifying the token s
     ```
     {: screen}
 
-2. Retrieve your public keys by making a call to the [/publickeys endpoint](https://appid-oauth.ng.bluemix.net/swagger-ui/#!/Authorization_Server_V3/publicKeys). The public keys that are returned are formatted as [JSON Web Keys (JWK)](https://tools.ietf.org/html/rfc7517).
+2. Make a call to the [/publickeys endpoint](https://appid-oauth.ng.bluemix.net/swagger-ui/#!/Authorization_Server_V3/publicKeys) to retrieve your public keys. The public keys that are returned are formatted as [JSON Web Keys (JWK)](https://tools.ietf.org/html/rfc7517).
 
-  Example Request:
+  Example request:
 
     ```
     GET /oauth/v3/{tenant_id}/publickeys HTTP/1.1
@@ -128,11 +128,11 @@ You can validate your tokens locally by parsing the token, verifying the token s
     ```
     {: screen}
 
-3. Store the keys in your app cache for future use. This speeds up the process and prevents network delay if an additional call is made.
+3. Store the keys in your app cache for future use. Storing the keys speeds up the process and prevents network delay if another call is made.
 
 4. Import the public key parameters.
 
-  Example Response:
+  Example response:
 
     ```]
     {
@@ -156,7 +156,7 @@ You can validate your tokens locally by parsing the token, verifying the token s
     <tbody>
       <tr>
         <td><code>kty</code></td>
-        <td>Defines the algorithm used.</td>
+        <td>Defines the algorithm that is used.</td>
       </tr>
       <tr>
         <td><code>use</code></td>
@@ -173,13 +173,13 @@ You can validate your tokens locally by parsing the token, verifying the token s
     </tbody>
   </table>
 
-5. Verify the token's signature. The token header contains the algorithm that was used to sign the token and the Key ID or `kid` claim of the matching public key. Because public keys do not frequently change, you can cache public keys in your app and occasionally refresh them. If your cached key is missing the `kid` claim. then you'll need to validate locally.
+5. Verify the token's signature. The token header contains the algorithm that was used to sign the token and the Key ID or `kid` claim of the matching public key. Because public keys do not frequently change, you can cache public keys in your app and occasionally refresh them. If your cached key is missing the `kid` claim. Then, you can validate the tokens locally.
 
   1. Have your application verify that the contents of the incoming token header match the parameters of the public key.
   2. Check specifically that the same algorithms were used and that your public key cache contains a key with the relevant Key ID.
-  3. The hash value that is obtained by combining and hashing the header and the payload of the token should be the same as signing the signature with the PEM form of the public key. Because this process can be quite complex to manually implement, so it might be helpful to use one of the [listed libraries](https://jwt.io/) to validate the signature.
+  3. Ensure that your hash value is the same as the signature of the PEM form of the public key. Your hash value can be obtained by combining and hashing the header of the payload of the token. Because this process can be complex to manually implement, it might be helpful to use one of the [listed libraries](https://jwt.io/) to validate the signature.
 
-6. Validate the claims that are stored in the tokens. To verify additional checks, you can use [this list](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation).
+6. Validate the claims that are stored in the tokens. To verify future checks, you can use [this list](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation).
   <table>
     <thead>
       <th colspan=2><img src="images/idea.png" alt="More information icon"/> Claims that must be validated </th>
@@ -187,19 +187,19 @@ You can validate your tokens locally by parsing the token, verifying the token s
     <tbody>
       <tr>
         <td><code>iss</code></td>
-        <td>The issuer should be the same as the App ID OAuth server.</td>
+        <td>The issuer must be the same as the {{site.data.keyword.appid_short_notm}} OAuth server.</td>
       </tr>
       <tr>
         <td><code>exp</code></td>
-        <td>The current time should be less than the expiry time.</td>
+        <td>The current time must be less than the expiry time.</td>
       </tr>
       <tr>
         <td><code>aud</code></td>
-        <td>The audience should contain the client ID of your app.</td>
+        <td>The audience must contain the client ID of your app.</td>
       </tr>
       <tr>
         <td><code>tenant</code></td>
-        <td>The tenant should contain the tenant ID of your app.</td>
+        <td>The tenant must contain the tenant ID of your app.</td>
       </tr>
       <tr>
         <td><code>scope</code></td>

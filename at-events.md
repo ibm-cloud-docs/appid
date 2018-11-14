@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-11-06"
+lastupdated: "2018-11-14"
 
 ---
 
@@ -97,17 +97,17 @@ Check out the following table for a list of the events that are sent to {{site.d
   </tr>
   <tr>
     <td><code>read.media</code></td>
-    <td>View the image that displays in the login widget.</td>
+    <td>View the image that is shown in the login widget.</td>
     <td>Can be found in the <strong>Login Customization</strong> tab.</td>
   </tr>
   <tr>
     <td><code>update.media</code></td>
-    <td>Update the image that displays in the login widget.</td>
+    <td>Update the image that is shown in the login widget.</td>
     <td>Can be updated in the <strong>Login Customization</strong> tab.</td>
   </tr>
   <tr>
     <td><code>read.uiConfiguration</code></td>
-    <td>View the login widget UI configuration including header color and image.</td>
+    <td>View the login widget UI configuration which includes header color and image.</td>
     <td>Can be found in the <strong>Login Customization</strong> tab.</td>
   </tr>
   <tr>
@@ -197,12 +197,12 @@ Check out the following table for a list of the events that are sent to {{site.d
   </tr>
   <tr>
     <td><code>update.selfSignUp</code></td>
-    <td>Update the sign up process.</td>
+    <td>Update the sign-up process.</td>
     <td>Can be found in the <strong>Identity Providers > Cloud Directory > Settings</strong> tab.</td>
   </tr>
   <tr>
     <td><code>update.signUpResult</code></td>
-    <td>View the sign up result confirmation.</td>
+    <td>View the sign-up result confirmation.</td>
     <td>Must be done through the API.</td>
   </tr>
   <tr>

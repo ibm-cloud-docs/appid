@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-10-11"
+lastupdated: "2018-11-14"
 
 ---
 
@@ -22,7 +22,7 @@ With {{site.data.keyword.appid_full}}, you can configure social identity provide
 ## Default configuration
 {: #default}
 
-{{site.data.keyword.appid_short_notm}} provides a default configuration to help with the initial set-up of your identity providers.
+{{site.data.keyword.appid_short_notm}} provides a default configuration to help you get up and running quickly with the service.
 {: shortdesc}
 
 The default credentials are set up for Facebook and Google. You are limited to 100 uses of the credentials per instance, per day. Because they are IBM credentials, they are meant to be used only in development mode. Before you publish your app, update the configuration to your own credentials.
@@ -38,7 +38,7 @@ You can configure the {{site.data.keyword.appid_short}} service to use Facebook 
 
 To use Facebook as an identity provider, you must add and configure the website platform on your Facebook application.
 
-1. Log in to your account on the <a href="https://developers.facebook.com/docs/apps/register" target="_blank">Facebook for developers site <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
+1. Log in to your account on the <a href="https://developers.facebook.com/docs/apps/register" target="_blank">Facebook for Developers site <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
 2. Make note of the Facebook app ID and secret. These values are needed to configure your web project for authentication in your service dashboard.
 3. Add the web platform and enter the site URL.
 4. From the products list, select **Facebook Login**.
@@ -80,11 +80,11 @@ Create a project in the <a href="https://developers.google.com/" target="_blank"
 
 After you configure your Google project and have your client ID and secret, you can edit your service dashboard for Google authentication.
 
-1. From the **Manage** tab of your service dashboard, select **Google** and click **Edit**.
+1. From the **Manage** page of your service dashboard, select **Google** and click **Edit**.
 2. Enter the client ID and secret that you obtained from the Google Developers Console.
 3. Authorize the {{site.data.keyword.appid_short}} URL.
     1. Copy the **Redirect URL for Google Developer Console** from the Google identity provider details.
-    2. In the credentials tab of your Google project, select the client ID that you created for this integration.
+    2. On the credentials page of your Google project, select the client ID that you created for this integration.
     3. Paste the URL from {{site.data.keyword.appid_short}} into the **Authorized redirect URIs** field and click **Save**.
 4. Click **Save** to update your Google configuration in {{site.data.keyword.appid_short}}.
 5. For web apps, enter a redirect URL in the **Manage** tab. After the authorization process completes, a user is sent to this URL. The URL must follow an `http` or `https` scheme. For a higher level of security, use an `https` scheme.

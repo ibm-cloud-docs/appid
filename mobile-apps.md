@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-10-15"
+lastupdated: "2018-11-14"
 
 ---
 
@@ -23,13 +23,13 @@ With {{site.data.keyword.appid_full}}, you can quickly construct an authenticati
 
 **When would this flow be useful?**
 
-When you are developing a desktop or mobile phone application that will be installed on a user's device (a native application), you can use the {{site.data.keyword.appid_short}} mobile flow to obtain user identity information. Using this flow, you can securely authenticate users on your app in order to provide personalized user experiences across devices.
+A mobile flow is useful when you are developing an app that is to be installed on a user's device (a native application). By using this flow, you can securely authenticate users on your app in order to provide personalized user experiences across devices.
 
 **What is the flow's technical basis?**
 
 Since native applications are installed directly on a user's device, private user information and application credentials can be extracted by third-parties with relative ease. By default, these types of applications are known as untrusted clients as they cannot store global credentials or user refresh tokens. As a result, untrusted clients require users to input their credentials every time their access tokens expire.
 
-In order to convert your application into a trusted client, {{site.data.keyword.appid_short}} leverages [Dynamic Client Registration](https://tools.ietf.org/html/rfc7591). Before an application instance begins authenticating users, it first registers as an OAuth2 client with {{site.data.keyword.appid_short}}. As a result of client registration, your application receives an installation-specific client ID that can be digitally signed and used to authorize requests with {{site.data.keyword.appid_short}}. Since {{site.data.keyword.appid_short}} stores your application's corresponding public key, it can validate your request signature allowing your application to be viewed as a confidential client. This process minimizes your application's risk of exposing credentials indefinitely and greatly improve the user experience by allowing automatic token refresh.
+In order to convert your application into a trusted client, {{site.data.keyword.appid_short}} leverages [Dynamic Client Registration](https://tools.ietf.org/html/rfc7591). Before an application instance begins authenticating users, it first registers as an OAuth2 client with {{site.data.keyword.appid_short}}. As a result of client registration, your application receives an installation-specific client ID that can be digitally signed and used to authorize requests with {{site.data.keyword.appid_short}}. Since {{site.data.keyword.appid_short}} stores your application's corresponding public key, it can validate your request signature that allows your application to be viewed as a confidential client. This process minimizes your application's risk of exposing credentials indefinitely and greatly improves the user experience by allowing automatic token refresh.
 
 Following registration, your users authenticate using either the OAuth2 `authorization code` or `resource owner password` [authorization grant](https://tools.ietf.org/html/rfc6749#section-1.3) flows to authenticate users.
 
@@ -40,14 +40,14 @@ Following registration, your users authenticate using either the OAuth2 `authori
 **Dynamic Client Registration**
 
 1. A user performs an action that triggers a request by the client application to the {{site.data.keyword.appid_short}} SDK.
-2. If your app has not yet registered as a mobile client, the SDK initiates a dynamic registration flow.
-3. On a successful registration, {{site.data.keyword.appid_short}} returns your installation specific client ID.
+2. If your app is not registered as a mobile client yet, the SDK initiates a dynamic registration flow.
+3. On a successful registration, {{site.data.keyword.appid_short}} returns your installation-specific client ID.
 
 **Authorization Flow**
 
 1. The {{site.data.keyword.appid_short}} SDK starts the authorization process using the {{site.data.keyword.appid_short_notm}} `/authorization` endpoint.
 2. The login widget is displayed to the user.
-3. The user authenticates using one of the configured identity providers.
+3. The user authenticates by using one of the configured identity providers.
 4. {{site.data.keyword.appid_short}} returns an authorization grant.
 5. The authorization grant is exchanged for access, identity, and refresh tokens from the {{site.data.keyword.appid_short_notm}} `/token` endpoint.
 
@@ -55,7 +55,7 @@ Following registration, your users authenticate using either the OAuth2 `authori
 ## Configuring your mobile app with the {{site.data.keyword.appid_short}} SDKs
 {: #configuring}
 
-Get started with {{site.data.keyword.appid_short}} using our SDKs.
+Get started with {{site.data.keyword.appid_short}} with our SDKs.
 {: shortdesc}
 
 **Before you begin**
@@ -96,7 +96,7 @@ You need the following information:
 
 **Before you begin**
 
-You must have the following prerequisites prior to getting started:
+You must have the following prerequisites before getting started:
 
   * API 27 or higher
   * Java 8.x
@@ -172,9 +172,9 @@ Protect your mobile applications using the {{site.data.keyword.appid_short}} cli
 </br>
 **Before you begin**
 
-You must have the following prerequisites prior to getting started:
+You must have the following prerequisites before getting started:
 
-  * Xcode 9.0 or above
+  * Xcode 9.0 or higher
   * CocoaPods 1.1.0 or higher
   * iOS 10.0 or higher
 
@@ -205,7 +205,7 @@ The {{site.data.keyword.appid_short_notm}} client SDK is distributed with CocoaP
   ```
   {: codeblock}
 
-5. After installation, open the `<your app>.xcworkspace` file containing your Xcode project and your linked dependencies
+5. After installation, open the `<your app>.xcworkspace` file that contains your Xcode project and your linked dependencies
 
 6. Enable keychain sharing in your Xcode project. Navigate to **Project Settings > Capabilities > Keychain Sharing** and select **Enable keychain sharing**.
 
@@ -252,7 +252,7 @@ The {{site.data.keyword.appid_short_notm}} client SDK is distributed with CocoaP
 ## Accessing protected APIs
 {: #accessing-protected-apis}
 
-After a successful login flow, you can use your access and identity tokens to invoke protected backend resources using the SDK or a networking library of your choice.
+After a successful login flow, you can use your access and identity tokens to invoke protected backend resources that use the SDK or a networking library of your choice.
 
 </br>
 

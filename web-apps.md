@@ -28,7 +28,7 @@ When you are developing a web application, you can use the {{site.data.keyword.a
 
 **What is the flow's technical basis?**
 
-Web apps often require users to authenticate in order to access protected content. {{site.data.keyword.appid_short_notm}} uses the OIDC authorization code flow to securely authenticate users. With this flow, when the user is authenticated, the app receives an authorization code. The code is then exchanged for an access, identity, and refresh token. In code exchange step the tokens are always sent via a secure backchannel between the app and the OIDC server. This provides an additional layer of security as the attacker is not able to intercept the tokens. These tokens can be sent directly to the web server hosting application for user authentication.
+Web apps often require users to authenticate in order to access protected content. {{site.data.keyword.appid_short_notm}} uses the OIDC authorization code flow to securely authenticate users. With this flow, when the user is authenticated, the app receives an authorization code. The code is then exchanged for an access, identity, and refresh token. In code, exchange step the tokens are always sent via a secure backchannel between the app and the OIDC server. This provides an extra layer of security as the attacker is not able to intercept the tokens. These tokens can be sent directly to the web server hosting application for user authentication.
 
 **How does this flow work?**
 
@@ -133,7 +133,7 @@ You must have the following prerequisites:
         <td>The redirect URI value can be supplied in three ways:</br>
             1. Manually in new `WebAppStrategy({redirectUri: "...."})`</br>
             2. As environment variable named `redirectUri`</br>
-            3. If none of the above was supplied, the {{site.data.keyword.appid_short_notm}} SDK will try to retrieve `application_uri` of the application that is running on {{site.data.keyword.Bluemix_notm}} and append a default suffix `/ibm/cloud/appid/callback`.
+            3. If neither of those options is supplied, the {{site.data.keyword.appid_short_notm}} SDK tries to retrieve the `application_uri` of the application that is running on {{site.data.keyword.Bluemix_notm}} and append a default suffix `/ibm/cloud/appid/callback`.
         </td>
       </tr>
     </table>

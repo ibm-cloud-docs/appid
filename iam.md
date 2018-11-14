@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-11-06"
+lastupdated: "2018-11-14"
 
 ---
 
@@ -19,7 +19,7 @@ lastupdated: "2018-11-06"
 # Managing service access
 {: #service-access-management}
 
-With {{site.data.keyword.appid_full}} and {{site.data.keyword.Bluemix_notm}} Identity and Access Management (IAM) account owners can manage user access in your account.
+With {{site.data.keyword.appid_full}} and {{site.data.keyword.Bluemix_notm}} Identity and Access Management (IAM), account owners can manage user access in your account.
 {: shortdesc}
 
 As an account owner, you can set policies within your account to create different levels of access for different users. For example, certain users can have **Read only** access to one instance, but **Write** access to another. You can decide who is allowed to create, update, and delete instances of {{site.data.keyword.appid_short_notm}}.
