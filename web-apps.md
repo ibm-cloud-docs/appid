@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-11-14"
+lastupdated: "2018-11-15"
 
 ---
 
@@ -21,6 +21,7 @@ With {{site.data.keyword.appid_full}}, you can quickly construct an authenticati
 {: shortdesc}
 
 ## Understanding the flow
+{: #understanding}
 
 **When would this flow be useful?**
 
@@ -50,6 +51,8 @@ Web apps often require users to authenticate in order to access protected conten
 
 8. The user is granted access to the app.
 
+</br>
+</br>
 
 ## Configuring the Node.js SDK
 {: #configuring-nodejs}
@@ -167,6 +170,8 @@ You must have the following prerequisites:
 
 For more information, see the <a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs" target="_blank">{{site.data.keyword.appid_short_notm}} Node.js GitHub repository <img src="../icons/launch-glyph.svg" alt="External link icon"></a>.
 
+</br>
+</br>
 
 ## Configuring the Liberty for Java SDK
 {: #configuring-liberty}
@@ -284,7 +289,7 @@ You must have the following prerequisites:
 
 3. Download the `libertySample-1.0.0.war` file from <a href="https://github.com/ibm-cloud-security/appid-sample-code-snippets/tree/master/liberty-for-java" target="_blank">GitHub <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> and place it in your server's apps folder. For example, if your server is named defaultServer, the war file would go here `target/liberty/wlp/usr/servers/defaultServer/apps/`.
 
-4. Configure SSL by adding the following to your `server.xml` file. You will also need to <a href="" target="_blank">create a truststore <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
+4. Configure SSL by adding the following to your `server.xml` file. You will also need to create a truststore.
 
 ```xml
   <keyStore id="defaultKeyStore" password="myPassword"/>
@@ -296,6 +301,8 @@ You must have the following prerequisites:
 By default SSL configuration requires the truststore be configured for OpenID Connect. Learn more about <a href="https://www.ibm.com/support/knowledgecenter/en/SSEQTP_liberty/com.ibm.websphere.wlp.doc/ae/twlp_config_oidc_rp.html" target="_blank">configuring an OpenID Connect Client in Liberty <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 {: tip}
 
+</br>
+</br>
 
 ## Configuring Spring Boot for Java SDK
 {: #configuring-spring-boot}
