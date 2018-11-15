@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-10-25"
+lastupdated: "2018-11-15"
 
 ---
 
@@ -23,7 +23,7 @@ You can configure your local environment to use the {{site.data.keyword.appid_sh
 ## Before you begin
 {: #begin}
 
-Install the [server SDK](/docs/services/appid/install.html#nodejs-setup).
+Install the [server SDK](web-apps.html).
 
 
 ## Configuring {{site.data.keyword.appid_short_notm}} applications to work with a local development server
