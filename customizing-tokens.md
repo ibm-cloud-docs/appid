@@ -237,17 +237,17 @@ Be sure that you have the following prerequisites:
       <tr>
           <td><code><em>anonymousAccess</em></code></td>
           <td>Optional</td>
-          <td>Object containing expiration time,  `expires_in`, in days of your anonymous access/identity tokens. <br/> <br/> Expiration defaults to 30 days.
+          <td>Object containing expiration time, `expires_in`, in days of your anonymous access/identity tokens. <br/> <br/> Expiration defaults to 30 days.
       </tr>
       <tr>
           <td><code><em>accessTokenClaims</em></code></td>
           <td>Optional</td>
-          <td>An array of claim mapping objects. See section on the [claim mapping object](#claim-mapping-object) for details.</td>
+          <td>An array that contains the objects that are created when claims related to access tokens are mapped.</td>
       </tr>
       <tr>
           <td><code><em>idTokenClaims</em></code></td>
           <td>Optional</td>
-          <td>An array of claim mapping objects. See section on the [claim mapping object](#claim-mapping-object) for details.</td>
+          <td>An array that contains the objects that are created when claims related to identity tokens are mapped.</td>
       </tr>
     </tbody>
   </table>
