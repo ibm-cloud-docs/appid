@@ -6,7 +6,7 @@ lastupdated: "2018-11-16"
 
 ---
 
-{:new_window: target="blank"}
+{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -26,8 +26,8 @@ You can configure your {{site.data.keyword.appid_short_notm}} tokens to meet the
 
 * Access tokens: Enable communication with back-end resources that are protected by authorization filters.
 * Identity tokens: Contain personal information and are used to authenticate a user.
-* Refresh tokens: Contain both an access and an identity token, and can be used to extend the amount of time that a user can go without re-authenticating. When a user interacts with your application, a new set of tokens is created and the refresh token is updated.
-* Anonymous tokens: Contain a set of access and identity tokens that are blank as these are issued to users that have not yet been authenticated. Because these tokens are not associated with a user, they have limited capabilities.
+* Refresh tokens: Can be used to extend the amount of time that a user can go without re-authenticating.
+* Anonymous tokens: Are issued to users that have not yet been authenticated. Because these tokens are not associated with a user, they have limited capabilities.
 
 Want to learn more about tokens? Read more in [Understanding tokens](authorization.html#tokens).
 {: tip}
@@ -83,7 +83,7 @@ There are several reasons that you might want to track extra attributes. When yo
 
 Yes. Because tokens are used to identify users and secure your resources, the lifespan of a token affects several different things. By customizing your token configuration you can ensure that your security and user experience needs are met. However, should a token ever become compromised, a malicious user has more time to affect your application.
 
-Want to learn more about custom attributes and security? Check out [Custom attributes](custom-attributes.html).
+Want to learn more about the security considerations you should make? Check out [Custom attributes](custom-attributes.html).
 {: tip}
 
 </br>
@@ -98,7 +98,7 @@ You can map user attributes to your access and identity tokens. This means that 
 
 **Why would I add attributes to my tokens?**
 
-Without having to make extra network calls, everything that your app may need to know about a user or what they can do is already in the token! Provided you don't have massive amounts of data, this makes you more efficient. You also have more control as you can specify how the token is signed.
+Without having to make extra network calls, everything that your app may need to know about a user or what they can do is already in the token! Provided you don't have massive amounts of data, this makes you more efficient. Additionally, you can ensure the integrity of these mapped attributes when they are sent across the network because they are stored in a signed token.
 
 </br>
 
@@ -166,7 +166,7 @@ You can configure your {{site.data.keyword.appid_short_notm}} tokens by using th
 
 </br>
 
-### Configuring Tokens using the Management APIs
+### Configuring tokens with the Management APIs
 {: #configuring-tokens-api}
 
 **Before you begin**
@@ -227,17 +227,17 @@ Be sure that you have the following prerequisites:
       <tr>
         <td><code><em>access</em></code></td>
         <td>Optional</td>
-        <td>Object containing expiration time, `expires_in`, in minutes of your access and identity tokens. <br/> <br/> Defaults to 60 minutes. </td>
+        <td>Object containing expiration time, `expires_in`, in minutes of your access and identity tokens. </br> </br> The default expiration is 60 minutes. </td>
       </tr>
       <tr>
           <td><code><em>refresh</em></code></td>
           <td>Optional</td>
-          <td>Object containing expiration time in days,of your refresh token. <br/> <br/> Expiration defaults to 30 days. </td>
+          <td>Object that contains the expiration time, `expires_in`, in days of your refresh token. </br> </br> The default expiration is 30 days. </td>
       </tr>
       <tr>
           <td><code><em>anonymousAccess</em></code></td>
           <td>Optional</td>
-          <td>Object containing expiration time, `expires_in`, in days of your anonymous access/identity tokens. <br/> <br/> Expiration defaults to 30 days.
+          <td>Object that contains the expiration time, `expires_in`, in days of your anonymous access and identity tokens. </br> </br> The default expiration is 30 days.
       </tr>
       <tr>
           <td><code><em>accessTokenClaims</em></code></td>
