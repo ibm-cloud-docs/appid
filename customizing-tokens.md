@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-11-16"
+lastupdated: "2018-11-19"
 
 ---
 
@@ -92,7 +92,7 @@ Want to learn more about the security considerations you should make? Check out 
 ## Understanding custom attributes and claims
 {: #custom-claims}
 
-You can map user attributes to your access and identity tokens. This means that you don't have to go to the /userinfo endpoint or pull custom attributes later, because they're already stored in the tokens!
+You can map user attributes to your access and identity tokens. This means that you don't have to go to the [/userinfo endpoint](https://appid-oauth.ng.bluemix.net/swagger-ui/#!/Authorization_Server_V3/userInfo) or pull custom attributes later, because they're already stored in the tokens!
 {: shortdesc}
 
 
