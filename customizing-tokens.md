@@ -2,11 +2,11 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-11-19"
+lastupdated: "2018-11-25"
 
 ---
 
-{:new_window: target="_blank"}
+{:new_window: target="blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -14,7 +14,7 @@ lastupdated: "2018-11-19"
 {:tip: .tip}
 
 
-# Customizing Tokens
+# Customizing tokens
 {: #customizing-tokens}
 
 You can configure your {{site.data.keyword.appid_short_notm}} tokens to meet the specific needs of your application.
@@ -22,12 +22,11 @@ You can configure your {{site.data.keyword.appid_short_notm}} tokens to meet the
 
 **What kinds of tokens are there?**
 
-{{site.data.keyword.appid_short_notm}} uses four different types of tokens to secure your applications.
+{{site.data.keyword.appid_short_notm}} different types of tokens to protect your applications.
 
-* Access tokens: Enable communication with back-end resources that are protected by authorization filters.
-* Identity tokens: Contain personal information and are used to authenticate a user.
+* Access tokens: Enable communication with back-end resources that are protected by authorization filters. If an access token is not associate with a specific user, the token would have limited capabilities.
+* Identity tokens: Contain personal information and are used to authenticate a user. Depending on your app configuration, identity tokens can be issued before a user is authenticated. This allows you to start associating attributes with your users before they sign in to your application.
 * Refresh tokens: Can be used to extend the amount of time that a user can go without re-authenticating.
-* Anonymous tokens: Are issued to users that have not yet been authenticated. Because these tokens are not associated with a user, they have limited capabilities.
 
 Want to learn more about tokens? Read more in [Understanding tokens](authorization.html#tokens).
 {: tip}
@@ -36,7 +35,7 @@ Want to learn more about tokens? Read more in [Understanding tokens](authorizati
 
 **What are my customization options?**
 
-You can customize your tokens by setting the lifespan validity or by adding custom attributes to your tokens. Check out the following table to see how lifespan is configured or continue reading to learn about mapping custom attributes.
+You can customize your tokens by setting the lifespan validity or by adding custom claims to your tokens. Check out the following table to see how lifespan is configured or continue reading to learn about mapping custom attributes.
 
 <table>
   <tr>
@@ -73,9 +72,9 @@ You can customize your tokens by setting the lifespan validity or by adding cust
 
 </br>
 
-**Why would I want to add attributes to my tokens?**
+**Why would I want to add claims to my tokens?**
 
-There are several reasons that you might want to track extra attributes. When you're working with your app developers, you can map roles and permissions. Or, when you're building profiles on your end-users, you can track extra information that helps you to create personalized experiences. By keeping the information in one place, you can
+There are several reasons that you might want to track extra attributes. When you're working with your app developers, you can map roles and permissions. Or, when you're building profiles on your end-users, you can track extra information that helps you to create personalized experiences.
 
 </br>
 
@@ -92,19 +91,13 @@ Want to learn more about the security considerations you should make? Check out 
 ## Understanding custom attributes and claims
 {: #custom-claims}
 
-You can map user attributes to your access and identity tokens. This means that you don't have to go to the [/userinfo endpoint](https://appid-oauth.ng.bluemix.net/swagger-ui/#!/Authorization_Server_V3/userInfo) or pull custom attributes later, because they're already stored in the tokens!
+You can map user profile attributes to your access and identity token claims. This means that you don't have to go to the [/userinfo endpoint](https://appid-oauth.ng.bluemix.net/swagger-ui/#!/Authorization_Server_V3/userInfo) or pull custom attributes later, because they're already stored in the tokens!
 {: shortdesc}
 
 
-**Why would I add attributes to my tokens?**
+**Why would I add attributes to my claims?**
 
 Without having to make extra network calls, everything that your app may need to know about a user or what they can do is already in the token! Provided you don't have massive amounts of data, this makes you more efficient. Additionally, you can ensure the integrity of these mapped attributes when they are sent across the network because they are stored in a signed token.
-
-</br>
-
-**What kinds of attributes can I add?**
-
-You can map _any_ type of attribute. You can map scopes or roles for specific users, or even create your own scopes!
 
 </br>
 
@@ -112,11 +105,11 @@ You can map _any_ type of attribute. You can map scopes or roles for specific us
 
 The claims that are provided by {{site.data.keyword.appid_short_notm}} fall into several categories that are differentiated by their level of customization.
 
-*Registered claims*: There are some fields in the access and identity tokens that are defined by {{site.data.keyword.appid_short_notm}} and cannot be overridden by custom mappings. If your claim is restricted, it is ignored by the service. The claims are `iss`, `aud`, `sub`, `iat`, `exp`, `amr`, and `tenant`.
+*Registered claims*: There are some claims in the access and identity tokens that are defined by {{site.data.keyword.appid_short_notm}} and cannot be overridden by custom mappings. If your claim is restricted, it is ignored by the service. The claims are `iss`, `aud`, `sub`, `iat`, `exp`, `amr`, and `tenant`.
 
-*Restricted claims*: Depending on the token that the claims are mapped to, some claims have limited customization possibilities. For an access token the `scope` field is the only restricted claim. It cannot be overridden by custom mappings, but it can be extended with your own scopes. When the scope field is mapped to an access token, the value must be a string and cannot be prefixed by `appid_` or it will be ignored. In identity tokens, the claims `identities` and `oauth_clients` cannot be modified or overridden.
+*Restricted claims*: Depending on the token that the claims are mapped to, some claims have limited customization possibilities. For an access token, `scope` is the only restricted claim. It cannot be overridden by custom mappings, but it can be extended with your own scopes. When the scope claim is mapped to an access token, the value must be a string and cannot be prefixed by `appid_` or it will be ignored. In identity tokens, the claims `identities` and `oauth_clients` cannot be modified or overridden.
 
-*Normalized claims*: Every identity token contains a set of claims that is recognized by {{site.data.keyword.appid_short_notm}} as normalized claims. When they are available, they are directly mapped from your identity provider to the token. These claims cannot be explicitly omitted but can be overridden by custom claim mappings. The fields include `name`, `email`, `picture`, `local`, and `gender`.
+*Normalized claims*: Every identity token contains a set of claims that is recognized by {{site.data.keyword.appid_short_notm}} as normalized claims. When they are available, they are directly mapped from your identity provider to the token. These claims cannot be explicitly omitted but can be overridden by custom claim mappings. The claimss include `name`, `email`, `picture`, `local`, and `gender`.
 
 </br>
 
@@ -142,7 +135,7 @@ Each mapping is defined by a data source object and a key that is used to retrie
     </tbody>
   </table>
 
-You can reference nested fields in your claim mappings by using the dot syntax. Example: `nested.attribute`
+You can reference nested claims in your mappings by using the dot syntax. Example: `nested.attribute`
 {:tip}
 
 </br>
@@ -272,6 +265,6 @@ Be sure that you have the following prerequisites:
             }
           ]
       }'
-}' '{management-url}/management/v4/{Tenant ID}/config/tokens'
+  }' '{management-url}/management/v4/{Tenant ID}/config/tokens'
   ```
   {: screen}
