@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-11-14"
+lastupdated: "2018-11-16"
 
 ---
 
@@ -39,7 +39,7 @@ When you use {{site.data.keyword.appid_short_notm}} in mobile applications, toke
 
 An authorized user is a unique user that logs in with your service whether directly or indirectly. You are charged for one authorized user every time a new user logs in from each identity provider, including anonymous users. For example, if a user logs in with Facebook, and later logs in by using Google, they are considered two separate authorized users.
 
-For more information on graduated tier pricing, see the [{{site.data.keyword.Bluemix_notm}} pricing docs](/docs/billing-usage/how_charged.html#services).
+For more information on graduated tier pricing, see the [{{site.data.keyword.Bluemix_notm}} pricing docs](/docs/billing-usage/how_charged.html).
 
 </br>
 

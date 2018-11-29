@@ -45,8 +45,8 @@ IBM Cloud App ID
 
     {: .topicgroup}
     Managing tokens
-        tokens.md
         customizing-tokens.md
+        tokens.md
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
