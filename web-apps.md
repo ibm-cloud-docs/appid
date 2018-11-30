@@ -161,10 +161,10 @@ You must have the following prerequisites:
    ```
    {: codeblock}
 
-6. Register your protected endpoint.
+6. Register your protected endpoint
 
    ```javascript
-   app.get(‘/protected’, passport.authenticate(WebAppStrategy.STRATEGY_NAME)), function(req, res) res.json(req.user); });
+   app.get(‘/protected’, passport.authenticate(WebAppStrategy.STRATEGY_NAME), function(req, res) {res.json(req.user); });
    ```
    {: codeblock}
 
