@@ -148,7 +148,7 @@ let router = Router()
 
 // mandatory option to be passed in if app not deployed on IBM Cloud
 let options = [
-    "oauthServerUrl": "https://appid-oauth.ng.bluemix.net/oauth/v3/d8438de6-c325-4956-ad34-abd49194affd",
+    "oauthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v3/d8438de6-c325-4956-ad34-abd49194affd",
 ]
 let apiCreds = Credentials()
 

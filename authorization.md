@@ -40,8 +40,8 @@ These key terms can help you understand the way that the service breaks down the
       "clientId": "e8ac1132-5151-4d8a-934e-0141de8e2b34",
       "secret": "XYZ5ZYXzXYZtNyz5Yi00YzQ2LXYwMZctXyM5ODA4NjFhYxYZ",
       "tenantId": "3x176051-a23x-40y4-9645-804943z660q0",
-      "oauthServerUrl": "https://appid-oauth.ng.bluemix.net/oauth/v3/3x176051-a23x-40y4-9645-804943z660q0",
-      "profilesUrl": "https://appid-profiles.ng.bluemix.net/"
+      "oauthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v3/3x176051-a23x-40y4-9645-804943z660q0",
+      "profilesUrl": "https://us-south.appid.cloud.ibm.com/"
     }</code></pre>
     <table>
       <tr>
@@ -105,7 +105,7 @@ Example token:
       "alg": "RS256",
   }
   Payload: {
-      "iss": "appid-oauth.ng.bluemix.net",
+      "iss": "us-south.appid.cloud.ibm.com/oauth",
       "exp": "1495562664",
       "aud": "a3b87400-f03b-4956-844e-a52103ef26ba",
       "amr": ["facebook"],
@@ -127,7 +127,7 @@ Example token:
       "alg": "RS256",
   }
   Payload: {
-      "iss": "appid-oauth.ng.bluemix.net",
+      "iss": "us-south.appid.cloud.ibm.com/oauth",
       "aud": "a3b87400-f03b-4956-844e-a52103ef26ba",
       "exp: "1495562664",
       "tenant": "9781974b-6a1c-46c3-aebf-32b7e9bbbaee",
@@ -144,7 +144,7 @@ Example token:
       ],
       "amr": ["facebook"],
       "oauth_client":{
-        "name": "BluemixApp",
+        "name": "IBMCloudApp",
         "type": "serverapp",
         "software_id": "cb638f8f-e24b-41d3-b770-23be158dd8e6.2b94e6bb-bac4-4455-8712-a43fa804d5cc.a3b87400-f03b-4956-844e-a52103ef26ba",
         "software_version": "1.0.0",

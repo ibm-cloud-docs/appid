@@ -133,7 +133,7 @@ If a user does not supply the information pulled by the parameter, it appears bl
       </tr>
       <tr>
         <td><code>%{resetPassword.code}</code></td>
-        <td> Displays a one-time passcode as part of the URL. This means that each person would have a different code. Example: <code>https://appid-wfm.bluemix.net/verify/6574839563478</code> </td>
+        <td> Displays a one-time passcode as part of the URL. This means that each person would have a different code. Example: <code>https://appid.cloud.ibm.com/wfm/verify/6574839563478</code> </td>
       </tr>
       <tr>
         <td><code>%{resetPassword.link}</code></td>
@@ -278,7 +278,7 @@ You must provide the URL. Additionally you can provide authorization information
   ```
     {
       "tenant": "tenant-id",
-      "iss" : "appid-oauth.ng.bluemix.net",
+      "iss" : "us-south.appid.cloud.ibm.com/oauth",
       "iat": 1539173126,
       "jti": "uniq-id",
       "message": {
@@ -335,7 +335,7 @@ For every {{site.data.keyword.appid_short_notm}} instance, a private and a publi
   	// Send request to App ID's public keys endpoint
   	const keysOptions = {
   		method: 'GET',
-  		url: `https://appid-oauth.<REGION>.bluemix.net/oauth/v3/${tenantId}/publickeys`
+  		url: `https://<REGION>.appid.cloud.ibm.com/oauth/v3/${tenantId}/publickeys`
   	};
   	const keysResponse = await request(keysOptions);
   	return JSON.parse(keysResponse.body).keys;
@@ -412,7 +412,7 @@ Before you can add your users to the new instance, you need to export them from 
 Example cURL command:
 
 ```
-curl -X GET --header ‘Accept: application/json’ --header ‘Authorization: Bearer <iam-token>’ ’https://appid-management.eu-gb.bluemix.net/management/v4/111c9bj3-xxxx-4b5b-zzzz-24ad9440k8j9/cloud_directory/export?encryption_secret=myCoolSecret'
+curl -X GET --header ‘Accept: application/json’ --header ‘Authorization: Bearer <iam-token>’ ’https://eu-gb.appid.cloud.ibm.com/management/v4/111c9bj3-xxxx-4b5b-zzzz-24ad9440k8j9/cloud_directory/export?encryption_secret=myCoolSecret'
 ```
 {: codeblock}
 
@@ -467,7 +467,7 @@ curl -X POST --header ‘Content-Type: application/json’ --header ‘Accept: a
         “attributes”: {}
       }
     }
-]}’ ‘https://appid-management.eu-gb.bluemix.net/management/v4/111c9bj3-xxxx-4b5b-zzzz-24ad9440k8j9/cloud_directory/import?encryption_secret=myCoolSecret’
+]}’ ‘https://eu-gb.appid.cloud.ibm.com/management/v4/111c9bj3-xxxx-4b5b-zzzz-24ad9440k8j9/cloud_directory/import?encryption_secret=myCoolSecret’
 ```
 {: codeblock}
 

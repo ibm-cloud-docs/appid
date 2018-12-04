@@ -54,7 +54,7 @@ By using introspection, you can use {{site.data.keyword.appid_short_notm}} to va
 
     ```
     POST /oauth/v3/{tenant_id}/introspect HTTP/1.1
-    Host: appid-oauth.ng.bluemix.net
+    Host: us-south.appid.cloud.ibm.com/oauth
     Content-Type: application/x-www-form-urlencoded
     Authorization: Basic jdFlUaGlZUzAwTW0Tjk15TmpFMw==
     Cache-Control: no-cache
@@ -123,7 +123,7 @@ You can validate your tokens locally by parsing the token, verifying the token s
 
     ```
     GET /oauth/v3/{tenant_id}/publickeys HTTP/1.1
-    Host: appid-oauth.ng.bluemix.net
+    Host: us-south.appid.cloud.ibm.com/oauth
     Cache-Control: no-cache
     ```
     {: screen}

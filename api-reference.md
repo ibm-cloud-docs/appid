@@ -29,7 +29,7 @@ With the API, you can:
 Calls to the management api endpoint take the following structure:
 
 ```
-appid-management.<region-endpoint>.bluemix.net
+<region-endpoint>.appid.cloud.ibm.com/management
 ```
 {: codeblock}
 
@@ -91,13 +91,13 @@ token = 'Bearer ' + json.loads(r.text)['access_token'];
 headers = {'Authorization': token , 'Accept':'application/json'}
 files = {'file': open(img,'rb')}
 
-r = requests.post("https://appid-management.<region>.bluemix.net/management/v4/" + te
+r = requests.post("https://<region>.appid.cloud.ibm.com/management/v4/" + te
 nantId + "/config/ui/media?mediaType=logo", files=files, headers=headers);
 
 #  get login widget logo
 headers = {'Authorization': token , 'Accept':'application/json'}
 
-r = requests.get("https://appid-management.<region>.bluemix.net/management/v4/" + ten
+r = requests.get("https://<region>.appid.cloud.ibm.com/management/v4/" + ten
 antId + "/config/ui/media", headers=headers);
 
 if (r.status_code >= 200) :

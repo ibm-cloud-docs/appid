@@ -241,12 +241,12 @@ To update access permissions, the admin completes the following steps:
 3. Navigate to the **Service credentials** tab of the {{site.data.keyword.appid_short_notm}} dashboard. Click **View credentials** and copy the **tentantID**.
 4. Sign in with the {{site.data.keyword.Bluemix_notm}} CLI in your terminal.
     ```
-    bx login -a api.<region>.bluemix.net
+    ibmcloud login -a api.<region>.cloud.ibm.com
     ```
     {: codeblock}
 5. Get an IAM token and make a note of it.
     ```
-    bx iam oauth-tokens
+    ibmcloud iam oauth-tokens
     ```
     {: codeblock}
 6. Verify that the team member cannot make changes.
@@ -261,7 +261,7 @@ To update access permissions, the admin completes the following steps:
        "secret": "appsecret"
      }
     }' \
-    'https://appid-management.ng.bluemix.net/management/v4/<tenantId>/config/idps/facebook'
+    'https://us-south.appid.cloud.ibm.com/management/v4/<tenantId>/config/idps/facebook'
     ```
     {: codeblock}
 
@@ -271,17 +271,17 @@ To view the {{site.data.keyword.appid_short_notm}} configurations from the CLI, 
 
 1. Using the {{site.data.keyword.Bluemix_notm}} CLI in your terminal, sign in.
     ```
-    bx login -a api.<region>.bluemix.net
+    ibmcloud login -a api.<region>.cloud.ibm.com
     ```
     {: codeblock}
 2. Get an IAM token and make a note of it.
     ```
-    bx iam oauth-tokens
+    ibmcloud iam oauth-tokens
     ```
     {: codeblock}
 3. View the identity provider configuration for Facebook by using cURL.
     ```
-    curl -X GET --header 'Accept: application/json' --header 'Authorization: <IAM token value>' \  'https://appid-management.ng.bluemix.net/management/v4/<tenantId>/config/idps/facebook'
+    curl -X GET --header 'Accept: application/json' --header 'Authorization: <IAM token value>' \  'https://us-south.appid.cloud.ibm.com/management/v4/<tenantId>/config/idps/facebook'
     ```
     {: codeblock}
     The result is a 200 message that contains the identity provider information.

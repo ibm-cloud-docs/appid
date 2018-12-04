@@ -214,7 +214,7 @@ You must have the following prerequisites:
     tokenEndpointAuthMethod="basic"
     signatureAlgorithm="RS256"
     authFilterid="myAuthFilter"
-    trustAliasName="my.bluemix.certificate"
+    trustAliasName="my.ibm.cloud.certificate"
   />
   ```
   {: codeblock}
@@ -243,7 +243,7 @@ You must have the following prerequisites:
     </tr>
     <tr>
       <td><code>issuerIdentifier</code></td>
-      <td>Changes based on your region. It can be one of the following: </br><ul><li>issuerIdentifier="appid-oauth.ng.bluemix.net" </br><li> issuerIdentifier="appid-oauth.eu-gb.bluemix.net" </br><li>issuerIdentifier="appid-oauth.au-syd.bluemix.net"</ul></td>
+      <td>Changes based on your region. It can be one of the following: </br><ul><li>issuerIdentifier="us-south.appid.cloud.ibm.com/oauth" </br><li> issuerIdentifier="eu-gb.appid.cloud.ibm.com/oauth" </br><li>issuerIdentifier="au-syd.appid.cloud.ibm.com/oauth"</ul></td>
     </tr>
     <tr>
       <td><code>tokenEndpointAuthMethod</code></td>
