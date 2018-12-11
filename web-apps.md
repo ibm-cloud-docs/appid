@@ -243,7 +243,7 @@ You must have the following prerequisites:
     </tr>
     <tr>
       <td><code>issuerIdentifier</code></td>
-      <td>Changes based on your region. It can be one of the following: </br><ul><li>issuerIdentifier="us-south.appid.cloud.ibm.com/oauth" </br><li> issuerIdentifier="eu-gb.appid.cloud.ibm.com/oauth" </br><li>issuerIdentifier="au-syd.appid.cloud.ibm.com/oauth"</ul></td>
+      <td>Changes based on your region. It can be one of the following: </br><ul><li>issuerIdentifier="us-south.appid.cloud.ibm.com" </br><li> issuerIdentifier="eu-gb.appid.cloud.ibm.com" </br><li>issuerIdentifier="au-syd.appid.cloud.ibm.com"</ul></td>
     </tr>
     <tr>
       <td><code>tokenEndpointAuthMethod</code></td>

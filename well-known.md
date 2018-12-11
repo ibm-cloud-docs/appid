@@ -57,7 +57,7 @@ The response should look similar to the following example:
 
   ```bash
   {
-    "issuer" : "us-south.appid.cloud.ibm.com/oauth",
+    "issuer" : "us-south.appid.cloud.ibm.com",
     "authorization_endpoint": "https://us-south.appid.cloud.ibm.com/oauth/v3/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/authorization",
     "token_endpoint": "https://us-south.appid.cloud.ibm.com/oauth/v3/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/token",
     "jwks_uri": "https://us-south.appid.cloud.ibm.com/oauth/v3/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/publickeys",

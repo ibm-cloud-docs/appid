@@ -278,7 +278,7 @@ You must provide the URL. Additionally you can provide authorization information
   ```
     {
       "tenant": "tenant-id",
-      "iss" : "us-south.appid.cloud.ibm.com/oauth",
+      "iss" : "us-south.appid.cloud.ibm.com",
       "iat": 1539173126,
       "jti": "uniq-id",
       "message": {
