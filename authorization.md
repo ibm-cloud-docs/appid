@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-11-16"
+lastupdated: "2018-12-11"
 
 ---
 
@@ -67,7 +67,7 @@ These key terms can help you understand the way that the service breaks down the
     </table>
     <p><strong>Note</strong>: When you use the SDK the endpoint URLs are built automatically.</p></dd>
   <dt>Tokens</dt>
-    <dd>The service uses three different types of tokens. Access tokens represent authorization and enable communication with [back-end resources](/docs/services/appid/backend-apps.html) that are protected by authorization filters that are set by {{site.data.keyword.appid_short}}. Identity tokens represent authentication and contain information about the user. A refresh token can be used to obtain a new access token without re-authenticating the user. By using refresh tokens, users can allow their information to be remembered by the application. This way they can remain signed in. For more information about tokens and how they're used in {{site.data.keyword.appid_short}}, check out [Validating tokens](#tokens).
+    <dd>The service uses three different types of tokens. Access tokens represent authorization and enable communication with [back-end resources](/docs/services/appid/backend-apps.html) that are protected by authorization filters that are set by {{site.data.keyword.appid_short}}. Identity tokens represent authentication and contain information about the user. A refresh token can be used to obtain a new access token without re-authenticating the user. By using refresh tokens, users can allow their information to be remembered by the application. This way they can remain signed in. For more information about tokens and how they're used in {{site.data.keyword.appid_short}}, check out [Validating tokens](tokens.html#remote-validation).
   </dd>
   <dt>Authorization headers</dt>
     <dd><p>{{site.data.keyword.appid_short}} complies with the <a href="https://tools.ietf.org/html/rfc6750" target="blank">token bearer specification <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> and uses a combination of access and identity tokens that are sent as an HTTP Authorization header. The Authorization header contains three different parts that are separated by white space. The tokens are base64 encoded. The identity token is optional.</br>
