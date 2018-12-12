@@ -43,6 +43,8 @@ IBM Cloud App ID
         custom-attributes.md
         pre-sign-in.md
 
+    mfa.md
+
     {: .topicgroup}
     Managing tokens
         customizing-tokens.md
