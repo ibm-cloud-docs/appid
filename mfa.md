@@ -13,10 +13,10 @@ copyright:
 {:pre: .pre}
 {:tip: .tip}
 
-# Multifactor authentication
+# Multi-Factor authentication
 {: #mfa}
 
-Multifactor authentication (MFA) is a method of confirming a user's identity by requiring them to present more than one type of identifying information.
+Multi-Factor authentication (MFA) is a method of confirming a user's identity by requiring them to present more than one type of identifying information.
 {: shortdesc}
 
 ## Understanding the Flow
@@ -51,7 +51,7 @@ MFA uses two or more of the following authentication factors to establish a user
   </tr>
 </table>
 
-Poor password management policies by users and companies alike can leave applications susceptible to explotation by malicious actors. Multifactor authentication supplements basic password based security by adding additional factors that are based on possession or biometerics to establish a user's identity with greater certainty.
+Poor password management policies by users and companies alike can leave applications susceptible to exploitation by malicious actors. Multi-Factor authentication supplements basic password based security by adding additional factors that are based on possession or biometerics to establish a user's identity with greater certainty.
 
 **How does {{site.data.keyword.appid_short_notm}} MFA work?**
 
@@ -82,12 +82,13 @@ One-time MFA codes are entered after the first authentication which makes incorr
 
 With each incorrect MFA code entered, it is increasingly likely the account is being accessed by an unauthorized user. After three incorrect attempts, a user fails the authentication flow and is unable to sign in for 30 minutes.
 
+
 </br>
 
 ## Configuring MFA
 {: #configuration}
 
-{{site.data.keyword.appid_short_notm}} multifactor authentication is supported as part of the OAuth 2.0 authorization code flow for Cloud Directory users through the login widget.
+{{site.data.keyword.appid_short_notm}} Multi-Factor authentication is supported as part of the OAuth 2.0 authorization code flow for Cloud Directory users through the login widget.
 {: shortdesc}
 
 When enabled, the login widget requires MFA each time a new user attempts to sign in. After the user has successfully entered their credentials, a one-time passcode is sent to their email address that they registered when they created their account. Each code is six-characters with an expiration of five minutes. If a user does not receive their code, they can request that another code is sent, but the expiration time is not reset. After a code expires a user is forced to repeat the entire login process.
@@ -191,4 +192,3 @@ Be sure that you have the following prerequisites:
   {: screen}
 
 </br>
-
