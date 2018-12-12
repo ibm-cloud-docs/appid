@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-12-11"
+lastupdated: "2018-12-12"
 
 ---
 
@@ -67,7 +67,12 @@ Figure. The configuration journey for Cloud Directory
   2. Customize the content and design the appearance of your message. There is an example message that you can use, but you can update the text with your own message. You can use a [language](#languages) other than English, but you are responsible for the translation of the text. To choose another language, use the <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/updateLocalization" target="_blank">language management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
   3. Click **Save**.
 
-7. In the **Users** tab you can see who has signed-up for your app. Note: A single user can attempt to sign in up to 5 times in 60 seconds. If a sixth attempt is made, an error is displayed.
+7. Configure multifactor authentication.
+  1. To require multifactor authentication on user sign in, set **Enable Email Multi-Factor Authentication** to **On**.
+  2. Customize the content and design of your email using the template below. You can use a [language](#languages) other than English, but you are responsible for the translation of the text. To choose another language, use the <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/updateLocalization" target="_blank">language management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
+  3. Click **Save**.
+
+8. In the **Users** tab you can see who has signed-up for your app. Note: A single user can attempt to sign in up to 5 times in 60 seconds. If a sixth attempt is made, an error is displayed.
 
 </br>
 </br>
@@ -76,6 +81,7 @@ Figure. The configuration journey for Cloud Directory
 {: #types}
 
 You can send several types of messages to your users. You can choose to send the example message that is provided by the service or you can customize the content for a more personal app experience. {{site.data.keyword.appid_short_notm}} uses <a href="https://www.sendgrid.com" target="_blank">SendGrid <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> as a mail delivery service. All emails are sent with a single SendGrid account.
+{: shortdesc}
 
 If a user does not supply the information pulled by the parameter, it appears blank.
 {: tip}
@@ -183,7 +189,21 @@ If a user does not supply the information pulled by the parameter, it appears bl
           <td> Displays the IP address from which the password change was requested. </td>
         </tr>
       </tbody>
-    </table></dd></dl>
+    </table></dd>
+    </dd>
+    <dt>MFA Verification Code</dt>
+      <dd><p>When multifactor authentication is enabled, users can receive challenge codes as a secondary means of authentication.</p>
+      <table>
+        <thead>
+          <th colspan=2><img src="images/idea.png" alt="More information icon"/> All message parameters </th>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>%{mfa.code}</code></td>
+            <td> Displays a one-time MFA verification code. </td>
+          </tr>
+        </tbody>
+      </table></dd></dl>
 
 </br>
 </br>
