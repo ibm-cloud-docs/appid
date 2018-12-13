@@ -18,7 +18,7 @@ lastupdated: "2018-11-14"
 # {{site.data.keyword.cloudaccesstrailshort}} events
 {: #at_events}
 
-You can view, manage, and audit user-initiated activities made in your {{site.data.keyword.security-advisor_long}} service instance by using the {{site.data.keyword.cloudaccesstrailshort}} service.
+You can view, manage, and audit user-initiated activities made in your {{site.data.keyword.appid_short_notm}} service instance by using the {{site.data.keyword.cloudaccesstrailshort}} service.
 {: shortdesc}
 
 For more information about how the service works, see the [{{site.data.keyword.cloudaccesstrailshort}} docs](/docs/services/cloud-activity-tracker/index.html).
