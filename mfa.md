@@ -2,56 +2,36 @@
 
 copyright:
   years: 2018, 2018
-  lastupdated: "2018-12-12"
+  lastupdated: "2018-12-13"
 
 ---
 
-{:new_window: target="_blank"}
+{:new_window: target="blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
 
-# Multi-Factor authentication
+
+## Multi-Factor Authentication
 {: #mfa}
 
-Multi-Factor authentication (MFA) is a method of confirming a user's identity by requiring them to present more than one type of identifying information.
+Multi-Factor Authentication (MFA) is a method of confirming a user's identity by requiring them to use something that they have in addition to something that they know to verify they are who they say they are. For example, they might have to input a code that is sent to their email in addition to signing in with their email and password.
 {: shortdesc}
 
-## Understanding the Flow
+MFA is available only for Cloud Directory users
+
+### Understanding the flow
 {: #understanding}
 
 **What is MFA and when why would I use it?**
 
-MFA confirms a user’s identity by requiring multiple types of credentials. Rather than just asking for a username and password, MFA requires additional types of authentication. For example, having a user input a one-time code that is sent to a their email account or phone.
+MFA confirms a user’s identity by requiring multiple types of credentials. Rather than just asking for a email and password, MFA requires additional types of authentication. For example, having a user input a one-time code that is sent to a their email account or phone. Poor password management policies by users and companies alike can leave applications susceptible to exploitation by malicious actors. MFA supplements basic password based security by adding additional factors that are based on possession to establish a user's identity with greater certainty.
 
-MFA uses two or more of the following authentication factors to establish a user's identity. Each authentication factors has its own strength and weaknesses, but by using multiple together they can compensate for each other's weaknesses to enhance the total security of the system. Check out the following table to see the types of factors and examples.
 
-<table>
-  <tr>
-    <th>Factor</th>
-    <th>Description</th>
-    <th>Example</th>
-  </tr>
-  <tr>
-    <td>Knowledge</td>
-    <td>Something a user knows.</td>
-    <td>Providing a password when asked to sign in.</td>
-  </tr>
-  <tr>
-    <td>Possession</td>
-    <td>Something a user has.</td>
-    <td>Inputting a code that is sent to their mobile phone or email.</td>
-  </tr>
-  <tr>
-    <td>Biometrics</td>
-    <td>Something a user is.</td>
-    <td>Providing a finger print to gain access.</td>
-  </tr>
-</table>
 
-Poor password management policies by users and companies alike can leave applications susceptible to exploitation by malicious actors. Multi-Factor authentication supplements basic password based security by adding additional factors that are based on possession or biometerics to establish a user's identity with greater certainty.
+
 
 **How does {{site.data.keyword.appid_short_notm}} MFA work?**
 
@@ -69,7 +49,7 @@ Poor password management policies by users and companies alike can leave applica
 
 6. The MFA code is validated and redirected to the client app with the authorization code to continue the OAuth 2 flow.
 
-MFA is a part of the graduated tier price plan. For more information on what that means see [the docs](/docs/services/appid/faq.html#pricing).
+MFA is a part of the graduated tier pricing plan. For more information on what that means see [the docs](/docs/services/appid/faq.html#pricing).
 {:tip}
 
 </br>
@@ -82,13 +62,12 @@ One-time MFA codes are entered after the first authentication which makes incorr
 
 With each incorrect MFA code entered, it is increasingly likely the account is being accessed by an unauthorized user. After three incorrect attempts, a user fails the authentication flow and is unable to sign in for 30 minutes.
 
-
 </br>
 
 ## Configuring MFA
 {: #configuration}
 
-{{site.data.keyword.appid_short_notm}} Multi-Factor authentication is supported as part of the OAuth 2.0 authorization code flow for Cloud Directory users through the login widget.
+{{site.data.keyword.appid_short_notm}} MFA is supported as part of the OAuth 2.0 authorization code flow for Cloud Directory users through the login widget.
 {: shortdesc}
 
 When enabled, the login widget requires MFA each time a new user attempts to sign in. After the user has successfully entered their credentials, a one-time passcode is sent to their email address that they registered when they created their account. Each code is six-characters with an expiration of five minutes. If a user does not receive their code, they can request that another code is sent, but the expiration time is not reset. After a code expires a user is forced to repeat the entire login process.
