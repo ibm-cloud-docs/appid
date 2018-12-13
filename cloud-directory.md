@@ -244,7 +244,22 @@ Advanced password management consists of 5 features that can each be toggled sep
  - Minimum period between password changes
  - Ensure password does not include username
 
+
  If you enable this feature, additional billing for advanced security capabilities is activated. For more information see the [Pricing Calculator](https://console.bluemix.net/pricing/configure/service/AdvancedMobileAccess-d6aece47-d840-45b0-8ab9-ad15354deeea).
+
+</br>
+
+### Avoid Password Reuse
+{: #avoid-reuse}
+
+When your users are changing their password, you might want to prevent them from choosing a recently used password.
+{: shortdesc}
+
+By using the GUI or the API, you can choose the number of passwords that a user must have before they can repeat a previously used password. You can select any whole value between 1 and 10.
+
+If this option is turned on, and one of your users attempts to set their password to one that was recently used by them, they are shown an error in the default sign in widget UI and are prompted to enter a different password.
+
+Previous passwords are securely stored in the same way that a user's current password is stored.
 
 </br>
 
@@ -262,21 +277,17 @@ By using the GUI or the API, you can set the maximum number of unsuccessful sign
 If an account is locked, users are unable to sign in or perform any other self service operations, such as changing their password until the the specified lockout period has elapsed. When the lockout period has ended, the user is automatically unlocked.
 
 
-You can unlock a user before the lockout period is over. To see if they are locked out look to see if the `active` field is set to `false`. You can also check to see if their status on the **Users** tab of the service dashboard is set to `disabled`. To unlock a user, you must use the API to set the `active` field to `true`.
+You can unlock a user before the lockout period is over. To see if they are locked out look to see if the `active` field is set to `false`. You can also check to see if their status on the **Users** tab of the service dashboard is set to `disabled`. To unlock a user, you must use [the API](https://appid-management.ng.bluemix.net/swagger-ui/#!/Cloud_Directory_Users/updateCloudDirectoryUser) to set the `active` field to `true`.
 
 </br>
 
-### Avoid Password Reuse
-{: #avoid-reuse}
+### Minimum period between password changes
+{: #minimum-time}
 
-When your users are changing their password, you might want to prevent them from choosing a recently used password.
+You might want to prevent your users from quickly switching between passwords by setting a minimum period of time that a user must wait between password changes.
 {: shortdesc}
 
-By using the GUI or the API, you can choose the number of passwords that a user must have before they can repeat a previously used password. You can select any whole value between 1 and 10.
-
-If this option is turned on, and one of your users attempts to set their password to one that was recently used by them, they are shown an error in the default sign in widget UI and are prompted to enter a different password.
-
-Previous passwords are securely stored in the same way that a user's current password is stored.
+This feature is especially useful when used in conjunction with the "Avoid password re-use" policy. Without this limitation, a user could simply change their password multiple times in quick succession to circumvent the limitation of re-using recent passwords. You can select any value between 1 hour and 30 days, specified in hours.
 
 </br>
 
@@ -305,16 +316,6 @@ The token endpoint response looks similar to the following:
 
 When this option is first set to on, any existing user passwords will not have an expiration date. The expiration period begins for those user's when their password is changed. You might want to encourage users to update their password after you set this feature to on.
 {: note}
-
-</br>
-
-### Minimum period between password changes
-{: #minimum-time}
-
-You might want to prevent your users from quickly switching between passwords by setting a minimum period of time that a user must wait between password changes.
-{: shortdesc}
-
-This feature is especially useful when used in conjunction with the "Avoid password re-use" policy. Without this limitation, a user could simply change their password multiple times in quick succession to circumvent the limitation of re-using recent passwords. You can select any value between 1 hour and 30 days, specified in hours.
 
 </br>
 
