@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-12-12"
+lastupdated: "2018-12-13"
 
 ---
 
@@ -293,7 +293,7 @@ The service provides a default GUI and experience out of the box with the login 
 
 If you're using a custom sign in experience, an error is triggered when a user attempts to sign in with an expired password. It is your responsibility to configure your application to provide the necessary user experience. You can call the change password API to set the new password.
 
-The token endpoint looks similar to the following:
+The token endpoint response looks similar to the following:
 
 ```javascript
 {
