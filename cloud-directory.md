@@ -232,12 +232,9 @@ Password strength can be set in the Cloud Directory settings page in App ID Cons
 {: #advanced-password}
 
 
-You can enhance the security of your application by enforcing additional password constraints. If you enable this feature, additional billing for advanced security capabilities is activated.
+You can enhance the security of your application by enforcing additional password constraints.
 {: shortdesc}
 
-
-For more information see the [Pricing Calculator](https://console.bluemix.net/pricing/configure/service/AdvancedMobileAccess-d6aece47-d840-45b0-8ab9-ad15354deeea).
-{: tip}
 
 Advanced password management consists of 5 features that can each be toggled separately.
 
@@ -246,6 +243,8 @@ Advanced password management consists of 5 features that can each be toggled sep
  - Password expiration
  - Minimum period between password changes
  - Ensure password does not include username
+
+ If you enable this feature, additional billing for advanced security capabilities is activated. For more information see the [Pricing Calculator](https://console.bluemix.net/pricing/configure/service/AdvancedMobileAccess-d6aece47-d840-45b0-8ab9-ad15354deeea).
 
 </br>
 
