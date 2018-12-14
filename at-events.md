@@ -21,6 +21,7 @@ lastupdated: "2018-12-13"
 # {{site.data.keyword.cloudaccesstrailshort}} events
 {: #at_events}
 
+
 You can view, manage, and analyze user-initiated activities made in your {{site.data.keyword.appid_full}} service instance by using the {{site.data.keyword.cloudaccesstrailshort}} service.
 {: shortdesc}
 
