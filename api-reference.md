@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-10-25"
+lastupdated: "2018-12-14"
 
 ---
 
@@ -29,7 +29,7 @@ With the API, you can:
 Calls to the management api endpoint take the following structure:
 
 ```
-appid-management.<region-endpoint>.bluemix.net
+appid-mangement.<region-endpoint>.bluemix.net
 ```
 {: codeblock}
 
@@ -91,14 +91,12 @@ token = 'Bearer ' + json.loads(r.text)['access_token'];
 headers = {'Authorization': token , 'Accept':'application/json'}
 files = {'file': open(img,'rb')}
 
-r = requests.post("https://appid-management.<region>.bluemix.net/management/v4/" + te
-nantId + "/config/ui/media?mediaType=logo", files=files, headers=headers);
+r = requests.post("https://<region>.appid.cloud.com/management/v4/" + tenantId + "/config/ui/media?mediaType=logo", files=files, headers=headers);
 
 #  get login widget logo
 headers = {'Authorization': token , 'Accept':'application/json'}
 
-r = requests.get("https://appid-management.<region>.bluemix.net/management/v4/" + ten
-antId + "/config/ui/media", headers=headers);
+r = requests.get("https://<region>.appid.cloud.com/management/v4/" + tenantId + "/config/ui/media", headers=headers);
 
 if (r.status_code >= 200) :
     print(r.text)

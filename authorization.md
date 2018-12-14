@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-12-11"
+lastupdated: "2018-12-14"
 
 ---
 
@@ -41,7 +41,7 @@ These key terms can help you understand the way that the service breaks down the
       "secret": "XYZ5ZYXzXYZtNyz5Yi00YzQ2LXYwMZctXyM5ODA4NjFhYxYZ",
       "tenantId": "3x176051-a23x-40y4-9645-804943z660q0",
       "oauthServerUrl": "https://appid-oauth.ng.bluemix.net/oauth/v3/3x176051-a23x-40y4-9645-804943z660q0",
-      "profilesUrl": "https://appid-profiles.ng.bluemix.net/"
+      "profilesUrl": "https://appid-oauth.ng.bluemix.net/"
     }</code></pre>
     <table>
       <tr>
