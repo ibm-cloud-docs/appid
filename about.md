@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-12-12"
+lastupdated: "2018-12-14"
 
 ---
 
@@ -70,10 +70,6 @@ Check out the following table to learn about the available features and what the
   <tr>
     <th>Feature</th>
     <th>Benefit</th>
-  </tr>
-  <tr>
-    <td>Runtime auditing</td>
-    <td>As an owner of an instance of App ID, you can monitor the instance activity of other users. You can get access to information like, authentications, logouts, password resets, and more all from the Activity Tracker console. Check out [the docs to get started](at-events.html).</td>
   </tr>
   <tr>
     <td>Multi-Factor Authentication</td>
