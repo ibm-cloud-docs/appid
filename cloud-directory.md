@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-12-13"
+lastupdated: "2018-12-14"
 
 ---
 
@@ -39,7 +39,7 @@ Figure. The configuration journey for Cloud Directory
   3. Set **Allow users to sign up to your app** to **Yes**. You can still add users through the console if it's set to **No**. However, you should add users through the console only for development purposes.
   4. Set **Allow users to manage their account from your app** to **Yes** if you want your users to be able to reset their password, change their password, or reset their details. If you want to limit your users self-service, set the value to **No**.
   5. Click **Edit** in the **Sender details** row to update your email settings. The email settings apply for all of the communication that is sent through {{site.data.keyword.appid_short_notm}}. Specify the email address that should send the email, their name, and leave a separate email for users to send a response.
-  6. Enable **Advanced password policy** to create limitations and time requirements for your passwords. This feature requires additional billing. For more information about your options, see [Advanced password management](#advanced-password).
+  6. Enable **Advanced password policy** to create limitations and time requirements for your passwords. This feature requires additional billing. For more information about your options, see [Advanced password policy](#advanced-password).
   6. Click **Save**.
 
 3. Configure your verification email settings.
@@ -228,7 +228,7 @@ Password strength can be set in the Cloud Directory settings page in App ID Cons
 </br>
 
 
-## Advanced password management
+## Advanced password policy
 {: #advanced-password}
 
 
@@ -236,7 +236,7 @@ You can enhance the security of your application by enforcing additional passwor
 {: shortdesc}
 
 
-Advanced password management consists of 5 features that can each be toggled separately.
+Advanced password policy consists of 5 features that can each be toggled separately.
 
  - Lockout after repeated wrong credentials
  - Avoid password reuse
@@ -245,7 +245,7 @@ Advanced password management consists of 5 features that can each be toggled sep
  - Ensure password does not include username
 
 
- If you enable this feature, additional billing for advanced security capabilities is activated. For more information see the [Pricing Calculator](https://console.bluemix.net/pricing/configure/service/AdvancedMobileAccess-d6aece47-d840-45b0-8ab9-ad15354deeea).
+ If you enable this feature, additional billing for advanced security capabilities is activated. For more information see the [Pricing Calculator](faq.html#pricing).
 
 </br>
 
@@ -275,7 +275,6 @@ By using the GUI or the API, you can set the maximum number of unsuccessful sign
 * Lockout period: Any whole value between 1 minute and 24 hours, specified in minutes.
 
 If an account is locked, users are unable to sign in or perform any other self service operations, such as changing their password until the the specified lockout period has elapsed. When the lockout period has ended, the user is automatically unlocked.
-
 
 You can unlock a user before the lockout period is over. To see if they are locked out look to see if the `active` field is set to `false`. You can also check to see if their status on the **Users** tab of the service dashboard is set to `disabled`. To unlock a user, you must use [the API](https://appid-management.ng.bluemix.net/swagger-ui/#!/Cloud_Directory_Users/updateCloudDirectoryUser) to set the `active` field to `true`.
 
