@@ -2,11 +2,11 @@
 
 copyright:
   years: 2018, 2018
-  lastupdated: "2018-12-13"
+  lastupdated: "2018-12-14"
 
 ---
 
-{:new_window: target="blank"}
+{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -14,15 +14,16 @@ copyright:
 {:tip: .tip}
 
 
-## Multi-Factor Authentication
+# Multi-Factor Authentication
 {: #mfa}
 
 Multi-Factor Authentication (MFA) is a method of confirming a user's identity by requiring them to use something that they have in addition to something that they know to verify they are who they say they are. For example, they might have to input a code that is sent to their email in addition to signing in with their email and password.
 {: shortdesc}
 
-MFA is available only for Cloud Directory users
+MFA is available only for Cloud Directory users as part of the [graduated tier pricing plan](faq.html#pricing).
+{: note}
 
-### Understanding the flow
+## Understanding the flow
 {: #understanding}
 
 **What is MFA and when why would I use it?**
@@ -32,35 +33,20 @@ MFA confirms a user’s identity by requiring multiple types of credentials. Rat
 
 
 
-
 **How does {{site.data.keyword.appid_short_notm}} MFA work?**
 
 ![{{site.data.keyword.appid_short_notm}} mfa flow](images/mfa-flow.png)
 
-1. A user initiates the authorization flow by sending a request to the /authorization endpoint via the App ID SDK or API.
+1. The login widget in the users browser.
 
-2. The login widget in the users browser.
+2. The user inputs their Cloud Directory user credentials, such as their email or username and their password.
 
-3. The user inputs their Cloud Directory user credentials.
+3. The credentials are validated and the MFA form is returned.
 
-4. The credentials are validated and the MFA widget is returned.
+4. The user receives a one-time passcode to their email address and enters it into the MFA form.
 
-5. The user receives a one-time passcode to their primary email address and enters it into the MFA widget.
+5. The MFA code is validated and redirected to the client app with the authorization code to continue the OAuth 2 flow.
 
-6. The MFA code is validated and redirected to the client app with the authorization code to continue the OAuth 2 flow.
-
-MFA is a part of the graduated tier pricing plan. For more information on what that means see [the docs](/docs/services/appid/faq.html#pricing).
-{:tip}
-
-</br>
-
-## Account Lockout
-{: #account-lockout}
-
-One-time MFA codes are entered after the first authentication which makes incorrect codes rare. If incorrect codes are used, they are treated suspiciously.
-{: shortdesc}
-
-With each incorrect MFA code entered, it is increasingly likely the account is being accessed by an unauthorized user. After three incorrect attempts, a user fails the authentication flow and is unable to sign in for 30 minutes.
 
 </br>
 
@@ -72,7 +58,7 @@ With each incorrect MFA code entered, it is increasingly likely the account is b
 
 When enabled, the login widget requires MFA each time a new user attempts to sign in. After the user has successfully entered their credentials, a one-time passcode is sent to their email address that they registered when they created their account. Each code is six-characters with an expiration of five minutes. If a user does not receive their code, they can request that another code is sent, but the expiration time is not reset. After a code expires a user is forced to repeat the entire login process.
 
-If an MFA code is entered incorrectly multiple times, then an account is locked. For more information about account lockout, see [account lockout](#advanced-lockout).
+If an MFA code is entered incorrectly multiple times, then an account is locked. With each incorrect MFA code entered, it is increasingly likely the account is being accessed by an unauthorized user. After three incorrect attempts, a user fails the authentication flow and is unable to sign in for 30 minutes.
 
 If a user email has not already been confirmed through either the management APIs or through email verification on sign-up, it is confirmed when an MFA code verification is successful. If you need to change a user's email address, an administrator can use the [management APIs](https://appid-management.stage1.eu-gb.bluemix.net/swagger-ui/#!/Cloud_Directory_Users/updateCloudDirectoryUser).
 
