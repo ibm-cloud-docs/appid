@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2018
-  lastupdated: "2018-12-14"
+  years: 2017, 2018
+lastupdated: "2018-12-14"
 
 ---
 
@@ -17,33 +17,32 @@ copyright:
 # Multi-Factor Authentication
 {: #mfa}
 
-Multi-Factor Authentication (MFA) is a method of confirming a user's identity by requiring them to use something that they have in addition to something that they know to verify they are who they say they are. For example, they might have to input a code that is sent to their email in addition to signing in with their email and password.
+Multi-Factor Authentication (MFA) is a method of confirming a user's identity by requiring them to use something that they have in addition to something that they know to verify they are who they say they are. For example, with {{site.data.keyword.appid_full}} you can have a user input a one-time code that is sent to their email after entering their email and password.
 {: shortdesc}
 
-MFA is available only for Cloud Directory users as part of the [graduated tier pricing plan](faq.html#pricing).
+MFA is available only for Cloud Directory users. If you are using another identity provider, such as SAML, you can enable MFA through that provider.
+{: note}
+
+When MFA is enabled, the login widget requires MFA each time a new user attempts to sign in. After the user has successfully entered their credentials, a one-time passcode is sent to their email address that they registered when they created their account. Each code is six-characters with an expiration of five minutes. If a user does not receive their code, they can request that another code is sent, but the expiration time is not reset. After a code expires a user is forced to repeat the entire login process.
+
+If a user email has not already been confirmed through either the management APIs or through email verification on sign-up, it is confirmed when an MFA code verification is successful. If you need to change a user's email address, an administrator can use the [management APIs](https://appid-management.ng.bluemix.net/swagger-ui/#!/Cloud_Directory_Users/updateCloudDirectoryUser).
+
+MFA is available for those instances of {{site.data.keyword.appid_short_notm}} that are on the [graduated tier pricing plan](faq.html#pricing).
 {: note}
 
 ## Understanding the flow
 {: #understanding}
 
-**What is MFA and when why would I use it?**
-
-MFA confirms a user’s identity by requiring multiple types of credentials. Rather than just asking for a email and password, MFA requires additional types of authentication. For example, having a user input a one-time code that is sent to a their email account or phone. Poor password management policies by users and companies alike can leave applications susceptible to exploitation by malicious actors. MFA supplements basic password based security by adding additional factors that are based on possession to establish a user's identity with greater certainty.
 
 
 
-
-**How does {{site.data.keyword.appid_short_notm}} MFA work?**
-
-![{{site.data.keyword.appid_short_notm}} mfa flow](images/mfa-flow.png)
-
-1. The login widget in the users browser.
+1. The app user is shown {{site.data.keyword.appid_short_notm}}'s default sign in UI.
 
 2. The user inputs their Cloud Directory user credentials, such as their email or username and their password.
 
-3. The credentials are validated and the MFA form is returned.
+3. The credentials are validated and the MFA form is returned. The form asks the user to paste the code sent via email.
 
-4. The user receives a one-time passcode to their email address and enters it into the MFA form.
+4. The user receives a one-time passcode to their email address and enters it into the default MFA UI.
 
 5. The MFA code is validated and redirected to the client app with the authorization code to continue the OAuth 2 flow.
 
@@ -56,21 +55,13 @@ MFA confirms a user’s identity by requiring multiple types of credentials. Rat
 {{site.data.keyword.appid_short_notm}} MFA is supported as part of the OAuth 2.0 authorization code flow for Cloud Directory users through the login widget.
 {: shortdesc}
 
-When enabled, the login widget requires MFA each time a new user attempts to sign in. After the user has successfully entered their credentials, a one-time passcode is sent to their email address that they registered when they created their account. Each code is six-characters with an expiration of five minutes. If a user does not receive their code, they can request that another code is sent, but the expiration time is not reset. After a code expires a user is forced to repeat the entire login process.
-
-If an MFA code is entered incorrectly multiple times, then an account is locked. With each incorrect MFA code entered, it is increasingly likely the account is being accessed by an unauthorized user. After three incorrect attempts, a user fails the authentication flow and is unable to sign in for 30 minutes.
-
-If a user email has not already been confirmed through either the management APIs or through email verification on sign-up, it is confirmed when an MFA code verification is successful. If you need to change a user's email address, an administrator can use the [management APIs](https://appid-management.ng.bluemix.net/swagger-ui/#!/Cloud_Directory_Users/updateCloudDirectoryUser).
-
 To configure MFA through the GUI, check out [Cloud Directory](cloud-directory.html).
 {: note}
 
-</br>
-
-### Configuring MFA with the APIs
-{: #mfa-api}
+### Configuring with the API
 
 You can configure MFA by using the management APIs.
+{: shortdesc}
 
 **Before you begin**
 

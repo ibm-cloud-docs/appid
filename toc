@@ -36,14 +36,14 @@ IBM Cloud App ID
         login-widget.md
         branded.md
 
+    mfa.md
+
     {: .topicgroup}
     Storing and accessing user profiles
         user-profile.md
         predefined.md
         custom-attributes.md
         pre-sign-in.md
-
-    mfa.md
 
     {: .topicgroup}
     Managing tokens
