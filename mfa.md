@@ -60,10 +60,12 @@ When enabled, the login widget requires MFA each time a new user attempts to sig
 
 If an MFA code is entered incorrectly multiple times, then an account is locked. With each incorrect MFA code entered, it is increasingly likely the account is being accessed by an unauthorized user. After three incorrect attempts, a user fails the authentication flow and is unable to sign in for 30 minutes.
 
-If a user email has not already been confirmed through either the management APIs or through email verification on sign-up, it is confirmed when an MFA code verification is successful. If you need to change a user's email address, an administrator can use the [management APIs](https://appid-management.stage1.eu-gb.bluemix.net/swagger-ui/#!/Cloud_Directory_Users/updateCloudDirectoryUser).
+If a user email has not already been confirmed through either the management APIs or through email verification on sign-up, it is confirmed when an MFA code verification is successful. If you need to change a user's email address, an administrator can use the [management APIs](https://appid-management.ng.bluemix.net/swagger-ui/#!/Cloud_Directory_Users/updateCloudDirectoryUser).
 
 To configure MFA through the GUI, check out [Cloud Directory](cloud-directory.html).
 {: note}
+
+</br>
 
 ### Configuring MFA with the APIs
 {: #mfa-api}
@@ -110,7 +112,6 @@ Be sure that you have the following prerequisites:
     '{management-url}/management/v4/{tenantId}/config/mfa'
   ```
   {: screen}
-
 
 2. Enable your MFA channel by making a PUT request to the `/mfa/channels/{channelType}` endpoint with your MFA configuration. When `isActive` is set to `true`, your MFA channel is enabled.
 
