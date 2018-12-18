@@ -236,16 +236,6 @@ Check out the following table for a list of the events that are sent to {{site.d
     <td>Update your login widget configuration.</td>
     <td>Can be updated in the <strong>Login Customization</strong> tab.</td>
   </tr>
-  <tr>
-    <td><code>read.captureRuntimeActivity</code></td>
-    <td>View runtime activity toggle.</td>
-    <td>Can be viewed in the <strong>Identity Providers > Manage > Authentication Settings</strong> tab.</td>
-  </tr>
-  <tr>
-    <td><code>update.captureRuntimeActivity</code></td>
-    <td>Toggle runtime activity monitoring.</td>
-    <td>Can be updated in the <strong>Identity Providers > Manage > Authentication Settings</strong> tab.</td>
-  </tr>
 </table>
 
 </br>
