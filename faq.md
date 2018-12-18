@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-12-17"
+lastupdated: "2018-12-18"
 
 ---
 
@@ -34,15 +34,15 @@ Your first 1000 authentication events and first 1000 authorized users are free e
 
 An authentication event occurs when a new access token, regular or anonymous, is issued. Tokens can be issued as a response to a sign-in request that is initiated by a user, or on behalf of the user by an app. By default, access tokens are valid for one hour and anonymous tokens are valid for 30 days. After the token expires, you must create a new token to access protected resources. You can update the expiration time of your {{site.data.keyword.appid_short_notm}} tokens on the **Sign-in Expiration** page of the service dashboard.
 
-If you turn on one or more of the following advanced capabilities, you incur an extra charge: Multi-Factor Authentication password policy management.
-{: important}
+If you turn on one or more of the following advanced capabilities, you incur an extra charge: Multi-Factor Authentication or password policy management.
+{: note}
 
 ### Authorized users
 
 An authorized user is a unique user that signs in with your service whether directly or indirectly, including anonymous users. You are charged for one authorized user each time a new user signs in to your application, including anonymous users. For example, if a user signs in with Facebook and later signs in by using Google, they are considered two separate authorized users.
 
 For the most up to date pricing information for {{site.data.keyword.appid_short_notm}}, see the [pricing calculator](https://console.cloud.ibm.com/pricing/configure/service/AdvancedMobileAccess-d6aece47-d840-45b0-8ab9-ad15354deeea).
-{: note}
+{: important}
 
 </br>
 
