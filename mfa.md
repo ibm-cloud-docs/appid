@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-12-14"
+lastupdated: "2018-12-18"
 
 ---
 
@@ -32,7 +32,6 @@ MFA is available for those instances of {{site.data.keyword.appid_short_notm}} t
 
 ## Understanding the flow
 {: #understanding}
-
 
 
 

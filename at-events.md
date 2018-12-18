@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-12-17"
+lastupdated: "2018-12-18"
 
 ---
 
@@ -24,8 +24,6 @@ lastupdated: "2018-12-17"
 You can view, manage, and analyze user-initiated activities made in your {{site.data.keyword.appid_full}} service instance by using the {{site.data.keyword.cloudaccesstrailshort}} service.
 {: shortdesc}
 
-
-With {{site.data.keyword.appid_short_notm}} you can track two different types of events, administrative and runtime. Administrative events are those that are specific to your instance of the service. Administrative events cover configuration changes such as updating your identity providers or changing the theme of your login widget. Runtime events are those activities that occur at runtime by the app user. A password reset request, authentication failures, or a user log out would all fall into the runtime category.
 
 
 For more information about how the service works, see the [{{site.data.keyword.cloudaccesstrailshort}} docs](/docs/services/cloud-activity-tracker/index.html).

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-12-14"
+lastupdated: "2018-12-18"
 
 ---
 
@@ -101,7 +101,7 @@ request.send(this, new ResponseListener() {
  let tenantId = "your-AppID-service-tenantID"
  let region = AppID.REGION_UK; //set your App ID application region here. Currently possible values are AppID.REGION_US_SOUTH, AppID.REGION_SYDNEY, AppID.REGION_GERMANY, or AppID.REGION_UK.
 
-BMSClient.sharedInstance.initialize(bluemixRegion: AppID.<region>)
+BMSClient.sharedInstance.initialize(region: AppID.<region>)
 BMSClient.sharedInstance.authorizationManager = AppIDAuthorizationManager(appid:AppID.sharedInstance)
 
 var request:Request =  Request(url: baseRequestUrl + "/resource/path", method: HttpMethod.GET)
