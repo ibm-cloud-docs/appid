@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-12-18"
+lastupdated: "2018-12-19"
 
 ---
 
@@ -34,7 +34,29 @@ Your first 1000 authentication events and first 1000 authorized users are free e
 
 An authentication event occurs when a new access token, regular or anonymous, is issued. Tokens can be issued as a response to a sign-in request that is initiated by a user, or on behalf of the user by an app. By default, access tokens are valid for one hour and anonymous tokens are valid for 30 days. After the token expires, you must create a new token to access protected resources. You can update the expiration time of your {{site.data.keyword.appid_short_notm}} tokens on the **Sign-in Expiration** page of the service dashboard.
 
-If you turn on one or more of the following advanced capabilities, you incur an extra charge: Multi-Factor Authentication or password policy management.
+#### Advanced security features
+
+Advanced security features give you the ability to strengthen the security of each authentication.
+{: shortdesc}
+
+<table>
+  <tr>
+    <th>Feature</th>
+    <th>Benefit</th>
+  </tr>
+  <tr>
+    <td>Multi-Factor Authentication</td>
+    <td>MFA for Cloud Directory confirms a user’s identity by requiring a user to enter a one time passcode that is sent to their email in addition to their email and password. If you are using enterprise sign-in with SAML 2.0 or social login, you can enable MFA in the identity provider you are using, which is separate from MFA for Cloud Directory authentications described here.</td>
+  </tr>
+  <tr>
+    <td>Password policy management</td>
+    <td>As an account owner, you can enforce more secure passwords for Cloud Directory by configuring a set of rules that user passwords must conform to. Examples include, the number of attempted sign-ins before lockout, expiration times, minimum time span between password updates, or the number of times that a password can't be repeated. For a complete list of the options and set up information, see [Advanced password management](cloud-directory.html#advanced-password)</td>
+  </tr>
+</table>
+
+By default, advanced security features are disabled. If you turn on Multi-Factor Authentication or password policy management you incur an extra charge. If you disable all of the advanced features, your account will revert to the lower-cost policy. For example, if you obtained 10,000 access tokens. Then turned on MFA and password policy management, and obtained 10,000 more. You would pay for 20,000 authentication events and 10,000 advanced security events.
+
+These features are available only to those instances that are on the graduated tier pricing plan and that were created after March 15th, 2018.
 {: note}
 
 ### Authorized users
@@ -45,6 +67,7 @@ For the most up to date pricing information for {{site.data.keyword.appid_short_
 {: important}
 
 </br>
+
 
 ## Why do I need to whitelist my redirect URL?
 {: #redirect}
