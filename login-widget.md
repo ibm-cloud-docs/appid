@@ -270,7 +270,7 @@ You can call preconfigured screens with the [iOS Swift client SDK](https://githu
 Place the following command in your code.
 
   ```swift
-  import IBMCloudAppID
+  import BluemixAppID
   class delegate : AuthorizationDelegate {
       public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, refreshToken: RefreshToken?) {
           //User authenticated

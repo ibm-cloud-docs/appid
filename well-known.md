@@ -92,8 +92,8 @@ The response should look similar to the following example:
       "client_credentials",
       "urn:ietf:params:oauth:grant-type:jwt-bearer"
     ],
-    "profiles_endpoint": "https://us-south.appid.cloud.ibm.com",
-    "service_documentation": "https://console.cloud.ibm.com/docs/services/appid/index.html"
+    "profiles_endpoint": "https://appid-profiles.ng.bluemix.net",
+    "service_documentation": "https://console.bluemix.net/docs/services/appid/index.html"
   }
   ```
   {: screen}
