@@ -26,7 +26,7 @@ This FAQ provides answers to common questions about the {{site.data.keyword.appi
 With {{site.data.keyword.appid_short_notm}}, you pay less as you use more resources.
 {: shortdesc}
 
-The graduated tier plan consists of two parts: the number of authentication events and the number of authorized users. You are charged each month, based on the summary of the two parts. The total price is the cumulative charge for each level of usage, consisting of your quantity multiplied by the unit price at that tier.
+The graduated tier plan consists of three parts: the number of authentication events, both regular and advanced security, and the number of authorized users. You are charged each month, based on the summary of the two parts. The total price is the cumulative charge for each level of usage, consisting of your quantity multiplied by the unit price at that tier.
 
 Your first 1000 authentication events and first 1000 authorized users are free each month, with the exception of any advanced security events. Any advanced security events incurs an extra charge.
 
@@ -36,7 +36,7 @@ An authentication event occurs when a new access token, regular or anonymous, is
 
 #### Advanced security features
 
-Advanced security features give you the ability to strengthen the security of each authentication.
+Advanced security features give you the ability to strengthen the security of your application.
 {: shortdesc}
 
 <table>
@@ -46,11 +46,11 @@ Advanced security features give you the ability to strengthen the security of ea
   </tr>
   <tr>
     <td>Multi-Factor Authentication</td>
-    <td>MFA for Cloud Directory confirms a user’s identity by requiring a user to enter a one time passcode that is sent to their email in addition to their email and password. If you are using enterprise sign-in with SAML 2.0 or social login, you can enable MFA in the identity provider you are using, which is separate from MFA for Cloud Directory authentications described here.</td>
+    <td>MFA for Cloud Directory confirms a user’s identity by requiring a user to enter a one time passcode that is sent to their email in addition to their email and password.</td>
   </tr>
   <tr>
     <td>Password policy management</td>
-    <td>As an account owner, you can enforce more secure passwords for Cloud Directory by configuring a set of rules that user passwords must conform to. Examples include, the number of attempted sign-ins before lockout, expiration times, minimum time span between password updates, or the number of times that a password can't be repeated. For a complete list of the options and set up information, see [Advanced password management](cloud-directory.html#advanced-password)</td>
+    <td>As an account owner, you can enforce more secure passwords for Cloud Directory by configuring a set of rules that user passwords must conform to. Examples include, the number of attempted sign-ins before lockout, expiration times, minimum time span between password updates, or the number of times that a password can't be repeated. For a complete list of the options and set up information, see [Advanced password management](cloud-directory.html#advanced-password).</td>
   </tr>
 </table>
 

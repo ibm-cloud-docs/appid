@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-12-14"
+lastupdated: "2018-12-19"
 
 ---
 
@@ -51,40 +51,6 @@ Why would you want to use {{site.data.keyword.appid_short_notm}}? Check out the 
     <td> {{site.data.keyword.appid_short_notm}} allows you to create a [Cloud Directory](/docs/services/appid/cloud-directory.html), which makes it possible for you to add user sign-up and sign-in to your apps. Cloud Directory provides you with the framework to maintain a user registry that can scale with your user base. With the pre-built functionality for self service, such as email verification and password resets, you can be sure that your app is authenticating users securely.</td>
   </tr>
 </table>
-
-</br>
-
-## Advanced security features
-{: #advanced-security}
-
-If you have an instance of App ID that was created after March 15, 2018, you can take advantage of advanced security features.
-
-These features are available only to those instances that are on the graduated tier pricing plan.
-{: note}
-
-By default, advanced security features are disabled. Enabling any of these features incurs an extra charge. If you disable all of the advanced features, your account will revert to the lower-cost policy. For the most accurate pricing information, check out the [pricing calculator](https://console.bluemix.net/pricing/configure/service/AdvancedMobileAccess-d6aece47-d840-45b0-8ab9-ad15354deeea).
-
-Check out the following table to learn about the available features and what they can do for you.
-
-<table>
-  <tr>
-    <th>Feature</th>
-    <th>Benefit</th>
-  </tr>
-  <tr>
-    <td>Multi-Factor Authentication</td>
-    <td>MFA confirms a user’s identity by requiring multiple types of credentials. For example, having a user input a one-time code that is sent to a their email account or phone in addition to entering their username and password. For more information about using MFA, see the [Multi-Factor Authentication](mfa.html).</td>
-  </tr>
-  <tr>
-    <td>Password policy management</td>
-    <td>As an account owner, you can specify rules that all passwords must adhere to. Examples include, the number of attempted sign-ins before lockout, expiration times, minimum time span between password updates, or the number of times that a password can't be repeated. For a complete list of the options and set up information, see [Advanced password management](cloud-directory.html#advanced-password)</td>
-  </tr>
-</table>
-
-Keep checking back, new features are being added all the time. Do you have a specific feature request? Reach out to our team and <a href="https://developer.ibm.com/answers/topics/appid/" target="_blank">let us know <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>!
-{: tip}
-
-</br>
 
 
 ## Integrations

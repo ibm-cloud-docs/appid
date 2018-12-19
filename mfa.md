@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-12-18"
+lastupdated: "2018-12-19"
 
 ---
 
@@ -20,7 +20,7 @@ lastupdated: "2018-12-18"
 Multi-Factor Authentication (MFA) is a method of confirming a user's identity by requiring them to use something that they have in addition to something that they know to verify they are who they say they are. For example, with {{site.data.keyword.appid_full}} you can have a user input a one-time code that is sent to their email after entering their email and password.
 {: shortdesc}
 
-MFA is available only for Cloud Directory users. If you are using another identity provider, such as SAML, you can enable MFA through that provider.
+MFA is available only for Cloud Directory users.  If you are using enterprise sign-in with SAML 2.0 or social login, you can enable MFA in the identity provider you are using.
 {: note}
 
 When MFA is enabled, the login widget requires MFA each time a new user attempts to sign in. After the user has successfully entered their credentials, a one-time passcode is sent to their email address that they registered when they created their account. Each code is six-characters with an expiration of five minutes. If a user does not receive their code, they can request that another code is sent, but the expiration time is not reset. After a code expires a user is forced to repeat the entire login process.
