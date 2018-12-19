@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-12-18"
+lastupdated: "2018-12-19"
 
 ---
 
@@ -34,7 +34,7 @@ You can use the {{site.data.keyword.appid_short_notm}} iOS Swift SDK to access e
 
 2. Invoke a protected resource request.
   ```swift
-  BMSClient.sharedInstance.initialize(region: AppID.<region>)
+  BMSClient.sharedInstance.initialize(bluemixRegion: AppID.<region>)
   BMSClient.sharedInstance.authorizationManager = AppIDAuthorizationManager(appid:AppID.sharedInstance)
   var request:Request =  Request(url: "<your protected resource url>")
   request.send(completionHandler: {(response:Response?, error:Error?) in

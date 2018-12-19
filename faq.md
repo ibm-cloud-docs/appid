@@ -46,7 +46,7 @@ Advanced security features give you the ability to strengthen the security of yo
   </tr>
   <tr>
     <td>Multi-Factor Authentication</td>
-    <td>MFA for Cloud Directory confirms a user’s identity by requiring a user to enter a one time passcode that is sent to their email in addition to their email and password.</td>
+    <td>[MFA for Cloud Directory](mfa.html) confirms a user’s identity by requiring a user to enter a one time passcode that is sent to their email in addition to their entering their email and password.</td>
   </tr>
   <tr>
     <td>Password policy management</td>
