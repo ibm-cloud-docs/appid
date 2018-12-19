@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-11-14"
+  years: 2017, [{CURRENT_YEAR}]
+lastupdated: "[{LAST_UPDATED_DATE}]"
 
 ---
 
@@ -39,6 +39,7 @@ Figure. The configuration journey for Cloud Directory
   3. Set **Allow users to sign up to your app** to **Yes**. You can still add users through the console if it's set to **No**. However, you should add users through the console only for development purposes.
   4. Set **Allow users to manage their account from your app** to **Yes** if you want your users to be able to reset their password, change their password, or reset their details. If you want to limit your users self-service, set the value to **No**.
   5. Click **Edit** in the **Sender details** row to update your email settings. The email settings apply for all of the communication that is sent through {{site.data.keyword.appid_short_notm}}. Specify the email address that should send the email, their name, and leave a separate email for users to send a response.
+  6. Enable **Advanced password policy** to create limitations and time requirements for your passwords. This feature requires additional billing. For more information about your options, see [Advanced password policy](#advanced-password).
   6. Click **Save**.
 
 3. Configure your verification email settings.
@@ -66,7 +67,12 @@ Figure. The configuration journey for Cloud Directory
   2. Customize the content and design the appearance of your message. There is an example message that you can use, but you can update the text with your own message. You can use a [language](#languages) other than English, but you are responsible for the translation of the text. To choose another language, use the <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/updateLocalization" target="_blank">language management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
   3. Click **Save**.
 
-7. In the **Users** tab you can see who has signed-up for your app. Note: A single user can attempt to sign in up to 5 times in 60 seconds. If a sixth attempt is made, an error is displayed.
+7. Configure multifactor authentication.
+  1. To require multifactor authentication on user sign in, set **Enable Email Multi-Factor Authentication** to **On**.
+  2. Customize the content and design of your email using the template below. You can use a [language](#languages) other than English, but you are responsible for the translation of the text. To choose another language, use the <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/updateLocalization" target="_blank">language management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
+  3. Click **Save**.
+
+8. In the **Users** tab you can see who has signed-up for your app. Note: A single user can attempt to sign in up to 5 times in 60 seconds. If a sixth attempt is made, an error is displayed.
 
 </br>
 </br>
@@ -75,6 +81,7 @@ Figure. The configuration journey for Cloud Directory
 {: #types}
 
 You can send several types of messages to your users. You can choose to send the example message that is provided by the service or you can customize the content for a more personal app experience. {{site.data.keyword.appid_short_notm}} uses <a href="https://www.sendgrid.com" target="_blank">SendGrid <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> as a mail delivery service. All emails are sent with a single SendGrid account.
+{: shortdesc}
 
 If a user does not supply the information pulled by the parameter, it appears blank.
 {: tip}
@@ -133,7 +140,7 @@ If a user does not supply the information pulled by the parameter, it appears bl
       </tr>
       <tr>
         <td><code>%{resetPassword.code}</code></td>
-        <td> Displays a one-time passcode as part of the URL. This means that each person would have a different code. Example: <code>https://appid-wfm.bluemix.net/verify/6574839563478</code> </td>
+        <td> Displays a one-time passcode as part of the URL. This means that each person would have a different code. Example: <code>https://<staging>appid.cloud.ibm.com/wfm</staging><prod>appid-wfm.bluemix.net</prod>/verify/6574839563478</code> </td>
       </tr>
       <tr>
         <td><code>%{resetPassword.link}</code></td>
@@ -182,7 +189,21 @@ If a user does not supply the information pulled by the parameter, it appears bl
           <td> Displays the IP address from which the password change was requested. </td>
         </tr>
       </tbody>
-    </table></dd></dl>
+    </table></dd>
+    </dd>
+    <dt>MFA Verification Code</dt>
+      <dd><p>When multifactor authentication is enabled, users can receive challenge codes as a secondary means of authentication.</p>
+      <table>
+        <thead>
+          <th colspan=2><img src="images/idea.png" alt="More information icon"/> All message parameters </th>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>%{mfa.code}</code></td>
+            <td> Displays a one-time MFA verification code. </td>
+          </tr>
+        </tbody>
+      </table></dd></dl>
 
 </br>
 </br>
@@ -203,6 +224,107 @@ Some common password strength examples:
 - Must be at least one unique character. Example regex: `^(\w)\w*?(?!\1)\w+$`
 
 Password strength can be set in the Cloud Directory settings page in App ID Console, or by using <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/set_cloud_directory_password_regex" target="_blank">the management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
+
+</br>
+
+
+## Advanced password policy
+{: #advanced-password}
+
+
+You can enhance the security of your application by enforcing additional password constraints.
+{: shortdesc}
+
+
+Advanced password policy consists of 5 features that can each be toggled separately.
+
+ - Lockout after repeated wrong credentials
+ - Avoid password reuse
+ - Password expiration
+ - Minimum period between password changes
+ - Ensure password does not include username
+
+
+ If you enable this feature, additional billing for advanced security capabilities is activated. For more information see the [Pricing Calculator](faq.html#pricing).
+
+</br>
+
+### Avoid Password Reuse
+{: #avoid-reuse}
+
+When your users are changing their password, you might want to prevent them from choosing a recently used password.
+{: shortdesc}
+
+By using the GUI or the API, you can choose the number of passwords that a user must have before they can repeat a previously used password. You can select any whole value between 1 and 10.
+
+If this option is turned on, and one of your users attempts to set their password to one that was recently used by them, they are shown an error in the default sign in widget UI and are prompted to enter a different password.
+
+Previous passwords are securely stored in the same way that a user's current password is stored.
+
+</br>
+
+### Lockout after repeated wrong credentials
+{: #lockout}
+
+You may want to protect your users' accounts by temporarily blocking the ability to sign in when a suspicious behavior is detected, such as multiples consecutive sign in attempts with an incorrect password. This measure can help to prevent a malicious party from gaining access to a user's account by guessing a user's password.
+{: shortdesc}
+
+By using the GUI or the API, you can set the maximum number of unsuccessful sign in attempts that a user can make before their account is temporarily locked. You can also set the amount of time that the account is locked for. You have the following options:
+
+* Number of attempts: Any whole value between 1 and 10.
+* Lockout period: Any whole value between 1 minute and 24 hours, specified in minutes.
+
+If an account is locked, users are unable to sign in or perform any other self service operations, such as changing their password until the the specified lockout period has elapsed. When the lockout period has ended, the user is automatically unlocked.
+
+You can unlock a user before the lockout period is over. To see if they are locked out look to see if the `active` field is set to `false`. You can also check to see if their status on the **Users** tab of the service dashboard is set to `disabled`. To unlock a user, you must use [the API](https://appid-management.ng.bluemix.net/swagger-ui/#!/Cloud_Directory_Users/updateCloudDirectoryUser) to set the `active` field to `true`.
+
+</br>
+
+### Minimum period between password changes
+{: #minimum-time}
+
+You might want to prevent your users from quickly switching between passwords by setting a minimum period of time that a user must wait between password changes.
+{: shortdesc}
+
+This feature is especially useful when used in conjunction with the "Avoid password re-use" policy. Without this limitation, a user could simply change their password multiple times in quick succession to circumvent the limitation of re-using recent passwords. You can select any value between 1 hour and 30 days, specified in hours.
+
+</br>
+
+### Password expiration
+{: #expiration}
+
+For security reasons, you might want to enforce a password rotation policy, such that your users must change their password after a period of time.
+{: shortdesc}
+
+By using the GUI or the API, you can set a time period for which your user's passwords will remain valid. After a user's password expires, they are forced to reset their password on the next sign in. You can select any number of full days between 1 and 90.
+
+The service provides a default GUI and experience out of the box with the login widget. The user is directed to supply a new password before the sign in is complete.
+
+If you're using a custom sign in experience, an error is triggered when a user attempts to sign in with an expired password. It is your responsibility to configure your application to provide the necessary user experience. You can call the change password API to set the new password.
+
+The token endpoint response looks similar to the following:
+
+```javascript
+{
+  "error" : "invalid_grant",
+  "error_description" : "Password expired",
+  "user_id" : "356e065e-49da-45f6-afa3-091a7b464f51"
+}
+```
+{: screen}
+
+When this option is first set to on, any existing user passwords will not have an expiration date. The expiration period begins for those user's when their password is changed. You might want to encourage users to update their password after you set this feature to on.
+{: note}
+
+</br>
+
+### Ensure password does not include username
+{: #no-username}
+
+For stronger passwords, you might want to prevent users that contain their username or the first part of their email address.
+{: shortdesc}
+
+This constraint is not case-sensitive which means that users are not able to alter the case of some or all of the characters in order to use the personal information. To configure this option, toggle the switch to **on**.
 
 </br>
 
@@ -278,7 +400,7 @@ You must provide the URL. Additionally you can provide authorization information
   ```
     {
       "tenant": "tenant-id",
-      "iss" : "appid-oauth.ng.bluemix.net",
+      <staging>"iss" : "us-south.appid.cloud.ibm.com",</staging><prod>"iss" : "appid-oauth.ng.bluemix.net",</prod>
       "iat": 1539173126,
       "jti": "uniq-id",
       "message": {
@@ -317,7 +439,7 @@ You must provide the URL. Additionally you can provide authorization information
   {: tip}
 
 4. Every HTTP payload that is sent from {{site.data.keyword.appid_short_notm}} is automatically signed according to the JWS standard by using an asymmetric key pair.
-For every {{site.data.keyword.appid_short_notm}} instance, a private and a public key is generated that are not shared across other instances. The private key is used to sign the HTTP payload, and you can use the public key to verify that the payload is generated by {{site.data.keyword.appid_short_notm}} and is not altered by a third party, <a href="https://appid-oauth.ng.bluemix.net/swagger-ui/#!/Authorization_Server_V3/publicKeys" target="_blank">Public keys endpoint </a>.
+For every {{site.data.keyword.appid_short_notm}} instance, a private and a public key is generated that are not shared across other instances. The private key is used to sign the HTTP payload, and you can use the public key to verify that the payload is generated by {{site.data.keyword.appid_short_notm}} and is not altered by a third party, <a href="https://<staging>us-south.appid.cloud.ibm.com</staging><prod>appid-oauth.ng.bluemix.net</prod>/swagger-ui/#!/Authorization_Server_V3/publicKeys" target="_blank">Public keys endpoint </a>.
 
 5. Example code for the extension point (JavaScript)
   ```
@@ -335,7 +457,7 @@ For every {{site.data.keyword.appid_short_notm}} instance, a private and a publi
   	// Send request to App ID's public keys endpoint
   	const keysOptions = {
   		method: 'GET',
-  		url: `https://appid-oauth.<REGION>.bluemix.net/oauth/v3/${tenantId}/publickeys`
+  		url: `https://<staging><REGION>.appid.cloud.ibm.com</staging><prod>appid-oauth.<REGION>.bluemix.net</prod>/oauth/v3/${tenantId}/publickeys`
   	};
   	const keysResponse = await request(keysOptions);
   	return JSON.parse(keysResponse.body).keys;
@@ -412,7 +534,7 @@ Before you can add your users to the new instance, you need to export them from 
 Example cURL command:
 
 ```
-curl -X GET --header ‘Accept: application/json’ --header ‘Authorization: Bearer <iam-token>’ ’https://appid-management.eu-gb.bluemix.net/management/v4/111c9bj3-xxxx-4b5b-zzzz-24ad9440k8j9/cloud_directory/export?encryption_secret=myCoolSecret'
+curl -X GET --header ‘Accept: application/json’ --header ‘Authorization: Bearer <iam-token>’ ’https://<staging>eu-gb.appid.cloud.ibm.com</staging><prod>appid-management.eu-gb.bluemix.net</prod>/management/v4/111c9bj3-xxxx-4b5b-zzzz-24ad9440k8j9/cloud_directory/export?encryption_secret=myCoolSecret'
 ```
 {: codeblock}
 
@@ -467,7 +589,7 @@ curl -X POST --header ‘Content-Type: application/json’ --header ‘Accept: a
         “attributes”: {}
       }
     }
-]}’ ‘https://appid-management.eu-gb.bluemix.net/management/v4/111c9bj3-xxxx-4b5b-zzzz-24ad9440k8j9/cloud_directory/import?encryption_secret=myCoolSecret’
+]}’ ‘https://<staging>eu-gb.appid.cloud.ibm.com</staging><prod>appid-management.eu-gb.bluemix.net</prod>/management/v4/111c9bj3-xxxx-4b5b-zzzz-24ad9440k8j9/cloud_directory/import?encryption_secret=myCoolSecret’
 ```
 {: codeblock}
 
