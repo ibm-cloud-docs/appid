@@ -36,6 +36,8 @@ IBM Cloud App ID
         login-widget.md
         branded.md
 
+    mfa.md
+
     {: .topicgroup}
     Storing and accessing user profiles
         user-profile.md

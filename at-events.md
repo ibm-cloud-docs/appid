@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-11-14"
+lastupdated: "2018-12-18"
 
 ---
 
@@ -14,21 +14,27 @@ lastupdated: "2018-11-14"
 {:codeblock: .codeblock}
 {:tip: .tip}
 {:download: .download}
+{:note: .note}
+{:important: .important}
+
 
 # {{site.data.keyword.cloudaccesstrailshort}} events
 {: #at_events}
 
-You can view, manage, and audit user-initiated activities made in your {{site.data.keyword.appid_short_notm}} service instance by using the {{site.data.keyword.cloudaccesstrailshort}} service.
+You can view, manage, and analyze user-initiated activities made in your {{site.data.keyword.appid_full}} service instance by using the {{site.data.keyword.cloudaccesstrailshort}} service.
 {: shortdesc}
+
+
 
 For more information about how the service works, see the [{{site.data.keyword.cloudaccesstrailshort}} docs](/docs/services/cloud-activity-tracker/index.html).
 
+
 </br>
 
-## Viewing events
-{: #monitor}
+## Viewing administrative events
+{: #monitor-admin}
 
-You can view, manage, and audit configuration activity that is made in your {{site.data.keyword.appid_short_notm}} instance by using the {{site.data.keyword.cloudaccesstrailshort}} service.
+You can view, manage, and analyze configuration activity that is made in your {{site.data.keyword.appid_short_notm}} instance by using the {{site.data.keyword.cloudaccesstrailshort}} service.
 {: shortdesc}
 
 To monitor administrative activity:
@@ -44,8 +50,8 @@ To monitor administrative activity:
 
 </br>
 
-## List of events
-{: #events}
+## List of administrative events
+{: #events-admin}
 
 Check out the following table for a list of the events that are sent to {{site.data.keyword.cloudaccesstrailshort}}.
 
@@ -234,3 +240,5 @@ Check out the following table for a list of the events that are sent to {{site.d
 
 </br>
 </br>
+
+

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-11-16"
+lastupdated: "2018-12-19"
 
 ---
 
@@ -26,22 +26,48 @@ This FAQ provides answers to common questions about the {{site.data.keyword.appi
 With {{site.data.keyword.appid_short_notm}}, you pay less as you use more resources.
 {: shortdesc}
 
-The graduated tier plan consists of two parts: the number of authentication events and the number of authorized users. You are charged each month, based on the summary of the two parts. The total price is the cumulative charge for each level of usage, consisting of your quantity multiplied by the unit price at that tier.
+The graduated tier plan consists of three parts: the number of authentication events, both regular and advanced security, and the number of authorized users. You are charged each month, based on the summary of the two parts. The total price is the cumulative charge for each level of usage, consisting of your quantity multiplied by the unit price at that tier.
+
+Your first 1000 authentication events and first 1000 authorized users are free each month, with the exception of any advanced security events. Any advanced security events incurs an extra charge.
 
 ### Authentication events
 
-An authentication event occurs when a new access token, regular or anonymous, is issued. For identified users, each new access token is valid by default for 1 hour (be it through real user authentication or via refresh tokens). Anonymous tokens are valid by default for 1 month. After the token expires, you must create a new token to access protected resources. You can update the expiration time of {{site.data.keyword.appid_short_notm}} tokens on the **Sign-in Expiration** page in the {{site.data.keyword.appid_short_notm}} dashboard.
+An authentication event occurs when a new access token, regular or anonymous, is issued. Tokens can be issued as a response to a sign-in request that is initiated by a user, or on behalf of the user by an app. By default, access tokens are valid for one hour and anonymous tokens are valid for 30 days. After the token expires, you must create a new token to access protected resources. You can update the expiration time of your {{site.data.keyword.appid_short_notm}} tokens on the **Sign-in Expiration** page of the service dashboard.
 
-When you use {{site.data.keyword.appid_short_notm}} in mobile applications, tokens are stored in keystore or key-chain and are added to every future request. The tokens are accessible by using the {{site.data.keyword.appid_short_notm}} Android or iOS SDK. When you use {{site.data.keyword.appid_short_notm}} in web applications, it is recommended to store the tokens in application session cookies.
+#### Advanced security features
 
+Advanced security features give you the ability to strengthen the security of your application.
+{: shortdesc}
+
+<table>
+  <tr>
+    <th>Feature</th>
+    <th>Benefit</th>
+  </tr>
+  <tr>
+    <td>Multi-Factor Authentication</td>
+    <td>[MFA for Cloud Directory](mfa.html) confirms a user’s identity by requiring a user to enter a one time passcode that is sent to their email in addition to their entering their email and password.</td>
+  </tr>
+  <tr>
+    <td>Password policy management</td>
+    <td>As an account owner, you can enforce more secure passwords for Cloud Directory by configuring a set of rules that user passwords must conform to. Examples include, the number of attempted sign-ins before lockout, expiration times, minimum time span between password updates, or the number of times that a password can't be repeated. For a complete list of the options and set up information, see [Advanced password management](cloud-directory.html#advanced-password).</td>
+  </tr>
+</table>
+
+By default, advanced security features are disabled. If you turn on Multi-Factor Authentication or password policy management you incur an extra charge. If you disable all of the advanced features, your account will revert to the lower-cost policy. For example, if you obtained 10,000 access tokens. Then turned on MFA and password policy management, and obtained 10,000 more. You would pay for 20,000 authentication events and 10,000 advanced security events.
+
+These features are available only to those instances that are on the graduated tier pricing plan and that were created after March 15th, 2018.
+{: note}
 
 ### Authorized users
 
-An authorized user is a unique user that logs in with your service whether directly or indirectly. You are charged for one authorized user every time a new user logs in from each identity provider, including anonymous users. For example, if a user logs in with Facebook, and later logs in by using Google, they are considered two separate authorized users.
+An authorized user is a unique user that signs in with your service whether directly or indirectly, including anonymous users. You are charged for one authorized user each time a new user signs in to your application, including anonymous users. For example, if a user signs in with Facebook and later signs in by using Google, they are considered two separate authorized users.
 
-For more information on graduated tier pricing, see the [{{site.data.keyword.Bluemix_notm}} pricing docs](/docs/billing-usage/how_charged.html).
+For the most up to date pricing information for {{site.data.keyword.appid_short_notm}}, see the [pricing calculator](https://console.cloud.ibm.com/pricing/configure/service/AdvancedMobileAccess-d6aece47-d840-45b0-8ab9-ad15354deeea).
+{: important}
 
 </br>
+
 
 ## Why do I need to whitelist my redirect URL?
 {: #redirect}

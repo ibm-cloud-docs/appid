@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, [{CURRENT_YEAR}]
-lastupdated: "[{LAST_UPDATED_DATE}]"
+  years: 2017, 2018
+lastupdated: "2018-12-19"
 
 ---
 
@@ -457,7 +457,7 @@ For every {{site.data.keyword.appid_short_notm}} instance, a private and a publi
   	// Send request to App ID's public keys endpoint
   	const keysOptions = {
   		method: 'GET',
-  		url: `https://<staging><REGION>.appid.cloud.ibm.com</staging><prod>appid-oauth.<REGION>.bluemix.net</prod>/oauth/v3/${tenantId}/publickeys`
+  		url: `https://appid-oauth.<REGION>.bluemix.net/oauth/v3/${tenantId}/publickeys`
   	};
   	const keysResponse = await request(keysOptions);
   	return JSON.parse(keysResponse.body).keys;

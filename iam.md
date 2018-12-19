@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-11-14"
+lastupdated: "2018-12-19"
 
 ---
 
@@ -237,16 +237,16 @@ Before you begin:
 To update access permissions, the admin completes the following steps:
 
 1. Log in to the {{site.data.keyword.Bluemix_notm}} console.
-2. Give the employee view access by following the steps that are laid out in the [IAM documentation](/docs/iam/iamusermanage.html#iamusermanage).
+2. Give the employee view access by following the steps that are laid out in the [IAM documentation](/docs/iam/mngiam.html).
 3. Navigate to the **Service credentials** tab of the {{site.data.keyword.appid_short_notm}} dashboard. Click **View credentials** and copy the **tentantID**.
 4. Sign in with the {{site.data.keyword.Bluemix_notm}} CLI in your terminal.
     ```
-    bx login -a api.<region>.bluemix.net
+    ibmcloud login -a api.<region>.bluemix.net
     ```
     {: codeblock}
 5. Get an IAM token and make a note of it.
     ```
-    bx iam oauth-tokens
+    ibmcloud iam oauth-tokens
     ```
     {: codeblock}
 6. Verify that the team member cannot make changes.
@@ -271,12 +271,12 @@ To view the {{site.data.keyword.appid_short_notm}} configurations from the CLI, 
 
 1. Using the {{site.data.keyword.Bluemix_notm}} CLI in your terminal, sign in.
     ```
-    bx login -a api.<region>.bluemix.net
+    ibmcloud login -a api.<region>.bluemix.net
     ```
     {: codeblock}
 2. Get an IAM token and make a note of it.
     ```
-    bx iam oauth-tokens
+    ibmcloud iam oauth-tokens
     ```
     {: codeblock}
 3. View the identity provider configuration for Facebook by using cURL.

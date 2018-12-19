@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-11-14"
+lastupdated: "2018-12-19"
 
 ---
 
@@ -486,5 +486,3 @@ Add a post route to your app that can be called with the username and password p
   {: codeblock}
 
 </br>
-
-
