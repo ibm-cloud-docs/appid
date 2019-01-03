@@ -1,16 +1,22 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-12-19"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 # Application identity and authorization
 {: #app}
@@ -57,11 +63,11 @@ Figure. application identity and authorization flow
 
 **Registering your app with the API**
 
-1. Make a POST request to the [`/management/v4/{tenantId}/applications` endpoint](https://appid-management.ng.bluemix.net/swagger-ui/#!/Applications/registerApplication).
+1. Make a POST request to the [`/management/v4/{tenantId}/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Applications/registerApplication).
 
   Request:
   ```
-  curl -X POST \  https://appid-management.ng.bluemix.net/management/v4/39a37f57-a227-4bfe-a044-93b6e6060b61/applications/ \
+  curl -X POST \  https://us-south.appid.cloud.ibm.com/management/v4/39a37f57-a227-4bfe-a044-93b6e6060b61/applications/ \
   -H 'Content-Type: application/json' \
   -H 'Authorization: Bearer IAM_TOKEN' \
   -d '{"name": "ApplicationName"}'
@@ -75,7 +81,7 @@ Figure. application identity and authorization flow
    "tenantId": "39a37f57-a227-4bfe-a044-93b6e6060b61",
   "secret": "ZmE5ZDQ5ODctMmA1ZS00OGRiLWExZDMtZTA1MjkyZTc4MDB4",
   "name": "ApplicationName",
-   "oAuthServerUrl": "https://appid-oauth.eu-gb.bluemix.net/oauth/v3/39a37f57-a227-4bfe-a044-93b6e6060b61"
+   "oAuthServerUrl": "https://eu-gb.appid.cloud.ibm.com/oauth/v3/39a37f57-a227-4bfe-a044-93b6e6060b61"
    }
   ```
   {: codeblock}
@@ -122,7 +128,7 @@ After your app is registered with {{site.data.keyword.appid_short_notm}} and you
      clientId: "29a19759-aafb-41c7-9ef7-ee7b0ca88818",
      tenantId: "39a37f57-a227-4bfe-a044-93b6e6060b61",
      secret: "ZTEzZTA2MDAtMjljZS00MWNlLTk5NTktZDliMjY3YzUxZTYx",
-     oauthServerUrl: "https://appid-oauth.eu-gb.bluemix.net/oauth/v3/39a37f57-a227-4bfe-a044-93b6e6060b61"
+     oauthServerUrl: "https://eu-gb.appid.cloud.ibm.com/oauth/v3/39a37f57-a227-4bfe-a044-93b6e6060b61"
     };
 
     const tokenManager = new TokenManager(config);
@@ -201,7 +207,7 @@ After your app is registered with {{site.data.keyword.appid_short_notm}} and you
   app.use(passport.initialize());
 
   passport.use(new APIStrategy({
-      oauthServerUrl: "https://appid-oauth.eu-gb.bluemix.net/oauth/v3/398ec248-5e93-48b8-a122-ccabc714fe85",
+      oauthServerUrl: "https://eu-gb.appid.cloud.ibm.com/oauth/v3/398ec248-5e93-48b8-a122-ccabc714fe85",
       tenantId:"398ec248-5e93-48b8-a122-ccabc714fe85"
   }));
 

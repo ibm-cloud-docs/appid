@@ -1,18 +1,21 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-12-19"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
-
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
-{:codeblock: .codeblock}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:codeblock: .codeblock}
 {:tip: .tip}
 {:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 # About {{site.data.keyword.appid_short_notm}}
 {: #about}

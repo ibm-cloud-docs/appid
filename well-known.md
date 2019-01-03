@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-12-19"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -32,7 +32,7 @@ You can obtain the discovery document and the information that it contains by ca
 You can find the endpoint at the following URL:
 
   ```
-  https://appid-oauth.[region].bluemix.net/oauth/v3/{tenantId}/.well-known/openid-configuration
+  https://[region].appid.ibm.cloud.com/oauth/v3/{tenantId}/.well-known/openid-configuration
   ```
   {: codeblock}
 
@@ -45,7 +45,7 @@ To make a call to the endpoint you must have a valid `tenantID` and you must har
 Check out the following sample cURL request:
 
   ```bash
-  curl -X GET --header 'Accept: application/json'  'https://appid-oauth.ng.bluemix.net/oauth/v3/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/.well-known/openid-configuration'
+  curl -X GET --header 'Accept: application/json'  'https://us-south.appid.cloud.ibm.com/oauth/v3/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/.well-known/openid-configuration'
   ```
   {:codeblock}
 
@@ -57,17 +57,17 @@ The response should look similar to the following example:
 
   ```bash
   {
-    "issuer" : "appid-oauth.ng.bluemix.net",
-    "authorization_endpoint": "https://appid-oauth.ng.bluemix.net/oauth/v3/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/authorization",
-    "token_endpoint": "https://appid-oauth.ng.bluemix.net/oauth/v3/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/token",
-    "jwks_uri": "https://appid-oauth.ng.bluemix.net/oauth/v3/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/publickeys",
+    "issuer" : "us-south.appid.cloud.ibm.com",
+    "authorization_endpoint": "https://us-south.appid.cloud.ibm.com/oauth/v3/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/authorization",
+    "token_endpoint": "https://us-south.appid.cloud.ibm.com/oauth/v3/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/token",
+    "jwks_uri": "https://us-south.appid.cloud.ibm.com/oauth/v3/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/publickeys",
     "subject_types_supported": [
       "public"
     ],
     "id_token_signing_alg_values_supported": [
       "RS256"
     ],
-    "userinfo_endpoint": "https://appid-oauth.ng.bluemix.net/oauth/v3/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/userinfo",
+    "userinfo_endpoint": "https://us-south.appid.cloud.ibm.com/oauth/v3/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/userinfo",
     "scopes_supported": [
       "openid"
     ],
@@ -92,8 +92,8 @@ The response should look similar to the following example:
       "client_credentials",
       "urn:ietf:params:oauth:grant-type:jwt-bearer"
     ],
-    "profiles_endpoint": "https://appid-profiles.ng.bluemix.net",
-    "service_documentation": "https://console.bluemix.net/docs/services/appid/index.html"
+    "profiles_endpoint": "https://us-south.appid.cloud.ibm.com",
+    "service_documentation": "https://console.cloud.ibm.com/docs/services/appid/index.html"
   }
   ```
   {: screen}
