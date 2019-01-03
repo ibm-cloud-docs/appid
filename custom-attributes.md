@@ -41,13 +41,9 @@ Attributes are pieces of information about your users. By saving them, you can c
 
 Depending on your configuration, attributes are encrypted and saved as part of a user profile when a user interacts with your application. The interaction could be a user signing in or setting a preference in your app.
 
-</br>
-
 **Is there a limit to the amount of information that can be stored for each user?**
 
 You can store 100KB of information for each user.
-
-</br>
 
 **Are there any security considerations I should make?**
 
