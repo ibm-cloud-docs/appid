@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-12-19"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -29,7 +29,7 @@ With the API, you can:
 Calls to the management api endpoint take the following structure:
 
 ```
-appid-management.<region-endpoint>.bluemix.net
+<region-endpoint>.appid.cloud.ibm.com/management
 ```
 {: codeblock}
 

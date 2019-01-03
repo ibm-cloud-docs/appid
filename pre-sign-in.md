@@ -1,17 +1,22 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-11-14"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
-{:pre: .pre}
-{:tip: .tip}
 {:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 # Adding attributes before user sign in
 {: #sign-in}
@@ -195,7 +200,7 @@ When a user signs into your app for the first time, {{site.data.keyword.appid_sh
 
 Keep in mind that a user's predefined attributes are empty until their first authentication, but the user is, for all intents and purposes, a fully authenticated user. You can use their unique ID just as you would someone who had already signed in. For instance, you can modify, search, or delete the profile.
 
-Now that you have associated a user with specific attributes, try [accessing attributes](/docs/services/appid/custom-attributes.html)!
+Now that you have associated a user with specific attributes, try [accessing or updating attributes](/docs/services/appid/custom-attributes.html)!
 
 
 </br>

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-12-19"
+  years: 2017, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -48,13 +48,13 @@ Based on feedback, option 1 is usually the easiest way to go.
 By using introspection, you can use {{site.data.keyword.appid_short_notm}} to validate your tokens.
 {: shortdesc}
 
-1. Send a POST request to the [/introspect](https://appid-oauth.ng.bluemix.net/swagger-ui/#!/Authorization_Server_V3/introspect) API endpoint to validate your token. The request must provide the token and a basic authorization header that contains the client ID and secret.
+1. Send a POST request to the [/introspect](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Authorization_Server_V3/introspect) API endpoint to validate your token. The request must provide the token and a basic authorization header that contains the client ID and secret.
 
   Example request:
 
     ```
     POST /oauth/v3/{tenant_id}/introspect HTTP/1.1
-    Host: appid-oauth.ng.bluemix.net
+    Host: us-south.appid.cloud.ibm.com
     Content-Type: application/x-www-form-urlencoded
     Authorization: Basic jdFlUaGlZUzAwTW0Tjk15TmpFMw==
     Cache-Control: no-cache
@@ -117,13 +117,13 @@ You can validate your tokens locally by parsing the token, verifying the token s
     ```
     {: screen}
 
-2. Make a call to the [/publickeys endpoint](https://appid-oauth.ng.bluemix.net/swagger-ui/#!/Authorization_Server_V3/publicKeys) to retrieve your public keys. The public keys that are returned are formatted as [JSON Web Keys (JWK)](https://tools.ietf.org/html/rfc7517).
+2. Make a call to the [/publickeys endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Authorization_Server_V3/publicKeys) to retrieve your public keys. The public keys that are returned are formatted as [JSON Web Keys (JWK)](https://tools.ietf.org/html/rfc7517).
 
   Example request:
 
     ```
     GET /oauth/v3/{tenant_id}/publickeys HTTP/1.1
-    Host: appid-oauth.ng.bluemix.net
+    Host: us-south.appid.cloud.ibm.com
     Cache-Control: no-cache
     ```
     {: screen}
