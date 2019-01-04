@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-01-04"
 
 ---
 
@@ -92,7 +92,7 @@ Figure. application identity and authorization flow
 
 After your app is registered with {{site.data.keyword.appid_short_notm}} and you have obtained your credentials, you can make a request to the {{site.data.keyword.appid_short_notm}} authorization server to get an Access Token.
 
-1. Make an HTTP POST request to the [`/oauth/v3/{tenantId}/token` endpoint](https://appid-oauth.ng.bluemix.net/swagger-ui/#!/Authorization_Server_V3/token). The authorization for the request is `Basic auth` with the client ID and secret being used as the username and password which are base64 encoded.
+1. Make an HTTP POST request to the [`/oauth/v3/{tenantId}/token` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization_Server_V3/token). The authorization for the request is `Basic auth` with the client ID and secret being used as the username and password which are base64 encoded.
 
   Request :
   ```

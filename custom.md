@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-11-14"
+  years: 2017, 2019
+lastupdated: "2019-01-04"
 
 ---
 
@@ -62,7 +62,7 @@ $ openssl rsa -pubout -in private_key.pem -out public_key.pem
 
 **Configuring with the API**
 
-Register your key by making a PUT request to the [Management API endpoint](https://appid-management.ng.bluemix.net/swagger-ui/#!/Identity_Providers/custom).
+Register your key by making a PUT request to the [Management API endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Identity_Providers/custom).
 
 ```
 Put {Management URI}/config/idps/custom

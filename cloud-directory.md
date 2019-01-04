@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-12-19"
+  years: 2017, 2019
+lastupdated: "2019-01-04"
 
 ---
 
@@ -45,31 +45,31 @@ Figure. The configuration journey for Cloud Directory
 3. Configure your verification email settings.
   1. To have your users verify their email address set **Email verification** to **On**. When a user signs up for your application, they receive an email that asks them to confirm that they've signed up for the app.
   2. If you've decided that you want your users to verify their email, your next decision is whether you want to allow users into your application before them verifying their email address. Depending on your preference, set **Allow users to sign in to your app without first verifying their email address** to **Yes** or **No**.
-  3. Customize the content and design the appearance of your message. There is a template for the message, but you can update the text with your own message. You can use a [language](/docs/services/appid/cloud-directory.html#languages) other than English, but you are responsible for the translation of the text. To choose another language, use the <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/updateLocalization" target="_blank">language management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
+  3. Customize the content and design the appearance of your message. There is a template for the message, but you can update the text with your own message. You can use a [language](/docs/services/appid/cloud-directory.html#languages) other than English, but you are responsible for the translation of the text. To choose another language, use the <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#//Config/updateLocalization" target="_blank">language management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
   4. Give the verification URL an expiration time limit, specified as minutes.  When this time is set here, it also affects the length of time that your reset password link is valid for.
   5. Enter your own verification page URL if you have a specific page that you want your users to see when they click the link. If you leave the **Custom verification page URL** field blank, a default verification page is provided by {{site.data.keyword.appid_short_notm}}.
   6. Click **Save**.
 
 4. Configure your welcome email settings.
   1. To welcome users through email when they sign up for your app, set **Welcome email** to **On**.
-  2. Customize the content and design the appearance of your message. There is an example message that you can use, but you can update the text with your own message. You can use a [language](#languages) other than English, but you are responsible for the translation of the text. To choose another language, use the <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/updateLocalization" target="_blank">language management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
+  2. Customize the content and design the appearance of your message. There is an example message that you can use, but you can update the text with your own message. You can use a [language](#languages) other than English, but you are responsible for the translation of the text. To choose another language, use the <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/updateLocalization" target="_blank">language management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
   3. Click **Save**.
 
 5. Configure your password reset settings.
   1. To allow users to request a reset of their password, set **Forgot password email** to **On**. **Note**: A user must have validated their email before reseting their password. This means that you must require email verification to allow password resets.
-  2. Customize the content and design the appearance of your message. There is an example message that you can use, but you can update the text with your own message. You can use a [language](#languages) other than English, but you are responsible for the translation of the text. To choose another language, use the <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/updateLocalization" target="_blank">language management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
+  2. Customize the content and design the appearance of your message. There is an example message that you can use, but you can update the text with your own message. You can use a [language](#languages) other than English, but you are responsible for the translation of the text. To choose another language, use the <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/updateLocalization" target="_blank">language management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
   3. Give the reset password URL an expiration time limit, specified as minutes. When this time is set here, it also affects the length of time that your email verification link is valid for.
   4. Enter your own password reset URL if you have a specific page that you want your users to see when they click the link. If you leave the **Reset password page URL** field blank, a default reset password page is provided by {{site.data.keyword.appid_short_notm}}.
   5. Click **Save**.
 
 6. Configure your change password settings.
   1. To notify users about any changes made to their password, set **Password changed email** to **On**.
-  2. Customize the content and design the appearance of your message. There is an example message that you can use, but you can update the text with your own message. You can use a [language](#languages) other than English, but you are responsible for the translation of the text. To choose another language, use the <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/updateLocalization" target="_blank">language management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
+  2. Customize the content and design the appearance of your message. There is an example message that you can use, but you can update the text with your own message. You can use a [language](#languages) other than English, but you are responsible for the translation of the text. To choose another language, use the <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/updateLocalization" target="_blank">language management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
   3. Click **Save**.
 
 7. Configure multifactor authentication.
   1. To require multifactor authentication on user sign in, set **Enable Email Multi-Factor Authentication** to **On**.
-  2. Customize the content and design of your email using the template below. You can use a [language](#languages) other than English, but you are responsible for the translation of the text. To choose another language, use the <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/updateLocalization" target="_blank">language management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
+  2. Customize the content and design of your email using the template below. You can use a [language](#languages) other than English, but you are responsible for the translation of the text. To choose another language, use the <a href="https://https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/updateLocalization" target="_blank">language management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
   3. Click **Save**.
 
 8. In the **Users** tab you can see who has signed-up for your app. Note: A single user can attempt to sign in up to 5 times in 60 seconds. If a sixth attempt is made, an error is displayed.
@@ -140,7 +140,7 @@ If a user does not supply the information pulled by the parameter, it appears bl
       </tr>
       <tr>
         <td><code>%{resetPassword.code}</code></td>
-        <td> Displays a one-time passcode as part of the URL. This means that each person would have a different code. Example: <code>https://<staging>appid.cloud.ibm.com/wfm</staging><prod>appid-wfm.bluemix.net</prod>/verify/6574839563478</code> </td>
+        <td> Displays a one-time passcode as part of the URL. This means that each person would have a different code. Example: <code>https://appid.cloud.ibm.com/wfm/verify/6574839563478</code> </td>
       </tr>
       <tr>
         <td><code>%{resetPassword.link}</code></td>
@@ -223,7 +223,7 @@ Some common password strength examples:
 - Must contain only English letters and numbers. Example regex: `^[A-Za-z0-9]*$`
 - Must be at least one unique character. Example regex: `^(\w)\w*?(?!\1)\w+$`
 
-Password strength can be set in the Cloud Directory settings page in App ID Console, or by using <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/set_cloud_directory_password_regex" target="_blank">the management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
+Password strength can be set in the Cloud Directory settings page in App ID Console, or by using <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/set_cloud_directory_password_regex" target="_blank">the management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
 
 </br>
 
@@ -276,7 +276,7 @@ By using the GUI or the API, you can set the maximum number of unsuccessful sign
 
 If an account is locked, users are unable to sign in or perform any other self service operations, such as changing their password until the the specified lockout period has elapsed. When the lockout period has ended, the user is automatically unlocked.
 
-You can unlock a user before the lockout period is over. To see if they are locked out look to see if the `active` field is set to `false`. You can also check to see if their status on the **Users** tab of the service dashboard is set to `disabled`. To unlock a user, you must use [the API](https://appid-management.ng.bluemix.net/swagger-ui/#!/Cloud_Directory_Users/updateCloudDirectoryUser) to set the `active` field to `true`.
+You can unlock a user before the lockout period is over. To see if they are locked out look to see if the `active` field is set to `false`. You can also check to see if their status on the **Users** tab of the service dashboard is set to `disabled`. To unlock a user, you must use [the API](https://https://us-south.appid.cloud.ibm.com/swagger-ui/#/Cloud_Directory_Users/updateCloudDirectoryUser) to set the `active` field to `true`.
 
 </br>
 
@@ -354,7 +354,7 @@ After the extension point is configured, it is called by {{site.data.keyword.app
 
 **To create a custom email sender:**
 
-1. In order to configure the {{site.data.keyword.appid_short_notm}} instance to use custom dispatcher, use <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/set_cloud_directory_email_dispatcher" target="_blank">the management API </a>.</br>
+1. In order to configure the {{site.data.keyword.appid_short_notm}} instance to use custom dispatcher, use <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/set_cloud_directory_email_dispatcher" target="_blank">the management API </a>.</br>
 You must provide the URL. Additionally you can provide authorization information. The supported authorization types are: `Basic authorization` or a `constant authorization header value`.
 
   Valid configuration examples:
@@ -400,7 +400,7 @@ You must provide the URL. Additionally you can provide authorization information
   ```
     {
       "tenant": "tenant-id",
-      <staging>"iss" : "us-south.appid.cloud.ibm.com",</staging><prod>"iss" : "appid-oauth.ng.bluemix.net",</prod>
+      "iss" : "us-south.appid.cloud.ibm.com",
       "iat": 1539173126,
       "jti": "uniq-id",
       "message": {
@@ -439,7 +439,7 @@ You must provide the URL. Additionally you can provide authorization information
   {: tip}
 
 4. Every HTTP payload that is sent from {{site.data.keyword.appid_short_notm}} is automatically signed according to the JWS standard by using an asymmetric key pair.
-For every {{site.data.keyword.appid_short_notm}} instance, a private and a public key is generated that are not shared across other instances. The private key is used to sign the HTTP payload, and you can use the public key to verify that the payload is generated by {{site.data.keyword.appid_short_notm}} and is not altered by a third party, <a href="https://<staging>us-south.appid.cloud.ibm.com</staging><prod>appid-oauth.ng.bluemix.net</prod>/swagger-ui/#!/Authorization_Server_V3/publicKeys" target="_blank">Public keys endpoint </a>.
+For every {{site.data.keyword.appid_short_notm}} instance, a private and a public key is generated that are not shared across other instances. The private key is used to sign the HTTP payload, and you can use the public key to verify that the payload is generated by {{site.data.keyword.appid_short_notm}} and is not altered by a third party, <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Authorization_Server_V3/publicKeys" target="_blank">Public keys endpoint </a>.
 
 5. Example code for the extension point (JavaScript)
   ```
@@ -457,7 +457,7 @@ For every {{site.data.keyword.appid_short_notm}} instance, a private and a publi
   	// Send request to App ID's public keys endpoint
   	const keysOptions = {
   		method: 'GET',
-  		url: `https://appid-oauth.<REGION>.bluemix.net/oauth/v3/${tenantId}/publickeys`
+  		url: `https://<REGION>.appid.cloud.ibm.com/oauth/v3/${tenantId}/publickeys`
   	};
   	const keysResponse = await request(keysOptions);
   	return JSON.parse(keysResponse.body).keys;
@@ -507,7 +507,7 @@ For every {{site.data.keyword.appid_short_notm}} instance, a private and a publi
   ```
   {: codeblock}
 
-6. Verify that your configuration is correctly set up by testing your email dispatcher. Use the <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/post_email_dispatcher_test" target="_blank">test API</a> to trigger a request to your configured custom email sender.
+6. Verify that your configuration is correctly set up by testing your email dispatcher. Use the <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/post_email_dispatcher_test" target="_blank">test API</a> to trigger a request to your configured custom email sender.
 
 For full working example, see <a href="https://www.ibm.com/blogs/bluemix/2018/10/use-ibm-cloud-app-id-and-your-email-provider-to-brand-mails-sent-to-app-users/" target="_blank">Use your own provider for mail sent with {{site.data.keyword.appid_full}}</a>.
 
@@ -529,12 +529,12 @@ You must be assigned the `Manager` [IAM role](/docs/iam/quickstart.html) for bot
 
 **Exporting**
 
-Before you can add your users to the new instance, you need to export them from your current instance. To do so, you can use the <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Cloud_Directory_Users/cloudDirectoryExport" target="_blank">export management API <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
+Before you can add your users to the new instance, you need to export them from your current instance. To do so, you can use the <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Cloud_Directory_Users/cloudDirectoryExport" target="_blank">export management API <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
 
 Example cURL command:
 
 ```
-curl -X GET --header ‘Accept: application/json’ --header ‘Authorization: Bearer <iam-token>’ ’https://<staging>eu-gb.appid.cloud.ibm.com</staging><prod>appid-management.eu-gb.bluemix.net</prod>/management/v4/111c9bj3-xxxx-4b5b-zzzz-24ad9440k8j9/cloud_directory/export?encryption_secret=myCoolSecret'
+curl -X GET --header ‘Accept: application/json’ --header ‘Authorization: Bearer <iam-token>’ ’https://eu-gb.appid.cloud.ibm.com/management/v4/111c9bj3-xxxx-4b5b-zzzz-24ad9440k8j9/cloud_directory/export?encryption_secret=myCoolSecret'
 ```
 {: codeblock}
 
@@ -560,7 +560,7 @@ Only your Cloud Directory users and their profiles are returned. Users from othe
 
 **Importing**
 
-Now that you have your users ready to go, you can import their information into the new instance. To do so, you can use the <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Cloud_Directory_Users/cloudDirectoryImport" target="_blank">import management API <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
+Now that you have your users ready to go, you can import their information into the new instance. To do so, you can use the <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Cloud_Directory_Users/cloudDirectoryImport" target="_blank">import management API <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
 
 Example cURL command:
 
@@ -589,7 +589,7 @@ curl -X POST --header ‘Content-Type: application/json’ --header ‘Accept: a
         “attributes”: {}
       }
     }
-]}’ ‘https://<staging>eu-gb.appid.cloud.ibm.com</staging><prod>appid-management.eu-gb.bluemix.net</prod>/management/v4/111c9bj3-xxxx-4b5b-zzzz-24ad9440k8j9/cloud_directory/import?encryption_secret=myCoolSecret’
+]}’ ‘https://eu-gb.appid.cloud.ibm.com/management/v4/111c9bj3-xxxx-4b5b-zzzz-24ad9440k8j9/cloud_directory/import?encryption_secret=myCoolSecret’
 ```
 {: codeblock}
 
@@ -620,7 +620,7 @@ Before you get started, be sure you have the following parameter information:
   </tr>
   <tr>
     <td>IAM token</td>
-    <td>Be sure that you have <code>manager</code> permissions before you obtain the token. For help obtaining an IAM token, check out <a href="https://console.bluemix.net/docs/iam/apikey_iamtoken.html#iamtoken_from_apikey" target="_blank">the docs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.</td>
+    <td>Be sure that you have <code>manager</code> permissions before you obtain the token. For help obtaining an IAM token, check out <a href="https://console.cloud.ibm.com/docs/iam/apikey_iamtoken.html#iamtoken_from_apikey" target="_blank">the docs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.</td>
   </tr>
 </table>
 
@@ -656,7 +656,7 @@ To run the script:
 ## Supported languages
 {: #languages}
 
-You can use <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/updateLocalization" target="_blank">the language management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to set the language in which your user communication can be written. However, only English is available out of the box. You are responsible for the translation of the messages. After you set the configuration with the API, the GUI updates so that you are able to change the template text.
+You can use <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/updateLocalization" target="_blank">the language management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to set the language in which your user communication can be written. However, only English is available out of the box. You are responsible for the translation of the messages. After you set the configuration with the API, the GUI updates so that you are able to change the template text.
 {: shortdesc}
 
 <table>
