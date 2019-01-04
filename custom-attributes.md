@@ -1,35 +1,22 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-01-04"
+  years: 2017, 2018
+lastupdated: "2018-11-08"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
-{:screen: .screen}
 {:pre: .pre}
-{:table: .aria-labeledby="caption"}
-{:codeblock: .codeblock}
 {:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:deprecated: .deprecated}
-{:download: .download}
-{:java: .ph data-hd-programlang='java'}
-{:javascript: .ph data-hd-programlang='javascript'}
-{:swift: .ph data-hd-programlang='swift'}
-{:curl: .ph data-hd-programlang='curl'}
+{:screen: .screen}
 
-# Working with custom user attributes
+# Accessing custom user attributes
 {: #custom}
 
-With {{site.data.keyword.appid_full}}, you can save, access, and update custom attributes.
+With {{site.data.keyword.appid_full}}, you can save and access custom attributes.
 {: shortdesc}
-
-## Understanding custom attributes
-{: #understanding}
 
 **Why would I want to save additional attributes about a user?**
 
@@ -41,9 +28,13 @@ Attributes are pieces of information about your users. By saving them, you can c
 
 Depending on your configuration, attributes are encrypted and saved as part of a user profile when a user interacts with your application. The interaction could be a user signing in or setting a preference in your app.
 
+</br>
+
 **Is there a limit to the amount of information that can be stored for each user?**
 
 You can store 100KB of information for each user.
+
+</br>
 
 **Are there any security considerations I should make?**
 
@@ -54,86 +45,13 @@ To prevent your users from changing the attributes that you give them, set **Cha
 
 </br>
 
-## Setting attributes
-{: #setting}
 
-You can set roles and scopes known as attributes to a user profile. You can also override existing attributes that might have been pulled from an external identity provider.
-{: shortdesc}
+## Accessing with the iOS SDK
+{: #ios}
 
-To set the
+ You can access custom attributes by passing an access token through the following API methods.
 
-
-iOS Swift:
-{: ph data-hd-programlang='swift'}
-
-  ```
-	AppID.sharedInstance.userProfileManager?.setAttribute("key", "value") { (error, result) in
-		guard let result = result, error == nil else {
-	  		return // an error has occurred
-		}
-		// attributes recieved as a Dictionary
-	})
-  ```
-  {: codeblock}
-  {: ph data-hd-programlang='swift'}
-
-  ```
-  appId.getUserProfileManager().setAttribute(name, value, useThisToken, new UserProfileResponseListener() {
-  	@Override
-  	public void onSuccess(JSONObject attributes) {
-  		// attributes received in JSON format on successful response
-  	}
-
-  	@Override
-  	public void onFailure(UserAttributesException e) {
-  		// exception occurred
-  	}
-  });
-  ```
-  {: codeblock}
-  {: ph data-hd-programlang='java'}
-
-  ```
-	const userProfileManager = require("ibmcloud-appid").UserProfileManager;
-	userProfileManager.init();
-
-	var accessToken = req.session[WebAppStrategy.AUTH_CONTEXT].accessToken;
-
-	userProfileManager.setAttribute(accessToken, name, value).then(function (attributes) {
-		// attributes returned as dictionary
-	});
-  ```
-  {: codeblock}
-  {: ph data-hd-programlang='javascript'}
-
-Server Swift:
-{: ph data-hd-programlang='swift'}
-
-  ```
-  let userProfileManager = UserProfileManager(options: options)
-  let accesstoken = "access token"
-
-  userProfileManager.setAttribute(accessToken: accessToken, attributeName: "name", attributeValue : "abc") { (error, response) in
-    guard let response = response, error == error else {
-      return // an error has occurred
-    }
-    // attributes recieved as a Dictionary
-  }
-  ```
-  {: codeblock}
-  {: ph data-hd-programlang='swift'}
-
-</br>
-
-## Accessing custom attributes
-{: #accessing}
-
-You can access custom attributes by passing an access token through the following API methods. When an access token is not explicitly passed, {{site.data.keyword.appid_short_notm}} uses the last received token.
-
-iOS Swift:
-{: ph data-hd-programlang='swift'}
-
-  ```
+  ```swift
   func setAttribute(key: String, value: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
   func setAttribute(key: String, value: String, accessTokenString: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
 
@@ -146,58 +64,143 @@ iOS Swift:
   func deleteAttribute(key: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
   func deleteAttribute(key: String, accessTokenString: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
   ```
-  {: codeblock}
-  {: ph data-hd-programlang='swift'}
+  {: pre}
 
+When an access token is not explicitly passed, {{site.data.keyword.appid_short_notm}} uses the last received token.
+
+For example, you can call the following code to set a new attribute, or override an existing one.
+
+  ```swift
+	AppID.sharedInstance.userProfileManager?.setAttribute("key", "value") { (error, result) in
+		guard let result = result, error == nil else {
+	  		return // an error has occurred
+		}
+		// attributes recieved as a Dictionary
+	})
   ```
-  void setAttribute(@NonNull String name, @NonNull String value, UserAttributeResponseListener listener);
-  void setAttribute(@NonNull String name, @NonNull String value, @NonNull AccessToken accessToken, UserAttributeResponseListener listener);
+  {: pre}
 
-  void getAttribute(@NonNull String name, UserAttributeResponseListener listener);
-  void getAttribute(@NonNull String name, @NonNull AccessToken accessToken, UserAttributeResponseListener listener);
+For more information about working in iOS Swift, check out the <a href="https://github.com/ibm-cloud-security/appid-clientsdk-swift" target="_blank">SDK <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
+{: tip}
 
-  void deleteAttribute(@NonNull String name, UserAttributeResponseListener listener);
-  void deleteAttribute(@NonNull String name, @NonNull AccessToken accessToken, UserAttributeResponseListener listener);
+</br>
 
-  void getAllAttributes(@NonNull UserAttributeResponseListener listener);
-  void getAllAttributes(@NonNull AccessToken accessToken, @NonNull UserAttributeResponseListener listener);
+
+## Accessing with the Android SDK
+{: #android}
+
+You can access custom attributes by passing an access token through the following API methods.
+
+```java
+void setAttribute(@NonNull String name, @NonNull String value, UserAttributeResponseListener listener);
+void setAttribute(@NonNull String name, @NonNull String value, @NonNull AccessToken accessToken, UserAttributeResponseListener listener);
+
+void getAttribute(@NonNull String name, UserAttributeResponseListener listener);
+void getAttribute(@NonNull String name, @NonNull AccessToken accessToken, UserAttributeResponseListener listener);
+
+void deleteAttribute(@NonNull String name, UserAttributeResponseListener listener);
+void deleteAttribute(@NonNull String name, @NonNull AccessToken accessToken, UserAttributeResponseListener listener);
+
+void getAllAttributes(@NonNull UserAttributeResponseListener listener);
+void getAllAttributes(@NonNull AccessToken accessToken, @NonNull UserAttributeResponseListener listener);
+```
+{: pre}
+
+When an access token is not explicitly passed, {{site.data.keyword.appid_short_notm}} uses the last received token.
+
+For example, you can call the following code to set a new attribute, or override an existing one.
+
+```java
+appId.getUserProfileManager().setAttribute(name, value, useThisToken, new UserProfileResponseListener() {
+	@Override
+	public void onSuccess(JSONObject attributes) {
+		// attributes received in JSON format on successful response
+	}
+
+	@Override
+	public void onFailure(UserAttributesException e) {
+		// exception occurred
+	}
+});
+```
+{: pre}
+
+For more information about working in Android, check out the <a href="https://github.com/ibm-cloud-security/appid-clientsdk-android" target="_blank">SDK <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
+{: tip}
+
+</br>
+
+## Accessing with the Node.js Server SDK
+{: #node}
+
+You can access custom attributes by passing an access token through the following API methods.
+
+  ```javascript
+	function getAllAttributes(accessTokenString) {}
+	function getAttribute(accessTokenString, key) {}
+	function setAttribute(accessTokenString, key, value) {}
+	function deleteAttribute(accessTokenString, name) {}
   ```
-  {: codeblock}
-  {: ph data-hd-programlang='java'}
+  {: pre}
 
-  ```
-  function getAllAttributes(accessTokenString) {}
-  function getAttribute(accessTokenString, key) {}
-  function setAttribute(accessTokenString, key, value) {}
-  function deleteAttribute(accessTokenString, name) {}
-  ```
-  {: codeblock}
-  {: ph data-hd-programlang='javascript'}
+  Example usage:
 
-Server side swift:
-{: ph data-hd-programlang='swift'}
+  ```javascript
 
+	const userProfileManager = require("ibmcloud-appid").UserProfileManager;
+	userProfileManager.init();
+
+	var accessToken = req.session[WebAppStrategy.AUTH_CONTEXT].accessToken;
+
+	userProfileManager.setAttribute(accessToken, name, value).then(function (attributes) {
+		// attributes returned as dictionary
+	});
   ```
+  {: pre}
+
+For more information about working in Node.js Server Sdk, check out the <a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs" target="_blank">SDK <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
+{: tip}
+
+</br>
+
+## Accessing with the Swift Server SDK
+{: #swift}
+
+You can access custom attributes by passing an access token through the following API methods.
+
+  ```swift
   func getAllAttributes(accessToken: String, completionHandler: (Swift.Error?, [String: Any]?) -> Void)
   func getAttribute(accessToken: String, attributeName: String, completionHandler: (Swift.Error?, [String: Any]?) -> Void)
   func setAttribute(accessToken: String, attributeName: String, attributeValue : "abc", completionHandler: (Swift.Error?, [String: Any]?) -> Void)
   func deleteAllAttributes(accessToken: String, completionHandler: (Swift.Error?, [String: Any]?) -> Void)
   ```
-  {: codeblock}
-  {: ph data-hd-programlang='swift'}
+  {: pre}
 
-</br>
+  Example usage:
 
-## Next steps
-{: #next}
+  ```swift
 
-For more information about working with a specific language SDK, see the following GitHub repositories:
+	let userProfileManager = UserProfileManager(options: options)
+	let accesstoken = "access token"
 
-* <a href="https://github.com/ibm-cloud-security/appid-clientsdk-android" target="_blank">Android SDK <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
-* <a href="https://github.com/ibm-cloud-security/appid-clientsdk-swift" target="_blank">iOS Swift SDK <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
-* <a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs" target="_blank">Node.js SDK <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
-* <a href="https://github.com/ibm-cloud-security/appid-serversdk-swift" target="_blank">Server Swift SDK <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
+	userProfileManager.setAttribute(accessToken: accessToken, attributeName: "name", attributeValue : "abc") { (error, response) in
+		guard let response = response, error == error else {
+			return // an error has occurred
+		}
+		// attributes recieved as a Dictionary
+	}
+  ```
 
+  {: pre}
 
-Didn't find an SDK for the language that your app is written in? No problem! You can integrate the service by using the APIs. {{site.data.keyword.appid_short_notm}} provides a <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/" target="_blank">REST API <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> that allows log in, either anonymously or by authenticating, with a supported [identity provider](/docs/services/appid/manageidp.html).
+For more information about working in Swift Server Sdk, check out the <a href="https://github.com/ibm-cloud-security/appid-serversdk-swift" target="_blank">SDK <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
 {: tip}
+
+
+## Accessing with the API
+{: #api}
+
+Didn't find an SDK for the language that your app is written in? No problem! You can integrate the service by using the APIs.
+{: shortdesc}
+
+{{site.data.keyword.appid_short_notm}} provides a <a href="https://appid-profiles.ng.bluemix.net/swagger-ui/index.html#/Attributes" target="_blank">REST API <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> that allows log in, either anonymously or by authenticating, with a supported [identity provider](/docs/services/appid/manageidp.html).
