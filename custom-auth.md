@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-11-19"
+  years: 2017, 2019
+lastupdated: "2019-01-04"
 
 ---
 
@@ -144,7 +144,7 @@ Token payload:
 ## Retrieving {{site.data.keyword.appid_short_notm}} tokens
 {: #exchanging-jwts}
 
-To create the bridge between your custom provider and {{site.data.keyword.appid_short_notm}}, you need to have {{site.data.keyword.appid_short_notm}} tokens. To obtain service tokens, exchange your verified user information by using the [`/token` endpoint](https://appid-oauth.ng.bluemix.net/swagger-ui/#!/Authorization_Server_V3/token).
+To create the bridge between your custom provider and {{site.data.keyword.appid_short_notm}}, you need to have {{site.data.keyword.appid_short_notm}} tokens. To obtain service tokens, exchange your verified user information by using the [`/token` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization_Server_V3/token).
 {: shortdesc}
 
   ```

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-01-04"
 
 ---
 
@@ -241,7 +241,7 @@ To update access permissions, the admin completes the following steps:
 3. Navigate to the **Service credentials** tab of the {{site.data.keyword.appid_short_notm}} dashboard. Click **View credentials** and copy the **tentantID**.
 4. Sign in with the {{site.data.keyword.Bluemix_notm}} CLI in your terminal.
     ```
-    ibmcloud login -a api.<region>.bluemix.net
+    ibmcloud login -a api.<region>.console.cloud.ibm.com
     ```
     {: codeblock}
 5. Get an IAM token and make a note of it.
@@ -271,7 +271,7 @@ To view the {{site.data.keyword.appid_short_notm}} configurations from the CLI, 
 
 1. Using the {{site.data.keyword.Bluemix_notm}} CLI in your terminal, sign in.
     ```
-    ibmcloud login -a api.<region>.bluemix.net
+    ibmcloud login -a api.<region>.console.cloud.ibm.com
     ```
     {: codeblock}
 2. Get an IAM token and make a note of it.

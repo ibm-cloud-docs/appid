@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-01-04"
 
 ---
 
@@ -83,7 +83,7 @@ headers = {'Content-Type': 'application/x-www-form-urlencoded', 'Accept':'applic
 /json'}
 data = 'grant_type=urn:ibm:params:oauth:grant-type:apikey&apikey=' + apiKey;
 
-r = requests.post("https://iam.ng.bluemix.net/oidc/token", data=data, headers=
+r = requests.post("https://iam.ng.cloud.ibm.com/oidc/token", data=data, headers=
 headers);
 token = 'Bearer ' + json.loads(r.text)['access_token'];
 
@@ -108,5 +108,4 @@ if (r.status_code >= 200) :
 ## Next steps
 {: #api-try}
 
-To try it out yourself, see <a href="https://appid-management.ng.bluemix.net/swagger-ui/
-" target="_blank">the {{site.data.keyword.appid_short_notm}} Management Rest API <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
+To try it out yourself, see <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/" target="_blank">the {{site.data.keyword.appid_short_notm}} Management Rest API <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>

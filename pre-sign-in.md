@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-01-04"
 
 ---
 
@@ -91,12 +91,12 @@ In order to ensure the integrity of the preregistered user attributes, Cloud Dir
 
 How do I do that?
 
-1. Set Cloud Directory to email and password mode. You can do this through the UI in the general settings on the **Cloud Directory** tab. You can also set it through the [management APIs](https://appid-management.ng.bluemix.net/swagger-ui/#!/Cloud_Directory_Users/createCloudDirectoryUser).
+1. Set Cloud Directory to email and password mode. You can do this through the UI in the general settings on the **Cloud Directory** tab. You can also set it through the [management APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Cloud_Directory_Users/createCloudDirectoryUser).
 
 2. Verify the users email address to confirm their identity in one of the following ways:
 
   * To verify a users identity through email, set **Email verification** to **On** in the **Cloud Directory** tab of the service dashboard. If a user is added by you and signs in to your app without first verifying their email, the sign in completes successfully, but their predefined attribute is deleted.
-  * To verify users manually you must be an administrator and use the Cloud Directory [management APIs](https://appid-management.ng.bluemix.net/swagger-ui/#!/Cloud_Directory_Users/createCloudDirectoryUser). When creating or updating a user, you should explicitly set the `status` field to `CONFIRMED` within your user data payload.
+  * To verify users manually you must be an administrator and use the Cloud Directory [management APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Cloud_Directory_Users/createCloudDirectoryUser). When creating or updating a user, you should explicitly set the `status` field to `CONFIRMED` within your user data payload.
 
 **Is there anything special that I need to do when using a custom identity provider?**
 
@@ -111,7 +111,7 @@ Now that you've learned about the process and considered your security implicati
 
 **Before you begin:**
 
-To add custom attributes for a specific user with the [/users](https://appid-management.ng.bluemix.net/swagger-ui/#!/Users/users_search_user_profile) Management API endpoint, you must know the following information:
+To add custom attributes for a specific user with the [/users](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Users/users_search_user_profile) Management API endpoint, you must know the following information:
 
 * Which identity provider that the user is going to use to sign in.
 * The user's unique identifier that is provided by the identity provider.
