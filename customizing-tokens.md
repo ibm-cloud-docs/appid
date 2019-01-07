@@ -89,20 +89,20 @@ You can map user profile attributes to your access and identity token claims. Th
 
 **What is a claim?**
 
-A claim is a statement that an entity makes about itself or on behalf of someone else. For example, if you signed into an application by using an identity provider, the provider would send the application a group of claims or statements about you to the app so that it can group with information that it already knows about you. This way, when you sign in, the app is set up with your information, in the way that you configured it. The following example shows what an example value would look like if you add or change a claim to your token.
+A claim is a statement that an entity makes about itself or on behalf of someone else. For example, if you signed into an application by using an identity provider, the provider would send the application a group of claims or statements about you to the app so that it can group with information that it already knows about you. This way, when you sign in, the app is set up with your information, in the way that you configured it. Check out the following example to see how to format the JSON object.
 
 ```
 {
   "accessTokenClaims": [
     {
       "source": "saml",
-      "sourceClaim": "myroles"
+      "sourceClaim": "moderator"
     }
   ],
   "idTokenClaims": [
     {
       "source": "saml",
-      "sourceClaim": "myroles"
+      "sourceClaim": "moderator"
     }
   ],
   "access": {
@@ -123,7 +123,7 @@ A claim is a statement that an entity makes about itself or on behalf of someone
 If you have customized expiration information for your token, you must set it in every request. If you don't, this request overrides your current configuration and the default is used for anything left undefined.
 {: note}
 
-**Why would I add attributes to my claims?**
+**Why would I want to add claims to my tokens?**
 
 Without having to make extra network calls, everything that your app may need to know about a user or what they can do is already in the token! Provided that you don't have massive amounts of data, this makes you more efficient. Additionally, you can ensure the integrity of these mapped attributes when they are sent across the network because they are stored in a signed token.
 
