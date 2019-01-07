@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-01-07"
 
 ---
 
@@ -57,7 +57,7 @@ The response should look similar to the following example:
 
   ```bash
   {
-    "issuer" : "us-south.appid.cloud.ibm.com",
+    "issuer" : "appid-oauth.ng.bluemix.net",
     "authorization_endpoint": "https://us-south.appid.cloud.ibm.com/oauth/v3/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/authorization",
     "token_endpoint": "https://us-south.appid.cloud.ibm.com/oauth/v3/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/token",
     "jwks_uri": "https://us-south.appid.cloud.ibm.com/oauth/v3/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/publickeys",

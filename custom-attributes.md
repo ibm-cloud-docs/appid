@@ -44,7 +44,10 @@ Attributes are pieces of information about your users. By saving them, you can c
 
 You can store 100KB of information for each user.
 
+
 **To set an attribute:**
+
+All incoming requests to your app have Authorization header, with `access_token`. You can use `access_token` to make requests to the custom attributes endpoints with one of the provided SDKs or by using [the attributes APIs](https://appid-profiles.ng.bluemix.net/swagger-ui/index.html#/Attributes)s
 
 
 iOS Swift:
