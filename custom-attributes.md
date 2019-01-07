@@ -2,11 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-04"
+lastupdated: "2019-01-07"
 
 ---
 
-{:new_window: target="_blank"}
+{:new_window: target="blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -28,17 +28,21 @@ lastupdated: "2019-01-04"
 With {{site.data.keyword.appid_full}}, you can save, access, and update custom attributes.
 {: shortdesc}
 
-## Understanding custom attributes
-{: #understanding}
+
+
+
+
+</br>
+
+## Setting attributes
+{: #setting}
+
+You can set roles and scopes known as attributes to a user profile. You can also override existing attributes that might have been pulled from an external identity provider.
+{: shortdesc}
 
 **Why would I want to save additional attributes about a user?**
 
-Attributes are pieces of information about your users. By saving them, you can create profiles on your users that allow you to personalize their experience. The more attributes that are added to their profile, the more personalized their app can be. Check out this blog to see how creating user profiles can make a difference: <a href="https://www.ibm.com/blogs/bluemix/2017/03/introducing-ibm-bluemix-app-id-authentication-profiles-service-app-developers/" target="_blank">Introducing {{site.data.keyword.appid_short_notm}}<img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
-
-
-**How are the attributes saved?**
-
-Depending on your configuration, attributes are encrypted and saved as part of a user profile when a user interacts with your application. The interaction could be a user signing in or setting a preference in your app.
+Attributes are pieces of information about your users. By saving them, you can create profiles on your users that allow you to personalize their experience. The more attributes that are added to their profile, the more personalized their app can be. Check out this blog to see how creating user profiles can make a difference: <a href="https://www.ibm.com/blogs/bluemix/2017/03/introducing-ibm-bluemix-app-id-authentication-profiles-service-app-developers/" target="blank">Introducing {{site.data.keyword.appid_short_notm}}<img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
 
 **Is there a limit to the amount of information that can be stored for each user?**
 
@@ -50,16 +54,6 @@ By default, custom attributes are modifiable and can be updated by using an {{si
 
 To prevent your users from changing the attributes that you give them, set **Change custom attributes from the app** to **Off** on the **Profiles** tab of the {{site.data.keyword.appid_short_notm}} dashboard. By default, it is set to **On**.
 {: tip}
-
-</br>
-
-## Setting attributes
-{: #setting}
-
-You can set roles and scopes known as attributes to a user profile. You can also override existing attributes that might have been pulled from an external identity provider.
-{: shortdesc}
-
-To set the
 
 
 iOS Swift:
@@ -116,7 +110,7 @@ Server Swift:
     guard let response = response, error == error else {
       return // an error has occurred
     }
-    // attributes recieved as a Dictionary
+    // attributes received as a Dictionary
   }
   ```
   {: codeblock}
@@ -127,7 +121,8 @@ Server Swift:
 ## Accessing custom attributes
 {: #accessing}
 
-You can access custom attributes by passing an access token through the following API methods. When an access token is not explicitly passed, {{site.data.keyword.appid_short_notm}} uses the last received token.
+Depending on your configuration, attributes are encrypted and saved as part of a user profile when a user interacts with your application. The interaction could be a user signing in or setting a preference in your app. To access the attributes, you can pass an access token through an API method. If an access token isn't explicitly passed, {{site.data.keyword.appid_short_notm}} uses the last received token.
+{: shortdesc}
 
 iOS Swift:
 {: ph data-hd-programlang='swift'}
