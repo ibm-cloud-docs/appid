@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-04"
+lastupdated: "2019-01-07"
 
 ---
 
@@ -105,7 +105,7 @@ Example token:
       "alg": "RS256",
   }
   Payload: {
-      "iss": "us-south.appid.cloud.ibm.com",
+      "iss": "appid-oauth.ng.bluemix.net",
       "exp": "1495562664",
       "aud": "a3b87400-f03b-4956-844e-a52103ef26ba",
       "amr": ["facebook"],
@@ -127,7 +127,7 @@ Example token:
       "alg": "RS256",
   }
   Payload: {
-      "iss": "us-south.appid.cloud.ibm.com",
+      "iss": "appid-oauth.ng.bluemix.net",
       "aud": "a3b87400-f03b-4956-844e-a52103ef26ba",
       "exp: "1495562664",
       "tenant": "9781974b-6a1c-46c3-aebf-32b7e9bbbaee",

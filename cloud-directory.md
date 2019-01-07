@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-04"
+lastupdated: "2019-01-07"
 
 ---
 
@@ -400,7 +400,7 @@ You must provide the URL. Additionally you can provide authorization information
   ```
     {
       "tenant": "tenant-id",
-      "iss" : "us-south.appid.cloud.ibm.com",
+      "iss" : "appid-oauth.ng.bluemix.net",
       "iat": 1539173126,
       "jti": "uniq-id",
       "message": {

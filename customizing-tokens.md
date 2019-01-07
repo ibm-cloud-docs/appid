@@ -2,16 +2,21 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-04"
+lastupdated: "2019-01-07"
 
 ---
 
-{:new_window: target="blank"}
+{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
-{:codeblock: .codeblock}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:codeblock: .codeblock}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 
 # Customizing tokens
@@ -19,6 +24,7 @@ lastupdated: "2019-01-04"
 
 You can configure your {{site.data.keyword.appid_short_notm}} tokens to meet the specific needs of your application.
 {: shortdesc}
+
 
 **What kinds of tokens are there?**
 
@@ -31,11 +37,10 @@ You can configure your {{site.data.keyword.appid_short_notm}} tokens to meet the
 Want to learn more about tokens? Read more in [Understanding tokens](authorization.html#tokens).
 {: tip}
 
-</br>
 
 **What are my customization options?**
 
-You can customize your tokens by setting the lifespan validity or by adding custom claims to your tokens. Check out the following table to see how lifespan is configured or continue reading to learn about mapping custom attributes.
+You can customize your tokens [in the GUI](#configuring-tokens-ui) or by using [the API](#configuring-tokens-api) by setting the lifespan validity or by adding custom claims to your tokens. Check out the following table to see how lifespan is configured or continue reading to learn about mapping custom attributes.
 
 <table>
   <tr>
@@ -70,22 +75,10 @@ You can customize your tokens by setting the lifespan validity or by adding cust
   </tr>
 </table>
 
-</br>
 
-**Why would I want to add claims to my tokens?**
+Because tokens are used to identify users and secure your resources, the lifespan of a token affects several different things. By customizing your token configuration you can ensure that your security and user experience needs are met. However, should a token ever become compromised, a malicious user has more time to affect your application. You can learn more about security considerations in [Custom attributes](custom-attributes.html).
+{: important}
 
-There are several reasons that you might want to track extra attributes. When you're working with your app developers, you can map roles and permissions. Or, when you're building profiles on your end-users, you can track extra information that helps you to create personalized experiences.
-
-</br>
-
-**Are there any security considerations?**
-
-Yes. Because tokens are used to identify users and secure your resources, the lifespan of a token affects several different things. By customizing your token configuration you can ensure that your security and user experience needs are met. However, should a token ever become compromised, a malicious user has more time to affect your application.
-
-Want to learn more about the security considerations you should make? Check out [Custom attributes](custom-attributes.html).
-{: tip}
-
-</br>
 </br>
 
 ## Understanding custom attributes and claims
@@ -94,12 +87,46 @@ Want to learn more about the security considerations you should make? Check out 
 You can map user profile attributes to your access and identity token claims. This means that you don't have to go to the [/userinfo endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization_Server_V3/userInfo) or pull custom attributes later, because they're already stored in the tokens!
 {: shortdesc}
 
+**What is a claim?**
 
-**Why would I add attributes to my claims?**
+A claim is a statement that an entity makes about itself or on behalf of someone else. For example, if you signed into an application by using an identity provider, the provider would send the application a group of claims or statements about you to the app so that it can group with information that it already knows about you. This way, when you sign in, the app is set up with your information, in the way that you configured it. Check out the following example to see how to format the JSON object.
 
-Without having to make extra network calls, everything that your app may need to know about a user or what they can do is already in the token! Provided you don't have massive amounts of data, this makes you more efficient. Additionally, you can ensure the integrity of these mapped attributes when they are sent across the network because they are stored in a signed token.
+```
+{
+  "accessTokenClaims": [
+    {
+      "source": "saml",
+      "sourceClaim": "moderator"
+    }
+  ],
+  "idTokenClaims": [
+    {
+      "source": "saml",
+      "sourceClaim": "moderator"
+    }
+  ],
+  "access": {
+    "expires_in": 3600
+  },
+  "refresh": {
+    "expires_in": 2592000,
+    "enabled": true
+  },
+  "anonymousAccess": {
+    "expires_in": 2592000,
+    "enabled": true
+  }
+}
+```
+{: screen}
 
-</br>
+If you have customized expiration information for your token, you must set it in every request. If you don't, this request overrides your current configuration and the default is used for anything left undefined.
+{: note}
+
+**Why would I want to add claims to my tokens?**
+
+Without having to make extra network calls, everything that your app may need to know about a user or what they can do is already in the token! Provided that you don't have massive amounts of data, this makes you more efficient. Additionally, you can ensure the integrity of these mapped attributes when they are sent across the network because they are stored in a signed token.
+
 
 **What types of claims can I define?**
 
@@ -109,11 +136,10 @@ The claims that are provided by {{site.data.keyword.appid_short_notm}} fall into
 
 *Restricted claims*: Depending on the token that the claims are mapped to, some claims have limited customization possibilities. For an access token, `scope` is the only restricted claim. It cannot be overridden by custom mappings, but it can be extended with your own scopes. When the scope claim is mapped to an access token, the value must be a string and cannot be prefixed by `appid_` or it will be ignored. In identity tokens, the claims `identities` and `oauth_clients` cannot be modified or overridden.
 
-*Normalized claims*: Every identity token contains a set of claims that is recognized by {{site.data.keyword.appid_short_notm}} as normalized claims. When they are available, they are directly mapped from your identity provider to the token. These claims cannot be explicitly omitted but can be overridden by custom claim mappings. The claimss include `name`, `email`, `picture`, `local`, and `gender`.
+*Normalized claims*: Every identity token contains a set of claims that is recognized by {{site.data.keyword.appid_short_notm}} as normalized claims. When they are available, they are directly mapped from your identity provider to the token. These claims cannot be explicitly omitted but can be overridden by custom claim mappings. The claims include `name`, `email`, `picture`, `local`, and `gender`.
 
-</br>
 
-**How are claims defined?**
+**How are claims mapped to tokens?**
 
 Each mapping is defined by a data source object and a key that is used to retrieve the claim. Each custom claim is set for each token separately and are sequentially applied. You can register up to 100 claims for each token up to a maximum payload of 100KB.
 
@@ -145,6 +171,7 @@ You can reference nested claims in your mappings by using the dot syntax. Exampl
 
 You can configure your {{site.data.keyword.appid_short_notm}} tokens by using the GUI or the management APIs.
 {: shortdesc}
+
 
 ### Configuring token lifespan with the GUI
 {: #configuring-tokens-ui}
