@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-07-15"
+lastupdated: "2018-12-19"
 
 ---
 
@@ -29,11 +29,10 @@ Con l'API, puoi:
 Le chiamate all'endpoint API di gestione assumono la seguente struttura:
 
 ```
-appid-management.<region>.bluemix.net
+appid-management.<region-endpoint>.bluemix.net
 ```
 {: codeblock}
 
-Puoi trovare la regione cercando nella seguente tabella.
 
 <table>
   <tr>
@@ -42,19 +41,19 @@ Puoi trovare la regione cercando nella seguente tabella.
   </tr>
   <tr>
     <td>Regno Unito</td>
-    <td><code>appid-management.eu-gb.bluemix.net</code></td>
+    <td><code>eu-gb</code></td>
   </tr>
   <tr>
     <td>Stati Uniti Sud</td>
-    <td><code>appid-management.ng.bluemix.net</code></td>
+    <td><code>ng</code></td>
   </tr>
   <tr>
     <td>Sydney</td>
-    <td><code>appid-management.au-syd.bluemix.net</code></td>
+    <td><code>au-syd</code></td>
   </tr>
   <tr>
     <td>Germania</td>
-    <td><code>appid-management.eu-de.bluemix.net</code></td>
+    <td><code>eu-de</code></td>
   </tr>
 </table>
 
@@ -92,14 +91,12 @@ token = 'Bearer ' + json.loads(r.text)['access_token'];
 headers = {'Authorization': token , 'Accept':'application/json'}
 files = {'file': open(img,'rb')}
 
-r = requests.post("https://appid-management.<region>.bluemix.net/management/v4/" + te
-nantId + "/config/ui/media?mediaType=logo", files=files, headers=headers);
+r = requests.post("https://<region>.appid.cloud.com/management/v4/" + tenantId + "/config/ui/media?mediaType=logo", files=files, headers=headers);
 
 #  get login widget logo
 headers = {'Authorization': token , 'Accept':'application/json'}
 
-r = requests.get("https://appid-management.<region>.bluemix.net/management/v4/" + ten
-antId + "/config/ui/media", headers=headers);
+r = requests.get("https://<region>.appid.cloud.com/management/v4/" + tenantId + "/config/ui/media", headers=headers);
 
 if (r.status_code >= 200) :
     print(r.text)

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-09"
+lastupdated: "2018-12-19"
 
 ---
 
@@ -13,10 +13,10 @@ lastupdated: "2018-08-09"
 {:pre: .pre}
 {:tip: .tip}
 
-# Configurazione di Cloud Directory
+# Cloud Directory
 {: #cd}
 
-Gli utenti possono registrarsi e accedere alle tue applicazioni mobili e web utilizzando un'email o il nome utente e una password. Una directory cloud è un registro utenti che viene conservato nel cloud. Quando un utente si registra alla tua applicazione, viene aggiunto alla tua directory di utenti. Con questa funzione, gli utenti hanno la libertà di gestire il proprio account all'interno della tua applicazione.
+Con {{site.data.keyword.appid_full}}, gli utenti possono registrarsi e accedere alle tue applicazioni mobili e web utilizzando un'email o il nome utente e una password. Una directory cloud è un registro utenti che viene conservato nel cloud. Quando un utente si registra alla tua applicazione, viene aggiunto alla tua directory di utenti. Con questa funzione, gli utenti hanno la libertà di gestire il proprio account all'interno della tua applicazione.
 {: shortdesc}
 
 </br>
@@ -24,45 +24,67 @@ Gli utenti possono registrarsi e accedere alle tue applicazioni mobili e web uti
 ## Gestione delle impostazioni della directory
 {: #cd-settings}
 
-Puoi configurare le notifiche e il livello di controllo utente per la tua applicazione. La configurazione della tua directory cloud può essere eseguita velocemente, come mostrato nella seguente immagine. Queste impostazioni possono essere aggiornate in qualsiasi momento dal dashboard del servizio.
+Puoi configurare le notifiche e il livello di controllo utente per la tua applicazione. La configurazione di Cloud Directory può essere eseguita velocemente, come mostrato nella seguente immagine. Queste impostazioni possono essere aggiornate in qualsiasi momento dal dashboard del servizio.
 {: shortdesc}
 
 
-![Configurazione di Cloud Directory](/images/cloud-directory.png)
+![Configurazione di Cloud Directory](images/cloud-directory.png)
 Figura. Il percorso di configurazione per Cloud Directory
 
+1. Nella scheda **Manage** del dashboard {{site.data.keyword.appid_short_notm}}, assicurati che Cloud Directory sia impostato su **On**.
 
-1. Assicurati che Cloud Directory sia stato attivato come un provider di identità e imposta **Allow users to sign up and reset their password** su **On**. Se impostato su **Off**, puoi aggiungere utenti tramite la console per scopi di sviluppo.
-2. Scegliere se gli utenti effettueranno l'autenticazione con un nome utente o una email specificati. Questo campo viene utilizzato per i flussi di registrazione, accesso e della password dimenticata. Se consenti agli utenti di accedere con un nome utente e una password, il nome utente deve avere una lunghezza di almeno 8 caratteri e non può contenere spazi, virgole o barre. **Nota:** puoi spostarti tra le opzioni solo quando non sono presenti utenti nel tuo Cloud Directory.
-3. Configura i tuoi dettagli del mittente. Specifica l'indirizzo email da cui devono essere visualizzati i tuoi messaggi, il mittente e a chi i tuoi utenti possono rispondere.
-  Quando configuri l'URL di azione, assicurati di dare tempo sufficiente a un utente per fare clic sul link. Un utente deve verificare la propria email per avere alcune opzioni, come la possibilità di richiedere un ripristino della propria password.
-  {: tip}
-4. Determina i tipi di email che un utente riceve e le informazioni sul mittente.
-5. Con i template forniti, personalizza i tuoi messaggi con il tuo marchio o messaggi personalizzati. Per ulteriori informazioni, vedi [Gestione dei messaggi](/docs/services/appid/cloud-directory.html#cd-messages).
-6. Visualizza chi si è registrato alla tua applicazione nella scheda **Users** della GUI.
+2. Configura le tue impostazioni generali.
+  1. Decidi se vuoi che i tuoi utenti creino un nome utente o utilizzino la propria email quando accedono. Entrambe le opzioni richiedono una password. Dopo aver aggiunto gli utenti alla tua directory, non puoi più passare da un'opzione all'altra.
+  2. Fai clic su **Edit** nella riga dei criteri della password per specificare tutti i requisiti che vuoi mettere in atto. I criteri della password sono forniti come regex. Per aiuto nel determinare la complessità della password o per vedere degli esempi comuni, consulta [Gestione della complessità della password](#strength). Fai clic su **Save** per mettere in atto i tuoi requisiti.
+  3. Imposta **Allow users to sign up to your app** su **Yes**. Puoi ancora aggiungere gli utenti tramite la console se è impostato su **No**. Tuttavia, dovresti aggiungere gli utenti tramite la console solo per scopi di sviluppo.
+  4. Imposta **Allow users to manage their account from your app** su **Yes** se vuoi che i tuoi utenti possano reimpostare e modificare le proprie password oppure ripristinare i propri dettagli. Se vuoi limitare la modalità self-service dei tuoi utenti, imposta il valore su **No**.
+  5. Fai clic su **Edit** nella riga **Sender details** per aggiornare le tue impostazioni dell'email. Le impostazioni dell'email si applicano a tutta la comunicazione inviata tramite {{site.data.keyword.appid_short_notm}}. Specifica l'indirizzo email che deve inviare l'email, il loro nome e lascia un'email separata per gli utenti in modo da inviare una risposta.
+  6. Abilita **Advanced password policy** per creare delle limitazioni e dei requisiti temporali per le tue password. Questa funzione comporta un'ulteriore fatturazione. Per ulteriori informazioni sulle tue opzioni, consulta [Politica della password avanzata](#advanced-password).
+  6. Fai clic su **Save**.
 
-Un singolo utente può accedere fino a 5 volte al minuto. Se viene effettuato un sesto tentativo, viene visualizzato un errore.
-{: tip}
+3. Configura le tue impostazioni dell'email di verifica.
+  1. Per fare in modo che gli utenti verifichino il proprio indirizzo email imposta **Email verification** su **On**. Quando un utente si registra alla tua applicazione, riceve un'email che gli chiede di confermare di essersi registrato per l'applicazione.
+  2. Se hai deciso che vuoi che i tuoi utenti verifichino la propria email, la tua prossima decisione è se vuoi consentire degli utenti nella tua applicazione prima della verifica dell'indirizzo email. A seconda della tua preferenza, imposta **Allow users to sign in to your app without first verifying their email address** su **Yes** o su **No**.
+  3. Personalizza il contenuto e il design dell'aspetto del tuo messaggio. È presente un template per il messaggio, ma puoi aggiornare il testo con il tuo messaggio. Puoi utilizzare una [lingua](/docs/services/appid/cloud-directory.html#languages) diversa dall'inglese, ma sei responsabile della traduzione del testo. Per scegliere un'altra lingua, utilizza le <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/updateLocalization" target="_blank">API di gestione della lingua <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a>.
+  4. Fornisci all'URL di verifica un limite di tempo per la scadenza, specificato in minuti. Quando viene impostato questo tempo, viene influenzato anche per quanto tempo è valido il link del ripristino della password.
+  5. Immetti il tuo URL della pagina di verifica se hai una pagina specifica che vuoi che i tuoi utenti visualizzino quando fanno clic sul link. Se lasci vuoto il campo **Custom verification page URL**, viene fornita una pagina di verifica predefinita da {{site.data.keyword.appid_short_notm}}.
+  6. Fai clic su **Save**.
+
+4. Configura le tue impostazioni dell'email di benvenuto.
+  1. Per dare il benvenuto agli utenti tramite email quando si registrano per la tua applicazione, imposta **Welcome email** su **On**.
+  2. Personalizza il contenuto e il design dell'aspetto del tuo messaggio. È presente un messaggio di esempio che puoi utilizzare, ma puoi aggiornare il testo con il tuo messaggio. Puoi utilizzare una [lingua](#languages) diversa dall'inglese, ma sei responsabile della traduzione del testo. Per scegliere un'altra lingua, utilizza le <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/updateLocalization" target="_blank">API di gestione della lingua <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a>.
+  3. Fai clic su **Save**.
+
+5. Configura le tue impostazioni di ripristino della password.
+  1. Per consentire agli utenti di richiedere un ripristino della propria password, imposta **Forgot password email** su **On**. **Nota**: un utente deve aver convalidato la propria email prima di ripristinare la propria password. Questo significa che devi richiedere la verifica dell'email per consentire dei ripristini della password.
+  2. Personalizza il contenuto e il design dell'aspetto del tuo messaggio. È presente un messaggio di esempio che puoi utilizzare, ma puoi aggiornare il testo con il tuo messaggio. Puoi utilizzare una [lingua](#languages) diversa dall'inglese, ma sei responsabile della traduzione del testo. Per scegliere un'altra lingua, utilizza le <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/updateLocalization" target="_blank">API di gestione della lingua <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a>.
+  3. Fornisci all'URL del ripristino della password un limite di tempo per la scadenza, specificato in minuti. Quando viene impostato questo tempo, viene influenzato anche per quanto tempo è valido il link di verifica dell'email.
+  4. Immetti il tuo URL del ripristino della password se hai una pagina specifica che vuoi che i tuoi utenti visualizzino quando fanno clic sul link. Se lasci vuoto il campo **Reset password page URL**, viene fornita una pagina di ripristino della password predefinita da {{site.data.keyword.appid_short_notm}}.
+  5. Fai clic su **Save**.
+
+6. Configura le tue impostazioni di modifica della password
+  1. Per inviare una notifica agli utenti su tutte le modifiche apportate alle proprie password, imposta **Password changed email** su **On**.
+  2. Personalizza il contenuto e il design dell'aspetto del tuo messaggio. È presente un messaggio di esempio che puoi utilizzare, ma puoi aggiornare il testo con il tuo messaggio. Puoi utilizzare una [lingua](#languages) diversa dall'inglese, ma sei responsabile della traduzione del testo. Per scegliere un'altra lingua, utilizza le <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/updateLocalization" target="_blank">API di gestione della lingua <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a>.
+  3. Fai clic su **Save**.
+
+7. Configura l'autenticazione multifattore.
+  1. Per richiedere l'autenticazione multifattore all'accesso degli utenti, imposta **Enable Email Multi-Factor Authentication** su **On**.
+  2. Personalizza il contenuto e il design della tua email utilizzando il seguente template. Puoi utilizzare una [lingua](#languages) diversa dall'inglese, ma sei responsabile della traduzione del testo. Per scegliere un'altra lingua, utilizza le <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/updateLocalization" target="_blank">API di gestione della lingua <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a>.
+  3. Fai clic su **Save**.
+
+8. Nella scheda **Users** puoi vedere chi si è registrato per la tua applicazione. Nota: un singolo utente può tentare di accedere fino a 5 volte in 60 secondi. Se viene effettuato un sesto tentativo, viene visualizzato un errore.
 
 </br>
+</br>
 
-## Gestione dei messaggi
-{: #cd-messages}
+## Tipi di messaggi
+{: #types}
 
-Un template è un esempio di messaggio email che potresti inviare ai tuoi utenti. Puoi personalizzare il template aggiornando il contenuto e il layout del messaggio.
+Puoi inviare diversi tipi di messaggi ai tuoi utenti. Puoi scegliere di inviare il messaggio di esempio fornito dal servizio o puoi personalizzare il contenuto per un'esperienza con l'applicazione più personale. {{site.data.keyword.appid_short_notm}} utilizza <a href="https://www.sendgrid.com" target="_blank">SendGrid <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a> come servizio di recapito email. Tutte le email vengono inviate con un unico account SendGrid.
 {: shortdesc}
 
-1. Nella scheda **Identity Providers > Cloud Directory > Settings** del dashboard, configura i messaggi che vuoi inviare a **On** .
-
-2. Facoltativo: utilizza <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/updateLocalization" target="_blank">le API di gestione della lingua <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a> per impostare un altra lingua che desideri utilizzare nei tuoi modelli del messaggio. Per un elenco dei codici lingua supportati, consulta [Lingue supportate](#languages).
-
-3. Seleziona un **Message type**.
-
-4. Personalizza il tuo messaggio modificando il contenuto e il design del messaggio. Puoi utilizzare i parametri per personalizzare i tuoi messaggi. Non dimenticare di salvare le tue modifiche!
-
-### Tipi di messaggi
-
-Puoi inviare diversi tipi di messaggi ai tuoi utenti. Puoi scegliere di inviare il messaggio di esempio che viene programmato nella IU o puoi personalizzare il contenuto per un'esperienza dell'applicazione più personale.
+Se un utente non fornisce le informazioni estratte dal parametro, questi campi saranno vuoti.
+{: tip}
 
 <dl>
   <dt>Benvenuto</dt>
@@ -101,36 +123,33 @@ Puoi inviare diversi tipi di messaggi ai tuoi utenti. Puoi scegliere di inviare 
           <td> Visualizza il cognome specificato dall'utente. </td>
         </tr>
       </tbody>
-    </table>
-    <p>**Nota**: se un utente non fornisce le informazioni estratte dal parametro, questi campi saranno vuoti.</p></dd>
+    </table></dd>
   <dt>Password dimenticata</dt>
     <dd><p>Un utente può chiedere di reimpostare la propria password se la dimentica o deve aggiornarla per un qualsiasi motivo. Puoi personalizzare la risposta dell'email alla loro richiesta. Quando un utente richiede una modifica, la sua password rimane non modificata finché non fa clic sul link in questa email.</p>
     <table>
-      <thead>
-        <th colspan=2><img src="images/idea.png" alt="Icona ulteriori informazioni"/> Parametri di modifica della password </th>
-      </thead>
-      <tbody>
-        <tr>
-          <td><code>%{linkExpiration.hours}</code></td>
-          <td> Visualizza il numero di ore in cui il link è valido. </td>
-        </tr>
-        <tr>
-          <td><code>%{linkExpiration.minutes}</code></td>
-          <td> Visualizza il numero di minuti in cui il link è valido. </td>
-        </tr>
-        <tr>
-          <td><code>%{resetPassword.code}</code></td>
-          <td> Visualizza il passcode monouso come parte dell'URL. Ciò significa che ogni persona ha un codice diverso. Esempio: <code>https://appid-wfm.bluemix.net/verify/6574839563478 </code> </td>
-        </tr>
-        <tr>
-          <td><code>%{resetPassword.link}</code></td>
-          <td> Visualizza il link su cui può fare clic un utente per reimpostare la propria password. </td>
-        </tr>
-       </tbody>
-    </table>
-    </dd>
+      <tr>
+        <th colspan=2><img src="images/idea.png" alt="Icona ulteriori informazioni"/> Parametri della password dimenticata </th>
+      </tr>
+      <tr>
+        <td><code>%{linkExpiration.hours}</code></td>
+        <td> Visualizza il numero di ore in cui il link è valido.</td>
+      </tr>
+      <tr>
+        <td><code>%{linkExpiration.minutes}</code></td>
+        <td>Visualizza il numero di minuti in cui il link è valido.</td>
+      </tr>
+      <tr>
+        <td><code>%{resetPassword.code}</code></td>
+        <td> Visualizza il passcode monouso come parte dell'URL. Ciò significa che ogni persona ha un codice diverso. Esempio: <code>https://appid.cloud.ibm.com/wfm/verify/6574839563478</code> </td>
+      </tr>
+      <tr>
+        <td><code>%{resetPassword.link}</code></td>
+        <td> Visualizza il link su cui può fare clic un utente per reimpostare la propria password. </td>
+      </tr>
+     </tbody>
+  </table></dd>
   <dt>Verifica</dt>
-    <dd><p>Puoi richiedere che un utente verifichi il proprio account tramite email. Richiedendo una verifica, limiti il numero di account falsi che possono registrarsi alla tua applicazione. Puoi limitare l'accesso alla tua applicazione finché un utente verifica la propria email o utilizzarla come un modo per gestire per quali utenti crei i profili.</p>
+    <dd><p>Puoi richiedere che un utente verifichi il proprio account tramite email. Richiedendo una verifica, limiti il numero di account falsi che possono registrarsi alla tua applicazione. Puoi limitare l'accesso alla tua applicazione finché un utente verifica la propria email o utilizzarla come un modo per gestire per quali utenti crei i profili. Tieni presente che gli utenti che vengono aggiunti manualmente tramite il dashboard {{site.data.keyword.appid_short_notm}} o l'API utente di creazione, non ricevono automaticamente questa email.</p>
     <table>
       <thead>
         <th colspan=2><img src="images/idea.png" alt="Icona ulteriori informazioni"/> Parametri del messaggio di verifica </th>
@@ -153,13 +172,12 @@ Puoi inviare diversi tipi di messaggi ai tuoi utenti. Puoi scegliere di inviare 
           <td> Verifica l'URL di azione che hai specificato nelle impostazioni. </td>
         </tr>
       </tbody>
-    </table>
-    </dd>
+    </table></dd>
   <dt>Modifica della password</dt>
     <dd><p>Puoi far sapere a un utente quando la propria password è stata aggiornata. Ciò è utile se non ha richiesto che la sua password venga modificata. Gli utenti possono prendere le misure appropriate per riproteggere i propri account.</p>
     <table>
       <thead>
-        <th colspan=2><img src="images/idea.png" alt="Icona ulteriori informazioni"/> Parametri di modifica della password </th>
+        <th colspan=2><img src="images/idea.png" alt="Icona ulteriori informazioni"/> Parametri di modifica della password</th>
       </thead>
       <tbody>
         <tr>
@@ -167,17 +185,27 @@ Puoi inviare diversi tipi di messaggi ai tuoi utenti. Puoi scegliere di inviare 
           <td> Visualizza l'ora in cui una nuova password entra in vigore. </td>
         </tr>
         <tr>
-          <td> %{passwordChangeInfo.ipAddress} </td>
+          <td><code>%{passwordChangeInfo.ipAddress}</code></td>
           <td> Visualizza l'indirizzo IP da cui è stata richiesta la modifica della password. </td>
         </tr>
       </tbody>
-    </table>
+    </table></dd>
     </dd>
-</dl>
+    <dt>Codice di verifica MFA</dt>
+      <dd><p>Quando è abilitata l'autenticazione multifattore, gli utenti possono ricevere dei codici di autenticazione come mezzo di autenticazione secondario.</p>
+      <table>
+        <thead>
+          <th colspan=2><img src="images/idea.png" alt="Icona ulteriori informazioni"/> Tutti i parametri del messaggio </th>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>%{mfa.code}</code></td>
+            <td> Visualizza il codice di verifica MFA monouso. </td>
+          </tr>
+        </tbody>
+      </table></dd></dl>
+
 </br>
-**NOTA**: {{site.data.keyword.appid_short_notm}} utilizza <a href="https://www.sendgrid.com" target="_blank">SendGrid <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a> come un un servizio di recapito email. Tutte le email vengono inviate con un unico account SendGrid.
-
-
 </br>
 
 ## Gestione della complessità della password
@@ -190,18 +218,440 @@ Una password complessa rende difficile o persino improbabile, che qualcuno la in
 
 Alcuni esempi di complessità password comuni:
 
-- Deve avere una lunghezza di almeno 8 caratteri. Regex di esempio: `^.{8,}$`
-- Deve contenere 1 numero, 1 lettera minuscola e 1 maiuscola. Regex di esempio: `^(?:(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).*)$`
+- Deve avere una lunghezza di almeno otto caratteri. Regex di esempio: `^.{8,}$`
+- Deve contenere un numero, una lettera minuscola e una lettera maiuscola. Regex di esempio: `^(?:(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).*)$`
 - Deve contenere solo lettere e numeri inglesi. Regex di esempio: `^[A-Za-z0-9]*$`
-- Deve avere almeno 1 carattere univoco. Regex di esempio: `^(\w)\w*?(?!\1)\w+$`
+- Deve avere almeno un carattere univoco. Regex di esempio: `^(\w)\w*?(?!\1)\w+$`
 
-Devi utilizzare <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/set_cloud_directory_password_regex" target="_blank">le API di gestione <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a> per configurare i requisiti.
+La complessità della password può essere impostata nella pagina delle impostazioni di Cloud Directory nella console App ID o utilizzando <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/set_cloud_directory_password_regex" target="_blank">le API di gestione <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a>.
+
+</br>
+
+
+## Politica della password avanzata
+{: #advanced-password}
+
+
+Puoi migliorare la sicurezza della tua applicazione mediante l'applicazione di ulteriori vincoli della password.
+{: shortdesc}
+
+
+La politica della password avanzata è formata da 5 funzioni ognuna delle quali può essere attivata separatamente.
+
+ - Blocco dopo la ripetizione di credenziali non corrette
+ - Evitare il riutilizzo della password
+ - Scadenza della password
+ - Periodo minimo tra le modifiche alla password
+ - Accertarsi che la password non includa il nome utente
+
+
+ Se abiliti questa funzione, viene attivata un ulteriore fatturazione per le funzionalità di sicurezza avanzate. Per ulteriori informazioni consulta il [Calcolatore del prezzo](faq.html#pricing).
 
 </br>
 
+### Evitare il riutilizzo della password
+{: #avoid-reuse}
 
+Quando i tuoi utenti stanno modificando le proprie password, potresti volergli impedire di scegliere una password utilizzata recentemente.
+{: shortdesc}
+
+Utilizzando la GUI o l'API, puoi scegliere il numero di password che un utente deve utilizzare prima di poter ripetere una password utilizzata precedentemente. Puoi selezionare qualsiasi valore intero compreso tra 1 e 10.
+
+Se è stata attivata questa opzione e uno degli utenti tenta di impostare la propria password su una di quelle utilizzate recentemente, viene visualizzato un errore nell'IU del widget di accesso predefinita e gli viene richiesto di immettere una password diversa.
+
+Le password precedenti sono memorizzate in modo sicuro nello stesso modo in cui viene memorizzata la password corrente di un utente.
 
 </br>
+
+### Blocco dopo la ripetizione di credenziali non corrette
+{: #lockout}
+
+Puoi voler proteggere gli account dei tuoi utenti bloccando temporaneamente la capacità di accedere quando viene rilevato un comportamento sospetto, come ad esempio più tentativi di accesso consecutivi con una password non corretta. Questa misura può aiutare ad evitare che dei malintenzionati ottengano l'accesso all'account di un utente indovinandone la password.
+{: shortdesc}
+
+Utilizzando la GUI o l'API, puoi impostare il numero massimo di tentativi di accesso non riusciti che un utente può tentare prima che il proprio account venga bloccato temporaneamente. Puoi inoltre impostare la quantità di tempo in cui l'account viene bloccato. Hai le seguenti opzioni:
+
+* Numero di tentativi: qualsiasi valore intero compreso tra 1 e 10.
+* Periodo di blocco: qualsiasi valore intero compreso tra 1 minuto e 24 ore, specificato in minuti.
+
+Se un account viene bloccato, gli utenti non possono accedere o eseguire una qualsiasi altra operazione self service, come ad esempio la modifica della propria password finché non trascorre il periodo di blocco specificato. Quando termina il periodo di blocco, l'utente viene sbloccato automaticamente.
+
+Puoi sbloccare un utente prima del termine del periodo di blocco. Per vedere se gli utenti sono bloccati, controlla se il campo `active` è impostato su `false`. Puoi anche controllare se il loro stato sulla scheda **Users** del dashboard del servizio è impostato su `disabled`. Per sbloccare un utente, devi utilizzare [l'API](https://appid-management.ng.bluemix.net/swagger-ui/#!/Cloud_Directory_Users/updateCloudDirectoryUser) per impostare il campo `active` su `true`.
+
+</br>
+
+### Periodo minimo tra le modifiche alla password
+{: #minimum-time}
+
+Potresti voler impedire ai tuoi utenti di modificare velocemente le password impostando un periodo minimo di tempo in cui un utente deve attendere tra le modifiche alla password.
+{: shortdesc}
+
+Questa funzione è particolarmente utile quando utilizzata insieme alla politica "Evitare il riutilizzo della password". Senza questa limitazione, un utente potrebbe semplicemente modificare la propria password più volte in rapida successione in modo da eludere la limitazione di riutilizzo delle password recenti. Puoi selezionare un qualsiasi valore compreso tra 1 ora e 30 giorni, specificato in ore.
+
+</br>
+
+### Scadenza della password
+{: #expiration}
+
+Per motivi di sicurezza, potresti voler applicare una politica di rotazione della password, come ad esempio che i tuoi utenti debbano modificare le proprie password dopo un periodo di tempo.
+{: shortdesc}
+
+Utilizzando la GUI o l'API, puoi impostare un periodo di tempo in cui le password del tuo utente rimarranno valide. Dopo la scadenza della password di un utente, sono costretti a reimpostare la propria password al successivo accesso. Puoi selezionare un qualsiasi numero di giorni completi compreso tra 1 e 90.
+
+Il servizio fornisce una GUI predefinita e un'esperienza preconfigurata con il widget di accesso. All'utente viene richiesto di fornire una nuova password prima del completamento dell'accesso.
+
+Se stai utilizzando un'esperienza di accesso personalizzata, viene attivato un errore quando un utente tenta di accedere con una password scaduta. È tua responsabilità configurare la tua applicazione in modo da fornire l'esperienza utente necessaria. Puoi richiamare l'API di modifica della password per impostare la nuova password.
+
+La risposta endpoint del token è simile alla seguente:
+
+```javascript
+{
+  "error" : "invalid_grant",
+  "error_description" : "Password expired",
+  "user_id" : "356e065e-49da-45f6-afa3-091a7b464f51"
+}
+```
+{: screen}
+
+Quando questa opzione viene attivata per la prima volta, tutte le password utente esistenti non avranno una data di scadenza. Il periodo di scadenza inizia per tali utenti quando viene modificata la loro password. Potresti voler incoraggiare gli utenti ad aggiornare la propria password dopo che hai attivato questa funzione.
+{: note}
+
+</br>
+
+### Accertarsi che la password non includa il nome utente
+{: #no-username}
+
+Per delle password più sicure, potresti voler impedire agli utenti di includere il loro nome utente o la prima parte del loro indirizzo email.
+{: shortdesc}
+
+Questo vincolo non è sensibile al maiuscolo/minuscolo, il che significa che gli utenti non possono modificare il maiuscolo/minuscolo di alcuni o di tutti i caratteri in modo da utilizzare delle informazioni personali. Per configurare questa opzione, imposta lo switch su **on**.
+
+</br>
+
+## Utilizzo di un mittente email personalizzato
+{: #custom-email}
+
+Con {{site.data.keyword.appid_short_notm}}, puoi definire un punto di estensione personalizzato per inviare i tuoi messaggi email Cloud Directory. Definendo un punto di estensione, hai il controllo completo su come vengono inviate le email e puoi utilizzare il tuo nome di dominio.
+ {: shortdesc}
+
+**Perché dovrei voler utilizzare un mittente email personalizzato?**
+
+Per impostazione predefinita, {{site.data.keyword.appid_short_notm}} utilizza SendGrid per consegnare i messaggi per tuo conto. Configurando il tuo mittente email personalizzato, puoi migliorare ulteriormente l'esperienza personalizzata per i tuoi utenti dell'applicazione.
+
+Alcuni esempi più specifici:
+- **Dominio personalizzato**
+Configurando un dispatcher email personalizzato, hai il controllo completo su come vengono inviati i messaggi email. Questa opzione include la personalizzazione del dominio email che potrebbe ridurre ulteriormente le possibilità che le email vengano filtrate come spam.
+- **Informazioni approfondite e risoluzione dei problemi**
+Ottieni delle informazioni approfondite dal tuo provider email, come ad esempio: il numero di persone che ha aperto le email o a cui i messaggi non sono stati recapitati. Poiché puoi tenere traccia di messaggi individuali e visualizzare le statistiche generali, questo può essere utile a risolvere dei problemi.
+
+</br>
+
+**Come funziona?**
+
+Dopo aver configurato il punto di estensione, viene richiamato da {{site.data.keyword.appid_short_notm}} ogni volta che un messaggio email deve essere inviato. Il punto di estensione contiene tutte le informazioni sul messaggio, incluso il contenuto finale del corpo dell'email.
+
+</br>
+
+**Per creare un mittente email personalizzato:**
+
+1. Per configurare l'istanza {{site.data.keyword.appid_short_notm}} in modo che utilizzi il dispatcher personalizzato, utilizza <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/set_cloud_directory_email_dispatcher" target="_blank">l'API di gestione</a>.</br>
+Devi fornire l'URL. Inoltre puoi fornire le informazioni sull'autorizzazione. I tipi di autorizzazione supportati sono: `Basic authorization` o `constant authorization header value`.
+
+  Esempi di configurazione validi:
+  ```
+  {
+    "custom": {
+      "url": "https://example.com/send_mail"
+    }
+  }
+  ```
+  {: screen}
+
+  ```
+  {
+    "custom": {
+      "url": "https://example.com/send_mail",
+      "authorization": {
+        "type": "basic",
+        "username": "username",
+        "password": "password"
+      }
+    }
+  }
+  ```
+  {: screen}
+
+  ```
+  {
+    "custom": {
+      "url": "https://example.com/send_mail",
+      "authorization": {
+        "type": "value",
+        "value": "myApiKey"
+      }
+    }
+  }
+  ```
+  {: screen}
+
+2. Configura un punto di estensione che possa ascoltare la richiesta post. Questo endpoint dovrebbe essere in grado di leggere il payload proveniente da {{site.data.keyword.appid_short_notm}} e di inviare l'email con il tuo mittente email personalizzato.
+
+3. Il corpo inviato da {{site.data.keyword.appid_short_notm}} è nel seguente formato: `{"jws": "jws-format-string"}`. </br> Dopo aver decodificato e verificato il payload, il contenuto è una stringa JSON.</br>
+  ```
+    {
+      "tenant": "tenant-id",
+      "iss" : "appid-oauth.ng.bluemix.net",</prod>
+      "iat": 1539173126,
+      "jti": "uniq-id",
+      "message": {
+          "to": "your@mail.com",
+          "from": {
+              "name": "My Awesome Service",
+              "address": "no-reply@company.com"
+          },
+          "replyTo": {
+              "name": "My Awesome Service",
+              "address": "yes-reply@company.com"
+          },
+          "subject": "Welcome to My Awesome Service",
+          "body": "<p>Hello<p><br/><p>Thanks for signing up John Doe</p>"
+      }
+    }
+  ```
+  {: screen}
+
+  - tenant: l'ID tenant dell'istanza App ID
+  - iat: la data/ora in cui è stato inviato il messaggio
+  - iss: identifica il principal che ha emesso il JWS.
+  - jti: l'ID della transazione univoco
+  - message: il messaggio da inviare, formato dai seguenti campi:
+    - to: indirizzo email del ricevente
+    - from: informazioni sul mittente, formate dai seguenti campi:
+      - name: facoltativo, il nome del mittente
+      - address: l'indirizzo del mittente
+    - reply to: facoltativo, formato dai seguenti campi:
+      - name: facoltativo, il nome del mittente
+      - address: facoltativo, l'indirizzo del mittente
+    - subject: l'oggetto dell'email
+    - body: il corpo dell'email, in formato HTML
+
+  Puoi verificare che la tua richiesta ha avuto esito positivo controllando il codice di stato della risposta. Qualsiasi valore compreso nell'intervallo 200 - 299 viene considerato un esito positivo. Se ricevi una qualsiasi altra risposta, riprova ad eseguire la tua richiesta
+  {: tip}
+
+4. Ogni payload HTTP inviato da {{site.data.keyword.appid_short_notm}} viene automaticamente firmato in base allo standard JWS utilizzando una coppia di chiavi asimmetriche.
+Per ogni istanza {{site.data.keyword.appid_short_notm}}, viene generata una chiave pubblica e una privata che non vengono condivise con le altre istanze. La chiave privata viene utilizzata per firmare il payload HTTP e puoi utilizzare la chiave pubblica per verificare che payload sia generato da {{site.data.keyword.appid_short_notm}} e non sia stato modificato da terze parti, <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Authorization_Server_V3/publicKeys" target="_blank">Endpoint chiavi pubbliche</a>.
+
+5. Codice di esempio per il punto di estensione (JavaScript)
+  ```
+  const sgMail = require('@sendgrid/mail');
+  const {promisify} = require('bluebird');
+  const request = promisify(require('request'));
+  const jwtVerify = promisify(require('jsonwebtoken').verify);
+  const jwtDecode = require('jsonwebtoken').decode;
+  const jwkToPem = require('jwk-to-pem');
+
+  async function obtainPublicKeys() {
+  	// Your App ID instance tenant ID
+  	const tenantId = '<TENANT-ID>';
+
+  	// Send request to App ID's public keys endpoint
+  	const keysOptions = {
+  		method: 'GET',
+  		url: `https://appid-oauth.<REGION>.bluemix.net/oauth/v3/${tenantId}/publickeys`
+  	};
+  	const keysResponse = await request(keysOptions);
+  	return JSON.parse(keysResponse.body).keys;
+  }
+
+  async function verifySignature(keysArray, kid, jws) {
+  	const keyJson = keysArray.find(key => key.kid === kid);
+  	if (keyJson) {
+  		const pem = jwkToPem(keyJson);
+  		await jwtVerify(jws, pem);
+  		return;
+  	}
+  	throw new Error ("Unable to verify signature");
+  }
+
+  async function verifyAndSendMail(jws) {
+  	// The API key for Sendgrid
+  	const sgApiKey = '<SENDGRID-API-KEY>';
+
+  	// Init Sendgrind
+  	sgMail.setApiKey(sgApiKey);
+
+  	// Decode message to get information
+  	const data = jwtDecode(jws, {complete: true});
+
+  	// Extract kid from header
+  	const kid = data.header.kid;
+
+  	const keysArray = await obtainPublicKeys();
+
+  	// Verify the signature of the payload with the public keys
+  	await verifySignature(keysArray, kid ,jws);
+
+  	// Send the email with Your Sendgrid account
+  	const message = data.payload.message;
+  	const msg = {
+  		to: message.to,
+  		from: message.from.address,
+  		subject: message.subject,
+  		html: message.body,
+  	};
+  	console.log(`Sending email to ${message.to}`);
+  	let sendgridResponse = await sgMail.send(msg);
+
+  	return {result : 'email_sent',sendgridResponse};
+  }
+  ```
+  {: codeblock}
+
+6. Verifica che la tua configurazione sia impostata correttamente verificando il tuo dispatcher email. Utilizza l'<a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/post_email_dispatcher_test" target="_blank">API di test</a> per attivare una richiesta al tuo mittente email personalizzato configurato.
+
+Per un esempio funzionante completo, consulta <a href="https://www.ibm.com/blogs/bluemix/2018/10/use-ibm-cloud-app-id-and-your-email-provider-to-brand-mails-sent-to-app-users/" target="_blank">Use your own provider for mail sent with {{site.data.keyword.appid_full}}</a>.
+
+</br>
+</br>
+
+
+## Migrazione di utenti
+{: #user-migration}
+
+Occasionalmente potresti dover configurare una nuova istanza di {{site.data.keyword.appid_short_notm}}. Se stai utilizzando Cloud Directory, questo significa che i tuoi utenti devono essere migrati alla nuova istanza. Puoi utilizzare le API di gestione per aiutarti con la migrazione.
+{: shortdesc}
+
+### Prima di cominciare
+
+Devi avere il [ruolo IAM](/docs/iam/quickstart.html) di `Manager` per entrambe le istanze di {{site.data.keyword.appid_short_notm}}.
+
+</br>
+
+**Esportazione**
+
+Prima di poter aggiungere i tuoi utenti alla nuova istanza, devi esportarli dalla tua istanza corrente. Per farlo, puoi utilizzare l'<a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Cloud_Directory_Users/cloudDirectoryExport" target="_blank">API di gestione dell'esportazione <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a>.
+
+Comando cURL di esempio:
+
+```
+curl -X GET --header ‘Accept: application/json’ --header ‘Authorization: Bearer <iam-token>’ ’https://eu-gb.appid.cloud.ibm.com/management/v4/111c9bj3-xxxx-4b5b-zzzz-24ad9440k8j9/cloud_directory/export?encryption_secret=myCoolSecret'
+```
+{: codeblock}
+
+<table>
+  <tr>
+    <th>Variabile</th>
+    <th>Descrizione</th>
+  </tr>
+  <tr>
+    <td><code>encryption_secret</code></td>
+    <td>Una stringa personalizzata utilizzata per codificare e decodificare una password con hash degli utenti.</td>
+  </tr>
+  <tr>
+    <td><code>tenantID</code></td>
+    <td>L'ID tenant del servizio può essere trovato nelle tue credenziali del servizio. Puoi trovare le tue credenziali del servizio nel dashboard App ID.</td>
+  </tr>
+</table>
+
+Vengono restituiti solo i tuoi utenti Cloud Directory e i loro profili. Gli utenti da altri provider di identità non vengono restituiti.
+{: note}
+
+</br>
+
+**Importazione**
+
+Ora che i tuoi utenti sono pronti, puoi importare le loro informazioni nella nuova istanza. Per farlo, puoi utilizzare l'<a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Cloud_Directory_Users/cloudDirectoryImport" target="_blank">API di gestione dell'importazione <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a>.
+
+Comando cURL di esempio:
+
+```
+curl -X POST --header ‘Content-Type: application/json’ --header ‘Accept: application/json’ --header ‘Authorization: Bearer <iam-token>’ -d ‘{“users”: [
+    {
+      “scimUser”: {
+        “originalId”: “3f3f6779-7978-4383-926f-a43aef3b724b”,
+        “name”: {
+          “givenName”: “<first-name>”,
+          “familyName”: “<last-name>”,
+          “formatted”: “<first-name> <last-name>”
+        },
+        “displayName”: “<first-name>”,
+        “emails”: [
+          {
+            “value”: “<user>@gmail.com”,
+            “primary”: true
+          }
+        ],
+        “status”: “PENDING”
+      },
+      “passwordHash”: “<password hash here>“,
+      “passwordHashAlg”: “<password hash algorithm>",
+      “profile”: {
+        “attributes”: {}
+      }
+    }
+]}’ ‘https://eu-gb.appid.cloud.ibm.com/management/v4/111c9bj3-xxxx-4b5b-zzzz-24ad9440k8j9/cloud_directory/import?encryption_secret=myCoolSecret’
+```
+{: codeblock}
+
+</br>
+
+### Utilizzo dello script di migrazione
+
+{{site.data.keyword.appid_short_notm}} fornisce uno script di migrazione che puoi utilizzare tramite la CLI per velocizzare il processo di migrazione.
+
+Prima di iniziare, assicurati di avere le seguenti informazioni sui parametri:
+
+<table>
+  <tr>
+    <th>Parametro</th>
+    <th>Descrizione</th>
+  </tr>
+  <tr>
+    <td><code>sourceTenantId</code></td>
+    <td>L'ID tenant dell'istanza di {{site.data.keyword.appid_short_notm}} da cui vuoi esportare gli utenti.</td>
+  </tr>
+  <tr>
+    <td><code>destinationTenantId</code></td>
+    <td>L'ID tenant dell'istanza di {{site.data.keyword.appid_short_notm}} in cui vuoi importare gli utenti.</td>
+  </tr>
+  <tr>
+    <td>Regione</td>
+    <td>Le opzioni correnti includono: Stati Uniti Sud: <code>ng</code>, Londra: <code>eu-gb</code>,  Sydney: <code>au-syd</code>, Washington: <code>us-east</code> e Germania: <code>eu-de</code>.</td>
+  </tr>
+  <tr>
+    <td>Token IAM</td>
+    <td>Assicurati di avere le autorizzazioni da <code>manager</code> prima di ottenere il token. Per un aiuto sull'ottenimento del token IAM, consulta <a href="https://console.bluemix.net/docs/iam/apikey_iamtoken.html#iamtoken_from_apikey" target="_blank">la documentazione <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a>.</td>
+  </tr>
+</table>
+
+Per eseguire lo script:
+
+1. Clona il <a href="https://github.com/ibm-cloud-security/appid-sample-code-snippets/tree/master/export-import-cloud-directory-users" target="_blank">repository <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a>.
+2. Apri il terminale e passa alla cartella in cui hai clonato il repository.
+3. Immetti il seguente comando.
+
+  ```
+  npm install
+  ```
+  {: codeblock}
+
+4. Con i tuoi parametri, immetti il seguente comando:
+
+  ```
+  users_export_import 'sourceTenantId' 'destinationTenantId' 'region' 'iamToken'
+  ```
+  {: codeblock}
+
+  Comando di esempio:
+
+  ```
+  users_export_import e00a0366-53c5-4fcf-8fef-ab3e66b2ced8 73321c2b-d35a-497a-9845-15c580fdf58c ng eyJraWQiOiIyMDE3MTAyNS0xNjoyNzoxMCIsImFsZyI6IlJTMjU2In0.eyJpYW1faWQiOiJJQk1pZC0zMTAwMDBUNkZTIiwiaWQiOiJJQk1pZC0zMTAwMDBUNkZTIiwicmVhbG1pZCI6IklCTWlkIiwiaWRlbnRpZmllciI6IjMxMDAwMFQ2RlMiLCJnaXZlbl9uYW1lIjoiUm90ZW0iLCJmYW1pbHlfbmFtZSI6IkJyb3NoIiwibmFtZSI6IlJvdGVtIEJyb3NoIiwiZW1haWwiOiJyb3RlbWJyQGlsLmlibS5jb20iLCJzdWIiOiJyb3RlbWJyQGlsLmlibS5jb20iLCJhY2NvdW50Ijp7ImJzcyI6ImQ3OWM5YTk5NjJkYzc2Y2JkMDZlYTVhNzhjMjY0YzE5In0sImlhdCI6MTUzNzE3Mjg4NCwiZXhwIjoxNTM3MTc2NDg0LCJpc3MiOiJodHRwczovL2lhbS5zdGFnZTEuYmx1ZW1peC5uZXQvaWRlbnRpdHkiLCJncmFudF90eXBlIjoidXJuOmlibTpwYXJhbXM6b2F1dGg6Z3JhbnQtdHlwZTpwYXNzY29kZSIsInNjb3BlIjoiaWJtIG9wZW5pZCIsImNsaWVudF9pZCI6ImJ4IiwiYWNyIjoxLCJhbXIiOlsicHdkIl19.c4vLPzhvvNZLjaLy7znDa37qV4o-yuGmSKmJoQKrEQNZU8IC0NIjxwSo7W9kb0pDi3Yf_03_9ufTTGNfjtltzNWycSXjkNgoL-b9_nU61oHdgn0stY1KmNicqyBWfgUU--4xa904QN_QjRHBaUBeJf3XWEphPIMoF7mZeOxEZLnCMcQXSz9pImCMiP4SNT38cHLiI90Yx01rM7hpteepWULh5MYh-B2V03Gkgxfqvv951HF1LDg6eT4Q9in11laTQKtKuomripUju_4GIIjORVYw9NaAVKIJ9lKrPX0SKPhStsa59qGsC_7Uersms5EY1W1VbZVqOZPJbtp6tVf-Lw
+  ```
+  {: codeblock}
+
+</br>
+</br>
+
 
 ## Lingue supportate
 {: #languages}
@@ -1005,7 +1455,7 @@ Puoi utilizzare <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/C
   </tr>
   <tr>
     <td><code>sv-SE</code></td>
-    <td>Svedese </td>
+    <td>Svedese</td>
     <td>Svezia</td>
   </tr>
   <tr>
@@ -1020,17 +1470,17 @@ Puoi utilizzare <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/C
   </tr>
   <tr>
     <td><code>th-TH</code></td>
-    <td>Tailandese </td>
+    <td>Tailandese</td>
     <td>Thailandia</td>
   </tr>
   <tr>
     <td><code>tr-TR</code></td>
-    <td>Turco </td>
+    <td>Turco</td>
     <td>Turchia</td>
   </tr>
   <tr>
     <td><code>uk-UA</code></td>
-    <td>Ucraino </td>
+    <td>Ucraino</td>
     <td>Ucraina</td>
   </tr>
   <tr>
@@ -1045,22 +1495,22 @@ Puoi utilizzare <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/C
   </tr>
   <tr>
     <td><code>uz-Cyrl-UZ</code></td>
-    <td>Uzbeco (Alfabeto cirillico) </td>
+    <td>Uzbeco (Alfabeto cirillico)</td>
     <td>Uzbekistan</td>
   </tr>
   <tr>
     <td><code>uz-Latn-UZ</code></td>
-    <td>Uzbeco (alfabeto latino) </td>
+    <td>Uzbeco (alfabeto latino)</td>
     <td>Uzbekistan</td>
   </tr>
   <tr>
     <td><code>vi-VN</code></td>
-    <td>Vietnamita </td>
+    <td>Vietnamita</td>
     <td>Vietnam</td>
   </tr>
   <tr>
     <td><code>cy-GB</code></td>
-    <td>Gallese </td>
+    <td>Gallese</td>
     <td>Regno Unito</td>
   </tr>
   <tr>

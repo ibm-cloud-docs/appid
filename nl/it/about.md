@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-08"
+lastupdated: "2018-12-19"
 
 ---
 
@@ -12,8 +12,9 @@ lastupdated: "2018-08-08"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
 
-# Informazioni
+# Informazioni su {{site.data.keyword.appid_short_notm}}
 {: #about}
 
 La sicurezza delle applicazioni può essere incredibilmente complicata. Per la maggior parte degli sviluppatori, è una delle parti più difficili nella creazione di un'applicazione. Come puoi essere sicuro di proteggere le informazioni dell'utente? Integrando {{site.data.keyword.appid_full}} nelle tue applicazioni, puoi proteggere le risorse e aggiungere l'autenticazione, anche quando non hai molta esperienza in materia di sicurezza.
@@ -23,7 +24,7 @@ La sicurezza delle applicazioni può essere incredibilmente complicata. Per la m
 ## Motivi per usare il servizio
 {: #reasons}
 
-{{site.data.keyword.appid_short_notm}} consente agli sviluppatori di aggiungere facilmente l'autenticazione alle loro applicazioni mobile e web con poche righe di codice e di proteggere i loro servizi e applicazioni native cloud su {{site.data.keyword.Bluemix_notm}}. Richiedendo agli utenti di accedere alla tua applicazione, puoi memorizzare i dati utente come le preferenze dell'applicazione o le informazioni dai profili sociali pubblici e quindi utilizzare tali dati per personalizzare ogni esperienza utente nella tua applicazione. {{site.data.keyword.appid_short_notm}} fornisce per te un framework di accesso, ma puoi anche portare le tue schermate di accesso personalizzate quando utilizzi Cloud Directory.
+{{site.data.keyword.appid_short_notm}} consente agli sviluppatori di aggiungere facilmente l'autenticazione alle loro applicazioni mobile e web con poche righe di codice e di proteggere i loro servizi e applicazioni native cloud su {{site.data.keyword.Bluemix_notm}}. Richiedendo agli utenti di accedere alla tua applicazione, puoi memorizzare i dati utente come le preferenze dell'applicazione o le informazioni dai profili sociali pubblici e quindi utilizzare tali dati per personalizzare ogni esperienza utente nella tua applicazione. {{site.data.keyword.appid_short_notm}} ti fornisce un framework di accesso, ma puoi anche portare le tue schermate di accesso personalizzate quando utilizzi Cloud Directory.
 {: shortdesc}
 
 Perché dovrei utilizzare {{site.data.keyword.appid_short_notm}}? Verifica i seguenti scenari per vedere se uno di essi va bene per te.
@@ -58,12 +59,11 @@ Perché dovrei utilizzare {{site.data.keyword.appid_short_notm}}? Verifica i seg
 Puoi utilizzare {{site.data.keyword.appid_short_notm}} con le altre offerte {{site.data.keyword.Bluemix_notm}}.
 {:shortdesc}
 
-
 <dl>
   <dt>{{site.data.keyword.containerlong_notm}}</dt>
-    <dd>Configurando Ingress in un cluster standard, puoi proteggere le tue applicazioni a livello di cluster. Per iniziare, consulta <a href="/docs/containers/cs_annotations.html#appid-auth">l'annotazione di Ingress per l'autenticazione {{site.data.keyword.appid_short_notm}}</a> o il post di blog <a href="https://www.ibm.com/blogs/bluemix/2018/05/announcing-app-id-integration-ibm-cloud-kubernetes-service/">Announcing App ID integration to IBM Cloud Kubernetes Service <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a>.</dd>
+    <dd>Configurando Ingress in un cluster standard, puoi proteggere le tue applicazioni a livello di cluster. Per iniziare, consulta <a href="/docs/containers/cs_annotations.html#appid-auth">l'annotazione di Ingress per l'autenticazione {{site.data.keyword.appid_short_notm}}</a> o il post di blog <a href="https://www.ibm.com/blogs/bluemix/2018/05/announcing-app-id-integration-ibm-cloud-kubernetes-service/">Announcing {{site.data.keyword.appid_short_notm}} integration to {{site.data.keyword.containerlong_notm}} <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a>.</dd>
   <dt>{{site.data.keyword.openwhisk}} e API Connect</dt>
-    <dd>Quando crei le tue API con [{{site.data.keyword.openwhisk_short}}](/docs/openwhisk/index.html) e [API Connect](/docs/apis/management/manage_apis.html), puoi proteggere le tue applicazioni a livello di gateway anziché a livello di codice della tua applicazione. Per vedere l'integrazione in azione, guarda <a href="https://www.youtube.com/watch?v=Fa9YD2NGZiE" target="_blank">Simple and fast social login OAUTH with APIC and {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a>.</dd>
+    <dd>Quando crei le tue API con [{{site.data.keyword.openwhisk_short}}](/docs/openwhisk/index.html) e [API Connect](/docs/services/apiconnect/getting-started.html), puoi proteggere le tue applicazioni a livello di gateway anziché a livello di codice della tua applicazione. Per vedere l'integrazione in azione, guarda <a href="https://www.youtube.com/watch?v=Fa9YD2NGZiE" target="_blank">Simple and fast social login OAUTH with APIC and {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a>.</dd>
   <dt>Cloud Foundry</dt>
     <dd>Prova una delle applicazioni Cloud Foundry di esempio per scoprire come integrare {{site.data.keyword.appid_short_notm}} nelle tue applicazioni.</dd>
   <dt>Guida alla programmazione iOS</dt>
@@ -81,7 +81,7 @@ Puoi utilizzare {{site.data.keyword.appid_short_notm}} con le altre offerte {{si
 Con {{site.data.keyword.appid_short_notm}}, puoi aggiungere un livello di sicurezza alle tue applicazioni richiedendo agli utenti di effettuare l'accesso. Puoi anche utilizzare le API o l'SDK server per proteggere le tue risorse di back-end.
 {: shortdesc}
 
-![{{site.data.keyword.appid_short_notm}} diagramma architettura](/images/appid_architecture1.png)
+![{{site.data.keyword.appid_short_notm}} diagramma architettura](images/appid_architecture1.png)
 
 <dl>
   <dt>Applicazione</dt>
@@ -94,47 +94,6 @@ Con {{site.data.keyword.appid_short_notm}}, puoi aggiungere un livello di sicure
     <dd><strong>Provider di identità sociali e aziendali</strong>:{{site.data.keyword.appid_short_notm}} supporta Facebook, Google+ e  SAML 2.0 Federation come opzioni del provider di identità. Il servizio stabilisce un reindirizzamento al provider di identità e verifica i token di autenticazione restituiti. Se i token sono validi, il servizio concede l'accesso alla tua applicazione senza mai avere accesso alla reale passphrase.</dd>
 </dl>
 
+</br>
 
-## Flusso della richiesta
-{: #request}
 
-Mentre il flusso di richieste potrebbe variare a seconda della configurazione dell'applicazione, ci sono tre flussi principali che potresti incontrare durante l'utilizzo dell'ID applicazione. Puoi creare un flusso di applicazioni mobili, un flusso di applicazioni Web o proteggere le tue risorse con un flusso differente. Consulta alcuni dei flussi di esempio per vedere se è possibile avviarli in fase di configurazione della tua applicazione.
-{: shortdesc}
-
-### Flusso della richiesta dell'applicazione Web 
-{: #web-flow}
-
-![{{site.data.keyword.appid_short_notm}} flusso richiesta](/images/web_flow1.png)
-
-1. Utilizzando un browser, un utente esegue un'azione che attiva una richiesta per l'SDK ID applicazione.
-2. Se l'utente non è autorizzato, viene avviato un reindirizzamento all'ID applicazione.
-3. L'ID applicazione avvia il widget di accesso e lo invia al browser.
-4. L'utente sceglie un provider di identità per l'autenticazione e completa il processo di accesso.
-5. Il provider di identità ti riporta all'SDK ID applicazione con un token di identità.
-6. L'SDK ID applicazione ottiene i token di accesso dal servizio ID applicazione.
-7. I token vengono salvati dall'SDK ID applicazione e si verifica un reindirizzamento.
-8. All'utente viene concesso l'accesso all'applicazione.
-
-### Flusso della richiesta mobile
-{: #mobile-flow}
-
-![{{site.data.keyword.appid_short_notm}} flusso richiesta](/images/mobile_flow.png)
-
-1. Un utente esegue un'azione che attiva una richiesta dall'applicazione client all'SDK ID applicazione.
-2. Se l'utente non dispone di token di accesso validi, l'SDK ID applicazione avvia il processo di autorizzazione.
-3. Il widget di accesso viene visualizzato all'utente.
-4. Utilizzando uno dei provider di identità configurati, l'utente esegue l'autenticazione.
-5. Una volta che l'utente dispone di un token di identità, l'SDK ottiene un token di accesso dal servizio ID applicazione.
-6. Con entrambi i token, l'SDK esegue di nuovo la richiesta.
-7. Se i token sono validi, all'utente viene concesso l'accesso all'applicazione.
-
-### Flusso della richiesta della risorsa protetta
-{: #pr-flow}
-
-![{{site.data.keyword.appid_short_notm}} flusso richiesta](/images/pr_flow.png)
-
-1. Prima di poter eseguire una richiesta alla risorsa, è necessario che un'applicazione client disponga di una serie di chiavi pubbliche.
-2. Con le chiavi pubbliche, una richiesta viene effettuata da un'applicazione client.
-3. Se non è presente un token di accesso valido, l'applicazione riceve un errore.
-4. Dopo aver ottenuto un token valido, l'applicazione client può eseguire di nuovo la richiesta. Ma questa volta, include il token.
-5. Quando l'applicazione può convalidare le autorizzazioni concesse dal token di accesso, all'applicazione viene concesso l'accesso alla risorsa protetta.

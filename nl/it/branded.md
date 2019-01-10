@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-08"
+lastupdated: "2018-10-15"
 
 ---
 
@@ -15,148 +15,42 @@ lastupdated: "2018-08-08"
 # Personalizzazione della tua applicazione
 {: #branding}
 
-Puoi visualizzare le tue proprie schermate personalizzate e sfruttare le funzionalità di autenticazione e autorizzazione di {{site.data.keyword.appid_full}}. Con Cloud Directory come tuo provider di identità, i tuoi utenti potranno interagire con la tua applicazione con meno aiuto da parte tua. Sono in grado di accedere, registrarsi, modificare la propria password e altro ancora senza richiedere assistenza.
+Puoi visualizzare le tue schermate personalizzate, utilizzare i tuoi flussi di accesso e sfruttare le funzionalità di autenticazione e autorizzazione di {{site.data.keyword.appid_full}}. Utilizzando Cloud Directory come tuo provider di identità, i tuoi utenti potranno interagire con la tua applicazione con meno aiuto da parte tua. Sono in grado di accedere, registrarsi, modificare la propria password e altro ancora senza richiedere assistenza.
 {: shortdesc}
 
-Quando utilizzi le tue proprie schermate, viene utilizzato il [flusso Resource Owner Password Credentials](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/password.html) per fornire i token di accesso e identità.
+**Perché dovrei voler visualizzare le mie schermate?**
 
-
-## Personalizzazione della tua applicazione con l'SDK Swift iOS
-{: #branded-ui-ios-swift}
-
-Con Cloud Directory abilitato, puoi richiamare le schermate personalizzate con l'SDK iOS Swift.
-{: shortdesc}
-
-</br>
-**Accedi**
-
-1. Nella scheda del provider di identità della GUI, imposta Cloud Directory su **On**.
-2. Richiama il widget di accesso per avviare il flusso di accesso. I token di accesso e identità vengono ottenuti quando un utente tenta di accedere utilizzando i propri nome utente o email e password.
-  ```swift
-  class delegate : TokenResponseDelegate {
-      public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, response:Response?) {
-      //Utente autenticato
-      }
-
-      public func onAuthorizationFailure(error: AuthorizationError) {
-      //Si è verificata un'eccezione
-      }
-  }
-
-  AppID.sharedInstance.signinWithResourceOwnerPassword(username: username, password: password, delegate: delegate())
-  ```
-  {: pre}
+Quando riutilizzi le tue IU esistenti, puoi creare un flusso di accesso coerente per la tua applicazione. Utilizzando le stesse immagini, gli stessi colori e personalizzazioni, è più probabile che i tuoi utenti riconoscano il tuo marchio, anche quando non interagiscono direttamente con la tua applicazione.
 
 </br>
 
-**Registrati**
+**Quale tipo di configurazione è necessaria per visualizzare le mie schermate?**
 
-1. Nella scheda del provider di identità nella GUI, imposta Cloud Directory su **On**.
-2. Imposta **Allow users to sign up and reset their password** su **ON** nelle impostazioni di Cloud Directory.
-3. Richiama il widget di accesso per avviare il flusso di registrazione. 
-  ```swift
-  class delegate : AuthorizationDelegate {
-    public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, refreshToken: RefreshToken?, response:Response?) {
-       if accessToken == nil && identityToken == nil {
-        //la verifica email è richiesta
-        return
-       }
-     //Utente autenticato
-      }
+Per visualizzare le tue IU, devi utilizzare [Cloud Directory(/docs/services/appid/cloud-directory.html)] come tuo provider di identità. Esistono molti modi in cui può essere [configurato](cloud-directory.html) Cloud Directory. Puoi decidere i tipi di messaggi che vuoi inviare e personalizzarne il contenuto e il design. Non sai cosa dire? Non è un problema. Sono presenti dei messaggi di esempio nella GUI che puoi utilizzare.
 
-      public func onAuthorizationCanceled() {
-        //Registrazione annullata dall'utente
-    }
-
-    public func onAuthorizationFailure(error: AuthorizationError) {
-        //Si è verificata un'eccezione
-      }
-  }
-
-  AppID.sharedInstance.loginWidget?.launchSignUp(delegate: delegate())
-  ```
-  {: pre}
+Vuoi utilizzare una [lingua](cloud-directory.html#languages) diversa dall'inglese? Puoi scegliere un'altra lingua utilizzando le <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/updateLocalization" target="_blank">API di gestione della lingua <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a>, per visualizzare il tuo contenuto tradotto.
+{: tip}
 
 </br>
 
-**Password dimenticata**
 
-1. Nella scheda del provider di identità nella GUI, imposta Cloud Directory su **On**.
-2. Imposta **Allow users to sign up and reset their password** su **ON** nelle impostazioni di Cloud Directory.
-3. Richiama il widget di accesso per avviare il flusso della password dimenticata. 
-  ```swift
-  class delegate : AuthorizationDelegate {
-     public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, refreshToken: RefreshToken?, response:Response?) {
-        //password dimenticata terminato, in questo caso accessToken e identityToken saranno null.
-     }
 
-     public func onAuthorizationCanceled() {
-         //password dimenticata annullata dall'utente
-     }
+**In che modo i flussi sono tecnicamente diversi?**
 
-     public func onAuthorizationFailure(error: AuthorizationError) {
-         //Si è verificata un'eccezione
-      }
-  }
-
-  AppID.sharedInstance.loginWidget?.launchForgotPassword(delegate: delegate())
-  ```
-  {: pre}
+Il servizio utilizza i flussi di concessione OAuth2 per associare il processo di autorizzazione. Quando configuri i provider di identità social come Facebook, viene utilizzato il <a href="https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html" target="_blank">flusso Authorization Grant <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a> per richiamare il Widget di accesso. Quando utilizzi le tue schermate, viene utilizzato il <a href="https://oauthlib.readthedocs.io/en/stable/oauth2/grants/password.html" target="_blank">flusso Resource Owner Password Credentials <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a> per fornire i token di accesso e identità che ti consentono di richiamare le tue schermate di accesso.
 
 </br>
 
-**Modifica dettagli**
+**Avete una qualsiasi applicazione di esempio che ne mostra il funzionamento?**
 
-1. Nella scheda del provider di identità nella GUI, imposta Cloud Directory su **On**.
-2. Imposta **Allow users to sign up and reset their password** su **ON** nelle impostazioni di Cloud Directory.
-3. Richiama il widget di accesso per avviare il flusso di modifica dei dettagli. 
-  ```swift
-  class delegate : AuthorizationDelegate {
-      public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, refreshToken: RefreshToken?, response:Response?) {
-         //Utente autenticato e token di aggiornamento ricevuto
-      }
+Sì. Consulta uno qualsiasi dei seguenti esempi per vedere come funziona Cloud Directory:
 
-      public func onAuthorizationCanceled() {
-          //dettagli modificati annullati dall'utente
-      }
-
-      public func onAuthorizationFailure(error: AuthorizationError) {
-          //Si è verificata un'eccezione
-      }
-  }
-
-   AppID.sharedInstance.loginWidget?.launchChangeDetails(delegate: delegate())
-  ```
-  {: pre}
+* <a href="https://www.ibm.com/blogs/bluemix/2018/01/use-branded-ui-user-sign-app-id/" target="_blank">Use your own branded UI for user sign-in with {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a>
+* <a href="https://www.ibm.com/blogs/bluemix/2018/06/use-ui-flows-user-sign-sign-app-id/" target="_blank">Use your own UI and Flows for User Sign-Up and Sign-in with with {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a>
+* <a href="https://www.ibm.com/blogs/bluemix/2018/06/custom-login-page-app-id-integration/" target="_blank">Use a custom login page with  {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a>
 
 </br>
-
-**Modifica della password**
-
-1. Nella scheda del provider di identità nella GUI, imposta Cloud Directory su **On**.
-2. Imposta **Allow users to sign up and reset their password** su **ON** nelle impostazioni di Cloud Directory.
-3. Richiama il widget di accesso per avviare il flusso di modifica dei dettagli. 
-  ```swift
-  class delegate : AuthorizationDelegate {
-      public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, refreshToken: RefreshToken?, response:Response?) {
-          //Utente autenticato e token di aggiornamento ricevuto
-      }
-
-      public func onAuthorizationCanceled() {
-          //password modificata annullata dall'utente
-      }
-
-      public func onAuthorizationFailure(error: AuthorizationError) {
-           //Si è verificata un'eccezione
-      }
-   }
-
-    AppID.sharedInstance.loginWidget?.launchChangePassword(delegate: delegate())
-  ```
-  {: pre}
-
 </br>
-
 
 ## Personalizzazione della tua applicazione con l'SDK Android
 {: #branded-ui-android}
@@ -168,9 +62,9 @@ Con Cloud Directory abilitato, puoi richiamare le schermate personalizzate con l
 
 **Accedi**
 
-1. Imposta **Cloud Directory** su **On** come un provider di identità.
-2. Ottieni un accesso e i token di aggiornamento e identità fornendo la password e il nome utente dell'utente finale. 
-3. Richiama il widget di accesso per avviare il flusso di accesso. 
+1. Configura le tue [impostazioni](cloud-directory.html#cd-settings) di Cloud Directory nella GUI.
+2. Aggiungi il seguente codice alla tua applicazione. Il flusso di accesso viene attivato quando un utente fa clic su Accedi sulla tua schermata personalizzata. Ottieni i token di accesso, identità e aggiornamento fornendo la password e il nome utente dell'utente finale. 
+
   ```java
   AppID.getInstance().signinWithResourceOwnerPassword(getApplicationContext(), username, password,
          new TokenResponseListener() {
@@ -188,126 +82,38 @@ Con Cloud Directory abilitato, puoi richiamare le schermate personalizzate con l
   {: pre}
 
 </br>
+</br>
 
-**Registrati**
+## Personalizzazione della tua applicazione con l'SDK Swift iOS
+{: #branded-ui-ios-swift}
 
-1. Imposta **Cloud Directory** su **On** come un provider di identità.
-2. Imposta **Allow users to sign up and reset their password** su **ON** nelle impostazioni di Cloud Directory.
-3. Richiama il widget di accesso per avviare il flusso di registrazione. 
-  ```java
-  LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
-  loginWidget.launchSignUp(this, new AuthorizationListener() {
-      @Override
-        public void onAuthorizationFailure (AuthorizationException exception) {
-          //Si è verificata un'eccezione
+Con Cloud Directory abilitato, puoi richiamare le schermate personalizzate con l'[SDK iOS Swift](https://github.com/ibm-cloud-security/appid-clientsdk-swift).
+{: shortdesc}
+
+</br>
+
+**Accedi**
+
+1. Configura le tue [impostazioni](cloud-directory.html#cd-settings) di Cloud Directory nella GUI.
+2. Inserisci il seguente codice nella tua applicazione. Quando un utente tenta di accedere, viene richiamata la tua schermata di accesso e il processo di autorizzazione e autenticazione presenta la tua pagina di accesso personalizzata.
+
+  ```swift
+  class delegate : TokenResponseDelegate {
+      public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, response:Response?) {
+      //Utente autenticato
       }
 
-      @Override
-        public void onAuthorizationCanceled () {
-          //Registrazione annullata dall'utente
+      public func onAuthorizationFailure(error: AuthorizationError) {
+      //Si è verificata un'eccezione
       }
+  }
 
-      @Override
-          public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, RefreshToken refreshToken) {
-          if (accessToken != null && identityToken != null) {
-              //Utente autenticato
-          } else {
-              //la verifica email è richiesta
-          }
-      }
-  });
+  AppID.sharedInstance.signinWithResourceOwnerPassword(username: username, password: password, delegate: delegate())
   ```
-  {: pre}
-
-</br>
-
-
-**Password dimenticata**
-
-1. Imposta **Cloud Directory** su **On** come un provider di identità.
-2. Imposta **Allow users to sign up and reset their password** su **ON** nelle impostazioni di Cloud Directory.
-3. Richiama il widget di accesso per avviare il flusso della password dimenticata. 
-  ```java
-  LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
-    loginWidget.launchForgotPassword(this, new AuthorizationListener() {
-      @Override
-        public void onAuthorizationFailure (AuthorizationException exception) {
-          //Si è verificata un'eccezione
-      }
-
-      @Override
-        public void onAuthorizationCanceled () {
-          // Password dimenticata annullata dall'utente
-      }
-
-      @Override
-          public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, RefreshToken refreshToken) {
-          // Password dimenticata terminato, in questo caso accessToken e identityToken saranno null.
-      }
-  });
-  ```
-  {: pre}
-
-</br>
-
-**Modifica dettagli**
-
-1. Imposta **Cloud Directory** su **On** come un provider di identità.
-2. Imposta **Allow users to sign up and reset their password** su **ON** nelle impostazioni di Cloud Directory.
-3. Richiama il widget di accesso per avviare il flusso di modifica dei dettagli. 
-  ```java
-  LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
-   loginWidget.launchChangeDetails(this, new AuthorizationListener() {
-      @Override
-        public void onAuthorizationFailure (AuthorizationException exception) {
-          //Si è verificata un'eccezione
-      }
-
-      @Override
-        public void onAuthorizationCanceled () {
-          // Dettagli modificati annullati dall'utente
-      }
-
-      @Override
-          public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, RefreshToken refreshToken) {
-          // Utente autenticato e token di aggiornamento ricevuto
-      }
-  });
-  ```
-  {: pre}
-
-
-</br>
-
-**Modifica della password**
-
-1. Imposta **Cloud Directory** su **On** come un provider di identità.
-2. Imposta **Allow users to sign up and reset their password** su **ON** nelle impostazioni di Cloud Directory.
-3. Richiama il widget di accesso per avviare il flusso di modifica della password. 
-  ```java
-  LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
-    loginWidget.launchChangePassword(this, new AuthorizationListener() {
-      @Override
-        public void onAuthorizationFailure (AuthorizationException exception) {
-          //Si è verificata un'eccezione
-      }
-
-      @Override
-        public void onAuthorizationCanceled () {
-          // Password modificata annullata dall'utente
-      }
-
-      @Override
-          public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, RefreshToken refreshToken) {
-          // Utente autenticato e token di aggiornamento ricevuto
-      }
-  });
-  ```
-  {: pre}
+  {: codeblock}
 
 </br>
 </br>
-
 
 ## Personalizzazione della tua applicazione con l'SDK Node.js
 {: #branded-ui-nodejs}
@@ -319,8 +125,10 @@ Con Cloud Directory abilitato, puoi richiamare le schermate personalizzate con l
 
 Utilizzando WebAppStrategy, gli utenti possono accedere alle tue applicazioni web con i propri nome utente e password. Dopo che un utente ha eseguito correttamente l'accesso alla tua applicazione, il loro token di accesso viene memorizzato in una sessione HTTP finché resta attiva. Dopo che la sessione HTTP è stata chiusa o è scaduta, viene distrutto anche il token di accesso.
 
-1. Imposta Cloud Directory su **On** nelle impostazioni del tuo provider di identità e specifica un endpoint di callback.
-2. Aggiungi una rotta post alla tua applicazione che può essere richiamata con i parametri password e nome utente e accedi con il flusso della password del proprietario della risorsa.
+
+1. Configura le tue [impostazioni](cloud-directory.html#cd-settings) di Cloud Directory nella GUI.
+2. Inserisci il seguente codice nella tua applicazione. Quando un utente tenta di accedere, viene richiamata la tua schermata di accesso e il processo di autorizzazione e autenticazione presenta la tua pagina di accesso personalizzata.
+
   ```javascript
   app.post("/form/submit", bodyParser.urlencoded({extended: false}), passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
   	successRedirect: LANDING_PAGE_URL,
@@ -328,7 +136,8 @@ Utilizzando WebAppStrategy, gli utenti possono accedere alle tue applicazioni we
     	failureFlash : true // consenti messaggi flash
     }));
   ```
-  {: pre}
+  {: codeblock}
+
   <table>
     <thead>
       <th colspan=2><img src="images/idea.png" alt="Icona ulteriori informazioni"/> Parametri comando </th>
@@ -349,57 +158,9 @@ Utilizzando WebAppStrategy, gli utenti possono accedere alle tue applicazioni we
     </tbody>
   </table>
 
-  1. Se invii la richiesta nel formato HTML, puoi utilizzare il middle ware [body parser](https://www.npmjs.com/package/body-parser).
-  2. Per ottenere il messaggio di errore restituito, puoi utilizzare [connect-flash](https://www.npmjs.com/package/connect-flash). Per ulteriori informazioni, consulta [web app sample](https://github.com/ibm-cloud-security/appid-serversdk-nodejs/blob/master/samples/web-app-sample.js).
-  {: tip}
+**Nota**: se invii la richiesta in HTML, puoi utilizzare il middleware <a href="https://www.npmjs.com/package/body-parser" target="blank">body parser <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a>. Per visualizzare il messaggio di errore restituito puoi utilizzare <a href="https://www.npmjs.com/package/connect-flash" target="blank">connect-flash <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a>. Per vederlo in azione, consulta l'<a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs/blob/master/samples/web-app-sample.js" target="blank">esempio di applicazione web <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a>.
 
 </br>
-**Registrati**
-
-1. Imposta Cloud Directory su **On** nelle impostazioni del tuo provider di identità e specifica un endpoint di callback.
-2. Imposta **Allow users to sign up and reset their password** su **ON** nelle impostazioni di Cloud Directory.
-3. Imposta **Allow users to sign-in without email verification** su **No**. Se non lo fai, non è possibile richiamare i token di accesso e identità {{site.data.keyword.appid_short_notm}}.
-4. Aggiungi una rotta post alla tua applicazione che può essere richiamata con i parametri password e nome utente e accedi con il flusso della password del proprietario della risorsa.
-  ```javascript
-  app.get("/sign_up", passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
-  	successRedirect: LANDING_PAGE_URL,
-  	show: WebAppStrategy.SIGN_UP
-  }));
-  ```
-  {: pre}
-
-</br>
-
-**Password dimenticata**
-
-1. Imposta Cloud Directory su **On** nelle impostazioni del tuo provider di identità e specifica un endpoint di callback.
-2. Imposta **Allow users to sign up and reset their password** su **ON** nelle impostazioni di Cloud Directory.
-3. Imposta **Forgot password email** su **ON**.
-4. Passa la proprietà *show* a `WebAppStrategy.FORGOT_PASSWORD` per avviare il modulo della password dimenticata.
-  ```javascript
-  app.get("/forgot_password", passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
-  	successRedirect: LANDING_PAGE_URL,
-  	show: WebAppStrategy.FORGOT_PASSWORD
-  }));
-  ```
-  {: pre}
-
-</br>
-
-**Modifica dettagli**
-
-1. Imposta Cloud Directory su **On** nelle impostazioni del tuo provider di identità e specifica un endpoint di callback.
-2. Imposta **Allow users to sign up and reset their password** su **ON** nelle impostazioni di Cloud Directory.
-3. Verifica che l'utente abbia precedentemente eseguito l'autenticazione a {{site.data.keyword.appid_short_notm}}.
-4. Passa la proprietà *show* a `WebAppStrategy.CHANGE_DETAILS` per avviare il modulo della password dimenticata.
-  ```javascript
-  app.get("/change_details", passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
-  	successRedirect: LANDING_PAGE_URL,
-  	show: WebAppStrategy.CHANGE_DETAILS
-  }));
-  ```
-  {: pre}
-
 </br>
 
 ## Personalizzazione della tua applicazione con l'API
@@ -408,14 +169,14 @@ Utilizzando WebAppStrategy, gli utenti possono accedere alle tue applicazioni we
 Puoi visualizzare le tue proprie schermate personalizzate e sfruttare le funzionalità di autenticazione e autorizzazione di {{site.data.keyword.appid_short_notm}}. Con Cloud Directory come tuo provider di identità, i tuoi utenti potranno interagire con la tua applicazione con meno aiuto da parte tua. Sono in grado di accedere, registrarsi, reimpostare la loro password e altro ancora senza richiedere assistenza.
 {: shortdesc}
 
-Per renderlo possibile, {{site.data.keyword.appid_short_notm}} espone le API REST. Puoi utilizzare l'API REST per creare un server di back-end che funzioni per le tue applicazioni web o per interagire con un'applicazione mobile con le tue schermate personalizzate.
+Per renderlo possibile, {{site.data.keyword.appid_short_notm}} espone le API REST. Puoi utilizzare le API REST per creare un server di back-end che funzioni per le tue applicazioni web o per interagire con un'applicazione mobile con le tue schermate personalizzate.
 
 L'API di gestione è protetta con i token generati da IBM Cloud Identity and Access Management. Ciò significa che i proprietari degli account possono specificare chi ha nel proprio team un determinato livello di accesso per ciascuna istanza del servizio. Per ulteriori informazioni su come funzionano insieme IAM e {{site.data.keyword.appid_short_notm}}, vedi [Gestione dell'accesso al servizio](/docs/services/appid/iam.html).
 
 Dopo aver configurato le tue [impostazioni](/docs/services/appid/cloud-directory.html), puoi richiamare i seguenti endpoint per visualizzare ogni schermata.
 
-
 **Registrati**
+
 Puoi utilizzare l'endpoint `/sign_up` per consentire agli utenti di registrarsi alla tua applicazione.
 Fornisci i seguenti dati nel corpo della richiesta:
   * Il tuo ID tenant.
@@ -423,12 +184,13 @@ Fornisci i seguenti dati nel corpo della richiesta:
     * Un attributo `password`.
     * Nell'array di email con un attributo `primary` impostato su `true`, devi avere almeno 1 indirizzo email.
 
-A seconda delle tue [configurazioni email](/docs/services/appid/cloud-directory.html), un utente potrebbe ricevere una richiesta di verifica o un'email di benvenuto quando si registra alla tua applicazione. Entrambi i tipi di email vengono attivati quando un utente si registra alla tua applicazione. L'email di verifica contiene un pulsante **Verify**. Dopo aver premuto il pulsante e confermato la sua identità, {{site.data.keyword.appid_short_notm}} visualizza una schermata che lo ringrazia per la verifica.  
+A seconda della tua [configurazione email](/docs/services/appid/cloud-directory.html), un utente potrebbe ricevere una richiesta di verifica, un'email di benvenuto quando si registra alla tua applicazione o entrambe. Entrambi i tipi di email vengono attivati quando un utente si registra alla tua applicazione. L'email di verifica contiene un link su cui può fare clic l'utente per confermare la sua identità; viene visualizzata una schermata che ringrazia della verifica o che conferma che la verifica è stata completata.  
 
-Puoi presentare la tua propria pagina di post-verifica:
+Per presentare la tua pagina di post-verifica:
 
-1. Passa alla scheda **Custom Landing Pages** del dashboard {{site.data.keyword.appid_short_notm}}.
-2. Immetti l'URL per la tua pagina di destinazione in **URL for your custom email address verification page**
+1. Passa al provider di identità Cloud Directory nel dashboard {site.data.keyword.appid_short_notm}}.
+2. Fai clic sulla scheda **Email verification**.
+3. In **custom verification page URL** immetti l'URL per la tua pagina di destinazione.
 
 Quando viene fornito questo valore, {{site.data.keyword.appid_short_notm}} richiama l'URL insieme a una query `context`. Quando richiami l'endpoint `/sign_up/confirmation_result` e passi il parametro `context` ricevuto, il risultato indica se il tuo utente ha verificato il suo account. Se lo ha fatto, puoi visualizzare la tua pagina personalizzata.
 
@@ -439,14 +201,15 @@ Puoi utilizzare l'endpoint `/forgot_password` per consentire agli utenti di recu
 
 Fornisci i seguenti dati nel corpo della richiesta:
   * Il tuo ID tenant.
-  * L'email dell'utente di Cloud Directory.
+  * L'email dell'utente Cloud Directory.
 
 Quando l'endpoint viene richiamato, all'utente viene inviata un'email di reimpostazione della password. L'email contiene un pulsante **Reset**. Dopo aver premuto il pulsante, {{site.data.keyword.appid_short_notm}} visualizza una schermata che gli permette di reimpostare la propria password.
 
 Puoi presentare la tua propria pagina di post-reimpostazione della password:
 
-1. Passa alla scheda **Custom Landing Pages** del dashboard {{site.data.keyword.appid_short_notm}}.
-2. Immetti l'URL per la tua pagina di destinazione in **URL for your custom reset password page**  
+1. Configura le tue [impostazioni](cloud-directory.html#cd-settings) di Cloud Directory nella GUI. **Allow users to manage their account from your app** deve essere impostato su **On**.
+2. Nella scheda **Reset Password** del dashboard del servizio, assicurati che **Forgot password email** sia impostato su **On**.
+3. Immetti l'URL per la tua pagina di destinazione in **URL for your custom reset password page**  
 
 Quando viene fornito questo valore, {{site.data.keyword.appid_short_notm}} richiama l'URL insieme a una query `context`. Il parametro `context` è utilizzato per ricevere il risultato quando viene richiamato `/forgot_password/confirmation_result`. Se il risultato ha esito positivo, puoi visualizzare la tua pagina personalizzata.
 
@@ -458,10 +221,10 @@ Aggiungi una stringa casuale alla pagina di reimpostazione della password person
 
 Puoi utilizzare l'endpoint `/change_password` in due modi. Quando un utente invia una richiesta di reimpostazione o quando un utente ha effettuato l'accesso alla tua applicazione e vuole aggiornare la propria password.
 
-Fornisci i seguenti dati nel corpo della richiesta per aggiornare la password dopo una richiesta di reimpostazione: 
+Fornisci i seguenti dati nel corpo della richiesta per aggiornare la password dopo una richiesta di reimpostazione:
   * Il tuo ID tenant.
   * La nuova password dell'utente.
-  * L'UUID utente di Cloud Directory.
+  * L'UUID utente Cloud Directory.
   * Facoltativo: l'indirizzo IP da cui è stata eseguita la reimpostazione della password. Se scegli di passare l'indirizzo IP, è disponibile il segnaposto `%{passwordChangeInfo.ipAddress}` per il template di email di modifica della password.
 
 A seconda della tua configurazione, quando una password viene modificata {{site.data.keyword.appid_short_notm}} potrebbe inviare un'email all'utente facendogli sapere che c'è stata una modifica.
@@ -472,7 +235,7 @@ Per consentire agli utenti di modificare la loro password mentre sono connessi a
 Fornisci i seguenti dati nel corpo della richiesta:
   * Il tuo ID tenant.
   * La nuova password dell'utente.
-  * L'UUID utente di Cloud Directory.
+  * L'UUID utente Cloud Directory.
 
 La tua pagina di modifica della password dovrebbe richiedere all'utente di immettere la password corrente e la nuova password.
 {: tip}
@@ -487,8 +250,7 @@ Puoi utilizzare `/resend/{templateName}` per inviare nuovamente un'email quando 
 Fornisci i seguenti dati nel corpo della richiesta:
   * L'ID tenant.
   * Il nome del template.
-  * L'UUID utente di Cloud Directory.
-
+  * L'UUID utente Cloud Directory.
 
 **Modifica dettagli**
 

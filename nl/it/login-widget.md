@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-09"
+lastupdated: "2018-12-19"
 
 ---
 
@@ -10,55 +10,45 @@ lastupdated: "2018-08-09"
 {:screen: .screen}
 {:tip: .tip}
 {:pre: .pre}
-{:new_window: target="blank"}
+{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 
 
-# Visualizzazione delle schermate predefinite
-{: #default}
+# Visualizzazione del widget di accesso
+{: #login-widget}
 
-{{site.data.keyword.appid_full}} fornisce un widget di accesso che ti consente di fornire ai tuoi utenti opzioni di accesso sicuro.
+{{site.data.keyword.appid_full}} fornisce un widget di accesso che ti consente di fornire ai tuoi utenti delle opzioni di accesso sicure.
 {: shortdesc}
 
-Quando la tua applicazione è configurata per utilizzare un provider di identità, i visitatori della tua applicazione vengono indirizzati a una schermata di accesso dal widget di accesso. Come impostazione predefinita, quando è impostato su **On** un solo provider, i visitatori vengono reindirizzati alla schermata di autenticazione di quel provider di identità. Con il widget di accesso puoi visualizzare una schermata di accesso predefinita oppure, con Cloud Directory, puoi riutilizzare le tue IU esistenti. E, come bonus aggiunto, puoi aggiornare il tuo flusso di accesso in qualsiasi momento, senza modificare il codice sorgente in alcun modo! 
-
-
-Il servizio utilizza i tipi di concessione OAuth 2 per associare il processo di autorizzazione. Quando configuri i provider di identità sociali come Facebook, viene utilizzato il [flusso Oauth2 Authorization Grant](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html) per richiamare il widget di accesso.
+Quando la tua applicazione è configurata per utilizzare un provider di identità, i visitatori della tua applicazione vengono indirizzati a una schermata di accesso dal widget di accesso. Con il widget di accesso, puoi visualizzare le schermate preconfigurate per i tuoi flussi di accesso. Come bonus, puoi aggiornare il tuo flusso di accesso in qualsiasi momento senza modificare il tuo codice di origine in alcun modo. 
 
 Vuoi creare un'esperienza che sia unica per la tua applicazione? Puoi [portare i tuoi schermi](/docs/services/appid/branded.html)!
 {: tip}
 
+## Descrizione del widget di accesso
+{: #understanding}
 
-## Personalizzazione della schermata di accesso predefinita
-{: #login-widget}
-
-Puoi personalizzare la schermata di accesso preconfigurata per visualizzare il logo e i colori che preferisci.
+Puoi avvalerti di {{site.data.keyword.appid_short_notm}}, anche senza le tue schermate IU, visualizzando il widget di accesso.
 {: shortdesc}
 
-Per personalizzare la schermata:
+**Qual è il valore predefinito?**
 
-1. Apri il dashboard del servizio {{site.data.keyword.appid_short_notm}}.
-2. Seleziona la sezione **Login Customization**. Puoi modificare l'aspetto del widget di accesso per allinearlo al marchio della tua azienda.
-3. Carica il tuo logo aziendale selezionando un file PNG o JPG dal tuo sistema locale. La dimensione dell'immagine raccomandata è 320 x 320 pixel. La dimensione del file massima è 100 Kb.
-4. Seleziona un colore di intestazione per il widget dal selezionatore del colore o immetti il codice esadecimale per un altro colore.
-5. Controlla il pannello dell'anteprima e fai clic su **Save Changes** quando sei soddisfatto delle tue personalizzazioni. Viene visualizzato un messaggio di conferma.
-6. Nel tuo browser, aggiorna la pagina di accesso per verificare le tue modifiche.
+Quando viene configurato più di un provider di identità, un utente viene reindirizzato al widget di accesso quando tenta di accedere alla tua applicazione. Utilizzando il widget di accesso, gli utenti possono scegliere il provider con cui vogliono verificare le proprie identità. Ma, quando solo un provider è impostato su **On**, i visitatori vengono reindirizzati alla schermata di autenticazione di quel provider di identità. 
 
+**Quante informazioni {{site.data.keyword.appid_short_notm}} ottiene da un provider di identità?**
 
-## Pianificazione di quali schermi visualizzare
-{: #plan}
+Quando utilizzi i provider di identità aziendali o social, {{site.data.keyword.appid_short_notm}} ha l'accesso in lettura alle informazioni sull'account degli utenti. Il servizio utilizza un token e le asserzioni restituite dal provider di identità per verificare se un utente è chi dice di essere. Poiché il servizio non ha mai l'accesso in scrittura alle informazioni, gli utenti devono utilizzare il provider di identità di loro scelta per effettuare delle azioni, come il ripristino della propria password. Ad esempio, se un utente accede alla tua applicazione con Facebook e poi volesse modificare la propria password, deve andare all'indirizzo www.facebook.com per farlo.
 
-{{site.data.keyword.appid_short_notm}} fornisce una schermata di accesso predefinita che puoi richiamare se non disponi di schermate dell'IU da visualizzare.
-{: shortdesc}
+Quando utilizzi [Cloud Directory](/docs/services/appid/cloud-directory.html), {{site.data.keyword.appid_short_notm}} è il provider di identità. Il servizio utilizza il tuo registro per verificare l'identità dei tuoi utenti. Poiché {{site.data.keyword.appid_short_notm}} è il provider, gli utenti possono avvalersi della funzionalità avanzata, come il ripristino delle loro password, direttamente nella tua applicazione.
 
-A seconda della configurazione del tuo provider di identità, le schermate che puoi visualizzare sono diverse. Il servizio non fornisce funzionalità avanzate per i provider di identità sociali perché non abbiamo mai accesso alle informazioni sugli account utente. Gli utenti devono andare nel provider di identità per gestire le loro informazioni. Ad esempio, se volessero cambiare la loro password di Facebook, dovrebbero andare su www.facebook.com.
+**Quale tipo di schermate possono essere visualizzate per ogni tipo di provider?**
 
 Controlla la seguente tabella per vedere quali schermate puoi visualizzare per ciascun tipo di provider di identità.
 
 <table>
   <thead>
     <tr>
-      <th>Schermata di visualizzazione</th>
+      <th>Schermata del widget di accesso</th>
       <th>Provider di identità sociale</th>
       <th>Provider di identità aziendale</th>
       <th>Cloud Directory</th>
@@ -98,153 +88,187 @@ Controlla la seguente tabella per vedere quali schermate puoi visualizzare per c
   </tbody>
 </table>
 
-Dopo aver configurato le impostazioni per i [provider di identità sociali](/docs/services/appid/identity-providers.html) e [Cloud Directory](/docs/services/appid/cloud-directory.html), fai clic sul linguaggio che preferisci nella seguente immagine per iniziare a implementare il codice.
-
-
-Fai clic sull'immagine per utilizzare uno degli SDK forniti o le API. Non dimenticare che puoi trarre vantaggio dall'ID applicazione anche con altre lingue. Utilizzando le nostre API, puoi impostare una directory cloud in qualsiasi applicazione. Per assistenza con le lingue non elencate nell'immagine, consulta i <a href="https://www.ibm.com/blogs/bluemix/tag/app-id/" target="_blank">nostri blog<img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a>.
-{: shortdesc}
-
+</br>
 </br>
 
-## Visualizzazione delle schermate predefinite con l'SDK Android
+## Personalizzazione del widget di accesso
+{: #customize}
+
+{{site.data.keyword.appid_short_notm}} fornisce una schermata di accesso predefinita che puoi richiamare se non disponi di schermate dell'IU da visualizzare. Puoi personalizzare la schermata per visualizzare il logo e i colori che preferisci.
+{: shortdesc}
+
+Per personalizzare la schermata:
+
+1. Apri il dashboard del servizio {{site.data.keyword.appid_short_notm}}.
+2. Seleziona la sezione **Login Customization**. Puoi modificare l'aspetto del widget di accesso per allinearlo al marchio della tua azienda.
+3. Carica il tuo logo aziendale selezionando un file PNG o JPG dal tuo sistema locale. La dimensione dell'immagine raccomandata è 320 x 320 pixel. La dimensione del file massima è 100 Kb.
+4. Seleziona un colore di intestazione per il widget dal selezionatore del colore o immetti il codice esadecimale per un altro colore.
+5. Controlla il pannello dell'anteprima e fai clic su **Save Changes** quando sei soddisfatto delle tue personalizzazioni. Viene visualizzato un messaggio di conferma.
+6. Nel tuo browser, aggiorna la pagina di accesso per verificare le tue modifiche.
+
+Importante! Puoi trarre vantaggio da {{site.data.keyword.appid_short_notm}} anche con altri linguaggi. Se non vedi un SDK per il linguaggio con cui stai lavorando, puoi sempre utilizzare le API. Consulta i <a href="https://www.ibm.com/blogs/bluemix/tag/app-id/" target="blank">nostri blog<img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a>.
+{: tip}
+
+
+## Visualizzazione del widget di accesso con l'SDK Android
 {: #android}
 
-Puoi richiamare le schermate preconfigurate con l'SDK Android.
+Puoi richiamare le schermate preconfigurate con l'[SDK client Android](https://github.com/ibm-cloud-security/appid-clientsdk-android).
 {: shortdesc}
 
-</br>
+Inserisci il seguente comando nel tuo codice.
 
-**Accedi**
-1. Inserisci il seguente comando nel tuo codice.
-    ```java
-    LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
-    loginWidget.launch(this, new AuthorizationListener() {
-          @Override
+  ```java
+  LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
+  loginWidget.launch(this, new AuthorizationListener() {
+        @Override
         public void onAuthorizationFailure (AuthorizationException exception) {
-            //Si è verificata un'eccezione
-      }
+          //Si è verificata un'eccezione
+        }
 
-          @Override
+        @Override
         public void onAuthorizationCanceled () {
-            //Autenticazione annullata dall'utente
+          //Autenticazione annullata dall'utente
         }
 
-          @Override
+        @Override
           public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, refreshToken: RefreshToken) {
-            //Utente autenticato
+          //Utente autenticato
         }
-        });
-    ```
-  {: pre}
+      });
+  ```
+{: codeblock}
 
 </br>
+
 **Registrati**
 
-1. Imposta **Allow users to sign up and reset their password** su **On** nelle impostazioni di Cloud Directory.
-2. Richiama LoginWidget per avviare il flusso di registrazione.
+1. Configura le tue [impostazioni](cloud-directory.html#cd-settings) di Cloud Directory nella GUI. Sia **Allow users to sign up to your app** che **Allow users to manage their account from your app** devono essere impostati su **On**.
+2. Aggiungi il seguente codice alla tua applicazione. Quando un utente si registra alla tua applicazione dalla tua schermata personalizzata, viene avviato il flusso di registrazione. La seguente chiamata non solo registra l'utente, ma può anche inviare un'email di verifica per completare la registrazione, a seconda delle tue configurazioni Cloud Directory.
+
   ```java
   LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
   loginWidget.launchSignUp(this, new AuthorizationListener() {
-  		 @Override
-          public void onAuthorizationFailure (AuthorizationException exception) {
+      @Override
+        public void onAuthorizationFailure (AuthorizationException exception) {
+          //Si è verificata un'eccezione
+      }
+
+      @Override
+        public void onAuthorizationCanceled () {
+          //Registrazione annullata dall'utente
+      }
+
+      @Override
+          public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, RefreshToken refreshToken) {
+          if (accessToken != null && identityToken != null) {
+              //Utente autenticato
+          } else {
+              //la verifica email è richiesta
           }
-
-  		 @Override
-          public void onAuthorizationCanceled () {
-          }
-
-  		 @Override
-  		 public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, refreshToken: RefreshToken) {
-  			 if (accessToken != null && identityToken != null) {
-  			 } else {
-  			 }
-
-  		 }
-  	 });
+      }
+  });
   ```
   {: pre}
 
 </br>
+
 **Password dimenticata**
 
-1. Imposta **Allow users to sign up and reset their password** e **Forgot password email** su **On** nelle impostazioni di Cloud Directory.
-2. Richiama LoginWidget per avviare il flusso della password dimenticata.
-    ```java
-    LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
+1. Configura le tue [impostazioni](cloud-directory.html#cd-settings) di Cloud Directory nella GUI. **Allow users to manage their account from your app** deve essere impostato su **On**.
+2. Nella scheda **Reset Password** del dashboard del servizio, assicurati che **Forgot password email** sia impostato su **On**.
+3. Aggiungi il seguente codice alla tua applicazione. Quando un utente fa clic su "forgot password" nella tua applicazione, l'SDK richiama l'API forgot_password per inviare un'email all'utente per consentirgli di ripristinare la propria password.
+
+  ```java
+  LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
     loginWidget.launchForgotPassword(this, new AuthorizationListener() {
-   			 @Override
+      @Override
         public void onAuthorizationFailure (AuthorizationException exception) {
-   			 }
+          //Si è verificata un'eccezione
+      }
 
-   			 @Override
+      @Override
         public void onAuthorizationCanceled () {
-   			 }
+          // Password dimenticata annullata dall'utente
+      }
 
-   			 @Override
-   			 public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, refreshToken: RefreshToken) {
-   			 }
-   		 });
-    ```
-    {: pre}
+      @Override
+          public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, RefreshToken refreshToken) {
+          // Password dimenticata terminato, in questo caso accessToken e identityToken saranno null.
+      }
+  });
+  ```
+  {: codeblock}
 
 </br>
-**Dettagli account**
 
-1. Imposta **Allow users to sign up and reset their password** su **On** nelle impostazioni di Cloud Directory.
-2. Richiama LoginWidget per avviare il flusso di modifica dei dettagli.
-   ```java
-   LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
+**Modifica dettagli**
+
+1. Configura le tue [impostazioni](cloud-directory.html#cd-settings) di Cloud Directory nella GUI. Sia **Allow users to sign up to your app** che **Allow users to manage their account from your app** devono essere impostati su **On**.
+2. Nella scheda **Password changed** del dashboard del servizio, imposta **Password changed email** su
+3. Richiama il widget di accesso per avviare il flusso di modifica dei dettagli.
+
+  ```java
+  LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
    loginWidget.launchChangeDetails(this, new AuthorizationListener() {
-  			 @Override
-          public void onAuthorizationFailure (AuthorizationException exception) {
-          }
+      @Override
+        public void onAuthorizationFailure (AuthorizationException exception) {
+          //Si è verificata un'eccezione
+      }
 
-  			 @Override
-          public void onAuthorizationCanceled () {
-          }
+      @Override
+        public void onAuthorizationCanceled () {
+          // Dettagli modificati annullati dall'utente
+      }
 
-  			 @Override
-  			 public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, refreshToken: RefreshToken) {
-  			 }
-  		 });
-   ```
-   {: pre}
+      @Override
+          public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, RefreshToken refreshToken) {
+          // Utente autenticato e token di aggiornamento ricevuto
+      }
+  });
+  ```
+  {: codeblock}
 
 </br>
+
 **Modifica della password**
 
-1. Imposta **Allow users to sign up and reset their password** su **ON**, nelle impostazioni di Cloud Directory.
-2. Richiama LoginWidget per avviare il flusso di modifica della password.
-   ```java
-    LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
+1. Configura le tue [impostazioni](cloud-directory.html#cd-settings) di Cloud Directory nella GUI. Sia **Allow users to sign up to your app** che **Allow users to manage their account from your app** devono essere impostati su **On**.
+2. Inserisci il seguente codice nella tua applicazione per avviare il flusso di modifica della password.
+
+  ```java
+  LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
     loginWidget.launchChangePassword(this, new AuthorizationListener() {
-   			 @Override
-          public void onAuthorizationFailure (AuthorizationException exception) {
-          }
+      @Override
+        public void onAuthorizationFailure (AuthorizationException exception) {
+          //Si è verificata un'eccezione
+      }
 
-   			 @Override
-          public void onAuthorizationCanceled () {
-          }
+      @Override
+        public void onAuthorizationCanceled () {
+          // Password modificata annullata dall'utente
+      }
 
-   			 @Override
-   			 public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, refreshToken: RefreshToken) {
-   			 }
-   		 });
-   ```
-   {: pre}
+      @Override
+          public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, RefreshToken refreshToken) {
+          // Utente autenticato e token di aggiornamento ricevuto
+      }
+  });
+  ```
+  {: codeblock}
+
+
 </br>
 </br>
 
-## Visualizzazione delle schermate predefinite con l'SDK iOS Swift
+## Visualizzazione del widget di accesso con l'SDK iOS Swift
 {: #ios-swift}
 
-Puoi richiamare le schermate preconfigurate con l'SDK iOS Swift.
+Puoi richiamare le schermate preconfigurate con l'[SDK client iOS Swift](https://github.com/ibm-cloud-security/appid-clientsdk-swift).
 {: shortdesc}
 
-</br>
-**Accedi**
+Inserisci il seguente comando nel tuo codice.
 
-1. Inserisci il seguente comando nel tuo codice.
   ```swift
   import BluemixAppID
   class delegate : AuthorizationDelegate {
@@ -263,17 +287,18 @@ Puoi richiamare le schermate preconfigurate con l'SDK iOS Swift.
 
   AppID.sharedInstance.loginWidget?.launch(delegate: delegate())
   ```
-  {: pre}
-
+  {: codeblock}
 
 </br>
+
 **Registrati**
 
-1. Imposta **Allow users to sign up and reset their password** su **On**, nelle impostazioni di Cloud Directory.
-2. Richiama LoginWidget per avviare il flusso di registrazione.
+1. Configura le tue [impostazioni](cloud-directory.html#cd-settings) di Cloud Directory nella GUI. Sia **Allow users to sign up to your app** che **Allow users to manage their account from your app** devono essere impostati su **On**.
+2. Inserisci il seguente codice nella tua applicazione. Quando un utente tenta di registrarsi alla tua applicazione, il widget di accesso viene richiamato e visualizza la tua pagina di registrazione personalizzata.
+
   ```swift
   class delegate : AuthorizationDelegate {
-    public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, refreshToken: RefreshToken?) {
+    public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, refreshToken: RefreshToken?, response:Response?) {
        if accessToken == nil && identityToken == nil {
         //la verifica email è richiesta
         return
@@ -292,16 +317,19 @@ Puoi richiamare le schermate preconfigurate con l'SDK iOS Swift.
 
   AppID.sharedInstance.loginWidget?.launchSignUp(delegate: delegate())
   ```
-  {: pre}
+  {: codeblock}
 
 </br>
+
 **Password dimenticata**
 
-1. Imposta **Allow users to sign up and reset their password** e **Forgot password email** su **On** nelle impostazioni di Cloud Directory.
-2. Richiama LoginWidget per avviare il flusso della password dimenticata.
+1. Configura le tue [impostazioni](cloud-directory.html#cd-settings) di Cloud Directory nella GUI. **Allow users to manage their account from your app** deve essere impostato su **On**.
+2. Nella scheda **Reset Password** del dashboard del servizio, assicurati che **Forgot password email** sia impostato su **On**.
+3. Inserisci il seguente codice nella tua applicazione. Quando uno degli utenti dell'applicazione richiede che la sua password venga aggiornata, viene richiamato il widget di accesso e si avvia il processo.
+
   ```swift
   class delegate : AuthorizationDelegate {
-     public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, refreshToken: RefreshToken?) {
+     public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, refreshToken: RefreshToken?, response:Response?) {
         //password dimenticata terminato, in questo caso accessToken e identityToken saranno null.
      }
 
@@ -316,217 +344,145 @@ Puoi richiamare le schermate preconfigurate con l'SDK iOS Swift.
 
   AppID.sharedInstance.loginWidget?.launchForgotPassword(delegate: delegate())
   ```
-  {: pre}
+  {: codeblock}
 
 </br>
-**Dettagli account**
 
-1. Imposta **Allow users to sign up and reset their password** su **On** nelle impostazioni di Cloud Directory.
-2. Richiama LoginWidget per avviare il flusso di modifica dei dettagli.
+**Modifica dettagli**
+
+1. Configura le tue [impostazioni](cloud-directory.html#cd-settings) di Cloud Directory nella GUI. Sia **Allow users to sign up to your app** che **Allow users to manage their account from your app** devono essere impostati su **On**.
+2. Nella scheda **Password changed** del dashboard del servizio, imposta **Password changed email** su
+3. Richiama il widget di accesso per avviare il flusso di modifica dei dettagli.
+
   ```swift
+  class delegate : AuthorizationDelegate {
+      public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, refreshToken: RefreshToken?, response:Response?) {
+         //Utente autenticato e token di aggiornamento ricevuto
+      }
 
-   class delegate : AuthorizationDelegate {
-       public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, refreshToken: RefreshToken?) {
-       }
+      public func onAuthorizationCanceled() {
+          //dettagli modificati annullati dall'utente
+      }
 
-       public func onAuthorizationCanceled() {
-     }
-
-       public func onAuthorizationFailure(error: AuthorizationError) {
-     }
-   }
+      public func onAuthorizationFailure(error: AuthorizationError) {
+          //Si è verificata un'eccezione
+      }
+  }
 
    AppID.sharedInstance.loginWidget?.launchChangeDetails(delegate: delegate())
   ```
-  {: pre}
+  {: codeblock}
 
 </br>
+
 **Modifica della password**
 
-1. Imposta **Allow users to sign up and reset their password** su **On** nelle impostazioni di Cloud Directory.
-2. Richiama LoginWidget per avviare il flusso di modifica della password.
+1. Configura le tue [impostazioni](cloud-directory.html#cd-settings) di Cloud Directory nella GUI. Sia **Allow users to sign up to your app** che **Allow users to manage their account from your app** devono essere impostati su **On**.
+2. Inserisci il seguente codice nella tua applicazione per avviare il flusso di modifica della password.
+
   ```swift
-   class delegate : AuthorizationDelegate {
-       public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, refreshToken: RefreshToken?) {
-       }
+  class delegate : AuthorizationDelegate {
+      public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, refreshToken: RefreshToken?, response:Response?) {
+          //Utente autenticato e token di aggiornamento ricevuto
+      }
 
-       public func onAuthorizationCanceled() {
-     }
+      public func onAuthorizationCanceled() {
+          //password modificata annullata dall'utente
+      }
 
-       public func onAuthorizationFailure(error: AuthorizationError) {
-     }
-    }
+      public func onAuthorizationFailure(error: AuthorizationError) {
+           //Si è verificata un'eccezione
+      }
+   }
 
     AppID.sharedInstance.loginWidget?.launchChangePassword(delegate: delegate())
   ```
-  {: pre}
+  {: codeblock}
+
 </br>
 </br>
 
-## Visualizzazione delle schermate predefinite con l'SDK Node.js
+## Visualizzazione del widget di accesso con l'SDK Node.js
 {: #nodejs}
 
-Puoi richiamare le schermate preconfigurate con l'SDK Node.js.
+Puoi richiamare le schermate preconfigurate con l'[SDK server Node.js](https://github.com/ibm-cloud-security/appid-serversdk-nodejs).
 {: shortdesc}
 
-</br>
-**Accedi**
-1. Imposta Cloud Directory su **On** nelle impostazioni del tuo provider di identità e specifica un endpoint di callback.
-2. Aggiungi una rotta post alla tua applicazione che può essere richiamata con i parametri password e nome utente e accedi utilizzando la password del proprietario della risorsa.
-    ```javascript
-    app.post("/form/submit", bodyParser.urlencoded({extended: false}), passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
-    	successRedirect: LANDING_PAGE_URL,
+Aggiungi una rotta post alla tua applicazione che può essere richiamata con i parametri password e nome utente e accedi utilizzando la password del proprietario della risorsa.
+
+  ```javascript
+  app.post("/form/submit", bodyParser.urlencoded({extended: false}), passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
+  	successRedirect: LANDING_PAGE_URL,
     	failureRedirect: ROP_LOGIN_PAGE_URL,
     	failureFlash : true // consenti messaggi flash
     }));
-    ```
-    {: pre}
-    `WebAppStrategy` consente agli utenti di accedere alle tue applicazioni web con un nome utente e una password. Dopo un accesso riuscito, il token di accesso di un utente viene memorizzato nella sessione HTTP ed è disponibile durante la sessione. Una volta eliminata o scaduta la sessione HTTP, il token non è più valido.
-    {: tip}
+  ```
+  {: codeblock}
+
+`WebAppStrategy` consente agli utenti di accedere alle tue applicazioni web con un nome utente e una password. Dopo un accesso riuscito, il token di accesso di un utente viene memorizzato nella sessione HTTP ed è disponibile durante la sessione. Una volta eliminata o scaduta la sessione HTTP, il token non è più valido.
+{: tip}
 
 </br>
+
 **Registrati**
 
-1. Imposta **Allow users to sign up and reset their password** su **On** nelle impostazioni di Cloud Directory. Se impostato su no, il processo termina senza richiamare i token di accesso e di identità.
-2. Passa la proprietà WebAppStrategy `show`e impostala su `WebAppStrategy.SIGN_UP`.
+1. Configura le tue [impostazioni](cloud-directory.html#cd-settings) di Cloud Directory nella GUI. Sia **Allow users to sign up to your app** che **Allow users to manage their account from your app** devono essere impostati su **On**.
+2. Inserisci il seguente codice nella tua applicazione. Quando un utente tenta di registrarsi alla tua applicazione, il widget di accesso viene richiamato e visualizza la tua pagina di registrazione personalizzata.
+
   ```javascript
   app.get("/sign_up", passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
   	successRedirect: LANDING_PAGE_URL,
   	show: WebAppStrategy.SIGN_UP
   }));
   ```
-  {: pre}
+  {: codeblock}
 
 </br>
+
 **Password dimenticata**
 
-1. Imposta **Allow users to sign up and reset their password** e **Forgot password email** su **ON** nelle impostazioni di Cloud Directory. Se impostato su no, il processo termina senza richiamare i token di accesso e di identità.
-2. Passa la proprietà WebAppStrategy `show`e impostala su `WebAppStrategy.FORGOT_PASSWORD`.
+1. Configura le tue [impostazioni](cloud-directory.html#cd-settings) di Cloud Directory nella GUI. **Allow users to manage their account from your app** deve essere impostato su **On**.
+2. Nella scheda **Reset Password** del dashboard del servizio, assicurati che **Forgot password email** sia impostato su **On**.
+3. Inserisci il seguente codice nella tua applicazione per passare la proprietà *show* a `WebAppStrategy.FORGOT_PASSWORD`. Quando un utente richiede che la sua password della tua applicazione venga aggiornata, viene richiamato il widget di accesso e si avvia il processo.
+
   ```javascript
   app.get("/forgot_password", passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
   	successRedirect: LANDING_PAGE_URL,
   	show: WebAppStrategy.FORGOT_PASSWORD
   }));
   ```
-  {: pre}
+  {: codeblock}
 
 </br>
-**Dettagli account**
-1. Imposta **Allow users to sign up and reset their password** su **On** nelle impostazioni di Cloud Directory
-2. Passa la proprietà WebAppStrategy `show`e impostala su `WebAppStrategy.CHANGE_DETAILS`.
+
+**Modifica dettagli**
+
+1. Configura le tue [impostazioni](cloud-directory.html#cd-settings) di Cloud Directory nella GUI. Sia **Allow users to sign up to your app** che **Allow users to manage their account from your app** devono essere impostati su **On**.
+2. Nella scheda **Password changed** del dashboard del servizio, imposta **Password changed email** su
+3. Inserisci il seguente codice nella tua applicazione per passare la proprietà *show* a `WebAppStrategy.FORGOT_PASSWORD` per avviare il modulo dei dettagli della modifica. 
+
   ```javascript
   app.get("/change_details", passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
   	successRedirect: LANDING_PAGE_URL,
   	show: WebAppStrategy.CHANGE_DETAILS
   }));
   ```
-  {: pre}
+  {: codeblock}
 
 </br>
+
 **Modifica della password**
-1. Imposta **Allow users to sign up and reset their password** su **On** nelle impostazioni di Cloud Directory.
-2. Passa la proprietà WebAppStrategy `show`e impostala su `WebAppStrategy.CHANGE_PASSWORD`.
+
+1. Configura le tue [impostazioni](cloud-directory.html#cd-settings) di Cloud Directory nella GUI. Sia **Allow users to sign up to your app** che **Allow users to manage their account from your app** devono essere impostati su **On**.
+2. Nella scheda **Password changed** del dashboard del servizio, imposta **Password changed email** su
+3. Inserisci il seguente codice nella tua applicazione per passare la proprietà *show* a `WebAppStrategy.FORGOT_PASSWORD` per avviare il modulo dei dettagli della modifica. 
+
   ```javascript
   app.get("/change_password", passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
   	successRedirect: LANDING_PAGE_URL,
   	show: WebAppStrategy.CHANGE_PASSWORD
   }));
   ```
-  {: pre}
-
-</br>
-</br>
-
-## Visualizzazione delle schermate predefinite con l'SDK Swift
-{: #swift}
-
-Con i provider di identità sociali abilitati, puoi richiamare la schermata di accesso preconfigurata con l'SDK Swift.
-{: shortdesc}
-
-1. Il seguente codice illustra come utilizzare WebAppKituraCredentialsPlugin in un'applicazione Kitura per proteggere l'endpoint `/protected`.
-
-  ```swift
-  import Foundation
-  import Kitura
-  import KituraSession
-  import Credentials
-  import SwiftyJSON
-  import BluemixAppID
-
-  // I seguenti URL saranno utilizzati per i flussi AppID OAuth
-  var LOGIN_URL = "/ibm/bluemix/appid/login"
-  var CALLBACK_URL = "/ibm/bluemix/appid/callback"
-  var LOGOUT_URL = "/ibm/bluemix/appid/logout"
-  var LANDING_PAGE_URL = "/index.html"
-
-  // Configurare Kitura per utilizzare il middleware della sessione
-  // Deve essere configurato con l'archivio della sessione corretto per gli ambienti
-  // di produzione. Consulta https://github.com/IBM-Swift/Kitura-Session per
-  // ulteriore documentazione
-  let router = Router()
-  let session = Session(secret: "Some secret")
-  router.all(middleware: session)
-
-  let options = [
-  	"clientId": "{client-id}",
-  	"secret": "{secret}",
-  	"tenantId": "{tenant-id}",
-  	"oauthServerUrl": "{oauth-server-url}",
-  	"redirectUri": "{app-url}" + CALLBACK_URL
-  ]
-  let webappKituraCredentialsPlugin = WebAppKituraCredentialsPlugin(options: options)
-  let kituraCredentials = Credentials()
-  kituraCredentials.register(plugin: webappKituraCredentialsPlugin)
-
-  // Endpoint di accesso esplicito
-  router.get(LOGIN_URL,
-  		   handler: kituraCredentials.authenticate(credentialsType: webappKituraCredentialsPlugin.name,
-  												   successRedirect: LANDING_PAGE_URL,
-  												   failureRedirect: LANDING_PAGE_URL
-  ))
-
-  // Callback per terminare il processo di autorizzazione. Richiamerà i token di identità e di accesso da AppID
-  router.get(CALLBACK_URL,
-  		   handler: kituraCredentials.authenticate(credentialsType: webappKituraCredentialsPlugin.name,
-  												   successRedirect: LANDING_PAGE_URL,
-  												   failureRedirect: LANDING_PAGE_URL
-  ))
-
-  // Disconnettere l'endpoint. Cancellare le informazioni di autenticazione dalla sessione
-  router.get(LOGOUT_URL, handler:  { (request, response, next) in
-  	kituraCredentials.logOut(request: request)
-  	webappKituraCredentialsPlugin.logout(request: request)
-  	_ = try? response.redirect(LANDING_PAGE_URL)
-  })
-
-  // Area protetta
-  router.get("/protected", handler: kituraCredentials.authenticate(credentialsType: webappKituraCredentialsPlugin.name), { (request, response, next) in
-      let appIdAuthContext:JSON? = request.session?[WebAppKituraCredentialsPlugin.AuthContext]
-      let identityTokenPayload:JSON? = appIdAuthContext?["identityTokenPayload"]
-
-      guard appIdAuthContext?.dictionary != nil, identityTokenPayload?.dictionary != nil else {
-          response.status(.unauthorized)
-          return next()
-      }
-
-      response.send(json: identityTokenPayload!)
-      next()
-  })
-  var port = 3000
-  if let portString = ProcessInfo.processInfo.environment["PORT"]{
-      port = Int(portString)!
-  }
-  print("Starting on \(port)")
-
-  // Aggiungi un server HTTP e collegalo al router
-  Kitura.addHTTPServer(onPort: port, with: router)
-
-  // Avvia il runloop Kitura (questa chiamata non viene mai restituita)
-  Kitura.run()
-  ```
   {: codeblock}
+
 </br>
-</br>
-
-
-

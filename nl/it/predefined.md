@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-08"
+lastupdated: "2018-11-19"
 
 ---
 
@@ -12,10 +12,10 @@ lastupdated: "2018-08-08"
 {:tip: .tip}
 {:screen: .screen}
 
-# Accesso alle informazioni utente predefinite
+# Attributi dell'utente predefiniti
 {: #predefined}
 
-Puoi visualizzare le informazioni specifiche del provider di identità dei tuoi utenti.
+Con {{site.data.keyword.appid_full}}, puoi visualizzare le informazioni specifiche del provider di identità dei tuoi utenti.
 {: shortdesc}
 
 
@@ -147,7 +147,6 @@ userProfileManager.getUserInfo(accessToken: accessToken) { (err, userInfo) in
 	}
 	// informazioni utente richiamate correttamente
 }
-
 ```
 {: pre}
 
@@ -160,7 +159,7 @@ Puoi visualizzare ulteriori informazioni tramite l'endpoint `/userinfo`.
 
 1. Assicurarti di disporre di un token di accesso valido con un ambito `openid`. Puoi verificare che il token è valido utilizzando l'endpoint `/introspect`.
 
-2. Esegui una richiesta all'endpoint `/userinfo`.
+2. Esegui una richiesta all'endpoint [`/userinfo`](https://appid-oauth.ng.bluemix.net/swagger-ui/#!/Authorization_Server_V3/userInfo).
   ```
   GET [POST] https://{oauth-server-endpoint}/userinfo
   Authorization: 'Bearer {ACCESS_TOKEN}'

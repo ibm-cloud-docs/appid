@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-27"
+lastupdated: "2018-12-19"
 
 ---
 
@@ -10,7 +10,6 @@ lastupdated: "2018-06-27"
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
-
 
 
 #  Configurazione di un server di sviluppo locale per utilizzare {{site.data.keyword.appid_short_notm}}
@@ -23,7 +22,7 @@ Puoi configurare il tuo ambiente locale per utilizzare il servizio {{site.data.k
 ## Prima di cominciare
 {: #begin}
 
-Assicurati di aver installato l'[SDK server](/docs/services/appid/install.html#nodejs-setup).
+Installa l'[SDK server](web-apps.html).
 
 
 ## Configurazione delle applicazioni {{site.data.keyword.appid_short_notm}} per lavorare con un server di sviluppo locale
