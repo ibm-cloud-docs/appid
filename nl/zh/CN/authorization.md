@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-06"
+lastupdated: "2018-12-19"
 
 ---
 
@@ -12,15 +12,19 @@ lastupdated: "2018-08-06"
 {:codeblock: .codeblock}
 {:tip: .tip}
 
-# 授权和认证
-{: #authorization}
 
-借助 {{site.data.keyword.appid_full}}，用户可以利用令牌和授权过滤器确保应用程序受到保护。身份提供者必须对用户身份进行认证，用户才能够向应用程序授权。
+
+
+# 重要概念
+{: #key-concepts}
+
+搞不清楚授权与认证的区别？搞不清的不止您一人。请查看此页面上的信息以了解特定术语、流程以及服务使用令牌的方式。
 {: shortdesc}
 
 
-## 重要概念
-{: #key-concepts}
+## 术语
+{: #terms}
+
 
 这些关键术语可以帮助您了解服务划分认证和验证流程的方式。
 
@@ -63,7 +67,8 @@ lastupdated: "2018-08-06"
     </table>
     <p><strong>注</strong>：使用 SDK 时，将自动构建端点 URL。</p></dd>
   <dt>令牌</dt>
-    <dd>服务使用三种不同类型的令牌来提供认证。访问令牌表示授权，并且支持与受 {{site.data.keyword.appid_short}} 设置的授权过滤器所保护的[后端资源](/docs/services/appid/protecting-resources.html)通信。身份令牌表示认证并包含关于用户的信息。刷新令牌是具有扩展有效期的访问令牌。通过使用刷新令牌，用户可以允许应用程序记住其信息。这样他们就可以保持登录。</dd>
+    <dd>服务使用三种不同类型的令牌。访问令牌表示授权，并且支持与受 {{site.data.keyword.appid_short}} 设置的授权过滤器所保护的[后端资源](/docs/services/appid/backend-apps.html)通信。身份令牌表示认证并包含关于用户的信息。可以使用刷新令牌来获取新的访问令牌，而无需重新认证该用户。通过使用刷新令牌，用户可以允许应用程序记住其信息。这样他们就可以保持登录。有关令牌及其在 {{site.data.keyword.appid_short}} 中的使用方式的更多信息，请查看[验证令牌](tokens.html#remote-validation)。
+  </dd>
   <dt>授权头</dt>
     <dd><p>{{site.data.keyword.appid_short}} 符合<a href="https://tools.ietf.org/html/rfc6750" target="blank">令牌持有者规范 <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a>，并且组合使用作为 HTTP 授权头发送的访问令牌和身份令牌。授权头包含以空格分隔的三个不同部分。这些令牌采用 Base64 编码。身份令牌是可选的。</br>
     示例：</p>
@@ -79,32 +84,113 @@ lastupdated: "2018-08-06"
 </dl>
 
 </br>
+</br>
 
-## 流程运行方式
-{: #process}
 
-在进行应用程序编码时，一个最重要的问题就是安全性。如何确保只有拥有正确访问权限的用户才能使用应用程序？使用授权流程。在大多数流程中，授权和认证一起进行耦合，这会让更改安全策略和身份提供者变得复杂。利用 {{site.data.keyword.appid_short}}，可以将授权和认证分为不同的流程。
+## 了解令牌
+{: #tokens}
+
+成功认证用户后，应用程序将从 {{site.data.keyword.appid_short_notm}} 接收令牌。服务使用三种主要类型的令牌来完成认证流程。
 {: shortdesc}
 
-在配置社交身份提供者（如 Facebook）时，会使用 [Oauth2 授权流程](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html)来调用登录窗口小部件。利用 Cloud Directory 作为身份提供者，会使用[资源所有者密码凭证流程](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/password.html)来提供访问令牌和身份令牌。
 
-![成为已识别用户的途径。](/images/authenticationtrail.png)
+**什么是访问令牌？**
 
-当用户选择登录时，他们将成为已识别用户。身份提供者将访问令牌和身份令牌返回到包含用户相关信息的 {{site.data.keyword.appid_short}}。该服务接收提供的令牌，并确定用户有没有可访问应用程序的正确凭证。如果令牌通过了验证，那么该服务会授权用户进行访问。用户获得授权后，认证信息与用户的记录相关联。该记录及其属性还可由使用相同身份进行认证的任何客户端再次访问。
+访问令牌表示授权，并且支持与受 {{site.data.keyword.appid_short}} 设置的授权过滤器所保护的[后端资源](/docs/services/appid/backend-apps.html)通信。访问令牌符合 JavaScript 对象签名和加密 (JOSE) 规范。令牌的格式为 <a href="https://jwt.io/introduction/" target="blank">JSON Web 令牌 <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a>，并通过使用 RS256 算法的 JSON Web 密钥对令牌签名。
 
-### 渐进式认证
 
-利用 {{site.data.keyword.appid_short_notm}}，匿名用户可以选择成为已识别用户。
+示例令牌：
+  ```
+  Header: {
+      "typ": "JOSE",
+      "alg": "RS256",
+  }
+  Payload: {
+      "iss": "appid-oauth.ng.bluemix.net",
+      "exp": "1495562664",
+      "aud": "a3b87400-f03b-4956-844e-a52103ef26ba",
+      "amr": ["facebook"],
+      "sub": "de6a17d2-693d-4a43-8ea2-2140afd56a22",
+      "iat": "1495559064",
+      "tenant": "9781974b-6a1c-46c3-aebf-32b7e9bbbaee",
+      "scope": "appid_default appid_readprofile appid_readuserattr appid_writeuserattr",
+  ```
+  {: screen}
 
-但应如何操作呢？
+**什么是身份令牌？**
 
-如果用户选择不立即登录，就会被视为匿名用户。例如，用户无需登录就可以立即开始向购物车添加项目。对于匿名用户，{{site.data.keyword.appid_short_notm}} 会创建特别用户记录，并调用将返回匿名访问令牌和身份令牌的 OAuth 登录 API。通过使用这些令牌，应用程序可以创建、读取、更新和删除存储在用户记录中的属性。
+身份令牌表示认证并包含关于用户的信息。身份令牌可以为您提供有关用户的姓名、电子邮件、性别和位置的信息。令牌还可以返回用户图像的 URL。令牌的格式为 <a href="https://jwt.io/introduction/" target="blank">JSON Web 令牌 <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a>，并通过使用 RS256 算法的 JSON Web 密钥对令牌签名。
 
-![在以匿名用户身份启动时成为已识别用户的途径。](/images/anon-authenticationtrail.png)
 
-在匿名用户登录时，他们的访问令牌将会传递到登录 API。该服务会通过身份提供者认证调用。然后，该服务会使用访问令牌查找匿名记录并将身份附加到其中。新的访问令牌和身份令牌包含身份提供者共享的公共信息。识别用户之后，其匿名令牌将失效。不过，用户仍可访问其属性，因为使用新令牌即可访问。
+示例令牌：
+  ```
+  Header: {
+      "typ": "JOSE",
+      "alg": "RS256",
+  }
+  Payload: {
+      "iss": "appid-oauth.ng.bluemix.net",
+      "aud": "a3b87400-f03b-4956-844e-a52103ef26ba",
+      "exp: "1495562664",
+      "tenant": "9781974b-6a1c-46c3-aebf-32b7e9bbbaee",
+      "iat": "1495559064",
+      "name": "John Smith",
+      "email": "js@mail.com",
+      "gender", "male",
+      "locale": "en",
+      "picture": "<URL-to-photo>",
+      "sub": "de6a17d2-693d-4a43-8ea2-2140afd56a22",
+      "identities": [
+          "provider": "facebook"
+          "id": "377440159275659"
+      ],
+      "amr": ["facebook"],
+      "oauth_client":{
+        "name": "BluemixApp",
+        "type": "serverapp",
+        "software_id": "cb638f8f-e24b-41d3-b770-23be158dd8e6.2b94e6bb-bac4-4455-8712-a43fa804d5cc.a3b87400-f03b-4956-844e-a52103ef26ba",
+        "software_version": "1.0.0",
+      }
+  }
+  ```
+  {: screen}
 
-仅当尚未将身份分配给其他用户时，才能将其分配给匿名记录。
-{: tip}
+身份令牌仅包含部分用户信息。要查看身份提供者提供的所有信息，可以使用[用户信息端点](/docs/services/appid/predefined.html#api)。
 
-如果身份已经与其他 {{site.data.keyword.appid_short_notm}} 用户关联，那么令牌会包含该用户的记录信息，并提供对其属性的访问权。先前的匿名用户属性将无法通过新的令牌进行访问。在此令牌到期之前，仍可通过匿名访问令牌来访问这些信息。开发期间，您可以选择要如何将匿名属性合并到已知用户。
+**什么是刷新令牌？**
+
+{{site.data.keyword.appid_short}} 支持获取新访问令牌和身份令牌而不重新认证的功能，如 <a href="http://openid.net/specs/openid-connect-core-1_0.html#RefreshTokens" target="_blank">OIDC <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a> 中所定义。可以使用刷新令牌来更新访问令牌，这样用户就不必执行任何操作来登录，例如提供凭证。与访问令牌类似，刷新令牌也包含允许 {{site.data.keyword.appid_short_notm}} 确定您是否已获授权的数据。但是，这些令牌是不透明的。
+
+刷新令牌的生命周期配置为比常规访问令牌长，因此访问令牌到期时，刷新令牌仍将有效，并且可用于更新访问令牌。{{site.data.keyword.appid_short_notm}} 的刷新令牌可配置为持续 1 到 90 天。要充分利用刷新令牌，请在令牌完整生命周期内持久存储令牌，或者将令牌持久存储至更新为止。用户不能只使用刷新令牌来直接访问资源，因此持久存储刷新令牌比持久存储访问令牌更安全。最佳做法是，刷新令牌应由客户端安全地存储，客户端接收这些令牌，并仅将其发送到颁发令牌的授权服务器。
+
+为了使用更加方便，{{site.data.keyword.appid_short_notm}} 还会在更新访问令牌时，更新其刷新令牌及其到期日期，这允许用户保持登录状态，但条件是该用户在当前刷新令牌到期之前的某个时间点处于活动状态。另一方面，如果要使用刷新令牌，但强制用户定期登录，那么应用程序只能使用用户通过输入其凭证登录时返回的刷新令牌。但是，我们建议始终使用从 App ID 收到的最新刷新令牌，如 <a href="https://tools.ietf.org/html/rfc6749#page-47" target="_blank">Oauth 规范 <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a> 所述。
+
+
+尽管这些令牌可以简化登录过程，但应用程序不应依赖于这些令牌，因为令牌可以随时撤销，例如您认为刷新令牌已泄露时。如果需要撤销刷新令牌，有两种方法可撤销刷新令牌。如果您有刷新令牌，那么可以根据 <a href="https://tools.ietf.org/html/rfc7009#section-2" target="_blank">RFC7009 <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a> 来撤销刷新令牌。或者，如果您有用户标识，那么可以使用<a href="https://appid-management.ng.bluemix.net/swagger-ui/" target="_blank">管理 API <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a> 来撤销刷新令牌。有关访问管理 API 的更多信息，请参阅[管理服务访问权](iam.html#service-access-management)。
+
+有关使用刷新令牌以及如何使用这些刷新令牌来实现“记住我”功能的示例，请参阅[入门样本](index.html)。
+
+
+**令牌来自何处？**
+
+令牌是通过 {{site.data.keyword.appid_short_notm}} OAuth 服务器颁发的，并格式化为 [JSON Web 令牌 (JWT)](https://jwt.io/introduction/)。令牌已使用 RS256 算法通过 [JSON Web 密钥 (JWK)](https://tools.ietf.org/html/rfc7517) 签名。
+
+**会怎样处理令牌包含的信息？**
+
+访问令牌包含一组标准 JWT 声明和一组特定于 {{site.data.keyword.appid_short_notm}} 的声明，例如租户标识。身份令牌包含特定于用户的信息。令牌中的信息在[用户概要文件](/docs/services/appid/user-profile.html)中存储为声明。
+
+**如何接收令牌？**
+
+成功认证后，应用程序将接收到令牌。应用程序可以使用这些令牌来检索有关用户授权和认证的信息。访问令牌可用于通过向资源发送请求来获取对受保护资源的访问权。在请求中，访问令牌在[持有者认证方案](https://tools.ietf.org/html/rfc6750#page-5)中进行描述。要抽取令牌，应用程序必须解析头。
+
+示例请求：
+
+  ```
+  GET /resource HTTP/1.1
+  Host: server.example.com
+  Authorization: Bearer  mF_9.B5f-4.1JqM mF_9.B5f-4.1JqM
+  ```
+  {: screen}
+
+</br>
+</br>

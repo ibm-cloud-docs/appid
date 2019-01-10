@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-27"
+lastupdated: "2018-12-19"
 
 ---
 
@@ -10,7 +10,6 @@ lastupdated: "2018-06-27"
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
-
 
 
 #  配置本地开发服务器以用于 {{site.data.keyword.appid_short_notm}}
@@ -23,7 +22,7 @@ lastupdated: "2018-06-27"
 ## 开始之前
 {: #begin}
 
-确保[已安装服务器 SDK](/docs/services/appid/install.html#nodejs-setup)。
+安装[服务器 SDK](web-apps.html)。
 
 
 ## 将 {{site.data.keyword.appid_short_notm}} 应用程序配置为使用本地开发服务器

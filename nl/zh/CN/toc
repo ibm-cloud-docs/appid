@@ -1,37 +1,54 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="appid" audience="service" arm="2093952" href="/docs/services/appid/index.html"}
+{: .toc subcollection="appid" audience="service" arm="2093952" href="/docs/services/appid/index.html" path="services/appid"}
 IBM Cloud App ID
 
     {: .navgroup id="learn"}
     index.md
     about.md
     authorization.md
+    relatedlinks.md
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
-    install.md
+    {: .topicgroup}
+    向应用程序添加 App ID
+        web-apps.md
+        mobile-apps.md
+        backend-apps.md
+        custom-auth.md
+        progressive.md
+        protecting-resources-local.md
+        app-to-app.md
+        well-known.md
 
     {: .topicgroup}
     配置身份提供者
-        identity-providers.md
-        enterprise.md
+        manageidp.md
         cloud-directory.md
+        enterprise.md
+        identity-providers.md
+        custom.md
 
     {: .topicgroup}
     管理登录体验
         login-widget.md
         branded.md
 
-    protecting-resources.md
+    mfa.md
 
     {: .topicgroup}
     存储和访问用户概要文件
         user-profile.md
         predefined.md
         custom-attributes.md
-    protecting-resources-local.md
+        pre-sign-in.md
+
+    {: .topicgroup}
+    管理令牌
+        customizing-tokens.md
+        tokens.md
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
@@ -43,13 +60,13 @@ IBM Cloud App ID
 
     {: .topicgroup}
     SDK
-        [Android 客户机 SDK](https://github.com/ibm-cloud-security/appid-clientsdk-android)
-        [iOS Swift 客户机 SDK](https://github.com/ibm-cloud-security/appid-clientsdk-swift)
+        [Android 客户端 SDK](https://github.com/ibm-cloud-security/appid-clientsdk-android)
+        [iOS Swift 客户端 SDK](https://github.com/ibm-cloud-security/appid-clientsdk-swift)
         [Node.js 服务器 SDK](https://github.com/ibm-cloud-security/appid-serversdk-nodejs)
         [Swift 服务器 SDK](https://github.com/ibm-cloud-security/appid-serversdk-swift)
-    relatedlinks.md
     iam.md
     api-reference.md
+    at-events.md
     {: .navgroup-end}
 
     {: .navgroup id="help"}

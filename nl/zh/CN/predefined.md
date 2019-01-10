@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-08"
+lastupdated: "2018-11-19"
 
 ---
 
@@ -12,10 +12,10 @@ lastupdated: "2018-08-08"
 {:tip: .tip}
 {:screen: .screen}
 
-# 访问预定义的用户信息
+# 预定义的用户属性
 {: #predefined}
 
-您可以查看有关用户的特定于身份提供者的信息。
+通过 {{site.data.keyword.appid_full}}，您可以查看有关用户的特定于身份提供者的信息。
 {: shortdesc}
 
 
@@ -159,7 +159,7 @@ userProfileManager.getUserInfo(accessToken: accessToken) { (err, userInfo) in
 
 1. 请确保您具有范围为 `openid` 的有效访问令牌。您可以使用 `/introspect` 端点来验证令牌是否有效。
 
-2. 对 `/userinfo` 端点发出请求。
+2. 对 [`/userinfo` 端点](https://appid-oauth.ng.bluemix.net/swagger-ui/#!/Authorization_Server_V3/userInfo)发出请求。
   ```
   GET [POST] https://{oauth-server-endpoint}/userinfo
   Authorization: 'Bearer {ACCESS_TOKEN}'

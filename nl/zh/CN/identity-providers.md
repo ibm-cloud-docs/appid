@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-06"
+lastupdated: "2018-11-14"
 
 ---
 
@@ -12,32 +12,20 @@ lastupdated: "2018-08-06"
 {:codeblock: .codeblock}
 {: tip: .tip}
 
-# 配置社交身份提供者
+# 社交
 {: #setting-up-idp}
 
-身份提供者能够为移动和 Web 应用程序提供额外级别的认证。使用 {{site.data.keyword.appid_full}}，可以配置一个或多个身份提供者来为应用程序设置单点登录体验。
+通过 {{site.data.keyword.appid_full}}，可以配置一个或多个社交身份提供者来为应用程序设置单点登录体验。通过允许用户使用其社交概要文件登录，用户不必再记住用于不同应用程序的多个不同的密码。
 {: shortdesc}
+
 
 ## 缺省配置
 {: #default}
 
-{{site.data.keyword.appid_short_notm}} 提供了可帮助您完成身份提供者初始设置的缺省配置。
+{{site.data.keyword.appid_short_notm}} 提供了缺省配置，可帮助您快速启动并运行该服务。
 {: shortdesc}
 
 为 Facebook 和 Google 设置了缺省凭证。每个实例每天对凭证的使用次数只有 100 次。由于它们是 IBM 凭证，因此只能在开发方式下使用。在发布应用程序之前，请将配置更新为您自己的凭证。
-
-## 将您的重定向 URL 列入白名单
-{: #redirect}
-
-重定向 URL 是应用程序的回调端点。为防止钓鱼攻击，App ID 会针对重定向 URL 的白名单验证 URL。发生钓鱼攻击时，攻击者可能获取您的用户令牌的访问权。
-
-要将 URL 添加到白名单，请执行以下操作：
-
-1. 浏览到**身份提供者 > 管理**。
-2. 在**添加 Web 重定向 URL** 字段中，输入 URL 并单击 **+**。
-
-不要在 URL 中包含任何查询参数。在验证过程中将忽略这些参数。URL 示例：`http://host:[port]/path`
-{: tip}
 
 
 ## 配置 Facebook
@@ -54,7 +42,7 @@ lastupdated: "2018-08-06"
 2. 记录 Facebook 应用程序标识和私钥。在服务仪表板中配置 Web 项目进行认证时，需要这些值。
 3. 添加 Web 平台并输入站点 URL。
 4. 从产品列表中，选择 **Facebook 登录**。
-5. 在“有效的 OAuth 重定向 URL”字段中，输入授权服务器回调端点 URL。
+5. 在**有效的 OAuth 重定向 URL** 字段中，输入授权服务器回调端点 URL。
 6. 单击**保存更改**。
 
 
@@ -92,11 +80,11 @@ lastupdated: "2018-08-06"
 
 配置 Google 项目并获得客户端标识和私钥后，可以编辑服务仪表板来进行 Google 认证。
 
-1. 在服务仪表板的**管理**选项卡中，选择 **Google**，然后单击**编辑**。
+1. 在服务仪表板的**管理**页面中，选择 **Google**，然后单击**编辑**。
 2. 输入从 Google Developers Console 获取的客户端标识和私钥。
 3. 授权 {{site.data.keyword.appid_short}} URL。
     1. 从 Google 身份提供者详细信息中复制 **Google Developer Console 的重定向 URL**。
-    2. 在 Google 项目的凭证选项卡中，选择您为此集成创建的客户端标识。
+    2. 在 Google 项目的“凭证”页面上，选择您为此集成创建的客户端标识。
     3. 将 URL 从 {{site.data.keyword.appid_short}} 粘贴到**授权重定向 URI** 字段中，然后单击**保存**。
 4. 单击**保存**，以更新 {{site.data.keyword.appid_short}} 中的 Google 配置。
 5. 对于 Web 应用程序，请在**管理**选项卡中输入重定向 URL。授权过程完成后，用户将被发送到此 URL。URL 必须遵循 `http` 或 `https` 方案。要获取更高级别的安全性，请使用 `https` 方案。

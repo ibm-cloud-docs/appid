@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-08"
+lastupdated: "2018-10-15"
 
 ---
 
@@ -15,157 +15,42 @@ lastupdated: "2018-08-08"
 # 为应用程序添加品牌形象
 {: #branding}
 
-您可以显示自己的定制屏幕，并利用 {{site.data.keyword.appid_full}} 的认证和授权功能。利用 Cloud Directory 作为身份提供者，用户不需要多少帮助就可以与应用程序进行交互。用户无需寻求帮助就可以完成登录、注册、更改密码等操作。
+您可以显示自己的定制屏幕，使用自己的登录流程，并利用 {{site.data.keyword.appid_full}} 的认证和授权功能。通过将 Cloud Directory 用作身份提供者，用户不需要多少帮助就可以与应用程序进行交互。用户无需寻求帮助就可以完成登录、注册、更改密码等操作。
 {: shortdesc}
 
-当您使用自己的屏幕时，[资源所有者密码凭证流程](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/password.html)可用于提供访问令牌和身份令牌。
+**为什么要显示我自己的屏幕？**
 
-
-## 使用 iOS Swift SDK 来为应用程序添加品牌形象
-{: #branded-ui-ios-swift}
-
-在启用 Cloud Directory 的情况下，可以使用 iOS Swift SDK 来调用自己的品牌屏幕。
-{: shortdesc}
-
-</br>
-**登录**
-
-1. 在 GUI 的身份提供者选项卡中，将 Cloud Directory 设置为**开启**。
-2. 调用“登录”窗口小部件以开始登录流程。当用户尝试使用其用户名或电子邮件和密码登录时，会获取访问令牌和身份令牌。
-  ```swift
-  class delegate : TokenResponseDelegate {
-      public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, response:Response?) {
-      //User authenticated
-      }
-
-      public func onAuthorizationFailure(error: AuthorizationError) {
-      //Exception occurred
-        }
-
-        }
-
-  AppID.sharedInstance.signinWithResourceOwnerPassword(username: username, password: password, delegate: delegate())
-  ```
-  {: pre}
+复用现有 UI 时，您可为应用程序创建紧密结合的登录流程。通过使用相同的图像、颜色和品牌形象，用户更有可能识别到您的品牌，甚至在未直接与您的应用程序交互的情况下也是如此。
 
 </br>
 
-**注册**
+**显示我自己的屏幕需要哪种配置？**
 
-1. 在 GUI 上的身份提供者选项卡中，将 Cloud Directory 设置为**开启**。
-2. 在 Cloud Directory 的设置中，将**允许用户注册并重置密码**设置为**开启**。
-3. 调用“登录”窗口小部件以开始注册流程。
-  ```swift
-  class delegate : AuthorizationDelegate {
+要显示您自己的 UI，您必须将 [Cloud Directory(/docs/services/appid/cloud-directory.html)] 用作身份提供者。可通过多种不同的方式来[配置](cloud-directory.html) Cloud Directory。您可以决定要发送的消息类型，并定制相关内容和设计。不知道该怎么说？没问题。GUI 中有一些示例消息可供您使用。
 
-      public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, refreshToken: RefreshToken?, response:Response?) {
-       if accessToken == nil && identityToken == nil {
-        //email verification is required
-        return
-       }
-     //User authenticated
-      }
-
-      public func onAuthorizationCanceled() {
-          //Sign up canceled by the user
-    }
-
-    public func onAuthorizationFailure(error: AuthorizationError) {
-        //Exception occurred
-        }
-
-        }
-
-  AppID.sharedInstance.loginWidget?.launchSignUp(delegate: delegate())
-  ```
-  {: pre}
+要使用除英语之外的其他[语言](cloud-directory.html#languages)？您可以使用<a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/updateLocalization" target="_blank">语言管理 API <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a> 来选择其他语言，以显示您自己的已翻译内容。
+{: tip}
 
 </br>
 
-**忘记密码**
 
-1. 在 GUI 上的身份提供者选项卡中，将 Cloud Directory 设置为**开启**。
-2. 在 Cloud Directory 的设置中，将**允许用户注册并重置密码**设置为**开启**。
-3. 调用“登录”窗口小部件以开始忘记密码流程。
-  ```swift
-  class delegate : AuthorizationDelegate {
 
-      public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, refreshToken: RefreshToken?, response:Response?) {
-        //forgot password finished, in this case accessToken and identityToken will be null.
-     }
+**这些流程在技术上有何不同？**
 
-     public func onAuthorizationCanceled() {
-         //forgot password canceled by the user
-     }
-
-     public func onAuthorizationFailure(error: AuthorizationError) {
-         //Exception occurred
-        }
-
-        }
-
-  AppID.sharedInstance.loginWidget?.launchForgotPassword(delegate: delegate())
-  ```
-  {: pre}
+服务使用 OAuth2 授权流程来映射授权流程。配置社交身份提供者（例如 Facebook）时，<a href="https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html" target="_blank">授权流程 <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a> 用于调用登录窗口小部件。您使用自己的屏幕时，<a href="https://oauthlib.readthedocs.io/en/stable/oauth2/grants/password.html" target="_blank">资源所有者密码凭证流程 <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a> 会用于提供访问令牌和身份令牌，以允许您调用登录屏幕。
 
 </br>
 
-**更改详细信息**
+**有任何示例应用程序可说明其工作方式吗？**
 
-1. 在 GUI 上的身份提供者选项卡中，将 Cloud Directory 设置为**开启**。
-2. 在 Cloud Directory 的设置中，将**允许用户注册并重置密码**设置为**开启**。
-3. 调用“登录”窗口小部件以开始更改详细信息流程。
-  ```swift
-  class delegate : AuthorizationDelegate {
+有！请查看以下任一示例以了解 Cloud Directory 的工作方式：
 
-      public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, refreshToken: RefreshToken?, response:Response?) {
-         //User authenticated, and fresh tokens received
-      }
-
-      public func onAuthorizationCanceled() {
-          //changed details canceled by the user
-      }
-
-      public func onAuthorizationFailure(error: AuthorizationError) {
-          //Exception occurred
-        }
-
-        }
-
-   AppID.sharedInstance.loginWidget?.launchChangeDetails(delegate: delegate())
-  ```
-  {: pre}
+* <a href="https://www.ibm.com/blogs/bluemix/2018/01/use-branded-ui-user-sign-app-id/" target="_blank">Use your own branded UI for user sign-in with {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a>
+* <a href="https://www.ibm.com/blogs/bluemix/2018/06/use-ui-flows-user-sign-sign-app-id/" target="_blank">Use your own UI and Flows for User Sign-Up and Sign-in with with {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a>
+* <a href="https://www.ibm.com/blogs/bluemix/2018/06/custom-login-page-app-id-integration/" target="_blank">Use a custom login page with  {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a>
 
 </br>
-
-**更改密码**
-
-1. 在 GUI 上的身份提供者选项卡中，将 Cloud Directory 设置为**开启**。
-2. 在 Cloud Directory 的设置中，将**允许用户注册并重置密码**设置为**开启**。
-3. 调用“登录”窗口小部件以开始更改详细信息流程。
-  ```swift
-  class delegate : AuthorizationDelegate {
-
-      public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, refreshToken: RefreshToken?, response:Response?) {
-          //User authenticated, and fresh tokens received
-      }
-
-      public func onAuthorizationCanceled() {
-          //change password canceled by the user
-      }
-
-      public func onAuthorizationFailure(error: AuthorizationError) {
-           //Exception occurred
-        }
-
-        }
-
-    AppID.sharedInstance.loginWidget?.launchChangePassword(delegate: delegate())
-  ```
-  {: pre}
-
 </br>
-
 
 ## 使用 Android SDK 来为应用程序添加品牌形象
 {: #branded-ui-android}
@@ -177,9 +62,9 @@ lastupdated: "2018-08-08"
 
 **登录**
 
-1. 将 **Cloud Directory** 作为身份提供者设置为**开启**。
-2. 通过提供最终用户的用户名和密码，获取访问、身份和刷新令牌。
-3. 调用“登录”窗口小部件以开始登录流程。
+1. 在 GUI 中配置 Cloud Directory [设置](cloud-directory.html#cd-settings)。
+2. 将以下代码添加到应用程序中。用户单击定制屏幕上的登录时，将触发登录流程。通过提供最终用户的用户名和密码，可获取访问令牌、身份令牌和刷新令牌。
+
   ```java
   AppID.getInstance().signinWithResourceOwnerPassword(getApplicationContext(), username, password,
          new TokenResponseListener() {
@@ -197,126 +82,39 @@ lastupdated: "2018-08-08"
   {: pre}
 
 </br>
+</br>
 
-**注册**
+## 使用 iOS Swift SDK 来为应用程序添加品牌形象
+{: #branded-ui-ios-swift}
 
-1. 将 **Cloud Directory** 作为身份提供者设置为**开启**。
-2. 在 Cloud Directory 的设置中，将**允许用户注册并重置密码**设置为**开启**。
-3. 调用“登录”窗口小部件以开始注册流程。
-  ```java
- LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
- loginWidget.launchSignUp(this, new AuthorizationListener() {
-			 @Override
-        public void onAuthorizationFailure (AuthorizationException exception) {
-          //Exception occurred
+在启用 Cloud Directory 的情况下，可以使用 [iOS Swift SDK](https://github.com/ibm-cloud-security/appid-clientsdk-swift) 来调用您自己的品牌屏幕。
+{: shortdesc}
+
+</br>
+
+**登录**
+
+1. 在 GUI 中配置 Cloud Directory [设置](cloud-directory.html#cd-settings)。
+2. 将以下代码放入应用程序中。用户尝试登录时，会调用登录屏幕，并且授权和认证流程将从定制登录页面开始。
+
+  ```swift
+  class delegate : TokenResponseDelegate {
+      public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, response:Response?) {
+      //User authenticated
+      }
+
+      public func onAuthorizationFailure(error: AuthorizationError) {
+      //Exception occurred
         }
 
-        @Override
-        public void onAuthorizationCanceled () {
-          //Sign up canceled by the user
-      }
-
-      @Override
-          public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, RefreshToken refreshToken) {
-            if (accessToken != null && identityToken != null) {
-				     //User authenticated
-          } else {
-              //email verification is required
-          }
-      }
-  });
-  ```
-  {: pre}
-
-</br>
-
-
-**忘记密码**
-
-1. 将 **Cloud Directory** 作为身份提供者设置为**开启**。
-2. 在 Cloud Directory 的设置中，将**允许用户注册并重置密码**设置为**开启**。
-3. 调用“登录”窗口小部件以开始忘记密码流程。
-  ```java
-  LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
-  loginWidget.launchForgotPassword(this, new AuthorizationListener() {
- 			 @Override
-   	public void onAuthorizationFailure (AuthorizationException exception) {
-          //Exception occurred
         }
 
-        @Override
-        public void onAuthorizationCanceled () {
-          // Forogt password canceled by the user
-      }
-
-      @Override
-          public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, RefreshToken refreshToken) {
-            // Forgot password finished, in this case accessToken and identityToken will be null.
-      }
-  });
+  AppID.sharedInstance.signinWithResourceOwnerPassword(username: username, password: password, delegate: delegate())
   ```
-  {: pre}
-
-</br>
-
-**更改详细信息**
-
-1. 将 **Cloud Directory** 作为身份提供者设置为**开启**。
-2. 在 Cloud Directory 的设置中，将**允许用户注册并重置密码**设置为**开启**。
-3. 调用“登录”窗口小部件以开始更改详细信息流程。
-  ```java
-   LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
-   loginWidget.launchChangeDetails(this, new AuthorizationListener() {
-  			 @Override
-        public void onAuthorizationFailure (AuthorizationException exception) {
-          //Exception occurred
-        }
-
-        @Override
-        public void onAuthorizationCanceled () {
-          // Changed details canceled by the user
-      }
-
-      @Override
-          public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, RefreshToken refreshToken) {
-            // User authenticated, and fresh tokens received
-      }
-  });
-  ```
-  {: pre}
-
-
-</br>
-
-**更改密码**
-
-1. 将 **Cloud Directory** 作为身份提供者设置为**开启**。
-2. 在 Cloud Directory 的设置中，将**允许用户注册并重置密码**设置为**开启**。
-3. 调用“登录”窗口小部件以开始更改密码流程。
-  ```java
-    LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
-    loginWidget.launchChangePassword(this, new AuthorizationListener() {
-   			 @Override
-        public void onAuthorizationFailure (AuthorizationException exception) {
-          //Exception occurred
-        }
-
-        @Override
-        public void onAuthorizationCanceled () {
-          // Change password canceled by the user
-      }
-
-      @Override
-          public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, RefreshToken refreshToken) {
-            // User authenticated, and fresh tokens received
-      }
-  });
-  ```
-  {: pre}
+  {: codeblock}
 
 </br>
 </br>
-
 
 ## 使用 Node.js SDK 为应用程序添加品牌形象
 {: #branded-ui-nodejs}
@@ -328,8 +126,9 @@ lastupdated: "2018-08-08"
 
 通过使用 WebAppStrategy，用户可以使用其用户名和密码登录 Web 应用程序。用户成功登录到应用程序后，只要其访问令牌保持有效，就会在 HTTP 会话中持久存储其访问令牌。在 HTTP 会话关闭或到期后，访问令牌也将销毁。
 
-1. 在身份提供者设置中，将 Cloud Directory 设置为**开启**，然后指定回调端点。
-2. 为应用程序添加发布路径（可以使用用户名和密码参数来调用该路径），然后使用资源所有者密码流程登录。
+
+1. 在 GUI 中配置 Cloud Directory [设置](cloud-directory.html#cd-settings)。
+2. 将以下代码放入应用程序中。用户尝试登录时，会调用登录屏幕，并且授权和认证流程将从定制登录页面开始。
 
   ```javascript
   app.post("/form/submit", bodyParser.urlencoded({extended: false}), passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
@@ -338,7 +137,8 @@ lastupdated: "2018-08-08"
   	failureFlash : true // allow flash messages
   }));
   ```
-  {: pre}
+  {: codeblock}
+
   <table>
     <thead>
       <th colspan=2><img src="images/idea.png" alt="“更多信息”图标"/> 命令参数</th>
@@ -359,57 +159,9 @@ lastupdated: "2018-08-08"
     </tbody>
   </table>
 
-  1. 如果以 HTML 形式提交请求，那么可以使用 [body parser](https://www.npmjs.com/package/body-parser) 中间件。
-  2. 要获取返回的错误消息，那么可以使用 [connect-flash](https://www.npmjs.com/package/connect-flash)。有关更多信息，请参阅 [Web 应用程序样本](https://github.com/ibm-cloud-security/appid-serversdk-nodejs/blob/master/samples/web-app-sample.js)。{: tip}
+**注**：如果以 HTML 形式提交请求，那么可以使用<a href="https://www.npmjs.com/package/body-parser" target="blank">主体解析器 <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a> 中间件。要查看返回的错误消息，可以使用 <a href="https://www.npmjs.com/package/connect-flash" target="blank">connect-flash <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a>。要了解其工作方式，请查看 <a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs/blob/master/samples/web-app-sample.js" target="blank">Web 应用程序样本 <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a>。
 
 </br>
-**注册**
-
-1. 在身份提供者设置中，将 Cloud Directory 设置为**开启**，然后指定回调端点。
-2. 在 Cloud Directory 的设置中，将**允许用户注册并重置密码**设置为**开启**。
-3. 将**允许用户无需电子邮件验证即可登录**设置为**开启**。如果未设置，那么无法检索 {{site.data.keyword.appid_short_notm}} 访问和身份令牌。
-4. 为应用程序添加发布路径（可以使用用户名和密码参数来调用该路径），然后使用资源所有者密码流程登录。
-
-  ```javascript
-  app.get("/sign_up", passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
-  	successRedirect: LANDING_PAGE_URL,
-  	show: WebAppStrategy.SIGN_UP
-  }));
-  ```
-  {: pre}
-
-</br>
-
-**忘记密码**
-
-1. 在身份提供者设置中，将 Cloud Directory 设置为**开启**，然后指定回调端点。
-2. 在 Cloud Directory 的设置中，将**允许用户注册并重置密码**设置为**开启**。
-3. 将**忘记密码电子邮件**设置为**开启**。
-4. 将 *show* 属性传递到 `WebAppStrategy.FORGOT_PASSWORD` 以启动忘记密码表单。
-  ```javascript
-  app.get("/forgot_password", passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
-  	successRedirect: LANDING_PAGE_URL,
-  	show: WebAppStrategy.FORGOT_PASSWORD
-  }));
-  ```
-  {: pre}
-
-</br>
-
-**更改详细信息**
-
-1. 在身份提供者设置中，将 Cloud Directory 设置为**开启**，然后指定回调端点。
-2. 在 Cloud Directory 的设置中，将**允许用户注册并重置密码**设置为**开启**。
-3. 验证用户先前是否已向 {{site.data.keyword.appid_short_notm}} 进行认证。
-4. 将 *show* 属性传递到 `WebAppStrategy.CHANGE_DETAILS` 以启动忘记密码表单。
-  ```javascript
-  app.get("/change_details", passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
-  	successRedirect: LANDING_PAGE_URL,
-  	show: WebAppStrategy.CHANGE_DETAILS
-  }));
-  ```
-  {: pre}
-
 </br>
 
 ## 使用 API 为应用程序添加品牌形象
@@ -418,31 +170,32 @@ lastupdated: "2018-08-08"
 您可以显示自己的定制屏幕，并利用 {{site.data.keyword.appid_short_notm}} 的认证和授权功能。利用 Cloud Directory 作为身份提供者，用户不需要多少帮助就可以与应用程序进行交互。用户无需寻求帮助就可以完成登录、注册、重置密码等操作。
 {: shortdesc}
 
-为了实现此目标，{{site.data.keyword.appid_short_notm}} 公开了 REST API。您可使用该 REST API 构建为 Web 应用程序提供服务的后端服务器，或使用自己的定制屏幕与移动应用程序进行交互。
+为了实现此目标，{{site.data.keyword.appid_short_notm}} 公开了 REST API。您可使用这些 REST API 构建为 Web 应用程序提供服务的后端服务器，或使用自己的定制屏幕与移动应用程序进行交互。
 
 管理 API 通过 IBM Cloud Identity and Access Management 生成的令牌进行保护。这意味着帐户所有者可以指定团队成员对每个服务实例的访问级别。有关 IAM 和 {{site.data.keyword.appid_short_notm}} 如何协作的更多信息，请参阅[服务访问管理](/docs/services/appid/iam.html)。
 
 在配置[设置](/docs/services/appid/cloud-directory.html)后，您可以调用以下端点以显示每个屏幕。
 
+**注册**
 
-**注册**：您可以使用 `/sign_up` 端点来允许用户注册您的应用程序。在请求主体中提供以下数据：
+您可以使用 `/sign_up` 端点来允许用户向应用程序注册。在请求主体中提供以下数据：
   * 您的租户标识。
   * Cloud Directory 用户数据。请参阅 [SCIM Full User Representation](https://tools.ietf.org/html/rfc7643#section-8.2) 以获取更多详细信息。
     * `password` 属性。
     * 在 `primary` 属性设置为 `true` 的电子邮件数组中，必须包含至少 1 个电子邮件地址。
 
-根据您的[电子邮件配置](/docs/services/appid/cloud-directory.html)，用户可能会收到验证请求，或者收到欢迎他们注册应用程序的电子邮件。用户注册您的应用程序时，将触发这两种类型的电子邮件。验证电子邮件包含**验证**按钮。在他们按下按钮并确认其身份后，{{site.data.keyword.appid_short_notm}} 将显示一个感谢他们进行验证屏幕。  
+根据您的[电子邮件配置](/docs/services/appid/cloud-directory.html)，用户向应用程序注册时，可能会收到验证请求和/或收到欢迎他们的电子邮件。用户注册您的应用程序时，将触发这两种类型的电子邮件。验证电子邮件包含用户可单击以确认其身份的链接；这将显示一个屏幕，感谢他们验证或确认其验证已完成。  
 
-您可以提供您自己的验证后页面：
+要显示您自己的发布验证页面，请执行以下操作：
 
-1. 浏览到 {{site.data.keyword.appid_short_notm}} 仪表板的**定制登录页面**选项卡。
-2. 在**定制电子邮件地址验证页面的 URL** 中输入登录页面的 URL。
+1. 在 {site.data.keyword.appid_short_notm}} 仪表板中浏览到 Cloud Directory 身份提供者。
+2. 单击**电子邮件验证**选项卡。
+3. 在**定制验证页面 URL** 中，输入登录页面的 URL。
 
 当提供此值时，{{site.data.keyword.appid_short_notm}} 将调用 URL 和 `context` 查询。当您调用 `/sign_up/confirmation_result` 端点并传递接收到的 `context` 参数时，将显示结果，告知您用户是否已验证其帐户。如果已验证，那么您可以显示定制页面。
 
 </br>
 **忘记密码**
-
 您可以使用 `/forgot_password` 端点允许用户在忘记密码时恢复其密码。
 
 在请求主体中提供以下数据：
@@ -453,8 +206,9 @@ lastupdated: "2018-08-08"
 
 您可以提供您自己的重置密码后的页面：
 
-1. 浏览到 {{site.data.keyword.appid_short_notm}} 仪表板的**定制登录页面**选项卡。
-2. 在**定制重置密码页面的 URL** 中输入登录页面的 URL  
+1. 在 GUI 中配置 Cloud Directory [设置](cloud-directory.html#cd-settings)。**允许用户通过应用程序管理自己的帐户**必须设置为**开启**。
+2. 在服务仪表板的**重置密码**选项卡中，确保将**忘记密码电子邮件**设置为**开启**。
+3. 在**定制重置密码页面的 URL** 中输入登录页面的 URL  
 
 当提供此值时，{{site.data.keyword.appid_short_notm}} 将调用 URL 和 `context` 查询。`context` 参数用于在调用 `/forgot_password/confirmtion_result` 时接收结果。如果结果成功，那么可以显示定制页面。
 
@@ -496,7 +250,6 @@ lastupdated: "2018-08-08"
   * 租户标识。
   * 模板名称
   * Cloud Directory 用户 UUID。
-
 
 **更改详细信息**
 

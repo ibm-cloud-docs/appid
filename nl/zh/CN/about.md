@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-08"
+lastupdated: "2018-12-19"
 
 ---
 
@@ -12,8 +12,9 @@ lastupdated: "2018-08-08"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
 
-# 关于
+# 关于 {{site.data.keyword.appid_short_notm}}
 {: #about}
 
 应用程序安全性复杂程度之深令人难以置信。对于大多数开发人员而言，这是创建应用程序的最困难的一个部分。如何确保用户信息得到安全保护？即使您在安全性方面没有太多经验，也可以通过将 {{site.data.keyword.appid_full}} 集成到应用程序中来保护资源并添加认证。
@@ -59,12 +60,11 @@ lastupdated: "2018-08-08"
 您可以将 {{site.data.keyword.appid_short_notm}} 与其他 {{site.data.keyword.Bluemix_notm}} 产品配合使用。
 {:shortdesc}
 
-
 <dl>
   <dt>{{site.data.keyword.containerlong_notm}}</dt>
-    <dd>通过在标准集群中配置入口，您可以在集群级别保护应用程序。请查看 <a href="/docs/containers/cs_annotations.html#appid-auth">{{site.data.keyword.appid_short_notm}} authentication Ingress annotation</a> 或 <a href="https://www.ibm.com/blogs/bluemix/2018/05/announcing-app-id-integration-ibm-cloud-kubernetes-service/">Announcing App ID integration to IBM Cloud Kubernetes Service <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a> 博客帖子以开始使用。</dd>
+    <dd>通过在标准集群中配置 Ingress，您可以在集群级别保护应用程序。请查看 <a href="/docs/containers/cs_annotations.html#appid-auth">{{site.data.keyword.appid_short_notm}} 认证 Ingress 注释</a>或 <a href="https://www.ibm.com/blogs/bluemix/2018/05/announcing-app-id-integration-ibm-cloud-kubernetes-service/">Announcing {{site.data.keyword.appid_short_notm}} integration to {{site.data.keyword.containerlong_notm}} <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a> 博客帖子以开始使用。</dd>
   <dt>{{site.data.keyword.openwhisk}} 和 API Connect</dt>
-    <dd>使用 [{{site.data.keyword.openwhisk_short}}](/docs/openwhisk/index.html) 和 [API Connect](/docs/apis/management/manage_apis.html) 创建 API 时，您可以在网关而不是应用程序代码级别保护应用程序。要了解如何进行集成，请观看<a href="https://www.youtube.com/watch?v=Fa9YD2NGZiE" target="_blank">使用 APIC 和
+    <dd>使用 [{{site.data.keyword.openwhisk_short}}](/docs/openwhisk/index.html) 和 [API Connect](/docs/services/apiconnect/getting-started.html) 创建 API 时，您可以在网关而不是应用程序代码级别保护应用程序。要了解如何进行集成，请观看<a href="https://www.youtube.com/watch?v=Fa9YD2NGZiE" target="_blank">使用 APIC 和
 {{site.data.keyword.appid_short_notm}} 的简单快速社交登录 OAUTH <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a>。</dd>
   <dt>Cloud Foundry</dt>
     <dd>试用提供的某个样本 Cloud Foundry 应用程序，以了解如何将 {{site.data.keyword.appid_short_notm}} 集成到应用程序中。</dd>
@@ -83,7 +83,7 @@ lastupdated: "2018-08-08"
 利用 {{site.data.keyword.appid_short_notm}}，可以通过要求用户登录来提高应用程序安全级别。您还可以使用服务器 SDK 或 API 来保护后端资源。
 {: shortdesc}
 
-![{{site.data.keyword.appid_short_notm}} 体系结构图](/images/appid_architecture1.png)
+![{{site.data.keyword.appid_short_notm}} 体系结构图](images/appid_architecture1.png)
 
 <dl>
   <dt>应用程序</dt>
@@ -96,47 +96,6 @@ lastupdated: "2018-08-08"
     <dd><strong>社交和企业身份提供者</strong>：{{site.data.keyword.appid_short_notm}} 支持 Facebook、Google+ 和 SAML 2.0 Federation 作为身份提供者选项。该服务会安排“重定向到身份提供者”，并验证返回的认证令牌。如果令牌有效，那么该服务将授予应用程序的访问权，而不必访问实际的口令。</dd>
 </dl>
 
+</br>
 
-## 请求流程
-{: #request}
 
-虽然您的请求流程可能根据应用程序配置的不同而变化，但在使用 App ID 时可能会遇到三个主要流。您可以创建移动应用程序流、Web 应用程序流或使用其他流程来保护资源。请查看一些示例流程以了解是否可在配置应用程序时使用。
-{: shortdesc}
-
-### Web 应用程序请求流程
-{: #web-flow}
-
-![{{site.data.keyword.appid_short_notm}} 请求流程](/images/web_flow1.png)
-
-1. 通过使用浏览器，用户执行将触发 App ID SDK 请求的操作。
-2. 如果用户未获授权，那么将启动到 App ID 的重定向。
-3. App ID 启动登录窗口小部件并将其发送到浏览器。
-4. 用户选择身份提供者以进行认证并完成登录过程。
-5. 身份提供者使用身份令牌重定向到 App ID SDK。
-6. App ID SDK 从 App ID 服务获取访问令牌。
-7. App ID SDK 保存令牌并发生重定向。
-8. 授权用户访问应用程序。
-
-### 移动请求流程
-{: #mobile-flow}
-
-![{{site.data.keyword.appid_short_notm}} 请求流程](/images/mobile_flow.png)
-
-1. 用户执行一个操作，触发客户机应用程序对 App ID SDK 的请求。
-2. 如果用户无有效的访问令牌，那么 App ID SDK 启动授权流程。
-3. 这样将向用户显示登录窗口小部件。
-4. 通过使用其中一个已配置的身份提供者，用户进行认证。
-5. 一旦用户获取身份令牌，那么 SDK 将从 App ID 服务获取访问令牌。
-6. 使用这两个令牌，SDK 再次执行请求。
-7. 如果令牌有效，就会授权用户访问应用程序。
-
-### 受保护资源请求流程
-{: #pr-flow}
-
-![{{site.data.keyword.appid_short_notm}} 请求流程](/images/pr_flow.png)
-
-1. 在对资源进行请求前，客户机应用程序必须具有一组公用密钥。
-2. 通过公用密钥，客户机应用程序发出请求。
-3. 如果没有有效的访问令牌，那么应用程序会收到错误。
-4. 获取有效令牌后，客户机应用程序可再次发出请求。但是此时包含令牌。
-5. 如果应用程序可以验证访问令牌授予的许可权，那么就会授权应用程序访问受保护资源。
