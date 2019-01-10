@@ -1,42 +1,59 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="appid" audience="service" arm="2093952" href="/docs/services/appid/index.html"}
+{: .toc subcollection="appid" audience="service" arm="2093952" href="/docs/services/appid/index.html" path="services/appid"}
 IBM Cloud App ID
 
     {: .navgroup id="learn"}
     index.md
     about.md
     authorization.md
+    relatedlinks.md
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
-    install.md
+    {: .topicgroup}
+    앱에 App ID 추가
+        web-apps.md
+        mobile-apps.md
+        backend-apps.md
+        custom-auth.md
+        progressive.md
+        protecting-resources-local.md
+        app-to-app.md
+        well-known.md
 
     {: .topicgroup}
     ID 제공자 구성
-        identity-providers.md
-        enterprise.md
+        manageidp.md
         cloud-directory.md
+        enterprise.md
+        identity-providers.md
+        custom.md
 
     {: .topicgroup}
     사인인 환경 관리
         login-widget.md
         branded.md
 
-    protecting-resources.md
+    mfa.md
 
     {: .topicgroup}
     사용자 프로파일 저장 및 액세스
         user-profile.md
         predefined.md
         custom-attributes.md
-    protecting-resources-local.md
+        pre-sign-in.md
+
+    {: .topicgroup}
+    토큰 관리
+        customizing-tokens.md
+        tokens.md
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
     {: .topicgroup}
-API
+    API
         [권한 부여](https://appid-oauth.ng.bluemix.net/swagger-ui/#/Authorization_Server_V3)
         [관리](https://appid-management.ng.bluemix.net/swagger-ui/)
         [프로파일](https://appid-profiles.ng.bluemix.net/swagger-ui/index.html)
@@ -47,9 +64,9 @@ API
         [iOS Swift 클라이언트 SDK](https://github.com/ibm-cloud-security/appid-clientsdk-swift)
         [Node.js 서버 SDK](https://github.com/ibm-cloud-security/appid-serversdk-nodejs)
         [Swift 서버 SDK](https://github.com/ibm-cloud-security/appid-serversdk-swift)
-    relatedlinks.md
     iam.md
     api-reference.md
+    at-events.md
     {: .navgroup-end}
 
     {: .navgroup id="help"}

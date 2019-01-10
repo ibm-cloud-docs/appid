@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-07-15"
+lastupdated: "2018-12-19"
 
 ---
 
@@ -19,7 +19,7 @@ lastupdated: "2018-07-15"
 관리 API를 {{site.data.keyword.appid_full}} 인스턴스의 DevOps 자동화, 사용자 정의 및 관리에 사용할 수 있습니다.
 {: shortdesc}
 
-관리 API는 {{site.data.keyword.cloudaccesstraillong}} 생성 토큰으로 보호됩니다. IAM을 사용하면 계정 소유자가 자체 팀의 어떤 구성원이 각 서비스 인스턴스에 대해 어떤 액세스 레벨을 보유하는지를 지정할 수 있습니다. IAM 및 {{site.data.keyword.appid_short_notm}}가 함께 작동되는 방법에 대한 자세한 정보는 [서비스 액세스 관리](/docs/services/appid/iam.html)를 참조하십시오. 
+관리 API는 {{site.data.keyword.cloudaccesstraillong}} 생성 토큰으로 보호됩니다. IAM을 사용하면 계정 소유자가 자체 팀의 어떤 구성원이 각 서비스 인스턴스에 대해 어떤 액세스 레벨을 보유하는지를 지정할 수 있습니다. IAM 및 {{site.data.keyword.appid_short_notm}}가 함께 작동되는 방법에 대한 자세한 정보는 [서비스 액세스 관리](/docs/services/appid/iam.html)를 참조하십시오.
 
 API로 다음을 수행할 수 있습니다.
 * DevOps 프로세스의 앱에서 {{site.data.keyword.appid_short_notm}}의 구성 자동화
@@ -29,11 +29,10 @@ API로 다음을 수행할 수 있습니다.
 관리 api 엔드포인트에 대한 호출의 구조는 다음과 같습니다.
 
 ```
-appid-management.<region>.bluemix.net
+appid-management.<region-endpoint>.bluemix.net
 ```
 {: codeblock}
 
-다음 표를 보고 지역을 찾을 수 있습니다.
 
 <table>
   <tr>
@@ -42,19 +41,19 @@ appid-management.<region>.bluemix.net
   </tr>
   <tr>
     <td>영국</td>
-    <td><code>appid-management.eu-gb.bluemix.net</code></td>
+    <td><code>eu-gb</code></td>
   </tr>
   <tr>
     <td>미국 남부</td>
-    <td><code>appid-management.ng.bluemix.net</code></td>
+    <td><code>ng</code></td>
   </tr>
   <tr>
     <td>시드니</td>
-    <td><code>appid-management.au-syd.bluemix.net</code></td>
+    <td><code>au-syd</code></td>
   </tr>
   <tr>
     <td>독일</td>
-    <td><code>appid-management.eu-de.bluemix.net</code></td>
+    <td><code>eu-de</code></td>
   </tr>
 </table>
 
@@ -92,14 +91,12 @@ token = 'Bearer ' + json.loads(r.text)['access_token'];
 headers = {'Authorization': token , 'Accept':'application/json'}
 files = {'file': open(img,'rb')}
 
-r = requests.post("https://appid-management.<region>.bluemix.net/management/v4/" + te
-nantId + "/config/ui/media?mediaType=logo", files=files, headers=headers);
+r = requests.post("https://<region>.appid.cloud.com/management/v4/" + tenantId + "/config/ui/media?mediaType=logo", files=files, headers=headers);
 
 #  get login widget logo
 headers = {'Authorization': token , 'Accept':'application/json'}
 
-r = requests.get("https://appid-management.<region>.bluemix.net/management/v4/" + ten
-antId + "/config/ui/media", headers=headers);
+r = requests.get("https://<region>.appid.cloud.com/management/v4/" + tenantId + "/config/ui/media", headers=headers);
 
 if (r.status_code >= 200) :
     print(r.text)

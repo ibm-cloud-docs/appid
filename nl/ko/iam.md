@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-06"
+lastupdated: "2018-12-19"
 
 ---
 
@@ -19,7 +19,7 @@ lastupdated: "2018-08-06"
 # 서비스 액세스 관리
 {: #service-access-management}
 
-{{site.data.keyword.appid_full}} 및 {{site.data.keyword.Bluemix_notm}} IAM(Identity and Access Management)으로 계정 소유자는 계정에서 사용자 액세스를 관리할 수 있습니다.
+계정 소유자는 {{site.data.keyword.appid_full}} 및 {{site.data.keyword.Bluemix_notm}} IAM(Identity and Access Management)을 사용하여 해당 계정에서 사용자 액세스를 관리할 수 있습니다.
 {: shortdesc}
 
 계정 소유자로서 서로 다른 사용자에 대해 서로 다른 액세스 레벨을 작성하도록 계정 내에서 정책을 설정할 수 있습니다. 예를 들어, 특정 사용자가 하나의 인스턴스에 대해 **읽기 전용** 액세스 권한을 보유하지만 다른 인스턴스에 대해 **쓰기** 액세스 권한을 보유할 수 있습니다. {{site.data.keyword.appid_short_notm}}의 인스턴스를 작성, 업데이트 및 삭제할 수 있는 사용자를 결정할 수 있습니다.
@@ -108,7 +108,7 @@ UI에서 사용자 역할 지정에 대한 자세한 정보는 [IAM 액세스 �
   <tr>
     <th>조치</th>
     <th>설명</th>
-    <th>필수 역할 </th>
+    <th>필수 역할</th>
   </tr>
   <tr>
     <td><code>appid-mgmt-get-redirect-uris</code></td>
@@ -223,213 +223,6 @@ UI에서 사용자 역할 지정에 대한 자세한 정보는 [IAM 액세스 �
   </tr>
 </table>
 
-## {{site.data.keyword.appid_short_notm}} 인스턴스에 대한 변경사항 추적
-{: #tracking}
-
-{{site.data.keyword.cloudaccesstrailshort}} 서비스를 사용하여 {{site.data.keyword.appid_short_notm}} 인스턴스에서 작성된 구성 활동을 보고 관리하고 감사할 수 있습니다.
-{: shortdesc}
-
-관리 활동을 모니터하려면 다음을 수행하십시오.
-
-1. {{site.data.keyword.Bluemix_notm}} 계정에 로그인하십시오.
-2. 카탈로그에서 {{site.data.keyword.appid_short_notm}} 인스턴스와 동일한 계정의 {{site.data.keyword.cloudaccesstrailshort}} 서비스 인스턴스를 프로비저닝하십시오.
-3. {{site.data.keyword.cloudaccesstrailshort}} 대시보드에서 **관리** 탭을 클릭하십시오.
-4. 드롭 다운 목록에서 다음 구성을 작성하여 {{site.data.keyword.appid_short_notm}}에서 생성된 이벤트를 검색하십시오.
-    * **로그 보기**에서 **계정 로그**를 선택하십시오.
-    * **검색**에서 **target.Management**를 선택하십시오.
-    * **필터**에 **appid**를 입력하십시오.
-5. **필터**를 클릭하십시오.
-
-
-{{site.data.keyword.cloudaccesstrailshort}}에 전송되는 이벤트의 목록을 보려면 다음 표를 확인하십시오.
-
-<table>
-  <tr>
-    <th>조치</th>
-    <th>설명</th>
-    <th>UI 위치</th>
-  </tr>
-  <tr>
-    <td><code>read.recentActivity</code></td>
-    <td>최근 활동을 봅니다.</td>
-    <td><strong>개요</strong> 탭의 <strong>활동 로그</strong> 상자에서 찾을 수 있습니다.</td>
-  </tr>
-  <tr>
-    <td><code>read.idpConfig</code></td>
-    <td>ID 제공자 구성을 봅니다.</td>
-    <td><strong>ID 제공자 > 관리</strong> 탭에서 찾을 수 있습니다.</td>
-  </tr>
-  <tr>
-    <td><code>update.idpConfig</code></td>
-    <td>ID 제공자 구성을 업데이트합니다.</td>
-    <td><strong>ID 제공자 > 관리</strong> 탭에서 업데이트할 수 있습니다.</td>
-  </tr>
-  <tr>
-    <td><code>read.tokensConfig</code></td>
-    <td>토큰 만기 구성을 봅니다.</td>
-    <td><strong>ID 제공자 > 토큰 만기</strong> 탭에서 찾을 수 있습니다.</td>
-  </tr>
-  <tr>
-    <td><code>read.isProfilesActive</code></td>
-    <td>사용자 프로파일 스토리지 구성을 봅니다.</td>
-    <td><strong>개요</strong> 탭의 <strong>활동 로그</strong>에서 찾을 수 있습니다.</td>
-  </tr>
-  <tr>
-    <td><code>update.isProfilesActive</code></td>
-    <td>사용자 프로파일 스토리지 구성을 업데이트합니다.</td>
-    <td><strong>프로파일</strong> 탭에서 찾을 수 있습니다.</td>
-  </tr>
-  <tr>
-    <td><code>read.themeColor</code></td>
-    <td>로그인 위젯 헤더의 테마 색상을 봅니다.</td>
-    <td><strong>로그인 사용자 정의</strong> 탭에서 찾을 수 있습니다.</td>
-  </tr>
-  <tr>
-    <td><code>update.themeColor</code></td>
-    <td>로그인 위젯 헤더의 테마 색상을 업데이트합니다.</td>
-    <td><strong>로그인 사용자 정의</strong> 탭에서 업데이트할 수 있습니다.</td>
-  </tr>
-  <tr>
-    <td><code>read.media</code></td>
-    <td>로그인 위젯에 표시되는 이미지를 봅니다.</td>
-    <td><strong>로그인 사용자 정의</strong> 탭에서 찾을 수 있습니다.</td>
-  </tr>
-  <tr>
-    <td><code>update.media</code></td>
-    <td>로그인 위젯에 표시되는 이미지를 업데이트합니다.</td>
-    <td><strong>로그인 사용자 정의</strong> 탭에서 업데이트할 수 있습니다.</td>
-  </tr>
-  <tr>
-    <td><code>read.uiConfiguration</code></td>
-    <td>헤더 색상 및 이미지를 포함한 로그인 위젯 UI 구성을 봅니다.</td>
-    <td><strong>로그인 사용자 정의</strong> 탭에서 찾을 수 있습니다.</td>
-  </tr>
-  <tr>
-    <td><code>read.uiLanguages</code></td>
-    <td>지원되는 언어 목록을 봅니다.</td>
-    <td>API에서 확인해야 합니다.</td>
-  </tr>
-  <tr>
-    <td><code>update.uiLanguages</code></td>
-    <td>지원되는 언어를 업데이트합니다.</td>
-    <td>API를 통해 업데이트해야 합니다.</td>
-  </tr>
-  <tr>
-    <td><code>read.samlMetadata</code></td>
-    <td>App ID SAML 메타데이터를 봅니다.</td>
-    <td><strong>ID 제공자 > SAML 2.0 연합</strong> 탭에서 찾을 수 있습니다.</td>
-  </tr>
-  <tr>
-    <td><code>read.cloudDirectoryUser</code></td>
-    <td>클라우드 디렉토리 사용자를 봅니다.</td>
-    <td><strong>사용자</strong> 탭에서 찾을 수 있습니다.</td>
-  </tr>
-  <tr>
-    <td><code>update.cloudDirectoryUser</code></td>
-    <td>클라우드 디렉토리 사용자를 업데이트합니다.</td>
-    <td><strong>사용자</strong> 탭에서 업데이트할 수 있습니다.</td>
-  </tr>
-  <tr>
-    <td><code>delete.cloudDirectoryUser</code></td>
-    <td>클라우드 디렉토리 사용자를 삭제합니다.</td>
-    <td><strong>사용자</strong> 탭에서 삭제할 수 있습니다.</td>
-  </tr>
-  <tr>
-    <td><code>read.cloudDirectoryUsers</code></td>
-    <td>클라우드 디렉토리 사용자 목록을 봅니다.</td>
-    <td><strong>사용자</strong> 탭에서 찾을 수 있습니다.</td>
-  </tr>
-  <tr>
-    <td><code>update.cloudDirectoryUsers</code></td>
-    <td>클라우드 디렉토리 사용자 목록을 업데이트합니다.</td>
-    <td><strong>사용자</strong> 탭에서 업데이트할 수 있습니다.</td>
-  </tr>
-  <tr>
-    <td><code>delete.cloudDirectoryUsers</code></td>
-    <td>클라우드 디렉토리 사용자 목록을 삭제합니다.</td>
-    <td><strong>사용자</strong> 탭에서 삭제할 수 있습니다.</td>
-  </tr>
-  <tr>
-    <td><code>read.emailTemplate</code></td>
-    <td>이메일 템플리트를 봅니다.</td>
-    <td><strong>ID 제공자 > 클라우드 디렉토리 > 템플리트</strong> 탭에서 찾을 수 있습니다.</td>
-  </tr>
-  <tr>
-    <td><code>update.emailTemplate</code></td>
-    <td>이메일 템플리트를 업데이트합니다.</td>
-    <td><strong>ID 제공자 > 클라우드 디렉토리 > 템플리트</strong> 탭에서 찾을 수 있습니다.</td>
-  </tr>
-  <tr>
-    <td><code>delete.emailTemplate</code></td>
-    <td>기본값으로 재설정하기 위해 이메일 템플리트를 삭제합니다.</td>
-    <td><strong>ID 제공자 > 클라우드 디렉토리 > 템플리트</strong> 탭에서 찾을 수 있습니다.</td>
-  </tr>
-  <tr>
-    <td><code>read.senderDetails</code></td>
-    <td>발신인 세부사항을 봅니다.</td>
-    <td><strong>ID 제공자 > 클라우드 디렉토리 > 설정</strong> 탭에서 찾을 수 있습니다.</td>
-  </tr>
-  <tr>
-    <td><code>update.senderDetails</code></td>
-    <td>발신인 세부사항을 업데이트합니다.</td>
-    <td><strong>ID 제공자 > 클라우드 디렉토리 > 설정</strong> 탭에서 찾을 수 있습니다.</td>
-  </tr>
-  <tr>
-    <td><code>update.resendNotification</code></td>
-    <td>사용자 알림을 다시 보냅니다.</td>
-    <td><strong>ID 제공자 > 클라우드 디렉토리 > 설정</strong> 탭에서 찾을 수 있습니다.</td>
-  </tr>
-  <tr>
-    <td><code>update.selfForgotPassword</code></td>
-    <td>비밀번호 찾기 프로세스를 업데이트합니다.</td>
-    <td><strong>ID 제공자 > 클라우드 디렉토리 > 설정</strong> 탭에서 찾을 수 있습니다.</td>
-  </tr>
-  <tr>
-    <td><code>update.forgotPasswordResult</code></td>
-    <td>비밀번호 찾기 확인 결과를 봅니다.</td>
-    <td>API를 통해 수행해야 합니다.</td>
-  </tr>
-  <tr>
-    <td><code>update.selfSignUp</code></td>
-    <td>등록 프로세스를 업데이트합니다.</td>
-    <td><strong>ID 제공자 > 클라우드 디렉토리 > 설정</strong> 탭에서 찾을 수 있습니다.</td>
-  </tr>
-  <tr>
-    <td><code>update.signUpResult</code></td>
-    <td>등록 결과 확인을 봅니다.</td>
-    <td>API를 통해 수행해야 합니다.</td>
-  </tr>
-  <tr>
-    <td><code>read.action_url</code></td>
-    <td>조치가 수행될 때 호출되는 사용자 정의 URL을 봅니다.</td>
-    <td><strong>ID 제공자 > 클라우드 디렉토리 > 사용자 정의 랜딩 페이지</strong> 탭에서 찾을 수 있습니다.</td>
-  </tr>
-  <tr>
-    <td><code>update.action_url</code></td>
-    <td>조치가 수행될 때 호출되는 사용자 정의 URL을 업데이트합니다.</td>
-    <td><strong>ID 제공자 > 클라우드 디렉토리 > 설정</strong> 탭에서 찾을 수 있습니다.</td>
-  </tr>
-  <tr>
-    <td><code>update.changePassword</code></td>
-    <td>클라우드 디렉토리 사용자 비밀번호를 변경합니다.</td>
-    <td><strong>ID 제공자 > 클라우드 디렉토리 > 설정</strong> 탭에서 찾을 수 있습니다.</td>
-  </tr>
-  <tr>
-    <td><code>read.loginWidgetConfig</code></td>
-    <td>로그인 위젯 구성을 봅니다.</td>
-    <td><strong>로그인 사용자 정의</strong> 탭에서 찾을 수 있습니다.</td>
-  </tr>
-  <tr>
-    <td><code>update.loginWidgetConfig</code></td>
-    <td>로그인 위젯 구성을 업데이트합니다.</td>
-    <td><strong>로그인 사용자 정의</strong> 탭에서 업데이트할 수 있습니다.</td>
-  </tr>
-</table>
-
-
-서비스 작동 방식에 대한 자세한 정보는 [{{site.data.keyword.cloudaccesstrailshort}} 문서](/docs/services/cloud-activity-tracker/index.html)를 확인하십시오.
-
-</br>
 </br>
 
 ## 예제: {{site.data.keyword.appid_short_notm}}의 인스턴스에 대해 다른 사용자 액세스 부여
@@ -444,17 +237,17 @@ UI에서 사용자 역할 지정에 대한 자세한 정보는 [IAM 액세스 �
 액세스 권한을 업데이트하기 위해 관리자는 다음 단계를 완료합니다.
 
 1. {{site.data.keyword.Bluemix_notm}} 콘솔에 로그인하십시오.
-2. [IAM 문서](/docs/iam/iamusermanage.html#iamusermanage)에 제시된 단계에 따라 직원 보기 액세스를 부여하십시오.
-3. {{site.data.keyword.appid_short_notm}} 대시보드의 **서비스 신임 정보** 탭으로 이동하십시오. 
-**신임 정보 보기**를 클릭하고 **tentantID**를 복사하십시오.
+2. [IAM 문서](/docs/iam/mngiam.html)에 제시된 단계에 따라 직원 보기 액세스를 부여하십시오.
+3. {{site.data.keyword.appid_short_notm}} 대시보드의 **서비스 인증 정보** 탭으로 이동하십시오. 
+**인증 정보 보기**를 클릭하고 **tentantID**를 복사하십시오.
 4. 터미널에서 {{site.data.keyword.Bluemix_notm}} CLI로 사인인하십시오.
     ```
-    bx login -a api.<region>.bluemix.net
+    ibmcloud login -a api.<region>.bluemix.net
     ```
     {: codeblock}
 5. IAM 토큰을 가져오고 이를 기록하십시오.
     ```
-    bx iam oauth-tokens
+    ibmcloud iam oauth-tokens
     ```
     {: codeblock}
 6. 팀 구성원이 변경사항을 작성할 수 없는지 확인하십시오.
@@ -479,12 +272,12 @@ CLI에서 {{site.data.keyword.appid_short_notm}} 구성을 보기 위해 팀 구
 
 1. 터미널에서 {{site.data.keyword.Bluemix_notm}} CLI를 사용하여 사인인하십시오.
     ```
-    bx login -a api.<region>.bluemix.net
+    ibmcloud login -a api.<region>.bluemix.net
     ```
     {: codeblock}
 2. IAM 토큰을 가져오고 이를 기록하십시오.
     ```
-    bx iam oauth-tokens
+    ibmcloud iam oauth-tokens
     ```
     {: codeblock}
 3. cURL을 사용하여 Facebook에 대한 ID 제공자 구성을 보십시오.

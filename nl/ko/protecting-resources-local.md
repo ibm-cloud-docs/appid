@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-27"
+lastupdated: "2018-12-19"
 
 ---
 
@@ -10,7 +10,6 @@ lastupdated: "2018-06-27"
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
-
 
 
 #  {{site.data.keyword.appid_short_notm}}와 함께 작업할 수 있도록 로컬 개발 서버 구성
@@ -23,7 +22,7 @@ lastupdated: "2018-06-27"
 ## 시작하기 전에
 {: #begin}
 
-[서버 SDK가 설치](/docs/services/appid/install.html#nodejs-setup)되어 있는지 확인하십시오.
+[서버 SDK](web-apps.html)를 설치하십시오.
 
 
 ## 로컬 개발 서버에 대해 작업할 수 있도록 {{site.data.keyword.appid_short_notm}} 애플리케이션 구성
@@ -52,7 +51,7 @@ lastupdated: "2018-06-27"
   <td> AppID.REGION_UK </td>
 </tr>
 <tr>
-  <td> 독일</td>
+  <td> 독일 </td>
   <td> AppID.REGION_GERMANY </td>
 </tr>
 </table>

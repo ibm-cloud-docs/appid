@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-08"
+lastupdated: "2018-11-19"
 
 ---
 
@@ -12,10 +12,10 @@ lastupdated: "2018-08-08"
 {:tip: .tip}
 {:screen: .screen}
 
-# 사전 정의된 사용자 정보 액세스
+# 사전 정의된 사용자 속성
 {: #predefined}
 
-사용자에 대한 ID 제공자별 정보를 볼 수 있습니다.
+{{site.data.keyword.appid_full}}를 사용하여 사용자에 대한 ID 제공자 특정 정보를 확인할 수 있습니다.
 {: shortdesc}
 
 
@@ -35,7 +35,7 @@ AppID.sharedInstance.userProfileManager.getUserInfo { (error: Error?, userInfo: 
 ```
 {: pre}
 
-또는 액세스 및 ID 토큰을 명시적으로 전달할 수 있습니다. ID 토큰은 선택사항이지만 전달된 경우 사용자 정보 응답의 유효성을 검증하는 데 사용됩니다. 
+또는 액세스 및 ID 토큰을 명시적으로 전달할 수 있습니다. ID 토큰은 선택사항이지만 전달된 경우 사용자 정보 응답의 유효성을 검증하는 데 사용됩니다.
 
 ```
 AppID.sharedInstance.userProfileManager.getUserInfo(accessToken: String, identityToken: String?) { (error: Error?, userInfo: [String: Any]?) in
@@ -71,7 +71,7 @@ appId.getUserProfileManager().getUserInfo(new UserProfileResponseListener() {
 ```
 {: pre}
 
-또는 액세스 및 ID 토큰을 명시적으로 전달할 수 있습니다. ID 토큰은 선택사항이지만 전달된 경우 사용자 정보 응답의 유효성을 검증하는 데 사용됩니다. 
+또는 액세스 및 ID 토큰을 명시적으로 전달할 수 있습니다. ID 토큰은 선택사항이지만 전달된 경우 사용자 정보 응답의 유효성을 검증하는 데 사용됩니다.
 
 ```
 AppID appId = AppID.getInstance();
@@ -96,7 +96,7 @@ appId.getUserProfileManager().getUserInfo(accessToken, identityToken, new UserPr
 {: #node}
 
 
-서버 측 SDK를 사용하여 사용자에 대한 추가 정보를 검색할 수 있습니다. 저장된 액세스 및 ID 토큰을 사용하여 다음 메소드를 호출할 수 있습니다. 또는 명시적으로 토큰을 전달할 수 있습니다. ID 토큰은 선택사항이지만 전달된 경우 사용자 정보 응답의 유효성을 검증하는 데 사용됩니다. 
+서버 측 SDK를 사용하여 사용자에 대한 추가 정보를 검색할 수 있습니다. 저장된 액세스 및 ID 토큰을 사용하여 다음 메소드를 호출할 수 있습니다. 또는 명시적으로 토큰을 전달할 수 있습니다. ID 토큰은 선택사항이지만 전달된 경우 사용자 정보 응답의 유효성을 검증하는 데 사용됩니다.
 
 
 ```javascript
@@ -123,7 +123,7 @@ userProfileManager.getUserInfo(accessToken).then(function (profile) {
 ## Swift 서버 SDK로 액세스
 {: #swift}
 
-서버 측 SDK를 사용하여 사용자에 대한 추가 정보를 검색할 수 있습니다. 저장된 액세스 및 ID 토큰을 사용하여 다음 메소드를 호출할 수 있습니다. 또는 명시적으로 토큰을 전달할 수 있습니다. ID 토큰은 선택사항이지만 전달된 경우 사용자 정보 응답의 유효성을 검증하는 데 사용됩니다. 
+서버 측 SDK를 사용하여 사용자에 대한 추가 정보를 검색할 수 있습니다. 저장된 액세스 및 ID 토큰을 사용하여 다음 메소드를 호출할 수 있습니다. 또는 명시적으로 토큰을 전달할 수 있습니다. ID 토큰은 선택사항이지만 전달된 경우 사용자 정보 응답의 유효성을 검증하는 데 사용됩니다.
 
 
 ```swift
@@ -159,7 +159,7 @@ userProfileManager.getUserInfo(accessToken: accessToken) { (err, userInfo) in
 
 1. `openid` 범위를 사용하여 올바른 액세스 토큰이 있는지 확인하십시오. `/introspect` 엔드포인트를 사용하여 토큰이 올바른지 확인할 수 있습니다.
 
-2. `/userinfo` 엔드포인트에 대한 요청을 작성하십시오.
+2. [`/userinfo` 엔드포인트](https://appid-oauth.ng.bluemix.net/swagger-ui/#!/Authorization_Server_V3/userInfo)에 대한 요청을 작성하십시오.
   ```
   GET [POST] https://{oauth-server-endpoint}/userinfo
   Authorization: 'Bearer {ACCESS_TOKEN}'
