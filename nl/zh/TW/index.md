@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-08"
+lastupdated: "2018-11-15"
 
 ---
 
@@ -13,13 +13,14 @@ lastupdated: "2018-08-08"
 # 入門指導教學
 {: #gettingstarted}
 
-應用程式安全可能非常複雜。對於大部分的開發人員而言，這是建立應用程式的其中一個最難的部分。如何才能確定您正在保護使用者資訊？藉由將 {{site.data.keyword.appid_full}} 整合至您的應用程式，您可以保護資源並新增鑑別；即使您沒有太多安全經驗也是一樣。
+應用程式安全可能非常複雜。對於大部分的開發人員而言，這是建立應用程式時，其中一個最難的部分。如何才能確定您正在保護使用者資訊？藉由將 {{site.data.keyword.appid_full}} 整合至您的應用程式，您可以保護資源並新增鑑別；即使您沒有太多安全經驗也是一樣。
 {: shortdesc}
 
-藉由要求使用者登入您的應用程式，您可以儲存使用者資料（例如來自公用社交設定檔中的應用程式喜好設定或資訊），然後使用該資料來自訂您應用程式的每一個體驗。App ID 為您提供一種登入架構，但您也可以在使用雲端目錄時，將自己的特有風格帶入登入畫面中。
+藉由要求使用者登入您的應用程式，您可以儲存使用者資料（例如來自公用社交設定檔中的應用程式喜好設定或資訊），然後使用該資料來自訂您應用程式的每一個體驗。{{site.data.keyword.appid_short_notm}} 為您提供一種登入架構，但您也可以在使用雲端目錄時，將自己的特有風格帶入登入畫面中。
 
-身為帳戶擁有者，您現在可以設定原則，以定義團隊成員如何與 {{site.data.keyword.appid_short_notm}} 實例進行互動。您可以決定誰可以建立、更新及刪除服務的實例。如需相關資訊，請參閱[服務存取管理](/docs/services/appid/iam.html)。
-{:tip}
+我們很樂意聽取您的意見和問題！
+* 如果您有 {{site.data.keyword.appid_short_notm}} 的相關技術問題，請將問題張貼在 <a href="https://stackoverflow.com/search?q=ibm-appid" target="_blank">Stack Overflow <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>，並使用 `ibm-appid` 來標記問題。
+* 若為服務及開始使用指示的相關問題，請使用 <a href="https://developer.ibm.com/answers/topics/appid/" target="_blank">dW Answers <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a> 討論區。請包括 `appid` 標籤。
 
 ## 建立服務實例
 {: #create}
@@ -38,44 +39,35 @@ lastupdated: "2018-08-08"
 
 就這樣！您已準備好開始配置您的應用程式設定。
 
-
 ## 配置範例應用程式
 {: #sample-app}
 
 您可以使用其中一個預先配置的範例應用程式來熟悉如何使用服務。
 {: shortdesc}
 
-根據預設，範例應用程式已配置兩個身分提供者，而且可以檢閱鑑別。您也可以使用登入小組件特性來自訂登入頁面，以及查看在應用程式中顯示您進行的更新的速度。
+根據預設，範例應用程式已配置兩個身分提供者，而且可以檢閱鑑別。`iOS Swift`、`Android`、`Node.js` 及 `Java` 中提供有範例應用程式。如果您沒有看到感覺可以輕鬆運作的語言，請不要擔心！您可以使用提供的 API，將 {{site.data.keyword.appid_short_notm}} 整合至自己的範例應用程式。
 
-若要從 GUI 配置範例應用程式，請執行下列動作：
+若要建置範例應用程式，請執行下列動作：
 
-1. 在您建立服務的實例之後，可以選擇使用您覺得適合處理的語言的範例應用程式。您可以從 iOS Swift、Android、Node.js 及 Java 中進行選擇。不使用 SDK 嗎？您可以使用 API 來整合 {{site.data.keyword.appid_short_notm}}。
-2. 遵循 GUI 中的步驟，以**建置並執行**範例應用程式。每一種語言的配置略有不同，因此，請務必選取您已從下拉清單下載的應用程式語言。配置應用程式之後，即可在瀏覽器中進行開啟，並使用您的認證登入。
-  請確定已安裝應用程式語言的必備項目。
-  <dl>
-    <dt> Android</dt>
-      <dd><ul><li> Android API 27 或更高版本</li><li> Java 8.x </li><li> Android SDK Tools 25.2.5+ </li><li> Android SDK Platform Tools 26.1.1+ </li><li> Android Build Tools 27.0.0+ 版</li></ul></dd>
-    <dt> iOS Swift </dt>
-      <dd><ul><li> CocoaPods（1.1.0 版或更高版本）</li><li> iOS 10.0 或更高版本</li><li> MacOS 10.11.5 </li><li> Xcode（9.0.1 版或更高版本）</li></ul></dd>
-    <dt> Node.js </dt>
-      <dd><ul><li> {{site.data.keyword.Bluemix_notm}} CLI</li></ul></dd>
-    <dt> Java
-
-</dt>
-      <dd><ul><li> {{site.data.keyword.Bluemix_notm}} CLI </li><li> Maven </li></ul></dd>
-  </dl>
-
+1. 按一下**下載範例**。
+2. 按一下您選擇的語言來下載範例。
   看不到您尋找的語言嗎？不必擔心！您可以透過 API 利用 {{site.data.keyword.appid_short_notm}}。您也可以查看<a href="https://www.ibm.com/blogs/bluemix/tag/app-id/" target="_blank">我們的部落格 <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>，以取得其他語言的額外協助。
   {: tip}
+3. 確定您已安裝或完成必備項目。
+4. 遵循**建置並執行**步驟，使用 {{site.data.keyword.appid_short_notm}} 來設定您的範例。
+5. 按一下**檢閱活動**，查看任何已發生的鑑別事件。任何類型的登入都會建立一個可在此頁面上看到的事件。
+6. 自訂登入小組件。
+  1. 按一下**選取**，然後瀏覽您的本端系統，以取得要上傳的影像，來新增影像（例如品牌標誌）。
+  2. 選取其中一個顏色選項，或以十六進位值指定，來選擇色系。
+  3. 在網站與行動裝置之間變更，以在每一種類型的裝置上查看色系的外觀。
+  4. 當您滿意選擇時，請按一下**儲存變更**。
+7. 在瀏覽器中，重新整理您的登入頁面。即可看到您在前一個步驟中進行的變更。
 
-3. 按一下**檢閱活動**，以查看已發生的鑑別事件。登入之後，您可以看到事件。
-4. 自訂登入體驗。您可以選取影像（例如您的標誌及標頭顏色）。您可以選取其中一個顏色選項，或插入十六進位值。當您滿意預覽結果時，請按一下**儲存變更**。
-5. 在瀏覽器中，重新整理登入頁面。即可看到您在前一個步驟中進行的變更。
 
 ## 後續步驟
 {: #next}
 
-準備好進入並開始使用您自己的應用程式嗎？從[將服務新增至您的應用程式](/docs/services/appid/install.md)開始。服務提供適用於最常用語言的 SDK，但如果您看不到撰寫應用程式之語言的 SDK，則仍然可以使用 API。
+準備好進入並開始使用您自己的應用程式嗎？從[將服務新增至您的應用程式](web-apps.html)開始。服務提供適用於最常用語言的 SDK，但如果您看不到撰寫應用程式之語言的 SDK，則仍然可以使用 API，來利用 {{site.data.keyword.appid_short_notm}}。
 
 </br>
 </br>

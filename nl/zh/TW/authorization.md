@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-06"
+lastupdated: "2018-12-19"
 
 ---
 
@@ -12,15 +12,19 @@ lastupdated: "2018-08-06"
 {:codeblock: .codeblock}
 {:tip: .tip}
 
-# 授權及鑑別
-{: #authorization}
 
-使用 {{site.data.keyword.appid_full}}，使用者可以運用記號及授權過濾器，確保其應用程式受到保護。在使用者能夠授與應用程式授權之前，身分提供者必須先鑑別其身分。
+
+
+# 主要概念
+{: #key-concepts}
+
+對授權與鑑別之間的差異感到困惑嗎？不是只有您而已。請參閱此頁面上的資訊，以瞭解特定術語、處理程序，以及服務使用記號的方式。
 {: shortdesc}
 
 
-## 主要概念
-{: #key-concepts}
+## 術語
+{: #terms}
+
 
 這些重要詞彙可協助您瞭解服務中斷授權及鑑別處理程序的方式。
 
@@ -29,7 +33,7 @@ lastupdated: "2018-08-06"
     <dd><a href="https://tools.ietf.org/html/rfc6749" target="_blank">OAuth 2 <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a> 是用來提供應用程式授權的開放式標準通訊協定。</dd>
   <dt>Open ID Connect (OIDC)</dt>
     <dd><p><a href="http://openid.net/developers/specs/" target="_blank">OIDC <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a> 是比 OAuth 2 優先使用的鑑別層。</p>
-    <p>當您同時使用 OIDC 及 {{site.data.keyword.appid_short_notm}} 時，您的服務認證有助於配置 OAuth 端點。當您使用 SDK 時，會自動建置端點 URL。但是，您也可以使用服務憑證自行建置 URL。您可以看到如何將 URL 放在下列範例及表格中。</p>
+    <p>當您同時使用 OIDC 及 {{site.data.keyword.appid_short_notm}} 時，您的服務認證有助於配置 OAuth 端點。當您使用 SDK 時，會自動建置端點 URL。但是，您也可以使用服務憑證自行建置 URL。您可以在下列範例及表格中看到如何組合 URL。</p>
     <pre class="codeblock">
     <code>{
       "version": 3,
@@ -63,8 +67,7 @@ lastupdated: "2018-08-06"
     </table>
     <p><strong>附註</strong>：當您使用 SDK 時，會自動建置端點 URL。</p></dd>
   <dt>記號</dt>
-    <dd>服務使用三種不同類型的記號來提供鑑別。存取記號代表授權，並啟用與[後端資源](/docs/services/appid/protecting-resources.html)的通訊，這些資源會受到 {{site.data.keyword.appid_short}} 所設定的授權過濾器保護。身分記號代表鑑別，並包含使用者的相關資訊。重新整理記號是具有延伸生命期限的存取記號。藉由使用重新整理記號，使用者可以容許應用程式記住其資訊。因此，他們可以保持登入狀態。
-  </dd>
+    <dd>服務使用三種不同類型的記號。存取記號代表授權，並啟用與[後端資源](/docs/services/appid/backend-apps.html)的通訊，這些資源會受到 {{site.data.keyword.appid_short}} 所設定的授權過濾器保護。身分記號代表鑑別，並包含使用者的相關資訊。重新整理記號可以用來取得新的存取記號，而不需要重新鑑別使用者。藉由使用重新整理記號，使用者可以容許應用程式記住其資訊。如此，他們便可以保持登入狀態。如需記號及如何在 {{site.data.keyword.appid_short}} 中使用它們的相關資訊，請參閱[驗證記號](tokens.html#remote-validation)。</dd>
   <dt>授權標頭</dt>
     <dd><p>{{site.data.keyword.appid_short}} 符合<a href="https://tools.ietf.org/html/rfc6750" target="blank">記號載送規格 <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>，並使用傳送為 HTTP Authorization 標頭的存取及身分記號組合。Authorization 標頭包含依空格區隔的三個不同部分。這些記號是 base64 編碼。身分記號是選用項目。</br>
 範例：</p>
@@ -80,32 +83,114 @@ lastupdated: "2018-08-06"
 </dl>
 
 </br>
+</br>
 
-## 處理程序運作方式
-{: #process}
 
-編寫應用程式碼時，其中一個最大的問題是安全。如何確定只有具有正確存取權的使用者才能使用應用程式？您可以使用授權處理程序。在大部分處理程序中，授權和鑑別會連結在一起，這樣做會讓變更您的安全原則和身分提供者更加複雜。使用 {{site.data.keyword.appid_short}} 時，授權及鑑別是不同的處理程序。
+## 瞭解記號
+{: #tokens}
+
+當順利鑑別使用者時，應用程式會從 {{site.data.keyword.appid_short_notm}} 收到記號。服務會使用三種主要類型的記號來完成鑑別處理程序。
 {: shortdesc}
 
-當您配置社交身分提供者（例如 Facebook）時，[Oauth2 授權授與流程](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html)是用來呼叫登入小組件。使用雲端目錄作為身分提供者，會使用[資源擁有者密碼認證流程](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/password.html)來提供存取及身分記號。
 
-![要成為已識別使用者的路徑。](/images/authenticationtrail.png)
+**何謂存取記號？**
 
-使用者選擇登入時，就會變成已識別的使用者。身分提供者會將存取及身分記號傳回給包含使用者相關資訊的 {{site.data.keyword.appid_short}}。此服務會採用提供的記號，並判斷使用者是否有適當的認證可以存取應用程式。如果已驗證記號，則服務會將存取權授與使用者。鑑別資訊在經過授權之後，會與使用者的記錄相關聯。可從相同身分所鑑別的任何用戶端中，重新存取記錄及其屬性。
+存取記號代表授權，並啟用與[後端資源](/docs/services/appid/backend-apps.html)的通訊，這些資源會受到 {{site.data.keyword.appid_short}} 所設定的授權過濾器保護。此記號符合「JavaScript 物件簽署及加密 (JOSE)」規格。記號會格式化為 <a href="https://jwt.io/introduction/" target="blank">JSON Web 記號 <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>，其是以使用 RS256 演算法的「JSON Web 金鑰」進行簽署。
 
-### 漸進鑑別
+範例記號：
+  ```
+Header: {
 
-使用 {{site.data.keyword.appid_short_notm}}，匿名使用者可以選擇變成已識別的使用者。
+    "typ": "JOSE",
+    "alg": "RS256",
+}
+Payload: {
+    "iss": "appid-oauth.ng.bluemix.net",
+      "exp": "1495562664",
+      "aud": "a3b87400-f03b-4956-844e-a52103ef26ba",
+      "amr": ["facebook"],
+      "sub": "de6a17d2-693d-4a43-8ea2-2140afd56a22",
+      "iat": "1495559064",
+      "tenant": "9781974b-6a1c-46c3-aebf-32b7e9bbbaee",
+      "scope": "appid_default appid_readprofile appid_readuserattr appid_writeuserattr",
+  ```
+  {: screen}
 
-但是，作法為何？
+**何謂身分記號？**
 
-使用者選擇不要立即登入時，就會將他們視為匿名使用者。例如，使用者可以在其中立即開始將項目新增至購物車，而不需要登入。針對匿名使用者，{{site.data.keyword.appid_short_notm}} 會建立特定的使用者記錄，並呼叫 OAuth 登入 API，傳回匿名存取及身分記號。使用那些記號，應用程式可以建立、讀取、更新及刪除使用者記錄中所儲存的屬性。
+身分記號代表鑑別，並包含使用者的相關資訊。它可以將使用者名稱、電子郵件、性別及位置的相關資訊提供給您。記號也可以傳回使用者影像的 URL。記號會格式化為 <a href="https://jwt.io/introduction/" target="blank">JSON Web 記號 <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>，其是以使用 RS256 演算法的「JSON Web 金鑰」進行簽署。
 
-![使用者以匿名開始時變成已識別使用者的路徑。](/images/anon-authenticationtrail.png)
+範例記號：
+  ```
+Header: {
 
-匿名使用者登入時，其存取記號會傳遞至登入 API。服務會向身分提供者鑑別呼叫。服務會使用存取記號，來尋找匿名記錄並將身分附加至其中。新的存取及身分記號包含身分提供者所共用的公用資訊。在識別使用者之後，其匿名記號會變成無效。不過，使用者仍然能夠存取其屬性，因為可使用新記號存取它們。
+    "typ": "JOSE",
+    "alg": "RS256",
+}
+Payload: {
+    "iss": "appid-oauth.ng.bluemix.net",
+      "aud": "a3b87400-f03b-4956-844e-a52103ef26ba",
+      "exp: "1495562664",
+      "tenant": "9781974b-6a1c-46c3-aebf-32b7e9bbbaee",
+      "iat": "1495559064",
+      "name": "John Smith",
+      "email": "js@mail.com",
+      "gender", "male",
+      "locale": "en",
+      "picture": "<URL-to-photo>",
+      "sub": "de6a17d2-693d-4a43-8ea2-2140afd56a22",
+      "identities": [
+          "provider": "facebook"
+        "id": "377440159275659"
+    ],
+    "amr": ["facebook"],
+    "oauth_client":{
+      "name": "BluemixApp",
+      "type": "serverapp",
+      "software_id": "cb638f8f-e24b-41d3-b770-23be158dd8e6.2b94e6bb-bac4-4455-8712-a43fa804d5cc.a3b87400-f03b-4956-844e-a52103ef26ba",
+      "software_version": "1.0.0",
+    }
+}
+  ```
+  {: screen}
 
-如果身分尚未指派給另一位使用者，則它只能指派給匿名記錄。
-{: tip}
+身分記號僅包含局部使用者資訊。若要查看身分提供者所提供的所有資訊，您可以使用[使用者資訊端點](/docs/services/appid/predefined.html#api)。
 
-如果身分已與另一個 {{site.data.keyword.appid_short_notm}} 使用者相關聯，則記號會包含該使用者記錄的資訊，並提供其屬性的存取權。透過新的記號，無法存取先前匿名使用者屬性。除非記號到期，否則仍然可以透過匿名存取記號來存取這項資訊。開發期間，您可以選擇如何將匿名屬性合併至已知使用者。
+**何謂重新整理記號？**
+
+{{site.data.keyword.appid_short}} 支援在沒有重新鑑別的情況下獲得新存取和身分記號的能力，如 <a href="http://openid.net/specs/openid-connect-core-1_0.html#RefreshTokens" target="_blank">OIDC <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a> 中所定義。
+      重新整理記號可以用來更新存取記號，因此使用者不需要採取任何動作即可登入，例如提供認證。與存取記號類似，重新整理記號包含容許 {{site.data.keyword.appid_short_notm}} 判定您是否已獲授權的資料。不過，這些記號是不透明的。
+
+重新整理記號會配置為具有比一般存取記號還要長的有效期限，因此當存取記號到期時，重新整理記號仍然有效，且可用來更新存取記號。{{site.data.keyword.appid_short_notm}} 的重新整理記號可以配置為持續 1 到 90 天。若要充分利用重新整理記號，請持續保存這些記號，直到其完整有效期限結束，或直到它們已更新。使用者無法只利用重新整理記號來直接存取資源，這使得它們比存取記號更能安全地持續保存。最佳作法是，重新整理記號應該由接收它們的用戶端安全地儲存，且只傳送至發出它們的授權伺服器。
+
+為了方便新增，{{site.data.keyword.appid_short_notm}} 也會在更新存取記號時，更新其重新整理記號及其到期日，讓使用者可以保持登入狀態，只要他們在現行重新整理記號到期之前的某個時間點處於作用中狀態。另一方面，如果您想要使用重新整理記號，但強制使用者定期登入，則您的應用程式只能使用在使用者輸入其認證登入時所傳回的重新整理記號。不過，我們建議一律使用從 App ID 接收的最新重新整理記號，如 <a href="https://tools.ietf.org/html/rfc6749#page-47" target="_blank">Oauth 規格<img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>所述。
+
+
+雖然這些記號可以簡化登入處理程序，但您的應用程式不應該依賴它們，因為可以隨時撤銷它們，例如您認為重新整理記號已受損時。如果您需要撤銷重新整理記號，則有兩種撤銷重新整理記號的方法。如果您有重新整理記號，則可以根據 <a href="https://tools.ietf.org/html/rfc7009#section-2" target="_blank">RFC7009 <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a> 來撤銷它。或者，如果您具有使用者 ID，則可以使用<a href="https://appid-management.ng.bluemix.net/swagger-ui/" target="_blank">管理 API <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a> 來撤銷重新整理記號。如需存取管理 API 的相關資訊，請參閱[管理服務存取](iam.html#service-access-management)。
+
+如需使用重新整理記號，以及如何使用它們來實作 remember me 功能的範例，請參閱[入門範例](index.html)。
+
+
+**記號來自哪裡？**
+
+記號是透過 {{site.data.keyword.appid_short_notm}}OAuth Server 發出，且會格式化為 [JSON Web 記號 (JWT)](https://jwt.io/introduction/)。這些記號已使用 [JSON Web 金鑰 (JWK)](https://tools.ietf.org/html/rfc7517) 搭配 RS256 演算法來進行簽署。
+
+**記號包含的資訊發生什麼情況？**
+
+存取記號包含一組標準 JWT 要求，以及一組 {{site.data.keyword.appid_short_notm}}特定要求（如承租戶 ID）。身分記號包含使用者特定資訊。記號中的資訊儲存為要求，作為[使用者設定檔](/docs/services/appid/user-profile.html)的一部分。
+
+**如何接收記號？**
+
+在順利鑑別之後，您的應用程式會收到記號。您的應用程式可以使用記號，來擷取使用者授權和鑑別的相關資訊。存取記號可以用來透過將要求傳送至資源來取得受保護資源的存取權。在要求中，存取記號載明於[載送鑑別方法](https://tools.ietf.org/html/rfc6750#page-5)中。若要擷取記號，您的應用程式必須剖析標頭。
+
+範例要求：
+
+  ```
+  GET /resource HTTP/1.1
+  Host: server.example.com
+  Authorization: Bearer  mF_9.B5f-4.1JqM mF_9.B5f-4.1JqM
+  ```
+  {: screen}
+
+</br>
+</br>

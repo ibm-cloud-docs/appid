@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-27"
+lastupdated: "2018-12-19"
 
 ---
 
@@ -10,7 +10,6 @@ lastupdated: "2018-06-27"
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
-
 
 
 #  將本端開發伺服器配置為使用 {{site.data.keyword.appid_short_notm}}
@@ -23,7 +22,7 @@ lastupdated: "2018-06-27"
 ## 開始之前
 {: #begin}
 
-確定您已安裝[伺服器 SDK](/docs/services/appid/install.html#nodejs-setup)。
+安裝[伺服器 SDK](web-apps.html)。
 
 
 ## 配置 {{site.data.keyword.appid_short_notm}} 應用程式以使用本端開發伺服器

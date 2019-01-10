@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-07-15"
+lastupdated: "2018-12-19"
 
 ---
 
@@ -19,7 +19,7 @@ lastupdated: "2018-07-15"
 您可以使用管理 API，對您的 {{site.data.keyword.appid_full}} 實例進行 DevOps 自動化、自訂及管理。
 {: shortdesc}
 
-管理 API 是使用 {{site.data.keyword.cloudaccesstraillong}} 產生的記號來保護。使用 IAM，帳戶擁有者可以指定其團隊成員對每個服務實例的存取層次。如需 IAM 與 {{site.data.keyword.appid_short_notm}} 如何合作的相關資訊，請參閱[服務存取管理](/docs/services/appid/iam.html)。
+管理 API 受到 {{site.data.keyword.cloudaccesstraillong}} 產生的記號所保護。使用 IAM，帳戶擁有者可以指定其團隊成員對每個服務實例的存取層次。如需 IAM 與 {{site.data.keyword.appid_short_notm}} 如何合作的相關資訊，請參閱[服務存取管理](/docs/services/appid/iam.html)。
 
 使用 API，您可以：
 * 在 DevOps 處理程序的應用程式中自動配置 {{site.data.keyword.appid_short_notm}}。
@@ -29,11 +29,10 @@ lastupdated: "2018-07-15"
 呼叫管理 API 端點採用下列結構：
 
 ```
-appid-management.<region>.bluemix.net
+appid-management.<region-endpoint>.bluemix.net
 ```
 {: codeblock}
 
-您可以在下表中尋找，以找出地區。
 
 <table>
   <tr>
@@ -42,19 +41,19 @@ appid-management.<region>.bluemix.net
   </tr>
   <tr>
     <td>英國</td>
-    <td><code>appid-management.eu-gb.bluemix.net</code></td>
+    <td><code>eu-gb</code></td>
   </tr>
   <tr>
     <td>美國南部</td>
-    <td><code>appid-management.ng.bluemix.net</code></td>
+    <td><code>ng</code></td>
   </tr>
   <tr>
     <td>雪梨</td>
-    <td><code>appid-management.au-syd.bluemix.net</code></td>
+    <td><code>au-syd</code></td>
   </tr>
   <tr>
     <td>德國</td>
-    <td><code>appid-management.eu-de.bluemix.net</code></td>
+    <td><code>eu-de</code></td>
   </tr>
 </table>
 
@@ -92,14 +91,12 @@ token = 'Bearer ' + json.loads(r.text)['access_token'];
 headers = {'Authorization': token , 'Accept':'application/json'}
 files = {'file': open(img,'rb')}
 
-r = requests.post("https://appid-management.<region>.bluemix.net/management/v4/" + te
-nantId + "/config/ui/media?mediaType=logo", files=files, headers=headers);
+r = requests.post("https://<region>.appid.cloud.com/management/v4/" + tenantId + "/config/ui/media?mediaType=logo", files=files, headers=headers);
 
 #  get login widget logo
 headers = {'Authorization': token , 'Accept':'application/json'}
 
-r = requests.get("https://appid-management.<region>.bluemix.net/management/v4/" + ten
-antId + "/config/ui/media", headers=headers);
+r = requests.get("https://<region>.appid.cloud.com/management/v4/" + tenantId + "/config/ui/media", headers=headers);
 
 if (r.status_code >= 200) :
     print(r.text)

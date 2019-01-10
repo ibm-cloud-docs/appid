@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-08"
+lastupdated: "2018-11-19"
 
 ---
 
@@ -12,10 +12,10 @@ lastupdated: "2018-08-08"
 {:tip: .tip}
 {:screen: .screen}
 
-# 存取預先定義的使用者資訊
+# 預先定義的使用者屬性
 {: #predefined}
 
-您可以檢視使用者的身分提供者特定資訊。
+使用 {{site.data.keyword.appid_full}}，您可以檢視使用者的身分提供者特定資訊。
 {: shortdesc}
 
 
@@ -35,7 +35,7 @@ AppID.sharedInstance.userProfileManager.getUserInfo { (error: Error?, userInfo: 
 ```
 {: pre}
 
-或者，您可以明確地傳遞存取及身分記號。身分記號是選用的，但在傳遞時，會使用它來驗證使用者資訊回應。
+或者，您可以明確地傳遞存取及身分記號。身分記號是選用性的，但如果有傳遞，則會用它來驗證使用者資訊回應。
 
 ```
 AppID.sharedInstance.userProfileManager.getUserInfo(accessToken: String, identityToken: String?) { (error: Error?, userInfo: [String: Any]?) in
@@ -71,7 +71,7 @@ appId.getUserProfileManager().getUserInfo(new UserProfileResponseListener() {
 ```
 {: pre}
 
-或者，您可以明確地傳遞存取及身分記號。身分記號是選用的，但在傳遞時，會使用它來驗證使用者資訊回應。
+或者，您可以明確地傳遞存取及身分記號。身分記號是選用性的，但如果有傳遞，則會用它來驗證使用者資訊回應。
 
 ```
 AppID appId = AppID.getInstance();
@@ -96,7 +96,7 @@ appId.getUserProfileManager().getUserInfo(accessToken, identityToken, new UserPr
 {: #node}
 
 
-藉由使用伺服器端 SDK，您可以擷取使用者的其他資訊。 您可以使用預存存取及身分記號來呼叫下列方法，也可以明確地傳遞記號。身分記號是選用的，但在傳遞時，會使用它來驗證使用者資訊回應。
+藉由使用伺服器端 SDK，您可以擷取使用者的其他資訊。 您可以使用預存存取及身分記號來呼叫下列方法，也可以明確地傳遞記號。身分記號是選用性的，但如果有傳遞，則會用它來驗證使用者資訊回應。
 
 
 ```javascript
@@ -123,7 +123,7 @@ userProfileManager.getUserInfo(accessToken).then(function (profile) {
 ## 使用 Swift 伺服器 SDK 存取
 {: #swift}
 
-藉由使用伺服器端 SDK，您可以擷取使用者的其他資訊。 您可以使用預存存取及身分記號來呼叫下列方法，也可以明確地傳遞記號。身分記號是選用的，但在傳遞時，會使用它來驗證使用者資訊回應。
+藉由使用伺服器端 SDK，您可以擷取使用者的其他資訊。 您可以使用預存存取及身分記號來呼叫下列方法，也可以明確地傳遞記號。身分記號是選用性的，但如果有傳遞，則會用它來驗證使用者資訊回應。
 
 
 ```swift
@@ -159,7 +159,7 @@ userProfileManager.getUserInfo(accessToken: accessToken) { (err, userInfo) in
 
 1. 確保您具有含 `openid` 範圍的有效存取記號。您可以使用 `/introspect` 端點來驗證記號是否有效。
 
-2. 向 `/userinfo` 端點提出要求。
+2. 向 [`/userinfo` 端點](https://appid-oauth.ng.bluemix.net/swagger-ui/#!/Authorization_Server_V3/userInfo)提出要求。
   ```
   GET [POST] https://{oauth-server-endpoint}/userinfo
   Authorization: 'Bearer {ACCESS_TOKEN}'

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-09"
+lastupdated: "2018-12-19"
 
 ---
 
@@ -10,55 +10,45 @@ lastupdated: "2018-08-09"
 {:screen: .screen}
 {:tip: .tip}
 {:pre: .pre}
-{:new_window: target="blank"}
+{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 
 
-# 顯示預設畫面
-{: #default}
+# 顯示登入小組件
+{: #login-widget}
 
-{{site.data.keyword.appid_full}} 提供登入小組件，可讓您提供使用者安全的登入選項。
+{{site.data.keyword.appid_full}} 提供「登入小組件」，可讓您提供使用者安全的登入選項。
 {: shortdesc}
 
-將您的應用程式配置為使用身分提供者時，登入小組件即會將您應用程式的訪客導向至登入畫面。作為預設值，只有在將一個提供者設為**開啟**時，才會將訪客重新導向至該身分提供者鑑別畫面。使用登入小組件，您可以顯示預設登入畫面，或使用雲端目錄，您可以重複使用現有的使用者介面。而且，附加價值是您可以隨時更新登入流程，而無需以任何方式變更您的原始碼！
-
-
-服務會使用 OAuth 2 授權類型來對映授權處理程序。當您配置社交身分提供者（例如 Facebook）時，[Oauth2 授權授與流程](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html)是用來呼叫登入小組件。
+將您的應用程式配置為使用身分提供者時，「登入小組件」即會將您應用程式的訪客導向至登入畫面。使用「登入小組件」，您可以顯示登入流程的預先配置畫面。附加價值是您可以隨時更新登入流程，而無需以任何方式變更您的原始碼！
 
 想要建立您應用程式特有的體驗嗎？您可以[帶入自己的畫面](/docs/services/appid/branded.html)！
 {: tip}
 
+## 瞭解登入小組件
+{: #understanding}
 
-## 自訂預設登入畫面
-{: #login-widget}
-
-您可以自訂預先配置的登入畫面，以顯示您選擇的標誌及顏色。
+即使沒有自己的使用者介面畫面，您也可以顯示「登入小組件」來利用 {{site.data.keyword.appid_short_notm}}。
 {: shortdesc}
 
-若要自訂畫面，請執行下列動作：
+**何謂預設值？**
 
-1. 開啟 {{site.data.keyword.appid_short_notm}} 服務儀表板。
-2. 選取**登入自訂作業**區段。您可以修改登入小組件的外觀，以符合公司品牌。
-3. 選取本端系統中的 PNG 或 JPG 檔案，以上傳公司的標誌。建議的影像大小是 320 x 320 像素。檔案大小上限是 100 KB。
-4. 從顏色選取器中選取小組件的標頭顏色，或輸入另一個顏色的十六進位碼。
-5. 檢查預覽窗格，然後在滿意自訂時按一下**儲存變更**。即會顯示一則確認訊息。
-6. 在瀏覽器中，重新整理登入頁面，以驗證您的變更。
+配置多個身分提供者時，若使用者嘗試登入您的應用程式時，會將他們重新導向至「登入小組件」。藉由使用「登入小組件」，使用者可以選擇要用來驗證其身分的提供者。但是，當只有一個提供者設為**開啟**時，會將訪客重新導向至該身分提供者鑑別畫面。
 
+**{{site.data.keyword.appid_short_notm}} 從身分提供者取得多少資訊？**
 
-## 規劃要顯示的畫面
-{: #plan}
+當您使用社交或企業身分提供者時，{{site.data.keyword.appid_short_notm}} 具有使用者帳戶資訊的讀取權。此服務會使用記號以及身分提供者所傳回的主張，來驗證使用者是否正如其人。因為此服務永不具有資訊的寫入權，所以使用者必須透過其選擇的身分提供者執行動作，例如重設其密碼。比方說，如果使用者使用 Facebook 來登入您的應用程式，然後想要變更其密碼，則他們必須移至 www.facebook.com 以執行此動作。
 
-{{site.data.keyword.appid_short_notm}} 提供您可以呼叫的預設登入畫面（如果您沒有自己的使用者介面畫面可顯示）。
-{: shortdesc}
+當您使用[雲端目錄](/docs/services/appid/cloud-directory.html)時，{{site.data.keyword.appid_short_notm}} 是身分提供者。此服務會使用您的登錄來驗證您的使用者身分。因為 {{site.data.keyword.appid_short_notm}} 是提供者，所以使用者可以直接在您的應用程式中利用進階功能，例如重設其密碼。
 
-取決於您的身分提供者配置，您可以顯示的畫面會有所不同。此服務不會提供社交身分提供者的進階功能，因為我們永遠無權存取使用者帳戶資訊。使用者必須移至身分提供者來管理其資訊。例如，如果他們想要變更其 Facebook 密碼，則他們需要移至 www.facebook.com。
+**可對每一種類型的提供者顯示什麼類型的畫面？**
 
 請參閱下表，以查看您可以對每一種類型的身分提供者顯示的畫面。
 
 <table>
   <thead>
     <tr>
-      <th>顯示畫面</th>
+      <th>登入小組件畫面</th>
       <th>社交身分提供者</th>
       <th>企業身分提供者</th>
       <th>雲端目錄</th>
@@ -98,157 +88,186 @@ lastupdated: "2018-08-09"
   </tbody>
 </table>
 
-在您配置了[社交身分提供者](/docs/services/appid/identity-providers.html)及[雲端目錄](/docs/services/appid/cloud-directory.html)的設定之後，請按一下下列影像中您選擇的語言來開始實作程式碼。
-
-
-按一下映像檔，以使用其中一個提供的 SDK 或 API。請不要忘記，您也可以搭配使用 App ID 與其他語言。藉由使用我們的 API，您可以在任何應用程式中設定雲端目錄。如需映像檔中未列出之語言的協助，請查看<a href="https://www.ibm.com/blogs/bluemix/tag/app-id/" target="_blank">我們的部落格 <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>。
-{: shortdesc}
-
+</br>
 </br>
 
-## 使用 Android SDK 顯示預設畫面
+## 自訂登入小組件
+{: #customize}
+
+{{site.data.keyword.appid_short_notm}} 提供您可以呼叫的預設登入畫面（如果您沒有自己的使用者介面畫面可顯示）。
+您可以自訂畫面來顯示您選擇的標誌及顏色。
+{: shortdesc}
+
+若要自訂畫面，請執行下列動作：
+
+1. 開啟 {{site.data.keyword.appid_short_notm}} 服務儀表板。
+2. 選取**登入自訂作業**區段。您可以修改「登入小組件」的外觀，以符合公司品牌。
+3. 選取本端系統中的 PNG 或 JPG 檔案，以上傳公司的標誌。建議的影像大小是 320 x 320 像素。檔案大小上限是 100 KB。
+4. 從顏色選取器中選取小組件的標頭顏色，或輸入另一個顏色的十六進位碼。
+5. 檢查預覽窗格，然後在滿意自訂時按一下**儲存變更**。即會顯示一則確認訊息。
+6. 在瀏覽器中，重新整理登入頁面，以驗證您的變更。
+
+切記！您也可以利用其他語言的 {{site.data.keyword.appid_short_notm}}。如果您未看到所使用語言的 SDK ，則可以一律使用 API。請參閱<a href="https://www.ibm.com/blogs/bluemix/tag/app-id/" target="blank">我們的部落格 <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>。
+{: tip}
+
+
+## 使用 Android SDK 顯示登入小組件
 {: #android}
 
-您可以使用 Android SDK 來呼叫預先配置的畫面。
+您可以使用 [Android 用戶端 SDK](https://github.com/ibm-cloud-security/appid-clientsdk-android) 來呼叫預先配置的畫面。
 {: shortdesc}
 
-</br>
+在您的程式碼中放置下列指令。
 
-**登入**
-1. 在您的程式碼中放置下列指令。
-    ```java
-    LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
-    loginWidget.launch(this, new AuthorizationListener() {
-          @Override
+  ```java
+  LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
+  loginWidget.launch(this, new AuthorizationListener() {
+        @Override
         public void onAuthorizationFailure (AuthorizationException exception) {
           //Exception occurred
         }
 
-        
-
-          @Override
+        @Override
         public void onAuthorizationCanceled () {
           //Authentication canceled by the user
         }
 
-        
-
-@Override
+                  @Override
           public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, refreshToken: RefreshToken) {
             //User authenticated
         }
       });
-    ```
-  {: pre}
+  ```
+{: codeblock}
 
 </br>
+
 **註冊**
 
-1. 在雲端目錄的設定中，將**容許使用者註冊及重設其密碼**設為**開啟**。
-2. 呼叫 LoginWidget 來啟動註冊流程。
+1. 在 GUI 中配置「雲端目錄」[設定](cloud-directory.html#cd-settings)。**容許使用者註冊至您的應用程式**及**容許使用者從您的應用程式管理其帳戶**必須都設為**開啟**。
+2. 將下列程式碼新增至您的應用程式。當使用者從您的自訂畫面註冊您的應用程式時，會啟動註冊流程。下列呼叫不僅會登錄使用者，還可以傳送驗證電子郵件來完成登錄，視您的「雲端目錄」配置而定。
+
   ```java
  LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
  loginWidget.launchSignUp(this, new AuthorizationListener() {
 			 @Override
-          public void onAuthorizationFailure (AuthorizationException exception) {
+        public void onAuthorizationFailure (AuthorizationException exception) {
+          //Exception occurred
+      }
+  @Override
+        public void onAuthorizationCanceled () {
+          //Sign up canceled by the user
+      }
+
+      @Override
+          public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, RefreshToken refreshToken) {
+            if (accessToken != null && identityToken != null) {
+				     //User authenticated
+          } else {
+              //email verification is required
           }
-
-          @Override
-          public void onAuthorizationCanceled () {
-          }
-
-          @Override
-  		 public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, refreshToken: RefreshToken) {
-  			 if (accessToken != null && identityToken != null) {
-				     } else {
-  			 }
-
-  		 }
-  	 });
+      }
+  });
   ```
   {: pre}
 
 </br>
+
 **忘記密碼**
 
-1. 在雲端目錄的設定中，將**容許使用者註冊及重設其密碼**及**忘記密碼電子郵件**設為**開啟**。
-2. 呼叫 LoginWidget 來啟動忘記密碼流程。
-    ```java
-    LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
-    loginWidget.launchForgotPassword(this, new AuthorizationListener() {
-   			 @Override
+1. 在 GUI 中配置「雲端目錄」[設定](cloud-directory.html#cd-settings)。**容許使用者從您的應用程式管理其帳戶**必須設為**開啟**。
+2. 在服務儀表板的**重設密碼**標籤中，請確定**忘記密碼電子郵件**已設為**開啟**。
+3. 將下列程式碼新增至您的應用程式。當使用者在您的應用程式中按一下「忘記密碼」時，SDK 會呼叫 forgot_password API，將電子郵件傳送至使用者，容許他們重設其密碼。
+
+  ```java
+  LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
+  loginWidget.launchForgotPassword(this, new AuthorizationListener() {
+ 			 @Override
         public void onAuthorizationFailure (AuthorizationException exception) {
-          }
-
-   			 @Override
+          //Exception occurred
+      }
+  @Override
         public void onAuthorizationCanceled () {
-          }
+          // Forogt password canceled by the user
+      }
 
-   			 @Override
-   			 public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, refreshToken: RefreshToken) {
-   			 }
-   		 });
-    ```
-    {: pre}
+      @Override
+          public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, RefreshToken refreshToken) {
+            // Forgot password finished, in this case accessToken and identityToken will be null.
+      }
+  });
+  ```
+  {: codeblock}
 
 </br>
-**帳戶詳細資料**
 
-1. 在雲端目錄的設定中，將**容許使用者註冊及重設其密碼**設為**開啟**。
-2. 呼叫 LoginWidget 來啟動變更詳細資料流程。
-   ```java
+**變更詳細資料**
+
+1. 在 GUI 中配置「雲端目錄」[設定](cloud-directory.html#cd-settings)。**容許使用者註冊至您的應用程式**及**容許使用者從您的應用程式管理其帳戶**必須都設為**開啟**。
+2. 在服務儀表板的**密碼變更**標籤中，將**密碼變更電子郵件**設為「開啟」。
+3. 呼叫登入小組件來啟動變更詳細資料流程。
+
+  ```java
    LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
    loginWidget.launchChangeDetails(this, new AuthorizationListener() {
   			 @Override
-          public void onAuthorizationFailure (AuthorizationException exception) {
-          }
+        public void onAuthorizationFailure (AuthorizationException exception) {
+          // Exception occurred
+      }
 
-          @Override
-          public void onAuthorizationCanceled () {
-          }
+      @Override
+        public void onAuthorizationCanceled () {
+          // Changed details canceled by the user
+      }
 
-          @Override
-  			 public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, refreshToken: RefreshToken) {
-  			 }
-  		 });
-   ```
-   {: pre}
+      @Override
+          public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, RefreshToken refreshToken) {
+            // User authenticated, and fresh tokens received
+      }
+  });
+  ```
+  {: codeblock}
 
 </br>
+
 **變更密碼**
 
-1. 在雲端目錄的設定中，將**容許使用者註冊及重設其密碼**設為**開啟**。
-2. 呼叫 LoginWidget 來啟動變更密碼流程。
-   ```java
+1. 在 GUI 中配置「雲端目錄」[設定](cloud-directory.html#cd-settings)。**容許使用者註冊至您的應用程式**及**容許使用者從您的應用程式管理其帳戶**必須都設為**開啟**。
+2. 在您的應用程式中放置下列程式碼，以啟動變更密碼流程。
+
+  ```java
     LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
     loginWidget.launchChangePassword(this, new AuthorizationListener() {
    			 @Override
-          public void onAuthorizationFailure (AuthorizationException exception) {
-          }
+        public void onAuthorizationFailure (AuthorizationException exception) {
+          // Exception occurred
+      }
 
-          @Override
-          public void onAuthorizationCanceled () {
-          }
+      @Override
+        public void onAuthorizationCanceled () {
+          // Change password canceled by the user
+      }
 
-          @Override
-   			 public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, refreshToken: RefreshToken) {
-   			 }
-   		 });
-   ```
-   {: pre}
+      @Override
+          public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, RefreshToken refreshToken) {
+            // User authenticated, and fresh tokens received
+      }
+  });
+  ```
+  {: codeblock}
+
+
 </br>
 </br>
 
-## 使用 iOS Swift SDK 顯示預設畫面
+## 使用 iOS Swift SDK 顯示登入小組件
 {: #ios-swift}
 
-您可以使用 iOS Swift SDK 來呼叫預先配置的畫面。
+您可以使用 [iOS Swift 用戶端 SDK](https://github.com/ibm-cloud-security/appid-clientsdk-swift) 來呼叫預先配置的畫面。
 {: shortdesc}
 
-</br>
-**登入**
+在您的程式碼中放置下列指令。
 
-1. 在您的程式碼中放置下列指令。
   ```swift
   import BluemixAppID
   class delegate : AuthorizationDelegate {
@@ -267,45 +286,48 @@ lastupdated: "2018-08-09"
 
   AppID.sharedInstance.loginWidget?.launch(delegate: delegate())
   ```
-  {: pre}
-
+  {: codeblock}
 
 </br>
+
 **註冊**
 
-1. 在雲端目錄的設定中，將**容許使用者註冊及重設其密碼**設為**開啟**。
-2. 呼叫 LoginWidget 來啟動註冊流程。
+1. 在 GUI 中配置「雲端目錄」[設定](cloud-directory.html#cd-settings)。**容許使用者註冊至您的應用程式**及**容許使用者從您的應用程式管理其帳戶**必須都設為**開啟**。
+2. 將下列程式碼放在您的應用程式中。當使用者嘗試註冊您的應用程式時，會呼叫登入小組件，並顯示您的自訂註冊頁面。
+
   ```swift
-class delegate : AuthorizationDelegate {
-     public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, refreshToken: RefreshToken?) {
+   class delegate : AuthorizationDelegate {
+       public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, refreshToken: RefreshToken?, response:Response?) {
        if accessToken == nil && identityToken == nil {
         //email verification is required
         return
        }
      //User authenticated
-      }
+    }
 
-      public func onAuthorizationCanceled() {
-          //Sign up canceled by the user
+    public func onAuthorizationCanceled() {
+        //Sign up canceled by the user
     }
 
     public func onAuthorizationFailure(error: AuthorizationError) {
         //Exception occurred
-      }
-  }
+          }}
 
   AppID.sharedInstance.loginWidget?.launchSignUp(delegate: delegate())
   ```
-  {: pre}
+  {: codeblock}
 
 </br>
+
 **忘記密碼**
 
-1. 在雲端目錄的設定中，將**容許使用者註冊及重設其密碼**及**忘記密碼電子郵件**設為**開啟**。
-2. 呼叫 LoginWidget 來啟動忘記密碼流程。
+1. 在 GUI 中配置「雲端目錄」[設定](cloud-directory.html#cd-settings)。**容許使用者從您的應用程式管理其帳戶**必須設為**開啟**。
+2. 在服務儀表板的**重設密碼**標籤中，請確定**忘記密碼電子郵件**已設為**開啟**。
+3. 將下列程式碼放在您的應用程式中。當您的其中一個應用程式使用者要求更新其密碼時，會呼叫登入小組件並啟動處理程序。
+
   ```swift
-class delegate : AuthorizationDelegate {
-     public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, refreshToken: RefreshToken?) {
+   class delegate : AuthorizationDelegate {
+       public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, refreshToken: RefreshToken?, response:Response?) {
         //forgot password finished, in this case accessToken and identityToken will be null.
      }
 
@@ -315,223 +337,152 @@ class delegate : AuthorizationDelegate {
 
      public func onAuthorizationFailure(error: AuthorizationError) {
          //Exception occurred
-      }
-  }
+          }}
 
   AppID.sharedInstance.loginWidget?.launchForgotPassword(delegate: delegate())
   ```
-  {: pre}
+  {: codeblock}
 
 </br>
-**帳戶詳細資料**
 
-1. 在雲端目錄的設定中，將**容許使用者註冊及重設其密碼**設為**開啟**。
-2. 呼叫 LoginWidget 來啟動變更詳細資料流程。
+**變更詳細資料**
+
+1. 在 GUI 中配置「雲端目錄」[設定](cloud-directory.html#cd-settings)。**容許使用者註冊至您的應用程式**及**容許使用者從您的應用程式管理其帳戶**必須都設為**開啟**。
+2. 在服務儀表板的**密碼變更**標籤中，將**密碼變更電子郵件**設為「開啟」。
+3. 呼叫登入小組件來啟動變更詳細資料流程。
+
   ```swift
+  class delegate : AuthorizationDelegate {
 
-class delegate : AuthorizationDelegate {
-     public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, refreshToken: RefreshToken?) {
-       }
+      public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, refreshToken: RefreshToken?, response:Response?) {
+         //User authenticated, and fresh tokens received
+      }
 
-       public func onAuthorizationCanceled() {
-     }
+      public func onAuthorizationCanceled() {
+          //changed details canceled by the user
+      }
 
-     public func onAuthorizationFailure(error: AuthorizationError) {
-     }
+      public func onAuthorizationFailure(error: AuthorizationError) {
+          //Exception occurred
+      }
   }
 
    AppID.sharedInstance.loginWidget?.launchChangeDetails(delegate: delegate())
   ```
-  {: pre}
+  {: codeblock}
 
 </br>
+
 **變更密碼**
 
-1. 在雲端目錄的設定中，將**容許使用者註冊及重設其密碼**設為**開啟**。
-2. 呼叫 LoginWidget 來啟動變更密碼流程。
+1. 在 GUI 中配置「雲端目錄」[設定](cloud-directory.html#cd-settings)。**容許使用者註冊至您的應用程式**及**容許使用者從您的應用程式管理其帳戶**必須都設為**開啟**。
+2. 在您的應用程式中放置下列程式碼，以啟動變更密碼流程。
+
   ```swift
-class delegate : AuthorizationDelegate {
-     public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, refreshToken: RefreshToken?) {
-       }
+  class delegate : AuthorizationDelegate {
 
-       public func onAuthorizationCanceled() {
-     }
+      public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, refreshToken: RefreshToken?, response:Response?) {
+          //User authenticated, and fresh tokens received
+      }
 
-     public func onAuthorizationFailure(error: AuthorizationError) {
-     }
+      public func onAuthorizationCanceled() {
+          //change password canceled by the user
+      }
+
+      public func onAuthorizationFailure(error: AuthorizationError) {
+           //Exception occurred
+      }
   }
 
     AppID.sharedInstance.loginWidget?.launchChangePassword(delegate: delegate())
   ```
-  {: pre}
+  {: codeblock}
+
 </br>
 </br>
 
-## 使用 Node.js SDK 顯示預設畫面
+## 使用 Node.js SDK 顯示登入小組件
 {: #nodejs}
 
-您可以使用 Node.js SDK 來呼叫預先配置的畫面。
+您可以使用 [Node.js 伺服器 SDK](https://github.com/ibm-cloud-security/appid-serversdk-nodejs) 來呼叫預先配置的畫面。
 {: shortdesc}
 
-</br>
-**登入**
+將張貼路徑新增至可利用使用者名稱及密碼參數所呼叫的應用程式，並使用資源擁有者密碼登入。
+    
 
-1. 在身分提供者設定中，將雲端目錄設為**開啟**，並指定回呼端點。
-2. 將張貼路徑新增至可利用使用者名稱及密碼參數所呼叫的應用程式，並使用資源擁有者密碼登入。
-    ```javascript
-    app.post("/form/submit", bodyParser.urlencoded({extended: false}), passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
-    	successRedirect: LANDING_PAGE_URL,
+  ```javascript
+  app.post("/form/submit", bodyParser.urlencoded({extended: false}), passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
+  	successRedirect: LANDING_PAGE_URL,
   	failureRedirect: ROP_LOGIN_PAGE_URL,
   	failureFlash : true // allow flash messages
   }));
   ```
-    {: pre}
-    `WebAppStrategy` 可讓使用者利用使用者名稱和密碼登入您的 Web 應用程式。登入成功之後，使用者的存取記號會儲存在 HTTP 階段作業中，並且可在階段作業期間使用。只要 HTTP 階段作業遭到破壞或過期，記號即會無效。
-    {: tip}
+  {: codeblock}
+
+`WebAppStrategy` 可讓使用者利用使用者名稱和密碼登入您的 Web 應用程式。登入成功之後，使用者的存取記號會儲存在 HTTP 階段作業中，並且可在階段作業期間使用。在 HTTP 階段作業損毀或過期之後，記號無效。
+{: tip}
 
 </br>
+
 **註冊**
 
-1. 在雲端目錄設定中，將**容許使用者註冊及重設其密碼**設為**開啟**。如果設為否，則處理程序會結束，而不會擷取存取及身分記號。
-2. 傳遞 WebAppStrategy `show` 內容，並將其設為 `WebAppStrategy.SIGN_UP`。
+1. 在 GUI 中配置「雲端目錄」[設定](cloud-directory.html#cd-settings)。**容許使用者註冊至您的應用程式**及**容許使用者從您的應用程式管理其帳戶**必須都設為**開啟**。
+2. 將下列程式碼放在您的應用程式中。當使用者嘗試註冊您的應用程式時，會呼叫登入小組件，並顯示您的自訂註冊頁面。
+
   ```javascript
   app.get("/sign_up", passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
   	successRedirect: LANDING_PAGE_URL,
   	show: WebAppStrategy.SIGN_UP
   }));
   ```
-  {: pre}
+  {: codeblock}
 
 </br>
+
 **忘記密碼**
 
-1. 在雲端目錄設定中，將**容許使用者註冊及重設其密碼**及**忘記密碼電子郵件**設為**開啟**。如果設為否，則處理程序會結束，而不會擷取存取及身分記號。
-2. 傳遞 WebAppStrategy `show` 內容，並將其設為 `WebAppStrategy.FORGOT_PASSWORD`。
+1. 在 GUI 中配置「雲端目錄」[設定](cloud-directory.html#cd-settings)。**容許使用者從您的應用程式管理其帳戶**必須設為**開啟**。
+2. 在服務儀表板的**重設密碼**標籤中，請確定**忘記密碼電子郵件**已設為**開啟**。
+3. 將下列程式碼放在您的應用程式中，以將 *show* 內容傳遞至 `WebAppStrategy.FORGOT_PASSWORD`。當使用者要求更新其登入您應用程式的密碼時，就會呼叫登入小組件，並啟動處理程序。
+
   ```javascript
   app.get("/forgot_password", passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
   	successRedirect: LANDING_PAGE_URL,
   	show: WebAppStrategy.FORGOT_PASSWORD
   }));
   ```
-  {: pre}
+  {: codeblock}
 
 </br>
-**帳戶詳細資料**
-1. 在雲端目錄設定中，將**容許使用者註冊及重設其密碼**設為**開啟**
-2. 傳遞 WebAppStrategy `show` 內容，並將其設為 `WebAppStrategy.CHANGE_DETAILS`。
+
+**變更詳細資料**
+
+1. 在 GUI 中配置「雲端目錄」[設定](cloud-directory.html#cd-settings)。**容許使用者註冊至您的應用程式**及**容許使用者從您的應用程式管理其帳戶**必須都設為**開啟**。
+2. 在服務儀表板的**密碼變更**標籤中，將**密碼變更電子郵件**設為「開啟」。
+3. 將下列程式碼放在您的應用程式中，以將 *show* 內容傳遞至 `WebAppStrategy.FORGOT_PASSWORD`，來啟動變更詳細資料表單。
+
   ```javascript
   app.get("/change_details", passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
   	successRedirect: LANDING_PAGE_URL,
   	show: WebAppStrategy.CHANGE_DETAILS
   }));
   ```
-  {: pre}
+  {: codeblock}
 
 </br>
+
 **變更密碼**
-1. 在雲端目錄設定中，將**容許使用者註冊及重設其密碼**設為**開啟**。
-2. 傳遞 WebAppStrategy `show` 內容，並將其設為 `WebAppStrategy.CHANGE_PASSWORD`。
+
+1. 在 GUI 中配置「雲端目錄」[設定](cloud-directory.html#cd-settings)。**容許使用者註冊至您的應用程式**及**容許使用者從您的應用程式管理其帳戶**必須都設為**開啟**。
+2. 在服務儀表板的**密碼變更**標籤中，將**密碼變更電子郵件**設為「開啟」。
+3. 將下列程式碼放在您的應用程式中，以將 *show* 內容傳遞至 `WebAppStrategy.FORGOT_PASSWORD`，來啟動變更詳細資料表單。
+
   ```javascript
   app.get("/change_password", passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
   	successRedirect: LANDING_PAGE_URL,
   	show: WebAppStrategy.CHANGE_PASSWORD
   }));
   ```
-  {: pre}
-
-</br>
-</br>
-
-## 使用 Swift SDK 顯示預設畫面
-{: #swift}
-
-啟用社交身分提供者之後，即可使用 Swift SDK 呼叫預先配置的登入畫面。
-{: shortdesc}
-
-1. 下列程式碼示範如何在 Kitura 應用程式中使用 WebAppKituraCredentialsPlugin 來保護 `/protected` 端點。
-
-  ```swift
-  import Foundation
-  import Kitura
-  import KituraSession
-  import Credentials
-  import SwiftyJSON
-  import BluemixAppID
-
-  // The following URLs will be used for AppID OAuth flows
-  var LOGIN_URL = "/ibm/bluemix/appid/login"
-  var CALLBACK_URL = "/ibm/bluemix/appid/callback"
-  var LOGOUT_URL = "/ibm/bluemix/appid/logout"
-  var LANDING_PAGE_URL = "/index.html"
-
-  // Setup Kitura to use session middleware
-  // Must be configured with proper session storage for production
-  // environments. See https://github.com/IBM-Swift/Kitura-Session for
-  // additional documentation
-  let router = Router()
-  let session = Session(secret: "Some secret")
-  router.all(middleware: session)
-
-  let options = [
-  	"clientId": "{client-id}",
-  	"secret": "{secret}",
-  	"tenantId": "{tenant-id}",
-  	"oauthServerUrl": "{oauth-server-url}",
-  	"redirectUri": "{app-url}" + CALLBACK_URL
-  ]
-  let webappKituraCredentialsPlugin = WebAppKituraCredentialsPlugin(options: options)
-  let kituraCredentials = Credentials()
-  kituraCredentials.register(plugin: webappKituraCredentialsPlugin)
-
-  // Explicit login endpoint
-  router.get(LOGIN_URL,
-  		   handler: kituraCredentials.authenticate(credentialsType: webappKituraCredentialsPlugin.name,
-  												   successRedirect: LANDING_PAGE_URL,
-  												   failureRedirect: LANDING_PAGE_URL
-  ))
-
-  // Callback to finish the authorization process. Will retrieve access and identity tokens from AppID
-  router.get(CALLBACK_URL,
-  		   handler: kituraCredentials.authenticate(credentialsType: webappKituraCredentialsPlugin.name,
-  												   successRedirect: LANDING_PAGE_URL,
-  												   failureRedirect: LANDING_PAGE_URL
-  ))
-
-  // Logout endpoint. Clears authentication information from session
-  router.get(LOGOUT_URL, handler:  { (request, response, next) in
-  	kituraCredentials.logOut(request: request)
-  	webappKituraCredentialsPlugin.logout(request: request)
-  	_ = try? response.redirect(LANDING_PAGE_URL)
-  })
-
-  // Protected area
-  router.get("/protected", handler: kituraCredentials.authenticate(credentialsType: webappKituraCredentialsPlugin.name), { (request, response, next) in
-      let appIdAuthContext:JSON? = request.session?[WebAppKituraCredentialsPlugin.AuthContext]
-      let identityTokenPayload:JSON? = appIdAuthContext?["identityTokenPayload"]
-
-      guard appIdAuthContext?.dictionary != nil, identityTokenPayload?.dictionary != nil else {
-          response.status(.unauthorized)
-          return next()
-      }
-
-      response.send(json: identityTokenPayload!)
-      next()
-			})
-  var port = 3000
-  if let portString = ProcessInfo.processInfo.environment["PORT"]{
-      port = Int(portString)!
-  }
-  print("Starting on \(port)")
-
-  // Add an HTTP server and connect it to the router
-  Kitura.addHTTPServer(onPort: port, with: router)
-
-  // Start the Kitura runloop (this call never returns)
-  Kitura.run()
-  ```
   {: codeblock}
+
 </br>
-</br>
-
-
-

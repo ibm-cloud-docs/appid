@@ -2,16 +2,18 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-01"
+lastupdated: "2018-12-19"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
+{:faq: data-hd-content-type='faq'}
 
 
 # 常見問題
+{: #faq}
 
 此常見問題提供 {{site.data.keyword.appid_full}} 服務常見問題的回答。
 {: shortdesc}
@@ -19,30 +21,73 @@ lastupdated: "2018-08-01"
 
 ## {{site.data.keyword.appid_short_notm}} 如何計算定價？
 {: #pricing}
+{: faq}
 
 搭配 {{site.data.keyword.appid_short_notm}}，您可以花費更少的錢，而使用更多的資源。
 {: shortdesc}
 
-累進層級方案包括兩個部分：鑑別事件的數目及授權使用者的數目。根據這兩個部分的摘要，每個月向您收取費用。總價是每個使用層級的累計費用，其計算方式為您的數量乘以該層級的單位價格。
+累進層級方案包括三個部分：鑑別事件的數目、一般進階與安全，以及授權使用者的數目。根據這兩個部分的摘要，每個月向您收取費用。總價是每個使用層級的累計費用，其計算方式為您的數量乘以該層級的單位價格。
+
+您的前 1000 個鑑別事件及前 1000 個授權使用者每個月都是免費的，但任何進階安全事件除外。任何進階安全事件都會產生額外的費用。
 
 ### 鑑別事件
 
-發出新的存取記號（一般或匿名）時，即會發生鑑別事件。若為已識別的使用者，依預設，每個新存取記號的有效期限為 1 小時（透過實際使用者鑑別或透過重新整理記號進行）。依預設，匿名記號的有效期限為 1 個月。在記號到期之後，您必須建立新的記號，才能存取受保護資源。您可以在 {{site.data.keyword.appid_short_notm}} 儀表板的**登入有效期限**頁面上更新 {{site.data.keyword.appid_short_notm}} 記號的有效期限。
+發出新的存取記號（一般或匿名）時，即會發生鑑別事件。您可以發出記號，以回應使用者起始的登入要求，或應用程式代表使用者起始的登入要求。依預設，存取記號的有效期限為 1 小時，而匿名記號的有效期限為 30 天。在記號到期之後，您必須建立新的記號，才能存取受保護資源。您可以在服務儀表板的**登入有效期限**頁面上，更新 {{site.data.keyword.appid_short_notm}} 記號的有效期限。
 
-當您在行動應用程式中使用 {{site.data.keyword.appid_short_notm}} 時，記號會儲存在金鑰儲存庫或金鑰鏈中，並新增至每個未來要求。您可以使用 App ID Android 或 iOS SDK 存取這些記號。當您在 Web 應用程式中使用 {{site.data.keyword.appid_short_notm}} 時，建議將記號儲存至應用程式階段作業 Cookie 中。
+#### 進階安全功能
 
+進階安全功能可讓您加強應用程式的安全。
+{: shortdesc}
+
+<table>
+  <tr>
+    <th>功能</th>
+    <th>好處</th>
+  </tr>
+  <tr>
+    <td>多因子鑑別</td>
+    <td>[MFA for Cloud Directory](mfa.html) 會確認使用者的身分，方法是要求使用者除了輸入其電子郵件及密碼外，還需要輸入傳送至其電子郵件的一次性通行碼。</td>
+  </tr>
+  <tr>
+    <td>密碼原則管理</td>
+    <td>身為帳戶擁有者，您可以配置一組使用者密碼必須符合的規則，以針對「雲端目錄」強制執行更安全的密碼。範例包括鎖定之前的已嘗試登入次數、有效期限、密碼更新之間的時間跨距下限，或密碼不能重複的次數。如需選項的完整清單，以及設定資訊，請參閱[進階密碼管理](cloud-directory.html#advanced-password)。</td>
+  </tr>
+</table>
+
+依預設，會停用進階安全功能。如果您開啟「多因子鑑別」或密碼原則管理，則會產生額外的費用。如果停用所有進階功能，您的帳戶將回復為較低成本原則。比方說，如果您已取得 10,000 個存取記號。然後，開啟 MFA 及密碼原則管理，並再取得 10,000 個。您將支付 20,000 個鑑別事件及 10,000 個進階安全事件的費用。
+
+這些功能僅適用於累進層級定價方案上的實例，以及在 2018 年 3 月 15 日之後建立的實例。
+{: note}
 
 ### 授權使用者
 
-授權使用者是使用您的服務登入（無論是直接或間接）的唯一使用者。每次新的使用者從每一個身分提供者登入（包括匿名使用者），都會向您收取一個授權使用者的費用。比方說，如果使用者藉由 Facebook 登入，而且稍後使用 Google 登入，他們會被視為兩個不同的授權使用者。
+授權使用者是使用您的服務登入（無論是直接或間接）的唯一使用者，包括匿名使用者。每次新的使用者登入應用程式（包括匿名使用者），都會向您收取一個授權使用者的費用。比方說，如果使用者藉由 Facebook 登入，而且稍後使用 Google 登入，他們會被視為兩個不同的授權使用者。
 
-如需累進層級定價的相關資訊，請參閱 [{{site.data.keyword.Bluemix_notm}} 定價文件](/docs/billing-usage/how_charged.html#services)。
+如需 {{site.data.keyword.appid_short_notm}} 的最新定價資訊，請參閱[定價計算機](https://console.cloud.ibm.com/pricing/configure/service/AdvancedMobileAccess-d6aece47-d840-45b0-8ab9-ad15354deeea)。
+{: important}
 
 </br>
 
 
+## 為何需要將我的重新導向 URL 列入白名單？
+{: #redirect}
+{: faq}
+
+重新導向 URL 是應用程式的回呼端點。為了防止網路釣魚攻擊，{{site.data.keyword.appid_short_notm}} 會根據重新導向 URL 的白名單來驗證 URL。發生網路釣魚時，攻擊者有可能取得您的使用者記號的存取權。
+
+若要將您的 URL 新增至白名單，請執行下列動作：
+
+1. 導覽至**身分提供者 > 管理**。
+2. 在**新增 Web 重新導向 URL** 欄位中，鍵入 URL ，然後按一下 **+**。
+
+請不要在您的 URL 中包括任何查詢參數。在驗證處理程序中，會忽略它們。範例 URL：`http://host:[port]/path`
+{: tip}
+
+</br>
+
 ## 加密在 {{site.data.keyword.appid_short_notm}} 中如何運作？
 {: #encryption}
+{: faq}
 
 請查看下表，以取得加密常見問題的答案。
 
@@ -53,7 +98,7 @@ lastupdated: "2018-08-01"
   <tbody>
     <tr>
       <td>您為何使用加密？</td>
-      <td>服務會加密靜止中客戶資料。</td>
+      <td>我們保護使用者資訊的方式是加密靜止中的客戶資料。服務會使用每個承租戶金鑰加密靜止中的客戶資料。</td>
     </tr>
     <tr>
       <td>您建置過自己的演算法嗎？您在程式碼中使用哪些演算法？</td>
@@ -65,7 +110,7 @@ lastupdated: "2018-08-01"
     </tr>
     <tr>
       <td>您如何儲存金鑰？</td>
-      <td>使用每個地區特有的主要金鑰加密之後，會產生金鑰，並將其儲存在本端。主要金鑰儲存在 {{site.data.keyword.keymanagementserviceshort}} 中。</td>
+      <td>系統會產生金鑰，並以每一個地區特定的主要金鑰進行加密，然後儲存在本端。主要金鑰儲存在 {{site.data.keyword.keymanagementserviceshort}} 中。在儲存空間及中介軟體層次上，有一個服務水準加密，表示所有客戶都有一個金鑰。在應用程式層次上，每一個客戶都有自己的加密金鑰。</td>
     </tr>
     <tr>
       <td>您使用的金鑰強度為何？</td>
@@ -82,6 +127,7 @@ lastupdated: "2018-08-01"
 
 ## {{site.data.keyword.appid_short_notm}} 預期 SAML 主張看起來像什麼？
 {: #saml-example}
+{: faq}
 
 服務預期 SAML 主張看起來像下列範例。
 
@@ -121,6 +167,7 @@ lastupdated: "2018-08-01"
 
 ## SAML 簽章支援哪種類型的演算法
 {: #saml-signatures}
+{: faq}
 
 您可以使用下列任何演算法來處理 XML 數位簽章。
 
