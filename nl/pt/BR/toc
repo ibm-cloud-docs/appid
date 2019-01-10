@@ -1,37 +1,54 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="appid" audience="service" arm="2093952" href="/docs/services/appid/index.html"}
+{: .toc subcollection="appid" audience="service" arm="2093952" href="/docs/services/appid/index.html" path="services/appid"}
 IBM Cloud App ID
 
     {: .navgroup id="learn"}
     index.md
     about.md
     authorization.md
+    relatedlinks.md
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
-    install.md
+    {: .topicgroup}
+    Incluindo o App ID em seu aplicativo
+        web-apps.md
+        mobile-apps.md
+        backend-apps.md
+        custom-auth.md
+        progressive.md
+        protecting-resources-local.md
+        app-to-app.md
+        well-known.md
 
     {: .topicgroup}
     Configurando os provedores de identidade
-        identity-providers.md
-        enterprise.md
+        manageidp.md
         cloud-directory.md
+        enterprise.md
+        identity-providers.md
+        custom.md
 
     {: .topicgroup}
     Gerenciando a experiência de conexão
         login-widget.md
         branded.md
 
-    protegendo-resources.md
+    mfa.md
 
     {: .topicgroup}
     Armazenando e acessando perfis do usuário
         user-profile.md
         predefined.md
         custom-attributes.md
-    protecting-resources-local.md
+        pre-sign-in.md
+
+    {: .topicgroup}
+    Gerenciando tokens
+        customizing-tokens.md
+        tokens.md
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
@@ -43,13 +60,13 @@ IBM Cloud App ID
 
     {: .topicgroup}
     SDKs
-        [Android client SDK](https://github.com/ibm-cloud-security/appid-clientsdk-android)
-        [iOS Swift client SDK](https://github.com/ibm-cloud-security/appid-clientsdk-swift)
-        [Node.js server SDK](https://github.com/ibm-cloud-security/appid-serversdk-nodejs)
-        [Swift server SDK](https://github.com/ibm-cloud-security/appid-serversdk-swift)
-    relatedlinks.md
+        [SDK do cliente Android](https://github.com/ibm-cloud-security/appid-clientsdk-android)
+        [SDK do cliente iOS Swift](https://github.com/ibm-cloud-security/appid-clientsdk-swift)
+        [SDK do servidor Node.js](https://github.com/ibm-cloud-security/appid-serversdk-nodejs)
+        [SDK do servidor Swift](https://github.com/ibm-cloud-security/appid-serversdk-swift)
     iam.md
     api-reference.md
+    at-events.md
     {: .navgroup-end}
 
     {: .navgroup id="help"}

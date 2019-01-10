@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-08"
+lastupdated: "2018-11-19"
 
 ---
 
@@ -12,10 +12,11 @@ lastupdated: "2018-08-08"
 {:tip: .tip}
 {:screen: .screen}
 
-# Acessando informações predefinidas do usuário
+# Atributos de usuário predefinidos
 {: #predefined}
 
-É possível visualizar as informações específicas do provedor de identidade sobre os usuários.
+Com o {{site.data.keyword.appid_full}}, é possível visualizar informações específicas do provedor de identidade
+sobre seus usuários.
 {: shortdesc}
 
 
@@ -143,7 +144,7 @@ userProfileManager.getUserInfo(accessToken: accessToken) { (err, userInfo) in
 1. Certifique-se de que você tenha um token de acesso válido com um escopo `openid`. É possível verificar se
 o token é válido usando o terminal `/introspect`.
 
-2. Faça uma solicitação para o terminal `/userinfo`.
+2. Faça uma solicitação para o terminal [`/userinfo`](https://appid-oauth.ng.bluemix.net/swagger-ui/#!/Authorization_Server_V3/userInfo).
   ```
   GET [POST] https://{oauth-server-endpoint}/userinfo
   Authorization: 'Bearer {ACCESS_TOKEN}'
@@ -180,8 +181,7 @@ o token é válido usando o terminal `/introspect`.
   ```
   {: screen}
 
-3. Verifique se a solicitação `sub` corresponde exatamente à solicitação `sub` no token de identidade. 
-Se elas não corresponderem, não use as informações retornadas. Para saber mais sobre a substituição de token, consulte a
+3. Verifique se a solicitação `sub` corresponde exatamente à solicitação `sub` no token de identidade. Se elas não corresponderem, não use as informações retornadas. Para saber mais sobre a substituição de token, consulte a
 <a href="http://openid.net/specs/openid-connect-core-1_0.html#TokenSubstitution" target="__blank">Especificação OIDC
 <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"> </a>.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-06"
+lastupdated: "2018-12-19"
 
 ---
 
@@ -12,15 +12,20 @@ lastupdated: "2018-08-06"
 {:codeblock: .codeblock}
 {:tip: .tip}
 
-# Autorização e autenticação
-{: #authorization}
 
-Com o {{site.data.keyword.appid_full}}, os usuários podem alavancar tokens e filtros de autorização para assegurar que seus apps sejam protegidos. Antes de um usuário ser capaz de conceder autorização para um app, um provedor de identidade deve autenticar sua identidade.
+
+
+# Conceitos-chave
+{: #key-concepts}
+
+Confuso sobre as diferenças entre autorização e autenticação? Você não está sozinho. Consulte as informações nesta
+página para saber sobre terminologia específica, os processos e a maneira como o serviço usa os tokens.
 {: shortdesc}
 
 
-## Conceitos-chave
-{: #key-concepts}
+## Terminologia
+{: #terms}
+
 
 Estes termos chave podem ajudá-lo a entender a maneira como o serviço divide o processo de autorização e autenticação.
 
@@ -66,9 +71,11 @@ seguir.</p>
     </table>
     <p><strong>Nota</strong>: ao usar o SDK, as URLs de terminal são construídas automaticamente.</p></dd>
   <dt>Tokens</dt>
-    <dd>O serviço usa três tipos diferentes de tokens para fornecer autenticação. Os tokens de acesso representam a autorização e permitem a comunicação com os [recursos de backend](/docs/services/appid/protecting-resources.html) que são protegidos por filtros de autorização configurados pelo {{site.data.keyword.appid_short}}. Os tokens de identidade representam a autenticação e contêm informações sobre o usuário. 
-Um token de atualização é um token de acesso com um tempo de vida estendido. Ao usar tokens de atualização, os usuários podem
-permitir que as suas informações sejam lembradas pelo aplicativo. Dessa forma, eles podem permanecer conectados.
+    <dd>O serviço usa três tipos diferentes de tokens. Os tokens de acesso representam a autorização e permitem a comunicação com os [recursos de backend](/docs/services/appid/backend-apps.html) que são protegidos por filtros de autorização configurados pelo {{site.data.keyword.appid_short}}. Os tokens de identidade representam a autenticação e contêm informações sobre o usuário. Um
+token de atualização pode ser usado para obter um novo token de acesso sem autenticar novamente o usuário. Ao usar tokens de atualização, os usuários podem
+permitir que as suas informações sejam lembradas pelo aplicativo. Dessa forma, eles podem permanecer conectados. Para
+obter mais informações sobre os tokens e como eles são usados no {{site.data.keyword.appid_short}}, consulte
+[Validando os tokens](tokens.html#remote-validation).
   </dd>
   <dt>Cabeçalhos de autorização</dt>
     <dd><p>O {{site.data.keyword.appid_short}} está em conformidade com a <a href="https://tools.ietf.org/html/rfc6750" target="blank">especificação de acesso de token <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a> e usa uma combinação de tokens de acesso e de identidade que são enviados como um cabeçalho de Autorização HTTP. O cabeçalho de Autorização contém três partes diferentes que são separadas por espaço em branco. Os tokens são codificados em base64. O token de identidade é opcional.</br>
@@ -87,32 +94,131 @@ tem uma chave de criptografia designada e os dados do usuário em cada locatári
 </dl>
 
 </br>
+</br>
 
-## Como o processo funciona
-{: #process}
 
-Ao codificar apps, uma das maiores preocupações é a segurança. Como é possível assegurar que somente usuários com o acesso correto estão usando seu app? Você usa um processo de autorização. Na maioria dos processos, a autorização e a autenticação estão atreladas, o que pode tornar a mudança de suas políticas de segurança e provedores de identidade complicada. Com o {{site.data.keyword.appid_short}}, a autorização e a autenticação são processos separados.
+## Entendendo os tokens
+{: #tokens}
+
+Quando um usuário é autenticado com êxito, o aplicativo recebe tokens do {{site.data.keyword.appid_short_notm}}. O serviço usa três tipos principais de tokens para concluir o processo de autenticação.
 {: shortdesc}
 
-Ao configurar provedores de identidade social como o Facebook, o [Fluxo de concessão de autorização Oauth2](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html) é usado para chamar o widget de login. Com o diretório da nuvem como seu provedor de identidade, o [Fluxo de credenciais de senha do proprietário do recurso](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/password.html) é usado para fornecer tokens de acesso e de identidade.
 
-![O caminho para se tornar um usuário identificado.](/images/authenticationtrail.png)
+**O que é um token de acesso?**
 
-Quando um usuário escolhe conectar-se, ele se torna um usuário identificado. O provedor de identidade retorna tokens de acesso e de identidade para o {{site.data.keyword.appid_short}} que contêm informações sobre o usuário. O serviço usa os tokens fornecidos e determina se um usuário tem as credenciais adequadas para acessar um app. Se os tokens são validados, o serviço autoriza o acesso de usuários. As informações sobre autenticação são associadas ao registro do usuário após ele ser autorizado. O registro e seus atributos poderão ser acessados novamente de qualquer cliente que se autentique com a mesma identidade.
+Os tokens de acesso representam a autorização e permitem a comunicação com os [recursos de backend](/docs/services/appid/backend-apps.html) que são protegidos por filtros de autorização configurados pelo {{site.data.keyword.appid_short}}. O token adequa-se às especificações do JavaScript Object Signing and Encryption (JOSE). O token é formatado como <a href="https://jwt.io/introduction/" target="blank">Tokens da Web de JSON <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a> são assinados com uma Chave da Web de JSON que usa o algoritmo RS256.
 
-### Autenticação progressiva
+Token de exemplo:
+  ```
+  Header: {
+      "typ": "JOSE",
+    "alg": "RS256",
+}
+Payload: {
+      "iss": "appid-oauth.ng.bluemix.net",
+      "exp": "1495562664",
+      "aud": "a3b87400-f03b-4956-844e-a52103ef26ba",
+      "amr": ["facebook"],
+      "sub": "de6a17d2-693d-4a43-8ea2-2140afd56a22",
+      "iat": "1495559064",
+      "tenant": "9781974b-6a1c-46c3-aebf-32b7e9bbbaee",
+      "scope": "appid_default appid_readprofile appid_readuserattr appid_writeuserattr",
+  ```
+  {: screen}
 
-Com o {{site.data.keyword.appid_short_notm}}, um usuário anônimo pode escolher se tornar um usuário identificado.
+**O que é um token de identidade?**
 
-Mas como isso funciona?
+Os tokens de identidade representam a autenticação e contêm informações sobre o usuário. Ele pode fornecer informações sobre seu nome, e-mail, sexo e local. Um token também pode retornar uma URL para uma imagem do usuário. O token é formatado como <a href="https://jwt.io/introduction/" target="blank">Tokens da Web de JSON <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a> são assinados com uma Chave da Web de JSON que usa o algoritmo RS256.
 
-Quando um usuário escolhe não se conectar imediatamente, ele é considerado um usuário anônimo. Como um exemplo, um usuário pode começar imediatamente a incluir itens em um carrinho de compras sem se conectar. Para usuários anônimos, o {{site.data.keyword.appid_short_notm}} cria um registro do usuário ad hoc e chama a API de login do OAuth que retorna tokens de acesso anônimo e de identidade. Usando esses tokens, o app pode criar, ler, atualizar e excluir os atributos que são armazenados no registro do usuário.
+Token de exemplo:
+  ```
+  Header: {
+      "typ": "JOSE",
+    "alg": "RS256",
+}
+Payload: {
+      "iss": "appid-oauth.ng.bluemix.net",
+      "aud": "a3b87400-f03b-4956-844e-a52103ef26ba",
+      "exp: "1495562664",
+      "tenant": "9781974b-6a1c-46c3-aebf-32b7e9bbbaee",
+      "iat": "1495559064",
+      "name": "John Smith",
+      "email": "js@mail.com",
+      "gender", "male",
+      "locale": "en",
+      "picture": "<URL-to-photo>",
+      "sub": "de6a17d2-693d-4a43-8ea2-2140afd56a22",
+      "identities": [
+          "provider": "facebook"
+        "id": "377440159275659"
+      ],
+    "amr": ["facebook"],
+    "oauth_client":{
+        "name": "BluemixApp",
+      "type": "serverapp",
+      "software_id": "cb638f8f-e24b-41d3-b770-23be158dd8e6.2b94e6bb-bac4-4455-8712-a43fa804d5cc.a3b87400-f03b-4956-844e-a52103ef26ba",
+      "software_version": "1.0.0",
+    }
+  }
+  ```
+  {: screen}
 
-![O caminho para se tornar um usuário identificado quando ele inicia como anônimo.](/images/anon-authenticationtrail.png)
+Os tokens de identidade contêm apenas informações parciais sobre o usuário. Para ver todas as informações que são
+fornecidas pelo provedor de identidade, é possível usar o [terminal
+de informações sobre o usuário](/docs/services/appid/predefined.html#api).
 
-Quando um usuário anônimo se conecta, seu token de acesso é passado para a API de login. O serviço autentica a chamada com um provedor de identidade. O serviço usa o token de acesso para localizar o registro anônimo e anexa a identidade nele. Os novos tokens de acesso e de identidade contêm as informações públicas que são compartilhadas pelo provedor de identidade. Depois que um usuário é identificado, seu token anônimo torna-se inválido. No entanto, um usuário ainda será capaz de acessar seus atributos porque eles são acessíveis com o novo token.
+**O que é um token de atualização?**
 
-Uma identidade poderá ser designada a um registro anônimo somente se ele ainda não estiver designado a outro usuário.
-{: tip}
+O {{site.data.keyword.appid_short}} suporta a capacidade de adquirir novos tokens de acesso e de identidade sem autenticação, conforme definido em <a href="http://openid.net/specs/openid-connect-core-1_0.html#RefreshTokens" target="_blank">OIDC <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a>. Um token de atualização pode ser usado para renovar o token de acesso para que um usuário não tenha que executar nenhuma ação para se conectar, como fornecer credenciais. Semelhante
+aos tokens de acesso, os tokens de atualização contêm dados que permitem ao
+{{site.data.keyword.appid_short_notm}} determinar se você está autorizado. No entanto, esses tokens são opacos.
 
-Se a identidade já está associada a outro usuário do {{site.data.keyword.appid_short_notm}}, os tokens contêm informações desse registro do usuário e fornecem acesso aos seus atributos. Os atributos de usuários anônimos anteriores não são acessíveis por meio do novo token. Até o token expirar, as informações ainda poderão ser acessadas através do token de acesso anônimo. Durante o desenvolvimento, é possível escolher como mesclar os atributos anônimos para o usuário conhecido.
+Os tokens de atualização são configurados para ter um tempo de vida mais longo do que um token de acesso regular,
+portanto, quando um token de acesso expirar, o token de atualização ainda será válido e poderá ser usado para renovar o token de acesso. Os tokens de atualização do {{site.data.keyword.appid_short_notm}} podem ser configurados para durar de 1 a 90 dias. Para
+tirar total proveito dos tokens de atualização, persista os tokens para seu tempo de vida integral ou até que
+sejam renovados. Um usuário não pode acessar recursos diretamente com apenas um token de atualização, o que os torna muito mais seguros para persistir do que um token de acesso. Como
+melhor prática, os tokens de atualização devem ser armazenados com segurança pelo cliente que os recebeu e enviados
+apenas para o servidor de autorizações que os emitiu.
+
+Para maior conveniência, o {{site.data.keyword.appid_short_notm}} também renova seu token de atualização
+e a sua data de expiração quando o token de acesso é renovado, permitindo que o usuário permaneça com login efetuado
+desde que esteja ativo em algum ponto antes da expiração do token de atualização atual. Por outro lado, se você
+quiser usar os tokens de atualização e ainda forçar o usuário a efetuar login periodicamente, seu aplicativo somente
+poderá usar os tokens de atualização retornados quando o usuário efetuar login inserindo suas credenciais. No entanto,
+recomendamos sempre usar o token de atualização mais recente recebido do App ID, conforme descrito pelas <a href="https://tools.ietf.org/html/rfc6749#page-47" target="_blank">Especificações de Oauth <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a>.
+
+
+Embora esses tokens possam dinamizar o processo de login, seu aplicativo não deve depender deles, pois eles podem ser revogados a qualquer momento, como quando você acredita que seus tokens de atualização foram comprometidos. Caso seja necessário revogar um token de atualização, há dois métodos de revogação de um token de atualização. Se
+você tiver o token de atualização, será possível revogá-lo com base no <a href="https://tools.ietf.org/html/rfc7009#section-2" target="_blank">RFC7009 <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a>. Alternativamente, se você tiver o ID do usuário, será possível revogar o token de atualização usando <a href="https://appid-management.ng.bluemix.net/swagger-ui/" target="_blank">a API de gerenciamento <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a>. Para
+obter mais informações sobre como acessar a API de gerenciamento, consulte
+[gerenciando o acesso de serviço](iam.html#service-access-management).
+
+Para obter exemplos de como trabalhar com tokens de atualização e como usá-los para implementar uma funcionalidade Lembrar-me, consulte as [amostras de introdução](index.html).
+
+
+**De onde vêm os tokens?**
+
+Os tokens são emitidos por meio do servidor OAuth do {{site.data.keyword.appid_short_notm}} e são formatados como [JSON Web Tokens (JWT)](https://jwt.io/introduction/). Os tokens foram assinados com um [JSON Web Key (JWK)](https://tools.ietf.org/html/rfc7517) com o algoritmo RS256.
+
+**O que acontece com as informações que o token contém?**
+
+O token de acesso contém um conjunto de solicitações JWT padrão e um conjunto de solicitações específicas do {{site.data.keyword.appid_short_notm}}, como um ID do locatário. O token de identidade contém informações específicas do usuário. As informações nos tokens são armazenadas como solicitações como parte de um [perfil do usuário](/docs/services/appid/user-profile.html).
+
+**Como os tokens são recebidos?**
+
+Os tokens são recebidos por seu aplicativo após uma autenticação bem-sucedida. Seu aplicativo pode usar os tokens para
+recuperar informações sobre a autorização e a autenticação do usuário. O token de acesso pode ser usado para obter acesso a recursos protegidos enviando uma solicitação para o recurso. Na
+solicitação, o token de acesso é descrito no [Esquema de
+autenticação de portador](https://tools.ietf.org/html/rfc6750#page-5). Para extrair os tokens, o aplicativo deve analisar o cabeçalho.
+
+Solicitação de exemplo:
+
+  ```
+  GET /resource HTTP/1.1
+  Host: server.example.com
+  Authorization: Bearer  mF_9.B5f-4.1JqM mF_9.B5f-4.1JqM
+  ```
+  {: screen}
+
+</br>
+</br>

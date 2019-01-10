@@ -2,16 +2,18 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-01"
+lastupdated: "2018-12-19"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
+{:faq: data-hd-content-type='faq'}
 
 
 # Perguntas mais frequentes
+{: #faq}
 
 Esta Pergunta mais frequente fornece respostas às perguntas comuns sobre o serviço {{site.data.keyword.appid_full}}.
 {: shortdesc}
@@ -19,37 +21,95 @@ Esta Pergunta mais frequente fornece respostas às perguntas comuns sobre o serv
 
 ## Como o {{site.data.keyword.appid_short_notm}} calcula os preços?
 {: #pricing}
+{: faq}
 
 Com o {{site.data.keyword.appid_short_notm}}, você paga menos à medida que usa mais recursos.
 {: shortdesc}
 
-O plano de camada graduado consiste em duas partes: o número de eventos de autenticação e o número de usuários autorizados. Você é cobrado a cada mês, com base no resumo das duas partes. O preço total é o encargo acumulativo para cada nível de uso, consistindo em sua quantidade multiplicada pelo preço unitário na respectiva camada.
+O plano de camada graduada consiste em três partes: o número de eventos de autenticação, a segurança regular e avançada e o número de usuários autorizados. Você é cobrado a cada mês, com base no resumo das duas partes. O preço total é o encargo acumulativo para cada nível de uso, consistindo em sua quantidade multiplicada pelo preço unitário na respectiva camada.
+
+Seus primeiros 1000 eventos de autenticação e os primeiros 1000 usuários autorizados são grátis a cada mês, com
+exceção de quaisquer eventos de segurança avançados. Quaisquer eventos de segurança avançados incorrem em encargos
+extras.
 
 ### Eventos de autenticação
 
-Um evento de autenticação ocorre quando um novo token de acesso, regular ou anônimo, é emitido. Para usuários identificados,
-cada novo token de acesso é válido por padrão por uma hora (seja por meio de autenticação de usuário real ou por meio de tokens de
-atualização). Por padrão. os tokens anônimos são válidos por um mês. Após o token expirar, deve-se criar um novo token para acessar recursos protegidos. 
-É possível atualizar o tempo de expiração dos tokens do {{site.data.keyword.appid_short_notm}} na página
-**Expiração de conexão** no painel do {{site.data.keyword.appid_short_notm}}.
+Um evento de autenticação ocorre quando um novo token de acesso, regular ou anônimo, é emitido. Os tokens podem ser
+emitidos como uma resposta a uma solicitação de conexão que é iniciada por um usuário ou em nome do usuário por um
+aplicativo. Por padrão, os tokens de acesso são válidos por uma hora e os tokens anônimos são válidos por 30 dias. Após o token expirar, deve-se criar um novo token para acessar recursos protegidos. É
+possível atualizar o prazo de expiração dos tokens do {{site.data.keyword.appid_short_notm}} na página
+**Expiração de conexão** do painel de serviço.
 
-Ao usar o {{site.data.keyword.appid_short_notm}} em aplicativos móveis, os tokens são armazenados no
-armazenamento de chaves ou na keychain e são incluídos em cada solicitação futura. Os tokens são acessíveis usando o SDK do iOS ou
-do Android do ID do app. Ao usar o {{site.data.keyword.appid_short_notm}} em aplicativos da web, é recomendado
-armazenar os tokens em cookies de sessão de aplicativo.
+#### Recursos de segurança avançados
 
+Os recursos de segurança avançados fornecem a capacidade de fortalecer a segurança de seu aplicativo.
+{: shortdesc}
+
+<table>
+  <tr>
+    <th>Recurso</th>
+    <th>Benefício</th>
+  </tr>
+  <tr>
+    <td>Autenticação de Diversos Fatores</td>
+    <td>A [MFA para Cloud Directory](mfa.html) confirma a identidade de um usuário ao exigir que ele insira uma
+senha descartável que é enviada para seu e-mail, além de inserir seu e-mail e senha.</td>
+  </tr>
+  <tr>
+    <td>Gerenciamento de política de senha</td>
+    <td>Como proprietário da conta, é possível impor senhas mais seguras para o Cloud Directory configurando um
+conjunto de regras às quais as senhas do usuário devem estar em conformidade. Exemplos incluem o número de tentativas de conexão
+antes do bloqueio de acesso, prazos de expiração, amplitude de tempo mínimo entre as atualizações de senha ou o
+número de vezes que uma senha não pode ser repetida. Para obter uma lista completa das opções e configurar as informações, consulte
+[Gerenciamento de senha avançada](cloud-directory.html#advanced-password).</td>
+  </tr>
+</table>
+
+Por padrão, os recursos de segurança avançados são desativados. Se você ativar o gerenciamento de política de
+senha ou a autenticação de diversos fatores, você incorrerá em um encargo extra. Se você desativar todos os recursos avançados,
+sua conta será revertida para a política de custo mais baixo. Por exemplo, se você obteve 10.000 tokens de acesso. Em
+seguida, ativou a MFA e o gerenciamento de política de senha e obteve mais 10.000. Você pagaria por 20.000 eventos de
+autenticação e 10.000 eventos de segurança avançados.
+
+Esses recursos estão disponíveis apenas para as instâncias que estão no plano de precificação de camada graduada e que
+foram criadas após 15 de março de 2018.
+{: note}
 
 ### Usuários autorizados
 
-Um usuário autorizado é um usuário exclusivo que efetua login com seu serviço, direta ou indiretamente. Você é cobrado por um usuário autorizado toda vez que um novo usuário efetua login de cada provedor de identidade, incluindo usuários anônimos. Por exemplo, se um usuário efetuar login com o Facebook e depois efetuar login usando o Google, ele será considerado como dois usuários autorizados separados.
+Um usuário autorizado é um usuário exclusivo que se conecta com o seu serviço, direta ou indiretamente, incluindo
+usuários anônimos. Você é cobrado por um usuário autorizado cada vez que um novo usuário se conecta a seu aplicativo,
+incluindo usuários anônimos. Por exemplo, se um usuário se conectar com o Facebook e, posteriormente, se conectar usando o
+Google, ele será considerado como dois usuários autorizados separados.
 
-Para obter mais informações sobre precificação de camada graduada, veja os [docs de precificação do {{site.data.keyword.Bluemix_notm}}](/docs/billing-usage/how_charged.html#services).
+Para obter as informações de precificação mais atualizadas do {{site.data.keyword.appid_short_notm}}, consulte a
+[calculadora
+de precificação](https://console.cloud.ibm.com/pricing/configure/service/AdvancedMobileAccess-d6aece47-d840-45b0-8ab9-ad15354deeea).
+{: important}
 
 </br>
 
 
+## Por que preciso inserir a minha URL de redirecionamento na lista de desbloqueio?
+{: #redirect}
+{: faq}
+
+Uma URL de redirecionamento é o terminal de retorno de chamada de seu app. Para evitar ataques de phishing, o {{site.data.keyword.appid_short_notm}} valida a URL com relação à lista de desbloqueio de URLs de
+redirecionamento. Quando ocorre phishing, existe a possibilidade de um invasor poder obter acesso aos tokens de usuário.
+
+Para incluir sua URL na lista de desbloqueio:
+
+1. Navegue para **Provedores > Gerenciar**.
+2. No campo **Incluir URL de redirecionamento da web**, digite a URL e clique em **+**.
+
+Não inclua quaisquer parâmetros de consulta em sua URL. Eles são ignorados no processo de validação. URL de exemplo: `http://host:[port]/path`
+{: tip}
+
+</br>
+
 ## Como a criptografia funciona no  {{site.data.keyword.appid_short_notm}}?
 {: #encryption}
+{: faq}
 
 Verifique a tabela a seguir para obter respostas para as perguntas mais comuns sobre a criptografia.
 
@@ -60,7 +120,8 @@ Verifique a tabela a seguir para obter respostas para as perguntas mais comuns s
   <tbody>
     <tr>
       <td>Por que você usa criptografia?</td>
-      <td>O serviço criptografa os dados do cliente em repouso.</td>
+      <td>Uma maneira de proteger as informações de nossos usuários é criptografar os dados do cliente em repouso. O serviço
+criptografa os dados do cliente em repouso com as chaves por locatário.</td>
     </tr>
     <tr>
       <td>Você construiu seus próprios algoritmos? Quais são os que você usa em seu código?</td>
@@ -72,8 +133,10 @@ Verifique a tabela a seguir para obter respostas para as perguntas mais comuns s
     </tr>
     <tr>
       <td>Como você armazena as chaves?</td>
-      <td>As chaves são geradas e, em seguida, armazenadas localmente depois de criptografadas por meio do uso de uma chave mestra
-específica para cada região. As chaves mestras são armazenadas no  {{site.data.keyword.keymanagementserviceshort}}.</td>
+      <td>As chaves são geradas e criptografadas com uma chave mestra que é específica para cada região e, em seguida, armazenadas
+localmente. As chaves mestras são armazenadas no  {{site.data.keyword.keymanagementserviceshort}}. Nos níveis de
+armazenamento e de middleware, há criptografia de nível de serviço, o que significa que há uma chave para todos os
+clientes. No nível do aplicativo, cada cliente tem sua própria chave de criptografia.</td>
     </tr>
     <tr>
       <td>Qual é a segurança da chave que você usa?</td>
@@ -90,6 +153,7 @@ específica para cada região. As chaves mestras são armazenadas no  {{site.dat
 
 ## Como o {{site.data.keyword.appid_short_notm}} espera que uma asserção SAML se pareça?
 {: #saml-example}
+{: faq}
 
 O serviço espera que uma asserção SAML se pareça ao exemplo a seguir.
 
@@ -129,6 +193,7 @@ O serviço espera que uma asserção SAML se pareça ao exemplo a seguir.
 
 ## Quais tipos de algoritmos são suportados para assinaturas SAML?
 {: #saml-signatures}
+{: faq}
 
 É possível usar qualquer um dos algoritmos a seguir para processar assinaturas digitais XML.
 

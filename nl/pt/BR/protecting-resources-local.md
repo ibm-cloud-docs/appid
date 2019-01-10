@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-27"
+lastupdated: "2018-12-19"
 
 ---
 
@@ -10,7 +10,6 @@ lastupdated: "2018-06-27"
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
-
 
 
 #  Configurando um servidor de desenvolvimento local para trabalhar com o {{site.data.keyword.appid_short_notm}}
@@ -24,7 +23,7 @@ localmente usando o SDK do servidor {{site.data.keyword.appid_short_notm}} para 
 ## Antes de iniciar
 {: #begin}
 
-Certifique-se de que você tenha o [SDK do servidor instalado](/docs/services/appid/install.html#nodejs-setup).
+Instale o [SDK do servidor](web-apps.html).
 
 
 ## Configurando aplicativos {{site.data.keyword.appid_short_notm}} para trabalhar com um servidor de desenvolvimento local
