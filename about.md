@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-04"
+lastupdated: "2019-01-10"
 
 ---
 
@@ -67,11 +67,11 @@ You can use {{site.data.keyword.appid_short_notm}} with other {{site.data.keywor
   <dt>Cloud Foundry</dt>
     <dd>Try out one of the provided sample Cloud Foundry apps to see how you can integrate {{site.data.keyword.appid_short_notm}} into your apps.</dd>
   <dt>iOS Programming Guide</dt>
-    <dd>Do you develop apps for Apple? Try out the <a href="/docs/swift/index.html#overview" target="_blank">iOS programming guide <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to learn, experiment, and enhance your existing iOS apps with {{site.data.keyword.Bluemix_notm}}.</dd>
+    <dd>Do you develop apps for Apple? Try out the <a href="/docs/swift/index.html" target="_blank">iOS programming guide <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to learn, experiment, and enhance your existing iOS apps with {{site.data.keyword.Bluemix_notm}}.</dd>
   <dt>{{site.data.keyword.cloudaccesstrailshort}}</dt>
     <dd>You can monitor administrative activity that is made in {{site.data.keyword.appid_short_notm}} such as changes to the dashboard configuration, by using the [{{site.data.keyword.cloudaccesstrailshort}} service](/docs/services/cloud-activity-tracker/index.html).</dd>
   <dt>Node.js programming guide</dt>
-    <dd>Do you develop apps in Node.js? Try out the <a href="/docs/node/index.html#getting-started-tutorial" target="_blank">Node.js programming guide <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to learn, experiment, and enhance your existing Node.js apps with {{site.data.keyword.Bluemix_notm}}.</dd>
+    <dd>Do you develop apps in Node.js? Try out the <a href="/docs/node/index.html" target="_blank">Node.js programming guide <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to learn, experiment, and enhance your existing Node.js apps with {{site.data.keyword.Bluemix_notm}}.</dd>
 </dl>
 
 
