@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-08"
+lastupdated: "2018-11-19"
 
 ---
 
@@ -12,10 +12,10 @@ lastupdated: "2018-08-08"
 {:tip: .tip}
 {:screen: .screen}
 
-# Acceso a información de usuario predefinida
+# Atributos predefinidos
 {: #predefined}
 
-Puede ver información específica del proveedor de identidad sobre los usuarios.
+Con {{site.data.keyword.appid_full}}, puede ver información específica del proveedor de identidades sobre los usuarios.
 {: shortdesc}
 
 
@@ -159,7 +159,7 @@ Puede ver información adicional a través del punto final `/userinfo`.
 
 1. Asegúrese de que tiene una señal de acceso válida con un alcance `openid`. Puede verificar que la señal es válida mediante el punto final `/introspect`.
 
-2. Realice una solicitud al punto final `/userinfo`.
+2. Realice una solicitud al [punto final `/userinfo`](https://appid-oauth.ng.bluemix.net/swagger-ui/#!/Authorization_Server_V3/userInfo).
   ```
   GET [POST] https://{oauth-server-endpoint}/userinfo
   Authorization: 'Bearer {ACCESS_TOKEN}'

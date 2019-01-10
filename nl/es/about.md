@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-08"
+lastupdated: "2018-12-19"
 
 ---
 
@@ -12,8 +12,9 @@ lastupdated: "2018-08-08"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
 
-# Acerca de
+# Acerca de {{site.data.keyword.appid_short_notm}}
 {: #about}
 
 La seguridad de aplicación se puede complicar de forma increíble. Para la mayoría de los desarrolladores, es una de las partes más difíciles de la creación de una app. ¿Cómo puede estar seguro de que está protegiendo la información de los usuarios? Al integrar {{site.data.keyword.appid_full}} en sus apps, puede proteger recursos y añadir autenticación, incluso aunque no tenga mucha experiencia en seguridad.
@@ -58,12 +59,11 @@ La seguridad de aplicación se puede complicar de forma increíble. Para la mayo
 Puede utilizar {{site.data.keyword.appid_short_notm}} con otras ofertas de {{site.data.keyword.Bluemix_notm}}.
 {:shortdesc}
 
-
 <dl>
   <dt>{{site.data.keyword.containerlong_notm}}</dt>
-    <dd>Al configurar el ingreso en un clúster estándar, puede proteger sus apps en el nivel de clúster. Consulte la <a href="/docs/containers/cs_annotations.html#appid-auth">anotación de Ingress de autenticación de {{site.data.keyword.appid_short_notm}}</a> o la publicación de blog <a href="https://www.ibm.com/blogs/bluemix/2018/05/announcing-app-id-integration-ibm-cloud-kubernetes-service/">Anuncio de la integración de App ID en el servicio IBM Cloud Kubernetes <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a> para empezar.</dd>
+    <dd>Al configurar el ingreso en un clúster estándar, puede proteger sus apps en el nivel de clúster. Consulte la <a href="/docs/containers/cs_annotations.html#appid-auth">anotación de Ingress de autenticación de {{site.data.keyword.appid_short_notm}}</a> o la publicación de blog <a href="https://www.ibm.com/blogs/bluemix/2018/05/announcing-app-id-integration-ibm-cloud-kubernetes-service/">Anuncio de la integración de {{site.data.keyword.appid_short_notm}} en {{site.data.keyword.containerlong_notm}} <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a> para empezar.</dd>
   <dt>{{site.data.keyword.openwhisk}} y API Connect</dt>
-    <dd>Al crear sus API con [{{site.data.keyword.openwhisk_short}}](/docs/openwhisk/index.html) y [API Connect](/docs/apis/management/manage_apis.html), puede proteger sus aplicaciones en la pasarela en lugar de en el código de la app. Para ver la integración en acción, vea <a href="https://www.youtube.com/watch?v=Fa9YD2NGZiE" target="_blank">OAUTH de inicio de sesión en redes sociales rápido y simple con APIC y {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>.</dd>
+    <dd>Al crear sus API con [{{site.data.keyword.openwhisk_short}}](/docs/openwhisk/index.html) y [API Connect](/docs/services/apiconnect/getting-started.html), puede proteger sus aplicaciones en la pasarela en lugar de en el código de la app. Para ver la integración en acción, vea <a href="https://www.youtube.com/watch?v=Fa9YD2NGZiE" target="_blank">OAUTH de inicio de sesión en redes sociales rápido y simple con APIC y {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>.</dd>
   <dt>Cloud Foundry</dt>
     <dd>Pruebe una de las apps de Cloud Foundry de muestra que se proporcionan para ver cómo puede integrar {{site.data.keyword.appid_short_notm}} en sus apps.</dd>
   <dt>Guía de programación de iOS</dt>
@@ -81,7 +81,7 @@ Puede utilizar {{site.data.keyword.appid_short_notm}} con otras ofertas de {{sit
 Con {{site.data.keyword.appid_short_notm}}, puede añadir un nivel de seguridad a sus apps solicitando a los usuarios que inicien la sesión. También puede utilizar las API o el SDK del servidor para proteger sus recursos de fondo.
 {: shortdesc}
 
-![Diagrama de arquitectura de {{site.data.keyword.appid_short_notm}}](/images/appid_architecture1.png)
+![Diagrama de arquitectura de {{site.data.keyword.appid_short_notm}}](images/appid_architecture1.png)
 
 <dl>
   <dt>Aplicación</dt>
@@ -94,47 +94,6 @@ Con {{site.data.keyword.appid_short_notm}}, puede añadir un nivel de seguridad 
     <dd><strong>Proveedores de identidad sociales y empresariales</strong>: {{site.data.keyword.appid_short_notm}} admite Facebook, Google+ y SAML 2.0 Federation como opciones de proveedor de identidad. El servicio organiza una redirección al proveedor de identidad y verifica las señales de autenticación devueltas. Si las señales son válidas, el servicio otorga acceso a la app incluso sin tener acceso a la frase de contraseña real.</dd>
 </dl>
 
+</br>
 
-## Flujo de solicitudes
-{: #request}
 
-Aunque el flujo de solicitudes puede variar en función de la configuración de aplicación, hay tres flujos principales que puede encontrar al trabajar con App ID. Puede crear un flujo de app móvil, un flujo de app web o proteger los recursos con un flujo diferente. Consulte alguno de los flujos de ejemplo para ver si puede partir de ahí al configurar su app.
-{: shortdesc}
-
-### Flujo de solicitud de app web
-{: #web-flow}
-
-![{{site.data.keyword.appid_short_notm}} flujo de solicitudes](/images/web_flow1.png)
-
-1. Mediante un navegador, un usuario realiza una acción que desencadena una solicitud al SDK de App ID.
-2. Si el usuario no está autorizado, se inicia una redirección a App ID.
-3. App ID abre el widget de inicio de sesión y lo envía al navegador.
-4. El usuario selecciona un proveedor de identidad con el que autenticarse y completa el proceso de inicio de sesión.
-5. El proveedor de identidad se redirige de nuevo al SDK de App ID con una señal de identidad.
-6. El SDK de App ID obtiene señales de acceso del servicio de App ID.
-7. El SDK de App ID guarda las señales y se produce una redirección.
-8. Se otorga al usuario acceso a la aplicación.
-
-### Flujo de solicitudes móviles
-{: #mobile-flow}
-
-![Flujo de solicitudes de {{site.data.keyword.appid_short_notm}}](/images/mobile_flow.png)
-
-1. Un usuario realiza una acción que desencadena una solicitud por parte de la aplicación cliente al SDK de App ID.
-2. Si el usuario no tiene señales de acceso válidas, el SDK de App ID inicia el proceso de autorización.
-3. El widget de inicio de sesión se muestra al usuario.
-4. Mediante uno de los proveedores de identidad configurados, el usuario se autentica.
-5. Una vez que el usuario tiene una señal de identidad, el SDK obtiene una señal de acceso del servicio de App ID.
-6. Con las dos señales, el SDK realiza de nuevo la solicitud.
-7. Si las señales son válidas, se otorga al usuario acceso a la aplicación.
-
-### Flujo de solicitudes de recurso protegido
-{: #pr-flow}
-
-![{{site.data.keyword.appid_short_notm}} flujo de solicitudes](/images/pr_flow.png)
-
-1. Antes de poder realizar una solicitud al recurso, una aplicación cliente debe tener una serie de claves públicas.
-2. Con las claves públicas, una aplicación cliente realiza una solicitud.
-3. Si no hay ninguna señal de acceso válida, la aplicación recibe un error.
-4. Después de obtener una señal válida, la app cliente puede realizar la solicitud de nuevo. Pero, esta vez, incluir la señal.
-5. Cuando la aplicación pueda validar los permisos que otorga la señal de acceso, se habrá otorgado a la aplicación acceso al recurso protegido.

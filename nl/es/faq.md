@@ -2,16 +2,18 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-01"
+lastupdated: "2018-12-19"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
+{:faq: data-hd-content-type='faq'}
 
 
 # Preguntas más frecuentes (FAQ)
+{: #faq}
 
 Estas preguntas más frecuentes proporcionan respuestas a preguntas comunes sobre el servicio de {{site.data.keyword.appid_full}}.
 {: shortdesc}
@@ -19,30 +21,73 @@ Estas preguntas más frecuentes proporcionan respuestas a preguntas comunes sobr
 
 ## ¿Cómo calcula {{site.data.keyword.appid_short_notm}} los precios?
 {: #pricing}
+{: faq}
 
 Con {{site.data.keyword.appid_short_notm}} paga menos cuantos más recursos utiliza.
 {: shortdesc}
 
-El plan de niveles graduado consta de dos partes: El número de sucesos de autenticación y el de usuarios autorizados. Se le facturará cada mes en función del resumen de las dos partes. El precio total es el cargo acumulado de cada nivel de uso que consiste en la cantidad multiplicada por el precio unitario en ese nivel.
+El plan de niveles graduado consta de tres partes: el número de sucesos de autenticación, seguridad normal y avanzada y el número de usuarios autorizados. Se le facturará cada mes en función del resumen de las dos partes. El precio total es el cargo acumulado de cada nivel de uso que consiste en la cantidad multiplicada por el precio unitario en ese nivel.
+
+Los primeros 1000 sucesos de autenticación y 1000 usuarios autorizados son gratuitos cada mes, a excepción de los sucesos de seguridad avanzados. Los sucesos de seguridad avanzados generan cargos adicionales.
 
 ### Sucesos de autenticación
 
-Se produce un suceso de autenticación cuando se emite una nueva señal de acceso, normal o anónima. Para los usuarios identificados, cada nueva señal de acceso es válida de forma predeterminada durante 1 hora (ya sea mediante la autenticación de usuario real o mediante señales de renovación). Las señales anónimas son válidas de forma predeterminada durante 1 mes. Cuando la señal caduca debe crear una nueva para acceder a los recursos protegidos. Puede actualizar la hora de caducidad de las señales de {{site.data.keyword.appid_short_notm}} en la página **Caducidad de inicio de sesión** en el panel de control de {{site.data.keyword.appid_short_notm}}.
+Se produce un suceso de autenticación cuando se emite una nueva señal de acceso, normal o anónima. Las señales se pueden emitir como respuesta a una solicitud de inicio de sesión iniciada por un usuario o en nombre del usuario por parte de una app. De forma predeterminada, las señales de acceso son válidas durante una hora y las señales anónimas son válidas durante 30 días. Cuando la señal caduca debe crear una nueva para acceder a los recursos protegidos. Puede actualizar la hora de caducidad de las señales de {{site.data.keyword.appid_short_notm}} en la página **Caducidad de inicio de sesión** del panel de control del servicio.
 
-Cuando se utiliza {{site.data.keyword.appid_short_notm}} en aplicaciones móviles, las señales se almacenan en el almacén de claves o en la cadena de claves y se añaden a cada solicitud futura. Se puede acceder a las señales utilizando el SDK de Android o iOS de App ID. Cuando se utiliza {{site.data.keyword.appid_short_notm}} en aplicaciones web, se recomienda almacenar las señales en las cookies de sesión de aplicación.
+#### Características de seguridad avanzadas
 
+Las características de seguridad avanzadas le proporcionan la posibilidad de fortalecer la seguridad de la aplicación.
+{: shortdesc}
+
+<table>
+  <tr>
+    <th>Función</th>
+    <th>Ventaja</th>
+  </tr>
+  <tr>
+    <td>Autenticación de multifactores</td>
+    <td>[MFA para el directorio en la nube](mfa.html) confirma la identidad de un usuario solicitando al usuario que especifique un código de acceso de una sola vez que se envía a su correo electrónico además de especificar el correo electrónico y la contraseña.</td>
+  </tr>
+  <tr>
+    <td>Gestión de política de contraseñas</td>
+    <td>Como propietario de una cuenta, puede imponer contraseñas más seguras para el directorio en la nube configurando un conjunto de reglas a las que deben ajustarse las contraseñas de usuario. Los ejemplos incluyen el número de intentos de inicio de sesión antes del bloqueo, las horas de caducidad, el intervalo de tiempo mínimo entre actualizaciones de contraseña o el número de veces que una contraseña no se puede repetir. Para obtener una lista completa de las opciones y la información de configuración, consulte [Gestión avanzada de contraseñas](cloud-directory.html#advanced-password).</td>
+  </tr>
+</table>
+
+Las características de seguridad avanzadas están inhabilitadas de forma predeterminada. Si activa la autenticación de varios factores o la gestión de políticas de contraseñas, se incurre un cargo adicional. Si inhabilita todas las características avanzadas, la cuenta vuelve a la política de costes más bajos. Por ejemplo, si ha obtenido 10.000 señales de acceso. Después, activa la MFA y la gestión de políticas de contraseñas y se obtienen 10.000 más. En ese caso, pagaría por 20.000 sucesos de autenticación y 10.000 sucesos de seguridad avanzada.
+
+Estas características están disponibles solo para aquellas instancias que están en el plan de precios de nivel graduado y que se crearon después del 15 de marzo de 2018.
+{: note}
 
 ### Usuarios autorizados
 
-Un usuario autorizado es un usuario exclusivo que inicia sesión con su servicio directa o indirectamente. Se le factura un usuario autorizado cada vez que un nuevo usuario inicia sesión desde cada proveedor de identidad, incluyendo los usuarios anónimos. Por ejemplo, si un usuario inicia sesión con Facebook y más adelante con Google, se consideran dos usuarios autorizados diferentes.
+Un usuario autorizado es un usuario exclusivo que inicia sesión con su servicio de forma directa o indirecta, incluidos los usuarios anónimos. Se le factura un usuario autorizado cada vez que un nuevo usuario inicia sesión en la aplicación, incluidos los usuarios anónimos. Por ejemplo, si un usuario inicia sesión con Facebook y más adelante con Google, se consideran dos usuarios autorizados diferentes.
 
-Para obtener más información sobre los precios por nivel graduado, consulte los [documentos de precios de {{site.data.keyword.Bluemix_notm}}](/docs/billing-usage/how_charged.html#services).
+Para obtener la información sobre precios más reciente de {{site.data.keyword.appid_short_notm}}, consulte la [calculadora de precios](https://console.cloud.ibm.com/pricing/configure/service/AdvancedMobileAccess-d6aece47-d840-45b0-8ab9-ad15354deeea).
+{: important}
 
 </br>
 
 
+## ¿Por qué tengo que incluir en una lista blanca mi URL de redirección?
+{: #redirect}
+{: faq}
+
+Un URL de redirección es el punto final de devolución de llamada de la app. Para evitar ataques de suplantación, {{site.data.keyword.appid_short_notm}} valida el URL con la lista blanca de URL de redirección. Cuando se produce phishing, existe la posibilidad de que un atacante obtenga acceso a las señales del usuario.
+
+Para añadir el URL a la lista blanca:
+
+1. Vaya a **Proveedores de identidad > Gestionar**.
+2. En el campo **Añadir URL de redirección web**, escriba el URL y pulse **+**.
+
+No incluya ningún parámetro de consulta en el URL. Se omitirán en el proceso de validación. URL de ejemplo: `http://host:[port]/path`
+{: tip}
+
+</br>
+
 ## ¿Cómo funciona el cifrado en {{site.data.keyword.appid_short_notm}}?
 {: #encryption}
+{: faq}
 
 Consulte la tabla siguiente para obtener respuestas a las preguntas más frecuentes sobre el cifrado.
 
@@ -53,7 +98,7 @@ Consulte la tabla siguiente para obtener respuestas a las preguntas más frecuen
   <tbody>
     <tr>
       <td>¿Por qué se utiliza el cifrado?</td>
-      <td>El servicio cifra los datos del cliente en reposo.</td>
+      <td>Una forma de proteger la información de nuestros usuarios consiste en cifrar los datos de cliente en reposo. El servicio cifra datos de cliente en reposo con claves por arrendatario.</td>
     </tr>
     <tr>
       <td>¿Se han creado algoritmos propios? ¿Cuáles se utilizan en el código?</td>
@@ -65,7 +110,7 @@ Consulte la tabla siguiente para obtener respuestas a las preguntas más frecuen
     </tr>
     <tr>
       <td>¿Cómo se almacenan las claves?</td>
-      <td>Las claves se generan y luego se almacenan localmente después de ser cifradas utilizando una clave maestra que es específica de cada región. Las claves maestras se almacenan en {{site.data.keyword.keymanagementserviceshort}}.</td>
+      <td>Las claves se generan y cifran con una clave maestra que es específica de cada región y que después se almacena localmente. Las claves maestras se almacenan en {{site.data.keyword.keymanagementserviceshort}}. En los niveles de almacenamiento y middleware existe un cifrado de nivel de servicio, lo que significa que hay una clave para todos los clientes. En el nivel de app, cada cliente tiene su propia clave de cifrado.</td>
     </tr>
     <tr>
       <td>¿Qué fortaleza de clave se utiliza?</td>
@@ -82,6 +127,7 @@ Consulte la tabla siguiente para obtener respuestas a las preguntas más frecuen
 
 ## ¿A qué espera {{site.data.keyword.appid_short_notm}} que se parezca una aserción SAML?
 {: #saml-example}
+{: faq}
 
 El servicio espera que una aserción SAML se parezca al ejemplo siguiente.
 
@@ -121,6 +167,7 @@ El servicio espera que una aserción SAML se parezca al ejemplo siguiente.
 
 ## ¿Qué tipo de algoritmos están soportados para las firmas SAML?
 {: #saml-signatures}
+{: faq}
 
 Puede utilizar cualquiera de los siguientes algoritmos para procesar las firmas digitales XML.
 

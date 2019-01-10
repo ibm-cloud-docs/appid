@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-27"
+lastupdated: "2018-12-19"
 
 ---
 
@@ -10,7 +10,6 @@ lastupdated: "2018-06-27"
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
-
 
 
 #  Configuración de un servidor de desarrollo local para trabajar con {{site.data.keyword.appid_short_notm}}
@@ -23,7 +22,7 @@ Puede configurar su entorno local para que utilice el servicio {{site.data.keywo
 ## Antes de empezar
 {: #begin}
 
-Asegúrese de que tenga el [SDK del servidor instalado](/docs/services/appid/install.html#nodejs-setup).
+Instale el [SDK del servidor](web-apps.html).
 
 
 ## Configuración de aplicaciones de {{site.data.keyword.appid_short_notm}} para que funcionen con un servidor de desarrollo local
@@ -40,7 +39,7 @@ Para configurar sus apps para trabajar con un servidor de desarrollo local, util
   <th> Android e iOS </th>
 </tr>
 <tr>
-  <td> Sur de EE.UU. </td>
+  <td> EE.UU. sur </td>
   <td> AppID.REGION_US_SOUTH </td>
 </tr>
 <tr>

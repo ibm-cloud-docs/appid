@@ -39,7 +39,7 @@ Necesita la siguiente información:
       <th>Valor de SDK</th>
     </tr>
     <tr>
-      <td>Sur de EE.UU.</td>
+      <td>EE.UU. sur</td>
       <td><code>AppID.REGION_US_SOUTH</code> </td>
     </tr>
     <tr>
@@ -147,7 +147,7 @@ Necesita la siguiente información:
       <th>Valor de SDK</th>
     </tr>
     <tr>
-      <td>Sur de EE.UU.</td>
+      <td>EE.UU. sur</td>
       <td><code>AppID.REGION_US_SOUTH </code></td>
     </tr>
     <tr>

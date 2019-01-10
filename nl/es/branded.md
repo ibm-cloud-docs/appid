@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-08"
+lastupdated: "2018-10-15"
 
 ---
 
@@ -15,166 +15,58 @@ lastupdated: "2018-08-08"
 # Gestión de marca en la app
 {: #branding}
 
-Puede mostrar sus propias pantallas personalizadas y aprovechar las posibilidades de autenticación y autorización de {{site.data.keyword.appid_full}}. Con el Directorio en la nube como proveedor de identidad, sus usuarios pueden interactuar con su app requiriendo menos ayuda. Son capaces de iniciar la sesión, registrarse, modificar su contraseña, etc., sin necesidad de solicitar ayuda.
+Puede mostrar sus propias pantallas personalizadas, utilizar sus propios flujos de inicio de sesión y aprovechar las posibilidades de autenticación y autorización de {{site.data.keyword.appid_full}}. Utilizando el Directorio en la nube como proveedor de identidad, sus usuarios pueden interactuar con su app requiriendo menos ayuda. Son capaces de iniciar la sesión, registrarse, modificar su contraseña, etc., sin necesidad de solicitar ayuda.
 {: shortdesc}
 
-Cuando utilice sus propias pantallas, se utiliza el [flujo de ROPC (credenciales de contraseña de propietario de recurso)](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/password.html).
+**¿Por qué debería mostrar mis propias pantallas?**
 
-
-## Gestión de marca en la app con el SDK de iOS Swift
-{: #branded-ui-ios-swift}
-
-Con el Directorio en la nube habilitado, puede llamar a las pantallas de su propia marca con el SDK de iOS Swift.
-{: shortdesc}
-
-</br>
-**Iniciar la sesión**
-
-1. En el separador de proveedor de identidad de la GUI, establezca el Directorio en la nube en **Activado**.
-2. Llame al widget de inicio de sesión para iniciar el flujo de inicio de sesión. Las señales de acceso e identidad se obtienen cuando un usuario intenta iniciar sesión utilizando su nombre de usuario o correo electrónico y una contraseña.
-  ```swift
-  class delegate : TokenResponseDelegate {
-      public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, response:Response?) {
-      //Usuario autenticado
-      }
-
-      public func onAuthorizationFailure(error: AuthorizationError) {
-      //Se ha producido una excepción
-        }
-  }
-
-  AppID.sharedInstance.signinWithResourceOwnerPassword(username: username, password: password, delegate: delegate())
-  ```
-  {: pre}
+Cuando reutiliza las IU existentes, puede crear un flujo de inicio de sesión coherente para la app. Utilizando las mismas imágenes, colores y marcas, es más probable que los usuarios reconozcan su marca, incluso cuando no interactúen directamente con la app.
 
 </br>
 
-**Registro**
+**¿Qué tipo de configuración se necesita para mostrar mis propias pantallas?**
 
-1. En el separador de proveedor de identidad de la GUI, establezca el Directorio en la nube en **Activado**.
-2. Establezca **Permitir a los usuarios registrarse y restablecer su contraseña** en **Activado** en los valores del Directorio en la nube.
-3. Llame al widget de inicio de sesión para iniciar el flujo de registro.
-  ```swift
-  class delegate : AuthorizationDelegate {
-    public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, refreshToken: RefreshToken?, response:Response?) {
-       if accessToken == nil && identityToken == nil {
-        //es necesaria la verificación de correo electrónico
-        return
-       }
-     //Usuario autenticado
-      }
+Para mostrar sus propias IU, debe utilizar [Directorio en la nube(/docs/services/appid/cloud-directory.html)] como proveedor de identidad. Hay varias formas de [configurar](cloud-directory.html) el directorio en la nube. Puede decidir los tipos de mensajes que desea enviar y personalizar el contenido y diseño. ¿No sabe qué decir? Ningún problema. Puede utilizar los mensajes de muestra de la GUI.
 
-      public func onAuthorizationCanceled() {
-        //Registro cancelado por el usuario
-    }
-
-    public func onAuthorizationFailure(error: AuthorizationError) {
-        //Se ha producido una excepción
-        }
-  }
-
-  AppID.sharedInstance.loginWidget?.launchSignUp(delegate: delegate())
-  ```
-  {: pre}
+¿Desea utilizar un [idioma](cloud-directory.html#languages) que no sea el inglés? Puede eligir otro idioma utilizando las <a href="https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/updateLocalization" target="_blank">API de gestión de idiomas <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a> para visualizar su propio contenido traducido.
+{: tip}
 
 </br>
 
-**Contraseña olvidada**
 
-1. En el separador de proveedor de identidad de la GUI, establezca el Directorio en la nube en **Activado**.
-2. Establezca **Permitir a los usuarios registrarse y restablecer su contraseña** en **Activado** en los valores del Directorio en la nube.
-3. Llame al widget de inicio de sesión para iniciar el flujo de contraseña olvidada.
-  ```swift
-  class delegate : AuthorizationDelegate {
-     public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, refreshToken: RefreshToken?, response:Response?) {
-        //contraseña olvidada finalizada, en este caso accessToken e identityToken serán nulos.
 
- 			 }
+**¿En qué se diferencian técnicamente los flujos?**
 
-     public func onAuthorizationCanceled() {
-         //contraseña olvidada cancelado por el usuario
-     }
-
-     public func onAuthorizationFailure(error: AuthorizationError) {
-         //Se ha producido una excepción
-        }
-  }
-
-  AppID.sharedInstance.loginWidget?.launchForgotPassword(delegate: delegate())
-  ```
-  {: pre}
+El servicio utiliza flujos de otorgamiento de OAuth2 para asignar el proceso de autorización. Cuando configura proveedores de identidad sociales como Facebook, se utiliza el <a href="https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html" target="_blank">Flujo de otorgamiento de autorización <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a> para llamar al widget de inicio de sesión. Cuando utilice sus propias pantallas, se utiliza el <a href="https://oauthlib.readthedocs.io/en/stable/oauth2/grants/password.html" target="_blank">flujo de ROPC (credenciales de contraseña de propietario de recurso)<img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a> para proporcionar señales de identidad y acceso que le permitan llamar a las pantallas de inicio de sesión.
 
 </br>
 
-**Cambiar detalles**
+**¿Tiene alguna app de ejemplo que muestre cómo funciona?**
 
-1. En el separador de proveedor de identidad de la GUI, establezca el Directorio en la nube en **Activado**.
-2. Establezca **Permitir a los usuarios registrarse y restablecer su contraseña** en **Activado** en los valores del Directorio en la nube.
-3. Llame al widget de inicio de sesión para iniciar el flujo de cambio de detalles.
-  ```swift
-  class delegate : AuthorizationDelegate {
-      public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, refreshToken: RefreshToken?, response:Response?) {
-         //Usuario autenticado y señales nuevas recibidas
-       }
+Sí. Compruebe cualquiera de los ejemplos siguientes para ver el directorio en la nube en acción:
 
-       public func onAuthorizationCanceled() {
-          //cambiar detalles cancelado por el usuario
-       }
-
-       public func onAuthorizationFailure(error: AuthorizationError) {
-          //Se ha producido una excepción
-        }
-  }
-
-   AppID.sharedInstance.loginWidget?.launchChangeDetails(delegate: delegate())
-  ```
-  {: pre}
+* <a href="https://www.ibm.com/blogs/bluemix/2018/01/use-branded-ui-user-sign-app-id/" target="_blank">Utilice una IU de su propia marca para el inicio de sesión del usuario con {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>
+* <a href="https://www.ibm.com/blogs/bluemix/2018/06/use-ui-flows-user-sign-sign-app-id/" target="_blank">Utilice una IU y flujos de su propia marca para el registro e inicio de sesión con {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>
+* <a href="https://www.ibm.com/blogs/bluemix/2018/06/custom-login-page-app-id-integration/" target="_blank">Utilice una página de inicio de sesión personalizada con {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>
 
 </br>
-
-**Cambio de contraseña**
-
-1. En el separador de proveedor de identidad de la GUI, establezca el Directorio en la nube en **Activado**.
-2. Establezca **Permitir a los usuarios registrarse y restablecer su contraseña** en **Activado** en los valores del Directorio en la nube.
-3. Llame al widget de inicio de sesión para iniciar el flujo de cambio de detalles.
-  ```swift
-  class delegate : AuthorizationDelegate {
-      public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, refreshToken: RefreshToken?, response:Response?) {
-          //Usuario autenticado y señales nuevas recibidas
-       }
-
-       public func onAuthorizationCanceled() {
-          //cambiar contraseña cancelado por el usuario
-       }
-
-       public func onAuthorizationFailure(error: AuthorizationError) {
-           //Se ha producido una excepción
-        }
-   }
-
-    AppID.sharedInstance.loginWidget?.launchChangePassword(delegate: delegate())
-  ```
-  {: pre}
-
 </br>
-
 
 ## Gestión de marca en la app con el SDK de Android
 {: #branded-ui-android}
 
-Con el directorio en la nube habilitado, puede llamar a pantallas personalizadas con el SDK de Android. Puede elegir la combinación de las pantallas con las que desea que sus usuarios puedan interactuar.<a href="https://www.ibm.com/blogs/bluemix/2018/01/use-branded-ui-user-sign-app-id/" target="blank">Consulte este blog<img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a> para obtener un ejemplo detallado.
+Con el Directorio en la nube habilitado, puede llamar a pantallas personalizadas con el SDK de Android. Puede elegir la combinación de las pantallas con las que desea que sus usuarios puedan interactuar.<a href="https://www.ibm.com/blogs/bluemix/2018/01/use-branded-ui-user-sign-app-id/" target="blank">Consulte este blog<img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a> para obtener un ejemplo detallado.
 {: shortdesc}
 
 </br>
 
 **Iniciar la sesión**
 
-1. Establezca **Directorio en la nube** en **Activado** como proveedor de identidad.
-2. Obtenga una señal de acceso, identidad y renovación proporcionando el nombre de usuario y la contraseña del usuario final.
-3. Llame al widget de inicio de sesión para iniciar el flujo de inicio de sesión.
+1. Configure los [valores](cloud-directory.html#cd-settings) del directorio en la nube en la GUI.
+2. Añada el código siguiente a la aplicación. El flujo de inicio de sesión se activa cuando un usuario pulsa en el inicio de sesión de la pantalla personalizada. Obtendrá las señales de renovación, identidad y acceso proporcionando el nombre de usuario y la contraseña del usuario final.
+
   ```java
-  AppID.getInstance().signinWithResourceOwnerPassword(getApplicationContext(), username, password,
-         new TokenResponseListener() {
+  AppID.getInstance().signinWithResourceOwnerPassword(getApplicationContext(), username, password, new TokenResponseListener() {
       @Override
         public void onAuthorizationFailure (AuthorizationException exception) {
           //Se ha producido una excepción
@@ -189,126 +81,38 @@ Con el directorio en la nube habilitado, puede llamar a pantallas personalizadas
   {: pre}
 
 </br>
+</br>
 
-**Registro**
+## Gestión de marca en la app con el SDK de iOS Swift
+{: #branded-ui-ios-swift}
 
-1. Establezca **Directorio en la nube** en **Activado** como proveedor de identidad.
-2. Establezca **Permitir a los usuarios registrarse y restablecer su contraseña** en **Activado** en los valores del Directorio en la nube.
-3. Llame al widget de inicio de sesión para iniciar el flujo de registro.
-  ```java
-  LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
- loginWidget.launchSignUp(this, new AuthorizationListener() {
-      @Override
-        public void onAuthorizationFailure (AuthorizationException exception) {
-          //Se ha producido una excepción
-        }
-
-      @Override
-          public void onAuthorizationCanceled () {
-          //Registro cancelado por el usuario
-			 }
-
-      @Override
-          public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, RefreshToken refreshToken) {
-          if (accessToken != null && identityToken != null) {
-              //Usuario autenticado
-				 } else {
-              //Es necesaria la verificación de correo electrónico
-				 }
-      }
-  });
-  ```
-  {: pre}
+Con el Directorio en la nube habilitado, puede llamar a las pantallas de su propia marca con el [SDK de iOS Swift](https://github.com/ibm-cloud-security/appid-clientsdk-swift).
+{: shortdesc}
 
 </br>
 
+**Iniciar la sesión**
 
-**Contraseña olvidada**
+1. Configure los [valores](cloud-directory.html#cd-settings) del directorio en la nube en la GUI.
+2. Añada el código siguiente en la aplicación. Cuando un usuario intenta iniciar sesión, se llama a la pantalla de inicio de sesión y el proceso de autorización y autenticación se inicia con la página de inicio de sesión personalizada.
 
-1. Establezca **Directorio en la nube** en **Activado** como proveedor de identidad.
-2. Establezca **Permitir a los usuarios registrarse y restablecer su contraseña** en **Activado** en los valores del Directorio en la nube.
-3. Llame al widget de inicio de sesión para iniciar el flujo de contraseña olvidada.
-  ```java
-  LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
-  loginWidget.launchForgotPassword(this, new AuthorizationListener() {
-      @Override
-        public void onAuthorizationFailure (AuthorizationException exception) {
-          //Se ha producido una excepción
-        }
-
-      @Override
-          public void onAuthorizationCanceled () {
-          //Contraseña olvidada cancelado por el usuario
+  ```swift
+  class delegate : TokenResponseDelegate {
+      public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, response:Response?) {
+      //Usuario autenticado
       }
 
-      @Override
-          public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, RefreshToken refreshToken) {
-          //Contraseña olvidada finalizada, en este caso accessToken e identityToken serán nulos.
- 			 }
-  });
-  ```
-  {: pre}
-
-</br>
-
-**Cambiar detalles**
-
-1. Establezca **Directorio en la nube** en **Activado** como proveedor de identidad.
-2. Establezca **Permitir a los usuarios registrarse y restablecer su contraseña** en **Activado** en los valores del Directorio en la nube.
-3. Llame al widget de inicio de sesión para iniciar el flujo de cambio de detalles.
-  ```java
-  LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
-   loginWidget.launchChangeDetails(this, new AuthorizationListener() {
-      @Override
-        public void onAuthorizationFailure (AuthorizationException exception) {
-          //Se ha producido una excepción
+      public func onAuthorizationFailure(error: AuthorizationError) {
+      //Se ha producido una excepción
         }
+  }
 
-      @Override
-          public void onAuthorizationCanceled () {
-          //Cambiar detalles cancelado por el usuario
-      }
-
-      @Override
-          public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, RefreshToken refreshToken) {
-          //Usuario autenticado y señales nuevas recibidas
-  			 }
-  });
+  AppID.sharedInstance.signinWithResourceOwnerPassword(username: username, password: password, delegate: delegate())
   ```
-  {: pre}
-
-
-</br>
-
-**Cambio de contraseña**
-
-1. Establezca **Directorio en la nube** en **Activado** como proveedor de identidad.
-2. Establezca **Permitir a los usuarios registrarse y restablecer su contraseña** en **Activado** en los valores del Directorio en la nube.
-3. Llame al widget de inicio de sesión para iniciar el flujo de cambio de contraseña.
-  ```java
-  LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
-    loginWidget.launchChangePassword(this, new AuthorizationListener() {
-      @Override
-        public void onAuthorizationFailure (AuthorizationException exception) {
-          //Se ha producido una excepción
-        }
-
-      @Override
-          public void onAuthorizationCanceled () {
-          //Cambiar contraseña cancelado por el usuario
-      }
-
-      @Override
-          public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, RefreshToken refreshToken) {
-          //Usuario autenticado y señales nuevas recibidas
-  			 }
-  });
-  ```
-  {: pre}
+  {: codeblock}
 
 </br>
 </br>
-
 
 ## Gestión de marca en la app con el SDK de Node.js
 {: #branded-ui-nodejs}
@@ -320,8 +124,10 @@ Con el Directorio en la nube habilitado, puede llamar a pantallas personalizadas
 
 Mediante WebAppStrategy, los usuarios pueden iniciar sesión en sus apps web con su nombre de usuario y una contraseña. Una vez que un usuario inicia sesión correctamente en la app, su señal de acceso persiste en una sesión HTTP durante el tiempo que se mantiene activa. Una vez que la sesión HTTP se cierra o caduca, la señal de acceso también se destruye.
 
-1. Establezca el Directorio en la nube en **Activado** en los valores de proveedor de identidad y especifique un punto final de devolución de llamada.
-2. Añada una ruta de envío a su app a la que pueda llamarse con los parámetros de nombre de usuario y contraseña e inicie la sesión con el flujo de contraseña del propietario del recurso.
+
+1. Configure los [valores](cloud-directory.html#cd-settings) del directorio en la nube en la GUI.
+2. Añada el código siguiente en la aplicación. Cuando un usuario intenta iniciar sesión, se llama a la pantalla de inicio de sesión y el proceso de autorización y autenticación se inicia con la página de inicio de sesión personalizada.
+
   ```javascript
   app.post("/form/submit", bodyParser.urlencoded({extended: false}), passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
   	successRedirect: LANDING_PAGE_URL,
@@ -329,7 +135,8 @@ Mediante WebAppStrategy, los usuarios pueden iniciar sesión en sus apps web con
   	failureFlash : true //permitir mensajes flash
   }));
   ```
-  {: pre}
+  {: codeblock}
+
   <table>
     <thead>
       <th colspan=2><img src="images/idea.png" alt="Icono de más información"/> Parámetros de mandato </th>
@@ -350,73 +157,25 @@ Mediante WebAppStrategy, los usuarios pueden iniciar sesión en sus apps web con
     </tbody>
   </table>
 
-  1. Si envía la solicitud en formato HTML, puede utilizar middleware [analizador de cuerpo](https://www.npmjs.com/package/body-parser).
-  2. Para obtener el mensaje de error devuelto, puede utilizar [connect-flash](https://www.npmjs.com/package/connect-flash). Para obtener más información, consulte el [ejemplo de app web](https://github.com/ibm-cloud-security/appid-serversdk-nodejs/blob/master/samples/web-app-sample.js).
-  {: tip}
+**Nota**: Si envía la solicitud en HTML, puede utilizar middleware <a href="https://www.npmjs.com/package/body-parser" target="blank">analizador de cuerpo <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>. Para ver el mensaje de error devuelto, puede utilizar <a href="https://www.npmjs.com/package/connect-flash" target="blank">connect-flash <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>. Para verlo en acción, consulte el <a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs/blob/master/samples/web-app-sample.js" target="blank">ejemplo de app web <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>.
 
 </br>
-**Registrarse**
-
-1. Establezca el Directorio en la nube en **Activado** en los valores de proveedor de identidad y especifique un punto final de devolución de llamada.
-2. Establezca **Permitir a los usuarios registrarse y restablecer su contraseña** en **Activado** en los valores del Directorio en la nube.
-3. Establezca **Permitir a los usuarios iniciar sesión sin verificación de correo electrónico** en **No**. De lo contrario, las señales de identidad y acceso de {{site.data.keyword.appid_short_notm}} no se podrán recuperar.
-4. Añada una ruta de envío a su app a la que pueda llamarse con los parámetros de nombre de usuario y contraseña e inicie la sesión con el flujo de contraseña del propietario del recurso.
-  ```javascript
-  app.get("/sign_up", passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
-  	successRedirect: LANDING_PAGE_URL,
-  	show: WebAppStrategy.SIGN_UP
-  }));
-  ```
-  {: pre}
-
-</br>
-
-**Contraseña olvidada**
-
-1. Establezca el Directorio en la nube en **Activado** en los valores de proveedor de identidad y especifique un punto final de devolución de llamada.
-2. Establezca **Permitir a los usuarios registrarse y restablecer su contraseña** en **Activado** en los valores del Directorio en la nube.
-3. Establezca **Correo electrónico de contraseña olvidada** en **Activado**.
-4. Pase la propiedad *show* a `WebAppStrategy.FORGOT_PASSWORD` para abrir el formulario de contraseña olvidada.
-  ```javascript
-  app.get("/forgot_password", passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
-  	successRedirect: LANDING_PAGE_URL,
-  	show: WebAppStrategy.FORGOT_PASSWORD
-  }));
-  ```
-  {: pre}
-
-</br>
-
-**Cambiar detalles**
-
-1. Establezca el Directorio en la nube en **Activado** en los valores de proveedor de identidad y especifique un punto final de devolución de llamada.
-2. Establezca **Permitir a los usuarios registrarse y restablecer su contraseña** en **Activado** en los valores del Directorio en la nube.
-3. Verifique que el usuario se haya autenticado previamente con {{site.data.keyword.appid_short_notm}}.
-4. Pase la propiedad *show* a `WebAppStrategy.CHANGE_DETAILS` para abrir el formulario de contraseña olvidada.
-  ```javascript
-  app.get("/change_details", passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
-  	successRedirect: LANDING_PAGE_URL,
-  	show: WebAppStrategy.CHANGE_DETAILS
-  }));
-  ```
-  {: pre}
-
 </br>
 
 ## Gestión de marca en la app con la API
 {: #branded-ui-api}
 
-Puede mostrar sus propias pantallas personalizadas y aprovechar las posibilidades de autenticación y autorización de {{site.data.keyword.appid_short_notm}}. Con el directorio en la nube como proveedor de identidad, sus usuarios pueden interactuar con su app requiriendo menos ayuda. Son capaces de iniciar la sesión, registrarse, restablecer su contraseña, etc., sin necesidad de solicitar ayuda.
+Puede mostrar sus propias pantallas personalizadas y aprovechar las posibilidades de autenticación y autorización de {{site.data.keyword.appid_short_notm}}. Con el Directorio en la nube como proveedor de identidad, sus usuarios pueden interactuar con su app requiriendo menos ayuda. Son capaces de iniciar la sesión, registrarse, restablecer su contraseña, etc., sin necesidad de solicitar ayuda.
 {: shortdesc}
 
-Para hacer esto posible, {{site.data.keyword.appid_short_notm}} expone API REST. Puede utilizar la API REST para crear un servidor de fondo que sirva a sus apps web, o para interactuar con una app móvil con sus propias pantallas personalizadas.
+Para hacer esto posible, {{site.data.keyword.appid_short_notm}} expone API REST. Puede utilizar las API REST para crear un servidor de fondo que sirva a sus apps web, o para interactuar con una app móvil con sus propias pantallas personalizadas.
 
 La API de gestión está protegida con las señales generadas de IBM Cloud Identity and Access Management. Esto significa que los propietarios de las cuentas pueden especificar qué persona de su equipo tiene qué nivel de acceso para cada instancia de servicio. Para obtener más información sobre cómo funcionan juntos IAM y {{site.data.keyword.appid_short_notm}}, consulte [Gestión de acceso de servicio](/docs/services/appid/iam.html).
 
 Después de haber configurado los [valores](/docs/services/appid/cloud-directory.html), puede llamar a los siguientes puntos finales para visualizar cada pantalla.
 
+**Registro**
 
-**Regístrese**
 Puede utilizar el punto final `/sign_up` para permitir que los usuarios se registren ellos mismos para su app.
 Proporcione los datos siguientes en el cuerpo de solicitud:
   * Su tenantID.
@@ -424,12 +183,13 @@ Proporcione los datos siguientes en el cuerpo de solicitud:
     * Un atributo `password`.
     * En la matriz de correo electrónico con un atributo `primary` establecido en `true`, debe tener al menos una dirección de correo electrónico.
 
-Dependiendo de las [configuraciones de correo electrónico](/docs/services/appid/cloud-directory.html), un usuario podría recibir una solicitud para su verificación, o un correo electrónico que le da la bienvenida cuando se registra para su app. Ambos tipos de correos electrónicos se desencadenan cuando un usuario se registra para su app. El correo electrónico de verificación contiene un botón **Verificar**. Después de pulsar el botón y confirmar su identidad, se mostrará una pantalla mediante {{site.data.keyword.appid_short_notm}} que agradece al usuario que se haya verificado.  
+Dependiendo de las [configuración de correo electrónico](/docs/services/appid/cloud-directory.html), un usuario podría recibir una solicitud para su verificación, o un correo electrónico que le da la bienvenida cuando se registra para su app o ambos. Ambos tipos de correos electrónicos se desencadenan cuando un usuario se registra para su app. El correo electrónico de verificación contiene un enlace en el que el usuario puede pulsar para confirmar su identidad; se muestra una pantalla que le agradece que realice una verificación o confirme que la misma se ha completado.  
 
-Puede presentar su propia página postverificación:
+Para presentar su propia página postverificación:
 
-1. Vaya al separador **Páginas de destino personalizadas** del panel de control de {{site.data.keyword.appid_short_notm}}.
-2. Especifique el URL para la página de destino en el **URL para su página de verificación de dirección de correo electrónico personalizada**
+1. Vaya al proveedor de identidad del directorio en la nube en el panel de control de {site.data.keyword.appid_short_notm}}.
+2. Pulse en el separador **Verificación de correo electrónico**.
+3. En **Personalizar URL de página de verificación** introduzca el URL de su página de destino.
 
 Cuando se proporcione este valor, {{site.data.keyword.appid_short_notm}} llama al URL junto con una consulta `context`. Cuando llama al punto final `/sign_up/confirmation_result` y pasa el parámetro `context` recibido, el resultado le indica si el usuario ha verificado su cuenta. Si lo ha hecho, puede mostrar su página personalizada.
 
@@ -446,8 +206,9 @@ Cuando se llame al punto final, se enviará un correo electrónico de restableci
 
 Puede presentar su propia página de restablecimiento de contraseña:
 
-1. Vaya al separador **Páginas de destino personalizadas** del panel de control de {{site.data.keyword.appid_short_notm}}.
-2. Especifique el URL de la página de destino en el **URL para su página de restablecimiento de contraseña personalizada**  
+1. Configure los [valores](cloud-directory.html#cd-settings) del directorio en la nube en la GUI. **Permitir a los usuarios gestionar la cuenta desde la app** se debe establecer en **Activado**.
+2. En el separador **Restablecer contraseña** del panel de control del servicio, asegúrese de que **Correo electrónico de contraseña olvidada** se haya establecido en **Activado**.
+3. Especifique el URL de la página de destino en el **URL para su página de restablecimiento de contraseña personalizada**  
 
 Cuando se proporcione este valor, {{site.data.keyword.appid_short_notm}} llama al URL junto con una consulta `context`. El parámetro `context` se utiliza para recibir el resultado cuando se llame a `/forgot_password/confirmation_result`. Si el resultado es correcto, puede mostrar su página personalizada.
 
@@ -462,7 +223,7 @@ Puede utilizar el punto final `/change_password` de dos formas. Cuando un usuari
 Proporcione los datos siguientes en el cuerpo de solicitud para actualizar su contraseña después de una solicitud de restablecimiento:
   * Su tenantID.
   * La nueva contraseña de los usuarios.
-  * El UUID del usuario del directorio en la nube.
+  * El UUID de usuario del directorio en la nube.
   * Opcional: la dirección IP desde la que se ha realizado el restablecimiento de contraseña. Si elige pasar la dirección IP, el marcador `%{passwordChangeInfo.ipAddress}` estará disponible para la plantilla de correo electrónico de cambio de contraseña.
 
 Dependiendo de la configuración, cuando se modifica una contraseña, {{site.data.keyword.appid_short_notm}} podría enviar un correo electrónico al usuario haciéndole saber que hubo un cambio.
@@ -473,7 +234,7 @@ Para permitir a los usuarios cambiar su contraseña mientras estén dentro de su
 Proporcione los datos siguientes en el cuerpo de solicitud:
   * Su tenantID.
   * La nueva contraseña de los usuarios.
-  * El UUID del usuario del directorio en la nube.
+  * El UUID de usuario del directorio en la nube.
 
 La página de cambio de contraseña debe aparecerle al usuario para que especifique su contraseña actual y su nueva contraseña.
 {: tip}
@@ -488,8 +249,7 @@ Puede utilizar `/resend/{templateName}` para volver a enviar un correo electrón
 Proporcione los datos siguientes en el cuerpo de solicitud:
   * El tenantID.
   * El nombre de la plantilla.
-  * El UUID del usuario del directorio en la nube.
-
+  * El UUID de usuario del directorio en la nube.
 
 **Cambiar detalles**
 
