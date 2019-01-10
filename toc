@@ -52,7 +52,11 @@ IBM Cloud App ID
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
-    [App ID APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/)
+    {: .topicgroup}
+    APIs
+        [Authorization](https://appid-oauth.ng.bluemix.net/swagger-ui/#/Authorization_Server_V3)
+        [Management](https://us-south.appid.cloud.ibm.com/swagger-ui/#/)
+        [Profiles](https://appid-profiles.ng.bluemix.net/swagger-ui/index.html)
 
     {: .topicgroup}
     SDKs
