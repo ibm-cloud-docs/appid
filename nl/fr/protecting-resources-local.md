@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-27"
+lastupdated: "2018-12-19"
 
 ---
 
@@ -10,7 +10,6 @@ lastupdated: "2018-06-27"
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
-
 
 
 #  Configuration d'un serveur de développement local pour {{site.data.keyword.appid_short_notm}}
@@ -24,7 +23,7 @@ l'aide du logiciel SDK serveur d'{{site.data.keyword.appid_short_notm}} pour env
 ## Avant de commencer
 {: #begin}
 
-Assurez-vous que [le serveur SDK est installé](/docs/services/appid/install.html#nodejs-setup).
+Installez le [logiciel SDK serveur](web-apps.html).
 
 
 ## Configuration d'applications {{site.data.keyword.appid_short_notm}} pour leur utilisation avec un serveur de développement local

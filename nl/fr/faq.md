@@ -2,16 +2,18 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-01"
+lastupdated: "2018-12-19"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
+{:faq: data-hd-content-type='faq'}
 
 
 # Foire aux questions
+{: #faq}
 
 Cette foire aux questions fournit des réponses aux questions courantes sur le service {{site.data.keyword.appid_full}}.
 {: shortdesc}
@@ -19,32 +21,75 @@ Cette foire aux questions fournit des réponses aux questions courantes sur le s
 
 ## Comment {{site.data.keyword.appid_short_notm}} calcule-t-il les prix ?
 {: #pricing}
+{: faq}
 
 Avec {{site.data.keyword.appid_short_notm}}, plus vous utilisez de ressources, moins vous payez.
 {: shortdesc}
 
-Le plan à tranches graduées comprend deux parties : le nombre d'événements d'authentification et le nombre d'utilisateurs autorisés. Vous êtes facturé chaque mois sur la base d'une synthèse des deux parties. Le prix total correspond aux frais cumulés pour chaque niveau d'utilisation, c'est-à-dire la quantité que vous utilisez multipliée par le prix unitaire de chaque tranche.
+Le plan à tranches graduées comprend trois parties : le nombre d'événements d'authentification, la sécurité régulière et la sécurité avancée et le nombre d'utilisateurs autorisés. Vous êtes facturé chaque mois sur la base d'une synthèse des deux parties. Le prix total correspond aux frais cumulés pour chaque niveau d'utilisation, c'est-à-dire la quantité que vous utilisez multipliée par le prix unitaire de chaque tranche.
+
+Vos 1000 premiers événements d'authentification et les 1000 premiers utilisateurs autorisés de chaque mois sont gratuits, à l'exception des événements de sécurité avancée. Tous les événements de sécurité avancée entraînent des frais supplémentaires.
 
 ### Evénements d'authentification
 
-Un événement d'authentification survient lorsqu'un nouveau jeton d'accès, ordinaire ou anonyme, est émis. Pour les utilisateurs identifiés, chaque nouveau jeton d'accès est valide par défaut pendant une heure (par le biais d'une authentification d'utilisateur réelle ou de jetons d'actualisation). Les jetons anonymes sont valides par défaut pendant un mois. A l'expiration du jeton, vous devez en créer un nouveau pour accéder aux ressources protégées. Vous pouvez mettre à jour l'heure d'expiration des jetons {{site.data.keyword.appid_short_notm}} dans la page d'**expiration de la connexion** du tableau de bord {{site.data.keyword.appid_short_notm}}. 
+Un événement d'authentification survient lorsqu'un nouveau jeton d'accès, ordinaire ou anonyme, est émis. Les jetons peuvent être émis en réponse à une demande de connexion initiée par un utilisateur, ou par une application pour l'utilisateur. Par défaut, les jetons d'accès sont valables pendant une heure et les jetons anonymes pendant 30 jours. A l'expiration du jeton, vous devez en créer un nouveau pour accéder aux ressources protégées. Vous pouvez mettre à jour l'heure d'expiration de vos jetons {{site.data.keyword.appid_short_notm}} sur la page d'**expiration de la connexion** du tableau de bord du service.
 
-Lorsque vous utilisez {{site.data.keyword.appid_short_notm}} dans des applications mobiles, les jetons sont stockés dans un magasin de clés ou une chaîne de certificats et ajoutés à chaque demande effectuée. Les jetons sont accessibles à l'aide du logiciel SDK Android ou iOS d'App ID. Lorsque vous utilisez {{site.data.keyword.appid_short_notm}} dans des applications Web, il est recommandé de stocker les jetons dans des cookies de session d'application. 
+#### Fonctions de sécurité avancée
 
+Les fonctions de sécurité avancée vous permettent de renforcer la sécurité de votre application.
+{: shortdesc}
+
+<table>
+  <tr>
+    <th>Fonction</th>
+    <th>Avantage</th>
+  </tr>
+  <tr>
+    <td>Authentification multi-facteur</td>
+    <td>[MFA for Cloud Directory](mfa.html) confirme l'identité d'un utilisateur en lui demandant d'entrer un code d'accès unique qui lui est envoyé par courrier électronique, en plus de son adresse électronique et de son mot de passe.</td>
+  </tr>
+  <tr>
+    <td>Gestion des règles sur les mots de passe</td>
+    <td>En tant que propriétaire de compte, vous pouvez imposer des mots de passe plus sécurisés pour Cloud Directory en configurant un ensemble de règles auxquelles les mots de passe utilisateur doivent se conformer. Par exemple, ces règles incluent le nombre de tentatives de connexion avant verrouillage, les délais d'expiration, le délai minimum entre les mises à jour de mot de passe ou le nombre de fois avant lesquelles un mot de passe ne peut pas être répété. Pour obtenir la liste complète des options et des informations de configuration, voir [Advanced password management](cloud-directory.html#advanced-password).</td>
+  </tr>
+</table>
+
+Par défaut, les fonctions de sécurité avancée sont désactivées. L'activation de l'authentification multi-facteur ou de la gestion des règles sur les mots de passe entraîne la facturation de frais supplémentaires. Si vous désactivez toutes les fonctions avancées, votre compte revient à la politique à moindre coût. Par exemple, si vous avez obtenu 10 000 jetons d'accès, puis avez activé l'authentification multi-facteur et la gestion des règles sur les mots de passe et en avez obtenu 10 000 autres, vous paierez pour 20 000 événements d'authentification et 10 000 événements de sécurité avancée.
+
+Ces fonctions ne sont disponibles que pour les instances figurant sur le plan de tarification à tranches graduées et créées après le 15 mars 2018.
+{: note}
 
 ### Utilisateurs autorisés
 
-Un utilisateur autorisé est un utilisateur unique qui se connecte avec votre service directement ou indirectement. Vous êtes facturé pour un utilisateur autorisé chaque fois qu'un nouvel utilisateur se connecte depuis un fournisseur d'identité, y compris dans le cas d'un utilisateur anonyme. Par exemple, si un utilisateur se connecte avec son identité Facebook, puis plus tard avec son profil Google, ils seront considérés comme deux utilisateurs autorisés distincts. 
+Les utilisateurs autorisés sont des utilisateurs uniques qui se connectent à votre service, directement ou indirectement, notamment des utilisateurs anonymes. Vous êtes facturé pour un utilisateur autorisé à chaque fois qu'un nouvel utilisateur, y compris un utilisateur anonyme, se connecte à votre application. Par exemple, si un utilisateur se connecte avec son profil Facebook, puis plus tard avec son profil Google, il est pris en compte comme s'il s'agissait de deux utilisateurs autorisés distincts.
 
-Pour plus d'informations sur la tarification à tranches graduées, consultez les [documents de tarification {{site.data.keyword.Bluemix_notm}}](/docs/billing-usage/how_charged.html#services).
+Pour obtenir les dernières informations de tarification d'{{site.data.keyword.appid_short_notm}}, voir la [calculatrice de prix](https://console.cloud.ibm.com/pricing/configure/service/AdvancedMobileAccess-d6aece47-d840-45b0-8ab9-ad15354deeea).
+{: important}
 
 </br>
 
 
-## Fonctionnement du chiffrement dans {{site.data.keyword.appid_short_notm}} 
-{: #encryption}
+## Pourquoi dois-je ajouter mon URL de redirection à la liste blanche ?
+{: #redirect}
+{: faq}
 
-Consultez le tableau ci-dessous pour obtenir des réponses aux questions fréquemment posées sur le chiffrement. 
+Une URL de redirection est le noeud final de rappel de votre application. Pour empêcher les attaques par hameçonnage, {{site.data.keyword.appid_short_notm}} valide l'URL par rapport à la liste blanche des URL de redirection. En cas d'hameçonnage, il est possible qu'un pirate puisse accéder à vos jetons utilisateur.
+
+Pour ajouter votre URL à la liste blanche :
+
+1. Accédez à **Fournisseurs d'identité > Gérer**.
+2. Dans la zone **Ajouter une URL de redirection Web**, entrez l'URL et cliquez sur **+**.
+
+N'incluez pas de paramètres de demande dans votre URL. Ils sont ignorés lors du processus de validation. Exemple d'URL : `http://hôte:[port]/chemin`
+{: tip}
+
+</br>
+
+## Fonctionnement du chiffrement dans {{site.data.keyword.appid_short_notm}}
+{: #encryption}
+{: faq}
+
+Consultez le tableau ci-dessous pour obtenir des réponses aux questions fréquemment posées sur le chiffrement.
 
 <table>
   <thead>
@@ -53,27 +98,27 @@ Consultez le tableau ci-dessous pour obtenir des réponses aux questions fréque
   <tbody>
     <tr>
       <td>Pourquoi utilisez-vous le chiffrement ?</td>
-      <td>Le service chiffre les données client au repos. </td>
+      <td>L'un des moyens de protéger les informations de nos utilisateurs consiste à chiffrer les données client inactives. Le service chiffre les données client inactives à l'aide de clés par titulaire.</td>
     </tr>
     <tr>
-      <td>Avez-vous généré vos propres algorithmes ? Lesquels utilisez-vous dans votre code ? </td>
-      <td>Nous n'avons pas généré nos propres algorithmes, mais le service utilise les algorithmes <code>AES</code> et <code>SHA-256</code> associés au salage. </td>
+      <td>Avez-vous généré vos propres algorithmes ? Lesquels utilisez-vous dans votre code ?</td>
+      <td>Nous n'avons pas généré nos propres algorithmes, mais le service utilise les algorithmes <code>AES</code> et <code>SHA-256</code> associés au salage.</td>
     </tr>
     <tr>
       <td>Utilisez-vous des fournisseurs ou des modules de chiffrement publics ou open source ? Vous arrive-t-il d'exposer les fonctions de chiffrement ? </td>
-      <td>Le service utilise des bibliothèques Java <code>javax.crypto</code> mais n'expose jamais les fonctions de chiffrement. </td>
+      <td>Le service utilise des bibliothèques Java <code>javax.crypto</code> mais n'expose jamais les fonctions de chiffrement.</td>
     </tr>
     <tr>
-      <td>Comment stockez-vous les clés ? </td>
-      <td>Les clés sont générées puis stockées localement une fois chiffrées à l'aide d'une clé principale propre à chaque région. Les clés principales sont stockées dans {{site.data.keyword.keymanagementserviceshort}}.</td>
+      <td>Comment stockez-vous les clés ?</td>
+      <td>Les clés sont générées, chiffrées avec une clé principale spécifique à chaque région, puis stockées localement. Les clés principales sont stockées dans {{site.data.keyword.keymanagementserviceshort}}. Au niveau du stockage et du middleware, il existe un chiffrement de niveau de service qui signifie qu'il existe une clé unique pour tous les clients. Au niveau de l'application, chaque client dispose de sa propre clé de chiffrement.</td>
     </tr>
     <tr>
-      <td>Quel niveau de chiffrement de la clé utilisez-vous ? </td>
-      <td>Le service utilise un niveau de chiffrement de 16 octets. </td>
+      <td>Quel niveau de chiffrement de la clé utilisez-vous ?</td>
+      <td>Le service utilise un niveau de chiffrement de 16 octets.</td>
     </tr>
     <tr>
-      <td>Appelez-vous des API distantes qui exposent les fonctions de chiffrement ? </td>
-      <td>Non. </td>
+      <td>Appelez-vous des API distantes qui exposent les fonctions de chiffrement ?</td>
+      <td>Non.</td>
     </tr>
   </tbody>
 </table>
@@ -82,8 +127,9 @@ Consultez le tableau ci-dessous pour obtenir des réponses aux questions fréque
 
 ## Pour {{site.data.keyword.appid_short_notm}}, aspect attendu d'une assertion SAML
 {: #saml-example}
+{: faq}
 
-Le service s'attend à ce qu'une assertion SAML ressemble à l'exemple ci-dessous. 
+Le service s'attend à ce qu'une assertion SAML ressemble à l'exemple ci-dessous.
 
 ```
 <samlp:Response xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol" ID="s2202bbbbafa9d270d1c15990b738f4ab36139d463" InResponseTo="_e4a78780-35da-012e-8ea7-0050569200d8" Version="2.0" IssueInstant="2011-03-21T11:22:02Z" Destination="https://example.example.com/">
@@ -121,6 +167,7 @@ Le service s'attend à ce qu'une assertion SAML ressemble à l'exemple ci-dessou
 
 ## Types d'algorithme pris en charge pour les signatures SAML
 {: #saml-signatures}
+{: faq}
 
 Vous pouvez utiliser l'un des algorithmes ci-dessous pour traiter les signatures numériques XML.
 

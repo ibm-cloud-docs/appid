@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-07-15"
+lastupdated: "2018-12-19"
 
 ---
 
@@ -22,18 +22,17 @@ Vous pouvez utiliser l'API de gestion pour l'automatisation DevOps, la personnal
 L'API de gestion est sécurisée avec des jetons générés par {{site.data.keyword.cloudaccesstraillong}}. Avec IAM, les propriétaires de compte peuvent spécifier le niveau d'accès de chaque membre de leur équipe pour chaque instance de service. Pour plus d'informations sur la façon dont IAM et {{site.data.keyword.appid_short_notm}} fonctionnent ensemble, voir [Gestion des accès de service](/docs/services/appid/iam.html).
 
 Avec l'API, vous pouvez :
-* Automatiser la configuration d'{{site.data.keyword.appid_short_notm}} dans votre application dans votre processus DevOps. 
-* Définir et personnaliser des fonctions via votre systèmes de back end d'application, comme la configuration de votre widget de connexion, le processus d'inscription et la gestion des utilisateurs. 
+* Automatiser la configuration d'{{site.data.keyword.appid_short_notm}} dans votre application dans votre processus DevOps.
+* Définir et personnaliser des fonctions via votre systèmes de back end d'application, comme la configuration de votre widget de connexion, le processus d'inscription et la gestion des utilisateurs.
 
 
 Les appels du noeud final d'API possèdent la structure suivante :
 
 ```
-appid-management.<region>.bluemix.net
+appid-management.<region-endpoint>.bluemix.net
 ```
 {: codeblock}
 
-Pour déterminer la région, consultez le tableau ci-après.
 
 <table>
   <tr>
@@ -42,19 +41,19 @@ Pour déterminer la région, consultez le tableau ci-après.
   </tr>
   <tr>
     <td>Royaume-Uni</td>
-    <td><code>appid-management.eu-gb.bluemix.net</code></td>
+    <td><code>eu-gb</code></td>
   </tr>
   <tr>
     <td>Sud des Etats-Unis</td>
-    <td><code>appid-management.ng.bluemix.net</code></td>
+    <td><code> ng </code></td>
   </tr>
   <tr>
     <td>Sydney</td>
-    <td><code>appid-management.au-syd.bluemix.net</code></td>
+    <td><code>au-syd</code></td>
   </tr>
   <tr>
     <td>Allemagne</td>
-    <td><code>appid-management.eu-de.bluemix.net</code></td>
+    <td><code>eu-de</code></td>
   </tr>
 </table>
 
@@ -64,9 +63,9 @@ Pour déterminer la région, consultez le tableau ci-après.
 {: #api-prereq}
 
 <ul><ul><li>Une instance de service créée après le 15 mars 2018. Si vous disposez d'une instance de service qui a été créée avant cette date, créez une nouvelle instance et configurez-la comme votre instance en cours. Veillez à mettre à jour vos applications pour qu'elles utilisent la nouvelle instance.</li>
-<li>L'[interface de ligne de commande d'{{site.data.keyword.Bluemix_notm}}](/docs/cli/index.html) est installée. </li></ul></ul>
+<li>L'[interface de ligne de commande d'{{site.data.keyword.Bluemix_notm}}](/docs/cli/index.html) est installée.</li></ul></ul>
 
-## Exemple d'utilisation 
+## Exemple d'utilisation
 {: #api-example}
 
 L'exemple suivant montre comment utiliser l'API pour changer le logo du titulaire {{site.data.keyword.appid_short_notm}} avec Python.
@@ -92,14 +91,12 @@ token = 'Bearer ' + json.loads(r.text)['access_token'];
 headers = {'Authorization': token , 'Accept':'application/json'}
 files = {'file': open(img,'rb')}
 
-r = requests.post("https://appid-management.<region>.bluemix.net/management/v4/" + te
-nantId + "/config/ui/media?mediaType=logo", files=files, headers=headers);
+r = requests.post("https://<region>.appid.cloud.com/management/v4/" + tenantId + "/config/ui/media?mediaType=logo", files=files, headers=headers);
 
 #  get login widget logo
 headers = {'Authorization': token , 'Accept':'application/json'}
 
-r = requests.get("https://appid-management.<region>.bluemix.net/management/v4/" + ten
-antId + "/config/ui/media", headers=headers);
+r = requests.get("https://<region>.appid.cloud.com/management/v4/" + tenantId + "/config/ui/media", headers=headers);
 
 if (r.status_code >= 200) :
     print(r.text)

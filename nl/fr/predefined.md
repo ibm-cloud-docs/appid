@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-08"
+lastupdated: "2018-11-19"
 
 ---
 
@@ -12,17 +12,17 @@ lastupdated: "2018-08-08"
 {:tip: .tip}
 {:screen: .screen}
 
-# Accès aux informations utilisateur prédéfinies 
+# Attributs utilisateur prédéfinis
 {: #predefined}
 
-Vous pouvez afficher les informations d'un fournisseur d'identité sur vos utilisateurs.
+Avec {{site.data.keyword.appid_full}}, vous pouvez afficher les informations d'un fournisseur d'identité sur vos utilisateurs.
 {: shortdesc}
 
 
-## Accès avec le logiciel SDK iOS 
+## Accès avec le logiciel SDK iOS
 {: #ios}
 
-Si de nouveaux jetons ne sont pas transmis explicitement au logiciel SDK, {{site.data.keyword.appid_short_notm}} utilise les derniers jetons reçus pour extraire et valider la réponse. Par exemple, vous pouvez exécuter le code suivant une fois que l'authentification a réussi pour que le logiciel SDK extraie des informations supplémentaires sur l'utilisateur : 
+Si de nouveaux jetons ne sont pas transmis explicitement au logiciel SDK, {{site.data.keyword.appid_short_notm}} utilise les derniers jetons reçus pour extraire et valider la réponse. Par exemple, vous pouvez exécuter le code suivant une fois que l'authentification a réussi pour que le logiciel SDK extraie des informations supplémentaires sur l'utilisateur :
 
 ```
 AppID.sharedInstance.userProfileManager.getUserInfo { (error: Error?, userInfo: [String: Any]?) in
@@ -35,7 +35,7 @@ AppID.sharedInstance.userProfileManager.getUserInfo { (error: Error?, userInfo: 
 ```
 {: pre}
 
-Vous pouvez aussi transmettre explicitement des jetons d'accès et d'identité. Le jeton d'identité est facultatif mais lorsqu'il est transmis, il est utilisé pour valider la réponse relative aux informations utilisateur. 
+Vous pouvez aussi transmettre explicitement des jetons d'accès et d'identité. Le jeton d'identité est facultatif mais lorsqu'il est transmis, il est utilisé pour valider la réponse relative aux informations utilisateur.
 
 ```
 AppID.sharedInstance.userProfileManager.getUserInfo(accessToken: String, identityToken: String?) { (error: Error?, userInfo: [String: Any]?) in
@@ -49,10 +49,10 @@ AppID.sharedInstance.userProfileManager.getUserInfo(accessToken: String, identit
 
 </br>
 
-## Accès avec le logiciel SDK Android 
+## Accès avec le logiciel SDK Android
 {: #android}
 
-Si de nouveaux jetons ne sont pas transmis explicitement au logiciel SDK, {{site.data.keyword.appid_short_notm}} utilise les derniers jetons reçus pour extraire et valider la réponse. Par exemple, vous pouvez exécuter le code suivant une fois que l'authentification a réussi pour que le logiciel SDK extraie des informations supplémentaires sur l'utilisateur : 
+Si de nouveaux jetons ne sont pas transmis explicitement au logiciel SDK, {{site.data.keyword.appid_short_notm}} utilise les derniers jetons reçus pour extraire et valider la réponse. Par exemple, vous pouvez exécuter le code suivant une fois que l'authentification a réussi pour que le logiciel SDK extraie des informations supplémentaires sur l'utilisateur :
 
 ```
 AppID appId = AppID.getInstance();
@@ -71,7 +71,7 @@ appId.getUserProfileManager().getUserInfo(new UserProfileResponseListener() {
 ```
 {: pre}
 
-Vous pouvez aussi transmettre explicitement des jetons d'accès et d'identité. Le jeton d'identité est facultatif mais lorsqu'il est transmis, il est utilisé pour valider la réponse relative aux informations utilisateur. 
+Vous pouvez aussi transmettre explicitement des jetons d'accès et d'identité. Le jeton d'identité est facultatif mais lorsqu'il est transmis, il est utilisé pour valider la réponse relative aux informations utilisateur.
 
 ```
 AppID appId = AppID.getInstance();
@@ -92,11 +92,11 @@ appId.getUserProfileManager().getUserInfo(accessToken, identityToken, new UserPr
 
 </br>
 
-## Accès avec le logiciel SDK serveur Node.js 
+## Accès avec le logiciel SDK serveur Node.js
 {: #node}
 
 
-Si vous utilisez un logiciel SDK côté serveur, vous pouvez extraire des informations supplémentaires sur vos utilisateurs. Vous pouvez appeler la méthode ci-après en utilisant les jetons d'accès et d'identité stockés, ou transmettre explicitement les jetons. Le jeton d'identité est facultatif mais lorsqu'il est transmis, il est utilisé pour valider la réponse relative aux informations utilisateur. 
+Si vous utilisez un logiciel SDK côté serveur, vous pouvez extraire des informations supplémentaires sur vos utilisateurs. Vous pouvez appeler la méthode ci-après en utilisant les jetons d'accès et d'identité stockés, ou transmettre explicitement les jetons. Le jeton d'identité est facultatif mais lorsqu'il est transmis, il est utilisé pour valider la réponse relative aux informations utilisateur.
 
 
 ```javascript
@@ -120,7 +120,7 @@ userProfileManager.getUserInfo(accessToken).then(function (profile) {
 
 </br>
 
-## Accès avec le logiciel SDK serveur Swift 
+## Accès avec le logiciel SDK serveur Swift
 {: #swift}
 
 Si vous utilisez un logiciel SDK côté serveur, vous pouvez extraire des informations supplémentaires sur vos utilisateurs. Vous pouvez appeler la méthode ci-après en utilisant les jetons d'accès et d'identité stockés, ou transmettre explicitement les jetons. Le jeton d'identité est facultatif mais lorsqu'il est transmis, il est utilisé pour valider la réponse relative aux informations utilisateur.
@@ -152,21 +152,21 @@ userProfileManager.getUserInfo(accessToken: accessToken) { (err, userInfo) in
 
 </br>
 
-## Accès avec l'API 
+## Accès avec l'API
 {: #api}
 
-Vous pouvez afficher des informations supplémentaires via le noeud final `/userinfo`. 
+Vous pouvez afficher des informations supplémentaires via le noeud final `/userinfo`.
 
-1. Assurez-vous de disposer d'un jeton d'accès valide dont la portée est `openid`. Vous pouvez vérifier que votre jeton est valide à l'aide du noeud final `/introspect`. 
+1. Assurez-vous de disposer d'un jeton d'accès valide dont la portée est `openid`. Vous pouvez vérifier que votre jeton est valide à l'aide du noeud final `/introspect`.
 
-2. Envoyez une demande au noeud final `/userinfo`. 
+2. Envoyez une demande au noeud final [`/userinfo`](https://appid-oauth.ng.bluemix.net/swagger-ui/#!/Authorization_Server_V3/userInfo).
   ```
   GET [POST] https://{oauth-server-endpoint}/userinfo
   Authorization: 'Bearer {ACCESS_TOKEN}'
   ```
   {: pre}
 
-  Exemple de sortie : 
+  Exemple de sortie :
   ```
   "sub": "cad9f1d4-e23b-3683-b81b-d1c4c4fd7d4c",
   "name": "John Doe",

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-06"
+lastupdated: "2018-12-19"
 
 ---
 
@@ -102,7 +102,7 @@ Pour plus d'informations sur l'affectation de rôles utilisateur dans l'interfac
 Une règle d'accès avec un rôle utilisateur IAM doit être affectée à chaque utilisateur disposant d'un accès au service {{site.data.keyword.appid_short_notm}} sur votre compte. Cette règle détermine les actions que l'utilisateur peut effectuer dans le contexte du service ou de l'instance que vous sélectionnez.
 {: shortdesc}
 
-Les actions sont personnalisées et définies par le service {{site.data.keyword.Bluemix_notm}} en tant qu'opérations dont l'exécution est autorisée dans le service. Les actions sont ensuite mappées à des rôles utilisateur IAM. Vous pouvez assurer le suivi de certaines des actions effectuées avec le service {{site.data.keyword.cloudaccesstrailshort}}. Dans le tableau ci-dessous, les actions et les droits requis pour {{site.data.keyword.appid_short_notm}} sont mappés. 
+Les actions sont personnalisées et définies par le service {{site.data.keyword.Bluemix_notm}} en tant qu'opérations dont l'exécution est autorisée dans le service. Les actions sont ensuite mappées à des rôles utilisateur IAM. Vous pouvez assurer le suivi de certaines des actions effectuées avec le service {{site.data.keyword.cloudaccesstrailshort}}. Dans le tableau ci-dessous, les actions et les droits requis pour {{site.data.keyword.appid_short_notm}} sont mappés.
 
 <table>
   <tr>
@@ -193,12 +193,12 @@ Les actions sont personnalisées et définies par le service {{site.data.keyword
   </tr>
   <tr>
     <td><code>appid-mgmt-get-saml-metadata</code></td>
-    <td>Afficher les métadonnées du fournisseur de services SAML du répertoire cloud. </td>
+    <td>Afficher les métadonnées du fournisseur de services SAML du répertoire cloud.</td>
     <td>Lecteur, rédacteur, gestionnaire</td>
   </tr>
   <tr>
     <td><code>appid-mgmt-post-saml-logo</code></td>
-    <td>Définir ou mettre à jour l'image dans le widget de connexion pour le fournisseur d'identité SAML. </td>
+    <td>Définir ou mettre à jour l'image dans le widget de connexion pour le fournisseur d'identité SAML.</td>
     <td>Rédacteur, gestionnaire</td>
   </tr>
   <tr>
@@ -208,7 +208,7 @@ Les actions sont personnalisées et définies par le service {{site.data.keyword
   </tr>
   <tr>
     <td><code>appid-mgmt-get-sender-details-cd</code></td>
-    <td>Afficher les détails de l'expéditeur du courrier électronique. </td>
+    <td>Afficher les détails de l'expéditeur du courrier électronique.</td>
     <td>Lecteur, rédacteur, gestionnaire</td>
   </tr>
   <tr>
@@ -218,218 +218,11 @@ Les actions sont personnalisées et définies par le service {{site.data.keyword
   </tr>
   <tr>
     <td><code>appid-mgmt-revoke-refresh-token</code></td>
-    <td>Révoquer le jeton d'actualisation d'un utilisateur avec son ID utilisateur. </td>
+    <td>Révoquer le jeton d'actualisation d'un utilisateur avec son ID utilisateur.</td>
     <td>Rédacteur, gestionnaire</td>
   </tr>
 </table>
 
-## Suivi des modifications apportées à vos instances d'{{site.data.keyword.appid_short_notm}}
-{: #tracking}
-
-Vous pouvez afficher, gérer et auditer l'activité de configuration effectuée dans votre instance d'{{site.data.keyword.appid_short_notm}} à l'aide du service {{site.data.keyword.cloudaccesstrailshort}}.
-{: shortdesc}
-
-Pour surveiller l'activité d'administration :
-
-1. Connectez-vous à votre compte {{site.data.keyword.Bluemix_notm}}.
-2. Depuis le catalogue, mettez à disposition une instance du service {{site.data.keyword.cloudaccesstrailshort}} sur le même compte que votre instance d'{{site.data.keyword.appid_short_notm}}. 
-3. Dans le tableau de bord {{site.data.keyword.cloudaccesstrailshort}}, cliquez sur l'onglet **Gérer**.
-4. Dans la liste déroulante, effectuez les configurations suivantes afin de rechercher des événements qui sont générés par {{site.data.keyword.appid_short_notm}} : 
-    * Pour **Afficher les journaux**, sélectionnez **Journaux de compte**.
-    * Pour **Rechercher**, sélectionnez **target.Management**.
-    * Pour **Filtrer**, entrez **appid**.
-5. Cliquez sur **Filtrer**.
-
-
-Consultez le tableau ci-dessous pour la liste des événements qui sont envoyés à {{site.data.keyword.cloudaccesstrailshort}}.
-
-<table>
-  <tr>
-    <th>Action</th>
-    <th>Description</th>
-    <th>Emplacement dans l'interface utilisateur</th>
-  </tr>
-  <tr>
-    <td><code>read.recentActivity</code></td>
-    <td>Afficher l'activité récente. </td>
-    <td>Disponible dans la boîte <strong>Journal d'activité</strong> de l'onglet <strong>Présentation</strong>. </td>
-  </tr>
-  <tr>
-    <td><code>read.idpConfig</code></td>
-    <td>Afficher la configuration de fournisseur d'identité. </td>
-    <td>Disponible dans l'onglet <strong>Fournisseurs d'identité > Gérer</strong>. </td>
-  </tr>
-  <tr>
-    <td><code>update.idpConfig</code></td>
-    <td>Mettre à jour la configuration de fournisseur d'identité. </td>
-    <td>Disponible dans l'onglet <strong>Fournisseurs d'identité > Gérer</strong>. </td>
-  </tr>
-  <tr>
-    <td><code>read.tokensConfig</code></td>
-    <td>Afficher la configuration de l'expiration de jeton. </td>
-    <td>Disponible dans l'onglet <strong>Fournisseurs d'identité > Expiration du jeton</strong>. </td>
-  </tr>
-  <tr>
-    <td><code>read.isProfilesActive</code></td>
-    <td>Afficher la configuration de stockage de profil utilisateur. </td>
-    <td>Disponible dans la boîte <strong>Journal d'activité</strong> de l'onglet <strong>Présentation</strong>. </td>
-  </tr>
-  <tr>
-    <td><code>update.isProfilesActive</code></td>
-    <td>Mettre à jour la configuration de stockage de profil utilisateur. </td>
-    <td>Disponible dans l'onglet <strong>Profils</strong>. </td>
-  </tr>
-  <tr>
-    <td><code>read.themeColor</code></td>
-    <td>Afficher la couleur de thème de l'en-tête du widget de connexion. </td>
-    <td>Disponible dans l'onglet <strong>Personnalisation de la connexion</strong>. </td>
-  </tr>
-  <tr>
-    <td><code>update.themeColor</code></td>
-    <td>Mettre à jour la couleur de thème de l'en-tête du widget de connexion. </td>
-    <td>Disponible dans l'onglet <strong>Personnalisation de la connexion</strong>. </td>
-  </tr>
-  <tr>
-    <td><code>read.media</code></td>
-    <td>Afficher l'image qui apparaît dans le widget de connexion. </td>
-    <td>Disponible dans l'onglet <strong>Personnalisation de la connexion</strong>. </td>
-  </tr>
-  <tr>
-    <td><code>update.media</code></td>
-    <td>Mettre à jour l'image qui apparaît dans le widget de connexion. </td>
-    <td>Disponible dans l'onglet <strong>Personnalisation de la connexion</strong>. </td>
-  </tr>
-  <tr>
-    <td><code>read.uiConfiguration</code></td>
-    <td>Afficher la configuration d'interface utilisateur pour le widget de connexion incluant la couleur et l'image de l'en-tête. </td>
-    <td>Disponible dans l'onglet <strong>Personnalisation de la connexion</strong>. </td>
-  </tr>
-  <tr>
-    <td><code>read.uiLanguages</code></td>
-    <td>Afficher la liste des langues prises en charge. </td>
-    <td>Doit être affichée depuis l'API. </td>
-  </tr>
-  <tr>
-    <td><code>update.uiLanguages</code></td>
-    <td>Mettre à jour la liste des langues prises en charge. </td>
-    <td>Doit être mise à jour depuis l'API. </td>
-  </tr>
-  <tr>
-    <td><code>read.samlMetadata</code></td>
-    <td>Afficher les métadonnées SAML d'App ID. </td>
-    <td>Disponible dans l'onglet <strong>Fournisseurs d'identité > SAML 2.0 Federation</strong>. </td>
-  </tr>
-  <tr>
-    <td><code>read.cloudDirectoryUser</code></td>
-    <td>Afficher un utilisateur du répertoire cloud. </td>
-    <td>Disponible dans l'onglet <strong>Utilisateurs</strong>. </td>
-  </tr>
-  <tr>
-    <td><code>update.cloudDirectoryUser</code></td>
-    <td>Mettre à jour un utilisateur du répertoire cloud. </td>
-    <td>Disponible dans l'onglet <strong>Utilisateurs</strong>. </td>
-  </tr>
-  <tr>
-    <td><code>delete.cloudDirectoryUser</code></td>
-    <td>Supprimer un utilisateur du répertoire cloud. </td>
-    <td>Disponible dans l'onglet <strong>Utilisateurs</strong>. </td>
-  </tr>
-  <tr>
-    <td><code>read.cloudDirectoryUsers</code></td>
-    <td>Afficher la liste des utilisateurs de votre répertoire cloud. </td>
-    <td>Disponible dans l'onglet <strong>Utilisateurs</strong>. </td>
-  </tr>
-  <tr>
-    <td><code>update.cloudDirectoryUsers</code></td>
-    <td>Mettre à jour la liste des utilisateurs de votre répertoire cloud. </td>
-    <td>Disponible dans l'onglet <strong>Utilisateurs</strong>. </td>
-  </tr>
-  <tr>
-    <td><code>delete.cloudDirectoryUsers</code></td>
-    <td>Supprimer la liste des utilisateurs de votre répertoire cloud. </td>
-    <td>Disponible dans l'onglet <strong>Utilisateurs</strong>. </td>
-  </tr>
-  <tr>
-    <td><code>read.emailTemplate</code></td>
-    <td>Afficher un modèle de courrier électronique. </td>
-    <td>Disponible dans l'onglet <strong>Fournisseurs d'identité > Répertoire cloud > Modèles</strong>. </td>
-  </tr>
-  <tr>
-    <td><code>update.emailTemplate</code></td>
-    <td>Mettre à jour un modèle de courrier électronique. </td>
-    <td>Disponible dans l'onglet <strong>Fournisseurs d'identité > Répertoire cloud > Modèles</strong>. </td>
-  </tr>
-  <tr>
-    <td><code>delete.emailTemplate</code></td>
-    <td>Supprimer un modèle de courrier électronique pour réinitialiser les valeurs par défaut. </td>
-    <td>Disponible dans l'onglet <strong>Fournisseurs d'identité > Répertoire cloud > Modèles</strong>. </td>
-  </tr>
-  <tr>
-    <td><code>read.senderDetails</code></td>
-    <td>Afficher les détails de l'expéditeur. </td>
-    <td>Disponible dans l'onglet <strong>Fournisseurs d'identité > Répertoire cloud > Paramètres</strong>. </td>
-  </tr>
-  <tr>
-    <td><code>update.senderDetails</code></td>
-    <td>Mettre à jour les détails de l'expéditeur.</td>
-    <td>Disponible dans l'onglet <strong>Fournisseurs d'identité > Répertoire cloud > Paramètres</strong>. </td>
-  </tr>
-  <tr>
-    <td><code>update.resendNotification</code></td>
-    <td>Renvoyer des notifications d'utilisateur. </td>
-    <td>Disponible dans l'onglet <strong>Fournisseurs d'identité > Répertoire cloud > Paramètres</strong>. </td>
-  </tr>
-  <tr>
-    <td><code>update.selfForgotPassword</code></td>
-    <td>Mettre à jour le processus en cas d'oubli du mot de passe. </td>
-    <td>Disponible dans l'onglet <strong>Fournisseurs d'identité > Répertoire cloud > Paramètres</strong>. </td>
-  </tr>
-  <tr>
-    <td><code>update.forgotPasswordResult</code></td>
-    <td>Afficher le résultat de la confirmation d'oubli du mot de passe. </td>
-    <td>Doit être effectuée via l'API. </td>
-  </tr>
-  <tr>
-    <td><code>update.selfSignUp</code></td>
-    <td>Mettre à jour le processus d'inscription. </td>
-    <td>Disponible dans l'onglet <strong>Fournisseurs d'identité > Répertoire cloud > Paramètres</strong>. </td>
-  </tr>
-  <tr>
-    <td><code>update.signUpResult</code></td>
-    <td>Afficher la confirmation du résultat d'inscription. </td>
-    <td>Doit être effectuée via l'API. </td>
-  </tr>
-  <tr>
-    <td><code>read.action_url</code></td>
-    <td>Afficher l'URL personnalisée qui est appelée lorsqu'une action est effectuée. </td>
-    <td>Disponible dans l'onglet <strong>Fournisseurs d'identité > Répertoire cloud > Pages d'arrivée personnalisées</strong>. </td>
-  </tr>
-  <tr>
-    <td><code>update.action_url</code></td>
-    <td>Mettre à jour l'URL personnalisée qui est appelée lorsqu'une action est effectuée. </td>
-    <td>Disponible dans l'onglet <strong>Fournisseurs d'identité > Répertoire cloud > Paramètres</strong>. </td>
-  </tr>
-  <tr>
-    <td><code>update.changePassword</code></td>
-    <td>Changer le mot de passe de l'utilisateur du répertoire cloud. </td>
-    <td>Disponible dans l'onglet <strong>Fournisseurs d'identité > Répertoire cloud > Paramètres</strong>. </td>
-  </tr>
-  <tr>
-    <td><code>read.loginWidgetConfig</code></td>
-    <td>Afficher votre configuration de widget de connexion. </td>
-    <td>Disponible dans l'onglet <strong>Personnalisation de la connexion</strong>. </td>
-  </tr>
-  <tr>
-    <td><code>update.loginWidgetConfig</code></td>
-    <td>Mettre à jour votre configuration de widget de connexion. </td>
-    <td>Disponible dans l'onglet <strong>Personnalisation de la connexion</strong>. </td>
-  </tr>
-</table>
-
-
-Pour plus d'informations sur le fonctionnement du service, voir la [documentation d'{{site.data.keyword.cloudaccesstrailshort}}](/docs/services/cloud-activity-tracker/index.html).
-
-</br>
 </br>
 
 ## Exemple : autoriser un autre utilisateur à accéder à une instance d'{{site.data.keyword.appid_short_notm}}
@@ -441,19 +234,19 @@ Dans ce scénario, un administrateur a créé une instance d'{{site.data.keyword
 Avant de commencer :
 * Installez l'[interface de ligne de commande d'{{site.data.keyword.Bluemix_notm}}](/docs/cli/index.html).
 
-Pour mettre à jour les droits d'accès, vous devez procédez comme suit en tant qu'administrateur : 
+Pour mettre à jour les droits d'accès, vous devez procédez comme suit en tant qu'administrateur :
 
 1. Connectez-vous à la console {{site.data.keyword.Bluemix_notm}}.
-2. Accordez à l'employé l'accès afficheur en suivant les étapes présentées dans la [documentation IAM](/docs/iam/iamusermanage.html#iamusermanage).
+2. Accordez à l'employé l'accès afficheur en suivant les étapes présentées dans la [documentation IAM](/docs/iam/mngiam.html).
 3. Accédez à l'onglet **Données d'identification pour le service** du tableau de bord {{site.data.keyword.appid_short_notm}}. Cliquez sur **Afficher les données d'identification** et copiez l'URL **tentantID**.
 4. Connectez-vous à l'interface de ligne de commande d'{{site.data.keyword.Bluemix_notm}} depuis votre terminal.
-```
-    bx login -a api.<region>.bluemix.net
+    ```
+    ibmcloud login -a api.<region>.bluemix.net
     ```
     {: codeblock}
 5. Obtenez un jeton IAM et notez-le.
     ```
-    bx iam oauth-tokens
+    ibmcloud iam oauth-tokens
     ```
     {: codeblock}
 6. Vérifiez que le membre d'équipe ne peut pas effectuer de modification.
@@ -472,18 +265,18 @@ Pour mettre à jour les droits d'accès, vous devez procédez comme suit en tant
     ```
     {: codeblock}
 
-    Le résultat est un message 403 indiquant que l'utilisateur n'est pas autorisé. 
+    Le résultat est un message 403 indiquant que l'utilisateur n'est pas autorisé.
 
-Pour afficher la configuration d'{{site.data.keyword.appid_short_notm}} depuis l'interface de ligne de commande, en tant que membre de l'équipe, vous devez procéder comme suit : 
+Pour afficher la configuration d'{{site.data.keyword.appid_short_notm}} depuis l'interface de ligne de commande, en tant que membre de l'équipe, vous devez procéder comme suit :
 
 1. Connectez-vous depuis l'interface de ligne de commande d'{{site.data.keyword.Bluemix_notm}} dans votre terminal.
-```
-    bx login -a api.<region>.bluemix.net
+    ```
+    ibmcloud login -a api.<region>.bluemix.net
     ```
     {: codeblock}
 2. Obtenez un jeton IAM et notez-le.
     ```
-    bx iam oauth-tokens
+    ibmcloud iam oauth-tokens
     ```
     {: codeblock}
 3. Affichez la configuration de fournisseur d'identité pour Facebook en utilisant cURL.
