@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-11-14"
+  years: 2017, 2019
+lastupdated: "2019-01-11"
 
 ---
 
@@ -50,4 +50,21 @@ The limitations are in place for security purposes.
 {: tsResolve}
 To resolve the issue, verify that the URL is correct. If your URL does not meet the requirements, you can create an HTTPS endpoint in your app to redirect the received grant code to your custom URL. Specify the created endpoint as your redirect URL in the {{site.data.keyword.appid_short_notm}} console.
 
+</br>
+
+## Error: Too many requests
+{: #ts-custom-url}
+
+{: tsSymptoms}
+You attempt to view the home page of your app but receive the following error:
+```
+{"error_code":"too many requests","error_description":"too many requests"}
+```
+{: screen}
+
+{: tsCauses}
+You might receive a "too many requests" error if you are performing automated testing with only one virtual user. Each user is limited to five log in attempts in a one minute time span. Log in attempts are limited in order to prevent brute force DDOS and other types of similar attacks.
+
+{: tsResolve}
+To resolve the issue, you might want to use multiple virtual users when performing testing.
 </br>
