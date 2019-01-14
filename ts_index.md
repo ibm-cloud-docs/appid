@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-11"
+lastupdated: "2019-01-14"
 
 ---
 
@@ -67,4 +67,6 @@ You might receive a "too many requests" error if you are performing automated te
 
 {: tsResolve}
 To resolve the issue, you might want to use multiple virtual users when performing testing.
+
+</br>
 </br>
