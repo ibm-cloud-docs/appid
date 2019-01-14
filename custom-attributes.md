@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-07"
+lastupdated: "2019-01-14"
 
 ---
 
@@ -28,7 +28,6 @@ lastupdated: "2019-01-07"
 With {{site.data.keyword.appid_full}}, you can save, access, and update custom attributes.
 {: shortdesc}
 
-</br>
 
 ## Setting attributes
 {: #setting}
@@ -47,7 +46,7 @@ You can store 100KB of information for each user.
 
 **To set an attribute:**
 
-All incoming requests to your app have Authorization header, with `access_token`. You can use `access_token` to make requests to the custom attributes endpoints with one of the provided SDKs or by using [the attributes APIs](https://appid-profiles.ng.bluemix.net/swagger-ui/index.html#/Attributes)s
+All incoming requests to your app have Authorization header, with `access_token`. You can use `access_token` to make requests to the custom attributes endpoints with one of the provided SDKs or by using [the attributes APIs](https://appid-profiles.ng.bluemix.net/swagger-ui/index.html#/Attributes).
 
 
 iOS Swift:
