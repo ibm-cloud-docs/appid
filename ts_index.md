@@ -53,7 +53,7 @@ To resolve the issue, verify that the URL is correct. If your URL does not meet 
 </br>
 
 ## Error: Too many requests
-{: #ts-custom-url}
+{: #ts-requests}
 
 {: tsSymptoms}
 You attempt to view the home page of your app but receive the following error:
@@ -67,6 +67,4 @@ You might receive a "too many requests" error if you are performing automated te
 
 {: tsResolve}
 To resolve the issue, you might want to use multiple virtual users when performing testing.
-
-</br>
 </br>
