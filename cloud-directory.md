@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-07"
+lastupdated: "2019-01-18"
 
 ---
 
@@ -69,7 +69,7 @@ Figure. The configuration journey for Cloud Directory
 
 7. Configure multifactor authentication.
   1. To require multifactor authentication on user sign in, set **Enable Email Multi-Factor Authentication** to **On**.
-  2. Customize the content and design of your email using the template below. You can use a [language](#languages) other than English, but you are responsible for the translation of the text. To choose another language, use the <a href="https://https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/updateLocalization" target="_blank">language management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
+  2. Customize the content and design of your email using the template below. You can use a [language](#languages) other than English, but you are responsible for the translation of the text. To choose another language, use the <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/updateLocalization" target="_blank">language management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
   3. Click **Save**.
 
 8. In the **Users** tab you can see who has signed-up for your app. Note: A single user can attempt to sign in up to 5 times in 60 seconds. If a sixth attempt is made, an error is displayed.
@@ -276,7 +276,7 @@ By using the GUI or the API, you can set the maximum number of unsuccessful sign
 
 If an account is locked, users are unable to sign in or perform any other self service operations, such as changing their password until the the specified lockout period has elapsed. When the lockout period has ended, the user is automatically unlocked.
 
-You can unlock a user before the lockout period is over. To see if they are locked out look to see if the `active` field is set to `false`. You can also check to see if their status on the **Users** tab of the service dashboard is set to `disabled`. To unlock a user, you must use [the API](https://https://us-south.appid.cloud.ibm.com/swagger-ui/#/Cloud_Directory_Users/updateCloudDirectoryUser) to set the `active` field to `true`.
+You can unlock a user before the lockout period is over. To see if they are locked out look to see if the `active` field is set to `false`. You can also check to see if their status on the **Users** tab of the service dashboard is set to `disabled`. To unlock a user, you must use [the API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Cloud_Directory_Users/updateCloudDirectoryUser) to set the `active` field to `true`.
 
 </br>
 
