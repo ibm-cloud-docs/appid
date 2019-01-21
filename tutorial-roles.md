@@ -303,6 +303,8 @@ Now that you have so many new employees, you need to limit the number of request
     </tr>
   </table>
 
+  Successful response output:
+
   ```
   {
       "access": {
@@ -324,9 +326,6 @@ Now that you have so many new employees, you need to limit the number of request
   }
   ```
   {: screen}
-
-  If you have customized expiration information for your token, you must set it in every request. If you don't, this request overrides your current configuration and the default is used for anything left undefined.
-  {: note}
 
 2. Restart the sample app.
 
