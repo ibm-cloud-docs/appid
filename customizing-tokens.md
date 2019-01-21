@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-07"
+lastupdated: "2019-01-21"
 
 ---
 
@@ -28,7 +28,7 @@ You can configure your {{site.data.keyword.appid_short_notm}} tokens to meet the
 
 **What kinds of tokens are there?**
 
-{{site.data.keyword.appid_short_notm}} different types of tokens to protect your applications.
+{{site.data.keyword.appid_short_notm}} uses different types of tokens to protect your applications.
 
 * Access tokens: Enable communication with back-end resources that are protected by authorization filters. If an access token is not associate with a specific user, the token would have limited capabilities.
 * Identity tokens: Contain personal information and are used to authenticate a user. Depending on your app configuration, identity tokens can be issued before a user is authenticated. This allows you to start associating attributes with your users before they sign in to your application.
