@@ -2,11 +2,11 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-01-21"
+lastupdated: "2019-01-23"
 
 ---
 
-{:new_window: target="blank"}
+{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -26,38 +26,18 @@ lastupdated: "2019-01-21"
 With {{site.data.keyword.appid_full}} you can use custom user attributes to assign roles and preferences in order to create a more personalized user experience. By using this tutorial, you can walk through a step-by-step guide to set user attributes, update them, and then inject them in to a token by using the {{site.data.keyword.appid_short_notm}} APIs.
 {: shortdesc}
 
-## Audience
-{: #audience}
-
-This tutorial is intended for software developers who are working with custom attributes for the first time.
-{: shortdesc}
-
-## Time required
-{: #time}
-
-45 minutes
-
 
 ## Scenario
 {: #scenario}
 
-You are creating an application for a fictional theme park and you need to find a way to manage identity. The app needs to support both standard and admin user permissions, where each type of user has different permissions that limit the capabilities that they can perform. It's essential to you to streamline identity federation and the assignment of capabilities to provide the best user experience possible.
+You are a developer for a fictional theme park. You are tasked with managing identity federation for the application. The app must support varying levels of staff and general visitors, and allow for each type of role to have different capabilities.
 {: shortdesc}
 
-No problem! You can integrate {{site.data.keyword.appid_short_notm}} into your application to create a tailored user experience. Before your users have ever signed in, you can create profiles on their behalf and set their custom attributes, such as user roles. When a user signs in for the first time {{site.data.keyword.appid_short_notm}} uses their verified authentication information to link them with their pre-registered profile, which enables them to inherit all of its accompanying custom attributes.
+No problem! You can use the [custom attributes feature](custom-attributes.html) of {{site.data.keyword.appid_short_notm}} to create a tailored experience for each type of user. When you know who your users are going to be, such as park staff, you can create profiles on their behalf and apply custom attributes like a `visitor` or `admin` role. When that user signs in for the first time, {{site.data.keyword.appid_short_notm}} uses their verified authentication information to link them to the preregistered profile which allows for them to inherit all the attributes that are defined in the profile.
 
+You can create custom attributes to be anything that you want them to be. The key to using custom attributes correctly is to ensure that your application clearly defines each attributes meaning. For example, if you're using attributes to control access or user permissions, you must ensure that your application clearly defines which attribute setting a user needs in order to perform each task within your app.
 
-## Objectives
-{: #objectives}
-
-In this tutorial you are going to use {{site.data.keyword.appid_short_notm}} to assign permissions to both a standard user and to an administrator. To accomplish your goal, you will complete the following objectives:
-{: shortdesc}
-
-- Configure a sample application
-- Pre-register a user with the admin role before he signs in for the first time
-- Update a standard user's role after they've signed in
-- Insert the roles into a user's token by using a global configuration
-- Verify the configuration
+Just trying it out? For an easier way to test the API commands, check out this [PostMan collection]().
 
 
 ## Before you begin
@@ -66,40 +46,41 @@ In this tutorial you are going to use {{site.data.keyword.appid_short_notm}} to 
 Ready? Let's get started!
 
 Be sure that you have the following prerequisites before you begin:
-- an instance of the {{site.data.keyword.appid_short_notm}} service
-- the **Administrator** IAM platform role
+- An instance of the {{site.data.keyword.appid_short_notm}} service
+- A set of service credentials
 - Node 6.0.0 or higher
+- An email address that you can access and validate
 
 
-## Lesson 1: Configuring the sample app
+## Step 1: Configuring the sample app
 {: #configure-app}
 
-Before you can start adding roles and scopes for your Cloud Land users, you need to have the app! Download and configure the app to get started.
+Before you can start adding attributes for your Cloud Land users, you need to have the app! Don't have one? Download and configure the app to get started.
 {: shortdesc}
 
 1. In the {{site.data.keyword.appid_short_notm}} dashboard, click **Download Sample**. You can choose any language that you like, but this tutorial is written for the **Node.js** sample.
 
-2. In **Identity Providers > Manage > Settings**, add http://localhost:3000/* to the list of allowed redirect URIs.
+2. In **Identity Providers > Manage > Settings**, add `http://localhost:3000/*` to the list of allowed redirect URIs.
 
   This URL should not be used in any instances of {{site.data.keyword.appid_short_notm}} that support production level applications for security reasons.
   {: note}
 
-3. In the **Identity Providers** tab of the service dashboard, enable Cloud Directory.
+3. In the **Identity Providers** tab of the service dashboard, enable Cloud Directory. Although this tutorial uses Cloud Directory, you could also choose to use any of the other IdP's such as SAML, Facebook, Google, or a custom provider.
 
-4. In the **Cloud Directory > Email Verification** tab, set **Allow users to sign-in to your app without first verifying their email address** to **No**. When working with custom attributes, you want to be sure that users are able to validate their identity before assuming the attributes that you set.
+4. In the **Cloud Directory > Email Verification** tab, set **Allow users to sign-in to your app without first verifying their email address** to **No**. When working with custom attributes, you want to be sure that users are able to validate their identity before assuming the attributes that you set. Be sure enabled.
 
 5. In the **Profiles** tab, set **Change custom attributes from the app** to **Disabled**.
 
-  By default, custom attributes can be changed by anyone with an access token. To ensure application security, you must configure {{site.data.keyword.appid_short_notm}} so custom attributes can be changed only by the administrator of the application. This prevents users from changing their own custom attributes and granting themselves permissions they should not have.
+  By default, custom attributes can be changed by anyone with an access token. To ensure application security, you must configure {{site.data.keyword.appid_short_notm}} so that custom attributes can be changed only by the administrator or owner of the app. This prevents users from changing their own custom attributes and granting themselves permissions they should not have.
   {: important}
 
 Excellent! Your sample app is created and you're ready to start creating users.
 
 
-## Lesson 2: Setting roles before user sign in
+## Step 2: Setting roles before user sign in
 {: #set-before}
 
-You can assign roles as a way to manage application permissions. Because you know who your application users are, you can assign roles on their behalf before they've signed in for the first time. This process creates an {{site.data.keyword.appid_short_notm}} user and profile but it is not yet associated with a specific Cloud Directory user.
+You recently hired a new staff member at Cloud Land. You know all of their information, but they don't start for several days. You can preregister them by creating an {{site.data.keyword.appid_short_notm}} user and profile that contains the attributes such as the `admin` role, that they need to be successful. Note that this process does not finish Cloud Directory registration. The user must still sign up for the app to inherit the attribute in the profile that you created.
 {: shortdesc}
 
 1. Log in to IBM Cloud by using the CLI.
@@ -116,7 +97,7 @@ You can assign roles as a way to manage application permissions. Because you kno
   ```
   {: pre}
 
-3. Make a POST request to create a user profile for the new user that contains the `admin` attribute.
+3. Make a POST request to create a user profile for the new user that contains the `admin` attribute. Be sure that you can access and validate the email that you use.
 
   ```
   curl --request POST \
@@ -134,9 +115,6 @@ You can assign roles as a way to manage application permissions. Because you kno
   }'
   ```
   {: pre}
-
-  You must use a real email that you have access to and are able to validate.
-  {: note}
 
   Successful response output:
 
@@ -171,39 +149,15 @@ You can assign roles as a way to manage application permissions. Because you kno
   ```
   {: screen}
 
-Great job! You preregistered a user for your application. Now, when the preregistered user signs into your app with the credentials that you used, a Cloud Directory user is created and they inherit the {{site.data.keyword.appid_short_notm}} user profile and attributes that you created. Next, learn how to update attributes.
+Great job! You preregistered a user for your application. Now, when they sign in to your app with the credentials that you used for preregistration, a Cloud Directory user is created and they inherit the {{site.data.keyword.appid_short_notm}} user profile. Next, learn how to update attributes.
 
-## Lesson 3: Updating user attributes
+## Step 3: Updating user attributes
 {: #lesson-update}
 
-In an effort to meet the growing traffic flow of your application, Cloud Land is hiring new employees. This time, you're promoting a standard user of the app to a more prominent position. You need to update their original standard user role to `admin` so that they have the permissions needed to be successful in their new role.
+Cloud Land is growing! Your company is hiring new people all the time. The `admin` user from step 2 has been promoted. In preparation for their new role, you need to update their user profile by assigning a new role.
 {: shortdesc}
 
-1. Sign up for the sample app by using Cloud Directory, with an email that is different than the one that you used in Lesson 1.
-
-2. View the new user's profile.
-
-  ```
-  curl --request POST \
-  GET https://us-south.appid.ibm.cloud.com/management/v4/{{APPID_TENANT_ID}}/users/{{user_profile_id}}/profile \
-  --header 'Authorization: Bearer <iam-access-token>' \
-  --header 'Content-Type: application/json' \
-  ```
-  {: pre}
-
-  Successful response output:
-
-  ```
-  {
-      "id": "5ce78e09-1356-4ef8-a45d-808b633101db",
-      "identities": [],
-      "attributes": {
-      }
-  }
-  ```
-  {: screen}
-
-2. Update the developers user profile.
+1. Update the admin's user profile.
 
   ```
   curl --request PUT \
@@ -213,7 +167,7 @@ In an effort to meet the growing traffic flow of your application, Cloud Land is
   - d '{
     "profile": {
       "attributes": {
-        “role”: “admin”
+        “role”: “director”
       }
     }
   }'
@@ -237,7 +191,7 @@ In an effort to meet the growing traffic flow of your application, Cloud Land is
       "id": "5ce78e09-1356-4ef8-a45d-808b633101db",
       "identities": [],
       "attributes": {
-          "role": "admin"
+          "role": "director"
       }
   }
   ```
@@ -246,10 +200,10 @@ In an effort to meet the growing traffic flow of your application, Cloud Land is
 Great work!
 
 
-## Lesson 4: Injecting attributes into tokens
+## Step 4: Injecting attributes into tokens
 {: #lesson-map-claims}
 
-Now that you have so many new employees, you need to limit the number of requests that are made. You can map user profile attributes to your access and identity token claims. This means that you don't have to go to the [/userinfo endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization_Server_V3/userInfo) or pull custom attributes later, because they're already stored in the tokens!
+Becoming more and more popular, the theme park continues to grow! With so many new visitors and staff, you want to limit the number of requests that are made. For better performance, you can map user profile attributes to your access and identity token claims. By mapping custom claims, you're able to store the custom attributes in the tokens themselves.
 {: shortdesc}
 
 1. Make a request to the token configuration endpoint.
@@ -329,9 +283,11 @@ Now that you have so many new employees, you need to limit the number of request
 
 2. Restart the sample app.
 
-3. As one of the users that you created, log in to the sample app.
+3. Log in to the sample app by using the user credentials that you created for this tutorial.
 
-4. Click **Sign-up** and fill out the user information for your users.
+4. Click **Sign-up** and fill out the user information. When you finish, an email with a validation link is sent to your email. Click the link to verify your email address.
+
+5. Click **Login** to
 
 5. Click **View Token**.
 
@@ -342,7 +298,7 @@ With all of your user information in one place, consider the security implicatio
 
 
 ## Next steps
-{: #next }
+{: #next}
 
 Nice work! You completed the tutorial. Next, you can try configuring [multi-factor authentication](mfa.html) or setting up [your own branded GUI](branded.html).
 
