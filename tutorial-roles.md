@@ -26,6 +26,9 @@ lastupdated: "2019-01-24"
 With {{site.data.keyword.appid_full}} you can use custom user attributes to assign roles and preferences in order to create a more personalized user experience. By using this tutorial, you can walk through a step-by-step guide to set user attributes, update them, and then inject them in to a token by using the {{site.data.keyword.appid_short_notm}} APIs.
 {: shortdesc}
 
+New to the APIs? Try them out with this [Postman collection](https://github.com/ibm-cloud-security/appid-postman).
+{: tip}
+
 
 ## Scenario
 {: #scenario}
@@ -57,7 +60,7 @@ Before you can start adding attributes for your Cloud Land users, you need to co
 
 1. In the **Identity Providers** tab of the service dashboard, enable **Cloud Directory**. Although this tutorial uses [Cloud Directory](cloud-directory.html), you could also choose to use any of the other IdP's such as [SAML](enterprise.html), [Facebook](identity-providers.html#facebook), [Google](identity-providers.html#google), or a [custom provider](custom.html).
 
-2. In the **Cloud Directory > Email Verification** tab, enable verification and set **Allow users to sign-in to your app without first verifying their email address** to **No**. When working with custom attributes, you want to be sure that users are able to validate their identity before assuming the attributes that you set. Be sure enabled.
+2. In the **Cloud Directory > Email Verification** tab, enable verification and set **Allow users to sign-in to your app without first verifying their email address** to **No**. When you use custom attributes to set permissions related roles, be sure that users must validate their identity before assuming the attributes that you set.
 
 3. In the **Profiles** tab, set **Change custom attributes from the app** to **Disabled**.
 
@@ -70,7 +73,7 @@ Excellent! Your sample app is created and you're ready to start creating users.
 ## Step 2: Setting roles before user sign in
 {: #set-before}
 
-You recently hired a new staff member at Cloud Land. You know all of their information, but they don't start for several days. You can [preregister them](pre-sign-in.html) by creating an {{site.data.keyword.appid_short_notm}} user and profile that contains the attributes such as the `staff` role, that they need to be successful. Note that this process does not finish Cloud Directory registration. The user must still sign up for the app to inherit the attribute in the profile that you created.
+You recently hired a new staff member at Cloud Land. You know all of their information, but they don't start for several days. You can [preregister them](pre-sign-in.html) by creating an {{site.data.keyword.appid_short_notm}} user and profile that contains the attributes such as the `staff` role. Note that this process does not finish Cloud Directory registration. The user must still sign up for the app to inherit the attribute in the profile that you create.
 {: shortdesc}
 
 1. Log in to {{site.data.keyword.cloud_notm}} by using the CLI.
@@ -139,7 +142,7 @@ You recently hired a new staff member at Cloud Land. You know all of their infor
   ```
   {: screen}
 
-Great job! You preregistered a user for your application. Now, when they sign in to your app with the credentials that you used for preregistration, a Cloud Directory user is created and they inherit the {{site.data.keyword.appid_short_notm}} user profile. Next, learn how to update attributes.
+Great job! You preregistered a user for your application. Now, when they sign in to your app with the identifier that you used for preregistration, a Cloud Directory user is created and they inherit the {{site.data.keyword.appid_short_notm}} user profile. Next, learn how to update attributes.
 
 
 ## Step 3: Updating user attributes
@@ -165,7 +168,7 @@ Cloud Land is growing! To keep up with the growth, your company is hiring new pe
   ```
   {: pre}
 
-3. View the updated profile to verify that it was updated correctly.
+3. View the profile to verify that it was updated correctly.
 
   ```
   curl --request POST \
@@ -201,24 +204,12 @@ Becoming more and more popular, the theme park continues to grow! With so many n
 {: tip}
 
 
-1. For testing purposes, create a Cloud Directory user by using the {{site.data.keyword.appid_short_notm}} GUI.
-
-  1. In the **Users** tab, click **Add User**. A form displays.
-  2. Enter a First and last name, an email, and password.
-  3. Click **Save**.
-
-2. Encode your client ID and secret.
-
-  1. In the **Service Credentials** tab of the {{site.data.keyword.appid_short_notm}} GUI, copy your client ID and Secret.
-  2. Use a base64 encoder to encode your authorization information.
-  3. Copy the output to use in the following command.
-
-3. Make a request to the token configuration endpoint.
+1. Make a request to the token configuration endpoint.
 
   ```
   curl --request PUT \
   https://us-south.appid.ibm.cloud.com/management/v4/{{APPID_TENANT_ID}}/config/tokens \
-  --header 'Authorization: Basic <encoded-clientID>:<encoded-client-secret>' \
+  --header 'Authorization: Bearer <iam-access-token>' \
   --header 'Content-Type: application/json' \
   - d '{
       "access": {
@@ -288,12 +279,31 @@ Becoming more and more popular, the theme park continues to grow! With so many n
   ```
   {: screen}
 
-4. Obtain your access token information. The token returned is encoded.
+
+## Try it out
+{: #trying}
+
+Now that your token contains all of your information, try signing in and viewing the access token.
+{: shortdesc}
+
+1. For testing purposes, create a Cloud Directory user by using the {{site.data.keyword.appid_short_notm}} GUI.
+
+  1. In the **Users** tab, click **Add User**. A form displays.
+  2. Enter a first and last name, an email, and password.
+  3. Click **Save**.
+
+2. Encode your client ID and secret.
+
+  1. In the **Service Credentials** tab of the {{site.data.keyword.appid_short_notm}} GUI, copy your client ID and Secret.
+  2. Use a base64 encoder to encode your authorization information.
+  3. Copy the output to use in the following command.
+
+4. Sign in by using the APIs to obtain your access token information. The token returned is encoded.
 
   ```
   curl --request PUT \
   https://appid.ibm.cloud.com/oauth/v3/<tenant-ID>/token \
-  --header 'Authorization: Bearer <iam-access-token>' \
+  --header 'Authorization: Basic <encoded-clientID>:<encoded-client-secret>' \
   --header 'Content-Type: application/x-www-form-urlencoded' \
   --header `Accept: application/json`
   - d 'grant_type=password&username=<user-email>%40<user-email-domain>&password=<user-password>
