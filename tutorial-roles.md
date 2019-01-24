@@ -20,7 +20,7 @@ lastupdated: "2019-01-24"
 
 
 
-# Tutorial: Setting user roles
+# Tutorial: Setting custom attributes
 {: #tutorial-roles}
 
 With {{site.data.keyword.appid_full}} you can use custom user attributes to assign roles and preferences in order to create a more personalized user experience. By using this tutorial, you can walk through a step-by-step guide to set user attributes, update them, and then inject them in to a token by using the {{site.data.keyword.appid_short_notm}} APIs.
@@ -33,12 +33,9 @@ With {{site.data.keyword.appid_full}} you can use custom user attributes to assi
 You are a developer for a fictional theme park. You are tasked with managing identity federation for the web application. The app must support varying levels of staff and general visitors, and allow for each type of role to have different capabilities.
 {: shortdesc}
 
-No problem! You can use the [custom attributes feature](custom-attributes.html) of {{site.data.keyword.appid_short_notm}} to create a tailored experience for each type of user. When you know who your users are going to be, such as park staff, you can create profiles on their behalf and apply custom attributes like a `visitor` or `admin` role. When that user signs in for the first time, {{site.data.keyword.appid_short_notm}} uses their verified authentication information to link them to the preregistered profile which allows for them to inherit all the attributes that are defined in the profile.
+No problem! You can use the [custom attributes feature](custom-attributes.html) of {{site.data.keyword.appid_short_notm}} to create a tailored experience for each type of user. When you know who your users are going to be, you can create profiles on their behalf and apply custom attributes like a `staff` role. When that user signs in for the first time, {{site.data.keyword.appid_short_notm}} uses their verified authentication information to link them to the preregistered profile which allows for them to inherit all the attributes that are defined in the profile.
 
 Custom attributes can be anything that you want them to be. The key to using them correctly is to ensure that your application clearly defines each attributes meaning. For example, if you're using [attributes](user-profile.html) to control access or user permissions, you must ensure that your application clearly defines which attribute setting a user needs in order to perform each task within your app.
-
-New to the APIs? Check out this [PostMan collection](https://github.com/ibm-cloud-security/appid-postman).
-{: tip}
 
 
 ## Before you begin
@@ -49,28 +46,20 @@ Ready? Let's get started!
 Be sure that you have the following prerequisites before you begin:
 - An instance of the {{site.data.keyword.appid_short_notm}} service
 - A set of service credentials
-- Node 6.0.0 or higher
 - An email address that you can access and validate
 
 
-## Step 1: Configuring the sample app
+## Step 1: Configuring your {{site.data.keyword.appid_short_notm}} instance
 {: #configure-app}
 
-Before you can start adding attributes for your Cloud Land users, you need to have the app! Don't have one? Download and configure the app to get started.
+Before you can start adding attributes for your Cloud Land users, you need to configure your instance of {{site.data.keyword.appid_short_notm}}.
 {: shortdesc}
 
-1. In the {{site.data.keyword.appid_short_notm}} dashboard, click **Download Sample**. You can choose any language that you like, but this tutorial is written for the **Node.js** sample.
+1. In the **Identity Providers** tab of the service dashboard, enable **Cloud Directory**. Although this tutorial uses Cloud Directory, you could also choose to use any of the other IdP's such as SAML, Facebook, Google, or a custom provider.
 
-2. In **Identity Providers > Manage > Settings**, add `http://localhost:3000/*` to the list of allowed redirect URIs.
+2. In the **Cloud Directory > Email Verification** tab, enable verification and set **Allow users to sign-in to your app without first verifying their email address** to **No**. When working with custom attributes, you want to be sure that users are able to validate their identity before assuming the attributes that you set. Be sure enabled.
 
-  This URL should not be used in any instances of {{site.data.keyword.appid_short_notm}} that support production level applications for security reasons.
-  {: note}
-
-3. In the **Identity Providers** tab of the service dashboard, enable Cloud Directory. Although this tutorial uses Cloud Directory, you could also choose to use any of the other IdP's such as SAML, Facebook, Google, or a custom provider.
-
-4. In the **Cloud Directory > Email Verification** tab, set **Allow users to sign-in to your app without first verifying their email address** to **No**. When working with custom attributes, you want to be sure that users are able to validate their identity before assuming the attributes that you set. Be sure enabled.
-
-5. In the **Profiles** tab, set **Change custom attributes from the app** to **Disabled**.
+3. In the **Profiles** tab, set **Change custom attributes from the app** to **Disabled**.
 
   By default, custom attributes can be changed by anyone with an access token. To ensure application security, you must configure {{site.data.keyword.appid_short_notm}} so that custom attributes can be changed only by the administrator or owner of the app. This prevents users from changing their own custom attributes and granting themselves permissions they should not have.
   {: important}
@@ -81,7 +70,7 @@ Excellent! Your sample app is created and you're ready to start creating users.
 ## Step 2: Setting roles before user sign in
 {: #set-before}
 
-You recently hired a new staff member at Cloud Land. You know all of their information, but they don't start for several days. You can [preregister them](pre-sign-in.html) by creating an {{site.data.keyword.appid_short_notm}} user and profile that contains the attributes such as the `admin` role, that they need to be successful. Note that this process does not finish Cloud Directory registration. The user must still sign up for the app to inherit the attribute in the profile that you created.
+You recently hired a new staff member at Cloud Land. You know all of their information, but they don't start for several days. You can [preregister them](pre-sign-in.html) by creating an {{site.data.keyword.appid_short_notm}} user and profile that contains the attributes such as the `staff` role, that they need to be successful. Note that this process does not finish Cloud Directory registration. The user must still sign up for the app to inherit the attribute in the profile that you created.
 {: shortdesc}
 
 1. Log in to IBM Cloud by using the CLI.
@@ -98,7 +87,7 @@ You recently hired a new staff member at Cloud Land. You know all of their infor
   ```
   {: pre}
 
-3. Make a POST request to create a user profile for the new user that contains the `admin` attribute. Be sure that you can access and validate the email that you use.
+3. Make a POST request to create a user profile for the new user that contains the `staff` attribute. Be sure that you can access and validate the email that you use.
 
   ```
   curl --request POST \
@@ -110,7 +99,7 @@ You recently hired a new staff member at Cloud Land. You know all of their infor
     "idp-identity": “user@email.com“,
     "profile": {
       "attributes": {
-        “role”: “admin”
+        “role”: “staff”
       }
     }
   }'
@@ -126,7 +115,7 @@ You recently hired a new staff member at Cloud Land. You know all of their infor
   ```
   {: screen}
 
-6. Validate that the profile was created with the admin role.
+6. Validate that the profile was created with the `staff` role.
 
   ```
   curl --request GET \
@@ -156,10 +145,10 @@ Great job! You preregistered a user for your application. Now, when they sign in
 ## Step 3: Updating user attributes
 {: #lesson-update}
 
-Cloud Land is growing! Your company is hiring new people all the time. The `admin` user from step 2 has been promoted. In preparation for their new role, you need to update their user profile by [assigning a new role](custom-attributes.html).
+Cloud Land is growing! To keep up with the growth, your company is hiring new people. The `staff` user from step two is now a manager. You can update their profile by [assigning a new role](custom-attributes.html).
 {: shortdesc}
 
-1. Update the admin's user profile.
+1. Update the profile.
 
   ```
   curl --request PUT \
@@ -169,7 +158,7 @@ Cloud Land is growing! Your company is hiring new people all the time. The `admi
   - d '{
     "profile": {
       "attributes": {
-        “role”: “director”
+        “role”: “manager”
       }
     }
   }'
@@ -193,7 +182,7 @@ Cloud Land is growing! Your company is hiring new people all the time. The `admi
       "id": "5ce78e09-1356-4ef8-a45d-808b633101db",
       "identities": [],
       "attributes": {
-          "role": "director"
+          "role": "manager"
       }
   }
   ```
@@ -211,7 +200,14 @@ Becoming more and more popular, the theme park continues to grow! With so many n
 [Token configuration](customizing-tokens.html) is global, which means that it applies to everyone with a `role` attribute, regardless of the actual role they are assigned.
 {: tip}
 
-1. Make a request to the token configuration endpoint.
+
+1. For testing purposes, create a Cloud Directory user by using the App ID GUI.
+
+  1. In the **Users** tab, click **Add User**. A form displays.
+  2. Enter a First and last name, an email, and password.
+  3. Click **Save**.
+
+2. Make a request to the token configuration endpoint.
 
   ```
   curl --request PUT \
@@ -286,17 +282,24 @@ Becoming more and more popular, the theme park continues to grow! With so many n
   ```
   {: screen}
 
-2. Restart the sample app.
+3. Obtain your access token information. The token returned is encoded.
 
-3. Log in to the sample app by using the user credentials that you created for this tutorial.
+  ```
+  curl --request PUT \
+  https://appid.ibm.cloud.com/oauth/v3/<tenant-ID>/token \
+  --header 'Authorization: Bearer <iam-access-token>' \
+  --header 'Content-Type: application/x-www-form-urlencoded' \
+  --header `Accept: application/json`
+  - d 'grant_type=password&username=<user-email>%40<user-email-domain>&password=<user-password>
+  ```
+  {: pre}
 
-4. Click **Sign-up** and fill out the user information. When you finish, an email with a validation link is sent to your email. Click the link to verify your email address.
+7. Decode your access token.
+  1. Copy the token in the response output from the previous command.
+  2. In a browser, navigate to https://jwt.io/.
+  3. Paste the token into the box labeled **Encoded**.
 
-5. Click **Login** to
-
-5. Click **View Token**.
-
-6. In the access token, verify that you see the role is added.
+6. In the **Decoded** box, verify that you see the role is added.
 
   ```
   {
@@ -310,7 +313,7 @@ Becoming more and more popular, the theme park continues to grow! With so many n
       iat: "1548099908",
       tenant: "9781974b-6a1c-46c3-aebf-32b7e9bbbaee",
       scope: "appid_default appid_readprofile appid_readuserattr appid_writeuserattr",
-      role: "director"
+      role: "manager"
   }
   ```
   {: screen}
