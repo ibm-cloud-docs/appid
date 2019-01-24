@@ -208,7 +208,7 @@ Great work!
 Becoming more and more popular, the theme park continues to grow! With so many new visitors and staff, you want to limit the number of requests that are made. For better performance, you can map user profile attributes to your access and identity token claims. By mapping custom claims, you're able to store the custom attributes in the tokens themselves.
 {: shortdesc}
 
-This is a global configuration, which means that it applies to everyone with a `role` attribute, regardless of the actual role they are assigned.
+Token configuration is global, which means that it applies to everyone with a `role` attribute, regardless of the actual role they are assigned.
 {: tip}
 
 1. Make a request to the token configuration endpoint.
@@ -297,6 +297,23 @@ This is a global configuration, which means that it applies to everyone with a `
 5. Click **View Token**.
 
 6. In the access token, verify that you see the role is added.
+
+  ```
+  {
+      iss: "appid-oauth.ng.bluemix.net",
+      exp: "1548103508",
+      aud: "a3b87400-f03b-4956-844e-a52103ef26ba",
+      sub: "de6a17d2-693d-4a43-8ea2-2140afd56a22",
+      amr: [
+            "cloud_directory"
+      ],
+      iat: "1548099908",
+      tenant: "9781974b-6a1c-46c3-aebf-32b7e9bbbaee",
+      scope: "appid_default appid_readprofile appid_readuserattr appid_writeuserattr",
+      role: "director"
+  }
+  ```
+  {: screen}
 
 With all of your user information in one place, consider the security implications of using extended expiration times for your tokens. The longer the lifespan of your token, the higher the security risk. You can read more about the risks of using custom attributes in [Security considerations](custom-attributes.html#security).
 {: tip}
