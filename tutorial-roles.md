@@ -2,11 +2,11 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-01-23"
+lastupdated: "2019-01-24"
 
 ---
 
-{:new_window: target="_blank"}
+{:new_window: target="blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -30,14 +30,15 @@ With {{site.data.keyword.appid_full}} you can use custom user attributes to assi
 ## Scenario
 {: #scenario}
 
-You are a developer for a fictional theme park. You are tasked with managing identity federation for the application. The app must support varying levels of staff and general visitors, and allow for each type of role to have different capabilities.
+You are a developer for a fictional theme park. You are tasked with managing identity federation for the web application. The app must support varying levels of staff and general visitors, and allow for each type of role to have different capabilities.
 {: shortdesc}
 
 No problem! You can use the [custom attributes feature](custom-attributes.html) of {{site.data.keyword.appid_short_notm}} to create a tailored experience for each type of user. When you know who your users are going to be, such as park staff, you can create profiles on their behalf and apply custom attributes like a `visitor` or `admin` role. When that user signs in for the first time, {{site.data.keyword.appid_short_notm}} uses their verified authentication information to link them to the preregistered profile which allows for them to inherit all the attributes that are defined in the profile.
 
-You can create custom attributes to be anything that you want them to be. The key to using custom attributes correctly is to ensure that your application clearly defines each attributes meaning. For example, if you're using attributes to control access or user permissions, you must ensure that your application clearly defines which attribute setting a user needs in order to perform each task within your app.
+Custom attributes can be anything that you want them to be. The key to using them correctly is to ensure that your application clearly defines each attributes meaning. For example, if you're using attributes to control access or user permissions, you must ensure that your application clearly defines which attribute setting a user needs in order to perform each task within your app.
 
-Just trying it out? For an easier way to test the API commands, check out this [PostMan collection]().
+New to the APIs? Check out this [PostMan collection](https://github.com/ibm-cloud-security/appid-postman).
+{: tip}
 
 
 ## Before you begin
@@ -151,6 +152,7 @@ You recently hired a new staff member at Cloud Land. You know all of their infor
 
 Great job! You preregistered a user for your application. Now, when they sign in to your app with the credentials that you used for preregistration, a Cloud Directory user is created and they inherit the {{site.data.keyword.appid_short_notm}} user profile. Next, learn how to update attributes.
 
+
 ## Step 3: Updating user attributes
 {: #lesson-update}
 
@@ -205,6 +207,9 @@ Great work!
 
 Becoming more and more popular, the theme park continues to grow! With so many new visitors and staff, you want to limit the number of requests that are made. For better performance, you can map user profile attributes to your access and identity token claims. By mapping custom claims, you're able to store the custom attributes in the tokens themselves.
 {: shortdesc}
+
+This is a global configuration, which means that it applies to everyone with a `role` attribute, regardless of the actual role they are assigned.
+{: tip}
 
 1. Make a request to the token configuration endpoint.
 
