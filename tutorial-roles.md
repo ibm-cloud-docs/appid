@@ -30,7 +30,7 @@ With {{site.data.keyword.appid_full}} you can use custom user attributes to assi
 ## Scenario
 {: #scenario}
 
-You are a developer for a fictional theme park. You are tasked with managing identity federation for the web application. The app must support varying levels of staff and general visitors, and allow for each type of role to have different capabilities.
+You are a developer for a fictional theme park. You are tasked with managing identity federation for the [web application](web-apps.html). The app must support varying levels of staff and general visitors, and allow for each type of role to have different capabilities.
 {: shortdesc}
 
 No problem! You can use the [custom attributes feature](custom-attributes.html) of {{site.data.keyword.appid_short_notm}} to create a tailored experience for each type of user. When you know who your users are going to be, you can create profiles on their behalf and apply custom attributes like a `staff` role. When that user signs in for the first time, {{site.data.keyword.appid_short_notm}} uses their verified authentication information to link them to the preregistered profile which allows for them to inherit all the attributes that are defined in the profile.
@@ -55,7 +55,7 @@ Be sure that you have the following prerequisites before you begin:
 Before you can start adding attributes for your Cloud Land users, you need to configure your instance of {{site.data.keyword.appid_short_notm}}.
 {: shortdesc}
 
-1. In the **Identity Providers** tab of the service dashboard, enable **Cloud Directory**. Although this tutorial uses Cloud Directory, you could also choose to use any of the other IdP's such as SAML, Facebook, Google, or a custom provider.
+1. In the **Identity Providers** tab of the service dashboard, enable **Cloud Directory**. Although this tutorial uses [Cloud Directory](cloud-directory.html), you could also choose to use any of the other IdP's such as [SAML](enterprise.html), [Facebook](identity-providers.html#facebook), [Google](identity-providers.html#google), or a [custom provider](custom.html).
 
 2. In the **Cloud Directory > Email Verification** tab, enable verification and set **Allow users to sign-in to your app without first verifying their email address** to **No**. When working with custom attributes, you want to be sure that users are able to validate their identity before assuming the attributes that you set. Be sure enabled.
 
@@ -73,14 +73,14 @@ Excellent! Your sample app is created and you're ready to start creating users.
 You recently hired a new staff member at Cloud Land. You know all of their information, but they don't start for several days. You can [preregister them](pre-sign-in.html) by creating an {{site.data.keyword.appid_short_notm}} user and profile that contains the attributes such as the `staff` role, that they need to be successful. Note that this process does not finish Cloud Directory registration. The user must still sign up for the app to inherit the attribute in the profile that you created.
 {: shortdesc}
 
-1. Log in to IBM Cloud by using the CLI.
+1. Log in to {{site.data.keyword.cloud_notm}} by using the CLI.
 
   ```
   ibmcloud login
   ```
   {: pre}
 
-2. Obtain an IAM access token. You can use this token for the rest of the tutorial.
+2. Obtain an IAM access token.
 
   ```
   ibmcloud iam oauth-tokens
@@ -197,22 +197,28 @@ Great work!
 Becoming more and more popular, the theme park continues to grow! With so many new visitors and staff, you want to limit the number of requests that are made. For better performance, you can map user profile attributes to your access and identity token claims. By mapping custom claims, you're able to store the custom attributes in the tokens themselves.
 {: shortdesc}
 
-[Token configuration](customizing-tokens.html) is global, which means that it applies to everyone with a `role` attribute, regardless of the actual role they are assigned.
+[Token configuration](customizing-tokens.html) is global, which means that it applies to every user with a `role` attribute, regardless of the actual role they are assigned.
 {: tip}
 
 
-1. For testing purposes, create a Cloud Directory user by using the App ID GUI.
+1. For testing purposes, create a Cloud Directory user by using the {{site.data.keyword.appid_short_notm}} GUI.
 
   1. In the **Users** tab, click **Add User**. A form displays.
   2. Enter a First and last name, an email, and password.
   3. Click **Save**.
 
-2. Make a request to the token configuration endpoint.
+2. Encode your client ID and secret.
+
+  1. In the **Service Credentials** tab of the {{site.data.keyword.appid_short_notm}} GUI, copy your client ID and Secret.
+  2. Use a base64 encoder to encode your authorization information.
+  3. Copy the output to use in the following command.
+
+3. Make a request to the token configuration endpoint.
 
   ```
   curl --request PUT \
   https://us-south.appid.ibm.cloud.com/management/v4/{{APPID_TENANT_ID}}/config/tokens \
-  --header 'Authorization: Bearer <iam-access-token>' \
+  --header 'Authorization: Basic <encoded-clientID>:<encoded-client-secret>' \
   --header 'Content-Type: application/json' \
   - d '{
       "access": {
@@ -282,7 +288,7 @@ Becoming more and more popular, the theme park continues to grow! With so many n
   ```
   {: screen}
 
-3. Obtain your access token information. The token returned is encoded.
+4. Obtain your access token information. The token returned is encoded.
 
   ```
   curl --request PUT \
@@ -294,12 +300,12 @@ Becoming more and more popular, the theme park continues to grow! With so many n
   ```
   {: pre}
 
-7. Decode your access token.
+5. Decode your access token.
   1. Copy the token in the response output from the previous command.
   2. In a browser, navigate to https://jwt.io/.
   3. Paste the token into the box labeled **Encoded**.
 
-6. In the **Decoded** box, verify that you see the role is added.
+6. In the **Decoded** section, verify that you can see the role.
 
   ```
   {
