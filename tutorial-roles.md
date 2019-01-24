@@ -6,7 +6,7 @@ lastupdated: "2019-01-24"
 
 ---
 
-{:new_window: target="blank"}
+{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -35,7 +35,7 @@ You are a developer for a fictional theme park. You are tasked with managing ide
 
 No problem! You can use the [custom attributes feature](custom-attributes.html) of {{site.data.keyword.appid_short_notm}} to create a tailored experience for each type of user. When you know who your users are going to be, such as park staff, you can create profiles on their behalf and apply custom attributes like a `visitor` or `admin` role. When that user signs in for the first time, {{site.data.keyword.appid_short_notm}} uses their verified authentication information to link them to the preregistered profile which allows for them to inherit all the attributes that are defined in the profile.
 
-Custom attributes can be anything that you want them to be. The key to using them correctly is to ensure that your application clearly defines each attributes meaning. For example, if you're using attributes to control access or user permissions, you must ensure that your application clearly defines which attribute setting a user needs in order to perform each task within your app.
+Custom attributes can be anything that you want them to be. The key to using them correctly is to ensure that your application clearly defines each attributes meaning. For example, if you're using [attributes](user-profile.html) to control access or user permissions, you must ensure that your application clearly defines which attribute setting a user needs in order to perform each task within your app.
 
 New to the APIs? Check out this [PostMan collection](https://github.com/ibm-cloud-security/appid-postman).
 {: tip}
@@ -81,7 +81,7 @@ Excellent! Your sample app is created and you're ready to start creating users.
 ## Step 2: Setting roles before user sign in
 {: #set-before}
 
-You recently hired a new staff member at Cloud Land. You know all of their information, but they don't start for several days. You can preregister them by creating an {{site.data.keyword.appid_short_notm}} user and profile that contains the attributes such as the `admin` role, that they need to be successful. Note that this process does not finish Cloud Directory registration. The user must still sign up for the app to inherit the attribute in the profile that you created.
+You recently hired a new staff member at Cloud Land. You know all of their information, but they don't start for several days. You can [preregister them](pre-sign-in.html) by creating an {{site.data.keyword.appid_short_notm}} user and profile that contains the attributes such as the `admin` role, that they need to be successful. Note that this process does not finish Cloud Directory registration. The user must still sign up for the app to inherit the attribute in the profile that you created.
 {: shortdesc}
 
 1. Log in to IBM Cloud by using the CLI.
@@ -156,7 +156,7 @@ Great job! You preregistered a user for your application. Now, when they sign in
 ## Step 3: Updating user attributes
 {: #lesson-update}
 
-Cloud Land is growing! Your company is hiring new people all the time. The `admin` user from step 2 has been promoted. In preparation for their new role, you need to update their user profile by assigning a new role.
+Cloud Land is growing! Your company is hiring new people all the time. The `admin` user from step 2 has been promoted. In preparation for their new role, you need to update their user profile by [assigning a new role](custom-attributes.html).
 {: shortdesc}
 
 1. Update the admin's user profile.
@@ -208,7 +208,7 @@ Great work!
 Becoming more and more popular, the theme park continues to grow! With so many new visitors and staff, you want to limit the number of requests that are made. For better performance, you can map user profile attributes to your access and identity token claims. By mapping custom claims, you're able to store the custom attributes in the tokens themselves.
 {: shortdesc}
 
-Token configuration is global, which means that it applies to everyone with a `role` attribute, regardless of the actual role they are assigned.
+[Token configuration](customizing-tokens.html) is global, which means that it applies to everyone with a `role` attribute, regardless of the actual role they are assigned.
 {: tip}
 
 1. Make a request to the token configuration endpoint.
