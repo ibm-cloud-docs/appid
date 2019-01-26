@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-01-24"
+lastupdated: "2019-01-26"
 
 ---
 
@@ -20,29 +20,28 @@ lastupdated: "2019-01-24"
 
 
 
-# Tutorial: Setting custom attributes
+# Tutorial: Setting user roles
 {: #tutorial-roles}
 
-With {{site.data.keyword.appid_full}} you can use custom user attributes to assign roles and preferences in order to create a more personalized user experience. By using this tutorial, you can walk through a step-by-step guide to set user attributes, update them, and then inject them in to a token by using the {{site.data.keyword.appid_short_notm}} APIs.
+You can enforce access control with your application by assigning user roles with {{site.data.keyword.appid_full}}. By defining `role` as a custom attribute, you can assign different types of users different levels of permissions. By using this a step-by-step guide you can learn to set user attributes, update them, and then inject them in to a token by using the {{site.data.keyword.appid_short_notm}} APIs.
 {: shortdesc}
 
 New to the APIs? Try them out with this [Postman collection](https://github.com/ibm-cloud-security/appid-postman).
 {: tip}
 
-
 ## Scenario
-{: #scenario}
+{: #roles-scenario}
 
-You are a developer for a fictional theme park. You are tasked with managing identity federation for the [web application](web-apps.html). The app must support varying levels of staff and general visitors, and allow for each type of role to have different capabilities.
+You are a developer for a fictional theme park. You are tasked with managing access for the [web application](web-apps.html). You feel the easiest way to do so is by setting roles for each type of app user. You have several different types of roles to fill such as staff and general visitors and you must ensure that each role is mapped to the correct capabilities.
 {: shortdesc}
 
-No problem! You can use the [custom attributes feature](custom-attributes.html) of {{site.data.keyword.appid_short_notm}} to create a tailored experience for each type of user. When you know who your users are going to be, you can create profiles on their behalf and apply custom attributes like a `staff` role. When that user signs in for the first time, {{site.data.keyword.appid_short_notm}} uses their verified authentication information to link them to the preregistered profile which allows for them to inherit all the attributes that are defined in the profile.
+No problem! You can use the [custom attributes feature](custom-attributes.html) of {{site.data.keyword.appid_short_notm}} to store any type of user related information. [Attributes](user-profile.html) are stored securely and encrypted so they're only accessible by specific users or instances of App ID. So, because you're working with role-based access control, you can create an attribute called `role` and assign different values to specify a type of role. For instance, the theme park might have `visitors` or `staff` that could each be different values for the `role` attribute. Then, you can ensure that your application code enforces the access policies and privileges that you assigned.
 
-Custom attributes can be anything that you want them to be. The key to using them correctly is to ensure that your application clearly defines each attributes meaning. For example, if you're using [attributes](user-profile.html) to control access or user permissions, you must ensure that your application clearly defines which attribute setting a user needs in order to perform each task within your app.
+Although this tutorial is written specifically with web apps and federation in mind, attributes can be used in a much broader sense. Custom attributes can be anything that you want them to be. As long as you stay under 100k attributes and you format them as a plain JSON object, you can store all types of information!
 
 
 ## Before you begin
-{: before}
+{: #roles-before}
 
 Ready? Let's get started!
 
@@ -53,7 +52,7 @@ Be sure that you have the following prerequisites before you begin:
 
 
 ## Step 1: Configuring your {{site.data.keyword.appid_short_notm}} instance
-{: #configure-app}
+{: #roles-configure-app}
 
 Before you can start adding attributes for your Cloud Land users, you need to configure your instance of {{site.data.keyword.appid_short_notm}}.
 {: shortdesc}
@@ -67,13 +66,13 @@ Before you can start adding attributes for your Cloud Land users, you need to co
   By default, custom attributes can be changed by anyone with an access token. To ensure application security, you must configure {{site.data.keyword.appid_short_notm}} so that custom attributes can be changed only by the administrator or owner of the app. This prevents users from changing their own custom attributes and granting themselves permissions they should not have.
   {: important}
 
-Excellent! Your sample app is created and you're ready to start creating users.
+Excellent! Your dashboard is configured and you're ready to start setting roles.
 
 
 ## Step 2: Setting roles before user sign in
-{: #set-before}
+{: #roles-set-before}
 
-You recently hired a new staff member at Cloud Land. You know all of their information, but they don't start for several days. You can [preregister them](pre-sign-in.html) by creating an {{site.data.keyword.appid_short_notm}} user and profile that contains the attributes such as the `staff` role. Note that this process does not finish Cloud Directory registration. The user must still sign up for the app to inherit the attribute in the profile that you create.
+Cloud Land has a new staff member! You know all of their information, but they don't start for several days. You can [preregister them](pre-sign-in.html) by creating an {{site.data.keyword.appid_short_notm}} user and profile that contains the attributes such as the `staff` role. Note that this process does not finish Cloud Directory registration. The user must still sign up for the app to inherit the attribute in the profile that you create.
 {: shortdesc}
 
 1. Log in to {{site.data.keyword.cloud_notm}} by using the CLI.
@@ -146,7 +145,7 @@ Great job! You preregistered a user for your application. Now, when they sign in
 
 
 ## Step 3: Updating user attributes
-{: #lesson-update}
+{: #roles-update-attributes}
 
 Cloud Land is growing! To keep up with the growth, your company is hiring new people. The `staff` user from step two is now a manager. You can update their profile by [assigning a new role](custom-attributes.html).
 {: shortdesc}
@@ -195,7 +194,7 @@ Great work!
 
 
 ## Step 4: Injecting attributes into tokens
-{: #lesson-map-claims}
+{: #roles-map-claims}
 
 Becoming more and more popular, the theme park continues to grow! With so many new visitors and staff, you want to limit the number of requests that are made. For better performance, you can map user profile attributes to your access and identity token claims. By mapping custom claims, you're able to store the custom attributes in the tokens themselves.
 {: shortdesc}
@@ -251,7 +250,7 @@ Becoming more and more popular, the theme park continues to grow! With so many n
     </tr>
     <tr>
       <td><code>expires_in</code></td>
-      <td>This value applies to each token type and must be set in each request. If you previously set the value in the GUI, and then run this request, then the values in the request override the previously set values. Be sure to use the expiration to the correct value for your configuration.</td>
+      <td>This value applies to each token type and must be set in each request. If you previously set the value in the GUI, and then run this request, then the values in the request override the previously set values. Be sure to set the expiration to the correct value for your configuration.</td>
     </tr>
   </table>
 
@@ -280,8 +279,8 @@ Becoming more and more popular, the theme park continues to grow! With so many n
   {: screen}
 
 
-## Try it out
-{: #trying}
+## Step 5: Viewing the access token
+{: #roles-view-token}
 
 Now that your token contains all of your information, try signing in and viewing the access token.
 {: shortdesc}
@@ -334,12 +333,10 @@ Now that your token contains all of your information, try signing in and viewing
   ```
   {: screen}
 
-With all of your user information in one place, consider the security implications of using extended expiration times for your tokens. The longer the lifespan of your token, the higher the security risk. You can read more about the risks of using custom attributes in [Security considerations](custom-attributes.html#security).
-{: tip}
 
 
 ## Next steps
-{: #next}
+{: #roles-next}
 
 Nice work! You completed the tutorial. Next, you can try configuring [multi-factor authentication](mfa.html) or setting up [your own branded GUI](branded.html).
 
