@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-04"
+lastupdated: "2019-01-28"
 
 ---
 
@@ -33,7 +33,7 @@ Web apps often require users to authenticate in order to access protected conten
 
 **How does this flow work?**
 
-![{{site.data.keyword.appid_short_notm}} request flow](images/web-flow.png)
+![{{site.data.keyword.appid_short_notm}} request flow](/docs/services/appid/images/web-flow.png)
 
 1. A user initiates the authorization flow by sending a request to the `/authorization` endpoint via the {{site.data.keyword.appid_short_notm}} SDK or API.
 
@@ -164,7 +164,7 @@ You must have the following prerequisites:
 6. Register your protected endpoint.
 
    ```javascript
-   app.get("/protected", passport.authenticate(WebAppStrategy.STRATEGY_NAME), function(req, res) {res.json(req.user); });
+   app.get(‘/protected’, passport.authenticate(WebAppStrategy.STRATEGY_NAME), function(req, res) {res.json(req.user); });
    ```
    {: codeblock}
 

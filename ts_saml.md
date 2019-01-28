@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-11-14"
+  years: 2017, 2019
+lastupdated: "2019-01-28"
 
 ---
 
@@ -31,7 +31,7 @@ A user signs in to your application through an identity provider's sign-in page,
 {: tsCauses}
 Sign-in might fail for the following reasons:
 
-* Your redirect URL was not properly added to [the whitelist](faq.html#redirect).
+* Your redirect URL was not properly added to [the whitelist](/docs/services/appid/faq.html#redirect).
 * The user is not authorized.
 * The user tried to sign in with the wrong credentials.
 

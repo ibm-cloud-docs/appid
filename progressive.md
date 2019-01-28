@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-11-14"
+  years: 2017, 2019
+lastupdated: "2019-01-28"
 
 ---
 
@@ -19,7 +19,7 @@ When developing apps, one of the biggest concerns is security. How can you ensur
 {: shortdesc}
 
 
-![The path to becoming an identified user.](images/authenticationtrail.png)
+![The path to becoming an identified user.](/docs/services/appid/images/authenticationtrail.png)
 
 When a user successfully signs in, they become an identified user. The identity provider returns access and identity tokens that contain information about the user to {{site.data.keyword.appid_short}}. The service takes the provided tokens and determines whether a user has the proper credentials to access an app. If the tokens are validated, then the service authorizes the users access to the app. The authentication information is associated with the user's profile after they are authorized. The profile and its attributes can be accessed again from any client that authenticates with the same identity provider.
 
@@ -30,7 +30,7 @@ With {{site.data.keyword.appid_short_notm}}, an anonymous user can choose to bec
 
 When a user chooses not to sign in immediately, they are considered an anonymous user. For example, a user might immediately start adding items to a shopping cart without signing in. For anonymous users, {{site.data.keyword.appid_short_notm}} creates an ad hoc user profile and calls the OAuth login API that returns anonymous access and identity tokens. By using these tokens, the app can create, read, update, and delete the attributes that are stored in the user profile.
 
-![The path to becoming an identified user when they start as anonymous.](images/anon-authenticationtrail.png)
+![The path to becoming an identified user when they start as anonymous.](/docs/services/appid/images/anon-authenticationtrail.png)
 
 When an anonymous user signs in, their access token is passed to the login API. The service authenticates the call with an identity provider. The service uses the access token to find the anonymous profile and attaches the user's identity to it. The new access and identity tokens contain the public information that is shared by the identity provider. After a user is identified, their anonymous token becomes invalid. However, a user is still able to access their attributes because they're accessible with the new token.
 
