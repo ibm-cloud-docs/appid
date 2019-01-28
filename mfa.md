@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-04"
+lastupdated: "2019-01-28"
 
 ---
 
@@ -27,7 +27,7 @@ When MFA is enabled, the login widget requires MFA each time a new user attempts
 
 If a user email has not already been confirmed through either the management APIs or through email verification on sign-up, it is confirmed when an MFA code verification is successful. If you need to change a user's email address, an administrator can use the [management APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Cloud_Directory_Users/updateCloudDirectoryUser).
 
-MFA is available for those instances of {{site.data.keyword.appid_short_notm}} that are on the [graduated tier pricing plan](faq.html#pricing).
+MFA is available for those instances of {{site.data.keyword.appid_short_notm}} that are on the [graduated tier pricing plan](/docs/services/appid/faq.html#pricing).
 {: note}
 
 ## Understanding the flow
@@ -54,7 +54,7 @@ MFA is available for those instances of {{site.data.keyword.appid_short_notm}} t
 {{site.data.keyword.appid_short_notm}} MFA is supported as part of the OAuth 2.0 authorization code flow for Cloud Directory users through the login widget.
 {: shortdesc}
 
-To configure MFA through the GUI, check out [Cloud Directory](cloud-directory.html).
+To configure MFA through the GUI, check out [Cloud Directory](/docs/services/appid/cloud-directory.html).
 {: note}
 
 ### Configuring with the API

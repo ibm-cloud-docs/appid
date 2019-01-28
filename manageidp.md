@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-11-02"
+  years: 2017, 2019
+lastupdated: "2019-01-28"
 
 ---
 
@@ -68,9 +68,9 @@ There are several providers that the service is preconfigured to use.
 
 **How does {{site.data.keyword.appid_short_notm}} interact with an identity provider?**
 
-{{site.data.keyword.appid_short_notm}} interacts with identity providers by using multiple protocols such as OpenID Connect, SAML, and more. For example, OpenID Connect is the protocol that is used with many social providers such as Facebook, Google. Enterprise providers such as <a href="https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-azure-active-directory/" target="_blank">Azure Active Directory <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> or <a href="https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-active-directory-federation-service/" target="_blank">Active Directory Federation Service <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>, generally use SAML as their identity protocol. For [Cloud Directory](cloud-directory.html), the service uses SCIM to verify identity information.
+{{site.data.keyword.appid_short_notm}} interacts with identity providers by using multiple protocols such as OpenID Connect, SAML, and more. For example, OpenID Connect is the protocol that is used with many social providers such as Facebook, Google. Enterprise providers such as <a href="https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-azure-active-directory/" target="_blank">Azure Active Directory <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> or <a href="https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-active-directory-federation-service/" target="_blank">Active Directory Federation Service <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>, generally use SAML as their identity protocol. For [Cloud Directory](/docs/services/appid/cloud-directory.html), the service uses SCIM to verify identity information.
 
-Working with application identity? Check out [Application identity](app-to-app.html).
+Working with application identity? Check out [Application identity](/docs/services/appid/app-to-app.html).
 {: tip}
 
 </br>
@@ -88,7 +88,7 @@ You can decide which providers that you want to use, your redirect URLs, and tok
 1. Navigate to your service dashboard.
 2. In the **Identity Providers** section of the navigation, select the **Manage** page.
 3. On the **Identity Providers** tab, set the providers that you want to use, to **On**.
-4. Optional: Decide whether to turn off **Anonymous users**, or leave the default, which is **On**. When set to **On**, custom user attributes are associated with the user from the moment they begin interacting with your app. For more information about the path to becoming an identified user, see [Progressive authentication](progressive.html#progressive).
+4. Optional: Decide whether to turn off **Anonymous users**, or leave the default, which is **On**. When set to **On**, custom user attributes are associated with the user from the moment they begin interacting with your app. For more information about the path to becoming an identified user, see [Progressive authentication](/docs/services/appid/progressive.html#progressive).
 
 {{site.data.keyword.appid_short_notm}} provides default credentials to help with your initial set-up of Facebook and Google+. You are limited to 100 uses of the credentials per instance, per day. Because they are IBM credentials, they are meant to be used only for development. Before you publish your app, update the configuration to your own credentials.
 {: tip}

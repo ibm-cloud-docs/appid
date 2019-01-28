@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-11"
+lastupdated: "2019-01-28"
 
 ---
 
@@ -67,7 +67,7 @@ These key terms can help you understand the way that the service breaks down the
     </table>
     <p><strong>Note</strong>: When you use the SDK the endpoint URLs are built automatically.</p></dd>
   <dt>Tokens</dt>
-    <dd>The service uses three different types of tokens. Access tokens represent authorization and enable communication with [back-end resources](/docs/services/appid/backend-apps.html) that are protected by authorization filters that are set by {{site.data.keyword.appid_short}}. Identity tokens represent authentication and contain information about the user. A refresh token can be used to obtain a new access token without re-authenticating the user. By using refresh tokens, users can allow their information to be remembered by the application. This way they can remain signed in. For more information about tokens and how they're used in {{site.data.keyword.appid_short}}, check out [Validating tokens](tokens.html#remote-validation).
+    <dd>The service uses three different types of tokens. Access tokens represent authorization and enable communication with [back-end resources](/docs/services/appid/backend-apps.html) that are protected by authorization filters that are set by {{site.data.keyword.appid_short}}. Identity tokens represent authentication and contain information about the user. A refresh token can be used to obtain a new access token without re-authenticating the user. By using refresh tokens, users can allow their information to be remembered by the application. This way they can remain signed in. Tokens are set in the <em>Identity Providers > Manage</em> of the {{site.data.keyword.appid_short}} dashboard. For more information about tokens and how they're used in {{site.data.keyword.appid_short}}, check out [Managing tokens](/docs/services/appid/manageidp.html).
   </dd>
   <dt>Authorization headers</dt>
     <dd><p>{{site.data.keyword.appid_short}} complies with the <a href="https://tools.ietf.org/html/rfc6750" target="blank">token bearer specification <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> and uses a combination of access and identity tokens that are sent as an HTTP Authorization header. The Authorization header contains three different parts that are separated by white space. The tokens are base64 encoded. The identity token is optional.</br>
@@ -153,7 +153,7 @@ Example token:
   ```
   {: screen}
 
-Identity tokens only contain partial user information. To see all of the information that is provided by the identity provider, you can use the [user info endpoint](/docs/services/appid/predefined.html#api).
+Identity tokens only contain partial user information. To see all of the information that is provided by the identity provider, you can use the [/userinfo endpoint](/docs/services/appid/predefined.html#api).
 
 **What is a refresh token?**
 
@@ -164,7 +164,7 @@ Refresh tokens are configured to have a longer life span than a regular access t
 For added convenience, {{site.data.keyword.appid_short_notm}} also renews its refresh token — and its expiration date — when the access token is renewed, allowing the user to remain logged in as long as they are active at some point before the current refresh token expires. On the other hand, if you would like to use refresh tokens yet force the user to log in periodically, your app could only use the refresh tokens returned when the user logs in by entering their credentials. However, we recommend always using the latest refresh token received from App ID, as described by the <a href="https://tools.ietf.org/html/rfc6749#page-47" target="_blank">Oauth specifications <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
 
 
-Although these tokens can streamline the login process, your app should not depend on them, as they can be revoked at any time, such as when you believe your refresh tokens have been compromised. If you need to revoke a refresh token, there are two methods of revoking a refresh token. If you have the refresh token, you can revoke it based on <a href="https://tools.ietf.org/html/rfc7009#section-2" target="_blank">RFC7009 <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>. Alternatively, if you have the user ID, you can revoke the refresh token by using <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/" target="_blank">the Management API <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>. For more information about accessing the management API see [managing service access](iam.html#service-access-management).
+Although these tokens can streamline the login process, your app should not depend on them, as they can be revoked at any time, such as when you believe your refresh tokens have been compromised. If you need to revoke a refresh token, there are two methods of revoking a refresh token. If you have the refresh token, you can revoke it based on <a href="https://tools.ietf.org/html/rfc7009#section-2" target="_blank">RFC7009 <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>. Alternatively, if you have the user ID, you can revoke the refresh token by using <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/" target="_blank">the Management API <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>. For more information about accessing the management API see [managing service access](/docs/services/appid/iam.html#service-access-management).
 
 For examples of working with refresh tokens and how to use them to implement a remember-me functionality, check out the [getting started samples](index.html).
 
@@ -190,5 +190,8 @@ Example request:
   ```
   {: screen}
 
+**How are tokens set?**
+
+Token configurations can be enabled and disabled through the App ID dashboard. For more information about your configuration options, check out [Managing tokens](/docs/services/appid/manageidp.html). 
 </br>
 </br>

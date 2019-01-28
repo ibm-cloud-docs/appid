@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-04"
+lastupdated: "2019-01-28"
 
 ---
 
@@ -26,9 +26,9 @@ When you reuse your existing UIs, you can create a cohesive sign in flow for you
 
 **What kind of configuration is required to display my own screens?**
 
-To display your own UIs, you must use [Cloud Directory(/docs/services/appid/cloud-directory.html)] as your identity provider. There are several different ways that Cloud Directory can be [configured](cloud-directory.html). You can decide the types of messages that you want to send, and customize the content and design. Don't know what to say? Not a problem. There are example messages in the GUI that you can use.
+To display your own UIs, you must use [Cloud Directory(/docs/services/appid/cloud-directory.html)] as your identity provider. There are several different ways that Cloud Directory can be [configured](/docs/services/appid/cloud-directory.html). You can decide the types of messages that you want to send, and customize the content and design. Don't know what to say? Not a problem. There are example messages in the GUI that you can use.
 
-Want to use a [language](cloud-directory.html#languages) other than English? You can choose another language by using the <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/updateLocalization" target="_blank">language management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>, to display your own translated content.
+Want to use a [language](/docs/services/appid/cloud-directory.html#languages) other than English? You can choose another language by using the <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/updateLocalization" target="_blank">language management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>, to display your own translated content.
 {: tip}
 
 </br>
@@ -62,7 +62,7 @@ With Cloud Directory enabled, you can call customized screens with the Android S
 
 **Sign in**
 
-1. Configure your Cloud Directory [settings](cloud-directory.html#cd-settings) in the GUI.
+1. Configure your Cloud Directory [settings](/docs/services/appid/cloud-directory.html#cd-settings) in the GUI.
 2. Add the following code to your application. The sign in flow is triggered when a user clicks sign in on your custom screen. You get access, identity, and refresh tokens by supplying the end user's username and password.
 
   ```java
@@ -93,7 +93,7 @@ With Cloud Directory enabled, you can call your own branded screens with the [iO
 
 **Sign in**
 
-1. Configure your Cloud Directory [settings](cloud-directory.html#cd-settings) in the GUI.
+1. Configure your Cloud Directory [settings](/docs/services/appid/cloud-directory.html#cd-settings) in the GUI.
 2. Place the following code in your application. When a user attempts to sign in, your sign in screen is called and the authorization and authentication process starts with your customized sign in page.
 
   ```swift
@@ -125,7 +125,7 @@ With Cloud Directory enabled, you can call customized screens with the Node.js S
 By using the WebAppStrategy users can sign in to your web apps with their username and a password. After a user successfully signs in to your app, their access token is persisted in an HTTP session as long as it is kept alive. After the HTTP session is closed or expired, the access token is also destroyed.
 
 
-1. Configure your Cloud Directory [settings](cloud-directory.html#cd-settings) in the GUI.
+1. Configure your Cloud Directory [settings](/docs/services/appid/cloud-directory.html#cd-settings) in the GUI.
 2. Place the following code in your application. When a user attempts to sign in, your sign in screen is called and the authorization and authentication process starts with your customized sign in page.
 
   ```javascript
@@ -206,7 +206,7 @@ When the endpoint is called, a reset password email is sent to the user. The ema
 
 You can present your own post reset password page:
 
-1. Configure your Cloud Directory [settings](cloud-directory.html#cd-settings) in the GUI. **Allow users to manage their account from your app** must be set to **On**.
+1. Configure your Cloud Directory [settings](/docs/services/appid/cloud-directory.html#cd-settings) in the GUI. **Allow users to manage their account from your app** must be set to **On**.
 2. In the **Reset Password** tab of the service dashboard, be sure that **Forgot password email** is set to **On**.
 3. Input the URL for your landing page in the **URL for your custom reset password page**  
 

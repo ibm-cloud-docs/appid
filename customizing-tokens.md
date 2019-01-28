@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-21"
+lastupdated: "2019-01-28"
 
 ---
 
@@ -34,13 +34,13 @@ You can configure your {{site.data.keyword.appid_short_notm}} tokens to meet the
 * Identity tokens: Contain personal information and are used to authenticate a user. Depending on your app configuration, identity tokens can be issued before a user is authenticated. This allows you to start associating attributes with your users before they sign in to your application.
 * Refresh tokens: Can be used to extend the amount of time that a user can go without re-authenticating.
 
-Want to learn more about tokens? Read more in [Understanding tokens](authorization.html#tokens).
+Want to learn more about tokens? Read more in [Understanding tokens](/docs/services/appid/authorization.html#tokens).
 {: tip}
 
 
 **What are my customization options?**
 
-You can customize your tokens [in the GUI](#configuring-tokens-ui) or by using [the API](#configuring-tokens-api) by setting the lifespan validity or by adding custom claims to your tokens. Check out the following table to see how lifespan is configured or continue reading to learn about mapping custom attributes.
+You can customize your tokens [in the GUI](/docs/services/appid/customizing-tokens.html#configuring-tokens-ui) or by using [the API](/docs/services/appid/customizing-tokens.html#configuring-tokens-api) by setting the lifespan validity or by adding custom claims to your tokens. Check out the following table to see how lifespan is configured or continue reading to learn about mapping custom attributes.
 
 <table>
   <tr>
@@ -76,7 +76,7 @@ You can customize your tokens [in the GUI](#configuring-tokens-ui) or by using [
 </table>
 
 
-Because tokens are used to identify users and secure your resources, the lifespan of a token affects several different things. By customizing your token configuration you can ensure that your security and user experience needs are met. However, should a token ever become compromised, a malicious user has more time to affect your application. You can learn more about security considerations in [Custom attributes](custom-attributes.html).
+Because tokens are used to identify users and secure your resources, the lifespan of a token affects several different things. By customizing your token configuration you can ensure that your security and user experience needs are met. However, should a token ever become compromised, a malicious user has more time to affect your application. You can learn more about security considerations in [Custom attributes](/docs/services/appid/custom-attributes.html).
 {: important}
 
 </br>
