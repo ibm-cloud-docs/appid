@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-28"
+lastupdated: "2019-01-29"
 
 ---
 
@@ -28,7 +28,7 @@ You can configure the notifications and level of user control for your app. Sett
 {: shortdesc}
 
 
-![Configuring cloud directory](/docs/services/appid/images/cloud-directory.png)
+![Configuring cloud directory](images/cloud-directory.png)
 Figure. The configuration journey for Cloud Directory
 
 1. In the **Manage** tab of the {{site.data.keyword.appid_short_notm}} dashboard, be sure that Cloud Directory is set to **On**.
