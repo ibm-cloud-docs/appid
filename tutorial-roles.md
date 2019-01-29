@@ -279,10 +279,10 @@ Becoming more and more popular, the theme park continues to grow! With so many n
   {: screen}
 
 
-## Step 5: Verifying the access token
+## Step 5: Viewing the access token
 {: #roles-view-token}
 
-Now that your token contains all of your information, try signing in and viewing the access token.
+Optionally, you can verify that step 4 was successful by viewing an access token. 
 {: shortdesc}
 
 1. For testing purposes, create a Cloud Directory user by using the {{site.data.keyword.appid_short_notm}} GUI.
