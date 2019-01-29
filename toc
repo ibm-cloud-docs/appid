@@ -8,6 +8,7 @@ IBM Cloud App ID
     index.md
     about.md
     authorization.md
+    tutorial-roles.md
     relatedlinks.md
     {: .navgroup-end}
 
