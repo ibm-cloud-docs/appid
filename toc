@@ -9,6 +9,11 @@ IBM Cloud App ID
     about.md
     authorization.md
 
+    {: .topicgroup}
+    Tutorials
+        tutorial-roles.md
+        tutorial-kubernetes-auth.md
+
     relatedlinks.md
     {: .navgroup-end}
 
