@@ -6,93 +6,25 @@ lastupdated: "2019-01-31"
 
 ---
 
-{:new_window: target="blank"}
+{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
 {:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
 {:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:deprecated: .deprecated}
 {:download: .download}
 
+# Integrating your own security tools
+{: #custom}
 
-# Custom security tools
-{: #setup-custom}
-
-There are times that you might already have have a tool that you use. You can integrate those tools such as, Neuvector, with {{site.data.keyword.security-advisor_short}}.
+{{site.data.keyword.security-advisor_long}} provides a findings API that can be used to unify and improve security management on IBM Cloud. You can use the Findings APIs to register new finding types for your partner services and custom security tools. After the metadata is registered, the tools can send any occurrences of findings as KPIs and events by using the APIs. The findings are displayed as a separate card in the {{site.data.keyword.security-advisor_short}} dashboard.
 {: shortdesc}
-
-
-Why would you want to create customizations? Say that you have an application that is running a {{site.data.keyword.containershort_notm}} cluster with the name `cloudkingdom`. One of the pods in the cluster is sending an abnormal amount of data to external servers. You want to capture this finding in your {{site.data.keyword.security-advisor_short}} dashboard.
-
-If your custom tool monitors and detects the abnormal amount of data that is being transferred, then the tool sends the finding to {{site.data.keyword.security-advisor_short}}.
-
-Example payload:
-
-```
-{
-	"note_name": "<account id>/providers/my-custom-tool/notes/my-custom-tool-findings-type",
-	"kind": "FINDING",
-	"remediation": "How to resolve Data leakage threat",
-	"provider_id": "my-custom-tool",
-	"id": "my-custom-tool-finding-2",
-	"context": {
-		"region": "location",
-		"resource_id": "cluster crn",
-		"resource_name": "cloudkingdom",
-		"resource_type": "container",
-		"service_name": "kubernetes service"
-	},
-	"finding": {
-		"severity": "HIGH",
-		"next_steps": [{
-			"title": "Investigate which process are running in your cluster. If you suspect one of your pods was hacked, restart it, and look for image vulnerabilities",
-                        "url":"https://console.bluemix.net/containers-kubernetes/clusters"
-		}],
-                "short_description": "One of the pods in your cluster appears to be leaking an excessive amount of data",
-                "long_description": "One of the pods in your cluster is approaching external servers and sending them data in volumes that exceed that pod’s normal behavior"
-	}
-}
-```
-{: screen}
-
-</br>
-
-
-## Integrating your own tools with the GUI
-{: #setup-custom-gui}
-
-You can integrate your security tools by using the {{site.data.keyword.security-advisor_short}} dashboard.
-{: shortdesc}
-
-**Before you begin**
-
-* You must have an account with the partner that you want to integrate.
-
-{{site.data.keyword.security-advisor_short}} does not persist any credentials that are related to the partner service. Enterprise users must authenticate by using SAML to both {{site.data.keyword.Bluemix_notm}} and to the business partner.
-{: note}
-
-1. Log into your security tool and get your unique URL.
-2. Log into {{site.data.keyword.Bluemix_notm}}.
-3. Click **Custom Integrations** and then click the **Add Custom Solution** card. A screen displays.
-  1. Give your solution a name. You can use only alpha-numeric characters, white spaces, and dashes (-) are allowed.
-  2. Enter the URL for the solution in the format: `www.<website>.<domain>`.
-  3. Upload an icon or image to represent the tool.
-
-    {{site.data.keyword.security-advisor_short}} creates the artifacts that are required for integration such as the service ID, API key, account ID, and metadata. The `writer` role is assigned.
-
-4. You can configure the customer account in the **Integration** tab of the other service.
-5. With the integration in place, you can start posting occurrences to {{site.data.keyword.security-advisor_short}} and view the findings in the service dashboard.
-
-</br>
-
-## Integrating your own tools with the API
-{: #setup-custom-api}
 
 {{site.data.keyword.security-advisor_short}} APIs follow [Grafeas](https://grafeas.io/) like artifact metadata API specification to store, query, and retrieve critical metadata for the findings that are reported by all security tools and services.
+
+## Integrating your own tools
+{: #custom-integrate}
 
 **Before you begin**
 
@@ -136,16 +68,16 @@ You can integrate your security tools by using the {{site.data.keyword.security-
     </thead>
     <tbody>
       <tr>
-        <td><code>note_name</code></td>
-        <td><code>&lt;account id&gt;/providers/my-custom-tool/notes/my-custom-tool-findings-type</code></td>
-      </tr>
-      <tr>
         <td><code>kind</code></td>
         <td><code>FINDING</code></td>
       </tr>
       <tr>
-        <td><code>remediation</code></td>
-        <td>The steps that need to be taken to resolve the issue.</td>
+        <td><code>short_description</code></td>
+        <td>A short description that summarizes the finding; no more than a couple of words.</td>
+      </tr>
+      <tr>
+        <td><code>long_description</code></td>
+        <td>A longer description that contains more detail about the finding.</td>
       </tr>
       <tr>
         <td><code>provider_id</code></td>
@@ -156,12 +88,12 @@ You can integrate your security tools by using the {{site.data.keyword.security-
         <td>An ID for the type of finding that your security tool found.</td>
       </tr>
       <tr>
-        <td><code>context</code><ul><li><code>region</code></li><li><code>resource_id</code></li> <li><code>resource_name</code></li> <li><code>resource_type</code></li> <li><code>service_name</code></li></ul></td>
-        <td></br><ul><li><code>The location in which the finding occurred</code></li><li><code>The ID for the specific resource.</code></li> <li><code>The name of the resource.</code></li> <li><code>The type of resource.</code></li> <li><code>The name of the service.</code></li></ul></td>
+        <td><code>reported_by</code><ul><li><code>id</code></li><li><code>title</code></li></ul></td>
+        <td></br><ul><li>The ID of the security tool that reported the finding.</li><li>The title of the security tool that reported the finding.</li></ul></td>
       </tr>
       <tr>
-        <td><code>finding</code> <ul><li><code>severity</code></li> <li><code>next_steps</code></li> <li><code>url</code></li></ul></td>
-        <td></br><ul><li>The level of urgency that the finding presents.</li> <li>The steps that can be taken to remediate the issue.</li> <li>A URL where the details of the finding can be found.</li></ul></td>
+        <td><code>finding</code> <ul><li><code>severity</code></li> <li><code>next_steps</code></li> <li><code>title</code></li></ul></td>
+        <td></br><ul><li>The level of urgency that the finding presents.</li> <li>The steps that can be taken to remediate the issue.</li> <li>The title of the finding.</li></ul></td>
       </tr>
     </tbody>
   </table>
@@ -206,7 +138,7 @@ You can integrate your security tools by using the {{site.data.keyword.security-
     "update_week_date": "2018-W36-2"
   }
   ```
-  {: screen}
+  {: codeblock}
 
 2. Create a finding by posting an [occurrence](https://us-south.secadvisor.cloud.ibm.com/findings/v1/docs/#/Findings_Occurrences/createOccurrence).
 
@@ -221,16 +153,16 @@ You can integrate your security tools by using the {{site.data.keyword.security-
     </thead>
     <tbody>
       <tr>
+        <td><code>note_name</code></td>
+        <td><code>&lt;account id&gt;/providers/my-custom-tool/notes/my-custom-tool-findings-type</code></td>
+      </tr>
+      <tr>
         <td><code>kind</code></td>
         <td><code>FINDING</code></td>
       </tr>
       <tr>
-        <td><code>short_description</code></td>
-        <td>A short description that summarizes the finding; no more than a couple of words.</td>
-      </tr>
-      <tr>
-        <td><code>long_description</code></td>
-        <td>A longer description that contains more detail about the finding.</td>
+        <td><code>remediation</code></td>
+        <td>The steps that need to be taken to resolve the issue.</td>
       </tr>
       <tr>
         <td><code>provider_id</code></td>
@@ -241,12 +173,12 @@ You can integrate your security tools by using the {{site.data.keyword.security-
         <td>An ID for the type of finding that your security tool found.</td>
       </tr>
       <tr>
-        <td><code>reported_by</code><ul><li><code>id</code></li><li><code>title</code></li></ul></td>
-        <td></br><ul><li>The ID of the security tool that reported the finding.</li><li>The title of the security tool that reported the finding.</li></ul></td>
+        <td><code>context</code><ul><li><code>region</code></li><li><code>resource_id</code></li> <li><code>resource_name</code></li> <li><code>resource_type</code></li> <li><code>service_name</code></li></ul></td>
+        <td></br><ul><li><code>The location in which the finding occurred</code></li><li><code>The ID for the specific resource.</code></li> <li><code>The name of the resource.</code></li> <li><code>The type of resource.</code></li> <li><code>The name of the service.</code></li></ul></td>
       </tr>
       <tr>
-        <td><code>finding</code> <ul><li><code>severity</code></li> <li><code>next_steps</code></li> <li><code>title</code></li></ul></td>
-        <td></br><ul><li>The level of urgency that the finding presents.</li> <li>The steps that can be taken to remediate the issue.</li> <li>The title of the finding.</li></ul></td>
+        <td><code>finding</code> <ul><li><code>severity</code></li> <li><code>next_steps</code></li> <li><code>url</code></li></ul></td>
+        <td></br><ul><li>The level of urgency that the finding presents.</li> <li>The steps that can be taken to remediate the issue.</li> <li>A URL where the details of the finding can be found.</li></ul></td>
       </tr>
     </tbody>
   </table>
@@ -301,9 +233,6 @@ You can integrate your security tools by using the {{site.data.keyword.security-
   {: codeblock}
 
 3. Define the card in the dashboard to display your finding by creating a [note](https://us-south.secadvisor.cloud.ibm.com/findings/v1/docs/#/Findings_Notes/createNote).
-
-  In each card, you can define only two KRIs to display.
-  {: note}
 
   ```
   curl -X POST "https://us-south.secadvisor.cloud.ibm.com/findings/v1/<account id>/providers/my-custom-tool/notes" -H "accept: application/json" -H "Authorization: <iam token>" -H "Content-Type: application/json" -d "{ \"kind\": \"CARD\", \"provider_id\": \"my-custom-tool\", \"id\": \"custom-tool-card\", \"short_description\": \"security risk found by my custom tool\", \"long_description\": \"Details about why this is security risk to be fixed\", \"reported_by\": { \"id\": \"my-custom-tool\", \"title\": \"My Security Tool\" }, \"card\": { \"section\": \"My Security Tools\", \"title\": \"My Security Tool Findings\", \"finding_note_names\": [ \"providers/my-custom-tool/notes/my-custom-tool-findings-type\" ], \"elements\": [ { \"kind\": \"NUMERIC\", \"text\": \"Count of findings reported by my security tool\", \"default_time_range\": \"1d\", \"value_type\": { \"kind\": \"FINDING_COUNT\", \"finding_note_names\": [ \"providers/my-custom-tool/notes/my-custom-tool-findings-type\" ] } } ] } }"
@@ -405,10 +334,43 @@ You can integrate your security tools by using the {{site.data.keyword.security-
     "update_week_date": "2018-W36-2"
   }
   ```
-  {: screen}
+  {: codeblock}
 
 4. Navigate to your service dashboard to see the card that you created.
 
+## Example scenario
+{: #custom-example}
 
-</br>
-</br>
+Why would you want to create customizations? Say that you have an application that is running a {{site.data.keyword.containershort_notm}} cluster with the name `cloudkingdom`. One of the pods in the cluster is sending an abnormal amount of data to external servers. You want to capture this finding in your {{site.data.keyword.security-advisor_short}} dashboard.
+
+If your custom tool monitors and detects the abnormal amount of data that is being transferred, then the tool sends the finding to {{site.data.keyword.security-advisor_short}}.
+
+Example payload:
+
+```
+{
+	"note_name": "<account id>/providers/my-custom-tool/notes/my-custom-tool-findings-type",
+	"kind": "FINDING",
+	"remediation": "How to resolve Data leakage threat",
+	"provider_id": "my-custom-tool",
+	"id": "my-custom-tool-finding-2",
+	"context": {
+		"region": "location",
+		"resource_id": "cluster crn",
+		"resource_name": "cloudkingdom",
+		"resource_type": "container",
+		"service_name": "kubernetes service"
+	},
+	"finding": {
+		"severity": "HIGH",
+		"next_steps": [{
+			"title": "Investigate which process are running in your cluster. If you suspect one of your pods was hacked, restart it, and look for image vulnerabilities",
+                        "url":"https://console.ibm.cloud.com/containers-kubernetes/clusters"
+		}],
+                "short_description": "One of the pods in your cluster appears to be leaking an excessive amount of data",
+                "long_description": "One of the pods in your cluster is approaching external servers and sending them data in volumes that exceed that pod’s normal behavior"
+	}
+
+}
+```
+{: codeblock}

@@ -1,85 +1,35 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="appid" audience="service" arm="2093952" href="/docs/services/appid/index.html" path="services/appid"}
-IBM Cloud App ID
+{: .toc subcollection="security-advisor" audience="security" arm="4033739" href="/docs/services/security-advisor/index.html" path="services/security-advisor"}
+IBM Cloud Security Advisor
 
     {: .navgroup id="learn"}
     index.md
     about.md
-    authorization.md
-
-    {: .topicgroup}
-    Tutorials
-        tutorial-roles.md
-        tutorial-kubernetes-auth.md
-
-    relatedlinks.md
+    integrations.md
+    network-analytics.md
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
-    {: .topicgroup}
-    Adding App ID to your app
-        web-apps.md
-        mobile-apps.md
-        backend-apps.md
-        custom-auth.md
-        progressive.md
-        protecting-resources-local.md
-        app-to-app.md
-        well-known.md
+    setup.md
 
     {: .topicgroup}
-    Configuring identity providers
-        manageidp.md
-        cloud-directory.md
-        enterprise.md
-        identity-providers.md
+    Enabling integrations
+        partners.md
         custom.md
 
-    mfa.md
-
-    {: .topicgroup}
-    Managing the sign in experience
-        login-widget.md
-        branded.md
-
-    {: .topicgroup}
-    Storing and accessing user profiles
-        user-profile.md
-        predefined.md
-        custom-attributes.md
-        pre-sign-in.md
-
-    {: .topicgroup}
-    Managing tokens
-        customizing-tokens.md
-        tokens.md
+    iam.md
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
-    {: .topicgroup}
-    APIs
-        [Authorization](https://appid-oauth.ng.bluemix.net/swagger-ui/#/Authorization_Server_V3)
-        [Management](https://us-south.appid.cloud.ibm.com/swagger-ui/#/)
-        [Profiles](https://appid-profiles.ng.bluemix.net/swagger-ui/index.html)
-
-    {: .topicgroup}
-    SDKs
-        [Android client SDK](https://github.com/ibm-cloud-security/appid-clientsdk-android)
-        [iOS Swift client SDK](https://github.com/ibm-cloud-security/appid-clientsdk-swift)
-        [Node.js server SDK](https://github.com/ibm-cloud-security/appid-serversdk-nodejs)
-        [Swift server SDK](https://github.com/ibm-cloud-security/appid-serversdk-swift)
-    iam.md
-    api-reference.md
+    [Findings API](https://console.bluemix.net/apidocs/security-advisor)
+    [Service dashboard](https://console.bluemix.net/security-advisor/#/dashboard)
+    [Blogs](https://www.ibm.com/blogs/bluemix/tag/security-advisor/)
     at-events.md
     {: .navgroup-end}
 
     {: .navgroup id="help"}
     faq.md
-
-    {: .topicgroup}
-    Troubleshooting
-        ts_index.md
-        ts_saml.md
+    ts_index.md
     {: .navgroup-end}
