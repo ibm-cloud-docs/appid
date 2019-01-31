@@ -37,7 +37,9 @@ IBM Cloud App ID
         identity-providers.md
         custom.md
 
-    mfa.md
+    {: .topicgroup}
+    Managing Cloud Directory
+        mfa.md
 
     {: .topicgroup}
     Managing the sign in experience
