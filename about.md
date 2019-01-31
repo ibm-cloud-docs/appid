@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2019
+  years: 2017, 2019
 lastupdated: "2019-01-31"
 
 ---
@@ -9,126 +9,90 @@ lastupdated: "2019-01-31"
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
+{:pre: .pre}
 {:tip: .tip}
 {:note: .note}
-{:important: .important}
-{:deprecated: .deprecated}
-{:download: .download}
 
-# About {{site.data.keyword.security-advisor_short}}
+# About {{site.data.keyword.appid_short_notm}}
 {: #about}
 
-{{site.data.keyword.security-advisor_long}} enables centralized security management through a unified dashboard that alerts security admins to issues and guides them to understand, prioritize, manage, and resolve security issues related to their cloud applications and workloads.
+Application security can be incredibly complicated. For most developers, it's one of the hardest parts of creating an app. How can you be sure that you are protecting your user's information? By integrating {{site.data.keyword.appid_full}} into your apps, you can secure resources and add authentication, even when you don't have much security experience.
+{:shortdesc}
+
+
+## Reasons to use the service
+{: #reasons}
+
+{{site.data.keyword.appid_short_notm}} helps developers to easily add authentication to their web and mobile apps with few lines of code, and secure their Cloud-native applications and services on {{site.data.keyword.Bluemix_notm}}. By requiring users to sign in to your app, you can store user data such as app preferences, or information from public social profiles, and then leverage that data to customize each user's experience within the app. {{site.data.keyword.appid_short_notm}} provides a log-in framework for you, but you can also bring your own branded sign in screens to use with cloud directory.
 {: shortdesc}
 
-
-## Service overview
-{: #overview}
-
-Before you get started, learn about the service architecture, use cases, and key concepts.
-
-**Is the service for me?**
-
-{{site.data.keyword.security-advisor_short}} is most helpful for Security Administrators. That role can take many names. Check out the following table for some example users:
+Why would you want to use {{site.data.keyword.appid_short_notm}}? Check out the following scenarios to see whether any of them apply to you.
 
 <table>
   <tr>
-    <th colspan=2><img src="images/idea.png" alt="light bulb icon"/> Security administrators</th>
+    <th>Scenario</th>
+    <th>Solution</th>
   </tr>
   <tr>
-    <td>CIO</td>
-    <td>A CIO or an Enterprise architecture team defines security and compliance policies at a high level for the entire company.</td>
+    <td>You need to add [authorization and authentication](/docs/services/appid/authorization.html) to your mobile and web apps but don't have a background in security.</td>
+    <td>{{site.data.keyword.appid_short_notm}} makes it easy to add an authentication step to your apps. You can add email or username sign in, social sign in, or enterprise sign in to your apps with APIs, SDKs, prebuilt UIs, or your own branded UIs.</td>
   </tr>
   <tr>
-    <td>CISO</td>
-    <td>A CISO decides how to implement the policies that are set by the CIO for the systems that are under their control. This could include middleware, servers, or architecture that is deployed. This person would define the security governance and security policies for the organization. They would monitor security risk and define controls to meet compliance standards such as ISO, or GDPR. This person also decides the tools that their teams use.</td>
+    <td>You want to limit access to your apps and back-end resources.</td>
+    <td>You can secure your apps, back-end resources, and APIs easily by using the standards based authentication provided by {{site.data.keyword.appid_short_notm}}.</td>
   </tr>
   <tr>
-    <td>Security focal</td>
-    <td>This person supports the CISO and executes the needed security checks and investigates any potential risks or issues. </td>
+    <td>You want to build personalized app experiences for your users.</td>
+    <td>With {{site.data.keyword.appid_short_notm}}, you can [store user data](/docs/services/appid/user-profile.html) such as app preferences or information from their public social profiles, and then use that data to customize each experience of your app.</td>
+  </tr>
+  <tr>
+    <td>You want to manage users in a scalable way.</td>
+    <td> {{site.data.keyword.appid_short_notm}} allows you to create a [Cloud Directory](/docs/services/appid/cloud-directory.html), which makes it possible for you to add user sign-up and sign-in to your apps. Cloud Directory provides you with the framework to maintain a user registry that can scale with your user base. With the pre-built functionality for self service, such as email verification and password resets, you can be sure that your app is authenticating users securely.</td>
   </tr>
 </table>
 
-The described roles might be performed by a single person or multiple people depending on the size of your company. However, the offering was created to address the day-to-day requirements of a CISO or Security focal.
 
-</br>
+## How it works
+{: #how-it-works}
 
-## Architecture
-{: #architecture}
-
-To make maintaining security at a large scale, {{site.data.keyword.security-advisor_short}} is designed as a micro-service on IBM Cloud. The core micro-service that is provided is the findings API which implements the mechanism for IBM Cloud and partner services to send security findings to your service dashboard.
+With {{site.data.keyword.appid_short_notm}}, you can add a level of security to your apps by requiring users to sign in. You can also use the server SDK or APIs to protect your back-end resources.
 {: shortdesc}
 
-The service receives findings from:
-* Pre-integrated IBM Cloud services like Certificate Manager and Vulnerability Advisor
-* Network Analytics Add-on (Beta)
-* Partners like NeuVector 
-* Custom integrations with your other security tools
-
-Check out the following image to see the way that {{site.data.keyword.security-advisor_short}} components fit together.
-
-![{{site.data.keyword.security-advisor_short}} architecture](images/architecture.png)
+![{{site.data.keyword.appid_short_notm}} architecture diagram](images/appid_architecture1.png)
 
 <dl>
-  <dt>Security risk and posture</dt>
-    <dd>Application security remains important with constant news articles announcing a new data breach or hack. Security risks will always be a part of development and although attacks can be difficult to predict, one way to prevent them is by closely monitoring your cloud deployments. For example, the risks can be related to vulnerabilities in your container images that are in use, expiring certificates that can cause outage of your cloud service or application or suspicious clients or servers with a known bad reputation interacting with your clusters.</dd>
-  <dt>Centralized security management</dt>
-    <dd>You can see a consolidated view of all of your IBM Cloud security services and integrated partner services. You can select and subscribe to different services from the IBM Cloud catalog.</dd>
-  <dt>Threat detection</dt>
-    <dd>{{site.data.keyword.security-advisor_short}} leverages the information that is gathered by IBM X-Force, other IBM Cloud services, and partner solutions to detect risks and threats before they become a security issue. The service also provides analytics on top of vulnerability data and network activity data.</dd>
+  <dt>Application</dt>
+    <dd><strong>Server SDK</strong>: You can protect your back-end resources that are hosted on {{site.data.keyword.Bluemix_notm}} and your web apps by using the server SDK. It extracts the access token from a request and validates it with {{site.data.keyword.appid_short_notm}}. </br>
+    <strong>Client SDK</strong>: You can protect your mobile apps with the Android or iOS client SDK. The client SDK communicates with your cloud resources to start the authentication process when it detects an authorization challenge.</dd>
+  <dt>{{site.data.keyword.Bluemix_notm}}</dt>
+    <dd><strong>{{site.data.keyword.appid_short_notm}}</strong>: After successful authentication, {{site.data.keyword.appid_short_notm}} returns access and identity tokens to your app.</br>
+    <strong>Cloud directory</strong>: Users can sign up for your service with their email and a password. You can then manage your users in a list view through the UI. With cloud directory, {{site.data.keyword.appid_short_notm}} functions as your identity provider.</dd>
+  <dt>External (third party)</dt>
+    <dd><strong>Social and enterprise identity providers</strong>: {{site.data.keyword.appid_short_notm}} supports Facebook, Google+,and  SAML 2.0 Federation as identity provider options. The service arranges a redirect to the identity provider and verifies the returned authentication tokens. If the tokens are valid, the service grants access to your app without ever having access to the actual passphrase.</dd>
 </dl>
 
 
-### The Findings API
-{: #api}
+## Integrations
+{: #integrations}
 
-Out of the box, the service comes with pre-integrated findings that are flagged by the API.
-{: shortdesc}
-
-The {{site.data.keyword.security-advisor_short}} findings API follows [Grafeas](http://grafeas.ng.bluemix.net/ui/) artifact metadata API specification to store, query, and retrieve critical metadata. The findings are reported by security services and tools.
-
-{{site.data.keyword.security-advisor_short}} is enabled by default for all IBM Cloud accounts. As such, you do not need to provision any instance of the service. An instance of {{site.data.keyword.security-advisor_short}} is automatically created on either the initial access of the dashboard or when an initial finding is reported. The service allows 18,000 findings, approximately 200 per day, for each account, in a 90 day period. At the end of the 90 days, the finds are purged. Finding limits are monitored and should the account reach the limit before 90 days, the total findings are reduced to 50% in a FIFO (First in, First Out) model. When the service receives an account delete notification all of the findings related to that account are  purged. You can retrieve all of the findings for your account by using the API and store them yourself for any future use or audit purpose.
-
-</br>
-
-## Key concepts
-{: #concepts}
-
-Learn about different concepts that you might use while working with {{site.data.keyword.security-advisor_short}}.
-{: shortdesc}
+You can use {{site.data.keyword.appid_short_notm}} with other {{site.data.keyword.Bluemix_notm}} offerings.
+{:shortdesc}
 
 <dl>
-  <dt>Finding</dt>
-    <dd>A finding is a priority security issue that is created when raw events are processed. Findings are made up of the key pieces of information that are needed to identify the who, what, when, and where of the issue. As a security admin, you can use {{site.data.keyword.security-advisor_short}} findings to prioritize and react to detected situations.</br> Findings are few and small in size but contain important insight that requires immediate attention. For example, your server is infected with malware or a certificate is about to expire.</dd>
-  <dt>Key Risk Indicator (KRI)</dt>
-    <dd>The Key Risk Indicator (KRI) is a measure used to indicate the risk of the findings to the security focal. KRIs provide an early signal of increasing risk exposures in various areas of enterprise cloud resources to the security focal. A KRI is triggered when a finding's value is out of bounds from the range of acceptable performance for specific security controls on services and workloads.</dd>
-  <dt>Note</dt>
-    <dd>A particular type of finding is defined as a note. Grafeas divides the metadata information into notes and occurrences. Notes are high-level descriptions of particular types of metadata. You can create different notes for each type of finding submitted by different providers.</dd>
-  <dt>Occurrence</dt>
-    <dd>An occurrence describes provider-specific details of a note. The occurrence contains the vulnerability details, remediation steps, and other general information.</dd>
-  <dt>Card</dt>
-    <dd>Metadata that is used to visualize the findings in the service dashboard is defined by note kind - <code>CARD</code>. {{site.data.keyword.security-advisor_short}} supports three types of KRI elements for a <code>CARD</code>: <ul><li>Numeric</li><li>Breakdown</li><li>Timeseries</li></ul></dd>
-  <dt>Provider</dt>
-    <dd>A provider is the tool or service that defines the type of finding (note) and then sends an occurrence of the finding to the service.</dd>
-  <dt>Service CRN</dt>
-    <dd>The Service CRN identifies the {{site.data.keyword.Bluemix_notm}} service that is involved in the finding. For instance, in a certificate expiry finding, the service instance ID or CRN of the Certificate Manager service instance reporting the findings will be included.</dd>
-  <dt>Resource CRN</dt>
-    <dd>The resource CRN identifies the specific resource that is involved in the finding. When Network Analytics reports a finding, the Kubernetes cluster CRN is be included to identify the cluster or resource affected.</dd>
+  <dt>{{site.data.keyword.containerlong_notm}}</dt>
+    <dd>By configuring Ingress in a standard cluster, you can secure your apps at the cluster level. Check out the <a href="/docs/containers/cs_annotations.html#appid-auth">{{site.data.keyword.appid_short_notm}} authentication Ingress annotation</a> or the <a href="https://www.ibm.com/blogs/bluemix/2018/05/announcing-app-id-integration-ibm-cloud-kubernetes-service/">Announcing {{site.data.keyword.appid_short_notm}} integration to {{site.data.keyword.containerlong_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> blog post to get started.</dd>
+  <dt>{{site.data.keyword.openwhisk}} and API Connect</dt>
+    <dd>When you create your APIs with [{{site.data.keyword.openwhisk_short}}](/docs/openwhisk/index.html) and [API Connect](/docs/services/apiconnect/getting-started.html), you can secure your applications at the gateway rather than in your app code. To see the integration in action, watch <a href="https://www.youtube.com/watch?v=Fa9YD2NGZiE" target="_blank">Simple and fast social login OAUTH with APIC and {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.</dd>
+  <dt>Cloud Foundry</dt>
+    <dd>Try out one of the provided sample Cloud Foundry apps to see how you can integrate {{site.data.keyword.appid_short_notm}} into your apps.</dd>
+  <dt>{{site.data.keyword.cloudaccesstrailshort}}</dt>
+    <dd>You can monitor administrative activity that is made in {{site.data.keyword.appid_short_notm}} such as changes to the dashboard configuration, by using the [{{site.data.keyword.cloudaccesstrailshort}} service](/docs/services/cloud-activity-tracker/index.html).</dd>
+  <dt>iOS Programming Guide</dt>
+    <dd>Do you develop apps for Apple? Try out the <a href="/docs/swift/index.html" target="_blank">iOS programming guide <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to learn, experiment, and enhance your existing iOS apps with {{site.data.keyword.Bluemix_notm}}.</dd>
+  <dt>Node.js programming guide</dt>
+    <dd>Do you develop apps in Node.js? Try out the <a href="/docs/node/index.html" target="_blank">Node.js programming guide <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to learn, experiment, and enhance your existing Node.js apps with {{site.data.keyword.Bluemix_notm}}.</dd>
 </dl>
 
-</br>
-
-## High-availability and disaster recovery
-{: #ha-dr}
-
-{{site.data.keyword.security-advisor_short}} is a highly available, multi-region service.
-{: shortdesc}
-
-{{site.data.keyword.security-advisor_short}} is currently supported in both the Dallas and London regions. In each supported region, the service runs in several [availability zones](https://www.ibm.com/blogs/bluemix/2018/06/improving-app-availability-multizone-clusters/). {{site.data.keyword.security-advisor_short}} has regional disaster recovery in place. The service maintains a back up database that can be quickly restored within three hours. All of the service data, with the exception of the previous 24 hours, is provided.
 
 
-</br>
-</br>

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-04"
+lastupdated: "2019-01-31"
 
 ---
 
@@ -24,12 +24,12 @@ lastupdated: "2019-01-04"
 With {{site.data.keyword.appid_full}}, you can start building a profile for users that you know are going to need access to your app, prior to their initial sign-in.
 {: shortdesc}
 
-To learn more about the types of attributes, check out [Understanding user profiles](user-profile.html). To learn more about custom attributes and their security considerations, check out [Custom attributes](custom-attributes.html).
+To learn more about the types of attributes, check out [Understanding user profiles](/docs/services/appid/user-profile.html). To learn more about custom attributes and their security considerations, check out [Custom attributes](/docs/services/appid/custom-attributes.html).
 {: tip}
 
 **Why would I want to add information about a user to my app before they sign in for the first time?**
 
-Consider an application where you use {{site.data.keyword.appid_short_notm}} to federate existing users from your SAML identity provider. You might want certain users to have `admin` access immediately upon signing into the application for the first time. To make this happen, you can use the preregistration endpoint to set a custom `admin` attribute for those users and grant them access to the administration console without any further action on your part. Be sure to consider the [security issues](custom-attributes.html) that can arise by changing the default setting.
+Consider an application where you use {{site.data.keyword.appid_short_notm}} to federate existing users from your SAML identity provider. You might want certain users to have `admin` access immediately upon signing into the application for the first time. To make this happen, you can use the preregistration endpoint to set a custom `admin` attribute for those users and grant them access to the administration console without any further action on your part. Be sure to consider the [security issues](/docs/services/appid/custom-attributes.html) that can arise by changing the default setting.
 
 **How are users identified?**
 

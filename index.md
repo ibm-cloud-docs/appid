@@ -1,78 +1,73 @@
 ---
 
 copyright:
-  years: 2019
+  years: 2017, 2019
 lastupdated: "2019-01-31"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
-{:screen: .screen}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
-{:codeblock: .codeblock}
 {:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:deprecated: .deprecated}
-{:download: .download}
 
 # Getting started tutorial
-{: #index}
+{: #gettingstarted}
 
-With {{site.data.keyword.security-advisor_long}}, you can instantly view the security posture of your {{site.data.keyword.Bluemix_notm}} through a single, centralized dashboard.
-{:shortdesc}
+Application security can be incredibly complicated. For most developers, it's one of the hardest parts of creating an app. How can you be sure that you are protecting your users information? By integrating {{site.data.keyword.appid_full}} into your apps, you can secure resources and add authentication; even when you don't have a lot of security experience.
+{: shortdesc}
 
-{{site.data.keyword.security-advisor_short}} is a cloud service that is enabled by default for all {{site.data.keyword.Bluemix_notm}} accounts. As such, you do not need to provision any instance of the service.
-{: tip}
+By requiring users to sign in to your app, you can store user data such as app preferences or information from the public social profiles, and then use that data to customize each experience of your app. {{site.data.keyword.appid_short_notm}} provides a log in framework for you, but you can also bring your own branded sign in screens when working with cloud directory.
 
-The service receives security information from various sources and displays any security alerts or vulnerabilities that require your attention in the service dashboard. Out of the box, there are several pre-populated cards in your dashboard. These findings are from security services in IBM Cloud, but you can also add cards or custom partner solutions so that all of your security tools can be accessed from the same location.
+We’d love to hear from you with feedback and questions!
+* If you have technical questions about {{site.data.keyword.appid_short_notm}}, post your question on <a href="https://stackoverflow.com/search?q=ibm-appid" target="_blank">Stack Overflow <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> and tag your question with `ibm-appid`.
+* For questions about the service and getting started instructions, use the <a href="https://developer.ibm.com/answers/topics/appid/" target="_blank">dW Answers <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> forum. Include the `appid` tag.
 
-Through pre-integrated findings, you can monitor:
+## Creating a service instance
+{: #create}
 
-- Certificates that you manage with {{site.data.keyword.cloudcerts_long_notm}}
-- Vulnerabilities in container images that are stored in {{site.data.keyword.registrylong_notm}}
+Create and bind an instance of {{site.data.keyword.appid_short_notm}} to your app to get started.
+{: shortdesc}
 
-You can also gain insight into suspicious clients and potentially compromised containers that run on your {{site.data.keyword.containerlong_notm}} clusters. With the feature enabled and configured, cluster network communication, both incoming and outgoing, is collected and continuously monitored and analyzed based on threat intelligence. You can learn more by reading [Network analytics](network-analytics.html)
+1. In the {{site.data.keyword.Bluemix}} catalog, select {{site.data.keyword.appid_short_notm}}. The service configuration screen opens.
+2. Give your service instance a name, or use the preset name.
+3. Select your pricing plan and click **Create**.
+4. Bind your instance of {{site.data.keyword.appid_short_notm}}.
+    1. To see a list of apps that you can bind to your service instance, click **Connections**.
+    2. Click **Create connection**. A page opens with all of the apps that you have the option to bind.
+    3. Click **Connect** on the app that you want to bind.
+    4. Click **Re-stage** to apply the change.
 
-</br>
+That's it! You're ready to start configuring your application settings.
 
-## Getting to the service dashboard
-{: #start-dashboard}
+## Configuring a sample app
+{: #sample-app}
 
-Ready to get started? You can get to the service dashboard in one of the following ways:
+You can use one of the preconfigured sample apps to get familiar with working with the service.
+{: shortdesc}
 
-<ul>
-  <li>By using the tile:
-    <ol>
-      <li>Log in to <a href="https://console.cloud.ibm.com/catalog/" target="_blank">{{site.data.keyword.Bluemix_notm}}<img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.</li>
-      <li>Navigate to the **Catalog** and click **Security and Identity**.</li>
-      <li>Select the {{site.data.keyword.security-advisor_short}} tile. A dashboard opens where you can view security information for the preconfigured integrated tools such as vulnerability advisor and certificate manager.</li>
-    </ol>
-  </li>
-  <li>By using the menu:
-    <ol>
-      <li>Log in to <a href="https://console.cloud.ibm.com" target="_blank">{{site.data.keyword.Bluemix_notm}}<img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.</li>
-      <li>From your dashboard, click the hamburger menu to expand your options.</li>
-      <li>Click **Security**. An overview of the security dashboard opens.</li>
-      <li>Click **Getting Started** in the navigation to see general overview information about the service, or click **Dashboard** if you prefer to learn by seeing the service in action.</li>
-    </ol>
-  </li>
-</ul>
+Out of the box, the sample apps are configured with two identity providers and the ability to review authentication. Sample apps are offered in `iOS Swift`, `Android`, `Node.js`, and `Java`. If you don't see a language in which you feel comfortable working, don't worry! You can integrate {{site.data.keyword.appid_short_notm}} into your own sample application by using the provided APIs.
 
-Are your pre-integrated findings not displaying any information? You might not have any certificates or images for {{site.data.keyword.security-advisor_short}} to monitor. Learn more about what {{site.data.keyword.security-advisor_short}} needs to populate the dashboard cards in [Leveraging pre-integrated services](setup.html).
+To build a sample app:
 
-</br>
+1. Click **Download Sample**.
+2. Click on the language of your choice to download the sample.
+  Don't see the language you're looking for? Don't worry! You can take advantage of {{site.data.keyword.appid_short_notm}} through the APIs. You can also check out <a href="https://www.ibm.com/blogs/bluemix/tag/app-id/" target="_blank">our blogs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> for extra help in other languages.
+  {: tip}
+3. Be sure that you have the pre-requisites installed or completed.
+4. Follow the **Build & Run** steps to set up your sample with {{site.data.keyword.appid_short_notm}}.
+5. Click **Review Activity** to see any authentication events that occurred. Any type of sign in creates an event that is visible on this page.
+6. Customize the sign in widget.
+  1. Add an image such as a brand logo by clicking **Select** and browsing your local system for an image to upload.
+  2. Choose a color scheme by either selecting one of the color options or specifying in a hex value.
+  3. Change between web and mobile to see how the color scheme looks on each type of device.
+  4. When you're happy with your choices, click **Save Changes**.
+7. In a browser, refresh your login page. The changes that you made in the previous step are already visible.
+
 
 ## Next steps
-{: #start-next}
+{: #next}
 
-Now that you've seen the dashboard in action, [learn more](about.html) about how {{site.data.keyword.security-advisor_short}} can help you. You can also send user feedback by using [developerWorks](ts_index.html) to contribute ideas for the service as it develops.
+Ready to jump in and get started with your own apps? Start by [adding the service to your app](/docs/services/appid/web-apps.html). The service provides SDKs for the most used languages, but if you don't see an SDK for the language that your app is written in, you can still take advantage of {{site.data.keyword.appid_short_notm}} by using the APIs.
 
 </br>
-
-## Availability
-{: #start-availability}
-
-Currently, you can take advantage of {{site.data.keyword.security-advisor_short}} in the Dallas, and London regions.
+</br>
