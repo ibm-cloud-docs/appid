@@ -1,84 +1,70 @@
 ---
 
 copyright:
-  years: 2019
-lastupdated: "2019-01-31"
+  years: 2017, 2019
+lastupdated: "2019-02-01"
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
-{:screen: .screen}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:deprecated: .deprecated}
-{:download: .download}
+{:screen: .screen}
 {:tsSymptoms: .tsSymptoms}
 {:tsCauses: .tsCauses}
 {:tsResolve: .tsResolve}
 
-# Troubleshooting
+# General troubleshooting
 {: #troubleshooting}
 
-If you have problems while you're working with {{site.data.keyword.security-advisor_long}}, consider these techniques for troubleshooting and getting help.
+If you have problems while you're working with {{site.data.keyword.appid_full}}, consider these techniques for troubleshooting and getting help.
 {: shortdesc}
-
 
 ## Getting help and support
-{: #getting-help-and-support}
+{: #ts-gettinghelp}
 
+You can get help by searching for information or by asking questions through a forum. You can also open a support ticket. When you are using the forums to ask a question, tag your question so that it is seen by the {{site.data.keyword.Bluemix_notm}} development teams.
+  * If you have technical questions about {{site.data.keyword.appid_short_notm}}, post your question on <a href="https://stackoverflow.com/search?q=ibm-appid" target="_blank">Stack Overflow <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> and tag your question with "ibm-appid".
+  * For questions about the service and getting started instructions, use the <a href="https://developer.ibm.com/answers/topics/appid/" target="_blank">dW Answers <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> forum. Include the `appid` tag.
 
-
-You can find help by searching for information or by asking questions through a forum. You can also open a support ticket. When you are using the forums to ask a question, tag your question so that it is seen by the {{site.data.keyword.Bluemix_notm}} development teams.
-{: shortdesc}
-
-* If you have technical questions about {{site.data.keyword.security-advisor_short}}, post your question on <a href="http://stackoverflow.com/search?q=ibm+" target="_blank">Stack Overflow <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>. Be sure to include the `security-advisor` and `ibm-cloud` tags.
-* For questions about the service and getting started instructions, use the <a href="https://developer.ibm.com/answers/search.html?f=&type=question&redirect=search%2Fsearch&sort=relevance&q=appid%20[bluemix]" target="_blank">dW Answers <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> forum. Be sure to include the `security-advisor` and `ibm-cloud` tags.
-
-For more information about getting support, see [how do I get the support that I need](/docs/get-support/howtogetsupport.html#getting-customer-support).
+For more information about getting support, see [How do I get the support that I need](/docs/get-support/howtogetsupport.html#getting-customer-support).
 
 </br>
 
-## You can't create a custom solution occurrence
-{: #ts-custom-occurrence}
+## A custom URL is rejected
+{: #ts-custom-url}
+
 
 {: tsSymptoms}
-You try to create a custom solution occurrence but the information doesn't show in a browser and you receive no error message.
+When you enter a web redirect URL that uses a custom URL Scheme it is rejected by the {{site.data.keyword.appid_short_notm}} console.
 
 {: tsCauses}
-You have encountered a known issue. Creating the occurrence failed because the name that you chose already exists.
+Your URL might be rejected for the following reasons:
+
+* The URL does not follow an `http` or `https` scheme
+* The URL ends with `://`
+* There is a typographical error in your URL
+
+The limitations are in place for security purposes.
 
 {: tsResolve}
-Choose another name for your occurrence.
+To resolve the issue, verify that the URL is correct. If your URL does not meet the requirements, you can create an HTTPS endpoint in your app to redirect the received grant code to your custom URL. Specify the created endpoint as your redirect URL in the {{site.data.keyword.appid_short_notm}} console.
 
 </br>
 
-## KPI is missing
-{: #ts-kpi-missing}
+## Error: Too many requests
+{: #ts-requests}
 
 {: tsSymptoms}
-You do not see any KRI on your **Suspicious server IPs card**.
+You attempt to view the home page of your app but receive the following error:
+```
+{"error_code":"too many requests","error_description":"too many requests"}
+```
+{: screen}
 
 {: tsCauses}
-You have encountered a known issue.
+You might receive a "too many requests" error if you are performing automated testing with only one virtual user. Each user is limited to five log in attempts in a one minute time span. Log in attempts are limited in order to prevent brute force DDOS and other types of similar attacks.
 
 {: tsResolve}
-This issue cannot be resolved.
-
+To resolve the issue, you might want to use multiple virtual users when performing testing.
 </br>
-
-## The latest details do not show
-{: #ts-latest-details}
-
-{: tsSymptoms}
-You do not see the latest details on your **Images with vulnerabilities** card.
-
-{: tsCauses}
-You have encountered a known issue. Occasionally, the information does not update the first time a page loads.
-
-{: tsResolve}
-To resolve the issue, click the refresh icon.

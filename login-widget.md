@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-31"
+lastupdated: "2019-02-01"
 
 ---
 
@@ -26,22 +26,26 @@ Want to create an experience that's unique to your app? You can [bring your own 
 {: tip}
 
 ## Understanding the Login Widget
-{: #understanding}
+{: #widget-understanding}
 
 You can take advantage of {{site.data.keyword.appid_short_notm}}, even without your own UI screens, by displaying the Login Widget.
 {: shortdesc}
 
-**What is the default?**
+### What is the default?
+{: #widget-default}
 
 When more than one identity provider is configured, a user is redirected to the Login Widget when they try to sign in to your application. By using the Login Widget, users can choose the provider that they want to verify their identity with. But, when only one provider is set to **On**, visitors are redirected to that identity providers authentication screen.
 
-**How much information does {{site.data.keyword.appid_short_notm}} obtain from an identity provider?**
+### How much information does {{site.data.keyword.appid_short_notm}} obtain from an identity provider?
+{: #widget-obtain-info}
 
 When you use social or enterprise identity providers, {{site.data.keyword.appid_short_notm}} has read access to a users account information. The service uses a token and the assertions that are returned by the identity provider to verify that a user is who they say that they are. Because the service never has write access to the information, users must go through their chosen identity provider to do actions, such as resetting their password. For example, if a user signs in to your app with Facebook, and then wanted to change their password, they must go to www.facebook.com to do so.
 
 When you use [Cloud Directory](/docs/services/appid/cloud-directory.html), {{site.data.keyword.appid_short_notm}} is the identity provider. The service uses your registry to verify your users identity. Because {{site.data.keyword.appid_short_notm}} is the provider, users can take advantage of advanced functionality, such as resetting their password, directly in your app.
 
-**What kind of screens can be displayed for each type of provider?**
+
+### Which screens can be displayed for each provider?
+{: #widget-options}
 
 Check out the following table to see which screens you can display for each type of identity provider.
 
@@ -92,7 +96,7 @@ Check out the following table to see which screens you can display for each type
 </br>
 
 ## Customizing the Login Widget
-{: #customize}
+{: #widget-customize}
 
 {{site.data.keyword.appid_short_notm}} provides a default login screen that you can call if you don't have your own UI screens to display. You can customize the screen to display the logo and colors of your choice.
 {: shortdesc}
@@ -111,7 +115,7 @@ Don't forget! You can take advantage of {{site.data.keyword.appid_short_notm}} w
 
 
 ## Displaying the Login Widget with the Android SDK
-{: #android}
+{: #widget-display-android}
 
 You can call preconfigured screens with the [Android client SDK](https://github.com/ibm-cloud-security/appid-clientsdk-android).
 {: shortdesc}
@@ -141,7 +145,8 @@ Place the following command in your code.
 
 </br>
 
-**Sign up**
+### Sign up
+{: #widget-android-signup}
 
 1. Configure your Cloud Directory [settings](/docs/services/appid/cloud-directory.html#cd-settings) in the GUI. Both **Allow users to sign up to your app** and **Allow users to manage their account from your app** must be set to **On**.
 2. Add the following code to your app. When a user signs up for your app from your custom screen, the sign up flow is started. The following call not only registers the user, but can also send a verification email to complete the registration, depending on your Cloud Directory configurations.
@@ -173,7 +178,8 @@ Place the following command in your code.
 
 </br>
 
-**Forgot password**
+### Forgot password
+{: #widget-android-forgot-password}
 
 1. Configure your Cloud Directory [settings](/docs/services/appid/cloud-directory.html#cd-settings) in the GUI. **Allow users to manage their account from your app** must be set to **On**.
 2. In the **Reset Password** tab of the service dashboard, be sure that **Forgot password email** is set to **On**.
@@ -202,7 +208,8 @@ Place the following command in your code.
 
 </br>
 
-**Change details**
+### Change details
+{: #widget-android-change-details}
 
 1. Configure your Cloud Directory [settings](/docs/services/appid/cloud-directory.html#cd-settings) in the GUI. Both **Allow users to sign up to your app** and **Allow users to manage their account from your app** must be set to **On**.
 2. In the **Password changed** tab of the service dashboard, set **Password changed email** to
@@ -231,7 +238,8 @@ Place the following command in your code.
 
 </br>
 
-**Change password**
+### Change password
+{: #widget-android-change-password}
 
 1. Configure your Cloud Directory [settings](/docs/services/appid/cloud-directory.html#cd-settings) in the GUI. Both **Allow users to sign up to your app** and **Allow users to manage their account from your app** must be set to **On**.
 2. Place the following code in your app to start the change password flow.
@@ -258,11 +266,9 @@ Place the following command in your code.
   {: codeblock}
 
 
-</br>
-</br>
 
 ## Displaying the Login Widget with the iOS Swift SDK
-{: #ios-swift}
+{: #widget-display-ios-swift}
 
 You can call preconfigured screens with the [iOS Swift client SDK](https://github.com/ibm-cloud-security/appid-clientsdk-swift).
 {: shortdesc}
@@ -291,7 +297,8 @@ Place the following command in your code.
 
 </br>
 
-**Sign up**
+### Sign up
+{: #widget-ios-signup}
 
 1. Configure your Cloud Directory [settings](/docs/services/appid/cloud-directory.html#cd-settings) in the GUI. Both **Allow users to sign up to your app** and **Allow users to manage their account from your app** must be set to **On**.
 2. Place the following code in your application. When a user attempts to sign up for your application, the login widget is called and displays your custom sign up page.
@@ -321,7 +328,8 @@ Place the following command in your code.
 
 </br>
 
-**Forgot password**
+### Forgot password
+{: #widget-ios-forgot-password}
 
 1. Configure your Cloud Directory [settings](/docs/services/appid/cloud-directory.html#cd-settings) in the GUI. **Allow users to manage their account from your app** must be set to **On**.
 2. In the **Reset Password** tab of the service dashboard, be sure that **Forgot password email** is set to **On**.
@@ -348,7 +356,8 @@ Place the following command in your code.
 
 </br>
 
-**Change details**
+### Change details
+{: #widget-ios-change-details}
 
 1. Configure your Cloud Directory [settings](/docs/services/appid/cloud-directory.html#cd-settings) in the GUI. Both **Allow users to sign up to your app** and **Allow users to manage their account from your app** must be set to **On**.
 2. In the **Password changed** tab of the service dashboard, set **Password changed email** to
@@ -375,7 +384,8 @@ Place the following command in your code.
 
 </br>
 
-**Change password**
+### Change password
+{: #widget-ios-change-password}
 
 1. Configure your Cloud Directory [settings](/docs/services/appid/cloud-directory.html#cd-settings) in the GUI. Both **Allow users to sign up to your app** and **Allow users to manage their account from your app** must be set to **On**.
 2. Place the following code in your app to start the change password flow.
@@ -399,11 +409,9 @@ Place the following command in your code.
   ```
   {: codeblock}
 
-</br>
-</br>
 
 ## Displaying the Login Widget with the Node.js SDK
-{: #nodejs}
+{: #widget-display-nodejs}
 
 You can call preconfigured screens with the [Node.js server SDK](https://github.com/ibm-cloud-security/appid-serversdk-nodejs).
 {: shortdesc}
@@ -424,7 +432,8 @@ Add a post route to your app that can be called with the username and password p
 
 </br>
 
-**Sign up**
+### Sign up
+{: #widget-nodejs-signup}
 
 1. Configure your Cloud Directory [settings](/docs/services/appid/cloud-directory.html#cd-settings) in the GUI. Both **Allow users to sign up to your app** and **Allow users to manage their account from your app** must be set to **On**.
 2. Place the following code in your application. When a user attempts to sign up for your application, the login widget is called and displays your custom sign up page.
@@ -439,7 +448,8 @@ Add a post route to your app that can be called with the username and password p
 
 </br>
 
-**Forgot password**
+### Forgot password
+{: #widget-nodejs-forgot-password}
 
 1. Configure your Cloud Directory [settings](/docs/services/appid/cloud-directory.html#cd-settings) in the GUI. **Allow users to manage their account from your app** must be set to **On**.
 2. In the **Reset Password** tab of the service dashboard, be sure that **Forgot password email** is set to **On**.
@@ -455,7 +465,8 @@ Add a post route to your app that can be called with the username and password p
 
 </br>
 
-**Change details**
+### Change details
+{: #widget-nodejs-change-details}
 
 1. Configure your Cloud Directory [settings](/docs/services/appid/cloud-directory.html#cd-settings) in the GUI. Both **Allow users to sign up to your app** and **Allow users to manage their account from your app** must be set to **On**.
 2. In the **Password changed** tab of the service dashboard, set **Password changed email** to
@@ -471,7 +482,8 @@ Add a post route to your app that can be called with the username and password p
 
 </br>
 
-**Change password**
+### Change password
+{: #widget-nodejs-change-password}
 
 1. Configure your Cloud Directory [settings](/docs/services/appid/cloud-directory.html#cd-settings) in the GUI. Both **Allow users to sign up to your app** and **Allow users to manage their account from your app** must be set to **On**.
 2. In the **Password changed** tab of the service dashboard, set **Password changed email** to
@@ -484,5 +496,3 @@ Add a post route to your app that can be called with the username and password p
   }));
   ```
   {: codeblock}
-
-</br>

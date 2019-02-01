@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-29"
+lastupdated: "2019-02-01"
 
 ---
 
@@ -15,13 +15,13 @@ lastupdated: "2019-01-29"
 
 
 # Web apps
-{: #adding-web}
+{: #web-apps}
 
 With {{site.data.keyword.appid_full}}, you can quickly construct an authentication layer for your web applications.
 {: shortdesc}
 
 ## Understanding the flow
-{: #understanding}
+{: #web-understanding}
 
 **When would this flow be useful?**
 
@@ -55,7 +55,7 @@ Web apps often require users to authenticate in order to access protected conten
 </br>
 
 ## Configuring the Node.js SDK
-{: #configuring-nodejs}
+{: #web-configuring-nodejs}
 
 You can configure {{site.data.keyword.appid_short_notm}} to work with your Node.js web applications.
 {: shortdesc}
@@ -72,6 +72,7 @@ You must have the following prerequisites:
 
 
 ### Installing the Node.js SDK
+{: #web-nodejs-install}
 
 1. By using the command line, change to the directory that contains your Node.js app.
 
@@ -82,6 +83,7 @@ You must have the following prerequisites:
   {: codeblock}
 
 ### Initializing the Node.js SDK
+{: #web-nodejs-initialize}
 
 1. Add the following `require` definitions to your `server.js` file.
 
@@ -174,7 +176,7 @@ For more information, see the <a href="https://github.com/ibm-cloud-security/app
 </br>
 
 ## Configuring the Liberty for Java SDK
-{: #configuring-liberty}
+{: #web-configuring-liberty}
 
 You can configure {{site.data.keyword.appid_short_notm}} to work with your Liberty for Java web applications.
 {:shortdesc}
@@ -189,6 +191,7 @@ You must have the following prerequisites:
 * A Liberty for Java web application
 
 ### Installing the Liberty for Java SDK
+{: #web-liberty-install}
 
 1. Add an OpenID Connect feature to your `server.xml`.
 
@@ -264,6 +267,7 @@ You must have the following prerequisites:
   </table>
 
 ### Initializing the Liberty for Java SDK
+{: #web-liberty-initialize}
 
 1. In your `server.xml` file, define an authorization filter to specify protected resources. If a filter is not <a href="https://www.ibm.com/support/knowledgecenter/en/SSD28V_8.5.5/com.ibm.websphere.wlp.core.doc/ae/rwlp_auth_filter.html" target="_blank">defined <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>, the service protects all resources.
 
@@ -305,7 +309,7 @@ By default SSL configuration requires the truststore be configured for OpenID Co
 </br>
 
 ## Configuring Spring Boot for Java SDK
-{: #configuring-spring-boot}
+{: #web-configuring-spring-boot}
 
 You can configure {{site.data.keyword.appid_short_notm}} to work with your Spring Boot applications.
 {:shortdesc}
@@ -323,6 +327,7 @@ You must have the following prerequisites:
 
 
 ### Initializing the Spring Boot framework
+{: #web-spring-boot-initialize}
 
 1. Add the following between the `<project> </project>` tags in your Maven `pom.xml` file.
 
@@ -368,6 +373,7 @@ You must have the following prerequisites:
   {: codeblock}
 
 ### Initializing OAuth2
+{: #web-oauth-initialize}
 
 1. Add the following annotations to your Java file.
 
@@ -392,6 +398,7 @@ You must have the following prerequisites:
 
 
 ### Adding credentials
+{: #web-spring-boot-credentials}
 
 1. Add an `application.yml` configuration file to the `/springbootsample/src/main/resources/` directory. You can complete your configuration with the information from your service credentials.
 
@@ -415,7 +422,7 @@ For a step-by-step example, check out <a href="https://www.ibm.com/blogs/bluemix
 </br>
 
 ## Using {{site.data.keyword.appid_short_notm}} with other languages
-{: #other}
+{: #web-other-languages}
 
 With an OIDC compliant client SDK, you can use {{site.data.keyword.appid_short_notm}} with other languages. Check out a list of <a href="https://openid.net/developers/certified/">certified libraries</a> for more information.
 
@@ -424,7 +431,7 @@ With an OIDC compliant client SDK, you can use {{site.data.keyword.appid_short_n
 </br>
 
 ## Next steps
-{: #next}
+{: #web-next}
 
 With {{site.data.keyword.appid_short_notm}} installed in your application, you're almost ready to start authenticating users! Try doing one of the following activities next:
 

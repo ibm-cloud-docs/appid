@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-04"
+lastupdated: "2019-02-01"
 
 ---
 
@@ -13,14 +13,14 @@ lastupdated: "2019-01-04"
 {:screen: .screen}
 
 # Predefined user attributes
-{: #predefined}
+{: #predefined-attributes}
 
 With {{site.data.keyword.appid_full}}, you can view identity provider specific information about your users.
 {: shortdesc}
 
 
 ## Accessing with the iOS SDK
-{: #ios}
+{: #predefined-access-ios}
 
 If new tokens are not explicitly passed to the SDK, {{site.data.keyword.appid_short_notm}} uses the last received tokens to retrieve and validate the response. For example, you can execute the following code after a successful authentication and the SDK retrieves additional information about the user.
 
@@ -50,7 +50,7 @@ AppID.sharedInstance.userProfileManager.getUserInfo(accessToken: String, identit
 </br>
 
 ## Accessing with the Android SDK
-{: #android}
+{: #predefined-access-android}
 
 If new tokens are not explicitly passed to the SDK, {{site.data.keyword.appid_short_notm}} uses the last received tokens to retrieve and validate the response. For example, you can execute the following code after a successful authentication and the SDK retrieves additional information about the user.
 
@@ -93,7 +93,7 @@ appId.getUserProfileManager().getUserInfo(accessToken, identityToken, new UserPr
 </br>
 
 ## Accessing with the Node.js Server SDK
-{: #node}
+{: #predefined-access-node}
 
 
 By using a server-side SDK, you can retrieve additional information about your users. You can call the following method by using the stored access and identity tokens, or you can explicitly pass the tokens. The identity token is optional, but when passed, it's used to validate the user info response.
@@ -121,7 +121,7 @@ userProfileManager.getUserInfo(accessToken).then(function (profile) {
 </br>
 
 ## Accessing with the Swift Server SDK
-{: #swift}
+{: #predefined-access-swift}
 
 By using a server-side SDK, you can retrieve additional information about your users. You can call the following method by using the stored access and identity tokens, or you can explicitly pass the tokens. The identity token is optional, but when passed, it's used to validate the user info response.
 
@@ -153,7 +153,7 @@ userProfileManager.getUserInfo(accessToken: accessToken) { (err, userInfo) in
 </br>
 
 ## Accessing with the API
-{: #api}
+{: #predefined-access-api}
 
 You can view additional information through the `/userinfo` endpoint.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-31"
+lastupdated: "2019-02-01"
 
 ---
 
@@ -19,7 +19,7 @@ lastupdated: "2019-01-31"
 {:download: .download}
 
 # Adding attributes before user sign in
-{: #sign-in}
+{: #preregister}
 
 With {{site.data.keyword.appid_full}}, you can start building a profile for users that you know are going to need access to your app, prior to their initial sign-in.
 {: shortdesc}
@@ -27,18 +27,24 @@ With {{site.data.keyword.appid_full}}, you can start building a profile for user
 To learn more about the types of attributes, check out [Understanding user profiles](/docs/services/appid/user-profile.html). To learn more about custom attributes and their security considerations, check out [Custom attributes](/docs/services/appid/custom-attributes.html).
 {: tip}
 
-**Why would I want to add information about a user to my app before they sign in for the first time?**
+## Understanding preregistration
+{: #preregister-understand}
+
+### Why would I want to use preregistration?
+{: #preregister-why}
 
 Consider an application where you use {{site.data.keyword.appid_short_notm}} to federate existing users from your SAML identity provider. You might want certain users to have `admin` access immediately upon signing into the application for the first time. To make this happen, you can use the preregistration endpoint to set a custom `admin` attribute for those users and grant them access to the administration console without any further action on your part. Be sure to consider the [security issues](/docs/services/appid/custom-attributes.html) that can arise by changing the default setting.
 
-**How are users identified?**
+### How are users identified?
+{: #preregister-identify-user}
 
 You can identify your users by using one of the following:
 
 * The user's unique ID, called the **GUID**, in the identity provider. Although this identifier always exists and is guaranteed to be unique, it is not always readily available or easy to understand. For instance, Cloud Directory uses a random 16 byte random GUID.
 * If available, the user's **email**.
 
-**How do I know which identity provider gives what information?**
+### What information do the identity providers provide?
+{: #preregister-idp-provide}
 
 Check out the following table to see which type of identity information that you can use.
 
@@ -85,11 +91,11 @@ Check out the following table to see which type of identity information that you
   </tbody>
 </table>
 
-**Is Cloud Directory handled differently?**
+### How is Cloud Directory handled?
+{: #preregister-cd}
+
 
 In order to ensure the integrity of the preregistered user attributes, Cloud Directory places additional requirements on its users. Preregistration can only occur when email validation is enabled and verified. If you preregister a Cloud Directory user with specific attributes, then those attributes are intended for a specific person. If the email is not verified first, it is possible for another user to claim the email address and any attributes that are assigned to it.
-
-How do I do that?
 
 1. Set Cloud Directory to email and password mode. You can do this through the UI in the general settings on the **Cloud Directory** tab. You can also set it through the [management APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Cloud_Directory_Users/createCloudDirectoryUser).
 
@@ -105,7 +111,7 @@ When you add user information to your application in advance, you can use any un
 
 
 ## Adding user information to your app
-{: #add}
+{: #preregister-add-info}
 
 Now that you've learned about the process and considered your security implications, try adding a user.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-31"
+lastupdated: "2019-02-01"
 
 ---
 
@@ -21,8 +21,6 @@ Token validation is an important part of modern app development. By validating t
 
 For more information about how tokens are used in {{site.data.keyword.appid_short_notm}}, see [Understanding tokens](/docs/services/appid/authorization.html#tokens).
 {: tip}
-
-**What is token validation?**
 
 Tokens are used to verify that a person is who they say that they are. They confirm any access permissions that the user might hold, for a specified length of time. When a user signs into your application and is issued a token, your app must validate the user before they are given access.
 
@@ -207,6 +205,3 @@ You can validate your tokens locally by parsing the token, verifying the token s
       </tr>
     </tbody>
   </table>
-
-</br>
-</br>

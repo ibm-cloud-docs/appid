@@ -145,7 +145,7 @@ You can bind your instance of {{site.data.keyword.appid_short_notm}} to your clu
 Great work!
 
 ## Step 2: Pushing your app to Container Registry
-{: #tutorial-kube-registry}
+{: #kube-registry}
 
 In order for your application to run in Kubernetes, you must host it in a registry.
 {: shortdesc}
@@ -175,7 +175,7 @@ In order for your application to run in Kubernetes, you must host it in a regist
 Nice! You're almost ready to deploy.
 
 ## Step 3: Configuring Ingress
-{: kube-configure-ingress}
+{: kube-ingress}
 
 During cluster creation, both a private and a public Ingress ALB are created for you. To deploy your application and take advantage of your Ingress controller, create a deployment script.
 {: shortdesc}

@@ -15,7 +15,7 @@ lastupdated: "2019-02-01"
 
 
 # Multi-factor authentication
-{: #mfa}
+{: #cd-mfa}
 
 Multi-factor authentication (MFA) requires a user to confirm their identity in two ways. Users are required to provide something that they know - their password and something that they have - an authentication code. For example, with {{site.data.keyword.appid_full}} you can send a one-time code to a user's email when they attempt to sign in as a second form of identity verification.
 {: shortdesc}
@@ -31,7 +31,7 @@ MFA is available for instances of {{site.data.keyword.appid_short_notm}} that ar
 {: note}
 
 ## Understanding the flow
-{: #mfa-understanding}
+{: #cd-mfa-understanding}
 
 
 
@@ -49,7 +49,7 @@ MFA is available for instances of {{site.data.keyword.appid_short_notm}} that ar
 </br>
 
 ## Configuring MFA
-{: #mfa-configuration}
+{: #cd-mfa-configuration}
 
 {{site.data.keyword.appid_short_notm}} MFA is supported as part of the OAuth 2.0 authorization code flow for Cloud Directory users through the Login Widget.
 {: shortdesc}
@@ -58,6 +58,7 @@ To configure MFA through the GUI, check out [Cloud Directory](/docs/services/app
 {: note}
 
 ### Configuring with the API
+{: #cd-mfa-configure-api}
 
 You can configure MFA by using the management APIs.
 {: shortdesc}
@@ -134,7 +135,7 @@ Be sure that you have the following prerequisites:
   {: pre}
 
   Example request:
-  
+
   ```
   $ curl -X PUT
     --header 'Content-Type: application/json'

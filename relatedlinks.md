@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-10"
+lastupdated: "2019-02-01"
 
 ---
 
@@ -11,13 +11,13 @@ lastupdated: "2019-01-10"
 
 
 # Discover
-{: #rel-links}
+{: #rellinks}
 
 You can use the following related links and Samples to learn more about and interact with {{site.data.keyword.appid_full}}. For the latest blogs see https://www.ibm.com/blogs/bluemix/tag/app-id/.
 {: shortdesc}
 
 ## Contact us
-{: contact}
+{: #rellinks-contact}
 
 We’d love to hear from you with feedback and questions! To get started with {{site.data.keyword.appid_short}}, check it out in the {{site.data.keyword.Bluemix_notm}} catalog.
 * If you have technical questions about {{site.data.keyword.appid_short_notm}}, post your question on <a href="https://stackoverflow.com/search?q=ibm-appid" target="_blank">Stack Overflow <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> and tag your question with "ibm-appid".
@@ -25,7 +25,7 @@ We’d love to hear from you with feedback and questions! To get started with {{
 
 
 ## Introduction
-{: #intro}
+{: #rellinks-intro}
 
 Get to know more about {{site.data.keyword.appid_short_notm}} by reading through some blogs and watching some videos!
 
@@ -38,7 +38,7 @@ Get to know more about {{site.data.keyword.appid_short_notm}} by reading through
 
 
 ## White paper
-{: #paper}
+{: #rellinks-paper}
 
 What to know the gritty details about how the service works? Check out the technical white paper.
 
@@ -46,7 +46,7 @@ What to know the gritty details about how the service works? Check out the techn
 
 
 ## Securing apps
-{: #secure-apps}
+{: #rellinks-secure-apps}
 
 Interested in securing your applications? Check out the blogs and samples here to see how it's done.
 
@@ -61,7 +61,7 @@ Interested in securing your applications? Check out the blogs and samples here t
 
 
 ## Securing Runtime, APIs, and backends
-{: #secure}
+{: #rellinks-secure}
 
 Just getting started? Try walking through some of our tutorials and blogs for help integrating {{site.data.keyword.appid_short_notm}} into your apps!
 
@@ -78,7 +78,7 @@ Just getting started? Try walking through some of our tutorials and blogs for he
 
 
 ## Market examples
-{: #market-examples}
+{: #rellinks-market-examples}
 
 See {{site.data.keyword.appid_short_notm}} in action in these market examples.
 
@@ -91,7 +91,7 @@ See {{site.data.keyword.appid_short_notm}} in action in these market examples.
 
 
 ## Integrating with your enterprise user directory
-{: #enterprise}
+{: #rellinks-enterprise}
 
 Need help integrating with your enterprise apps? Don't worry! {{site.data.keyword.appid_short_notm}} can do that too.
 
@@ -101,7 +101,7 @@ Need help integrating with your enterprise apps? Don't worry! {{site.data.keywor
 
 
 ## Custom sign-in experience
-{: #custom}
+{: #rellinks-custom}
 
 Want to have a custom experience for your users? Not a problem.
 
@@ -111,7 +111,7 @@ Want to have a custom experience for your users? Not a problem.
 * <a href="https://www.ibm.com/blogs/bluemix/2018/10/use-ibm-cloud-app-id-and-your-email-provider-to-brand-mails-sent-to-app-users/" target="_blank">Use Your Own Provider for Mail Sent with {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 
 ## Programming guides
-{: #guide}
+{: #rellinks-guide}
 
 Are you working in a specific language and want to see how {{site.data.keyword.appid_short_notm}} fits in with other {{site.data.keyword.Bluemix_notm}} services? Check out one of the programming guides.
 
