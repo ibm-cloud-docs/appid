@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-29"
+lastupdated: "2019-02-01"
 
 ---
 
@@ -13,27 +13,27 @@ lastupdated: "2019-01-29"
 {:screen: .screen}
 
 # Backend apps
-{: #adding-backend}
+{: #backend}
 
 You can use the {{site.data.keyword.appid_full}} SDKs and APIs to protect your backend application endpoints and APIs.
 {: shortdesc}
 
 
 ## Understanding the flow
-{: #understanding}
-
-**When would this flow be useful?**
+{: #backend-understanding}
 
 Part of developing backend apps is verifying that your APIs are protected from unauthorized access. The {{site.data.keyword.appid_short_notm}} SDKs make it easy to protect your API endpoints and ensure the security of your app.
 
-**What is the flow's technical basis?**
+### What is the flow's technical basis?
+{: #backend-technical-flow}
 
 {{site.data.keyword.appid_short_notm}} implements the [OAuth2](https://tools.ietf.org/html/rfc6749) and the OIDC spec, which uses bearer tokens for authentication and authorization. These tokens are formatted as  [JSON Web Tokens](https://tools.ietf.org/html/rfc7519), which are digitally signed and contain claims that describe the subject that is being authenticated and the identity provider. The APIs of your application are protected by access and identity tokens. Clients that need access to your APIs can authenticate with the identity provider through {{site.data.keyword.appid_short_notm}} in exchange for these tokens. The claims in the tokens have to be validated in order to grant access to the protected APIs.
 
 For more information about how tokens are used in {{site.data.keyword.appid_short_notm}}, see [Understanding tokens](/docs/services/appid/authorization.html#tokens).
 {: tip}
 
-**What does this flow look like?**
+### What does this flow look like?
+{: #backend-flow}
 
 ![{{site.data.keyword.appid_short_notm}} backend flow. Steps are listed in order in the following the image.](images/backend-flow.png)
 
@@ -55,7 +55,7 @@ For more information about how tokens are used in {{site.data.keyword.appid_shor
 
 
 ## Protecting resources with the Node.js SDK
-{: #secure-node}
+{: #backend-secure-node}
 
 The {{site.data.keyword.appid_short_notm}} server SDK enforces authentication and authorization with the [Passport framework](http://www.passportjs.org/). With the `ApiStrategy`, you can secure your backed resources by requiring that access and identity tokens are validated in the authorization header as part of the request.
 {: shortdesc}
@@ -67,7 +67,8 @@ You must have the following prerequisites before you can get started:
  * NPM version 4 or higher
  * Node version 6 or higher
 
-**Installing the SDK**
+### Installing the SDK
+{: #backend-install-node}
 
 1. Add the {{site.data.keyword.appid_short_notm}} Node.js SDK to your app's `package.json` file.
 
@@ -85,7 +86,8 @@ You must have the following prerequisites before you can get started:
   ```
   {: codeblock}
 
-**Initializing the SDK**
+### Initializing the SDK
+{: #backend-initialize-node}
 
 You can initialize the SDK by using an `oauth server url`.
 
@@ -111,7 +113,8 @@ You can initialize the SDK by using an `oauth server url`.
 If your Node.js app runs on {{site.data.keyword.Bluemix_notm}} and is bound to your instance of {{site.data.keyword.appid_short_notm}}, there's no need to provide the API strategy configuration. The {{site.data.keyword.appid_short_notm}} configuration obtains the information by using the VCAP_SERVICES environment variable.
 {: tip}
 
-**Securing the API**
+### Securing the API
+{: #backend-secure-api-strategy}
 
 The following snippet demonstrates how to use `ApiStrategy` in an Express app to protect the `/protected` GET API.
 
@@ -128,7 +131,7 @@ When the tokens are valid, the next middleware in the request chain is called an
 
 
 ## Protecting resources with the Swift SDK
-{: #secure-swift}
+{: #backend-secure-swift}
 
 You can use {{site.data.keyword.appid_short_notm}} to protect your server-side resources by using the Swift SDK.
 {: shortdesc}
@@ -194,13 +197,13 @@ if #available(OSX 10.12, *) {
 {: codeblock}
 
 ## Protecting resources manually
-{: secure-api}
+{: #backend-secure-api}
 
 Securing your backend apps and protected resources involves validating tokens. You can validate {{site.data.keyword.appid_short_notm}} access and identity tokens in several ways. For help validating tokens, check out [Validating tokens](/docs/services/appid/tokens.html).
 
 
 ## Next steps
-{: #next}
+{: #backend-next}
 
 With {{site.data.keyword.appid_short_notm}} installed in your application, you're almost ready to start authenticating users! Try doing one of the following activities next:
 

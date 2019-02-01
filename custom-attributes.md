@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-14"
+lastupdated: "2019-02-01"
 
 ---
 
@@ -23,25 +23,24 @@ lastupdated: "2019-01-14"
 {:curl: .ph data-hd-programlang='curl'}
 
 # Custom user attributes
-{: #custom}
+{: #custom-attributes}
 
 With {{site.data.keyword.appid_full}}, you can save, access, and update custom attributes.
 {: shortdesc}
 
 
 ## Setting attributes
-{: #setting}
+{: #setting-custom-attributes}
 
 You can set roles and scopes known as attributes to a user profile. You can also override existing attributes that might have been pulled from an external identity provider.
 {: shortdesc}
 
-**Why would I want to save additional attributes about a user?**
 
 Attributes are pieces of information about your users. By saving them, you can create profiles on your users that allow you to personalize their experience. The more attributes that are added to their profile, the more personalized their app experience can be. Check out this blog to see how creating user profiles can make a difference: <a href="https://www.ibm.com/blogs/bluemix/2017/03/introducing-ibm-bluemix-app-id-authentication-profiles-service-app-developers/" target="blank">Introducing {{site.data.keyword.appid_short_notm}}<img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
 
-**Is there a limit to the amount of information that can be stored for each user?**
 
 You can store 100KB of information for each user.
+{: note}
 
 
 **To set an attribute:**
@@ -112,7 +111,7 @@ Server Swift:
 </br>
 
 ## Accessing custom attributes
-{: #accessing}
+{: #accessing-custom-attributes}
 
 Depending on your configuration, attributes are encrypted and saved as part of a user profile when a user interacts with your application. The interaction could be a user signing in or setting a preference in your app. To access the attributes, you can pass an access token through an API method. If an access token isn't explicitly passed, {{site.data.keyword.appid_short_notm}} uses the last received token.
 {: shortdesc}
@@ -176,7 +175,7 @@ Server side swift:
 </br>
 
 ## Security considerations
-{: #security}
+{: #security-custom-attributes}
 
 Before you begin working with custom attributes, be sure that you understand the security considerations.
 
@@ -188,7 +187,7 @@ To prevent your users from changing the attributes that you give them, set **Cha
 </br>
 
 ## Next steps
-{: #next}
+{: #next-custom-attributes}
 
 For more information about working with a specific language SDK, see the following GitHub repositories:
 

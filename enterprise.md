@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-10-18"
+  years: 2017, 2019
+lastupdated: "2019-02-01"
 
 ---
 
@@ -26,6 +26,7 @@ For steps on how to use a specific SAML identity provider, check out these blog 
 
 
 ## SAML assertions and identity token claims
+{: #saml-assertions}
 
 A SAML assertion is a package of information that contains one or more statements. The assertion contains the authorization decision, and it might contain identity information about the user.
 
@@ -43,7 +44,7 @@ The remaining SAML attribute elements that do not correspond to any of the stand
 Looking for an example? Check out <a href="https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-azure-active-directory/" target="_blank">Setting up {{site.data.keyword.appid_long}} with your Azure Active Directory <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> or <a href="https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-ping-one/" target="_blank">Setting up {{site.data.keyword.appid_long}} with Ping One <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
 
 ## Providing metadata to your identity provider
-{: #provide-idp}
+{: #saml-provide-idp}
 
 To configure your app, you need to provide information to a SAML compatible identity provider. The information is exchanged through a metadata XML file that also contains configuration data that is used to establish trust.
 {: shortdesc}
@@ -83,12 +84,13 @@ The property names might differ between identity providers.
 {: tip}
 
 ## Providing metadata to {{site.data.keyword.appid_short_notm}}
-{: #provide-appid}
+{: #saml-provide-appid}
 
 Obtain data from your identity provider and provide it to {{site.data.keyword.appid_short_notm}}.
 {: shortdesc}
 
-**Providing metadata with the GUI**
+### Providing metadata with the GUI
+{: #saml-provide-gui}
 
 1. Navigate to the **SAML 2.0** tab of the {{site.data.keyword.appid_short_notm}} dashboard. Input the following metadata that you obtained from the identity provider in the **Provide Metadata from SAML IdP** section.
   <table>
@@ -119,7 +121,8 @@ Want to set an authentication context? You can do so through the API.
 </br>
 </br>
 
-**Providing metadata with the API**
+### Providing metadata with the API
+{: #saml-provide-api}
 
 1. Obtain your SAML metadata by making a GET request to the [/getSamlMetadata API endpoint](https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/getSamlMetadata).
 
@@ -271,7 +274,7 @@ Want to set an authentication context? You can do so through the API.
 
 
 ## Testing your configuration
-{: #testing}
+{: #saml-testing}
 
 You can test the configuration between your SAML Identity Provider and {{site.data.keyword.appid_short_notm}}.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-31"
+lastupdated: "2019-02-01"
 
 ---
 
@@ -14,7 +14,7 @@ lastupdated: "2019-01-31"
 {:tip: .tip}
 
 # Cloud Directory
-{: #cd}
+{: #cloud-directory}
 
 With {{site.data.keyword.appid_full}}, users can sign up and sign in to your mobile and web apps by using an email or username and a password. A cloud directory is a user registry that is maintained in the cloud. When a user signs up for your app, they're added to your directory of users. With this feature, users have the freedom to manage their own account within your app.
 {: shortdesc}
@@ -78,7 +78,7 @@ Figure. The configuration journey for Cloud Directory
 </br>
 
 ## Types of messages
-{: #types}
+{: #cd-types}
 
 You can send several types of messages to your users. You can choose to send the example message that is provided by the service or you can customize the content for a more personal app experience. {{site.data.keyword.appid_short_notm}} uses <a href="https://www.sendgrid.com" target="_blank">SendGrid <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> as a mail delivery service. All emails are sent with a single SendGrid account.
 {: shortdesc}
@@ -209,7 +209,7 @@ If a user does not supply the information pulled by the parameter, it appears bl
 </br>
 
 ## Managing password strength
-{: #strength}
+{: #cd-strength}
 
 You can set the requirements for the passwords that can be used with Cloud Directory.
 {: shortdesc}
@@ -225,11 +225,9 @@ Some common password strength examples:
 
 Password strength can be set in the Cloud Directory settings page in App ID Console, or by using <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/set_cloud_directory_password_regex" target="_blank">the management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
 
-</br>
-
 
 ## Advanced password policy
-{: #advanced-password}
+{: #cd-advanced-password}
 
 
 You can enhance the security of your application by enforcing additional password constraints.
@@ -247,10 +245,10 @@ Advanced password policy consists of 5 features that can each be toggled separat
 
  If you enable this feature, additional billing for advanced security capabilities is activated. For more information see the [Pricing Calculator](/docs/services/appid/faq.html#pricing).
 
-</br>
+
 
 ### Avoid Password Reuse
-{: #avoid-reuse}
+{: #cd-avoid-reuse}
 
 When your users are changing their password, you might want to prevent them from choosing a recently used password.
 {: shortdesc}
@@ -261,10 +259,9 @@ If this option is turned on, and one of your users attempts to set their passwor
 
 Previous passwords are securely stored in the same way that a user's current password is stored.
 
-</br>
 
 ### Lockout after repeated wrong credentials
-{: #lockout}
+{: #cd-lockout}
 
 You may want to protect your users' accounts by temporarily blocking the ability to sign in when a suspicious behavior is detected, such as multiples consecutive sign in attempts with an incorrect password. This measure can help to prevent a malicious party from gaining access to a user's account by guessing a user's password.
 {: shortdesc}
@@ -278,20 +275,20 @@ If an account is locked, users are unable to sign in or perform any other self s
 
 You can unlock a user before the lockout period is over. To see if they are locked out look to see if the `active` field is set to `false`. You can also check to see if their status on the **Users** tab of the service dashboard is set to `disabled`. To unlock a user, you must use [the API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Cloud_Directory_Users/updateCloudDirectoryUser) to set the `active` field to `true`.
 
-</br>
+
 
 ### Minimum period between password changes
-{: #minimum-time}
+{: #cd-minimum-time}
 
 You might want to prevent your users from quickly switching between passwords by setting a minimum period of time that a user must wait between password changes.
 {: shortdesc}
 
 This feature is especially useful when used in conjunction with the "Avoid password re-use" policy. Without this limitation, a user could simply change their password multiple times in quick succession to circumvent the limitation of re-using recent passwords. You can select any value between 1 hour and 30 days, specified in hours.
 
-</br>
+
 
 ### Password expiration
-{: #expiration}
+{: #cd-expiration}
 
 For security reasons, you might want to enforce a password rotation policy, such that your users must change their password after a period of time.
 {: shortdesc}
@@ -316,10 +313,9 @@ The token endpoint response looks similar to the following:
 When this option is first set to on, any existing user passwords will not have an expiration date. The expiration period begins for those user's when their password is changed. You might want to encourage users to update their password after you set this feature to on.
 {: note}
 
-</br>
 
 ### Ensure password does not include username
-{: #no-username}
+{: #cd-no-username}
 
 For stronger passwords, you might want to prevent users that contain their username or the first part of their email address.
 {: shortdesc}
@@ -329,7 +325,7 @@ This constraint is not case-sensitive which means that users are not able to alt
 </br>
 
 ## Using a custom email sender
-{: #custom-email}
+{: #cd-custom-email}
 
 With {{site.data.keyword.appid_short_notm}}, you can define a custom extension point to send your Cloud Directory email messages. By defining an extension point, you have full control of how the emails are sent and you can use your own domain name.
  {: shortdesc}
@@ -527,7 +523,8 @@ You must be assigned the `Manager` [IAM role](/docs/iam/quickstart.html) for bot
 
 </br>
 
-**Exporting**
+### Exporting
+{: cd-export}
 
 Before you can add your users to the new instance, you need to export them from your current instance. To do so, you can use the <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Cloud_Directory_Users/cloudDirectoryExport" target="_blank">export management API <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
 
@@ -556,9 +553,9 @@ curl -X GET --header ‘Accept: application/json’ --header ‘Authorization: B
 Only your Cloud Directory users and their profiles are returned. Users from other identity provider's are not.
 {: note}
 
-</br>
 
-**Importing**
+### Importing
+{: #cd-import}
 
 Now that you have your users ready to go, you can import their information into the new instance. To do so, you can use the <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Cloud_Directory_Users/cloudDirectoryImport" target="_blank">import management API <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
 
@@ -595,7 +592,8 @@ curl -X POST --header ‘Content-Type: application/json’ --header ‘Accept: a
 
 </br>
 
-### Using the migration script
+### Migration script
+{: cd-migration-script}
 
 {{site.data.keyword.appid_short_notm}} provides a migration script that you can use through the CLI that can help speed up the migration process.
 
@@ -645,7 +643,7 @@ To run the script:
   Example command:
 
   ```
-  users_export_import e00a0366-53c5-4fcf-8fef-ab3e66b2ced8 73321c2b-d35a-497a-9845-15c580fdf58c ng eyJraWQiOiIyMDE3MTAyNS0xNjoyNzoxMCIsImFsZyI6IlJTMjU2In0.eyJpYW1faWQiOiJJQk1pZC0zMTAwMDBUNkZTIiwiaWQiOiJJQk1pZC0zMTAwMDBUNkZTIiwicmVhbG1pZCI6IklCTWlkIiwiaWRlbnRpZmllciI6IjMxMDAwMFQ2RlMiLCJnaXZlbl9uYW1lIjoiUm90ZW0iLCJmYW1pbHlfbmFtZSI6IkJyb3NoIiwibmFtZSI6IlJvdGVtIEJyb3NoIiwiZW1haWwiOiJyb3RlbWJyQGlsLmlibS5jb20iLCJzdWIiOiJyb3RlbWJyQGlsLmlibS5jb20iLCJhY2NvdW50Ijp7ImJzcyI6ImQ3OWM5YTk5NjJkYzc2Y2JkMDZlYTVhNzhjMjY0YzE5In0sImlhdCI6MTUzNzE3Mjg4NCwiZXhwIjoxNTM3MTc2NDg0LCJpc3MiOiJodHRwczovL2lhbS5zdGFnZTEuYmx1ZW1peC5uZXQvaWRlbnRpdHkiLCJncmFudF90eXBlIjoidXJuOmlibTpwYXJhbXM6b2F1dGg6Z3JhbnQtdHlwZTpwYXNzY29kZSIsInNjb3BlIjoiaWJtIG9wZW5pZCIsImNsaWVudF9pZCI6ImJ4IiwiYWNyIjoxLCJhbXIiOlsicHdkIl19.c4vLPzhvvNZLjaLy7znDa37qV4o-yuGmSKmJoQKrEQNZU8IC0NIjxwSo7W9kb0pDi3Yf_03_9ufTTGNfjtltzNWycSXjkNgoL-b9_nU61oHdgn0stY1KmNicqyBWfgUU--4xa904QN_QjRHBaUBeJf3XWEphPIMoF7mZeOxEZLnCMcQXSz9pImCMiP4SNT38cHLiI90Yx01rM7hpteepWULh5MYh-B2V03Gkgxfqvv951HF1LDg6eT4Q9in11laTQKtKuomripUju_4GIIjORVYw9NaAVKIJ9lKrPX0SKPhStsa59qGsC_7Uersms5EY1W1VbZVqOZPJbtp6tVf-Lw
+  users_export_import e00a0366-53c5-4fcf-8fef-ab3e66b2ced8 73321c2b-d35a-497a-9845-15c580fdf58c ng eyJraWQiOiIyMDE3MTAyNS0xNjoyNzoxMCIsImFsZyI6IlJTMjU2In0.eyJpYW1faWQiOiJJQk1pZC0zMTAwMDBUNkZTIiwiaWQiOiJJQk1pZC0zMTAwMDBUNkZTIiwicmVhbG1pZCI6IklCTWlkIiwiaWRlbnRpZmllciI6IjMxMDAwIFQ2RlMiPCJnaXZlbl9uYW1lIjoiUm90ZW0iLCJmYW1pbHlfbmFtZSI6IkJyb3NoIiwibmFtZSI6IlJvdGVtIEJyb3NoIiwiZW1haWwiOiJyb3RlbWJyQGlsLmlibS5jb20iLCJzdWIiOiJyb3RlbWJyQGlsLmlibS5jb20iLCJhY2NvdW50Ijp7ImJzcyI6ImQ3OWM5YTk5NjJkYzc2Y2JkMDZlYTVhNzhjMjY0YzE5In0sImlhdCI6MTUzNrE3Mjg4NCwiZXhwIjoxNTM3MTc2NDg0LCJpc3MiOiJodHRwczovL2lhbS5zdGFnZTEuYmx1ZW1peC5uZXQvaWRlbnRpdHkiLCJncmFudF90eXBlIjoidXJuOmlibTpwYXJhbXM6b2F1dGg6Z3JhbnQtdHlwZTpwYXNzY29kZSIsInNjb3BlIjoiaWJtIG9wZW5pZCIsImNsaWVudF9pZCI6ImJ4IiwiYWNyIjoxLCJhbXIiOlsicHdkIl19.c4vLPzhvvNZLjaLy7znDa37qV4o-yuGmSKmJoQKrEQNZU8IC0NIjxwSo7W9kb0pDi3Yf_03_9ufTTGNfjtltzNWycSXjkNgoL-b9_nU61oHdgn0stY1KmNicqyBWfgUU--4xa904QN_QjRHBaUBeJf3XWEphPIMoF7mZeOxEZLnCMcQXSz9pImCMiP4SNT38cHLiI90Yx01rM7hpteepWULh5MYh-B2V03Gkgxfqvv951HF1LDg6eT4Q9in11laTQKtKuomripUju_4GIIjORVYw9NaAVKIJ9lKrPX0SKPhStsa59qGsC_7Uersms5EY1W1VbZVqOZPJbtp6tVf-Lw
   ```
   {: codeblock}
 
@@ -654,7 +652,7 @@ To run the script:
 
 
 ## Supported languages
-{: #languages}
+{: #cd-languages}
 
 You can use <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/updateLocalization" target="_blank">the language management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to set the language in which your user communication can be written. However, only English is available out of the box. You are responsible for the translation of the messages. After you set the configuration with the API, the GUI updates so that you are able to change the template text.
 {: shortdesc}

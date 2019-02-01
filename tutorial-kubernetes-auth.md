@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-01-31"
+lastupdated: "2019-02-01"
 
 ---
 
@@ -24,9 +24,6 @@ lastupdated: "2019-01-31"
 
 You can consistently enforce policy-driven security by using the Ingress networking capability in {{site.data.keyword.containerlong}}. With this approach, you can instrument authorization and authentication for all of the applications in your cluster at the same time, without ever changing your app code! With this step-by-step guide, you can learn how to configure your Ingress controller to use {{site.data.keyword.appid_short_notm}}.
 {: shortdesc}
-
-Today, we’re excited to announce App ID integration with IBM Cloud Kubernetes Service. You can use this integration to enforce policy-driven security in a consistent way using declarative configuration of the Ingress Controller to add App ID protection for web applications, APIs, and back-ends. Using this approach, you don’t have to instrument each of your applications separately – all the authorization and authentication flows will be handled automatically for you. No code change is required!
-
 
 Check out the following diagram to see the authentication flow:
 

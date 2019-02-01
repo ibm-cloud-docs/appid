@@ -1,414 +1,97 @@
 ---
 
 copyright:
-  years: 2019
-lastupdated: "2019-01-31"
+  years: 2017, 2019
+lastupdated: "2019-02-01"
 
 ---
 
-{:new_window: target="blank"}
+{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
-{:screen: .screen}
 {:pre: .pre}
-{:table: .aria-labeledby="caption"}
-{:codeblock: .codeblock}
 {:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:deprecated: .deprecated}
-{:download: .download}
+{:screen: .screen}
+{:codeblock: .codeblock}
 
 
-# Custom security tools
-{: #setup-custom}
+# Custom
+{: #custom-identity}
 
-There are times that you might already have have a tool that you use. You can integrate those tools such as, Neuvector, with {{site.data.keyword.security-advisor_short}}.
+You can use your own custom identity provider when you authenticate. Your identity provider can conform to any authentication mechanism that is not specifically supported by {{site.data.keyword.appid_full}}, including proprietary.
 {: shortdesc}
 
+When {{site.data.keyword.appid_short_notm}} does not provide direct support for a particular identity provider, you can use the custom identity flow to bridge the authentication protocol to {{site.data.keyword.appid_short_notm}}'s existing authentication flow. For example, you want to use GitHub or LinkedIn to allow your users to sign in. You can use the identity provider's existing SDK to facilitate user authentication information before packaging and exchanging it with {{site.data.keyword.appid_short_notm}}. In many enterprise scenarios, a legacy identity provider might use its own custom authentication protocol, but you still want to leverage the capabilities of {{site.data.keyword.appid_short_notm}}. For this type of scenario, the custom identity flow provides a decoupled means of securely authenticating your users without exposing their credentials.
 
-Why would you want to create customizations? Say that you have an application that is running a {{site.data.keyword.containershort_notm}} cluster with the name `cloudkingdom`. One of the pods in the cluster is sending an abnormal amount of data to external servers. You want to capture this finding in your {{site.data.keyword.security-advisor_short}} dashboard.
+## Configuring custom identity
+{: #custom-configure}
 
-If your custom tool monitors and detects the abnormal amount of data that is being transferred, then the tool sends the finding to {{site.data.keyword.security-advisor_short}}.
+You can use the following steps to configure your custom identity provider to work with {{site.data.keyword.appid_short_notm}}.
+{: shortdesc}
 
-Example payload:
+### Before you begin
+{: #custom-identity-before}
+
+To establish trust between {{site.data.keyword.appid_short_notm}} and your custom identity provider, you must have an RSA PEM key pair with a minimum length of 2048. Be sure that you securely back up any keys that you use in production.
+
+How are the keys used?
+
+- Your private key is used in your app or identity provider to sign JWTs.
+- Your public key is used by {{site.data.keyword.appid_short_notm}} to validate the JWT that contains user information.
+
+To generate an RSA PEM key pair by using Open SSL, run the following command:
 
 ```
+$ openssl genpkey -algorithm RSA -out private_key.pem -pkeyopt rsa_keygen_bits:2048
+$ openssl rsa -pubout -in private_key.pem -out public_key.pem
+```
+{: codeblock}
+
+</br>
+
+### Configuring with the GUI
+{: #custom-identity-configure-gui}
+
+1. Sign in to your {{site.data.keyword.Bluemix_notm}} account and navigate to your instance of {{site.data.keyword.appid_short_notm}}.
+
+2. In the **Manage** tab, set **Custom Identity Provider** to **On**.
+
+3. Register your public key with {{site.data.keyword.appid_short_notm}}.
+  1. Navigate to the **Custom Identity Provider** tab
+  2. Paste your public key in the **Public Key** box and click **Save**.
+
+
+
+### Configuring with the API
+{: #custom-identity-configure-api}
+
+Register your key by making a PUT request to the [Management API endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Identity_Providers/custom).
+
+```
+Put {Management URI}/config/idps/custom
+Content-Type: application/json
 {
-	"note_name": "<account id>/providers/my-custom-tool/notes/my-custom-tool-findings-type",
-	"kind": "FINDING",
-	"remediation": "How to resolve Data leakage threat",
-	"provider_id": "my-custom-tool",
-	"id": "my-custom-tool-finding-2",
-	"context": {
-		"region": "location",
-		"resource_id": "cluster crn",
-		"resource_name": "cloudkingdom",
-		"resource_type": "container",
-		"service_name": "kubernetes service"
-	},
-	"finding": {
-		"severity": "HIGH",
-		"next_steps": [{
-			"title": "Investigate which process are running in your cluster. If you suspect one of your pods was hacked, restart it, and look for image vulnerabilities",
-                        "url":"https://console.bluemix.net/containers-kubernetes/clusters"
-		}],
-                "short_description": "One of the pods in your cluster appears to be leaking an excessive amount of data",
-                "long_description": "One of the pods in your cluster is approaching external servers and sending them data in volumes that exceed that pod’s normal behavior"
-	}
+    isActive: true,
+    config: {
+        publicKey: <Your newline separated (\n) PEM public key>
+    }
 }
 ```
-{: screen}
+{: codeblock}
 
-</br>
+## Testing your configuration
+{: #custom-identity-testing}
 
+After you configure your {{site.data.keyword.appid_short_notm}} instance with a valid public key, you can use the test application that is provided by the service to verify that your configuration is correctly set up. In the example app, you can see {{site.data.keyword.appid_short_notm}} access and identity token payloads that are returned during a standard sign-in flow.
 
-## Integrating your own tools with the GUI
-{: #setup-custom-gui}
+1. From the **Custom Identity Provider** tab, click **Test** to open the test application.
 
-You can integrate your security tools by using the {{site.data.keyword.security-advisor_short}} dashboard.
-{: shortdesc}
+2. Create an example JWT by using [JWT.io](https://jwt.io/) following the custom identity [protocol](/docs/services/appid/custom-auth.html#creating-jwts).
 
-**Before you begin**
+3. Paste your JWT into the box that is labeled **JSON Web Token** and click **Test** to execute a sample authentication.
 
-* You must have an account with the partner that you want to integrate.
+If successful, you can now see the decoded {{site.data.keyword.appid_short_notm}} identity and access tokens that would be available to your application in a standard sign-in flow.
 
-{{site.data.keyword.security-advisor_short}} does not persist any credentials that are related to the partner service. Enterprise users must authenticate by using SAML to both {{site.data.keyword.Bluemix_notm}} and to the business partner.
-{: note}
+## Next steps
+{: #custom-identity-next}
 
-1. Log into your security tool and get your unique URL.
-2. Log into {{site.data.keyword.Bluemix_notm}}.
-3. Click **Custom Integrations** and then click the **Add Custom Solution** card. A screen displays.
-  1. Give your solution a name. You can use only alpha-numeric characters, white spaces, and dashes (-) are allowed.
-  2. Enter the URL for the solution in the format: `www.<website>.<domain>`.
-  3. Upload an icon or image to represent the tool.
-
-    {{site.data.keyword.security-advisor_short}} creates the artifacts that are required for integration such as the service ID, API key, account ID, and metadata. The `writer` role is assigned.
-
-4. You can configure the customer account in the **Integration** tab of the other service.
-5. With the integration in place, you can start posting occurrences to {{site.data.keyword.security-advisor_short}} and view the findings in the service dashboard.
-
-</br>
-
-## Integrating your own tools with the API
-{: #setup-custom-api}
-
-{{site.data.keyword.security-advisor_short}} APIs follow [Grafeas](https://grafeas.io/) like artifact metadata API specification to store, query, and retrieve critical metadata for the findings that are reported by all security tools and services.
-
-**Before you begin**
-
-1. Log in to {{site.data.keyword.Bluemix_notm}}.
-
-  ```
-  ibmcloud login
-  ```
-  {: codeblock}
-
-2. Get your account ID. Ensure that your ID is assigned the **Manager** [IAM role](https://console.bluemix.net/iam/#/users). For more information about service roles, check out the [{{site.data.keyword.security-advisor_short}} access policies](/docs/services/security-advisor/iam.html).
-
-  ```
-  ibmcloud account list org-account ORG_NAME [--guid]
-  ```
-  {: codeblock}
-
-3. Get your IAM token. The token is used in the `--header` of each API request.
-
-  ```
-  ibmcloud iam oauth-tokens
-  ```
-  {: codeblock}
-
-</br>
-
-**Adding and monitoring findings**
-
-1. Register a new type of Finding by creating a note. To create the note, use the [Findings API](https://us-south.secadvisor.cloud.ibm.com/findings/v1/docs/#/Findings_Notes/createNote).
-
-  Example request:
-
-  ```
-  curl -X POST "https://us-south.secadvisor.cloud.ibm.com/findings/v1/<account id>/providers/my-custom-tool/notes" -H "accept: application/json" -H "Authorization: <iam-token>" -H "Content-Type: application/json" -d "{ \"kind\": \"FINDING\", \"short_description\": \"My security tool finding\", \"long_description\": \"See what my custom security tool found\", \"provider_id\": \"my-custom-tool\", \"id\": \"my-custom-tool-findings-type\", \"reported_by\": { \"id\": \"my-custom-tool\", \"title\": \"My Custom Security Tool\" }, \"finding\": { \"severity\": \"MEDIUM\", \"next_steps\": [ { \"title\": \"Learn why this is reported as a risk\" } ] } }"
-  ```
-  {: codeblock}
-
-  <table>
-    <thead>
-      <th colspan=2><img src="images/idea.png" alt="More information icon"/> Understanding this commands components </th>
-    </thead>
-    <tbody>
-      <tr>
-        <td><code>note_name</code></td>
-        <td><code>&lt;account id&gt;/providers/my-custom-tool/notes/my-custom-tool-findings-type</code></td>
-      </tr>
-      <tr>
-        <td><code>kind</code></td>
-        <td><code>FINDING</code></td>
-      </tr>
-      <tr>
-        <td><code>remediation</code></td>
-        <td>The steps that need to be taken to resolve the issue.</td>
-      </tr>
-      <tr>
-        <td><code>provider_id</code></td>
-        <td>Your custom security tool.</td>
-      </tr>
-      <tr>
-        <td><code>id</code></td>
-        <td>An ID for the type of finding that your security tool found.</td>
-      </tr>
-      <tr>
-        <td><code>context</code><ul><li><code>region</code></li><li><code>resource_id</code></li> <li><code>resource_name</code></li> <li><code>resource_type</code></li> <li><code>service_name</code></li></ul></td>
-        <td></br><ul><li><code>The location in which the finding occurred</code></li><li><code>The ID for the specific resource.</code></li> <li><code>The name of the resource.</code></li> <li><code>The type of resource.</code></li> <li><code>The name of the service.</code></li></ul></td>
-      </tr>
-      <tr>
-        <td><code>finding</code> <ul><li><code>severity</code></li> <li><code>next_steps</code></li> <li><code>url</code></li></ul></td>
-        <td></br><ul><li>The level of urgency that the finding presents.</li> <li>The steps that can be taken to remediate the issue.</li> <li>A URL where the details of the finding can be found.</li></ul></td>
-      </tr>
-    </tbody>
-  </table>
-
-  Example response:
-
-  ```
-    {
-    "author": {
-      "account_id": "account id",
-      "email": "email id",
-      "id": "IBM ID",
-      "kind": "user"
-    },
-    "context": {
-      "account_id": "account id"
-    },
-    "create_time": "2018-09-04T10:57:56.913871Z",
-    "create_timestamp": 1536058676914,
-    "finding": {
-      "next_steps": [
-        {
-          "title": "Learn why this is reported as a risk"
-        }
-      ],
-      "severity": "MEDIUM"
-    },
-    "id": "my-custom-tool-findings-type",
-    "kind": "FINDING",
-    "long_description": "See what my custom security tool found",
-    "name": "<account id>/providers/my-custom-tool/notes/my-custom-tool-findings-type",
-    "provider_id": "my-custom-tool",
-    "provider_name": "<account id>/providers/my-custom-tool",
-    "reported_by": {
-      "id": "my-custom-tool",
-      "title": "My Custom Security Tool"
-    },
-    "shared": true,
-    "short_description": "My security tool finding",
-    "update_time": "2018-09-04T10:57:56.913890Z",
-    "update_timestamp": 1536058676914,
-    "update_week_date": "2018-W36-2"
-  }
-  ```
-  {: screen}
-
-2. Create a finding by posting an [occurrence](https://us-south.secadvisor.cloud.ibm.com/findings/v1/docs/#/Findings_Occurrences/createOccurrence).
-
-  ```
-  curl -X POST "https://us-south.secadvisor.cloud.ibm.com/findings/v1/<account-id>/providers/my-custom-tool/occurrences" -H "accept: application/json" -H "Authorization: <iam-token>" -H "Replace-If-Exists: true" -H "Content-Type: application/json" -d "{ \"note_name\": \"<account-id>/providers/my-custom-tool/notes/my-custom-tool-findings-type\", \"kind\": \"FINDING\", \"remediation\": \"how to resolve this\", \"provider_id\": \"my-custom-tool\", \"id\": \"my-custom-tool-finding-1\", \"context\": { \"region\": \"location\", \"resource_id\": \"pluginId\", \"resource_name\": \"www.myapp.com\", \"resource_type\": \"worker\", \"service_name\": \"application\" }, \"finding\": { \"severity\": \"HIGH\", \"next_steps\": [{ \"url\": \"Details URL\" }] }}"
-  ```
-  {: codeblock}
-
-  <table>
-    <thead>
-      <th colspan=2><img src="images/idea.png" alt="More information icon"/> Understanding this commands components </th>
-    </thead>
-    <tbody>
-      <tr>
-        <td><code>kind</code></td>
-        <td><code>FINDING</code></td>
-      </tr>
-      <tr>
-        <td><code>short_description</code></td>
-        <td>A short description that summarizes the finding; no more than a couple of words.</td>
-      </tr>
-      <tr>
-        <td><code>long_description</code></td>
-        <td>A longer description that contains more detail about the finding.</td>
-      </tr>
-      <tr>
-        <td><code>provider_id</code></td>
-        <td>Your custom security tool.</td>
-      </tr>
-      <tr>
-        <td><code>id</code></td>
-        <td>An ID for the type of finding that your security tool found.</td>
-      </tr>
-      <tr>
-        <td><code>reported_by</code><ul><li><code>id</code></li><li><code>title</code></li></ul></td>
-        <td></br><ul><li>The ID of the security tool that reported the finding.</li><li>The title of the security tool that reported the finding.</li></ul></td>
-      </tr>
-      <tr>
-        <td><code>finding</code> <ul><li><code>severity</code></li> <li><code>next_steps</code></li> <li><code>title</code></li></ul></td>
-        <td></br><ul><li>The level of urgency that the finding presents.</li> <li>The steps that can be taken to remediate the issue.</li> <li>The title of the finding.</li></ul></td>
-      </tr>
-    </tbody>
-  </table>
-
-  Example response:
-
-  ```
-    {
-    "author": {
-      "account_id": "account id",
-      "email": "email id ",
-      "id": "user id",
-      "kind": "user"
-    },
-    "context": {
-      "account_id": "account id",
-      "region": "location",
-      "resource_id": "pluginId",
-      "resource_name": "www.myapp.com",
-      "resource_type": "worker",
-      "service_name": "application"
-    },
-    "create_time": "2018-09-04T11:32:14.564809Z",
-    "create_timestamp": 1536060734565,
-    "finding": {
-      "next_steps": [
-        {
-          "title": "Learn why this is reported as a risk",
-          "url": "Details URL"
-        }
-      ],
-      "severity": "HIGH"
-    },
-    "id": "my-custom-tool-finding-1",
-    "kind": "FINDING",
-    "long_description": "See what my custom security tool found",
-    "name": "<account id>/providers/my-custom-tool/occurrences/my-custom-tool-finding-1",
-    "note_name": "<account id>/providers/my-custom-tool/notes/my-custom-tool-findings-type",
-    "provider_id": "my-custom-tool",
-    "provider_name": "<account id>/providers/my-custom-tool",
-    "remediation": "how to resolve this",
-    "reported_by": {
-      "id": "my-custom-tool",
-      "title": "My Custom Security Tool"
-    },
-    "short_description": "My security tool finding",
-    "update_time": "2018-09-04T11:32:14.564828Z",
-    "update_timestamp": 1536060734565,
-    "update_week_date": "2018-W36-2"
-  }
-  ```
-  {: codeblock}
-
-3. Define the card in the dashboard to display your finding by creating a [note](https://us-south.secadvisor.cloud.ibm.com/findings/v1/docs/#/Findings_Notes/createNote).
-
-  In each card, you can define only two KRIs to display.
-  {: note}
-
-  ```
-  curl -X POST "https://us-south.secadvisor.cloud.ibm.com/findings/v1/<account id>/providers/my-custom-tool/notes" -H "accept: application/json" -H "Authorization: <iam token>" -H "Content-Type: application/json" -d "{ \"kind\": \"CARD\", \"provider_id\": \"my-custom-tool\", \"id\": \"custom-tool-card\", \"short_description\": \"security risk found by my custom tool\", \"long_description\": \"Details about why this is security risk to be fixed\", \"reported_by\": { \"id\": \"my-custom-tool\", \"title\": \"My Security Tool\" }, \"card\": { \"section\": \"My Security Tools\", \"title\": \"My Security Tool Findings\", \"finding_note_names\": [ \"providers/my-custom-tool/notes/my-custom-tool-findings-type\" ], \"elements\": [ { \"kind\": \"NUMERIC\", \"text\": \"Count of findings reported by my security tool\", \"default_time_range\": \"1d\", \"value_type\": { \"kind\": \"FINDING_COUNT\", \"finding_note_names\": [ \"providers/my-custom-tool/notes/my-custom-tool-findings-type\" ] } } ] } }"
-  ```
-  {: codeblock}
-
-  <table>
-    <thead>
-      <th colspan=2><img src="images/idea.png" alt="More information icon"/> Understanding this commands components </th>
-    </thead>
-    <tbody>
-      <tr>
-        <td><code>kind</code></td>
-        <td><code>CARD</code></td>
-      </tr>
-      <tr>
-        <td><code>provider_id</code></td>
-        <td>Your custom security tool.</td>
-      </tr>
-      <tr>
-        <td><code>id</code></td>
-        <td>An ID for the type of finding that your security tool found.</td>
-      </tr>
-      <tr>
-        <td><code>short_description</code></td>
-        <td>A description, no more than a couple words, that summarizes the finding.</td>
-      </tr>
-      <tr>
-        <td><code>long_description</code></td>
-        <td>A longer description that contains more detail about the finding.</td>
-      </tr>
-      <tr>
-        <td><code>reported_by</code><ul><li><code>id</code></li><li><code>title</code></li></ul></td>
-        <td></br><ul><li>The ID of the security tool that reported the finding.</li><li>The title of the security tool that reported the finding.</li></ul></td>
-      </tr>
-      <tr>
-        <td><code>card</code> <ul><li><code>section</code></li> <li><code>title</code></li> <li><code>finding_note_names</code></li></ul></td>
-        <td></br><ul><li>The section that the card fits into.</li> <li>The title of the card</li> <li><code>providers/<provider_id>/notes/my-custom-tool-findings-type</code></li></ul></td>
-      </tr>
-      <tr>
-        <td><code>elements</code> <ul><li><code>kind</code></li> <li><code>text</code></li> <li><code>default_time_range</code></li></ul></td>
-        <td></br><ul><li>The type of element.</li> <li>The text that you want to display</li> <li>The amount of time that you want to check.</li></ul></td>
-      </tr>
-      <tr>
-        <td><code>value_type</code> <ul><li><code>kind</code></li> <li><code>finding_note_names</code></li></ul></td>
-        <td></br><ul><li>The type of value</li> <li>The name of the findings that you want to see in your card.</li></ul></td>
-      </tr>
-    </tbody>
-  </table>
-
-  Example response:
-  ```
-    {
-    "author": {
-      "account_id": "<account id",
-      "email": "email id",
-      "id": "user id",
-      "kind": "user"
-    },
-    "card": {
-      "elements": [
-        {
-          "default_time_range": "1d",
-          "kind": "NUMERIC",
-          "text": "Count of findings reported by my security tool",
-          "value_type": {
-            "finding_note_names": [
-              "providers/my-custom-tool/notes/my-custom-tool-findings-type"
-            ],
-            "kind": "FINDING_COUNT"
-          }
-        }
-      ],
-      "finding_note_names": [
-        "providers/my-custom-tool/notes/my-custom-tool-findings-type"
-      ],
-      "section": "My Security Tools",
-      "title": "My Security Tool Findings"
-    },
-    "context": {
-      "account_id": "<account id>"
-    },
-    "create_time": "2018-09-04T11:49:36.056047Z",
-    "create_timestamp": 1536061776056,
-    "id": "custom-tool-card",
-    "kind": "CARD",
-    "long_description": "Details about why this is security risk to be fixed",
-    "name": "<account id>/providers/my-custom-tool/notes/custom-tool-card",
-    "provider_id": "my-custom-tool",
-    "provider_name": "<account id>/providers/my-custom-tool",
-    "reported_by": {
-      "id": "my-custom-tool",
-      "title": "My Security Tool"
-    },
-    "shared": true,
-    "short_description": "security risk found by my custom tool",
-    "update_time": "2018-09-04T11:49:36.056066Z",
-    "update_timestamp": 1536061776056,
-    "update_week_date": "2018-W36-2"
-  }
-  ```
-  {: screen}
-
-4. Navigate to your service dashboard to see the card that you created.
-
-
-</br>
-</br>
+Now that your custom identity provider is configured, [add it to your application](/docs/services/appid/custom-auth.html)!
