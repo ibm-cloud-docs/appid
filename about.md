@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-31"
+lastupdated: "2019-02-01"
 
 ---
 
@@ -22,7 +22,7 @@ Application security can be incredibly complicated. For most developers, it's on
 
 
 ## Reasons to use the service
-{: #reasons}
+{: #about-reasons}
 
 {{site.data.keyword.appid_short_notm}} helps developers to easily add authentication to their web and mobile apps with few lines of code, and secure their Cloud-native applications and services on {{site.data.keyword.Bluemix_notm}}. By requiring users to sign in to your app, you can store user data such as app preferences, or information from public social profiles, and then leverage that data to customize each user's experience within the app. {{site.data.keyword.appid_short_notm}} provides a log-in framework for you, but you can also bring your own branded sign in screens to use with cloud directory.
 {: shortdesc}
@@ -54,7 +54,7 @@ Why would you want to use {{site.data.keyword.appid_short_notm}}? Check out the 
 
 
 ## How it works
-{: #how-it-works}
+{: #about-how-it-works}
 
 With {{site.data.keyword.appid_short_notm}}, you can add a level of security to your apps by requiring users to sign in. You can also use the server SDK or APIs to protect your back-end resources.
 {: shortdesc}
@@ -74,7 +74,7 @@ With {{site.data.keyword.appid_short_notm}}, you can add a level of security to 
 
 
 ## Integrations
-{: #integrations}
+{: #about-integrations}
 
 You can use {{site.data.keyword.appid_short_notm}} with other {{site.data.keyword.Bluemix_notm}} offerings.
 {:shortdesc}
