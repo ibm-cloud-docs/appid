@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-01"
+lastupdated: "2019-02-04"
 
 ---
 
@@ -279,11 +279,11 @@ A redirect URL is the URL for the site that you want {{site.data.keyword.appid_s
 
   * Custom domain:
 
-    A URL that is registered with a custom domain might look like: http://mydomain.net/myapp2path/appid_callback. If the apps that you want Ingress to expose are in different namespaces in one cluster, you can use a wildcard, such as `https://custom_domain.net/*` to specify all of the apps in the cluster at once.
+    A URL that is registered with a custom domain might look like: `http://mydomain.net/myapp2path/appid_callback`. If the apps that you want Ingress to expose are in different namespaces in one cluster, you can use a wildcard, such as `https://custom_domain.net/*` to specify all of the apps in the cluster at once.
 
   * Ingress subdomain:
 
-    If your app is registered with an IBM Ingress subdomain, your callback URL might look like: https://mycluster.us-south.containers.appdomain.cloud/myapp1path/appid_callback
+    If your app is registered with an IBM Ingress subdomain, your callback URL might look like: `https://mycluster.us-south.containers.appdomain.cloud/myapp1path/appid_callback`
 
 {{site.data.keyword.appid_short_notm}} offers a logout function: If `/logout` exists in your {{site.data.keyword.appid_short_notm}} path, cookies are removed and the user is sent back to the login page. To use this function, append `/appid_logout` to your domain in the format `https://mycluster.us-south.containers.appdomain.cloud/myapp1path/appid_logout` and include it in your redirect URLs.
 {: note}

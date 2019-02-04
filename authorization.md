@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-01"
+lastupdated: "2019-02-04"
 
 ---
 
@@ -11,8 +11,6 @@ lastupdated: "2019-02-01"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:tip: .tip}
-
-
 
 
 # Key concepts
@@ -24,7 +22,6 @@ Confused about the differences between authorization and authentication? You're 
 
 ## Terminology
 {: #terms}
-
 
 These key terms can help you understand the way that the service breaks down the authorization and authentication process.
 
@@ -117,7 +114,7 @@ Example token:
   ```
   {: screen}
 
-### What are identity tokens 
+### What are identity tokens
 {: #identity}
 
 Identity tokens represent authentication and contain information about the user. It can give you information about their name, email, gender, and location. A token can also return a URL to an image of the user. The token is formatted as <a href="https://jwt.io/introduction/" target="blank">JSON Web Tokens <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> are signed with a JSON Web Key that uses the RS256 algorithm.
@@ -155,7 +152,7 @@ Example token:
   ```
   {: screen}
 
-Identity tokens only contain partial user information. To see all of the information that is provided by the identity provider, you can use the [/userinfo endpoint](/docs/services/appid/predefined.html#api).
+Identity tokens only contain partial user information. To see all of the information that is provided by the identity provider, you can use the [/userinfo endpoint](/docs/services/appid/predefined.html#predefined-access-api).
 
 ### What are refresh tokens
 {: #refresh}

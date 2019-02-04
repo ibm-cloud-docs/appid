@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-01"
+lastupdated: "2019-02-04"
 
 ---
 
@@ -85,7 +85,7 @@ After you configure your {{site.data.keyword.appid_short_notm}} instance with a 
 
 1. From the **Custom Identity Provider** tab, click **Test** to open the test application.
 
-2. Create an example JWT by using [JWT.io](https://jwt.io/) following the custom identity [protocol](/docs/services/appid/custom-auth.html#creating-jwts).
+2. Create an example JWT by using [JWT.io](https://jwt.io/) following the custom identity [protocol](/docs/services/appid/custom-auth.html#generating-jwts).
 
 3. Paste your JWT into the box that is labeled **JSON Web Token** and click **Test** to execute a sample authentication.
 

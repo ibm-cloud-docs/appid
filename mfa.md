@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-01"
+lastupdated: "2019-02-04"
 
 ---
 
@@ -27,7 +27,7 @@ With MFA enabled, a user is required to provide two forms of identification when
 
 If a user's email is not confirmed, either through the APIs or email verification, it is confirmed with a successful MFA code verification. An administrator can always update or change a user's email if needed by using the [management APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Cloud_Directory_Users/updateCloudDirectoryUser).
 
-MFA is available for instances of {{site.data.keyword.appid_short_notm}} that are on the [graduated tier pricing plan](/docs/services/appid/faq.html#pricing).
+MFA is available for instances of {{site.data.keyword.appid_short_notm}} that are on the [graduated tier pricing plan](/docs/services/appid/faq.html#faq-pricing).
 {: note}
 
 ## Understanding the flow
