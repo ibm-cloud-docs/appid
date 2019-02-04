@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-01"
+lastupdated: "2019-02-04"
 
 ---
 
@@ -49,7 +49,7 @@ Looking for an example? Check out <a href="https://www.ibm.com/blogs/bluemix/201
 To configure your app, you need to provide information to a SAML compatible identity provider. The information is exchanged through a metadata XML file that also contains configuration data that is used to establish trust.
 {: shortdesc}
 
-1. In the **Manage** tab of the {{site.data.keyword.appid_short_notm}} dashboard, set **SAML 2.0** to **On**. Then, click **Edit** to configure your SAML settings.
+1. In the **Manage** tab of the {{site.data.keyword.appid_short_notm}} dashboard, click **Edit** in the **SAML** row to configure your settings.
 2. Click **Download SAML Metadata file**. Your identity provider expects the following information from the file.
   <table>
     <tr>
@@ -80,13 +80,15 @@ To configure your app, you need to provide information to a SAML compatible iden
 
 3. Provide the data to your identity provider. If your identity provider supports uploading the metadata file, you can do so. If it doesn't, configure the properties manually. Not every identity provider will use the same properties, so if you don't use all of them, it's okay.
 
-The property names might differ between identity providers.
-{: tip}
+  The property names might differ between identity providers.
+  {: tip}
+
+4. Toggle **SAML 2.0 Federation** to **Enabled**.
 
 ## Providing metadata to {{site.data.keyword.appid_short_notm}}
 {: #saml-provide-appid}
 
-Obtain data from your identity provider and provide it to {{site.data.keyword.appid_short_notm}}.
+You can obtain data from your identity provider and provide it to {{site.data.keyword.appid_short_notm}}.
 {: shortdesc}
 
 ### Providing metadata with the GUI
