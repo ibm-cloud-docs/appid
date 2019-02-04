@@ -49,6 +49,9 @@ Looking for an example? Check out <a href="https://www.ibm.com/blogs/bluemix/201
 To configure your app, you need to provide information to a SAML compatible identity provider. The information is exchanged through a metadata XML file that also contains configuration data that is used to establish trust.
 {: shortdesc}
 
+You cannot enable SAML until after it is configured.
+{: tip}
+
 1. In the **Manage** tab of the {{site.data.keyword.appid_short_notm}} dashboard, click **Edit** in the **SAML** row to configure your settings.
 2. Click **Download SAML Metadata file**. Your identity provider expects the following information from the file.
   <table>
