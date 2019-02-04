@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-01"
+lastupdated: "2019-02-04"
 
 ---
 
@@ -13,21 +13,21 @@ lastupdated: "2019-02-01"
 {:tip: .tip}
 
 # Branding your app
-{: #branding}
+{: #branded}
 
 You can display your own customized screens, use your own sign in flows, and take advantage of the authentication and authorization capabilities of {{site.data.keyword.appid_full}}. By using Cloud Directory as your identity provider, your users are able to interact with your app with less help from you. They're able to sign in, sign up, change their password, and more without asking for help.
 {: shortdesc}
 
 
 ## Understanding screen reuse
-{: #branding-understand}
+{: #branded-understand}
 
 When you reuse your existing UIs, you can create a cohesive sign in flow for your app. By using the same imagery, colors, and branding, your users are more likely to recognize your brand, even when not directly interacting with your app.
 
 </br>
 
 ### Are there any requirements to us my own screens?
-{: #branding-requirements}
+{: #branded-requirements}
 
 
 To display your own UIs, you must use [Cloud Directory(/docs/services/appid/cloud-directory.html)] as your identity provider. There are several different ways that Cloud Directory can be [configured](/docs/services/appid/cloud-directory.html). You can decide the types of messages that you want to send, and customize the content and design. Don't know what to say? Not a problem. There are example messages in the GUI that you can use.
@@ -37,19 +37,19 @@ Want to use a [language](/docs/services/appid/cloud-directory.html#languages) ot
 
 
 ### Can I use some of my own and some of the default screens?
-{: #branding-hybrid}
+{: #branded-hybrid}
 
 Yes! You can create a hybrid flow that uses some of your screens and some of the default screens. However, you can use only one option per flow. This means that you can use your own sign in screen and also use the default sign up screen. But, if you choose to use the default sign up screen, then you must continue to use the default through entire sign up flow, including sign up verification.
 
 ### How are the flows technically different?
-{: #branding-technically}
+{: #branded-technically}
 
 The service uses OAuth2 grant flows to map the authorization process. When you configure social identity providers such as Facebook, the <a href="https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html" target="_blank">Authorization Grant flow <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> is used to call the Login Widget. When you use your own screens, the <a href="https://oauthlib.readthedocs.io/en/stable/oauth2/grants/password.html" target="_blank">Resource Owner Password Credentials flow <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> is used to provide access and identity tokens that allow you to call your sign in screens.
 
 </br>
 
 ### Examples
-{: #branding-examples}
+{: #branded-examples}
 
 Yes! Check out any of the following examples to see Cloud Directory in action:
 
@@ -61,7 +61,7 @@ Yes! Check out any of the following examples to see Cloud Directory in action:
 </br>
 
 ## Branding your app with the Android SDK
-{: #branding-ui-android}
+{: #branded-ui-android}
 
 With Cloud Directory enabled, you can call customized screens with the Android SDK. You can choose the combination of the screens that you'd like your users to be able to interact with.<a href="https://www.ibm.com/blogs/bluemix/2018/01/use-branded-ui-user-sign-app-id/" target="blank">Check out this blog<img src="../../icons/launch-glyph.svg" alt="External link icon"></a> for a detailed example!
 {: shortdesc}
@@ -69,7 +69,7 @@ With Cloud Directory enabled, you can call customized screens with the Android S
 </br>
 
 ### Sign in
-{: #branding-android-sign-in}
+{: #branded-android-sign-in}
 
 1. Configure your Cloud Directory [settings](/docs/services/appid/cloud-directory.html#cd-settings) in the GUI.
 2. Add the following code to your application. The sign in flow is triggered when a user clicks sign in on your custom screen. You get access, identity, and refresh tokens by supplying the end user's username and password.
@@ -93,7 +93,7 @@ With Cloud Directory enabled, you can call customized screens with the Android S
 </br>
 
 ## Branding your app with the iOS Swift SDK
-{: #branding-ui-ios-swift}
+{: #branded-ui-ios-swift}
 
 With Cloud Directory enabled, you can call your own branded screens with the [iOS Swift SDK](https://github.com/ibm-cloud-security/appid-clientsdk-swift).
 {: shortdesc}
@@ -101,7 +101,7 @@ With Cloud Directory enabled, you can call your own branded screens with the [iO
 </br>
 
 ### Sign in
-{: #branding-ios-sign-in}
+{: #branded-ios-sign-in}
 
 1. Configure your Cloud Directory [settings](/docs/services/appid/cloud-directory.html#cd-settings) in the GUI.
 2. Place the following code in your application. When a user attempts to sign in, your sign in screen is called and the authorization and authentication process starts with your customized sign in page.
@@ -129,7 +129,7 @@ With Cloud Directory enabled, you can call customized screens with the Node.js S
 {: shortdesc}
 
 ### Sign in
-{: #branding-node-sign-in}
+{: #branded-node-sign-in}
 
 By using the WebAppStrategy users can sign in to your web apps with their username and a password. After a user successfully signs in to your app, their access token is persisted in an HTTP session as long as it is kept alive. After the HTTP session is closed or expired, the access token is also destroyed.
 
@@ -182,7 +182,7 @@ The management API is secured with IBM Cloud Identity and Access Management gene
 After you've configured your [settings](/docs/services/appid/cloud-directory.html), you can call the following endpoints to display each screen.
 
 ### Sign up
-{: #branding-api-signup}
+{: #branded-api-signup}
 
 You can use the `/sign_up` endpoint to allow users to sign themselves up for your app.
 Supply the following data in the request body:
@@ -203,7 +203,7 @@ When this value is provided, {{site.data.keyword.appid_short_notm}} calls the UR
 
 </br>
 ### Forgot password
-{: #branding-api-forgot-password}
+{: #branded-api-forgot-password}
 
 You can use the `/forgot_password` endpoint to allow users to recover their password should they forget it.
 
@@ -226,7 +226,7 @@ Add a random string to your custom reset password page and pass it to your back-
 
 </br>
 ### Change password
-{: branding-api-change-password}
+{: #branded-api-change-password}
 
 You can use the `/change_password` endpoint  in two ways. When a user submits a reset request, or when a user is signed in to your app and wants to update their password.
 
@@ -253,7 +253,7 @@ Your back-end validates the user's current password with the ROP API, and if val
 
 
 ### Resend
-{: #branding-api-resend}
+{: #branded-api-resend}
 
 You can use the `/resend/{templateName}` to resend an email when a user does not receive it for some reason.
 
@@ -263,7 +263,7 @@ Supply the following data in the request body:
   * The Cloud Directory user UUID.
 
 ### Change details
-{: #branding-api-change-details}
+{: #branded-api-change-details}
 
 When a user is signed in to your app, they can update some of their information. You can use the `/Users/{userId}` to get and update their information.
 

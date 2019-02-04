@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-01"
+lastupdated: "2019-02-04"
 
 ---
 
@@ -92,7 +92,7 @@ You need the following information:
 </table>
 
 ## Authenticating with the Android SDK
-{: #mobile-android-setup}
+{: #mobile-android}
 
 **Before you begin**
 
@@ -166,7 +166,7 @@ You must have the following prerequisites before getting started:
 </br>
 
 ## Authenticating with the iOS Swift SDK
-{: #mobile-ios-setup}
+{: #mobile-ios}
 
 Protect your mobile applications using the {{site.data.keyword.appid_short}} client SDK.
 {:shortdesc}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-01-31"
+lastupdated: "2019-02-04"
 
 ---
 
@@ -93,7 +93,7 @@ Cloud Land has a new staff member! You know all of their information, but they d
 
   ```
   curl --request POST \
-  https://us-south.appid.ibm.cloud.com/management/v4/{{APPID_TENANT_ID}}/users \
+  https://us-south.appid.cloud.ibm.com/management/v4/{{APPID_TENANT_ID}}/users \
   --header 'Authorization: Bearer <iam-access-token>' \
   --header 'Content-Type: application/json' \
   - d '{
@@ -121,7 +121,7 @@ Cloud Land has a new staff member! You know all of their information, but they d
 
   ```
   curl --request GET \
-  https://us-south.appid.ibm.cloud.com/management/v4/<tenant-ID>/users?email=<user-email> \
+  https://us-south.appid.cloud.ibm.com/management/v4/<tenant-ID>/users?email=<user-email> \
   --header 'Authorization: Bearer <iam-access-token>' \
   --header 'Content-Type: application/json' \
   ```
@@ -171,7 +171,7 @@ Cloud Land is growing! To keep up with the growth, your company is hiring new pe
 
   ```
   curl --request POST \
-  GET https://us-south.appid.ibm.cloud.com/management/v4/{{APPID_TENANT_ID}}/users/{{user_profile_id}}/profile \
+  GET https://us-south.appid.cloud.ibm.com/management/v4/{{APPID_TENANT_ID}}/users/{{user_profile_id}}/profile \
   --header 'Authorization: Bearer <iam-access-token>' \
   --header 'Content-Type: application/json' \
   ```
@@ -207,7 +207,7 @@ Becoming more and more popular, the theme park continues to grow! With so many n
 
   ```
   curl --request PUT \
-  https://us-south.appid.ibm.cloud.com/management/v4/{{APPID_TENANT_ID}}/config/tokens \
+  https://us-south.appid.cloud.ibm.com/management/v4/{{APPID_TENANT_ID}}/config/tokens \
   --header 'Authorization: Bearer <iam-access-token>' \
   --header 'Content-Type: application/json' \
   - d '{
@@ -282,7 +282,7 @@ Becoming more and more popular, the theme park continues to grow! With so many n
 ## Step 5: Viewing the access token
 {: #roles-view-token}
 
-Optionally, you can verify that step 4 was successful by viewing an access token. 
+Optionally, you can verify that step 4 was successful by viewing an access token.
 {: shortdesc}
 
 1. For testing purposes, create a Cloud Directory user by using the {{site.data.keyword.appid_short_notm}} GUI.
@@ -301,7 +301,7 @@ Optionally, you can verify that step 4 was successful by viewing an access token
 
   ```
   curl --request PUT \
-  https://appid.ibm.cloud.com/oauth/v3/<tenant-ID>/token \
+  https://appid.cloud.ibm.com/oauth/v3/<tenant-ID>/token \
   --header 'Authorization: Basic <encoded-clientID>:<encoded-client-secret>' \
   --header 'Content-Type: application/x-www-form-urlencoded' \
   --header `Accept: application/json`
