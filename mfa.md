@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-04"
+lastupdated: "2019-02-05"
 
 ---
 
@@ -17,61 +17,69 @@ lastupdated: "2019-02-04"
 # Multi-factor authentication
 {: #cd-mfa}
 
-Multi-factor authentication (MFA) is a method of confirming a user's identity by requiring them to use
-something that they have in addition to something that they know to verify they are who they say they are.
-For example, with {{site.data.keyword.appid_full}} you can require a user to input a one-time code, that they obtain from their email or a text message, after they enter their login credentials to confirm their identity.
+With multi-factor authentication (MFA) you can require that a user must input a one-time code in addition to their login information. With {{site.data.keyword.appid_full}} you can confirm a user's claimed identity by requiring them to enter a code that they get from either an SMS or their email.
 {: shortdesc}
 
-MFA is available only for Cloud Directory users that are on the [graduated tier pricing plan](/docs/services/appid/faq.html#faq-pricing). If you are using enterprise sign-in with SAML 2.0 or social login,
-you can enable MFA in that identity provider's configuration.
+MFA is available for Cloud Directory users that are on the [graduated tier pricing plan](/docs/services/appid/faq.html#faq-pricing). If you're using enterprise sign-in with SAML 2.0 or social login,
+you can enable MFA through that identity provider.
 {: note}
 
-Currently, {{site.data.keyword.appid_short_notm}} supports the ability to send a one-time passcode through email or a text message. You can choose whether to send the code through one or the other, but you cannot configure your instance to do both at the same time. When you set MFA to on for the first time, `email` is enabled by default.
+When MFA is enabled, the App ID Login Widget requires a second form of verification every time a new user attempts to sign in. After a user has successfully entered their credentials, a one-time passcode is sent to the email or phone number that is registered to their account.
 
-When MFA is enabled, the Login Widget requires MFA every time a new user attempts to sign in. After the user has successfully entered their credentials, a one-time passcode is sent to the email or phone number that is registered to their account. If a user doesn't have an attached phone number they can enroll a new number during their first SMS MFA flow.
+Check out the following diagram to see how the MFA flow works.
 
-Each code is six-characters with an expiration of five minutes. After a code expires a user is forced to repeat the entire login process. If a user does not receive their code, they can request that another code is sent, but the expiration time is not reset.
+![MFA flow](images/mfa.png)
+
+1. A user is shown {{site.data.keyword.appid_short_notm}}'s Login Widget and inputs their Cloud Directory user credentials, such as their email or user name and their password.
+
+2. The credentials are validated and the MFA validation screen is returned. Based on the channel configuration, the user receives either an email or an SMS with a one-time passcode and enters it into the MFA validation screen.
+
+3. If the MFA code is validated, the user is redirected back to the application and is signed in.
 
 
 
-## Understanding the flow
+## Understanding MFA
 {: #cd-mfa-understanding}
 
 
-1. The user is shown {{site.data.keyword.appid_short_notm}}'s default sign in UI.
+MFA is a method of confirming a user's identity by requiring them to use something that they have in addition to something that they know to verify that they are who they say that they are.
+{: shortdesc}
 
-2. The user inputs their Cloud Directory user credentials, such as their email or user name and their password.
+When you use MFA, you can configure email or SMS to send the one-time code. However, you cannot configure them both at the same time. When you turn MFA on for the first time, email is enabled by default. For both email and SMS there are a few settings that are configured for you and cannot be changed.
 
-3. The credentials are validated and the MFA form is returned.
 
-4. Based on the channel configuration, the user receives either an email or a text message with a one-time passcode and enters it into the default MFA UI.
+<table>
+  <tr>
+    <th>Setting</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>Code characters</td>
+    <td>Six numeric characters</td>
+  </tr>
+  <tr>
+    <td>Code expiration</td>
+    <td>Five minutes </p> If a user does not receive their code, they can request that another code is sent, but the expiration time is not reset. When the code expires a user must repeat the login process from the beginning.</td>
+  </tr>
+</table>
 
-5. The MFA code is validated and redirected to the client app with the authorization code to continue the OAuth 2 flow.
-
-If a user email has not already been confirmed through either the management APIs or through email verification
-on sign-up, they are confirmed when an MFA code verification is successful.
+<p>Defined in SCIM as a <a href="https://tools.ietf.org/html/rfc7643#section-2.4" target="_blank">multi-valued attribute <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>, a Cloud Directory user's email or phone number must contain the following:
+<ul>
+<li>Value: The actual attribute value such as email address or phone number.</li>
+<li>Primary: A Boolean value that indicates the preferred value for the attribute. The primary attribute value <code>true</code> can occur once and only once. If not specified, the value of <code>primary</code> is assumed to be <code>false</code>.</li>
+</ul>For example attributes, check out the [Cloud Directory docs](/docs/services/appid/cloud-directory.html#cloud-directory).</p>
 {: note}
 
 
 ### Email enrollment
+{: #cd-mfa-email-enroll}
 
-When email is enabled, {{site.data.keyword.appid_short_notm}} automatically enrolls the primary email attached the user's profile.
+When email is enabled, {{site.data.keyword.appid_short_notm}} automatically enrolls the primary email attached the user's profile. If a user's email has not already been confirmed through either the management APIs or through email verification on sign-up, they are confirmed when an MFA code verification is successful.
 
 ### SMS enrollment
+{: #cd-mfa-sms-enroll}
 
-In order to dispatch text messages, phone numbers must follow the [E.164 international numbering format](https://en.wikipedia.org/wiki/E.164) by specifying both the country code (starting with a +) and the national subscriber number. (e.g. +1 999 888 7777)
-
-When SMS is enabled, {{site.data.keyword.appid_short_notm}} automatically tries to enroll the first primary phone number found on the user's profile if found in a valid format.
-
-If the number is invalid or no phone number is found on the user's profile, then an enrollment widget is displayed for the user to add a new number. This number is automatically added to the user's profile and once validated will become the default number used for MFA.
-
-A Cloud Directory user's email or phone number value in SCIM is defined as a [multi-valued attribute](https://tools.ietf.org/html/rfc7643#section-2.4) containing:
-
-- value: The attribute's significant value, e.g., email address, phone number.
-
-- primary: A Boolean value indicating the 'primary' or preferred attribute value for this attribute, e.g., the preferred mailing address or the primary email address.  The primary attribute value "true" MUST appear no more than once.  If not specified, the value of "primary" SHALL be assumed to be "false".
-
-For example attributes, check out the [Cloud Directory docs](/docs/services/appid/cloud-directory.html#cd).
+When SMS is enabled, {{site.data.keyword.appid_short_notm}} automatically tries to enroll the first primary phone number found on the user's profile if found in a [valid format](https://en.wikipedia.org/wiki/E.164). A valid format follows the E.164 international numbering format. You must specify both the country code, starting with a + symbol and the national subscriber number. If the number is invalid or no phone number is found on the user's profile, then an enrollment widget is displayed for the user to add a new number. This number is automatically added to the user's profile and once validated will become the default number that is used for MFA.
 
 
 ## Configuring MFA
@@ -81,7 +89,7 @@ For example attributes, check out the [Cloud Directory docs](/docs/services/appi
 {: shortdesc}
 
 
-To configure MFA through the GUI, check out [Cloud Directory](/docs/services/appid/cloud-directory.html).
+To configure MFA with the GUI, check out [Cloud Directory](/docs/services/appid/cloud-directory.html).
 {: note}
 
 **Before you begin**
@@ -90,7 +98,6 @@ Be sure that you have the following prerequisites:
 
 * Your {{site.data.keyword.appid_short_notm}} instance's tenant ID. This ID can be found in the **Service Credentials** section of the dashboard.
 * Your Identity and Access Management (IAM) token. For help with obtaining an IAM token, check out the [IAM docs](/docs/iam/apikey_iamtoken.html).
-
 
 
 ### Configuring MFA to work with Email
