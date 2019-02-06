@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-05"
+lastupdated: "2019-02-06"
 
 ---
 
@@ -17,14 +17,14 @@ lastupdated: "2019-02-05"
 # Multi-factor authentication
 {: #cd-mfa}
 
-With multi-factor authentication (MFA) you can require that a user must input a one-time code in addition to their login information. With {{site.data.keyword.appid_full}} you can confirm a user's claimed identity by requiring them to enter a code that they get from either an SMS or their email.
+Multi-factor authentication (MFA) can require a user to input a second form of verification to confirm their identity. With {{site.data.keyword.appid_full}}, you can send a one-time code through either an SMS or their email.
 {: shortdesc}
 
 MFA is available for Cloud Directory users that are on the [graduated tier pricing plan](/docs/services/appid/faq.html#faq-pricing). If you're using enterprise sign-in with SAML 2.0 or social login,
 you can enable MFA through that identity provider.
 {: note}
 
-When MFA is enabled, the App ID Login Widget requires a second form of verification every time a new user attempts to sign in. After a user has successfully entered their credentials, a one-time passcode is sent to the email or phone number that is registered to their account.
+When MFA is enabled, the {{site.data.keyword.appid_short_notm}} Login Widget requires a second form of verification every time a new user attempts to sign in. After a user successfully enters their credentials, a one-time passcode is sent to the email or phone number that is registered to their account.
 
 Check out the following diagram to see how the MFA flow works.
 
@@ -45,7 +45,7 @@ Check out the following diagram to see how the MFA flow works.
 MFA is a method of confirming a user's identity by requiring them to use something that they have in addition to something that they know to verify that they are who they say that they are.
 {: shortdesc}
 
-When you use MFA, you can configure email or SMS to send the one-time code. However, you cannot configure them both at the same time. When you turn MFA on for the first time, email is enabled by default. For both email and SMS there are a few settings that are configured for you and cannot be changed.
+The first time that MDA is enabled, it is set to use email by default. You can change the setting to use SMS, but you cannot configure both at the same time. For both email and SMS, there are a few settings that are configured for you and cannot be changed.
 
 
 <table>
@@ -63,12 +63,10 @@ When you use MFA, you can configure email or SMS to send the one-time code. Howe
   </tr>
 </table>
 
-<p>Defined in SCIM as a <a href="https://tools.ietf.org/html/rfc7643#section-2.4" target="_blank">multi-valued attribute <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>, a Cloud Directory user's email or phone number must contain the following:
-<ul>
+<p class="important">Defined in SCIM as a <a href="https://tools.ietf.org/html/rfc7643#section-2.4" target="_blank">multi-valued attribute <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>, a Cloud Directory user's email or phone number must contain the following:<ul>
 <li>Value: The actual attribute value such as email address or phone number.</li>
 <li>Primary: A Boolean value that indicates the preferred value for the attribute. The primary attribute value <code>true</code> can occur once and only once. If not specified, the value of <code>primary</code> is assumed to be <code>false</code>.</li>
 </ul>For example attributes, check out the [Cloud Directory docs](/docs/services/appid/cloud-directory.html#cloud-directory).</p>
-{: note}
 
 
 ### Email enrollment
@@ -173,7 +171,8 @@ Be sure that you have the following prerequisites:
 
   If your {{site.data.keyword.appid_short_notm}} Cloud Directory instance is configured to work with a custom email dispatcher then
   MFA will use the same dispatcher to send the one-time passcode. For more information and setting up a custom dispatcher, refer to
-  the [Cloud Directory](/docs/services/appid?topic=appid-cd#custom-email) docs.  {: note}
+  the [Cloud Directory](/docs/services/appid/cloud-directory.html#custom-email) docs.
+  {: note}
 
 ### Configuring MFA to work with SMS
 {: #cd-mfa-configure-sms}
