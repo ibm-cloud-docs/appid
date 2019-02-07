@@ -97,7 +97,7 @@ Before you get started, be sure that your instance of {{site.data.keyword.appid_
 To configure MFA with the GUI, check out [Cloud Directory](/docs/services/appid/cloud-directory.html).
 {: note}
 
-1. In the *Identity Provider* tab of the {{{site.data.keyword.appid_short_notm}} dashboard, click *Cloud Directory*.
+1. In the *Identity Provider* tab of the {{site.data.keyword.appid_short_notm}} dashboard, click *Cloud Directory*.
 
 2. Go to the *Multi-factor authentication* tab.
 
@@ -111,7 +111,7 @@ To configure MFA with the GUI, check out [Cloud Directory](/docs/services/appid/
 
 Be sure that you have the following prerequisites:
 
-* Your {{{site.data.keyword.appid_short_notm}} instance's tenant ID. This ID can be found in the **Service Credentials** section of the dashboard.
+* Your {{site.data.keyword.appid_short_notm}} instance's tenant ID. This ID can be found in the **Service Credentials** section of the dashboard.
 * Your Identity and Access Management (IAM) token. For help with obtaining an IAM token, check out the [IAM docs](/docs/iam/apikey_iamtoken.html).
 
 
@@ -183,7 +183,7 @@ Be sure that you have the following prerequisites:
   {: screen}
 
 
-  If your {{{site.data.keyword.appid_short_notm}} Cloud Directory instance is configured to work with a custom email dispatcher then MFA uses the same dispatcher to send the one-time code. For more information on setting up a custom dispatcher, refer to the [Cloud Directory](/docs/services/appid?topic=appid-cd#custom-email) docs.
+  If your {{site.data.keyword.appid_short_notm}} Cloud Directory instance is configured to work with a custom email dispatcher then MFA uses the same dispatcher to send the one-time code. For more information on setting up a custom dispatcher, refer to the [Cloud Directory](/docs/services/appid?topic=appid-cd#custom-email) docs.
   {: note}
 
 
@@ -192,7 +192,7 @@ Be sure that you have the following prerequisites:
 
 **Before you begin**
 
-{{{site.data.keyword.appid_short_notm}} uses [Nexmo](https://www.nexmo.com/products/sms) to send MFA SMS one-time codes. Before you get started, be sure that you have an instance of {{{site.data.keyword.appid_short_notm}} that is on the [graduated tier pricing plan](/docs/services/appid/faq.html#faq-pricing) and the following Nexmo information.
+{{site.data.keyword.appid_short_notm}} uses [Nexmo](https://www.nexmo.com/products/sms) to send MFA SMS one-time codes. Before you get started, be sure that you have an instance of {{site.data.keyword.appid_short_notm}} that is on the [graduated tier pricing plan](/docs/services/appid/faq.html#faq-pricing) and the following Nexmo information.
 
  - Obtain your Nexmo API key and secret. You can find the Nexmo API key and secret in your account settings page on the Nexmo dashboard. Check out the [Nexmo documentation](https://developer.nexmo.com/concepts/guides/authentication#api-key-and-secret) for further information on how to obtain your credentials.
 
@@ -344,4 +344,3 @@ Example request:
   '{management-url}/management/v4/{tenantId}/config/cloud_directory/sms_dispatcher/test'
   ```
   {: screen}
-
