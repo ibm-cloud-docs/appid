@@ -25,7 +25,7 @@ Multi-factor increases the security of user authentication by requiring the user
 you can enable MFA through that identity provider.
 {: note}
 
-When MFA is enabled, the {{site.data.keyword.appid_short_notm}} Login Widget requires a second form of verification ( second authentication factor) every time a user attempts to sign in. After a user has successfully entered their credentials, a one-time code is sent to the email or phone number that is registered to their account.
+When MFA is enabled, the {{site.data.keyword.appid_short_notm}} Login Widget requires a second form of verification (second authentication factor) every time a user attempts to sign in. After a user has successfully entered their credentials, a one-time code is sent to the email or phone number that is registered to their account.
 
 Check out the following diagram to see how the MFA flow works.
 
