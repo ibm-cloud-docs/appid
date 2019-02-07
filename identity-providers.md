@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-11-14"
+  years: 2017, 2019
+lastupdated: "2019-02-01"
 
 ---
 
@@ -13,14 +13,14 @@ lastupdated: "2018-11-14"
 {: tip: .tip}
 
 # Social
-{: #setting-up-idp}
+{: #social}
 
 With {{site.data.keyword.appid_full}}, you can configure social identity providers to set up a single sign-on experience for your app. By allowing a user to sign in with their social profiles, they no longer have to remember several different passwords for different applications.
 {: shortdesc}
 
 
 ## Default configuration
-{: #default}
+{: #social-default}
 
 {{site.data.keyword.appid_short_notm}} provides a default configuration to help you get up and running quickly with the service.
 {: shortdesc}
@@ -35,6 +35,7 @@ You can configure the {{site.data.keyword.appid_short}} service to use Facebook 
 {: shortdesc}
 
 ### Getting an app ID and secret from Facebook
+{: #facebook-appid-secret}
 
 To use Facebook as an identity provider, you must add and configure the website platform on your Facebook application.
 
@@ -47,6 +48,7 @@ To use Facebook as an identity provider, you must add and configure the website 
 
 
 ### Configuring {{site.data.keyword.appid_short_notm}} for Facebook authentication
+{: #facebook-configure}
 
 When you have your Facebook app ID and secret, and your Facebook for Developers app is configured to serve web clients, you can edit the Facebook authentication in your service dashboard.
 
@@ -63,7 +65,8 @@ When you have your Facebook app ID and secret, and your Facebook for Developers 
 You can configure the {{site.data.keyword.appid_short}} service to use Google as an identity provider.
 {: shortdesc}
 
-### Getting a client ID and secret from Google
+### Getting a client ID and secret
+{: #google-clientid-secret}
 
 Create a project in the <a href="https://developers.google.com/" target="_blank">Google Developers Console <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>, configure the project to serve web clients, and obtain a client ID and secret.
 
@@ -77,6 +80,7 @@ Create a project in the <a href="https://developers.google.com/" target="_blank"
 4. Make note of the Google client ID and secret. In the credentials tab, select the ID that you created to obtain your secret and client ID.
 
 ### Configuring {{site.data.keyword.appid_short}} for Google authentication
+{: #google-configure}
 
 After you configure your Google project and have your client ID and secret, you can edit your service dashboard for Google authentication.
 

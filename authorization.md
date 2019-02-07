@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-11"
+lastupdated: "2019-02-04"
 
 ---
 
@@ -11,8 +11,6 @@ lastupdated: "2019-01-11"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:tip: .tip}
-
-
 
 
 # Key concepts
@@ -24,7 +22,6 @@ Confused about the differences between authorization and authentication? You're 
 
 ## Terminology
 {: #terms}
-
 
 These key terms can help you understand the way that the service breaks down the authorization and authentication process.
 
@@ -67,7 +64,7 @@ These key terms can help you understand the way that the service breaks down the
     </table>
     <p><strong>Note</strong>: When you use the SDK the endpoint URLs are built automatically.</p></dd>
   <dt>Tokens</dt>
-    <dd>The service uses three different types of tokens. Access tokens represent authorization and enable communication with [back-end resources](/docs/services/appid/backend-apps.html) that are protected by authorization filters that are set by {{site.data.keyword.appid_short}}. Identity tokens represent authentication and contain information about the user. A refresh token can be used to obtain a new access token without re-authenticating the user. By using refresh tokens, users can allow their information to be remembered by the application. This way they can remain signed in. For more information about tokens and how they're used in {{site.data.keyword.appid_short}}, check out [Validating tokens](tokens.html#remote-validation).
+    <dd>The service uses three different types of tokens. Access tokens represent authorization and enable communication with [back-end resources](/docs/services/appid/backend-apps.html) that are protected by authorization filters that are set by {{site.data.keyword.appid_short}}. Identity tokens represent authentication and contain information about the user. A refresh token can be used to obtain a new access token without re-authenticating the user. By using refresh tokens, users can allow their information to be remembered by the application. This way they can remain signed in. Tokens are set in the <em>Identity Providers > Manage</em> of the {{site.data.keyword.appid_short}} dashboard. For more information about tokens and how they're used in {{site.data.keyword.appid_short}}, check out [Managing tokens](/docs/services/appid/manageidp.html).
   </dd>
   <dt>Authorization headers</dt>
     <dd><p>{{site.data.keyword.appid_short}} complies with the <a href="https://tools.ietf.org/html/rfc6750" target="blank">token bearer specification <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> and uses a combination of access and identity tokens that are sent as an HTTP Authorization header. The Authorization header contains three different parts that are separated by white space. The tokens are base64 encoded. The identity token is optional.</br>
@@ -94,7 +91,8 @@ When a user is successfully authenticated, the application receives tokens from 
 {: shortdesc}
 
 
-**What is an access token?**
+### Access tokens
+{: #access}
 
 Access tokens represent authorization and enable communication with [back-end resources](/docs/services/appid/backend-apps.html) that are protected by authorization filters that are set by {{site.data.keyword.appid_short}}. The token conforms to JavaScript Object Signing and Encryption (JOSE) specifications. The token is formatted as <a href="https://jwt.io/introduction/" target="blank">JSON Web Tokens <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> are signed with a JSON Web Key that uses the RS256 algorithm.
 
@@ -116,7 +114,8 @@ Example token:
   ```
   {: screen}
 
-**What is an identity token?**
+### What are identity tokens
+{: #identity}
 
 Identity tokens represent authentication and contain information about the user. It can give you information about their name, email, gender, and location. A token can also return a URL to an image of the user. The token is formatted as <a href="https://jwt.io/introduction/" target="blank">JSON Web Tokens <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> are signed with a JSON Web Key that uses the RS256 algorithm.
 
@@ -153,9 +152,10 @@ Example token:
   ```
   {: screen}
 
-Identity tokens only contain partial user information. To see all of the information that is provided by the identity provider, you can use the [user info endpoint](/docs/services/appid/predefined.html#api).
+Identity tokens only contain partial user information. To see all of the information that is provided by the identity provider, you can use the [/userinfo endpoint](/docs/services/appid/predefined.html#predefined-access-api).
 
-**What is a refresh token?**
+### What are refresh tokens
+{: #refresh}
 
 {{site.data.keyword.appid_short}} supports the ability to acquire new access and identity tokens without reauthentication, as defined in <a href="http://openid.net/specs/openid-connect-core-1_0.html#RefreshTokens" target="_blank">OIDC <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>. A refresh token can be used to renew the access token so a user doesn't have to take any action to sign in, such as providing credentials. Similar to access tokens, refresh tokens contain data allowing {{site.data.keyword.appid_short_notm}} to determine whether you authorized. However, these tokens are opaque.
 
@@ -164,20 +164,23 @@ Refresh tokens are configured to have a longer life span than a regular access t
 For added convenience, {{site.data.keyword.appid_short_notm}} also renews its refresh token — and its expiration date — when the access token is renewed, allowing the user to remain logged in as long as they are active at some point before the current refresh token expires. On the other hand, if you would like to use refresh tokens yet force the user to log in periodically, your app could only use the refresh tokens returned when the user logs in by entering their credentials. However, we recommend always using the latest refresh token received from App ID, as described by the <a href="https://tools.ietf.org/html/rfc6749#page-47" target="_blank">Oauth specifications <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
 
 
-Although these tokens can streamline the login process, your app should not depend on them, as they can be revoked at any time, such as when you believe your refresh tokens have been compromised. If you need to revoke a refresh token, there are two methods of revoking a refresh token. If you have the refresh token, you can revoke it based on <a href="https://tools.ietf.org/html/rfc7009#section-2" target="_blank">RFC7009 <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>. Alternatively, if you have the user ID, you can revoke the refresh token by using <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/" target="_blank">the Management API <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>. For more information about accessing the management API see [managing service access](iam.html#service-access-management).
+Although these tokens can streamline the login process, your app should not depend on them, as they can be revoked at any time, such as when you believe your refresh tokens have been compromised. If you need to revoke a refresh token, there are two methods of revoking a refresh token. If you have the refresh token, you can revoke it based on <a href="https://tools.ietf.org/html/rfc7009#section-2" target="_blank">RFC7009 <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>. Alternatively, if you have the user ID, you can revoke the refresh token by using <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/" target="_blank">the Management API <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>. For more information about accessing the management API see [managing service access](/docs/services/appid/iam.html#service-access-management).
 
 For examples of working with refresh tokens and how to use them to implement a remember-me functionality, check out the [getting started samples](index.html).
 
 
-**Where do the tokens come from?**
+### Where do the tokens come from?
+{: #where}
 
 Tokens are issued through the {{site.data.keyword.appid_short_notm}} OAuth Server and are formatted as [JSON Web Tokens (JWT)](https://jwt.io/introduction/). The tokens have been signed with a [JSON Web Key (JWK)](https://tools.ietf.org/html/rfc7517) with the RS256 algorithm.
 
-**What happens to the information that the token contains?**
+### What happens to the information that the token contains?
+{: #contains}
 
 The access token contains a set of standard JWT claims and a set of {{site.data.keyword.appid_short_notm}} specific claims such as a tenant ID. The identity token contains user specific information. The information in the tokens is stored as claims as part of a [user's profile](/docs/services/appid/user-profile.html).
 
-**How are tokens received?**
+### How are tokens received?
+{: #received}
 
 The tokens are received by your app after a successful authentication. You app can use the tokens to retrieve information about user authorization and authentication. The access token can be used to gain access to protected resources by sending a request to the resource. In the request, the access token is described in the [Bearer authentication scheme](https://tools.ietf.org/html/rfc6750#page-5) scheme. To extract the tokens, your app must parse the header.
 
@@ -190,5 +193,9 @@ Example request:
   ```
   {: screen}
 
+### How are tokens set?
+{: #set}
+
+Token configurations can be enabled and disabled through the App ID dashboard. For more information about your configuration options, check out [Managing tokens](/docs/services/appid/manageidp.html).
 </br>
 </br>

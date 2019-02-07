@@ -8,6 +8,12 @@ IBM Cloud App ID
     index.md
     about.md
     authorization.md
+
+    {: .topicgroup}
+    Tutorials
+        tutorial-roles.md
+        tutorial-kubernetes-auth.md
+
     relatedlinks.md
     {: .navgroup-end}
 
@@ -31,7 +37,9 @@ IBM Cloud App ID
         identity-providers.md
         custom.md
 
-    mfa.md
+    {: .topicgroup}
+    Managing Cloud Directory
+        mfa.md
 
     {: .topicgroup}
     Managing the sign in experience

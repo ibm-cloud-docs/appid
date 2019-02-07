@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-11-02"
+  years: 2017, 2019
+lastupdated: "2019-02-01"
 
 ---
 
@@ -14,19 +14,15 @@ lastupdated: "2018-11-02"
 
 
 # Managing
-{: #managing}
+{: #managing-idp}
 
 Identity providers (IdP's) add a level of security for your mobile and web apps, through authentication. With {{site.data.keyword.appid_full}}, you can configure one or several identity providers to create a custom sign-in experience for your users.
 {: shortdesc}
 
-
-**What is an identity provider?**
+## Understanding identity providers
+{: #understanding-managing-idp}
 
 An identity provider creates and manages information about an entity such as a user, a functional ID, or an application. The provider verifies the identity of the entity by using credentials, such as a password. Then, the IdP sends the identity information to another service provider. Because the identity provider authenticates the entity, {{site.data.keyword.appid_short_notm}} is able to authorize it and grant access to your apps.
-
-</br>
-
-**What are the identity providers that {{site.data.keyword.appid_short_notm}} provides an integration for?**
 
 There are several providers that the service is preconfigured to use.
 
@@ -66,36 +62,39 @@ There are several providers that the service is preconfigured to use.
 
 </br>
 
-**How does {{site.data.keyword.appid_short_notm}} interact with an identity provider?**
+### How does App ID interact with an identity provider
+{: #managing-idp-interaction}
 
-{{site.data.keyword.appid_short_notm}} interacts with identity providers by using multiple protocols such as OpenID Connect, SAML, and more. For example, OpenID Connect is the protocol that is used with many social providers such as Facebook, Google. Enterprise providers such as <a href="https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-azure-active-directory/" target="_blank">Azure Active Directory <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> or <a href="https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-active-directory-federation-service/" target="_blank">Active Directory Federation Service <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>, generally use SAML as their identity protocol. For [Cloud Directory](cloud-directory.html), the service uses SCIM to verify identity information.
+{{site.data.keyword.appid_short_notm}} interacts with identity providers by using multiple protocols such as OpenID Connect, SAML, and more. For example, OpenID Connect is the protocol that is used with many social providers such as Facebook, Google. Enterprise providers such as <a href="https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-azure-active-directory/" target="_blank">Azure Active Directory <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> or <a href="https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-active-directory-federation-service/" target="_blank">Active Directory Federation Service <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>, generally use SAML as their identity protocol. For [Cloud Directory](/docs/services/appid/cloud-directory.html), the service uses SCIM to verify identity information.
 
-Working with application identity? Check out [Application identity](app-to-app.html).
+Working with application identity? Check out [Application identity](/docs/services/appid/app-to-app.html).
 {: tip}
 
 </br>
 </br>
 
-## Configuring settings
-{: #configuring}
+## Configuring identity providers
+{: #configuring-idp}
 
 You can decide which providers that you want to use, your redirect URLs, and token information for your app. The settings that you configure apply across all of your identity providers in this instance of the service. For example: when you set token expiration, it applies to all providers that you have configured whether their social or enterprise.
 
 </br>
 
-**To configure your providers:**
+### Configuring providers
+{: #configuring-provider}
 
 1. Navigate to your service dashboard.
 2. In the **Identity Providers** section of the navigation, select the **Manage** page.
 3. On the **Identity Providers** tab, set the providers that you want to use, to **On**.
-4. Optional: Decide whether to turn off **Anonymous users**, or leave the default, which is **On**. When set to **On**, custom user attributes are associated with the user from the moment they begin interacting with your app. For more information about the path to becoming an identified user, see [Progressive authentication](progressive.html#progressive).
+4. Optional: Decide whether to turn off **Anonymous users**, or leave the default, which is **On**. When set to **On**, custom user attributes are associated with the user from the moment they begin interacting with your app. For more information about the path to becoming an identified user, see [Progressive authentication](/docs/services/appid/progressive.html#progressive).
 
 {{site.data.keyword.appid_short_notm}} provides default credentials to help with your initial set-up of Facebook and Google+. You are limited to 100 uses of the credentials per instance, per day. Because they are IBM credentials, they are meant to be used only for development. Before you publish your app, update the configuration to your own credentials.
 {: tip}
 
 </br>
 
-**To configure your settings:**
+### Configuring your settings
+{: #configuring-settings}
 
 1. Add your redirect URLs. A redirect URL is the callback endpoint of your app. To prevent phishing attacks, {{site.data.keyword.appid_short_notm}} validates the URLs against the whitelist.
   1. In the **Add web redirect URL** field, type the URL and click the **+** icon.
@@ -109,6 +108,3 @@ You can decide which providers that you want to use, your redirect URLs, and tok
   2. Set your refresh token lifetime. Expiration is set in days and can be any value in range 1 to 90. The smaller the number, the more frequently a user must sign themselves in.
   3. Set your access token lifetime. The expiration is set in minutes and can be in range 5 to 1440. The smaller the value, the more protection that you have in cases of token theft.
   4. Set your anonymous token lifetime. An [anonymous token](/docs/services/appid/progressive.html#anonymous) is assigned to users the moment they begin interacting with your app. When a user signs in, the information in the anonymous token is then transferred to the token associated with the user. Expiration is set in days and can be any value between 1 and 90.
-
-</br>
-</br>

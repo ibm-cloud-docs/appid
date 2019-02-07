@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-04"
+lastupdated: "2019-02-01"
 
 ---
 
@@ -14,13 +14,13 @@ lastupdated: "2019-01-04"
 {:codeblock: .codeblock}
 
 # Using custom identity in your app
-{: #custom-identity}
+{: #custom-auth}
 
 You can use your own custom identity provider when you are authenticating. Your identity provider can conform to any authentication mechanism alternate to those supported by {{site.data.keyword.appid_full}}, including proprietary or legacy.
 {: shortdesc}
 
 ## Overview
-{: #overview}
+{: #custom-auth-overview}
 
 By bringing your own identity provider, you can create a custom authentication flow that uses your own protocols. You have more control, such as information that you want to share or information that is stored.
 {: shortdesc}
@@ -28,9 +28,8 @@ By bringing your own identity provider, you can create a custom authentication f
 Be sure to [configure your custom provider](/docs/services/appid/custom.html) before you add it to your application.
 {: tip}
 
-</br>
-
-**When would I want to use this flow?**
+### When would I want to use this flow?
+{: #custom-auth-when}
 
 When {{site.data.keyword.appid_short_notm}} does not provide direct support for a particular identity provider, you can use the custom identity flow to bridge the authentication protocol to {{site.data.keyword.appid_short_notm}}'s existing authentication flow. For example, you want to use GitHub or LinkedIn to allow your users to sign in. You can use the identity provider's existing SDK to facilitate user authentication information before packaging and exchanging it with {{site.data.keyword.appid_short_notm}}.
 
@@ -44,16 +43,15 @@ Occasionally, a legacy provider might use their own custom authentication protoc
 
 </br>
 
-**What is the technical underpinning of this flow?**
+### Technically, how does this flow work?
+{: #custom-auth-tech}
 
 The custom identity workflow is built on the JWT-Bearer extension grant type that is defined in Assertion Framework for OAuth 2.0 Authorization Grants [[RFC7521]](https://tools.ietf.org/html/rfc7523#section-2.1). In order to exchange user information for {{site.data.keyword.appid_short_notm}} tokens, your authentication architecture creates a trust relationship with {{site.data.keyword.appid_short_notm}} by using an asymmetric RSA key pair. Once trust is established, you can use the JWT-Bearer grant type to exchange verified user information within a signed JWT for {{site.data.keyword.appid_short_notm}} tokens.
 
-</br>
-
-**What does the flow look like?**
+### What does the flow look like?
+{: #custom-auth-flow}
 
 As with all authentication flows, custom identity requires that the application is able to establish a degree of trust with {{site.data.keyword.appid_short_notm}} to ensure the integrity of identity provider user information. Custom identity employs an asymmetric RSA public and private key pair to establish its trust relationship. Depending on your architectural requirements, custom identity supports two trust models that differ only in the storage location and usage of the private key.
-
 
 ![Custom authentication request flow](images/customauth.png)
 Figure. The request flows for custom authentication
@@ -65,15 +63,15 @@ Figure. The request flows for custom authentication
     <dd>Alternatively, you can base your trust model on the relationship between your app and {{site.data.keyword.appid_short_notm}}. In this workflow, your private key is stored in your server-side application. After a successful authentication, your app is responsible for converting the identity providers response into a JWT and signing it with its private key before the app sends the token to {{site.data.keyword.appid_short_notm}}. Since this identity provider has no relationship with {{site.data.keyword.appid_short_notm}}, this architecture creates a weaker trust model. Although {{site.data.keyword.appid_short_notm}} can trust the information that is sent by the server-side application, it cannot be certain the data was the original sent by the identity provider.</dd>
 </dl>
 
-</br>
 
 ## Generating a JSON web token
-{: #creating-jwts}
+{: #generating-jwts}
 
 You can convert your verified user data to a custom identity JWT by generating a <a href="https://tools.ietf.org/html/rfc7515" target="blank">JSON web token <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>. The token must be signed with the private key that matches your preconfigured public key. For a list of token signing libraries, check out <a href="https://jwt.io/" target="blank">jwt.io <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
 {: shortdesc}
 
 ### Example JWT format
+{: #jwts-example}
 
 Token header:
   ```

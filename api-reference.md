@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-04"
+lastupdated: "2019-02-01"
 
 ---
 
@@ -14,7 +14,7 @@ lastupdated: "2019-01-04"
 {:tip: .tip}
 
 # Managing {{site.data.keyword.appid_short_notm}} with the API
-{: manging-api}
+{: #manging-api}
 
 You can use the management API for DevOps automation, customization, and management of your instances of {{site.data.keyword.appid_full}}.
 {: shortdesc}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-04"
+lastupdated: "2019-02-01"
 
 ---
 
@@ -25,22 +25,22 @@ With {{site.data.keyword.appid_short_notm}}, you can secure applications using t
 {: shortdesc}
 
 ## Understanding the communication flow
-{: #understanding}
-
-**When would this flow be useful?**
+{: #app-understanding}
 
 There are several reasons that you might want one application to communicate with another service or app without any user intervention. For example, a non-interactive app that needs to access another application to perform its work. This could include processes, CLIs, daemons, or an IoT device that monitors and reports environment variables to an upstream server. The specific use case is unique to each application, but the most important thing to remember is that the requests are exchanged on behalf of the app, not on an end user, and it is the app that is authenticated and authorized.
 
 Check out this example on <a href="https://www.ibm.com/blogs/bluemix/2018/02/using-app-id-secure-docker-kubernetes-applications/" target="_blank">Using {{site.data.keyword.appid_short_notm}} to secure Docker and Kubernetes applications <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
 
-**How does the application identity and authorization flow work?**
+### How does the flow work?
+{: #app-flow-how}
 
 {{site.data.keyword.appid_short_notm}} leverages the OAuth2.0 client credentials  flow to protect communication. After an app registers with {{site.data.keyword.appid_short_notm}}, the app obtains a client ID and secret. With this information, the app can request an access token from {{site.data.keyword.appid_short_notm}} and be authorized to access a protected resource or API. In the application identity and authorization flow, the application is granted only an access token. It does not obtain an identity token or a refresh token. For more information about tokens, see [Understanding tokens](/docs/services/appid/authorization.html#tokens).
 
 This work flow is meant to be used only with trusted applications where there is no risk of the secret being misused or leaked. The application always holds the client secret. It will not work for mobile apps.
 {: tip}
 
-**What does the flow look like?**
+### What does the flow look like?
+{: #app-flow-what}
 
 In the following image, you can see the direction of communication between the service and your application.
 
@@ -53,15 +53,17 @@ Figure. application identity and authorization flow
 4. Application A is now able to use the access token to send requests to Application B such as a protected resource.
 
 ## Registering your app
-{: #registering}
+{: #app-register}
 
-**Registering your app with the GUI**
+### With the GUI
+{: #app-register-gui}
 
 1. In the **Application** tab of the {{site.data.keyword.appid_short_notm}} dashboard, click **Add Application**.
 2. Add your application name and click **Save** to return to a list of your registered apps. The name of your application cannot exceed 50 characters.
 3. From the list of registered apps, select the application that you added in the previous step. The row expands to show your credentials.
 
-**Registering your app with the API**
+### With the API
+{: #app-register-api}
 
 1. Make a POST request to the [`/management/v4/{tenantId}/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Applications/registerApplication).
 

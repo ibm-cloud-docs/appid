@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-14"
+lastupdated: "2019-02-01"
 
 ---
 
@@ -21,7 +21,7 @@ If you have problems while you're working with {{site.data.keyword.appid_full}},
 {: shortdesc}
 
 ## Getting help and support
-{: #gettinghelp}
+{: #ts-gettinghelp}
 
 You can get help by searching for information or by asking questions through a forum. You can also open a support ticket. When you are using the forums to ask a question, tag your question so that it is seen by the {{site.data.keyword.Bluemix_notm}} development teams.
   * If you have technical questions about {{site.data.keyword.appid_short_notm}}, post your question on <a href="https://stackoverflow.com/search?q=ibm-appid" target="_blank">Stack Overflow <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> and tag your question with "ibm-appid".
@@ -52,12 +52,8 @@ To resolve the issue, verify that the URL is correct. If your URL does not meet 
 
 </br>
 
-
-
-</br>
-
 ## Error: Too many requests
-{: #ts-custom-url}
+{: #ts-requests}
 
 {: tsSymptoms}
 You attempt to view the home page of your app but receive the following error:

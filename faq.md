@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-12-19"
+  years: 2017, 2019
+lastupdated: "2019-02-04"
 
 ---
 
@@ -20,7 +20,7 @@ This FAQ provides answers to common questions about the {{site.data.keyword.appi
 
 
 ## How does {{site.data.keyword.appid_short_notm}} calculate pricing?
-{: #pricing}
+{: #faq-pricing}
 {: faq}
 
 With {{site.data.keyword.appid_short_notm}}, you pay less as you use more resources.
@@ -31,6 +31,7 @@ The graduated tier plan consists of three parts: the number of authentication ev
 Your first 1000 authentication events and first 1000 authorized users are free each month, with the exception of any advanced security events. Any advanced security events incurs an extra charge.
 
 ### Authentication events
+{: #faq-authentication}
 
 An authentication event occurs when a new access token, regular or anonymous, is issued. Tokens can be issued as a response to a sign-in request that is initiated by a user, or on behalf of the user by an app. By default, access tokens are valid for one hour and anonymous tokens are valid for 30 days. After the token expires, you must create a new token to access protected resources. You can update the expiration time of your {{site.data.keyword.appid_short_notm}} tokens on the **Sign-in Expiration** page of the service dashboard.
 
@@ -46,11 +47,11 @@ Advanced security features give you the ability to strengthen the security of yo
   </tr>
   <tr>
     <td>Multi-Factor Authentication</td>
-    <td>[MFA for Cloud Directory](mfa.html) confirms a user’s identity by requiring a user to enter a one time passcode that is sent to their email in addition to their entering their email and password.</td>
+    <td>[MFA for Cloud Directory](/docs/services/appid/mfa.html) confirms a user’s identity by requiring a user to enter a one time passcode that is sent to their email in addition to their entering their email and password.</td>
   </tr>
   <tr>
     <td>Password policy management</td>
-    <td>As an account owner, you can enforce more secure passwords for Cloud Directory by configuring a set of rules that user passwords must conform to. Examples include, the number of attempted sign-ins before lockout, expiration times, minimum time span between password updates, or the number of times that a password can't be repeated. For a complete list of the options and set up information, see [Advanced password management](cloud-directory.html#advanced-password).</td>
+    <td>As an account owner, you can enforce more secure passwords for Cloud Directory by configuring a set of rules that user passwords must conform to. Examples include, the number of attempted sign-ins before lockout, expiration times, minimum time span between password updates, or the number of times that a password can't be repeated. For a complete list of the options and set up information, see [Advanced password management](/docs/services/appid/cloud-directory.html#cd-advanced-password).</td>
   </tr>
 </table>
 
@@ -60,6 +61,7 @@ These features are available only to those instances that are on the graduated t
 {: note}
 
 ### Authorized users
+{: #faq-authorized}
 
 An authorized user is a unique user that signs in with your service whether directly or indirectly, including anonymous users. You are charged for one authorized user each time a new user signs in to your application, including anonymous users. For example, if a user signs in with Facebook and later signs in by using Google, they are considered two separate authorized users.
 
@@ -70,7 +72,7 @@ For the most up to date pricing information for {{site.data.keyword.appid_short_
 
 
 ## Why do I need to whitelist my redirect URL?
-{: #redirect}
+{: #faq-redirect}
 {: faq}
 
 A redirect URL is the callback endpoint of your app. To prevent phishing attacks, {{site.data.keyword.appid_short_notm}} validates the URL against the whitelist of redirect URLs. When phishing occurs, the possibility that an attacker can gain access to your users tokens exists.
@@ -86,7 +88,7 @@ Do not include any query parameters in your URL. They are ignored in the validat
 </br>
 
 ## How does encryption work in {{site.data.keyword.appid_short_notm}}?
-{: #encryption}
+{: #faq-encryption}
 {: faq}
 
 Check out the following table for answers to commonly asked questions about encryption.
@@ -126,7 +128,7 @@ Check out the following table for answers to commonly asked questions about encr
 </br>
 
 ## What does {{site.data.keyword.appid_short_notm}} expect a SAML assertion to look like?
-{: #saml-example}
+{: #faq-saml-example}
 {: faq}
 
 The service expects a SAML assertion to look like the following example.
@@ -166,7 +168,7 @@ The service expects a SAML assertion to look like the following example.
 </br>
 
 ## What type of algorithms are supported for SAML signatures
-{: #saml-signatures}
+{: #faq-saml-signatures}
 {: faq}
 
 You can use any of the following algorithms to process XML digital signatures.
@@ -197,4 +199,4 @@ You can use any of the following algorithms to process XML digital signatures.
   </tr>
 </table>
 
-For more information about using a SAML identity provider, see [Configuring enterprise identity providers](enterprise.html).
+For more information about using a SAML identity provider, see [Configuring enterprise identity providers](/docs/services/appid/enterprise.html).

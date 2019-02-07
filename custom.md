@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-04"
+lastupdated: "2019-02-04"
 
 ---
 
@@ -28,7 +28,8 @@ When {{site.data.keyword.appid_short_notm}} does not provide direct support for 
 You can use the following steps to configure your custom identity provider to work with {{site.data.keyword.appid_short_notm}}.
 {: shortdesc}
 
-**Before you begin**
+### Before you begin
+{: #custom-identity-before}
 
 To establish trust between {{site.data.keyword.appid_short_notm}} and your custom identity provider, you must have an RSA PEM key pair with a minimum length of 2048. Be sure that you securely back up any keys that you use in production.
 
@@ -47,7 +48,8 @@ $ openssl rsa -pubout -in private_key.pem -out public_key.pem
 
 </br>
 
-**Configuring with the GUI**
+### Configuring with the GUI
+{: #custom-identity-configure-gui}
 
 1. Sign in to your {{site.data.keyword.Bluemix_notm}} account and navigate to your instance of {{site.data.keyword.appid_short_notm}}.
 
@@ -58,9 +60,9 @@ $ openssl rsa -pubout -in private_key.pem -out public_key.pem
   2. Paste your public key in the **Public Key** box and click **Save**.
 
 
-</br>
 
-**Configuring with the API**
+### Configuring with the API
+{: #custom-identity-configure-api}
 
 Register your key by making a PUT request to the [Management API endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Identity_Providers/custom).
 
@@ -77,19 +79,19 @@ Content-Type: application/json
 {: codeblock}
 
 ## Testing your configuration
-{: #testing}
+{: #custom-identity-testing}
 
 After you configure your {{site.data.keyword.appid_short_notm}} instance with a valid public key, you can use the test application that is provided by the service to verify that your configuration is correctly set up. In the example app, you can see {{site.data.keyword.appid_short_notm}} access and identity token payloads that are returned during a standard sign-in flow.
 
 1. From the **Custom Identity Provider** tab, click **Test** to open the test application.
 
-2. Create an example JWT by using [JWT.io](https://jwt.io/) following the custom identity [protocol](/docs/services/appid/custom-auth.html#creating-jwts).
+2. Create an example JWT by using [JWT.io](https://jwt.io/) following the custom identity [protocol](/docs/services/appid/custom-auth.html#generating-jwts).
 
 3. Paste your JWT into the box that is labeled **JSON Web Token** and click **Test** to execute a sample authentication.
 
 If successful, you can now see the decoded {{site.data.keyword.appid_short_notm}} identity and access tokens that would be available to your application in a standard sign-in flow.
 
 ## Next steps
-{: #next}
+{: #custom-identity-next}
 
 Now that your custom identity provider is configured, [add it to your application](/docs/services/appid/custom-auth.html)!

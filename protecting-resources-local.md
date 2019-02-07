@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-02-01"
 
 ---
 
@@ -20,9 +20,9 @@ You can configure your local environment to use the {{site.data.keyword.appid_sh
 
 
 ## Before you begin
-{: #begin}
+{: #begin-local}
 
-Install the [server SDK](web-apps.html).
+Install the [server SDK](/docs/services/appid/web-apps.html).
 
 
 ## Configuring {{site.data.keyword.appid_short_notm}} applications to work with a local development server
@@ -59,7 +59,9 @@ To configure your apps to work with a local development server, use the local ho
 
 
 ### Android
-{: #android}
+{: #android-local}
+
+
 ```java
 String baseRequestUrl = "http://localhost:<port>"; //set to your server running port
 String tenantId = "your-AppID-service-tenantID";
@@ -94,7 +96,7 @@ request.send(this, new ResponseListener() {
 {: codeblock}
 
 ### iOS - Swift
-{: #swift}
+{: #swift-local}
 ```swift
 
  let baseRequestUrl = "http://localhost:<port>"; //set to your server running port

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-11-14"
+  years: 2017, 2019
+lastupdated: "2019-02-04"
 
 ---
 
@@ -13,19 +13,18 @@ lastupdated: "2018-11-14"
 {:screen: .screen}
 
 # Mobile apps
-{: #adding-mobile}
+{: #mobile-apps}
 
 With {{site.data.keyword.appid_full}}, you can quickly construct an authentication layer for your native or hybrid mobile app.
 {: shortdesc}
 
 ## Understanding the flow
-{: #understanding}
-
-**When would this flow be useful?**
+{: #understanding-mobile}
 
 A mobile flow is useful when you are developing an app that is to be installed on a user's device (a native application). By using this flow, you can securely authenticate users on your app in order to provide personalized user experiences across devices.
 
-**What is the flow's technical basis?**
+### What is the flow's technical basis?
+{: #mobile-technical-flow}
 
 Since native applications are installed directly on a user's device, private user information and application credentials can be extracted by third-parties with relative ease. By default, these types of applications are known as untrusted clients as they cannot store global credentials or user refresh tokens. As a result, untrusted clients require users to input their credentials every time their access tokens expire.
 
@@ -33,17 +32,18 @@ In order to convert your application into a trusted client, {{site.data.keyword.
 
 Following registration, your users authenticate using either the OAuth2 `authorization code` or `resource owner password` [authorization grant](https://tools.ietf.org/html/rfc6749#section-1.3) flows to authenticate users.
 
-**What does this flow look like?**
 
-![{{site.data.keyword.appid_short_notm}} app to app flow](images/mobile-flow.png)
-
-**Dynamic Client Registration**
+### Dynamic client registration
+{: #mobile-dynamic}
 
 1. A user performs an action that triggers a request by the client application to the {{site.data.keyword.appid_short}} SDK.
 2. If your app is not registered as a mobile client yet, the SDK initiates a dynamic registration flow.
 3. On a successful registration, {{site.data.keyword.appid_short}} returns your installation-specific client ID.
 
-**Authorization Flow**
+### Authorization flow
+{: #mobile-auth-flow}
+
+![{{site.data.keyword.appid_short_notm}} app to app flow](images/mobile-flow.png)
 
 1. The {{site.data.keyword.appid_short}} SDK starts the authorization process using the {{site.data.keyword.appid_short_notm}} `/authorization` endpoint.
 2. The login widget is displayed to the user.
@@ -53,7 +53,7 @@ Following registration, your users authenticate using either the OAuth2 `authori
 
 
 ## Configuring your mobile app with the {{site.data.keyword.appid_short}} SDKs
-{: #configuring}
+{: #configuring-mobile}
 
 Get started with {{site.data.keyword.appid_short}} with our SDKs.
 {: shortdesc}
@@ -92,7 +92,7 @@ You need the following information:
 </table>
 
 ## Authenticating with the Android SDK
-{: #android-setup}
+{: #mobile-android}
 
 **Before you begin**
 
@@ -106,7 +106,8 @@ You must have the following prerequisites before getting started:
 
 </br>
 
-**Installing the SDK**
+### Installing the SDK
+{: #mobile-android-install}
 
 1. Create an Android Studio project or open an existing project.
 
@@ -147,7 +148,8 @@ You must have the following prerequisites before getting started:
 
 </br>
 
-**Initializing the SDK**
+### Initializing the SDK
+{: #mobile-android-initialize}
 
 
 1. Pass the context, tenant ID, and region parameters to the initialize method to configure the SDK.
@@ -164,7 +166,7 @@ You must have the following prerequisites before getting started:
 </br>
 
 ## Authenticating with the iOS Swift SDK
-{: #ios-setup}
+{: #mobile-ios}
 
 Protect your mobile applications using the {{site.data.keyword.appid_short}} client SDK.
 {:shortdesc}
@@ -180,7 +182,8 @@ You must have the following prerequisites before getting started:
 
 </br>
 
-**Installing the SDK**
+### Installing the SDK
+{: #mobile-ios-install}
 
 The {{site.data.keyword.appid_short_notm}} client SDK is distributed with CocoaPods, a dependency manager for Swift and Objective-C Cocoa projects. CocoaPods downloads artifacts, and makes them available to your project.
 
@@ -218,7 +221,8 @@ The {{site.data.keyword.appid_short_notm}} client SDK is distributed with CocoaP
 
 </br>
 
-**Initializing the SDK**
+### Initializing the SDK
+{: #mobile-ios-initialize}
 
 1. Initialize the client SDK by passing the tenant ID and region parameters to the initialize method.
 
@@ -246,17 +250,16 @@ The {{site.data.keyword.appid_short_notm}} client SDK is distributed with CocoaP
   ```
   {: codeblock}
 
-</br>
-</br>
 
 ## Accessing protected APIs
-{: #accessing-protected-apis}
+{: #mobile-accessing-apis}
 
 After a successful login flow, you can use your access and identity tokens to invoke protected backend resources that use the SDK or a networking library of your choice.
 
 </br>
 
-### Accessing protected APIs with the Swift SDK
+### With the Swift SDK
+{: #mobile-access-api-swift}
 
 1.  Add the following imports to the file in which you want to invoke a protected resource request:
 
@@ -287,7 +290,8 @@ After a successful login flow, you can use your access and identity tokens to in
 
 </br>
 
-### Accessing protected APIs with the Android SDK
+### With the Android SDK
+{: #mobile-access-api-android}
 
 1. Add the following imports to the file in which you want to invoke a protected resource request:
 
@@ -329,7 +333,8 @@ After a successful login flow, you can use your access and identity tokens to in
 
 </br>
 
-### Accessing protected APIs without an SDK
+### Without an SDK
+{: #mobile-access-api-nosdk}
 
 With the library of your choice, set your `Authorization` request header to use the `Bearer` authentication scheme to transmit the access token.
 
@@ -346,7 +351,7 @@ Example request format:
 </br>
 
 ## Next steps
-{: #next}
+{: #mobile-next}
 
 With {{site.data.keyword.appid_short}} installed in your application, you're almost ready to start authenticating users! Try doing one of the following activities next:
 

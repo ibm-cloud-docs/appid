@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-04"
+lastupdated: "2019-02-01"
 
 ---
 
@@ -27,7 +27,7 @@ As an account owner, you can set policies within your account to create differen
 For more information about IAM, see [IAM Access](/docs/iam/users_roles.html).
 
 ## User roles
-{: #roles}
+{: #iam-roles}
 
 The scope of an access policy is based on a users assigned role.
 {: shortdesc}
@@ -39,6 +39,9 @@ Policies enable access to be granted at different levels. Some of the options in
   <li>Access to a specific resource within an instance</li>
   <li>Access to all IAM-enabled services in your account</li>
 </ul></ul>
+
+### Platform roles
+{: #iam-platform-roles}
 
 Platform management roles enable users to perform tasks on service resources at the platform level. For example, roles can be assigned to determine who can create or delete IDs, create instances, and bind instances to apps. The following table details the actions as they correlate to platform management roles.
 
@@ -70,8 +73,8 @@ Platform management roles enable users to perform tasks on service resources at 
   </tr>
 </table>
 
-</br>
-</br>
+### Service access roles
+{: #iam-service-roles}
 The following table details actions that are mapped to service access roles. Service access roles enable users to access {{site.data.keyword.appid_short_notm}} as well as the ability to call the {{site.data.keyword.appid_short_notm}} API.
 
 
@@ -97,7 +100,7 @@ For more information about assigning user roles in the UI, see [Managing IAM acc
 
 
 ## {{site.data.keyword.appid_short_notm}} access policies
-{: #access}
+{: #iam-access}
 
 Every user that accesses the {{site.data.keyword.appid_short_notm}} service in your account must be assigned an access policy with an IAM user role defined. That policy determines what actions the user can perform within the context of the service or instance you select.
 {: shortdesc}
@@ -226,7 +229,7 @@ The actions are customized and defined by the {{site.data.keyword.Bluemix_notm}}
 </br>
 
 ## Example: Giving another user access to an instance of {{site.data.keyword.appid_short_notm}}
-{: #example}
+{: #iam-example}
 
 In this scenario, an administrator created an instance of {{site.data.keyword.appid_short_notm}} and needs to grant viewer access to another team member.
 {: shortdesc}

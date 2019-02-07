@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-07"
+lastupdated: "2019-02-01"
 
 ---
 
@@ -25,22 +25,20 @@ lastupdated: "2019-01-07"
 You can configure your {{site.data.keyword.appid_short_notm}} tokens to meet the specific needs of your application.
 {: shortdesc}
 
+## Understanding customization
+{: #understanding-customization}
 
-**What kinds of tokens are there?**
-
-{{site.data.keyword.appid_short_notm}} different types of tokens to protect your applications.
+{{site.data.keyword.appid_short_notm}} uses different types of tokens to protect your applications.
 
 * Access tokens: Enable communication with back-end resources that are protected by authorization filters. If an access token is not associate with a specific user, the token would have limited capabilities.
 * Identity tokens: Contain personal information and are used to authenticate a user. Depending on your app configuration, identity tokens can be issued before a user is authenticated. This allows you to start associating attributes with your users before they sign in to your application.
 * Refresh tokens: Can be used to extend the amount of time that a user can go without re-authenticating.
 
-Want to learn more about tokens? Read more in [Understanding tokens](authorization.html#tokens).
+Want to learn more about tokens? Read more in [Understanding tokens](/docs/services/appid/authorization.html#tokens).
 {: tip}
 
 
-**What are my customization options?**
-
-You can customize your tokens [in the GUI](#configuring-tokens-ui) or by using [the API](#configuring-tokens-api) by setting the lifespan validity or by adding custom claims to your tokens. Check out the following table to see how lifespan is configured or continue reading to learn about mapping custom attributes.
+You can customize your tokens [in the GUI](/docs/services/appid/customizing-tokens.html#configuring-tokens-ui) or by using [the API](/docs/services/appid/customizing-tokens.html#configuring-tokens-api) by setting the lifespan validity or by adding custom claims to your tokens. Check out the following table to see how lifespan is configured or continue reading to learn about mapping custom attributes.
 
 <table>
   <tr>
@@ -76,7 +74,7 @@ You can customize your tokens [in the GUI](#configuring-tokens-ui) or by using [
 </table>
 
 
-Because tokens are used to identify users and secure your resources, the lifespan of a token affects several different things. By customizing your token configuration you can ensure that your security and user experience needs are met. However, should a token ever become compromised, a malicious user has more time to affect your application. You can learn more about security considerations in [Custom attributes](custom-attributes.html).
+Because tokens are used to identify users and secure your resources, the lifespan of a token affects several different things. By customizing your token configuration you can ensure that your security and user experience needs are met. However, should a token ever become compromised, a malicious user has more time to affect your application. You can learn more about security considerations in [Custom attributes](/docs/services/appid/custom-attributes.html).
 {: important}
 
 </br>
@@ -87,7 +85,8 @@ Because tokens are used to identify users and secure your resources, the lifespa
 You can map user profile attributes to your access and identity token claims. This means that you don't have to go to the [/userinfo endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization_Server_V3/userInfo) or pull custom attributes later, because they're already stored in the tokens!
 {: shortdesc}
 
-**What is a claim?**
+### What is a claim?
+{: #custom-claims-defined}
 
 A claim is a statement that an entity makes about itself or on behalf of someone else. For example, if you signed into an application by using an identity provider, the provider would send the application a group of claims or statements about you to the app so that it can group with information that it already knows about you. This way, when you sign in, the app is set up with your information, in the way that you configured it. Check out the following example to see how to format the JSON object.
 
@@ -123,12 +122,14 @@ A claim is a statement that an entity makes about itself or on behalf of someone
 If you have customized expiration information for your token, you must set it in every request. If you don't, this request overrides your current configuration and the default is used for anything left undefined.
 {: note}
 
-**Why would I want to add claims to my tokens?**
+### Why would I want to add claims to my tokens?
+{: #why-custom-claims}
 
 Without having to make extra network calls, everything that your app may need to know about a user or what they can do is already in the token! Provided that you don't have massive amounts of data, this makes you more efficient. Additionally, you can ensure the integrity of these mapped attributes when they are sent across the network because they are stored in a signed token.
 
 
-**What types of claims can I define?**
+### What types of claims can I define?
+{: #custom-claim-types}
 
 The claims that are provided by {{site.data.keyword.appid_short_notm}} fall into several categories that are differentiated by their level of customization.
 
@@ -139,7 +140,8 @@ The claims that are provided by {{site.data.keyword.appid_short_notm}} fall into
 *Normalized claims*: Every identity token contains a set of claims that is recognized by {{site.data.keyword.appid_short_notm}} as normalized claims. When they are available, they are directly mapped from your identity provider to the token. These claims cannot be explicitly omitted but can be overridden by custom claim mappings. The claims include `name`, `email`, `picture`, `local`, and `gender`.
 
 
-**How are claims mapped to tokens?**
+### How are claims mapped to tokens?
+{: #custom-claims-mapping}
 
 Each mapping is defined by a data source object and a key that is used to retrieve the claim. Each custom claim is set for each token separately and are sequentially applied. You can register up to 100 claims for each token up to a maximum payload of 100KB.
 
