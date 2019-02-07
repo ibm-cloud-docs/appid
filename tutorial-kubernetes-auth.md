@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-04"
+lastupdated: "2019-02-07"
 
 ---
 
@@ -22,7 +22,7 @@ lastupdated: "2019-02-04"
 # Tutorial: Configuring Ingress to use {{site.data.keyword.appid_long_notm}}
 {: #kube-auth}
 
-You can consistently enforce policy-driven security by using the Ingress networking capability in {{site.data.keyword.containerlong}}. With this approach, you can instrument authorization and authentication for all of the applications in your cluster at the same time, without ever changing your app code! With this step-by-step guide, you can learn how to configure your Ingress controller to use {{site.data.keyword.appid_short_notm}}.
+You can consistently enforce policy-driven security by using the Ingress networking capability in {{site.data.keyword.containerlong}}. With this approach, you can enable authorization and authentication for all of the applications in your cluster at the same time, without ever changing your app code! With this step-by-step guide, you can learn how to configure your Ingress controller to use {{site.data.keyword.appid_short_notm}}.
 {: shortdesc}
 
 Check out the following diagram to see the authentication flow:
@@ -34,7 +34,7 @@ Check out the following diagram to see the authentication flow:
 3. {{site.data.keyword.appid_short_notm}} begins the authentication process by displaying the Login Widget.
 4. The user provides a username or email and password.
 5. The Ingress controller obtains access and identity tokens from {{site.data.keyword.appid_short_notm}} for authorization.
-6. The request that contains the tokens is forwarded to the Kubernetes pods.
+6. Every request that is validated and forwarded by the Ingress Controller to your apps will have an authorization header  the contains the tokens.
 
 For security reasons, {{site.data.keyword.appid_short_notm}} authentication only supports backends with TLS/SSL enabled.
 {: note}
