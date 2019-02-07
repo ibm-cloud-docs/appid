@@ -279,7 +279,7 @@ A redirect URL is the URL for the site that you want {{site.data.keyword.appid_s
 
   * Custom domain:
 
-    A URL that is registered with a custom domain might look like: `http://mydomain.net/myapp2path/appid_callback`. If the apps that you want Ingress to expose are in different namespaces in one cluster, you can use a wildcard, such as `https://custom_domain.net/*` to specify all of the apps in the cluster at once.
+    A URL that is registered with a custom domain might look like: `http://mydomain.net/myapp2path/appid_callback`. If the apps that you want Ingress to expose are in different namespaces in one cluster, you can use a wildcard, such as `https://custom_domain.net/*` to specify all of the apps in the cluster at once. This can be helpful during development, but should be used with caution in production.
 
   * Ingress subdomain:
 
