@@ -344,3 +344,5 @@ Example request:
   '{management-url}/management/v4/{tenantId}/config/cloud_directory/sms_dispatcher/test'
   ```
   {: screen}
+
+  </br>
