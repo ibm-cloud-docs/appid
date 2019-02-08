@@ -19,6 +19,7 @@ lastupdated: "2019-02-07"
 {:download: .download}
 
 
+
 # Tutorial: Configuring Ingress to use {{site.data.keyword.appid_long_notm}}
 {: #kube-auth}
 
@@ -34,7 +35,7 @@ Check out the following diagram to see the authentication flow:
 3. {{site.data.keyword.appid_short_notm}} begins the authentication process by displaying the Login Widget.
 4. The user provides a username or email and password.
 5. The Ingress controller obtains access and identity tokens from {{site.data.keyword.appid_short_notm}} for authorization.
-6. Every request that is validated and forwarded by the Ingress Controller to your apps will have an authorization header  the contains the tokens.
+6. Every request that is validated and forwarded by the Ingress Controller to your apps will have an authorization header that contains the tokens.
 
 For security reasons, {{site.data.keyword.appid_short_notm}} authentication only supports backends with TLS/SSL enabled.
 {: note}
