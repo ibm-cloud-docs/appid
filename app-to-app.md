@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-01"
+lastupdated: "2019-02-12"
 
 ---
 
@@ -83,7 +83,7 @@ Figure. application identity and authorization flow
    "tenantId": "39a37f57-a227-4bfe-a044-93b6e6060b61",
   "secret": "ZmE5ZDQ5ODctMmA1ZS00OGRiLWExZDMtZTA1MjkyZTc4MDB4",
   "name": "ApplicationName",
-   "oAuthServerUrl": "https://eu-gb.appid.cloud.ibm.com/oauth/v3/39a37f57-a227-4bfe-a044-93b6e6060b61"
+   "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v3/39a37f57-a227-4bfe-a044-93b6e6060b61"
    }
   ```
   {: codeblock}
@@ -209,7 +209,7 @@ After your app is registered with {{site.data.keyword.appid_short_notm}} and you
   app.use(passport.initialize());
 
   passport.use(new APIStrategy({
-      oauthServerUrl: "https://eu-gb.appid.cloud.ibm.com/oauth/v3/398ec248-5e93-48b8-a122-ccabc714fe85",
+      oauthServerUrl: "https://us-south.appid.cloud.ibm.com/oauth/v3/398ec248-5e93-48b8-a122-ccabc714fe85",
       tenantId:"398ec248-5e93-48b8-a122-ccabc714fe85"
   }));
 

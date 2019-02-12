@@ -82,7 +82,7 @@ In the following example, you can see how to use the API to change the {{site.da
 import requests
 import json
 
-tenantId = '<App ID instance>'
+tenantId = '<{{site.data.keyword.appid_short_notm}} instance>'
 Img = '<Logo file location>'
 apiKey = '<IAM AI key>'
 

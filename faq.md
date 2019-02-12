@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-04"
+lastupdated: "2019-02-12"
 
 ---
 
@@ -65,7 +65,7 @@ These features are available only to those instances that are on the graduated t
 
 An authorized user is a unique user that signs in with your service whether directly or indirectly, including anonymous users. You are charged for one authorized user each time a new user signs in to your application, including anonymous users. For example, if a user signs in with Facebook and later signs in by using Google, they are considered two separate authorized users.
 
-For the most up to date pricing information for {{site.data.keyword.appid_short_notm}}, see the [pricing calculator](https://console.cloud.ibm.com/pricing/configure/service/AdvancedMobileAccess-d6aece47-d840-45b0-8ab9-ad15354deeea).
+For the most up to date pricing information for {{site.data.keyword.appid_short_notm}}, see the [pricing calculator](https://cloud.ibm.com/pricing/configure/service/AdvancedMobileAccess-d6aece47-d840-45b0-8ab9-ad15354deeea).
 {: important}
 
 </br>

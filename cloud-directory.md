@@ -531,7 +531,7 @@ Before you can add your users to the new instance, you need to export them from 
 Example cURL command:
 
 ```
-curl -X GET --header ‘Accept: application/json’ --header ‘Authorization: Bearer <iam-token>’ ’https://eu-gb.appid.cloud.ibm.com/management/v4/111c9bj3-xxxx-4b5b-zzzz-24ad9440k8j9/cloud_directory/export?encryption_secret=myCoolSecret'
+curl -X GET --header ‘Accept: application/json’ --header ‘Authorization: Bearer <iam-token>’ ’https://us-south.appid.cloud.ibm.com/management/v4/111c9bj3-xxxx-4b5b-zzzz-24ad9440k8j9/cloud_directory/export?encryption_secret=myCoolSecret'
 ```
 {: codeblock}
 
@@ -619,7 +619,7 @@ Before you get started, be sure you have the following parameter information:
   </tr>
   <tr>
     <td>IAM token</td>
-    <td>Be sure that you have <code>manager</code> permissions before you obtain the token. For help obtaining an IAM token, check out <a href="https://console.cloud.ibm.com/docs/iam/apikey_iamtoken.html#iamtoken_from_apikey" target="_blank">the docs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.</td>
+    <td>Be sure that you have <code>manager</code> permissions before you obtain the token. For help obtaining an IAM token, check out <a href="https://cloud.ibm.com/docs/iam/apikey_iamtoken.html#iamtoken_from_apikey" target="_blank">the docs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.</td>
   </tr>
 </table>
 

@@ -19,7 +19,7 @@ lastupdated: "2019-02-12"
 # Managing service access
 {: #service-access-management}
 
-With {{site.data.keyword.appid_full}} and {{site.data.keyword.Bluemix_notm}} Identity and Access Management (IAM), account owners can manage user access in your account.
+With {{site.data.keyword.appid_full}} and {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM), account owners can manage user access in your account.
 {: shortdesc}
 
 As an account owner, you can set policies within your account to create different levels of access for different users. For example, certain users can have **Read only** access to one instance, but **Write** access to another. You can decide who is allowed to create, update, and delete instances of {{site.data.keyword.appid_short_notm}}.
@@ -331,5 +331,5 @@ To view the {{site.data.keyword.appid_short_notm}} configurations from the CLI, 
     curl -X GET --header 'Accept: application/json' --header 'Authorization: <IAM token value>' \  'https://us-south.appid.cloud.ibm.com/management/v4/<tenantId>/config/idps/facebook'
     ```
     {: pre}
-    
+
     The result is a 200 message that contains the identity provider information.
