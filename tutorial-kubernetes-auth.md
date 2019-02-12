@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-07"
+lastupdated: "2019-02-12"
 
 ---
 
@@ -17,7 +17,6 @@ lastupdated: "2019-02-07"
 {:important: .important}
 {:deprecated: .deprecated}
 {:download: .download}
-
 
 
 # Tutorial: Configuring Ingress to use {{site.data.keyword.appid_long_notm}}
@@ -91,16 +90,28 @@ You can bind your instance of {{site.data.keyword.appid_short_notm}} to your clu
       <th>Endpoint</th>
     </tr>
     <tr>
-      <td>Germany</td>
+      <td>Dallas</td>
+      <td><code>us-south</code></td>
+    </tr>
+    <tr>
+      <td>Frankfurt</td>
       <td><code>eu-de</code></td>
     </tr>
     <tr>
-      <td>United Kingdom</td>
+      <td>Sydney</td>
+      <td><code>au-syd</code></td>
+    </tr>
+    <tr>
+      <td>London</td>
       <td><code>eu-gb</code></td>
     </tr>
     <tr>
-      <td>US South</td>
-      <td><code>us-south</code></td>
+      <td>Tokyo</td>
+      <td><code>jp-tok</code></td>
+    </tr>
+    <tr>
+      <td>Washington DC</td>
+      <td><code>us-east</code></td>
     </tr>
   </table>
 

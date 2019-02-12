@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-01"
+lastupdated: "2019-02-12"
 
 ---
 
@@ -35,7 +35,7 @@ To configure your apps to work with a local development server, use the local ho
 
 <table> <caption> Table 1. {{site.data.keyword.Bluemix_notm}} regions and corresponding {{site.data.keyword.appid_short_notm}} regions for Android and iOS </caption>
 <tr>
-  <th> {{site.data.keyword.Bluemix_notm}} Region </th>
+  <th> {{site.data.keyword.cloud_notm}} Region </th>
   <th> Android and iOS </th>
 </tr>
 <tr>

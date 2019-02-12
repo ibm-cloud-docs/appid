@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-04"
+lastupdated: "2019-02-12"
 
 ---
 
@@ -559,6 +559,7 @@ Only your Cloud Directory users and their profiles are returned. Users from othe
 
 Now that you have your users ready to go, you can import their information into the new instance. To do so, you can use the <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Cloud_Directory_Users/cloudDirectoryImport" target="_blank">import management API <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
 
+
 Example cURL command:
 
 ```
@@ -586,7 +587,7 @@ curl -X POST --header ‘Content-Type: application/json’ --header ‘Accept: a
         “attributes”: {}
       }
     }
-]}’ ‘https://eu-gb.appid.cloud.ibm.com/management/v4/111c9bj3-xxxx-4b5b-zzzz-24ad9440k8j9/cloud_directory/import?encryption_secret=myCoolSecret’
+]}’ ‘https://us-south.appid.cloud.ibm.com/management/v4/111c9bj3-xxxx-4b5b-zzzz-24ad9440k8j9/cloud_directory/import?encryption_secret=myCoolSecret’
 ```
 {: codeblock}
 
@@ -614,7 +615,7 @@ Before you get started, be sure you have the following parameter information:
   </tr>
   <tr>
     <td>Region</td>
-    <td>Current options include: US-South: <code>ng</code>, London: <code>eu-gb</code>,  Sydney: <code>au-syd</code>, Washington: <code>us-east</code>, and Germany: <code>eu-de</code>.</td>
+    <td>Region options include: <code>au-syd</code>, <code>eu-de</code>, <code>eu-gb</code>, <code>jp-tok</code>, <code>us-east</code>, and <code>us-south</code>.</td>
   </tr>
   <tr>
     <td>IAM token</td>
