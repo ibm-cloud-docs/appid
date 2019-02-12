@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-04"
+lastupdated: "2019-02-12"
 
 ---
 
@@ -111,6 +111,7 @@ Example token:
       "iat": "1495559064",
       "tenant": "9781974b-6a1c-46c3-aebf-32b7e9bbbaee",
       "scope": "appid_default appid_readprofile appid_readuserattr appid_writeuserattr",
+  }
   ```
   {: screen}
 

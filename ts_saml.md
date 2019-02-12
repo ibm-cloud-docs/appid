@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-04"
+lastupdated: "2019-02-12"
 
 ---
 
@@ -22,27 +22,32 @@ If you have problems when you are configuring identity providers to work with {{
 {: shortdesc}
 
 
-## A user is not redirected to the app after sign-in
-{: #ts-signin-fail}
+## A user is not redirected to the identity provider
+{: #ts-saml-redirect}
 
 {: tsSymptoms}
-A user signs in to your application through an identity provider's sign-in page, and either nothing happens or the sign-in fails.
+A user tries to sign in to your application, but the sign-in page doesn't display when prompted.
 
 {: tsCauses}
-Sign-in might fail for the following reasons:
+The identity provider can fail for several reasons:
 
-* Your redirect URL was not properly added to [the whitelist](/docs/services/appid/faq.html#ts-redirect).
-* The user is not authorized.
-* The user tried to sign in with the wrong credentials.
+* Your configured redirect URL is incorrect.
+* The identity provider doesn't recognize the authentication request.
+* The identity provider expects HTTP-POST binding.
+* The identity provider expects a signed authnRequest.
 
 {: tsResolve}
-For a redirect to occur:
+You can try some of these solutions:
 
-* Verify that your redirect URL is correct. It must be exact for the redirect to work.
-* Be sure that your user is signing in with the right credentials
-* Check that they're configured in your identity provider user settings.
+* Update your sign-in URL. This URL is sent as part of the authnRequest and must be exact.
+* Be sure that your {{site.data.keyword.appid_short_notm}} metadata is set correctly in your identity provider settings.
+* Configure your identity provider to accept the authnRequest in the HTTP-Redirect.
+* {{site.data.keyword.appid_short_notm}} does not support signing authnRequests.
 
-</br>
+If none of the solutions work, it is possible that you might have a connection issue.
+{: tip}
+
+
 
 ## Common SAML issues
 {: #ts-common-saml}
@@ -78,50 +83,7 @@ Review the following table for explanations and resolutions for the most common 
   </tbody>
 </table>
 
-</br>
 
-## A user is not redirected to the identity provider
-{: #ts-saml-redirect}
-
-{: tsSymptoms}
-A user tries to sign in to your application, but the sign-in page doesn't display when prompted.
-
-{: tsCauses}
-The identity provider can fail for several reasons:
-
-* Your configured redirect URL is incorrect.
-* The identity provider doesn't recognize the authentication request.
-* The identity provider expects HTTP-POST binding.
-* The identity provider expects a signed authnRequest.
-
-{: tsResolve}
-You can try some of these solutions:
-
-* Update your sign-in URL. This URL is sent as part of the authnRequest and must be exact.
-* Be sure that your {{site.data.keyword.appid_short_notm}} metadata is set correctly in your identity provider settings.
-* Configure your identity provider to accept the authnRequest in the HTTP-Redirect.
-* {{site.data.keyword.appid_short_notm}} does not support signing authnRequests.
-
-If none of the solutions work, it is possible that you might have a connection issue.
-{: tip}
-
-## An attribute is showing the wrong value
-{: #ts-saml-attribute}
-
-{: tsSymptoms}
-An attribute value exists in a user profile, but it's not associated with the correct attribute.
-
-{: tsCauses}
-The User Profile Attribute is not mapped correctly.
-
-{: tsResolve}
-Map the attribute in your identity provider settings. {{site.data.keyword.appid_short_notm}} expects the following attributes:
-* `name`
-* `email`
-* `locale`
-* `picture`
-
-</br>
 
 ## SAML response validation errors
 {: #ts-saml-response}

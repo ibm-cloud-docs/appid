@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-01"
+lastupdated: "2019-02-12"
 
 ---
 
@@ -29,11 +29,32 @@ You can get help by searching for information or by asking questions through a f
 
 For more information about getting support, see [How do I get the support that I need](/docs/get-support/howtogetsupport.html#getting-customer-support).
 
-</br>
+
+
+## A user is not redirected to the app after sign-in
+{: #ts-signin-fail}
+
+{: tsSymptoms}
+A user signs in to your application through an identity provider's sign-in page, and either nothing happens or the sign-in fails.
+
+{: tsCauses}
+Sign-in might fail for the following reasons:
+
+* Your redirect URL was not properly added to [the whitelist](/docs/services/appid/faq.html#ts-redirect).
+* The user is not authorized.
+* The user tried to sign in with the wrong credentials.
+
+{: tsResolve}
+For a redirect to occur:
+
+* Verify that your redirect URL is correct. It must be exact for the redirect to work.
+* Be sure that your user is signing in with the right credentials
+* Check that they're configured in your identity provider user settings.
+
+
 
 ## A custom URL is rejected
 {: #ts-custom-url}
-
 
 {: tsSymptoms}
 When you enter a web redirect URL that uses a custom URL Scheme it is rejected by the {{site.data.keyword.appid_short_notm}} console.
@@ -50,13 +71,32 @@ The limitations are in place for security purposes.
 {: tsResolve}
 To resolve the issue, verify that the URL is correct. If your URL does not meet the requirements, you can create an HTTPS endpoint in your app to redirect the received grant code to your custom URL. Specify the created endpoint as your redirect URL in the {{site.data.keyword.appid_short_notm}} console.
 
-</br>
+
+
+## An attribute is showing the wrong value
+{: #ts-saml-attribute}
+
+{: tsSymptoms}
+An attribute value exists in a user profile, but it's not associated with the correct attribute.
+
+{: tsCauses}
+The user profile attribute is not mapped correctly.
+
+{: tsResolve}
+Map the attribute in your identity provider settings. {{site.data.keyword.appid_short_notm}} expects the following attributes:
+* `name`
+* `email`
+* `locale`
+* `picture`
+
+
 
 ## Error: Too many requests
 {: #ts-requests}
 
 {: tsSymptoms}
 You attempt to view the home page of your app but receive the following error:
+
 ```
 {"error_code":"too many requests","error_description":"too many requests"}
 ```
