@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-01"
+lastupdated: "2019-02-12"
 
 ---
 
@@ -29,31 +29,39 @@ With the API, you can:
 Calls to the management api endpoint take the following structure:
 
 ```
-<region-endpoint>.appid.cloud.ibm.com/management
+https://<region-endpoint>.appid.cloud.ibm.com/management
 ```
 {: codeblock}
 
 
 <table>
   <tr>
-    <th>{{site.data.keyword.Bluemix}} Region</th>
+    <th>Region</th>
     <th>Endpoint</th>
   </tr>
   <tr>
-    <td>United Kingdom</td>
-    <td><code>eu-gb</code></td>
+    <td>Dallas</td>
+    <td><code>us-south</code></td>
   </tr>
   <tr>
-    <td>US South</td>
-    <td><code>ng</code></td>
+    <td>Frankfurt</td>
+    <td><code>eu-de</code></td>
   </tr>
   <tr>
     <td>Sydney</td>
     <td><code>au-syd</code></td>
   </tr>
   <tr>
-    <td>Germany</td>
-    <td><code>eu-de</code></td>
+    <td>London</td>
+    <td><code>eu-gb</code></td>
+  </tr>
+  <tr>
+    <td>Tokyo</td>
+    <td><code>jp-tok</code></td>
+  </tr>
+  <tr>
+    <td>Washington DC</td>
+    <td><code>us-east</code></td>
   </tr>
 </table>
 
@@ -74,11 +82,11 @@ In the following example, you can see how to use the API to change the {{site.da
 import requests
 import json
 
-tenantId = '<App ID instance>'
+tenantId = '<{{site.data.keyword.appid_short_notm}} instance>'
 Img = '<Logo file location>'
 apiKey = '<IAM AI key>'
 
-# get IAM token
+# get an IAM token
 headers = {'Content-Type': 'application/x-www-form-urlencoded', 'Accept':'application
 /json'}
 data = 'grant_type=urn:ibm:params:oauth:grant-type:apikey&apikey=' + apiKey;
@@ -87,7 +95,7 @@ r = requests.post("https://iam.ng.cloud.ibm.com/oidc/token", data=data, headers=
 headers);
 token = 'Bearer ' + json.loads(r.text)['access_token'];
 
-#  set login widget logo
+#  set the Login Widget logo
 headers = {'Authorization': token , 'Accept':'application/json'}
 files = {'file': open(img,'rb')}
 

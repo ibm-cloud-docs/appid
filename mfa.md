@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-07"
+lastupdated: "2019-02-12"
 
 ---
 
@@ -74,7 +74,7 @@ The first time that MFA is enabled, it is set to use email by default. You can c
 ### Email registration
 {: #cd-mfa-email-registration}
 
-When email is enabled, {{site.data.keyword.appid_short_notm}} automatically registers the primary email attached to the Cloud Directory user's profile. If a user's email has not already been confirmed, through either the management APIs or through email verification on sign-up, they are confirmed when an MFA code verification is successful.
+When email is enabled, {{site.data.keyword.appid_short_notm}} automatically registers the primary email attached to the Cloud Directory user's profile. If a user's email has not already been confirmed, through either the [management APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/) or through email verification on sign-up, they are confirmed when an MFA code verification is successful.
 
 ### SMS registration
 {: #cd-mfa-sms-registration}
@@ -344,3 +344,5 @@ Example request:
   '{management-url}/management/v4/{tenantId}/config/cloud_directory/sms_dispatcher/test'
   ```
   {: screen}
+
+  </br>

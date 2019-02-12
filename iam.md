@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-01"
+lastupdated: "2019-02-12"
 
 ---
 
@@ -11,7 +11,7 @@ lastupdated: "2019-02-01"
 {:screen: .screen}
 {:pre: .pre}
 {:table: .aria-labeledby="caption"}
-{:codeblock: .codeblock}
+{:pre: .pre}
 {:tip: .tip}
 {:download: .download}
 
@@ -19,7 +19,7 @@ lastupdated: "2019-02-01"
 # Managing service access
 {: #service-access-management}
 
-With {{site.data.keyword.appid_full}} and {{site.data.keyword.Bluemix_notm}} Identity and Access Management (IAM), account owners can manage user access in your account.
+With {{site.data.keyword.appid_full}} and {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM), account owners can manage user access in your account.
 {: shortdesc}
 
 As an account owner, you can set policies within your account to create different levels of access for different users. For example, certain users can have **Read only** access to one instance, but **Write** access to another. You can decide who is allowed to create, update, and delete instances of {{site.data.keyword.appid_short_notm}}.
@@ -240,19 +240,58 @@ Before you begin:
 To update access permissions, the admin completes the following steps:
 
 1. Log in to the {{site.data.keyword.Bluemix_notm}} console.
+
 2. Give the employee view access by following the steps that are laid out in the [IAM documentation](/docs/iam/mngiam.html).
+
 3. Navigate to the **Service credentials** tab of the {{site.data.keyword.appid_short_notm}} dashboard. Click **View credentials** and copy the **tentantID**.
+
 4. Sign in with the {{site.data.keyword.Bluemix_notm}} CLI in your terminal.
+
     ```
-    ibmcloud login -a api.<region>.console.cloud.ibm.com
+    ibmcloud login -api -a https://api.<region>.cloud.ibm.com
     ```
-    {: codeblock}
+    {: pre}
+
+    <table>
+      <tr>
+        <th>Region</th>
+        <th>Endpoint</th>
+      </tr>
+      <tr>
+        <td>Dallas</td>
+        <td><code>us-south</code></td>
+      </tr>
+      <tr>
+        <td>Frankfurt</td>
+        <td><code>eu-de</code></td>
+      </tr>
+      <tr>
+        <td>Sydney</td>
+        <td><code>au-syd</code></td>
+      </tr>
+      <tr>
+        <td>London</td>
+        <td><code>eu-gb</code></td>
+      </tr>
+      <tr>
+        <td>Tokyo</td>
+        <td><code>jp-tok</code></td>
+      </tr>
+      <tr>
+        <td>Washington DC</td>
+        <td><code>us-east</code></td>
+      </tr>
+    </table>
+
 5. Get an IAM token and make a note of it.
+
     ```
     ibmcloud iam oauth-tokens
     ```
-    {: codeblock}
+    {: pre}
+
 6. Verify that the team member cannot make changes.
+
     ```
     curl -X PUT --header 'Content-Type: application/json' \
     --header 'Accept: application/json' \
@@ -266,25 +305,31 @@ To update access permissions, the admin completes the following steps:
     }' \
     'https://us-south.appid.cloud.ibm.com/management/v4/<tenantId>/config/idps/facebook'
     ```
-    {: codeblock}
+    {: pre}
 
     The result is a 403 unauthorized message.
 
 To view the {{site.data.keyword.appid_short_notm}} configurations from the CLI, the team member completes the following steps:
 
 1. Using the {{site.data.keyword.Bluemix_notm}} CLI in your terminal, sign in.
+
     ```
     ibmcloud login -a api.<region>.console.cloud.ibm.com
     ```
-    {: codeblock}
+    {: pre}
+
 2. Get an IAM token and make a note of it.
+
     ```
     ibmcloud iam oauth-tokens
     ```
-    {: codeblock}
+    {: pre}
+
 3. View the identity provider configuration for Facebook by using cURL.
+
     ```
     curl -X GET --header 'Accept: application/json' --header 'Authorization: <IAM token value>' \  'https://us-south.appid.cloud.ibm.com/management/v4/<tenantId>/config/idps/facebook'
     ```
-    {: codeblock}
+    {: pre}
+
     The result is a 200 message that contains the identity provider information.

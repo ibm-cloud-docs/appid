@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-01"
+lastupdated: "2019-02-12"
 
 ---
 
@@ -45,7 +45,7 @@ You can store 100KB of information for each user.
 
 **To set an attribute:**
 
-All incoming requests to your app have Authorization header, with `access_token`. You can use `access_token` to make requests to the custom attributes endpoints with one of the provided SDKs or by using [the attributes APIs](https://appid-profiles.ng.bluemix.net/swagger-ui/index.html#/Attributes).
+All incoming requests to your app have Authorization header, with `access_token`. You can use `access_token` to make requests to the custom attributes endpoints with one of the provided SDKs or by using [the attributes APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Attributes).
 
 
 iOS Swift:

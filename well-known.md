@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-07"
+lastupdated: "2019-02-12"
 
 ---
 
@@ -31,10 +31,41 @@ You can obtain the discovery document and the information that it contains by ca
 
 You can find the endpoint at the following URL:
 
-  ```
-  https://[region].appid.ibm.cloud.com/oauth/v3/{tenantId}/.well-known/openid-configuration
-  ```
-  {: codeblock}
+```
+https://[region].appid.ibm.cloud.com/oauth/v3/{tenantId}/.well-known/openid-configuration
+```
+{: codeblock}
+
+<table>
+  <tr>
+    <th>Region</th>
+    <th>Endpoint</th>
+  </tr>
+  <tr>
+    <td>Dallas</td>
+    <td><code>us-south</code></td>
+  </tr>
+  <tr>
+    <td>Frankfurt</td>
+    <td><code>eu-de</code></td>
+  </tr>
+  <tr>
+    <td>Sydney</td>
+    <td><code>au-syd</code></td>
+  </tr>
+  <tr>
+    <td>London</td>
+    <td><code>eu-gb</code></td>
+  </tr>
+  <tr>
+    <td>Tokyo</td>
+    <td><code>jp-tok</code></td>
+  </tr>
+  <tr>
+    <td>Washington DC</td>
+    <td><code>us-east</code></td>
+  </tr>
+</table>
 
 </br>
 
@@ -44,10 +75,10 @@ To make a call to the endpoint you must have a valid `tenantID` and you must har
 
 Check out the following sample cURL request:
 
-  ```bash
-  curl -X GET --header 'Accept: application/json'  'https://us-south.appid.cloud.ibm.com/oauth/v3/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/.well-known/openid-configuration'
-  ```
-  {:codeblock}
+```bash
+curl -X GET --header 'Accept: application/json'  'https://us-south.appid.cloud.ibm.com/oauth/v3/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/.well-known/openid-configuration'
+```
+{:codeblock}
 
 </br>
 
@@ -55,103 +86,103 @@ Check out the following sample cURL request:
 
 The response should look similar to the following example:
 
-  ```bash
-  {
-    "issuer" : "appid-oauth.ng.bluemix.net",
-    "authorization_endpoint": "https://us-south.appid.cloud.ibm.com/oauth/v3/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/authorization",
-    "token_endpoint": "https://us-south.appid.cloud.ibm.com/oauth/v3/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/token",
-    "jwks_uri": "https://us-south.appid.cloud.ibm.com/oauth/v3/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/publickeys",
-    "subject_types_supported": [
-      "public"
-    ],
-    "id_token_signing_alg_values_supported": [
-      "RS256"
-    ],
-    "userinfo_endpoint": "https://us-south.appid.cloud.ibm.com/oauth/v3/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/userinfo",
-    "scopes_supported": [
-      "openid"
-    ],
-    "response_types_supported": [
-      "code"
-    ],
-    "claims_supported": [
-      "iss",
-      "aud",
-      "exp",
-      "tenant",
-      "iat",
-      "sub",
-      "nonce",
-      "amr",
-      "oauth_client"
-    ],
-    "grant_types_supported": [
-      "authorization_code",
-      "password",
-      "refresh_token",
-      "client_credentials",
-      "urn:ietf:params:oauth:grant-type:jwt-bearer"
-    ],
-    "profiles_endpoint": "https://us-south.appid.cloud.ibm.com",
-    "service_documentation": "https://console.cloud.ibm.com/docs/services/appid/index.html"
-  }
-  ```
-  {: screen}
+```bash
+{
+  "issuer" : "appid-oauth.ng.bluemix.net",
+  "authorization_endpoint": "https://us-south.appid.cloud.ibm.com/oauth/v3/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/authorization",
+  "token_endpoint": "https://us-south.appid.cloud.ibm.com/oauth/v3/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/token",
+  "jwks_uri": "https://us-south.appid.cloud.ibm.com/oauth/v3/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/publickeys",
+  "subject_types_supported": [
+    "public"
+  ],
+  "id_token_signing_alg_values_supported": [
+    "RS256"
+  ],
+  "userinfo_endpoint": "https://us-south.appid.cloud.ibm.com/oauth/v3/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/userinfo",
+  "scopes_supported": [
+    "openid"
+  ],
+  "response_types_supported": [
+    "code"
+  ],
+  "claims_supported": [
+    "iss",
+    "aud",
+    "exp",
+    "tenant",
+    "iat",
+    "sub",
+    "nonce",
+    "amr",
+    "oauth_client"
+  ],
+  "grant_types_supported": [
+    "authorization_code",
+    "password",
+    "refresh_token",
+    "client_credentials",
+    "urn:ietf:params:oauth:grant-type:jwt-bearer"
+  ],
+  "profiles_endpoint": "https://us-south.appid.cloud.ibm.com",
+  "service_documentation": "https://console.cloud.ibm.com/docs/services/appid/index.html"
+}
+```
+{: screen}
 
-  <table>
-    <tr>
-      <th> Component </th>
-      <th> Description </th>
-    </tr>
-    <tr>
-    <td><code>issuer</code></td>
-    <td>The location of the OIDC provider.</td>
-    </tr>
-    <tr>
-      <td><code>authorization_endpoint</code></td>
-      <td>The URL of the {{site.data.keyword.appid_short_notm}} OAuth 2.0 authorization endpoint.</td>
-    </tr>
-    <tr>
-      <td><code>token_endpoint</code></td>
-      <td>The URL of the {{site.data.keyword.appid_short_notm}} OAuth 2.0 token endpoint.</td>
-    </tr>
-    <tr>
-      <td><code>jwks_uri</code></td>
-      <td>The URL of the {{site.data.keyword.appid_short_notm}} web key set document.</td>
-    </tr>
-    <tr>
-      <td><code>subject_types_supported</code></td>
-      <td>A JSON array that contains a list of the subject identifier types that {{site.data.keyword.appid_short_notm}} supports.</td>
-    </tr>
-    <tr>
-      <td><code>id_token_signing_alg_values_supported</code></td>
-      <td>A JSON array that contains a list of the JWS signing algorithms that the {{site.data.keyword.appid_short_notm}} server supports.</td>
-    </tr>
-    <tr>
-      <td><code>userinfo_endpoint</code></td>
-      <td>The URL of the {{site.data.keyword.appid_short_notm}} userinfo endpoint.</td>
-    </tr>
-    <tr>
-      <td><code>scopes_supported</code></td>
-      <td>A JSON array that contains a list of the OAuth 2.0 scope values that {{site.data.keyword.appid_short_notm}} supports.</td>
-    </tr>
-    <tr>
-      <td><code>response_types_supported</code></td>
-      <td>A JSON array that contains a list of the OAuth 2.0 response_type values that {{site.data.keyword.appid_short_notm}} supports.</td>
-    </tr>
-    <tr>
-      <td><code>claims_supported</code></td>
-      <td>A JSON array that contains a list of the claim names.</td>
-    </tr>
-    <tr>
-      <td><code>grant_types_supported</code></td>
-      <td>A JSON array that contains a list of the OAuth 2.0 grant type values that {{site.data.keyword.appid_short_notm}} supports.</td>
-    </tr>
-    <tr>
-      <td><code>profiles_endpoint</code></td>
-      <td>The URL of the {{site.data.keyword.appid_short_notm}} user profile endpoint.</td>
-    </tr>
-  </table>
+<table>
+  <tr>
+    <th> Component </th>
+    <th> Description </th>
+  </tr>
+  <tr>
+  <td><code>issuer</code></td>
+  <td>The location of the OIDC provider.</td>
+  </tr>
+  <tr>
+    <td><code>authorization_endpoint</code></td>
+    <td>The URL of the {{site.data.keyword.appid_short_notm}} OAuth 2.0 authorization endpoint.</td>
+  </tr>
+  <tr>
+    <td><code>token_endpoint</code></td>
+    <td>The URL of the {{site.data.keyword.appid_short_notm}} OAuth 2.0 token endpoint.</td>
+  </tr>
+  <tr>
+    <td><code>jwks_uri</code></td>
+    <td>The URL of the {{site.data.keyword.appid_short_notm}} web key set document.</td>
+  </tr>
+  <tr>
+    <td><code>subject_types_supported</code></td>
+    <td>A JSON array that contains a list of the subject identifier types that {{site.data.keyword.appid_short_notm}} supports.</td>
+  </tr>
+  <tr>
+    <td><code>id_token_signing_alg_values_supported</code></td>
+    <td>A JSON array that contains a list of the JWS signing algorithms that the {{site.data.keyword.appid_short_notm}} server supports.</td>
+  </tr>
+  <tr>
+    <td><code>userinfo_endpoint</code></td>
+    <td>The URL of the {{site.data.keyword.appid_short_notm}} userinfo endpoint.</td>
+  </tr>
+  <tr>
+    <td><code>scopes_supported</code></td>
+    <td>A JSON array that contains a list of the OAuth 2.0 scope values that {{site.data.keyword.appid_short_notm}} supports.</td>
+  </tr>
+  <tr>
+    <td><code>response_types_supported</code></td>
+    <td>A JSON array that contains a list of the OAuth 2.0 response_type values that {{site.data.keyword.appid_short_notm}} supports.</td>
+  </tr>
+  <tr>
+    <td><code>claims_supported</code></td>
+    <td>A JSON array that contains a list of the claim names.</td>
+  </tr>
+  <tr>
+    <td><code>grant_types_supported</code></td>
+    <td>A JSON array that contains a list of the OAuth 2.0 grant type values that {{site.data.keyword.appid_short_notm}} supports.</td>
+  </tr>
+  <tr>
+    <td><code>profiles_endpoint</code></td>
+    <td>The URL of the {{site.data.keyword.appid_short_notm}} user profile endpoint.</td>
+  </tr>
+</table>
 
 </br>
 </br>
