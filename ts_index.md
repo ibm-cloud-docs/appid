@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-12"
+lastupdated: "2019-02-13"
 
 ---
 
@@ -23,7 +23,7 @@ If you have problems while you're working with {{site.data.keyword.appid_full}},
 ## Getting help and support
 {: #ts-gettinghelp}
 
-You can get help by searching for information or by asking questions through a forum. You can also open a support ticket. When you are using the forums to ask a question, tag your question so that it is seen by the {{site.data.keyword.Bluemix_notm}} development teams.
+You can get help by searching for information or by asking questions through a forum. You can also open a support ticket. When you are using the forums to ask a question, tag your question so that it is seen by the {{site.data.keyword.cloud_notm}} development teams.
   * If you have technical questions about {{site.data.keyword.appid_short_notm}}, post your question on <a href="https://stackoverflow.com/search?q=ibm-appid" target="_blank">Stack Overflow <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> and tag your question with "ibm-appid".
   * For questions about the service and getting started instructions, use the <a href="https://developer.ibm.com/answers/topics/appid/" target="_blank">dW Answers <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> forum. Include the `appid` tag.
 
@@ -40,7 +40,7 @@ A user signs in to your application through an identity provider's sign-in page,
 {: tsCauses}
 Sign-in might fail for the following reasons:
 
-* Your redirect URL was not properly added to [the whitelist](/docs/services/appid/faq.html#ts-redirect).
+* Your redirect URL was not properly added to [the whitelist](/docs/services/appid/faq.html#faq-redirect).
 * The user is not authorized.
 * The user tried to sign in with the wrong credentials.
 

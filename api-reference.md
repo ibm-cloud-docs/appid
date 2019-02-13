@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-12"
+lastupdated: "2019-02-13"
 
 ---
 
@@ -58,10 +58,6 @@ https://<region-endpoint>.appid.cloud.ibm.com/management
   <tr>
     <td>Tokyo</td>
     <td><code>jp-tok</code></td>
-  </tr>
-  <tr>
-    <td>Washington DC</td>
-    <td><code>us-east</code></td>
   </tr>
 </table>
 

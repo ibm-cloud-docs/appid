@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-12"
+lastupdated: "2019-02-13"
 
 ---
 
@@ -276,10 +276,6 @@ To update access permissions, the admin completes the following steps:
       <tr>
         <td>Tokyo</td>
         <td><code>jp-tok</code></td>
-      </tr>
-      <tr>
-        <td>Washington DC</td>
-        <td><code>us-east</code></td>
       </tr>
     </table>
 

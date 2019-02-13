@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-12"
+lastupdated: "2019-02-13"
 
 ---
 
@@ -46,7 +46,6 @@ You can try some of these solutions:
 
 If none of the solutions work, it is possible that you might have a connection issue.
 {: tip}
-
 
 
 ## Common SAML issues

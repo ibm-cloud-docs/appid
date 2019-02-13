@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-12"
+lastupdated: "2019-02-13"
 
 ---
 
@@ -50,7 +50,7 @@ Before you can get started, ensure that you have the following prerequisites.
 * A standard Kubernetes cluster with at least two worker nodes per zone. If you are using Ingress in multizone clusters review the extra prerequisites in the [Kubernetes Service documentation](/docs/containers/cs_ingress.html#config_prereqs).
 * An instance of {{site.data.keyword.appid_short_notm}} in the same region in which your cluster is deployed. Ensure that the service name does not contain any spaces.
 
-* The following [IBM Cloud IAM roles](/docs/containers/cs_access_reference.html#platform):
+* The following [IBM Cloud IAM roles](/docs/containers/cs_access_reference.html#iam-platform):
   * Cluster: Administrator platform role
   * Kubernetes namespaces: Manager service role
 
@@ -108,10 +108,6 @@ You can bind your instance of {{site.data.keyword.appid_short_notm}} to your clu
     <tr>
       <td>Tokyo</td>
       <td><code>jp-tok</code></td>
-    </tr>
-    <tr>
-      <td>Washington DC</td>
-      <td><code>us-east</code></td>
     </tr>
   </table>
 
@@ -312,3 +308,6 @@ Now that your application is running in a Kubernetes cluster and Ingress is conf
 * Using custom attributes to [set roles](/docs/services/appid/tutorial-roles.html)
 * Configuring [multi-factor authentication](/docs/services/appid/mfa.html)
 * Customizing the [Login Widget](/docs/services/appid/login-widget.html)
+
+
+
