@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-12"
+lastupdated: "2019-02-13"
 
 ---
 
@@ -140,7 +140,7 @@ If a user does not supply the information pulled by the parameter, it appears bl
       </tr>
       <tr>
         <td><code>%{resetPassword.code}</code></td>
-        <td> Displays a one-time passcode as part of the URL. This means that each person would have a different code. Example: <code>https://appid.cloud.ibm.com/wfm/verify/6574839563478</code> </td>
+        <td> Displays a one-time passcode as part of the URL. This means that each person would have a different code. Example: <code>https://us-south.appid.cloud.ibm.com/wfm/verify/6574839563478</code> </td>
       </tr>
       <tr>
         <td><code>%{resetPassword.link}</code></td>
