@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-12"
+lastupdated: "2019-02-13"
 
 ---
 
@@ -96,3 +96,15 @@ You can use {{site.data.keyword.appid_short_notm}} with other {{site.data.keywor
 
 
 
+
+## Regional high-availability
+{: #ha-dr}
+
+{{site.data.keyword.appid_short_notm}} is a highly available, regional service.
+{: shortdesc}
+
+In each supported region, the service runs in several availability zones. Each zone has its own Kubernetes cluster with several worker nodes. Each worker node runs several instances of {{site.data.keyword.appid_short_notm}} components. Each region is fronted by a global load balancer and a web application firewall.
+
+Data that is stored in {{site.data.keyword.appid_short_notm}} is encrypted and persisted in a database cluster that is spread across availability zones. The data is also back up in a separate encrypted object storage.
+
+Because {{site.data.keyword.appid_short_notm}} is a regional service, it does not provide automated cross-regional failover or cross-regional disaster recovery. However, {{site.data.keyword.appid_short_notm}} does provide an <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/" target="_blank">extensive API<img src="../../icons/launch-glyph.svg" alt="External link icon"></a> that developers can use to manually synchronize their service configuration with another instance or instances of {{site.data.keyword.appid_short_notm}}.
