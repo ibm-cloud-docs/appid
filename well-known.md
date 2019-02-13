@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-12"
+lastupdated: "2019-02-13"
 
 ---
 
@@ -60,10 +60,6 @@ https://[region].appid.ibm.cloud.com/oauth/v3/{tenantId}/.well-known/openid-conf
   <tr>
     <td>Tokyo</td>
     <td><code>jp-tok</code></td>
-  </tr>
-  <tr>
-    <td>Washington DC</td>
-    <td><code>us-east</code></td>
   </tr>
 </table>
 
