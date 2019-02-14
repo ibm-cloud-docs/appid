@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-12"
+lastupdated: "2019-02-14"
 
 ---
 
@@ -80,11 +80,11 @@ Figure. application identity and authorization flow
   ```
   {
   "clientId": "111c22c3-38ea-4de8-b5d4-338744d83b0f",
-   "tenantId": "39a37f57-a227-4bfe-a044-93b6e6060b61",
+  "tenantId": "39a37f57-a227-4bfe-a044-93b6e6060b61",
   "secret": "ZmE5ZDQ5ODctMmA1ZS00OGRiLWExZDMtZTA1MjkyZTc4MDB4",
   "name": "ApplicationName",
-   "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v3/39a37f57-a227-4bfe-a044-93b6e6060b61"
-   }
+  "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v3/39a37f57-a227-4bfe-a044-93b6e6060b61"
+  }
   ```
   {: codeblock}
 

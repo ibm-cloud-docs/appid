@@ -11,7 +11,7 @@ lastupdated: "2019-02-14"
 {:pre: .pre}
 {:tip: .tip}
 {:screen: .screen}
-{:codeblock: .codeblock}
+{:pre: .pre}
 
 
 # Web apps
@@ -51,8 +51,6 @@ Web apps often require users to authenticate in order to access protected conten
 
 8. The user is granted access to the app.
 
-</br>
-</br>
 
 ## Configuring the Node.js SDK
 {: #web-configuring-nodejs}
@@ -77,40 +75,71 @@ You must have the following prerequisites:
 1. By using the command line, change to the directory that contains your Node.js app.
 
 2. Install the {{site.data.keyword.appid_short_notm}} service.
+
   ```bash
   npm install --save ibmcloud-appid
   ```
-  {: codeblock}
+  {: pre}
 
 ### Initializing the Node.js SDK
 {: #web-nodejs-initialize}
 
 1. Add the following `require` definitions to your `server.js` file.
 
-    ```javascript
-    const express = require('express');
-    const session = require('express-session')
-    const passport = require('passport');
-    const WebAppStrategy = require("ibmcloud-appid").WebAppStrategy;
-    const CALLBACK_URL = "/ibm/cloud/appid/callback";
-    ```
-    {: codeblock}
+  ```javascript
+  const express = require('express');
+  const session = require('express-session')
+  const passport = require('passport');
+  const WebAppStrategy = require("ibmcloud-appid").WebAppStrategy;
+  const CALLBACK_URL = "/ibm/cloud/appid/callback";
+  ```
+  {: pre}
 
-2. Set up your express app to use express-session middleware. **Note**: You must configure the middleware with the proper session storage for production environments. For more information see the <a href="https://github.com/expressjs/session" target="_blank"> expressjs docs <img src="../icons/launch-glyph.svg" alt="External link icon"></a>.
+2. Set up your express app to use express-session middleware. **Note**: You must configure the middleware with the proper session storage for production environments. For more information see the <a href="https://github.com/expressjs/session" target="_blank"> express.js docs <img src="../icons/launch-glyph.svg" alt="External link icon"></a>.
 
-    ```javascript
-    const app = express();
-    app.use(session({
-        secret: "123456",
-        resave: true,
-        saveUninitialized: true
-    }));
-    app.use(passport.initialize());
-    app.use(passport.session());
-    ```
-    {: codeblock}
+  ```javascript
+  const app = express();
+  app.use(session({
+      secret: "123456",
+      resave: true,
+      saveUninitialized: true
+  }));
+  app.use(passport.initialize());
+  app.use(passport.session());
+  ```
+  {: pre}
 
-3. Pass your service credentials to initialize the SDK.
+3. Obtain your service credentials by making a POST request to the [`/management/v4/{tenantId}/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Applications/registerApplication).
+
+  Request format:
+  ```
+  curl -X POST \  https://us-south.appid.cloud.ibm.com/management/v4/39a37f57-a227-4bfe-a044-93b6e6060b61/applications/ \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer IAM_TOKEN' \
+  -d '{"name": "ApplicationName"}'
+  ```
+  {: pre}
+
+  Example response:
+  ```
+  {
+  "clientId": "111c22c3-38ea-4de8-b5d4-338744d83b0f",
+  "tenantId": "39a37f57-a227-4bfe-a044-93b6e6060b61",
+  "secret": "ZmE5ZDQ5ODctMmA1ZS00OGRiLWExZDMtZTA1MjkyZTc4MDB4",
+  "name": "ApplicationName",
+  "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v3/39a37f57-a227-4bfe-a044-93b6e6060b61"
+  }
+  ```
+  {: screen}
+
+4. Optional: Decide how to format your redirectUri. The redirect can be formatted in two different ways.
+
+  * Manually in a new `WebAppStrategy({redirectUri: "...."})`
+  * As an environment variable named `redirectUri`
+
+  If neither of those are provided, the {{site.data.keyword.appid_short_notm}} SDK tries to retrieve the `application_uri` of the app that is running on {{site.data.keyword.cloud_notm}} and append a default suffix `/ibm/cloud/appid/callback`.
+
+5. By using the information obtained in the previous steps, initialize the SDK.
 
   ```javascript
     passport.use(new WebAppStrategy({
@@ -121,29 +150,9 @@ You must have the following prerequisites:
       redirectUri: "{app-url}" + CALLBACK_URL
     }));
   ```
-  {: codeblock}
+  {: pre}
 
-   <table summary="Command components: Node.js apps">
-      <caption>Command components for Node.js apps</caption>
-        <tr>
-          <th>Components</th>
-          <th>Description</th>
-        </tr>
-      <tr>
-          <td><i>tenantId</i> </br> <i>clientId</i> </br> <i>secret</i> </br> <i>oauth-server-url</i> </br> </td>
-          <td>You can find these values by clicking **View Credentials** in the **Service Credentials** tab of your service dashboard.</td>
-      </tr>
-      <tr>
-        <td><i>redirectUri</i></td>
-        <td>The redirect URI value can be supplied in three ways:</br>
-            1. Manually in new `WebAppStrategy({redirectUri: "...."})`</br>
-            2. As environment variable named `redirectUri`</br>
-            3. If neither of those options is supplied, the {{site.data.keyword.appid_short_notm}} SDK tries to retrieve the `application_uri` of the application that is running on {{site.data.keyword.Bluemix_notm}} and append a default suffix `/ibm/cloud/appid/callback`.
-        </td>
-      </tr>
-    </table>
-
-4. Configure passport with serialization and deserialization. This configuration step is required for authenticated session persistence across HTTP requests. For more information, see the <a href="http://passportjs.org/docs" target="_blank">passport docs <img src="../icons/launch-glyph.svg" alt="External link icon"></a>.
+6. Configure passport with serialization and deserialization. This configuration step is required for authenticated session persistence across HTTP requests. For more information, see the <a href="http://passportjs.org/docs" target="_blank">passport docs <img src="../icons/launch-glyph.svg" alt="External link icon"></a>.
 
   ```javascript
   passport.serializeUser(function(user, cb) {
@@ -154,26 +163,25 @@ You must have the following prerequisites:
     cb(null, obj);
     });
   ```
-  {: codeblock}
+  {: pre}
 
 5. Add the following code to your `server.js` file to issue the service redirects.
 
    ```javascript
    app.get(CALLBACK_URL, passport.authenticate(WebAppStrategy.STRATEGY_NAME));
    ```
-   {: codeblock}
+   {: pre}
 
 6. Register your protected endpoint.
 
    ```javascript
    app.get(‘/protected’, passport.authenticate(WebAppStrategy.STRATEGY_NAME), function(req, res) {res.json(req.user); });
    ```
-   {: codeblock}
+   {: pre}
 
 For more information, see the <a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs" target="_blank">{{site.data.keyword.appid_short_notm}} Node.js GitHub repository <img src="../icons/launch-glyph.svg" alt="External link icon"></a>.
 
-</br>
-</br>
+
 
 ## Configuring the Liberty for Java SDK
 {: #web-configuring-liberty}
@@ -202,7 +210,7 @@ You must have the following prerequisites:
       <feature>openidConnectClient-1.0</feature>
   </featureManager>
   ```
-  {: codeblock}
+  {: pre}
 
 2. Create an Open ID Connect Client feature and define the following placeholders. Use the service credentials to fill the placeholders.
 
@@ -220,7 +228,7 @@ You must have the following prerequisites:
     trustAliasName="ibm.com"
   />
   ```
-  {: codeblock}
+  {: pre}
 
   <table>
   <caption>Table. OIDC element variables for Liberty for Java apps</caption>
@@ -276,7 +284,7 @@ You must have the following prerequisites:
       <requestUrl id="myRequestUrl" urlPattern="/protected" matchType="contains"/>
   </authFilter>
   ```
-  {: codeblock}
+  {: pre}
 
 2. Define your special subject type as `ALL_AUTHENTICATED_USERS`.
 
@@ -289,7 +297,7 @@ You must have the following prerequisites:
       </application-bnd>
   </application>
   ```
-  {: codeblock}
+  {: pre}
 
 3. Download the `libertySample-1.0.0.war` file from <a href="https://github.com/ibm-cloud-security/appid-sample-code-snippets/tree/master/liberty-for-java" target="_blank">GitHub <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> and place it in your server's apps folder. For example, if your server is named defaultServer, the war file would go here `target/liberty/wlp/usr/servers/defaultServer/apps/`.
 
@@ -300,13 +308,12 @@ You must have the following prerequisites:
   <keyStore id="appidtruststore" password="Liberty" location="${server.config.dir}/mytruststore.jks"/>
   <ssl id="defaultSSLConfig" keyStoreRef="defaultKeyStore" trustStoreRef="appidtruststore"/>
 ```
-{: codeblock}
+{: pre}
 
 By default SSL configuration requires the truststore be configured for OpenID Connect. Learn more about <a href="https://www.ibm.com/support/knowledgecenter/en/SSEQTP_liberty/com.ibm.websphere.wlp.doc/ae/twlp_config_oidc_rp.html" target="_blank">configuring an OpenID Connect Client in Liberty <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 {: tip}
 
-</br>
-</br>
+
 
 ## Configuring Spring Boot for Java SDK
 {: #web-configuring-spring-boot}
@@ -339,7 +346,7 @@ You must have the following prerequisites:
       <relativePath/>
   </parent>
   ```
-  {: codeblock}
+  {: pre}
 
 2. Add the following dependencies to your Maven `pom.xml` file.
 
@@ -360,7 +367,7 @@ You must have the following prerequisites:
       </dependency>
   </dependencies>
   ```
-  {: codeblock}
+  {: pre}
 
 3. In the same file, include the Maven plugin.
 
@@ -370,7 +377,7 @@ You must have the following prerequisites:
       <artifactId>spring-boot-maven-plugin</artifactId>
   </plugin>
   ```
-  {: codeblock}
+  {: pre}
 
 ### Initializing OAuth2
 {: #web-oauth-initialize}
@@ -381,7 +388,7 @@ You must have the following prerequisites:
   @SpringBootApplication
   @EnableOAuth2Sso
   ```
-  {: codeblock}
+  {: pre}
 
 2. Extend the class with `WebSecurityConfigurerAdapter`.
 3. Override any security configuration and register your protected endpoint.
@@ -394,7 +401,7 @@ You must have the following prerequisites:
                 .and().logout().logoutSuccessUrl("/").permitAll();
     }
   ```
-  {: codeblock}
+  {: pre}
 
 
 ### Adding credentials
@@ -413,22 +420,17 @@ You must have the following prerequisites:
     resource:
       userInfoUri: {oauthServerUrl}/userinfo
   ```
-  {: codeblock}
+  {: pre}
 
 
 For a step-by-step example, check out <a href="https://www.ibm.com/blogs/bluemix/2018/06/creating-spring-boot-applications-app-id/" target="_blank">this blog</a>!
 
-</br>
-</br>
 
 ## Using {{site.data.keyword.appid_short_notm}} with other languages
 {: #web-other-languages}
 
-With an OIDC compliant client SDK, you can use {{site.data.keyword.appid_short_notm}} with other languages. Check out a list of <a href="https://openid.net/developers/certified/">certified libraries</a> for more information.
+With an OIDC compliant client SDK, you can use {{site.data.keyword.appid_short_notm}} with other languages. Check out the list of <a href="https://openid.net/developers/certified/">certified libraries</a> for more information.
 
-
-</br>
-</br>
 
 ## Next steps
 {: #web-next}
