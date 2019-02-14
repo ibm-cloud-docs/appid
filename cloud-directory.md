@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-13"
+lastupdated: "2019-02-14"
 
 ---
 
@@ -615,7 +615,7 @@ Before you get started, be sure you have the following parameter information:
   </tr>
   <tr>
     <td>Region</td>
-    <td>Region options include: <code>au-syd</code>, <code>eu-de</code>, <code>eu-gb</code>, <code>jp-tok</code>, <code>us-east</code>, and <code>us-south</code>.</td>
+    <td>Region options include: <code>au-syd</code>, <code>eu-de</code>, <code>eu-gb</code>, <code>jp-tok</code>, and <code>us-south</code>.</td>
   </tr>
   <tr>
     <td>IAM token</td>

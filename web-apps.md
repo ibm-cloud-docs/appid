@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-12"
+lastupdated: "2019-02-14"
 
 ---
 
@@ -246,7 +246,7 @@ You must have the following prerequisites:
     </tr>
     <tr>
       <td><code>issuerIdentifier</code></td>
-      <td>The issuer identifier takes the following form: <code><region>.cloud.ibm.com</code>. Region options include: <code>au-syd</code>, <code>eu-de</code>, <code>eu-gb</code>, <code>jp-tok</code>, <code>us-east</code>, and <code>us-south</code>.</td>
+      <td>The issuer identifier takes the following form: <code><region>.cloud.ibm.com</code>. Region options include: <code>au-syd</code>, <code>eu-de</code>, <code>eu-gb</code>, <code>jp-tok</code>, and <code>us-south</code>.</td>
     </tr>
     <tr>
       <td><code>tokenEndpointAuthMethod</code></td>
