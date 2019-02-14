@@ -212,7 +212,30 @@ You must have the following prerequisites:
   ```
   {: pre}
 
-2. Create an Open ID Connect Client feature and define the following placeholders. Use the service credentials to fill the placeholders.
+2. Obtain your service credentials by making a POST request to the [`/management/v4/{tenantId}/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Applications/registerApplication).
+
+  Request format:
+  ```
+  curl -X POST \  https://us-south.appid.cloud.ibm.com/management/v4/39a37f57-a227-4bfe-a044-93b6e6060b61/applications/ \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer IAM_TOKEN' \
+  -d '{"name": "ApplicationName"}'
+  ```
+  {: pre}
+
+  Example response:
+  ```
+  {
+  "clientId": "111c22c3-38ea-4de8-b5d4-338744d83b0f",
+  "tenantId": "39a37f57-a227-4bfe-a044-93b6e6060b61",
+  "secret": "ZmE5ZDQ5ODctMmA1ZS00OGRiLWExZDMtZTA1MjkyZTc4MDB4",
+  "name": "ApplicationName",
+  "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v3/39a37f57-a227-4bfe-a044-93b6e6060b61"
+  }
+  ```
+  {: screen}
+
+3. Create an Open ID Connect Client feature and define the following placeholders. Use the service credentials to fill the placeholders.
 
   ```xml
   <openidConnectClient
@@ -238,7 +261,7 @@ You must have the following prerequisites:
     </tr>
     <tr>
     <td><code>clientID</code> </br> <code>secret</code> </br> <code>oauth-server-url</code> </br></td>
-    <td>You can find these values by clicking **View credentials** in the **service credentials** tab of your service dashboard.</td>
+    <td>Complete step two to obtain your service credentials.</td>
     </tr>
     <tr>
       <td><code>authorizationEndpointURL</code></td>
@@ -407,7 +430,30 @@ You must have the following prerequisites:
 ### Adding credentials
 {: #web-spring-boot-credentials}
 
-1. Add an `application.yml` configuration file to the `/springbootsample/src/main/resources/` directory. You can complete your configuration with the information from your service credentials.
+1. Obtain your service credentials by making a POST request to the [`/management/v4/{tenantId}/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Applications/registerApplication).
+
+  Request format:
+  ```
+  curl -X POST \  https://us-south.appid.cloud.ibm.com/management/v4/39a37f57-a227-4bfe-a044-93b6e6060b61/applications/ \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer IAM_TOKEN' \
+  -d '{"name": "ApplicationName"}'
+  ```
+  {: pre}
+
+  Example response:
+  ```
+  {
+  "clientId": "111c22c3-38ea-4de8-b5d4-338744d83b0f",
+  "tenantId": "39a37f57-a227-4bfe-a044-93b6e6060b61",
+  "secret": "ZmE5ZDQ5ODctMmA1ZS00OGRiLWExZDMtZTA1MjkyZTc4MDB4",
+  "name": "ApplicationName",
+  "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v3/39a37f57-a227-4bfe-a044-93b6e6060b61"
+  }
+  ```
+  {: screen}
+
+2. Add an `application.yml` configuration file to the `/springbootsample/src/main/resources/` directory. You can complete your configuration with the information from your service credentials.
 
   ```
   security:
@@ -422,7 +468,6 @@ You must have the following prerequisites:
   ```
   {: pre}
 
-
 For a step-by-step example, check out <a href="https://www.ibm.com/blogs/bluemix/2018/06/creating-spring-boot-applications-app-id/" target="_blank">this blog</a>!
 
 
@@ -430,7 +475,6 @@ For a step-by-step example, check out <a href="https://www.ibm.com/blogs/bluemix
 {: #web-other-languages}
 
 With an OIDC compliant client SDK, you can use {{site.data.keyword.appid_short_notm}} with other languages. Check out the list of <a href="https://openid.net/developers/certified/">certified libraries</a> for more information.
-
 
 ## Next steps
 {: #web-next}
