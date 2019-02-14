@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-12"
+lastupdated: "2019-02-14"
 
 ---
 
@@ -167,7 +167,7 @@ For added convenience, {{site.data.keyword.appid_short_notm}} also renews its re
 
 Although these tokens can streamline the login process, your app should not depend on them, as they can be revoked at any time, such as when you believe your refresh tokens have been compromised. If you need to revoke a refresh token, there are two methods of revoking a refresh token. If you have the refresh token, you can revoke it based on <a href="https://tools.ietf.org/html/rfc7009#section-2" target="_blank">RFC7009 <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>. Alternatively, if you have the user ID, you can revoke the refresh token by using <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/" target="_blank">the Management API <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>. For more information about accessing the management API see [managing service access](/docs/services/appid/iam.html#service-access-management).
 
-For examples of working with refresh tokens and how to use them to implement a remember-me functionality, check out the [getting started samples](index.html).
+For examples of working with refresh tokens and how to use them to implement a remember-me functionality, check out the [getting started samples](/docs/services/appid/index.html).
 
 
 ### Where do the tokens come from?
