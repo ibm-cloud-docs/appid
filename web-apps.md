@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-14"
+lastupdated: "2019-02-15"
 
 ---
 
@@ -265,19 +265,19 @@ You must have the following prerequisites:
     </tr>
     <tr>
       <td><code>authorizationEndpointURL</code></td>
-      <td> Add `/authorization` to the end of your oauthServerURL.</td>
+      <td> Add <code>/authorization</code> to the end of your <code>oauthServerURL</code>.</td>
     </tr>
     <tr>
       <td><code>tokenEndpointUrl</code></td>
-      <td>Add `/token` to the end of your oauthServerURL.</td>
+      <td>Add <code>/token</code> to the end of your <code>oauthServerURL</code>.</td>
     </tr>
     <tr>
       <td><code>jwkEndpointUrl</code></td>
-      <td>Add `/publickeys` to the end of your oauthServerURL.</td>
+      <td>Add <code>/publickeys</code> to the end of your <code>oauthServerURL</code>.</td>
     </tr>
     <tr>
       <td><code>issuerIdentifier</code></td>
-      <td>The issuer identifier takes the following form: <code><region>.cloud.ibm.com</code>. Region options include: <code>au-syd</code>, <code>eu-de</code>, <code>eu-gb</code>, <code>jp-tok</code>, and <code>us-south</code>.</td>
+      <td>The issuer identifier takes the following form: <code>&lt;region>&gt;.cloud.ibm.com</code>. Region options include: <code>au-syd</code>, <code>eu-de</code>, <code>eu-gb</code>, <code>jp-tok</code>, and <code>us-south</code>.</td>
     </tr>
     <tr>
       <td><code>tokenEndpointAuthMethod</code></td>
@@ -326,12 +326,12 @@ You must have the following prerequisites:
 
 4. Configure SSL by adding the following to your `server.xml` file. You will also need to create a truststore.
 
-```xml
-  <keyStore id="defaultKeyStore" password="myPassword"/>
-  <keyStore id="appidtruststore" password="Liberty" location="${server.config.dir}/mytruststore.jks"/>
-  <ssl id="defaultSSLConfig" keyStoreRef="defaultKeyStore" trustStoreRef="appidtruststore"/>
-```
-{: pre}
+  ```xml
+    <keyStore id="defaultKeyStore" password="myPassword"/>
+    <keyStore id="appidtruststore" password="Liberty" location="${server.config.dir}/mytruststore.jks"/>
+    <ssl id="defaultSSLConfig" keyStoreRef="defaultKeyStore" trustStoreRef="appidtruststore"/>
+  ```
+  {: pre}
 
 By default SSL configuration requires the truststore be configured for OpenID Connect. Learn more about <a href="https://www.ibm.com/support/knowledgecenter/en/SSEQTP_liberty/com.ibm.websphere.wlp.doc/ae/twlp_config_oidc_rp.html" target="_blank">configuring an OpenID Connect Client in Liberty <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 {: tip}

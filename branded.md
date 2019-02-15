@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-04"
+lastupdated: "2019-02-15"
 
 ---
 
@@ -135,7 +135,7 @@ By using the WebAppStrategy users can sign in to your web apps with their userna
 
 
 1. Configure your Cloud Directory [settings](/docs/services/appid/cloud-directory.html#cd-settings) in the GUI.
-2. Place the following code in your application. When a user attempts to sign in, your sign in screen is called and the authorization and authentication process starts with your customized sign in page.
+2. Place the following code in your application. When a user attempts to sign in, your customized sign in screen is called and the authorization and authentication process starts.
 
   ```javascript
   app.post("/form/submit", bodyParser.urlencoded({extended: false}), passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
