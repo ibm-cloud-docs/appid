@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-13"
+lastupdated: "2019-02-15"
 
 ---
 
@@ -19,7 +19,7 @@ lastupdated: "2019-02-13"
 You can use the management API for DevOps automation, customization, and management of your instances of {{site.data.keyword.appid_full}}.
 {: shortdesc}
 
-The management API is secured with {{site.data.keyword.cloudaccesstraillong}} generated tokens. With IAM, account owners can specify who on their team has which level of access for each service instance. For more information about how IAM and {{site.data.keyword.appid_short_notm}} work together, see [Service Access Management](/docs/services/appid/iam.html).
+The management API is secured with {{site.data.keyword.cloudaccesstraillong}} generated tokens. With IAM, account owners can specify who on their team has which level of access for each service instance. For more information about how IAM and {{site.data.keyword.appid_short_notm}} work together, see [Service Access Management](/docs/services/appid?topic=appid-service-access-management).
 
 With the API, you can:
 * Automate the configuration of {{site.data.keyword.appid_short_notm}} in your app of your DevOps process.
@@ -67,7 +67,7 @@ https://<region-endpoint>.appid.cloud.ibm.com/management
 {: #api-prereq}
 
 <ul><ul><li>A service instance that was created after 15 March 2018. If you have an instance of the service that was created before that date, create a new instance and configure it to match your current instance. Be sure to update your apps to use the new instance.</li>
-<li>The [{{site.data.keyword.Bluemix_notm}} CLI](/docs/cli/index.html) installed.</li></ul></ul>
+<li>The [{{site.data.keyword.Bluemix_notm}} CLI](/docs/cli?topic=cloud-cli-overview) installed.</li></ul></ul>
 
 ## Example usage
 {: #api-example}

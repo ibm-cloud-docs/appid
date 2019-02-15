@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-12"
+lastupdated: "2019-02-15"
 
 ---
 
@@ -47,11 +47,11 @@ Advanced security features give you the ability to strengthen the security of yo
   </tr>
   <tr>
     <td>Multi-Factor Authentication</td>
-    <td>[MFA for Cloud Directory](/docs/services/appid/mfa.html) confirms a user’s identity by requiring a user to enter a one time passcode that is sent to their email in addition to their entering their email and password.</td>
+    <td>[MFA for Cloud Directory](/docs/services/appid?topic=appid-cd-mfa) confirms a user’s identity by requiring a user to enter a one time passcode that is sent to their email in addition to their entering their email and password.</td>
   </tr>
   <tr>
     <td>Password policy management</td>
-    <td>As an account owner, you can enforce more secure passwords for Cloud Directory by configuring a set of rules that user passwords must conform to. Examples include, the number of attempted sign-ins before lockout, expiration times, minimum time span between password updates, or the number of times that a password can't be repeated. For a complete list of the options and set up information, see [Advanced password management](/docs/services/appid/cloud-directory.html#cd-advanced-password).</td>
+    <td>As an account owner, you can enforce more secure passwords for Cloud Directory by configuring a set of rules that user passwords must conform to. Examples include, the number of attempted sign-ins before lockout, expiration times, minimum time span between password updates, or the number of times that a password can't be repeated. For a complete list of the options and set up information, see [Advanced password management](/docs/services/appid?topic=appid-cloud-directory#cd-advanced-password).</td>
   </tr>
 </table>
 
@@ -199,4 +199,4 @@ You can use any of the following algorithms to process XML digital signatures.
   </tr>
 </table>
 
-For more information about using a SAML identity provider, see [Configuring enterprise identity providers](/docs/services/appid/enterprise.html).
+For more information about using a SAML identity provider, see [Configuring enterprise identity providers](/docs/services/appid?topic=appid-enterprise).

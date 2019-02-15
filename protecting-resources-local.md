@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-12"
+lastupdated: "2019-02-15"
 
 ---
 
@@ -22,7 +22,7 @@ You can configure your local environment to use the {{site.data.keyword.appid_sh
 ## Before you begin
 {: #begin-local}
 
-Install the [server SDK](/docs/services/appid/web-apps.html).
+Install the [server SDK](/docs/services/appid?topic=appid-web-apps).
 
 
 ## Configuring {{site.data.keyword.appid_short_notm}} applications to work with a local development server

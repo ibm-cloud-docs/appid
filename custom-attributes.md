@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-12"
+lastupdated: "2019-02-15"
 
 ---
 
@@ -197,5 +197,5 @@ For more information about working with a specific language SDK, see the followi
 * <a href="https://github.com/ibm-cloud-security/appid-serversdk-swift" target="_blank">Server Swift SDK <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 
 
-Didn't find an SDK for the language that your app is written in? No problem! You can integrate the service by using the APIs. {{site.data.keyword.appid_short_notm}} provides a <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/" target="_blank">REST API <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> that allows log in, either anonymously or by authenticating, with a supported [identity provider](/docs/services/appid/manageidp.html) For help implementing the API in languages such as Python and Go, <a href="https://www.ibm.com/blogs/bluemix/tag/app-id/" target="_blank">check out our blogs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
+Didn't find an SDK for the language that your app is written in? No problem! You can integrate the service by using the APIs. {{site.data.keyword.appid_short_notm}} provides a <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/" target="_blank">REST API <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> that allows log in, either anonymously or by authenticating, with a supported [identity provider](/docs/services/appid?topic=appid-managing-idp) For help implementing the API in languages such as Python and Go, <a href="https://www.ibm.com/blogs/bluemix/tag/app-id/" target="_blank">check out our blogs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
 {: tip}

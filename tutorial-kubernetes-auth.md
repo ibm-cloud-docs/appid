@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-14"
+lastupdated: "2019-02-15"
 
 ---
 
@@ -47,7 +47,7 @@ Before you can get started, ensure that you have the following prerequisites.
 {: shortdesc}
 
 * An app or sample app.
-* A standard Kubernetes cluster with at least two worker nodes per zone. If you are using Ingress in multizone clusters review the extra prerequisites in the [Kubernetes Service documentation](/docs/containers/cs_ingress.html#config_prereqs).
+* A standard Kubernetes cluster with at least two worker nodes per zone. If you are using Ingress in multizone clusters review the extra prerequisites in the [Kubernetes Service documentation](/docs/containers?topic=containers-ingress#config_prereqs).
 * An instance of {{site.data.keyword.appid_short_notm}} in the same region in which your cluster is deployed. Ensure that the service name does not contain any spaces.
 
 * The following [IBM Cloud IAM roles](/docs/containers/cs_access_reference.html#understanding):
@@ -56,16 +56,16 @@ Before you can get started, ensure that you have the following prerequisites.
 
 * The following CLIs:
 
-  * [{{site.data.keyword.cloud_notm}}](/docs/cli/reference/ibmcloud/download_cli.html#install_use)
+  * [{{site.data.keyword.cloud_notm}}](/docs/cli/reference/ibmcloud?topic=cloud-cli-install_use#install_use)
   * [Kubernetes](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
   * [Docker](https://www.docker.com/products/docker-engine#/download)
 
-* The following [{{site.data.keyword.cloud_notm}} CLI plug-ins](/docs/cli/reference/ibmcloud/extend_cli.html#plug-ins):
+* The following [{{site.data.keyword.cloud_notm}} CLI plug-ins](/docs/cli/reference/ibmcloud?topic=cloud-cli-plug-ins#plug-ins):
 
   * Kubernetes Service
   * Container Registry
 
-For help getting the CLIs and plug-ins downloaded and your Kubernetes Service environment configured, check out the tutorial [creating Kubernetes clusters](/docs/containers/cs_tutorials.html#cs_cluster_tutorial_lesson1).
+For help getting the CLIs and plug-ins downloaded and your Kubernetes Service environment configured, check out the tutorial [creating Kubernetes clusters](/docs/containers?topic=containers-cs_cluster_tutorial#cs_cluster_tutorial_lesson1).
 {: tip}
 
 Let's get started!
@@ -205,7 +205,7 @@ During cluster creation, both a private and a public Ingress ALB are created for
   ```
   {: screen}
 
-2. Use the following example `yaml` file to create your Ingress configuration. For help defining the rest of your deployment, check out [Deploying apps with the CLI](/docs/containers/cs_app.html#app_cli).
+2. Use the following example `yaml` file to create your Ingress configuration. For help defining the rest of your deployment, check out [Deploying apps with the CLI](/docs/containers?topic=containers-app#app_cli).
 
   ```
   apiVersion: extensions/v1beta1
@@ -257,7 +257,7 @@ During cluster creation, both a private and a public Ingress ALB are created for
     </tr>
     <tr>
       <td><code>secretName</code></td>
-      <td>The TLS secret that is associated with your TLS certificate. If your certificate is hosted in IBM Cloud Certificate Manager, you can run <code>ibmcloud ks alb-cert-deploy --secret-name <secret_name> --cluster <cluster_name_or_ID> --cert-crn <certificate_crn></code> to deploy it to your cluster. If you do not have a certificate, complete step 3 of [Exposing apps with Ingress](/docs/containers/cs_ingress.html#ingress_expose_public).</td>
+      <td>The TLS secret that is associated with your TLS certificate. If your certificate is hosted in IBM Cloud Certificate Manager, you can run <code>ibmcloud ks alb-cert-deploy --secret-name <secret_name> --cluster <cluster_name_or_ID> --cert-crn <certificate_crn></code> to deploy it to your cluster. If you do not have a certificate, complete step 3 of [Exposing apps with Ingress](/docs/containers?topic=containers-ingress#ingress_expose_public).</td>
     </tr>
   </table>
 
@@ -305,9 +305,9 @@ Excellent work! Now, you can verify that the deployment was successful by naviga
 
 Now that your application is running in a Kubernetes cluster and Ingress is configured, you can try:
 
-* Using custom attributes to [set roles](/docs/services/appid/tutorial-roles.html)
-* Configuring [multi-factor authentication](/docs/services/appid/mfa.html)
-* Customizing the [Login Widget](/docs/services/appid/login-widget.html)
+* Using custom attributes to [set roles](/docs/services/appid?topic=appid-tutorial-roles)
+* Configuring [multi-factor authentication](/docs/services/appid?topic=appid-cd-mfa)
+* Customizing the [Login Widget](/docs/services/appid?topic=appid-login-widget)
 
 
 

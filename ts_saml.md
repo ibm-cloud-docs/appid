@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-14"
+lastupdated: "2019-02-15"
 
 ---
 
@@ -115,7 +115,7 @@ Review the following table for explanations and resolutions for the most common 
     </tr>
     <tr>
       <td><code>ds:Signature</code></td>
-      <td>A valid signature and digest must be included in the assertion. The signature must be created by using the provate key that is associated with the certificate that was provided in the SAML configuration. The digest is validated by using the specified <code>CanonicalizationMethod</code> and <code>Transforms</code>. <strong>Note</strong>: {{site.data.keyword.appid_short_notm}} does not validate certificate expiration. For help managing your certificates, try out [Certificate Manager](/docs/services/certificate-manager/index.html).</td>
+      <td>A valid signature and digest must be included in the assertion. The signature must be created by using the provate key that is associated with the certificate that was provided in the SAML configuration. The digest is validated by using the specified <code>CanonicalizationMethod</code> and <code>Transforms</code>. <strong>Note</strong>: {{site.data.keyword.appid_short_notm}} does not validate certificate expiration. For help managing your certificates, try out [Certificate Manager](/docs/services/certificate-manager?topic=certificate-manager-gettingstarted).</td>
     </tr>
     <tr>
       <td><code>saml:subject</code></td>

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-01"
+lastupdated: "2019-02-15"
 
 ---
 
@@ -34,11 +34,11 @@ You can configure your {{site.data.keyword.appid_short_notm}} tokens to meet the
 * Identity tokens: Contain personal information and are used to authenticate a user. Depending on your app configuration, identity tokens can be issued before a user is authenticated. This allows you to start associating attributes with your users before they sign in to your application.
 * Refresh tokens: Can be used to extend the amount of time that a user can go without re-authenticating.
 
-Want to learn more about tokens? Read more in [Understanding tokens](/docs/services/appid/authorization.html#tokens).
+Want to learn more about tokens? Read more in [Understanding tokens](/docs/services/appid?topic=appid-key-concepts#tokens).
 {: tip}
 
 
-You can customize your tokens [in the GUI](/docs/services/appid/customizing-tokens.html#configuring-tokens-ui) or by using [the API](/docs/services/appid/customizing-tokens.html#configuring-tokens-api) by setting the lifespan validity or by adding custom claims to your tokens. Check out the following table to see how lifespan is configured or continue reading to learn about mapping custom attributes.
+You can customize your tokens [in the GUI](/docs/services/appid?topic=appid-customizing-tokens#configuring-tokens-ui) or by using [the API](/docs/services/appid?topic=appid-customizing-tokens#configuring-tokens-api) by setting the lifespan validity or by adding custom claims to your tokens. Check out the following table to see how lifespan is configured or continue reading to learn about mapping custom attributes.
 
 <table>
   <tr>
@@ -74,7 +74,7 @@ You can customize your tokens [in the GUI](/docs/services/appid/customizing-toke
 </table>
 
 
-Because tokens are used to identify users and secure your resources, the lifespan of a token affects several different things. By customizing your token configuration you can ensure that your security and user experience needs are met. However, should a token ever become compromised, a malicious user has more time to affect your application. You can learn more about security considerations in [Custom attributes](/docs/services/appid/custom-attributes.html).
+Because tokens are used to identify users and secure your resources, the lifespan of a token affects several different things. By customizing your token configuration you can ensure that your security and user experience needs are met. However, should a token ever become compromised, a malicious user has more time to affect your application. You can learn more about security considerations in [Custom attributes](/docs/services/appid?topic=appid-custom-attributes).
 {: important}
 
 </br>
@@ -184,7 +184,7 @@ You can configure your {{site.data.keyword.appid_short_notm}} tokens by using th
   1. To allow sign in without the need for user interaction, set **refresh tokens** to **On**.
   2. Set your refresh token lifetime. Expiration is set in days and can be any value in range 1 to 90. The smaller the number, the more frequently a user must sign themselves in.
   3. Set your access token lifetime. The expiration is set in minutes and can be in range 5 to 1440. The smaller the value, the more protection that you have in cases of token theft.
-  4. Set your anonymous token lifetime. An [anonymous token](/docs/services/appid/progressive.html#anonymous) is assigned to users the moment they begin interacting with your app. When a user signs in, the information in the anonymous token is then transferred to the token associated with the user. Expiration is set in days and can be any value between 1 and 90.
+  4. Set your anonymous token lifetime. An [anonymous token](/docs/services/appid?topic=appid-anonymous#anonymous) is assigned to users the moment they begin interacting with your app. When a user signs in, the information in the anonymous token is then transferred to the token associated with the user. Expiration is set in days and can be any value between 1 and 90.
 
 </br>
 
@@ -196,7 +196,7 @@ You can configure your {{site.data.keyword.appid_short_notm}} tokens by using th
 Be sure that you have the following prerequisites:
 
 * Your {{site.data.keyword.appid_short_notm}} instance's tenant ID. This can be found in the **Service Credentials** section of the GUI.
-* Your Identity and Access Management (IAM) token. For help obtaining an IAM token, check out the [IAM docs](/docs/iam/apikey_iamtoken.html).
+* Your Identity and Access Management (IAM) token. For help obtaining an IAM token, check out the [IAM docs](/docs/iam?topic=iam-iamtoken_from_apikey).
 
 **Mapping your claims**
 
