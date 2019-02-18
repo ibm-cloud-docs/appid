@@ -80,7 +80,7 @@ These key terms can help you understand the way that the service breaks down the
     <p>{{site.data.keyword.appid_short_notm}} ensures that private information is encrypted before it is stored.</p></dd>
   <dt>Redirect URIs</dt>
     <dd><p>There are three types of uniform resources that you can use when defining parts of a web address: URI, URL, and URN. A URN is a very specific and must be unique. A URL is a fully qualified link that locates a specific URN. A URI is an identifier. This means that a URI can also be a URN or URL. However, not all URIs are a URN or URL.</pr>
-    <p>{{site.data.keyword.appid_short_notm}} uses a list of fully qualified approved URIs to redirect your users after an interaction with your app. For example, if the user successfully signs in, {{site.data.keyword.appid_short_notm}} could redirect the user to the home page of your app. The format of your URI might change depending on your application. Check out [Adding redirect URIs](?topic=appid-managing-idp#add-redirect-uri) for more information.</p></dd>
+    <p>{{site.data.keyword.appid_short_notm}} uses a list of fully qualified, approved URIs to redirect your users after an interaction with your app. For example, if the user successfully signs in, {{site.data.keyword.appid_short_notm}} could redirect the user to the home page of your app. The format of your URI might change depending on your application. Check out [Adding redirect URIs](?topic=appid-managing-idp#add-redirect-uri) for more information.</p></dd>
 </dl>
 
 
