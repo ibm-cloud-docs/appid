@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-31"
+lastupdated: "2019-02-18"
 
 ---
 
@@ -67,7 +67,4 @@ To build a sample app:
 ## Next steps
 {: #next}
 
-Ready to jump in and get started with your own apps? Start by [adding the service to your app](/docs/services/appid/web-apps.html). The service provides SDKs for the most used languages, but if you don't see an SDK for the language that your app is written in, you can still take advantage of {{site.data.keyword.appid_short_notm}} by using the APIs.
-
-</br>
-</br>
+Ready to jump in and get started with your own apps? Start by [adding the service to your app](/docs/services/appid?topic=appid-web-apps). The service provides SDKs for the most used languages, but if you don't see an SDK for the language that your app is written in, you can still take advantage of {{site.data.keyword.appid_short_notm}} by using the APIs.

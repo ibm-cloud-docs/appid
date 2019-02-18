@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-12"
+lastupdated: "2019-02-18"
 
 ---
 
@@ -287,9 +287,9 @@ You can test the configuration between your SAML Identity Provider and {{site.da
 2. Navigate to the **SAML 2.0** tab of the {{site.data.keyword.appid_short_notm}} dashboard and click **Test**. A new tab opens.
 3. Login in with a user that your identity provider has already authenticated.
 4. After you complete the form, you are redirected to another page.
-  * Successful authentication: The connection between {{site.data.keyword.appid_short_notm}} and the Identity Provider is working correctly. The page displays valid [access and identity tokens](/docs/services/appid/authorization.html#tokens).
+  * Successful authentication: The connection between {{site.data.keyword.appid_short_notm}} and the Identity Provider is working correctly. The page displays valid [access and identity tokens](/docs/services/appid?topic=appid-key-concepts#tokens).
   * Failed authentication: The connection is broken. The page displays the errors and the SAML response XML file.
 
 
-Having trouble? Check out [Troubleshooting identity provider configurations](/docs/services/appid/ts_saml.html).
+Having trouble? Check out [Troubleshooting identity provider configurations](/docs/services/appid?topic=appid-troubleshooting-idp).
 {: tip}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-13"
+lastupdated: "2019-02-18"
 
 ---
 
@@ -35,7 +35,7 @@ Why would you want to use {{site.data.keyword.appid_short_notm}}? Check out the 
     <th>Solution</th>
   </tr>
   <tr>
-    <td>You need to add [authorization and authentication](/docs/services/appid/authorization.html) to your mobile and web apps but don't have a background in security.</td>
+    <td>You need to add [authorization and authentication](/docs/services/appid?topic=appid-key-concepts) to your mobile and web apps but don't have a background in security.</td>
     <td>{{site.data.keyword.appid_short_notm}} makes it easy to add an authentication step to your apps. You can add email or username sign in, social sign in, or enterprise sign in to your apps with APIs, SDKs, prebuilt UIs, or your own branded UIs.</td>
   </tr>
   <tr>
@@ -44,11 +44,11 @@ Why would you want to use {{site.data.keyword.appid_short_notm}}? Check out the 
   </tr>
   <tr>
     <td>You want to build personalized app experiences for your users.</td>
-    <td>With {{site.data.keyword.appid_short_notm}}, you can [store user data](/docs/services/appid/user-profile.html) such as app preferences or information from their public social profiles, and then use that data to customize each experience of your app.</td>
+    <td>With {{site.data.keyword.appid_short_notm}}, you can [store user data](/docs/services/appid?topic=appid-user-profile) such as app preferences or information from their public social profiles, and then use that data to customize each experience of your app.</td>
   </tr>
   <tr>
     <td>You want to manage users in a scalable way.</td>
-    <td> {{site.data.keyword.appid_short_notm}} allows you to create a [Cloud Directory](/docs/services/appid/cloud-directory.html), which makes it possible for you to add user sign-up and sign-in to your apps. Cloud Directory provides you with the framework to maintain a user registry that can scale with your user base. With the pre-built functionality for self service, such as email verification and password resets, you can be sure that your app is authenticating users securely.</td>
+    <td> {{site.data.keyword.appid_short_notm}} allows you to create a [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory), which makes it possible for you to add user sign-up and sign-in to your apps. Cloud Directory provides you with the framework to maintain a user registry that can scale with your user base. With the pre-built functionality for self service, such as email verification and password resets, you can be sure that your app is authenticating users securely.</td>
   </tr>
 </table>
 
@@ -81,17 +81,17 @@ You can use {{site.data.keyword.appid_short_notm}} with other {{site.data.keywor
 
 <dl>
   <dt>{{site.data.keyword.containerlong_notm}}</dt>
-    <dd>By configuring Ingress in a standard cluster, you can secure your apps at the cluster level. Check out the <a href="/docs/containers/cs_annotations.html#appid-auth">{{site.data.keyword.appid_short_notm}} authentication Ingress annotation</a> or the <a href="https://www.ibm.com/blogs/bluemix/2018/05/announcing-app-id-integration-ibm-cloud-kubernetes-service/">Announcing {{site.data.keyword.appid_short_notm}} integration to {{site.data.keyword.containerlong_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> blog post to get started.</dd>
+    <dd>By configuring Ingress in a standard cluster, you can secure your apps at the cluster level. Check out the <a href="/docs/containers?topic=containers-ingress_annotation#appid-auth">{{site.data.keyword.appid_short_notm}} authentication Ingress annotation</a> or the <a href="https://www.ibm.com/blogs/bluemix/2018/05/announcing-app-id-integration-ibm-cloud-kubernetes-service/">Announcing {{site.data.keyword.appid_short_notm}} integration to {{site.data.keyword.containerlong_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> blog post to get started.</dd>
   <dt>{{site.data.keyword.openwhisk}} and API Connect</dt>
-    <dd>When you create your APIs with [{{site.data.keyword.openwhisk_short}}](/docs/openwhisk/index.html) and [API Connect](/docs/services/apiconnect/getting-started.html), you can secure your applications at the gateway rather than in your app code. To see the integration in action, watch <a href="https://www.youtube.com/watch?v=Fa9YD2NGZiE" target="_blank">Simple and fast social login OAUTH with APIC and {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.</dd>
+    <dd>When you create your APIs with [{{site.data.keyword.openwhisk_short}}](/docs/openwhisk?topic=cloud-functions-index) and [API Connect](/docs/services/apiconnect?topic=apiconnect-index), you can secure your applications at the gateway rather than in your app code. To see the integration in action, watch <a href="https://www.youtube.com/watch?v=Fa9YD2NGZiE" target="_blank">Simple and fast social login OAUTH with APIC and {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.</dd>
   <dt>Cloud Foundry</dt>
     <dd>Try out one of the provided sample Cloud Foundry apps to see how you can integrate {{site.data.keyword.appid_short_notm}} into your apps.</dd>
   <dt>{{site.data.keyword.cloudaccesstrailshort}}</dt>
-    <dd>You can monitor administrative activity that is made in {{site.data.keyword.appid_short_notm}} such as changes to the dashboard configuration, by using the [{{site.data.keyword.cloudaccesstrailshort}} service](/docs/services/cloud-activity-tracker/index.html).</dd>
+    <dd>You can monitor administrative activity that is made in {{site.data.keyword.appid_short_notm}} such as changes to the dashboard configuration, by using the [{{site.data.keyword.cloudaccesstrailshort}} service](/docs/services/cloud-activity-tracker?topic=cloud-activity-tracker-getting-started-with-cla).</dd>
   <dt>iOS Programming Guide</dt>
-    <dd>Do you develop apps for Apple? Try out the <a href="/docs/swift/index.html" target="_blank">iOS programming guide <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to learn, experiment, and enhance your existing iOS apps with {{site.data.keyword.Bluemix_notm}}.</dd>
+    <dd>Do you develop apps for Apple? Try out the <a href="/docs/swift?topic=swift-set_up" target="_blank">iOS programming guide <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to learn, experiment, and enhance your existing iOS apps with {{site.data.keyword.Bluemix_notm}}.</dd>
   <dt>Node.js programming guide</dt>
-    <dd>Do you develop apps in Node.js? Try out the <a href="/docs/node/index.html" target="_blank">Node.js programming guide <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to learn, experiment, and enhance your existing Node.js apps with {{site.data.keyword.Bluemix_notm}}.</dd>
+    <dd>Do you develop apps in Node.js? Try out the <a href="/docs/node?topic=nodejs-getting-started-tutorial" target="_blank">Node.js programming guide <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to learn, experiment, and enhance your existing Node.js apps with {{site.data.keyword.Bluemix_notm}}.</dd>
 </dl>
 
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-01"
+lastupdated: "2019-02-18"
 
 ---
 
@@ -25,7 +25,7 @@ You can use your own custom identity provider when you are authenticating. Your 
 By bringing your own identity provider, you can create a custom authentication flow that uses your own protocols. You have more control, such as information that you want to share or information that is stored.
 {: shortdesc}
 
-Be sure to [configure your custom provider](/docs/services/appid/custom.html) before you add it to your application.
+Be sure to [configure your custom provider](/docs/services/appid?topic=appid-custom-identity) before you add it to your application.
 {: tip}
 
 ### When would I want to use this flow?
@@ -130,7 +130,7 @@ Token payload:
     </tr>
     <tr>
       <td>Normalized claims</td>
-      <td>All [normalized claims](/docs/services/appid/authorization.html#tokens) are provided in the identity token that is returned in response to this request. More custom claims can be found by using the [user info endpoint](/docs/services/appid/custom-attributes.html).</td>
+      <td>All [normalized claims](/docs/services/appid?topic=appid-key-concepts#tokens) are provided in the identity token that is returned in response to this request. More custom claims can be found by using the [user info endpoint](/docs/services/appid?topic=appid-custom-attributes).</td>
     </tr>
     <tr>
       <td>Scope</td>

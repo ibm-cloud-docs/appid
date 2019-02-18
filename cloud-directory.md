@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-13"
+lastupdated: "2019-02-18"
 
 ---
 
@@ -35,41 +35,41 @@ Figure. The configuration journey for Cloud Directory
 
 2. Configure your general settings.
   1. Decide whether you want your users to create a username or use their email when they sign in. Both options require a password. After users have been added to your directory, you can no longer toggle between the options.
-  2. Click **Edit** in the password criteria row to specify any requirements that you want to put in place. Password criteria is given as regex. For help determining strength or to see common examples see, [Managing password strength](/docs/services/appid/cloud-directory.html#cd-strength). Click **Save** to put your requirements into action.
+  2. Click **Edit** in the password criteria row to specify any requirements that you want to put in place. Password criteria is given as regex. For help determining strength or to see common examples see, [Managing password strength](/docs/services/appid?topic=appid-cloud-directory#cd-strength). Click **Save** to put your requirements into action.
   3. Set **Allow users to sign up to your app** to **Yes**. You can still add users through the console if it's set to **No**. However, you should add users through the console only for development purposes.
   4. Set **Allow users to manage their account from your app** to **Yes** if you want your users to be able to reset their password, change their password, or reset their details. If you want to limit your users self-service, set the value to **No**.
   5. Click **Edit** in the **Sender details** row to update your email settings. The email settings apply for all of the communication that is sent through {{site.data.keyword.appid_short_notm}}. Specify the email address that should send the email, their name, and leave a separate email for users to send a response.
-  6. Enable **Advanced password policy** to create limitations and time requirements for your passwords. This feature requires additional billing. For more information about your options, see [Advanced password policy](/docs/services/appid/cloud-directory.html#cd-advanced-password).
+  6. Enable **Advanced password policy** to create limitations and time requirements for your passwords. This feature requires additional billing. For more information about your options, see [Advanced password policy](/docs/services/appid?topic=appid-cloud-directory#cd-advanced-password).
   6. Click **Save**.
 
 3. Configure your verification email settings.
   1. To have your users verify their email address set **Email verification** to **On**. When a user signs up for your application, they receive an email that asks them to confirm that they've signed up for the app.
   2. If you've decided that you want your users to verify their email, your next decision is whether you want to allow users into your application before them verifying their email address. Depending on your preference, set **Allow users to sign in to your app without first verifying their email address** to **Yes** or **No**.
-  3. Customize the content and design the appearance of your message. There is a template for the message, but you can update the text with your own message. You can use a [language](/docs/services/appid/cloud-directory.html#cd-languages) other than English, but you are responsible for the translation of the text. To choose another language, use the <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#//Config/updateLocalization" target="_blank">language management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
+  3. Customize the content and design the appearance of your message. There is a template for the message, but you can update the text with your own message. You can use a [language](/docs/services/appid?topic=appid-cloud-directory#cd-languages) other than English, but you are responsible for the translation of the text. To choose another language, use the <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#//Config/updateLocalization" target="_blank">language management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
   4. Give the verification URL an expiration time limit, specified as minutes.  When this time is set here, it also affects the length of time that your reset password link is valid for.
   5. Enter your own verification page URL if you have a specific page that you want your users to see when they click the link. If you leave the **Custom verification page URL** field blank, a default verification page is provided by {{site.data.keyword.appid_short_notm}}.
   6. Click **Save**.
 
 4. Configure your welcome email settings.
   1. To welcome users through email when they sign up for your app, set **Welcome email** to **On**.
-  2. Customize the content and design the appearance of your message. There is an example message that you can use, but you can update the text with your own message. You can use a [language](/docs/services/appid/cloud-directory.html#cd-languages) other than English, but you are responsible for the translation of the text. To choose another language, use the <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/updateLocalization" target="_blank">language management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
+  2. Customize the content and design the appearance of your message. There is an example message that you can use, but you can update the text with your own message. You can use a [language](/docs/services/appid?topic=appid-cloud-directory#cd-languages) other than English, but you are responsible for the translation of the text. To choose another language, use the <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/updateLocalization" target="_blank">language management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
   3. Click **Save**.
 
 5. Configure your password reset settings.
   1. To allow users to request a reset of their password, set **Forgot password email** to **On**. **Note**: A user must have validated their email before reseting their password. This means that you must require email verification to allow password resets.
-  2. Customize the content and design the appearance of your message. There is an example message that you can use, but you can update the text with your own message. You can use a [language](/docs/services/appid/cloud-directory.html#cd-languages) other than English, but you are responsible for the translation of the text. To choose another language, use the <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/updateLocalization" target="_blank">language management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
+  2. Customize the content and design the appearance of your message. There is an example message that you can use, but you can update the text with your own message. You can use a [language](/docs/services/appid?topic=appid-cloud-directory#cd-languages) other than English, but you are responsible for the translation of the text. To choose another language, use the <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/updateLocalization" target="_blank">language management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
   3. Give the reset password URL an expiration time limit, specified as minutes. When this time is set here, it also affects the length of time that your email verification link is valid for.
   4. Enter your own password reset URL if you have a specific page that you want your users to see when they click the link. If you leave the **Reset password page URL** field blank, a default reset password page is provided by {{site.data.keyword.appid_short_notm}}.
   5. Click **Save**.
 
 6. Configure your change password settings.
   1. To notify users about any changes made to their password, set **Password changed email** to **On**.
-  2. Customize the content and design the appearance of your message. There is an example message that you can use, but you can update the text with your own message. You can use a [language](/docs/services/appid/cloud-directory.html#cd-languages) other than English, but you are responsible for the translation of the text. To choose another language, use the <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/updateLocalization" target="_blank">language management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
+  2. Customize the content and design the appearance of your message. There is an example message that you can use, but you can update the text with your own message. You can use a [language](/docs/services/appid?topic=appid-cloud-directory#cd-languages) other than English, but you are responsible for the translation of the text. To choose another language, use the <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/updateLocalization" target="_blank">language management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
   3. Click **Save**.
 
 7. Configure multifactor authentication.
   1. To require multifactor authentication on user sign in, set **Enable Email Multi-Factor Authentication** to **On**.
-  2. Customize the content and design of your email using the template below. You can use a [language](/docs/services/appid/cloud-directory.html#cd-languages) other than English, but you are responsible for the translation of the text. To choose another language, use the <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/updateLocalization" target="_blank">language management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
+  2. Customize the content and design of your email using the template below. You can use a [language](/docs/services/appid?topic=appid-cloud-directory#cd-languages) other than English, but you are responsible for the translation of the text. To choose another language, use the <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/updateLocalization" target="_blank">language management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
   3. Click **Save**.
 
 8. In the **Users** tab you can see who has signed-up for your app. Note: A single user can attempt to sign in up to 5 times in 60 seconds. If a sixth attempt is made, an error is displayed.
@@ -243,7 +243,7 @@ Advanced password policy consists of 5 features that can each be toggled separat
  - Ensure password does not include username
 
 
- If you enable this feature, additional billing for advanced security capabilities is activated. For more information see the [Pricing Calculator](/docs/services/appid/faq.html#faq-pricing).
+ If you enable this feature, additional billing for advanced security capabilities is activated. For more information see the [Pricing Calculator](/docs/services/appid?topic=appid-faq#faq-pricing).
 
 
 
@@ -519,7 +519,7 @@ Occasionally you might need to set up a new instance of {{site.data.keyword.appi
 
 ### Before you begin
 
-You must be assigned the `Manager` [IAM role](/docs/iam/quickstart.html) for both instances of {{site.data.keyword.appid_short_notm}}.
+You must be assigned the `Manager` [IAM role](/docs/iam?topic=iam-getstarted) for both instances of {{site.data.keyword.appid_short_notm}}.
 
 </br>
 
@@ -615,7 +615,7 @@ Before you get started, be sure you have the following parameter information:
   </tr>
   <tr>
     <td>Region</td>
-    <td>Region options include: <code>au-syd</code>, <code>eu-de</code>, <code>eu-gb</code>, <code>jp-tok</code>, <code>us-east</code>, and <code>us-south</code>.</td>
+    <td>Region options include: <code>au-syd</code>, <code>eu-de</code>, <code>eu-gb</code>, <code>jp-tok</code>, and <code>us-south</code>.</td>
   </tr>
   <tr>
     <td>IAM token</td>

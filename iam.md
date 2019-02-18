@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-13"
+lastupdated: "2019-02-18"
 
 ---
 
@@ -24,7 +24,7 @@ With {{site.data.keyword.appid_full}} and {{site.data.keyword.cloud_notm}} Ident
 
 As an account owner, you can set policies within your account to create different levels of access for different users. For example, certain users can have **Read only** access to one instance, but **Write** access to another. You can decide who is allowed to create, update, and delete instances of {{site.data.keyword.appid_short_notm}}.
 
-For more information about IAM, see [IAM Access](/docs/iam/users_roles.html).
+For more information about IAM, see [IAM Access](/docs/iam?topic=iam-userroles).
 
 ## User roles
 {: #iam-roles}
@@ -96,7 +96,7 @@ The following table details actions that are mapped to service access roles. Ser
   </tr>
 </table>
 
-For more information about assigning user roles in the UI, see [Managing IAM access](/docs/iam/mngiam.html#iammanidaccser).
+For more information about assigning user roles in the UI, see [Managing IAM access](/docs/iam?topic=iam-iammanidaccser#iammanidaccser).
 
 
 ## {{site.data.keyword.appid_short_notm}} access policies
@@ -235,13 +235,13 @@ In this scenario, an administrator created an instance of {{site.data.keyword.ap
 {: shortdesc}
 
 Before you begin:
-* Install the [{{site.data.keyword.Bluemix_notm}} CLI](/docs/cli/index.html).
+* Install the [{{site.data.keyword.Bluemix_notm}} CLI](/docs/cli?topic=cloud-cli-overview).
 
 To update access permissions, the admin completes the following steps:
 
 1. Log in to the {{site.data.keyword.Bluemix_notm}} console.
 
-2. Give the employee view access by following the steps that are laid out in the [IAM documentation](/docs/iam/mngiam.html).
+2. Give the employee view access by following the steps that are laid out in the [IAM documentation](/docs/iam?topic=iam-iammanidaccser).
 
 3. Navigate to the **Service credentials** tab of the {{site.data.keyword.appid_short_notm}} dashboard. Click **View credentials** and copy the **tentantID**.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-13"
+lastupdated: "2019-02-18"
 
 ---
 
@@ -68,7 +68,7 @@ The first time that MFA is enabled, it is set to use email by default. You can c
 <ul>
 <li>Value: The actual attribute value such as email address or phone number.</li>
 <li>Primary: A Boolean value that indicates the preferred value for the attribute. The primary attribute value <code>true</code> can occur once and only once. If not specified, the value of <code>primary</code> is assumed to be <code>false</code>.</li>
-</ul>For example attributes, check out the [Cloud Directory docs](/docs/services/appid/cloud-directory.html#cloud-directory).</p>
+</ul>For example attributes, check out the [Cloud Directory docs](/docs/services/appid?topic=appid-cloud-directory#cloud-directory).</p>
 
 
 ### Email registration
@@ -89,12 +89,12 @@ If the number is invalid or no phone number is found on the user's profile, then
 ## Configuring MFA to work with Email
 {: #cd-mfa-configure-email}
 
-Before you get started, be sure that your instance of {{site.data.keyword.appid_short_notm}} is on the [graduated tier pricing plan](/docs/services/appid/faq.html#faq-pricing).
+Before you get started, be sure that your instance of {{site.data.keyword.appid_short_notm}} is on the [graduated tier pricing plan](/docs/services/appid?topic=appid-faq#faq-pricing).
 
 ### With the GUI
 {: #cd-mfa-configure-email-gui}
 
-To configure MFA with the GUI, check out [Cloud Directory](/docs/services/appid/cloud-directory.html).
+To configure MFA with the GUI, check out [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory).
 {: note}
 
 1. In the *Identity Provider* tab of the {{site.data.keyword.appid_short_notm}} dashboard, click *Cloud Directory*.
@@ -112,7 +112,7 @@ To configure MFA with the GUI, check out [Cloud Directory](/docs/services/appid/
 Be sure that you have the following prerequisites:
 
 * Your {{site.data.keyword.appid_short_notm}} instance's tenant ID. This ID can be found in the **Service Credentials** section of the dashboard.
-* Your Identity and Access Management (IAM) token. For help with obtaining an IAM token, check out the [IAM docs](/docs/iam/apikey_iamtoken.html).
+* Your Identity and Access Management (IAM) token. For help with obtaining an IAM token, check out the [IAM docs](/docs/iam?topic=iam-iamtoken_from_apikey).
 
 
 1. Enable MFA, by making a PUT request to the `/config/mfa` endpoint with your MFA configuration to set `isActive` to `true`.
@@ -183,7 +183,7 @@ Be sure that you have the following prerequisites:
   {: screen}
 
 
-  If your {{site.data.keyword.appid_short_notm}} Cloud Directory instance is configured to work with a custom email dispatcher then MFA uses the same dispatcher to send the one-time code. For more information on setting up a custom dispatcher, refer to the [Cloud Directory](/docs/services/appid/cloud-directory.html#custom-email) docs.
+  If your {{site.data.keyword.appid_short_notm}} Cloud Directory instance is configured to work with a custom email dispatcher then MFA uses the same dispatcher to send the one-time code. For more information on setting up a custom dispatcher, refer to the [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory#cd-custom-email) docs.
   {: note}
 
 
@@ -192,7 +192,7 @@ Be sure that you have the following prerequisites:
 
 **Before you begin**
 
-{{site.data.keyword.appid_short_notm}} uses [Nexmo](https://www.nexmo.com/products/sms) to send MFA SMS one-time codes. Before you get started, be sure that you have an instance of {{site.data.keyword.appid_short_notm}} that is on the [graduated tier pricing plan](/docs/services/appid/faq.html#faq-pricing) and the following Nexmo information.
+{{site.data.keyword.appid_short_notm}} uses [Nexmo](https://www.nexmo.com/products/sms) to send MFA SMS one-time codes. Before you get started, be sure that you have an instance of {{site.data.keyword.appid_short_notm}} that is on the [graduated tier pricing plan](/docs/services/appid?topic=appid-faq#faq-pricing) and the following Nexmo information.
 
  - Obtain your Nexmo API key and secret. You can find the Nexmo API key and secret in your account settings page on the Nexmo dashboard. Check out the [Nexmo documentation](https://developer.nexmo.com/concepts/guides/authentication#api-key-and-secret) for further information on how to obtain your credentials.
 
@@ -202,7 +202,7 @@ Be sure that you have the following prerequisites:
 ### With the GUI
 {: #cd-mfa-configure-sms-gui}
 
-To configure MFA with the GUI, check out [Cloud Directory](/docs/services/appid/cloud-directory.html).
+To configure MFA with the GUI, check out [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory).
 {: note}
 
 1. In the *Identity Provider* tab of the {{site.data.keyword.appid_short_notm}} dashboard, click *Cloud Directory*.
@@ -223,7 +223,7 @@ To configure MFA with the GUI, check out [Cloud Directory](/docs/services/appid/
 Be sure that you have the following prerequisites:
 
 * Your {{site.data.keyword.appid_short_notm}} instance's tenant ID. This ID can be found in the **Service Credentials** section of the dashboard.
-* Your Identity and Access Management (IAM) token. For help with obtaining an IAM token, check out the [IAM docs](/docs/iam/apikey_iamtoken.html).
+* Your Identity and Access Management (IAM) token. For help with obtaining an IAM token, check out the [IAM docs](/docs/iam?topic=iam-iamtoken_from_apikey).
 
 
 1. Enable MFA, by making a PUT request to the `/config/mfa` endpoint with your MFA configuration to set `isActive` to `true`.
