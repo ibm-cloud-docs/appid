@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-15"
+lastupdated: "2019-02-18"
 
 ---
 
@@ -481,6 +481,6 @@ With an OIDC compliant client SDK, you can use {{site.data.keyword.appid_short_n
 
 With {{site.data.keyword.appid_short_notm}} installed in your application, you're almost ready to start authenticating users! Try doing one of the following activities next:
 
-* Configure your [identity providers](/docs/services/appid/identity-providers.html)
-* Customize and configure [the Login Widget](/docs/services/appid/login-widget.html)
+* Configure your [identity providers](/docs/services/appid?topic=appid-social)
+* Customize and configure [the Login Widget](/docs/services/appid?topic=appid-login-widget)
 * Learn more about the <a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs" target="_blank">Node.js SDK<img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
