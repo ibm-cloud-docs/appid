@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-02-19"
 
 ---
 
@@ -15,33 +15,14 @@ lastupdated: "2019-02-18"
 # SAML
 {: #enterprise}
 
-
 Security Assertion Markup Language (SAML) is an open standard for exchanging authentication and authorization data between an identity provider who asserts the user identity and a service provider who consumes the user identity information.
 {: shortdesc}
 
-{{site.data.keyword.appid_short_notm}} functions as a service provider and initiates a single sign on (SSO) login to a third-party provider such as Active Directory Federation Services. The <a href="http://saml.xml.org/saml-specifications" target="blank">SAML <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> protocol supports different profiles and bind options. {{site.data.keyword.appid_short_notm}} supports the web browser SSO profile, with HTTP Post binding.
+{{site.data.keyword.appid_short_notm}} functions as a service provider and initiates a single sign-on (SSO) login to a third-party provider such as Active Directory Federation Services. The <a href="http://saml.xml.org/saml-specifications" target="blank">SAML <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> protocol supports different profiles and bind options. {{site.data.keyword.appid_short_notm}} supports the web browser SSO profile, with HTTP Post binding.
 
 For steps on how to use a specific SAML identity provider, check out these blog posts on setting up {{site.data.keyword.appid_short_notm}} with [Ping One ![External link icon](../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-ping-one/), [an Azure Active Directory ![External link icon](../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-azure-active-directory/), or [an Active Directory Federation Service ![External link icon](../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-active-directory-federation-service/).
 {: tip}
 
-
-## SAML assertions and identity token claims
-{: #saml-assertions}
-
-A SAML assertion is a package of information that contains one or more statements. The assertion contains the authorization decision, and it might contain identity information about the user.
-
-When a user signs in with an identity provider, that provider sends an assertion to {{site.data.keyword.appid_short_notm}}. {{site.data.keyword.appid_short_notm}} propagates user identity information that is returned in the SAML assertion to your app as OIDC token claims. The SAML attribute must correspond to 1 of the following OIDC claims to be added to the identity token.
-
-The following claims can be added:
-* `name`
-* `email`
-* `locale`
-* `picture`
-
-The remaining SAML attribute elements that do not correspond to any of the standard names are ignored. Note that if one or more of those values change on the provider's side, the new values are available only after the user logs in again.
-
-
-Looking for an example? Check out <a href="https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-azure-active-directory/" target="_blank">Setting up {{site.data.keyword.appid_long}} with your Azure Active Directory <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> or <a href="https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-ping-one/" target="_blank">Setting up {{site.data.keyword.appid_long}} with Ping One <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
 
 ## Providing metadata to your identity provider
 {: #saml-provide-idp}
@@ -293,3 +274,54 @@ You can test the configuration between your SAML Identity Provider and {{site.da
 
 Having trouble? Check out [Troubleshooting identity provider configurations](/docs/services/appid?topic=appid-troubleshooting-idp).
 {: tip}
+
+
+## Obtaining more assertions
+{: #saml-assertions}
+
+A SAML assertion is a package of information that is returned to your app by your identity provider after a user attempts to log in. The package contains the authorization decision and depending on your configuration, might include identity information.
+{: shortdesc}
+
+{{site.data.keyword.appid_short_notm}} injects the authorization information that is returned by the provider into your their access token. If the identity information includes a users `name`, `email`, `locale`, or `picture`, the claims are added automatically into their identity token. It is possible to obtain extra information from your identity provider and inject that into your tokens.
+
+To obtain the information you can make a request to the [`/userinfo` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization_Server_V3/userInfo).
+
+```
+GET [POST] https://{oauth-server-endpoint}/userinfo
+Authorization: 'Bearer {ACCESS_TOKEN}'
+```
+{: pre}
+
+Example output:
+```
+"sub": "cad9f1d4-e23b-3683-b81b-d1c4c4fd7d4c",
+"name": "John Doe",
+"email": "john.doe@gmail.com",
+"picture": "https://lh3.googleusercontent.com/-XdUIqdbhg/AAAAAAAAI/AAAAAAA/42rbcbv5M/photo.jpg",
+"gender": "male",
+"locale": "en",
+"identities": [
+    {
+        "provider": "google",
+        "id": "104560903311317789798",
+        "profile": {
+            "id": "104560903311317789798",
+            "email": "john.doe@gmail.com",
+            "verified_email": true,
+            "name": "John Doe",
+            "given_name": "John",
+            "family_name": "Doe",
+            "link": "https://plus.google.com/104560903311317789798",
+            "picture": "https://lh3.googleusercontent.com/-XdUIqdbhg/AAAAAAAAI/AAAAAAA/42rbcbv5M/photo.jpg",
+            "gender": "male",
+            "locale": "en",
+            "idpType": "google"
+        }
+    }
+]
+```
+{: screen}
+
+After you obtain the assertion information, you can use the guide in [Customizing tokens](/docs/services/appid?topic=appid-customizing-tokens#customizing-tokens) to inject the claims.
+
+Looking for an example? Check out <a href="https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-azure-active-directory/" target="_blank">Setting up {{site.data.keyword.appid_short_notm}} with your Azure Active Directory <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> or <a href="https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-ping-one/" target="_blank">Setting up {{site.data.keyword.appid_short_notm}} with Ping One <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
