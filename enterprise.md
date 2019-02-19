@@ -323,5 +323,3 @@ Example output:
 {: screen}
 
 After you obtain the assertion information, you can use the guide in [Customizing tokens](/docs/services/appid?topic=appid-customizing-tokens#customizing-tokens) to inject the claims.
-
-Looking for an example? Check out <a href="https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-azure-active-directory/" target="_blank">Setting up {{site.data.keyword.appid_short_notm}} with your Azure Active Directory <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> or <a href="https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-ping-one/" target="_blank">Setting up {{site.data.keyword.appid_short_notm}} with Ping One <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
