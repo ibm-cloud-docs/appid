@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-20"
+lastupdated: "2019-02-21"
 
 ---
 
@@ -93,7 +93,7 @@ You can use {{site.data.keyword.appid_short_notm}} with other {{site.data.keywor
   <dt>Node.js programming guide</dt>
     <dd>Do you develop apps in Node.js? Try out the <a href="/docs/node?topic=nodejs-getting-started-tutorial" target="_blank">Node.js programming guide <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to learn, experiment, and enhance your existing Node.js apps with {{site.data.keyword.Bluemix_notm}}.</dd>
 </dl>
-
+__
 
 
 
