@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-02-21"
 
 ---
 
@@ -80,14 +80,14 @@ import json
 
 tenantId = '<{{site.data.keyword.appid_short_notm}} instance>'
 Img = '<Logo file location>'
-apiKey = '<IAM AI key>'
+apiKey = '<IAM API key>'
 
 # get an IAM token
 headers = {'Content-Type': 'application/x-www-form-urlencoded', 'Accept':'application
 /json'}
 data = 'grant_type=urn:ibm:params:oauth:grant-type:apikey&apikey=' + apiKey;
 
-r = requests.post("https://iam.ng.cloud.ibm.com/oidc/token", data=data, headers=
+r = requests.post("https://iam.cloud.ibm.com/oidc/token", data=data, headers=
 headers);
 token = 'Bearer ' + json.loads(r.text)['access_token'];
 
