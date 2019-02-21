@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-02-20"
 
 ---
 
@@ -100,10 +100,10 @@ You can use {{site.data.keyword.appid_short_notm}} with other {{site.data.keywor
 ## Regional high-availability
 {: #ha-dr}
 
-{{site.data.keyword.appid_short_notm}} is a highly available, regional service.
+{{site.data.keyword.appid_short_notm}} is a highly available, regional service that runs in multiple zones.
 {: shortdesc}
 
-In each supported region, the service runs in several availability zones. Each zone has its own Kubernetes cluster with several worker nodes. Each worker node runs several instances of {{site.data.keyword.appid_short_notm}} components. Each region is fronted by a global load balancer and a web application firewall.
+In each supported multizone region, every zone has its own {{site.data.keyword.containerlong_notm}} cluster with several worker nodes. Each worker node runs several instances of {{site.data.keyword.appid_short_notm}} components. Each region is fronted by a global load balancer and a web application firewall.
 
 Data that is stored in {{site.data.keyword.appid_short_notm}} is encrypted and persisted in a database cluster that is spread across availability zones. The data is also back up in a separate encrypted object storage.
 
