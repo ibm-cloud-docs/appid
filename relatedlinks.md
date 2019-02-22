@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-08"
+lastupdated: "2019-02-22"
 
 ---
 
@@ -67,7 +67,7 @@ Just getting started? Try walking through some of our tutorials and blogs for he
 
 * <a href="https://www.ibm.com/blogs/bluemix/2018/05/announcing-app-id-integration-ibm-cloud-kubernetes-service/" target="_blank">Announcing {{site.data.keyword.appid_short_notm}} integration to {{site.data.keyword.containerlong}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 * <a href="https://www.ibm.com/blogs/bluemix/2018/02/using-app-id-secure-docker-kubernetes-applications/" target="_blank">Using {{site.data.keyword.appid_short_notm}} to secure Docker and Kubernetes applications <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
-* <a href="https://www.ibm.com/blogs/bluemix/2019/02/authenticating-users-with-cloud-functions-api-gateway-and-app-id/" target="_blank">Authenticating Users with Cloud Functions, API Gateway, and App ID <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
+* <a href="https://www.ibm.com/blogs/bluemix/2019/02/authenticating-users-with-cloud-functions-api-gateway-and-app-id/" target="_blank">Authenticating Users with Cloud Functions, API Gateway, and {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 * <a href="https://console.bluemix.net/docs/tutorials/serverless-mobile-backend.html#mobile-application-with-a-serverless-backend" target="_blank">Securing your serverless Cloud Functions mobile backend with {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 * <a href="https://console.bluemix.net/docs/tutorials/serverless-github-traffic-analytics.html" target="_blank">Tutorial: GitHub traffic analytics with Cloud Functions and Cloud Foundry <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 * <a href="https://www.ibm.com/blogs/bluemix/2018/07/how-to-configure-ibm-cloud-app-id-from-the-toolchain/" target="_blank">Configuring {{site.data.keyword.appid_short_notm}} From the Toolchain <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
