@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-02-22"
 
 ---
 
@@ -65,7 +65,7 @@ To configure your apps to work with a local development server, use the local ho
 ```java
 String baseRequestUrl = "http://localhost:<port>"; //set to your server running port
 String tenantId = "your-AppID-service-tenantID";
-String region = AppID.REGION_UK; //set your App ID application region here. Currently possible values are AppID.REGION_US_SOUTH, AppID.REGION_SYDNEY, AppID.REGION_GERMANY, or AppID.REGION_UK.
+String region = AppID.REGION_UK; //set your {{site.data.keyword.appid_short_notm}} application region here. Currently possible values are AppID.REGION_US_SOUTH, AppID.REGION_SYDNEY, AppID.REGION_GERMANY, or AppID.REGION_UK.
 
 BMSClient bmsClient= BMSClient.getInstance();
 bmsClient.initialize(getApplicationContext(), region);
@@ -101,7 +101,7 @@ request.send(this, new ResponseListener() {
 
  let baseRequestUrl = "http://localhost:<port>"; //set to your server running port
  let tenantId = "your-AppID-service-tenantID"
- let region = AppID.REGION_UK; //set your App ID application region here. Currently possible values are AppID.REGION_US_SOUTH, AppID.REGION_SYDNEY, AppID.REGION_GERMANY, or AppID.REGION_UK.
+ let region = AppID.REGION_UK; //set your {{site.data.keyword.appid_short_notm}} application region here. Currently possible values are AppID.REGION_US_SOUTH, AppID.REGION_SYDNEY, AppID.REGION_GERMANY, or AppID.REGION_UK.
 
 BMSClient.sharedInstance.initialize(region: AppID.<region>)
 BMSClient.sharedInstance.authorizationManager = AppIDAuthorizationManager(appid:AppID.sharedInstance)
