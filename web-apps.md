@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-21"
+lastupdated: "2019-02-22"
 
 ---
 
@@ -251,8 +251,8 @@ You must have the following prerequisites:
 
   ```xml
   <openidConnectClient
-    clientId='App ID client_ID'
-    clientSecret='App ID Secret'
+    clientId='{{site.data.keyword.appid_short_notm}} client_ID'
+    clientSecret='{{site.data.keyword.appid_short_notm}} Secret'
     authorizationEndpointUrl='oauthServerUrl/authorization'
     tokenEndpointUrl='oauthServerUrl/token'
     jwkEndpointUrl='oauthServerUrl/publickeys'
