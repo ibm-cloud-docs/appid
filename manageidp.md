@@ -86,7 +86,11 @@ You can decide configure your redirect URIs and token information for your app b
 ### Adding redirect URIs
 {: #add-redirect-uri}
 
-Add your redirect URIs. A redirect URI is the callback endpoint of your app. To prevent phishing attacks, {{site.data.keyword.appid_short_notm}} validates the URIs against the whitelist.
+A redirect URI is the callback endpoint of your app. During the sign in flow, {{site.data.keyword.appid_short_notm}} validates the URIs before allowing clients to participate in the authorization workflow which to prevent phishing attacks and grant code leakage. By registering your URI you're telling App ID that the URI is approved and can be used.
+
+Be sure to only register URIs of applications that you trust.
+{: note}
+
 
 1. Click **Authentication Settings** to see your URI and token configuration options.
 
