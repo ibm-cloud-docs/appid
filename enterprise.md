@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-02-22"
 
 ---
 
@@ -15,33 +15,40 @@ lastupdated: "2019-02-18"
 # SAML
 {: #enterprise}
 
-
 Security Assertion Markup Language (SAML) is an open standard for exchanging authentication and authorization data between an identity provider who asserts the user identity and a service provider who consumes the user identity information.
 {: shortdesc}
 
-{{site.data.keyword.appid_short_notm}} functions as a service provider and initiates a single sign on (SSO) login to a third-party provider such as Active Directory Federation Services. The <a href="http://saml.xml.org/saml-specifications" target="blank">SAML <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> protocol supports different profiles and bind options. {{site.data.keyword.appid_short_notm}} supports the web browser SSO profile, with HTTP Post binding.
+{{site.data.keyword.appid_short_notm}} functions as a service provider and initiates a single sign-on (SSO) login to a third-party provider such as Active Directory Federation Services. The <a href="http://saml.xml.org/saml-specifications" target="blank">SAML <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> protocol supports different profiles and bind options. {{site.data.keyword.appid_short_notm}} supports the web browser SSO profile, with HTTP Post binding.
 
 For steps on how to use a specific SAML identity provider, check out these blog posts on setting up {{site.data.keyword.appid_short_notm}} with [Ping One ![External link icon](../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-ping-one/), [an Azure Active Directory ![External link icon](../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-azure-active-directory/), or [an Active Directory Federation Service ![External link icon](../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-active-directory-federation-service/).
 {: tip}
 
-
 ## SAML assertions and identity token claims
 {: #saml-assertions}
 
-A SAML assertion is a package of information that contains one or more statements. The assertion contains the authorization decision, and it might contain identity information about the user.
+A SAML assertion is a package of information that contains one or more statements. The assertion contains the authorization decision, and it might contain identity information about the user. When a user signs in with an identity provider, that provider sends an assertion to {{site.data.keyword.appid_short_notm}}. {{site.data.keyword.appid_short_notm}} propagates user identity information that is returned in the SAML assertion to your app as OIDC token claims.
 
-When a user signs in with an identity provider, that provider sends an assertion to {{site.data.keyword.appid_short_notm}}. {{site.data.keyword.appid_short_notm}} propagates user identity information that is returned in the SAML assertion to your app as OIDC token claims. The SAML attribute must correspond to 1 of the following OIDC claims to be added to the identity token.
+If the SAML assertion corresponds to one of the following OIDC claims, they are automatically added to the identity token. The assertions that do not correspond to any of the standard names are ignored.
 
-The following claims can be added:
-* `name`
-* `email`
-* `locale`
-* `picture`
+ * `name`
+ * `email`
+ * `locale`
+ * `picture`
 
-The remaining SAML attribute elements that do not correspond to any of the standard names are ignored. Note that if one or more of those values change on the provider's side, the new values are available only after the user logs in again.
+If one or more of those values change on the provider's side, the new values are available only after the user logs in again.
+{: note}
 
+### Obtaining more assertions
+{: #saml-more-assertions}
 
-Looking for an example? Check out <a href="https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-azure-active-directory/" target="_blank">Setting up {{site.data.keyword.appid_long}} with your Azure Active Directory <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> or <a href="https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-ping-one/" target="_blank">Setting up {{site.data.keyword.appid_long}} with Ping One <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
+It is possible to obtain extra information from your identity provider and then inject it into your tokens.
+{: shortdesc}
+
+You can use assertions in the same way that you use [attributes](/docs/services/appid?topic=appid-user-profile#user-profile). You might use assertions in your code for different reasons. Maybe you use assertions to determine membership, `isMember`. If your SAML provider returns the other assertions, it is possible to obtain the information when a user logs in. Then, by creating an array of the assertions you want to use, you can make a PUT request to the /config/tokens endpoint to inject them into your tokens. For more information, check out [customizing tokens](/docs/services/appid?topic=appid-customizing-tokens#customizing-tokens).
+
+Be sure not to add more information than necessary to your tokens. Tokens are usually sent in http headers and headers are limited in size.
+{: tip}
+
 
 ## Providing metadata to your identity provider
 {: #saml-provide-idp}
@@ -123,8 +130,6 @@ You can obtain data from your identity provider and provide it to {{site.data.ke
 Want to set an authentication context? You can do so through the API.
 {: tip}
 
-</br>
-</br>
 
 ### Providing metadata with the API
 {: #saml-provide-api}
