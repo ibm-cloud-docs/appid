@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-02-22"
 
 ---
 
@@ -223,7 +223,7 @@ Some common password strength examples:
 - Must contain only English letters and numbers. Example regex: `^[A-Za-z0-9]*$`
 - Must be at least one unique character. Example regex: `^(\w)\w*?(?!\1)\w+$`
 
-Password strength can be set in the Cloud Directory settings page in App ID Console, or by using <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/set_cloud_directory_password_regex" target="_blank">the management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
+Password strength can be set in the Cloud Directory settings page in {{site.data.keyword.appid_short_notm}} Console, or by using <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/set_cloud_directory_password_regex" target="_blank">the management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
 
 
 ## Advanced password policy
@@ -416,7 +416,7 @@ You must provide the URL. Additionally you can provide authorization information
   ```
   {: screen}
 
-  - tenant: App ID instance tenantId
+  - tenant: {{site.data.keyword.appid_short_notm}} instance tenantId
   - iat: timestamp of when the message was sent
   - iss: identifies principal that issued the JWS.
   - jti: uniq transaction ID
@@ -447,10 +447,10 @@ For every {{site.data.keyword.appid_short_notm}} instance, a private and a publi
   const jwkToPem = require('jwk-to-pem');
 
   async function obtainPublicKeys() {
-  	// Your App ID instance tenant ID
+  	// Your {{site.data.keyword.appid_short_notm}} instance tenant ID
   	const tenantId = '<TENANT-ID>';
 
-  	// Send request to App ID's public keys endpoint
+  	// Send request to {{site.data.keyword.appid_short_notm}}'s public keys endpoint
   	const keysOptions = {
   		method: 'GET',
   		url: `https://<REGION>.appid.cloud.ibm.com/oauth/v3/${tenantId}/publickeys`
@@ -546,7 +546,7 @@ curl -X GET --header ‘Accept: application/json’ --header ‘Authorization: B
   </tr>
   <tr>
     <td><code>tenantID</code></td>
-    <td>The service tenant ID can be found in your service credentials. You can find your service credentials in the App ID dashboard.</td>
+    <td>The service tenant ID can be found in your service credentials. You can find your service credentials in the {{site.data.keyword.appid_short_notm}} dashboard.</td>
   </tr>
 </table>
 
