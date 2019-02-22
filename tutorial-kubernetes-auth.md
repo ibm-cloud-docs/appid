@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-02-22"
 
 ---
 
@@ -50,7 +50,7 @@ Before you can get started, ensure that you have the following prerequisites.
 * A standard Kubernetes cluster with at least two worker nodes per zone. If you are using Ingress in multizone clusters review the extra prerequisites in the [Kubernetes Service documentation](/docs/containers?topic=containers-ingress#config_prereqs).
 * An instance of {{site.data.keyword.appid_short_notm}} in the same region in which your cluster is deployed. Ensure that the service name does not contain any spaces.
 
-* The following [IBM Cloud IAM roles](/docs/containers/cs_access_reference.html#understanding):
+* The following [IBM Cloud IAM roles](/docs/containers?topic=containers-access_reference#understanding):
   * Cluster: Administrator platform role
   * Kubernetes namespaces: Manager service role
 
