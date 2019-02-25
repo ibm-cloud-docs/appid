@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-22"
+lastupdated: "2019-02-25"
 
 ---
 
@@ -28,7 +28,7 @@ For steps on how to use a specific SAML identity provider, check out these blog 
 
 A SAML assertion is a package of information that contains one or more statements. The assertion contains the authorization decision, and it might contain identity information about the user. When a user signs in with an identity provider, that provider sends an assertion to {{site.data.keyword.appid_short_notm}}. {{site.data.keyword.appid_short_notm}} propagates user identity information that is returned in the SAML assertion to your app as OIDC token claims.
 
-If the SAML assertion corresponds to one of the following OIDC claims, they are automatically added to the identity token. The assertions that do not correspond to any of the standard names are ignored.
+If the SAML assertion corresponds to one of the following OIDC claims, it is automatically added to the identity token. The assertions that do not correspond to any of the standard names are ignored.
 
  * `name`
  * `email`
