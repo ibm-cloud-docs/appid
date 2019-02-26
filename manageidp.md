@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-22"
+lastupdated: "2019-02-26"
 
 ---
 
@@ -11,6 +11,7 @@ lastupdated: "2019-02-22"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:tip: .tip}
+{:note: .note}
 
 
 # Managing
@@ -86,7 +87,7 @@ You can decide configure your redirect URIs and token information for your app b
 ### Adding redirect URIs
 {: #add-redirect-uri}
 
-A redirect URI is the callback endpoint of your app. During the sign in flow, {{site.data.keyword.appid_short_notm}} validates the URIs before allowing clients to participate in the authorization workflow which to prevent phishing attacks and grant code leakage. By registering your URI you're telling App ID that the URI is approved and can be used.
+A redirect URI is the callback endpoint of your app. During the sign in flow, {{site.data.keyword.appid_short_notm}} validates the URIs before allowing clients to participate in the authorization workflow which helps to prevent phishing attacks and grant code leakage. By registering your URI, you're telling {{site.data.keyword.appid_short_notm}} that the URI is trusted and it's okay to redirect your users.
 
 Be sure to only register URIs of applications that you trust.
 {: note}
@@ -111,11 +112,11 @@ Be sure to only register URIs of applications that you trust.
     </tr>
     <tr>
       <td>Logout</td>
-      <td><code>https://idaas.iam.ibm.com/pkmslogout</code></td>
+      <td><code>http://mydomain.net/myapp2path/appid_logout</code></td>
     </tr>  
   </table>
 
-3. Click the **+** symbol in the **Add web redirect URLs** box.
+3. Click the **+** symbol in the **Add web redirect URIs** box.
 
 4. Repeat steps one through three until all possible URIs are added to your list.
 
@@ -133,4 +134,4 @@ Token lifetime begins again at each user sign in. For example, you set your refr
 
 4. Set your anonymous token lifetime. An [anonymous token](/docs/services/appid?topic=appid-anonymous#progressive) is assigned to users the moment they begin interacting with your app. When a user signs in, the information in the anonymous token is then transferred to the token associated with the user. Expiration is set in days and can be any value between 1 and 90.
 
-For more information about tokens, check out [Understanding tokens](?topic=appid-key-concepts#tokens).
+For more information about tokens, check out [Understanding tokens](/docs/services/appid?topic=appid-key-concepts#tokens).
