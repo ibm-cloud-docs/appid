@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-22"
+lastupdated: "2019-02-27"
 
 ---
 
@@ -94,6 +94,12 @@ You can use {{site.data.keyword.appid_short_notm}} with other {{site.data.keywor
     <dd>Do you develop apps in Node.js? Try out the <a href="/docs/node?topic=nodejs-getting-started-tutorial" target="_blank">Node.js programming guide <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to learn, experiment, and enhance your existing Node.js apps with {{site.data.keyword.Bluemix_notm}}.</dd>
 </dl>
 
+
+
+## Certifications
+{: #about-certifications}
+
+{{site.data.keyword.appid_short_notm}} has successfully completed the GDPR, HIPAA, PCI and SOC2 certifications and audits. See section 5.4 of the {{site.data.keyword.appid_short_notm}} software product compatibility report to review a complete list of [compliance certifications](https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=BF31C8008D7C11E59F9AD7336D7D0FFB).
 
 
 ## Regional high-availability
