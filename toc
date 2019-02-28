@@ -13,6 +13,7 @@ IBM Cloud App ID
     Tutorials
         tutorial-roles.md
         tutorial-kubernetes-auth.md
+        tutorial-cf.md
 
     relatedlinks.md
     {: .navgroup-end}
