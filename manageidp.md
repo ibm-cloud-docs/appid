@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-02-26"
 
 ---
 
@@ -11,6 +11,7 @@ lastupdated: "2019-02-18"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:tip: .tip}
+{:note: .note}
 
 
 # Managing
@@ -26,7 +27,7 @@ Identity providers (IdP's) add a level of security for your mobile and web apps,
 An identity provider creates and manages information about an entity such as a user, a functional ID, or an application. The provider verifies the identity of the entity by using credentials, such as a password. Then, the IdP sends the identity information to another service provider. Because the identity provider authenticates the entity, {{site.data.keyword.appid_short_notm}} is able to authorize it and grant access to your apps.
 {: shortdesc}
 
-{{site.data.keyword.appid_short_notm}} interacts with identity providers by using multiple protocols such as OpenID Connect, SAML, and more. For example, OpenID Connect is the protocol that is used with many social providers such as Facebook, Google. Enterprise providers such as <a href="https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-azure-active-directory/" target="_blank">Azure Active Directory <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>, or <a href="https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-active-directory-federation-service/" target="_blank">Active Directory Federation Service <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>, generally use SAML as their identity protocol. For [Cloud Directory](/docs/services/appid/cloud-directory.html), the service uses SCIM to verify identity information.
+{{site.data.keyword.appid_short_notm}} interacts with identity providers by using multiple protocols such as OpenID Connect, SAML, and more. For example, OpenID Connect is the protocol that is used with many social providers such as Facebook, Google. Enterprise providers such as <a href="https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-azure-active-directory/" target="_blank">Azure Active Directory <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>, or <a href="https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-active-directory-federation-service/" target="_blank">Active Directory Federation Service <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>, generally use SAML as their identity protocol. For [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory), the service uses SCIM to verify identity information.
 
 Working with application identity? Check out [Application identity](/docs/services/appid?topic=appid-app).
 {: tip}
@@ -86,7 +87,11 @@ You can decide configure your redirect URIs and token information for your app b
 ### Adding redirect URIs
 {: #add-redirect-uri}
 
-Add your redirect URIs. A redirect URI is the callback endpoint of your app. To prevent phishing attacks, {{site.data.keyword.appid_short_notm}} validates the URIs against the whitelist.
+A redirect URI is the callback endpoint of your app. During the sign in flow, {{site.data.keyword.appid_short_notm}} validates the URIs before allowing clients to participate in the authorization workflow which helps to prevent phishing attacks and grant code leakage. By registering your URI, you're telling {{site.data.keyword.appid_short_notm}} that the URI is trusted and it's okay to redirect your users.
+
+Be sure to only register URIs of applications that you trust.
+{: note}
+
 
 1. Click **Authentication Settings** to see your URI and token configuration options.
 
@@ -107,11 +112,11 @@ Add your redirect URIs. A redirect URI is the callback endpoint of your app. To 
     </tr>
     <tr>
       <td>Logout</td>
-      <td><code>https://idaas.iam.ibm.com/pkmslogout</code></td>
+      <td><code>http://mydomain.net/myapp2path/appid_logout</code></td>
     </tr>  
   </table>
 
-3. Click the **+** symbol in the **Add web redirect URLs** box.
+3. Click the **+** symbol in the **Add web redirect URIs** box.
 
 4. Repeat steps one through three until all possible URIs are added to your list.
 
@@ -129,4 +134,4 @@ Token lifetime begins again at each user sign in. For example, you set your refr
 
 4. Set your anonymous token lifetime. An [anonymous token](/docs/services/appid?topic=appid-anonymous#progressive) is assigned to users the moment they begin interacting with your app. When a user signs in, the information in the anonymous token is then transferred to the token associated with the user. Expiration is set in days and can be any value between 1 and 90.
 
-For more information about tokens, check out [Understanding tokens](?topic=appid-key-concepts#tokens).
+For more information about tokens, check out [Understanding tokens](/docs/services/appid?topic=appid-key-concepts#tokens).

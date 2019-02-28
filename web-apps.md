@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-02-22"
 
 ---
 
@@ -12,6 +12,7 @@ lastupdated: "2019-02-18"
 {:tip: .tip}
 {:screen: .screen}
 {:pre: .pre}
+{:note: .note}
 
 
 # Web apps
@@ -25,7 +26,7 @@ With {{site.data.keyword.appid_full}}, you can quickly construct an authenticati
 
 **When would this flow be useful?**
 
-When you are developing a web application, you can use the {{site.data.keyword.appid_short}} web flow to securely authenticate users. Users are then able to access your server-side protected content in your web apps.
+When you are developing a web application, you can use the {{site.data.keyword.appid_short_notm}} web flow to securely authenticate users. Users are then able to access your server-side protected content in your web apps.
 
 **What is the flow's technical basis?**
 
@@ -95,7 +96,7 @@ You must have the following prerequisites:
   ```
   {: pre}
 
-2. Set up your express app to use express-session middleware. **Note**: You must configure the middleware with the proper session storage for production environments. For more information see the <a href="https://github.com/expressjs/session" target="_blank"> express.js docs <img src="../icons/launch-glyph.svg" alt="External link icon"></a>.
+2. Set up your express app to use express-session middleware.
 
   ```javascript
   const app = express();
@@ -109,30 +110,37 @@ You must have the following prerequisites:
   ```
   {: pre}
 
-3. Obtain your service credentials by making a POST request to the [`/management/v4/{tenantId}/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Applications/registerApplication).
+  You must configure the middleware with the proper session storage for production environments. For more information see the <a href="https://github.com/expressjs/session" target="_blank"> express.js docs <img src="../icons/launch-glyph.svg" alt="External link icon"></a>.
+  {: note}
 
-  Request format:
-  ```
-  curl -X POST \  https://us-south.appid.cloud.ibm.com/management/v4/39a37f57-a227-4bfe-a044-93b6e6060b61/applications/ \
-  -H 'Content-Type: application/json' \
-  -H 'Authorization: Bearer IAM_TOKEN' \
-  -d '{"name": "ApplicationName"}'
-  ```
-  {: pre}
+3. Obtain your credentials in one of two ways.
 
-  Example response:
-  ```
-  {
-  "clientId": "111c22c3-38ea-4de8-b5d4-338744d83b0f",
-  "tenantId": "39a37f57-a227-4bfe-a044-93b6e6060b61",
-  "secret": "ZmE5ZDQ5ODctMmA1ZS00OGRiLWExZDMtZTA1MjkyZTc4MDB4",
-  "name": "ApplicationName",
-  "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v3/39a37f57-a227-4bfe-a044-93b6e6060b61"
-  }
-  ```
-  {: screen}
+  * By navigating to the **Applications** tab of the {{site.data.keyword.appid_short_notm}} dashboard. If you don't have an application listed, you can click **Add application** to create a new one.
 
-4. Optional: Decide how to format your redirectUri. The redirect can be formatted in two different ways.
+  * By making a POST request to the [`/management/v4/{tenantId}/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Applications/registerApplication).
+
+    Request format:
+    ```
+    curl -X POST \  https://us-south.appid.cloud.ibm.com/management/v4/39a37f57-a227-4bfe-a044-93b6e6060b61/applications/ \
+    -H 'Content-Type: application/json' \
+    -H 'Authorization: Bearer IAM_TOKEN' \
+    -d '{"name": "ApplicationName"}'
+    ```
+    {: pre}
+
+    Example response:
+    ```
+    {
+    "clientId": "111c22c3-38ea-4de8-b5d4-338744d83b0f",
+    "tenantId": "39a37f57-a227-4bfe-a044-93b6e6060b61",
+    "secret": "ZmE5ZDQ5ODctMmA1ZS00OGRiLWExZDMtZTA1MjkyZTc4MDB4",
+    "name": "ApplicationName",
+    "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v3/39a37f57-a227-4bfe-a044-93b6e6060b61"
+    }
+    ```
+    {: screen}
+
+4. Optional: Decide how to format your redirect URI. The redirect can be formatted in two different ways.
 
   * Manually in a new `WebAppStrategy({redirectUri: "...."})`
   * As an environment variable named `redirectUri`
@@ -212,35 +220,39 @@ You must have the following prerequisites:
   ```
   {: pre}
 
-2. Obtain your service credentials by making a POST request to the [`/management/v4/{tenantId}/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Applications/registerApplication).
+2. Obtain your credentials in one of two ways.
 
-  Request format:
-  ```
-  curl -X POST \  https://us-south.appid.cloud.ibm.com/management/v4/39a37f57-a227-4bfe-a044-93b6e6060b61/applications/ \
-  -H 'Content-Type: application/json' \
-  -H 'Authorization: Bearer IAM_TOKEN' \
-  -d '{"name": "ApplicationName"}'
-  ```
-  {: pre}
+  * By navigating to the **Applications** tab of the {{site.data.keyword.appid_short_notm}} dashboard. If you don't have an application listed, you can click **Add application** to create a new one.
 
-  Example response:
-  ```
-  {
-  "clientId": "111c22c3-38ea-4de8-b5d4-338744d83b0f",
-  "tenantId": "39a37f57-a227-4bfe-a044-93b6e6060b61",
-  "secret": "ZmE5ZDQ5ODctMmA1ZS00OGRiLWExZDMtZTA1MjkyZTc4MDB4",
-  "name": "ApplicationName",
-  "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v3/39a37f57-a227-4bfe-a044-93b6e6060b61"
-  }
-  ```
-  {: screen}
+  * By making a POST request to the [`/management/v4/{tenantId}/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Applications/registerApplication).
+
+    Request format:
+    ```
+    curl -X POST \  https://us-south.appid.cloud.ibm.com/management/v4/39a37f57-a227-4bfe-a044-93b6e6060b61/applications/ \
+    -H 'Content-Type: application/json' \
+    -H 'Authorization: Bearer IAM_TOKEN' \
+    -d '{"name": "ApplicationName"}'
+    ```
+    {: pre}
+
+    Example response:
+    ```
+    {
+    "clientId": "111c22c3-38ea-4de8-b5d4-338744d83b0f",
+    "tenantId": "39a37f57-a227-4bfe-a044-93b6e6060b61",
+    "secret": "ZmE5ZDQ5ODctMmA1ZS00OGRiLWExZDMtZTA1MjkyZTc4MDB4",
+    "name": "ApplicationName",
+    "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v3/39a37f57-a227-4bfe-a044-93b6e6060b61"
+    }
+    ```
+    {: screen}
 
 3. Create an Open ID Connect Client feature and define the following placeholders. Use the service credentials to fill the placeholders.
 
   ```xml
   <openidConnectClient
-    clientId='App ID client_ID'
-    clientSecret='App ID Secret'
+    clientId='{{site.data.keyword.appid_short_notm}} client_ID'
+    clientSecret='{{site.data.keyword.appid_short_notm}} Secret'
     authorizationEndpointUrl='oauthServerUrl/authorization'
     tokenEndpointUrl='oauthServerUrl/token'
     jwkEndpointUrl='oauthServerUrl/publickeys'
@@ -430,28 +442,32 @@ You must have the following prerequisites:
 ### Adding credentials
 {: #web-spring-boot-credentials}
 
-1. Obtain your service credentials by making a POST request to the [`/management/v4/{tenantId}/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Applications/registerApplication).
+1. Obtain your credentials in one of two ways.
 
-  Request format:
-  ```
-  curl -X POST \  https://us-south.appid.cloud.ibm.com/management/v4/39a37f57-a227-4bfe-a044-93b6e6060b61/applications/ \
-  -H 'Content-Type: application/json' \
-  -H 'Authorization: Bearer IAM_TOKEN' \
-  -d '{"name": "ApplicationName"}'
-  ```
-  {: pre}
+  * By navigating to the **Applications** tab of the {{site.data.keyword.appid_short_notm}} dashboard. If you don't have an application listed, you can click **Add application** to create a new one.
 
-  Example response:
-  ```
-  {
-  "clientId": "111c22c3-38ea-4de8-b5d4-338744d83b0f",
-  "tenantId": "39a37f57-a227-4bfe-a044-93b6e6060b61",
-  "secret": "ZmE5ZDQ5ODctMmA1ZS00OGRiLWExZDMtZTA1MjkyZTc4MDB4",
-  "name": "ApplicationName",
-  "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v3/39a37f57-a227-4bfe-a044-93b6e6060b61"
-  }
-  ```
-  {: screen}
+  * By making a POST request to the [`/management/v4/{tenantId}/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Applications/registerApplication).
+
+    Request format:
+    ```
+    curl -X POST \  https://us-south.appid.cloud.ibm.com/management/v4/39a37f57-a227-4bfe-a044-93b6e6060b61/applications/ \
+    -H 'Content-Type: application/json' \
+    -H 'Authorization: Bearer IAM_TOKEN' \
+    -d '{"name": "ApplicationName"}'
+    ```
+    {: pre}
+
+    Example response:
+    ```
+    {
+    "clientId": "111c22c3-38ea-4de8-b5d4-338744d83b0f",
+    "tenantId": "39a37f57-a227-4bfe-a044-93b6e6060b61",
+    "secret": "ZmE5ZDQ5ODctMmA1ZS00OGRiLWExZDMtZTA1MjkyZTc4MDB4",
+    "name": "ApplicationName",
+    "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v3/39a37f57-a227-4bfe-a044-93b6e6060b61"
+    }
+    ```
+    {: screen}
 
 2. Add an `application.yml` configuration file to the `/springbootsample/src/main/resources/` directory. You can complete your configuration with the information from your service credentials.
 

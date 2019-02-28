@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-02-22"
 
 ---
 
@@ -128,7 +128,7 @@ Check out the following table for a list of the events that are sent to {{site.d
   </tr>
   <tr>
     <td><code>read.samlMetadata</code></td>
-    <td>View the App ID SAML metadata.</td>
+    <td>View the {{site.data.keyword.appid_short_notm}} SAML metadata.</td>
     <td>Can be found in the <strong>Identity Providers > SAML 2.0 Federation</strong> tab.</td>
   </tr>
   <tr>
