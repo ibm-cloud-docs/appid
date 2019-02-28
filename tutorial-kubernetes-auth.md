@@ -2,7 +2,7 @@
 
 copyright:
   years: 2014, 2019
-lastupdated: "2019-02-22"
+lastupdated: "2019-02-28"
 
 ---
 
@@ -50,13 +50,13 @@ Before you can get started, ensure that you have the following prerequisites.
 * A standard Kubernetes cluster with at least two worker nodes per zone. If you are using Ingress in multizone clusters review the extra prerequisites in the [Kubernetes Service documentation](/docs/containers?topic=containers-ingress#config_prereqs).
 * An instance of {{site.data.keyword.appid_short_notm}} in the same region in which your cluster is deployed. Ensure that the service name does not contain any spaces.
 
-* The following [IBM Cloud IAM roles](/docs/containers?topic=containers-access_reference#understanding):
+* The following [{{site.data.keyword.cloud_notm}} IAM roles](/docs/containers?topic=containers-access_reference#access_reference):
   * Cluster: Administrator platform role
   * Kubernetes namespaces: Manager service role
 
 * The following CLIs:
 
-  * [{{site.data.keyword.cloud_notm}}](/docs/cli/reference/ibmcloud?topic=cloud-cli-install_use#install_use)
+  * [{{site.data.keyword.cloud_notm}}](/docs/cli/reference/ibmcloud/cloud-cli-install_use?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli)
   * [Kubernetes](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
   * [Docker](https://www.docker.com/products/docker-engine#/download)
 

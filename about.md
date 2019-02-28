@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-27"
+lastupdated: "2019-02-28"
 
 ---
 
@@ -89,7 +89,7 @@ You can use {{site.data.keyword.appid_short_notm}} with other {{site.data.keywor
   <dt>{{site.data.keyword.cloudaccesstrailshort}}</dt>
     <dd>You can monitor administrative activity that is made in {{site.data.keyword.appid_short_notm}} such as changes to the dashboard configuration, by using the [{{site.data.keyword.cloudaccesstrailshort}} service](/docs/services/cloud-activity-tracker?topic=cloud-activity-tracker-getting-started-with-cla).</dd>
   <dt>iOS Programming Guide</dt>
-    <dd>Do you develop apps for Apple? Try out the <a href="/docs/swift?topic=swift-set_up" target="_blank">iOS programming guide <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to learn, experiment, and enhance your existing iOS apps with {{site.data.keyword.Bluemix_notm}}.</dd>
+    <dd>Do you develop apps for Apple? Try out the <a href="/docs/swift/authenticate?topic=swift-appid#appid" target="_blank">iOS programming guide <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to learn, experiment, and enhance your existing iOS apps with {{site.data.keyword.Bluemix_notm}}.</dd>
   <dt>Node.js programming guide</dt>
     <dd>Do you develop apps in Node.js? Try out the <a href="/docs/node?topic=nodejs-getting-started-tutorial" target="_blank">Node.js programming guide <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to learn, experiment, and enhance your existing Node.js apps with {{site.data.keyword.Bluemix_notm}}.</dd>
 </dl>

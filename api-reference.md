@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-21"
+lastupdated: "2019-02-28"
 
 ---
 
@@ -67,7 +67,7 @@ https://<region-endpoint>.appid.cloud.ibm.com/management
 {: #api-prereq}
 
 <ul><ul><li>A service instance that was created after 15 March 2018. If you have an instance of the service that was created before that date, create a new instance and configure it to match your current instance. Be sure to update your apps to use the new instance.</li>
-<li>The [{{site.data.keyword.Bluemix_notm}} CLI](/docs/cli?topic=cloud-cli-overview) installed.</li></ul></ul>
+<li>The [{{site.data.keyword.cloud_notm}} CLI](/docs/cli/reference/ibmcloud/cloud-cli-install_use?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli) installed.</li></ul></ul>
 
 ## Example usage
 {: #api-example}
@@ -102,7 +102,7 @@ headers = {'Authorization': token , 'Accept':'application/json'}
 
 r = requests.get("https://<region>.appid.cloud.com/management/v4/" + tenantId + "/config/ui/media", headers=headers);
 
-if (r.status_code >= 200) :
+if (r.status_code >= 200) :~
     print(r.text)
     print("success! the logo was changed")
 ```
