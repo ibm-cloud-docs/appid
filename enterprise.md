@@ -24,11 +24,19 @@ For steps on how to use a specific SAML identity provider, check out these blog 
 {: tip}
 
 
-## Understanding SAML
-{: #saml-understanding}
+## Understanding assertions
+{: #saml-assertions}
+
+A SAML assertion is a statement or piece of information about a user, that is returned to App ID by an identity provider. Depending on your app configuration and the identity provider that you use, the information might include a users name, email, or another field that you ask to be returned. In addition to personal information, the assertion response also contains the authorization decision for the user. 
+
+1. A user successfully signs into your application by using an identity provider.
+2. The provider returns assertions to App ID.
+3. App ID pr
+
+When a user successfully signs into your application by using an identity provider, that provider sends the assertions 
 
 
-A SAML assertion is a package of information that contains one or more statements. The assertion contains the authorization decision, and it might contain identity information about the user. When a user signs in with an identity provider, that provider sends an assertion to {{site.data.keyword.appid_short_notm}}. {{site.data.keyword.appid_short_notm}} propagates user identity information that is returned in the SAML assertion to your app as OIDC token claims.
+ When a user signs in with an identity provider, that provider sends an assertion to {{site.data.keyword.appid_short_notm}}. {{site.data.keyword.appid_short_notm}} propagates user identity information that is returned in the SAML assertion to your app as OIDC token claims.
 
 If the SAML assertion corresponds to one of the following OIDC claims, it is automatically added to the identity token. The assertions that do not correspond to any of the standard names are ignored.
 
@@ -40,16 +48,6 @@ If the SAML assertion corresponds to one of the following OIDC claims, it is aut
 If one or more of those values change on the provider's side, the new values are available only after the user logs in again.
 {: note}
 
-### Obtaining more assertions
-{: #saml-more-assertions}
-
-It is possible to obtain extra information from your identity provider and then inject it into your tokens.
-{: shortdesc}
-
-You can use assertions in the same way that you use [attributes](/docs/services/appid?topic=appid-user-profile#user-profile). You might use assertions in your code for different reasons. Maybe you use assertions to determine membership, `isMember`. If your SAML provider returns the other assertions, it is possible to obtain the information when a user logs in. Then, by creating an array of the assertions you want to use, you can make a PUT request to the /config/tokens endpoint to inject them into your tokens. For more information, check out [customizing tokens](/docs/services/appid?topic=appid-customizing-tokens#customizing-tokens).
-
-Be sure not to add more information than necessary to your tokens. Tokens are usually sent in http headers and headers are limited in size.
-{: tip}
 
 
 
@@ -127,6 +125,16 @@ You can use any of the following algorithms to process XML digital signatures.
 For more information about using a SAML identity provider, see [Configuring enterprise identity providers](/docs/services/appid?topic=appid-enterprise).
 
 
+## Obtaining more assertions
+{: #saml-more-assertions}
+
+It is possible to obtain extra information from your identity provider and then inject it into your tokens.
+{: shortdesc}
+
+You can use assertions in the same way that you use [attributes](/docs/services/appid?topic=appid-user-profile#user-profile). You might use assertions in your code for different reasons. Maybe you use assertions to determine membership, `isMember`. If your SAML provider returns the other assertions, it is possible to obtain the information when a user logs in. Then, by creating an array of the assertions you want to use, you can make a PUT request to the /config/tokens endpoint to inject them into your tokens. For more information, check out [customizing tokens](/docs/services/appid?topic=appid-customizing-tokens#customizing-tokens).
+
+Be sure not to add more information than necessary to your tokens. Tokens are usually sent in http headers and headers are limited in size.
+{: tip}
 
 ## Providing metadata to your identity provider
 {: #saml-provide-idp}

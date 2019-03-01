@@ -26,7 +26,6 @@ IBM Cloud App ID
         backend-apps.md
         custom-auth.md
         progressive.md
-        protecting-resources-local.md
         app-to-app.md
         well-known.md
 
