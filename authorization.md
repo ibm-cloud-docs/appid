@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-22"
+lastupdated: "2019-03-01"
 
 ---
 
@@ -39,7 +39,7 @@ These key terms can help you understand the way that the service breaks down the
       "tenantId": "3x176051-a23x-40y4-9645-804943z660q0",
       "version": 3,
     }</code></pre></p>
-    <p>Using this example, the URL would be "https://us-south.appid.cloud.ibm.com/oauth/v3/3x176051-a23x-40y4-9645-804943z660q0. You would then append the endpoint that you wanted to make a request to. Check out the following table to see some example endpoints.</p>
+    <p>Using this example, the URL would be <code>https://us-south.appid.cloud.ibm.com/oauth/v3/3x176051-a23x-40y4-9645-804943z660q0</code>. You would then append the endpoint that you wanted to make a request to. Check out the following table to see some example endpoints.</p>
     <table>
       <tr>
         <th>Endpoint</th>
