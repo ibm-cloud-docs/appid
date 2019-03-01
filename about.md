@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-28"
+lastupdated: "2019-03-01"
 
 ---
 
@@ -99,7 +99,7 @@ You can use {{site.data.keyword.appid_short_notm}} with other {{site.data.keywor
 ## Certifications
 {: #about-certifications}
 
-{{site.data.keyword.appid_short_notm}} has successfully completed the GDPR, HIPAA, PCI and SOC2 certifications and audits. See section 5.4 of the {{site.data.keyword.appid_short_notm}} software product compatibility report to review a complete list of [compliance certifications](https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=BF31C8008D7C11E59F9AD7336D7D0FFB).
+{{site.data.keyword.appid_short_notm}} has successfully completed several certifications and audits. See section 5.4 of the {{site.data.keyword.appid_short_notm}} software product compatibility report to review a complete list of [compliance certifications](https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=BF31C8008D7C11E59F9AD7336D7D0FFB).
 
 
 ## Regional high-availability
