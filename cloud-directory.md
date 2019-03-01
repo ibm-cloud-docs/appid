@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-22"
+lastupdated: "2019-03-01"
 
 ---
 
@@ -34,17 +34,17 @@ Figure. The configuration journey for Cloud Directory
 1. In the **Manage** tab of the {{site.data.keyword.appid_short_notm}} dashboard, be sure that Cloud Directory is set to **On**.
 
 2. Configure your general settings.
-  1. Decide whether you want your users to create a username or use their email when they sign in. Both options require a password. After users have been added to your directory, you can no longer toggle between the options.
+  1. Decide whether you want your users to create a username or use their email when they sign in. Both options require a password. After users are added to your directory, you can no longer toggle between the options.
   2. Click **Edit** in the password criteria row to specify any requirements that you want to put in place. Password criteria is given as regex. For help determining strength or to see common examples see, [Managing password strength](/docs/services/appid?topic=appid-cloud-directory#cd-strength). Click **Save** to put your requirements into action.
   3. Set **Allow users to sign up to your app** to **Yes**. You can still add users through the console if it's set to **No**. However, you should add users through the console only for development purposes.
-  4. Set **Allow users to manage their account from your app** to **Yes** if you want your users to be able to reset their password, change their password, or reset their details. If you want to limit your users self-service, set the value to **No**.
+  4. Set **Allow users to manage their account from your app** to **Yes** if you want your users to be able to reset their password, change their password, or reset their details. If you want to limit your user's self-service ability, set the value to **No**.
   5. Click **Edit** in the **Sender details** row to update your email settings. The email settings apply for all of the communication that is sent through {{site.data.keyword.appid_short_notm}}. Specify the email address that should send the email, their name, and leave a separate email for users to send a response.
   6. Enable **Advanced password policy** to create limitations and time requirements for your passwords. This feature requires additional billing. For more information about your options, see [Advanced password policy](/docs/services/appid?topic=appid-cloud-directory#cd-advanced-password).
   6. Click **Save**.
 
 3. Configure your verification email settings.
-  1. To have your users verify their email address set **Email verification** to **On**. When a user signs up for your application, they receive an email that asks them to confirm that they've signed up for the app.
-  2. If you've decided that you want your users to verify their email, your next decision is whether you want to allow users into your application before them verifying their email address. Depending on your preference, set **Allow users to sign in to your app without first verifying their email address** to **Yes** or **No**.
+  1. To have your users verify their email address, set **Email verification** to **On**. When a user signs up for your application, they receive an email that asks them to confirm that they've signed up for the app.
+  2. If you decide that you want your users to verify their email, your next decision is whether you want to allow users into your application before them verifying their email address. Depending on your preference, set **Allow users to sign in to your app without first verifying their email address** to **Yes** or **No**.
   3. Customize the content and design the appearance of your message. There is a template for the message, but you can update the text with your own message. You can use a [language](/docs/services/appid?topic=appid-cloud-directory#cd-languages) other than English, but you are responsible for the translation of the text. To choose another language, use the <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#//Config/updateLocalization" target="_blank">language management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
   4. Give the verification URL an expiration time limit, specified as minutes.  When this time is set here, it also affects the length of time that your reset password link is valid for.
   5. Enter your own verification page URL if you have a specific page that you want your users to see when they click the link. If you leave the **Custom verification page URL** field blank, a default verification page is provided by {{site.data.keyword.appid_short_notm}}.
@@ -56,7 +56,7 @@ Figure. The configuration journey for Cloud Directory
   3. Click **Save**.
 
 5. Configure your password reset settings.
-  1. To allow users to request a reset of their password, set **Forgot password email** to **On**. **Note**: A user must have validated their email before reseting their password. This means that you must require email verification to allow password resets.
+  1. To allow users to request a reset of their password, set **Forgot password email** to **On**. **Note**: A user must have validated their email before resetting their password. This means that you must require email verification to allow password resets.
   2. Customize the content and design the appearance of your message. There is an example message that you can use, but you can update the text with your own message. You can use a [language](/docs/services/appid?topic=appid-cloud-directory#cd-languages) other than English, but you are responsible for the translation of the text. To choose another language, use the <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/updateLocalization" target="_blank">language management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
   3. Give the reset password URL an expiration time limit, specified as minutes. When this time is set here, it also affects the length of time that your email verification link is valid for.
   4. Enter your own password reset URL if you have a specific page that you want your users to see when they click the link. If you leave the **Reset password page URL** field blank, a default reset password page is provided by {{site.data.keyword.appid_short_notm}}.
@@ -96,7 +96,7 @@ If a user does not supply the information pulled by the parameter, it appears bl
       <tbody>
         <tr>
           <td><code>%{display.logo}</code></td>
-          <td> Displays the image that you configured for your login widget. </td>
+          <td> Displays the image that you configured for your Login Widget. </td>
         </tr>
         <tr>
           <td><code>%{user.displayName}</code></td>
@@ -243,7 +243,7 @@ Advanced password policy consists of 5 features that can each be toggled separat
  - Ensure password does not include username
 
 
- If you enable this feature, additional billing for advanced security capabilities is activated. For more information see the [Pricing Calculator](/docs/services/appid?topic=appid-faq#faq-pricing).
+ If you enable this feature, additional billing for advanced security capabilities is activated. For more information, see the [How does {{site.data.keyword.appid_short_notm}} calculate pricing](/docs/services/appid?topic=appid-faq#faq-pricing).
 
 
 
@@ -253,9 +253,9 @@ Advanced password policy consists of 5 features that can each be toggled separat
 When your users are changing their password, you might want to prevent them from choosing a recently used password.
 {: shortdesc}
 
-By using the GUI or the API, you can choose the number of passwords that a user must have before they can repeat a previously used password. You can select any whole value between 1 and 10.
+By using the GUI or the API, you can choose the number of passwords that a user must have before they can repeat a previously used password. You can select any whole value in the range 1 - 10.
 
-If this option is turned on, and one of your users attempts to set their password to one that was recently used by them, they are shown an error in the default sign in widget UI and are prompted to enter a different password.
+If this option is turned on, and one of your users attempts to set their password to one that was recently used by them, they are shown an error in the default sign-in widget UI and are prompted to enter a different password.
 
 Previous passwords are securely stored in the same way that a user's current password is stored.
 
@@ -263,17 +263,17 @@ Previous passwords are securely stored in the same way that a user's current pas
 ### Lockout after repeated wrong credentials
 {: #cd-lockout}
 
-You may want to protect your users' accounts by temporarily blocking the ability to sign in when a suspicious behavior is detected, such as multiples consecutive sign in attempts with an incorrect password. This measure can help to prevent a malicious party from gaining access to a user's account by guessing a user's password.
+You might want to protect your users' accounts by temporarily blocking the ability to sign in when a suspicious behavior is detected, such as multiples consecutive sign-in attempts with an incorrect password. This measure can help to prevent a malicious party from gaining access to a user's account by guessing a user's password.
 {: shortdesc}
 
-By using the GUI or the API, you can set the maximum number of unsuccessful sign in attempts that a user can make before their account is temporarily locked. You can also set the amount of time that the account is locked for. You have the following options:
+By using the GUI or the API, you can set the maximum number of unsuccessful sign-in attempts that a user can make before their account is temporarily locked. You can also set the amount of time that the account is locked for. You have the following options:
 
-* Number of attempts: Any whole value between 1 and 10.
-* Lockout period: Any whole value between 1 minute and 24 hours, specified in minutes.
+* Number of attempts: Any whole value 1 - 10.
+* Lockout period: Any whole value specified in minutes in the range 1 minute to 1440 minutes (24 hours).
 
-If an account is locked, users are unable to sign in or perform any other self service operations, such as changing their password until the the specified lockout period has elapsed. When the lockout period has ended, the user is automatically unlocked.
+If an account is locked, users are unable to sign in or perform any other self service operations, such as changing their password until the specified lockout period has elapsed. When the lockout period has ended, the user is automatically unlocked.
 
-You can unlock a user before the lockout period is over. To see if they are locked out look to see if the `active` field is set to `false`. You can also check to see if their status on the **Users** tab of the service dashboard is set to `disabled`. To unlock a user, you must use [the API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Cloud_Directory_Users/updateCloudDirectoryUser) to set the `active` field to `true`.
+You can unlock a user before the lockout period is over. To see whether they are locked out look to see whether the `active` field is set to `false`. You can also check to see whether their status on the **Users** tab of the service dashboard is set to `disabled`. To unlock a user, you must use [the API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Cloud_Directory_Users/updateCloudDirectoryUser) to set the `active` field to `true`.
 
 
 
@@ -283,7 +283,7 @@ You can unlock a user before the lockout period is over. To see if they are lock
 You might want to prevent your users from quickly switching between passwords by setting a minimum period of time that a user must wait between password changes.
 {: shortdesc}
 
-This feature is especially useful when used in conjunction with the "Avoid password re-use" policy. Without this limitation, a user could simply change their password multiple times in quick succession to circumvent the limitation of re-using recent passwords. You can select any value between 1 hour and 30 days, specified in hours.
+This feature is especially useful when used with the "Avoid password reuse" policy. Without this limitation, a user could simply change their password multiple times in quick succession to circumvent the limitation of re-using recent passwords. You can select any value between 1 hour and 30 days, specified in hours.
 
 
 
@@ -295,7 +295,7 @@ For security reasons, you might want to enforce a password rotation policy, such
 
 By using the GUI or the API, you can set a time period for which your user's passwords will remain valid. After a user's password expires, they are forced to reset their password on the next sign in. You can select any number of full days between 1 and 90.
 
-The service provides a default GUI and experience out of the box with the login widget. The user is directed to supply a new password before the sign in is complete.
+You can quickly get started with the Login Widget by using the provided default GUI. The user is directed to supply a new password before the sign in is complete.
 
 If you're using a custom sign in experience, an error is triggered when a user attempts to sign in with an expired password. It is your responsibility to configure your application to provide the necessary user experience. You can call the change password API to set the new password.
 
@@ -310,7 +310,7 @@ The token endpoint response looks similar to the following:
 ```
 {: screen}
 
-When this option is first set to on, any existing user passwords will not have an expiration date. The expiration period begins for those user's when their password is changed. You might want to encourage users to update their password after you set this feature to on.
+When this option is first set to on, any existing user passwords will not have an expiration date. The expiration period begins for the users when their password is changed. You might want to encourage users to update their password after you set this feature to on.
 {: note}
 
 
@@ -320,7 +320,7 @@ When this option is first set to on, any existing user passwords will not have a
 For stronger passwords, you might want to prevent users that contain their username or the first part of their email address.
 {: shortdesc}
 
-This constraint is not case-sensitive which means that users are not able to alter the case of some or all of the characters in order to use the personal information. To configure this option, toggle the switch to **on**.
+This constraint is not case-sensitive, which means that users are not able to alter the case of some or all of the characters in order to use the personal information. To configure this option, toggle the switch to **on**.
 
 </br>
 
@@ -350,7 +350,7 @@ After the extension point is configured, it is called by {{site.data.keyword.app
 
 **To create a custom email sender:**
 
-1. In order to configure the {{site.data.keyword.appid_short_notm}} instance to use custom dispatcher, use <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/set_cloud_directory_email_dispatcher" target="_blank">the management API </a>.</br>
+1. In order to configure the {{site.data.keyword.appid_short_notm}} instance to use custom dispatcher, use <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/set_cloud_directory_email_dispatcher" target="_blank">the management API</a>.</br>
 You must provide the URL. Additionally you can provide authorization information. The supported authorization types are: `Basic authorization` or a `constant authorization header value`.
 
   Valid configuration examples:
@@ -435,7 +435,7 @@ You must provide the URL. Additionally you can provide authorization information
   {: tip}
 
 4. Every HTTP payload that is sent from {{site.data.keyword.appid_short_notm}} is automatically signed according to the JWS standard by using an asymmetric key pair.
-For every {{site.data.keyword.appid_short_notm}} instance, a private and a public key is generated that are not shared across other instances. The private key is used to sign the HTTP payload, and you can use the public key to verify that the payload is generated by {{site.data.keyword.appid_short_notm}} and is not altered by a third party, <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Authorization_Server_V3/publicKeys" target="_blank">Public keys endpoint </a>.
+For every {{site.data.keyword.appid_short_notm}} instance, a private and a public key is generated that are not shared across other instances. The private key is used to sign the HTTP payload, and you can use the public key to verify that the payload is generated by {{site.data.keyword.appid_short_notm}} and is not altered by a third party, <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Authorization_Server_V3/publicKeys" target="_blank">Public keys endpoint</a>.
 
 5. Example code for the extension point (JavaScript)
   ```
@@ -550,7 +550,7 @@ curl -X GET --header ‘Accept: application/json’ --header ‘Authorization: B
   </tr>
 </table>
 
-Only your Cloud Directory users and their profiles are returned. Users from other identity provider's are not.
+Only your Cloud Directory users and their profiles are returned. Users from other identity providers are not.
 {: note}
 
 
@@ -598,7 +598,7 @@ curl -X POST --header ‘Content-Type: application/json’ --header ‘Accept: a
 
 {{site.data.keyword.appid_short_notm}} provides a migration script that you can use through the CLI that can help speed up the migration process.
 
-Before you get started, be sure you have the following parameter information:
+Before you get started, be sure that you have the following parameter information:
 
 <table>
   <tr>
@@ -665,7 +665,7 @@ You can use <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/up
   <tr>
     <th>Code</th>
     <th>Language</th>
-    <th>region</th>
+    <th>Region</th>
   </tr>
   <tr>
     <td><code>af-ZA</code></td>
