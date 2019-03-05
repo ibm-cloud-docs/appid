@@ -95,7 +95,7 @@ You can use {{site.data.keyword.appid_short_notm}} with other {{site.data.keywor
 </dl>
 
 
-## Compliancy and standards
+## Compliance and standards
 {: #about-compliance}
 
 {{site.data.keyword.appid_short_notm}} has successfully completed several certifications, audits, and standards. 
