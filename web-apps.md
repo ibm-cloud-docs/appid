@@ -2,17 +2,25 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-22"
+lastupdated: "2019-03-06"
+
+keywords: authentication, authorization, identity, app security, secure, web apps, client, server
+
+subcollection: appid
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
-{:pre: .pre}
-{:tip: .tip}
 {:screen: .screen}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:codeblock: .codeblock}
+{:tip: .tip}
 {:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 
 # Web apps
@@ -40,7 +48,7 @@ Web apps often require users to authenticate in order to access protected conten
 
 2. If the user is unauthorized, the authentication flow is started with a redirect to {{site.data.keyword.appid_short_notm}}.
 
-3. Depending on the user's `/authorization` request parameters or identity provider configuration, it launches the login widget in the users browser.
+3. Depending on the user's `/authorization` request parameters or identity provider configuration, it launches the Login Widget in the users browser.
 
 4. The user chooses an identity provider to authenticate with and completes the sign in process.
 

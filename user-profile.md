@@ -2,15 +2,25 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-03-06"
+
+keywords: authentication, authorization, identity, app security, secure, user profiles, personalized apps, attributes, 
+
+subcollection: appid
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
-{:pre: .pre}
-{:tip: .tip}
 {:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:codeblock: .codeblock}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 # Understanding user profiles
 {: #user-profile}
@@ -53,6 +63,3 @@ Figure. User profile information flow
 
 To see custom attributes, you can use the <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Attributes" target="_blank">REST API <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
 
-
-</br>
-</br>

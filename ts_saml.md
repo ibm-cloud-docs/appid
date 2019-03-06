@@ -2,18 +2,25 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-22"
+lastupdated: "2019-03-06"
+
+keywords: authentication, authorization, identity, app security, secure, development, idp, troubleshooting, redirected, validation
+
+subcollection: appid
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
-{:tsSymptoms: .tsSymptoms}
-{:tsCauses: .tsCauses}
-{:tsResolve: .tsResolve}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:codeblock: .codeblock}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 # Identity provider configurations
 {: #troubleshooting-idp}
