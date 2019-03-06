@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-28"
+lastupdated: "2019-03-06"
 
 ---
 
@@ -68,8 +68,8 @@ Just getting started? Try walking through some of our tutorials and blogs for he
 * <a href="https://www.ibm.com/blogs/bluemix/2018/05/announcing-app-id-integration-ibm-cloud-kubernetes-service/" target="_blank">Announcing {{site.data.keyword.appid_short_notm}} integration to {{site.data.keyword.containerlong}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 * <a href="https://www.ibm.com/blogs/bluemix/2018/02/using-app-id-secure-docker-kubernetes-applications/" target="_blank">Using {{site.data.keyword.appid_short_notm}} to secure Docker and Kubernetes applications <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 * <a href="https://www.ibm.com/blogs/bluemix/2019/02/authenticating-users-with-cloud-functions-api-gateway-and-app-id/" target="_blank">Authenticating Users with Cloud Functions, API Gateway, and {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
-* <a href="https://console.bluemix.net/docs/tutorials/serverless-mobile-backend.html#mobile-application-with-a-serverless-backend" target="_blank">Securing your serverless Cloud Functions mobile backend with {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
-* <a href="https://console.bluemix.net/docs/tutorials/serverless-github-traffic-analytics.html" target="_blank">Tutorial: GitHub traffic analytics with Cloud Functions and Cloud Foundry <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
+* <a href="/docs/tutorials/serverless-mobile-backend.html#mobile-application-with-a-serverless-backend" target="_blank">Securing your serverless Cloud Functions mobile backend with {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
+* <a href="/docs/tutorials/serverless-github-traffic-analytics.html" target="_blank">Tutorial: GitHub traffic analytics with Cloud Functions and Cloud Foundry <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 * <a href="https://www.ibm.com/blogs/bluemix/2018/07/how-to-configure-ibm-cloud-app-id-from-the-toolchain/" target="_blank">Configuring {{site.data.keyword.appid_short_notm}} From the Toolchain <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 * <a href="http://heidloff.net/article/user-authorization-serverless-web-applications-openwhisk" target="_blank">User Authorization in Serverless Web Applications <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 * <a href="http://heidloff.net/article/user-authentication-serverless-openwhisk
@@ -82,10 +82,10 @@ Just getting started? Try walking through some of our tutorials and blogs for he
 
 See {{site.data.keyword.appid_short_notm}} in action in these market examples.
 
-* <a href="/docs/services/IoT?topic=iot-platform-gettingstartedtemplate#app_id" target="_blank">{{site.data.keyword.appid_short_notm}} Authentication for Watson IoT Platform (Beta) <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
+
 * <a href="https://developer.ibm.com/articles/iot-trs-secure-iot-solutions3/" target="_blank">Design and build secure IoT solutions, part 3: Securing IoT applications <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 * <a href="https://www.ibm.com/blogs/bluemix/2017/08/developing-finance-application-using-ibm-cloud/" target="_blank">Developing a finance application by using {{site.data.keyword.cloud_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
-* <a href="/docs/tutorials?topic=solution-tutorials-cloud-e2e-security#apply-end-to-end-security-to-a-cloud-application" target="_blank">Apply end to end security to a cloud application <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
+* <a href="/docs/tutorials?topic=solution-tutorials-cloud-e2e-security#cloud-e2e-security" target="_blank">Apply end to end security to a cloud application <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 
 
 ## Integrating with your enterprise user directory
@@ -114,4 +114,4 @@ Want to have a custom experience for your users? Not a problem.
 Are you working in a specific language and want to see how {{site.data.keyword.appid_short_notm}} fits in with other {{site.data.keyword.cloud_notm}} services? Check out one of the programming guides.
 
 * <a href="/docs/swift/authenticate?topic=swift-appid#appid" target="_blank">Programming with Swift on {{site.data.keyword.cloud_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
-* <a href="/docs/node?topic=nodejs-getting-started-tutorial#getting-started-tutorial" target="_blank">Programming with Node.js on {{site.data.keyword.Bluemix_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
+* <a href="/docs/node?topic=nodejs-getting-started-tutorial#getting-started-tutorial" target="_blank">Programming with Node.js on {{site.data.keyword.cloud_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
