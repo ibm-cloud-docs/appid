@@ -4,6 +4,10 @@ copyright:
   years: 2017, 2019
 lastupdated: "2019-03-06"
 
+keywords: authentication, authorization, identity, app security, secure, access, platform, management, permissions
+
+subcollection: appid
+
 ---
 
 {:new_window: target="_blank"}
@@ -11,8 +15,11 @@ lastupdated: "2019-03-06"
 {:screen: .screen}
 {:pre: .pre}
 {:table: .aria-labeledby="caption"}
-{:pre: .pre}
+{:codeblock: .codeblock}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 {:download: .download}
 
 

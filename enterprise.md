@@ -2,15 +2,25 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-04"
+lastupdated: "2019-03-06"
+
+keywords: authentication, authorization, identity, app security, secure, custom, service provider, identity provider, enterprise, assertions
+
+subcollection: appid
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 # SAML
 {: #enterprise}
@@ -28,10 +38,10 @@ For steps on how to use a specific SAML identity provider, check out these blog 
 ## Understanding assertions
 {: #saml-assertions}
 
-A SAML assertion is similar to a [user attribute](/docs/services/appid?topic=appid-user-profile#user-profile). It is a statement or piece of information about a user that is returned to App ID by an identity provider when a user successfully logs into your app. Depending on your app configuration and the identity provider that you use, the information might include a users name, email, or another field that you ask specify. In addition to the personal information, the response also contains the authorization decision for the user.
+A SAML assertion is similar to a [user attribute](/docs/services/appid?topic=appid-user-profile#user-profile). It is a statement or piece of information about a user that is returned to {{site.data.keyword.appid_short_notm}} by an identity provider when a user successfully logs into your app. Depending on your app configuration and the identity provider that you use, the information might include a users name, email, or another field that you ask specify. In addition to the personal information, the response also contains the authorization decision for the user.
 {: shortdesc}
 
-When the assertions are returned to App ID, the service propogates the information as OIDC token claims. If the SAML assertion corresponds to one of the following OIDC claims, it is automatically added to the identity token. The assertions that do not correspond to any of the standard names are ignored by default. If you 
+When the assertions are returned to {{site.data.keyword.appid_short_notm}}, the service propogates the information as OIDC token claims. If the SAML assertion corresponds to one of the following OIDC claims, it is automatically added to the identity token. The assertions that do not correspond to any of the standard names are ignored by default. If you 
 
  * `name`
  * `email`

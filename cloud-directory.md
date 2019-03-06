@@ -2,16 +2,25 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-01"
+lastupdated: "2019-03-06"
+
+keywords: authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
+
+subcollection: appid
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
-{:codeblock: .codeblock}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:codeblock: .codeblock}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 # Cloud Directory
 {: #cloud-directory}
@@ -19,7 +28,6 @@ lastupdated: "2019-03-01"
 With {{site.data.keyword.appid_full}}, users can sign up and sign in to your mobile and web apps by using an email or username and a password. A cloud directory is a user registry that is maintained in the cloud. When a user signs up for your app, they're added to your directory of users. With this feature, users have the freedom to manage their own account within your app.
 {: shortdesc}
 
-</br>
 
 ## Managing directory settings
 {: #cd-settings}
@@ -74,8 +82,6 @@ Figure. The configuration journey for Cloud Directory
 
 8. In the **Users** tab you can see who has signed-up for your app. Note: A single user can attempt to sign in up to 5 times in 60 seconds. If a sixth attempt is made, an error is displayed.
 
-</br>
-</br>
 
 ## Types of messages
 {: #cd-types}
@@ -205,8 +211,7 @@ If a user does not supply the information pulled by the parameter, it appears bl
         </tbody>
       </table></dd></dl>
 
-</br>
-</br>
+
 
 ## Managing password strength
 {: #cd-strength}
@@ -246,7 +251,6 @@ Advanced password policy consists of 5 features that can each be toggled separat
  If you enable this feature, additional billing for advanced security capabilities is activated. For more information, see the [How does {{site.data.keyword.appid_short_notm}} calculate pricing](/docs/services/appid?topic=appid-faq#faq-pricing).
 
 
-
 ### Avoid Password Reuse
 {: #cd-avoid-reuse}
 
@@ -276,7 +280,6 @@ If an account is locked, users are unable to sign in or perform any other self s
 You can unlock a user before the lockout period is over. To see whether they are locked out look to see whether the `active` field is set to `false`. You can also check to see whether their status on the **Users** tab of the service dashboard is set to `disabled`. To unlock a user, you must use [the API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Cloud_Directory_Users/updateCloudDirectoryUser) to set the `active` field to `true`.
 
 
-
 ### Minimum period between password changes
 {: #cd-minimum-time}
 
@@ -284,7 +287,6 @@ You might want to prevent your users from quickly switching between passwords by
 {: shortdesc}
 
 This feature is especially useful when used with the "Avoid password reuse" policy. Without this limitation, a user could simply change their password multiple times in quick succession to circumvent the limitation of re-using recent passwords. You can select any value between 1 hour and 30 days, specified in hours.
-
 
 
 ### Password expiration
@@ -322,7 +324,7 @@ For stronger passwords, you might want to prevent users that contain their usern
 
 This constraint is not case-sensitive, which means that users are not able to alter the case of some or all of the characters in order to use the personal information. To configure this option, toggle the switch to **on**.
 
-</br>
+
 
 ## Using a custom email sender
 {: #cd-custom-email}
@@ -340,13 +342,13 @@ By configuring a custom email dispatcher, you have full control over how the ema
 - **Insights and troubleshooting**
 Gain insights from your email provider, such as: the number of people that opened the emails or which messages were not delivered. Because you can track individual messages, and see overall statistics, this can help solve issues.
 
-</br>
+
 
 **How does it work?**
 
 After the extension point is configured, it is called by {{site.data.keyword.appid_short_notm}} whenever an email message needs to be sent. The extension point contains all of the information about the message, including the final content of the email body.
 
-</br>
+
 
 **To create a custom email sender:**
 
@@ -507,9 +509,6 @@ For every {{site.data.keyword.appid_short_notm}} instance, a private and a publi
 
 For full working example, see <a href="https://www.ibm.com/blogs/bluemix/2018/10/use-ibm-cloud-app-id-and-your-email-provider-to-brand-mails-sent-to-app-users/" target="_blank">Use your own provider for mail sent with {{site.data.keyword.appid_full}}</a>.
 
-</br>
-</br>
-
 
 ## Migrating users
 {: #user-migration}
@@ -521,7 +520,6 @@ Occasionally you might need to set up a new instance of {{site.data.keyword.appi
 
 You must be assigned the `Manager` [IAM role](/docs/iam?topic=iam-getstarted) for both instances of {{site.data.keyword.appid_short_notm}}.
 
-</br>
 
 ### Exporting
 {: cd-export}
@@ -591,7 +589,7 @@ curl -X POST --header ‘Content-Type: application/json’ --header ‘Accept: a
 ```
 {: codeblock}
 
-</br>
+
 
 ### Migration script
 {: cd-migration-script}
@@ -648,8 +646,6 @@ To run the script:
   ```
   {: codeblock}
 
-</br>
-</br>
 
 
 ## Supported languages

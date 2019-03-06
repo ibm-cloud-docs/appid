@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-03-06"
+
+keywords: authentication, authorization, identity, app security, secure, custom, tokens, access, claim, attributes
+
+subcollection: appid
 
 ---
 
@@ -153,7 +157,7 @@ Each mapping is defined by a data source object and a key that is used to retrie
       <tr>
         <td><code><em>source</em></code></td>
         <td>Required</td>
-        <td>Defines the source of the claim. It can refer to the identity provider's user information or the user's {{site.data.keyword.appid_short_notm}} custom attributes. </br> </br> Options include: `saml`, `cloud_directory`, `facebook`, `google`, `appid_custom`, `ibmid`, and `attributes`.</td>
+        <td>Defines the source of the claim. It can refer to the identity provider's user information or the user's {{site.data.keyword.appid_short_notm}} custom attributes. </br> Options include: `saml`, `cloud_directory`, `facebook`, `google`, `appid_custom`, `ibmid`, and `attributes`.</td>
       </tr>
       <tr>
         <td><code><em>sourceClaim</em></code></td>

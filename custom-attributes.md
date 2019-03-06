@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-03-06"
+
+keywords: authentication, authorization, identity, app security, secure, attributes, user information, storing, accessing
+
+subcollection: appid
 
 ---
 

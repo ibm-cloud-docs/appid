@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-03-06"
+
+keywords: authentication, authorization, identity, app security, secure, customizing apps, directory, registry, 
+
+subcollection: appid
 
 ---
 
@@ -10,7 +14,13 @@ lastupdated: "2019-02-18"
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:codeblock: .codeblock}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 # Branding your app
 {: #branded}
@@ -24,13 +34,11 @@ You can display your own customized screens, use your own sign in flows, and tak
 
 When you reuse your existing UIs, you can create a cohesive sign in flow for your app. By using the same imagery, colors, and branding, your users are more likely to recognize your brand, even when not directly interacting with your app.
 
-</br>
-
 ### Are there any requirements to us my own screens?
 {: #branded-requirements}
 
 
-To display your own UIs, you must use [Cloud Directory(/docs/services/appid?topic=appid-cloud-directory)] as your identity provider. There are several different ways that Cloud Directory can be [configured](/docs/services/appid?topic=appid-cloud-directory). You can decide the types of messages that you want to send, and customize the content and design. Don't know what to say? Not a problem. There are example messages in the GUI that you can use.
+To display your own UIs, you must use [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory) as your identity provider. There are several different ways that Cloud Directory can be [configured](/docs/services/appid?topic=appid-cloud-directory). You can decide the types of messages that you want to send, and customize the content and design. Don't know what to say? Not a problem. There are example messages in the GUI that you can use.
 
 
 Want to use a [language](/docs/services/appid?topic=appid-cloud-directory#cd-languages) other than English? You can choose another language by using the <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/updateLocalization" target="_blank">language management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>, to display your own translated content.
@@ -45,9 +53,9 @@ Yes! You can create a hybrid flow that uses some of your screens and some of the
 ### How are the flows technically different?
 {: #branded-technically}
 
-The service uses OAuth2 grant flows to map the authorization process. When you configure social identity providers such as Facebook, the <a href="https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html" target="_blank">Authorization Grant flow <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> is used to call the Login Widget. When you use your own screens, the <a href="https://oauthlib.readthedocs.io/en/stable/oauth2/grants/password.html" target="_blank">Resource Owner Password Credentials flow <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> is used to provide access and identity tokens that allow you to call your sign in screens.
+The service uses OAuth 2.0 grant flows to map the authorization process. When you configure social identity providers such as Facebook, the <a href="https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html" target="_blank">Authorization Grant flow <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> is used to call the Login Widget. When you use your own screens, the <a href="https://oauthlib.readthedocs.io/en/stable/oauth2/grants/password.html" target="_blank">Resource Owner Password Credentials flow <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> is used to provide access and identity tokens that allow you to call your sign in screens.
 
-</br>
+
 
 ### Examples
 {: #branded-examples}
@@ -58,8 +66,6 @@ Yes! Check out any of the following examples to see Cloud Directory in action:
 * <a href="https://www.ibm.com/blogs/bluemix/2018/06/use-ui-flows-user-sign-sign-app-id/" target="_blank">Use your own UI and Flows for User Sign-Up and Sign-in with with {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 * <a href="https://www.ibm.com/blogs/bluemix/2018/06/custom-login-page-app-id-integration/" target="_blank">Use a custom login page with  {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 
-</br>
-</br>
 
 ## Branding your app with the Android SDK
 {: #branded-ui-android}
@@ -67,7 +73,7 @@ Yes! Check out any of the following examples to see Cloud Directory in action:
 With Cloud Directory enabled, you can call customized screens with the Android SDK. You can choose the combination of the screens that you'd like your users to be able to interact with.<a href="https://www.ibm.com/blogs/bluemix/2018/01/use-branded-ui-user-sign-app-id/" target="blank">Check out this blog<img src="../../icons/launch-glyph.svg" alt="External link icon"></a> for a detailed example!
 {: shortdesc}
 
-</br>
+
 
 ### Sign in
 {: #branded-android-sign-in}
@@ -202,7 +208,7 @@ To present your own post verification page:
 
 When this value is provided, {{site.data.keyword.appid_short_notm}} calls the URL along with a `context` query. When you call the `/sign_up/confirmation_result` endpoint and pass the received `context` parameter, the result tells you whether your user has verified their account. If they have, then you can display your custom page.
 
-</br>
+
 ### Forgot password
 {: #branded-api-forgot-password}
 
@@ -225,7 +231,7 @@ When this value is provided, {{site.data.keyword.appid_short_notm}} calls the UR
 Add a random string to your custom reset password page and pass it to your back-end when the request is submitted. Have your handler validate the string and call the `/change_password` endpoint only if it is valid. By doing so you can reduce vulnerability of your back-end reset password endpoint.
 {: tip}
 
-</br>
+
 ### Change password
 {: #branded-api-change-password}
 
@@ -239,7 +245,7 @@ Supply the following data in the request body to update their password after a r
 
 Depending on your configuration, when a password is changed {{site.data.keyword.appid_short_notm}} might send an email to the user letting them know that there was a change.
 
-</br>
+
 To allow users to change their password while signed in to your app:
 
 Supply the following data in the request body:

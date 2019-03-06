@@ -4,7 +4,7 @@ copyright:
   years: 2017, 2019
 lastupdated: "2019-03-06"
 
-keywords: authentication, authorization, identity, app security, secure, application identity, app to app, access token, identity token, refresh token, tokens, 
+keywords: authentication, authorization, identity, app security, secure, access, tokens
 
 subcollection: appid
 
