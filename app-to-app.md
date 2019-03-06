@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-03-06"
+
+keywords: authentication, authorization, identity, app security, secure, application identity, app to app, access token
+
+subcollection: appid
 
 ---
 
@@ -74,7 +78,7 @@ Figure. application identity and authorization flow
   -H 'Authorization: Bearer IAM_TOKEN' \
   -d '{"name": "ApplicationName"}'
   ```
-  {: codeblock}
+  {: pre}
 
   Example response:
   ```
@@ -86,7 +90,7 @@ Figure. application identity and authorization flow
   "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v3/39a37f57-a227-4bfe-a044-93b6e6060b61"
   }
   ```
-  {: codeblock}
+  {: pre}
 
 
 ## Obtaining an access token
@@ -94,7 +98,7 @@ Figure. application identity and authorization flow
 
 After your app is registered with {{site.data.keyword.appid_short_notm}} and you have obtained your credentials, you can make a request to the {{site.data.keyword.appid_short_notm}} authorization server to get an Access Token.
 
-1. Make an HTTP POST request to the [`/oauth/v3/{tenantId}/token` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization_Server_V3/token). The authorization for the request is `Basic auth` with the client ID and secret being used as the username and password which are base64 encoded.
+1. Make an HTTP POST request to the [`/oauth/v3/{tenantId}/token` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization_Server_v3/token). The authorization for the request is `Basic auth` with the client ID and secret being used as the username and password which are base64 encoded.
 
   Request :
   ```
@@ -104,7 +108,7 @@ After your app is registered with {{site.data.keyword.appid_short_notm}} and you
     -H 'Content-Type: application/x-www-form-urlencoded' \
     -d grant_type=client_credentials
   ```
-  {: codeblock}
+  {: pre}
 
   Example response:
   ```
@@ -114,7 +118,7 @@ After your app is registered with {{site.data.keyword.appid_short_notm}} and you
   "token_type": "Bearer"
   }
   ```
-  {: codeblock}
+  {: pre}
 
 
 ## Tutorial: End-to-end flow with the Node.js SDK
@@ -143,7 +147,10 @@ After your app is registered with {{site.data.keyword.appid_short_notm}} and you
     ```
     {: codeblock}
 
-  * From the {{site.data.keyword.appid_short_notm}} authorization server. **Note**: The `oauthServerUrl` in the request is obtained when you register your application. If you registered your app with the management APIs, the server URL is in the response body. If you registered your app by binding it with the IBM Cloud console, the URL can be found in your VCAP_SERVICES JSON object or through your Kubernetes secrets.
+  * From the {{site.data.keyword.appid_short_notm}} authorization server.
+  
+    The `oauthServerUrl` in the request is obtained when you register your application. If you registered your app with the management APIs, the server URL is in the response body. If you registered your app by binding it with the IBM Cloud console, the URL can be found in your VCAP_SERVICES JSON object or through your Kubernetes secrets.
+    {: note}
 
     ```
     var request = require('request');
