@@ -76,11 +76,11 @@ You need the following information:
 
 * Your instance's tenant ID. This can be found in the **Service Credentials** tab of your service dashboard.
 
-* Your instance's deployment {{site.data.keyword.Bluemix}} region. You can find your region by looking at the console.
+* Your instance's deployment {{site.data.keyword.cloud_notm}} region. You can find your region by looking at the console.
 
-  <table><caption> Table 1. {{site.data.keyword.Bluemix_notm}} regions and corresponding SDK values</caption>
+  <table><caption> Table 1. {{site.data.keyword.cloud_notm}} regions and corresponding SDK values</caption>
   <tr>
-    <th>{{site.data.keyword.Bluemix}} Region</th>
+    <th>{{site.data.keyword.cloud_notm}} Region</th>
     <th>SDK value</th>
   </tr>
   <tr>

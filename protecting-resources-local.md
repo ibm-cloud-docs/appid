@@ -44,7 +44,7 @@ To configure your apps to work with a local development server, use the local ho
 1. Replace the tenant ID with your {{site.data.keyword.appid_short_notm}} tenant ID. You can find this ID in your service dashboard.
 2. Replace the region with the appropriate region as shown in the following table.
 
-<table> <caption> Table 1. {{site.data.keyword.Bluemix_notm}} regions and corresponding {{site.data.keyword.appid_short_notm}} regions for Android and iOS </caption>
+<table> <caption> Table 1. {{site.data.keyword.cloud_notm}} regions and corresponding {{site.data.keyword.appid_short_notm}} regions for Android and iOS </caption>
 <tr>
   <th> {{site.data.keyword.cloud_notm}} Region </th>
   <th> Android and iOS </th>

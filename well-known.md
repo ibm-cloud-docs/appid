@@ -73,7 +73,7 @@ https://[region].appid.ibm.cloud.com/oauth/v3/{tenantId}/.well-known/openid-conf
   </tr>
 </table>
 
-</br>
+
 
 **How do I make the call to the endpoint?**
 
@@ -86,7 +86,6 @@ curl -X GET --header 'Accept: application/json'  'https://us-south.appid.cloud.i
 ```
 {:codeblock}
 
-</br>
 
 **What can I expect the call to return?**
 

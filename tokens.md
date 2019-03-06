@@ -118,7 +118,7 @@ You can validate your tokens locally by parsing the token, verifying the token s
 
     ```
     {
-      "iss": "appid-oauth.ng.bluemix.net",
+      "iss": "appid-oauth.ng.bluemix.net</prd>",
       "aud": "abc123",
       "exp": 1564566
     }

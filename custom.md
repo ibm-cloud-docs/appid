@@ -59,7 +59,7 @@ $ openssl rsa -pubout -in private_key.pem -out public_key.pem
 ### Configuring with the GUI
 {: #custom-identity-configure-gui}
 
-1. Sign in to your {{site.data.keyword.Bluemix_notm}} account and navigate to your instance of {{site.data.keyword.appid_short_notm}}.
+1. Sign in to your {{site.data.keyword.cloud_notm}} account and navigate to your instance of {{site.data.keyword.appid_short_notm}}.
 
 2. In the **Manage** tab, set **Custom Identity Provider** to **On**.
 

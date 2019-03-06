@@ -112,7 +112,7 @@ For more information about assigning user roles in the UI, see [Managing IAM acc
 Every user that accesses the {{site.data.keyword.appid_short_notm}} service in your account must be assigned an access policy with an IAM user role defined. That policy determines what actions the user can perform within the context of the service or instance you select.
 {: shortdesc}
 
-The actions are customized and defined by the {{site.data.keyword.Bluemix_notm}} service as operations that are allowed to be performed in the service. The actions are then mapped to IAM user roles. Some of the actions taken you can track with the {{site.data.keyword.cloudaccesstrailshort}} service. In the following table, the actions and required permissions for {{site.data.keyword.appid_short_notm}} are mapped.
+The actions are customized and defined by the {{site.data.keyword.cloud_notm}} service as operations that are allowed to be performed in the service. The actions are then mapped to IAM user roles. Some of the actions taken you can track with the {{site.data.keyword.cloudaccesstrailshort}} service. In the following table, the actions and required permissions for {{site.data.keyword.appid_short_notm}} are mapped.
 
 <table>
   <tr>
@@ -246,13 +246,13 @@ Before you begin:
 
 To update access permissions, the admin completes the following steps:
 
-1. Log in to the {{site.data.keyword.Bluemix_notm}} console.
+1. Log in to the {{site.data.keyword.cloud_notm}} console.
 
 2. Give the employee view access by following the steps that are laid out in the [IAM documentation](/docs/iam?topic=iam-iammanidaccser).
 
 3. Navigate to the **Service credentials** tab of the {{site.data.keyword.appid_short_notm}} dashboard. Click **View credentials** and copy the **tentantID**.
 
-4. Sign in with the {{site.data.keyword.Bluemix_notm}} CLI in your terminal.
+4. Sign in with the {{site.data.keyword.cloud_notm}} CLI in your terminal.
 
     ```
     ibmcloud login -api -a https://api.<region>.cloud.ibm.com
@@ -314,7 +314,7 @@ To update access permissions, the admin completes the following steps:
 
 To view the {{site.data.keyword.appid_short_notm}} configurations from the CLI, the team member completes the following steps:
 
-1. Using the {{site.data.keyword.Bluemix_notm}} CLI in your terminal, sign in.
+1. Using the {{site.data.keyword.cloud_notm}} CLI in your terminal, sign in.
 
     ```
     ibmcloud login -a api.<region>.console.cloud.ibm.com

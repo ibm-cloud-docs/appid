@@ -81,7 +81,6 @@ You can customize your tokens [in the GUI](/docs/services/appid?topic=appid-cust
 Because tokens are used to identify users and secure your resources, the lifespan of a token affects several different things. By customizing your token configuration you can ensure that your security and user experience needs are met. However, should a token ever become compromised, a malicious user has more time to affect your application. You can learn more about security considerations in [Custom attributes](/docs/services/appid?topic=appid-custom-attributes).
 {: important}
 
-</br>
 
 ## Understanding custom attributes and claims
 {: #custom-claims}

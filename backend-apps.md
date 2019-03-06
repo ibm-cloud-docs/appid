@@ -120,7 +120,7 @@ You can initialize the SDK by using an `oauth server url`.
   {: codeblock}
 
 
-If your Node.js app runs on {{site.data.keyword.Bluemix_notm}} and is bound to your instance of {{site.data.keyword.appid_short_notm}}, there's no need to provide the API strategy configuration. The {{site.data.keyword.appid_short_notm}} configuration obtains the information by using the VCAP_SERVICES environment variable.
+If your Node.js app runs on {{site.data.keyword.cloud_notm}} and is bound to your instance of {{site.data.keyword.appid_short_notm}}, there's no need to provide the API strategy configuration. The {{site.data.keyword.appid_short_notm}} configuration obtains the information by using the VCAP_SERVICES environment variable.
 {: tip}
 
 ### Securing the API

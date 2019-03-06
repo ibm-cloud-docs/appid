@@ -83,14 +83,16 @@ Figure. application identity and authorization flow
   Example response:
   ```
   {
-  "clientId": "111c22c3-38ea-4de8-b5d4-338744d83b0f",
-  "tenantId": "39a37f57-a227-4bfe-a044-93b6e6060b61",
-  "secret": "ZmE5ZDQ5ODctMmA1ZS00OGRiLWExZDMtZTA1MjkyZTc4MDB4",
-  "name": "ApplicationName",
-  "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v3/39a37f57-a227-4bfe-a044-93b6e6060b61"
+      "clientId": "7eba72ef-b913-47b0-b3b6-54358bb69035",
+      "tenantId": "8f5aa500-357e-443a-aab6-bf878f852b5a",
+      "secret": "OWEzZGM4M2UtZjhlYS00MDI2LTkwNGItNDJmYzViMmU2YzIz",
+      "name": "testing",
+      "oAuthServerUrl": "https://us-south.appid-oauth.cloud.ibm.com/oauth/v4/8f5aa500-357e-443a-aab6-bf878f852b5a",
+      "profilesUrl": "https://us-south.appid-profiles.cloud.ibm.com",
+      "discoveryEndpoint": "https://us-south.appid-oauth.cloud.ibm.com/oauth/v4/8f5aa500-357e-443a-aab6-bf878f852b5a/.well-known/openid-configuration"
   }
   ```
-  {: pre}
+  {: screen}
 
 
 ## Obtaining an access token

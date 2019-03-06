@@ -35,20 +35,18 @@ With {{site.data.keyword.appid_full}}, you can build personalized app experience
 
 A user profile is a collection of attributes that are stored by {{site.data.keyword.appid_short_notm}}. Attributes are pieces of information about the users that interact with your app. You can obtain two types of attributes: `predefined` and `custom`.
 
-</br>
+
 
 **What are predefined attributes?**
 
 Predefined attributes are returned by the identity provider when your user signs in to your app. The attributes might include their username, ages, or gender.
 
-</br>
+
 
 **What are custom attributes?**
 
 Custom attributes are learned about your users as they interact with your app. Custom attributes can also be set by you before the user signing into your app for the first time. An example might be the font size that they prefer or items that they place in a shopping cart. Custom attributes can be edited. Be sure to check out the [security implications](/docs/services/appid?topic=appid-custom-attributes) that can occur by allowing users to edit their attributes before changing the default.
 
-</br>
-</br>
 
 ## Accessing user attributes
 {: #profile-access}

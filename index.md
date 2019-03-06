@@ -40,7 +40,7 @@ We’d love to hear from you with feedback and questions!
 Create and bind an instance of {{site.data.keyword.appid_short_notm}} to your app to get started.
 {: shortdesc}
 
-1. In the {{site.data.keyword.Bluemix}} catalog, select {{site.data.keyword.appid_short_notm}}. The service configuration screen opens.
+1. In the {{site.data.keyword.cloud_notm}} catalog, select {{site.data.keyword.appid_short_notm}}. The service configuration screen opens.
 2. Give your service instance a name, or use the preset name.
 3. Select your pricing plan and click **Create**.
 4. Bind your instance of {{site.data.keyword.appid_short_notm}}.
