@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-03-07"
 
 keywords: authentication, authorization, identity, app security, secure, development, ingress, policy, networking, containers, kubernetes
 
@@ -23,7 +23,7 @@ subcollection: appid
 {:download: .download}
 
 
-# Tutorial: Configuring Ingress to use {{site.data.keyword.appid_long_notm}}
+# Tutorial: Configuring Ingress to use {{site.data.keyword.appid_short_notm}}
 {: #kube-auth}
 
 You can consistently enforce policy-driven security by using the Ingress networking capability in {{site.data.keyword.containerlong}}. With this approach, you can enable authorization and authentication for all of the applications in your cluster at the same time, without ever changing your app code! With this step-by-step guide, you can learn how to configure your Ingress controller to use {{site.data.keyword.appid_short_notm}}.
