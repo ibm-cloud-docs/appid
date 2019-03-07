@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-03-07"
 
 keywords: authentication, authorization, identity, app security, secure
 
@@ -21,6 +21,7 @@ subcollection: appid
 {:important: .important}
 {:deprecated: .deprecated}
 {:download: .download}
+{:faq: data-hd-content-type='faq'}
 
 
 # FAQ

@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-03-07"
 
-keywords: authentication, authorization, identity, app security, secure, service access, back-end, region
+keywords: authentication, authorization, identity, app security, secure, application identity, app to app, access token
 
 subcollection: appid
 
