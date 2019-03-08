@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-03-08"
 
 keywords: authentication, authorization, identity, app security, secure, access, tokens
 
@@ -89,6 +89,8 @@ These key terms can help you understand the way that the service breaks down the
   <dt>Data separation and encryption</dt>
     <dd><p>{{site.data.keyword.appid_short_notm}} stores and encrypts user profile attributes. As a multi-tenant service, every tenant has a designated encryption key and user data in each tenant is encrypted with only that tenant's key.</p>
     <p>{{site.data.keyword.appid_short_notm}} ensures that private information is encrypted before it is stored.</p></dd>
+  <dt>Redirect URIs</dt>
+    <dd><p>{{site.data.keyword.appid_short_notm}} uses a list of fully qualified, approved URIs to redirect your users after an interaction with your app. For example, if the user successfully signs in, {{site.data.keyword.appid_short_notm}} redirects the user to the home page of your app or to another page that you specify. The format of your URI might change depending on your application. Check out [Adding redirect URIs](/docs/services/appid?topic=appid-managing-idp#add-redirect-uri) for more information.</p></dd>
 </dl>
 
 
@@ -161,7 +163,6 @@ Example token:
   }
   ```
   {: screen}
-  
 
 
 Identity tokens only contain partial user information. To see all of the information that is provided by the identity provider, you can use the [/userinfo endpoint](/docs/services/appid?topic=appid-predefined-attributes#predefined-access-api).
