@@ -4,8 +4,6 @@
 {: .toc subcollection="appid" audience="service" arm="2093952" href="/docs/services/appid?topic=appid-gettingstarted#gettingsstarted" path="services/appid"}
 IBM Cloud App ID
 
-    getting-started.md
-
     {: .navgroup id="learn"}
     index.md
     about.md

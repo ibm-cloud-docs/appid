@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-08"
+lastupdated: "2019-03-12"
 
 keywords: authentication, authorization, identity, app security, secure, access, tokens
 
@@ -178,7 +178,7 @@ For added convenience, {{site.data.keyword.appid_short_notm}} also renews its re
 
 Although these tokens can streamline the login process, your app should not depend on them, as they can be revoked at any time, such as when you believe your refresh tokens have been compromised. If you need to revoke a refresh token, there are two methods of revoking a refresh token. If you have the refresh token, you can revoke it based on <a href="https://tools.ietf.org/html/rfc7009#section-2" target="_blank">RFC7009 <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>. Alternatively, if you have the user ID, you can revoke the refresh token by using <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/" target="_blank">the Management API <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>. For more information about accessing the management API see [managing service access](/docs/services/appid?topic=appid-service-access-management#service-access-management).
 
-For examples of working with refresh tokens and how to use them to implement a remember-me functionality, check out the [getting started samples](/docs/services/appid?topic=appid-gettingstarted).
+For examples of working with refresh tokens and how to use them to implement a remember-me functionality, check out the [getting started samples](/docs/services/appid?topic=appid-getting-started#getting-started).
 
 
 ### Where do the tokens come from?
@@ -189,7 +189,7 @@ Tokens are issued through the {{site.data.keyword.appid_short_notm}} OAuth Serve
 ### What happens to the information that the token contains?
 {: #contains}
 
-The access token contains a set of standard JWT claims and a set of {{site.data.keyword.appid_short_notm}} specific claims such as a tenant ID. The identity token contains user specific information. The information in the tokens is stored as claims as part of a [user's profile](/docs/services/appid?topic=appid-user-profile).
+The access token contains a set of standard JWT claims and a set of {{site.data.keyword.appid_short_notm}} specific claims such as a tenant ID. The identity token contains user specific information. The information in the tokens is stored as claims as part of a [user's profile](/docs/services/appid?topic=appid-user-profile#user-profile).
 
 ### How are tokens received?
 {: #received}
@@ -208,4 +208,4 @@ Example request:
 ### How are tokens set?
 {: #set}
 
-Token configurations can be enabled and disabled through the {{site.data.keyword.appid_short_notm}} dashboard. For more information about your configuration options, check out [Managing tokens](/docs/services/appid?topic=appid-managing-idp).
+Token configurations can be enabled and disabled through the {{site.data.keyword.appid_short_notm}} dashboard. For more information about your configuration options, check out [Managing tokens](/docs/services/appid?topic=appid-managing-idp#managing-idp).
