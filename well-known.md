@@ -44,7 +44,7 @@ You can find the endpoint at the following URL:
 ```
 https://[region].appid.ibm.cloud.com/oauth/v3/{tenantId}/.well-known/openid-configuration
 ```
-{: codeblock}
+{: pre}
 
 <table>
   <tr>
