@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-12"
+lastupdated: "2019-03-13"
 
 keywords: authentication, authorization, identity, app security, secure
 
@@ -81,7 +81,7 @@ Just getting started? Try walking through some of our tutorials and blogs for he
 * <a href="https://www.ibm.com/blogs/bluemix/2018/05/announcing-app-id-integration-ibm-cloud-kubernetes-service/" target="_blank">Announcing {{site.data.keyword.appid_short_notm}} integration to {{site.data.keyword.containerlong}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 * <a href="https://www.ibm.com/blogs/bluemix/2018/02/using-app-id-secure-docker-kubernetes-applications/" target="_blank">Using {{site.data.keyword.appid_short_notm}} to secure Docker and Kubernetes applications <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 * <a href="https://www.ibm.com/blogs/bluemix/2019/02/authenticating-users-with-cloud-functions-api-gateway-and-app-id/" target="_blank">Authenticating Users with Cloud Functions, API Gateway, and {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
-* <a href="/docs/tutorials?topic=solution-tutorials-serverless-mobile-backend#mobile-application-with-a-serverless-backend" target="_blank">Mobile application with a serverless backend <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
+* <a href="/docs/tutorials?topic=solution-tutorials-serverless-mobile-backend#serverless-mobile-backend" target="_blank">Mobile application with a serverless backend <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 * <a href="/docs/tutorials?topic=solution-tutorials-serverless-github-traffic-analytics#serverless-github-traffic-analytics" target="_blank">Combining serverless and Cloud Foundry for data retrieval and analytics <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 * <a href="https://www.ibm.com/blogs/bluemix/2018/07/how-to-configure-ibm-cloud-app-id-from-the-toolchain/" target="_blank">Configuring {{site.data.keyword.appid_short_notm}} From the Toolchain <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 * <a href="http://heidloff.net/article/user-authorization-serverless-web-applications-openwhisk" target="_blank">User Authorization in Serverless Web Applications <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
@@ -127,4 +127,4 @@ Want to have a custom experience for your users? Not a problem.
 Are you working in a specific language and want to see how {{site.data.keyword.appid_short_notm}} fits in with other {{site.data.keyword.cloud_notm}} services? Check out one of the programming guides.
 
 * <a href="/docs/swift/authenticate?topic=swift-appid#appid" target="_blank">Programming with Swift on {{site.data.keyword.cloud_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
-* <a href="/docs/node?topic=nodejs-getting-started-tutorial#getting-started-tutorial" target="_blank">Programming with Node.js on {{site.data.keyword.cloud_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
+* <a href="/docs/node?topic=nodejs-node-getting-started#node-getting-started" target="_blank">Programming with Node.js on {{site.data.keyword.cloud_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-03-13"
 
 keywords: authentication, authorization, identity, app security, secure, application identity, app to app, access token
 
@@ -69,7 +69,7 @@ Figure. application identity and authorization flow
 ### With the API
 {: #app-register-api}
 
-1. Make a POST request to the [`/management/v4/{tenantId}/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Applications/registerApplication).
+1. Make a POST request to the [`/management/v4/{tenantId}/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Applications/mgmt.registerApplication).
 
   Request:
   ```
@@ -83,13 +83,13 @@ Figure. application identity and authorization flow
   Example response:
   ```
   {
-      "clientId": "7eba72ef-b913-47b0-b3b6-54358bb69035",
-      "tenantId": "8f5aa500-357e-443a-aab6-bf878f852b5a",
-      "secret": "OWEzZGM4M2UtZjhlYS00MDI2LTkwNGItNDJmYzViMmU2YzIz",
-      "name": "testing",
-      "oAuthServerUrl": "https://us-south.appid-oauth.cloud.ibm.com/oauth/v4/8f5aa500-357e-443a-aab6-bf878f852b5a",
-      "profilesUrl": "https://us-south.appid-profiles.cloud.ibm.com",
-      "discoveryEndpoint": "https://us-south.appid-oauth.cloud.ibm.com/oauth/v4/8f5aa500-357e-443a-aab6-bf878f852b5a/.well-known/openid-configuration"
+    "clientId": "bcabeb08-436a-4802-b296-2684c7c9fbae",
+    "tenantId": "a62d585e-9920-47e9-b38f-121de036abd7",
+    "secret": "NzJiNWQyNzYtMTg0YS00N2FmLWFiZDMtOGYzNzkwNDQwZDEy",
+    "name": "testing",
+    "oAuthServerUrl": "https://appid-oauth.ng.bluemix.net/oauth/v3/a62d585e-9920-47e9-b38f-121de036abd7",
+    "profilesUrl": "https://appid-profiles.ng.bluemix.net/",
+    "discoveryEndpoint": "https://appid-oauth.ng.bluemix.net/oauth/v3/a62d585e-9920-47e9-b38f-121de036abd7/.well-known/openid-configuration"
   }
   ```
   {: screen}
@@ -147,7 +147,7 @@ After your app is registered with {{site.data.keyword.appid_short_notm}} and you
      //console.error('Error retrieving tokens : ' + err);
     });
     ```
-    {: codeblock}
+    {: pre}
 
   * From the {{site.data.keyword.appid_short_notm}} authorization server.
   
@@ -185,7 +185,7 @@ After your app is registered with {{site.data.keyword.appid_short_notm}} and you
       });
     }
     ```
-    {: codeblock}
+    {: pre}
 
 2. Make a request to your protected resource by using the access token that you obtained in the previous step.
 
@@ -206,7 +206,7 @@ After your app is registered with {{site.data.keyword.appid_short_notm}} and you
       }
   });
   ```
-  {: codeblock}
+  {: pre}
 
 3. Secure your protected resources by using the API strategy from the {{site.data.keyword.appid_short_notm}} Node.js SDK.
 
@@ -228,4 +228,4 @@ After your app is registered with {{site.data.keyword.appid_short_notm}} and you
           res.send("Hello from protected resource");
   });
   ```
-  {: codeblock}
+  {: pre}

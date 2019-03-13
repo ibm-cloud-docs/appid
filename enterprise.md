@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-03-13"
 
 keywords: authentication, authorization, identity, app security, secure, custom, service provider, identity provider, enterprise, assertions
 
@@ -51,8 +51,6 @@ When the assertions are returned to {{site.data.keyword.appid_short_notm}}, the 
 If one or more of those values change on the provider's side, the new values are available only after the user logs in again.
 {: note}
 
-You can use assertions in the same way that you use . You might use assertions in your code for different reasons. For example, you could use assertions to determine membership by returning the value `isMember`.
-
 If your SAML provider returns other assertions, it is possible to obtain the information when a user logs in. Then, by creating an array of the assertions that you want to use, you can [inject them into your tokens](/docs/services/appid?topic=appid-customizing-tokens#customizing-tokens). But, be sure not to add more information than necessary to your tokens. Tokens are usually sent in http headers and headers are limited in size.
 {: tip}
 
@@ -94,36 +92,15 @@ The service expects a SAML assertion to look like the following example.
 {: screen}
 
 
-## What type of algorithms are supported for SAML signatures
+### What types of algorithms are supported by {{site.data.keyword.appid_short_notm}}?
 {: #saml-signatures}
 
-You can use any of the following algorithms to process XML digital signatures.
+App ID can use the following algorithms to process XML digital signatures.
 
-<table>
-  <tr>
-    <th> Type </th>
-    <th> Options </th>
-  </tr>
-  <tr>
-    <td>Canonicalization and transformation algorithms with and without comments</td>
-    <td><ul><li><a href="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" target="_blank">Canonicalization <img src="../../icons/launch-glyph.svg" alt="External link icon"></a></li>
-    <li><a href="http://www.w3.org/2001/10/xml-exc-c14n#" target="_blank">Exclusive Canonicalization with and without comments <img src="../../icons/launch-glyph.svg" alt="External link icon"></a></li>
-    <li><a href=" http://www.w3.org/2000/09/xmldsig#enveloped-signature" target="_blank">Enveloped Signature transform <img src="../../icons/launch-glyph.svg" alt="External link icon"></a></li></ul></td>
-  </tr>
-  <tr>
-    <td>Hashing algorithms</td>
-    <td><ul><li><a href="http://www.w3.org/2000/09/xmldsig#sha1" target="_blank">SHA1 digests <img src="../../icons/launch-glyph.svg" alt="External link icon"></a></li>
-    <li><a href="http://www.w3.org/2001/04/xmlenc#sha256" target="_blank">SHA256 digests <img src="../../icons/launch-glyph.svg" alt="External link icon"></a></li>
-    <li><a href="http://www.w3.org/2001/04/xmlenc#sha512" target="_blank">SHA512 digests <img src="../../icons/launch-glyph.svg" alt="External link icon"></a></li></ul></td>
-  </tr>
-  <tr>
-    <td>Signature algorithms</td>
-    <td><ul><li><a href="http://www.w3.org/2000/09/xmldsig#rsa-sha1" target="_blank">RSA-SHA1 <img src="../../icons/launch-glyph.svg" alt="External link icon"></a></li>
-    <li><a href="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" target="_blank">RSA-SHA256 <img src="../../icons/launch-glyph.svg" alt="External link icon"></a></li>
-    <li><a href="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512" target="_blank">RSA-SHA512 <img src="../../icons/launch-glyph.svg" alt="External link icon"></a></li>
-    <li><a href="http://www.w3.org/2000/09/xmldsig#hmac-sha1" target="_blank">HMAC-SHA1 <img src="../../icons/launch-glyph.svg" alt="External link icon"></a></li></ul></td>
-  </tr>
-</table>
+* <a href="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" target="_blank">Canonicalization <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
+* <a href="http://www.w3.org/2001/10/xml-exc-c14n#" target="_blank">Exclusive Canonicalization with and without comments <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
+* <a href="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" target="_blank">RSA-SHA256 <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
+
 
 
 ## Providing metadata to your identity provider
@@ -132,7 +109,7 @@ You can use any of the following algorithms to process XML digital signatures.
 To configure your app, you need to provide information to a SAML compatible identity provider. The information is exchanged through a metadata XML file that also contains configuration data that is used to establish trust.
 {: shortdesc}
 
-You cannot enable SAML until after it is configured.
+You cannot enable SAML until after you have configured it as an identity provider.
 {: tip}
 
 1. In the **Manage** tab of the {{site.data.keyword.appid_short_notm}} dashboard, click **Edit** in the **SAML** row to configure your settings.

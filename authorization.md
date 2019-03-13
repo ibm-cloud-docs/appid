@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-12"
+lastupdated: "2019-03-13"
 
 keywords: authentication, authorization, identity, app security, secure, access, tokens
 
@@ -80,7 +80,7 @@ These key terms can help you understand the way that the service breaks down the
   <dt>Authorization headers</dt>
     <dd><p>{{site.data.keyword.appid_short}} complies with the <a href="https://tools.ietf.org/html/rfc6750" target="blank">token bearer specification <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> and uses a combination of access and identity tokens that are sent as an HTTP Authorization header. The Authorization header contains three different parts that are separated by white space. The tokens are base64 encoded. The identity token is optional.</br>
     Example:</p>
-    <pre><code>Authorization=Bearer {access_token} [{id_token}]</pre></code></dd>
+    <pre><code>Authorization=Bearer {access_token} [{id_token}]</code></pre></dd>
   <dt>API Strategy</dt>
     <dd><p>The API strategy expects requests to contain an authorization header with a valid access token. The request can also include an identity token, but it is not required. If a token is invalid or expired, the API strategy returns an HTTP 401 error that contains the following HTTP header:</p> <pre><code>Www-Authenticate=Bearer scope="{scope}" error="{error}"</code></pre>
     <p>If the request returns a valid token, control is passed to the next middleware and the <code>appIdAuthorizationContext</code> property is injected into the request object. This property contains original access and identity tokens, and decoded payload information as plain JSON objects.</dd>
