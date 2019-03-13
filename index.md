@@ -2,16 +2,28 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-03-12"
+
+keywords: authentication, authorization, identity, app security, secure, development,
+
+subcollection: appid
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
+{:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:codeblock: .codeblock}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 # Getting started tutorial
-{: #gettingstarted}
+{: #getting-started}
 
 Application security can be incredibly complicated. For most developers, it's one of the hardest parts of creating an app. How can you be sure that you are protecting your users information? By integrating {{site.data.keyword.appid_full}} into your apps, you can secure resources and add authentication; even when you don't have a lot of security experience.
 {: shortdesc}
@@ -28,7 +40,7 @@ We’d love to hear from you with feedback and questions!
 Create and bind an instance of {{site.data.keyword.appid_short_notm}} to your app to get started.
 {: shortdesc}
 
-1. In the {{site.data.keyword.Bluemix}} catalog, select {{site.data.keyword.appid_short_notm}}. The service configuration screen opens.
+1. In the {{site.data.keyword.cloud_notm}} catalog, select {{site.data.keyword.appid_short_notm}}. The service configuration screen opens.
 2. Give your service instance a name, or use the preset name.
 3. Select your pricing plan and click **Create**.
 4. Bind your instance of {{site.data.keyword.appid_short_notm}}.
@@ -67,4 +79,4 @@ To build a sample app:
 ## Next steps
 {: #next}
 
-Ready to jump in and get started with your own apps? Start by [adding the service to your app](/docs/services/appid?topic=appid-web-apps). The service provides SDKs for the most used languages, but if you don't see an SDK for the language that your app is written in, you can still take advantage of {{site.data.keyword.appid_short_notm}} by using the APIs.
+Ready to jump in and get started with your own apps? Start by [adding the service to your app](/docs/services/appid?topic=appid-web-apps#web-apps). The service provides SDKs for the most used languages, but if you don't see an SDK for the language that your app is written in, you can still take advantage of {{site.data.keyword.appid_short_notm}} by using the APIs.

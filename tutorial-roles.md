@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2014, 2019
-lastupdated: "2019-02-18"
+  years: 2017, 2019
+lastupdated: "2019-03-13"
+
+keywords: authentication, authorization, identity, app security, secure, access management, roles, attributes, users
+
+subcollection: appid
 
 ---
 
@@ -315,7 +319,7 @@ Optionally, you can verify that step 4 was successful by viewing an access token
   3. Paste the token into the box labeled **Encoded**.
 
 6. In the **Decoded** section, verify that you can see the role.
-
+  
   ```
   {
       iss: "appid-oauth.ng.bluemix.net",

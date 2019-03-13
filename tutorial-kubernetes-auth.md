@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2014, 2019
-lastupdated: "2019-02-28"
+  years: 2017, 2019
+lastupdated: "2019-03-13"
+
+keywords: authentication, authorization, identity, app security, secure, development, ingress, policy, networking, containers, kubernetes
+
+subcollection: appid
 
 ---
 
@@ -19,7 +23,7 @@ lastupdated: "2019-02-28"
 {:download: .download}
 
 
-# Tutorial: Configuring Ingress to use {{site.data.keyword.appid_long_notm}}
+# Tutorial: Configuring Ingress to use {{site.data.keyword.appid_short_notm}}
 {: #kube-auth}
 
 You can consistently enforce policy-driven security by using the Ingress networking capability in {{site.data.keyword.containerlong}}. With this approach, you can enable authorization and authentication for all of the applications in your cluster at the same time, without ever changing your app code! With this step-by-step guide, you can learn how to configure your Ingress controller to use {{site.data.keyword.appid_short_notm}}.
@@ -80,7 +84,7 @@ You can bind your instance of {{site.data.keyword.appid_short_notm}} to your clu
 1. Log in to the {{site.data.keyword.cloud_notm}} CLI. Follow the prompts in the CLI to complete logging in.
 
   ```
-  ibmcloud login -a https://api.<region>.bluemix.net
+  ibmcloud login -a cloud.ibm.com -r <region>
   ```
   {: codeblock}
 
@@ -159,7 +163,7 @@ In order for your application to run in Kubernetes, you must host it in a regist
 {: shortdesc}
 
 
-1. Sign in to the Container Registry CLI plugin.
+1. Sign in to the Container Registry CLI plug-in.
 
   ```
   ibmcloud cr login

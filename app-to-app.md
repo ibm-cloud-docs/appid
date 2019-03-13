@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-03-13"
+
+keywords: authentication, authorization, identity, app security, secure, application identity, app to app, access token
+
+subcollection: appid
 
 ---
 
@@ -65,7 +69,7 @@ Figure. application identity and authorization flow
 ### With the API
 {: #app-register-api}
 
-1. Make a POST request to the [`/management/v4/{tenantId}/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Applications/registerApplication).
+1. Make a POST request to the [`/management/v4/{tenantId}/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Applications/mgmt.registerApplication).
 
   Request:
   ```
@@ -74,19 +78,21 @@ Figure. application identity and authorization flow
   -H 'Authorization: Bearer IAM_TOKEN' \
   -d '{"name": "ApplicationName"}'
   ```
-  {: codeblock}
+  {: pre}
 
   Example response:
   ```
   {
-  "clientId": "111c22c3-38ea-4de8-b5d4-338744d83b0f",
-  "tenantId": "39a37f57-a227-4bfe-a044-93b6e6060b61",
-  "secret": "ZmE5ZDQ5ODctMmA1ZS00OGRiLWExZDMtZTA1MjkyZTc4MDB4",
-  "name": "ApplicationName",
-  "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v3/39a37f57-a227-4bfe-a044-93b6e6060b61"
+    "clientId": "bcabeb08-436a-4802-b296-2684c7c9fbae",
+    "tenantId": "a62d585e-9920-47e9-b38f-121de036abd7",
+    "secret": "NzJiNWQyNzYtMTg0YS00N2FmLWFiZDMtOGYzNzkwNDQwZDEy",
+    "name": "testing",
+    "oAuthServerUrl": "https://appid-oauth.ng.bluemix.net/oauth/v3/a62d585e-9920-47e9-b38f-121de036abd7",
+    "profilesUrl": "https://appid-profiles.ng.bluemix.net/",
+    "discoveryEndpoint": "https://appid-oauth.ng.bluemix.net/oauth/v3/a62d585e-9920-47e9-b38f-121de036abd7/.well-known/openid-configuration"
   }
   ```
-  {: codeblock}
+  {: screen}
 
 
 ## Obtaining an access token
@@ -94,7 +100,7 @@ Figure. application identity and authorization flow
 
 After your app is registered with {{site.data.keyword.appid_short_notm}} and you have obtained your credentials, you can make a request to the {{site.data.keyword.appid_short_notm}} authorization server to get an Access Token.
 
-1. Make an HTTP POST request to the [`/oauth/v3/{tenantId}/token` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization_Server_V3/token). The authorization for the request is `Basic auth` with the client ID and secret being used as the username and password which are base64 encoded.
+1. Make an HTTP POST request to the [`/oauth/v3/{tenantId}/token` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization_Server_v3/token). The authorization for the request is `Basic auth` with the client ID and secret being used as the username and password which are base64 encoded.
 
   Request :
   ```
@@ -104,7 +110,7 @@ After your app is registered with {{site.data.keyword.appid_short_notm}} and you
     -H 'Content-Type: application/x-www-form-urlencoded' \
     -d grant_type=client_credentials
   ```
-  {: codeblock}
+  {: pre}
 
   Example response:
   ```
@@ -114,7 +120,7 @@ After your app is registered with {{site.data.keyword.appid_short_notm}} and you
   "token_type": "Bearer"
   }
   ```
-  {: codeblock}
+  {: pre}
 
 
 ## Tutorial: End-to-end flow with the Node.js SDK
@@ -141,9 +147,12 @@ After your app is registered with {{site.data.keyword.appid_short_notm}} and you
      //console.error('Error retrieving tokens : ' + err);
     });
     ```
-    {: codeblock}
+    {: pre}
 
-  * From the {{site.data.keyword.appid_short_notm}} authorization server. **Note**: The `oauthServerUrl` in the request is obtained when you register your application. If you registered your app with the management APIs, the server URL is in the response body. If you registered your app by binding it with the IBM Cloud console, the URL can be found in your VCAP_SERVICES JSON object or through your Kubernetes secrets.
+  * From the {{site.data.keyword.appid_short_notm}} authorization server.
+  
+    The `oauthServerUrl` in the request is obtained when you register your application. If you registered your app with the management APIs, the server URL is in the response body. If you registered your app by binding it with the IBM Cloud console, the URL can be found in your VCAP_SERVICES JSON object or through your Kubernetes secrets.
+    {: note}
 
     ```
     var request = require('request');
@@ -176,7 +185,7 @@ After your app is registered with {{site.data.keyword.appid_short_notm}} and you
       });
     }
     ```
-    {: codeblock}
+    {: pre}
 
 2. Make a request to your protected resource by using the access token that you obtained in the previous step.
 
@@ -197,7 +206,7 @@ After your app is registered with {{site.data.keyword.appid_short_notm}} and you
       }
   });
   ```
-  {: codeblock}
+  {: pre}
 
 3. Secure your protected resources by using the API strategy from the {{site.data.keyword.appid_short_notm}} Node.js SDK.
 
@@ -219,4 +228,4 @@ After your app is registered with {{site.data.keyword.appid_short_notm}} and you
           res.send("Hello from protected resource");
   });
   ```
-  {: codeblock}
+  {: pre}

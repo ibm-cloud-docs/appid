@@ -2,17 +2,25 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-03-06"
+
+keywords: authentication, authorization, identity, app security, secure, custom, proprietary, private key, public key, jwt
+
+subcollection: appid
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
-{:pre: .pre}
-{:tip: .tip}
 {:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
-
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 # Custom
 {: #custom-identity}
@@ -51,7 +59,7 @@ $ openssl rsa -pubout -in private_key.pem -out public_key.pem
 ### Configuring with the GUI
 {: #custom-identity-configure-gui}
 
-1. Sign in to your {{site.data.keyword.Bluemix_notm}} account and navigate to your instance of {{site.data.keyword.appid_short_notm}}.
+1. Sign in to your {{site.data.keyword.cloud_notm}} account and navigate to your instance of {{site.data.keyword.appid_short_notm}}.
 
 2. In the **Manage** tab, set **Custom Identity Provider** to **On**.
 

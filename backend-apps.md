@@ -2,32 +2,42 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-03-13"
+
+keywords: authentication, authorization, identity, app security, secure, backend, back-end, oauth, 
+
+subcollection: appid
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
-{:pre: .pre}
-{:tip: .tip}
 {:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:codeblock: .codeblock}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
-# Backend apps
+# Back-end apps
 {: #backend}
 
-You can use the {{site.data.keyword.appid_full}} SDKs and APIs to protect your backend application endpoints and APIs.
+You can use the {{site.data.keyword.appid_full}} SDKs and APIs to protect your back-end application endpoints and APIs.
 {: shortdesc}
 
 
 ## Understanding the flow
 {: #backend-understanding}
 
-Part of developing backend apps is verifying that your APIs are protected from unauthorized access. The {{site.data.keyword.appid_short_notm}} SDKs make it easy to protect your API endpoints and ensure the security of your app.
+Part of developing back-end apps is verifying that your APIs are protected from unauthorized access. The {{site.data.keyword.appid_short_notm}} SDKs make it easy to protect your API endpoints and ensure the security of your app.
 
 ### What is the flow's technical basis?
 {: #backend-technical-flow}
 
-{{site.data.keyword.appid_short_notm}} implements the [OAuth2](https://tools.ietf.org/html/rfc6749) and the OIDC spec, which uses bearer tokens for authentication and authorization. These tokens are formatted as  [JSON Web Tokens](https://tools.ietf.org/html/rfc7519), which are digitally signed and contain claims that describe the subject that is being authenticated and the identity provider. The APIs of your application are protected by access and identity tokens. Clients that need access to your APIs can authenticate with the identity provider through {{site.data.keyword.appid_short_notm}} in exchange for these tokens. The claims in the tokens have to be validated in order to grant access to the protected APIs.
+{{site.data.keyword.appid_short_notm}} implements the [OAuth 2.0](https://tools.ietf.org/html/rfc6749) and the OIDC spec, which uses bearer tokens for authentication and authorization. These tokens are formatted as  [JSON Web Tokens](https://tools.ietf.org/html/rfc7519), which are digitally signed and contain claims that describe the subject that is being authenticated and the identity provider. The APIs of your application are protected by access and identity tokens. Clients that need access to your APIs can authenticate with the identity provider through {{site.data.keyword.appid_short_notm}} in exchange for these tokens. The claims in the tokens have to be validated in order to grant access to the protected APIs.
 
 For more information about how tokens are used in {{site.data.keyword.appid_short_notm}}, see [Understanding tokens](/docs/services/appid?topic=appid-key-concepts#tokens).
 {: tip}
@@ -35,7 +45,7 @@ For more information about how tokens are used in {{site.data.keyword.appid_shor
 ### What does this flow look like?
 {: #backend-flow}
 
-![{{site.data.keyword.appid_short_notm}} backend flow. Steps are listed in order in the following the image.](images/backend-flow.png)
+![{{site.data.keyword.appid_short_notm}} back-end flow. Steps are listed in order in the following the image.](images/backend-flow.png)
 
 1. A client makes a POST request to the {{site.data.keyword.appid_short_notm}} authorization server to obtain an access token. A POST request generally takes the following form:
 
@@ -77,14 +87,14 @@ You must have the following prerequisites before you can get started:
       "ibmcloud-appid": "^4.0.0"
   }
   ```
-  {: codeblock}
+  {: pre}
 
 2. Run the following command.
 
   ```
   npm install
   ```
-  {: codeblock}
+  {: pre}
 
 ### Initializing the SDK
 {: #backend-initialize-node}
@@ -107,10 +117,10 @@ You can initialize the SDK by using an `oauth server url`.
   var app = express();
   app.use(passport.initialize());
   ```
-  {: codeblock}
+  {: pre}
 
 
-If your Node.js app runs on {{site.data.keyword.Bluemix_notm}} and is bound to your instance of {{site.data.keyword.appid_short_notm}}, there's no need to provide the API strategy configuration. The {{site.data.keyword.appid_short_notm}} configuration obtains the information by using the VCAP_SERVICES environment variable.
+If your Node.js app runs on {{site.data.keyword.cloud_notm}} and is bound to your instance of {{site.data.keyword.appid_short_notm}}, there's no need to provide the API strategy configuration. The {{site.data.keyword.appid_short_notm}} configuration obtains the information by using the VCAP_SERVICES environment variable.
 {: tip}
 
 ### Securing the API
@@ -125,9 +135,9 @@ The following snippet demonstrates how to use `ApiStrategy` in an Express app to
       }
    );
    ```
-  {: codeblock}
+  {: pre}
 
-When the tokens are valid, the next middleware in the request chain is called and the `appIdAuthorizationContext` property is added to the request object. The property contains the original access and identity tokens, as well as the decoded payload information of the respective tokens.
+When the tokens are valid, the next middleware in the request chain is called and the `appIdAuthorizationContext` property is added to the request object. The property contains the original access and identity tokens and the decoded payload information of the tokens.
 
 
 ## Protecting resources with the Swift SDK
@@ -194,12 +204,12 @@ if #available(OSX 10.12, *) {
     Kitura.run()  
 }
 ```
-{: codeblock}
+{: pre}
 
 ## Protecting resources manually
 {: #backend-secure-api}
 
-Securing your backend apps and protected resources involves validating tokens. You can validate {{site.data.keyword.appid_short_notm}} access and identity tokens in several ways. For help validating tokens, check out [Validating tokens](/docs/services/appid?topic=appid-token-validation).
+Securing your back-end apps and protected resources involves validating tokens. You can validate {{site.data.keyword.appid_short_notm}} access and identity tokens in several ways. For help with validating tokens, check out [Validating tokens](/docs/services/appid?topic=appid-token-validation).
 
 
 ## Next steps

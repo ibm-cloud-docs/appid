@@ -2,46 +2,100 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-03-13"
+
+keywords: authentication, authorization, identity, app security, secure, custom, service provider, identity provider, enterprise, assertions
+
+subcollection: appid
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 # SAML
 {: #enterprise}
 
-
 Security Assertion Markup Language (SAML) is an open standard for exchanging authentication and authorization data between an identity provider who asserts the user identity and a service provider who consumes the user identity information.
 {: shortdesc}
 
-{{site.data.keyword.appid_short_notm}} functions as a service provider and initiates a single sign on (SSO) login to a third-party provider such as Active Directory Federation Services. The <a href="http://saml.xml.org/saml-specifications" target="blank">SAML <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> protocol supports different profiles and bind options. {{site.data.keyword.appid_short_notm}} supports the web browser SSO profile, with HTTP Post binding.
+{{site.data.keyword.appid_short_notm}} functions as a service provider and initiates a single sign-on (SSO) login to a third-party provider such as Active Directory Federation Services. The <a href="http://saml.xml.org/saml-specifications" target="blank">SAML <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> protocol supports different profiles and bind options. {{site.data.keyword.appid_short_notm}} supports the web browser SSO profile, with HTTP Post binding.
 
 For steps on how to use a specific SAML identity provider, check out these blog posts on setting up {{site.data.keyword.appid_short_notm}} with [Ping One ![External link icon](../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-ping-one/), [an Azure Active Directory ![External link icon](../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-azure-active-directory/), or [an Active Directory Federation Service ![External link icon](../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-active-directory-federation-service/).
 {: tip}
 
 
-## SAML assertions and identity token claims
+
+## Understanding assertions
 {: #saml-assertions}
 
-A SAML assertion is a package of information that contains one or more statements. The assertion contains the authorization decision, and it might contain identity information about the user.
+A SAML assertion is similar to a [user attribute](/docs/services/appid?topic=appid-user-profile#user-profile). It is a statement or piece of information about a user that is returned to {{site.data.keyword.appid_short_notm}} by an identity provider when a user successfully logs into your app. Depending on your app configuration and the identity provider that you use, the information might include a users name, email, or another field that you ask specify.
+{: shortdesc}
 
-When a user signs in with an identity provider, that provider sends an assertion to {{site.data.keyword.appid_short_notm}}. {{site.data.keyword.appid_short_notm}} propagates user identity information that is returned in the SAML assertion to your app as OIDC token claims. The SAML attribute must correspond to 1 of the following OIDC claims to be added to the identity token.
+When the assertions are returned to {{site.data.keyword.appid_short_notm}}, the service federates the user identity. If the SAML assertion corresponds to one of the following OIDC claims, it is automatically added to the identity token.  If one or more of those values change on the provider's side, the new values are available only after the user logs in again.
 
-The following claims can be added:
-* `name`
-* `email`
-* `locale`
-* `picture`
+ * `name`
+ * `email`
+ * `locale`
+ * `picture`
 
-The remaining SAML attribute elements that do not correspond to any of the standard names are ignored. Note that if one or more of those values change on the provider's side, the new values are available only after the user logs in again.
+The assertions that do not correspond to any of the standard names are ignored by default, but if your SAML provider returns other assertions, it is possible to obtain the information when a user logs in. By creating an array of the assertions that you want to use, you can [inject the information into your tokens](/docs/services/appid?topic=appid-customizing-tokens#customizing-tokens). But, be sure not to add more information than necessary to your tokens. Tokens are usually sent in http headers and headers are limited in size.
+{: tip}
+
+### What does {{site.data.keyword.appid_short_notm}} expect a SAML assertion to look like?
+{: #saml-example}
+
+The service expects a SAML assertion to look like the following example.
+
+```
+<samlp:Response xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol" ID="s2202bbbbafa9d270d1c15990b738f4ab36139d463" InResponseTo="_e4a78780-35da-012e-8ea7-0050569200d8" Version="2.0" IssueInstant="2011-03-21T11:22:02Z" Destination="https://example.example.com/">
+  <saml:Issuer xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion">idp_entityId</saml:Issuer>
+  <samlp:Status xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
+    <samlp:StatusCode  xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"Value="urn:oasis:names:tc:SAML:2.0:status:Success"/>
+  </samlp:Status>
+  <saml:Assertion xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="2.0" ID="pfx539c9774-de5c-5f52-0c3f-b1c2e2697a89" IssueInstant="2018-01-29T13:02:58Z" xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
+    <saml:Issuer>idp_entityId</saml:Issuer>
+    <ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+      <ds:SignedInfo>
+        <ds:CanonicalizationMethod Algorithm="one_of_supported_algo"/>
+        <ds:SignatureMethod Algorithm="one_of_supported_algo"/>
+        <ds:Reference URI="#pfx539c9774-de5c-5f52-0c3f-b1c2e2697a89">
+          <ds:Transforms>
+            <ds:Transform Algorithm="one_of_supported_algo"/>
+            <ds:Transform Algorithm="one_of_supported_algo"/>
+          </ds:Transforms>
+          <ds:DigestMethod Algorithm="one_of_supported_algo"/>
+          <ds:DigestValue>huywDPPfOEGyyzE7d5hjOG97p7FDdGrjoSfes6RB19g=</ds:DigestValue>
+        </ds:Reference>
+      </ds:SignedInfo>
+ <ds:SignatureValue>BAwNZFgWF2oxD1ux0WPfeHnzL+IWYqGhkM9DD28nI9v8XtPN8tqmIb5y4bomaYknmNpWYn7TgNO2Rn/XOq+N9fTZXO2RybaC49iF+zWibRIcNwFKCCpDL6H6jA5eqJX2YKBR+K6Yt2JPoUIRLmqdgm2lMr4Nwq1KYcSzQ/yoV5W0SN/V5t8EfctFoaXVPdtfHVXkwqHeufo+L4gobFt9NRTzXB0SQEClA1L8hQ+/LhY4l46k1D0c34iWjVLZr+ecQyubf7rekOG/R7DjWCFMTke822dR+eJTPWFsHGSPWCDDHFYqB4QMinTvUnsngjY3AssPqIOjeUxjL3p+GXn8IQ==</ds:SignatureValue>
+    </ds:Signature>
+    <saml:Subject>
+      <saml:NameID Format="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress">JohnDoe@gmail.com</saml:NameID>
+    </saml:Subject>
+    <saml:Conditions NotBefore="2018-01-29T12:59:58Z" NotOnOrAfter="2018-01-29T13:05:58Z">
+    </saml:Conditions>
+</samlp:Response>
+```
+{: screen}
 
 
-Looking for an example? Check out <a href="https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-azure-active-directory/" target="_blank">Setting up {{site.data.keyword.appid_long}} with your Azure Active Directory <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> or <a href="https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-ping-one/" target="_blank">Setting up {{site.data.keyword.appid_long}} with Ping One <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
+### What types of algorithms are supported by {{site.data.keyword.appid_short_notm}}?
+{: #saml-signatures}
+
+{{site.data.keyword.appid_short_notm}} uses the <a href="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" target="_blank">RSA-SHA256 <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> algorithm to process XML digital signatures.
+
+
+
 
 ## Providing metadata to your identity provider
 {: #saml-provide-idp}
@@ -49,7 +103,7 @@ Looking for an example? Check out <a href="https://www.ibm.com/blogs/bluemix/201
 To configure your app, you need to provide information to a SAML compatible identity provider. The information is exchanged through a metadata XML file that also contains configuration data that is used to establish trust.
 {: shortdesc}
 
-You cannot enable SAML until after it is configured.
+You cannot enable SAML until after you have configured it as an identity provider.
 {: tip}
 
 1. In the **Manage** tab of the {{site.data.keyword.appid_short_notm}} dashboard, click **Edit** in the **SAML** row to configure your settings.
@@ -81,7 +135,7 @@ You cannot enable SAML until after it is configured.
     </tr>
   </table>
 
-3. Provide the data to your identity provider. If your identity provider supports uploading the metadata file, you can do so. If it doesn't, configure the properties manually. Not every identity provider will use the same properties, so if you don't use all of them, it's okay.
+3. Provide the data to your identity provider. If your identity provider supports uploading the metadata file, you can do so. If it doesn't, configure the properties manually. Not every identity provider uses the same properties, so you might not use all of them.
 
   The property names might differ between identity providers.
   {: tip}
@@ -97,7 +151,7 @@ You can obtain data from your identity provider and provide it to {{site.data.ke
 ### Providing metadata with the GUI
 {: #saml-provide-gui}
 
-1. Navigate to the **SAML 2.0** tab of the {{site.data.keyword.appid_short_notm}} dashboard. Input the following metadata that you obtained from the identity provider in the **Provide Metadata from SAML IdP** section.
+1. Navigate to the **SAML 2.0** tab of the {{site.data.keyword.appid_short_notm}} dashboard. Enter the following metadata that you obtained from the identity provider in the **Provide Metadata from SAML IdP** section.
   <table>
     <tr>
       <th> Variable </th>
@@ -123,8 +177,6 @@ You can obtain data from your identity provider and provide it to {{site.data.ke
 Want to set an authentication context? You can do so through the API.
 {: tip}
 
-</br>
-</br>
 
 ### Providing metadata with the API
 {: #saml-provide-api}

@@ -2,15 +2,25 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-13"
+lastupdated: "2019-03-13"
+
+keywords: authentication, authorization, identity, app security, secure, discovery endpoint, oidc, public keys, tokens, well known endpoint
+
+subcollection: appid
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 
 # Using the OIDC discovery endpoint
@@ -34,7 +44,7 @@ You can find the endpoint at the following URL:
 ```
 https://[region].appid.ibm.cloud.com/oauth/v3/{tenantId}/.well-known/openid-configuration
 ```
-{: codeblock}
+{: pre}
 
 <table>
   <tr>
@@ -63,7 +73,7 @@ https://[region].appid.ibm.cloud.com/oauth/v3/{tenantId}/.well-known/openid-conf
   </tr>
 </table>
 
-</br>
+
 
 **How do I make the call to the endpoint?**
 
@@ -72,11 +82,10 @@ To make a call to the endpoint you must have a valid `tenantID` and you must har
 Check out the following sample cURL request:
 
 ```bash
-curl -X GET --header 'Accept: application/json'  'https://us-south.appid.cloud.ibm.com/oauth/v3/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/.well-known/openid-configuration'
+curl -X GET "https://us-south.appid.cloud.ibm.com/oauth/v3>/asd/.well-known/openid-configuration" -H "accept: application/json"
 ```
 {:codeblock}
 
-</br>
 
 **What can I expect the call to return?**
 
@@ -84,17 +93,17 @@ The response should look similar to the following example:
 
 ```bash
 {
-  "issuer" : "appid-oauth.ng.bluemix.net",
-  "authorization_endpoint": "https://us-south.appid.cloud.ibm.com/oauth/v3/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/authorization",
-  "token_endpoint": "https://us-south.appid.cloud.ibm.com/oauth/v3/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/token",
-  "jwks_uri": "https://us-south.appid.cloud.ibm.com/oauth/v3/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/publickeys",
+  "issuer": "appid-oauth.ng.bluemix.net",
+  "authorization_endpoint": "https://us-south.appid.cloud.ibm.com/oauth/v3>/39a37f57-a227-4bfe-a044-93b6e6060b61/authorization",
+  "token_endpoint": "https://us-south.appid.cloud.ibm.com/oauth/v3>/39a37f57-a227-4bfe-a044-93b6e6060b61/token",
+  "jwks_uri": "https://us-south.appid.cloud.ibm.com/oauth/v3>/39a37f57-a227-4bfe-a044-93b6e6060b61/publickeys",
   "subject_types_supported": [
     "public"
   ],
   "id_token_signing_alg_values_supported": [
     "RS256"
   ],
-  "userinfo_endpoint": "https://us-south.appid.cloud.ibm.com/oauth/v3/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/userinfo",
+  "userinfo_endpoint": "https://us-south.appid.cloud.ibm.com/oauth/v3>/39a37f57-a227-4bfe-a044-93b6e6060b61/userinfo",
   "scopes_supported": [
     "openid"
   ],
@@ -120,7 +129,8 @@ The response should look similar to the following example:
     "urn:ietf:params:oauth:grant-type:jwt-bearer"
   ],
   "profiles_endpoint": "https://us-south.appid.cloud.ibm.com",
-  "service_documentation": "https://console.cloud.ibm.com/docs/services/appid/index.html"
+  "management_endpoint": "https://us-south.appid.cloud.ibm.com/management/v4/39a37f57-a227-4bfe-a044-93b6e6060b61",
+  "service_documentation": "https://cloud.ibm.com/docs/services/appid?topic=appid-getting-started#getting-started"
 }
 ```
 {: screen}
@@ -179,8 +189,5 @@ The response should look similar to the following example:
     <td>The URL of the {{site.data.keyword.appid_short_notm}} user profile endpoint.</td>
   </tr>
 </table>
-
-</br>
-</br>
 
 

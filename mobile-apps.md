@@ -2,15 +2,25 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-18"
+lastupdated: "2019-03-13"
+
+keywords: authentication, authorization, identity, app security, secure, development, mobile, android, iOS
+
+subcollection: appid
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
-{:pre: .pre}
-{:tip: .tip}
 {:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:codeblock: .codeblock}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 # Mobile apps
 {: #mobile-apps}
@@ -66,11 +76,11 @@ You need the following information:
 
 * Your instance's tenant ID. This can be found in the **Service Credentials** tab of your service dashboard.
 
-* Your instance's deployment {{site.data.keyword.Bluemix}} region. You can find your region by looking at the console.
+* Your instance's deployment {{site.data.keyword.cloud_notm}} region. You can find your region by looking at the console.
 
-  <table><caption> Table 1. {{site.data.keyword.Bluemix_notm}} regions and corresponding SDK values</caption>
+  <table><caption> Table 1. {{site.data.keyword.cloud_notm}} regions and corresponding SDK values</caption>
   <tr>
-    <th>{{site.data.keyword.Bluemix}} Region</th>
+    <th>{{site.data.keyword.cloud_notm}} Region</th>
     <th>SDK value</th>
   </tr>
   <tr>
@@ -154,7 +164,7 @@ You must have the following prerequisites before getting started:
 
 1. Pass the context, tenant ID, and region parameters to the initialize method to configure the SDK.
 
-    A common, though not mandatory, place to put the initialization code is in the onCreate method of the main activity in your Android application.
+    A common, though not mandatory, place to put the initialization code is in the `onCreate` method of the main activity in your Android application.
     {: tip}
 
     ```java
