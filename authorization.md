@@ -39,7 +39,7 @@ These key terms can help you understand the way that the service breaks down the
     <dd><a href="https://tools.ietf.org/html/rfc6749" target="_blank">OAuth 2 <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> is open standard protocol that is used to provide app authorization.</dd>
   <dt>Open ID Connect (OIDC)</dt>
     <dd><p><a href="http://openid.net/developers/specs/" target="_blank">OIDC <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> is an authentication layer that works on top of OAuth 2.</p>
-    <p>When you use OIDC and {{site.data.keyword.appid_short_notm}} together, your application credentials help to configure your OAuth endpoints. When you use the SDK the endpoint URLs are built automatically. But, you can also build the URLs yourself by using your service credentials.</p> <p>The URL takes the following form: appidServiceEndpoint + "/oauth/v3" + /tenantID.</p>
+    <p>When you use OIDC and {{site.data.keyword.appid_short_notm}} together, your application credentials help to configure your OAuth endpoints. When you use the SDK the endpoint URLs are built automatically. But, you can also build the URLs yourself by using your service credentials.</p> <p>The URL takes the following form: {{site.data.keyword.appid_short_notm}} service endpoint + "/oauth/v3" + /tenantID.</p>
     <p><pre class="codeblock">
     <code>{
       "clientId": "7eba72ef-b913-47b0-b3b6-54358bb69035",
@@ -65,7 +65,7 @@ These key terms can help you understand the way that the service breaks down the
         <td>{oauthServerUrl}/token</td>
       </tr>
       <tr>
-        <td>Userinfo</td>
+        <td>User information</td>
         <td>{oauthServerUrl}/userinfo</td>
       </tr>
       <tr>
@@ -173,7 +173,7 @@ Identity tokens only contain partial user information. To see all of the informa
 
 Refresh tokens are configured to have a longer life span than a regular access token so when an access token expires, the refresh token will still be valid and can be used to renew the access token. {{site.data.keyword.appid_short_notm}}’s refresh tokens can be configured to last 1 to 90 days. To take full advantage of refresh tokens, persist the tokens for their full life span, or until they are renewed. A user cannot directly access resources with just a refresh token, which makes them much safer to persist than an access token. As best practice, refresh tokens should be securely stored by the client that received them and sent only to the authorization server that issued them.
 
-For added convenience, {{site.data.keyword.appid_short_notm}} also renews its refresh token — and its expiration date — when the access token is renewed, allowing the user to remain logged in as long as they are active at some point before the current refresh token expires. On the other hand, if you would like to use refresh tokens yet force the user to log in periodically, your app could only use the refresh tokens returned when the user logs in by entering their credentials. However, we recommend always using the latest refresh token received from {{site.data.keyword.appid_short_notm}}, as described by the <a href="https://tools.ietf.org/html/rfc6749#page-47" target="_blank">Oauth specifications <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
+For added convenience, {{site.data.keyword.appid_short_notm}} also renews its refresh token — and its expiration date — when the access token is renewed, allowing the user to remain logged in as long as they are active at some point before the current refresh token expires. On the other hand, if you would like to use refresh tokens yet force the user to log in periodically, your app could only use the refresh tokens returned when the user logs in by entering their credentials. However, we recommend always using the latest refresh token received from {{site.data.keyword.appid_short_notm}}, as described by the <a href="https://tools.ietf.org/html/rfc6749#page-47" target="_blank">OAuth 2.0 specifications <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
 
 
 Although these tokens can streamline the login process, your app should not depend on them, as they can be revoked at any time, such as when you believe your refresh tokens have been compromised. If you need to revoke a refresh token, there are two methods of revoking a refresh token. If you have the refresh token, you can revoke it based on <a href="https://tools.ietf.org/html/rfc7009#section-2" target="_blank">RFC7009 <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>. Alternatively, if you have the user ID, you can revoke the refresh token by using <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/" target="_blank">the Management API <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>. For more information about accessing the management API see [managing service access](/docs/services/appid?topic=appid-service-access-management#service-access-management).

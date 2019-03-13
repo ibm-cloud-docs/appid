@@ -141,7 +141,7 @@ You cannot enable SAML until after you have configured it as an identity provide
     </tr>
   </table>
 
-3. Provide the data to your identity provider. If your identity provider supports uploading the metadata file, you can do so. If it doesn't, configure the properties manually. Not every identity provider will use the same properties, so if you don't use all of them, it's okay.
+3. Provide the data to your identity provider. If your identity provider supports uploading the metadata file, you can do so. If it doesn't, configure the properties manually. Not every identity provider uses the same properties, so you might not use all of them.
 
   The property names might differ between identity providers.
   {: tip}
@@ -157,7 +157,7 @@ You can obtain data from your identity provider and provide it to {{site.data.ke
 ### Providing metadata with the GUI
 {: #saml-provide-gui}
 
-1. Navigate to the **SAML 2.0** tab of the {{site.data.keyword.appid_short_notm}} dashboard. Input the following metadata that you obtained from the identity provider in the **Provide Metadata from SAML IdP** section.
+1. Navigate to the **SAML 2.0** tab of the {{site.data.keyword.appid_short_notm}} dashboard. Enter the following metadata that you obtained from the identity provider in the **Provide Metadata from SAML IdP** section.
   <table>
     <tr>
       <th> Variable </th>

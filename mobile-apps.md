@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-03-13"
 
 keywords: authentication, authorization, identity, app security, secure, development, mobile, android, iOS
 
@@ -164,7 +164,7 @@ You must have the following prerequisites before getting started:
 
 1. Pass the context, tenant ID, and region parameters to the initialize method to configure the SDK.
 
-    A common, though not mandatory, place to put the initialization code is in the onCreate method of the main activity in your Android application.
+    A common, though not mandatory, place to put the initialization code is in the `onCreate` method of the main activity in your Android application.
     {: tip}
 
     ```java

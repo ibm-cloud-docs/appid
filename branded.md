@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-03-13"
 
 keywords: authentication, authorization, identity, app security, secure, customizing apps, directory, registry, 
 
@@ -204,7 +204,7 @@ To present your own post verification page:
 
 1. Navigate to the Cloud Directory identity provider in the {site.data.keyword.appid_short_notm}} dashboard.
 2. Click the **Email verification** tab.
-3. In the **custom verification page URL** input the URL for your landing page.
+3. In the **custom verification page URL** enter the URL for your landing page.
 
 When this value is provided, {{site.data.keyword.appid_short_notm}} calls the URL along with a `context` query. When you call the `/sign_up/confirmation_result` endpoint and pass the received `context` parameter, the result tells you whether your user has verified their account. If they have, then you can display your custom page.
 
@@ -224,7 +224,7 @@ You can present your own post reset password page:
 
 1. Configure your Cloud Directory [settings](/docs/services/appid?topic=appid-cloud-directory#cd-settings) in the GUI. **Allow users to manage their account from your app** must be set to **On**.
 2. In the **Reset Password** tab of the service dashboard, be sure that **Forgot password email** is set to **On**.
-3. Input the URL for your landing page in the **URL for your custom reset password page**  
+3. Enter the URL for your landing page in the **URL for your custom reset password page**  
 
 When this value is provided, {{site.data.keyword.appid_short_notm}} calls the URL along with a `context` query. The `context` parameter is used to receive the result when `/forgot_password/confirmation_result` is called. If the result is successful, then you can display your custom page.
 

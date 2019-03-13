@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-03-13"
 
 keywords: authentication, authorization, identity, app security, secure, access, platform, management, permissions
 
@@ -306,7 +306,7 @@ To update access permissions, the admin completes the following steps:
        "secret": "appsecret"
      }
     }' \
-    'https://us-south.appid.cloud.ibm.com/management/v4/<tenantId>/config/idps/facebook'
+    'https://us-south.appid.cloud.ibm.com/management/v4/<tenantID>/config/idps/facebook'
     ```
     {: pre}
 
@@ -331,7 +331,7 @@ To view the {{site.data.keyword.appid_short_notm}} configurations from the CLI, 
 3. View the identity provider configuration for Facebook by using cURL.
 
     ```
-    curl -X GET --header 'Accept: application/json' --header 'Authorization: <IAM token value>' \  'https://us-south.appid.cloud.ibm.com/management/v4/<tenantId>/config/idps/facebook'
+    curl -X GET --header 'Accept: application/json' --header 'Authorization: <IAM token value>' \  'https://us-south.appid.cloud.ibm.com/management/v4/<tenantID>/config/idps/facebook'
     ```
     {: pre}
 

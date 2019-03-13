@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-03-13"
 
 keywords: authentication, authorization, identity, app security, secure, custom, proprietary, 
 
@@ -139,7 +139,7 @@ Token payload:
     </tr>
     <tr>
       <td>Normalized claims</td>
-      <td>All [normalized claims](/docs/services/appid?topic=appid-key-concepts#tokens) are provided in the identity token that is returned in response to this request. More custom claims can be found by using the [user info endpoint](/docs/services/appid?topic=appid-custom-attributes).</td>
+      <td>All [normalized claims](/docs/services/appid?topic=appid-key-concepts#tokens) are provided in the identity token that is returned in response to this request. More custom claims can be found by using the [`/userinfo` endpoint](/docs/services/appid?topic=appid-custom-attributes).</td>
     </tr>
     <tr>
       <td>Scope</td>

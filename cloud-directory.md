@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-03-13"
 
 keywords: authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
@@ -418,22 +418,42 @@ You must provide the URL. Additionally you can provide authorization information
   ```
   {: screen}
 
-  - tenant: {{site.data.keyword.appid_short_notm}} instance tenantId
-  - iat: timestamp of when the message was sent
-  - iss: identifies principal that issued the JWS.
-  - jti: uniq transaction ID
-  - message: message to send, consists of the following fields:
-    - to: recepiance email address
-    - from: sender information, consists of the following fields:
-      - name: optional, sender name
-      - address: sender address
-    - reply to: optional, consists of the following fields:
-      - name: optional, sender name
-      - address: optional, sender address
-    - subject: email subject
-    - body: email body, in html format
+  <table>
+    <tr>
+      <th>Variable</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td><code>tenant</code></td>
+      <td>The tenant ID of your App ID instance.</td>
+    </tr>
+    <tr>
+      <td><code>iat</code></td>
+      <td>The timestamp of when the sent message.</td>
+    </tr>
+    <tr>
+      <td><code>jss</code></td>
+      <td>The principle that issued the JWS token.</td>
+    </tr>
+    <tr>
+      <td><code>jti</code></td>
+      <td>The unique transaction ID.</td>
+    </tr>
+    <tr>
+      <td><code>message: to</code></td>
+      <td>The email address of the recipient of the message.</td>
+    </tr>
+    <tr>
+      <td><code>message: from</code></br><code>name</code></br><code>address</code></td>
+      <td></br>The name of the sender of the message.</br>The email address of the sender.</td>
+    </tr>
+    <tr>
+      <td><code>Optional: message: reply to</code></br><code>name</code></br><code>address</code></td>
+      <td></br>The name that is attached to the reply email address.</br>The email address that a user can reply to.</td>
+    </tr>
+  </table>
 
-  You can verify that your request was successful by checking the response status code. Anything in the range of 200 - 299 is considered a success. If you receive any other response, try to make your request again.
+  You can verify that your request was successful by checking the response status code. Anything in range 200 - 299 is considered a success. If you receive any other response, try to make your request again.
   {: tip}
 
 4. Every HTTP payload that is sent from {{site.data.keyword.appid_short_notm}} is automatically signed according to the JWS standard by using an asymmetric key pair.
@@ -503,7 +523,7 @@ For every {{site.data.keyword.appid_short_notm}} instance, a private and a publi
   	return {result : 'email_sent',sendgridResponse};
   }
   ```
-  {: codeblock}
+  {: pre}
 
 6. Verify that your configuration is correctly set up by testing your email dispatcher. Use the <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/post_email_dispatcher_test" target="_blank">test API</a> to trigger a request to your configured custom email sender.
 
@@ -726,7 +746,7 @@ You can use <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/up
   <tr>
     <td><code>ar-MA</code></td>
     <td>Arabic</td>
-    <td>Morroco</td>
+    <td>Moroco</td>
   </tr>
   <tr>
     <td><code>ar-OM</code></td>
@@ -846,7 +866,7 @@ You can use <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/up
   <tr>
     <td><code>zh-Hant-MO</code></td>
     <td>Chinese-traditional</td>
-    <td>Macao</td>
+    <td>Macao SAR of the PRC</td>
   </tr>
   <tr>
     <td><code>zh-Hant-TW</code></td>
@@ -1281,7 +1301,7 @@ You can use <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/up
   <tr>
     <td><code>pt-MO</code></td>
     <td>Portuguese</td>
-    <td>Macao</td>
+    <td>Macao SAR of the PRC</td>
   </tr>
   <tr>
     <td><code>pt-MZ</code></td>

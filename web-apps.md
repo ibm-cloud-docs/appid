@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-09"
+lastupdated: "2019-03-13"
 
 keywords: authentication, authorization, identity, app security, secure, web apps, client, server
 
@@ -342,7 +342,7 @@ You must have the following prerequisites:
   ```
   {: pre}
 
-3. Download the `libertySample-1.0.0.war` file from <a href="https://github.com/ibm-cloud-security/appid-sample-code-snippets/tree/master/liberty-for-java" target="_blank">GitHub <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> and place it in your server's apps folder. For example, if your server is named defaultServer, the war file would go here `target/liberty/wlp/usr/servers/defaultServer/apps/`.
+3. Download the `libertySample-1.0.0.war` file from <a href="https://github.com/ibm-cloud-security/appid-sample-code-snippets/tree/master/liberty-for-java" target="_blank">GitHub <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> and place it in your server's apps folder. For example, if your server is named `defaultServer`, the war file would go here `target/liberty/wlp/usr/servers/defaultServer/apps/`.
 
 4. Configure SSL by adding the following to your `server.xml` file. You will also need to create a truststore.
 
@@ -412,7 +412,7 @@ You must have the following prerequisites:
   ```
   {: pre}
 
-3. In the same file, include the Maven plugin.
+3. In the same file, include the Maven plug-in.
 
   ```xml
   <plugin>

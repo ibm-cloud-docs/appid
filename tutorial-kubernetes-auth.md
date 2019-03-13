@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-07"
+lastupdated: "2019-03-13"
 
 keywords: authentication, authorization, identity, app security, secure, development, ingress, policy, networking, containers, kubernetes
 
@@ -163,7 +163,7 @@ In order for your application to run in Kubernetes, you must host it in a regist
 {: shortdesc}
 
 
-1. Sign in to the Container Registry CLI plugin.
+1. Sign in to the Container Registry CLI plug-in.
 
   ```
   ibmcloud cr login
