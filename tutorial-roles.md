@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-09"
+lastupdated: "2019-03-13"
 
 keywords: authentication, authorization, identity, app security, secure, access management, roles, attributes, users
 
@@ -305,7 +305,37 @@ Optionally, you can verify that step 4 was successful by viewing an access token
 
   ```
   curl --request PUT \
-  https://appid.cloud.ibm.com/oauth/v3</prod
+  https://appid.cloud.ibm.com/oauth/v3/<tenant-ID>/token \
+  --header 'Authorization: Basic <encoded-clientID>:<encoded-client-secret>' \
+  --header 'Content-Type: application/x-www-form-urlencoded' \
+  --header `Accept: application/json`
+  - d 'grant_type=password&username=<user-email>%40<user-email-domain>&password=<user-password>
+  ```
+  {: pre}
+
+5. Decode your access token.
+  1. Copy the token in the response output from the previous command.
+  2. In a browser, navigate to https://jwt.io/.
+  3. Paste the token into the box labeled **Encoded**.
+
+6. In the **Decoded** section, verify that you can see the role.
+  
+  ```
+  {
+      iss: "appid-oauth.ng.bluemix.net",
+      exp: "1548103508",
+      aud: "a3b87400-f03b-4956-844e-a52103ef26ba",
+      sub: "de6a17d2-693d-4a43-8ea2-2140afd56a22",
+      amr: [
+            "cloud_directory"
+      ],
+      iat: "1548099908",
+      tenant: "9781974b-6a1c-46c3-aebf-32b7e9bbbaee",
+      scope: "appid_default appid_readprofile appid_readuserattr appid_writeuserattr",
+      role: "manager"
+  }
+  ```
+  {: screen}
 
 
 

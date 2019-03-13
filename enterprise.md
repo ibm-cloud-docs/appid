@@ -38,20 +38,17 @@ For steps on how to use a specific SAML identity provider, check out these blog 
 ## Understanding assertions
 {: #saml-assertions}
 
-A SAML assertion is similar to a [user attribute](/docs/services/appid?topic=appid-user-profile#user-profile). It is a statement or piece of information about a user that is returned to {{site.data.keyword.appid_short_notm}} by an identity provider when a user successfully logs into your app. Depending on your app configuration and the identity provider that you use, the information might include a users name, email, or another field that you ask specify. In addition to the personal information, the response also contains the authorization decision for the user.
+A SAML assertion is similar to a [user attribute](/docs/services/appid?topic=appid-user-profile#user-profile). It is a statement or piece of information about a user that is returned to {{site.data.keyword.appid_short_notm}} by an identity provider when a user successfully logs into your app. Depending on your app configuration and the identity provider that you use, the information might include a users name, email, or another field that you ask specify.
 {: shortdesc}
 
-When the assertions are returned to {{site.data.keyword.appid_short_notm}}, the service propogates the information as OIDC token claims. If the SAML assertion corresponds to one of the following OIDC claims, it is automatically added to the identity token. The assertions that do not correspond to any of the standard names are ignored by default. If you 
+When the assertions are returned to {{site.data.keyword.appid_short_notm}}, the service federates the user identity. If the SAML assertion corresponds to one of the following OIDC claims, it is automatically added to the identity token.  If one or more of those values change on the provider's side, the new values are available only after the user logs in again.
 
  * `name`
  * `email`
  * `locale`
  * `picture`
 
-If one or more of those values change on the provider's side, the new values are available only after the user logs in again.
-{: note}
-
-If your SAML provider returns other assertions, it is possible to obtain the information when a user logs in. Then, by creating an array of the assertions that you want to use, you can [inject them into your tokens](/docs/services/appid?topic=appid-customizing-tokens#customizing-tokens). But, be sure not to add more information than necessary to your tokens. Tokens are usually sent in http headers and headers are limited in size.
+The assertions that do not correspond to any of the standard names are ignored by default, but if your SAML provider returns other assertions, it is possible to obtain the information when a user logs in. By creating an array of the assertions that you want to use, you can [inject the information into your tokens](/docs/services/appid?topic=appid-customizing-tokens#customizing-tokens). But, be sure not to add more information than necessary to your tokens. Tokens are usually sent in http headers and headers are limited in size.
 {: tip}
 
 ### What does {{site.data.keyword.appid_short_notm}} expect a SAML assertion to look like?
@@ -95,11 +92,8 @@ The service expects a SAML assertion to look like the following example.
 ### What types of algorithms are supported by {{site.data.keyword.appid_short_notm}}?
 {: #saml-signatures}
 
-App ID can use the following algorithms to process XML digital signatures.
+{{site.data.keyword.appid_short_notm}} uses the <a href="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" target="_blank">RSA-SHA256 <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> algorithm to process XML digital signatures.
 
-* <a href="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" target="_blank">Canonicalization <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
-* <a href="http://www.w3.org/2001/10/xml-exc-c14n#" target="_blank">Exclusive Canonicalization with and without comments <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
-* <a href="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" target="_blank">RSA-SHA256 <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 
 
 

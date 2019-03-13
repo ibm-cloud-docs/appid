@@ -267,10 +267,10 @@ Previous passwords are securely stored in the same way that a user's current pas
 ### Lockout after repeated wrong credentials
 {: #cd-lockout}
 
-You might want to protect your users' accounts by temporarily blocking the ability to sign in when a suspicious behavior is detected, such as multiples consecutive sign-in attempts with an incorrect password. This measure can help to prevent a malicious party from gaining access to a user's account by guessing a user's password.
+You might want to protect your users' accounts by temporarily blocking the ability to sign in when a suspicious behavior is detected, such as multiples consecutive sign in attempts with an incorrect password. This measure can help to prevent a malicious party from gaining access to a user's account by guessing a user's password.
 {: shortdesc}
 
-By using the GUI or the API, you can set the maximum number of unsuccessful sign-in attempts that a user can make before their account is temporarily locked. You can also set the amount of time that the account is locked for. You have the following options:
+By using the GUI or the API, you can set the maximum number of unsuccessful sign in attempts that a user can make before their account is temporarily locked. You can also set the amount of time that the account is locked for. You have the following options:
 
 * Number of attempts: Any whole value 1 - 10.
 * Lockout period: Any whole value specified in minutes in the range 1 minute to 1440 minutes (24 hours).
