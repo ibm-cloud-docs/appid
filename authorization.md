@@ -46,9 +46,9 @@ These key terms can help you understand the way that the service breaks down the
       "tenantId": "8f5aa500-357e-443a-aab6-bf878f852b5a",
       "secret": "OWEzZGM4M2UtZjhlYS00MDI2LTkwNGItNDJmYzViMmU2YzIz",
       "name": "testing",
-      "oAuthServerUrl": "https://appid-oauth.ng.bluemix.net//oauth/v3/8f5aa500-357e-443a-aab6-bf878f852b5a",
+      "oAuthServerUrl": "https://appid-oauth.ng.bluemix.net/oauth/v3/8f5aa500-357e-443a-aab6-bf878f852b5a",
       "profilesUrl": "https://appid-profiles.ng.bluemix.net/",
-      "discoveryEndpoint": "https://appid-oauth.ng.bluemix.net//oauth/v3/8f5aa500-357e-443a-aab6-bf878f852b5a/.well-known/openid-configuration"
+      "discoveryEndpoint": "https://appid-oauth.ng.bluemix.net/oauth/v3/8f5aa500-357e-443a-aab6-bf878f852b5a/.well-known/openid-configuration"
     }</code></pre></p>
     <p>Using this example, the URL would be <code>https://us-south.appid.cloud.ibm.com/oauth/v3/3x176051-a23x-40y4-9645-804943z660q0</code>. You would then append the endpoint that you wanted to make a request to. Check out the following table to see some example endpoints.</p>
     <table>

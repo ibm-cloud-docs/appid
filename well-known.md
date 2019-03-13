@@ -93,7 +93,7 @@ The response should look similar to the following example:
 
 ```bash
 {
-  "issuer": "https://us-south.appid.cloud.ibm.com/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6060b61",
+  "issuer": "appid-oauth.ng.bluemix.net",
   "authorization_endpoint": "https://us-south.appid.cloud.ibm.com/oauth/v3>/39a37f57-a227-4bfe-a044-93b6e6060b61/authorization",
   "token_endpoint": "https://us-south.appid.cloud.ibm.com/oauth/v3>/39a37f57-a227-4bfe-a044-93b6e6060b61/token",
   "jwks_uri": "https://us-south.appid.cloud.ibm.com/oauth/v3>/39a37f57-a227-4bfe-a044-93b6e6060b61/publickeys",
