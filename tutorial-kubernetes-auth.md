@@ -40,7 +40,7 @@ Check out the following diagram to see the authentication flow:
 5. The Ingress controller obtains access and identity tokens from {{site.data.keyword.appid_short_notm}} for authorization.
 6. Every request that is validated and forwarded by the Ingress Controller to your apps has an authorization header that contains the tokens.
 
-For security reasons, {{site.data.keyword.appid_short_notm}} authentication supports backends with TLS/SSL enabled only.
+The Ingress Controller integration with {{site.data.keyword.appid_short_notm}} currently does not support refresh tokens. When your access and identity tokens expire, user's must reauthenticate.
 {: note}
 
 
