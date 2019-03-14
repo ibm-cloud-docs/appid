@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-13"
+lastupdated: "2019-03-14"
 
 keywords: authentication, authorization, identity, app security, secure, development, ingress, policy, networking, containers, kubernetes
 
@@ -38,9 +38,9 @@ Check out the following diagram to see the authentication flow:
 3. {{site.data.keyword.appid_short_notm}} begins the authentication process by displaying the Login Widget.
 4. The user provides a username or email and password.
 5. The Ingress controller obtains access and identity tokens from {{site.data.keyword.appid_short_notm}} for authorization.
-6. Every request that is validated and forwarded by the Ingress Controller to your apps will have an authorization header that contains the tokens.
+6. Every request that is validated and forwarded by the Ingress Controller to your apps has an authorization header that contains the tokens.
 
-For security reasons, {{site.data.keyword.appid_short_notm}} authentication only supports backends with TLS/SSL enabled.
+For security reasons, {{site.data.keyword.appid_short_notm}} authentication supports backends with TLS/SSL enabled only.
 {: note}
 
 
@@ -69,7 +69,7 @@ Before you can get started, ensure that you have the following prerequisites.
   * Kubernetes Service
   * Container Registry
 
-For help getting the CLIs and plug-ins downloaded and your Kubernetes Service environment configured, check out the tutorial [creating Kubernetes clusters](/docs/containers?topic=containers-cs_cluster_tutorial#cs_cluster_tutorial_lesson1).
+For help with getting the CLIs and plug-ins downloaded and your Kubernetes Service environment configured, check out the tutorial [creating Kubernetes clusters](/docs/containers?topic=containers-cs_cluster_tutorial#cs_cluster_tutorial_lesson1).
 {: tip}
 
 Let's get started!
@@ -126,14 +126,14 @@ You can bind your instance of {{site.data.keyword.appid_short_notm}} to your clu
 
   2. Copy the output beginning with `export` and paste it into your terminal to set the `KUBECONFIG` environment variable.
 
-3. Check to see if you already have an Ingress controller in your default namespace. IBM Cloud Kubernetes Service supports one Ingress per namespace. If you already have one, you can update the existing Ingress configuration or use a different namespace.
+3. Check to see whether you already have an Ingress controller in your default namespace. IBM Cloud Kubernetes Service supports one Ingress per namespace. If you already have one, you can update the existing Ingress configuration or use a different namespace.
 
   ```
   kubectl get ingress
   ```
   {: pre}
 
-4. Bind your instance of {{site.data.keyword.appid_short_notm}}. This creates a service key for the service instance. You can specify an existing service key by using the `-key` flag.
+4. Bind your instance of {{site.data.keyword.appid_short_notm}}. Binding creates a service key for the service instance. You can specify an existing service key by using the `-key` flag.
 
   ```
   ibmcloud ks cluster-service-bind --cluster <cluster_name_or_ID> --namespace <namespace> --service <App-ID_instance_name> [--key <service_instance_key>]
@@ -209,7 +209,7 @@ During cluster creation, both a private and a public Ingress ALB are created for
   ```
   {: screen}
 
-2. Use the following example `yaml` file to create your Ingress configuration. For help defining the rest of your deployment, check out [Deploying apps with the CLI](/docs/containers?topic=containers-app#app_cli).
+2. Use the following example `yaml` file to create your Ingress configuration. For help with defining the rest of your deployment, check out [Deploying apps with the CLI](/docs/containers?topic=containers-app#app_cli).
 
   ```
   apiVersion: extensions/v1beta1
@@ -249,7 +249,7 @@ During cluster creation, both a private and a public Ingress ALB are created for
     </tr>
     <tr>
       <td><code>requestType</code></td>
-      <td><p>The type of request that you want to send to {{site.data.keyword.appid_short_notm}}. Options include: <code>web</code> and <code>api</code>. If you set the request type to <code>web</code>, a web request that contains an {{site.data.keyword.appid_short_notm}} access token is validated. If token validation fails, the web request is rejected. If the request does not contain an access token, then the request is redirected to the {{site.data.keyword.appid_short_notm}} login page. For {{site.data.keyword.appid_short_notm}} web authentication to work, cookies must be enabled in the user's browser.</p><p>If you set the request type to <code>api</code>, an API request that contains an {{site.data.keyword.appid_short_notm}} access token is validated. If the request does not contain an access token, a 401: Unauthorized error message is returned to the user.</p></td>
+      <td><p>The type of request that you want to send to {{site.data.keyword.appid_short_notm}}. Options include: <code>web</code> and <code>api</code>. If you set the request type to <code>web</code>, a web request that contains an {{site.data.keyword.appid_short_notm}} access token is validated. If token validation fails, the web request is rejected. If the request does not contain an access token, then the request is redirected to the {{site.data.keyword.appid_short_notm}} login page. For {{site.data.keyword.appid_short_notm}} web authentication to work, cookies must be enabled in the user's browser.</p><p>If you set the request type to <code>api</code>, an API request that contains an {{site.data.keyword.appid_short_notm}} access token is validated. If the request does not contain an access token, a <code>401: Unauthorized</code> error message is returned to the user.</p></td>
     </tr>
     <tr>
       <td><code>serviceName</code></td>
@@ -291,7 +291,7 @@ A redirect URL is the URL for the site that you want {{site.data.keyword.appid_s
 
   * Custom domain:
 
-    A URL that is registered with a custom domain might look like: `http://mydomain.net/myapp2path/appid_callback`. If the apps that you want Ingress to expose are in different namespaces in one cluster, you can use a wildcard, such as `https://custom_domain.net/*` to specify all of the apps in the cluster at once. This can be helpful during development, but should be used with caution in production.
+    A URL that is registered with a custom domain might look like: `http://mydomain.net/myapp2path/appid_callback`. If the apps that you want to expose are within the same cluster but in different namespaces, you can use a wildcard to specify all of the apps in the cluster at once. This can be helpful during development, but you should excerise caution if you use wildcards in production. For example: `https://custom_domain.net/*`
 
   * Ingress subdomain:
 

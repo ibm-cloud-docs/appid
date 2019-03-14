@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-03-14"
 
 keywords: authentication, authorization, identity, app security, secure, development, cloud foundry, access management, iam, java, node.js
 
@@ -26,7 +26,7 @@ subcollection: appid
 # Tutorial: Configuring Cloud Foundry to use {{site.data.keyword.appid_short_notm}}
 {: #cloud-foundry}
 
-With {{site.data.keyword.cloud_notm}}, you can protect your apps with two different types of access management, (IAM) and Cloud Foundry. By default, all new instances of  {{site.data.keyword.appid_short_notm}} use IAM resource groups to manage access. If you are using Cloud Foundry to manage your application, you can bridge the management models by creating a service alias and binding the service to the app.
+With {{site.data.keyword.cloud_notm}}, you can protect your apps with two different types of access management, Identity and Access Management (IAM) and Cloud Foundry. By default, all new instances of  {{site.data.keyword.appid_short_notm}} use IAM resource groups to manage access. If you are using Cloud Foundry to manage your application, you can bridge the management models by creating a service alias and binding the service to the app.
 {: shortdesc}
 
 
@@ -37,7 +37,7 @@ An alias creates a connection between your IAM-managed service such as {{site.da
 
 * Automation: With the service credentials stored in the VCAP_SERVICES environment variable, you no longer need to manually copy them to the app. It's all done behind the scenes on your behalf with the {{site.data.keyword.appid_short_notm}} SDKs.
 * Safety: Configuration becomes error-proof because the process is automatic.
-* Security: Nothing access related is hard-coded into your application as the service credentials only exist in the environment variables.
+* Security: Nothing access that is related is hard-coded into your application as the service credentials exist in the environment variables only.
 
 Is your Cloud Foundry app hosted on another platform? No problem. You can define application credentials in your app to bind it to the service. You can find your application credentials through the {{site.data.keyword.appid_short_notm}} dashboard, or by making a request to the [/applications endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Applications/registerApplication).
 {: tip}
@@ -69,7 +69,7 @@ Before you get started, be sure that you have the following prerequisites:
 
 5. Open terminal and change into the sample folder.
 
-6. Login to {{site.data.keyword.cloud_notm}} through the CLI.
+6. Log in to {{site.data.keyword.cloud_notm}} through the CLI.
 
   ```
   ibmcloud login -api -a https://api.<region>.cloud.ibm.com
@@ -117,7 +117,7 @@ Before you get started, be sure that you have the following prerequisites:
   ```
   {: pre}
 
-9. Edit the host and name values in your project's `manifest.yml` with the information obtained in the previous command. Add the alias that you create to your services.
+9. Edit the host and name values in your project's `manifest.yml` with the information that is obtained in the previous command. Add the alias that you create to your services.
 
 10. Bind the services that are listed in the `manifest.yml` file by deploying the sample app.
 
@@ -148,7 +148,7 @@ Before you get started, be sure that you have the following prerequisites:
 
 7. Change into the Liberty folder.
 
-8. Login to IBM Cloud through the CLI.
+8. Log in to {{site.data.keyword.cloud_notm}} through the CLI.
 
   ```
   ibmcloud login -api ENDPOINT
@@ -169,7 +169,7 @@ Before you get started, be sure that you have the following prerequisites:
   ```
   {: pre}
 
-11. Edit the host and name values in your project's `manifest.yml` with the information obtained in the previous command. Add the alias that you create to your services.
+11. Edit the host and name values in your project's `manifest.yml` with the information that is obtained in the previous command. Add the alias that you create to your services.
 
   Example:
   ```
