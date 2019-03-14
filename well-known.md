@@ -86,7 +86,6 @@ curl -X GET "https://us-south.appid.cloud.ibm.com/oauth/v3/asd/.well-known/openi
 ```
 {:codeblock}
 
-
 **What can I expect the call to return?**
 
 The response should look similar to the following example:
