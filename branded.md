@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-13"
+lastupdated: "2019-03-14"
 
 keywords: authentication, authorization, identity, app security, secure, customizing apps, directory, registry, 
 
@@ -25,14 +25,14 @@ subcollection: appid
 # Branding your app
 {: #branded}
 
-You can display your own customized screens, use your own sign in flows, and take advantage of the authentication and authorization capabilities of {{site.data.keyword.appid_full}}. By using Cloud Directory as your identity provider, your users are able to interact with your app with less help from you. They're able to sign in, sign up, change their password, and more without asking for help.
+You can display your own customized screens, use your own flows, and take advantage of the authentication and authorization capabilities of {{site.data.keyword.appid_full}}. By using Cloud Directory as your identity provider, your users are able to interact with your app with less help from you. They're able to sign in, sign up, change their password, and more without asking for help.
 {: shortdesc}
 
 
 ## Understanding screen reuse
 {: #branded-understand}
 
-When you reuse your existing UIs, you can create a cohesive sign in flow for your app. By using the same imagery, colors, and branding, your users are more likely to recognize your brand, even when not directly interacting with your app.
+When you reuse your existing UIs, you can create a cohesive sign-in flow for your app. By using the same imagery, colors, and branding, your users are more likely to recognize your brand, even when not directly interacting with your app.
 
 ### Are there any requirements to us my own screens?
 {: #branded-requirements}
@@ -48,12 +48,12 @@ Want to use a [language](/docs/services/appid?topic=appid-cloud-directory#cd-lan
 ### Can I use some of my own and some of the default screens?
 {: #branded-hybrid}
 
-Yes! You can create a hybrid flow that uses some of your screens and some of the default screens. However, you can use only one option per flow. This means that you can use your own sign in screen and also use the default sign up screen. But, if you choose to use the default sign up screen, then you must continue to use the default through entire sign up flow, including sign up verification.
+Yes! You can create a hybrid flow that uses some of your screens and some of the default screens. However, you can use only one option per flow. As an example, you can use your own sign-in screen and also use the default sign-up screen. But, if you choose to use the default sign-up screen, then you must continue to use the default through entire sign up flow, including sign up verification.
 
 ### How are the flows technically different?
 {: #branded-technically}
 
-The service uses OAuth 2.0 grant flows to map the authorization process. When you configure social identity providers such as Facebook, the <a href="https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html" target="_blank">Authorization Grant flow <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> is used to call the Login Widget. When you use your own screens, the <a href="https://oauthlib.readthedocs.io/en/stable/oauth2/grants/password.html" target="_blank">Resource Owner Password Credentials flow <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> is used to provide access and identity tokens that allow you to call your sign in screens.
+The service uses OAuth 2.0 grant flows to map the authorization process. When you configure social identity providers such as Facebook, the <a href="https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html" target="_blank">Authorization Grant flow <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> is used to call the Login Widget. When you use your own screens, the <a href="https://oauthlib.readthedocs.io/en/stable/oauth2/grants/password.html" target="_blank">Resource Owner Password Credentials flow <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> is used to provide access and identity tokens that allow you to call your screens.
 
 
 
@@ -111,7 +111,7 @@ With Cloud Directory enabled, you can call your own branded screens with the [iO
 {: #branded-ios-sign-in}
 
 1. Configure your Cloud Directory [settings](/docs/services/appid?topic=appid-cloud-directory#cd-settings) in the GUI.
-2. Place the following code in your application. When a user attempts to sign in, your sign in screen is called and the authorization and authentication process starts with your customized sign in page.
+2. Place the following code in your application. When a user attempts to sign in, your customized screen is called and the authorization and authentication process starts with your customized sign-in page.
 
   ```swift
   class delegate : TokenResponseDelegate {
@@ -138,11 +138,11 @@ With Cloud Directory enabled, you can call customized screens with the Node.js S
 ### Sign in
 {: #branded-node-sign-in}
 
-By using the WebAppStrategy users can sign in to your web apps with their username and a password. After a user successfully signs in to your app, their access token is persisted in an HTTP session as long as it is kept alive. After the HTTP session is closed or expired, the access token is also destroyed.
+By using `WebAppStrategy`, users can sign in to your web apps with their username and a password. After a user successfully signs in to your app, their access token is persisted in an HTTP session as long as it is kept alive. After the HTTP session is closed or expired, the access token is also destroyed.
 
 
 1. Configure your Cloud Directory [settings](/docs/services/appid?topic=appid-cloud-directory#cd-settings) in the GUI.
-2. Place the following code in your application. When a user attempts to sign in, your customized sign in screen is called and the authorization and authentication process starts.
+2. Place the following code in your application. When a user attempts to sign in, your customized screen is called and the authorization and authentication process starts.
 
   ```javascript
   app.post("/form/submit", bodyParser.urlencoded({extended: false}), passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
@@ -173,7 +173,7 @@ By using the WebAppStrategy users can sign in to your web apps with their userna
     </tbody>
   </table>
 
-**Note**: If you submit the request in HTML, you can use <a href="https://www.npmjs.com/package/body-parser" target="blank">body parser <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> middleware. To see the returned error message you can use <a href="https://www.npmjs.com/package/connect-flash" target="blank">connect-flash <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>. To see it in action, check out the <a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs/blob/master/samples/web-app-sample.js" target="blank">web app sample <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
+**Note**: If you submit the request in HTML, you can use <a href="https://www.npmjs.com/package/body-parser" target="blank">body parser <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> middleware. To see the returned error message, you can use <a href="https://www.npmjs.com/package/connect-flash" target="blank">connect-flash <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>. To see it in action, check out the <a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs/blob/master/samples/web-app-sample.js" target="blank">web app sample <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
 
 
 ## Branding your app with the API
@@ -184,9 +184,9 @@ You can display your own customized screens and take advantage of the authentica
 
 To make this possible, {{site.data.keyword.appid_short_notm}} exposes REST APIs. You can use the REST APIs to build a back-end server that serves your web apps, or to interact with a mobile app with your own custom screens.
 
-The management API is secured with IBM Cloud Identity and Access Management generated tokens. This means that account owners can specify who on their team has which level of access for each service instance. For more information about how IAM and {{site.data.keyword.appid_short_notm}} work together, see [Service access management](/docs/services/appid?topic=appid-service-access-management).
+The management API is secured with IBM Cloud Identity and Access Management generated tokens, which means that account owners can specify who on their team has which level of access for each service instance. For more information about how IAM and {{site.data.keyword.appid_short_notm}} work together, see [Service access management](/docs/services/appid?topic=appid-service-access-management).
 
-After you've configured your [settings](/docs/services/appid?topic=appid-cloud-directory), you can call the following endpoints to display each screen.
+After you configure your [settings](/docs/services/appid?topic=appid-cloud-directory), you can call the following endpoints to display each screen.
 
 ### Sign up
 {: #branded-api-signup}
@@ -204,7 +204,7 @@ To present your own post verification page:
 
 1. Navigate to the Cloud Directory identity provider in the {site.data.keyword.appid_short_notm}} dashboard.
 2. Click the **Email verification** tab.
-3. In the **custom verification page URL** enter the URL for your landing page.
+3. In the **custom verification page URL**, enter the URL for your landing page.
 
 When this value is provided, {{site.data.keyword.appid_short_notm}} calls the URL along with a `context` query. When you call the `/sign_up/confirmation_result` endpoint and pass the received `context` parameter, the result tells you whether your user has verified their account. If they have, then you can display your custom page.
 
@@ -218,7 +218,7 @@ Supply the following data in the request body:
   * Your tenantID.
   * The email of the Cloud Directory user.
 
-When the endpoint is called, a reset password email is sent to the user. The email contains a **Reset** button. After they press the button, a screen is displayed by {{site.data.keyword.appid_short_notm}} that allows them to reset their password.
+When the endpoint is called, a reset password email is sent to the user. The email contains a **Reset** button. After they press the button, a screen is displayed by {{site.data.keyword.appid_short_notm}} where they can reset their password.
 
 You can present your own post reset password page:
 
@@ -243,7 +243,7 @@ Supply the following data in the request body to update their password after a r
   * The Cloud Directory user UUID.
   * Optional: the IP address from which the password reset was performed. If you choose to pass the IP address, then the placeholder `%{passwordChangeInfo.ipAddress}` is available for the change password email template.
 
-Depending on your configuration, when a password is changed {{site.data.keyword.appid_short_notm}} might send an email to the user letting them know that there was a change.
+Depending on your configuration, when a password is changed {{site.data.keyword.appid_short_notm}} sends an email to the user that lets them know that a change was made.
 
 
 To allow users to change their password while signed in to your app:

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-03-14"
 
 keywords: authentication, authorization, identity, app security, secure, attributes, user information, storing, accessing
 
@@ -36,14 +36,14 @@ With {{site.data.keyword.appid_full}}, you can save, access, and update custom a
 ## Setting attributes
 {: #setting-custom-attributes}
 
-You can set roles and scopes known as attributes to a user profile. You can also override existing attributes that might have been pulled from an external identity provider.
+You can set roles and scopes that are known as attributes to a user profile. You can also override existing attributes that might have been pulled from an external identity provider.
 {: shortdesc}
 
 
 Attributes are pieces of information about your users. By saving them, you can create profiles on your users that allow you to personalize their experience. The more attributes that are added to their profile, the more personalized their app experience can be. Check out this blog to see how creating user profiles can make a difference: <a href="https://www.ibm.com/blogs/bluemix/2017/03/introducing-ibm-bluemix-app-id-authentication-profiles-service-app-developers/" target="blank">Introducing {{site.data.keyword.appid_short_notm}}<img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
 
 
-You can store 100KB of information for each user.
+You can store 100 KB of information for each user.
 {: note}
 
 
@@ -164,7 +164,7 @@ iOS Swift:
   {: codeblock}
   {: ph data-hd-programlang='javascript'}
 
-Server side swift:
+Server-side swift:
 {: ph data-hd-programlang='swift'}
 
   ```
@@ -183,7 +183,7 @@ Server side swift:
 
 Before you begin working with custom attributes, be sure that you understand the security considerations.
 
-By default, custom attributes are modifiable and can be updated by using an {{site.data.keyword.appid_short_notm}} access token from a client application. This means that without taking proper precautions either the user or the application can update custom attributes immediately following the first user sign in, provided that they have access to an access token. This can potentially lead to unintended consequences. For example, a user could change their role from user to admin which might expose administrative privileges to malicious users.
+By default, custom attributes are modifiable and can be updated by using an {{site.data.keyword.appid_short_notm}} access token from a client application. This means that without taking proper precautions either the user or the application can update custom attributes immediately following the first user sign in, provided that they have access to an access token. This can potentially lead to unintended consequences. For example, a user could change their role from user to admin, which might expose administrative privileges to malicious users.
 
 To prevent your users from changing the attributes that you give them, set **Change custom attributes from the app** to **Off** on the **Profiles** tab of the {{site.data.keyword.appid_short_notm}} dashboard. By default, it is set to **On**.
 {: tip}
@@ -201,5 +201,5 @@ For more information about working with a specific language SDK, see the followi
 * <a href="https://github.com/ibm-cloud-security/appid-serversdk-swift" target="_blank">Server Swift SDK <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 
 
-Didn't find an SDK for the language that your app is written in? No problem! You can integrate the service by using the APIs. {{site.data.keyword.appid_short_notm}} provides a <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/" target="_blank">REST API <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> that allows log in, either anonymously or by authenticating, with a supported [identity provider](/docs/services/appid?topic=appid-managing-idp) For help implementing the API in languages such as Python and Go, <a href="https://www.ibm.com/blogs/bluemix/tag/app-id/" target="_blank">check out our blogs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
+Didn't find an SDK for the language that your app is written in? No problem! You can integrate the service by using the APIs. {{site.data.keyword.appid_short_notm}} provides a <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/" target="_blank">REST API <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> that allows log in, either anonymously or by authenticating, with a supported [identity provider](/docs/services/appid?topic=appid-managing-idp). For help implementing the API in languages such as Python and Go, <a href="https://www.ibm.com/blogs/bluemix/tag/app-id/" target="_blank">check out our blogs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
 {: tip}

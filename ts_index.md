@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-03-14"
 
 keywords: authentication, authorization, identity, app security, secure, troubleshooting, help, support, requests, uri
 
@@ -35,18 +35,18 @@ You can get help by searching for information or by asking questions through a f
   * If you have technical questions about {{site.data.keyword.appid_short_notm}}, post your question on <a href="https://stackoverflow.com/search?q=ibm-appid" target="_blank">Stack Overflow <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> and tag your question with "ibm-appid".
   * For questions about the service and getting started instructions, use the <a href="https://developer.ibm.com/answers/topics/appid/" target="_blank">dW Answers <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> forum. Include the `appid` tag.
 
-For more information about getting support, see [How do I get the support that I need](/docs/get-support?topic=get-support-getting-customer-support#getting-customer-support).
+For more information about getting support, see [how do I get the support that I need](/docs/get-support?topic=get-support-getting-customer-support#getting-customer-support).
 
 
 
-## A user is not redirected to the app after sign-in
+## A user is not redirected to the app after sign in
 {: #ts-signin-fail}
 
 {: tsSymptoms}
-A user signs in to your application through an identity provider's sign-in page, and either nothing happens or the sign-in fails.
+A user signs in to your application through an identity provider's sign in page, and either nothing happens or the sign-in fails.
 
 {: tsCauses}
-Sign-in might fail for the following reasons:
+Sign in might fail for the following reasons:
 
 * Your redirect URL was not properly added to [the whitelist](/docs/services/appid?topic=appid-faq#faq-redirect).
 * The user is not authorized.
@@ -111,8 +111,8 @@ You attempt to view the home page of your app but receive the following error:
 {: screen}
 
 {: tsCauses}
-You might receive a "too many requests" error if you are performing automated testing with only one virtual user. Each user is limited to five log in attempts in a one minute time span. Log in attempts are limited in order to prevent brute force DDOS and other types of similar attacks.
+You might receive a "too many requests" error if you are performing automated testing with only one virtual user. Each user is limited to five sign in attempts in a one-minute time span. Sign in attempts are limited in order to prevent brute force DDOS and other types of similar attacks.
 
 {: tsResolve}
-To resolve the issue, you might want to use multiple virtual users when performing testing.
+To resolve the issue, you might want to use multiple virtual users when you perform testing.
 </br>

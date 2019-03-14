@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-13"
+lastupdated: "2019-03-14"
 
 keywords: authentication, authorization, identity, app security, secure, access management, roles, attributes, users
 
@@ -26,7 +26,7 @@ subcollection: appid
 # Tutorial: Setting user roles
 {: #tutorial-roles}
 
-Ensuring that the right people, have the right access, at the right time can be difficult when coding your application. To help with that process, you can use {{site.data.keyword.appid_full}} to define a custom attribute such as `role`, which allows you to assign different types of users. Then, you can use your application to enforce varying levels of permissions for each type of user. By using this a step-by-step guide you can learn to set user attributes, update them, and then inject them in to a token by using the {{site.data.keyword.appid_short_notm}} APIs.
+Ensuring that the right people, have the right access, at the right time can be difficult when you are coding your application. To help with that process, you can use {{site.data.keyword.appid_full}} to define a custom attribute such as `role`, which allows you to assign different types of users. Then, you can use your application to enforce varying levels of permissions for each type of user. By using this step-by-step guide you can learn to set user attributes, update them, and then inject them in to a token by using the {{site.data.keyword.appid_short_notm}} APIs.
 {: shortdesc}
 
 New to the APIs? Try them out with this [Postman collection](https://github.com/ibm-cloud-security/appid-postman).
@@ -35,10 +35,10 @@ New to the APIs? Try them out with this [Postman collection](https://github.com/
 ## Scenario
 {: #roles-scenario}
 
-You are a developer for a fictional theme park. You're tasked with managing access for the [web application](/docs/services/appid?topic=appid-web-apps), and you feel the easiest way to do so is by setting roles for each type of user. You have several different types of roles such as park staff and visitors that all need varying levels of permissions. You want to be able to streamline the process and ensure that your users are assigned the correct role from the first time they sign in to your application.  
+You are a developer for a fictional theme park. You're tasked with managing access for the [web application](/docs/services/appid?topic=appid-web-apps), and you feel the easiest way to do so is by setting roles for each type of user. You have several different types of roles such as park staff and visitors that all need different levels of permissions. You want to be able to streamline the process and ensure that your users are assigned the correct role from the first time they sign in to your application.  
 {: shortdesc}
 
-No problem! You can use the [custom attributes feature](/docs/services/appid?topic=appid-custom-attributes) of {{site.data.keyword.appid_short_notm}} to store any type of user related information. So, because you're working with role-based access control, you can create an attribute called `role` and assign different values to specify a type of role. For instance, the theme park might have `visitors` or `staff` that could each be different values for the `role` attribute. Then, you can ensure that your application code enforces the access policies and privileges that you assigned.
+No problem! You can use the [custom attributes feature](/docs/services/appid?topic=appid-custom-attributes) of {{site.data.keyword.appid_short_notm}} to store any type of user-related information. So, because you're working with role-based access control, you can create an attribute that is called `role` and assign different values to specify a type of role. For instance, the theme park might have `visitors` or `staff` that could each be different values for the `role` attribute. Then, you can ensure that your application code enforces the access policies and privileges that you assigned.
 
 Although this tutorial is written specifically with web apps and Cloud Directory in mind, attributes can be used in a much broader sense. Custom attributes can be anything that you want them to be. As long as you stay under 100k attributes and you format them as a plain JSON object, you can store all types of information!
 {: note}
@@ -63,21 +63,24 @@ Before you can start adding attributes for your Cloud Land users, you need to co
 
 1. In the **Identity Providers** tab of the service dashboard, enable **Cloud Directory**. Although this tutorial uses [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory), you could also choose to use any of the other IdP's such as [SAML](/docs/services/appid?topic=appid-enterprise), [Facebook](/docs/services/appid?topic=appid-social#facebook), [Google](/docs/services/appid?topic=appid-social#google), or a [custom provider](/docs/services/appid?topic=appid-custom-identity).
 
-2. In the **Cloud Directory > Email Verification** tab, enable verification and set **Allow users to sign-in to your app without first verifying their email address** to **No**. When you use custom attributes to set permissions related roles, be sure that users must validate their identity before assuming the attributes that you set.
+2. In the **Cloud Directory > Email Verification** tab, enable verification and set **Allow users to sign-in to your app without first verifying their email address** to **No**. When you use custom attributes to set permissions-related roles, be sure that users must validate their identity before they assume the attributes that you set.
 
 3. In the **Profiles** tab, set **Change custom attributes from the app** to **Disabled**.
 
-  By default, custom attributes can be changed by anyone with an access token. To ensure application security, you must configure {{site.data.keyword.appid_short_notm}} so that custom attributes can be changed only by the administrator or owner of the app. This prevents users from changing their own custom attributes and granting themselves permissions they should not have.
+  By default, custom attributes can be changed by anyone with an access token. To ensure application security, you must configure {{site.data.keyword.appid_short_notm}} so that custom attributes can be changed only by the administrator or owner of the app. This prevents users from changing their own custom attributes and granting themselves permissions that they should not have.
   {: important}
 
 Excellent! Your dashboard is configured and you're ready to start setting roles.
 
 
-## Step 2: Setting roles before user sign in
+## Step 2: Setting roles on behalf of another user prior to sign in
 {: #roles-set-before}
 
-Cloud Land has a new staff member! You know all of their information, but they don't start for several days. You can [preregister them](/docs/services/appid?topic=appid-preregister) by creating an {{site.data.keyword.appid_short_notm}} user and profile that contains the attributes such as the `staff` role. Note that this process does not finish Cloud Directory registration. The user must still sign up for the app to inherit the attribute in the profile that you create.
+Cloud Land has a new staff member! You know all of their information, but they don't start for several days. You can [preregister them](/docs/services/appid?topic=appid-preregister) by creating an {{site.data.keyword.appid_short_notm}} user and profile that contains the attributes such as the `staff` role.
 {: shortdesc}
+
+This process does not finish Cloud Directory registration. The user must still sign up for the app to inherit the attribute in the profile that you create.
+{: tip}
 
 1. Log in to {{site.data.keyword.cloud_notm}} by using the CLI.
 
@@ -200,7 +203,7 @@ Great work!
 ## Step 4: Injecting attributes into tokens
 {: #roles-map-claims}
 
-Becoming more and more popular, the theme park continues to grow! With so many new visitors and staff, you want to limit the number of requests that are made. For better performance, you can map user profile attributes to your access and identity token claims. By mapping custom claims, you're able to store the custom attributes in the tokens themselves.
+Becoming more popular, the theme park continues to grow! With so many new visitors and staff, you want to limit the number of requests that are made. For better performance, you can map user profile attributes to your access and identity token claims. By mapping custom claims, you're able to store the custom attributes in the tokens themselves.
 {: shortdesc}
 
 [Token configuration](/docs/services/appid?topic=appid-customizing-tokens) is global, which means that it applies to every user with a `role` attribute, regardless of the actual role they are assigned.
@@ -246,11 +249,11 @@ Becoming more and more popular, the theme park continues to grow! With so many n
     </tr>
     <tr>
       <td><code>source</code></td>
-      <td>For both your <code>accessTokenClaim</code> and your <code>idTokenClaims</code> the source should be set to <code>attribute</code>.</td>
+      <td>For both <code>accessTokenClaim</code> and <code>idTokenClaims</code> set the source to <code>attribute</code>.</td>
     </tr>
     <tr>
       <td><code>sourceClaim</code></td>
-      <td>For both your <code>accessTokenClaim</code> and your <code>idTokenClaims</code> the source claim should be set to <code>role</code>.</td>
+      <td>For both <code>accessTokenClaim</code> and <code>idTokenClaims</code> set the source claim to <code>role</code>.</td>
     </tr>
     <tr>
       <td><code>expires_in</code></td>

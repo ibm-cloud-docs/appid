@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-13"
+lastupdated: "2019-03-14"
 
 keywords: authentication, authorization, identity, app security, secure, web apps, client, server
 
@@ -48,7 +48,7 @@ Web apps often require users to authenticate in order to access protected conten
 
 2. If the user is unauthorized, the authentication flow is started with a redirect to {{site.data.keyword.appid_short_notm}}.
 
-3. Depending on the user's `/authorization` request parameters or identity provider configuration, it launches the Login Widget in the users browser.
+3. Depending on the user's `/authorization` request parameters or identity provider configuration, it launches the Login Widget in the user's browser.
 
 4. The user chooses an identity provider to authenticate with and completes the sign in process.
 
@@ -118,10 +118,10 @@ You must have the following prerequisites:
   ```
   {: pre}
 
-  You must configure the middleware with the proper session storage for production environments. For more information see the <a href="https://github.com/expressjs/session" target="_blank"> express.js docs <img src="../icons/launch-glyph.svg" alt="External link icon"></a>.
+  You must configure the middleware with the proper session storage for production environments. For more information see the <a href="https://github.com/expressjs/session" target="_blank"> express.js docs<img src="../icons/launch-glyph.svg" alt="External link icon"></a>.
   {: note}
 
-3. Obtain your credentials in one of two ways.
+3. Obtain your credentials in one of the following ways.
 
   * By navigating to the **Applications** tab of the {{site.data.keyword.appid_short_notm}} dashboard. If you don't have an application listed, you can click **Add application** to create a new one.
 
@@ -153,7 +153,7 @@ You must have the following prerequisites:
   * Manually in a new `WebAppStrategy({redirectUri: "...."})`
   * As an environment variable named `redirectUri`
 
-  If neither of those are provided, the {{site.data.keyword.appid_short_notm}} SDK tries to retrieve the `application_uri` of the app that is running on {{site.data.keyword.cloud_notm}} and append a default suffix `/ibm/cloud/appid/callback`.
+  If neither are provided, the {{site.data.keyword.appid_short_notm}} SDK tries to retrieve the `application_uri` of the app that is running on {{site.data.keyword.cloud_notm}} and append a default suffix `/ibm/cloud/appid/callback`.
 
 5. By using the information obtained in the previous steps, initialize the SDK.
 
@@ -230,7 +230,7 @@ You must have the following prerequisites:
 
 2. Obtain your credentials in one of two ways.
 
-  * By navigating to the **Applications** tab of the {{site.data.keyword.appid_short_notm}} dashboard. If you don't have an application listed, you can click **Add application** to create a new one.
+  * By navigating to the **Applications** tab of the {{site.data.keyword.appid_short_notm}} dashboard. If you don't already have one, you can click **Add application** to create a new one.
 
   * By making a POST request to the [`/management/v4/{tenantId}/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Applications/registerApplication).
 
@@ -344,7 +344,7 @@ You must have the following prerequisites:
 
 3. Download the `libertySample-1.0.0.war` file from <a href="https://github.com/ibm-cloud-security/appid-sample-code-snippets/tree/master/liberty-for-java" target="_blank">GitHub <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> and place it in your server's apps folder. For example, if your server is named `defaultServer`, the war file would go here `target/liberty/wlp/usr/servers/defaultServer/apps/`.
 
-4. Configure SSL by adding the following to your `server.xml` file. You will also need to create a truststore.
+4. Configure SSL by adding the following to your `server.xml` file. You also need to create a truststore.
 
   ```xml
     <keyStore id="defaultKeyStore" password="myPassword"/>
@@ -450,9 +450,9 @@ You must have the following prerequisites:
 ### Adding credentials
 {: #web-spring-boot-credentials}
 
-1. Obtain your credentials in one of two ways.
+1. Obtain your credentials in one of the following ways.
 
-  * By navigating to the **Applications** tab of the {{site.data.keyword.appid_short_notm}} dashboard. If you don't have an application listed, you can click **Add application** to create a new one.
+  * By navigating to the **Applications** tab of the {{site.data.keyword.appid_short_notm}} dashboard. If you don't already have one, you can click **Add application** to create a new one.
 
   * By making a POST request to the [`/management/v4/{tenantId}/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Applications/registerApplication).
 
@@ -498,7 +498,7 @@ For a step-by-step example, check out <a href="https://www.ibm.com/blogs/bluemix
 ## Using {{site.data.keyword.appid_short_notm}} with other languages
 {: #web-other-languages}
 
-With an OIDC compliant client SDK, you can use {{site.data.keyword.appid_short_notm}} with other languages. Check out the list of <a href="https://openid.net/developers/certified/">certified libraries</a> for more information.
+With an OIDC-compliant client SDK, you can use {{site.data.keyword.appid_short_notm}} with other languages. Check out the list of <a href="https://openid.net/developers/certified/">certified libraries</a> for more information.
 
 ## Next steps
 {: #web-next}
