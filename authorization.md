@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-13"
+lastupdated: "2019-03-18"
 
 keywords: authentication, authorization, identity, app security, secure, access, tokens
 
