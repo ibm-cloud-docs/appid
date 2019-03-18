@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-14"
+lastupdated: "2019-03-18"
 
 keywords: authentication, authorization, identity, app security, secure, access management, roles, attributes, users
 
@@ -161,7 +161,7 @@ Cloud Land is growing! To keep up with the growth, your company is hiring new pe
 
   ```
   curl --request PUT \
-  https://us-south.appid.cloud.ibm.com/management/v4/8<tenant-id>/users/<user-id>/profile \
+  https://us-south.appid.cloud.ibm.com/management/v4/<tenant-id>/users/<user-id>/profile \
   --header 'Authorization: Bearer <iam-access-token>' \
   --header 'Content-Type: application/json' \
   - d '{
