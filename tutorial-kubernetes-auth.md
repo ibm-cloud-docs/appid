@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-14"
+lastupdated: "2019-03-18"
 
 keywords: authentication, authorization, identity, app security, secure, development, ingress, policy, networking, containers, kubernetes
 
@@ -291,7 +291,7 @@ A redirect URL is the URL for the site that you want {{site.data.keyword.appid_s
 
   * Custom domain:
 
-    A URL that is registered with a custom domain might look like: `http://mydomain.net/myapp2path/appid_callback`. If the apps that you want to expose are within the same cluster but in different namespaces, you can use a wildcard to specify all of the apps in the cluster at once. This can be helpful during development, but you should excerise caution if you use wildcards in production. For example: `https://custom_domain.net/*`
+    A URL that is registered with a custom domain might look like: `http://mydomain.net/myapp2path/appid_callback`. If the apps that you want to expose are within the same cluster but in different namespaces, you can use a wildcard to specify all of the apps in the cluster at once. This can be helpful during development, but you should exercise caution if you use wildcards in production. For example: `https://custom_domain.net/*`
 
   * Ingress subdomain:
 
