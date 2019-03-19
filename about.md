@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-03-19"
 
 keywords: authentication, authorization, identity, app security, secure, compliance, high availability
 
@@ -25,7 +25,7 @@ subcollection: appid
 # About {{site.data.keyword.appid_short_notm}}
 {: #about}
 
-Application security can be incredibly complicated. For most developers, it's one of the hardest parts of creating an app. How can you be sure that you are protecting your user's information? By integrating {{site.data.keyword.appid_full}} into your apps, you can secure resources and add authentication, even when you don't have much security experience.
+Application security can be incredibly complicated. For most developers, it's one of the hardest parts of creating an app. How can you be sure that you are protecting your user's information? By integrating {{site.data.keyword.appid_full}} into your apps, you can secure resources and add authentication - even when you don't have much security experience.
 {:shortdesc}
 
 
@@ -95,7 +95,25 @@ You can use {{site.data.keyword.appid_short_notm}} with other {{site.data.keywor
   <dt>Cloud Foundry</dt>
     <dd>Try out one of the provided sample Cloud Foundry apps to see how you can integrate {{site.data.keyword.appid_short_notm}} into your apps.</dd>
   <dt>{{site.data.keyword.cloudaccesstrailshort}}</dt>
-    <dd>You can monitor administrative activity that is made in {{site.data.keyword.appid_short_notm}} such as changes to the dashboard configuration, by using the [{{site.data.keyword.cloudaccesstrailshort}} service]
+    <dd>You can monitor administrative activity that is made in {{site.data.keyword.appid_short_notm}} such as changes to the dashboard configuration, by using the [{{site.data.keyword.cloudaccesstrailshort}} service]<staging>(/docs/services/cloud-activity-tracker/reference?topic=cloud-activity-tracker-getting-started#getting-started)<staging>(/docs/services/cloud-activity-tracker/reference?topic=cloud-activity-tracker-getting-started-with-cla#getting-started-with-cla).</dd>
+  <dt>iOS Programming Guide</dt>
+    <dd>Do you develop apps for Apple? Try out the [iOS programming guide]<staging>(/docs/swift/authenticate?topic=swift-appid#appid)<staging>(/docs/runtimes/swift?topic=Swift-getting-started#getting-started) to learn, experiment, and enhance your existing iOS apps with {{site.data.keyword.cloud_notm}}.</dd>
+  <dt>Node.js programming guide</dt>
+    <dd>Do you develop apps in Node.js? Try out the [Node.js programming guide]<staging>(/docs/node?topic=nodejs-node-getting-started#node-getting-started)<staging>(/docs/node?topic=nodejs-getting-started-tutorial#getting-started-tutorial) to learn, experiment, and enhance your existing Node.js apps with {{site.data.keyword.cloud_notm}}.</dd>
+</dl>
+
+
+
+## Compliance and standards
+{: #about-compliance}
+
+{{site.data.keyword.appid_short_notm}} has successfully completed several certifications, audits, and standards. 
+{: shortdesc}
+
+{{site.data.keyword.appid_short_notm}} is based on a set of well-known, industry standard protocols and specifications that are frequently found in both enterprise and and consumer facing applications, the OAuth 2.0 Authorization Framework and Open ID Connect. OAuth 2.0 is used to obtain and verify authorization for accessing protected resources. On top of that, Open ID Connect adds a layer of a authentication and identity protection to your application.
+
+See section 5.4 of the {{site.data.keyword.appid_short_notm}} software product compatibility report to review a complete list of [certifications](https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=BF31C8008D7C11E59F9AD7336D7D0FFB). In addition to the certifications, {{site.data.keyword.appid_short_notm}} is also compliant in the following specifications: Oauth 2.0, OpenID Connect, JSON Web Token (JWT), JSON Web Signature (JWS), System for Cross-domain Identity Management (SCIM). 
+
 
 ## Regional high-availability
 {: #ha-dr}
