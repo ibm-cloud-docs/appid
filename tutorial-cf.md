@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-14"
+lastupdated: "2019-03-20"
 
 keywords: authentication, authorization, identity, app security, secure, development, cloud foundry, access management, iam, java, node.js
 
@@ -69,10 +69,10 @@ Before you get started, be sure that you have the following prerequisites:
 
 5. Open terminal and change into the sample folder.
 
-6. Log in to {{site.data.keyword.cloud_notm}} through the CLI.
+6. Log in to the {{site.data.keyword.cloud_notm}} CLI. The CLI prompts you to select an account and region if you do not specify one.
 
   ```
-  ibmcloud login -api -a https://api.<region>.cloud.ibm.com
+  ibmcloud login -a cloud.ibm.com -r <region>
   ```
   {: pre}
 
@@ -103,7 +103,7 @@ Before you get started, be sure that you have the following prerequisites:
     </tr>
   </table>
 
-7. Target the Cloud Foundry organization and space that you want to work in.
+7. Target the Cloud Foundry organization and space that you want to work in and follow the prompts to target an org and space.
 
   ```
   ibmcloud target --cf
@@ -148,14 +148,14 @@ Before you get started, be sure that you have the following prerequisites:
 
 7. Change into the Liberty folder.
 
-8. Log in to {{site.data.keyword.cloud_notm}} through the CLI.
+8. Log in to the {{site.data.keyword.cloud_notm}} CLI. The CLI prompts you to select an account and region if you do not specify one.
 
   ```
-  ibmcloud login -api ENDPOINT
+  ibmcloud login -a cloud.ibm.com -r <region>
   ```
   {: pre}
 
-9. Target the Cloud Foundry organization and space that you want to work in.
+8. Target the Cloud Foundry organization and space that you want to work in and follow the prompts to target an org and space.
 
   ```
   ibmcloud target --cf
