@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-03-20"
 
 keywords: authentication, authorization, identity, app security, secure, development, two factor, mfa 
 
@@ -46,6 +46,19 @@ Check out the following diagram to see how the MFA flow works.
 
 3. If the MFA code is validated, the user is redirected back to the application and is signed in.
 
+ <dt>MFA Verification Code</dt>
+    <dd><p>When multifactor authentication is enabled, users can receive challenge codes as a secondary means of authentication.</p>
+    <table>
+      <thead>
+        <th colspan=2><img src="images/idea.png" alt="More information icon"/> All message parameters </th>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>%{mfa.code}</code></td>
+          <td> Displays a one-time MFA verification code. </td>
+        </tr>
+      </tbody>
+    </table>
 
 
 ## Understanding MFA
@@ -214,9 +227,9 @@ Be sure that you have the following prerequisites:
 To configure MFA with the GUI, check out [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory).
 {: note}
 
-1. In the *Identity Provider* tab of the {{site.data.keyword.appid_short_notm}} dashboard, click *Cloud Directory*.
+1. In the **Identity Provider** tab of the {{site.data.keyword.appid_short_notm}} dashboard, click **Cloud Directory**.
 
-2. Go to the *Multi-factor authentication* tab.
+2. Go to the **Multi-factor authentication** tab.
 
 3. Enable MFA.
 
