@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-03-20"
 
 keywords: authentication, authorization, identity, app security, secure, development, identity provider, tokens, customization, lifetime
 
@@ -128,6 +128,10 @@ Be sure to only register URIs of applications that you trust.
 3. Click the **+** symbol in the **Add web redirect URIs** box.
 
 4. Repeat steps one through three until all possible URIs are added to your list.
+
+Having trouble? Checkout the following gif to see how to add a URI.
+
+![URI error message fix](redirect-uri.gif)
 
 
 ### Configuring token lifetime
