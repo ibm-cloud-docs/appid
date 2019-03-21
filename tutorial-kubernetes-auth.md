@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-03-21"
 
 keywords: authentication, authorization, identity, app security, secure, development, ingress, policy, networking, containers, kubernetes
 
@@ -49,6 +49,9 @@ The Ingress Controller integration with {{site.data.keyword.appid_short_notm}} c
 
 Before you can get started, ensure that you have the following prerequisites.
 {: shortdesc}
+
+For security reasons, {{site.data.keyword.appid_short_notm}} authentication supports backends with TLS/SSL enabled only.
+{: note}
 
 * An app or sample app.
 * A standard Kubernetes cluster with at least two worker nodes per zone. If you are using Ingress in multizone clusters review the extra prerequisites in the [Kubernetes Service documentation](/docs/containers?topic=containers-ingress#config_prereqs).
