@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-20"
+lastupdated: "2019-03-25"
 
 keywords: authentication, authorization, identity, app security, secure, development, identity provider, tokens, customization, lifetime
 
@@ -131,7 +131,7 @@ Be sure to only register URIs of applications that you trust.
 
 Having trouble? Checkout the following gif to see how to add a URI.
 
-![URI error message fix](redirect-uri.gif)
+
 
 
 ### Configuring token lifetime
