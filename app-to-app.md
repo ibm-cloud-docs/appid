@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-03-25"
 
 keywords: authentication, authorization, identity, app security, secure, application identity, app to app, access token
 
@@ -81,6 +81,7 @@ Figure. application identity and authorization flow
   {: pre}
 
   Example response:
+
   ```
   {
     "clientId": "bcabeb08-436a-4802-b296-2684c7c9fbae",
