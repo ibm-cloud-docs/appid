@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-21"
+lastupdated: "2019-03-25"
 
 keywords: authentication, authorization, identity, app security, secure, development, two factor, mfa 
 
@@ -40,7 +40,7 @@ Check out the following diagram to see how the MFA flow works.
 
 ![MFA flow](images/mfa.png)
 
-1. A user is shown {{site.data.keyword.appid_short_notm}}'s Login Widget and inputs their Cloud Directory user credentials, such as their email or user name and their password. The Cloud Director user credentials form the first authentication factor.
+1. A user is shown {{site.data.keyword.appid_short_notm}}'s Login Widget and inputs their Cloud Directory user credentials. The credentials can be either their email or user name and their password. The Cloud Directory user credentials form the first authentication factor.
 
 2. The credentials are validated and the MFA screen for second factor verification is returned. Based on the second factor configuration, the user receives either an email or an SMS with a one-time code and enters it into the verification screen.
 
@@ -77,11 +77,6 @@ The first time that MFA is enabled, it is set to use email by default. You can c
 <li>Value: The actual attribute value such as email address or phone number.</li>
 <li>Primary: A Boolean value that indicates the preferred value for the attribute. The primary attribute value <code>true</code> can occur once and only once. If not specified, the value of <code>primary</code> is assumed to be <code>false</code>.</li>
 </ul>For example attributes, check out the [Cloud Directory docs](/docs/services/appid?topic=appid-cloud-directory#cloud-directory).</p>
-
-
-### SMS registration
-{: #cd-mfa-sms-registration}
-
 
 
 
