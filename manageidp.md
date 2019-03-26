@@ -129,11 +129,6 @@ Be sure to only register URIs of applications that you trust.
 
 4. Repeat steps one through three until all possible URIs are added to your list.
 
-Having trouble? Checkout the following video to see how to add a URI after you receive an error.
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ysXjtcTDZd0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-
 
 
 ### Configuring token lifetime

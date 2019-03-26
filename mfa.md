@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-25"
+lastupdated: "2019-03-26"
 
 keywords: authentication, authorization, identity, app security, secure, development, two factor, mfa 
 
@@ -106,7 +106,7 @@ You can configure the MFA email channel through the GUI.
 
 2. In the **Enable multi-factor authentication** box, toggle MFA to **Enabled**. Acknowledge that you understand that MFA is charged as an [advanced security event](/docs/services/appid?topic=appid-faq#faq-pricing). By default, **Email** is selected as the **Authentication method**.
 
-3. Review the **Email template**. You can choose to send the template with the provided wording or write your own message. Be sure to use the correct HTML tagging. In the GUI you can add parameters and insert images. To change the [language](/docs/services/appid?topic=appid-cloud-directory#cd-languages) of the message, you can use <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#//Config/updateLocalization" target="_blank">the APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to set the language. However, you are responsible for the content and translation of the message. Check out the following table to see the list of tables that you can use in this message and all of the other messages that you can send. If a user does not supply the information pulled by the parameter, it appears blank.
+3. Review the **Email template**. You can choose to send the template with the provided wording or write your own message. Be sure to use the correct HTML tagging. In the GUI you can add parameters and insert images. To change the [language](/docs/services/appid?topic=appid-cloud-directory#cd-languages) of the message, you can use <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/updateLocalization" target="_blank">the APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to set the language. However, you are responsible for the content and translation of the message. Check out the following table to see the list of tables that you can use in this message and all of the other messages that you can send. If a user does not supply the information pulled by the parameter, it appears blank.
 
   <table>
     <thead>
