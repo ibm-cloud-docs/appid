@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-03-25"
 
 keywords: authentication, authorization, identity, app security, secure, custom, proprietary, social, facebook, google, 
 
@@ -35,7 +35,10 @@ With {{site.data.keyword.appid_full}}, you can configure social identity provide
 {{site.data.keyword.appid_short_notm}} provides a default configuration to help you get up and running quickly with the service.
 {: shortdesc}
 
-The default credentials are set up for Facebook and Google. You are limited to 100 uses of the credentials per instance, per day. Because they are IBM credentials, they are meant to be used only in development mode. Before you publish your app, update the configuration to your own credentials.
+When you configure App ID, Facebook, Google, and Cloud Directory are automatically enabled as identity providers. You can change the configuration at anytime. There are default credentials in place for Facebook and Google, but they are IBM credentials and should be used for testing whether to use the service only. Before you publish your app, update the configuration to your own credentials.
+
+You are limited to 100 authentications with the default credentials per instance, per day.
+{: note}
 
 
 ## Configuring Facebook

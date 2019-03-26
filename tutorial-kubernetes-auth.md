@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-14"
+lastupdated: "2019-03-21"
 
 keywords: authentication, authorization, identity, app security, secure, development, ingress, policy, networking, containers, kubernetes
 
@@ -40,7 +40,7 @@ Check out the following diagram to see the authentication flow:
 5. The Ingress controller obtains access and identity tokens from {{site.data.keyword.appid_short_notm}} for authorization.
 6. Every request that is validated and forwarded by the Ingress Controller to your apps has an authorization header that contains the tokens.
 
-For security reasons, {{site.data.keyword.appid_short_notm}} authentication supports backends with TLS/SSL enabled only.
+The Ingress Controller integration with {{site.data.keyword.appid_short_notm}} currently does not support refresh tokens. When your access and identity tokens expire, user's must reauthenticate.
 {: note}
 
 
@@ -49,6 +49,9 @@ For security reasons, {{site.data.keyword.appid_short_notm}} authentication supp
 
 Before you can get started, ensure that you have the following prerequisites.
 {: shortdesc}
+
+For security reasons, {{site.data.keyword.appid_short_notm}} authentication supports backends with TLS/SSL enabled only.
+{: note}
 
 * An app or sample app.
 * A standard Kubernetes cluster with at least two worker nodes per zone. If you are using Ingress in multizone clusters review the extra prerequisites in the [Kubernetes Service documentation](/docs/containers?topic=containers-ingress#config_prereqs).
@@ -291,7 +294,7 @@ A redirect URL is the URL for the site that you want {{site.data.keyword.appid_s
 
   * Custom domain:
 
-    A URL that is registered with a custom domain might look like: `http://mydomain.net/myapp2path/appid_callback`. If the apps that you want to expose are within the same cluster but in different namespaces, you can use a wildcard to specify all of the apps in the cluster at once. This can be helpful during development, but you should excerise caution if you use wildcards in production. For example: `https://custom_domain.net/*`
+    A URL that is registered with a custom domain might look like: `http://mydomain.net/myapp2path/appid_callback`. If the apps that you want to expose are within the same cluster but in different namespaces, you can use a wildcard to specify all of the apps in the cluster at once. This can be helpful during development, but you should exercise caution if you use wildcards in production. For example: `https://custom_domain.net/*`
 
   * Ingress subdomain:
 

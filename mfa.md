@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-03-26"
 
 keywords: authentication, authorization, identity, app security, secure, development, two factor, mfa 
 
@@ -40,12 +40,11 @@ Check out the following diagram to see how the MFA flow works.
 
 ![MFA flow](images/mfa.png)
 
-1. A user is shown {{site.data.keyword.appid_short_notm}}'s Login Widget and inputs their Cloud Directory user credentials, such as their email or user name and their password. The Cloud Director user credentials form the first authentication factor.
+1. A user is shown {{site.data.keyword.appid_short_notm}}'s Login Widget and inputs their Cloud Directory user credentials. The credentials can be either their email or user name and their password. The Cloud Directory user credentials form the first authentication factor.
 
 2. The credentials are validated and the MFA screen for second factor verification is returned. Based on the second factor configuration, the user receives either an email or an SMS with a one-time code and enters it into the verification screen.
 
 3. If the MFA code is validated, the user is redirected back to the application and is signed in.
-
 
 
 ## Understanding MFA
@@ -80,37 +79,79 @@ The first time that MFA is enabled, it is set to use email by default. You can c
 </ul>For example attributes, check out the [Cloud Directory docs](/docs/services/appid?topic=appid-cloud-directory#cloud-directory).</p>
 
 
-### Email registration
-{: #cd-mfa-email-registration}
 
-When email is enabled, {{site.data.keyword.appid_short_notm}} automatically registers the primary email attached to the Cloud Directory user's profile. If a user's email has not already been confirmed, through either the [management APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/) or through email verification on sign-up, they are confirmed when an MFA code verification is successful.
-
-### SMS registration
-{: #cd-mfa-sms-registration}
-
-When SMS is enabled, {{site.data.keyword.appid_short_notm}} automatically tries to register the first primary phone number found on the Cloud Directory user's profile if found in a [valid format](https://en.wikipedia.org/wiki/E.164). A valid format follows the E.164 international numbering format (e.g. USA number, +1 999 888 7777). You must specify both the country code, starting with a + symbol and the national subscriber number.
-
-If the number is invalid or no phone number is found on the user's profile, then a registration widget is displayed for the user to add a new number. This number is automatically added to the user's profile and, after validation, becomes the default number that is used for MFA.
-
-
-
-
-## Configuring MFA to work with Email
+## Configuring the MFA email channel
 {: #cd-mfa-configure-email}
 
+You can configure {{site.data.keyword.appid_short_notm}} to send the MFA code to your users through email.
+{: shortdesc} 
+
+When you enable MFA for the first time, the following two things happen:
+
+- By default, the email channel is selected. You can switch to the [SMS channel](/docs/services/appid?topic=appid-cd-mfa#cd-mfa-configure-sms).
+- {{site.data.keyword.appid_short_notm}} automatically registers the primary email that is attached to your Cloud Directory user's profile.
+
+If a user's email is not already confirmed, through either the [management APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/) or through email verification when they sign up, they are confirmed when they successfully verify an MFA code.
+
 Before you get started, be sure that your instance of {{site.data.keyword.appid_short_notm}} is on the [graduated tier pricing plan](/docs/services/appid?topic=appid-faq#faq-pricing).
+{: note}
 
 ### With the GUI
 {: #cd-mfa-configure-email-gui}
 
-To configure MFA with the GUI, check out [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory).
+You can configure the MFA email channel through the GUI.
 {: note}
 
-1. In the *Identity Provider* tab of the {{site.data.keyword.appid_short_notm}} dashboard, click *Cloud Directory*.
+1. Navigate to the **Identity Providers > Cloud Directory > Multi-factor authentication** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
 
-2. Go to the *Multi-factor authentication* tab.
+2. In the **Enable multi-factor authentication** box, toggle MFA to **Enabled**. Acknowledge that you understand that MFA is charged as an [advanced security event](/docs/services/appid?topic=appid-faq#faq-pricing). By default, **Email** is selected as the **Authentication method**.
 
-3. Enable MFA. By default, turning on MFA enables email as the second authentication factor.
+3. Review the **Email template**. You can choose to send the template with the provided wording or write your own message. Be sure to use the correct HTML tagging. In the GUI you can add parameters and insert images. To change the [language](/docs/services/appid?topic=appid-cloud-directory#cd-languages) of the message, you can use <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/updateLocalization" target="_blank">the APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to set the language. However, you are responsible for the content and translation of the message. Check out the following table to see the list of tables that you can use in this message and all of the other messages that you can send. If a user does not supply the information pulled by the parameter, it appears blank.
+
+  <table>
+    <thead>
+      <tr>
+        <th colspan=2><img src="images/idea.png" alt="More information icon"/> MFA message parameters</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>%{display.logo}</code></td>
+        <td> Displays the image that you configured for your Login Widget. </td>
+      </tr>
+      <tr>
+        <td><code>%{user.displayName}</code></td>
+        <td> Displays the screen name a user chose to use when interacting with the app. </td>
+      </tr>
+      <tr>
+        <td><code>%{user.email}</code></td>
+        <td> Displays the user's registered email address. </td>
+      </tr>
+      <tr>
+        <td><code>%{user.username}</code></td>
+        <td> Displays the user's specified username when the authentication method is set to username and password. </td>
+      </tr>
+      <tr>
+        <td><code>%{user.firstName}</code></td>
+        <td> Displays the user's specified given name. </td>
+      </tr>
+      <tr>
+        <td><code>%{user.formattedName}</code></td>
+        <td> Displays the user's full name. </td>
+      </tr>
+      <tr>
+        <td><code>%{user.lastName}</code></td>
+        <td> Displays the user's specified surname. </td>
+      </tr>
+      <tr>
+        <td><code>%{mfa.code}</code></td>
+        <td> Displays a one-time MFA verification code. </td>
+      </tr>
+    </tbody>
+  </table>
+
+  If a user does not supply the information pulled by the parameter, it appears blank.
+  {: tip}
 
 
 ### With the APIs
@@ -191,13 +232,17 @@ Be sure that you have the following prerequisites:
   ```
   {: screen}
 
+If your {{site.data.keyword.appid_short_notm}} Cloud Directory instance is configured to work with a custom email dispatcher then MFA uses the same dispatcher to send the one-time code. For more information on setting up a custom dispatcher, refer to the [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory#cd-custom-email) docs.
+{: note}
 
-  If your {{site.data.keyword.appid_short_notm}} Cloud Directory instance is configured to work with a custom email dispatcher then MFA uses the same dispatcher to send the one-time code. For more information on setting up a custom dispatcher, refer to the [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory#cd-custom-email) docs.
-  {: note}
+
 
 
 ## Configuring MFA to work with SMS
 {: #cd-mfa-configure-sms}
+
+You can send an SMS message to your users as a second form of verification. When you enable SMS, {{site.data.keyword.appid_short_notm}} automatically tries to register the first [valid](https://en.wikipedia.org/wiki/E.164) primary phone number that is found in a Cloud Directory user's profile. If the number is invalid or no phone number is found on the user's profile, then a registration widget is displayed for the user to add a number. Then, the number is part of the user's profile and after validation, becomes the default number that is used for MFA.
+{: shortdesc}
 
 **Before you begin**
 
@@ -214,15 +259,25 @@ Be sure that you have the following prerequisites:
 To configure MFA with the GUI, check out [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory).
 {: note}
 
-1. In the *Identity Provider* tab of the {{site.data.keyword.appid_short_notm}} dashboard, click *Cloud Directory*.
+1. Navigate to the **Identity Providers > Cloud Directory > Multi-factor authentication** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
 
-2. Go to the *Multi-factor authentication* tab.
+2. In the **Enable multi-factor authentication** box, toggle MFA to **Enabled**. Acknowledge that you understand that MFA is charged as an [advanced security event](/docs/services/appid?topic=appid-faq#faq-pricing).
 
-3. Enable MFA.
+3. Select **SMS** as your **Authentication method**.
 
-4. Select SMS as the preferred second authentication factor.
+4. Configure your Nexmo account information.
 
-5. Configure your Nexmo account information, including your API key, secret, and the [sender's number](https://help.nexmo.com/hc/en-us/articles/217571017-What-is-a-Sender-ID).
+    1. If you don't already have an account with Nexmo. Create one.
+
+    2. From the Nexmo dashboard, click **SMS**.
+
+    3. In the **Code it yourself** section, copy your API key and paste it in the **key** box in the {{site.data.keyword.appid_short_notm}} dashboard.
+
+    4. Copy the **API secret** in the Nexmo dashboard and paste it in the **Secret** box in the {{site.data.keyword.appid_short_notm}} dashboard.
+
+    5. Enter the [number](https://help.nexmo.com/hc/en-us/articles/217571017-What-is-a-Sender-ID) that you want to send messages from. A valid number format follows the [E.164 international numbering format]((https://en.wikipedia.org/wiki/E.164)) (e.g. USA number, +1 999 888 7777). You must specify both the country code, starting with a + symbol and the national subscriber number.
+
+
 
 ### With the APIs
 {: #cd-mfa-configure-sms-api}
@@ -265,8 +320,8 @@ Example request:
   --header 'Accept: application/json'
   --header 'Authorization: Bearer <IAM_TOKEN>'
   -d '{
-       "isActive": true
-   }'
+    "isActive": true
+  }'
   '{management-url}/management/v4/{tenantId}/config/mfa'
   ```
   {: screen}

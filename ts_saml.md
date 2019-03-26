@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-13"
+lastupdated: "2019-03-14"
 
 keywords: authentication, authorization, identity, app security, secure, development, idp, troubleshooting, redirected, validation
 
@@ -21,6 +21,9 @@ subcollection: appid
 {:important: .important}
 {:deprecated: .deprecated}
 {:download: .download}
+{:tsSymptoms: .tsSymptoms}
+{:tsCauses: .tsCauses}
+{:tsResolve: .tsResolve}
 
 # Identity provider configurations
 {: #troubleshooting-idp}

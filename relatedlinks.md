@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-14"
+lastupdated: "2019-03-19"
 
 keywords: authentication, authorization, identity, app security, secure
 
@@ -84,9 +84,7 @@ Just getting started? Try walking through some of our tutorials and blogs for he
 * <a href="/docs/tutorials?topic=solution-tutorials-serverless-mobile-backend#serverless-mobile-backend" target="_blank">Mobile application with a serverless back-end <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 * <a href="/docs/tutorials?topic=solution-tutorials-serverless-github-traffic-analytics#serverless-github-traffic-analytics" target="_blank">Combining serverless and Cloud Foundry for data retrieval and analytics <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 * <a href="https://www.ibm.com/blogs/bluemix/2018/07/how-to-configure-ibm-cloud-app-id-from-the-toolchain/" target="_blank">Configuring {{site.data.keyword.appid_short_notm}} From the Toolchain <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
-* <a href="http://heidloff.net/article/user-authorization-serverless-web-applications-openwhisk" target="_blank">User Authorization in Serverless Web Applications <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
-* <a href="http://heidloff.net/article/user-authentication-serverless-openwhisk
-" target="_blank">Authentication of Users in Serverless Applications <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
+
 
 
 

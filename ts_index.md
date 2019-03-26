@@ -21,6 +21,9 @@ subcollection: appid
 {:important: .important}
 {:deprecated: .deprecated}
 {:download: .download}
+{:tsSymptoms: .tsSymptoms}
+{:tsCauses: .tsCauses}
+{:tsResolve: .tsResolve}
 
 # General troubleshooting
 {: #troubleshooting}

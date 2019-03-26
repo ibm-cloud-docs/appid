@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-03-26"
 
 keywords: authentication, authorization, identity, app security, secure, development, identity provider, tokens, customization, lifetime
 
@@ -55,22 +55,22 @@ There are several providers that the service can be configured to use. Check out
     <td>You can maintain your own user registry in the cloud. When a user signs up for your app, they are added to your directory of users. This option gives your users more freedom to manage their own account within your app.</td>
   </tr>
   <tr>
-    <td>[SAML](/docs/services/appid?topic=appid-enterprise)</td>
+    <td>[SAML](/docs/services/appid?topic=appid-enterprise#enterprise)</td>
     <td>Enterprise</td>
-    <td>You can create a single sign on experience for your end users.</td>
+    <td>You can create a single sign-on experience for your end users.</td>
   </tr>
   <tr>
     <td>[Facebook](/docs/services/appid?topic=appid-social#facebook)</td>
     <td>Social</td>
-    <td>End users can log into your app by using their Facebook credentials.</td>
+    <td>End users can sign in to your app by using their Facebook credentials.</td>
   </tr>
   <tr>
     <td>[Google+](/docs/services/appid?topic=appid-social#google)</td>
     <td>Social</td>
-    <td>End users can log into your app by using their Google+ credentials.</td>
+    <td>End users can sign in to your app by using their Google credentials.</td>
   </tr>
   <tr>
-    <td>[Custom](/docs/services/appid?topic=appid-custom-identity)</td>
+    <td>[Custom](/docs/services/appid?topic=appid-custom-identity#custom-identity)</td>
     <td> </td>
     <td>If none of the provided options fit your specific need, you can configure your own identity flow to work with {{site.data.keyword.appid_short_notm}}.</td>  
   </tr>
@@ -128,6 +128,7 @@ Be sure to only register URIs of applications that you trust.
 3. Click the **+** symbol in the **Add web redirect URIs** box.
 
 4. Repeat steps one through three until all possible URIs are added to your list.
+
 
 
 ### Configuring token lifetime

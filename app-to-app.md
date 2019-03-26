@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-13"
+lastupdated: "2019-03-25"
 
 keywords: authentication, authorization, identity, app security, secure, application identity, app to app, access token
 
@@ -72,6 +72,7 @@ Figure. application identity and authorization flow
 1. Make a POST request to the [`/management/v4/{tenantId}/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Applications/mgmt.registerApplication).
 
   Request:
+
   ```
   curl -X POST \  https://us-south.appid.cloud.ibm.com/management/v4/39a37f57-a227-4bfe-a044-93b6e6060b61/applications/ \
   -H 'Content-Type: application/json' \
@@ -81,6 +82,7 @@ Figure. application identity and authorization flow
   {: pre}
 
   Example response:
+
   ```
   {
     "clientId": "bcabeb08-436a-4802-b296-2684c7c9fbae",
@@ -93,7 +95,6 @@ Figure. application identity and authorization flow
   }
   ```
   {: screen}
-
 
 ## Obtaining an access token
 {: #obtain-token}

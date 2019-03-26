@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-13"
+lastupdated: "2019-03-26"
 
 keywords: authentication, authorization, identity, app security, secure, custom, proprietary, 
 
@@ -96,7 +96,7 @@ Token payload:
   {
     // Required
     iss: String, // Should reference your identity provider
-    aud: String, // Must be the OAuth server host name
+    aud: String, // Must be the OAuth server URL name
     exp: Int,    // Should be a value with a short lifespan
     sub: String, // Must be the unique user ID provided by your identity provider
 
@@ -127,7 +127,7 @@ Token payload:
     </tr>
     <tr>
       <td><code>aud</code></td>
-      <td>The OAuth server host.</td>
+      <td>The OAuth server URL.</td>
     </tr>
     <tr>
       <td><code>exp</code></td>
