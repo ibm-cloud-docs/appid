@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-13"
+lastupdated: "2019-03-27"
 
 keywords: authentication, authorization, identity, app security, secure, development, mobile, android, iOS
 
@@ -114,7 +114,6 @@ You must have the following prerequisites before getting started:
   * Android SDK Platform Tools 27.0.1+
   * Android Build Tools version 27.0.0+
 
-</br>
 
 ### Installing the SDK
 {: #mobile-android-install}

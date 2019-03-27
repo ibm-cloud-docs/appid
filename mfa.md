@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-26"
+lastupdated: "2019-03-27"
 
 keywords: authentication, authorization, identity, app security, secure, development, two factor, mfa 
 
@@ -27,7 +27,7 @@ subcollection: appid
 {: #cd-mfa}
 
 
-Multi-factor increases the security of user authentication by requiring the user to prove who they say they are through multiple factors. The first factor is the Cloud Directory’s user password, which they normally use to login. A second authentication factor is a one-time code that {{site.data.keyword.appid_full}} sends to the user either as an SMS or email.  {{site.data.keyword.appid_short_notm}} uses a combination of both factors to verify the identity of a user.
+By requireing multiple factors during sign in, you can increase the security of user authentication to your apps. With Cloud Directory for {{site.data.keyword.appid_full}}, the first factor is the Cloud Directory user's password, which they normally use to sign in. The second authentication factor is a one-time code that {{site.data.keyword.appid_short_notm}} sends to the user either as an SMS or email. {{site.data.keyword.appid_short_notm}} uses a combination of both factors to verify the identity of a user.
 {: shortdesc}
 
 {{site.data.keyword.appid_short_notm}} MFA is supported as part of the OAuth 2.0 authorization code flow for Cloud Directory users through the Login Widget. If you're using enterprise sign-in with SAML 2.0 or social login,
