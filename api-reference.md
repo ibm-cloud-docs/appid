@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-07"
+lastupdated: "2019-03-27"
 
 keywords: authentication, authorization, identity, app security, secure, application identity, app to app, access token
 
@@ -35,7 +35,7 @@ With the API, you can:
 * Set and customize capabilities through your app back-end, such as your login widget configuration, sign-up process, and user management.
 
 
-Calls to the management api endpoint take the following structure:
+Calls to the management API endpoint take the following structure:
 
 ```
 https://<region-endpoint>.appid.cloud.ibm.com/management

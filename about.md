@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-26"
+lastupdated: "2019-03-27"
 
 keywords: authentication, authorization, identity, app security, secure, compliance, high availability
 
@@ -29,13 +29,17 @@ Application security can be incredibly complicated. For most developers, it's on
 {:shortdesc}
 
 
+
 ## Reasons to use the service
 {: #about-reasons}
 
 {{site.data.keyword.appid_short_notm}} helps developers to easily add authentication to their web and mobile apps with few lines of code, and secure their Cloud-native applications and services on {{site.data.keyword.cloud_notm}}. By requiring users to sign in to your app, you can store user data such as app preferences, or information from public social profiles, and then leverage that data to customize each user's experience within the app. {{site.data.keyword.appid_short_notm}} provides a log-in framework for you, but you can also bring your own branded screens to use with cloud directory.
 {: shortdesc}
 
-Why would you want to use {{site.data.keyword.appid_short_notm}}? Check out the following scenarios to see whether any of them apply to you.
+What can cloud directory do for you? Check out this video to learn more about the different ways that you can use the service and then read more in the following table about other scenarios.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/XlrCjHdK43Q" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 <table>
   <tr>
