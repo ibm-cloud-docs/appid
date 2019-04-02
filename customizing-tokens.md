@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-04-02"
 
 keywords: authentication, authorization, identity, app security, secure, custom, tokens, access, claim, attributes
 
@@ -38,7 +38,7 @@ You can configure your {{site.data.keyword.appid_short_notm}} tokens to meet the
 * Identity tokens: Contain personal information and are used to authenticate a user. Depending on your app configuration, identity tokens can be issued before a user is authenticated. This allows you to start associating attributes with your users before they sign in to your application.
 * Refresh tokens: Can be used to extend the amount of time that a user can go without re-authenticating.
 
-Want to learn more about tokens? Read more in [Understanding tokens](/docs/services/appid?topic=appid-key-concepts#tokens).
+Want to learn more about tokens? Read more in [Understanding tokens](/docs/services/appid?topic=appid-tokens#tokens).
 {: tip}
 
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-13"
+lastupdated: "2019-04-02"
 
 keywords: authentication, authorization, identity, app security, secure, custom, service provider, identity provider, enterprise, assertions
 
@@ -339,7 +339,7 @@ You can test the configuration between your SAML Identity Provider and {{site.da
 2. Navigate to the **SAML 2.0** tab of the {{site.data.keyword.appid_short_notm}} dashboard and click **Test**. A new tab opens.
 3. Login in with a user that your identity provider has already authenticated.
 4. After you complete the form, you are redirected to another page.
-  * Successful authentication: The connection between {{site.data.keyword.appid_short_notm}} and the Identity Provider is working correctly. The page displays valid [access and identity tokens](/docs/services/appid?topic=appid-key-concepts#tokens).
+  * Successful authentication: The connection between {{site.data.keyword.appid_short_notm}} and the Identity Provider is working correctly. The page displays valid [access and identity tokens](/docs/services/appid?topic=appid-tokens#tokens).
   * Failed authentication: The connection is broken. The page displays the errors and the SAML response XML file.
 
 

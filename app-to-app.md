@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-01"
+lastupdated: "2019-04-02"
 
 keywords: authentication, authorization, identity, app security, secure, application identity, app to app, access token
 
@@ -127,7 +127,7 @@ After your app is registered with {{site.data.keyword.appid_short_notm}} and you
 ## Tutorial: End-to-end flow with the Node.js SDK
 {: tutorial-node}
 
-1. Obtain an [access token](/docs/services/appid?topic=appid-key-concepts#tokens) in one of the following ways:
+1. Obtain an [access token](/docs/services/appid?topic=appid-tokens#tokens) in one of the following ways:
 
   * From the {{site.data.keyword.appid_short_notm}} [Node.js server SDK](https://github.com/ibm-cloud-security/appid-serversdk-nodejs) by using the token manager. Initialize the token manager with your app credentials and make a call to the `getApplicationIdentityToken()` method to obtain the token.
 

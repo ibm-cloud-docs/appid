@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-27"
+lastupdated: "2019-04-02"
 
 keywords: authentication, authorization, identity, app security, secure, development, identity provider, tokens, customization, lifetime
 
@@ -128,7 +128,7 @@ Be sure to only register URIs of applications that you trust.
 ## Configuring token lifetime
 {: #idp-token-lifetime}
 
-Token lifetime begins again at each user sign in. For example, you set your refresh token lifetime to 10 days. An access token and a refresh token are created when the user signs in for the first time. If the user returns to your app a few days later, 3 days to be specific, they would not need to sign in again. But, if the user waited 12 days after their initial sign in, and then returned to your app, then they would need to sign in again and a set of tokens is associated with the user. For more information about tokens, check out [Understanding tokens](/docs/services/appid?topic=appid-key-concepts#tokens).
+Token lifetime begins again at each user sign in. For example, you set your refresh token lifetime to 10 days. An access token and a refresh token are created when the user signs in for the first time. If the user returns to your app a few days later, 3 days to be specific, they would not need to sign in again. But, if the user waited 12 days after their initial sign in, and then returned to your app, then they would need to sign in again and a set of tokens is associated with the user. For more information about tokens, check out [Understanding tokens](/docs/services/appid?topic=appid-tokens#tokens).
 
 1. To allow sign in without the need for user interaction, set **refresh tokens** to **On**.
 
