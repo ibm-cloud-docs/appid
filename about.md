@@ -101,7 +101,7 @@ You can use {{site.data.keyword.appid_short_notm}} with other {{site.data.keywor
   <dt>{{site.data.keyword.cloudaccesstrailshort}}</dt>
     <dd>You can monitor administrative activity that is made in {{site.data.keyword.appid_short_notm}} such as changes to the dashboard configuration, by using the [{{site.data.keyword.cloudaccesstrailshort}} service](/docs/services/cloud-activity-tracker/reference?topic=cloud-activity-tracker-getting-started-with-cla#getting-started-with-cla).</dd>
   <dt>iOS Programming Guide</dt>
-    <dd>Do you develop apps for Apple? Try out the [iOS programming guide](/docs/swift/authenticate?topic=swift-appid#appid) to learn, experiment, and enhance your existing iOS apps with {{site.data.keyword.cloud_notm}}.</dd>
+    <dd>Do you develop apps for Apple? Try out the [iOS programming guide](/docs/swift/authenticate?topic=swift-getting_started_swift#getting_started_swift) to learn, experiment, and enhance your existing iOS apps with {{site.data.keyword.cloud_notm}}.</dd>
   <dt>Node.js programming guide</dt>
     <dd>Do you develop apps in Node.js? Try out the [Node.js programming guide](/docs/node?topic=nodejs-node-getting-started#node-getting-started)to learn, experiment, and enhance your existing Node.js apps with {{site.data.keyword.cloud_notm}}.</dd>
 </dl>
