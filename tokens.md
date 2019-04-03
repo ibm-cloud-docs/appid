@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-13"
+lastupdated: "2019-04-02"
 
 keywords: authentication, authorization, identity, app security, secure, tokens, jwt, development
 
@@ -29,7 +29,7 @@ subcollection: appid
 Token validation is an important part of modern app development. By validating tokens, you can protect your app or APIs from unauthorized users. {{site.data.keyword.appid_full}} uses access and identity tokens to ensure that a user or app is authenticated before they are granted access. If you're using one of the SDKs provided by {{site.data.keyword.appid_short_notm}}, both obtaining and validating your tokens is done for you!
 {: shortdesc}
 
-For more information about how tokens are used in {{site.data.keyword.appid_short_notm}}, see [Understanding tokens](/docs/services/appid?topic=appid-key-concepts#tokens).
+For more information about how tokens are used in {{site.data.keyword.appid_short_notm}}, see [Understanding tokens](/docs/services/appid?topic=appid-tokens#tokens).
 {: tip}
 
 Tokens are used to verify that a person is who they say that they are. They confirm any access permissions that the user might hold, for a specified length of time. When a user signs into your application and is issued a token, your app must validate the user before they are given access.

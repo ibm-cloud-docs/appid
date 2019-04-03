@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-13"
+lastupdated: "2019-04-02"
 
 keywords: authentication, authorization, identity, app security, secure, backend, back-end, oauth, 
 
@@ -39,7 +39,7 @@ Part of developing back-end apps is verifying that your APIs are protected from 
 
 {{site.data.keyword.appid_short_notm}} implements the [OAuth 2.0](https://tools.ietf.org/html/rfc6749) and the OIDC spec, which uses bearer tokens for authentication and authorization. These tokens are formatted as  [JSON Web Tokens](https://tools.ietf.org/html/rfc7519), which are digitally signed and contain claims that describe the subject that is being authenticated and the identity provider. The APIs of your application are protected by access and identity tokens. Clients that need access to your APIs can authenticate with the identity provider through {{site.data.keyword.appid_short_notm}} in exchange for these tokens. The claims in the tokens have to be validated in order to grant access to the protected APIs.
 
-For more information about how tokens are used in {{site.data.keyword.appid_short_notm}}, see [Understanding tokens](/docs/services/appid?topic=appid-key-concepts#tokens).
+For more information about how tokens are used in {{site.data.keyword.appid_short_notm}}, see [Understanding tokens](/docs/services/appid?topic=appid-tokens#tokens).
 {: tip}
 
 ### What does this flow look like?
@@ -209,7 +209,7 @@ if #available(OSX 10.12, *) {
 ## Protecting resources manually
 {: #backend-secure-api}
 
-Securing your back-end apps and protected resources involves validating tokens. You can validate {{site.data.keyword.appid_short_notm}} access and identity tokens in several ways. For help with validating tokens, check out [Validating tokens](/docs/services/appid?topic=appid-token-validation).
+Securing your back-end apps and protected resources involves validating tokens. You can validate {{site.data.keyword.appid_short_notm}} access and identity tokens in several ways. For help with validating tokens, check out [Validating tokens](/docs/services/appid?topic=appid-token-validation#token-validation).
 
 
 ## Next steps

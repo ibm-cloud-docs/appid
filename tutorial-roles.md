@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-04-02"
 
 keywords: authentication, authorization, identity, app security, secure, access management, roles, attributes, users
 
@@ -206,7 +206,7 @@ Great work!
 Becoming more popular, the theme park continues to grow! With so many new visitors and staff, you want to limit the number of requests that are made. For better performance, you can map user profile attributes to your access and identity token claims. By mapping custom claims, you're able to store the custom attributes in the tokens themselves.
 {: shortdesc}
 
-[Token configuration](/docs/services/appid?topic=appid-customizing-tokens) is global, which means that it applies to every user with a `role` attribute, regardless of the actual role they are assigned.
+[Token configuration](/docs/services/appid?topic=appid-customizing-tokens#customizing-tokens) is global, which means that it applies to every user with a `role` attribute, regardless of the actual role they are assigned.
 {: tip}
 
 

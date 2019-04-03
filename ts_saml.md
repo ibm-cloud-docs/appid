@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-14"
+lastupdated: "2019-04-02"
 
 keywords: authentication, authorization, identity, app security, secure, development, idp, troubleshooting, redirected, validation
 
@@ -83,7 +83,7 @@ Review the following table for explanations and resolutions for the most common 
     </tr>
     <tr>
       <td><code>SAML Configuration must have certificates, entityID and signInUrl of the IdP.</code></td>
-      <td>The SAML identity provider is not <a href="/docs/services/appid?topic=appid-enterprise" target="_blank">correctly configured</a>. Validate your configuration.</td>
+      <td>The SAML identity provider is not <a href="/docs/services/appid?topic=appid-enterprise#enterprise" target="_blank">correctly configured</a>. Validate your configuration.</td>
     </tr>
     <tr>
       <td><code>Error in assertion validation. SAML Assertion signature check failed! Certificate .. may be invalid.</code></td>
@@ -125,7 +125,7 @@ Review the following table for explanations and resolutions for the most common 
     </tr>
     <tr>
       <td><code>ds:Signature</code></td>
-      <td>A valid signature and digest must be included in the assertion. The signature must be created by using the private key that is associated with the certificate that was provided in the SAML configuration. The digest is validated by using the specified <code>CanonicalizationMethod</code> and <code>Transforms</code>. <strong>Note</strong>: {{site.data.keyword.appid_short_notm}} does not validate certificate expiration. For help managing your certificates, try out [Certificate Manager](/docs/services/certificate-manager?topic=certificate-manager-gettingstarted).</td>
+      <td>A valid signature and digest must be included in the assertion. The signature must be created by using the private key that is associated with the certificate that was provided in the SAML configuration. The digest is validated by using the specified <code>CanonicalizationMethod</code> and <code>Transforms</code>. <strong>Note</strong>: {{site.data.keyword.appid_short_notm}} does not validate certificate expiration. For help managing your certificates, try out [Certificate Manager](/docs/services/certificate-manager?topic=certificate-manager-getting-started#getting-started).</td>
     </tr>
     <tr>
       <td><code>saml:subject</code></td>
