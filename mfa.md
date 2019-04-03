@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-27"
+lastupdated: "2019-04-03"
 
 keywords: authentication, authorization, identity, app security, secure, development, two factor, mfa 
 
@@ -100,7 +100,6 @@ Before you get started, be sure that your instance of {{site.data.keyword.appid_
 {: #cd-mfa-configure-email-gui}
 
 You can configure the MFA email channel through the GUI.
-{: note}
 
 1. Navigate to the **Identity Providers > Cloud Directory > Multi-factor authentication** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
 
@@ -162,7 +161,7 @@ You can configure the MFA email channel through the GUI.
 Be sure that you have the following prerequisites:
 
 * Your {{site.data.keyword.appid_short_notm}} instance's tenant ID. This ID can be found in the **Service Credentials** section of the dashboard.
-* Your Identity and Access Management (IAM) token. For help with obtaining an IAM token, check out the [IAM docs](/docs/iam?topic=iam-iamtoken_from_apikey).
+* Your Identity and Access Management (IAM) token. For help with obtaining an IAM token, check out the [IAM docs](/docs/iam?topic=iam-iamtoken_from_apikey#iamtoken_from_apikey).
 
 
 1. Enable MFA, by making a PUT request to the `/config/mfa` endpoint with your MFA configuration to set `isActive` to `true`.
@@ -275,7 +274,7 @@ To configure MFA with the GUI, check out [Cloud Directory](/docs/services/appid?
 
     4. Copy the **API secret** in the Nexmo dashboard and paste it in the **Secret** box in the {{site.data.keyword.appid_short_notm}} dashboard.
 
-    5. Enter the [number](https://help.nexmo.com/hc/en-us/articles/217571017-What-is-a-Sender-ID) that you want to send messages from. A valid number format follows the [E.164 international numbering format]((https://en.wikipedia.org/wiki/E.164)) (e.g. USA number, +1 999 888 7777). You must specify both the country code, starting with a + symbol and the national subscriber number.
+    5. Enter the [number](https://help.nexmo.com/hc/en-us/articles/217571017-What-is-a-Sender-ID) that you want to send messages from. A valid number format follows the [E.164 international numbering format](https://en.wikipedia.org/wiki/E.164) (e.g. USA number, +1 999 888 7777). You must specify both the country code, starting with a + symbol and the national subscriber number.
 
 
 
