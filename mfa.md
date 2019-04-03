@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-27"
+lastupdated: "2019-04-03"
 
 keywords: authentication, authorization, identity, app security, secure, development, two factor, mfa 
 
@@ -100,7 +100,6 @@ Before you get started, be sure that your instance of {{site.data.keyword.appid_
 {: #cd-mfa-configure-email-gui}
 
 You can configure the MFA email channel through the GUI.
-{: note}
 
 1. Navigate to the **Identity Providers > Cloud Directory > Multi-factor authentication** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
 
