@@ -87,7 +87,7 @@ When a user signs up for your application, you might want to send them a message
 
 2. Set **Welcome email** to **Enabled**.
 
-3. Customize your the content of your message. You can add parameters and insert images by using the UI. To change the [language](/docs/services/appid?topic=appid-cloud-directory#cd-languages) of the message, you can use <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization" target="_blank">the APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to set the language. However, you are responsible for the content and translation of the message. Check out the following table to see the list of tables that you can use in this message and all of the other messages that you can send. If a user does not supply the information pulled by the parameter, it appears blank.
+3. Customize your the content of your message. You can add parameters and insert images by using the UI. To change the [language](/docs/services/appid?topic=appid-cd-messages#cd-languages) of the message, you can use <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization" target="_blank">the APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to set the language. However, you are responsible for the content and translation of the message. Check out the following table to see the list of tables that you can use in this message and all of the other messages that you can send. If a user does not supply the information pulled by the parameter, it appears blank.
 
 4. Click **Save**.
 

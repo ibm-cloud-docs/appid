@@ -50,7 +50,7 @@ Figure. The configuration journey for Cloud Directory
 
 2. Decide whether you want your users to create a username or use their email when they sign in. Both options require a password. After users are added to your directory, you can no longer toggle between the options.
 
-3. Click **Edit** in the password criteria row to specify any requirements that you want to put in place. Password criteria is given as regex. For help determining strength or to see common examples see, [Managing password strength](/docs/services/appid?topic=appid-cd-passwords#cd-strength). Click **Save** to put your requirements into action.
+3. Click **Edit** in the password criteria row to specify any requirements that you want to put in place. Password criteria is given as regex. For help determining strength or to see common examples see, [Managing password strength](/docs/services/appid?topic=appid-cd-strength#cd-strength). Click **Save** to put your requirements into action.
 
 4. Set **Allow users to sign up to your app** to **Yes**. You can still add users through the console if it's set to **No**. However, you it's most common to add users through the console for development purposes only.
 
