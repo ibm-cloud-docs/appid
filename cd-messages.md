@@ -87,7 +87,7 @@ When a user signs up for your application, you might want to send them a message
 
 2. Set **Welcome email** to **Enabled**.
 
-3. Customize your the content of your message. You can add parameters and insert images by using the UI. To change the [language](/docs/services/appid?topic=appid-cloud-directory#cd-languages) of the message, you can use <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#//Config/updateLocalization" target="_blank">the APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to set the language. However, you are responsible for the content and translation of the message. Check out the following table to see the list of tables that you can use in this message and all of the other messages that you can send. If a user does not supply the information pulled by the parameter, it appears blank.
+3. Customize your the content of your message. You can add parameters and insert images by using the UI. To change the [language](/docs/services/appid?topic=appid-cloud-directory#cd-languages) of the message, you can use <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/Config/updateLocalization" target="_blank">the APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to set the language. However, you are responsible for the content and translation of the message. Check out the following table to see the list of tables that you can use in this message and all of the other messages that you can send. If a user does not supply the information pulled by the parameter, it appears blank.
 
 4. Click **Save**.
 
@@ -105,7 +105,7 @@ When a user signs up for your application by using their email, you can send the
 
 3. Set **Allow users to sign in to your app without first verifying their email address** to **Yes**. When set to yes, users are able to interact with your application after they've signed up, but before they've verified their email address. The default setting is no.
 
-4. Customize your the content of your message. You can add parameters and insert images by using the UI. To change the [language](/docs/services/appid?topic=appid-cloud-directory#cd-languages) of the message, you can use <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#//Config/updateLocalization" target="_blank">the APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to set the language. However, you are responsible for the content and translation of the message. Check out the following table to see the different parameters that you can use in your message. If a user does not supply the information pulled by the parameter, it appears blank.
+4. Customize your the content of your message. You can add parameters and insert images by using the UI. To change the [language](/docs/services/appid?topic=appid-cd-messages#cd-languages) of the message, you can use <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#//Config/updateLocalization" target="_blank">the APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to set the language. However, you are responsible for the content and translation of the message. Check out the following table to see the different parameters that you can use in your message. If a user does not supply the information pulled by the parameter, it appears blank.
 
   <table>
     <tr>
@@ -150,7 +150,7 @@ When a user interacts with your app, they might forget their password or have an
 
 2. Set **Forgot password email** to **Enabled**.
 
-3. Customize your the content of your message. You can add parameters and insert images by using the UI. To change the [language](/docs/services/appid?topic=appid-cloud-directory#cd-languages) of the message, you can use <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#//Config/updateLocalization" target="_blank">the APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to set the language. However, you are responsible for the content and translation of the message. Check out the following table to see the different parameters that you can use in your message. If a user does not supply the information pulled by the parameter, it appears blank.
+3. Customize your the content of your message. You can add parameters and insert images by using the UI. To change the [language](/docs/services/appid?topic=appid-cd-messages#cd-languages) of the message, you can use <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#//Config/updateLocalization" target="_blank">the APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to set the language. However, you are responsible for the content and translation of the message. Check out the following table to see the different parameters that you can use in your message. If a user does not supply the information pulled by the parameter, it appears blank.
 
   <table>
     <tr>
@@ -194,7 +194,7 @@ You can let a user know when their password has been updated. This is helpful if
 
 2. Set **Password changed email** to **Enabled**.
 
-3. Customize your the content of your message. You can add parameters and insert images by using the UI. To change the [language](/docs/services/appid?topic=appid-cloud-directory#cd-languages) of the message, you can use <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#//Config/updateLocalization" target="_blank">the APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to set the language. However, you are responsible for the content and translation of the message. Check out the following table to see the different parameters that you can use in your message. If a user does not supply the information pulled by the parameter, it appears blank.
+3. Customize your the content of your message. You can add parameters and insert images by using the UI. To change the [language](/docs/services/appid?topic=appid-cd-messages#cd-languages) of the message, you can use <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#//Config/updateLocalization" target="_blank">the APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to set the language. However, you are responsible for the content and translation of the message. Check out the following table to see the different parameters that you can use in your message. If a user does not supply the information pulled by the parameter, it appears blank.
 
   <table>
     <tr>
