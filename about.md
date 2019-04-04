@@ -38,7 +38,10 @@ Application security can be incredibly complicated. For most developers, it's on
 
 What can Cloud Directory do for you? Check out this video to learn more about the different ways that you can use the service and then read more in the following table about other scenarios.
 
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/XlrCjHdK43Q" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
 
 
 <table>
