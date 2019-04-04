@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-02"
+lastupdated: "2019-04-04"
 
 keywords: authentication, authorization, identity, app security, secure, tokens, jwt, development
 
@@ -56,7 +56,7 @@ Based on feedback, option 1 is usually the easiest way to go.
 By using introspection, you can use {{site.data.keyword.appid_short_notm}} to validate your tokens.
 {: shortdesc}
 
-1. Send a POST request to the [/introspect](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Authorization_Server_V3/introspect) API endpoint to validate your token. The request must provide the token and a basic authorization header that contains the client ID and secret.
+1. Send a POST request to the [/introspect](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization%20Server%20-%20Authorization%20Server%20V3/oauth-server.token) API endpoint to validate your token. The request must provide the token and a basic authorization header that contains the client ID and secret.
 
   Example request:
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-04-04"
 
 keywords: authentication, authorization, identity, app security, secure, development, user information, attributes, profiles, 
 
@@ -37,14 +37,14 @@ To learn more about the types of attributes, check out [Understanding user profi
 ### Why would I want to use preregistration?
 {: #preregister-why}
 
-Consider an application where you use {{site.data.keyword.appid_short_notm}} to federate existing users from your SAML identity provider. You might want certain users to have `admin` access immediately upon signing into the application for the first time. To make this happen, you can use the preregistration endpoint to set a custom `admin` attribute for those users and grant them access to the administration console without any further action on your part. Be sure to consider the [security issues](/docs/services/appid?topic=appid-custom-attributes) that can arise by changing the default setting.
+Consider an application where you use {{site.data.keyword.appid_short_notm}} to federate existing users from your SAML identity provider. You might want certain users to have `admin` access immediately upon signing into the application for the first time. To make this happen, you can use the preregistration endpoint to set a custom `admin` attribute for those users and grant them access to the administration console without any further action on your part. Be sure to consider the [security issues](/docs/services/appid?topic=appid-custom-attributes#custom-attributes) that can arise by changing the default setting.
 
 ### How are users identified?
 {: #preregister-identify-user}
 
 You can identify your users by using one of the following:
 
-* The user's unique ID, called the **GUID**, in the identity provider. Although this identifier always exists and is guaranteed to be unique, it is not always readily available or easy to understand. For instance, Cloud Directory uses a random 16 byte random GUID.
+* The user's unique ID, called the **GUID**, in the identity provider. Although this identifier always exists and is guaranteed to be unique, it is not always readily available or easy to understand. For instance, Cloud Directory uses a random 16 byte GUID.
 * If available, the user's **email**.
 
 ### What information do the identity providers provide?
@@ -101,12 +101,12 @@ Check out the following table to see which type of identity information that you
 
 In order to ensure the integrity of the preregistered user attributes, Cloud Directory places additional requirements on its users. Preregistration can only occur when email validation is enabled and verified. If you preregister a Cloud Directory user with specific attributes, then those attributes are intended for a specific person. If the email is not verified first, it is possible for another user to claim the email address and any attributes that are assigned to it.
 
-1. Set Cloud Directory to email and password mode. You can do this through the UI in the general settings on the **Cloud Directory** tab. You can also set it through the [management APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Cloud_Directory_Users/createCloudDirectoryUser).
+1. Set Cloud Directory to email and password mode. You can do this through the UI in the general settings on the **Cloud Directory** tab. You can also set it through the [management APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.createCloudDirectoryUser).
 
 2. Verify the users email address to confirm their identity in one of the following ways:
 
   * To verify a users identity through email, set **Email verification** to **On** in the **Cloud Directory** tab of the service dashboard. If a user is added by you and signs in to your app without first verifying their email, the sign in completes successfully, but their predefined attribute is deleted.
-  * To verify users manually you must be an administrator and use the Cloud Directory [management APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Cloud_Directory_Users/createCloudDirectoryUser). When creating or updating a user, you should explicitly set the `status` field to `CONFIRMED` within your user data payload.
+  * To verify users manually you must be an administrator and use the Cloud Directory [management APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.createCloudDirectoryUser). When creating or updating a user, you should explicitly set the `status` field to `CONFIRMED` within your user data payload.
 
 **Is there anything special that I need to do when using a custom identity provider?**
 
@@ -121,7 +121,7 @@ Now that you've learned about the process and considered your security implicati
 
 **Before you begin:**
 
-To add custom attributes for a specific user with the [/users](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Users/users_search_user_profile) Management API endpoint, you must know the following information:
+To add custom attributes for a specific user with the [/users Management API endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Users/mgmt.users_search_user_profile), you must know the following information:
 
 * Which identity provider that the user is going to use to sign in.
 * The user's unique identifier that is provided by the identity provider.

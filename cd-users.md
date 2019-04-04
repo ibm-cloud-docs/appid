@@ -79,14 +79,14 @@ Occasionally you might need to set up a new instance of {{site.data.keyword.appi
 {: shortdesc}
 
 
-You must be assigned the `Manager` [IAM role](/docs/iam?topic=iam-getstarted) for both instances of {{site.data.keyword.appid_short_notm}}.
+You must be assigned the `Manager` [IAM role](/docs/iam?topic=iam-getstarted#getstarted) for both instances of {{site.data.keyword.appid_short_notm}}.
 {: note}
 
 
 ### Exporting
 {: cd-export}
 
-Before you can add your users to the new instance, you need to export them from your current instance. To do so, you can use the <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Cloud_Directory_Users/cloudDirectoryExport" target="_blank">export management API <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
+Before you can add your users to the new instance, you need to export them from your current instance. To do so, you can use the <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.cloudDirectoryExport" target="_blank">export management API <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
 
 Example cURL command:
 
@@ -117,7 +117,7 @@ Only your Cloud Directory users and their profiles are returned. Users from othe
 ### Importing
 {: #cd-import}
 
-Now that you have your users ready to go, you can import their information into the new instance. To do so, you can use the <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Cloud_Directory_Users/cloudDirectoryImport" target="_blank">import management API<img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
+Now that you have your users ready to go, you can import their information into the new instance. To do so, you can use the <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.cloudDirectoryImport" target="_blank">import management API<img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
 
 
 Example cURL command:

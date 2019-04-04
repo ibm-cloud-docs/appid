@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-14"
+lastupdated: "2019-04-04"
 
 keywords: authentication, authorization, identity, app security, secure, customizing apps, directory, registry, 
 
@@ -41,7 +41,7 @@ When you reuse your existing UIs, you can create a cohesive sign-in flow for you
 To display your own UIs, you must use [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory) as your identity provider. There are several different ways that Cloud Directory can be [configured](/docs/services/appid?topic=appid-cloud-directory). You can decide the types of messages that you want to send, and customize the content and design. Don't know what to say? Not a problem. There are example messages in the GUI that you can use.
 
 
-Want to use a [language](/docs/services/appid?topic=appid-cloud-directory#cd-languages) other than English? You can choose another language by using the <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/updateLocalization" target="_blank">language management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>, to display your own translated content.
+Want to use a [language](/docs/services/appid?topic=appid-cd-messages#cd-languages) other than English? You can choose another language by using the <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/updateLocalization" target="_blank">language management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>, to display your own translated content.
 {: tip}
 
 
@@ -184,9 +184,9 @@ You can display your own customized screens and take advantage of the authentica
 
 To make this possible, {{site.data.keyword.appid_short_notm}} exposes REST APIs. You can use the REST APIs to build a back-end server that serves your web apps, or to interact with a mobile app with your own custom screens.
 
-The management API is secured with IBM Cloud Identity and Access Management generated tokens, which means that account owners can specify who on their team has which level of access for each service instance. For more information about how IAM and {{site.data.keyword.appid_short_notm}} work together, see [Service access management](/docs/services/appid?topic=appid-service-access-management).
+The management API is secured with IBM Cloud Identity and Access Management generated tokens, which means that account owners can specify who on their team has which level of access for each service instance. For more information about how IAM and {{site.data.keyword.appid_short_notm}} work together, see [Service access management](/docs/services/appid?topic=appid-service-access-management#service-access-management).
 
-After you configure your [settings](/docs/services/appid?topic=appid-cloud-directory), you can call the following endpoints to display each screen.
+After you configure your [settings](/docs/services/appid?topic=appid-cloud-directory#cd-settings), you can call the following endpoints to display each screen.
 
 ### Sign up
 {: #branded-api-signup}
@@ -198,7 +198,7 @@ Supply the following data in the request body:
     * A `password` attribute.
     * In the email array with a `primary` attribute that is set to `true`, you must have at least 1 email address.
 
-Depending on your [email configuration](/docs/services/appid?topic=appid-cloud-directory), a user might receive a request for verification, an email that welcomes them when they sign up for you app, or both. Both types of emails are triggered when a user signs up for your app. The verification email contains a link that the user can click to confirm their identity; a screen is displayed, that thanks them for verifying or confirms that their verification is complete.  
+Depending on your [email configuration](/docs/services/appid?topic=appid-cd-messages#cd-messages), a user might receive a request for verification, an email that welcomes them when they sign up for you app, or both. Both types of emails are triggered when a user signs up for your app. The verification email contains a link that the user can click to confirm their identity; a screen is displayed, that thanks them for verifying or confirms that their verification is complete.  
 
 To present your own post verification page:
 
