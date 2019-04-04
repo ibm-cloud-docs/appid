@@ -127,7 +127,7 @@ When one of the change, reset, or renew password flows is started, the sessions 
 To sign out a user, redirect their browser by using your information to complete the following API call.
 
 ```
-https://<region>.appid.cloud.ibm.com/oauth/v4/<tenant-id>/cloud_directory/sso/logout?redirect_uri=<redirect_uri>&client_id=<clientId>
+https://<region>.appid.cloud.ibm.com/oauth/v3/<tenant-id>/cloud_directory/sso/logout?redirect_uri=<redirect_uri>&client_id=<clientId>
 ```
 {: pre}
 
@@ -178,7 +178,7 @@ As an administrator, you can end all SSO sessions for any given user by using th
 Example API request:
 
 ```
-POST https://<region>.appid.cloud.ibm.com/management/v3/{tenant-id}/cloud_directory/Users/{user-id}/sso/logout
+POST https://<region>.appid.cloud.ibm.com/management/v4/{tenant-id}/cloud_directory/Users/{user-id}/sso/logout
 Headers:
 Authorization: <IAM TOKEN>
 ```
