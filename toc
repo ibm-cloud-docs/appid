@@ -29,17 +29,22 @@ IBM Cloud App ID
         app-to-app.md
         well-known.md
 
+    manageidp.md
+
     {: .topicgroup}
-    Configuring identity providers
-        manageidp.md
-        cloud-directory.md
+    Configuring federated identity providers
         enterprise.md
         identity-providers.md
         custom.md
 
     {: .topicgroup}
     Managing Cloud Directory
+        cd-configuring.md
+        cd-messages.md
+        cd-passwords.md
         mfa.md
+        sso.md
+        cd-users.md
 
     {: .topicgroup}
     Managing the sign in experience
