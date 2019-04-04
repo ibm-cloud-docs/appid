@@ -60,7 +60,7 @@ You can enhance the security of your application by enforcing additional passwor
 {: shortdesc}
 
 
-You can create an advanced password policy that consists of any combinatino of the following 5 features:
+You can create an advanced password policy that consists of any combination of the following 5 features:
 
  - Lockout after repeated wrong credentials
  - Avoid password reuse

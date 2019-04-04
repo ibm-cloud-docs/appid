@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-04-04"
 
 keywords: authentication, authorization, identity, app security, secure, compliance, high availability
 
@@ -103,7 +103,7 @@ You can use {{site.data.keyword.appid_short_notm}} with other {{site.data.keywor
   <dt>iOS Programming Guide</dt>
     <dd>Do you develop apps for Apple? Try out the [iOS programming guide](/docs/swift/authenticate?topic=swift-getting_started_swift#getting_started_swift) to learn, experiment, and enhance your existing iOS apps with {{site.data.keyword.cloud_notm}}.</dd>
   <dt>Node.js programming guide</dt>
-    <dd>Do you develop apps in Node.js? Try out the [Node.js programming guide](/docs/node?topic=nodejs-node-getting-started#node-getting-started)to learn, experiment, and enhance your existing Node.js apps with {{site.data.keyword.cloud_notm}}.</dd>
+    <dd>Do you develop apps in Node.js? Try out the [Node.js programming guide](/docs/node?topic=nodejs-node-getting-started#node-getting-started) to learn, experiment, and enhance your existing Node.js apps with {{site.data.keyword.cloud_notm}}.</dd>
 </dl>
 
 

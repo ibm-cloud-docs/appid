@@ -49,7 +49,7 @@ You can use the following steps to add a user through the {{site.data.keyword.ap
 
 For test purposes, you can add a users through the {{site.data.keyword.appid_short_notm}} dashboard.
 
-1. Navigate to the **Cloud Directory > Users** tab of the {{site.data.keyword.appid_short_notm}} dashbaord.
+1. Navigate to the **Cloud Directory > Users** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
 
 2. Click **Add user**. A form displays.
 
@@ -63,7 +63,7 @@ For test purposes, you can add a users through the {{site.data.keyword.appid_sho
 
 If you want to remove a user from your directory, you can delete the user from the GUI.
 
-1. Navigate to the **Cloud Directory > Users** tab of the {{site.data.keyword.appid_short_notm}} dashbaord.
+1. Navigate to the **Cloud Directory > Users** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
 
 2. Click the check box next to the user that you want to delete. A box displays.
 

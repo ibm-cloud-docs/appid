@@ -142,7 +142,7 @@ When a user signs up for your application by using their email, you can send the
 ### Email: Reset password
 {: #cd-messages-reset}
 
-When a user interacts with your app, they might forget their password or have another need to update it. You can customize the email response to their request. When a user requests a change to their password, the password remains unchaged until they click the link in this email.
+When a user interacts with your app, they might forget their password or have another need to update it. You can customize the email response to their request. When a user requests a change to their password, the password remains unchanged until they click the link in this email.
 {: shortdesc}
 
 
