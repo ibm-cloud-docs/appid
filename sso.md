@@ -178,7 +178,7 @@ As an administrator, you can end all SSO sessions for any given user by using th
 Example API request:
 
 ```
-POST https://<region>.appid.cloud.ibm.com/management/v4/{tenant-id}/cloud_directory/Users/{user-id}/sso/logout
+POST https://<region>.appid.cloud.ibm.com/management/v3/{tenant-id}/cloud_directory/Users/{user-id}/sso/logout
 Headers:
 Authorization: <IAM TOKEN>
 ```
