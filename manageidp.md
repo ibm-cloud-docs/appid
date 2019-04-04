@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-02"
+lastupdated: "2019-04-04"
 
 keywords: authentication, authorization, identity, app security, secure, development, identity provider, tokens, customization, lifetime
 
@@ -23,7 +23,7 @@ subcollection: appid
 {:download: .download}
 
 
-# Configuring identity providers
+# Managing authentications
 {: #managing-idp}
 
 Identity providers (IdP's) add a level of security for your mobile and web apps, through authentication. With {{site.data.keyword.appid_full}}, you can configure one or several identity providers to create a custom sign-in experience for your users.
