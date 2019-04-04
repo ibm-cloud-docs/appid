@@ -85,13 +85,13 @@ Figure. application identity and authorization flow
 
   ```
   {
-    "clientId": "bcabeb08-436a-4802-b296-2684c7c9fbae",
-    "tenantId": "a62d585e-9920-47e9-b38f-121de036abd7",
-    "secret": "NzJiNWQyNzYtMTg0YS00N2FmLWFiZDMtOGYzNzkwNDQwZDEy",
+    "clientId": "c90830bf-11b0-4b44-bffe-9773f8703bad",
+    "tenantId": "b42f7429-fc24-48fa-b4f9-616bcc31cfd5",
+    "secret": "YWQyNjdkZjMtMGRhZC00ZWRkLThiOTQtN2E3ODEyZjhkOWQz",
     "name": "testing",
-    "oAuthServerUrl": "https://appid-oauth.ng.bluemix.net/oauth/v3/a62d585e-9920-47e9-b38f-121de036abd7",
-    "profilesUrl": "https://appid-profiles.ng.bluemix.net/",
-    "discoveryEndpoint": "https://appid-oauth.ng.bluemix.net/oauth/v3/a62d585e-9920-47e9-b38f-121de036abd7/.well-known/openid-configuration"
+    "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v4/b42f7429-fc24-48fa-b4f9-616bcb31cfd5",
+    "profilesUrl": "https://us-south.appid.cloud.ibm.com",
+    "discoveryEndpoint": "https://us-south.appid.cloud.ibm.com/oauth/v4/b42f7429-fc24-48fa-b4f9-616bcb31cfd5/.well-known/openid-configuration"
   }
   ```
   {: screen}
@@ -101,12 +101,12 @@ Figure. application identity and authorization flow
 
 After your app is registered with {{site.data.keyword.appid_short_notm}} and you have obtained your credentials, you can make a request to the {{site.data.keyword.appid_short_notm}} authorization server to get an Access Token.
 
-1. Make an HTTP POST request to the [`/token` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization%20Server%20-%20Authorization%20Server%20V3/oauth-server.token). The authorization for the request is `Basic auth` with the client ID and secret being used as the username and password which are base64 encoded.
+1. Make an HTTP POST request to the [`/token` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization%20Server%20-%20Authorization%20Server%20V4/oauth-server.token). The authorization for the request is `Basic auth` with the client ID and secret being used as the username and password which are base64 encoded.
 
   Request :
   ```
   curl -X POST \
-    http://localhost:6002/oauth/v3/39a37f57-a227-4bfe-a044-93b6e6060b61/token \
+    http://localhost:6002/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6060b61/token \
     -H 'Authorization: Basic base64Encoded{clientId:secret}' \
     -H 'Content-Type: application/x-www-form-urlencoded' \
     -d grant_type=client_credentials
@@ -137,7 +137,7 @@ After your app is registered with {{site.data.keyword.appid_short_notm}} and you
      clientId: "29a19759-aafb-41c7-9ef7-ee7b0ca88818",
      tenantId: "39a37f57-a227-4bfe-a044-93b6e6060b61",
      secret: "ZTEzZTA2MDAtMjljZS00MWNlLTk5NTktZDliMjY3YzUxZTYx",
-     oauthServerUrl: "https://eu-gb.appid.cloud.ibm.com/oauth/v3/39a37f57-a227-4bfe-a044-93b6e6060b61"
+     oauthServerUrl: "https://eu-gb.appid.cloud.ibm.com/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6060b61"
     };
 
     const tokenManager = new TokenManager(config);
@@ -219,7 +219,7 @@ After your app is registered with {{site.data.keyword.appid_short_notm}} and you
   app.use(passport.initialize());
 
   passport.use(new APIStrategy({
-      oauthServerUrl: "https://us-south.appid.cloud.ibm.com/oauth/v3/398ec248-5e93-48b8-a122-ccabc714fe85",
+      oauthServerUrl: "https://us-south.appid.cloud.ibm.com/oauth/v4/398ec248-5e93-48b8-a122-ccabc714fe85",
       tenantId:"398ec248-5e93-48b8-a122-ccabc714fe85"
   }));
 

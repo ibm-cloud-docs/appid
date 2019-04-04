@@ -143,7 +143,7 @@ You must have the following prerequisites:
     "tenantId": "39a37f57-a227-4bfe-a044-93b6e6060b61",
     "secret": "ZmE5ZDQ5ODctMmA1ZS00OGRiLWExZDMtZTA1MjkyZTc4MDB4",
     "name": "ApplicationName",
-    "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v3/39a37f57-a227-4bfe-a044-93b6e6060b61"
+    "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6060b61"
     }
     ```
     {: screen}
@@ -250,7 +250,7 @@ You must have the following prerequisites:
     "tenantId": "39a37f57-a227-4bfe-a044-93b6e6060b61",
     "secret": "ZmE5ZDQ5ODctMmA1ZS00OGRiLWExZDMtZTA1MjkyZTc4MDB4",
     "name": "ApplicationName",
-    "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v3/39a37f57-a227-4bfe-a044-93b6e6060b61"
+    "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6060b61"
     }
     ```
     {: screen}
@@ -472,7 +472,7 @@ You must have the following prerequisites:
     "tenantId": "39a37f57-a227-4bfe-a044-93b6e6060b61",
     "secret": "ZmE5ZDQ5ODctMmA1ZS00OGRiLWExZDMtZTA1MjkyZTc4MDB4",
     "name": "ApplicationName",
-    "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v3/39a37f57-a227-4bfe-a044-93b6e6060b61"
+    "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6060b61"
     }
     ```
     {: screen}

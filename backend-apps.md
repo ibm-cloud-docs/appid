@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-02"
+lastupdated: "2019-04-04"
 
 keywords: authentication, authorization, identity, app security, secure, backend, back-end, oauth, 
 
@@ -50,7 +50,7 @@ For more information about how tokens are used in {{site.data.keyword.appid_shor
 1. A client makes a POST request to the {{site.data.keyword.appid_short_notm}} authorization server to obtain an access token. A POST request generally takes the following form:
 
   ```
-  POST/oauth/v3/{tenantId}/token HTTP/1.1
+  POST/oauth/v4/{tenantId}/token HTTP/1.1
   Content_type: application/x-www-form-urlencoded
   Authorization header = "Basic" + base64encode({clientId}:{secret})
   FormData = {grant_type}
@@ -84,7 +84,7 @@ You must have the following prerequisites before you can get started:
 
   ```
   "dependencies": {
-      "ibmcloud-appid": "^4.0.0"
+      "ibmcloud-appid": "^6.0.0"
   }
   ```
   {: pre}
@@ -161,7 +161,7 @@ let router = Router()
 
 // mandatory option to be passed in if app not deployed on IBM Cloud
 let options = [
-    "oauthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v3/d8438de6-c325-4956-ad34-abd49194affd",
+    "oauthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v4/d8438de6-c325-4956-ad34-abd49194affd",
 ]
 let apiCreds = Credentials()
 
