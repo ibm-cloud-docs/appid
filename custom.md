@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-04-04"
 
 keywords: authentication, authorization, identity, app security, secure, custom, proprietary, private key, public key, jwt
 
@@ -72,7 +72,7 @@ $ openssl rsa -pubout -in private_key.pem -out public_key.pem
 ### Configuring with the API
 {: #custom-identity-configure-api}
 
-Register your key by making a PUT request to the [Management API endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Identity_Providers/custom).
+Register your key by making a PUT request to the [Management API endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.set_custom_idp).
 
 ```
 Put {Management URI}/config/idps/custom
@@ -102,4 +102,4 @@ If successful, you can now see the decoded {{site.data.keyword.appid_short_notm}
 ## Next steps
 {: #custom-identity-next}
 
-Now that your custom identity provider is configured, [add it to your application](/docs/services/appid?topic=appid-custom-auth)!
+Now that your custom identity provider is configured, [add it to your application](/docs/services/appid?topic=appid-custom-auth#custom-auth)!

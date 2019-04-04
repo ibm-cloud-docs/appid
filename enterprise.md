@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-02"
+lastupdated: "2019-04-04"
 
 keywords: authentication, authorization, identity, app security, secure, custom, service provider, identity provider, enterprise, assertions
 
@@ -181,7 +181,7 @@ Want to set an authentication context? You can do so through the API.
 ### Providing metadata with the API
 {: #saml-provide-api}
 
-1. Obtain your SAML metadata by making a GET request to the [/getSamlMetadata API endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Identity%20Providers/get_saml_idp).
+1. Obtain your SAML metadata by making a GET request to the [/getSamlMetadata API endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.get_saml_idp).
 
   Example code:
   ```
@@ -224,7 +224,7 @@ Want to set an authentication context? You can do so through the API.
   ```
   {: screen}
 
-2. Configure your POST request to the [/set_saml_idp API endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Identity%20Providers/set_saml_idp).
+2. Configure your POST request to the [/set_saml_idp API endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.set_saml_idp).
 
   1. In the following metadata example, replace the variables with your own information.
 
@@ -343,5 +343,5 @@ You can test the configuration between your SAML Identity Provider and {{site.da
   * Failed authentication: The connection is broken. The page displays the errors and the SAML response XML file.
 
 
-Having trouble? Check out [Troubleshooting identity provider configurations](/docs/services/appid?topic=appid-troubleshooting-idp).
+Having trouble? Check out [Troubleshooting identity provider configurations](/docs/services/appid?topic=appid-troubleshooting-idp#troubleshooting-idp).
 {: tip}

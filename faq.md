@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-14"
+lastupdated: "2019-04-04"
 
 keywords: authentication, authorization, identity, app security, secure
 
@@ -63,7 +63,7 @@ Advanced security features give you the ability to strengthen the security of yo
   </tr>
   <tr>
     <td>Password policy management</td>
-    <td>As an account owner, you can enforce more secure passwords for Cloud Directory by configuring a set of rules that user passwords must conform to. Examples include, the number of attempted sign-ins before lockout, expiration times, minimum time span between password updates, or the number of times that a password can't be repeated. For a complete list of the options and set-up information, see [Advanced password management](/docs/services/appid?topic=appid-cloud-directory#cd-advanced-password).</td>
+    <td>As an account owner, you can enforce more secure passwords for Cloud Directory by configuring a set of rules that user passwords must conform to. Examples include, the number of attempted sign-ins before lockout, expiration times, minimum time span between password updates, or the number of times that a password can't be repeated. For a complete list of the options and set-up information, see [Advanced password management](/docs/services/appid?topic=appid-cd-strength#cd-advanced-password).</td>
   </tr>
 </table>
 
