@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-04-05"
 
 keywords: authentication, authorization, identity, app security, secure, access, tokens
 
@@ -31,7 +31,7 @@ When a user is successfully authenticated, the application receives tokens from 
 {: shortdesc}
 
 
-### Access tokens
+## Access tokens
 {: #access}
 
 Access tokens represent authorization and enable communication with [back-end resources](/docs/services/appid?topic=appid-backend) that are protected by authorization filters that are set by {{site.data.keyword.appid_short}}. The token conforms to JavaScript Object Signing and Encryption (JOSE) specifications. The token is formatted as <a href="https://jwt.io/introduction/" target="blank">JSON Web Tokens <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> are signed with a JSON Web Key that uses the RS256 algorithm.
@@ -127,12 +127,12 @@ For examples of working with refresh tokens and how to use them to implement a r
 
 Tokens are issued through the {{site.data.keyword.appid_short_notm}} OAuth Server and are formatted as [JSON Web Tokens (JWT)](https://jwt.io/introduction/). The tokens have been signed with a [JSON Web Key (JWK)](https://tools.ietf.org/html/rfc7517) with the RS256 algorithm.
 
-### What happens to the information that the token contains?
+## What happens to the information that the token contains?
 {: #contains}
 
 The access token contains a set of standard JWT claims and a set of {{site.data.keyword.appid_short_notm}} specific claims such as a tenant ID. The identity token contains user specific information. The information in the tokens is stored as claims as part of a [user's profile](/docs/services/appid?topic=appid-user-profile#user-profile).
 
-### How are tokens received?
+## How are tokens received?
 {: #received}
 
 The tokens are received by your app after a successful authentication. You app can use the tokens to retrieve information about user authorization and authentication. The access token can be used to gain access to protected resources by sending a request to the resource. In the request, the access token is described in the [Bearer authentication scheme](https://tools.ietf.org/html/rfc6750#page-5) scheme. To extract the tokens, your app must parse the header.
