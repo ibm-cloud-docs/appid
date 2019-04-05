@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-02"
+lastupdated: "2019-04-04"
 
 keywords: authentication, authorization, identity, app security, secure, custom, tokens, access, claim, attributes
 
@@ -85,7 +85,7 @@ Because tokens are used to identify users and secure your resources, the lifespa
 ## Understanding custom attributes and claims
 {: #custom-claims}
 
-You can map user profile attributes to your access and identity token claims. This means that you don't have to go to the [/userinfo endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization_Server_V3/userInfo) or pull custom attributes later, because they're already stored in the tokens!
+You can map user profile attributes to your access and identity token claims. This means that you don't have to go to the [/userinfo endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization_Server_V4/userInfo) or pull custom attributes later, because they're already stored in the tokens!
 {: shortdesc}
 
 ### What is a claim?

@@ -38,7 +38,6 @@ Application security can be incredibly complicated. For most developers, it's on
 
 What can Cloud Directory do for you? Check out this video to learn more about the different ways that you can use the service and then read more in the following table about other scenarios.
 
-
 <iframe class="embed-responsive-item" id="youtubeplayer" title="About App ID" type="text/html" width="640" height="390" src="//www.youtube.com/embed/XlrCjHdK43Q?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
 
 <table>

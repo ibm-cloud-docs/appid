@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-02"
+lastupdated: "2019-04-04"
 
 keywords: authentication, authorization, identity, app security, secure, custom, proprietary, 
 
@@ -127,7 +127,7 @@ Token payload:
     </tr>
     <tr>
       <td><code>aud</code></td>
-      <td>The OAuth server URL.</td>
+      <td>The OAuth server URL. Format: https://{region}.appid.cloud.ibm.com/oauth/v4/{tenantId}.</td>
     </tr>
     <tr>
       <td><code>exp</code></td>
@@ -151,7 +151,7 @@ Token payload:
 ## Retrieving {{site.data.keyword.appid_short_notm}} tokens
 {: #exchanging-jwts}
 
-To create the bridge between your custom provider and {{site.data.keyword.appid_short_notm}}, you need to have {{site.data.keyword.appid_short_notm}} tokens. To obtain service tokens, exchange your verified user information by using the [`/token` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization_Server_V3/token).
+To create the bridge between your custom provider and {{site.data.keyword.appid_short_notm}}, you need to have {{site.data.keyword.appid_short_notm}} tokens. To obtain service tokens, exchange your verified user information by using the [`/token` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization_Server_V4/token).
 {: shortdesc}
 
   ```

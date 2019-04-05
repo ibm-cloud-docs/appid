@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-02"
+lastupdated: "2019-04-04"
 
 keywords: authentication, authorization, identity, app security, secure, access management, roles, attributes, users
 
@@ -308,7 +308,7 @@ Optionally, you can verify that step 4 was successful by viewing an access token
 
   ```
   curl --request PUT \
-  https://appid.cloud.ibm.com/oauth/v3/<tenant-ID>/token \
+  https://appid.cloud.ibm.com/oauth/v4/<tenant-ID>/token \
   --header 'Authorization: Basic <encoded-clientID>:<encoded-client-secret>' \
   --header 'Content-Type: application/x-www-form-urlencoded' \
   --header `Accept: application/json`

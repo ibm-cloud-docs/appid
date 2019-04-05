@@ -56,12 +56,12 @@ Based on feedback, option 1 is usually the easiest way to go.
 By using introspection, you can use {{site.data.keyword.appid_short_notm}} to validate your tokens.
 {: shortdesc}
 
-1. Send a POST request to the [/introspect](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization%20Server%20-%20Authorization%20Server%20V3/oauth-server.token) API endpoint to validate your token. The request must provide the token and a basic authorization header that contains the client ID and secret.
+1. Send a POST request to the [/introspect](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization%20Server%20-%20Authorization%20Server%20V4/oauth-server.token) API endpoint to validate your token. The request must provide the token and a basic authorization header that contains the client ID and secret.
 
   Example request:
 
     ```
-    POST /oauth/v3/{tenant_id}/introspect HTTP/1.1
+    POST /oauth/v4/{tenant_id}/introspect HTTP/1.1
     Host: us-south.appid.cloud.ibm.com
     Content-Type: application/x-www-form-urlencoded
     Authorization: Basic jdFlUaGlZUzAwTW0Tjk15TmpFMw==
@@ -118,19 +118,19 @@ You can validate your tokens locally by parsing the token, verifying the token s
 
     ```
     {
-      "iss": "appid-oauth.ng.bluemix.net",
+      "iss": "https://us-south.appid.cloud.ibm.com/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6050a61",
       "aud": "abc123",
       "exp": 1564566
     }
     ```
     {: screen}
 
-2. Make a call to the [/publickeys endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Authorization_Server_V3/publicKeys) to retrieve your public keys. The public keys that are returned are formatted as [JSON Web Keys (JWK)](https://tools.ietf.org/html/rfc7517).
+2. Make a call to the [/publickeys endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Authorization_Server_V4/publicKeys) to retrieve your public keys. The public keys that are returned are formatted as [JSON Web Keys (JWK)](https://tools.ietf.org/html/rfc7517).
 
   Example request:
 
     ```
-    GET /oauth/v3/{tenant_id}/publickeys HTTP/1.1
+    GET /oauth/v4/{tenant_id}/publickeys HTTP/1.1
     Host: us-south.appid.cloud.ibm.com
     Cache-Control: no-cache
     ```

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-25"
+lastupdated: "2019-04-04"
 
 keywords: authentication, authorization, identity, app security, secure, access, tokens
 
@@ -38,19 +38,28 @@ Access tokens represent authorization and enable communication with [back-end re
 
 Example token:
   ```
-  Header: {
-      "typ": "JOSE",
-      "alg": "RS256",
+  Header:
+  {
+    "alg": "RS256",
+    "typ": "JWT",
+    "kid": "appId-39a37f57-a227-4bfe-a044-93b6e6050a61-2018-08-02T11:57:43.401",
+    "ver": 4
   }
-  Payload: {
-      "iss": "appid-oauth.ng.bluemix.net",
-      "exp": "1495562664",
-      "aud": "a3b87400-f03b-4956-844e-a52103ef26ba",
-      "amr": ["facebook"],
-      "sub": "de6a17d2-693d-4a43-8ea2-2140afd56a22",
-      "iat": "1495559064",
-      "tenant": "9781974b-6a1c-46c3-aebf-32b7e9bbbaee",
-      "scope": "appid_default appid_readprofile appid_readuserattr appid_writeuserattr",
+  Payload:
+  {
+    "iss": "https://us-south.appid.cloud.ibm.com/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6050a61",
+    "exp": 1551903163,
+    "aud": [
+      "968c2306-9aef-4109-bc06-4f5ed6axi24a"
+    ],
+    "sub": "2b96cc04-eca5-4122-a8de-6e07d14c13a5",
+    "email_verified": true,
+    "amr": [
+      "cloud_directory"
+    ],
+    "iat": 1551899553,
+    "tenant": "39a37f57-a227-4bfe-a044-93b6e6050a61",
+    "scope": "openid appid_default appid_readprofile appid_readuserattr appid_writeuserattr appid_authenticated"
   }
   ```
   {: screen}
@@ -62,33 +71,35 @@ Identity tokens represent authentication and contain information about the user.
 
 Example token:
   ```
-  Header: {
-      "typ": "JOSE",
-      "alg": "RS256",
+  Header:
+  {
+    "alg": "RS256",
+    "typ": "JWT",
+    "kid": "appId-39a37f57-a227-4bfe-a044-93b6e6050a61-2018-08-02T11:57:43.401",
+    "ver": 4
   }
-  Payload: {
-      "iss": "appid-oauth.ng.bluemix.net",
-      "aud": "a3b87400-f03b-4956-844e-a52103ef26ba",
-      "exp: "1495562664",
-      "tenant": "9781974b-6a1c-46c3-aebf-32b7e9bbbaee",
-      "iat": "1495559064",
-      "name": "John Smith",
-      "email": "js@mail.com",
-      "gender", "male",
-      "locale": "en",
-      "picture": "<URL-to-photo>",
-      "sub": "de6a17d2-693d-4a43-8ea2-2140afd56a22",
-      "identities": [
-          "provider": "facebook"
-          "id": "377440159275659"
-      ],
-      "amr": ["facebook"],
-      "oauth_client":{
-        "name": "IBMCloudApp",
-        "type": "serverapp",
-        "software_id": "cb638f8f-e24b-41d3-b770-23be158dd8e6.2b94e6bb-bac4-4455-8712-a43fa804d5cc.a3b87400-f03b-4956-844e-a52103ef26ba",
-        "software_version": "1.0.0",
+  Payload:
+  {
+    "iss": "https://us-south.appid.cloud.ibm.com/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6050a61",
+    "aud": [
+      "968c2306-9aef-4109-bc06-4f5ed6axi24a"
+    ],
+    "exp": 1551903163,
+    "tenant": "39a37f57-a227-4bfe-a044-93b6e6050a61",
+    "iat": 1551899553,
+    "email": "appid155@mailinator.com",
+    "name": "appid155@mailinator.com",
+    "sub": "2b96cc04-eca5-4122-a8de-6e07d14c13a5",
+    "email_verified": true,
+    "identities": [
+      {
+        "provider": "cloud_directory",
+        "id": "118c0278-3526-4954-876b-cf70eb88efa2"
       }
+    ],
+    "amr": [
+      "cloud_directory"
+    ]
   }
   ```
   {: screen}
