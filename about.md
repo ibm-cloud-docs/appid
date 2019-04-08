@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-04-05"
 
 keywords: authentication, authorization, identity, app security, secure, compliance, high availability
 
@@ -104,7 +104,6 @@ You can use {{site.data.keyword.appid_short_notm}} with other {{site.data.keywor
   <dt>Node.js programming guide</dt>
     <dd>Do you develop apps in Node.js? Try out the [Node.js programming guide](/docs/node?topic=nodejs-node-getting-started#node-getting-started) to learn, experiment, and enhance your existing Node.js apps with {{site.data.keyword.cloud_notm}}.</dd>
 </dl>
-
 
 
 ## Compliance and standards
