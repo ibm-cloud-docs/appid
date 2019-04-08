@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-04-08"
 
 keywords: authentication, authorization, identity, app security, secure, access management, roles, attributes, users
 
@@ -322,20 +322,23 @@ Optionally, you can verify that step 4 was successful by viewing an access token
   3. Paste the token into the box labeled **Encoded**.
 
 6. In the **Decoded** section, verify that you can see the role.
-  
+
   ```
   {
-      iss: "appid-oauth.ng.bluemix.net",
-      exp: "1548103508",
-      aud: "a3b87400-f03b-4956-844e-a52103ef26ba",
-      sub: "de6a17d2-693d-4a43-8ea2-2140afd56a22",
-      amr: [
-            "cloud_directory"
-      ],
-      iat: "1548099908",
-      tenant: "9781974b-6a1c-46c3-aebf-32b7e9bbbaee",
-      scope: "appid_default appid_readprofile appid_readuserattr appid_writeuserattr",
-      role: "manager"
+    "iss": "https://us-south.appid.cloud.ibm.com/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6050a61",
+    "exp": 1551903163,
+    "aud": [
+      "968c2306-9aef-4109-bc06-4f5ed6axi24a"
+    ],
+    "sub": "2b96cc04-eca5-4122-a8de-6e07d14c13a5",
+    "email_verified": true,
+    "amr": [
+      "cloud_directory"
+    ],
+    "iat": 1551899553,
+    "tenant": "39a37f57-a227-4bfe-a044-93b6e6050a61",
+    "scope": "openid appid_default appid_readprofile appid_readuserattr appid_writeuserattr appid_authenticated"
+    "role": "manager"
   }
   ```
   {: screen}

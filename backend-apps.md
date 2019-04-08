@@ -38,6 +38,7 @@ You can use the {{site.data.keyword.appid_full}} SDKs and APIs to protect your b
 
 Part of developing back-end apps is verifying that your APIs are protected from unauthorized access. The {{site.data.keyword.appid_short_notm}} SDKs make it easy to protect your API endpoints and ensure the security of your app.
 
+
 ### What is the flow's technical basis?
 {: #backend-technical-flow}
 
@@ -46,10 +47,11 @@ Part of developing back-end apps is verifying that your APIs are protected from 
 For more information about how tokens are used in {{site.data.keyword.appid_short_notm}}, see [Understanding tokens](/docs/services/appid?topic=appid-tokens#tokens).
 {: tip}
 
+
 ### What does this flow look like?
 {: #backend-flow}
 
-![{{site.data.keyword.appid_short_notm}} back-end flow. Steps are listed in order in the following the image.](images/backend-flow.png)
+![{{site.data.keyword.appid_short_notm}} back-end flow. Steps are listed in order, following the image.](images/backend-flow.png)
 
 1. A client makes a POST request to the {{site.data.keyword.appid_short_notm}} authorization server to obtain an access token. A POST request generally takes the following form:
 
@@ -220,6 +222,8 @@ if #available(OSX 10.12, *) {
 {: #backend-secure-api}
 
 Securing your back-end apps and protected resources involves validating tokens. You can validate {{site.data.keyword.appid_short_notm}} access and identity tokens in several ways. For help with validating tokens, check out [Validating tokens](/docs/services/appid?topic=appid-token-validation#token-validation).
+
+
 
 
 
