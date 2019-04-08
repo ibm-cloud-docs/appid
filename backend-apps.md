@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-04-08"
 
 keywords: authentication, authorization, identity, app security, secure, backend, back-end, oauth, 
 
@@ -21,6 +21,10 @@ subcollection: appid
 {:important: .important}
 {:deprecated: .deprecated}
 {:download: .download}
+{:java: .ph data-hd-programlang='java'}
+{:javascript: .ph data-hd-programlang='javascript'}
+{:swift: .ph data-hd-programlang='swift'}
+{:curl: .ph data-hd-programlang='curl'}
 
 # Back-end apps
 {: #backend}
@@ -62,6 +66,11 @@ For more information about how tokens are used in {{site.data.keyword.appid_shor
 3. The client sends a request to the protected resource.
 
 4. The protected resource or API validates the token. If the token is valid, access to the resource is granted for the client. If the token cannot be validated, access is denied.
+
+
+
+
+
 
 
 ## Protecting resources with the Node.js SDK
@@ -140,6 +149,7 @@ The following snippet demonstrates how to use `ApiStrategy` in an Express app to
 When the tokens are valid, the next middleware in the request chain is called and the `appIdAuthorizationContext` property is added to the request object. The property contains the original access and identity tokens and the decoded payload information of the tokens.
 
 
+
 ## Protecting resources with the Swift SDK
 {: #backend-secure-swift}
 
@@ -210,6 +220,7 @@ if #available(OSX 10.12, *) {
 {: #backend-secure-api}
 
 Securing your back-end apps and protected resources involves validating tokens. You can validate {{site.data.keyword.appid_short_notm}} access and identity tokens in several ways. For help with validating tokens, check out [Validating tokens](/docs/services/appid?topic=appid-token-validation#token-validation).
+
 
 
 ## Next steps

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-04-08"
 
 keywords: authentication, authorization, identity, app security, secure
 
@@ -59,7 +59,7 @@ Advanced security features give you the ability to strengthen the security of yo
   </tr>
   <tr>
     <td>Multi-factor authentication</td>
-    <td>[MFA for Cloud Directory](/docs/services/appid?topic=appid-cd-mfa) confirms a user’s identity by requiring a user to enter a one time passcode that is sent to their email in addition to their entering their email and password.</td>
+    <td>[MFA for Cloud Directory](/docs/services/appid?topic=appid-cd-mfa#cd-mfa) confirms a user’s identity by requiring a user to enter a one time passcode that is sent to their email in addition to their entering their email and password.</td>
   </tr>
   <tr>
     <td>Password policy management</td>
@@ -82,17 +82,11 @@ For the most up-to-date pricing information, you can create a cost estimate by c
 
 
 
-
-## Why do I need to whitelist my redirect URL?
+## Why do I need to whitelist my redirect URI?
 {: #faq-redirect}
 {: faq}
 
-A redirect URL is the callback endpoint of your app. To prevent phishing attacks, {{site.data.keyword.appid_short_notm}} validates the URL against the whitelist of redirect URLs. When phishing occurs, the possibility that an attacker can gain access to your user's tokens exists.
-
-To add your URL to the whitelist:
-
-1. Navigate to **Identity Providers > Manage**.
-2. In the **Add web redirect URL** field, type the URL and click **+**.
+A redirect URI is the callback endpoint of your app. To prevent phishing attacks, {{site.data.keyword.appid_short_notm}} validates the URI against the whitelist of redirect URIs. When phishing occurs, the possibility that an attacker can gain access to your user's tokens exists. For more information about redirect URIs, see [Adding redirect URIs](/docs/services/appid?topic=appid-managing-idp#add-redirect-uri).
 
 Do not include any query parameters in your URL. They are ignored in the validation process. Example URL: `http://host:[port]/path`
 {: tip}
@@ -136,3 +130,4 @@ Check out the following table for answers to commonly asked questions about encr
     </tr>
   </tbody>
 </table>
+
