@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-04-08"
 
 keywords: authentication, authorization, identity, app security, secure, backend, back-end, oauth, 
 
@@ -21,6 +21,10 @@ subcollection: appid
 {:important: .important}
 {:deprecated: .deprecated}
 {:download: .download}
+{:java: .ph data-hd-programlang='java'}
+{:javascript: .ph data-hd-programlang='javascript'}
+{:swift: .ph data-hd-programlang='swift'}
+{:curl: .ph data-hd-programlang='curl'}
 
 # Back-end apps
 {: #backend}
@@ -34,6 +38,7 @@ You can use the {{site.data.keyword.appid_full}} SDKs and APIs to protect your b
 
 Part of developing back-end apps is verifying that your APIs are protected from unauthorized access. The {{site.data.keyword.appid_short_notm}} SDKs make it easy to protect your API endpoints and ensure the security of your app.
 
+
 ### What is the flow's technical basis?
 {: #backend-technical-flow}
 
@@ -42,10 +47,11 @@ Part of developing back-end apps is verifying that your APIs are protected from 
 For more information about how tokens are used in {{site.data.keyword.appid_short_notm}}, see [Understanding tokens](/docs/services/appid?topic=appid-tokens#tokens).
 {: tip}
 
+
 ### What does this flow look like?
 {: #backend-flow}
 
-![{{site.data.keyword.appid_short_notm}} back-end flow. Steps are listed in order in the following the image.](images/backend-flow.png)
+![{{site.data.keyword.appid_short_notm}} back-end flow. Steps are listed in order, following the image.](images/backend-flow.png)
 
 1. A client makes a POST request to the {{site.data.keyword.appid_short_notm}} authorization server to obtain an access token. A POST request generally takes the following form:
 
@@ -62,6 +68,11 @@ For more information about how tokens are used in {{site.data.keyword.appid_shor
 3. The client sends a request to the protected resource.
 
 4. The protected resource or API validates the token. If the token is valid, access to the resource is granted for the client. If the token cannot be validated, access is denied.
+
+
+
+
+
 
 
 ## Protecting resources with the Node.js SDK
@@ -140,6 +151,7 @@ The following snippet demonstrates how to use `ApiStrategy` in an Express app to
 When the tokens are valid, the next middleware in the request chain is called and the `appIdAuthorizationContext` property is added to the request object. The property contains the original access and identity tokens and the decoded payload information of the tokens.
 
 
+
 ## Protecting resources with the Swift SDK
 {: #backend-secure-swift}
 
@@ -210,6 +222,9 @@ if #available(OSX 10.12, *) {
 {: #backend-secure-api}
 
 Securing your back-end apps and protected resources involves validating tokens. You can validate {{site.data.keyword.appid_short_notm}} access and identity tokens in several ways. For help with validating tokens, check out [Validating tokens](/docs/services/appid?topic=appid-token-validation#token-validation).
+
+
+
 
 
 ## Next steps
