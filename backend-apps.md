@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-08"
+lastupdated: "2019-04-10"
 
 keywords: authentication, authorization, identity, app security, secure, backend, back-end, oauth, 
 
@@ -51,7 +51,7 @@ For more information about how tokens are used in {{site.data.keyword.appid_shor
 ### What does this flow look like?
 {: #backend-flow}
 
-![{{site.data.keyword.appid_short_notm}} back-end flow. Steps are listed in order, following the image.](images/backend-flow.png)
+![{{site.data.keyword.appid_short_notm}} backend flow. Steps are listed in order, following the image.](images/backend-flow.png)
 
 1. A client makes a POST request to the {{site.data.keyword.appid_short_notm}} authorization server to obtain an access token. A POST request generally takes the following form:
 
@@ -65,7 +65,12 @@ For more information about how tokens are used in {{site.data.keyword.appid_shor
 
 2. If the client meets the qualifications, the authorization server returns an access token.
 
-3. The client sends a request to the protected resource.
+3. The client sends a request to the protected resource. A request generally takes the following form:
+
+  ```
+  curl -H 'Authorization: Bearer {access_token}' {https://my-protected-resource.com}
+  ```
+  {: screen}
 
 4. The protected resource or API validates the token. If the token is valid, access to the resource is granted for the client. If the token cannot be validated, access is denied.
 
@@ -196,8 +201,7 @@ if #available(OSX 10.12, *) {
                 try response.status(.OK).send(
                     "<!DOCTYPE html><html><body>" +
                         "Welcome " + userProfile.displayName  +
-                        "! You are logged in with " + userProfile.provider + ".
-" +
+                        "! You are logged in with " + userProfile.provider + "." +
                     "</body></html>\n\n").end()
                 next()
                 return
@@ -218,13 +222,12 @@ if #available(OSX 10.12, *) {
 ```
 {: pre}
 
+
+
 ## Protecting resources manually
 {: #backend-secure-api}
 
-Securing your back-end apps and protected resources involves validating tokens. You can validate {{site.data.keyword.appid_short_notm}} access and identity tokens in several ways. For help with validating tokens, check out [Validating tokens](/docs/services/appid?topic=appid-token-validation#token-validation).
-
-
-
+To secure your backend apps and protected resources, you need to validate a token. When a client sends a request to your resource you can verify that the token meets the defined specifications. The token might include identifying information, scope, or any other configuration that you have in place. You can validate {{site.data.keyword.appid_short_notm}} access and identity tokens in several ways. For help with validating tokens, check out [Validating tokens](/docs/services/appid?topic=appid-token-validation#token-validation).
 
 
 ## Next steps

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-08"
+lastupdated: "2019-04-10"
 
 keywords: authentication, authorization, identity, app security, secure
 
@@ -72,6 +72,9 @@ Interested in securing your applications? Check out the blogs and samples here t
 * <a href="https://admin.blogs.prd.ibm.event.ibm.com/blogs/bluemix/2018/11/creating-go-applications-with-app-id/" target="_blank">Creating Go applications with {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 * <a href="https://www.ibm.com/blogs/bluemix/2019/03/app-id-integrate-custom-identity/" target="_blank">Sign in your app users with any identity provider by using {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 * <a href="http://heidloff.net/article/authenticating-web-users-openid-connect-jwt/" target="_blank">Authenticating Web Users with OpenID and JWT <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
+* <a href="http://heidloff.net/article/authentication-authorization-openid-connect-istio" target="_blank">Authorization in Cloud-Native Apps in Istio via OpenID <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
+
+
 
 Using multiple cloud providers? Checkout this blog: <a href="https://www.ibm.com/blogs/bluemix/2019/03/adding-sign-in-to-multicloud-applications-without-code-changes/" target="_blank">Adding sign in to multicloud applications without code changes <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 {: tip}

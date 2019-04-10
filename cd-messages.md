@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-04-10"
 
 keywords: authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
@@ -499,7 +499,7 @@ You can use <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Managemen
   <tr>
     <td><code>ar-MA</code></td>
     <td>Arabic</td>
-    <td>Moroco</td>
+    <td>Morocco</td>
   </tr>
   <tr>
     <td><code>ar-OM</code></td>
