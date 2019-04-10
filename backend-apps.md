@@ -227,7 +227,7 @@ if #available(OSX 10.12, *) {
 ## Protecting resources manually
 {: #backend-secure-api}
 
-To secure your backend apps and protected resources, you need to validate a token. When a client sends a request to your resource you can verify that the token meets the defined specifications. The token might include identifying information, scope, or any other configuration that you have in place. You can validate {{site.data.keyword.appid_short_notm}} access and identity tokens in several ways. For help with validating tokens, check out [Validating tokens](/docs/services/appid?topic=appid-token-validation#token-validation).
+To secure your backend apps and protected resources, you need to validate a token. When a client sends a request to your resource you can verify that the token meets the defined specifications. The token might include identifying information, scope, or any other configuration that you have in place. You can validate {{site.data.keyword.appid_short_notm}} access and identity tokens in several ways. For help, check out [Validating tokens](/docs/services/appid?topic=appid-token-validation#token-validation).
 
 
 ## Next steps
