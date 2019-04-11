@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-10"
+lastupdated: "2019-04-11"
 
 keywords: authentication, authorization, identity, app security, secure, backend, back-end, oauth, 
 
@@ -65,7 +65,7 @@ For more information about how tokens are used in {{site.data.keyword.appid_shor
 
 2. If the client meets the qualifications, the authorization server returns an access token.
 
-3. The client sends a request to the protected resource. The request format can different depending on the grant type that you're working with, but a request generally takes the following form:
+3. The client sends a request to the protected resource. Requests can be sent in multiple ways, depending on which HTTP client library you're using but a request generally takes the following form:
 
   ```
   curl -H 'Authorization: Bearer {access_token}' {https://my-protected-resource.com}
