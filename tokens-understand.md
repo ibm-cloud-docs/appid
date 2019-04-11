@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-05"
+lastupdated: "2019-04-11"
 
 keywords: authentication, authorization, identity, app security, secure, access, tokens
 
@@ -135,7 +135,7 @@ The access token contains a set of standard JWT claims and a set of {{site.data.
 ## How are tokens received?
 {: #received}
 
-The tokens are received by your app after a successful authentication. You app can use the tokens to retrieve information about user authorization and authentication. The access token can be used to gain access to protected resources by sending a request to the resource. In the request, the access token is described in the [Bearer authentication scheme](https://tools.ietf.org/html/rfc6750#page-5) scheme. To extract the tokens, your app must parse the header.
+The tokens are received by your app after a successful authentication. You app can use the tokens to retrieve information about user authorization and authentication. The access token can be used to gain access to protected resources by sending a request to the resource. In the request, the access token is described in the [Bearer authentication scheme](https://tools.ietf.org/html/rfc6750#page-5). To extract the tokens, your app must parse the header.
 
 Example request:
 
