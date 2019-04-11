@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-04-10"
 
 keywords: authentication, authorization, identity, app security, secure, tokens, jwt, development
 
@@ -142,7 +142,7 @@ You can validate your tokens locally by parsing the token, verifying the token s
 
   Example response:
 
-    ```]
+    ```
     {
       "keys": [
         {

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-04-11"
 
 keywords: authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
@@ -288,7 +288,7 @@ To configure your custom email sender, you must use the Cloud Directory <a href=
   ```
     {
       "tenant": "tenant-id",
-      "iss" : "appid-oauth.ng.bluemix.net",
+      "iss" : "https://us-south.appid.cloud.ibm.com/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6050a61", 
       "iat": 1539173126,
       "jti": "uniq-id",
       "message": {
@@ -499,7 +499,7 @@ You can use <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Managemen
   <tr>
     <td><code>ar-MA</code></td>
     <td>Arabic</td>
-    <td>Moroco</td>
+    <td>Morocco</td>
   </tr>
   <tr>
     <td><code>ar-OM</code></td>

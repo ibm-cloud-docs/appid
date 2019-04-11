@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-02"
+lastupdated: "2019-04-10"
 
 keywords: authentication, authorization, identity, app security, secure, development, idp, troubleshooting, redirected, validation
 
@@ -97,7 +97,7 @@ Review the following table for explanations and resolutions for the most common 
 ## SAML response validation errors
 {: #ts-saml-response}
 
-{{site.data.keyword.appid_short_notm}} imposes the following validity requirements for assertions. All of the attributes are mandatory SAMLResponse XML nodes unless specified otherwise.
+{{site.data.keyword.appid_short_notm}} imposes the following validity requirements for assertions. All of the attributes are mandatory SAML response XML nodes unless specified otherwise.
 {: shortdesc}
 
 

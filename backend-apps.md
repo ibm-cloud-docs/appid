@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-08"
+lastupdated: "2019-04-10"
 
 keywords: authentication, authorization, identity, app security, secure, backend, back-end, oauth, 
 
@@ -51,7 +51,7 @@ For more information about how tokens are used in {{site.data.keyword.appid_shor
 ### What does this flow look like?
 {: #backend-flow}
 
-![{{site.data.keyword.appid_short_notm}} back-end flow. Steps are listed in order, following the image.](images/backend-flow.png)
+![{{site.data.keyword.appid_short_notm}} backend flow. Steps are listed in order, following the image.](images/backend-flow.png)
 
 1. A client makes a POST request to the {{site.data.keyword.appid_short_notm}} authorization server to obtain an access token. A POST request generally takes the following form:
 
@@ -65,102 +65,31 @@ For more information about how tokens are used in {{site.data.keyword.appid_shor
 
 2. If the client meets the qualifications, the authorization server returns an access token.
 
-3. The client sends a request to the protected resource.
+3. The client sends a request to the protected resource. The request format can different depending on the grant type that you're working with, but a request generally takes the following form:
+
+  ```
+  curl -H 'Authorization: Bearer {access_token}' {https://my-protected-resource.com}
+  ```
+  {: screen}
 
 4. The protected resource or API validates the token. If the token is valid, access to the resource is granted for the client. If the token cannot be validated, access is denied.
 
 
 
+## Protecting resources by using an SDK
+{: #backend-secure}
 
-
-
-
-## Protecting resources with the Node.js SDK
-{: #backend-secure-node}
-
-The {{site.data.keyword.appid_short_notm}} server SDK enforces authentication and authorization with the [Passport framework](http://www.passportjs.org/). With the `ApiStrategy`, you can secure your backed resources by requiring that access and identity tokens are validated in the authorization header as part of the request.
+You can use the {{site.data.keyword.appid_short_notm}} SDKs to enforce authentication and authorization for your server-side applications. The `ApiStrategy` works to secure your backend resources by requiring that access and identity tokens are validated as part of the request.
 {: shortdesc}
 
-**Before you begin**
+The {{site.data.keyword.appid_short_notm}} Node.js SDK works in conjunction with the [Passport framework](http://www.passportjs.org/).
+{: ph data-hd-programlang='javascript'}
 
-You must have the following prerequisites before you can get started:
- * An instance of {{site.data.keyword.appid_short_notm}}
- * NPM version 4 or higher
- * Node version 6 or higher
-
-### Installing the SDK
-{: #backend-install-node}
-
-1. Add the {{site.data.keyword.appid_short_notm}} Node.js SDK to your app's `package.json` file.
-
-  ```
-  "dependencies": {
-      "ibmcloud-appid": "^6.0.0"
-  }
-  ```
-  {: pre}
-
-2. Run the following command.
-
-  ```
-  npm install
-  ```
-  {: pre}
-
-### Initializing the SDK
-{: #backend-initialize-node}
-
-You can initialize the SDK by using an `oauth server url`.
-
-1. Obtain your `oauth server url`.
-  1. Navigate to the **Service Credentials** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
-  2. If you don't already have a set of credentials, click **New credential** and then click **Add** to create a new set. If you do, skip this step.
-  3. Click the **View credentials** toggle to see your information.
-  4. Copy your `oauth server url` to use in the next step.
-
-2. Initialize the {{site.data.keyword.appid_short_notm}} passport strategy as shown in the following example.
-
-  ```javascript
-  var express = require('express'); 
-  var passport = require('passport');
-  var APIStrategy = require('ibmcloud-appid').APIStrategy; 
-  passport.use(new APIStrategy({ oauthServerUrl: "{oauth-server-url}" })); 
-  var app = express();
-  app.use(passport.initialize());
-  ```
-  {: pre}
-
-
-If your Node.js app runs on {{site.data.keyword.cloud_notm}} and is bound to your instance of {{site.data.keyword.appid_short_notm}}, there's no need to provide the API strategy configuration. The {{site.data.keyword.appid_short_notm}} configuration obtains the information by using the VCAP_SERVICES environment variable.
-{: tip}
-
-### Securing the API
-{: #backend-secure-api-strategy}
-
-The following snippet demonstrates how to use `ApiStrategy` in an Express app to protect the `/protected` GET API.
-
-  ```javascript
-   app.get('/protected', passport.authenticate('APIStrategy.STRATEGY_NAME', { session: false }), function(request, response){
-      console.log("Security context", request.appIdAuthorizationContext);
-      response.send(200, "Success!");
-      }
-   );
-   ```
-  {: pre}
-
-When the tokens are valid, the next middleware in the request chain is called and the `appIdAuthorizationContext` property is added to the request object. The property contains the original access and identity tokens and the decoded payload information of the tokens.
-
-
-
-## Protecting resources with the Swift SDK
-{: #backend-secure-swift}
-
-You can use {{site.data.keyword.appid_short_notm}} to protect your server-side resources by using the Swift SDK.
-{: shortdesc}
-
-The {{site.data.keyword.appid_short_notm}} [Swift server SDK](https://github.com/ibm-cloud-security/appid-serversdk-swift) provides an API protection middleware plug-in that is used to protect your back-end apps. By associating your APIs with the middleware, you can protect your app from unauthorized access. After the API is protected, the middleware ensures that the tokens that are generated by {{site.data.keyword.appid_short_notm}} are validated. You can then modify the behavior of the API depending on the validation results.
+The {{site.data.keyword.appid_short_notm}} server side Swift SDK provides an API protection middleware plug-in that is used to protect your backend apps. By associating your APIs with the middleware you can protect your app from unauthorized access. After the API is protected, the middleware ensures that the tokens that are generated by {{site.data.keyword.appid_short_notm}} are validated. You can then modify the behavior of the API depending on the validation results.
+{: ph data-hd-programlang='swift'}
 
 See the following code snippet for an example of how to protect the `/protectedendpoint` API.
+{: ph data-hd-programlang='swift'}
 
 ```Swift
 import Foundation
@@ -196,8 +125,7 @@ if #available(OSX 10.12, *) {
                 try response.status(.OK).send(
                     "<!DOCTYPE html><html><body>" +
                         "Welcome " + userProfile.displayName  +
-                        "! You are logged in with " + userProfile.provider + ".
-" +
+                        "! You are logged in with " + userProfile.provider + "." +
                     "</body></html>\n\n").end()
                 next()
                 return
@@ -217,14 +145,98 @@ if #available(OSX 10.12, *) {
 }
 ```
 {: pre}
+{: ph data-hd-programlang='swift'}
+
+
+### Before you begin
+{: #backend-secure-before}
+{: ph data-hd-programlang='javascript'}
+
+Before you get started, you must have the following prerequisites.
+{: ph data-hd-programlang='javascript'}
+  * An instance of {{site.data.keyword.appid_short_notm}}
+  * NPM version 4 or higher
+  * Node version 6 or higher
+  {: ph data-hd-programlang='javascript'}
+
+### Installing the SDK
+{: #backend-secure-install}
+{: ph data-hd-programlang='javascript'}
+
+1. Add the {{site.data.keyword.appid_short_notm}} Node.js SDK to your app's `package.json` file.
+{: ph data-hd-programlang='javascript'}
+  ```
+  "dependencies": {
+      "ibmcloud-appid": "^6.0.0"
+  }
+  ```
+  {: pre}
+  {: ph data-hd-programlang='javascript'}
+
+2. Run the following command.
+{: ph data-hd-programlang='javascript'}
+
+  ```
+  npm install
+  ```
+  {: pre}
+  {: ph data-hd-programlang='javascript'}
+
+### Initializing the SDK
+{: #backend-secure-initialize}
+{: ph data-hd-programlang='javascript'}
+
+1. Obtain your `oauth server url`.
+  1. Navigate to the **Service Credentials** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
+  2. If you don't already have a set of credentials, click **New credential** and then click **Add** to create a new set. If you do, skip this step.
+  3. Click the **View credentials** toggle to see your information.
+  4. Copy your `oauth server url` to use in the next step.
+  {: ph data-hd-programlang='javascript'}
+
+2. Initialize the {{site.data.keyword.appid_short_notm}} passport strategy as shown in the following example.
+{: ph data-hd-programlang='javascript'}
+  ```javascript
+  var express = require('express'); 
+  var passport = require('passport');
+  var APIStrategy = require('ibmcloud-appid').APIStrategy; 
+  passport.use(new APIStrategy({ oauthServerUrl: "{oauth-server-url}" })); 
+  var app = express();
+  app.use(passport.initialize());
+  ```
+  {: pre}
+  {: ph data-hd-programlang='javascript'}
+
+
+If your Node.js app runs on {{site.data.keyword.cloud_notm}} and is bound to your instance of {{site.data.keyword.appid_short_notm}}, there's no need to provide the API strategy configuration. The {{site.data.keyword.appid_short_notm}} configuration obtains the information by using the VCAP_SERVICES environment variable.
+{: tip}
+{: ph data-hd-programlang='javascript'}
+
+
+### Securing the API
+{: #backend-secure-api-strategy}
+{: ph data-hd-programlang='javascript'}
+
+The following snippet demonstrates how to use `ApiStrategy` in an Express app to protect the `/protected` GET API.
+{: ph data-hd-programlang='javascript'}
+
+  ```javascript
+   app.get('/protected', passport.authenticate('APIStrategy.STRATEGY_NAME', { session: false }), function(request, response){
+      console.log("Security context", request.appIdAuthorizationContext);
+      response.send(200, "Success!");
+      }
+   );
+   ```
+  {: pre}
+  {: ph data-hd-programlang='javascript'}
+
+When the tokens are valid, the next middleware in the request chain is called and the `appIdAuthorizationContext` property is added to the request object. The property contains the original access and identity tokens and the decoded payload information of the tokens.
+{: ph data-hd-programlang='javascript'}
+
 
 ## Protecting resources manually
 {: #backend-secure-api}
 
-Securing your back-end apps and protected resources involves validating tokens. You can validate {{site.data.keyword.appid_short_notm}} access and identity tokens in several ways. For help with validating tokens, check out [Validating tokens](/docs/services/appid?topic=appid-token-validation#token-validation).
-
-
-
+To secure your backend apps and protected resources, you need to validate a token. When a client sends a request to your resource you can verify that the token meets the defined specifications. The token might include identifying information, scope, or any other configuration that you have in place. You can validate {{site.data.keyword.appid_short_notm}} access and identity tokens in several ways. For help, check out [Validating tokens](/docs/services/appid?topic=appid-token-validation#token-validation).
 
 
 ## Next steps
