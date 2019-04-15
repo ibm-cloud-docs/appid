@@ -59,6 +59,7 @@ https://idp.example.org/SAML2/SSO/Redirect?SAMLRequest=request&RelayState=token
 {: #ts-saml-response-sign-fail}
 
 **What's happening**
+
 When you send an authentication request you receive the following error message:
 
 ```
@@ -71,6 +72,7 @@ Could not verify SAML assertion signature. Ensure App ID is configurated with yo
 App ID expects all SAML assertions in your response to be signed. If the service cannot find or verify the signature in the response, the error is returned.
 
 **How to fix it**
+
 To resolve the issue, be sure that:
 
 * You have extracted the signing certificate from your identity providers metadata XML file. Be sure that you use the key with `<KeyDescriptor use="signing">`.
@@ -102,7 +104,6 @@ Could not decrypt SAML assertion. Ensure your SAML provider is configured with t
 
 **Why it's happening**
 
-
 If your identity provider is configured to encrypt, App ID must be configured to sign the SAML authentication requests (AuthNRequest). Then, your identity provider must be configured to expect the corresponding configuration. You might receive these errors for one of the following reasons:
 
 - App ID is not configured to expect that the identity provider SAML response is encrypted.
@@ -120,6 +121,7 @@ If you receive error message 2, ensure that your certificate is correct. You can
 {: #ts-saml-responder}
 
 **What's happening**
+
 When you send an authentication request you receive the following generic error message:
 
 ```
@@ -128,6 +130,7 @@ urn:oasis:names:tc:SAML:2.0:status:Responder
 {: screen}
 
 **Why it's happening**
+
 Although App ID sends the initial authentication request, the identity provider must perform the user authentication and return the response. There are several reasons that might cause your identity provider to throw this error message.
 
 You might see the message if your identity provider: 
@@ -138,6 +141,7 @@ You might see the message if your identity provider:
 * requires the authentication request to be signed or use a specific algorithm in the signature.
 
 **How to fix it**
+
 To resolve the issue, verify your configuration and username. Verify that you have the correct authentication context and variables defined. Check to see if your request needs to be signed in a specific way.
 
 
@@ -145,12 +149,15 @@ To resolve the issue, verify your configuration and username. Verify that you ha
 {: #ts-saml-unsupported-request}
 
 **What's happening**
+
 You receive a message regarding an unsupported authentication request.
 
 **Why it's happening**
+
 When App ID generates an authentication request, it can use the authentication context to request the quality of the authentication and SAML assertions.
 
 **How to fix it**
+
 To resolve the issue, you can update your authentication context. By default, App ID uses the authentication class `urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport` and comparison `exact`. You can update the context parameter to fit your use case by using the APIs.
 
 
@@ -158,12 +165,15 @@ To resolve the issue, you can update your authentication context. By default, Ap
 {: #ts-saml-unsupported-request}
 
 **What's happening**
+
 You receive an error that states that an authentication request cannot be verified.
 
 **Why it's happening**
+
 App ID can be configured to sign the SAML authentication request (`AuthNRequest`), but your identity provider must be configured to expect the corresponding configuration.
 
 **How to fix it**
+
 To resolve the issue:
 
 * Verify that App ID configure to sign the authentication request by setting the `signRequest` parameter to `true` by using the [set SAML IdP API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.set_saml_idp). You can check to see if your authentication request is signed by looking at the request URL. The signature is included as a query parameter. For example: `https://idp.example.org/SAML2/SSO/Redirect?SAMLRequest=request&SigAlg=value&Signature=value&RelayState=token`
