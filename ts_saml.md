@@ -111,7 +111,7 @@ Review the following table for explanations and resolutions for the most common 
     </tr>
     <tr>
       <td><code>saml:Conditions</code></td>
-      <td><strong>Optional</strong>: When a conditions statement is included in an assertion, it must also contain a valid timestamp. {{site.data.keyword.appid_short_notm}} honors the validity period that is specified in an assertion. To verify, the service looks for the <code>NotBefore</code> and <code>NotOnOrAcd fter</code> constraints that must be defined and valid.</td>
+      <td><strong>Optional</strong>: When a conditions statement is included in an assertion, it must also contain a valid timestamp. {{site.data.keyword.appid_short_notm}} honors the validity period that is specified in an assertion. To verify, the service looks for the <code>NotBefore</code> and <code>NotOnOrAfter</code> constraints that must be defined and valid.</td>
     </tr>
   </tbody>
 </table>
