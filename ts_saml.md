@@ -82,11 +82,11 @@ Review the following table for explanations and resolutions for the most common 
   </thead>
   <tbody>
     <tr>
-      <td><code>samlp:Response</code></td>
+      <td><code>saml:response</code></td>
       <td>The response element must be included in the Response XML.</td>
     </tr>
     <tr>
-      <td><code>SAML version</code></td>
+      <td><code>saml:version</code></td>
       <td>{{site.data.keyword.appid_short_notm}} accepts only <code>SAML version 2.0</code>.</td>
     </tr>
     <tr>
@@ -125,7 +125,7 @@ Review the following table for explanations and resolutions for the most common 
 ### Responder error code
 {: #ts-saml-responder}
 
-{: tsSymptoms}
+**What's happening**
 When you send an authentication request you receive a the following generic error message:
 
 ```
@@ -133,7 +133,7 @@ urn:oasis:names:tc:SAML:2.0:status:Responder
 ```
 {: screen}
 
-{: tsCauses}
+**Why it's happening**
 Although App ID sends the initial authentication request, the identity provider must perform the user authentication and return the response. There are several reasons that might cause your identity provider to throw this error message.
 
 You might see the message if your identity provider: 
@@ -141,38 +141,38 @@ You might see the message if your identity provider:
 * cannot find or verify the username.
 * does not support the `NameID` format that is defined in the authentication request (`AuthNRequest`).
 * does not support the authentication context.
-* Requires the authentication request to be signed or use a specific algorithm in the signature.
+* requires the authentication request to be signed or use a specific algorithm in the signature.
 
-{: tsResolve}
+**How to fix it**
 To resolve the issue, verify your configuration and username. Verify that you have the correct authentication context and variables defined. Check to see if your request needs to be signed in a specific way.
 
 
 ### Unsupported authentication request
 {: #ts-saml-unsupported-request}
 
-{: tsSymptoms}
+**What's happening**
 You receive a message regarding an unsupported authentication request.
 
-{: tsCauses}
+**Why it's happening**
 When App ID generates an authentication request, it can use the authentication context to request the quality of the authentication and SAML assertions.
 
-{: tsResolve}
+**How to fix it**
 To resolve the issue, you can update your authentication context. By default, App ID uses the authentication class `urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport` and comparison `exact`. You can update the context parameter to fit your use case by using the APIs.
 
 
 ### SAML request signing failure
 {: #ts-saml-unsupported-request}
 
-{: tsSymptoms}
+**What's happening**
 You receive an error that states that an authentication request cannot be verified.
 
-{: tsCauses}
+**Why it's happening**
 App ID can be configured to sign the SAML authentication request (`AuthNRequest`), but your identity provider must be configured to expect the corresponding configuration.
 
-{: tsResolve}
+**How to fix it**
 To resolve the issue:
 
-* *Verify that App ID configure to sign the authentication request by setting the `signRequest` parameter to `true` by using the [set SAML IdP API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.set_saml_idp). You can check to see if your authentication request is signed by looking at the request URL. The signature is included as a query parameter. For example: `https://idp.example.org/SAML2/SSO/Redirect?SAMLRequest=request&SigAlg=value&Signature=value&RelayState=token`
+* Verify that App ID configure to sign the authentication request by setting the `signRequest` parameter to `true` by using the [set SAML IdP API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.set_saml_idp). You can check to see if your authentication request is signed by looking at the request URL. The signature is included as a query parameter. For example: `https://idp.example.org/SAML2/SSO/Redirect?SAMLRequest=request&SigAlg=value&Signature=value&RelayState=token`
 
 * Verify that your identity provider is configured with the correct certificate. To obtain the signing certificate check the App ID metadata XML file that you downloaded from the App ID dashboard. Ensure that you define the key as `<KeyDescriptor use="signing">`.
 
@@ -204,5 +204,5 @@ There are several options for browser plugins such as [Firefox](https://addons.m
 
 If you're still having trouble after using your SAML debug tool, try using the [SAML developer tools](https://www.samltool.com/online_tools.php) for more help decoding your messages. Don't forget! Depending on where you intercept your SAML messages, your request might be [URL encoded](https://www.samltool.com/online_tools.php), [base 64 encoded and deflated](https://www.samltool.com/decode.php), or [encrypted](https://www.samltool.com/decrypt.php).
 
-Do not use online tools for decrypting SAML messages like your SAML response because the tools need access to the encryption private key in order to decrypt the information. The private key should be kept private and access controlled. The decryption tool mentioned in this section should be used for debugging purposes only.
+Do not use online tools for decrypting SAML messages like your SAML response. The tools need access to the encryption private key in order to decrypt the information. The key should be kept private and access controlled. The decryption tool mentioned in this section should be used for debugging purposes only.
 {: important}
