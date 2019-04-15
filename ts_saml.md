@@ -55,6 +55,39 @@ https://idp.example.org/SAML2/SSO/Redirect?SAMLRequest=request&RelayState=token
 {: screen}
 
 
+### Identity provider supports SSO
+{: #ts-saml-idp-support-sso}
+
+If your identity provider supports SSO, then it is possible that the SAML authentication uses the already established SSO session to authenticate the user. If it does not, the user is redirected to a login page. They might be redirected if your identity provider can't match the authentication requirements that are defined in App ID's authentication request with what it uses to establish SSO. For example, if your identity provider establishes a user SSO session by using biometrics, then App ID's default authentication context must be changed. By default, App ID expects users to be authenticated by password over HTTPS: `urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport`.
+
+
+
+
+
+### Missing or incorrect NameID field
+{: #ts-saml-nameid}
+
+**What's happening**
+
+When you send an authentication request, you receive an error regarding the `NameID`.
+
+**Why it's happening**
+
+App ID as the service provider, defines the way that users are identitfied by the service and by the identity provider. With App ID, users are identitified in the `NameID` authentication request in the `NameID` field as shown in the following example.
+
+```
+<NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</NameIDFormat>
+```
+{: screen}
+
+**How to fix it**
+
+To resolve the issue, be sure that your identity provider `NameID` is formatted as an email address. Verify that all of the users in your identity provider registry have a valid email address format. Then, verify that the `NameID` field is appropriately defined so that a valid email is always returned - even if users in your registry have multiple emails.
+
+
+
+
+
 ### Response signing failure
 {: #ts-saml-response-sign-fail}
 
@@ -76,7 +109,11 @@ App ID expects all SAML assertions in your response to be signed. If the service
 To resolve the issue, be sure that:
 
 * You have extracted the signing certificate from your identity providers metadata XML file. Be sure that you use the key with `<KeyDescriptor use="signing">`.
-* You have set the response signing algorithm to be XXX. SG: That cannot be right
+* You have set the response signing algorithm to be XXX. 
+
+
+
+
 
 
 
