@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-15"
+lastupdated: "2019-04-16"
 
 keywords: authentication, authorization, identity, app security, secure, development, idp, troubleshooting, redirected, validation
 
@@ -38,10 +38,14 @@ If you have problems when you are configuring SAML to work with {{site.data.keyw
 The SAML framework supports multiple profiles, flows, and configurations, which means that it is essential that your identity provider configuration is configured correctly. Check out the following topics for help resolving some of the common issues that you might encounter when working with SAML.
 {: shortdesc}
 
+
+
 ### Service provider initiated
 {: #ts-samle-sp-initiated}
 
 The web browser SSO profile that App ID implements is service provider initiated, which means that App ID must send a SAML request to the identity provider to initiate the authentication session. App ID does not currently support identity provider initiated flows and they should not be used with the service at this time.
+
+
 
 
 ### Missing RelayState parameter
@@ -182,6 +186,8 @@ You might see the message if your identity provider:
 To resolve the issue, verify your configuration and username. Verify that you have the correct authentication context and variables defined. Check to see if your request needs to be signed in a specific way.
 
 
+
+
 ### Unsupported authentication request
 {: #ts-saml-unsupported-request}
 
@@ -198,8 +204,10 @@ When App ID generates an authentication request, it can use the authentication c
 To resolve the issue, you can update your authentication context. By default, App ID uses the authentication class `urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport` and comparison `exact`. You can update the context parameter to fit your use case by using the APIs.
 
 
+
+
 ### SAML request signing failure
-{: #ts-saml-unsupported-request}
+{: #ts-saml-request-sign-fail}
 
 **What's happening**
 
@@ -218,6 +226,9 @@ To resolve the issue:
 * Verify that your identity provider is configured with the correct certificate. To obtain the signing certificate check the App ID metadata XML file that you downloaded from the App ID dashboard. Ensure that you use the key with `<KeyDescriptor use="signing">`.
 
 * Verify that your identity provider is configured to use `` as the signing algorithm.
+
+
+
 
 
 ## Interpreting SAML error codes
