@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-04-16"
 
 keywords: authentication, authorization, identity, app security, secure, development, identity provider, tokens, customization, lifetime
 
@@ -122,6 +122,12 @@ Be sure to only register URIs of applications that you trust.
 3. Click the **+** symbol in the **Add web redirect URIs** box.
 
 4. Repeat steps one through three until all possible URIs are added to your list.
+
+
+
+Not sure where your redirect URI comes from? Watch the following short video to see where to get it and how to add it to your list.
+
+<iframe class="embed-responsive-item" id="youtubeplayer" title="IBM Cloud App ID: How to fix invalid redirect URI" type="text/html" width="640" height="390" src="//www.youtube.com/embed/6hxqbvpc054?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
 
 
 
