@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-15"
+lastupdated: "2019-04-17"
 
 keywords: authentication, authorization, identity, app security, secure, custom, service provider, identity provider, enterprise, assertions
 
@@ -41,7 +41,7 @@ When you have a SAML-based identity provider, you can configure App ID so that y
 ### What's the flows technical basis?
 {: #saml-tech-basis}
 
-SAML 2.0 is one of the most established frameworks for authentication and authorization standards. It is an XML-based protocol between a service provider (App ID) and an identity provider. When an identity provider authenticates a user, it creates SAML tokens, which contain assertions, or statements, abotu the user. The statements might contain:
+SAML 2.0 is one of the most established frameworks for authentication and authorization standards. It is an XML-based protocol between a service provider (App ID) and an identity provider. When an identity provider authenticates a user, it creates SAML tokens, which contain assertions, or statements, about the user. The statements might contain:
 
 - authentication information like how the user was authenticated - a password, MFA, etc ...
 - attributes associated with the user - which group they belong in.
@@ -71,57 +71,6 @@ Although App ID and your identity provider use the SAML framework to authenticat
 5. If the authentication is successful, App ID creates access and identity tokens that represent a user's authorization and authentication and returns them to the app. If the authentication fails, App ID returns the identity provider error code to the app.
 6. The user is granted access to the app or the protected resources.
 
-
-
-## Understanding assertions within the context of App ID
-{: #saml-assertions}
-
-SAML assertions can be returned in different ways. Check out the following examples to see the way in which App ID expects the response to be formatted.
-{: shortdesc}
-
-
-### What does {{site.data.keyword.appid_short_notm}} expect a SAML assertion to look like?
-{: #saml-example}
-
-The service expects a SAML assertion to look like the following example.
-
-```
-<samlp:Response xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol" ID="s2202bbbbafa9d270d1c15990b738f4ab36139d463" InResponseTo="_e4a78780-35da-012e-8ea7-0050569200d8" Version="2.0" IssueInstant="2011-03-21T11:22:02Z" Destination="https://example.example.com/">
-  <saml:Issuer xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion">idp_entityId</saml:Issuer>
-  <samlp:Status xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
-    <samlp:StatusCode  xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"Value="urn:oasis:names:tc:SAML:2.0:status:Success"/>
-  </samlp:Status>
-  <saml:Assertion xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="2.0" ID="pfx539c9774-de5c-5f52-0c3f-b1c2e2697a89" IssueInstant="2018-01-29T13:02:58Z" xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
-    <saml:Issuer>idp_entityId</saml:Issuer>
-    <ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-      <ds:SignedInfo>
-        <ds:CanonicalizationMethod Algorithm="one_of_supported_algo"/>
-        <ds:SignatureMethod Algorithm="one_of_supported_algo"/>
-        <ds:Reference URI="#pfx539c9774-de5c-5f52-0c3f-b1c2e2697a89">
-          <ds:Transforms>
-            <ds:Transform Algorithm="one_of_supported_algo"/>
-            <ds:Transform Algorithm="one_of_supported_algo"/>
-          </ds:Transforms>
-          <ds:DigestMethod Algorithm="one_of_supported_algo"/>
-          <ds:DigestValue>huywDPPfOEGyyzE7d5hjOG97p7FDdGrjoSfes6RB19g=</ds:DigestValue>
-        </ds:Reference>
-      </ds:SignedInfo>
- <ds:SignatureValue>BAwNZFgWF2oxD1ux0WPfeHnzL+IWYqGhkM9DD28nI9v8XtPN8tqmIb5y4bomaYknmNpWYn7TgNO2Rn/XOq+N9fTZXO2RybaC49iF+zWibRIcNwFKCCpDL6H6jA5eqJX2YKBR+K6Yt2JPoUIRLmqdgm2lMr4Nwq1KYcSzQ/yoV5W0SN/V5t8EfctFoaXVPdtfHVXkwqHeufo+L4gobFt9NRTzXB0SQEClA1L8hQ+/LhY4l46k1D0c34iWjVLZr+ecQyubf7rekOG/R7DjWCFMTke822dR+eJTPWFsHGSPWCDDHFYqB4QMinTvUnsngjY3AssPqIOjeUxjL3p+GXn8IQ==</ds:SignatureValue>
-    </ds:Signature>
-    <saml:Subject>
-      <saml:NameID Format="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress">JohnDoe@gmail.com</saml:NameID>
-    </saml:Subject>
-    <saml:Conditions NotBefore="2018-01-29T12:59:58Z" NotOnOrAfter="2018-01-29T13:05:58Z">
-    </saml:Conditions>
-</samlp:Response>
-```
-{: screen}
-
-
-### What types of algorithms are supported by {{site.data.keyword.appid_short_notm}}?
-{: #saml-signatures}
-
-{{site.data.keyword.appid_short_notm}} uses the <a href="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" target="_blank">RSA-SHA256 <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> algorithm to process XML digital signatures.
 
 
 ## Configuring SAML to work with App ID
@@ -375,3 +324,57 @@ You can test the configuration between your SAML Identity Provider and {{site.da
 
 Having trouble? Check out [Troubleshooting identity provider configurations](/docs/services/appid?topic=appid-troubleshooting-idp#troubleshooting-idp).
 {: tip}
+
+
+
+
+## Understanding assertions within the context of App ID
+{: #saml-assertions}
+
+SAML assertions can be returned in different ways. Check out the following examples to see the way in which App ID expects the response to be formatted.
+{: shortdesc}
+
+
+### What does {{site.data.keyword.appid_short_notm}} expect a SAML assertion to look like?
+{: #saml-example}
+
+The service expects a SAML assertion to look like the following example.
+
+```
+<samlp:Response xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol" ID="s2202bbbbafa9d270d1c15990b738f4ab36139d463" InResponseTo="_e4a78780-35da-012e-8ea7-0050569200d8" Version="2.0" IssueInstant="2011-03-21T11:22:02Z" Destination="https://example.example.com/">
+  <saml:Issuer xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion">idp_entityId</saml:Issuer>
+  <samlp:Status xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
+    <samlp:StatusCode  xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"Value="urn:oasis:names:tc:SAML:2.0:status:Success"/>
+  </samlp:Status>
+  <saml:Assertion xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="2.0" ID="pfx539c9774-de5c-5f52-0c3f-b1c2e2697a89" IssueInstant="2018-01-29T13:02:58Z" xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
+    <saml:Issuer>idp_entityId</saml:Issuer>
+    <ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+      <ds:SignedInfo>
+        <ds:CanonicalizationMethod Algorithm="one_of_supported_algo"/>
+        <ds:SignatureMethod Algorithm="one_of_supported_algo"/>
+        <ds:Reference URI="#pfx539c9774-de5c-5f52-0c3f-b1c2e2697a89">
+          <ds:Transforms>
+            <ds:Transform Algorithm="one_of_supported_algo"/>
+            <ds:Transform Algorithm="one_of_supported_algo"/>
+          </ds:Transforms>
+          <ds:DigestMethod Algorithm="one_of_supported_algo"/>
+          <ds:DigestValue>huywDPPfOEGyyzE7d5hjOG97p7FDdGrjoSfes6RB19g=</ds:DigestValue>
+        </ds:Reference>
+      </ds:SignedInfo>
+ <ds:SignatureValue>BAwNZFgWF2oxD1ux0WPfeHnzL+IWYqGhkM9DD28nI9v8XtPN8tqmIb5y4bomaYknmNpWYn7TgNO2Rn/XOq+N9fTZXO2RybaC49iF+zWibRIcNwFKCCpDL6H6jA5eqJX2YKBR+K6Yt2JPoUIRLmqdgm2lMr4Nwq1KYcSzQ/yoV5W0SN/V5t8EfctFoaXVPdtfHVXkwqHeufo+L4gobFt9NRTzXB0SQEClA1L8hQ+/LhY4l46k1D0c34iWjVLZr+ecQyubf7rekOG/R7DjWCFMTke822dR+eJTPWFsHGSPWCDDHFYqB4QMinTvUnsngjY3AssPqIOjeUxjL3p+GXn8IQ==</ds:SignatureValue>
+    </ds:Signature>
+    <saml:Subject>
+      <saml:NameID Format="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress">JohnDoe@gmail.com</saml:NameID>
+    </saml:Subject>
+    <saml:Conditions NotBefore="2018-01-29T12:59:58Z" NotOnOrAfter="2018-01-29T13:05:58Z">
+    </saml:Conditions>
+</samlp:Response>
+```
+{: screen}
+
+
+### What types of algorithms are supported by {{site.data.keyword.appid_short_notm}}?
+{: #saml-signatures}
+
+{{site.data.keyword.appid_short_notm}} uses the <a href="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" target="_blank">RSA-SHA256 <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> algorithm to process XML digital signatures.
+

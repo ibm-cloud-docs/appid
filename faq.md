@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-16"
+lastupdated: "2019-04-17"
 
 keywords: authentication, authorization, identity, app security, secure
 
@@ -139,6 +139,6 @@ Check out the following table for answers to commonly asked questions about encr
 Both {{site.data.keyword.appid_short_notm}} and Keycloak can be used to add authentication to applications and secure services. The main difference between the two offerings is the way in which they're packaged.
 {: shortdesc}
 
-Keycloak is packaged as software which means that you, as the developer, are responsible for maintaining functionality of the product after you download it. You're responsible for hosting, high-availability, compliance, backups, DDOS protection, load balancing, web firewalls, databases, and more.
+Keycloak is packaged as software which means that you, as the developer, are responsible for maintaining functionality of the product after you download it. You're responsible for hosting, high-availability, compliance, backups, DDoS protection, load balancing, web firewalls, databases, and more.
 
 {{site.data.keyword.appid_short_notm}} is a fully managed offering that is provided "as-a-service". This means that IBM takes care of the operation of the service, handles compliancy, availability in multiple zones, SLA, and more. {{site.data.keyword.appid_short_notm}} also has an out-of-the-box integrated experience with the {{site.data.keyword.cloud_notm}} Platform that includes native runtimes and services such as the {{site.data.keyword.containershort_notm}}, {{site.data.keyword.openwhisk_short}}, and {{site.data.keyword.cloudaccesstrailshort}}.

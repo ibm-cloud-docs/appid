@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-04-17"
 
 keywords: authentication, authorization, identity, app security, secure, development, two factor, mfa 
 
@@ -274,7 +274,7 @@ To configure MFA with the GUI, check out [Cloud Directory](/docs/services/appid?
 
     4. Copy the **API secret** in the Nexmo dashboard and paste it in the **Secret** box in the {{site.data.keyword.appid_short_notm}} dashboard.
 
-    5. Enter the [number](https://help.nexmo.com/hc/en-us/articles/217571017-What-is-a-Sender-ID) that you want to send messages from. A valid number format follows the [E.164 international numbering format](https://en.wikipedia.org/wiki/E.164) (e.g. USA number, +1 999 888 7777). You must specify both the country code, starting with a + symbol and the national subscriber number.
+    5. Enter the [number](https://help.nexmo.com/hc/en-us/articles/217571017-What-is-a-Sender-ID) that you want to send messages from. A valid number format follows the [E.164 international numbering format](https://en.wikipedia.org/wiki/E.164) For example, a USA number would take the form `+1 999 888 7777 `. You must specify both the country code, starting with a `+` symbol and the national subscriber number.
 
 
 

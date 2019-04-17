@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-10"
+lastupdated: "2019-04-17"
 
 keywords: authentication, authorization, identity, app security, secure
 
@@ -76,7 +76,7 @@ Interested in securing your applications? Check out the blogs and samples here t
 
 
 
-Using multiple cloud providers? Checkout this blog: <a href="https://www.ibm.com/blogs/bluemix/2019/03/adding-sign-in-to-multicloud-applications-without-code-changes/" target="_blank">Adding sign in to multicloud applications without code changes <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
+Using multiple cloud providers? Check out the blog: <a href="https://www.ibm.com/blogs/bluemix/2019/03/adding-sign-in-to-multicloud-applications-without-code-changes/" target="_blank">Adding sign in to multicloud applications without code changes <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 {: tip}
 
 
