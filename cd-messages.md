@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-11"
+lastupdated: "2019-04-19"
 
 keywords: authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
@@ -322,8 +322,8 @@ To configure your custom email sender, you must use the Cloud Directory <a href=
       <td>The timestamp of when the sent message.</td>
     </tr>
     <tr>
-      <td><code>jss</code></td>
-      <td>The principle that issued the JWS token.</td>
+      <td><code>iss</code></td>
+      <td>The principle, or {{site.data.keyword.appid_short_notm}} instance, that issued the JWS token.</td>
     </tr>
     <tr>
       <td><code>jti</code></td>

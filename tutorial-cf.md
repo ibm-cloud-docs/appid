@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-20"
+lastupdated: "2019-04-19"
 
 keywords: authentication, authorization, identity, app security, secure, development, cloud foundry, access management, iam, java, node.js
 
@@ -37,7 +37,7 @@ An alias creates a connection between your IAM-managed service such as {{site.da
 
 * Automation: With the service credentials stored in the VCAP_SERVICES environment variable, you no longer need to manually copy them to the app. It's all done behind the scenes on your behalf with the {{site.data.keyword.appid_short_notm}} SDKs.
 * Safety: Configuration becomes error-proof because the process is automatic.
-* Security: Nothing access that is related is hard-coded into your application as the service credentials exist in the environment variables only.
+* Security: Nothing that is access related is hard-coded into your application as the service credentials exist in the environment variables only.
 
 Is your Cloud Foundry app hosted on another platform? No problem. You can define application credentials in your app to bind it to the service. You can find your application credentials through the {{site.data.keyword.appid_short_notm}} dashboard, or by making a request to the [/applications endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Applications/registerApplication).
 {: tip}
