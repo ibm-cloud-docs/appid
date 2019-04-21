@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-19"
+lastupdated: "2019-04-21"
 
 keywords: authentication, authorization, identity, app security, secure, development, cloud foundry, access management, iam, java, node.js
 
@@ -117,7 +117,7 @@ Before you get started, be sure that you have the following prerequisites:
   ```
   {: pre}
 
-9. Edit the host and name values in your project's `manifest.yml` with the information that is obtained in the previous command. Add the alias that you create to your services.
+9. Add the alias that you created to your services in the `manifest.yml`.
 
 10. Bind the services that are listed in the `manifest.yml` file by deploying the sample app.
 
@@ -169,18 +169,13 @@ Before you get started, be sure that you have the following prerequisites:
   ```
   {: pre}
 
-11. Edit the host and name values in your project's `manifest.yml` with the information that is obtained in the previous command. Add the alias that you create to your services.
+11. Add the alias that you created to your services in the `manifest.yml`.
 
   Example:
   ```
     applications:
   - name: ApplicationName
-    host: HostName
-    buildpack: liberty-for-java
-    instances: 1
     memory: 512M
-    disk_quota: 1024M
-    timeout: 180
     services:
     - AppID-alias
   ```
