@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-17"
+lastupdated: "2019-04-22"
 
 keywords: authentication, authorization, identity, app security, secure, custom, service provider, identity provider, enterprise, assertions
 
@@ -263,25 +263,25 @@ Want to set an authentication context? You can do so through the API.
   {: #configuring-saml-new}
   3. Optional: Add an authentication context by adding a class array and comparison string to your code. Be sure to update both the `class` and `comparison` parameters with your values. An Authentication context is used to verify the quality of the authentication and SAML assertions.
 
-    Example:
-    ```
-    {
-      "isActive": true,
-      "config": {
-        ...
-        "authnContext": {
-          "class": [
-            "urn:oasis:names:tc:SAML:2.0:ac:classes:YourChosenClassValue",
-            "urn:oasis:names:tc:SAML:2.0:ac:classes:YourOtherChosenClassValue"
-          ],
-          "comparison": "sampleComparisonValue"
-        }
+  Example:
+  ```
+  {
+    "isActive": true,
+    "config": {
+      ...
+      "authnContext": {
+        "class": [
+          "urn:oasis:names:tc:SAML:2.0:ac:classes:YourChosenClassValue",
+          "urn:oasis:names:tc:SAML:2.0:ac:classes:YourOtherChosenClassValue"
+        ],
+        "comparison": "sampleComparisonValue"
       }
     }
-    ```
-    {: screen}
+  }
+  ```
+  {: screen}
 
-3. Make the request. If you chose to add the optional values, your request should look similar to the following example.
+6. Make the request. If you chose to add the optional values, your request should look similar to the following example.
 
   ```
   Put {Management URI}/config/idps/saml
@@ -302,11 +302,11 @@ Want to set an authentication context? You can do so through the API.
         "primary-certificate-example-pem-format"
         "secondary-certificate-example-pem-format"
       ],
-      "displayName": "my saml example"
+      "displayName": "my saml example",
     }
   }
   ```
-  {: codeblock}
+  {: screen}
 
 
 ## Testing your configuration
