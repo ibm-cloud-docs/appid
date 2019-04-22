@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-17"
+lastupdated: "2019-04-22"
 
 keywords: authentication, authorization, identity, app security, secure, development, idp, troubleshooting, redirected, validation
 
@@ -39,19 +39,23 @@ The SAML framework supports multiple profiles, flows, and configurations, which 
 {: shortdesc}
 
 
+For specific error codes and messages from your identity provider that you don't see on this page, it can be helpful to search the [SAML specification](http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0.html) for detailed explanations. If you don't find what you're looking for, you can reach out to your identity providers admin for more information.
+{: note}
+
+
 
 ### Service provider initiated
 {: #ts-samle-sp-initiated}
 
-The web browser SSO profile that App ID implements is service provider initiated, which means that App ID must send a SAML request to the identity provider to initiate the authentication session. App ID does not currently support identity provider initiated flows and they should not be used with the service at this time.
+The web browser SSO profile that {{site.data.keyword.appid_short_notm}} implements is service provider initiated, which means that {{site.data.keyword.appid_short_notm}} must send a SAML request to the identity provider to initiate the authentication session. {{site.data.keyword.appid_short_notm}} does not currently support identity provider initiated flows and they should not be used with the service at this time.
 
 
 
 
-### Missing RelayState parameter
+### Missing `RelayState` parameter
 {: #ts-saml-relaystate}
 
-App ID sends a RelayState as part of its authentication request. The RelayState is App ID specific information and must be returned, unmodified, by the identity provider. The RelayState takes the following form.
+{{site.data.keyword.appid_short_notm}} sends a `RelayState` as part of its authentication request. The `RelayState` is {{site.data.keyword.appid_short_notm}} specific information and must be returned, unmodified, by the identity provider. The `RelayState` takes the following form.
 
 ```
 https://idp.example.org/SAML2/SSO/Redirect?SAMLRequest=request&RelayState=token
@@ -62,9 +66,7 @@ https://idp.example.org/SAML2/SSO/Redirect?SAMLRequest=request&RelayState=token
 ### Identity provider supports SSO
 {: #ts-saml-idp-support-sso}
 
-If your identity provider supports SSO, then it is possible that the SAML authentication uses the already established SSO session to authenticate the user. If it does not, the user is redirected to a login page. They might be redirected if your identity provider can't match the authentication requirements that are defined in App ID's authentication request with what it uses to establish SSO. For example, if your identity provider establishes a user SSO session by using biometrics, then App ID's default authentication context must be changed. By default, App ID expects users to be authenticated by password over HTTPS: `urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport`.
-
-
+If your identity provider supports SSO, then it is possible that the SAML authentication uses the already established SSO session to authenticate the user. If it does not, the user is redirected to a login page. They might be redirected if your identity provider can't match the authentication requirements that are defined in {{site.data.keyword.cloud_notm}}'s authentication request with what it uses to establish SSO. For example, if your identity provider establishes a user SSO session by using biometrics, then {{site.data.keyword.appid_short_notm}}'s default authentication context must be changed. By default, {{site.data.keyword.appid_short_notm}} expects users to be authenticated by password over HTTPS: `urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport`.
 
 
 
@@ -77,7 +79,7 @@ When you send an authentication request, you receive an error regarding the `Nam
 
 **Why it's happening**
 
-App ID as the service provider, defines the way that users are identitfied by the service and by the identity provider. With App ID, users are identitified in the `NameID` authentication request in the `NameID` field as shown in the following example.
+{{site.data.keyword.appid_short_notm}} as the service provider, defines the way that users are identitfied by the service and by the identity provider. With {{site.data.keyword.appid_short_notm}}, users are identitified in the `NameID` authentication request in the `NameID` field as shown in the following example.
 
 ```
 <NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</NameIDFormat>
@@ -90,8 +92,6 @@ To resolve the issue, be sure that your identity provider `NameID` is formatted 
 
 
 
-
-
 ### Response signing failure
 {: #ts-saml-response-sign-fail}
 
@@ -100,13 +100,13 @@ To resolve the issue, be sure that your identity provider `NameID` is formatted 
 When you send an authentication request you receive the following error message:
 
 ```
-Could not verify SAML assertion signature. Ensure App ID is configurated with your SAML provider's signing certificate.
+Could not verify SAML assertion signature. Ensure {{site.data.keyword.appid_short_notm}} is configurated with your SAML provider's signing certificate.
 ```
 {: screen}
 
 **Why it's happening**
 
-App ID expects all SAML assertions in your response to be signed. If the service cannot find or verify the signature in the response, the error is returned.
+{{site.data.keyword.appid_short_notm}} expects all SAML assertions in your response to be signed. If the service cannot find or verify the signature in the response, the error is returned.
 
 **How to fix it**
 
@@ -114,8 +114,6 @@ To resolve the issue, be sure that:
 
 * You have extracted the signing certificate from your identity providers metadata XML file. Be sure that you use the key with `<KeyDescriptor use="signing">`.
 * You have set the response signing algorithm to be XXX. 
-
-
 
 
 
@@ -131,31 +129,31 @@ You receive one of the following error messages in response to your authenticati
 Error message 1:
 
 ```
-Unexpectedly received an encrypted assertion. Please enable response encryption in your App ID SAML configuration.
+Unexpectedly received an encrypted assertion. Please enable response encryption in your {{site.data.keyword.appid_short_notm}} SAML configuration.
 ```
 {: screen}
 
 Error message 2: 
 
 ```
-Could not decrypt SAML assertion. Ensure your SAML provider is configured with the App ID encryption 
+Could not decrypt SAML assertion. Ensure your SAML provider is configured with the {site.data.keyword.appid_short_notm}} encryption 
 ```
 {: screen}
 
 
 **Why it's happening**
 
-If your identity provider is configured to encrypt, App ID must be configured to sign the SAML authentication requests (AuthNRequest). Then, your identity provider must be configured to expect the corresponding configuration. You might receive these errors for one of the following reasons:
+If your identity provider is configured to encrypt, {{site.data.keyword.appid_short_notm}} must be configured to sign the SAML authentication requests (AuthNRequest). Then, your identity provider must be configured to expect the corresponding configuration. You might receive these errors for one of the following reasons:
 
-- App ID is not configured to expect that the identity provider SAML response is encrypted.
-- App ID cannot correctly correctly decrypt your assertions.
+- {{site.data.keyword.appid_short_notm}} is not configured to expect that the identity provider SAML response is encrypted.
+- {{site.data.keyword.appid_short_notm}} cannot correctly correctly decrypt your assertions.
 
 
 **How to fix it**
 
-If you receive error message 1, verify that your SAML configuration is set to expect an encrypted response. By default, App ID does not expect the response to be encrypted. To configure encryption, set the `encryptResponse` parameter to **true** by using [the API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.set_saml_idp).
+If you receive error message 1, verify that your SAML configuration is set to expect an encrypted response. By default, {site.data.keyword.appid_short_notm}} does not expect the response to be encrypted. To configure encryption, set the `encryptResponse` parameter to **true** by using [the API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.set_saml_idp).
 
-If you receive error message 2, ensure that your certificate is correct. You can obtain the signing certificate from the App ID metadata XML file. Be sure that you use the key with `<KeyDescriptor use="signing">`. Verify that your identity provider is configured to use `` as the signature signing algorithm. 
+If you receive error message 2, ensure that your certificate is correct. You can obtain the signing certificate from the {{site.data.keyword.appid_short_notm}} metadata XML file. Be sure that you use the key with `<KeyDescriptor use="signing">`. Verify that your identity provider is configured to use `` as the signature signing algorithm. 
 
 
 ### Responder error code
@@ -172,7 +170,7 @@ urn:oasis:names:tc:SAML:2.0:status:Responder
 
 **Why it's happening**
 
-Although App ID sends the initial authentication request, the identity provider must perform the user authentication and return the response. There are several reasons that might cause your identity provider to throw this error message.
+Although {site.data.keyword.appid_short_notm}} sends the initial authentication request, the identity provider must perform the user authentication and return the response. There are several reasons that might cause your identity provider to throw this error message.
 
 You might see the message if your identity provider: 
 
@@ -197,11 +195,11 @@ You receive a message regarding an unsupported authentication request.
 
 **Why it's happening**
 
-When App ID generates an authentication request, it can use the authentication context to request the quality of the authentication and SAML assertions.
+When {{site.data.keyword.appid_short_notm}} generates an authentication request, it can use the authentication context to request the quality of the authentication and SAML assertions.
 
 **How to fix it**
 
-To resolve the issue, you can update your authentication context. By default, App ID uses the authentication class `urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport` and comparison `exact`. You can update the context parameter to fit your use case by using the APIs.
+To resolve the issue, you can update your authentication context. By default, {{site.data.keyword.appid_short_notm}} uses the authentication class `urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport` and comparison `exact`. You can update the context parameter to fit your use case by using the APIs.
 
 
 
@@ -215,27 +213,18 @@ You receive an error that states that an authentication request cannot be verifi
 
 **Why it's happening**
 
-App ID can be configured to sign the SAML authentication request (`AuthNRequest`), but your identity provider must be configured to expect the corresponding configuration.
+{{site.data.keyword.appid_short_notm}} can be configured to sign the SAML authentication request (`AuthNRequest`), but your identity provider must be configured to expect the corresponding configuration.
 
 **How to fix it**
 
 To resolve the issue:
 
-* Verify that App ID configure to sign the authentication request by setting the `signRequest` parameter to `true` by using the [set SAML IdP API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.set_saml_idp). You can check to see if your authentication request is signed by looking at the request URL. The signature is included as a query parameter. For example: `https://idp.example.org/SAML2/SSO/Redirect?SAMLRequest=request&SigAlg=value&Signature=value&RelayState=token`
+* Verify that {{site.data.keyword.cloud_notm}} is configured to sign the authentication request by setting the `signRequest` parameter to `true` by using the [set SAML IdP API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.set_saml_idp). You can check to see if your authentication request is signed by looking at the request URL. The signature is included as a query parameter. For example: `https://idp.example.org/SAML2/SSO/Redirect?SAMLRequest=request&SigAlg=value&Signature=value&RelayState=token`
 
-* Verify that your identity provider is configured with the correct certificate. To obtain the signing certificate check the App ID metadata XML file that you downloaded from the App ID dashboard. Ensure that you use the key with `<KeyDescriptor use="signing">`.
+* Verify that your identity provider is configured with the correct certificate. To obtain the signing certificate check the {{site.data.keyword.cloud_notm}} metadata XML file that you downloaded from the {{site.data.keyword.cloud_notm}} dashboard. Ensure that you use the key with `<KeyDescriptor use="signing">`.
 
 * Verify that your identity provider is configured to use `` as the signing algorithm.
 
-
-
-
-
-## Interpreting SAML error codes
-{: #ts-saml-interpret-codes}
-
-For specific error codes and messages from your identity provider that you don't see on this page, it can be helpful to search the [SAML specification](http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0.html) for detailed explanations. If you don't find what you're looking for, you can reach out to your identity providers admin for more information.
-{: shortdesc}
 
 
 ## Debugging your connection
@@ -251,7 +240,7 @@ Have the configuration correct but still have a bug? Check out some of the follo
 There are several options for browser plug-ins such as [Firefox](https://addons.mozilla.org/en-US/firefox/addon/saml-tracer/) and [Chrome](https://chrome.google.com/webstore/detail/saml-tracer/mpdajninpobndbfcldcmbpnnbhibjmch?hl=en) that can be used to capture your SAML requests and responses. Don't want to use a plug-in? No problem. Atlassian provides an instructions for a more [manual extraction approach](https://confluence.atlassian.com/jirakb/how-to-view-a-saml-responses-in-your-browser-for-troubleshooting-872129244.html).
 
 
-### My SAML messages are gibberish! How can I decode them?
+### I don't understand the messages! How can I decode them?
 {: #ts-saml-decode-messages}
 
 If you're still having trouble after using your SAML debug tool, try using the [SAML developer tools](https://www.samltool.com/online_tools.php) for more help decoding your messages. Don't forget! Depending on where you intercept your SAML messages, your request might be [URL encoded](https://www.samltool.com/online_tools.php), [base 64 encoded and deflated](https://www.samltool.com/decode.php), or [encrypted](https://www.samltool.com/decrypt.php).

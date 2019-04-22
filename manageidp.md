@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-17"
+lastupdated: "2019-04-22"
 
 keywords: authentication, authorization, identity, app security, secure, development, identity provider, tokens, customization, lifetime
 
@@ -98,7 +98,7 @@ Be sure to only register URIs of applications that you trust.
 
 1. Click **Authentication Settings** to see your URI and token configuration options.
 
-2. In the **Add web redirect URI** field, type the URI. Each URI should begin with `http://` or `https://` and must include the full path, including any query parameters for the redirect to be successful. Need help formatting? Check out the following table for some examples.
+2. In the **Add web redirect URI** field, type the URI. Each URI should begin with `http://` or `https://` and must include the full path, including any query parameters for the redirect to be successful. Need help formatting your URI? Check out the following table for some examples.
 
   <table>
     <tr>

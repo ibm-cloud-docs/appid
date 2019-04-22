@@ -25,23 +25,26 @@ subcollection: appid
 # SAML
 {: #enterprise}
 
+When you have a SAML-based identity provider, you can configure {{site.data.keyword.appid_short_notm}} to act as a service provider that initiates a single sign-on (SSO) log in to a third-party provider. During the sign in flow, your users can be easily authenticated and are able obtain {{site.data.keyword.appid_short_notm}} security tokens that allow them to access your apps and protected APIs.
+{: shortdesc}
+
+ 
+Working with a specific SAML identity provider? Check out one of these blog posts on setting up {{site.data.keyword.appid_short_notm}} with [Ping One ![External link icon](../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-ping-one/), [an Azure Active Directory ![External link icon](../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-azure-active-directory/), or [an Active Directory Federation Service ![External link icon](../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-active-directory-federation-service/).
+{: tip}
+
+
+## Understanding SAML
+{: #saml-understanding}
+
 Security Assertion Markup Language (SAML) is an open standard for exchanging authentication and authorization data between an identity provider who asserts the user identity and a service provider who consumes the user identity information.
 {: shortdesc}
 
-{{site.data.keyword.appid_short_notm}} functions as a service provider and initiates a single sign-on (SSO) login to a third-party provider such as Active Directory Federation Services. The <a href="http://saml.xml.org/saml-specifications" target="blank">SAML <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> protocol supports different profiles and bind options. {{site.data.keyword.appid_short_notm}} supports the web browser SSO profile, with HTTP Post binding.
-
-For steps on how to use a specific SAML identity provider, check out these blog posts on setting up {{site.data.keyword.appid_short_notm}} with [Ping One ![External link icon](../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-ping-one/), [an Azure Active Directory ![External link icon](../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-azure-active-directory/), or [an Active Directory Federation Service ![External link icon](../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-active-directory-federation-service/).
-{: tip}
-
-## Understanding the flow
-{: #saml-understanding-flow}
-
-When you have a SAML-based identity provider, you can configure App ID so that your app users can be easily authenticated and obtain App ID security tokens. Users are then able to access your apps and protected APIs.
+The <a href="http://saml.xml.org/saml-specifications" target="blank">SAML <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> protocol supports different profiles and bind options. {{site.data.keyword.appid_short_notm}}supports the web browser SSO profile, with HTTP Post binding.
 
 ### What's the flows technical basis?
 {: #saml-tech-basis}
 
-SAML 2.0 is one of the most established frameworks for authentication and authorization standards. It is an XML-based protocol between a service provider (App ID) and an identity provider. When an identity provider authenticates a user, it creates SAML tokens, which contain assertions, or statements, about the user. The statements might contain:
+SAML 2.0 is one of the most established frameworks for authentication and authorization standards. It is an XML-based protocol between a service provider ({{site.data.keyword.appid_short_notm}}) and an identity provider. When an identity provider authenticates a user, it creates SAML tokens, which contain assertions, or statements, about the user. The statements might contain:
 
 - authentication information like how the user was authenticated - a password, MFA, etc ...
 - attributes associated with the user - which group they belong in.
@@ -60,23 +63,23 @@ The assertions that do not correspond to any of the standard names are ignored b
 ### What does the flow look like?
 {: #saml-flow}
 
-Although App ID and your identity provider use the SAML framework to authenticate the user, App ID still uses the more modern OAuth 2.0/ OIDC framework to exchange security tokens with the application. Check out the following image to see a detailed flow of information.
+Although {{site.data.keyword.appid_short_notm}} and your identity provider use the SAML framework to authenticate the user, {{site.data.keyword.appid_short_notm}} still uses the more modern OAuth 2.0/ OIDC framework to exchange security tokens with the application. Check out the following image to see a detailed flow of information.
 
 ![SAML enterprise authentication flow](/images/ibmid-flow.png)
 
-1. A user access the login page or restricted resource on their application, which initiates a request to the App ID `/authorization` endpoint through either an App ID SDK or API. If the user is unauthorized, the authentication flow begins with a redirect to App ID.
-2. App ID generates a SAML authentication request (AuthNRequest) and the browser automatically redirects the user to the SAML identity provider.
+1. A user access the login page or restricted resource on their application, which initiates a request to the {{site.data.keyword.appid_short_notm}} `/authorization` endpoint through either an {{site.data.keyword.appid_short_notm}} SDK or API. If the user is unauthorized, the authentication flow begins with a redirect to {{site.data.keyword.appid_short_notm}}.
+2. {{site.data.keyword.appid_short_notm}} generates a SAML authentication request (AuthNRequest) and the browser automatically redirects the user to the SAML identity provider.
 3. The identity provider parses the SAML request, authenticates the user, and generates a SAML response with its assertions.
-4. The identity provider redirects the user and the response back to App ID with the SAML response.
-5. If the authentication is successful, App ID creates access and identity tokens that represent a user's authorization and authentication and returns them to the app. If the authentication fails, App ID returns the identity provider error code to the app.
+4. The identity provider redirects the user and the response back to {{site.data.keyword.appid_short_notm}} with the SAML response.
+5. If the authentication is successful, {{site.data.keyword.appid_short_notm}} creates access and identity tokens that represent a user's authorization and authentication and returns them to the app. If the authentication fails, {{site.data.keyword.appid_short_notm}} returns the identity provider error code to the app.
 6. The user is granted access to the app or the protected resources.
 
 
 
-## Configuring SAML to work with App ID
+## Configuring SAML to work with {{site.data.keyword.appid_short_notm}}
 {: #saml-configure}
 
-You can configure SAML to work with App ID by providing metadata from App ID to your identity provider and metadata from your identity provider to App ID.
+You can configure SAML to work with {{site.data.keyword.appid_short_notm}} by providing metadata from {{site.data.keyword.appid_short_notm}} to your identity provider and metadata from your identity provider to {{site.data.keyword.appid_short_notm}}.
 
 ### Providing metadata to your identity provider
 {: #saml-provide-idp}
@@ -170,7 +173,7 @@ Want to set an authentication context? You can do so through the API.
    </EntityDescriptor>
     </getSamlMetadata>
   ```
-  {: codeblock}
+  {: pre}
 
   Example output:
   ```
@@ -222,7 +225,7 @@ Want to set an authentication context? You can do so through the API.
       }
     }
     ```
-    {: codeblock}
+    {: pre}
 
     <table>
       <tr>
@@ -322,16 +325,16 @@ You can test the configuration between your SAML Identity Provider and {{site.da
   * Failed authentication: The connection is broken. The page displays the errors and the SAML response XML file.
 
 
-Having trouble? Check out [Troubleshooting identity provider configurations](/docs/services/appid?topic=appid-troubleshooting-idp#troubleshooting-idp).
+Having trouble? Check out [Troubleshooting: SAML](/docs/services/appid?topic=appid-troubleshooting-idp#troubleshooting-idp).
 {: tip}
 
 
 
 
-## Understanding assertions within the context of App ID
+## Understanding assertions within the context of {{site.data.keyword.appid_short_notm}}
 {: #saml-assertions}
 
-SAML assertions can be returned in different ways. Check out the following examples to see the way in which App ID expects the response to be formatted.
+SAML assertions can be returned in different ways. Check out the following examples to see the way in which {{site.data.keyword.appid_short_notm}} expects the response to be formatted.
 {: shortdesc}
 
 

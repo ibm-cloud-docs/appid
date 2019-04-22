@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-04-22"
 
 keywords: authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
@@ -34,7 +34,7 @@ You can set the requirements for the passwords that can be used with Cloud Direc
 A strong password makes it difficult, or even improbable for someone to guess the password in either a manual or automated way. To set requirements for the stregnth of a users password, you can use the following steps.
 {: shortdesc}
 
-1. Navigate to the **Password Policies** tab of the App ID dashboard.
+1. Navigate to the **Password Policies** tab of the {{site.data.keyword.appid_short_notm}}  dashboard.
 
 2. In the **Define password strength** box, click **Edit**. A screen displays.
 
