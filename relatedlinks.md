@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-17"
+lastupdated: "2019-04-23"
 
 keywords: authentication, authorization, identity, app security, secure
 
@@ -42,12 +42,12 @@ We’d love to hear from you with feedback and questions! To get started with {{
 
 Get to know more about {{site.data.keyword.appid_short_notm}} by reading through some blogs and watching some videos!
 
-* <a href="https://www.youtube.com/watch?v=cTn7l_J3tPg" target="_blank">Introducing {{site.data.keyword.appid_short_notm}}: video<img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
+* <a href="https://www.youtube.com/watch?v=XlrCjHdK43Q" target="_blank">Introducing {{site.data.keyword.appid_short_notm}}: video<img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 * <a href="https://www.ibm.com/blogs/bluemix/2017/03/introducing-ibm-bluemix-app-id-authentication-profiles-service-app-developers/" target="_blank">Introducing {{site.data.keyword.appid_short_notm}} blog <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 * <a href="https://www.ibm.com/blogs/bluemix/2017/08/cloud-app-security-makes-secure-app/" target="_blank">Cloud App Security - What makes a secure app? <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
-* <a href="https://www.ibm.com/cloud/garage/content/architecture/securityArchitecture/security-for-application" target="_blank">Security to safeguard and monitor your apps <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
-* <a href="https://www.youtube.com/watch?v=Glb412s4X3Q" target="_blank">Add login and user preferences to your apps <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
-* <a href="https://www.youtube.com/watch?v=VVWw5AjYg48" target="_blank">Create personalized app experiences <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
+* <a href="https://www.ibm.com/cloud/garage/architectures/securityArchitecture/security-for-application" target="_blank">Security to safeguard and monitor your apps <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
+* <a href="https://www.youtube.com/watch?v=cDSYNFn4rX8" target="_blank">Add sign up and sign in to your apps with {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
+
 
 
 ## White paper

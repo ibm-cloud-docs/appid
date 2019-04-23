@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-10"
+lastupdated: "2019-04-23"
 
 keywords: authentication, authorization, identity, app security, secure, tokens, jwt, development
 
@@ -187,7 +187,7 @@ You can validate your tokens locally by parsing the token, verifying the token s
   2. Check specifically that the same algorithms were used and that your public key cache contains a key with the relevant Key ID.
   3. Ensure that your hash value is the same as the signature of the PEM form of the public key. Your hash value can be obtained by combining and hashing the header of the payload of the token. Because this process can be complex to manually implement, it might be helpful to use one of the [listed libraries](https://jwt.io/) to validate the signature.
 
-6. Validate the claims that are stored in the tokens. To verify future checks, you can use [this list](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation).
+6. Validate the claims that are stored in the tokens. To verify future checks, you can use [this list](https://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation).
   <table>
     <thead>
       <th colspan=2><img src="images/idea.png" alt="More information icon"/> Claims that must be validated </th>

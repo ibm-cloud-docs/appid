@@ -74,6 +74,16 @@ Although {{site.data.keyword.appid_short_notm}} and your identity provider use t
 5. If the authentication is successful, {{site.data.keyword.appid_short_notm}} creates access and identity tokens that represent a user's authorization and authentication and returns them to the app. If the authentication fails, {{site.data.keyword.appid_short_notm}} returns the identity provider error code to the app.
 6. The user is granted access to the app or the protected resources.
 
+### Does SSO change the flow?
+{: #saml-sso-flow}
+
+The web browser SSO profile that {{site.data.keyword.appid_short_notm}} implements is service provider initiated, which means that {{site.data.keyword.appid_short_notm}} must send a SAML request to the identity provider to initiate the authentication session. 
+
+{{site.data.keyword.appid_short_notm}} does not currently support identity provider initiated flows and they should not be used with the service at this time.
+{: note}
+
+If your identity provider supports SSO, then it is possible that the SAML authentication uses the already established SSO session to authenticate the user. If it does not, the user is redirected to a login page. They might be redirected if your identity provider can't match the authentication requirements that are defined in {{site.data.keyword.cloud_notm}}'s authentication request with what it uses to establish SSO. For example, if your identity provider establishes a user SSO session by using biometrics, then {{site.data.keyword.appid_short_notm}}'s default authentication context must be changed. By default, {{site.data.keyword.appid_short_notm}} expects users to be authenticated by password over HTTPS: `urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport`.
+
 
 
 ## Configuring SAML to work with {{site.data.keyword.appid_short_notm}}

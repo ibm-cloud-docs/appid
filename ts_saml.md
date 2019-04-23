@@ -44,16 +44,13 @@ For specific error codes and messages from your identity provider that you don't
 
 
 
-### Service provider initiated
-{: #ts-samle-sp-initiated}
-
-The web browser SSO profile that {{site.data.keyword.appid_short_notm}} implements is service provider initiated, which means that {{site.data.keyword.appid_short_notm}} must send a SAML request to the identity provider to initiate the authentication session. {{site.data.keyword.appid_short_notm}} does not currently support identity provider initiated flows and they should not be used with the service at this time.
-
-
-
-
 ### Missing `RelayState` parameter
 {: #ts-saml-relaystate}
+
+**What's happening**
+
+
+**Why it's happening**
 
 {{site.data.keyword.appid_short_notm}} sends a `RelayState` as part of its authentication request. The `RelayState` is {{site.data.keyword.appid_short_notm}} specific information and must be returned, unmodified, by the identity provider. The `RelayState` takes the following form.
 
@@ -62,12 +59,9 @@ https://idp.example.org/SAML2/SSO/Redirect?SAMLRequest=request&RelayState=token
 ```
 {: screen}
 
+**How to fix it**
 
-### Identity provider supports SSO
-{: #ts-saml-idp-support-sso}
-
-If your identity provider supports SSO, then it is possible that the SAML authentication uses the already established SSO session to authenticate the user. If it does not, the user is redirected to a login page. They might be redirected if your identity provider can't match the authentication requirements that are defined in {{site.data.keyword.cloud_notm}}'s authentication request with what it uses to establish SSO. For example, if your identity provider establishes a user SSO session by using biometrics, then {{site.data.keyword.appid_short_notm}}'s default authentication context must be changed. By default, {{site.data.keyword.appid_short_notm}} expects users to be authenticated by password over HTTPS: `urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport`.
-
+Verify that the `RelayState` information is included in your authentication request.
 
 
 ### Missing or incorrect NameID field
