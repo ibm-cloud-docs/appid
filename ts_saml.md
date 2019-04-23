@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-22"
+lastupdated: "2019-04-23"
 
 keywords: authentication, authorization, identity, app security, secure, development, idp, troubleshooting, redirected, validation
 
@@ -247,3 +247,4 @@ If you're still having trouble after using your SAML debug tool, try using the [
 
 Do not use online tools for decrypting SAML messages like your SAML response. The tools need access to the encryption private key in order to decrypt the information. The key should be kept private and access controlled. The decryption tool mentioned in this section should be used for debugging purposes only.
 {: important}
+
