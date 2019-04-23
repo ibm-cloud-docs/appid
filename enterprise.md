@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-22"
+lastupdated: "2019-04-23"
 
 keywords: authentication, authorization, identity, app security, secure, custom, service provider, identity provider, enterprise, assertions
 
@@ -331,7 +331,7 @@ Having trouble? Check out [Troubleshooting: SAML](/docs/services/appid?topic=app
 
 
 
-## Understanding assertions within the context of {{site.data.keyword.appid_short_notm}}
+## SAML FAQ
 {: #saml-assertions}
 
 SAML assertions can be returned in different ways. Check out the following examples to see the way in which {{site.data.keyword.appid_short_notm}} expects the response to be formatted.
