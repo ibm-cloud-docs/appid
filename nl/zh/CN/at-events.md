@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-12-18"
+  years: 2017, 2019
+lastupdated: "2019-04-05"
+
+keywords: authentication, authorization, identity, app security, secure, application identity, app to app, access token, activity
+
+subcollection: appid
 
 ---
 
@@ -13,33 +17,32 @@ lastupdated: "2018-12-18"
 {:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
 {:tip: .tip}
-{:download: .download}
 {:note: .note}
 {:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 
 # {{site.data.keyword.cloudaccesstrailshort}} 事件
-{: #at_events}
+{: #at-events}
 
 您可以使用 {{site.data.keyword.cloudaccesstrailshort}} 服务查看、管理和分析在 {{site.data.keyword.appid_full}} 服务实例中执行的用户启动的活动。
 {: shortdesc}
 
 
 
-有关服务如何工作的更多信息，请参阅 [{{site.data.keyword.cloudaccesstrailshort}} 文档](/docs/services/cloud-activity-tracker/index.html)。
+有关服务如何工作的更多信息，请参阅 [{{site.data.keyword.cloudaccesstrailshort}} 文档](/docs/services/cloud-activity-tracker/reference?topic=cloud-activity-tracker-getting-started-with-cla#getting-started-with-cla)。
 
-
-</br>
 
 ## 查看管理事件
-{: #monitor-admin}
+{: #at-monitor-admin}
 
 您可以使用 {{site.data.keyword.cloudaccesstrailshort}} 服务查看、管理和分析在 {{site.data.keyword.appid_short_notm}} 实例中执行的配置活动。
 {: shortdesc}
 
 要监视管理活动：
 
-1. 登录到 {{site.data.keyword.Bluemix_notm}} 帐户。
+1. 登录到 {{site.data.keyword.cloud_notm}} 帐户。
 2. 在与 {{site.data.keyword.appid_short_notm}} 实例相同的帐户中，从目录供应“{{site.data.keyword.cloudaccesstrailshort}}”服务的实例。
 3. 在“{{site.data.keyword.cloudaccesstrailshort}}”仪表板中，单击**管理**选项卡。
 4. 在下拉列表中生成以下配置以搜索 {{site.data.keyword.appid_short_notm}} 生成的事件。
@@ -51,7 +54,7 @@ lastupdated: "2018-12-18"
 </br>
 
 ## 管理事件列表
-{: #events-admin}
+{: #at-events-admin}
 
 请查看下表以获取发送到 {{site.data.keyword.cloudaccesstrailshort}} 的事件的列表。
 
@@ -128,7 +131,7 @@ lastupdated: "2018-12-18"
   </tr>
   <tr>
     <td><code>read.samlMetadata</code></td>
-    <td>查看 App ID SAML 元数据。</td>
+    <td>查看 {{site.data.keyword.appid_short_notm}} SAML 元数据。</td>
     <td>位于<strong>身份提供者 > SAML 2.0 联合</strong>选项卡中。</td>
   </tr>
   <tr>
@@ -238,7 +241,5 @@ lastupdated: "2018-12-18"
   </tr>
 </table>
 
-</br>
-</br>
 
 

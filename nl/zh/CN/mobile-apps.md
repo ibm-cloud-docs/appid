@@ -1,31 +1,40 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-11-14"
+  years: 2017, 2019
+lastupdated: "2019-03-27"
+
+keywords: authentication, authorization, identity, app security, secure, development, mobile, android, iOS
+
+subcollection: appid
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
-{:pre: .pre}
-{:tip: .tip}
 {:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:codeblock: .codeblock}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 # 移动应用程序
-{: #adding-mobile}
+{: #mobile-apps}
 
 通过 {{site.data.keyword.appid_full}}，可以为本机或混合移动应用程序快速构造认证层。
 {: shortdesc}
 
 ## 了解流程
-{: #understanding}
-
-**此流程在什么时候有用？**
+{: #understanding-mobile}
 
 开发要安装在用户设备上的应用程序（本机应用程序）时，移动流程会非常有用。通过使用此流程，可以在应用程序上安全地认证用户，以便在各设备中提供个性化的用户体验。
 
-**流程的技术基础是什么？**
+### 流程的技术基础是什么？
+{: #mobile-technical-flow}
 
 由于本机应用程序直接安装在用户的设备上，因此第三方可以相对轻松地抽取私有的用户信息和应用程序凭证。缺省情况下，这些类型的应用程序称为不可信客户端，因为它们无法存储全局凭证或用户刷新令牌。因此，不可信客户端要求用户在每次其访问令牌到期时都输入其凭证。
 
@@ -33,17 +42,18 @@ lastupdated: "2018-11-14"
 
 注册之后，用户使用 OAuth2 `授权代码`或`资源所有者密码`[授权](https://tools.ietf.org/html/rfc6749#section-1.3)流程来进行认证。
 
-**此流程是什么样子的？**
 
-![{{site.data.keyword.appid_short_notm}} 应用程序到应用程序流程](images/mobile-flow.png)
-
-**动态客户端注册**
+### 动态客户端注册
+{: #mobile-dynamic}
 
 1. 用户执行一个操作，触发客户端应用程序对 {{site.data.keyword.appid_short}} SDK 的请求。
 2. 如果应用程序尚未注册为移动客户端，那么 SDK 会启动动态注册流程。
 3. 成功注册后，{{site.data.keyword.appid_short}} 会返回特定于安装的客户端标识。
 
-**授权流程**
+### 授权流程
+{: #mobile-auth-flow}
+
+![{{site.data.keyword.appid_short_notm}} 应用程序到应用程序流程](images/mobile-flow.png)
 
 1. {{site.data.keyword.appid_short}} SDK 使用 {{site.data.keyword.appid_short_notm}} `/authorization` 端点来启动授权流程。
 2. 这样将向用户显示登录窗口小部件。
@@ -53,7 +63,7 @@ lastupdated: "2018-11-14"
 
 
 ## 使用 {{site.data.keyword.appid_short}} SDK 配置移动应用程序
-{: #configuring}
+{: #configuring-mobile}
 
 开始使用采用 SDK 的 {{site.data.keyword.appid_short}}。
 {: shortdesc}
@@ -66,11 +76,11 @@ lastupdated: "2018-11-14"
 
 * 实例的租户标识。这可以在服务仪表板的**服务凭证**选项卡中找到。
 
-* 实例的部署 {{site.data.keyword.Bluemix}} 区域。可以通过查看控制台来找到您所在的区域。
+* 实例的部署 {{site.data.keyword.cloud_notm}} 区域。可以通过查看控制台来找到您所在的区域。
 
-  <table><caption> 表 1. {{site.data.keyword.Bluemix_notm}} 区域及对应的 SDK 值</caption>
+  <table><caption> 表 1. {{site.data.keyword.cloud_notm}} 区域及对应的 SDK 值</caption>
   <tr>
-    <th>{{site.data.keyword.Bluemix}} 区域</th>
+    <th>{{site.data.keyword.cloud_notm}} 区域</th>
     <th>SDK 值</th>
   </tr>
   <tr>
@@ -92,7 +102,7 @@ lastupdated: "2018-11-14"
 </table>
 
 ## 使用 Android SDK 进行认证
-{: #android-setup}
+{: #mobile-android}
 
 **开始之前**
 
@@ -104,9 +114,9 @@ lastupdated: "2018-11-14"
   * Android SDK Platform Tools 27.0.1+
   * Android Build Tools V27.0.0+
 
-</br>
 
-**安装 SDK**
+### 安装 SDK
+{: #mobile-android-install}
 
 1. 创建 Android Studio 项目或打开现有项目。
 
@@ -148,12 +158,13 @@ lastupdated: "2018-11-14"
 
 </br>
 
-**初始化 SDK**
+### 初始化 SDK
+{: #mobile-android-initialize}
 
 
 1. 将上下文、租户标识和区域参数传递到初始化方法以配置 SDK。
 
-    在 Android 应用程序中，通常会将初始化代码放置在主活动的 onCreate 方法中，但这不是强制性的。
+    在 Android 应用程序中，通常会将初始化代码放置在主活动的 `onCreate` 方法中，但这不是强制性的。
     {: tip}
 
     ```java
@@ -165,7 +176,7 @@ lastupdated: "2018-11-14"
 </br>
 
 ## 使用 iOS Swift SDK 进行认证
-{: #ios-setup}
+{: #mobile-ios}
 
 使用 {{site.data.keyword.appid_short}} 客户端 SDK 来保护移动应用程序。
 {:shortdesc}
@@ -181,7 +192,8 @@ lastupdated: "2018-11-14"
 
 </br>
 
-**安装 SDK**
+### 安装 SDK
+{: #mobile-ios-install}
 
 {{site.data.keyword.appid_short_notm}} 客户端 SDK 通过 CocoaPods 进行分发；CocoaPods 是用于 Swift 和 Objective-C Cocoa 项目的依赖项管理器。CocoaPods 会下载工件，并将其提供给项目使用。
 
@@ -208,7 +220,7 @@ lastupdated: "2018-11-14"
 
 5. 安装后，打开包含 Xcode 项目和所链接依赖项的 `<your app>.xcworkspace` 文件。
 
-6. 在 Xcode 项目中启用密钥链共享。浏览到**项目设置> 功能 > 密钥链共享**并选择**启用密钥链共享**。
+6. 在 Xcode 项目中启用密钥链共享。导航至**项目设置> 功能 > 密钥链共享**并选择**启用密钥链共享**。
 
 7. 打开**项目设置 > 信息 > URL 类型**，并添加 **URL 类型**。将以下值放在**标识**和
 **URL 方案**文本框中。
@@ -220,7 +232,8 @@ lastupdated: "2018-11-14"
 
 </br>
 
-**初始化 SDK**
+### 初始化 SDK
+{: #mobile-ios-initialize}
 
 1. 通过将租户标识和区域参数传递到 initialize 方法来初始化客户端 SDK。
 
@@ -248,17 +261,16 @@ lastupdated: "2018-11-14"
   ```
   {: codeblock}
 
-</br>
-</br>
 
 ## 访问受保护 API
-{: #accessing-protected-apis}
+{: #mobile-accessing-apis}
 
 成功登录后，您可以使用访问令牌和身份令牌来调用使用所选 SDK 或联网库的受保护后端资源。
 
 </br>
 
-### 使用 Swift SDK 访问受保护 API
+### 使用 Swift SDK
+{: #mobile-access-api-swift}
 
 1.  将以下导入项添加到要在其中调用受保护资源请求的文件：
 
@@ -289,7 +301,8 @@ lastupdated: "2018-11-14"
 
 </br>
 
-### 使用 Android SDK 访问受保护 API
+### 使用 Android SDK
+{: #mobile-access-api-android}
 
 1. 将以下导入项添加到要在其中调用受保护资源请求的文件：
 
@@ -336,7 +349,8 @@ if (null != t) {
 
 </br>
 
-### 不使用 SDK 访问受保护 API
+### 不使用 SDK
+{: #mobile-access-api-nosdk}
 
 通过所选的库，将 `Authorization` 请求头设置为使用 `Bearer` 认证方案来传输访问令牌。
 
@@ -353,11 +367,11 @@ if (null != t) {
 </br>
 
 ## 后续步骤
-{: #next}
+{: #mobile-next}
 
 在应用程序中安装 {{site.data.keyword.appid_short}} 后，您几乎已准备好开始对用户进行认证！接着请尝试执行以下其中一个活动：
 
-* 配置[身份提供者](/docs/services/appid/identity-providers.html)
-* 定制并配置[登录窗口小部件](/docs/services/appid/login-widget.html)
+* 配置[身份提供者](/docs/services/appid?topic=appid-social)
+* 定制并配置[登录窗口小部件](/docs/services/appid?topic=appid-login-widget)
 * 了解有关 <a href="https://github.com/ibm-cloud-security/appid-clientsdk-android" target="_blank">Android SDK <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a> 的更多信息
 * 了解有关 <a href="https://github.com/ibm-cloud-security/appid-clientsdk-swift" target="_blank">iOS SDK <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a> 的更多信息

@@ -1,31 +1,40 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-12-19"
+  years: 2017, 2019
+lastupdated: "2019-04-04"
+
+keywords: authentication, authorization, identity, app security, secure, web apps, client, server
+
+subcollection: appid
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
-{:pre: .pre}
-{:tip: .tip}
 {:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 
 # Web 应用程序
-{: #adding-web}
+{: #web-apps}
 
 通过 {{site.data.keyword.appid_full}}，可以为 Web 应用程序快速构造认证层。
 {: shortdesc}
 
 ## 了解流程
-{: #understanding}
+{: #web-understanding}
 
 **此流程在什么时候有用？**
 
-开发 Web 应用程序时，可以使用 {{site.data.keyword.appid_short}} Web 流程来安全地认证用户。然后，用户就可以在 Web 应用程序中访问服务器端受保护的内容。
+开发 Web 应用程序时，可以使用 {{site.data.keyword.appid_short_notm}} Web 流程来安全地认证用户。然后，用户就可以在 Web 应用程序中访问服务器端受保护的内容。
 
 **流程的技术基础是什么？**
 
@@ -39,7 +48,7 @@ Web 应用程序通常需要用户进行认证才能访问受保护的内容。{
 
 2. 如果用户未获授权，那么启动的认证流程会重定向到 {{site.data.keyword.appid_short_notm}}。
 
-3. 根据用户的 `/authorization` 请求参数或身份提供者配置，将在用户浏览器中启动登录窗口小部件。
+3. 根据用户的 `/authorization` 请求参数或身份提供者配置，将在用户的浏览器中启动登录窗口小部件。
 
 4. 用户选择身份提供者以进行认证并完成登录过程。
 
@@ -51,11 +60,9 @@ Web 应用程序通常需要用户进行认证才能访问受保护的内容。{
 
 8. 授权用户访问应用程序。
 
-</br>
-</br>
 
 ## 配置 Node.js SDK
-{: #configuring-nodejs}
+{: #web-configuring-nodejs}
 
 可以将 {{site.data.keyword.appid_short_notm}} 配置为使用 Node.js Web 应用程序。
 {: shortdesc}
@@ -72,33 +79,35 @@ Web 应用程序通常需要用户进行认证才能访问受保护的内容。{
 
 
 ### 安装 Node.js SDK
+{: #web-nodejs-install}
 
 1. 使用命令行切换到包含 Node.js 应用程序的目录。
 
 2. 安装 {{site.data.keyword.appid_short_notm}} 服务。
+
   ```bash
   npm install --save ibmcloud-appid
   ```
-  {: codeblock}
+  {: pre}
 
 ### 初始化 Node.js SDK
+{: #web-nodejs-initialize}
 
 1. 将以下 `require` 定义添加到 `server.js` 文件。
     
 
-    ```javascript
+  ```javascript
     const express = require('express');
     const session = require('express-session')
     const passport = require('passport');
     const WebAppStrategy = require("ibmcloud-appid").WebAppStrategy;
     const CALLBACK_URL = "/ibm/cloud/appid/callback";
     ```
-    {: codeblock}
+  {: pre}
 
-2. 将 express 应用程序设置为使用 express-session 中间件。**注**：必须针对生产环境为中间件配置合适的会话存储量。有关更多信息，请参阅 <a href="https://github.com/expressjs/session" target="_blank">expressjs 文档 <img src="../icons/launch-glyph.svg" alt="外部链接图标"></a>。
-    
+2. 将 express 应用程序设置为使用 express-session 中间件。
 
-    ```javascript
+  ```javascript
     const app = express();
     app.use(session({
         secret: "123456",
@@ -108,9 +117,46 @@ Web 应用程序通常需要用户进行认证才能访问受保护的内容。{
     app.use(passport.initialize());
     app.use(passport.session());
     ```
-    {: codeblock}
+  {: pre}
 
-3. 传递服务凭证以初始化 SDK。
+  必须针对生产环境为中间件配置合适的会话存储量。有关更多信息，请参阅 <a href="https://github.com/expressjs/session" target="_blank">express.js 文档 <img src="../icons/launch-glyph.svg" alt="外部链接图标"></a>。
+  {: note}
+
+3. 通过以下其中一种方式获取凭证。
+
+  * 导航至 {{site.data.keyword.appid_short_notm}} 仪表板的**应用程序**选项卡。如果未列出应用程序，那么可以单击**添加应用程序**来创建新应用程序。
+
+  * 对 [`/management/v4/{tenantId}/applications` 端点](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Applications/mgmt.registerApplication)发出 POST 请求。
+
+    请求格式：
+    ```
+    curl -X POST \  https://us-south.appid.cloud.ibm.com/management/v4/39a37f57-a227-4bfe-a044-93b6e6060b61/applications/ \
+    -H 'Content-Type: application/json' \
+    -H 'Authorization: Bearer IAM_TOKEN' \
+    -d '{"name": "ApplicationName"}'
+    ```
+    {: pre}
+
+    示例响应：
+    ```
+    {
+    "clientId": "111c22c3-38ea-4de8-b5d4-338744d83b0f",
+    "tenantId": "39a37f57-a227-4bfe-a044-93b6e6060b61",
+    "secret": "ZmE5ZDQ5ODctMmA1ZS00OGRiLWExZDMtZTA1MjkyZTc4MDB4",
+    "name": "ApplicationName",
+    "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6060b61"
+    }
+    ```
+    {: screen}
+
+4. 可选：决定如何设置重定向 URI 的格式。重定向的格式可以通过两种不同方式进行设置。
+
+  * 在新的 `WebAppStrategy({redirectUri: "...."})` 中手动设置
+  * 设置为名为 `redirectUri` 的环境变量
+
+  如果未提供以上任何一个选项，那么 {{site.data.keyword.appid_short_notm}} SDK 将尝试检索正在 {{site.data.keyword.cloud_notm}} 上运行的应用程序的 `application_uri` 并附加缺省后缀 `/ibm/cloud/appid/callback`。
+
+5. 使用先前步骤中获取的信息来初始化 SDK。
 
   ```javascript
   passport.use(new WebAppStrategy({
@@ -121,29 +167,9 @@ Web 应用程序通常需要用户进行认证才能访问受保护的内容。{
       	redirectUri: "{app-url}" + CALLBACK_URL
       }));
   ```
-  {: codeblock}
+  {: pre}
 
-   <table summary="命令组成部分：Node.js 应用程序">
-  <caption>Node.js 应用程序的命令组成部分</caption>
-        <tr>
-          <th>组成部分</th>
-          <th>描述</th>
-        </tr>
-      <tr>
-          <td><i>tenantId</i></br> <i>clientId</i></br> <i>secret</i></br> <i>oauth-server-url</i></br> </td>
-          <td>可以通过单击服务仪表板的**服务凭证**选项卡中的**查看凭证**来找到这些值。</td>
-      </tr>
-      <tr>
-        <td><i>redirectUri</i></td>
-        <td>可通过以下三种方式提供重定向 URI 值：</br>
-            1. 在新的 `WebAppStrategy({redirectUri: "...."})` 中手动提供</br>
-            2. 作为名为 `redirectUri` 的环境变量提供</br>
-            3. 如果未提供以上任何一个选项，那么 {{site.data.keyword.appid_short_notm}} SDK 将尝试检索正在 {{site.data.keyword.Bluemix_notm}} 上运行的应用程序的 `application_uri` 并附加缺省后缀 `/ibm/cloud/appid/callback`。
-        </td>
-      </tr>
-    </table>
-
-4. 使用序列化和反序列化来配置 passport。此配置对于跨 HTTP 请求的已认证会话持久性是必需的。有关更多信息，请参阅 <a href="http://passportjs.org/docs" target="_blank">passport 文档 <img src="../icons/launch-glyph.svg" alt="外部链接图标"></a>。
+6. 使用序列化和反序列化来配置 passport。此配置对于跨 HTTP 请求的已认证会话持久性是必需的。有关更多信息，请参阅 <a href="http://passportjs.org/docs" target="_blank">passport 文档 <img src="../icons/launch-glyph.svg" alt="外部链接图标"></a>。
 
   ```javascript
   passport.serializeUser(function(user, cb) {
@@ -154,29 +180,28 @@ Web 应用程序通常需要用户进行认证才能访问受保护的内容。{
       cb(null, obj);
     });
   ```
-  {: codeblock}
+  {: pre}
 
 5. 将以下代码添加到 `server.js` 文件以发出服务重定向。
 
    ```javascript
    app.get(CALLBACK_URL, passport.authenticate(WebAppStrategy.STRATEGY_NAME));
    ```
-   {: codeblock}
+   {: pre}
 
 6. 注册受保护端点。
 
    ```javascript
-   app.get(‘/protected’, passport.authenticate(WebAppStrategy.STRATEGY_NAME)), function(req, res) res.json(req.user); });
+   app.get(‘/protected’, passport.authenticate(WebAppStrategy.STRATEGY_NAME), function(req, res) {res.json(req.user); });
    ```
-   {: codeblock}
+   {: pre}
 
 有关更多信息，请参阅 <a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs" target="_blank">{{site.data.keyword.appid_short_notm}} Node.js GitHub 存储库 <img src="../icons/launch-glyph.svg" alt="外部链接图标"></a>。
 
-</br>
-</br>
+
 
 ## 配置 Liberty for Java SDK
-{: #configuring-liberty}
+{: #web-configuring-liberty}
 
 可以将 {{site.data.keyword.appid_short_notm}} 配置为与 Liberty for Java Web 应用程序一起运作。
 {:shortdesc}
@@ -191,6 +216,7 @@ Web 应用程序通常需要用户进行认证才能访问受保护的内容。{
 * Liberty for Java Web 应用程序
 
 ### 安装 Liberty for Java SDK
+{: #web-liberty-install}
 
 1. 向 `server.xml` 添加 OpenID Connect 功能。
 
@@ -201,14 +227,41 @@ Web 应用程序通常需要用户进行认证才能访问受保护的内容。{
       <feature>openidConnectClient-1.0</feature>
   </featureManager>
   ```
-  {: codeblock}
+  {: pre}
 
-2. 创建 OpenID Connect 客户端功能，并定义以下占位符。使用服务凭证来填充占位符。
+2. 通过以下两种方式之一来获取凭证。
+
+  * 导航至 {{site.data.keyword.appid_short_notm}} 仪表板的**应用程序**选项卡。如果尚未具有应用程序，那么可以单击**添加应用程序**来创建新应用程序。
+
+  * 对 [`/management/v4/{tenantId}/applications` 端点](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Applications/registerApplication)发出 POST 请求。
+
+    请求格式：
+    ```
+    curl -X POST \  https://us-south.appid.cloud.ibm.com/management/v4/39a37f57-a227-4bfe-a044-93b6e6060b61/applications/ \
+    -H 'Content-Type: application/json' \
+    -H 'Authorization: Bearer IAM_TOKEN' \
+    -d '{"name": "ApplicationName"}'
+    ```
+    {: pre}
+
+    示例响应：
+    ```
+    {
+    "clientId": "111c22c3-38ea-4de8-b5d4-338744d83b0f",
+    "tenantId": "39a37f57-a227-4bfe-a044-93b6e6060b61",
+    "secret": "ZmE5ZDQ5ODctMmA1ZS00OGRiLWExZDMtZTA1MjkyZTc4MDB4",
+    "name": "ApplicationName",
+    "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6060b61"
+    }
+    ```
+    {: screen}
+
+3. 创建 OpenID Connect 客户端功能，并定义以下占位符。使用服务凭证来填充占位符。
 
   ```xml
   <openidConnectClient
-    clientId='App ID client_ID'
-    clientSecret='App ID Secret'
+    clientId='{{site.data.keyword.appid_short_notm}} client_ID'
+    clientSecret='{{site.data.keyword.appid_short_notm}} Secret'
     authorizationEndpointUrl='oauthServerUrl/authorization'
     tokenEndpointUrl='oauthServerUrl/token'
     jwkEndpointUrl='oauthServerUrl/publickeys'
@@ -216,10 +269,10 @@ Web 应用程序通常需要用户进行认证才能访问受保护的内容。{
     tokenEndpointAuthMethod="basic"
     signatureAlgorithm="RS256"
     authFilterid="myAuthFilter"
-    trustAliasName="my.bluemix.certificate"
+    trustAliasName="ibm.com"
   />
   ```
-  {: codeblock}
+  {: pre}
 
   <table>
   <caption>表. Liberty for Java 应用程序的 OIDC 元素变量</caption>
@@ -229,19 +282,19 @@ Web 应用程序通常需要用户进行认证才能访问受保护的内容。{
     </tr>
     <tr>
     <td><code>clientID</code></br> <code>secret</code></br> <code>oauth-server-url</code></br></td>
-    <td>可以通过单击服务仪表板的**服务凭证**选项卡中的**查看凭证**来找到这些值。</td>
+    <td>完成步骤 2 以获取服务凭证。</td>
     </tr>
     <tr>
-      <td><code>authorizationEndpointURL</code></td><td> 将 `/authorization` 添加到 oauthServerURL 的末尾。</td>
+      <td><code>authorizationEndpointURL</code></td><td> 将 <code>/authorization</code> 添加到 <code>oauthServerURL</code> 的末尾。</td>
     </tr>
     <tr>
-      <td><code>tokenEndpointUrl</code></td><td>将 `/token` 添加到 oauthServerURL 的末尾。</td>
+      <td><code>tokenEndpointUrl</code></td><td>将 <code>/token</code> 添加到 <code>oauthServerURL</code> 的末尾。</td>
     </tr>
     <tr>
-      <td><code>jwkEndpointUrl</code></td><td>将 `/publickeys` 添加到 oauthServerURL 的末尾。</td>
+      <td><code>jwkEndpointUrl</code></td><td>将 <code>/publickeys</code> 添加到 <code>oauthServerURL</code> 的末尾。</td>
     </tr>
     <tr>
-      <td><code>issuerIdentifier</code></td><td>该变量会根据您的区域而变化。可以是以下其中一项：</br><ul><li>issuerIdentifier="appid-oauth.ng.bluemix.net"</br><li> issuerIdentifier="appid-oauth.eu-gb.bluemix.net"</br><li>issuerIdentifier="appid-oauth.au-syd.bluemix.net"</ul></td>
+      <td><code>issuerIdentifier</code></td><td>颁发者标识采用以下格式：<code>&lt;region>&gt;.cloud.ibm.com</code>。区域选项包括：<code>au-syd</code>、<code>eu-de</code>、<code>eu-gb</code>、<code>jp-tok</code> 和 <code>us-south</code>。</td>
     </tr>
     <tr>
       <td><code>tokenEndpointAuthMethod</code></td><td>被指定为“basic”。</td>
@@ -258,6 +311,7 @@ Web 应用程序通常需要用户进行认证才能访问受保护的内容。{
   </table>
 
 ### 初始化 Liberty for Java SDK
+{: #web-liberty-initialize}
 
 1. 在 `server.xml` 文件中，定义授权过滤器以指定受保护资源。如果未<a href="https://www.ibm.com/support/knowledgecenter/en/SSD28V_8.5.5/com.ibm.websphere.wlp.core.doc/ae/rwlp_auth_filter.html" target="_blank">定义 <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a> 过滤器，那么服务将保护所有资源。
 
@@ -266,7 +320,7 @@ Web 应用程序通常需要用户进行认证才能访问受保护的内容。{
              <requestUrl id="myRequestUrl" urlPattern="/protected" matchType="contains"/>
     </authFilter>
   ```
-  {: codeblock}
+  {: pre}
 
 2. 将特殊主体类型定义为 `ALL_AUTHENTICATED_USERS`。
 
@@ -280,27 +334,26 @@ Web 应用程序通常需要用户进行认证才能访问受保护的内容。{
             </application-bnd>
         </application>
   ```
-  {: codeblock}
+  {: pre}
 
-3. 从 <a href="https://github.com/ibm-cloud-security/appid-sample-code-snippets/tree/master/liberty-for-java" target="_blank">GitHub <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a> 下载 `libertySample-1.0.0.war` 文件，并将其放在服务器的 apps 文件夹中。例如，如果服务器名为 defaultServer，那么该 WAR 文件将位于以下位置：`target/liberty/wlp/usr/servers/defaultServer/apps/`。
+3. 从 <a href="https://github.com/ibm-cloud-security/appid-sample-code-snippets/tree/master/liberty-for-java" target="_blank">GitHub <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a> 下载 `libertySample-1.0.0.war` 文件，并将其放在服务器的 apps 文件夹中。例如，如果服务器名为 `defaultServer`，那么该 WAR 文件将位于以下位置：`target/liberty/wlp/usr/servers/defaultServer/apps/`。
 
 4. 通过将以下内容添加到 `server.xml` 文件来配置 SSL。您还需要创建信任库。
 
-```xml
-  <keyStore id="defaultKeyStore" password="myPassword"/>
+  ```xml
+    <keyStore id="defaultKeyStore" password="myPassword"/>
   <keyStore id="appidtruststore" password="Liberty" location="${server.config.dir}/mytruststore.jks"/>
   <ssl id="defaultSSLConfig" keyStoreRef="defaultKeyStore" trustStoreRef="appidtruststore"/>
 ```
-{: codeblock}
+  {: pre}
 
 缺省情况下，SSL 配置需要为 OpenID Connect 配置信任库。了解有关<a href="https://www.ibm.com/support/knowledgecenter/en/SSEQTP_liberty/com.ibm.websphere.wlp.doc/ae/twlp_config_oidc_rp.html" target="_blank">在 Liberty 中配置 OpenID Connect 客户端 <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a> 的更多信息。
 {: tip}
 
-</br>
-</br>
+
 
 ## 配置 Spring Boot for Java SDK
-{: #configuring-spring-boot}
+{: #web-configuring-spring-boot}
 
 可以将 {{site.data.keyword.appid_short_notm}} 配置为使用 Spring Boot 应用程序。
 {:shortdesc}
@@ -318,6 +371,7 @@ Web 应用程序通常需要用户进行认证才能访问受保护的内容。{
 
 
 ### 初始化 Spring Boot 框架
+{: #web-spring-boot-initialize}
 
 1. 将以下内容添加到 Maven `pom.xml` 文件的 `<project> </project>` 标记之间。
 
@@ -329,7 +383,7 @@ Web 应用程序通常需要用户进行认证才能访问受保护的内容。{
       <relativePath/>
   </parent>
   ```
-  {: codeblock}
+  {: pre}
 
 2. 将以下依赖项添加到 Maven `pom.xml` 文件。
 
@@ -350,7 +404,7 @@ Web 应用程序通常需要用户进行认证才能访问受保护的内容。{
       </dependency>
   </dependencies>
   ```
-  {: codeblock}
+  {: pre}
 
 3. 在同一文件中，包含 Maven 插件。
 
@@ -360,9 +414,10 @@ Web 应用程序通常需要用户进行认证才能访问受保护的内容。{
       <artifactId>spring-boot-maven-plugin</artifactId>
   </plugin>
   ```
-  {: codeblock}
+  {: pre}
 
 ### 初始化 OAuth2
+{: #web-oauth-initialize}
 
 1. 将以下注释添加到 Java 文件中。
 
@@ -370,7 +425,7 @@ Web 应用程序通常需要用户进行认证才能访问受保护的内容。{
   @SpringBootApplication
   @EnableOAuth2Sso
   ```
-  {: codeblock}
+  {: pre}
 
 2. 使用 `WebSecurityConfigurerAdapter` 扩展该类。
 3. 覆盖任何安全配置并注册受保护端点。
@@ -383,12 +438,40 @@ Web 应用程序通常需要用户进行认证才能访问受保护的内容。{
                 .and().logout().logoutSuccessUrl("/").permitAll();
     }
   ```
-  {: codeblock}
+  {: pre}
 
 
 ### 添加凭证
+{: #web-spring-boot-credentials}
 
-1. 将 `application.yml` 配置文件添加到 `/springbootsample/src/main/resources/` 目录。可以使用服务凭证中的信息来完成配置。
+1. 通过以下其中一种方式获取凭证。
+
+  * 导航至 {{site.data.keyword.appid_short_notm}} 仪表板的**应用程序**选项卡。如果尚未具有应用程序，那么可以单击**添加应用程序**来创建新应用程序。
+
+  * 对 [`/management/v4/{tenantId}/applications` 端点](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Applications/registerApplication)发出 POST 请求。
+
+    请求格式：
+    ```
+    curl -X POST \  https://us-south.appid.cloud.ibm.com/management/v4/39a37f57-a227-4bfe-a044-93b6e6060b61/applications/ \
+    -H 'Content-Type: application/json' \
+    -H 'Authorization: Bearer IAM_TOKEN' \
+    -d '{"name": "ApplicationName"}'
+    ```
+    {: pre}
+
+    示例响应：
+    ```
+    {
+    "clientId": "111c22c3-38ea-4de8-b5d4-338744d83b0f",
+    "tenantId": "39a37f57-a227-4bfe-a044-93b6e6060b61",
+    "secret": "ZmE5ZDQ5ODctMmA1ZS00OGRiLWExZDMtZTA1MjkyZTc4MDB4",
+    "name": "ApplicationName",
+    "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6060b61"
+    }
+    ```
+    {: screen}
+
+2. 将 `application.yml` 配置文件添加到 `/springbootsample/src/main/resources/` 目录。可以使用服务凭证中的信息来完成配置。
 
   ```
   security:
@@ -401,30 +484,23 @@ Web 应用程序通常需要用户进行认证才能访问受保护的内容。{
     resource:
       userInfoUri: {oauthServerUrl}/userinfo
   ```
-  {: codeblock}
-
+  {: pre}
 
 有关逐步指导示例，请查看<a href="https://www.ibm.com/blogs/bluemix/2018/06/creating-spring-boot-applications-app-id/" target="_blank">此博客</a>！
 
-</br>
-</br>
 
 ## 使用 {{site.data.keyword.appid_short_notm}} 的其他语言版本
-{: #other}
+{: #web-other-languages}
 
 对于符合 OIDC 的客户端 SDK，可以使用 {{site.data.keyword.appid_short_notm}} 的其他语言版本。请查看<a href="https://openid.net/developers/certified/">认证的库</a>的列表以获取更多信息。
 
-
-</br>
-</br>
-
 ## 后续步骤
-{: #next}
+{: #web-next}
 
 在应用程序中安装 {{site.data.keyword.appid_short_notm}} 后，您几乎已准备好开始对用户进行认证！接着请尝试执行以下其中一个活动：
 
 
 
-* 配置[身份提供者](/docs/services/appid/identity-providers.html)。
-* 定制并配置[登录窗口小部件](/docs/services/appid/login-widget.html)
+* 配置[身份提供者](/docs/services/appid?topic=appid-social)。
+* 定制并配置[登录窗口小部件](/docs/services/appid?topic=appid-login-widget)
 * 了解有关 <a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs" target="_blank">Node.js SDK <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a> 的更多信息

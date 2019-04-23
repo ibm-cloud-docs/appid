@@ -1,31 +1,40 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-11-14"
+  years: 2017, 2019
+lastupdated: "2019-03-27"
+
+keywords: authentication, authorization, identity, app security, secure, development, mobile, android, iOS
+
+subcollection: appid
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
-{:pre: .pre}
-{:tip: .tip}
 {:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:codeblock: .codeblock}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 # Applicazioni mobili
-{: #adding-mobile}
+{: #mobile-apps}
 
 Con {{site.data.keyword.appid_full}}, puoi velocemente costruire un livello di autenticazione per la tua applicazione mobile nativa o ibrida.
 {: shortdesc}
 
 ## Descrizione del flusso
-{: #understanding}
-
-**Quando questo flusso sarebbe utile?**
+{: #understanding-mobile}
 
 Un flusso mobile è utile quando stai sviluppando un'applicazione che deve essere installata sul dispositivo di un utente (un'applicazione nativa). Utilizzando questo flusso, puoi autenticare in modo sicuro gli utenti sulla tua applicazione per poter fornire delle esperienze utente personalizzate tra i dispositivi.
 
-**Quali sono le basi tecniche del flusso?**
+### Qual è la base tecnica del flusso?
+{: #mobile-technical-flow}
 
 Poiché le applicazioni native sono installate direttamente sul dispositivo di un utente, le informazioni sull'utente private e le credenziali dell'applicazione possono essere estratte da terze parti con relativa facilità. Per impostazione predefinita, questi tipi di applicazioni sono noti come client non attendibili perché non possono archiviare le credenziali globali o i token di aggiornamento dell'utente. Di conseguenza, i client non attendibili richiedono agli utenti di immettere le proprie credenziali ogni volta che scadono i loro token di accesso.
 
@@ -33,17 +42,18 @@ Per convertire la tua applicazione in un client attendibile, {{site.data.keyword
 
 Dopo la registrazione, i tuoi utenti eseguono l'autenticazione utilizzando i flussi `authorization code` o `resource owner password` [authorization grant](https://tools.ietf.org/html/rfc6749#section-1.3) OAuth2 per autenticare gli utenti.
 
-**A cosa assomiglia questo flusso?**
 
-![{{site.data.keyword.appid_short_notm}} - Flusso da applicazione a applicazione](images/mobile-flow.png)
-
-**Registrazione client dinamica**
+### Registrazione client dinamica
+{: #mobile-dynamic}
 
 1. Un utente esegue un'azione che attiva una richiesta dall'applicazione client all'SDK {{site.data.keyword.appid_short}}.
 2. Se la tua applicazione non è registrata ancora come un client mobile, l'SDK avvia un flusso di registrazione dinamica.
 3. Dopo una corretta registrazione, {{site.data.keyword.appid_short}} restituisce il tuo ID client specifico per l'installazione.
 
-**Flusso di autorizzazione**
+### Flusso di autorizzazione
+{: #mobile-auth-flow}
+
+![{{site.data.keyword.appid_short_notm}} - Flusso da applicazione a applicazione](images/mobile-flow.png)
 
 1. L'SDK {{site.data.keyword.appid_short}} avvia il processo di autorizzazione utilizzando l'endpoint {{site.data.keyword.appid_short_notm}} `/authorization`.
 2. Il widget di accesso viene visualizzato all'utente.
@@ -52,8 +62,8 @@ Dopo la registrazione, i tuoi utenti eseguono l'autenticazione utilizzando i flu
 5. La concessione di autorizzazione viene scambiata con i token di accesso, identità e aggiornamento dall'endpoint {{site.data.keyword.appid_short_notm}} `/token`.
 
 
-## Configurazione della tua applicazione mobile con gli SDK {{site.data.keyword.appid_short}} 
-{: #configuring}
+## Configurazione della tua applicazione mobile con gli SDK {{site.data.keyword.appid_short}}
+{: #configuring-mobile}
 
 Inizia ad utilizzare {{site.data.keyword.appid_short}} con i nostri SDK.
 {: shortdesc}
@@ -62,15 +72,15 @@ Inizia ad utilizzare {{site.data.keyword.appid_short}} con i nostri SDK.
 
 Hai bisogno delle seguenti informazioni:
 
-* Un'istanza {{site.data.keyword.appid_short_notm}} 
+* Un'istanza {{site.data.keyword.appid_short_notm}}
 
 * L'ID tenant della tua istanza. Può essere trovato nella scheda **Service Credentials** del tuo dashboard del servizio.
 
-* La regione {{site.data.keyword.Bluemix}} di distribuzione della tua istanza. Puoi trovare la tua regione cercando nella console. 
+* La regione {{site.data.keyword.cloud_notm}} di distribuzione della tua istanza. Puoi trovare la tua regione cercando nella console.
 
-  <table><caption> Tabella 1. Regioni {{site.data.keyword.Bluemix_notm}} e valori SDK corrispondenti</caption>
+  <table><caption> Tabella 1. Regioni {{site.data.keyword.cloud_notm}} e valori SDK corrispondenti</caption>
   <tr>
-    <th>Regione {{site.data.keyword.Bluemix}}</th>
+    <th>Regione {{site.data.keyword.cloud_notm}}</th>
     <th>Valore SDK</th>
   </tr>
   <tr>
@@ -92,7 +102,7 @@ Hai bisogno delle seguenti informazioni:
 </table>
 
 ## Autenticazione con l'SDK Android
-{: #android-setup}
+{: #mobile-android}
 
 **Prima di cominciare**
 
@@ -100,13 +110,13 @@ Devi avere i seguenti prerequisiti prima di iniziare:
 
   * API 27 o superiore
   * Java 8.x
-  * Strumenti SDK Android 26.1.1+ 
-  * Strumenti piattaforma SDK Android 27.0.1+ 
+  * Strumenti SDK Android 26.1.1+
+  * Strumenti piattaforma SDK Android 27.0.1+
   * Strumenti di build Android versione 27.0.0+
 
-</br>
 
-**Installazione dell'SDK**
+### Installazione dell'SDK
+{: #mobile-android-install}
 
 1. Crea un progetto Android Studio oppure apri un progetto esistente.
 
@@ -147,12 +157,13 @@ Devi avere i seguenti prerequisiti prima di iniziare:
 
 </br>
 
-**Inizializzazione dell'SDK**
+### Inizializzazione dell'SDK
+{: #mobile-android-initialize}
 
 
 1. Passa i parametri contesto, ID tenant e regione al metodo di inizializzazione per configurare l'SDK.
 
-    Un punto comune, seppure non obbligatorio, dove inserire il codice di inizializzazione è nel metodo onCreate dell'attività principale nella tua applicazione Android.
+    Un punto comune, seppure non obbligatorio, dove inserire il codice di inizializzazione è nel metodo `onCreate` dell'attività principale nella tua applicazione Android.
     {: tip}
 
     ```java
@@ -164,7 +175,7 @@ Devi avere i seguenti prerequisiti prima di iniziare:
 </br>
 
 ## Autenticazione con l'SDK iOS Swift
-{: #ios-setup}
+{: #mobile-ios}
 
 Proteggi le tue applicazioni mobili utilizzando l'SDK client {{site.data.keyword.appid_short}}.
 {:shortdesc}
@@ -180,7 +191,8 @@ Devi avere i seguenti prerequisiti prima di iniziare:
 
 </br>
 
-**Installazione dell'SDK**
+### Installazione dell'SDK
+{: #mobile-ios-install}
 
 L'SDK client {{site.data.keyword.appid_short_notm}} è distribuito con CocoaPods, un gestore dipendenze per i progetti Swift e Objective-C Cocoa. CocoaPods scarica le risorse utente e le rende disponibili al tuo progetto.
 
@@ -218,7 +230,8 @@ L'SDK client {{site.data.keyword.appid_short_notm}} è distribuito con CocoaPods
 
 </br>
 
-**Inizializzazione dell'SDK**
+### Inizializzazione dell'SDK
+{: #mobile-ios-initialize}
 
 1. Inizializza l'SDK client passando i parametri ID tenant e regione al metodo di inizializzazione.
 
@@ -246,17 +259,16 @@ L'SDK client {{site.data.keyword.appid_short_notm}} è distribuito con CocoaPods
   ```
   {: codeblock}
 
-</br>
-</br>
 
 ## Accesso alle API protette
-{: #accessing-protected-apis}
+{: #mobile-accessing-apis}
 
 Dopo un flusso di accesso corretto, puoi utilizzare i tuoi token di accesso e identità per richiamare le risorse di backend protette che utilizzano l'SDK o una libreria di rete di tua scelta.
 
 </br>
 
-### Accesso alle API protette con l'SDK Swift
+### Con l'SDK Swift
+{: #mobile-access-api-swift}
 
 1.  Aggiungi le seguenti importazioni al file in cui vuoi richiamare una richiesta della risorsa protetta:
 
@@ -287,7 +299,8 @@ Dopo un flusso di accesso corretto, puoi utilizzare i tuoi token di accesso e id
 
 </br>
 
-### Accesso alle API protette con l'SDK Android
+### Con l'SDK Android
+{: #mobile-access-api-android}
 
 1. Aggiungi le seguenti importazioni al file in cui vuoi richiamare una richiesta della risorsa protetta:
 
@@ -329,7 +342,8 @@ Dopo un flusso di accesso corretto, puoi utilizzare i tuoi token di accesso e id
 
 </br>
 
-### Accesso alle API protette senza un SDK
+### Senza un SDK
+{: #mobile-access-api-nosdk}
 
 Con la libreria di tua scelta, imposta l'intestazione della richiesta `Authorization` in modo da utilizzare lo schema di autenticazione `Bearer` per trasmettere il token di accesso.
 
@@ -346,11 +360,11 @@ Formato della richiesta di esempio:
 </br>
 
 ## Passi successivi
-{: #next}
+{: #mobile-next}
 
 Con {{site.data.keyword.appid_short}} installato nella tua applicazione, sei quasi pronto ad iniziare ad autenticare gli utenti. Prova ad eseguire una delle seguenti attività:
 
-* Configura i tuoi [provider di identità](/docs/services/appid/identity-providers.html)
-* Personalizza e configura [il widget di accesso](/docs/services/appid/login-widget.html)
+* Configura i tuoi [provider di identità](/docs/services/appid?topic=appid-social)
+* Personalizza e configura [il widget di accesso](/docs/services/appid?topic=appid-login-widget)
 * Informazioni sull'<a href="https://github.com/ibm-cloud-security/appid-clientsdk-android" target="_blank">SDK Android<img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a>
 * Informazioni sull'<a href="https://github.com/ibm-cloud-security/appid-clientsdk-swift" target="_blank">SDK iOS<img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a>

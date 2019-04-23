@@ -1,59 +1,72 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-12-19"
+  years: 2017, 2019
+lastupdated: "2019-04-04"
+
+keywords: authentication, authorization, identity, app security, secure, application identity, app to app, access token
+
+subcollection: appid
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
-{:codeblock: .codeblock}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:codeblock: .codeblock}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 # 使用 API 管理 {{site.data.keyword.appid_short_notm}}
-{: manging-api}
+{: #manging-api}
 
 您可以使用管理 API，對您的 {{site.data.keyword.appid_full}} 實例進行 DevOps 自動化、自訂及管理。
 {: shortdesc}
 
-管理 API 受到 {{site.data.keyword.cloudaccesstraillong}} 產生的記號所保護。使用 IAM，帳戶擁有者可以指定其團隊成員對每個服務實例的存取層次。如需 IAM 與 {{site.data.keyword.appid_short_notm}} 如何合作的相關資訊，請參閱[服務存取管理](/docs/services/appid/iam.html)。
+管理 API 受到 {{site.data.keyword.cloudaccesstraillong}} 產生的記號所保護。使用 IAM，帳戶擁有者可以指定其團隊成員對每個服務實例的存取層次。如需 IAM 與 {{site.data.keyword.appid_short_notm}} 如何合作的相關資訊，請參閱[服務存取管理](/docs/services/appid?topic=appid-service-access-management#service-access-management)。
 
 使用 API，您可以：
 * 在 DevOps 處理程序的應用程式中自動配置 {{site.data.keyword.appid_short_notm}}。
 * 透過應用程式後端設定及自訂功能，例如您的登入小組件配置、註冊處理程序及使用者管理。
 
 
-呼叫管理 API 端點採用下列結構：
+此管理 API 端點的呼叫採用下列結構：
 
 ```
-appid-management.<region-endpoint>.bluemix.net
+https://<region-endpoint>.appid.cloud.ibm.com/management
 ```
 {: codeblock}
 
 
 <table>
   <tr>
-    <th>{{site.data.keyword.Bluemix}} 地區</th>
+    <th>地區</th>
     <th>端點</th>
   </tr>
   <tr>
-    <td>英國</td>
-    <td><code>eu-gb</code></td>
+    <td>達拉斯</td>
+    <td><code>us-south</code></td>
   </tr>
   <tr>
-    <td>美國南部</td>
-    <td><code>ng</code></td>
+    <td>法蘭克福</td>
+    <td><code>eu-de</code></td>
   </tr>
   <tr>
     <td>雪梨</td>
     <td><code>au-syd</code></td>
   </tr>
   <tr>
-    <td>德國</td>
-    <td><code>eu-de</code></td>
+    <td>倫敦</td>
+    <td><code>eu-gb</code></td>
+  </tr>
+  <tr>
+    <td>東京</td>
+    <td><code>jp-tok</code></td>
   </tr>
 </table>
 
@@ -63,7 +76,7 @@ appid-management.<region-endpoint>.bluemix.net
 {: #api-prereq}
 
 <ul><ul><li>一個在 2018 年 3 月 15 日之後建立的服務實例。如果您的服務實例是在該日期之前所建立，請建立新的實例，並將它配置為符合您的現行實例。請務必更新您的應用程式以使用新的實例。</li>
-<li>已安裝 [{{site.data.keyword.Bluemix_notm}} CLI](/docs/cli/index.html)。</li></ul></ul>
+<li>已安裝 [{{site.data.keyword.cloud_notm}} CLI](/docs/cli/reference/ibmcloud/cloud-cli-install_use?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli)。</li></ul></ul>
 
 ## 範例用法
 {: #api-example}
@@ -74,20 +87,20 @@ appid-management.<region-endpoint>.bluemix.net
 import requests
 import json
 
-tenantId = '<App ID instance>'
+tenantId = '<{{site.data.keyword.appid_short_notm}} instance>'
 Img = '<Logo file location>'
-apiKey = '<IAM AI key>'
+apiKey = '<IAM API key>'
 
-# get IAM token
+# get an IAM token
 headers = {'Content-Type': 'application/x-www-form-urlencoded', 'Accept':'application
 /json'}
 data = 'grant_type=urn:ibm:params:oauth:grant-type:apikey&apikey=' + apiKey;
 
-r = requests.post("https://iam.ng.bluemix.net/oidc/token", data=data, headers=
+r = requests.post("https://iam.cloud.ibm.com/oidc/token", data=data, headers=
 headers);
 token = 'Bearer ' + json.loads(r.text)['access_token'];
 
-#  set login widget logo
+#  set the Login Widget logo
 headers = {'Authorization': token , 'Accept':'application/json'}
 files = {'file': open(img,'rb')}
 
@@ -98,7 +111,7 @@ headers = {'Authorization': token , 'Accept':'application/json'}
 
 r = requests.get("https://<region>.appid.cloud.com/management/v4/" + tenantId + "/config/ui/media", headers=headers);
 
-if (r.status_code >= 200) :
+if (r.status_code >= 200) :~
     print(r.text)
     print("success! the logo was changed")
 ```
@@ -108,5 +121,4 @@ if (r.status_code >= 200) :
 ## 後續步驟
 {: #api-try}
 
-若要自行嘗試，請參閱 <a href="https://appid-management.ng.bluemix.net/swagger-ui/
-" target="_blank"> {{site.data.keyword.appid_short_notm}} Management Rest API <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>
+若要自行嘗試，請參閱 <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/" target="_blank">{{site.data.keyword.appid_short_notm}} 管理 Rest API <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>

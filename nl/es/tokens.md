@@ -1,16 +1,26 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-12-19"
+  years: 2017, 2019
+lastupdated: "2019-04-10"
+
+keywords: authentication, authorization, identity, app security, secure, tokens, jwt, development
+
+subcollection: appid
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 
 # Validación de señales
@@ -19,10 +29,8 @@ lastupdated: "2018-12-19"
 La validación de señales es una parte importante del desarrollo de apps modernas. Mediante la validación de señales, puede proteger la app o las API de usuarios no autorizados. {{site.data.keyword.appid_full}} utiliza señales de identidad y acceso para garantizar que un usuario o app se autentican antes de que se les otorgue acceso. Si está utilizando uno de los SDK proporcionados por {{site.data.keyword.appid_short_notm}}, la obtención y la validación de señales se realizarán en su nombre.
 {: shortdesc}
 
-Para obtener más información sobre cómo se utilizan las señales en {{site.data.keyword.appid_short_notm}}, consulte [Comprensión de las señales](authorization.html#tokens).
+Para obtener más información sobre cómo se utilizan las señales en {{site.data.keyword.appid_short_notm}}, consulte [Comprensión de las señales](/docs/services/appid?topic=appid-tokens#tokens).
 {: tip}
-
-**¿Qué es la validación de señales?**
 
 Las señales se utilizan para verificar que una persona es quien dice ser. Confirman los permisos de acceso que el usuario puede tener durante un período de tiempo especificado. Cuando un usuario inicia sesión en la aplicación y se emite una señal, la app debe validar el usuario antes de que se le proporcione acceso.
 
@@ -48,13 +56,13 @@ Si nos basamos en los comentarios que hemos recibido, la opción 1 es la forma m
 Al utilizar la introspección, puede utilizar {{site.data.keyword.appid_short_notm}} para validar las señales.
 {: shortdesc}
 
-1. Envíe una solicitud POST al punto final de API de [/introspect](https://appid-oauth.ng.bluemix.net/swagger-ui/#!/Authorization_Server_V3/introspect) para validar la señal. La solicitud debe proporcionar la señal y una cabecera de autorización básica que contenga el ID de cliente y el secreto.
+1. Envíe una solicitud POST al punto final de API de [/introspect](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization%20Server%20-%20Authorization%20Server%20V4/oauth-server.token) para validar la señal. La solicitud debe proporcionar la señal y una cabecera de autorización básica que contenga el ID de cliente y el secreto.
 
   Solicitud de ejemplo:
 
     ```
-    POST /oauth/v3/{tenant_id}/introspect HTTP/1.1
-    Host: appid-oauth.ng.bluemix.net
+    POST /oauth/v4/{tenant_id}/introspect HTTP/1.1
+    Host: us-south.appid.cloud.ibm.com
     Content-Type: application/x-www-form-urlencoded
     Authorization: Basic jdFlUaGlZUzAwTW0Tjk15TmpFMw==
     Cache-Control: no-cache
@@ -110,20 +118,20 @@ Puede validar las señales de forma local analizando la señal, verificando la f
 
     ```
     {
-      "iss": "appid-oauth",
+      "iss": "https://us-south.appid.cloud.ibm.com/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6050a61",
       "aud": "abc123",
       "exp": 1564566
     }
     ```
     {: screen}
 
-2. Realice una llamada al punto final [/publickeys ](https://appid-oauth.ng.bluemix.net/swagger-ui/#!/Authorization_Server_V3/publicKeys) para recuperar las claves públicas. Las claves públicas devueltas tienen el formato de [claves web de JSON (JWK)](https://tools.ietf.org/html/rfc7517).
+2. Realice una llamada al punto final [/publickeys](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Authorization_Server_V4/publicKeys) para recuperar las claves públicas. Las claves públicas devueltas tienen el formato de [claves web de JSON (JWK)](https://tools.ietf.org/html/rfc7517).
 
   Solicitud de ejemplo:
 
     ```
-    GET /oauth/v3/{tenant_id}/publickeys HTTP/1.1
-    Host: appid-oauth.ng.bluemix.net
+    GET /oauth/v4/{tenant_id}/publickeys HTTP/1.1
+    Host: us-south.appid.cloud.ibm.com
     Cache-Control: no-cache
     ```
     {: screen}
@@ -134,7 +142,7 @@ Puede validar las señales de forma local analizando la señal, verificando la f
 
   Ejemplo de respuesta:
 
-    ```]
+    ```
     {
       "keys": [
         {
@@ -173,7 +181,7 @@ Puede validar las señales de forma local analizando la señal, verificando la f
     </tbody>
   </table>
 
-5. Verifique la firma de la señal. La cabecera de la señal contiene el algoritmo que se ha utilizado para firmar la señal y el ID de clave o reclamación `kid` de la clave pública coincidente. Puesto que las claves públicas no cambian con frecuencia, puede almacenar en memoria caché claves públicas en la app y renovarlas ocasionalmente. Si a la clave almacenada en caché le falta la reclamación `kid`, entonces podrá validar las señales localmente.
+5. Verifique la firma de la señal. La cabecera de la señal contiene el algoritmo que se ha utilizado para firmar la señal y el ID de clave o reclamación `kid` de la clave pública coincidente. Puesto que las claves públicas no cambian con frecuencia, puede almacenar en memoria caché claves públicas en la app y renovarlas ocasionalmente. Si a la clave almacenada en caché le falta la reclamación `kid`, puede validar las señales localmente.
 
   1. Haga que la aplicación verifique que el contenido de la cabecera de señal de entrada coincida con los parámetros de la clave pública.
   2. Compruebe de forma específica que se han utilizado los mismos algoritmos y que la memoria caché de la clave pública contiene una clave con el ID de clave relevante.
@@ -207,6 +215,3 @@ Puede validar las señales de forma local analizando la señal, verificando la f
       </tr>
     </tbody>
   </table>
-
-</br>
-</br>

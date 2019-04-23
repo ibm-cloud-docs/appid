@@ -1,31 +1,44 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-11-14"
+  years: 2017, 2019
+lastupdated: "2019-03-25"
+
+keywords: authentication, authorization, identity, app security, secure, custom, proprietary, social, facebook, google, 
+
+subcollection: appid
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
-{: tip: .tip}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 # 社交
-{: #setting-up-idp}
+{: #social}
 
 通过 {{site.data.keyword.appid_full}}，可以配置一个或多个社交身份提供者来为应用程序设置单点登录体验。通过允许用户使用其社交概要文件登录，用户不必再记住用于不同应用程序的多个不同的密码。
 {: shortdesc}
 
 
 ## 缺省配置
-{: #default}
+{: #social-default}
 
 {{site.data.keyword.appid_short_notm}} 提供了缺省配置，可帮助您快速启动并运行该服务。
 {: shortdesc}
 
-为 Facebook 和 Google 设置了缺省凭证。每个实例每天对凭证的使用次数只有 100 次。由于它们是 IBM 凭证，因此只能在开发方式下使用。在发布应用程序之前，请将配置更新为您自己的凭证。
+配置 App ID 时，Facebook、Google 和 Cloud Directory 会作为身份提供者自动启用。您可以随时更改此配置。提供了用于 Facebook 和 Google 的缺省凭证，但这些凭证是 IBM 凭证，应该仅用于测试是否要使用该服务。在发布应用程序之前，请将配置更新为您自己的凭证。
+
+每个实例每天可使用缺省凭证进行认证的次数限制为 100 次。
+{: note}
 
 
 ## 配置 Facebook
@@ -35,6 +48,7 @@ lastupdated: "2018-11-14"
 {: shortdesc}
 
 ### 从 Facebook 获取应用程序标识和私钥
+{: #facebook-appid-secret}
 
 要将 Facebook 用作身份提供者，必须在 Facebook 应用程序上添加并配置 Web 站点平台。
 
@@ -47,6 +61,7 @@ lastupdated: "2018-11-14"
 
 
 ### 配置 {{site.data.keyword.appid_short_notm}} 进行 Facebook 认证
+{: #facebook-configure}
 
 已拥有 Facebook 应用程序标识和私钥并且将 Facebook for Developers 应用程序配置为向 Web 客户端提供服务后，可以在服务仪表板中编辑 Facebook 认证。
 
@@ -63,7 +78,8 @@ lastupdated: "2018-11-14"
 可以将 {{site.data.keyword.appid_short}} 服务配置为将 Google 用作身份提供者。
 {: shortdesc}
 
-### 从 Google 获取客户端标识和私钥
+### 获取客户端标识和私钥
+{: #google-clientid-secret}
 
 在 <a href="https://developers.google.com/" target="_blank">Google Developers Console <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a> 中创建一个项目，将该项目配置为向 Web 客户端提供服务，然后获取客户端标识和私钥。
 
@@ -77,6 +93,7 @@ lastupdated: "2018-11-14"
 4. 记录 Google 客户端标识和私钥。在凭证选项卡中，选择您创建用于获取私钥和客户端标识的标识。
 
 ### 配置 {{site.data.keyword.appid_short}} 进行 Google 认证
+{: #google-configure}
 
 配置 Google 项目并获得客户端标识和私钥后，可以编辑服务仪表板来进行 Google 认证。
 

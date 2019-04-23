@@ -1,25 +1,38 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-08"
+  years: 2017, 2019
+lastupdated: "2019-03-27"
+
+keywords: authentication, authorization, identity, app security, secure, development,
+
+subcollection: appid
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
+{:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:codeblock: .codeblock}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 # 概説チュートリアル
-{: #gettingstarted}
+{: #getting-started}
 
 アプリケーション・セキュリティーは複雑過ぎて手に負えなくなることもあります。 これはほとんどの開発者にとって、アプリ作成における難題の一つとなっています。 確実にユーザー情報を保護するにはどうすればよいでしょうか? アプリに {{site.data.keyword.appid_full}} を統合することによって、セキュリティーに関する経験がさほどなくても、リソースを保護し、認証を追加することができます。
 {: shortdesc}
 
-ユーザーにアプリへのサインインを要求することで、アプリの設定や公開されているソーシャル・プロファイル情報などのユーザー・データを保管し、そのデータを利用してアプリの操作環境を個別にカスタマイズできます。 App ID により自動的にログイン・フレームワークが提供されますが、クラウド・ディレクトリーの操作時には独自のブランド・マークが付いたサインイン画面を表示することもできます。
+ユーザーにアプリへのサインインを要求することで、アプリの設定や公開されているソーシャル・プロファイル情報などのユーザー・データを保管し、そのデータを利用してアプリの操作環境を個別にカスタマイズできます。 {{site.data.keyword.appid_short_notm}} により自動的にフレームワークが提供されますが、クラウド・ディレクトリーの操作時には独自のブランド・マークが付いたサインイン画面を表示することもできます。
 
-アカウント所有者は、チームのメンバーが {{site.data.keyword.appid_short_notm}} のインスタンスと対話する方法を定義するポリシーを設定できるようになりました。 サービスのインスタンスを作成、更新、削除できるメンバーを決定できます。 詳しくは、[サービス・アクセス管理](/docs/services/appid/iam.html)を参照してください。
-{:tip}
+フィードバックやご質問をお待ちしています。
+* {{site.data.keyword.appid_short_notm}} についての技術的な質問がある場合は、質問を<a href="https://stackoverflow.com/search?q=ibm-appid" target="_blank">スタック・オーバーフロー <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a>に投稿し、質問に `ibm-appid` のタグを付けてください。
+* サービスや開始手順についての質問は、<a href="https://developer.ibm.com/answers/topics/appid/" target="_blank">dW Answers <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> フォーラムをご利用ください。 `appid` のタグを付けてください。
 
 ## サービス・インスタンスの作成
 {: #create}
@@ -27,7 +40,7 @@ lastupdated: "2018-08-08"
 作業を開始するには、{{site.data.keyword.appid_short_notm}} のインスタンスを作成してアプリにバインドします。
 {: shortdesc}
 
-1. {{site.data.keyword.Bluemix}} カタログで、{{site.data.keyword.appid_short_notm}} を選択します。 サービス構成画面が開きます。
+1. {{site.data.keyword.cloud_notm}} カタログで、{{site.data.keyword.appid_short_notm}} を選択します。 サービス構成画面が開きます。
 2. サービス・インスタンスに名前を付けます。または、事前設定された名前を使用します。
 3. 料金プランを選択し、**「作成」**をクリックします。
 4. {{site.data.keyword.appid_short_notm}} のインスタンスをバインドします。
@@ -38,41 +51,32 @@ lastupdated: "2018-08-08"
 
 これで完了です。 アプリケーション設定の構成を開始する準備ができました。
 
-
 ## サンプル・アプリの構成
 {: #sample-app}
 
 事前構成されたサンプル・アプリの 1 つを使用して、サービスの機能について学ぶことができます。
 {: shortdesc}
 
-すぐに使用可能なサンプル・アプリには 2 つの ID プロバイダーが構成されています。これを使用して認証について学習できます。 また、ログイン・ウィジェット機能を使用してサインイン・ページをカスタマイズし、加えた更新がすぐにアプリに表示されることも確認できます。
+すぐに使用可能なサンプル・アプリには 2 つの ID プロバイダーが構成されています。これを使用して認証について学習できます。 サンプル・アプリは、`iOS Swift`、`Android`、`Node.js`、`Java` で提供されています。 自分が作業しやすい言語が含まれていなくても、問題ありません。 用意されている API を使用すれば、独自のサンプル・アプリケーションに {{site.data.keyword.appid_short_notm}} を組み込むことができます。
 
-GUI からサンプル・アプリを構成するには、以下のようにします。
+サンプル・アプリを作成するには、以下のようにします。
 
-1. サービスのインスタンスを作成した後に、自分が作業しやすいと思う言語のサンプル・アプリを選択できます。 iOS Swift、Android、Node.js、および Java から選択できます。 SDK を使用しないことも可能です。 API を使用して {{site.data.keyword.appid_short_notm}} を統合できます。
-2. GUI の手順に従い、サンプル・アプリを**ビルドして実行します**。 言語ごとに構成方法が若干異なるので、必ず、ダウンロードしたアプリの言語をドロップダウンから選択してください。 アプリを構成した後、それをブラウザーで開き、資格情報を使用してログインすることができます。 ご使用のアプリ言語の前提条件となるものがインストールされていることを確認してください。
-  <dl>
-    <dt> Android </dt>
-      <dd><ul><li> Android API 27 以上 </li><li> Java 8.x </li><li> Android SDK Tools 25.2.5+ </li><li> Android SDK Platform Tools 26.1.1+ </li><li> Android Build Tools バージョン 27.0.0+</li></ul></dd>
-    <dt> iOS Swift </dt>
-      <dd><ul><li> CocoaPods (バージョン 1.1.0 以上) </li><li> iOS 10.0 以上</li><li> MacOS 10.11.5 </li><li> Xcode (バージョン 9.0.1 以上) </li></ul></dd>
-    <dt> Node.js </dt>
-      <dd><ul><li> {{site.data.keyword.Bluemix_notm}} CLI</li></ul></dd>
-    <dt> Java </dt>
-      <dd><ul><li> {{site.data.keyword.Bluemix_notm}} CLI</li><li> Maven </li></ul></dd>
-  </dl>
-
+1. **「サンプルのダウンロード」**をクリックします。
+2. 選択した言語をクリックして、サンプルをダウンロードします。
   探している言語が見つかりませんか? 心配無用です! API を介して {{site.data.keyword.appid_short_notm}} を活用できます。 また、他の言語での追加のヘルプについては、<a href="https://www.ibm.com/blogs/bluemix/tag/app-id/" target="_blank">ブログ <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> を参照することもできます。
   {: tip}
+3. 前提条件となる項目をインストール済みまたは完了済みであることを確認します。
+4. **作成と実行**のステップに従って、{{site.data.keyword.appid_short_notm}} でサンプルをセットアップします。
+5. **「アクティビティーの確認」**をクリックして、発生した認証イベントを表示します。 どのタイプのサインインでもイベントが作成されて、このページに表示されます。
+6. サインイン・ウィジェットをカスタマイズします。
+  1. 商標ロゴなどのイメージを追加します。これを行うには、**「選択」**をクリックしてローカル・システムを参照し、アップロードするイメージを見つけます。
+  2. 色の選択肢の中からいずれかを選択するか、16 進値で指定することで、カラー・スキームを選択します。
+  3. Web とモバイルの間で切り替えて、各タイプのデバイスでカラー・スキームが表示される様子を確認します。
+  4. 選択内容に問題がなければ、**「変更の保存」**をクリックします。
+7. ブラウザーで、ログイン・ページを最新表示します。 前の手順で加えた変更が既に表示されています。
 
-3. **「アクティビティーの確認」**をクリックして、発生した認証イベントを表示します。 ログインすると、イベントを表示できます。
-4. ログイン操作環境をカスタマイズします。 ロゴなどの画像やヘッダーの色を選択できます。 色の選択肢の中から選択することも、16 進値を入力することもできます。 プレビューを確認したら、**「変更を保存」**をクリックします。
-5. ブラウザーで、ログイン・ページを最新表示します。 前の手順で加えた変更が既に表示されています。
 
 ## 次のステップ
 {: #next}
 
-お客様自身のアプリで作業を開始する準備ができましたか? [アプリにサービスを追加](/docs/services/appid/install.md)して開始します。 このサービスは、よく使用される言語用の SDK を提供していますが、アプリが作成されている言語の SDK が見つからない場合でも、API を使用することができます。
-
-</br>
-</br>
+お客様自身のアプリで作業を開始する準備ができましたか? [アプリにサービスを追加](/docs/services/appid?topic=appid-web-apps#web-apps)して開始します。 このサービスでは、よく使用される言語用の SDK を提供していますが、対象アプリの作成言語での SDK が見つからない場合でも、API を使用して {{site.data.keyword.appid_short_notm}} を利用することができます。

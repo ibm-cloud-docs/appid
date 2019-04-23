@@ -1,26 +1,36 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-11-19"
+  years: 2017, 2019
+lastupdated: "2019-04-04"
+
+keywords: authentication, authorization, identity, app security, secure, user information, attributes, accessing, storing, preregister, profiles
+
+subcollection: appid
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
-{:pre: .pre}
-{:tip: .tip}
 {:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:codeblock: .codeblock}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 # Atributos predefinidos
-{: #predefined}
+{: #predefined-attributes}
 
 Con {{site.data.keyword.appid_full}}, puede ver información específica del proveedor de identidades sobre los usuarios.
 {: shortdesc}
 
 
 ## Acceso con el SDK de iOS
-{: #ios}
+{: #predefined-access-ios}
 
 Si las nuevas señales no se pasan de forma explícita al SDK, {{site.data.keyword.appid_short_notm}} utiliza las últimas señales recibidas para recuperar y validar la respuesta. Por ejemplo, puede ejecutar el código siguiente tras una autenticación satisfactoria y el SDK recuperará información adicional sobre el usuario.
 
@@ -31,7 +41,6 @@ AppID.sharedInstance.userProfileManager.getUserInfo { (error: Error?, userInfo: 
 		}
 	//información de usuario recuperada correctamente
 }
-
 ```
 {: pre}
 
@@ -47,10 +56,9 @@ AppID.sharedInstance.userProfileManager.getUserInfo(accessToken: String, identit
 ```
 {: pre}
 
-</br>
 
 ## Acceso con el SDK de Android
-{: #android}
+{: #predefined-access-android}
 
 Si las nuevas señales no se pasan de forma explícita al SDK, {{site.data.keyword.appid_short_notm}} utiliza las últimas señales recibidas para recuperar y validar la respuesta. Por ejemplo, puede ejecutar el código siguiente tras una autenticación satisfactoria y el SDK recuperará información adicional sobre el usuario.
 
@@ -90,10 +98,9 @@ appId.getUserProfileManager().getUserInfo(accessToken, identityToken, new UserPr
 ```
 {: pre}
 
-</br>
 
 ## Acceso con el SDK del servidor de Node.js
-{: #node}
+{: #predefined-access-node}
 
 
 Mediante el uso de un SDK del lado del servidor, puede recuperar información adicional sobre los usuarios. Puede llamar al método siguiente utilizando las señales de acceso y de identidad almacenadas, o puede pasar de forma explícita las señales. La señal de identidad es opcional, pero cuando se pasa, se utiliza para validar la respuesta de información de usuario.
@@ -118,10 +125,10 @@ userProfileManager.getUserInfo(accessToken).then(function (profile) {
 ```
 {: pre}
 
-</br>
+
 
 ## Acceso con el SDK del servidor de Swift
-{: #swift}
+{: #predefined-access-swift}
 
 Mediante el uso de un SDK del lado del servidor, puede recuperar información adicional sobre los usuarios. Puede llamar al método siguiente utilizando las señales de acceso y de identidad almacenadas, o puede pasar de forma explícita las señales. La señal de identidad es opcional, pero cuando se pasa, se utiliza para validar la respuesta de información de usuario.
 
@@ -150,23 +157,23 @@ userProfileManager.getUserInfo(accessToken: accessToken) { (err, userInfo) in
 ```
 {: pre}
 
-</br>
+
 
 ## Acceso con la API
-{: #api}
+{: #predefined-access-api}
 
 Puede ver información adicional a través del punto final `/userinfo`.
 
 1. Asegúrese de que tiene una señal de acceso válida con un alcance `openid`. Puede verificar que la señal es válida mediante el punto final `/introspect`.
 
-2. Realice una solicitud al [punto final `/userinfo`](https://appid-oauth.ng.bluemix.net/swagger-ui/#!/Authorization_Server_V3/userInfo).
+2. Realice una solicitud al punto final [`/userinfo`](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization_Server_V4/userInfo).
   ```
   GET [POST] https://{oauth-server-endpoint}/userinfo
   Authorization: 'Bearer {ACCESS_TOKEN}'
   ```
   {: pre}
 
-  Resultado de ejemplo:
+  Salida de ejemplo:
   ```
   "sub": "cad9f1d4-e23b-3683-b81b-d1c4c4fd7d4c",
   "name": "John Doe",

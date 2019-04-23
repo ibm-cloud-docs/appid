@@ -1,16 +1,26 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-12-19"
+  years: 2017, 2019
+lastupdated: "2019-04-10"
+
+keywords: authentication, authorization, identity, app security, secure, tokens, jwt, development
+
+subcollection: appid
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 
 # Convalida dei token
@@ -19,10 +29,8 @@ lastupdated: "2018-12-19"
 La convalida dei token è una parte importante dello sviluppo dell'applicazione moderno. Convalidando i token, puoi proteggere la tua applicazione o le tue API da utenti non autorizzati. {{site.data.keyword.appid_full}} utilizza i token di accesso e identità per assicurarti che un utente o un'applicazione sia autenticato prima che gli venga concesso l'accesso. Se stai utilizzando uno degli SDK forniti da {{site.data.keyword.appid_short_notm}}, l'ottenimento e la convalida dei tuoi token vengono fatti al tuo posto.
 {: shortdesc}
 
-Per ulteriori informazioni su come vengono utilizzati i token in {{site.data.keyword.appid_short_notm}}, consulta [Descrizione dei token](authorization.html#tokens).
+Per ulteriori informazioni su come vengono utilizzati i token in {{site.data.keyword.appid_short_notm}}, consulta [Descrizione dei token](/docs/services/appid?topic=appid-tokens#tokens).
 {: tip}
-
-**Cos'è la convalida del token?**
 
 I token sono utilizzati per verificare che una persona è chi dice di essere. Confermano tutte le autorizzazioni di accesso che un utente potrebbe contenere, per una durata specificata. Quando un utente accede alla tua applicazione e viene emesso un token, la tua applicazione deve convalidare l'utente prima che gli venga fornito l'accesso.
 
@@ -32,7 +40,7 @@ I token sono utilizzati per verificare che una persona è chi dice di essere. Co
 
 Non preoccuparti. Hai tre opzioni:
 
-* Utilizza le API {{site.data.keyword.appid_short_notm}} 
+* Utilizza le API {{site.data.keyword.appid_short_notm}}
 * Implementa la tua logica di convalida
 * Utilizza un qualsiasi SDK open source conforme con OIDC
 
@@ -42,19 +50,19 @@ In base ai feedback, l'opzione 1 è normalmente quella più semplice.
 </br>
 </br>
 
-## Utilizzo delle API {{site.data.keyword.appid_short_notm}} 
+## Utilizzo delle API {{site.data.keyword.appid_short_notm}}
 {: #remote-validation}
 
 Utilizzando l'introspezione, puoi utilizzare {{site.data.keyword.appid_short_notm}} per convalidare i tuoi token.
 {: shortdesc}
 
-1. Invia una richiesta POST all'endpoint API [/introspect](https://appid-oauth.ng.bluemix.net/swagger-ui/#!/Authorization_Server_V3/introspect) per convalidare il tuo token. La richiesta deve fornire il token e un'intestazione di autorizzazione di base che contiene il segreto e l'ID client.
+1. Invia una richiesta POST all'endpoint API [/introspect](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization%20Server%20-%20Authorization%20Server%20V4/oauth-server.token) per convalidare il tuo token. La richiesta deve fornire il token e un'intestazione di autorizzazione di base che contiene il segreto e l'ID client.
 
   Richiesta di esempio:
 
     ```
-    POST /oauth/v3/{tenant_id}/introspect HTTP/1.1
-    Host: appid-oauth.ng.bluemix.net
+    POST /oauth/v4/{tenant_id}/introspect HTTP/1.1
+    Host: us-south.appid.cloud.ibm.com
     Content-Type: application/x-www-form-urlencoded
     Authorization: Basic jdFlUaGlZUzAwTW0Tjk15TmpFMw==
     Cache-Control: no-cache
@@ -110,20 +118,20 @@ Puoi convalidare i tuoi token localmente analizzando il token, verificandone la 
 
     ```
     {
-      "iss": "appid-oauth",
+      "iss": "https://us-south.appid.cloud.ibm.com/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6050a61",
       "aud": "abc123",
       "exp": 1564566
     }
     ```
     {: screen}
 
-2. Effettua una chiamata all'endpoint [/publickeys](https://appid-oauth.ng.bluemix.net/swagger-ui/#!/Authorization_Server_V3/publicKeys) per richiamare le tue chiavi pubbliche. Le chiavi pubbliche che vengono restituite sono formattate come [JSON Web Keys (JWK)](https://tools.ietf.org/html/rfc7517).
+2. Effettua una chiamata all'endpoint [/publickeys](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Authorization_Server_V4/publicKeys) per richiamare le tue chiavi pubbliche. Le chiavi pubbliche che vengono restituite sono formattate come [JSON Web Keys (JWK)](https://tools.ietf.org/html/rfc7517).
 
   Richiesta di esempio:
 
     ```
-    GET /oauth/v3/{tenant_id}/publickeys HTTP/1.1
-    Host: appid-oauth.ng.bluemix.net
+    GET /oauth/v4/{tenant_id}/publickeys HTTP/1.1
+    Host: us-south.appid.cloud.ibm.com
     Cache-Control: no-cache
     ```
     {: screen}
@@ -134,7 +142,7 @@ Puoi convalidare i tuoi token localmente analizzando il token, verificandone la 
 
   Risposta di esempio:
 
-    ```]
+    ```
     {
       "keys": [
         {
@@ -173,7 +181,7 @@ Puoi convalidare i tuoi token localmente analizzando il token, verificandone la 
     </tbody>
   </table>
 
-5. Verifica la firma del token. L'intestazione del token contiene l'algoritmo che è stato utilizzato per firmare il token e l'ID della chiave o l'attestazione `kid` della chiave pubblica corrispondente. Poiché le chiavi pubbliche non vengono modificate frequentemente, puoi memorizzare nella cache le chiavi pubbliche nella tua applicazione e occasionalmente aggiornarle. Se alla tua chiave memorizzata nella cache manca l'attestazione `kid`. Puoi quindi convalidare i token localmente.
+5. Verifica la firma del token. L'intestazione del token contiene l'algoritmo che è stato utilizzato per firmare il token e l'ID della chiave o l'attestazione `kid` della chiave pubblica corrispondente. Poiché le chiavi pubbliche non vengono modificate frequentemente, puoi memorizzare nella cache le chiavi pubbliche nella tua applicazione e occasionalmente aggiornarle. Se alla tua chiave memorizzata nella cache manca l'attestazione `kid`, puoi convalidare i token localmente.
 
   1. Chiedi alla tua applicazione di verificare che i contenuti dell'intestazione del token in entrata corrispondano ai parametri della chiave pubblica.
   2. Controlla nello specifico che siano stati utilizzati gli stessi algoritmi e che la tua cache della chiave pubblica contenga una chiave con l'ID della chiave pertinente.
@@ -182,7 +190,7 @@ Puoi convalidare i tuoi token localmente analizzando il token, verificandone la 
 6. Convalida le attestazioni archiviate nei token. Per verificare dei controlli futuri, puoi utilizzare [questo elenco](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation).
   <table>
     <thead>
-      <th colspan=2><img src="images/idea.png" alt="Icona ulteriori informazioni"/> Attestazioni che devono essere convalidate</th>
+      <th colspan=2><img src="images/idea.png" alt="Icona ulteriori informazioni"/> Attestazioni che devono essere convalidate </th>
     </thead>
     <tbody>
       <tr>
@@ -207,6 +215,3 @@ Puoi convalidare i tuoi token localmente analizzando il token, verificandone la 
       </tr>
     </tbody>
   </table>
-
-</br>
-</br>

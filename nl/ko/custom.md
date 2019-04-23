@@ -1,18 +1,26 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-11-14"
+  years: 2017, 2019
+lastupdated: "2019-04-04"
+
+keywords: authentication, authorization, identity, app security, secure, custom, proprietary, private key, public key, jwt
+
+subcollection: appid
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
-{:pre: .pre}
-{:tip: .tip}
 {:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
-
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 # 사용자 정의
 {: #custom-identity}
@@ -28,7 +36,8 @@ lastupdated: "2018-11-14"
 다음 단계를 사용하여 {{site.data.keyword.appid_short_notm}}에서 작동하도록 사용자 정의 ID 제공자를 구성할 수 있습니다.
 {: shortdesc}
 
-**시작하기 전에**
+### 시작하기 전에
+{: #custom-identity-before}
 
 {{site.data.keyword.appid_short_notm}}와 사용자 정의 ID 제공자 사이에 신뢰를 설정하려면 최소 길이가 2048인 RSA PEM 키 쌍이 있어야 합니다. 프로덕션에서 사용하는 모든 키를 안전하게 백업해야 합니다.
 
@@ -47,9 +56,10 @@ $ openssl rsa -pubout -in private_key.pem -out public_key.pem
 
 </br>
 
-**GUI를 사용하여 구성**
+### GUI를 사용하여 구성
+{: #custom-identity-configure-gui}
 
-1. {{site.data.keyword.Bluemix_notm}} 계정에 사인인한 후 {{site.data.keyword.appid_short_notm}}의 인스턴스로 이동하십시오.
+1. {{site.data.keyword.cloud_notm}} 계정에 사인인한 후 {{site.data.keyword.appid_short_notm}}의 인스턴스로 이동하십시오.
 
 2. **관리** 탭에서 **사용자 정의 ID 제공자**를 **켜기**로 설정하십시오.
 
@@ -58,11 +68,11 @@ $ openssl rsa -pubout -in private_key.pem -out public_key.pem
   2. **공개 키** 상자에 공개 키를 붙여넣은 후 **저장**을 클릭하십시오.
 
 
-</br>
 
-**API를 사용하여 구성**
+### API를 사용하여 구성
+{: #custom-identity-configure-api}
 
-[관리 API 엔드포인트](https://appid-management.ng.bluemix.net/swagger-ui/#!/Identity_Providers/custom)에 대한 PUT 요청을 작성하여 키를 등록하십시오.
+[관리 API 엔드포인트](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.set_custom_idp)에 대한 PUT 요청을 작성하여 키를 등록하십시오.
 
 ```
 Put {Management URI}/config/idps/custom
@@ -77,19 +87,19 @@ Content-Type: application/json
 {: codeblock}
 
 ## 구성 테스트
-{: #testing}
+{: #custom-identity-testing}
 
 올바른 공개 키를 사용하여 {{site.data.keyword.appid_short_notm}} 인스턴스를 구성한 후에는 해당 서비스에서 제공되는 테스트 애플리케이션을 사용하여 구성이 올바르게 설정되었는지 확인할 수 있습니다. 예제 앱에서는 표준 사인인 플로우 중에 리턴되는 {{site.data.keyword.appid_short_notm}} 액세스 및 ID 토큰 페이로드를 확인할 수 있습니다.
 
 1. **사용자 정의 ID 제공자** 탭에서 **테스트**를 클릭하여 테스트 애플리케이션을 여십시오.
 
-2. 사용자 정의 ID [프로토콜](/docs/services/appid/custom-auth.html#creating-jwts) 다음에 [JWT.io](https://jwt.io/)를 사용하여 예제 JWT를 작성하십시오.
+2. 사용자 정의 ID [프로토콜](/docs/services/appid?topic=appid-custom-auth#generating-jwts) 다음에 [JWT.io](https://jwt.io/)를 사용하여 예제 JWT를 작성하십시오.
 
 3. **JSON 웹 토큰**으로 레이블 지정된 상자에 JWT를 붙여넣은 후 **테스트**를 클릭하여 샘플 인증을 실행하십시오.
 
 정상적으로 완료되는 경우 이제 표준 사인인 플로우에서 애플리케이션이 사용할 수 있는 디코딩된 {{site.data.keyword.appid_short_notm}} ID 및 액세스 토큰이 표시됩니다.
 
 ## 다음 단계
-{: #next}
+{: #custom-identity-next}
 
-사용자 정의 ID 제공자가 구성되었으면 [애플리케이션에 사용자 정의 ID 제공자를 추가](/docs/services/appid/custom-auth.html)하십시오!
+사용자 정의 ID 제공자가 구성되었으면 [애플리케이션에 사용자 정의 ID 제공자를 추가](/docs/services/appid?topic=appid-custom-auth#custom-auth)하십시오!

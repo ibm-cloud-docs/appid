@@ -1,19 +1,29 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-11-14"
+  years: 2017, 2019
+lastupdated: "2019-04-10"
+
+keywords: authentication, authorization, identity, app security, secure, development, idp, troubleshooting, redirected, validation
+
+subcollection: appid
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:codeblock: .codeblock}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 {:tsSymptoms: .tsSymptoms}
 {:tsCauses: .tsCauses}
 {:tsResolve: .tsResolve}
-{:tip: .tip}
 
 # Configurazioni del provider di identità
 {: #troubleshooting-idp}
@@ -22,66 +32,8 @@ Se hai dei problemi durante la configurazione dei provider di identità da utili
 {: shortdesc}
 
 
-## Un utente non viene reindirizzato all'applicazione dopo l'accesso.
-{: #signin-fail}
-
-{: tsSymptoms}
-Un utente accede alla tua applicazione tramite la pagina di accesso di un provider di identità e non accade nulla o l'accesso non riesce.
-
-{: tsCauses}
-L'accesso potrebbe non riuscire per i seguenti motivi:
-
-* Il tuo URL di reindirizzamento non è stato correttamente aggiunto alla [whitelist](faq.html#redirect).
-* L'utente non è autorizzato.
-* L'utente ha provato ad accedere con le credenziali errate.
-
-{: tsResolve}
-Perché si verifichi un reindirizzamento:
-
-* Verifica che il tuo URL di reindirizzamento sia corretto. Deve essere esatto affinché il reindirizzamento funzioni.
-* Assicurati che l'utente acceda con le credenziali corrette.
-* Verifica che siano configurate nelle impostazioni utente del tuo provider di identità.
-
-</br>
-
-## Problemi SAML comuni
-{: #common-saml}
-
-Esamina la seguente tabella per le spiegazioni e le risoluzioni relative ai problemi più comuni riscontrati quando lavori con SAML.
-
-<table summary="Ogni riga della tabella deve essere letta da sinistra a destra, con lo stato del cluster nella prima colonna e una descrizione nella seconda colonna.">
-  <thead>
-    <th>Messaggio</th>
-    <th>Descrizione</th>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>Impossibile analizzare l'asserzione xml.</code></td>
-      <td>La risposta di SAML aveva un formato non corretto.</td>
-    </tr>
-    <tr>
-      <td><code>Attributo non valido senza nome. Contatta l'amministratore del tuo provider di identità.</code></td>
-      <td>È presente un <code>&lt;saml:Attribute&gt;</code> senza un valore definito. Contatta l'amministratore del tuo provider di identità.</td>
-    </tr>
-    <tr>
-      <td><code>Il corpo della risposta SAML deve contenere il parametro RelayState.</code></td>
-      <td>Il parametro non era incluso nel corpo della risposta SAML. {{site.data.keyword.appid_short_notm}} fornisce il parametro al provider di identità come parte della richiesta e il parametro esatto deve essere restituito nella risposta. Se il parametro viene modificato, puoi contattare l'amministratore del tuo provider di identità. </td>
-    </tr>
-    <tr>
-      <td><code>La configurazione SAML deve avere certificati, entityID e signInUrl dell'IdP.</code></td>
-      <td>Il provider di identità SAML non è <a href="enterprise.html" target="_blank">configurato correttamente</a>. Convalida la tua configurazione.</td>
-    </tr>
-    <tr>
-      <td><code>Errore nella convalida dell'asserzione. Controllo firma dell'asserzione SAML non riuscito. Il certificato potrebbe non essere valido.</code></td>
-      <td>Nell'asserzione devono essere inclusi una firma e un digest validi. La firma deve essere creata utilizzando la chiave privata associata al certificato fornito nella configurazione SAML, può essere usato sia quello secondario che primario. <strong>Nota</strong>: {{site.data.keyword.appid_short_notm}} non supporta l'asserzione crittografata. Se il tuo provider di identità codifica la tua asserzione SAML, disabilita la crittografia.</td>
-    </tr>
-  </tbody>
-</table>
-
-</br>
-
 ## Un utente non viene reindirizzato al provider di identità.
-{: #saml-redirect}
+{: #ts-saml-redirect}
 
 {: tsSymptoms}
 Un utente tenta di accedere alla tua applicazione, ma la pagina di accesso non viene visualizzata quando richiesto.
@@ -105,28 +57,47 @@ Puoi provare alcune di queste soluzioni:
 Se nessuna delle soluzioni funziona, è possibile che tu abbia un problema di connessione.
 {: tip}
 
-## Un attributo mostra il valore errato
-{: #saml-attribute}
 
-{: tsSymptoms}
-Un valore di attributo esiste in un profilo utente, ma non è associato all'attributo corretto.
+## Problemi SAML comuni
+{: #ts-common-saml}
 
-{: tsCauses}
-L'attributo del profilo utente non è associato correttamente.
+Esamina la seguente tabella per le spiegazioni e le risoluzioni relative ai problemi più comuni riscontrati quando lavori con SAML.
 
-{: tsResolve}
-Associa l'attributo nelle impostazioni del tuo provider di identità. {{site.data.keyword.appid_short_notm}} prevede i seguenti attributi:
-* `name`
-* `email`
-* `locale`
-* `picture`
+<table summary="Ogni riga della tabella deve essere letta da sinistra a destra, con lo stato del cluster nella prima colonna e una descrizione nella seconda colonna.">
+  <thead>
+    <th>Messaggio</th>
+    <th>Descrizione</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>Impossibile analizzare l'asserzione xml.</code></td>
+      <td>La risposta di SAML aveva un formato non corretto.</td>
+    </tr>
+    <tr>
+      <td><code>Attributo non valido senza nome. Contatta l'amministratore del tuo provider di identità.</code></td>
+      <td>È presente un <code>&lt;saml:Attribute&gt;</code> senza un valore definito. Contatta l'amministratore del tuo provider di identità.</td>
+    </tr>
+    <tr>
+      <td><code>Il corpo della risposta SAML deve contenere il parametro RelayState.</code></td>
+      <td>Il parametro non era incluso nel corpo della risposta SAML. {{site.data.keyword.appid_short_notm}} fornisce il parametro al provider di identità come parte della richiesta e il parametro esatto deve essere restituito nella risposta. Se il parametro viene modificato, puoi contattare l'amministratore del tuo provider di identità. </td>
+    </tr>
+    <tr>
+      <td><code>La configurazione SAML deve avere certificati, entityID e signInUrl dell'IdP.</code></td>
+      <td>Il provider di identità SAML non è <a href="/docs/services/appid?topic=appid-enterprise#enterprise" target="_blank">configurato correttamente</a>. Convalida la tua configurazione.</td>
+    </tr>
+    <tr>
+      <td><code>Errore nella convalida dell'asserzione. Controllo firma dell'asserzione SAML non riuscito. Il certificato potrebbe non essere valido.</code></td>
+      <td>Nell'asserzione devono essere inclusi una firma e un digest validi. La firma deve essere creata utilizzando la chiave privata associata al certificato fornito nella configurazione SAML, può essere usato sia quello secondario che primario. <strong>Nota</strong>: {{site.data.keyword.appid_short_notm}} non supporta l'asserzione crittografata. Se il tuo provider di identità codifica la tua asserzione SAML, disabilita la crittografia.</td>
+    </tr>
+  </tbody>
+</table>
 
-</br>
+
 
 ## Errori di convalida della risposta SAML
-{: #saml-response}
+{: #ts-saml-response}
 
-{{site.data.keyword.appid_short_notm}} impone i seguenti requisiti di validità per le asserzioni. Tutti gli attributi sono nodi SAMLResponse XML obbligatori a meno che non sia specificato diversamente.
+{{site.data.keyword.appid_short_notm}} impone i seguenti requisiti di validità per le asserzioni. Tutti gli attributi sono nodi XML di risposta SAML obbligatori a meno che non sia specificato diversamente.
 {: shortdesc}
 
 
@@ -154,7 +125,7 @@ Associa l'attributo nelle impostazioni del tuo provider di identità. {{site.dat
     </tr>
     <tr>
       <td><code>ds:Signature</code></td>
-      <td>Nell'asserzione devono essere inclusi una firma e un digest validi. La firma deve essere creata utilizzando la chiave privata associata al certificato fornito nella configurazione SAML. Il digest viene convalidato utilizzando i valori per <code>CanonicalizationMethod</code> e <code>Transforms</code> specificati. <strong>Nota</strong>: {{site.data.keyword.appid_short_notm}} non convalida la scadenza del certificato. Per avere assistenza nella gestione dei tuoi certificati, prova il [Gestore certificato](/docs/services/certificate-manager/index.html).</td>
+      <td>Nell'asserzione devono essere inclusi una firma e un digest validi. La firma deve essere creata utilizzando la chiave privata associata al certificato fornito nella configurazione SAML. Il digest viene convalidato utilizzando i valori per <code>CanonicalizationMethod</code> e <code>Transforms</code> specificati. <strong>Nota</strong>: {{site.data.keyword.appid_short_notm}} non convalida la scadenza del certificato. Per avere assistenza nella gestione dei tuoi certificati, prova il [Gestore certificato](/docs/services/certificate-manager?topic=certificate-manager-getting-started#getting-started).</td>
     </tr>
     <tr>
       <td><code>saml:subject</code></td>

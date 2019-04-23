@@ -1,39 +1,54 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-11-14"
+  years: 2017, 2019
+lastupdated: "2019-04-04"
+
+keywords: authentication, authorization, identity, app security, secure, development, user information, attributes, profiles, 
+
+subcollection: appid
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
-{:pre: .pre}
-{:tip: .tip}
 {:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 # Aggiunta degli attributi prima dell'accesso utente
-{: #sign-in}
+{: #preregister}
 
 Con {{site.data.keyword.appid_full}}, puoi iniziare a creare un profilo per gli utenti che sai avranno bisogno di accedere alla tua applicazione, prima del loro accesso iniziale.
 {: shortdesc}
 
-Per ulteriori informazioni sui tipi di attributi, consulta [Descrizione dei profili utente](user-profile.html). Per ulteriori informazioni sugli attributi personalizzati e le rispettive considerazioni sulla sicurezza, consulta [Attributi personalizzati](custom-attributes.html).
+Per ulteriori informazioni sui tipi di attributi, consulta [Descrizione dei profili utente](/docs/services/appid?topic=appid-user-profile). Per ulteriori informazioni sugli attributi personalizzati e le rispettive considerazioni sulla sicurezza, consulta [Attributi personalizzati](/docs/services/appid?topic=appid-custom-attributes).
 {: tip}
 
-**Perché dovrei voler aggiungere delle informazioni su un utente alla mia applicazione prima che acceda per la prima volta?**
+## Descrizione della preregistrazione
+{: #preregister-understand}
 
-Prendi in considerazione un'applicazione in cui utilizzi {{site.data.keyword.appid_short_notm}} per attuare la federazione degli utenti esistenti dal tuo provider di identità SAML. Potresti volere che alcuni utenti abbiamo l'accesso `admin` immediatamente dopo l'accesso all'applicazione per la prima volta. Per far ciò, puoi utilizzare l'endpoint di preregistrazione per impostare un attributo `admin` personalizzato per tali utenti e concedergli l'accesso alla console di gestione senza alcuna ulteriore azione da parte tua. Assicurati di prendere in considerazione i [problemi sulla sicurezza](custom-attributes.html) che possono presentarsi modificano le impostazioni predefinite.
+### Perché dovrei utilizzare la preregistrazione?
+{: #preregister-why}
 
-**Come vengono identificati gli utenti?**
+Prendi in considerazione un'applicazione in cui utilizzi {{site.data.keyword.appid_short_notm}} per attuare la federazione degli utenti esistenti dal tuo provider di identità SAML. Potresti volere che alcuni utenti abbiamo l'accesso `admin` immediatamente dopo l'accesso all'applicazione per la prima volta. Per far ciò, puoi utilizzare l'endpoint di preregistrazione per impostare un attributo `admin` personalizzato per tali utenti e concedergli l'accesso alla console di gestione senza alcuna ulteriore azione da parte tua. Assicurati di prendere in considerazione i [problemi sulla sicurezza](/docs/services/appid?topic=appid-custom-attributes#custom-attributes) che possono presentarsi modificano le impostazioni predefinite.
+
+### Come vengono identificati gli utenti?
+{: #preregister-identify-user}
 
 Puoi identificare i tuoi utenti utilizzando uno dei seguenti:
 
-* L'ID univoco dell'utente, denominato **GUID**, nel provider di identità. Sebbene questo identificativo esista sempre ed è garantito che è univoco, non sempre è prontamente disponibile o facile da comprendere. Ad esempio, Cloud Directory utilizza un GUID casuale da 16 byte.
+* L'ID univoco dell'utente, denominato **GUID**, nel provider di identità. Sebbene questo identificativo esista sempre ed è garantito che è univoco, non sempre è prontamente disponibile o facile da comprendere. Ad esempio, Cloud Directory utilizza un GUID da 16 byte casuale.
 * Se disponibile, l'**email** dell'utente.
 
-**Come posso sapere quale provider di identità fornisce quali informazioni?**
+### Quali informazioni forniscono i provider di identità?
+{: #preregister-idp-provide}
 
 Controlla la seguente tabella per vedere quale tipo di informazioni sull'identità puoi utilizzare.
 
@@ -80,18 +95,18 @@ Controlla la seguente tabella per vedere quale tipo di informazioni sull'identit
   </tbody>
 </table>
 
-**Cloud Directory viene gestito in modo diverso?**
+### Come viene gestito Cloud Directory?
+{: #preregister-cd}
+
 
 Per garantire l'integrità degli attributi utente preregistrati, Cloud Directory impone degli ulteriori requisiti ai propri utenti. La preregistrazione può verificarsi solo quando una convalida email viene abilitata e verificata. Se esegui la preregistrazione di un utente Cloud Directory con degli attributi specifichi, tali attributi sono destinati a una persona specifica. Se non viene prima verificata l'email, è possibile che un altro utente richieda l'indirizzo email e tutti gli attributi assegnati ad esso.
 
-Come posso farlo?
-
-1. Imposta Cloud Directory in modalità email e password. Puoi farlo tramite l'IU nelle impostazioni generali sulla scheda **Cloud Directory**. Puoi anche impostarlo tramite le [API di gestione](https://appid-management.ng.bluemix.net/swagger-ui/#!/Cloud_Directory_Users/createCloudDirectoryUser).
+1. Imposta Cloud Directory in modalità email e password. Puoi farlo tramite l'IU nelle impostazioni generali sulla scheda **Cloud Directory**. Puoi anche impostarlo tramite le [API di gestione](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.createCloudDirectoryUser).
 
 2. Verifica l'indirizzo email degli utenti per confermarne l'identità in uno dei seguenti modi:
 
   * Per verificare un'identità degli utenti tramite l'email, imposta **Email verification** su **On** nella scheda **Cloud Directory** del dashboard del servizio. Se aggiungi un utente ed accede alla tua applicazione senza prima verificare la propria email, l'accesso viene completato correttamente, ma i suoi attributi predefiniti vengono eliminati.
-  * Per verificare gli utenti manualmente devi essere un amministratore ed utilizzare le [API di gestione](https://appid-management.ng.bluemix.net/swagger-ui/#!/Cloud_Directory_Users/createCloudDirectoryUser) di Cloud Directory. Quando crei o aggiorni un utente, devi impostare in modo esplicito il campo `status` su `CONFIRMED` all'interno del tuo payload dei dati utente.
+  * Per verificare gli utenti manualmente devi essere un amministratore ed utilizzare le [API di gestione](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.createCloudDirectoryUser) di Cloud Directory. Quando crei o aggiorni un utente, devi impostare in modo esplicito il campo `status` su `CONFIRMED` all'interno del tuo payload dei dati utente.
 
 **C'è qualcosa di speciale che devo fare quando utilizzo un provider di identità personalizzato?**
 
@@ -100,13 +115,13 @@ Quando aggiungi delle informazioni sull'utente alla tua applicazione in anticipo
 
 
 ## Aggiunta delle informazioni sull'utente alla tua applicazione
-{: #add}
+{: #preregister-add-info}
 
 Ora che hai ottenuto delle informazioni sul processo e preso in considerazione le tue implicazioni sulla sicurezza, prova ad aggiungere un utente.
 
 **Prima di cominciare:**
 
-Per aggiungere degli attributi personalizzati per un utente specifico con l'endpoint dell'API di gestione [/users](https://appid-management.ng.bluemix.net/swagger-ui/#!/Users/users_search_user_profile), devi conoscere le seguenti informazioni:
+Per aggiungere degli attributi personalizzati per uno specifico utente con l'[/endpoint dell'API di gestione degli utenti](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Users/mgmt.users_search_user_profile), devi conoscere le seguenti informazioni:
 
 * Quale provider di identità sta per essere utilizzato dall'utente per accedere.
 * L'identificativo univoco dell'utente fornito dal provider di identità.
@@ -195,7 +210,7 @@ Quando un utente accede alla tua applicazione per la prima volta, {{site.data.ke
 
 Tieni presente che gli attributi predefiniti di un utente sono vuoti fino alla prima autenticazione, ma l'utente è, a tutti gli effetti, un utente completamente autenticato. Puoi utilizzare il suo ID univoco come faresti con qualcuno che ha già eseguito l'accesso. Ad esempio, puoi modificare, ricercare o eliminare il profilo.
 
-Ora che hai associato un utente con degli attributi specifici, tenta di [accedere agli attributi](/docs/services/appid/custom-attributes.html)!
+Ora che hai associato un utente ad attributi specifici, prova ad [accedere o aggiornare gli attributi](/docs/services/appid?topic=appid-custom-attributes)!
 
 
 </br>

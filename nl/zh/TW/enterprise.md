@@ -1,54 +1,112 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-10-18"
+  years: 2017, 2019
+lastupdated: "2019-04-04"
+
+keywords: authentication, authorization, identity, app security, secure, custom, service provider, identity provider, enterprise, assertions
+
+subcollection: appid
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 # SAML
 {: #enterprise}
 
-
 「安全主張標記語言 (SAML)」是一種開放式標準，可在主張使用者身分的身分提供者與取用使用者身分資訊的服務提供者之間交換鑑別及授權資料。
 {: shortdesc}
 
-{{site.data.keyword.appid_short_notm}} 可充當服務提供者，並對協力廠商提供者（例如 Active Directory Federation Services）起始 Single Sign On (SSO) 登入。<a href="http://saml.xml.org/saml-specifications" target="blank">SAML <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a> 通訊協定支援不同的設定檔和連結選項。{{site.data.keyword.appid_short_notm}} 支援 Web 瀏覽器 SSO 設定檔，以及 HTTP Post 連結。
+{{site.data.keyword.appid_short_notm}} 可充當服務提供者，並對協力廠商提供者（例如 Active Directory Federation Services）起始單一登入 (SSO) 的登入作業。<a href="http://saml.xml.org/saml-specifications" target="blank">SAML <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a> 通訊協定支援不同的設定檔和連結選項。{{site.data.keyword.appid_short_notm}} 支援 Web 瀏覽器 SSO 設定檔，以及 HTTP Post 連結。
 
 如需如何使用特定 SAML 身分提供者的步驟，請查看有關下列作業的這些部落格文章：使用 [Ping One ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")](https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-ping-one/)、[Azure Active Directory ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")](https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-azure-active-directory/) 或 [Active Directory Federation Service ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")](https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-active-directory-federation-service/) 來設定 {{site.data.keyword.appid_short_notm}}。
 {: tip}
 
 
-## SAML 主張及身分記號宣告
 
-SAML 主張是包含一個以上陳述式的資訊套件。主張包含授權決策，且可能包含關於使用者的識別資訊。
+## 瞭解主張
+{: #saml-assertions}
 
-當使用者利用身分提供者來登入時，該提供者會將主張傳送至 {{site.data.keyword.appid_short_notm}}。{{site.data.keyword.appid_short_notm}} 會將 SAML 主張中傳回的使用者身分資訊傳送至您的應用程式，作為 OIDC 記號宣告。SAML 屬性必須對應於要新增至身分記號的下列 OIDC 宣告 1。
+SAML 主張類似於[使用者屬性](/docs/services/appid?topic=appid-user-profile#user-profile)。它是使用者順利登入應用程式時，由身分提供者傳回給 {{site.data.keyword.appid_short_notm}} 之使用者的相關聲明或一部分資訊。視您的應用程式配置及您使用的身分提供者而定，此資訊可能包含使用者名稱、電子郵件或您要求指定的其他欄位。
+{: shortdesc}
 
-可以新增下列宣告：
-* `name `
-* `email`
-* `locale`
-* `picture`
+當主張傳回給 {{site.data.keyword.appid_short_notm}} 時，該服務會聯合使用者身分。如果 SAML 主張對應於下列其中一個 OIDC 宣告，它會自動新增至身分記號。如果這些值有一個以上已在提供者端變更，則只有在使用者再次登入之後，新值才可供使用。
 
-其餘未對應於任何標準名稱的 SAML 屬性元素都會被忽略。請注意，如果提供者端的其中一個以上值變更，則只有在使用者重新登入之後才會提供新的值。
+ * `name `
+ * `email`
+ * `locale`
+ * `picture`
+
+依預設，會忽略未對應至任何標準名稱的主張，但如果您的 SAML 提供者傳回其他主張，則在使用者登入時可能會取得此資訊。藉由建立您要使用的主張陣列，您可以[將此資訊注入記號中](/docs/services/appid?topic=appid-customizing-tokens#customizing-tokens)。但是，請務必不要將非必要資訊新增至記號中。記號通常會以 HTTP 標頭傳送，且標頭有大小限制。
+{: tip}
+
+### {{site.data.keyword.appid_short_notm}} 預期 SAML 主張看起來像什麼？
+{: #saml-example}
+
+服務預期 SAML 主張看起來像下列範例。
+
+```
+<samlp:Response xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol" ID="s2202bbbbafa9d270d1c15990b738f4ab36139d463" InResponseTo="_e4a78780-35da-012e-8ea7-0050569200d8" Version="2.0" IssueInstant="2011-03-21T11:22:02Z" Destination="https://example.example.com/">
+  <saml:Issuer xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion">idp_entityId</saml:Issuer>
+  <samlp:Status xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
+    <samlp:StatusCode  xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"Value="urn:oasis:names:tc:SAML:2.0:status:Success"/>
+  </samlp:Status>
+  <saml:Assertion xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="2.0" ID="pfx539c9774-de5c-5f52-0c3f-b1c2e2697a89" IssueInstant="2018-01-29T13:02:58Z" xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
+    <saml:Issuer>idp_entityId</saml:Issuer>
+    <ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+      <ds:SignedInfo>
+        <ds:CanonicalizationMethod Algorithm="one_of_supported_algo"/>
+        <ds:SignatureMethod Algorithm="one_of_supported_algo"/>
+        <ds:Reference URI="#pfx539c9774-de5c-5f52-0c3f-b1c2e2697a89">
+          <ds:Transforms>
+            <ds:Transform Algorithm="one_of_supported_algo"/>
+            <ds:Transform Algorithm="one_of_supported_algo"/>
+          </ds:Transforms>
+          <ds:DigestMethod Algorithm="one_of_supported_algo"/>
+          <ds:DigestValue>huywDPPfOEGyyzE7d5hjOG97p7FDdGrjoSfes6RB19g=</ds:DigestValue>
+        </ds:Reference>
+      </ds:SignedInfo>
+ <ds:SignatureValue>BAwNZFgWF2oxD1ux0WPfeHnzL+IWYqGhkM9DD28nI9v8XtPN8tqmIb5y4bomaYknmNpWYn7TgNO2Rn/XOq+N9fTZXO2RybaC49iF+zWibRIcNwFKCCpDL6H6jA5eqJX2YKBR+K6Yt2JPoUIRLmqdgm2lMr4Nwq1KYcSzQ/yoV5W0SN/V5t8EfctFoaXVPdtfHVXkwqHeufo+L4gobFt9NRTzXB0SQEClA1L8hQ+/LhY4l46k1D0c34iWjVLZr+ecQyubf7rekOG/R7DjWCFMTke822dR+eJTPWFsHGSPWCDDHFYqB4QMinTvUnsngjY3AssPqIOjeUxjL3p+GXn8IQ==</ds:SignatureValue>
+    </ds:Signature>
+    <saml:Subject>
+      <saml:NameID Format="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress">JohnDoe@gmail.com</saml:NameID>
+    </saml:Subject>
+    <saml:Conditions NotBefore="2018-01-29T12:59:58Z" NotOnOrAfter="2018-01-29T13:05:58Z">
+    </saml:Conditions>
+</samlp:Response>
+```
+{: screen}
 
 
-正在尋找範例嗎？請參閱 <a href="https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-azure-active-directory/" target="_blank">Setting up {{site.data.keyword.appid_long}} with your Azure Active Directory <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a> 或 <a href="https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-ping-one/" target="_blank">Setting up {{site.data.keyword.appid_long}} with Ping One <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>。
+### {{site.data.keyword.appid_short_notm}} 支援哪些類型的演算法？
+{: #saml-signatures}
+
+{{site.data.keyword.appid_short_notm}} 使用 <a href="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" target="_blank">RSA-SHA256 <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a> 演算法來處理 XML 數位簽章。
+
+
+
 
 ## 提供 meta 資料給您的身分提供者
-{: #provide-idp}
+{: #saml-provide-idp}
 
 若要配置您的應用程式，您需要提供資訊給 SAML 相容身分提供者。此資訊是透過 meta 資料 XML 檔案進行交換，該檔案還包含用來建立信任的配置資料。
 {: shortdesc}
 
-1. 在 {{site.data.keyword.appid_short_notm}} 儀表板的**管理**標籤中，將 **SAML 2.0** 設為**開啟**。然後，按一下**編輯**以配置 SAML 設定。
+要等到您將 SAML 配置為身分提供者之後，您才能啟用 SAML。
+{: tip}
+
+1. 在 {{site.data.keyword.appid_short_notm}} 儀表板的**管理**標籤中，按一下 **SAML** 列中的**編輯**來配置您的設定。
 2. 按一下**下載 SAML Meta 資料檔**。您的身分提供者預期來自檔案的下列資訊。
   <table>
     <tr>
@@ -77,18 +135,21 @@ SAML 主張是包含一個以上陳述式的資訊套件。主張包含授權決
     </tr>
   </table>
 
-3. 提供資料給您的身分提供者。如果您的身分提供者支援上傳 meta 資料檔，則您可以這麼做。若非如此，請手動配置內容。並非每個身分提供者都將使用相同的內容，因此，如果您未使用它們全部，也沒關係。
+3. 提供資料給您的身分提供者。如果您的身分提供者支援上傳 meta 資料檔，則您可以這麼做。若非如此，請手動配置內容。並非每個身分提供者都使用相同的內容，因此，您可能不會使用全部的內容。
 
-身分提供者之間的內容名稱可能不同。
-{: tip}
+  身分提供者之間的內容名稱可能不同。
+  {: tip}
+
+4. 將 **SAML 2.0 聯合**切換至**已啟用**。
 
 ## 提供 meta 資料給 {{site.data.keyword.appid_short_notm}}
-{: #provide-appid}
+{: #saml-provide-appid}
 
-從您的身分提供者取得資料，並提供給 {{site.data.keyword.appid_short_notm}}。
+您可以從身分提供者取得資料，並將其提供給 {{site.data.keyword.appid_short_notm}}。
 {: shortdesc}
 
-**使用 GUI 提供 meta 資料**
+### 使用 GUI 提供 meta 資料
+{: #saml-provide-gui}
 
 1. 導覽至 {{site.data.keyword.appid_short_notm}} 儀表板的 **SAML 2.0** 標籤。在**提供來自 SAML IdP 的 meta 資料**區段中，輸入您從身分提供者取得的下列 meta 資料。
   <table>
@@ -116,12 +177,11 @@ SAML 主張是包含一個以上陳述式的資訊套件。主張包含授權決
 想要設定鑑別環境定義嗎？您可以透過 API 這樣做。
 {: tip}
 
-</br>
-</br>
 
-**使用 API 提供 meta 資料**
+### 使用 API 提供 meta 資料
+{: #saml-provide-api}
 
-1. 對 [/getSamlMetadata API 端點](https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/getSamlMetadata) 提出 GET 要求，以取得 SAML meta 資料。
+1. 對 [/getSamlMetadata API 端點](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.get_saml_idp) 提出 GET 要求，以取得 SAML meta 資料。
 
   程式碼範例：
   ```
@@ -164,7 +224,7 @@ SAML 主張是包含一個以上陳述式的資訊套件。主張包含授權決
   ```
   {: screen}
 
-2. 對 [/set_saml_idp API 端點](https://appid-management.ng.bluemix.net/swagger-ui/#!/Identity_Providers/set_saml_idp)配置您的 POST 要求。
+2. 對 [/set_saml_idp API 端點](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.set_saml_idp)配置您的 POST 要求。
 
   1. 在下列 meta 資料範例中，將變數取代為您自己的資訊。
 
@@ -204,7 +264,7 @@ SAML 主張是包含一個以上陳述式的資訊套件。主張包含授權決
       </tr>
     </table>
 
-  2. 選用項目：將次要憑證新增至憑證陣列中主要認證之後。如果無法使用主要憑證驗證簽章，則會使用次要憑證。如果簽署金鑰保持相同，則 {{site.data.keyword.appid_short_notm}} 不會封鎖過期憑證的鑑別。
+  2. 選用項目：將次要憑證新增至憑證陣列中的主要認證之後。如果無法使用主要憑證驗證簽章，則會使用次要憑證。如果簽署金鑰保持相同，則 {{site.data.keyword.appid_short_notm}} 不會封鎖過期憑證的鑑別。
 
     範例：
     ```
@@ -242,7 +302,7 @@ SAML 主張是包含一個以上陳述式的資訊套件。主張包含授權決
     ```
     {: screen}
 
-3. 提出要求。如果您選擇新增選用值，您的要求應該看起來類似下列範例。
+3. 提出要求。如果您選擇新增選用值，您的要求看起來應該與下列範例類似。
 
   ```
   Put {Management URI}/config/idps/saml
@@ -271,7 +331,7 @@ SAML 主張是包含一個以上陳述式的資訊套件。主張包含授權決
 
 
 ## 測試您的配置
-{: #testing}
+{: #saml-testing}
 
 您可以測試「SAML 身分提供者」與 {{site.data.keyword.appid_short_notm}} 之間的配置。
 
@@ -279,9 +339,9 @@ SAML 主張是包含一個以上陳述式的資訊套件。主張包含授權決
 2. 導覽至 {{site.data.keyword.appid_short_notm}} 儀表板的 **SAML 2.0** 標籤，然後按一下**測試**。即會開啟新標籤。
 3. 以身分提供者已鑑別的使用者身分登入。
 4. 完成表單之後，系統會將您重新導向至另一個頁面。
-  * 成功鑑別：{{site.data.keyword.appid_short_notm}} 與「身分提供者」之間的連線正確運作。頁面會顯示有效的[存取及身分記號](/docs/services/appid/authorization.html#tokens)。
+  * 成功鑑別：{{site.data.keyword.appid_short_notm}} 與「身分提供者」之間的連線正確運作。頁面會顯示有效的[存取及身分記號](/docs/services/appid?topic=appid-tokens#tokens)。
   * 失敗鑑別：連線已中斷。頁面會顯示錯誤及 SAML 回應 XML 檔。
 
 
-有困難嗎？請參閱[身分提供者配置的疑難排解](/docs/services/appid/ts_saml.html)。
+有困難嗎？請參閱[身分提供者配置的疑難排解](/docs/services/appid?topic=appid-troubleshooting-idp#troubleshooting-idp)。
 {: tip}

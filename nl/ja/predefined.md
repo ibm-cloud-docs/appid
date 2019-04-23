@@ -1,28 +1,38 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-08"
+  years: 2017, 2019
+lastupdated: "2019-04-04"
+
+keywords: authentication, authorization, identity, app security, secure, user information, attributes, accessing, storing, preregister, profiles
+
+subcollection: appid
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
-{:pre: .pre}
-{:tip: .tip}
 {:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:codeblock: .codeblock}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
-# 事前定義ユーザー情報へのアクセス
-{: #predefined}
+# 事前定義されたユーザー属性
+{: #predefined-attributes}
 
-ユーザーに関する ID プロバイダー固有の情報を表示できます。
+{{site.data.keyword.appid_full}} を使用して、ユーザーに関する ID プロバイダー固有の情報を表示できます。
 {: shortdesc}
 
 
 ## iOS SDK を使用したアクセス
-{: #ios}
+{: #predefined-access-ios}
 
-新しいトークンが SDK に明示的に渡されない場合、{{site.data.keyword.appid_short_notm}} は最後に受信したトークンを使用して応答の取得と検証を行います。例えば、認証が正常に完了した後に以下のコードを実行して、SDK がユーザーに関する追加情報を取得するようにすることができます。
+新しいトークンが SDK に明示的に渡されない場合、{{site.data.keyword.appid_short_notm}} は最後に受信したトークンを使用して応答の取得と検証を行います。 例えば、認証が正常に完了した後に以下のコードを実行して、SDK がユーザーに関する追加情報を取得するようにすることができます。
 
 ```
 AppID.sharedInstance.userProfileManager.getUserInfo { (error: Error?, userInfo: [String: Any]?) in
@@ -31,7 +41,6 @@ AppID.sharedInstance.userProfileManager.getUserInfo { (error: Error?, userInfo: 
 	}
 	// retrieved user info successfully
 }
-
 ```
 {: pre}
 
@@ -47,12 +56,11 @@ AppID.sharedInstance.userProfileManager.getUserInfo(accessToken: String, identit
 ```
 {: pre}
 
-</br>
 
 ## Android SDK を使用したアクセス
-{: #android}
+{: #predefined-access-android}
 
-新しいトークンが SDK に明示的に渡されない場合、{{site.data.keyword.appid_short_notm}} は最後に受信したトークンを使用して応答の取得と検証を行います。例えば、認証が正常に完了した後に以下のコードを実行して、SDK がユーザーに関する追加情報を取得するようにすることができます。
+新しいトークンが SDK に明示的に渡されない場合、{{site.data.keyword.appid_short_notm}} は最後に受信したトークンを使用して応答の取得と検証を行います。 例えば、認証が正常に完了した後に以下のコードを実行して、SDK がユーザーに関する追加情報を取得するようにすることができます。
 
 ```
 AppID appId = AppID.getInstance();
@@ -90,13 +98,12 @@ appId.getUserProfileManager().getUserInfo(accessToken, identityToken, new UserPr
 ```
 {: pre}
 
-</br>
 
 ## Node.js Server SDK を使用したアクセス
-{: #node}
+{: #predefined-access-node}
 
 
-サーバー・サイドの SDK を使用すると、ユーザーに関する追加情報を取得できます。ストアード・アクセスと ID トークンを使用して以下のメソッドを呼び出すことも、トークンを明示的に渡すこともできます。識別トークンはオプションですが、渡された場合には、ユーザー情報応答の検証に使用されます。
+サーバー・サイドの SDK を使用すると、ユーザーに関する追加情報を取得できます。 ストアード・アクセスと ID トークンを使用して以下のメソッドを呼び出すことも、トークンを明示的に渡すこともできます。 識別トークンはオプションですが、渡された場合には、ユーザー情報応答の検証に使用されます。
 
 
 ```javascript
@@ -118,12 +125,12 @@ userProfileManager.getUserInfo(accessToken).then(function (profile) {
 ```
 {: pre}
 
-</br>
+
 
 ## Swift Server SDK を使用したアクセス
-{: #swift}
+{: #predefined-access-swift}
 
-サーバー・サイドの SDK を使用すると、ユーザーに関する追加情報を取得できます。ストアード・アクセスと ID トークンを使用して以下のメソッドを呼び出すことも、トークンを明示的に渡すこともできます。識別トークンはオプションですが、渡された場合には、ユーザー情報応答の検証に使用されます。
+サーバー・サイドの SDK を使用すると、ユーザーに関する追加情報を取得できます。 ストアード・アクセスと ID トークンを使用して以下のメソッドを呼び出すことも、トークンを明示的に渡すこともできます。 識別トークンはオプションですが、渡された場合には、ユーザー情報応答の検証に使用されます。
 
 
 ```swift
@@ -150,16 +157,16 @@ userProfileManager.getUserInfo(accessToken: accessToken) { (err, userInfo) in
 ```
 {: pre}
 
-</br>
+
 
 ## API を使用したアクセス
-{: #api}
+{: #predefined-access-api}
 
 `/userinfo` エンドポイントを介して、追加情報を表示できます。
 
-1. `openid` スコープを持つ有効なアクセス・トークンを所有していることを確認してください。`/introspect` エンドポイントを使用して、トークンが有効であることを確認できます。
+1. `openid` スコープを持つ有効なアクセス・トークンを所有していることを確認してください。 `/introspect` エンドポイントを使用して、トークンが有効であることを確認できます。
 
-2. `/userinfo` エンドポイントに対して要求を行います。
+2. [`/userinfo` エンドポイント](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization_Server_V4/userInfo)に対して要求を行います。
   ```
   GET [POST] https://{oauth-server-endpoint}/userinfo
   Authorization: 'Bearer {ACCESS_TOKEN}'
@@ -196,7 +203,7 @@ userProfileManager.getUserInfo(accessToken: accessToken) { (err, userInfo) in
   ```
   {: screen}
 
-3. この `sub` クレームが識別トークン内の `sub` クレームと正確に一致することを確認します。それらが一致しない場合は、返された情報を使用しないでください。トークンの置換について詳しくは、<a href="http://openid.net/specs/openid-connect-core-1_0.html#TokenSubstitution" target="__blank">OIDC の仕様 <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> を参照してください。
+3. この `sub` クレームが識別トークン内の `sub` クレームと正確に一致することを確認します。 それらが一致しない場合は、返された情報を使用しないでください。 トークンの置換について詳しくは、<a href="http://openid.net/specs/openid-connect-core-1_0.html#TokenSubstitution" target="__blank">OIDC の仕様 <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> を参照してください。
 
-外部の ID プロバイダーによって変更が行われた場合は、ユーザーが再度ログインするときに、更新された情報を取得できます。新しいトークンにより、最新のデータが取得されます。
+外部の ID プロバイダーによって変更が行われた場合は、ユーザーが再度ログインするときに、更新された情報を取得できます。 新しいトークンにより、最新のデータが取得されます。
 {: tip}

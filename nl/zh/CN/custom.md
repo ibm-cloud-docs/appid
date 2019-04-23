@@ -1,18 +1,26 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-11-14"
+  years: 2017, 2019
+lastupdated: "2019-04-04"
+
+keywords: authentication, authorization, identity, app security, secure, custom, proprietary, private key, public key, jwt
+
+subcollection: appid
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
-{:pre: .pre}
-{:tip: .tip}
 {:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
-
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 # 定制
 {: #custom-identity}
@@ -28,7 +36,8 @@ lastupdated: "2018-11-14"
 您可以使用以下步骤将定制身份提供者配置为使用 {{site.data.keyword.appid_short_notm}}。
 {: shortdesc}
 
-**开始之前**
+### 开始之前
+{: #custom-identity-before}
 
 要在 {{site.data.keyword.appid_short_notm}} 和定制身份提供者之间建立信任，您必须具有最小长度为 2048 的 RSA PEM 密钥对。确保安全备份用于生产的任何密钥。
 
@@ -47,22 +56,23 @@ $ openssl rsa -pubout -in private_key.pem -out public_key.pem
 
 </br>
 
-**使用 GUI 进行配置**
+### 使用 GUI 进行配置
+{: #custom-identity-configure-gui}
 
-1. 登录到您的 {{site.data.keyword.Bluemix_notm}} 帐户，并浏览到 {{site.data.keyword.appid_short_notm}} 实例。
+1. 登录到您的 {{site.data.keyword.cloud_notm}} 帐户，并导航至 {{site.data.keyword.appid_short_notm}} 实例。
 
 2. 在**管理**选项卡中，将**定制身份提供者**设置为**开启**。
 
 3. 向 {{site.data.keyword.appid_short_notm}} 注册公用密钥。
-  1. 浏览到**定制身份提供者**选项卡。
+  1. 导航至**定制身份提供者**选项卡。
   2. 在**公用密钥**框中粘贴公用密钥，然后单击**保存**。
 
 
-</br>
 
-**使用 API 进行配置**
+### 使用 API 进行配置
+{: #custom-identity-configure-api}
 
-通过向[管理 API 端点](https://appid-management.ng.bluemix.net/swagger-ui/#!/Identity_Providers/custom)发出 PUT 请求来注册密钥。
+通过向[管理 API 端点](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.set_custom_idp)发出 PUT 请求来注册密钥。
 
 ```
 Put {Management URI}/config/idps/custom
@@ -77,19 +87,19 @@ Content-Type: application/json
 {: codeblock}
 
 ## 测试您的配置
-{: #testing}
+{: #custom-identity-testing}
 
 使用有效的公用密钥配置 {{site.data.keyword.appid_short_notm}} 实例后，可以使用服务所提供的测试应用程序来验证是否正确设置了配置。在示例应用程序中，可以查看在执行标准登录流程期间返回的 {{site.data.keyword.appid_short_notm}} 访问令牌和身份令牌有效内容。
 
 1. 在**定制身份提供者**选项卡中，单击**测试**以打开测试应用程序。
 
-2. 使用遵循定制身份[协议](/docs/services/appid/custom-auth.html#creating-jwts)的 [JWT.io](https://jwt.io/) 来创建 JWT 示例。
+2. 使用遵循定制身份[协议](/docs/services/appid?topic=appid-custom-auth#generating-jwts)的 [JWT.io](https://jwt.io/) 来创建 JWT 示例。
 
 3. 将 JWT 粘贴到标注为 **JSON Web 令牌**的框中，然后单击**测试**以执行样本认证。
 
 如果成功，现在可以在标准登录流程中看到可用于应用程序的已解码 {{site.data.keyword.appid_short_notm}} 身份令牌和访问令牌。
 
 ## 后续步骤
-{: #next}
+{: #custom-identity-next}
 
-既然已配置了定制身份提供者，请[将其添加到应用程序](/docs/services/appid/custom-auth.html)！
+既然已配置了定制身份提供者，请[将其添加到应用程序](/docs/services/appid?topic=appid-custom-auth#custom-auth)！

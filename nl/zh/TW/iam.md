@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-12-19"
+  years: 2017, 2019
+lastupdated: "2019-03-13"
+
+keywords: authentication, authorization, identity, app security, secure, access, platform, management, permissions
+
+subcollection: appid
 
 ---
 
@@ -13,21 +17,24 @@ lastupdated: "2018-12-19"
 {:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 {:download: .download}
 
 
 # 管理服務存取
 {: #service-access-management}
 
-使用 {{site.data.keyword.appid_full}} 及 {{site.data.keyword.Bluemix_notm}} Identity and Access Management (IAM)，帳戶擁有者可以管理您帳戶中的使用者存取權。
+使用 {{site.data.keyword.appid_full}} 及 {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM)，帳戶擁有者可以管理您帳戶中的使用者存取權。
 {: shortdesc}
 
 身為帳戶擁有者，您可以在帳戶內設定原則，為不同的使用者建立不同的存取層次。例如，特定使用者可對某個實例具有**唯讀**權，但對另一個實例具有**寫入**權。您可以決定容許哪位人員可以建立、更新及刪除 {{site.data.keyword.appid_short_notm}} 的實例。
 
-如需 IAM 的相關資訊，請參閱 [IAM 存取](/docs/iam/users_roles.html)。
+如需 IAM 的相關資訊，請參閱 [IAM 存取](/docs/iam?topic=iam-userroles)。
 
 ## 使用者角色
-{: #roles}
+{: #iam-roles}
 
 存取原則的範圍是基於使用者的指派角色。
 {: shortdesc}
@@ -39,6 +46,9 @@ lastupdated: "2018-12-19"
   <li>存取實例內的特定資源</li>
   <li>存取您帳戶中所有已啟用 IAM 功能的服務</li>
 </ul></ul>
+
+### 平台角色
+{: #iam-platform-roles}
 
 平台管理角色可讓使用者在平台層次對服務資源執行作業。例如，可以指派角色來決定誰可以建立或刪除 ID、建立實例，以及將實例連結至應用程式。下表詳述與平台管理角色產生關聯的動作。
 
@@ -70,8 +80,8 @@ lastupdated: "2018-12-19"
   </tr>
 </table>
 
-</br>
-</br>
+### 服務存取角色
+{: #iam-service-roles}
 下表詳述對映至服務存取角色的動作。服務存取角色可讓使用者存取 {{site.data.keyword.appid_short_notm}}，以及能夠呼叫 {{site.data.keyword.appid_short_notm}} API。
 
 
@@ -93,16 +103,16 @@ lastupdated: "2018-12-19"
   </tr>
 </table>
 
-如需在使用者介面中指派使用者角色的相關資訊，請參閱[管理 IAM 存取](/docs/iam/mngiam.html#iammanidaccser)。
+如需在使用者介面中指派使用者角色的相關資訊，請參閱[管理 IAM 存取](/docs/iam?topic=iam-iammanidaccser#iammanidaccser)。
 
 
 ## {{site.data.keyword.appid_short_notm}} 存取原則
-{: #access}
+{: #iam-access}
 
 在您的帳戶中存取 {{site.data.keyword.appid_short_notm}} 服務的每位使用者，都必須獲指派已定義 IAM 使用者角色的存取原則。該原則會決定使用者可以在您選取之服務或實例的環境定義中執行哪些動作。
 {: shortdesc}
 
-這些動作是自訂的，並由 {{site.data.keyword.Bluemix_notm}} 服務定義為可在服務中執行的作業。然後，這些動作會對映至 IAM 使用者角色。您可以使用 {{site.data.keyword.cloudaccesstrailshort}} 服務來追蹤一些採取的動作。在下表中，會對映 {{site.data.keyword.appid_short_notm}} 的動作與必要許可權。
+這些動作是自訂的，並由 {{site.data.keyword.cloud_notm}} 服務定義為可在服務中執行的作業。然後，這些動作會對映至 IAM 使用者角色。您可以使用 {{site.data.keyword.cloudaccesstrailshort}} 服務來追蹤一些採取的動作。在下表中，會對映 {{site.data.keyword.appid_short_notm}} 的動作與必要許可權。
 
 <table>
   <tr>
@@ -226,30 +236,68 @@ lastupdated: "2018-12-19"
 </br>
 
 ## 範例：授權另一位使用者可以存取 {{site.data.keyword.appid_short_notm}} 的實例
-{: #example}
+{: #iam-example}
 
 在此情境中，管理者已建立 {{site.data.keyword.appid_short_notm}} 的實例，且需要將檢視者存取權授與另一位團隊成員。
 {: shortdesc}
 
 開始之前：
-* 安裝 [{{site.data.keyword.Bluemix_notm}} CLI](/docs/cli/index.html)。
+* 安裝 [{{site.data.keyword.cloud_notm}} CLI](/docs/cli/reference/ibmcloud?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli)。
 
 若要更新存取權，管理者會完成下列步驟：
 
-1. 登入 {{site.data.keyword.Bluemix_notm}} 主控台。
-2. 遵循 [IAM 文件](/docs/iam/mngiam.html)中所列出的步驟，將檢視權授與員工。
+1. 登入 {{site.data.keyword.cloud_notm}} 主控台。
+
+2. 遵循 [IAM 文件](/docs/iam?topic=iam-iammanidaccser)中所列出的步驟，將檢視權授與員工。
+
 3. 導覽至 {{site.data.keyword.appid_short_notm}} 儀表板的**服務認證**標籤。按一下**檢視認證**並複製 **tentantID**。
-4. 在您的終端機中使用 {{site.data.keyword.Bluemix_notm}} CLI 登入。
+
+4. 在您的終端機中使用 {{site.data.keyword.cloud_notm}} CLI 登入。
+    
+
     ```
-    ibmcloud login -a api.<region>.bluemix.net
+    ibmcloud login -api -a https://api.<region>.cloud.ibm.com
     ```
-    {: codeblock}
+    {: pre}
+
+    <table>
+      <tr>
+        <th>地區</th>
+        <th>端點</th>
+      </tr>
+      <tr>
+        <td>達拉斯</td>
+        <td><code>us-south</code></td>
+      </tr>
+      <tr>
+        <td>法蘭克福</td>
+        <td><code>eu-de</code></td>
+      </tr>
+      <tr>
+        <td>雪梨</td>
+        <td><code>au-syd</code></td>
+      </tr>
+      <tr>
+        <td>倫敦</td>
+        <td><code>eu-gb</code></td>
+      </tr>
+      <tr>
+        <td>東京</td>
+        <td><code>jp-tok</code></td>
+      </tr>
+    </table>
+
 5. 取得 IAM 記號並記下它。
+    
+
     ```
     ibmcloud iam oauth-tokens
     ```
-    {: codeblock}
+    {: pre}
+
 6. 驗證團隊成員無法進行變更。
+    
+
     ```
     curl -X PUT --header 'Content-Type: application/json' \
     --header 'Accept: application/json' \
@@ -261,27 +309,36 @@ lastupdated: "2018-12-19"
        "secret": "appsecret"
      }
     }' \
-    'https://appid-management.ng.bluemix.net/management/v4/<tenantId>/config/idps/facebook'
+    'https://us-south.appid.cloud.ibm.com/management/v4/<tenantID>/config/idps/facebook'
     ```
-    {: codeblock}
+    {: pre}
 
     結果是 403 未獲授權訊息。
 
 若要檢視來自 CLI 的 {{site.data.keyword.appid_short_notm}} 配置，團隊成員會完成下列步驟：
 
-1. 在您的終端機中使用 {{site.data.keyword.Bluemix_notm}} CLI，登入。
+1. 在您的終端機中使用 {{site.data.keyword.cloud_notm}} CLI，登入。
+    
+
     ```
-    ibmcloud login -a api.<region>.bluemix.net
+    ibmcloud login -a api.<region>.console.cloud.ibm.com
     ```
-    {: codeblock}
+    {: pre}
+
 2. 取得 IAM 記號並記下它。
+    
+
     ```
     ibmcloud iam oauth-tokens
     ```
-    {: codeblock}
+    {: pre}
+
 3. 使用 cURL 檢視 Facebook 的身分提供者配置。
+    
+
     ```
-    curl -X GET --header 'Accept: application/json' --header 'Authorization: <IAM token value>' \  'https://appid-management.ng.bluemix.net/management/v4/<tenantId>/config/idps/facebook'
+    curl -X GET --header 'Accept: application/json' --header 'Authorization: <IAM token value>' \  'https://us-south.appid.cloud.ibm.com/management/v4/<tenantID>/config/idps/facebook'
     ```
-    {: codeblock}
-    結果為 200 訊息，其中包含身分提供者資訊。
+    {: pre}
+
+        結果為 200 訊息，其中包含身分提供者資訊。

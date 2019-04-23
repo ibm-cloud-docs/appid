@@ -1,17 +1,26 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-11-25"
+  years: 2017, 2019
+lastupdated: "2019-04-04"
+
+keywords: authentication, authorization, identity, app security, secure, custom, tokens, access, claim, attributes
+
+subcollection: appid
 
 ---
 
-{:new_window: target="blank"}
+{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
-{:codeblock: .codeblock}
 {:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:codeblock: .codeblock}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 
 # Personalización de señales
@@ -20,22 +29,20 @@ lastupdated: "2018-11-25"
 Puede configurar las señales de {{site.data.keyword.appid_short_notm}} para que cumplan con las necesidades específicas de la aplicación.
 {: shortdesc}
 
-**¿Qué tipo de señales existen?**
+## Visión general de la personalización
+{: #understanding-customization}
 
-Diferentes tipos de señales de {{site.data.keyword.appid_short_notm}} para proteger las aplicaciones.
+{{site.data.keyword.appid_short_notm}} utiliza distintos tipos de señales para proteger las aplicaciones.
 
 * Señales de acceso: Habilitan la comunicación con los recursos de fondo que están protegidos por filtros de autorización. Si una señal de acceso no está asociada con un usuario específico, la señal tiene capacidades limitadas.
 * Señales de identidad: Contienen información personal y se utilizan para autenticar a un usuario. En función de la configuración de la app, las señales de identidad se pueden emitir antes de que se autentique un usuario. Esto le permite empezar a asociar atributos con los usuarios antes de iniciar la sesión en la aplicación.
 * Señales de renovación: Se pueden utilizar para ampliar la cantidad de tiempo que puede pasar un usuario sin volver a autenticarse.
 
-¿Desea obtener más información sobre las señales? Consulte más información en [Comprensión de las señales](authorization.html#tokens).
+¿Desea obtener más información sobre las señales? Consulte más información en [Comprensión de las señales](/docs/services/appid?topic=appid-tokens#tokens).
 {: tip}
 
-</br>
 
-**¿Cuáles son las opciones de personalización?**
-
-Puede personalizar las señales estableciendo la validez del período de vida o añadiendo reclamaciones personalizadas a las señales. Compruebe la tabla siguiente para ver cómo se configura el período de vida o siga leyendo para obtener más información sobre la correlación de atributos personalizados.
+Puede personalizar las señales [en la GUI](/docs/services/appid?topic=appid-customizing-tokens#configuring-tokens-ui) o utilizando [la API](/docs/services/appid?topic=appid-customizing-tokens#configuring-tokens-api) estableciendo la validez del período de vida o añadiendo reclamaciones personalizadas a las señales. Compruebe la tabla siguiente para ver cómo se configura el período de vida o siga leyendo para obtener más información sobre la correlación de atributos personalizados.
 
 <table>
   <tr>
@@ -70,38 +77,62 @@ Puede personalizar las señales estableciendo la validez del período de vida o 
   </tr>
 </table>
 
-</br>
 
-**¿Por qué debería añadir reclamaciones a mis señales?**
+Puesto que las señales se utilizan para identificar a los usuarios y proteger los recursos, el período de vida de una señal afecta a varias cosas distintas. Mediante la personalización de la configuración de la señal puede garantizar que las necesidades de seguridad y experiencia de usuario se cumplen. Sin embargo, si alguna vez una señal se ve comprometida, un usuario malintencionado tendrá más tiempo para afectar a la aplicación. Puede obtener más información sobre las consideraciones de seguridad en [Atributos personalizados](/docs/services/appid?topic=appid-custom-attributes).
+{: important}
 
-Existen varias razones por las que es posible que desee realizar un seguimiento de los atributos adicionales. Cuando trabaja con los desarrolladores de apps, puede correlacionar roles y permisos. O, cuando crea perfiles en los usuarios finales, puede realizar un seguimiento de la información adicional que le ayuda a crear experiencias personalizadas.
-
-</br>
-
-**¿Existen consideraciones sobre seguridad?**
-
-Sí. Puesto que las señales se utilizan para identificar a los usuarios y proteger los recursos, el período de vida de una señal afecta a varias cosas distintas. Mediante la personalización de la configuración de la señal puede garantizar que las necesidades de seguridad y experiencia de usuario se cumplen. Sin embargo, si alguna vez una señal se ve comprometida, un usuario malintencionado tendrá más tiempo para afectar a la aplicación.
-
-¿Desea obtener más información sobre las consideraciones de seguridad que debe realizar? Consulte los [Atributos personalizados](custom-attributes.html).
-{: tip}
-
-</br>
-</br>
 
 ## Comprensión de reclamaciones y atributos personalizados
 {: #custom-claims}
 
-Puede correlacionar atributos de perfil de usuario a las reclamaciones de señal de identidad y acceso. Lo que significa que no tendrá que ir al punto final [/userinfo ](https://appid-oauth.ng.bluemix.net/swagger-ui/#!/Authorization_Server_V3/userInfo) o extraer atributos personalizados más adelante, puesto que ya están almacenados en la señal.
+Puede correlacionar atributos de perfil de usuario a las reclamaciones de señal de identidad y acceso. Lo que significa que no tendrá que ir al punto final [/userinfo](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization_Server_V4/userInfo) o extraer atributos personalizados más adelante, puesto que ya están almacenados en la señal.
 {: shortdesc}
 
+### ¿Qué es una reclamación?
+{: #custom-claims-defined}
 
-**¿Por qué debería añadir atributos a mis reclamaciones?**
+Una reclamación es una declaración que una entidad hace sobre sí misma o en nombre de otra persona. Por ejemplo, si ha iniciado sesión en una aplicación utilizando un proveedor de identidad, el proveedor enviaría a la aplicación un grupo de reclamaciones o declaraciones sobre usted para que la app pueda agruparlas con información que ya conoce sobre usted. De esta forma, cuando inicie sesión, la app se configura con su información, tal y como la haya configurado. Consulte los siguientes ejemplos para saber cómo dar formato al objeto JSON.
+
+```
+{
+  "accessTokenClaims": [
+            {
+      "source": "saml",
+      "sourceClaim": "moderator"
+    }
+  ],
+          "idTokenClaims": [
+            {
+      "source": "saml",
+      "sourceClaim": "moderator"
+    }
+  ],
+  "access": {
+    "expires_in": 3600
+  },
+  "refresh": {
+    "expires_in": 2592000,
+    "enabled": true
+  },
+  "anonymousAccess": {
+    "expires_in": 2592000,
+    "enabled": true
+  }
+}
+```
+{: screen}
+
+Si ha personalizado la información de vencimiento para la señal, deberá establecerla en cada solicitud. Si no, esta solicitud sustituye la configuración actual y el valor predeterminado se utiliza para cualquier cosa que no se haya definido.
+{: note}
+
+### ¿Por qué debería añadir reclamaciones a mis señales?
+{: #why-custom-claims}
 
 En la señal encontrará todo lo que su app necesita saber sobre un usuario o lo que puede hacer, sin tener que hacer llamadas de red adicionales. Siempre que no tenga cantidades masivas de datos, esto hará que el proceso sea más efectivo. Además, puede garantizar la integridad de estos atributos correlacionados cuando se envíen a través de la red porque se almacenan en una señal firmada.
 
-</br>
 
-**¿Qué tipos de reclamaciones puedo definir?**
+### ¿Qué tipos de reclamaciones puedo definir?
+{: #custom-claim-types}
 
 Las reclamaciones que {{site.data.keyword.appid_short_notm}} proporciona forman parte de varias categorías que se diferencian por su nivel de personalización.
 
@@ -111,9 +142,9 @@ Las reclamaciones que {{site.data.keyword.appid_short_notm}} proporciona forman 
 
 *Reclamaciones normalizadas*: Cada señal de identidad contiene un conjunto de reclamaciones reconocido por {{site.data.keyword.appid_short_notm}} como reclamaciones normalizadas. Cuando están disponibles, se correlacionan directamente del proveedor de identidad a la señal. Estas reclamaciones no se pueden omitir de forma explícita, pero pueden ser alteradas temporalmente por correlaciones de reclamaciones personalizadas. Entre las reclamaciones se incluyen `name`, `email`, `picture`, `local` y `gender`.
 
-</br>
 
-**¿Cómo se definen las reclamaciones?**
+### ¿Cómo se correlacionan las reclamaciones con las señales?
+{: #custom-claims-mapping}
 
 Cada correlación está definida por un objeto de origen de datos y una clave que se utiliza para recuperar la reclamación. Cada reclamación personalizada se establece en cada señal por separado y secuencialmente. Puede registrar hasta 100 reclamaciones para cada señal hasta una carga útil máxima de 100 KB.
 
@@ -125,7 +156,7 @@ Cada correlación está definida por un objeto de origen de datos y una clave qu
       <tr>
         <td><code><em>source</em></code></td>
         <td>Necesario</td>
-        <td>Define el origen de la reclamación. Puede hacer referencia a la información de usuario del proveedor de identidad o a los atributos personalizados de {{site.data.keyword.appid_short_notm}} del usuario. </br> </br> Entre las opciones se incluyen: `saml`, `cloud_directory`, `facebook`, `google`, `appid_custom`, `ibmid` y `attributes`.</td>
+        <td>Define el origen de la reclamación. Puede hacer referencia a la información de usuario del proveedor de identidad o a los atributos personalizados de {{site.data.keyword.appid_short_notm}} del usuario. </br> Entre las opciones se incluyen: `saml`, `cloud_directory`, `facebook`, `google`, `appid_custom`, `ibmid` y `attributes`.</td>
       </tr>
       <tr>
         <td><code><em>sourceClaim</em></code></td>
@@ -146,6 +177,7 @@ Puede hacer referencia a las reclamaciones añadidas en las correlaciones utiliz
 Puede configurar las señales de {{site.data.keyword.appid_short_notm}} utilizando la GUI o las API de gestión.
 {: shortdesc}
 
+
 ### Configuración del período de vida con la GUI
 {: #configuring-tokens-ui}
 
@@ -155,7 +187,7 @@ Puede configurar las señales de {{site.data.keyword.appid_short_notm}} utilizan
   1. Para permitir el inicio de sesión sin la interacción del usuario, establezca las **señales de renovación** en **Activado**.
   2. Establezca el período de vida de la señal de renovación. La caducidad se establece en días y puede ser cualquier valor que se encuentre en un rango de 1 a 90. Cuanto menor sea el número, el usuario deberá registrarse con más frecuencia.
   3. Establezca el período de vida de la señal de acceso. La caducidad se establece en minutos y puede tener un rango entre 5 y 1440. Cuanto menor sea el valor, dispondrá de más protección cuando le roben la señal.
-  4. Establezca el período de vida de la señal anónima. Una [señal anónima](/docs/services/appid/progressive.html#anonymous) se asigna a los usuarios en el momento en que empiezan a interactuar con la app. Cuando un usuario inicia sesión, la información de la señal anónima se transfiere a la señal asociada con el usuario. La caducidad se establece en días y puede ser cualquier valor entre 1 y 90.
+  4. Establezca el período de vida de la señal anónima. Una [señal anónima](/docs/services/appid?topic=appid-anonymous#anonymous) se asigna a los usuarios en el momento en que empiezan a interactuar con la app. Cuando un usuario inicia sesión, la información de la señal anónima se transfiere a la señal asociada con el usuario. La caducidad se establece en días y puede ser cualquier valor entre 1 y 90.
 
 </br>
 
@@ -167,7 +199,7 @@ Puede configurar las señales de {{site.data.keyword.appid_short_notm}} utilizan
 Asegúrese de que tiene los requisitos previos siguientes:
 
 * El ID de arrendatario de la instancia de {{site.data.keyword.appid_short_notm}}. Lo encontrará en la sección **Credenciales de servicio** de la GUI.
-* La señal Gestión de identidad y acceso (IAM). Si necesita ayuda para obtener la señal de IAM, consulte los [documentos de IAM](/docs/iam/apikey_iamtoken.html).
+* La señal Gestión de identidad y acceso (IAM). Si necesita ayuda para obtener la señal de IAM, consulte los [documentos de IAM](/docs/iam?topic=iam-iamtoken_from_apikey).
 
 **Correlación de reclamaciones**
 

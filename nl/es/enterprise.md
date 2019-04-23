@@ -1,20 +1,29 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-10-18"
+  years: 2017, 2019
+lastupdated: "2019-04-04"
+
+keywords: authentication, authorization, identity, app security, secure, custom, service provider, identity provider, enterprise, assertions
+
+subcollection: appid
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 # SAML
 {: #enterprise}
-
 
 Security Assertion Markup Language (SAML) es un estándar abierto para intercambiar datos de autenticación y de autorización entre un proveedor de identidad que certifique la identidad del usuario y un proveedor de servicio que consuma la información de identidad de usuario.
 {: shortdesc}
@@ -25,30 +34,79 @@ Para ver los pasos sobre cómo utilizar un proveedor de identidad SAML específi
 {: tip}
 
 
-## Aserciones SAML y reclamaciones de señal de identidad
 
-Una aserción SAML es un paquete de información que contiene una o varias sentencias. La aserción contiene la decisión de autorización, y podría contener información de identidad sobre el usuario.
+## Visión general de las aserciones
+{: #saml-assertions}
 
-Cuando un usuario inicia sesión con un proveedor de identidad, dicho proveedor envía una aserción a {{site.data.keyword.appid_short_notm}}. {{site.data.keyword.appid_short_notm}} propaga la información de identidad de usuario que se devuelve en la aserción SAML a la app como reclamaciones de señales OIDC. El atributo SAML debe corresponderse con una de las siguientes reclamaciones de OIDC que se añadirán a la señal de identidad.
+Una aserción SAML es similar a un [atributo de usuario](/docs/services/appid?topic=appid-user-profile#user-profile). Se trata de una sentencia o información acerca de un usuario que un proveedor de identidad devuelve a {{site.data.keyword.appid_short_notm}} cuando un usuario inicia sesión correctamente en la app. En función de la configuración de la app y del proveedor de identidad que utilice, la información puede incluir un nombre de usuario, correo electrónico u otro campo que se le solicite.
+{: shortdesc}
 
-Se pueden añadir las siguientes reclamaciones:
-* `nombre`
-* `correo electrónico`
-* `entorno local`
-* `imagen`
+Cuando las aserciones se devuelven a {{site.data.keyword.appid_short_notm}}, el servicio unifica la identidad de usuario. Si la aserción SAML se corresponde a una de las siguientes reclamaciones de OIDC, se añade automáticamente a la señal de identidad.  Si uno o varios de estos valores cambian en el lado del proveedor, los nuevos valores estarán disponibles solo después de que el usuario inicie sesión de nuevo.
 
-Los elementos de atributos SAML restantes que no se correspondan con ninguno de los nombres estándares se omitirán. Tenga en cuenta que, si uno o varios de estos valores cambian en el lado del proveedor, los nuevos valores estarán disponibles solo después de que el usuario inicie sesión de nuevo.
+ * `nombre`
+ * `correo electrónico`
+ * `entorno local`
+ * `imagen`
+
+Las aserciones que no se corresponden con ninguno de los nombres estándar se omiten de forma predeterminada, pero si el proveedor de SAML devuelve otras aserciones, es posible obtener la información cuando un usuario inicia sesión. Creando una matriz de las aserciones que desea utilizar, puede [inyectar la información en las señales](/docs/services/appid?topic=appid-customizing-tokens#customizing-tokens). Sin embargo, asegúrese de no añadir más información de la necesaria a las señales. Las señales normalmente se envían en las cabeceras http, que tienen un tamaño limitado.
+{: tip}
+
+### ¿A qué espera {{site.data.keyword.appid_short_notm}} que se parezca una aserción SAML?
+{: #saml-example}
+
+El servicio espera que una aserción SAML se parezca al ejemplo siguiente.
+
+```
+<samlp:Response xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol" ID="s2202bbbbafa9d270d1c15990b738f4ab36139d463" InResponseTo="_e4a78780-35da-012e-8ea7-0050569200d8" Version="2.0" IssueInstant="2011-03-21T11:22:02Z" Destination="https://example.example.com/">
+  <saml:Issuer xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion">idp_entityId</saml:Issuer>
+  <samlp:Status xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
+    <samlp:StatusCode  xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"Value="urn:oasis:names:tc:SAML:2.0:status:Success"/>
+  </samlp:Status>
+  <saml:Assertion xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="2.0" ID="pfx539c9774-de5c-5f52-0c3f-b1c2e2697a89" IssueInstant="2018-01-29T13:02:58Z" xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
+    <saml:Issuer>idp_entityId</saml:Issuer>
+    <ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+      <ds:SignedInfo>
+        <ds:CanonicalizationMethod Algorithm="one_of_supported_algo"/>
+        <ds:SignatureMethod Algorithm="one_of_supported_algo"/>
+        <ds:Reference URI="#pfx539c9774-de5c-5f52-0c3f-b1c2e2697a89">
+          <ds:Transforms>
+            <ds:Transform Algorithm="one_of_supported_algo"/>
+            <ds:Transform Algorithm="one_of_supported_algo"/>
+          </ds:Transforms>
+          <ds:DigestMethod Algorithm="one_of_supported_algo"/>
+          <ds:DigestValue>huywDPPfOEGyyzE7d5hjOG97p7FDdGrjoSfes6RB19g=</ds:DigestValue>
+        </ds:Reference>
+      </ds:SignedInfo>
+ <ds:SignatureValue>BAwNZFgWF2oxD1ux0WPfeHnzL+IWYqGhkM9DD28nI9v8XtPN8tqmIb5y4bomaYknmNpWYn7TgNO2Rn/XOq+N9fTZXO2RybaC49iF+zWibRIcNwFKCCpDL6H6jA5eqJX2YKBR+K6Yt2JPoUIRLmqdgm2lMr4Nwq1KYcSzQ/yoV5W0SN/V5t8EfctFoaXVPdtfHVXkwqHeufo+L4gobFt9NRTzXB0SQEClA1L8hQ+/LhY4l46k1D0c34iWjVLZr+ecQyubf7rekOG/R7DjWCFMTke822dR+eJTPWFsHGSPWCDDHFYqB4QMinTvUnsngjY3AssPqIOjeUxjL3p+GXn8IQ==</ds:SignatureValue>
+    </ds:Signature>
+    <saml:Subject>
+      <saml:NameID Format="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress">JohnDoe@gmail.com</saml:NameID>
+    </saml:Subject>
+    <saml:Conditions NotBefore="2018-01-29T12:59:58Z" NotOnOrAfter="2018-01-29T13:05:58Z">
+    </saml:Conditions>
+</samlp:Response>
+```
+{: screen}
 
 
-¿Está buscando un ejemplo? Consulte <a href="https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-azure-active-directory/" target="_blank">Configuración de {{site.data.keyword.appid_long}} con Azure Active Directory <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a> o <a href="https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-ping-one/" target="_blank">Configuración de {{site.data.keyword.appid_long}} con Ping One <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>.
+### ¿Qué tipos de algoritmos admite {{site.data.keyword.appid_short_notm}}?
+{: #saml-signatures}
+
+{{site.data.keyword.appid_short_notm}} utiliza el algoritmo <a href="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" target="_blank">RSA-SHA256 <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a> para procesar las firmas digitales XML.
+
+
+
 
 ## Suministro de metadatos a su proveedor de identidad
-{: #provide-idp}
+{: #saml-provide-idp}
 
 Para configurar la app, debe proporcionar información a un proveedor de identidad compatible con SAML. La información se intercambia mediante un archivo XML de metadatos que también contiene datos de configuración que se utilizan para establecer la confianza.
 {: shortdesc}
 
-1. En el separador **Gestionar** del panel de control {{site.data.keyword.appid_short_notm}}, establezca **SAML 2.0** en **Activado**. A continuación, pulse **Editar** para configurar los valores de SAML.
+No puede habilitar SAML si no lo configura primero como proveedor de identidad.
+{: tip}
+
+1. En el separador **Gestionar** del panel de control de {{site.data.keyword.appid_short_notm}}, pulse **Editar** en la fila **SAML** para configurar los valores.
 2. Pulse **Descargar archivo de metadatos SAML**. El proveedor de identidad espera la información siguiente del archivo.
   <table>
     <tr>
@@ -77,18 +135,21 @@ Para configurar la app, debe proporcionar información a un proveedor de identid
     </tr>
   </table>
 
-3. Proporcione los datos a su proveedor de identidad. Si el proveedor de identidad permite cargar el archivo de metadatos, puede hacerlo. Si no lo permite, configure las propiedades manualmente. No todos los proveedores de identidad utilizarán las mismas propiedades, por lo que si no las utiliza todas, es correcto.
+3. Proporcione los datos a su proveedor de identidad. Si el proveedor de identidad permite cargar el archivo de metadatos, puede hacerlo. Si no lo permite, configure las propiedades manualmente. No todos los proveedores de identidad utilizan las mismas propiedades, por lo que es posible que no las utilice todas.
 
-Los nombres de propiedades pueden diferir entre los proveedores de identidad.
-{: tip}
+  Los nombres de propiedades pueden diferir entre los proveedores de identidad.
+  {: tip}
+
+4. Cambie **SAML 2.0 Federation** a **Habilitado**.
 
 ## Suministro de metadatos a {{site.data.keyword.appid_short_notm}}
-{: #provide-appid}
+{: #saml-provide-appid}
 
 Obtenga datos del proveedor de identidad y proporciónelos a {{site.data.keyword.appid_short_notm}}.
 {: shortdesc}
 
-**Suministro de metadatos con la GUI**
+### Suministro de metadatos con la GUI
+{: #saml-provide-gui}
 
 1. Vaya al separador **SAML 2.0** del panel de control de {{site.data.keyword.appid_short_notm}}. Entre los metadatos siguientes que ha obtenido del proveedor de identidad en la sección **Proporcionar metadatos de IdP SAML**.
   <table>
@@ -116,12 +177,11 @@ Obtenga datos del proveedor de identidad y proporciónelos a {{site.data.keyword
 ¿Desea establecer un contexto de autenticación? Puede hacerlo a través de la API.
 {: tip}
 
-</br>
-</br>
 
-**Suministro de metadatos con la API**
+### Suministro de metadatos con la API
+{: #saml-provide-api}
 
-1. Obtenga metadatos de SAML realizando una solicitud GET en el punto final de la API [/getSamlMetadata](https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/getSamlMetadata).
+1. Obtenga metadatos de SAML realizando una solicitud GET en el punto final de la API [/getSamlMetadata](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.get_saml_idp).
 
   Código de ejemplo:
   ```
@@ -133,7 +193,7 @@ Obtenga datos del proveedor de identidad y proporciónelos a {{site.data.keyword
   ```
   {: codeblock}
 
-  Resultado de ejemplo:
+  Salida de ejemplo:
   ```
     {
     "isActive": true,
@@ -164,7 +224,7 @@ Obtenga datos del proveedor de identidad y proporciónelos a {{site.data.keyword
   ```
   {: screen}
 
-2. Configure la solicitud POST en el punto final de la API [/set_saml_idp](https://appid-management.ng.bluemix.net/swagger-ui/#!/Identity_Providers/set_saml_idp).
+2. Configure la solicitud POST en el punto final de la API [/set_saml_idp](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.set_saml_idp).
 
   1. En el ejemplo de metadatos siguiente, sustituya las variables con su propia información.
 
@@ -271,7 +331,7 @@ Obtenga datos del proveedor de identidad y proporciónelos a {{site.data.keyword
 
 
 ## Probar la configuración
-{: #testing}
+{: #saml-testing}
 
 Puede probar la configuración entre el proveedor de identidad SAML y {{site.data.keyword.appid_short_notm}}.
 
@@ -279,9 +339,9 @@ Puede probar la configuración entre el proveedor de identidad SAML y {{site.dat
 2. Vaya al separador **SAML 2.0** del panel de control de {{site.data.keyword.appid_short_notm}} y pulse **Probar**. Se abre un nuevo separador.
 3. Inicie sesión con un usuario que ya haya autenticado su proveedor de identidad.
 4. Después de completar el formulario, se le redirigirá a otra página.
-  * Autenticación correcta: La conexión entre {{site.data.keyword.appid_short_notm}} y el proveedor de identidad funciona correctamente. La página muestra [señales de acceso y de identidad](/docs/services/appid/authorization.html#tokens) válidas.
+  * Autenticación correcta: La conexión entre {{site.data.keyword.appid_short_notm}} y el proveedor de identidad funciona correctamente. La página muestra [señales de acceso y de identidad](/docs/services/appid?topic=appid-tokens#tokens) válidas.
   * Error de autenticación: La conexión se ha bloqueado. La página muestra los errores y el archivo XML de la respuesta SAML.
 
 
-¿Tiene problemas? Consulte [Resolución de problemas de las configuraciones del proveedor de identidad](/docs/services/appid/ts_saml.html).
+¿Tiene problemas? Consulte [Resolución de problemas de las configuraciones del proveedor de identidad](/docs/services/appid?topic=appid-troubleshooting-idp#troubleshooting-idp).
 {: tip}

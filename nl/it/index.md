@@ -1,22 +1,34 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-11-15"
+  years: 2017, 2019
+lastupdated: "2019-03-27"
+
+keywords: authentication, authorization, identity, app security, secure, development,
+
+subcollection: appid
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
+{:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:codeblock: .codeblock}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 # Esercitazione introduttiva
-{: #gettingstarted}
+{: #getting-started}
 
 La sicurezza delle applicazioni può essere incredibilmente complicata. Per la maggior parte degli sviluppatori, è una delle parti più difficili nella creazione di un'applicazione. Come puoi essere sicuro di proteggere le informazioni dei tuoi utenti? Integrando {{site.data.keyword.appid_full}} nelle tue applicazioni, puoi proteggere le risorse e aggiungere l'autenticazione; anche quando non hai molta esperienza in materia di sicurezza.
 {: shortdesc}
 
-Richiedendo agli utenti di accedere alla tua applicazione, puoi memorizzare i dati utente come le preferenze dell'applicazione o le informazioni dai profili sociali pubblici e quindi utilizzare tali dati per personalizzare ogni esperienza della tua applicazione. {{site.data.keyword.appid_short_notm}} ti fornisce un framework di accesso, ma puoi anche portare le tue schermate di accesso personalizzate quando lavori con Cloud Directory.
+Richiedendo agli utenti di accedere alla tua applicazione, puoi memorizzare i dati utente come le preferenze dell'applicazione o le informazioni dai profili sociali pubblici e quindi utilizzare tali dati per personalizzare ogni esperienza della tua applicazione. {{site.data.keyword.appid_short_notm}} ti fornisce un framework, ma puoi anche portare le tue schermate di accesso personalizzate quando lavori con Cloud Directory.
 
 Ci piacerebbe ricevere dei tuoi feedback e domande.
 * Se hai domande tecniche su {{site.data.keyword.appid_short_notm}}, inserisci la tua domanda in <a href="https://stackoverflow.com/search?q=ibm-appid" target="_blank">Stack Overflow <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a> e contrassegnala con la tag `ibm-appid`.
@@ -28,7 +40,7 @@ Ci piacerebbe ricevere dei tuoi feedback e domande.
 Per iniziare, crea e associa un'istanza di {{site.data.keyword.appid_short_notm}} alla tua applicazione.
 {: shortdesc}
 
-1. Nel catalogo {{site.data.keyword.Bluemix}}, seleziona {{site.data.keyword.appid_short_notm}}. Si apre la schermata di configurazione del servizio.
+1. Nel catalogo {{site.data.keyword.cloud_notm}}, seleziona {{site.data.keyword.appid_short_notm}}. Si apre la schermata di configurazione del servizio.
 2. Dai un nome alla tua istanza del servizio o utilizza il nome predefinito.
 3. Seleziona il tuo piano dei costi e fai clic su **Crea**.
 4. Associa la tua istanza di {{site.data.keyword.appid_short_notm}}.
@@ -53,7 +65,7 @@ Per creare un'applicazione di esempio:
 2. Fai clic sul linguaggio che preferisci per scaricare l'esempio.
   Non vedi la lingua che stai cercando? Non preoccuparti. Puoi trarre vantaggio da {{site.data.keyword.appid_short_notm}} tramite le API. Puoi inoltre consultare i <a href="https://www.ibm.com/blogs/bluemix/tag/app-id/" target="_blank">nostri blog <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a> per ulteriore assistenza con altre lingue.
   {: tip}
-3. Assicurati di aver installato o completato i prerequisiti. 
+3. Assicurati di aver installato o completato i prerequisiti.
 4. Segui i passi **Build & Run** per configurare il tuo esempio con {{site.data.keyword.appid_short_notm}}.
 5. Fai clic su **Review Activity** per visualizzare tutti gli eventi di autenticazione che si sono verificati. Ogni tipo di accesso crea un evento visibile su questa pagina.
 6. Personalizza il widget di accesso.
@@ -64,10 +76,7 @@ Per creare un'applicazione di esempio:
 7. In un browser, aggiorna la tua pagina di accesso. Le modifiche effettuate nel passo precedente sono già visibili.
 
 
-## Fasi successive
+## Passi successivi
 {: #next}
 
-Sei pronto ad utilizzare le tue applicazioni? Inizia [aggiungendo il servizio alla tua applicazione](web-apps.html). Il servizio fornisce gli SDK per la maggior parte dei linguaggi utilizzati, ma se non vedi un SDK per il linguaggio in cui è scritta la tua applicazione, puoi ancora avvalerti di {{site.data.keyword.appid_short_notm}} utilizzando le API.
-
-</br>
-</br>
+Sei pronto ad utilizzare le tue applicazioni? Inizia [aggiungendo il servizio alla tua applicazione](/docs/services/appid?topic=appid-web-apps#web-apps). Il servizio fornisce gli SDK per la maggior parte dei linguaggi utilizzati, ma se non vedi un SDK per il linguaggio in cui è scritta la tua applicazione, puoi ancora avvalerti di {{site.data.keyword.appid_short_notm}} utilizzando le API.

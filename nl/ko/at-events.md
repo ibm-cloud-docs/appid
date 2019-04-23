@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-12-18"
+  years: 2017, 2019
+lastupdated: "2019-04-05"
+
+keywords: authentication, authorization, identity, app security, secure, application identity, app to app, access token, activity
+
+subcollection: appid
 
 ---
 
@@ -13,33 +17,32 @@ lastupdated: "2018-12-18"
 {:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
 {:tip: .tip}
-{:download: .download}
 {:note: .note}
 {:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 
 # {{site.data.keyword.cloudaccesstrailshort}} 이벤트
-{: #at_events}
+{: #at-events}
 
 {{site.data.keyword.cloudaccesstrailshort}} 서비스를 사용하여 {{site.data.keyword.appid_full}} 서비스 인스턴스에서 작성된 사용자가 시작하는 활동을 확인, 관리 및 분석할 수 있습니다.
 {: shortdesc}
 
 
 
-서비스가 작동하는 방식에 대한 자세한 정보는 [{{site.data.keyword.cloudaccesstrailshort}} 문서](/docs/services/cloud-activity-tracker/index.html)를 참조하십시오.
+서비스가 작동하는 방식에 대한 자세한 정보는 [{{site.data.keyword.cloudaccesstrailshort}} 문서](/docs/services/cloud-activity-tracker/reference?topic=cloud-activity-tracker-getting-started-with-cla#getting-started-with-cla)를 참조하십시오.
 
-
-</br>
 
 ## 관리 이벤트 보기
-{: #monitor-admin}
+{: #at-monitor-admin}
 
 {{site.data.keyword.cloudaccesstrailshort}} 서비스를 사용하여 {{site.data.keyword.appid_short_notm}} 인스턴스에서 작성된 구성 활동을 확인, 관리 및 분석할 수 있습니다.
 {: shortdesc}
 
-관리 활동을 모니터하려면 다음을 수행하십시오.
+관리 활동을 모니터링하려면 다음을 수행하십시오.
 
-1. {{site.data.keyword.Bluemix_notm}} 계정에 로그인하십시오.
+1. {{site.data.keyword.cloud_notm}} 계정에 로그인하십시오.
 2. 카탈로그에서 {{site.data.keyword.appid_short_notm}} 인스턴스와 동일한 계정의 {{site.data.keyword.cloudaccesstrailshort}} 서비스 인스턴스를 프로비저닝하십시오.
 3. {{site.data.keyword.cloudaccesstrailshort}} 대시보드에서 **관리** 탭을 클릭하십시오.
 4. 드롭 다운 목록에서 다음 구성을 작성하여 {{site.data.keyword.appid_short_notm}}에서 생성된 이벤트를 검색하십시오.
@@ -51,7 +54,7 @@ lastupdated: "2018-12-18"
 </br>
 
 ## 관리 이벤트 목록
-{: #events-admin}
+{: #at-events-admin}
 
 {{site.data.keyword.cloudaccesstrailshort}}에 전송되는 이벤트의 목록을 보려면 다음 표를 확인하십시오.
 
@@ -128,7 +131,7 @@ lastupdated: "2018-12-18"
   </tr>
   <tr>
     <td><code>read.samlMetadata</code></td>
-    <td>App ID SAML 메타데이터를 봅니다.</td>
+    <td>{{site.data.keyword.appid_short_notm}} SAML 메타데이터를 확인합니다.</td>
     <td><strong>ID 제공자 > SAML 2.0 연합</strong> 탭에서 찾을 수 있습니다.</td>
   </tr>
   <tr>
@@ -238,7 +241,5 @@ lastupdated: "2018-12-18"
   </tr>
 </table>
 
-</br>
-</br>
 
 

@@ -1,17 +1,26 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-12-19"
+  years: 2017, 2019
+lastupdated: "2019-03-06"
+
+keywords: authentication, authorization, identity, app security, secure, development, sign in, sign up, password, social, enterprise
+
+subcollection: appid
 
 ---
 
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:tip: .tip}
-{:pre: .pre}
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
+{:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:codeblock: .codeblock}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 
 # Visualización del widget de inicio de sesión
@@ -22,26 +31,30 @@ lastupdated: "2018-12-19"
 
 Cuando la app está configurada para utilizar un proveedor de identidad, el widget de inicio de sesión dirigirá a los visitantes de su app a una pantalla de inicio de sesión. Con el widget de inicio de sesión puede visualizar pantallas preconfiguradas de los flujos de inicio de sesión. Y, además, puede actualizar su flujo de inicio de sesión en cualquier momento, sin cambiar el código fuente de ninguna forma.
 
-¿Desea crear una experiencia que sea exclusiva de su app? Puede [aportar sus propias pantallas](/docs/services/appid/branded.html).
+¿Desea crear una experiencia que sea exclusiva de su app? Puede [aportar sus propias pantallas](/docs/services/appid?topic=appid-branded).
 {: tip}
 
 ## Comprensión del widget de inicio de sesión
-{: #understanding}
+{: #widget-understanding}
 
 Puede beneficiarse de {{site.data.keyword.appid_short_notm}}, incluso aunque no tenga sus propias pantallas de interfaz de usuario, visualizando el widget de inicio de sesión.
 {: shortdesc}
 
-**¿Cuál es el valor predeterminado?**
+### ¿Cuál es el valor predeterminado?
+{: #widget-default}
 
 Cuando se configura más de un proveedor de identidad, se redirige a un usuario al widget de inicio de sesión cuando este intenta iniciar sesión en la aplicación. Utilizando el widget de inicio de sesión, los usuarios pueden elegir el proveedor con el que desean verificar su identidad. Pero, cuando solo se establece un proveedor en **Activado**, los visitantes serán redirigidos a dicha pantalla de autenticación de proveedores de identidad.
 
-**¿Cuánta información obtiene {{site.data.keyword.appid_short_notm}} de un proveedor de identidad?**
+### ¿Cuánta información obtiene {{site.data.keyword.appid_short_notm}} de un proveedor de identidad?
+{: #widget-obtain-info}
 
 Cuando utiliza proveedores de identidad sociales o de empresa, {{site.data.keyword.appid_short_notm}} tiene acceso de lectura a la información de cuenta de un usuario. El servicio utiliza una señal y aserciones devueltas por el proveedor de identidad para verificar que un usuario es quien dice ser. Puesto que el servicio nunca tiene acceso de escritura a la información, los usuarios deben pasar por el proveedor de identidad elegido para realizar acciones como, por ejemplo, restablecer la contraseña. Por ejemplo, si un usuario inicia sesión en la app con Facebook y después desea cambiar la contraseña, deberá dirigirse a www.facebook.com para hacerlo.
 
-Cuando utiliza [Directorio en la nube](/docs/services/appid/cloud-directory.html), {{site.data.keyword.appid_short_notm}} es el proveedor de identidad. El servicio utiliza el registro para verificar la identidad de los usuarios. Puesto que {{site.data.keyword.appid_short_notm}} es el proveedor, los usuarios pueden sacar partido de la funcionalidad avanzada y restablecer la contraseña directamente en la app.
+Cuando utiliza [Directorio en la nube](/docs/services/appid?topic=appid-cloud-directory), {{site.data.keyword.appid_short_notm}} es el proveedor de identidad. El servicio utiliza el registro para verificar la identidad de los usuarios. Puesto que {{site.data.keyword.appid_short_notm}} es el proveedor, los usuarios pueden sacar partido de la funcionalidad avanzada y restablecer la contraseña directamente en la app.
 
-**¿Qué tipo de pantallas se pueden visualizar para cada tipo de proveedor?**
+
+### ¿Qué pantallas se pueden visualizar para cada proveedor?
+{: #widget-options}
 
 Consulte la tabla siguiente para ver qué pantallas puede visualizar para cada tipo de proveedor de identidad.
 
@@ -92,14 +105,14 @@ Consulte la tabla siguiente para ver qué pantallas puede visualizar para cada t
 </br>
 
 ## Personalización del widget de inicio de sesión
-{: #customize}
+{: #widget-customize}
 
 {{site.data.keyword.appid_short_notm}} proporciona una pantalla de inicio de sesión predeterminada que puede llamar si no tiene sus propias pantallas de IU para mostrar. Puede personalizar la pantalla para visualizar el logotipo y los colores que elija.
 {: shortdesc}
 
 Para personalizar la pantalla:
 
-1. Abra el panel de control del servicio de {{site.data.keyword.appid_short_notm}}.
+1. Abra el panel de control del servicio {{site.data.keyword.appid_short_notm}}.
 2. Seleccione la sección **Personalización de inicio de sesión**. Puede modificar el aspecto del Widget de inicio de sesión para alinearlo con la marca de su empresa.
 3. Suba el logotipo de su empresa seleccionando un archivo PNG o JPG del sistema local. El tamaño de imagen recomendado es de 320 x 320 píxeles. El tamaño de archivo máximo es 100 Kb.
 4. Seleccione un color de cabecera para el widget desde el selector de color, o especifique el código hexadecimal para otro color.
@@ -111,7 +124,7 @@ Recuerde: También puede sacar partido de {{site.data.keyword.appid_short_notm}}
 
 
 ## Visualización del widget de inicio de sesión con el SDK de Android
-{: #android}
+{: #widget-display-android}
 
 Puede llamar a pantallas preconfiguradas con el [SDK de cliente de Android](https://github.com/ibm-cloud-security/appid-clientsdk-android).
 {: shortdesc}
@@ -141,9 +154,10 @@ Añada el mandato siguiente a su código.
 
 </br>
 
-**Registro**
+### Registro
+{: #widget-android-signup}
 
-1. Configure los [valores](cloud-directory.html#cd-settings) del directorio en la nube en la GUI. **Permitir a los usuarios iniciar sesión en la app** y **Permitir a los usuarios gestionar su cuenta desde la app** deben establecerse en **Activado**.
+1. Configure los [valores](/docs/services/appid?topic=appid-cloud-directory#cd-settings) del directorio en la nube en la GUI. **Permitir a los usuarios iniciar sesión en la app** y **Permitir a los usuarios gestionar su cuenta desde la app** deben establecerse en **Activado**.
 2. Añada el código siguiente a la app. Cuando un usuario inicia sesión en la app desde la pantalla personalizada, se inicia el flujo de registro. La llamada siguiente no solo registra al usuario, sino que también puede enviar un correo electrónico de verificación para completar el registro, en función de las configuraciones del directorio en la nube.
 
   ```java
@@ -173,9 +187,10 @@ Añada el mandato siguiente a su código.
 
 </br>
 
-**Contraseña olvidada**
+### Contraseña olvidada
+{: #widget-android-forgot-password}
 
-1. Configure los [valores](cloud-directory.html#cd-settings) del directorio en la nube en la GUI. **Permitir a los usuarios gestionar la cuenta desde la app** se debe establecer en **Activado**.
+1. Configure los [valores](/docs/services/appid?topic=appid-cloud-directory#cd-settings) del directorio en la nube en la GUI. **Permitir a los usuarios gestionar la cuenta desde la app** se debe establecer en **Activado**.
 2. En el separador **Restablecer contraseña** del panel de control del servicio, asegúrese de que **Correo electrónico de contraseña olvidada** se haya establecido en **Activado**.
 3. Añada el código siguiente a la app. Cuando un usuario pulsa "contraseña olvidada" en la aplicación, el SDK llama a la API forgot_password para enviar un correo electrónico al usuario que le permita restablecerla.
 
@@ -202,9 +217,10 @@ Añada el mandato siguiente a su código.
 
 </br>
 
-**Cambiar detalles**
+### Cambio de detalles
+{: #widget-android-change-details}
 
-1. Configure los [valores](cloud-directory.html#cd-settings) del directorio en la nube en la GUI. **Permitir a los usuarios iniciar sesión en la app** y **Permitir a los usuarios gestionar su cuenta desde la app** deben establecerse en **Activado**.
+1. Configure los [valores](/docs/services/appid?topic=appid-cloud-directory#cd-settings) del directorio en la nube en la GUI. **Permitir a los usuarios iniciar sesión en la app** y **Permitir a los usuarios gestionar su cuenta desde la app** deben establecerse en **Activado**.
 2. En el separador **Contraseña cambiada** del panel de control del servicio, establezca **Correo electrónico de contraseña olvidada** en
 3. Llame al widget de inicio de sesión para iniciar el flujo de cambio de detalles.
 
@@ -231,9 +247,10 @@ Añada el mandato siguiente a su código.
 
 </br>
 
-**Cambio de contraseña**
+### Cambio de contraseña
+{: #widget-android-change-password}
 
-1. Configure los [valores](cloud-directory.html#cd-settings) del directorio en la nube en la GUI. **Permitir a los usuarios iniciar sesión en la app** y **Permitir a los usuarios gestionar su cuenta desde la app** deben establecerse en **Activado**.
+1. Configure los [valores](/docs/services/appid?topic=appid-cloud-directory#cd-settings) del directorio en la nube en la GUI. **Permitir a los usuarios iniciar sesión en la app** y **Permitir a los usuarios gestionar su cuenta desde la app** deben establecerse en **Activado**.
 2. Añada el código siguiente en la app para iniciar el flujo de cambio de contraseña.
 
   ```java
@@ -258,11 +275,9 @@ Añada el mandato siguiente a su código.
   {: codeblock}
 
 
-</br>
-</br>
 
 ## Visualización del widget de inicio de sesión en el SDK de Swift de iOS
-{: #ios-swift}
+{: #widget-display-ios-swift}
 
 Puede llamar pantallas preconfiguradas con el [SDK del cliente de Swift de iOS](https://github.com/ibm-cloud-security/appid-clientsdk-swift).
 {: shortdesc}
@@ -270,7 +285,7 @@ Puede llamar pantallas preconfiguradas con el [SDK del cliente de Swift de iOS](
 Añada el mandato siguiente a su código.
 
   ```swift
-  import BluemixAppID
+  import IBMCloudAppID
   class delegate : AuthorizationDelegate {
       public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, refreshToken: RefreshToken?) {
           //Usuario autenticado
@@ -291,9 +306,10 @@ Añada el mandato siguiente a su código.
 
 </br>
 
-**Registro**
+### Registro
+{: #widget-ios-signup}
 
-1. Configure los [valores](cloud-directory.html#cd-settings) del directorio en la nube en la GUI. **Permitir a los usuarios iniciar sesión en la app** y **Permitir a los usuarios gestionar su cuenta desde la app** deben establecerse en **Activado**.
+1. Configure los [valores](/docs/services/appid?topic=appid-cloud-directory#cd-settings) del directorio en la nube en la GUI. **Permitir a los usuarios iniciar sesión en la app** y **Permitir a los usuarios gestionar su cuenta desde la app** deben establecerse en **Activado**.
 2. Añada el código siguiente en la aplicación. Cuando un usuario intenta registrarse en su aplicación, se llama al widget de inicio de sesión y este muestra la página de registro personalizada.
 
   ```swift
@@ -321,9 +337,10 @@ Añada el mandato siguiente a su código.
 
 </br>
 
-**Contraseña olvidada**
+### Contraseña olvidada
+{: #widget-ios-forgot-password}
 
-1. Configure los [valores](cloud-directory.html#cd-settings) del directorio en la nube en la GUI. **Permitir a los usuarios gestionar la cuenta desde la app** se debe establecer en **Activado**.
+1. Configure los [valores](/docs/services/appid?topic=appid-cloud-directory#cd-settings) del directorio en la nube en la GUI. **Permitir a los usuarios gestionar la cuenta desde la app** se debe establecer en **Activado**.
 2. En el separador **Restablecer contraseña** del panel de control del servicio, asegúrese de que **Correo electrónico de contraseña olvidada** se haya establecido en **Activado**.
 3. Añada el código siguiente en la aplicación. Cuando uno de los usuarios de la app solicita que se actualice la contraseña, se llama al widget de inicio de sesión y se inicia el proceso.
 
@@ -349,9 +366,10 @@ Añada el mandato siguiente a su código.
 
 </br>
 
-**Cambiar detalles**
+### Cambio de detalles
+{: #widget-ios-change-details}
 
-1. Configure los [valores](cloud-directory.html#cd-settings) del directorio en la nube en la GUI. **Permitir a los usuarios iniciar sesión en la app** y **Permitir a los usuarios gestionar su cuenta desde la app** deben establecerse en **Activado**.
+1. Configure los [valores](/docs/services/appid?topic=appid-cloud-directory#cd-settings) del directorio en la nube en la GUI. **Permitir a los usuarios iniciar sesión en la app** y **Permitir a los usuarios gestionar su cuenta desde la app** deben establecerse en **Activado**.
 2. En el separador **Contraseña cambiada** del panel de control del servicio, establezca **Correo electrónico de contraseña olvidada** en
 3. Llame al widget de inicio de sesión para iniciar el flujo de cambio de detalles.
 
@@ -376,9 +394,10 @@ Añada el mandato siguiente a su código.
 
 </br>
 
-**Cambio de contraseña**
+### Cambio de contraseña
+{: #widget-ios-change-password}
 
-1. Configure los [valores](cloud-directory.html#cd-settings) del directorio en la nube en la GUI. **Permitir a los usuarios iniciar sesión en la app** y **Permitir a los usuarios gestionar su cuenta desde la app** deben establecerse en **Activado**.
+1. Configure los [valores](/docs/services/appid?topic=appid-cloud-directory#cd-settings) del directorio en la nube en la GUI. **Permitir a los usuarios iniciar sesión en la app** y **Permitir a los usuarios gestionar su cuenta desde la app** deben establecerse en **Activado**.
 2. Añada el código siguiente en la app para iniciar el flujo de cambio de contraseña.
 
   ```swift
@@ -400,11 +419,9 @@ Añada el mandato siguiente a su código.
   ```
   {: codeblock}
 
-</br>
-</br>
 
 ## Visualización del widget de inicio de sesión con el SDK de Node.js
-{: #nodejs}
+{: #widget-display-nodejs}
 
 Puede llamar a pantallas preconfiguradas con el [SDK del servidor Node.js](https://github.com/ibm-cloud-security/appid-serversdk-nodejs).
 {: shortdesc}
@@ -425,9 +442,10 @@ Añada una ruta de envío a su app a la que pueda llamarse con los parámetros d
 
 </br>
 
-**Registro**
+### Registro
+{: #widget-nodejs-signup}
 
-1. Configure los [valores](cloud-directory.html#cd-settings) del directorio en la nube en la GUI. **Permitir a los usuarios iniciar sesión en la app** y **Permitir a los usuarios gestionar su cuenta desde la app** deben establecerse en **Activado**.
+1. Configure los [valores](/docs/services/appid?topic=appid-cloud-directory#cd-settings) del directorio en la nube en la GUI. **Permitir a los usuarios iniciar sesión en la app** y **Permitir a los usuarios gestionar su cuenta desde la app** deben establecerse en **Activado**.
 2. Añada el código siguiente en la aplicación. Cuando un usuario intenta registrarse en su aplicación, se llama al widget de inicio de sesión y este muestra la página de registro personalizada.
 
   ```javascript
@@ -440,9 +458,10 @@ Añada una ruta de envío a su app a la que pueda llamarse con los parámetros d
 
 </br>
 
-**Contraseña olvidada**
+### Contraseña olvidada
+{: #widget-nodejs-forgot-password}
 
-1. Configure los [valores](cloud-directory.html#cd-settings) del directorio en la nube en la GUI. **Permitir a los usuarios gestionar la cuenta desde la app** se debe establecer en **Activado**.
+1. Configure los [valores](/docs/services/appid?topic=appid-cloud-directory#cd-settings) del directorio en la nube en la GUI. **Permitir a los usuarios gestionar la cuenta desde la app** se debe establecer en **Activado**.
 2. En el separador **Restablecer contraseña** del panel de control del servicio, asegúrese de que **Correo electrónico de contraseña olvidada** se haya establecido en **Activado**.
 3. Añada el código siguiente en la aplicación para pasar la propiedad *show* a `WebAppStrategy.FORGOT_PASSWORD`. Cuando  un usuario solicita que se actualice la contraseña de la app, se llama al widget de inicio de sesión y se inicia el proceso.
 
@@ -456,9 +475,10 @@ Añada una ruta de envío a su app a la que pueda llamarse con los parámetros d
 
 </br>
 
-**Cambiar detalles**
+### Cambio de detalles
+{: #widget-nodejs-change-details}
 
-1. Configure los [valores](cloud-directory.html#cd-settings) del directorio en la nube en la GUI. **Permitir a los usuarios iniciar sesión en la app** y **Permitir a los usuarios gestionar su cuenta desde la app** deben establecerse en **Activado**.
+1. Configure los [valores](/docs/services/appid?topic=appid-cloud-directory#cd-settings) del directorio en la nube en la GUI. **Permitir a los usuarios iniciar sesión en la app** y **Permitir a los usuarios gestionar su cuenta desde la app** deben establecerse en **Activado**.
 2. En el separador **Contraseña cambiada** del panel de control del servicio, establezca **Correo electrónico de contraseña olvidada** en
 3. Añada el código siguiente en la aplicación para pasar la propiedad *show* a `WebAppStrategy.FORGOT_PASSWORD` para iniciar el formulario de modificación de detalles.
 
@@ -472,9 +492,10 @@ Añada una ruta de envío a su app a la que pueda llamarse con los parámetros d
 
 </br>
 
-**Cambio de contraseña**
+### Cambio de contraseña
+{: #widget-nodejs-change-password}
 
-1. Configure los [valores](cloud-directory.html#cd-settings) del directorio en la nube en la GUI. **Permitir a los usuarios iniciar sesión en la app** y **Permitir a los usuarios gestionar su cuenta desde la app** deben establecerse en **Activado**.
+1. Configure los [valores](/docs/services/appid?topic=appid-cloud-directory#cd-settings) del directorio en la nube en la GUI. **Permitir a los usuarios iniciar sesión en la app** y **Permitir a los usuarios gestionar su cuenta desde la app** deben establecerse en **Activado**.
 2. En el separador **Contraseña cambiada** del panel de control del servicio, establezca **Correo electrónico de contraseña olvidada** en
 3. Añada el código siguiente en la aplicación para pasar la propiedad *show* a `WebAppStrategy.FORGOT_PASSWORD` para iniciar el formulario de modificación de detalles.
 
@@ -485,5 +506,3 @@ Añada una ruta de envío a su app a la que pueda llamarse con los parámetros d
   }));
   ```
   {: codeblock}
-
-</br>

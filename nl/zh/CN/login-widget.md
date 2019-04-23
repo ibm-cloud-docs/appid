@@ -1,17 +1,26 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-12-19"
+  years: 2017, 2019
+lastupdated: "2019-03-06"
+
+keywords: authentication, authorization, identity, app security, secure, development, sign in, sign up, password, social, enterprise
+
+subcollection: appid
 
 ---
 
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:tip: .tip}
-{:pre: .pre}
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
+{:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:codeblock: .codeblock}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 
 # 显示登录窗口小部件
@@ -23,26 +32,30 @@ lastupdated: "2018-12-19"
 应用程序配置为使用身份提供者时，登录窗口小部件会将应用程序的访问者定向到登录屏幕。使用登录窗口小部件，可以显示登录流程的预配置屏幕。使用登录窗口小部件的另一个额外优点是，您可以随时更新登录流程，而无需以任何方式更改源代码！
 
 
-要创建您的应用程序所特有的体验吗？您可以[自带屏幕](/docs/services/appid/branded.html)！
+要创建您的应用程序所特有的体验吗？您可以[自带屏幕](/docs/services/appid?topic=appid-branded)！
 {: tip}
 
 ## 了解登录窗口小部件
-{: #understanding}
+{: #widget-understanding}
 
 即使您没有自己的 UI 屏幕，也可以通过显示登录窗口小部件来利用 {{site.data.keyword.appid_short_notm}}。
 {: shortdesc}
 
-**缺省设置是什么？**
+### 缺省设置是什么？
+{: #widget-default}
 
 配置了多个身份提供者时，会在用户尝试登录到应用程序时将其重定向到登录窗口小部件。通过使用登录窗口小部件，用户可以选择要用于验证自己身份的提供者。但是，只有一个提供者设置为**开启**时，访问者会重定向到该身份提供者的认证屏幕。
 
-**{{site.data.keyword.appid_short_notm}} 会从身份提供者那里获取多少信息？**
+### {{site.data.keyword.appid_short_notm}} 会从身份提供者那里获取多少信息？
+{: #widget-obtain-info}
 
 使用社交或企业身份提供者时，{{site.data.keyword.appid_short_notm}} 对用户帐户信息具有读访问权。服务使用身份提供者返回的令牌和断言来验证用户的身份是否与其声明的一致。由于服务从不具有对信息的写访问权，因此用户必须通过其所选身份提供者来执行操作，如重置其密码。例如，如果用户使用 Facebook 登录到应用程序，然后希望更改自己的密码，那么他们必须转至 www.facebook.com 来执行此操作。
 
-使用 [Cloud Directory](/docs/services/appid/cloud-directory.html) 时，{{site.data.keyword.appid_short_notm}} 是身份提供者。该服务会使用注册表来验证用户身份。由于 {{site.data.keyword.appid_short_notm}} 是提供者，因此用户可以直接利用应用程序中的高级功能（例如，重置其密码）。
+使用 [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory) 时，{{site.data.keyword.appid_short_notm}} 是身份提供者。该服务会使用注册表来验证用户身份。由于 {{site.data.keyword.appid_short_notm}} 是提供者，因此用户可以直接利用应用程序中的高级功能（例如，重置其密码）。
 
-**对于每种类型的提供者，可以显示哪种类型的屏幕？**
+
+### 对于每个提供者，可以显示哪些屏幕？
+{: #widget-options}
 
 查看下表，了解对于各种身份提供者可以显示哪些屏幕。
 
@@ -93,7 +106,7 @@ lastupdated: "2018-12-19"
 </br>
 
 ## 定制登录窗口小部件
-{: #customize}
+{: #widget-customize}
 
 {{site.data.keyword.appid_short_notm}} 提供了缺省登录屏幕，如果您没有自己的 UI 屏幕需要显示，那么可以进行调用。
 您可以定制屏幕以显示您选择的徽标和颜色。
@@ -113,7 +126,7 @@ lastupdated: "2018-12-19"
 
 
 ## 使用 Android SDK 显示登录窗口小部件
-{: #android}
+{: #widget-display-android}
 
 您可以使用 [Android 客户端 SDK](https://github.com/ibm-cloud-security/appid-clientsdk-android) 来调用预先配置的屏幕。
 {: shortdesc}
@@ -143,9 +156,10 @@ lastupdated: "2018-12-19"
 
 </br>
 
-**注册**
+### 注册
+{: #widget-android-signup}
 
-1. 在 GUI 中配置 Cloud Directory [设置](cloud-directory.html#cd-settings)。**允许用户向应用程序注册**和**允许用户通过应用程序管理自己的帐户**都必须设置为**开启**。
+1. 在 GUI 中配置 Cloud Directory [设置](/docs/services/appid?topic=appid-cloud-directory#cd-settings)。**允许用户向应用程序注册**和**允许用户通过应用程序管理自己的帐户**都必须设置为**开启**。
 2. 将以下代码添加到应用程序。用户在定制屏幕中向应用程序注册时，会启动注册流程。以下调用不仅会注册用户，还可以发送验证电子邮件以完成注册，具体取决于 Cloud Directory 配置。
 
   ```java
@@ -175,9 +189,10 @@ lastupdated: "2018-12-19"
 
 </br>
 
-**忘记密码**
+### 忘记密码
+{: #widget-android-forgot-password}
 
-1. 在 GUI 中配置 Cloud Directory [设置](cloud-directory.html#cd-settings)。**允许用户通过应用程序管理自己的帐户**必须设置为**开启**。
+1. 在 GUI 中配置 Cloud Directory [设置](/docs/services/appid?topic=appid-cloud-directory#cd-settings)。**允许用户通过应用程序管理自己的帐户**必须设置为**开启**。
 2. 在服务仪表板的**重置密码**选项卡中，确保将**忘记密码电子邮件**设置为**开启**。
 3. 将以下代码添加到应用程序。用户在应用程序中单击“忘记密码”时，SDK 会调用 forgot_password API 向用户发送电子邮件，以允许用户重置其密码。
 
@@ -204,9 +219,10 @@ lastupdated: "2018-12-19"
 
 </br>
 
-**更改详细信息**
+### 更改详细信息
+{: #widget-android-change-details}
 
-1. 在 GUI 中配置 Cloud Directory [设置](cloud-directory.html#cd-settings)。**允许用户向应用程序注册**和**允许用户通过应用程序管理自己的帐户**都必须设置为**开启**。
+1. 在 GUI 中配置 Cloud Directory [设置](/docs/services/appid?topic=appid-cloud-directory#cd-settings)。**允许用户向应用程序注册**和**允许用户通过应用程序管理自己的帐户**都必须设置为**开启**。
 2. 在服务仪表板的**密码已更改**选项卡中，将**密码已更改电子邮件**设置为“开启”。
 3. 调用“登录”窗口小部件以开始更改详细信息流程。
 
@@ -233,9 +249,10 @@ lastupdated: "2018-12-19"
 
 </br>
 
-**更改密码**
+### 更改密码
+{: #widget-android-change-password}
 
-1. 在 GUI 中配置 Cloud Directory [设置](cloud-directory.html#cd-settings)。**允许用户向应用程序注册**和**允许用户通过应用程序管理自己的帐户**都必须设置为**开启**。
+1. 在 GUI 中配置 Cloud Directory [设置](/docs/services/appid?topic=appid-cloud-directory#cd-settings)。**允许用户向应用程序注册**和**允许用户通过应用程序管理自己的帐户**都必须设置为**开启**。
 2. 将以下代码放入应用程序中以启动更改密码流程。
 
   ```java
@@ -260,11 +277,9 @@ lastupdated: "2018-12-19"
   {: codeblock}
 
 
-</br>
-</br>
 
 ## 使用 iOS Swift SDK 显示登录窗口小部件
-{: #ios-swift}
+{: #widget-display-ios-swift}
 
 您可以使用 [iOS Swift 客户端 SDK](https://github.com/ibm-cloud-security/appid-clientsdk-swift) 来调用预先配置的屏幕。
 {: shortdesc}
@@ -272,7 +287,7 @@ lastupdated: "2018-12-19"
 将以下命令放在代码中。
 
   ```swift
-  import BluemixAppID
+  import IBMCloudAppID
   class delegate : AuthorizationDelegate {
       public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, refreshToken: RefreshToken?) {
           //User authenticated
@@ -294,9 +309,10 @@ lastupdated: "2018-12-19"
 
 </br>
 
-**注册**
+### 注册
+{: #widget-ios-signup}
 
-1. 在 GUI 中配置 Cloud Directory [设置](cloud-directory.html#cd-settings)。**允许用户向应用程序注册**和**允许用户通过应用程序管理自己的帐户**都必须设置为**开启**。
+1. 在 GUI 中配置 Cloud Directory [设置](/docs/services/appid?topic=appid-cloud-directory#cd-settings)。**允许用户向应用程序注册**和**允许用户通过应用程序管理自己的帐户**都必须设置为**开启**。
 2. 将以下代码放入应用程序中。用户尝试向应用程序注册时，会调用登录窗口小部件并显示定制注册页面。
 
   ```swift
@@ -326,9 +342,10 @@ lastupdated: "2018-12-19"
 
 </br>
 
-**忘记密码**
+### 忘记密码
+{: #widget-ios-forgot-password}
 
-1. 在 GUI 中配置 Cloud Directory [设置](cloud-directory.html#cd-settings)。**允许用户通过应用程序管理自己的帐户**必须设置为**开启**。
+1. 在 GUI 中配置 Cloud Directory [设置](/docs/services/appid?topic=appid-cloud-directory#cd-settings)。**允许用户通过应用程序管理自己的帐户**必须设置为**开启**。
 2. 在服务仪表板的**重置密码**选项卡中，确保将**忘记密码电子邮件**设置为**开启**。
 3. 将以下代码放入应用程序中。当某个应用程序用户请求更新其密码时，会调用登录窗口小部件并启动该流程。
 
@@ -355,9 +372,10 @@ lastupdated: "2018-12-19"
 
 </br>
 
-**更改详细信息**
+### 更改详细信息
+{: #widget-ios-change-details}
 
-1. 在 GUI 中配置 Cloud Directory [设置](cloud-directory.html#cd-settings)。**允许用户向应用程序注册**和**允许用户通过应用程序管理自己的帐户**都必须设置为**开启**。
+1. 在 GUI 中配置 Cloud Directory [设置](/docs/services/appid?topic=appid-cloud-directory#cd-settings)。**允许用户向应用程序注册**和**允许用户通过应用程序管理自己的帐户**都必须设置为**开启**。
 2. 在服务仪表板的**密码已更改**选项卡中，将**密码已更改电子邮件**设置为“开启”。
 3. 调用“登录”窗口小部件以开始更改详细信息流程。
 
@@ -384,9 +402,10 @@ lastupdated: "2018-12-19"
 
 </br>
 
-**更改密码**
+### 更改密码
+{: #widget-ios-change-password}
 
-1. 在 GUI 中配置 Cloud Directory [设置](cloud-directory.html#cd-settings)。**允许用户向应用程序注册**和**允许用户通过应用程序管理自己的帐户**都必须设置为**开启**。
+1. 在 GUI 中配置 Cloud Directory [设置](/docs/services/appid?topic=appid-cloud-directory#cd-settings)。**允许用户向应用程序注册**和**允许用户通过应用程序管理自己的帐户**都必须设置为**开启**。
 2. 将以下代码放入应用程序中以启动更改密码流程。
 
   ```swift
@@ -410,11 +429,9 @@ lastupdated: "2018-12-19"
   ```
   {: codeblock}
 
-</br>
-</br>
 
 ## 使用 Node.js SDK 显示登录窗口小部件
-{: #nodejs}
+{: #widget-display-nodejs}
 
 您可以使用 [Node.js 服务器 SDK](https://github.com/ibm-cloud-security/appid-serversdk-nodejs) 来调用预先配置的屏幕。
 {: shortdesc}
@@ -436,9 +453,10 @@ lastupdated: "2018-12-19"
 
 </br>
 
-**注册**
+### 注册
+{: #widget-nodejs-signup}
 
-1. 在 GUI 中配置 Cloud Directory [设置](cloud-directory.html#cd-settings)。**允许用户向应用程序注册**和**允许用户通过应用程序管理自己的帐户**都必须设置为**开启**。
+1. 在 GUI 中配置 Cloud Directory [设置](/docs/services/appid?topic=appid-cloud-directory#cd-settings)。**允许用户向应用程序注册**和**允许用户通过应用程序管理自己的帐户**都必须设置为**开启**。
 2. 将以下代码放入应用程序中。用户尝试向应用程序注册时，会调用登录窗口小部件并显示定制注册页面。
 
   ```javascript
@@ -451,9 +469,10 @@ lastupdated: "2018-12-19"
 
 </br>
 
-**忘记密码**
+### 忘记密码
+{: #widget-nodejs-forgot-password}
 
-1. 在 GUI 中配置 Cloud Directory [设置](cloud-directory.html#cd-settings)。**允许用户通过应用程序管理自己的帐户**必须设置为**开启**。
+1. 在 GUI 中配置 Cloud Directory [设置](/docs/services/appid?topic=appid-cloud-directory#cd-settings)。**允许用户通过应用程序管理自己的帐户**必须设置为**开启**。
 2. 在服务仪表板的**重置密码**选项卡中，确保将**忘记密码电子邮件**设置为**开启**。
 3. 将以下代码放入应用程序中，以便将 *show* 属性传递到 `WebAppStrategy.FORGOT_PASSWORD`。用户请求更新其用于应用程序的密码时，会调用登录窗口小部件并启动该流程。
 
@@ -467,9 +486,10 @@ lastupdated: "2018-12-19"
 
 </br>
 
-**更改详细信息**
+### 更改详细信息
+{: #widget-nodejs-change-details}
 
-1. 在 GUI 中配置 Cloud Directory [设置](cloud-directory.html#cd-settings)。**允许用户向应用程序注册**和**允许用户通过应用程序管理自己的帐户**都必须设置为**开启**。
+1. 在 GUI 中配置 Cloud Directory [设置](/docs/services/appid?topic=appid-cloud-directory#cd-settings)。**允许用户向应用程序注册**和**允许用户通过应用程序管理自己的帐户**都必须设置为**开启**。
 2. 在服务仪表板的**密码已更改**选项卡中，将**密码已更改电子邮件**设置为“开启”。
 3. 将以下代码放入应用程序中，以便将 *show* 属性传递到 `WebAppStrategy.FORGOT_PASSWORD` 来启动更改详细信息表单。
 
@@ -483,9 +503,10 @@ lastupdated: "2018-12-19"
 
 </br>
 
-**更改密码**
+### 更改密码
+{: #widget-nodejs-change-password}
 
-1. 在 GUI 中配置 Cloud Directory [设置](cloud-directory.html#cd-settings)。**允许用户向应用程序注册**和**允许用户通过应用程序管理自己的帐户**都必须设置为**开启**。
+1. 在 GUI 中配置 Cloud Directory [设置](/docs/services/appid?topic=appid-cloud-directory#cd-settings)。**允许用户向应用程序注册**和**允许用户通过应用程序管理自己的帐户**都必须设置为**开启**。
 2. 在服务仪表板的**密码已更改**选项卡中，将**密码已更改电子邮件**设置为“开启”。
 3. 将以下代码放入应用程序中，以便将 *show* 属性传递到 `WebAppStrategy.FORGOT_PASSWORD` 来启动更改详细信息表单。
 
@@ -496,5 +517,3 @@ lastupdated: "2018-12-19"
   }));
   ```
   {: codeblock}
-
-</br>

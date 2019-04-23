@@ -1,31 +1,40 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-11-14"
+  years: 2017, 2019
+lastupdated: "2019-03-27"
+
+keywords: authentication, authorization, identity, app security, secure, development, mobile, android, iOS
+
+subcollection: appid
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
-{:pre: .pre}
-{:tip: .tip}
 {:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:codeblock: .codeblock}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 # Apps móviles
-{: #adding-mobile}
+{: #mobile-apps}
 
 Con {{site.data.keyword.appid_full}}, puede construir rápidamente una capa de autenticación para la app para móvil híbrida o nativa.
 {: shortdesc}
 
 ## Comprensión del flujo
-{: #understanding}
-
-**¿Cuándo será útil este flujo?**
+{: #understanding-mobile}
 
 Un flujo móvil es útil cuando está desarrollando una app que se va a instalar en un dispositivo de usuario (una aplicación nativa). Al utilizar este flujo, puede autenticar de forma segura usuarios en la app para proporcionar experiencias de usuario personalizadas a través de dispositivos.
 
-**¿Cuál es la base técnica del flujo?**
+### ¿Cuál es la base técnica del flujo?
+{: #mobile-technical-flow}
 
 Puesto que las aplicaciones nativas se instalan directamente en el dispositivo de un usuario, las credenciales de aplicación e información de usuario privadas pueden ser extraídas por terceros fácilmente. De forma predeterminada, este tipo de aplicaciones se conoce como clientes que no son de confianza, puesto que no pueden almacenar credenciales globales o señales para renovación de usuario. Como resultado, los clientes que no son de confianza requieren que los usuarios introduzcan las credenciales cada vez que caduquen las señales de acceso.
 
@@ -33,17 +42,18 @@ Para convertir la aplicación en un cliente de confianza, {{site.data.keyword.ap
 
 Después del registro, los usuarios se autentican utilizando los flujos `código de autorización` de OAuth2 u [otorgamiento de autorización](https://tools.ietf.org/html/rfc6749#section-1.3) de la `contraseña del propietario del recurso` para autenticar a los usuarios.
 
-**¿Qué aspecto tiene el flujo?**
 
-![app de {{site.data.keyword.appid_short_notm}} a flujo de app](images/mobile-flow.png)
-
-**Registro de cliente dinámico**
+### Registro de cliente dinámico
+{: #mobile-dynamic}
 
 1. Un usuario realiza una acción que activa una solicitud de la aplicación del cliente al SDK de {{site.data.keyword.appid_short}}.
 2. Si la app todavía no está registrada como cliente móvil, el SDK inicia un flujo de registro dinámico.
 3. Cuando un registro se realiza correctamente, {{site.data.keyword.appid_short}} devuelve el ID de cliente específico de la instalación.
 
-**Flujo de autorización**
+### Flujo de autorización
+{: #mobile-auth-flow}
+
+![app de {{site.data.keyword.appid_short_notm}} a flujo de app](images/mobile-flow.png)
 
 1. El SDK de {{site.data.keyword.appid_short}} inicia el proceso de autorización utilizando el punto final {{site.data.keyword.appid_short_notm}} `/authorization`.
 2. El widget de inicio de sesión se muestra al usuario.
@@ -52,8 +62,8 @@ Después del registro, los usuarios se autentican utilizando los flujos `código
 5. El otorgamiento de autorización se intercambia para las señales de renovación, identidad y acceso del punto final {{site.data.keyword.appid_short_notm}} `/token`.
 
 
-## Configuración de una ap móvil con los SDK de {{site.data.keyword.appid_short}}
-{: #configuring}
+## Configuración de una app móvil con los SDK de {{site.data.keyword.appid_short}}
+{: #configuring-mobile}
 
 Iniciación a {{site.data.keyword.appid_short}} con nuestros SDK.
 {: shortdesc}
@@ -66,11 +76,11 @@ Necesita la siguiente información:
 
 * El ID de arrendatario de la instancia. Lo encontrará en el separador **Credenciales de servicio** del panel de control de servicio.
 
-* La región de {{site.data.keyword.Bluemix}} de despliegue de su instancia. Encontrará la región buscando en la consola.
+* La región de {{site.data.keyword.cloud_notm}} de despliegue de su instancia. Encontrará la región buscando en la consola.
 
-  <table><caption> Tabla 1. Regiones de {{site.data.keyword.Bluemix_notm}} y sus correspondientes valores de SDK</caption>
+  <table><caption> Tabla 1. Regiones de {{site.data.keyword.cloud_notm}} y sus correspondientes valores de SDK</caption>
   <tr>
-    <th>Región de {{site.data.keyword.Bluemix}}</th>
+    <th>Región de {{site.data.keyword.cloud_notm}}</th>
     <th>Valor de SDK</th>
   </tr>
   <tr>
@@ -92,7 +102,7 @@ Necesita la siguiente información:
 </table>
 
 ## Autenticación con el SDK de Android
-{: #android-setup}
+{: #mobile-android}
 
 **Antes de empezar**
 
@@ -104,9 +114,9 @@ Debe tener los siguientes requisitos previos antes de empezar:
   * Android SDK Platform Tools 27.0.1+
   * Android Build Tools versión 27.0.0+
 
-</br>
 
-**Instalación del SDK**
+### Instalación del SDK
+{: #mobile-android-install}
 
 1. Cree un proyecto de Android Studio o abra uno ya existente.
 
@@ -147,12 +157,13 @@ Debe tener los siguientes requisitos previos antes de empezar:
 
 </br>
 
-**Inicialización del SDK**
+### Inicialización del SDK
+{: #mobile-android-initialize}
 
 
 1. Pase los parámetros de contexto, ID de arrendatario y región al método de initialize para configurar el SDK.
 
-    Un lugar habitual, pero no obligatorio, donde poner el código de inicialización es en el método onCreate de la actividad principal de la aplicación de Android.
+    Un lugar habitual, pero no obligatorio, donde poner el código de inicialización es en el método `onCreate` de la actividad principal de la aplicación de Android.
     {: tip}
 
     ```java
@@ -164,7 +175,7 @@ Debe tener los siguientes requisitos previos antes de empezar:
 </br>
 
 ## Autenticación con el SDK de Swift de iOS
-{: #ios-setup}
+{: #mobile-ios}
 
 Proteja las aplicaciones móviles utilizando el SDK de cliente de {{site.data.keyword.appid_short}}.
 {:shortdesc}
@@ -180,7 +191,8 @@ Debe tener los siguientes requisitos previos antes de empezar:
 
 </br>
 
-**Instalación del SDK**
+### Instalación del SDK
+{: #mobile-ios-install}
 
 El SDK del cliente de {{site.data.keyword.appid_short_notm}} se distribuye con CocoaPods, un gestor de dependencias para proyectos de Swift y de Objective-C Cocoa. CocoaPods descarga artefactos, y los pone a disposición de su proyecto.
 
@@ -205,7 +217,7 @@ El SDK del cliente de {{site.data.keyword.appid_short_notm}} se distribuye con C
   ```
   {: codeblock}
 
-5. Después de la instalación, abra el archivo `<your app>.xcworkspace` que contiene el proyecto de Xcode y las dependencias enlazadas
+5. Después de la instalación, abra el archivo `<your app>.xcworkspace` que contiene el proyecto de Xcode y las dependencias enlazadas.
 
 6. Habilite la compartición de cadena de claves en el proyecto Xcode. Vaya a **Project Settings > Capabilities > Keychain Sharing** y seleccione **Enable keychain sharing**.
 
@@ -218,7 +230,8 @@ El SDK del cliente de {{site.data.keyword.appid_short_notm}} se distribuye con C
 
 </br>
 
-**Inicialización del SDK**
+### Inicialización del SDK
+{: #mobile-ios-initialize}
 
 1. Inicialice el SDK del cliente pasando los parámetros de ID de arrendatario y region al método initialize.
 
@@ -246,17 +259,16 @@ El SDK del cliente de {{site.data.keyword.appid_short_notm}} se distribuye con C
   ```
   {: codeblock}
 
-</br>
-</br>
 
 ## Acceso a API protegidas
-{: #accessing-protected-apis}
+{: #mobile-accessing-apis}
 
 Después de que el flujo de inicio de sesión se haya realizado correctamente, puede utilizar las señales de identidad y acceso para invocar los recursos que utilizan el SDK o la biblioteca de red de su elección.
 
 </br>
 
-### Acceso a API protegidas con el SDK de Swift
+### Con el SDK de Swift
+{: #mobile-access-api-swift}
 
 1.  Añada las siguientes importaciones al archivo en el que desea invocar una solicitud de recurso protegido:
 
@@ -287,7 +299,8 @@ Después de que el flujo de inicio de sesión se haya realizado correctamente, p
 
 </br>
 
-### Acceso a las API protegidas con el SDK de Android
+### Con el SDK de Android
+{: #mobile-access-api-android}
 
 1. Añada las siguientes importaciones al archivo en el que desea invocar una solicitud de recurso protegido:
 
@@ -329,7 +342,8 @@ Después de que el flujo de inicio de sesión se haya realizado correctamente, p
 
 </br>
 
-### Acceso a API protegidas sin un SDK
+### Sin un SDK
+{: #mobile-access-api-nosdk}
 
 Con la biblioteca que elija, establezca la cabecera de solicitud `Autorización` para que utilice el esquema de autenticación `Bearer` para transmitir la señal de acceso.
 
@@ -346,11 +360,11 @@ Ejemplo de formato de la solicitud:
 </br>
 
 ## Siguientes pasos
-{: #next}
+{: #mobile-next}
 
 Con {{site.data.keyword.appid_short}} instalado en la aplicación, casi está listo para iniciar la autenticación de usuarios. A continuación, intente realizar una de las siguientes actividades:
 
-* Configure los [proveedores de identidad](/docs/services/appid/identity-providers.html)
-* Personalice y configure [el widget de inicio de sesión](/docs/services/appid/login-widget.html)
+* Configure los [proveedores de identidad](/docs/services/appid?topic=appid-social)
+* Personalice y configure [el widget de inicio de sesión](/docs/services/appid?topic=appid-login-widget)
 * Obtenga más información acerca del <a href="https://github.com/ibm-cloud-security/appid-clientsdk-android" target="_blank">SDK de Android <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>
 * Obtenga más información acerca del <a href="https://github.com/ibm-cloud-security/appid-clientsdk-swift" target="_blank">SDK de iOS <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>

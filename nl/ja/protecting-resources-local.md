@@ -1,16 +1,26 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-06-27"
+  years: 2017, 2019
+lastupdated: "2019-03-06"
+
+keywords: authentication, authorization, identity, app security, secure
+
+subcollection: appid
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
-
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 
 #  {{site.data.keyword.appid_short_notm}} と連携するローカル開発サーバーの構成
@@ -21,9 +31,9 @@ lastupdated: "2018-06-27"
 
 
 ## 開始する前に
-{: #begin}
+{: #begin-local}
 
-[Server SDK のインストール](/docs/services/appid/install.html#nodejs-setup)が完了していることを確認します。
+[サーバー SDK](/docs/services/appid?topic=appid-web-apps) をインストールします。
 
 
 ## ローカル開発サーバーで作業するための {{site.data.keyword.appid_short_notm}} アプリケーションの構成
@@ -34,9 +44,9 @@ lastupdated: "2018-06-27"
 1. テナント ID を {{site.data.keyword.appid_short_notm}} テナント ID に置き換えます。 この ID は、サービスのダッシュボードで確認できます。
 2. 地域を、以下の表に示している該当地域に置き換えます。
 
-<table> <caption> 表 1。{{site.data.keyword.Bluemix_notm}} 地域と対応する Android および iOS の {{site.data.keyword.appid_short_notm}} 地域 </caption>
+<table> <caption> 表 1。{{site.data.keyword.cloud_notm}} 地域と対応する Android および iOS の {{site.data.keyword.appid_short_notm}} 地域 </caption>
 <tr>
-  <th> {{site.data.keyword.Bluemix_notm}} 地域 </th>
+  <th> {{site.data.keyword.cloud_notm}} 地域 </th>
   <th> Android と iOS </th>
 </tr>
 <tr>
@@ -60,11 +70,13 @@ lastupdated: "2018-06-27"
 
 
 ### Android
-{: #android}
+{: #android-local}
+
+
 ```java
 String baseRequestUrl = "http://localhost:<port>"; //サーバーの実行ポートを設定
 String tenantId = "your-AppID-service-tenantID";
-String region = AppID.REGION_UK; //App ID アプリケーションの地域をここで設定。 現在使用可能な値は AppID.REGION_US_SOUTH、AppID.REGION_SYDNEY、 AppID.REGION_GERMANY、または AppID.REGION_UK。
+String region = AppID.REGION_UK; //{{site.data.keyword.appid_short_notm}} アプリケーションの地域をここで設定。 現在使用可能な値は AppID.REGION_US_SOUTH、AppID.REGION_SYDNEY、 AppID.REGION_GERMANY、または AppID.REGION_UK。
 
 BMSClient bmsClient= BMSClient.getInstance();
 bmsClient.initialize(getApplicationContext(), region);
@@ -95,14 +107,14 @@ request.send(this, new ResponseListener() {
 {: codeblock}
 
 ### iOS - Swift
-{: #swift}
+{: #swift-local}
 ```swift
 
  let baseRequestUrl = "http://localhost:<port>"; //サーバーの実行ポートを設定
  let tenantId = "your-AppID-service-tenantID"
- let region = AppID.REGION_UK; //App ID アプリケーションの地域をここで設定。 現在使用可能な値は AppID.REGION_US_SOUTH、AppID.REGION_SYDNEY、 AppID.REGION_GERMANY、または AppID.REGION_UK。
+ let region = AppID.REGION_UK; //{{site.data.keyword.appid_short_notm}} アプリケーションの地域をここで設定。 現在使用可能な値は AppID.REGION_US_SOUTH、AppID.REGION_SYDNEY、 AppID.REGION_GERMANY、または AppID.REGION_UK。
 
-BMSClient.sharedInstance.initialize(bluemixRegion: region)
+BMSClient.sharedInstance.initialize(region: AppID.<region>)
 BMSClient.sharedInstance.authorizationManager = AppIDAuthorizationManager(appid:AppID.sharedInstance)
 
 var request:Request =  Request(url: baseRequestUrl + "/resource/path", method: HttpMethod.GET)

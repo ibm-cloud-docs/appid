@@ -1,16 +1,26 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-12-19"
+  years: 2017, 2019
+lastupdated: "2019-04-10"
+
+keywords: authentication, authorization, identity, app security, secure, tokens, jwt, development
+
+subcollection: appid
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 
 # 토큰 유효성 검증
@@ -19,10 +29,8 @@ lastupdated: "2018-12-19"
 토큰 유효성 검증은 최근의 앱 개발에서 매우 중요한 부분입니다. 토큰을 유효성 검증하여 권한 없는 사용자로부터 앱 또는 API를 보호할 수 있습니다. {{site.data.keyword.appid_full}}의 경우 액세스 및 ID 토큰을 사용하여 액세스 권한이 부여되기 전에 사용자 또는 앱이 인증되었는지 확인합니다. {{site.data.keyword.appid_short_notm}}에서 제공되는 SDK 중 하나를 사용하는 경우 토큰의 획득 및 유효성 검증이 둘 다 수행됩니다!
 {: shortdesc}
 
-{{site.data.keyword.appid_short_notm}}에서 토큰을 사용하는 방법에 대한 자세한 정보는 [토큰에 대한 정보](authorization.html#tokens)를 참조하십시오.
+{{site.data.keyword.appid_short_notm}}에서 토큰을 사용하는 방법에 대한 자세한 정보는 [토큰에 대한 정보](/docs/services/appid?topic=appid-tokens#tokens)를 참조하십시오.
 {: tip}
-
-**토큰 유효성 검증이 무엇입니까?**
 
 토큰은 사용자가 자신이 누구라고 주장하는지 확인하기 위해 사용됩니다. 사용자는 해당 사용자가 지정된 기간 동안 보유할 수 있는 액세스 권한을 확인합니다. 사용자가 애플리케이션에 사인인하여 토큰이 발행되면 액세스 권한이 지정되기 전에 앱에서 해당 사용자를 유효성 검증해야 합니다.
 
@@ -48,13 +56,13 @@ lastupdated: "2018-12-19"
 자체 검사를 사용하는 경우 {{site.data.keyword.appid_short_notm}}를 통해 토큰을 유효성 검증할 수 있습니다.
 {: shortdesc}
 
-1. [/introspect](https://appid-oauth.ng.bluemix.net/swagger-ui/#!/Authorization_Server_V3/introspect) API 엔드포인트에 대한 POST 요청을 전송하여 토큰을 유효성 검증하십시오. 이 요청에서는 클라이언트 ID 및 시크릿이 포함된 기본 권한 헤더 및 토큰을 제공해야 합니다.
+1. [/introspect](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization%20Server%20-%20Authorization%20Server%20V4/oauth-server.token) API 엔드포인트에 대한 POST 요청을 전송하여 토큰을 유효성 검증하십시오. 이 요청에서는 클라이언트 ID 및 시크릿이 포함된 기본 권한 헤더 및 토큰을 제공해야 합니다.
 
   요청 예제:
 
     ```
-    POST /oauth/v3/{tenant_id}/introspect HTTP/1.1
-    Host: appid-oauth.ng.bluemix.net
+    POST /oauth/v4/{tenant_id}/introspect HTTP/1.1
+    Host: us-south.appid.cloud.ibm.com
     Content-Type: application/x-www-form-urlencoded
     Authorization: Basic jdFlUaGlZUzAwTW0Tjk15TmpFMw==
     Cache-Control: no-cache
@@ -110,20 +118,20 @@ lastupdated: "2018-12-19"
 
     ```
     {
-      "iss": "appid-oauth",
+      "iss": "https://us-south.appid.cloud.ibm.com/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6050a61",
       "aud": "abc123",
       "exp": 1564566
     }
     ```
     {: screen}
 
-2. [/publickeys 엔드포인트](https://appid-oauth.ng.bluemix.net/swagger-ui/#!/Authorization_Server_V3/publicKeys)에 대한 호출을 작성하여 공개 키를 검색하십시오. 리턴되는 공개 키는 [JWK(JSON Web Key)](https://tools.ietf.org/html/rfc7517)로 형식화됩니다.
+2. [/publickeys 엔드포인트](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Authorization_Server_V4/publicKeys)에 대한 호출을 작성하여 공개 키를 검색하십시오. 리턴되는 공개 키는 [JWK(JSON Web Key)](https://tools.ietf.org/html/rfc7517)로 형식화됩니다.
 
   요청 예제:
 
     ```
-    GET /oauth/v3/{tenant_id}/publickeys HTTP/1.1
-    Host: appid-oauth.ng.bluemix.net
+    GET /oauth/v4/{tenant_id}/publickeys HTTP/1.1
+    Host: us-south.appid.cloud.ibm.com
     Cache-Control: no-cache
     ```
     {: screen}
@@ -134,7 +142,7 @@ lastupdated: "2018-12-19"
 
   응답 예제:
 
-    ```]
+    ```
     {
       "keys": [
         {
@@ -173,7 +181,7 @@ lastupdated: "2018-12-19"
     </tbody>
   </table>
 
-5. 토큰의 서명을 확인하십시오. 토큰 헤더에는 토큰 및 키 ID에 서명하기 위해 사용된 알고리즘 또는 일치하는 공개 키의 `kid` 청구가 포함되어 있습니다. 공개 키는 자주 변경되지 않기 때문에 앱에서 공개 키를 캐싱한 후 가끔씩 새로 고치면 됩니다. 캐싱된 키가 누락되는 경우 `kid`에서 청구합니다. 이 경우 로컬에서 토큰을 유효성 검증할 수 있습니다.
+5. 토큰의 서명을 확인하십시오. 토큰 헤더에는 토큰 및 키 ID에 서명하기 위해 사용된 알고리즘 또는 일치하는 공개 키의 `kid` 청구가 포함되어 있습니다. 공개 키는 자주 변경되지 않기 때문에 앱에서 공개 키를 캐싱한 후 가끔씩 새로 고치면 됩니다. 캐싱된 키에서 `kid` 청구가 누락된 경우 로컬로 토큰을 유효성 검증할 수 있습니다.
 
   1. 애플리케이션에서 수신되는 토큰 헤더가 공개 키의 매개변수와 일치하는지 확인하도록 하십시오.
   2. 특히 동일한 알고리즘이 사용되었으며 공개 키 캐시에 관련 키 ID가 있는 키가 포함되어 있는지 확인하십시오.
@@ -207,6 +215,3 @@ lastupdated: "2018-12-19"
       </tr>
     </tbody>
   </table>
-
-</br>
-</br>

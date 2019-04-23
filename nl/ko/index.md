@@ -1,22 +1,34 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-11-15"
+  years: 2017, 2019
+lastupdated: "2019-03-27"
+
+keywords: authentication, authorization, identity, app security, secure, development,
+
+subcollection: appid
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
+{:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:codeblock: .codeblock}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 # 시작하기 튜토리얼
-{: #gettingstarted}
+{: #getting-started}
 
 애플리케이션 보안은 상당히 복잡할 수 있습니다. 대부분의 개발자에게 이는 앱 작성의 가장 어려운 부분 중 하나입니다. 사용자 정보가 보호되는지 어떻게 보장할 수 있습니까? {{site.data.keyword.appid_full}}를 앱에 통합하여 리소스를 보호하고 인증을 추가할 수 있습니다. 이는 보안 경험이 많지 않은 경우에도 해당됩니다.
 {: shortdesc}
 
-사용자가 앱에 사인인하도록 요구함으로써 공개 소셜 프로파일의 정보 또는 앱 환경 설정 등의 사용자 데이터를 저장한 후에 해당 데이터를 사용하여 앱의 각 환경을 사용자 정의할 수 있습니다. {{site.data.keyword.appid_short_notm}}에서 로그인 프레임워크를 제공하지만 클라우드 디렉토리에서 작동하는 경우 고유한 브랜드의 사인인 화면을 가져올 수도 있습니다.
+사용자가 앱에 사인인하도록 요구함으로써 공개 소셜 프로파일의 정보 또는 앱 환경 설정 등의 사용자 데이터를 저장한 후에 해당 데이터를 사용하여 앱의 각 환경(experience)을 사용자 정의할 수 있습니다. {{site.data.keyword.appid_short_notm}}에서 프레임워크를 제공하지만 Cloud Directory에서 작동하는 경우 고유 브랜드 사인인 화면을 가져올 수도 있습니다.
 
 귀하의 피드백과 질문을 듣고 싶습니다!
 * {{site.data.keyword.appid_short_notm}}에 대한 기술적 질문이 있는 경우 <a href="https://stackoverflow.com/search?q=ibm-appid" target="_blank">스택 오버플로우 <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>에 질문을 게시하고 해당 질문에 `ibm-appid` 태그를 지정하십시오.
@@ -28,7 +40,7 @@ lastupdated: "2018-11-15"
 시작하려면 {{site.data.keyword.appid_short_notm}}의 인스턴스를 작성하고 이를 앱에 바인드하십시오.
 {: shortdesc}
 
-1. {{site.data.keyword.Bluemix}} 카탈로그에서 {{site.data.keyword.appid_short_notm}}를 선택하십시오. 서비스 구성 화면이 열립니다.
+1. {{site.data.keyword.cloud_notm}} 카탈로그에서 {{site.data.keyword.appid_short_notm}}를 선택하십시오. 서비스 구성 화면이 열립니다.
 2. 서비스 인스턴스에 이름을 제공하거나 사전 설정된 이름을 사용하십시오.
 3. 가격 플랜을 선택하고 **작성**을 클릭하십시오.
 4. {{site.data.keyword.appid_short_notm}}의 인스턴스를 바인드하십시오.
@@ -67,7 +79,4 @@ lastupdated: "2018-11-15"
 ## 다음 단계
 {: #next}
 
-자체 앱을 시작할 준비가 되었습니까? [앱에 서비스를 추가](web-apps.html)하여 시작하십시오. 이 서비스는 대부분의 언어를 위한 SDK를 제공하지만 앱이 작성된 언어용 SDK가 없더라도 API를 사용하여 {{site.data.keyword.appid_short_notm}}를 활용할 수 있습니다.
-
-</br>
-</br>
+자체 앱을 시작할 준비가 되었습니까? [앱에 서비스를 추가](/docs/services/appid?topic=appid-web-apps#web-apps)하여 시작하십시오. 이 서비스는 대부분의 언어를 위한 SDK를 제공하지만 앱이 작성된 언어용 SDK가 없더라도 API를 사용하여 {{site.data.keyword.appid_short_notm}}를 활용할 수 있습니다.

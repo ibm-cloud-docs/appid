@@ -1,16 +1,26 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-12-19"
+  years: 2017, 2019
+lastupdated: "2019-04-10"
+
+keywords: authentication, authorization, identity, app security, secure, tokens, jwt, development
+
+subcollection: appid
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 
 # 验证令牌
@@ -19,10 +29,8 @@ lastupdated: "2018-12-19"
 令牌验证是现代应用程序开发中的重要组成部分。通过验证令牌，可以保护应用程序或 API，防止未经授权的用户访问。{{site.data.keyword.appid_full}} 使用访问令牌和身份令牌来确保在授予用户或应用程序访问权之前，已对其进行认证。如果使用的是 {{site.data.keyword.appid_short_notm}} 提供的其中一个 SDK，那么已为您获取并验证令牌！
 {: shortdesc}
 
-有关如何在 {{site.data.keyword.appid_short_notm}} 中使用令牌的更多信息，请参阅[了解令牌](authorization.html#tokens)。
+有关如何在 {{site.data.keyword.appid_short_notm}} 中使用令牌的更多信息，请参阅[了解令牌](/docs/services/appid?topic=appid-tokens#tokens)。
 {: tip}
-
-**什么是令牌验证？**
 
 令牌用于验证个人的身份是否与其声明的一致。令牌确认用户在指定的时间长度内可能拥有的任何访问许可权。用户登录到应用程序，并向其颁发了令牌后，应用程序必须先验证用户，然后才会为其提供访问权。
 
@@ -48,13 +56,13 @@ lastupdated: "2018-12-19"
 可以使用 {{site.data.keyword.appid_short_notm}} 通过自省来验证令牌。
 {: shortdesc}
 
-1. 向 [/introspect](https://appid-oauth.ng.bluemix.net/swagger-ui/#!/Authorization_Server_V3/introspect) API 端点发送 POST 请求以验证令牌。请求必须提供令牌以及包含客户端标识和私钥的基本授权头。
+1. 向 [/introspect](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization%20Server%20-%20Authorization%20Server%20V4/oauth-server.token) API 端点发送 POST 请求以验证令牌。请求必须提供令牌以及包含客户端标识和私钥的基本授权头。
 
   示例请求：
 
     ```
-    POST /oauth/v3/{tenant_id}/introspect HTTP/1.1
-    Host: appid-oauth.ng.bluemix.net
+    POST /oauth/v4/{tenant_id}/introspect HTTP/1.1
+    Host: us-south.appid.cloud.ibm.com
     Content-Type: application/x-www-form-urlencoded
     Authorization: Basic jdFlUaGlZUzAwTW0Tjk15TmpFMw==
     Cache-Control: no-cache
@@ -82,7 +90,7 @@ lastupdated: "2018-12-19"
 {: shortdesc}
 
 
-1. 解析令牌。[JSON Web 令牌 (JWT)](https://tools.ietf.org/html/rfc7519) 是安全传递信息的标准方法。它包含三个主要部分：头、有效内容和签名。这些是 base64URL 编码的令牌并以点 (.) 分隔。可以使用任何可用的 base64URL 解码器来解析令牌。或者，可以使用任一[列出的库](https://jwt.io/#libraries-io)来解析令牌。
+1. 解析令牌。[JSON Web 令牌 (JWT)](https://tools.ietf.org/html/rfc7519) 是安全传递信息的标准方法。它包含三个主要部分：头、有效内容和签名。这些是 base64URL 编码的令牌并以点 (.) 分隔. 可以使用任何可用的 base64URL 解码器来解析令牌。或者，可以使用任一[列出的库](https://jwt.io/#libraries-io)来解析令牌。
 
   已编码的令牌示例：
 
@@ -110,20 +118,20 @@ lastupdated: "2018-12-19"
 
     ```
     {
-      "iss": "appid-oauth",
+      "iss": "https://us-south.appid.cloud.ibm.com/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6050a61",
       "aud": "abc123",
       "exp": 1564566
     }
     ```
     {: screen}
 
-2. 调用 [/publickeys 端点](https://appid-oauth.ng.bluemix.net/swagger-ui/#!/Authorization_Server_V3/publicKeys)以检索公用密钥。返回的公用密钥的格式会设置为 [JSON Web 密钥 (JWK)](https://tools.ietf.org/html/rfc7517)。
+2. 调用 [/publickeys 端点](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Authorization_Server_V4/publicKeys)以检索公用密钥。返回的公用密钥的格式会设置为 [JSON Web 密钥 (JWK)](https://tools.ietf.org/html/rfc7517)。
 
   示例请求：
 
     ```
-    GET /oauth/v3/{tenant_id}/publickeys HTTP/1.1
-    Host: appid-oauth.ng.bluemix.net
+    GET /oauth/v4/{tenant_id}/publickeys HTTP/1.1
+    Host: us-south.appid.cloud.ibm.com
     Cache-Control: no-cache
     ```
     {: screen}
@@ -134,7 +142,7 @@ lastupdated: "2018-12-19"
 
   示例响应：
 
-    ```]
+    ```
     {
       "keys": [
         {
@@ -207,6 +215,3 @@ lastupdated: "2018-12-19"
       </tr>
     </tbody>
   </table>
-
-</br>
-</br>

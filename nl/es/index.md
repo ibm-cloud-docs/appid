@@ -1,26 +1,38 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-11-15"
+  years: 2017, 2019
+lastupdated: "2019-03-27"
+
+keywords: authentication, authorization, identity, app security, secure, development,
+
+subcollection: appid
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
+{:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:codeblock: .codeblock}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 # Guía de aprendizaje de iniciación
-{: #gettingstarted}
+{: #getting-started}
 
 La seguridad de aplicación se puede complicar de forma increíble. Para la mayoría de los desarrolladores, es una de las partes más difíciles de la creación de una app. ¿Cómo puede estar seguro de que está protegiendo la información de los usuarios? Al integrar {{site.data.keyword.appid_full}} en sus apps, puede proteger recursos y añadir autenticación; incluso aunque no tenga mucha experiencia en seguridad.
 {: shortdesc}
 
-Al exigir a los usuarios que inicien sesión en la app, puede almacenar datos de usuario como preferencias de la app o información de los perfiles sociales públicos, y luego utilizar esos datos para personalizar cada experiencia de la app. {{site.data.keyword.appid_short_notm}} proporciona un registro en la infraestructura, pero también puede traer las pantallas de inicio de sesión de su propia marca al trabajar con el directorio en la nube.
+Al exigir a los usuarios que inicien sesión en la app, puede almacenar datos de usuario como preferencias de la app o información de los perfiles sociales públicos, y luego utilizar esos datos para personalizar cada experiencia de la app. {{site.data.keyword.appid_short_notm}} proporciona un registro para el usuario, pero también puede traer las pantallas de inicio de sesión de su propia marca al trabajar con el directorio en la nube.
 
 Nos gustaría conocer su opinión con comentarios y preguntas.
 * Si tiene preguntas técnicas sobre {{site.data.keyword.appid_short_notm}}, publique la pregunta en <a href="https://stackoverflow.com/search?q=ibm-appid" target="_blank">Stack Overflow <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a> y etiquete la pregunta con `ibm-appid`.
-* Para preguntas referentes al servicio e instrucciones sobre cómo empezar, utilice el foro <a href="https://developer.ibm.com/answers/topics/appid/" target="_blank">dW Answers <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>. Incluya la etiqueta `appid`.
+* Para formular preguntas sobre el servicio y obtener instrucciones de iniciación, utilice el foro <a href="https://developer.ibm.com/answers/topics/appid/" target="_blank">dW Answers <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>. Incluya la etiqueta `appid`.
 
 ## Creación de una instancia de servicio
 {: #create}
@@ -28,7 +40,7 @@ Nos gustaría conocer su opinión con comentarios y preguntas.
 Cree y enlace una instancia de {{site.data.keyword.appid_short_notm}} a su app para empezar.
 {: shortdesc}
 
-1. En el catálogo de {{site.data.keyword.Bluemix}}, seleccione {{site.data.keyword.appid_short_notm}}. Se abre la pantalla de configuración del servicio.
+1. En el catálogo de {{site.data.keyword.cloud_notm}}, seleccione {{site.data.keyword.appid_short_notm}}. Se abre la pantalla de configuración del servicio.
 2. Dé un nombre a la instancia de servicio, o utilice el nombre preestablecido.
 3. Seleccione el plan de precios y pulse **Crear**.
 4. Enlace la instancia de {{site.data.keyword.appid_short_notm}}.
@@ -67,7 +79,4 @@ Para crear una app de ejemplo:
 ## Pasos siguientes
 {: #next}
 
-¿Listo para entrar y empezar con sus propias apps? Primero, [añada el servicio a la app](web-apps.html). El servicio proporciona SDK para los idiomas más utilizados, pero si no ve un SDK para el idioma en el que está escrita la app, puede sacar partido de {{site.data.keyword.appid_short_notm}} utilizando las API.
-
-</br>
-</br>
+¿Listo para entrar y empezar con sus propias apps? Primero, [añada el servicio a la app](/docs/services/appid?topic=appid-web-apps#web-apps). El servicio proporciona SDK para los idiomas más utilizados, pero si no ve un SDK para el idioma en el que está escrita la app, puede sacar partido de {{site.data.keyword.appid_short_notm}} utilizando las API.

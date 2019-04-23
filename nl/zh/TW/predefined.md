@@ -1,26 +1,36 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-11-19"
+  years: 2017, 2019
+lastupdated: "2019-04-04"
+
+keywords: authentication, authorization, identity, app security, secure, user information, attributes, accessing, storing, preregister, profiles
+
+subcollection: appid
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
-{:pre: .pre}
-{:tip: .tip}
 {:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:codeblock: .codeblock}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 # 預先定義的使用者屬性
-{: #predefined}
+{: #predefined-attributes}
 
 使用 {{site.data.keyword.appid_full}}，您可以檢視使用者的身分提供者特定資訊。
 {: shortdesc}
 
 
 ## 使用 iOS SDK 存取
-{: #ios}
+{: #predefined-access-ios}
 
 如果新的記號未明確地傳遞至 SDK，則 {{site.data.keyword.appid_short_notm}} 會使用最後一個收到的記號來擷取及驗證回應。例如，您可以在成功鑑別之後執行下列程式碼，而 SDK 會擷取使用者的其他資訊。
 
@@ -31,7 +41,6 @@ AppID.sharedInstance.userProfileManager.getUserInfo { (error: Error?, userInfo: 
 	}
 	// retrieved user info successfully
 }
-
 ```
 {: pre}
 
@@ -47,10 +56,9 @@ AppID.sharedInstance.userProfileManager.getUserInfo(accessToken: String, identit
 ```
 {: pre}
 
-</br>
 
 ## 使用 Android SDK 存取
-{: #android}
+{: #predefined-access-android}
 
 如果新的記號未明確地傳遞至 SDK，則 {{site.data.keyword.appid_short_notm}} 會使用最後一個收到的記號來擷取及驗證回應。例如，您可以在成功鑑別之後執行下列程式碼，而 SDK 會擷取使用者的其他資訊。
 
@@ -90,10 +98,9 @@ appId.getUserProfileManager().getUserInfo(accessToken, identityToken, new UserPr
 ```
 {: pre}
 
-</br>
 
 ## 使用 Node.js 伺服器 SDK 存取
-{: #node}
+{: #predefined-access-node}
 
 
 藉由使用伺服器端 SDK，您可以擷取使用者的其他資訊。 您可以使用預存存取及身分記號來呼叫下列方法，也可以明確地傳遞記號。身分記號是選用性的，但如果有傳遞，則會用它來驗證使用者資訊回應。
@@ -118,10 +125,10 @@ userProfileManager.getUserInfo(accessToken).then(function (profile) {
 ```
 {: pre}
 
-</br>
+
 
 ## 使用 Swift 伺服器 SDK 存取
-{: #swift}
+{: #predefined-access-swift}
 
 藉由使用伺服器端 SDK，您可以擷取使用者的其他資訊。 您可以使用預存存取及身分記號來呼叫下列方法，也可以明確地傳遞記號。身分記號是選用性的，但如果有傳遞，則會用它來驗證使用者資訊回應。
 
@@ -150,16 +157,16 @@ userProfileManager.getUserInfo(accessToken: accessToken) { (err, userInfo) in
 ```
 {: pre}
 
-</br>
+
 
 ## 使用 API 存取
-{: #api}
+{: #predefined-access-api}
 
 您可以透過 `/userinfo` 端點來檢視其他資訊。
 
 1. 確保您具有含 `openid` 範圍的有效存取記號。您可以使用 `/introspect` 端點來驗證記號是否有效。
 
-2. 向 [`/userinfo` 端點](https://appid-oauth.ng.bluemix.net/swagger-ui/#!/Authorization_Server_V3/userInfo)提出要求。
+2. 對 [`/userinfo` 端點](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization_Server_V4/userInfo)提出要求。
   ```
   GET [POST] https://{oauth-server-endpoint}/userinfo
   Authorization: 'Bearer {ACCESS_TOKEN}'

@@ -1,26 +1,36 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-11-19"
+  years: 2017, 2019
+lastupdated: "2019-04-04"
+
+keywords: authentication, authorization, identity, app security, secure, user information, attributes, accessing, storing, preregister, profiles
+
+subcollection: appid
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
-{:pre: .pre}
-{:tip: .tip}
 {:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:codeblock: .codeblock}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 # 사전 정의된 사용자 속성
-{: #predefined}
+{: #predefined-attributes}
 
 {{site.data.keyword.appid_full}}를 사용하여 사용자에 대한 ID 제공자 특정 정보를 확인할 수 있습니다.
 {: shortdesc}
 
 
 ## iOS SDK로 액세스
-{: #ios}
+{: #predefined-access-ios}
 
 새 토큰이 SDK에 명시적으로 전달되지 않으면 {{site.data.keyword.appid_short_notm}}에서 마지막으로 수신된 토큰을 사용하여 응답을 검색하고 유효성을 검증합니다. 예를 들어, 인증에 성공한 후 다음 코드를 실행할 수 있습니다. 그러면 SDK에서 사용자에 대한 추가 정보를 검색합니다.
 
@@ -31,7 +41,6 @@ AppID.sharedInstance.userProfileManager.getUserInfo { (error: Error?, userInfo: 
 	}
 	// retrieved user info successfully
 }
-
 ```
 {: pre}
 
@@ -47,10 +56,9 @@ AppID.sharedInstance.userProfileManager.getUserInfo(accessToken: String, identit
 ```
 {: pre}
 
-</br>
 
 ## Android SDK로 액세스
-{: #android}
+{: #predefined-access-android}
 
 새 토큰이 SDK에 명시적으로 전달되지 않으면 {{site.data.keyword.appid_short_notm}}에서 마지막으로 수신된 토큰을 사용하여 응답을 검색하고 유효성을 검증합니다. 예를 들어, 인증에 성공한 후 다음 코드를 실행할 수 있습니다. 그러면 SDK에서 사용자에 대한 추가 정보를 검색합니다.
 
@@ -90,10 +98,9 @@ appId.getUserProfileManager().getUserInfo(accessToken, identityToken, new UserPr
 ```
 {: pre}
 
-</br>
 
 ## Node.js 서버 SDK로 액세스
-{: #node}
+{: #predefined-access-node}
 
 
 서버 측 SDK를 사용하여 사용자에 대한 추가 정보를 검색할 수 있습니다. 저장된 액세스 및 ID 토큰을 사용하여 다음 메소드를 호출할 수 있습니다. 또는 명시적으로 토큰을 전달할 수 있습니다. ID 토큰은 선택사항이지만 전달된 경우 사용자 정보 응답의 유효성을 검증하는 데 사용됩니다.
@@ -118,10 +125,10 @@ userProfileManager.getUserInfo(accessToken).then(function (profile) {
 ```
 {: pre}
 
-</br>
+
 
 ## Swift 서버 SDK로 액세스
-{: #swift}
+{: #predefined-access-swift}
 
 서버 측 SDK를 사용하여 사용자에 대한 추가 정보를 검색할 수 있습니다. 저장된 액세스 및 ID 토큰을 사용하여 다음 메소드를 호출할 수 있습니다. 또는 명시적으로 토큰을 전달할 수 있습니다. ID 토큰은 선택사항이지만 전달된 경우 사용자 정보 응답의 유효성을 검증하는 데 사용됩니다.
 
@@ -150,16 +157,16 @@ userProfileManager.getUserInfo(accessToken: accessToken) { (err, userInfo) in
 ```
 {: pre}
 
-</br>
+
 
 ## API로 액세스
-{: #api}
+{: #predefined-access-api}
 
 `/userinfo` 엔드포인트를 통해 추가 정보를 볼 수 있습니다.
 
 1. `openid` 범위를 사용하여 올바른 액세스 토큰이 있는지 확인하십시오. `/introspect` 엔드포인트를 사용하여 토큰이 올바른지 확인할 수 있습니다.
 
-2. [`/userinfo` 엔드포인트](https://appid-oauth.ng.bluemix.net/swagger-ui/#!/Authorization_Server_V3/userInfo)에 대한 요청을 작성하십시오.
+2. [`/userinfo` 엔드포인트](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization_Server_V4/userInfo)에 대한 요청을 작성하십시오.
   ```
   GET [POST] https://{oauth-server-endpoint}/userinfo
   Authorization: 'Bearer {ACCESS_TOKEN}'

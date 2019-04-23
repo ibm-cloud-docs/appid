@@ -1,64 +1,67 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-09"
+  years: 2017, 2019
+lastupdated: "2019-03-06"
+
+keywords: authentication, authorization, identity, app security, secure, development, sign in, sign up, password, social, enterprise
+
+subcollection: appid
 
 ---
 
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:tip: .tip}
-{:pre: .pre}
-{:new_window: target="blank"}
+{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
+{:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:codeblock: .codeblock}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 
-# デフォルト画面の表示
-{: #default}
+# ログイン・ウィジェットの表示
+{: #login-widget}
 
 {{site.data.keyword.appid_full}} に用意されているログイン・ウィジェットを使用して、ユーザーに機密保護機能のあるサインイン・オプションを提供できます。
 {: shortdesc}
 
-ID プロバイダーを使用するようにアプリが構成されている場合、アプリへの訪問者はログイン・ウィジェットによってサインイン画面に誘導されます。 デフォルトでは、1 つのプロバイダーのみが**オン**に設定されている場合、訪問者はその ID プロバイダーの認証画面にリダイレクトされます。 ログイン・ウィジェットを使用してデフォルトのサインイン画面を表示することができます。あるいは、クラウド・ディレクトリーを使用して既存の UI を再利用することができます。 そして、さらに、サインイン・フローは、ソース・コードを変更せずにいつでも更新することができます。
+ID プロバイダーを使用するようにアプリが構成されている場合、アプリへの訪問者はログイン・ウィジェットによってサインイン画面に誘導されます。 ログイン・ウィジェットを使用して、サインイン・フロー用に事前構成された画面を表示できます。 さらに、サインイン・フローは、ソース・コードを変更せずにいつでも更新することができます。
 
-
-このサービスは OAuth 2 付与タイプを使用して許可プロセスをマップします。 Facebook などのソーシャル ID プロバイダーを構成した場合は、[Oauth2 許可付与フロー](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html)によってログイン・ウィジェットが呼び出されます。
-
-アプリに固有の操作環境を作成しますか? [自分の画面を起動](/docs/services/appid/branded.html)できます。
+アプリに固有の操作環境を作成しますか? [自分の画面を起動](/docs/services/appid?topic=appid-branded)できます。
 {: tip}
 
+## ログイン・ウィジェットについて
+{: #widget-understanding}
 
-## デフォルトのサインイン画面のカスタマイズ
-{: #login-widget}
-
-自分で選択したロゴや色が表示されるように、事前構成されたサインイン画面をカスタマイズすることができます。
+ログイン・ウィジェットを表示することで、独自の UI 画面がなくても {{site.data.keyword.appid_short_notm}} を利用できます。
 {: shortdesc}
 
-画面をカスタマイズするには、以下のようにします。
+### デフォルトとは何ですか?
+{: #widget-default}
 
-1. {{site.data.keyword.appid_short_notm}} サービス・ダッシュボードを開きます。
-2. **「ログインのカスタマイズ」**セクションを選択します。 ログイン・ウィジェットの外観を自社のブランドに合うように変更できます。
-3. ローカル・システムにある PNG ファイルまたは JPG ファイルを選択し、自社のロゴをアップロードします。 推奨される画像サイズは 320 x 320 ピクセルです。 ファイルの最大サイズは 100 KB です。
-4. ウィジェットのヘッダー・カラーをカラー・ピッカーから選択するか、または別のカラーの 16 進コードを入力します。
-5. プレビュー・ペインでカスタマイズを検査し、問題がなければ**「変更を保存」**をクリックします。 確認メッセージが表示されます。
-6. ブラウザーでログイン・ページを最新表示し、変更内容を確認します。
+複数の ID プロバイダーが構成されている場合、ユーザーは、アプリケーションにサインインしようとすると、ログイン・ウィジェットにリダイレクトされます。 ログイン・ウィジェットを使用することにより、ユーザーは同一性を検証するプロバイダーを選択できます。 ただし、1 つのプロバイダーのみが**「オン」**に設定されている場合、訪問者はその ID プロバイダーの認証画面にリダイレクトされます。
+
+### {{site.data.keyword.appid_short_notm}} は ID プロバイダーからどれほどの量の情報を取得しますか?
+{: #widget-obtain-info}
+
+ソーシャル ID プロバイダーまたはエンタープライズ ID プロバイダーを使用する場合、{{site.data.keyword.appid_short_notm}} にはユーザー・アカウント情報への読み取り権限があります。 このサービスは、ID プロバイダーから返されるトークンとアサーションを使用して、ユーザーが本人であることを検証します。 このサービスには情報への書き込み権限がないため、ユーザーは選択した ID プロバイダーを使用して、パスワードのリセットなどのアクションを実行する必要があります。 例えば、ユーザーが Facebook を使用してアプリにサインインした後にパスワードを変更する場合は、www.facebook.com にアクセスしてそれを行う必要があります。
+
+[クラウド・ディレクトリー](/docs/services/appid?topic=appid-cloud-directory)を使用する場合、{{site.data.keyword.appid_short_notm}} が ID プロバイダーになります。 このサービスは、レジストリーを使用してユーザー ID を検証します。 {{site.data.keyword.appid_short_notm}} はプロバイダーであるため、ユーザーは、パスワードのリセットなどの拡張機能をアプリ内で直接利用できます。
 
 
-## 表示する画面の計画
-{: #plan}
-
-{{site.data.keyword.appid_short_notm}} にはデフォルトのログイン画面が用意されており、表示する独自の UI 画面がない場合に呼び出すことができます。
-{: shortdesc}
-
-表示できる画面は、ID プロバイダーの構成によって異なります。 このサービスでは、ソーシャル ID プロバイダーの拡張機能は提供していません。ユーザー・アカウント情報へのアクセス権限がないためです。 ユーザーが情報を管理する場合は、自分で ID プロバイダーにアクセスする必要があります。 例えば、Facebook のパスワードを変更する場合は、www.facebook.com にアクセスする必要があります。
+### プロバイダーごとにどの画面を表示できますか?
+{: #widget-options}
 
 以下の表を参照して、ID プロバイダーのタイプごとに表示できる画面を確認してください。
 
 <table>
   <thead>
     <tr>
-      <th>表示画面</th>
+      <th>ログイン・ウィジェット画面</th>
       <th>ソーシャル ID プロバイダー</th>
       <th>エンタープライズ ID プロバイダー</th>
       <th>クラウド・ディレクトリー</th>
@@ -98,155 +101,191 @@ ID プロバイダーを使用するようにアプリが構成されている�
   </tbody>
 </table>
 
-[ソーシャル ID プロバイダー](/docs/services/appid/identity-providers.html)および[クラウド・ディレクトリー](/docs/services/appid/cloud-directory.html)の設定を構成したら、以下の画像の中から選択した言語をクリックし、コードの実装を開始します。
-
-
-提供されている SDK または API の 1 つを使用するには、そのイメージをクリックします。App ID の利点は他の言語でも活用できることを忘れないでください。これらの API を使用すると、任意のアプリにクラウド・ディレクトリーをセットアップできます。イメージ内にリストされていない言語に関するヘルプは、<a href="https://www.ibm.com/blogs/bluemix/tag/app-id/" target="_blank">ブログ <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> を参照してください。
-{: shortdesc}
-
+</br>
 </br>
 
-## Android SDK を使用したデフォルト画面の表示
-{: #android}
+## ログイン・ウィジェットのカスタマイズ
+{: #widget-customize}
 
-Android SDK を使用して、事前構成された画面を呼び出すことができます。
+{{site.data.keyword.appid_short_notm}} にはデフォルトのログイン画面が用意されており、表示する独自の UI 画面がない場合に呼び出すことができます。 自分で選択したロゴや色が表示されるように、画面をカスタマイズすることができます。
 {: shortdesc}
 
-</br>
+画面をカスタマイズするには、以下のようにします。
 
-**サインイン**
-1. 以下のコマンドをコードに挿入します。
-    ```java
-    LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
-    loginWidget.launch(this, new AuthorizationListener() {
-          @Override
+1. {{site.data.keyword.appid_short_notm}} サービス・ダッシュボードを開きます。
+2. **「ログインのカスタマイズ」**セクションを選択します。 ログイン・ウィジェットの外観を自社のブランドに合うように変更できます。
+3. ローカル・システムにある PNG ファイルまたは JPG ファイルを選択し、自社のロゴをアップロードします。 推奨される画像サイズは 320 x 320 ピクセルです。 ファイルの最大サイズは 100 KB です。
+4. ウィジェットのヘッダー・カラーをカラー・ピッカーから選択するか、または別のカラーの 16 進コードを入力します。
+5. プレビュー・ペインでカスタマイズを検査し、問題がなければ**「変更を保存」**をクリックします。 確認メッセージが表示されます。
+6. ブラウザーでログイン・ページを最新表示し、変更内容を確認します。
+
+注意: {{site.data.keyword.appid_short_notm}} は他の言語でも利用できます。 作業中の言語の SDK が表示されない場合は、常に API を使用できます。 <a href="https://www.ibm.com/blogs/bluemix/tag/app-id/" target="blank">ブログ <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> を参照してください。
+{: tip}
+
+
+## Android SDK を使用したログイン・ウィジェットの表示
+{: #widget-display-android}
+
+[Android クライアント SDK](https://github.com/ibm-cloud-security/appid-clientsdk-android) を使用して、事前構成された画面を呼び出すことができます。
+{: shortdesc}
+
+以下のコマンドをコードに挿入します。
+
+  ```java
+  LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
+  loginWidget.launch(this, new AuthorizationListener() {
+        @Override
         public void onAuthorizationFailure (AuthorizationException exception) {
-            //例外の発生
+          //例外の発生
       }
 
-          @Override
+        @Override
         public void onAuthorizationCanceled () {
-            //ユーザーによる認証の取り消し
+          //ユーザーによる認証の取り消し
         }
 
-          @Override
+        @Override
           public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, refreshToken: RefreshToken) {
-            //ユーザーの認証
+          //ユーザーの認証
         }
-        });
-    ```
-  {: pre}
+      });
+  ```
+{: codeblock}
 
 </br>
-**登録**
 
-1. クラウド・ディレクトリーの設定で、**「登録とパスワード・リセットをユーザーに許可する (Allow users to sign up and reset their password)」**を**「オン (On)」**に設定します。
-2. LoginWidget を呼び出して登録フローを開始します。
+### 登録
+{: #widget-android-signup}
+
+1. GUI でクラウド・ディレクトリーの[設定](/docs/services/appid?topic=appid-cloud-directory#cd-settings)を構成します。 **「ユーザーがアプリケーションにサインアップできるようにする」**と**「ユーザーがアプリケーションからアカウントを管理できるようにする」**の両方を**「オン」**に設定する必要があります。
+2. アプリに以下のコードを追加します。 ユーザーがカスタム画面からアプリに登録すると、登録フローが開始します。 以下の呼び出しは、ユーザーを登録できるだけではなく、クラウド・ディレクトリーの構成によっては、登録を完了するための確認 E メールを送信することもできます。
+
   ```java
   LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
   loginWidget.launchSignUp(this, new AuthorizationListener() {
-  		 @Override
-  		 public void onAuthorizationFailure (AuthorizationException exception) {
-  		 }
+      @Override
+        public void onAuthorizationFailure (AuthorizationException exception) {
+          //例外の発生
+      }
 
-  		 @Override
-  		 public void onAuthorizationCanceled () {
-  		 }
+      @Override
+        public void onAuthorizationCanceled () {
+          //ユーザーによる登録キャンセル
+			 }
 
-  		 @Override
-  		 public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, refreshToken: RefreshToken) {
-  			 if (accessToken != null && identityToken != null) {
-  			 } else {
-  			 }
-
-  		 }
-  	 });
+      @Override
+          public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, RefreshToken refreshToken) {
+          if (accessToken != null && identityToken != null) {
+              //ユーザーの認証
+				 } else {
+              //E メール検証が必要
+				 }
+      }
+  });
   ```
   {: pre}
 
 </br>
-**パスワードを忘れた場合**
 
-1. クラウド・ディレクトリーの設定で**「登録とパスワード・リセットをユーザーに許可する (Allow users to sign up and reset their password)」**と**「パスワードを忘れた場合の E メール (Forgot password email)」**を必ず**「オン (On)」**に設定します。
-2. LoginWidget を呼び出してパスワード忘れフローを開始します。
-    ```java
-    LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
-    loginWidget.launchForgotPassword(this, new AuthorizationListener() {
-   			 @Override
+### パスワードを忘れた場合
+{: #widget-android-forgot-password}
+
+1. GUI でクラウド・ディレクトリーの[設定](/docs/services/appid?topic=appid-cloud-directory#cd-settings)を構成します。 **「ユーザーがアプリケーションからアカウントを管理できるようにする」**を**「オン」**に設定する必要があります。
+2. サービス・ダッシュボードの**「パスワードの再設定」**タブで、**「パスワード再設定の E メール」**が**「オン」**に設定されていることを確認します。
+3. アプリに以下のコードを追加します。 ユーザーがアプリケーションで「パスワードを忘れた場合」をクリックすると、SDK は forgot_password API を呼び出して、パスワードを再設定できるようにするための E メールをユーザーに送信します。
+
+  ```java
+  LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
+  loginWidget.launchForgotPassword(this, new AuthorizationListener() {
+      @Override
         public void onAuthorizationFailure (AuthorizationException exception) {
-   			 }
+          //例外の発生
+      }
 
-   			 @Override
+      @Override
         public void onAuthorizationCanceled () {
-   			 }
+          // ユーザーによるパスワード忘れ処理キャンセル
+      }
 
-   			 @Override
-   			 public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, refreshToken: RefreshToken) {
-   			 }
-   		 });
-    ```
-    {: pre}
+      @Override
+          public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, RefreshToken refreshToken) {
+          // パスワード忘れ処理の終了。この場合 accessToken と identityToken はヌル。
+      }
+  });
+  ```
+  {: codeblock}
 
 </br>
-**アカウントの詳細**
 
-1. クラウド・ディレクトリーの設定で、**「登録とパスワード・リセットをユーザーに許可する (Allow users to sign up and reset their password)」**を**「オン (On)」**に設定します。
-2. LoginWidget を呼び出して詳細変更フローを開始します。
-   ```java
-   LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
+### 変更の詳細
+{: #widget-android-change-details}
+
+1. GUI でクラウド・ディレクトリーの[設定](/docs/services/appid?topic=appid-cloud-directory#cd-settings)を構成します。 **「ユーザーがアプリケーションにサインアップできるようにする」**と**「ユーザーがアプリケーションからアカウントを管理できるようにする」**の両方を**「オン」**に設定する必要があります。
+2. サービス・ダッシュボードの**「パスワード変更済み」**タブで、**「パスワード変更通知 E メール」**を次のように設定します。
+3. ログイン・ウィジェットを呼び出して詳細変更フローを開始します。
+
+  ```java
+  LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
    loginWidget.launchChangeDetails(this, new AuthorizationListener() {
-  			 @Override
-  			 public void onAuthorizationFailure (AuthorizationException exception) {
-  			 }
+      @Override
+        public void onAuthorizationFailure (AuthorizationException exception) {
+          // 例外の発生
+      }
 
-  			 @Override
-  			 public void onAuthorizationCanceled () {
-  			 }
+      @Override
+        public void onAuthorizationCanceled () {
+          // ユーザーによる詳細変更キャンセル
+      }
 
-  			 @Override
-  			 public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, refreshToken: RefreshToken) {
-  			 }
-  		 });
-   ```
-   {: pre}
+      @Override
+          public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, RefreshToken refreshToken) {
+          //ユーザーの認証と、新しいトークンの受信
+   			 }
+  });
+  ```
+  {: codeblock}
 
 </br>
-**パスワードの変更**
 
-1. クラウド・ディレクトリーの設定で、**「登録とパスワード・リセットをユーザーに許可する (Allow users to sign up and reset their password)」**を**「オン (ON)」**に設定してください。
-2. LoginWidget を呼び出してパスワード変更フローを開始します。
-   ```java
-    LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
+### パスワードの変更
+{: #widget-android-change-password}
+
+1. GUI でクラウド・ディレクトリーの[設定](/docs/services/appid?topic=appid-cloud-directory#cd-settings)を構成します。 **「ユーザーがアプリケーションにサインアップできるようにする」**と**「ユーザーがアプリケーションからアカウントを管理できるようにする」**の両方を**「オン」**に設定する必要があります。
+2. 以下のコードをアプリに配置して、パスワード変更フローを開始します。
+
+  ```java
+  LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
     loginWidget.launchChangePassword(this, new AuthorizationListener() {
-   			 @Override
-   			 public void onAuthorizationFailure (AuthorizationException exception) {
+      @Override
+        public void onAuthorizationFailure (AuthorizationException exception) {
+          // 例外の発生
+      }
+
+      @Override
+        public void onAuthorizationCanceled () {
+          // ユーザーによるパスワード変更キャンセル
+      }
+
+      @Override
+          public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, RefreshToken refreshToken) {
+          //ユーザーの認証と、新しいトークンの受信
    			 }
+  });
+  ```
+  {: codeblock}
 
-   			 @Override
-   			 public void onAuthorizationCanceled () {
-   			 }
 
-   			 @Override
-   			 public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, refreshToken: RefreshToken) {
-   			 }
-   		 });
-   ```
-   {: pre}
-</br>
-</br>
 
-## iOS Swift SDK を使用したデフォルト画面の表示
-{: #ios-swift}
+## iOS Swift SDK を使用したログイン・ウィジェットの表示
+{: #widget-display-ios-swift}
 
-iOS Swift SDK を使用して、事前構成された画面を呼び出すことができます。
+[iOS Swift クライアント SDK](https://github.com/ibm-cloud-security/appid-clientsdk-swift) を使用して、事前構成された画面を呼び出すことができます。
 {: shortdesc}
 
-</br>
-**サインイン**
+以下のコマンドをコードに挿入します。
 
-1. 以下のコマンドをコードに挿入します。
   ```swift
-  import BluemixAppID
+  import IBMCloudAppID
   class delegate : AuthorizationDelegate {
       public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, refreshToken: RefreshToken?) {
           //ユーザーの認証
@@ -263,17 +302,19 @@ iOS Swift SDK を使用して、事前構成された画面を呼び出すこと
 
   AppID.sharedInstance.loginWidget?.launch(delegate: delegate())
   ```
-  {: pre}
-
+  {: codeblock}
 
 </br>
-**登録**
 
-1. クラウド・ディレクトリーの設定で、**「登録とパスワード・リセットをユーザーに許可する (Allow users to sign up and reset their password)」**を**「オン (On)」**に設定してください。
-2. LoginWidget を呼び出して登録フローを開始します。
+### 登録
+{: #widget-ios-signup}
+
+1. GUI でクラウド・ディレクトリーの[設定](/docs/services/appid?topic=appid-cloud-directory#cd-settings)を構成します。 **「ユーザーがアプリケーションにサインアップできるようにする」**と**「ユーザーがアプリケーションからアカウントを管理できるようにする」**の両方を**「オン」**に設定する必要があります。
+2. 以下のコードをアプリケーションに挿入します。 ユーザーがアプリケーションに登録しようとすると、ログイン・ウィジェットが呼び出され、カスタム登録ページが表示されます。
+
   ```swift
   class delegate : AuthorizationDelegate {
-    public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, refreshToken: RefreshToken?) {
+    public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, refreshToken: RefreshToken?, response:Response?) {
        if accessToken == nil && identityToken == nil {
         //E メール検証が必要
         return
@@ -287,21 +328,25 @@ iOS Swift SDK を使用して、事前構成された画面を呼び出すこと
 
     public func onAuthorizationFailure(error: AuthorizationError) {
         //例外の発生
-      }
+    }
   }
 
   AppID.sharedInstance.loginWidget?.launchSignUp(delegate: delegate())
   ```
-  {: pre}
+  {: codeblock}
 
 </br>
-**パスワードを忘れた場合**
 
-1. クラウド・ディレクトリーの設定で**「登録とパスワード・リセットをユーザーに許可する (Allow users to sign up and reset their password)」**と**「パスワードを忘れた場合の E メール (Forgot password email)」**を必ず**「オン (On)」**に設定します。
-2. LoginWidget を呼び出してパスワード忘れフローを開始します。
+### パスワードを忘れた場合
+{: #widget-ios-forgot-password}
+
+1. GUI でクラウド・ディレクトリーの[設定](/docs/services/appid?topic=appid-cloud-directory#cd-settings)を構成します。 **「ユーザーがアプリケーションからアカウントを管理できるようにする」**を**「オン」**に設定する必要があります。
+2. サービス・ダッシュボードの**「パスワードの再設定」**タブで、**「パスワード再設定の E メール」**が**「オン」**に設定されていることを確認します。
+3. 以下のコードをアプリケーションに挿入します。 いずれかのアプリ・ユーザーがパスワードの更新を要求すると、ログイン・ウィジェットが呼び出され、プロセスが開始します。
+
   ```swift
   class delegate : AuthorizationDelegate {
-     public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, refreshToken: RefreshToken?) {
+     public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, refreshToken: RefreshToken?, response:Response?) {
         //パスワード忘れ処理の終了。この場合 accessToken と identityToken はヌル。
      }
 
@@ -316,217 +361,147 @@ iOS Swift SDK を使用して、事前構成された画面を呼び出すこと
 
   AppID.sharedInstance.loginWidget?.launchForgotPassword(delegate: delegate())
   ```
-  {: pre}
+  {: codeblock}
 
 </br>
-**アカウントの詳細**
 
-1. クラウド・ディレクトリーの設定で、**「登録とパスワード・リセットをユーザーに許可する (Allow users to sign up and reset their password)」**を**「オン (On)」**に設定します。
-2. LoginWidget を呼び出して詳細変更フローを開始します。
+### 変更の詳細
+{: #widget-ios-change-details}
+
+1. GUI でクラウド・ディレクトリーの[設定](/docs/services/appid?topic=appid-cloud-directory#cd-settings)を構成します。 **「ユーザーがアプリケーションにサインアップできるようにする」**と**「ユーザーがアプリケーションからアカウントを管理できるようにする」**の両方を**「オン」**に設定する必要があります。
+2. サービス・ダッシュボードの**「パスワード変更済み」**タブで、**「パスワード変更通知 E メール」**を次のように設定します。
+3. ログイン・ウィジェットを呼び出して詳細変更フローを開始します。
+
   ```swift
-
-   class delegate : AuthorizationDelegate {
-       public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, refreshToken: RefreshToken?) {
+  class delegate : AuthorizationDelegate {
+      public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, refreshToken: RefreshToken?, response:Response?) {
+         //ユーザーの認証と、新しいトークンの受信
        }
 
        public func onAuthorizationCanceled() {
-     }
+          //ユーザーによる詳細変更キャンセル
+       }
 
        public func onAuthorizationFailure(error: AuthorizationError) {
-     }
-   }
+          //例外の発生
+      }
+  }
 
    AppID.sharedInstance.loginWidget?.launchChangeDetails(delegate: delegate())
   ```
-  {: pre}
+  {: codeblock}
 
 </br>
-**パスワードの変更**
 
-1. クラウド・ディレクトリーの設定で、**「登録とパスワード・リセットをユーザーに許可する (Allow users to sign up and reset their password)」**を**「オン (On)」**に設定します。
-2. LoginWidget を呼び出してパスワード変更フローを開始します。
+### パスワードの変更
+{: #widget-ios-change-password}
+
+1. GUI でクラウド・ディレクトリーの[設定](/docs/services/appid?topic=appid-cloud-directory#cd-settings)を構成します。 **「ユーザーがアプリケーションにサインアップできるようにする」**と**「ユーザーがアプリケーションからアカウントを管理できるようにする」**の両方を**「オン」**に設定する必要があります。
+2. 以下のコードをアプリに配置して、パスワード変更フローを開始します。
+
   ```swift
-   class delegate : AuthorizationDelegate {
-       public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, refreshToken: RefreshToken?) {
+  class delegate : AuthorizationDelegate {
+      public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, refreshToken: RefreshToken?, response:Response?) {
+          //ユーザーの認証と、新しいトークンの受信
        }
 
        public func onAuthorizationCanceled() {
-     }
+          //ユーザーによるパスワード変更キャンセル
+       }
 
        public func onAuthorizationFailure(error: AuthorizationError) {
-     }
-    }
+           //例外の発生
+      }
+   }
 
     AppID.sharedInstance.loginWidget?.launchChangePassword(delegate: delegate())
   ```
-  {: pre}
-</br>
-</br>
+  {: codeblock}
 
-## Node.js SDK を使用したデフォルト画面の表示
-{: #nodejs}
 
-Node.js SDK を使用して、事前構成された画面を呼び出すことができます。
+## Node.js SDK を使用したログイン・ウィジェットの表示
+{: #widget-display-nodejs}
+
+[Node.js サーバー SDK](https://github.com/ibm-cloud-security/appid-serversdk-nodejs) を使用して、事前構成された画面を呼び出すことができます。
 {: shortdesc}
 
-</br>
-**サインイン**
-1. ID プロバイダー設定でクラウド・ディレクトリーを**「オン (On)」**に設定して、コールバック・エンドポイントを指定します。
-2. ユーザー名とパスワードのパラメーターを使用して呼び出せる post ルートをアプリに追加し、リソース所有者のパスワードを使用してログインします。
-    ```javascript
-    app.post("/form/submit", bodyParser.urlencoded({extended: false}), passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
-    	successRedirect: LANDING_PAGE_URL,
+ユーザー名とパスワードのパラメーターを使用して呼び出せる post ルートをアプリに追加し、リソース所有者のパスワードを使用してログインします。
+
+  ```javascript
+  app.post("/form/submit", bodyParser.urlencoded({extended: false}), passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
+  	successRedirect: LANDING_PAGE_URL,
   	failureRedirect: ROP_LOGIN_PAGE_URL,
   	failureFlash : true // フラッシュ・メッセージの許可
   }));
-    ```
-    {: pre}
-    `WebAppStrategy` により、ユーザーはユーザー名とパスワードを使用して Web アプリにサインインできます。 ログインに成功すると、ユーザーのアクセス・トークンは HTTP セッションに保管され、セッション中に使用できるようになります。 HTTP セッションが破棄されるか期限切れになると、トークンは無効になります。
-    {: tip}
+  ```
+  {: codeblock}
+
+`WebAppStrategy` により、ユーザーはユーザー名とパスワードを使用して Web アプリにサインインできます。 ログインに成功すると、ユーザーのアクセス・トークンは HTTP セッションに保管され、セッション中に使用できるようになります。 HTTP セッションが破棄されるか期限切れになると、トークンは無効になります。
+{: tip}
 
 </br>
-**登録**
 
-1. クラウド・ディレクトリーの設定で、**「登録とパスワード・リセットをユーザーに許可する (Allow users to sign up and reset their password)」**を**「オン (On)」**に設定します。 「いいえ (no)」に設定した場合、プロセスはアクセス・トークンと識別トークンを取得せずに終了します。
-2. WebAppStrategy に `show` プロパティーを渡し、それを `WebAppStrategy.SIGN_UP` に設定します。
+### 登録
+{: #widget-nodejs-signup}
+
+1. GUI でクラウド・ディレクトリーの[設定](/docs/services/appid?topic=appid-cloud-directory#cd-settings)を構成します。 **「ユーザーがアプリケーションにサインアップできるようにする」**と**「ユーザーがアプリケーションからアカウントを管理できるようにする」**の両方を**「オン」**に設定する必要があります。
+2. 以下のコードをアプリケーションに挿入します。 ユーザーがアプリケーションに登録しようとすると、ログイン・ウィジェットが呼び出され、カスタム登録ページが表示されます。
+
   ```javascript
   app.get("/sign_up", passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
   	successRedirect: LANDING_PAGE_URL,
   	show: WebAppStrategy.SIGN_UP
   }));
   ```
-  {: pre}
+  {: codeblock}
 
 </br>
-**パスワードを忘れた場合**
 
-1. クラウド・ディレクトリーの設定で**「登録とパスワード・リセットをユーザーに許可する (Allow users to sign up and reset their password)」**と**「パスワードを忘れた場合の E メール (Forgot password email)」**を**「オン (ON)」**に設定します。 「いいえ (no)」に設定した場合、プロセスはアクセス・トークンと識別トークンを取得せずに終了します。
-2. WebAppStrategy に `show` プロパティーを渡し、それを `WebAppStrategy.FORGOT_PASSWORD` に設定します。
+### パスワードを忘れた場合
+{: #widget-nodejs-forgot-password}
+
+1. GUI でクラウド・ディレクトリーの[設定](/docs/services/appid?topic=appid-cloud-directory#cd-settings)を構成します。 **「ユーザーがアプリケーションからアカウントを管理できるようにする」**を**「オン」**に設定する必要があります。
+2. サービス・ダッシュボードの**「パスワードの再設定」**タブで、**「パスワード再設定の E メール」**が**「オン」**に設定されていることを確認します。
+3. 以下のコードをアプリケーションに配置して、*show* プロパティーを `WebAppStrategy.FORGOT_PASSWORD` に渡します。 ユーザーがアプリへのパスワードの更新を要求すると、ログイン・ウィジェットが呼び出され、プロセスが開始します。
+
   ```javascript
   app.get("/forgot_password", passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
   	successRedirect: LANDING_PAGE_URL,
   	show: WebAppStrategy.FORGOT_PASSWORD
   }));
   ```
-  {: pre}
+  {: codeblock}
 
 </br>
-**アカウントの詳細**
-1. クラウド・ディレクトリーの設定で、**「登録とパスワード・リセットをユーザーに許可する (Allow users to sign up and reset their password)」**を**「オン (On)」**に設定します。
-2. WebAppStrategy に `show` プロパティーを渡し、それを `WebAppStrategy.CHANGE_DETAILS` に設定します。
+
+### 変更の詳細
+{: #widget-nodejs-change-details}
+
+1. GUI でクラウド・ディレクトリーの[設定](/docs/services/appid?topic=appid-cloud-directory#cd-settings)を構成します。 **「ユーザーがアプリケーションにサインアップできるようにする」**と**「ユーザーがアプリケーションからアカウントを管理できるようにする」**の両方を**「オン」**に設定する必要があります。
+2. サービス・ダッシュボードの**「パスワード変更済み」**タブで、**「パスワード変更通知 E メール」**を次のように設定します。
+3. 以下のコードをアプリケーションに配置して、*show* プロパティーを `WebAppStrategy.FORGOT_PASSWORD` に渡し、詳細変更フォームを起動します。
+
   ```javascript
   app.get("/change_details", passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
   	successRedirect: LANDING_PAGE_URL,
   	show: WebAppStrategy.CHANGE_DETAILS
   }));
   ```
-  {: pre}
+  {: codeblock}
 
 </br>
-**パスワードの変更**
-1. クラウド・ディレクトリーの設定で、**「登録とパスワード・リセットをユーザーに許可する (Allow users to sign up and reset their password)」**を**「オン (On)」**に設定します。
-2. WebAppStrategy に `show` プロパティーを渡し、それを `WebAppStrategy.CHANGE_PASSWORD` に設定します。
+
+### パスワードの変更
+{: #widget-nodejs-change-password}
+
+1. GUI でクラウド・ディレクトリーの[設定](/docs/services/appid?topic=appid-cloud-directory#cd-settings)を構成します。 **「ユーザーがアプリケーションにサインアップできるようにする」**と**「ユーザーがアプリケーションからアカウントを管理できるようにする」**の両方を**「オン」**に設定する必要があります。
+2. サービス・ダッシュボードの**「パスワード変更済み」**タブで、**「パスワード変更通知 E メール」**を次のように設定します。
+3. 以下のコードをアプリケーションに配置して、*show* プロパティーを `WebAppStrategy.FORGOT_PASSWORD` に渡し、詳細変更フォームを起動します。
+
   ```javascript
   app.get("/change_password", passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
   	successRedirect: LANDING_PAGE_URL,
   	show: WebAppStrategy.CHANGE_PASSWORD
   }));
   ```
-  {: pre}
-
-</br>
-</br>
-
-## Swift SDK を使用したデフォルト画面の表示
-{: #swift}
-
-ソーシャル ID プロバイダーを有効にした場合は、事前構成されたサインイン画面を Swift SDK で呼び出せます。
-{: shortdesc}
-
-1. 以下のコードは、WebAppKituraCredentialsPlugin を Kitura アプリで使用して `/protected` エンドポイントを保護する方法を示しています。
-
-  ```swift
-  import Foundation
-  import Kitura
-  import KituraSession
-  import Credentials
-  import SwiftyJSON
-  import BluemixAppID
-
-  // The following URLs will be used for AppID OAuth flows
-  var LOGIN_URL = "/ibm/bluemix/appid/login"
-  var CALLBACK_URL = "/ibm/bluemix/appid/callback"
-  var LOGOUT_URL = "/ibm/bluemix/appid/logout"
-  var LANDING_PAGE_URL = "/index.html"
-
-  // Setup Kitura to use session middleware
-  // Must be configured with proper session storage for production
-  // environments. See https://github.com/IBM-Swift/Kitura-Session for
-  // additional documentation
-  let router = Router()
-  let session = Session(secret: "Some secret")
-  router.all(middleware: session)
-
-  let options = [
-  	"clientId": "{client-id}",
-  	"secret": "{secret}",
-  	"tenantId": "{tenant-id}",
-  	"oauthServerUrl": "{oauth-server-url}",
-  	"redirectUri": "{app-url}" + CALLBACK_URL
-  ]
-  let webappKituraCredentialsPlugin = WebAppKituraCredentialsPlugin(options: options)
-  let kituraCredentials = Credentials()
-  kituraCredentials.register(plugin: webappKituraCredentialsPlugin)
-
-  // Explicit login endpoint
-  router.get(LOGIN_URL,
-  		   handler: kituraCredentials.authenticate(credentialsType: webappKituraCredentialsPlugin.name,
-  												   successRedirect: LANDING_PAGE_URL,
-  												   failureRedirect: LANDING_PAGE_URL
-  ))
-
-  // Callback to finish the authorization process. Will retrieve access and identity tokens from AppID
-  router.get(CALLBACK_URL,
-  		   handler: kituraCredentials.authenticate(credentialsType: webappKituraCredentialsPlugin.name,
-  												   successRedirect: LANDING_PAGE_URL,
-  												   failureRedirect: LANDING_PAGE_URL
-  ))
-
-  // Logout endpoint. Clears authentication information from session
-  router.get(LOGOUT_URL, handler:  { (request, response, next) in
-  	kituraCredentials.logOut(request: request)
-  	webappKituraCredentialsPlugin.logout(request: request)
-  	_ = try? response.redirect(LANDING_PAGE_URL)
-  })
-
-  // Protected area
-  router.get("/protected", handler: kituraCredentials.authenticate(credentialsType: webappKituraCredentialsPlugin.name), { (request, response, next) in
-      let appIdAuthContext:JSON? = request.session?[WebAppKituraCredentialsPlugin.AuthContext]
-      let identityTokenPayload:JSON? = appIdAuthContext?["identityTokenPayload"]
-
-      guard appIdAuthContext?.dictionary != nil, identityTokenPayload?.dictionary != nil else {
-          response.status(.unauthorized)
-          return next()
-      }
-
-      response.send(json: identityTokenPayload!)
-      next()
-  })
-  var port = 3000
-  if let portString = ProcessInfo.processInfo.environment["PORT"]{
-      port = Int(portString)!
-  }
-  print("Starting on \(port)")
-
-  // Add an HTTP server and connect it to the router
-  Kitura.addHTTPServer(onPort: port, with: router)
-
-  // Start the Kitura runloop (this call never returns)
-  Kitura.run()
-  ```
   {: codeblock}
-</br>
-</br>
-
-
-

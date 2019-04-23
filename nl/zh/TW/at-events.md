@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-12-18"
+  years: 2017, 2019
+lastupdated: "2019-04-05"
+
+keywords: authentication, authorization, identity, app security, secure, application identity, app to app, access token, activity
+
+subcollection: appid
 
 ---
 
@@ -13,33 +17,32 @@ lastupdated: "2018-12-18"
 {:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
 {:tip: .tip}
-{:download: .download}
 {:note: .note}
 {:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 
 # {{site.data.keyword.cloudaccesstrailshort}} 事件
-{: #at_events}
+{: #at-events}
 
 您可以使用 {{site.data.keyword.cloudaccesstrailshort}} 服務，來檢視、管理及分析在 {{site.data.keyword.appid_full}} 服務實例中進行的使用者起始活動。
 {: shortdesc}
 
 
 
-如需服務運作方式的相關資訊，請參閱 [{{site.data.keyword.cloudaccesstrailshort}} 文件](/docs/services/cloud-activity-tracker/index.html)。
+如需服務運作方式的相關資訊，請參閱 [{{site.data.keyword.cloudaccesstrailshort}} 文件](/docs/services/cloud-activity-tracker/reference?topic=cloud-activity-tracker-getting-started-with-cla#getting-started-with-cla)。
 
-
-</br>
 
 ## 檢視管理事件
-{: #monitor-admin}
+{: #at-monitor-admin}
 
 您可以使用 {{site.data.keyword.cloudaccesstrailshort}} 服務，來檢視、管理及分析在 {{site.data.keyword.appid_short_notm}} 實例中進行的配置活動。
 {: shortdesc}
 
 若要監視管理活動，請執行下列動作：
 
-1. 登入您的 {{site.data.keyword.Bluemix_notm}} 帳戶。
+1. 登入您的 {{site.data.keyword.cloud_notm}} 帳戶。
 2. 從型錄中，在與 {{site.data.keyword.appid_short_notm}} 實例相同的帳戶中佈建 {{site.data.keyword.cloudaccesstrailshort}} 服務的實例。
 3. 在 {{site.data.keyword.cloudaccesstrailshort}} 儀表板中，按一下**管理**標籤。
 4. 從下拉清單中，讓下列配置搜尋 {{site.data.keyword.appid_short_notm}} 所產生的事件。
@@ -51,7 +54,7 @@ lastupdated: "2018-12-18"
 </br>
 
 ## 管理事件清單
-{: #events-admin}
+{: #at-events-admin}
 
 請參閱下表，以取得傳送至 {{site.data.keyword.cloudaccesstrailshort}} 的事件清單。
 
@@ -128,7 +131,7 @@ lastupdated: "2018-12-18"
   </tr>
   <tr>
     <td><code>read.samlMetadata</code></td>
-    <td>檢視 App ID SAML meta 資料。</td>
+    <td>檢視 {{site.data.keyword.appid_short_notm}} SAML meta 資料。</td>
     <td>可在<strong>身分提供者 > SAML 2.0 Federation</strong> 標籤中找到。</td>
   </tr>
   <tr>
@@ -238,7 +241,5 @@ lastupdated: "2018-12-18"
   </tr>
 </table>
 
-</br>
-</br>
 
 

@@ -1,45 +1,72 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="appid" audience="service" arm="2093952" href="/docs/services/appid/index.html" path="services/appid"}
+{: .toc subcollection="appid" audience="service" arm="2093952" href="/docs/services/appid?topic=appid-getting-started#getting-started" path="services/appid"}
 IBM Cloud App ID
 
     {: .navgroup id="learn"}
     index.md
     about.md
     authorization.md
+
+    {: .topicgroup}
+    Guías de aprendizaje
+        tutorial-roles.md
+        tutorial-kubernetes-auth.md
+        tutorial-cf.md
+
+    relatedlinks.md
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
-    install.md
+    {: .topicgroup}
+    Adición de App ID a la app
+        web-apps.md
+        mobile-apps.md
+        backend-apps.md
+        custom-auth.md
+        progressive.md
+        app-to-app.md
+        well-known.md
+
+    manageidp.md
 
     {: .topicgroup}
-    Configuración de los proveedores de identidad
-        identity-providers.md
+    Configuración de proveedores de identidades federadas
         enterprise.md
-        cloud-directory.md
+        identity-providers.md
+        custom.md
+
+    {: .topicgroup}
+    Gestión del directorio en la nube
+        cd-configuring.md
+        cd-messages.md
+        cd-passwords.md
+        mfa.md
+        sso.md
+        cd-users.md
 
     {: .topicgroup}
     Gestión de la experiencia de inicio de sesión
         login-widget.md
         branded.md
 
-    protecting-resources.md
-
     {: .topicgroup}
     Almacenamiento y acceso a perfiles de usuario
         user-profile.md
         predefined.md
         custom-attributes.md
-    protecting-resources-local.md
+        pre-sign-in.md
+
+    {: .topicgroup}
+    Gestión de señales
+        tokens-understand.md
+        customizing-tokens.md
+        tokens.md
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
-    {: .topicgroup}
-    API
-        [Autorización](https://appid-oauth.ng.bluemix.net/swagger-ui/#/Authorization_Server_V3)
-        [Gestión](https://appid-management.ng.bluemix.net/swagger-ui/)
-        [Perfiles](https://appid-profiles.ng.bluemix.net/swagger-ui/index.html)
+    [API de App ID](https://us-south.appid.cloud.ibm.com/swagger-ui/#/)
 
     {: .topicgroup}
     SDK
@@ -47,9 +74,10 @@ IBM Cloud App ID
         [SDK de cliente de Swift de iOS](https://github.com/ibm-cloud-security/appid-clientsdk-swift)
         [SDK de servidor de Node.js](https://github.com/ibm-cloud-security/appid-serversdk-nodejs)
         [SDK de servidor de Swift](https://github.com/ibm-cloud-security/appid-serversdk-swift)
-    relatedlinks.md
+
     iam.md
     api-reference.md
+    at-events.md
     {: .navgroup-end}
 
     {: .navgroup id="help"}
@@ -60,3 +88,4 @@ IBM Cloud App ID
         ts_index.md
         ts_saml.md
     {: .navgroup-end}
+    

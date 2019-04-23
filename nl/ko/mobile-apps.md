@@ -1,49 +1,59 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-11-14"
+  years: 2017, 2019
+lastupdated: "2019-03-27"
+
+keywords: authentication, authorization, identity, app security, secure, development, mobile, android, iOS
+
+subcollection: appid
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
-{:pre: .pre}
-{:tip: .tip}
 {:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:codeblock: .codeblock}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 # 모바일 앱
-{: #adding-mobile}
+{: #mobile-apps}
 
 {{site.data.keyword.appid_full}}를 사용하여 신속하게 원시 또는 하이브리드 모바일 앱에 대한 인증 계층을 생성할 수 있습니다.
 {: shortdesc}
 
 ## 플로우에 대한 정보
-{: #understanding}
+{: #understanding-mobile}
 
-**어떤 경우에 이 플로우가 유용합니까?**
+모바일 플로우는 사용자의 디바이스에 설치할 앱(원시 애플리케이션)을 개발하는 경우에 유용합니다. 이 플로우를 사용하여 전체 디바이스에서 개인화된 사용자 환경(experience)을 제공하기 위해 앱에서 안전하게 사용자를 인증할 수 있습니다.
 
-모바일 플로우는 사용자의 디바이스에 설치할 앱(원시 애플리케이션)을 개발하는 경우에 유용합니다. 이 플로우를 사용하여 전체 디바이스에서 개인화된 사용자 경험을 제공하기 위해 앱에서 안전하게 사용자를 인증할 수 있습니다.
-
-**이 플로우의 기술적 기반은 무엇입니까?**
+### 이 플로우의 기술적 기반은 무엇입니까?
+{: #mobile-technical-flow}
 
 원시 애플리케이션은 사용자의 디바이스에 직접 설치되기 때문에 서드파티에서 상대적으로 쉽게 개인 사용자 정보 및 애플리케이션 인증 정보를 추출할 수 있습니다. 기본적으로 이러한 유형의 애플리케이션은 글로벌 인증 정보 또는 사용자 새로 고치기 토큰을 저장할 수 없기 때문에 신뢰할 수 없는 클라이언트로 간주됩니다. 따라서 신뢰할 수 없는 클라이언트를 사용하려면 사용자가 액세스 토큰이 만료될 때마다 해당 인증 정보를 입력해야 합니다.
 
-애플리케이션을 신뢰할 수 있는 클라이언트로 변환하기 위해 {{site.data.keyword.appid_short}}는 [동적 클라이언트 등록](https://tools.ietf.org/html/rfc7591)을 사용합니다. 애플리케이션 인스턴스는 사용자 인증을 시작하기 전에 먼저 {{site.data.keyword.appid_short}}에 OAuth2 클라이언트로 등록됩니다. 클라이언트가 등록되면 애플리케이션에서 디지털 방식으로 서명할 수 있으며 {{site.data.keyword.appid_short}}를 통해 요청에 권한을 부여하기 위해 사용되는 설치 특정 클라이언트 ID를 수신합니다. {{site.data.keyword.appid_short}}의 경우 애플리케이션의 해당 공개 키를 저장하기 때문에 애플리케이션이 기밀 클라이언트로 표시될 수 있도록 허용하는 요청 서명을 유효성 검증할 수 있습니다. 이 프로세스는 애플리케이션에서 인증 정보가 무기한 노출되는 위험을 최소화하고 자동 토큰 새로 고치기를 허용하여 사용자 경험을 개선합니다.
+애플리케이션을 신뢰할 수 있는 클라이언트로 변환하기 위해 {{site.data.keyword.appid_short}}는 [동적 클라이언트 등록](https://tools.ietf.org/html/rfc7591)을 사용합니다. 애플리케이션 인스턴스는 사용자 인증을 시작하기 전에 먼저 {{site.data.keyword.appid_short}}에 OAuth2 클라이언트로 등록됩니다. 클라이언트가 등록되면 애플리케이션에서 디지털 방식으로 서명할 수 있으며 {{site.data.keyword.appid_short}}를 통해 요청에 권한을 부여하기 위해 사용되는 설치 특정 클라이언트 ID를 수신합니다. {{site.data.keyword.appid_short}}의 경우 애플리케이션의 해당 공개 키를 저장하기 때문에 애플리케이션이 기밀 클라이언트로 표시될 수 있도록 허용하는 요청 서명을 유효성 검증할 수 있습니다. 이 프로세스는 애플리케이션에서 인증 정보가 무기한 노출되는 위험을 최소화하고 자동 토큰 새로 고치기를 허용하여 사용자 환경을 크게 개선합니다.
 
 등록 후에는 사용자가 OAuth2 `권한 코드` 또는 `리소스 소유자 비밀번호` [권한 부여](https://tools.ietf.org/html/rfc6749#section-1.3) 플로우를 사용하여 사용자를 인증합니다.
 
-**이 플로우의 형태는 어떻습니까?**
 
-![{{site.data.keyword.appid_short_notm}} 앱 대 앱 플로우](images/mobile-flow.png)
-
-**동적 클라이언트 등록**
+### 동적 클라이언트 등록
+{: #mobile-dynamic}
 
 1. 사용자는 {{site.data.keyword.appid_short}} SDK에 대한 클라이언트 애플리케이션의 요청을 트리거하는 조치를 수행합니다.
 2. 앱이 아직 모바일 클라이언트로 등록되지 않은 경우 SDK에서 동적 등록 플로우를 시작합니다.
 3. 정상적으로 등록되면 {{site.data.keyword.appid_short}}에서 설치 특정 클라이언트 ID를 리턴합니다.
 
-**권한 부여 플로우**
+### 권한 플로우
+{: #mobile-auth-flow}
+
+![{{site.data.keyword.appid_short_notm}} 앱 대 앱 플로우](images/mobile-flow.png)
 
 1. {{site.data.keyword.appid_short}} SDK는 {{site.data.keyword.appid_short_notm}} `/authorization` 엔드포인트를 사용하여 권한 부여 프로세스를 시작합니다.
 2. 로그인 위젯이 사용자에게 표시됩니다.
@@ -53,7 +63,7 @@ lastupdated: "2018-11-14"
 
 
 ## {{site.data.keyword.appid_short}} SDK를 사용하여 모바일 앱 구성
-{: #configuring}
+{: #configuring-mobile}
 
 SDK를 사용하여 {{site.data.keyword.appid_short}}를 시작하십시오.
 {: shortdesc}
@@ -66,11 +76,11 @@ SDK를 사용하여 {{site.data.keyword.appid_short}}를 시작하십시오.
 
 * 인스턴스의 테넌트 ID. 이 ID는 서비스 대시보드의 **서비스 인증 정보** 탭에서 찾을 수 있습니다.
 
-* 인스턴스의 배치 {{site.data.keyword.Bluemix}} 지역. 콘솔을 보고 지역을 찾을 수 있습니다.
+* 인스턴스의 배치 {{site.data.keyword.cloud_notm}} 지역. 콘솔을 보고 지역을 찾을 수 있습니다.
 
-  <table><caption> 표 1. {{site.data.keyword.Bluemix_notm}} 지역 및 해당 SDK 값</caption>
+  <table><caption> 표 1. {{site.data.keyword.cloud_notm}} 지역 및 해당 SDK 값</caption>
   <tr>
-    <th>{{site.data.keyword.Bluemix}} 지역</th>
+    <th>{{site.data.keyword.cloud_notm}} 지역</th>
     <th>SDK 값</th>
   </tr>
   <tr>
@@ -92,7 +102,7 @@ SDK를 사용하여 {{site.data.keyword.appid_short}}를 시작하십시오.
 </table>
 
 ## Android SDK로 인증
-{: #android-setup}
+{: #mobile-android}
 
 **시작하기 전에**
 
@@ -104,9 +114,9 @@ SDK를 사용하여 {{site.data.keyword.appid_short}}를 시작하십시오.
   * Android SDK 플랫폼 도구 27.0.1+
   * Android 빌드 도구 버전 27.0.0+
 
-</br>
 
-**SDK 설치**
+### SDK 설치
+{: #mobile-android-install}
 
 1. Android Studio 프로젝트를 작성하거나 기존 프로젝트를 여십시오.
 
@@ -147,12 +157,13 @@ SDK를 사용하여 {{site.data.keyword.appid_short}}를 시작하십시오.
 
 </br>
 
-**SDK 초기화**
+### SDK 초기화
+{: #mobile-android-initialize}
 
 
 1. SDK를 구성하기 위한 초기화 메소드에 컨텍스트, 테넌트 ID 및 지역 매개변수를 전달하십시오.
 
-    필수는 아니지만 일반적으로 초기화 코드를 넣는 위치는 Android 애플리케이션에서 기본 활동의 onCreate 메소드에 있습니다.
+    필수는 아니지만 일반적으로 초기화 코드를 배치하는 위치는 Android 애플리케이션에서 기본 활동의 `onCreate` 메소드에 있습니다.
     {: tip}
 
     ```java
@@ -164,7 +175,7 @@ SDK를 사용하여 {{site.data.keyword.appid_short}}를 시작하십시오.
 </br>
 
 ## iOS Swift SDK로 인증
-{: #ios-setup}
+{: #mobile-ios}
 
 {{site.data.keyword.appid_short}} 클라이언트 SDK를 사용하여 모바일 애플리케이션을 보호하십시오.
 {:shortdesc}
@@ -180,7 +191,8 @@ SDK를 사용하여 {{site.data.keyword.appid_short}}를 시작하십시오.
 
 </br>
 
-**SDK 설치**
+### SDK 설치
+{: #mobile-ios-install}
 
 {{site.data.keyword.appid_short_notm}} 클라이언트 SDK는 Swift 및 Objective-C Cocoa 프로젝트의 종속성 관리자인 CocoaPods를 사용하여 분배됩니다. CocoaPods는 아티팩트를 다운로드하고 프로젝트에서 아티팩트를 사용할 수 있게 합니다.
 
@@ -218,7 +230,8 @@ SDK를 사용하여 {{site.data.keyword.appid_short}}를 시작하십시오.
 
 </br>
 
-**SDK 초기화**
+### SDK 초기화
+{: #mobile-ios-initialize}
 
 1. initialize 메소드에 테넌트 ID 및 지역 매개변수를 전달하여 클라이언트 SDK를 초기화하십시오.
 
@@ -246,17 +259,16 @@ SDK를 사용하여 {{site.data.keyword.appid_short}}를 시작하십시오.
   ```
   {: codeblock}
 
-</br>
-</br>
 
 ## 보호된 API에 액세스
-{: #accessing-protected-apis}
+{: #mobile-accessing-apis}
 
 로그인 플로우가 정상적으로 완료되면 액세스 및 ID 토큰을 사용하여 SDK를 사용하는 보호된 백엔드 리소스 또는 원하는 네트워크 라이브러리를 호출할 수 있습니다.
 
 </br>
 
-### Swift SDK를 사용하여 보호된 API에 액세스
+### Swift SDK 사용
+{: #mobile-access-api-swift}
 
 1.  보호된 리소스 요청을 호출하려는 파일에 다음 가져오기를 추가하십시오.
 
@@ -287,7 +299,8 @@ SDK를 사용하여 {{site.data.keyword.appid_short}}를 시작하십시오.
 
 </br>
 
-### Android SDK를 사용하여 보호된 API에 액세스
+### Android SDK 사용
+{: #mobile-access-api-android}
 
 1. 보호된 리소스 요청을 호출하려는 파일에 다음 가져오기를 추가하십시오.
 
@@ -329,9 +342,10 @@ SDK를 사용하여 {{site.data.keyword.appid_short}}를 시작하십시오.
 
 </br>
 
-### SDK를 사용하지 않고 보호된 API에 액세스
+### SDK 없음
+{: #mobile-access-api-nosdk}
 
-원하는 라이브러리를 사용하여 `권한` 요청 헤더에서 `전달자` 인증 스킴을 사용하여 액세스 토큰을 전송하도록 설정하십시오.
+원하는 라이브러리를 사용하여 `Authorization` 요청 헤더에서 `Bearer` 인증 스킴을 사용하여 액세스 토큰을 전송하도록 설정하십시오.
 
 요청 형식 예제:
 
@@ -345,12 +359,12 @@ SDK를 사용하여 {{site.data.keyword.appid_short}}를 시작하십시오.
 </br>
 </br>
 
-## 다음 단계
-{: #next}
+## Next steps
+{: #mobile-next}
 
 애플리케이션에 {{site.data.keyword.appid_short}}가 설치되면 사용자 인증을 시작할 준비가 거의 된 것입니다! 이제 다음 활동 중 하나를 수행하십시오.
 
-* [ID 제공자] 구성(/docs/services/appid/identity-providers.html)
-* [로그인 위젯] 사용자 정의 및 구성(/docs/services/appid/login-widget.html)
+* [ID 제공자](/docs/services/appid?topic=appid-social) 구성
+* [로그인 위젯](/docs/services/appid?topic=appid-login-widget) 사용자 정의 및 구성
 * <a href="https://github.com/ibm-cloud-security/appid-clientsdk-android" target="_blank">Android SDK<img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>에 대한 정보 확인
 * <a href="https://github.com/ibm-cloud-security/appid-clientsdk-swift" target="_blank">iOS SDK<img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>에 대한 정보 확인

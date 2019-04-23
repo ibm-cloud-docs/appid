@@ -1,54 +1,112 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-10-18"
+  years: 2017, 2019
+lastupdated: "2019-04-04"
+
+keywords: authentication, authorization, identity, app security, secure, custom, service provider, identity provider, enterprise, assertions
+
+subcollection: appid
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 # SAML
 {: #enterprise}
 
-
 SAML(Security Assertion Markup Language)은 사용자 ID를 어설션하는 ID 제공자와 사용자 ID 정보를 이용하는 서비스 제공자 간의 인증 및 권한 데이터를 교환하기 위한 개방형 표준입니다.
 {: shortdesc}
 
-{{site.data.keyword.appid_short_notm}}는 서비스 제공자로서 작동하며 Active Directory Federation Services 등의 서드파티 제공자에 대한 싱글 사인온(SSO) 로그인을 시작합니다. <a href="http://saml.xml.org/saml-specifications" target="blank">SAML <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a> 프로토콜은 다양한 프로파일 및 바인드 옵션을 지원합니다. {{site.data.keyword.appid_short_notm}}는 HTTP POST 바인딩과 함께 웹 브라우저 SSO 프로파일을 지원합니다.
+{{site.data.keyword.appid_short_notm}}는 서비스 제공자로 작동하며 Active Directory Federation Services 등의 서드파티 제공자에 대한 싱글 사인온(SSO) 로그인을 시작합니다. <a href="http://saml.xml.org/saml-specifications" target="blank">SAML <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a> 프로토콜은 다양한 프로파일 및 바인드 옵션을 지원합니다. {{site.data.keyword.appid_short_notm}}는 HTTP POST 바인딩과 함께 웹 브라우저 SSO 프로파일을 지원합니다.
 
 특정 SAML ID 제공자를 사용하는 방법에 대한 단계는 [Ping One ![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘")](https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-ping-one/), [Azure Active Directory ![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘")](https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-azure-active-directory/) 또는 [Active Directory Federation Service ![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘")](https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-active-directory-federation-service/)를 통한 {{site.data.keyword.appid_short_notm}} 설정에 대한 블로그 게시물을 확인하십시오.
 {: tip}
 
 
-## SAML 어설션 및 ID 토큰 클레임
 
-SAML 어설션은 하나 이상의 명령문이 포함된 정보의 패키지입니다. 어설션에는 권한 부여 의사결정이 포함되어 있으며, 사용자에 대한 ID 정보가 포함될 수 있습니다.
+## 어설션에 대한 정보
+{: #saml-assertions}
 
-사용자가 ID 제공자로 사인인하는 경우에 해당 제공자는 어설션을 {{site.data.keyword.appid_short_notm}}에 전송합니다. {{site.data.keyword.appid_short_notm}}는 SAML 어설션에서 리턴된 사용자 ID 정보를 OIDC 토큰 청구로서 앱에 전파합니다. SAML 속성은 ID 토큰에 추가되는 다음의 OIDC 청구 중 하나에 대응되어야 합니다.
+SAML 어설션은 [사용자 속성](/docs/services/appid?topic=appid-user-profile#user-profile)과 유사합니다. SAML 어설션은 사용자가 앱에 정상적으로 로그인할 때 ID 제공자가 {{site.data.keyword.appid_short_notm}}로 리턴하는 사용자에 대한 정보의 내역서 또는 일부입니다. 사용하는 앱 구성 및 ID 제공자에 따라 이 정보에 사용자 이름, 이메일 또는 지정하도록 요청한 다른 필드가 포함될 수 있습니다.
+{: shortdesc}
 
-다음의 청구가 추가될 수 있습니다.
-* `name`
-* `email`
-* `locale`
-* `picture`
+어설션이 {{site.data.keyword.appid_short_notm}}로 리턴되면 서비스에서 사용자 ID를 연합합니다. SAML 어설션이 다음 OIDC 청구 중 하나에 해당하는 경우 자동으로 ID 토큰에 추가됩니다. 제공자 측에서 해당 값 중 하나 이상이 변경되는 경우 사용자가 다시 로그인한 후에만 새 값을 사용할 수 있습니다.
 
-표준 이름에 대응되지 않는 나머지 SAML 속성 요소는 무시됩니다. 제공자 측에서 해당 값 중 하나 이상이 변경된 경우 사용자가 다시 로그인해야만 새 값을 사용할 수 있습니다.
+ * `name`
+ * `email`
+ * `locale`
+ * `picture`
+
+표준 이름에 해당되지 않는 어설션은 기본적으로 무시되지만 SAML 제공자가 다른 어설션을 리턴하는 경우 사용자가 로그인할 때 해당 정보를 얻을 수 있습니다. 사용할 어설션의 배열을 작성하여 [토큰에 정보를 삽입](/docs/services/appid?topic=appid-customizing-tokens#customizing-tokens)할 수 있습니다. 하지만 토큰에 필요한 정보보다 더 많은 정보를 추가하지 않도록 하십시오. 토큰은 일반적으로 http 헤더로 전송되며 헤더에는 크기 제한이 있습니다.
+{: tip}
+
+### {{site.data.keyword.appid_short_notm}}가 SAML 어설션의 형태를 어떻게 예상합니까?
+{: #saml-example}
+
+서비스는 SAML 어설션의 형태가 다음 예제와 유사하다고 예상합니다.
+
+```
+<samlp:Response xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol" ID="s2202bbbbafa9d270d1c15990b738f4ab36139d463" InResponseTo="_e4a78780-35da-012e-8ea7-0050569200d8" Version="2.0" IssueInstant="2011-03-21T11:22:02Z" Destination="https://example.example.com/">
+  <saml:Issuer xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion">idp_entityId</saml:Issuer>
+  <samlp:Status xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
+    <samlp:StatusCode  xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"Value="urn:oasis:names:tc:SAML:2.0:status:Success"/>
+  </samlp:Status>
+  <saml:Assertion xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="2.0" ID="pfx539c9774-de5c-5f52-0c3f-b1c2e2697a89" IssueInstant="2018-01-29T13:02:58Z" xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
+    <saml:Issuer>idp_entityId</saml:Issuer>
+    <ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+      <ds:SignedInfo>
+        <ds:CanonicalizationMethod Algorithm="one_of_supported_algo"/>
+        <ds:SignatureMethod Algorithm="one_of_supported_algo"/>
+        <ds:Reference URI="#pfx539c9774-de5c-5f52-0c3f-b1c2e2697a89">
+          <ds:Transforms>
+            <ds:Transform Algorithm="one_of_supported_algo"/>
+            <ds:Transform Algorithm="one_of_supported_algo"/>
+          </ds:Transforms>
+          <ds:DigestMethod Algorithm="one_of_supported_algo"/>
+          <ds:DigestValue>huywDPPfOEGyyzE7d5hjOG97p7FDdGrjoSfes6RB19g=</ds:DigestValue>
+        </ds:Reference>
+      </ds:SignedInfo>
+ <ds:SignatureValue>BAwNZFgWF2oxD1ux0WPfeHnzL+IWYqGhkM9DD28nI9v8XtPN8tqmIb5y4bomaYknmNpWYn7TgNO2Rn/XOq+N9fTZXO2RybaC49iF+zWibRIcNwFKCCpDL6H6jA5eqJX2YKBR+K6Yt2JPoUIRLmqdgm2lMr4Nwq1KYcSzQ/yoV5W0SN/V5t8EfctFoaXVPdtfHVXkwqHeufo+L4gobFt9NRTzXB0SQEClA1L8hQ+/LhY4l46k1D0c34iWjVLZr+ecQyubf7rekOG/R7DjWCFMTke822dR+eJTPWFsHGSPWCDDHFYqB4QMinTvUnsngjY3AssPqIOjeUxjL3p+GXn8IQ==</ds:SignatureValue>
+    </ds:Signature>
+    <saml:Subject>
+      <saml:NameID Format="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress">JohnDoe@gmail.com</saml:NameID>
+    </saml:Subject>
+    <saml:Conditions NotBefore="2018-01-29T12:59:58Z" NotOnOrAfter="2018-01-29T13:05:58Z">
+    </saml:Conditions>
+</samlp:Response>
+```
+{: screen}
 
 
-예제가 필요하십니까? <a href="https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-azure-active-directory/" target="_blank">Azure Active Directory를 사용하여 {{site.data.keyword.appid_long}} 설정 <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a> 또는 <a href="https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-ping-one/" target="_blank">Ping One을 사용하여 {{site.data.keyword.appid_long}} 설정 <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>을 참조하십시오.
+### {{site.data.keyword.appid_short_notm}}에서 지원되는 알고리즘의 유형은 무엇입니까?
+{: #saml-signatures}
+
+{{site.data.keyword.appid_short_notm}}는 <a href="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" target="_blank">RSA-SHA256 <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a> 알고리즘을 사용하여 XML 디지털 서명을 처리합니다.
+
+
+
 
 ## ID 제공자에 메타데이터 제공
-{: #provide-idp}
+{: #saml-provide-idp}
 
 앱을 구성하려면 SAML 호환 가능 ID 제공자에 정보를 제공해야 합니다. 정보는 신뢰 구축에 사용되는 구성 데이터도 포함된 메타데이터 XML 파일을 통해 교환됩니다.
 {: shortdesc}
 
-1. {{site.data.keyword.appid_short_notm}} 대시보드의 **관리** 탭에서 **SAML 2.0**을 **켜기**로 설정하십시오. 그리고 **편집**을 클릭하여 SAML 설정을 구성하십시오.
+ID 제공자로 구성한 후에는 SAML을 사용으로 설정할 수 없습니다.
+{: tip}
+
+1. {{site.data.keyword.appid_short_notm}} 대시보드의 **관리** 탭에서 **SAML** 행의 **편집**을 클릭하여 설정을 구성하십시오.
 2. **SAML 메타데이터 파일 다운로드**를 클릭하십시오. ID 제공자는 파일에서 다음 정보를 예상합니다.
   <table>
     <tr>
@@ -77,20 +135,23 @@ SAML 어설션은 하나 이상의 명령문이 포함된 정보의 패키지입
     </tr>
   </table>
 
-3. ID 제공자에 데이터를 제공하십시오. ID 제공자가 메타데이터 파일의 업로드를 지원하면 이를 수행할 수 있습니다. 그렇지 않으면 수동으로 특성을 구성하십시오. 모든 ID 제공자가 동일한 특성을 사용하지는 않으므로, 이를 모두 사용하지 않아도 상관 없습니다.
+3. ID 제공자에 데이터를 제공하십시오. ID 제공자가 메타데이터 파일의 업로드를 지원하면 이를 수행할 수 있습니다. 그렇지 않으면 수동으로 특성을 구성하십시오. 모든 ID 제공자가 동일한 특성을 사용하지는 않으므로 모든 ID 제공자를 사용하지 않을 수도 있습니다.
 
-특성 이름은 ID 제공자 간에 서로 다를 수 있습니다.
-{: tip}
+  특성 이름은 ID 제공자 간에 서로 다를 수 있습니다.
+  {: tip}
+
+4. **SAML 2.0 연합**을 **사용**으로 전환하십시오.
 
 ## {{site.data.keyword.appid_short_notm}}에 메타데이터 제공
-{: #provide-appid}
+{: #saml-provide-appid}
 
-ID 제공자로부터 데이터를 가져와서 {{site.data.keyword.appid_short_notm}}에 제공하십시오.
+ID 제공자로부터 데이터를 받아서 {{site.data.keyword.appid_short_notm}}에 제공할 수 있습니다.
 {: shortdesc}
 
-**GUI를 사용하여 메타데이터 제공**
+### GUI를 사용하여 메타데이터 제공
+{: #saml-provide-gui}
 
-1. {{site.data.keyword.appid_short_notm}} 대시보드의 **SAML 2.0** 탭으로 이동하십시오. **SAML IdP의 메타데이터 제공** 섹션에서 ID 제공자로부터 가져온 다음의 메타데이터를 입력하십시오.
+1. {{site.data.keyword.appid_short_notm}} 대시보드의 **SAML 2.0** 탭으로 이동하십시오. **SAML IdP의 메타데이터 제공** 섹션에 다음과 같이 ID 제공자에서 가져온 메타데이터를 입력하십시오.
   <table>
     <tr>
       <th> 변수 </th>
@@ -116,12 +177,11 @@ ID 제공자로부터 데이터를 가져와서 {{site.data.keyword.appid_short_
 인증 컨텍스트를 설정하시겠습니까? API를 통해 해당 작업을 수행할 수 있습니다.
 {: tip}
 
-</br>
-</br>
 
-**API를 사용하여 메타데이터 제공**
+### API를 사용하여 메타데이터 제공
+{: #saml-provide-api}
 
-1. [/getSamlMetadata API 엔드포인트](https://appid-management.ng.bluemix.net/swagger-ui/#!/Config/getSamlMetadata)에 대한 GET 요청을 작성하여 SAML 메타데이터를 얻을 수 있습니다.
+1. [/getSamlMetadata API 엔드포인트](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.get_saml_idp)에 대한 GET 요청을 작성하여 SAML 메타데이터를 얻을 수 있습니다.
 
   코드 예제:
   ```
@@ -164,7 +224,7 @@ ID 제공자로부터 데이터를 가져와서 {{site.data.keyword.appid_short_
   ```
   {: screen}
 
-2. [/set_saml_idp API 엔드포인트](https://appid-management.ng.bluemix.net/swagger-ui/#!/Identity_Providers/set_saml_idp)에 대한 POST 요청을 구성하십시오.
+2. [/set_saml_idp API 엔드포인트](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.set_saml_idp)에 대한 POST 요청을 구성하십시오.
 
   1. 다음 메타데이터 예제에서 사용자의 고유한 정보로 변수를 대체하십시오.
 
@@ -271,7 +331,7 @@ ID 제공자로부터 데이터를 가져와서 {{site.data.keyword.appid_short_
 
 
 ## 구성 테스트
-{: #testing}
+{: #saml-testing}
 
 SAML ID 제공자 및 {{site.data.keyword.appid_short_notm}} 간의 구성을 테스트할 수 있습니다.
 
@@ -279,9 +339,9 @@ SAML ID 제공자 및 {{site.data.keyword.appid_short_notm}} 간의 구성을 �
 2. {{site.data.keyword.appid_short_notm}} 대시보드의 **SAML 2.0** 탭으로 이동하고 **테스트**를 클릭하십시오. 새 탭이 열립니다.
 3. ID 제공자가 이미 인증한 사용자로 로그인하십시오.
 4. 양식이 완료되면 다른 페이지로 경로 재지정됩니다.
-  * 성공적 인증: {{site.data.keyword.appid_short_notm}} 및 ID 제공자 간의 연결이 정상적으로 작동 중입니다. 올바른 [액세스 및 ID 토큰](/docs/services/appid/authorization.html#tokens)이 페이지에 표시됩니다.
+  * 성공적 인증: {{site.data.keyword.appid_short_notm}} 및 ID 제공자 간의 연결이 정상적으로 작동 중입니다. 올바른 [액세스 및 ID 토큰](/docs/services/appid?topic=appid-tokens#tokens)이 페이지에 표시됩니다.
   * 실패한 인증: 연결이 끊겼습니다. 오류 및 SAML 응답 XML 파일이 페이지에 표시됩니다.
 
 
-문제점이 발견되었습니까? [ID 제공자 구성의 문제점 해결](/docs/services/appid/ts_saml.html)을 참조하십시오.
+문제점이 발견되었습니까? [ID 제공자 구성의 문제점 해결](/docs/services/appid?topic=appid-troubleshooting-idp#troubleshooting-idp)을 참조하십시오.
 {: tip}

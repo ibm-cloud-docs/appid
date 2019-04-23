@@ -1,48 +1,101 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-01"
+  years: 2017, 2019
+lastupdated: "2019-04-11"
+
+keywords: authentication, authorization, identity, app security, secure
+
+subcollection: appid
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:codeblock: .codeblock}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
+{:faq: data-hd-content-type='faq'}
 
 
 # FAQ
+{: #faq}
 
 この FAQ には、{{site.data.keyword.appid_full}} サービスに関する一般的な質問に対する答えがあります。
 {: shortdesc}
 
 
 ## {{site.data.keyword.appid_short_notm}} の料金はどのように計算しますか?
-{: #pricing}
+{: #faq-pricing}
+{: faq}
 
 {{site.data.keyword.appid_short_notm}} では、使用するリソースが増えるにつれて、支払いは少なくなります。
 {: shortdesc}
 
-累進階層方式のプランは、認証イベントの数と許可ユーザーの数の 2 つの部分で構成されています。 この 2 つの部分の合計に基づいて、毎月課金されます。 合計額は、数量にその階層の単価を乗算して計算する、各レベルの使用量の累積料金です。
+累進階層方式のプランは、認証イベントの数と、標準セキュリティーおよび拡張セキュリティーの両方と、許可ユーザーの数の 3 つの部分で構成されています。 この 2 つの部分の合計に基づいて、毎月課金されます。 合計額は、数量にその階層の単価を乗算して計算する、各レベルの使用量の累積料金です。
+
+拡張セキュリティー・イベントを除いて、最初の 1000 個の認証イベントと最初の 1000 人の許可ユーザーは毎月無料です。すべての拡張セキュリティー・イベントで追加料金が発生します。
 
 ### 認証イベント
+{: #faq-authentication}
 
-認証イベントは、正規または匿名の新しいアクセス・トークンが発行されたときに発生します。識別されたユーザーの場合、新しいアクセス・トークンはそれぞれデフォルトで 1 時間有効になります (実際のユーザー認証による場合でもリフレッシュ・トークンを介した場合でも同じです)。匿名トークンは、デフォルトで 1 カ月有効です。 トークンの期限が切れた後に保護リソースにアクセスするには、新しいトークンを作成する必要があります。 {{site.data.keyword.appid_short_notm}} ダッシュボードの**「サインイン有効期限 (Sign-in Expiration)」**ページで、{{site.data.keyword.appid_short_notm}} トークンの有効期限を更新できます。
+認証イベントは、正規または匿名の新しいアクセス・トークンが発行されたときに発生します。 トークンは、ユーザーが開始した、あるいはユーザーに代わってアプリが開始した、サインイン要求への応答として発行できます。 デフォルトでは、アクセス・トークンは 1 時間有効であり、匿名トークンは 30 日間有効です。 トークンの期限が切れた後に保護リソースにアクセスするには、新しいトークンを作成する必要があります。 サービス・ダッシュボードの**「ID プロバイダー」>「管理」>「認証設定 (Authentication Settings)」**ページで、{{site.data.keyword.appid_short_notm}} トークンの有効期限を更新できます。
 
-{{site.data.keyword.appid_short_notm}} をモバイル・アプリケーションで使用する場合、トークンは key-store または key-chain に保管され、以後のすべての要求に追加されます。トークンには、App ID Android または iOS SDK を使用してアクセスできます。{{site.data.keyword.appid_short_notm}} を Web アプリケーションで使用する場合は、トークンをアプリケーション・セッションの Cookie に保管することをお勧めします。
+#### 拡張セキュリティー・フィーチャー
 
+拡張セキュリティー・フィーチャーを利用すると、アプリケーションのセキュリティーを強化することができます。
+{: shortdesc}
+
+<table>
+  <tr>
+    <th>フィーチャー</th>
+    <th>利点</th>
+  </tr>
+  <tr>
+    <td>多要素認証</td>
+    <td>[クラウド・ディレクトリー用の多要素認証 (MFA)](/docs/services/appid?topic=appid-cd-mfa#cd-mfa) では、E メール・アドレスとパスワードの入力に加えて、E メール・アドレス宛てに送信されたワンタイム・パスコードの入力をユーザーに要求することで、ユーザーの同一性を確認します。</td>
+  </tr>
+  <tr>
+    <td>パスワード・ポリシー管理</td>
+    <td>アカウント所有者は、ユーザー・パスワードが準拠する必要がある一連のルールを構成することにより、いっそうセキュアなパスワードをクラウド・ディレクトリーで施行できます。 例として、ロックアウトまでのサインイン試行回数、有効期限、パスワード更新間隔の最短時間、パスワードを再利用できるようになるまでの入力回数があります。 使用可能なオプションの詳細なリストや、セットアップに関する情報については、[拡張パスワード管理](/docs/services/appid?topic=appid-cd-strength#cd-advanced-password)を参照してください。</td>
+  </tr>
+</table>
+
+デフォルトでは、拡張セキュリティー・フィーチャーは無効になっています。 MFA またはパスワード・ポリシー管理をオンにすると、追加料金が発生します。 すべての拡張フィーチャーを無効にすると、アカウントは低コストのポリシーに戻ります。 例えば、10,000 個のアクセス・トークンを取得したとします。 その後、パスワード・ポリシー管理をオンにし、さらに 10,000 個を取得しました。この場合、20,000 個の認証イベントと 10,000 個の拡張セキュリティー・イベントに対して支払うことになります。
+
+これらのフィーチャーは、2018 年 3 月 15 日より後に作成された、累進階層方式の価格プランのインスタンスでのみ使用できます。
+{: note}
 
 ### 許可ユーザー
+{: #faq-authorized}
 
-許可ユーザーとは、直接的または間接的にサービスにログインする固有のユーザーのことです。 各 ID プロバイダーから 1 人の新しいユーザー (匿名ユーザーを含む) がログインするたびに、1 人分の許可ユーザー料金が課金されます。 例えば、あるユーザーが Facebook でログインし、その後 Google を使用してログインした場合には、それらは 2 つの別個の許可ユーザーと見なされます。
+許可ユーザーとは、直接的または間接的にサービスにサインインする固有のユーザー (匿名ユーザーを含む) のことです。 1 人の新しいユーザー (匿名ユーザーを含む) がアプリケーションにサインインするたびに、1 人分の許可ユーザー料金が課金されます。 例えば、あるユーザーが Facebook でサインインし、その後 Google を使用してサインインした場合には、それらは 2 人の別個の許可ユーザーと見なされます。
 
-累進階層方式の価格設定について詳しくは、[{{site.data.keyword.Bluemix_notm}} の価格設定の資料](/docs/billing-usage/how_charged.html#services)を参照してください。
+最新の料金情報については、[{{site.data.keyword.cloud_notm}} カタログ](https://cloud.ibm.com/catalog/services/app-id)の {{site.data.keyword.appid_short_notm}} のセクションにある**「見積もりに追加」**をクリックすることにより、コスト見積もりを作成できます。
+{: tip}
 
-</br>
+
+
+## リダイレクト URI をホワイトリストに登録する必要があるのはなぜですか?
+{: #faq-redirect}
+{: faq}
+
+リダイレクト URI は、アプリのコールバック・エンドポイントです。 フィッシング攻撃を防ぐために、{{site.data.keyword.appid_short_notm}} はリダイレクト URI のホワイトリストに照らして URI を検証します。 フィッシングが発生すると、攻撃者がユーザーのトークンへのアクセス権限を取得してしまう恐れがあります。 リダイレクト URI について詳しくは、[リダイレクト URI の追加](/docs/services/appid?topic=appid-managing-idp#add-redirect-uri)を参照してください。
+
+URL には照会パラメーターは含めないでください。 それらは検証プロセスで無視されます。 URL 例: `http://host:[port]/path`
+{: tip}
+
 
 
 ## 暗号化は {{site.data.keyword.appid_short_notm}} でどのように機能しますか?
-{: #encryption}
+{: #faq-encryption}
+{: faq}
 
 暗号化に関するよくある質問の答えは、以下の表を参照してください。
 
@@ -53,7 +106,7 @@ lastupdated: "2018-08-01"
   <tbody>
     <tr>
       <td>暗号化を使用のはなぜですか?</td>
-      <td>このサービスでは、お客様の保存データの暗号化を行います。</td>
+      <td>ユーザー情報を保護する 1 つの方法は、保存されている顧客データを暗号化することです。当該サービスでは、テナントごとの鍵を使用して、保存されている顧客データを暗号化します。</td>
     </tr>
     <tr>
       <td>独自のアルゴリズムを作成したのですか？ どのアルゴリズムをコードで使用しますか?</td>
@@ -61,11 +114,11 @@ lastupdated: "2018-08-01"
     </tr>
     <tr>
       <td>公開済みまたはオープン・ソースの暗号化モジュールまたはプロバイダーを使用していますか? 暗号化機能を公開したことがありますか? </td>
-      <td>このサービスでは <code>javax.crypto</code> Java ライブラリーを使用しますが、暗号化機能を公開したことはありません。</td>
+      <td>このサービスでは <code>javax.crypto</code> Java ライブラリーを使用しますが、暗号化機能を公開することはありません。</td>
     </tr>
     <tr>
       <td>鍵を格納するには、どのようにすればよいですか?</td>
-      <td>鍵が生成されると、それぞれの領域に固有のマスター鍵を使用して暗号化された後に、ローカルに保管されます。マスター鍵は {{site.data.keyword.keymanagementserviceshort}} に格納されます。</td>
+      <td>鍵が生成されると、地域ごとに固有のマスター鍵を使用して暗号化された後に、ローカルに格納されます。 マスター鍵は {{site.data.keyword.keymanagementserviceshort}} に格納されます。 ストレージ・レベルおよびミドルウェア・レベルでは、サービス・レベルの暗号化となり、すべての顧客に対して 1 つの鍵が存在します。 アプリ・レベルでは、顧客ごとに独自の暗号鍵が存在します。</td>
     </tr>
     <tr>
       <td>使用する鍵の強度は何ですか?</td>
@@ -78,76 +131,3 @@ lastupdated: "2018-08-01"
   </tbody>
 </table>
 
-</br>
-
-## {{site.data.keyword.appid_short_notm}} ではどのような SAML アサーションが求められますか?
-{: #saml-example}
-
-このサービスでは、次の例のような SAML アサーションが求めれます。
-
-```
-<samlp:Response xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol" ID="s2202bbbbafa9d270d1c15990b738f4ab36139d463" InResponseTo="_e4a78780-35da-012e-8ea7-0050569200d8" Version="2.0" IssueInstant="2011-03-21T11:22:02Z" Destination="https://example.example.com/">
-  <saml:Issuer xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion">idp_entityId</saml:Issuer>
-  <samlp:Status xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
-    <samlp:StatusCode  xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"Value="urn:oasis:names:tc:SAML:2.0:status:Success"/>
-  </samlp:Status>
-  <saml:Assertion xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="2.0" ID="pfx539c9774-de5c-5f52-0c3f-b1c2e2697a89" IssueInstant="2018-01-29T13:02:58Z" xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
-    <saml:Issuer>idp_entityId</saml:Issuer>
-    <ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-      <ds:SignedInfo>
-        <ds:CanonicalizationMethod Algorithm="one_of_supported_algo"/>
-        <ds:SignatureMethod Algorithm="one_of_supported_algo"/>
-        <ds:Reference URI="#pfx539c9774-de5c-5f52-0c3f-b1c2e2697a89">
-          <ds:Transforms>
-            <ds:Transform Algorithm="one_of_supported_algo"/>
-            <ds:Transform Algorithm="one_of_supported_algo"/>
-          </ds:Transforms>
-          <ds:DigestMethod Algorithm="one_of_supported_algo"/>
-          <ds:DigestValue>huywDPPfOEGyyzE7d5hjOG97p7FDdGrjoSfes6RB19g=</ds:DigestValue>
-        </ds:Reference>
-      </ds:SignedInfo>
- <ds:SignatureValue>BAwNZFgWF2oxD1ux0WPfeHnzL+IWYqGhkM9DD28nI9v8XtPN8tqmIb5y4bomaYknmNpWYn7TgNO2Rn/XOq+N9fTZXO2RybaC49iF+zWibRIcNwFKCCpDL6H6jA5eqJX2YKBR+K6Yt2JPoUIRLmqdgm2lMr4Nwq1KYcSzQ/yoV5W0SN/V5t8EfctFoaXVPdtfHVXkwqHeufo+L4gobFt9NRTzXB0SQEClA1L8hQ+/LhY4l46k1D0c34iWjVLZr+ecQyubf7rekOG/R7DjWCFMTke822dR+eJTPWFsHGSPWCDDHFYqB4QMinTvUnsngjY3AssPqIOjeUxjL3p+GXn8IQ==</ds:SignatureValue>
-    </ds:Signature>
-    <saml:Subject>
-      <saml:NameID Format="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress">JohnDoe@gmail.com</saml:NameID>
-    </saml:Subject>
-    <saml:Conditions NotBefore="2018-01-29T12:59:58Z" NotOnOrAfter="2018-01-29T13:05:58Z">
-    </saml:Conditions>
-</samlp:Response>
-```
-{: screen}
-
-</br>
-
-## SAML 署名ではどのようなタイプのアルゴリズムがサポートされていますか?
-{: #saml-signatures}
-
-以下のいずれかのアルゴリズムを使用して XML デジタル署名を処理できます。
-
-<table>
-  <tr>
-    <th> アルゴリズムのタイプ </th>
-    <th> アルゴリズムのオプション </th>
-  </tr>
-  <tr>
-    <td>正規化および変換アルゴリズム (コメントあり/なし)</td>
-    <td><ul><li><a href="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" target="_blank">正規化 <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a></li>
-    <li><a href="http://www.w3.org/2001/10/xml-exc-c14n#" target="_blank">排他的正規化 (コメントあり/なし) <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a></li>
-    <li><a href=" http://www.w3.org/2000/09/xmldsig#enveloped-signature" target="_blank">エンベロープ署名変換 <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a></li></ul></td>
-  </tr>
-  <tr>
-    <td>ハッシュ・アルゴリズム</td>
-    <td><ul><li><a href="http://www.w3.org/2000/09/xmldsig#sha1" target="_blank">SHA1 ダイジェスト <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a></li>
-    <li><a href="http://www.w3.org/2001/04/xmlenc#sha256" target="_blank">SHA256 ダイジェスト <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a></li>
-    <li><a href="http://www.w3.org/2001/04/xmlenc#sha512" target="_blank">SHA512 ダイジェスト <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a></li></ul></td>
-  </tr>
-  <tr>
-    <td>署名アルゴリズム</td>
-    <td><ul><li><a href="http://www.w3.org/2000/09/xmldsig#rsa-sha1" target="_blank">RSA-SHA1 <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a></li>
-    <li><a href="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" target="_blank">RSA-SHA256 <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a></li>
-    <li><a href="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512" target="_blank">RSA-SHA512 <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a></li>
-    <li><a href="http://www.w3.org/2000/09/xmldsig#hmac-sha1" target="_blank">HMAC-SHA1 <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a></li></ul></td>
-  </tr>
-</table>
-
-SAML ID プロバイダーの使用について詳しくは、[エンタープライズ ID プロバイダーの構成](enterprise.html)を参照してください。

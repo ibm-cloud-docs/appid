@@ -1,59 +1,66 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-11-19"
+  years: 2017, 2019
+lastupdated: "2019-04-04"
+
+keywords: authentication, authorization, identity, app security, secure, custom, proprietary, 
+
+subcollection: appid
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
-{:pre: .pre}
-{:tip: .tip}
 {:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 # Utilización de la identidad personalizada en la app
-{: #custom-identity}
+{: #custom-auth}
 
 Puede utilizar su propio proveedor de identidad personalizado cuando realice la autenticación. El proveedor de identidad puede ajustarse a cualquier mecanismo de autenticación alternativo a los soportados por {{site.data.keyword.appid_full}}, incluidos el propietario o herencia.
 {: shortdesc}
 
 ## Visión general
-{: #overview}
+{: #custom-auth-overview}
 
 Al traer su propio proveedor de identidad, puede crear un flujo de autenticación personalizado que utilice sus propios protocolos. Tiene más control como, por ejemplo, información que desea compartir o información que se almacena.
 {: shortdesc}
 
-Asegúrese de [configurar el proveedor personalizado](/docs/services/appid/custom.html) antes de añadirlo a la aplicación.
+Asegúrese de [configurar el proveedor personalizado](/docs/services/appid?topic=appid-custom-identity) antes de añadirlo a la aplicación.
 {: tip}
 
-</br>
-
-**¿Cuándo debo utilizar este flujo?**
+### ¿Cuándo debo utilizar este flujo?
+{: #custom-auth-when}
 
 Si {{site.data.keyword.appid_short_notm}} no proporciona soporte directo para un proveedor de identidad en concreto, puede utilizar el flujo de identidad personalizado para establecer un puente en el protocolo de autenticación hacia el flujo de autenticación existente de {{site.data.keyword.appid_short_notm}}. Por ejemplo, desea utilizar GitHub o LinkedIn para permitir a los usuarios iniciar sesión. Puede utilizar el SDK existente del proveedor de identidad para facilitar la información de autenticación de usuario antes de empaquetarla e intercambiarla con {{site.data.keyword.appid_short_notm}}.
 
 Existen muchos casos de ejemplo en los que es necesario un flujo de autenticación distinto:
 
- - Proveedores de identidad internos y de propiedad
- - Proveedores de identidad de terceros
- - Flujos de autenticación complicados que pueden incluir mecanismos de multifactores de propiedad
+ - Proveedores de identidad internos y de propiedad 
+ - Proveedores de identidad de terceros 
+ - Flujos de autenticación complicados que pueden incluir mecanismos de multifactores de propiedad 
 
 Ocasionalmente, un proveedor heredado puede utilizar su propio protocolo de autenticación personalizado. Puesto que el flujo de identidad personalizado desacopla completamente la autenticación de la autorización, puede adoptar cualquier mecanismo de autenticación de su elección y proporcionar la información de autenticación resultante a {{site.data.keyword.appid_short_notm}}. Todo ello sin exponer las credenciales de usuario.
 
 </br>
 
-**¿Cuál es la base técnica de este flujo?**
+### Técnicamente, ¿cómo funciona este flujo?
+{: #custom-auth-tech}
 
 El flujo de trabajo de identidad personalizado se basa en el tipo de otorgamiento de la extensión JWT-Bearer que se define en Assertion Framework for OAuth 2.0 Authorization Grants [[RFC7521]](https://tools.ietf.org/html/rfc7523#section-2.1). Para poder intercambiar información de usuario para las señales de {{site.data.keyword.appid_short_notm}}, la arquitectura de autenticación crea una relación de confianza con {{site.data.keyword.appid_short_notm}} utilizando un par de claves RSA asimétricas. Una vez se haya establecido la confianza, puede utilizar el tipo de otorgamiento JWT-Bearer para intercambiar información de usuario verificada en un JWT firmado para las señales {{site.data.keyword.appid_short_notm}}.
 
-</br>
-
-**¿Qué aspecto tiene el flujo?**
+### ¿Qué aspecto tiene el flujo?
+{: #custom-auth-flow}
 
 Al igual que todos los flujos de autenticación, la identidad personalizada requiere que la aplicación sea capaz de establecer un grado de confianza con {{site.data.keyword.appid_short_notm}} para garantizar la integridad de la información de usuario del proveedor de identidad. La identidad personalizada utiliza un par de claves públicas y privadas de RSA asimétricas para establecer la relación de confianza. En función de los requisitos arquitectónicos, la identidad personalizada admite dos modelos de confianza que difieren únicamente en la ubicación del almacenamiento y el uso de la clave privada.
-
 
 ![Flujo de solicitud de autenticación personalizado](images/customauth.png)
 Figura. Los flujos de solicitud de la autenticación personalizada
@@ -65,15 +72,15 @@ Figura. Los flujos de solicitud de la autenticación personalizada
     <dd>De forma alternativa, puede basar su modelo en la relación entre la app y {{site.data.keyword.appid_short_notm}}. En este flujo de trabajo, la clave privada se almacena en la aplicación del lado del servidor. Tras una autenticación correcta, la app es responsable de convertir la respuesta de los proveedores de identidad en JWT y de firmarla con la clave privada antes de que la app envíe la señal a {{site.data.keyword.appid_short_notm}}. Puesto que el proveedor de identidad no tiene ninguna relación con {{site.data.keyword.appid_short_notm}}, la arquitectura crea un modelo de confianza más débil. Si bien {{site.data.keyword.appid_short_notm}} puede confiar en la información enviada por la aplicación del lado del servidor, no puede estar seguro de que los datos son los primeros que envió el proveedor de identidad.</dd>
 </dl>
 
-</br>
 
 ## Generación de una señal web de JSON
-{: #creating-jwts}
+{: #generating-jwts}
 
 Puede convertir los datos de usuario verificados en un JWT de identidad personalizado generando una <a href="https://tools.ietf.org/html/rfc7515" target="blank">señal web de JSON <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>. La señal debe estar firmada con la clave privada que coincide con la clave pública preconfigurada. Para obtener una lista de bibliotecas de firma de señales, consulte <a href="https://jwt.io/" target="blank">jwt.io <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>.
 {: shortdesc}
 
 ### Formato JWT de ejemplo
+{: #jwts-example}
 
 Cabecera de señal:
   ```
@@ -89,7 +96,7 @@ Carga útil de señal:
   {
     // Obligatorio
     iss: String, // Debe hacer referencia al proveedor de identidad
-    aud: String, // Debe ser el nombre de host de servidor
+    aud: String, // Debe ser el nombre de URL de servidor
     exp: Int,    // Debe ser un valor con un período de vida corto
     sub: String, // Debe ser el ID de usuario único proporcionado por el proveedor de identidad
 
@@ -120,7 +127,7 @@ Carga útil de señal:
     </tr>
     <tr>
       <td><code>aud</code></td>
-      <td>El host de servidor OAuth.</td>
+      <td>El URL de servidor OAuth. Formato: https://{region}.appid.cloud.ibm.com/oauth/v4/{tenantId}.</td>
     </tr>
     <tr>
       <td><code>exp</code></td>
@@ -132,7 +139,7 @@ Carga útil de señal:
     </tr>
     <tr>
       <td>Reclamaciones normalizadas</td>
-      <td>Todas las [reclamaciones normalizadas](/docs/services/appid/authorization.html#tokens) se proporcionan en la señal de identidad que se devuelve como respuesta a esta solicitud. Se pueden encontrar más reclamaciones personalizadas utilizando el [punto final de información de usuario](/docs/services/appid/custom-attributes.html).</td>
+      <td>Todas las [reclamaciones normalizadas](/docs/services/appid?topic=appid-tokens#tokens) se proporcionan en la señal de identidad que se devuelve como respuesta a esta solicitud. Se pueden encontrar más reclamaciones personalizadas utilizando el [punto final `/userinfo`](/docs/services/appid?topic=appid-custom-attributes#custom-attributes).</td>
     </tr>
     <tr>
       <td>Ámbito</td>
@@ -144,7 +151,7 @@ Carga útil de señal:
 ## Recuperación de señales de {{site.data.keyword.appid_short_notm}}
 {: #exchanging-jwts}
 
-Para crear el puente entre el proveedor personalizado y {{site.data.keyword.appid_short_notm}} debe tener señales de {{site.data.keyword.appid_short_notm}}. Para obtener señales de servicio, cambie la información de usuario verificada utilizando el punto final de [`/token`](https://appid-oauth.ng.bluemix.net/swagger-ui/#!/Authorization_Server_V3/token).
+Para crear el puente entre el proveedor personalizado y {{site.data.keyword.appid_short_notm}} debe tener señales de {{site.data.keyword.appid_short_notm}}. Para obtener señales de servicio, cambie la información de usuario verificada utilizando el punto final [`/token`](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization_Server_V4/token).
 {: shortdesc}
 
   ```

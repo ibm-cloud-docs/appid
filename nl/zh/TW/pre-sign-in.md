@@ -1,39 +1,54 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-11-14"
+  years: 2017, 2019
+lastupdated: "2019-04-04"
+
+keywords: authentication, authorization, identity, app security, secure, development, user information, attributes, profiles, 
+
+subcollection: appid
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
-{:pre: .pre}
-{:tip: .tip}
 {:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 # 在使用者登入之前新增屬性
-{: #sign-in}
+{: #preregister}
 
 使用 {{site.data.keyword.appid_full}}，針對您知道即將需要存取您應用程式的使用者，您可以在其起始登入之前開始建置設定檔。
 {: shortdesc}
 
-若要進一步瞭解屬性類型，請查看[瞭解使用者設定檔](user-profile.html)。若要進一步瞭解自訂屬性及其安全考量，請查看[自訂屬性](custom-attributes.html)。
+若要進一步瞭解屬性類型，請參閱[瞭解使用者設定檔](/docs/services/appid?topic=appid-user-profile)。若要進一步瞭解自訂屬性及其安全考量，請參閱[自訂屬性](/docs/services/appid?topic=appid-custom-attributes)。
 {: tip}
 
-**為何我想要在使用者第一次登入之前將其相關資訊新增至我的應用程式？**
+## 瞭解預先登錄
+{: #preregister-understand}
 
-請考慮使用下列應用程式：您使用 {{site.data.keyword.appid_short_notm}} 來聯合 SAML 身分提供者中的現有使用者。您可能想要讓某些使用者在第一次登入應用程式時，立即具有 `admin` 存取權。若要執行這項作業，您可以使用預先登錄端點來設定那些使用者的自訂 `admin` 屬性，並將管理主控台的存取權授與他們，而您不需要採取任何進一步動作。請務必考量變更預設值所可能產生的[安全問題](custom-attributes.html)。
+### 為何我要使用預先登錄？
+{: #preregister-why}
 
-**如何識別使用者？**
+請考慮使用下列應用程式：您使用 {{site.data.keyword.appid_short_notm}} 來聯合 SAML 身分提供者中的現有使用者。您可能想要讓某些使用者在第一次登入應用程式時，立即具有 `admin` 存取權。為了實現此目標，您可以使用預先登錄端點來設定那些使用者的自訂 `admin` 屬性，並將管理主控台的存取權授與他們，而您不需要採取任何進一步動作。請務必考量變更預設值所可能產生的[安全問題](/docs/services/appid?topic=appid-custom-attributes#custom-attributes)。
+
+### 如何識別使用者？
+{: #preregister-identify-user}
 
 您可以使用下列其中一項來識別您的使用者：
 
-* 身分提供者中稱為 **GUID** 的使用者唯一 ID。雖然此 ID 一律存在且保證一定是唯一的，但不一定會隨時可用或易於瞭解。例如，Cloud Directory 使用隨機 16 位元組隨機 GUID。
-* 如果可用，則為使用者的**電子郵件**。
+* 身分提供者中稱為 **GUID** 的使用者唯一 ID。雖然此 ID 一律存在且保證一定是唯一的，但不一定會隨時可用或易於瞭解。例如，Cloud Directory 會使用隨機 16 位元組 GUID。
+* 如果有的話，則為使用者的**電子郵件**。
 
-**如何知道哪個身分提供者提供哪些資訊？**
+### 身分提供者提供何種資訊？
+{: #preregister-idp-provide}
 
 請參閱下表，以查看您可以使用的身分資訊類型。
 
@@ -43,7 +58,7 @@ lastupdated: "2018-11-14"
       <th>身分提供者</th>
       <th>GUID</th>
       <th>電子郵件</th>
-      <th>子</th>
+      <th>Sub</th>
     </tr>
   </thead>
   <tbody>
@@ -80,33 +95,33 @@ lastupdated: "2018-11-14"
   </tbody>
 </table>
 
-**Cloud Directory 的處理方式不同嗎？**
+### 如何處理 Cloud Directory？
+{: #preregister-cd}
 
-為了確保預先登錄之使用者屬性的完整性，Cloud Directory 對其使用者有其他需求。只有在啟用及驗證電子郵件驗證時，才能執行預先登錄。如果您使用特定屬性來預先登錄 Cloud Directory 使用者，則這些屬性適用於特定人員。如果未先驗證電子郵件，則另一位使用者可能會要求電子郵件位址，以及指派給它的任何屬性。
 
-如何做到？
+為了能夠確保預先登錄之使用者屬性的完整性，「雲端目錄」對其使用者有其他需求。只有在啟用及驗證電子郵件驗證時，才能執行預先登錄。如果您使用特定屬性來預先登錄「雲端目錄」使用者，則這些屬性適用於特定人員。如果未先驗證電子郵件，則另一位使用者可能會要求電子郵件位址，以及指派給它的任何屬性。
 
-1. 將 Cloud Directory 設為電子郵件及密碼模式。您可以在 **Cloud Directory** 標籤的一般設定中，透過使用者介面完成此作業。您也可以透過[管理 API](https://appid-management.ng.bluemix.net/swagger-ui/#!/Cloud_Directory_Users/createCloudDirectoryUser) 來設定它。
+1. 將「雲端目錄」設為電子郵件及密碼模式。您可以在**雲端目錄**標籤的一般設定中，透過使用者介面完成此作業。您也可以透過[管理 API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.createCloudDirectoryUser) 予以設定。
 
 2. 使用下列其中一種方式來驗證使用者電子郵件位址，以確認其身分：
 
-  * 若要透過電子郵件來驗證使用者身分，請在服務儀表板的 **Cloud Directory** 標籤中，將**電子郵件驗證**設為**開啟**。如果使用者由您所新增，並且登入您的應用程式而未先驗證其電子郵件，則登入會順利完成，但會刪除其預先定義的屬性。
-  * 若要手動驗證使用者，您必須是管理者，並使用 Cloud Directory [管理 API](https://appid-management.ng.bluemix.net/swagger-ui/#!/Cloud_Directory_Users/createCloudDirectoryUser)。建立或更新使用者時，您應該在使用者資料有效負載內明確地將 `status` 欄位設為 `CONFIRMED`。
+  * 若要透過電子郵件來驗證使用者身分，請在服務儀表板的**雲端目錄**標籤中，將**電子郵件驗證**設為**開啟**。如果使用者由您所新增，並且在未先驗證其電子郵件的情況下登入您的應用程式，則登入會順利完成，但會刪除其預先定義的屬性。
+  * 若要手動驗證使用者，您必須是管理者，並使用「雲端目錄」[管理 API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.createCloudDirectoryUser)。建立或更新使用者時，您應該在使用者資料有效負載內明確地將 `status` 欄位設為 `CONFIRMED`。
 
-**使用自訂身分提供者時需要執行任何特殊動作嗎？**
+**使用自訂身分提供者時我需要執行任何特殊動作嗎？**
 
 當您事先將使用者資訊新增至應用程式時，可以使用鑑別流程所提供的任何唯一 ID。ID 必須_完全_ 符合授權要求期間所傳送之已簽署「JSON Web 記號」的 `sub`。如果 ID 不符，則不會順利鏈結您要新增的設定檔。
 
 
 
 ## 將使用者資訊新增至應用程式
-{: #add}
+{: #preregister-add-info}
 
-既然，您已瞭解此處理程序並考量過安全含意，請試著新增使用者。
+現在，您已瞭解此處理程序並考量過安全含意，請嘗試新增一位使用者。
 
 **開始之前：**
 
-若要使用「[/users](https://appid-management.ng.bluemix.net/swagger-ui/#!/Users/users_search_user_profile) 管理 API」端點新增特定使用者的自訂屬性，您必須知道下列資訊：
+若要使用 [/users 管理 API 端點](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Users/mgmt.users_search_user_profile)來新增特定使用者的自訂屬性，您必須知道下列資訊：
 
 * 使用者即將用來登入的身分提供者。
 * 身分提供者所提供的使用者唯一 ID。
@@ -172,7 +187,7 @@ lastupdated: "2018-11-14"
     </tbody>
   </table>
 
-  範例要求：
+  要求範例：
   ```
   $ curl --request POST \
        --url 'https://{Management_URI}/users \
@@ -193,9 +208,9 @@ lastupdated: "2018-11-14"
     {: screen}
   * 檢查已建立的使用者設定檔。
 
-請記住，使用者的預先定義屬性是空的，直到它們的第一次鑑別為止，但對於所有目的及用途，使用者就是完整鑑別的使用者。您可以使用他們的唯一 ID，就像您是已登入的使用者一樣。例如，您可以修改、搜尋或刪除設定檔。
+請記住，在進行第一鑑別之前，使用者的預先定義屬性會是空的，但對於所有目的及用途而言，該使用者即是完整鑑別的使用者。您可以使用他們的唯一 ID，就像是使用已登入的使用者一樣。例如，您可以修改、搜尋或刪除設定檔。
 
-既然，您已建立使用者與特定屬性的關聯，請嘗試[存取屬性](/docs/services/appid/custom-attributes.html)！
+現在，您已建立使用者與特定屬性的關聯，請嘗試[存取或更新屬性](/docs/services/appid?topic=appid-custom-attributes)！
 
 
 </br>

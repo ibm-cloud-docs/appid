@@ -1,31 +1,44 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-11-28"
+  years: 2017, 2019
+lastupdated: "2019-04-10"
+
+keywords: authentication, authorization, identity, app security, secure
+
+subcollection: appid
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
+{:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:codeblock: .codeblock}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 
 # Descubrir
-{: #rel-links}
+{: #rellinks}
 
 Puede utilizar los siguientes enlaces y ejemplos relacionados para obtener más información e interactuar con {{site.data.keyword.appid_full}}. Para ver los blogs más recientes, consulte https://www.ibm.com/blogs/bluemix/tag/app-id/.
 {: shortdesc}
 
 ## Póngase en contacto con nosotros
-{: contact}
+{: #rellinks-contact}
 
-Nos gustaría conocer su opinión con comentarios y preguntas. Para empezar con {{site.data.keyword.appid_short}}, consulte el catálogo de {{site.data.keyword.Bluemix_notm}}.
+Nos gustaría conocer su opinión con comentarios y preguntas. Para empezar con {{site.data.keyword.appid_short}}, consulte el catálogo de {{site.data.keyword.cloud_notm}}.
 * Si tiene preguntas técnicas sobre {{site.data.keyword.appid_short_notm}}, publique la pregunta en <a href="https://stackoverflow.com/search?q=ibm-appid" target="_blank">Stack Overflow <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a> y etiquete la pregunta con "ibm-appid".
-* Para preguntas referentes al servicio e instrucciones sobre cómo empezar, utilice el foro <a href="https://developer.ibm.com/answers/topics/appid/" target="_blank">dW Answers <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>. Incluya la etiqueta `appid`.
+* Para formular preguntas sobre el servicio y obtener instrucciones de iniciación, utilice el foro <a href="https://developer.ibm.com/answers/topics/appid/" target="_blank">dW Answers <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>. Incluya la etiqueta `appid`.
 
 
 ## Introducción
-{: #intro}
+{: #rellinks-intro}
 
 Obtenga más información sobre {{site.data.keyword.appid_short_notm}} leyendo algunos blogs y viendo algunos vídeos.
 
@@ -38,7 +51,7 @@ Obtenga más información sobre {{site.data.keyword.appid_short_notm}} leyendo a
 
 
 ## Documento técnico
-{: #paper}
+{: #rellinks-paper}
 
 ¿Quiere conocer los detalles de funcionamiento del servicio? Consulte el documento técnico.
 
@@ -46,7 +59,7 @@ Obtenga más información sobre {{site.data.keyword.appid_short_notm}} leyendo a
 
 
 ## Protección de apps
-{: #secure-apps}
+{: #rellinks-secure-apps}
 
 ¿Le interesa proteger sus aplicaciones? Consulte estos blogs y estos ejemplos para ver cómo se hace.
 
@@ -57,37 +70,45 @@ Obtenga más información sobre {{site.data.keyword.appid_short_notm}} leyendo a
 * <a href="https://github.com/IBM-Cloud/github-traffic-stats" target="_blank">Uso de Python Flask-pyoidc con {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>
 * <a href="https://github.com/ibmets/appid-vue-client" target="_blank">Protección de la app VueJS con {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>
 * <a href="https://admin.blogs.prd.ibm.event.ibm.com/blogs/bluemix/2018/11/creating-go-applications-with-app-id/" target="_blank">Creación de aplicaciones Go con {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>
+* <a href="https://www.ibm.com/blogs/bluemix/2019/03/app-id-integrate-custom-identity/" target="_blank">Registre sus usuarios de la app con cualquier proveedor de identidad utilizando {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>
+* <a href="http://heidloff.net/article/authenticating-web-users-openid-connect-jwt/" target="_blank">Autenticación de usuarios web con OpenID y JWT <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>
+* <a href="http://heidloff.net/article/authentication-authorization-openid-connect-istio" target="_blank">Autorización en apps nativas en la nube en Istio mediante OpenID <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>
 
 
 
-## Protección del tiempo de ejecución, las API y los backends
-{: #secure}
+¿Utiliza múltiples proveedores de nube? Consulte este blog: <a href="https://www.ibm.com/blogs/bluemix/2019/03/adding-sign-in-to-multicloud-applications-without-code-changes/" target="_blank">Cómo añadir el inicio de sesión en aplicaciones de múltiples nubes sin cambiar el código <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>
+{: tip}
+
+
+
+## Protección del tiempo de ejecución, las API y los programas de fondo
+{: #rellinks-secure}
 
 ¿Acaba de empezar? Revise algunas de las guías de aprendizaje y los blogs para facilitar la integración de {{site.data.keyword.appid_short_notm}} en sus apps.
 
 * <a href="https://www.ibm.com/blogs/bluemix/2018/05/announcing-app-id-integration-ibm-cloud-kubernetes-service/" target="_blank">Anuncio de la integración de {{site.data.keyword.appid_short_notm}} en {{site.data.keyword.containerlong}} <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>
 * <a href="https://www.ibm.com/blogs/bluemix/2018/02/using-app-id-secure-docker-kubernetes-applications/" target="_blank">Uso de {{site.data.keyword.appid_short_notm}} para proteger aplicaciones de Docker y Kubernetes <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>
-* <a href="https://www.youtube.com/watch?v=Fa9YD2NGZiE" target="_blank">Protección de la API de Cloud Functions <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>
-* <a href="https://console.bluemix.net/docs/tutorials/serverless-mobile-backend.html#mobile-application-with-a-serverless-backend" target="_blank">Protección del backend móvil de Cloud Functions sin servidor {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>
-* <a href="https://console.bluemix.net/docs/tutorials/serverless-github-traffic-analytics.html" target="_blank">Guía de aprendizaje: Análisis de tráfico de GitHub con Cloud Functions y Cloud Foundry <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"> </a>
+* <a href="https://www.ibm.com/blogs/bluemix/2019/02/authenticating-users-with-cloud-functions-api-gateway-and-app-id/" target="_blank">Autenticación de usuarios con Cloud Functions, API Gateway y {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>
+* <a href="/docs/tutorials?topic=solution-tutorials-serverless-mobile-backend#serverless-mobile-backend" target="_blank">Aplicación móvil con un programa de fondo sin servidor <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>
+* <a href="/docs/tutorials?topic=solution-tutorials-serverless-github-traffic-analytics#serverless-github-traffic-analytics" target="_blank">Combinación de sin servidor y Cloud Foundry para la analítica y la recuperación de datos <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>
 * <a href="https://www.ibm.com/blogs/bluemix/2018/07/how-to-configure-ibm-cloud-app-id-from-the-toolchain/" target="_blank">Configuración de {{site.data.keyword.appid_short_notm}} desde la cadena de herramientas <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>
 
 
+
+
 ## Ejemplos de mercado
-{: #market-examples}
+{: #rellinks-market-examples}
 
 Consulte {{site.data.keyword.appid_short_notm}} en acción en estos ejemplos de mercado.
 
-* <a href="https://console.bluemix.net/docs/services/IoT/reference/security/app_id.html#app_id" target="_blank">Autenticación de {{site.data.keyword.appid_short_notm}} para Watson IoT Platform (Beta) <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>
+* <a href="https://www.ibm.com/support/knowledgecenter/SSQP8H/iot/platform/reference/security/app_id.html" target="_blank">{{site.data.keyword.appid_short_notm}} Authentication for Watson IoT Platform (Beta) <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>
 * <a href="https://developer.ibm.com/articles/iot-trs-secure-iot-solutions3/" target="_blank">Diseñar y crear soluciones IoT seguras, parte 3: Protección de aplicaciones IoT <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>
-* <a href="https://www.ibm.com/blogs/bluemix/2017/08/developing-finance-application-using-ibm-cloud/" target="_blank">Desarrollo de una aplicación de finanzas mediante {{site.data.keyword.Bluemix_notm}} <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>
-* <a href="https://console.bluemix.net/docs/tutorials/cloud-e2e-security.html#apply-end-to-end-security-to-a-cloud-application" target="_blank">Aplicar seguridad de extremo a extremo a una aplicación en la nube <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>
-
-
+* <a href="https://www.ibm.com/blogs/bluemix/2017/08/developing-finance-application-using-ibm-cloud/" target="_blank">Desarrollo de una aplicación de finanzas mediante {{site.data.keyword.cloud_notm}} <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>
+* <a href="/docs/tutorials?topic=solution-tutorials-cloud-e2e-security#cloud-e2e-security" target="_blank">Aplicar seguridad de extremo a extremo a una aplicación en la nube <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>
 
 
 ## Integración con el directorio de usuario de la empresa
-{: #enterprise}
+{: #rellinks-enterprise}
 
 ¿Necesita ayuda para la integración con sus apps de empresa? No se preocupe. {{site.data.keyword.appid_short_notm}} también puede hacerlo.
 
@@ -97,7 +118,7 @@ Consulte {{site.data.keyword.appid_short_notm}} en acción en estos ejemplos de 
 
 
 ## Experiencia personalizada de inicio de sesión
-{: #custom}
+{: #rellinks-custom}
 
 ¿Desea ofrecer una experiencia personalizada para los usuarios? Ningún problema.
 
@@ -107,9 +128,9 @@ Consulte {{site.data.keyword.appid_short_notm}} en acción en estos ejemplos de 
 * <a href="https://www.ibm.com/blogs/bluemix/2018/10/use-ibm-cloud-app-id-and-your-email-provider-to-brand-mails-sent-to-app-users/" target="_blank">Utilice un proveedor propio para el correo electrónico enviado con {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>
 
 ## Guías de programación
-{: #guide}
+{: #rellinks-guide}
 
-¿Está trabajando en un lenguaje específico y desea ver cómo se adapta {{site.data.keyword.appid_short_notm}} a otros servicios de {{site.data.keyword.Bluemix_notm}}? Consulte una de las guías de programación.
+¿Está trabajando en un lenguaje específico y desea ver cómo se adapta {{site.data.keyword.appid_short_notm}} a otros servicios de {{site.data.keyword.cloud_notm}}? Consulte una de las guías de programación.
 
-* <a href="https://console.bluemix.net/docs/swift/authenticate/app_id.html" target="_blank">Programación con Swift en {{site.data.keyword.Bluemix_notm}} <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>
-* <a href="https://console.bluemix.net/docs/node/index.html#getting-started-tutorial" target="_blank">Programación con Node.js en {{site.data.keyword.Bluemix_notm}} <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>
+* <a href="/docs/swift/authenticate?topic=swift-getting_started_swift#getting_started_swift" target="_blank">Programación con Swift en {{site.data.keyword.cloud_notm}} <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>
+* <a href="/docs/node?topic=nodejs-node-getting-started#node-getting-started" target="_blank">Programación con Node.js en {{site.data.keyword.cloud_notm}} <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>

@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-12-18"
+  years: 2017, 2019
+lastupdated: "2019-04-05"
+
+keywords: authentication, authorization, identity, app security, secure, application identity, app to app, access token, activity
+
+subcollection: appid
 
 ---
 
@@ -13,33 +17,32 @@ lastupdated: "2018-12-18"
 {:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
 {:tip: .tip}
-{:download: .download}
 {:note: .note}
 {:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 
-# Eventi {{site.data.keyword.cloudaccesstrailshort}} 
-{: #at_events}
+# Eventi {{site.data.keyword.cloudaccesstrailshort}}
+{: #at-events}
 
 Puoi visualizzare, gestire e analizzare le attività avviate dall'utente eseguite nella tua istanza del servizio {{site.data.keyword.appid_full}} utilizzando il servizio {{site.data.keyword.cloudaccesstrailshort}}.
 {: shortdesc}
 
 
 
-Per ulteriori informazioni su come funziona il servizio, consulta la [Documentazione {{site.data.keyword.cloudaccesstrailshort}}](/docs/services/cloud-activity-tracker/index.html).
+Per ulteriori informazioni su come funziona il servizio, vedi la [documentazione di {{site.data.keyword.cloudaccesstrailshort}}](/docs/services/cloud-activity-tracker/reference?topic=cloud-activity-tracker-getting-started-with-cla#getting-started-with-cla).
 
-
-</br>
 
 ## Visualizzazione degli eventi di gestione
-{: #monitor-admin}
+{: #at-monitor-admin}
 
 Puoi visualizzare, gestire e analizzare l'attività di configurazione che viene eseguita nella tua istanza {{site.data.keyword.appid_short_notm}} utilizzando il servizio {{site.data.keyword.cloudaccesstrailshort}}.
 {: shortdesc}
 
 Per monitorare l'attività amministrativa:
 
-1. Accedi al tuo account {{site.data.keyword.Bluemix_notm}}.
+1. Accedi al tuo account {{site.data.keyword.cloud_notm}}.
 2. Dal catalogo, esegui il provisioning di un'istanza del servizio {{site.data.keyword.cloudaccesstrailshort}} nello stesso account della tua istanza {{site.data.keyword.appid_short_notm}}.
 3. Nel dashboard {{site.data.keyword.cloudaccesstrailshort}}, fai clic sulla scheda **Gestisci**.
 4. Dall'elenco a discesa, effettua le seguenti configurazioni per ricercare gli eventi generati da {{site.data.keyword.appid_short_notm}}.
@@ -51,7 +54,7 @@ Per monitorare l'attività amministrativa:
 </br>
 
 ## Elenco degli eventi di gestione
-{: #events-admin}
+{: #at-events-admin}
 
 Consulta la seguente tabella per un elenco di eventi inviati a {{site.data.keyword.cloudaccesstrailshort}}.
 
@@ -128,7 +131,7 @@ Consulta la seguente tabella per un elenco di eventi inviati a {{site.data.keywo
   </tr>
   <tr>
     <td><code>read.samlMetadata</code></td>
-    <td>Visualizza i metadati SAML ID applicazione.</td>
+    <td>Visualizza i metadati SAML {{site.data.keyword.appid_short_notm}}.</td>
     <td>Possono essere trovati nella scheda <strong>Identity Providers > SAML 2.0 Federation</strong>.</td>
   </tr>
   <tr>
@@ -238,7 +241,5 @@ Consulta la seguente tabella per un elenco di eventi inviati a {{site.data.keywo
   </tr>
 </table>
 
-</br>
-</br>
 
 

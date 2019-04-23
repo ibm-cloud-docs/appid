@@ -1,17 +1,26 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-12-19"
+  years: 2017, 2019
+lastupdated: "2019-03-06"
+
+keywords: authentication, authorization, identity, app security, secure, development, sign in, sign up, password, social, enterprise
+
+subcollection: appid
 
 ---
 
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:tip: .tip}
-{:pre: .pre}
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
+{:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:codeblock: .codeblock}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 
 # 로그인 위젯 표시
@@ -22,26 +31,30 @@ lastupdated: "2018-12-19"
 
 앱에서 ID 제공자를 사용하도록 구성되어 있는 경우 앱 방문자는 로그인 위젯을 통해 사인인 화면으로 경로 지정됩니다. 로그인 위젯을 사용하여 사인인 플로우를 위해 사전 구성된 화면을 표시할 수 있습니다. 추가로 어떤 방식으로든 소스 코드를 변경하지 않고 언제든지 사인인 플로우를 업데이트할 수 있습니다!
 
-앱에 고유한 환경을 작성하고 싶으십니까? [사용자 고유의 화면을 가져올](/docs/services/appid/branded.html) 수 있습니다!
+앱에 고유한 환경(experience)을 작성하고 싶으십니까? [사용자 고유의 화면을 가져올](/docs/services/appid?topic=appid-branded) 수 있습니다!
 {: tip}
 
 ## 로그인 위젯에 대한 정보
-{: #understanding}
+{: #widget-understanding}
 
 고유한 UI 화면이 없더라도 로그인 위젯을 표시하여 {{site.data.keyword.appid_short_notm}}를 활용할 수 있습니다.
 {: shortdesc}
 
-**기본값은 무엇입니까?**
+### 기본값은 무엇입니까?
+{: #widget-default}
 
 둘 이상의 ID 제공자가 구성되어 있는 경우 사용자가 애플리케이션에 사인인하려고 시도하면 로그인 위젯으로 경로 재지정됩니다. 사용자는 로그인 위젯을 사용하여 해당 ID를 확인할 제공자를 선택할 수 있습니다. 하지만 하나의 제공자만 **켜기**로 설정되어 있는 경우 방문자는 해당 ID 제공자 인증 화면으로 경로 재지정됩니다.
 
-**{{site.data.keyword.appid_short_notm}}는 ID 제공자에게서 얼마나 많은 정보를 얻습니까?**
+### {{site.data.keyword.appid_short_notm}}는 ID 제공자에서 얼마나 많은 정보를 얻습니까?
+{: #widget-obtain-info}
 
 소셜 또는 엔터프라이즈 ID 제공자를 사용하는 경우 {{site.data.keyword.appid_short_notm}}에는 사용자 계정 정보에 대한 읽기 액세스 권한이 있습니다. 이 서비스는 ID 제공자가 리턴하는 토큰 및 어설션을 사용하여 사용자가 자신이 누구라고 주장하는지 확인합니다. 이 서비스는 해당 정보에 대한 쓰기 액세스 권한이 없기 때문에 사용자는 선택한 ID 제공자를 통해 이동하여 비밀번호 재설정 등의 조치를 수행해야 합니다. 예를 들어 사용자가 Facebook을 통해 앱에 로그인한 후 비밀번호를 변경하려면 www.facebook.com으로 이동하여 작업을 수행해야 합니다.
 
-[클라우드 디렉토리](/docs/services/appid/cloud-directory.html)를 사용하는 경우 {{site.data.keyword.appid_short_notm}}가 ID 제공자입니다. 이 서비스는 레지스트리를 사용하여 사용자 ID를 확인합니다. {{site.data.keyword.appid_short_notm}}가 제공자이기 때문에 사용자는 앱에서 직접 고급 기능(예: 비밀번호 재설정)을 활용할 수 있습니다.
+[클라우드 디렉토리](/docs/services/appid?topic=appid-cloud-directory)를 사용하는 경우 {{site.data.keyword.appid_short_notm}}가 ID 제공자입니다. 이 서비스는 레지스트리를 사용하여 사용자 ID를 확인합니다. {{site.data.keyword.appid_short_notm}}가 제공자이기 때문에 사용자는 앱에서 직접 고급 기능(예: 비밀번호 재설정)을 활용할 수 있습니다.
 
-**각각의 제공자에 대해 표시할 수 있는 화면의 종류에는 어떤 것이 있습니까?**
+
+### 각각의 제공자에 대해 표시할 수 있는 화면은 무엇입니까?
+{: #widget-options}
 
 각 유형의 ID 제공자에 대해 표시할 수 있는 화면을 보려면 다음의 표를 체크아웃하십시오.
 
@@ -92,7 +105,7 @@ lastupdated: "2018-12-19"
 </br>
 
 ## 로그인 위젯 사용자 정의
-{: #customize}
+{: #widget-customize}
 
 {{site.data.keyword.appid_short_notm}}는 표시할 자체 UI 화면이 없을 때 호출할 수 있는 기본 로그인 화면을 제공합니다. 원하는 로고 및 색상이 표시되도록 화면을 사용자 정의할 수 있습니다.
 {: shortdesc}
@@ -111,7 +124,7 @@ lastupdated: "2018-12-19"
 
 
 ## Android SDK를 사용하여 로그인 위젯 표시
-{: #android}
+{: #widget-display-android}
 
 [Android 클라이언트 SDK](https://github.com/ibm-cloud-security/appid-clientsdk-android)를 사용하여 사전 구성된 화면을 호출할 수 있습니다.
 {: shortdesc}
@@ -122,9 +135,9 @@ lastupdated: "2018-12-19"
   LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
   loginWidget.launch(this, new AuthorizationListener() {
         @Override
-          public void onAuthorizationFailure (AuthorizationException exception) {
+        public void onAuthorizationFailure (AuthorizationException exception) {
           //Exception occurred
-        }
+    }
 
         @Override
         public void onAuthorizationCanceled () {
@@ -141,9 +154,10 @@ lastupdated: "2018-12-19"
 
 </br>
 
-**등록**
+### 등록
+{: #widget-android-signup}
 
-1. GUI에서 클라우드 디렉토리 [설정](cloud-directory.html#cd-settings)을 구성하십시오. **사용자가 앱에 등록할 수 있도록 허용** 및 **사용자가 앱에서 해당 계정을 관리할 수 있도록 허용**을 둘 다 **켜기**로 설정하십시오.
+1. GUI에서 클라우드 디렉토리 [설정](/docs/services/appid?topic=appid-cloud-directory#cd-settings)을 구성하십시오. **사용자가 앱에 등록할 수 있도록 허용** 및 **사용자가 앱에서 해당 계정을 관리할 수 있도록 허용**을 둘 다 **켜기**로 설정하십시오.
 2. 앱에 다음 코드를 추가하십시오. 사용자가 사용자 정의 화면에서 앱에 등록하면 등록 플로우가 시작됩니다. 다음 호출은 사용자를 등록할 뿐만 아니라 클라우드 디렉토리 구성에 따라 등록을 완료하기 위한 검증 이메일도 발송합니다.
 
   ```java
@@ -155,7 +169,7 @@ lastupdated: "2018-12-19"
       }
 
       @Override
-      public void onAuthorizationCanceled () {
+          public void onAuthorizationCanceled () {
           //Sign up canceled by the user
       }
 
@@ -173,9 +187,10 @@ lastupdated: "2018-12-19"
 
 </br>
 
-**비밀번호 찾기**
+### 비밀번호 찾기
+{: #widget-android-forgot-password}
 
-1. GUI에서 클라우드 디렉토리 [설정](cloud-directory.html#cd-settings)을 구성하십시오. **사용자가 앱에서 해당 계정을 관리할 수 있도록 허용**을 **켜기**로 설정해야 합니다.
+1. GUI에서 클라우드 디렉토리 [설정](/docs/services/appid?topic=appid-cloud-directory#cd-settings)을 구성하십시오. **사용자가 앱에서 해당 계정을 관리할 수 있도록 허용**을 **켜기**로 설정해야 합니다.
 2. 서비스 대시보드의 **비밀번호 재설정** 탭에서 **비밀번호 찾기 이메일**이 **켜기**로 설정되어 있는지 확인하십시오.
 3. 앱에 다음 코드를 추가하십시오. 사용자가 애플리케이션에서 "비밀번호 찾기"를 클릭하면 SDK에서 비밀번호 찾기 API를 호출하여 사용자에게 비밀번호를 재설정할 수 있도록 해주는 이메일을 발송합니다.
 
@@ -188,7 +203,7 @@ lastupdated: "2018-12-19"
       }
 
       @Override
-      public void onAuthorizationCanceled () {
+          public void onAuthorizationCanceled () {
           // Forogt password canceled by the user
       }
 
@@ -202,9 +217,10 @@ lastupdated: "2018-12-19"
 
 </br>
 
-**세부사항 변경**
+### 세부사항 변경
+{: #widget-android-change-details}
 
-1. GUI에서 클라우드 디렉토리 [설정](cloud-directory.html#cd-settings)을 구성하십시오. **사용자가 앱에 등록할 수 있도록 허용** 및 **사용자가 앱에서 해당 계정을 관리할 수 있도록 허용**을 둘 다 **켜기**로 설정하십시오.
+1. GUI에서 클라우드 디렉토리 [설정](/docs/services/appid?topic=appid-cloud-directory#cd-settings)을 구성하십시오. **사용자가 앱에 등록할 수 있도록 허용** 및 **사용자가 앱에서 해당 계정을 관리할 수 있도록 허용**을 둘 다 **켜기**로 설정하십시오.
 2. 서비스 대시보드의 **비밀번호 변경** 탭에서 **비밀번호 변경 이메일**을 켜기로 설정하십시오.
 3. 로그인 위젯을 호출하여 세부사항 변경 플로우를 시작하십시오.
 
@@ -213,11 +229,11 @@ lastupdated: "2018-12-19"
   loginWidget.launchChangeDetails(this, new AuthorizationListener() {
       @Override
       public void onAuthorizationFailure (AuthorizationException exception) {
-          // Exception occurred
-      }
+          //Exception occurred
+     }
 
       @Override
-      public void onAuthorizationCanceled () {
+          public void onAuthorizationCanceled () {
           // Changed details canceled by the user
       }
 
@@ -231,9 +247,10 @@ lastupdated: "2018-12-19"
 
 </br>
 
-**비밀번호 변경**
+### 비밀번호 변경
+{: #widget-android-change-password}
 
-1. GUI에서 클라우드 디렉토리 [설정](cloud-directory.html#cd-settings)을 구성하십시오. **사용자가 앱에 등록할 수 있도록 허용** 및 **사용자가 앱에서 해당 계정을 관리할 수 있도록 허용**을 둘 다 **켜기**로 설정하십시오.
+1. GUI에서 클라우드 디렉토리 [설정](/docs/services/appid?topic=appid-cloud-directory#cd-settings)을 구성하십시오. **사용자가 앱에 등록할 수 있도록 허용** 및 **사용자가 앱에서 해당 계정을 관리할 수 있도록 허용**을 둘 다 **켜기**로 설정하십시오.
 2. 앱에 다음 코드를 배치하여 비밀번호 변경 플로우를 시작하십시오.
 
   ```java
@@ -241,11 +258,11 @@ lastupdated: "2018-12-19"
   loginWidget.launchChangePassword(this, new AuthorizationListener() {
       @Override
       public void onAuthorizationFailure (AuthorizationException exception) {
-          // Exception occurred
-      }
+          //Exception occurred
+     }
 
       @Override
-      public void onAuthorizationCanceled () {
+          public void onAuthorizationCanceled () {
           // Change password canceled by the user
       }
 
@@ -258,11 +275,9 @@ lastupdated: "2018-12-19"
   {: codeblock}
 
 
-</br>
-</br>
 
 ## iOS Swift SDK를 사용하여 로그인 위젯 표시
-{: #ios-swift}
+{: #widget-display-ios-swift}
 
 [iOS Swift 클라이언트 SDK](https://github.com/ibm-cloud-security/appid-clientsdk-swift)를 사용하여 사전 구성된 화면을 호출할 수 있습니다.
 {: shortdesc}
@@ -270,7 +285,7 @@ lastupdated: "2018-12-19"
 코드에 다음 명령을 입력하십시오.
 
   ```swift
-  import BluemixAppID
+  import IBMCloudAppID
   class delegate : AuthorizationDelegate {
       public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, refreshToken: RefreshToken?) {
           //User authenticated
@@ -291,9 +306,10 @@ lastupdated: "2018-12-19"
 
 </br>
 
-**등록**
+### 등록
+{: #widget-ios-signup}
 
-1. GUI에서 클라우드 디렉토리 [설정](cloud-directory.html#cd-settings)을 구성하십시오. **사용자가 앱에 등록할 수 있도록 허용** 및 **사용자가 앱에서 해당 계정을 관리할 수 있도록 허용**을 둘 다 **켜기**로 설정하십시오.
+1. GUI에서 클라우드 디렉토리 [설정](/docs/services/appid?topic=appid-cloud-directory#cd-settings)을 구성하십시오. **사용자가 앱에 등록할 수 있도록 허용** 및 **사용자가 앱에서 해당 계정을 관리할 수 있도록 허용**을 둘 다 **켜기**로 설정하십시오.
 2. 애플리케이션에 다음 코드를 배치하십시오. 사용자가 애플리케이션에 등록하려고 시도하면 로그인 위젯이 호출되고 사용자 정의 등록 페이지가 표시됩니다.
 
   ```swift
@@ -321,9 +337,10 @@ lastupdated: "2018-12-19"
 
 </br>
 
-**비밀번호 찾기**
+### 비밀번호 찾기
+{: #widget-ios-forgot-password}
 
-1. GUI에서 클라우드 디렉토리 [설정](cloud-directory.html#cd-settings)을 구성하십시오. **사용자가 앱에서 해당 계정을 관리할 수 있도록 허용**을 **켜기**로 설정해야 합니다.
+1. GUI에서 클라우드 디렉토리 [설정](/docs/services/appid?topic=appid-cloud-directory#cd-settings)을 구성하십시오. **사용자가 앱에서 해당 계정을 관리할 수 있도록 허용**을 **켜기**로 설정해야 합니다.
 2. 서비스 대시보드의 **비밀번호 재설정** 탭에서 **비밀번호 찾기 이메일**이 **켜기**로 설정되어 있는지 확인하십시오.
 3. 애플리케이션에 다음 코드를 배치하십시오. 앱 사용자 중 한 명이 비밀번호를 업데이트하도록 요청하면 로그인 위젯이 호출되고 프로세스가 시작됩니다.
 
@@ -348,9 +365,10 @@ lastupdated: "2018-12-19"
 
 </br>
 
-**세부사항 변경**
+### 세부사항 변경
+{: #widget-ios-change-details}
 
-1. GUI에서 클라우드 디렉토리 [설정](cloud-directory.html#cd-settings)을 구성하십시오. **사용자가 앱에 등록할 수 있도록 허용** 및 **사용자가 앱에서 해당 계정을 관리할 수 있도록 허용**을 둘 다 **켜기**로 설정하십시오.
+1. GUI에서 클라우드 디렉토리 [설정](/docs/services/appid?topic=appid-cloud-directory#cd-settings)을 구성하십시오. **사용자가 앱에 등록할 수 있도록 허용** 및 **사용자가 앱에서 해당 계정을 관리할 수 있도록 허용**을 둘 다 **켜기**로 설정하십시오.
 2. 서비스 대시보드의 **비밀번호 변경** 탭에서 **비밀번호 변경 이메일**을 켜기로 설정하십시오.
 3. 로그인 위젯을 호출하여 세부사항 변경 플로우를 시작하십시오.
 
@@ -375,9 +393,10 @@ lastupdated: "2018-12-19"
 
 </br>
 
-**비밀번호 변경**
+### 비밀번호 변경
+{: #widget-ios-change-password}
 
-1. GUI에서 클라우드 디렉토리 [설정](cloud-directory.html#cd-settings)을 구성하십시오. **사용자가 앱에 등록할 수 있도록 허용** 및 **사용자가 앱에서 해당 계정을 관리할 수 있도록 허용**을 둘 다 **켜기**로 설정하십시오.
+1. GUI에서 클라우드 디렉토리 [설정](/docs/services/appid?topic=appid-cloud-directory#cd-settings)을 구성하십시오. **사용자가 앱에 등록할 수 있도록 허용** 및 **사용자가 앱에서 해당 계정을 관리할 수 있도록 허용**을 둘 다 **켜기**로 설정하십시오.
 2. 앱에 다음 코드를 배치하여 비밀번호 변경 플로우를 시작하십시오.
 
   ```swift
@@ -399,11 +418,9 @@ lastupdated: "2018-12-19"
   ```
   {: codeblock}
 
-</br>
-</br>
 
 ## Node.js SDK를 사용하여 로그인 위젯 표시
-{: #nodejs}
+{: #widget-display-nodejs}
 
 [Node.js 서버 SDK](https://github.com/ibm-cloud-security/appid-serversdk-nodejs)를 사용하여 사전 구성된 화면을 호출할 수 있습니다.
 {: shortdesc}
@@ -424,9 +441,10 @@ lastupdated: "2018-12-19"
 
 </br>
 
-**등록**
+### 등록
+{: #widget-nodejs-signup}
 
-1. GUI에서 클라우드 디렉토리 [설정](cloud-directory.html#cd-settings)을 구성하십시오. **사용자가 앱에 등록할 수 있도록 허용** 및 **사용자가 앱에서 해당 계정을 관리할 수 있도록 허용**을 둘 다 **켜기**로 설정하십시오.
+1. GUI에서 클라우드 디렉토리 [설정](/docs/services/appid?topic=appid-cloud-directory#cd-settings)을 구성하십시오. **사용자가 앱에 등록할 수 있도록 허용** 및 **사용자가 앱에서 해당 계정을 관리할 수 있도록 허용**을 둘 다 **켜기**로 설정하십시오.
 2. 애플리케이션에 다음 코드를 배치하십시오. 사용자가 애플리케이션에 등록하려고 시도하면 로그인 위젯이 호출되고 사용자 정의 등록 페이지가 표시됩니다.
 
   ```javascript
@@ -439,9 +457,10 @@ lastupdated: "2018-12-19"
 
 </br>
 
-**비밀번호 찾기**
+### 비밀번호 찾기
+{: #widget-nodejs-forgot-password}
 
-1. GUI에서 클라우드 디렉토리 [설정](cloud-directory.html#cd-settings)을 구성하십시오. **사용자가 앱에서 해당 계정을 관리할 수 있도록 허용**을 **켜기**로 설정해야 합니다.
+1. GUI에서 클라우드 디렉토리 [설정](/docs/services/appid?topic=appid-cloud-directory#cd-settings)을 구성하십시오. **사용자가 앱에서 해당 계정을 관리할 수 있도록 허용**을 **켜기**로 설정해야 합니다.
 2. 서비스 대시보드의 **비밀번호 재설정** 탭에서 **비밀번호 찾기 이메일**이 **켜기**로 설정되어 있는지 확인하십시오.
 3. 애플리케이션에 다음 코드를 배치하여 *show* 특성을 `WebAppStrategy.FORGOT_PASSWORD`에 전달하십시오. 사용자가 앱의 비밀번호를 업데이트하도록 요청하면 로그인 위젯이 호출되고 프로세스가 시작됩니다.
 
@@ -455,9 +474,10 @@ lastupdated: "2018-12-19"
 
 </br>
 
-**세부사항 변경**
+### 세부사항 변경
+{: #widget-nodejs-change-details}
 
-1. GUI에서 클라우드 디렉토리 [설정](cloud-directory.html#cd-settings)을 구성하십시오. **사용자가 앱에 등록할 수 있도록 허용** 및 **사용자가 앱에서 해당 계정을 관리할 수 있도록 허용**을 둘 다 **켜기**로 설정하십시오.
+1. GUI에서 클라우드 디렉토리 [설정](/docs/services/appid?topic=appid-cloud-directory#cd-settings)을 구성하십시오. **사용자가 앱에 등록할 수 있도록 허용** 및 **사용자가 앱에서 해당 계정을 관리할 수 있도록 허용**을 둘 다 **켜기**로 설정하십시오.
 2. 서비스 대시보드의 **비밀번호 변경** 탭에서 **비밀번호 변경 이메일**을 켜기로 설정하십시오.
 3. 애플리케이션에 다음 코드를 배치하여 *show* 특성을 `WebAppStrategy.FORGOT_PASSWORD`에 전달함으로써 세부사항 변경 양식을 실행하십시오.
 
@@ -471,9 +491,10 @@ lastupdated: "2018-12-19"
 
 </br>
 
-**비밀번호 변경**
+### 비밀번호 변경
+{: #widget-nodejs-change-password}
 
-1. GUI에서 클라우드 디렉토리 [설정](cloud-directory.html#cd-settings)을 구성하십시오. **사용자가 앱에 등록할 수 있도록 허용** 및 **사용자가 앱에서 해당 계정을 관리할 수 있도록 허용**을 둘 다 **켜기**로 설정하십시오.
+1. GUI에서 클라우드 디렉토리 [설정](/docs/services/appid?topic=appid-cloud-directory#cd-settings)을 구성하십시오. **사용자가 앱에 등록할 수 있도록 허용** 및 **사용자가 앱에서 해당 계정을 관리할 수 있도록 허용**을 둘 다 **켜기**로 설정하십시오.
 2. 서비스 대시보드의 **비밀번호 변경** 탭에서 **비밀번호 변경 이메일**을 켜기로 설정하십시오.
 3. 애플리케이션에 다음 코드를 배치하여 *show* 특성을 `WebAppStrategy.FORGOT_PASSWORD`에 전달함으로써 세부사항 변경 양식을 실행하십시오.
 
@@ -484,5 +505,3 @@ lastupdated: "2018-12-19"
   }));
   ```
   {: codeblock}
-
-</br>

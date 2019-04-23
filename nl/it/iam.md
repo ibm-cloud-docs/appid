@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-12-19"
+  years: 2017, 2019
+lastupdated: "2019-03-13"
+
+keywords: authentication, authorization, identity, app security, secure, access, platform, management, permissions
+
+subcollection: appid
 
 ---
 
@@ -13,21 +17,24 @@ lastupdated: "2018-12-19"
 {:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 {:download: .download}
 
 
 # Gestione dell'accesso al servizio
 {: #service-access-management}
 
-Con {{site.data.keyword.appid_full}} e {{site.data.keyword.Bluemix_notm}} Identity and Access Management (IAM), i proprietari dell'account possono gestire l'accesso degli utenti nel tuo account.
+Con {{site.data.keyword.appid_full}} e {{site.data.keyword.cloud_notm}} IAM (Identity and Access Management), i proprietari dell'account possono gestire l'accesso degli utenti nel tuo account.
 {: shortdesc}
 
 Come proprietario dell'account, puoi impostare delle politiche all'interno del tuo account per creare diversi livelli di accesso per i vari utenti. Ad esempio, alcuni utenti possono avere accesso in **Sola lettura** a un'istanza, ma l'accesso in **Scrittura** a un'altra. Puoi decidere chi è autorizzato a creare, aggiornare ed eliminare le istanze di {{site.data.keyword.appid_short_notm}}.
 
-Per ulteriori informazioni su IAM, vedi [Accesso IAM](/docs/iam/users_roles.html).
+Per ulteriori informazioni su IAM, vedi [Accesso IAM](/docs/iam?topic=iam-userroles).
 
 ## Ruoli utente
-{: #roles}
+{: #iam-roles}
 
 L'ambito di una politica di accesso si basa su un ruolo assegnato agli utenti.
 {: shortdesc}
@@ -39,6 +46,9 @@ Le politiche consentono di concedere l'accesso a diversi livelli. Alcune delle o
   <li>Accesso a una risorsa specifica all'interno di un'istanza</li>
   <li>Accesso a tutti i servizi abilitati a IAM nel tuo account</li>
 </ul></ul>
+
+### Ruoli della piattaforma
+{: #iam-platform-roles}
 
 I ruoli di gestione della piattaforma consentono agli utenti di eseguire attività sulle risorse del servizio a livello di piattaforma. Ad esempio, è possibile assegnare ruoli per determinare chi può creare o eliminare ID, creare istanze e associare le istanze alle applicazioni. La seguente tabella descrive le azioni correlate ai ruoli di gestione della piattaforma.
 
@@ -70,8 +80,8 @@ I ruoli di gestione della piattaforma consentono agli utenti di eseguire attivit
   </tr>
 </table>
 
-</br>
-</br>
+### Ruoli di accesso al servizio
+{: #iam-service-roles}
 La seguente tabella descrive le azioni associate ai ruoli di accesso al servizio. I ruoli di accesso al servizio consentono agli utenti di accedere a {{site.data.keyword.appid_short_notm}} nonché la possibilità di richiamare l'API {{site.data.keyword.appid_short_notm}}.
 
 
@@ -93,16 +103,16 @@ La seguente tabella descrive le azioni associate ai ruoli di accesso al servizio
   </tr>
 </table>
 
-Per ulteriori informazioni sull'assegnazione dei ruoli utente nell'IU, vedi [Gestione dell'accesso IAM](/docs/iam/mngiam.html#iammanidaccser).
+Per ulteriori informazioni sull'assegnazione dei ruoli utente nell'IU, vedi [Gestione dell'accesso IAM](/docs/iam?topic=iam-iammanidaccser#iammanidaccser).
 
 
 ## Politiche di accesso {{site.data.keyword.appid_short_notm}}
-{: #access}
+{: #iam-access}
 
 Ad ogni utente che accede al servizio {{site.data.keyword.appid_short_notm}} nel tuo account deve essere assegnato una politica di accesso con un ruolo utente IAM definito. Tale politica determina quali azioni l'utente può eseguire nel contesto del servizio o dell'istanza che selezioni.
 {: shortdesc}
 
-Le azioni sono personalizzate e definite dal servizio {{site.data.keyword.Bluemix_notm}} come operazioni che possono essere eseguite nel servizio. Le azioni vengono quindi associate ai ruoli utente IAM. Alcune delle azioni intraprese possono tracciare il servizio {{site.data.keyword.cloudaccesstrailshort}}. Nella seguente tabella, vengono associate le azioni e le autorizzazioni richieste per {{site.data.keyword.appid_short_notm}}.
+Le azioni sono personalizzate e definite dal servizio {{site.data.keyword.cloud_notm}} come operazioni che possono essere eseguite nel servizio. Le azioni vengono quindi associate ai ruoli utente IAM. Alcune delle azioni intraprese possono tracciare il servizio {{site.data.keyword.cloudaccesstrailshort}}. Nella seguente tabella, vengono associate le azioni e le autorizzazioni richieste per {{site.data.keyword.appid_short_notm}}.
 
 <table>
   <tr>
@@ -226,30 +236,65 @@ Le azioni sono personalizzate e definite dal servizio {{site.data.keyword.Bluemi
 </br>
 
 ## Esempio: concedere a un altro utente l'accesso a un'istanza di {{site.data.keyword.appid_short_notm}}
-{: #example}
+{: #iam-example}
 
 In questo scenario, un amministratore ha creato un'istanza di {{site.data.keyword.appid_short_notm}} e deve concedere l'accesso di visualizzatore a un altro membro del team.
 {: shortdesc}
 
 Prima di cominciare:
-* Installa la [CLI {{site.data.keyword.Bluemix_notm}}](/docs/cli/index.html).
+* Installa la [CLI {{site.data.keyword.cloud_notm}}](/docs/cli/reference/ibmcloud?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli).
 
 Per aggiornare le autorizzazioni di accesso, l'amministratore completa la seguente procedura:
 
-1. Accedi alla console {{site.data.keyword.Bluemix_notm}}.
-2. Concedi al dipendente l'accesso di visualizzazione seguendo le istruzioni illustrate nella [documentazione IAM](/docs/iam/mngiam.html).
+1. Accedi alla console {{site.data.keyword.cloud_notm}}.
+
+2. Concedi al dipendente l'accesso di visualizzazione seguendo le istruzioni illustrate nella [documentazione IAM](/docs/iam?topic=iam-iammanidaccser).
+
 3. Passa alla scheda **Credenziali del servizio** del dashboard {{site.data.keyword.appid_short_notm}}. Fai clic su **Visualizza credenziali** e copia il **tentantID**.
-4. Accedi con la CLI {{site.data.keyword.Bluemix_notm}} nel tuo terminale.
+
+4. Accedi con la CLI {{site.data.keyword.cloud_notm}} nel tuo terminale.
+
     ```
-    ibmcloud login -a api.<region>.bluemix.net
+    ibmcloud login -api -a https://api.<region>.cloud.ibm.com
     ```
-    {: codeblock}
+    {: pre}
+
+    <table>
+      <tr>
+        <th>Regione</th>
+        <th>Endpoint</th>
+      </tr>
+      <tr>
+        <td>Dallas</td>
+        <td><code>us-south</code></td>
+      </tr>
+      <tr>
+        <td>Francoforte</td>
+        <td><code>eu-de</code></td>
+      </tr>
+      <tr>
+        <td>Sydney</td>
+        <td><code>au-syd</code></td>
+      </tr>
+      <tr>
+        <td>Londra</td>
+        <td><code>eu-gb</code></td>
+      </tr>
+      <tr>
+        <td>Tokyo</td>
+        <td><code>jp-tok</code></td>
+      </tr>
+    </table>
+
 5. Ottieni un token IAM e prendine nota.
+
     ```
     ibmcloud iam oauth-tokens
     ```
-    {: codeblock}
+    {: pre}
+
 6. Verifica che il membro del team non possa apportare modifiche.
+
     ```
     curl -X PUT --header 'Content-Type: application/json' \
     --header 'Accept: application/json' \
@@ -261,27 +306,33 @@ Per aggiornare le autorizzazioni di accesso, l'amministratore completa la seguen
        "secret": "appsecret"
      }
     }' \
-    'https://appid-management.ng.bluemix.net/management/v4/<tenantId>/config/idps/facebook'
+    'https://us-south.appid.cloud.ibm.com/management/v4/<tenantID>/config/idps/facebook'
     ```
-    {: codeblock}
+    {: pre}
 
     Il risultato è un messaggio 403 non autorizzato.
 
 Per visualizzare la configurazione di {{site.data.keyword.appid_short_notm}} dalla CLI, il membro del team completa la seguente procedura:
 
-1. Esegui l'accesso utilizzando la CLI {{site.data.keyword.Bluemix_notm}} nel tuo terminale.
+1. Esegui l'accesso utilizzando la CLI {{site.data.keyword.cloud_notm}} nel tuo terminale.
+
     ```
-    ibmcloud login -a api.<region>.bluemix.net
+    ibmcloud login -a api.<region>.console.cloud.ibm.com
     ```
-    {: codeblock}
+    {: pre}
+
 2. Ottieni un token IAM e prendine nota.
+
     ```
     ibmcloud iam oauth-tokens
     ```
-    {: codeblock}
+    {: pre}
+
 3. Visualizza la configurazione del provider di identità per Facebook utilizzando cURL.
+
     ```
-    curl -X GET --header 'Accept: application/json' --header 'Authorization: <IAM token value>' \  'https://appid-management.ng.bluemix.net/management/v4/<tenantId>/config/idps/facebook'
+    curl -X GET --header 'Accept: application/json' --header 'Authorization: <IAM token value>' \  'https://us-south.appid.cloud.ibm.com/management/v4/<tenantID>/config/idps/facebook'
     ```
-    {: codeblock}
+    {: pre}
+
     Il risultato è un messaggio 200 che contiene le informazioni sul provider di identità.

@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-12-18"
+  years: 2017, 2019
+lastupdated: "2019-04-05"
+
+keywords: authentication, authorization, identity, app security, secure, application identity, app to app, access token, activity
+
+subcollection: appid
 
 ---
 
@@ -13,33 +17,32 @@ lastupdated: "2018-12-18"
 {:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
 {:tip: .tip}
-{:download: .download}
 {:note: .note}
 {:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 
 # Sucesos de {{site.data.keyword.cloudaccesstrailshort}}
-{: #at_events}
+{: #at-events}
 
 Puede ver, gestionar y analizar actividades iniciadas por el usuario realizadas en la instancia de servicio de {{site.data.keyword.appid_full}} utilizando el servicio de {{site.data.keyword.cloudaccesstrailshort}}.
 {: shortdesc}
 
 
 
-Para obtener más información sobre cómo funciona el servicio, consulte la [documentación de {{site.data.keyword.cloudaccesstrailshort}}](/docs/services/cloud-activity-tracker/index.html).
+Para obtener más información sobre cómo funciona el servicio, consulte la [documentación de {{site.data.keyword.cloudaccesstrailshort}}](/docs/services/cloud-activity-tracker/reference?topic=cloud-activity-tracker-getting-started-with-cla#getting-started-with-cla).
 
-
-</br>
 
 ## Visualización de sucesos de administración
-{: #monitor-admin}
+{: #at-monitor-admin}
 
-Puede ver, gestionar y analizar la actividad de configuración que se realiza en la instancia de {{site.data.keyword.appid_short_notm}} mediante el servicio de {{site.data.keyword.cloudaccesstrailshort}}.
+Puede ver, gestionar y analizar la actividad de configuración que se realiza en la instancia de {{site.data.keyword.appid_short_notm}} mediante el servicio {{site.data.keyword.cloudaccesstrailshort}}.
 {: shortdesc}
 
 Para supervisar la actividad administrativa:
 
-1. Inicie sesión en su cuenta de {{site.data.keyword.Bluemix_notm}}.
+1. Inicie sesión en su cuenta de {{site.data.keyword.cloud_notm}}.
 2. Desde el catálogo, suministre una instancia del servicio de {{site.data.keyword.cloudaccesstrailshort}} en la misma cuenta que la instancia de {{site.data.keyword.appid_short_notm}}.
 3. En el panel de control de {{site.data.keyword.cloudaccesstrailshort}}, pulse el separador **Gestionar**.
 4. En la lista desplegable, seleccione las configuraciones siguientes para buscar los sucesos generados por {{site.data.keyword.appid_short_notm}}.
@@ -51,7 +54,7 @@ Para supervisar la actividad administrativa:
 </br>
 
 ## Lista de sucesos de administración
-{: #events-admin}
+{: #at-events-admin}
 
 Consulte la tabla siguiente para obtener una lista de los sucesos que se envían a {{site.data.keyword.cloudaccesstrailshort}}.
 
@@ -128,7 +131,7 @@ Consulte la tabla siguiente para obtener una lista de los sucesos que se envían
   </tr>
   <tr>
     <td><code>read.samlMetadata</code></td>
-    <td>Ver los metadatos SAML de App ID.</td>
+    <td>Ver los metadatos SAML de {{site.data.keyword.appid_short_notm}}.</td>
     <td>Se puede encontrar en el separador <strong>Proveedores de identidad > Federación de SAML 2.0</strong>.</td>
   </tr>
   <tr>
@@ -238,7 +241,5 @@ Consulte la tabla siguiente para obtener una lista de los sucesos que se envían
   </tr>
 </table>
 
-</br>
-</br>
 
 

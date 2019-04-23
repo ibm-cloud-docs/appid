@@ -1,52 +1,67 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-11-14"
+  years: 2017, 2019
+lastupdated: "2019-03-25"
+
+keywords: authentication, authorization, identity, app security, secure, custom, proprietary, social, facebook, google, 
+
+subcollection: appid
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
-{: tip: .tip}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 # Social
-{: #setting-up-idp}
+{: #social}
 
 Con {{site.data.keyword.appid_full}}, puede configurar proveedores de identidad para establecer una experiencia de inicio de sesión único para la app. Si permite a un usuario iniciar sesión con su perfil social, este no podrá recordar distintas contraseñas de aplicaciones diferentes.
 {: shortdesc}
 
 
 ## Configuración predeterminada
-{: #default}
+{: #social-default}
 
 {{site.data.keyword.appid_short_notm}} proporciona una configuración predeterminada para ayudar a empezar y trabajar rápidamente con el servicio.
 {: shortdesc}
 
-Las credenciales predeterminadas están configuradas para Facebook y Google. Está limitado a 100 usos de las credenciales por instancia y por día. Dado que son credenciales de IBM, están pensadas para utilizarse solo en modalidad de desarrollo. Antes de publicar la app, actualice la configuración a sus propias credenciales.
+Cuando configura APP ID, Facebook, Google y el directorio en la nube se habilitan automáticamente como proveedores de identidad. Puede cambiar la configuración en cualquier momento. Existen credenciales predeterminadas para Facebook y Google, pero son credenciales de IBM y se deben utilizar solo para probar si se utiliza el servicio. Antes de publicar la app, actualice la configuración a sus propias credenciales.
+
+El usuario está limitado a 100 autenticaciones con las credenciales predeterminadas por instancia, por día.
+{: note}
 
 
 ## Configuración de Facebook
 {: #facebook}
 
-Puede configurar el servicio de {{site.data.keyword.appid_short}} para que utilice Facebook como proveedor de identidad.
+Puede configurar el servicio {{site.data.keyword.appid_short}} para que utilice Facebook como proveedor de identidad.
 {: shortdesc}
 
 ### Obtención de un ID de app y secreto de Facebook
+{: #facebook-appid-secret}
 
 Para utilizar Facebook como proveedor de identidad, debe añadir y configurar la plataforma de sitio web en su aplicación de Facebook.
 
 1. Inicie sesión en su cuenta en el <a href="https://developers.facebook.com/docs/apps/register" target="_blank">sitio Facebook for Developers <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>.
 2. Anote el ID y el secreto de la app de Facebook. Estos valores son necesarios configurar el proyecto web para la autenticación en el panel de control de servicio.
 3. Añada la plataforma web y especifique el URL del sitio.
-4. En la lista de productos, seleccione **Inicio de sesión de Facebook **.
+4. En la lista de productos, seleccione **Inicio de sesión de Facebook**.
 5. En el campo **URL de redirección de OAuth válidos**, especifique el URL de punto final de devolución de llamada del servidor de autorización.
 6. Pulse **Guardar cambios**.
 
 
 ### Configuración de {{site.data.keyword.appid_short_notm}} para la autenticación de Facebook
+{: #facebook-configure}
 
 Una vez que tenga el ID y secreto de la app de Facebook, y que la app de Facebook for Developers esté configurada para prestar servicio a los clientes web, puede editar la autenticación de Facebook en el panel de control del servicio.
 
@@ -60,10 +75,11 @@ Una vez que tenga el ID y secreto de la app de Facebook, y que la app de Faceboo
 ## Configuración de Google
 {: #google}
 
-Puede configurar el servicio de {{site.data.keyword.appid_short}} para que utilice Google como proveedor de identidad.
+Puede configurar el servicio {{site.data.keyword.appid_short}} para que utilice Google como proveedor de identidad.
 {: shortdesc}
 
-### Obtención de un ID de cliente y secreto de Google
+### Obtención de un ID de cliente y secreto
+{: #google-clientid-secret}
 
 Cree un proyecto en la <a href="https://developers.google.com/" target="_blank">consola de Google Developers <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>, configure el proyecto para que sirva a clientes web y obtenga un ID y un secreto de cliente.
 
@@ -77,6 +93,7 @@ Cree un proyecto en la <a href="https://developers.google.com/" target="_blank">
 4. Anote el ID de cliente y secreto de Google. En el separador de credenciales, seleccione el ID que ha creado para obtener su secreto e ID de cliente.
 
 ### Configuración de {{site.data.keyword.appid_short}} para la autenticación de Google
+{: #google-configure}
 
 Después de configurar el proyecto de Google y de tener el ID de cliente y el secreto, puede editar el panel de control de servicio para la autenticación de Google.
 

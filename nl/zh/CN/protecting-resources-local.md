@@ -1,15 +1,26 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-12-19"
+  years: 2017, 2019
+lastupdated: "2019-03-06"
+
+keywords: authentication, authorization, identity, app security, secure
+
+subcollection: appid
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 
 #  配置本地开发服务器以用于 {{site.data.keyword.appid_short_notm}}
@@ -20,9 +31,9 @@ lastupdated: "2018-12-19"
 
 
 ## 开始之前
-{: #begin}
+{: #begin-local}
 
-安装[服务器 SDK](web-apps.html)。
+安装[服务器 SDK](/docs/services/appid?topic=appid-web-apps)。
 
 
 ## 将 {{site.data.keyword.appid_short_notm}} 应用程序配置为使用本地开发服务器
@@ -33,9 +44,9 @@ lastupdated: "2018-12-19"
 1. 将租户标识替换为您的 {{site.data.keyword.appid_short_notm}} 租户标识。您可以在服务仪表板中找到此标识。
 2. 将区域替换为相应的区域，如下表中所示。
 
-<table> <caption> 表 1. {{site.data.keyword.Bluemix_notm}} 区域及对应的 Android 和 iOS {{site.data.keyword.appid_short_notm}} 区域</caption>
+<table> <caption> 表 1. {{site.data.keyword.cloud_notm}} 区域及对应的 Android 和 iOS {{site.data.keyword.appid_short_notm}} 区域</caption>
 <tr>
-  <th> {{site.data.keyword.Bluemix_notm}} 区域</th>
+  <th> {{site.data.keyword.cloud_notm}} 区域</th>
   <th> Android 和 iOS </th>
 </tr>
 <tr>
@@ -59,11 +70,13 @@ lastupdated: "2018-12-19"
 
 
 ### Android
-{: #android}
+{: #android-local}
+
+
 ```java
 String baseRequestUrl = "http://localhost:<port>"; //set to your server running port
 String tenantId = "your-AppID-service-tenantID";
-String region = AppID.REGION_UK; //set your App ID application region here. Currently possible values are AppID.REGION_US_SOUTH, AppID.REGION_SYDNEY, AppID.REGION_GERMANY, or AppID.REGION_UK.
+String region = AppID.REGION_UK; //set your {{site.data.keyword.appid_short_notm}} application region here. Currently possible values are AppID.REGION_US_SOUTH, AppID.REGION_SYDNEY, AppID.REGION_GERMANY, or AppID.REGION_UK.
 
 BMSClient bmsClient= BMSClient.getInstance();
 bmsClient.initialize(getApplicationContext(), region);
@@ -94,14 +107,14 @@ request.send(this, new ResponseListener() {
 {: codeblock}
 
 ### iOS - Swift
-{: #swift}
+{: #swift-local}
 ```swift
 
-let baseRequestUrl = "http://localhost:<port>"; //set to your server running port
+ let baseRequestUrl = "http://localhost:<port>"; //set to your server running port
  let tenantId = "your-AppID-service-tenantID"
- let region = AppID.REGION_UK; //set your App ID application region here. Currently possible values are AppID.REGION_US_SOUTH, AppID.REGION_SYDNEY, AppID.REGION_GERMANY, or AppID.REGION_UK.
+ let region = AppID.REGION_UK; //set your {{site.data.keyword.appid_short_notm}} application region here. Currently possible values are AppID.REGION_US_SOUTH, AppID.REGION_SYDNEY, AppID.REGION_GERMANY, or AppID.REGION_UK.
 
-BMSClient.sharedInstance.initialize(bluemixRegion: region)
+BMSClient.sharedInstance.initialize(region: AppID.<region>)
 BMSClient.sharedInstance.authorizationManager = AppIDAuthorizationManager(appid:AppID.sharedInstance)
 
 var request:Request =  Request(url: baseRequestUrl + "/resource/path", method: HttpMethod.GET)

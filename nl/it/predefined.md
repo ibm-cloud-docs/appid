@@ -1,26 +1,36 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-11-19"
+  years: 2017, 2019
+lastupdated: "2019-04-04"
+
+keywords: authentication, authorization, identity, app security, secure, user information, attributes, accessing, storing, preregister, profiles
+
+subcollection: appid
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
-{:pre: .pre}
-{:tip: .tip}
 {:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:codeblock: .codeblock}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 # Attributi dell'utente predefiniti
-{: #predefined}
+{: #predefined-attributes}
 
 Con {{site.data.keyword.appid_full}}, puoi visualizzare le informazioni specifiche del provider di identità dei tuoi utenti.
 {: shortdesc}
 
 
 ## Accesso con l'SDK iOS
-{: #ios}
+{: #predefined-access-ios}
 
 Se i nuovi token non vengono inoltrati esplicitamente al SDK, {{site.data.keyword.appid_short_notm}} utilizza gli ultimi token ricevuti per richiamare e convalidare la risposta. Ad esempio, puoi eseguire il seguente codice dopo un'autenticazione riuscita e l'SDK richiama ulteriori informazioni sull'utente.
 
@@ -31,7 +41,6 @@ AppID.sharedInstance.userProfileManager.getUserInfo { (error: Error?, userInfo: 
 	}
 	// informazioni utente richiamate correttamente
 }
-
 ```
 {: pre}
 
@@ -47,10 +56,9 @@ AppID.sharedInstance.userProfileManager.getUserInfo(accessToken: String, identit
 ```
 {: pre}
 
-</br>
 
 ## Accesso con l'SDK Android
-{: #android}
+{: #predefined-access-android}
 
 Se i nuovi token non vengono inoltrati esplicitamente al SDK, {{site.data.keyword.appid_short_notm}} utilizza gli ultimi token ricevuti per richiamare e convalidare la risposta. Ad esempio, puoi eseguire il seguente codice dopo un'autenticazione riuscita e l'SDK richiama ulteriori informazioni sull'utente.
 
@@ -90,10 +98,9 @@ appId.getUserProfileManager().getUserInfo(accessToken, identityToken, new UserPr
 ```
 {: pre}
 
-</br>
 
 ## Accesso con l'SDK Node.js Server
-{: #node}
+{: #predefined-access-node}
 
 
 Utilizzando un SDK lato server, puoi richiamare ulteriori informazioni sui tuoi utenti. Puoi richiamare il seguente metodo utilizzando i token di identità e di accesso memorizzati oppure puoi inoltrare esplicitamente i token. Il token di identità è facoltativo, ma quando viene passato, viene utilizzato per convalidare la risposta delle informazioni utente.
@@ -118,10 +125,10 @@ userProfileManager.getUserInfo(accessToken).then(function (profile) {
 ```
 {: pre}
 
-</br>
+
 
 ## Accesso con l'SDK Swift Server
-{: #swift}
+{: #predefined-access-swift}
 
 Utilizzando un SDK lato server, puoi richiamare ulteriori informazioni sui tuoi utenti. Puoi richiamare il seguente metodo utilizzando i token di identità e di accesso memorizzati oppure puoi inoltrare esplicitamente i token. Il token di identità è facoltativo, ma quando viene passato, viene utilizzato per convalidare la risposta delle informazioni utente.
 
@@ -150,16 +157,16 @@ userProfileManager.getUserInfo(accessToken: accessToken) { (err, userInfo) in
 ```
 {: pre}
 
-</br>
+
 
 ## Accesso a con l'API
-{: #api}
+{: #predefined-access-api}
 
 Puoi visualizzare ulteriori informazioni tramite l'endpoint `/userinfo`.
 
 1. Assicurarti di disporre di un token di accesso valido con un ambito `openid`. Puoi verificare che il token è valido utilizzando l'endpoint `/introspect`.
 
-2. Esegui una richiesta all'endpoint [`/userinfo`](https://appid-oauth.ng.bluemix.net/swagger-ui/#!/Authorization_Server_V3/userInfo).
+2. Esegui una richiesta all'endpoint [`/userinfo`](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization_Server_V4/userInfo).
   ```
   GET [POST] https://{oauth-server-endpoint}/userinfo
   Authorization: 'Bearer {ACCESS_TOKEN}'
