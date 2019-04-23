@@ -91,6 +91,8 @@ If your identity provider supports SSO, then it is possible that the SAML authen
 
 You can configure SAML to work with {{site.data.keyword.appid_short_notm}} by providing metadata from {{site.data.keyword.appid_short_notm}} to your identity provider and metadata from your identity provider to {{site.data.keyword.appid_short_notm}}.
 
+
+
 ### Providing metadata to your identity provider
 {: #saml-provide-idp}
 
@@ -136,6 +138,8 @@ You cannot enable SAML until after you have configured it as an identity provide
 
 4. Toggle **SAML 2.0 Federation** to **Enabled**.
 
+
+
 ### Providing metadata to {{site.data.keyword.appid_short_notm}}
 {: #saml-provide-appid}
 
@@ -171,23 +175,22 @@ Want to set an authentication context? You can do so through the API.
 {: tip}
 
 
+
 **Providing metadata with the API**
 
 1. Obtain your SAML metadata by making a GET request to the [/getSamlMetadata API endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.get_saml_idp).
 
   Example code:
   ```
-  <?xml version="1.0"?>
-  <getSamlMetadata>
-    <?xml version="1.0"?> <EntityDescriptor> <SPSSODescriptor> <NameIDFormat> </NameIDFormat> <AssertionConsumerService /> </SPSSODescriptor>
-   </EntityDescriptor>
-    </getSamlMetadata>
+  curl --request POST \
+  https://us-south.appid.cloud.ibm.com/management/v4/<tenant-ID>/config/idps/saml \
+  --header `Accept: application/json`
   ```
   {: pre}
 
   Example output:
   ```
-    {
+  {
     "isActive": true,
     "config": {
       "entityID": "https://example.com/saml2/metadata/706634",
@@ -202,15 +205,6 @@ Want to set an authentication context? You can do so through the API.
         ],
         "comparison": "exact"
       }
-    },
-    "validation_data": {
-      "certificates": [
-        {
-          "certificate_index": 0,
-          "expiration_timestamp": 1674473996,
-          "warning": "Your certificate will expire in 18 days."
-        }
-      ]
     }
   }
   ```
