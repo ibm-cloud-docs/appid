@@ -1,15 +1,26 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-11-14"
+  years: 2017, 2019
+lastupdated: "2019-03-14"
+
+keywords: authentication, authorization, identity, app security, secure, troubleshooting, help, support, requests, uri
+
+subcollection: appid
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:codeblock: .codeblock}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 {:tsSymptoms: .tsSymptoms}
 {:tsCauses: .tsCauses}
 {:tsResolve: .tsResolve}
@@ -21,21 +32,42 @@ Se você tiver problemas enquanto está trabalhando com o {{site.data.keyword.ap
 {: shortdesc}
 
 ## Obtendo ajuda e suporte
-{: #gettinghelp}
+{: #ts-gettinghelp}
 
 É possível obter ajuda procurando informações ou fazendo perguntas por meio de um fórum. Também é possível abrir um chamado de suporte. Quando estiver usando os fóruns para fazer uma pergunta, identifique sua pergunta para que ela seja vista pela equipe de
-desenvolvimento do {{site.data.keyword.Bluemix_notm}}.
+desenvolvimento do {{site.data.keyword.cloud_notm}}.
   * Se você tiver questões técnicas sobre o {{site.data.keyword.appid_short_notm}}, poste
 a sua questão no <a href="https://stackoverflow.com/search?q=ibm-appid" target="_blank">Stack Overflow <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a> e identifique-a com "ibm-appid".
   * Para perguntas sobre o serviço e instruções de introdução, use o fórum <a href="https://developer.ibm.com/answers/topics/appid/" target="_blank">dW Answers <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a>. Inclua a tag `appid`.
 
-Para obter mais informações sobre como obter suporte, consulte [Como obter o suporte que eu preciso](/docs/get-support/howtogetsupport.html#getting-customer-support).
+Para informações adicionais sobre como obter suporte, consulte [como obtenho o suporte de que preciso](/docs/get-support?topic=get-support-getting-customer-support#getting-customer-support).
 
-</br>
 
-## Uma URL customizada é rejeitada
-{: #ts-custom-url}
 
+## Um usuário não é redirecionado para o app após a conexão
+{: #ts-signin-fail}
+
+{: tsSymptoms}
+Um usuário se conecta ao seu aplicativo por meio de uma página de conexão do provedor de identidade e nada acontece ou a conexão falha.
+
+{: tsCauses}
+A conexão pode falhar pelas razões a seguir:
+
+* Sua URL de redirecionamento não foi incluída corretamente [na lista de desbloqueio](/docs/services/appid?topic=appid-faq#faq-redirect).
+* O usuário não está autorizado.
+* O usuário tentou conectar-se com as credenciais erradas.
+
+{: tsResolve}
+Para que um redirecionamento ocorra:
+
+* Verifique se a sua URL de redirecionamento está correta. Ela deve ser exata para que o redirecionamento funcione.
+* Certifique-se de que o usuário esteja conectando-se com as credenciais certas
+* Verifique se elas estão definidas em suas configurações do usuário do provedor de identidade.
+
+
+
+## Um URI customizado é rejeitado
+{: #ts-custom-uri}
 
 {: tsSymptoms}
 Quando você insere uma URL de redirecionamento da web que usa um esquema de URL customizado, ela é rejeitada pelo
@@ -53,6 +85,43 @@ As limitações estão em vigor para fins de segurança.
 {: tsResolve}
 Para resolver o problema, verifique se a URL está correta. Se a sua URL não atender aos requisitos, será possível criar
 um terminal HTTPS em seu aplicativo para redirecionar o código de concessão recebido para sua URL customizada. Especifique o
-terminal criado como sua URL de redirecionamento no console do {{site.data.keyword.appid_short_notm}}.
+terminal criado como sua URL de redirecionamento no console do {{site.data.keyword.appid_short_notm}}. Para obter mais informações sobre URIs de redirecionamento, consulte [Incluindo URIs de redirecionamento](/docs/services/appid?topic=appid-managing-idp#add-redirect-uri)
 
+
+
+## Um atributo está mostrando o valor incorreto
+{: #ts-saml-attribute}
+
+{: tsSymptoms}
+Um valor de atributo existe em um perfil do usuário, mas ele não está associado ao atributo correto.
+
+{: tsCauses}
+O atributo do perfil do usuário não está mapeado corretamente.
+
+{: tsResolve}
+Mapeie o atributo em suas configurações do provedor de identidade. O {{site.data.keyword.appid_short_notm}} espera os atributos a seguir:
+* `nome`
+* `E-mail
+`
+* `locale`
+* `picture`
+
+
+
+## Erro: Excesso de solicitações
+{: #ts-requests}
+
+{: tsSymptoms}
+Você tenta visualizar a página inicial de seu app, mas recebe o erro a seguir:
+
+```
+{ "error_code": "número excessivo de pedidos", "error_description": "excesso de pedidos" }
+```
+{: screen}
+
+{: tsCauses}
+Você poderá receber um erro "excesso de solicitações" se estiver executando o teste automatizado com apenas um usuário virtual. Cada usuário é limitado a cinco tentativas de conexão em uma amplitude de tempo de um minuto. As tentativas de conexão são limitadas para evitar DDOS de força bruta e outros tipos de ataques semelhantes.
+
+{: tsResolve}
+Para resolver o problema, você pode desejar usar múltiplos usuários virtuais ao executar o teste.
 </br>

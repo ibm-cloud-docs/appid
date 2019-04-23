@@ -1,19 +1,29 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-11-14"
+  years: 2017, 2019
+lastupdated: "2019-03-25"
+
+keywords: authentication, authorization, identity, app security, secure, custom, proprietary, social, facebook, google, 
+
+subcollection: appid
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
-{: tip: .tip}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 # Social
-{: #setting-up-idp}
+{: #social}
 
 Com o {{site.data.keyword.appid_full}}, é possível configurar provedores de identidade social para configurar
 uma experiência de conexão única para seu aplicativo. Ao permitir que um usuário se conecte com seus perfis sociais,
@@ -22,13 +32,15 @@ eles não precisarão mais se lembrar de várias senhas diferentes para aplicati
 
 
 ## Configuração padrão
-{: #default}
+{: #social-default}
 
 O {{site.data.keyword.appid_short_notm}} fornece uma configuração padrão para ajudá-lo a iniciar rapidamente o serviço.
 {: shortdesc}
 
-As credenciais padrão são configuradas para o Facebook e o Google. Você tem o limite de 100 usos das
-credenciais por instância, por dia. Como elas são credenciais IBM, elas devem ser usadas somente no modo de desenvolvimento. Antes de publicar o seu app, atualize a configuração para as suas próprias credenciais.
+Quando você configura o ID do app, o Facebook, o Google e o Cloud Directory são ativados automaticamente como provedores de identidade. É possível mudar a configuração a qualquer momento. Há credenciais padrão no lugar para o Facebook e o Google, mas elas são credenciais da IBM e devem ser usadas para testar se apenas o serviço deve ser usado. Antes de publicar o seu app, atualize a configuração para as suas próprias credenciais.
+
+Você está limitado a 100 autenticações com as credenciais padrão por instância, por dia.
+{: note}
 
 
 ## Configurando o Facebook
@@ -39,6 +51,7 @@ como um provedor de identidade.
 {: shortdesc}
 
 ### Obtendo um ID do app e segredo por meio do Facebook
+{: #facebook-appid-secret}
 
 Para usar o Facebook como um provedor de identidade, deve-se incluir e configurar a plataforma
 do website em seu aplicativo Facebook.
@@ -54,6 +67,7 @@ chamada do servidor de autorizações.
 
 
 ### Configurando o {{site.data.keyword.appid_short_notm}} para autenticação do Facebook
+{: #facebook-configure}
 
 Quando você tiver o seu ID e segredo do app Facebook e o seu app Facebook for Developers estiver configurado para entregar Web clients, será possível editar
 a autenticação do Facebook em seu painel de serviço.
@@ -72,7 +86,8 @@ valor é determinado pelo desenvolvedor e usado para acessar a URL de redirecion
 É possível configurar o serviço {{site.data.keyword.appid_short}} para usar o Google como um provedor de identidade.
 {: shortdesc}
 
-### Obtendo um identificador de cliente e segredo por meio do Google
+### Obtendo um identificador de cliente e um segredo
+{: #google-clientid-secret}
 
 Crie um projeto no <a href="https://developers.google.com/" target="_blank">Google Developers Console <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a>, configure o projeto para atender
 clientes da web e obtenha um segredo e um identificador de cliente.
@@ -88,6 +103,7 @@ clientes da web e obtenha um segredo e um identificador de cliente.
 ID que você criou para obter o segredo e o identificador de cliente.
 
 ### Configurando o {{site.data.keyword.appid_short}} para autenticação do Google
+{: #google-configure}
 
 Depois de configurar seu projeto do Google e ter seu ID de cliente e segredo, é possível editar seu painel de serviço para a autenticação do Google.
 

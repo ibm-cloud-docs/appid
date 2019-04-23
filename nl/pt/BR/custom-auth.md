@@ -1,20 +1,29 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-11-19"
+  years: 2017, 2019
+lastupdated: "2019-04-04"
+
+keywords: authentication, authorization, identity, app security, secure, custom, proprietary, 
+
+subcollection: appid
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
-{:pre: .pre}
-{:tip: .tip}
 {:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 # Usando identidade customizada em seu aplicativo
-{: #custom-identity}
+{: #custom-auth}
 
 É possível usar seu próprio provedor de identidade customizado quando você está se autenticando. Seu provedor de identidade
 pode estar em conformidade com qualquer mecanismo de autenticação alternativo àqueles suportados pelo
@@ -22,20 +31,19 @@ pode estar em conformidade com qualquer mecanismo de autenticação alternativo 
 {: shortdesc}
 
 ## Visão geral
-{: #overview}
+{: #custom-auth-overview}
 
 Ao trazer seu próprio provedor de identidade, é possível criar um fluxo de autenticação customizado que usa seus
 próprios protocolos. Você tem mais controle, como as informações que você deseja compartilhar ou as informações que estão
 armazenadas.
 {: shortdesc}
 
-Certifique-se de [configurar seu provedor customizado](/docs/services/appid/custom.html) antes de
+Certifique-se de [configurar seu provedor customizado](/docs/services/appid?topic=appid-custom-identity) antes de
 incluí-lo em seu aplicativo.
 {: tip}
 
-</br>
-
-**Quando eu desejaria usar esse fluxo?**
+### Quando eu desejaria usar esse fluxo?
+{: #custom-auth-when}
 
 Quando o {{site.data.keyword.appid_short_notm}} não fornece suporte direto para um provedor de identidade específico, é possível usar o fluxo de identidade customizado para fazer ponte com o protocolo de autenticação para o fluxo de autenticação existente do {{site.data.keyword.appid_short_notm}}. Por exemplo, você deseja usar GitHub ou LinkedIn para permitir que os seus usuários se conectem. É possível usar o SDK existente do provedor de identidade para facilitar as informações sobre autenticação do usuário antes de empacotar e trocando-o pelo {{site.data.keyword.appid_short_notm}}.
 
@@ -52,7 +60,8 @@ sem expor as credenciais do usuário.
 
 </br>
 
-**Qual é a sustentação técnica desse fluxo?**
+### Tecnicamente, como esse fluxo funciona?
+{: #custom-auth-tech}
 
 O fluxo de trabalho de identidade customizada baseia-se no tipo de concessão de extensão JWT-Bearer definido na
 Estrutura de asserção para concessões de autorização do OAuth 2.0
@@ -61,16 +70,14 @@ arquitetura de autenticação cria um relacionamento confiável com o {{site.dat
 usando um par de chaves RSA assimétricas. Depois
 que a confiança estiver estabelecida, será possível usar o tipo de concessão JWT-Bearer para trocar informações sobre o usuário verificadas em um JWT assinado para os tokens do {{site.data.keyword.appid_short_notm}}.
 
-</br>
-
-**Qual é o aspecto do fluxo?**
+### Qual é a aparência desse fluxo?
+{: #custom-auth-flow}
 
 Como com todos os fluxos de autenticação, a identidade customizada requer que o aplicativo possa estabelecer um grau de
 confiança com o {{site.data.keyword.appid_short_notm}} para assegurar a integridade das informações sobre o
 usuário do provedor de identidade. A identidade customizada emprega um par de chaves pública e privada RSA assimétricas para
 estabelecer seu relacionamento confiável. Dependendo de seus requisitos arquiteturais, a identidade customizada suporta
 dois modelos de confiança que diferem apenas na localização de armazenamento e no uso da chave privada.
-
 
 ![Fluxo de solicitação de autenticação customizada](images/customauth.png)
 Figura. A solicitação flui para a autenticação customizada
@@ -93,10 +100,9 @@ que são enviadas pelo aplicativo do lado do servidor, não é possível ter cer
 enviados pelo provedor de identidade.</dd>
 </dl>
 
-</br>
 
 ## Gerando um JSON web token
-{: #creating-jwts}
+{: #generating-jwts}
 
 É possível converter os dados do usuário verificados em um JWT de identidade customizado gerando um
 <a href="https://tools.ietf.org/html/rfc7515" target="blank">JSON web token
@@ -106,6 +112,7 @@ que corresponde à chave pública pré-configurada. Para obter uma lista de bibl
 {: shortdesc}
 
 ### Exemplo de formato JWT
+{: #jwts-example}
 
 Cabeçalho do token:
   ```
@@ -119,11 +126,11 @@ Cabeçalho do token:
 Carga útil do token:
   ```
   {
-    // Required
-    iss: String, // Should reference your identity provider
-    aud: String, // Must be the OAuth server host name
-    exp: Int,    // Should be a value with a short lifespan
-    sub: String, // Must be the unique user ID provided by your identity provider
+    // Necessário
+    iss: String, // Deve referenciar o seu provedor de identidade
+    aud: String, // Deve ser o nome da URL do servidor OAuth
+    exp: Int,    // Deve ser um valor com um ciclo de vida curto
+    sub: String, // Deve ser o ID do usuário exclusivo fornecido pelo seu provedor de identidade
 
     // Normalized claims (optional)
     name: String
@@ -152,7 +159,7 @@ Carga útil do token:
     </tr>
     <tr>
       <td><code> aud </code></td>
-      <td>O host do servidor OAuth.</td>
+      <td>A URL do servidor OAuth. Formato: https://{region}.appid.cloud.ibm.com/oauth/v4/{tenantId}.</td>
     </tr>
     <tr>
       <td><code> exp </code></td>
@@ -165,9 +172,7 @@ específico.</td>
     </tr>
     <tr>
       <td>Solicitações normalizadas</td>
-      <td>Todas as [solicitações normalizadas](/docs/services/appid/authorization.html#tokens) são fornecidas no token de identidade que é retornado em resposta a essa solicitação. Mais
-solicitações customizadas podem ser localizadas usando o
-[terminal de informações sobre o usuário](/docs/services/appid/custom-attributes.html).</td>
+      <td>Todas as [solicitações normalizadas](/docs/services/appid?topic=appid-tokens#tokens) são fornecidas no token de identidade que é retornado em resposta a essa solicitação. Mais solicitações customizadas podem ser localizadas usando o [terminal `/userinfo`](/docs/services/appid?topic=appid-custom-attributes#custom-attributes).</td>
     </tr>
     <tr>
       <td>Escopo</td>
@@ -183,8 +188,7 @@ solicitação `/token`.</li></ul></td>
 {: #exchanging-jwts}
 
 Para criar a ponte entre o provedor customizado e o {{site.data.keyword.appid_short_notm}}, é necessário ter
-tokens do {{site.data.keyword.appid_short_notm}}. Para obter os tokens de serviço, troque suas informações sobre
-o usuário verificadas usando o [terminal `/token`](https://appid-oauth.ng.bluemix.net/swagger-ui/#!/Authorization_Server_V3/token).
+tokens do {{site.data.keyword.appid_short_notm}}. Para obter tokens de serviço, troque suas informações do usuário verificadas usando o [terminal `/token`](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization_Server_V4/token).
 {: shortdesc}
 
   ```

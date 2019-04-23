@@ -1,50 +1,63 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-11-14"
+  years: 2017, 2019
+lastupdated: "2019-04-04"
+
+keywords: authentication, authorization, identity, app security, secure, development, user information, attributes, profiles, 
+
+subcollection: appid
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
-{:pre: .pre}
-{:tip: .tip}
 {:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 # Incluindo atributos antes da conexão do usuário
-{: #sign-in}
+{: #preregister}
 
 Com o {{site.data.keyword.appid_full}}, é possível iniciar a construção de um perfil para os usuários que você
 sabe que precisarão de acesso ao seu aplicativo antes de sua conexão inicial.
 {: shortdesc}
 
 Para saber mais sobre os tipos de atributos, consulte [Entendendo os perfis do
-usuário](user-profile.html). Para saber mais sobre atributos customizados e suas considerações de segurança, consulte [Atributos customizados](custom-attributes.html).
+usuário](/docs/services/appid?topic=appid-user-profile). Para saber mais sobre atributos customizados e suas considerações de segurança, consulte [Atributos customizados](/docs/services/appid?topic=appid-custom-attributes).
 {: tip}
 
-**Por que eu desejaria incluir as informações sobre um usuário em meu aplicativo antes que ele se conecte pela
-primeira vez?**
+## Entendendo o pré-registro
+{: #preregister-understand}
+
+### Por que eu desejaria usar o pré-registro?
+{: #preregister-why}
 
 Considere um aplicativo no qual você usa o {{site.data.keyword.appid_short_notm}} para federar usuários
 existentes por meio de seu provedor de identidade SAML. Você pode desejar que determinados usuários tenham acesso de
 `admin` imediatamente ao se conectarem ao aplicativo pela primeira vez. Para que isso aconteça, é possível usar o terminal de pré-registro para configurar um atributo `admin`
 customizado para esses usuários e conceder a eles acesso ao console de administração sem qualquer ação adicional de sua
-parte. Certifique-se de considerar os [problemas de segurança](custom-attributes.html) que podem surgir
+parte. Certifique-se de considerar os [problemas de segurança](/docs/services/appid?topic=appid-custom-attributes#custom-attributes) que podem surgir
 ao mudar a configuração padrão.
 
-**Como os usuários são identificados?**
+### Como os usuários são identificados?
+{: #preregister-identify-user}
 
 É possível identificar seus usuários usando um dos seguintes:
 
 * O ID exclusivo do usuário, chamado de **GUID**, no provedor de identidade. Embora esse identificador
 sempre exista e sua exclusividade seja garantida, ele nem sempre está prontamente disponível ou é fácil
-de entender. Por
-exemplo, o Cloud Directory usa um GUID aleatório de 16 bytes.
+de entender. Por exemplo, o Cloud Directory usa um GUID de 16 bytes aleatórios.
 * Se disponível, o **e-mail** do usuário.
 
-**Como eu sei quais informações cada provedor de identidade fornece?**
+### Quais informações os provedores de identidade fornecem?
+{: #preregister-idp-provide}
 
 Efetue o registro de saída da tabela a seguir para ver o tipo de informações de identidade que podem ser usadas.
 
@@ -92,7 +105,9 @@ identidade</th>
   </tbody>
 </table>
 
-**O Cloud Directory é tratado de forma diferente?**
+### Como o Cloud Directory é manipulado?
+{: #preregister-cd}
+
 
 Para assegurar a integridade dos atributos do usuário pré-registrados, o Cloud Directory impõe requisitos
 adicionais a seus usuários. O pré-registro somente pode ocorrer quando a validação de e-mail está
@@ -100,10 +115,8 @@ ativada e verificada. Se você pré-registrar um usuário do Cloud Directory com
 o e-mail não for verificado primeiro, será possível que outro usuário solicite o
 endereço de e-mail e quaisquer atributos designados a ele.
 
-Como eu faço isso?
-
 1. Configure o Cloud Directory para o modo de e-mail e senha. É possível fazer isso por meio da IU nas configurações
-gerais na guia **Cloud Directory**. Também é possível configurá-lo por meio das [APIs de gerenciamento](https://appid-management.ng.bluemix.net/swagger-ui/#!/Cloud_Directory_Users/createCloudDirectoryUser).
+gerais na guia **Cloud Directory**. Também é possível configurá-lo por meio das [APIs de gerenciamento](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.createCloudDirectoryUser).
 
 2. Verifique o endereço de e-mail dos usuários para confirmar sua identidade de uma das maneiras a seguir:
 
@@ -112,7 +125,7 @@ para **Ativado** na guia **Cloud Directory** do painel de serviço. Se um usuár
 for incluído por você e se conectar ao seu aplicativo sem primeiro passar pela verificação de e-mail, a conexão será
 concluída com êxito, mas seu atributo predefinido será excluído.
   * Para verificar manualmente os usuários, deve-se ser um administrador e usar as [APIs
-de gerenciamento](https://appid-management.ng.bluemix.net/swagger-ui/#!/Cloud_Directory_Users/createCloudDirectoryUser) do Cloud Directory. Ao criar ou atualizar um usuário, é necessário configurar
+de gerenciamento](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.createCloudDirectoryUser) do Cloud Directory. Ao criar ou atualizar um usuário, é necessário configurar
 explicitamente o campo `status` para `CONFIRMED` dentro da carga útil de dados do usuário.
 
 **Há alguma ação especial que eu devo executar ao usar um provedor de identidade customizado?**
@@ -125,15 +138,13 @@ identificador não corresponder, então o perfil que você deseja incluir não s
 
 
 ## Incluindo informações sobre o usuário em seu aplicativo
-{: #add}
+{: #preregister-add-info}
 
 Agora que você aprendeu sobre o processo e considerou suas implicações de segurança, tente incluir um usuário.
 
 **Antes de iniciar:**
 
-Para incluir atributos customizados para um usuário específico com o terminal da API de gerenciamento
-[/users](https://appid-management.ng.bluemix.net/swagger-ui/#!/Users/users_search_user_profile),
-deve-se saber as seguintes informações:
+Para incluir atributos customizados para um usuário específico com o [terminal da API de gerenciamento /users](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Users/mgmt.users_search_user_profile), deve-se conhecer as informações a seguir:
 
 * Qual provedor de identidade o usuário usará para se conectar.
 * O identificador exclusivo do usuário que é fornecido pelo provedor de identidade.
@@ -229,8 +240,7 @@ Lembre-se de que os atributos predefinidos de um usuário estão vazios até sua
 para todas as intenções e propósitos, um usuário totalmente autenticado. É possível usar seu ID exclusivo assim
 como você faria com alguém que já tivesse se conectado. Por exemplo, é possível modificar, procurar ou excluir o perfil.
 
-Agora que você associou um usuário a atributos específicos, tente
-[acessar os atributos](/docs/services/appid/custom-attributes.html).
+Agora que você associou um usuário a atributos específicos, tente [acessar ou atualizar atributos](/docs/services/appid?topic=appid-custom-attributes).
 
 
 </br>

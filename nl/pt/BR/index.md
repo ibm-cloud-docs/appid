@@ -1,24 +1,35 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-11-15"
+  years: 2017, 2019
+lastupdated: "2019-03-27"
+
+keywords: authentication, authorization, identity, app security, secure, development,
+
+subcollection: appid
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
+{:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:codeblock: .codeblock}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 # Tutorial de Introdução
-{: #gettingstarted}
+{: #getting-started}
 
 A segurança do aplicativo pode ser muito complicada. Para a maioria dos desenvolvedores, é uma das partes mais difíceis da criação de um app. Como é possível ter certeza de que você está protegendo suas informações sobre o usuário? Ao integrar o {{site.data.keyword.appid_full}} em seus aplicativos, é possível proteger os recursos e incluir a
 autenticação, mesmo quando você não tem muita experiência em segurança.
 {: shortdesc}
 
-Requerendo que os usuários se conectem ao seu app, é possível armazenar dados do usuário, como preferências de app ou informações dos perfis sociais públicos, e então usar esses dados para customizar cada experiência de seu app. O {{site.data.keyword.appid_short_notm}} fornece uma estrutura de login para você, mas também é possível trazer
-suas próprias telas de conexão com marca ao trabalhar com o Cloud Directory.
+Requerendo que os usuários se conectem ao seu app, é possível armazenar dados do usuário, como preferências de app ou informações dos perfis sociais públicos, e então usar esses dados para customizar cada experiência de seu app. O{{site.data.keyword.appid_short_notm}}fornece uma estrutura para você, mas também é possível trazer seu próprio sinal de marca em telas ao trabalhar com o diretório de nuvem.
 
 Adoraríamos a sua participação com feedback e perguntas!
 * Se você tiver perguntas técnicas sobre o {{site.data.keyword.appid_short_notm}}, poste sua pergunta no
@@ -33,7 +44,7 @@ Adoraríamos a sua participação com feedback e perguntas!
 Crie e ligue uma instância do {{site.data.keyword.appid_short_notm}} ao seu app para começar.
 {: shortdesc}
 
-1. No catálogo do {{site.data.keyword.Bluemix}}, selecione {{site.data.keyword.appid_short_notm}}. A tela de configuração de
+1. No catálogo do {{site.data.keyword.cloud_notm}}, selecione {{site.data.keyword.appid_short_notm}}. A tela de configuração de
 serviço é aberta.
 2. Dê à sua instância de serviço um nome ou use o nome predefinido.
 3. Selecione o seu plano de precificação e clique em **Criar**.
@@ -79,9 +90,6 @@ sistema local para obter uma imagem para fazer upload.
 {: #next}
 
 Pronto para entrar e começar seus próprios aplicativos? Inicie [incluindo o
-serviço no seu aplicativo](web-apps.html). O serviço fornece SDKs para os idiomas mais usados, mas, se você não vir um
+serviço no seu aplicativo](/docs/services/appid?topic=appid-web-apps#web-apps). O serviço fornece SDKs para os idiomas mais usados, mas, se você não vir um
 SDK para o idioma em que seu aplicativo é escrito, ainda será possível aproveitar o
 {{site.data.keyword.appid_short_notm}} usando as APIs.
-
-</br>
-</br>

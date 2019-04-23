@@ -1,19 +1,29 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-11-14"
+  years: 2017, 2019
+lastupdated: "2019-04-10"
+
+keywords: authentication, authorization, identity, app security, secure, development, idp, troubleshooting, redirected, validation
+
+subcollection: appid
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:codeblock: .codeblock}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 {:tsSymptoms: .tsSymptoms}
 {:tsCauses: .tsCauses}
 {:tsResolve: .tsResolve}
-{:tip: .tip}
 
 # Configurações do provedor de identidade
 {: #troubleshooting-idp}
@@ -23,31 +33,34 @@ Se você tiver problemas quando estiver configurando os provedores de identidade
 {: shortdesc}
 
 
-## Um usuário não é redirecionado para o aplicativo após a conexão
-{: #signin-fail}
+## Um usuário não é redirecionado para o provedor de identidade
+{: #ts-saml-redirect}
 
 {: tsSymptoms}
-Um usuário se conecta ao seu aplicativo por meio de uma página de conexão do provedor de identidade e nada acontece ou
-a conexão falha.
+Um usuário tenta se conectar ao seu aplicativo, mas a página de conexão não é exibida quando solicitada.
 
 {: tsCauses}
-A conexão pode falhar pelos motivos a seguir:
+O provedor de identidade pode falhar por várias razões:
 
-* Sua URL de redirecionamento não foi incluída corretamente [na lista de desbloqueio](faq.html#redirect).
-* O usuário não está autorizado.
-* O usuário tentou conectar-se com as credenciais erradas.
+* Sua URL de redirecionamento configurada está incorreta.
+* O provedor de identidade não reconhece a solicitação de autenticação.
+* O provedor de identidade espera uma ligação HTTP-POST.
+* O provedor de identidade espera um authnRequest assinado.
 
 {: tsResolve}
-Para que um redirecionamento ocorra:
+É possível tentar algumas destas soluções:
 
-* Verifique se a sua URL de redirecionamento está correta. Ela deve ser exata para que o redirecionamento funcione.
-* Certifique-se de que o usuário esteja conectando-se com as credenciais certas
-* Verifique se elas estão definidas em suas configurações do usuário do provedor de identidade.
+* Atualize sua URL de conexão. Essa URL é enviada como parte do authnRequest e deve ser exata.
+* Certifique-se de que seus metadados do {{site.data.keyword.appid_short_notm}} estejam definidos corretamente em suas configurações de provedor de identidade.
+* Configure seu provedor de identidade para aceitar o authnRequest no HTTP-Redirect.
+* O {{site.data.keyword.appid_short_notm}} não suporta assinatura de authnRequests.
 
-</br>
+Se nenhuma das soluções funcionar, possivelmente você terá um problema de conexão.
+{: tip}
+
 
 ## Problemas comuns do SAML
-{: #common-saml}
+{: #ts-common-saml}
 
 Revise a tabela a seguir para obter explicações e soluções para os problemas mais comuns encontrados ao
 trabalhar com o SAML.
@@ -72,7 +85,7 @@ trabalhar com o SAML.
     </tr>
     <tr>
       <td><code>SAML Configuration must have certificates, entityID and signInUrl of the IdP.</code></td>
-      <td>O provedor de identidade do SAML não está <a href="enterprise.html" target="_blank">configurado corretamente</a>. Valide sua configuração.</td>
+      <td>O provedor de identidade do SAML não está <a href="/docs/services/appid?topic=appid-enterprise#enterprise" target="_blank">configurado corretamente</a>. Valide sua configuração.</td>
     </tr>
     <tr>
       <td><code>Error in assertion validation. SAML Assertion signature check failed! Certificate .. may be invalid.</code></td>
@@ -82,57 +95,12 @@ privada associada ao certificado que é fornecido na configuração do SAML. A c
   </tbody>
 </table>
 
-</br>
 
-## Um usuário não é redirecionado para o provedor de identidade
-{: #saml-redirect}
-
-{: tsSymptoms}
-Um usuário tenta se conectar ao seu aplicativo, mas a página de conexão não é exibida quando solicitada.
-
-{: tsCauses}
-O provedor de identidade pode falhar por várias razões:
-
-* Sua URL de redirecionamento configurada está incorreta.
-* O provedor de identidade não reconhece a solicitação de autenticação.
-* O provedor de identidade espera uma ligação HTTP-POST.
-* O provedor de identidade espera um authnRequest assinado.
-
-{: tsResolve}
-É possível tentar algumas destas soluções:
-
-* Atualize sua URL de conexão. Essa URL é enviada como parte do authnRequest e deve ser exata.
-* Certifique-se de que seus metadados do {{site.data.keyword.appid_short_notm}} estejam definidos corretamente em suas configurações de provedor de identidade.
-* Configure seu provedor de identidade para aceitar o authnRequest no HTTP-Redirect.
-* O {{site.data.keyword.appid_short_notm}} não suporta assinatura de authnRequests.
-
-Se nenhuma das soluções funcionar, possivelmente você terá um problema de conexão.
-{: tip}
-
-## Um atributo está mostrando o valor incorreto
-{: #saml-attribute}
-
-{: tsSymptoms}
-Um valor de atributo existe em um perfil do usuário, mas ele não está associado ao atributo correto.
-
-{: tsCauses}
-O Atributo de perfil do usuário não está mapeado corretamente.
-
-{: tsResolve}
-Mapeie o atributo em suas configurações do provedor de identidade. O {{site.data.keyword.appid_short_notm}} espera os atributos a seguir:
-* `nome`
-* `E-mail
-`
-* `locale`
-* `picture`
-
-</br>
 
 ## Erros de validação de resposta do SAML
-{: #saml-response}
+{: #ts-saml-response}
 
-O {{site.data.keyword.appid_short_notm}} impõe os seguintes requisitos de validade para as asserções. Todos os
-atributos são nós XML SAMLResponse obrigatórios, a menos que especificado de outra forma.
+O {{site.data.keyword.appid_short_notm}} impõe os seguintes requisitos de validade para as asserções. Todos os atributos são nós XML de resposta SAML obrigatórios, a menos que especificado de outra forma.
 {: shortdesc}
 
 
@@ -162,11 +130,10 @@ de identidade do {{site.data.keyword.appid_short_notm}}.</td>
     </tr>
     <tr>
       <td><code>ds:Signature</code></td>
-      <td>Uma assinatura e uma compilação válidas devem ser incluídas na asserção. A assinatura deve ser criada usando a chave
-privada que está associada ao certificado que foi fornecido na configuração SAML. A compilação é validada usando o
+      <td>Uma assinatura e uma compilação válidas devem ser incluídas na asserção. A assinatura deve ser criada usando a chave privada que está associada ao certificado fornecido na configuração SAML. A compilação é validada usando o
 <code>CanonicalizationMethod</code> e o <code>Transforms</code> especificados. <strong>Nota</strong>: o {{site.data.keyword.appid_short_notm}} não valida a expiração do certificado. Para
 obter ajuda para o gerenciamento de seus certificados, experimente o
-[Gerenciador de certificado](/docs/services/certificate-manager/index.html).</td>
+[Gerenciador de certificado](/docs/services/certificate-manager?topic=certificate-manager-getting-started#getting-started).</td>
     </tr>
     <tr>
       <td><code>saml:subject</code></td>

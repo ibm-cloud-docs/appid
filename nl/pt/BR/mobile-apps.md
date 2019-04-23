@@ -1,34 +1,43 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-11-14"
+  years: 2017, 2019
+lastupdated: "2019-03-27"
+
+keywords: authentication, authorization, identity, app security, secure, development, mobile, android, iOS
+
+subcollection: appid
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
-{:pre: .pre}
-{:tip: .tip}
 {:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:codeblock: .codeblock}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 # Apps móveis
-{: #adding-mobile}
+{: #mobile-apps}
 
 Com o {{site.data.keyword.appid_full}}, é possível construir rapidamente uma camada de autenticação para seu
 aplicativo móvel nativo ou híbrido.
 {: shortdesc}
 
 ## Entendendo o fluxo
-{: #understanding}
-
-**Quando esse fluxo seria útil?**
+{: #understanding-mobile}
 
 Um fluxo móvel é útil quando você está desenvolvendo um aplicativo que deve ser instalado no dispositivo de um usuário
 (um aplicativo nativo). Usando esse fluxo, é possível autenticar com segurança os usuários em seu aplicativo para
 fornecer experiências de usuário personalizadas nos dispositivos.
 
-**Qual é a base técnica do fluxo?**
+### Qual é a base técnica do fluxo?
+{: #mobile-technical-flow}
 
 Como os aplicativos nativos são instalados diretamente no dispositivo de um usuário, as informações privadas do usuário
 e as credenciais do aplicativo podem ser extraídas por terceiros com relativa facilidade. Por padrão, esses tipos de
@@ -49,18 +58,19 @@ Após o registro, seus usuários são autenticados usando os fluxos de
 [concessão de autorização](https://tools.ietf.org/html/rfc6749#section-1.3) `authorization
 code` ou `resource owner password` do OAuth2 para autenticar os usuários.
 
-**Qual é o aspecto desse fluxo?**
 
-![Fluxo de aplicativo para aplicativo do {{site.data.keyword.appid_short_notm}}](images/mobile-flow.png)
-
-**Registro do cliente dinâmico**
+### Registro do cliente dinâmico
+{: #mobile-dynamic}
 
 1. Um usuário executa uma ação que aciona uma solicitação pelo aplicativo cliente para o SDK do {{site.data.keyword.appid_short}}.
 2. Se o aplicativo ainda não estiver registrado como um cliente móvel, o SDK iniciará um fluxo de registro dinâmico.
 3. Em um registro bem-sucedido, o {{site.data.keyword.appid_short}} retorna seu identificador de cliente específico
 da instalação.
 
-**Fluxo de autorização**
+### Fluxo de autorização
+{: #mobile-auth-flow}
+
+![Fluxo de aplicativo para aplicativo do {{site.data.keyword.appid_short_notm}}](images/mobile-flow.png)
 
 1. O SDK do {{site.data.keyword.appid_short}} inicia o processo de autorização usando o terminal
 `/authorization` do {{site.data.keyword.appid_short_notm}}.
@@ -72,7 +82,7 @@ da instalação.
 
 
 ## Configurando seu aplicativo móvel com os SDKs do {{site.data.keyword.appid_short}}
-{: #configuring}
+{: #configuring-mobile}
 
 Introdução ao {{site.data.keyword.appid_short}} com nossos SDKs.
 {: shortdesc}
@@ -85,12 +95,12 @@ As seguintes informações são necessárias:
 
 * O ID do locatário da instância. Isso pode ser localizado na guia **Credenciais de serviço** de seu painel de serviço.
 
-* A região do {{site.data.keyword.Bluemix}} de implementação de sua instância. É possível localizar sua região
+* A região de implementação da instância do {{site.data.keyword.cloud_notm}}. É possível localizar sua região
 verificando no console.
 
-  <table><caption> Tabela 1. Regiões e valores do SDK correspondentes do {{site.data.keyword.Bluemix_notm}}</caption>
+  <table><caption> Tabela 1. Regiões e valores do SDK correspondentes do {{site.data.keyword.cloud_notm}}</caption>
   <tr>
-    <th>{{site.data.keyword.Bluemix}} Região</th>
+    <th>{{site.data.keyword.cloud_notm}} Região</th>
     <th>Valor do SDK</th>
   </tr>
   <tr>
@@ -112,7 +122,7 @@ verificando no console.
 </table>
 
 ## Autenticando com o SDK do Android
-{: #android-setup}
+{: #mobile-android}
 
 **Antes de iniciar**
 
@@ -124,9 +134,9 @@ Deve-se ter os pré-requisitos a seguir antes de iniciar:
   * Android SDK Platform Tools 27.0.1+
   * Android Build Tools versão 27.0.0+
 
-</br>
 
-**Instalando o SDK**
+### Instalando o SDK
+{: #mobile-android-install}
 
 1. Crie um projeto Android Studio ou abra um projeto existente.
 
@@ -167,12 +177,13 @@ Deve-se ter os pré-requisitos a seguir antes de iniciar:
 
 </br>
 
-**Inicializando o SDK**
+### Inicializando o SDK
+{: #mobile-android-initialize}
 
 
 1. Transmita os parâmetros de contexto, ID do locatário e região para o método de inicialização para configurar o SDK.
 
-    Um local comum, mas não obrigatório, para colocar o código de inicialização está no método onCreate da atividade principal em seu aplicativo Android.
+    Um local comum, mas não obrigatório, para colocar o código de inicialização é o método `onCreate` da atividade principal em seu aplicativo Android.
     {: tip}
 
     ```java
@@ -184,7 +195,7 @@ Deve-se ter os pré-requisitos a seguir antes de iniciar:
 </br>
 
 ## Autenticando com o SDK do iOS Swift
-{: #ios-setup}
+{: #mobile-ios}
 
 Proteja seus aplicativos móveis usando o SDK do cliente do {{site.data.keyword.appid_short}}.
 {:shortdesc}
@@ -200,7 +211,8 @@ Deve-se ter os pré-requisitos a seguir antes de iniciar:
 
 </br>
 
-**Instalando o SDK**
+### Instalando o SDK
+{: #mobile-ios-install}
 
 O SDK do cliente do {{site.data.keyword.appid_short_notm}} é distribuído com o CocoaPods, um gerenciador de dependência para projetos Swift e
 Objective-C Cocoa. O CocoaPods faz download de artefatos e os torna disponíveis para o seu projeto.
@@ -225,8 +237,7 @@ Objective-C Cocoa. O CocoaPods faz download de artefatos e os torna disponíveis
   ```
   {: codeblock}
 
-5. Após a instalação, abra o arquivo `<your app>.xcworkspace` que contém seu projeto Xcode e suas
-dependências vinculadas
+5. Após a instalação, abra o arquivo `<your app>.xcworkspace`que contém seu projeto Xcode e suas dependências vinculadas
 
 6. Ative o compartilhamento de keychain no projeto Xcode. Navegue para **Configurações do projeto > Recursos > Compartilhamento de keychain** e selecione **Ativar compartilhamento de keychain**.
 
@@ -239,7 +250,8 @@ dependências vinculadas
 
 </br>
 
-**Inicializando o SDK**
+### Inicializando o SDK
+{: #mobile-ios-initialize}
 
 1. Inicialize o SDK do cliente passando os parâmetros de ID e de região do locatário para o método de inicialização.
 
@@ -268,18 +280,17 @@ dependências vinculadas
   ```
   {: codeblock}
 
-</br>
-</br>
 
 ## Acessando as APIs protegidas
-{: #accessing-protected-apis}
+{: #mobile-accessing-apis}
 
 Depois de um fluxo de login bem-sucedido, é possível usar seus tokens de acesso e de identidade para chamar recursos de
 back-end protegidos que usam o SDK ou uma biblioteca de rede de sua escolha.
 
 </br>
 
-### Acessando as APIs protegidas com o SDK do Swift
+### Com o SDK do Swift
+{: #mobile-access-api-swift}
 
 1.  Inclua as importações a seguir no arquivo no qual você deseja chamar uma solicitação de recurso protegido:
 
@@ -310,15 +321,18 @@ back-end protegidos que usam o SDK ou uma biblioteca de rede de sua escolha.
 
 </br>
 
-### Acessando APIs protegidas com o SDK do Android
+### Com o SDK do Android
+{: #mobile-access-api-android}
 
 1. Inclua as importações a seguir no arquivo no qual você deseja chamar uma solicitação de recurso protegido:
+
   ```java
   import com.ibm.mobilefirstplatform.clientsdk.android.core.api.BMSClient;
   import com.ibm.cloud.appid.android.api.AppIDAuthorizationManager;
   ```
 
 2. Chame seu recurso protegido
+
    ```java
    BMSClient bmsClient = BMSClient.getInstance();
    bmsClient.initialize(getApplicationContext(), <region>);
@@ -350,10 +364,13 @@ back-end protegidos que usam o SDK ou uma biblioteca de rede de sua escolha.
 
 </br>
 
-### Acessando APIs protegidas sem um SDK
+### Sem um SDK
+{: #mobile-access-api-nosdk}
 
-Com a biblioteca de sua escolha, configure o cabeçalho da solicitação de `Autorização` para usar o esquema de autenticação de `Portador` para transmitir o token de acesso.
+Com a biblioteca de sua escolha, configure o cabeçalho da solicitação `Autorização` para usar o esquema de autenticação `Portador` para transmitir o token de acesso.
+
 Formato de solicitação de exemplo:
+
   ```
   GET /resource HTTP/1.1
   Host: server.example.com
@@ -365,11 +382,11 @@ Formato de solicitação de exemplo:
 </br>
 
 ## Próximas etapas
-{: #next}
+{: #mobile-next}
 
-Com o {{site.data.keyword.appid_short}} instalado em seu aplicativo, você está quase pronto para começar a autenticar usuários. Tente executar uma das atividades a seguir em seguida:
+Com o {{site.data.keyword.appid_short}} instalado em seu aplicativo, você está quase pronto para iniciar a autenticação de usuários. Tente executar uma das atividades a seguir em seguida:
 
-* Configure os seus [provedores de identidade](/docs/services/appid/identity-providers.html)
-* Customize e configure [o widget de login](/docs/services/appid/login-widget.html)
+* Configure seu [provedores de identidade](/docs/services/appid?topic=appid-social)
+* Customize e configure [o widget de login](/docs/services/appid?topic=appid-login-widget)
 * Saiba mais sobre o <a href="https://github.com/ibm-cloud-security/appid-clientsdk-android" target="_blank">SDK do Android<img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a>
 * Saiba mais sobre o <a href="https://github.com/ibm-cloud-security/appid-clientsdk-swift" target="_blank">SDK do iOS<img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a>

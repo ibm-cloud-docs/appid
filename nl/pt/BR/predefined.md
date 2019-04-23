@@ -1,19 +1,29 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-11-19"
+  years: 2017, 2019
+lastupdated: "2019-04-04"
+
+keywords: authentication, authorization, identity, app security, secure, user information, attributes, accessing, storing, preregister, profiles
+
+subcollection: appid
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
-{:pre: .pre}
-{:tip: .tip}
 {:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:codeblock: .codeblock}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 # Atributos de usuário predefinidos
-{: #predefined}
+{: #predefined-attributes}
 
 Com o {{site.data.keyword.appid_full}}, é possível visualizar informações específicas do provedor de identidade
 sobre seus usuários.
@@ -21,7 +31,7 @@ sobre seus usuários.
 
 
 ## Acessando com o SDK do iOS
-{: #ios}
+{: #predefined-access-ios}
 
 Se novos tokens não forem passados explicitamente para o SDK, o {{site.data.keyword.appid_short_notm}} usará os tokens recebidos pela última vez para recuperar e validar a resposta. Por exemplo, é possível executar o código a seguir após uma autenticação bem-sucedida e o SDK recupera informações adicionais sobre o usuário.
 
@@ -29,7 +39,6 @@ Se novos tokens não forem passados explicitamente para o SDK, o {{site.data.key
 AppID.sharedInstance.userProfileManager.getUserInfo { (error: Error?, userInfo: [String: Any]?) in 	guard let userInfo = userInfo, err == nil {
 		return // um erro ocorreu 		}
 	// informações do usuário recuperadas com sucesso }
-
 ```
 {: pre}
 
@@ -42,10 +51,9 @@ AppID.sharedInstance.userProfileManager.getUserInfo (accessToken: String, identi
 ```
 {: pre}
 
-</br>
 
 ## Acessando com o Android SDK
-{: #android}
+{: #predefined-access-android}
 
 Se novos tokens não forem passados explicitamente para o SDK, o {{site.data.keyword.appid_short_notm}} usará os tokens recebidos pela última vez para recuperar e validar a resposta. Por exemplo, é possível executar o código a seguir após uma autenticação bem-sucedida e o SDK recupera informações adicionais sobre o usuário.
 
@@ -78,10 +86,9 @@ appId.getUserProfileManager( ).getUserInfo (accessToken, identityToken, new User
 ```
 {: pre}
 
-</br>
 
 ## Acessando com o SDK do servidor Node.js
-{: #node}
+{: #predefined-access-node}
 
 
 Usando um SDK do lado do servidor, é possível recuperar informações adicionais sobre os seus usuários. É possível chamar o método a seguir usando os tokens de acesso e de identidade armazenados ou é possível passar explicitamente os tokens. O token de identidade é opcional, mas quando passado, ele é usado para validar a resposta de informações do usuário.
@@ -106,10 +113,10 @@ userProfileManager.getUserInfo(accessToken).then(function (profile) {
 ```
 {: pre}
 
-</br>
+
 
 ## Acessando com o SDK do servidor Swift
-{: #swift}
+{: #predefined-access-swift}
 
 Usando um SDK do lado do servidor, é possível recuperar informações adicionais sobre os seus usuários. É possível chamar o método a seguir usando os tokens de acesso e de identidade armazenados ou é possível passar explicitamente os tokens. O token de identidade é opcional, mas quando passado, ele é usado para validar a resposta de informações do usuário.
 
@@ -134,17 +141,17 @@ userProfileManager.getUserInfo(accessToken: accessToken) { (err, userInfo) in
 ```
 {: pre}
 
-</br>
+
 
 ## Acessando com a API
-{: #api}
+{: #predefined-access-api}
 
 É possível visualizar as informações adicionais por meio do terminal `/userinfo`.
 
 1. Certifique-se de que você tenha um token de acesso válido com um escopo `openid`. É possível verificar se
 o token é válido usando o terminal `/introspect`.
 
-2. Faça uma solicitação para o terminal [`/userinfo`](https://appid-oauth.ng.bluemix.net/swagger-ui/#!/Authorization_Server_V3/userInfo).
+2. Faça uma solicitação para o terminal [`/userinfo`](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization_Server_V4/userInfo).
   ```
   GET [POST] https://{oauth-server-endpoint}/userinfo
   Authorization: 'Bearer {ACCESS_TOKEN}'

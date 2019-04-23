@@ -1,16 +1,26 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-12-19"
+  years: 2017, 2019
+lastupdated: "2019-04-10"
+
+keywords: authentication, authorization, identity, app security, secure, tokens, jwt, development
+
+subcollection: appid
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 
 # Validando tokens
@@ -22,11 +32,8 @@ estiver usando um dos SDKs fornecidos pelo {{site.data.keyword.appid_short_notm}
 seus tokens serão feitas para você.
 {: shortdesc}
 
-Para obter mais informações sobre como os tokens são usados no {{site.data.keyword.appid_short_notm}}, consulte
-[Entendendo os tokens](authorization.html#tokens).
+Para obter mais informações sobre como os tokens são usados no {{site.data.keyword.appid_short_notm}}, consulte [Entendendo os tokens](/docs/services/appid?topic=appid-tokens#tokens).
 {: tip}
-
-**O que é validação de token?**
 
 Os tokens são usados para verificar se uma pessoa é quem diz ser. Eles confirmam quaisquer permissões de acesso que o
 usuário pode manter por um período de tempo especificado. Quando um usuário se conectar ao seu aplicativo e receber um
@@ -55,15 +62,15 @@ Com base em feedback, a opção 1 normalmente é a maneira mais fácil.
 Usando a introspecção, é possível usar o {{site.data.keyword.appid_short_notm}} para validar seus tokens.
 {: shortdesc}
 
-1. Envie uma solicitação de POST para o terminal da API [/introspect](https://appid-oauth.ng.bluemix.net/swagger-ui/#!/Authorization_Server_V3/introspect)
+1. Envie uma solicitação de POST para o terminal da API [/introspect](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization%20Server%20-%20Authorization%20Server%20V4/oauth-server.token)
 para validar seu token. A solicitação deve fornecer o token e um cabeçalho de autorização básico que contém o
 identificador de cliente e o segredo.
 
   Solicitação de exemplo:
 
     ```
-    POST /oauth/v3/{tenant_id}/introspect HTTP/1.1
-    Host: appid-oauth.ng.bluemix.net
+    POST /oauth/v4/{tenant_id}/introspect HTTP/1.1
+    Host: us-south.appid.cloud.ibm.com
     Content-Type: application/x-www-form-urlencoded
     Authorization: Basic jdFlUaGlZUzAwTW0Tjk15TmpFMw==
     Cache-Control: no-cache
@@ -124,20 +131,20 @@ para analisar o token. Como alternativa, é possível usar qualquer uma das [bib
 
     ```
     {
-      "iss": "appid-oauth",
+      "iss": "https://us-south.appid.cloud.ibm.com/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6050a61",
       "aud": "abc123",
       "exp": 1564566
     }
     ```
     {: screen}
 
-2. Faça uma chamada para o [terminal /publickeys](https://appid-oauth.ng.bluemix.net/swagger-ui/#!/Authorization_Server_V3/publicKeys) para recuperar suas chaves públicas. As chaves públicas que são retornadas são formatadas como [JSON Web Keys (JWK)](https://tools.ietf.org/html/rfc7517).
+2. Faça uma chamada para o [terminal /publickeys](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Authorization_Server_V4/publicKeys) para recuperar suas chaves públicas. As chaves públicas que são retornadas são formatadas como [JSON Web Keys (JWK)](https://tools.ietf.org/html/rfc7517).
 
   Solicitação de exemplo:
 
     ```
-    GET /oauth/v3/{tenant_id}/publickeys HTTP/1.1
-    Host: appid-oauth.ng.bluemix.net
+    GET /oauth/v4/{tenant_id}/publickeys HTTP/1.1
+    Host: us-south.appid.cloud.ibm.com
     Cache-Control: no-cache
     ```
     {: screen}
@@ -149,7 +156,7 @@ o atraso da rede se outra chamada for feita.
 
   Resposta de exemplo:
 
-    ```]
+    ```
     {
       "keys": [
         {
@@ -191,9 +198,7 @@ o atraso da rede se outra chamada for feita.
 5. Verifique a assinatura do token. O cabeçalho do token contém o algoritmo que foi usado para assinar o token e o ID da
 chave ou a solicitação `kid` da chave pública correspondente. Como as chaves públicas não são
 mudadas frequentemente, é possível armazenar em cache as chaves públicas em seu aplicativo e, ocasionalmente,
-atualizá-las. Se a
-chave armazenada em cache estiver ausente da solicitação `kid`. Em seguida, é possível validar os
-tokens localmente.
+atualizá-las. Se a chave armazenada em cache estiver ausente da solicitação `kid`, será possível validar os tokens localmente.
 
   1. Faça com que seu aplicativo verifique se o conteúdo do cabeçalho do token recebido corresponde aos parâmetros da chave
 pública.
@@ -233,6 +238,3 @@ validar a assinatura.
       </tr>
     </tbody>
   </table>
-
-</br>
-</br>
