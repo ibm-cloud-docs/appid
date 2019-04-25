@@ -193,10 +193,11 @@ Nice! You're almost ready to deploy.
 ## Step 3: Configuring Ingress
 {: kube-ingress}
 
-During cluster creation, both a private and a public Ingress Applcation Load Balancer (ALB) are created for you. To deploy your application and take advantage of your Ingress controller, create a deployment script.
+During cluster creation, both a private and a public IBM Kubernetes Service Application Load Balancer (ALB) are created for you. To deploy your application and take advantage of your Ingress controller, create a deployment script.
 {: shortdesc}
 
-To ensure the best performance of the integration, it is recommended that you always use the latest version of ALB. By default, auto-update is enabled for your cluster. For more information about auto-updates, see [On-demand ALB update feature on {{site.data.keyword.containershort}}](https://www.ibm.com/blogs/bluemix/2018/11/on-demand-alb-update-feature-on-ibm-cloud-kubernetes-service/).
+
+To ensure the best performance of the integration, it is recommended that you always use the latest version of IBM Kubernetes Service Application Load Balancer (ALB). By default, auto-update is enabled for your cluster. For more information about auto-updates, see [On-demand ALB update feature on {{site.data.keyword.containershort}}](https://www.ibm.com/blogs/bluemix/2018/11/on-demand-alb-update-feature-on-ibm-cloud-kubernetes-service/).
 {: tip}
 
 1. Get the secret that was created in your cluster namespace when you bound {{site.data.keyword.appid_short_notm}} to your cluster. Note: this is **not** your Container Registry namespace.

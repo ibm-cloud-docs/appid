@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-23"
+lastupdated: "2019-04-25"
 
 keywords: authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
@@ -103,7 +103,7 @@ When a user signs up for your application by using their email, you can send the
 
 2. Set **Email verification** to **Enabled**.
 
-3. Set **Allow users to sign in to your app without first verifying their email address** to **Yes**. When set to yes, users are able to interact with your application after they sign up, but before they verif their email address. The default setting is no.
+3. Set **Allow users to sign in to your app without first verifying their email address** to **Yes**. When set to yes, users are able to interact with your application after they sign up, but before they verify their email address. The default setting is no.
 
 4. Customize the content of your message. You can add parameters and insert images by using the UI. To change the [language](/docs/services/appid?topic=appid-cd-messages#cd-languages) of the message, you can use <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization" target="_blank">the APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to set the language. However, you are responsible for the content and translation of the message. Check out the following table to see the different parameters that you can use in your message. If a user does not supply the information pulled by the parameter, it appears blank.
 

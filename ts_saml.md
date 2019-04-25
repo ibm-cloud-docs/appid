@@ -49,14 +49,12 @@ For specific error codes and messages from your identity provider that you don't
 
 **What's happening**
 
-You recieve an error that states that the `RelayState` parameter is missing from your authentication request.
+The `RelayState` parameter is missing from your authentication response.
 
 
 **Why it's happening**
 
-App ID sends an opaque parameter known as a `RelayState` as part of the 
-
-{{site.data.keyword.appid_short_notm}} sends an opaque parameter known as `RelayState` as part of the authentication request. If you receive the error, your identity provider might not be configured to return the parameter correctly. The `RelayState` takes the following form.
+{{site.data.keyword.appid_short_notm}} sends an opaque parameter known as `RelayState` as part of the authentication request. If you do not see the paramter in your response, your identity provider might not be configured to return the parameter correctly. The `RelayState` takes the following form.
 
 ```
 https://idp.example.org/SAML2/SSO/Redirect?SAMLRequest=request&RelayState=token
@@ -65,7 +63,7 @@ https://idp.example.org/SAML2/SSO/Redirect?SAMLRequest=request&RelayState=token
 
 **How to fix it**
 
-Verify that your SAML provider is configured to return the `RelayState` parameter without modifying it in any way to {{site.data.keyword.appid_short_notm}}.
+Verify that your SAML provider is configured to return the `RelayState` parameter to {{site.data.keyword.appid_short_notm}} without modifying it in any way.
 
 
 ### Missing or incorrect NameID field

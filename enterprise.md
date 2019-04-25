@@ -180,7 +180,7 @@ Want to set an authentication context? You can do so through the API.
 
 **Providing metadata with the API**
 
-1. Get the configuration information for your SAML identity provider including status and credentials by making a GET request to the  [`/saml` API endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.get_saml_idp).
+1. View your current SAML configuration with App ID including your authentication context and certificates, make a GET request to the  [`/saml` API endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.get_saml_idp).
 
   Example code:
   ```
@@ -221,7 +221,7 @@ Want to set an authentication context? You can do so through the API.
         "urn:oasis:names:tc:SAML:2.0:ac:classes:YourChosenClassValue",
         "urn:oasis:names:tc:SAML:2.0:ac:classes:YourOtherChosenClassValue"
       ],
-      "comparison": "sampleComparisonValue"
+      "comparison": "sampleComparisonValue"}
     "entityID": "https://example.com/saml2/metadata/706634",
     "signInUrl": "https://example.com/saml2/sso-redirect/706634",
     "certificates": [
@@ -265,7 +265,7 @@ Want to set an authentication context? You can do so through the API.
     </tr>
   </table>
 
-3. Make a POST request to the [`/saml` API endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.set_saml_idp) to provide the configuration that you created in step 2 to {{site.data.keyword.appid_short_notm}}. Check out the following example to see what your request might look like.
+3. Make a PUT request to the [`/saml` API endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.set_saml_idp) to provide the configuration that you created in step 2 to {{site.data.keyword.appid_short_notm}}. Check out the following example to see what your request might look like.
 
   ```
   curl --request PUT \
