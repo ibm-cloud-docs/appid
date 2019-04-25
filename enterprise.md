@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-23"
+lastupdated: "2019-04-25"
 
 keywords: authentication, authorization, identity, app security, secure, custom, service provider, identity provider, enterprise, assertions
 
@@ -73,6 +73,8 @@ Although {{site.data.keyword.appid_short_notm}} and your identity provider use t
 4. The identity provider redirects the user and the response back to {{site.data.keyword.appid_short_notm}} with the SAML response.
 5. If the authentication is successful, {{site.data.keyword.appid_short_notm}} creates access and identity tokens that represent a user's authorization and authentication and returns them to the app. If the authentication fails, {{site.data.keyword.appid_short_notm}} returns the identity provider error code to the app.
 6. The user is granted access to the app or the protected resources.
+
+
 
 ### Does SSO change the flow?
 {: #saml-sso-flow}
@@ -174,15 +176,15 @@ You can obtain data from your identity provider and provide it to {{site.data.ke
 Want to set an authentication context? You can do so through the API.
 {: tip}
 
-
+</br>
 
 **Providing metadata with the API**
 
-1. Obtain your SAML metadata by making a GET request to the [/getSamlMetadata API endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.get_saml_idp).
+1. Get the configuration information for your SAML identity provider including status and credentials by making a GET request to the  [`/saml` API endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.get_saml_idp).
 
   Example code:
   ```
-  curl --request POST \
+  curl --request GET \
   https://us-south.appid.cloud.ibm.com/management/v4/<tenant-ID>/config/idps/saml \
   --header `Accept: application/json`
   ```
@@ -210,110 +212,81 @@ Want to set an authentication context? You can do so through the API.
   ```
   {: screen}
 
-2. Configure your POST request to the [/set_saml_idp API endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.set_saml_idp).
+2. Create your SAML configuration by replacing the values in the following example with the information from your provider. The values shown in the example are required, but you can choose to include more information as shown in the table.
 
-  1. In the following metadata example, replace the variables with your own information.
-
-    ```
-    Put {Management URI}/config/idps/saml
-    Content-Type: application/json
-    {
-      "isActive": true,
-      "config": {
-        "entityID": "https://example.com/saml2/metadata/706634",
-        "signInUrl": "https://example.com/saml2/sso-redirect/706634",
-        "certificates": [
-          "primary-certificate-example-pem-format"
-        ],
-        "displayName": "my saml example"
-      }
-    }
-    ```
-    {: pre}
-
-    <table>
-      <tr>
-        <th> Variable </th>
-        <th> Description </th>
-      </tr>
-      <tr>
-        <td><code>Sign-in URL</code></td>
-        <td>The URL that the user is redirected to for authentication. It is hosted by your SAML identity provider.</td>
-      </tr>
-      <tr>
-        <td><code>Entity ID</code></td>
-        <td>The globally unique name for a SAML identity provider.</td>
-      </tr>
-      <tr>
-        <td><code>Signing certificate</code></td>
-        <td>The certificate issued by your SAML identity provider. It is used for signing and validating SAML assertions. All providers are different, but you might be able to download the signing certificate from your identity provider. The certificate must be in <code>.pem</code> format.</td>
-      </tr>
-    </table>
-
-  2. Optional: Add a secondary certificate to the certificates array following the primary certificate. The secondary certificate is used if signature validation fails with the primary certificate. If the signing key remains the same, {{site.data.keyword.appid_short_notm}} does not block authentication for expired certificates.
-
-    Example:
-    ```
-    {
-      "isActive": true,
-      "config": {
-        ...
-        "certificates": [
-          "primary-certificate-example-pem-format",
-          "secondary-certificate-example-pem-format"
-        ],
-        ...
-      }
-    }
-    ```
-    {: screen}
-  {: #configuring-saml-new}
-  3. Optional: Add an authentication context by adding a class array and comparison string to your code. Be sure to update both the `class` and `comparison` parameters with your values. An Authentication context is used to verify the quality of the authentication and SAML assertions.
-
-  Example:
   ```
-  {
-    "isActive": true,
-    "config": {
-      ...
-      "authnContext": {
-        "class": [
-          "urn:oasis:names:tc:SAML:2.0:ac:classes:YourChosenClassValue",
-          "urn:oasis:names:tc:SAML:2.0:ac:classes:YourOtherChosenClassValue"
-        ],
-        "comparison": "sampleComparisonValue"
-      }
-    }
+  "config": {
+    ...
+    "authnContext": {
+      "class": [
+        "urn:oasis:names:tc:SAML:2.0:ac:classes:YourChosenClassValue",
+        "urn:oasis:names:tc:SAML:2.0:ac:classes:YourOtherChosenClassValue"
+      ],
+      "comparison": "sampleComparisonValue"
+    "entityID": "https://example.com/saml2/metadata/706634",
+    "signInUrl": "https://example.com/saml2/sso-redirect/706634",
+    "certificates": [
+      "primary-certificate-example-pem-format"
+      "secondary-certificate-example-pem-format"
+    ],
+    "displayName": "my saml example",
   }
   ```
-  {: screen}
+  {: pre}
+  {: #configuring-saml-new}
 
-6. Make the request. If you chose to add the optional values, your request should look similar to the following example.
+  <table>
+    <tr>
+      <th> Variable </th>
+      <th> Description </th>
+    </tr>
+    <tr>
+      <td><code>signInUrl</code></td>
+      <td>The URL that the user is redirected to for authentication. It is hosted by your SAML identity provider.</td>
+    </tr>
+    <tr>
+      <td><code>entityID</code></td>
+      <td>The globally unique name for a SAML identity provider.</td>
+    </tr>
+    <tr>
+      <td><code>displayName</code></td>
+      <td>The name that you assign to your SAML configuration.</td>
+    </tr>
+    <tr>
+      <td><code>primary-certificate-example-pem-format</code></td>
+      <td>The certificate that is issued by your SAML identity provider. It is used for signing and validating SAML assertions. All providers are different, but you might be able to download the signing certificate from your identity provider. The certificate must be in <code>.pem</code> format.</td>
+    </tr>
+    <tr>
+      <td>Optional: <code>secondary-certificate-example-pem-format</code></td>
+      <td>The back up certificate that is issued by your SAML identity provider. It is used if signature validation fails with the primary certificate. <strong>Note</strong>: If the signing key remains the same, {{site.data.keyword.appid_short_notm}} does not block authentication for expired certificates.</td>
+    </tr>
+    <tr>
+      <td>Optional: <code>authnContext</code></td>
+      <td>The authentication context is used to verify the quality of the authentication and SAML assertions. You can add an authentication context by adding a class array and comparison string to your code. BE sure to update both the <code>class</code> and <code>comparison</code> parameters with your values. For example, a <code>class</code> parameter might look similar to <code>urn:oasis:names:tc:SAML:2.0:ac:classes:YourChosenClassValue</code>.</td>
+    </tr>
+  </table>
+
+3. Make a POST request to the [`/saml` API endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.set_saml_idp) to provide your configuration to {{site.data.keyword.appid_short_notm}}. Check out the following example to see what your request might look like.
 
   ```
-  Put {Management URI}/config/idps/saml
-  Content-Type: application/json
+  curl --request PUT \
+  https://us-south.appid.cloud.ibm.com/management/v4/<tenant-ID>/config/idps/saml \
+  --header `Accept: application/json` \
+  --data \
   {
     "isActive": true,
     "config": {
-      ...
-      "authnContext": {
-        "class": [
-          "urn:oasis:names:tc:SAML:2.0:ac:classes:YourChosenClassValue",
-          "urn:oasis:names:tc:SAML:2.0:ac:classes:YourOtherChosenClassValue"
-        ],
-        "comparison": "sampleComparisonValue"
       "entityID": "https://example.com/saml2/metadata/706634",
       "signInUrl": "https://example.com/saml2/sso-redirect/706634",
       "certificates": [
         "primary-certificate-example-pem-format"
-        "secondary-certificate-example-pem-format"
       ],
       "displayName": "my saml example",
     }
   }
   ```
   {: screen}
+
 
 
 ## Testing your configuration
