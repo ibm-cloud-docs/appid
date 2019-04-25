@@ -265,7 +265,7 @@ Want to set an authentication context? You can do so through the API.
     </tr>
   </table>
 
-3. Make a POST request to the [`/saml` API endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.set_saml_idp) to provide your configuration to {{site.data.keyword.appid_short_notm}}. Check out the following example to see what your request might look like.
+3. Make a POST request to the [`/saml` API endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.set_saml_idp) to provide the configuration that you created in step 2 to {{site.data.keyword.appid_short_notm}}. Check out the following example to see what your request might look like.
 
   ```
   curl --request PUT \
