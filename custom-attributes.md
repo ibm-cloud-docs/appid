@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-14"
+lastupdated: "2019-04-25"
 
 keywords: authentication, authorization, identity, app security, secure, attributes, user information, storing, accessing
 
@@ -117,7 +117,7 @@ Server Swift:
 ## Accessing custom attributes
 {: #accessing-custom-attributes}
 
-Depending on your configuration, attributes are encrypted and saved as part of a user profile when a user interacts with your application. The interaction could be a user signing in or setting a preference in your app. To access the attributes, you can pass an access token through an API method. If an access token isn't explicitly passed, {{site.data.keyword.appid_short_notm}} uses the last received token.
+Depending on your configuration, attributes are encrypted and saved as part of a user profile when a user interacts with your application. The interaction could be a user signing in or setting a preference in your app. To access the attributes, pass an access token through an API method.
 {: shortdesc}
 
 iOS Swift:
