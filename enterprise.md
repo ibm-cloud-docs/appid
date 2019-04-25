@@ -216,7 +216,6 @@ Want to set an authentication context? You can do so through the API.
 
   ```
   "config": {
-    ...
     "authnContext": {
       "class": [
         "urn:oasis:names:tc:SAML:2.0:ac:classes:YourChosenClassValue",
