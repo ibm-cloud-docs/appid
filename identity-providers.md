@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-25"
+lastupdated: "2019-04-23"
 
 keywords: authentication, authorization, identity, app security, secure, custom, proprietary, social, facebook, google, 
 
@@ -35,7 +35,7 @@ With {{site.data.keyword.appid_full}}, you can configure social identity provide
 {{site.data.keyword.appid_short_notm}} provides a default configuration to help you get up and running quickly with the service.
 {: shortdesc}
 
-When you configure App ID, Facebook, Google, and Cloud Directory are automatically enabled as identity providers. You can change the configuration at anytime. There are default credentials in place for Facebook and Google, but they are IBM credentials and should be used for testing whether to use the service only. Before you publish your app, update the configuration to your own credentials.
+When you configure {{site.data.keyword.appid_short_notm}}, Facebook, Google, and Cloud Directory are automatically enabled as identity providers. You can change the configuration at anytime. There are default credentials in place for Facebook and Google, but they are IBM credentials and should be used for testing whether to use the service only. Before you publish your app, update the configuration to your own credentials.
 
 You are limited to 100 authentications with the default credentials per instance, per day.
 {: note}
@@ -52,7 +52,7 @@ You can configure the {{site.data.keyword.appid_short}} service to use Facebook 
 
 To use Facebook as an identity provider, you must add and configure the website platform on your Facebook application.
 
-1. Log in to your account on the <a href="https://developers.facebook.com/docs/apps/register" target="_blank">Facebook for Developers site <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
+1. Log in to your account on the <a href="https://developers.facebook.com/docs/apps#register" target="_blank">Facebook for Developers site <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
 2. Make note of the Facebook app ID and secret. These values are needed to configure your web project for authentication in your service dashboard.
 3. Add the web platform and enter the site URL.
 4. From the products list, select **Facebook Login**.

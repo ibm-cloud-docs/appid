@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-04-22"
 
 keywords: authentication, authorization, identity, app security, secure, development, identity provider, tokens, customization, lifetime
 
@@ -90,7 +90,7 @@ To manage your identity providers:
 ## Adding redirect URIs
 {: #add-redirect-uri}
 
-A redirect URI is the callback endpoint of your app. During the sign in flow, {{site.data.keyword.appid_short_notm}} validates the URIs before allowing clients to participate in the authorization workflow which helps to prevent phishing attacks and grant code leakage. By registering your URI, you're telling {{site.data.keyword.appid_short_notm}} that the URI is trusted and it's okay to redirect your users.
+A redirect URI is the callback endpoint of your app. During the sign in flow, {{site.data.keyword.appid_short_notm}} validates the URIs before allowing clients to participate in the authorization workflow which helps to prevent phishing attacks and grant code leakage. By registering your URI, you're telling {{site.data.keyword.appid_short_notm}} that the URI is trusted and it's OK to redirect your users.
 
 Be sure to only register URIs of applications that you trust.
 {: note}
@@ -98,7 +98,7 @@ Be sure to only register URIs of applications that you trust.
 
 1. Click **Authentication Settings** to see your URI and token configuration options.
 
-2. In the **Add web redirect URI** field, type the URI. Each URI should begin with `http://` or `https://` and must include the full path, including any query parameters for the redirect to be successful. Need help formatting? Check out the following table for some examples.
+2. In the **Add web redirect URI** field, type the URI. Each URI should begin with `http://` or `https://` and must include the full path, including any query parameters for the redirect to be successful. Need help formatting your URI? Check out the following table for some examples.
 
   <table>
     <tr>
@@ -122,6 +122,12 @@ Be sure to only register URIs of applications that you trust.
 3. Click the **+** symbol in the **Add web redirect URIs** box.
 
 4. Repeat steps one through three until all possible URIs are added to your list.
+
+
+
+Not sure where your redirect URI comes from? Watch the following short video to see where to get it and how to add it to your list.
+
+<iframe class="embed-responsive-item" id="redirecturi" title="IBM Cloud App ID: How to fix invalid redirect URI" type="text/html" width="640" height="390" src="//www.youtube.com/embed/6hxqbvpc054?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
 
 
 

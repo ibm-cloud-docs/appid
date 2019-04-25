@@ -21,6 +21,7 @@ IBM Cloud App ID
     {: .navgroup id="howto"}
     {: .topicgroup}
     Adding App ID to your app
+        adding-overview.md
         web-apps.md
         mobile-apps.md
         backend-apps.md

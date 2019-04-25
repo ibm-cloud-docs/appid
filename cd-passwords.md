@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-04-23"
 
 keywords: authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
@@ -25,23 +25,23 @@ subcollection: appid
 # Defining password policies
 {: #cd-strength}
 
-You can set the requirements for the passwords that can be used with Cloud Directory. By defining specific requirements that your users must adhere to, you can ensure more secure applicaitons.
+You can set the requirements for the passwords that can be used with Cloud Directory. By defining specific requirements that your users must adhere to, you can ensure more secure applications.
 {: shortdesc}
 
 ## Policy: password strength
 {: #cd-password-strength}
 
-A strong password makes it difficult, or even improbable for someone to guess the password in either a manual or automated way. To set requirements for the stregnth of a users password, you can use the following steps.
+A strong password makes it difficult, or even improbable for someone to guess the password in either a manual or automated way. To set requirements for the strength of a user's password, you can use the following steps.
 {: shortdesc}
 
-1. Navigate to the **Password Policies** tab of the App ID dashboard.
+1. Navigate to the **Password Policies** tab of the {{site.data.keyword.appid_short_notm}}  dashboard.
 
-2. In the **Define password strength** box, click **Edit**. A screen displays.
+2. In the **Define password strength** box, click **Edit**. A screen opens.
 
 3. Enter a valid regex string in the **Password strength** box.
 
   Examples:
-    - Must be at least eight characters. Example regex: `^.{8,}$`
+    - Must be at least 8 characters. Example regex: `^.{8,}$`
     - Must contain one number, one lowercase letter, and one capital letter. Example regex: `^(?:(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).*)$`
     - Must contain only English letters and numbers. Example regex: `^[A-Za-z0-9]*$`
     - Must be at least one unique character. Example regex: `^(\w)\w*?(?!\1)\w+$`
@@ -56,11 +56,11 @@ Password strength can be set in the Cloud Directory settings page in {{site.data
 {: #cd-advanced-password}
 
 
-You can enhance the security of your application by enforcing additional password constraints.
+You can enhance the security of your application by enforcing password constraints.
 {: shortdesc}
 
 
-You can create an advanced password policy that consists of any combination of the following 5 features:
+You can create an advanced password policy that consists of any combination of the following five features:
 
  - Lockout after repeated wrong credentials
  - Avoid password reuse
@@ -90,39 +90,39 @@ Previous passwords are securely stored in the same way that a user's current pas
 ### Policy: Lockout after repeated wrong credentials
 {: #cd-lockout}
 
-You might want to protect your users' accounts by temporarily blocking the ability to sign in when a suspicious behavior is detected, such as multiples consecutive sign in attempts with an incorrect password. This measure can help to prevent a malicious party from gaining access to a user's account by guessing a user's password.
+You might want to protect your users' accounts by temporarily blocking the ability to sign in when a suspicious behavior is detected, such as multiple consecutive sign-in attempts with an incorrect password. This measure can help to prevent a malicious party from gaining access to a user's account by guessing a user's password.
 {: shortdesc}
 
-By using the GUI or the API, you can set the maximum number of unsuccessful sign in attempts that a user can make before their account is temporarily locked. You can also set the amount of time that the account is locked for. You have the following options:
+By using the GUI or the API, you can set the maximum number of unsuccessful sign-in attempts that a user can make before their account is temporarily locked. You can also set the amount of time that the account is locked for. You have the following options:
 
 * Number of attempts: Any whole value 1 - 10.
-* Lockout period: Any whole value specified in minutes in the range 1 minute to 1440 minutes (24 hours).
+* Lockout period: Any whole value that is specified in minutes in the range 1 minute to 1440 minutes (24 hours).
 
-If an account is locked, users are unable to sign in or perform any other self service operations, such as changing their password until the specified lockout period has elapsed. When the lockout period has ended, the user is automatically unlocked.
+If an account is locked, users are unable to sign in or perform any other self-service operations, such as changing their password until the specified lockout period has elapsed. When the lockout period is over, the user is automatically unlocked.
 
-You can unlock a user before the lockout period is over. To see whether they are locked out look to see whether the `active` field is set to `false`. You can also check to see whether their status on the **Users** tab of the service dashboard is set to `disabled`. To unlock a user, you must use [the API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Cloud_Directory_Users/updateCloudDirectoryUser) to set the `active` field to `true`.
+You can unlock a user before the lockout period is over. To see whether they are locked out, check whether the `active` field is set to `false`. You can also check to see whether their status on the **Users** tab of the service dashboard is set to `disabled`. To unlock a user, you must use [the API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Cloud_Directory_Users/updateCloudDirectoryUser) to set the `active` field to `true`.
 
 
 ### Policy: Minimum period between password changes
 {: #cd-minimum-time}
 
-You might want to prevent your users from quickly switching between passwords by setting a minimum period of time that a user must wait between password changes.
+You might want to prevent your users from quickly switching passwords by setting a minimum time that a user must wait between password changes.
 {: shortdesc}
 
-This feature is especially useful when used with the "Avoid password reuse" policy. Without this limitation, a user could simply change their password multiple times in quick succession to circumvent the limitation of re-using recent passwords. You can select any value between 1 hour and 30 days, specified in hours.
+This feature is especially useful when used with the "Avoid password reuse" policy. Without this limitation, a user could simply change their password multiple times in quick succession to circumvent the limitation of reusing recent passwords. You can select any value in the range 1 and 720 hours (30 days). The field is specified in hours.
 
 
 ### Policy: Password expiration
 {: #cd-expiration}
 
-For security reasons, you might want to enforce a password rotation policy, such that your users must change their password after a period of time.
+For security reasons, you might want to enforce a password rotation policy, such that your users must change their password after a specified amount of time.
 {: shortdesc}
 
-By using the GUI or the API, you can set a time period for which your user's passwords will remain valid. After a user's password expires, they are forced to reset their password on the next sign in. You can select any number of full days between 1 and 90.
+By using the GUI or the API, you can set a time period for which your user's passwords remain valid. After a user's password expires, they are forced to reset their password on the next sign-in. You can select any number of full days in range 1 and 90.
 
-You can quickly get started with the Login Widget by using the provided default GUI. The user is directed to supply a new password before the sign in is complete.
+You can quickly get started with the Login Widget by using the provided default GUI. The user is directed to supply a new password before the sign-in is complete.
 
-If you're using a custom sign in experience, an error is triggered when a user attempts to sign in with an expired password. It is your responsibility to configure your application to provide the necessary user experience. You can call the change password API to set the new password.
+If you're using a custom sign-in experience, an error is triggered when a user attempts to sign in with an expired password. It is your responsibility to configure your application to provide the necessary user experience. You can call the change password API to set the new password.
 
 The token endpoint response looks similar to the following:
 
@@ -135,7 +135,7 @@ The token endpoint response looks similar to the following:
 ```
 {: screen}
 
-When this option is first set to on, any existing user passwords will not have an expiration date. The expiration period begins for the users when their password is changed. You might want to encourage users to update their password after you set this feature to on.
+When this option is first set to on, any existing user passwords do not have an expiration date. The expiration period begins for the users when their password is changed. You might want to encourage users to update their password after you set this feature to on.
 {: note}
 
 

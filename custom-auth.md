@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-04-23"
 
 keywords: authentication, authorization, identity, app security, secure, custom, proprietary, 
 
@@ -127,7 +127,7 @@ Token payload:
     </tr>
     <tr>
       <td><code>aud</code></td>
-      <td>The OAuth server URL. Format: https://{region}.appid.cloud.ibm.com/oauth/v4/{tenantId}.</td>
+      <td>The OAuth server URL. Format: `https://{region}.appid.cloud.ibm.com/oauth/v4/{tenantId}`.</td>
     </tr>
     <tr>
       <td><code>exp</code></td>

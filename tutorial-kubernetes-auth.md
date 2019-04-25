@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-21"
+lastupdated: "2019-04-25"
 
 keywords: authentication, authorization, identity, app security, secure, development, ingress, policy, networking, containers, kubernetes
 
@@ -40,7 +40,7 @@ Check out the following diagram to see the authentication flow:
 5. The Ingress controller obtains access and identity tokens from {{site.data.keyword.appid_short_notm}} for authorization.
 6. Every request that is validated and forwarded by the Ingress Controller to your apps has an authorization header that contains the tokens.
 
-The Ingress Controller integration with {{site.data.keyword.appid_short_notm}} currently does not support refresh tokens. When your access and identity tokens expire, user's must reauthenticate.
+The Ingress Controller integration with {{site.data.keyword.appid_short_notm}} currently does not support refresh tokens. When access and identity tokens expire, user's must reauthenticate.
 {: note}
 
 
@@ -50,11 +50,11 @@ The Ingress Controller integration with {{site.data.keyword.appid_short_notm}} c
 Before you can get started, ensure that you have the following prerequisites.
 {: shortdesc}
 
-For security reasons, {{site.data.keyword.appid_short_notm}} authentication supports backends with TLS/SSL enabled only.
-{: note}
 
 * An app or sample app.
+
 * A standard Kubernetes cluster with at least two worker nodes per zone. If you are using Ingress in multizone clusters review the extra prerequisites in the [Kubernetes Service documentation](/docs/containers?topic=containers-ingress#config_prereqs).
+
 * An instance of {{site.data.keyword.appid_short_notm}} in the same region in which your cluster is deployed. Ensure that the service name does not contain any spaces.
 
 * The following [{{site.data.keyword.cloud_notm}} IAM roles](/docs/containers?topic=containers-access_reference#access_reference):
@@ -67,24 +67,25 @@ For security reasons, {{site.data.keyword.appid_short_notm}} authentication supp
   * [Kubernetes](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
   * [Docker](https://www.docker.com/products/docker-engine#/download)
 
-* The following [{{site.data.keyword.cloud_notm}} CLI plug-ins](/docs/cli/reference/ibmcloud?topic=cloud-cli-plug-ins#plug-ins):
+* The following [CLI plug-ins](/docs/cli/reference/ibmcloud?topic=cloud-cli-plug-ins#plug-ins):
 
-  * Kubernetes Service
-  * Container Registry
+  * {{site.data.keyword.containershort}}
+  * {{site.data.keyword.registryshort_notm}}
 
 For help with getting the CLIs and plug-ins downloaded and your Kubernetes Service environment configured, check out the tutorial [creating Kubernetes clusters](/docs/containers?topic=containers-cs_cluster_tutorial#cs_cluster_tutorial_lesson1).
 {: tip}
+
 
 Let's get started!
 
 ## Step 1: Binding {{site.data.keyword.appid_short_notm}} to your cluster
 {: #kube-create-appid}
 
-You can bind your instance of {{site.data.keyword.appid_short_notm}} to your cluster in order to allow all of the instances of your app that are deployed in your cluster to use. By binding your service instance to your cluster, your {{site.data.keyword.appid_short_notm}} metadata and credentials are available as soon as your application starts as Kubernetes secrets.
+By binding your instance of {{site.data.keyword.appid_short_notm}} to your cluster, all instances of your app that are located in that cluster can be controlled by the same instance of {{site.data.keyword.appid_short_notm}} . Also,your {{site.data.keyword.appid_short_notm}} metadata and credentials are available as soon as your application starts as Kubernetes secrets.
 {: shortdesc}
 
 
-1. Log in to the {{site.data.keyword.cloud_notm}} CLI. Follow the prompts in the CLI to complete logging in.
+1. Log in to the {{site.data.keyword.cloud_notm}} CLI. Follow the prompts in the CLI to complete logging in. If you're using a federated ID, be sure to append the `--sso` flag to the end of the command.
 
   ```
   ibmcloud login -a cloud.ibm.com -r <region>
@@ -192,8 +193,12 @@ Nice! You're almost ready to deploy.
 ## Step 3: Configuring Ingress
 {: kube-ingress}
 
-During cluster creation, both a private and a public Ingress ALB are created for you. To deploy your application and take advantage of your Ingress controller, create a deployment script.
+During cluster creation, both a private and a public IBM Kubernetes Service Application Load Balancer (ALB) are created for you. To deploy your application and take advantage of your Ingress controller, create a deployment script.
 {: shortdesc}
+
+
+To ensure the best performance of the integration, it is recommended that you always use the latest version of IBM Kubernetes Service Application Load Balancer (ALB). By default, auto-update is enabled for your cluster. For more information about auto-updates, see [On-demand ALB update feature on {{site.data.keyword.containershort}}](https://www.ibm.com/blogs/bluemix/2018/11/on-demand-alb-update-feature-on-ibm-cloud-kubernetes-service/).
+{: tip}
 
 1. Get the secret that was created in your cluster namespace when you bound {{site.data.keyword.appid_short_notm}} to your cluster. Note: this is **not** your Container Registry namespace.
 
@@ -304,7 +309,7 @@ A redirect URL is the URL for the site that you want {{site.data.keyword.appid_s
 {: note}
 
 
-Excellent work! Now, you can verify that the deployment was successful by navigating to your Ingress subdomain or custom domain to try it out.
+Excellent! Now, you can verify that the deployment was successful by navigating to your Ingress subdomain or custom domain to try it out.
 
 
 ## Next steps
