@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-25"
+lastupdated: "2019-04-26"
 
 keywords: authentication, authorization, identity, app security, secure, custom, service provider, identity provider, enterprise, assertions
 
@@ -125,7 +125,7 @@ You cannot enable SAML until after you have configured it as an identity provide
     </tr>
     <tr>
       <td><code>NameID Format</code></td>
-      <td>The way in which the identity provider knows which identifier format it needs to send in the subject of an assertion. The way in which {{site.data.keyword.appid_short_notm}} identifies users.</td>
+      <td>The way in which the identity provider knows which identifier format it needs to send in the subject of an assertion and how {{site.data.keyword.appid_short_notm}} identifies users. The ID should take the following form: <code><saml:NameID Format="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"/></code></td>
     </tr>
     <tr>
       <td><code>WantAssertionsSigned</code></td>
@@ -180,7 +180,7 @@ Want to set an authentication context? You can do so through the API.
 
 **Providing metadata with the API**
 
-1. View your current SAML configuration with App ID including your authentication context and certificates, make a GET request to the  [`/saml` API endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.get_saml_idp).
+1. View your current SAML configuration, including your authentication context and certificates, by making a GET request to the  [`/saml` API endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.get_saml_idp).
 
   Example code:
   ```

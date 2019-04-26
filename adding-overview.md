@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-23"
+lastupdated: "2019-04-26"
 
 keywords: authentication, authorization, identity, app security, secure, application identity, app to app, access token
 
@@ -50,11 +50,11 @@ Check out the following table to see how {{site.data.keyword.appid_short_notm}} 
         <td>You can protect your development resources and API endpoints from unauthorized access and ensure the security of your app by using the backend flow.</td>
     </tr>
     <tr>
-        <td><a href="/docs/services/appid?topic=appid-custom-auth#custom-auth" target="_blank">Mobile <img src="../../icons/launch-glyph.svg" alt="External link icon"></a></td>
+        <td><a href="/docs/services/appid?topic=appid-custom-auth#custom-auth" target="_blank">Custom <img src="../../icons/launch-glyph.svg" alt="External link icon"></a></td>
         <td>Already have your own custom flow? No problem. You can use the custom identity flow to integrate {{site.data.keyword.appid_short_notm}}  with your app.</td>
     </tr>
     <tr>
-        <td><a href="/docs/services/appid?topic=appid-anonymous#anonymous" target="_blank">Mobile <img src="../../icons/launch-glyph.svg" alt="External link icon"></a></td>
-        <td>With {{site.data.keyword.appid_short_notm}} , you can begin tracking a users activity prior to their initial sign in to your app by using anonymous authentication.</td>
+        <td><a href="/docs/services/appid?topic=appid-anonymous#anonymous" target="_blank">Anonymous <img src="../../icons/launch-glyph.svg" alt="External link icon"></a></td>
+        <td>With {{site.data.keyword.appid_short_notm}}, you can begin tracking a users activity prior to their initial sign in to your app by using anonymous authentication.</td>
     </tr>
 </table>
