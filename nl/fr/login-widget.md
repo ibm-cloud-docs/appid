@@ -1,17 +1,26 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-12-19"
+  years: 2017, 2019
+lastupdated: "2019-03-06"
+
+keywords: authentication, authorization, identity, app security, secure, development, sign in, sign up, password, social, enterprise
+
+subcollection: appid
 
 ---
 
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:tip: .tip}
-{:pre: .pre}
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
+{:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:codeblock: .codeblock}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 
 # Affichage du widget de connexion
@@ -22,27 +31,30 @@ lastupdated: "2018-12-19"
 
 Lorsque votre application est configurée pour utiliser un fournisseur d'identité, le widget de connexion dirige les visiteurs de votre application vers un écran de connexion. Le widget de connexion vous permet d'afficher des écrans préconfigurés pour vos flux de connexion. De plus, il vous permet à tout moment de mettre à jour votre flux de connexion, sans avoir à changer votre code source.
 
-
-Vous voulez créer une expérience unique pour votre application ? Vous pouvez [apporter vos propres écrans](/docs/services/appid/branded.html) !
+Vous voulez créer une expérience unique pour votre application ? Vous pouvez [apporter vos propres écrans](/docs/services/appid?topic=appid-branded) !
 {: tip}
 
 ## Comprendre le widget de connexion
-{: #understanding}
+{: #widget-understanding}
 
 Vous pouvez tirer parti d'{{site.data.keyword.appid_short_notm}}, y compris sans vos propres écrans d'interface utilisateur, en affichant le widget de connexion.
 {: shortdesc}
 
-**Quelle est la valeur par défaut ?**
+### Quelle est la valeur par défaut ?
+{: #widget-default}
 
 Lorsque plusieurs fournisseurs d'identité sont configurés, l'utilisateur est redirigé vers le widget de connexion lorsqu'il tente de se connecter à votre application. L'utilisation du widget de connexion permet aux utilisateurs de choisir le fournisseur avec lequel ils souhaitent vérifier leur identité. Toutefois, lorsqu'un seul fournisseur est défini sur **Activé**, les visiteurs sont redirigés vers cet écran d'authentification des fournisseurs d'identité.
 
-**Quelle quantité d'informations {{site.data.keyword.appid_short_notm}} obtient-il d'un fournisseur d'identité ?**
+### Quelle quantité d'informations {{site.data.keyword.appid_short_notm}} obtient-il d'un fournisseur d'identité ?
+{: #widget-obtain-info}
 
 Lorsque vous utilisez des fournisseurs d'identité sociaux ou d'entreprise, {{site.data.keyword.appid_short_notm}} dispose d'un accès en lecture aux informations de compte des utilisateurs. Le service utilise un jeton et les assertions qui sont renvoyées par le fournisseur d'identité pour vérifier qu'un utilisateur est bien qui il prétend être. Le service ne disposant jamais d'un accès en écriture aux informations, les utilisateurs doivent passer par le fournisseur d'identité qu'ils ont choisi pour effectuer des actions telles que la réinitialisation de leur mot de passe. Par exemple, si un utilisateur se connecte à votre application avec Facebook et souhaite changer de mot de passe, il doit se rendre sur www.facebook.com pour le faire.
 
-Lorsque vous utilisez [Cloud Directory](/docs/services/appid/cloud-directory.html), le fournisseur d'identité est {{site.data.keyword.appid_short_notm}}. Le service utilise votre registre pour vérifier l'identité de vos utilisateurs. {{site.data.keyword.appid_short_notm}} étant le fournisseur, les utilisateurs peuvent tirer parti des fonctionnalités avancées, telles que la réinitialisation de leur mot de passe, directement dans votre application.
+Lorsque vous utilisez [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory), le fournisseur d'identité est {{site.data.keyword.appid_short_notm}}. Le service utilise votre registre pour vérifier l'identité de vos utilisateurs. {{site.data.keyword.appid_short_notm}} étant le fournisseur, les utilisateurs peuvent tirer parti des fonctionnalités avancées, telles que la réinitialisation de leur mot de passe, directement dans votre application.
 
-**Quels types d'écrans peuvent être affichés pour chaque type de fournisseur ?**
+
+### Quels écrans peuvent être affichés pour chaque fournisseur ?
+{: #widget-options}
 
 Consultez le tableau suivant pour voir les écrans que vous pouvez afficher pour chaque type de fournisseur d'identité.
 
@@ -93,7 +105,7 @@ Consultez le tableau suivant pour voir les écrans que vous pouvez afficher pour
 </br>
 
 ## Personnalisation du widget de connexion
-{: #customize}
+{: #widget-customize}
 
 {{site.data.keyword.appid_short_notm}} fournit un écran de connexion par défaut que vous pouvez appeler si vous ne disposez pas de vos propres écrans d'interface utilisateur. Vous pouvez personnaliser l'écran pour afficher le logo et les couleurs de votre choix.
 {: shortdesc}
@@ -112,7 +124,7 @@ N'oubliez pas ! Vous pouvez aussi tirer profit d'{{site.data.keyword.appid_short
 
 
 ## Affichage du widget de connexion avec le logiciel Android
-{: #android}
+{: #widget-display-android}
 
 Vous pouvez appeler des écrans préconfigurés avec le [logiciel SDK client Android](https://github.com/ibm-cloud-security/appid-clientsdk-android).
 {: shortdesc}
@@ -142,9 +154,10 @@ Placez la commande suivante dans votre code.
 
 </br>
 
-**Inscription**
+### Inscription
+{: #widget-android-signup}
 
-1. Configurez vos [paramètres](cloud-directory.html#cd-settings) Cloud Directory dans l'interface graphique. **Permettre aux utilisateurs de s'inscrire à votre application** et **Permettre aux utilisateurs de gérer leur compte à partir de votre application** doivent être définis sur **Activé**.
+1. Configurez vos [paramètres](/docs/services/appid?topic=appid-cloud-directory#cd-settings) Cloud Directory dans l'interface graphique. **Permettre aux utilisateurs de s'inscrire à votre application** et **Permettre aux utilisateurs de gérer leur compte à partir de votre application** doivent être définis sur **Activé**.
 2. Ajoutez le code suivant à votre application. Lorsqu'un utilisateur s'inscrit à votre application à partir de votre écran personnalisé, le flux d'inscription est démarré. L'appel suivant enregistre non seulement l'utilisateur, mais peut également envoyer un courrier électronique de vérification pour terminer l'enregistrement, en fonction de vos configurations de Cloud Directory.
 
   ```java
@@ -174,9 +187,10 @@ Placez la commande suivante dans votre code.
 
 </br>
 
-**Mot de passe oublié**
+### Mot de passe oublié
+{: #widget-android-forgot-password}
 
-1. Configurez vos [paramètres](cloud-directory.html#cd-settings) Cloud Directory dans l'interface graphique.**Permettre aux utilisateurs de gérer leur compte à partir de votre application** doit être défini sur **Activé**.
+1. Configurez vos [paramètres](/docs/services/appid?topic=appid-cloud-directory#cd-settings) Cloud Directory dans l'interface graphique. **Permettre aux utilisateurs de gérer leur compte à partir de votre application** doit être défini sur **Activé**.
 2. Dans l'onglet **Réinitialiser le mot de passe** du tableau de bord du service, vérifiez que **E-mail d'oubli de mot de passe** est défini sur **Activé**.
 3. Ajoutez le code suivant à votre application. Lorsqu'un utilisateur clique sur "Mot de passe oublié" dans votre application, le logiciel SDK appelle l'API forgot_password pour lui envoyer un courrier électronique lui permettant de réinitialiser son mot de passe.
 
@@ -203,11 +217,12 @@ Placez la commande suivante dans votre code.
 
 </br>
 
-**Changement des détails**
+### Changement des détails
+{: #widget-android-change-details}
 
-1. Configurez vos [paramètres](cloud-directory.html#cd-settings) Cloud Directory dans l'interface graphique. **Permettre aux utilisateurs de s'inscrire à votre application** et **Permettre aux utilisateurs de gérer leur compte à partir de votre application** doivent être définis sur **Activé**.
+1. Configurez vos [paramètres](/docs/services/appid?topic=appid-cloud-directory#cd-settings) Cloud Directory dans l'interface graphique. **Permettre aux utilisateurs de s'inscrire à votre application** et **Permettre aux utilisateurs de gérer leur compte à partir de votre application** doivent être définis sur **Activé**.
 2. Dans l'onglet **Mot de passe modifié** du tableau de bord du service, définissez **Courrier électronique de changement de mot de passe** sur
-3. Appelez le widget de connexion pour démarrer le flux de changement de détails.
+3. Appelez le widget de connexion pour démarrer le flux de changement des détails.
 
   ```java
   LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
@@ -232,9 +247,10 @@ Placez la commande suivante dans votre code.
 
 </br>
 
-**Changement du mot de passe**
+### Changement du mot de passe
+{: #widget-android-change-password}
 
-1. Configurez vos [paramètres](cloud-directory.html#cd-settings) Cloud Directory dans l'interface graphique. **Permettre aux utilisateurs de s'inscrire à votre application** et **Permettre aux utilisateurs de gérer leur compte à partir de votre application** doivent être définis sur **Activé**.
+1. Configurez vos [paramètres](/docs/services/appid?topic=appid-cloud-directory#cd-settings) Cloud Directory dans l'interface graphique. **Permettre aux utilisateurs de s'inscrire à votre application** et **Permettre aux utilisateurs de gérer leur compte à partir de votre application** doivent être définis sur **Activé**.
 2. Placez le code suivant dans votre application pour démarrer le flux de changement de mot de passe.
 
   ```java
@@ -259,11 +275,9 @@ Placez la commande suivante dans votre code.
   {: codeblock}
 
 
-</br>
-</br>
 
 ## Affichage du widget de connexion avec le logiciel SDK Swift iOS
-{: #ios-swift}
+{: #widget-display-ios-swift}
 
 Vous pouvez appeler des écrans préconfigurés avec le [logiciel SDK client Swift iOS](https://github.com/ibm-cloud-security/appid-clientsdk-swift).
 {: shortdesc}
@@ -271,7 +285,7 @@ Vous pouvez appeler des écrans préconfigurés avec le [logiciel SDK client Swi
 Placez la commande suivante dans votre code.
 
   ```swift
-  import BluemixAppID
+  import IBMCloudAppID
   class delegate : AuthorizationDelegate {
       public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, refreshToken: RefreshToken?) {
           //User authenticated
@@ -290,9 +304,10 @@ Placez la commande suivante dans votre code.
 
 </br>
 
-**Inscription**
+### Inscription
+{: #widget-ios-signup}
 
-1. Configurez vos [paramètres](cloud-directory.html#cd-settings) Cloud Directory dans l'interface graphique. **Permettre aux utilisateurs de s'inscrire à votre application** et **Permettre aux utilisateurs de gérer leur compte à partir de votre application** doivent être définis sur **Activé**.
+1. Configurez vos [paramètres](/docs/services/appid?topic=appid-cloud-directory#cd-settings) Cloud Directory dans l'interface graphique. **Permettre aux utilisateurs de s'inscrire à votre application** et **Permettre aux utilisateurs de gérer leur compte à partir de votre application** doivent être définis sur **Activé**.
 2. Ajoutez le code suivant dans votre application. Lorsqu'un utilisateur tente de s'inscrire à votre application, le widget de connexion est appelé et affiche votre page d'inscription personnalisée.
 
   ```swift
@@ -319,9 +334,10 @@ Placez la commande suivante dans votre code.
 
 </br>
 
-**Mot de passe oublié**
+### Mot de passe oublié
+{: #widget-ios-forgot-password}
 
-1. Configurez vos [paramètres](cloud-directory.html#cd-settings) Cloud Directory dans l'interface graphique.**Permettre aux utilisateurs de gérer leur compte à partir de votre application** doit être défini sur **Activé**.
+1. Configurez vos [paramètres](/docs/services/appid?topic=appid-cloud-directory#cd-settings) Cloud Directory dans l'interface graphique. **Permettre aux utilisateurs de gérer leur compte à partir de votre application** doit être défini sur **Activé**.
 2. Dans l'onglet **Réinitialiser le mot de passe** du tableau de bord du service, vérifiez que **E-mail d'oubli de mot de passe** est défini sur **Activé**.
 3. Ajoutez le code suivant dans votre application. Lorsqu'un utilisateur de votre application demande que son mot de passe soit mis à jour, le widget de connexion est appelé et le processus démarre.
 
@@ -346,11 +362,12 @@ Placez la commande suivante dans votre code.
 
 </br>
 
-**Changement des détails**
+### Changement des détails
+{: #widget-ios-change-details}
 
-1. Configurez vos [paramètres](cloud-directory.html#cd-settings) Cloud Directory dans l'interface graphique. **Permettre aux utilisateurs de s'inscrire à votre application** et **Permettre aux utilisateurs de gérer leur compte à partir de votre application** doivent être définis sur **Activé**.
+1. Configurez vos [paramètres](/docs/services/appid?topic=appid-cloud-directory#cd-settings) Cloud Directory dans l'interface graphique. **Permettre aux utilisateurs de s'inscrire à votre application** et **Permettre aux utilisateurs de gérer leur compte à partir de votre application** doivent être définis sur **Activé**.
 2. Dans l'onglet **Mot de passe modifié** du tableau de bord du service, définissez **Courrier électronique de changement de mot de passe** sur
-3. Appelez le widget de connexion pour démarrer le flux de changement de détails.
+3. Appelez le widget de connexion pour démarrer le flux de changement des détails.
 
   ```swift
   class delegate : AuthorizationDelegate {
@@ -373,9 +390,10 @@ Placez la commande suivante dans votre code.
 
 </br>
 
-**Changement du mot de passe**
+### Changement du mot de passe
+{: #widget-ios-change-password}
 
-1. Configurez vos [paramètres](cloud-directory.html#cd-settings) Cloud Directory dans l'interface graphique. **Permettre aux utilisateurs de s'inscrire à votre application** et **Permettre aux utilisateurs de gérer leur compte à partir de votre application** doivent être définis sur **Activé**.
+1. Configurez vos [paramètres](/docs/services/appid?topic=appid-cloud-directory#cd-settings) Cloud Directory dans l'interface graphique. **Permettre aux utilisateurs de s'inscrire à votre application** et **Permettre aux utilisateurs de gérer leur compte à partir de votre application** doivent être définis sur **Activé**.
 2. Placez le code suivant dans votre application pour démarrer le flux de changement de mot de passe.
 
   ```swift
@@ -397,11 +415,9 @@ Placez la commande suivante dans votre code.
   ```
   {: codeblock}
 
-</br>
-</br>
 
 ## Affichage du widget de connexion avec le logiciel SDK Node.js
-{: #nodejs}
+{: #widget-display-nodejs}
 
 Vous pouvez appeler des écrans préconfigurés avec le [logiciel SDK serveur Node.js](https://github.com/ibm-cloud-security/appid-serversdk-nodejs).
 {: shortdesc}
@@ -422,9 +438,10 @@ Ajoutez à votre application une route 'post' qui sera appelée avec le nom d'ut
 
 </br>
 
-**Inscription**
+### Inscription
+{: #widget-nodejs-signup}
 
-1. Configurez vos [paramètres](cloud-directory.html#cd-settings) Cloud Directory dans l'interface graphique. **Permettre aux utilisateurs de s'inscrire à votre application** et **Permettre aux utilisateurs de gérer leur compte à partir de votre application** doivent être définis sur **Activé**.
+1. Configurez vos [paramètres](/docs/services/appid?topic=appid-cloud-directory#cd-settings) Cloud Directory dans l'interface graphique. **Permettre aux utilisateurs de s'inscrire à votre application** et **Permettre aux utilisateurs de gérer leur compte à partir de votre application** doivent être définis sur **Activé**.
 2. Ajoutez le code suivant dans votre application. Lorsqu'un utilisateur tente de s'inscrire à votre application, le widget de connexion est appelé et affiche votre page d'inscription personnalisée.
 
   ```javascript
@@ -437,9 +454,10 @@ Ajoutez à votre application une route 'post' qui sera appelée avec le nom d'ut
 
 </br>
 
-**Mot de passe oublié**
+### Mot de passe oublié
+{: #widget-nodejs-forgot-password}
 
-1. Configurez vos [paramètres](cloud-directory.html#cd-settings) Cloud Directory dans l'interface graphique.**Permettre aux utilisateurs de gérer leur compte à partir de votre application** doit être défini sur **Activé**.
+1. Configurez vos [paramètres](/docs/services/appid?topic=appid-cloud-directory#cd-settings) Cloud Directory dans l'interface graphique. **Permettre aux utilisateurs de gérer leur compte à partir de votre application** doit être défini sur **Activé**.
 2. Dans l'onglet **Réinitialiser le mot de passe** du tableau de bord du service, vérifiez que **E-mail d'oubli de mot de passe** est défini sur **Activé**.
 3. Placez le code suivant dans votre application pour transmettre la propriété *show* à `WebAppStrategy.FORGOT_PASSWORD`. Lorsqu'un utilisateur demande que son mot de passe pour votre application soit mis à jour, le widget de connexion est appelé et le processus démarre.
 
@@ -453,9 +471,10 @@ Ajoutez à votre application une route 'post' qui sera appelée avec le nom d'ut
 
 </br>
 
-**Changement des détails**
+### Changement des détails
+{: #widget-nodejs-change-details}
 
-1. Configurez vos [paramètres](cloud-directory.html#cd-settings) Cloud Directory dans l'interface graphique. **Permettre aux utilisateurs de s'inscrire à votre application** et **Permettre aux utilisateurs de gérer leur compte à partir de votre application** doivent être définis sur **Activé**.
+1. Configurez vos [paramètres](/docs/services/appid?topic=appid-cloud-directory#cd-settings) Cloud Directory dans l'interface graphique. **Permettre aux utilisateurs de s'inscrire à votre application** et **Permettre aux utilisateurs de gérer leur compte à partir de votre application** doivent être définis sur **Activé**.
 2. Dans l'onglet **Mot de passe modifié** du tableau de bord du service, définissez **Courrier électronique de changement de mot de passe** sur
 3. Placez le code suivant dans votre application pour transmettre la propriété *show* à `WebAppStrategy.FORGOT_PASSWORD` afin de lancer le formulaire de changement de détails.
 
@@ -469,9 +488,10 @@ Ajoutez à votre application une route 'post' qui sera appelée avec le nom d'ut
 
 </br>
 
-**Changement du mot de passe**
+### Changement du mot de passe
+{: #widget-nodejs-change-password}
 
-1. Configurez vos [paramètres](cloud-directory.html#cd-settings) Cloud Directory dans l'interface graphique. **Permettre aux utilisateurs de s'inscrire à votre application** et **Permettre aux utilisateurs de gérer leur compte à partir de votre application** doivent être définis sur **Activé**.
+1. Configurez vos [paramètres](/docs/services/appid?topic=appid-cloud-directory#cd-settings) Cloud Directory dans l'interface graphique. **Permettre aux utilisateurs de s'inscrire à votre application** et **Permettre aux utilisateurs de gérer leur compte à partir de votre application** doivent être définis sur **Activé**.
 2. Dans l'onglet **Mot de passe modifié** du tableau de bord du service, définissez **Courrier électronique de changement de mot de passe** sur
 3. Placez le code suivant dans votre application pour transmettre la propriété *show* à `WebAppStrategy.FORGOT_PASSWORD` afin de lancer le formulaire de changement de détails.
 
@@ -482,5 +502,3 @@ Ajoutez à votre application une route 'post' qui sera appelée avec le nom d'ut
   }));
   ```
   {: codeblock}
-
-</br>

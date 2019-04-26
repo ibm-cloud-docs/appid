@@ -1,18 +1,26 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-11-14"
+  years: 2017, 2019
+lastupdated: "2019-04-04"
+
+keywords: authentication, authorization, identity, app security, secure, custom, proprietary, private key, public key, jwt
+
+subcollection: appid
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
-{:pre: .pre}
-{:tip: .tip}
 {:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
-
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 # Personnalisation
 {: #custom-identity}
@@ -28,7 +36,8 @@ Lorsqu'{{site.data.keyword.appid_short_notm}} ne propose pas de prise en charge 
 Vous pouvez utiliser les étapes suivantes pour configurer votre fournisseur d'identité personnalisé pour utiliser {{site.data.keyword.appid_short_notm}}.
 {: shortdesc}
 
-**Avant de commencer**
+### Avant de commencer
+{: #custom-identity-before}
 
 Pour établir la confiance entre {{site.data.keyword.appid_short_notm}} et votre fournisseur d'identité personnalisé, vous devez disposer d'une paire de clés PEM RSA d'une longueur minimale de 2048 caractères. Assurez-vous de sauvegarder les clés que vous utilisez en production de manière sécurisée.
 
@@ -47,9 +56,10 @@ $ openssl rsa -pubout -in private_key.pem -out public_key.pem
 
 </br>
 
-**Configuration à l'aide de l'interface graphique**
+### Configuration à l'aide de l'interface graphique
+{: #custom-identity-configure-gui}
 
-1. Connectez-vous à votre compte {{site.data.keyword.Bluemix_notm}} et accédez à votre instance {{site.data.keyword.appid_short_notm}}.
+1. Connectez-vous à votre compte {{site.data.keyword.cloud_notm}} et accédez à votre instance {{site.data.keyword.appid_short_notm}}.
 
 2. Dans l'onglet **Gérer**, définissez **Custom Identity Provider** sur **Activé**.
 
@@ -58,11 +68,11 @@ $ openssl rsa -pubout -in private_key.pem -out public_key.pem
   2. Collez votre clé publique dans la zone **Clé publique** et cliquez sur **Sauvegarder**.
 
 
-</br>
 
-**Configurer à l'aide de l'API**
+### Configuration à l'aide de l'API
+{: #custom-identity-configure-api}
 
-Enregistrez votre clé en envoyant une requête PUT au [noeud final d'API de gestion](https://appid-management.ng.bluemix.net/swagger-ui/#!/Identity_Providers/custom).
+Enregistrez votre clé en envoyant une requête PUT au [noeud final d'API de gestion](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.set_custom_idp).
 
 ```
 Put {Management URI}/config/idps/custom
@@ -77,19 +87,19 @@ Content-Type: application/json
 {: codeblock}
 
 ## Test de votre configuration
-{: #testing}
+{: #custom-identity-testing}
 
 Après avoir configuré votre instance {{site.data.keyword.appid_short_notm}} avec une clé publique valide, vous pouvez utiliser l'application de test fournie par le service pour vérifier que votre configuration est correcte. Dans l'exemple d'application, vous pouvez voir les contenus des jetons d'accès et d'identité d'{{site.data.keyword.appid_short_notm}} qui sont renvoyés lors d'un flux de connexion standard.
 
 1. Dans l'onglet **Custom Identity Provider**, cliquez sur **Test** pour ouvrir l'application de test.
 
-2. Créez un exemple de jeton JWT en utilisant [JWT.io](https://jwt.io/) après le [protocole](/docs/services/appid/custom-auth.html#creating-jwts) d'identité personnalisée.
+2. Créez un exemple de jeton JWT en utilisant [JWT.io](https://jwt.io/) après le [protocole](/docs/services/appid?topic=appid-custom-auth#generating-jwts) d'identité personnalisée.
 
 3. Collez votre jeton JWT dans la case intitulée **Jeton Web JSON** et cliquez sur **Test** pour exécuter un exemple d'authentification.
 
 En cas de succès, vous pouvez voir les jetons d'identité et d'accès d'{{site.data.keyword.appid_short_notm}} décodés qui seront disponibles pour votre application dans un flux de connexion standard.
 
 ## Etapes suivantes
-{: #next}
+{: #custom-identity-next}
 
-Maintenant que votre fournisseur d'identité personnalisé est configuré, [ajoutez-le à votre application](/docs/services/appid/custom-auth.html) !
+Maintenant que votre fournisseur d'identité personnalisé est configuré, [ajoutez-le à votre application](/docs/services/appid?topic=appid-custom-auth#custom-auth) !

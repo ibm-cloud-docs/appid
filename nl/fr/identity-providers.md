@@ -1,31 +1,44 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-11-14"
+  years: 2017, 2019
+lastupdated: "2019-03-25"
+
+keywords: authentication, authorization, identity, app security, secure, custom, proprietary, social, facebook, google, 
+
+subcollection: appid
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
-{: tip: .tip}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 # Réseau social
-{: #setting-up-idp}
+{: #social}
 
 Avec {{site.data.keyword.appid_full}}, vous pouvez configurer des fournisseurs d'identité de réseau social pour définir une expérience de connexion unique pour votre application. La possibilité pour un utilisateur de se connecter avec ses profils sociaux, lui permet de ne pas avoir à se souvenir de plusieurs mots de passe pour différentes applications.
 {: shortdesc}
 
 
 ## Configuration par défaut
-{: #default}
+{: #social-default}
 
 {{site.data.keyword.appid_short_notm}} fournit une configuration par défaut pour vous aider à être rapidement opérationnel avec le service.
 {: shortdesc}
 
-Les données d'identification par défaut sont définies pour Facebook et Google. Ces données d'identification sont limitées à 100 utilisations par instance, par jour. Comme il s'agit de données d'identification IBM, elles sont destinées à un usage en mode développement uniquement. Avant de publier votre application, mettez à jour la configuration avec vos propres données d'identification.
+Lorsque vous configurez l'ID d'appli, Facebook, Google et Cloud Directory sont automatiquement activés en tant que fournisseurs d'identité. Vous pouvez modifier la configuration à tout moment. Des données d'identification par défaut sont en place pour Facebook et Google, mais ce sont des données d'identification IBM destinées uniquement à tester l'utilisation du service. Avant de publier votre application, mettez à jour la configuration avec vos propres données d'identification.
+
+Ces données d'identification par défaut sont limitées à 100 authentifications par instance, par jour.
+{: note}
 
 
 ## Configuration de Facebook
@@ -35,6 +48,7 @@ Vous pouvez configurer le service {{site.data.keyword.appid_short}} pour utilise
 {: shortdesc}
 
 ### Obtention d'un ID et d'une valeur confidentielle d'application auprès de Facebook
+{: #facebook-appid-secret}
 
 Pour utiliser Facebook comme fournisseur d'identité, vous devez ajouter et configurer la plateforme de site Web sur votre application Facebook.
 
@@ -47,6 +61,7 @@ Pour utiliser Facebook comme fournisseur d'identité, vous devez ajouter et conf
 
 
 ### Configuration d'{{site.data.keyword.appid_short_notm}} pour l'authentification Facebook
+{: #facebook-configure}
 
 Une fois que vous disposez de votre ID et de votre valeur confidentielle d'application Facebook et que votre application Facebook for Developers est configurée pour servir des clients Web, vous pouvez éditer l'authentification Facebook depuis votre tableau de bord du service.
 
@@ -63,7 +78,8 @@ Une fois que vous disposez de votre ID et de votre valeur confidentielle d'appli
 Configurez le service {{site.data.keyword.appid_short}} pour utiliser Google comme fournisseur d'identité.
 {: shortdesc}
 
-### Obtention d'un ID client et d'une valeur confidentielle auprès de Google
+### Obtention d'un ID client et d'une valeur confidentielle
+{: #google-clientid-secret}
 
 Créez un projet dans la <a href="https://developers.google.com/" target="_blank">console Google Developers <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a>, configurez le projet pour servir des clients Web et obtenez un identificateur et une valeur confidentielle de client.
 
@@ -77,6 +93,7 @@ Créez un projet dans la <a href="https://developers.google.com/" target="_blank
 4. Notez l'ID client et la valeur confidentielle Google. Dans l'onglet des données d'identification, sélectionnez l'ID que vous avez créé pour obtenir votre identificateur et votre valeur confidentielle de client.
 
 ### Configuration d'{{site.data.keyword.appid_short}} pour l'authentification Google
+{: #google-configure}
 
 Une fois que vous avez configuré votre projet Google et obtenu votre identificateur et votre valeur confidentielle de client, vous pouvez éditer votre tableau de bord du service pour l'authentification Google.
 

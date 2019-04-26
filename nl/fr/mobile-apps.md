@@ -1,31 +1,40 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-11-14"
+  years: 2017, 2019
+lastupdated: "2019-03-27"
+
+keywords: authentication, authorization, identity, app security, secure, development, mobile, android, iOS
+
+subcollection: appid
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
-{:pre: .pre}
-{:tip: .tip}
 {:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:codeblock: .codeblock}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 # Applications mobiles
-{: #adding-mobile}
+{: #mobile-apps}
 
 Avec {{site.data.keyword.appid_full}}, vous pouvez rapidement construire une couche d'authentification pour votre application mobile native ou hybride.
 {: shortdesc}
 
 ## Comprendre le flux
-{: #understanding}
-
-**Dans quelles circonstances ce flux est-il utile ?**
+{: #understanding-mobile}
 
 Un flux mobile est utile lorsque vous développez une application qui doit être installée sur le périphérique d'un utilisateur (application native). L'utilisation de ce flux vous permet d'authentifier en toute sécurité les utilisateurs de votre application et de fournir des expériences utilisateur personnalisées sur tous les périphériques.
 
-**Quelle est la base technique du flux ?**
+### Quelle est la base technique du flux ?
+{: #mobile-technical-flow}
 
 Les applications natives étant installées directement sur le périphérique d'un utilisateur, les informations personnelles de l'utilisateur et les droits d'accès de l'application peuvent être extraits par des tiers avec une relative facilité. Par défaut, ces types d'applications sont appelés clients non approuvés, car ils ne peuvent pas stocker de données d'identification globales ou de jetons d'actualisation des utilisateurs. C'est pourquoi les clients non approuvés exigent des utilisateurs qu'ils entrent leurs données d'identification chaque fois que leurs jetons d'accès expirent.
 
@@ -33,17 +42,18 @@ Pour convertir votre application en client de confiance, {{site.data.keyword.app
 
 Après l'enregistrement, vos utilisateurs s'authentifient à l'aide des flux [d'octroi d'autorisation](https://tools.ietf.org/html/rfc6749#section-1.3) OAuth2 `authorization code` ou `resource owner password`.
 
-**A quoi ressemble ce flux ?**
 
-Flux d'application à application ![{{site.data.keyword.appid_short_notm}}](images/mobile-flow.png)
-
-**Enregistrement dynamique du client**
+### Enregistrement dynamique du client
+{: #mobile-dynamic}
 
 1. Un utilisateur exécute une action qui déclenche une demande de l'application client au logiciel SDK {{site.data.keyword.appid_short}}.
 2. Si votre application n'est pas encore enregistrée en tant que client mobile, le logiciel SDK lance un flux d'enregistrement dynamique.
 3. Lorsque l'enregistrement a abouti, {{site.data.keyword.appid_short}} renvoie un IC client spécifique à votre installation.
 
-**Flux d'autorisation**
+### Flux d'autorisation
+{: #mobile-auth-flow}
+
+Flux d'application à application ![{{site.data.keyword.appid_short_notm}}](images/mobile-flow.png)
 
 1. Le logiciel SDK {{site.data.keyword.appid_short}} lance le processus d'autorisation à l'aide du noeud final {{site.data.keyword.appid_short_notm}} `/authorization`.
 2. Le widget de connexion est affiché pour l'utilisateur.
@@ -53,7 +63,7 @@ Flux d'application à application ![{{site.data.keyword.appid_short_notm}}](imag
 
 
 ## Configuration de votre application mobile avec les logiciels SDK {{site.data.keyword.appid_short}}
-{: #configuring}
+{: #configuring-mobile}
 
 Initiation à {{site.data.keyword.appid_short}} avec nos logiciels SDK.
 {: shortdesc}
@@ -66,11 +76,11 @@ Vous devez disposer des éléments suivants :
 
 * L'ID titulaire de votre instance. Il est disponible dans l'onglet **Données d'identification pour le service** de votre tableau de bord du service.
 
-* La région {{site.data.keyword.Bluemix}} de déploiement de votre instance. Consultez la console pour connaître votre région.
+* La région {{site.data.keyword.cloud_notm}} de déploiement de votre instance. Consultez la console pour connaître votre région.
 
-  <table><caption> Tableau 1. Régions {{site.data.keyword.Bluemix_notm}} et valeurs de logiciel SDK correspondantes</caption>
+  <table><caption> Tableau 1. Régions {{site.data.keyword.cloud_notm}} et valeurs de logiciel SDK correspondantes</caption>
   <tr>
-    <th>Région {{site.data.keyword.Bluemix}}</th>
+    <th>Région {{site.data.keyword.cloud_notm}}</th>
     <th>Valeur de logiciel SDK</th>
   </tr>
   <tr>
@@ -92,7 +102,7 @@ Vous devez disposer des éléments suivants :
 </table>
 
 ## Authentification avec le logiciel SDK Android
-{: #android-setup}
+{: #mobile-android}
 
 **Avant de commencer**
 
@@ -104,9 +114,9 @@ Vous devez disposer des prérequis suivants avant de commencer :
   * Android SDK Platform Tools 27.0.1+
   * Android Build Tools version 27.0.0+
 
-</br>
 
-**Installation du logiciel SDK**
+### Installation du logiciel SDK
+{: #mobile-android-install}
 
 1. Créez un projet Android Studio ou ouvrez un projet existant.
 
@@ -147,12 +157,13 @@ Vous devez disposer des prérequis suivants avant de commencer :
 
 </br>
 
-**Initialisation du logiciel SDK **
+### Initialisation du logiciel SDK
+{: #mobile-android-initialize}
 
 
 1. Transmettez les paramètres de contexte, d'ID titulaire et de région à la méthode initialize pour configurer le logiciel SDK.
 
-    Bien que ce ne soit pas obligatoire, le code d'initialisation est souvent placé dans la méthode onCreate de l'activité principale dans votre application Android.
+    En général, vous pouvez placer le code d'initialisation dans la méthode `onCreate` de l'activité principale dans votre application Android, bien que cet emplacement ne soit pas obligatoire.
     {: tip}
 
     ```java
@@ -164,7 +175,7 @@ Vous devez disposer des prérequis suivants avant de commencer :
 </br>
 
 ## Authentification avec le logiciel SDK Swift iOS
-{: #ios-setup}
+{: #mobile-ios}
 
 Protégez vos applications mobiles à l'aide du logiciel SDK client {{site.data.keyword.appid_short}}.
 {:shortdesc}
@@ -180,7 +191,8 @@ Vous devez disposer des prérequis suivants avant de commencer :
 
 </br>
 
-**Installation du logiciel SDK**
+### Installation du logiciel SDK
+{: #mobile-ios-install}
 
 Le logiciel SDK client d'{{site.data.keyword.appid_short_notm}} est distribué avec CocoaPods, un gestionnaire de dépendances pour les projets Swift et Cocoa Objective-C . CocoaPods télécharge des artefacts et les rend disponibles dans votre projet.
 
@@ -205,7 +217,7 @@ Le logiciel SDK client d'{{site.data.keyword.appid_short_notm}} est distribué a
   ```
   {: codeblock}
 
-5. Après l'installation, ouvrez le fichier `<your app>.xcworkspace` contenant votre projet Xcode et vos dépendances liées.
+5. Après l'installation, ouvrez le fichier `<your app>.xcworkspace` qui contient votre projet Xcode et vos dépendances liées.
 
 6. Activez le partage de la chaîne de certificats dans votre projet Xcode. Accédez à **Paramètres du projet > Capacités > Partage de chaîne de certificats** et sélectionnez l'option d'**activation du partage de chaîne de certificats**.
 
@@ -218,7 +230,8 @@ Le logiciel SDK client d'{{site.data.keyword.appid_short_notm}} est distribué a
 
 </br>
 
-**Initialisation du logiciel SDK **
+### Initialisation du logiciel SDK
+{: #mobile-ios-initialize}
 
 1. Initialisez le logiciel SDK client en transmettant les paramètres d'ID titulaire et de région à sa méthode initialize.
 
@@ -246,17 +259,16 @@ Le logiciel SDK client d'{{site.data.keyword.appid_short_notm}} est distribué a
   ```
   {: codeblock}
 
-</br>
-</br>
 
 ## Accès aux API protégées
-{: #accessing-protected-apis}
+{: #mobile-accessing-apis}
 
 Lorsque le flux de connexion a abouti, vous pouvez utiliser vos jetons d'accès et d'identité pour appeler des ressources d'arrière-plan protégées qui utilisent le logiciel SDK ou une bibliothèque réseau de votre choix.
 
 </br>
 
-### Accès aux API protégées avec le logiciel SDK Swift
+### Avec le logiciel SDK Swift
+{: #mobile-access-api-swift}
 
 1.  Ajoutez les importations suivantes au fichier dans lequel vous souhaitez appeler une demande de ressource protégée :
 
@@ -282,14 +294,15 @@ Lorsque le flux de connexion a abouti, vous pouvez utiliser vos jetons d'accès 
       }
       // use your response object
   })
-     ```
+  ```
   {: codeblock}
 
 </br>
 
-### Accès aux API protégées avec le logiciel SDK Android
+### Avec le logiciel SDK Android
+{: #mobile-access-api-android}
 
-1. Ajoutez les importations suivantes au fichier dans lequel vous souhaitez appeler une demande de ressource protégée :
+1. Ajoutez les importations suivantes au fichier dans lequel vous voulez appeler une demande de ressource protégée :
 
   ```java
   import com.ibm.mobilefirstplatform.clientsdk.android.core.api.BMSClient;
@@ -305,7 +318,7 @@ Lorsque le flux de connexion a abouti, vous pouvez utiliser vos jetons d'accès 
    AppIDAuthorizationManager appIdAuthMgr = new AppIDAuthorizationManager(AppID.getInstance())
   bmsClient.setAuthorizationManager(appIdAuthMgr);
 
-  Request request = new Request("<your protected resource url>", Request.GET);
+   Request request = new Request("<your protected resource url>", Request.GET);
   request.send(this, new ResponseListener() {
 
    @Override
@@ -315,7 +328,7 @@ Lorsque le flux de connexion a abouti, vous pouvez utiliser vos jetons d'accès 
 
    @Override
 		public void onFailure (Response response, Throwable t, JSONObject extendedInfo) {
-        if (null != t) {
+       if (null != t) {
            Log.d("My app", "onFailure :: " + t.getMessage());
        } else if (null != extendedInfo) {
            Log.d("My app", "onFailure :: " + extendedInfo.toString());
@@ -323,13 +336,14 @@ Lorsque le flux de connexion a abouti, vous pouvez utiliser vos jetons d'accès 
            Log.d("My app", "onFailure :: " + response.getResponseText());
            }
        }
-       });
-       ```
+   });
+  ```
   {: codeblock}
 
 </br>
 
-### Accès aux API protégées avec un logiciel SDK
+### Sans logiciel SDK
+{: #mobile-access-api-nosdk}
 
 Avec la bibliothèque de votre choix, configurez votre en-tête de demande `Authorization` pour utiliser le schéma d'authentification `Bearer` pour transmettre le jeton d'accès.
 
@@ -346,11 +360,11 @@ Exemple de format de demande :
 </br>
 
 ## Etapes suivantes
-{: #next}
+{: #mobile-next}
 
-{{site.data.keyword.appid_short}} est installé dans votre application ? Vous êtes pratiquement prêt à commencer l'authentification des utilisateurs ! Essayez d'effectuer l'une des activités suivantes :
+Avec {{site.data.keyword.appid_short}} installé dans votre application, Vous êtes pratiquement prêt à commencer l'authentification des utilisateurs ! Essayez d'effectuer l'une des activités suivantes :
 
-* Configurer vos [fournisseurs d'identité](/docs/services/appid/identity-providers.html)
-* Personnaliser et configurer [le widget de connexion](/docs/services/appid/login-widget.html)
+* Configurez vos [fournisseurs d'identité](/docs/services/appid?topic=appid-social)
+* Personnalisez et configurez [le widget de connexion](/docs/services/appid?topic=appid-login-widget)
 * En savoir plus sur le <a href="https://github.com/ibm-cloud-security/appid-clientsdk-android" target="_blank">logiciel SDK Android<img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a>
 * En savoir plus sur le <a href="https://github.com/ibm-cloud-security/appid-clientsdk-swift" target="_blank">logiciel SDK iOS<img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a>

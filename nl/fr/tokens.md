@@ -1,16 +1,26 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-12-19"
+  years: 2017, 2019
+lastupdated: "2019-04-10"
+
+keywords: authentication, authorization, identity, app security, secure, tokens, jwt, development
+
+subcollection: appid
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 
 # Validation des jetons
@@ -19,10 +29,8 @@ lastupdated: "2018-12-19"
 La validation des jetons est une partie importante dans le processus de développement des applications modernes. Elle vous permet de protéger votre application ou vos API des utilisateurs non autorisés. {{site.data.keyword.appid_full}} utilise des jetons d'accès et d'identité pour s'assurer qu'un utilisateur ou une application est authentifié avant de lui accorder un droit d'accès. Si vous utilisez l'un des logiciels SDK fournis par {{site.data.keyword.appid_short_notm}}, l'obtention et la validation de vos jetons sont effectuées pour vous !
 {: shortdesc}
 
-Pour plus d'informations sur l'utilisation des jetons dans {{site.data.keyword.appid_short_notm}}, voir [Understanding tokens](authorization.html#tokens).
+Pour plus d'informations sur l'utilisation des jetons dans {{site.data.keyword.appid_short_notm}}, voir [Understanding tokens](/docs/services/appid?topic=appid-tokens#tokens).
 {: tip}
-
-**Qu'est-ce que la validation des jetons ?**
 
 Les jetons sont utilisés pour vérifier qu'une personne est bien qui elle dit être. Ils confirment toutes les autorisations d'accès éventuellement détenues par l'utilisateur pour une durée déterminée. Lorsqu'un utilisateur se connecte à votre application et se voit attribuer un jeton, votre application doit valider l'utilisateur avant que l'accès ne lui soit accordé.
 
@@ -48,13 +56,13 @@ D'après les commentaires reçus, l'option 1 est généralement le moyen le plus
 Vous pouvez utiliser {{site.data.keyword.appid_short_notm}} pour valider vos jetons à l'aide de l'introspection.
 {: shortdesc}
 
-1. Envoyez une requête POST au noeud final de l'API [/introspect](https://appid-oauth.ng.bluemix.net/swagger-ui/#!/Authorization_Server_V3/introspect) pour valider votre jeton. La demande doit fournir le jeton et un en-tête d'autorisation de base contenant l'ID client et la valeur confidentielle.
+1. Envoyez une requête POST au noeud final de l'API [/introspect](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization%20Server%20-%20Authorization%20Server%20V4/oauth-server.token) pour valider votre jeton. La demande doit fournir le jeton et un en-tête d'autorisation de base contenant l'ID client et la valeur confidentielle.
 
   Exemple de demande :
 
     ```
-    POST /oauth/v3/{tenant_id}/introspect HTTP/1.1
-    Host: appid-oauth.ng.bluemix.net
+    POST /oauth/v4/{tenant_id}/introspect HTTP/1.1
+    Host: us-south.appid.cloud.ibm.com
     Content-Type: application/x-www-form-urlencoded
     Authorization: Basic jdFlUaGlZUzAwTW0Tjk15TmpFMw==
     Cache-Control: no-cache
@@ -110,20 +118,20 @@ Vous pouvez valider vos jetons localement en les analysant, en vérifiant leur s
 
     ```
     {
-      "iss": "appid-oauth",
+      "iss": "https://us-south.appid.cloud.ibm.com/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6050a61",
       "aud": "abc123",
       "exp": 1564566
     }
     ```
     {: screen}
 
-2. Appelez le [noeud final /publickeys](https://appid-oauth.ng.bluemix.net/swagger-ui/#!/Authorization_Server_V3/publicKeys) pour extraire vos clés publiques. Les clés publiques renvoyées sont au format [JSON Web Keys (JWK)](https://tools.ietf.org/html/rfc7517).
+2. Appelez le [noeud final /publickeys](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Authorization_Server_V4/publicKeys) pour extraire vos clés publiques. Les clés publiques renvoyées sont au format [JSON Web Keys (JWK)](https://tools.ietf.org/html/rfc7517).
 
   Exemple de demande :
 
     ```
-    GET /oauth/v3/{tenant_id}/publickeys HTTP/1.1
-    Host: appid-oauth.ng.bluemix.net
+    GET /oauth/v4/{tenant_id}/publickeys HTTP/1.1
+    Host: us-south.appid.cloud.ibm.com
     Cache-Control: no-cache
     ```
     {: screen}
@@ -134,7 +142,7 @@ Vous pouvez valider vos jetons localement en les analysant, en vérifiant leur s
 
   Exemple de réponse :
 
-    ```]
+    ```
     {
       "keys": [
         {
@@ -207,6 +215,3 @@ Vous pouvez valider vos jetons localement en les analysant, en vérifiant leur s
       </tr>
     </tbody>
   </table>
-
-</br>
-</br>

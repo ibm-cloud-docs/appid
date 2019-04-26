@@ -1,15 +1,26 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-12-19"
+  years: 2017, 2019
+lastupdated: "2019-03-06"
+
+keywords: authentication, authorization, identity, app security, secure
+
+subcollection: appid
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 
 #  Configuration d'un serveur de développement local pour {{site.data.keyword.appid_short_notm}}
@@ -21,9 +32,9 @@ l'aide du logiciel SDK serveur d'{{site.data.keyword.appid_short_notm}} pour env
 
 
 ## Avant de commencer
-{: #begin}
+{: #begin-local}
 
-Installez le [logiciel SDK serveur](web-apps.html).
+Installez le [logiciel SDK serveur](/docs/services/appid?topic=appid-web-apps).
 
 
 ## Configuration d'applications {{site.data.keyword.appid_short_notm}} pour leur utilisation avec un serveur de développement local
@@ -34,9 +45,9 @@ Pour configurer vos applications afin d'utiliser un serveur de développement lo
 1. Remplacez l'ID titulaire par votre ID titulaire {{site.data.keyword.appid_short_notm}}. Vous pouvez localiser cet ID dans votre tableau de bord du service.
 2. Remplacez la région par la région appropriée comme indiqué dans le tableau ci-dessous.
 
-<table> <caption> Tableau 1. Régions {{site.data.keyword.Bluemix_notm}} et régions {{site.data.keyword.appid_short_notm}} correspondantes pour Android et iOS </caption>
+<table> <caption> Tableau 1. Régions {{site.data.keyword.cloud_notm}} et régions {{site.data.keyword.appid_short_notm}} correspondantes pour Android et iOS </caption>
 <tr>
-  <th> Région {{site.data.keyword.Bluemix_notm}} </th>
+  <th> Région {{site.data.keyword.cloud_notm}} </th>
   <th> Android et iOS </th>
 </tr>
 <tr>
@@ -60,11 +71,13 @@ Pour configurer vos applications afin d'utiliser un serveur de développement lo
 
 
 ### Android
-{: #android}
+{: #android-local}
+
+
 ```java
-String baseRequestUrl = "http://localhost:<port>"; //set to your server running
-port String tenantId = "your-AppID-service-tenantID"; String region = AppID.REGION_UK;
-//set your App ID application region here. Les valeurs actuellement admises sont AppID.REGION_US_SOUTH, AppID.REGION_SYDNEY, AppID.REGION_GERMANY et AppID.REGION_UK.
+String baseRequestUrl = "http://localhost:<port>"; //set to your server running port
+String tenantId = "your-AppID-service-tenantID";
+String region = AppID.REGION_UK; //set your {{site.data.keyword.appid_short_notm}} application region here. Les valeurs actuellement admises sont AppID.REGION_US_SOUTH, AppID.REGION_SYDNEY, AppID.REGION_GERMANY et AppID.REGION_UK.
 
 BMSClient bmsClient= BMSClient.getInstance();
 bmsClient.initialize(getApplicationContext(), region);
@@ -95,14 +108,14 @@ request.send(this, new ResponseListener() {
 {: codeblock}
 
 ### iOS - Swift
-{: #swift}
+{: #swift-local}
 ```swift
 
  let baseRequestUrl = "http://localhost:<port>"; //set to your server running port
  let tenantId = "your-AppID-service-tenantID"
- let region = AppID.REGION_UK; //set your App ID application region here. Les valeurs actuellement admises sont AppID.REGION_US_SOUTH, AppID.REGION_SYDNEY, AppID.REGION_GERMANY et AppID.REGION_UK.
+ let region = AppID.REGION_UK; //set your {{site.data.keyword.appid_short_notm}} application region here. Les valeurs actuellement admises sont AppID.REGION_US_SOUTH, AppID.REGION_SYDNEY, AppID.REGION_GERMANY et AppID.REGION_UK.
 
-BMSClient.sharedInstance.initialize(bluemixRegion: region)
+BMSClient.sharedInstance.initialize(region: AppID.<region>)
 BMSClient.sharedInstance.authorizationManager = AppIDAuthorizationManager(appid:AppID.sharedInstance)
 
 var request:Request =  Request(url: baseRequestUrl + "/resource/path", method: HttpMethod.GET)

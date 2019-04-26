@@ -1,26 +1,36 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-11-19"
+  years: 2017, 2019
+lastupdated: "2019-04-04"
+
+keywords: authentication, authorization, identity, app security, secure, user information, attributes, accessing, storing, preregister, profiles
+
+subcollection: appid
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
-{:pre: .pre}
-{:tip: .tip}
 {:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:codeblock: .codeblock}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 # Attributs utilisateur prédéfinis
-{: #predefined}
+{: #predefined-attributes}
 
 Avec {{site.data.keyword.appid_full}}, vous pouvez afficher les informations d'un fournisseur d'identité sur vos utilisateurs.
 {: shortdesc}
 
 
 ## Accès avec le logiciel SDK iOS
-{: #ios}
+{: #predefined-access-ios}
 
 Si de nouveaux jetons ne sont pas transmis explicitement au logiciel SDK, {{site.data.keyword.appid_short_notm}} utilise les derniers jetons reçus pour extraire et valider la réponse. Par exemple, vous pouvez exécuter le code suivant une fois que l'authentification a réussi pour que le logiciel SDK extraie des informations supplémentaires sur l'utilisateur :
 
@@ -31,7 +41,6 @@ AppID.sharedInstance.userProfileManager.getUserInfo { (error: Error?, userInfo: 
 	}
 	// retrieved user info successfully
 }
-
 ```
 {: pre}
 
@@ -47,10 +56,9 @@ AppID.sharedInstance.userProfileManager.getUserInfo(accessToken: String, identit
 ```
 {: pre}
 
-</br>
 
 ## Accès avec le logiciel SDK Android
-{: #android}
+{: #predefined-access-android}
 
 Si de nouveaux jetons ne sont pas transmis explicitement au logiciel SDK, {{site.data.keyword.appid_short_notm}} utilise les derniers jetons reçus pour extraire et valider la réponse. Par exemple, vous pouvez exécuter le code suivant une fois que l'authentification a réussi pour que le logiciel SDK extraie des informations supplémentaires sur l'utilisateur :
 
@@ -90,10 +98,9 @@ appId.getUserProfileManager().getUserInfo(accessToken, identityToken, new UserPr
 ```
 {: pre}
 
-</br>
 
 ## Accès avec le logiciel SDK serveur Node.js
-{: #node}
+{: #predefined-access-node}
 
 
 Si vous utilisez un logiciel SDK côté serveur, vous pouvez extraire des informations supplémentaires sur vos utilisateurs. Vous pouvez appeler la méthode ci-après en utilisant les jetons d'accès et d'identité stockés, ou transmettre explicitement les jetons. Le jeton d'identité est facultatif mais lorsqu'il est transmis, il est utilisé pour valider la réponse relative aux informations utilisateur.
@@ -118,10 +125,10 @@ userProfileManager.getUserInfo(accessToken).then(function (profile) {
 ```
 {: pre}
 
-</br>
+
 
 ## Accès avec le logiciel SDK serveur Swift
-{: #swift}
+{: #predefined-access-swift}
 
 Si vous utilisez un logiciel SDK côté serveur, vous pouvez extraire des informations supplémentaires sur vos utilisateurs. Vous pouvez appeler la méthode ci-après en utilisant les jetons d'accès et d'identité stockés, ou transmettre explicitement les jetons. Le jeton d'identité est facultatif mais lorsqu'il est transmis, il est utilisé pour valider la réponse relative aux informations utilisateur.
 
@@ -150,16 +157,16 @@ userProfileManager.getUserInfo(accessToken: accessToken) { (err, userInfo) in
 ```
 {: pre}
 
-</br>
+
 
 ## Accès avec l'API
-{: #api}
+{: #predefined-access-api}
 
 Vous pouvez afficher des informations supplémentaires via le noeud final `/userinfo`.
 
 1. Assurez-vous de disposer d'un jeton d'accès valide dont la portée est `openid`. Vous pouvez vérifier que votre jeton est valide à l'aide du noeud final `/introspect`.
 
-2. Envoyez une demande au noeud final [`/userinfo`](https://appid-oauth.ng.bluemix.net/swagger-ui/#!/Authorization_Server_V3/userInfo).
+2. Envoyez une demande au noeud final [`/userinfo`](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization_Server_V4/userInfo).
   ```
   GET [POST] https://{oauth-server-endpoint}/userinfo
   Authorization: 'Bearer {ACCESS_TOKEN}'

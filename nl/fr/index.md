@@ -1,22 +1,34 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-11-15"
+  years: 2017, 2019
+lastupdated: "2019-03-27"
+
+keywords: authentication, authorization, identity, app security, secure, development,
+
+subcollection: appid
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
+{:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:codeblock: .codeblock}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 # Tutoriel d'initiation
-{: #gettingstarted}
+{: #getting-started}
 
 La sécurité des applications peut s'avérer être un sujet incroyablement compliqué. Pour la plupart des développeurs, il s'agit de l'une des composantes les plus difficiles du processus de création d'application. Comment pouvez-vous être sûr que vous protégez les informations de vos utilisateurs ? En intégrant {{site.data.keyword.appid_full}} à vos applications, vous pouvez sécuriser les ressources et ajouter un processus d'authentification; même si vous ne possédez pas une grande expérience en matière de sécurité.
 {: shortdesc}
 
-En demandant aux utilisateurs de se connecter à votre application, vous pouvez stocker des données utilisateur telles que les préférences d'application ou des informations provenant de profils de réseaux sociaux publics, puis utiliser ces données afin de personnaliser chaque expérience de votre application. {{site.data.keyword.appid_short_notm}} fournit une infrastructure de connexion pour votre usage, mais vous pouvez également apporter vos propres écrans de connexion de marque à utiliser avec le répertoire cloud.
+En demandant aux utilisateurs de se connecter à votre application, vous pouvez stocker des données utilisateur telles que les préférences d'application ou des informations provenant de profils de réseaux sociaux publics, puis utiliser ces données afin de personnaliser chaque expérience de votre application. {{site.data.keyword.appid_short_notm}} vous fournit une infrastructure, mais vous pouvez également apporter vos propres écrans de connexion de marque lorsque vous utilisez le répertoire cloud.
 
 Nous serions ravis de recevoir vos commentaires et de répondre à vos questions !
 * Posez toute question d'ordre technique sur {{site.data.keyword.appid_short_notm}} sur le forum <a href="https://stackoverflow.com/search?q=ibm-appid" target="_blank">Stack Overflow <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a> en indiquant la balise `ibm-appid`.
@@ -28,7 +40,7 @@ Nous serions ravis de recevoir vos commentaires et de répondre à vos questions
 Pour commencer, créez et liez une instance d'{{site.data.keyword.appid_short_notm}} à votre application.
 {: shortdesc}
 
-1. Dans le catalogue {{site.data.keyword.Bluemix}}, sélectionnez {{site.data.keyword.appid_short_notm}}. L'écran de configuration du service s'ouvre.
+1. Dans le catalogue {{site.data.keyword.cloud_notm}}, sélectionnez {{site.data.keyword.appid_short_notm}}. L'écran de configuration du service s'ouvre.
 2. Attribuez un nom à votre instance de service ou utilisez le nom prédéfini.
 3. Sélectionnez votre plan de tarification, puis cliquez sur **Créer**.
 4. Liez votre instance d'{{site.data.keyword.appid_short_notm}}.
@@ -51,7 +63,7 @@ Pour générer un modèle d'application :
 
 1. Cliquez sur **Télécharger un exemple**.
 2. Cliquez sur la langue de votre choix pour télécharger l'exemple.
-  Vous ne trouvez pas la langue que vous recherchez ? Ne vous inquiétez pas ! Vous pouvez tirer parti d'{{site.data.keyword.appid_short_notm}} grâce aux API. Vous pouvez aussi consulter <a href="https://www.ibm.com/blogs/bluemix/tag/app-id/" target="_blank">nos blogues <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a> pour de l'aide supplémentaire relative à d'autres langues.
+  Vous ne trouvez pas le langage que vous recherchez ? Ne vous inquiétez pas ! Vous pouvez tirer parti d'{{site.data.keyword.appid_short_notm}} grâce aux API. Vous pouvez aussi consulter <a href="https://www.ibm.com/blogs/bluemix/tag/app-id/" target="_blank">nos blogues <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a> pour de l'aide supplémentaire relative à d'autres langages.
   {: tip}
 3. Assurez-vous que les prérequis sont installés ou satisfaits.
 4. Suivez les étapes **Build & Run** pour configurer votre exemple avec {{site.data.keyword.appid_short_notm}}.
@@ -67,7 +79,4 @@ Pour générer un modèle d'application :
 ## Etapes suivantes
 {: #next}
 
-Prêt à vous lancer et à créer vos propres applications ? Commencez par [ajouter le service à votre application](web-apps.html). Il fournit des logiciels SDK pour les langues les plus utilisées, et si vous ne trouvez pas de logiciel SDK pour la langue dans laquelle votre application est écrite, vous pouvez toujours tirer parti d'{{site.data.keyword.appid_short_notm}} en utilisant les API.
-
-</br>
-</br>
+Prêt à vous lancer et à créer vos propres applications ? Commencez par [ajouter le service à votre application](/docs/services/appid?topic=appid-web-apps#web-apps). Il fournit des logiciels SDK pour les langues les plus utilisées, et si vous ne trouvez pas de logiciel SDK pour la langue dans laquelle votre application est écrite, vous pouvez toujours tirer parti d'{{site.data.keyword.appid_short_notm}} en utilisant les API.
