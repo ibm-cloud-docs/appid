@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-24"
+lastupdated: "2019-04-26"
 
 keywords: authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
@@ -30,7 +30,7 @@ Cloud Directory provides you with a user registry for your apps that scales with
 {: shortdesc}
 
 
-A Cloud Directory user is not the same thing as an {{site.data.keyword.appid_short_notm}} user. Users can sign up for your app by using different the identity provider options that you configured. The users mentioned in this topic are those that chose to use the Cloud Directory option when signing up for your app.
+A Cloud Directory user is not the same thing as an {{site.data.keyword.appid_short_notm}} user. Users can sign up for your app by using different the identity provider options that you configured, or you can add them to your directory. The users mentioned in this topic are those that chose to use the Cloud Directory option when signing up for your app.
 {: note}
 
 

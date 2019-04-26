@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-25"
+lastupdated: "2019-04-26"
 
 keywords: authentication, authorization, identity, app security, secure, development, idp, troubleshooting, redirected, validation
 
@@ -54,7 +54,7 @@ The `RelayState` parameter is missing from your authentication response.
 
 **Why it's happening**
 
-{{site.data.keyword.appid_short_notm}} sends an opaque parameter known as `RelayState` as part of the authentication request. If you do not see the paramter in your response, your identity provider might not be configured to return the parameter correctly. The `RelayState` takes the following form.
+{{site.data.keyword.appid_short_notm}} sends an opaque parameter known as `RelayState` as part of the authentication request. If you do not see the parameter in your response, your identity provider might not be configured to return it correctly. The `RelayState` takes the following form.
 
 ```
 https://idp.example.org/SAML2/SSO/Redirect?SAMLRequest=request&RelayState=token
@@ -75,7 +75,7 @@ When you send an authentication request, you receive an error regarding the `Nam
 
 **Why it's happening**
 
-{{site.data.keyword.appid_short_notm}} as the service provider, defines the way that users are identitfied by the service and by the identity provider. With {{site.data.keyword.appid_short_notm}}, users are identitified in the `NameID` authentication request in the `NameID` field as shown in the following example.
+{{site.data.keyword.appid_short_notm}}, as the service provider, defines the way that users are identitfied by the service and by the identity provider. With {{site.data.keyword.appid_short_notm}}, users are identitified in the `NameID` authentication request in the `NameID` field as shown in the following example.
 
 ```
 <NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</NameIDFormat>
