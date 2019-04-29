@@ -1,19 +1,29 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-06-12"
+  years: 2017, 2019
+lastupdated: "2019-04-10"
+
+keywords: authentication, authorization, identity, app security, secure, development, idp, troubleshooting, redirected, validation
+
+subcollection: appid
 
 ---
 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
-{:codeblock: .codeblock}
 {:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:codeblock: .codeblock}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 {:tsSymptoms: .tsSymptoms}
 {:tsCauses: .tsCauses}
 {:tsResolve: .tsResolve}
-{:tip: .tip}
 
 # Identitätsproviderkonfigurationen
 {: #troubleshooting-idp}
@@ -22,64 +32,8 @@ Wenn bei der Konfiguration von Identitätsprovidern für {{site.data.keyword.app
 {: shortdesc}
 
 
-## Es gibt nach der Anmeldung keine Weiterleitung an die App
-{: #signin-fail}
-
-{: tsSymptoms}
-Ein Benutzer meldet sich bei Ihrer Anwendung über die Anmeldeseite eines Identitätsproviders an. Entweder passiert nichts oder die Registrierung schlägt fehl.
-
-{: tsCauses}
-Die Anmeldung kann aus folgenden Gründen fehlschlagen:
-
-* Die Weiterleitungs-URL wurde nicht ordnungsgemäß zur [Whitelist](identity-providers.html#redirect) hinzugefügt.
-* Der Benutzer ist nicht berechtigt.
-* Der Benutzer versuchte, sich mit falschen Berechtigungsnachweisen anzumelden.
-
-{: tsResolve}
-Damit eine Weiterleitung stattfindet, führen Sie folgende Schritte aus:
-
-* Überprüfen Sie, dass Ihre Weiterleitungs-URL richtig ist. Sie muss exakt sein, damit die Weiterleitung funktioniert.
-* Stellen Sie sicher, dass der Benutzer sich mit den korrekten Berechtigungsnachweisen anmeldet.
-* Überprüfen Sie, dass die Benutzer in den Benutzereinstellungen des Identitätsproviders konfiguriert sind.
-
-
-## Allgemeine Probleme bei der Arbeit mit SAML
-{: #common-saml}
-
-In der folgenden Tabelle finden Sie Erläuterungen und Lösungen für die meisten allgemeinen Probleme, die bei der Arbeit mit SAML auftreten können.
-
-<table summary="Jede Tabellenzeile sollte von links nach rechts gelesen werden, wobei der Clusterstatus in der ersten Spalte und eine Beschreibung in der zweiten Spalte angegeben ist.">
-  <thead>
-    <th>Nachricht</th>
-    <th>Beschreibung</th>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>Could not parse assertion xml.</code> (Es konnte kein Parsing für assertion xml durchgeführt werden.)</td>
-      <td>Die Antwort von SAML war fehlerhaft.</td>
-    </tr>
-    <tr>
-      <td><code>Invalid attribute without name. Contact your identity provider administrator.</code> (Ungültiges Attribut ohne Namen. Wenden Sie sich an den Administrator des Identitätsproviders.) </td>
-      <td>Es gibt ein Attribut <code>&lt;saml:Attribute&gt;</code> ohne definierten Wert. Wenden Sie sich an den Administrator des Identitätsproviders. </td>
-    </tr>
-    <tr>
-      <td><code>SAML response body must contain RelayState.</code> (SAML-Antworthauptteil muss RelayState enthalten.)</td>
-      <td>Der Parameter RelayState war nicht im SAML-Antworthauptteil enthalten. {{site.data.keyword.appid_short_notm}} stellt den Parameter dem Identitätsprovider als Teil der Anforderung zur Verfügung und der exakte Parameter muss in der Antwort zurückgegeben werden. Falls der Parameter geändert wurde, können Sie den Administrator des Identitätsproviders kontaktieren. </td>
-    </tr>
-    <tr>
-      <td><code>SAML Configuration must have certificates, entityID and signInUrl of the IdP.</code> (SAML-Konfiguration muss über Zertifikate, Entitäts-ID und signInUrl des Identitätsproviders (IdP) verfügen.)</td>
-      <td>Der SAML-Identitätsprovider wurde nicht richtig konfiguriert. Überprüfen Sie die Konfiguration. Hilfe finden Sie in <a href="enterprise.html#configuring-saml" target="_blank">App für die Arbeit mit einem externen SAML-Identitätsprovider konfigurieren</a></td>
-    </tr>
-    <tr>
-      <td><code>Error in assertion validation. SAML Assertion signature check failed! Certificate .. may be invalid.</code> (Fehler bei der Validierung der Zusicherung. Signaturprüfung der SAML-Zusicherung ist fehlgeschlagen! Zertifikat .. ist möglicherweise ungültig.)</td>
-      <td>Eine gültige Signatur und ein gültiger Fingerabdruck muss in der Zusicherung enthalten sein. Die Signatur muss mithilfe des privaten Schlüssels erstellt werden, der dem Zertifikat zugeordnet ist, das in der SAML-Konfiguration bereitgestellt wird; es kann das sekundäre oder das primäre verwendet werden. <strong>Hinweis</strong>: {{site.data.keyword.appid_short_notm}} unterstützt keine verschlüsselte Zusicherung. Wenn Ihr Identitätsprovider dies mit Ihrer SAML-Zusicherung macht, inaktivieren Sie die Verschlüsselung.</td>
-    </tr>
-  </tbody>
-</table>
-
-
-## Es gibt keine Weiterleitung an den Identitätsprovider
-{: #saml-redirect}
+## Ein Benutzer wird nach dem Anmelden nicht an den Identitätsprovider weitergeleitet
+{: #ts-saml-redirect}
 
 {: tsSymptoms}
 Ein Benutzer versucht, sich bei Ihrer Anwendung anzumelden, aber die Anmeldeseite wird nicht angezeigt, wenn die Systemanfrage erfolgt.
@@ -103,20 +57,90 @@ Sie können eine der folgenden Lösungen ausprobieren:
 Falls keine dieser Lösungen Abhilfe bringt, liegt möglicherweise ein Verbindungsproblem vor.
 {: tip}
 
-## Ein Attribut zeigt den falschen Wert an
-{: #saml-attribute}
 
-{: tsSymptoms}
-Ein Attributwert ist in einem Benutzerprofil vorhanden, er ist jedoch nicht mit dem korrekten Attribut verbunden.
+## Gängige SAML-Probleme
+{: #ts-common-saml}
 
-{: tsCauses}
-Das Benutzerprofilattribut ist nicht richtig zugeordnet.
+In der folgenden Tabelle finden Sie Erläuterungen und Lösungen für die meisten allgemeinen Probleme, die bei der Arbeit mit SAML auftreten können.
 
-{: tsResolve}
-Ordnen Sie das Attribut in den Einstellungen Ihres Identitätsproviders zu. {{site.data.keyword.appid_short_notm}} erwartet die folgenden Attribute:
-* `Name`
-* `E-Mail`
-* `Ländereinstellung`
-* `Bild`
+<table summary="Jede Tabellenzeile sollte von links nach rechts gelesen werden, wobei der Clusterstatus in der ersten Spalte und eine Beschreibung in der zweiten Spalte angegeben ist.">
+  <thead>
+    <th>Nachricht</th>
+    <th>Beschreibung</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>Could not parse assertion xml.</code> (Es konnte kein Parsing für assertion xml durchgeführt werden.)</td>
+      <td>Die Antwort von SAML war fehlerhaft.</td>
+    </tr>
+    <tr>
+      <td><code>Invalid attribute without name. Contact your identity provider administrator.</code> (Ungültiges Attribut ohne Namen. Wenden Sie sich an den Administrator des Identitätsproviders.)</td>
+      <td>Es gibt ein Attribut <code>&lt;saml:Attribute&gt;</code> ohne definierten Wert. Wenden Sie sich an den Administrator des Identitätsproviders.</td>
+    </tr>
+    <tr>
+      <td><code>SAML response body must contain the RelayState parameter.</code> (SAML-Antworthauptteil muss RelayState-Parameter enthalten.)</td>
+      <td>Der Parameter war nicht im SAML-Antworthauptteil enthalten. {{site.data.keyword.appid_short_notm}} stellt den Parameter dem Identitätsprovider als Teil der Anforderung zur Verfügung und der exakte Parameter muss in der Antwort zurückgegeben werden. Falls der Parameter geändert wurde, können Sie den Administrator des Identitätsproviders kontaktieren. </td>
+    </tr>
+    <tr>
+      <td><code>SAML Configuration must have certificates, entityID and signInUrl of the IdP.</code> (SAML-Konfiguration muss über Zertifikate, Entitäts-ID und signInUrl des Identitätsproviders (IdP) verfügen.)</td>
+      <td>Der SAML-Identitätsprovider wurde nicht <a href="/docs/services/appid?topic=appid-enterprise#enterprise" target="_blank">richtig konfiguriert</a>. Überprüfen Sie die Konfiguration.</td>
+    </tr>
+    <tr>
+      <td><code>Error in assertion validation. SAML Assertion signature check failed! Certificate .. may be invalid.</code> (Fehler bei der Validierung der Zusicherung. Signaturprüfung der SAML-Zusicherung ist fehlgeschlagen! Zertifikat .. ist möglicherweise ungültig.)</td>
+      <td>Eine gültige Signatur und ein gültiger Fingerabdruck muss in der Zusicherung enthalten sein. Die Signatur muss mithilfe des privaten Schlüssels erstellt werden, der dem Zertifikat zugeordnet ist, das in der SAML-Konfiguration bereitgestellt wird, es kann das sekundäre oder das primäre verwendet werden. <strong>Hinweis</strong>: {{site.data.keyword.appid_short_notm}} unterstützt keine verschlüsselte Zusicherung. Wenn Ihr Identitätsprovider Ihre SAML-Zusicherung verschlüsselt, inaktivieren Sie die Verschlüsselung.</td>
+    </tr>
+  </tbody>
+</table>
 
 
+
+## Gültigkeitsfehler bei SAML-Antwort
+{: #ts-saml-response}
+
+{{site.data.keyword.appid_short_notm}} stellt die folgenden Gültigkeitsanforderungen an Zusicherungen. Alle Attribute sind obligatorische SAML-XML-Antwortknoten, sofern nichts anderes angegeben ist.
+{: shortdesc}
+
+
+<table summary="Jede Tabellenzeile sollte von links nach rechts gelesen werden, wobei das Antwortelement in der ersten Spalte und eine Beschreibung in der zweiten Spalte angegeben ist.">
+  <thead>
+    <th>Antwortelement</th>
+    <th>Beschreibung</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>samlp:Response</code></td>
+      <td>Das Antwortelement muss in der Antwort-XML enthalten sein.</td>
+    </tr>
+    <tr>
+      <td><code>SAML-Version</code></td>
+      <td>{{site.data.keyword.appid_short_notm}} akzeptiert nur <code>SAML Version 2.0</code>.</td>
+    </tr>
+    <tr>
+      <td><code>InResponseTo</code></td>
+      <td>{{site.data.keyword.appid_short_notm}} prüft, ob das in der Zusicherung zurückgegebene Antwortelement <code>InResponseTo</code> mit der gespeicherten Anforderungs-ID aus der SAML-Anforderung übereinstimmt.</td>
+    </tr>
+    <tr>
+      <td><code>saml:issuer</code></td>
+      <td>Der in einer Zusicherung angegebene Aussteller muss mit dem Aussteller übereinstimmen, der in der {{site.data.keyword.appid_short_notm}}-Identitätsproviderkonfiguration angegeben ist.</td>
+    </tr>
+    <tr>
+      <td><code>ds:Signature</code></td>
+      <td>Eine gültige Signatur und ein gültiger Fingerabdruck muss in der Zusicherung enthalten sein. Die Signatur muss mithilfe des privaten Schlüssels erstellt werden, der dem Zertifikat zugeordnet ist, das in der SAML-Konfiguration bereitgestellt wurde. Der Fingerabdruck wird mithilfe der Angaben für <code>CanonicalizationMethod</code> und <code>Transforms</code> validiert. <strong>Hinweis</strong>: {{site.data.keyword.appid_short_notm}} prüft nicht, wann das Zertifikat abläuft. Für das Zertifikatsmanagement können Sie  [Certificate Manager](/docs/services/certificate-manager?topic=certificate-manager-getting-started#getting-started) verwenden.</td>
+    </tr>
+    <tr>
+      <td><code>saml:subject</code></td>
+      <td>Der Betreff oder die <code>name_id</code> der Zusicherung muss die Federation-E-Mail des Benutzers sein.</td>
+    </tr>
+    <tr>
+      <td><code>saml:AttributeStatement</code></td>
+      <td>Stellt sicher, dass bestimmte Attribute einem bestimmten authentifizierten Benutzer zugeordnet werden.</td>
+    </tr>
+    <tr>
+      <td><code>saml:Conditions</code></td>
+      <td><strong>Optional</strong>: Wenn eine Bedingungsanweisung in einer Zusicherung enthalten ist, muss sie auch eine gültige Zeitmarke enthalten. {{site.data.keyword.appid_short_notm}} berücksichtigt den Gültigkeitszeitraum, der in einer Zusicherung angegeben ist. Zur Prüfung sucht der Service nach den Einschränkungen <code>NotBefore</code> and <code>NotOnOrAfter</code>, die definiert und gültig sein müssen.</td>
+    </tr>
+  </tbody>
+</table>
+
+{{site.data.keyword.appid_short_notm}} unterstützt keine verschlüsselte Zusicherung. Wenn Ihr Identitätsprovider so konfiguriert ist, dass er Ihre Zusicherung verschlüsselt, müssen Sie die Funktion inaktivieren. Die Zusicherung muss unverschlüsselt sein.
+{: tip}

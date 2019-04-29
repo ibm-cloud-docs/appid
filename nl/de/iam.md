@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-06"
+  years: 2017, 2019
+lastupdated: "2019-03-13"
+
+keywords: authentication, authorization, identity, app security, secure, access, platform, management, permissions
+
+subcollection: appid
 
 ---
 
@@ -13,21 +17,24 @@ lastupdated: "2018-08-06"
 {:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 {:download: .download}
 
 
 # Servicezugriff verwalten
 {: #service-access-management}
 
-Mit {{site.data.keyword.appid_full}} und {{site.data.keyword.Bluemix_notm}} können IAM-Kontoeigner (IAM, Identity and Access Management) den Benutzerzugriff in Ihrem Konto verwalten.
+Mit {{site.data.keyword.appid_full}} und {{site.data.keyword.cloud_notm}} können IAM-Kontoeigner (IAM, Identity and Access Management) den Benutzerzugriff in Ihrem Konto verwalten.
 {: shortdesc}
 
 Als Kontoeigner können Sie in Ihrem Konto Richtlinien festlegen, um unterschiedliche Zugriffsebenen für unterschiedliche Benutzer zu erstellen. Bestimmte Benutzer können zum Beispiel über **Lesezugriff** auf eine Instanz verfügen und über **Schreibzugriff** für eine andere Instanz. Sie können entscheiden, wer berechtigt ist, Instanzen von {{site.data.keyword.appid_short_notm}} zu erstellen, zu aktualisieren und zu löschen.
 
-Weitere Informationen zu IAM finden Sie in [IAM-Zugriff](/docs/iam/users_roles.html).
+Weitere Informationen zu IAM finden Sie in [IAM-Zugriff](/docs/iam?topic=iam-userroles).
 
 ## Benutzerrollen
-{: #roles}
+{: #iam-roles}
 
 Der Bereich einer Zugriffsrichtlinie basiert auf einer zugeordneten Benutzerrolle.
 {: shortdesc}
@@ -39,6 +46,9 @@ Richtlinien ermöglichen es, Zugriff auf verschiedenen Ebenen zu gewähren. Eini
   <li>Zugriff auf eine bestimmte Ressource innerhalb einer Instanz</li>
   <li>Zugriff auf alle für IAM aktivierten Services in Ihrem Konto</li>
 </ul></ul>
+
+### Plattformrollen
+{: #iam-platform-roles}
 
 Plattformmanagementrollen ermöglichen es Benutzern, Tasks mit Serviceressourcen auf Plattformebene auszuführen. Rollen können zum Beispiel zugeordnet werden, um zu bestimmen, wer IDs erstellen oder löschen kann und wer Instanzen an Apps binden kann. Die folgende Tabelle führt die Aktionen sowie die korrelierenden Plattformmanagementrollen im Detail auf.
 
@@ -70,8 +80,8 @@ Plattformmanagementrollen ermöglichen es Benutzern, Tasks mit Serviceressourcen
   </tr>
 </table>
 
-</br>
-</br>
+### Servicezugriffsrollen
+{: #iam-service-roles}
 Die folgende Tabelle führt die Aktionen detailliert auf, die zu Servicezugriffsrollen zugeordnet sind. Servicezugriffsrollen ermöglichen Benutzern den Zugriff auf {{site.data.keyword.appid_short_notm}} sowie den Aufruf der {{site.data.keyword.appid_short_notm}}-API.
 
 
@@ -93,16 +103,16 @@ Die folgende Tabelle führt die Aktionen detailliert auf, die zu Servicezugriffs
   </tr>
 </table>
 
-Weitere Informationen zur Zuordnung von Benutzerrollen in der Benutzerschnittstelle finden Sie in [IAM-Zugriff verwalten](/docs/iam/mngiam.html#iammanidaccser).
+Weitere Informationen zur Zuordnung von Benutzerrollen in der Benutzerschnittstelle finden Sie in [IAM-Zugriff verwalten](/docs/iam?topic=iam-iammanidaccser#iammanidaccser).
 
 
 ## {{site.data.keyword.appid_short_notm}}-Zugriffsrichtlinien
-{: #access}
+{: #iam-access}
 
 Jedem Benutzer, der auf den {{site.data.keyword.appid_short_notm}}-Service in Ihrem Konto zugreift, muss eine Zugriffsrichtlinie mit einer definierten IAM-Benutzerrolle zugeordnet worden sein. Diese Richtlinie bestimmt, welche Aktionen der Benutzer innerhalb des Kontexts des Service oder der von Ihnen ausgewählten Instanz ausführen kann.
 {: shortdesc}
 
-Die Aktionen werden vom {{site.data.keyword.Bluemix_notm}}-Service angepasst und als Operationen definiert, die im Service ausgeführt werden dürfen. Die Aktionen werden dann zu IAM-Benutzerrollen zugeordnet. Einige der ausgeführten Aktionen können mit dem Service '{{site.data.keyword.cloudaccesstrailshort}}' verfolgt werden. Die Zuordnung zwischen den Aktionen und den für {{site.data.keyword.appid_short_notm}} erforderlichen Berechtigungen können Sie der folgenden Tabelle entnehmen. 
+Die Aktionen werden vom {{site.data.keyword.cloud_notm}}-Service angepasst und als Operationen definiert, die im Service ausgeführt werden dürfen. Die Aktionen werden dann zu IAM-Benutzerrollen zugeordnet. Einige der ausgeführten Aktionen können mit dem Service '{{site.data.keyword.cloudaccesstrailshort}}' verfolgt werden. Die Zuordnung zwischen den Aktionen und den für {{site.data.keyword.appid_short_notm}} erforderlichen Berechtigungen können Sie der folgenden Tabelle entnehmen.
 
 <table>
   <tr>
@@ -112,7 +122,7 @@ Die Aktionen werden vom {{site.data.keyword.Bluemix_notm}}-Service angepasst und
   </tr>
   <tr>
     <td><code>appid-mgmt-get-redirect-uris</code></td>
-    <td>Zeigt die Weiterleitungs-URLs von post-authentication an. </td>
+    <td>Zeigt die Weiterleitungs-URLs von post-authentication an.</td>
     <td>Leseberechtigter, Schreibberechtigter, Manager</td>
   </tr>
   </tr>
@@ -198,7 +208,7 @@ Die Aktionen werden vom {{site.data.keyword.Bluemix_notm}}-Service angepasst und
   </tr>
   <tr>
     <td><code>appid-mgmt-post-saml-logo</code></td>
-    <td>Legt ein Bild im Anmeldewidget des SAML-Identitätsproviders fest oder aktualisiert es. </td>
+    <td>Legt ein Bild im Anmeldewidget des SAML-Identitätsproviders fest oder aktualisiert es.</td>
     <td>Schreibberechtigter, Manager</td>
   </tr>
   <tr>
@@ -218,245 +228,73 @@ Die Aktionen werden vom {{site.data.keyword.Bluemix_notm}}-Service angepasst und
   </tr>
   <tr>
     <td><code>appid-mgmt-revoke-refresh-token</code></td>
-    <td>Widerruft ein Aktualisierungstoken eines Benutzers mit der zugehörigen Benutzer-ID. </td>
+    <td>Widerruft ein Aktualisierungstoken eines Benutzers mit der zugehörigen Benutzer-ID.</td>
     <td>Schreibberechtigter, Manager</td>
   </tr>
 </table>
 
-## Änderungen an den {{site.data.keyword.appid_short_notm}}-Instanzen verfolgen
-{: #tracking}
-
-Sie können Konfigurationsaktivitäten in Ihrer {{site.data.keyword.appid_short_notm}}-Instanz mit dem Service '{{site.data.keyword.cloudaccesstrailshort}}' anzeigen, verwalten und überprüfen.
-{: shortdesc}
-
-Überwachen administrativer Aktivitäten:
-
-1. Melden Sie sich bei Ihrem {{site.data.keyword.Bluemix_notm}}-Konto an.
-2. Stellen Sie über den Katalog eine Instanz des {{site.data.keyword.cloudaccesstrailshort}}-Service in demselben Konto bereit, das auch für Ihre {{site.data.keyword.appid_short_notm}}-Instanz verwendet wird. 
-3. Klicken Sie im {{site.data.keyword.cloudaccesstrailshort}}-Dashboard auf die Registerkarte **Verwalten**.
-4. Nehmen Sie über die Dropdown-Liste die folgenden Konfigurationen vor, um nach Ereignissen zu suchen, die von {{site.data.keyword.appid_short_notm}} generiert werden. 
-    * Wählen Sie für **Protokolle anzeigen** die Option **Kontoprotokolle** aus. 
-    * Wählen Sie für **Durchsuchen** die Option **target.Management** aus. 
-    * Geben Sie für **Filter** den Eintrag **appid** ein. 
-5. Klicken Sie auf **Filtern**.
-
-
-Die folgende Tabelle enthält eine Liste der Ereignisse, die an {{site.data.keyword.cloudaccesstrailshort}} gesendet werden. 
-
-<table>
-  <tr>
-    <th>Aktion</th>
-    <th>Beschreibung</th>
-    <th>Position in der Benutzerschnittstelle</th>
-  </tr>
-  <tr>
-    <td><code>read.recentActivity</code></td>
-    <td>Vorherige Aktivität anzeigen </td>
-    <td>Feld <strong>Aktivitätenprotokoll</strong> auf der Registerkarte <strong>Überblick</strong> </td>
-  </tr>
-  <tr>
-    <td><code>read.idpConfig</code></td>
-    <td>Konfiguration des Identitätsproviders anzeigen </td>
-    <td>Registerkarte <strong>Identitätsprovider > Verwalten</strong> </td>
-  </tr>
-  <tr>
-    <td><code>update.idpConfig</code></td>
-    <td>Konfiguration des Identitätsproviders aktualisieren</td>
-    <td>Registerkarte <strong>Identitätsprovider > Verwalten</strong> </td>
-  </tr>
-  <tr>
-    <td><code>read.tokensConfig</code></td>
-    <td>Konfiguration der Ablaufzeit der Token anzeigen</td>
-    <td>Registerkarte <strong>Identitätsprovider > Ablaufzeit der Token</strong> </td>
-  </tr>
-  <tr>
-    <td><code>read.isProfilesActive</code></td>
-    <td>Speicherkonfiguration für Benutzerprofile anzeigen</td>
-    <td>Feld <strong>Aktivitätenprotokoll</strong> auf der Registerkarte <strong>Überblick</strong> </td>
-  </tr>
-  <tr>
-    <td><code>update.isProfilesActive</code></td>
-    <td>Speicherkonfiguration für Benutzerprofile aktualisieren</td>
-    <td>Registerkarte <strong>Profile</strong> </td>
-  </tr>
-  <tr>
-    <td><code>read.themeColor</code></td>
-    <td>Motivfarbe des Anmeldewidgettitels anzeigen</td>
-    <td>Registerkarte <strong>Anpassung der Anmeldung</strong>  </td>
-  </tr>
-  <tr>
-    <td><code>update.themeColor</code></td>
-    <td>Motivfarbe des Anmeldewidgettitels aktualisieren</td>
-    <td>Registerkarte <strong>Anpassung der Anmeldung</strong> </td>
-  </tr>
-  <tr>
-    <td><code>read.media</code></td>
-    <td>Bild im Anmeldewidget anzeigen</td>
-    <td>Registerkarte <strong>Anpassung der Anmeldung</strong> </td>
-  </tr>
-  <tr>
-    <td><code>update.media</code></td>
-    <td>Bild im Anmeldewidget aktualisieren</td>
-    <td>Registerkarte <strong>Anpassung der Anmeldung</strong> </td>
-  </tr>
-  <tr>
-    <td><code>read.uiConfiguration</code></td>
-    <td>Benutzerschnittstellenkonfiguration für Anmeldewidget inklusive Titelfarbe und Bild anzeigen</td>
-    <td>Registerkarte <strong>Anpassung der Anmeldung</strong> </td>
-  </tr>
-  <tr>
-    <td><code>read.uiLanguages</code></td>
-    <td>Liste der unterstützten Sprachen anzeigen</td>
-    <td>Anzeige über die API</td>
-  </tr>
-  <tr>
-    <td><code>update.uiLanguages</code></td>
-    <td>Von Ihrer App unterstützte Sprachen aktualisieren</td>
-    <td>Aktualisierung über die API</td>
-  </tr>
-  <tr>
-    <td><code>read.samlMetadata</code></td>
-    <td>SAML-Metadaten von App ID anzeigen</td>
-    <td>Registerkarte <strong>Identitätsprovider > SAML 2.0 Federation</strong></td>
-  </tr>
-  <tr>
-    <td><code>read.cloudDirectoryUser</code></td>
-    <td>Cloud Directory-Benutzer anzeigen</td>
-    <td>Registerkarte <strong>Benutzer</strong> </td>
-  </tr>
-  <tr>
-    <td><code>update.cloudDirectoryUser</code></td>
-    <td>Cloud Directory-Benutzer aktualisieren</td>
-    <td>Registerkarte <strong>Benutzer</strong> </td>
-  </tr>
-  <tr>
-    <td><code>delete.cloudDirectoryUser</code></td>
-    <td>Cloud Directory-Benutzer löschen</td>
-    <td>Registerkarte <strong>Benutzer</strong> </td>
-  </tr>
-  <tr>
-    <td><code>read.cloudDirectoryUsers</code></td>
-    <td>Liste der Cloud Directory-Benutzer anzeigen</td>
-    <td>Registerkarte <strong>Benutzer</strong> </td>
-  </tr>
-  <tr>
-    <td><code>update.cloudDirectoryUsers</code></td>
-    <td>Liste der Cloud Directory-Benutzer aktualisieren</td>
-    <td>Registerkarte <strong>Benutzer</strong> </td>
-  </tr>
-  <tr>
-    <td><code>delete.cloudDirectoryUsers</code></td>
-    <td>Liste der Cloud Directory-Benutzer löschen</td>
-    <td>Registerkarte <strong>Benutzer</strong> </td>
-  </tr>
-  <tr>
-    <td><code>read.emailTemplate</code></td>
-    <td>E-Mail-Vorlage anzeigen</td>
-    <td>Registerkarte <strong>Identitätsprovider > Cloud Directory > Vorlagen</strong></td>
-  </tr>
-  <tr>
-    <td><code>update.emailTemplate</code></td>
-    <td>E-Mail-Vorlage aktualisieren</td>
-    <td>Registerkarte <strong>Identitätsprovider > Cloud Directory > Vorlagen</strong></td>
-  </tr>
-  <tr>
-    <td><code>delete.emailTemplate</code></td>
-    <td>E-Mail-Vorlage löschen, um auf die Standard-E-Mail zurückzusetzen</td>
-    <td>Registerkarte <strong>Identitätsprovider > Cloud Directory > Vorlagen</strong></td>
-  </tr>
-  <tr>
-    <td><code>read.senderDetails</code></td>
-    <td>Absenderdetails anzeigen</td>
-    <td>Registerkarte <strong>Identitätsprovider > Cloud Directory > Einstellungen</strong></td>
-  </tr>
-  <tr>
-    <td><code>update.senderDetails</code></td>
-    <td>Absenderdetails aktualisieren</td>
-    <td>Registerkarte <strong>Identitätsprovider > Cloud Directory > Einstellungen</strong></td>
-  </tr>
-  <tr>
-    <td><code>update.resendNotification</code></td>
-    <td>Benutzerbenachrichtigungen erneut senden </td>
-    <td>Registerkarte <strong>Identitätsprovider > Cloud Directory > Einstellungen</strong></td>
-  </tr>
-  <tr>
-    <td><code>update.selfForgotPassword</code></td>
-    <td>Prozess für vergessenes Kennwort aktualisieren </td>
-    <td>Registerkarte <strong>Identitätsprovider > Cloud Directory > Einstellungen</strong></td>
-  </tr>
-  <tr>
-    <td><code>update.forgotPasswordResult</code></td>
-    <td>Ergebnis der Bestätigung zu vergessenem Kennwort anzeigen</td>
-    <td>Anzeige über die API</td>
-  </tr>
-  <tr>
-    <td><code>update.selfSignUp</code></td>
-    <td>Registrierungsprozess aktualisieren</td>
-    <td>Registerkarte <strong>Identitätsprovider > Cloud Directory > Einstellungen</strong></td>
-  </tr>
-  <tr>
-    <td><code>update.signUpResult</code></td>
-    <td>Ergebnis der Registrierung anzeigen</td>
-    <td>Anzeige über die API</td>
-  </tr>
-  <tr>
-    <td><code>read.action_url</code></td>
-    <td>Angepasste URL, die beim Ausführen einer Aktion aufgerufen wird, anzeigen</td>
-    <td>Registerkarte <strong>Identitätsprovider > Cloud Directory > Angepasste Landing-Pages</strong></td>
-  </tr>
-  <tr>
-    <td><code>update.action_url</code></td>
-    <td>Angepasste URL, die beim Ausführen einer Aktion aufgerufen wird, aktualisieren</td>
-    <td>Registerkarte <strong>Identitätsprovider > Cloud Directory > Einstellungen</strong></td>
-  </tr>
-  <tr>
-    <td><code>update.changePassword</code></td>
-    <td>Benutzerkennwort für Cloud Directory ändern</td>
-    <td>Registerkarte <strong>Identitätsprovider > Cloud Directory > Einstellungen</strong></td>
-  </tr>
-  <tr>
-    <td><code>read.loginWidgetConfig</code></td>
-    <td>Konfiguration des Anmeldewidgets anzeigen</td>
-    <td>Registerkarte <strong>Anpassung der Anmeldung</strong> </td>
-  </tr>
-  <tr>
-    <td><code>update.loginWidgetConfig</code></td>
-    <td>Konfiguration des Anmeldewidgets aktualisieren</td>
-    <td>Registerkarte <strong>Anpassung der Anmeldung</strong> </td>
-  </tr>
-</table>
-
-
-Weitere Informationen zur Funktionsweise des Service finden Sie in der [Dokumentation zu {{site.data.keyword.cloudaccesstrailshort}}](/docs/services/cloud-activity-tracker/index.html). 
-
-</br>
 </br>
 
 ## Beispiel: Einem anderen Benutzer Zugriff auf eine Instanz von {{site.data.keyword.appid_short_notm}} gewähren
-{: #example}
+{: #iam-example}
 
 In diesem Szenario erstellte ein Administrator eine Instanz von {{site.data.keyword.appid_short_notm}} und muss einem anderen Teammitglied die Berechtigung zur Anzeige erteilen.
 {: shortdesc}
 
 Vorbereitungen:
-* Installieren Sie die [{{site.data.keyword.Bluemix_notm}}-CLI](/docs/cli/index.html).
+* Installieren Sie die [{{site.data.keyword.cloud_notm}}-CLI](/docs/cli/reference/ibmcloud?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli).
 
 Der Administrator führt die folgenden Schritte aus, um die Zugriffsberechtigungen zu aktualisieren:
 
-1. Melden Sie sich bei der {{site.data.keyword.Bluemix_notm}}-Konsole an.
-2. Erteilen Sie dem Mitarbeiter die Berechtigung zum Anzeigen, indem Sie die Schritte ausführen, die in der [IAM-Dokumentation](/docs/iam/iamusermanage.html#iamusermanage) erläutert werden.
+1. Melden Sie sich bei der {{site.data.keyword.cloud_notm}}-Konsole an.
+
+2. Erteilen Sie dem Mitarbeiter die Berechtigung zum Anzeigen, indem Sie die Schritte ausführen, die in der [IAM-Dokumentation](/docs/iam?topic=iam-iammanidaccser) erläutert werden.
+
 3. Navigieren Sie zur Registerkarte **Serviceberechtigungsnachweise** des {{site.data.keyword.appid_short_notm}}-Dashboards. Klicken Sie auf **Berechtigungsnachweise anzeigen** und kopieren Sie die **tentantID**.
-4. Melden Sie sich an der {{site.data.keyword.Bluemix_notm}}-CLI in Ihrem Terminal an.
+
+4. Melden Sie sich an der {{site.data.keyword.cloud_notm}}-CLI in Ihrem Terminal an.
+
     ```
-    bx login -a api.<region>.bluemix.net
+    ibmcloud login -api -a https://api.<region>.cloud.ibm.com
     ```
-    {: codeblock}
-5. Rufen Sie ein IAM-Token ab und notieren Sie dieses.
+    {: pre}
+
+    <table>
+      <tr>
+        <th>Region</th>
+        <th>Endpunkt</th>
+      </tr>
+      <tr>
+        <td>Dallas</td>
+        <td><code>us-south</code></td>
+      </tr>
+      <tr>
+        <td>Frankfurt</td>
+        <td><code>eu-de</code></td>
+      </tr>
+      <tr>
+        <td>Sydney</td>
+        <td><code>au-syd</code></td>
+      </tr>
+      <tr>
+        <td>London</td>
+        <td><code>eu-gb</code></td>
+      </tr>
+      <tr>
+        <td>Tokio</td>
+        <td><code>jp-tok</code></td>
+      </tr>
+    </table>
+
+5. Rufen Sie ein IAM-Token ab und notieren Sie es.
+
     ```
-    bx iam oauth-tokens
+    ibmcloud iam oauth-tokens
     ```
-    {: codeblock}
+    {: pre}
+
 6. Überprüfen Sie, dass die Teammitglieder keine Änderungen vornehmen können.
+
     ```
     curl -X PUT --header 'Content-Type: application/json' \
     --header 'Accept: application/json' \
@@ -468,27 +306,33 @@ Der Administrator führt die folgenden Schritte aus, um die Zugriffsberechtigung
        "secret": "appsecret"
      }
     }' \
-    'https://appid-management.ng.bluemix.net/management/v4/<tenantId>/config/idps/facebook'
+    'https://us-south.appid.cloud.ibm.com/management/v4/<tenantID>/config/idps/facebook'
     ```
-    {: codeblock}
+    {: pre}
 
     Das Ergebnis ist eine 403 Nachricht über fehlende Berechtigung.
 
 Zur Anzeige der {{site.data.keyword.appid_short_notm}}-Konfigurationen über die CLI führt das Teammitglied folgende Schritte aus:
 
-1. Melden Sie sich über die {{site.data.keyword.Bluemix_notm}}-CLI in Ihrem Terminal an.
+1. Melden Sie sich über die {{site.data.keyword.cloud_notm}}-CLI in Ihrem Terminal an.
+
     ```
-    bx login -a api.<region>.bluemix.net
+    ibmcloud login -a api.<region>.console.cloud.ibm.com
     ```
-    {: codeblock}
-2. Rufen Sie ein IAM-Token ab und notieren Sie dieses.
+    {: pre}
+
+2. Rufen Sie ein IAM-Token ab und notieren Sie es.
+
     ```
-    bx iam oauth-tokens
+    ibmcloud iam oauth-tokens
     ```
-    {: codeblock}
+    {: pre}
+
 3. Zeigen Sie die Konfiguration des Identitätsproviders für Facebook mithilfe der cURL an.
+
     ```
-    curl -X GET --header 'Accept: application/json' --header 'Authorization: <IAM token value>' \  'https://appid-management.ng.bluemix.net/management/v4/<tenantId>/config/idps/facebook'
+    curl -X GET --header 'Accept: application/json' --header 'Authorization: <IAM token value>' \  'https://us-south.appid.cloud.ibm.com/management/v4/<tenantID>/config/idps/facebook'
     ```
-    {: codeblock}
+    {: pre}
+
     Das Ergebnis ist eine 200 Nachricht, die die Identitätsproviderdaten enthält.

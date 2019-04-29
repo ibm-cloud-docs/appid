@@ -1,66 +1,68 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-09"
+  years: 2017, 2019
+lastupdated: "2019-03-06"
+
+keywords: authentication, authorization, identity, app security, secure, development, sign in, sign up, password, social, enterprise
+
+subcollection: appid
 
 ---
 
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:tip: .tip}
-{:pre: .pre}
-{:new_window: target="blank"}
+{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
+{:screen: .screen}
+{:pre: .pre}
+{:table: .aria-labeledby="caption"}
+{:codeblock: .codeblock}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+{:download: .download}
 
 
-# Standardanzeigen anzeigen
-{: #default}
+# Anmeldewidget anzeigen
+{: #login-widget}
 
 {{site.data.keyword.appid_full}} stellt ein Anmeldewidget zur Verfügung, mit dem Sie Ihren Benutzern sichere Anmeldeoptionen bieten können.
 {: shortdesc}
 
-Wenn Ihre App für die Verwendung eines Identitätsproviders konfiguriert wurde, werden Besucher Ihrer App durch ein Anmeldewidget zur Anmeldeanzeige weitergeleitet. Wenn nur ein einziger Provider aktiviert (**Ein**) ist, werden Besucher standardmäßig zur Authentifizierungsanzeige des betreffenden Identitätsproviders weitergeleitet. Mit dem Anmeldewidget können Sie eine Standardanmeldeanzeige anzeigen oder bei Nutzung des Cloudverzeichnisses Ihre vorhandenen Benutzerschnittstellen wiederverwenden. Zusätzlich interessant ist hierbei, dass Sie Ihren Anmeldedatenfluss jederzeit aktualisieren können, ohne Ihren Quellcode in irgendeiner Weise zu ändern!
+Wenn Ihre App für die Verwendung eines Identitätsproviders konfiguriert wurde, werden Besucher Ihrer App durch ein Anmeldewidget zur Anmeldeanzeige weitergeleitet. Mit dem Anmeldewidget können Sie vorkonfigurierte Anzeigen für Ihre Anmeldeabläufe anzeigen. Zusätzlich interessant ist hierbei, dass Sie Ihren Anmeldeablauf jederzeit aktualisieren können, ohne Ihren Quellcode in irgendeiner Weise zu ändern!
 
-
-
-Der Service verwendet OAuth2-Bewilligungstypen, um den Berechtigungsprozess zuzuordnen. Wenn Sie Social Media-Identitätsprovider wie z. B. Facebook konfigurieren, wird der [Oauth2-Berechtigungserteilungsablauf](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html) verwendet, um das Anmeldewidget aufzurufen.
-
-Wollen Sie eine Benutzererfahrung kreieren, durch die sich Ihre App von anderen abhebt? Sie können [Ihre eigenen Anzeigen einbringen](/docs/services/appid/branded.html)!
+Wollen Sie eine Benutzererfahrung kreieren, durch die sich Ihre App von anderen abhebt? Sie können [Ihre eigenen Anzeigen einbringen](/docs/services/appid?topic=appid-branded)!
 {: tip}
 
+## Informationen zum Anmeldewidget
+{: #widget-understanding}
 
-## Standardanmeldeanzeige anpassen
-{: #login-widget}
-
-Sie können die vorkonfigurierte Anmeldeanzeige so anpassen, dass das Logo und die gewünschten Farben angezeigt werden.
+Sie können die Vorteile von {{site.data.keyword.appid_short_notm}} auch ohne eigene UI-Anzeigen nutzen, indem Sie das Anmeldewidget verwenden.
 {: shortdesc}
 
-Anpassen der Anzeige:
+### Was ist der Standardwert?
+{: #widget-default}
 
-1. Öffnen Sie das {{site.data.keyword.appid_short_notm}}-Service-Dashboard.
-2. Wählen Sie den Abschnitt über die **Anpassung der Registrierung** aus. Sie können die Darstellung des Anmeldewidgets ändern, damit es zur Außendarstellung des Unternehmens passt.
-3. Laden Sie Ihr Unternehmenslogo hoch. Wählen Sie dazu eine PNG- oder JPG-Datei von Ihrem lokalen System aus. Die empfohlene Bildgröße ist 320 x 320 Pixel. Die maximale Dateigröße ist 100 KB.
-4. Wählen Sie eine Headerfarbe für das Widget aus der Farbauswahl aus oder geben Sie den hexadezimalen Code für eine andere Farbe ein.
-5. Prüfen Sie das Aussehen im Vorschaubereich und klicken Sie auf **Änderungen speichern**, wenn Sie mit den Anpassungen zufrieden sind. Eine Bestätigungsnachricht wird angezeigt.
-6. Aktualisieren Sie die Anmeldeseite im Browser, um Ihre Änderungen zu überprüfen.
+Wenn mehr als ein Identitätsprovider konfiguriert ist, wird ein Benutzer an das Anmeldewidget weitergeleitet, wenn er versucht, sich bei Ihrer Anwendung anzumelden. Durch die Verwendung des Anmeldewidgets können Benutzer den Provider auswählen, mit dem sie ihre Identität überprüfen möchten. Wenn nur ein einziger Provider aktiviert (**Ein**) ist, werden Besucher zur Authentifizierungsanzeige des betreffenden Identitätsproviders weitergeleitet.
+
+### Wie viele Informationen erhält {{site.data.keyword.appid_short_notm}} von einem Identitätsprovider?
+{: #widget-obtain-info}
+
+Wenn Sie Social-Media- oder unternehmenseigene Identitätsprovider verwenden, kann {{site.data.keyword.appid_short_notm}} die Kontoinformationen eines Benutzers lesen. Der Service verwendet ein Token und die Zusicherungen, die vom Identitätsprovider zurückgegeben werden, um zu überprüfen, ob ein Benutzer die Person ist, die er zu sein behauptet. Da der Service nie Schreibzugriff auf die Informationen hat, müssen die Benutzer den ausgewählten Identitätsprovider verwenden, um Aktionen wie das Zurücksetzen des Kennworts ausführen zu können. Wenn sich ein Benutzer beispielsweise mit Facebook bei Ihrer App anmeldet und dann sein Kennwort ändern will, muss er dies über www.facebook.com tun.
+
+Wenn Sie [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory) verwenden, ist {{site.data.keyword.appid_short_notm}} der Identitätsprovider. Der Service verwendet Ihre Registry, um Ihre Benutzeridentität zu überprüfen. Da {{site.data.keyword.appid_short_notm}} der Provider ist, können die Benutzer die Vorteile der erweiterten Funktionalität (wie z. B. das Zurücksetzen des Kennworts) direkt in ihrer App nutzen.
 
 
-## Anzeigen planen
-{: #plan}
+### Welche Anzeigen können für die einzelnen Provider angezeigt werden?
+{: #widget-options}
 
-{{site.data.keyword.appid_short_notm}} stellt eine Standardanmeldeanzeige zur Verfügung, die Sie aufrufen können, wenn Sie keine eigenen Anzeigen der Benutzerschnittstellen haben.
-{: shortdesc}
-
-Abhängig von der Konfiguration des Identitätsproviders können sich die Anzeigen voneinander unterscheiden. Der Service stellt keine erweiterte Funktionalität für Social Media-Identitätsprovider zur Verfügung, da kein Zugriff auf die Benutzerkontoinformationen ermöglicht wird. Benutzer müssen sich an den Identitätsprovider wenden, um ihre Daten zu verwalten. Wenn jemand beispielsweise sein Kennwort für Facebook ändern möchte, muss er www.facebook.com aufrufen.
-
-Überprüfen Sie die folgende Tabelle, um zu sehen, welche Anzeigen Sie für den jeweiligen Identitätsprovidertyp anzeigen können.
+In der folgenden Tabelle sehen Sie, welche Anzeigen Sie für den jeweiligen Identitätsprovidertyp anzeigen können.
 
 <table>
   <thead>
     <tr>
-      <th>Anzeigebildschirm</th>
-      <th>Social Media-Identitätsprovider</th>
+      <th>Anzeige 'Anmeldewidget'</th>
+      <th>Social-Media-Identitätsprovider</th>
       <th>Unternehmensidentitätsprovider</th>
       <th>Cloud Directory</th>
     </tr>
@@ -99,158 +101,194 @@ Abhängig von der Konfiguration des Identitätsproviders können sich die Anzeig
   </tbody>
 </table>
 
-Nachdem Sie Ihre Einstellungen für [Social Media-Identitätsprovider](/docs/services/appid/identity-providers.html) und [Cloudverzeichnis](/docs/services/appid/cloud-directory.html) konfiguriert haben, klicken Sie in der folgenden Abbildung auf die gewünschte Sprache, um den Code zu implementieren.
-
-
-Klicken Sie auf die Abbildung, um eines der bereitgestellten SDKs oder die APIs zu verwenden. Vergessen Sie nicht, dass Sie App ID auch mit anderen Sprachen nutzen können. Mithilfe unserer APIs können Sie in jeder App ein Cloudverzeichnis einrichten. Wenn Sie Hilfe für Sprachen benötigen, die nicht in der Abbildung enthalten sind, informieren Sie sich anhand <a href="https://www.ibm.com/blogs/bluemix/tag/app-id/" target="_blank">unserer Blogs<img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a> über mögliche Lösungen.
-{: shortdesc}
-
+</br>
 </br>
 
-## Standardanzeigen mit dem Android-SDK anzeigen
-{: #android}
+## Anmeldewidget anpassen
+{: #widget-customize}
 
-Sie können die vorkonfigurierten Anzeigen mit dem Android-SDK aufrufen.
+{{site.data.keyword.appid_short_notm}} stellt eine Standardanmeldeanzeige zur Verfügung, die Sie aufrufen können, wenn Sie keine eigenen Anzeigen der Benutzerschnittstellen haben. Sie können die Anzeige so anpassen, dass das Logo und die gewünschten Farben angezeigt werden.
 {: shortdesc}
 
-</br>
+Anpassen der Anzeige:
 
-**Anmelden**
-1. Den folgenden Befehl in den Code einfügen.
-    ```java
-    LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
-    loginWidget.launch(this, new AuthorizationListener() {
-          @Override
-          public void onAuthorizationFailure (AuthorizationException exception) {
-            // Ausnahmebedingung aufgetreten.
-     			 }
+1. Öffnen Sie das {{site.data.keyword.appid_short_notm}}-Service-Dashboard.
+2. Wählen Sie den Abschnitt über die **Anpassung der Registrierung** aus. Sie können die Darstellung des Anmeldewidgets ändern, damit es zur Außendarstellung des Unternehmens passt.
+3. Laden Sie Ihr Unternehmenslogo hoch. Wählen Sie dazu eine PNG- oder JPG-Datei von Ihrem lokalen System aus. Die empfohlene Bildgröße ist 320 x 320 Pixel. Die maximale Dateigröße ist 100 KB.
+4. Wählen Sie eine Headerfarbe für das Widget aus der Farbauswahl aus oder geben Sie den hexadezimalen Code für eine andere Farbe ein.
+5. Prüfen Sie das Aussehen im Vorschaubereich und klicken Sie auf **Änderungen speichern**, wenn Sie mit den Anpassungen zufrieden sind. Eine Bestätigungsnachricht wird angezeigt.
+6. Aktualisieren Sie die Anmeldeseite im Browser, um Ihre Änderungen zu überprüfen.
 
-          @Override
-          public void onAuthorizationCanceled () {
-            // Authentifizierung vom Benutzer abgebrochen
-          }
+Nicht vergessen! Sie können {{site.data.keyword.appid_short_notm}} auch mit anderen Sprachen nutzen. Wenn Sie kein SDK für die Sprache haben, mit der Sie arbeiten, können Sie immer die APIs verwenden. Weitere Informationen finden Sie in <a href="https://www.ibm.com/blogs/bluemix/tag/app-id/" target="blank">unseren Blogs<img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a>.
+{: tip}
 
-          @Override
+
+## Anmeldewidget mit dem Android-SDK anzeigen
+{: #widget-display-android}
+
+Sie können vorkonfigurierte Anzeigen mit dem [Android-Client-SDK](https://github.com/ibm-cloud-security/appid-clientsdk-android) aufrufen.
+{: shortdesc}
+
+Den folgenden Befehl in den Code einfügen.
+
+  ```java
+  LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
+  loginWidget.launch(this, new AuthorizationListener() {
+        @Override
+        public void onAuthorizationFailure (AuthorizationException exception) {
+          // Ausnahmebedingung aufgetreten.
+  			 }
+
+        @Override
+        public void onAuthorizationCanceled () {
+          //Authentifizierung von Benutzer abgebrochen
+        }
+
+        @Override
           public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, refreshToken: RefreshToken) {
-            // Benutzer authentifiziert.
-          }
-        });
-    ```
-  {: pre}
+          // Benutzer authentifiziert.
+        }
+      });
+  ```
+{: codeblock}
 
 </br>
-**Registrierung**
 
-1. Für **Benutzern die Registrierung und das Zurücksetzen ihres Kennworts ermöglichen** den Wert **Ein** in den Cloud Directory-Einstellungen festlegen.
-2. Das Anmeldewidget aufrufen, um den Registrierungsablauf zu starten. 
+### Registrieren
+{: #widget-android-signup}
+
+1. Konfigurieren Sie Ihre [Einstellungen](/docs/services/appid?topic=appid-cloud-directory#cd-settings) für Cloud Directory in der GUI. Die Optionen **Benutzern die Registrierung bei Ihrer App ermöglichen** und **Benutzern das Kontomanagement innerhalb Ihrer App ermöglichen** müssen auf **Ein** eingestellt sein.
+2. Fügen Sie den folgenden Code zu Ihrer App hinzu. Wenn sich ein Benutzer über Ihre angepasste Anzeige für Ihre App registriert, wird der Anmeldeablauf gestartet. Der folgende Aufruf registriert nicht nur den Benutzer, sondern kann abhängig von Ihrer Cloud Directory-Konfiguration auch eine Bestätigungs-E-Mail senden, um die Registrierung abzuschließen.
+
   ```java
   LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
   loginWidget.launchSignUp(this, new AuthorizationListener() {
-  		 @Override
-  		 public void onAuthorizationFailure (AuthorizationException exception) {
-  		 }
-
-  		 @Override
-  		 public void onAuthorizationCanceled () {
-  		 }
-
-  		 @Override
-  		 public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, refreshToken: RefreshToken) {
-  			 if (accessToken != null && identityToken != null) {
-  			 } else {
+      @Override
+      public void onAuthorizationFailure (AuthorizationException exception) {
+          // Ausnahmebedingung aufgetreten.
   			 }
 
-  		 }
-  	 });
+      @Override
+      public void onAuthorizationCanceled () {
+          // Registrierung vom Benutzer abgebrochen
+      }
+
+      @Override
+      public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, RefreshToken refreshToken) {
+          if (accessToken != null && identityToken != null) {
+              // Benutzer authentifiziert.
+          } else {
+              // E-Mail-Verifizierung erforderlich.
+          }
+      }
+  });
   ```
   {: pre}
 
 </br>
-**Kennwort vergessen**
 
-1. Für **Benutzern die Registrierung und das Zurücksetzen ihres Kennworts ermöglichen** und **E-Mail für vergessenes Kennwort** den Wert **Ein** in den Cloud Directory-Einstellungen festlegen.
-2. Das Anmeldewidget aufrufen, um den Ablauf beim Vergessen eines Kennworts zu starten.
-    ```java
-    LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
-    loginWidget.launchForgotPassword(this, new AuthorizationListener() {
-   			 @Override
-   			 public void onAuthorizationFailure (AuthorizationException exception) {
-   			 }
+### Kennwort vergessen
+{: #widget-android-forgot-password}
 
-   			 @Override
-   			 public void onAuthorizationCanceled () {
-   			 }
+1. Konfigurieren Sie Ihre [Einstellungen](/docs/services/appid?topic=appid-cloud-directory#cd-settings) für Cloud Directory in der GUI. Die Option **Benutzern das Kontomanagement innerhalb Ihrer App ermöglichen** muss auf **Ein** eingestellt sein.
+2. Vergewissern Sie sich, dass auf der Registerkarte **Kennwort zurücksetzen** des Service-Dashboards die Option **E-Mail für vergessenes Kennwort** auf **Ein** gesetzt ist.
+3. Fügen Sie den folgenden Code zu Ihrer App hinzu. Wenn ein Benutzer in Ihrer Anwendung auf "Kennwort vergessen" klickt, ruft das SDK die API "forgot_password" auf, um eine E-Mail an den Benutzer zu senden, der es ihnen ermöglicht, ihr Kennwort zurückzusetzen.
 
-   			 @Override
-   			 public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, refreshToken: RefreshToken) {
-   			 }
-   		 });
-    ```
-    {: pre}
-
-</br>
-**Kontodetails**
-
-1. Für **Benutzern die Registrierung und das Zurücksetzen ihres Kennworts ermöglichen** den Wert **Ein** in den Cloud Directory-Einstellungen festlegen.
-2. Das Anmeldewidget aufrufen, um den Ablauf für das Ändern von Details zu starten.
-   ```java
-   LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
-   loginWidget.launchChangeDetails(this, new AuthorizationListener() {
-  			 @Override
-  			 public void onAuthorizationFailure (AuthorizationException exception) {
+  ```java
+  LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
+  loginWidget.launchForgotPassword(this, new AuthorizationListener() {
+      @Override
+   	public void onAuthorizationFailure (AuthorizationException exception) {
+          // Ausnahmebedingung aufgetreten.
   			 }
 
-  			 @Override
-  			 public void onAuthorizationCanceled () {
+      @Override
+      public void onAuthorizationCanceled () {
+          // Aktion für vergessenes Kennwort vom Benutzer abgebrochen.  			
+      }
+
+      @Override
+      public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, RefreshToken refreshToken) {
+          // Aktion für vergessenes Kennwort beendet, in diesem Fall sind Zugriffstoken und Identitätstoken null.
+      }
+  });
+  ```
+  {: codeblock}
+
+</br>
+
+### Details ändern
+{: #widget-android-change-details}
+
+1. Konfigurieren Sie Ihre [Einstellungen](/docs/services/appid?topic=appid-cloud-directory#cd-settings) für Cloud Directory in der GUI. Die Optionen **Benutzern die Registrierung bei Ihrer App ermöglichen** und **Benutzern das Kontomanagement innerhalb Ihrer App ermöglichen** müssen auf **Ein** eingestellt sein.
+2. Stellen Sie auf der Registerkarte **Kennwort geändert** des Service-Dashboards die Option **E-Mail bei Kennwortänderung** auf 'Ein'.
+3. Rufen Sie das Anmeldewidget auf, um den Verarbeitungsablauf für das Ändern von Details zu starten.
+
+  ```java
+  LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
+  loginWidget.launchChangeDetails(this, new AuthorizationListener() {
+      @Override
+      public void onAuthorizationFailure (AuthorizationException exception) {
+          // Ausnahmebedingung aufgetreten.
   			 }
 
-  			 @Override
-  			 public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, refreshToken: RefreshToken) {
+      @Override
+      public void onAuthorizationCanceled () {
+          // Aktion für Detailänderung vom Benutzer abgebrochen.  			
+      }
+
+      @Override
+      public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, RefreshToken refreshToken) {
+          // Benutzer authentifiziert, neue Tokens erhalten.
   			 }
-  		 });
-   ```
-   {: pre}
+  });
+  ```
+  {: codeblock}
 
 </br>
-**Kennwort ändern**
 
-1. Für **Benutzern die Registrierung und das Zurücksetzen ihres Kennworts ermöglichen** den Wert **Ein** in den Cloud Directory-Einstellungen festlegen.
-2. Das Anmeldewidget aufrufen, um den Ablauf für das Ändern des Kennworts zu starten.
-   ```java
-    LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
-    loginWidget.launchChangePassword(this, new AuthorizationListener() {
-   			 @Override
-   			 public void onAuthorizationFailure (AuthorizationException exception) {
-   			 }
+### Kennwort ändern
+{: #widget-android-change-password}
 
-   			 @Override
-   			 public void onAuthorizationCanceled () {
-   			 }
+1. Konfigurieren Sie Ihre [Einstellungen](/docs/services/appid?topic=appid-cloud-directory#cd-settings) für Cloud Directory in der GUI. Die Optionen **Benutzern die Registrierung bei Ihrer App ermöglichen** und **Benutzern das Kontomanagement innerhalb Ihrer App ermöglichen** müssen auf **Ein** eingestellt sein.
+2. Fügen Sie den folgenden Code in Ihre App ein, um den Ablauf für das Ändern des Kennworts zu starten.
 
-   			 @Override
-   			 public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, refreshToken: RefreshToken) {
-   			 }
-   		 });
-   ```
-   {: pre}
-</br>
-</br>
+  ```java
+  LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
+  loginWidget.launchChangePassword(this, new AuthorizationListener() {
+      @Override
+      public void onAuthorizationFailure (AuthorizationException exception) {
+          // Ausnahmebedingung aufgetreten.
+  			 }
 
-## Standardanzeigen mit dem iOS Swift-SDK anzeigen
-{: #ios-swift}
+      @Override
+      public void onAuthorizationCanceled () {
+          // Aktion für Kennwortänderung vom Benutzer abgebrochen.  			
+      }
 
-Sie können die vorkonfigurierten Anzeigen mit dem iOS Swift-SDK aufrufen.
+      @Override
+      public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, RefreshToken refreshToken) {
+          // Benutzer authentifiziert, neue Tokens erhalten.
+  			 }
+  });
+  ```
+  {: codeblock}
+
+
+
+## Anmeldewidget mit dem iOS Swift-SDK anzeigen
+{: #widget-display-ios-swift}
+
+Sie können vorkonfigurierte Anzeigen mit dem [iOS Swift-Client-SDK](https://github.com/ibm-cloud-security/appid-clientsdk-swift) aufrufen.
 {: shortdesc}
 
-</br>
-**Anmelden**
+Den folgenden Befehl in den Code einfügen.
 
-1. Den folgenden Befehl in den Code einfügen.
   ```swift
-  import BluemixAppID
+  import IBMCloudAppID
   class delegate : AuthorizationDelegate {
       public func onAuthorizationSuccess(accessToken: AccessToken, identityToken: IdentityToken, refreshToken: RefreshToken?) {
-          // Benutzer authentifiziert
+          // Benutzer authentifiziert.
       }
 
       public func onAuthorizationCanceled() {
@@ -264,17 +302,19 @@ Sie können die vorkonfigurierten Anzeigen mit dem iOS Swift-SDK aufrufen.
 
   AppID.sharedInstance.loginWidget?.launch(delegate: delegate())
   ```
-  {: pre}
-
+  {: codeblock}
 
 </br>
-**Registrierung**
 
-1. Für **Benutzern die Registrierung und das Zurücksetzen ihres Kennworts ermöglichen** den Wert **Ein** in den Cloud Directory-Einstellungen festlegen.
-2. Das Anmeldewidget aufrufen, um den Registrierungsablauf zu starten. 
+### Registrieren
+{: #widget-ios-signup}
+
+1. Konfigurieren Sie Ihre [Einstellungen](/docs/services/appid?topic=appid-cloud-directory#cd-settings) für Cloud Directory in der GUI. Die Optionen **Benutzern die Registrierung bei Ihrer App ermöglichen** und **Benutzern das Kontomanagement innerhalb Ihrer App ermöglichen** müssen auf **Ein** eingestellt sein.
+2. Fügen Sie den folgenden Code in Ihre Anwendung ein. Wenn ein Benutzer versucht, sich für Ihre Anwendung zu registrieren, wird das Anmeldewidget aufgerufen und zeigt die angepasste Registrierungsseite an.
+
   ```swift
   class delegate : AuthorizationDelegate {
-    public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, refreshToken: RefreshToken?) {
+    public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, refreshToken: RefreshToken?, response:Response?) {
        if accessToken == nil && identityToken == nil {
         // E-Mail-Verifizierung erforderlich.
         return
@@ -288,21 +328,25 @@ Sie können die vorkonfigurierten Anzeigen mit dem iOS Swift-SDK aufrufen.
 
     public func onAuthorizationFailure(error: AuthorizationError) {
         // Ausnahmebedingung aufgetreten.
-			 }
+     			 }
   }
 
   AppID.sharedInstance.loginWidget?.launchSignUp(delegate: delegate())
   ```
-  {: pre}
+  {: codeblock}
 
 </br>
-**Kennwort vergessen**
 
-1. Für **Benutzern die Registrierung und das Zurücksetzen ihres Kennworts ermöglichen** und **E-Mail für vergessenes Kennwort** den Wert **Ein** in den Cloud Directory-Einstellungen festlegen.
-2. Das Anmeldewidget aufrufen, um den Ablauf beim Vergessen eines Kennworts zu starten.
+### Kennwort vergessen
+{: #widget-ios-forgot-password}
+
+1. Konfigurieren Sie Ihre [Einstellungen](/docs/services/appid?topic=appid-cloud-directory#cd-settings) für Cloud Directory in der GUI. Die Option **Benutzern das Kontomanagement innerhalb Ihrer App ermöglichen** muss auf **Ein** eingestellt sein.
+2. Vergewissern Sie sich, dass auf der Registerkarte **Kennwort zurücksetzen** des Service-Dashboards die Option **E-Mail für vergessenes Kennwort** auf **Ein** gesetzt ist.
+3. Fügen Sie den folgenden Code in Ihre Anwendung ein. Wenn einer Ihrer App-Benutzer die Aktualisierung seines Kennworts anfordert, wird das Anmeldewidget aufgerufen und der Prozess wird gestartet.
+
   ```swift
   class delegate : AuthorizationDelegate {
-     public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, refreshToken: RefreshToken?) {
+     public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, refreshToken: RefreshToken?, response:Response?) {
         // Aktion für vergessenes Kennwort beendet, in diesem Fall sind Zugriffstoken und Identitätstoken null.
      }
 
@@ -317,217 +361,147 @@ Sie können die vorkonfigurierten Anzeigen mit dem iOS Swift-SDK aufrufen.
 
   AppID.sharedInstance.loginWidget?.launchForgotPassword(delegate: delegate())
   ```
-  {: pre}
+  {: codeblock}
 
 </br>
-**Kontodetails**
 
-1. Für **Benutzern die Registrierung und das Zurücksetzen ihres Kennworts ermöglichen** den Wert **Ein** in den Cloud Directory-Einstellungen festlegen.
-2. Das Anmeldewidget aufrufen, um den Ablauf für das Ändern von Details zu starten.
+### Details ändern
+{: #widget-ios-change-details}
+
+1. Konfigurieren Sie Ihre [Einstellungen](/docs/services/appid?topic=appid-cloud-directory#cd-settings) für Cloud Directory in der GUI. Die Optionen **Benutzern die Registrierung bei Ihrer App ermöglichen** und **Benutzern das Kontomanagement innerhalb Ihrer App ermöglichen** müssen auf **Ein** eingestellt sein.
+2. Stellen Sie auf der Registerkarte **Kennwort geändert** des Service-Dashboards die Option **E-Mail bei Kennwortänderung** auf 'Ein'.
+3. Rufen Sie das Anmeldewidget auf, um den Verarbeitungsablauf für das Ändern von Details zu starten.
+
   ```swift
+  class delegate : AuthorizationDelegate {
+      public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, refreshToken: RefreshToken?, response:Response?) {
+         // Benutzer authentifiziert, neue Tokens erhalten.
+      }
 
-   class delegate : AuthorizationDelegate {
-       public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, refreshToken: RefreshToken?) {
-       }
+      public func onAuthorizationCanceled() {
+          // Aktion für Detailänderung vom Benutzer abgebrochen.
+      }
 
-       public func onAuthorizationCanceled() {
-     }
-
-       public func onAuthorizationFailure(error: AuthorizationError) {
-     }
-   }
+      public func onAuthorizationFailure(error: AuthorizationError) {
+          // Ausnahmebedingung aufgetreten.
+  			 }
+  }
 
    AppID.sharedInstance.loginWidget?.launchChangeDetails(delegate: delegate())
   ```
-  {: pre}
+  {: codeblock}
 
 </br>
-**Kennwort ändern**
 
-1. Für **Benutzern die Registrierung und das Zurücksetzen ihres Kennworts ermöglichen** den Wert **Ein** in den Cloud Directory-Einstellungen festlegen.
-2. Das Anmeldewidget aufrufen, um den Ablauf für das Ändern des Kennworts zu starten.
+### Kennwort ändern
+{: #widget-ios-change-password}
+
+1. Konfigurieren Sie Ihre [Einstellungen](/docs/services/appid?topic=appid-cloud-directory#cd-settings) für Cloud Directory in der GUI. Die Optionen **Benutzern die Registrierung bei Ihrer App ermöglichen** und **Benutzern das Kontomanagement innerhalb Ihrer App ermöglichen** müssen auf **Ein** eingestellt sein.
+2. Fügen Sie den folgenden Code in Ihre App ein, um den Ablauf für das Ändern des Kennworts zu starten.
+
   ```swift
-   class delegate : AuthorizationDelegate {
-       public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, refreshToken: RefreshToken?) {
-       }
+  class delegate : AuthorizationDelegate {
+      public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, refreshToken: RefreshToken?, response:Response?) {
+          // Benutzer authentifiziert, neue Tokens erhalten.
+      }
 
-       public func onAuthorizationCanceled() {
-     }
+      public func onAuthorizationCanceled() {
+          // Kennwortänderung vom Benutzer abgebrochen.
+      }
 
-       public func onAuthorizationFailure(error: AuthorizationError) {
-     }
-    }
+      public func onAuthorizationFailure(error: AuthorizationError) {
+           // Ausnahmebedingung aufgetreten.
+  			 }
+   }
 
-    AppID.sharedInstance.loginWidget?.launchChangePassword(delegate: delegate())
+   AppID.sharedInstance.loginWidget?.launchChangePassword(delegate: delegate())
   ```
-  {: pre}
-</br>
-</br>
+  {: codeblock}
 
-## Standardanzeige mit dem Node.js-SDK anzeigen
-{: #nodejs}
 
-Sie können die vorkonfigurierten Anzeigen mit dem Node.js-SDK aufrufen.
+## Anmeldewidget mit dem Node.js-SDK anzeigen
+{: #widget-display-nodejs}
+
+Sie können vorkonfigurierte Anzeigen mit dem [Node.js-Server-SDK](https://github.com/ibm-cloud-security/appid-serversdk-nodejs) aufrufen.
 {: shortdesc}
 
-</br>
-**Anmelden**
-1. In den Identitätsprovidereinstellungen den Wert **Ein** für Cloud Directory festlegen und einen Callback-Endpunkt angeben.
-2. Eine POST-Route zu Ihrer App hinzufügen, die mit den Parametern für den Benutzernamen und das Kennwort aufgerufen werden kann, und mit dem Kennwort des Ressourceneigners anmelden.
-    ```javascript
-    app.post("/form/submit", bodyParser.urlencoded({extended: false}), passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
-    	successRedirect: LANDING_PAGE_URL,
-    	failureRedirect: ROP_LOGIN_PAGE_URL,
-    	failureFlash : true // allow flash messages
-    }));
-    ```
-    {: pre}
-    `WebAppStrategy` ermöglicht es Benutzern, sich bei Ihren Web-Apps mit einem Benutzernamen und einem Kennwort anzumelden. Nach einer erfolgreichen Registrierung wird das Zugriffstoken eines Benutzers in der HTTP-Sitzung gespeichert und ist während der Sitzung verfügbar. Sobald die HTTP-Sitzung gelöscht wird oder abgelaufen ist, ist das Token nicht mehr gültig.
-    {: tip}
+Eine POST-Route zu Ihrer App hinzufügen, die mit den Parametern für den Benutzernamen und das Kennwort aufgerufen werden kann, und mit dem Kennwort des Ressourceneigners anmelden.
+
+  ```javascript
+  app.post("/form/submit", bodyParser.urlencoded({extended: false}), passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
+  	successRedirect: LANDING_PAGE_URL,
+  	failureRedirect: ROP_LOGIN_PAGE_URL,
+  	failureFlash : true // Flash-Nachrichten zulassen.
+  }));
+  ```
+  {: codeblock}
+
+`WebAppStrategy` ermöglicht es Benutzern, sich bei Ihren Web-Apps mit einem Benutzernamen und einem Kennwort anzumelden. Nach einer erfolgreichen Registrierung wird das Zugriffstoken eines Benutzers in der HTTP-Sitzung gespeichert und ist während der Sitzung verfügbar. Wenn die HTTP-Sitzung gelöscht wird oder abgelaufen ist, ist das Token nicht mehr gültig.
+{: tip}
 
 </br>
-**Registrierung**
 
-1. Für **Benutzern die Registrierung und das Zurücksetzen ihres Kennworts ermöglichen** den Wert **Ein** in den Cloud Directory-Einstellungen festlegen. Falls diese Einstellung nicht aktiviert ist, wird der Prozess beendet, ohne dass Zugriffs- und Identitätstoken abgerufen werden.
-2. Die WebAppStrategy-Eigenschaft `show` übergeben und `WebAppStrategy.SIGN_UP` dafür festlegen.
+### Registrieren
+{: #widget-nodejs-signup}
+
+1. Konfigurieren Sie Ihre [Einstellungen](/docs/services/appid?topic=appid-cloud-directory#cd-settings) für Cloud Directory in der GUI. Die Optionen **Benutzern die Registrierung bei Ihrer App ermöglichen** und **Benutzern das Kontomanagement innerhalb Ihrer App ermöglichen** müssen auf **Ein** eingestellt sein.
+2. Fügen Sie den folgenden Code in Ihre Anwendung ein. Wenn ein Benutzer versucht, sich für Ihre Anwendung zu registrieren, wird das Anmeldewidget aufgerufen und zeigt die angepasste Registrierungsseite an.
+
   ```javascript
   app.get("/sign_up", passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
   	successRedirect: LANDING_PAGE_URL,
   	show: WebAppStrategy.SIGN_UP
   }));
   ```
-  {: pre}
+  {: codeblock}
 
 </br>
-**Kennwort vergessen**
 
-1. Für **Benutzern die Registrierung und das Zurücksetzen ihres Kennworts ermöglichen** und **E-Mail für vergessenes Kennwort** den Wert **Ein** in den Cloud Directory-Einstellungen festlegen. Falls diese Einstellung nicht aktiviert ist, wird der Prozess beendet, ohne dass Zugriffs- und Identitätstoken abgerufen werden.
-2. Die WebAppStrategy-Eigenschaft `show` übergeben und `WebAppStrategy.FORGOT_PASSWORD` dafür festlegen.
+### Kennwort vergessen
+{: #widget-nodejs-forgot-password}
+
+1. Konfigurieren Sie Ihre [Einstellungen](/docs/services/appid?topic=appid-cloud-directory#cd-settings) für Cloud Directory in der GUI. Die Option **Benutzern das Kontomanagement innerhalb Ihrer App ermöglichen** muss auf **Ein** eingestellt sein.
+2. Vergewissern Sie sich, dass auf der Registerkarte **Kennwort zurücksetzen** des Service-Dashboards die Option **E-Mail für vergessenes Kennwort** auf **Ein** gesetzt ist.
+3. Fügen Sie den folgenden Code in Ihre Anwendung ein, um die Eigenschaft *show* an `WebAppStrategy.FORGOT_PASSWORD` zu übergeben. Wenn einer Ihrer Benutzer die Aktualisierung seines Kennworts für Ihre App anfordert, wird das Anmeldewidget aufgerufen und der Prozess wird gestartet.
+
   ```javascript
   app.get("/forgot_password", passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
   	successRedirect: LANDING_PAGE_URL,
   	show: WebAppStrategy.FORGOT_PASSWORD
   }));
   ```
-  {: pre}
+  {: codeblock}
 
 </br>
-**Kontodetails**
-1. Für **Benutzern die Registrierung und das Zurücksetzen ihres Kennworts ermöglichen** den Wert **Ein** in den Cloud Directory-Einstellungen festlegen.
-2. Die WebAppStrategy-Eigenschaft `show` übergeben und `WebAppStrategy.CHANGE_DETAILS` dafür festlegen.
+
+### Details ändern
+{: #widget-nodejs-change-details}
+
+1. Konfigurieren Sie Ihre [Einstellungen](/docs/services/appid?topic=appid-cloud-directory#cd-settings) für Cloud Directory in der GUI. Die Optionen **Benutzern die Registrierung bei Ihrer App ermöglichen** und **Benutzern das Kontomanagement innerhalb Ihrer App ermöglichen** müssen auf **Ein** eingestellt sein.
+2. Stellen Sie auf der Registerkarte **Kennwort geändert** des Service-Dashboards die Option **E-Mail bei Kennwortänderung** auf 'Ein'.
+3. Fügen Sie den folgenden Code in Ihre Anwendung ein, um die Eigenschaft *show* an `WebAppStrategy.FORGOT_PASSWORD` zu übergeben und um damit das Formular zum Ändern der Details aufzurufen.
+
   ```javascript
   app.get("/change_details", passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
   	successRedirect: LANDING_PAGE_URL,
   	show: WebAppStrategy.CHANGE_DETAILS
   }));
   ```
-  {: pre}
+  {: codeblock}
 
 </br>
-**Kennwort ändern**
-1. Für **Benutzern die Registrierung und das Zurücksetzen ihres Kennworts ermöglichen** den Wert **Ein** in den Cloud Directory-Einstellungen festlegen.
-2. Die WebAppStrategy-Eigenschaft `show` übergeben und `WebAppStrategy.CHANGE_PASSWORD` dafür festlegen.
+
+### Kennwort ändern
+{: #widget-nodejs-change-password}
+
+1. Konfigurieren Sie Ihre [Einstellungen](/docs/services/appid?topic=appid-cloud-directory#cd-settings) für Cloud Directory in der GUI. Die Optionen **Benutzern die Registrierung bei Ihrer App ermöglichen** und **Benutzern das Kontomanagement innerhalb Ihrer App ermöglichen** müssen auf **Ein** eingestellt sein.
+2. Stellen Sie auf der Registerkarte **Kennwort geändert** des Service-Dashboards die Option **E-Mail bei Kennwortänderung** auf 'Ein'.
+3. Fügen Sie den folgenden Code in Ihre Anwendung ein, um die Eigenschaft *show* an `WebAppStrategy.FORGOT_PASSWORD` zu übergeben und um damit das Formular zum Ändern der Details aufzurufen.
+
   ```javascript
   app.get("/change_password", passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
   	successRedirect: LANDING_PAGE_URL,
   	show: WebAppStrategy.CHANGE_PASSWORD
   }));
   ```
-  {: pre}
-
-</br>
-</br>
-
-## Standardanzeigen mit dem Swift-SDK anzeigen
-{: #swift}
-
-Wenn die Social Media-Identitätsprovider aktiviert sind, können Sie die vorkonfigurierte Anmeldeanzeige mit dem Swift-SDK aufrufen.
-{: shortdesc}
-
-1. Der folgende Code demonstriert, wie WebAppKituraCredentialsPlugin in einer Kitura-App verwendet wird, um den Endpunkt `/protected` zu schützen.
-
-  ```swift
-  import Foundation
-  import Kitura
-  import KituraSession
-  import Credentials
-  import SwiftyJSON
-  import BluemixAppID
-
-  // Folgende URLs werden für AppID OAuth-Abläufe genutzt
-  var LOGIN_URL = "/ibm/bluemix/appid/login"
-  var CALLBACK_URL = "/ibm/bluemix/appid/callback"
-  var LOGOUT_URL = "/ibm/bluemix/appid/logout"
-  var LANDING_PAGE_URL = "/index.html"
-
-  // Setup von Kitura zur Nutzung von Sitzungs-Middleware
-  // Muss mit korrektem Sitzungsspeicher für Produktionsumgebungen
-  // konfiguriert werden. Siehe https://github.com/IBM-Swift/Kitura-Session für
-  // weitere Dokumentationen
-  let router = Router()
-  let session = Session(secret: "Some secret")
-  router.all(middleware: session)
-
-  let options = [
-  	"clientId": "{client-id}",
-  	"secret": "{secret}",
-  	"tenantId": "{tenant-id}",
-  	"oauthServerUrl": "{oauth-server-url}",
-  	"redirectUri": "{app-url}" + CALLBACK_URL
-  ]
-  let webappKituraCredentialsPlugin = WebAppKituraCredentialsPlugin(options: options)
-  let kituraCredentials = Credentials()
-  kituraCredentials.register(plugin: webappKituraCredentialsPlugin)
-
-  // Expliziter Anmelde-Endpunkt
-  router.get(LOGIN_URL,
-  		   handler: kituraCredentials.authenticate(credentialsType: webappKituraCredentialsPlugin.name,
-  												   successRedirect: LANDING_PAGE_URL,
-  												   failureRedirect: LANDING_PAGE_URL
-  ))
-
-  // Callback zum Beenden des Berechtigungsprozesses. Ruft Zugriffs- und Identitätstoken von AppID ab
-  router.get(CALLBACK_URL,
-  		   handler: kituraCredentials.authenticate(credentialsType: webappKituraCredentialsPlugin.name,
-  												   successRedirect: LANDING_PAGE_URL,
-  												   failureRedirect: LANDING_PAGE_URL
-  ))
-
-  // Abmelde-Endpunkt. Löscht Authentifizierungsinformationen aus Sitzung
-  router.get(LOGOUT_URL, handler:  { (request, response, next) in
-  	kituraCredentials.logOut(request: request)
-  	webappKituraCredentialsPlugin.logout(request: request)
-  	_ = try? response.redirect(LANDING_PAGE_URL)
-  })
-
-  // Geschützter Bereich
-  router.get("/protected", handler: kituraCredentials.authenticate(credentialsType: webappKituraCredentialsPlugin.name), { (request, response, next) in
-      let appIdAuthContext:JSON? = request.session?[WebAppKituraCredentialsPlugin.AuthContext]
-      let identityTokenPayload:JSON? = appIdAuthContext?["identityTokenPayload"]
-
-      guard appIdAuthContext?.dictionary != nil, identityTokenPayload?.dictionary != nil else {
-          response.status(.unauthorized)
-          return next()
-      }
-
-      response.send(json: identityTokenPayload!)
-      next()
-  })
-  var port = 3000
-  if let portString = ProcessInfo.processInfo.environment["PORT"]{
-      port = Int(portString)!
-  }
-  print("Starting on \(port)")
-
-  // HTTP-Server hinzufügen und mit Router verbinden
-  Kitura.addHTTPServer(onPort: port, with: router)
-
-  // Start des Kitura-Runloops (Aufruf wird nie zurückgegeben)
-  Kitura.run()
-  ```
   {: codeblock}
-</br>
-</br>
-
-
-
