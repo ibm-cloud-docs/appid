@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-26"
+lastupdated: "2019-04-29"
 
 keywords: authentication, authorization, identity, app security, secure, development, idp, troubleshooting, redirected, validation
 
@@ -75,7 +75,7 @@ When you send an authentication request, you receive an error regarding the `Nam
 
 **Why it's happening**
 
-{{site.data.keyword.appid_short_notm}}, as the service provider, defines the way that users are identitfied by the service and by the identity provider. With {{site.data.keyword.appid_short_notm}}, users are identitified in the `NameID` authentication request in the `NameID` field as shown in the following example.
+{{site.data.keyword.appid_short_notm}}, as the service provider, defines the way that users are identified by the service and by the identity provider. With {{site.data.keyword.appid_short_notm}}, users are identified in the `NameID` authentication request in the `NameID` field as shown in the following example.
 
 ```
 <NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</NameIDFormat>
