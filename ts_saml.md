@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-29"
+lastupdated: "2019-05-01"
 
 keywords: authentication, authorization, identity, app security, secure, development, idp, troubleshooting, redirected, validation
 
@@ -132,7 +132,7 @@ Unexpectedly received an encrypted assertion. Please enable response encryption 
 Error message 2: 
 
 ```
-Could not decrypt SAML assertion. Ensure your SAML provider is configured with the {site.data.keyword.appid_short_notm}} encryption 
+Could not decrypt SAML assertion. Ensure your SAML provider is configured with the {{site.data.keyword.appid_short_notm}} encryption 
 ```
 {: screen}
 
@@ -147,7 +147,7 @@ If your identity provider is configured to encrypt, {{site.data.keyword.appid_sh
 
 **How to fix it**
 
-If you receive error message 1, verify that your SAML configuration is set to expect an encrypted response. By default, {site.data.keyword.appid_short_notm}} does not expect the response to be encrypted. To configure encryption, set the `encryptResponse` parameter to **true** by using [the API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.set_saml_idp).
+If you receive error message 1, verify that your SAML configuration is set to expect an encrypted response. By default, {{site.data.keyword.appid_short_notm}} does not expect the response to be encrypted. To configure encryption, set the `encryptResponse` parameter to **true** by using [the API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.set_saml_idp).
 
 If you receive error message 2, ensure that your certificate is correct. You can obtain the signing certificate from the {{site.data.keyword.appid_short_notm}} metadata XML file. Be sure that you use the key with `<KeyDescriptor use="signing">`. Verify that your identity provider is configured to use `` as the signature signing algorithm. 
 
@@ -166,7 +166,7 @@ urn:oasis:names:tc:SAML:2.0:status:Responder
 
 **Why it's happening**
 
-Although {site.data.keyword.appid_short_notm}} sends the initial authentication request, the identity provider must perform the user authentication and return the response. There are several reasons that might cause your identity provider to throw this error message.
+Although {{site.data.keyword.appid_short_notm}} sends the initial authentication request, the identity provider must perform the user authentication and return the response. There are several reasons that might cause your identity provider to throw this error message.
 
 You might see the message if your identity provider: 
 
