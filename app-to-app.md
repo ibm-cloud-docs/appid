@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-01"
 
 keywords: authentication, authorization, identity, app security, secure, application identity, app to app, access token
 
@@ -51,10 +51,14 @@ In the following image, you can see the direction of communication between the s
 ![{{site.data.keyword.appid_short_notm}} application identity and authorization flow](images/app-to-app-flow.png)
 Figure. application identity and authorization flow
 
-1. Application A registers with {{site.data.keyword.appid_short_notm}} to obtain a client ID and secret.
-2. Application A makes a request to {{site.data.keyword.appid_short_notm}} by sending the credentials retrieved in the previous step.
-3. {{site.data.keyword.appid_short_notm}} validates the request, authenticates the app, and returns a response to Application A that contains an access token.
-4. Application A is now able to use the access token to send requests to Application B such as a protected resource.
+1. You register the application that needs to authenticate to access a protected resource with {{site.data.keyword.appid_short_notm}}. 
+2. Application A registers with {{site.data.keyword.appid_short_notm}} to obtain a client ID and secret.
+3. Application A makes a request to the {{site.data.keyword.appid_short_notm}} authorization server `/token` endpoint by sending the credentials retrieved in the previous step.
+4. {{site.data.keyword.appid_short_notm}} validates the request, authenticates the app, and returns a response to Application A that contains an access token.
+5. Application A is now able to use the valid access token to send requests to protected resources such as Application B.
+
+The client secret that is used to authenticate the client is highly sensitive and must be kept confidential. Because the application uses the client secret in-app, this work flow must be used with trusted applications only. Using a trusted application ensures that the client secret is not leaked or misused.
+{: important}
 
 ## Registering your app
 {: #app-register}
