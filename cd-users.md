@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-01"
+lastupdated: "2019-05-02"
 
 keywords: authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
@@ -50,7 +50,7 @@ To see the full data for a specific user, you can use the APIs to return a Cloud
 
 For test purposes, you can add a users through the {{site.data.keyword.appid_short_notm}} dashboard or by using the API.
 
-If you disable self-service sign up or add a user on their behalf, a user does not recieve a verification email when they're added.
+If you disable self-service sign up or add a user on their behalf, a user does not receive a verification email when they're added.
 {: note}
 
 **To add a new user with the GUI:**
