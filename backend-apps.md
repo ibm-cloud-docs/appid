@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-11"
+lastupdated: "2019-05-06"
 
 keywords: authentication, authorization, identity, app security, secure, backend, back-end, oauth, 
 
@@ -146,6 +146,12 @@ if #available(OSX 10.12, *) {
 ```
 {: pre}
 {: ph data-hd-programlang='swift'}
+
+Check out the following video to learn about protecting backend Node applications with {{site.data.keyword.appid_short_notm}}. Then, try it out yourself by using a [simple Node sample app](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02a-simple-node-web-app).
+{: ph data-hd-programlang='javascript'}
+
+<iframe class="embed-responsive-item" id="appid-nodejs" title="About {{site.data.keyword.appid_short_notm}}" type="text/html" width="640" height="390" src="//www.youtube.com/embed/jJLSgkHpZwA?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+{: ph data-hd-programlang='javascript'}
 
 
 ### Before you begin

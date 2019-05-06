@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-23"
+lastupdated: "2019-05-06"
 
 keywords: authentication, authorization, identity, app security, secure, web apps, client, server
 
@@ -76,6 +76,11 @@ You must have the following prerequisites:
 * NPM version 4 or higher
 * Node version 6 or higher
 * Your redirect URI set in the {{site.data.keyword.appid_short_notm}} service dashboard
+
+
+Check out the following video to learn about protecting Node applications with {{site.data.keyword.appid_short_notm}}. Then, try it out yourself by using a [simple Node sample app](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02a-simple-node-web-app).
+
+<iframe class="embed-responsive-item" id="appid-nodejs" title="About {{site.data.keyword.appid_short_notm}}" type="text/html" width="640" height="390" src="//www.youtube.com/embed/6roa1ZOvwtw?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
 
 ### Installing the Node.js SDK
