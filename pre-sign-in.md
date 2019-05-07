@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-07"
 
 keywords: authentication, authorization, identity, app security, secure, development, user information, attributes, profiles, 
 
@@ -130,7 +130,7 @@ When a user signs into your app for the first time, {{site.data.keyword.appid_sh
 
 **To add a user:**
 
-1. Log into IBM Cloud.
+1. Log in to IBM Cloud.
   ```
   ibmcloud login
   ```
