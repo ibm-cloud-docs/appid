@@ -26,14 +26,14 @@ subcollection: appid
 # Using the Login Widget
 {: #login-widget}
 
-With IBM Cloud App ID you can use a default UI, called a Login Widget, to allow application users the ability to choose the identity provider that they want to sign in with. If you're using Cloud Directory, the Login Widget also provides additional UI's for extra functionalities such as sign up, forgot poassword, multi-factor authentication, and more.
+With {{site.data.keyword.appid_full}} you can use a default UI, called a Login Widget, to allow application users the ability to choose the identity provider that they want to sign in with. If you're using Cloud Directory, the Login Widget also provides additional UI's for extra functionalities such as sign up, forgot poassword, multi-factor authentication, and more.
 {: shortdesc}
 
 
 ## Understanding the Login Widget
 {: #widget-understanding}
 
-One of the best parts of the Login Widget is that you can start using App ID before you implement any of your own authentication UIs - which makes the developer onboarding experience that much easier.
+One of the best parts of the Login Widget is that you can start using {{site.data.keyword.appid_short_notm}} before you implement any of your own authentication UIs - which makes the developer onboarding experience that much easier.
 
 ### What is the default Login Widget behavior?
 {: #widget-default}
@@ -47,7 +47,7 @@ For example, if you're using the default - Facebook, Google, and Cloud Directory
 ### Which screens can be displayed for each provider?
 {: #widget-options}
 
-When you use Cloud Directory, App ID is able to provide you with the extended funtionality of user management. The extended funtionality also applies to the Login Widgets capabilities. User's that are stored in Cloud Directory can take advantage of the functionality such as signing up or resetting their password directly in the Login Widget. Check out the following table to see which screens you can display for each type of identity provider.
+When you use Cloud Directory, {{site.data.keyword.appid_short_notm}} is able to provide you with the extended funtionality of user management. The extended funtionality also applies to the Login Widgets capabilities. User's that are stored in Cloud Directory can take advantage of the functionality such as signing up or resetting their password directly in the Login Widget. Check out the following table to see which screens you can display for each type of identity provider.
 
 <table>
   <thead>
