@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-06"
+lastupdated: "2019-05-07"
 
 keywords: authentication, authorization, identity, app security, secure, development, sign in, sign up, password, social, enterprise
 
@@ -23,7 +23,8 @@ subcollection: appid
 {:download: .download}
 
 
-Using the Login Widget
+# Using the Login Widget
+{: #login-widget}
 
 With IBM Cloud App ID you can use a default UI, called a Login Widget, to allow application users the ability to choose the identity provider that they want to sign in with. If you're using Cloud Directory, the Login Widget also provides additional UI's for extra functionalities such as sign up, forgot poassword, multi-factor authentication, and more.
 {: shortdesc}
@@ -37,11 +38,11 @@ One of the best parts of the Login Widget is that you can start using App ID bef
 ### What is the default Login Widget behavior?
 {: #widget-default}
 
-By default, the Login Widget is enabled to use Facebook, Google, and Cloud Directory. You can change the behavior at any time by choosing which identity providers you want to configure as an option. When more than one identity provider is enabled, the Login Widget presents a screen where the user can make their identity provider selection. But, if you have a single provider enabled, user's do not see the aforementioned selection screen. They are taken directly to the identity provider to begin the sign in process.
+By default, the Login Widget is enabled to use Facebook, Google, and Cloud Directory. You can change the behavior at any time by choosing which identity providers that you want to configure as an option. When more than one identity provider is enabled, the Login Widget presents a screen where the user can make their identity provider selection. But, if you have a single provider enabled, user's do not see the aforementioned selection screen. They are taken directly to the identity provider to begin the sign in process.
 
-For example, if you're using the default - Facebook, Google, and Cloud Directory - users see the screen. If you enable Facebook only, user's are take directly to Facebook for authentication.
+For example, if you're using the default - Facebook, Google, and Cloud Directory - users see the screen. If you enable Facebook only, user's are taken directly to Facebook for authentication.
 
-{image with multiple IDPs}
+
 
 ### Which screens can be displayed for each provider?
 {: #widget-options}
