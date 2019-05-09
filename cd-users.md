@@ -63,43 +63,6 @@ If you disable self-service sign up or add a user on their behalf, the user does
 
 4. Click **Save**. A Cloud Directory user is created.
 
-</br>
-
-**To add a new user with the API:**
-
-1. Obtain your `tenantID` from your application or service credentials.
-
-2. Obtain an {{site.data.keyword.cloud_notm}} IAM token.
-
-  ```
-  curl --X GET "https://iam.cloud.ibm.com/oidc/token" -H "accept: application/x-www-form-urlencoded"
-  ```
-  {: codeblock}
-
-3. With the token that you obtained in step 2, make a POST request to the `cloud-directory/users` endpoint.
-
-  ```
-  curl --X POST "https://us-south.appid.cloud.ibm.com/management/v4/<tenant-ID>/cloud_directory/Users"
-  -H "accept: application/json"
-  -H "content-type: application/json"
-  -H "authorization: Bearer <token>"
-  -d {
-    "displayName": "Test User",
-    "password": "{{APPID_CLOUDDIR_PASSWORD}}",
-    "active": true,
-    "emails": [
-      {
-        "value": "{{APPID_CLOUDDIR_USER_EMAIL}}",
-        "primary": true
-      }
-    ],
-    "roles": [
-      { "value" : "role1" }, 
-      { "value" : "role2" }
-    ]
-  }
-  ```
-  {: codeblock}
 
 </br>
 
@@ -118,30 +81,6 @@ If you want to remove a user from your directory, you can delete the user from t
 3. In the box, click **Delete**. A screen displays.
 
 4. Confirm that you understand that deleting a user cannot be undone by clicking **Delete**. If the action was a mistake, you can add the user to your directory again, but any information about that user is no longer available.
-
-</br>
-
-**To delete a user by using the API:**
-
-1. Obtain your tenant ID.
-
-2. By using the email that is attached to the user, search your directory to find the user's ID.
-
-  ```
-  curl -X GET "https://us-south.appid.cloud.ibm.com/management/v4/<tenant-ID>/users?email=<user-email>" -H "accept: application/json"
-  ```
-  {: codeblock}
-
-  To see the full user data set that {{site.data.keyword.appid_short_notm}} supports, check out [the SCIM core schema](https://tools.ietf.org/html/rfc7643#section-8.2).
-  {: tip}
-
-3. Delete the user.
-
-  ```
-  curl --X DELETE "https://us-south.appid.cloud.ibm.com/management/v4/<tenant-ID>/cloud_directory/Users/<user-GUID>"
-  -H "accept: application/x-www-form-urlencoded"
-  ```
-  {: codeblock}
 
 
 
