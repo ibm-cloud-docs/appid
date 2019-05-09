@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-07"
+lastupdated: "2019-05-09"
 
 keywords: authentication, authorization, identity, app security, secure, development, sign in, sign up, password, social, enterprise
 
@@ -99,7 +99,7 @@ When you use Cloud Directory, {{site.data.keyword.appid_short_notm}} is able to 
 The Login Widget is dynamic. You can customize the look and feel or identity provider configuration, and the changes are applied immedicately. You do not need to update your application code or redeploy your app in any way!
 {: shortdesc}
 
-Do you need more customization than the Login Widget provides? You can implement your own, fully customized UI for user sign in, sign up, reset password, and other flows to create an experience that's unique to your app. To get started, check out [branding your app]((/docs/services/appid?topic=appid-branded)).
+Do you need more customization than the Login Widget provides? You can implement your own, fully customized UI for user sign in, sign up, reset password, and other flows to create an experience that's unique to your app. To get started, check out [branding your app](/docs/services/appid?topic=appid-branded).
 {: tip}
 
 To customize the screen:
@@ -175,7 +175,7 @@ Place the following command in your code.
       }
   });
   ```
-  {: pre}
+  {: codeblock}
 
 </br>
 

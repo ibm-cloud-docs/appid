@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-13"
+lastupdated: "2019-05-09"
 
 keywords: authentication, authorization, identity, app security, secure, access, platform, management, permissions
 
@@ -257,7 +257,7 @@ To update access permissions, the admin completes the following steps:
     ```
     ibmcloud login -api -a https://api.<region>.cloud.ibm.com
     ```
-    {: pre}
+    {: codeblock}
 
     <table>
       <tr>
@@ -291,7 +291,7 @@ To update access permissions, the admin completes the following steps:
     ```
     ibmcloud iam oauth-tokens
     ```
-    {: pre}
+    {: codeblock}
 
 6. Verify that the team member cannot make changes.
 
@@ -308,7 +308,7 @@ To update access permissions, the admin completes the following steps:
     }' \
     'https://us-south.appid.cloud.ibm.com/management/v4/<tenantID>/config/idps/facebook'
     ```
-    {: pre}
+    {: codeblock}
 
     The result is a 403 unauthorized message.
 
@@ -319,20 +319,20 @@ To view the {{site.data.keyword.appid_short_notm}} configurations from the CLI, 
     ```
     ibmcloud login -a api.<region>.console.cloud.ibm.com
     ```
-    {: pre}
+    {: codeblock}
 
 2. Get an IAM token and make a note of it.
 
     ```
     ibmcloud iam oauth-tokens
     ```
-    {: pre}
+    {: codeblock}
 
 3. View the identity provider configuration for Facebook by using cURL.
 
     ```
     curl -X GET --header 'Accept: application/json' --header 'Authorization: <IAM token value>' \  'https://us-south.appid.cloud.ibm.com/management/v4/<tenantID>/config/idps/facebook'
     ```
-    {: pre}
+    {: codeblock}
 
     The result is a 200 message that contains the identity provider information.

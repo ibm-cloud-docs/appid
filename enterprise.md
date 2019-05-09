@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-26"
+lastupdated: "2019-05-09"
 
 keywords: authentication, authorization, identity, app security, secure, custom, service provider, identity provider, enterprise, assertions
 
@@ -188,7 +188,7 @@ Want to set an authentication context? You can do so through the API.
   https://us-south.appid.cloud.ibm.com/management/v4/<tenant-ID>/config/idps/saml \
   --header `Accept: application/json`
   ```
-  {: pre}
+  {: codeblock}
 
   Example output:
   ```
@@ -231,7 +231,7 @@ Want to set an authentication context? You can do so through the API.
     "displayName": "my saml example",
   }
   ```
-  {: pre}
+  {: codeblock}
   {: #configuring-saml-new}
 
   <table>

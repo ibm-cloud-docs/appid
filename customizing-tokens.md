@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-09"
 
 keywords: authentication, authorization, identity, app security, secure, custom, tokens, access, claim, attributes
 
@@ -212,7 +212,7 @@ Be sure that you have the following prerequisites:
        Authorization: 'Bearer <IAM_TOKEN>'
        Content-Type: application/json
   ```
-  {: pre}
+  {: codeblock}
 
   Body:
   ```
@@ -242,7 +242,7 @@ Be sure that you have the following prerequisites:
        ]
    }
   ```
-  {: pre}
+  {: codeblock}
 
   <table>
     <thead>

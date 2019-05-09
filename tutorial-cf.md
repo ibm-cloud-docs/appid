@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-21"
+lastupdated: "2019-05-09"
 
 keywords: authentication, authorization, identity, app security, secure, development, cloud foundry, access management, iam, java, node.js
 
@@ -74,7 +74,7 @@ Before you get started, be sure that you have the following prerequisites:
   ```
   ibmcloud login -a cloud.ibm.com -r <region>
   ```
-  {: pre}
+  {: codeblock}
 
   <table>
     <tr>
@@ -108,14 +108,14 @@ Before you get started, be sure that you have the following prerequisites:
   ```
   ibmcloud target --cf
   ```
-  {: pre}
+  {: codeblock}
 
 8. Create an alias of the {{site.data.keyword.appid_short_notm}} service instance.
 
   ```
   ibmcloud resource service-alias-create {ALIAS_NAME} --instance-name {SERVICE_INSTANCE_NAME}
   ```
-  {: pre}
+  {: codeblock}
 
 9. Add the alias that you created to your services in the `manifest.yml`.
 
@@ -124,7 +124,7 @@ Before you get started, be sure that you have the following prerequisites:
   ```
   ibmcloud app push
   ```
-  {: pre}
+  {: codeblock}
 
 ## Deploying a Java app
 {: #java}
@@ -144,7 +144,7 @@ Before you get started, be sure that you have the following prerequisites:
   ```
   mvn clean install
   ```
-  {: pre}
+  {: codeblock}
 
 7. Change into the Liberty folder.
 
@@ -153,21 +153,21 @@ Before you get started, be sure that you have the following prerequisites:
   ```
   ibmcloud login -a cloud.ibm.com -r <region>
   ```
-  {: pre}
+  {: codeblock}
 
 8. Target the Cloud Foundry organization and space that you want to work in and follow the prompts to target an org and space.
 
   ```
   ibmcloud target --cf
   ```
-  {: pre}
+  {: codeblock}
 
 10. Create an alias of the {{site.data.keyword.appid_short_notm}} service instance.
 
   ```
   ibmcloud resource service-alias-create {ALIAS_NAME} --instance-name {SERVICE_INSTANCE_NAME}
   ```
-  {: pre}
+  {: codeblock}
 
 11. Add the alias that you created to your services in the `manifest.yml`.
 
@@ -186,5 +186,5 @@ Before you get started, be sure that you have the following prerequisites:
   ```
   ibmcloud app push
   ```
-  {: pre}
+  {: codeblock}
 

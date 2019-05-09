@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-02"
+lastupdated: "2019-05-09"
 
 keywords: authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
@@ -30,8 +30,11 @@ Cloud Directory provides you with a user registry for your apps that scales with
 {: shortdesc}
 
 
-A Cloud Directory user is not the same thing as an {{site.data.keyword.appid_short_notm}} user. Users can sign up for your app by using different the identity provider options that you configured, or you can add them to your directory. The users mentioned in this topic are those that chose to use the Cloud Directory option when signing up for your app.
+A Cloud Directory user is not the same thing as an {{site.data.keyword.appid_short_notm}} user. Users can sign up for your app by using different the identity provider options that you configured, or you can add them to your directory. The users mentioned in this topic are those that are associated with Cloud Directory as an identity provider.
 {: note}
+
+
+
 
 
 ## Adding and deleting users
@@ -40,9 +43,7 @@ A Cloud Directory user is not the same thing as an {{site.data.keyword.appid_sho
 You can manage your Cloud Directory users through the {{site.data.keyword.appid_short_notm}} dashboard or by using the APIs.
 {: shortdesc}
 
-To see the full data for a specific user, you can use the APIs to return a Cloud Directory user's information as a JSON object. To see the full user data set that {{site.data.keyword.appid_short_notm}} supports, check out [the SCIM core schema](https://tools.ietf.org/html/rfc7643#section-8.2).
-{: tip}
-
+When a user signs up for your application, they do so through a self-service workflow that automatically triggers emails such as a welcome or verification request. When you, as an administrator, add a user to your app a self-service workflow is not initiated, which means that users do not receive any emails from your application. If you want your users to still be notified that they've been added, you can trigger the messaging workflows through the [App ID management API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.set_cloud_directory_email_dispatcher).
 
 
 ### Adding users
@@ -50,8 +51,8 @@ To see the full data for a specific user, you can use the APIs to return a Cloud
 
 For test purposes, you can add a users through the {{site.data.keyword.appid_short_notm}} dashboard or by using the API.
 
-If you disable self-service sign up or add a user on their behalf, a user does not receive a verification email when they're added.
-{: note}
+If you disable self-service sign up or add a user on their behalf, a user does not receive a welcome or verification email when they're added.
+{: tip}
 
 **To add a new user with the GUI:**
 
@@ -76,7 +77,7 @@ If you disable self-service sign up or add a user on their behalf, a user does n
   --url "https://iam.cloud.ibm.com/oidc/token"
   -H "accept: application/x-www-form-urlencoded"
   ```
-  {: pre}
+  {: codeblock}
 
 3. With the token that you obtained in step 2, make a POST request to the `cloud-directory/users` endpoint.
 
@@ -102,7 +103,7 @@ If you disable self-service sign up or add a user on their behalf, a user does n
     ]
   }
   ```
-  {: pre}
+  {: codeblock}
 
 </br>
 
@@ -126,16 +127,22 @@ If you want to remove a user from your directory, you can delete the user from t
 
 **To delete a user by using the API:**
 
-1. Obtain the user's GUID and your tenant ID. 
+1. Obtain your tenant ID.
 
-2. Run the following command.
+2. By using the email that is attached to the user, search your directory to find the user's ID.
 
   ```
-  curl --X DELETE \
-  --url "https://us-south.appid.cloud.ibm.com/management/v4/<tenant-ID>/cloud_directory/Users/<user-GUID>"
+  curl -X GET "https://us-south.appid.cloud.ibm.com/management/v4/asdf/users?email=emails" -H "accept: application/json"
+  ```
+  {: codeblock}
+
+3. Delete the user.
+
+  ```
+  curl --X DELETE "https://us-south.appid.cloud.ibm.com/management/v4/<tenant-ID>/cloud_directory/Users/<user-GUID>"
   -H "accept: application/x-www-form-urlencoded"
   ```
-  {: pre}
+  {: codeblock}
 
 
 
@@ -161,7 +168,7 @@ Example cURL command:
 ```
 curl -X GET --header ‘Accept: application/json’ --header ‘Authorization: Bearer <iam-token>’ ’https://us-south.appid.cloud.ibm.com/management/v4/111c9bj3-xxxx-4b5b-zzzz-24ad9440k8j9/cloud_directory/export?encryption_secret=myCoolSecret'
 ```
-{: pre}
+{: codeblock}
 
 <table>
   <tr>
@@ -217,7 +224,7 @@ curl -X POST --header ‘Content-Type: application/json’ --header ‘Accept: a
     }
 ]}’ ‘https://us-south.appid.cloud.ibm.com/management/v4/111c9bj3-xxxx-4b5b-zzzz-24ad9440k8j9/cloud_directory/import?encryption_secret=myCoolSecret’
 ```
-{: pre}
+{: codeblock}
 
 
 
@@ -260,18 +267,18 @@ To run the script:
   ```
   npm install
   ```
-  {: pre}
+  {: codeblock}
 
 4. With your parameters, run the following command.
 
   ```
   users_export_import 'sourceTenantId' 'destinationTenantId' 'region' 'iamToken'
   ```
-  {: pre}
+  {: codeblock}
 
   Example command:
 
   ```
   users_export_import e00a0366-53c5-4fcf-8fef-ab3e66b2ced8 73321c2b-d35a-497a-9845-15c580fdf58c ng eyJraWQiOiIyMDE3MTAyNS0xNjoyNzoxMCIsImFsZyI6IlJTMjU2In0.eyJpYW1faWQiOiJJQk1pZC0zMTAwMDBUNkZTIiwiaWQiOiJJQk1pZC0zMTAwMDBUNkZTIiwicmVhbG1pZCI6IklCTWlkIiwiaWRlbnRpZmllciI6IjMxMDAwIFQ2RlMiPCJnaXZlbl9uYW1lIjoiUm90ZW0iLCJmYW1pbHlfbmFtZSI6IkJyb3NoIiwibmFtZSI6IlJvdGVtIEJyb3NoIiwiZW1haWwiOiJyb3RlbWJyQGlsLmlibS5jb20iLCJzdWIiOiJyb3RlbWJyQGlsLmlibS5jb20iLCJhY2NvdW50Ijp7ImJzcyI6ImQ3OWM5YTk5NjJkYzc2Y2JkMDZlYTVhNzhjMjY0YzE5In0sImlhdCI6MTUzNrE3Mjg4NCwiZXhwIjoxNTM3MTc2NDg0LCJpc3MiOiJodHRwczovL2lhbS5zdGFnZTEuYmx1ZW1peC5uZXQvaWRlbnRpdHkiLCJncmFudF90eXBlIjoidXJuOmlibTpwYXJhbXM6b2F1dGg6Z3JhbnQtdHlwZTpwYXNzY29kZSIsInNjb3BlIjoiaWJtIG9wZW5pZCIsImNsaWVudF9pZCI6ImJ4IiwiYWNyIjoxLCJhbXIiOlsicHdkIl19.c4vLPzhvvNZLjaLy7znDa37qV4o-yuGmSKmJoQKrEQNZU8IC0NIjxwSo7W9kb0pDi3Yf_03_9ufTTGNfjtltzNWycSXjkNgoL-b9_nU61oHdgn0stY1KmNicqyBWfgUU--4xa904QN_QjRHBaUBeJf3XWEphPIMoF7mZeOxEZLnCMcQXSz9pImCMiP4SNT38cHLiI90Yx01rM7hpteepWULh5MYh-B2V03Gkgxfqvv951HF1LDg6eT4Q9in11laTQKtKuomripUju_4GIIjORVYw9NaAVKIJ9lKrPX0SKPhStsa59qGsC_7Uersms5EY1W1VbZVqOZPJbtp6tVf-Lw
   ```
-  {: pre}
+  {: codeblock}

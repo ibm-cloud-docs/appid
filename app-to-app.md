@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-07"
+lastupdated: "2019-05-09"
 
 keywords: authentication, authorization, identity, app security, secure, application identity, app to app, access token
 
@@ -83,7 +83,7 @@ The client secret that is used to authenticate the client is highly sensitive an
   -H 'Authorization: Bearer IAM_TOKEN' \
   -d '{"name": "ApplicationName"}'
   ```
-  {: pre}
+  {: codeblock}
 
   Example response:
 
@@ -115,7 +115,7 @@ After your app is registered with {{site.data.keyword.appid_short_notm}} and you
     -H 'Content-Type: application/x-www-form-urlencoded' \
     -d grant_type=client_credentials
   ```
-  {: pre}
+  {: codeblock}
 
   Example response:
   ```
@@ -125,7 +125,7 @@ After your app is registered with {{site.data.keyword.appid_short_notm}} and you
   "token_type": "Bearer"
   }
   ```
-  {: pre}
+  {: codeblock}
 
 
 ## Tutorial: End-to-end flow with the Node.js SDK
@@ -152,7 +152,7 @@ After your app is registered with {{site.data.keyword.appid_short_notm}} and you
      //console.error('Error retrieving tokens : ' + err);
     });
     ```
-    {: pre}
+    {: codeblock}
 
   * From the {{site.data.keyword.appid_short_notm}} authorization server.
   
@@ -190,7 +190,7 @@ After your app is registered with {{site.data.keyword.appid_short_notm}} and you
       });
     }
     ```
-    {: pre}
+    {: codeblock}
 
 2. Make a request to your protected resource by using the access token that you obtained in the previous step.
 
@@ -211,7 +211,7 @@ After your app is registered with {{site.data.keyword.appid_short_notm}} and you
       }
   });
   ```
-  {: pre}
+  {: codeblock}
 
 3. Secure your protected resources by using the API strategy from the {{site.data.keyword.appid_short_notm}} Node.js SDK.
 
@@ -233,4 +233,4 @@ After your app is registered with {{site.data.keyword.appid_short_notm}} and you
           res.send("Hello from protected resource");
   });
   ```
-  {: pre}
+  {: codeblock}

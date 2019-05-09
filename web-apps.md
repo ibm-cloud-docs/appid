@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-06"
+lastupdated: "2019-05-09"
 
 keywords: authentication, authorization, identity, app security, secure, web apps, client, server
 
@@ -93,7 +93,7 @@ Check out the following video to learn about protecting Node applications with {
   ```bash
   npm install --save ibmcloud-appid
   ```
-  {: pre}
+  {: codeblock}
 
 ### Initializing the Node.js SDK
 {: #web-nodejs-initialize}
@@ -107,7 +107,7 @@ Check out the following video to learn about protecting Node applications with {
   const WebAppStrategy = require("ibmcloud-appid").WebAppStrategy;
   const CALLBACK_URL = "/ibm/cloud/appid/callback";
   ```
-  {: pre}
+  {: codeblock}
 
 2. Set up your express app to use express-session middleware.
 
@@ -121,7 +121,7 @@ Check out the following video to learn about protecting Node applications with {
   app.use(passport.initialize());
   app.use(passport.session());
   ```
-  {: pre}
+  {: codeblock}
 
   You must configure the middleware with the proper session storage for production environments. For more information see the <a href="https://github.com/expressjs/session" target="_blank"> express.js docs<img src="../icons/launch-glyph.svg" alt="External link icon"></a>.
   {: note}
@@ -139,7 +139,7 @@ Check out the following video to learn about protecting Node applications with {
     -H 'Authorization: Bearer IAM_TOKEN' \
     -d '{"name": "ApplicationName"}'
     ```
-    {: pre}
+    {: codeblock}
 
     Example response:
     ```
@@ -171,7 +171,7 @@ Check out the following video to learn about protecting Node applications with {
       redirectUri: "{app-url}" + CALLBACK_URL
     }));
   ```
-  {: pre}
+  {: codeblock}
 
 6. Configure passport with serialization and deserialization. This configuration step is required for authenticated session persistence across HTTP requests. For more information, see the <a href="http://www.passportjs.org/docs/" target="_blank">passport docs <img src="../icons/launch-glyph.svg" alt="External link icon"></a>.
 
@@ -184,21 +184,21 @@ Check out the following video to learn about protecting Node applications with {
     cb(null, obj);
     });
   ```
-  {: pre}
+  {: codeblock}
 
 5. Add the following code to your `server.js` file to issue the service redirects.
 
    ```javascript
    app.get(CALLBACK_URL, passport.authenticate(WebAppStrategy.STRATEGY_NAME));
    ```
-   {: pre}
+   {: codeblock}
 
 6. Register your protected endpoint.
 
    ```javascript
    app.get(‘/protected’, passport.authenticate(WebAppStrategy.STRATEGY_NAME), function(req, res) {res.json(req.user); });
    ```
-   {: pre}
+   {: codeblock}
 
 For more information, see the <a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs" target="_blank">{{site.data.keyword.appid_short_notm}} Node.js GitHub repository <img src="../icons/launch-glyph.svg" alt="External link icon"></a>.
 
@@ -238,7 +238,7 @@ Check out the following video to learn about protecting Liberty for Java applica
       <feature>openidConnectClient-1.0</feature>
   </featureManager>
   ```
-  {: pre}
+  {: codeblock}
 
 2. Obtain your credentials in one of two ways.
 
@@ -253,7 +253,7 @@ Check out the following video to learn about protecting Liberty for Java applica
     -H 'Authorization: Bearer IAM_TOKEN' \
     -d '{"name": "ApplicationName"}'
     ```
-    {: pre}
+    {: codeblock}
 
     Example response:
     ```
@@ -283,7 +283,7 @@ Check out the following video to learn about protecting Liberty for Java applica
     trustAliasName="ibm.com"
   />
   ```
-  {: pre}
+  {: codeblock}
 
   <table>
   <caption>Table. OIDC element variables for Liberty for Java apps</caption>
@@ -339,7 +339,7 @@ Check out the following video to learn about protecting Liberty for Java applica
       <requestUrl id="myRequestUrl" urlPattern="/protected" matchType="contains"/>
   </authFilter>
   ```
-  {: pre}
+  {: codeblock}
 
 2. Define your special subject type as `ALL_AUTHENTICATED_USERS`.
 
@@ -352,7 +352,7 @@ Check out the following video to learn about protecting Liberty for Java applica
       </application-bnd>
   </application>
   ```
-  {: pre}
+  {: codeblock}
 
 3. Download the `libertySample-1.0.0.war` file from <a href="https://github.com/ibm-cloud-security/appid-sample-code-snippets/tree/master/liberty-for-java" target="_blank">GitHub <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> and place it in your server's apps folder. For example, if your server is named `defaultServer`, the war file would go here `target/liberty/wlp/usr/servers/defaultServer/apps/`.
 
@@ -363,7 +363,7 @@ Check out the following video to learn about protecting Liberty for Java applica
     <keyStore id="appidtruststore" password="Liberty" location="${server.config.dir}/mytruststore.jks"/>
     <ssl id="defaultSSLConfig" keyStoreRef="defaultKeyStore" trustStoreRef="appidtruststore"/>
   ```
-  {: pre}
+  {: codeblock}
 
 By default SSL configuration requires the truststore be configured for OpenID Connect. Learn more about <a href="https://www.ibm.com/support/knowledgecenter/en/SSEQTP_liberty/com.ibm.websphere.wlp.doc/ae/twlp_config_oidc_rp.html" target="_blank">configuring an OpenID Connect Client in Liberty <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 {: tip}
@@ -401,7 +401,7 @@ You must have the following prerequisites:
       <relativePath/>
   </parent>
   ```
-  {: pre}
+  {: codeblock}
 
 2. Add the following dependencies to your Maven `pom.xml` file.
 
@@ -422,7 +422,7 @@ You must have the following prerequisites:
       </dependency>
   </dependencies>
   ```
-  {: pre}
+  {: codeblock}
 
 3. In the same file, include the Maven plug-in.
 
@@ -432,7 +432,7 @@ You must have the following prerequisites:
       <artifactId>spring-boot-maven-plugin</artifactId>
   </plugin>
   ```
-  {: pre}
+  {: codeblock}
 
 ### Initializing OAuth2
 {: #web-oauth-initialize}
@@ -443,7 +443,7 @@ You must have the following prerequisites:
   @SpringBootApplication
   @EnableOAuth2Sso
   ```
-  {: pre}
+  {: codeblock}
 
 2. Extend the class with `WebSecurityConfigurerAdapter`.
 3. Override any security configuration and register your protected endpoint.
@@ -456,7 +456,7 @@ You must have the following prerequisites:
                 .and().logout().logoutSuccessUrl("/").permitAll();
     }
   ```
-  {: pre}
+  {: codeblock}
 
 
 ### Adding credentials
@@ -475,7 +475,7 @@ You must have the following prerequisites:
     -H 'Authorization: Bearer IAM_TOKEN' \
     -d '{"name": "ApplicationName"}'
     ```
-    {: pre}
+    {: codeblock}
 
     Example response:
     ```
@@ -502,7 +502,7 @@ You must have the following prerequisites:
     resource:
       userInfoUri: {oauthServerUrl}/userinfo
   ```
-  {: pre}
+  {: codeblock}
 
 For a step-by-step example, check out <a href="https://www.ibm.com/blogs/bluemix/2018/06/creating-spring-boot-applications-app-id/" target="_blank">this blog</a>!
 

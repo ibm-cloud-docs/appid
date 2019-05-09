@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-07"
+lastupdated: "2019-05-09"
 
 keywords: authentication, authorization, identity, app security, secure, development, user information, attributes, profiles, 
 
@@ -134,13 +134,13 @@ When a user signs into your app for the first time, {{site.data.keyword.appid_sh
   ```
   ibmcloud login
   ```
-  {: pre}
+  {: codeblock}
 
 2. Find your IAM token by running the following command.
   ```
   ibmcloud iam oauth-tokens
   ```
-  {: pre}
+  {: codeblock}
 
 3. Make a POST request to the `/users` endpoint that contains a description of the user and the attributes that you want to set as a JSON object.
 
@@ -151,7 +151,7 @@ When a user signs into your app for the first time, {{site.data.keyword.appid_sh
        Authorization: 'Bearer <IAM_TOKEN>'
        Content-Type: application/json
   ```
-  {: pre}
+  {: codeblock}
 
   Body:
   ```
@@ -165,7 +165,7 @@ When a user signs into your app for the first time, {{site.data.keyword.appid_sh
        }
    }
   ```
-  {: pre}
+  {: codeblock}
 
   <table>
     <thead>
