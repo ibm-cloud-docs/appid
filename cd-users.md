@@ -36,7 +36,6 @@ A Cloud Directory user is not the same thing as an {{site.data.keyword.appid_sho
 
 
 
-
 ## Adding and deleting users
 {: #add-delete-users}
 
@@ -49,9 +48,9 @@ When a user signs up for your application, they do so through a self-service wor
 ### Adding users
 {: #add-users}
 
-For test purposes, you can add a users through the {{site.data.keyword.appid_short_notm}} dashboard or by using the API.
+For test purposes, you can add a user through the {{site.data.keyword.appid_short_notm}} dashboard or by using the API.
 
-If you disable self-service sign up or add a user on their behalf, a user does not receive a welcome or verification email when they're added.
+If you disable self-service sign up or add a user on their behalf, the user does not receive a welcome or verification email when they're added.
 {: tip}
 
 **To add a new user with the GUI:**
@@ -70,20 +69,17 @@ If you disable self-service sign up or add a user on their behalf, a user does n
 
 1. Obtain your `tenantID` from your application or service credentials.
 
-2. Obtain an IBM Cloud IAM token.
+2. Obtain an {{site.data.keyword.cloud_notm}} IAM token.
 
   ```
-  curl --X GET \
-  --url "https://iam.cloud.ibm.com/oidc/token"
-  -H "accept: application/x-www-form-urlencoded"
+  curl --X GET "https://iam.cloud.ibm.com/oidc/token" -H "accept: application/x-www-form-urlencoded"
   ```
   {: codeblock}
 
 3. With the token that you obtained in step 2, make a POST request to the `cloud-directory/users` endpoint.
 
   ```
-  curl --X POST \
-  --url "https://us-south.appid.cloud.ibm.com/management/v4/a62d585e-9920-47e9-b38f-121de036abd7/cloud_directory/Users"
+  curl --X POST "https://us-south.appid.cloud.ibm.com/management/v4/<tenant-ID>/cloud_directory/Users"
   -H "accept: application/json"
   -H "content-type: application/json"
   -H "authorization: Bearer <token>"
@@ -132,9 +128,12 @@ If you want to remove a user from your directory, you can delete the user from t
 2. By using the email that is attached to the user, search your directory to find the user's ID.
 
   ```
-  curl -X GET "https://us-south.appid.cloud.ibm.com/management/v4/asdf/users?email=emails" -H "accept: application/json"
+  curl -X GET "https://us-south.appid.cloud.ibm.com/management/v4/<tenant-ID>/users?email=<user-email>" -H "accept: application/json"
   ```
   {: codeblock}
+
+  To see the full user data set that {{site.data.keyword.appid_short_notm}} supports, check out [the SCIM core schema](https://tools.ietf.org/html/rfc7643#section-8.2).
+  {: tip}
 
 3. Delete the user.
 
