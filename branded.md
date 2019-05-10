@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-09"
 
 keywords: authentication, authorization, identity, app security, secure, customizing apps, directory, registry, 
 
@@ -94,7 +94,7 @@ With Cloud Directory enabled, you can call customized screens with the Android S
       }
   });
   ```
-  {: pre}
+  {: codeblock}
 
 </br>
 </br>

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-23"
+lastupdated: "2019-05-07"
 
 keywords: authentication, authorization, identity, app security, secure, access, tokens
 
@@ -27,6 +27,10 @@ subcollection: appid
 
 Confused about the differences between authorization and authentication? You're not alone. Check out the information on this page to learn about specific terminology, processes, and the way that the service uses tokens.
 {: shortdesc}
+
+Want to know more about some of the basic concepts of authorization and authentication? Look no further. In the following video you can learn about OAuth 2.0, grant types, OIDC, and more.
+
+<iframe class="embed-responsive-item" id="about-appid-basics" title="About {{site.data.keyword.appid_short_notm}}" type="text/html" width="640" height="390" src="//www.youtube.com/embed/ndlk-ZhKGXM?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
 
 
 ## Terminology

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-19"
+lastupdated: "2019-05-09"
 
 keywords: authentication, authorization, identity, app security, secure, development, sso, directory, users, registry, multiple apps
 
@@ -129,7 +129,7 @@ To sign out a user, redirect their browser by using your information to complete
 ```
 https://<region>.appid.cloud.ibm.com/oauth/v4/<tenant-id>/cloud_directory/sso/logout?redirect_uri=<redirect_uri>&client_id=<clientId>
 ```
-{: pre}
+{: codeblock}
 
 <table>
   <tr>
@@ -182,7 +182,7 @@ POST https://<region>.appid.cloud.ibm.com/management/v4/{tenant-id}/cloud_direct
 Headers:
 Authorization: <IAM TOKEN>
 ```
-{: pre}
+{: codeblock}
 
 <table>
   <tr>

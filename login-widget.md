@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-05-09"
 
 keywords: authentication, authorization, identity, app security, secure, development, sign in, sign up, password, social, enterprise
 
@@ -23,40 +23,31 @@ subcollection: appid
 {:download: .download}
 
 
-# Displaying the Login Widget
+# Using the Login Widget
 {: #login-widget}
 
-{{site.data.keyword.appid_full}} provides a Login Widget that lets you give your users secure sign in options.
+With {{site.data.keyword.appid_full}} you can use a default UI, called a Login Widget, to allow application users the ability to choose the identity provider that they want to sign in with. If you're using Cloud Directory, the Login Widget also provides additional UI's for extra functionalities such as sign up, forgot poassword, multi-factor authentication, and more.
 {: shortdesc}
 
-When your app is configured to use an identity provider, visitors to your app are directed to a sign-in screen by the Login Widget. With the Login Widget, you can display preconfigured screens for your sign-in flows. As a bonus, you can update your sign-in flow at any time without changing your source code in any way!
-
-Want to create an experience that's unique to your app? You can [bring your own screens](/docs/services/appid?topic=appid-branded)!
-{: tip}
 
 ## Understanding the Login Widget
 {: #widget-understanding}
 
-You can take advantage of {{site.data.keyword.appid_short_notm}}, even without your own UI screens, by displaying the Login Widget.
-{: shortdesc}
+One of the best parts of the Login Widget is that you can start using {{site.data.keyword.appid_short_notm}} before you implement any of your own authentication UIs - which makes the developer onboarding experience that much easier.
 
-### What is the default?
+### What is the default Login Widget behavior?
 {: #widget-default}
 
-When more than one identity provider is configured, a user is redirected to the Login Widget when they try to sign in to your application. By using the Login Widget, users can choose the provider that they want to verify their identity with. But, when only one provider is set to **On**, visitors are redirected to that identity providers authentication screen.
+By default, the Login Widget is enabled to use Facebook, Google, and Cloud Directory. You can change the behavior at any time by choosing which identity providers that you want to configure as an option. When more than one identity provider is enabled, the Login Widget presents a screen where the user can make their identity provider selection. But, if you have a single provider enabled, user's do not see the aforementioned selection screen. They are taken directly to the identity provider to begin the sign in process.
 
-### How much information does {{site.data.keyword.appid_short_notm}} obtain from an identity provider?
-{: #widget-obtain-info}
+For example, if you're using the default - Facebook, Google, and Cloud Directory - users see the screen. If you enable Facebook only, user's are taken directly to Facebook for authentication.
 
-When you use social or enterprise identity providers, {{site.data.keyword.appid_short_notm}} has read access to a users account information. The service uses a token and the assertions that are returned by the identity provider to verify that a user is who they say that they are. Because the service never has write access to the information, users must go through their chosen identity provider to do actions, such as resetting their password. For example, if a user signs in to your app with Facebook, and then wanted to change their password, they must go to www.facebook.com to do so.
-
-When you use [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory), {{site.data.keyword.appid_short_notm}} is the identity provider. The service uses your registry to verify your users identity. Because {{site.data.keyword.appid_short_notm}} is the provider, users can take advantage of advanced functionality, such as resetting their password, directly in your app.
 
 
 ### Which screens can be displayed for each provider?
 {: #widget-options}
 
-Check out the following table to see which screens you can display for each type of identity provider.
+When you use Cloud Directory, {{site.data.keyword.appid_short_notm}} is able to provide you with the extended funtionality of user management. The extended funtionality also applies to the Login Widgets capabilities. User's that are stored in Cloud Directory can take advantage of the functionality such as signing up or resetting their password directly in the Login Widget. Check out the following table to see which screens you can display for each type of identity provider.
 
 <table>
   <thead>
@@ -101,14 +92,15 @@ Check out the following table to see which screens you can display for each type
   </tbody>
 </table>
 
-</br>
-</br>
 
 ## Customizing the Login Widget
 {: #widget-customize}
 
-{{site.data.keyword.appid_short_notm}} provides a default login screen that you can call if you don't have your own UI screens to display. You can customize the screen to display the logo and colors of your choice.
+The Login Widget is dynamic. You can customize the look and feel or identity provider configuration, and the changes are applied immedicately. You do not need to update your application code or redeploy your app in any way!
 {: shortdesc}
+
+Do you need more customization than the Login Widget provides? You can implement your own, fully customized UI for user sign in, sign up, reset password, and other flows to create an experience that's unique to your app. To get started, check out [branding your app](/docs/services/appid?topic=appid-branded).
+{: tip}
 
 To customize the screen:
 
@@ -183,7 +175,7 @@ Place the following command in your code.
       }
   });
   ```
-  {: pre}
+  {: codeblock}
 
 </br>
 

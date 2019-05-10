@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-08"
+lastupdated: "2019-05-09"
 
 keywords: authentication, authorization, identity, app security, secure, access management, roles, attributes, users
 
@@ -87,14 +87,14 @@ This process does not finish Cloud Directory registration. The user must still s
   ```
   ibmcloud login
   ```
-  {: pre}
+  {: codeblock}
 
 2. Obtain an IAM access token.
 
   ```
   ibmcloud iam oauth-tokens
   ```
-  {: pre}
+  {: codeblock}
 
 3. Make a POST request to create a user profile for the new user that contains the `staff` attribute. Be sure that you can access and validate the email that you use.
 
@@ -113,7 +113,7 @@ This process does not finish Cloud Directory registration. The user must still s
     }
   }'
   ```
-  {: pre}
+  {: codeblock}
 
   Successful response output:
 
@@ -132,7 +132,7 @@ This process does not finish Cloud Directory registration. The user must still s
   --header 'Authorization: Bearer <iam-access-token>' \
   --header 'Content-Type: application/json' \
   ```
-  {: pre}
+  {: codeblock}
 
   Successful response body:
 
@@ -172,7 +172,7 @@ Cloud Land is growing! To keep up with the growth, your company is hiring new pe
     }
   }'
   ```
-  {: pre}
+  {: codeblock}
 
 3. View the profile to verify that it was updated correctly.
 
@@ -182,7 +182,7 @@ Cloud Land is growing! To keep up with the growth, your company is hiring new pe
   --header 'Authorization: Bearer <iam-access-token>' \
   --header 'Content-Type: application/json' \
   ```
-  {: pre}
+  {: codeblock}
 
   Successful response output:
 
@@ -236,7 +236,7 @@ Becoming more popular, the theme park continues to grow! With so many new visito
       ]
   }'
   ```
-  {: pre}
+  {: codeblock}
 
   <table>
     <tr>
@@ -314,7 +314,7 @@ Optionally, you can verify that step 4 was successful by viewing an access token
   --header `Accept: application/json`
   - d 'grant_type=password&username=<user-email>%40<user-email-domain>&password=<user-password>
   ```
-  {: pre}
+  {: codeblock}
 
 5. Decode your access token.
   1. Copy the token in the response output from the previous command.

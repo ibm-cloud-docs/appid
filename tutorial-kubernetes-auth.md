@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-25"
+lastupdated: "2019-05-09"
 
 keywords: authentication, authorization, identity, app security, secure, development, ingress, policy, networking, containers, kubernetes
 
@@ -135,14 +135,14 @@ By binding your instance of {{site.data.keyword.appid_short_notm}} to your clust
   ```
   kubectl get ingress
   ```
-  {: pre}
+  {: codeblock}
 
 4. Bind your instance of {{site.data.keyword.appid_short_notm}}. Binding creates a service key for the service instance. You can specify an existing service key by using the `-key` flag.
 
   ```
   ibmcloud ks cluster-service-bind --cluster <cluster_name_or_ID> --namespace <namespace> --service <App-ID_instance_name> [--key <service_instance_key>]
   ```
-  {: pre}
+  {: codeblock}
 
   If you do not specify a namespace, the secret is created in the `default` namespace.
   {: tip}
@@ -172,21 +172,21 @@ In order for your application to run in Kubernetes, you must host it in a regist
   ```
   ibmcloud cr login
   ```
-  {: pre}
+  {: codeblock}
 
 2. Create a Container Registry namespace.
 
   ```
   ibmcloud cr namespace-add <my_namespace>
   ```
-  {: pre}
+  {: codeblock}
 
 3. Build, tag, and push the app as an image to your namespace in Container Registry. Be sure to include the period (.) at the end of the command.
 
   ```
   ibmcloud cr build -t registry.<region>.bluemix.net/<namespace>/<app-name>:<tag> .
   ```
-  {: pre}
+  {: codeblock}
 
 Nice! You're almost ready to deploy.
 
@@ -205,7 +205,7 @@ To ensure the best performance of the integration, it is recommended that you al
   ```
   kubectl get secrets --namespace=<namespace>
   ```
-  {: pre}
+  {: codeblock}
 
   Example output:
 
@@ -278,7 +278,7 @@ To ensure the best performance of the integration, it is recommended that you al
   ```
   kubectl apply -f <file-name>.yaml
   ```
-  {: pre}
+  {: codeblock}
 
 Great work!
 

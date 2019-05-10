@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-07"
 
 keywords: authentication, authorization, identity, app security, secure, application identity, app to app, access token
 
@@ -28,7 +28,13 @@ subcollection: appid
 You can use the management API for DevOps automation, customization, and management of your instances of {{site.data.keyword.appid_full}}.
 {: shortdesc}
 
-The management API is secured with {{site.data.keyword.cloudaccesstraillong}} generated tokens. With IAM, account owners can specify who on their team has which level of access for each service instance. For more information about how IAM and {{site.data.keyword.appid_short_notm}} work together, see [Service Access Management](/docs/services/appid?topic=appid-service-access-management#service-access-management).
+The management API is secured with Identity and Access Management (IAM) generated tokens. With IAM, account owners can specify who on their team has which level of access for each service instance. For more information about how IAM and {{site.data.keyword.appid_short_notm}} work together, see [Service Access Management](/docs/services/appid?topic=appid-service-access-management).
+
+
+Want to see the API in action? Check out the following video tutorial!
+
+<iframe class="embed-responsive-item" id="about-appid-api" title="About {{site.data.keyword.appid_short_notm}} API" type="text/html" width="640" height="390" src="//www.youtube.com/embed/b2ABxvAdGg0?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
+
 
 With the API, you can:
 * Automate the configuration of {{site.data.keyword.appid_short_notm}} in your app of your DevOps process.
@@ -76,7 +82,7 @@ https://<region-endpoint>.appid.cloud.ibm.com/management
 {: #api-prereq}
 
 <ul><ul><li>A service instance that was created after 15 March 2018. If you have an instance of the service that was created before that date, create a new instance and configure it to match your current instance. Be sure to update your apps to use the new instance.</li>
-<li>The [{{site.data.keyword.cloud_notm}} CLI](/docs/cli/reference/ibmcloud/cloud-cli-install_use?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli) installed.</li></ul></ul>
+<li>The [{{site.data.keyword.cloud_notm}} CLI](/docs/cli/reference/ibmcloud/cloud-cli-install_use?topic=cloud-cli-ibmcloud-cli) installed.</li></ul></ul>
 
 ## Example usage
 {: #api-example}

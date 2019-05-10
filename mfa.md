@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-25"
+lastupdated: "2019-05-09"
 
 keywords: authentication, authorization, identity, app security, secure, development, two factor, mfa 
 
@@ -173,7 +173,7 @@ Be sure that you have the following prerequisites:
        Authorization: Bearer <IAM_TOKEN>
        Content-Type: application/json
   ```
-  {: pre}
+  {: codeblock}
 
   Body:
   ```
@@ -181,7 +181,7 @@ Be sure that you have the following prerequisites:
        "isActive": true
    }
   ```
-  {: pre}
+  {: codeblock}
 
   Example request:
   ```
@@ -206,7 +206,7 @@ Be sure that you have the following prerequisites:
        Authorization: Bearer <IAM_TOKEN>
        Content-Type: application/json
   ```
-  {: pre}
+  {: codeblock}
 
   Body:
   ```
@@ -214,7 +214,7 @@ Be sure that you have the following prerequisites:
        "isActive": true
    }
   ```
-  {: pre}
+  {: codeblock}
 
   Example request:
 
@@ -299,7 +299,7 @@ Header:
     Authorization: Bearer <IAM_TOKEN>
     Content-Type: application/json
   ```
-  {: pre}
+  {: codeblock}
 
 Body:
 
@@ -308,7 +308,7 @@ Body:
    "isActive": true
   }
   ```
-  {: pre}
+  {: codeblock}
 
 
 Example request:
@@ -336,7 +336,7 @@ Header:
       Authorization: Bearer <IAM_TOKEN>
       Content-Type: application/json
   ```
-  {: pre}
+  {: codeblock}
 
 Body:
 
@@ -350,7 +350,7 @@ Body:
       }
   }
   ```
-  {: pre}
+  {: codeblock}
 
 Example request:
 
@@ -383,7 +383,7 @@ Header:
      Authorization: Bearer <IAM_TOKEN>
      Content-Type: application/json
   ```
-  {: pre}
+  {: codeblock}
 
 Body:
 
@@ -392,7 +392,7 @@ Body:
     "phone_number": "phoneNumber-receives-test-message"
   }
   ```
-  {: pre}
+  {: codeblock}
 
 Example request:
 

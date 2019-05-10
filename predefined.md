@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-23"
+lastupdated: "2019-05-09"
 
 keywords: authentication, authorization, identity, app security, secure, user information, attributes, accessing, storing, preregister, profiles
 
@@ -42,7 +42,7 @@ AppID.sharedInstance.userProfileManager.getUserInfo { (error: Error?, userInfo: 
 	// retrieved user info successfully
 }
 ```
-{: pre}
+{: codeblock}
 
 Alternatively, you can explicitly pass access and identity tokens. The identity token is optional, but when passed, it is used to validate the user info response.
 
@@ -54,7 +54,7 @@ AppID.sharedInstance.userProfileManager.getUserInfo(accessToken: String, identit
 	// retrieved user info successfully
 }
 ```
-{: pre}
+{: codeblock}
 
 
 ## Accessing with the Android SDK
@@ -77,7 +77,7 @@ appId.getUserProfileManager().getUserInfo(new UserProfileResponseListener() {
 	}
 });
 ```
-{: pre}
+{: codeblock}
 
 Alternatively, you can explicitly pass access and identity tokens. The identity token is optional, but when passed, it is used to validate the user info response.
 
@@ -96,7 +96,7 @@ appId.getUserProfileManager().getUserInfo(accessToken, identityToken, new UserPr
 	}
 });
 ```
-{: pre}
+{: codeblock}
 
 
 ## Accessing with the Node.js Server SDK
@@ -123,7 +123,7 @@ userProfileManager.getUserInfo(accessToken).then(function (profile) {
 	// retrieved user info successfully
 });
 ```
-{: pre}
+{: codeblock}
 
 
 
@@ -155,7 +155,7 @@ userProfileManager.getUserInfo(accessToken: accessToken) { (err, userInfo) in
 	// retrieved user info successfully
 }
 ```
-{: pre}
+{: codeblock}
 
 
 
@@ -171,7 +171,7 @@ You can view additional information through the `/userinfo` endpoint.
   GET [POST] https://{oauth-server-endpoint}/userinfo
   Authorization: 'Bearer {ACCESS_TOKEN}'
   ```
-  {: pre}
+  {: codeblock}
 
   Example output:
   ```
