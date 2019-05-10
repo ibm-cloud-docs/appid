@@ -6,7 +6,6 @@ IBM Cloud App ID
 
     {: .navgroup id="learn"}
     index.md
-    
     about.md
     authorization.md
 

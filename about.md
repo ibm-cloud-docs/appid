@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-07"
+lastupdated: "2019-05-10"
 
 keywords: authentication, authorization, identity, app security, secure, compliance, high availability
 
@@ -26,7 +26,7 @@ subcollection: appid
 {: #about}
 
 Application security can be incredibly complicated. For most developers, it's one of the hardest parts of creating an app. How can you be sure that you are protecting your user's information? By integrating {{site.data.keyword.appid_full}} into your apps, you can secure resources and add authentication - even when you don't have much security experience.
-{:shortdesc}
+{: shortdesc}
 
 
 
