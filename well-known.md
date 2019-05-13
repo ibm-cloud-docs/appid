@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-09"
+lastupdated: "2019-05-13"
 
 keywords: authentication, authorization, identity, app security, secure, discovery endpoint, oidc, public keys, tokens, well known endpoint
 
@@ -42,7 +42,7 @@ You can obtain the discovery document and the information that it contains by ca
 You can find the endpoint at the following URL:
 
 ```
-https://[region].appid.ibm.cloud.com/oauth/v4/{tenantId}/.well-known/openid-configuration
+https://{region}.appid.ibm.cloud.com/oauth/v4/{tenantId}/.well-known/openid-configuration
 ```
 {: codeblock}
 
