@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-01"
+lastupdated: "2019-05-13"
 
 keywords: authentication, authorization, identity, app security, secure, development, idp, troubleshooting, redirected, validation
 
@@ -139,7 +139,7 @@ Could not decrypt SAML assertion. Ensure your SAML provider is configured with t
 
 **Why it's happening**
 
-If your identity provider is configured to encrypt, {{site.data.keyword.appid_short_notm}} must be configured to sign the SAML authentication requests (AuthNRequest). Then, your identity provider must be configured to expect the corresponding configuration. You might receive these errors for one of the following reasons:
+If your identity provider is configured to encrypt, {{site.data.keyword.appid_short_notm}} must be configured to sign the SAML authentication requests (AuthnRequest). Then, your identity provider must be configured to expect the corresponding configuration. You might receive these errors for one of the following reasons:
 
 - {{site.data.keyword.appid_short_notm}} is not configured to expect that the identity provider SAML response is encrypted.
 - {{site.data.keyword.appid_short_notm}} cannot correctly correctly decrypt your assertions.
@@ -171,7 +171,7 @@ Although {{site.data.keyword.appid_short_notm}} sends the initial authentication
 You might see the message if your identity provider: 
 
 * cannot find or verify the username.
-* does not support the `NameID` format that is defined in the authentication request (`AuthNRequest`).
+* does not support the `NameID` format that is defined in the authentication request (`AuthnRequest`).
 * does not support the authentication context.
 * requires the authentication request to be signed or use a specific algorithm in the signature.
 

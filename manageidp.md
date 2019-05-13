@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-07"
+lastupdated: "2019-05-13"
 
 keywords: authentication, authorization, identity, app security, secure, development, identity provider, tokens, customization, lifetime
 
@@ -32,7 +32,7 @@ Identity providers (IdP's) add a level of security for your mobile and web apps,
 
 {{site.data.keyword.appid_short_notm}} interacts with identity providers by using multiple protocols such as OpenID Connect, SAML, and more. For example, OpenID Connect is the protocol that is used with many social providers such as Facebook, Google. Enterprise providers such as <a href="https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-azure-active-directory/" target="_blank">Azure Active Directory <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>, or <a href="https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-active-directory-federation-service/" target="_blank">Active Directory Federation Service <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>, generally use SAML as their identity protocol. For [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory), the service uses SCIM to verify identity information.
 
-When you use social or enterprise identity providers, {{site.data.keyword.appid_short_notm}} has read access to a users account information. The service uses a token and the assertions that are returned by the identity provider to verify that a user is who they say that they are. Because the service never has write access to the information, users must go through their chosen identity provider to do actions, such as resetting their password. For example, if a user signs in to your app with Facebook, and then wanted to change their password, they must go to www.facebook.com to do so.
+When you use social or enterprise identity providers, {{site.data.keyword.appid_short_notm}} has read access to a users account information. The service uses a token and the assertions that are returned by the identity provider to verify that a user is who they say that they are. Because the service never has write access to the information, users must go through their chosen identity provider to do actions, such as resetting their password. For example, if a user signs in to your app with Facebook, and then wanted to change their password, they must go to `www.facebook.com` to do so.
 
 When you use [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory), {{site.data.keyword.appid_short_notm}} is the identity provider. The service uses your registry to verify your users identity. Because {{site.data.keyword.appid_short_notm}} is the provider, users can take advantage of advanced functionality, such as resetting their password, directly in your app.
 
