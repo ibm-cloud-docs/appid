@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-09"
+lastupdated: "2019-05-14"
 
 keywords: authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
@@ -26,14 +26,42 @@ subcollection: appid
 # Managing users
 {: #cd-users}
 
-Cloud Directory provides you with a user registry for your apps that scales with your user base, and includes simple ways to authenticate users to your apps using email and password. Cloud Directory has pre-built functionality for enhanced security and self service, like email verification, and password reset.
+Cloud Directory provides you with a user registry for your apps that scales with your user base and includes simple ways to authenticate users to your apps using email and password. Cloud Directory has pre-built functionality for enhanced security and self service, like email verification, and password reset.
 {: shortdesc}
 
 
 A Cloud Directory user is not the same thing as an {{site.data.keyword.appid_short_notm}} user. Users can sign up for your app by using different the identity provider options that you configured, or you can add them to your directory. The users mentioned in this topic are those that are associated with Cloud Directory as an identity provider.
 {: note}
 
+. 
+{: shortdesc}
 
+
+
+
+### With the API
+
+1. Obtain your tenant ID from your instance of the service.
+
+2. Search your App ID users with an identifying query to find the user ID.
+
+  ```
+  curl -X GET "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/Users?query={identifying-search-query}" -H "accept: application/json" -H "authorization: Bearer <token>"
+  ```
+  {: codeblock}
+
+3. By using the ID that you obtained in the previous step, make a GET request to the `cloud_directory/users` endpoint. 
+
+  ```
+  curl -X GET "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/Users/{user-ID}" -H "accept: application/json" -H "authorization: Bearer <token>"
+  ```
+  {: codeblock}
+
+  To see the full user data set that {{site.data.keyword.appid_short_notm}} supports, check out [the SCIM core schema](https://tools.ietf.org/html/rfc7643#section-8.2).
+  {: tip}
+
+
+</staging>
 
 
 ## Adding and deleting users
@@ -52,7 +80,8 @@ For test purposes, you can add a user through the {{site.data.keyword.appid_shor
 
 If you disable self-service sign up or add a user on their behalf, the user does not receive a welcome or verification email when they're added.
 {: tip}
-
+1- I would remove the “roles” from the json since its not mandatory.
+2- mention that username-password is also possible.
 **To add a new user with the GUI:**
 
 1. Navigate to the **Cloud Directory > Users** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
@@ -64,6 +93,9 @@ If you disable self-service sign up or add a user on their behalf, the user does
 4. Click **Save**. A Cloud Directory user is created.
 
 
+
+Now that you have a new user, try adding [custom attributes](/docs/services/appid?topic=appid-custom-attributes).
+{: tip}
 </br>
 
 ### Deleting users
