@@ -36,30 +36,6 @@ A Cloud Directory user is not the same thing as an {{site.data.keyword.appid_sho
 
 
 
-### With the API
-
-1. Obtain your tenant ID from your instance of the service.
-
-2. Search your App ID users with an identifying query to find the user ID.
-
-  ```
-  curl -X GET "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/Users?query={identifying-search-query}" -H "accept: application/json" -H "authorization: Bearer <token>"
-  ```
-  {: codeblock}
-
-3. By using the ID that you obtained in the previous step, make a GET request to the `cloud_directory/users` endpoint. 
-
-  ```
-  curl -X GET "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/Users/{user-ID}" -H "accept: application/json" -H "authorization: Bearer <token>"
-  ```
-  {: codeblock}
-
-  To see the full user data set that {{site.data.keyword.appid_short_notm}} supports, check out [the SCIM core schema](https://tools.ietf.org/html/rfc7643#section-8.2).
-  {: tip}
-
-
-</staging>
-
 
 ## Adding and deleting users
 {: #add-delete-users}
@@ -73,7 +49,7 @@ When a user signs up for your application, they do so through a self-service wor
 ### Adding users
 {: #add-users}
 
-For test purposes, you can add a user through the {{site.data.keyword.appid_short_notm}} dashboard or by using the API.
+When a user signs up for your application, they are added as a user. For test purposes, you can add a user through the {{site.data.keyword.appid_short_notm}} dashboard or by using the API. When you add a user to Cloud Directory, they are not added until 
 
 If you disable self-service sign up or add a user on their behalf, the user does not receive a welcome or verification email when they're added.
 {: tip}
