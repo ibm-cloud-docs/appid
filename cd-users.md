@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-14"
+lastupdated: "2019-05-15"
 
 keywords: authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
@@ -30,7 +30,7 @@ Cloud Directory provides you with a user registry for your apps that scales with
 {: shortdesc}
 
 
-A Cloud Directory user is not the same thing as an {{site.data.keyword.appid_short_notm}} user. Users can sign up for your app by using different the identity provider options that you configured, or you can add them to your directory. The users mentioned in this topic are those that are associated with Cloud Directory as an identity provider.
+A Cloud Directory user is not the same thing as an {{site.data.keyword.appid_short_notm}} user. Users can sign up for your app by using different the identity provider options that you configured, or you can add them to your directory. The users that are mentioned in this topic are those that are associated with Cloud Directory as an identity provider.
 {: note}
 
 
@@ -77,8 +77,8 @@ For test purposes, you can add a user through the {{site.data.keyword.appid_shor
 
 If you disable self-service sign up or add a user on their behalf, the user does not receive a welcome or verification email when they're added.
 {: tip}
-1- I would remove the “roles” from the json since its not mandatory.
-2- mention that username-password is also possible.
+
+
 **To add a new user with the GUI:**
 
 1. Navigate to the **Cloud Directory > Users** tab of the {{site.data.keyword.appid_short_notm}} dashboard.

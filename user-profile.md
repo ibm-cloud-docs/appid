@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-15"
 
 keywords: authentication, authorization, identity, app security, secure, user profiles, personalized apps, attributes, 
 
@@ -55,7 +55,7 @@ There are different ways in which you can access [predefined](/docs/services/app
 
 For more information about identity and access tokens, see [Understanding tokens](/docs/services/appid?topic=appid-tokens#tokens) or [Validating tokens](/docs/services/appid?topic=appid-token-validation).
 
-![{{site.data.keyword.appid_short_notm}} user profile architecture](images/user-profile1.png)
+![{{site.data.keyword.appid_short_notm}} user profile architecture](images/user-profile.png)
 
 Figure. User profile information flow
 
