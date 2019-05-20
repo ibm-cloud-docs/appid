@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-25"
+lastupdated: "2019-05-20"
 
 keywords: authentication, authorization, identity, app security, secure, attributes, user information, storing, accessing
 
@@ -40,7 +40,7 @@ You can set roles and scopes that are known as attributes to a user profile. You
 {: shortdesc}
 
 
-Attributes are pieces of information about your users. By saving them, you can create profiles on your users that allow you to personalize their experience. The more attributes that are added to their profile, the more personalized their app experience can be. Check out this blog to see how creating user profiles can make a difference: <a href="https://www.ibm.com/blogs/bluemix/2017/03/introducing-ibm-bluemix-app-id-authentication-profiles-service-app-developers/" target="blank">Introducing {{site.data.keyword.appid_short_notm}}<img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
+Attributes are pieces of information about your users. By saving them, you can create profiles on your users that allow you to personalize their experience. The more attributes that are added to their profile, the more personalized their app experience can be. Check out this blog to see how creating user profiles can make a difference: <a href="https://www.ibm.com/cloud/blog/announcements/introducing-ibm-bluemix-app-id-authentication-profiles-service-app-developers" target="blank">Introducing {{site.data.keyword.appid_short_notm}}<img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
 
 
 You can store 100 KB of information for each user.

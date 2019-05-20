@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-25"
+lastupdated: "2019-05-20"
 
 keywords: authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
@@ -166,7 +166,7 @@ When a user interacts with your app, they might forget their password or need to
     </tr>
     <tr>
       <td><code>%{resetPassword.code}</code></td>
-      <td> Displays a one-time passcode as part of the URL. This means that each person would have a different code. Example: <code>https://us-south.appid.cloud.ibm.com/wfm/verify/6574839563478</code></td>
+      <td> Displays a one-time passcode as part of the URL. This means that each person would have a different code. Example: `https://us-south.appid.cloud.ibm.com/wfm/verify/6574839563478`</td>
     </tr>
     <tr>
       <td><code>%{resetPassword.link}</code></td>
@@ -286,25 +286,25 @@ To configure your custom email sender, you must use the Cloud Directory <a href=
 3. The body that is sent by {{site.data.keyword.appid_short_notm}} is in the following format: `{"jws": "jws-format-string"}`. After you decode and verify the payload, the content is a JSON string.
 
   ```
-    {
-      "tenant": "tenant-id",
-      "iss" : "https://us-south.appid.cloud.ibm.com/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6050a61", 
-      "iat": 1539173126,
-      "jti": "uniq-id",
-      "message": {
-          "to": "your@mail.com",
-          "from": {
-              "name": "My Awesome Service",
-              "address": "no-reply@company.com"
-          },
-          "replyTo": {
-              "name": "My Awesome Service",
-              "address": "yes-reply@company.com"
-          },
-          "subject": "Welcome to My Awesome Service",
-          "body": "<p>Hello<p><br/><p>Thanks for signing up John Doe</p>"
-      }
+  {
+    "tenant": "tenant-id",
+    "iss" : "https://us-south.appid.cloud.ibm.com/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6050a61", 
+    "iat": 1539173126,
+    "jti": "uniq-id",
+    "message": {
+        "to": "your@mail.com",
+        "from": {
+            "name": "My Awesome Service",
+            "address": "no-reply@company.com"
+        },
+        "replyTo": {
+            "name": "My Awesome Service",
+            "address": "yes-reply@company.com"
+        },
+        "subject": "Welcome to My Awesome Service",
+        "body": "<p>Hello<p><br/><p>Thanks for signing up John Doe</p>"
     }
+  }
   ```
   {: screen}
 
@@ -417,7 +417,7 @@ For every {{site.data.keyword.appid_short_notm}} instance, a private and a publi
 
 6. Verify that your configuration is correctly set up by testing your email dispatcher. Use the <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/post_email_dispatcher_test" target="_blank">test API</a> to trigger a request to your configured custom email sender.
 
-For full working example, see <a href="https://www.ibm.com/blogs/bluemix/2018/10/use-ibm-cloud-app-id-and-your-email-provider-to-brand-mails-sent-to-app-users/" target="_blank">Use your own provider for mail sent with {{site.data.keyword.appid_full}}</a>.
+For full working example, see <a href="https://www.ibm.com/cloud/blog/use-ibm-cloud-app-id-and-your-email-provider-to-brand-mails-sent-to-app-users" target="_blank">Use your own provider for mail sent with {{site.data.keyword.appid_full}}</a>.
 
 
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-13"
+lastupdated: "2019-05-20"
 
 keywords: authentication, authorization, identity, app security, secure, custom, service provider, identity provider, enterprise, assertions
 
@@ -29,7 +29,7 @@ When you have a SAML-based identity provider, you can configure {{site.data.keyw
 {: shortdesc}
 
  
-Working with a specific SAML identity provider? Check out one of these blog posts on setting up {{site.data.keyword.appid_short_notm}} with [Ping One ![External link icon](../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-ping-one/), [an Azure Active Directory ![External link icon](../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-azure-active-directory/), or [an Active Directory Federation Service ![External link icon](../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-active-directory-federation-service/).
+Working with a specific SAML identity provider? Check out one of these blog posts on setting up {{site.data.keyword.appid_short_notm}} with [Ping One ![External link icon](../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-ping-one), [an Azure Active Directory ![External link icon](../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-azure-active-directory), or [an Active Directory Federation Service ![External link icon](../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-active-directory-federation-service).
 {: tip}
 
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-13"
+lastupdated: "2019-05-20"
 
 keywords: authentication, authorization, identity, app security, secure, development, ingress, policy, networking, containers, kubernetes
 
@@ -65,7 +65,7 @@ Before you can get started, ensure that you have the following prerequisites.
 
   * [{{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli)
   * [Kubernetes](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
-  * [Docker](https://www.docker.com/products/docker-engine#/download)
+  * [Docker](https://www.docker.com/products/container-runtime#/download)
 
 * The following [CLI plug-ins](/docs/cli?topic=cloud-cli-install-devtools-manually#idt-install-kubernetes-cli-plugin):
 
@@ -184,7 +184,7 @@ In order for your application to run in Kubernetes, you must host it in a regist
 3. Build, tag, and push the app as an image to your namespace in Container Registry. Be sure to include the period (.) at the end of the command.
 
   ```
-  ibmcloud cr build -t registry.<region>.bluemix.net/<namespace>/<app-name>:<tag> .
+  ibmcloud cr build -t registry.{region}.icr.io.net/{namespace}/{app-name}:{tag} .
   ```
   {: codeblock}
 
@@ -197,7 +197,7 @@ During cluster creation, both a private and a public IBM Kubernetes Service Appl
 {: shortdesc}
 
 
-To ensure the best performance of the integration, it is recommended that you always use the latest version of IBM Kubernetes Service Application Load Balancer (ALB). By default, auto-update is enabled for your cluster. For more information about auto-updates, see [On-demand ALB update feature on {{site.data.keyword.containershort}}](https://www.ibm.com/blogs/bluemix/2018/11/on-demand-alb-update-feature-on-ibm-cloud-kubernetes-service/).
+To ensure the best performance of the integration, it is recommended that you always use the latest version of IBM Kubernetes Service Application Load Balancer (ALB). By default, auto-update is enabled for your cluster. For more information about auto-updates, see [On-demand ALB update feature on {{site.data.keyword.containershort}}](https://www.ibm.com/cloud/blog/on-demand-alb-update-feature-on-ibm-cloud-kubernetes-service).
 {: tip}
 
 1. Get the secret that was created in your cluster namespace when you bound {{site.data.keyword.appid_short_notm}} to your cluster. Note: this is **not** your Container Registry namespace.
