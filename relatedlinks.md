@@ -33,8 +33,8 @@ You can use the following related links and Samples to learn more about and inte
 {: #rellinks-contact}
 
 We’d love to hear from you with feedback and questions! To get started with {{site.data.keyword.appid_short}}, check it out in the {{site.data.keyword.cloud_notm}} catalog.
-* If you have technical questions about {{site.data.keyword.appid_short_notm}}, post your question on <a href="https://stackoverflow.com/" target="_blank">Stack Overflow <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> and tag your question with "ibm-appid".
-* For questions about the service and getting started instructions, use the <a href="https://developer.ibm.com/" target="_blank">dW Answers <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> forum. Include the `appid` tag.
+* If you have technical questions about {{site.data.keyword.appid_short_notm}}, post your question on <a href="https://stackoverflow.com" target="_blank">Stack Overflow <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> and tag your question with "ibm-appid".
+* For questions about the service and getting started instructions, use the <a href="https://developer.ibm.com" target="_blank">dW Answers <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> forum. Include the `appid` tag.
 
 
 ## Introduction
@@ -44,7 +44,7 @@ Get to know more about {{site.data.keyword.appid_short_notm}} by reading through
 
 * <a href="https://www.youtube.com/watch?v=XlrCjHdK43Q" target="_blank">Introducing {{site.data.keyword.appid_short_notm}}: video<img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 * <a href="https://www.ibm.com/cloud/blog/announcements/introducing-ibm-bluemix-app-id-authentication-profiles-service-app-developers" target="_blank">Introducing {{site.data.keyword.appid_short_notm}} blog <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
-* <a href="https://www.ibm.com/cloud/blog/cloud-app-security-makes-secure-app/" target="_blank">Cloud App Security - What makes a secure app? <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
+* <a href="https://www.ibm.com/cloud/blog/cloud-app-security-makes-secure-app" target="_blank">Cloud App Security - What makes a secure app? <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 * <a href="https://www.ibm.com/cloud/garage/architectures/securityArchitecture/security-for-application" target="_blank">Security to safeguard and monitor your apps <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 * <a href="https://www.youtube.com/watch?v=cDSYNFn4rX8" target="_blank">Add sign up and sign in to your apps with {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 
