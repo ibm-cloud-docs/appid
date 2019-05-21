@@ -63,9 +63,9 @@ What to know the gritty details about how the service works? Check out the techn
 
 Interested in securing your applications? Check out the blogs and samples here to see how it's done.
 
-* <a href="https://www.ibm.com/cloud/blog/securing-angularnode-js-applications-using-app-id/" target="_blank">Securing Angular + Node.js Applications by using {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
-* <a href="https://www.ibm.com/cloud/blog/securing-single-page-apps-app-id-service/" target="_blank">Securing single page apps with {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
-* <a href="https://www.ibm.com/cloud/blog/creating-spring-boot-applications-app-id/" target="_blank">Creating Spring Boot applications with {{site.data.keyword.appid_long}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
+* <a href="https://www.ibm.com/cloud/blog/securing-angularnode-js-applications-using-app-id" target="_blank">Securing Angular + Node.js Applications by using {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
+* <a href="https://www.ibm.com/cloud/blog/securing-single-page-apps-app-id-service" target="_blank">Securing single page apps with {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
+* <a href="https://www.ibm.com/cloud/blog/creating-spring-boot-applications-app-id" target="_blank">Creating Spring Boot applications with {{site.data.keyword.appid_long}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 * <a href="https://github.com/mnsn/appid-python-flask-example" target="_blank">Using {{site.data.keyword.appid_short_notm}} with Python <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 * <a href="https://github.com/IBM-Cloud/github-traffic-stats" target="_blank">Using Python Flask-pyoidc with {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 * <a href="https://github.com/ibmets/appid-vue-client" target="_blank">Securing a VueJS app by using {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
@@ -93,8 +93,7 @@ Just getting started? Try walking through some of our tutorials and blogs for he
 * <a href="/docs/tutorials?topic=solution-tutorials-serverless-github-traffic-analytics#serverless-github-traffic-analytics" target="_blank">Combining serverless and Cloud Foundry for data retrieval and analytics <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 * <a href="https://www.ibm.com/cloud/blog/how-to-configure-ibm-cloud-app-id-from-the-toolchain" target="_blank">Configuring {{site.data.keyword.appid_short_notm}} From the Toolchain <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 * <a href="http://heidloff.net/article/user-authorization-serverless-web-applications-openwhisk" target="_blank">User Authorization in Serverless Web Applications <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
-* <a href="http://heidloff.net/article/user-authentication-serverless-openwhisk
-" target="_blank">Authentication of Users in Serverless Applications <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
+* <a href="http://heidloff.net/article/user-authentication-serverless-openwhisk" target="_blank">Authentication of Users in Serverless Applications <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 
 
 
