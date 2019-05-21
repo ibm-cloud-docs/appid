@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-13"
+lastupdated: "2019-05-21"
 
 keywords: authentication, authorization, identity, app security, secure, discovery endpoint, oidc, public keys, tokens, well known endpoint
 
@@ -23,7 +23,7 @@ subcollection: appid
 {:download: .download}
 
 
-# Using the OIDC discovery endpoint
+# OIDC discovery document
 {: #discovery}
 
 OpenID Connect supports a discovery protocol that contains information that you can use to configure your apps and authenticate users such as tokens and public keys.
@@ -75,20 +75,20 @@ https://{region}.appid.ibm.cloud.com/oauth/v4/{tenantId}/.well-known/openid-conf
 
 
 
-**How do I make the call to the endpoint?**
+**How do I call the endpoint?**
 
-To make a call to the endpoint you must have a valid `tenantID` and you must hardcode the discovery document URI in your application.
+To make a call to the endpoint, you must have a valid tenant ID and you must hardcode the discovery document URI into your application code.
 
 Check out the following sample cURL request:
 
 ```bash
-curl -X GET "https://us-south.appid.cloud.ibm.com/oauth/v4/asd/.well-known/openid-configuration" -H "accept: application/json"
+curl -X GET "https://{region}.appid.cloud.ibm.com/oauth/v4/{tenant-id}/.well-known/openid-configuration" -H "accept: application/json"
 ```
 {:codeblock}
 
 **What can I expect the call to return?**
 
-The response should look similar to the following example:
+The response that is returned looks similar to the following example:
 
 ```bash
 {
@@ -165,7 +165,7 @@ The response should look similar to the following example:
   </tr>
   <tr>
     <td><code>userinfo_endpoint</code></td>
-    <td>The URL of the {{site.data.keyword.appid_short_notm}} userinfo endpoint.</td>
+    <td>The URL of the {{site.data.keyword.appid_short_notm}} <code>/userinfo</code> endpoint.</td>
   </tr>
   <tr>
     <td><code>scopes_supported</code></td>

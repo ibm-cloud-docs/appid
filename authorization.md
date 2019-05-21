@@ -56,7 +56,7 @@ Example:
   "tenantId": "8f5aa500-357e-443a-aab6-bf878f852b5a",
   "secret": "OWEzZGM4M2UtZjhlYS00MDI2LTkwNGItNDJmYzViMmU2YzIz",
   "name":testing",
-  "oAuthServerUrl": "https://{region}.appid.cloud.ibm.com/oauth/v4/8f5aa500-357e-443a-aab6-bf878f852b5a",
+  "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v4/8f5aa500-357e-443a-aab6-bf878f852b5a",
   "profilesUrl": "https://us-south.appid.cloud.ibm.com",
   "discoveryEndpoint": "https://us-south.appid.ibm.cloud.com/oauth/v4/8f5aa500-357e-443a-aab6-bf878f852b5a/.well-known/openid-configuration"
 }

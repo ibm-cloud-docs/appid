@@ -28,7 +28,6 @@ IBM Cloud App ID
         custom-auth.md
         progressive.md
         app-to-app.md
-        well-known.md
 
     manageidp.md
 
@@ -79,6 +78,7 @@ IBM Cloud App ID
     iam.md
     api-reference.md
     at-events.md
+    well-known.md
     {: .navgroup-end}
 
     {: .navgroup id="help"}
