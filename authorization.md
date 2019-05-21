@@ -137,7 +137,7 @@ When the web app strategy detects unauthorized attempts to access a protected re
 ### Redirect URIs
 {: #term-redirect}
 
-{{site.data.keyword.appid_short_notm}} uses a list of fully qualified, approved URIs to redirect your users after an interaction with your app. For example, if the user successfully signs in, {{site.data.keyword.appid_short_notm}} redirects the user to the home page of your app or to another page that you specify. The format of your URI might change depending on your application. Check out [Adding redirect URIs](/docs/services/appid?topic=appid-managing-idp#add-redirect-uri) for more information.</p></dd>
+{{site.data.keyword.appid_short_notm}} uses a list of fully qualified, approved URIs to redirect your users after an interaction with your app. For example, if the user successfully signs in, {{site.data.keyword.appid_short_notm}} redirects the user to the home page of your app or to another page that you specify. The format of your URI might change depending on your application. Check out [Adding redirect URIs](/docs/services/appid?topic=appid-managing-idp#add-redirect-uri) for more information.
 
 
 ### JSON Web Key Set (JWKS)
