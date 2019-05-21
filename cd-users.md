@@ -2,14 +2,14 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-20"
+lastupdated: "2019-05-21"
 
 keywords: authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
 subcollection: appid
 
 ---
-
+ 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
@@ -49,7 +49,7 @@ When a user signs up for your application, they do so through a self-service wor
 ### Adding users
 {: #add-users}
 
-When a user signs up for your application, they are added as a user. For test purposes, you can add a user through the {{site.data.keyword.appid_short_notm}} dashboard or by using the API. When you add a user to Cloud Directory, they are not added until 
+When a user signs up for your application, they are added as a user. For test purposes, you can add a user through the {{site.data.keyword.appid_short_notm}} dashboard or by using the API.
 
 If you disable self-service sign up or add a user on their behalf, the user does not receive a welcome or verification email when they're added.
 {: tip}
@@ -64,6 +64,7 @@ If you disable self-service sign up or add a user on their behalf, the user does
 3. Enter a **First name**, **Last name**, **Email**, and **Password**. Be sure that the email that you try to register is not already taken by another user. To be sure that you typed your password correctly, confirm it by entering it in the **Re-enter Password** field.
 
 4. Click **Save**. A Cloud Directory user is created.
+
 
 
 
@@ -86,6 +87,7 @@ If you want to remove a user from your directory, you can delete the user from t
 3. In the box, click **Delete**. A screen displays.
 
 4. Confirm that you understand that deleting a user cannot be undone by clicking **Delete**. If the action was a mistake, you can add the user to your directory again, but any information about that user is no longer available.
+
 
 
 
