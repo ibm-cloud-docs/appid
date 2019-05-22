@@ -90,10 +90,12 @@ You can use the {{site.data.keyword.appid_short_notm}} dashboard to view details
   </tr>
 </table>
 
-
+</br>
 
 
 ### With the API
+
+You can use the {{site.data.keyword.appid_short_notm}} API to view details about your app users. 
 
 1. Obtain your tenant ID from your instance of the service.
 
@@ -103,6 +105,13 @@ You can use the {{site.data.keyword.appid_short_notm}} dashboard to view details
   curl -X GET "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/Users?query={identifying-search-query}" -H "accept: application/json" -H "authorization: Bearer {token}"
   ```
   {: codeblock}
+
+  Example:
+
+  ```
+  curl -X GET https://us-south.appid.cloud.ibm.com/management/v4/e19a2778-3262-4986-8875-8bdee9ffc0d2/cloud_directory/Users?query=arokkamp@us.ibm.com -H "accept: application/json" -H "authorization: Bearer eyJraWQiOiIyMDE3MTEyOSIsImFsZ...."
+  ```
+  {: screen}
 
 3. By using the ID that you obtained in the previous step, make a GET request to the `cloud_directory/users` endpoint to see their full user profile.
 
