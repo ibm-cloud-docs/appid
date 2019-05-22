@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-21"
+lastupdated: "2019-05-22"
 
 keywords: authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
@@ -55,6 +55,7 @@ If you disable self-service sign up or add a user on their behalf, the user does
 {: tip}
 
 
+
 **To add a new user with the GUI:**
 
 1. Navigate to the **Cloud Directory > Users** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
@@ -65,12 +66,13 @@ If you disable self-service sign up or add a user on their behalf, the user does
 
 4. Click **Save**. A Cloud Directory user is created.
 
-
+</br>
 
 
 Now that you have a new user, try adding [custom attributes](/docs/services/appid?topic=appid-custom-attributes).
 {: tip}
 </br>
+
 
 ### Deleting users
 {: #delete-users}
@@ -87,7 +89,6 @@ If you want to remove a user from your directory, you can delete the user from t
 3. In the box, click **Delete**. A screen displays.
 
 4. Confirm that you understand that deleting a user cannot be undone by clicking **Delete**. If the action was a mistake, you can add the user to your directory again, but any information about that user is no longer available.
-
 
 
 
