@@ -35,6 +35,130 @@ A Cloud Directory user is not the same thing as an {{site.data.keyword.appid_sho
 
 
 
+## Viewing user information
+{: #cd-user-info}
+
+You can see all of the information that is known about all of your Cloud Directory users as a JSON object by using the APIs or by using the dashboard. 
+{: shortdesc}
+
+
+### With the GUI
+
+You can use the {{site.data.keyword.appid_short_notm}} dashboard to view details about your app users. 
+
+1. Navigate to the **Cloud Directory > Users** tab of your {{site.data.keyword.appid_short_notm}} instance.
+
+2. Look through the table or search by using an email address to find the user that you want to see the information for.
+
+3. In the overflow menu in the user's row, click **View user details**. A page opens that contains the user's information. Check out the following table to see what information you can see.
+
+<table>
+  <tr>
+    <th colspan="2">User details</th>
+  </tr>
+  <tr>
+    <td>User identitifier</td>
+    <td>The user identifier is dependant upon the type of user sign up that you configured. If you have an email and password flow configured, the identifier is the user's email. If you use the username and password flow, the identifier is the username that is given at sign up.</td>
+  </tr>
+  <tr>
+    <td>Email</td>
+    <td>The primary email address that is attached to the user.</td>
+  </tr>
+    <tr>
+    <td>First and last name</td>
+    <td>Your user's first and last name as they've provided during the sign up process.</td>
+  </tr>
+  <tr>
+    <td>Last Login</td>
+    <td>The time stamp of the last time that the user logged in to your application. Note: If you added your user through the dashboard, the login is blank until the user themselves signs into your app. When sign in occurs they also become an App ID user.</td>
+  </tr>
+  <tr>
+    <td>ID</td>
+    <td>The ID that is assigned to the user by {{site.data.keyword.appid_short_notm}}. In the UI, it is not shown but you can copy the value and paste it in a text editor to see the value.</td>
+  </tr>
+  <tr>
+    <td>Predefined attributes</td>
+    <td>Predefined attributes are things that are known about a user based on SCIM. For more information, see [predefined user attributes](/docs/services/appid?topic=appid-predefined-attributes).</td>
+  </tr>
+  <tr>
+    <td>Custom attributes</td>
+    <td>Custom attributes are additional information that is added to their profile or that is learned about the user's as they interact with your application. For more information, see [custom user attributes](/docs/services/appid?topic=appid-custom-attributes).</td>
+  </tr>
+  <tr>
+    <td>Summary</td>
+    <td>All of the attributes are compiled to form one profile that gives your a complete overview of your Cloud Directory user.</td>
+  </tr>
+</table>
+
+
+
+
+### With the API
+
+1. Obtain your tenant ID from your instance of the service.
+
+2. Search your App ID users with an identifying query, such as an email address, to find the user ID.
+
+  ```
+  curl -X GET "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/Users?query={identifying-search-query}" -H "accept: application/json" -H "authorization: Bearer {token}"
+  ```
+  {: codeblock}
+
+3. By using the ID that you obtained in the previous step, make a GET request to the `cloud_directory/users` endpoint to see their full user profile. Note: You can only find a user's full profile after they have signed into your application for the first time. After they've signed in, their Cloud Directory and App ID information is merged to create one user profile.
+
+  ```
+  curl -X GET "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/Users/{user-ID}" -H "accept: application/json" -H "authorization: Bearer <token>"
+  ```
+  {: codeblock}
+
+  Example response:
+
+  ```
+  {
+    sub: "c155c0ff-337a-46d3-a22a-a8f2cca08995",
+    name: "Test User",
+    email: "testuser@test.com",
+    identities: [
+      {
+        provider: "cloud_directory",
+        id: "f1772fcc-ff70-4d88-81a0-07dd7a3d988f",
+        idpUserInfo: {
+          displayName: "Test User",
+          active: true,
+          mfaContext: {},
+          emails: [
+            {
+              value: "testuser@test.com",
+              primary: true
+            }
+          ],
+          meta: {
+            lastLogin: "2019-05-20T16:33:20.699Z",
+            created: "2019-05-20T16:25:13.019Z",
+            location: "/v1/6b8ab644-1d4a-4b3e-bcd9-777ba8430a51/Users/f1772fcc-ff70-4d88-81a0-07dd7a3d988f",
+            lastModified: "2019-05-20T16:33:20.707Z",
+            resourceType: "User"
+          },
+          scemas: [
+            "urn:ietf:params:scim:schemas:core:2.0:User"
+          ],
+          name: {
+            givenName: "Test",
+            familyName: "User",
+            formatted: "Test User"
+            },
+          id: "f1772fcc-ff70-4d88-81a0-07dd7a3d988f",
+          status: "CONFIRMED",
+          idpType: "cloud_directory"
+        }
+      }
+    ]
+  }
+  ```
+  {: screen}
+
+  To see the full user data set that {{site.data.keyword.appid_short_notm}} supports, check out [the SCIM core schema](https://tools.ietf.org/html/rfc7643#section-8.2).
+  {: tip}
 
 
 ## Adding and deleting users
@@ -69,7 +193,43 @@ If you disable self-service sign up or add a user on their behalf, the user does
 </br>
 
 
+**To add a new user with the API:**
+
+The following flow shows how to add a user with an email and password. You can also choose to use a username and password flow.
+
+1. Obtain your `tenantID` from your application or service credentials.
+
+2. Obtain an {{site.data.keyword.cloud_notm}} IAM token.
+
+  ```
+  curl --X GET "https://iam.cloud.ibm.com/oidc/token" -H "accept: application/x-www-form-urlencoded"
+  ```
+  {: codeblock}
+
+3. With the token that you obtained in step 2, make a POST request to the `cloud-directory/users` endpoint.
+
+  ```
+  curl --X POST "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/Users"
+  -H "accept: application/json"
+  -H "content-type: application/json"
+  -H "authorization: Bearer {token}"
+  -d {
+    "displayName": "Test User",
+    "password": "{App-ID-Cloud-Directory-User-Password}",
+    "active": true,
+    "emails": [
+      {
+        "value": "{App-ID-Cloud-Directory-User-Email}",
+        "primary": true
+      }
+    ]
+  }
+  ```
+  {: codeblock}
+
+
 Now that you have a new user, try adding [custom attributes](/docs/services/appid?topic=appid-custom-attributes).
+
 {: tip}
 </br>
 
@@ -90,6 +250,26 @@ If you want to remove a user from your directory, you can delete the user from t
 
 4. Confirm that you understand that deleting a user cannot be undone by clicking **Delete**. If the action was a mistake, you can add the user to your directory again, but any information about that user is no longer available.
 
+</br>
+
+**To delete a user by using the API:**
+
+1. Obtain your tenant ID.
+
+2. By using the email that is attached to the user, search your directory to find the user's ID.
+
+  ```
+  curl -X GET "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/users?email={user-email}" -H "accept: application/json"
+  ```
+  {: codeblock}
+
+3. Delete the user.
+
+  ```
+  curl --X DELETE "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/Users/{user-GUID}"
+  -H "accept: application/x-www-form-urlencoded"
+  ```
+  {: codeblock}
 
 
 
