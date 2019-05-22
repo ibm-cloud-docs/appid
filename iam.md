@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-09"
+lastupdated: "2019-05-13"
 
 keywords: authentication, authorization, identity, app security, secure, access, platform, management, permissions
 
@@ -242,7 +242,8 @@ In this scenario, an administrator created an instance of {{site.data.keyword.ap
 {: shortdesc}
 
 Before you begin:
-* Install the [{{site.data.keyword.cloud_notm}} CLI](/docs/cli/reference/ibmcloud?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli).
+
+* Install the [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-ibmcloud-cli).
 
 To update access permissions, the admin completes the following steps:
 
@@ -255,7 +256,7 @@ To update access permissions, the admin completes the following steps:
 4. Sign in with the {{site.data.keyword.cloud_notm}} CLI in your terminal.
 
     ```
-    ibmcloud login -api -a https://api.<region>.cloud.ibm.com
+    ibmcloud login -api -a https://api.{region}.cloud.ibm.com
     ```
     {: codeblock}
 
@@ -306,7 +307,7 @@ To update access permissions, the admin completes the following steps:
        "secret": "appsecret"
      }
     }' \
-    'https://us-south.appid.cloud.ibm.com/management/v4/<tenantID>/config/idps/facebook'
+    'https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/config/idps/facebook'
     ```
     {: codeblock}
 
@@ -331,7 +332,7 @@ To view the {{site.data.keyword.appid_short_notm}} configurations from the CLI, 
 3. View the identity provider configuration for Facebook by using cURL.
 
     ```
-    curl -X GET --header 'Accept: application/json' --header 'Authorization: <IAM token value>' \  'https://us-south.appid.cloud.ibm.com/management/v4/<tenantID>/config/idps/facebook'
+    curl -X GET --header 'Accept: application/json' --header 'Authorization: <IAM token value>' \  'https://us-south.appid.cloud.ibm.com/management/v4/<tenant-ID>/config/idps/facebook'
     ```
     {: codeblock}
 

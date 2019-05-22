@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-01"
+lastupdated: "2019-05-21"
 
 keywords: authentication, authorization, identity, app security, secure, development, idp, troubleshooting, redirected, validation
 
@@ -139,7 +139,7 @@ Could not decrypt SAML assertion. Ensure your SAML provider is configured with t
 
 **Why it's happening**
 
-If your identity provider is configured to encrypt, {{site.data.keyword.appid_short_notm}} must be configured to sign the SAML authentication requests (AuthNRequest). Then, your identity provider must be configured to expect the corresponding configuration. You might receive these errors for one of the following reasons:
+If your identity provider is configured to encrypt, {{site.data.keyword.appid_short_notm}} must be configured to sign the SAML authentication requests (AuthnRequest). Then, your identity provider must be configured to expect the corresponding configuration. You might receive these errors for one of the following reasons:
 
 - {{site.data.keyword.appid_short_notm}} is not configured to expect that the identity provider SAML response is encrypted.
 - {{site.data.keyword.appid_short_notm}} cannot correctly correctly decrypt your assertions.
@@ -171,7 +171,7 @@ Although {{site.data.keyword.appid_short_notm}} sends the initial authentication
 You might see the message if your identity provider: 
 
 * cannot find or verify the username.
-* does not support the `NameID` format that is defined in the authentication request (`AuthNRequest`).
+* does not support the `NameID` format that is defined in the authentication request (`AuthnRequest`).
 * does not support the authentication context.
 * requires the authentication request to be signed or use a specific algorithm in the signature.
 
@@ -233,7 +233,7 @@ Have the configuration correct but still have a bug? Check out some of the follo
 ### How do I capture my SAML authentication request and response?
 {: #ts-saml-capture}
 
-There are several options for browser plug-ins such as [Firefox](https://addons.mozilla.org/en-US/firefox/addon/saml-tracer/) and [Chrome](https://chrome.google.com/webstore/detail/saml-tracer/mpdajninpobndbfcldcmbpnnbhibjmch?hl=en) that can be used to capture your SAML requests and responses. Don't want to use a plug-in? No problem. Atlassian provides an instructions for a more [manual extraction approach](https://confluence.atlassian.com/jirakb/how-to-view-a-saml-responses-in-your-browser-for-troubleshooting-872129244.html).
+There are several options for browser plug-ins such as [Firefox](https://addons.mozilla.org/en-US/firefox/addon/saml-tracer/) and [Chrome](https://chrome.google.com/webstore/detail/saml-tracer/mpdajninpobndbfcldcmbpnnbhibjmch?hl=en) that can be used to capture your SAML requests and responses. Don't want to use a plug-in? No problem. Atlassian provides a instructions for a more [manual extraction approach](https://confluence.atlassian.com/jirakb/how-to-view-a-saml-responses-in-your-browser-for-troubleshooting-872129244.html).
 
 
 ### I don't understand the messages! How can I decode them?

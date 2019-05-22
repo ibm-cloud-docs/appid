@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-26"
+lastupdated: "2019-05-10"
 
 keywords: authentication, authorization, identity, app security, secure, application identity, app to app, access token
 
@@ -27,11 +27,11 @@ subcollection: appid
 {: #adding-overview}
 
 
-You can quickly get authentication and authorization part of your application by integrating {{site.data.keyword.appid_short_notm}} . No matter which type of flow that you use, you can securely authenticate users to your app. With authentication in place, you can provide personalized user experiences across all types of devices.
+You can quickly get authentication and authorization part of your application by integrating {{site.data.keyword.appid_short_notm}}. No matter which type of flow that you use, you can securely authenticate users to your app. With authentication in place, you can provide personalized user experiences across all types of devices.
 {: shortdesc}
 
 
-Check out the following table to see how {{site.data.keyword.appid_short_notm}}  fits into each type of application.
+Check out the following table to see how {{site.data.keyword.appid_short_notm}} fits into each type of application.
 
 <table>
     <tr>
@@ -43,7 +43,7 @@ Check out the following table to see how {{site.data.keyword.appid_short_notm}} 
     </tr>
     <tr>
         <td><a href="/docs/services/appid?topic=appid-mobile-apps#mobile-apps" target="_blank">Mobile <img src="../../icons/launch-glyph.svg" alt="External link icon"></a></td>
-        <td>The {{site.data.keyword.appid_short_notm}}  mobile flow is most helpful when you're developing applications that are made to be installed on a user's device as a native application.</td>
+        <td>The {{site.data.keyword.appid_short_notm}} mobile flow is most helpful when you're developing applications that are made to be installed on a user's device as a native application.</td>
     </tr>
     <tr>
         <td><a href="/docs/services/appid?topic=appid-backend#backend" target="_blank">Backend <img src="../../icons/launch-glyph.svg" alt="External link icon"></a></td>

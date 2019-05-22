@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-09"
+lastupdated: "2019-05-21"
 
 keywords: authentication, authorization, identity, app security, secure, web apps, client, server
 
@@ -504,7 +504,7 @@ You must have the following prerequisites:
   ```
   {: codeblock}
 
-For a step-by-step example, check out <a href="https://www.ibm.com/blogs/bluemix/2018/06/creating-spring-boot-applications-app-id/" target="_blank">this blog</a>!
+For a step-by-step example, check out <a href="https://www.ibm.com/cloud/blog/creating-spring-boot-applications-app-id" target="_blank">this blog</a>!
 
 
 ## Using {{site.data.keyword.appid_short_notm}} with other languages

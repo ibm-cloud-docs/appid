@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-23"
+lastupdated: "2019-05-13"
 
 keywords: authentication, authorization, identity, app security, secure, custom, proprietary, 
 
@@ -76,7 +76,7 @@ Figure. The request flows for custom authentication
 ## Generating a JSON web token
 {: #generating-jwts}
 
-You can convert your verified user data to a custom identity JWT by generating a <a href="https://tools.ietf.org/html/rfc7515" target="blank">JSON web token <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>. The token must be signed with the private key that matches your preconfigured public key. For a list of token signing libraries, check out <a href="https://jwt.io/" target="blank">jwt.io <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
+You can convert your verified user data to a custom identity JWT by generating a <a href="https://tools.ietf.org/html/rfc7515" target="blank">JSON web token <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>. The token must be signed with the private key that matches your preconfigured public key. For a list of token signing libraries, check out <a href="https://jwt.io/" target="blank">https://jwt.io/ <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
 {: shortdesc}
 
 ### Example JWT format

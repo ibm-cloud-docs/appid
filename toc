@@ -6,7 +6,6 @@ IBM Cloud App ID
 
     {: .navgroup id="learn"}
     index.md
-    
     about.md
     authorization.md
 
@@ -29,7 +28,6 @@ IBM Cloud App ID
         custom-auth.md
         progressive.md
         app-to-app.md
-        well-known.md
 
     manageidp.md
 
@@ -63,6 +61,7 @@ IBM Cloud App ID
     {: .topicgroup}
     Managing tokens
         tokens-understand.md
+        token-obtain.md
         customizing-tokens.md
         tokens.md
     {: .navgroup-end}
@@ -80,6 +79,7 @@ IBM Cloud App ID
     iam.md
     api-reference.md
     at-events.md
+    well-known.md
     {: .navgroup-end}
 
     {: .navgroup id="help"}

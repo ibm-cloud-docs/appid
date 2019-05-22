@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-20"
 
 keywords: authentication, authorization, identity, app security, secure, user profiles, personalized apps, attributes, 
 
@@ -55,8 +55,10 @@ There are different ways in which you can access [predefined](/docs/services/app
 
 For more information about identity and access tokens, see [Understanding tokens](/docs/services/appid?topic=appid-tokens#tokens) or [Validating tokens](/docs/services/appid?topic=appid-token-validation).
 
-![{{site.data.keyword.appid_short_notm}} user profile architecture](images/user-profile1.png)
 
+The following image shows the make up of a user profile and which endpoints that you can call to obtain the different types of information about your users.
+
+![{{site.data.keyword.appid_short_notm}} user profiles](images/user-profile.png)
 Figure. User profile information flow
 
 To see custom attributes, you can use the <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Attributes" target="_blank">REST API <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
