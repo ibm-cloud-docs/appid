@@ -61,6 +61,7 @@ IBM Cloud App ID
     {: .topicgroup}
     Managing tokens
         tokens-understand.md
+        token-obtain.md
         customizing-tokens.md
         tokens.md
     {: .navgroup-end}
