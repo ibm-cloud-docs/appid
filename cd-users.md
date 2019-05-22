@@ -104,7 +104,7 @@ You can use the {{site.data.keyword.appid_short_notm}} dashboard to view details
   ```
   {: codeblock}
 
-3. By using the ID that you obtained in the previous step, make a GET request to the `cloud_directory/users` endpoint to see their full user profile. Note: You can only find a user's full profile after they have signed into your application for the first time. After they've signed in, their Cloud Directory and App ID information is merged to create one user profile.
+3. By using the ID that you obtained in the previous step, make a GET request to the `cloud_directory/users` endpoint to see their full user profile.
 
   ```
   curl -X GET "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/Users/{user-ID}" -H "accept: application/json" -H "authorization: Bearer <token>"
@@ -167,7 +167,7 @@ You can use the {{site.data.keyword.appid_short_notm}} dashboard to view details
 You can manage your Cloud Directory users through the {{site.data.keyword.appid_short_notm}} dashboard or by using the APIs.
 {: shortdesc}
 
-When a user signs up for your application, they do so through a self-service workflow that automatically triggers emails such as a welcome or verification request. When you, as an administrator, add a user to your app a self-service workflow is not initiated, which means that users do not receive any emails from your application. If you want your users to still be notified that they've been added, you can trigger the messaging workflows through the [App ID management API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.set_cloud_directory_email_dispatcher).
+When a user signs up for your application, they do so through a self-service workflow that automatically triggers emails such as a welcome or verification request. When you, as an administrator, add a user to your app a self-service workflow is not initiated, which means that users do not receive any emails from your application. If you want your users to still be notified that they've been added, you can trigger the messaging flows through the [App ID management API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.set_cloud_directory_email_dispatcher).
 
 
 ### Adding users
@@ -206,7 +206,7 @@ The following flow shows how to add a user with an email and password. You can a
   ```
   {: codeblock}
 
-3. With the token that you obtained in step 2, make a POST request to the `cloud-directory/users` endpoint.
+3. With the token that you obtained in step 2, make a POST request to the `cloud-directory/users` endpoint. Note that this example uses the email/ password flow. You can also use the username/ password flow.
 
   ```
   curl --X POST "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/Users"
@@ -227,10 +227,6 @@ The following flow shows how to add a user with an email and password. You can a
   ```
   {: codeblock}
 
-
-Now that you have a new user, try adding [custom attributes](/docs/services/appid?topic=appid-custom-attributes).
-
-{: tip}
 </br>
 
 
