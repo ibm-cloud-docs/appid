@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-20"
+lastupdated: "2019-05-23"
 
 keywords: authentication, authorization, identity, app security, secure, attributes, user information, storing, accessing
 
@@ -36,24 +36,19 @@ With {{site.data.keyword.appid_full}}, you can save, access, and update custom a
 ## Setting attributes
 {: #setting-custom-attributes}
 
-You can set roles and scopes that are known as attributes to a user profile. You can also override existing attributes that might have been pulled from an external identity provider.
+You can add information about your users to their profile such as a role or preference, by setting a custom attribute. You can also override existing attributes that are provided by an external identity provider.
 {: shortdesc}
-
-
-Attributes are pieces of information about your users. By saving them, you can create profiles on your users that allow you to personalize their experience. The more attributes that are added to their profile, the more personalized their app experience can be. Check out this blog to see how creating user profiles can make a difference: <a href="https://www.ibm.com/cloud/blog/announcements/introducing-ibm-bluemix-app-id-authentication-profiles-service-app-developers" target="blank">Introducing {{site.data.keyword.appid_short_notm}}<img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
 
 
 You can store 100 KB of information for each user.
 {: note}
 
+1. Navigate to the **Profiles** tab of the App ID dashboard.
+2. Obtain an access token. All incoming requests to your app have Authorization header, with `access_token`.
+3. Make a request to the [the attributes APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Attributes) or add one of the following snippets to your code to use one of the provided SDKs.
 
-**To set an attribute:**
-
-All incoming requests to your app have Authorization header, with `access_token`. You can use `access_token` to make requests to the custom attributes endpoints with one of the provided SDKs or by using [the attributes APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Attributes).
-
-
-iOS Swift:
-{: ph data-hd-programlang='swift'}
+  iOS Swift:
+  {: ph data-hd-programlang='swift'}
 
   ```
 	AppID.sharedInstance.userProfileManager?.setAttribute("key", "value") { (error, result) in
@@ -111,6 +106,8 @@ Server Swift:
   ```
   {: codeblock}
   {: ph data-hd-programlang='swift'}
+
+
 
 </br>
 
@@ -199,7 +196,3 @@ For more information about working with a specific language SDK, see the followi
 * <a href="https://github.com/ibm-cloud-security/appid-clientsdk-swift" target="_blank">iOS Swift SDK <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 * <a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs" target="_blank">Node.js SDK <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 * <a href="https://github.com/ibm-cloud-security/appid-serversdk-swift" target="_blank">Server Swift SDK <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
-
-
-Didn't find an SDK for the language that your app is written in? No problem! You can integrate the service by using the APIs. {{site.data.keyword.appid_short_notm}} provides a <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/" target="_blank">REST API <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> that allows log in, either anonymously or by authenticating, with a supported [identity provider](/docs/services/appid?topic=appid-managing-idp). For help implementing the API in languages such as Python and Go, <a href="https://www.ibm.com/blogs/bluemix/tag/app-id/" target="_blank">check out our blogs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
-{: tip}
