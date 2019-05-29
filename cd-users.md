@@ -32,15 +32,62 @@ With Cloud Directory, you can manage your users in a scalable registry by using 
 A Cloud Directory user is not the same thing as an {{site.data.keyword.appid_short_notm}} user. Users can sign up for your app by using different the identity provider options that you configured, or you can add them to your directory. The users that are mentioned in this topic are those that are associated with Cloud Directory as an identity provider.
 {: note}
 
-
-
 ## Viewing user information
 {: #cd-user-info}
 
-You can see all of the information that is known about all of your Cloud Directory users as a JSON object by using the APIs. 
+You can see all of the information that is known about all of your Cloud Directory users as a JSON object by using the APIs or by using the dashboard. 
 {: shortdesc}
 
 
+### With the GUI
+
+You can use the {{site.data.keyword.appid_short_notm}} dashboard to view details about your app users. 
+
+1. Navigate to the **Cloud Directory > Users** tab of your {{site.data.keyword.appid_short_notm}} instance.
+
+2. Look through the table or search by using an email address to find the user that you want to see the information for.
+
+3. In the overflow menu in the user's row, click **View user details**. A page opens that contains the user's information. Check out the following table to see what information you can see.
+
+<table>
+  <tr>
+    <th colspan="2">User details</th>
+  </tr>
+  <tr>
+    <td>User identitifier</td>
+    <td>The user identifier is dependant upon the type of user sign up that you configured. If you have an email and password flow configured, the identifier is the user's email. If you use the username and password flow, the identifier is the username that is given at sign up.</td>
+  </tr>
+  <tr>
+    <td>Email</td>
+    <td>The primary email address that is attached to the user.</td>
+  </tr>
+    <tr>
+    <td>First and last name</td>
+    <td>Your user's first and last name as they've provided during the sign up process.</td>
+  </tr>
+  <tr>
+    <td>Last Login</td>
+    <td>The time stamp of the last time that the user logged in to your application. Note: If you added your user through the dashboard, the login is blank until the user themselves signs into your app. When sign in occurs they also become an App ID user.</td>
+  </tr>
+  <tr>
+    <td>ID</td>
+    <td>The ID that is assigned to the user by {{site.data.keyword.appid_short_notm}}. In the UI, it is not shown but you can copy the value and paste it in a text editor to see the value.</td>
+  </tr>
+  <tr>
+    <td>Predefined attributes</td>
+    <td>Predefined attributes are things that are known about a user based on SCIM. For more information, see [predefined user attributes](/docs/services/appid?topic=appid-predefined-attributes).</td>
+  </tr>
+  <tr>
+    <td>Custom attributes</td>
+    <td>Custom attributes are additional information that is added to their profile or that is learned about the user's as they interact with your application. For more information, see [custom user attributes](/docs/services/appid?topic=appid-custom-attributes).</td>
+  </tr>
+  <tr>
+    <td>Summary</td>
+    <td>All of the attributes are compiled to form one profile that gives your a complete overview of your Cloud Directory user.</td>
+  </tr>
+</table>
+
+</br>
 
 ### With the API
 
