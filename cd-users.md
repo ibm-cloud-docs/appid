@@ -26,9 +26,8 @@ subcollection: appid
 # Managing users
 {: #cd-users}
 
-Cloud Directory provides you with a user registry for your apps that scales with your user base and includes simple ways to authenticate users to your apps using email and password. Cloud Directory has pre-built functionality for enhanced security and self service, like email verification, and password reset.
+With Cloud Directory, you can manage your users in a scalable registry by using pre-built functionality that enhances security and self-service.
 {: shortdesc}
-
 
 A Cloud Directory user is not the same thing as an {{site.data.keyword.appid_short_notm}} user. Users can sign up for your app by using different the identity provider options that you configured, or you can add them to your directory. The users that are mentioned in this topic are those that are associated with Cloud Directory as an identity provider.
 {: note}
@@ -38,8 +37,9 @@ A Cloud Directory user is not the same thing as an {{site.data.keyword.appid_sho
 ## Viewing user information
 {: #cd-user-info}
 
-You can see all of the information that is known about all of your Cloud Directory users as a JSON object by using the APIs.
+You can see all of the information that is known about all of your Cloud Directory users as a JSON object by using the APIs. 
 {: shortdesc}
+
 
 
 ### With the API
@@ -58,7 +58,7 @@ You can use the {{site.data.keyword.appid_short_notm}} API to view details about
   Example:
 
   ```
-  curl -X GET https://us-south.appid.cloud.ibm.com/management/v4/e19a2778-3262-4986-8875-8khjafsdkhjsdafkjh/cloud_directory/Users?query=exmaple@email.com -H "accept: application/json" -H "authorization: Bearer eyJraWQiOiIyMDE3MTEyOSIsImFsZ...."
+  curl -X GET https://us-south.appid.cloud.ibm.com/management/v4/e19a2778-3262-4986-8875-8khjafsdkhjsdafkjh/cloud_directory/Users?query=example@email.com -H "accept: application/json" -H "authorization: Bearer eyJraWQiOiIyMDE3MTEyOSIsImFsZ...."
   ```
   {: screen}
 
