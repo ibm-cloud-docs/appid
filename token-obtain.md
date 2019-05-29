@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-22"
+lastupdated: "2019-05-23"
 
 keywords: authentication, authorization, identity, app security, secure, access management, roles, attributes, users
 
@@ -192,6 +192,7 @@ Server Swift:
 </br>
 
 ### Obtaining tokens by using the API
+{: #obtain-tokens-api}
 
 1. Obtain your tenant ID, client ID, secret, and OAuth Server URL from your credentials.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-09"
+lastupdated: "2019-05-28"
 
 keywords: authentication, authorization, identity, app security, secure, custom, tokens, access, claim, attributes
 
@@ -122,7 +122,7 @@ A claim is a statement that an entity makes about itself or on behalf of someone
 ```
 {: screen}
 
-If you have customized expiration information for your token, you must set it in every request. If you don't, this request overrides your current configuration and the default is used for anything left undefined.
+If you have customized expiration information for your token, you must set it in every request. If you don't, this request overwrites your current configuration and the default is used for anything left undefined.
 {: note}
 
 ### Why would I want to add claims to my tokens?
@@ -140,7 +140,7 @@ The claims that are provided by {{site.data.keyword.appid_short_notm}} fall into
 
 *Restricted claims*: Depending on the token that the claims are mapped to, some claims have limited customization possibilities. For an access token, `scope` is the only restricted claim. It cannot be overridden by custom mappings, but it can be extended with your own scopes. When the scope claim is mapped to an access token, the value must be a string and cannot be prefixed by `appid_` or it will be ignored. In identity tokens, the claims `identities` and `oauth_clients` cannot be modified or overridden.
 
-*Normalized claims*: Every identity token contains a set of claims that is recognized by {{site.data.keyword.appid_short_notm}} as normalized claims. When they are available, they are directly mapped from your identity provider to the token. These claims cannot be explicitly omitted but can be overridden by custom claim mappings. The claims include `name`, `email`, `picture`, `local`, and `gender`.
+*Normalized claims*: Every identity token contains a set of claims that is recognized by {{site.data.keyword.appid_short_notm}} as normalized claims. When they are available, they are directly mapped from your identity provider to the token. These claims cannot be explicitly omitted but can be overwritten in your token by custom claims. The claims include `name`, `email`, `picture`, `local`, and `gender`. Note: This does not change or eliminate the attribute, but does change the information that is present in the token at runtime.
 
 
 ### How are claims mapped to tokens?
