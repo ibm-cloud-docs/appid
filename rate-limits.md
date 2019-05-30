@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-29"
+lastupdated: "2019-05-30"
 
 keywords: authentication, authorization, identity, app security, secure, rates, cloud directory, rate limit, attempts
 
@@ -108,4 +108,4 @@ Review the following table to see limits that are associated with Cloud Director
     </tr>
 </table>
 
-For more inforamtion, see the <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateRateLimitConfig" target="_blank">rate limit management API.</a>
+For more information, see the <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateRateLimitConfig" target="_blank">rate limit management API.</a>
