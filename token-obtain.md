@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-23"
+lastupdated: "2019-05-29"
 
 keywords: authentication, authorization, identity, app security, secure, access management, roles, attributes, users
 
@@ -31,7 +31,7 @@ subcollection: appid
 # Obtaining tokens
 {: #obtain-tokens}
 
-When users or backend services interact with your app, they might need to be authorized to perform specific actions. When a user is successfully authenticated, {{site.data.keyword.appid_short_notm}} verifies that the entitiy that makes the request is authorized and returns access and identity tokens to your app. If the entity making the request is an end user, the tokens might contain information about the user such as the scope of their permissions and their name. If it is a backend service, then only an access token is returned.
+When users or backend services interact with your app, they might need to be authorized to perform specific actions. {{site.data.keyword.appid_short_notm}} verifies that the entity that makes the request is authorized and returns access and identity tokens to your app. If the entity making the request is an end user, the tokens might contain information about the user such as the scope of their permissions and their name. If it is a backend service, then only an access token is returned.
 {: shortdesc}
 
 

@@ -1,7 +1,7 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="appid" audience="service" arm="2093952" href="/docs/services/appid?topic=appid-getting-started#getting-started" path="services/appid"}
+{: .toc subcollection="appid" audience="service"  arm="2093952" href="/docs/services/appid?topic=appid-getting-started#getting-started" path="services/appid"}
 IBM Cloud App ID
 
     {: .navgroup id="learn"}
@@ -50,12 +50,10 @@ IBM Cloud App ID
     Managing the sign in experience
         login-widget.md
         branded.md
-
+    
     {: .topicgroup}
-    Storing and accessing user profiles
-        user-profile.md
-        predefined.md
-        custom-attributes.md
+    Managing user profiles
+        profiles.md
         pre-sign-in.md
 
     {: .topicgroup}
@@ -80,6 +78,7 @@ IBM Cloud App ID
     api-reference.md
     at-events.md
     well-known.md
+    rate-limits.md
     {: .navgroup-end}
 
     {: .navgroup id="help"}
