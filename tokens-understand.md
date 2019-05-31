@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-23"
+lastupdated: "2019-05-31"
 
 keywords: authentication, authorization, identity, app security, secure, access, tokens
 
@@ -105,7 +105,7 @@ Example token:
   {: screen}
 
 
-Identity tokens only contain partial user information. To see all of the information that is provided by the identity provider, you can use the [/userinfo endpoint](/docs/services/appid?topic=appid-predefined-attributes#predefined-access-api).
+Identity tokens only contain partial user information. To see all of the information that is provided by the identity provider, you can use the [/userinfo endpoint](/docs/services/appid?topic=appid-profiles#profile-predefined-api).
 
 ## What are refresh tokens?
 {: #refresh}
