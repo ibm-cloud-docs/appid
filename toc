@@ -1,7 +1,7 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="appid" audience="service" arm="2093952" href="/docs/services/appid?topic=appid-getting-started#getting-started" path="services/appid"}
+{: .toc subcollection="appid" audience="service"  arm="2093952" href="/docs/services/appid?topic=appid-getting-started#getting-started" path="services/appid"}
 IBM Cloud App ID
 
     {: .navgroup id="learn"}
@@ -50,7 +50,7 @@ IBM Cloud App ID
     Managing the sign in experience
         login-widget.md
         branded.md
-
+    
     {: .topicgroup}
     Managing user profiles
         profiles.md

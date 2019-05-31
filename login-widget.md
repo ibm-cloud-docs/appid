@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-09"
+lastupdated: "2019-05-31"
 
 keywords: authentication, authorization, identity, app security, secure, development, sign in, sign up, password, social, enterprise
 
@@ -47,7 +47,7 @@ For example, if you're using the default - Facebook, Google, and Cloud Directory
 ### Which screens can be displayed for each provider?
 {: #widget-options}
 
-When you use Cloud Directory, {{site.data.keyword.appid_short_notm}} is able to provide you with the extended funtionality of user management. The extended funtionality also applies to the Login Widgets capabilities. User's that are stored in Cloud Directory can take advantage of the functionality such as signing up or resetting their password directly in the Login Widget. Check out the following table to see which screens you can display for each type of identity provider.
+When you use Cloud Directory, {{site.data.keyword.appid_short_notm}} is able to provide you with the extended functionality of user management. The extended functionality also applies to the Login Widgets capabilities. User's that are stored in Cloud Directory can take advantage of the functionality such as signing up or resetting their password directly in the Login Widget. Check out the following table to see which screens you can display for each type of identity provider.
 
 <table>
   <thead>

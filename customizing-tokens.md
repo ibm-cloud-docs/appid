@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-28"
+lastupdated: "2019-05-31"
 
 keywords: authentication, authorization, identity, app security, secure, custom, tokens, access, claim, attributes
 
@@ -26,7 +26,7 @@ subcollection: appid
 # Customizing tokens
 {: #customizing-tokens}
 
-You can configure your {{site.data.keyword.appid_short_notm}} tokens to meet the specific needs of your application.
+You can configure your {{site.data.keyword.appid_short_notm}} token to meet the specific needs of your application.
 {: shortdesc}
 
 ## Understanding customization
