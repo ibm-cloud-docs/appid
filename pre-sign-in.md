@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-09"
+lastupdated: "2019-05-31"
 
 keywords: authentication, authorization, identity, app security, secure, development, user information, attributes, profiles, 
 
@@ -28,7 +28,7 @@ subcollection: appid
 With {{site.data.keyword.appid_full}}, you can start building a profile for users that you know are going to need access to your app, prior to their initial sign-in.
 {: shortdesc}
 
-To learn more about the types of attributes, check out [Understanding user profiles](/docs/services/appid?topic=appid-user-profile). To learn more about custom attributes and their security considerations, check out [Custom attributes](/docs/services/appid?topic=appid-custom-attributes).
+To learn more about the types of attributes and the security considerations that you should make when working with custom attributes, see [Storing and accessing user profiles](/docs/services/appid?topic=appid-profiles).
 {: tip}
 
 ## Understanding preregistration
@@ -37,7 +37,7 @@ To learn more about the types of attributes, check out [Understanding user profi
 ### Why would I want to use preregistration?
 {: #preregister-why}
 
-Consider an application where you use {{site.data.keyword.appid_short_notm}} to federate existing users from your SAML identity provider. You might want certain users to have `admin` access immediately upon signing into the application for the first time. To make this happen, you can use the preregistration endpoint to set a custom `admin` attribute for those users and grant them access to the administration console without any further action on your part. Be sure to consider the [security issues](/docs/services/appid?topic=appid-custom-attributes#custom-attributes) that can arise by changing the default setting.
+Consider an application where you use {{site.data.keyword.appid_short_notm}} to federate existing users from your SAML identity provider. You might want certain users to have `admin` access immediately upon signing into the application for the first time. To make this happen, you can use the preregistration endpoint to set a custom `admin` attribute for those users and grant them access to the administration console without any further action on your part. Be sure to consider the [security issues](/docs/services/appid?topic=appid-profiles#profile-set-custom) that can arise by changing the default setting.
 
 ### How are users identified?
 {: #preregister-identify-user}
@@ -210,7 +210,7 @@ When a user signs into your app for the first time, {{site.data.keyword.appid_sh
 
 Keep in mind that a user's predefined attributes are empty until their first authentication, but the user is, for all intents and purposes, a fully authenticated user. You can use their unique ID just as you would someone who had already signed in. For instance, you can modify, search, or delete the profile.
 
-Now that you have associated a user with specific attributes, try [accessing or updating attributes](/docs/services/appid?topic=appid-custom-attributes)!
+Now that you have associated a user with specific attributes, try [accessing or updating attributes](/docs/services/appid?topic=appid-profiles)!
 
 
 </br>

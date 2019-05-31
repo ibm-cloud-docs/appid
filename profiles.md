@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, [{CURRENT_YEAR}]
-lastupdated: "[{LAST_UPDATED_DATE}]"
+  years: 2017, 2019
+lastupdated: "2019-05-31"
 
 keywords: authentication, authorization, identity, app security, secure, attributes, user information, storing, accessing
 
@@ -38,7 +38,7 @@ A user profile is all of the information that is known about a specific user com
 Looking for information about your Cloud Directory users? Check out [managing users](/docs/services/appid?topic=appid-cd-users).
 {: tip}
 
-There are two types of information that can be obtained and stored by App ID: predefined attributes and custom attributes. Predefined attributes are specific to the identity of your users and are returned by an identity provider when your user signs in to your app. The attributes might include their name or age. Custom attributes are used to store additional information about your users. They can be set by you or learned about the user as they interact with your app. Custom attributes might include an assigned role, a food preference, or a prefered aisle seat on an airplane. Check out this blog to see how creating user profiles can make a difference: <a href="https://www.ibm.com/cloud/blog/announcements/introducing-ibm-bluemix-app-id-authentication-profiles-service-app-developers" target="blank">Introducing {{site.data.keyword.appid_short_notm}}<img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
+There are two types of information that can be obtained and stored by App ID: predefined attributes and custom attributes. Predefined attributes are specific to the identity of your users and are returned by an identity provider when your user signs in to your app. They are based on the <a href="https://tools.ietf.org/html/rfc7643#section-8.2" target="blank">SCIM core schema<img src="../../icons/launch-glyph.svg" alt="External link icon"></a> and can include information such as their name or age. Custom attributes are used to store additional information about your users. They can be set by you or learned about the user as they interact with your app. Custom attributes might include an assigned role, a food preference, or a prefered aisle seat on an airplane. Check out this blog to see how creating user profiles can make a difference: <a href="https://www.ibm.com/cloud/blog/announcements/introducing-ibm-bluemix-app-id-authentication-profiles-service-app-developers" target="blank">Introducing {{site.data.keyword.appid_short_notm}}<img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
 
 
 ![{{site.data.keyword.appid_short_notm}} user profiles](images/user-profile-makeup.png)

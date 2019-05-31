@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-09"
+lastupdated: "2019-05-31"
 
 keywords: authentication, authorization, identity, app security, secure, access management, roles, attributes, users
 
@@ -38,7 +38,7 @@ New to the APIs? Try them out with this [Postman collection](https://github.com/
 You are a developer for a fictional theme park. You're tasked with managing access for the [web application](/docs/services/appid?topic=appid-web-apps), and you feel the easiest way to do so is by setting roles for each type of user. You have several different types of roles such as park staff and visitors that all need different levels of permissions. You want to be able to streamline the process and ensure that your users are assigned the correct role from the first time they sign in to your application.  
 {: shortdesc}
 
-No problem! You can use the [custom attributes feature](/docs/services/appid?topic=appid-custom-attributes) of {{site.data.keyword.appid_short_notm}} to store any type of user-related information. So, because you're working with role-based access control, you can create an attribute that is called `role` and assign different values to specify a type of role. For instance, the theme park might have `visitors` or `staff` that could each be different values for the `role` attribute. Then, you can ensure that your application code enforces the access policies and privileges that you assigned.
+No problem! You can use the [custom attributes feature](/docs/services/appid?topic=appid-profiles) of {{site.data.keyword.appid_short_notm}} to store any type of user-related information. So, because you're working with role-based access control, you can create an attribute that is called `role` and assign different values to specify a type of role. For instance, the theme park might have `visitors` or `staff` that could each be different values for the `role` attribute. Then, you can ensure that your application code enforces the access policies and privileges that you assigned.
 
 Although this tutorial is written specifically with web apps and Cloud Directory in mind, attributes can be used in a much broader sense. Custom attributes can be anything that you want them to be. As long as you stay under 100k attributes and you format them as a plain JSON object, you can store all types of information!
 {: note}
@@ -154,7 +154,7 @@ Great job! You preregistered a user for your application. Now, when they sign in
 ## Step 3: Updating user attributes
 {: #roles-update-attributes}
 
-Cloud Land is growing! To keep up with the growth, your company is hiring new people. The `staff` user from step two is now a manager. You can update their profile by [assigning a new role](/docs/services/appid?topic=appid-custom-attributes).
+Cloud Land is growing! To keep up with the growth, your company is hiring new people. The `staff` user from step two is now a manager. You can update their profile by [assigning a new role](/docs/services/appid?topic=appid-profiles#profile-set-custom).
 {: shortdesc}
 
 1. Update the profile.

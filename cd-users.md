@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-29"
+lastupdated: "2019-05-31"
 
 keywords: authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
@@ -75,15 +75,15 @@ You can use the {{site.data.keyword.appid_short_notm}} dashboard to view details
   </tr>
   <tr>
     <td>Predefined attributes</td>
-    <td>Predefined attributes are things that are known about a user based on SCIM. For more information, see [predefined user attributes](/docs/services/appid?topic=appid-predefined-attributes).</td>
+    <td>Predefined attributes are things that are known about a user based on SCIM.</td>
   </tr>
   <tr>
     <td>Custom attributes</td>
-    <td>Custom attributes are additional information that is added to their profile or that is learned about the user's as they interact with your application. For more information, see [custom user attributes](/docs/services/appid?topic=appid-custom-attributes).</td>
+    <td>Custom attributes are additional information that is added to their profile or that is learned about the user's as they interact with your application.</td>
   </tr>
   <tr>
     <td>Summary</td>
-    <td>All of the attributes are compiled to form one profile that gives your a complete overview of your Cloud Directory user.</td>
+    <td>All of the attributes are compiled to form one profile that gives your a complete overview of your Cloud Directory user. For more information, see [user profiles](/docs/services/appid?topic=appid-profiles).</td>
   </tr>
 </table>
 
