@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-30"
+lastupdated: "2019-06-04"
 
 keywords: authentication, authorization, identity, app security, secure, rates, cloud directory, rate limit, attempts
 
@@ -52,29 +52,28 @@ Review the following table to see the limits that are in place for lite instance
 ## General
 {: #general-limits}
 
-The following table lists the maximum limits for IBM Cloud App ID resources. These limits apply to any user who can create IBM Cloud App ID resources.
+The following table lists the maximum per user limits for IBM Cloud App ID resources, and the blocking period when the limits are exceeded. These limits apply to any user who can create IBM Cloud App ID resources.
 {: shortdesc}
 
 <table>
     <tr>
         <th>API</th>
-        <th>Maximum amount</th>
-        <th>Maximum users</th>
+        <th>Limit</th>
+        <th>When Exceeded</th>
     </tr>
     <tr>
         <td>Sign in attempts by one user</td>
         <td>5 per minute</td>
-        <td>per user</td>
+        <td>User unable to sign in for one minute</td>
     </tr>
     <tr>
         <td>Update user profile attributes</td>
         <td>5 per minute</td>
-        <td>per user</td>
+        <td>User unable to update profile for one minute</td>
     </tr>
-        <tr>
         <td>Delete user profile attributes</td>
         <td>5 per minute</td>
-        <td>per user</td>
+        <td>User unable to update profile for one minute</td>
     </tr>
 </table>
 
@@ -88,23 +87,27 @@ Review the following table to see limits that are associated with Cloud Director
 <table>
     <tr>
         <th>API</th>
-        <th>Maximum</th>
         <th>Configurable</th>
+        <th>Limit</th>
+        <th>When Exceeded</th>
     </tr>
     <tr>
         <td>Sign in attempts per account</td>
+        <td>Yes</td>
         <td>Unlimited</td>
-        <td>True</td>
+        <td>All sign in attempts for the instance are blocked for one minute</td>
     </tr>
     <tr>
         <td>Sign up attempts per account</td>
+        <td>Yes</td>
         <td>Unlimited</td>
-        <td>True</td>
+        <td>All sign up attempts for the instance are blocked for one minute</td>
     </tr>
     <tr>
         <td>Email sending request</td>
-        <td>10 in 10 minutes</br> If exceeded, email requests are blocked for 30 minutes.</td>
-        <td>False</td>
+        <td>No</td>
+        <td>10 emails in 10 minutes per user</td>
+        <td>Email requests for the user are blocked for 30 minutes</td>
     </tr>
 </table>
 
