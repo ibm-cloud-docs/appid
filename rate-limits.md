@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-04"
+lastupdated: "2019-06-05"
 
 keywords: authentication, authorization, identity, app security, secure, rates, cloud directory, rate limit, attempts
 
@@ -52,7 +52,7 @@ Review the following table to see the limits that are in place for lite instance
 ## General
 {: #general-limits}
 
-The following table lists the maximum per user limits for IBM Cloud App ID resources, and the blocking period when the limits are exceeded. These limits apply to any user who can create IBM Cloud App ID resources.
+The following table lists the maximum per user limits for IBM Cloud App ID resources and the blocking period when the limits are exceeded. These limits apply to any user who can create IBM Cloud App ID resources.
 {: shortdesc}
 
 <table>
@@ -79,7 +79,8 @@ The following table lists the maximum per user limits for IBM Cloud App ID resou
 
 
 
-## Cloud Directory 
+## Cloud Directory
+{: #limits-cd}
 
 Review the following table to see limits that are associated with Cloud Directory.
 {: shortdesc}
