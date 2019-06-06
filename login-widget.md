@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-06-06"
 
-keywords: authentication, authorization, identity, app security, secure, development, sign in, sign up, password, social, enterprise
+keywords: Authentication, authorization, identity, app security, secure, development, sign in, sign up, password, social, enterprise
 
 subcollection: appid
 
@@ -110,9 +110,6 @@ To customize the screen:
 4. Select a header color for the widget from the color picker, or enter the hex code for another color.
 5. Inspect the preview pane, and click **Save Changes** when you are happy with your customizations. A confirmation message is displayed.
 6. In your browser, refresh your login page to verify your changes.
-
-Don't forget! You can take advantage of {{site.data.keyword.appid_short_notm}} with other languages too. If you don't see an SDK for the language you're working in, you can always use the APIs. Check out <a href="https://www.ibm.com/blogs/bluemix/tag/app-id/" target="blank">our blogs<img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
-{: tip}
 
 
 ## Displaying the Login Widget with the Android SDK
