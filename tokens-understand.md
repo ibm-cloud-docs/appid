@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-06-05"
 
 keywords: authentication, authorization, identity, app security, secure, access, tokens
 
@@ -130,7 +130,7 @@ Tokens are issued through the {{site.data.keyword.appid_short_notm}} OAuth Serve
 ## What happens to the information that the token contains?
 {: #contains}
 
-The access token contains a set of standard JWT claims and a set of {{site.data.keyword.appid_short_notm}} specific claims such as a tenant ID. The identity token contains user specific information. The information in the tokens is stored as claims as part of a [user's profile](/docs/services/appid?topic=appid-user-profile#user-profile).
+The access token contains a set of standard JWT claims and a set of {{site.data.keyword.appid_short_notm}} specific claims such as a tenant ID. The identity token contains user specific information. The information in the tokens is stored as claims as part of a [user's profile](/docs/services/appid?topic=appid-profiles).
 
 ## How are tokens received?
 {: #received}
