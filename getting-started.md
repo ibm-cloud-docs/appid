@@ -63,7 +63,7 @@ To build a sample app:
 
 1. Click **Download Sample**.
 2. Click on the language of your choice to download the sample.
-  Don't see the language you're looking for? Don't worry! You can take advantage of {{site.data.keyword.appid_short_notm}} through the APIs. You can also check out <a href="https://www.ibm.com/blogs/bluemix/tag/app-id/" target="_blank">our blogs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> for extra help in other languages.
+  Don't see the language you're looking for? Don't worry! You can take advantage of {{site.data.keyword.appid_short_notm}} through the APIs.
   {: tip}
 3. Be sure that you have the pre-requisites installed or completed.
 4. Follow the **Build & Run** steps to set up your sample with {{site.data.keyword.appid_short_notm}}.
