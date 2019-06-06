@@ -132,5 +132,5 @@ Want to have a custom experience for your users? Not a problem.
 
 Are you working in a specific language and want to see how {{site.data.keyword.appid_short_notm}} fits in with other {{site.data.keyword.cloud_notm}} services? Check out one of the programming guides.
 
-* <a href="/docs/swift/authenticate?topic=swift-getting_started_swift#getting_started_swift" target="_blank">Programming with Swift on {{site.data.keyword.cloud_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
-* <a href="/docs/node?topic=nodejs-node-getting-started#node-getting-started" target="_blank">Programming with Node.js on {{site.data.keyword.cloud_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
+* <a href="/docs/swift?topic=swift-getting-started" target="_blank">Programming with Swift on {{site.data.keyword.cloud_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
+* <a href="/docs/node?topic=nodejs-getting-started" target="_blank">Programming with Node.js on {{site.data.keyword.cloud_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
