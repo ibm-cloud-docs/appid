@@ -26,7 +26,7 @@ subcollection: appid
 # App ID limits
 {: #limits}
 
-Rate limiting is used to control the amount of traffic that is coming and going through your instance of App ID. By limiting requests or resources, you can protect your applications. There are also general limits in place for the App ID service.
+Rate limiting is used to control the amount of traffic that is coming and going through your instance of App ID. By limiting requests or resources, you can protect your applications.
 {: shortdesc}
 
 ## App ID lite plan 
