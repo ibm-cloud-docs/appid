@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-05"
+lastupdated: "2019-06-06"
 
-keywords: authentication, authorization, identity, app security, secure, rates, cloud directory, rate limit, attempts
+keywords: Authentication, authorization, identity, app security, secure, rates, cloud directory, rate limit, attempts
 
 subcollection: appid
 
@@ -64,16 +64,16 @@ The following table lists the maximum per user limits for IBM Cloud App ID resou
     <tr>
         <td>Sign in attempts by one user</td>
         <td>5 per minute</td>
-        <td>User unable to sign in for one minute</td>
+        <td>User unable to sign in for 1 minute.</td>
     </tr>
     <tr>
         <td>Update user profile attributes</td>
         <td>5 per minute</td>
-        <td>User unable to update profile for one minute</td>
+        <td>User unable to update profile for 1 minute.</td>
     </tr>
         <td>Delete user profile attributes</td>
         <td>5 per minute</td>
-        <td>User unable to update profile for one minute</td>
+        <td>User unable to update profile for 1 minute.</td>
     </tr>
 </table>
 
@@ -96,19 +96,19 @@ Review the following table to see limits that are associated with Cloud Director
         <td>Sign in attempts per account</td>
         <td>Yes</td>
         <td>Unlimited</td>
-        <td>All sign in attempts for the instance are blocked for one minute</td>
+        <td>All sign-in attempts for the instance are blocked for one minute.</td>
     </tr>
     <tr>
         <td>Sign up attempts per account</td>
         <td>Yes</td>
         <td>Unlimited</td>
-        <td>All sign up attempts for the instance are blocked for one minute</td>
+        <td>All sign-up attempts for the instance are blocked for one minute.</td>
     </tr>
     <tr>
         <td>Email sending request</td>
         <td>No</td>
         <td>10 emails in 10 minutes per user</td>
-        <td>Email requests for the user are blocked for 30 minutes</td>
+        <td>Email requests for the user are blocked for 30 minutes.</td>
     </tr>
 </table>
 
