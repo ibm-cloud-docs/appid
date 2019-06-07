@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-21"
+lastupdated: "2019-06-07"
 
-keywords: authentication, authorization, identity, app security, secure, development, idp, troubleshooting, redirected, validation
+keywords: Authentication, authorization, identity, app security, secure, development, idp, troubleshooting, redirected, validation
 
 subcollection: appid
 
@@ -66,7 +66,7 @@ https://idp.example.org/SAML2/SSO/Redirect?SAMLRequest=request&RelayState=token
 Verify that your SAML provider is configured to return the `RelayState` parameter to {{site.data.keyword.appid_short_notm}} without modifying it in any way.
 
 
-### Missing or incorrect NameID field
+### Missing or incorrect Name ID
 {: #ts-saml-nameid}
 
 **What's happening**
