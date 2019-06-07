@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-21"
+lastupdated: "2019-06-07"
 
-keywords: authentication, authorization, identity, app security, secure, troubleshooting, help, support, requests, uri
+keywords: Authentication, authorization, identity, app security, secure, troubleshooting, help, support, requests, uri
 
 subcollection: appid
 
@@ -93,15 +93,15 @@ The identity provider can fail for several reasons:
 * Your configured redirect URL is incorrect.
 * The identity provider doesn't recognize the authentication request.
 * The identity provider expects HTTP-POST binding.
-* The identity provider expects a signed authnRequest.
+* The identity provider expects a signed AuthnRequest.
 
 {: tsResolve}
 You can try some of these solutions:
 
-* Update your sign-in URL. This URL is sent as part of the authnRequest and must be exact.
+* Update your sign-in URL. This URL is sent as part of the AuthnRequest and must be exact.
 * Be sure that your {{site.data.keyword.appid_short_notm}} metadata is set correctly in your identity provider settings.
-* Configure your identity provider to accept the authnRequest in the HTTP-Redirect.
-* {{site.data.keyword.appid_short_notm}} does not support signing authnRequests.
+* Configure your identity provider to accept the AuthnRequest in the HTTP-Redirect.
+* {{site.data.keyword.appid_short_notm}} does not support signing AuthnRequests.
 
 If none of the solutions work, it is possible that you might have a connection issue.
 {: tip}
@@ -137,7 +137,7 @@ You attempt to view the home page of your app but receive the following error:
 {: screen}
 
 {: tsCauses}
-You might receive a "too many requests" error if you are performing automated testing with only one virtual user. Each user is limited to five sign in attempts in a one-minute time span. Sign in attempts are limited in order to prevent brute force DDOS and other types of similar attacks.
+You might receive a "too many requests" error if you are performing automated testing with only one virtual user. Each user is limited to five sign in attempts in a one-minute time span. Sign in attempts are limited in order to prevent brute force DDoS and other types of similar attacks.
 
 {: tsResolve}
 To resolve the issue, you might want to use multiple virtual users when you perform testing.
