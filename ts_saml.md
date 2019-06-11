@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-07"
+lastupdated: "2019-06-11"
 
-keywords: Authentication, authorization, identity, app security, secure, development, idp, troubleshooting, redirected, validation
+keywords: Authentication, authorization, identity, app security, secure, development, troubleshooting, redirected, validation
 
 subcollection: appid
 
@@ -35,7 +35,7 @@ If you have problems when you are configuring SAML to work with {{site.data.keyw
 ## Common configuration issues
 {: #ts-common-saml}
 
-The SAML framework supports multiple profiles, flows, and configurations, which means that it is essential that your identity provider configuration is configured correctly. Check out the following topics for help resolving some of the common issues that you might encounter when working with SAML.
+The SAML framework supports multiple profiles, flows, and configurations, which means that it is essential that your identity provider configuration is done correctly. Check out the following topics for with help resolving some of the common issues that you might encounter when working with SAML.
 {: shortdesc}
 
 
@@ -54,7 +54,7 @@ The `RelayState` parameter is missing from your authentication response.
 
 **Why it's happening**
 
-{{site.data.keyword.appid_short_notm}} sends an opaque parameter known as `RelayState` as part of the authentication request. If you do not see the parameter in your response, your identity provider might not be configured to return it correctly. The `RelayState` takes the following form.
+{{site.data.keyword.appid_short_notm}} sends an opaque parameter that is known as `RelayState` as part of the authentication request. If you do not see the parameter in your response, your identity provider might not be configured to return it correctly. The `RelayState` takes the following form.
 
 ```
 https://idp.example.org/SAML2/SSO/Redirect?SAMLRequest=request&RelayState=token
@@ -71,7 +71,7 @@ Verify that your SAML provider is configured to return the `RelayState` paramete
 
 **What's happening**
 
-When you send an authentication request, you receive an error regarding the `NameID`.
+When you send an authentication request, you receive an error that regards the `NameID`.
 
 **Why it's happening**
 
@@ -93,7 +93,7 @@ To resolve the issue, be sure that your identity provider `NameID` is formatted 
 
 **What's happening**
 
-When you send an authentication request you receive the following error message:
+When you send an authentication request, you receive the following error message:
 
 ```
 Could not verify SAML assertion signature. Ensure {{site.data.keyword.appid_short_notm}} is configurated with your SAML provider's signing certificate.
@@ -142,7 +142,7 @@ Could not decrypt SAML assertion. Ensure your SAML provider is configured with t
 If your identity provider is configured to encrypt, {{site.data.keyword.appid_short_notm}} must be configured to sign the SAML authentication requests (AuthnRequest). Then, your identity provider must be configured to expect the corresponding configuration. You might receive these errors for one of the following reasons:
 
 - {{site.data.keyword.appid_short_notm}} is not configured to expect that the identity provider SAML response is encrypted.
-- {{site.data.keyword.appid_short_notm}} cannot correctly correctly decrypt your assertions.
+- {{site.data.keyword.appid_short_notm}} cannot correctly decrypt your assertions.
 
 
 **How to fix it**
@@ -170,10 +170,10 @@ Although {{site.data.keyword.appid_short_notm}} sends the initial authentication
 
 You might see the message if your identity provider: 
 
-* cannot find or verify the username.
-* does not support the `NameID` format that is defined in the authentication request (`AuthnRequest`).
-* does not support the authentication context.
-* requires the authentication request to be signed or use a specific algorithm in the signature.
+* Cannot find or verify the username.
+* Does not support the `NameID` format that is defined in the authentication request (`AuthnRequest`).
+* Does not support the authentication context.
+* Requires the authentication request to be signed or use a specific algorithm in the signature.
 
 **How to fix it**
 
@@ -233,7 +233,7 @@ Have the configuration correct but still have a bug? Check out some of the follo
 ### How do I capture my SAML authentication request and response?
 {: #ts-saml-capture}
 
-There are several options for browser plug-ins such as [Firefox](https://addons.mozilla.org/en-US/firefox/addon/saml-tracer/) and [Chrome](https://chrome.google.com/webstore/detail/saml-tracer/mpdajninpobndbfcldcmbpnnbhibjmch?hl=en) that can be used to capture your SAML requests and responses. Don't want to use a plug-in? No problem. Atlassian provides a instructions for a more [manual extraction approach](https://confluence.atlassian.com/jirakb/how-to-view-a-saml-responses-in-your-browser-for-troubleshooting-872129244.html).
+There are several options for browser plug-ins such as [Firefox](https://addons.mozilla.org/en-US/firefox/addon/saml-tracer/) and [Chrome](https://chrome.google.com/webstore/detail/saml-tracer/mpdajninpobndbfcldcmbpnnbhibjmch?hl=en) that can be used to capture your SAML requests and responses. Don't want to use a plug-in? No problem. Atlassian provides instructions for a more [manual extraction approach](https://confluence.atlassian.com/jirakb/how-to-view-a-saml-responses-in-your-browser-for-troubleshooting-872129244.html).
 
 
 ### I don't understand the messages! How can I decode them?
