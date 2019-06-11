@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-06-11"
 
-keywords: authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
+keywords: Authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
 subcollection: appid
 
@@ -29,7 +29,7 @@ subcollection: appid
 With Cloud Directory, you can manage your users in a scalable registry by using pre-built functionality that enhances security and self-service.
 {: shortdesc}
 
-A Cloud Directory user is not the same thing as an {{site.data.keyword.appid_short_notm}} user. Users can sign up for your app by using different the identity provider options that you configured, or you can add them to your directory. The users that are mentioned in this topic are those that are associated with Cloud Directory as an identity provider.
+A Cloud Directory user is not the same thing as an {{site.data.keyword.appid_short_notm}} user. Users can sign up for your app by using different the identity provider options that you configured, or you can add them to your directory. The users that are mentioned on this page are those that are associated with Cloud Directory as an identity provider.
 {: note}
 
 ## Viewing user information
@@ -54,8 +54,8 @@ You can use the {{site.data.keyword.appid_short_notm}} dashboard to view details
     <th colspan="2">User details</th>
   </tr>
   <tr>
-    <td>User identitifier</td>
-    <td>The user identifier is dependant upon the type of user sign up that you configured. If you have an email and password flow configured, the identifier is the user's email. If you use the username and password flow, the identifier is the username that is given at sign up.</td>
+    <td>User identifier</td>
+    <td>The user identifier is dependant upon the type of user sign-up that you configured. If you have an email and password flow configured, the identifier is the user's email. If you use the username and password flow, the identifier is the username that is given at sign-up.</td>
   </tr>
   <tr>
     <td>Email</td>
@@ -63,11 +63,11 @@ You can use the {{site.data.keyword.appid_short_notm}} dashboard to view details
   </tr>
     <tr>
     <td>First and last name</td>
-    <td>Your user's first and last name as they've provided during the sign up process.</td>
+    <td>Your user's first and last name as they provided during the sign-up process.</td>
   </tr>
   <tr>
     <td>Last Login</td>
-    <td>The time stamp of the last time that the user logged in to your application. Note: If you added your user through the dashboard, the login is blank until the user themselves signs into your app. When sign in occurs they also become an App ID user.</td>
+    <td>The time stamp of the last time that the user logged in to your application. Note: If you added your user through the dashboard, the login is blank until the user themselves signs into your app. When sign-in occurs they also become an App ID user.</td>
   </tr>
   <tr>
     <td>ID</td>
@@ -83,7 +83,7 @@ You can use the {{site.data.keyword.appid_short_notm}} dashboard to view details
   </tr>
   <tr>
     <td>Summary</td>
-    <td>All of the attributes are compiled to form one profile that gives your a complete overview of your Cloud Directory user. For more information, see [user profiles](/docs/services/appid?topic=appid-profiles).</td>
+    <td>All of the attributes are compiled to form one profile that gives you a complete overview of your Cloud Directory user. For more information, see [user profiles](/docs/services/appid?topic=appid-profiles).</td>
   </tr>
 </table>
 
@@ -180,12 +180,12 @@ When a user signs up for your application, they do so through a self-service wor
 
 When a user signs up for your application, they are added as a user. For test purposes, you can add a user through the {{site.data.keyword.appid_short_notm}} dashboard or by using the API.
 
-If you disable self-service sign up or add a user on their behalf, the user does not receive a welcome or verification email when they're added.
+If you disable self-service sign-up or add a user on their behalf, the user does not receive a welcome or verification email when they're added.
 {: tip}
 
 
 
-**To add a new user with the GUI:**
+**To add a user with the GUI:**
 
 1. Navigate to the **Cloud Directory > Users** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
 
@@ -198,7 +198,7 @@ If you disable self-service sign up or add a user on their behalf, the user does
 </br>
 
 
-**To add a new user with the API:**
+**To add a user with the API:**
 
 The following flow shows how to add a user with an email and password. You can also choose to use a username and password flow.
 
@@ -277,7 +277,7 @@ If you want to remove a user from your directory, you can delete the user from t
 ## Migrating users
 {: #user-migration}
 
-Occasionally you might need to set up a new instance of {{site.data.keyword.appid_short_notm}}. If you're using Cloud Directory this means that your users must be migrated to the new instance. You can use the management APIs to help with the migration.
+Occasionally, you might need to add a new instance of {{site.data.keyword.appid_short_notm}}. When you're working with Cloud Directory, this means that your users must be migrated to the new instance. To help with the migration, you can use the management APIs.
 {: shortdesc}
 
 
@@ -381,7 +381,7 @@ Before you get started, be sure that you have the following parameter informatio
   </tr>
   <tr>
     <td>IAM token</td>
-    <td>Be sure that you have <code>manager</code> permissions before you obtain the token. For help obtaining an IAM token, check out <a href="/docs/iam?topic=iam-iamtoken_from_apikey#iamtoken_from_apikey" target="_blank">the docs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.</td>
+    <td>Be sure that you have <code>manager</code> permissions before you obtain the token. For help with obtaining an IAM token, check out <a href="/docs/iam?topic=iam-iamtoken_from_apikey#iamtoken_from_apikey" target="_blank">the docs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.</td>
   </tr>
 </table>
 
