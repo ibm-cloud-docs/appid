@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-31"
 
 keywords: authentication, authorization, identity, app security, secure, development, user information, attributes, profiles, 
 
@@ -28,7 +28,7 @@ subcollection: appid
 使用 {{site.data.keyword.appid_full}}，針對您知道即將需要存取您應用程式的使用者，您可以在其起始登入之前開始建置設定檔。
 {: shortdesc}
 
-若要進一步瞭解屬性類型，請參閱[瞭解使用者設定檔](/docs/services/appid?topic=appid-user-profile)。若要進一步瞭解自訂屬性及其安全考量，請參閱[自訂屬性](/docs/services/appid?topic=appid-custom-attributes)。
+若要進一步瞭解屬性類型，和您在使用自訂屬性時應該進行的安全考量，請參閱[儲存及存取使用者設定檔](/docs/services/appid?topic=appid-profiles)。
 {: tip}
 
 ## 瞭解預先登錄
@@ -37,7 +37,7 @@ subcollection: appid
 ### 為何我要使用預先登錄？
 {: #preregister-why}
 
-請考慮使用下列應用程式：您使用 {{site.data.keyword.appid_short_notm}} 來聯合 SAML 身分提供者中的現有使用者。您可能想要讓某些使用者在第一次登入應用程式時，立即具有 `admin` 存取權。為了實現此目標，您可以使用預先登錄端點來設定那些使用者的自訂 `admin` 屬性，並將管理主控台的存取權授與他們，而您不需要採取任何進一步動作。請務必考量變更預設值所可能產生的[安全問題](/docs/services/appid?topic=appid-custom-attributes#custom-attributes)。
+請考慮使用下列應用程式：您使用 {{site.data.keyword.appid_short_notm}} 來聯合 SAML 身分提供者中的現有使用者。您可能想要讓某些使用者在第一次登入應用程式時，立即具有 `admin` 存取權。為了實現此目標，您可以使用預先登錄端點來設定那些使用者的自訂 `admin` 屬性，並將管理主控台的存取權授與他們，而您不需要採取任何進一步動作。請務必考量變更預設值所可能產生的[安全問題](/docs/services/appid?topic=appid-profiles#profile-set-custom)。
 
 ### 如何識別使用者？
 {: #preregister-identify-user}
@@ -134,13 +134,13 @@ subcollection: appid
   ```
   ibmcloud login
   ```
-  {: pre}
+  {: codeblock}
 
 2. 執行下列指令，以尋找 IAM 記號。
   ```
   ibmcloud iam oauth-tokens
   ```
-  {: pre}
+  {: codeblock}
 
 3. 對 `/users` 端點發出 POST 要求，而此端點包含使用者的說明以及您要設為 JSON 物件的屬性。
 
@@ -151,7 +151,7 @@ subcollection: appid
        Authorization: 'Bearer <IAM_TOKEN>'
        Content-Type: application/json
   ```
-  {: pre}
+  {: codeblock}
 
   內文：
   ```
@@ -165,7 +165,7 @@ subcollection: appid
        }
    }
   ```
-  {: pre}
+  {: codeblock}
 
   <table>
     <thead>
@@ -210,7 +210,7 @@ subcollection: appid
 
 請記住，在進行第一鑑別之前，使用者的預先定義屬性會是空的，但對於所有目的及用途而言，該使用者即是完整鑑別的使用者。您可以使用他們的唯一 ID，就像是使用已登入的使用者一樣。例如，您可以修改、搜尋或刪除設定檔。
 
-現在，您已建立使用者與特定屬性的關聯，請嘗試[存取或更新屬性](/docs/services/appid?topic=appid-custom-attributes)！
+現在，您已建立使用者與特定屬性的關聯，請嘗試[存取或更新屬性](/docs/services/appid?topic=appid-profiles)！
 
 
 </br>

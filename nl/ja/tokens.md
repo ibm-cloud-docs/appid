@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-10"
+lastupdated: "2019-04-23"
 
 keywords: authentication, authorization, identity, app security, secure, tokens, jwt, development
 
@@ -187,7 +187,7 @@ subcollection: appid
   2. 特に、同じアルゴリズムが使用されたことと、公開鍵キャッシュの中に、関連する鍵 ID を持つ鍵が含まれていることを検査します。
   3. ハッシュ値が PEM 形式の公開鍵の署名と同じであることを確認します。 ハッシュ値は、トークンのペイロードのヘッダーを結合してハッシュすることによって取得できます。 このプロセスの手動による実装は複雑になることがあるので、[リストされているライブラリー](https://jwt.io/)のいずれかを使用して署名を検証すると役立つ場合があります。
 
-6. トークンに保管されているクレームを検証します。 今後の検査を検証するには、[このリスト](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation)を使用できます。
+6. トークンに保管されているクレームを検証します。 今後の検査を検証するには、[このリスト](https://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation)を使用できます。
   <table>
     <thead>
       <th colspan=2><img src="images/idea.png" alt="詳細情報アイコン"/> 検証する必要があるクレーム </th>

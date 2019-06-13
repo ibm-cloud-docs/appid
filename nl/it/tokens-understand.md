@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-11"
+lastupdated: "2019-06-05"
 
 keywords: authentication, authorization, identity, app security, secure, access, tokens
 
@@ -103,12 +103,12 @@ Token di esempio:
   {: screen}
 
 
-I token di identità contengono solo delle informazioni utente parziali. Per visualizzare tutte le informazioni fornite dal provider di identità, puoi utilizzare l'[endpoint delle informazioni sull'utente](/docs/services/appid?topic=appid-predefined-attributes#predefined-access-api).
+I token di identità contengono solo delle informazioni utente parziali. Per visualizzare tutte le informazioni fornite dal provider di identità, puoi utilizzare l'[endpoint delle informazioni sull'utente](/docs/services/appid?topic=appid-profiles#profile-predefined-api).
 
 ## Cosa sono i token di aggiornamento?
 {: #refresh}
 
-{{site.data.keyword.appid_short}} supporta la capacità di acquisire nuovi token di accesso e identità senza la riautenticazione, come definito in <a href="http://openid.net/specs/openid-connect-core-1_0.html#RefreshTokens" target="_blank">OIDC <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a>. Un token di aggiornamento può essere utilizzato per rinnovare il token di accesso in modo che un utente non debba eseguire alcuna azione per accedere, come ad esempio fornire le credenziali. Simili ai token di accesso, i token di aggiornamento contengono i dati che consentono a {{site.data.keyword.appid_short_notm}} di determinare se sei autorizzato. Tuttavia, questi token sono opachi.
+{{site.data.keyword.appid_short}} supporta la capacità di acquisire nuovi token di accesso e identità senza la riautenticazione, come definito in <a href="https://openid.net/specs/openid-connect-core-1_0.html#RefreshTokens" target="_blank">OIDC <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a>. Un token di aggiornamento può essere utilizzato per rinnovare il token di accesso in modo che un utente non debba eseguire alcuna azione per accedere, come ad esempio fornire le credenziali. Simili ai token di accesso, i token di aggiornamento contengono i dati che consentono a {{site.data.keyword.appid_short_notm}} di determinare se sei autorizzato. Tuttavia, questi token sono opachi.
 
 I token di aggiornamento sono configurati per avere una durata maggiore rispetto a un token di accesso regolare, per cui quando un token di accesso scade, il token di aggiornamento sarà ancora valido e può essere utilizzato per rinnovare il token di accesso. I token di aggiornamento di {{site.data.keyword.appid_short_notm}} possono essere configurati per durare da 1 a 90 giorni. Per sfruttare appieno i token di aggiornamento, conserva i token per tutta la loro durata o finché non vengono rinnovati. Un utente non può accedere direttamente alle risorse con un solo token di aggiornamento, il che li rende molto più sicuri da conservare rispetto a un token di accesso. Come procedura ottimale, i token di aggiornamento devono essere memorizzati in modo sicuro dal client che li ha ricevuti e devono essere inviati solo al server di autorizzazione che li ha emessi.
 
@@ -128,7 +128,7 @@ I token sono emessi tramite il server {{site.data.keyword.appid_short_notm}} OAu
 ## Cosa succede alle informazioni contenute nel token?
 {: #contains}
 
-Il token di accesso contiene una serie di attestazioni JWT standard e una serie di attestazioni specifiche {{site.data.keyword.appid_short_notm}} come ad esempio un ID tenant. Il token di identità contiene le informazioni specifiche sull'utente. Le informazioni nei token vengono memorizzate come attestazioni che fanno parte di un [profilo dell'utente](/docs/services/appid?topic=appid-user-profile#user-profile).
+Il token di accesso contiene una serie di attestazioni JWT standard e una serie di attestazioni specifiche {{site.data.keyword.appid_short_notm}} come ad esempio un ID tenant. Il token di identità contiene le informazioni specifiche sull'utente. Le informazioni nei token vengono memorizzate come attestazioni che fanno parte di un [profilo dell'utente](/docs/services/appid?topic=appid-profiles).
 
 ## Come vengono ricevuti i token?
 {: #received}

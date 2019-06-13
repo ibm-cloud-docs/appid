@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-21"
+lastupdated: "2019-05-20"
 
 keywords: authentication, authorization, identity, app security, secure, development, ingress, policy, networking, containers, kubernetes
 
@@ -50,11 +50,11 @@ subcollection: appid
 시작하기 전에 다음과 같은 전제조건이 충족되는지 확인하십시오.
 {: shortdesc}
 
-보안 상의 이유로 {{site.data.keyword.appid_short_notm}} 인증에서는 TLS/SSL이 사용으로 설정된 백엔드만 지원됩니다.
-{: note}
 
-* 앱 또는 샘플 앱 
+* 앱 또는 샘플 앱
+
 * 구역당 두 개 이상의 작업자 노드가 포함된 표준 Kubernetes 클러스터. 다중 구역 클러스터에서 Ingress를 사용 중인 경우 [Kubernetes Service 문서](/docs/containers?topic=containers-ingress#config_prereqs)에서 추가적인 전제조건을 검토하십시오.
+
 * 클러스터가 배치된 것과 동일한 지역에 있는 {{site.data.keyword.appid_short_notm}} 인스턴스. 서비스 이름에 공백이 포함되어서는 안됩니다.
 
 * 다음과 같은 [{{site.data.keyword.cloud_notm}} IAM 역할](/docs/containers?topic=containers-access_reference#access_reference):
@@ -63,28 +63,29 @@ subcollection: appid
 
 * 다음과 같은 CLI:
 
-  * [{{site.data.keyword.cloud_notm}}](/docs/cli/reference/ibmcloud/cloud-cli-install_use?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli)
+  * [{{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli)
   * [Kubernetes](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
-  * [Docker](https://www.docker.com/products/docker-engine#/download)
+  * [Docker](https://www.docker.com/products/container-runtime#/download)
 
-* 다음과 같은 [{{site.data.keyword.cloud_notm}} CLI 플러그인](/docs/cli/reference/ibmcloud?topic=cloud-cli-plug-ins#plug-ins):
+* 다음과 같은 [ CLI 플러그인](/docs/cli?topic=cloud-cli-install-devtools-manually#idt-install-kubernetes-cli-plugin):
 
-  * Kubernetes Service
-  * Container Registry
+  * {{site.data.keyword.containershort}}
+  * {{site.data.keyword.registryshort_notm}}
 
 CLI 및 플러그인을 다운로드하고 Kubernetes Service 환경을 구성하기 위해 [Kubernetes 클러스터 작성](/docs/containers?topic=containers-cs_cluster_tutorial#cs_cluster_tutorial_lesson1) 튜토리얼을 참조하십시오.
 {: tip}
+
 
 시작합니다!
 
 ## 1단계: {{site.data.keyword.appid_short_notm}}를 클러스터에 바인딩
 {: #kube-create-appid}
 
-클러스터에 배치된 앱의 모든 인스턴스를 사용할 수 있도록 {{site.data.keyword.appid_short_notm}}의 인스턴스를 클러스터에 바인딩할 수 있습니다. 서비스 인스턴스를 클러스터에 바인딩하는 경우 애플리케이션이 Kubernetes 시크릿으로 시작되는 즉시 {{site.data.keyword.appid_short_notm}} 메타데이터 및 인증 정보를 사용할 수 있습니다.
+{{site.data.keyword.appid_short_notm}}의 인스턴스를 클러스터에 바인딩하면 해당 클러스터에 있는 모든 인스턴스를 {{site.data.keyword.appid_short_notm}}의 동일한 인스턴스로 제어할 수 있습니다. 또한 애플리케이션이 Kubernetes 시크릿으로 시작되는 즉시 {{site.data.keyword.appid_short_notm}} 메타데이터 및 인증 정보를 사용할 수 있습니다.
 {: shortdesc}
 
 
-1. {{site.data.keyword.cloud_notm}} CLI에 로그인하십시오. CLI의 프롬프트에 따라 로그인을 완료하십시오.
+1. {{site.data.keyword.cloud_notm}} CLI에 로그인하십시오. CLI의 프롬프트에 따라 로그인을 완료하십시오. 연합 ID를 사용하는 경우, 명령 끝에 `--sso` 플래그를 추가해야 합니다. 
 
   ```
   ibmcloud login -a cloud.ibm.com -r <region>
@@ -134,14 +135,14 @@ CLI 및 플러그인을 다운로드하고 Kubernetes Service 환경을 구성�
   ```
   kubectl get ingress
   ```
-  {: pre}
+  {: codeblock}
 
 4. {{site.data.keyword.appid_short_notm}}의 인스턴스를 바인드하십시오. 바인딩하면 서비스 인스턴스에 대한 서비스 키가 작성됩니다. `-key` 플래그를 사용하여 기존 서비스 키를 지정할 수 있습니다.
 
   ```
   ibmcloud ks cluster-service-bind --cluster <cluster_name_or_ID> --namespace <namespace> --service <App-ID_instance_name> [--key <service_instance_key>]
   ```
-  {: pre}
+  {: codeblock}
 
   네임스페이스를 지정하지 않을 경우 `default` 네임스페이스에 시크릿이 작성됩니다.
   {: tip}
@@ -171,36 +172,40 @@ Kubernetes에서 앱이 실행되도록 하려면 레지스트리에서 해당 �
   ```
   ibmcloud cr login
   ```
-  {: pre}
+  {: codeblock}
 
 2. Container Registry 네임스페이스를 작성하십시오.
 
   ```
   ibmcloud cr namespace-add <my_namespace>
   ```
-  {: pre}
+  {: codeblock}
 
 3. 앱을 Container Registry의 네임스페이스에 이미지로 빌드, 태그 지정 및 푸시하십시오. 명령의 끝 부분에 마침표(.)가 포함되어야 합니다.
 
   ```
-  ibmcloud cr build -t registry.<region>.bluemix.net/<namespace>/<app-name>:<tag> .
+  ibmcloud cr build -t registry.{region}.icr.io.net/{namespace}/{app-name}:{tag} .
   ```
-  {: pre}
+  {: codeblock}
 
 수고하셨습니다! 배치할 준비가 거의 완료되었습니다.
 
 ## 3단계: Ingress 구성
 {: kube-ingress}
 
-클러스터 작성 중에 개인용 및 공용 Ingress ALB가 둘 다 작성됩니다. 애플리케이션을 배치하여 Ingress 제어기를 활용하려면 배치 스크립트를 작성하십시오.
+클러스터 작성 중에 개인용 및 공용 IBM Kubernetes Service 애플리케이션 로드 밸런서(ALB)가 둘 다 작성됩니다. 애플리케이션을 배치하여 Ingress 제어기를 활용하려면 배치 스크립트를 작성하십시오.
 {: shortdesc}
+
+
+최상의 통합 성능을 위해 항상 최신 버전의 IBM Kubernetes Service 애플리케이션 로드 밸런서(ALB)를 사용하는 것이 좋습니다. 기본적으로 클러스터에 대한 자동 업데이트가 사용으로 설정되어 있습니다. 자동 업데이트에 대한 자세한 정보는 [On-demand ALB update feature on {{site.data.keyword.containershort}}](https://www.ibm.com/cloud/blog/on-demand-alb-update-feature-on-ibm-cloud-kubernetes-service)를 참조하십시오.
+{: tip}
 
 1. {{site.data.keyword.appid_short_notm}}를 클러스터에 바인딩할 때 클러스터 네임스페이스에 작성된 시크릿을 가져오십시오. 참고: Container Registry 네임스페이스가 **아닙니다**.
 
   ```
   kubectl get secrets --namespace=<namespace>
   ```
-  {: pre}
+  {: codeblock}
 
   출력 예:
 
@@ -273,7 +278,7 @@ Kubernetes에서 앱이 실행되도록 하려면 레지스트리에서 해당 �
   ```
   kubectl apply -f <file-name>.yaml
   ```
-  {: pre}
+  {: codeblock}
 
 수고하셨습니다!
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-11"
+lastupdated: "2019-06-05"
 
 keywords: authentication, authorization, identity, app security, secure, access, tokens
 
@@ -103,12 +103,12 @@ Header: {
   {: screen}
 
 
-ID 토큰에는 부분적인 사용자 정보만 포함됩니다. ID 제공자에서 제공되는 모든 정보를 확인하기 위해 [/userinfo 엔드포인트](/docs/services/appid?topic=appid-predefined-attributes#predefined-access-api)를 사용할 수 있습니다.
+ID 토큰에는 부분적인 사용자 정보만 포함됩니다. ID 제공자에서 제공되는 모든 정보를 확인하기 위해 [/userinfo 엔드포인트](/docs/services/appid?topic=appid-profiles#profile-predefined-api)를 사용할 수 있습니다.
 
 ## 새로 고치기 토큰이 무엇입니까?
 {: #refresh}
 
-{{site.data.keyword.appid_short}}의 경우 <a href="http://openid.net/specs/openid-connect-core-1_0.html#RefreshTokens" target="_blank">OIDC <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>에 정의된 것처럼 재인증 없이 새 액세스 및 ID 토큰을 획득하는 기능을 지원합니다. 새로 고치기 토큰은 사용자가 사인인하기 위해 어떤 조치(예: 인증 정보 제공)도 수행할 필요가 없도록 액세스 토큰을 갱신하기 위해 사용할 수 있습니다. 액세스 토큰과 마찬가지로 새로 고치기 토큰에도 {{site.data.keyword.appid_short_notm}}에서 권한 부여 여부를 판별할 수 있도록 해주는 데이터가 포함되어 있습니다. 하지만 이 토큰은 불투명합니다.
+{{site.data.keyword.appid_short}}의 경우 <a href="https://openid.net/specs/openid-connect-core-1_0.html#RefreshTokens" target="_blank">OIDC <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>에 정의된 것처럼 재인증 없이 새 액세스 및 ID 토큰을 획득하는 기능을 지원합니다. 새로 고치기 토큰은 사용자가 사인인하기 위해 어떤 조치(예: 인증 정보 제공)도 수행할 필요가 없도록 액세스 토큰을 갱신하기 위해 사용할 수 있습니다. 액세스 토큰과 마찬가지로 새로 고치기 토큰에도 {{site.data.keyword.appid_short_notm}}에서 권한 부여 여부를 판별할 수 있도록 해주는 데이터가 포함되어 있습니다. 하지만 이 토큰은 불투명합니다.
 
 새로 고치기 토큰은 정규 액세스 토큰보다 수명이 더 길기 때문에 액세스 토큰이 만료되더라도 새로 고치기 토큰은 여전히 유효하며 액세스 토큰을 갱신하기 위해 사용할 수 있습니다. {{site.data.keyword.appid_short_notm}}의 새로 고치기 토큰은 1 - 90일 동안 지속되도록 구성할 수 있습니다. 새로 고치기 토큰을 완전히 활용하려면 전체 수명 기간 동안 또는 해당 토큰이 갱신될 때까지 토큰이 지속되도록 하십시오. 새로 고치기 토큰만 사용해서는 사용자가 리소스에 직접 액세스할 수 없으므로 액세스 토큰보다 더 오래 지속되더라도 안전합니다. 우수 사례의 경우 새로 고치기 토큰을 수신한 클라이언트에서 해당 토큰을 안전하게 저장한 후 해당 토큰을 발행한 권한 서버로만 전송해야 합니다.
 
@@ -128,7 +128,7 @@ ID 토큰에는 부분적인 사용자 정보만 포함됩니다. ID 제공자�
 ## 토큰에 포함된 정보는 어떻게 처리됩니까?
 {: #contains}
 
-액세스 토큰에는 표준 JWT 청구 세트 및 {{site.data.keyword.appid_short_notm}} 특정 청구 세트(예: 테넌트 ID)가 포함되어 있습니다. ID 토큰에는 사용자 특정 정보가 포함되어 있습니다. 토큰 내의 정보는 [사용자 프로파일](/docs/services/appid?topic=appid-user-profile#user-profile)의 일부인 청구로 저장됩니다.
+액세스 토큰에는 표준 JWT 청구 세트 및 {{site.data.keyword.appid_short_notm}} 특정 청구 세트(예: 테넌트 ID)가 포함되어 있습니다. ID 토큰에는 사용자 특정 정보가 포함되어 있습니다. 토큰 내의 정보는 [사용자 프로파일](/docs/services/appid?topic=appid-profiles)의 일부인 청구로 저장됩니다.
 
 ## 토큰을 받는 방법은 무엇입니까?
 {: #received}

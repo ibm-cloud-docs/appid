@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-11"
+lastupdated: "2019-05-20"
 
 keywords: authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
@@ -144,7 +144,7 @@ subcollection: appid
 ### 电子邮件：重置密码
 {: #cd-messages-reset}
 
-用户与应用程序进行交互时，可能会忘记自己的密码，或者出于其他需要而要更新密码。您可以定制对这些请求的电子邮件响应。当用户请求更改自己的密码时，在他们单击此电子邮件中的链接之前，其密码仍保持未更改状态。
+用户与应用程序进行交互时，可能会忘记自己的密码，或者需要更新密码。您可以定制对这些请求的电子邮件响应。当用户请求更改自己的密码时，在他们单击此电子邮件中的链接之前，其密码仍保持未更改状态。
 {: shortdesc}
 
 
@@ -169,7 +169,7 @@ subcollection: appid
     </tr>
     <tr>
       <td><code>%{resetPassword.code}</code></td>
-      <td> 在 URL 中，显示一次性密码作为其中一部分。这意味着每个人都会收到不同的代码。示例：<code>https://us-south.appid.cloud.ibm.com/wfm/verify/6574839563478</code></td>
+      <td> 在 URL 中，显示一次性密码作为其中一部分。这意味着每个人都会收到不同的代码。示例：`https://us-south.appid.cloud.ibm.com/wfm/verify/6574839563478`</td>
     </tr>
     <tr>
       <td><code>%{resetPassword.link}</code></td>
@@ -198,7 +198,6 @@ subcollection: appid
 2. 将**密码已更改电子邮件**设置为**已启用**。
 
 3. 定制消息的内容。可以使用 UI 添加参数和插入图像。要更改消息的[语言](/docs/services/appid?topic=appid-cd-messages#cd-languages)，可以使用 <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization" target="_blank">API <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a> 来设置语言。但是，消息的内容和翻译由您自己负责。请查看下表以了解可以在消息中使用的不同参数。如果用户未提供参数拉出的信息，那么会显示为空。
-
 
   <table>
     <tr>
@@ -288,11 +287,11 @@ subcollection: appid
 
 2. 配置可以侦听发布请求的扩展点。此端点应能够读取来自 {{site.data.keyword.appid_short_notm}} 的有效内容，并通过定制电子邮件发件人发送电子邮件。
 
-3. 从 {{site.data.keyword.appid_short_notm}} 发送的主体采用以下格式：`{"jws": "jws-format-string"}`。解码并验证有效内容后，内容为 JSON 字符串。
+3. {{site.data.keyword.appid_short_notm}} 发送的主体采用以下格式：`{"jws": "jws-format-string"}`。解码并验证有效内容后，内容为 JSON 字符串。
 
   ```
-    {
-      "tenant": "tenant-id",
+  {
+    "tenant": "tenant-id",
       "iss" : "https://us-south.appid.cloud.ibm.com/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6050a61", 
       "iat": 1539173126,
       "jti": "uniq-id",
@@ -308,8 +307,8 @@ subcollection: appid
           },
           "subject": "Welcome to My Awesome Service",
           "body": "<p>Hello<p><br/><p>Thanks for signing up John Doe</p>"
-      }
     }
+  }
   ```
   {: screen}
 
@@ -327,8 +326,8 @@ subcollection: appid
       <td>发送消息时的时间戳记。</td>
     </tr>
     <tr>
-      <td><code>jss</code></td>
-      <td>发出 JWS 令牌的主体。</td>
+      <td><code>iss</code></td>
+      <td>发出 JWS 令牌的主体或 {{site.data.keyword.appid_short_notm}} 实例。</td>
     </tr>
     <tr>
       <td><code>jti</code></td>
@@ -344,7 +343,7 @@ subcollection: appid
     </tr>
     <tr>
       <td><code>可选：message: reply to</code></br><code>name</code></br><code>address</code></td>
-      <td></br>附加到回复电子邮件地址的名称。</br>用户可以回复的电子邮件地址。</td>
+      <td></br>附加到回复电子邮件地址的姓名。</br>用户可以回复的电子邮件地址。</td>
     </tr>
   </table>
 
@@ -421,7 +420,7 @@ subcollection: appid
 
 6. 通过测试电子邮件分派器来验证配置是否已正确设置。使用<a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/post_email_dispatcher_test" target="_blank">测试 API</a> 可触发对已配置的定制电子邮件发件人的请求。
 
-有关完整的有效示例，请参阅 <a href="https://www.ibm.com/blogs/bluemix/2018/10/use-ibm-cloud-app-id-and-your-email-provider-to-brand-mails-sent-to-app-users/" target="_blank">Use your own provider for mail sent with {{site.data.keyword.appid_full}}</a>。
+有关完整的有效示例，请参阅 <a href="https://www.ibm.com/cloud/blog/use-ibm-cloud-app-id-and-your-email-provider-to-brand-mails-sent-to-app-users" target="_blank">Use your own provider for mail sent with {{site.data.keyword.appid_full}}</a>。
 
 
 

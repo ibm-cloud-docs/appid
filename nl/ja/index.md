@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-27"
+lastupdated: "2019-05-20"
 
 keywords: authentication, authorization, identity, app security, secure, development,
 
@@ -31,8 +31,8 @@ subcollection: appid
 ユーザーにアプリへのサインインを要求することで、アプリの設定や公開されているソーシャル・プロファイル情報などのユーザー・データを保管し、そのデータを利用してアプリの操作環境を個別にカスタマイズできます。 {{site.data.keyword.appid_short_notm}} により自動的にフレームワークが提供されますが、クラウド・ディレクトリーの操作時には独自のブランド・マークが付いたサインイン画面を表示することもできます。
 
 フィードバックやご質問をお待ちしています。
-* {{site.data.keyword.appid_short_notm}} についての技術的な質問がある場合は、質問を<a href="https://stackoverflow.com/search?q=ibm-appid" target="_blank">スタック・オーバーフロー <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a>に投稿し、質問に `ibm-appid` のタグを付けてください。
-* サービスや開始手順についての質問は、<a href="https://developer.ibm.com/answers/topics/appid/" target="_blank">dW Answers <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> フォーラムをご利用ください。 `appid` のタグを付けてください。
+* {{site.data.keyword.appid_short_notm}} についての技術的な質問がある場合は、質問を<a href="https://stackoverflow.com" target="_blank">スタック・オーバーフロー <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a>に投稿し、質問に `ibm-appid` のタグを付けてください。
+* サービスや開始手順についての質問は、<a href="https://developer.ibm.com" target="_blank">dW Answers <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> フォーラムをご利用ください。 `appid` のタグを付けてください。
 
 ## サービス・インスタンスの作成
 {: #create}

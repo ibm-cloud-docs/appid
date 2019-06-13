@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-14"
 
 keywords: authentication, authorization, identity, app security, secure, application identity, app to app, access token
 
@@ -33,12 +33,11 @@ subcollection: appid
 
 사용자 개입 없이 하나의 애플리케이션에서 다른 서비스 또는 앱과 통신하기를 원하는 몇 가지 이유가 있습니다. 예를 들어 해당 작업을 수행하기 위해 다른 애플리케이션에 액세스해야 하는 비대화식 앱이 있습니다. 이 앱에는 환경 변수를 모니터링하고 업스트림 서버에 보고하는 CLI, 디먼 또는 IoT 디바이스가 포함될 수 있습니다. 특정 유스 케이스는 각 애플리케이션에 대해 고유하지만 기억해야 할 가장 중요한 내용은 일반 사용자가 아닌 앱을 대신하여 요청이 교환되며 인증 및 권한 부여되는 대상이 앱이라는 점입니다.
 
-<a href="https://www.ibm.com/blogs/bluemix/2018/02/using-app-id-secure-docker-kubernetes-applications/" target="_blank">{{site.data.keyword.appid_short_notm}}를 사용하여 Docker 및 Kubernetes 애플리케이션에 보안 설정 <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>에서 해당 예제를 참조하십시오.
 
 ### 이 플로우는 어떻게 작동합니까?
 {: #app-flow-how}
 
-{{site.data.keyword.appid_short_notm}}의 경우 OAuth2.0 클라이언트 인증 정보 플로우를 활용하여 통신을 보호합니다. 앱이 {{site.data.keyword.appid_short_notm}}에 등록되면 해당 앱은 클라이언트 ID 및 시크릿을 얻게 됩니다. 앱은 이 정보를 통해 {{site.data.keyword.appid_short_notm}}의 액세스 토큰을 요청하고 보호된 리소스 또는 API에 액세스할 수 있는 권한을 부여받을 수 있습니다. 애플리케이션 ID 및 권한 플로우에서 애플리케이션에는 액세스 토큰만 부여됩니다. ID 토큰 또는 새로 고치기 토큰은 얻지 못합니다. 토큰에 대한 자세한 정보는 [토큰에 대한 정보](/docs/services/appid?topic=appid-tokens#tokens)를 참조하십시오.
+{{site.data.keyword.appid_short_notm}}의 경우 OAuth 2.0 클라이언트 인증 정보 플로우를 활용하여 통신을 보호합니다. 앱이 {{site.data.keyword.appid_short_notm}}에 등록되면 해당 앱은 클라이언트 ID 및 시크릿을 얻게 됩니다. 앱은 이 정보를 통해 {{site.data.keyword.appid_short_notm}}의 액세스 토큰을 요청하고 보호된 리소스 또는 API에 액세스할 수 있는 권한을 부여받을 수 있습니다. 애플리케이션 ID 및 권한 플로우에서 애플리케이션에는 액세스 토큰만 부여됩니다. ID 토큰 또는 새로 고치기 토큰은 얻지 못합니다. 토큰에 대한 자세한 정보는 [토큰에 대한 정보](/docs/services/appid?topic=appid-tokens#tokens)를 참조하십시오.
 
 이 워크플로우는 시크릿이 오용되거나 유출될 위험이 없는 신뢰할 수 있는 애플리케이션에서만 사용되어야 합니다. 애플리케이션의 경우 항상 클라이언트 시크릿을 보유하고 있습니다. 모바일 앱에서는 작동하지 않습니다.
 {: tip}
@@ -51,10 +50,14 @@ subcollection: appid
 ![{{site.data.keyword.appid_short_notm}} 애플리케이션 ID 및 권한 플로우](images/app-to-app-flow.png)
 그림. 애플리케이션 ID 및 권한 플로우
 
-1. 애플리케이션 A는 {{site.data.keyword.appid_short_notm}}에 등록되어 클라이언트 ID 및 시크릿을 얻습니다.
-2. 애플리케이션 A는 이전 단계에서 검색된 인증 정보를 전송하여 {{site.data.keyword.appid_short_notm}}에 대한 요청을 작성합니다.
-3. {{site.data.keyword.appid_short_notm}}에서 요청을 유효성 검증하고 앱을 인증한 후 애플리케이션 A에 액세스 토큰이 포함된 응답을 리턴합니다.
-4. 이제 애플리케이션 A에서 액세스 토큰을 사용하여 애플리케이션 B(예: 보호된 리소스)에 요청을 전송할 수 있습니다.
+1. 보호된 리소스에 액세스하기 위해 인증해야 하는 애플리케이션을 {{site.data.keyword.appid_short_notm}}에 등록하십시오.  
+2. 애플리케이션 A는 {{site.data.keyword.appid_short_notm}}에 등록되어 클라이언트 ID 및 시크릿을 얻습니다.
+3. 애플리케이션 A는 이전 단계에서 검색된 인증 정보를 전송하여 {{site.data.keyword.appid_short_notm}} 권한 서버 `/token` 엔드포인트를 요청합니다. 
+4. {{site.data.keyword.appid_short_notm}}에서 요청을 유효성 검증하고 앱을 인증한 후 애플리케이션 A에 액세스 토큰이 포함된 응답을 리턴합니다.
+5. 이제 애플리케이션 A에서 올바른 액세스 토큰을 사용하여 보호된 리소스(예: 애플리케이션 B)에 요청을 전송할 수 있습니다. 
+
+클라이언트 인증에 사용되는 클라이언트 시크릿은 매우 중요하므로 기밀 상태로 유지해야 합니다. 애플리케이션은 클라이언트 시크릿 인앱을 사용하므로 신뢰할 수 있는 애플리케이션에서만 이 워크플로우를 사용해야 합니다. 신뢰할 수 있는 애플리케이션을 사용하면 클라이언트 시크릿이 유출되거나 오용되지 않습니다.
+{: important}
 
 ## 앱 등록
 {: #app-register}
@@ -79,7 +82,7 @@ subcollection: appid
   -H 'Authorization: Bearer IAM_TOKEN' \
   -d '{"name": "ApplicationName"}'
   ```
-  {: pre}
+  {: codeblock}
 
   응답 예제:
 
@@ -111,7 +114,7 @@ subcollection: appid
     -H 'Content-Type: application/x-www-form-urlencoded' \
     -d grant_type=client_credentials
   ```
-  {: pre}
+  {: codeblock}
 
   응답 예제:
   ```
@@ -121,7 +124,7 @@ subcollection: appid
   "token_type": "Bearer"
   }
   ```
-  {: pre}
+  {: codeblock}
 
 
 ## 튜토리얼: Node.js SDK와 관련된 엔드 투 엔드 플로우
@@ -134,10 +137,10 @@ subcollection: appid
     ```
     const TokenManager = require('ibmcloud-appid').TokenManager;
     const config = {
-     clientId: "29a19759-aafb-41c7-9ef7-ee7b0ca88818",
-     tenantId: "39a37f57-a227-4bfe-a044-93b6e6060b61",
-     secret: "ZTEzZTA2MDAtMjljZS00MWNlLTk5NTktZDliMjY3YzUxZTYx",
-     oauthServerUrl: "https://eu-gb.appid.cloud.ibm.com/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6060b61"
+     clientId: "<client-ID>",
+     tenantId: "<tenant-ID>",
+     secret: "<secret>",
+     oauthServerUrl: "https://<region>.appid.cloud.ibm.com/oauth/v4/<tenant-ID>"
     };
 
     const tokenManager = new TokenManager(config);
@@ -148,7 +151,7 @@ subcollection: appid
      //console.error('Error retrieving tokens : ' + err);
     });
     ```
-    {: pre}
+    {: codeblock}
 
   * {{site.data.keyword.appid_short_notm}} 권한 서버에서 다음 작업을 수행하십시오.
   
@@ -186,7 +189,7 @@ subcollection: appid
       });
     }
     ```
-    {: pre}
+    {: codeblock}
 
 2. 이전 단계에서 얻은 액세스 토큰을 사용하여 보호된 리소스에 대한 요청을 작성하십시오.
 
@@ -207,7 +210,7 @@ subcollection: appid
       }
   });
   ```
-  {: pre}
+  {: codeblock}
 
 3. {{site.data.keyword.appid_short_notm}} Node.js SDK에서 API 전략을 사용하여 보호된 리소스에 보안을 설정하십시오.
 
@@ -219,8 +222,8 @@ subcollection: appid
   app.use(passport.initialize());
 
   passport.use(new APIStrategy({
-      oauthServerUrl: "https://us-south.appid.cloud.ibm.com/oauth/v4/398ec248-5e93-48b8-a122-ccabc714fe85",
-      tenantId:"398ec248-5e93-48b8-a122-ccabc714fe85"
+      oauthServerUrl: "https://<region>.appid.cloud.ibm.com/oauth/v4/<tenant-ID>",
+      tenantId:"<tenant-ID>"
   }));
 
   app.get('/protected_resource',
@@ -229,4 +232,4 @@ subcollection: appid
           res.send("Hello from protected resource");
   });
   ```
-  {: pre}
+  {: codeblock}

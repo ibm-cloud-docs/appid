@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-21"
 
 keywords: authentication, authorization, identity, app security, secure, discovery endpoint, oidc, public keys, tokens, well known endpoint
 
@@ -23,7 +23,7 @@ subcollection: appid
 {:download: .download}
 
 
-# OIDC ディスカバリー・エンドポイントの使用
+# OIDC ディスカバリー文書
 {: #discovery}
 
 OpenID Connect は、アプリを構成してユーザーを認証するために使用できる情報 (トークンや公開鍵など) を格納するディスカバリー・プロトコルをサポートします。
@@ -42,9 +42,9 @@ OpenID Connect は、アプリを構成してユーザーを認証するため�
 このエンドポイントは以下の URL にあります。
 
 ```
-https://[region].appid.ibm.cloud.com/oauth/v4/{tenantId}/.well-known/openid-configuration
+https://{region}.appid.ibm.cloud.com/oauth/v4/{tenantId}/.well-known/openid-configuration
 ```
-{: pre}
+{: codeblock}
 
 <table>
   <tr>
@@ -77,18 +77,18 @@ https://[region].appid.ibm.cloud.com/oauth/v4/{tenantId}/.well-known/openid-conf
 
 **このエンドポイントを呼び出すにはどうすればよいですか?**
 
-このエンドポイントを呼び出すには、有効な `tenantID` があること、およびアプリケーションにディスカバリー文書 URI をハードコーディングすることが必要です。
+このエンドポイントを呼び出すには、有効なテナント ID があること、およびディスカバリー文書 URI をアプリケーション・コードにハードコーディングすることが必要です。
 
 以下のサンプル cURL 要求を参照してください。
 
 ```bash
-curl -X GET "https://us-south.appid.cloud.ibm.com/oauth/v4/asd/.well-known/openid-configuration" -H "accept: application/json"
+curl -X GET "https://{region}.appid.cloud.ibm.com/oauth/v4/{tenant-id}/.well-known/openid-configuration" -H "accept: application/json"
 ```
 {:codeblock}
 
 **この呼び出しによって何が返されますか?**
 
-応答は、以下の例のようになります。
+返される応答は、以下の例のようになります。
 
 ```bash
 {
@@ -165,7 +165,7 @@ curl -X GET "https://us-south.appid.cloud.ibm.com/oauth/v4/asd/.well-known/openi
   </tr>
   <tr>
     <td><code>userinfo_endpoint</code></td>
-    <td>{{site.data.keyword.appid_short_notm}} userinfo エンドポイントの URL。</td>
+    <td>{{site.data.keyword.appid_short_notm}} <code>/userinfo</code> エンドポイントの URL。</td>
   </tr>
   <tr>
     <td><code>scopes_supported</code></td>

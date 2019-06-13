@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-20"
+lastupdated: "2019-05-09"
 
 keywords: authentication, authorization, identity, app security, secure, development, cloud foundry, access management, iam, java, node.js
 
@@ -37,7 +37,7 @@ subcollection: appid
 
 * 자동화: 서비스 인증 정보가 VCAP_SERVICES 환경 변수에 저장되는 경우 더 이상 수동으로 해당 서비스 인증 정보를 앱에 복사할 필요가 없습니다. 해당 작업은 사용자를 대신하여 {{site.data.keyword.appid_short_notm}} SDK를 통해 백그라운드에서 수행됩니다.
 * 안전: 프로세스가 자동이므로 구성 시 오류가 발생하지 않습니다.
-* 보안: 서비스 인증 정보가 환경 변수에만 존재하므로 관련된 액세스가 애플리케이션에 하드 코딩되지 않습니다.
+* 보안: 서비스 인증 정보가 환경 변수에만 존재하므로 액세스와 관련하여 어떠한 사항도 애플리케이션에 하드 코딩되지 않습니다. 
 
 Cloud Foundry 앱이 다른 플랫폼에서 호스팅되고 있습니까? 문제 없습니다. 앱에서 애플리케이션 인증 정보를 정의하여 서비스에 바인딩할 수 있습니다. 애플리케이션 인증 정보는 {{site.data.keyword.appid_short_notm}} 대시보드를 통해 또는 [/applications 엔드포인트](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Applications/registerApplication)에 대한 요청을 작성하여 찾을 수 있습니다.
 {: tip}
@@ -74,7 +74,7 @@ Cloud Foundry 앱이 다른 플랫폼에서 호스팅되고 있습니까? 문제
   ```
   ibmcloud login -a cloud.ibm.com -r <region>
   ```
-  {: pre}
+  {: codeblock}
 
   <table>
     <tr>
@@ -108,23 +108,23 @@ Cloud Foundry 앱이 다른 플랫폼에서 호스팅되고 있습니까? 문제
   ```
   ibmcloud target --cf
   ```
-  {: pre}
+  {: codeblock}
 
 8. {{site.data.keyword.appid_short_notm}} 서비스 인스턴스의 별명을 작성하십시오.
 
   ```
   ibmcloud resource service-alias-create {ALIAS_NAME} --instance-name {SERVICE_INSTANCE_NAME}
   ```
-  {: pre}
+  {: codeblock}
 
-9. 이전 명령에서 얻은 정보를 사용하여 프로젝트의 `manifest.yml`에서 호스트 및 이름 값을 편집하십시오. 작성된 별명을 서비스에 추가하십시오.
+9. 작성한 별명을 `manifest.yml`의 서비스에 추가하십시오. 
 
 10. 샘플 앱을 배치하여 `manifest.yml` 파일에 나열된 서비스를 바인딩하십시오.
 
   ```
   ibmcloud app push
   ```
-  {: pre}
+  {: codeblock}
 
 ## Java 앱 배치
 {: #java}
@@ -144,7 +144,7 @@ Cloud Foundry 앱이 다른 플랫폼에서 호스팅되고 있습니까? 문제
   ```
   mvn clean install
   ```
-  {: pre}
+  {: codeblock}
 
 7. Liberty 폴더로 변경하십시오.
 
@@ -153,34 +153,29 @@ Cloud Foundry 앱이 다른 플랫폼에서 호스팅되고 있습니까? 문제
   ```
   ibmcloud login -a cloud.ibm.com -r <region>
   ```
-  {: pre}
+  {: codeblock}
 
 8. 작업을 수행할 Cloud Foundry 조직 및 영역을 대상으로 지정한 후 프롬프트의 지시에 따라 조직 및 영역을 대상으로 지정하십시오.
 
   ```
   ibmcloud target --cf
   ```
-  {: pre}
+  {: codeblock}
 
 10. {{site.data.keyword.appid_short_notm}} 서비스 인스턴스의 별명을 작성하십시오.
 
   ```
   ibmcloud resource service-alias-create {ALIAS_NAME} --instance-name {SERVICE_INSTANCE_NAME}
   ```
-  {: pre}
+  {: codeblock}
 
-11. 이전 명령에서 얻은 정보를 사용하여 프로젝트의 `manifest.yml`에서 호스트 및 이름 값을 편집하십시오. 작성된 별명을 서비스에 추가하십시오.
+11. 작성한 별명을 `manifest.yml`의 서비스에 추가하십시오. 
 
       예:
   ```
     applications:
   - name: ApplicationName
-    host: HostName
-    buildpack: liberty-for-java
-    instances: 1
     memory: 512M
-    disk_quota: 1024M
-    timeout: 180
     services:
     - AppID-alias
   ```
@@ -191,5 +186,5 @@ Cloud Foundry 앱이 다른 플랫폼에서 호스팅되고 있습니까? 문제
   ```
   ibmcloud app push
   ```
-  {: pre}
+  {: codeblock}
 

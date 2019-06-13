@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-08"
+lastupdated: "2019-06-06"
 
-keywords: authentication, authorization, identity, app security, secure, compliance, high availability
+keywords: Authentication, authorization, identity, app security, secure, compliance, high availability, ha, disaster recover, dr, protocols, oauth, oidc
 
 subcollection: appid
 
@@ -26,7 +26,7 @@ subcollection: appid
 {: #about}
 
 应用程序安全性复杂程度之深令人难以置信。对于大多数开发者而言，这是创建应用程序的最困难的一个部分。如何确保用户信息得到安全保护？即使您在安全性方面没有太多经验，也可以通过将 {{site.data.keyword.appid_full}} 集成到应用程序中来保护资源并添加认证。
-{:shortdesc}
+{: shortdesc}
 
 
 
@@ -38,7 +38,7 @@ subcollection: appid
 
 Cloud Directory 可以为您做什么？请观看以下视频以了解有关该服务的不同使用方式的更多信息，然后在下表中阅读有关其他场景的更多信息。
 
-<iframe class="embed-responsive-item" id="youtubeplayer" title="关于 App ID" type="text/html" width="640" height="390" src="//www.youtube.com/embed/XlrCjHdK43Q?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
+<iframe class="embed-responsive-item" id="about-appid" title="关于 {{site.data.keyword.appid_short_notm}}" type="text/html" width="640" height="390" src="//www.youtube.com/embed/XlrCjHdK43Q?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
 
 <table>
   <tr>
@@ -55,7 +55,7 @@ Cloud Directory 可以为您做什么？请观看以下视频以了解有关该�
   </tr>
   <tr>
     <td>您想要为用户构建个性化的应用程序体验。</td>
-    <td>利用 {{site.data.keyword.appid_short_notm}}，可以[存储用户数据](/docs/services/appid?topic=appid-user-profile#user-profile)（如应用程序首选项或公共社交个人档案中的信息），然后使用这些数据来定制每一种应用程序体验。</td>
+    <td>利用 {{site.data.keyword.appid_short_notm}}，可以[存储用户数据](/docs/services/appid?topic=appid-profiles)（如应用程序首选项或公共社交个人档案中的信息），然后使用这些数据来定制每一种应用程序体验。</td>
   </tr>
   <tr>
     <td>您希望以可缩放的方式管理用户。</td>
@@ -74,7 +74,7 @@ Cloud Directory 可以为您做什么？请观看以下视频以了解有关该�
 
 <dl>
   <dt>应用程序</dt>
-    <dd><strong>服务器 SDK</strong>：您可以使用服务器 SDK，保护在 {{site.data.keyword.cloud_notm}} 以及您的 Web 应用程序上托管的后端资源。其会从请求中抽取访问令牌，并使用 {{site.data.keyword.appid_short_notm}} 进行验证。</br>
+    <dd><strong>服务器 SDK</strong>：您可以使用服务器 SDK，保护在 {{site.data.keyword.cloud_notm}} 以及您的 Web 应用程序上托管的后端资源。服务器 SDK 会从请求中抽取访问令牌，并使用 {{site.data.keyword.appid_short_notm}} 进行验证。</br>
     <strong>客户端 SDK</strong>：您可以使用 Android 或 iOS 客户端 SDK 保护您的移动应用程序。客户端 SDK 在检测到授权质询时将与云资源通信，以启动认证流程。</dd>
   <dt>{{site.data.keyword.cloud_notm}}</dt>
     <dd><strong>{{site.data.keyword.appid_short_notm}}</strong>：成功认证后，{{site.data.keyword.appid_short_notm}} 会将访问令牌和身份令牌返回到应用程序。</br>
@@ -91,18 +91,18 @@ Cloud Directory 可以为您做什么？请观看以下视频以了解有关该�
 {:shortdesc}
 
 <dl>
-  <dt>{{site.data.keyword.containerlong_notm}}</dt>
-    <dd>通过在标准集群中配置 Ingress，您可以在集群级别保护应用程序。请查看 <a href="/docs/containers?topic=containers-ingress_annotation#appid-auth">{{site.data.keyword.appid_short_notm}} 认证 Ingress 注释</a>或 <a href="https://www.ibm.com/blogs/bluemix/2018/05/announcing-app-id-integration-ibm-cloud-kubernetes-service/">Announcing {{site.data.keyword.appid_short_notm}} integration to {{site.data.keyword.containerlong_notm}} <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a> 博客帖子以开始使用。</dd>
-  <dt>{{site.data.keyword.openwhisk}} 和 API Connect</dt>
-    <dd>使用 [{{site.data.keyword.openwhisk_short}}](/docs/openwhisk?topic=cloud-functions-getting_started#getting_started) 和 [API Connect](/docs/services/apiconnect?topic=apiconnect-index#index) 创建 API 时，您可以在网关而不是应用程序代码级别保护应用程序。要了解集成工作方式，请观看 <a href="https://www.youtube.com/watch?v=Fa9YD2NGZiE" target="_blank">Simple and fast social login OAauth with APIC and {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a>。</dd>
+  <dt>{{site.data.keyword.containershort_notm}}</dt>
+    <dd>通过在标准集群中配置 Ingress，您可以在集群级别保护应用程序。请查看 <a href="/docs/containers?topic=containers-ingress_annotation#appid-auth">{{site.data.keyword.appid_short_notm}} 认证 Ingress 注释</a>或 <a href="https://www.ibm.com/blogs/cloud-archive/2018/05/announcing-app-id-integration-ibm-cloud-kubernetes-service/">Announcing {{site.data.keyword.appid_short_notm}} integration to {{site.data.keyword.containerlong_notm}} <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a> 博客帖子以开始使用。</dd>
+  <dt>{{site.data.keyword.openwhisk_short}} 和 {site.data.keyword.apiconnect_short}}</dt>
+    <dd>使用 [{{site.data.keyword.openwhisk_short}}](/docs/openwhisk?topic=cloud-functions-getting_started#getting_started) 和 [API Connect](/docs/services/apiconnect?topic=apiconnect-getting-started) 创建 API 时，您可以在网关而不是应用程序代码级别保护应用程序。要了解集成工作方式，请观看 <a href="https://www.youtube.com/watch?v=Fa9YD2NGZiE" target="_blank">Simple and fast social login OAuth with API Connect and {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a>。</dd>
   <dt>Cloud Foundry</dt>
     <dd>试用提供的某个样本 Cloud Foundry 应用程序，以了解如何将 {{site.data.keyword.appid_short_notm}} 集成到应用程序中。</dd>
   <dt>{{site.data.keyword.cloudaccesstrailshort}}</dt>
-    <dd>您可以使用 [{{site.data.keyword.cloudaccesstrailshort}} 服务](/docs/services/cloud-activity-tracker/reference?topic=cloud-activity-tracker-getting-started-with-cla#getting-started-with-cla)来监视在 {{site.data.keyword.appid_short_notm}} 中生成的管理活动，例如更改仪表板配置。</dd>
+    <dd>您可以使用 [{{site.data.keyword.cloudaccesstrailshort}} 文档](/docs/services/cloud-activity-tracker?topic=cloud-activity-tracker-getting-started#getting-started)来了解如何监视在 {{site.data.keyword.appid_short_notm}} 中生成的管理活动，例如更改仪表板配置。</dd>
   <dt>iOS 编程指南</dt>
-    <dd>是否开发 Apple 应用程序？请试用 [iOS 编程指南](/docs/swift/authenticate?topic=swift-getting_started_swift#getting_started_swift)，借助 {{site.data.keyword.cloud_notm}} 来学习、试验以及改进现有的 iOS 应用程序。</dd>
+    <dd>是否开发 Apple 应用程序？请试用 [iOS 编程指南](/docs/swift?topic=swift-getting-started)，借助 {{site.data.keyword.cloud_notm}} 来学习、试验以及改进现有的 iOS 应用程序。</dd>
   <dt>Node.js 编程指南</dt>
-    <dd>是否在 Node.js 中开发应用程序？请试用 [Node.js 编程指南](/docs/node?topic=nodejs-node-getting-started#node-getting-started)，借助 {{site.data.keyword.cloud_notm}} 来学习、试验以及改进现有的 Node.js 应用程序。</dd>
+    <dd>是否在 Node.js 中开发应用程序？请试用 [Node.js 编程指南](/docs/node?topic=nodejs-getting-started)，借助 {{site.data.keyword.cloud_notm}} 来学习、试验以及改进现有的 Node.js 应用程序。</dd>
 </dl>
 
 
@@ -114,7 +114,7 @@ Cloud Directory 可以为您做什么？请观看以下视频以了解有关该�
 
 {{site.data.keyword.appid_short_notm}} 基于在面向企业和面向消费者的应用程序中常见的一组众所周知的行业标准协议和规范：OAuth 2.0 授权框架和 Open ID Connect。OAuth 2.0 用于获取和验证用于访问受保护资源的授权。在此基础上，Open ID Connect 向应用程序添加认证和身份保护层。
 
-请参阅 {{site.data.keyword.appid_short_notm}} 软件产品兼容性报告的第 5.4 部分，以查看完整的[证书](https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=BF31C8008D7C11E59F9AD7336D7D0FFB)列表。除了认证外，{{site.data.keyword.appid_short_notm}} 还符合以下规范：Oauth 2.0、OpenID Connect、JSON Web 令牌 (JWT)、JSON Web 签名 (JWS) 和跨域身份管理系统 (SCIM)。 
+请参阅 {{site.data.keyword.appid_short_notm}} 软件产品兼容性报告的第 5.4 部分，以查看完整的[证书](https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=BF31C8008D7C11E59F9AD7336D7D0FFB)列表。除了认证外，{{site.data.keyword.appid_short_notm}} 还符合以下规范：OAuth 2.0、OpenID Connect、JSON Web 令牌 (JWT)、JSON Web 签名 (JWS) 和跨域身份管理系统 (SCIM)。 
 
 
 ## 区域高可用性

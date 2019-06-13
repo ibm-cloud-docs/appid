@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-11"
+lastupdated: "2019-04-17"
 
 keywords: authentication, authorization, identity, app security, secure
 
@@ -59,11 +59,11 @@ subcollection: appid
   </tr>
   <tr>
     <td>다단계 인증(MFA)</td>
-    <td>[클라우드 디렉토리용 MFA](/docs/services/appid?topic=appid-cd-mfa#cd-mfa)는 사용자가 이메일 및 비밀번호를 입력하는 것은 물론 해당 이메일로 발송되는 일회성 패스코드도 입력하도록 요구하여 사용자의 ID를 확인합니다.</td>
+    <td>[Cloud Directory용 MFA](/docs/services/appid?topic=appid-cd-mfa#cd-mfa)는 사용자가 이메일 및 비밀번호를 입력하는 것은 물론 해당 이메일로 발송되는 일회성 패스코드도 입력하도록 요구하여 사용자의 ID를 확인합니다.</td>
   </tr>
   <tr>
     <td>비밀번호 정책 관리</td>
-    <td>계정 소유자의 경우 사용자 비밀번호에서 준수해야 하는 규칙 세트를 구성하여 클라우드 디렉토리에 추가적인 보안이 설정된 비밀번호를 적용합니다. 예를 들면 잠금 전 사인인 시도 횟수, 만기 시간, 비밀번호 업데이트 사이의 최소 기간 또는 비밀번호를 반복할 수 없는 횟수 등이 있습니다. 옵션 및 설정 정보에 대한 전체 목록은 [고급 비밀번호 관리](/docs/services/appid?topic=appid-cd-strength#cd-advanced-password)를 참조하십시오.</td>
+    <td>계정 소유자의 경우 사용자 비밀번호에서 준수해야 하는 규칙 세트를 구성하여 Cloud Directory에 추가적인 보안이 설정된 비밀번호를 적용합니다. 예를 들면 잠금 전 사인인 시도 횟수, 만기 시간, 비밀번호 업데이트 사이의 최소 기간 또는 비밀번호를 반복할 수 없는 횟수 등이 있습니다. 옵션 및 설정 정보에 대한 전체 목록은 [고급 비밀번호 관리](/docs/services/appid?topic=appid-cd-strength#cd-advanced-password)를 참조하십시오.</td>
   </tr>
 </table>
 
@@ -131,3 +131,14 @@ URL에 조회 매개변수를 포함하지 마십시오. 이는 유효성 검증
   </tbody>
 </table>
 
+
+
+## {{site.data.keyword.appid_short_notm}}와 Keycloak 간의 차이점은 무엇입니까? 
+{:# faq-keycloak}
+
+{{site.data.keyword.appid_short_notm}}와 Keycloak은 모두 애플리케이션에 인증을 추가하고 서비스를 보안 설정하는 데 사용할 수 있습니다. 두 오퍼링 간의 주요한 차이점은 패키징 방식입니다.
+{: shortdesc}
+
+Keycloak은 소프트웨어로 패키징됩니다. 즉, 사용자가 다운로드한 이후에 제품 기능을 유지보수할 책임은 개발자에게 있습니다. 호스팅, 고가용성, 준수, 백업, DDoS 보호, 로드 밸런싱, 웹 방화벽, 데이터베이스에 대한 책임은 사용자에게 있습니다. 
+
+{{site.data.keyword.appid_short_notm}}는 "서비스로" 제공되는 완전히 관리되는 오퍼링입니다. 즉, IBM에서 서비스 운영을 담당하고, 준수, 여러 구역의 가용성 및 SLA 등을 처리합니다. {{site.data.keyword.appid_short_notm}}는 또한 {{site.data.keyword.containershort_notm}}, {{site.data.keyword.openwhisk_short}}, {{site.data.keyword.cloudaccesstrailshort}} 등의 기본 런타임 및 서비스로 구성된, {{site.data.keyword.cloud_notm}} 플랫폼을 제공하는 즉시 사용 가능한 통합 환경도 제공합니다. 

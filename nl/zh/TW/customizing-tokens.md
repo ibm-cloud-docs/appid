@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-31"
 
 keywords: authentication, authorization, identity, app security, secure, custom, tokens, access, claim, attributes
 
@@ -78,7 +78,7 @@ subcollection: appid
 </table>
 
 
-因為記號是用來識別使用者並保護資源，所以記號的有效期限會影響數個不同的事物。自訂記號配置，您可以確保符合安全和使用者體驗。不過，若記號曾經受損，惡意使用者會有更多時間影響您的應用程式。您可以在[自訂屬性](/docs/services/appid?topic=appid-custom-attributes)中進一步瞭解安全考量。
+因為記號是用來識別使用者並保護資源，所以記號的有效期限會影響數個不同的事物。自訂記號配置，您可以確保符合安全和使用者體驗。不過，若記號曾經受損，惡意使用者會有更多時間影響您的應用程式。您可以在[設定自訂屬性](/docs/services/appid?topic=appid-profiles#profile-set-custom)中進一步瞭解安全考量。
 {: important}
 
 
@@ -122,7 +122,7 @@ subcollection: appid
 ```
 {: screen}
 
-如果您已自訂記號的有效期限資訊，則必須在每個要求中加以設定。如果您未這麼做，這個要求會置換您的現行配置，且任何尚未定義的項目都會使用預設值。
+如果您已自訂記號的有效期限資訊，則必須在每個要求中加以設定。如果您未這麼做，這個要求會改寫您的現行配置，且任何尚未定義的項目都會使用預設值。
 {: note}
 
 ### 為何我要將宣告新增至記號？
@@ -140,7 +140,7 @@ subcollection: appid
 
 *受限要求*：取決於要求對映至的記號，部分要求具有受限制的自訂作業可能性。若為存取記號，`scope` 是唯一的受限要求。自訂對映無法置換它，但您可以利用自己的範圍來延伸它。當範圍要求對映至存取記號時，該值必須是字串，且不得附加 `appid_` 作為字首，否則將忽略它。在身分記號中，無法修改或置換要求 `identities` 及 `oauth_clients`。
 
-*正規化要求*：每個身分記號都包含一組要求，其被 {{site.data.keyword.appid_short_notm}} 辨識為正規化要求。當它們可用時，它們會直接從您的身分提供者對映至記號。無法明確地省略這些要求，但自訂要求對映可以將其置換。宣告包括 `name`、`email`、`picture`、`local` 及 `gender`。
+*正規化要求*：每個身分記號都包含一組要求，其被 {{site.data.keyword.appid_short_notm}} 辨識為正規化要求。當它們可用時，它們會直接從您的身分提供者對映至記號。無法明確地省略這些要求，但可以在您的記號中以自訂宣告改寫。宣告包括 `name`、`email`、`picture`、`local` 及 `gender`。附註：這不會變更或刪除屬性，但會變更在執行時期存在於記號中的資訊。
 
 
 ### 如何將宣告對映至記號？
@@ -156,7 +156,7 @@ subcollection: appid
       <tr>
         <td><code><em>source</em></code></td>
         <td>必要</td>
-        <td>定義要求的來源。它可以參照身分提供者的使用者資訊或使用者的 {{site.data.keyword.appid_short_notm}} 自訂屬性。</br> 選項包括：`saml`、`cloud_directory`、`facebook`、`google`、`appid_custom`、`ibmid` 及 `attributes`。</td>
+        <td>定義要求的來源。它可以參照身分提供者的使用者資訊或使用者的 {{site.data.keyword.appid_short_notm}} 自訂屬性。</br>選項包括：`saml`、`cloud_directory`、`facebook`、`google`、`appid_custom`、`ibmid` 及 `attributes`。</td>
       </tr>
       <tr>
         <td><code><em>sourceClaim</em></code></td>
@@ -212,7 +212,7 @@ subcollection: appid
        Authorization: 'Bearer <IAM_TOKEN>'
        Content-Type: application/json
   ```
-  {: pre}
+  {: codeblock}
 
   內文：
   ```
@@ -242,7 +242,7 @@ subcollection: appid
        ]
    }
   ```
-  {: pre}
+  {: codeblock}
 
   <table>
     <thead>

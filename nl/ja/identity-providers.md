@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-25"
+lastupdated: "2019-04-23"
 
 keywords: authentication, authorization, identity, app security, secure, custom, proprietary, social, facebook, google, 
 
@@ -35,7 +35,7 @@ subcollection: appid
 {{site.data.keyword.appid_short_notm}} に用意されているデフォルト構成は、サービスを迅速に稼働させるのに役立ちます。
 {: shortdesc}
 
-App ID を構成すると、Facebook、Google、Cloud Directory は自動的に ID プロバイダーとして有効になります。いつでも構成を変更できます。Facebook と Google 用のデフォルトの資格情報が設定されていますが、これらは IBM の資格情報であり、サービスを使用するかどうかのテストのみに使用してください。アプリを公開する前に、自分の資格情報になるように構成を更新してください。
+{{site.data.keyword.appid_short_notm}} を構成すると、Facebook、Google、Cloud Directory は自動的に ID プロバイダーとして有効になります。 いつでも構成を変更できます。 Facebook と Google 用のデフォルトの資格情報が設定されていますが、これらは IBM の資格情報です。これらは、サービスを使用するかどうかのテストのみに使用してください。 アプリを公開する前に、自分の資格情報になるように構成を更新してください。
 
 デフォルトの資格情報を使用した認証は、1 インスタンスあたり毎日 100 回に制限されています。
 {: note}
@@ -52,7 +52,7 @@ Facebook を ID プロバイダーとして使用するように {{site.data.key
 
 Facebook を ID プロバイダーとして使用するには、Facebook アプリケーションで Web サイトのプラットフォームを追加して構成する必要があります。
 
-1. <a href="https://developers.facebook.com/docs/apps/register" target="_blank">Facebook for Developers サイト<img src="../../icons/launch-glyph.svg" alt="アイコン・アイコン"></a>で自分のアカウントにログインします。
+1. <a href="https://developers.facebook.com/docs/apps#register" target="_blank">Facebook for Developers サイト<img src="../../icons/launch-glyph.svg" alt="アイコン・アイコン"></a>で自分のアカウントにログインします。
 2. Facebook のアプリ ID とアプリ・シークレットをメモします。 サービスのダッシュボードで Web プロジェクトの認証を構成するときに、これらの値が必要になります。
 3. Web プラットフォームを追加して、サイト URL を入力します。
 4. 製品リストから、**「Facebook ログイン」**を選択します。

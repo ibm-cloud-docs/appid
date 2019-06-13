@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-31"
 
 keywords: authentication, authorization, identity, app security, secure, custom, proprietary, 
 
@@ -76,7 +76,7 @@ subcollection: appid
 ## 產生 JSON Web 記號
 {: #generating-jwts}
 
-您可以藉由產生 <a href="https://tools.ietf.org/html/rfc7515" target="blank">JSON Web 記號 <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>，來將已驗證的使用者資料轉換為自訂身分 JWT。必須使用符合您預先配置之公開金鑰的私密金鑰來簽署記號。如需記號簽署程式庫的清單，請參閱 <a href="https://jwt.io/" target="blank">jwt.io <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>。
+您可以藉由產生 <a href="https://tools.ietf.org/html/rfc7515" target="blank">JSON Web 記號 <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>，來將已驗證的使用者資料轉換為自訂身分 JWT。必須使用符合您預先配置之公開金鑰的私密金鑰來簽署記號。如需記號簽署程式庫的清單，請參閱 <a href="https://jwt.io/" target="blank">https://jwt.io/ <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>。
 {: shortdesc}
 
 ### JWT 格式範例
@@ -127,7 +127,7 @@ subcollection: appid
     </tr>
     <tr>
       <td><code>aud</code></td>
-      <td>OAuth 伺服器 URL。格式：https://{region}.appid.cloud.ibm.com/oauth/v4/{tenantId}。</td>
+      <td>OAuth 伺服器 URL。格式：`https://{region}.appid.cloud.ibm.com/oauth/v4/{tenantId}`。</td>
     </tr>
     <tr>
       <td><code>exp</code></td>
@@ -139,7 +139,7 @@ subcollection: appid
     </tr>
     <tr>
       <td>正規化要求</td>
-      <td>所有[正規化要求](/docs/services/appid?topic=appid-tokens#tokens)都是在身分記號中提供，而這個身分記號是為了回應此要求而傳回的。可使用 [`/userinfo` 端點](/docs/services/appid?topic=appid-custom-attributes#custom-attributes)來找到更多的自訂宣告。</td>
+      <td>所有[正規化要求](/docs/services/appid?topic=appid-tokens)都是在身分記號中提供，而這個身分記號是為了回應此要求而傳回的。可使用 [`/userinfo` 端點](/docs/services/appid?topic=appid-profiles)來找到更多的自訂宣告。</td>
     </tr>
     <tr>
       <td>Scope</td>

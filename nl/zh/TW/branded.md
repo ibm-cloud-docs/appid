@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-20"
 
 keywords: authentication, authorization, identity, app security, secure, customizing apps, directory, registry, 
 
@@ -62,15 +62,15 @@ subcollection: appid
 
 是！請參閱下列任何範例，以查看「雲端目錄」的運作狀況：
 
-* <a href="https://www.ibm.com/blogs/bluemix/2018/01/use-branded-ui-user-sign-app-id/" target="_blank">Use your own branded UI for user sign-in with {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>
-* <a href="https://www.ibm.com/blogs/bluemix/2018/06/use-ui-flows-user-sign-sign-app-id/" target="_blank">Use your own UI and Flows for User Sign-Up and Sign-in with with {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>
-* <a href="https://www.ibm.com/blogs/bluemix/2018/06/custom-login-page-app-id-integration/" target="_blank">Use a custom login page with  {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>
+* <a href="https://www.ibm.com/cloud/blog/use-branded-ui-user-sign-app-id" target="_blank">Use your own branded UI for user sign-in with {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>
+* <a href="https://www.ibm.com/cloud/blog/use-ui-flows-user-sign-sign-app-id" target="_blank">Use your own UI and Flows for User Sign-Up and Sign-in with with {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>
+* <a href="https://www.ibm.com/cloud/blog/custom-login-page-app-id-integration" target="_blank">Use a custom login page with  {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>
 
 
 ## 使用 Android SDK 將應用程式加上品牌
 {: #branded-ui-android}
 
-啟用「雲端目錄」之後，即可使用 Android SDK 來呼叫自訂的畫面。您可以選擇您要使用者可與之互動的畫面組合。<a href="https://www.ibm.com/blogs/bluemix/2018/01/use-branded-ui-user-sign-app-id/" target="blank">如需詳細範例，請參閱此部落格 <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>！
+啟用「雲端目錄」之後，即可使用 Android SDK 來呼叫自訂的畫面。您可以選擇您要使用者可與之互動的畫面組合。<a href="https://www.ibm.com/cloud/blog/use-branded-ui-user-sign-app-id" target="blank">如需詳細範例，請參閱此部落格 <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>！
 {: shortdesc}
 
 
@@ -94,7 +94,7 @@ subcollection: appid
         }
       });
   ```
-  {: pre}
+  {: codeblock}
 
 </br>
 </br>

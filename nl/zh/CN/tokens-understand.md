@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-11"
+lastupdated: "2019-06-05"
 
 keywords: authentication, authorization, identity, app security, secure, access, tokens
 
@@ -105,12 +105,12 @@ subcollection: appid
   {: screen}
 
 
-身份令牌仅包含部分用户信息。要查看身份提供者提供的所有信息，可以使用 [/userinfo 端点](/docs/services/appid?topic=appid-predefined-attributes#predefined-access-api)。
+身份令牌仅包含部分用户信息。要查看身份提供者提供的所有信息，可以使用 [/userinfo 端点](/docs/services/appid?topic=appid-profiles#profile-predefined-api)。
 
 ## 什么是刷新令牌？
 {: #refresh}
 
-{{site.data.keyword.appid_short}} 支持获取新访问令牌和身份令牌而不重新认证的功能，如 <a href="http://openid.net/specs/openid-connect-core-1_0.html#RefreshTokens" target="_blank">OIDC <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a> 中所定义。可以使用刷新令牌来更新访问令牌，这样用户就不必执行任何操作来登录，例如提供凭证。与访问令牌类似，刷新令牌也包含允许 {{site.data.keyword.appid_short_notm}} 确定您是否已获授权的数据。但是，这些令牌是不透明的。
+{{site.data.keyword.appid_short}} 支持获取新访问令牌和身份令牌而不重新认证的功能，如 <a href="https://openid.net/specs/openid-connect-core-1_0.html#RefreshTokens" target="_blank">OIDC <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a> 中所定义。可以使用刷新令牌来更新访问令牌，这样用户就不必执行任何操作来登录，例如提供凭证。与访问令牌类似，刷新令牌也包含允许 {{site.data.keyword.appid_short_notm}} 确定您是否已获授权的数据。但是，这些令牌是不透明的。
 
 刷新令牌的生命周期配置为比常规访问令牌长，因此访问令牌到期时，刷新令牌仍将有效，并且可用于更新访问令牌。{{site.data.keyword.appid_short_notm}} 的刷新令牌可配置为持续 1 到 90 天。要充分利用刷新令牌，请在令牌完整生命周期内持久存储令牌，或者将令牌持久存储至更新为止。用户不能只使用刷新令牌来直接访问资源，因此持久存储刷新令牌比持久存储访问令牌更安全。最佳做法是，刷新令牌应由客户端安全地存储，客户端接收这些令牌，并仅将其发送到颁发令牌的授权服务器。
 
@@ -130,7 +130,7 @@ subcollection: appid
 ## 会怎样处理令牌包含的信息？
 {: #contains}
 
-访问令牌包含一组标准 JWT 声明和一组特定于 {{site.data.keyword.appid_short_notm}} 的声明，例如租户标识。身份令牌包含特定于用户的信息。令牌中的信息在[用户概要文件](/docs/services/appid?topic=appid-user-profile#user-profile)中存储为声明。
+访问令牌包含一组标准 JWT 声明和一组特定于 {{site.data.keyword.appid_short_notm}} 的声明，例如租户标识。身份令牌包含特定于用户的信息。令牌中的信息在[用户概要文件](/docs/services/appid?topic=appid-profiles)中存储为声明。
 
 ## 如何接收令牌？
 {: #received}

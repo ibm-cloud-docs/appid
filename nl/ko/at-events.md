@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-05"
+lastupdated: "2019-05-01"
 
 keywords: authentication, authorization, identity, app security, secure, application identity, app to app, access token, activity
 
@@ -31,13 +31,19 @@ subcollection: appid
 
 
 
-서비스가 작동하는 방식에 대한 자세한 정보는 [{{site.data.keyword.cloudaccesstrailshort}} 문서](/docs/services/cloud-activity-tracker/reference?topic=cloud-activity-tracker-getting-started-with-cla#getting-started-with-cla)를 참조하십시오.
+
+
+서비스가 작동하는 방식에 대한 자세한 정보는 [{{site.data.keyword.cloudaccesstrailshort}} 문서](/docs/services/cloud-activity-tracker?topic=cloud-activity-tracker-getting-started#getting-started)를 참조하십시오.
+
+
+
+
 
 
 ## 관리 이벤트 보기
 {: #at-monitor-admin}
 
-{{site.data.keyword.cloudaccesstrailshort}} 서비스를 사용하여 {{site.data.keyword.appid_short_notm}} 인스턴스에서 작성된 구성 활동을 확인, 관리 및 분석할 수 있습니다.
+{{site.data.keyword.at_short}} 서비스를 사용하여 {{site.data.keyword.appid_short_notm}} 인스턴스에서 작성된 구성 활동을 확인, 관리 및 분석할 수 있습니다.
 {: shortdesc}
 
 관리 활동을 모니터링하려면 다음을 수행하십시오.
@@ -48,7 +54,7 @@ subcollection: appid
 4. 드롭 다운 목록에서 다음 구성을 작성하여 {{site.data.keyword.appid_short_notm}}에서 생성된 이벤트를 검색하십시오.
     * **로그 보기**에서 **계정 로그**를 선택하십시오.
     * **검색**에서 **target.Management**를 선택하십시오.
-    * **필터**에 **appid**를 입력하십시오.
+    * **필터**에 `appid`를 입력하십시오.
 5. **필터**를 클릭하십시오.
 
 </br>
@@ -56,7 +62,7 @@ subcollection: appid
 ## 관리 이벤트 목록
 {: #at-events-admin}
 
-{{site.data.keyword.cloudaccesstrailshort}}에 전송되는 이벤트의 목록을 보려면 다음 표를 확인하십시오.
+{{site.data.cloudaccesstrailshort}}에 전송되는 이벤트의 목록을 보려면 다음 표를 확인하십시오.
 
 <table>
   <tr>
@@ -136,68 +142,68 @@ subcollection: appid
   </tr>
   <tr>
     <td><code>read.cloudDirectoryUser</code></td>
-    <td>클라우드 디렉토리 사용자를 봅니다.</td>
+    <td>Cloud Directory 사용자를 봅니다.</td>
     <td><strong>사용자</strong> 탭에서 찾을 수 있습니다.</td>
   </tr>
   <tr>
     <td><code>update.cloudDirectoryUser</code></td>
-    <td>클라우드 디렉토리 사용자를 업데이트합니다.</td>
+    <td>Cloud Directory 사용자를 업데이트합니다.</td>
     <td><strong>사용자</strong> 탭에서 업데이트할 수 있습니다.</td>
   </tr>
   <tr>
     <td><code>delete.cloudDirectoryUser</code></td>
-    <td>클라우드 디렉토리 사용자를 삭제합니다.</td>
+    <td>Cloud Directory 사용자를 삭제합니다.</td>
     <td><strong>사용자</strong> 탭에서 삭제할 수 있습니다.</td>
   </tr>
   <tr>
     <td><code>read.cloudDirectoryUsers</code></td>
-    <td>클라우드 디렉토리 사용자 목록을 봅니다.</td>
+    <td>Cloud Directory 사용자 목록을 봅니다.</td>
     <td><strong>사용자</strong> 탭에서 찾을 수 있습니다.</td>
   </tr>
   <tr>
     <td><code>update.cloudDirectoryUsers</code></td>
-    <td>클라우드 디렉토리 사용자 목록을 업데이트합니다.</td>
+    <td>Cloud Directory 사용자 목록을 업데이트합니다.</td>
     <td><strong>사용자</strong> 탭에서 업데이트할 수 있습니다.</td>
   </tr>
   <tr>
     <td><code>delete.cloudDirectoryUsers</code></td>
-    <td>클라우드 디렉토리 사용자 목록을 삭제합니다.</td>
+    <td>Cloud Directory 사용자 목록을 삭제합니다.</td>
     <td><strong>사용자</strong> 탭에서 삭제할 수 있습니다.</td>
   </tr>
   <tr>
     <td><code>read.emailTemplate</code></td>
     <td>이메일 템플리트를 봅니다.</td>
-    <td><strong>ID 제공자 > 클라우드 디렉토리 > 템플리트</strong> 탭에서 찾을 수 있습니다.</td>
+    <td><strong>ID 제공자 > Cloud Directory > 템플리트</strong> 탭에서 찾을 수 있습니다.</td>
   </tr>
   <tr>
     <td><code>update.emailTemplate</code></td>
     <td>이메일 템플리트를 업데이트합니다.</td>
-    <td><strong>ID 제공자 > 클라우드 디렉토리 > 템플리트</strong> 탭에서 찾을 수 있습니다.</td>
+    <td><strong>ID 제공자 > Cloud Directory > 템플리트</strong> 탭에서 찾을 수 있습니다.</td>
   </tr>
   <tr>
     <td><code>delete.emailTemplate</code></td>
     <td>기본값으로 재설정하기 위해 이메일 템플리트를 삭제합니다.</td>
-    <td><strong>ID 제공자 > 클라우드 디렉토리 > 템플리트</strong> 탭에서 찾을 수 있습니다.</td>
+    <td><strong>ID 제공자 > Cloud Directory > 템플리트</strong> 탭에서 찾을 수 있습니다.</td>
   </tr>
   <tr>
     <td><code>read.senderDetails</code></td>
     <td>발신인 세부사항을 봅니다.</td>
-    <td><strong>ID 제공자 > 클라우드 디렉토리 > 설정</strong> 탭에서 찾을 수 있습니다.</td>
+    <td><strong>ID 제공자 > Cloud Directory > 설정</strong> 탭에서 찾을 수 있습니다.</td>
   </tr>
   <tr>
     <td><code>update.senderDetails</code></td>
     <td>발신인 세부사항을 업데이트합니다.</td>
-    <td><strong>ID 제공자 > 클라우드 디렉토리 > 설정</strong> 탭에서 찾을 수 있습니다.</td>
+    <td><strong>ID 제공자 > Cloud Directory > 설정</strong> 탭에서 찾을 수 있습니다.</td>
   </tr>
   <tr>
     <td><code>update.resendNotification</code></td>
     <td>사용자 알림을 다시 보냅니다.</td>
-    <td><strong>ID 제공자 > 클라우드 디렉토리 > 설정</strong> 탭에서 찾을 수 있습니다.</td>
+    <td><strong>ID 제공자 > Cloud Directory > 설정</strong> 탭에서 찾을 수 있습니다.</td>
   </tr>
   <tr>
     <td><code>update.selfForgotPassword</code></td>
     <td>비밀번호 찾기 프로세스를 업데이트합니다.</td>
-    <td><strong>ID 제공자 > 클라우드 디렉토리 > 설정</strong> 탭에서 찾을 수 있습니다.</td>
+    <td><strong>ID 제공자 > Cloud Directory > 설정</strong> 탭에서 찾을 수 있습니다.</td>
   </tr>
   <tr>
     <td><code>update.forgotPasswordResult</code></td>
@@ -207,7 +213,7 @@ subcollection: appid
   <tr>
     <td><code>update.selfSignUp</code></td>
     <td>등록 프로세스를 업데이트합니다.</td>
-    <td><strong>ID 제공자 > 클라우드 디렉토리 > 설정</strong> 탭에서 찾을 수 있습니다.</td>
+    <td><strong>ID 제공자 > Cloud Directory > 설정</strong> 탭에서 찾을 수 있습니다.</td>
   </tr>
   <tr>
     <td><code>update.signUpResult</code></td>
@@ -217,17 +223,17 @@ subcollection: appid
   <tr>
     <td><code>read.action_url</code></td>
     <td>조치가 수행될 때 호출되는 사용자 정의 URL을 봅니다.</td>
-    <td><strong>ID 제공자 > 클라우드 디렉토리 > 사용자 정의 랜딩 페이지</strong> 탭에서 찾을 수 있습니다.</td>
+    <td><strong>ID 제공자 > Cloud Directory > 사용자 정의 랜딩 페이지</strong> 탭에서 찾을 수 있습니다.</td>
   </tr>
   <tr>
     <td><code>update.action_url</code></td>
     <td>조치가 수행될 때 호출되는 사용자 정의 URL을 업데이트합니다.</td>
-    <td><strong>ID 제공자 > 클라우드 디렉토리 > 설정</strong> 탭에서 찾을 수 있습니다.</td>
+    <td><strong>ID 제공자 > Cloud Directory > 설정</strong> 탭에서 찾을 수 있습니다.</td>
   </tr>
   <tr>
     <td><code>update.changePassword</code></td>
-    <td>클라우드 디렉토리 사용자 비밀번호를 변경합니다.</td>
-    <td><strong>ID 제공자 > 클라우드 디렉토리 > 설정</strong> 탭에서 찾을 수 있습니다.</td>
+    <td>Cloud Directory 사용자 비밀번호를 변경합니다.</td>
+    <td><strong>ID 제공자 > Cloud Directory > 설정</strong> 탭에서 찾을 수 있습니다.</td>
   </tr>
   <tr>
     <td><code>read.loginWidgetConfig</code></td>

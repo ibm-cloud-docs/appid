@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-10"
+lastupdated: "2019-05-09"
 
 keywords: authentication, authorization, identity, app security, secure, backend, back-end, oauth, 
 
@@ -144,8 +144,21 @@ if #available(OSX 10.12, *) {
     Kitura.run()  
 }
 ```
-{: pre}
+{: codeblock}
 {: ph data-hd-programlang='swift'}
+
+请查看以下视频，以了解有关使用 {{site.data.keyword.appid_short_notm}} 来保护后端 Node 应用程序的信息。然后，使用[简单 Node 样本应用程序](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02b-simple-node-backend-app)自行试用。
+{: ph data-hd-programlang='javascript'}
+
+<iframe class="embed-responsive-item" id="appid-backend-nodejs" title="关于 {{site.data.keyword.appid_short_notm}}" type="text/html" width="640" height="390" src="//www.youtube.com/embed/jJLSgkHpZwA?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+{: ph data-hd-programlang='javascript'}
+
+
+请查看以下视频，以了解有关使用 {{site.data.keyword.appid_short_notm}} 来保护后端 Liberty for Java 应用程序的信息。然后，使用[简单 Liberty for Java 样本应用程序](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02d-simple-liberty-backend-app)自行试用。
+{: ph data-hd-programlang='java'}
+
+<iframe class="embed-responsive-item" id="appid-backend-liberty" title="关于 {{site.data.keyword.appid_short_notm}}" type="text/html" width="640" height="390" src="//www.youtube.com/embed/QA6DY2qqLaw?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+{: ph data-hd-programlang='java'}
 
 
 ### 开始之前
@@ -170,7 +183,7 @@ if #available(OSX 10.12, *) {
       "ibmcloud-appid": "^6.0.0"
   }
   ```
-  {: pre}
+  {: codeblock}
   {: ph data-hd-programlang='javascript'}
 
 2. 运行以下命令。
@@ -179,7 +192,7 @@ if #available(OSX 10.12, *) {
   ```
   npm install
   ```
-  {: pre}
+  {: codeblock}
   {: ph data-hd-programlang='javascript'}
 
 ### 初始化 SDK
@@ -203,7 +216,7 @@ if #available(OSX 10.12, *) {
   var app = express();
   app.use(passport.initialize());
   ```
-  {: pre}
+  {: codeblock}
   {: ph data-hd-programlang='javascript'}
 
 
@@ -226,7 +239,7 @@ if #available(OSX 10.12, *) {
       }
    );
    ```
-  {: pre}
+  {: codeblock}
   {: ph data-hd-programlang='javascript'}
 
 令牌有效时，将调用请求链中的下一个中间件，并将 `appIdAuthorizationContext` 属性添加到请求对象。此属性包含原始访问令牌和身份令牌，以及相应令牌的已解码有效内容信息。

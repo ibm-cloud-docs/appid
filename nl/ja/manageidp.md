@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-20"
 
 keywords: authentication, authorization, identity, app security, secure, development, identity provider, tokens, customization, lifetime
 
@@ -30,12 +30,16 @@ ID プロバイダー (IdP) は、認証によって、モバイル・アプリ�
 {: shortdesc}
 
 
-{{site.data.keyword.appid_short_notm}} は、OpenID Connect や SAML などの複数のプロトコルを使用して ID プロバイダーと対話します。 例えば、OpenID Connect は、Facebook や Google などの多くのソーシャル・プロバイダーで使用されているプロトコルです。 <a href="https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-azure-active-directory/" target="_blank">Azure Active Directory <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> や <a href="https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-active-directory-federation-service/" target="_blank">Active Directory Federation Service <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> などのエンタープライズ・プロバイダーは、一般に ID プロトコルとして SAML を使用します。 [クラウド・ディレクトリー](/docs/services/appid?topic=appid-cloud-directory)の場合、このサービスは SCIM を使用して ID 情報を検証します。
+{{site.data.keyword.appid_short_notm}} は、OpenID Connect や SAML などの複数のプロトコルを使用して ID プロバイダーと対話します。 例えば、OpenID Connect は、Facebook や Google などの多くのソーシャル・プロバイダーで使用されているプロトコルです。 <a href="https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-azure-active-directory" target="_blank">Azure Active Directory <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> や <a href="https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-active-directory-federation-service" target="_blank">Active Directory Federation Service <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> などのエンタープライズ・プロバイダーは、一般に ID プロトコルとして SAML を使用します。 [クラウド・ディレクトリー](/docs/services/appid?topic=appid-cloud-directory)の場合、このサービスは SCIM を使用して ID 情報を検証します。
+
+ソーシャル ID プロバイダーまたはエンタープライズ ID プロバイダーを使用する場合、{{site.data.keyword.appid_short_notm}} にはユーザー・アカウント情報への読み取り権限があります。 このサービスは、ID プロバイダーから返されるトークンとアサーションを使用して、ユーザーが本人であることを検証します。 このサービスには情報への書き込み権限がないため、ユーザーは選択した ID プロバイダーを使用して、パスワードのリセットなどのアクションを実行する必要があります。 例えば、ユーザーが Facebook を使用してアプリにサインインした後にパスワードを変更する場合は、`www.facebook.com` にアクセスしてそれを行う必要があります。
+
+[クラウド・ディレクトリー](/docs/services/appid?topic=appid-cloud-directory)を使用する場合、{{site.data.keyword.appid_short_notm}} が ID プロバイダーになります。 このサービスは、レジストリーを使用してユーザー ID を検証します。 {{site.data.keyword.appid_short_notm}} はプロバイダーであるため、ユーザーは、パスワードのリセットなどの拡張機能をアプリ内で直接利用できます。
 
 アプリケーション識別の作業を行いますか? [アプリケーション識別](/docs/services/appid?topic=appid-app)を参照してください。
 {: tip}
 
-使用するサービスを構成できるプロバイダーは、いくつかあります。次の表を参照して、オプションを確認してください。
+このサービスで使用するために構成できるプロバイダーは、いくつかあります。 次の表を参照して、オプションを確認してください。
 
 <table>
   <tr>
@@ -90,7 +94,7 @@ ID プロバイダーを管理するには、以下のようにします。
 ## リダイレクト URI の追加
 {: #add-redirect-uri}
 
-リダイレクト URI は、アプリのコールバック・エンドポイントです。 サインイン・フローで、{{site.data.keyword.appid_short_notm}} は、許可ワークフローにクライアントが参加することを許可する前に、URI を検証します。これは、フィッシング攻撃とコード漏えいを防ぐのに役立ちます。URI を登録することで、その URI は信頼できる URI であり、ユーザーをリダイレクトしても大丈夫であることを {{site.data.keyword.appid_short_notm}} に示すことになります。
+リダイレクト URI は、アプリのコールバック・エンドポイントです。 サインイン・フローで、{{site.data.keyword.appid_short_notm}} は、許可ワークフローにクライアントが参加することを許可する前に、URI を検証します。これは、フィッシング攻撃と認可コード漏えいを防ぐのに役立ちます。 URI を登録することで、その URI が信頼できる URI であり、ユーザーをリダイレクトしてよいことを {{site.data.keyword.appid_short_notm}} に認識させます。
 
 信頼できるアプリケーションの URI だけを登録するようにしてください。
 {: note}
@@ -98,7 +102,7 @@ ID プロバイダーを管理するには、以下のようにします。
 
 1. **「認証設定 (Authentication Settings)」**をクリックすると、URI とトークンの構成オプションが表示されます。
 
-2. **「Web リダイレクト URI の追加」**フィールドに URI を入力します。 リダイレクトが正常に行われるためには、各 URI は `http://` または `https://` から始まる必要があり、絶対パスが使用されなければなりません。URI には照会パラメーターも含まれます。フォーマット設定にヘルプが必要ですか? 次の表でいくつかの例を確認してください。
+2. **「Web リダイレクト URI の追加」**フィールドに URI を入力します。 リダイレクトが正常に行われるためには、各 URI は `http://` または `https://` で始まり、照会パラメーターを含めた絶対パスが含まれていなければなりません。 URI の形式設定については、次の表にあるいくつかの例を確認してください。
 
   <table>
     <tr>
@@ -122,6 +126,12 @@ ID プロバイダーを管理するには、以下のようにします。
 3. **「Web リダイレクト URI の追加 (Add web redirect URIs)」**ボックス内の **+** 記号をクリックします。
 
 4. 考えられる URI をすべてリストに追加するまで、ステップ 1 から 3 を繰り返します。
+
+
+
+リダイレクト URI をどこで取得できるかわかりませんか? 以下の短いビデオで、取得場所およびリストへの追加方法を確認してください。
+
+<iframe class="embed-responsive-item" id="redirecturi" title="{{site.data.keyword.appid_short_notm}}: How to fix invalid redirect URI" type="text/html" width="640" height="390" src="//www.youtube.com/embed/6hxqbvpc054?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
 
 
 

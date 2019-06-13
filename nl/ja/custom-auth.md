@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-31"
 
 keywords: authentication, authorization, identity, app security, secure, custom, proprietary, 
 
@@ -76,7 +76,7 @@ subcollection: appid
 ## JSON Web トークンの生成
 {: #generating-jwts}
 
-検証済みユーザー・データをカスタム識別 JWT に変換するには、<a href="https://tools.ietf.org/html/rfc7515" target="blank">JSON Web トークン <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> を生成します。 このトークンを、事前構成された公開鍵に対応する秘密鍵で署名する必要があります。 トークン署名ライブラリーのリストについては、<a href="https://jwt.io/" target="blank">jwt.io <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> を参照してください。
+検証済みユーザー・データをカスタム識別 JWT に変換するには、<a href="https://tools.ietf.org/html/rfc7515" target="blank">JSON Web トークン <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> を生成します。 このトークンを、事前構成された公開鍵に対応する秘密鍵で署名する必要があります。 トークン署名ライブラリーのリストについては、<a href="https://jwt.io/" target="blank">https://jwt.io/ <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> を参照してください。
 {: shortdesc}
 
 ### JWT フォーマットの例
@@ -127,7 +127,7 @@ subcollection: appid
     </tr>
     <tr>
       <td><code> aud </code></td>
-      <td>OAuth サーバー URL。 形式は https://{region}.appid.cloud.ibm.com/oauth/v4/{tenantId} です。</td>
+      <td>OAuth サーバー URL。 形式は `https://{region}.appid.cloud.ibm.com/oauth/v4/{tenantId}` です。</td>
     </tr>
     <tr>
       <td><code> exp </code></td>
@@ -139,7 +139,7 @@ subcollection: appid
     </tr>
     <tr>
       <td>正規化クレーム</td>
-      <td>すべての[正規化クレーム](/docs/services/appid?topic=appid-tokens#tokens)は、この要求に対する応答として返される、識別トークンで提供されます。 [`/userinfo` エンドポイント](/docs/services/appid?topic=appid-custom-attributes#custom-attributes)を使用して、さらにカスタム・クレームを検出することができます。</td>
+      <td>すべての[正規化クレーム](/docs/services/appid?topic=appid-tokens)は、この要求に対する応答として返される、識別トークンで提供されます。 [`/userinfo` エンドポイント](/docs/services/appid?topic=appid-profiles)を使用して、さらにカスタム・クレームを検出することができます。</td>
     </tr>
     <tr>
       <td>スコープ</td>

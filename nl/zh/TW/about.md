@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-08"
+lastupdated: "2019-06-06"
 
-keywords: authentication, authorization, identity, app security, secure, compliance, high availability
+keywords: Authentication, authorization, identity, app security, secure, compliance, high availability, ha, disaster recover, dr, protocols, oauth, oidc
 
 subcollection: appid
 
@@ -26,7 +26,7 @@ subcollection: appid
 {: #about}
 
 應用程式安全可能非常複雜。對於大部分的開發人員而言，這是建立應用程式時，其中一個最難的部分。如何才能確定您正在保護使用者的資訊？藉由將 {{site.data.keyword.appid_full}} 整合至您的應用程式，您可以保護資源並新增鑑別 - 即使您沒有太多安全經驗也能做到。
-{:shortdesc}
+{: shortdesc}
 
 
 
@@ -38,7 +38,7 @@ subcollection: appid
 
 Cloud Directory 可以為您做什麼？請觀看此視訊，以進一步瞭解您可以使用該服務的各種不同方式，然後詳讀下表中關於其他情境的詳細說明。
 
-<iframe class="embed-responsive-item" id="youtubeplayer" title="關於應用程式 ID" type="text/html" width="640" height="390" src="//www.youtube.com/embed/XlrCjHdK43Q?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
+<iframe class="embed-responsive-item" id="about-appid" title="關於 {{site.data.keyword.appid_short_notm}}" type="text/html" width="640" height="390" src="//www.youtube.com/embed/XlrCjHdK43Q?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
 
 <table>
   <tr>
@@ -55,7 +55,7 @@ Cloud Directory 可以為您做什麼？請觀看此視訊，以進一步瞭解�
   </tr>
   <tr>
     <td>您想要為使用者建置個人化的應用程式體驗。</td>
-    <td>使用 {{site.data.keyword.appid_short_notm}}，您可以[儲存使用者資料](/docs/services/appid?topic=appid-user-profile#user-profile)（例如其公用社交設定檔中的應用程式喜好設定或資訊），然後使用該資料來自訂您應用程式的每一個體驗。</td>
+    <td>使用 {{site.data.keyword.appid_short_notm}}，您可以[儲存使用者資料](/docs/services/appid?topic=appid-profiles)（例如其公用社交設定檔中的應用程式喜好設定或資訊），然後使用該資料來自訂您應用程式的每一個體驗。</td>
   </tr>
   <tr>
     <td>您想要以可擴充的方式來管理使用者。</td>
@@ -91,18 +91,18 @@ Cloud Directory 可以為您做什麼？請觀看此視訊，以進一步瞭解�
 {:shortdesc}
 
 <dl>
-  <dt>{{site.data.keyword.containerlong_notm}}</dt>
-    <dd>藉由在標準叢集中配置 Ingress，您可以在叢集層次上保護應用程式的安全。請參閱 <a href="/docs/containers?topic=containers-ingress_annotation#appid-auth">{{site.data.keyword.appid_short_notm}} 鑑別 Ingress 註釋</a>或 <a href="https://www.ibm.com/blogs/bluemix/2018/05/announcing-app-id-integration-ibm-cloud-kubernetes-service/">Announcing {{site.data.keyword.appid_short_notm}} integration to {{site.data.keyword.containerlong_notm}} <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a> 部落格文章，以開始使用。</dd>
-  <dt>{{site.data.keyword.openwhisk}} 及 API Connect</dt>
-    <dd>使用 [{{site.data.keyword.openwhisk_short}}](/docs/openwhisk?topic=cloud-functions-getting_started#getting_started) 和 [API Connect](/docs/services/apiconnect?topic=apiconnect-index#index) 來建立 API 時，您可以在閘道而不是在應用程式碼中保護應用程式的安全。若要查看整合的運作狀況，請觀看 <a href="https://www.youtube.com/watch?v=Fa9YD2NGZiE" target="_blank">Simple and fast social login OAauth with APIC and {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>。</dd>
+  <dt>{{site.data.keyword.containershort_notm}}</dt>
+    <dd>藉由在標準叢集中配置 Ingress，您可以在叢集層次上保護應用程式的安全。請參閱 <a href="/docs/containers?topic=containers-ingress_annotation#appid-auth">{{site.data.keyword.appid_short_notm}} 鑑別 Ingress 註釋</a>或 <a href="https://www.ibm.com/blogs/cloud-archive/2018/05/announcing-app-id-integration-ibm-cloud-kubernetes-service/">Announcing {{site.data.keyword.appid_short_notm}} integration to {{site.data.keyword.containerlong_notm}} <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a> 部落格文章，以開始使用。</dd>
+  <dt>{{site.data.keyword.openwhisk_short}} 及 {{site.data.keyword.apiconnect_short}}</dt>
+    <dd>使用 [{{site.data.keyword.openwhisk_short}}](/docs/openwhisk?topic=cloud-functions-getting_started#getting_started) 和 [API Connect](/docs/services/apiconnect?topic=apiconnect-getting-started) 來建立 API 時，您可以在閘道而不是在應用程式碼中保護應用程式的安全。若要查看整合的運作狀況，請觀看 <a href="https://www.youtube.com/watch?v=Fa9YD2NGZiE" target="_blank">Simple and fast social login OAuth with API Connect and {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>。</dd>
   <dt>Cloud Foundry</dt>
     <dd>試用提供的其中一個範例 Cloud Foundry 應用程式，以瞭解如何將 {{site.data.keyword.appid_short_notm}} 整合至應用程式。</dd>
   <dt>{{site.data.keyword.cloudaccesstrailshort}}</dt>
-    <dd>您可以使用 [{{site.data.keyword.cloudaccesstrailshort}} 服務](/docs/services/cloud-activity-tracker/reference?topic=cloud-activity-tracker-getting-started-with-cla#getting-started-with-cla)，監視 {{site.data.keyword.appid_short_notm}} 中所進行的管理活動（例如儀表板配置的變更）。</dd>
+    <dd>您可以使用 [{{site.data.keyword.cloudaccesstrailshort}} 文件](/docs/services/cloud-activity-tracker?topic=cloud-activity-tracker-getting-started#getting-started)，監視 {{site.data.keyword.appid_short_notm}} 中所進行的管理活動（例如儀表板配置的變更）。</dd>
   <dt>iOS Programming Guide</dt>
-    <dd>您要為 Apple 開發應用程式嗎？請試用 [iOS 程式設計手冊](/docs/swift/authenticate?topic=swift-getting_started_swift#getting_started_swift)，以學習、實驗及加強您現有的 iOS 應用程式與 {{site.data.keyword.cloud_notm}} 的搭配。</dd>
+    <dd>您要為 Apple 開發應用程式嗎？請試用 [iOS 程式設計手冊](/docs/swift?topic=swift-getting-started)，以學習、實驗及加強您現有的 iOS 應用程式與 {{site.data.keyword.cloud_notm}} 的搭配。</dd>
   <dt>Node.js 程式設計手冊</dt>
-    <dd>您要使用 Node.js 開發應用程式嗎？請試用 [Node.js 程式設計手冊](/docs/node?topic=nodejs-node-getting-started#node-getting-started)，以學習、實驗及加強您現有的 Node.js 應用程式與 {{site.data.keyword.cloud_notm}} 的搭配。</dd>
+    <dd>您要使用 Node.js 開發應用程式嗎？請試用 [Node.js 程式設計手冊](/docs/node?topic=nodejs-getting-started)，以學習、實驗及加強您現有的 Node.js 應用程式與 {{site.data.keyword.cloud_notm}} 的搭配。</dd>
 </dl>
 
 
@@ -114,7 +114,7 @@ Cloud Directory 可以為您做什麼？請觀看此視訊，以進一步瞭解�
 
 {{site.data.keyword.appid_short_notm}} 是根據一組在企業及消費者互動應用程式中經常看到的知名業界標準通訊協定及規格，即 OAuth 2.0 Authorization Framework 及 Open ID Connect。OAuth 2.0 是用來取得及驗證存取受保護資源的授權。除此之外，Open ID Connect 還會在您的應用程式中多增加一層鑑別及身分保護。
 
-請參閱 {{site.data.keyword.appid_short_notm}} 軟體產品相容性報告 5.4 節，以檢閱[憑證](https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=BF31C8008D7C11E59F9AD7336D7D0FFB)的完整清單。除了憑證之外，{{site.data.keyword.appid_short_notm}} 也符合下列規格：Oauth 2.0、OpenID Connect、JSON Web Token (JWT)、JSON Web Signature (JWS)、System for Cross-domain Identity Management (SCIM)。 
+請參閱 {{site.data.keyword.appid_short_notm}} 軟體產品相容性報告 5.4 節，以檢閱[憑證](https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=BF31C8008D7C11E59F9AD7336D7D0FFB)的完整清單。除了憑證之外，{{site.data.keyword.appid_short_notm}} 也符合下列規格：OAuth 2.0、OpenID Connect、JSON Web Token (JWT)、JSON Web Signature (JWS)、System for Cross-domain Identity Management (SCIM)。 
 
 
 ## 地區高可用性

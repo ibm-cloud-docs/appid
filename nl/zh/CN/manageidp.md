@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-20"
 
 keywords: authentication, authorization, identity, app security, secure, development, identity provider, tokens, customization, lifetime
 
@@ -30,7 +30,11 @@ subcollection: appid
 {: shortdesc}
 
 
-{{site.data.keyword.appid_short_notm}} 使用多种协议（例如，OpenID Connect 和 SAML 等）与身份提供者进行交互。例如，OpenID Connect 是用于许多社交提供者（例如，Facebook 和 Google）的协议。企业提供者（例如，<a href="https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-azure-active-directory/" target="_blank">Azure Active Directory <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a> 或 <a href="https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-active-directory-federation-service/" target="_blank">Active Directory Federation Service <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a>）通常使用 SAML 作为其身份协议。对于 [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory)，服务使用 SCIM 来验证身份信息。
+{{site.data.keyword.appid_short_notm}} 使用多种协议（例如，OpenID Connect 和 SAML 等）与身份提供者进行交互。例如，OpenID Connect 是用于许多社交提供者（例如，Facebook 和 Google）的协议。企业提供者（例如，<a href="https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-azure-active-directory" target="_blank">Azure Active Directory <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a> 或 <a href="https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-active-directory-federation-service" target="_blank">Active Directory Federation Service <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a>）通常使用 SAML 作为其身份协议。对于 [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory)，服务使用 SCIM 来验证身份信息。
+
+使用社交或企业身份提供者时，{{site.data.keyword.appid_short_notm}} 对用户帐户信息具有读访问权。服务使用身份提供者返回的令牌和断言来验证用户的身份是否与其声明的一致。由于服务从不具有对信息的写访问权，因此用户必须通过其所选身份提供者来执行操作，如重置其密码。例如，如果用户使用 Facebook 登录到应用程序，然后希望更改自己的密码，那么他们必须转至 `www.facebook.com` 来执行此操作。
+
+使用 [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory) 时，{{site.data.keyword.appid_short_notm}} 是身份提供者。该服务会使用注册表来验证用户身份。由于 {{site.data.keyword.appid_short_notm}} 是提供者，因此用户可以直接利用应用程序中的高级功能（例如，重置其密码）。
 
 在使用应用程序身份？请查看[应用程序身份](/docs/services/appid?topic=appid-app)。
 {: tip}
@@ -98,7 +102,7 @@ subcollection: appid
 
 1. 单击**认证设置**以查看 URI 和令牌配置选项。
 
-2. 在**添加 Web 重定向 URI** 字段中，输入 URI。每个 URI 都应以 `http://` 或 `https://` 开头，并且必须包含完整路径，包括支持成功重定向的任何查询参数。需要帮助来设置格式吗？请查看下表以获取一些示例。
+2. 在**添加 Web 重定向 URI** 字段中，输入 URI。每个 URI 都应以 `http://` 或 `https://` 开头，并且必须包含完整路径，包括支持成功重定向的任何查询参数。需要帮助来设置 URI 的格式吗？请查看下表以获取一些示例。
 
   <table>
     <tr>
@@ -122,6 +126,12 @@ subcollection: appid
 3. 单击**添加 Web 重定向 URI** 框中的 **+** 号。
 
 4. 重复步骤 1 到 3，直到将所有可能的 URI 都添加到列表中。
+
+
+
+不确定重定向 URI 的来源？请观看以下简短视频，以了解如何获取该 URI 以及如何将其添加到列表。
+
+<iframe class="embed-responsive-item" id="redirecturi" title="{{site.data.keyword.appid_short_notm}}: How to fix invalid redirect URI" type="text/html" width="640" height="390" src="//www.youtube.com/embed/6hxqbvpc054?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
 
 
 

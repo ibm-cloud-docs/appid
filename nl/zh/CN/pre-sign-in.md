@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-31"
 
 keywords: authentication, authorization, identity, app security, secure, development, user information, attributes, profiles, 
 
@@ -28,7 +28,7 @@ subcollection: appid
 通过 {{site.data.keyword.appid_full}}，对于已知需要访问应用程序的用户，您可以在这些用户初始登录之前，开始为其构建概要文件。
 {: shortdesc}
 
-要了解有关属性类型的更多信息，请查看[了解用户概要文件](/docs/services/appid?topic=appid-user-profile)。要了解有关定制属性及其安全注意事项的更多信息，请查看[定制属性](/docs/services/appid?topic=appid-custom-attributes)。
+要了解有关属性类型以及使用定制属性时应该考虑的安全注意事项的更多信息，请参阅[存储和访问用户概要文件](/docs/services/appid?topic=appid-profiles)。
 {: tip}
 
 ## 了解预注册
@@ -37,7 +37,7 @@ subcollection: appid
 ### 为什么会需要使用预注册？
 {: #preregister-why}
 
-假设使用 {{site.data.keyword.appid_short_notm}} 的应用程序要联合来自 SAML 身份提供者的现有用户。您可能希望某些用户在首次登录到应用程序时立即具有 `admin` 访问权。为了实现这一点，您可以使用预注册端点为这些用户设置定制 `admin` 属性，并向其授予对管理控制台的访问权，而无需您执行任何进一步操作。请确保考虑更改缺省设置可能引发的[安全问题](/docs/services/appid?topic=appid-custom-attributes#custom-attributes)。
+假设使用 {{site.data.keyword.appid_short_notm}} 的应用程序要联合来自 SAML 身份提供者的现有用户。您可能希望某些用户在首次登录到应用程序时立即具有 `admin` 访问权。为了实现这一点，您可以使用预注册端点为这些用户设置定制 `admin` 属性，并向其授予对管理控制台的访问权，而无需您执行任何进一步操作。请确保考虑更改缺省设置可能引发的[安全问题](/docs/services/appid?topic=appid-profiles#profile-set-custom)。
 
 ### 如何标识用户？
 {: #preregister-identify-user}
@@ -134,13 +134,13 @@ subcollection: appid
   ```
   ibmcloud login
   ```
-  {: pre}
+  {: codeblock}
 
 2. 通过运行以下命令来查找 IAM 令牌。
   ```
   ibmcloud iam oauth-tokens
   ```
-  {: pre}
+  {: codeblock}
 
 3. 对 `/users` 端点发出 POST 请求，该请求包含用户的描述以及要设置为 JSON 对象的属性。
 
@@ -151,7 +151,7 @@ subcollection: appid
        Authorization: 'Bearer <IAM_TOKEN>'
        Content-Type: application/json
   ```
-  {: pre}
+  {: codeblock}
 
   主体：
   ```
@@ -165,7 +165,7 @@ subcollection: appid
        }
    }
   ```
-  {: pre}
+  {: codeblock}
 
   <table>
     <thead>
@@ -210,7 +210,7 @@ subcollection: appid
 
 请记住，用户的预定义属性在其第一次认证之前为空，但用户是完全认证的用户，适合用于所有意向和用途。您可以使用用户的唯一标识，就像您使用已登录的用户那样。例如，您可以修改、搜索或删除概要文件。
 
-既然您已将用户与特定属性相关联，请尝试[访问或更新属性](/docs/services/appid?topic=appid-custom-attributes)！
+既然您已将用户与特定属性相关联，请尝试[访问或更新属性](/docs/services/appid?topic=appid-profiles)！
 
 
 </br>

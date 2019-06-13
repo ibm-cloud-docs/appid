@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-31"
 
 keywords: authentication, authorization, identity, app security, secure, development, user information, attributes, profiles, 
 
@@ -28,7 +28,7 @@ subcollection: appid
 {{site.data.keyword.appid_full}} では、アプリへのアクセスが必要になることが分かっているユーザーのプロファイルの作成を、そのユーザーが初めてサインインする前に開始できます。
 {: shortdesc}
 
-属性のタイプについて詳しくは、[ユーザー・プロファイルの理解](/docs/services/appid?topic=appid-user-profile)を参照してください。 カスタム属性とそのセキュリティー上の考慮事項について詳しくは、[カスタム属性](/docs/services/appid?topic=appid-custom-attributes)を参照してください。
+属性のタイプ、および、カスタム属性を使用する場合のセキュリティー上の考慮事項について詳しくは、[ユーザー・プロファイルの保管とアクセス](/docs/services/appid?topic=appid-profiles)を参照してください。
 {: tip}
 
 ## 事前登録について
@@ -37,7 +37,7 @@ subcollection: appid
 ### 事前登録を使用する目的は何ですか?
 {: #preregister-why}
 
-{{site.data.keyword.appid_short_notm}} を使用して SAML ID プロバイダーに属する既存の複数のユーザーを統合するアプリケーションについて考えてみます。 特定のユーザーには、アプリケーションに初めてサインインした直後に `admin` アクセス権限を付与したい場合もあります。 これを行うには、それらのユーザーのために事前登録エンドポイントを使用してカスタム `admin` 属性を設定し、管理コンソールへのアクセス権限を付与します。アプリ提供者側ではそれ以上の操作は必要ありません。 デフォルト設定を変更することで生じる可能性がある[セキュリティー問題](/docs/services/appid?topic=appid-custom-attributes#custom-attributes)について、必ず検討してください。
+{{site.data.keyword.appid_short_notm}} を使用して SAML ID プロバイダーに属する既存の複数のユーザーを統合するアプリケーションについて考えてみます。 特定のユーザーには、アプリケーションに初めてサインインした直後に `admin` アクセス権限を付与したい場合もあります。 これを行うには、それらのユーザーのために事前登録エンドポイントを使用してカスタム `admin` 属性を設定し、管理コンソールへのアクセス権限を付与します。アプリ提供者側ではそれ以上の操作は必要ありません。 デフォルト設定を変更することで生じる可能性がある[セキュリティー問題](/docs/services/appid?topic=appid-profiles#profile-set-custom)について、必ず検討してください。
 
 ### ユーザーはどのようにして識別されますか?
 {: #preregister-identify-user}
@@ -134,13 +134,13 @@ subcollection: appid
   ```
   ibmcloud login
   ```
-  {: pre}
+  {: codeblock}
 
 2. 以下のコマンドを実行して、IAM トークンを見つけます。
   ```
   ibmcloud iam oauth-tokens
   ```
-  {: pre}
+  {: codeblock}
 
 3. JSON オブジェクトとして設定するユーザーと属性の記述を含めた POST 要求を `/users` エンドポイントに対して行います。
 
@@ -151,7 +151,7 @@ subcollection: appid
        Authorization: 'Bearer <IAM_TOKEN>'
        Content-Type: application/json
   ```
-  {: pre}
+  {: codeblock}
 
   本体:
   ```
@@ -165,7 +165,7 @@ subcollection: appid
        }
    }
   ```
-  {: pre}
+  {: codeblock}
 
   <table>
     <thead>
@@ -210,7 +210,7 @@ subcollection: appid
 
 ユーザーの事前定義属性は最初の認証が行われるまで空になっていますが、その意図や目的に関係なく、このユーザーは完全に認証されたユーザーであることに注目してください。 その固有 ID は、既にサインインしているユーザーの場合と同様に使用できます。 例えば、そのプロファイルを変更、検索、または削除することができます。
 
-これでユーザーが特定の属性に関連付けられましたので、[属性へのアクセスまたは属性の更新](/docs/services/appid?topic=appid-custom-attributes)を試してみてください。
+これでユーザーが特定の属性に関連付けられましたので、[属性へのアクセスまたは属性の更新](/docs/services/appid?topic=appid-profiles)を試してみてください。
 
 
 </br>

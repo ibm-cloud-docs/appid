@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-09"
 
 keywords: authentication, authorization, identity, app security, secure, development, sso, directory, users, registry, multiple apps
 
@@ -62,7 +62,7 @@ subcollection: appid
 
 2. 在**启用单点登录**框中，将 SSO 切换到**已启用**。
 
-3. 设置 SSO 会话将在用户处于不活动状态多久之后到期。会话到期后，用户必须重新登录。此时间以分钟为单位进行指定，并且允许的最大活动时间为 10,080 分钟（7 天）。缺省时间为 1440 分钟，相当于 1 天。
+3. 设置 SSO 会话将在用户处于不活动状态多久之后到期。会话到期后，用户必须重新登录。此时间以分钟为单位进行指定，并且允许的最长不活动时间为 10,080 分钟（7 天）。缺省时间为 1440 分钟，相当于 1 天。
 
 4. 将重定向 URI 添加到**注销重定向 URI** 框，然后单击 **+** 号。请确保仅注册您信任的应用程序。通过注册 URI，可授权 {{site.data.keyword.appid_short_notm}} 将应用程序包含在授权工作流程中。
 
@@ -129,7 +129,7 @@ subcollection: appid
 ```
 https://<region>.appid.cloud.ibm.com/oauth/v4/<tenant-id>/cloud_directory/sso/logout?redirect_uri=<redirect_uri>&client_id=<clientId>
 ```
-{: pre}
+{: codeblock}
 
 <table>
   <tr>
@@ -181,7 +181,7 @@ POST https://<region>.appid.cloud.ibm.com/management/v4/{tenant-id}/cloud_direct
 Headers:
 Authorization: <IAM TOKEN>
 ```
-{: pre}
+{: codeblock}
 
 <table>
   <tr>

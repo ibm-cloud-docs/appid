@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-31"
 
 keywords: authentication, authorization, identity, app security, secure, development, user information, attributes, profiles, 
 
@@ -28,7 +28,7 @@ subcollection: appid
 Con {{site.data.keyword.appid_full}}, puoi iniziare a creare un profilo per gli utenti che sai avranno bisogno di accedere alla tua applicazione, prima del loro accesso iniziale.
 {: shortdesc}
 
-Per ulteriori informazioni sui tipi di attributi, consulta [Descrizione dei profili utente](/docs/services/appid?topic=appid-user-profile). Per ulteriori informazioni sugli attributi personalizzati e le rispettive considerazioni sulla sicurezza, consulta [Attributi personalizzati](/docs/services/appid?topic=appid-custom-attributes).
+Per ulteriori informazioni sui tipi di attributi e sulle considerazioni di sicurezza di cui dovresti tenere conto quando utilizzi gli attributi personalizzati, vedi [Memorizzazione e accesso ai profili utente](/docs/services/appid?topic=appid-profiles).
 {: tip}
 
 ## Descrizione della preregistrazione
@@ -37,7 +37,7 @@ Per ulteriori informazioni sui tipi di attributi, consulta [Descrizione dei prof
 ### Perché dovrei utilizzare la preregistrazione?
 {: #preregister-why}
 
-Prendi in considerazione un'applicazione in cui utilizzi {{site.data.keyword.appid_short_notm}} per attuare la federazione degli utenti esistenti dal tuo provider di identità SAML. Potresti volere che alcuni utenti abbiamo l'accesso `admin` immediatamente dopo l'accesso all'applicazione per la prima volta. Per far ciò, puoi utilizzare l'endpoint di preregistrazione per impostare un attributo `admin` personalizzato per tali utenti e concedergli l'accesso alla console di gestione senza alcuna ulteriore azione da parte tua. Assicurati di prendere in considerazione i [problemi sulla sicurezza](/docs/services/appid?topic=appid-custom-attributes#custom-attributes) che possono presentarsi modificano le impostazioni predefinite.
+Prendi in considerazione un'applicazione in cui utilizzi {{site.data.keyword.appid_short_notm}} per attuare la federazione degli utenti esistenti dal tuo provider di identità SAML. Potresti volere che alcuni utenti abbiamo l'accesso `admin` immediatamente dopo l'accesso all'applicazione per la prima volta. Per far ciò, puoi utilizzare l'endpoint di preregistrazione per impostare un attributo `admin` personalizzato per tali utenti e concedergli l'accesso alla console di gestione senza alcuna ulteriore azione da parte tua. Assicurati di prendere in considerazione i [problemi sulla sicurezza](/docs/services/appid?topic=appid-profiles#profile-set-custom) che possono presentarsi modificano le impostazioni predefinite.
 
 ### Come vengono identificati gli utenti?
 {: #preregister-identify-user}
@@ -134,13 +134,13 @@ Quando un utente accede alla tua applicazione per la prima volta, {{site.data.ke
   ```
   ibmcloud login
   ```
-  {: pre}
+  {: codeblock}
 
 2. Trova il tuo token IAM immettendo il seguente comando.
   ```
   ibmcloud iam oauth-tokens
   ```
-  {: pre}
+  {: codeblock}
 
 3. Effettua una richiesta POST all'endpoint `/users` che contiene una descrizione dell'utente e degli attributi che vuoi impostare come un oggetto JSON.
 
@@ -151,7 +151,7 @@ Quando un utente accede alla tua applicazione per la prima volta, {{site.data.ke
        Authorization: 'Bearer <IAM_TOKEN>'
        Content-Type: application/json
   ```
-  {: pre}
+  {: codeblock}
 
   Corpo:
   ```
@@ -165,7 +165,7 @@ Quando un utente accede alla tua applicazione per la prima volta, {{site.data.ke
        }
    }
   ```
-  {: pre}
+  {: codeblock}
 
   <table>
     <thead>
@@ -210,7 +210,7 @@ Quando un utente accede alla tua applicazione per la prima volta, {{site.data.ke
 
 Tieni presente che gli attributi predefiniti di un utente sono vuoti fino alla prima autenticazione, ma l'utente è, a tutti gli effetti, un utente completamente autenticato. Puoi utilizzare il suo ID univoco come faresti con qualcuno che ha già eseguito l'accesso. Ad esempio, puoi modificare, ricercare o eliminare il profilo.
 
-Ora che hai associato un utente ad attributi specifici, prova ad [accedere o aggiornare gli attributi](/docs/services/appid?topic=appid-custom-attributes)!
+Ora che hai associato un utente ad attributi specifici, prova ad [accedere o aggiornare gli attributi](/docs/services/appid?topic=appid-profiles)!
 
 
 </br>

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-31"
 
 keywords: authentication, authorization, identity, app security, secure, custom, tokens, access, claim, attributes
 
@@ -26,7 +26,7 @@ subcollection: appid
 # Personalizzazione dei token
 {: #customizing-tokens}
 
-Puoi configurare i tuoi token {{site.data.keyword.appid_short_notm}} per soddisfare i bisogni specifici della tua applicazione.
+Puoi configurare il tuo token {{site.data.keyword.appid_short_notm}} per soddisfare i bisogni specifici della tua applicazione.
 {: shortdesc}
 
 ## Descrizione della personalizzazione
@@ -78,7 +78,7 @@ Puoi personalizzare i tuoi token [nella GUI](/docs/services/appid?topic=appid-cu
 </table>
 
 
-Poiché i token vengono utilizzati per identificare gli utenti e proteggere le tue risorse, la durata di un token influenza diverse cose. Personalizzando la tua configurazione del token puoi assicurarti che vengano soddisfati i tuoi bisogni di sicurezza e di esperienza utente. Tuttavia, se un token dovesse mai diventare compromesso, un utente malintenzionato ha più tempo per colpire la tua applicazione. Puoi trovare ulteriori informazioni sulle considerazioni relative alla sicurezza in [Attributi personalizzati](/docs/services/appid?topic=appid-custom-attributes).
+Poiché i token vengono utilizzati per identificare gli utenti e proteggere le tue risorse, la durata di un token influenza diverse cose. Personalizzando la tua configurazione del token puoi assicurarti che vengano soddisfati i tuoi bisogni di sicurezza e di esperienza utente. Tuttavia, se un token dovesse mai diventare compromesso, un utente malintenzionato ha più tempo per colpire la tua applicazione. Puoi trovare ulteriori informazioni sulle considerazioni relative alla sicurezza in [Impostazione degli attributi personalizzati](/docs/services/appid?topic=appid-profiles#profile-set-custom).
 {: important}
 
 
@@ -140,7 +140,7 @@ Le attestazioni fornite da {{site.data.keyword.appid_short_notm}} rientrano in d
 
 *Attestazioni limitate*: a seconda del token a cui sono associate le attestazioni, alcune di esse hanno delle possibilità di personalizzazione limitate. Per un token di accesso, `scope` è l'unica attestazione limitata. Non può essere sovrascritta dalle associazioni personalizzate, ma può essere estesa con i tuoi ambiti. Quando l'attestazione scope viene associata a un token di accesso, il valore deve essere una stringa e non può essere preceduta da `appid_` o sarà ignorata. Nei token di identità, le attestazioni `identities` e `oauth_clients` non possono essere modificate o sovrascritte.
 
-*Attestazioni normalizzate*: ogni token di identità contiene una serie di attestazioni riconosciute da {{site.data.keyword.appid_short_notm}} come attestazioni normalizzate. Quando sono disponibili, vengono direttamente associate dal tuo provider di identità al token. Queste attestazioni non possono essere omesse in modo esplicito ma possono essere sovrascritte dalle associazioni delle attestazioni personalizzate. Le attestazioni includono `name`, `email`, `picture`, `local` e `gender`.
+*Attestazioni normalizzate*: ogni token di identità contiene una serie di attestazioni riconosciute da {{site.data.keyword.appid_short_notm}} come attestazioni normalizzate. Quando sono disponibili, vengono direttamente associate dal tuo provider di identità al token. Queste attestazioni non possono essere omesse in modo esplicito ma possono essere sovrascritte nel tuo token dalle attestazioni personalizzate. Le attestazioni includono `name`, `email`, `picture`, `local` e `gender`. Nota: questo non modifica o elimina l'attributo, ma modifica le informazioni presenti nel token al runtime.
 
 
 ### Come vengono associate le attestazioni ai token?
@@ -212,7 +212,7 @@ Assicurati di aver i seguenti prerequisiti:
        Authorization: 'Bearer <IAM_TOKEN>'
        Content-Type: application/json
   ```
-  {: pre}
+  {: codeblock}
 
   Corpo:
   ```
@@ -242,7 +242,7 @@ Assicurati di aver i seguenti prerequisiti:
        ]
    }
   ```
-  {: pre}
+  {: codeblock}
 
   <table>
     <thead>

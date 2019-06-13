@@ -2,14 +2,14 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-31"
 
 keywords: authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
 subcollection: appid
 
 ---
-
+ 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
@@ -26,12 +26,143 @@ subcollection: appid
 # 管理用户
 {: #cd-users}
 
-启用 Cloud Directory 后，用户可以使用电子邮件或用户名和密码来注册应用程序。
+通过 Cloud Directory，您可以使用用于增强安全性的预构建功能以及自助服务来管理可缩放注册表中的用户。
+{: shortdesc}
+
+Cloud Directory 用户与 {{site.data.keyword.appid_short_notm}} 用户不同。用户可以使用您配置的不同身份提供者选项来注册应用程序，或者您可以将用户添加到目录。本主题中提到的用户是指与作为身份提供者的 Cloud Directory 关联的用户。
+{: note}
+
+## 查看用户信息
+{: #cd-user-info}
+
+可以使用 API 或使用仪表板，将有关所有 Cloud Directory 用户的所有已知信息作为一个 JSON 对象进行查看。
 {: shortdesc}
 
 
-Cloud Directory 用户与 {{site.data.keyword.appid_short_notm}} 用户不同。用户可以使用您配置的不同身份提供者选项来注册应用程序。本主题中提到的用户是指在注册应用程序时选择使用 Cloud Directory 选项的用户。
-{: note}
+### 使用 GUI
+
+可以使用 {{site.data.keyword.appid_short_notm}} 仪表板来查看有关应用程序用户的详细信息。 
+
+1. 导航至 {{site.data.keyword.appid_short_notm}} 实例的 **Cloud Directory > 用户**选项卡。
+
+2. 浏览表或使用电子邮件地址进行搜索，以查找要查看其信息的用户。
+
+3. 在用户所在行的溢出菜单中，单击**查看用户详细信息**。这将打开一个页面，其中包含该用户的信息。请查看下表以了解可以查看的信息。
+
+<table>
+  <tr>
+    <th colspan="2">用户详细信息</th>
+  </tr>
+  <tr>
+    <td>用户标识</td>
+    <td>用户标识取决于配置的用户注册类型。如果已配置电子邮件和密码流程，那么标识为用户的电子邮件。如果使用的是用户名和密码流程，那么标识为在注册时提供的用户名。</td>
+  </tr>
+  <tr>
+    <td>电子邮件</td>
+    <td>连接到用户的主要电子邮件地址。</td>
+  </tr>
+    <tr>
+    <td>姓氏和名字</td>
+    <td>用户在注册过程中提供的姓氏和名字。</td>
+  </tr>
+  <tr>
+    <td>上次登录时间</td>
+    <td>用户上次登录到应用程序的时间戳记。注：如果是通过仪表板添加的用户，那么登录时间为空，直到用户自己登录到应用程序。执行登录后，用户会同时成为 App ID 用户。</td>
+  </tr>
+  <tr>
+    <td>标识</td>
+    <td>{{site.data.keyword.appid_short_notm}} 分配给用户的标识。在 UI 中，不会显示该值，但可以将其复制并粘贴到文本编辑器中以查看该值。</td>
+  </tr>
+  <tr>
+    <td>预定义属性</td>
+    <td>预定义属性是基于 SCIM 的有关用户的已知信息。</td>
+  </tr>
+  <tr>
+    <td>定制属性</td>
+    <td>定制属性是添加到用户概要文件的其他信息，或者在用户与应用程序交互时了解到的用户相关信息。</td>
+  </tr>
+  <tr>
+    <td>摘要</td>
+    <td>所有属性汇集起来构成一个概要文件，以提供 Cloud Directory 用户的完整概述。有关更多信息，请参阅[用户概要文件](/docs/services/appid?topic=appid-profiles)。</td>
+  </tr>
+</table>
+
+</br>
+
+### 使用 API
+
+可以使用 {{site.data.keyword.appid_short_notm}} API 来查看有关应用程序用户的详细信息。 
+
+1. 从服务实例获取租户标识。
+
+2. 使用标识性查询（例如，电子邮件地址）来搜索 App ID 用户，以查找用户标识。
+
+  ```
+  curl -X GET "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/Users?query={identifying-search-query}" -H "accept: application/json" -H "authorization: Bearer {token}"
+  ```
+  {: codeblock}
+
+      示例：
+
+  ```
+  curl -X GET https://us-south.appid.cloud.ibm.com/management/v4/e19a2778-3262-4986-8875-8khjafsdkhjsdafkjh/cloud_directory/Users?query=example@email.com -H "accept: application/json" -H "authorization: Bearer eyJraWQiOiIyMDE3MTEyOSIsImFsZ...."
+  ```
+  {: screen}
+
+3. 通过使用在上一步中获取的标识，对 `cloud_directory/users` 端点发出 GET 请求以查看其完整用户概要文件。
+
+  ```
+  curl -X GET "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/Users/{user-ID}" -H "accept: application/json" -H "authorization: Bearer {token}"
+  ```
+  {: codeblock}
+
+  示例响应：
+
+  ```
+  {
+    sub: "c155c0ff-337a-46d3-a22a-a8f2cca08995",
+    name: "Test User",
+    email: "testuser@test.com",
+    identities: [
+      {
+        provider: "cloud_directory",
+        id: "f1772fcc-ff70-4d88-81a0-07dd7a3d988f",
+        idpUserInfo: {
+          displayName: "Test User",
+          active: true,
+          mfaContext: {},
+          emails: [
+            {
+              value: "testuser@test.com",
+              primary: true
+            }
+          ],
+          meta: {
+            lastLogin: "2019-05-20T16:33:20.699Z",
+            created: "2019-05-20T16:25:13.019Z",
+            location: "/v1/6b8ab644-1d4a-4b3e-bcd9-777ba8430a51/Users/f1772fcc-ff70-4d88-81a0-07dd7a3d988f",
+            lastModified: "2019-05-20T16:33:20.707Z",
+            resourceType: "User"
+          },
+          scemas: [
+            "urn:ietf:params:scim:schemas:core:2.0:User"
+          ],
+          name: {
+            givenName: "Test",
+            familyName: "User",
+            formatted: "Test User"
+            },
+          id: "f1772fcc-ff70-4d88-81a0-07dd7a3d988f",
+          status: "CONFIRMED",
+          idpType: "cloud_directory"
+        }
+      }
+    ]
+  }
+  ```
+  {: screen}
+
+  要查看 {{site.data.keyword.appid_short_notm}} 支持的完整用户数据集，请查看 [SCIM 核心模式](https://tools.ietf.org/html/rfc7643#section-8.2)。{: tip}
 
 
 ## 添加和删除用户
@@ -40,14 +171,20 @@ Cloud Directory 用户与 {{site.data.keyword.appid_short_notm}} 用户不同。
 可以通过 {{site.data.keyword.appid_short_notm}} 仪表板或使用 API 来管理 Cloud Directory 用户。
 {: shortdesc}
 
-要查看特定用户的完整数据，可以使用 API 将 Cloud Directory 用户的信息作为 JSON 对象返回。要查看 {{site.data.keyword.appid_short_notm}} 支持的完整用户数据集，请查看 [SCIM 核心模式](https://tools.ietf.org/html/rfc7643#section-8.2)。
+用户向应用程序注册时，可通过自动触发欢迎或验证请求等电子邮件的自助服务工作流程来进行注册。您以管理员身份向应用程序添加用户时，不会启动自助服务工作流程，这意味着用户不会从应用程序收到任何电子邮件。如果您希望用户仍能在被添加时收到相关通知，那么可以通过 [App ID 管理 API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.set_cloud_directory_email_dispatcher) 来触发消息传递流程。
+
 
 ### 添加用户
 {: #add-users}
 
-可以使用以下步骤通过 {{site.data.keyword.appid_short_notm}} 仪表板来添加用户。
+用户向应用程序注册时，会将其添加为用户。出于测试目的，您可以通过 {{site.data.keyword.appid_short_notm}} 仪表板或使用 API 来添加用户。
 
-出于测试目的，您可以通过 {{site.data.keyword.appid_short_notm}} 仪表板来添加用户。
+如果禁用自助服务注册或代表用户来添加该用户，那么用户在被添加时不会收到欢迎或验证电子邮件。
+{: tip}
+
+
+
+**要使用 GUI 添加新用户，请执行以下操作：**
 
 1. 导航至 {{site.data.keyword.appid_short_notm}} 仪表板的 **Cloud Directory > 用户**选项卡。
 
@@ -57,11 +194,53 @@ Cloud Directory 用户与 {{site.data.keyword.appid_short_notm}} 用户不同。
 
 4. 单击**保存**。这将创建 Cloud Directory 用户。
 
+</br>
+
+
+**要使用 API 添加新用户，请执行以下操作：**
+
+以下流程说明如何使用电子邮件和密码添加用户。您还可以选择使用用户名和密码流程。
+
+1. 从应用程序或服务凭证中获取 `tenantID`。
+
+2. 获取 {{site.data.keyword.cloud_notm}} IAM 令牌。
+
+  ```
+  curl --X GET "https://iam.cloud.ibm.com/oidc/token" -H "accept: application/x-www-form-urlencoded"
+  ```
+  {: codeblock}
+
+3. 使用步骤 2 中获取的令牌，向 `cloud-directory/users` 端点发出 POST 请求。请注意，此示例使用的是电子邮件/密码流程。您还可以使用用户名/密码流程。
+
+  ```
+  curl --X POST "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/Users"
+  -H "accept: application/json"
+  -H "content-type: application/json"
+  -H "authorization: Bearer {token}"
+  -d {
+    "displayName": "Test User",
+    "password": "{App-ID-Cloud-Directory-User-Password}",
+    "active": true,
+    "emails": [
+      {
+        "value": "{App-ID-Cloud-Directory-User-Email}",
+        "primary": true
+      }
+    ]
+  }
+  ```
+  {: codeblock}
+
+</br>
+
 
 ### 删除用户
 {: #delete-users}
 
-如果要从目录中除去用户，可以通过 GUI 删除该用户。
+如果要从目录中除去用户，可以通过 GUI 或使用 API 删除该用户。
+{: shortdesc}
+
+**要通过 GUI 删除用户，请执行以下操作：**
 
 1. 导航至 {{site.data.keyword.appid_short_notm}} 仪表板的 **Cloud Directory > 用户**选项卡。
 
@@ -70,6 +249,28 @@ Cloud Directory 用户与 {{site.data.keyword.appid_short_notm}} 用户不同。
 3. 在该框中，单击**删除**。这将显示一个屏幕。
 
 4. 确认您了解通过单击**删除**来删除用户是无法撤销的操作。如果这是误操作，您可以将用户重新添加到目录，但有关该用户的任何信息都不再可用。
+
+</br>
+
+**要使用 API 删除用户，请执行以下操作：**
+
+1. 获取租户标识。
+
+2. 使用连接到用户的电子邮件来搜索目录，以查找用户标识。
+
+  ```
+  curl -X GET "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/users?email={user-email}" -H "accept: application/json"
+  ```
+  {: codeblock}
+
+3. 删除用户。
+
+  ```
+  curl --X DELETE "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/Users/{user-GUID}"
+  -H "accept: application/x-www-form-urlencoded"
+  ```
+  {: codeblock}
+
 
 
 ## 迁移用户
@@ -179,7 +380,7 @@ curl -X POST --header ‘Content-Type: application/json’ --header ‘Accept: a
   </tr>
   <tr>
     <td>IAM 令牌</td>
-    <td>在获取 IAM 令牌之前，请确保您具有<code>管理者</code>许可权。有关获取 IAM 令牌的帮助，请查看<a href="https://cloud.ibm.com/docs/iam/apikey_iamtoken.html#iamtoken_from_apikey" target="_blank">文档 <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a>。</td>
+    <td>在获取 IAM 令牌之前，请确保您具有<code>管理者</code>许可权。有关获取 IAM 令牌的帮助，请查看<a href="/docs/iam?topic=iam-iamtoken_from_apikey#iamtoken_from_apikey" target="_blank">文档 <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a>。</td>
   </tr>
 </table>
 

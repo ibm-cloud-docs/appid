@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-10"
+lastupdated: "2019-04-23"
 
 keywords: authentication, authorization, identity, app security, secure, tokens, jwt, development
 
@@ -187,7 +187,7 @@ Puoi convalidare i tuoi token localmente analizzando il token, verificandone la 
   2. Controlla nello specifico che siano stati utilizzati gli stessi algoritmi e che la tua cache della chiave pubblica contenga una chiave con l'ID della chiave pertinente.
   3. Assicurati che il tuo valore hash sia lo stesso di quello della firma del modulo PEM della chiave pubblica. Il tuo valore hash può essere ottenuto combinando ed eseguendo l'hash dell'intestazione del payload del token. Poiché questo processo può essere complesso da implementare manualmente, potrebbe essere utile utilizzare una delle [librerie elencate](https://jwt.io/) per convalidare la firma.
 
-6. Convalida le attestazioni archiviate nei token. Per verificare dei controlli futuri, puoi utilizzare [questo elenco](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation).
+6. Convalida le attestazioni archiviate nei token. Per verificare dei controlli futuri, puoi utilizzare [questo elenco](https://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation).
   <table>
     <thead>
       <th colspan=2><img src="images/idea.png" alt="Icona ulteriori informazioni"/> Attestazioni che devono essere convalidate </th>

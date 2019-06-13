@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-11"
+lastupdated: "2019-05-20"
 
 keywords: authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
@@ -142,7 +142,7 @@ subcollection: appid
 ### 電子郵件：重設密碼
 {: #cd-messages-reset}
 
-當使用者與您的應用程式互動時，他們可能會忘記其密碼，或另有需要來更新它。您可以自訂對其要求的電子郵件回應。當使用者要求變更其密碼時，密碼會保持不變，直到他們按一下此電子郵件中的鏈結為止。
+當使用者與您的應用程式互動時，他們可能會忘記其密碼，或需要更新它。您可以自訂對其要求的電子郵件回應。當使用者要求變更其密碼時，密碼會保持不變，直到他們按一下此電子郵件中的鏈結為止。
 {: shortdesc}
 
 
@@ -166,7 +166,7 @@ subcollection: appid
     </tr>
     <tr>
       <td><code>%{resetPassword.code}</code></td>
-      <td> 將一次性通行碼顯示為 URL 的一部分。這表示每一個人員都將具有不同的通行碼。範例：<code>https://us-south.appid.cloud.ibm.com/wfm/verify/6574839563478</code></td>
+      <td> 將一次性通行碼顯示為 URL 的一部分。這表示每一個人員都將具有不同的通行碼。範例：`https://us-south.appid.cloud.ibm.com/wfm/verify/6574839563478`</td>
     </tr>
     <tr>
       <td><code>%{resetPassword.link}</code></td>
@@ -283,11 +283,11 @@ subcollection: appid
 
 2. 配置可以接聽 POST 要求的延伸點。此端點應該能夠讀取來自 {{site.data.keyword.appid_short_notm}} 的有效負載，並使用您的自訂電子郵件寄件者來傳送電子郵件。
 
-3. 來自 {{site.data.keyword.appid_short_notm}} 的內文採用下列格式：`{"jws": "jws-format-string"}`。在您解碼並驗證有效負載之後，內容是一個 JSON 字串。
+3. {{site.data.keyword.appid_short_notm}} 傳送的內文採用下列格式：`{"jws": "jws-format-string"}`。在您解碼並驗證有效負載之後，內容是一個 JSON 字串。
 
   ```
-    {
-      "tenant": "tenant-id",
+  {
+    "tenant": "tenant-id",
       "iss" : "https://us-south.appid.cloud.ibm.com/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6050a61",
       "iat": 1539173126,
       "jti": "uniq-id",
@@ -303,8 +303,8 @@ subcollection: appid
           },
           "subject": "Welcome to My Awesome Service",
           "body": "<p>Hello<p><br/><p>Thanks for signing up John Doe</p>"
-      }
     }
+  }
   ```
   {: screen}
 
@@ -322,8 +322,8 @@ subcollection: appid
       <td>已傳送訊息的時間戳記。</td>
     </tr>
     <tr>
-      <td><code>jss</code></td>
-      <td>發出 JWS 記號的原則。</td>
+      <td><code>iss</code></td>
+      <td>發出 JWS 記號的原則或 {{site.data.keyword.appid_short_notm}} 實例。</td>
     </tr>
     <tr>
       <td><code>jti</code></td>
@@ -343,7 +343,8 @@ subcollection: appid
     </tr>
   </table>
 
-  您可以檢查回應狀態碼，以驗證您的要求已成功。在 200 - 299 範圍內的任何回應都視為成功。如果您收到任何其他回應，請嘗試重新提出要求。{: tip}
+  您可以檢查回應狀態碼，以驗證您的要求已成功。在 200 - 299 範圍內的任何回應都視為成功。如果您收到任何其他回應，請嘗試重新提出要求。
+  {: tip}
 
 4. 從 {{site.data.keyword.appid_short_notm}} 傳送的每個 HTTP 有效負載都會使用非對稱金鑰配對，根據 JWS 標準自動簽署。對於每個 {{site.data.keyword.appid_short_notm}} 實例，會產生一個私密金鑰及一個公開金鑰，而這兩個金鑰不會在其他實例之中共用。私密金鑰是用來簽署 HTTP 有效負載，而且您可以使用公開金鑰來驗證有效負載是由 {{site.data.keyword.appid_short_notm}} 產生，且不是由第三方（<a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Authorization_Server_V4/publicKeys" target="_blank">公開金鑰端點</a>）變更。
 
@@ -415,7 +416,7 @@ subcollection: appid
 
 6. 測試電子郵件分派器，驗證配置已正確設定。請使用<a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/post_email_dispatcher_test" target="_blank">測試 API</a>，對您配置的自訂電子郵件寄件者觸發要求。
 
-如需完整運作範例，請參閱 <a href="https://www.ibm.com/blogs/bluemix/2018/10/use-ibm-cloud-app-id-and-your-email-provider-to-brand-mails-sent-to-app-users/" target="_blank">Use your own provider for mail sent with {{site.data.keyword.appid_full}}</a>。
+如需完整運作範例，請參閱 <a href="https://www.ibm.com/cloud/blog/use-ibm-cloud-app-id-and-your-email-provider-to-brand-mails-sent-to-app-users" target="_blank">Use your own provider for mail sent with {{site.data.keyword.appid_full}}</a>。
 
 
 

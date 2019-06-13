@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-10"
+lastupdated: "2019-04-23"
 
 keywords: authentication, authorization, identity, app security, secure, tokens, jwt, development
 
@@ -187,7 +187,7 @@ subcollection: appid
   2. 특히 동일한 알고리즘이 사용되었으며 공개 키 캐시에 관련 키 ID가 있는 키가 포함되어 있는지 확인하십시오.
   3. 해시 값이 공개 키에 대한 PEM 양식의 서명과 동일한지 확인하십시오. 해시 값은 토큰의 페이로드 헤더를 결합하고 해싱하여 얻을 수 있습니다. 이 프로세스의 경우 수동으로 구현하기에 너무 복잡할 수 있기 때문에 [나열된 라이브러리](https://jwt.io/) 중 하나를 사용하여 서명을 유효성 검증하는 작업이 유용할 수 있습니다.
 
-6. 토큰에 저장된 청구를 유효성 검증하십시오. 나중에 검사를 확인하기 위해 [이 목록](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation)을 사용할 수 있습니다.
+6. 토큰에 저장된 청구를 유효성 검증하십시오. 나중에 검사를 확인하기 위해 [이 목록](https://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation)을 사용할 수 있습니다.
   <table>
     <thead>
       <th colspan=2><img src="images/idea.png" alt="자세한 정보 아이콘"/> 유효성 검증해야 하는 청구 </th>

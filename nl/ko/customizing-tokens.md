@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-31"
 
 keywords: authentication, authorization, identity, app security, secure, custom, tokens, access, claim, attributes
 
@@ -78,7 +78,7 @@ subcollection: appid
 </table>
 
 
-토큰은 사용자를 식별하고 리소스에 보안을 설정하기 위해 사용되기 때문에 토큰의 수명은 여러가지 다양한 항목에 영향을 미치게 됩니다. 토큰 구성을 사용자 정의하여 보안 및 사용자 환경(experience) 요구사항이 충족되도록 할 수 있습니다. 하지만 토큰이 손상되는 경우 악성 사용자가 애플리케이션에 영향을 미칠 수 있는 추가적인 시간을 확보하게 됩니다. [사용자 정의 속성](/docs/services/appid?topic=appid-custom-attributes)에서 보안 고려사항에 대한 자세한 정보를 확인할 수 있습니다.
+토큰은 사용자를 식별하고 리소스에 보안을 설정하기 위해 사용되기 때문에 토큰의 수명은 여러가지 다양한 항목에 영향을 미치게 됩니다. 토큰 구성을 사용자 정의하여 보안 및 사용자 환경(experience) 요구사항이 충족되도록 할 수 있습니다. 하지만 토큰이 손상되는 경우 악성 사용자가 애플리케이션에 영향을 미칠 수 있는 추가적인 시간을 확보하게 됩니다. 보안 고려사항에 대한 자세한 정보는 [사용자 정의 속성 설정](/docs/services/appid?topic=appid-profiles#profile-set-custom)에서 확인할 수 있습니다.
 {: important}
 
 
@@ -96,13 +96,13 @@ subcollection: appid
 ```
 {
   "accessTokenClaims": [
-            {
+    {
       "source": "saml",
       "sourceClaim": "moderator"
     }
   ],
-       "idTokenClaims": [
-           {
+  "idTokenClaims": [
+    {
       "source": "saml",
       "sourceClaim": "moderator"
     }
@@ -122,7 +122,7 @@ subcollection: appid
 ```
 {: screen}
 
-토큰에 대한 사용자 정의 만기 정보가 존재하는 경우 모든 요청에서 해당 정보를 설정해야 합니다. 설정하지 않을 경우 해당 요청에서 현재 구성을 대체하며 정의되지 않은 모든 항목에 대해 기본값이 사용됩니다.
+토큰에 대한 사용자 정의 만기 정보가 존재하는 경우 모든 요청에서 해당 정보를 설정해야 합니다. 설정하지 않을 경우 해당 요청이 현재 구성을 겹쳐쓰며 정의되지 않은 모든 항목에 대해 기본값이 사용됩니다.
 {: note}
 
 ### 내 토큰에 청구를 추가하는 이유가 무엇입니까?
@@ -140,7 +140,7 @@ subcollection: appid
 
 *제한된 청구*: 청구가 맵핑되는 토큰에 따라 일부 청구의 사용자 정의 가능성이 제한됩니다. 액세스 토큰의 경우 `scope`가 제한된 유일한 청구입니다. 이 청구는 사용자 정의 맵핑으로 대체할 수는 없지만 고유 범위로 확장할 수 있습니다. 범위 청구가 액세스 토큰에 맵핑되는 경우 값이 문자열이어야 하며 `appid_` 접두부를 사용할 수 없습니다. 그렇지 않을 경우 무시됩니다. ID 토큰의 경우 `identities` 및 `oauth_clients` 청구를 수정하거나 대체할 수 없습니다.
 
-*정규화된 청구*: 모든 ID 토큰에는 {{site.data.keyword.appid_short_notm}}에서 정규화된 청구로 인식되는 청구 세트가 포함되어 있습니다. 이러한 청구 세트가 사용 가능한 경우 ID 제공자에서 토큰으로 직접 맵핑됩니다. 이러한 청구는 명시적으로 생략할 수는 없지만 사용자 정의 청구 맵핑으로 대체할 수 있습니다. 청구에는 `name`, `email`, `picture`, `local` 및 `gender`가 있습니다.
+*정규화된 청구*: 모든 ID 토큰에는 {{site.data.keyword.appid_short_notm}}에서 정규화된 청구로 인식되는 청구 세트가 포함되어 있습니다. 이러한 청구 세트가 사용 가능한 경우 ID 제공자에서 토큰으로 직접 맵핑됩니다. 이러한 청구는 명시적으로 생략할 수는 없지만, 토큰에서 사용자 정의 청구로 겹쳐쓸 수 있습니다. 청구에는 `name`, `email`, `picture`, `local` 및 `gender`가 있습니다. 참고: 이 청구의 경우 속성을 변경 또는 제거하지는 않지만, 런타임 시 토큰에 있는 정보를 변경합니다. 
 
 
 ### 청구를 토큰에 맵핑하는 방법은 무엇입니까?
@@ -212,7 +212,7 @@ GUI 또는 관리 API를 사용하여 {{site.data.keyword.appid_short_notm}} 토
        Authorization: 'Bearer <IAM_TOKEN>'
        Content-Type: application/json
   ```
-  {: pre}
+  {: codeblock}
 
   본문:
   ```
@@ -242,7 +242,7 @@ GUI 또는 관리 API를 사용하여 {{site.data.keyword.appid_short_notm}} 토
        ]
    }
   ```
-  {: pre}
+  {: codeblock}
 
   <table>
     <thead>

@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-06-06"
 
-keywords: authentication, authorization, identity, app security, secure, development, sign in, sign up, password, social, enterprise
+keywords: Authentication, authorization, identity, app security, secure, development, sign in, sign up, password, social, enterprise
 
 subcollection: appid
 
@@ -23,40 +23,31 @@ subcollection: appid
 {:download: .download}
 
 
-# 顯示登入小組件
+# 使用登入小組件
 {: #login-widget}
 
-{{site.data.keyword.appid_full}} 提供「登入小組件」，可讓您提供使用者安全的登入選項。
+使用 {{site.data.keyword.appid_full}}，您可以使用預設使用者介面（稱為「登入小組件」），讓應用程式使用者能夠選擇想要用來登入的身分提供者。如果您是使用 Cloud Directory，「登入小組件」也提供額外的使用者介面，以提供額外的功能，例如註冊、忘記密碼、多因子鑑別等。
 {: shortdesc}
 
-將您的應用程式配置為使用身分提供者時，「登入小組件」即會將您應用程式的訪客導向至登入畫面。使用「登入小組件」，您可以顯示登入流程的預先配置畫面。附加價值是您可以隨時更新登入流程，而無需以任何方式變更您的原始碼！
-
-想要建立您應用程式特有的體驗嗎？您可以[帶入自己的畫面](/docs/services/appid?topic=appid-branded)！
-{: tip}
 
 ## 瞭解登入小組件
 {: #widget-understanding}
 
-即使沒有自己的使用者介面畫面，您也可以顯示「登入小組件」來充分運用 {{site.data.keyword.appid_short_notm}}。
-{: shortdesc}
+「登入小組件」最好的其中一部分，是您可以在自行實作任何鑑別使用者介面之前開始使用 {{site.data.keyword.appid_short_notm}}，這讓開發人員的加入體驗更容易。
 
-### 何謂預設值？
+### 預設的「登入小組件」行為是什麼？
 {: #widget-default}
 
-配置多個身分提供者時，若使用者嘗試登入您的應用程式，會將他們重新導向至「登入小組件」。使用「登入小組件」，使用者可以選擇要用來驗證其身分的提供者。但是，只有一個提供者設為**開啟**時，會將訪客重新導向至該身分提供者鑑別畫面。
+依預設，會啟用「登入小組件」來使用 Facebook、Google 及 Cloud Directory。您可以隨時藉由選擇要配置為選項的身分提供者來變更行為。啟用多個身分提供者時，「登入小組件」會呈現一個畫面，使用者可以在其中進行身分提供者選擇。但是，如果啟用了單一提供者，則使用者不會看到上述選擇畫面。他們會直接到身分提供者開始登入處理程序。
 
-### {{site.data.keyword.appid_short_notm}} 從身分提供者取得多少資訊？
-{: #widget-obtain-info}
+例如，如果您正在使用預設值 - Facebook、Google 及 Cloud Directory，使用者會看到該畫面。如果僅啟用 Facebook，使用者會直接連到 Facebook 進行鑑別。
 
-當您使用社交或企業身分提供者時，{{site.data.keyword.appid_short_notm}} 具有使用者帳戶資訊的讀取權。此服務會使用記號以及身分提供者所傳回的主張，來驗證使用者的身分。因為此服務永不具有資訊的寫入權，所以使用者必須透過其選擇的身分提供者執行動作，例如重設其密碼。例如，如果使用者使用 Facebook 來登入您的應用程式，然後想要變更其密碼，他們必須移至 www.facebook.com 才能執行此動作。
-
-當您使用[雲端目錄](/docs/services/appid?topic=appid-cloud-directory)時，{{site.data.keyword.appid_short_notm}} 是身分提供者。此服務會使用您的登錄來驗證您的使用者身分。因為 {{site.data.keyword.appid_short_notm}} 是提供者，所以使用者可以直接在您的應用程式中充分運用進階功能，例如重設其密碼。
 
 
 ### 可對每一個提供者顯示哪些畫面？
 {: #widget-options}
 
-請參閱下表，以查看您可以對每一種類型的身分提供者顯示的畫面。
+當您使用 Cloud Directory 時，{{site.data.keyword.appid_short_notm}} 可以為您提供使用者管理的延伸功能。延伸功能也適用於「登入小組件」功能。儲存在 Cloud Directory 中的使用者，可以直接在「登入小組件」中，利用例如註冊或重設密碼之類的功能。請參閱下表，以查看您可以對每一種類型的身分提供者顯示的畫面。
 
 <table>
   <thead>
@@ -101,15 +92,15 @@ subcollection: appid
   </tbody>
 </table>
 
-</br>
-</br>
 
 ## 自訂登入小組件
 {: #widget-customize}
 
-{{site.data.keyword.appid_short_notm}} 提供您可以呼叫的預設登入畫面（如果您沒有自己的使用者介面畫面可顯示）。
-您可以自訂畫面，以顯示您選擇的標誌及顏色。
+登入小組件是動態的。您可以自訂外觀與操作方式或身分提供者配置，變更會立即套用。不需要更新應用程式碼或以任何方式重新部署應用程式！
 {: shortdesc}
+
+您需要比登入小組件所提供更多的自訂作業嗎？您可以實作自己的完整自訂使用者介面，來進行使用者登入、註冊、重設密碼及其他流程，以建立您應用程式的獨特體驗。若要開始，請參閱[將您的應用程式加上品牌](/docs/services/appid?topic=appid-branded)。
+{: tip}
 
 若要自訂畫面，請執行下列動作：
 
@@ -119,9 +110,6 @@ subcollection: appid
 4. 從顏色選取器中選取小組件的標頭顏色，或輸入另一個顏色的十六進位碼。
 5. 檢查預覽窗格，然後在滿意自訂時按一下**儲存變更**。即會顯示一則確認訊息。
 6. 在瀏覽器中，重新整理登入頁面，以驗證您的變更。
-
-切記！您也可以充分運用其他語言的 {{site.data.keyword.appid_short_notm}}。如果您看不到所使用語言的 SDK，則可以一律使用 API。請參閱<a href="https://www.ibm.com/blogs/bluemix/tag/app-id/" target="blank">我們的部落格 <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>。
-{: tip}
 
 
 ## 使用 Android SDK 顯示登入小組件
@@ -183,7 +171,7 @@ subcollection: appid
       }
   });
   ```
-  {: pre}
+  {: codeblock}
 
 </br>
 
@@ -296,7 +284,7 @@ subcollection: appid
 
       public func onAuthorizationFailure(error: AuthorizationError) {
           //Exception occurred
-      }
+     }
   }
 
   AppID.sharedInstance.loginWidget?.launch(delegate: delegate())
@@ -312,8 +300,9 @@ subcollection: appid
 2. 將下列程式碼放在您的應用程式中。當使用者嘗試註冊您的應用程式時，就會呼叫登入小組件，並顯示您的自訂註冊頁面。
 
   ```swift
-   class delegate : AuthorizationDelegate {
-       public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, refreshToken: RefreshToken?, response:Response?) {
+  class delegate : AuthorizationDelegate {
+
+      public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, refreshToken: RefreshToken?, response:Response?) {
        if accessToken == nil && identityToken == nil {
         //email verification is required
         return
@@ -327,7 +316,9 @@ subcollection: appid
 
     public func onAuthorizationFailure(error: AuthorizationError) {
         //Exception occurred
-          }}
+        }
+
+        }
 
   AppID.sharedInstance.loginWidget?.launchSignUp(delegate: delegate())
   ```
@@ -343,8 +334,9 @@ subcollection: appid
 3. 將下列程式碼放在您的應用程式中。當您的其中一個應用程式使用者要求更新其密碼時，就會呼叫登入小組件，並啟動處理程序。
 
   ```swift
-   class delegate : AuthorizationDelegate {
-       public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, refreshToken: RefreshToken?, response:Response?) {
+  class delegate : AuthorizationDelegate {
+
+      public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, refreshToken: RefreshToken?, response:Response?) {
         //forgot password finished, in this case accessToken and identityToken will be null.
      }
 
@@ -354,7 +346,9 @@ subcollection: appid
 
      public func onAuthorizationFailure(error: AuthorizationError) {
          //Exception occurred
-          }}
+        }
+
+        }
 
   AppID.sharedInstance.loginWidget?.launchForgotPassword(delegate: delegate())
   ```

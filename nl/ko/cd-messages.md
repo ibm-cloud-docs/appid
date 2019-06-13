@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-11"
+lastupdated: "2019-05-20"
 
 keywords: authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
@@ -48,7 +48,7 @@ subcollection: appid
   </tr>
   <tr>
     <td><code>%{display.logo}</code></td>
-    <td> 로그인 위젯에 대해 구성한 이미지를 표시합니다. </td>
+    <td> 로그인 위젯에 대해 구성한 이미지를 표시합니다.</td>
   </tr>
   <tr>
     <td><code>%{user.displayName}</code></td>
@@ -80,7 +80,7 @@ subcollection: appid
 ### 이메일: 환영
 {: #cd-messages-welcome}
 
-사용자가 애플리케이션에 등록할 때 해당 사용자가 앱을 사용하게 된 것을 환영하는 메시지를 발송할 수 있습니다.
+사용자가 애플리케이션에 등록할 때 해당 사용자가 앱을 사용하게 된 것을 환영하는 메시지를 발송할 수 있습니다. 
 {: shortdesc}
 
 1. 서비스 대시보드의 **워크플로우 템플리트 > 환영 이메일** 탭으로 이동하십시오.
@@ -95,7 +95,7 @@ subcollection: appid
 ### 이메일: 검증
 {: #cd-messages-verification}
 
-사용자가 이메일을 사용하여 애플리케이션에 등록할 때 해당 사용자에게 ID를 확인하도록 요청하는 이메일을 발송할 수 있습니다. 검증을 요청하여 앱에 등록할 수 있는 허위 계정의 수를 제한할 수 있습니다. 사용자가 이메일을 검증할 때까지 앱에 대한 액세스를 제한하거나 프로파일을 작성하는 사용자를 관리하는 방법으로 이를 사용할 수 있습니다. {{site.data.keyword.appid_short_notm}} 대시보드 또는 사용자 작성 API를 통해 수동으로 추가된 사용자의 경우 이 이메일을 자동으로 수신하지 않습니다.
+사용자가 이메일을 사용하여 애플리케이션에 등록할 때 해당 사용자에게 ID를 확인하도록 요청하는 이메일을 발송할 수 있습니다. 검증을 요청하여 앱에 등록할 수 있는 허위 계정의 수를 제한할 수 있습니다. 사용자가 이메일을 검증할 때까지 앱에 대한 액세스를 제한하거나 프로파일을 작성하는 사용자를 관리하는 방법으로 사용할 수 있습니다. {{site.data.keyword.appid_short_notm}} 대시보드 또는 사용자 작성 API를 통해 수동으로 추가된 사용자의 경우 이 이메일을 자동으로 수신하지 않습니다.
 {: shortdesc}
 
 
@@ -166,7 +166,7 @@ subcollection: appid
     </tr>
     <tr>
       <td><code>%{resetPassword.code}</code></td>
-      <td> URL의 일부로 일회성 패스코드를 표시합니다. 이는 각 개인이 서로 다른 코드를 보유함을 의미합니다. 예: <code>https://us-south.appid.cloud.ibm.com/wfm/verify/6574839563478</code></td>
+      <td> URL의 일부로 일회성 패스코드를 표시합니다. 이는 각 개인이 서로 다른 코드를 보유함을 의미합니다. 예: `https://us-south.appid.cloud.ibm.com/wfm/verify/6574839563478`</td>
     </tr>
     <tr>
       <td><code>%{resetPassword.link}</code></td>
@@ -195,6 +195,7 @@ subcollection: appid
 2. **비밀번호 변경 이메일**을 **사용**으로 설정하십시오.
 
 3. 메시지의 컨텐츠를 사용자 정의하십시오. UI를 사용하여 매개변수를 추가하고 이미지를 삽입할 수 있습니다. 메시지의 [언어](/docs/services/appid?topic=appid-cd-messages#cd-languages)를 변경하기 위해 <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization" target="_blank">API <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>를 사용하여 언어를 설정할 수 있습니다. 하지만 메시지의 컨텐츠 및 번역은 사용자의 책임입니다. 메시지에서 사용할 수 있는 다양한 매개변수를 확인하려면 다음 표를 참조하십시오. 사용자가 해당 매개변수를 통해 가져오는 정보를 제공하지 않을 경우 공백으로 표시됩니다.
+  
 
   <table>
     <tr>
@@ -221,13 +222,13 @@ subcollection: appid
 ## 사용자 정의 이메일 발신인 사용
 {: #cd-custom-email}
 
-{{site.data.keyword.appid_short_notm}}를 사용하는 경우 사용자 정의 확장점을 정의하여 클라우드 디렉토리 이메일 메시지를 발송할 수 있습니다. 확장점을 정의하여 이메일이 발송되는 방법을 완전히 제어하고 고유한 도메인 이름을 사용할 수 있습니다. 기본적으로 {{site.data.keyword.appid_short_notm}}에서는 <a href="https://www.sendgrid.com" target="_blank">SendGrid <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>를 메일 전달 서비스로 사용합니다.
+{{site.data.keyword.appid_short_notm}}를 사용하는 경우 사용자 정의 확장점을 정의하여 Cloud Directory 이메일 메시지를 발송할 수 있습니다. 확장점을 정의하여 이메일이 발송되는 방법을 완전히 제어하고 고유한 도메인 이름을 사용할 수 있습니다. 기본적으로 {{site.data.keyword.appid_short_notm}}에서는 <a href="https://www.sendgrid.com" target="_blank">SendGrid <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>를 메일 전달 서비스로 사용합니다.
  {: shortdesc}
 
 다음과 같은 이유로 사용자 정의 이메일 발신인을 사용할 수 있습니다.
 
 - **개인화된 도메인**
-사용자 정의 이메일 디스패처를 사용하여 이메일 메시지가 발송되는 방법을 완전히 제어할 수 있습니다. 여기에는 이메일이 스팸으로 필터링될 확률을 추가적으로 감소시켜 줄 수 있는 이메일 도메인의 사용자 정의가 포함되어 있습니다. 또한 앱 사용자의 브랜드 경험을 더욱 향상시킬 수 있습니다.
+사용자 정의 이메일 디스패처를 사용하여 이메일 메시지가 발송되는 방법을 완전히 제어할 수 있습니다. 여기에는 이메일이 스팸으로 필터링될 확률을 추가적으로 줄일 수 있는 이메일 도메인 사용자 정의가 포함됩니다. 또한 앱 사용자의 브랜드 경험을 더욱 향상시킬 수 있습니다.
 
 - **인사이트 및 문제점 해결**
 이메일 제공자로부터 이메일을 연 사용자 수 또는 전달되지 않은 메시지 등의 인사이트를 얻을 수 있습니다. 개별 메시지를 추적하고 전체적인 통계를 확인할 수 있기 때문에 이 인사이트를 통해 문제를 해결할 수 있습니다.
@@ -283,28 +284,28 @@ subcollection: appid
 
 2. 요청을 게시하기 위해 청취할 수 있는 확장점을 구성하십시오. 이 엔드포인트에서는 {{site.data.keyword.appid_short_notm}}로부터 수신되는 페이로드를 읽어들이고 사용자 정의 이메일 발신인을 사용하여 이메일을 발송할 수 있어야 합니다.
 
-3. {{site.data.keyword.appid_short_notm}}에서 발송되는 본문의 형식은 `{"jws": "jws-format-string"}`입니다. 페이로드를 디코딩 및 확인한 후에는 해당 컨텐츠가 JSON 문자열이 됩니다.
+3. {{site.data.keyword.appid_short_notm}}에서 발송하는 본문의 형식은 `{"jws": "jws-format-string"}`입니다. 페이로드를 디코딩 및 확인한 후에는 해당 컨텐츠가 JSON 문자열이 됩니다.
 
   ```
-    {
-      "tenant": "tenant-id",
+  {
+    "tenant": "tenant-id",
       "iss" : "https://us-south.appid.cloud.ibm.com/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6050a61",
       "iat": 1539173126,
       "jti": "uniq-id",
       "message": {
-          "to": "your@mail.com",
+        "to": "your@mail.com",
           "from": {
-              "name": "My Awesome Service",
+            "name": "My Awesome Service",
               "address": "no-reply@company.com"
-          },
+        },
           "replyTo": {
-              "name": "My Awesome Service",
+            "name": "My Awesome Service",
               "address": "yes-reply@company.com"
-          },
+        },
           "subject": "Welcome to My Awesome Service",
           "body": "<p>Hello<p><br/><p>Thanks for signing up John Doe</p>"
-      }
     }
+  }
   ```
   {: screen}
 
@@ -322,8 +323,8 @@ subcollection: appid
       <td>전송된 메시지의 시간소인입니다.</td>
     </tr>
     <tr>
-      <td><code>jss</code></td>
-      <td>JWS 토큰을 발행한 프린시펄입니다.</td>
+      <td><code> iss </code></td>
+      <td>JWS 토큰을 발행한 프린시펄 또는 {{site.data.keyword.appid_short_notm}} 인스턴스입니다. </td>
     </tr>
     <tr>
       <td><code>jti</code></td>
@@ -334,12 +335,12 @@ subcollection: appid
       <td>메시지 수신인의 이메일 주소입니다.</td>
     </tr>
     <tr>
-      <td><code>message: from</code></br><code>name </code></br><code>address</code></td>
-      <td></br>메시지 발신인의 이름입니다.</br>발신인의 이메일 주소입니다.</td>
+      <td><code>message: from</code></br><code>name</code></br><code>address</code></td>
+      <td></br>메시지 발신인의 이름입니다. </br>발신인의 이메일 주소입니다. </td>
     </tr>
     <tr>
-      <td><code>선택사항: message: reply to</code></br><code>name </code></br><code>address</code></td>
-      <td></br>응답 이메일 주소에 첨부되는 이름입니다.</br>사용자가 응답할 수 있는 이메일 주소입니다.</td>
+      <td><code>선택사항: message: reply to</code></br><code>name</code></br><code>address</code></td>
+      <td></br>응답 이메일 주소에 첨부되는 이름입니다. </br>사용자가 응답할 수 있는 이메일 주소입니다. </td>
     </tr>
   </table>
 
@@ -349,7 +350,7 @@ subcollection: appid
 4. {{site.data.keyword.appid_short_notm}}에서 발송되는 모든 HTTP 페이로드는 비대칭 키 쌍을 사용하여 JWS 표준에 따라 자동으로 서명됩니다.
 모든 {{site.data.keyword.appid_short_notm}} 인스턴스에 대해 다른 인스턴스에서 공유되지 않는 개인 및 공개 키가 생성됩니다. 개인 키는 HTTP 페이로드에 서명하기 위해 사용되며, 공개 키를 사용하여 해당 페이로드가 {{site.data.keyword.appid_short_notm}}에서 생성되고 서드파티에 의해 변경되지 않았는지 확인할 수 있습니다(<a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Authorization_Server_V4/publicKeys" target="_blank">공개 키 엔드포인트</a>).
 
-5. 확장점 코드 예제(JavaScript) 
+5. 확장점 코드 예제(JavaScript)
   ```
   const sgMail = require('@sendgrid/mail');
   const {promisify} = require('bluebird');
@@ -417,7 +418,7 @@ subcollection: appid
 
 6. 이메일 디스패처를 테스트하여 구성이 올바르게 설정되었는지 확인하십시오. <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/post_email_dispatcher_test" target="_blank">테스트 API</a>를 사용하여 구성된 사용자 정의 이메일 발신인에 대한 요청을 트리거하십시오.
 
-완전하게 작동하는 예제는 <a href="https://www.ibm.com/blogs/bluemix/2018/10/use-ibm-cloud-app-id-and-your-email-provider-to-brand-mails-sent-to-app-users/" target="_blank">{{site.data.keyword.appid_full}}를 통해 발송되는 메일에 대해 고유한 제공자 사용</a>을 참조하십시오.
+완전하게 작동하는 예는 <a href="https://www.ibm.com/cloud/blog/use-ibm-cloud-app-id-and-your-email-provider-to-brand-mails-sent-to-app-users" target="_blank">{{site.data.keyword.appid_full}}를 통해 발송되는 메일에 대해 고유한 제공자 사용</a>을 참조하십시오. 
 
 
 

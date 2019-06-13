@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-31"
 
 keywords: authentication, authorization, identity, app security, secure, custom, proprietary, 
 
@@ -76,7 +76,7 @@ Figura. I flussi della richiesta per l'autenticazione personalizzata
 ## Generazione di un JWT (JSON web token)
 {: #generating-jwts}
 
-Puoi convertire i tuoi dati utente verificati in un JWT di identità personalizzato generando un <a href="https://tools.ietf.org/html/rfc7515" target="blank">JWT (JSON web token) <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a>. Il token deve essere firmato con la chiave privata che corrisponde alla tua chiave pubblica preconfigurata. Per un elenco di librerie di firma del token, consulta <a href="https://jwt.io/" target="blank">jwt.io <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a>.
+Puoi convertire i tuoi dati utente verificati in un JWT di identità personalizzato generando un <a href="https://tools.ietf.org/html/rfc7515" target="blank">JWT (JSON web token) <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a>. Il token deve essere firmato con la chiave privata che corrisponde alla tua chiave pubblica preconfigurata. Per un elenco di librerie di firma del token, consulta <a href="https://jwt.io/" target="blank">https://jwt.io/ <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a>.
 {: shortdesc}
 
 ### Formato JWT di esempio
@@ -127,7 +127,7 @@ Payload del token:
     </tr>
     <tr>
       <td><code>aud</code></td>
-      <td>L'URL del server OAuth. Formato: https://{region}.appid.cloud.ibm.com/oauth/v4/{tenantId}.</td>
+      <td>L'URL del server OAuth. Formato: `https://{region}.appid.cloud.ibm.com/oauth/v4/{tenantId}`.</td>
     </tr>
     <tr>
       <td><code>exp</code></td>
@@ -139,7 +139,7 @@ Payload del token:
     </tr>
     <tr>
       <td>Attestazioni normalizzate</td>
-      <td>Tutte le [attestazioni normalizzate](/docs/services/appid?topic=appid-tokens#tokens) vengono fornite nel token di identità restituito nella risposta a questa richiesta. Possono essere trovate delle ulteriori attestazioni personalizzate utilizzando l'endpoint [`/userinfo`](/docs/services/appid?topic=appid-custom-attributes#custom-attributes).</td>
+      <td>Tutte le [attestazioni normalizzate](/docs/services/appid?topic=appid-tokens) vengono fornite nel token di identità restituito nella risposta a questa richiesta. Possono essere trovate delle ulteriori attestazioni personalizzate utilizzando l'endpoint [`/userinfo`](/docs/services/appid?topic=appid-profiles).</td>
     </tr>
     <tr>
       <td>Ambito</td>

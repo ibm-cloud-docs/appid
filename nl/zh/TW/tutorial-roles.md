@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-08"
+lastupdated: "2019-05-31"
 
 keywords: authentication, authorization, identity, app security, secure, access management, roles, attributes, users
 
@@ -38,7 +38,7 @@ subcollection: appid
 您是虛構主題公園的開發人員。您的任務是管理 [Web 應用程式](/docs/services/appid?topic=appid-web-apps)的存取，您覺得最容易達成此目的的作法是為每一種類型的使用者設定角色。您有數種不同類型的角色，例如，公園工作人員和訪客，他們全都需要不同層次的許可權。您想要能夠簡化此處理程序，並確保在使用者第一次登入應用程式時，能獲指派正確的角色。  
 {: shortdesc}
 
-沒有問題！您可以使用 {{site.data.keyword.appid_short_notm}} 的[自訂屬性特性](/docs/services/appid?topic=appid-custom-attributes)，來儲存任何類型的使用者相關資訊。因此，由於您使用的是角色型存取控制，您可以建立一個稱為 `role` 的屬性，並指派不同的值來指定角色類型。例如，主題公園可能有 `visitors` 或 `staff`，這些可能是 `role` 屬性的不同值。然後，您可以確保應用程式碼施行您所指派的存取原則及專用權。
+沒有問題！您可以使用 {{site.data.keyword.appid_short_notm}} 的[自訂屬性特性](/docs/services/appid?topic=appid-profiles)，來儲存任何類型的使用者相關資訊。因此，由於您使用的是角色型存取控制，您可以建立一個稱為 `role` 的屬性，並指派不同的值來指定角色類型。例如，主題公園可能有 `visitors` 或 `staff`，這些可能是 `role` 屬性的不同值。然後，您可以確保應用程式碼施行您所指派的存取原則及專用權。
 
 雖然本指導教學是專門針對 Web 應用程式及 Cloud Directory 而撰寫，但屬性可以有更廣泛的應用。自訂屬性可以是您想要的任何項目。只要不超過 10 萬個屬性，而且將它們格式化為一般 JSON 物件，您就可以儲存所有類型的資訊！
 {: note}
@@ -87,14 +87,14 @@ Cloud Land 有新進職員！您知道他們的一切資訊，但好幾天了他
   ```
   ibmcloud login
   ```
-  {: pre}
+  {: codeblock}
 
 2. 取得 IAM 存取記號。
 
   ```
   ibmcloud iam oauth-tokens
   ```
-  {: pre}
+  {: codeblock}
 
 3. 提出 POST 要求，為新使用者建立包含 `staff` 屬性的使用者設定檔。請確定您可以存取及驗證您所使用的電子郵件。
 
@@ -113,7 +113,7 @@ Cloud Land 有新進職員！您知道他們的一切資訊，但好幾天了他
     }
   }'
   ```
-  {: pre}
+  {: codeblock}
 
   成功的回應輸出：
 
@@ -132,7 +132,7 @@ Cloud Land 有新進職員！您知道他們的一切資訊，但好幾天了他
   --header 'Authorization: Bearer <iam-access-token>' \
   --header 'Content-Type: application/json' \
   ```
-  {: pre}
+  {: codeblock}
 
   成功的回應內文：
 
@@ -154,7 +154,7 @@ Cloud Land 有新進職員！您知道他們的一切資訊，但好幾天了他
 ## 步驟 3：更新使用者屬性
 {: #roles-update-attributes}
 
-Cloud Land 正在成長！為了跟上成長的腳步，貴公司將僱用新進人員。步驟 2 中的 `staff` 使用者現在是經理。您可以透過[指派新角色](/docs/services/appid?topic=appid-custom-attributes)來更新其設定檔。
+Cloud Land 正在成長！為了跟上成長的腳步，貴公司將僱用新進人員。步驟 2 中的 `staff` 使用者現在是經理。您可以透過[指派新角色](/docs/services/appid?topic=appid-profiles#profile-set-custom)來更新其設定檔。
 {: shortdesc}
 
 1. 更新設定檔。
@@ -172,7 +172,7 @@ Cloud Land 正在成長！為了跟上成長的腳步，貴公司將僱用新進
     }
   }'
   ```
-  {: pre}
+  {: codeblock}
 
 3. 檢視設定檔，以驗證其已正確更新。
 
@@ -182,7 +182,7 @@ Cloud Land 正在成長！為了跟上成長的腳步，貴公司將僱用新進
   --header 'Authorization: Bearer <iam-access-token>' \
   --header 'Content-Type: application/json' \
   ```
-  {: pre}
+  {: codeblock}
 
   成功的回應輸出：
 
@@ -236,7 +236,7 @@ Cloud Land 正在成長！為了跟上成長的腳步，貴公司將僱用新進
       ]
   }'
   ```
-  {: pre}
+  {: codeblock}
 
   <table>
     <tr>
@@ -313,7 +313,7 @@ Cloud Land 正在成長！為了跟上成長的腳步，貴公司將僱用新進
   --header `Accept: application/json`
   - d 'grant_type=password&username=<user-email>%40<user-email-domain>&password=<user-password>
   ```
-  {: pre}
+  {: codeblock}
 
 5. 將存取記號解碼。
   1. 複製前一個指令之回應輸出中的記號。

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-21"
 
 keywords: authentication, authorization, identity, app security, secure, web apps, client, server
 
@@ -78,6 +78,11 @@ Node.js 웹 애플리케이션에서 작동하도록 {{site.data.keyword.appid_s
 * {{site.data.keyword.appid_short_notm}} 서비스 대시보드의 경로 재지정 URI 세트
 
 
+{{site.data.keyword.appid_short_notm}}를 사용한 Node 애플리케이션 보호에 대해 학습하려면 다음 동영상을 확인하십시오. 그런 다음 [간단한 Node 샘플 앱](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02a-simple-node-web-app)을 사용하여 직접 시도해 보십시오. 
+
+<iframe class="embed-responsive-item" id="appid-nodejs" title="{{site.data.keyword.appid_short_notm}} 정보" type="text/html" width="640" height="390" src="//www.youtube.com/embed/6roa1ZOvwtw?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+
 ### Node.js SDK 설치
 {: #web-nodejs-install}
 
@@ -88,7 +93,7 @@ Node.js 웹 애플리케이션에서 작동하도록 {{site.data.keyword.appid_s
   ```bash
   npm install --save ibmcloud-appid
   ```
-  {: pre}
+  {: codeblock}
 
 ### Node.js SDK 초기화
 {: #web-nodejs-initialize}
@@ -102,7 +107,7 @@ Node.js 웹 애플리케이션에서 작동하도록 {{site.data.keyword.appid_s
     const WebAppStrategy = require("ibmcloud-appid").WebAppStrategy;
     const CALLBACK_URL = "/ibm/cloud/appid/callback";
   ```
-  {: pre}
+  {: codeblock}
 
 2. express-session 미들웨어를 사용하도록 express 앱을 설정하십시오.
 
@@ -116,7 +121,7 @@ Node.js 웹 애플리케이션에서 작동하도록 {{site.data.keyword.appid_s
     app.use(passport.initialize());
     app.use(passport.session());
   ```
-  {: pre}
+  {: codeblock}
 
   프로덕션 환경에 적합한 세션 스토리지로 미들웨어를 구성해야 합니다. 자세한 정보는 <a href="https://github.com/expressjs/session" target="_blank"> express.js 문서<img src="../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>를 참조하십시오.
   {: note}
@@ -134,7 +139,7 @@ Node.js 웹 애플리케이션에서 작동하도록 {{site.data.keyword.appid_s
     -H 'Authorization: Bearer IAM_TOKEN' \
     -d '{"name": "ApplicationName"}'
     ```
-    {: pre}
+    {: codeblock}
 
     응답 예제:
     ```
@@ -166,9 +171,9 @@ Node.js 웹 애플리케이션에서 작동하도록 {{site.data.keyword.appid_s
       	redirectUri: "{app-url}" + CALLBACK_URL
       }));
   ```
-  {: pre}
+  {: codeblock}
 
-6. 직렬화 및 직렬화 해제로 passport를 구성하십시오. 이 구성 단계는 HTTP 요청 전체에 걸쳐 인증된 세션 지속성에 필요합니다. 자세한 정보는 <a href="http://passportjs.org/docs" target="_blank">passport 문서 <img src="../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>를 참조하십시오.
+6. 직렬화 및 직렬화 해제로 passport를 구성하십시오. 이 구성 단계는 HTTP 요청 전체에 걸쳐 인증된 세션 지속성에 필요합니다. 자세한 정보는 <a href="http://www.passportjs.org/docs/" target="_blank">passport 문서 <img src="../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>를 참조하십시오.
 
   ```javascript
   passport.serializeUser(function(user, cb) {
@@ -179,21 +184,21 @@ Node.js 웹 애플리케이션에서 작동하도록 {{site.data.keyword.appid_s
     cb(null, obj);
     });
   ```
-  {: pre}
+  {: codeblock}
 
 5. 다음 코드를 `server.js` 파일에 추가하여 서비스 경로 재지정을 실행하십시오.
 
    ```javascript
    app.get(CALLBACK_URL, passport.authenticate(WebAppStrategy.STRATEGY_NAME));
    ```
-   {: pre}
+   {: codeblock}
 
 6. 보호된 엔드포인트를 등록하십시오.
 
    ```javascript
    app.get(‘/protected’, passport.authenticate(WebAppStrategy.STRATEGY_NAME), function(req, res) {res.json(req.user); });
    ```
-   {: pre}
+   {: codeblock}
 
 자세한 정보는 <a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs" target="_blank">{{site.data.keyword.appid_short_notm}} Node.js GitHub repository <img src="../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>를 참조하십시오.
 
@@ -214,6 +219,13 @@ Liberty for Java 웹 애플리케이션에서 작동하도록 {{site.data.keywor
 * Java 1.8
 * A Liberty for Java 웹 애플리케이션
 
+
+{{site.data.keyword.appid_short_notm}}를 사용한 Liberty for Java 애플리케이션 보호에 대해 학습하려면 다음 동영상을 확인하십시오. 그런 다음 [간단한 Liberty for Java 샘플 앱](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02c-simple-liberty-web-app)을 사용하여 직접 시도해 보십시오. 
+
+<iframe class="embed-responsive-item" id="appid-liberty-web" title="{{site.data.keyword.appid_short_notm}} 정보" type="text/html" width="640" height="390" src="//www.youtube.com/embed/o_Er69YUsMQ?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+
+
 ### Liberty for Java SDK 설치
 {: #web-liberty-install}
 
@@ -226,7 +238,7 @@ Liberty for Java 웹 애플리케이션에서 작동하도록 {{site.data.keywor
       <feature>openidConnectClient-1.0</feature>
   </featureManager>
   ```
-  {: pre}
+  {: codeblock}
 
 2. 두 가지 방법 중 하나를 통해 인증 정보를 받으십시오.
 
@@ -241,7 +253,7 @@ Liberty for Java 웹 애플리케이션에서 작동하도록 {{site.data.keywor
     -H 'Authorization: Bearer IAM_TOKEN' \
     -d '{"name": "ApplicationName"}'
     ```
-    {: pre}
+    {: codeblock}
 
     응답 예제:
     ```
@@ -271,7 +283,7 @@ Liberty for Java 웹 애플리케이션에서 작동하도록 {{site.data.keywor
     trustAliasName="ibm.com"
   />
   ```
-  {: pre}
+  {: codeblock}
 
   <table>
   <caption>표. Liberty for Java 앱에 대한 OIDC 요소 변수</caption>
@@ -280,7 +292,7 @@ Liberty for Java 웹 애플리케이션에서 작동하도록 {{site.data.keywor
       <th> 설명 </th>
     </tr>
     <tr>
-    <td><code> clientID </code> </br> <code> secret </code> </br> <code> oauth-server-url </code> </br></td>
+    <td><code>clientID</code> </br> <code>secret</code> </br> <code>oauth-server-url</code> </br></td>
     <td>2단계를 완료하여 서비스 인증 정보를 받으십시오.</td>
     </tr>
     <tr>
@@ -320,14 +332,14 @@ Liberty for Java 웹 애플리케이션에서 작동하도록 {{site.data.keywor
 ### Liberty for Java SDK 초기화
 {: #web-liberty-initialize}
 
-1. `server.xml` 파일에서 보호된 리소스를 지정하는 권한 필터를 정의하십시오. 필터가 <a href="https://www.ibm.com/support/knowledgecenter/en/SSD28V_8.5.5/com.ibm.websphere.wlp.core.doc/ae/rwlp_auth_filter.html" target="_blank">정의 <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>되지 않은 경우 이 서비스에서 모든 리소스를 보호합니다.
+1. `server.xml` 파일에서 보호된 리소스를 지정하는 권한 필터를 정의하십시오. 필터가 <a href="https://www.ibm.com/support/knowledgecenter/en/SSD28V_9.0.0/com.ibm.websphere.wlp.core.doc/ae/rwlp_auth_filter.html" target="_blank">정의 <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>되지 않은 경우 이 서비스에서 모든 리소스를 보호합니다.
 
   ```xml
   <authFilter id="myAuthFilter">
              <requestUrl id="myRequestUrl" urlPattern="/protected" matchType="contains"/>
     </authFilter>
   ```
-  {: pre}
+  {: codeblock}
 
 2. 특수 주제 유형을 `ALL_AUTHENTICATED_USERS`로 정의하십시오.
 
@@ -341,7 +353,7 @@ Liberty for Java 웹 애플리케이션에서 작동하도록 {{site.data.keywor
             </application-bnd>
         </application>
   ```
-  {: pre}
+  {: codeblock}
 
 3. <a href="https://github.com/ibm-cloud-security/appid-sample-code-snippets/tree/master/liberty-for-java" target="_blank">GitHub <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>에서 `libertySample-1.0.0.war` 파일을 다운로드하여 서버의 앱 폴더에 배치하십시오. 예를 들어 서버의 이름이 `defaultServer`인 경우 war 파일은 `target/liberty/wlp/usr/servers/defaultServer/apps/`로 이동할 수 있습니다.
 
@@ -352,7 +364,7 @@ Liberty for Java 웹 애플리케이션에서 작동하도록 {{site.data.keywor
   <keyStore id="appidtruststore" password="Liberty" location="${server.config.dir}/mytruststore.jks"/>
   <ssl id="defaultSSLConfig" keyStoreRef="defaultKeyStore" trustStoreRef="appidtruststore"/>
   ```
-  {: pre}
+  {: codeblock}
 
 기본적으로 SSL 구성을 사용하려면 OpenID Connect에 대한 신뢰 저장소를 구성해야 합니다. <a href="https://www.ibm.com/support/knowledgecenter/en/SSEQTP_liberty/com.ibm.websphere.wlp.doc/ae/twlp_config_oidc_rp.html" target="_blank">Liberty에서 OpenID Connect 클라이언트 구성 <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>에 대한 자세한 정보를 참조하십시오.
 {: tip}
@@ -390,7 +402,7 @@ Spring Boot 애플리케이션에서 작동하도록 {{site.data.keyword.appid_s
       <relativePath/>
   </parent>
   ```
-  {: pre}
+  {: codeblock}
 
 2. Maven `pom.xml` 파일에 다음 종속 항목을 추가하십시오.
 
@@ -411,7 +423,7 @@ Spring Boot 애플리케이션에서 작동하도록 {{site.data.keyword.appid_s
       </dependency>
   </dependencies>
   ```
-  {: pre}
+  {: codeblock}
 
 3. 동일한 파일에 Maven 플러그인을 포함하십시오.
 
@@ -421,7 +433,7 @@ Spring Boot 애플리케이션에서 작동하도록 {{site.data.keyword.appid_s
       <artifactId>spring-boot-maven-plugin</artifactId>
   </plugin>
   ```
-  {: pre}
+  {: codeblock}
 
 ### OAuth2 초기화
 {: #web-oauth-initialize}
@@ -432,7 +444,7 @@ Spring Boot 애플리케이션에서 작동하도록 {{site.data.keyword.appid_s
   @SpringBootApplication
   @EnableOAuth2Sso
   ```
-  {: pre}
+  {: codeblock}
 
 2. `WebSecurityConfigurerAdapter`로 클래스를 확장하십시오.
 3. 보안 구성을 모두 대체한 후 보호된 엔드포인트를 등록하십시오.
@@ -445,7 +457,7 @@ Spring Boot 애플리케이션에서 작동하도록 {{site.data.keyword.appid_s
                 .and().logout().logoutSuccessUrl("/").permitAll();
     }
   ```
-  {: pre}
+  {: codeblock}
 
 
 ### 인증 정보 추가
@@ -464,7 +476,7 @@ Spring Boot 애플리케이션에서 작동하도록 {{site.data.keyword.appid_s
     -H 'Authorization: Bearer IAM_TOKEN' \
     -d '{"name": "ApplicationName"}'
     ```
-    {: pre}
+    {: codeblock}
 
     응답 예제:
     ```
@@ -491,9 +503,9 @@ Spring Boot 애플리케이션에서 작동하도록 {{site.data.keyword.appid_s
     resource:
       userInfoUri: {oauthServerUrl}/userinfo
   ```
-  {: pre}
+  {: codeblock}
 
-단계별 예제는 <a href="https://www.ibm.com/blogs/bluemix/2018/06/creating-spring-boot-applications-app-id/" target="_blank">이 블로그</a>를 참조하십시오!
+단계별 예제는 <a href="https://www.ibm.com/cloud/blog/creating-spring-boot-applications-app-id" target="_blank">이 블로그</a>를 참조하십시오!
 
 
 ## 다른 언어로 {{site.data.keyword.appid_short_notm}} 사용

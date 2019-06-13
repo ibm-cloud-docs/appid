@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-14"
+lastupdated: "2019-05-21"
 
 keywords: authentication, authorization, identity, app security, secure, troubleshooting, help, support, requests, uri
 
@@ -25,7 +25,7 @@ subcollection: appid
 {:tsCauses: .tsCauses}
 {:tsResolve: .tsResolve}
 
-# 一般故障诊断
+# 故障诊断：常规
 {: #troubleshooting}
 
 在使用 {{site.data.keyword.appid_full}} 时，如果遇到问题，可以考虑使用下列方法进行故障诊断和获取帮助。
@@ -36,11 +36,10 @@ subcollection: appid
 
 您可以通过搜索信息或通过论坛提问来获取帮助。您还可以开具支持凭单。在使用论坛提问时，请标记您的问题，以便 {{site.data.keyword.cloud_notm}} 开发
 团队能看到您的问题。
-  * 如果有关于 {{site.data.keyword.appid_short_notm}} 的技术问题，请在 <a href="https://stackoverflow.com/search?q=ibm-appid" target="_blank">Stack Overflow <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a> 上发帖提问，并使用“ibm-appid”标记您的问题。
-  * 有关服务和入门指示信息的问题，请使用 <a href="https://developer.ibm.com/answers/topics/appid/" target="_blank">dW Answers <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a> 论坛。包含 `appid` 标记。
+  * 如果有关于 {{site.data.keyword.appid_short_notm}} 的技术问题，请在 <a href="https://stackoverflow.com/" target="_blank">Stack Overflow <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a> 上发帖提问，并使用“ibm-appid”标记您的问题。
+  * 有关服务和入门指示信息的问题，请使用 <a href="https://developer.ibm.com/" target="_blank">dW Answers <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a> 论坛。包含 `appid` 标记。
 
 有关获取支持的更多信息，请参阅[如何获得我需要的支持](/docs/get-support?topic=get-support-getting-customer-support#getting-customer-support)。
-
 
 
 ## 用户登录后没有重定向到应用程序
@@ -83,6 +82,30 @@ URL 可能由于以下原因而被拒绝：
 {: tsResolve}
 要解决此问题，请验证 URL 是否正确。如果 URL 不满足需求，可以在应用程序中创建 HTTPS 端点，以将收到的授权代码重定向到定制 URL。在 {{site.data.keyword.appid_short_notm}} 控制台中将已创建的端点指定为重定向 URL。有关重定向 URI 的更多信息，请参阅[添加重定向 URI](/docs/services/appid?topic=appid-managing-idp#add-redirect-uri)
 
+## 用户没有重定向到身份提供者
+{: #ts-redirect}
+
+{: tsSymptoms}
+用户尝试登录到应用程序，但提示时不显示登录页面。
+
+{: tsCauses}
+身份提供者可能由于多种原因而失败：
+
+* 您配置的重定向 URL 不正确。
+* 身份提供者无法识别认证请求。
+* 身份提供者需要 HTTP-POST 绑定。
+* 身份提供者需要已签名的认证请求。
+
+{: tsResolve}
+您可以尝试以下某些解决方案：
+
+* 更新登录 URL。此 URL 作为认证请求的一部分发送，并且必须是完全一致。
+* 请确保在身份提供者设置中正确设置了 {{site.data.keyword.appid_short_notm}} 元数据。
+* 将身份提供者配置为接受 HTTP 重定向中的认证请求。
+* {{site.data.keyword.appid_short_notm}} 不支持签名的认证请求。
+
+如果解决方案都不起作用，那么可能是您的连接存在问题。
+{: tip}
 
 
 ## 属性显示了错误值

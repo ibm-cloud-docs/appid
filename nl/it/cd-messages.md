@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-11"
+lastupdated: "2019-05-20"
 
 keywords: authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
@@ -80,7 +80,7 @@ Puoi utilizzare i parametri nei tuoi messaggi per personalizzarli ulteriormente.
 ### Email: benvenuto
 {: #cd-messages-welcome}
 
-Quando un utente si registra per la tua applicazione, potresti volergli inviare un messaggio di benvenuto alla tua applicazione.
+Quando un utente si registra per la tua applicazione, potresti volergli inviare un messaggio di benvenuto alla tua applicazione. 
 {: shortdesc}
 
 1. Passa alla scheda **Workflow templates > Welcome email** del dashboard del servizio.
@@ -103,7 +103,7 @@ Quando un utente si registra per la tua applicazione utilizzando la sua email, p
 
 2. Imposta **Email verification** su **Enabled**.
 
-3. Imposta **Allow users to sign in to your app without first verifying their email address** su **Yes**. Quando per questa impostazione viene specificato Yes, gli utenti possono interagire con la tua applicazione dopo aver eseguito la registrazione ma prima di aver verificato il loro indirizzo email. L'impostazione predefinita è no.
+3. Imposta **Allow users to sign in to your app without first verifying their email address** su **Yes**. Quando per questa impostazione viene specificato Yes, gli utenti possono interagire con la tua applicazione dopo aver eseguito la registrazione ma prima di verificare il loro indirizzo email. L'impostazione predefinita è no.
 
 4. Personalizza il contenuto del tuo messaggio. Puoi aggiungere parametri e inserire messaggi utilizzando l'IU. Per modificare la [lingua](/docs/services/appid?topic=appid-cd-messages#cd-languages) del messaggio, puoi utilizzare <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization" target="_blank">le API <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a> per impostare la lingua. Sei tuttavia responsabile del contenuto e della traduzione del messaggio. Consulta la seguente tabella per vedere i diversi parametri che puoi utilizzare nel tuo messaggio. Se un utente non fornisce le informazioni estratte dal parametro, questi campi saranno vuoti.
 
@@ -142,7 +142,7 @@ Quando un utente si registra per la tua applicazione utilizzando la sua email, p
 ### Email: reimposta password
 {: #cd-messages-reset}
 
-Quando un utente interagisce con la tua applicazione, potrebbe dimenticare la sua password o dovere, per qualche altro motivo, aggiornarla. Puoi personalizzare la risposta dell'email alla loro richiesta. Quando un utente richiede una modifica della sua password, la password rimane invariata finché non fa clic sul link in questa email.
+Quando un utente interagisce con la tua applicazione, potrebbe dimenticare la sua password o dovere aggiornarla. Puoi personalizzare la risposta dell'email alla loro richiesta. Quando un utente richiede una modifica della sua password, la password rimane invariata finché non fa clic sul link in questa email.
 {: shortdesc}
 
 
@@ -166,7 +166,7 @@ Quando un utente interagisce con la tua applicazione, potrebbe dimenticare la su
     </tr>
     <tr>
       <td><code>%{resetPassword.code}</code></td>
-      <td> Visualizza il passcode monouso come parte dell'URL. Ciò significa che ogni persona ha un codice diverso. Esempio: <code>https://us-south.appid.cloud.ibm.com/wfm/verify/6574839563478</code></td>
+      <td> Visualizza il passcode monouso come parte dell'URL. Ciò significa che ogni persona ha un codice diverso. Esempio: `https://us-south.appid.cloud.ibm.com/wfm/verify/6574839563478`</td>
     </tr>
     <tr>
       <td><code>%{resetPassword.link}</code></td>
@@ -195,6 +195,7 @@ Puoi far sapere a un utente quando la propria password è stata aggiornata. Ciò
 2. Imposta **Password changed email** su **Enabled**.
 
 3. Personalizza il contenuto del tuo messaggio. Puoi aggiungere parametri e inserire messaggi utilizzando l'IU. Per modificare la [lingua](/docs/services/appid?topic=appid-cd-messages#cd-languages) del messaggio, puoi utilizzare <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization" target="_blank">le API <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a> per impostare la lingua. Sei tuttavia responsabile del contenuto e della traduzione del messaggio. Consulta la seguente tabella per vedere i diversi parametri che puoi utilizzare nel tuo messaggio. Se un utente non fornisce le informazioni estratte dal parametro, questi campi saranno vuoti.
+  
 
   <table>
     <tr>
@@ -227,7 +228,7 @@ Con {{site.data.keyword.appid_short_notm}}, puoi definire un punto di estensione
 Potresti voler utilizzare un mittente email personalizzato per i seguenti motivi:
 
 - **Dominio personalizzato**
-Configurando un dispatcher email personalizzato, hai il controllo completo su come vengono inviati i messaggi email. Questa opzione include la personalizzazione del dominio email che potrebbe ridurre ulteriormente le possibilità che le email vengano filtrate come spam. Puoi anche migliorare ulteriormente l'esperienza personalizzata per i tuoi utenti dell'applicazione.
+Configurando un dispatcher email personalizzato, hai il controllo completo su come vengono inviati i messaggi email. Questa opzione include la personalizzazione del dominio email, che potrebbe ridurre ulteriormente le possibilità che le email vengano filtrate come spam. Puoi anche migliorare ulteriormente l'esperienza personalizzata per i tuoi utenti dell'applicazione.
 
 - **Informazioni approfondite e risoluzione dei problemi**
 Ottieni delle informazioni approfondite dal tuo provider email, come ad esempio: il numero di persone che ha aperto le email o a cui i messaggi non sono stati recapitati. Poiché puoi tenere traccia di messaggi individuali e visualizzare le statistiche generali, questo può essere utile a risolvere dei problemi.
@@ -286,25 +287,25 @@ Per configurare il tuo mittente email personalizzato, devi utilizzare la <a href
 3. Il corpo inviato da {{site.data.keyword.appid_short_notm}} è nel seguente formato: `{"jws": "jws-format-string"}`. Dopo aver decodificato e verificato il payload, il contenuto è una stringa JSON.
 
   ```
-    {
-      "tenant": "tenant-id",
+  {
+    "tenant": "tenant-id",
       "iss" : "https://us-south.appid.cloud.ibm.com/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6050a61",
       "iat": 1539173126,
       "jti": "uniq-id",
       "message": {
-          "to": "your@mail.com",
+        "to": "your@mail.com",
           "from": {
-              "name": "My Awesome Service",
+            "name": "My Awesome Service",
               "address": "no-reply@company.com"
-          },
+        },
           "replyTo": {
-              "name": "My Awesome Service",
+            "name": "My Awesome Service",
               "address": "yes-reply@company.com"
-          },
+        },
           "subject": "Welcome to My Awesome Service",
           "body": "<p>Hello<p><br/><p>Thanks for signing up John Doe</p>"
-      }
     }
+  }
   ```
   {: screen}
 
@@ -322,8 +323,8 @@ Per configurare il tuo mittente email personalizzato, devi utilizzare la <a href
       <td>La data/ora di quando viene inviato il messaggio.</td>
     </tr>
     <tr>
-      <td><code>jss</code></td>
-      <td>L'istanza App ID che ha emesso il token JWS.</td>
+      <td><code>iss</code></td>
+      <td>L'applicazione o l'istanza {{site.data.keyword.appid_short_notm}} che ha emesso il token JWS.</td>
     </tr>
     <tr>
       <td><code>jti</code></td>
@@ -417,7 +418,7 @@ Per ogni istanza {{site.data.keyword.appid_short_notm}}, viene generata una chia
 
 6. Verifica che la tua configurazione sia impostata correttamente verificando il tuo dispatcher email. Utilizza l'<a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/post_email_dispatcher_test" target="_blank">API di test</a> per attivare una richiesta al tuo mittente email personalizzato configurato.
 
-Per un esempio funzionante completo, consulta <a href="https://www.ibm.com/blogs/bluemix/2018/10/use-ibm-cloud-app-id-and-your-email-provider-to-brand-mails-sent-to-app-users/" target="_blank">Use your own provider for mail sent with {{site.data.keyword.appid_full}}</a>.
+Per un esempio funzionante completo, consulta <a href="https://www.ibm.com/cloud/blog/use-ibm-cloud-app-id-and-your-email-provider-to-brand-mails-sent-to-app-users" target="_blank">Use your own provider for mail sent with {{site.data.keyword.appid_full}}</a>.
 
 
 

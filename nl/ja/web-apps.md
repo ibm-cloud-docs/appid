@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-21"
 
 keywords: authentication, authorization, identity, app security, secure, web apps, client, server
 
@@ -78,6 +78,11 @@ Web アプリでは、保護コンテンツにアクセスするために、し�
 * {{site.data.keyword.appid_short_notm}} サービス・ダッシュボードで設定されたリダイレクト URI
 
 
+{{site.data.keyword.appid_short_notm}} を使用した Node アプリケーションの保護については、以下のビデオをご覧ください。その後、[単純な Node サンプル・アプリ](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02a-simple-node-web-app)を使用して試してください。
+
+<iframe class="embed-responsive-item" id="appid-nodejs" title="{{site.data.keyword.appid_short_notm}} の概要" type="text/html" width="640" height="390" src="//www.youtube.com/embed/6roa1ZOvwtw?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+
 ### Node.js SDK のインストール
 {: #web-nodejs-install}
 
@@ -88,7 +93,7 @@ Web アプリでは、保護コンテンツにアクセスするために、し�
   ```bash
   npm install --save ibmcloud-appid
   ```
-  {: pre}
+  {: codeblock}
 
 ### Node.js SDK の初期化
 {: #web-nodejs-initialize}
@@ -102,7 +107,7 @@ Web アプリでは、保護コンテンツにアクセスするために、し�
     const WebAppStrategy = require("ibmcloud-appid").WebAppStrategy;
     const CALLBACK_URL = "/ibm/cloud/appid/callback";
   ```
-  {: pre}
+  {: codeblock}
 
 2. express-session ミドルウェアを使用するように Express アプリをセットアップする。
 
@@ -116,14 +121,14 @@ Web アプリでは、保護コンテンツにアクセスするために、し�
     app.use(passport.initialize());
     app.use(passport.session());
   ```
-  {: pre}
+  {: codeblock}
 
   ミドルウェアには、実稼働環境用の適切なセッション・ストレージを構成する必要があります。 詳細については、<a href="https://github.com/expressjs/session" target="_blank">express.js の資料 <img src="../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> を参照してください。
   {: note}
 
 3. 次のいずれかの方法で資格情報を入手します。
 
-  * {{site.data.keyword.appid_short_notm}} ダッシュボードの**「アプリケーション」**タブに移動します。リスト内にアプリケーションがない場合は、**「アプリケーションの追加 (Add application)」**をクリックして新しいアプリケーションを作成できます。
+  * {{site.data.keyword.appid_short_notm}} ダッシュボードの**「アプリケーション」**タブに移動します。 リスト内にアプリケーションがない場合は、**「アプリケーションの追加 (Add application)」**をクリックして新しいアプリケーションを作成できます。
 
   * [`/management/v4/{tenantId}/applications` エンドポイント](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Applications/mgmt.registerApplication)に対して POST 要求を行います。
 
@@ -134,7 +139,7 @@ Web アプリでは、保護コンテンツにアクセスするために、し�
   -H 'Authorization: Bearer IAM_TOKEN' \
   -d '{"name": "ApplicationName"}'
     ```
-    {: pre}
+    {: codeblock}
 
     応答例:
     ```
@@ -148,7 +153,7 @@ Web アプリでは、保護コンテンツにアクセスするために、し�
     ```
     {: screen}
 
-4. オプション: リダイレクト URI をフォーマットする方法を決めます。リダイレクトは、2 つの異なる方法でフォーマットすることができます。
+4. オプション: リダイレクト URI のフォーマット方法を決めます。 リダイレクトは、2 つの異なる方法でフォーマットできます。
 
   * 新しい `WebAppStrategy({redirectUri: "...."})` 内に手動で
   * `redirectUri` という名前の環境変数として
@@ -166,9 +171,9 @@ Web アプリでは、保護コンテンツにアクセスするために、し�
       	redirectUri: "{app-url}" + CALLBACK_URL
       }));
   ```
-  {: pre}
+  {: codeblock}
 
-6. passport にシリアライゼーションとデシリアライゼーションを構成する。 この構成手順は、複数の HTTP 要求にわたって認証済みセッション・パーシスタンスを維持するために必要です。 詳細については、<a href="http://passportjs.org/docs" target="_blank">passport の資料 <img src="../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> を参照してください。
+6. passport にシリアライゼーションとデシリアライゼーションを構成する。 この構成手順は、複数の HTTP 要求にわたって認証済みセッション・パーシスタンスを維持するために必要です。 詳細については、<a href="http://www.passportjs.org/docs/" target="_blank">passport の資料 <img src="../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> を参照してください。
 
   ```javascript
   passport.serializeUser(function(user, cb) {
@@ -179,21 +184,21 @@ Web アプリでは、保護コンテンツにアクセスするために、し�
     cb(null, obj);
     });
   ```
-  {: pre}
+  {: codeblock}
 
 5. `server.js` ファイルに以下のコードを追加して、サービス・リダイレクトを発行します。
 
    ```javascript
    app.get(CALLBACK_URL, passport.authenticate(WebAppStrategy.STRATEGY_NAME));
    ```
-   {: pre}
+   {: codeblock}
 
 6. 保護エンドポイントを登録します。
 
    ```javascript
    app.get(‘/protected’, passport.authenticate(WebAppStrategy.STRATEGY_NAME), function(req, res) {res.json(req.user); });
    ```
-   {: pre}
+   {: codeblock}
 
 詳細については、<a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs" target="_blank">{{site.data.keyword.appid_short_notm}}Node.js GitHub リポジトリー <img src="../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> を参照してください。
 
@@ -214,6 +219,13 @@ Web アプリでは、保護コンテンツにアクセスするために、し�
 * Java 1.8
 * Liberty for Java Web アプリケーション
 
+
+{{site.data.keyword.appid_short_notm}} を使用した Liberty for Java アプリケーションの保護については、以下のビデオをご覧ください。その後、[単純な Liberty for Java サンプル・アプリ](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02c-simple-liberty-web-app)を使用して試してください。
+
+<iframe class="embed-responsive-item" id="appid-liberty-web" title="{{site.data.keyword.appid_short_notm}} の概要" type="text/html" width="640" height="390" src="//www.youtube.com/embed/o_Er69YUsMQ?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+
+
 ### Liberty for Java SDK のインストール
 {: #web-liberty-install}
 
@@ -226,11 +238,11 @@ Web アプリでは、保護コンテンツにアクセスするために、し�
       <feature>openidConnectClient-1.0</feature>
   </featureManager>
   ```
-  {: pre}
+  {: codeblock}
 
 2. 次の 2 つの方法のいずれかで資格情報を入手します。
 
-  * {{site.data.keyword.appid_short_notm}} ダッシュボードの**「アプリケーション」**タブに移動します。まだない場合は、**「アプリケーションの追加 (Add application)」**をクリックして新しいアプリケーションを作成できます。
+  * {{site.data.keyword.appid_short_notm}} ダッシュボードの**「アプリケーション」**タブに移動します。 アプリケーションがまだない場合は、**「アプリケーションの追加 (Add application)」**をクリックして新しいアプリケーションを作成できます。
 
   * [`/management/v4/{tenantId}/applications` エンドポイント](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Applications/registerApplication)に対して POST 要求を行います。
 
@@ -241,7 +253,7 @@ Web アプリでは、保護コンテンツにアクセスするために、し�
   -H 'Authorization: Bearer IAM_TOKEN' \
   -d '{"name": "ApplicationName"}'
     ```
-    {: pre}
+    {: codeblock}
 
     応答例:
     ```
@@ -271,7 +283,7 @@ Web アプリでは、保護コンテンツにアクセスするために、し�
     trustAliasName="ibm.com"
   />
   ```
-  {: pre}
+  {: codeblock}
 
   <table>
   <caption>表. Liberty for Java アプリケーションの OIDC 要素変数</caption>
@@ -280,7 +292,7 @@ Web アプリでは、保護コンテンツにアクセスするために、し�
       <th> 説明 </th>
     </tr>
     <tr>
-    <td><code> clientID </code> </br> <code> secret </code> </br> <code> oauth-server-url </code> </br></td>
+    <td><code>clientID</code> </br> <code>secret</code> </br> <code>oauth-server-url</code> </br></td>
     <td>ステップ 2 を完了してサービス資格情報を入手します。</td>
     </tr>
     <tr>
@@ -297,7 +309,7 @@ Web アプリでは、保護コンテンツにアクセスするために、し�
     </tr>
     <tr>
       <td><code> issuerIdentifier </code></td>
-      <td>発行者 ID の形式は <code>&lt;region>&gt;.cloud.ibm.com</code> になります。地域オプションとしては、<code>au-syd</code>、<code>eu-de</code>、<code>eu-gb</code>、<code>jp-tok</code>、<code>us-south</code> があります。</td>
+      <td>発行者 ID の形式は <code>&lt;region>&gt;.cloud.ibm.com</code> になります。 地域オプションとしては、<code>au-syd</code>、<code>eu-de</code>、<code>eu-gb</code>、<code>jp-tok</code>、<code>us-south</code> があります。</td>
     </tr>
     <tr>
       <td><code> tokenEndpointAuthMethod </code></td>
@@ -320,14 +332,14 @@ Web アプリでは、保護コンテンツにアクセスするために、し�
 ### Liberty for Java SDK の初期化
 {: #web-liberty-initialize}
 
-1. `server.xml` ファイルで、保護リソースを指定するための許可フィルターを定義します。 フィルターを<a href="https://www.ibm.com/support/knowledgecenter/en/SSD28V_8.5.5/com.ibm.websphere.wlp.core.doc/ae/rwlp_auth_filter.html" target="_blank">定義 <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> しない場合は、サービスによってすべてのリソースが保護されます。
+1. `server.xml` ファイルで、保護リソースを指定するための許可フィルターを定義します。 フィルターを<a href="https://www.ibm.com/support/knowledgecenter/en/SSD28V_9.0.0/com.ibm.websphere.wlp.core.doc/ae/rwlp_auth_filter.html" target="_blank">定義 <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> しない場合は、サービスによってすべてのリソースが保護されます。
 
   ```xml
   <authFilter id="myAuthFilter">
              <requestUrl id="myRequestUrl" urlPattern="/protected" matchType="contains"/>
     </authFilter>
   ```
-  {: pre}
+  {: codeblock}
 
 2. 特別なサブジェクト・タイプを `ALL_AUTHENTICATED_USERS` として定義します。
 
@@ -340,7 +352,7 @@ Web アプリでは、保護コンテンツにアクセスするために、し�
       </application-bnd>
   </application>
   ```
-  {: pre}
+  {: codeblock}
 
 3. <a href="https://github.com/ibm-cloud-security/appid-sample-code-snippets/tree/master/liberty-for-java" target="_blank">GitHub <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> から `libertySample-1.0.0.war` ファイルをダウンロードし、サーバーの apps フォルダーに入れます。 例えば、サーバーの名前が `defaultServer` である場合、war ファイルは `target/liberty/wlp/usr/servers/defaultServer/apps/` に置かれます。
 
@@ -351,7 +363,7 @@ Web アプリでは、保護コンテンツにアクセスするために、し�
   <keyStore id="appidtruststore" password="Liberty" location="${server.config.dir}/mytruststore.jks"/>
   <ssl id="defaultSSLConfig" keyStoreRef="defaultKeyStore" trustStoreRef="appidtruststore"/>
   ```
-  {: pre}
+  {: codeblock}
 
 デフォルトで、SSL 構成では、トラストストアを OpenID Connect 用に構成する必要があります。 <a href="https://www.ibm.com/support/knowledgecenter/en/SSEQTP_liberty/com.ibm.websphere.wlp.doc/ae/twlp_config_oidc_rp.html" target="_blank">Liberty での OpenID Connect クライアントの構成方法 <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> について学習してください
 {: tip}
@@ -389,7 +401,7 @@ Spring Boot アプリケーションと連携するように {{site.data.keyword
       <relativePath/>
   </parent>
   ```
-  {: pre}
+  {: codeblock}
 
 2. Maven `pom.xml` ファイルに以下の依存関係を追加します。
 
@@ -410,7 +422,7 @@ Spring Boot アプリケーションと連携するように {{site.data.keyword
       </dependency>
   </dependencies>
   ```
-  {: pre}
+  {: codeblock}
 
 3. 同じファイル内に Maven プラグインを入れます。
 
@@ -420,7 +432,7 @@ Spring Boot アプリケーションと連携するように {{site.data.keyword
       <artifactId>spring-boot-maven-plugin</artifactId>
   </plugin>
   ```
-  {: pre}
+  {: codeblock}
 
 ### OAuth2 の初期化
 {: #web-oauth-initialize}
@@ -431,7 +443,7 @@ Spring Boot アプリケーションと連携するように {{site.data.keyword
   @SpringBootApplication
   @EnableOAuth2Sso
   ```
-  {: pre}
+  {: codeblock}
 
 2. `WebSecurityConfigurerAdapter` を使用してクラスを拡張します。
 3. セキュリティー構成をオーバーライドし、保護エンドポイントを登録します。
@@ -444,7 +456,7 @@ Spring Boot アプリケーションと連携するように {{site.data.keyword
                 .and().logout().logoutSuccessUrl("/").permitAll();
     }
   ```
-  {: pre}
+  {: codeblock}
 
 
 ### 資格情報の追加
@@ -452,7 +464,7 @@ Spring Boot アプリケーションと連携するように {{site.data.keyword
 
 1. 次のいずれかの方法で資格情報を入手します。
 
-  * {{site.data.keyword.appid_short_notm}} ダッシュボードの**「アプリケーション」**タブに移動します。まだない場合は、**「アプリケーションの追加 (Add application)」**をクリックして新しいアプリケーションを作成できます。
+  * {{site.data.keyword.appid_short_notm}} ダッシュボードの**「アプリケーション」**タブに移動します。 アプリケーションがまだない場合は、**「アプリケーションの追加 (Add application)」**をクリックして新しいアプリケーションを作成できます。
 
   * [`/management/v4/{tenantId}/applications` エンドポイント](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Applications/registerApplication)に対して POST 要求を行います。
 
@@ -463,7 +475,7 @@ Spring Boot アプリケーションと連携するように {{site.data.keyword
   -H 'Authorization: Bearer IAM_TOKEN' \
   -d '{"name": "ApplicationName"}'
     ```
-    {: pre}
+    {: codeblock}
 
     応答例:
     ```
@@ -490,9 +502,9 @@ Spring Boot アプリケーションと連携するように {{site.data.keyword
     resource:
       userInfoUri: {oauthServerUrl}/userinfo
   ```
-  {: pre}
+  {: codeblock}
 
-ステップバイステップの例については、<a href="https://www.ibm.com/blogs/bluemix/2018/06/creating-spring-boot-applications-app-id/" target="_blank">このブログ</a>を参照してください。
+ステップバイステップの例については、<a href="https://www.ibm.com/cloud/blog/creating-spring-boot-applications-app-id" target="_blank">このブログ</a>を参照してください。
 
 
 ## 他の言語での {{site.data.keyword.appid_short_notm}} の使用

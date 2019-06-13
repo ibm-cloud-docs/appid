@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-09"
 
 keywords: authentication, authorization, identity, app security, secure, development, sso, directory, users, registry, multiple apps
 
@@ -62,7 +62,7 @@ subcollection: appid
 
 2. 在**啟用單一登入**方框中，將 SSO 切換至**已啟用**。
 
-3. 設定在 SSO 階段作業到期之前使用者可以處於非作用中狀態的時間量。一旦到期，使用者就必須重新登入。此時間是以分鐘為單位指定，作用中狀態的最長容許時間為 10,080 分鐘（7 天）。預設時間為 1440 分鐘，相當於 1 天。
+3. 設定在 SSO 階段作業到期之前使用者可以處於非作用中狀態的時間量。一旦到期，使用者就必須重新登入。此時間是以分鐘為單位指定，無活動狀態的最長容許時間為 10,080 分鐘（7 天）。預設時間為 1440 分鐘，相當於 1 天。
 
 4. 將您的重新導向 URI 新增至**登出重新導向 URI** 方框，然後按一下 **+** 符號。請務必只登錄您信任的應用程式。登錄此 URI，即表示您授權 {{site.data.keyword.appid_short_notm}} 將其包含在授權工作流程中。
 
@@ -129,7 +129,7 @@ subcollection: appid
 ```
 https://<region>.appid.cloud.ibm.com/oauth/v4/<tenant-id>/cloud_directory/sso/logout?redirect_uri=<redirect_uri>&client_id=<clientId>
 ```
-{: pre}
+{: codeblock}
 
 <table>
   <tr>
@@ -181,7 +181,7 @@ POST https://<region>.appid.cloud.ibm.com/management/v4/{tenant-id}/cloud_direct
 Headers:
 Authorization: <IAM TOKEN>
 ```
-{: pre}
+{: codeblock}
 
 <table>
   <tr>

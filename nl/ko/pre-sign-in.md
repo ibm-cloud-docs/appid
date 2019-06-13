@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-31"
 
 keywords: authentication, authorization, identity, app security, secure, development, user information, attributes, profiles, 
 
@@ -28,7 +28,7 @@ subcollection: appid
 {{site.data.keyword.appid_full}}를 사용하는 경우 초기 사인인 이전에 앱에 대한 액세스가 필요할 것으로 판단되는 사용자의 프로파일을 빌드하기 시작할 수 있습니다.
 {: shortdesc}
 
-속성 유형에 대한 자세한 정보는 [사용자 프로파일에 대한 정보](/docs/services/appid?topic=appid-user-profile)를 참조하십시오. 사용자 정의 속성 및 해당 보안 고려사항에 대한 자세한 정보는 [사용자 정의 속성](/docs/services/appid?topic=appid-custom-attributes)을 참조하십시오.
+속성 유형 및 사용자 정의 속성에 대해 작업할 때 고려해야 할 보안 관련 사항에 대한 자세한 정보는 [사용자 프로파일 저장 및 액세스](/docs/services/appid?topic=appid-profiles)를 참조하십시오.
 {: tip}
 
 ## 사전 등록에 대한 정보
@@ -37,7 +37,7 @@ subcollection: appid
 ### 사전 등록을 사용하는 이유가 무엇입니까?
 {: #preregister-why}
 
-{{site.data.keyword.appid_short_notm}}를 사용하여 SAML ID 제공자의 기존 사용자를 연합하는 애플리케이션을 고려해 보십시오. 특정 사용자가 처음으로 애플리케이션에 사인인하는 즉시 `admin` 액세스 권한을 보유해야 할 수도 있습니다. 이렇게 되도록 하기 위해 사전 등록 엔드포인트를 사용하여 해당 사용자에 대한 사용자 정의 `admin` 속성을 설정하고 사용자 측에서 추가적인 조치를 수행하지 않고도 관리 콘솔에 대한 액세스 권한을 부여할 수 있습니다. 기본 설정을 변경함으로써 발생할 수 있는 [보안 문제](/docs/services/appid?topic=appid-custom-attributes#custom-attributes)를 고려하십시오.
+{{site.data.keyword.appid_short_notm}}를 사용하여 SAML ID 제공자의 기존 사용자를 연합하는 애플리케이션을 고려해 보십시오. 특정 사용자가 처음으로 애플리케이션에 사인인하는 즉시 `admin` 액세스 권한을 보유해야 할 수도 있습니다. 이렇게 되도록 하기 위해 사전 등록 엔드포인트를 사용하여 해당 사용자에 대한 사용자 정의 `admin` 속성을 설정하고 사용자 측에서 추가적인 조치를 수행하지 않고도 관리 콘솔에 대한 액세스 권한을 부여할 수 있습니다. 기본 설정을 변경함으로써 발생할 수 있는 [보안 문제](/docs/services/appid?topic=appid-profiles#profile-set-custom)를 고려하십시오.
 
 ### 사용자를 식별하는 방법은 무엇입니까?
 {: #preregister-identify-user}
@@ -64,7 +64,7 @@ subcollection: appid
   </thead>
   <tbody>
     <tr>
-      <td>클라우드 디렉토리</td>
+      <td>Cloud Directory</td>
       <td><img src="images/confirm.png" width="32" alt="사용 가능한 기능" style="width:32px;" /></td>
       <td><img src="images/confirm.png" width="32" alt="사용 가능한 기능" style="width:32px;" /></td>
       <td> </td>
@@ -100,14 +100,14 @@ subcollection: appid
 {: #preregister-cd}
 
 
-사전 등록된 사용자 속성의 무결성을 위해 클라우드 디렉토리는 해당 사용자에 대한 추가적인 요구사항을 배치합니다. 사전 등록은 이메일 유효성 검증이 사용으로 설정되고 확인된 경우에만 수행할 수 있습니다. 특정 속성이 포함된 클라우드 디렉토리 사용자를 사전 등록하는 경우 해당 속성은 특정 사용자를 위한 것입니다. 이메일이 먼저 확인되지 않은 경우 다른 사용자가 이메일 주소 및 해당 이메일에 지정된 속성을 청구할 수 있습니다.
+사전 등록된 사용자 속성의 무결성을 위해 Cloud Directory는 해당 사용자에 대한 추가적인 요구사항을 배치합니다. 사전 등록은 이메일 유효성 검증이 사용으로 설정되고 확인된 경우에만 수행할 수 있습니다. 특정 속성이 포함된 Cloud Directory 사용자를 사전 등록하는 경우 해당 속성은 특정 사용자를 위한 것입니다. 이메일이 먼저 확인되지 않은 경우 다른 사용자가 이메일 주소 및 해당 이메일에 지정된 속성을 청구할 수 있습니다.
 
-1. 클라우드 디렉토리를 이메일 및 비밀번호 모드로 설정하십시오. **클라우드 디렉토리** 탭의 일반 설정에 있는 UI를 통해 이 작업을 수행할 수 있습니다. [관리 API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.createCloudDirectoryUser)를 통해 설정할 수도 있습니다.
+1. Cloud Directory를 이메일 및 비밀번호 모드로 설정하십시오. **Cloud Directory** 탭의 일반 설정에 있는 UI를 통해 이 작업을 수행할 수 있습니다. [관리 API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.createCloudDirectoryUser)를 통해 설정할 수도 있습니다.
 
 2. 다음 방법 중 하나를 통해 사용자 이메일 주소를 검증하여 해당 ID를 확인하십시오.
 
-  * 이메일을 통해 사용자 ID를 확인하려면 서비스 대시보드의 **클라우드 디렉토리** 탭에서 **이메일 검증**을 **켜기**로 설정하십시오. 추가된 사용자가 먼저 해당 이메일을 확인하지 않고 앱에 사인인하는 경우 사인인은 정상적으로 완료되지만 사전 정의된 속성이 삭제됩니다.
-  * 수동으로 사용자를 확인하려면 관리자여야 하며 클라우드 디렉토리 [관리 API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.createCloudDirectoryUser)를 사용해야 합니다. 사용자를 작성하거나 업데이트할 때 사용자 데이터 페이로드 내에서 명시적으로 `status` 필드를 `CONFIRMED`로 설정해야 합니다.
+  * 이메일을 통해 사용자 ID를 확인하려면 서비스 대시보드의 **Cloud Directory** 탭에서 **이메일 검증**을 **켜기**로 설정하십시오. 추가된 사용자가 먼저 해당 이메일을 확인하지 않고 앱에 사인인하는 경우 사인인은 정상적으로 완료되지만 사전 정의된 속성이 삭제됩니다.
+  * 수동으로 사용자를 확인하려면 관리자여야 하며 Cloud Directory [관리 API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.createCloudDirectoryUser)를 사용해야 합니다. 사용자를 작성하거나 업데이트할 때 사용자 데이터 페이로드 내에서 명시적으로 `status` 필드를 `CONFIRMED`로 설정해야 합니다.
 
 **사용자 정의 ID 제공자를 사용할 때 특별히 필요한 것이 있습니까?**
 
@@ -131,17 +131,17 @@ subcollection: appid
 
 **사용자를 추가하려면 다음 작업을 수행하십시오.**
 
-1. IBM Cloud에 로그인하십시오.
+1. IBM Cloud에 로그인하십시오. 
   ```
   ibmcloud login
   ```
-  {: pre}
+  {: codeblock}
 
 2. 다음 명령을 실행하여 IAM 토큰을 찾으십시오.
   ```
   ibmcloud iam oauth-tokens
   ```
-  {: pre}
+  {: codeblock}
 
 3. 사용자에 대한 설명 및 JSON 오브젝트로 설정할 속성이 포함된 `/users` 엔드포인트에 대한 POST 요청을 작성하십시오.
 
@@ -152,7 +152,7 @@ subcollection: appid
        Authorization: 'Bearer <IAM_TOKEN>'
        Content-Type: application/json
   ```
-  {: pre}
+  {: codeblock}
 
   본문:
   ```
@@ -166,7 +166,7 @@ subcollection: appid
        }
    }
   ```
-  {: pre}
+  {: codeblock}
 
   <table>
     <thead>
@@ -211,7 +211,7 @@ subcollection: appid
 
 사용자의 사전 정의된 속성은 해당 사용자가 처음으로 인증할 때까지 비어 있지만 사용자는 모든 면에서 완전히 인증된 사용자임을 유의하십시오. 이미 사인인했었던 사용자와 마찬가지로 해당 사용자의 고유 ID를 사용할 수 있습니다. 예를 들어 프로파일을 수정, 검색 또는 삭제할 수 있습니다.
 
-사용자를 특정 속성과 연관시켰으므로 [속성에 액세스 또는 업데이트](/docs/services/appid?topic=appid-custom-attributes)해 보십시오!
+사용자를 특정 속성과 연관시켰으므로 [속성에 액세스 또는 업데이트](/docs/services/appid?topic=appid-profiles)해 보십시오!
 
 
 </br>

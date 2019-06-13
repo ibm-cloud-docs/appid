@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-14"
 
 keywords: authentication, authorization, identity, app security, secure, application identity, app to app, access token
 
@@ -33,12 +33,11 @@ subcollection: appid
 
 出于多种原因，您可能希望一个应用程序与另一个服务或应用程序进行通信，而无需任何用户干预。例如，一个非交互式应用程序需要访问另一个应用程序来执行其工作。这可能包括用于监视环境变量并向上游服务器报告这些环境变量的进程、CLI、守护程序或 IoT 设备。特定用例对于每个应用程序是唯一的，但请务必谨记，交换请求是代表应用程序（而不是最终用户）进行的，并且进行认证和授权的是应用程序。
 
-请查看 <a href="https://www.ibm.com/blogs/bluemix/2018/02/using-app-id-secure-docker-kubernetes-applications/" target="_blank">Using {{site.data.keyword.appid_short_notm}} to secure Docker and Kubernetes applications <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a> 上的此示例。
 
 ### 此流程是如何运作的？
 {: #app-flow-how}
 
-{{site.data.keyword.appid_short_notm}} 利用 OAuth2.0 客户端凭证流程来保护通信。应用程序向 {{site.data.keyword.appid_short_notm}} 注册后，该应用程序将获得客户端标识和私钥。借助这些信息，应用程序可以向 {{site.data.keyword.appid_short_notm}} 请求访问令牌，并有权访问受保护资源或 API。在应用程序身份和授权流程中，只会向应用程序授予访问令牌。应用程序不会获得身份令牌或刷新令牌。有关令牌的更多信息，请参阅[了解令牌](/docs/services/appid?topic=appid-tokens#tokens)。
+{{site.data.keyword.appid_short_notm}} 利用 OAuth 2.0 客户端凭证流程来保护通信。应用程序向 {{site.data.keyword.appid_short_notm}} 注册后，该应用程序将获得客户端标识和私钥。借助这些信息，应用程序可以向 {{site.data.keyword.appid_short_notm}} 请求访问令牌，并有权访问受保护资源或 API。在应用程序身份和授权流程中，只会向应用程序授予访问令牌。应用程序不会获得身份令牌或刷新令牌。有关令牌的更多信息，请参阅[了解令牌](/docs/services/appid?topic=appid-tokens#tokens)。
 
 此工作流程应仅用于可信应用程序，即不存在误用或泄漏私钥的风险的应用程序。应用程序会始终保存客户端私钥。此私钥对于移动应用程序无效。
 {: tip}
@@ -51,10 +50,14 @@ subcollection: appid
 ![{{site.data.keyword.appid_short_notm}} 应用程序身份和授权流程](images/app-to-app-flow.png)
 图. 应用程序身份和授权流程
 
-1. 应用程序 A 向 {{site.data.keyword.appid_short_notm}} 注册以获取客户端标识和私钥。
-2. 应用程序 A 通过发送上一步中检索到的凭证，对 {{site.data.keyword.appid_short_notm}} 发出请求。
-3. {{site.data.keyword.appid_short_notm}} 验证请求，对应用程序进行认证，并向应用程序 A 返回包含访问令牌的响应。
-4. 应用程序 A 现在能够使用访问令牌对应用程序 B（例如，受保护资源）发送请求。
+1. 向 {{site.data.keyword.appid_short_notm}} 注册需要进行认证才能访问受保护资源的应用程序。 
+2. 应用程序 A 向 {{site.data.keyword.appid_short_notm}} 注册以获取客户端标识和私钥。
+3. 应用程序 A 通过发送上一步中检索到的凭证，对 {{site.data.keyword.appid_short_notm}} 授权服务器 `/token` 端点发出请求。
+4. {{site.data.keyword.appid_short_notm}} 验证请求，对应用程序进行认证，并向应用程序 A 返回包含访问令牌的响应。
+5. 应用程序 A 现在能够使用有效的访问令牌对受保护资源（例如，应用程序 B）发送请求。
+
+用于认证客户端的客户端私钥属于高度敏感信息，必须保密。由于应用程序使用的是应用程序内客户端私钥，所以此工作流程只能用于可信应用程序。使用可信应用程序可确保客户端私钥不会泄露或被误用。
+{: important}
 
 ## 注册应用程序
 {: #app-register}
@@ -79,7 +82,7 @@ subcollection: appid
   -H 'Authorization: Bearer IAM_TOKEN' \
   -d '{"name": "ApplicationName"}'
   ```
-  {: pre}
+  {: codeblock}
 
   示例响应：
 
@@ -111,7 +114,7 @@ subcollection: appid
     -H 'Content-Type: application/x-www-form-urlencoded' \
     -d grant_type=client_credentials
   ```
-  {: pre}
+  {: codeblock}
 
   示例响应：
   ```
@@ -121,7 +124,7 @@ subcollection: appid
   "token_type": "Bearer"
   }
   ```
-  {: pre}
+  {: codeblock}
 
 
 ## 教程：使用 Node.js SDK 的端到端流程
@@ -134,10 +137,10 @@ subcollection: appid
     ```
     const TokenManager = require('ibmcloud-appid').TokenManager;
     const config = {
-     clientId: "29a19759-aafb-41c7-9ef7-ee7b0ca88818",
-     tenantId: "39a37f57-a227-4bfe-a044-93b6e6060b61",
-     secret: "ZTEzZTA2MDAtMjljZS00MWNlLTk5NTktZDliMjY3YzUxZTYx",
-     oauthServerUrl: "https://eu-gb.appid.cloud.ibm.com/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6060b61"
+     clientId: "<client-ID>",
+     tenantId: "<tenant-ID>",
+     secret: "<secret>",
+     oauthServerUrl: "https://<region>.appid.cloud.ibm.com/oauth/v4/<tenant-ID>"
     };
 
     const tokenManager = new TokenManager(config);
@@ -148,7 +151,7 @@ subcollection: appid
      //console.error('Error retrieving tokens : ' + err);
     });
     ```
-    {: pre}
+    {: codeblock}
 
   * 通过 {{site.data.keyword.appid_short_notm}} 授权服务器。
   
@@ -186,7 +189,7 @@ subcollection: appid
       });
     }
     ```
-    {: pre}
+    {: codeblock}
 
 2. 使用在上一步中获取的访问令牌对受保护资源发出请求。
 
@@ -207,7 +210,7 @@ subcollection: appid
       }
   });
   ```
-  {: pre}
+  {: codeblock}
 
 3. 使用 {{site.data.keyword.appid_short_notm}} Node.js SDK 中的 API 策略来保护受保护资源。
 
@@ -219,8 +222,8 @@ subcollection: appid
   app.use(passport.initialize());
 
   passport.use(new APIStrategy({
-      oauthServerUrl: "https://us-south.appid.cloud.ibm.com/oauth/v4/398ec248-5e93-48b8-a122-ccabc714fe85",
-      tenantId:"398ec248-5e93-48b8-a122-ccabc714fe85"
+      oauthServerUrl: "https://<region>.appid.cloud.ibm.com/oauth/v4/<tenant-ID>",
+      tenantId:"<tenant-ID>"
   }));
 
   app.get('/protected_resource',
@@ -229,4 +232,4 @@ subcollection: appid
           res.send("Hello from protected resource");
   });
   ```
-  {: pre}
+  {: codeblock}

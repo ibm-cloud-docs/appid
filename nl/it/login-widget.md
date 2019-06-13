@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-06-06"
 
-keywords: authentication, authorization, identity, app security, secure, development, sign in, sign up, password, social, enterprise
+keywords: Authentication, authorization, identity, app security, secure, development, sign in, sign up, password, social, enterprise
 
 subcollection: appid
 
@@ -23,40 +23,31 @@ subcollection: appid
 {:download: .download}
 
 
-# Visualizzazione del widget di accesso
+# Utilizzo del widget di accesso
 {: #login-widget}
 
-{{site.data.keyword.appid_full}} fornisce un widget di accesso che ti consente di fornire ai tuoi utenti delle opzioni di accesso sicure.
+Con {{site.data.keyword.appid_full}} puoi utilizzare un'IU predefinita, denominata widget di accesso, per consentire agli utenti di scegliete il provider di identità con cui vogliono accedere. Se stai utilizzando Cloud Directory, il widget di accesso fornisce anche ulteriori IU per funzionalità extra come registrazione, password dimenticata, autenticazione multifattore e altro.
 {: shortdesc}
 
-Quando la tua applicazione è configurata per utilizzare un provider di identità, i visitatori della tua applicazione vengono indirizzati a una schermata di accesso dal widget di accesso. Con il widget di accesso, puoi visualizzare le schermate preconfigurate per i tuoi flussi di accesso. Come bonus, puoi aggiornare il tuo flusso di accesso in qualsiasi momento senza modificare il tuo codice di origine in alcun modo.
-
-Vuoi creare un'esperienza che sia unica per la tua applicazione? Puoi [portare i tuoi schermi](/docs/services/appid?topic=appid-branded)!
-{: tip}
 
 ## Descrizione del widget di accesso
 {: #widget-understanding}
 
-Puoi avvalerti di {{site.data.keyword.appid_short_notm}}, anche senza le tue schermate IU, visualizzando il widget di accesso.
-{: shortdesc}
+Una delle parti migliori del widget di accesso è che puoi iniziare ad utilizzare {{site.data.keyword.appid_short_notm}} prima di implementare una qualsiasi delle tue IU di autenticazione - il che rende l'esperienza di onboarding degli sviluppatori molto più semplice.
 
-### Qual è il valore predefinito?
+### Qual è il comportamento predefinito del widget di accesso?
 {: #widget-default}
 
-Quando viene configurato più di un provider di identità, un utente viene reindirizzato al widget di accesso quando tenta di accedere alla tua applicazione. Utilizzando il widget di accesso, gli utenti possono scegliere il provider con cui vogliono verificare le proprie identità. Ma, quando solo un provider è impostato su **On**, i visitatori vengono reindirizzati alla schermata di autenticazione di quel provider di identità.
+Per impostazione predefinita, il widget di accesso può utilizzare Facebook, Google e Cloud Directory. Puoi modificare il comportamento in qualsiasi momento scegliendo quali provider di identità vuoi configurare come opzione di scelta. Quando viene abilitato più di un provider di identità, il widget di accesso visualizza una schermata in cui l'utente può selezionare il proprio provider di identità. Ma, se hai abilitato un solo provider di identità, l'utente non visualizza la suddetta schermata di selezione. Vengono indirizzati direttamente al provider di identità per iniziare il processo di accesso.
 
-### Quante informazioni ottiene {{site.data.keyword.appid_short_notm}} da un provider di identità?
-{: #widget-obtain-info}
+Ad esempio, se stai utilizzando i valori predefiniti - Facebook, Google e Cloud Directory - gli utenti visualizzano la schermata. Se hai abilitato solo Facebook, gli utenti vengono indirizzati direttamente a Facebook per l'autenticazione.
 
-Quando utilizzi i provider di identità aziendali o social, {{site.data.keyword.appid_short_notm}} ha l'accesso in lettura alle informazioni sull'account degli utenti. Il servizio utilizza un token e le asserzioni restituite dal provider di identità per verificare se un utente è chi dice di essere. Poiché il servizio non ha mai l'accesso in scrittura alle informazioni, gli utenti devono utilizzare il provider di identità di loro scelta per effettuare delle azioni, come il ripristino della propria password. Ad esempio, se un utente accede alla tua applicazione con Facebook e poi volesse modificare la propria password, deve andare all'indirizzo www.facebook.com per farlo.
-
-Quando utilizzi [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory), {{site.data.keyword.appid_short_notm}} è il provider di identità. Il servizio utilizza il tuo registro per verificare l'identità dei tuoi utenti. Poiché {{site.data.keyword.appid_short_notm}} è il provider, gli utenti possono avvalersi della funzionalità avanzata, come il ripristino delle loro password, direttamente nella tua applicazione.
 
 
 ### Quali schermate possono essere visualizzate per ogni provider?
 {: #widget-options}
 
-Controlla la seguente tabella per vedere quali schermate puoi visualizzare per ciascun tipo di provider di identità.
+Quando utilizzi Cloud Directory, {{site.data.keyword.appid_short_notm}} può fornirti una funzionalità estesa della gestione utenti. La funzionalità estesa si applica anche alle funzionalità del widget di accesso. Gli utenti che vengono archiviati in Cloud Directory possono avvalersi di funzionalità come registrazione e reimpostazione della propria password direttamente nel widget di accesso. Controlla la seguente tabella per vedere quali schermate puoi visualizzare per ciascun tipo di provider di identità.
 
 <table>
   <thead>
@@ -101,14 +92,15 @@ Controlla la seguente tabella per vedere quali schermate puoi visualizzare per c
   </tbody>
 </table>
 
-</br>
-</br>
 
 ## Personalizzazione del widget di accesso
 {: #widget-customize}
 
-{{site.data.keyword.appid_short_notm}} fornisce una schermata di accesso predefinita che puoi richiamare se non disponi di schermate dell'IU da visualizzare. Puoi personalizzare la schermata per visualizzare il logo e i colori che preferisci.
+Il widget di accesso è dinamico. Puoi personalizzare l'aspetto o la configurazione del provider di identità e tali modifiche vengono applicate immediatamente. Non devi aggiornare il tuo codice applicazione o ridistribuire la tua applicazione in alcun modo.
 {: shortdesc}
+
+Ti serve una maggiore personalizzazione rispetto a quella fornita dal widget di accesso? Puoi implementare la tua IU completamente personalizzabile per la registrazione, l'accesso, il ripristino della password o altri flussi dell'utente per creare un'esperienza unica per la tua applicazione. Per iniziare, consulta [personalizzazione della tua applicazione](/docs/services/appid?topic=appid-branded).
+{: tip}
 
 Per personalizzare la schermata:
 
@@ -118,9 +110,6 @@ Per personalizzare la schermata:
 4. Seleziona un colore di intestazione per il widget dal selezionatore del colore o immetti il codice esadecimale per un altro colore.
 5. Controlla il pannello dell'anteprima e fai clic su **Save Changes** quando sei soddisfatto delle tue personalizzazioni. Viene visualizzato un messaggio di conferma.
 6. Nel tuo browser, aggiorna la pagina di accesso per verificare le tue modifiche.
-
-Importante! Puoi trarre vantaggio da {{site.data.keyword.appid_short_notm}} anche con altri linguaggi. Se non vedi un SDK per il linguaggio con cui stai lavorando, puoi sempre utilizzare le API. Consulta i <a href="https://www.ibm.com/blogs/bluemix/tag/app-id/" target="blank">nostri blog<img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a>.
-{: tip}
 
 
 ## Visualizzazione del widget di accesso con l'SDK Android
@@ -183,7 +172,7 @@ Inserisci il seguente comando nel tuo codice.
       }
   });
   ```
-  {: pre}
+  {: codeblock}
 
 </br>
 

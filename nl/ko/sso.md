@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-09"
 
 keywords: authentication, authorization, identity, app security, secure, development, sso, directory, users, registry, multiple apps
 
@@ -62,7 +62,7 @@ GUI를 통해 SSO를 구성할 수 있습니다.
 
 2. **싱글 사인온 사용** 상자에서 SSO를 **사용**으로 전환하십시오.
 
-3. SSO 세션이 만료되기 전까지 사용자가 활동하지 않고 머무를 수 있는 시간을 설정하십시오. 세션이 만료되면 다시 사인인해야 합니다. 시간은 분 단위로 지정되며 허용되는 최대 활성 시간은 10,080분(7일)입니다. 기본 시간은 1일에 해당되는 1440분입니다.
+3. SSO 세션이 만료되기 전까지 사용자가 활동하지 않고 머무를 수 있는 시간을 설정하십시오. 세션이 만료되면 다시 사인인해야 합니다. 시간은 분 단위로 지정되며 허용되는 최대 비활동 시간은 10,080분(7일)입니다. 기본 시간은 1일에 해당되는 1440분입니다.
 
 4. **로그아웃 경로 재지정 URI** 상자에 경로 재지정 URI를 추가한 후 **+** 부호를 클릭하십시오. 신뢰할 수 있는 애플리케이션만 등록해야 합니다. URI를 등록하는 경우 {{site.data.keyword.appid_short_notm}}에 해당 URI를 권한 워크플로우에 포함시킬 권한을 부여하게 됩니다.
 
@@ -129,7 +129,7 @@ GUI를 통해 SSO를 구성할 수 있습니다.
 ```
 https://<region>.appid.cloud.ibm.com/oauth/v4/<tenant-id>/cloud_directory/sso/logout?redirect_uri=<redirect_uri>&client_id=<clientId>
 ```
-{: pre}
+{: codeblock}
 
 <table>
   <tr>
@@ -182,7 +182,7 @@ POST https://<region>.appid.cloud.ibm.com/management/v4/{tenant-id}/cloud_direct
 Headers:
 Authorization: <IAM TOKEN>
 ```
-{: pre}
+{: codeblock}
 
 <table>
   <tr>

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-10"
+lastupdated: "2019-04-23"
 
 keywords: authentication, authorization, identity, app security, secure, tokens, jwt, development
 
@@ -187,7 +187,7 @@ subcollection: appid
   2. 特別檢查已使用相同的演算法，而且公開金鑰快取包含具有相關「金鑰 ID」的金鑰。
   3. 確定雜湊值與公開金鑰的 PEM 形式簽章相同。您可以藉由結合及雜湊處理記號有效負載的標頭，來取得雜湊值。因為此處理程序可能十分複雜而無法手動實作，所以使用其中一個[列出的檔案庫](https://jwt.io/)來驗證簽章可能很有用。
 
-6. 驗證儲存在記號中的要求。若要驗證未來的檢查，您可以使用[此清單](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation)。
+6. 驗證儲存在記號中的要求。若要驗證未來的檢查，您可以使用[此清單](https://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation)。
   <table>
     <thead>
       <th colspan=2><img src="images/idea.png" alt="相關資訊圖示"/> 必須驗證的要求</th>

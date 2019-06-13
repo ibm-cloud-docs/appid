@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-20"
 
 keywords: authentication, authorization, identity, app security, secure, development, identity provider, tokens, customization, lifetime
 
@@ -30,7 +30,11 @@ ID 제공자(IdP)는 인증을 통해 모바일 및 웹 앱에 대한 보안 레
 {: shortdesc}
 
 
-{{site.data.keyword.appid_short_notm}}는 OpenID Connect, SAML 등의 여러 프로토콜을 사용하여 ID 제공자와 상호작용합니다. 예를 들어 OpenID Connect는 Facebook, Google 등의 여러 소셜 제공자에서 사용되는 프로토콜입니다. <a href="https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-azure-active-directory/" target="_blank">Azure Active Directory <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a> 또는 <a href="https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-active-directory-federation-service/" target="_blank">Active Directory Federation Service <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a> 등의 엔터프라이즈 제공자는 일반적으로 SAML을 ID 프로토콜로 사용합니다. [클라우드 디렉토리](/docs/services/appid?topic=appid-cloud-directory)의 경우 서비스에서 SCIM을 사용하여 ID 정보를 확인합니다.
+{{site.data.keyword.appid_short_notm}}는 OpenID Connect, SAML 등의 여러 프로토콜을 사용하여 ID 제공자와 상호작용합니다. 예를 들어 OpenID Connect는 Facebook, Google 등의 여러 소셜 제공자에서 사용되는 프로토콜입니다. <a href="https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-azure-active-directory" target="_blank">Azure Active Directory <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a> 또는 <a href="https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-active-directory-federation-service" target="_blank">Active Directory Federation Service <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a> 등의 엔터프라이즈 제공자는 일반적으로 SAML을 ID 프로토콜로 사용합니다. [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory)의 경우 서비스에서 SCIM을 사용하여 ID 정보를 확인합니다.
+
+소셜 또는 엔터프라이즈 ID 제공자를 사용하는 경우 {{site.data.keyword.appid_short_notm}}에는 사용자 계정 정보에 대한 읽기 액세스 권한이 있습니다. 이 서비스는 ID 제공자가 리턴하는 토큰 및 어설션을 사용하여 사용자가 자신이 누구라고 주장하는지 확인합니다. 이 서비스는 해당 정보에 대한 쓰기 액세스 권한이 없기 때문에 사용자는 선택한 ID 제공자를 통해 이동하여 비밀번호 재설정 등의 조치를 수행해야 합니다. 예를 들어 사용자가 Facebook을 통해 앱에 로그인한 후 비밀번호를 변경하려면 `www.facebook.com`으로 이동하여 작업을 수행해야 합니다. 
+
+[Cloud Directory](/docs/services/appid?topic=appid-cloud-directory)를 사용하는 경우 {{site.data.keyword.appid_short_notm}}가 ID 제공자입니다. 이 서비스는 레지스트리를 사용하여 사용자 ID를 확인합니다. {{site.data.keyword.appid_short_notm}}가 제공자이기 때문에 사용자는 앱에서 직접 고급 기능(예: 비밀번호 재설정)을 활용할 수 있습니다.
 
 애플리케이션 ID에서 작동합니까? [애플리케이션 ID](/docs/services/appid?topic=appid-app)를 참조하십시오.
 {: tip}
@@ -44,7 +48,7 @@ ID 제공자(IdP)는 인증을 통해 모바일 및 웹 앱에 대한 보안 레
     <th>설명</th>
   </tr>
   <tr>
-    <td>[클라우드 디렉토리](/docs/services/appid?topic=appid-cloud-directory)</td>
+    <td>[Cloud Directory](/docs/services/appid?topic=appid-cloud-directory)</td>
     <td>관리 레지스트리</td>
     <td>클라우드에서 고유한 사용자 레지스트리를 유지보수할 수 있습니다. 사용자가 앱에 등록하면 해당 사용자가 사용자 디렉토리에 추가됩니다. 이 옵션은 사용자가 앱 내에서 자신의 계정을 더 자유롭게 관리할 수 있도록 해줍니다.</td>
   </tr>
@@ -90,7 +94,7 @@ ID 제공자를 관리하려면 다음 작업을 수행하십시오.
 ## 경로 재지정 URI 추가
 {: #add-redirect-uri}
 
-경로 재지정 URI는 앱의 콜백 엔드포인트입니다. {{site.data.keyword.appid_short_notm}}는 사인인 플로우 중에 클라이언트에서 피싱 공격 및 코드 누출 권한 부여를 방지하는 데 도움이 되는 권한 워크플로우에 참가할 수 있도록 허용하기 전에 URI를 유효성 검증합니다. URI를 등록하여 {{site.data.keyword.appid_short_notm}}에 해당 URI를 신뢰할 수 있으며 사용자의 경로를 재지정해도 좋다는 것을 확인할 수 있습니다.
+경로 재지정 URI는 앱의 콜백 엔드포인트입니다. {{site.data.keyword.appid_short_notm}}는 사인인 플로우 중에 클라이언트에서 피싱 공격 및 코드 누출 권한 부여를 방지하는 데 도움이 되는 권한 워크플로우에 참가할 수 있도록 허용하기 전에 URI를 유효성 검증합니다. URI를 등록하면 {{site.data.keyword.appid_short_notm}}에서 해당 URI를 신뢰할 수 있으며 사용자의 경로를 재지정할 수 있습니다. 
 
 신뢰할 수 있는 애플리케이션의 URI만 등록해야 합니다.
 {: note}
@@ -98,7 +102,7 @@ ID 제공자를 관리하려면 다음 작업을 수행하십시오.
 
 1. **인증 설정**을 클릭하여 URI 및 토큰 구성 옵션을 확인하십시오.
 
-2. **웹 경로 재지정 URI 추가** 필드에 URI를 입력하십시오. 각각의 URI는 `http://` 또는 `https://`로 시작되어야 하며 정상적으로 경로 재지정하기 위한 조회 매개변수를 포함한 전체 경로가 포함되어야 합니다. 형식화하기 위해 도움말이 필요하십니까? 다음 표에서 몇 가지 예제를 참조하십시오.
+2. **웹 경로 재지정 URI 추가** 필드에 URI를 입력하십시오. 각각의 URI는 `http://` 또는 `https://`로 시작되어야 하며 정상적으로 경로 재지정하기 위한 조회 매개변수를 포함한 전체 경로가 포함되어야 합니다. URI를 형식화하는 데 도움이 필요하십니까? 다음 표에서 몇 가지 예제를 참조하십시오.
 
   <table>
     <tr>
@@ -122,6 +126,12 @@ ID 제공자를 관리하려면 다음 작업을 수행하십시오.
 3. **웹 경로 재지정 URI 추가** 상자에서 **+** 기호를 클릭하십시오.
 
 4. 목록에 가능한 모든 URI가 추가될 때까지 1 - 3단계를 반복하십시오.
+
+
+
+경로 재지정 URI의 출처가 확실하지 않습니까? URI를 얻을 수 있는 위치와 목록에 추가하는 방법을 알아보려면 다음의 짧은 동영상을 시청하십시오. 
+
+<iframe class="embed-responsive-item" id="redirecturi" title="{{site.data.keyword.appid_short_notm}}: 잘못된 경로 재지정 URI를 수정하는 방법" type="text/html" width="640" height="390" src="//www.youtube.com/embed/6hxqbvpc054?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
 
 
 

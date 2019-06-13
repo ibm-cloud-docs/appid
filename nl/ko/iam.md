@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-13"
+lastupdated: "2019-05-13"
 
 keywords: authentication, authorization, identity, app security, secure, access, platform, management, permissions
 
@@ -61,7 +61,7 @@ IAM에 대한 자세한 정보는 [IAM 액세스](/docs/iam?topic=iam-userroles)
   <tr>
     <td><i>검토자</i></td>
     <td>{{site.data.keyword.appid_short_notm}} 인스턴스를 봅니다.</td>
-    <td>클라우드 디렉토리 사용자의 데이터 또는 ID 제공자 구성을 볼 수 있습니다.</td>
+    <td>Cloud Directory 사용자의 데이터 또는 ID 제공자 구성을 볼 수 있습니다.</td>
   </tr>
   <tr>
     <td><i>편집자</i></td>
@@ -242,7 +242,8 @@ UI에서 사용자 역할 지정에 대한 자세한 정보는 [IAM 액세스 �
 {: shortdesc}
 
 시작하기 전에:
-* [{{site.data.keyword.cloud_notm}} CLI](/docs/cli/reference/ibmcloud?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli)를 설치하십시오.
+
+* [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-ibmcloud-cli)를 설치하십시오.
 
 액세스 권한을 업데이트하기 위해 관리자는 다음 단계를 완료합니다.
 
@@ -256,9 +257,9 @@ UI에서 사용자 역할 지정에 대한 자세한 정보는 [IAM 액세스 �
 4. 터미널에서 {{site.data.keyword.cloud_notm}} CLI로 사인인하십시오.
 
     ```
-    ibmcloud login -api -a https://api.<region>.cloud.ibm.com
+    ibmcloud login -api -a https://api.{region}.cloud.ibm.com
     ```
-    {: pre}
+    {: codeblock}
 
     <table>
       <tr>
@@ -292,7 +293,7 @@ UI에서 사용자 역할 지정에 대한 자세한 정보는 [IAM 액세스 �
     ```
     ibmcloud iam oauth-tokens
     ```
-    {: pre}
+    {: codeblock}
 
 6. 팀 구성원이 변경사항을 작성할 수 없는지 확인하십시오.
 
@@ -307,9 +308,9 @@ UI에서 사용자 역할 지정에 대한 자세한 정보는 [IAM 액세스 �
        "secret": "appsecret"
      }
     }' \
-    'https://us-south.appid.cloud.ibm.com/management/v4/<tenantID>/config/idps/facebook'
+    'https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/config/idps/facebook'
     ```
-    {: pre}
+    {: codeblock}
 
     결과로 403 권한 없음 메시지가 생성됩니다.
 
@@ -320,20 +321,20 @@ CLI에서 {{site.data.keyword.appid_short_notm}} 구성을 보기 위해 팀 구
     ```
     ibmcloud login -a api.<region>.console.cloud.ibm.com
     ```
-    {: pre}
+    {: codeblock}
 
 2. IAM 토큰을 가져오고 이를 기록하십시오.
 
     ```
     ibmcloud iam oauth-tokens
     ```
-    {: pre}
+    {: codeblock}
 
 3. cURL을 사용하여 Facebook에 대한 ID 제공자 구성을 보십시오.
 
     ```
-    curl -X GET --header 'Accept: application/json' --header 'Authorization: <IAM token value>' \  'https://us-south.appid.cloud.ibm.com/management/v4/<tenantID>/config/idps/facebook'
+    curl -X GET --header 'Accept: application/json' --header 'Authorization: <IAM token value>' \  'https://us-south.appid.cloud.ibm.com/management/v4/<tenant-ID>/config/idps/facebook'
     ```
-    {: pre}
+    {: codeblock}
 
         결과로 ID 제공자 정보가 포함된 200 메시지가 생성됩니다.

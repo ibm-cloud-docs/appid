@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-08"
+lastupdated: "2019-05-31"
 
 keywords: authentication, authorization, identity, app security, secure, access management, roles, attributes, users
 
@@ -38,7 +38,7 @@ Non hai già esperienza con le API? Provale con questa [raccolta Postman](https:
 Sei uno sviluppatore per un parco a tema fittizio. Hai l'incarico di gestire l'accesso per l'[applicazione web](/docs/services/appid?topic=appid-web-apps) e ritieni che il modo più facile per farlo sia impostando dei ruoli per ciascun tipo di utente. Hai vari tipi diversi di ruoli, come ad esempio personale del parco e visitatori, e tutti hanno bisogno di livelli di autorizzazioni differenti. Vuoi poter ottimizzare il processo e garantire che ai tuoi utenti venga assegnato il ruolo corretto dalla prima volta che eseguono l'accesso alla tua applicazione.  
 {: shortdesc}
 
-Nessun problema! Puoi utilizzare la [funzione degli attributi personalizzati](/docs/services/appid?topic=appid-custom-attributes) di {{site.data.keyword.appid_short_notm}} per memorizzare qualsiasi informazione correlata agli utenti. Quindi, poiché stai lavorando con un controllo dell'accesso basato sui ruoli, puoi creare un attributo denominato `role` e assegnare valori differenti per specificare un tipo di ruolo. Ad esempio, il parco a tema potrebbe avere `visitors` o `staff` che potrebbero essere ognuno dei valori differenti per l'attributo `role`. Puoi quindi garantire che il tuo codice applicativo implementi i privilegi e le politiche di accesso da te assegnati.
+Nessun problema! Puoi utilizzare la [funzione degli attributi personalizzati](/docs/services/appid?topic=appid-profiles) di {{site.data.keyword.appid_short_notm}} per memorizzare qualsiasi informazione correlata agli utenti. Quindi, poiché stai lavorando con un controllo dell'accesso basato sui ruoli, puoi creare un attributo denominato `role` e assegnare valori differenti per specificare un tipo di ruolo. Ad esempio, il parco a tema potrebbe avere `visitors` o `staff` che potrebbero essere ognuno dei valori differenti per l'attributo `role`. Puoi quindi garantire che il tuo codice applicativo implementi i privilegi e le politiche di accesso da te assegnati.
 
 Anche se questa esercitazione è scritta specificamente pensando alle applicazioni web e a Cloud Foundry, gli attributi possono essere utilizzati in un senso molto più ampio. Gli attributi personalizzati possono essere qualsiasi cosa tu voglia. Puoi memorizzare tutti i tipi di informazione, a condizione che resti sotto i 100.000 attributi e li formatti come un oggetto JSON normale!
 {: note}
@@ -87,14 +87,14 @@ Questo processo non termina la registrazione di Cloud Directory. L'utente deve c
   ```
   ibmcloud login
   ```
-  {: pre}
+  {: codeblock}
 
 2. Ottieni un token di accesso IAM.
 
   ```
   ibmcloud iam oauth-tokens
   ```
-  {: pre}
+  {: codeblock}
 
 3. Esegui una richiesta POST per creare un profilo utente per il nuovo utente che contiene l'attributo `staff`. Assicurati di poter accedere alla email che utilizzi e di poterla convalidare.
 
@@ -113,7 +113,7 @@ Questo processo non termina la registrazione di Cloud Directory. L'utente deve c
     }
   }'
   ```
-  {: pre}
+  {: codeblock}
 
   Output di risposta di esito positivo:
 
@@ -132,7 +132,7 @@ Questo processo non termina la registrazione di Cloud Directory. L'utente deve c
   --header 'Authorization: Bearer <iam-access-token>' \
   --header 'Content-Type: application/json' \
   ```
-  {: pre}
+  {: codeblock}
 
   Corpo di risposta di esito positivo:
 
@@ -154,7 +154,7 @@ Ottimo lavoro! Hai preregistrato un utente per la tua applicazione. Ora, quando 
 ## Passo 3: Aggiornamento degli attributi utente
 {: #roles-update-attributes}
 
-Cloud Land sta crescendo. Per tenere il passo con questa crescita, la tua azienda sta assumendo nuovo personale. L'utente `staff` dal passo 2 è ora un manager. Puoi aggiornare il suo profilo [assegnando un nuovo ruolo](/docs/services/appid?topic=appid-custom-attributes).
+Cloud Land sta crescendo. Per tenere il passo con questa crescita, la tua azienda sta assumendo nuovo personale. L'utente `staff` dal passo 2 è ora un manager. Puoi aggiornare il suo profilo [assegnando un nuovo ruolo](/docs/services/appid?topic=appid-profiles#profile-set-custom).
 {: shortdesc}
 
 1. Aggiorna il profilo.
@@ -172,7 +172,7 @@ Cloud Land sta crescendo. Per tenere il passo con questa crescita, la tua aziend
     }
   }'
   ```
-  {: pre}
+  {: codeblock}
 
 3. Visualizza il profilo per verificare che sia stato aggiornato correttamente.
 
@@ -182,7 +182,7 @@ Cloud Land sta crescendo. Per tenere il passo con questa crescita, la tua aziend
   --header 'Authorization: Bearer <iam-access-token>' \
   --header 'Content-Type: application/json' \
   ```
-  {: pre}
+  {: codeblock}
 
   Output di risposta di esito positivo:
 
@@ -236,7 +236,7 @@ La [configurazione del token](/docs/services/appid?topic=appid-customizing-token
       ]
   }'
   ```
-  {: pre}
+  {: codeblock}
 
   <table>
     <tr>
@@ -314,7 +314,7 @@ Facoltativamente, puoi verificare che il passo 4 sia stato eseguito correttament
   --header `Accept: application/json`
   - d 'grant_type=password&username=<user-email>%40<user-email-domain>&password=<user-password>
   ```
-  {: pre}
+  {: codeblock}
 
 5. Decodifica il tuo token di accesso.
   1. Copia il token nell'output della risposta dal comando precedente.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-21"
+lastupdated: "2019-05-20"
 
 keywords: authentication, authorization, identity, app security, secure, development, ingress, policy, networking, containers, kubernetes
 
@@ -40,7 +40,7 @@ subcollection: appid
 5. Ingress 控制器會取得 {{site.data.keyword.appid_short_notm}} 中的存取記號及身分記號以進行授權。
 6. Ingress 控制器驗證及轉遞至應用程式的每一個要求都具有包含記號的授權標頭。
 
-Ingress 控制器與 {{site.data.keyword.appid_short_notm}} 的整合目前不支援重新整理記號。當您的存取記號及身分記號到期時，使用者必須重新鑑別。
+Ingress 控制器與 {{site.data.keyword.appid_short_notm}} 的整合目前不支援重新整理記號。當存取記號及身分記號到期時，使用者必須重新鑑別。
 {: note}
 
 
@@ -50,11 +50,11 @@ Ingress 控制器與 {{site.data.keyword.appid_short_notm}} 的整合目前不�
 開始之前，請確定您具有下列必備項目。
 {: shortdesc}
 
-基於安全理由，{{site.data.keyword.appid_short_notm}} 鑑別只支援已啟用 TLS/SSL 的後端。
-{: note}
 
 * 應用程式或範例應用程式。
+
 * 一個標準的 Kubernetes 叢集，其中每個區域至少有兩個工作者節點。如果您在多區域叢集中使用 Ingress，請檢閱 [Kubernetes 服務文件](/docs/containers?topic=containers-ingress#config_prereqs)中的額外必要條件。
+
 * 叢集部署所在之相同地區中的 {{site.data.keyword.appid_short_notm}} 實例。請確定服務名稱不含任何空格。
 
 * 下列 [{{site.data.keyword.cloud_notm}} IAM 角色](/docs/containers?topic=containers-access_reference#access_reference)：
@@ -63,28 +63,29 @@ Ingress 控制器與 {{site.data.keyword.appid_short_notm}} 的整合目前不�
 
 * 下列 CLI：
 
-  * [{{site.data.keyword.cloud_notm}}](/docs/cli/reference/ibmcloud/cloud-cli-install_use?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli)
+  * [{{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli)
   * [Kubernetes](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
-  * [Docker](https://www.docker.com/products/docker-engine#/download)
+  * [Docker](https://www.docker.com/products/container-runtime#/download)
 
-* 下列 [{{site.data.keyword.cloud_notm}} CLI 外掛程式](/docs/cli/reference/ibmcloud?topic=cloud-cli-plug-ins#plug-ins)：
+* 下列 [ CLI 外掛程式](/docs/cli?topic=cloud-cli-install-devtools-manually#idt-install-kubernetes-cli-plugin)：
 
-  * Kubernetes 服務
-  * Container Registry
+  * {{site.data.keyword.containershort}}
+  * {{site.data.keyword.registryshort_notm}}
 
 下載 CLI 和外掛程式以及在配置 Kubernetes 服務環境時如需協助，請參閱[建立 Kubernetes 叢集](/docs/containers?topic=containers-cs_cluster_tutorial#cs_cluster_tutorial_lesson1)指導教學。
 {: tip}
+
 
 讓我們開始吧！
 
 ## 步驟 1：將 {{site.data.keyword.appid_short_notm}} 連結至您的叢集
 {: #kube-create-appid}
 
-您可以將 {{site.data.keyword.appid_short_notm}} 實例連結至您的叢集，以容許使用您叢集中所部署的所有應用程式實例。透過將服務實例連結至叢集，只要您的應用程式一啟動，您的 {{site.data.keyword.appid_short_notm}} meta 資料及認證就可作為 Kubernetes 密碼使用。
+藉由將 {{site.data.keyword.appid_short_notm}} 實例連結至叢集，位於該叢集裡的所有應用程式實例，都可以由 {{site.data.keyword.appid_short_notm}} 的相同實例來控制。此外，只要您的應用程式一啟動，您的 {{site.data.keyword.appid_short_notm}} meta 資料及認證就可作為 Kubernetes 密碼使用。
 {: shortdesc}
 
 
-1. 登入 {{site.data.keyword.cloud_notm}} CLI。遵循 CLI 中的提示，以完成登入。
+1. 登入 {{site.data.keyword.cloud_notm}} CLI。遵循 CLI 中的提示，以完成登入。如果您是使用聯合 ID，請務必將 `--sso` 旗標附加至指令尾端。
 
   ```
   ibmcloud login -a cloud.ibm.com -r <region>
@@ -134,14 +135,14 @@ Ingress 控制器與 {{site.data.keyword.appid_short_notm}} 的整合目前不�
   ```
   kubectl get ingress
   ```
-  {: pre}
+  {: codeblock}
 
 4. 連結您的 {{site.data.keyword.appid_short_notm}} 實例。連結會建立服務實例的服務金鑰。您可以使用 `-key` 旗標來指定現有的服務金鑰。
 
   ```
   ibmcloud ks cluster-service-bind --cluster <cluster_name_or_ID> --namespace <namespace> --service <App-ID_instance_name> [--key <service_instance_key>]
   ```
-  {: pre}
+  {: codeblock}
 
   如果您未指定名稱空間，則會在 `default` 名稱空間中建立此密碼。
   {: tip}
@@ -171,36 +172,40 @@ Ingress 控制器與 {{site.data.keyword.appid_short_notm}} 的整合目前不�
   ```
   ibmcloud cr login
   ```
-  {: pre}
+  {: codeblock}
 
 2. 建立 Container Registry 名稱空間。
 
   ```
   ibmcloud cr namespace-add <my_namespace>
   ```
-  {: pre}
+  {: codeblock}
 
 3. 在 Container Registry 中，建置、標記應用程式，以及用映像檔將應用程式推送至名稱空間。請務必在指令結尾處包含句點 (.)。
 
   ```
-  ibmcloud cr build -t registry.<region>.bluemix.net/<namespace>/<app-name>:<tag> .
+  ibmcloud cr build -t registry.{region}.icr.io.net/{namespace}/{app-name}:{tag} .
   ```
-  {: pre}
+  {: codeblock}
 
 太棒了！您差不多可以開始部署。
 
 ## 步驟 3：配置 Ingress
 {: kube-ingress}
 
-在建立叢集期間，會為您建立專用及公用 Ingress ALB。若要部署應用程式並利用 Ingress 控制器，請建立部署 Script。
+在建立叢集期間，會為您建立專用及公用 IBM Kubernetes Service 應用程式負載平衡器 (ALB)。若要部署應用程式並利用 Ingress 控制器，請建立部署 Script。
 {: shortdesc}
+
+
+為了確保整合的最佳效能，建議您一律使用最新版的 IBM Kubernetes Service 應用程式負載平衡器 (ALB)。依預設，會針對您的叢集啟用自動更新。如需自動更新的相關資訊，請參閱 [On-demand ALB update feature on {{site.data.keyword.containershort}}](https://www.ibm.com/cloud/blog/on-demand-alb-update-feature-on-ibm-cloud-kubernetes-service)。
+{: tip}
 
 1. 取得當您將 {{site.data.keyword.appid_short_notm}} 連結至叢集時在叢集名稱空間中建立的密碼。附註：這**不是**您的 Container Registry 名稱空間。
 
   ```
   kubectl get secrets --namespace=<namespace>
   ```
-  {: pre}
+  {: codeblock}
 
   輸出範例：
 
@@ -273,7 +278,7 @@ Ingress 控制器與 {{site.data.keyword.appid_short_notm}} 的整合目前不�
   ```
   kubectl apply -f <file-name>.yaml
   ```
-  {: pre}
+  {: codeblock}
 
 做得好！
 
@@ -304,7 +309,7 @@ Ingress 控制器與 {{site.data.keyword.appid_short_notm}} 的整合目前不�
 {: note}
 
 
-做得很好！現在，您可以導覽至 Ingress 子網域或自訂網域來試試看，以驗證此部署已順利完成。
+太棒了！現在，您可以導覽至 Ingress 子網域或自訂網域來試試看，以驗證此部署已順利完成。
 
 
 ## 後續步驟

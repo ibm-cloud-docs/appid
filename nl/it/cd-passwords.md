@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-04-23"
 
 keywords: authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
@@ -34,14 +34,14 @@ Puoi configurare i requisiti delle password che possono essere utilizzati con Cl
 Una password complessa rende difficile o persino improbabile, che qualcuno la indovini in modo manuale o automatizzato. Per impostare i requisiti per la complessità di una password dell'utente, puoi utilizzare la seguente procedura.
 {: shortdesc}
 
-1. Passa alla scheda **Password Policies** del dashboard App ID.
+1. Passa alla scheda **Password Policies** del dashboard {{site.data.keyword.appid_short_notm}}.
 
-2. Nella casella **Define password strength**, fai clic su **Edit**. Viene visualizzata una schermata.
+2. Nella casella **Define password strength**, fai clic su **Edit**. Viene aperta una schermata.
 
 3. Immetti una stringa regex valida nella casella **Password strength**.
 
   Esempi:
-    - Deve avere una lunghezza di almeno otto caratteri. Regex di esempio: `^.{8,}$`
+    - Deve avere una lunghezza di almeno 8 caratteri. Regex di esempio: `^.{8,}$`
     - Deve contenere un numero, una lettera minuscola e una lettera maiuscola. Regex di esempio: `^(?:(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).*)$`
     - Deve contenere solo lettere e numeri inglesi. Regex di esempio: `^[A-Za-z0-9]*$`
     - Deve avere almeno un carattere univoco. Regex di esempio: `^(\w)\w*?(?!\1)\w+$`
@@ -56,11 +56,11 @@ La complessità della password può essere impostata nella pagina delle impostaz
 {: #cd-advanced-password}
 
 
-Puoi migliorare la sicurezza della tua applicazione mediante l'applicazione di ulteriori vincoli della password.
+Puoi migliorare la sicurezza della tua applicazione mediante l'applicazione di vincoli della password.
 {: shortdesc}
 
 
-Puoi creare una politica della password avanzata che consiste in qualsiasi combinazione delle seguenti 5 funzioni:
+Puoi creare una politica della password avanzata che consiste in qualsiasi combinazione delle seguenti cinque funzioni:
 
  - Blocco dopo la ripetizione di credenziali non corrette
  - Evitare il riutilizzo della password
@@ -109,16 +109,16 @@ Puoi sbloccare un utente prima del termine del periodo di blocco. Per vedere se 
 Potresti voler impedire ai tuoi utenti di modificare velocemente le password impostando un periodo minimo di tempo in cui un utente deve attendere tra le modifiche alla password.
 {: shortdesc}
 
-Questa funzione è particolarmente utile quando utilizzata con la politica "Evitare il riutilizzo della password". Senza questa limitazione, un utente potrebbe semplicemente modificare la propria password più volte in rapida successione in modo da eludere la limitazione di riutilizzo delle password recenti. Puoi selezionare un qualsiasi valore compreso tra 1 ora e 30 giorni, specificato in ore.
+Questa funzione è particolarmente utile quando utilizzata con la politica "Evitare il riutilizzo della password". Senza questa limitazione, un utente potrebbe semplicemente modificare la propria password più volte in rapida successione in modo da eludere la limitazione di riutilizzo delle password recenti. Puoi selezionare un qualsiasi valore nell'intervallo compreso tra 1 e 720 ore (30 giorni). Il campo viene specificato in ore.
 
 
 ### Politica: Scadenza della password
 {: #cd-expiration}
 
-Per motivi di sicurezza, potresti voler applicare una politica di rotazione della password, come ad esempio che i tuoi utenti debbano modificare le proprie password dopo un periodo di tempo.
+Per motivi di sicurezza, potresti voler applicare una politica di rotazione della password, come ad esempio che i tuoi utenti debbano modificare le proprie password dopo un periodo di tempo specificato.
 {: shortdesc}
 
-Utilizzando la GUI o l'API, puoi impostare un periodo di tempo in cui le password del tuo utente rimarranno valide. Dopo la scadenza della password di un utente, sono costretti a reimpostare la propria password al successivo accesso. Puoi selezionare un qualsiasi numero di giorni completi compreso tra 1 e 90.
+Utilizzando la GUI o l'API, puoi impostare un periodo di tempo in cui le password del tuo utente rimangono valide. Dopo la scadenza della password di un utente, l'utente è costretto a reimpostare la propria password al successivo accesso. Puoi selezionare un qualsiasi numero di giorni completi nell'intervallo compreso tra 1 e 90.
 
 Puoi iniziare a lavorare rapidamente con il Widget di accesso utilizzando la GUI predefinita fornita. All'utente viene richiesto di fornire una nuova password prima del completamento dell'accesso.
 
@@ -135,7 +135,7 @@ La risposta endpoint del token è simile alla seguente:
 ```
 {: screen}
 
-Quando questa opzione viene attivata per la prima volta, tutte le password utente esistenti non avranno una data di scadenza. Il periodo di scadenza inizia per tali utenti quando viene modificata la loro password. Potresti voler incoraggiare gli utenti ad aggiornare la propria password dopo che hai attivato questa funzione.
+Quando questa opzione viene attivata per la prima volta, tutte le password utente esistenti non hanno una data di scadenza. Il periodo di scadenza inizia per tali utenti quando viene modificata la loro password. Potresti voler incoraggiare gli utenti ad aggiornare la propria password dopo che hai attivato questa funzione.
 {: note}
 
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-11"
+lastupdated: "2019-06-05"
 
 keywords: authentication, authorization, identity, app security, secure, access, tokens
 
@@ -105,12 +105,12 @@ Header: {
   {: screen}
 
 
-身分記號僅包含局部使用者資訊。若要查看身分提供者所提供的所有資訊，您可以使用 [/userinfo 端點](/docs/services/appid?topic=appid-predefined-attributes#predefined-access-api)。
+身分記號僅包含局部使用者資訊。若要查看身分提供者所提供的所有資訊，您可以使用 [/userinfo 端點](/docs/services/appid?topic=appid-profiles#profile-predefined-api)。
 
 ## 何謂重新整理記號？
 {: #refresh}
 
-{{site.data.keyword.appid_short}} 支援在沒有重新鑑別的情況下獲得新存取和身分記號的能力，如 <a href="http://openid.net/specs/openid-connect-core-1_0.html#RefreshTokens" target="_blank">OIDC <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a> 中所定義。
+{{site.data.keyword.appid_short}} 支援在沒有重新鑑別的情況下獲得新存取和身分記號的能力，如 <a href="https://openid.net/specs/openid-connect-core-1_0.html#RefreshTokens" target="_blank">OIDC <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a> 中所定義。
       重新整理記號可以用來更新存取記號，因此使用者不需要採取任何動作即可登入，例如提供認證。與存取記號類似，重新整理記號包含容許 {{site.data.keyword.appid_short_notm}} 判定您是否已獲授權的資料。不過，這些記號是不透明的。
 
 重新整理記號會配置為具有比一般存取記號還要長的有效期限，因此當存取記號到期時，重新整理記號仍然有效，且可用來更新存取記號。{{site.data.keyword.appid_short_notm}} 的重新整理記號可以配置為持續 1 到 90 天。若要充分運用重新整理記號，請持續保存這些記號，直到其完整有效期限結束，或直到它們已更新。使用者無法只利用重新整理記號來直接存取資源，這使得它們比存取記號更能安全地持續保存。最佳作法是，重新整理記號應該由接收它們的用戶端安全地儲存，且只傳送至發出它們的授權伺服器。
@@ -131,7 +131,7 @@ Header: {
 ## 記號包含的資訊會發生什麼情況？
 {: #contains}
 
-存取記號包含一組標準 JWT 要求，以及一組 {{site.data.keyword.appid_short_notm}}特定要求（如承租戶 ID）。身分記號包含使用者特定資訊。記號中的資訊儲存為要求，作為[使用者設定檔](/docs/services/appid?topic=appid-user-profile#user-profile)的一部分。
+存取記號包含一組標準 JWT 要求，以及一組 {{site.data.keyword.appid_short_notm}}特定要求（如承租戶 ID）。身分記號包含使用者特定資訊。記號中的資訊儲存為要求，作為[使用者設定檔](/docs/services/appid?topic=appid-profiles)的一部分。
 
 ## 如何接收記號？
 {: #received}

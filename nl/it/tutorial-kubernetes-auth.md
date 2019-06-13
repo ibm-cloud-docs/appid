@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-21"
+lastupdated: "2019-05-20"
 
 keywords: authentication, authorization, identity, app security, secure, development, ingress, policy, networking, containers, kubernetes
 
@@ -50,11 +50,11 @@ L'integrazione del controller Ingress con {{site.data.keyword.appid_short_notm}}
 Prima di poter iniziare, assicurati di avere i seguenti prerequisiti.
 {: shortdesc}
 
-Per motivi di sicurezza, l'autenticazione {{site.data.keyword.appid_short_notm}} supporta i backend con solo TLS/SSL abilitato.
-{: note}
 
 * Un'applicazione o un'applicazione di esempio.
+
 * Un cluster di Kubernetes standard con almeno due nodi di lavoro per ogni zona. Se stai utilizzando Ingress nei cluster multizona, esamina i prerequisiti supplementari nella [documentazione del servizio Kubernetes](/docs/containers?topic=containers-ingress#config_prereqs).
+
 * Un'istanza di {{site.data.keyword.appid_short_notm}} nella stessa regione in cui è distribuito il tuo cluster. Assicurati che il nome servizio non contenga spazi.
 
 * I seguenti [ruoli {{site.data.keyword.cloud_notm}} IAM](/docs/containers?topic=containers-access_reference#access_reference):
@@ -63,28 +63,29 @@ Per motivi di sicurezza, l'autenticazione {{site.data.keyword.appid_short_notm}}
 
 * Le seguenti CLI:
 
-  * [{{site.data.keyword.cloud_notm}}](/docs/cli/reference/ibmcloud/cloud-cli-install_use?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli)
+  * [{{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli)
   * [Kubernetes](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
-  * [Docker](https://www.docker.com/products/docker-engine#/download)
+  * [Docker](https://www.docker.com/products/container-runtime#/download)
 
-* I seguenti [plugin CLI {{site.data.keyword.cloud_notm}}](/docs/cli/reference/ibmcloud?topic=cloud-cli-plug-ins#plug-ins):
+* I seguenti [plugin CLI](/docs/cli?topic=cloud-cli-install-devtools-manually#idt-install-kubernetes-cli-plugin):
 
-  * Kubernetes Service
-  * Container Registry
+  * {{site.data.keyword.containershort}}
+  * {{site.data.keyword.registryshort_notm}}
 
 Per un aiuto nel download di plugin e CLI e nella configurazione del tuo ambiente del servizio Kubernetes, consulta l'esercitazione di [creazione di cluster Kubernetes](/docs/containers?topic=containers-cs_cluster_tutorial#cs_cluster_tutorial_lesson1).
 {: tip}
+
 
 Cominciamo!
 
 ## Passo 1: Associazione mediante bind di {{site.data.keyword.appid_short_notm}} al tuo cluster
 {: #kube-create-appid}
 
-Puoi associare mediante bind la tua istanza di {{site.data.keyword.appid_short_notm}} al tuo cluster in modo da consentire l'utilizzo a tutte le istanze della tua applicazione che sono distribuite nel tuo cluster. Associando mediante bind la tua istanza del servizio al tuo cluster, i tuoi metadati e le tue credenziali {{site.data.keyword.appid_short_notm}} sono disponibili appena la tua applicazione viene avviata come segreti Kubernetes.
+Associando la tua istanza di {{site.data.keyword.appid_short_notm}} al tuo cluster, tutte le istanze della tua applicazione ubicate in tale cluster possono essere controllate dalla stessa istanza di {{site.data.keyword.appid_short_notm}}. Inoltre, i tuoi metadati e le tue credenziali {{site.data.keyword.appid_short_notm}} sono disponibili non appena la tua applicazione viene avviata come dei segreti Kubernetes.
 {: shortdesc}
 
 
-1. Esegui l'accesso alla CLI {{site.data.keyword.cloud_notm}}. Attieniti ai prompt nella CLI per completare l'accesso.
+1. Esegui l'accesso alla CLI {{site.data.keyword.cloud_notm}}. Attieniti ai prompt nella CLI per completare l'accesso. Se stai utilizzando un ID federato, assicurati di accodare l'indicatore `--sso` alla fine del comando.
 
   ```
   ibmcloud login -a cloud.ibm.com -r <region>
@@ -134,14 +135,14 @@ Puoi associare mediante bind la tua istanza di {{site.data.keyword.appid_short_n
   ```
   kubectl get ingress
   ```
-  {: pre}
+  {: codeblock}
 
 4. Associa la tua istanza di {{site.data.keyword.appid_short_notm}}. L'associazione mediante bind crea una chiave del servizio per l'istanza del servizio. Puoi specificare una chiave del servizio esistente utilizzando l'indicatore `-key`.
 
   ```
   ibmcloud ks cluster-service-bind --cluster <cluster_name_or_ID> --namespace <namespace> --service <App-ID_instance_name> [--key <service_instance_key>]
   ```
-  {: pre}
+  {: codeblock}
 
   Se non specifichi uno spazio dei nomi, il segreto viene creato nello spazio dei nomi `default`.
   {: tip}
@@ -171,36 +172,40 @@ Perché la tua applicazione venga eseguita in Kubernetes, devi ospitarla in un r
   ```
   ibmcloud cr login
   ```
-  {: pre}
+  {: codeblock}
 
 2. Crea uno spazio dei nomi Container Registry.
 
   ```
   ibmcloud cr namespace-add <my_namespace>
   ```
-  {: pre}
+  {: codeblock}
 
 3. Crea, contrassegna con tag ed esegui il push dell'applicazione come un'immagine al tuo spazio dei nomi in Container Registry. Assicurati di includere il punto (.) alla fine del comando.
 
   ```
-  ibmcloud cr build -t registry.<region>.bluemix.net/<namespace>/<app-name>:<tag> .
+  ibmcloud cr build -t registry.{region}.icr.io.net/{namespace}/{app-name}:{tag} .
   ```
-  {: pre}
+  {: codeblock}
 
 Ottimo! Sei quasi pronto ad eseguire la distribuzione.
 
 ## Passo 3: Configurazione di Ingress
 {: kube-ingress}
 
-Durante la creazione del cluster, vengono creati per te sia un ALB Ingress pubblico che uno privato. Per distribuire la tua applicazione e avvalerti del tuo controller Ingress, crea uno script di distribuzione.
+Durante la creazione del cluster, vengono creati per te sia un programma di bilanciamento del carico dell'applicazione (ALB) IBM Kubernetes Service pubblico che privato. Per distribuire la tua applicazione e avvalerti del tuo controller Ingress, crea uno script di distribuzione.
 {: shortdesc}
+
+
+Per garantire le migliori prestazioni di integrazione, si consiglia di utilizzare sempre l'ultima versione del programma di bilanciamento del carico dell'applicazione (ALB) IBM Kubernetes Service. Per impostazione predefinita, l'aggiornamento automatico è abilitato per il tuo cluster. Per ulteriori informazioni sugli aggiornamenti automatici, vedi [On-demand ALB update feature on {{site.data.keyword.containershort}}](https://www.ibm.com/cloud/blog/on-demand-alb-update-feature-on-ibm-cloud-kubernetes-service).
+{: tip}
 
 1. Ottieni il segreto che era stato creato nel tuo spazio dei nomi del cluster quando hai associato mediante bind {{site.data.keyword.appid_short_notm}} al tuo cluster. Nota: questo **non** è il tuo spazio dei nomi Container Registry.
 
   ```
   kubectl get secrets --namespace=<namespace>
   ```
-  {: pre}
+  {: codeblock}
 
   Output di esempio:
 
@@ -256,7 +261,7 @@ Durante la creazione del cluster, vengono creati per te sia un ALB Ingress pubbl
     </tr>
     <tr>
       <td><code>serviceName</code></td>
-      <td><p>Obbligatorio: il nome del servizio Kubernetes che hai creato per la tua applicazione. Se non viene incluso un nome servizio, l'annotazione è abilitata per tutti i servizi. </p> <p>Per utilizzare più tipi di richiesta nello stesso cluster, configura un'istanza di {{site.data.keyword.appid_short_notm}} per utilizzare <code>web</code> e un'altra per utilizzare <code>api</code>.</p></td>
+      <td><p>Obbligatorio: il nome del servizio Kubernetes che hai creato per la tua applicazione. Se non viene incluso un nome servizio, l'annotazione è abilitata per tutti i servizi.</p> <p>Per utilizzare più tipi di richiesta nello stesso cluster, configura un'istanza di {{site.data.keyword.appid_short_notm}} per utilizzare <code>web</code> e un'altra per utilizzare <code>api</code>.</p></td>
     </tr>
     <tr>
       <td><code>idToken</code></td>
@@ -273,7 +278,7 @@ Durante la creazione del cluster, vengono creati per te sia un ALB Ingress pubbl
   ```
   kubectl apply -f <file-name>.yaml
   ```
-  {: pre}
+  {: codeblock}
 
 Ottimo lavoro!
 
@@ -305,7 +310,7 @@ Un URL di reindirizzamento è l'URL per il sito a cui vuoi che {{site.data.keywo
 {: note}
 
 
-Ottimo lavoro! Ora puoi verificare che la distribuzione sia stata eseguita correttamente andando al dominio secondario Ingress oppure al dominio personalizzato per provarla.
+Eccellente! Ora puoi verificare che la distribuzione sia stata eseguita correttamente andando al dominio secondario Ingress oppure al dominio personalizzato per provarla.
 
 
 ## Passi successivi

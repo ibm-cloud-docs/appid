@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-25"
+lastupdated: "2019-04-23"
 
 keywords: authentication, authorization, identity, app security, secure, custom, proprietary, social, facebook, google, 
 
@@ -35,7 +35,7 @@ subcollection: appid
 {{site.data.keyword.appid_short_notm}} 提供了缺省配置，可帮助您快速启动并运行该服务。
 {: shortdesc}
 
-配置 App ID 时，Facebook、Google 和 Cloud Directory 会作为身份提供者自动启用。您可以随时更改此配置。提供了用于 Facebook 和 Google 的缺省凭证，但这些凭证是 IBM 凭证，应该仅用于测试是否要使用该服务。在发布应用程序之前，请将配置更新为您自己的凭证。
+配置 {{site.data.keyword.appid_short_notm}} 时，Facebook、Google 和 Cloud Directory 会作为身份提供者自动启用。您可以随时更改此配置。提供了用于 Facebook 和 Google 的缺省凭证，但这些凭证是 IBM 凭证，应该仅用于测试是否要使用该服务。在发布应用程序之前，请将配置更新为您自己的凭证。
 
 每个实例每天可使用缺省凭证进行认证的次数限制为 100 次。
 {: note}
@@ -52,7 +52,7 @@ subcollection: appid
 
 要将 Facebook 用作身份提供者，必须在 Facebook 应用程序上添加并配置 Web 站点平台。
 
-1. 在 <a href="https://developers.facebook.com/docs/apps/register" target="_blank">Facebook for Developers 站点 <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a> 上登录到您的帐户。
+1. 在 <a href="https://developers.facebook.com/docs/apps#register" target="_blank">Facebook for Developers 站点 <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a> 上登录到您的帐户。
 2. 记录 Facebook 应用程序标识和私钥。在服务仪表板中配置 Web 项目进行认证时，需要这些值。
 3. 添加 Web 平台并输入站点 URL。
 4. 从产品列表中，选择 **Facebook 登录**。

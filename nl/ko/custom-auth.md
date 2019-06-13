@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-31"
 
 keywords: authentication, authorization, identity, app security, secure, custom, proprietary, 
 
@@ -76,7 +76,8 @@ subcollection: appid
 ## JSON 웹 토큰 생성
 {: #generating-jwts}
 
-<a href="https://tools.ietf.org/html/rfc7515" target="blank">JSON 웹 토큰 <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>을 생성하여 확인된 사용자 데이터를 사용자 정의 ID JWT로 변환할 수 있습니다. 이 토큰은 사전 구성된 공개 키와 일치하는 개인 키로 서명해야 합니다. 토큰 서명 라이브러리의 목록은 <a href="https://jwt.io/" target="blank">jwt.io <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>를 참조하십시오.
+<a href="https://tools.ietf.org/html/rfc7515" target="blank">JSON 웹 토큰 <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>을 생성하여 확인된 사용자 데이터를 사용자 정의 ID JWT로 변환할 수 있습니다. 이 토큰은 사전 구성된 공개 키와 일치하는 개인 키로 서명해야 합니다. 
+토큰 서명 라이브러리 목록은 <a href="https://jwt.io/" target="blank">https://jwt.io/ <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>를 참조하십시오.
 {: shortdesc}
 
 ### JWT 형식 예제
@@ -127,7 +128,7 @@ subcollection: appid
     </tr>
     <tr>
       <td><code> aud </code></td>
-      <td>OAuth 서버 URL입니다. 형식: https://{region}.appid.cloud.ibm.com/oauth/v4/{tenantId} </td>
+      <td>OAuth 서버 URL입니다. 형식: `https://{region}.appid.cloud.ibm.com/oauth/v4/{tenantId}` </td>
     </tr>
     <tr>
       <td><code> exp </code></td>
@@ -139,7 +140,7 @@ subcollection: appid
     </tr>
     <tr>
       <td>Normalized claims</td>
-      <td>모든 [정규화된 청구](/docs/services/appid?topic=appid-tokens#tokens)는 이 요청에 대한 응답으로 리턴되는 ID 토큰에서 제공됩니다. [`/userinfo` 엔드포인트](/docs/services/appid?topic=appid-custom-attributes#custom-attributes)를 사용하여 추가적인 사용자 정의 청구를 찾을 수 있습니다.</td>
+      <td>모든 [정규화된 청구](/docs/services/appid?topic=appid-tokens)는 이 요청에 대한 응답으로 리턴되는 ID 토큰에서 제공됩니다. [`/userinfo` 엔드포인트](/docs/services/appid?topic=appid-profiles)를 사용하여 추가적인 사용자 정의 청구를 찾을 수 있습니다.</td>
     </tr>
     <tr>
       <td>Scope</td>

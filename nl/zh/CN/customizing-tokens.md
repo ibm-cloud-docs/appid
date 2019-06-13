@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-31"
 
 keywords: authentication, authorization, identity, app security, secure, custom, tokens, access, claim, attributes
 
@@ -78,7 +78,7 @@ subcollection: appid
 </table>
 
 
-由于令牌用于识别用户并保护资源，因此令牌的生命周期会影响多个不同方面。通过定制令牌配置，可以确保满足安全性和用户体验需求。但是，如果某个令牌遭到泄露，那么恶意用户会有更多时间来影响应用程序。您可以在[定制属性](/docs/services/appid?topic=appid-custom-attributes)中了解有关安全注意事项的更多信息。
+由于令牌用于识别用户并保护资源，因此令牌的生命周期会影响多个不同方面。通过定制令牌配置，可以确保满足安全性和用户体验需求。但是，如果某个令牌遭到泄露，那么恶意用户会有更多时间来影响应用程序。您可以在[设置定制属性](/docs/services/appid?topic=appid-profiles#profile-set-custom)中了解有关安全注意事项的更多信息。
 {: important}
 
 
@@ -122,7 +122,7 @@ subcollection: appid
 ```
 {: screen}
 
-如果您定制了令牌的到期时间信息，那么必须在每个请求中对其进行设置。如果未这样做，那么此请求会覆盖当前配置，并且缺省值会用于其余未定义的任何配置。
+如果您定制了令牌的到期时间信息，那么必须在每个请求中对其进行设置。如果未这样做，那么此请求会覆盖当前配置，并且缺省值会用于未定义的任何内容。
 {: note}
 
 ### 为什么要将声明添加到令牌中？
@@ -140,7 +140,7 @@ subcollection: appid
 
 *受限声明*：根据声明映射到的令牌，某些声明的定制能力受到限制。对于访问令牌，`scope` 是唯一的受限声明。此声明不能被定制映射覆盖，但可使用您自己的作用域进行扩展。scope 声明映射到访问令牌时，其值必须是字符串且不能以 `appid_` 为前缀，否则会将其忽略。在身份令牌中，无法修改或覆盖 `identities` 和 `oauth_clients` 声明。
 
-*规范化声明*：每个身份令牌都包含一组声明，这些声明由 {{site.data.keyword.appid_short_notm}} 识别为规范化声明。这些声明可用时，会直接将其从身份提供者映射到令牌。这些声明不能显式省略，但可被定制声明映射覆盖。声明包括 `name`、`email`、`picture`、`local` 和 `gender`。
+*规范化声明*：每个身份令牌都包含一组声明，这些声明由 {{site.data.keyword.appid_short_notm}} 识别为规范化声明。这些声明可用时，会直接将其从身份提供者映射到令牌。这些声明不能显式省略，但可在您的令牌中被定制声明覆盖。声明包括 `name`、`email`、`picture`、`local` 和 `gender`。注：这不会更改或消除属性，但会更改运行时令牌中提供的信息。
 
 
 ### 如何将声明映射到令牌？
@@ -156,7 +156,7 @@ subcollection: appid
       <tr>
         <td><code><em>source</em></code></td>
         <td>必需</td>
-        <td>定义声明的源。此项可以引用身份提供者的用户信息或用户的 {{site.data.keyword.appid_short_notm}} 定制属性。</br> 选项包括：`saml`, `cloud_directory`、`facebook`、`google`、`appid_custom`、`ibmid` 和 `attributes`。</td>
+        <td>定义声明的源。此项可以引用身份提供者的用户信息或用户的 {{site.data.keyword.appid_short_notm}} 定制属性。</br>选项包括：`saml`, `cloud_directory`、`facebook`、`google`、`appid_custom`、`ibmid` 和 `attributes`。</td>
       </tr>
       <tr>
         <td><code><em>sourceClaim</em></code></td>
@@ -212,7 +212,7 @@ subcollection: appid
        Authorization: 'Bearer <IAM_TOKEN>'
        Content-Type: application/json
   ```
-  {: pre}
+  {: codeblock}
 
   主体：
   ```
@@ -242,7 +242,7 @@ subcollection: appid
        ]
    }
   ```
-  {: pre}
+  {: codeblock}
 
   <table>
     <thead>
@@ -252,17 +252,17 @@ subcollection: appid
       <tr>
         <td><code><em>access</em></code></td>
         <td>可选</td>
-        <td>包含访问令牌和身份令牌到期时间 `expires_in`（以分钟为单位）的对象。</br> </br> 缺省到期时间为 60 分钟。</td>
+        <td>包含访问令牌和身份令牌到期时间 `expires_in`（以分钟为单位）的对象。</br></br>缺省到期时间为 60 分钟。</td>
       </tr>
       <tr>
           <td><code><em>refresh</em></code></td>
           <td>可选</td>
-          <td>包含刷新令牌到期时间 `expires_in`（以天为单位）的对象。</br> </br> 缺省到期时间为 30 天。</td>
+          <td>包含刷新令牌到期时间 `expires_in`（以天为单位）的对象。</br></br>缺省到期时间为 30 天。</td>
       </tr>
       <tr>
           <td><code><em>anonymousAccess</em></code></td>
           <td>可选</td>
-          <td>包含匿名访问令牌和身份令牌到期时间 `expires_in`（以天为单位）的对象。</br> </br> 缺省到期时间为 30 天。
+          <td>包含匿名访问令牌和身份令牌到期时间 `expires_in`（以天为单位）的对象。</br></br>缺省到期时间为 30 天。
       </tr>
       <tr>
           <td><code><em>accessTokenClaims</em></code></td>

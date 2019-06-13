@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-21"
 
 keywords: authentication, authorization, identity, app security, secure, discovery endpoint, oidc, public keys, tokens, well known endpoint
 
@@ -23,7 +23,7 @@ subcollection: appid
 {:download: .download}
 
 
-# Utilizzo dell'endpoint di rilevamento OIDC
+# Documento di rilevamento OIDC 
 {: #discovery}
 
 OpenID Connect supporta un protocollo di rilevamento che contiene delle informazioni che puoi utilizzare per configurare le tue applicazioni e autenticare gli utenti come ad esempio i token e le chiavi pubbliche.
@@ -42,9 +42,9 @@ Puoi ottenere il documento di rilevamento e le informazioni che contiene richiam
 Puoi trovare l'endpoint al seguente URL:
 
 ```
-https://[region].appid.ibm.cloud.com/oauth/v4/{tenantId}/.well-known/openid-configuration
+https://{region}.appid.ibm.cloud.com/oauth/v4/{tenantId}/.well-known/openid-configuration
 ```
-{: pre}
+{: codeblock}
 
 <table>
   <tr>
@@ -77,18 +77,18 @@ https://[region].appid.ibm.cloud.com/oauth/v4/{tenantId}/.well-known/openid-conf
 
 **Come effettuo una chiamata all'endpoint?**
 
-Per effettuare una chiamata all'endpoint devi avere un `tenantID` valido e devi impostare come hardcoded l'URI del documento di rilevamento nella tua applicazione.
+Per effettuare una chiamata all'endpoint devi avere un ID tenant valido e devi impostare come hardcoded l'URI del documento di rilevamento nel tuo codice dell'applicazione.
 
 Controlla la seguente richiesta cURL di esempio:
 
 ```bash
-curl -X GET "https://us-south.appid.cloud.ibm.com/oauth/v4/asd/.well-known/openid-configuration" -H "accept: application/json"
+curl -X GET "https://{region}.appid.cloud.ibm.com/oauth/v4/{tenant-id}/.well-known/openid-configuration" -H "accept: application/json"
 ```
 {:codeblock}
 
 **Cosa posso aspettarmi che venga restituito dalla chiamata?**
 
-La risposta dovrebbe essere simile al seguente esempio:
+La risposta restituita è simile al seguente esempio:
 
 ```bash
 {
@@ -165,7 +165,7 @@ La risposta dovrebbe essere simile al seguente esempio:
   </tr>
   <tr>
     <td><code>userinfo_endpoint</code></td>
-    <td>L'URL dell'endpoint delle informazioni sull'utente {{site.data.keyword.appid_short_notm}}.</td>
+    <td>L'URL dell'endpoint {{site.data.keyword.appid_short_notm}} <code>/userinfo</code>.</td>
   </tr>
   <tr>
     <td><code>scopes_supported</code></td>

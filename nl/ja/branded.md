@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-20"
 
 keywords: authentication, authorization, identity, app security, secure, customizing apps, directory, registry, 
 
@@ -38,7 +38,7 @@ subcollection: appid
 {: #branded-requirements}
 
 
-独自の UI を表示するには、ID プロバイダーとして [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory) を使用する必要があります。クラウド・ディレクトリーを[構成](/docs/services/appid?topic=appid-cloud-directory)する方法はいくつかあります。 送信するメッセージのタイプを決定し、コンテンツとデザインをカスタマイズすることができます。 どんなメッセージを使用すればよいでしょうか? 問題ありません。 GUI には、使用できるメッセージの例があります。
+独自の UI を表示するには、ID プロバイダーとして [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory) を使用する必要があります。 クラウド・ディレクトリーを[構成](/docs/services/appid?topic=appid-cloud-directory)する方法はいくつかあります。 送信するメッセージのタイプを決定し、コンテンツとデザインをカスタマイズすることができます。 どんなメッセージを使用すればよいでしょうか? 問題ありません。 GUI には、使用できるメッセージの例があります。
 
 
 英語以外の[言語](/docs/services/appid?topic=appid-cd-messages#cd-languages)を使用する必要がありますか? <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/updateLocalization" target="_blank">言語管理 API <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> を使用して別の言語を選択し、翻訳された独自のコンテンツを表示することができます。
@@ -48,7 +48,7 @@ subcollection: appid
 ### 独自の画面のいくつかとデフォルトの画面のいくつかを使用することはできますか?
 {: #branded-hybrid}
 
-はい。 独自の画面のいくつかとデフォルトの画面のいくつかを使用するハイブリッド・フローを作成できます。ただし、使用できる選択肢は、1 つのフローにつき 1 つだけです。例として、独自のサインイン画面を使用するとともに、デフォルトの登録画面を使用することもできます。ただし、デフォルトの登録画面を使用することを選択した場合は、登録の検証を含め、登録フロー全体を通してデフォルトを使い続ける必要があります。
+はい。 独自の画面のいくつかとデフォルトの画面のいくつかを使用するハイブリッド・フローを作成できます。 ただし、使用できる選択肢は、1 つのフローにつき 1 つだけです。 例として、独自のサインイン画面を使用するとともに、デフォルトの登録画面を使用することができます。 ただし、デフォルトの登録画面を使用することを選択した場合は、登録の検証を含め、登録フロー全体を通してデフォルトを使い続ける必要があります。
 
 ### 各フローは技術的にどのように異なっていますか?
 {: #branded-technically}
@@ -62,15 +62,15 @@ subcollection: appid
 
 はい。 以下のいずれかのサンプルを参照して、クラウド・ディレクトリーが機能する様子を確認してください。
 
-* <a href="https://www.ibm.com/blogs/bluemix/2018/01/use-branded-ui-user-sign-app-id/" target="_blank">Use your own branded UI for user sign-in with {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a>
-* <a href="https://www.ibm.com/blogs/bluemix/2018/06/use-ui-flows-user-sign-sign-app-id/" target="_blank">Use your own UI and Flows for User Sign-Up and Sign-in with with {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a>
-* <a href="https://www.ibm.com/blogs/bluemix/2018/06/custom-login-page-app-id-integration/" target="_blank">Use a custom login page with  {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a>
+* <a href="https://www.ibm.com/cloud/blog/use-branded-ui-user-sign-app-id" target="_blank">Use your own branded UI for user sign-in with {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a>
+* <a href="https://www.ibm.com/cloud/blog/use-ui-flows-user-sign-sign-app-id" target="_blank">Use your own UI and Flows for User Sign-Up and Sign-in with with {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a>
+* <a href="https://www.ibm.com/cloud/blog/custom-login-page-app-id-integration" target="_blank">Use a custom login page with  {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a>
 
 
 ## Android SDK によるアプリのブランド設定
 {: #branded-ui-android}
 
-クラウド・ディレクトリーを有効にした場合は、Android SDK を使用してカスタマイズした画面を呼び出せます。 ユーザーの対話に使用できるようにする画面の組み合わせを選択できます。詳しい例については、<a href="https://www.ibm.com/blogs/bluemix/2018/01/use-branded-ui-user-sign-app-id/" target="blank">このブログ <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"> を確認してください</a>。
+クラウド・ディレクトリーを有効にした場合は、Android SDK を使用してカスタマイズした画面を呼び出せます。 ユーザーの対話に使用できるようにする画面の組み合わせを選択できます。詳しい例については、<a href="https://www.ibm.com/cloud/blog/use-branded-ui-user-sign-app-id" target="blank">このブログ <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"> を確認してください</a>。
 {: shortdesc}
 
 
@@ -95,7 +95,7 @@ subcollection: appid
         }
   });
   ```
-  {: pre}
+  {: codeblock}
 
 </br>
 </br>
@@ -185,7 +185,7 @@ Cloud Directory を有効にした場合は、Node.js SDK を使用してカス�
 
 これを可能にするために、{{site.data.keyword.appid_short_notm}} は REST API を公開しています。 REST API を使用して、Web アプリにサービスを提供するバックエンド・サーバーを構築したり、独自のカスタム画面を使用してモバイル・アプリと対話したりできます。
 
-管理 API は、IBM Cloud Identity and Access Management で生成されたトークンで保護されます。これは、各サービス・インスタンスに対してチームの誰がどのレベルのアクセス権限を持つかをアカウント所有者が指定できるということを意味します。IAM と {{site.data.keyword.appid_short_notm}} の連動方法について詳しくは、[サービス・アクセス管理](/docs/services/appid?topic=appid-service-access-management#service-access-management)を参照してください。
+管理 API は、IBM Cloud Identity and Access Management で生成されたトークンで保護されます。これは、各サービス・インスタンスに対してチームの誰がどのレベルのアクセス権限を持つかをアカウント所有者が指定できるということを意味します。 IAM と {{site.data.keyword.appid_short_notm}} の連動方法について詳しくは、[サービス・アクセス管理](/docs/services/appid?topic=appid-service-access-management#service-access-management)を参照してください。
 
 [設定](/docs/services/appid?topic=appid-cloud-directory#cd-settings)を構成したら、以下のエンドポイントを呼び出して各画面を表示できます。
 

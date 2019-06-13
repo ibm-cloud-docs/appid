@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-20"
+lastupdated: "2019-05-09"
 
 keywords: authentication, authorization, identity, app security, secure, development, cloud foundry, access management, iam, java, node.js
 
@@ -74,7 +74,7 @@ subcollection: appid
   ```
   ibmcloud login -a cloud.ibm.com -r <region>
   ```
-  {: pre}
+  {: codeblock}
 
   <table>
     <tr>
@@ -108,23 +108,23 @@ subcollection: appid
   ```
   ibmcloud target --cf
   ```
-  {: pre}
+  {: codeblock}
 
 8. 建立 {{site.data.keyword.appid_short_notm}} 服務實例的別名。
 
   ```
   ibmcloud resource service-alias-create {ALIAS_NAME} --instance-name {SERVICE_INSTANCE_NAME}
   ```
-  {: pre}
+  {: codeblock}
 
-9. 使用在前一個指令中取得的資訊，在專案的 `manifest.yml` 中編輯主機及名稱值。將您建立的別名新增至您的服務。
+9. 將您建立的別名新增至 `manifest.yml` 中的服務。
 
 10. 透過部署範例應用程式來連結 `manifest.yml` 檔案中列出的各項服務。
 
   ```
   ibmcloud app push
   ```
-  {: pre}
+  {: codeblock}
 
 ## 部署 Java 應用程式
 {: #java}
@@ -144,7 +144,7 @@ subcollection: appid
   ```
   mvn clean install
   ```
-  {: pre}
+  {: codeblock}
 
 7. 切換至 Liberty 資料夾。
 
@@ -153,34 +153,29 @@ subcollection: appid
   ```
   ibmcloud login -a cloud.ibm.com -r <region>
   ```
-  {: pre}
+  {: codeblock}
 
 8. 以您要在其中工作的 Cloud Foundry 組織及空間為目標，並遵循提示來瞄準某個組織及空間。
 
   ```
   ibmcloud target --cf
   ```
-  {: pre}
+  {: codeblock}
 
 10. 建立 {{site.data.keyword.appid_short_notm}} 服務實例的別名。
 
   ```
   ibmcloud resource service-alias-create {ALIAS_NAME} --instance-name {SERVICE_INSTANCE_NAME}
   ```
-  {: pre}
+  {: codeblock}
 
-11. 使用在前一個指令中取得的資訊，在專案的 `manifest.yml` 中編輯主機及名稱值。將您建立的別名新增至您的服務。
+11. 將您建立的別名新增至 `manifest.yml` 中的服務。
 
   範例：
   ```
     applications:
   - name: ApplicationName
-    host: HostName
-    buildpack: liberty-for-java
-    instances: 1
     memory: 512M
-    disk_quota: 1024M
-    timeout: 180
     services:
     - AppID-alias
   ```
@@ -191,5 +186,5 @@ subcollection: appid
   ```
   ibmcloud app push
   ```
-  {: pre}
+  {: codeblock}
 

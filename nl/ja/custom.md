@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-13"
 
 keywords: authentication, authorization, identity, app security, secure, custom, proprietary, private key, public key, jwt
 
@@ -93,7 +93,7 @@ Content-Type: application/json
 
 1. **「カスタム ID プロバイダー (Custom Identity Provider)」**タブで、**「テスト」**をクリックしてテスト・アプリケーションを開きます。
 
-2. カスタム ID [プロトコル](https://jwt.io/)の後に [JWT.io](/docs/services/appid?topic=appid-custom-auth#generating-jwts) を使用して、サンプル JWT を作成します。
+2. カスタム ID [プロトコル](/docs/services/appid?topic=appid-custom-auth#generating-jwts)に従い、[サンプル JWT](https://jwt.io/) を作成します。
 
 3. この JWT を、**「JSON Web トークン (JSON Web Token)」**というラベルが付いたボックスに貼り付け、**「テスト」**をクリックしてサンプル認証を実行します。
 

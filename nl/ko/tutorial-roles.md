@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-08"
+lastupdated: "2019-05-31"
 
 keywords: authentication, authorization, identity, app security, secure, access management, roles, attributes, users
 
@@ -38,7 +38,7 @@ API가 처음이십니까? 이 [Postman 콜렉션](https://github.com/ibm-cloud-
 귀하는 가상의 테마 공원 개발자입니다. 귀하는 [웹 애플리케이션](/docs/services/appid?topic=appid-web-apps)에 대한 액세스를 관리하는 업무를 담당하며 해당 업무를 수행하는 가장 간단한 방법이 각각의 사용자 유형에 대한 역할을 설정하는 것이라고 생각합니다. 모두 서로 다른 레벨의 권한이 필요한 공원 직원 및 방문자 등의 몇 가지 서로 다른 역할 유형이 존재합니다. 귀하는 프로세스를 간소화하고 사용자가 애플리케이션에 처음으로 사인인하는 순간부터 해당 사용자에게 올바른 역할이 지정되기를 원합니다.  
 {: shortdesc}
 
-걱정하지 마십시오! {{site.data.keyword.appid_short_notm}}의 [사용자 정의 속성 기능](/docs/services/appid?topic=appid-custom-attributes)을 사용하여 모든 유형의 사용자 관련 정보를 저장할 수 있습니다. 따라서 역할 기반 액세스 제어 관련 작업을 수행 중이기 때문에 `role`로 이름 지정된 속성을 작성한 후 특정 유형의 역할을 지정하기 위해 서로 다른 값을 지정할 수 있습니다. 예를 들어 테마 공원에 각각 `role` 속성에 대한 값이 서로 다른 `visitors` 또는 `staff`이 포함될 수 있습니다. 그런 다음 애플리케이션 코드에서 사용자가 지정한 액세스 정책 및 권한을 적용하도록 할 수 있습니다.
+걱정하지 마십시오! {{site.data.keyword.appid_short_notm}}의 [사용자 정의 속성 기능](/docs/services/appid?topic=appid-profiles)을 사용하여 모든 유형의 사용자 관련 정보를 저장할 수 있습니다. 따라서 역할 기반 액세스 제어 관련 작업을 수행 중이기 때문에 `role`로 이름 지정된 속성을 작성한 후 특정 유형의 역할을 지정하기 위해 서로 다른 값을 지정할 수 있습니다. 예를 들어 테마 공원에 각각 `role` 속성에 대한 값이 서로 다른 `visitors` 또는 `staff`이 포함될 수 있습니다. 그런 다음 애플리케이션 코드에서 사용자가 지정한 액세스 정책 및 권한을 적용하도록 할 수 있습니다.
 
 이 튜토리얼은 특히 웹 앱 및 Cloud Directory를 염두에 두고 작성되었지만 더욱 광범위한 의미로 속성을 사용할 수 있습니다. 사용자 정의 속성은 사용자가 원하는 모든 속성이 될 수 있습니다. 속성의 숫자가 100,000개 미만인 상태에서 일반 JSON 오브젝트로 형식화하는 경우 모든 유형의 정보를 저장할 수 있습니다!
 {: note}
@@ -87,14 +87,14 @@ Cloud Land에 새로운 직원 구성원이 추가되었습니다! 해당 구성
   ```
   ibmcloud login
   ```
-  {: pre}
+  {: codeblock}
 
 2. IAM 액세스 토큰을 받으십시오.
 
   ```
   ibmcloud iam oauth-tokens
   ```
-  {: pre}
+  {: codeblock}
 
 3. `staff` 속성이 포함된 새 사용자에 대한 사용자 프로파일을 작성하기 위한 POST 요청을 작성하십시오. 사용되는 이메일에 액세스하여 유효성 검증할 수 있는지 확인하십시오.
 
@@ -113,7 +113,7 @@ Cloud Land에 새로운 직원 구성원이 추가되었습니다! 해당 구성
     }
   }'
   ```
-  {: pre}
+  {: codeblock}
 
   정상적인 응답 출력:
 
@@ -132,7 +132,7 @@ Cloud Land에 새로운 직원 구성원이 추가되었습니다! 해당 구성
   --header 'Authorization: Bearer <iam-access-token>' \
   --header 'Content-Type: application/json' \
   ```
-  {: pre}
+  {: codeblock}
 
   정상적인 응답 본문:
 
@@ -154,7 +154,7 @@ Cloud Land에 새로운 직원 구성원이 추가되었습니다! 해당 구성
 ## 3단계: 사용자 속성 업데이트
 {: #roles-update-attributes}
 
-Cloud Land가 성장하고 있습니다! 이러한 성장을 따라잡기 위해 회사에서 새 직원을 고용합니다. 2단계의 `staff` 사용자는 이제 관리자가 되었습니다. [새 역할을 지정](/docs/services/appid?topic=appid-custom-attributes)하여 해당 프로파일을 업데이트할 수 있습니다.
+Cloud Land가 성장하고 있습니다! 이러한 성장을 따라잡기 위해 회사에서 새 직원을 고용합니다. 2단계의 `staff` 사용자는 이제 관리자가 되었습니다. [새 역할을 지정](/docs/services/appid?topic=appid-profiles#profile-set-custom)하여 해당 프로파일을 업데이트할 수 있습니다.
 {: shortdesc}
 
 1. 프로파일을 업데이트하십시오.
@@ -172,7 +172,7 @@ Cloud Land가 성장하고 있습니다! 이러한 성장을 따라잡기 위해
     }
   }'
   ```
-  {: pre}
+  {: codeblock}
 
 3. 프로파일을 보고 올바르게 업데이트되었는지 확인하십시오.
 
@@ -182,7 +182,7 @@ Cloud Land가 성장하고 있습니다! 이러한 성장을 따라잡기 위해
   --header 'Authorization: Bearer <iam-access-token>' \
   --header 'Content-Type: application/json' \
   ```
-  {: pre}
+  {: codeblock}
 
   정상적인 응답 출력:
 
@@ -236,7 +236,7 @@ Cloud Land가 성장하고 있습니다! 이러한 성장을 따라잡기 위해
       ]
   }'
   ```
-  {: pre}
+  {: codeblock}
 
   <table>
     <tr>
@@ -314,7 +314,7 @@ Cloud Land가 성장하고 있습니다! 이러한 성장을 따라잡기 위해
   --header `Accept: application/json`
   - d 'grant_type=password&username=<user-email>%40<user-email-domain>&password=<user-password>
   ```
-  {: pre}
+  {: codeblock}
 
 5. 액세스 토큰을 디코딩하십시오.
   1. 이전 명령에서 응답 출력에 있는 토큰을 복사하십시오.

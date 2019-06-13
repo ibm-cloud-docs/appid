@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-08"
+lastupdated: "2019-06-06"
 
-keywords: authentication, authorization, identity, app security, secure, compliance, high availability
+keywords: Authentication, authorization, identity, app security, secure, compliance, high availability, ha, disaster recover, dr, protocols, oauth, oidc
 
 subcollection: appid
 
@@ -26,7 +26,7 @@ subcollection: appid
 {: #about}
 
 La sicurezza delle applicazioni può essere incredibilmente complicata. Per la maggior parte degli sviluppatori, è una delle parti più difficili nella creazione di un'applicazione. Come puoi essere sicuro di proteggere le informazioni dell'utente? Integrando {{site.data.keyword.appid_full}} nelle tue applicazioni, puoi proteggere le risorse e aggiungere l'autenticazione, anche quando non hai molta esperienza in materia di sicurezza.
-{:shortdesc}
+{: shortdesc}
 
 
 
@@ -38,7 +38,7 @@ La sicurezza delle applicazioni può essere incredibilmente complicata. Per la m
 
 Cosa può fare Cloud Directory per te? Guarda questo video per saperne di più sui diversi modi in cui puoi usare il servizio e, nella seguente tabella, leggi ulteriori informazioni sugli altri scenari.
 
-<iframe class="embed-responsive-item" id="youtubeplayer" title="Informazioni su App ID" type="text/html" width="640" height="390" src="//www.youtube.com/embed/XlrCjHdK43Q?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
+<iframe class="embed-responsive-item" id="about-appid" title="Informazioni su {{site.data.keyword.appid_short_notm}}" type="text/html" width="640" height="390" src="//www.youtube.com/embed/XlrCjHdK43Q?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
 
 <table>
   <tr>
@@ -55,7 +55,7 @@ Cosa può fare Cloud Directory per te? Guarda questo video per saperne di più s
   </tr>
   <tr>
     <td>Desideri creare esperienze dell'applicazione personalizzate per i tuoi utenti.</td>
-    <td>Con {{site.data.keyword.appid_short_notm}}, puoi [archiviare i dati utente](/docs/services/appid?topic=appid-user-profile#user-profile) come le preferenze dell'applicazione o le informazioni dai loro profili sociali pubblici e poi utilizzare quei dati per personalizzare ogni esperienza della tua applicazione.</td>
+    <td>Con {{site.data.keyword.appid_short_notm}}, puoi [archiviare i dati utente](/docs/services/appid?topic=appid-profiles) come le preferenze dell'applicazione o le informazioni dai loro profili sociali pubblici e poi utilizzare quei dati per personalizzare ogni esperienza della tua applicazione.</td>
   </tr>
   <tr>
     <td>Vuoi gestire gli utenti in un modo scalabile.</td>
@@ -75,7 +75,7 @@ Con {{site.data.keyword.appid_short_notm}}, puoi aggiungere un livello di sicure
 <dl>
   <dt>Applicazione</dt>
     <dd><strong>SDK server</strong>: puoi proteggere le tue risorse di backend ospitate in {{site.data.keyword.cloud_notm}} e le tue applicazioni web utilizzando l'SDK server. Estrae il token di accesso da una richiesta e lo convalida con {{site.data.keyword.appid_short_notm}}. </br>
-    <strong>SDK client</strong>: puoi proteggere le tue applicazioni mobili con l'SDK client per Android o iOS. L'SDK client comunica con le tue risorse cloud per avviare automaticamente il processo di autenticazione quando individua una verifica dell'autorizzazione.</dd>
+<strong>SDK client</strong>: puoi proteggere le tue applicazioni mobili con l'SDK client per Android o iOS. L'SDK client comunica con le tue risorse cloud per avviare automaticamente il processo di autenticazione quando individua una verifica dell'autorizzazione.</dd>
   <dt>{{site.data.keyword.cloud_notm}}</dt>
     <dd><strong>{{site.data.keyword.appid_short_notm}}</strong>: dopo una corretta autenticazione, {{site.data.keyword.appid_short_notm}} restituisce i token di identità e accesso alla tua applicazione.</br>
     <strong>Cloud Directory</strong>: gli utenti possono registrarsi per il tuo servizio con la loro email e una password. Puoi quindi gestire i tuoi utenti in una vista elenco tramite la IU. Con Cloud Directory, {{site.data.keyword.appid_short_notm}} funziona come provider di identità.</dd>
@@ -91,30 +91,30 @@ Puoi utilizzare {{site.data.keyword.appid_short_notm}} con le altre offerte {{si
 {:shortdesc}
 
 <dl>
-  <dt>{{site.data.keyword.containerlong_notm}}</dt>
-    <dd>Configurando Ingress in un cluster standard, puoi proteggere le tue applicazioni a livello di cluster. Per iniziare, consulta <a href="/docs/containers?topic=containers-ingress_annotation#appid-auth">l'annotazione di Ingress per l'autenticazione {{site.data.keyword.appid_short_notm}}</a> o il post di blog <a href="https://www.ibm.com/blogs/bluemix/2018/05/announcing-app-id-integration-ibm-cloud-kubernetes-service/">Announcing {{site.data.keyword.appid_short_notm}} integration to {{site.data.keyword.containerlong_notm}} <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a>.</dd>
-  <dt>{{site.data.keyword.openwhisk}} e API Connect</dt>
-    <dd>Quando crei le tue API con [{{site.data.keyword.openwhisk_short}}](/docs/openwhisk?topic=cloud-functions-getting_started#getting_started) e [API Connect](/docs/services/apiconnect?topic=apiconnect-index#index), puoi proteggere le tue applicazioni a livello di gateway anziché a livello di codice della tua applicazione. Per vedere l'integrazione in azione, guarda <a href="https://www.youtube.com/watch?v=Fa9YD2NGZiE" target="_blank">Simple and fast social login OAauth with APIC and {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a>.</dd>
+  <dt>{{site.data.keyword.containershort_notm}}</dt>
+    <dd>Configurando Ingress in un cluster standard, puoi proteggere le tue applicazioni a livello di cluster. Per iniziare, consulta <a href="/docs/containers?topic=containers-ingress_annotation#appid-auth">l'annotazione di Ingress per l'autenticazione {{site.data.keyword.appid_short_notm}}</a> o il post di blog <a href="https://www.ibm.com/blogs/cloud-archive/2018/05/announcing-app-id-integration-ibm-cloud-kubernetes-service/">Announcing {{site.data.keyword.appid_short_notm}} integration to {{site.data.keyword.containerlong_notm}} <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a>.</dd>
+  <dt>{{site.data.keyword.openwhisk_short}} e {site.data.keyword.apiconnect_short}}</dt>
+    <dd>Quando crei le tue API con [{{site.data.keyword.openwhisk_short}}](/docs/openwhisk?topic=cloud-functions-getting_started#getting_started) e [API Connect](/docs/services/apiconnect?topic=apiconnect-getting-started), puoi proteggere le tue applicazioni a livello di gateway anziché a livello di codice della tua applicazione. Per vedere l'integrazione in azione, guarda <a href="https://www.youtube.com/watch?v=Fa9YD2NGZiE" target="_blank">Simple and fast social login OAuth with API Connect and {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a>.</dd>
   <dt>Cloud Foundry</dt>
     <dd>Prova una delle applicazioni Cloud Foundry di esempio per scoprire come integrare {{site.data.keyword.appid_short_notm}} nelle tue applicazioni.</dd>
   <dt>{{site.data.keyword.cloudaccesstrailshort}}</dt>
-    <dd>Puoi anche monitorare l'attività amministrativa effettuata in {{site.data.keyword.appid_short_notm}} come lo modifiche alla configurazione del dashboard, utilizzando il servizio [{{site.data.keyword.cloudaccesstrailshort}}](/docs/services/cloud-activity-tracker/reference?topic=cloud-activity-tracker-getting-started-with-cla#getting-started-with-cla).</dd>
+    <dd>Puoi anche monitorare l'attività amministrativa effettuata in {{site.data.keyword.appid_short_notm}} come le modifiche alla configurazione del dashboard, utilizzando la [documentazione {{site.data.keyword.cloudaccesstrailshort}}](/docs/services/cloud-activity-tracker?topic=cloud-activity-tracker-getting-started#getting-started).</dd>
   <dt>Guida alla programmazione iOS</dt>
-    <dd>Sviluppi applicazioni per Apple? Prova la [Guida alla programmazione iOS](/docs/swift/authenticate?topic=swift-getting_started_swift#getting_started_swift) per conoscere, sperimentare e migliorare le tue applicazioni iOS esistenti con {{site.data.keyword.cloud_notm}}.</dd>
+    <dd>Sviluppi applicazioni per Apple? Prova la [Guida alla programmazione iOS](/docs/swift?topic=swift-getting-started) per conoscere, sperimentare e migliorare le tue applicazioni iOS esistenti con {{site.data.keyword.cloud_notm}}.</dd>
   <dt>Guida alla programmazione Node.js</dt>
-    <dd>Sviluppi applicazioni in Node.js? Prova la [Guida alla programmazione Node.js](/docs/node?topic=nodejs-node-getting-started#node-getting-started) per conoscere, sperimentare e migliorare le tue applicazioni Node.js esistenti con {{site.data.keyword.cloud_notm}}.</dd>
+    <dd>Sviluppi applicazioni in Node.js? Prova la [Guida alla programmazione Node.js](/docs/node?topic=nodejs-getting-started) per conoscere, sperimentare e migliorare le tue applicazioni Node.js esistenti con {{site.data.keyword.cloud_notm}}.</dd>
 </dl>
 
 
 ## Conformità e standard
 {: #about-compliance}
 
-{{site.data.keyword.appid_short_notm}} ha completato correttamente diverse certificazioni e diversi controlli e standard.
+{{site.data.keyword.appid_short_notm}} ha completato correttamente diverse certificazioni e diversi controlli e standard. 
 {: shortdesc}
 
 {{site.data.keyword.appid_short_notm}} è basato su una serie di specifiche e protocolli standard del settore ben noti spesso rilevati sia nelle applicazioni rivolte ai consumatori che in quelle aziendali, il framework di autorizzazione OAuth 2.0 e Open ID Connect. OAuth 2.0 viene utilizzato per ottenere e verificare l'autorizzazione per l'accesso alle risorse protette. In aggiunta a ciò, Open ID Connect aggiunge un livello di protezione identità e autenticazione alla tua applicazione.
 
-Vedi la sezione 5.4 del report di compatibilità dei prodotti software {{site.data.keyword.appid_short_notm}} per esaminare un elenco completo di [certificazioni](https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=BF31C8008D7C11E59F9AD7336D7D0FFB). Oltre ai certificati, {{site.data.keyword.appid_short_notm}} è anche conforme alle seguenti specifiche: Oauth 2.0, OpenID Connect, JWT (JSON Web Token), JWS (JSON Web Signature), SCIM (System for Cross-domain Identity Management). 
+Vedi la sezione 5.4 del report di compatibilità dei prodotti software {{site.data.keyword.appid_short_notm}} per esaminare un elenco completo di [certificazioni](https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=BF31C8008D7C11E59F9AD7336D7D0FFB). Oltre ai certificati, {{site.data.keyword.appid_short_notm}} è anche conforme alle seguenti specifiche: OAuth 2.0, OpenID Connect, JWT (JSON Web Token), JWS (JSON Web Signature), SCIM (System for Cross-domain Identity Management). 
 
 
 ## Alta disponibilità regionale

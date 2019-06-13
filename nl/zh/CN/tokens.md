@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-10"
+lastupdated: "2019-04-23"
 
 keywords: authentication, authorization, identity, app security, secure, tokens, jwt, development
 
@@ -187,7 +187,7 @@ subcollection: appid
   2. 具体检查是否使用了相同的算法，以及公用密钥高速缓存是否包含具有相关密钥标识的密钥。
   3. 确保散列值与公用密钥的 PEM 格式的签名相同。可以通过组合并散列化令牌的有效内容头来获取散列值。由于此过程可能很复杂，难以手动实现，因此使用其中一个[列出的库](https://jwt.io/)来验证签名可能会很有用。
 
-6. 验证存储在令牌中的声明。要验证未来检查，可以使用[此列表](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation)。
+6. 验证存储在令牌中的声明。要验证未来检查，可以使用[此列表](https://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation)。
   <table>
     <thead>
       <th colspan=2><img src="images/idea.png" alt="“更多信息”图标"/> 必须验证的声明</th>

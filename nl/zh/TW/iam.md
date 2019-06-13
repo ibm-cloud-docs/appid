@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-13"
+lastupdated: "2019-05-13"
 
 keywords: authentication, authorization, identity, app security, secure, access, platform, management, permissions
 
@@ -242,7 +242,8 @@ subcollection: appid
 {: shortdesc}
 
 開始之前：
-* 安裝 [{{site.data.keyword.cloud_notm}} CLI](/docs/cli/reference/ibmcloud?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli)。
+
+* 安裝 [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-ibmcloud-cli)。
 
 若要更新存取權，管理者會完成下列步驟：
 
@@ -256,9 +257,9 @@ subcollection: appid
     
 
     ```
-    ibmcloud login -api -a https://api.<region>.cloud.ibm.com
+    ibmcloud login -api -a https://api.{region}.cloud.ibm.com
     ```
-    {: pre}
+    {: codeblock}
 
     <table>
       <tr>
@@ -293,7 +294,7 @@ subcollection: appid
     ```
     ibmcloud iam oauth-tokens
     ```
-    {: pre}
+    {: codeblock}
 
 6. 驗證團隊成員無法進行變更。
     
@@ -309,9 +310,9 @@ subcollection: appid
        "secret": "appsecret"
      }
     }' \
-    'https://us-south.appid.cloud.ibm.com/management/v4/<tenantID>/config/idps/facebook'
+    'https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/config/idps/facebook'
     ```
-    {: pre}
+    {: codeblock}
 
     結果是 403 未獲授權訊息。
 
@@ -323,7 +324,7 @@ subcollection: appid
     ```
     ibmcloud login -a api.<region>.console.cloud.ibm.com
     ```
-    {: pre}
+    {: codeblock}
 
 2. 取得 IAM 記號並記下它。
     
@@ -331,14 +332,14 @@ subcollection: appid
     ```
     ibmcloud iam oauth-tokens
     ```
-    {: pre}
+    {: codeblock}
 
 3. 使用 cURL 檢視 Facebook 的身分提供者配置。
     
 
     ```
-    curl -X GET --header 'Accept: application/json' --header 'Authorization: <IAM token value>' \  'https://us-south.appid.cloud.ibm.com/management/v4/<tenantID>/config/idps/facebook'
+    curl -X GET --header 'Accept: application/json' --header 'Authorization: <IAM token value>' \  'https://us-south.appid.cloud.ibm.com/management/v4/<tenant-ID>/config/idps/facebook'
     ```
-    {: pre}
+    {: codeblock}
 
         結果為 200 訊息，其中包含身分提供者資訊。

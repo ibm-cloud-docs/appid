@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-20"
+lastupdated: "2019-05-09"
 
 keywords: authentication, authorization, identity, app security, secure, development, cloud foundry, access management, iam, java, node.js
 
@@ -26,23 +26,23 @@ subcollection: appid
 # チュートリアル: {{site.data.keyword.appid_short_notm}} を使用するように Cloud Foundry を構成する
 {: #cloud-foundry}
 
-{{site.data.keyword.cloud_notm}} の使用時には、ID およびアクセス管理 (IAM) と Cloud Foundry の 2 種類のアクセス管理でアプリを保護できます。デフォルトでは、{{site.data.keyword.appid_short_notm}} の新しいインスタンスではすべて IAM リソース・グループを使用してアクセスが管理されます。Cloud Foundry を使用してアプリケーションを管理している場合は、サービス別名を作成し、サービスをアプリにバインドすることにより、管理モデルを橋渡しすることができます。
+{{site.data.keyword.cloud_notm}} の使用時には、ID およびアクセス管理 (IAM) と Cloud Foundry の 2 種類のアクセス管理でアプリを保護できます。 デフォルトでは、{{site.data.keyword.appid_short_notm}} のすべての新しいインスタンスで IAM リソース・グループを使用してアクセスが管理されます。 Cloud Foundry を使用してアプリケーションを管理している場合は、サービス別名を作成し、サービスをアプリにバインドすることにより、管理モデルを橋渡しすることができます。
 {: shortdesc}
 
 
 ## Cloud Foundry について
 {: #cf-understand}
 
-別名は、{{site.data.keyword.appid_short_notm}} などの IAM 管理サービスと Cloud Foundry アプリケーションとの間の接続を作成します。アプリケーションのバインド時には、サービス資格情報が作成されて自動的にアプリに渡されます。バインドは構成において必須のステップですが、以下の利点もあります。
+別名は、{{site.data.keyword.appid_short_notm}} などの IAM 管理サービスと Cloud Foundry アプリケーションとの間の接続を作成します。 アプリケーションのバインド時には、サービス資格情報が作成されて自動的にアプリに渡されます。 バインドは構成において必須のステップですが、以下の利点もあります。
 
-* 自動化: VCAP_SERVICES 環境変数内に保管されているサービス資格情報を使用すると、手動でアプリにサービス資格情報をコピーする必要はなくなります。この操作は、すべて {{site.data.keyword.appid_short_notm}} SDK によって、裏でユーザーに代わって行われます。
+* 自動化: VCAP_SERVICES 環境変数内に保管されているサービス資格情報が使用されるので、手動でアプリにサービス資格情報をコピーする必要はなくなります。 この操作は、すべて {{site.data.keyword.appid_short_notm}} SDK によって、裏でユーザーに代わって行われます。
 * 安全性: 構成のプロセスが自動になるので、構成時のエラーが防止されます。
-* セキュリティー: サービス資格情報は環境変数内だけにあるので、アプリケーションにハードコーディングされる関連アクセスはありません。
+* セキュリティー: サービス資格情報は環境変数内だけに存在するので、アクセス権限関連の内容はアプリケーションに一切ハードコーディングされません。
 
-Cloud Foundry アプリが別のプラットフォーム上でホストされていますか? 問題ありません。 サービスにバインドするようにアプリ内でアプリケーション資格情報を定義できます。{{site.data.keyword.appid_short_notm}} ダッシュボードを使用するか、[/applications エンドポイント](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Applications/registerApplication)に対して要求を行って、アプリケーション資格情報を検出できます。
+Cloud Foundry アプリが別のプラットフォーム上でホストされていますか? 問題ありません。 サービスにバインドするようにアプリ内でアプリケーション資格情報を定義できます。 {{site.data.keyword.appid_short_notm}} ダッシュボードを使用するか、[/applications エンドポイント](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Applications/registerApplication)に対して要求を行って、アプリケーション資格情報を検出できます。
 {: tip}
 
-以下の図で、モデルが組み合わされている様子を確認してください。
+以下の図で、各モデルの関係を確認してください。
 
 ![Cloud Foundry アプリのバインド](images/cf-alias.png)
 
@@ -74,7 +74,7 @@ Cloud Foundry アプリが別のプラットフォーム上でホストされて
   ```
   ibmcloud login -a cloud.ibm.com -r <region>
   ```
-  {: pre}
+  {: codeblock}
 
   <table>
     <tr>
@@ -108,23 +108,23 @@ Cloud Foundry アプリが別のプラットフォーム上でホストされて
   ```
   ibmcloud target --cf
   ```
-  {: pre}
+  {: codeblock}
 
 8. {{site.data.keyword.appid_short_notm}} サービス・インスタンスの別名を作成します。
 
   ```
   ibmcloud resource service-alias-create {ALIAS_NAME} --instance-name {SERVICE_INSTANCE_NAME}
   ```
-  {: pre}
+  {: codeblock}
 
-9. 前述のコマンドで入手した情報を使用して、プロジェクトの `manifest.yml` 内でホストと名前の値を編集します。作成した別名をサービスに追加します。
+9. 作成した別名を `manifest.yml` 内のサービスに追加します。
 
-10. サンプル・アプリをデプロイして、`manifest.yml` ファイル内でリストされているサービスをバインドします。
+10. サンプル・アプリをデプロイして、`manifest.yml` ファイル内にリストされているサービスをバインドします。
 
   ```
   ibmcloud app push
   ```
-  {: pre}
+  {: codeblock}
 
 ## Java アプリのデプロイ
 {: #java}
@@ -144,7 +144,7 @@ Cloud Foundry アプリが別のプラットフォーム上でホストされて
   ```
   mvn clean install
   ```
-  {: pre}
+  {: codeblock}
 
 7. Liberty フォルダーに変更します。
 
@@ -153,43 +153,38 @@ Cloud Foundry アプリが別のプラットフォーム上でホストされて
   ```
   ibmcloud login -a cloud.ibm.com -r <region>
   ```
-  {: pre}
+  {: codeblock}
 
 8. 作業しようとしている Cloud Foundry 組織とスペースをターゲットにして、プロンプトの指示に従い組織とスペースをターゲットとして指定します。
 
   ```
   ibmcloud target --cf
   ```
-  {: pre}
+  {: codeblock}
 
 10. {{site.data.keyword.appid_short_notm}} サービス・インスタンスの別名を作成します。
 
   ```
   ibmcloud resource service-alias-create {ALIAS_NAME} --instance-name {SERVICE_INSTANCE_NAME}
   ```
-  {: pre}
+  {: codeblock}
 
-11. 前述のコマンドで入手した情報を使用して、プロジェクトの `manifest.yml` 内でホストと名前の値を編集します。作成した別名をサービスに追加します。
+11. 作成した別名を `manifest.yml` 内のサービスに追加します。
 
   例:
   ```
     applications:
   - name: ApplicationName
-    host: HostName
-    buildpack: liberty-for-java
-    instances: 1
     memory: 512M
-    disk_quota: 1024M
-    timeout: 180
     services:
     - AppID-alias
   ```
   {: screen}
 
-13. サンプル・アプリをデプロイして、`manifest.yml` ファイル内でリストされているサービスをバインドします。
+13. サンプル・アプリをデプロイして、`manifest.yml` ファイル内にリストされているサービスをバインドします。
 
   ```
   ibmcloud app push
   ```
-  {: pre}
+  {: codeblock}
 

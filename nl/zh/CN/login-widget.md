@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-06-06"
 
-keywords: authentication, authorization, identity, app security, secure, development, sign in, sign up, password, social, enterprise
+keywords: Authentication, authorization, identity, app security, secure, development, sign in, sign up, password, social, enterprise
 
 subcollection: appid
 
@@ -23,41 +23,31 @@ subcollection: appid
 {:download: .download}
 
 
-# 显示登录窗口小部件
+# 使用登录窗口小部件
 {: #login-widget}
 
-{{site.data.keyword.appid_full}} 提供了一个登录窗口小部件，使您能够为用户提供安全登录选项。
+通过 {{site.data.keyword.appid_full}}，您可以使用缺省 UI（称为“登录窗口小部件”）来允许应用程序用户选择要用于进行登录的身份提供者。如果使用的是 Cloud Directory，那么登录窗口小部件还会提供其他 UI 以给出额外功能，例如注册、忘记密码、多因子认证等。
 {: shortdesc}
 
-应用程序配置为使用身份提供者时，登录窗口小部件会将应用程序的访问者定向到登录屏幕。使用登录窗口小部件，可以显示登录流程的预配置屏幕。使用登录窗口小部件的另一个额外优点是，您可以随时更新登录流程，而无需以任何方式更改源代码！
-
-
-要创建您的应用程序所特有的体验吗？您可以[自带屏幕](/docs/services/appid?topic=appid-branded)！
-{: tip}
 
 ## 了解登录窗口小部件
 {: #widget-understanding}
 
-即使您没有自己的 UI 屏幕，也可以通过显示登录窗口小部件来利用 {{site.data.keyword.appid_short_notm}}。
-{: shortdesc}
+登录窗口小部件的其中一大优点是，您无需实施自己的任何认证 UI 就能开始使用 {{site.data.keyword.appid_short_notm}}，这使开发者的上线体验轻松得多。
 
-### 缺省设置是什么？
+### 缺省登录窗口小部件行为是什么？
 {: #widget-default}
 
-配置了多个身份提供者时，会在用户尝试登录到应用程序时将其重定向到登录窗口小部件。通过使用登录窗口小部件，用户可以选择要用于验证自己身份的提供者。但是，只有一个提供者设置为**开启**时，访问者会重定向到该身份提供者的认证屏幕。
+缺省情况下，允许登录窗口小部件使用 Facebook、Google 和 Cloud Directory。您可以随时通过选择要配置为选项的身份提供者来更改此行为。启用了多个身份提供者时，登录窗口小部件会显示一个屏幕，在其中用户可以选择自己的身份提供者。但是，如果只启用了一个提供者，那么用户不会看到上述选择屏幕。系统会将用户直接转至该身份提供者以开始登录过程。
 
-### {{site.data.keyword.appid_short_notm}} 会从身份提供者那里获取多少信息？
-{: #widget-obtain-info}
+例如，如果使用缺省设置（Facebook、Google 和 Cloud Directory），那么用户将看到该屏幕。如果仅启用 Facebook，那么系统会将用户直接转至 Facebook 进行认证。
 
-使用社交或企业身份提供者时，{{site.data.keyword.appid_short_notm}} 对用户帐户信息具有读访问权。服务使用身份提供者返回的令牌和断言来验证用户的身份是否与其声明的一致。由于服务从不具有对信息的写访问权，因此用户必须通过其所选身份提供者来执行操作，如重置其密码。例如，如果用户使用 Facebook 登录到应用程序，然后希望更改自己的密码，那么他们必须转至 www.facebook.com 来执行此操作。
-
-使用 [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory) 时，{{site.data.keyword.appid_short_notm}} 是身份提供者。该服务会使用注册表来验证用户身份。由于 {{site.data.keyword.appid_short_notm}} 是提供者，因此用户可以直接利用应用程序中的高级功能（例如，重置其密码）。
 
 
 ### 对于每个提供者，可以显示哪些屏幕？
 {: #widget-options}
 
-查看下表，了解对于各种身份提供者可以显示哪些屏幕。
+使用 Cloud Directory 时，{{site.data.keyword.appid_short_notm}} 能够为您提供扩展的用户管理功能。扩展功能还会应用于登录窗口小部件功能。存储在 Cloud Directory 中的用户可以直接在登录窗口小部件中利用注册或重置其密码等功能。查看下表，了解对于各种身份提供者可以显示哪些屏幕。
 
 <table>
   <thead>
@@ -102,15 +92,15 @@ subcollection: appid
   </tbody>
 </table>
 
-</br>
-</br>
 
 ## 定制登录窗口小部件
 {: #widget-customize}
 
-{{site.data.keyword.appid_short_notm}} 提供了缺省登录屏幕，如果您没有自己的 UI 屏幕需要显示，那么可以进行调用。
-您可以定制屏幕以显示您选择的徽标和颜色。
+登录窗口小部件是动态的。可以定制外观或身份提供者配置，并且这些更改会立即应用。无需以任何方式更新应用程序代码或重新部署应用程序！
 {: shortdesc}
+
+除了登录窗口小部件提供的定制外，还需要更多定制吗？您可以实施自己的完全定制的 UI，用于用户登录、注册、重置密码和其他流程，以创建应用程序的独特体验。首先，请查看[为应用程序添加品牌形象](/docs/services/appid?topic=appid-branded)。
+{: tip}
 
 要定制屏幕：
 
@@ -120,9 +110,6 @@ subcollection: appid
 4. 从颜色选取器中选择窗口小部件的标题颜色，或者输入其他颜色的十六进制代码。
 5. 检查预览窗格，对定制满意后，单击**保存更改**。此时将显示确认消息。
 6. 在浏览器中，刷新登录页面以验证您的更改。
-
-请牢记！您还可以利用其他语言版本的 {{site.data.keyword.appid_short_notm}}。如果看不到针对所用语言的 SDK，您始终可以使用 API。请查看<a href="https://www.ibm.com/blogs/bluemix/tag/app-id/" target="blank">我们的博客 <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a>。
-{: tip}
 
 
 ## 使用 Android SDK 显示登录窗口小部件
@@ -185,7 +172,7 @@ subcollection: appid
       }
   });
   ```
-  {: pre}
+  {: codeblock}
 
 </br>
 

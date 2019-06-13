@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-10"
+lastupdated: "2019-05-09"
 
 keywords: authentication, authorization, identity, app security, secure, backend, back-end, oauth, 
 
@@ -65,7 +65,7 @@ subcollection: appid
 
 2. クライアントが資格を満たしている場合、許可サーバーはアクセス・トークンを返します。
 
-3. クライアントが保護リソースに要求を送信します。 使用する HTTP クライアント・ライブラリーによって複数の方法で要求を送信できますが、要求には一般に次の形式を使用します。
+3. クライアントが保護リソースに要求を送信します。 使用する HTTP クライアント・ライブラリーに応じて複数の方法で要求を送信できますが、要求には一般に次の形式を使用します。
 
   ```
   curl -H 'Authorization: Bearer {access_token}' {https://my-protected-resource.com}
@@ -79,13 +79,13 @@ subcollection: appid
 ## SDK を使用したリソースの保護
 {: #backend-secure}
 
-{{site.data.keyword.appid_short_notm}} SDK を使用して、サーバー・サイドのアプリケーションのための認証と許可を実施できます。`ApiStrategy` はバックエンド・リソースを保護するために機能し、アクセス・トークンと識別トークンを検証することを要求の一部として求めます。
+{{site.data.keyword.appid_short_notm}} SDK を使用して、サーバー・サイドのアプリケーションの認証と許可を実施できます。 `ApiStrategy` はバックエンド・リソースを保護するために、要求の一部としてアクセス・トークンと識別トークンを検証することを求めます。
 {: shortdesc}
 
 {{site.data.keyword.appid_short_notm}} Node.js SDK は、[Passport フレームワーク](http://www.passportjs.org/)と連動して機能します。
 {: ph data-hd-programlang='javascript'}
 
-{{site.data.keyword.appid_short_notm}} サーバー・サイド Swift SDK には、バックエンド・アプリの保護に使用する API 保護ミドルウェア・プラグインが用意されています。API をミドルウェアと関連付けることで、アプリを不正アクセスから保護することができます。 API を保護した後、{{site.data.keyword.appid_short_notm}} が生成したトークンがこのミドルウェアによって確実に検証されます。 その検証結果に応じて API の動作を変更できます。
+{{site.data.keyword.appid_short_notm}} サーバー・サイド Swift SDK には、バックエンド・アプリの保護に使用する API 保護ミドルウェア・プラグインが用意されています。 API をミドルウェアと関連付けることで、アプリを不正アクセスから保護することができます。 API を保護した後、{{site.data.keyword.appid_short_notm}} が生成したトークンがこのミドルウェアによって確実に検証されます。 その検証結果に応じて API の動作を変更できます。
 {: ph data-hd-programlang='swift'}
 
 `/protectedendpoint` API を保護する方法の例について、以下のコード・スニペットを参照してください。
@@ -144,8 +144,21 @@ if #available(OSX 10.12, *) {
     Kitura.run()  
 }
 ```
-{: pre}
+{: codeblock}
 {: ph data-hd-programlang='swift'}
+
+{{site.data.keyword.appid_short_notm}} を使用してバックエンドの Node アプリケーションを保護する方法については、次のビデオをご覧ください。その後、[単純な Node サンプル・アプリ](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02b-simple-node-backend-app)を使用して試してください。
+{: ph data-hd-programlang='javascript'}
+
+<iframe class="embed-responsive-item" id="appid-backend-nodejs" title="{{site.data.keyword.appid_short_notm}} の概要" type="text/html" width="640" height="390" src="//www.youtube.com/embed/jJLSgkHpZwA?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+{: ph data-hd-programlang='javascript'}
+
+
+{{site.data.keyword.appid_short_notm}} を使用してバックエンドの Liberty for Java アプリケーションを保護する方法については、次のビデオをご覧ください。その後、[単純な Liberty for Java サンプル・アプリ](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02d-simple-liberty-backend-app)を使用して試してください。
+{: ph data-hd-programlang='java'}
+
+<iframe class="embed-responsive-item" id="appid-backend-liberty" title="{{site.data.keyword.appid_short_notm}} の概要" type="text/html" width="640" height="390" src="//www.youtube.com/embed/QA6DY2qqLaw?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+{: ph data-hd-programlang='java'}
 
 
 ### 開始する前に
@@ -170,7 +183,7 @@ if #available(OSX 10.12, *) {
       "ibmcloud-appid": "^6.0.0"
   }
   ```
-  {: pre}
+  {: codeblock}
   {: ph data-hd-programlang='javascript'}
 
 2. 以下のコマンドを実行します。
@@ -179,7 +192,7 @@ if #available(OSX 10.12, *) {
   ```
   npm install
   ```
-  {: pre}
+  {: codeblock}
   {: ph data-hd-programlang='javascript'}
 
 ### SDK の初期化
@@ -203,7 +216,7 @@ if #available(OSX 10.12, *) {
   var app = express();
   app.use(passport.initialize());
   ```
-  {: pre}
+  {: codeblock}
   {: ph data-hd-programlang='javascript'}
 
 
@@ -226,7 +239,7 @@ Node.js アプリが {{site.data.keyword.cloud_notm}} 上で実行され、{{sit
       }
    );
    ```
-  {: pre}
+  {: codeblock}
   {: ph data-hd-programlang='javascript'}
 
 トークンが有効である場合、要求チェーンの中で次の順番のミドルウェアが呼び出され、`appIdAuthorizationContext` プロパティーが要求オブジェクトに追加されます。 このプロパティーには、元のアクセス・トークンと識別トークン、およびトークンのデコード済みペイロード情報が格納されます。
@@ -236,7 +249,7 @@ Node.js アプリが {{site.data.keyword.cloud_notm}} 上で実行され、{{sit
 ## 手動でのリソースの保護
 {: #backend-secure-api}
 
-バックエンド・アプリと保護リソースを保護するには、トークンを検証する必要があります。クライアントがリソースに要求を送信するとき、定義された仕様をトークンが満たしているかどうかを検査できます。識別情報やスコープなど、設定した構成がトークンに含まれている可能性があります。{{site.data.keyword.appid_short_notm}} のアクセス・トークンと識別トークンは、いくつかの方法で検証できます。 ヘルプ情報が必要な場合は、[トークンの検証](/docs/services/appid?topic=appid-token-validation#token-validation)を確認してください。
+バックエンド・アプリと保護リソースを保護するには、トークンを検証する必要があります。 クライアントがリソースに対する要求を送信するとき、定義された仕様をトークンが満たしているかどうかを検査できます。 識別情報やスコープなど、指定した構成がトークンに含まれている可能性があります。 {{site.data.keyword.appid_short_notm}} のアクセス・トークンと識別トークンは、いくつかの方法で検証できます。 ヘルプ情報が必要な場合は、[トークンの検証](/docs/services/appid?topic=appid-token-validation#token-validation)を確認してください。
 
 
 ## 次のステップ

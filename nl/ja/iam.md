@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-13"
+lastupdated: "2019-05-13"
 
 keywords: authentication, authorization, identity, app security, secure, access, platform, management, permissions
 
@@ -242,7 +242,8 @@ UI でユーザー役割を割り当てる方法について詳しくは、[IAM 
 {: shortdesc}
 
 開始前に、以下のことを行います。
-* [{{site.data.keyword.cloud_notm}} CLI](/docs/cli/reference/ibmcloud?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli) をインストールします。
+
+* [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-ibmcloud-cli) をインストールします。
 
 アクセス許可を更新するために、管理者は以下の手順を実行します。
 
@@ -255,9 +256,9 @@ UI でユーザー役割を割り当てる方法について詳しくは、[IAM 
 4. 端末で {{site.data.keyword.cloud_notm}} CLI を使用してサインインします。
 
     ```
-    ibmcloud login -api -a https://api.<region>.cloud.ibm.com
+    ibmcloud login -api -a https://api.{region}.cloud.ibm.com
     ```
-    {: pre}
+    {: codeblock}
 
     <table>
       <tr>
@@ -291,7 +292,7 @@ UI でユーザー役割を割り当てる方法について詳しくは、[IAM 
     ```
     ibmcloud iam oauth-tokens
     ```
-    {: pre}
+    {: codeblock}
 
 6. そのチーム・メンバーは変更を行えないことを確認します。
 
@@ -306,9 +307,9 @@ UI でユーザー役割を割り当てる方法について詳しくは、[IAM 
        "secret": "appsecret"
      }
     }' \
-    'https://us-south.appid.cloud.ibm.com/management/v4/<tenantID>/config/idps/facebook'
+    'https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/config/idps/facebook'
     ```
-    {: pre}
+    {: codeblock}
 
     結果は 403 無許可メッセージです。
 
@@ -319,20 +320,20 @@ UI でユーザー役割を割り当てる方法について詳しくは、[IAM 
     ```
     ibmcloud login -a api.<region>.console.cloud.ibm.com
     ```
-    {: pre}
+    {: codeblock}
 
 2. IAM トークンを取得して、それをメモします。
 
     ```
     ibmcloud iam oauth-tokens
     ```
-    {: pre}
+    {: codeblock}
 
 3. cURL を使用して、Facebook の ID プロバイダー構成を表示します。
 
     ```
-    curl -X GET --header 'Accept: application/json' --header 'Authorization: <IAM token value>' \  'https://us-south.appid.cloud.ibm.com/management/v4/<tenantID>/config/idps/facebook'
+    curl -X GET --header 'Accept: application/json' --header 'Authorization: <IAM token value>' \  'https://us-south.appid.cloud.ibm.com/management/v4/<tenant-ID>/config/idps/facebook'
     ```
-    {: pre}
+    {: codeblock}
 
     結果として、ID プロバイダー情報が入った 200 メッセージが得られます。

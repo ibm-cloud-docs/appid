@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-13"
+lastupdated: "2019-05-13"
 
 keywords: authentication, authorization, identity, app security, secure, access, platform, management, permissions
 
@@ -242,7 +242,8 @@ subcollection: appid
 {: shortdesc}
 
 开始之前：
-* 安装 [{{site.data.keyword.cloud_notm}} CLI](/docs/cli/reference/ibmcloud?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli)。
+
+* 安装 [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-ibmcloud-cli)。
 
 要更新访问许可权，管理员将完成下列步骤：
 
@@ -253,12 +254,11 @@ subcollection: appid
 3. 导航至 {{site.data.keyword.appid_short_notm}} 仪表板的**服务凭证**选项卡。单击**查看凭证**并复制**租户标识**。
 
 4. 使用终端中的 {{site.data.keyword.cloud_notm}} CLI 进行登录。
-    
 
     ```
-    ibmcloud login -api -a https://api.<region>.cloud.ibm.com
+    ibmcloud login -api -a https://api.{region}.cloud.ibm.com
     ```
-    {: pre}
+    {: codeblock}
 
     <table>
       <tr>
@@ -288,15 +288,13 @@ subcollection: appid
     </table>
 
 5. 获取 IAM 令牌并记下它。
-    
 
     ```
     ibmcloud iam oauth-tokens
     ```
-    {: pre}
+    {: codeblock}
 
 6. 请验证团队成员是否无法进行更改。
-    
 
     ```
     curl -X PUT --header 'Content-Type: application/json' \
@@ -309,37 +307,33 @@ subcollection: appid
        "secret": "appsecret"
      }
     }' \
-    'https://us-south.appid.cloud.ibm.com/management/v4/<tenantID>/config/idps/facebook'
+    'https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/config/idps/facebook'
     ```
-    {: pre}
+    {: codeblock}
 
     结果显示 403 未经授权的消息。
 
 要从 CLI 查看 {{site.data.keyword.appid_short_notm}} 配置，团队成员将完成以下步骤：
 
 1. 使用您的终端的 {{site.data.keyword.cloud_notm}} CLI 进行登录。
-    
 
     ```
     ibmcloud login -a api.<region>.console.cloud.ibm.com
     ```
-    {: pre}
+    {: codeblock}
 
 2. 获取 IAM 令牌并记下它。
-    
 
     ```
     ibmcloud iam oauth-tokens
     ```
-    {: pre}
+    {: codeblock}
 
 3. 使用 cURL 查看 Facebook 的身份提供者配置。
-    
 
     ```
-    curl -X GET --header 'Accept: application/json' --header 'Authorization: <IAM token value>' \  'https://us-south.appid.cloud.ibm.com/management/v4/<tenantID>/config/idps/facebook'
+    curl -X GET --header 'Accept: application/json' --header 'Authorization: <IAM token value>' \  'https://us-south.appid.cloud.ibm.com/management/v4/<tenant-ID>/config/idps/facebook'
     ```
-    {: pre}
+    {: codeblock}
 
     结果显示包含身份提供者信息的 200 条消息。
-

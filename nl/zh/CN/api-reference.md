@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-13"
 
 keywords: authentication, authorization, identity, app security, secure, application identity, app to app, access token
 
@@ -28,7 +28,13 @@ subcollection: appid
 您可以使用管理 API 进行 DevOps 自动化，定制和管理您的 {{site.data.keyword.appid_full}} 实例。
 {: shortdesc}
 
-管理 API 通过 {{site.data.keyword.cloudaccesstraillong}} 生成的令牌进行保护。使用 IAM，帐户所有者可以指定团队成员对每个服务实例的访问级别。有关 IAM 和 {{site.data.keyword.appid_short_notm}} 如何协作的更多信息，请参阅[服务访问管理](/docs/services/appid?topic=appid-service-access-management#service-access-management)。
+管理 API 通过 Identity and Access Management (IAM) 生成的令牌进行保护。使用 IAM，帐户所有者可以指定团队成员对每个服务实例的访问级别。有关 IAM 和 {{site.data.keyword.appid_short_notm}} 如何协作的更多信息，请参阅[服务访问管理](/docs/services/appid?topic=appid-service-access-management)。
+
+
+要了解 API 的工作方式？请查看以下视频教程！
+
+<iframe class="embed-responsive-item" id="about-appid-api" title="关于 {{site.data.keyword.appid_short_notm}} API" type="text/html" width="640" height="390" src="//www.youtube.com/embed/b2ABxvAdGg0?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
+
 
 使用 API，您能够：
 * 在您的 DevOps 流程应用程序中自动配置 {{site.data.keyword.appid_short_notm}}。
@@ -76,7 +82,7 @@ https://<region-endpoint>.appid.cloud.ibm.com/management
 {: #api-prereq}
 
 <ul><ul><li>2018 年 3 月 15 日之后创建的服务实例。如果您的服务实例创建于该日期之前，请创建新实例并将其配置为与当前实例匹配。请确保更新应用程序以使用新实例。</li>
-<li>已安装 [{{site.data.keyword.cloud_notm}} CLI](/docs/cli/reference/ibmcloud/cloud-cli-install_use?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli)。</li></ul></ul>
+<li>已安装 [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-ibmcloud-cli)。</li></ul></ul>
 
 ## 用法示例
 {: #api-example}

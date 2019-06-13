@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-14"
+lastupdated: "2019-05-21"
 
 keywords: authentication, authorization, identity, app security, secure, troubleshooting, help, support, requests, uri
 
@@ -25,7 +25,7 @@ subcollection: appid
 {:tsCauses: .tsCauses}
 {:tsResolve: .tsResolve}
 
-# Risoluzione dei problemi generali
+# Risoluzione dei problemi: generale 
 {: #troubleshooting}
 
 Se hai dei problemi quando utilizzi {{site.data.keyword.appid_full}}, considera queste tecniche per la risoluzione dei problemi e per ottenere assistenza.
@@ -35,11 +35,10 @@ Se hai dei problemi quando utilizzi {{site.data.keyword.appid_full}}, considera 
 {: #ts-gettinghelp}
 
 Puoi ottenere aiuto ricercando le informazioni o facendo delle domande in un forum. Inoltre puoi aprire un ticket di supporto. Quando utilizzi i forum per fare una domanda, contrassegnala con una tag in modo che sia visualizzabile dai team di sviluppo {{site.data.keyword.cloud_notm}}.
-  * Se hai domande tecniche su {{site.data.keyword.appid_short_notm}}, inserisci la tua domanda in <a href="https://stackoverflow.com/search?q=ibm-appid" target="_blank">Stack Overflow <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a> e contrassegnala con la tag "ibm-appid".
-  * Per domande sul servizio e sulle istruzioni per l'utilizzo iniziale, utilizza il forum <a href="https://developer.ibm.com/answers/topics/appid/" target="_blank">dW Answers <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a>. Includi la tag `appid`.
+  * Se hai domande tecniche su {{site.data.keyword.appid_short_notm}}, inserisci la tua domanda in <a href="https://stackoverflow.com/" target="_blank">Stack Overflow <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a> e contrassegnala con la tag "ibm-appid".
+  * Per domande sul servizio e sulle istruzioni per l'utilizzo iniziale, utilizza il forum <a href="https://developer.ibm.com/" target="_blank">dW Answers <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a>. Includi la tag `appid`.
 
 Per ulteriori informazioni su come ottenere supporto, consulta [Come posso ottenere il supporto di cui ho bisogno?](/docs/get-support?topic=get-support-getting-customer-support#getting-customer-support).
-
 
 
 ## Un utente non viene reindirizzato all'applicazione dopo l'accesso.
@@ -82,6 +81,30 @@ Vengono adottate delle limitazioni per motivi di sicurezza.
 {: tsResolve}
 Per risolvere il problema, verifica che l'URL sia corretto. Se il tuo URL non soddisfa i requisiti, puoi creare un endpoint HTTPS nella tua applicazione per reindirizzare il codice di concessione al tuo URL personalizzato. Specifica l'endpoint creato come tuo URL di reindirizzamento nella console {{site.data.keyword.appid_short_notm}}. Per ulteriori informazioni sugli URI di reindirizzamento, vedi [Aggiunta di URI di reindirizzamento](/docs/services/appid?topic=appid-managing-idp#add-redirect-uri)
 
+## Un utente non viene reindirizzato al provider di identità.
+{: #ts-redirect}
+
+{: tsSymptoms}
+Un utente tenta di accedere alla tua applicazione, ma la pagina di accesso non viene visualizzata quando richiesto.
+
+{: tsCauses}
+Il provider di identità potrebbe non funzionare per diversi motivi:
+
+* Il tuo URL di reindirizzamento configurato non è corretto.
+* Il provider di identità non riconosce la richiesta di autenticazione.
+* Il provider di identità prevede l'associazione HTTP-POST.
+* Il provider di identità prevede una authnRequest firmata.
+
+{: tsResolve}
+Puoi provare alcune di queste soluzioni:
+
+* Aggiorna il tuo URL di accesso. Questo URL viene inviato come parte di authnRequest e deve essere esatto.
+* Assicurati che i metadati {{site.data.keyword.appid_short_notm}} siano impostati correttamente nelle impostazioni del tuo provider di identità.
+* Configura il tuo provider di identità per accettare la authnRequest in HTTP-Redirect.
+* {{site.data.keyword.appid_short_notm}} non supporta la firma di authnRequest.
+
+Se nessuna delle soluzioni funziona, è possibile che tu abbia un problema di connessione.
+{: tip}
 
 
 ## Un attributo mostra il valore errato

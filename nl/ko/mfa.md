@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-09"
 
 keywords: authentication, authorization, identity, app security, secure, development, two factor, mfa 
 
@@ -103,7 +103,7 @@ GUI를 통해 MFA 이메일 채널을 구성할 수 있습니다.
 
 1. {{site.data.keyword.appid_short_notm}} 대시보드의 **Cloud Directory > 다단계 인증** 탭으로 이동하십시오.
 
-2. **설정 탭**의 **다단계 인증 사용** 상자에서 MFA를 **사용**으로 전환하십시오. MFA는 [고급 보안 이벤트](/docs/services/appid?topic=appid-faq#faq-pricing)로 청구된다는 점을 숙지하십시오. 기본적으로 **이메일**이 **인증 방법**으로 선택되어 있습니다.
+2. **설정 탭**의 **다단계 인증 사용** 상자에서 MFA를 **사용**으로 전환하십시오. MFA는 [고급 보안 이벤트](/docs/services/appid?topic=appid-faq#faq-pricing)로 청구된다는 점을 이해하고 있어야 합니다. 기본적으로 **이메일**이 **인증 방법**으로 선택되어 있습니다.
 
 3. **이메일 채널** 탭에서 **이메일 템플리트**를 검토하십시오. 제공된 문장을 사용하거나 고유한 메시지를 작성하여 템플리트를 발송하도록 선택할 수 있습니다. 올바른 HTML 태그 지정을 사용해야 합니다. GUI에서 매개변수를 추가하고 이미지를 삽입할 수 있습니다. 메시지의 [언어](/docs/services/appid?topic=appid-cd-messages#cd-languages)를 변경하기 위해 <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization" target="_blank">API <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>를 사용하여 언어를 설정할 수 있습니다. 하지만 메시지의 컨텐츠 및 번역은 사용자의 책임입니다. 메시지에서 사용할 수 있는 표의 목록 및 발송할 수 있는 기타 모든 메시지를 확인하려면 다음 표를 참조하십시오. 사용자가 해당 매개변수를 통해 가져오는 정보를 제공하지 않을 경우 공백으로 표시됩니다.
 
@@ -173,7 +173,7 @@ GUI를 통해 MFA 이메일 채널을 구성할 수 있습니다.
        Authorization: Bearer <IAM_TOKEN>
        Content-Type: application/json
   ```
-  {: pre}
+  {: codeblock}
 
   본문:
   ```
@@ -181,7 +181,7 @@ GUI를 통해 MFA 이메일 채널을 구성할 수 있습니다.
        "isActive": true
    }
   ```
-  {: pre}
+  {: codeblock}
 
   요청 예제:
   ```
@@ -206,7 +206,7 @@ GUI를 통해 MFA 이메일 채널을 구성할 수 있습니다.
        Authorization: Bearer <IAM_TOKEN>
        Content-Type: application/json
   ```
-  {: pre}
+  {: codeblock}
 
   본문:
   ```
@@ -214,7 +214,7 @@ GUI를 통해 MFA 이메일 채널을 구성할 수 있습니다.
        "isActive": true
    }
   ```
-  {: pre}
+  {: codeblock}
 
   요청 예제:
 
@@ -249,7 +249,7 @@ GUI를 통해 MFA 이메일 채널을 구성할 수 있습니다.
 
  - Nexmo API 키 및 시크릿을 얻으십시오. Nexmo API 키 및 시크릿은 Nexmo 대시보드의 계정 설정에서 찾을 수 있습니다. 인증 정보를 얻는 방법에 대한 자세한 정보는 [Nexmo 문서](https://developer.nexmo.com/concepts/guides/authentication#api-key-and-secret)를 참조하십시오.
 
- - Nexmo에 발신인 ID 또는 `from` 번호를 등록하십시오. 이 `from` 번호는 SMS의 발신인이 누구인지 표시하기 위해 사용자의 전화에 표시되는 번호입니다. 자세한 정보는 [Nexmo 문서](https://help.nexmo.com/hc/en-us/articles/217571017-What-is-a-Sender-ID)를 참조하십시오.
+ - Nexmo에 발신인 ID 또는 `from` 번호를 등록하십시오. 이 `from` 번호는 SMS의 발신인이 누구인지 표시하기 위해 사용자의 전화에 표시되는 번호입니다. 일부 국가의 경우 Nexmo에서 영숫자 발신인 ID를 지원합니다. {{site.data.keyword.appid_short_notm}}에서는 Nexmo의 발신인 ID로 입력한 값이 사용됩니다. 따라서 Nexmo에서 지원하는 경우 {{site.data.keyword.appid_short_notm}}에서 해당 ID를 사용할 수 있습니다. 자세한 정보는 [Nexmo 문서](https://help.nexmo.com/hc/en-us/articles/217571017-What-is-a-Sender-ID)를 참조하십시오.
 
 
 ### GUI 사용
@@ -260,7 +260,7 @@ GUI를 사용하여 MFA를 구성하려면 [Cloud Directory](/docs/services/appi
 
 1. {{site.data.keyword.appid_short_notm}} 대시보드의 **Cloud Directory > 다단계 인증** 탭으로 이동하십시오.
 
-2. **설정 탭**의 **다단계 인증 사용** 상자에서 MFA를 **사용**으로 전환하십시오. MFA는 [고급 보안 이벤트](/docs/services/appid?topic=appid-faq#faq-pricing)로 청구된다는 점을 이해하고 있어야 합니다. 
+2. **설정 탭**의 **다단계 인증 사용** 상자에서 MFA를 **사용**으로 전환하십시오. MFA는 [고급 보안 이벤트](/docs/services/appid?topic=appid-faq#faq-pricing)로 청구된다는 점을 이해하고 있어야 합니다.
 
 3. **인증 방법**으로 **SMS**를 선택하십시오.
 
@@ -274,7 +274,7 @@ GUI를 사용하여 MFA를 구성하려면 [Cloud Directory](/docs/services/appi
 
     4. Nexmo 대시보드에서 **API 시크릿**을 복사하여 {{site.data.keyword.appid_short_notm}} 대시보드의 **시크릿** 상자에 붙여넣으십시오.
 
-    5. 메시지를 전송할 송신 [번호](https://help.nexmo.com/hc/en-us/articles/217571017-What-is-a-Sender-ID)를 입력하십시오. 올바른 번호 형식은 [E.164 국제 번호 지정 형식](https://en.wikipedia.org/wiki/E.164)(예: 미국 번호, +1 999 888 7777)을 준수합니다. + 기호로 시작되는 국가 코드 및 국제 가입자 번호를 둘 다 지정해야 합니다.
+    5. 메시지를 전송할 송신 [ID](https://help.nexmo.com/hc/en-us/articles/217571017-What-is-a-Sender-ID)를 입력하십시오. 올바른 번호 형식은 [E.164 국제 번호 지정 형식](https://en.wikipedia.org/wiki/E.164)을 따릅니다. 예를 들어 미국 번호의 경우 `+1 999 888 7777 ` 형식을 사용합니다. `+` 기호로 시작되는 국가 코드 및 국제 가입자 번호를 둘 다 지정해야 합니다. 일부 국가의 경우 Nexmo에서 영숫자 발신인 ID를 지원합니다. {{site.data.keyword.appid_short_notm}}에서는 Nexmo의 발신인 ID로 입력한 값이 사용됩니다. 따라서 Nexmo에서 지원하는 경우 {{site.data.keyword.appid_short_notm}}에서 해당 ID를 사용할 수 있습니다. 
 
 
 
@@ -295,32 +295,32 @@ GUI를 사용하여 MFA를 구성하려면 [Cloud Directory](/docs/services/appi
 
   ```
   PUT {management-url}/management/v4/{tenantId}/config/mfa
-       Host: <management-server-url>
-       Authorization: Bearer <IAM_TOKEN>
-       Content-Type: application/json
+    Host: <management-server-url>
+    Authorization: Bearer <IAM_TOKEN>
+    Content-Type: application/json
   ```
-  {: pre}
+  {: codeblock}
 
 본문:
 
   ```
   {
    "isActive": true
-   }
+  }
   ```
-  {: pre}
+  {: codeblock}
 
 
 요청 예제:
 
   ```
   $ curl -X PUT
-    --header 'Content-Type: application/json'
-    --header 'Accept: application/json'
-    --header 'Authorization: Bearer <IAM_TOKEN>'
-    -d '{
+  --header 'Content-Type: application/json'
+  --header 'Accept: application/json'
+  --header 'Authorization: Bearer <IAM_TOKEN>'
+  -d '{
     "isActive": true
-      }'
+  }'
   '{management-url}/management/v4/{tenantId}/config/mfa'
   ```
   {: screen}
@@ -336,7 +336,7 @@ GUI를 사용하여 MFA를 구성하려면 [Cloud Directory](/docs/services/appi
       Authorization: Bearer <IAM_TOKEN>
       Content-Type: application/json
   ```
-  {: pre}
+  {: codeblock}
 
 본문:
 
@@ -350,18 +350,18 @@ GUI를 사용하여 MFA를 구성하려면 [Cloud Directory](/docs/services/appi
       }
   }
   ```
-  {: pre}
+  {: codeblock}
 
 요청 예제:
 
   ```
   $ curl -X PUT
-    --header 'Content-Type: application/json'
-    --header 'Accept: application/json'
-    --header 'Authorization: Bearer <IAM_TOKEN>'
-    -d '{
+   --header 'Content-Type: application/json'
+   --header 'Accept: application/json'
+   --header 'Authorization: Bearer <IAM_TOKEN>'
+   -d '{
          "isActive": true,
-      "config": {
+         "config": {
           "key": "key",
           "secret": "secret",
           "from": 12345678900
@@ -383,7 +383,7 @@ Nexmo 구성 및 연결이 올바르게 설정되었는지 확인하십시오.
      Authorization: Bearer <IAM_TOKEN>
      Content-Type: application/json
   ```
-  {: pre}
+  {: codeblock}
 
 본문:
 
@@ -392,7 +392,7 @@ Nexmo 구성 및 연결이 올바르게 설정되었는지 확인하십시오.
     "phone_number": "phoneNumber-receives-test-message"
   }
   ```
-  {: pre}
+  {: codeblock}
 
 요청 예제:
 

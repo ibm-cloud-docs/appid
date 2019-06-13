@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-13"
 
 keywords: authentication, authorization, identity, app security, secure, custom, proprietary, private key, public key, jwt
 
@@ -93,7 +93,7 @@ Content-Type: application/json
 
 1. 在**定制身份提供者**选项卡中，单击**测试**以打开测试应用程序。
 
-2. 使用遵循定制身份[协议](/docs/services/appid?topic=appid-custom-auth#generating-jwts)的 [JWT.io](https://jwt.io/) 来创建 JWT 示例。
+2. 创建遵循定制身份[协议](/docs/services/appid?topic=appid-custom-auth#generating-jwts)的[示例 JWT](https://jwt.io/)。
 
 3. 将 JWT 粘贴到标注为 **JSON Web 令牌**的框中，然后单击**测试**以执行样本认证。
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-25"
+lastupdated: "2019-04-23"
 
 keywords: authentication, authorization, identity, app security, secure, custom, proprietary, social, facebook, google, 
 
@@ -35,7 +35,7 @@ subcollection: appid
 {{site.data.keyword.appid_short_notm}} 提供預設配置，以協助您快速開始進行服務。
 {: shortdesc}
 
-配置應用程式 ID 時，Facebook、Google 及 Cloud Directory 會自動啟用作為身分提供者。您可以隨時變更此配置。Facebook 及 Google 已經有預設認證，但它們是 IBM 認證，只應用於測試是否使用該服務。在發佈應用程式之前，請將配置更新為您自己的認證。
+配置 {{site.data.keyword.appid_short_notm}} 時，Facebook、Google 及 Cloud Directory 會自動啟用作為身分提供者。您可以隨時變更此配置。Facebook 及 Google 已經有預設認證，但它們是 IBM 認證，只應用於測試是否使用該服務。在發佈應用程式之前，請將配置更新為您自己的認證。
 
 每天每個實例限制為 100 個使用預設認證的鑑別。
 {: note}
@@ -52,7 +52,7 @@ subcollection: appid
 
 若要使用 Facebook 作為身分提供者，您必須在 Facebook 應用程式上新增及配置網站平台。
 
-1. 在 <a href="https://developers.facebook.com/docs/apps/register" target="_blank">Facebook for Developers 網站 <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a> 上登入您的帳戶。
+1. 在 <a href="https://developers.facebook.com/docs/apps#register" target="_blank">Facebook for Developers 網站 <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a> 上登入您的帳戶。
 2. 記下 Facebook 應用程式 ID 及密碼。在服務儀表板中，需要這些值才能配置 Web 專案以進行鑑別。
 3. 新增 Web 平台，並輸入網站 URL。
 4. 從產品清單中，選取 **Facebook 登入**。

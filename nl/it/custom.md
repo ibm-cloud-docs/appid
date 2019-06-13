@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-13"
 
 keywords: authentication, authorization, identity, app security, secure, custom, proprietary, private key, public key, jwt
 
@@ -93,7 +93,7 @@ Dopo aver configurato la tua istanza {{site.data.keyword.appid_short_notm}} con 
 
 1. Dalla scheda **Custom Identity Provider**, fai clic su **Test** per aprire l'applicazione di test.
 
-2. Crea un JWT di esempio utilizzando [JWT.io](https://jwt.io/) che segue il [protocollo](/docs/services/appid?topic=appid-custom-auth#generating-jwts) dell'identità personalizzata.
+2. Crea un [JWT di esempio](https://jwt.io/) che segue il [protocollo](/docs/services/appid?topic=appid-custom-auth#generating-jwts) dell'identità personalizzata.
 
 3. Incolla il tuo JWT nella casella etichettata **JSON Web Token** e fai clic su **Test** per eseguire un'autenticazione di esempio.
 

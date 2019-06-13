@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-08"
+lastupdated: "2019-05-31"
 
 keywords: authentication, authorization, identity, app security, secure, access management, roles, attributes, users
 
@@ -38,7 +38,7 @@ subcollection: appid
 假设您是一个虚构的主题公园的开发者。您的任务是管理 [Web 应用程序](/docs/services/appid?topic=appid-web-apps)的访问权，并且您认为这样做的最简单方法是针对每种类型的用户设置角色。您有多种不同类型的角色，例如公园员工和游客，所有角色都需要不同级别的许可权。您希望能够简化流程，并确保用户在首次登录到应用程序时就分配有正确的角色。  
 {: shortdesc}
 
-没问题！您可以使用 {{site.data.keyword.appid_short_notm}} 的[定制属性功能](/docs/services/appid?topic=appid-custom-attributes)来存储任何类型的用户相关信息。由于您使用的是基于角色的访问控制，因此可以创建名为 `role` 的属性，并分配不同的值来指定角色类型。例如，主题公园可能有 `visitor` 或 `staff`，可作为 `role` 属性的不同值。然后，可以确保应用程序代码强制实施您分配的访问策略和特权。
+没问题！您可以使用 {{site.data.keyword.appid_short_notm}} 的[定制属性功能](/docs/services/appid?topic=appid-profiles)来存储任何类型的用户相关信息。由于您使用的是基于角色的访问控制，因此可以创建名为 `role` 的属性，并分配不同的值来指定角色类型。例如，主题公园可能有 `visitor` 或 `staff`，可作为 `role` 属性的不同值。然后，可以确保应用程序代码强制实施您分配的访问策略和特权。
 
 虽然本教程是专门针对 Web 应用程序和 Cloud Directory 编写的，但属性的适用范围要大得多。定制属性可以是您希望使用的任何内容。只要属性数不超过 100,000 个，且格式设置为纯 JSON 对象，就可以存储所有类型的信息！
 {: note}
@@ -87,14 +87,14 @@ Cloud Land 有新进工作人员！您了解了他们的所有信息，但他们
   ```
   ibmcloud login
   ```
-  {: pre}
+  {: codeblock}
 
 2. 获取 IAM 访问令牌。
 
   ```
   ibmcloud iam oauth-tokens
   ```
-  {: pre}
+  {: codeblock}
 
 3. 发出 POST 请求，以针对新用户创建包含 `staff` 属性的用户概要文件。请确保您可以访问并验证所使用的电子邮件。
 
@@ -113,7 +113,7 @@ Cloud Land 有新进工作人员！您了解了他们的所有信息，但他们
     }
   }'
   ```
-  {: pre}
+  {: codeblock}
 
   成功响应输出：
 
@@ -132,7 +132,7 @@ Cloud Land 有新进工作人员！您了解了他们的所有信息，但他们
   --header 'Authorization: Bearer <iam-access-token>' \
   --header 'Content-Type: application/json' \
   ```
-  {: pre}
+  {: codeblock}
 
   成功响应主体：
 
@@ -154,7 +154,7 @@ Cloud Land 有新进工作人员！您了解了他们的所有信息，但他们
 ## 步骤 3：更新用户属性
 {: #roles-update-attributes}
 
-Cloud Land 在不断增长！为了跟上增长情况，您的公司将雇佣新员工。步骤 2 中的 `staff` 用户现在已是经理。您可以通过[分配新角色](/docs/services/appid?topic=appid-custom-attributes)来更新其概要文件。
+Cloud Land 在不断增长！为了跟上增长情况，您的公司将雇佣新员工。步骤 2 中的 `staff` 用户现在已是经理。您可以通过[分配新角色](/docs/services/appid?topic=appid-profiles#profile-set-custom)来更新其概要文件。
 {: shortdesc}
 
 1. 更新概要文件。
@@ -172,7 +172,7 @@ Cloud Land 在不断增长！为了跟上增长情况，您的公司将雇佣新
     }
   }'
   ```
-  {: pre}
+  {: codeblock}
 
 3. 查看概要文件以验证它是否已正确更新。
 
@@ -182,7 +182,7 @@ Cloud Land 在不断增长！为了跟上增长情况，您的公司将雇佣新
   --header 'Authorization: Bearer <iam-access-token>' \
   --header 'Content-Type: application/json' \
   ```
-  {: pre}
+  {: codeblock}
 
   成功响应输出：
 
@@ -236,7 +236,7 @@ Cloud Land 在不断增长！为了跟上增长情况，您的公司将雇佣新
       ]
   }'
   ```
-  {: pre}
+  {: codeblock}
 
   <table>
     <tr>
@@ -313,7 +313,7 @@ Cloud Land 在不断增长！为了跟上增长情况，您的公司将雇佣新
   --header `Accept: application/json`
   - d 'grant_type=password&username=<user-email>%40<user-email-domain>&password=<user-password>
   ```
-  {: pre}
+  {: codeblock}
 
 5. 对访问令牌进行解码。
   1. 复制先前命令的响应输出中的令牌。

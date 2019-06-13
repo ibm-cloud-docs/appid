@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-27"
+lastupdated: "2019-05-20"
 
 keywords: authentication, authorization, identity, app security, secure, development,
 
@@ -31,8 +31,8 @@ subcollection: appid
 藉由要求使用者登入您的應用程式，您可以儲存使用者資料（例如來自公用社交設定檔中的應用程式喜好設定或資訊），然後使用該資料來自訂您應用程式的每一個體驗。{{site.data.keyword.appid_short_notm}} 為您提供一個架構，但您也可以在使用雲端目錄時，帶入自己的品牌登入畫面。
 
 我們很樂意聽取您的意見和問題！
-* 如果您有 {{site.data.keyword.appid_short_notm}} 的相關技術問題，請將問題張貼在 <a href="https://stackoverflow.com/search?q=ibm-appid" target="_blank">Stack Overflow <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>，並使用 `ibm-appid` 來標記問題。
-* 若為服務及開始使用指示的相關問題，請使用 <a href="https://developer.ibm.com/answers/topics/appid/" target="_blank">dW Answers <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a> 討論區。請包括 `appid` 標籤。
+* 如果您有 {{site.data.keyword.appid_short_notm}} 的相關技術問題，請將問題張貼在 <a href="https://stackoverflow.com" target="_blank">Stack Overflow <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>，並使用 `ibm-appid` 來標記問題。
+* 若為服務及開始使用指示的相關問題，請使用 <a href="https://developer.ibm.com" target="_blank">dW Answers <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a> 討論區。請包括 `appid` 標籤。
 
 ## 建立服務實例
 {: #create}

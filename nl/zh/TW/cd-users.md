@@ -2,14 +2,14 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-31"
 
 keywords: authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
 subcollection: appid
 
 ---
-
+ 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
@@ -26,12 +26,144 @@ subcollection: appid
 # 管理使用者
 {: #cd-users}
 
-當您啟用 Cloud Directory 時，使用者可以使用電子郵件或使用者名稱及密碼來註冊您的應用程式。
+使用 Cloud Directory，您可以使用預先建置的功能（它會加強安全及自助），在可擴充的登錄中管理使用者。
+{: shortdesc}
+
+Cloud Directory 使用者與 {{site.data.keyword.appid_short_notm}} 使用者不同。使用者可以使用不同於您所配置的身分提供者選項來註冊您的應用程式，您也可以將他們新增至您的目錄。本主題所提及的使用者，是與作為身分提供者的 Cloud Directory 相關聯的那些使用者。
+{: note}
+
+## 檢視使用者資訊
+{: #cd-user-info}
+
+您可以使用 API 或使用儀表板，以 JSON 物件查看針對所有 Cloud Directory 使用者了解的所有資訊。
 {: shortdesc}
 
 
-Cloud Directory 使用者與 {{site.data.keyword.appid_short_notm}} 使用者不同。使用者可以使用不同於您所配置的身分提供者選項來註冊您的應用程式。本主題所提及的使用者，是選擇在註冊您的應用程式時使用 Cloud Directory 選項的那些使用者。
-{: note}
+### 使用 GUI
+
+您可以使用 {{site.data.keyword.appid_short_notm}} 儀表板，來檢視應用程式使用者的詳細資料。 
+
+1. 導覽至 {{site.data.keyword.appid_short_notm}} 實例的 **Cloud Directory > 使用者**標籤。
+
+2. 在表格中尋找，或是使用電子郵件位址進行搜尋，以尋找您要查看其資訊的使用者。
+
+3. 在使用者列的溢位功能表中，按一下**檢視使用者詳細資料**。即會開啟包含使用者資訊的頁面。請參閱下表，以查看您可以看見的資訊。
+
+<table>
+  <tr>
+    <th colspan="2">使用者詳細資料</th>
+  </tr>
+  <tr>
+    <td>使用者 ID</td>
+    <td>使用者 ID 視您所配置的使用者註冊類型而定。如果您已配置電子郵件及密碼流程，則該 ID 是使用者的電子郵件。如果您使用使用者名稱及密碼流程，則 ID 是在註冊時提供的使用者名稱。</td>
+  </tr>
+  <tr>
+    <td>電子郵件</td>
+    <td>附加至使用者的主要電子郵件位址。</td>
+  </tr>
+    <tr>
+    <td>名字和姓氏</td>
+    <td>使用者在註冊過程中所提供的名字和姓氏。</td>
+  </tr>
+  <tr>
+    <td>前次登入時間</td>
+    <td>使用者前次登入應用程式的時間戳記。附註：如果您是透過儀表板新增使用者，則在使用者自己登入您的應用程式之前，登入會是空白。登入時，他們也會變成 App ID 使用者。</td>
+  </tr>
+  <tr>
+    <td>ID</td>
+    <td>{{site.data.keyword.appid_short_notm}} 指派給使用者的 ID。在使用者介面中，不會顯示該值，但您可以複製該值，並將其貼到文字編輯器中，以查看該值。</td>
+  </tr>
+  <tr>
+    <td>預先定義屬性</td>
+    <td>預先定義的屬性是根據 SCIM，關於使用者的已知事情。</td>
+  </tr>
+  <tr>
+    <td>自訂屬性</td>
+    <td>自訂屬性是新增至使用者設定檔的其他資訊，或是在使用者與您的應用程式互動時瞭解到關於使用者的其他資訊。</td>
+  </tr>
+  <tr>
+    <td>摘要</td>
+    <td>所有屬性都會進行編譯，以形成一個設定檔，該設定檔會為您提供 Cloud Directory 使用者的完整概觀。如需相關資訊，請參閱[使用者設定檔](/docs/services/appid?topic=appid-profiles)。</td>
+  </tr>
+</table>
+
+</br>
+
+### 使用 API
+
+您可以使用 {{site.data.keyword.appid_short_notm}} API，來檢視應用程式使用者的詳細資料。 
+
+1. 從服務實例中取得您的承租戶 ID。
+
+2. 以識別查詢（例如電子郵件位址）搜尋您的 App ID 使用者，尋找使用者 ID。
+
+  ```
+  curl -X GET "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/Users?query={identifying-search-query}" -H "accept: application/json" -H "authorization: Bearer {token}"
+  ```
+  {: codeblock}
+
+  範例：
+
+  ```
+  curl -X GET https://us-south.appid.cloud.ibm.com/management/v4/e19a2778-3262-4986-8875-8khjafsdkhjsdafkjh/cloud_directory/Users?query=example@email.com -H "accept: application/json" -H "authorization: Bearer eyJraWQiOiIyMDE3MTEyOSIsImFsZ...."
+  ```
+  {: screen}
+
+3. 藉由使用您在先前步驟中所取得的 ID，對 `cloud_directory/users` 端點發出 GET 要求，以查看其完整使用者設定檔。
+
+  ```
+  curl -X GET "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/Users/{user-ID}" -H "accept: application/json" -H "authorization: Bearer {token}"
+  ```
+  {: codeblock}
+
+  回應範例：
+
+  ```
+  {
+    sub: "c155c0ff-337a-46d3-a22a-a8f2cca08995",
+    name: "Test User",
+    email: "testuser@test.com",
+    identities: [
+      {
+        provider: "cloud_directory",
+        id: "f1772fcc-ff70-4d88-81a0-07dd7a3d988f",
+        idpUserInfo: {
+          displayName: "Test User",
+          active: true,
+          mfaContext: {},
+          emails: [
+            {
+              value: "testuser@test.com",
+              primary: true
+            }
+          ],
+          meta: {
+            lastLogin: "2019-05-20T16:33:20.699Z",
+            created: "2019-05-20T16:25:13.019Z",
+            location: "/v1/6b8ab644-1d4a-4b3e-bcd9-777ba8430a51/Users/f1772fcc-ff70-4d88-81a0-07dd7a3d988f",
+            lastModified: "2019-05-20T16:33:20.707Z",
+            resourceType: "User"
+          },
+          scemas: [
+            "urn:ietf:params:scim:schemas:core:2.0:User"
+          ],
+          name: {
+            givenName: "Test",
+            familyName: "User",
+            formatted: "Test User"
+            },
+          id: "f1772fcc-ff70-4d88-81a0-07dd7a3d988f",
+          status: "CONFIRMED",
+          idpType: "cloud_directory"
+        }
+      }
+    ]
+  }
+  ```
+  {: screen}
+
+  若要查看 {{site.data.keyword.appid_short_notm}} 支援的完整使用者資料集，請參閱 [SCIM 核心綱目](https://tools.ietf.org/html/rfc7643#section-8.2)。
+  {: tip}
 
 
 ## 新增及刪除使用者
@@ -40,14 +172,20 @@ Cloud Directory 使用者與 {{site.data.keyword.appid_short_notm}} 使用者不
 您可以透過 {{site.data.keyword.appid_short_notm}} 儀表板或使用 API 來管理 Cloud Directory 使用者。
 {: shortdesc}
 
-若要查看特定使用者的完整資料，您可以使用 API 將 Cloud Directory 使用者資訊傳回為 JSON 物件。若要查看 {{site.data.keyword.appid_short_notm}} 支援的完整使用者資料集，請參閱 [SCIM 核心綱目](https://tools.ietf.org/html/rfc7643#section-8.2)。
+當使用者註冊應用程式時，他們會透過自助工作流程來這麼做，工作流程會自動觸發電子郵件，例如歡迎或驗證要求。身為管理者的您將使用者新增至應用程式時，不會起始自助工作流程，這表示使用者不會收到來自您應用程式的任何電子郵件。如果您希望使用者仍然收到已新增他們的通知，可以透過 [App ID 管理 API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.set_cloud_directory_email_dispatcher) 來觸發傳訊流程。
+
 
 ### 新增使用者
 {: #add-users}
 
-您可以使用下列步驟，透過 {{site.data.keyword.appid_short_notm}} 儀表板來新增使用者。
+當使用者註冊您的應用程式時，系統會將他們新增為使用者。為了進行測試，您可以透過 {{site.data.keyword.appid_short_notm}} 儀表板或使用 API 來新增使用者。
 
-基於測試目的，您可以透過 {{site.data.keyword.appid_short_notm}} 儀表板來新增使用者。
+如果您停用自助登入或代表使用者新增他們，則在新增使用者時，他們不會收到歡迎或驗證電子郵件。
+{: tip}
+
+
+
+**若要使用 GUI 新增使用者，請執行下列動作：**
 
 1. 導覽至 {{site.data.keyword.appid_short_notm}} 儀表板的 **Cloud Directory > 使用者**標籤。
 
@@ -57,11 +195,53 @@ Cloud Directory 使用者與 {{site.data.keyword.appid_short_notm}} 使用者不
 
 4. 按一下**儲存**。即建立 Cloud Directory 使用者。
 
+</br>
+
+
+**若要使用 API 新增使用者，請執行下列動作：**
+
+下列流程顯示如何使用電子郵件及密碼來新增使用者。您也可以選擇使用使用者名稱及密碼流程。
+
+1. 從您的應用程式或服務認證取得 `tenantID`。
+
+2. 取得 {{site.data.keyword.cloud_notm}} IAM 記號。
+
+  ```
+  curl --X GET "https://iam.cloud.ibm.com/oidc/token" -H "accept: application/x-www-form-urlencoded"
+  ```
+  {: codeblock}
+
+3. 使用您在步驟 2 中取得的記號，對 `cloud-directory/users` 端點發出 POST 要求。請注意，此範例使用電子郵件/密碼流程。您也可以使用使用者名稱/密碼流程。
+
+  ```
+  curl --X POST "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/Users"
+  -H "accept: application/json"
+  -H "content-type: application/json"
+  -H "authorization: Bearer {token}"
+  -d {
+    "displayName": "Test User",
+    "password": "{App-ID-Cloud-Directory-User-Password}",
+    "active": true,
+    "emails": [
+      {
+        "value": "{App-ID-Cloud-Directory-User-Email}",
+        "primary": true
+      }
+    ]
+  }
+  ```
+  {: codeblock}
+
+</br>
+
 
 ### 刪除使用者
 {: #delete-users}
 
-如果您要從目錄中移除使用者，則可以從 GUI 中刪除該使用者。
+如果您要從目錄中移除使用者，則可以從 GUI 或使用 API 刪除該使用者。
+{: shortdesc}
+
+**若要透過 GUI 刪除使用者，請執行下列動作：**
 
 1. 導覽至 {{site.data.keyword.appid_short_notm}} 儀表板的 **Cloud Directory > 使用者**標籤。
 
@@ -70,6 +250,28 @@ Cloud Directory 使用者與 {{site.data.keyword.appid_short_notm}} 使用者不
 3. 在此方框中，按一下**刪除**。即會顯示畫面。
 
 4. 按一下**刪除**，以確認您瞭解刪除使用者動作無法復原。如果此動作是錯的，您可以重新將使用者新增至目錄中，但該使用者的任何相關資訊已不再可用。
+
+</br>
+
+**若要使用 API 刪除使用者，請執行下列動作：**
+
+1. 取得您的承租戶 ID。
+
+2. 透過使用附加至使用者的電子郵件，搜尋目錄以尋找使用者的 ID。
+
+  ```
+  curl -X GET "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/users?email={user-email}" -H "accept: application/json"
+  ```
+  {: codeblock}
+
+3. 刪除使用者。
+
+  ```
+  curl --X DELETE "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/Users/{user-GUID}"
+  -H "accept: application/x-www-form-urlencoded"
+  ```
+  {: codeblock}
+
 
 
 ## 移轉使用者
@@ -179,7 +381,7 @@ curl -X POST --header ‘Content-Type: application/json’ --header ‘Accept: a
   </tr>
   <tr>
     <td>IAM 記號</td>
-    <td>在取得記號之前，請確定您具有<code>管理員</code>許可權。如需協助取得 IAM 記號，請參閱<a href="https://cloud.ibm.com/docs/iam/apikey_iamtoken.html#iamtoken_from_apikey" target="_blank">文件 <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>。</td>
+    <td>在取得記號之前，請確定您具有<code>管理員</code>許可權。如需協助取得 IAM 記號，請參閱<a href="/docs/iam?topic=iam-iamtoken_from_apikey#iamtoken_from_apikey" target="_blank">文件 <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>。</td>
   </tr>
 </table>
 

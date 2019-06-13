@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-11"
+lastupdated: "2019-05-20"
 
 keywords: authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
@@ -25,7 +25,7 @@ subcollection: appid
 # E メールのカスタマイズ
 {: #cd-types}
 
-ユーザーがアプリケーションと対話するときに、ユーザーに応答を送信したい場合や、検証を求めたい場合があります。{{site.data.keyword.appid_short_notm}} には、対話に使用できるデフォルトのテンプレートが用意されています。これらのテンプレートをガイドとして使用して、ブランドに合わせてメッセージングをカスタマイズすることもできます。
+ユーザーがアプリケーションと対話するときに、ユーザーに応答を送信したい場合や、検証を求めたい場合があります。 {{site.data.keyword.appid_short_notm}} には、対話に使用できるデフォルトのテンプレートが用意されています。 これらのテンプレートを基にして、ブランドに合ったメッセージングをカスタマイズすることもできます。
 {: shortdesc}
 
 {{site.data.keyword.appid_short_notm}} は <a href="https://www.sendgrid.com" target="_blank">SendGrid <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> をメール配信サービスとして使用します。 すべての E メールは、単一の SendGrid アカウントを使用して送信されます。
@@ -34,13 +34,13 @@ subcollection: appid
 ## E メール・テンプレート
 {: #cd-messages}
 
-ユーザーにメッセージを送信する場合、以下のテンプレートの任意の組み合わせを使用できます。あるいは、テンプレートを編集してメッセージをカスタマイズすることもできます。
+ユーザーにメッセージを送信する場合、以下のテンプレートの任意の組み合わせを使用できます。 あるいは、テンプレートを編集してメッセージをカスタマイズすることもできます。
 {: shortdesc}
 
 以下のメッセージ・タイプに加えて、[SSO](/docs/services/appid?topic=appid-cd-sso#cd-sso) 用テンプレートと [MFA](/docs/services/appid?topic=appid-cd-mfa#cd-mfa) 用テンプレートを利用することもできます。
 {: tip}
 
-メッセージをさらにカスタマイズするために、メッセージ内でパラメーターを使用できます。次の表を参照して、すべてのメッセージ・タイプで使用できるパラメーターを確認してください。
+メッセージをさらにカスタマイズするために、メッセージ内でパラメーターを使用できます。 次の表を参照して、すべてのメッセージ・タイプで使用できるパラメーターを確認してください。
 
 <table>
   <tr>
@@ -80,14 +80,14 @@ subcollection: appid
 ### E メール: ようこそ
 {: #cd-messages-welcome}
 
-ユーザーがアプリケーションに登録するときに、アプリのウェルカム・メッセージをユーザーに送信したい場合があります。
+ユーザーがアプリケーションに登録するときに、アプリのウェルカム・メッセージをユーザーに送信することができます。 
 {: shortdesc}
 
 1. サービス・ダッシュボードの**「ワークフロー・テンプレート (Workflow templates)」>「ようこそ E メール (Welcome email)」**タブにナビゲートします。
 
 2. **「ようこそ E メール (Welcome email)」**を**「有効」**に設定します。
 
-3. メッセージの内容をカスタマイズします。UI を使用して、パラメーターを追加したり、画像を挿入したりできます。メッセージの[言語](/docs/services/appid?topic=appid-cd-messages#cd-languages)を変更するには、<a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization" target="_blank">API <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> を使用して言語を設定します。ただし、メッセージの内容と翻訳については、ご自身の責任になります。次の表を参照して、このメッセージで使用できる表および送信できる他のすべてのメッセージのリストを確認してください。パラメーターによってプルされた情報をユーザーが指定していない場合は、ブランクとして表示されます。
+3. メッセージの内容をカスタマイズします。 UI を使用して、パラメーターを追加したり、画像を挿入したりできます。 メッセージの[言語](/docs/services/appid?topic=appid-cd-messages#cd-languages)を変更するには、<a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization" target="_blank">API <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> を使用して言語を設定します。 ただし、メッセージの内容と翻訳については、ご自身の責任になります。 次の表を参照して、このメッセージおよびその他の送信できるすべてのメッセージで使用できるパラメーターのリストを確認してください。 パラメーターによってプルされた情報をユーザーが指定していない場合は、ブランクとして表示されます。
 
 4. **「保存」**をクリックします。
 
@@ -95,7 +95,7 @@ subcollection: appid
 ### E メール: 検証
 {: #cd-messages-verification}
 
-ユーザーが E メールを使用してアプリケーションに登録するとき、アイデンティティーの確認を求める E メールをユーザーに送信できます。検証を要求することで、アプリに登録されるおそれのある偽アカウントの数を抑制します。 ユーザーが E メールを検証するまでアプリへのアクセスを制限したり、プロファイルを作成する対象ユーザーを管理する手段として利用したりできます。 なお、{{site.data.keyword.appid_short_notm}} ダッシュボードまたはユーザー作成 API を使用して手動で追加されたユーザーは、この E メールを自動受信しません。
+ユーザーが E メールを使用してアプリケーションに登録するとき、アイデンティティーの確認を求める E メールをユーザーに送信できます。 検証を要求することで、アプリに登録されるおそれのある偽アカウントの数を抑制します。 E メールをユーザーが検証するまでアプリへのアクセスを制限したり、プロファイルを作成するユーザーを管理する手段として E メール検証を利用したりできます。なお、{{site.data.keyword.appid_short_notm}} ダッシュボードまたはユーザー作成 API を使用して手動で追加されたユーザーは、この E メールを自動受信しません。
 {: shortdesc}
 
 
@@ -103,9 +103,9 @@ subcollection: appid
 
 2. **「E メール検証 (Email verification)」**を**「有効」**に設定します。
 
-3. **「最初にユーザーの E メール・アドレスを検証せずに、ユーザーがアプリケーションにサインインできるようにする」**を**「はい」**に設定します。 「はい」に設定すると、ユーザーは登録後、E メール・アドレスを検証する前に、アプリケーションと対話できるようになります。デフォルト設定は「いいえ」です。
+3. **「最初にユーザーの E メール・アドレスを検証せずに、ユーザーがアプリケーションにサインインできるようにする」**を**「はい」**に設定します。 「はい」に設定すると、ユーザーは登録後に、まだ E メール・アドレスを検証していない状態で、アプリケーションと対話できるようになります。デフォルト設定は「いいえ」です。
 
-4. メッセージの内容をカスタマイズします。UI を使用して、パラメーターを追加したり、画像を挿入したりできます。メッセージの[言語](/docs/services/appid?topic=appid-cd-messages#cd-languages)を変更するには、<a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization" target="_blank">API <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> を使用して言語を設定します。ただし、メッセージの内容と翻訳については、ご自身の責任になります。次の表を参照して、メッセージで使用できるさまざまなパラメーターを確認してください。パラメーターによってプルされた情報をユーザーが指定していない場合は、ブランクとして表示されます。
+4. メッセージの内容をカスタマイズします。 UI を使用して、パラメーターを追加したり、画像を挿入したりできます。 メッセージの[言語](/docs/services/appid?topic=appid-cd-messages#cd-languages)を変更するには、<a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization" target="_blank">API <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> を使用して言語を設定します。 ただし、メッセージの内容と翻訳については、ご自身の責任になります。 次の表を参照して、メッセージで使用できるさまざまなパラメーターを確認してください。 パラメーターによってプルされた情報をユーザーが指定していない場合は、ブランクとして表示されます。
 
   <table>
     <tr>
@@ -132,9 +132,9 @@ subcollection: appid
   [ウェルカム・メッセージ](/docs/services/appid?topic=appid-cd-messages#cd-messages-welcome)のセクションにリストされているメッセージ・パラメーターを使用することもできます。
   {: tip}
 
-5. アクション URL の有効期限時間を定義します。URL の有効期限は分単位の時間であり、ユーザーはこの時間内にアクションを完了する必要があります。この時間が経過すると、検証リンクが期限切れになります。この設定は、パスワード再設定リンクが有効である時間にも影響します。
+5. アクション URL の有効期限時間を定義します。 URL の有効期限は分単位の時間であり、ユーザーはこの時間内にアクションを完了する必要があります。この時間が経過すると、検証リンクが期限切れになります。 この設定は、パスワード再設定リンクが有効である時間にも影響します。
  
-6. E メールをユーザーが検証した後に表示するページの URL を、**「Thank you ページの URL (Thank you page URL)」**ボックスに入力します。このフィールドをブランクのままにしておくことを選択した場合は、{{site.data.keyword.appid_short_notm}} のデフォルト・ページが表示されます。
+6. E メールをユーザーが検証した後に表示するページの URL を、**「Thank you ページの URL (Thank you page URL)」**ボックスに入力します。 このフィールドをブランクのままにしておくことを選択した場合は、{{site.data.keyword.appid_short_notm}} のデフォルト・ページが表示されます。
 
 7. **「保存」**をクリックします。 
 
@@ -142,7 +142,7 @@ subcollection: appid
 ### E メール: パスワードの再設定
 {: #cd-messages-reset}
 
-ユーザーは、アプリと対話するときに、パスワードを忘れている場合や、それとは別にパスワードを更新する必要がある場合があります。その要求に対する E メール応答をカスタマイズすることができます。ユーザーがパスワードの変更を要求しても、ユーザーがこの E メール内のリンクをクリックするまでパスワードは変更されません。
+ユーザーがアプリと対話するときに、パスワードを忘れている場合や、パスワードを更新する必要がある場合があります。その要求に対する E メール応答をカスタマイズすることができます。 ユーザーがパスワードの変更を要求しても、ユーザーがこの E メール内のリンクをクリックするまでパスワードは変更されません。
 {: shortdesc}
 
 
@@ -150,7 +150,7 @@ subcollection: appid
 
 2. **「パスワードを忘れた場合の E メール (Forgot password email)」**を**「有効」**に設定します。
 
-3. メッセージの内容をカスタマイズします。UI を使用して、パラメーターを追加したり、画像を挿入したりできます。メッセージの[言語](/docs/services/appid?topic=appid-cd-messages#cd-languages)を変更するには、<a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization" target="_blank">API <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> を使用して言語を設定します。ただし、メッセージの内容と翻訳については、ご自身の責任になります。次の表を参照して、メッセージで使用できるさまざまなパラメーターを確認してください。パラメーターによってプルされた情報をユーザーが指定していない場合は、ブランクとして表示されます。
+3. メッセージの内容をカスタマイズします。 UI を使用して、パラメーターを追加したり、画像を挿入したりできます。 メッセージの[言語](/docs/services/appid?topic=appid-cd-messages#cd-languages)を変更するには、<a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization" target="_blank">API <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> を使用して言語を設定します。 ただし、メッセージの内容と翻訳については、ご自身の責任になります。 次の表を参照して、メッセージで使用できるさまざまなパラメーターを確認してください。 パラメーターによってプルされた情報をユーザーが指定していない場合は、ブランクとして表示されます。
 
   <table>
     <tr>
@@ -166,7 +166,7 @@ subcollection: appid
     </tr>
     <tr>
       <td><code>%{resetPassword.code}</code></td>
-      <td> URL の一部としてワンタイム・パスコードを表示します。 ユーザーごとに異なるコードになります。 例: <code>https://us-south.appid.cloud.ibm.com/wfm/verify/6574839563478</code></td>
+      <td> URL の一部としてワンタイム・パスコードを表示します。 ユーザーごとに異なるコードになります。 例: `https://us-south.appid.cloud.ibm.com/wfm/verify/6574839563478`</td>
     </tr>
     <tr>
       <td><code>%{resetPassword.link}</code></td>
@@ -177,9 +177,9 @@ subcollection: appid
   [ウェルカム・メッセージ](/docs/services/appid?topic=appid-cd-messages#cd-messages-welcome)のセクションにリストされているメッセージ・パラメーターを使用することもできます。
   {: tip}
 
-4. アクション URL の有効期限時間を定義します。URL の有効期限は分単位の時間であり、ユーザーはこの時間内にアクションを完了する必要があります。この時間が経過すると、検証リンクが期限切れになります。この設定は、パスワード再設定リンクが有効である時間にも影響します。
+4. アクション URL の有効期限時間を定義します。 URL の有効期限は分単位の時間であり、ユーザーはこの時間内にアクションを完了する必要があります。この時間が経過すると、検証リンクが期限切れになります。 この設定は、パスワード再設定リンクが有効である時間にも影響します。
  
-5. E メールをユーザーが検証した後に表示するページの URL を、**「パスワード再設定ページの URL (Reset password page URL)」**ボックスに入力します。このフィールドをブランクのままにしておくことを選択した場合は、{{site.data.keyword.appid_short_notm}} のデフォルト・ページが表示されます。
+5. E メールをユーザーが検証した後に表示するページの URL を、**「パスワード再設定ページの URL (Reset password page URL)」**ボックスに入力します。 このフィールドをブランクのままにしておくことを選択した場合は、{{site.data.keyword.appid_short_notm}} のデフォルト・ページが表示されます。
 
 6. **「保存」**をクリックします。
 
@@ -194,7 +194,7 @@ subcollection: appid
 
 2. **「パスワードが変更された場合の E メール (Password changed email)」**を**「有効」**に設定します。
 
-3. メッセージの内容をカスタマイズします。UI を使用して、パラメーターを追加したり、画像を挿入したりできます。メッセージの[言語](/docs/services/appid?topic=appid-cd-messages#cd-languages)を変更するには、<a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization" target="_blank">API <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> を使用して言語を設定します。ただし、メッセージの内容と翻訳については、ご自身の責任になります。次の表を参照して、メッセージで使用できるさまざまなパラメーターを確認してください。パラメーターによってプルされた情報をユーザーが指定していない場合は、ブランクとして表示されます。
+3. メッセージの内容をカスタマイズします。 UI を使用して、パラメーターを追加したり、画像を挿入したりできます。 メッセージの[言語](/docs/services/appid?topic=appid-cd-messages#cd-languages)を変更するには、<a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization" target="_blank">API <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> を使用して言語を設定します。 ただし、メッセージの内容と翻訳については、ご自身の責任になります。 次の表を参照して、メッセージで使用できるさまざまなパラメーターを確認してください。 パラメーターによってプルされた情報をユーザーが指定していない場合は、ブランクとして表示されます。
 
   <table>
     <tr>
@@ -227,7 +227,7 @@ subcollection: appid
 以下の理由で、カスタム E メール送信者を使用したい場合があります。
 
 - **個別設定ドメイン**
-カスタム E メール・ディスパッチャーを構成すると、E メール・メッセージの送信方法を自由に制御できます。 例えば、E メール・ドメインをカスタマイズすることで、E メールがスパムとしてフィルタリングされる可能性を少なくすることができます。 アプリ・ユーザーのブランド・エクスペリエンスをさらに向上させることもできます。
+カスタム E メール・ディスパッチャーを構成すると、E メール・メッセージの送信方法を自由に制御できます。 例えば、E メール・ドメインをカスタマイズして、E メールがスパムとしてフィルタリングされる可能性をさらに低くすることができます。アプリ・ユーザーのブランド・エクスペリエンスをさらに向上させることもできます。
 
 - **洞察とトラブルシューティング**
 E メール・プロバイダーから洞察が得られます。例えば、E メールを開封したユーザーの数や、配信されなかったメッセージを特定できます。 個々のメッセージを追跡し、全般的な統計を確認できるので、問題の解決に役立ちます。
@@ -242,7 +242,7 @@ E メール・プロバイダーから洞察が得られます。例えば、E �
 カスタム E メール送信者を構成するには、Cloud Directory の<a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.set_cloud_directory_email_dispatcher" target="_blank">管理 API</a> を使用する必要があります。
 
 
-1. URL を指定します。また、許可情報を指定することもできます。 サポートされる許可タイプは、`Basic authorization` または `constant authorization header value` です。
+1. URL を指定します。 また、許可情報を指定することもできます。 サポートされる許可タイプは、`Basic authorization` または `constant authorization header value` です。
 
   有効な構成例を以下に示します。
   ```
@@ -283,28 +283,28 @@ E メール・プロバイダーから洞察が得られます。例えば、E �
 
 2. POST 要求を listen できる拡張ポイントを構成します。 このエンドポイントは、{{site.data.keyword.appid_short_notm}} からのペイロードを読み取り、カスタム E メール送信者で E メールを送信することができるものでなければなりません。
 
-3. {{site.data.keyword.appid_short_notm}} から送信される本体の形式は、`{"jws": "jws-format-string"}` です。 ペイロードをデコードして確認した後のコンテンツは JSON 文字列です。
+3. {{site.data.keyword.appid_short_notm}} から送信される本体の形式は、`{"jws": "jws-format-string"}` です。ペイロードをデコードして確認した後のコンテンツは JSON 文字列です。
 
   ```
-    {
-      "tenant": "tenant-id",
+  {
+    "tenant": "tenant-id",
       "iss" : "https://us-south.appid.cloud.ibm.com/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6050a61", 
       "iat": 1539173126,
       "jti": "uniq-id",
       "message": {
-          "to": "your@mail.com",
+        "to": "your@mail.com",
           "from": {
-              "name": "My Awesome Service",
+            "name": "My Awesome Service",
               "address": "no-reply@company.com"
-          },
+        },
           "replyTo": {
-              "name": "My Awesome Service",
+            "name": "My Awesome Service",
               "address": "yes-reply@company.com"
-          },
+        },
           "subject": "Welcome to My Awesome Service",
           "body": "<p>Hello<p><br/><p>Thanks for signing up John Doe</p>"
-      }
     }
+  }
   ```
   {: screen}
 
@@ -322,8 +322,8 @@ E メール・プロバイダーから洞察が得られます。例えば、E �
       <td>メッセージが送信されたときのタイム・スタンプ。</td>
     </tr>
     <tr>
-      <td><code>jss</code></td>
-      <td>JWS トークンを発行した原則。</td>
+      <td><code> iss </code></td>
+      <td>JWS トークンを発行したプリンシパル、つまり {{site.data.keyword.appid_short_notm}} インスタンス。</td>
     </tr>
     <tr>
       <td><code>jti</code></td>
@@ -417,7 +417,7 @@ E メール・プロバイダーから洞察が得られます。例えば、E �
 
 6. E メール・ディスパッチャーをテストして、構成が正しくセットアップされていることを確認します。 <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/post_email_dispatcher_test" target="_blank">テスト API</a> を使用して、構成済みのカスタム E メール送信者への要求をトリガーしてください。
 
-操作の例全体については、<a href="https://www.ibm.com/blogs/bluemix/2018/10/use-ibm-cloud-app-id-and-your-email-provider-to-brand-mails-sent-to-app-users/" target="_blank">Use your own provider for mail sent with {{site.data.keyword.appid_full}}</a> を参照してください。
+操作の例全体については、<a href="https://www.ibm.com/cloud/blog/use-ibm-cloud-app-id-and-your-email-provider-to-brand-mails-sent-to-app-users" target="_blank">Use your own provider for mail sent with {{site.data.keyword.appid_full}}</a> を参照してください。
 
 
 

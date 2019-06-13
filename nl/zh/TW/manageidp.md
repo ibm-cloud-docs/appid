@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-20"
 
 keywords: authentication, authorization, identity, app security, secure, development, identity provider, tokens, customization, lifetime
 
@@ -30,7 +30,11 @@ subcollection: appid
 {: shortdesc}
 
 
-{{site.data.keyword.appid_short_notm}} 使用多個通訊協定（例如 OpenID Connect、SAML 等等）與身分提供者互動。例如，OpenID Connect 是與許多社交提供者（例如 Facebook、Google）搭配使用的通訊協定。企業提供者（例如 <a href="https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-azure-active-directory/" target="_blank">Azure Active Directory <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a> 或 <a href="https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-active-directory-federation-service/" target="_blank">Active Directory Federation Service <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>）通常會使用 SAML 作為其身分通訊協定。對於[雲端目錄](/docs/services/appid?topic=appid-cloud-directory)，此服務使用 SCIM 來驗證身分資訊。
+{{site.data.keyword.appid_short_notm}} 使用多個通訊協定（例如 OpenID Connect、SAML 等等）與身分提供者互動。例如，OpenID Connect 是與許多社交提供者（例如 Facebook、Google）搭配使用的通訊協定。企業提供者（例如 <a href="https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-azure-active-directory" target="_blank">Azure Active Directory <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a> 或 <a href="https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-active-directory-federation-service" target="_blank">Active Directory Federation Service <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>）通常會使用 SAML 作為其身分通訊協定。對於[雲端目錄](/docs/services/appid?topic=appid-cloud-directory)，此服務使用 SCIM 來驗證身分資訊。
+
+當您使用社交或企業身分提供者時，{{site.data.keyword.appid_short_notm}} 具有使用者帳戶資訊的讀取權。此服務會使用記號以及身分提供者所傳回的主張，來驗證使用者的身分。因為此服務永不具有資訊的寫入權，所以使用者必須透過其選擇的身分提供者執行動作，例如重設其密碼。例如，如果使用者使用 Facebook 來登入您的應用程式，然後想要變更其密碼，他們必須移至 `www.facebook.com` 才能執行此動作。
+
+當您使用[雲端目錄](/docs/services/appid?topic=appid-cloud-directory)時，{{site.data.keyword.appid_short_notm}} 是身分提供者。此服務會使用您的登錄來驗證您的使用者身分。因為 {{site.data.keyword.appid_short_notm}} 是提供者，所以使用者可以直接在您的應用程式中充分運用進階功能，例如重設其密碼。
 
 使用應用程式身分？請參閱[應用程式身分](/docs/services/appid?topic=appid-app)。
 {: tip}
@@ -98,7 +102,7 @@ subcollection: appid
 
 1. 按一下**鑑別設定**，以查看 URI 及記號配置選項。
 
-2. 在**新增 Web 重新導向 URI** 欄位中，鍵入 URI。每一個 URI 都應該以 `http://` 或 `https://` 作為開頭，而且必須包含完整路徑，其中包括要讓重新導向順利完成的任何查詢參數。需要協助格式化嗎？請查看下表的一些範例。
+2. 在**新增 Web 重新導向 URI** 欄位中，鍵入 URI。每一個 URI 都應該以 `http://` 或 `https://` 作為開頭，而且必須包含完整路徑，其中包括要讓重新導向順利完成的任何查詢參數。需要協助格式化您的 URI？請查看下表的一些範例。
 
   <table>
     <tr>
@@ -122,6 +126,12 @@ subcollection: appid
 3. 按一下**新增 Web 重新導向 URI** 方框中的 **+** 符號。
 
 4. 重複步驟 1 到 3，直到所有可能的 URI 都新增至您的清單為止。
+
+
+
+不確定您的重新導向 URI 從何而來？請觀看下列簡短視訊以瞭解在何處取得它，以及如何將它新增至您的清單。
+
+<iframe class="embed-responsive-item" id="redirecturi" title="{{site.data.keyword.appid_short_notm}}：如何修正無效的重新導向 URI" type="text/html" width="640" height="390" src="//www.youtube.com/embed/6hxqbvpc054?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
 
 
 

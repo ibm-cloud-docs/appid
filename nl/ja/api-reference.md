@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-13"
 
 keywords: authentication, authorization, identity, app security, secure, application identity, app to app, access token
 
@@ -28,7 +28,13 @@ subcollection: appid
 {{site.data.keyword.appid_full}} のインスタンスの DevOps 自動化、カスタマイズ、および管理に管理 API を使用できます。
 {: shortdesc}
 
-管理 API は、{{site.data.keyword.cloudaccesstraillong}} で生成されたトークンにより保護されます。 IAM を使用して、アカウント所有者は、各サービス・インスタンスに対して自分のチームの誰がどのレベルのアクセス権限を持つかを指定できます。 IAM と {{site.data.keyword.appid_short_notm}} の連動方法について詳しくは、[サービス・アクセス管理](/docs/services/appid?topic=appid-service-access-management#service-access-management)を参照してください。
+管理 API は、Identity and Access Management (IAM) で生成されたトークンにより保護されます。 IAM を使用して、アカウント所有者は、各サービス・インスタンスに対して自分のチームの誰がどのレベルのアクセス権限を持つかを指定できます。 IAM と {{site.data.keyword.appid_short_notm}} の連動方法について詳しくは、[サービス・アクセス管理](/docs/services/appid?topic=appid-service-access-management)を参照してください。
+
+
+API の動作をご覧になりたいですか? 次のビデオ・チュートリアルをご覧ください。
+
+<iframe class="embed-responsive-item" id="about-appid-api" title="{{site.data.keyword.appid_short_notm}} API の概要" type="text/html" width="640" height="390" src="//www.youtube.com/embed/b2ABxvAdGg0?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
+
 
 API を使用して、以下の操作を行えます。
 * DevOps プロセスのアプリで {{site.data.keyword.appid_short_notm}} の構成を自動化する。
@@ -76,7 +82,7 @@ https://<region-endpoint>.appid.cloud.ibm.com/management
 {: #api-prereq}
 
 <ul><ul><li>2018 年 3 月 15 日より後にサービス・インスタンスが作成されていること。 この日付より前にサービスのインスタンスが作成されている場合は、新しいインスタンスを作成し、現行インスタンスと合うように構成してください。 新しいインスタンスを使用するようにアプリを更新する必要があります。</li>
-<li>[{{site.data.keyword.cloud_notm}} CLI](/docs/cli/reference/ibmcloud/cloud-cli-install_use?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli) がインストールされていること。</li></ul></ul>
+<li>[{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-ibmcloud-cli) がインストールされていること。</li></ul></ul>
 
 ## 使用例
 {: #api-example}

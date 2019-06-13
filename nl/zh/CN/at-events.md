@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-05"
+lastupdated: "2019-05-01"
 
 keywords: authentication, authorization, identity, app security, secure, application identity, app to app, access token, activity
 
@@ -31,13 +31,19 @@ subcollection: appid
 
 
 
-有关服务如何工作的更多信息，请参阅 [{{site.data.keyword.cloudaccesstrailshort}} 文档](/docs/services/cloud-activity-tracker/reference?topic=cloud-activity-tracker-getting-started-with-cla#getting-started-with-cla)。
+
+
+有关服务如何工作的更多信息，请参阅 [{{site.data.keyword.cloudaccesstrailshort}} 文档](/docs/services/cloud-activity-tracker?topic=cloud-activity-tracker-getting-started#getting-started)。
+
+
+
+
 
 
 ## 查看管理事件
 {: #at-monitor-admin}
 
-您可以使用 {{site.data.keyword.cloudaccesstrailshort}} 服务查看、管理和分析在 {{site.data.keyword.appid_short_notm}} 实例中执行的配置活动。
+您可以使用 {{site.data.keyword.at_short}} 服务查看、管理和分析在 {{site.data.keyword.appid_short_notm}} 实例中执行的配置活动。
 {: shortdesc}
 
 要监视管理活动：
@@ -48,7 +54,7 @@ subcollection: appid
 4. 在下拉列表中生成以下配置以搜索 {{site.data.keyword.appid_short_notm}} 生成的事件。
     * 对于**查看日志**，选择**帐户日志**。
     * 对于**搜索**，选择 **target.Management**。
-    * 对于**过滤器**，输入 **appid**。
+    * 对于**过滤器**，输入 `appid`。
 5. 单击**过滤器**。
 
 </br>
@@ -56,7 +62,7 @@ subcollection: appid
 ## 管理事件列表
 {: #at-events-admin}
 
-请查看下表以获取发送到 {{site.data.keyword.cloudaccesstrailshort}} 的事件的列表。
+请查看下表以获取发送到 {{site.data.cloudaccesstrailshort}} 的事件的列表。
 
 <table>
   <tr>

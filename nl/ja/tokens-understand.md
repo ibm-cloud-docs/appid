@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-11"
+lastupdated: "2019-06-05"
 
 keywords: authentication, authorization, identity, app security, secure, access, tokens
 
@@ -103,12 +103,12 @@ subcollection: appid
   {: screen}
 
 
-識別トークンには、部分的なユーザー情報のみが含まれます。 ID プロバイダーによって提供されるすべての情報を参照するには、[/userinfo エンドポイント](/docs/services/appid?topic=appid-predefined-attributes#predefined-access-api)を使用することができます。
+識別トークンには、部分的なユーザー情報のみが含まれます。 ID プロバイダーによって提供されるすべての情報を参照するには、[/userinfo エンドポイント](/docs/services/appid?topic=appid-profiles#profile-predefined-api)を使用することができます。
 
 ## リフレッシュ・トークンとは
 {: #refresh}
 
-{{site.data.keyword.appid_short}} は、<a href="http://openid.net/specs/openid-connect-core-1_0.html#RefreshTokens" target="_blank">OIDC <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> で定義されているように、再認証なしで新規のアクセス・トークンと識別トークンを取得する機能をサポートしています。 リフレッシュ・トークンを使用してアクセス・トークンを更新すれば、ユーザーはサインインのための操作 (資格情報の入力など) を行わなくてもよくなります。 アクセス・トークンと同様、リフレッシュ・トークンには、許可されたユーザーかどうかを {{site.data.keyword.appid_short_notm}} が判別できるようにするデータが含まれています。 ただし、このトークンは内部が見えない状態になっています。
+{{site.data.keyword.appid_short}} は、<a href="https://openid.net/specs/openid-connect-core-1_0.html#RefreshTokens" target="_blank">OIDC <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> で定義されているように、再認証なしで新規のアクセス・トークンと識別トークンを取得する機能をサポートしています。 リフレッシュ・トークンを使用してアクセス・トークンを更新すれば、ユーザーはサインインのための操作 (資格情報の入力など) を行わなくてもよくなります。 アクセス・トークンと同様、リフレッシュ・トークンには、許可されたユーザーかどうかを {{site.data.keyword.appid_short_notm}} が判別できるようにするデータが含まれています。 ただし、このトークンは内部が見えない状態になっています。
 
 リフレッシュ・トークンは、通常のアクセス・トークンより存続期間が長くなるように構成されているため、アクセス・トークンが期限切れになっても、リフレッシュ・トークンは引き続き有効で、アクセス・トークンを更新するために使用できます。 {{site.data.keyword.appid_short_notm}} のリフレッシュ・トークンは、1 日から 90 日の範囲で存続期間を構成できます。 リフレッシュ・トークンを最大限に活用するには、トークンの存続期間が満了するかトークンが更新されるまでトークンを持続させておきます。 ユーザーはリフレッシュ・トークンだけではリソースに直接アクセスすることができないため、アクセス・トークンを持続させておくよりリフレッシュ・トークンを持続させておく方がずっと安全です。 ベスト・プラクティスとして、リフレッシュ・トークンは、それを受信したクライアントで安全に保管し、その発行元となった許可サーバーにのみ送信するようにしてください。
 
@@ -128,7 +128,7 @@ subcollection: appid
 ## トークンに含まれる情報の扱い
 {: #contains}
 
-アクセス・トークンには、一連の標準 JWT クレームと、一連の {{site.data.keyword.appid_short_notm}} 固有クレーム (テナント ID など) が格納されます。 識別トークンには、ユーザー固有の情報が格納されます。 トークン内の情報は、[ユーザー・プロファイル](/docs/services/appid?topic=appid-user-profile#user-profile)の一部となるクレームとして保管されます。
+アクセス・トークンには、一連の標準 JWT クレームと、一連の {{site.data.keyword.appid_short_notm}} 固有クレーム (テナント ID など) が格納されます。 識別トークンには、ユーザー固有の情報が格納されます。 トークン内の情報は、[ユーザー・プロファイル](/docs/services/appid?topic=appid-profiles)の一部となるクレームとして保管されます。
 
 ## トークンの受信方法
 {: #received}
@@ -147,4 +147,4 @@ subcollection: appid
 ## トークンの設定方法
 {: #set}
 
-トークン構成は {{site.data.keyword.appid_short_notm}} ダッシュボードで有効にしたり無効にしたりできます。構成オプションについて詳しくは、[トークンの管理](/docs/services/appid?topic=appid-managing-idp#managing-idp)を参照してください。
+トークン構成は {{site.data.keyword.appid_short_notm}} ダッシュボードで有効にしたり無効にしたりできます。 構成オプションについて詳しくは、[トークンの管理](/docs/services/appid?topic=appid-managing-idp#managing-idp)を参照してください。

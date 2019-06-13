@@ -163,7 +163,8 @@ subcollection: appid
 
 1. 將環境定義、承租戶 ID 及地區參數傳遞給起始設定方法，以配置 SDK。
 
-    放置起始設定碼的一般（但非強制）位置是在 Android 應用程式中主要活動的 `onCreate` 方法。{: tip}
+    放置起始設定碼的一般（但非強制）位置是在 Android 應用程式中主要活動的 `onCreate` 方法。
+    {: tip}
 
     ```java
     AppID.getInstance().initialize(getApplicationContext(), <tenantId>, <region>);

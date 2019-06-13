@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-05"
+lastupdated: "2019-05-01"
 
 keywords: authentication, authorization, identity, app security, secure, application identity, app to app, access token, activity
 
@@ -31,13 +31,19 @@ subcollection: appid
 
 
 
-サービスの動作について詳しくは、[{{site.data.keyword.cloudaccesstrailshort}} の資料](/docs/services/cloud-activity-tracker/reference?topic=cloud-activity-tracker-getting-started-with-cla#getting-started-with-cla)を参照してください。
+
+
+サービスの動作について詳しくは、[{{site.data.keyword.cloudaccesstrailshort}} の資料](/docs/services/cloud-activity-tracker?topic=cloud-activity-tracker-getting-started#getting-started)を参照してください。
+
+
+
+
 
 
 ## 管理イベントの表示
 {: #at-monitor-admin}
 
-{{site.data.keyword.cloudaccesstrailshort}} サービスを使用すると、{{site.data.keyword.appid_short_notm}} インスタンスで行われた構成アクティビティーを表示、管理、および分析することができます。
+{{site.data.keyword.at_short}} サービスを使用すると、{{site.data.keyword.appid_short_notm}} インスタンスで行われた構成アクティビティーを表示、管理、および分析することができます。
 {: shortdesc}
 
 管理アクティビティーをモニターするには、以下のようにします。
@@ -48,7 +54,7 @@ subcollection: appid
 4. ドロップダウン・リストから以下の構成を行って、{{site.data.keyword.appid_short_notm}} によって生成されたイベントを検索します。
     * **「ログの表示」**で、**「アカウント・ログ」**を選択します。
     * **「検索」**で、**target.Management** を選択します。
-    * **「フィルター」**で、**appid** と入力します。
+    * **「フィルター」**で、`appid` と入力します。
 5. **「フィルター」**をクリックします。
 
 </br>
@@ -56,7 +62,7 @@ subcollection: appid
 ## 管理イベントのリスト
 {: #at-events-admin}
 
-{{site.data.keyword.cloudaccesstrailshort}} に送信されるイベントのリストについては、以下の表を参照してください。
+{{site.data.cloudaccesstrailshort}} に送信されるイベントのリストについては、以下の表を参照してください。
 
 <table>
   <tr>

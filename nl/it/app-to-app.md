@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-14"
 
 keywords: authentication, authorization, identity, app security, secure, application identity, app to app, access token
 
@@ -33,12 +33,11 @@ Con {{site.data.keyword.appid_short_notm}}, puoi proteggere le applicazioni util
 
 Esistono diversi motivi per cui potresti volere che un'applicazione comunichi con un altro servizio o applicazione senza alcun intervento da parte dell'utente. Ad esempio, un'applicazione non interattiva che deve accedere a un'altra applicazione per eseguire il proprio lavoro. Questo potrebbe includere processi, CLI, daemon o un dispositivo IoT che monitora e segnala le variabili di ambiente a un server upstream. Il caso di utilizzo specifico è univoco per ogni applicazione, ma la cosa più importante da ricordare è che le richieste vengono scambiate per conto dell'applicazione, non dell'utente finale, ed è l'applicazione che viene autenticata e autorizzata.
 
-Consulta questo esempio <a href="https://www.ibm.com/blogs/bluemix/2018/02/using-app-id-secure-docker-kubernetes-applications/" target="_blank">Using {{site.data.keyword.appid_short_notm}} to secure Docker and Kubernetes applications <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a>.
 
 ### Come funziona il flusso?
 {: #app-flow-how}
 
-{{site.data.keyword.appid_short_notm}} utilizza il flusso di credenziali client OAuth2.0 per proteggere la comunicazione. Dopo aver registrato un'applicazione con {{site.data.keyword.appid_short_notm}}, l'applicazione ottiene un segreto e un ID client. Con queste informazioni, l'applicazione può richiedere un token di accesso da {{site.data.keyword.appid_short_notm}} ed essere autorizzata ad accedere a un'API o una risorsa protetta. Nel flusso di identità e autorizzazione dell'applicazione, all'applicazione viene concesso solo un token di accesso. Non ottiene un token di identità o un token di aggiornamento. Per ulteriori informazioni sui token, consulta [Descrizione dei token](/docs/services/appid?topic=appid-tokens#tokens).
+{{site.data.keyword.appid_short_notm}} utilizza il flusso di credenziali client OAuth 2.0 per proteggere la comunicazione. Dopo aver registrato un'applicazione con {{site.data.keyword.appid_short_notm}}, l'applicazione ottiene un segreto e un ID client. Con queste informazioni, l'applicazione può richiedere un token di accesso da {{site.data.keyword.appid_short_notm}} ed essere autorizzata ad accedere a un'API o una risorsa protetta. Nel flusso di identità e autorizzazione dell'applicazione, all'applicazione viene concesso solo un token di accesso. Non ottiene un token di identità o un token di aggiornamento. Per ulteriori informazioni sui token, consulta [Descrizione dei token](/docs/services/appid?topic=appid-tokens#tokens).
 
 Questo flusso di lavoro è pensato per essere utilizzato solo con applicazioni affidabili in cui non esiste alcun rischio che il segreto venga utilizzato in modo improprio o fatto trapelare. L'applicazione ospita sempre il segreto client. Non funzionerà per le applicazioni mobili.
 {: tip}
@@ -51,10 +50,14 @@ Nella seguente immagine, puoi vedere la direzione della comunicazione tra il ser
 ![{{site.data.keyword.appid_short_notm}} - Flusso di identità e autorizzazione dell'applicazione](images/app-to-app-flow.png)
 Figura. Flusso di identità e autorizzazione dell'applicazione
 
-1. L'applicazione A viene registrata con {{site.data.keyword.appid_short_notm}} per ottenere un segreto e un ID client.
-2. L'applicazione A effettua una richiesta a {{site.data.keyword.appid_short_notm}} inviando le credenziali richiamate nel passo precedente.
-3. {{site.data.keyword.appid_short_notm}} convalida la richiesta, autentica l'applicazione e restituisce una risposta all'applicazione A che contiene un token di accesso.
-4. L'applicazione A può ora utilizzare il token di accesso per inviare delle richieste all'applicazione B come ad esempio una risorsa protetta.
+1. Registra l'applicazione che deve essere autenticata per accedere a una risorsa protetta con {{site.data.keyword.appid_short_notm}}. 
+2. L'applicazione A viene registrata con {{site.data.keyword.appid_short_notm}} per ottenere un segreto e un ID client.
+3. L'applicazione A effettua una richiesta all'endpoint `/token` del server di autorizzazione {{site.data.keyword.appid_short_notm}} inviando le credenziali richiamate nel passo precedente.
+4. {{site.data.keyword.appid_short_notm}} convalida la richiesta, autentica l'applicazione e restituisce una risposta all'applicazione A che contiene un token di accesso.
+5. L'applicazione A può ora utilizzare il token di accesso valido per inviare delle richieste alle risorse protette come ad esempio l'applicazione B.
+
+Il segreto client utilizzato per autenticare il client è altamente sensibile e deve essere mantenuto confidenziale. Poiché l'applicazione utilizza il segreto client all'interno dell'applicazione, questo flusso di lavoro deve essere utilizzato solo con applicazioni affidabili. L'utilizzo di un'applicazione affidabile garantisce che il segreto client non venga utilizzato in modo improprio o fatto trapelare.
+{: important}
 
 ## Registrazione della tua applicazione
 {: #app-register}
@@ -79,7 +82,7 @@ Figura. Flusso di identità e autorizzazione dell'applicazione
   -H 'Authorization: Bearer IAM_TOKEN' \
   -d '{"name": "ApplicationName"}'
   ```
-  {: pre}
+  {: codeblock}
 
   Risposta di esempio:
 
@@ -111,7 +114,7 @@ Dopo aver registrato la tua applicazione con {{site.data.keyword.appid_short_not
     -H 'Content-Type: application/x-www-form-urlencoded' \
     -d grant_type=client_credentials
   ```
-  {: pre}
+  {: codeblock}
 
   Risposta di esempio:
   ```
@@ -121,7 +124,7 @@ Dopo aver registrato la tua applicazione con {{site.data.keyword.appid_short_not
   "token_type": "Bearer"
   }
   ```
-  {: pre}
+  {: codeblock}
 
 
 ## Esercitazione: flusso end-to-end con l'SDK Node.js
@@ -134,10 +137,10 @@ Dopo aver registrato la tua applicazione con {{site.data.keyword.appid_short_not
     ```
     const TokenManager = require('ibmcloud-appid').TokenManager;
     const config = {
-     clientId: "29a19759-aafb-41c7-9ef7-ee7b0ca88818",
-     tenantId: "39a37f57-a227-4bfe-a044-93b6e6060b61",
-     secret: "ZTEzZTA2MDAtMjljZS00MWNlLTk5NTktZDliMjY3YzUxZTYx",
-     oauthServerUrl: "https://eu-gb.appid.cloud.ibm.com/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6060b61"
+     clientId: "<client-ID>",
+     tenantId: "<tenant-ID>",
+     secret: "<secret>",
+     oauthServerUrl: "https://<region>.appid.cloud.ibm.com/oauth/v4/<tenant-ID>"
     };
 
     const tokenManager = new TokenManager(config);
@@ -148,7 +151,7 @@ Dopo aver registrato la tua applicazione con {{site.data.keyword.appid_short_not
      //console.error('Error retrieving tokens : ' + err);
     });
     ```
-    {: pre}
+    {: codeblock}
 
   * Dal server di autorizzazione {{site.data.keyword.appid_short_notm}}.
   
@@ -186,7 +189,7 @@ Dopo aver registrato la tua applicazione con {{site.data.keyword.appid_short_not
       });
     }
     ```
-    {: pre}
+    {: codeblock}
 
 2. Esegui una richiesta alla tua risorsa protetta utilizzando il token di accesso che hai ottenuto nel passo precedente.
 
@@ -207,7 +210,7 @@ Dopo aver registrato la tua applicazione con {{site.data.keyword.appid_short_not
       }
   });
   ```
-  {: pre}
+  {: codeblock}
 
 3. Proteggi le tue risorse protette utilizzando la strategia API dall'SDK {{site.data.keyword.appid_short_notm}} Node.js.
 
@@ -219,8 +222,8 @@ Dopo aver registrato la tua applicazione con {{site.data.keyword.appid_short_not
   app.use(passport.initialize());
 
   passport.use(new APIStrategy({
-      oauthServerUrl: "https://us-south.appid.cloud.ibm.com/oauth/v4/398ec248-5e93-48b8-a122-ccabc714fe85",
-      tenantId:"398ec248-5e93-48b8-a122-ccabc714fe85"
+      oauthServerUrl: "https://<region>.appid.cloud.ibm.com/oauth/v4/<tenant-ID>",
+      tenantId:"<tenant-ID>"
   }));
 
   app.get('/protected_resource',
@@ -229,4 +232,4 @@ Dopo aver registrato la tua applicazione con {{site.data.keyword.appid_short_not
           res.send("Hello from protected resource");
   });
   ```
-  {: pre}
+  {: codeblock}

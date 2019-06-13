@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-21"
 
 keywords: authentication, authorization, identity, app security, secure, discovery endpoint, oidc, public keys, tokens, well known endpoint
 
@@ -23,7 +23,7 @@ subcollection: appid
 {:download: .download}
 
 
-# 使用 OIDC 探索端點
+# OIDC 探索文件
 {: #discovery}
 
 OpenID Connect 所支援的探索通訊協定包含可用來配置應用程式以及鑑別使用者（例如記號及公開金鑰）的資訊。
@@ -42,9 +42,9 @@ OpenID Connect 所支援的探索通訊協定包含可用來配置應用程式�
 您可以在下列 URL 找到端點：
 
 ```
-https://[region].appid.ibm.cloud.com/oauth/v4/{tenantId}/.well-known/openid-configuration
+https://{region}.appid.ibm.cloud.com/oauth/v4/{tenantId}/.well-known/openid-configuration
 ```
-{: pre}
+{: codeblock}
 
 <table>
   <tr>
@@ -77,18 +77,18 @@ https://[region].appid.ibm.cloud.com/oauth/v4/{tenantId}/.well-known/openid-conf
 
 **如何呼叫端點？**
 
-若要呼叫端點，您必須具有有效的`承租戶 ID`，而且必須將探索文件 URI 寫在應用程式中。
+若要呼叫端點，您必須具有有效的承租戶 ID，而且必須將探索文件 URI 寫在應用程式碼當中。
 
 請參閱下列範例 cURL 要求：
 
 ```bash
-curl -X GET "https://us-south.appid.cloud.ibm.com/oauth/v4/asd/.well-known/openid-configuration" -H "accept: application/json"
+curl -X GET "https://{region}.appid.cloud.ibm.com/oauth/v4/{tenant-id}/.well-known/openid-configuration" -H "accept: application/json"
 ```
 {:codeblock}
 
 **預期呼叫會傳回哪些內容？**
 
-回應應該與下列範例類似：
+傳回的回應看起來類似下列範例：
 
 ```bash
 {
@@ -165,7 +165,7 @@ curl -X GET "https://us-south.appid.cloud.ibm.com/oauth/v4/asd/.well-known/openi
   </tr>
   <tr>
     <td><code>userinfo_endpoint</code></td>
-    <td>{{site.data.keyword.appid_short_notm}} userinfo 端點的 URL。</td>
+    <td>{{site.data.keyword.appid_short_notm}} <code>/userinfo</code> 端點的 URL。</td>
   </tr>
   <tr>
     <td><code>scopes_supported</code></td>

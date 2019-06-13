@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-21"
 
 keywords: authentication, authorization, identity, app security, secure, discovery endpoint, oidc, public keys, tokens, well known endpoint
 
@@ -23,7 +23,7 @@ subcollection: appid
 {:download: .download}
 
 
-# OIDC 검색 엔드포인트 사용
+# OIDC 검색 문서
 {: #discovery}
 
 OpenID Connect는 앱을 구성하고 사용자를 인증하기 위해 사용할 수 있는 정보(예: 토큰 및 공개 키)가 포함된 검색 프로토콜을 지원합니다.
@@ -42,9 +42,9 @@ OpenID Connect는 앱을 구성하고 사용자를 인증하기 위해 사용할
 다음 URL에서 엔드포인트를 찾을 수 있습니다.
 
 ```
-https://[region].appid.ibm.cloud.com/oauth/v4/{tenantId}/.well-known/openid-configuration
+https://{region}.appid.ibm.cloud.com/oauth/v4/{tenantId}/.well-known/openid-configuration
 ```
-{: pre}
+{: codeblock}
 
 <table>
   <tr>
@@ -75,20 +75,20 @@ https://[region].appid.ibm.cloud.com/oauth/v4/{tenantId}/.well-known/openid-conf
 
 
 
-**엔드포인트에 대한 호출을 작성하는 방법은 무엇입니까?**
+**엔드포인트는 어떻게 호출합니까?**
 
-엔드포인트에 대한 호출을 작성하려면 올바른 `tenantID`가 있어야 하며 애플리케이션에서 검색 문서 URI를 하드코딩해야 합니다.
+엔드포인트를 호출하려면 올바른 테넌트 ID가 있어야 하며 검색 문서 URI를 애플리케이션 코드로 하드코딩해야 합니다. 
 
 다음 샘플 cURL 요청을 참조하십시오.
 
 ```bash
-curl -X GET "https://us-south.appid.cloud.ibm.com/oauth/v4/asd/.well-known/openid-configuration" -H "accept: application/json"
+curl -X GET "https://{region}.appid.cloud.ibm.com/oauth/v4/{tenant-id}/.well-known/openid-configuration" -H "accept: application/json"
 ```
 {:codeblock}
 
 **호출에서 리턴할 것으로 예상할 수 있는 항목은 무엇입니까?**
 
-응답은 다음 예제와 유사합니다.
+리턴되는 응답은 다음 예와 유사합니다. 
 
 ```bash
 {
@@ -165,7 +165,7 @@ curl -X GET "https://us-south.appid.cloud.ibm.com/oauth/v4/asd/.well-known/openi
   </tr>
   <tr>
     <td><code>userinfo_endpoint</code></td>
-    <td>{{site.data.keyword.appid_short_notm}} 사용자 정보 엔드포인트의 URL입니다.</td>
+    <td>{{site.data.keyword.appid_short_notm}} <code>/userinfo</code> 엔드포인트의 URL입니다. </td>
   </tr>
   <tr>
     <td><code>scopes_supported</code></td>

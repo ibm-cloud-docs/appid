@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-09"
 
 keywords: authentication, authorization, identity, app security, secure, development, two factor, mfa 
 
@@ -102,7 +102,7 @@ Puoi configurare il canale email della MFA attraverso la GUI.
 
 1. Passa alla scheda **Cloud Directory > Multi-factor authentication** del dashboard {{site.data.keyword.appid_short_notm}}.
 
-2. Nella casella **Enable multi-factor authentication**, nella **scheda delle impostazioni**, passa MFA a **Enabled**. Riconosci che comprendi che la MFA comporta un addebito come un [evento di sicurezza avanzata](/docs/services/appid?topic=appid-faq#faq-pricing).Per impostazione predefinita, **Email** è selezionato come metodo di autenticazione (**Authentication method**).
+2. Nella casella **Enable multi-factor authentication**, nella **scheda delle impostazioni**, passa MFA a **Enabled**. Riconosci che comprendi che la MFA comporta un addebito come un [evento di sicurezza avanzata](/docs/services/appid?topic=appid-faq#faq-pricing). Per impostazione predefinita, **Email** è selezionato come metodo di autenticazione (**Authentication method**).
 
 3. Nella scheda **Email channel**, esamina **Email template**. Puoi scegliere di inviare il template con il testo fornito oppure di scrivere un tuo messaggio. Assicurati di utilizzare le tag HTML corrette. Nella GUI, puoi aggiungere i parametri e inserire le immagini. Per modificare la [lingua](/docs/services/appid?topic=appid-cd-messages#cd-languages) del messaggio, puoi utilizzare <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization" target="_blank">le API <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a> per impostare la lingua. Sei tuttavia responsabile del contenuto e della traduzione del messaggio. Consulta la seguente tabella per vedere l'elenco di tabelle che puoi utilizzare in questo messaggio e tutti gli altri messaggi che puoi inviare. Se un utente non fornisce le informazioni estratte dal parametro, questi campi saranno vuoti.
 
@@ -115,7 +115,7 @@ Puoi configurare il canale email della MFA attraverso la GUI.
     <tbody>
       <tr>
         <td><code>%{display.logo}</code></td>
-        <td> Visualizza l'immagine che hai configurato per il tuo Widget di accesso.</td>
+        <td> Visualizza l'immagine che hai configurato per il tuo Widget di accesso. </td>
       </tr>
       <tr>
         <td><code>%{user.displayName}</code></td>
@@ -172,7 +172,7 @@ Assicurati di aver i seguenti prerequisiti:
        Authorization: Bearer <IAM_TOKEN>
        Content-Type: application/json
   ```
-  {: pre}
+  {: codeblock}
 
   Corpo:
   ```
@@ -180,7 +180,7 @@ Assicurati di aver i seguenti prerequisiti:
        "isActive": true
    }
   ```
-  {: pre}
+  {: codeblock}
 
   Richiesta di esempio:
   ```
@@ -205,7 +205,7 @@ Assicurati di aver i seguenti prerequisiti:
        Authorization: Bearer <IAM_TOKEN>
        Content-Type: application/json
   ```
-  {: pre}
+  {: codeblock}
 
   Corpo:
   ```
@@ -213,7 +213,7 @@ Assicurati di aver i seguenti prerequisiti:
        "isActive": true
    }
   ```
-  {: pre}
+  {: codeblock}
 
   Richiesta di esempio:
 
@@ -248,7 +248,7 @@ Puoi inviare un messaggio SMS ai tuoi utenti come una seconda forma di verifica.
 
  - Ottieni il tuo segreto e la tua chiave API Nexmo. Puoi trovare il segreto e la chiave API Nexmo nella pagina delle impostazioni del tuo account nel dashboard Nexmo. Consulta la [documentazione di Nexmo](https://developer.nexmo.com/concepts/guides/authentication#api-key-and-secret) per ulteriori informazioni su come ottenere le tue credenziali.
 
- - Registra il tuo ID mittente o il numero `from` con Nexmo. Questo numero `from` è quello che appare sul telefono del tuo utente per mostrare da chi proviene l'SMS. Per ulteriori informazioni, consulta la [documentazione di Nexmo](https://help.nexmo.com/hc/en-us/articles/217571017-What-is-a-Sender-ID).
+ - Registra il tuo ID mittente o il numero `from` con Nexmo. Questo numero `from` è quello che appare sul telefono del tuo utente per mostrare da chi proviene l'SMS. In alcuni paesi, Nexmo supporta ID mittente alfanumerici. {{site.data.keyword.appid_short_notm}} utilizza il valore che hai immesso come ID mittente di Nexmo. Quindi, se sono supportati da Nexmo, puoi utilizzare gli ID con {{site.data.keyword.appid_short_notm}}. Per ulteriori informazioni, consulta la [documentazione di Nexmo](https://help.nexmo.com/hc/en-us/articles/217571017-What-is-a-Sender-ID).
 
 
 ### Con la GUI
@@ -273,7 +273,7 @@ Per configurare la MFA con la GUI, consulta [Cloud Directory](/docs/services/app
 
     4. Copia il segreto API (**API Secret**) nel dashboard Nexmo e incollalo nella casella **Secret** nel dashboard {{site.data.keyword.appid_short_notm}}.
 
-    5. Immetti il [numero](https://help.nexmo.com/hc/en-us/articles/217571017-What-is-a-Sender-ID) da cui vuoi inviare i messaggi. Un formato di numero valido rispetta il [formato della numerazione internazionale E.164](https://en.wikipedia.org/wiki/E.164) (ad es. il numero degli Stati Uniti +1 999 888 7777). Devi specificare sia il prefisso internazionale, che inizia con un simbolo +, che il numero dell'abbonato nazionale.
+    5. Immetti [l'ID](https://help.nexmo.com/hc/en-us/articles/217571017-What-is-a-Sender-ID) da cui vuoi inviare i messaggi. Un formato di numero valido rispetta il [formato della numerazione internazionale E.164](https://en.wikipedia.org/wiki/E.164) Ad esempio, numero degli Stati Uniti ha il formato `+1 999 888 7777 `. Devi specificare sia il prefisso internazionale, che inizia con un simbolo `+`, che il numero dell'abbonato nazionale. In alcuni paesi, Nexmo supporta ID mittente alfanumerici. {{site.data.keyword.appid_short_notm}} utilizza il valore che hai immesso come ID mittente di Nexmo. Quindi, se sono supportati da Nexmo, puoi utilizzare gli ID con {{site.data.keyword.appid_short_notm}}. 
 
 
 
@@ -298,7 +298,7 @@ Intestazione:
        Authorization: Bearer <IAM_TOKEN>
        Content-Type: application/json
   ```
-  {: pre}
+  {: codeblock}
 
 Corpo:
 
@@ -307,7 +307,7 @@ Corpo:
    "isActive": true
    }
   ```
-  {: pre}
+  {: codeblock}
 
 
 Richiesta di esempio:
@@ -335,7 +335,7 @@ Intestazione:
       Authorization: Bearer <IAM_TOKEN>
       Content-Type: application/json
   ```
-  {: pre}
+  {: codeblock}
 
 Corpo:
 
@@ -349,7 +349,7 @@ Corpo:
       }
   }
   ```
-  {: pre}
+  {: codeblock}
 
 Richiesta di esempio:
 
@@ -381,7 +381,7 @@ Intestazione:
      Authorization: Bearer <IAM_TOKEN>
      Content-Type: application/json
   ```
-  {: pre}
+  {: codeblock}
 
 Corpo:
 
@@ -390,7 +390,7 @@ Corpo:
     "phone_number": "phoneNumber-receives-test-message"
   }
   ```
-  {: pre}
+  {: codeblock}
 
 Richiesta di esempio:
 

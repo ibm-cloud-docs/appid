@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-14"
 
 keywords: authentication, authorization, identity, app security, secure, application identity, app to app, access token
 
@@ -33,12 +33,11 @@ subcollection: appid
 
 さまざまな場面で、あるアプリケーションがユーザー介入なしで別のサービスまたはアプリと通信できると便利です。 例えば、非対話式アプリが作業を実行するために、別のアプリケーションへのアクセスが必要になる場合があります。 これが必要になる発信元としては、プロセス、CLI、デーモンなどが含まれます。また、モニターを行ってアップストリーム・サーバーに環境変数を報告する IoT デバイスも含まれます。 具体的なユース・ケースはアプリケーションごとに異なりますが、留意すべき最も重要な点は、要求がエンド・ユーザーではなくアプリのために交換されること、また認証と許可の対象がアプリであることです。
 
-<a href="https://www.ibm.com/blogs/bluemix/2018/02/using-app-id-secure-docker-kubernetes-applications/" target="_blank">Using {{site.data.keyword.appid_short_notm}} to secure Docker and Kubernetes applications <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> にある例を参照してください。
 
-### フローはどのような仕組みになっているのか
+### フローの仕組み
 {: #app-flow-how}
 
-{{site.data.keyword.appid_short_notm}} は、OAuth2.0 クライアント資格情報フローを利用して通信を保護します。 アプリが {{site.data.keyword.appid_short_notm}} に登録されると、そのアプリはクライアント ID とシークレットを取得します。 アプリは、これらの情報を使用して {{site.data.keyword.appid_short_notm}} にアクセス・トークンを要求し、保護リソースまたは保護 API へのアクセスが許可されます。 アプリケーション識別および許可フローでは、アプリケーションに与えられるのはアクセス・トークンのみです。 識別トークンやリフレッシュ・トークンは取得しません。 トークンについて詳しくは、[トークンについて](/docs/services/appid?topic=appid-tokens#tokens)を参照してください。
+{{site.data.keyword.appid_short_notm}} は、OAuth 2.0 クライアント資格情報フローを利用して通信を保護します。 アプリが {{site.data.keyword.appid_short_notm}} に登録されると、そのアプリはクライアント ID とシークレットを取得します。 アプリは、これらの情報を使用して {{site.data.keyword.appid_short_notm}} にアクセス・トークンを要求し、保護リソースまたは保護 API へのアクセスが許可されます。 アプリケーション識別および許可フローでは、アプリケーションに与えられるのはアクセス・トークンのみです。 識別トークンやリフレッシュ・トークンは取得しません。 トークンについて詳しくは、[トークンについて](/docs/services/appid?topic=appid-tokens#tokens)を参照してください。
 
 このワークフローは、シークレットの誤用または漏えいのリスクがない、信頼できるアプリケーションでのみ使用することを想定しています。 アプリケーションは常にクライアント・シークレットを保持します。 モバイル・アプリには向いていません。
 {: tip}
@@ -51,10 +50,14 @@ subcollection: appid
 ![{{site.data.keyword.appid_short_notm}} のアプリケーション識別および許可フロー](images/app-to-app-flow.png)
 図. アプリケーション識別および許可フロー
 
-1. アプリケーション A は、{{site.data.keyword.appid_short_notm}} に登録され、クライアント ID とシークレットを取得します。
-2. アプリケーション A は、直前のステップで取得した資格情報を送信して、{{site.data.keyword.appid_short_notm}} に要求を行います。
-3. {{site.data.keyword.appid_short_notm}} は要求を検証し、アプリを認証し、アクセス・トークンを入れた応答をアプリケーション A に返します。
-4. アプリケーション A は、そのアクセス・トークンを使用して、要求をアプリケーション B (保護リソースなど) に送信できます。
+1. 保護リソースにアクセスするために認証を受ける必要があるアプリケーションを {{site.data.keyword.appid_short_notm}} に登録します。 
+2. アプリケーション A は、{{site.data.keyword.appid_short_notm}} に登録され、クライアント ID とシークレットを取得します。
+3. アプリケーション A は、前のステップで取得した資格情報を送信して、{{site.data.keyword.appid_short_notm}} 許可サーバーの `/token`エンドポイントに要求を行います。
+4. {{site.data.keyword.appid_short_notm}} は要求を検証し、アプリを認証し、アクセス・トークンを入れた応答をアプリケーション A に返します。
+5. アプリケーション A は、その有効なアクセス・トークンを使用して、アプリケーション B などの保護リソースに要求を送信できるようになりました。
+
+クライアントの認証に使用するクライアント・シークレットは、機密性が非常に高いので機密を維持する必要があります。アプリケーションがクライアント・シークレットをアプリ内で使用するので、このワークフローは、信頼できるアプリケーションでのみ使用する必要があります。信頼できるアプリケーションを使用することで、クライアント・シークレットの漏えいや悪用を防止します。
+{: important}
 
 ## アプリの登録
 {: #app-register}
@@ -79,7 +82,7 @@ subcollection: appid
   -H 'Authorization: Bearer IAM_TOKEN' \
   -d '{"name": "ApplicationName"}'
   ```
-  {: pre}
+  {: codeblock}
 
   応答例:
 
@@ -111,7 +114,7 @@ subcollection: appid
     -H 'Content-Type: application/x-www-form-urlencoded' \
     -d grant_type=client_credentials
   ```
-  {: pre}
+  {: codeblock}
 
   応答例:
   ```
@@ -121,7 +124,7 @@ subcollection: appid
   "token_type": "Bearer"
   }
   ```
-  {: pre}
+  {: codeblock}
 
 
 ## チュートリアル: Node.js SDK を使用したエンドツーエンドのフロー
@@ -134,10 +137,10 @@ subcollection: appid
     ```
     const TokenManager = require('ibmcloud-appid').TokenManager;
     const config = {
-     clientId: "29a19759-aafb-41c7-9ef7-ee7b0ca88818",
-     tenantId: "39a37f57-a227-4bfe-a044-93b6e6060b61",
-     secret: "ZTEzZTA2MDAtMjljZS00MWNlLTk5NTktZDliMjY3YzUxZTYx",
-     oauthServerUrl: "https://eu-gb.appid.cloud.ibm.com/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6060b61"
+     clientId: "<client-ID>",
+     tenantId: "<tenant-ID>",
+     secret: "<secret>",
+     oauthServerUrl: "https://<region>.appid.cloud.ibm.com/oauth/v4/<tenant-ID>"
     };
 
     const tokenManager = new TokenManager(config);
@@ -148,7 +151,7 @@ subcollection: appid
      //console.error('Error retrieving tokens : ' + err);
     });
     ```
-    {: pre}
+    {: codeblock}
 
   * {{site.data.keyword.appid_short_notm}} 許可サーバーから取得する。
   
@@ -186,7 +189,7 @@ subcollection: appid
       });
     }
     ```
-    {: pre}
+    {: codeblock}
 
 2. 前のステップで取得したアクセス・トークンを使用して、保護リソースへの要求を行います。
 
@@ -207,7 +210,7 @@ subcollection: appid
       }
   });
   ```
-  {: pre}
+  {: codeblock}
 
 3. {{site.data.keyword.appid_short_notm}} Node.js SDK に用意されている API 戦略を使用して、保護リソースをセキュアにします。
 
@@ -219,8 +222,8 @@ subcollection: appid
 app.use(passport.initialize());
 
   passport.use(new APIStrategy({
-      oauthServerUrl: "https://us-south.appid.cloud.ibm.com/oauth/v4/398ec248-5e93-48b8-a122-ccabc714fe85",
-      tenantId:"398ec248-5e93-48b8-a122-ccabc714fe85"
+      oauthServerUrl: "https://<region>.appid.cloud.ibm.com/oauth/v4/<tenant-ID>",
+      tenantId:"<tenant-ID>"
   }));
 
   app.get('/protected_resource',
@@ -229,4 +232,4 @@ app.use(passport.initialize());
           res.send("Hello from protected resource");
   });
   ```
-  {: pre}
+  {: codeblock}

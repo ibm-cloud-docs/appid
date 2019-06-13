@@ -134,7 +134,6 @@ subcollection: appid
 
 3. 找到应用程序的 `build.gradle` 文件。**注：**请确保打开应用程序的这一文件，而不是项目的 `build.gradle` 文件。
 
-
   1. 将 {{site.data.keyword.appid_short_notm}} 客户端 SDK 添加到 dependencies 部分。
 
     ```gradle
@@ -218,7 +217,7 @@ subcollection: appid
   ```
   {: codeblock}
 
-5. 安装后，打开包含 Xcode 项目和所链接依赖项的 `<your app>.xcworkspace` 文件。
+5. 安装后，打开包含 Xcode 项目和链接的依赖项的 `<your app>.xcworkspace` 文件。
 
 6. 在 Xcode 项目中启用密钥链共享。导航至**项目设置> 功能 > 密钥链共享**并选择**启用密钥链共享**。
 
@@ -318,23 +317,18 @@ subcollection: appid
    bmsClient.initialize(getApplicationContext(), <region>);
 
    AppIDAuthorizationManager appIdAuthMgr = new AppIDAuthorizationManager(AppID.getInstance())
-  bmsClient.setAuthorizationManager(appIdAuthMgr);
-
-  
+   bmsClient.setAuthorizationManager(appIdAuthMgr);
 
    Request request = new Request("<your protected resource url>", Request.GET);
-  request.send(this, new ResponseListener() {
-  
+   request.send(this, new ResponseListener() {
 
    @Override
-		public void onSuccess (Response response) {
-			
+   public void onSuccess (Response response) {
        Log.d("My app", "onSuccess :: " + response.getResponseText());
    }
 
    @Override
-	public void onFailure (Response response, Throwable t, JSONObject extendedInfo) {
-		
+   public void onFailure (Response response, Throwable t, JSONObject extendedInfo) {
 if (null != t) {
 			Log.d("My app", "onFailure :: " + t.getMessage());
        } else if (null != extendedInfo) {

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-20"
+lastupdated: "2019-05-09"
 
 keywords: authentication, authorization, identity, app security, secure, development, cloud foundry, access management, iam, java, node.js
 
@@ -74,7 +74,7 @@ Prima di iniziare, assicurati di avere i seguenti prerequisiti:
   ```
   ibmcloud login -a cloud.ibm.com -r <region>
   ```
-  {: pre}
+  {: codeblock}
 
   <table>
     <tr>
@@ -108,23 +108,23 @@ Prima di iniziare, assicurati di avere i seguenti prerequisiti:
   ```
   ibmcloud target --cf
   ```
-  {: pre}
+  {: codeblock}
 
 8. Crea un alias dell'istanza del servizio {{site.data.keyword.appid_short_notm}}.
 
   ```
   ibmcloud resource service-alias-create {ALIAS_NAME} --instance-name {SERVICE_INSTANCE_NAME}
   ```
-  {: pre}
+  {: codeblock}
 
-9. Modifica i valori di host e nome nel `manifest.yml` del tuo progetto con le informazioni ottenute nel comando precedente. Aggiungi l'alias che hai creato ai tuoi servizi.
+9. Aggiungi l'alias che hai creato ai tuoi servizi in `manifest.yml`.
 
 10. Associa mediante bind i servizi elencati nel file `manifest.yml` distribuendo l'applicazione di esempio.
 
   ```
   ibmcloud app push
   ```
-  {: pre}
+  {: codeblock}
 
 ## Distribuzione di un'applicazione Java
 {: #java}
@@ -144,7 +144,7 @@ Prima di iniziare, assicurati di avere i seguenti prerequisiti:
   ```
   mvn clean install
   ```
-  {: pre}
+  {: codeblock}
 
 7. Passa alla cartella Liberty.
 
@@ -153,34 +153,29 @@ Prima di iniziare, assicurati di avere i seguenti prerequisiti:
   ```
   ibmcloud login -a cloud.ibm.com -r <region>
   ```
-  {: pre}
+  {: codeblock}
 
 8. Indica come destinazione l'organizzazione e lo spazio Cloud Foundry in cui desideri lavorare e attieniti ai prompt per indicare come destinazione un'organizzazione e uno spazio.
 
   ```
   ibmcloud target --cf
   ```
-  {: pre}
+  {: codeblock}
 
 10. Crea un alias dell'istanza del servizio {{site.data.keyword.appid_short_notm}}.
 
   ```
   ibmcloud resource service-alias-create {ALIAS_NAME} --instance-name {SERVICE_INSTANCE_NAME}
   ```
-  {: pre}
+  {: codeblock}
 
-11. Modifica i valori di host e nome nel `manifest.yml` del tuo progetto con le informazioni ottenute nel comando precedente. Aggiungi l'alias che hai creato ai tuoi servizi.
+11. Aggiungi l'alias che hai creato ai tuoi servizi in `manifest.yml`.
 
   Esempio:
   ```
     applications:
   - name: ApplicationName
-    host: HostName
-    buildpack: liberty-for-java
-    instances: 1
     memory: 512M
-    disk_quota: 1024M
-    timeout: 180
     services:
     - AppID-alias
   ```
@@ -191,5 +186,5 @@ Prima di iniziare, assicurati di avere i seguenti prerequisiti:
   ```
   ibmcloud app push
   ```
-  {: pre}
+  {: codeblock}
 

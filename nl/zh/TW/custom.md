@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-13"
 
 keywords: authentication, authorization, identity, app security, secure, custom, proprietary, private key, public key, jwt
 
@@ -93,7 +93,7 @@ Content-Type: application/json
 
 1. 從**自訂身分提供者**標籤中，按一下**測試**來開啟測試應用程式。
 
-2. 遵循自訂身分[通訊協定](/docs/services/appid?topic=appid-custom-auth#generating-jwts)，使用 [JWT.io](https://jwt.io/) 來建立範例 JWT。
+2. 遵循自訂身分[通訊協定](/docs/services/appid?topic=appid-custom-auth#generating-jwts)，建立[範例 JWT](https://jwt.io/)。
 
 3. 將您的 JWT 貼至標示為 **JSON Web 記號**的方框中，然後按一下**測試**來執行範例鑑別。
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-20"
 
 keywords: authentication, authorization, identity, app security, secure, development, identity provider, tokens, customization, lifetime
 
@@ -30,7 +30,11 @@ I provider di identità (IdP) aggiungono un livello di sicurezza per le tue appl
 {: shortdesc}
 
 
-{{site.data.keyword.appid_short_notm}} interagisce con i provider di identità utilizzando più protocolli come ad esempio OpenID Connect, SAML e altri. Ad esempio, OpenID Connect è il protocollo utilizzato con molti provider social come Facebook e Google. I provider aziendali quali <a href="https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-azure-active-directory/" target="_blank">Azure Active Directory <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a> o <a href="https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-active-directory-federation-service/" target="_blank">Active Directory Federation Service <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a>, generalmente usano SAML come loro protocollo di identità. Per [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory), il servizio utilizza SCIM per verificare le informazioni sull'identità.
+{{site.data.keyword.appid_short_notm}} interagisce con i provider di identità utilizzando più protocolli come ad esempio OpenID Connect, SAML e altri. Ad esempio, OpenID Connect è il protocollo utilizzato con molti provider social come Facebook e Google. I provider aziendali quali <a href="https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-azure-active-directory" target="_blank">Azure Active Directory <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a> o <a href="https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-active-directory-federation-service" target="_blank">Active Directory Federation Service <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a>, generalmente usano SAML come loro protocollo di identità. Per [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory), il servizio utilizza SCIM per verificare le informazioni sull'identità.
+
+Quando utilizzi i provider di identità aziendali o social, {{site.data.keyword.appid_short_notm}} ha l'accesso in lettura alle informazioni sull'account degli utenti. Il servizio utilizza un token e le asserzioni restituite dal provider di identità per verificare se un utente è chi dice di essere. Poiché il servizio non ha mai l'accesso in scrittura alle informazioni, gli utenti devono utilizzare il provider di identità di loro scelta per effettuare delle azioni, come il ripristino della propria password. Ad esempio, se un utente accede alla tua applicazione con Facebook e poi volesse modificare la propria password, deve andare all'indirizzo `www.facebook.com` per farlo.
+
+Quando utilizzi [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory), {{site.data.keyword.appid_short_notm}} è il provider di identità. Il servizio utilizza il tuo registro per verificare l'identità dei tuoi utenti. Poiché {{site.data.keyword.appid_short_notm}} è il provider, gli utenti possono avvalersi della funzionalità avanzata, come il ripristino delle loro password, direttamente nella tua applicazione.
 
 Come gestisco l'identità dell'applicazione? Consulta [Identità dell'applicazione](/docs/services/appid?topic=appid-app).
 {: tip}
@@ -73,7 +77,7 @@ Il servizio può essere configurato per utilizzare diversi provider. Consulta la
 ## Gestione dei provider
 {: #managing-providers}
 
-Un provider di identità crea e gestisce le informazioni su un'entità come ad esempio un utente, un ID funzionale o un'applicazione. Il provider verifica l'identità dell'entità utilizzando delle credenziali, come ad esempio una password. Successivamente, l'IdP invia le informazioni sull'identità a un altro provider del servizio. Poiché il provider di identità autentica l'entità, {{site.data.keyword.appid_short_notm}} è in grado di autorizzarla e di concedere l'accesso alle tue applicazioni.
+Un provider di identità crea e gestisce le informazioni su un'entità come ad esempio un utente, un ID funzionale o un'applicazione. Il provider verifica l'identità dell'entità utilizzando delle credenziali, come ad esempio una password. Successivamente, l'IdP invia le informazioni sull'identità a un altro provider di servizi. Poiché il provider di identità autentica l'entità, {{site.data.keyword.appid_short_notm}} è in grado di autorizzarla e di concedere l'accesso alle tue applicazioni.
 {: shortdesc}
 
 Per gestire i tuoi provider di identità:
@@ -98,7 +102,7 @@ Assicurati di registrare solo gli URI delle applicazioni che ritieni attendibili
 
 1. Fai clic su **Authentication Settings** per visualizzare le tue opzioni di configurazione di token e URI.
 
-2. Nel campo **Add web redirect URI**, immetti l'URI. Ogni URI deve iniziare con `http://` o `https://` e deve includere il percorso completo, compresi gli eventuali parametri di query, perché il reindirizzamento venga eseguito correttamente. Hai bisogno di aiuto con il formato? Consulta la seguente tabella per qualche esempio.
+2. Nel campo **Add web redirect URI**, immetti l'URI. Ogni URI deve iniziare con `http://` o `https://` e deve includere il percorso completo, compresi gli eventuali parametri di query, perché il reindirizzamento venga eseguito correttamente. Hai bisogno di aiuto con la formattazione del tuo URI? Consulta la seguente tabella per qualche esempio.
 
   <table>
     <tr>
@@ -122,6 +126,12 @@ Assicurati di registrare solo gli URI delle applicazioni che ritieni attendibili
 3. Fai clic sul simbolo **+** nella casella **Add web redirect URIs**.
 
 4. Ripetere i passi da uno a tre fino a che al tuo elenco non vengono aggiunti tutti gli URI possibili.
+
+
+
+Non sei sicuro da dove proviene il tuo URI di reindirizzamento? Guarda il seguente breve video per vedere da dove proviene e come aggiungerlo al tuo elenco.
+
+<iframe class="embed-responsive-item" id="redirecturi" title="{{site.data.keyword.appid_short_notm}}: Come correggere un URI di reindirizzamento non valido" type="text/html" width="640" height="390" src="//www.youtube.com/embed/6hxqbvpc054?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
 
 
 

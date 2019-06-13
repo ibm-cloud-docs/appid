@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-11"
+lastupdated: "2019-04-17"
 
 keywords: authentication, authorization, identity, app security, secure
 
@@ -131,3 +131,14 @@ subcollection: appid
   </tbody>
 </table>
 
+
+
+## {{site.data.keyword.appid_short_notm}} 和 Keycloak 有什么区别？
+{:# faq-keycloak}
+
+{{site.data.keyword.appid_short_notm}} 和 Keycloak 都可用于向应用程序添加认证以及保护服务。这两个产品的主要区别在于其打包方式。
+{: shortdesc}
+
+Keycloak 打包成软件，这意味着作为开发者，您将在下载产品后负责维护产品的功能。您负责托管、高可用性、合规性、备份、DDoS 防御、负载均衡、Web 防火墙、数据库等。
+
+{{site.data.keyword.appid_short_notm}} 是以“即服务”形式提供的完全受管产品。这意味着 IBM 将负责服务的运行，处理合规性、多个专区中的可用性、SLA 等。{{site.data.keyword.appid_short_notm}} 还具有 {{site.data.keyword.cloud_notm}} 平台的现成集成体验，该平台包含多种本机运行时和服务，例如 {{site.data.keyword.containershort_notm}}、{{site.data.keyword.openwhisk_short}} 和 {{site.data.keyword.cloudaccesstrailshort}}。

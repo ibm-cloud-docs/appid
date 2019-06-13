@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-14"
+lastupdated: "2019-05-21"
 
 keywords: authentication, authorization, identity, app security, secure, troubleshooting, help, support, requests, uri
 
@@ -25,7 +25,7 @@ subcollection: appid
 {:tsCauses: .tsCauses}
 {:tsResolve: .tsResolve}
 
-# 一般疑難排解
+# 疑難排解：一般
 {: #troubleshooting}
 
 如果您在使用 {{site.data.keyword.appid_full}} 時發生問題，請考慮使用這些技術來進行疑難排解及取得協助。
@@ -35,11 +35,10 @@ subcollection: appid
 {: #ts-gettinghelp}
 
 您可以搜尋資訊或透過討論區提問來取得協助。您也可以開立支援問題單。當您使用討論區提問時，請標記您的問題，以便 {{site.data.keyword.cloud_notm}} 開發團隊能看到它。
-  * 如果您有 {{site.data.keyword.appid_short_notm}} 的相關技術問題，請將問題張貼在 <a href="https://stackoverflow.com/search?q=ibm-appid" target="_blank">Stack Overflow <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>，並使用 "ibm-appid" 來標記問題。
-  * 若為服務及開始使用指示的相關問題，請使用 <a href="https://developer.ibm.com/answers/topics/appid/" target="_blank">dW Answers <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a> 討論區。請包括 `appid` 標籤。
+  * 如果您有 {{site.data.keyword.appid_short_notm}} 的相關技術問題，請將問題張貼在 <a href="https://stackoverflow.com/" target="_blank">Stack Overflow <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>，並使用 "ibm-appid" 來標記問題。
+  * 若為服務及開始使用指示的相關問題，請使用 <a href="https://developer.ibm.com/" target="_blank">dW Answers <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a> 討論區。請包括 `appid` 標籤。
 
 如需取得支援的相關資訊，請參閱[如何取得所需的支援](/docs/get-support?topic=get-support-getting-customer-support#getting-customer-support)。
-
 
 
 ## 使用者在登入之後未重新導向至應用程式
@@ -82,6 +81,30 @@ subcollection: appid
 {: tsResolve}
 若要解決問題，請驗證 URL 正確無誤。如果 URL 不符合需求，您可以在應用程式中建立 HTTPS 端點，以將接收的授權碼重新導向至自訂 URL。在 {{site.data.keyword.appid_short_notm}} 主控台中，將已建立的端點指定為重新導向 URL。如需重新導向 URI 的相關資訊，請參閱[新增重新導向 URI](/docs/services/appid?topic=appid-managing-idp#add-redirect-uri)
 
+## 使用者未重新導向至身分提供者
+{: #ts-redirect}
+
+{: tsSymptoms}
+使用者嘗試登入您的應用程式，但系統提示時未顯示登入頁面。
+
+{: tsCauses}
+身分提供者可能由於數個原因而失敗：
+
+* 配置的重新導向 URL 不正確。
+* 身分提供者無法辨識鑑別要求。
+* 身分提供者預期 HTTP-POST 連結。
+* 身分提供者預期已簽署的 authnRequest。
+
+{: tsResolve}
+您可以嘗試下列部分解決方案：
+
+* 更新您的登入 URL。此 URL 會當作 authnRequest 的一部分傳送，而且必須完全一樣。
+* 確定已在您的身分提供者設定中正確設定您的 {{site.data.keyword.appid_short_notm}} meta 資料。
+* 將您的身分提供者配置為接受 HTTP-Redirect 中的 authnRequest。
+* {{site.data.keyword.appid_short_notm}} 不支援簽署 authnRequest。
+
+如果解決方案未作用，則可能是您發生連線問題。
+{: tip}
 
 
 ## 屬性顯示錯誤值

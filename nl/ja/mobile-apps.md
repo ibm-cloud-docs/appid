@@ -345,7 +345,8 @@ SDK を使用して {{site.data.keyword.appid_short}} を開始します。
 ### SDK を使用しない場合
 {: #mobile-access-api-nosdk}
 
-任意のライブラリーを使用して、`Authorization` 要求ヘッダーが `Bearer` 認証スキームを使用してアクセス・トークンを送信するように設定します。
+任意のライブラリーを使用して、`Bearer` 認証スキームを使用してアクセス・トークンを送信することを要求の `Authorization` ヘッダーで設定します。
+
 要求フォーマットの例:
 
   ```

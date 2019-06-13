@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-20"
+lastupdated: "2019-05-09"
 
 keywords: authentication, authorization, identity, app security, secure, development, cloud foundry, access management, iam, java, node.js
 
@@ -37,7 +37,7 @@ subcollection: appid
 
 * 自动化：使用 VCAP_SERVICES 环境变量中存储的服务凭证时，您不再需要手动将其复制到应用程序。这一切操作都会使用 {{site.data.keyword.appid_short_notm}} SDK 代表您在后台完成。
 * 安全：配置可防出错，因为该过程是自动执行的。
-* 安全性：由于服务凭证仅存在于环境变量中，因此不会将任何相关访问权硬编码到应用程序中。
+* 安全性：由于服务凭证仅存在于环境变量中，因此不会将与访问相关的任何内容硬编码到应用程序中。
 
 Cloud Foundry 应用程序是在其他平台上托管的？没问题。您可以在应用程序中定义应用程序凭证以将其绑定到服务。可以通过 {{site.data.keyword.appid_short_notm}} 仪表板或向 [/applications 端点](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Applications/registerApplication)发出请求来查找应用程序凭证。
 {: tip}
@@ -74,7 +74,7 @@ Cloud Foundry 应用程序是在其他平台上托管的？没问题。您可以
   ```
   ibmcloud login -a cloud.ibm.com -r <region>
   ```
-  {: pre}
+  {: codeblock}
 
   <table>
     <tr>
@@ -108,23 +108,23 @@ Cloud Foundry 应用程序是在其他平台上托管的？没问题。您可以
   ```
   ibmcloud target --cf
   ```
-  {: pre}
+  {: codeblock}
 
 8. 创建 {{site.data.keyword.appid_short_notm}} 服务实例的别名。
 
   ```
   ibmcloud resource service-alias-create {ALIAS_NAME} --instance-name {SERVICE_INSTANCE_NAME}
   ```
-  {: pre}
+  {: codeblock}
 
-9. 使用从先前命令中获取的信息，编辑项目的 `manifest.yml` 中的主机和名称值。将创建的别名添加到服务。
+9. 在 `manifest.yml` 中，将创建的别名添加到服务。
 
 10. 通过部署样本应用程序，绑定 `manifest.yml` 文件中列出的服务。
 
   ```
   ibmcloud app push
   ```
-  {: pre}
+  {: codeblock}
 
 ## 部署 Java 应用程序
 {: #java}
@@ -144,7 +144,7 @@ Cloud Foundry 应用程序是在其他平台上托管的？没问题。您可以
   ```
   mvn clean install
   ```
-  {: pre}
+  {: codeblock}
 
 7. 切换到 Liberty 文件夹。
 
@@ -153,34 +153,29 @@ Cloud Foundry 应用程序是在其他平台上托管的？没问题。您可以
   ```
   ibmcloud login -a cloud.ibm.com -r <region>
   ```
-  {: pre}
+  {: codeblock}
 
 8. 将要在其中工作的 Cloud Foundry 组织和空间设定为目标，并按照提示设置目标组织和空间。
 
   ```
   ibmcloud target --cf
   ```
-  {: pre}
+  {: codeblock}
 
 10. 创建 {{site.data.keyword.appid_short_notm}} 服务实例的别名。
 
   ```
   ibmcloud resource service-alias-create {ALIAS_NAME} --instance-name {SERVICE_INSTANCE_NAME}
   ```
-  {: pre}
+  {: codeblock}
 
-11. 使用从先前命令中获取的信息，编辑项目的 `manifest.yml` 中的主机和名称值。将创建的别名添加到服务。
+11. 在 `manifest.yml` 中，将创建的别名添加到服务。
 
       示例：
   ```
     applications:
   - name: ApplicationName
-    host: HostName
-    buildpack: liberty-for-java
-    instances: 1
     memory: 512M
-    disk_quota: 1024M
-    timeout: 180
     services:
     - AppID-alias
   ```
@@ -191,5 +186,5 @@ Cloud Foundry 应用程序是在其他平台上托管的？没问题。您可以
   ```
   ibmcloud app push
   ```
-  {: pre}
+  {: codeblock}
 

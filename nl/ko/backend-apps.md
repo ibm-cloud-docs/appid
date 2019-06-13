@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-10"
+lastupdated: "2019-05-09"
 
 keywords: authentication, authorization, identity, app security, secure, backend, back-end, oauth, 
 
@@ -144,8 +144,21 @@ if #available(OSX 10.12, *) {
     Kitura.run()  
 }
 ```
-{: pre}
+{: codeblock}
 {: ph data-hd-programlang='swift'}
+
+{{site.data.keyword.appid_short_notm}}를 사용한 백엔드 Node 애플리케이션 보호에 대해 학습하려면 다음 동영상을 확인하십시오. 그런 다음 [간단한 Node 샘플 앱](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02b-simple-node-backend-app)을 사용하여 직접 시도해 보십시오.
+{: ph data-hd-programlang='javascript'}
+
+<iframe class="embed-responsive-item" id="appid-backend-nodejs" title="{{site.data.keyword.appid_short_notm}} 정보" type="text/html" width="640" height="390" src="//www.youtube.com/embed/jJLSgkHpZwA?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+{: ph data-hd-programlang='javascript'}
+
+
+{{site.data.keyword.appid_short_notm}}를 사용한 백엔드 Liberty for Java 애플리케이션 보호에 대해 학습하려면 다음 동영상을 확인하십시오. 그런 다음 [간단한 Liberty for Java 샘플 앱](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02d-simple-liberty-backend-app)을 사용하여 직접 시도해 보십시오.
+{: ph data-hd-programlang='java'}
+
+<iframe class="embed-responsive-item" id="appid-backend-liberty" title="{{site.data.keyword.appid_short_notm}} 정보" type="text/html" width="640" height="390" src="//www.youtube.com/embed/QA6DY2qqLaw?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+{: ph data-hd-programlang='java'}
 
 
 ### 시작하기 전에
@@ -170,7 +183,7 @@ if #available(OSX 10.12, *) {
       "ibmcloud-appid": "^6.0.0"
   }
   ```
-  {: pre}
+  {: codeblock}
   {: ph data-hd-programlang='javascript'}
 
 2. 다음 명령을 실행하십시오.
@@ -179,7 +192,7 @@ if #available(OSX 10.12, *) {
   ```
   npm install
   ```
-  {: pre}
+  {: codeblock}
   {: ph data-hd-programlang='javascript'}
 
 ### SDK 초기화
@@ -203,7 +216,7 @@ if #available(OSX 10.12, *) {
   var app = express();
   app.use(passport.initialize());
   ```
-  {: pre}
+  {: codeblock}
   {: ph data-hd-programlang='javascript'}
 
 
@@ -226,7 +239,7 @@ Node.js 앱이 {{site.data.keyword.cloud_notm}}에서 실행되고 {{site.data.k
       }
    );
    ```
-  {: pre}
+  {: codeblock}
   {: ph data-hd-programlang='javascript'}
 
 토큰이 유효한 경우 요청 체인에 있는 다음 미들웨어가 호출되고 요청 오브젝트에 `appIdAuthorizationContext` 특성이 추가됩니다. 이 특성에는 원래 액세스 및 ID 토큰과 해당 토큰의 디코딩된 페이로드 정보가 포함되어 있습니다.

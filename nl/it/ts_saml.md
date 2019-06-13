@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-10"
+lastupdated: "2019-05-21"
 
 keywords: authentication, authorization, identity, app security, secure, development, idp, troubleshooting, redirected, validation
 
@@ -25,122 +25,222 @@ subcollection: appid
 {:tsCauses: .tsCauses}
 {:tsResolve: .tsResolve}
 
-# Configurazioni del provider di identità
+# Risoluzione dei problemi: SAML
 {: #troubleshooting-idp}
 
-Se hai dei problemi durante la configurazione dei provider di identità da utilizzare con {{site.data.keyword.appid_full}}, considera queste tecniche per la risoluzione dei problemi e per ottenere assistenza.
+Se hai dei problemi durante la configurazione di SAML da utilizzare con {{site.data.keyword.appid_full}}, considera queste tecniche per la risoluzione dei problemi e per ottenere assistenza.
 {: shortdesc}
 
 
-## Un utente non viene reindirizzato al provider di identità.
-{: #ts-saml-redirect}
-
-{: tsSymptoms}
-Un utente tenta di accedere alla tua applicazione, ma la pagina di accesso non viene visualizzata quando richiesto.
-
-{: tsCauses}
-Il provider di identità potrebbe non funzionare per diversi motivi:
-
-* Il tuo URL di reindirizzamento configurato non è corretto.
-* Il provider di identità non riconosce la richiesta di autenticazione.
-* Il provider di identità prevede l'associazione HTTP-POST.
-* Il provider di identità prevede una authnRequest firmata.
-
-{: tsResolve}
-Puoi provare alcune di queste soluzioni:
-
-* Aggiorna il tuo URL di accesso. Questo URL viene inviato come parte di authnRequest e deve essere esatto.
-* Assicurati che i metadati {{site.data.keyword.appid_short_notm}} siano impostati correttamente nelle impostazioni del tuo provider di identità.
-* Configura il tuo provider di identità per accettare la authnRequest in HTTP-Redirect.
-* {{site.data.keyword.appid_short_notm}} non supporta la firma di authnRequest.
-
-Se nessuna delle soluzioni funziona, è possibile che tu abbia un problema di connessione.
-{: tip}
-
-
-## Problemi SAML comuni
+## Problemi comuni relativi alla configurazione
 {: #ts-common-saml}
 
-Esamina la seguente tabella per le spiegazioni e le risoluzioni relative ai problemi più comuni riscontrati quando lavori con SAML.
-
-<table summary="Ogni riga della tabella deve essere letta da sinistra a destra, con lo stato del cluster nella prima colonna e una descrizione nella seconda colonna.">
-  <thead>
-    <th>Messaggio</th>
-    <th>Descrizione</th>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>Impossibile analizzare l'asserzione xml.</code></td>
-      <td>La risposta di SAML aveva un formato non corretto.</td>
-    </tr>
-    <tr>
-      <td><code>Attributo non valido senza nome. Contatta l'amministratore del tuo provider di identità.</code></td>
-      <td>È presente un <code>&lt;saml:Attribute&gt;</code> senza un valore definito. Contatta l'amministratore del tuo provider di identità.</td>
-    </tr>
-    <tr>
-      <td><code>Il corpo della risposta SAML deve contenere il parametro RelayState.</code></td>
-      <td>Il parametro non era incluso nel corpo della risposta SAML. {{site.data.keyword.appid_short_notm}} fornisce il parametro al provider di identità come parte della richiesta e il parametro esatto deve essere restituito nella risposta. Se il parametro viene modificato, puoi contattare l'amministratore del tuo provider di identità. </td>
-    </tr>
-    <tr>
-      <td><code>La configurazione SAML deve avere certificati, entityID e signInUrl dell'IdP.</code></td>
-      <td>Il provider di identità SAML non è <a href="/docs/services/appid?topic=appid-enterprise#enterprise" target="_blank">configurato correttamente</a>. Convalida la tua configurazione.</td>
-    </tr>
-    <tr>
-      <td><code>Errore nella convalida dell'asserzione. Controllo firma dell'asserzione SAML non riuscito. Il certificato potrebbe non essere valido.</code></td>
-      <td>Nell'asserzione devono essere inclusi una firma e un digest validi. La firma deve essere creata utilizzando la chiave privata associata al certificato fornito nella configurazione SAML, può essere usato sia quello secondario che primario. <strong>Nota</strong>: {{site.data.keyword.appid_short_notm}} non supporta l'asserzione crittografata. Se il tuo provider di identità codifica la tua asserzione SAML, disabilita la crittografia.</td>
-    </tr>
-  </tbody>
-</table>
-
-
-
-## Errori di convalida della risposta SAML
-{: #ts-saml-response}
-
-{{site.data.keyword.appid_short_notm}} impone i seguenti requisiti di validità per le asserzioni. Tutti gli attributi sono nodi XML di risposta SAML obbligatori a meno che non sia specificato diversamente.
+Il framework SAML supporta più profili, flussi e configurazioni, il che significa che è essenziale che la tua configurazione del provider di identità sia corretta. Consulta i seguenti argomenti per risolvere alcuni dei problemi comuni che potresti incontrare quando utilizzi SAML.
 {: shortdesc}
 
 
-<table summary="Ogni riga della tabella deve essere letta da sinistra a destra, con l'elemento della risposta nella prima colonna e una descrizione nella seconda colonna.">
-  <thead>
-    <th>Elemento della risposta</th>
-    <th>Descrizione</th>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>samlp:Response</code></td>
-      <td>L'elemento della risposta deve essere incluso nell'XML di risposta.</td>
-    </tr>
-    <tr>
-      <td><code>SAML version</code></td>
-      <td>{{site.data.keyword.appid_short_notm}} accetta solo <code>SAML version 2.0</code>.</td>
-    </tr>
-    <tr>
-      <td><code>InResponseTo</code></td>
-      <td>{{site.data.keyword.appid_short_notm}} verifica che l'elemento della risposta <code>InResponseTo</code> restituito nell'asserzione corrisponda all'ID della richiesta salvato dalla richiesta SAML.</td>
-    </tr>
-    <tr>
-      <td><code>saml:issuer</code></td>
-      <td>L'emittente specificato in un'asserzione deve corrispondere a quello specificato nella configurazione del provider di identità {{site.data.keyword.appid_short_notm}}.</td>
-    </tr>
-    <tr>
-      <td><code>ds:Signature</code></td>
-      <td>Nell'asserzione devono essere inclusi una firma e un digest validi. La firma deve essere creata utilizzando la chiave privata associata al certificato fornito nella configurazione SAML. Il digest viene convalidato utilizzando i valori per <code>CanonicalizationMethod</code> e <code>Transforms</code> specificati. <strong>Nota</strong>: {{site.data.keyword.appid_short_notm}} non convalida la scadenza del certificato. Per avere assistenza nella gestione dei tuoi certificati, prova il [Gestore certificato](/docs/services/certificate-manager?topic=certificate-manager-getting-started#getting-started).</td>
-    </tr>
-    <tr>
-      <td><code>saml:subject</code></td>
-      <td>L'oggetto o il <code>name_id</code> dell'asserzione deve essere l'email della federazione dell'utente.</td>
-    </tr>
-    <tr>
-      <td><code>saml:AttributeStatement</code></td>
-      <td>Afferma che alcuni attributi sono associati a un utente autenticato specifico.</td>
-    </tr>
-    <tr>
-      <td><code>saml:Conditions</code></td>
-      <td><strong>Facoltativo</strong>: quando viene inclusa un'istruzione di condizioni in un'asserzione, deve contenere anche una data/ora valida. {{site.data.keyword.appid_short_notm}} rispetta il periodo di validità specificato nell'asserzione. Per verificare, il servizio ricerca i vincoli <code>NotBefore</code> e <code>NotOnOrAfter</code> che devono essere definiti e validi.</td>
-    </tr>
-  </tbody>
-</table>
+Per messaggi e codici di errore specifici dal tuo provider di identità che non vedi in questa pagina, può essere utile cercare la [specifica SAML](http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0.html) per spiegazioni dettagliate. Se non trovi cosa stai cercando, puoi contattare l'amministratore dei tuoi provider di identità per ulteriori informazioni.
+{: note}
 
-{{site.data.keyword.appid_short_notm}} non supporta l'asserzione crittografata. Se il tuo provider di identità è configurato per crittografare la tua asserzione, disabilitalo. L'asserzione deve essere in un formato non crittografato.
-{: tip}
+
+
+### Manca il parametro `RelayState` 
+{: #ts-saml-relaystate}
+
+**Cosa sta succedendo**
+
+Il parametro `RelayState` manca dalla tua risposta di autenticazione.
+
+
+**Perché sta succedendo**
+
+{{site.data.keyword.appid_short_notm}} invia un parametro opaco noto come `RelayState` come parte della richiesta di autenticazione. Se non vedi il parametro nella tua risposta, il tuo provider di identità potrebbe non essere configurato per restituirlo correttamente. `RelayState` ha il seguente formato.
+
+```
+https://idp.example.org/SAML2/SSO/Redirect?SAMLRequest=request&RelayState=token
+```
+{: screen}
+
+**Come porvi rimedio**
+
+Verifica che il tuo provider SAML sia configurato per restituire il parametro `RelayState` a {{site.data.keyword.appid_short_notm}} senza modificarlo in alcun modo.
+
+
+### Il campo NameID manca o non è corretto
+{: #ts-saml-nameid}
+
+**Cosa sta succedendo**
+
+Quando invii una richiesta di autenticazione, ricevi un errore relativo a `NameID`.
+
+**Perché sta succedendo**
+
+{{site.data.keyword.appid_short_notm}}, come provider di servizi, definisce il modo in cui vengono identificati gli utenti dal servizio e dal provider di identità. Con {{site.data.keyword.appid_short_notm}}, gli utenti vengono identificati nella richiesta di autenticazione `NameID` nel campo `NameID` come mostrato nel seguente esempio.
+
+```
+<NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</NameIDFormat>
+```
+{: screen}
+
+**Come porvi rimedio**
+
+Per risolvere il problema, assicurati che il tuo provider di identità `NameID` sia formattato come un indirizzo email. Verifica che tutti gli utenti nel tuo registro del provider di identità abbiano un formato di indirizzo email valido. Quindi, verifica che il campo `NameID` sia definito in modo appropriato in modo che venga restituita sempre un'email valida - anche se gli utenti nel tuo registro hanno più email.
+
+
+
+### Errore di firma della risposta
+{: #ts-saml-response-sign-fail}
+
+**Cosa sta succedendo**
+
+Quando invii una richiesta di autenticazione ricevi il seguente messaggio di errore: 
+
+```
+Could not verify SAML assertion signature. Ensure {{site.data.keyword.appid_short_notm}} is configurated with your SAML provider's signing certificate.
+```
+{: screen}
+
+**Perché sta succedendo**
+
+{{site.data.keyword.appid_short_notm}} si attende che tutte le asserzioni SAML nella tua risposta siano firmate. Se il servizio non può trovare o verificare la firma nella risposta, viene restituito l'errore.
+
+**Come porvi rimedio**
+
+Per risolvere il problema, assicurati che:
+
+* Hai estratto il certificato di firma dal tuo file XML di metadati dei provider di identità. Assicurati di utilizzare la chiave con `<KeyDescriptor use="signing">`.
+* Hai impostato l'algoritmo di firma della risposta su XXX. 
+
+
+
+
+
+### Errore di decrittografia della risposta
+{: #ts-saml-decrypt-fail}
+
+**Cosa sta succedendo**
+
+Ricevi uno dei seguenti messaggi di errore in risposta alla tua richiesta di autenticazione.
+
+Messaggio di errore 1:
+
+```
+Unexpectedly received an encrypted assertion. Please enable response encryption in your {{site.data.keyword.appid_short_notm}} SAML configuration.
+```
+{: screen}
+
+Messaggio di errore 2: 
+
+```
+Could not decrypt SAML assertion. Ensure your SAML provider is configured with the {{site.data.keyword.appid_short_notm}} encryption 
+```
+{: screen}
+
+
+**Perché sta succedendo**
+
+Se il tuo provider di identità è configurato per la crittografia, {{site.data.keyword.appid_short_notm}} deve essere configurato per firmare le richieste di autenticazione SAML (AuthnRequest). Quindi, il tuo provider di identità deve essere configurato per attendersi la configurazione corrispondente. Potresti ricevere questi errori per uno dei seguenti motivi: 
+
+- {{site.data.keyword.appid_short_notm}} non è configurato per aspettarsi che la risposta SAML del provider di identità sia crittografata.
+- {{site.data.keyword.appid_short_notm}} non può decrittografare correttamente le tue asserzioni.
+
+
+**Come porvi rimedio**
+
+Se ricevi il messaggio di errore 1, verifica che la tua configurazione SAML sia configurata per aspettarsi una risposta crittografata. Per impostazione predefinita, {{site.data.keyword.appid_short_notm}} non si aspetta che la risposta sia crittografata. Per configurare la crittografia, imposta il parametro `encryptResponse` su **true** utilizzando [l'API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.set_saml_idp).
+
+Se ricevi il messaggio di errore 2, assicurati che il tuo certificato sia corretto. Puoi ottenere il certificato di firma dal file XML di metadati {{site.data.keyword.appid_short_notm}}. Assicurati di utilizzare la chiave con `<KeyDescriptor use="signing">`. Verifica che il tuo provider di identità sia configurato all'utilizzo di `` come algoritmo di firma. 
+
+
+### Codice di errore del risponditore
+{: #ts-saml-responder}
+
+**Cosa sta succedendo**
+
+Quando invii una richiesta di autenticazione ricevi il seguente messaggio di errore generico: 
+
+```
+urn:oasis:names:tc:SAML:2.0:status:Responder
+```
+{: screen}
+
+**Perché sta succedendo**
+
+Anche se {{site.data.keyword.appid_short_notm}} invia la richiesta di autenticazione iniziale, il provider di identità deve eseguire l'autenticazione utente e restituire la risposta. Esistono diversi motivi che possono causare l'emissione di questo messaggio di errore da parte del tuo provider di identità.
+
+Potresti visualizzare il messaggio se il tuo provider di identità: 
+
+* non può trovare o verificare il nome utente.
+* non supporta il formato `NameID` definito nella richiesta di autenticazione (`AuthnRequest`).
+* non supporta il contesto di autenticazione.
+* richiede che la richiesta di autenticazione sia firmata o utilizzi un algoritmo specifico nella firma.
+
+**Come porvi rimedio**
+
+Per risolvere il problema, verifica la tua configurazione e il tuo nome utente. Verifica di aver definito le variabili e il contesto di autenticazione corretti. Controlla se la tua richiesta deve essere firmata in un modo specifico.
+
+
+
+
+### Richiesta di autenticazione non supportata
+{: #ts-saml-unsupported-request}
+
+**Cosa sta succedendo**
+
+Ricevi un messaggio relativo a una richiesta di autenticazione non supportata.
+
+**Perché sta succedendo**
+
+Quando {{site.data.keyword.appid_short_notm}} genera una richiesta di autenticazione, può utilizzare il contesto di autenticazione per richiedere la qualità dell'autenticazione e delle asserzioni SAML.
+
+**Come porvi rimedio**
+
+Per risolvere il problema, puoi aggiornare il tuo contesto di autenticazione. Per impostazione predefinita, {{site.data.keyword.appid_short_notm}} utilizza la classe di autenticazione `urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport` e il confronto `exact`. Puoi aggiornare il parametro di contesto per adattarsi al tuo caso di utilizzo utilizzando le API.
+
+
+
+
+### Errore di firma della richiesta SAML
+{: #ts-saml-request-sign-fail}
+
+**Cosa sta succedendo**
+
+Ricevi un errore che indica che una richiesta di autenticazione non può essere verificata.
+
+**Perché sta succedendo**
+
+{{site.data.keyword.appid_short_notm}} può essere configurato per firmare la richiesta di autenticazione SAML (`AuthNRequest`), ma il tuo provider di identità deve essere configurato per attendersi la configurazione corrispondente.
+
+**Come porvi rimedio**
+
+Per risolvere il problema:
+
+* Verifica che {{site.data.keyword.cloud_notm}} sia configurato per firmare la richiesta di autenticazione impostando il parametro `signRequest` su `true` utilizzando l'[API set SAML IdP](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.set_saml_idp). Puoi controllare se la tua richiesta di autenticazione sia firmata controllando l'URL della richiesta. La firma è inclusa come un parametro di query. Ad esempio: `https://idp.example.org/SAML2/SSO/Redirect?SAMLRequest=request&SigAlg=value&Signature=value&RelayState=token`
+
+* Verifica che il tuo provider di identità sia configurato con il certificato corretto. Per ottenere il certificato di firma controlla il file XML di metadati {{site.data.keyword.cloud_notm}} che hai scaricato dal dashboard {{site.data.keyword.cloud_notm}}. Assicurati di utilizzare la chiave con `<KeyDescriptor use="signing">`. 
+
+* Verifica che il tuo provider di identità sia configurato all'utilizzo di `` come algoritmo di firma.
+
+
+
+## Debug della tua connessione
+{: #ts-saml-debug-connection}
+
+La tua configurazione è corretta ma hai ancora un bug? Consulta alcuni dei seguenti suggerimenti utili per il debug della tua connessione SAML.
+{: shortdesc}
+
+
+### Come acquisisco la mia risposta e la mia richiesta di autenticazione SAML?
+{: #ts-saml-capture}
+
+Esistono diverse opzioni per i plugin dei browser come [Firefox](https://addons.mozilla.org/en-US/firefox/addon/saml-tracer/) e [Chrome](https://chrome.google.com/webstore/detail/saml-tracer/mpdajninpobndbfcldcmbpnnbhibjmch?hl=en) che possono essere utilizzate per acquisire le tue risposte e richieste SAML. Non vuoi utilizzare un plugin? Nessun problema. Atlassian fornisce le istruzioni per un [approccio di estrazione più manuale](https://confluence.atlassian.com/jirakb/how-to-view-a-saml-responses-in-your-browser-for-troubleshooting-872129244.html).
+
+
+### Non comprendo i messaggi. Come posso decodificarli?
+{: #ts-saml-decode-messages}
+
+Se ancora hai dei problemi dopo l'utilizzo del tuo strumento di debug SAML, prova ad utilizzare gli [strumenti per sviluppatori SAML](https://www.samltool.com/online_tools.php) per un ulteriore aiuto nella decodifica dei tuoi messaggi. Importante! A seconda di dove intercetti i tuoi messaggi SAML, la tua richiesta potrebbe essere [codificata URL](https://www.samltool.com/online_tools.php), [compressa e decodificata base 64](https://www.samltool.com/decode.php) o [crittografata](https://www.samltool.com/decrypt.php).
+
+Non utilizzare gli strumenti online per la decrittografia dei messaggi SAML come la tua risposta SAML. Gli strumenti hanno bisogno di accedere alla chiave privata di crittografia per poter decrittografare le informazioni. La chiave dovrebbe essere mantenuta privata e l'accesso controllato. Lo strumento di decrittografia menzionato in questa sezione dovrebbe essere utilizzato solo per scopi di debug.
+{: important}
+

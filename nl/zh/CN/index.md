@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-27"
+lastupdated: "2019-05-20"
 
 keywords: authentication, authorization, identity, app security, secure, development,
 
@@ -31,8 +31,8 @@ subcollection: appid
 通过要求用户登录到应用程序，可以存储用户数据（如应用程序首选项或公共社交个人档案中的信息），然后使用该数据来定制每一种应用程序体验。{{site.data.keyword.appid_short_notm}} 为您提供了框架，但是使用 Cloud Directory 时，还可以使用您自己品牌的登录屏幕。
 
 我们希望听取您的反馈和问题！
-* 如果有关于 {{site.data.keyword.appid_short_notm}} 的技术问题，请在 <a href="https://stackoverflow.com/search?q=ibm-appid" target="_blank">Stack Overflow <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a> 上发帖提问，并使用 `ibm-appid` 标记您的问题。
-* 有关服务和入门指示信息的问题，请使用 <a href="https://developer.ibm.com/answers/topics/appid/" target="_blank">dW Answers <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a> 论坛。包含 `appid` 标记。
+* 如果有关于 {{site.data.keyword.appid_short_notm}} 的技术问题，请在 <a href="https://stackoverflow.com" target="_blank">Stack Overflow <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a> 上发帖提问，并使用 `ibm-appid` 标记您的问题。
+* 有关服务和入门指示信息的问题，请使用 <a href="https://developer.ibm.com" target="_blank">dW Answers <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a> 论坛。包含 `appid` 标记。
 
 ## 创建服务实例
 {: #create}

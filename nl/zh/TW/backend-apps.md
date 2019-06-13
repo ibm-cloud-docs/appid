@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-10"
+lastupdated: "2019-05-09"
 
 keywords: authentication, authorization, identity, app security, secure, backend, back-end, oauth, 
 
@@ -144,8 +144,21 @@ if #available(OSX 10.12, *) {
     Kitura.run()  
 }
 ```
-{: pre}
+{: codeblock}
 {: ph data-hd-programlang='swift'}
+
+請觀看下列視訊，瞭解如何使用 {{site.data.keyword.appid_short_notm}} 保護後端 Node 應用程式。然後，使用[簡單的 Node 應用程式範例](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02b-simple-node-backend-app)自行嘗試。
+{: ph data-hd-programlang='javascript'}
+
+<iframe class="embed-responsive-item" id="appid-backend-nodejs" title="關於 {{site.data.keyword.appid_short_notm}}" type="text/html" width="640" height="390" src="//www.youtube.com/embed/jJLSgkHpZwA?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+{: ph data-hd-programlang='javascript'}
+
+
+請觀看下列視訊，瞭解如何使用 {{site.data.keyword.appid_short_notm}} 保護後端 Liberty for Java 應用程式。然後，使用[簡單的 Liberty for Java 應用程式範例](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02d-simple-liberty-backend-app)自行嘗試。
+{: ph data-hd-programlang='java'}
+
+<iframe class="embed-responsive-item" id="appid-backend-liberty" title="關於 {{site.data.keyword.appid_short_notm}}" type="text/html" width="640" height="390" src="//www.youtube.com/embed/QA6DY2qqLaw?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+{: ph data-hd-programlang='java'}
 
 
 ### 開始之前
@@ -170,7 +183,7 @@ if #available(OSX 10.12, *) {
       "ibmcloud-appid": "^6.0.0"
   }
   ```
-  {: pre}
+  {: codeblock}
   {: ph data-hd-programlang='javascript'}
 
 2. 執行下列指令。
@@ -179,7 +192,7 @@ if #available(OSX 10.12, *) {
   ```
   npm install
   ```
-  {: pre}
+  {: codeblock}
   {: ph data-hd-programlang='javascript'}
 
 ### 起始設定 SDK
@@ -203,7 +216,7 @@ if #available(OSX 10.12, *) {
   var app = express();
   app.use(passport.initialize());
   ```
-  {: pre}
+  {: codeblock}
   {: ph data-hd-programlang='javascript'}
 
 
@@ -226,7 +239,7 @@ if #available(OSX 10.12, *) {
       }
    );
    ```
-  {: pre}
+  {: codeblock}
   {: ph data-hd-programlang='javascript'}
 
 當記號有效時，會呼叫要求鏈中的下一個中介軟體，並將 `appIdAuthorizationContext` 內容新增至要求物件。此內容包含原始存取記號及身分記號，以及記號的解碼有效負載資訊。

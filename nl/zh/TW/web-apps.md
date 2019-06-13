@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-21"
 
 keywords: authentication, authorization, identity, app security, secure, web apps, client, server
 
@@ -78,6 +78,12 @@ Web 應用程式通常需要使用者進行鑑別，才能存取受保護內容�
 * {{site.data.keyword.appid_short_notm}} 服務儀表板中所設定的重新導向 URI
 
 
+請觀看下列視訊，瞭解如何使用 {{site.data.keyword.appid_short_notm}} 保護 Node 應用程式。然後，使用[簡單的 Node 應用程式範例](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02a-simple-node-web-app)自行嘗試。
+
+
+<iframe class="embed-responsive-item" id="appid-nodejs" title="關於 {{site.data.keyword.appid_short_notm}}" type="text/html" width="640" height="390" src="//www.youtube.com/embed/6roa1ZOvwtw?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+
 ### 安裝 Node.js SDK
 {: #web-nodejs-install}
 
@@ -88,7 +94,7 @@ Web 應用程式通常需要使用者進行鑑別，才能存取受保護內容�
   ```bash
   npm install --save ibmcloud-appid
   ```
-  {: pre}
+  {: codeblock}
 
 ### 起始設定 Node.js SDK
 {: #web-nodejs-initialize}
@@ -103,7 +109,7 @@ Web 應用程式通常需要使用者進行鑑別，才能存取受保護內容�
     const WebAppStrategy = require("ibmcloud-appid").WebAppStrategy;
     const CALLBACK_URL = "/ibm/cloud/appid/callback";
     ```
-  {: pre}
+  {: codeblock}
 
 2. 設定 express 應用程式，以使用 express-session 中介軟體。
 
@@ -117,7 +123,7 @@ Web 應用程式通常需要使用者進行鑑別，才能存取受保護內容�
     app.use(passport.initialize());
     app.use(passport.session());
     ```
-  {: pre}
+  {: codeblock}
 
   您必須為正式作業環境配置具有適當階段作業儲存空間的中介軟體。如需相關資訊，請參閱 <a href="https://github.com/expressjs/session" target="_blank">express.js 文件 <img src="../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>。
   {: note}
@@ -135,7 +141,7 @@ Web 應用程式通常需要使用者進行鑑別，才能存取受保護內容�
     -H 'Authorization: Bearer IAM_TOKEN' \
     -d '{"name": "ApplicationName"}'
     ```
-    {: pre}
+    {: codeblock}
 
     回應範例：
     ```
@@ -167,9 +173,9 @@ Web 應用程式通常需要使用者進行鑑別，才能存取受保護內容�
     redirectUri: "{app-url}" + CALLBACK_URL
     }));
     ```
-  {: pre}
+  {: codeblock}
 
-6. 使用序列化及解除序列化來配置通行證。跨 HTTP 要求的已鑑別階段作業持續性需要此配置步驟。 如需相關資訊，請參閱<a href="http://passportjs.org/docs" target="_blank">通行證文件 <img src="../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>。
+6. 使用序列化及解除序列化來配置通行證。跨 HTTP 要求的已鑑別階段作業持續性需要此配置步驟。 如需相關資訊，請參閱<a href="http://www.passportjs.org/docs/" target="_blank">通行證文件 <img src="../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>。
 
   ```javascript
   passport.serializeUser(function(user, cb) {
@@ -180,21 +186,21 @@ Web 應用程式通常需要使用者進行鑑別，才能存取受保護內容�
     cb(null, obj);
     });
   ```
-  {: pre}
+  {: codeblock}
 
 5. 將下列程式碼新增至 `server.js` 檔案，以發出服務重新導向。
 
    ```javascript
    app.get(CALLBACK_URL, passport.authenticate(WebAppStrategy.STRATEGY_NAME));
    ```
-   {: pre}
+   {: codeblock}
 
 6. 登錄受保護的端點。
 
    ```javascript
    app.get(‘/protected’, passport.authenticate(WebAppStrategy.STRATEGY_NAME), function(req, res) {res.json(req.user); });
    ```
-   {: pre}
+   {: codeblock}
 
 如需相關資訊，請參閱 <a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs" target="_blank">{{site.data.keyword.appid_short_notm}} Node.js GitHub 儲存庫 <img src="../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>。
 
@@ -215,6 +221,14 @@ Web 應用程式通常需要使用者進行鑑別，才能存取受保護內容�
 * Java 1.8
 * Liberty for Java Web 應用程式
 
+
+請觀看下列視訊，瞭解如何使用 {{site.data.keyword.appid_short_notm}} 保護 Liberty for Java 應用程式。然後，使用[簡單的 Liberty for Java 應用程式範例](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02c-simple-liberty-web-app)自行嘗試。
+
+
+<iframe class="embed-responsive-item" id="appid-liberty-web" title="關於 {{site.data.keyword.appid_short_notm}}" type="text/html" width="640" height="390" src="//www.youtube.com/embed/o_Er69YUsMQ?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+
+
 ### 安裝 Liberty for Java SDK
 {: #web-liberty-install}
 
@@ -227,7 +241,7 @@ Web 應用程式通常需要使用者進行鑑別，才能存取受保護內容�
       <feature>openidConnectClient-1.0</feature>
   </featureManager>
   ```
-  {: pre}
+  {: codeblock}
 
 2. 以下列兩種方式之一取得您的認證。
 
@@ -242,7 +256,7 @@ Web 應用程式通常需要使用者進行鑑別，才能存取受保護內容�
     -H 'Authorization: Bearer IAM_TOKEN' \
     -d '{"name": "ApplicationName"}'
     ```
-    {: pre}
+    {: codeblock}
 
     回應範例：
     ```
@@ -272,7 +286,7 @@ Web 應用程式通常需要使用者進行鑑別，才能存取受保護內容�
     trustAliasName="ibm.com"
   />
   ```
-  {: pre}
+  {: codeblock}
 
   <table>
   <caption>表. Liberty for Java 應用程式的 OIDC 元素變數</caption>
@@ -281,7 +295,7 @@ Web 應用程式通常需要使用者進行鑑別，才能存取受保護內容�
       <th> 說明</th>
     </tr>
     <tr>
-    <td><code> clientID </code> </br> <code> secret </code> </br> <code> oauth-server-url </code> </br></td>
+    <td><code>clientID</code> </br> <code>secret</code> </br> <code>oauth-server-url</code> </br></td>
     <td>完成步驟 2 以取得服務認證。</td>
     </tr>
     <tr>
@@ -313,14 +327,14 @@ Web 應用程式通常需要使用者進行鑑別，才能存取受保護內容�
 ### 起始設定 Liberty for Java SDK
 {: #web-liberty-initialize}
 
-1. 在 `server.xml` 檔案中，定義授權過濾器以指定受保護的資源。如果過濾器未<a href="https://www.ibm.com/support/knowledgecenter/en/SSD28V_8.5.5/com.ibm.websphere.wlp.core.doc/ae/rwlp_auth_filter.html" target="_blank">定義 <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>，則服務會保護所有資源。
+1. 在 `server.xml` 檔案中，定義授權過濾器以指定受保護的資源。如果過濾器未<a href="https://www.ibm.com/support/knowledgecenter/en/SSD28V_9.0.0/com.ibm.websphere.wlp.core.doc/ae/rwlp_auth_filter.html" target="_blank">定義 <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>，則服務會保護所有資源。
 
   ```xml
   <authFilter id="myAuthFilter">
              <requestUrl id="myRequestUrl" urlPattern="/protected" matchType="contains"/>
     </authFilter>
   ```
-  {: pre}
+  {: codeblock}
 
 2. 將特殊主旨類型定義為 `ALL_AUTHENTICATED_USERS`。
 
@@ -334,7 +348,7 @@ Web 應用程式通常需要使用者進行鑑別，才能存取受保護內容�
             </application-bnd>
         </application>
   ```
-  {: pre}
+  {: codeblock}
 
 3. 從 <a href="https://github.com/ibm-cloud-security/appid-sample-code-snippets/tree/master/liberty-for-java" target="_blank">GitHub <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a> 下載 `libertySample-1.0.0.war` 檔案，並將它放在伺服器的 apps 資料夾。例如，如果您的伺服器名稱為 `defaultServer`，則 WAR 檔會在此處：`target/liberty/wlp/usr/servers/defaultServer/apps/`。
 
@@ -345,7 +359,7 @@ Web 應用程式通常需要使用者進行鑑別，才能存取受保護內容�
   <keyStore id="appidtruststore" password="Liberty" location="${server.config.dir}/mytruststore.jks"/>
   <ssl id="defaultSSLConfig" keyStoreRef="defaultKeyStore" trustStoreRef="appidtruststore"/>
 ```
-  {: pre}
+  {: codeblock}
 
 依預設，SSL 配置需要配置 OpenID Connect 的信任儲存庫。進一步瞭解<a href="https://www.ibm.com/support/knowledgecenter/en/SSEQTP_liberty/com.ibm.websphere.wlp.doc/ae/twlp_config_oidc_rp.html" target="_blank">在 Liberty 中配置 OpenID Connect Client <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>
 {: tip}
@@ -383,7 +397,7 @@ Web 應用程式通常需要使用者進行鑑別，才能存取受保護內容�
       <relativePath/>
   </parent>
   ```
-  {: pre}
+  {: codeblock}
 
 2. 將下列相依關係新增至 Maven `pom.xml` 檔案。
 
@@ -404,7 +418,7 @@ Web 應用程式通常需要使用者進行鑑別，才能存取受保護內容�
       </dependency>
   </dependencies>
   ```
-  {: pre}
+  {: codeblock}
 
 3. 在相同的檔案中，包括 Maven 外掛程式。
 
@@ -414,7 +428,7 @@ Web 應用程式通常需要使用者進行鑑別，才能存取受保護內容�
       <artifactId>spring-boot-maven-plugin</artifactId>
   </plugin>
   ```
-  {: pre}
+  {: codeblock}
 
 ### 起始設定 OAuth2
 {: #web-oauth-initialize}
@@ -425,7 +439,7 @@ Web 應用程式通常需要使用者進行鑑別，才能存取受保護內容�
   @SpringBootApplication
   @EnableOAuth2Sso
   ```
-  {: pre}
+  {: codeblock}
 
 2. 使用 `WebSecurityConfigurerAdapter` 來延伸類別。
 3. 置換任何安全配置，並登錄受保護的端點。
@@ -438,7 +452,7 @@ Web 應用程式通常需要使用者進行鑑別，才能存取受保護內容�
                 .and().logout().logoutSuccessUrl("/").permitAll();
     }
   ```
-  {: pre}
+  {: codeblock}
 
 
 ### 新增認證
@@ -457,7 +471,7 @@ Web 應用程式通常需要使用者進行鑑別，才能存取受保護內容�
     -H 'Authorization: Bearer IAM_TOKEN' \
     -d '{"name": "ApplicationName"}'
     ```
-    {: pre}
+    {: codeblock}
 
     回應範例：
     ```
@@ -484,9 +498,9 @@ Web 應用程式通常需要使用者進行鑑別，才能存取受保護內容�
     resource:
       userInfoUri: {oauthServerUrl}/userinfo
   ```
-  {: pre}
+  {: codeblock}
 
-如需逐步範例，請參閱<a href="https://www.ibm.com/blogs/bluemix/2018/06/creating-spring-boot-applications-app-id/" target="_blank">此部落格</a>！
+如需逐步範例，請參閱<a href="https://www.ibm.com/cloud/blog/creating-spring-boot-applications-app-id" target="_blank">此部落格</a>！
 
 
 ## 搭配使用 {{site.data.keyword.appid_short_notm}} 與其他語言

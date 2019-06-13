@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-21"
 
 keywords: authentication, authorization, identity, app security, secure, discovery endpoint, oidc, public keys, tokens, well known endpoint
 
@@ -23,7 +23,7 @@ subcollection: appid
 {:download: .download}
 
 
-# 使用 OIDC 发现端点
+# OIDC 发现文档
 {: #discovery}
 
 OpenID Connect 支持一种发现协议，该协议包含可用于配置应用程序和认证用户的信息，如令牌和公用密钥。
@@ -42,9 +42,9 @@ OpenID Connect 支持一种发现协议，该协议包含可用于配置应用�
 您可以在以下 URL 处找到该端点：
 
 ```
-https://[region].appid.ibm.cloud.com/oauth/v4/{tenantId}/.well-known/openid-configuration
+https://{region}.appid.ibm.cloud.com/oauth/v4/{tenantId}/.well-known/openid-configuration
 ```
-{: pre}
+{: codeblock}
 
 <table>
   <tr>
@@ -75,20 +75,20 @@ https://[region].appid.ibm.cloud.com/oauth/v4/{tenantId}/.well-known/openid-conf
 
 
 
-**如何对该端点进行调用？**
+**如何调用端点？**
 
-要对该端点进行调用，您必须具有有效的 `tenantID`，并且必须对应用程序中的发现文档 URI 进行硬编码。
+要对端点进行调用，您必须具有有效的租户标识，并且必须将发现文档 URI 硬编码到应用程序代码中。
 
 请查看以下样本 cURL 请求：
 
 ```bash
-curl -X GET "https://us-south.appid.cloud.ibm.com/oauth/v4/asd/.well-known/openid-configuration" -H "accept: application/json"
+curl -X GET "https://{region}.appid.cloud.ibm.com/oauth/v4/{tenant-id}/.well-known/openid-configuration" -H "accept: application/json"
 ```
 {:codeblock}
 
 **调用应该会返回什么内容？**
 
-响应应该类似于以下示例：
+返回的响应类似于以下示例：
 
 ```bash
 {
@@ -165,7 +165,7 @@ curl -X GET "https://us-south.appid.cloud.ibm.com/oauth/v4/asd/.well-known/openi
   </tr>
   <tr>
     <td><code>userinfo_endpoint</code></td>
-    <td>{{site.data.keyword.appid_short_notm}} userinfo 端点的 URL。</td>
+    <td>{{site.data.keyword.appid_short_notm}} <code>/userinfo</code> 端点的 URL。</td>
   </tr>
   <tr>
     <td><code>scopes_supported</code></td>

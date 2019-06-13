@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-21"
+lastupdated: "2019-05-20"
 
 keywords: authentication, authorization, identity, app security, secure, development, ingress, policy, networking, containers, kubernetes
 
@@ -50,11 +50,11 @@ subcollection: appid
 开始之前，请确保您已满足以下先决条件。
 {: shortdesc}
 
-出于安全原因，{{site.data.keyword.appid_short_notm}} 认证仅支持启用 TLS/SSL 的后端。
-{: note}
 
 * 应用程序或样本应用程序。
+
 * 标准 Kubernetes 集群，其中每个专区至少有两个工作程序节点。如果要在多专区集群中使用 Ingress，请查看 [Kubernetes Service 文档](/docs/containers?topic=containers-ingress#config_prereqs)中的额外先决条件。
+
 * 部署了集群的相同区域中的 {{site.data.keyword.appid_short_notm}} 实例。确保服务名称不包含任何空格。
 
 * 以下 [{{site.data.keyword.cloud_notm}} IAM 角色](/docs/containers?topic=containers-access_reference#access_reference)：
@@ -63,28 +63,29 @@ subcollection: appid
 
 * 以下 CLI：
 
-  * [{{site.data.keyword.cloud_notm}}](/docs/cli/reference/ibmcloud/cloud-cli-install_use?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli)
+  * [{{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli)
   * [Kubernetes](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
-  * [Docker](https://www.docker.com/products/docker-engine#/download)
+  * [Docker](https://www.docker.com/products/container-runtime#/download)
 
-* 以下 [{{site.data.keyword.cloud_notm}} CLI 插件](/docs/cli/reference/ibmcloud?topic=cloud-cli-plug-ins#plug-ins)：
+* 以下 [ CLI 插件](/docs/cli?topic=cloud-cli-install-devtools-manually#idt-install-kubernetes-cli-plugin)：
 
-  * Kubernetes Service
-  * Container Registry
+  * {{site.data.keyword.containershort}}
+  * {{site.data.keyword.registryshort_notm}}
 
 要获得有关获取已下载的 CLI 和插件以及配置的 Kubernetes Service 环境的帮助，请查看[创建 Kubernetes 集群](/docs/containers?topic=containers-cs_cluster_tutorial#cs_cluster_tutorial_lesson1)教程。
 {: tip}
+
 
 让我们开始吧！
 
 ## 步骤 1：将 {{site.data.keyword.appid_short_notm}} 绑定到集群
 {: #kube-create-appid}
 
-可以将 {{site.data.keyword.appid_short_notm}} 的实例绑定到集群，以便允许使用集群中部署的所有应用程序实例。通过将服务实例绑定到集群，在应用程序启动后，{{site.data.keyword.appid_short_notm}} 元数据和凭证即作为 Kubernetes 私钥可用。
+通过将 {{site.data.keyword.appid_short_notm}} 实例绑定到集群，可由同一 {{site.data.keyword.appid_short_notm}} 实例控制位于该集群中的所有应用程序实例。此外，应用程序启动后，{{site.data.keyword.appid_short_notm}} 元数据和凭证即作为 Kubernetes 私钥可用。
 {: shortdesc}
 
 
-1. 登录到 {{site.data.keyword.cloud_notm}} CLI。遵循 CLI 中的提示来完成登录。
+1. 登录到 {{site.data.keyword.cloud_notm}} CLI。遵循 CLI 中的提示来完成登录。如果使用的是联合标识，请确保将 `--sso` 标志附加到命令末尾。
 
   ```
   ibmcloud login -a cloud.ibm.com -r <region>
@@ -134,14 +135,14 @@ subcollection: appid
   ```
   kubectl get ingress
   ```
-  {: pre}
+  {: codeblock}
 
 4. 绑定 {{site.data.keyword.appid_short_notm}} 的实例。绑定操作将为服务实例创建服务密钥。可以使用 `-key` 标志来指定现有服务密钥。
 
   ```
   ibmcloud ks cluster-service-bind --cluster <cluster_name_or_ID> --namespace <namespace> --service <App-ID_instance_name> [--key <service_instance_key>]
   ```
-  {: pre}
+  {: codeblock}
 
   如果未指定名称空间，那么将在 `default` 名称空间中创建私钥。
   {: tip}
@@ -171,36 +172,40 @@ subcollection: appid
   ```
   ibmcloud cr login
   ```
-  {: pre}
+  {: codeblock}
 
 2. 创建 Container Registry 名称空间。
 
   ```
   ibmcloud cr namespace-add <my_namespace>
   ```
-  {: pre}
+  {: codeblock}
 
 3. 构建和标记应用程序，并将应用程序作为映像推送到 Container Registry 中的名称空间。请确保在命令末尾包含句点 (.)。
 
   ```
-  ibmcloud cr build -t registry.<region>.bluemix.net/<namespace>/<app-name>:<tag> .
+  ibmcloud cr build -t registry.{region}.icr.io.net/{namespace}/{app-name}:{tag} .
   ```
-  {: pre}
+  {: codeblock}
 
 非常好！您几乎已准备好进行部署。
 
 ## 步骤 3：配置 Ingress
 {: kube-ingress}
 
-创建集群期间，会创建专用和公共 Ingress ALB。要部署应用程序并利用 Ingress 控制器，请创建部署脚本。
+创建集群期间，会创建专用和公共 IBM Kubernetes Service 应用程序负载均衡器 (ALB)。要部署应用程序并利用 Ingress 控制器，请创建部署脚本。
 {: shortdesc}
+
+
+要确保集成的最佳性能，建议您始终使用最新版本的 IBM Kubernetes Service 应用程序负载均衡器 (ALB)。缺省情况下，集群已启用自动更新。有关自动更新的更多信息，请参阅 [On-demand ALB update feature on {{site.data.keyword.containershort}}](https://www.ibm.com/cloud/blog/on-demand-alb-update-feature-on-ibm-cloud-kubernetes-service)。
+{: tip}
 
 1. 获取在将 {{site.data.keyword.appid_short_notm}} 绑定到集群时，在集群名称空间中创建的私钥。注：这**不是** Container Registry 名称空间。
 
   ```
   kubectl get secrets --namespace=<namespace>
   ```
-  {: pre}
+  {: codeblock}
 
   下面是输出示例：
 
@@ -273,7 +278,7 @@ subcollection: appid
   ```
   kubectl apply -f <file-name>.yaml
   ```
-  {: pre}
+  {: codeblock}
 
 非常好！
 

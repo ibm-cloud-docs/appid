@@ -38,7 +38,7 @@ subcollection: appid
 
 
 ![클라우드 디렉토리 구성](images/cloud-directory.png)
-그림. 클라우드 디렉토리 구성 과정
+그림. Cloud Directory 구성 과정
 
 
 1. {{site.data.keyword.appid_short_notm}} 대시보드의 **인증 관리** 탭으로 이동하십시오. Cloud Directory가 **켜기**로 설정되어 있는지 확인하십시오.
