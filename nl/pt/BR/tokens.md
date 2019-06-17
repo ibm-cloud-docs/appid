@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-10"
+lastupdated: "2019-04-23"
 
 keywords: authentication, authorization, identity, app security, secure, tokens, jwt, development
 
@@ -210,7 +210,7 @@ implementar manualmente, pode ser útil usar uma das [bibliotecas listadas](http
 validar a assinatura.
 
 6. Valide as solicitações que estão armazenadas nos tokens. Para conferir verificações futuras, é possível usar
-[essa lista](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation).
+[essa lista](https://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation).
   <table>
     <thead>
       <th colspan=2><img src="images/idea.png" alt="Ícone de mais informações"/> Solicitações que devem ser validadas </th>

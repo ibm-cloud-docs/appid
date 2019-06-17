@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-04-23"
 
 keywords: authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
@@ -34,17 +34,17 @@ Vous pouvez définir les exigences relatives aux mots de passe pouvant être uti
 Si le mot de passe est fiable, il est difficile, voire impossible, de le deviner manuellement ou à l'aide d'un programme. Pour définir des exigences concernant la force d'un mot de passe utilisateur, procédez comme suit :
 {: shortdesc}
 
-1. Accédez à l'onglet **Règles sur les mots de passe** du tableau de bord d'App ID.
+1. Accédez à l'onglet **Règles sur les mots de passe** du tableau de bord {{site.data.keyword.appid_short_notm}}.
 
-2. Dans la case **Définir la force du mot de passe**, cliquez sur **Editer**. Un écran s'affiche.
+2. Dans la case **Définir la force du mot de passe**, cliquez sur **Editer**. Un écran s'ouvre.
 
 3. Entrez une expression régulière valide dans la zone **Force du mot de passe**.
 
   Exemples :
-    - Il doit comporter au moins huit caractères. Exemple d'expression régulière : `^.{8,}$`
-    - Il doit contenir un chiffre, une lettre minuscule et une lettre majuscule. Exemple d'expression régulière : `^(?:(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).*)$`
-    - Il ne doit comporter que des chiffres et des lettres en anglais. Exemple d'expression régulière : `^[A-Za-z0-9]*$`
-    - Il doit comporter au moins un caractère unique. Exemple d'expression régulière : `^(\w)\w*?(?!\1)\w+$`
+    - Doit comporter au moins 8 caractères. Exemple d'expression régulière : `^.{8,}$`
+    - Doit contenir un chiffre, une lettre minuscule et une lettre majuscule. Exemple d'expression régulière : `^(?:(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).*)$`
+    - Ne doit comporter que des chiffres et des lettres en anglais. Exemple d'expression régulière : `^[A-Za-z0-9]*$`
+    - Doit comporter au moins un caractère unique. Exemple d'expression régulière : `^(\w)\w*?(?!\1)\w+$`
 
 4. Cliquez sur **Sauvegarder**.
 
@@ -56,11 +56,11 @@ La force du mot de passe peut être définie sur la page des paramètres de Clou
 {: #cd-advanced-password}
 
 
-Vous pouvez améliorer la sécurité de votre application en appliquant des contraintes de mot de passe supplémentaires.
+Vous pouvez améliorer la sécurité de votre application en appliquant des contraintes de mot de passe.
 {: shortdesc}
 
 
-Vous pouvez créer une règle avancée sur les mots de passe composée de toute combinaison des 5 fonctionnalités suivantes :
+Vous pouvez créer une politique de mot de passe avancée qui se compose de n'importe quelle combinaison des cinq caractéristiques suivantes :
 
  - Verrouillage après plusieurs données d'identification incorrectes
  - Interdiction de réutilisation des mots de passe
@@ -90,7 +90,7 @@ Les mots de passe précédents sont stockés de manière sécurisée de la même
 ### Règle : Verrouillage après plusieurs données d'identification incorrectes
 {: #cd-lockout}
 
-Si vous le souhaitez, vous pouvez protéger les comptes de vos utilisateurs en les empêchant temporairement de se connecter lorsqu'un comportement suspect est détecté, tel que plusieurs tentatives de connexion consécutives avec un mot de passe incorrect. Cette mesure peut aider à empêcher un tiers malveillant d'accéder au compte d'un utilisateur en devinant son mot de passe.
+Si vous le souhaitez, vous pouvez protéger les comptes de vos utilisateurs en les empêchant temporairement de se connecter lorsqu'un comportement suspect est détecté, par exemple en cas de tentatives de connexion répétées avec un mot de passe incorrect. Cette mesure peut aider à empêcher un tiers malveillant d'accéder au compte d'un utilisateur en devinant son mot de passe.
 {: shortdesc}
 
 Vous pouvez choisir de définir le nombre maximal de tentatives de connexion infructueuses qu'un utilisateur peut effectuer avant que son compte ne soit temporairement verrouillé à l'aide de l'interface graphique ou de l'interface de programmation. Vous pouvez également définir la durée de verrouillage du compte. Vous disposez des choix suivants :
@@ -100,25 +100,25 @@ Vous pouvez choisir de définir le nombre maximal de tentatives de connexion inf
 
 Si un compte est verrouillé, les utilisateurs ne peuvent pas se connecter ni effectuer d'autres opérations de libre-service, telle que la modification de leur mot de passe, tant que la période de verrouillage spécifiée n'est pas terminée. Lorsque la période de verrouillage est terminée, l'utilisateur est automatiquement déverrouillé.
 
-Vous pouvez déverrouiller un utilisateur avant la fin de la période de verrouillage. Pour savoir s'il est déverrouillé, regardez si la zone `Actif` est définie sur `false`. Vous pouvez également vérifier que son statut dans l'onglet **Utilisateurs** du tableau de bord du service est `désactivé`. Pour déverrouiller un utilisateur, vous devez utiliser [l'API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Cloud_Directory_Users/updateCloudDirectoryUser) pour définir la zone `Actif` sur `true`.
+Vous pouvez déverrouiller un utilisateur avant la fin de la période de verrouillage. Pour savoir s'il est déverrouillé, vérifiez si la zone `Actif` est définie sur `false`. Vous pouvez également vérifier que son statut dans l'onglet **Utilisateurs** du tableau de bord du service est `désactivé`. Pour déverrouiller un utilisateur, vous devez utiliser [l'API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Cloud_Directory_Users/updateCloudDirectoryUser) pour définir la zone `Actif` sur `true`.
 
 
 ### Règle : Délai minimal entre les changements de mot de passe
 {: #cd-minimum-time}
 
-Vous pouvez empêcher vos utilisateurs de changer rapidement de mot de passe en définissant une période minimale pendant laquelle ils devront attendre entre deux changements.
+Vous pouvez empêcher vos utilisateurs de changer rapidement de mot de passe en définissant une durée minimale pendant laquelle ils devront attendre entre deux changements.
 {: shortdesc}
 
-Cette fonctionnalité est particulièrement utile lorsqu'elle est utilisée avec la règle d'interdiction de réutilisation des mots de passe. Sans cette limitation, un utilisateur pourrait facilement et rapidement changer son mot de passe à plusieurs reprises pour contourner la règle relative à la réutilisation des mots de passe récemment utilisés. Vous pouvez sélectionner n'importe quelle valeur comprise entre 1 heure et 30 jours, indiquée en heures.
+Cette fonctionnalité est particulièrement utile lorsqu'elle est utilisée avec la règle d'interdiction de réutilisation des mots de passe. Sans cette limitation, un utilisateur pourrait simplement changer son mot de passe plusieurs fois de suite pour contourner la limitation de la réutilisation des mots de passe récents. Vous pouvez sélectionner n'importe quelle valeur dans la plage comprise entre 1 et 720 heures (30 jours). La zone est spécifiée en heures.
 
 
 ### Règle : Expiration du mot de passe
 {: #cd-expiration}
 
-Pour des raisons de sécurité, vous pouvez souhaiter imposer une stratégie de rotation des mots de passe, de telle sorte que vos utilisateurs doivent modifier leur mot de passe après un certain temps.
+Pour des raisons de sécurité, vous voudrez peut-être appliquer une politique de rotation des mots de passe, pour que vos utilisateurs doivent changer leur mot de passe après un certain laps de temps.
 {: shortdesc}
 
-Vous pouvez définir une période pendant laquelle les mots de passe de vos utilisateurs resteront valides à l'aide de l'interface graphique ou de l'interface de programmation. Lorsque le mot de passe d'un utilisateur a expiré, ce dernier est obligé de le réinitialiser lors de la prochaine connexion. Vous pouvez sélectionner n'importe quel nombre de jours complets compris entre 1 et 90.
+Vous pouvez définir une période pendant laquelle les mots de passe de vos utilisateurs restent valides à l'aide de l'interface graphique ou de l'interface de programmation. Lorsque le mot de passe d'un utilisateur a expiré, ce dernier est obligé de le réinitialiser lors de la prochaine connexion. Vous pouvez sélectionner n'importe quel nombre de jours complets dans une plage allant de 1 à 90.
 
 Vous pouvez commencer rapidement avec le widget de connexion en utilisant l'interface graphique par défaut fournie. L'utilisateur est invité à fournir un nouveau mot de passe avant la fin de la connexion.
 

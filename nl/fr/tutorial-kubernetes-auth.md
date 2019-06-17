@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-21"
+lastupdated: "2019-05-20"
 
 keywords: authentication, authorization, identity, app security, secure, development, ingress, policy, networking, containers, kubernetes
 
@@ -40,7 +40,7 @@ Examinez le flux d'authentification dans le diagramme suivant :
 5. Le contrôleur Ingress obtient des jetons d'accès et d'identité d'{{site.data.keyword.appid_short_notm}} pour autorisation.
 6. Chaque demande validée et envoyée par le contrôleur Ingress à vos applications a un en-tête d'autorisation qui contient les jetons.
 
-Actuellement, l'intégration du contrôleur Ingress à {{site.data.keyword.appid_short_notm}} ne prend pas en charge les jetons d'actualisation. Lorsque vos jetons d'accès et d'identité expirent, l'utilisateur doit s'authentifier à nouveau.
+Actuellement, l'intégration du contrôleur Ingress à {{site.data.keyword.appid_short_notm}} ne prend pas en charge les jetons d'actualisation. Lorsque les jetons d'accès et d'identité expirent, l'utilisateur doit s'authentifier à nouveau.
 {: note}
 
 
@@ -50,11 +50,11 @@ Actuellement, l'intégration du contrôleur Ingress à {{site.data.keyword.appid
 Avant de commencer, vérifiez que les prérequis suivants sont respectés.
 {: shortdesc}
 
-Pour des raisons de sécurité, l'authentification {{site.data.keyword.appid_short_notm}} prend en charge uniquement les systèmes de back end avec TLS/SSL activé.
-{: note}
 
 * Une application ou un modèle d'application.
+
 * Un cluster Kubernetes standard avec au moins deux noeuds worker par zone. Si vous utilisez Ingress dans des clusters à zones multiples, passez en revue les prérequis supplémentaires indiqués dans la [documentation du service Kubernetes](/docs/containers?topic=containers-ingress#config_prereqs).
+
 * Une instance d'{{site.data.keyword.appid_short_notm}} dans la région où votre cluster est déployé. Vérifiez que le nom du service ne contient aucun espace.
 
 * Les [rôles IAM {{site.data.keyword.cloud_notm}}](/docs/containers?topic=containers-access_reference#access_reference) suivants :
@@ -63,28 +63,29 @@ Pour des raisons de sécurité, l'authentification {{site.data.keyword.appid_sho
 
 * Les interfaces de ligne de commande suivantes :
 
-  * [{{site.data.keyword.cloud_notm}}](/docs/cli/reference/ibmcloud/cloud-cli-install_use?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli)
+  * [{{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli)
   * [Kubernetes](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
-  * [Docker](https://www.docker.com/products/docker-engine#/download)
+  * [Docker](https://www.docker.com/products/container-runtime#/download)
 
-* Les [plug-ins d'interface de ligne de commande {{site.data.keyword.cloud_notm}}](/docs/cli/reference/ibmcloud?topic=cloud-cli-plug-ins#plug-ins) suivants :
+* Les [plug-in d'interface de ligne de commande](/docs/cli?topic=cloud-cli-install-devtools-manually#idt-install-kubernetes-cli-plugin) suivants :
 
-  * Kubernetes Service
-  * Container Registry
+  * {{site.data.keyword.containershort}}
+  * {{site.data.keyword.registryshort_notm}}
 
 Pour obtenir de l'aide sur les interfaces de ligne de commande et les plug-ins téléchargés et l'environnement de service Kubernetes configuré, voir le tutoriel de [création de clusters Kubernetes](/docs/containers?topic=containers-cs_cluster_tutorial#cs_cluster_tutorial_lesson1).
 {: tip}
+
 
 Allons-y !
 
 ## Etape 1 : Liaison d'{{site.data.keyword.appid_short_notm}} à votre cluster
 {: #kube-create-appid}
 
-Vous pouvez lier votre instance {{site.data.keyword.appid_short_notm}} à votre cluster de façon à autoriser l'utilisation de toutes les instances de votre application déployées dans votre cluster. Lorsque vous liez votre instance de service à votre cluster, vos métadonnées et données d'identification {{site.data.keyword.appid_short_notm}} sont disponibles en tant que valeurs confidentielles Kubernetes dès le démarrage de votre application.
+En liant votre instance de {{site.data.keyword.appid_short_notm}} à votre cluster, toutes les instances de votre application qui se trouvent dans ce cluster peuvent être contrôlées par la même instance de {{site.data.keyword.appid_short_notm}}. De même, vos métadonnées et données d'identification {{site.data.keyword.appid_short_notm}} sont disponibles en tant que valeurs confidentielles Kubernetes dès le démarrage de votre application.
 {: shortdesc}
 
 
-1. Connectez-vous à l'interface de ligne de commande {{site.data.keyword.cloud_notm}}. Suivez les invites de l'interface de ligne de commande pour effectuer la connexion.
+1. Connectez-vous à l'interface de ligne de commande {{site.data.keyword.cloud_notm}}. Suivez les invites de l'interface de ligne de commande pour effectuer la connexion. Si vous utilisez un ID fédéré, assurez-vous d'ajouter l'indicateur `--sso` à la fin de la commande.
 
   ```
   ibmcloud login -a cloud.ibm.com -r <region>
@@ -109,7 +110,7 @@ Vous pouvez lier votre instance {{site.data.keyword.appid_short_notm}} à votre 
       <td><code>au-syd</code></td>
     </tr>
     <tr>
-      <td>Londres </td>
+      <td>Londres</td>
       <td><code>eu-gb</code></td>
     </tr>
     <tr>
@@ -134,16 +135,16 @@ Vous pouvez lier votre instance {{site.data.keyword.appid_short_notm}} à votre 
   ```
   kubectl get ingress
   ```
-  {: pre}
+  {: codeblock}
 
 4. Liez votre instance d'{{site.data.keyword.appid_short_notm}}. Cette liaison crée une clé de service pour l'instance de service. Vous pouvez spécifier une clé de service existante avec l'indicateur `-key`.
 
   ```
   ibmcloud ks cluster-service-bind --cluster <cluster_name_or_ID> --namespace <namespace> --service <App-ID_instance_name> [--key <service_instance_key>]
   ```
-  {: pre}
+  {: codeblock}
 
-  Si vous ne spécifiez pas d'espace de nom, la valeur confidentielle est créée dans l'espace de nom `par défaut`.
+  Si vous ne spécifiez pas d'espace de nom, le secret est créé dans l'espace de nom `par défaut`.
   {: tip}
 
   Exemple de sortie :
@@ -171,36 +172,40 @@ Pour que votre application s'exécute dans Kubernetes, vous devez l'héberger da
   ```
   ibmcloud cr login
   ```
-  {: pre}
+  {: codeblock}
 
 2. Créez un espace de nom Container Registry.
 
   ```
   ibmcloud cr namespace-add <my_namespace>
   ```
-  {: pre}
+  {: codeblock}
 
 3. Générez, étiquetez et envoyez l'application en tant qu'image à votre espace de nom dans Container Registry. N'oubliez pas le point (.) à la fin de la commande.
 
   ```
-  ibmcloud cr build -t registry.<region>.bluemix.net/<namespace>/<app-name>:<tag> .
+  ibmcloud cr build -t registry.{region}.icr.io.net/{namespace}/{app-name}:{tag} .
   ```
-  {: pre}
+  {: codeblock}
 
 Bien ! Vous êtes presque prêt à déployer.
 
 ## Etape 3 : Configuration d'Ingress
 {: kube-ingress}
 
-Lors de la création du cluster, un équilibreur de charge d'application (ALB) Ingress privé et un public ont été automatiquement créés. Pour déployer votre application et profiter de votre contrôleur Ingress, créez un script de déploiement.
+Lors de la création d'un cluster, un équilibreur de charge d'application IBM Kubernetes Service ALB est créé pour vous sur le plan public comme sur le plan privé. Pour déployer votre application et profiter de votre contrôleur Ingress, créez un script de déploiement.
 {: shortdesc}
 
-1. Procurez-vous la valeur confidentielle créée dans l'espace de nom de votre cluster lorsque vous avez lié {{site.data.keyword.appid_short_notm}} à votre cluster. Remarque : ce n'est **pas** votre espace de nom Container Registry.
+
+Pour garantir une intégration optimale, il est recommandé de toujours utiliser la dernière version d'IBM Kubernetes Service Application Load Balancer (ALB). Par défaut, la mise à jour automatique est activée pour votre cluster. Pour plus d'informations sur les mises à jour automatiques, voir [On-demand ALB update feature on {{site.data.keyword.containershort}}](https://www.ibm.com/cloud/blog/on-demand-alb-update-feature-on-ibm-cloud-kubernetes-service).
+{: tip}
+
+1. Procurez-vous le secret créé dans l'espace de nom de votre cluster lorsque vous avez lié {{site.data.keyword.appid_short_notm}} à votre cluster. Remarque : ce n'est **pas** votre espace de nom Container Registry.
 
   ```
   kubectl get secrets --namespace=<namespace>
   ```
-  {: pre}
+  {: codeblock}
 
   Exemple de sortie :
 
@@ -244,7 +249,7 @@ Lors de la création du cluster, un équilibreur de charge d'application (ALB) I
     </tr>
     <tr>
       <td><code>bindSecret</code></td>
-      <td>Valeur confidentielle Kubernetes créée lors de la liaison de votre instance de service {{site.data.keyword.appid_short_notm}} à votre cluster.</td>
+      <td>Secret Kubernetes créé lors de la liaison de votre instance de service {{site.data.keyword.appid_short_notm}} à votre cluster.</td>
     </tr>
     <tr>
       <td><code>namespace</code></td>
@@ -264,7 +269,7 @@ Lors de la création du cluster, un équilibreur de charge d'application (ALB) I
     </tr>
     <tr>
       <td><code>secretName</code></td>
-      <td>Valeur confidentielle TLS associée à votre certificat TLS. Si votre certificat est hébergé dans IBM Cloud Certificate Manager, vous pouvez exécuter <code>ibmcloud ks alb-cert-deploy --secret-name <secret_name> --cluster <cluster_name_or_ID> --cert-crn <certificate_crn></code> pour le déployer dans votre cluster. Si vous n'avez pas de certificat, effectuez l'étape 3 de la section [Exposition d'applications avec Ingress](/docs/containers?topic=containers-ingress#ingress_expose_public).</td>
+      <td>Secret TLS associé à votre certificat TLS. Si votre certificat est hébergé dans IBM Cloud Certificate Manager, vous pouvez exécuter <code>ibmcloud ks alb-cert-deploy --secret-name <secret_name> --cluster <cluster_name_or_ID> --cert-crn <certificate_crn></code> pour le déployer dans votre cluster. Si vous n'avez pas de certificat, effectuez l'étape 3 de la section [Exposition d'applications avec Ingress](/docs/containers?topic=containers-ingress#ingress_expose_public).</td>
     </tr>
   </table>
 
@@ -273,7 +278,7 @@ Lors de la création du cluster, un équilibreur de charge d'application (ALB) I
   ```
   kubectl apply -f <file-name>.yaml
   ```
-  {: pre}
+  {: codeblock}
 
 Bon travail !
 
@@ -304,7 +309,7 @@ Une URL de redirection est l'URL du site sur lequel vous voulez qu'{{site.data.k
 {: note}
 
 
-Excellent travail ! Maintenant, vous pouvez vérifier que le déploiement a abouti en accédant à votre domaine personnalisé ou votre sous-domaine Ingress pour le tester.
+Excellent ! Maintenant, vous pouvez vérifier que le déploiement a abouti en accédant à votre domaine personnalisé ou votre sous-domaine Ingress pour le tester.
 
 
 ## Etapes suivantes

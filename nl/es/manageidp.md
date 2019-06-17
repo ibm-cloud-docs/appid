@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-20"
 
 keywords: authentication, authorization, identity, app security, secure, development, identity provider, tokens, customization, lifetime
 
@@ -30,7 +30,11 @@ Los proveedores de identidad (IdP) añaden un nivel de seguridad para sus apps m
 {: shortdesc}
 
 
-{{site.data.keyword.appid_short_notm}} interactúa con los proveedores de identidad utilizando varios protocolos, como OpenID Connect, SAML, etc. Por ejemplo, OpenID Connect es el protocolo que se utiliza con varios proveedores sociales, como Facebook o Google. Los proveedores de empresa como <a href="https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-azure-active-directory/" target="_blank">Azure Active Directory <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a> o <a href="https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-active-directory-federation-service/" target="_blank">Active Directory Federation Service <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a> suelen utilizar SAML como su protocolo de identidad. Para [Directorio en la nube](/docs/services/appid?topic=appid-cloud-directory), el servicio utiliza SCIM para verificar la información de identidad.
+{{site.data.keyword.appid_short_notm}} interactúa con los proveedores de identidad utilizando varios protocolos, como OpenID Connect, SAML, etc. Por ejemplo, OpenID Connect es el protocolo que se utiliza con varios proveedores sociales, como Facebook o Google. Los proveedores de empresa como <a href="https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-azure-active-directory" target="_blank">Azure Active Directory <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a> o <a href="https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-active-directory-federation-service" target="_blank">Active Directory Federation Service <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a> suelen utilizar SAML como su protocolo de identidad. Para [Directorio en la nube](/docs/services/appid?topic=appid-cloud-directory), el servicio utiliza SCIM para verificar la información de identidad.
+
+Cuando utiliza proveedores de identidad sociales o de empresa, {{site.data.keyword.appid_short_notm}} tiene acceso de lectura a la información de cuenta de un usuario. El servicio utiliza una señal y aserciones devueltas por el proveedor de identidad para verificar que un usuario es quien dice ser. Puesto que el servicio nunca tiene acceso de escritura a la información, los usuarios deben pasar por el proveedor de identidad elegido para realizar acciones como, por ejemplo, restablecer la contraseña. Por ejemplo, si un usuario inicia sesión en la app con Facebook y después desea cambiar la contraseña, deberá ir a `www.facebook.com` para hacerlo.
+
+Cuando utiliza [Directorio en la nube](/docs/services/appid?topic=appid-cloud-directory), {{site.data.keyword.appid_short_notm}} es el proveedor de identidad. El servicio utiliza el registro para verificar la identidad de los usuarios. Puesto que {{site.data.keyword.appid_short_notm}} es el proveedor, los usuarios pueden sacar partido de la funcionalidad avanzada y restablecer la contraseña directamente en la app.
 
 ¿Está trabajando con la identidad de la aplicación? Consulte [Identidad de aplicación](/docs/services/appid?topic=appid-app).
 {: tip}
@@ -90,15 +94,15 @@ Para gestionar los proveedores de identidad:
 ## Adición de URI de redirección
 {: #add-redirect-uri}
 
-Un URI de redirección es el punto final de devolución de llamada de la app. Durante el flujo de inicio de sesión, {{site.data.keyword.appid_short_notm}} valida los URI antes de permitir que los clientes participen en el flujo de trabajo de autorización, lo que ayuda a impedir ataques de phishing y filtraciones de código. Al registrar el URI, está diciendo a {{site.data.keyword.appid_short_notm}} que el URI es de confianza y que está bien redirigir a los usuarios.
+Un URI de redirección es el punto final de devolución de llamada de la app. Durante el flujo de inicio de sesión, {{site.data.keyword.appid_short_notm}} valida los URI antes de permitir que los clientes participen en el flujo de trabajo de autorización, lo que ayuda a impedir ataques de phishing y filtraciones de código. Al registrar el URI, está diciendo a {{site.data.keyword.appid_short_notm}} que el URI es de confianza y que es correcto redirigir a los usuarios.
 
-Asegúrate de registrar solo los URI de las aplicaciones en las que confía.
+Asegúrese de registrar solo los URI de las aplicaciones en las que confía.
 {: note}
 
 
 1. Pulse **Valores de autenticación** para ver las opciones de URI y configuración de señales.
 
-2. En el campo **Añadir URI de redirección web**, escriba el URI. Cada URI debe empezar por `http://` o `https://` y debe incluir la vía de acceso completa, con los parámetros de consulta para que la redirección funcione correctamente. ¿Necesita ayuda con el formato? Consulte la tabla siguiente para ver algunos ejemplos.
+2. En el campo **Añadir URI de redirección web**, escriba el URI. Cada URI debe empezar por `http://` o `https://` y debe incluir la vía de acceso completa, con los parámetros de consulta para que la redirección funcione correctamente. ¿Necesita ayuda para formatear el URI? Consulte la tabla siguiente para ver algunos ejemplos.
 
   <table>
     <tr>
@@ -122,6 +126,12 @@ Asegúrate de registrar solo los URI de las aplicaciones en las que confía.
 3. Pulse el símbolo **+** en el recuadro **Añadir URI de redirección web**.
 
 4. Repita los pasos uno a tres hasta que todos los URI posibles se añadan a la lista.
+
+
+
+¿No está seguro de dónde proviene su URI de redirección? Mire el siguiente breve vídeo para ver cómo obtenerlo y cómo añadirlo a su lista.
+
+<iframe class="embed-responsive-item" id="redirecturi" title="{{site.data.keyword.appid_short_notm}}: Cómo arreglar un URI de redirección no válido" type="text/html" width="640" height="390" src="//www.youtube.com/embed/6hxqbvpc054?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
 
 
 

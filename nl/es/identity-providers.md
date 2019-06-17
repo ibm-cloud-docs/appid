@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-25"
+lastupdated: "2019-04-23"
 
 keywords: authentication, authorization, identity, app security, secure, custom, proprietary, social, facebook, google, 
 
@@ -35,7 +35,7 @@ Con {{site.data.keyword.appid_full}}, puede configurar proveedores de identidad 
 {{site.data.keyword.appid_short_notm}} proporciona una configuración predeterminada para ayudar a empezar y trabajar rápidamente con el servicio.
 {: shortdesc}
 
-Cuando configura APP ID, Facebook, Google y el directorio en la nube se habilitan automáticamente como proveedores de identidad. Puede cambiar la configuración en cualquier momento. Existen credenciales predeterminadas para Facebook y Google, pero son credenciales de IBM y se deben utilizar solo para probar si se utiliza el servicio. Antes de publicar la app, actualice la configuración a sus propias credenciales.
+Cuando configura {{site.data.keyword.appid_short_notm}}, Facebook, Google, y Directorio en la nube se habilitan automáticamente como proveedores. Puede cambiar la configuración en cualquier momento. Existen credenciales predeterminadas para Facebook y Google, pero son credenciales de IBM y se deben utilizar solo para probar si se utiliza el servicio. Antes de publicar la app, actualice la configuración a sus propias credenciales.
 
 El usuario está limitado a 100 autenticaciones con las credenciales predeterminadas por instancia, por día.
 {: note}
@@ -52,7 +52,7 @@ Puede configurar el servicio {{site.data.keyword.appid_short}} para que utilice 
 
 Para utilizar Facebook como proveedor de identidad, debe añadir y configurar la plataforma de sitio web en su aplicación de Facebook.
 
-1. Inicie sesión en su cuenta en el <a href="https://developers.facebook.com/docs/apps/register" target="_blank">sitio Facebook for Developers <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>.
+1. Inicie sesión en su cuenta en el <a href="https://developers.facebook.com/docs/apps#register" target="_blank">sitio Facebook for Developers <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>.
 2. Anote el ID y el secreto de la app de Facebook. Estos valores son necesarios configurar el proyecto web para la autenticación en el panel de control de servicio.
 3. Añada la plataforma web y especifique el URL del sitio.
 4. En la lista de productos, seleccione **Inicio de sesión de Facebook**.

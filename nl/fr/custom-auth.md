@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-31"
 
 keywords: authentication, authorization, identity, app security, secure, custom, proprietary, 
 
@@ -76,7 +76,7 @@ Figure. Flux de demande pour l'authentification personnalisée
 ## Génération d'un jeton Web JSON
 {: #generating-jwts}
 
-Vous pouvez convertir vos données utilisateur vérifiées en jeton JWT d'identité personnalisé en générant un <a href="https://tools.ietf.org/html/rfc7515" target="blank">jeton Web JSON <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a>. Le jeton doit être signé avec la clé privée qui correspond à votre clé publique préconfigurée. Pour obtenir la liste des bibliothèques de signatures de jeton, consultez <a href="https://jwt.io/" target="blank">jwt.io <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a>.
+Vous pouvez convertir vos données utilisateur vérifiées en jeton JWT d'identité personnalisé en générant un <a href="https://tools.ietf.org/html/rfc7515" target="blank">jeton Web JSON <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a>. Le jeton doit être signé avec la clé privée qui correspond à votre clé publique préconfigurée. Pour obtenir la liste des bibliothèques de signature de jeton, consultez <a href="https://jwt.io/" target="blank">https://jwt.io/ <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a>.
 {: shortdesc}
 
 ### Exemple de format JWT
@@ -127,7 +127,7 @@ Contenu du jeton :
     </tr>
     <tr>
       <td><code>aud</code></td>
-      <td>URL du serveur OAuth. Format : https://{region}.appid.cloud.ibm.com/oauth/v4/{tenantId}.</td>
+      <td>URL du serveur OAuth. Format : `https://{region}.appid.cloud.ibm.com/oauth/v4/{tenantId}`.</td>
     </tr>
     <tr>
       <td><code>exp</code></td>
@@ -139,7 +139,7 @@ Contenu du jeton :
     </tr>
     <tr>
       <td>Réclamations normalisées</td>
-      <td>Toutes les [réclamations normalisées](/docs/services/appid?topic=appid-tokens#tokens) sont fournies dans le jeton d'identité renvoyé en réponse à cette demande. D'autres réclamations personnalisées sont disponibles en utilisant le noeud final [`/userinfo`](/docs/services/appid?topic=appid-custom-attributes#custom-attributes).</td>
+      <td>Toutes les [réclamations normalisées](/docs/services/appid?topic=appid-tokens) sont fournies dans le jeton d'identité renvoyé en réponse à cette demande. D'autres réclamations personnalisées sont disponibles en utilisant le noeud final [`/userinfo`](/docs/services/appid?topic=appid-profiles).</td>
     </tr>
     <tr>
       <td>Champ d'application</td>

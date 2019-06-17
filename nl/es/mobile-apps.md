@@ -89,11 +89,11 @@ Necesita la siguiente información:
   </tr>
   <tr>
     <td>Sídney</td>
-    <td><code>AppID.REGION_SYDNEY </code></td>
+    <td><code>AppID.REGION_SYDNEY</code></td>
   </tr>
   <tr>
     <td>Reino Unido</td>
-    <td><code>AppID.REGION_UK </code></td>
+    <td><code>AppID.REGION_UK</code></td>
   </tr>
   <tr>
     <td>Alemania</td>

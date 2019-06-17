@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-31"
 
 keywords: authentication, authorization, identity, app security, secure, development, user information, attributes, profiles, 
 
@@ -29,8 +29,7 @@ Com o {{site.data.keyword.appid_full}}, é possível iniciar a construção de u
 sabe que precisarão de acesso ao seu aplicativo antes de sua conexão inicial.
 {: shortdesc}
 
-Para saber mais sobre os tipos de atributos, consulte [Entendendo os perfis do
-usuário](/docs/services/appid?topic=appid-user-profile). Para saber mais sobre atributos customizados e suas considerações de segurança, consulte [Atributos customizados](/docs/services/appid?topic=appid-custom-attributes).
+Para saber mais sobre os tipos de atributos e as considerações de segurança que devem ser feitas ao trabalhar com atributos customizados, consulte [Armazenando e acessando perfis do usuário](/docs/services/appid?topic=appid-profiles).
 {: tip}
 
 ## Entendendo o pré-registro
@@ -43,7 +42,7 @@ Considere um aplicativo no qual você usa o {{site.data.keyword.appid_short_notm
 existentes por meio de seu provedor de identidade SAML. Você pode desejar que determinados usuários tenham acesso de
 `admin` imediatamente ao se conectarem ao aplicativo pela primeira vez. Para que isso aconteça, é possível usar o terminal de pré-registro para configurar um atributo `admin`
 customizado para esses usuários e conceder a eles acesso ao console de administração sem qualquer ação adicional de sua
-parte. Certifique-se de considerar os [problemas de segurança](/docs/services/appid?topic=appid-custom-attributes#custom-attributes) que podem surgir
+parte. Certifique-se de considerar os [problemas de segurança](/docs/services/appid?topic=appid-profiles#profile-set-custom) que podem surgir
 ao mudar a configuração padrão.
 
 ### Como os usuários são identificados?
@@ -159,13 +158,13 @@ criado com base nas informações que são fornecidas pelo provedor de identidad
   ```
   ibmcloud login
   ```
-  {: pre}
+  {: codeblock}
 
 2. Localize o token do IAM ao executar o comando a seguir.
   ```
   ibmcloud iam oauth-tokens
   ```
-  {: pre}
+  {: codeblock}
 
 3. Faça uma solicitação de POST para o terminal `/users` que contém uma descrição do usuário e os
 atributos que você deseja configurar como um objeto JSON.
@@ -177,7 +176,7 @@ atributos que você deseja configurar como um objeto JSON.
        Authorization: 'Bearer <IAM_TOKEN>'
        Content-Type: application/json
   ```
-  {: pre}
+  {: codeblock}
 
   Corpo:
   ```
@@ -191,7 +190,7 @@ atributos que você deseja configurar como um objeto JSON.
        }
    }
   ```
-  {: pre}
+  {: codeblock}
 
   <table>
     <thead>
@@ -240,7 +239,7 @@ Lembre-se de que os atributos predefinidos de um usuário estão vazios até sua
 para todas as intenções e propósitos, um usuário totalmente autenticado. É possível usar seu ID exclusivo assim
 como você faria com alguém que já tivesse se conectado. Por exemplo, é possível modificar, procurar ou excluir o perfil.
 
-Agora que você associou um usuário a atributos específicos, tente [acessar ou atualizar atributos](/docs/services/appid?topic=appid-custom-attributes).
+Agora que você associou um usuário a atributos específicos, tente [acessar ou atualizar atributos](/docs/services/appid?topic=appid-profiles).
 
 
 </br>

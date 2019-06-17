@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-05"
+lastupdated: "2019-05-01"
 
 keywords: authentication, authorization, identity, app security, secure, application identity, app to app, access token, activity
 
@@ -31,13 +31,19 @@ Puede ver, gestionar y analizar actividades iniciadas por el usuario realizadas 
 
 
 
-Para obtener más información sobre cómo funciona el servicio, consulte la [documentación de {{site.data.keyword.cloudaccesstrailshort}}](/docs/services/cloud-activity-tracker/reference?topic=cloud-activity-tracker-getting-started-with-cla#getting-started-with-cla).
+
+
+Para obtener más información sobre cómo funciona el servicio, consulte la [documentación de {{site.data.keyword.cloudaccesstrailshort}}](/docs/services/cloud-activity-tracker?topic=cloud-activity-tracker-getting-started#getting-started).
+
+
+
+
 
 
 ## Visualización de sucesos de administración
 {: #at-monitor-admin}
 
-Puede ver, gestionar y analizar la actividad de configuración que se realiza en la instancia de {{site.data.keyword.appid_short_notm}} mediante el servicio {{site.data.keyword.cloudaccesstrailshort}}.
+Puede ver, gestionar y analizar la actividad de configuración que se realiza en la instancia de {{site.data.keyword.appid_short_notm}} mediante el servicio {{site.data.keyword.at_short}}.
 {: shortdesc}
 
 Para supervisar la actividad administrativa:
@@ -48,7 +54,7 @@ Para supervisar la actividad administrativa:
 4. En la lista desplegable, seleccione las configuraciones siguientes para buscar los sucesos generados por {{site.data.keyword.appid_short_notm}}.
     * Para **Ver registros**, seleccione **Registros de cuenta**.
     * Para **Buscar**, seleccione **target.Management**.
-    * Para **Filtro**, escriba **appid**.
+    * Para **Filtro**, escriba `appid`.
 5. Pulse **Filtrar**.
 
 </br>
@@ -56,7 +62,7 @@ Para supervisar la actividad administrativa:
 ## Lista de sucesos de administración
 {: #at-events-admin}
 
-Consulte la tabla siguiente para obtener una lista de los sucesos que se envían a {{site.data.keyword.cloudaccesstrailshort}}.
+Consulte la tabla siguiente para obtener una lista de los sucesos que se envían a {{site.data.cloudaccesstrailshort}}.
 
 <table>
   <tr>

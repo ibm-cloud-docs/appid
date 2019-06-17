@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-11"
+lastupdated: "2019-06-05"
 
 keywords: authentication, authorization, identity, app security, secure, access, tokens
 
@@ -101,12 +101,12 @@ Token de exemplo:
   {: screen}
 
 
-Os tokens de identidade contêm apenas informações parciais sobre o usuário. Para ver todas as informações que são fornecidas pelo provedor de identidade, é possível usar o [terminal /userinfo](/docs/services/appid?topic=appid-predefined-attributes#predefined-access-api).
+Os tokens de identidade contêm apenas informações parciais sobre o usuário. Para ver todas as informações que são fornecidas pelo provedor de identidade, é possível usar o [terminal /userinfo](/docs/services/appid?topic=appid-profiles#profile-predefined-api).
 
 ## O que são tokens de atualização?
 {: #refresh}
 
-O {{site.data.keyword.appid_short}} suporta a capacidade de adquirir novos tokens de acesso e de identidade sem autenticação, conforme definido em <a href="http://openid.net/specs/openid-connect-core-1_0.html#RefreshTokens" target="_blank">OIDC <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a>. Um token de atualização pode ser usado para renovar o token de acesso para que um usuário não tenha que executar nenhuma ação para se conectar, como fornecer credenciais. Semelhante
+O {{site.data.keyword.appid_short}} suporta a capacidade de adquirir novos tokens de acesso e de identidade sem autenticação, conforme definido em <a href="https://openid.net/specs/openid-connect-core-1_0.html#RefreshTokens" target="_blank">OIDC <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a>. Um token de atualização pode ser usado para renovar o token de acesso para que um usuário não tenha que executar nenhuma ação para se conectar, como fornecer credenciais. Semelhante
 aos tokens de acesso, os tokens de atualização contêm dados que permitem ao
 {{site.data.keyword.appid_short_notm}} determinar se você está autorizado. No entanto, esses tokens são opacos.
 
@@ -140,7 +140,7 @@ Os tokens são emitidos por meio do servidor OAuth do {{site.data.keyword.appid_
 ## O que acontece com as informações que o token contém?
 {: #contains}
 
-O token de acesso contém um conjunto de solicitações JWT padrão e um conjunto de solicitações específicas do {{site.data.keyword.appid_short_notm}}, como um ID do locatário. O token de identidade contém informações específicas do usuário. As informações nos tokens são armazenadas como solicitações como parte de um [perfil do usuário](/docs/services/appid?topic=appid-user-profile#user-profile).
+O token de acesso contém um conjunto de solicitações JWT padrão e um conjunto de solicitações específicas do {{site.data.keyword.appid_short_notm}}, como um ID do locatário. O token de identidade contém informações específicas do usuário. As informações nos tokens são armazenadas como solicitações como parte de um [perfil do usuário](/docs/services/appid?topic=appid-profiles).
 
 ## Como os tokens são recebidos?
 {: #received}

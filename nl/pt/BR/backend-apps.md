@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-10"
+lastupdated: "2019-05-09"
 
 keywords: authentication, authorization, identity, app security, secure, backend, back-end, oauth, 
 
@@ -149,8 +149,21 @@ if #available(OSX 10.12, *) {
     Kitura.run()  
 }
 ```
-{: pre}
+{: codeblock}
 {: ph data-hd-programlang='swift'}
+
+Verifique o vídeo a seguir para aprender sobre como proteger aplicativos de Nó de back-end com o {{site.data.keyword.appid_short_notm}}. Em seguida, experimente você mesmo usando um [app de amostra de Nó simples](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02b-simple-node-backend-app).
+{: ph data-hd-programlang='javascript'}
+
+<iframe class="embed-responsive-item" id="appid-backend-nodejs" title="Sobre o {{site.data.keyword.appid_short_notm}}" type="text/html" width="640" height="390" src="//www.youtube.com/embed/jJLSgkHpZwA?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+{: ph data-hd-programlang='javascript'}
+
+
+Verifique o vídeo a seguir para aprender sobre como proteger aplicativos de back-end Liberty for Java com o {{site.data.keyword.appid_short_notm}}. Em seguida, experimente você mesmo usando um [app de amostra Liberty for Java simples](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02d-simple-liberty-backend-app).
+{: ph data-hd-programlang='java'}
+
+<iframe class="embed-responsive-item" id="appid-backend-liberty" title="Sobre o {{site.data.keyword.appid_short_notm}}" type="text/html" width="640" height="390" src="//www.youtube.com/embed/QA6DY2qqLaw?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+{: ph data-hd-programlang='java'}
 
 
 ### Antes de iniciar
@@ -175,7 +188,7 @@ Antes de iniciar, deve-se ter os pré-requisitos a seguir.
       "ibmcloud-appid": "^6.0.0"
   }
   ```
-  {: pre}
+  {: codeblock}
   {: ph data-hd-programlang='javascript'}
 
 2. Execute o comando a seguir.
@@ -184,7 +197,7 @@ Antes de iniciar, deve-se ter os pré-requisitos a seguir.
   ```
   npm install
   ```
-  {: pre}
+  {: codeblock}
   {: ph data-hd-programlang='javascript'}
 
 ### Inicializando o SDK
@@ -209,7 +222,7 @@ você fizer isso, ignore essa etapa.
   var app = express();
   app.use(passport.initialize());
   ```
-  {: pre}
+  {: codeblock}
   {: ph data-hd-programlang='javascript'}
 
 
@@ -232,7 +245,7 @@ O fragmento a seguir demonstra como usar o `ApiStrategy` em um aplicativo Expres
       }
    );
    ```
-  {: pre}
+  {: codeblock}
   {: ph data-hd-programlang='javascript'}
 
 Quando os tokens são válidos, o próximo middleware na cadeia de solicitação é chamado e a propriedade `appIdAuthorizationContext` é incluída no objeto de solicitação. A propriedade contém os tokens de acesso e de identidade originais e as informações de carga útil decodificadas dos tokens.

@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-06-06"
 
-keywords: authentication, authorization, identity, app security, secure, development, sign in, sign up, password, social, enterprise
+keywords: Authentication, authorization, identity, app security, secure, development, sign in, sign up, password, social, enterprise
 
 subcollection: appid
 
@@ -23,40 +23,31 @@ subcollection: appid
 {:download: .download}
 
 
-# Visualización del widget de inicio de sesión
+# Utilización del widget Inicio de sesión
 {: #login-widget}
 
-{{site.data.keyword.appid_full}} proporciona un widget de inicio de sesión que permite proporcionar a los usuarios opciones de inicio de sesión seguras.
+Con {{site.data.keyword.appid_full}} puede utilizar una interfaz de usuario predeterminada, denominada Widget de inicio de sesión, para permitir a los usuarios de la aplicación elegir el proveedor de identidad con el que desean iniciar sesión. Si utiliza el Directorio en la nube, el widget de inicio de sesión también proporciona una interfaz de usuario adicional para funciones adicionales como, por ejemplo, registrarse, olvidarse de la palabra clave, autenticación de multifactores y más.
 {: shortdesc}
 
-Cuando la app está configurada para utilizar un proveedor de identidad, el widget de inicio de sesión dirigirá a los visitantes de su app a una pantalla de inicio de sesión. Con el widget de inicio de sesión puede visualizar pantallas preconfiguradas de los flujos de inicio de sesión. Y, además, puede actualizar su flujo de inicio de sesión en cualquier momento, sin cambiar el código fuente de ninguna forma.
-
-¿Desea crear una experiencia que sea exclusiva de su app? Puede [aportar sus propias pantallas](/docs/services/appid?topic=appid-branded).
-{: tip}
 
 ## Comprensión del widget de inicio de sesión
 {: #widget-understanding}
 
-Puede beneficiarse de {{site.data.keyword.appid_short_notm}}, incluso aunque no tenga sus propias pantallas de interfaz de usuario, visualizando el widget de inicio de sesión.
-{: shortdesc}
+Uno de los mejores aspectos del Widget de inicio de sesión es que puede empezar a utilizar {{site.data.keyword.appid_short_notm}} antes de haber implementado cualquiera de sus propias IU de autenticación, lo que hace que la experiencia de incorporación del desarrollador sea mucho más fácil.
 
-### ¿Cuál es el valor predeterminado?
+### ¿Cuál es el comportamiento predeterminado del Widget de inicio de sesión?
 {: #widget-default}
 
-Cuando se configura más de un proveedor de identidad, se redirige a un usuario al widget de inicio de sesión cuando este intenta iniciar sesión en la aplicación. Utilizando el widget de inicio de sesión, los usuarios pueden elegir el proveedor con el que desean verificar su identidad. Pero, cuando solo se establece un proveedor en **Activado**, los visitantes serán redirigidos a dicha pantalla de autenticación de proveedores de identidad.
+De forma predeterminada, el widget de inicio de sesión está habilitado para utilizar el Facebook, Google y el Directorio en la nube. Puede cambiar el comportamiento en cualquier momento seleccionando los proveedores de identidad que desea configurar como una opción. Cuando se configura más de un proveedor de identidad, el Widget de inicio de sesión presenta una pantalla donde el usuario puede realizar su propia selección de proveedor de identidad. Pero si sólo tiene un proveedor habilitado, los usuarios no ven esta selección. Se les lleva directamente al proveedor de identidad para comenzar el proceso de inicio de sesión.
 
-### ¿Cuánta información obtiene {{site.data.keyword.appid_short_notm}} de un proveedor de identidad?
-{: #widget-obtain-info}
+Por ejemplo, si utiliza los productos predeterminados (Facebook, Google y Directorio en la nube), los usuarios ven la pantalla. Si habilitar únicamente Facebook, los usuarios se dirigen directamente a Facebook para autenticarse.
 
-Cuando utiliza proveedores de identidad sociales o de empresa, {{site.data.keyword.appid_short_notm}} tiene acceso de lectura a la información de cuenta de un usuario. El servicio utiliza una señal y aserciones devueltas por el proveedor de identidad para verificar que un usuario es quien dice ser. Puesto que el servicio nunca tiene acceso de escritura a la información, los usuarios deben pasar por el proveedor de identidad elegido para realizar acciones como, por ejemplo, restablecer la contraseña. Por ejemplo, si un usuario inicia sesión en la app con Facebook y después desea cambiar la contraseña, deberá dirigirse a www.facebook.com para hacerlo.
-
-Cuando utiliza [Directorio en la nube](/docs/services/appid?topic=appid-cloud-directory), {{site.data.keyword.appid_short_notm}} es el proveedor de identidad. El servicio utiliza el registro para verificar la identidad de los usuarios. Puesto que {{site.data.keyword.appid_short_notm}} es el proveedor, los usuarios pueden sacar partido de la funcionalidad avanzada y restablecer la contraseña directamente en la app.
 
 
 ### ¿Qué pantallas se pueden visualizar para cada proveedor?
 {: #widget-options}
 
-Consulte la tabla siguiente para ver qué pantallas puede visualizar para cada tipo de proveedor de identidad.
+Si utiliza Directorio en la nube, {{site.data.keyword.appid_short_notm}} puede proporcionarle la funcionalidad ampliada de gestión de usuarios. La funcionalidad ampliada también se aplica a las prestaciones de Widgets de inicio de sesión. Los usuarios que están almacenados en Directorio en la nube pueden beneficiarse de funcionalidad, como por ejemplo, registrarse o el restablecer la contraseña directamente en el Widget de inicio de sesión. Consulte la tabla siguiente para ver qué pantallas puede visualizar para cada tipo de proveedor de identidad.
 
 <table>
   <thead>
@@ -101,14 +92,15 @@ Consulte la tabla siguiente para ver qué pantallas puede visualizar para cada t
   </tbody>
 </table>
 
-</br>
-</br>
 
 ## Personalización del widget de inicio de sesión
 {: #widget-customize}
 
-{{site.data.keyword.appid_short_notm}} proporciona una pantalla de inicio de sesión predeterminada que puede llamar si no tiene sus propias pantallas de IU para mostrar. Puede personalizar la pantalla para visualizar el logotipo y los colores que elija.
+El Widget de inicio de sesión es dinámico. Puede personalizar el aspecto o la configuración del proveedor de identidad, y los cambios se aplican de forma inmediata. No es necesario que actualice el código de la aplicación ni que vuelva a desplegar la app.
 {: shortdesc}
+
+¿Necesita más personalización de la que proporciona el Widget de inicio de sesión? Puede implementar su propia interfaz de usuario totalmente personalizada para el inicio de sesión de usuario, el registro, el restablecimiento de la contraseña y otros flujos para crear una experiencia que sea exclusiva de su app. Para empezar, consulte [Gestión de marca en la app](/docs/services/appid?topic=appid-branded).
+{: tip}
 
 Para personalizar la pantalla:
 
@@ -118,9 +110,6 @@ Para personalizar la pantalla:
 4. Seleccione un color de cabecera para el widget desde el selector de color, o especifique el código hexadecimal para otro color.
 5. Inspeccione el panel de vista previa y pulse **Guardar cambios** cuando esté satisfecho con las personalizaciones. Aparecerá un mensaje de confirmación.
 6. En el navegador, renueve la página de inicio de sesión para verificar los cambios.
-
-Recuerde: También puede sacar partido de {{site.data.keyword.appid_short_notm}} con otros idiomas. Si no ve un SDK del idioma con el que está trabajando, siempre puede utilizar las API. Consulte <a href="https://www.ibm.com/blogs/bluemix/tag/app-id/" target="blank">nuestros blogs<img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>.
-{: tip}
 
 
 ## Visualización del widget de inicio de sesión con el SDK de Android
@@ -183,7 +172,7 @@ Añada el mandato siguiente a su código.
       }
   });
   ```
-  {: pre}
+  {: codeblock}
 
 </br>
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-09"
 
 keywords: authentication, authorization, identity, app security, secure, development, sso, directory, users, registry, multiple apps
 
@@ -62,7 +62,7 @@ Puede configurar el SSO a través de la GUI.
 
 2. En el recuadro **Habilitar inicio de sesión único** cambie SSO a **Habilitado**.
 
-3. Establezca la cantidad de tiempo que un usuario puede estar inactivo antes de que caduque la sesión de SSO. Cuando caduque, deben volver a iniciar sesión. El tiempo se especifica en minutos y el tiempo máximo permitido para un activo es de 10.080 minutos (7 días). El tiempo predeterminado es de 1440 minutos, lo que equivale a 1 día.
+3. Establezca la cantidad de tiempo que un usuario puede estar inactivo antes de que caduque la sesión de SSO. Cuando caduque, deben volver a iniciar sesión. El tiempo se especifica en minutos y el tiempo máximo permitido de inactividad es de 10.080 minutos (7 días). El tiempo predeterminado es de 1440 minutos, lo que equivale a 1 día.
 
 4. Añada los URI de redirección al recuadro **URI de redirección de cierre de sesión** y pulse el signo **+**. Asegúrese de registrar únicamente aplicaciones en las que confía. Al registrar el URI, está autorizando que {{site.data.keyword.appid_short_notm}} lo incluya en el flujo de trabajo de autorización.
 
@@ -129,7 +129,7 @@ Para cerrar la sesión de un usuario, redirija su navegador utilizando su inform
 ```
 https://<region>.appid.cloud.ibm.com/oauth/v4/<tenant-id>/cloud_directory/sso/logout?redirect_uri=<redirect_uri>&client_id=<clientId>
 ```
-{: pre}
+{: codeblock}
 
 <table>
   <tr>
@@ -182,7 +182,7 @@ POST https://<region>.appid.cloud.ibm.com/management/v4/{tenant-id}/cloud_direct
 Headers:
 Authorization: <IAM TOKEN>
 ```
-{: pre}
+{: codeblock}
 
 <table>
   <tr>

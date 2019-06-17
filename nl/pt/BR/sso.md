@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-09"
 
 keywords: authentication, authorization, identity, app security, secure, development, sso, directory, users, registry, multiple apps
 
@@ -62,7 +62,7 @@ Se a sua instância estiver configurada para usar provedores de identidade além
 
 2. Na caixa **Ativar conexão única**, alterne SSO para **Ativado**.
 
-3. Configure a quantidade de tempo que um usuário pode estar inativo antes que a sessão SSO expire. Quando ela expirar, o usuário deverá se conectar novamente. O tempo é especificado em minutos e o tempo máximo permitido para um ativo é de 10.080 minutos (7 dias). O tempo padrão é 1440 minutos que é o equivalente a 1 dia.
+3. Configure a quantidade de tempo que um usuário pode estar inativo antes que a sessão SSO expire. Quando ela expirar, o usuário deverá se conectar novamente. O tempo é especificado em minutos e o tempo máximo permitido para inatividade é 10.080 minutos (7 dias). O tempo padrão é 1440 minutos que é o equivalente a 1 dia.
 
 4. Inclua suas URIs redirecionando na caixa **URI de redirecionamento de logout**e clique no sinal **+**. Certifique-se de registrar somente os aplicativos nos quais confia. Ao registrar o URI, você autoriza o {{site.data.keyword.appid_short_notm}} a inclui-lo no fluxo de trabalho de autorização.
 
@@ -129,7 +129,7 @@ Para desconectar um usuário, redirecione seu navegador usando suas informaçõe
 ```
 https://<region>.appid.cloud.ibm.com/oauth/v4/<tenant-id>/cloud_directory/sso/logout?redirect_uri=<redirect_uri>&client_id=<clientId>
 ```
-{: pre}
+{: codeblock}
 
 <table>
   <tr>
@@ -182,7 +182,7 @@ POST https:// < region>.appid.cloud.ibm.com/management/v4/ { tenant-id } /cloud_
 Cabeçalhos:
 Autorização: < IAM TOKEN>
 ```
-{: pre}
+{: codeblock}
 
 <table>
   <tr>

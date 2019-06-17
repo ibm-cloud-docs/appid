@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-09"
 
 keywords: authentication, authorization, identity, app security, secure, development, two factor, mfa 
 
@@ -174,14 +174,14 @@ para configurar `isActive` como `true`.
        Authorization: Bearer <IAM_TOKEN>
        Content-Type: application/json
   ```
-  {: pre}
+  {: codeblock}
 
   Corpo:
   ```
    {
        "isActive": true }
   ```
-  {: pre}
+  {: codeblock}
 
   Solicitação de exemplo:
   ```
@@ -201,14 +201,14 @@ para configurar `isActive` como `true`.
        Authorization: Bearer <IAM_TOKEN>
        Content-Type: application/json
   ```
-  {: pre}
+  {: codeblock}
 
   Corpo:
   ```
    {
        "isActive": true }
   ```
-  {: pre}
+  {: codeblock}
 
   Solicitação de exemplo:
 
@@ -238,7 +238,7 @@ O {{site.data.keyword.appid_short_notm}} usa o [Nexmo](https://www.nexmo.com/pro
 
  - Obtenha sua chave de API e o segredo do Nexmo. É possível localizar a chave de API e o segredo do Nexmo em sua página de configurações da conta no painel do Nexmo. Efetue check-out da [documentação do Nexmo](https://developer.nexmo.com/concepts/guides/authentication#api-key-and-secret)para obter informações adicionais sobre como obter suas credenciais.
 
- - Registre seu ID de remetente ou o número `from` com o Nexmo. Esse número `from` é o que aparece no telefone do seu usuário para mostrar de quem é o SMS. Para obter mais informações, consulte a [documentação do Nexmo](https://help.nexmo.com/hc/en-us/articles/217571017-What-is-a-Sender-ID).
+ - Registre seu ID de remetente ou o número `from` com o Nexmo. Esse número `from` é o que aparece no telefone do seu usuário para mostrar de quem é o SMS. Em alguns países, o Nexmo suporta IDs de remetente alfanuméricos. O {{site.data.keyword.appid_short_notm}} usa o valor inserido como ID do remetente do Nexmo. Portanto, se forem suportados pelo Nexmo, será possível usar os IDs com o {{site.data.keyword.appid_short_notm}}. Para obter mais informações, consulte a [documentação do Nexmo](https://help.nexmo.com/hc/en-us/articles/217571017-What-is-a-Sender-ID).
 
 
 ### Com a GUI
@@ -263,7 +263,7 @@ Para configurar o MFA com a GUI, consulte o [Cloud Directory](/docs/services/app
 
     4. Copie o **segredo da API** no painel do Nexmo e cole-o na caixa **Segredo** no painel do {{site.data.keyword.appid_short_notm}}.
 
-    5. Insira o [número](https://help.nexmo.com/hc/en-us/articles/217571017-What-is-a-Sender-ID) do qual deseja enviar mensagens. Um formato de número válido segue o [formato de numeração internacional do E.164](https://en.wikipedia.org/wiki/E.164) (por exemplo, número dos EUA, + 1 999 888 7777). Deve-se especificar o código do país, iniciando com um símbolo + e o número do assinante nacional.
+    5. Insira [o ID](https://help.nexmo.com/hc/en-us/articles/217571017-What-is-a-Sender-ID) para o qual você deseja enviar mensagens. Um formato de número válido segue o [formato numérico internacional E.164](https://en.wikipedia.org/wiki/E.164). Por exemplo, um número dos EUA assume o formato `+1 999 888 7777`. Deve-se especificar o código do país, começando com um símbolo `+` e o número do assinante nacional. Em alguns países, o Nexmo suporta IDs de remetente alfanuméricos. O {{site.data.keyword.appid_short_notm}} usa o valor inserido como ID do remetente do Nexmo. Portanto, se forem suportados pelo Nexmo, será possível usar os IDs com o {{site.data.keyword.appid_short_notm}}.
 
 
 
@@ -289,7 +289,7 @@ Header:
        Authorization: Bearer <IAM_TOKEN>
        Content-Type: application/json
   ```
-  {: pre}
+  {: codeblock}
 
 Corpo:
 
@@ -297,7 +297,7 @@ Corpo:
   {
    "isActive": true }
   ```
-  {: pre}
+  {: codeblock}
 
 
 Solicitação de exemplo:
@@ -320,7 +320,7 @@ Header:
       Authorization: Bearer <IAM_TOKEN>
       Content-Type: application/json
   ```
-  {: pre}
+  {: codeblock}
 
 Corpo:
 
@@ -333,7 +333,7 @@ Corpo:
       }
   }
   ```
-  {: pre}
+  {: codeblock}
 
 Solicitação de exemplo:
 
@@ -361,7 +361,7 @@ Header:
      Authorization: Bearer <IAM_TOKEN>
      Content-Type: application/json
   ```
-  {: pre}
+  {: codeblock}
 
 Corpo:
 
@@ -370,7 +370,7 @@ Corpo:
     "phone_number": "phoneNumber-receives-test-message"
   }
   ```
-  {: pre}
+  {: codeblock}
 
 Solicitação de exemplo:
 

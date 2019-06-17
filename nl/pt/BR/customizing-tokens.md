@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-31"
 
 keywords: authentication, authorization, identity, app security, secure, custom, tokens, access, claim, attributes
 
@@ -26,8 +26,7 @@ subcollection: appid
 # Customizando os tokens
 {: #customizing-tokens}
 
-É possível configurar seus tokens do {{site.data.keyword.appid_short_notm}} para atender às necessidades
-específicas de seu aplicativo.
+É possível configurar seu token do {{site.data.keyword.appid_short_notm}} para atender às necessidades específicas de seu aplicativo.
 {: shortdesc}
 
 ## Entendendo a customização
@@ -87,7 +86,7 @@ para aprender sobre o mapeamento de atributos customizados.
 Como os tokens são usados para identificar usuários e proteger seus recursos, o tempo de vida de um token afeta
 várias coisas diferentes. Ao customizar sua configuração de token, é possível assegurar que suas necessidades de
 segurança e de experiência do usuário sejam atendidas. No entanto, caso um token seja comprometido, um usuário
-malicioso terá mais tempo para afetar seu aplicativo. É possível saber mais sobre as considerações de segurança em [Atributos customizados](/docs/services/appid?topic=appid-custom-attributes).
+malicioso terá mais tempo para afetar seu aplicativo. É possível saber mais sobre as considerações de segurança em [Configurando atributos customizados](/docs/services/appid?topic=appid-profiles#profile-set-custom).
 {: important}
 
 
@@ -131,7 +130,7 @@ Uma solicitação é uma instrução que uma entidade faz sobre si mesmo ou em n
 ```
 {: screen}
 
-Se você tiver informações customizadas de expiração para seu token, deverá configurá-las em cada solicitação. Se você não fizer isso, essa solicitação substituirá sua configuração atual e o padrão será usado para qualquer coisa deixada indefinida.
+Se você tiver informações customizadas de expiração para seu token, deverá configurá-las em cada solicitação. Se não fizer isso, essa solicitação sobrescreverá sua configuração atual e o padrão será usado para qualquer coisa que tenha ficado indefinida.
 {: note}
 
 ### Por que eu gostaria de incluir solicitações em meus tokens?
@@ -163,8 +162,7 @@ substituídas.
 
 *Créditos normalizados*: cada token de identidade contém um conjunto de solicitações que são
 reconhecidas pelo {{site.data.keyword.appid_short_notm}} como solicitações normalizadas. Quando elas estiverem
-disponíveis, serão mapeadas diretamente do seu provedor de identidade para o token. Essas solicitações não podem
-ser omitidas explicitamente, mas podem ser substituídas por mapeamentos de solicitação customizados. As solicitações incluem `name`, `email`, `picture`, `local` e `gender`.
+disponíveis, serão mapeadas diretamente do seu provedor de identidade para o token. Essas solicitações não podem ser omitidas explicitamente, mas podem ser sobrescritas em seu token por solicitações customizadas. As solicitações incluem `name`, `email`, `picture`, `local` e `gender`. Nota: isso não muda ou elimina o atributo, mas muda as informações que estão presentes no token no tempo de execução.
 
 
 ### Como as reivindicações são mapeadas para os tokens?
@@ -242,7 +240,7 @@ Certifique-se de que você tenha os pré-requisitos a seguir:
        Authorization: 'Bearer <IAM_TOKEN>'
        Content-Type: application/json
   ```
-  {: pre}
+  {: codeblock}
 
   Corpo:
   ```
@@ -268,7 +266,7 @@ Certifique-se de que você tenha os pré-requisitos a seguir:
        ]
    }
   ```
-  {: pre}
+  {: codeblock}
 
   <table>
     <thead>

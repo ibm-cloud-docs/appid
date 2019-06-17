@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-31"
 
 keywords: authentication, authorization, identity, app security, secure, custom, proprietary, 
 
@@ -76,7 +76,7 @@ Figura. Los flujos de solicitud de la autenticación personalizada
 ## Generación de una señal web de JSON
 {: #generating-jwts}
 
-Puede convertir los datos de usuario verificados en un JWT de identidad personalizado generando una <a href="https://tools.ietf.org/html/rfc7515" target="blank">señal web de JSON <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>. La señal debe estar firmada con la clave privada que coincide con la clave pública preconfigurada. Para obtener una lista de bibliotecas de firma de señales, consulte <a href="https://jwt.io/" target="blank">jwt.io <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>.
+Puede convertir los datos de usuario verificados en un JWT de identidad personalizado generando una <a href="https://tools.ietf.org/html/rfc7515" target="blank">señal web de JSON <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>. La señal debe estar firmada con la clave privada que coincide con la clave pública preconfigurada. Para obtener una lista de bibliotecas de firma de señales, consulte <a href="https://jwt.io/" target="blank">https://jwt.io/ <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>.
 {: shortdesc}
 
 ### Formato JWT de ejemplo
@@ -127,7 +127,7 @@ Carga útil de señal:
     </tr>
     <tr>
       <td><code>aud</code></td>
-      <td>El URL de servidor OAuth. Formato: https://{region}.appid.cloud.ibm.com/oauth/v4/{tenantId}.</td>
+      <td>El URL de servidor OAuth. Formato: `https://{region}.appid.cloud.ibm.com/oauth/v4/{tenantId}`.</td>
     </tr>
     <tr>
       <td><code>exp</code></td>
@@ -139,7 +139,7 @@ Carga útil de señal:
     </tr>
     <tr>
       <td>Reclamaciones normalizadas</td>
-      <td>Todas las [reclamaciones normalizadas](/docs/services/appid?topic=appid-tokens#tokens) se proporcionan en la señal de identidad que se devuelve como respuesta a esta solicitud. Se pueden encontrar más reclamaciones personalizadas utilizando el [punto final `/userinfo`](/docs/services/appid?topic=appid-custom-attributes#custom-attributes).</td>
+      <td>Todas las [reclamaciones normalizadas](/docs/services/appid?topic=appid-tokens) se proporcionan en la señal de identidad que se devuelve como respuesta a esta solicitud. Se pueden encontrar más reclamaciones personalizadas utilizando el [punto final `/userinfo`](/docs/services/appid?topic=appid-profiles).</td>
     </tr>
     <tr>
       <td>Ámbito</td>

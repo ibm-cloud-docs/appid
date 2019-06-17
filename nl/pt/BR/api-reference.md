@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-13"
 
 keywords: authentication, authorization, identity, app security, secure, application identity, app to app, access token
 
@@ -28,10 +28,16 @@ subcollection: appid
 É possível usar a API de gerenciamento para automação, customização e gerenciamento do DevOps de suas instâncias do {{site.data.keyword.appid_full}}.
 {: shortdesc}
 
-A API de gerenciamento é protegida com tokens gerados pelo {{site.data.keyword.cloudaccesstraillong}}. Com o IAM, os
+A API de gerenciamento é protegida com tokens gerados pelo Identity and Access Management (IAM). Com o IAM, os
 proprietários da conta podem especificar qual o nível de acesso que alguém da equipe tem para cada instância de
 serviço. Para mais informações sobre como o IAM e o {{site.data.keyword.appid_short_notm}} trabalham juntos, consulte
-[Gerenciamento de acesso de serviço](/docs/services/appid?topic=appid-service-access-management#service-access-management).
+[Gerenciamento de acesso de serviço](/docs/services/appid?topic=appid-service-access-management).
+
+
+Deseja ver a API em ação? Verifique o tutorial de vídeo a seguir.
+
+<iframe class="embed-responsive-item" id="about-appid-api" title="Sobre a API do {{site.data.keyword.appid_short_notm}}" type="text/html" width="640" height="390" src="//www.youtube.com/embed/b2ABxvAdGg0?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
+
 
 Com a API, é possível:
 * Automatize a configuração do {{site.data.keyword.appid_short_notm}} no aplicativo do seu processo DevOps.
@@ -81,7 +87,7 @@ https://<region-endpoint>.appid.cloud.ibm.com/management
 
 <ul><ul><li>Uma instância de serviço que foi criada após 15 de março de 2018. Se você tiver uma instância do serviço que foi criada
 antes dessa data, crie uma nova instância e configure-a para corresponder à sua instância atual. Certifique-se de atualizar seus apps para usarem a nova instância.</li>
-<li>A [CLI do {{site.data.keyword.cloud_notm}}](/docs/cli/reference/ibmcloud/cloud-cli-install_use?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli) instalada.</li></ul></ul>
+<li>A [CLI do {{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-ibmcloud-cli) instalada.</li></ul></ul>
 
 ## Exemplo de uso
 {: #api-example}

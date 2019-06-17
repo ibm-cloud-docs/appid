@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-20"
+lastupdated: "2019-05-09"
 
 keywords: authentication, authorization, identity, app security, secure, development, cloud foundry, access management, iam, java, node.js
 
@@ -37,9 +37,9 @@ Un alias crea una conexión entre el servicio gestionado por IAM como, por ejemp
 
 * Automatización: con las credenciales de servicio almacenadas en la variable de entorno VCAP_SERVICES, ya no tendrá que copiarlas manualmente en la app. Todo se hace entre bastidores, en su nombre, con los SDK de {{site.data.keyword.appid_short_notm}}.
 * Seguridad: la configuración está a prueba de errores porque el proceso es automático.
-* Seguridad: no hay ningún acceso relacionado que esté codificado en la aplicación ya que las credenciales de servicio existen sólo en las variables de entorno.
+* Seguridad: nada de lo relacionado con el acceso está codificado en la aplicación ya que las credenciales de servicio existen sólo en las variables de entorno.
 
-¿Su app Cloud Foundry se aloja en otra plataforma? No pasa nada. Puede definir las credenciales de aplicación en la app para enlazarla con el servicio. Puede encontrar las credenciales de la aplicación a través del panel de control de {{site.data.keyword.appid_short_notm}}, o realizando una solicitud al punto final [/applications](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Applications/registerApplication).
+¿Su app Cloud Foundry se aloja en otra plataforma? Ningún problema. Puede definir las credenciales de aplicación en la app para enlazarla con el servicio. Puede encontrar las credenciales de la aplicación a través del panel de control de {{site.data.keyword.appid_short_notm}}, o realizando una solicitud al punto final [/applications](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Applications/registerApplication).
 {: tip}
 
 Vea cómo encajan entre sí los distintos modelos en el siguiente diagrama:
@@ -74,7 +74,7 @@ Antes de empezar, asegúrese de cumplir los siguientes requisitos previos:
   ```
   ibmcloud login -a cloud.ibm.com -r <region>
   ```
-  {: pre}
+  {: codeblock}
 
   <table>
     <tr>
@@ -108,23 +108,23 @@ Antes de empezar, asegúrese de cumplir los siguientes requisitos previos:
   ```
   ibmcloud target --cf
   ```
-  {: pre}
+  {: codeblock}
 
 8. Cree un alias de la instancia de servicio de {{site.data.keyword.appid_short_notm}}.
 
   ```
   ibmcloud resource service-alias-create {ALIAS_NAME} --instance-name {SERVICE_INSTANCE_NAME}
   ```
-  {: pre}
+  {: codeblock}
 
-9. Edite los valores de nombre y host en el `manifest.yml` del proyecto con la información obtenida en el mandato anterior. Añada el alias que crea para los servicios.
+9. Añada el alias que ha creado a los servicios del archivo `manifest.yml`.
 
 10. Enlace los servicios que se listan en el archivo `manifest.yml` desplegando la app de ejemplo.
 
   ```
   ibmcloud app push
   ```
-  {: pre}
+  {: codeblock}
 
 ## Despliegue de una app Java
 {: #java}
@@ -144,7 +144,7 @@ Antes de empezar, asegúrese de cumplir los siguientes requisitos previos:
   ```
   mvn clean install
   ```
-  {: pre}
+  {: codeblock}
 
 7. Cambie a la carpeta de Liberty.
 
@@ -153,34 +153,29 @@ Antes de empezar, asegúrese de cumplir los siguientes requisitos previos:
   ```
   ibmcloud login -a cloud.ibm.com -r <region>
   ```
-  {: pre}
+  {: codeblock}
 
 8. Establezca como destino la organización de Cloud Foundry y el espacio en el que desea trabajar y siga las solicitudes para ello.
 
   ```
   ibmcloud target --cf
   ```
-  {: pre}
+  {: codeblock}
 
 10. Cree un alias de la instancia de servicio de {{site.data.keyword.appid_short_notm}}.
 
   ```
   ibmcloud resource service-alias-create {ALIAS_NAME} --instance-name {SERVICE_INSTANCE_NAME}
   ```
-  {: pre}
+  {: codeblock}
 
-11. Edite los valores de nombre y host en el `manifest.yml` del proyecto con la información obtenida en el mandato anterior. Añada el alias que crea para los servicios.
+11. Añada el alias que ha creado a los servicios del archivo `manifest.yml`.
 
   Ejemplo:
   ```
     applications:
   - name: ApplicationName
-    host: HostName
-    buildpack: liberty-for-java
-    instances: 1
     memory: 512M
-    disk_quota: 1024M
-    timeout: 180
     services:
     - AppID-alias
   ```
@@ -191,5 +186,5 @@ Antes de empezar, asegúrese de cumplir los siguientes requisitos previos:
   ```
   ibmcloud app push
   ```
-  {: pre}
+  {: codeblock}
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-13"
+lastupdated: "2019-05-13"
 
 keywords: authentication, authorization, identity, app security, secure, access, platform, management, permissions
 
@@ -244,7 +244,8 @@ Neste cenário, um administrador criou uma instância do {{site.data.keyword.app
 {: shortdesc}
 
 Antes de iniciar:
-* Instale a [CLI do {{site.data.keyword.cloud_notm}}](/docs/cli/reference/ibmcloud?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli).
+
+* Instale a [CLI do {{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-ibmcloud-cli).
 
 Para atualizar permissões de acesso, o administrador conclui as etapas a seguir:
 
@@ -258,9 +259,9 @@ Para atualizar permissões de acesso, o administrador conclui as etapas a seguir
 4. Conecte-se com a CLI do {{site.data.keyword.cloud_notm}} em seu terminal.
 
     ```
-    ibmcloud login -api -a https://api.<region>.cloud.ibm.com
+    ibmcloud login -api -a https://api.{region}.cloud.ibm.com
     ```
-    {: pre}
+    {: codeblock}
 
     <table>
       <tr>
@@ -294,7 +295,7 @@ Para atualizar permissões de acesso, o administrador conclui as etapas a seguir
     ```
     ibmcloud iam oauth-tokens
     ```
-    {: pre}
+    {: codeblock}
 
 6. Verifique se o membro da equipe não pode fazer mudanças.
 
@@ -309,9 +310,9 @@ Para atualizar permissões de acesso, o administrador conclui as etapas a seguir
        "secret": "appsecret"
      }
     }' \
-    'https://us-south.appid.cloud.ibm.com/management/v4/<tenantID>/config/idps/facebook'
+    'https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/config/idps/facebook'
     ```
-    {: pre}
+    {: codeblock}
 
     O resultado é uma mensagem 403 desautorizada.
 
@@ -322,20 +323,20 @@ Para visualizar as configurações do {{site.data.keyword.appid_short_notm}} da 
     ```
     ibmcloud login -a api.<region>.console.cloud.ibm.com
     ```
-    {: pre}
+    {: codeblock}
 
 2. Obtenha um token IAM e tome nota disso.
 
     ```
     ibmcloud iam oauth-tokens
     ```
-    {: pre}
+    {: codeblock}
 
 3. Visualize a configuração do provedor de identidade para o Facebook usando cURL.
 
     ```
-    curl -X GET --header 'Accept: application/json' --header 'Authorization: <IAM token value>' \  'https://us-south.appid.cloud.ibm.com/management/v4/<tenantID>/config/idps/facebook'
+    curl -X GET --header 'Accept: application/json' --header 'Authorization: <IAM token value>' \  'https://us-south.appid.cloud.ibm.com/management/v4/<tenant-ID>/config/idps/facebook'
     ```
-    {: pre}
+    {: codeblock}
 
     O resultado é uma mensagem 200 que contém as informações do provedor de identidade.

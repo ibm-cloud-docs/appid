@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-20"
 
 keywords: authentication, authorization, identity, app security, secure, customizing apps, directory, registry, 
 
@@ -70,17 +70,17 @@ identidade sociais, como o Facebook, o <a href="https://oauthlib.readthedocs.io/
 
 Sim! Consulte qualquer um dos exemplos a seguir para ver o Cloud Directory em ação:
 
-* <a href="https://www.ibm.com/blogs/bluemix/2018/01/use-branded-ui-user-sign-app-id/" target="_blank">Use a sua própria IU de marca para a conexão do usuário com o {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a>
-* <a href="https://www.ibm.com/blogs/bluemix/2018/06/use-ui-flows-user-sign-sign-app-id/" target="_blank">Use sua própria
+* <a href="https://www.ibm.com/cloud/blog/use-branded-ui-user-sign-app-id" target="_blank">Use a sua própria IU de marca para a conexão do usuário com o {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a>
+* <a href="https://www.ibm.com/cloud/blog/use-ui-flows-user-sign-sign-app-id" target="_blank">Use sua própria
 IU e fluxos para inscrição do usuário e inscrição com o {{site.data.keyword.appid_short_notm}}
 <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a>
-* <a href="https://www.ibm.com/blogs/bluemix/2018/06/custom-login-page-app-id-integration/" target="_blank">Use uma página de login customizada com o {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a>
+* <a href="https://www.ibm.com/cloud/blog/custom-login-page-app-id-integration" target="_blank">Use uma página de login customizada com o {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a>
 
 
 ## Inserindo uma marca no aplicativo com o SDK do Android
 {: #branded-ui-android}
 
-Com o Cloud Directory ativado, é possível chamar telas customizadas com o SDK do Android. É possível escolher a combinação das telas com as quais você gostaria que seus usuários fossem capazes de interagir.<a href="https://www.ibm.com/blogs/bluemix/2018/01/use-branded-ui-user-sign-app-id/" target="blank">Veja este blog<img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a> para um exemplo detalhado!
+Com o Cloud Directory ativado, é possível chamar telas customizadas com o SDK do Android. É possível escolher a combinação das telas com as quais você gostaria que seus usuários fossem capazes de interagir.<a href="https://www.ibm.com/cloud/blog/use-branded-ui-user-sign-app-id" target="blank">Veja este blog<img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a> para um exemplo detalhado!
 {: shortdesc}
 
 
@@ -106,7 +106,7 @@ obtém os tokens de acesso, de identidade e de atualização fornecendo o nome d
         }
   });
   ```
-  {: pre}
+  {: codeblock}
 
 </br>
 </br>

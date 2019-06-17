@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-06-06"
 
-keywords: authentication, authorization, identity, app security, secure, development, sign in, sign up, password, social, enterprise
+keywords: Authentication, authorization, identity, app security, secure, development, sign in, sign up, password, social, enterprise
 
 subcollection: appid
 
@@ -23,53 +23,31 @@ subcollection: appid
 {:download: .download}
 
 
-# Exibindo o widget de login
+# Usando o Widget de login
 {: #login-widget}
 
-O {{site.data.keyword.appid_full}} fornece um widget de login que permite fornecer opções de conexão segura aos seus usuários.
+Com o {{site.data.keyword.appid_full}}, é possível usar uma IU padrão, chamada de Widget de login, para permitir que os usuários do aplicativo escolham o provedor de identidade ao qual desejam se conectar. Se você estiver usando o Cloud Directory, o Widget de login também fornecerá IUs adicionais para funcionalidades extras, como inscrever-se, esquecer a senha, autenticação de diversos fatores e mais.
 {: shortdesc}
 
-Quando seu aplicativo estiver configurado para usar um provedor de identidade, os visitantes do seu aplicativo serão
-direcionados a uma tela de conexão pelo widget de login. Com o widget de login, é possível exibir telas pré-configuradas
-para seus fluxos de conexão. Como um bônus, é possível atualizar seu fluxo de conexão a qualquer momento sem
-mudar seu código-fonte de nenhuma maneira.
-
-Deseja criar uma experiência que seja exclusiva do seu aplicativo? É possível [trazer suas próprias telas](/docs/services/appid?topic=appid-branded).
-{: tip}
 
 ## Entendendo o widget de login
 {: #widget-understanding}
 
-É possível obter vantagem do {{site.data.keyword.appid_short_notm}}, mesmo sem suas próprias telas de IU,
-exibindo o widget de login.
-{: shortdesc}
+Uma das melhores partes do Widget de login é que você pode iniciar usando o {{site.data.keyword.appid_short_notm}} antes de implementar qualquer uma de suas próprias IUs de autenticação, o que torna a experiência de integração do desenvolvedor muito mais fácil.
 
-### Qual é o padrão?
+### Qual é o comportamento padrão do Widget de login?
 {: #widget-default}
 
-Quando mais de um provedor de identidade é configurado, um usuário é redirecionado para o widget de login ao tentar se
-conectar ao aplicativo. Usando o widget de login, os usuários podem escolher o provedor com o qual desejam
-verificar sua identidade. Mas, quando apenas um provedor é configurado como **Ativado**, os
-visitantes são redirecionados para a tela de autenticação de provedores de identidade.
+Por padrão, o Widget de login é ativado para usar o Facebook, o Google e o Cloud Directory. É possível mudar o comportamento a qualquer momento escolhendo quais provedores de identidade você deseja configurar como uma opção. Quando mais de um provedor de identidade é ativado, o Widget de login apresenta uma tela na qual o usuário pode fazer sua seleção de provedor de identidade. Mas, se você tiver um único provedor ativado, os usuários não verão a tela de seleção supramencionada. Eles serão levados diretamente para o provedor de identidade para iniciar o processo de conexão.
 
-### Qual é a quantidade de informações que o {{site.data.keyword.appid_short_notm}} obtém de um provedor de identidade?
-{: #widget-obtain-info}
+Por exemplo, se você estiver usando o padrão, Facebook, Google e Cloud Directory, os usuários verão a tela. Se você ativar apenas o Facebook, os usuários serão levados diretamente para o Facebook para autenticação.
 
-Ao usar provedores de identidade sociais ou corporativos, o {{site.data.keyword.appid_short_notm}} tem acesso de
-leitura aos dados da conta dos usuários. O serviço usa um token e as asserções que são retornados pelo provedor de
-identidade para verificar se um usuário é quem eles dizem que são. Como o serviço nunca tem acesso de gravação às informações, os usuários devem passar por seu provedor de identidade escolhido para executar ações, como reconfigurar
-a senha. Por exemplo, se um usuário se conectar ao seu aplicativo com o Facebook e, em seguida, desejar mudar sua
-senha, ele deverá ir para www.facebook.com para fazer isso.
-
-Quando você usa o [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory), o {{site.data.keyword.appid_short_notm}} é o provedor de identidade. O serviço usa seu registro para verificar a
-identidade dos usuários. Como o {{site.data.keyword.appid_short_notm}} é o provedor, os usuários podem tirar
-vantagem da funcionalidade avançada, como reconfigurar sua senha, diretamente em seu aplicativo.
 
 
 ### Quais telas podem ser exibidas para cada provedor?
 {: #widget-options}
 
-Verifique a tabela a seguir para ver quais telas podem ser exibidas para cada tipo de provedor de identidade.
+Quando você usa o Cloud Directory, o {{site.data.keyword.appid_short_notm}} é capaz de fornecer a funcionalidade estendida de gerenciamento de usuário. A funcionalidade estendida também se aplica aos recursos de Widgets de login. Os usuários armazenados no Cloud Directory podem aproveitar a funcionalidade, como inscrever-se ou reconfigurar sua senha, diretamente no Widget de login. Verifique a tabela a seguir para ver quais telas podem ser exibidas para cada tipo de provedor de identidade.
 
 <table>
   <thead>
@@ -114,14 +92,15 @@ Verifique a tabela a seguir para ver quais telas podem ser exibidas para cada ti
   </tbody>
 </table>
 
-</br>
-</br>
 
 ## Customizando o widget de login
 {: #widget-customize}
 
-O {{site.data.keyword.appid_short_notm}} fornece uma tela de login padrão que poderá ser chamada se você não tiver suas próprias telas de IU para exibir. É possível customizar a tela para exibir o logotipo e as cores de sua escolha.
+O Widget de Login é dinâmico. É possível customizar a aparência ou a configuração do provedor de identidade e as mudanças são aplicadas imediatamente. Não é necessário atualizar seu código do aplicativo nem reimplementar seu app de nenhuma maneira.
 {: shortdesc}
+
+Você precisa de mais customização do que o Widget de login fornece? É possível implementar sua própria IU totalmente customizada para conexão, inscrição, reconfiguração de senha do usuário e outros fluxos para criar uma experiência que seja exclusiva para seu app. Para iniciar, verifique [marcando seu app](/docs/services/appid?topic=appid-branded).
+{: tip}
 
 Para customizar a tela:
 
@@ -133,12 +112,6 @@ que se alinhe com a marca de sua empresa.
 4. Selecione uma cor de cabeçalho para o widget no selecionador de cor ou insira o código hexadecimal para outra cor.
 5. Inspecione a área de janela de visualização e clique em **Salvar mudanças** quando estiver satisfeito com as suas customizações. Uma mensagem de confirmação será exibida.
 6. Em seu navegador, atualize sua página de login para verificar suas mudanças.
-
-Não se esqueça. É possível aproveitar o {{site.data.keyword.appid_short_notm}} com outros idiomas também. Se
-você não vir um SDK para o idioma no qual está trabalhando, sempre será possível usar as APIs. Consulte
-<a href="https://www.ibm.com/blogs/bluemix/tag/app-id/" target="blank">nossos
-blogs<img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a>.
-{: tip}
 
 
 ## Exibindo o widget de login com o SDK do Android
@@ -203,7 +176,7 @@ verificação para concluir o registro, dependendo das configurações do Cloud 
       }
   });
   ```
-  {: pre}
+  {: codeblock}
 
 </br>
 

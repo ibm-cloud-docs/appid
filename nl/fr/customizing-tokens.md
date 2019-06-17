@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-31"
 
 keywords: authentication, authorization, identity, app security, secure, custom, tokens, access, claim, attributes
 
@@ -26,7 +26,7 @@ subcollection: appid
 # Personnalisation des jetons
 {: #customizing-tokens}
 
-Vous pouvez configurer vos jetons {{site.data.keyword.appid_short_notm}} pour répondre aux besoins spécifiques de votre application.
+Vous pouvez configurer votre jeton {{site.data.keyword.appid_short_notm}} pour répondre aux besoins spécifiques de votre application.
 {: shortdesc}
 
 ## Comprendre la personnalisation
@@ -38,7 +38,7 @@ Vous pouvez configurer vos jetons {{site.data.keyword.appid_short_notm}} pour r�
 * Jetons d'identité : contiennent des informations personnelles et sont utilisés pour authentifier un utilisateur. Selon la configuration de votre application, des jetons d'identité peuvent être émis avant l'authentification d'un utilisateur. Cela vous permet d'associer des attributs à vos utilisateurs avant qu'ils ne se connectent à votre application.
 * Jetons d'actualisation : peuvent être utilisés pour prolonger la durée pendant laquelle un utilisateur peut rester sans s'authentifier à nouveau.
 
-Vous souhaitez en savoir plus sur les jetons ? Consultez la rubrique [Understanding tokens](/docs/services/appid?topic=appid-tokens#tokens).
+Vous souhaitez en savoir plus sur les jetons ? Consultez la rubrique [Connaissance des jetons](/docs/services/appid?topic=appid-tokens#tokens).
 {: tip}
 
 
@@ -78,7 +78,7 @@ Vous pouvez personnaliser vos jetons [dans l'interface graphique](/docs/services
 </table>
 
 
-Les jetons servant à identifier les utilisateurs et à sécuriser vos ressources, leur durée de vie affecte plusieurs éléments différents. En personnalisant votre configuration de jeton, vous pouvez vous assurer que vos besoins en matière de sécurité et d'expérience utilisateur sont satisfaits. Toutefois, si un jeton devait être compromis, un utilisateur malveillant aurait plus de temps pour affecter votre application. Plus plus d'informations concernant la sécurité, voir [Attributs personnalisés](/docs/services/appid?topic=appid-custom-attributes).
+Les jetons servant à identifier les utilisateurs et à sécuriser vos ressources, leur durée de vie affecte plusieurs éléments différents. En personnalisant votre configuration de jeton, vous pouvez vous assurer que vos besoins en matière de sécurité et d'expérience utilisateur sont satisfaits. Toutefois, si un jeton devait être compromis, un utilisateur malveillant aurait plus de temps pour affecter votre application. Plus plus d'informations concernant la sécurité, voir [Définition d'attributs personnalisés](/docs/services/appid?topic=appid-profiles#profile-set-custom).
 {: important}
 
 
@@ -122,7 +122,7 @@ Une réclamation est une déclaration qu'une entité fait à son sujet ou au nom
 ```
 {: screen}
 
-Si vous avez personnalisé des informations d'expiration de votre jeton, vous devez le définir dans chaque demande. Dans le cas contraire, cette demande se substitue à votre configuration en cours et les valeurs par défaut sont utilisées pour tous les éléments non définis.
+Si vous avez personnalisé des informations d'expiration de votre jeton, vous devez le définir dans chaque demande. Dans le cas contraire, cette demande écrase votre configuration en cours et les valeurs par défaut sont utilisées pour tous les éléments non définis.
 {: note}
 
 ### Pourquoi ajouter des réclamations à mes jetons ?
@@ -140,7 +140,7 @@ Les réclamations fournies par {{site.data.keyword.appid_short_notm}} appartienn
 
 *Réclamations restreintes *: selon le jeton vers lequel les réclamations sont mappées, certaines d'entre elles peuvent avoir des possibilités de personnalisation limitées. Pour un jeton d'accès, la seule réclamation restreinte est `scope`. Elle ne peut pas être remplacée par des mappages personnalisés, mais peut être étendue selon vos propres portées. Lorsque la réclamation de portée est mappée à un jeton d'accès, la valeur doit être une chaîne et ne peut pas être préfixée par `appid_`, sinon elle sera ignorée. Dans les jetons d'identité, les réclamations `identities` et `oauth_clients` ne peuvent pas être modifiées ou remplacées.
 
-*Réclamations normalisées *: chaque jeton d'identité contient un ensemble de réclamations qui sont reconnues par {{site.data.keyword.appid_short_notm}} comme étant des réclamations normalisées. Lorsqu'elles sont disponibles, elles sont directement mappées de votre fournisseur d'identité vers le jeton. Ces réclamations ne peuvent pas être explicitement omises mais peuvent être remplacées par des mappages de réclamations personnalisés. Les réclamations incluent `name`, `email`, `picture`, `local` et `gender`.
+*Réclamations normalisées *: chaque jeton d'identité contient un ensemble de réclamations qui sont reconnues par {{site.data.keyword.appid_short_notm}} comme étant des réclamations normalisées. Lorsqu'elles sont disponibles, elles sont directement mappées de votre fournisseur d'identité vers le jeton. Ces réclamations ne peuvent pas être explicitement omises mais peuvent être écrasées dans votre jeton par des réclamations personnalisées. Les réclamations incluent `name`, `email`, `picture`, `local` et `gender`. Remarque : Ceci ne change pas ou n'élimine pas l'attribut, mais modifie les informations présentes dans le jeton au moment de l'exécution.
 
 
 ### Comment les réclamations sont-elles mappées à des jetons ?
@@ -212,7 +212,7 @@ Assurez-vous de disposer des prérequis suivants :
        Authorization: 'Bearer <IAM_TOKEN>'
        Content-Type: application/json
   ```
-  {: pre}
+  {: codeblock}
 
   Corps :
   ```
@@ -242,7 +242,7 @@ Assurez-vous de disposer des prérequis suivants :
        ]
    }
   ```
-  {: pre}
+  {: codeblock}
 
   <table>
     <thead>

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-10"
+lastupdated: "2019-05-21"
 
 keywords: authentication, authorization, identity, app security, secure, development, idp, troubleshooting, redirected, validation
 
@@ -25,122 +25,222 @@ subcollection: appid
 {:tsCauses: .tsCauses}
 {:tsResolve: .tsResolve}
 
-# Configuration des fournisseurs d'identité
+# Dépannage : SAML
 {: #troubleshooting-idp}
 
-Si vous rencontrez des problèmes lorsque vous configurez des fournisseurs d'identité pour qu'ils fonctionnent avec {{site.data.keyword.appid_full}}, les techniques ci-après peuvent vous aider à les résoudre et à obtenir de l'aide.
+Si vous rencontrez des problèmes lorsque vous configurez SAML pour travailler avec {{site.data.keyword.appid_full}}, veuillez vous référer aux techniques suivantes pour dépanner et demander de l'aide.
 {: shortdesc}
 
 
-## Un utilisateur n'est pas redirigé vers le fournisseur d'identité
-{: #ts-saml-redirect}
-
-{: tsSymptoms}
-Un utilisateur tente de se connecter à votre application, mais la page de connexion ne s'affiche pas à l'invite.
-
-{: tsCauses}
-Il est possible que le lancement du fournisseur d'identité échoue pour différentes raisons :
-
-* L'URL de redirection que vous avez configurée  est incorrecte.
-* Le fournisseur d'identité ne reconnaît pas la demande d'authentification.
-* Le fournisseur d'identité attend une liaison HTTP-POST.
-* Le fournisseur d'identité attend une demande authnRequest signée.
-
-{: tsResolve}
-Vous pouvez essayer les solutions suivantes :
-
-* Mettez à jour votre URL de connexion. Cette URL est envoyée comme partie de la demande authnRequest et doit être exacte.
-* Assurez-vous que vos métadonnées {{site.data.keyword.appid_short_notm}} sont correctement définies dans vos paramètres de fournisseur d'identité.
-* Configurez votre fournisseur d'identité pour qu'il accepte la demande authnRequest dans HTTP-Redirect.
-* {{site.data.keyword.appid_short_notm}} ne prend pas en charge la signature de demande authnRequest.
-
-Si aucune des solutions ne résout le problème, il est possible que vous ayez un problème de connexion.
-{: tip}
-
-
-## Problèmes courants de langage SAML
+## Problèmes de configuration courants
 {: #ts-common-saml}
 
-Consultez le tableau suivant pour des explications et résolutions concernant les problèmes courants rencontrés lors de l'utilisation de SAML.
-
-<table summary="Chaque ligne du tableau se lit de gauche à droite, avec l'état du cluster à la colonne 1 et une description à la colonne 2.">
-  <thead>
-    <th>Message</th>
-    <th>Description</th>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>Could not parse assertion xml.</code></td>
-      <td>La réponse de SAML a été incorrectement formée.</td>
-    </tr>
-    <tr>
-      <td><code>Invalid attribute without name. Contact your identity provider administrator.</code></td>
-      <td>Il existe un attribut <code>&lt;saml:Attribute&gt;</code> sans valeur définie. Contactez votre administrateur de fournisseur d'identité.</td>
-    </tr>
-    <tr>
-      <td><code>SAML response body must contain the RelayState parameter.</code></td>
-      <td>Le paramètre n'a pas été inclus dans le corps de réponse SAML. {{site.data.keyword.appid_short_notm}} fournit le paramètre au fournisseur d'identité comme partie de la demande, et le paramètre exact doit être envoyé dans la réponse. Si le paramètre est modifié, vous pouvez contacter votre administrateur de fournisseur d'identité. </td>
-    </tr>
-    <tr>
-      <td><code>SAML Configuration must have certificates, entityID and signInUrl of the IdP.</code></td>
-      <td>Le fournisseur d'identité SAML n'est pas <a href="/docs/services/appid?topic=appid-enterprise#enterprise" target="_blank">correctement configuré</a>. Validez votre configuration.</td>
-    </tr>
-    <tr>
-      <td><code>Error in assertion validation. SAML Assertion signature check failed! Certificate .. may be invalid.</code></td>
-      <td>Une signature et un en-tête digest valides doivent être inclus dans l'assertion. La signature doit être créée en utilisant la clé privée qui est associée au certificat fourni dans la configuration SAML, qu'il s'agisse de la clé principale ou secondaire. <strong>Remarque</strong> : {{site.data.keyword.appid_short_notm}} ne prend pas en charge l'assertion chiffrée. Si votre fournisseur d'identité chiffre votre assertion SAML, désactivez le chiffrement.</td>
-    </tr>
-  </tbody>
-</table>
-
-
-
-## Erreurs de validation de réponse SAML
-{: #ts-saml-response}
-
-{{site.data.keyword.appid_short_notm}} impose les exigences de validité suivantes pour les assertions. Tous les attributs sont des noeuds XML de réponse SAML obligatoires, sauf indication contraire.
+L'infrastructure SAML prend en charge plusieurs profils, flux et configurations, et par conséquent il est essentiel que la configuration de votre fournisseur d'identité soit correctement définie. Consultez les rubriques suivantes pour vous aider à résoudre certains des problèmes courants que vous pourriez rencontrer lorsque vous travaillez avec SAML.
 {: shortdesc}
 
 
-<table summary="Chaque ligne du tableau se lit de gauche à droite, avec l'élément de réponse dans la colonne 1 et une description dans la colonne 2.">
-  <thead>
-    <th>Elément de réponse</th>
-    <th>Description</th>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>samlp:Response</code></td>
-      <td>L'élément de réponse doit être inclus dans le fichier XML de réponse.</td>
-    </tr>
-    <tr>
-      <td><code>SAML version</code></td>
-      <td>{{site.data.keyword.appid_short_notm}} accepte uniquement <code>SAML version 2.0</code>.</td>
-    </tr>
-    <tr>
-      <td><code>InResponseTo</code></td>
-      <td>{{site.data.keyword.appid_short_notm}} vérifie que l'élément de réponse <code>InResponseTo</code> renvoyé dans l'assertion correspond à l'identificateur de demande enregistré à partir de la demande SAML.</td>
-    </tr>
-    <tr>
-      <td><code>saml:issuer</code></td>
-      <td>L'émetteur spécifié dans une assertion doit correspondre à celui spécifié dans la configuration du fournisseur d'identité {{site.data.keyword.appid_short_notm}}.</td>
-    </tr>
-    <tr>
-      <td><code>ds:Signature</code></td>
-      <td>Une signature et un en-tête digest valides doivent être inclus dans l'assertion. La signature doit être créée en utilisant la clé privée qui est associée au certificat fourni dans la configuration SAML. L'historique est validé à l'aide de la méthode de canonisation <code>CanonicalizationMethod</code> et des transformations <code>Transforms</code> spécifiées. <strong>Remarque</strong> : {{site.data.keyword.appid_short_notm}} ne valide pas l'expiration du certificat. Pour obtenir de l'aide pour la gestion de vos certificats, essayez [Certificate Manager](/docs/services/certificate-manager?topic=certificate-manager-getting-started#getting-started).</td>
-    </tr>
-    <tr>
-      <td><code>saml:subject</code></td>
-      <td>Le sujet ou <code>name_id</code> de l'assertion doit être le courrier électronique de la fédération de l'utilisateur.</td>
-    </tr>
-    <tr>
-      <td><code>saml:AttributeStatement</code></td>
-      <td>Affirme que certains attributs sont associés à un utilisateur authentifié spécifique.</td>
-    </tr>
-    <tr>
-      <td><code>saml:Conditions</code></td>
-      <td><strong>Facultatif</strong> : lorsqu'une instruction conditionnelle est incluse dans une assertion, elle doit également contenir un horodatage valide. {{site.data.keyword.appid_short_notm}} respecte la période de validité spécifiée dans une assertion. Pour vérifier, le service recherche les contraintes <code>NotBefore</code> et <code>NotOnOrAfter</code> qui doivent être définies et valides.</td>
-    </tr>
-  </tbody>
-</table>
+Pour les codes d'erreur spécifiques et les messages de votre fournisseur d'identité que vous ne voyez pas sur cette page, il peut être utile de rechercher des explications détaillées dans les [spécifications SAML](http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0.html). Si vous ne trouvez pas ce que vous cherchez, vous pouvez contacter l'administrateur de votre fournisseur d'identité pour plus d'informations.
+{: note}
 
-{{site.data.keyword.appid_short_notm}} ne prend pas en charge les assertions chiffrées. Si votre fournisseur d'identité est défini pour chiffrer votre assertion, désactivez-le. L'assertion doit être dans un format non chiffré.
-{: tip}
+
+
+### Paramètre `RelayState` manquant
+{: #ts-saml-relaystate}
+
+**Que se passe-t-il ?**
+
+Le paramètre `RelayState` est manquant dans votre réponse d'authentification.
+
+
+**Pourquoi ?**
+
+{{site.data.keyword.appid_short_notm}} envoie un paramètre opaque appelé `RelayState` dans la demande d'authentification. Si vous ne voyez pas le paramètre dans votre réponse, il se peut que votre fournisseur d'identité ne soit pas configuré pour le renvoyer correctement. Le paramètre `RelayState` a le format suivant.
+
+```
+https://idp.example.org/SAML2/SSO/Redirect?SAMLRequest=request&RelayState=token
+```
+{: screen}
+
+**Comment résoudre le problème ?**
+
+Vérifiez que votre fournisseur SAML est configuré pour renvoyer le paramètre `RelayState` à {{site.data.keyword.appid_short_notm}} sans le modifier en aucune façon.
+
+
+### Zone NameID manquante ou incorrecte
+{: #ts-saml-nameid}
+
+**Que se passe-t-il ?**
+
+Lorsque vous envoyez une demande d'authentification, vous recevez une erreur concernant `NameID`.
+
+**Pourquoi ?**
+
+{{site.data.keyword.appid_short_notm}}, en tant que fournisseur de services, définit la manière dont les utilisateurs sont identifiés par le service et par le fournisseur d'identité. Avec {{site.data.keyword.appid_short_notm}}, les utilisateurs sont identifiés dans la demande d'authentification `NameID` dans la zone `NameID`, comme indiqué dans l'exemple suivant.
+
+```
+<NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</NameIDFormat>
+```
+{: screen}
+
+**Comment résoudre le problème ?**
+
+Pour résoudre le problème, assurez-vous que votre fournisseur d'identité `NameID` est formaté en tant qu'adresse e-mail. Vérifiez que tous les utilisateurs de votre registre de fournisseurs d'identité ont un format d'adresse e-mail valide. Ensuite, vérifiez que la zone `NameID` est correctement définie pour qu'un e-mail valide soit toujours renvoyé, même si les utilisateurs de votre registre ont plusieurs adresses e-mail.
+
+
+
+### Echec de signature de la réponse
+{: #ts-saml-response-sign-fail}
+
+**Que se passe-t-il ?**
+
+Lorsque vous envoyez une demande d'authentification, vous recevez le message d'erreur suivant :
+
+```
+Could not verify SAML assertion signature. Ensure {{site.data.keyword.appid_short_notm}} is configurated with your SAML provider's signing certificate.
+```
+{: screen}
+
+**Pourquoi ?**
+
+{{site.data.keyword.appid_short_notm}} s'attend à ce que toutes les assertions SAML présentes dans votre réponse soient signées. Si le service ne peut pas trouver ou vérifier la signature dans la réponse, l'erreur est retournée.
+
+**Comment résoudre le problème ?**
+
+Pour résoudre le problème, assurez-vous que :
+
+* Vous avez extrait le certificat de signature du fichier XML de métadonnées de votre fournisseur d'identité. Assurez-vous d'utiliser la clé avec `<KeyDescriptor use="signing">`.
+* Vous avez défini l'algorithme de signature de réponse comme étant XXX. 
+
+
+
+
+
+### Echec du déchiffrement de la réponse
+{: #ts-saml-decrypt-fail}
+
+**Que se passe-t-il ?**
+
+Vous recevez l'un des messages d'erreur suivants en réponse à votre demande d'authentification.
+
+Message d'erreur 1 :
+
+```
+Unexpectedly received an encrypted assertion. Please enable response encryption in your {{site.data.keyword.appid_short_notm}} SAML configuration.
+```
+{: screen}
+
+Message d'erreur 2 : 
+
+```
+Could not decrypt SAML assertion. Ensure your SAML provider is configured with the {{site.data.keyword.appid_short_notm}} encryption 
+```
+{: screen}
+
+
+**Pourquoi ?**
+
+Si votre fournisseur d'identité est configuré pour le chiffrement, {{site.data.keyword.appid_short_notm}} doit être configuré pour signer les demandes d'authentification SAML (AuthnRequest). Ensuite, votre fournisseur d'identité doit être configuré pour attendre la configuration correspondante. Vous pourriez recevoir ces erreurs pour l'une des raisons suivantes :
+
+- {{site.data.keyword.appid_short_notm}} n'est pas configuré pour s'attendre à ce que la réponse SAML du fournisseur d'identité soit chiffrée.
+- {{site.data.keyword.appid_short_notm}} ne peut pas déchiffrer correctement vos assertions.
+
+
+**Comment résoudre le problème ?**
+
+Si vous recevez le message d'erreur 1, vérifiez que votre configuration SAML est configurée pour recevoir une réponse chiffrée. Par défaut, {{site.data.keyword.appid_short_notm}} ne s'attend pas à ce que la réponse soit chiffrée. Pour configurer le chiffrement, définissez le paramètre `encryptResponse` sur **true** à l'aide de [l'API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.set_saml_idp).
+
+Si vous recevez le message d'erreur 2, assurez-vous que votre certificat est correct. Vous pouvez obtenir le certificat de signature à partir du fichier XML de métadonnées de {{site.data.keyword.appid_short_notm}}. Assurez-vous d'utiliser la clé avec `<KeyDescriptor use="signing">`.Vérifiez que votre fournisseur d'identité est configuré pour utiliser `` comme algorithme de signature. 
+
+
+### Code d'erreur du répondeur
+{: #ts-saml-responder}
+
+**Que se passe-t-il ?**
+
+Lorsque vous envoyez une demande d'authentification, vous recevez le message d'erreur générique suivant :
+
+```
+urn:oasis:names:tc:SAML:2.0:status:Responder
+```
+{: screen}
+
+**Pourquoi ?**
+
+Bien que {{site.data.keyword.appid_short_notm}} envoie la demande d'authentification initiale, le fournisseur d'identité doit effectuer l'authentification de l'utilisateur et renvoyer la réponse. Il y a plusieurs raisons qui peuvent amener votre fournisseur d'identité à envoyer ce message d'erreur.
+
+Le message peut s'afficher si votre fournisseur d'identité : 
+
+* ne peut pas trouver ou vérifier le nom d'utilisateur.
+* ne prend pas en charge le format `NameID` qui est défini dans la demande d'authentification (`AuthnRequest`).
+* ne prend pas en charge le contexte d'authentification.
+* exige que la demande d'authentification soit signée ou utilise un algorithme spécifique dans la signature.
+
+**Comment résoudre le problème ?**
+
+Pour résoudre le problème, vérifiez votre configuration et votre nom d'utilisateur. Vérifiez que le contexte d'authentification et les variables définies sont corrects. Vérifiez si votre demande doit être signée d'une manière spécifique.
+
+
+
+
+### Demande d'authentification non prise en charge
+{: #ts-saml-unsupported-request}
+
+**Que se passe-t-il ?**
+
+Vous recevez un message concernant une demande d'authentification non prise en charge.
+
+**Pourquoi ?**
+
+Lorsque {{site.data.keyword.appid_short_notm}} génère une demande d'authentification, il peut utiliser le contexte d'authentification pour demander la qualité de l'authentification et des assertions SAML.
+
+**Comment résoudre le problème ?**
+
+Pour résoudre le problème, vous pouvez mettre à jour votre contexte d'authentification. Par défaut, {{site.data.keyword.appid_short_notm}} utilise la classe d'authentification `urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport` et la comparaison `exact`. Vous pouvez mettre à jour le paramètre de contexte pour l'adapter à votre cas d'utilisation à l'aide des API.
+
+
+
+
+### Echec de signature de la demande SAML
+{: #ts-saml-request-sign-fail}
+
+**Que se passe-t-il ?**
+
+Vous recevez une erreur qui indique qu'une demande d'authentification ne peut pas être vérifiée.
+
+**Pourquoi ?**
+
+{{site.data.keyword.appid_short_notm}} peut être configuré pour signer la demande d'authentification SAML (`AuthNRequest`), mais votre fournisseur d'identité doit être configuré pour recevoir la configuration correspondante.
+
+**Comment résoudre le problème ?**
+
+Pour résoudre le problème :
+
+* Vérifiez qu'{{site.data.keyword.cloud_notm}} est configuré pour signer la demande d'authentification en réglant le paramètre `signRequest` sur `true` à l'aide de l'[API set SAML IdP](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.set_saml_idp). Vous pouvez vérifier si votre demande d'authentification est signée en consultant l'URL de la demande. La signature est incluse comme paramètre de requête. Par exemple : `https://idp.example.org/SAML2/SSO/Redirect?SAMLRequest=request&SigAlg=value&Signature=value&RelayState=token`
+
+* Vérifiez que votre fournisseur d'identité est configuré avec le bon certificat. Pour obtenir le certificat de signature, vérifiez le fichier XML de métadonnées {{site.data.keyword.cloud_notm}} que vous avez téléchargé du tableau de bord {{site.data.keyword.cloud_notm}}. Assurez-vous d'utiliser la clé avec `<KeyDescriptor use="signing">`.
+
+* Vérifiez que votre fournisseur d'identité est configuré pour utiliser `` comme algorithme de signature.
+
+
+
+## Débogage de votre connexion
+{: #ts-saml-debug-connection}
+
+La configuration est correcte mais continue de boguer ? Consultez les conseils suivants pour déboguer votre connexion SAML.
+{: shortdesc}
+
+
+### Comment puis-je capturer ma demande d'authentification SAML et ma réponse ?
+{: #ts-saml-capture}
+
+Il existe plusieurs options pour les plug-ins de navigateur tels que [Firefox](https://addons.mozilla.org/en-US/firefox/addon/saml-tracer/) et [Chrome](https://chrome.google.com/webstore/detail/saml-tracer/mpdajninpobndbfcldcmbpnnbhibjmch?hl=en) qui peuvent être utilisées pour capturer vos demandes et réponses SAML. Vous ne voulez pas utiliser un plug-in ? Pas de problème. Atlassian fournit des instructions pour une [approche d'extraction plus manuelle](https://confluence.atlassian.com/jirakb/how-to-view-a-saml-responses-in-your-browser-for-troubleshooting-872129244.html).
+
+
+### Je ne comprends pas les messages. Comment puis-je les décoder ?
+{: #ts-saml-decode-messages}
+
+Si vous continuez à avoir des problèmes après avoir utilisé votre outil de débogage SAML, essayez d'utiliser les [outils de développement SAML](https://www.samltool.com/online_tools.php) pour obtenir une aide supplémentaire pour décoder vos messages. N'oubliez pas ! Selon l'endroit où vous interceptez vos messages SAML, votre requête peut être [codée en URL](https://www.samltool.com/online_tools.php), [codée en base 64 et dégonflée](https://www.samltool.com/decode.php) ou [chiffrée](https://www.samltool.com/decrypt.php).
+
+N'utilisez pas d'outils en ligne pour déchiffrer les messages SAML comme votre réponse SAML. Les outils ont besoin d'accéder à la clé privée de chiffrement pour pouvoir déchiffrer les informations. La clé doit rester privée et l'accès doit être contrôlé. L'outil de déchiffrement mentionné dans cette section ne doit être utilisé qu'à des fins de débogage.
+{: important}
+

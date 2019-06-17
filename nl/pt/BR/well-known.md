@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-21"
 
 keywords: authentication, authorization, identity, app security, secure, discovery endpoint, oidc, public keys, tokens, well known endpoint
 
@@ -23,7 +23,7 @@ subcollection: appid
 {:download: .download}
 
 
-# Usando o terminal de descoberta OIDC
+# Documento de descoberta OIDC
 {: #discovery}
 
 A conexão OpenID suporta um protocolo de descoberta que contém informações que podem ser usadas para configurar seus
@@ -43,9 +43,9 @@ aplicativos e autenticar usuários, como tokens e chaves públicas.
 É possível localizar o terminal na URL a seguir:
 
 ```
-https://[region].appid.ibm.cloud.com/oauth/v4/{tenantId}/.well-known/openid-configuration
+https://{region}.appid.ibm.cloud.com/oauth/v4/{tenantId}/.well-known/openid-configuration
 ```
-{: pre}
+{: codeblock}
 
 <table>
   <tr>
@@ -76,21 +76,20 @@ https://[region].appid.ibm.cloud.com/oauth/v4/{tenantId}/.well-known/openid-conf
 
 
 
-**Como eu faço a chamada para o terminal?**
+**Como chamar o terminal?**
 
-Para fazer uma chamada para o terminal, deve-se ter um `tenantID` válido e codificar
-permanentemente o URI do documento de descoberta em seu aplicativo.
+Para fazer uma chamada para o terminal, deve-se ter um ID de locatário válido e codificar permanentemente o URI do documento de descoberta em seu código do aplicativo.
 
 Consulte a seguinte solicitação de cURL de amostra:
 
 ```bash
-curl -X GET "https://us-south.appid.cloud.ibm.com/oauth/v4/asd/.well-known/openid-configuration" -H "accept: application/json"
+curl -X GET "https://{region}.appid.cloud.ibm.com/oauth/v4/{tenant-id}/.well-known/openid-configuration" -H "accept: application/json"
 ```
 {:codeblock}
 
 **O que posso esperar que a chamada retorne?**
 
-A resposta deve ser semelhante ao exemplo a seguir:
+A resposta retornada é semelhante ao exemplo a seguir:
 
 ```bash
 {
@@ -167,7 +166,7 @@ A resposta deve ser semelhante ao exemplo a seguir:
   </tr>
   <tr>
     <td><code>userinfo_endpoint</code></td>
-    <td>A URL do terminal userinfo do {{site.data.keyword.appid_short_notm}}.</td>
+    <td>A URL do terminal {{site.data.keyword.appid_short_notm}} <code>/userinfo</code>.</td>
   </tr>
   <tr>
     <td><code>scopes_supported</code></td>

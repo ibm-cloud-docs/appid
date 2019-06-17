@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-05"
+lastupdated: "2019-05-01"
 
 keywords: authentication, authorization, identity, app security, secure, application identity, app to app, access token, activity
 
@@ -31,13 +31,19 @@ Vous pouvez afficher, gérer et analyser les activités initiées par l'utilisat
 
 
 
-Pour plus d'informations sur le fonctionnement de ce service, voir la [documentation d'{{site.data.keyword.cloudaccesstrailshort}}](/docs/services/cloud-activity-tracker/reference?topic=cloud-activity-tracker-getting-started-with-cla#getting-started-with-cla).
+
+
+Pour plus d'informations sur le fonctionnement de ce service, voir la [documentation de {{site.data.keyword.cloudaccesstrailshort}}](/docs/services/cloud-activity-tracker?topic=cloud-activity-tracker-getting-started#getting-started).
+
+
+
+
 
 
 ## Affichage des événements d'administration
 {: #at-monitor-admin}
 
-Vous pouvez afficher, gérer et analyser l'activité de configuration effectuée dans votre instance d'{{site.data.keyword.appid_short_notm}} à l'aide du service {{site.data.keyword.cloudaccesstrailshort}}.
+Vous pouvez afficher, gérer et analyser l'activité de configuration effectuée dans votre instance d'{{site.data.keyword.appid_short_notm}} à l'aide du service {{site.data.keyword.at_short}}.
 {: shortdesc}
 
 Pour surveiller l'activité d'administration :
@@ -48,7 +54,7 @@ Pour surveiller l'activité d'administration :
 4. Dans la liste déroulante, effectuez les configurations suivantes afin de rechercher des événements qui sont générés par {{site.data.keyword.appid_short_notm}} :
     * Pour **Afficher les journaux**, sélectionnez **Journaux de compte**.
     * Pour **Rechercher**, sélectionnez **target.Management**.
-    * Pour **Filtrer**, entrez **appid**.
+    * Pour **Filtrer**, entrez `appid`.
 5. Cliquez sur **Filtrer**.
 
 </br>
@@ -56,7 +62,7 @@ Pour surveiller l'activité d'administration :
 ## Liste des événements d'administration
 {: #at-events-admin}
 
-Consultez le tableau ci-dessous pour la liste des événements qui sont envoyés à {{site.data.keyword.cloudaccesstrailshort}}.
+Consultez le tableau ci-dessous pour la liste des événements qui sont envoyés à {{site.data.cloudaccesstrailshort}}.
 
 <table>
   <tr>

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-21"
 
 keywords: authentication, authorization, identity, app security, secure, discovery endpoint, oidc, public keys, tokens, well known endpoint
 
@@ -23,7 +23,7 @@ subcollection: appid
 {:download: .download}
 
 
-# Utilización del punto final de descubrimiento de OpenID Connect
+# Documento de descubrimiento de OIDC
 {: #discovery}
 
 OpenID Connect ofrece soporte a un protocolo de descubrimiento que contiene información que puede utilizar para configurar las apps y autenticar usuarios como, por ejemplo, señales de acceso y claves públicas.
@@ -42,9 +42,9 @@ Puede obtener el documento de descubrimiento y la información que contiene llam
 Encontrará el punto final en el URL siguiente:
 
 ```
-https://[region].appid.ibm.cloud.com/oauth/v4/{tenantId}/.well-known/openid-configuration
+https://{region}.appid.ibm.cloud.com/oauth/v4/{tenantId}/.well-known/openid-configuration
 ```
-{: pre}
+{: codeblock}
 
 <table>
   <tr>
@@ -77,18 +77,18 @@ https://[region].appid.ibm.cloud.com/oauth/v4/{tenantId}/.well-known/openid-conf
 
 **¿Cómo puedo llamar al punto final?**
 
-Para llamar al punto final debe tener un `tenantID` válido y debe proteger el URI del documento de descubrimiento en la aplicación.
+Para llamar al punto final debe tener un ID de arrendatario válido y debe incluir en el código de la aplicación el URI del documento de descubrimiento.
 
 Consulte la solicitud cURL de ejemplo siguiente:
 
 ```bash
-curl -X GET "https://us-south.appid.cloud.ibm.com/oauth/v4/asd/.well-known/openid-configuration" -H "accept: application/json"
+curl -X GET "https://{region}.appid.cloud.ibm.com/oauth/v4/{tenant-id}/.well-known/openid-configuration" -H "accept: application/json"
 ```
 {:codeblock}
 
 **¿Qué puedo esperar de la llamada que se devuelve?**
 
-La respuesta debería tener un aspecto similar al siguiente:
+La respuesta que se devuelve es similar al ejemplo siguiente:
 
 ```bash
 {
@@ -165,7 +165,7 @@ La respuesta debería tener un aspecto similar al siguiente:
   </tr>
   <tr>
     <td><code>userinfo_endpoint</code></td>
-    <td>El URL del punto final de la información de usuario de {{site.data.keyword.appid_short_notm}}.</td>
+    <td>El URL del punto final de {{site.data.keyword.appid_short_notm}} <code>/userinfo</code>.</td>
   </tr>
   <tr>
     <td><code>scopes_supported</code></td>

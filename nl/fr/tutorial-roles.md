@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-08"
+lastupdated: "2019-05-31"
 
 keywords: authentication, authorization, identity, app security, secure, access management, roles, attributes, users
 
@@ -38,7 +38,7 @@ Des nouveautés dans les API ? Testez-les avec cette [ collection Postman](https
 Vous êtes développeur d'un parc à thèmes de fiction. Vous êtes chargé de gérer l'accès à l'[application Web](/docs/services/appid?topic=appid-web-apps) et vous pensez que le moyen le plus simple est de définir des rôles pour chaque type d'utilisateur. Vous avez différents types de rôle tels que les employés du parc et les visiteurs qui ont tous besoin de différents niveaux de droits. Vous voulez rationaliser le processus et garantir que vos utilisateurs se voient affecter le rôle approprié lors de leur première connexion à votre application.  
 {: shortdesc}
 
-Pas de problème ! Vous pouvez utiliser la [fonctionnalité d'attributs personnalisés](/docs/services/appid?topic=appid-custom-attributes) d'{{site.data.keyword.appid_short_notm}} pour stocker tout type d'information relative aux utilisateurs. Etant donné que vous travaillez avec le contrôle d'accès basé sur les rôles, vous pouvez créer un attribut nommé `rôle` et affecter différentes valeurs afin de spécifier un type de rôle. Par exemple, le parc à thèmes peut avoir des `visiteurs` (visitors) ou des `employés` (staff) ayant chacun des valeurs différentes pour l'attribut `rôle`. Ensuite, vous pouvez vos assurer que votre code d'application impose les privilèges et règles d'accès que vous affectez.
+Pas de problème ! Vous pouvez utiliser la [fonctionnalité d'attributs personnalisés](/docs/services/appid?topic=appid-profiles) d'{{site.data.keyword.appid_short_notm}} pour stocker tout type d'information relative aux utilisateurs. Etant donné que vous travaillez avec le contrôle d'accès basé sur les rôles, vous pouvez créer un attribut nommé `rôle` et affecter différentes valeurs afin de spécifier un type de rôle. Par exemple, le parc à thèmes peut avoir des `visiteurs` (visitors) ou des `employés` (staff) ayant chacun des valeurs différentes pour l'attribut `rôle`. Ensuite, vous pouvez vos assurer que votre code d'application impose les privilèges et règles d'accès que vous affectez.
 
 Bien que ce tutoriel soit écrit en ayant spécifiquement à l'esprit des applications Web et Cloud Directory, les attributs peuvent avoir une portée bien plus large. Les attributs personnalisés peuvent être tout ce que vous voulez qu'ils soient. Sous réserve que ce soit des attributs de moins de 100k et au format d'objet JSON ordinaire, vous pouvez stocker tout type d'information.
 {: note}
@@ -87,14 +87,14 @@ Ce processus ne finalise pas l'enregistrement Cloud Directory. L'utilisateur doi
   ```
   ibmcloud login
   ```
-  {: pre}
+  {: codeblock}
 
 2. Procurez-vous un jeton d'accès IAM.
 
   ```
   ibmcloud iam oauth-tokens
   ```
-  {: pre}
+  {: codeblock}
 
 3. Envoyez une requête POST afin de créer pour le nouvel utilisateur un profil utilisateur qui contient l'attribut `staff`. Vérifiez que vous pouvez accéder à l'adresse de courrier électronique que vous utilisez et la valider.
 
@@ -113,7 +113,7 @@ Ce processus ne finalise pas l'enregistrement Cloud Directory. L'utilisateur doi
     }
   }'
   ```
-  {: pre}
+  {: codeblock}
 
   Sortie sur réussite :
 
@@ -132,7 +132,7 @@ Ce processus ne finalise pas l'enregistrement Cloud Directory. L'utilisateur doi
   --header 'Authorization: Bearer <iam-access-token>' \
   --header 'Content-Type: application/json' \
   ```
-  {: pre}
+  {: codeblock}
 
   Corps de la sortie sur réussite :
 
@@ -154,7 +154,7 @@ Bon travail ! Vous avez pré-enregistré un utilisateur pour votre application. 
 ## Etape 3: Mise à jour des attributs utilisateur
 {: #roles-update-attributes}
 
-Votre parc sur le cloud s'agrandit. Pour suivre le rythme de sa croissance, votre société embauche de nouveaux employés. L'utilisateur `staff` de l'étape 2 est désormais un responsable. Vous pouvez mettre à jour son profil en lui [affectant un nouveau rôle](/docs/services/appid?topic=appid-custom-attributes).
+Votre parc sur le cloud s'agrandit. Pour suivre le rythme de sa croissance, votre société embauche de nouveaux employés. L'utilisateur `staff` de l'étape 2 est désormais un responsable. Vous pouvez mettre à jour son profil en lui [affectant un nouveau rôle](/docs/services/appid?topic=appid-profiles#profile-set-custom).
 {: shortdesc}
 
 1. Mettez à jour le profil.
@@ -172,7 +172,7 @@ Votre parc sur le cloud s'agrandit. Pour suivre le rythme de sa croissance, votr
     }
   }'
   ```
-  {: pre}
+  {: codeblock}
 
 3. Affichez le profil pour vérifier qu'il a été correctement mis à jour.
 
@@ -182,7 +182,7 @@ Votre parc sur le cloud s'agrandit. Pour suivre le rythme de sa croissance, votr
   --header 'Authorization: Bearer <iam-access-token>' \
   --header 'Content-Type: application/json' \
   ```
-  {: pre}
+  {: codeblock}
 
   Sortie sur réussite :
 
@@ -236,7 +236,7 @@ La [Configuration des jetons](/docs/services/appid?topic=appid-customizing-token
       ]
   }'
   ```
-  {: pre}
+  {: codeblock}
 
   <table>
     <tr>
@@ -298,9 +298,9 @@ Vous pouvez vérifier si l'étape 4 a réussi en affichant un jeton d'accès.
   2. Entrez un prénom et un nom, une adresse électronique et un mot de passe.
   3. Cliquez sur **Sauvegarder**.
 
-2. Codez l'ID et la valeur confidentielle de votre client.
+2. Codez votre ID client et votre secret.
 
-  1. Dans l'onglet **Données d'identification pour le service** de l'interface graphique {{site.data.keyword.appid_short_notm}}, copiez l'ID et la valeur confidentielle de votre client.
+  1. Dans l'onglet **Données d'identification pour le service** de l'interface graphique {{site.data.keyword.appid_short_notm}}, copiez l'ID client et le secret.
   2. Utilisez un encodeur en Base64 pour encoder vos informations d'autorisation.
   3. Copiez la sortie à utiliser dans la commande suivante.
 
@@ -314,7 +314,7 @@ Vous pouvez vérifier si l'étape 4 a réussi en affichant un jeton d'accès.
   --header `Accept: application/json`
   - d 'grant_type=password&username=<user-email>%40<user-email-domain>&password=<user-password>
   ```
-  {: pre}
+  {: codeblock}
 
 5. Décodez votre jeton d'accès.
   1. Copiez le jeton de la sortie de réponse de la précédente commande.

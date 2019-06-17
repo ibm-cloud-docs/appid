@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-14"
+lastupdated: "2019-05-21"
 
 keywords: authentication, authorization, identity, app security, secure, troubleshooting, help, support, requests, uri
 
@@ -25,7 +25,7 @@ subcollection: appid
 {:tsCauses: .tsCauses}
 {:tsResolve: .tsResolve}
 
-# Resolução de problemas gerais
+# Resolução de problemas: geral
 {: #troubleshooting}
 
 Se você tiver problemas enquanto está trabalhando com o {{site.data.keyword.appid_full}}, considere estas técnicas para resolução de problemas e obtenção de ajuda.
@@ -37,11 +37,10 @@ Se você tiver problemas enquanto está trabalhando com o {{site.data.keyword.ap
 É possível obter ajuda procurando informações ou fazendo perguntas por meio de um fórum. Também é possível abrir um chamado de suporte. Quando estiver usando os fóruns para fazer uma pergunta, identifique sua pergunta para que ela seja vista pela equipe de
 desenvolvimento do {{site.data.keyword.cloud_notm}}.
   * Se você tiver questões técnicas sobre o {{site.data.keyword.appid_short_notm}}, poste
-a sua questão no <a href="https://stackoverflow.com/search?q=ibm-appid" target="_blank">Stack Overflow <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a> e identifique-a com "ibm-appid".
-  * Para perguntas sobre o serviço e instruções de introdução, use o fórum <a href="https://developer.ibm.com/answers/topics/appid/" target="_blank">dW Answers <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a>. Inclua a tag `appid`.
+a sua questão no <a href="https://stackoverflow.com/" target="_blank">Stack Overflow <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a> e identifique-a com "ibm-appid".
+  * Para perguntas sobre o serviço e instruções de introdução, use o fórum <a href="https://developer.ibm.com/" target="_blank">dW Answers <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a>. Inclua a tag `appid`.
 
 Para informações adicionais sobre como obter suporte, consulte [como obtenho o suporte de que preciso](/docs/get-support?topic=get-support-getting-customer-support#getting-customer-support).
-
 
 
 ## Um usuário não é redirecionado para o app após a conexão
@@ -87,6 +86,30 @@ Para resolver o problema, verifique se a URL está correta. Se a sua URL não at
 um terminal HTTPS em seu aplicativo para redirecionar o código de concessão recebido para sua URL customizada. Especifique o
 terminal criado como sua URL de redirecionamento no console do {{site.data.keyword.appid_short_notm}}. Para obter mais informações sobre URIs de redirecionamento, consulte [Incluindo URIs de redirecionamento](/docs/services/appid?topic=appid-managing-idp#add-redirect-uri)
 
+## Um usuário não é redirecionado para o provedor de identidade
+{: #ts-redirect}
+
+{: tsSymptoms}
+Um usuário tenta se conectar ao seu aplicativo, mas a página de conexão não é exibida quando solicitada.
+
+{: tsCauses}
+O provedor de identidade pode falhar por várias razões:
+
+* Sua URL de redirecionamento configurada está incorreta.
+* O provedor de identidade não reconhece a solicitação de autenticação.
+* O provedor de identidade espera uma ligação HTTP-POST.
+* O provedor de identidade espera um authnRequest assinado.
+
+{: tsResolve}
+É possível tentar algumas destas soluções:
+
+* Atualize sua URL de conexão. Essa URL é enviada como parte do authnRequest e deve ser exata.
+* Certifique-se de que seus metadados do {{site.data.keyword.appid_short_notm}} estejam definidos corretamente em suas configurações de provedor de identidade.
+* Configure seu provedor de identidade para aceitar o authnRequest no HTTP-Redirect.
+* O {{site.data.keyword.appid_short_notm}} não suporta assinatura de authnRequests.
+
+Se nenhuma das soluções funcionar, possivelmente você terá um problema de conexão.
+{: tip}
 
 
 ## Um atributo está mostrando o valor incorreto

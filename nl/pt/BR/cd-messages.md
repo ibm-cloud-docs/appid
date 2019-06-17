@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-11"
+lastupdated: "2019-05-20"
 
 keywords: authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
@@ -82,7 +82,7 @@ Além dos tipos de mensagens a seguir, também é possível aproveitar os modelo
 ### E-mail: Bem-vindo
 {: #cd-messages-welcome}
 
-Quando um usuário se conecta a seu aplicativo, você pode desejar enviar a eles uma mensagem que os recebe em seu app.
+Quando um usuário se conecta a seu aplicativo, você pode desejar enviar a eles uma mensagem que os recebe em seu app. 
 {: shortdesc}
 
 1. Navegue para a guia **Modelos de Fluxo de Trabalho >E-mail de Boas-vindas**do painel de serviço.
@@ -97,7 +97,7 @@ Quando um usuário se conecta a seu aplicativo, você pode desejar enviar a eles
 ### E-mail: Verificação
 {: #cd-messages-verification}
 
-Quando um usuário se conecta a seu aplicativo usando seu e-mail, é possível enviar um e-mail solicitando que ele confirme sua identidade. Ao solicitar uma verificação, você limita o número de contas falsas que podem se inscrever para seu app. É possível restringir o acesso ao seu app até que um usuário verifique seu e-mail ou o use como uma maneira de gerenciar para quais usuários você cria perfis. Observe
+Quando um usuário se conecta a seu aplicativo usando seu e-mail, é possível enviar um e-mail solicitando que ele confirme sua identidade. Ao solicitar uma verificação, você limita o número de contas falsas que podem se inscrever para seu app. É possível restringir o acesso ao app até que um usuário verifique seu e-mail ou use-o como uma maneira de gerenciar para quais usuários você cria perfis. Observe
 que os usuários que são incluídos manualmente por meio do painel do {{site.data.keyword.appid_short_notm}} ou da API de criação de usuário não recebem automaticamente esse e-mail.
 {: shortdesc}
 
@@ -106,7 +106,7 @@ que os usuários que são incluídos manualmente por meio do painel do {{site.da
 
 2. Configure **Verificação de e-mail** para **Ativado**.
 
-3. Configure **Permitir que os usuários se conectem ao seu aplicativo sem primeiro verificar seu endereço de e-mail** como **Sim**. Quando configurado como sim, os usuários são capazes de interagir com seu aplicativo após se conectarem, mas antes de terem verificado seu endereço de e-mail. A configuração padrão é não.
+3. Configure **Permitir que os usuários se conectem ao seu aplicativo sem primeiro verificar seu endereço de e-mail** como **Sim**. Quando configurado como sim, os usuários são capazes de interagir com seu aplicativo depois de se inscreverem, mas antes de verificar seu endereço de e-mail. A configuração padrão é não.
 
 4. Customize o conteúdo de sua mensagem. É possível incluir parâmetros e inserir imagens usando a IU. Para mudar o [idioma](/docs/services/appid?topic=appid-cd-messages#cd-languages) da mensagem, é possível usar <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization" target="_blank">as APIs <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a> para configurar o idioma. No entanto, você é responsável pelo conteúdo e pela tradução da mensagem. Consulte a tabela a seguir para ver os diferentes parâmetros que podem ser usados nessa mensagem. Se um usuário não fornecer as informações extraídas pelo parâmetro, elas aparecerão em branco.
 
@@ -145,7 +145,7 @@ que os usuários que são incluídos manualmente por meio do painel do {{site.da
 ### E-mail: Reconfigurar senha
 {: #cd-messages-reset}
 
-Quando um usuário interage com seu aplicativo, eles podem esquecer sua senha ou ter outra necessidade de atualizá-lo. É possível customizar a resposta de e-mail para sua solicitação. Quando um usuário solicita uma mudança em sua senha, a senha permanece inalterada até que ele clique no link nesse e-mail.
+Quando um usuário interage com seu app, pode acontecer de esquecer a senha ou precisar atualizá-la. É possível customizar a resposta de e-mail para sua solicitação. Quando um usuário solicita uma mudança em sua senha, a senha permanece inalterada até que ele clique no link nesse e-mail.
 {: shortdesc}
 
 
@@ -169,7 +169,7 @@ Quando um usuário interage com seu aplicativo, eles podem esquecer sua senha ou
     </tr>
     <tr>
       <td><code>%{resetPassword.code}</code></td>
-      <td> Exibe uma senha descartável como parte da URL. Isso significa que cada pessoa teria um código diferente. Exemplo: <code>https://us-south.appid.cloud.ibm.com/wfm/verify/6574839563478</code></td>
+      <td> Exibe uma senha descartável como parte da URL. Isso significa que cada pessoa teria um código diferente. Exemplo: `https://us-south.appid.cloud.ibm.com/wfm/verify/6574839563478`</td>
     </tr>
     <tr>
       <td><code>%{resetPassword.link}</code></td>
@@ -190,7 +190,7 @@ Quando um usuário interage com seu aplicativo, eles podem esquecer sua senha ou
 ### E-mail: mudança de senha
 {: #cd-messages-password-change}
 
-É possível informar um usuário quando a senha é atualizada. Isso é útil se eles não solicitaram que suas senhas fossem mudadas. Eles podem tomar as medidas adequadas para reafirmar sua conta.
+É possível informar um usuário quando a senha é atualizada. Isso é útil se eles não solicitaram que suas senhas fossem mudadas. Eles podem tomar as etapas adequadas para tornar a proteger sua conta.
 {: shortdesc}
 
 1. Navegue para a guia **Modelos de fluxo de trabalho > Mudança de senha** do painel de serviço.
@@ -231,8 +231,7 @@ Você pode desejar usar um remetente de e-mail customizado pelos motivos a segui
 
 - **Domínio personalizado**
 Configurando um dispatcher de e-mail customizado, você tem controle total sobre como as mensagens de e-mail são
-enviadas. Isso inclui a customização do domínio de e-mail que pode reduzir ainda mais as chances de os e-mails serem
-filtrados como spam. Também é possível aprimorar ainda mais a experiência de marca para os usuários do app.
+enviadas. Isso inclui a customização do domínio de e-mail, que pode reduzir ainda mais as chances de e-mails serem filtrados como spam. Também é possível aprimorar ainda mais a experiência de marca para os usuários do app.
 
 - **Insights e resolução de problemas**
 Obtenha insights de seu provedor de e-mail, como: o número de pessoas que abriram os e-mails ou quais mensagens não foram entregues. Como é possível rastrear mensagens individuais e ver estatísticas gerais, isso pode ajudar a resolver problemas.
@@ -288,28 +287,28 @@ Para configurar seu remetente de e-mail customizado, deve-se usar a <a href="htt
 2. Configure um ponto de extensão que possa atender à solicitação de post. Esse terminal deve ser capaz de ler a carga útil
 que vem do {{site.data.keyword.appid_short_notm}} e enviar o e-mail com o emissor de e-mail customizado.
 
-3. O corpo enviado do {{site.data.keyword.appid_short_notm}} está no formato a seguir: `{"jws": "jws-format-string"}`. Após decodificar e verificar a carga útil, o conteúdo será uma sequência JSON.
+3. O corpo enviado pelo {{site.data.keyword.appid_short_notm}} está no formato a seguir: `{"jws": "jws-format-string"}`. Após decodificar e verificar a carga útil, o conteúdo será uma sequência JSON.
 
   ```
-    {
-      "tenant": "tenant-id",
+  {
+    "tenant": "tenant-id",
       "iss" : "https://us-south.appid.cloud.ibm.com/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6050a61", 
       "iat": 1539173126,
       "jti": "uniq-id",
       "message": {
-          "to": "your@mail.com",
+        "to": "your@mail.com",
           "from": {
-              "name": "My Awesome Service",
+            "name": "My Awesome Service",
               "address": "no-reply@company.com"
-          },
+        },
           "replyTo": {
-              "name": "My Awesome Service",
+            "name": "My Awesome Service",
               "address": "yes-reply@company.com"
-          },
+        },
           "subject": "Welcome to My Awesome Service",
           "body": "<p>Hello<p><br/><p>Thanks for signing up John Doe</p>"
-      }
     }
+  }
   ```
   {: screen}
 
@@ -327,8 +326,8 @@ que vem do {{site.data.keyword.appid_short_notm}} e enviar o e-mail com o emisso
       <td>O registro de data e hora de quando a mensagem enviada.</td>
     </tr>
     <tr>
-      <td><code>jss</code></td>
-      <td>O princípio que emitiu o token JWS.</td>
+      <td><code> iss </code></td>
+      <td>O princípio ou a instância do {{site.data.keyword.appid_short_notm}} que emitiu o token JWS.</td>
     </tr>
     <tr>
       <td><code>jti</code></td>
@@ -426,7 +425,7 @@ possível usar a chave pública para verificar se a carga útil é gerada pelo {
 
 6. Verifique se a configuração está corretamente configurada testando seu dispatcher de e-mail. Use a <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/post_email_dispatcher_test" target="_blank">API de teste</a> para acionar uma solicitação para o remetente de e-mail customizado configurado.
 
-Para obter o exemplo de trabalho completo, consulte <a href="https://www.ibm.com/blogs/bluemix/2018/10/use-ibm-cloud-app-id-and-your-email-provider-to-brand-mails-sent-to-app-users/" target="_blank">Usar seu próprio provedor para e-mail enviado com o {{site.data.keyword.appid_full}}</a>.
+Para obter o exemplo de trabalho completo, consulte <a href="https://www.ibm.com/cloud/blog/use-ibm-cloud-app-id-and-your-email-provider-to-brand-mails-sent-to-app-users" target="_blank">Usar seu próprio provedor para e-mail enviado com o {{site.data.keyword.appid_full}}</a>.
 
 
 

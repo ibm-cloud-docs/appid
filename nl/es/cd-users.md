@@ -2,14 +2,14 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-31"
 
 keywords: authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
 subcollection: appid
 
 ---
-
+ 
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
@@ -26,12 +26,144 @@ subcollection: appid
 # Gestión de usuarios
 {: #cd-users}
 
-Cuando habilita el directorio en la nube, los usuarios pueden registrarse en la aplicación utilizando un correo electrónico o un nombre de usuario y una contraseña.
+Con el Directorio en la nube, puede gestionar los usuarios en un registro escalable utilizando una funcionalidad preconstruida que mejora la seguridad y el autoservicio.
+{: shortdesc}
+
+Un usuario del directorio en la nube no es lo mismo que un usuario de {{site.data.keyword.appid_short_notm}}. Los usuarios pueden registrarse en la app utilizando las distintas opciones de proveedor de identidades que haya configurado, o bien puede añadirlos a su directorio. Los usuarios que se mencionan en este tema son los que están asociados al Directorio en la nube como proveedor de identidad.
+{: note}
+
+## Visualización de la información de usuario
+{: #cd-user-info}
+
+Puede ver toda la información que se conoce acerca de todos los usuarios del Directorio en la nube como un objeto JSON utilizando las API o bien utilizando el panel de control. 
 {: shortdesc}
 
 
-Un usuario del directorio en la nube no es lo mismo que un usuario de {{site.data.keyword.appid_short_notm}}. Los usuarios pueden registrarse en la app utilizando distintas opciones de proveedor de identidades que ha configurado. Los usuarios mencionados en este tema son los que eligen utilizar la opción del directorio en la nube cuando se registran en la app.
-{: note}
+### Con la GUI
+
+Puede utilizar el panel de control de {{site.data.keyword.appid_short_notm}} para ver información detallada sobre los usuarios de la app. 
+
+1. Vaya al separador **Directorio en la nube > Usuarios** de su instancia de {{site.data.keyword.appid_short_notm}}.
+
+2. Busque en la tabla o busque utilizando una dirección de correo electrónico para encontrar el usuario del que desea ver la información.
+
+3. En el menú de desbordamiento de la fila del usuario, pulse **Ver detalles de usuario**. Se abrirá una página que contiene la información de usuario. Consulte la tabla siguiente para ver la información que puede ver.
+
+<table>
+  <tr>
+    <th colspan="2">Detalles de usuario</th>
+  </tr>
+  <tr>
+    <td>Identificador de usuario</td>
+    <td>El identificador de usuario depende del tipo de registro de usuario que ha configurado. Si tiene un flujo de correo electrónico y contraseña configurado, el identificador es el correo electrónico del usuario. Si utiliza el flujo de nombre de usuario y contraseña, el identificador es el nombre de usuario que se otorga en el momento de registrarse.</td>
+  </tr>
+  <tr>
+    <td>Correo electrónico</td>
+    <td>La dirección de correo electrónico principal conectada al usuario.</td>
+  </tr>
+    <tr>
+    <td>Nombre y apellido</td>
+    <td>El nombre y apellido de usuario tal como se han especificado durante el proceso de registro.</td>
+  </tr>
+  <tr>
+    <td>Último inicio de sesión</td>
+    <td>Indicación de fecha y hora de la última vez que el usuario ha iniciado la sesión en la aplicación. Nota: Si ha añadido al usuario a través del panel de control, el inicio de sesión está en blanco hasta que el usuario inicia sesión en la app. Cuando se produce el inicio de sesión, también pasa a ser un usuario de App ID.</td>
+  </tr>
+  <tr>
+    <td>ID</td>
+    <td>El ID que {{site.data.keyword.appid_short_notm}} asigna al usuario. En la IU, no se muestra, pero puede copiar el valor y pegarlo en un editor de texto para ver el valor.</td>
+  </tr>
+  <tr>
+    <td>Atributos predefinidos</td>
+    <td>Los atributos predefinidos son cosas que se conocen acerca de un usuario basado en SCIM.</td>
+  </tr>
+  <tr>
+    <td>Atributos personalizados</td>
+    <td>Los atributos personalizados son información adicional que se añade al perfil o que se aprende acerca de los usuarios a medida que interactúan con la aplicación.</td>
+  </tr>
+  <tr>
+    <td>Resumen</td>
+    <td>Todos los atributos se compilan para formar un perfil que le proporciona una visión general completa del usuario del Directorio en la nube. Para obtener más información, consulte [perfiles de usuario](/docs/services/appid?topic=appid-profiles).</td>
+  </tr>
+</table>
+
+</br>
+
+### Con la API
+
+Puede utilizar la API de {{site.data.keyword.appid_short_notm}} para ver información detallada sobre los usuarios de la app. 
+
+1. Obtenga el ID de arrendatario de la instancia del servicio.
+
+2. Busque entre los usuarios de App ID con una consulta identificativa, como por ejemplo una dirección de correo electrónico, para encontrar el ID de usuario.
+
+  ```
+  curl -X GET "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/Users?query={identifying-search-query}" -H "accept: application/json" -H "authorization: Bearer {token}"
+  ```
+  {: codeblock}
+
+  Ejemplo:
+
+  ```
+  curl -X GET https://us-south.appid.cloud.ibm.com/management/v4/e19a2778-3262-4986-8875-8khjafsdkhjsdafkjh/cloud_directory/Users?query=example@email.com -H "accept: application/json" -H "authorization: Bearer eyJraWQiOiIyMDE3MTEyOSIsImFsZ...."
+  ```
+  {: screen}
+
+3. Utilizando el ID que ha obtenido en el paso anterior, realice una solicitud GET en el punto final `cloud_directory/users` para ver el perfil de usuario completo.
+
+  ```
+  curl -X GET "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/Users/{user-ID}" -H "accept: application/json" -H "authorization: Bearer {token}"
+  ```
+  {: codeblock}
+
+  Ejemplo de respuesta:
+
+  ```
+  {
+    sub: "c155c0ff-337a-46d3-a22a-a8f2cca08995",
+    name: "Test User",
+    email: "testuser@test.com",
+    identities: [
+      {
+        provider: "cloud_directory",
+        id: "f1772fcc-ff70-4d88-81a0-07dd7a3d988f",
+        idpUserInfo: {
+          displayName: "Test User",
+          active: true,
+          mfaContext: {},
+          emails: [
+            {
+              value: "testuser@test.com",
+              primary: true
+            }
+          ],
+          meta: {
+            lastLogin: "2019-05-20T16:33:20.699Z",
+            created: "2019-05-20T16:25:13.019Z",
+            location: "/v1/6b8ab644-1d4a-4b3e-bcd9-777ba8430a51/Users/f1772fcc-ff70-4d88-81a0-07dd7a3d988f",
+            lastModified: "2019-05-20T16:33:20.707Z",
+            resourceType: "User"
+          },
+          scemas: [
+            "urn:ietf:params:scim:schemas:core:2.0:User"
+          ],
+          name: {
+            givenName: "Test",
+            familyName: "User",
+            formatted: "Test User"
+            },
+          id: "f1772fcc-ff70-4d88-81a0-07dd7a3d988f",
+          status: "CONFIRMED",
+          idpType: "cloud_directory"
+        }
+      }
+    ]
+  }
+  ```
+  {: screen}
+
+  Para ver el conjunto completo de datos de usuario que {{site.data.keyword.appid_short_notm}} admite, consulte [el esquema principal de SCIM](https://tools.ietf.org/html/rfc7643#section-8.2).
+  {: tip}
 
 
 ## Adición y supresión de usuarios
@@ -40,14 +172,20 @@ Un usuario del directorio en la nube no es lo mismo que un usuario de {{site.dat
 Puede gestionar los usuarios del directorio en la nube a través del panel de control de {{site.data.keyword.appid_short_notm}} o utilizando las API.
 {: shortdesc}
 
-Para ver los datos completos de un usuario específico, puede utilizar las API para devolver la información de un usuario del directorio en la nube como un objeto JSON. Para ver el conjunto completo de datos de usuario que {{site.data.keyword.appid_short_notm}} admite, consulte [el esquema principal de SCIM](https://tools.ietf.org/html/rfc7643#section-8.2).
+Cuando un usuario se registra en su aplicación, lo hace a través de un flujo de trabajo de autoservicio que activa automáticamente mensajes de correo electrónico como por ejemplo un mensaje de bienvenida o una solicitud de verificación. Cuando usted, como administrador, añade un usuario a su app, no se inicia un flujo de trabajo de autoservicio, lo que significa que los usuarios no reciben ningún correo electrónico de la aplicación. Si desea que se notifique a los usuarios que han sido añadidos, puede activar el flujo de mensajes a través de la [API de gestión de App ID](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.set_cloud_directory_email_dispatcher).
+
 
 ### Adición de usuarios
 {: #add-users}
 
-Puede utilizar los pasos siguientes para añadir un usuario a través del panel de control de {{site.data.keyword.appid_short_notm}}.
+Cuando un usuario se registra en la aplicación, se añade al directorio de usuarios. A efectos de prueba, puede añadir a un usuario a través del panel de control de {{site.data.keyword.appid_short_notm}} o utilizando la API.
 
-A efectos de prueba, puede añadir usuarios a través del panel de control de {{site.data.keyword.appid_short_notm}}.
+Si inhabilita el registro de autoservicio o añade a un usuario, el usuario no recibirá un correo electrónico de bienvenida o de verificación cuando se le añada.
+{: tip}
+
+
+
+**Para añadir un nuevo usuario con la GUI:**
 
 1. Vaya al separador **Directorio en la nube > Usuarios** del panel de control de {{site.data.keyword.appid_short_notm}}.
 
@@ -57,11 +195,53 @@ A efectos de prueba, puede añadir usuarios a través del panel de control de {{
 
 4. Pulse **Guardar**. Se crea un usuario del directorio en la nube.
 
+</br>
+
+
+**Para añadir un nuevo usuario con la API:**
+
+El siguiente flujo muestra cómo añadir un usuario con un correo electrónico y una contraseña. También puede elegir utilizar un flujo de nombre de usuario y contraseña.
+
+1. Obtenga el `tenantID` de la aplicación o de las credenciales de servicio.
+
+2. Obtenga una señal de {{site.data.keyword.cloud_notm}} IAM.
+
+  ```
+  curl --X GET "https://iam.cloud.ibm.com/oidc/token" -H "accept: application/x-www-form-urlencoded"
+  ```
+  {: codeblock}
+
+3. Con la señal que ha obtenido en el paso 2, realice una solicitud POST al punto final `cloud-directory/users`. Tenga en cuenta que este ejemplo utiliza el flujo de correo electrónico/contraseña. También puede utilizar el flujo de nombre de usuario/contraseña.
+
+  ```
+  curl --X POST "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/Users"
+  -H "accept: application/json"
+  -H "content-type: application/json"
+  -H "authorization: Bearer {token}"
+  -d {
+    "displayName": "Test User",
+    "password": "{App-ID-Cloud-Directory-User-Password}",
+    "active": true,
+    "emails": [
+      {
+        "value": "{App-ID-Cloud-Directory-User-Email}",
+        "primary": true
+      }
+    ]
+  }
+  ```
+  {: codeblock}
+
+</br>
+
 
 ### Supresión de usuarios
 {: #delete-users}
 
-Si desea eliminar un usuario del directorio, puede suprimir el usuario de la GUI.
+Si desea eliminar un usuario del directorio, puede suprimir el usuario de la GUI o utilizando las API.
+{: shortdesc}
+
+**Para suprimir un usuario con la GUI:**
 
 1. Vaya al separador **Directorio en la nube > Usuarios** del panel de control de {{site.data.keyword.appid_short_notm}}.
 
@@ -70,6 +250,28 @@ Si desea eliminar un usuario del directorio, puede suprimir el usuario de la GUI
 3. En el recuadro, pulse **Suprimir**. Se mostrará una pantalla.
 
 4. Confirme que comprende que la acción de suprimir un usuario no se puede deshacer pulsando **Suprimir**. Si la acción fue un error, puede volver a añadir el usuario al directorio, pero cualquier información acerca de ese usuario ya no estará disponible.
+
+</br>
+
+**Para suprimir un usuario utilizando la API:**
+
+1. Obtenga el ID de arrendatario.
+
+2. Utilizando el correo electrónico que está conectado al usuario, busque el ID del usuario en el directorio.
+
+  ```
+  curl -X GET "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/users?email={user-email}" -H "accept: application/json"
+  ```
+  {: codeblock}
+
+3. Suprima el usuario.
+
+  ```
+  curl --X DELETE "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/Users/{user-GUID}"
+  -H "accept: application/x-www-form-urlencoded"
+  ```
+  {: codeblock}
+
 
 
 ## Migración de usuarios
@@ -105,7 +307,7 @@ curl -X GET --header ‘Accept: application/json’ --header ‘Authorization: B
     <td>Una serie personalizada que se utiliza para cifrar y descifrar la contraseña oculta de un usuario.</td>
   </tr>
   <tr>
-    <td><code> tenantID </code></td>
+    <td><code>tenantID</code></td>
     <td>El ID de arrendatario de servicio se puede encontrar en las credenciales de servicio. Encontrará las credenciales de servicio en el panel de control de {{site.data.keyword.appid_short_notm}}.</td>
   </tr>
 </table>
@@ -179,7 +381,7 @@ Antes de empezar, asegúrese de tener la siguiente información de parámetro:
   </tr>
   <tr>
     <td>Señal de IAM</td>
-    <td>Asegúrese de que dispone de permisos de <code>gestor</code> antes de obtener la señal. Para obtener ayuda sobre cómo obtener una señal de IAM, compruebe <a href="https://cloud.ibm.com/docs/iam/apikey_iamtoken.html#iamtoken_from_apikey" target="_blank">los documentos <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>.</td>
+    <td>Asegúrese de que dispone de permisos de <code>gestor</code> antes de obtener la señal. Para obtener ayuda sobre cómo obtener una señal de IAM, compruebe <a href="/docs/iam?topic=iam-iamtoken_from_apikey#iamtoken_from_apikey" target="_blank">los documentos <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>.</td>
   </tr>
 </table>
 

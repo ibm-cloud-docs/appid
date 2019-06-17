@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-14"
+lastupdated: "2019-05-21"
 
 keywords: authentication, authorization, identity, app security, secure, troubleshooting, help, support, requests, uri
 
@@ -25,7 +25,7 @@ subcollection: appid
 {:tsCauses: .tsCauses}
 {:tsResolve: .tsResolve}
 
-# Resolución general de problemas
+# Resolución de problemas: General
 {: #troubleshooting}
 
 Si tiene problemas mientras trabaja con {{site.data.keyword.appid_full}}, considere estas técnicas para resolverlos y obtener ayuda.
@@ -35,11 +35,10 @@ Si tiene problemas mientras trabaja con {{site.data.keyword.appid_full}}, consid
 {: #ts-gettinghelp}
 
 Puede obtener ayuda buscando información o planteando preguntas en el foro. También puede abrir una incidencia de soporte. Si utiliza el foro para hacer preguntas, etiquete su pregunta para que los equipos de desarrolladores de {{site.data.keyword.cloud_notm}} la puedan ver.
-  * Si tiene preguntas técnicas sobre {{site.data.keyword.appid_short_notm}}, publique la pregunta en <a href="https://stackoverflow.com/search?q=ibm-appid" target="_blank">Stack Overflow <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a> y etiquete la pregunta con "ibm-appid".
-  * Para formular preguntas sobre el servicio y obtener instrucciones de iniciación, utilice el foro <a href="https://developer.ibm.com/answers/topics/appid/" target="_blank">dW Answers <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>. Incluya la etiqueta `appid`.
+  * Si tiene preguntas técnicas sobre {{site.data.keyword.appid_short_notm}}, publique la pregunta en <a href="https://stackoverflow.com/" target="_blank">Stack Overflow <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a> y etiquete la pregunta con "ibm-appid".
+  * Para formular preguntas sobre el servicio y obtener instrucciones de iniciación, utilice el foro <a href="https://developer.ibm.com/" target="_blank">dW Answers <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>. Incluya la etiqueta `appid`.
 
 Para obtener más información sobre cómo obtener ayuda, consulte [¿cómo puedo obtener la ayuda que necesito?](/docs/get-support?topic=get-support-getting-customer-support#getting-customer-support).
-
 
 
 ## No se redirige a ningún usuario a la app después de iniciar sesión
@@ -82,6 +81,30 @@ Existen limitaciones por motivos de seguridad.
 {: tsResolve}
 Para resolver este problema, verifique que el URL sea correcto. Si el URL no cumple con los requisitos, puede crear un punto final HTTPS en la app para redirigir el código de concesión recibido al URL personalizado. Especifique el punto final creado como URL de redirección en la consola de {{site.data.keyword.appid_short_notm}}. Para obtener más información acerca de los URI de redirección, consulte [Adición de URI de redirección](/docs/services/appid?topic=appid-managing-idp#add-redirect-uri).
 
+## No se redirige a ningún usuario al proveedor de identidad
+{: #ts-redirect}
+
+{: tsSymptoms}
+Un usuario intenta iniciar sesión en su aplicación, pero la página de inicio de sesión no se muestra cuando se solicita.
+
+{: tsCauses}
+El proveedor de identidad puede fallar por varias razones:
+
+* El URL de redirección configurado es incorrecto.
+* El proveedor de identidad no reconoce la solicitud de autenticación.
+* El proveedor de identidad espera un enlace HTTP-POST.
+* El proveedor de identidad espera una authnRequest firmada.
+
+{: tsResolve}
+Puede intentar algunas de estas soluciones:
+
+* Actualice el URL de inicio de sesión. Este URL se envía como parte de la authnRequest y debe ser exacto.
+* Asegúrese de que los metadatos de {{site.data.keyword.appid_short_notm}} estén correctamente establecidos en los valores del proveedor de identidad.
+* Configure el proveedor de identidad para aceptar la authnRequest en HTTP-Redirect.
+* {{site.data.keyword.appid_short_notm}} no soporta la firma de authnRequests.
+
+Si no funciona ninguna de las soluciones, es posible que pueda tener un problema de conexión.
+{: tip}
 
 
 ## Un atributo muestra el valor incorrecto

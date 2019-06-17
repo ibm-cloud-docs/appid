@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-21"
+lastupdated: "2019-05-20"
 
 keywords: authentication, authorization, identity, app security, secure, development, ingress, policy, networking, containers, kubernetes
 
@@ -40,7 +40,7 @@ Consulte o diagrama a seguir para ver o fluxo de autenticação:
 5. O controlador do Ingress obtém os tokens de acesso e de identidade do {{site.data.keyword.appid_short_notm}} para autorização.
 6. Cada solicitação que é validada e encaminhada pelo controlador do Ingress para seus apps tem um cabeçalho de autorização que contém os tokens.
 
-A integração do Controlador de Ingress com o {{site.data.keyword.appid_short_notm}}atualmente não suporta tokens de atualização. Quando os tokens de acesso e de identidade expiram, o usuário deve se autenticar novamente.
+A integração do Controlador de Ingress com o {{site.data.keyword.appid_short_notm}}atualmente não suporta tokens de atualização. Quando os tokens de acesso e de identidade expiram, os usuários devem ser autenticados novamente.
 {: note}
 
 
@@ -50,11 +50,11 @@ A integração do Controlador de Ingress com o {{site.data.keyword.appid_short_n
 Antes de poder iniciar, assegure-se de que você tenha os pré-requisitos a seguir.
 {: shortdesc}
 
-Por motivos de segurança, a autenticação do {{site.data.keyword.appid_short_notm}} suporta back-ends com TLS/SSL ativado apenas.
-{: note}
 
 * Um app ou aplicativo de amostra.
+
 * Um cluster padrão do Kubernetes com pelo menos dois nós do trabalhador por zona. Se você estiver usando o Ingress em clusters com múltiplas zonas, revise os pré-requisitos extras na [documentação de serviço do Kubernetes](/docs/containers?topic=containers-ingress#config_prereqs).
+
 * Uma instância do {{site.data.keyword.appid_short_notm}} na mesma região em que seu cluster é implementado. Assegure-se de que o nome do serviço não contenha nenhum espaço.
 
 * As funções do IAM do [{{site.data.keyword.cloud_notm}}](/docs/containers?topic=containers-access_reference#access_reference) a seguir:
@@ -63,28 +63,29 @@ Por motivos de segurança, a autenticação do {{site.data.keyword.appid_short_n
 
 * As CLIs a seguir:
 
-  * [{{site.data.keyword.cloud_notm}}](/docs/cli/reference/ibmcloud/cloud-cli-install_use?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli)
+  * [{{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli)
   * [Kubernetes](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
-  * [Docker](https://www.docker.com/products/docker-engine#/download)
+  * [Docker](https://www.docker.com/products/container-runtime#/download)
 
-* Os [{{site.data.keyword.cloud_notm}}plug-ins CLI](/docs/cli/reference/ibmcloud?topic=cloud-cli-plug-ins#plug-ins)a seguir:
+* Os [plug-ins CLI](/docs/cli?topic=cloud-cli-install-devtools-manually#idt-install-kubernetes-cli-plugin)a seguir:
 
-  * Serviço do Kubernetes
-  * Registro do contêiner
+  * {{site.data.keyword.containershort}}
+  * {{site.data.keyword.registryshort_notm}}
 
 Para obter ajuda sobre como obter as CLIs e os plug-ins transferidos por download e o ambiente do seu Kubernetes Service configurado, consulte o tutorial [Criando clusters do Kubernetes](/docs/containers?topic=containers-cs_cluster_tutorial#cs_cluster_tutorial_lesson1).
 {: tip}
+
 
 Vamos começar.
 
 ## Etapa 1: Ligando o {{site.data.keyword.appid_short_notm}} ao seu cluster
 {: #kube-create-appid}
 
-É possível ligar sua instância do {{site.data.keyword.appid_short_notm}} a seu cluster para permitir que todas as instâncias de seu app implementadas em seu cluster sejam usadas. Ao ligar a instância de serviço ao cluster, os metadados e as credenciais do {{site.data.keyword.appid_short_notm}} estão disponíveis assim que seu aplicativo inicia como segredos do Kubernetes.
+Ao ligar sua instância do {{site.data.keyword.appid_short_notm}} a seu cluster, todas as instâncias de seu app que estão localizadas nesse cluster podem ser controladas pela mesma instância do {{site.data.keyword.appid_short_notm}}. Além disso, seus metadados e credenciais do {{site.data.keyword.appid_short_notm}} ficam disponíveis assim que seu aplicativo é iniciado como segredos do Kubernetes.
 {: shortdesc}
 
 
-1. Efetue login na CLI do  {{site.data.keyword.cloud_notm}} . Siga os prompts na CLI para concluir a criação de log.
+1. Efetue login na CLI do  {{site.data.keyword.cloud_notm}} . Siga os prompts na CLI para concluir a criação de log. Se você estiver usando um ID federado, certifique-se de anexar a sinalização `--sso` ao término do comando.
 
   ```
   ibmcloud login -a cloud.ibm.com -r <region>
@@ -134,14 +135,14 @@ Vamos começar.
   ```
   kubectl get ingress
   ```
-  {: pre}
+  {: codeblock}
 
 4. Ligar sua instância do {{site.data.keyword.appid_short_notm}}. A ligação cria uma chave de serviço para a instância de serviço. É possível especificar uma chave de serviço existente usando o sinalizador `-key`.
 
   ```
   ibmcloud ks cluster-service-cluster -- cluster < cluster_name_or_ID>-- namespace < namespace>-- service < App-ID_instance_name>[ -- key < service_instance_key>]
   ```
-  {: pre}
+  {: codeblock}
 
   Se você não especificar um namespace, o segredo será criado no namespace `default`.
   {: tip}
@@ -171,36 +172,40 @@ Para que seu aplicativo seja executado em Kubernetes, você deve hospedá-lo em 
   ```
   ibmcloud cr login
   ```
-  {: pre}
+  {: codeblock}
 
 2. Crie um namespace do Container Registry.
 
   ```
   ibmcloud cr namespace-add <my_namespace>
   ```
-  {: pre}
+  {: codeblock}
 
 3. Construa, identifique e envie por push o app como uma imagem para o seu namespace no Container Registry. Certifique-se de incluir o ponto final (.) no final do comando.
 
   ```
-  ibmcloud cr build -t registry.<region>.bluemix.net/<namespace>/<app-name>:<tag> .
+  ibmcloud cr build -t registry.{region}.icr.io.net/{namespace}/{app-name}:{tag} .
   ```
-  {: pre}
+  {: codeblock}
 
 Bom. Você está quase pronto para implementar.
 
 ## Etapa 3: Configurando o Ingress
 {: kube-ingress}
 
-Durante a criação do cluster, um ALB do Ingress privado e um público são criados. Para implementar seu aplicativo e aproveitar o controlador do Ingress, crie um script de implementação.
+Durante a criação do cluster, serão criados um balanceador de carga de aplicativo (ALB) do IBM Kubernetes Service privado e um público. Para implementar seu aplicativo e aproveitar o controlador do Ingress, crie um script de implementação.
 {: shortdesc}
+
+
+Para assegurar o melhor desempenho da integração, é recomendável sempre usar a versão mais recente do balanceador de carga do aplicativo (ALB) do IBM Kubernetes Service. Por padrão, a atualização automática é ativada para seu cluster. Para obter mais informações sobre atualizações automáticas, consulte [Recurso de atualização de ALB on-demand no {{site.data.keyword.containershort}}](https://www.ibm.com/cloud/blog/on-demand-alb-update-feature-on-ibm-cloud-kubernetes-service).
+{: tip}
 
 1. Obtenha o segredo que foi criado em seu namespace do cluster quando você ligou o {{site.data.keyword.appid_short_notm}} ao seu cluster. Nota: este **não** é o namespace do Container Registry.
 
   ```
   kubectl get secrets --namespace=<namespace>
   ```
-  {: pre}
+  {: codeblock}
 
   Saída de exemplo:
 
@@ -273,7 +278,7 @@ Durante a criação do cluster, um ALB do Ingress privado e um público são cri
   ```
   kubectl apply -f <file-name>.yaml
   ```
-  {: pre}
+  {: codeblock}
 
 Ótimo trabalho!
 
@@ -304,7 +309,7 @@ Uma URL de redirecionamento é a URL para o site para o qual você deseja que o 
 {: note}
 
 
-Excelente trabalho! Agora, é possível verificar se a implementação foi bem-sucedida, navegando para o subdomínio do Ingress ou o domínio customizado para experimentá-la.
+Excelente! Agora, é possível verificar se a implementação foi bem-sucedida, navegando para o subdomínio do Ingress ou o domínio customizado para experimentá-la.
 
 
 ## Próximas Etapas

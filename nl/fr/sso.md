@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-09"
 
 keywords: authentication, authorization, identity, app security, secure, development, sso, directory, users, registry, multiple apps
 
@@ -62,7 +62,7 @@ Vous pouvez configure la connexion unique via l'interface graphique.
 
 2. Dans la zone **Activer la connexion unique** basculez Connexion unique sur **Activé**.
 
-3. Définissez la durée d'inaction dont dispose un utilisateur avant expiration de la session de connexion unique. Lorsqu'elle expire, l'utilisateur doit se reconnecter. La durée est indiquée en minutes, le maximum autorisé étant de 10 080 minutes (soit 7 jours). La durée par défaut est de 1440 minutes ce qui équivaut à 1 jour.
+3. Définissez la durée d'inaction dont dispose un utilisateur avant expiration de la session de connexion unique. Lorsqu'elle expire, l'utilisateur doit se reconnecter. La durée est indiquée en minutes et le temps d'inactivité maximum autorisé est de 10 080 minutes (soit 7 jours). La durée par défaut est de 1440 minutes ce qui équivaut à 1 jour.
 
 4. Ajoutez vos URI de redirection dans la zone **URI de redirection après déconnexion**, puis cliquez sur le signe **+**. Veillez à n'enregistrer que des applications en lesquelles vous avez confiance. En enregistrant l'URI, vous autoriser {{site.data.keyword.appid_short_notm}} à l'inclure dans le flux de travaux d'autorisation.
 
@@ -129,7 +129,7 @@ Pour déconnecter un utilisateur, redirigez son navigateur en utilisant vos info
 ```
 https://<region>.appid.cloud.ibm.com/oauth/v4/<tenant-id>/cloud_directory/sso/logout?redirect_uri=<redirect_uri>&client_id=<clientId>
 ```
-{: pre}
+{: codeblock}
 
 <table>
   <tr>
@@ -182,7 +182,7 @@ POST https://<region>.appid.cloud.ibm.com/management/v4/{tenant-id}/cloud_direct
 Headers:
 Authorization: <IAM TOKEN>
 ```
-{: pre}
+{: codeblock}
 
 <table>
   <tr>

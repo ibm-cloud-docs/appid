@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-11"
+lastupdated: "2019-06-05"
 
 keywords: authentication, authorization, identity, app security, secure, access, tokens
 
@@ -103,12 +103,12 @@ Ejemplo de señal:
   {: screen}
 
 
-Las señales de identidad solo contienen información de usuario parcial. Para ver toda la información que proporciona el proveedor de identidad, puede utilizar el punto final [/userinfo](/docs/services/appid?topic=appid-predefined-attributes#predefined-access-api).
+Las señales de identidad solo contienen información de usuario parcial. Para ver toda la información que proporciona el proveedor de identidad, puede utilizar el punto final [/userinfo](/docs/services/appid?topic=appid-profiles#profile-predefined-api).
 
 ## ¿Qué son las señales de renovación?
 {: #refresh}
 
-{{site.data.keyword.appid_short}} ofrece soporte a la capacidad de adquirir nuevas señales de identidad y acceso sin autenticación, como se define en <a href="http://openid.net/specs/openid-connect-core-1_0.html#RefreshTokens" target="_blank">OIDC <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>. Se puede utilizar una señal de acceso para renovar la señal de manera que el usuario no tenga que realizar ninguna acción, como proporcionar las credenciales, para iniciar sesión. De forma similar a las señales de acceso, las señales para renovación contienen datos que permiten a {{site.data.keyword.appid_short_notm}} determinar si ha autorizado. Sin embargo, dichas señales son opacas.
+{{site.data.keyword.appid_short}} ofrece soporte a la capacidad de adquirir nuevas señales de identidad y acceso sin autenticación, como se define en <a href="https://openid.net/specs/openid-connect-core-1_0.html#RefreshTokens" target="_blank">OIDC <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>. Se puede utilizar una señal de acceso para renovar la señal de manera que el usuario no tenga que realizar ninguna acción, como proporcionar las credenciales, para iniciar sesión. De forma similar a las señales de acceso, las señales para renovación contienen datos que permiten a {{site.data.keyword.appid_short_notm}} determinar si ha autorizado. Sin embargo, dichas señales son opacas.
 
 Las señales para renovación están configuradas para tener un período de vida superior al de una señal de acceso normal para que cuando la señal de acceso caduque, la señal de renovación siga siendo válida y se pueda utilizar para renovar la señal de acceso. Las señales para renovación de {{site.data.keyword.appid_short_notm}} se pueden configurar para que duren de 1 a 90 días. Para sacar el máximo partido de las señales para renovación, mantenga las señales durante todo el período activo o hasta que se renueven. Un usuario no puede acceder directamente a recursos con solo una señal para renovación, por lo que es mucho más seguro que esta se mantenga en lugar de la señal de acceso. Se recomienda que el cliente que reciba señales de acceso las almacene de forma segura y las envíe únicamente al servidor de autorización que las ha enviado.
 
@@ -128,7 +128,7 @@ Las señales se emiten a través del servidor OAuth de {{site.data.keyword.appid
 ## ¿Qué sucede con la información que contiene la señal?
 {: #contains}
 
-La señal de acceso contiene un conjunto de reclamaciones JWT y un grupo de reclamaciones específicas de {{site.data.keyword.appid_short_notm}} como, por ejemplo, un ID de arrendatario. La señal de identidad contiene información específica del usuario. La información de las señales de acceso se almacena en forma de reclamaciones como parte de un [perfil de usuario](/docs/services/appid?topic=appid-user-profile#user-profile).
+La señal de acceso contiene un conjunto de reclamaciones JWT y un grupo de reclamaciones específicas de {{site.data.keyword.appid_short_notm}} como, por ejemplo, un ID de arrendatario. La señal de identidad contiene información específica del usuario. La información de las señales de acceso se almacena en forma de reclamaciones como parte de un [perfil de usuario](/docs/services/appid?topic=appid-profiles).
 
 ## ¿Cómo se reciben las señales?
 {: #received}

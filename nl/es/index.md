@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-27"
+lastupdated: "2019-05-20"
 
 keywords: authentication, authorization, identity, app security, secure, development,
 
@@ -31,8 +31,8 @@ La seguridad de aplicación se puede complicar de forma increíble. Para la mayo
 Al exigir a los usuarios que inicien sesión en la app, puede almacenar datos de usuario como preferencias de la app o información de los perfiles sociales públicos, y luego utilizar esos datos para personalizar cada experiencia de la app. {{site.data.keyword.appid_short_notm}} proporciona un registro para el usuario, pero también puede traer las pantallas de inicio de sesión de su propia marca al trabajar con el directorio en la nube.
 
 Nos gustaría conocer su opinión con comentarios y preguntas.
-* Si tiene preguntas técnicas sobre {{site.data.keyword.appid_short_notm}}, publique la pregunta en <a href="https://stackoverflow.com/search?q=ibm-appid" target="_blank">Stack Overflow <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a> y etiquete la pregunta con `ibm-appid`.
-* Para formular preguntas sobre el servicio y obtener instrucciones de iniciación, utilice el foro <a href="https://developer.ibm.com/answers/topics/appid/" target="_blank">dW Answers <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>. Incluya la etiqueta `appid`.
+* Si tiene preguntas técnicas sobre {{site.data.keyword.appid_short_notm}}, publique la pregunta en <a href="https://stackoverflow.com" target="_blank">Stack Overflow <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a> y etiquete la pregunta con `ibm-appid`.
+* Para formular preguntas sobre el servicio y obtener instrucciones de iniciación, utilice el foro <a href="https://developer.ibm.com" target="_blank">dW Answers <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>. Incluya la etiqueta `appid`.
 
 ## Creación de una instancia de servicio
 {: #create}

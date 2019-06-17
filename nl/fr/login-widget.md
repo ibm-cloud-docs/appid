@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-06-06"
 
-keywords: authentication, authorization, identity, app security, secure, development, sign in, sign up, password, social, enterprise
+keywords: Authentication, authorization, identity, app security, secure, development, sign in, sign up, password, social, enterprise
 
 subcollection: appid
 
@@ -23,40 +23,31 @@ subcollection: appid
 {:download: .download}
 
 
-# Affichage du widget de connexion
+# Utilisation du widget de connexion 
 {: #login-widget}
 
-{{site.data.keyword.appid_full}} fournit un widget de connexion qui vous permet d'offrir à vos utilisateurs des options de connexion sécurisée.
+Avec {{site.data.keyword.appid_full}}, vous pouvez utiliser une interface utilisateur par défaut, appelée un widget de connexion, pour permettre aux utilisateurs de l'application de choisir le fournisseur d'identité avec lequel ils souhaitent se connecter. Si vous utilisez Cloud Directory, le widget de connexion fournit également des interfaces utilisateur supplémentaires avec des fonctionnalités supplémentaires telles que l'inscription, l'oubli du mot de passe, l'authentification multi facteur, etc.
 {: shortdesc}
 
-Lorsque votre application est configurée pour utiliser un fournisseur d'identité, le widget de connexion dirige les visiteurs de votre application vers un écran de connexion. Le widget de connexion vous permet d'afficher des écrans préconfigurés pour vos flux de connexion. De plus, il vous permet à tout moment de mettre à jour votre flux de connexion, sans avoir à changer votre code source.
-
-Vous voulez créer une expérience unique pour votre application ? Vous pouvez [apporter vos propres écrans](/docs/services/appid?topic=appid-branded) !
-{: tip}
 
 ## Comprendre le widget de connexion
 {: #widget-understanding}
 
-Vous pouvez tirer parti d'{{site.data.keyword.appid_short_notm}}, y compris sans vos propres écrans d'interface utilisateur, en affichant le widget de connexion.
-{: shortdesc}
+Une des meilleures parties du widget de connexion est que vous pouvez commencer à utiliser {{site.data.keyword.appid_short_notm}} avant d'implémenter vos propres interfaces d'authentification - ce qui rend l'intégration du développeur beaucoup plus facile.
 
-### Quelle est la valeur par défaut ?
+### Quel est le comportement par défaut du widget de connexion ?
 {: #widget-default}
 
-Lorsque plusieurs fournisseurs d'identité sont configurés, l'utilisateur est redirigé vers le widget de connexion lorsqu'il tente de se connecter à votre application. L'utilisation du widget de connexion permet aux utilisateurs de choisir le fournisseur avec lequel ils souhaitent vérifier leur identité. Toutefois, lorsqu'un seul fournisseur est défini sur **Activé**, les visiteurs sont redirigés vers cet écran d'authentification des fournisseurs d'identité.
+Par défaut, le widget de connexion est activé pour utiliser Facebook, Google et Cloud Directory. Vous pouvez modifier le comportement à tout moment en choisissant les fournisseurs d'identité que vous souhaitez configurer en tant qu'option. Lorsque plusieurs fournisseurs d'identité sont activés, le widget de connexion présente un écran dans lequel l'utilisateur peut choisir son fournisseur d'identité. Par contre, si vous avez un seul fournisseur activé, les utilisateurs ne voient pas l'écran de sélection mentionné ci-dessus. Ils sont dirigés directement vers le fournisseur d'identité pour commencer le processus d'ouverture de session.
 
-### Quelle quantité d'informations {{site.data.keyword.appid_short_notm}} obtient-il d'un fournisseur d'identité ?
-{: #widget-obtain-info}
+Par exemple, si vous utilisez la configuration par défaut (Facebook, Google et Cloud Directory), les utilisateurs voient l'écran. Si vous activez Facebook uniquement, les utilisateurs sont directement dirigés vers Facebook pour l'authentification.
 
-Lorsque vous utilisez des fournisseurs d'identité sociaux ou d'entreprise, {{site.data.keyword.appid_short_notm}} dispose d'un accès en lecture aux informations de compte des utilisateurs. Le service utilise un jeton et les assertions qui sont renvoyées par le fournisseur d'identité pour vérifier qu'un utilisateur est bien qui il prétend être. Le service ne disposant jamais d'un accès en écriture aux informations, les utilisateurs doivent passer par le fournisseur d'identité qu'ils ont choisi pour effectuer des actions telles que la réinitialisation de leur mot de passe. Par exemple, si un utilisateur se connecte à votre application avec Facebook et souhaite changer de mot de passe, il doit se rendre sur www.facebook.com pour le faire.
-
-Lorsque vous utilisez [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory), le fournisseur d'identité est {{site.data.keyword.appid_short_notm}}. Le service utilise votre registre pour vérifier l'identité de vos utilisateurs. {{site.data.keyword.appid_short_notm}} étant le fournisseur, les utilisateurs peuvent tirer parti des fonctionnalités avancées, telles que la réinitialisation de leur mot de passe, directement dans votre application.
 
 
 ### Quels écrans peuvent être affichés pour chaque fournisseur ?
 {: #widget-options}
 
-Consultez le tableau suivant pour voir les écrans que vous pouvez afficher pour chaque type de fournisseur d'identité.
+Lorsque vous utilisez Cloud Directory, {{site.data.keyword.appid_short_notm}} est en mesure de vous fournir la fonctionnalité étendue de la gestion des utilisateurs. La fonctionnalité étendue s'applique également aux capacités des widgets de connexion. Les utilisateurs qui sont stockés dans Cloud Directory peuvent profiter des fonctionnalités telles que l'inscription ou la réinitialisation de leur mot de passe directement dans le widget de connexion. Consultez le tableau suivant pour voir les écrans que vous pouvez afficher pour chaque type de fournisseur d'identité.
 
 <table>
   <thead>
@@ -101,14 +92,15 @@ Consultez le tableau suivant pour voir les écrans que vous pouvez afficher pour
   </tbody>
 </table>
 
-</br>
-</br>
 
 ## Personnalisation du widget de connexion
 {: #widget-customize}
 
-{{site.data.keyword.appid_short_notm}} fournit un écran de connexion par défaut que vous pouvez appeler si vous ne disposez pas de vos propres écrans d'interface utilisateur. Vous pouvez personnaliser l'écran pour afficher le logo et les couleurs de votre choix.
+Le widget de connexion est dynamique. Vous pouvez personnaliser la configuration de l'apparence ou du fournisseur d'identité, et les changements sont appliqués immédiatement. Vous n'avez pas besoin de mettre à jour votre code d'application ou de redéployer votre application de quelque façon que ce soit !
 {: shortdesc}
+
+Vous avez besoin de plus de personnalisation que ce que le widget de connexion vous offre ? Vous pouvez implémenter votre propre interface utilisateur entièrement personnalisée pour vous connecter, vous inscrire, réinitialiser le mot de passe et d'autres flux pour créer une expérience unique à votre application. Pour commencer, consultez [Association d'une marque à votre application](/docs/services/appid?topic=appid-branded).
+{: tip}
 
 Pour personnaliser l'écran :
 
@@ -118,9 +110,6 @@ Pour personnaliser l'écran :
 4. Sélectionnez une couleur d'en-tête pour le widget dans la palette de couleurs ou entrez le code hexadécimal d'une autre couleur.
 5. Examinez le panneau de prévisualisation, puis cliquez sur **Sauvegarder les modifications** lorsque vous êtes satisfait de vos personnalisations. Un message de confirmation s'affiche.
 6. Dans votre navigateur, actualisez votre page de connexion afin de vérifier vos modifications.
-
-N'oubliez pas ! Vous pouvez aussi tirer profit d'{{site.data.keyword.appid_short_notm}} avec d'autres langues. Si vous ne trouvez pas de logiciel SDK pour la langue dans laquelle vous travaillez, vous pouvez toujours utiliser les API. Consultez <a href="https://www.ibm.com/blogs/bluemix/tag/app-id/" target="blank">nos blogues<img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a>.
-{: tip}
 
 
 ## Affichage du widget de connexion avec le logiciel Android
@@ -183,7 +172,7 @@ Placez la commande suivante dans votre code.
       }
   });
   ```
-  {: pre}
+  {: codeblock}
 
 </br>
 

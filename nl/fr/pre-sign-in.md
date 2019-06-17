@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-31"
 
 keywords: authentication, authorization, identity, app security, secure, development, user information, attributes, profiles, 
 
@@ -28,7 +28,7 @@ subcollection: appid
 Avec {{site.data.keyword.appid_full}}, vous pouvez commencer à créer un profil pour les utilisateurs pour lesquels vous savez qu'un accès à votre application sera nécessaire avant leur première connexion.
 {: shortdesc}
 
-Pour en savoir plus sur les types d'attributs, consultez [Compréhension des profils utilisateur](/docs/services/appid?topic=appid-user-profile). Pour en savoir plus sur les attributs personnalisés et leurs impératifs de sécurité, consultez [Attributs personnalisés](/docs/services/appid?topic=appid-custom-attributes).
+Pour en savoir plus sur les types d'attributs et les considérations de sécurité à prendre en compte lorsque vous travaillez avec des attributs personnalisés, voir [Stockage des profils utilisateur et accès](/docs/services/appid?topic=appid-profiles).
 {: tip}
 
 ## Comprendre le pré-enregistrement
@@ -37,7 +37,7 @@ Pour en savoir plus sur les types d'attributs, consultez [Compréhension des pro
 ### Pourquoi utiliser le pré-enregistrement ?
 {: #preregister-why}
 
-Imaginez une application dans laquelle vous utilisez {{site.data.keyword.appid_short_notm}} pour fédérer des utilisateurs existants à partir de votre fournisseur d'identité SAML. Vous voudrez probablement que certains utilisateurs aient un accès `admin` immédiatement après leur première connexion à l'application. Pour ce faire, vous pouvez utiliser le noeud final de pré-enregistrement pour définir un attribut `admin` personnalisé pour ces utilisateurs et leur accorder l'accès à la console d'administration sans aucune autre action de votre part. Veillez à prendre en compte les [problèmes de sécurité](/docs/services/appid?topic=appid-custom-attributes#custom-attributes) pouvant survenir lors de la modification du paramètre par défaut.
+Imaginez une application dans laquelle vous utilisez {{site.data.keyword.appid_short_notm}} pour fédérer des utilisateurs existants à partir de votre fournisseur d'identité SAML. Vous voudrez probablement que certains utilisateurs aient un accès `admin` immédiatement après leur première connexion à l'application. Pour ce faire, vous pouvez utiliser le noeud final de pré-enregistrement pour définir un attribut `admin` personnalisé pour ces utilisateurs et leur accorder l'accès à la console d'administration sans aucune autre action de votre part. Veillez à prendre en compte les [problèmes de sécurité](/docs/services/appid?topic=appid-profiles#profile-set-custom) pouvant survenir lors de la modification du paramètre par défaut.
 
 ### Comment les utilisateurs sont-ils identifiés ?
 {: #preregister-identify-user}
@@ -135,13 +135,13 @@ Lorsqu'un utilise se connecte à votre application pour la première fois, {{sit
   ```
   ibmcloud login
   ```
-  {: pre}
+  {: codeblock}
 
 2. Recherchez votre jeton IAM en exécutant la commande suivante.
   ```
   ibmcloud iam oauth-tokens
   ```
-  {: pre}
+  {: codeblock}
 
 3. Envoyez une requête POST au noeud final `/users` contenant une description de l'utilisateur et des attributs que vous souhaitez définir comme objet JSON.
 
@@ -152,7 +152,7 @@ Lorsqu'un utilise se connecte à votre application pour la première fois, {{sit
        Authorization: 'Bearer <IAM_TOKEN>'
        Content-Type: application/json
   ```
-  {: pre}
+  {: codeblock}
 
   Corps :
   ```
@@ -166,7 +166,7 @@ Lorsqu'un utilise se connecte à votre application pour la première fois, {{sit
        }
    }
   ```
-  {: pre}
+  {: codeblock}
 
   <table>
     <thead>
@@ -211,7 +211,7 @@ Lorsqu'un utilise se connecte à votre application pour la première fois, {{sit
 
 N'oubliez pas que les attributs prédéfinis d'un utilisateur sont vides jusqu'à sa première authentification, mais que l'utilisateur est, à toutes fins utiles, entièrement authentifié. Vous pouvez utiliser son identifiant unique comme vous le feriez avec une personne déjà connectée. Par exemple, vous pouvez modifier, rechercher ou supprimer le profil.
 
-Maintenant que vous avez associé un utilisateur à des attributs spécifiques, essayez d'[accéder aux attributs ou de les mettre à jour](/docs/services/appid?topic=appid-custom-attributes)!
+Maintenant que vous avez associé un utilisateur à des attributs spécifiques, essayez d'[accéder aux attributs ou de les mettre à jour](/docs/services/appid?topic=appid-profiles)!
 
 
 </br>

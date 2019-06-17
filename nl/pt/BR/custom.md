@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-13"
 
 keywords: authentication, authorization, identity, app security, secure, custom, proprietary, private key, public key, jwt
 
@@ -99,7 +99,7 @@ aplicativo de exemplo, é possível ver cargas úteis de token de acesso e de id
 
 1. Na guia **Provedor de identidade customizada**, clique em **Testar** para abrir o aplicativo de teste.
 
-2. Crie um exemplo de JWT usando [JWT.io](https://jwt.io/) seguindo a identidade customizada [protocolo](/docs/services/appid?topic=appid-custom-auth#generating-jwts).
+2. Crie um [JWT de exemplo](https://jwt.io/) seguindo o [protocolo](/docs/services/appid?topic=appid-custom-auth#generating-jwts) de identidade customizada.
 
 3. Cole seu JWT na caixa rotulada **JSON Web Token** e clique em **Testar** para executar uma autenticação de amostra.
 

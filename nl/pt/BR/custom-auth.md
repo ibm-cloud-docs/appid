@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-31"
 
 keywords: authentication, authorization, identity, app security, secure, custom, proprietary, 
 
@@ -107,8 +107,7 @@ enviados pelo provedor de identidade.</dd>
 É possível converter os dados do usuário verificados em um JWT de identidade customizado gerando um
 <a href="https://tools.ietf.org/html/rfc7515" target="blank">JSON web token
 <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a>. O token deve ser assinado com a chave privada
-que corresponde à chave pública pré-configurada. Para obter uma lista de bibliotecas de assinatura de token, consulte <a href="https://jwt.io/" target="blank">jwt.io
-<img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a>.
+que corresponde à chave pública pré-configurada. Para obter uma lista de bibliotecas de assinatura de token, verifique <a href="https://jwt.io/" target="blank">https://jwt.io/ <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a>.
 {: shortdesc}
 
 ### Exemplo de formato JWT
@@ -159,7 +158,7 @@ Carga útil do token:
     </tr>
     <tr>
       <td><code> aud </code></td>
-      <td>A URL do servidor OAuth. Formato: https://{region}.appid.cloud.ibm.com/oauth/v4/{tenantId}.</td>
+      <td>A URL do servidor OAuth. Formato: `https://{region}.appid.cloud.ibm.com/oauth/v4/{tenantId}`.</td>
     </tr>
     <tr>
       <td><code> exp </code></td>
@@ -172,7 +171,7 @@ específico.</td>
     </tr>
     <tr>
       <td>Solicitações normalizadas</td>
-      <td>Todas as [solicitações normalizadas](/docs/services/appid?topic=appid-tokens#tokens) são fornecidas no token de identidade que é retornado em resposta a essa solicitação. Mais solicitações customizadas podem ser localizadas usando o [terminal `/userinfo`](/docs/services/appid?topic=appid-custom-attributes#custom-attributes).</td>
+      <td>Todas as [solicitações normalizadas](/docs/services/appid?topic=appid-tokens) são fornecidas no token de identidade que é retornado em resposta a essa solicitação. Mais solicitações customizadas podem ser localizadas usando o [terminal `/userinfo`](/docs/services/appid?topic=appid-profiles).</td>
     </tr>
     <tr>
       <td>Escopo</td>

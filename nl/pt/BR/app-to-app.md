@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-14"
 
 keywords: authentication, authorization, identity, app security, secure, application identity, app to app, access token
 
@@ -37,13 +37,11 @@ caso de uso específico é exclusivo para cada aplicativo, mas a coisa mais impo
 solicitações são trocadas em nome do aplicativo, não em nome de um usuário final, e é o aplicativo que é autenticado e
 autorizado.
 
-Confira esse exemplo em <a href="https://www.ibm.com/blogs/bluemix/2018/02/using-app-id-secure-docker-kubernetes-applications/" target="_blank">Usando o {{site.data.keyword.appid_short_notm}} para proteger os aplicativos do Docker e do Kubernetes <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a>.
 
 ### Como o fluxo funciona?
 {: #app-flow-how}
 
-O {{site.data.keyword.appid_short_notm}} aproveita o fluxo de credenciais do cliente OAuth2.0 para
-proteger a comunicação. Depois que um aplicativo é registrado com o {{site.data.keyword.appid_short_notm}}, ele obtém um identificador de cliente e um segredo. Com
+O {{site.data.keyword.appid_short_notm}} aproveita o fluxo de credenciais do cliente OAuth 2.0 para proteger a comunicação. Depois que um aplicativo é registrado com o {{site.data.keyword.appid_short_notm}}, ele obtém um identificador de cliente e um segredo. Com
 essas informações, o aplicativo pode solicitar um token de acesso por meio do
 {{site.data.keyword.appid_short_notm}} e ser autorizado a acessar uma API ou um recurso protegido. No
 fluxo de identidade e autorização do aplicativo, apenas um token de acesso é fornecido ao aplicativo. Ele não obtém um token de identidade ou um token de atualização. Para
@@ -61,11 +59,14 @@ Na imagem a seguir, é possível ver a direção da comunicação entre o servi�
 ![Fluxo de autorização e identidade de aplicativo do {{site.data.keyword.appid_short_notm}}](images/app-to-app-flow.png)
 Figura. Fluxo de autorização e identidade de aplicativo
 
-1. O aplicativo A é registrado com o {{site.data.keyword.appid_short_notm}} para obter um identificador de cliente e um segredo.
-2. O aplicativo A faz uma solicitação para o {{site.data.keyword.appid_short_notm}} enviando as credenciais recuperadas na etapa anterior.
-3. O {{site.data.keyword.appid_short_notm}} valida a solicitação, autentica o aplicativo e retorna uma resposta ao Aplicativo A que contém um token de acesso.
-4. O aplicativo A agora é capaz de usar o token de acesso para enviar solicitações ao Aplicativo B, tal como um recurso
-protegido.
+1. Registre o aplicativo que precisa autenticar para acessar um recurso protegido com o {{site.data.keyword.appid_short_notm}}. 
+2. O aplicativo A é registrado com o {{site.data.keyword.appid_short_notm}} para obter um identificador de cliente e um segredo.
+3. O aplicativo A faz uma solicitação para o terminal `/token` do servidor de autorizações {{site.data.keyword.appid_short_notm}} enviando as credenciais recuperadas na etapa anterior.
+4. O {{site.data.keyword.appid_short_notm}} valida a solicitação, autentica o aplicativo e retorna uma resposta ao Aplicativo A que contém um token de acesso.
+5. Agora o aplicativo A é capaz de usar o token de acesso válido para enviar solicitações para recursos protegidos, como o Aplicativo B.
+
+O segredo do cliente que é usado para autenticar o cliente é altamente sensível e deve ser mantido confidencial. Como o aplicativo usa o segredo do cliente no app, esse fluxo de trabalho deve ser usado somente com aplicativos confiáveis. O uso de um aplicativo confiável assegura que o segredo do cliente não vaze nem seja mal utilizado.
+{: important}
 
 ## Registrando seu aplicativo
 {: #app-register}
@@ -90,7 +91,7 @@ protegido.
   -H 'Authorization: Bearer IAM_TOKEN' \
   -d '{"name": "ApplicationName"}'
   ```
-  {: pre}
+  {: codeblock}
 
   Resposta de exemplo:
 
@@ -125,7 +126,7 @@ como o nome de usuário e a senha que são codificados em Base64.
     -H 'Content-Type: application/x-www-form-urlencoded' \
     -d grant_type=client_credentials
   ```
-  {: pre}
+  {: codeblock}
 
   Resposta de exemplo:
   ```
@@ -135,7 +136,7 @@ como o nome de usuário e a senha que são codificados em Base64.
   "token_type": "Bearer"
   }
   ```
-  {: pre}
+  {: codeblock}
 
 
 ## Tutorial: fluxo de ponta a ponta com o SDK Node.js
@@ -148,10 +149,10 @@ como o nome de usuário e a senha que são codificados em Base64.
     ```
     const TokenManager = require('ibmcloud-appid').TokenManager;
     const config = {
-     clientId: "29a19759-aafb-41c7-9ef7-ee7b0ca88818",
-     tenantId: "39a37f57-a227-4bfe-a044-93b6e6060b61",
-     secret: "ZTEzZTA2MDAtMjljZS00MWNlLTk5NTktZDliMjY3YzUxZTYx",
-     oauthServerUrl: "https://eu-gb.appid.cloud.ibm.com/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6060b61"
+     clientId: "<client-ID>",
+     tenantId: "<tenant-ID>",
+     secret: "<secret>",
+     oauthServerUrl: "https://<region>.appid.cloud.ibm.com/oauth/v4/<tenant-ID>"
     };
 
     const tokenManager = new TokenManager(config);
@@ -162,7 +163,7 @@ como o nome de usuário e a senha que são codificados em Base64.
      //console.error('Error retrieving tokens : ' + err);
     });
     ```
-    {: pre}
+    {: codeblock}
 
   * Por meio do servidor de autorizações do {{site.data.keyword.appid_short_notm}}.
   
@@ -201,7 +202,7 @@ você registrou seu aplicativo ligando-o ao console do IBM Cloud, a URL poderá 
       });
     }
     ```
-    {: pre}
+    {: codeblock}
 
 2. Faça uma solicitação para seu recurso protegido usando o token de acesso obtido na etapa anterior.
 
@@ -222,7 +223,7 @@ você registrou seu aplicativo ligando-o ao console do IBM Cloud, a URL poderá 
       }
   });
   ```
-  {: pre}
+  {: codeblock}
 
 3. Faça com que seus recursos protegidos fiquem seguros usando a estratégia de API por meio do SDK do Node.js do {{site.data.keyword.appid_short_notm}}.
 
@@ -234,8 +235,8 @@ você registrou seu aplicativo ligando-o ao console do IBM Cloud, a URL poderá 
 app.use(passport.initialize());
 
   passport.use(new APIStrategy({
-      oauthServerUrl: "https://us-south.appid.cloud.ibm.com/oauth/v4/398ec248-5e93-48b8-a122-ccabc714fe85",
-      tenantId:"398ec248-5e93-48b8-a122-ccabc714fe85"
+      oauthServerUrl: "https://<region>.appid.cloud.ibm.com/oauth/v4/<tenant-ID>",
+      tenantId:"<tenant-ID>"
   }));
 
   app.get('/protected_resource',
@@ -244,4 +245,4 @@ app.use(passport.initialize());
           res.send("Hello from protected resource");
   });
   ```
-  {: pre}
+  {: codeblock}

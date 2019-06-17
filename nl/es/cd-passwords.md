@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-04-23"
 
 keywords: authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
@@ -34,14 +34,14 @@ Puede definir los requisitos para las contraseñas que se pueden utilizar con el
 Una contraseña segura es difícil o improbable de adivinar ya sea de forma manual o automática. Para establecer los requisitos para la fortaleza de una contraseña de usuario, puede utilizar los pasos siguientes.
 {: shortdesc}
 
-1. Vaya al separador **Políticas de contraseñas** del panel de control de APP ID.
+1. Vaya al separador **Políticas de contraseñas** del panel de control de {{site.data.keyword.appid_short_notm}}.
 
-2. En el recuadro **Definir fortaleza de contraseña**, pulse **Editar**. Se mostrará una pantalla.
+2. En el recuadro **Definir fortaleza de contraseña**, pulse **Editar**. Se abre una pantalla.
 
 3. Especifique una serie de expresiones regulares válida en el recuadro **Fortaleza de contraseña**.
 
   Ejemplos:
-    - Debe tener al menos ocho caracteres. Expresión regular de ejemplo: `^.{8,}$`
+    - Debe tener al menos 8 caracteres. Expresión regular de ejemplo: `^.{8,}$`
     - Debe contener un número, una letra minúscula y una letra mayúscula. Expresión regular de ejemplo: `^(?:(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).*)$`
     - Debe contener solo letras y números ingleses. Expresión regular de ejemplo: `^[A-Za-z0-9]*$`
     - Debe tener al menos un carácter exclusivo. Expresión regular de ejemplo: `^(\w)\w*?(?!\1)\w+$`
@@ -56,11 +56,11 @@ La fortaleza de la contraseña se puede establecer en la página de valores del 
 {: #cd-advanced-password}
 
 
-Puede mejorar la seguridad de la aplicación imponiendo restricciones de contraseña adicionales.
+Puede mejorar la seguridad de la aplicación imponiendo restricciones de contraseña.
 {: shortdesc}
 
 
-Puede crear una política de contraseñas avanzada que esté formada por cualquier combinación de las 5 características siguientes:
+Puede crear una política de contraseñas avanzada que esté formada por cualquier combinación de las cinco características siguientes:
 
  - Bloqueo tras repetir las credenciales de forma errónea
  - Evitar la reutilización de las contraseñas
@@ -90,7 +90,7 @@ Las contraseñas anteriores se almacenan de forma segura de la misma forma que s
 ### Política: Bloqueo tras repetir las credenciales de forma errónea
 {: #cd-lockout}
 
-Es posible que desee proteger las cuentas de los usuarios bloqueando temporalmente la posibilidad de iniciar sesión cuando se detecta un comportamiento sospechosos como, por ejemplo, intentos de inicio de sesión consecutivos con una contraseña incorrecta. Esta medida puede ayudarle a evitar que una parte maliciosa obtenga acceso a la cuenta de un usuario adivinando la contraseña del mismo.
+Es posible que desee proteger las cuentas de los usuarios bloqueando temporalmente la posibilidad de iniciar sesión cuando se detecta un comportamiento sospechoso como, por ejemplo, múltiples intentos de inicio de sesión consecutivos con una contraseña incorrecta. Esta medida puede ayudarle a evitar que una parte maliciosa obtenga acceso a la cuenta de un usuario adivinando la contraseña del mismo.
 {: shortdesc}
 
 Mediante la GUI o la API, puede establecer el número máximo de intentos de inicio de sesión fallidos que puede realizar un usuario antes de que su cuenta quede bloqueada temporalmente. También puede establecer la cantidad de tiempo que la cuenta está bloqueada. Dispone de las siguientes opciones:
@@ -100,22 +100,22 @@ Mediante la GUI o la API, puede establecer el número máximo de intentos de ini
 
 Si una cuenta está bloqueada, los usuarios no podrán iniciar sesión o realizar cualquier otra operación de autoservicio, como cambiar la contraseña hasta que haya transcurrido el período de bloqueo especificado. Cuando el período de bloqueo haya finalizado, el usuario se desbloqueará automáticamente.
 
-Puede desbloquear un usuario antes de que se haya terminado el período de bloqueo. Para ver si están bloqueados, consulte si el campo `active` (activo) se establece en `false`. También puede comprobar si el estado del separador **Usuarios** del panel de control de servicio está establecido en `disabled` (inhabilitado). Para desbloquear un usuario, debe utilizar [la API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Cloud_Directory_Users/updateCloudDirectoryUser) para establecer el campo `active` (activo) en `true`.
+Puede desbloquear un usuario antes de que se haya terminado el período de bloqueo. Para ver si están bloqueados, compruebe si el campo `active` (activo) está establecido en `false`. También puede comprobar si el estado del separador **Usuarios** del panel de control de servicio está establecido en `disabled` (inhabilitado). Para desbloquear un usuario, debe utilizar [la API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Cloud_Directory_Users/updateCloudDirectoryUser) para establecer el campo `active` (activo) en `true`.
 
 
 ### Política: Período mínimo entre los cambios de contraseña
 {: #cd-minimum-time}
 
-Es posible que desee evitar que los usuarios cambien la contraseña rápidamente estableciendo el período de tiempo mínimo que un usuario debe esperar para poder cambiar la contraseña.
+Es posible que desee evitar que los usuarios cambien la contraseña rápidamente estableciendo un tiempo mínimo que un usuario debe esperar de un cambio de contraseña al siguiente.
 {: shortdesc}
 
-Esta característica es especialmente útil cuando se utiliza con la política "Evitar la reutilización de contraseñas". Sin esta limitación, un usuario podría cambiar de contraseña varias veces seguidas para omitir la limitación de volver a utilizar contraseñas recientes. Puede seleccionar cualquier valor entre 1 hora y 30 días, especificado en horas.
+Esta característica es especialmente útil cuando se utiliza con la política "Evitar la reutilización de contraseñas". Sin esta limitación, un usuario podría cambiar de contraseña varias veces seguidas para omitir la limitación de volver a utilizar contraseñas recientes. Puede seleccionar cualquier valor dentro del rango de 1 a 720 horas (30 días). El campo se especifica en horas.
 
 
 ### Política: Caducidad de la contraseña
 {: #cd-expiration}
 
-Por motivos de seguridad, es posible que desee aplicar una política de rotación de contraseñas, de manera que los usuarios deban cambiar su contraseña después de un período de tiempo.
+Por motivos de seguridad, es posible que desee aplicar una política de rotación de contraseñas, de manera que los usuarios deban cambiar su contraseña después de un tiempo determinado.
 {: shortdesc}
 
 Al utilizar la GUI o la API, puede establecer un período de tiempo durante el cual las contraseñas del usuario seguirán siendo válidas. Cuando la contraseña del usuario caduque, este se verá obligado a restablecer la contraseña en el próximo inicio de sesión. Puede seleccionar cualquier número de días completos entre 1 y 90.
@@ -135,7 +135,7 @@ La respuesta del punto final de señal tiene un aspecto parecido al siguiente:
 ```
 {: screen}
 
-Cuando esta opción se activa, las contraseñas de usuario existentes no tendrán una fecha de caducidad. El período de caducidad empieza para los usuarios cuando se cambia la contraseña. Es posible que desee animar a los usuarios a actualizar la contraseña después de haber activado la característica.
+Cuando se activa esta opción por primera vez, las contraseñas de usuario existentes no tienen una fecha de caducidad. El período de caducidad empieza para los usuarios cuando se cambia la contraseña. Es posible que desee animar a los usuarios a actualizar la contraseña después de haber activado la característica.
 {: note}
 
 

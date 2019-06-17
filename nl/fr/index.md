@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-27"
+lastupdated: "2019-05-20"
 
 keywords: authentication, authorization, identity, app security, secure, development,
 
@@ -31,8 +31,8 @@ La sécurité des applications peut s'avérer être un sujet incroyablement comp
 En demandant aux utilisateurs de se connecter à votre application, vous pouvez stocker des données utilisateur telles que les préférences d'application ou des informations provenant de profils de réseaux sociaux publics, puis utiliser ces données afin de personnaliser chaque expérience de votre application. {{site.data.keyword.appid_short_notm}} vous fournit une infrastructure, mais vous pouvez également apporter vos propres écrans de connexion de marque lorsque vous utilisez le répertoire cloud.
 
 Nous serions ravis de recevoir vos commentaires et de répondre à vos questions !
-* Posez toute question d'ordre technique sur {{site.data.keyword.appid_short_notm}} sur le forum <a href="https://stackoverflow.com/search?q=ibm-appid" target="_blank">Stack Overflow <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a> en indiquant la balise `ibm-appid`.
-* Posez toute question relative au service et aux instructions de mise en route sur le forum <a href="https://developer.ibm.com/answers/topics/appid/" target="_blank">dW Answers <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a> en indiquant la balise `appid`.
+* Posez toute question d'ordre technique sur {{site.data.keyword.appid_short_notm}} sur le forum <a href="https://stackoverflow.com" target="_blank">Stack Overflow <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a> en indiquant la balise `ibm-appid`.
+* Posez toute question relative au service et aux instructions de mise en route sur le forum <a href="https://developer.ibm.com" target="_blank">dW Answers <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a> en indiquant la balise `appid`.
 
 ## Création d'une instance de service
 {: #create}

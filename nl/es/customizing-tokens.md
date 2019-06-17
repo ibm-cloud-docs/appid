@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-31"
 
 keywords: authentication, authorization, identity, app security, secure, custom, tokens, access, claim, attributes
 
@@ -26,7 +26,7 @@ subcollection: appid
 # Personalización de señales
 {: #customizing-tokens}
 
-Puede configurar las señales de {{site.data.keyword.appid_short_notm}} para que cumplan con las necesidades específicas de la aplicación.
+Puede configurar la señal de {{site.data.keyword.appid_short_notm}} para que se ajuste a las necesidades específicas de la aplicación.
 {: shortdesc}
 
 ## Visión general de la personalización
@@ -78,7 +78,7 @@ Puede personalizar las señales [en la GUI](/docs/services/appid?topic=appid-cus
 </table>
 
 
-Puesto que las señales se utilizan para identificar a los usuarios y proteger los recursos, el período de vida de una señal afecta a varias cosas distintas. Mediante la personalización de la configuración de la señal puede garantizar que las necesidades de seguridad y experiencia de usuario se cumplen. Sin embargo, si alguna vez una señal se ve comprometida, un usuario malintencionado tendrá más tiempo para afectar a la aplicación. Puede obtener más información sobre las consideraciones de seguridad en [Atributos personalizados](/docs/services/appid?topic=appid-custom-attributes).
+Puesto que las señales se utilizan para identificar a los usuarios y proteger los recursos, el período de vida de una señal afecta a varias cosas distintas. Mediante la personalización de la configuración de la señal puede garantizar que las necesidades de seguridad y experiencia de usuario se cumplen. Sin embargo, si alguna vez una señal se ve comprometida, un usuario malintencionado tendrá más tiempo para afectar a la aplicación. Puede obtener más información sobre las consideraciones de seguridad en [Establecer atributos personalizados](/docs/services/appid?topic=appid-profiles#profile-set-custom).
 {: important}
 
 
@@ -122,7 +122,7 @@ Una reclamación es una declaración que una entidad hace sobre sí misma o en n
 ```
 {: screen}
 
-Si ha personalizado la información de vencimiento para la señal, deberá establecerla en cada solicitud. Si no, esta solicitud sustituye la configuración actual y el valor predeterminado se utiliza para cualquier cosa que no se haya definido.
+Si ha personalizado la información de vencimiento para la señal, deberá establecerla en cada solicitud. Si no lo hace, esta solicitud sobrescribe la configuración actual y el valor predeterminado se utiliza para cualquier cosa que no se haya definido.
 {: note}
 
 ### ¿Por qué debería añadir reclamaciones a mis señales?
@@ -140,7 +140,7 @@ Las reclamaciones que {{site.data.keyword.appid_short_notm}} proporciona forman 
 
 *Reclamaciones restringidas*: En función de la señal con la que se correlacionan las reclamaciones, algunas tienen posibilidades de personalización limitadas. Para una señal de acceso, `scope` es la única reclamación restringida. No se puede alterar temporalmente mediante correlaciones personalizadas, pero se puede ampliar con sus propios ámbitos. Cuando la reclamación de ámbito se correlaciona con una señal de acceso, el valor debe ser una serie y no puede tener el prefijo `appid_` o se ignorará. En las señales de identidad, las reclamaciones `identities` y `oauth_clients` no se pueden modificar ni alterar temporalmente.
 
-*Reclamaciones normalizadas*: Cada señal de identidad contiene un conjunto de reclamaciones reconocido por {{site.data.keyword.appid_short_notm}} como reclamaciones normalizadas. Cuando están disponibles, se correlacionan directamente del proveedor de identidad a la señal. Estas reclamaciones no se pueden omitir de forma explícita, pero pueden ser alteradas temporalmente por correlaciones de reclamaciones personalizadas. Entre las reclamaciones se incluyen `name`, `email`, `picture`, `local` y `gender`.
+*Reclamaciones normalizadas*: Cada señal de identidad contiene un conjunto de reclamaciones reconocido por {{site.data.keyword.appid_short_notm}} como reclamaciones normalizadas. Cuando están disponibles, se correlacionan directamente del proveedor de identidad a la señal. Estas reclamaciones no se pueden omitir de forma explícita, pero se pueden sobrescribir en la señal con reclamaciones personalizadas. Entre las reclamaciones se incluyen `name`, `email`, `picture`, `local` y `gender`. Nota: Esto no cambia ni elimina el atributo, pero sí cambia la información que está presente en la señal en tiempo de ejecución.
 
 
 ### ¿Cómo se correlacionan las reclamaciones con las señales?
@@ -212,7 +212,7 @@ Asegúrese de que tiene los requisitos previos siguientes:
        Authorization: 'Bearer <IAM_TOKEN>'
        Content-Type: application/json
   ```
-  {: pre}
+  {: codeblock}
 
   Cuerpo:
   ```
@@ -242,7 +242,7 @@ Asegúrese de que tiene los requisitos previos siguientes:
        ]
    }
   ```
-  {: pre}
+  {: codeblock}
 
   <table>
     <thead>

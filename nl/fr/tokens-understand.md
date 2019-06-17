@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-11"
+lastupdated: "2019-06-05"
 
 keywords: authentication, authorization, identity, app security, secure, access, tokens
 
@@ -24,7 +24,7 @@ subcollection: appid
 
 
 
-# Comprendre les jetons
+# Connaissance des jetons
 {: #tokens}
 
 Lorsqu'un utilisateur est authentifié avec succès, l'application reçoit des jetons d'{{site.data.keyword.appid_short_notm}}. Le service utilise trois principaux types de jeton pour exécuter le processus d'authentification.
@@ -103,12 +103,12 @@ Exemple de jeton :
   {: screen}
 
 
-Les jetons d'identité ne contiennent que des informations utilisateur partielles. Pour voir toutes les informations fournies par le fournisseur d'identité, vous pouvez utiliser le noeud final [/userinfo](/docs/services/appid?topic=appid-predefined-attributes#predefined-access-api).
+Les jetons d'identité ne contiennent que des informations utilisateur partielles. Pour voir toutes les informations fournies par le fournisseur d'identité, vous pouvez utiliser le noeud final [/userinfo](/docs/services/appid?topic=appid-profiles#profile-predefined-api).
 
 ## Que sont les jeton d'actualisation ?
 {: #refresh}
 
-{{site.data.keyword.appid_short}} permet d'acquérir de nouveaux jetons d'accès et d'identité sans nouvelle authentification, comme défini dans <a href="http://openid.net/specs/openid-connect-core-1_0.html#RefreshTokens" target="_blank">OIDC <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a>. Un jeton d'actualisation peut être utilisé pour renouveler le jeton d'accès afin qu'un utilisateur n'ait à effectuer aucune action pour se connecter, telle que fournir des données d'identification. Similaires aux jetons d'accès, les jetons d'actualisation contiennent des données qui permettent à {{site.data.keyword.appid_short_notm}} de déterminer si vous êtes autorisé. Cependant, ces jetons sont opaques.
+{{site.data.keyword.appid_short}} permet d'acquérir de nouveaux jetons d'accès et d'identité sans nouvelle authentification, comme défini dans <a href="https://openid.net/specs/openid-connect-core-1_0.html#RefreshTokens" target="_blank">OIDC <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a>. Un jeton d'actualisation peut être utilisé pour renouveler le jeton d'accès afin qu'un utilisateur n'ait à effectuer aucune action pour se connecter, telle que fournir des données d'identification. Similaires aux jetons d'accès, les jetons d'actualisation contiennent des données qui permettent à {{site.data.keyword.appid_short_notm}} de déterminer si vous êtes autorisé. Cependant, ces jetons sont opaques.
 
 Les jetons d'actualisation sont configurés pour avoir une durée de vie supérieure à celle d'un jeton d'accès normal. Ainsi, lorsqu'un jeton d'accès expire, le jeton d'actualisation reste valide et peut être utilisé pour le renouveler. Les jetons d'actualisation d'{{site.data.keyword.appid_short_notm}} peuvent être configurés pour durer de 1 à 90 jours. Pour tirer le meilleur parti des jetons d'actualisation, conservez-les pendant toute leur durée de vie ou jusqu'à ce qu'ils soient renouvelés. Un utilisateur ne peut pas accéder directement à des ressources avec un simple jeton d'actualisation, ce qui rend ce jeton beaucoup plus sûr à conserver qu'un jeton d'accès. En tant que meilleure pratique, les jetons d'actualisation doivent être stockés de manière sécurisée par le client qui les a reçus et envoyés uniquement au serveur d'autorisation qui les a émis.
 
@@ -128,7 +128,7 @@ Les jetons sont émis via le serveur OAuth {{site.data.keyword.appid_short_notm}
 ## Qu'advient-il des informations contenues dans le jeton ?
 {: #contains}
 
-Le jeton d'accès contient un ensemble de réclamations JWT standard et un ensemble de réclamations spécifiques à {{site.data.keyword.appid_short_notm}} telles qu'un ID titulaire. Le jeton d'identité contient des informations spécifiques à l'utilisateur. Les informations contenues dans les jetons sont stockées en tant que réclamations dans un [profil utilisateur](/docs/services/appid?topic=appid-user-profile#user-profile).
+Le jeton d'accès contient un ensemble de réclamations JWT standard et un ensemble de réclamations spécifiques à {{site.data.keyword.appid_short_notm}} telles qu'un ID titulaire. Le jeton d'identité contient des informations spécifiques à l'utilisateur. Les informations contenues dans les jetons sont stockées en tant que réclamations dans un [profil utilisateur](/docs/services/appid?topic=appid-profiles).
 
 ## Comment les jetons sont-ils reçus ?
 {: #received}

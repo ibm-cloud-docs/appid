@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-25"
+lastupdated: "2019-04-23"
 
 keywords: authentication, authorization, identity, app security, secure, custom, proprietary, social, facebook, google, 
 
@@ -37,7 +37,7 @@ eles não precisarão mais se lembrar de várias senhas diferentes para aplicati
 O {{site.data.keyword.appid_short_notm}} fornece uma configuração padrão para ajudá-lo a iniciar rapidamente o serviço.
 {: shortdesc}
 
-Quando você configura o ID do app, o Facebook, o Google e o Cloud Directory são ativados automaticamente como provedores de identidade. É possível mudar a configuração a qualquer momento. Há credenciais padrão no lugar para o Facebook e o Google, mas elas são credenciais da IBM e devem ser usadas para testar se apenas o serviço deve ser usado. Antes de publicar o seu app, atualize a configuração para as suas próprias credenciais.
+Quando você configura o {{site.data.keyword.appid_short_notm}}, o Facebook, o Google e o Cloud Directory são ativados automaticamente como provedores de identidade. É possível mudar a configuração a qualquer momento. Há credenciais padrão no lugar para o Facebook e o Google, mas elas são credenciais da IBM e devem ser usadas para testar se apenas o serviço deve ser usado. Antes de publicar o seu app, atualize a configuração para as suas próprias credenciais.
 
 Você está limitado a 100 autenticações com as credenciais padrão por instância, por dia.
 {: note}
@@ -56,7 +56,7 @@ como um provedor de identidade.
 Para usar o Facebook como um provedor de identidade, deve-se incluir e configurar a plataforma
 do website em seu aplicativo Facebook.
 
-1. Efetue login em sua conta no <a href="https://developers.facebook.com/docs/apps/register" target="_blank">Site do Facebook for
+1. Efetue login em sua conta no <a href="https://developers.facebook.com/docs/apps#register" target="_blank">Site do Facebook for
 Developers<img src="../../icons/launch-glyph.svg" alt="ícone de Link externo"></a>.
 2. Tome nota do ID e do segredo do app Facebook. Esses valores são necessários para configurar o seu projeto da web para autenticação em seu painel de serviço.
 3. Inclua a plataforma da web e insira a URL do site.

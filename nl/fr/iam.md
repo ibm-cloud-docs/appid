@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-13"
+lastupdated: "2019-05-13"
 
 keywords: authentication, authorization, identity, app security, secure, access, platform, management, permissions
 
@@ -242,7 +242,8 @@ Dans ce scénario, un administrateur a créé une instance d'{{site.data.keyword
 {: shortdesc}
 
 Avant de commencer :
-* Installez l'[interface de ligne de commande {{site.data.keyword.cloud_notm}}](/docs/cli/reference/ibmcloud?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli).
+
+* Installez l'[interface CLI {{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-ibmcloud-cli).
 
 Pour mettre à jour les droits d'accès, vous devez procédez comme suit en tant qu'administrateur :
 
@@ -255,9 +256,9 @@ Pour mettre à jour les droits d'accès, vous devez procédez comme suit en tant
 4. Connectez-vous à l'interface de ligne de commande d'{{site.data.keyword.cloud_notm}} depuis votre terminal.
 
     ```
-    ibmcloud login -api -a https://api.<region>.cloud.ibm.com
+    ibmcloud login -api -a https://api.{region}.cloud.ibm.com
     ```
-    {: pre}
+    {: codeblock}
 
     <table>
       <tr>
@@ -277,7 +278,7 @@ Pour mettre à jour les droits d'accès, vous devez procédez comme suit en tant
         <td><code>au-syd</code></td>
       </tr>
       <tr>
-        <td>Londres </td>
+        <td>Londres</td>
         <td><code>eu-gb</code></td>
       </tr>
       <tr>
@@ -291,7 +292,7 @@ Pour mettre à jour les droits d'accès, vous devez procédez comme suit en tant
     ```
     ibmcloud iam oauth-tokens
     ```
-    {: pre}
+    {: codeblock}
 
 6. Vérifiez que le membre d'équipe ne peut pas effectuer de modification.
 
@@ -306,9 +307,9 @@ Pour mettre à jour les droits d'accès, vous devez procédez comme suit en tant
        "secret": "appsecret"
      }
     }' \
-    'https://us-south.appid.cloud.ibm.com/management/v4/<tenantID>/config/idps/facebook'
+    'https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/config/idps/facebook'
     ```
-    {: pre}
+    {: codeblock}
 
     Le résultat est un message 403 indiquant que l'utilisateur n'est pas autorisé.
 
@@ -319,20 +320,20 @@ Pour afficher la configuration d'{{site.data.keyword.appid_short_notm}} depuis l
     ```
     ibmcloud login -a api.<region>.console.cloud.ibm.com
     ```
-    {: pre}
+    {: codeblock}
 
 2. Obtenez un jeton IAM et notez-le.
 
     ```
     ibmcloud iam oauth-tokens
     ```
-    {: pre}
+    {: codeblock}
 
 3. Affichez la configuration de fournisseur d'identité pour Facebook en utilisant cURL.
 
     ```
-    curl -X GET --header 'Accept: application/json' --header 'Authorization: <IAM token value>' \  'https://us-south.appid.cloud.ibm.com/management/v4/<tenantID>/config/idps/facebook'
+    curl -X GET --header 'Accept: application/json' --header 'Authorization: <IAM token value>' \  'https://us-south.appid.cloud.ibm.com/management/v4/<tenant-ID>/config/idps/facebook'
     ```
-    {: pre}
+    {: codeblock}
 
     Le résultat est un message 200 qui contient les informations de fournisseur d'identité.

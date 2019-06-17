@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-13"
 
 keywords: authentication, authorization, identity, app security, secure, application identity, app to app, access token
 
@@ -28,7 +28,13 @@ subcollection: appid
 Vous pouvez utiliser l'API de gestion pour l'automatisation DevOps, la personnalisation et la gestion de vos instances d'{{site.data.keyword.appid_full}}.
 {: shortdesc}
 
-L'API de gestion est sécurisée avec des jetons générés par {{site.data.keyword.cloudaccesstraillong}}. Avec IAM, les propriétaires de compte peuvent spécifier le niveau d'accès de chaque membre de leur équipe pour chaque instance de service. Pour plus d'informations sur la façon dont IAM et {{site.data.keyword.appid_short_notm}} fonctionnent ensemble, voir [Gestion des accès de service](/docs/services/appid?topic=appid-service-access-management#service-access-management).
+L'API de gestion est sécurisée par des jetons générés par IAM (Identity and Access Management). Avec IAM, les propriétaires de compte peuvent spécifier le niveau d'accès de chaque membre de leur équipe pour chaque instance de service. Pour plus d'informations sur la façon dont IAM et {{site.data.keyword.appid_short_notm}} fonctionnent ensemble, voir [Gestion des accès de service](/docs/services/appid?topic=appid-service-access-management).
+
+
+Vous voulez voir l'API en action ? Regardez le tutoriel ci-dessous !
+
+<iframe class="embed-responsive-item" id="about-appid-api" title="A propos de l'API {{site.data.keyword.appid_short_notm}}" type="text/html" width="640" height="390" src="//www.youtube.com/embed/b2ABxvAdGg0?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
+
 
 Avec l'API, vous pouvez :
 * Automatiser la configuration d'{{site.data.keyword.appid_short_notm}} dans votre application dans votre processus DevOps.
@@ -61,7 +67,7 @@ https://<region-endpoint>.appid.cloud.ibm.com/management
     <td><code>au-syd</code></td>
   </tr>
   <tr>
-    <td>Londres </td>
+    <td>Londres</td>
     <td><code>eu-gb</code></td>
   </tr>
   <tr>
@@ -76,7 +82,7 @@ https://<region-endpoint>.appid.cloud.ibm.com/management
 {: #api-prereq}
 
 <ul><ul><li>Une instance de service créée après le 15 mars 2018. Si vous disposez d'une instance de service qui a été créée avant cette date, créez une nouvelle instance et configurez-la comme votre instance en cours. Veillez à mettre à jour vos applications pour qu'elles utilisent la nouvelle instance.</li>
-<li>L'[interface de ligne de commande {{site.data.keyword.cloud_notm}}](/docs/cli/reference/ibmcloud/cloud-cli-install_use?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli) installée.</li></ul></ul>
+<li>L'[interface CLI {{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-ibmcloud-cli) a été installée.</li></ul></ul>
 
 ## Exemple d'utilisation
 {: #api-example}

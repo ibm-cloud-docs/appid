@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-10"
+lastupdated: "2019-04-23"
 
 keywords: authentication, authorization, identity, app security, secure, tokens, jwt, development
 
@@ -29,7 +29,7 @@ subcollection: appid
 La validation des jetons est une partie importante dans le processus de développement des applications modernes. Elle vous permet de protéger votre application ou vos API des utilisateurs non autorisés. {{site.data.keyword.appid_full}} utilise des jetons d'accès et d'identité pour s'assurer qu'un utilisateur ou une application est authentifié avant de lui accorder un droit d'accès. Si vous utilisez l'un des logiciels SDK fournis par {{site.data.keyword.appid_short_notm}}, l'obtention et la validation de vos jetons sont effectuées pour vous !
 {: shortdesc}
 
-Pour plus d'informations sur l'utilisation des jetons dans {{site.data.keyword.appid_short_notm}}, voir [Understanding tokens](/docs/services/appid?topic=appid-tokens#tokens).
+Pour plus d'informations sur l'utilisation des jetons dans {{site.data.keyword.appid_short_notm}}, voir [Connaissance des jetons](/docs/services/appid?topic=appid-tokens#tokens).
 {: tip}
 
 Les jetons sont utilisés pour vérifier qu'une personne est bien qui elle dit être. Ils confirment toutes les autorisations d'accès éventuellement détenues par l'utilisateur pour une durée déterminée. Lorsqu'un utilisateur se connecte à votre application et se voit attribuer un jeton, votre application doit valider l'utilisateur avant que l'accès ne lui soit accordé.
@@ -56,7 +56,7 @@ D'après les commentaires reçus, l'option 1 est généralement le moyen le plus
 Vous pouvez utiliser {{site.data.keyword.appid_short_notm}} pour valider vos jetons à l'aide de l'introspection.
 {: shortdesc}
 
-1. Envoyez une requête POST au noeud final de l'API [/introspect](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization%20Server%20-%20Authorization%20Server%20V4/oauth-server.token) pour valider votre jeton. La demande doit fournir le jeton et un en-tête d'autorisation de base contenant l'ID client et la valeur confidentielle.
+1. Envoyez une requête POST au noeud final de l'API [/introspect](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization%20Server%20-%20Authorization%20Server%20V4/oauth-server.token) pour valider votre jeton. La demande doit fournir le jeton et un en-tête d'autorisation de base contenant l'ID client et le secret.
 
   Exemple de demande :
 
@@ -187,7 +187,7 @@ Vous pouvez valider vos jetons localement en les analysant, en vérifiant leur s
   2. Vérifiez tout particulièrement que les mêmes algorithmes ont été utilisés et que votre cache de clé publique contient une clé avec l'ID de clé approprié.
   3. Assurez-vous que votre valeur hachée est identique à la signature du formulaire PEM de la clé publique. Votre valeur hachée peut être obtenue en combinant et en hachant l'en-tête du contenu du jeton. Ce processus pouvant être complexe à implémenter manuellement, il peut être utile d'utiliser l'une des [bibliothèques répertoriées](https://jwt.io/) pour valider la signature.
 
-6. Validez les réclamations stockées dans les jetons. Pour vérifier les futures vérifications, vous pouvez utiliser [cette liste](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation).
+6. Validez les réclamations stockées dans les jetons. Pour vérifier les futures vérifications, vous pouvez utiliser [cette liste](https://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation).
   <table>
     <thead>
       <th colspan=2><img src="images/idea.png" alt="Icône Plus d'informations"/> Réclamations devant être validées </th>

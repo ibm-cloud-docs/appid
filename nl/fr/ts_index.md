@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-14"
+lastupdated: "2019-05-21"
 
 keywords: authentication, authorization, identity, app security, secure, troubleshooting, help, support, requests, uri
 
@@ -25,7 +25,7 @@ subcollection: appid
 {:tsCauses: .tsCauses}
 {:tsResolve: .tsResolve}
 
-# Traitement général des incidents
+# Dépannage général
 {: #troubleshooting}
 
 Si vous rencontrez des problèmes lorsque vous utilisez {{site.data.keyword.appid_full}}, les techniques suivantes peuvent vous aider à les résoudre et à obtenir de l'aide.
@@ -35,11 +35,10 @@ Si vous rencontrez des problèmes lorsque vous utilisez {{site.data.keyword.appi
 {: #ts-gettinghelp}
 
 Vous pouvez obtenir de l'aide en recherchant des informations précises ou en posant des questions via un forum. Vous pouvez aussi ouvrir un ticket de demande de service. Lorsque vous utilisez les forums pour poser une question, prenez soin d'étiqueter cette dernière de façon à ce qu'elle soit vue par les équipes de développement {{site.data.keyword.cloud_notm}}.
-  * Posez toute question d'ordre technique sur {{site.data.keyword.appid_short_notm}} sur le forum <a href="https://stackoverflow.com/search?q=ibm-appid" target="_blank">Stack Overflow <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a> en indiquant balise "ibm-appid".
-  * Posez toute question relative au service et aux instructions de mise en route sur le forum <a href="https://developer.ibm.com/answers/topics/appid/" target="_blank">dW Answers <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a> Incluez la balise `appid`.
+  * Posez toute question d'ordre technique sur {{site.data.keyword.appid_short_notm}} sur le forum <a href="https://stackoverflow.com/" target="_blank">Stack Overflow <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a> en indiquant balise "ibm-appid".
+  * Posez toute question relative au service et aux instructions de mise en route sur le forum <a href="https://developer.ibm.com/" target="_blank">dW Answers <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a> Incluez la balise `appid`.
 
 Pour plus d'informations sur l'obtention de support, voir [Comment obtenir le support dont j'ai besoin ?](/docs/get-support?topic=get-support-getting-customer-support#getting-customer-support).
-
 
 
 ## Un utilisateur n'est pas redirigé vers l'application après connexion
@@ -82,6 +81,30 @@ Les limitations sont en place pour des raisons de sécurité.
 {: tsResolve}
 Pour résoudre le problème, vérifiez que l'URL est correcte. Si votre URL ne répond pas aux exigences, vous pouvez créer un noeud final HTTPS dans votre application pour rediriger le code d'octroi reçu vers votre URL personnalisée. Indiquez le noeud final créé comme votre URL de redirection dans la console {{site.data.keyword.appid_short_notm}}. Pour plus d'informations sur les URI de redirection, voir [Ajout d'URI de redirection](/docs/services/appid?topic=appid-managing-idp#add-redirect-uri)
 
+## Un utilisateur n'est pas redirigé vers le fournisseur d'identité
+{: #ts-redirect}
+
+{: tsSymptoms}
+Un utilisateur tente de se connecter à votre application, mais la page de connexion ne s'affiche pas à l'invite.
+
+{: tsCauses}
+Il est possible que le lancement du fournisseur d'identité échoue pour différentes raisons :
+
+* L'URL de redirection que vous avez configurée  est incorrecte.
+* Le fournisseur d'identité ne reconnaît pas la demande d'authentification.
+* Le fournisseur d'identité attend une liaison HTTP-POST.
+* Le fournisseur d'identité attend une demande authnRequest signée.
+
+{: tsResolve}
+Vous pouvez essayer les solutions suivantes :
+
+* Mettez à jour votre URL de connexion. Cette URL est envoyée comme partie de la demande authnRequest et doit être exacte.
+* Assurez-vous que vos métadonnées {{site.data.keyword.appid_short_notm}} sont correctement définies dans vos paramètres de fournisseur d'identité.
+* Configurez votre fournisseur d'identité pour qu'il accepte la demande authnRequest dans HTTP-Redirect.
+* {{site.data.keyword.appid_short_notm}} ne prend pas en charge la signature de demande authnRequest.
+
+Si aucune des solutions ne résout le problème, il est possible que vous ayez un problème de connexion.
+{: tip}
 
 
 ## Un attribut affiche une valeur erronée

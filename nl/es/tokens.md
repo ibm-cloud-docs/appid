@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-10"
+lastupdated: "2019-04-23"
 
 keywords: authentication, authorization, identity, app security, secure, tokens, jwt, development
 
@@ -187,7 +187,7 @@ Puede validar las señales de forma local analizando la señal, verificando la f
   2. Compruebe de forma específica que se han utilizado los mismos algoritmos y que la memoria caché de la clave pública contiene una clave con el ID de clave relevante.
   3. Asegúrese de que el valor de hash es el mismo que el de la firma del formulario PEM de la clave pública. El valor hash se puede obtener mediante el hashing y la combinación de la cabecera de la carga útil de la señal. Puesto que el proceso puede ser completo para implementarlo de forma manual, puede resultar útil utilizar una de las [bibliotecas listadas](https://jwt.io/) para validar la firma.
 
-6. Valide las reclamaciones que se almacenan en las señales. Para verificar comprobaciones futuras, puede utilizar [esta lista](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation).
+6. Valide las reclamaciones que se almacenan en las señales. Para verificar comprobaciones futuras, puede utilizar [esta lista](https://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation).
   <table>
     <thead>
       <th colspan=2><img src="images/idea.png" alt="Icono Más información"/> Reclamaciones que deben validarse </th>

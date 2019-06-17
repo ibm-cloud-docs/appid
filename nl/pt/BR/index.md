@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-27"
+lastupdated: "2019-05-20"
 
 keywords: authentication, authorization, identity, app security, secure, development,
 
@@ -33,10 +33,10 @@ Requerendo que os usuários se conectem ao seu app, é possível armazenar dados
 
 Adoraríamos a sua participação com feedback e perguntas!
 * Se você tiver perguntas técnicas sobre o {{site.data.keyword.appid_short_notm}}, poste sua pergunta no
-<a href="https://stackoverflow.com/search?q=ibm-appid" target="_blank">Stack Overflow
+<a href="https://stackoverflow.com" target="_blank">Stack Overflow
 <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a> e identifique-a com
 `ibm-appid`.
-* Para perguntas sobre o serviço e instruções de introdução, use o fórum <a href="https://developer.ibm.com/answers/topics/appid/" target="_blank">dW Answers <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a>. Inclua a tag `appid`.
+* Para perguntas sobre o serviço e instruções de introdução, use o fórum <a href="https://developer.ibm.com" target="_blank">dW Answers <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a>. Inclua a tag `appid`.
 
 ## Criando uma instância de serviço
 {: #create}

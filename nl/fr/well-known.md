@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-21"
 
 keywords: authentication, authorization, identity, app security, secure, discovery endpoint, oidc, public keys, tokens, well known endpoint
 
@@ -23,7 +23,7 @@ subcollection: appid
 {:download: .download}
 
 
-# Utilisation du noeud final de reconnaissance OIDC
+# Document de reconnaissance OIDC
 {: #discovery}
 
 OpenID Connect prend en charge un protocole de reconnaissance contenant des informations que vous pouvez utiliser pour configurer vos applications et authentifier des utilisateurs tels que des jetons et des clés publiques.
@@ -42,9 +42,9 @@ Vous pouvez obtenir le document de reconnaissance et les informations qu'il cont
 Vous pouvez trouver le noeud final à l'adresse URL suivante :
 
 ```
-https://[region].appid.ibm.cloud.com/oauth/v4/{tenantId}/.well-known/openid-configuration
+https://{region}.appid.ibm.cloud.com/oauth/v4/{tenantId}/.well-known/openid-configuration
 ```
-{: pre}
+{: codeblock}
 
 <table>
   <tr>
@@ -64,7 +64,7 @@ https://[region].appid.ibm.cloud.com/oauth/v4/{tenantId}/.well-known/openid-conf
     <td><code>au-syd</code></td>
   </tr>
   <tr>
-    <td>Londres </td>
+    <td>Londres</td>
     <td><code>eu-gb</code></td>
   </tr>
   <tr>
@@ -75,20 +75,20 @@ https://[region].appid.ibm.cloud.com/oauth/v4/{tenantId}/.well-known/openid-conf
 
 
 
-**Comment appeler le noeud final ?**
+**Comment appelle-t-on le noeud final ?**
 
-Pour appeler le noeud final, vous devez disposer d'un ID titulaire `tenantID` valide et vous devez coder l'identificateur URI du document de reconnaissance dans votre application.
+Pour effectuer un appel vers le noeud final, vous devez avoir un ID de locataire valide et vous devez coder en dur l'URI du document de reconnaissance dans votre code d'application.
 
 Consultez l'exemple de demande cURL suivant :
 
 ```bash
-curl -X GET "https://us-south.appid.cloud.ibm.com/oauth/v4/asd/.well-known/openid-configuration" -H "accept: application/json"
+curl -X GET "https://{region}.appid.cloud.ibm.com/oauth/v4/{tenant-id}/.well-known/openid-configuration" -H "accept: application/json"
 ```
 {:codeblock}
 
 **Que puis-je attendre en retour de l'appel ?**
 
-La réponse doit ressembler à l'exemple suivant :
+La réponse qui est renvoyée est similaire à l'exemple suivant :
 
 ```bash
 {
@@ -165,7 +165,7 @@ La réponse doit ressembler à l'exemple suivant :
   </tr>
   <tr>
     <td><code>userinfo_endpoint</code></td>
-    <td>Adresse URL du noeud final userinfo {{site.data.keyword.appid_short_notm}}.</td>
+    <td>Adresse URL du noeud final <code>/userinfo</code> de {{site.data.keyword.appid_short_notm}}.</td>
   </tr>
   <tr>
     <td><code>scopes_supported</code></td>

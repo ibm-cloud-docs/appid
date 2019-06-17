@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-11"
+lastupdated: "2019-05-20"
 
 keywords: authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
@@ -95,7 +95,7 @@ Cuando un usuario se registra en su app, es probable que desee enviarle un mensa
 ### Correo electrónico: Verificación
 {: #cd-messages-verification}
 
-Cuando un usuario se registra en su aplicación mediante su correo electrónico, puede enviarle un correo electrónico que le solicite confirmar su identidad. Al solicitar una verificación, se limita el número de cuentas falsas que pueden registrarse en su app. Puede restringir el acceso a su app hasta que el usuario haya verificado su correo electrónico, o utilizarlo como forma de gestionar los usuarios para los que ha creado perfiles. Tenga en cuenta que los usuarios que se añaden manualmente mediante el panel de control de {{site.data.keyword.appid_short_notm}} o la API de creación de usuarios no reciben este correo electrónico automáticamente.
+Cuando un usuario se registra en su aplicación mediante su correo electrónico, puede enviarle un correo electrónico que le solicite confirmar su identidad. Al solicitar una verificación, se limita el número de cuentas falsas que pueden registrarse en su app. Puede restringir el acceso a su app hasta que el usuario verifique su correo electrónico, o utilizarlo como forma de gestionar los usuarios para los que ha creado perfiles. Tenga en cuenta que los usuarios que se añaden manualmente mediante el panel de control de {{site.data.keyword.appid_short_notm}} o la API de creación de usuarios no reciben este correo electrónico automáticamente.
 {: shortdesc}
 
 
@@ -103,7 +103,7 @@ Cuando un usuario se registra en su aplicación mediante su correo electrónico,
 
 2. Establezca la opción **Verificación de correo electrónico** en **Habilitada**.
 
-3. Establezca **Permitir a los usuarios registrarse en la app sin verificar la dirección de correo electrónico primero** en **Sí**. Cuando se establece en sí, los usuarios pueden interactuar con la aplicación después de registrarse, pero antes de que haya verificado su dirección de correo electrónico. El valor predeterminado es no.
+3. Establezca **Permitir a los usuarios registrarse en la app sin verificar la dirección de correo electrónico primero** en **Sí**. Cuando se establece en sí, los usuarios pueden interactuar con la aplicación después de registrarse, pero antes de verificar su dirección de correo electrónico. El valor predeterminado es no.
 
 4. Personalice el contenido del mensaje. Puede añadir parámetros e insertar imágenes utilizando la interfaz de usuario. Para cambiar el [idioma](/docs/services/appid?topic=appid-cd-messages#cd-languages) del mensaje, puede utilizar <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization" target="_blank">las API de <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a> para establecer el idioma. Sin embargo, usted es el responsable del contenido y la traducción del mensaje. Consulte la tabla siguiente para ver los distintos parámetros que puede utilizar en el mensaje. Si un usuario no proporciona la información extraída por el parámetro, aparecerá en blanco.
 
@@ -129,7 +129,7 @@ Cuando un usuario se registra en su aplicación mediante su correo electrónico,
     </tr>
   </table>
 
-  También puede utilizar los parámetros de mensaje listados en la sección [Mensaje de bienvenida](/docs/services/appid?topic=appid-cd-messages#cd-messages-welcome).
+  También puede utilizar los parámetros de mensaje que se listan en la sección [Mensaje de bienvenida](/docs/services/appid?topic=appid-cd-messages#cd-messages-welcome).
   {: tip}
 
 5. Defina una hora de vencimiento para el URL de acción. El URL de vencimiento es la cantidad de tiempo, en minutos, que un usuario tiene para completar la acción antes de que caduque el enlace de verificación. Este valor también afecta a la cantidad de tiempo que su enlace de restablecimiento de contraseña es válido.
@@ -142,7 +142,7 @@ Cuando un usuario se registra en su aplicación mediante su correo electrónico,
 ### Correo electrónico: Restablecimiento de contraseña
 {: #cd-messages-reset}
 
-Cuando un usuario interactúa con la app, es posible que olvide su contraseña o necesite actualizarla por cualquier otro motivo. Puede personalizar la respuesta por correo electrónico a su solicitud. Cuando un usuario solicita un cambio, su contraseña sigue siendo la misma hasta que pulsa en el enlace en este correo electrónico.
+Cuando un usuario interactúa con la app, es posible que olvide su contraseña o que necesite actualizarla. Puede personalizar la respuesta por correo electrónico a su solicitud. Cuando un usuario solicita un cambio, su contraseña sigue siendo la misma hasta que pulsa en el enlace en este correo electrónico.
 {: shortdesc}
 
 
@@ -166,7 +166,7 @@ Cuando un usuario interactúa con la app, es posible que olvide su contraseña o
     </tr>
     <tr>
       <td><code>%{resetPassword.code}</code></td>
-      <td> Muestra una clave de acceso de un solo uso como parte del URL. Esto significa que cada persona tendría un código diferente. Ejemplo: <code>https://us-south.appid.cloud.ibm.com/wfm/verify/6574839563478</code></td>
+      <td> Muestra una clave de acceso de un solo uso como parte del URL. Esto significa que cada persona tendría un código diferente. Ejemplo: `https://us-south.appid.cloud.ibm.com/wfm/verify/6574839563478`</td>
     </tr>
     <tr>
       <td><code>%{resetPassword.link}</code></td>
@@ -174,7 +174,7 @@ Cuando un usuario interactúa con la app, es posible que olvide su contraseña o
     </tr>
   </table>
 
-  También puede utilizar los parámetros de mensaje listados en la sección [Mensaje de bienvenida](/docs/services/appid?topic=appid-cd-messages#cd-messages-welcome).
+  También puede utilizar los parámetros de mensaje que se listan en la sección [Mensaje de bienvenida](/docs/services/appid?topic=appid-cd-messages#cd-messages-welcome).
   {: tip}
 
 4. Defina una hora de vencimiento para el URL de acción. El URL de vencimiento es la cantidad de tiempo, en minutos, que un usuario tiene para completar la acción antes de que caduque el enlace de verificación. Este valor también afecta a la cantidad de tiempo que su enlace de restablecimiento de contraseña es válido.
@@ -194,7 +194,7 @@ Puede hacer saber al usuario cuándo se ha actualizado su contraseña. Esto es �
 
 2. Establezca la opción **Correo electrónico de contraseña cambiada** en **Habilitado**.
 
-3. Personalice el contenido del mensaje. Puede añadir parámetros e insertar imágenes utilizando la interfaz de usuario. Para cambiar el [idioma](/docs/services/appid?topic=appid-cd-messages#cd-languages) del mensaje, puede utilizar <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization" target="_blank">las API de <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a> para establecer el idioma. Sin embargo, usted es el responsable del contenido y la traducción del mensaje. Consulte la tabla siguiente para ver los distintos parámetros que puede utilizar en el mensaje. Si un usuario no proporciona la información extraída por el parámetro, aparecerá en blanco.
+3. Personalice el contenido del mensaje. Puede añadir parámetros e insertar imágenes utilizando la interfaz de usuario. Para cambiar el [idioma](/docs/services/appid?topic=appid-cd-messages#cd-languages) del mensaje, puede utilizar <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization" target="_blank">las API de <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a> para establecer el idioma. Sin embargo, usted es el responsable del contenido y la traducción del mensaje. Consulte la tabla siguiente para ver los distintos parámetros que puede utilizar en el mensaje. Si un usuario no proporciona la información que extrae el parámetro, aparecerá en blanco.
 
   <table>
     <tr>
@@ -210,7 +210,7 @@ Puede hacer saber al usuario cuándo se ha actualizado su contraseña. Esto es �
     </tr>
   </table>
 
-  También puede utilizar los parámetros de mensaje listados en la sección [Mensaje de bienvenida](/docs/services/appid?topic=appid-cd-messages#cd-messages-welcome).
+  También puede utilizar los parámetros de mensaje que se listan en la sección [Mensaje de bienvenida](/docs/services/appid?topic=appid-cd-messages#cd-messages-welcome).
   {: tip}
 
 4. Pulse **Guardar**.
@@ -283,28 +283,28 @@ Para configurar el remitente de correo electrónico personalizado, debe utilizar
 
 2. Configure un punto de extensión que pueda escuchar la solicitud de publicación. El punto final debe poder leer la carga útil que proviene de {{site.data.keyword.appid_short_notm}} y enviar el correo electrónico con el remitente de correo electrónico personalizado.
 
-3. El cuerpo enviado desde {{site.data.keyword.appid_short_notm}} tiene el formato siguiente: `{"jws": "jws-format-string"}`. Una vez haya descodificado y verificado la carga útil, el contenido será una serie JSON.
+3. El cuerpo que envía {{site.data.keyword.appid_short_notm}} tiene el formato siguiente: `{"jws": "jws-format-string"}`. Una vez haya descodificado y verificado la carga útil, el contenido será una serie JSON.
 
   ```
-    {
-      "tenant": "tenant-id",
+  {
+    "tenant": "tenant-id",
       "iss" : "https://us-south.appid.cloud.ibm.com/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6050a61", 
       "iat": 1539173126,
       "jti": "uniq-id",
       "message": {
-          "to": "your@mail.com",
+        "to": "your@mail.com",
           "from": {
-              "name": "My Awesome Service",
+            "name": "My Awesome Service",
               "address": "no-reply@company.com"
-          },
+        },
           "replyTo": {
-              "name": "My Awesome Service",
+            "name": "My Awesome Service",
               "address": "yes-reply@company.com"
-          },
+        },
           "subject": "Welcome to My Awesome Service",
           "body": "<p>Hello<p><br/><p>Thanks for signing up John Doe</p>"
-      }
     }
+  }
   ```
   {: screen}
 
@@ -318,12 +318,12 @@ Para configurar el remitente de correo electrónico personalizado, debe utilizar
       <td>El ID de arrendatario de la instancia de {{site.data.keyword.appid_short_notm}}.</td>
     </tr>
     <tr>
-      <td><code> iat </code></td>
+      <td><code>iat</code></td>
       <td>La indicación de fecha y hora de cuando se envió el mensaje.</td>
     </tr>
     <tr>
-      <td><code>jss</code></td>
-      <td>El principio que ha emitido la señal JWS.</td>
+      <td><code>iss</code></td>
+      <td>El principio, o la instancia de {{site.data.keyword.appid_short_notm}}, que ha emitido la señal JWS.</td>
     </tr>
     <tr>
       <td><code>jti</code></td>
@@ -417,7 +417,7 @@ Para cada instancia de {{site.data.keyword.appid_short_notm}}, se generan una cl
 
 6. Compruebe que la configuración se ha configurado correctamente probando el distribuidor de correo electrónico. Utilice la <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/post_email_dispatcher_test" target="_blank">API de prueba</a> para activar una solicitud en el remitente de correo electrónico personalizado configurado.
 
-Para obtener un ejemplo funcional completo, consulte <a href="https://www.ibm.com/blogs/bluemix/2018/10/use-ibm-cloud-app-id-and-your-email-provider-to-brand-mails-sent-to-app-users/" target="_blank">Utilizar un proveedor propio para el envío de correo con {{site.data.keyword.appid_full}}</a>.
+Para obtener un ejemplo funcional completo, consulte <a href="https://www.ibm.com/cloud/blog/use-ibm-cloud-app-id-and-your-email-provider-to-brand-mails-sent-to-app-users" target="_blank">Utilizar un proveedor propio para el envío de correo con {{site.data.keyword.appid_full}}</a>.
 
 
 

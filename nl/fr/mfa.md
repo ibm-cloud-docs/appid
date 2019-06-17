@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-09"
 
 keywords: authentication, authorization, identity, app security, secure, development, two factor, mfa 
 
@@ -172,7 +172,7 @@ Assurez-vous de disposer des prérequis suivants :
        Authorization: Bearer <IAM_TOKEN>
        Content-Type: application/json
   ```
-  {: pre}
+  {: codeblock}
 
   Corps :
   ```
@@ -180,7 +180,7 @@ Assurez-vous de disposer des prérequis suivants :
        "isActive": true
    }
   ```
-  {: pre}
+  {: codeblock}
 
   Exemple de demande :
   ```
@@ -205,7 +205,7 @@ Assurez-vous de disposer des prérequis suivants :
        Authorization: Bearer <IAM_TOKEN>
        Content-Type: application/json
   ```
-  {: pre}
+  {: codeblock}
 
   Corps :
   ```
@@ -213,7 +213,7 @@ Assurez-vous de disposer des prérequis suivants :
        "isActive": true
    }
   ```
-  {: pre}
+  {: codeblock}
 
   Exemple de demande :
 
@@ -246,9 +246,9 @@ Vous pouvez envoyer un message SMS à vos utilisateurs comme second élément de
 
 {{site.data.keyword.appid_short_notm}} utilise [Nexmo](https://www.nexmo.com/products/sms) pour envoyer par SMS les codes à utilisation unique d'authentification multi-facteur. Avant de commencer, vérifiez que vous disposez d'une instance {{site.data.keyword.appid_short_notm}} qui figure sur le [plan de tarification à tranches graduées](/docs/services/appid?topic=appid-faq#faq-pricing) et des informations Nexmo suivantes.
 
- - Procurez-vous votre clé d'API et votre valeur confidentielle Nexmo. Ces informations figurent sur la page des paramètres de votre compte dans le tableau de bord Nexmo. Pour plus d'informations sur l'obtention de vos données d'identification, voir la [documentation Nexmo](https://developer.nexmo.com/concepts/guides/authentication#api-key-and-secret).
+ - Procurez-vous votre clé d'API et votre secret Nexmo. Ces informations figurent sur la page des paramètres de votre compte dans le tableau de bord Nexmo. Pour plus d'informations sur l'obtention de vos données d'identification, voir la [documentation Nexmo](https://developer.nexmo.com/concepts/guides/authentication#api-key-and-secret).
 
- - Enregistrez votre ID d'émetteur ou le numéro `émetteur` dans Nexmo. Ce numéro `émetteur` est celui qui s'affiche sur le téléphone de votre utilisateur pour indiquer d'où provient le SMS. Pour plus d'informations, voir la [documentation Nexmo](https://help.nexmo.com/hc/en-us/articles/217571017-What-is-a-Sender-ID).
+ - Enregistrez votre ID d'émetteur ou le numéro `émetteur` dans Nexmo. Ce numéro `émetteur` est celui qui s'affiche sur le téléphone de votre utilisateur pour indiquer d'où provient le SMS. Dans certains pays, Nexmo prend en charge les ID d'émetteur alphanumériques. {{site.data.keyword.appid_short_notm}} utilise la valeur que vous avez entrée en tant qu'ID d'émetteur Nexmo. Par conséquent, s'ils sont pris en charge par Nexmo, vous pouvez utiliser les ID avec {{site.data.keyword.appid_short_notm}}. Pour plus d'informations, voir la [documentation Nexmo](https://help.nexmo.com/hc/en-us/articles/217571017-What-is-a-Sender-ID).
 
 
 ### Avec l'interface graphique
@@ -259,7 +259,7 @@ Pour configurer l'authentification multi-facteur avec l'interface graphique, con
 
 1. Accédez à l'onglet **Cloud Directory > Authentification multi-facteur** du tableau de bord {{site.data.keyword.appid_short_notm}}.
 
-2. Dans la section **Activer l'authentification multi-facteur**, sur l'onglet des **paramètres**, basculez l'authentification multi-facteur sur **Activé**. Confirmez que vous avez compris que l'authentification multi-facteur est facturée en tant qu'[événement de sécurité avancée](/docs/services/appid?topic=appid-faq#faq-pricing). 
+2. Dans la section **Activer l'authentification multi-facteur**, sur l'onglet des **paramètres**, basculez l'authentification multi-facteur sur **Activé**. Confirmez que vous avez compris que l'authentification multi-facteur est facturée en tant qu'[événement de sécurité avancée](/docs/services/appid?topic=appid-faq#faq-pricing).
 
 3. Sélectionnez **SMS** comme **méthode d'authentification**.
 
@@ -273,7 +273,7 @@ Pour configurer l'authentification multi-facteur avec l'interface graphique, con
 
     4. Copiez la valeur de la zone **API secret** du tableau de bord Nexmo et collez-la dans la zone **Secret** du tableau de bord {{site.data.keyword.appid_short_notm}}.
 
-    5. Entrez le [numéro](https://help.nexmo.com/hc/en-us/articles/217571017-What-is-a-Sender-ID) à partir duquel vous voulez envoyer vos messages. Un numéro valide est au format qui respecte [format de numérotation international E.164](https://en.wikipedia.org/wiki/E.164) (par exemple, pour un numéro au Etats-Unis, +1 999 888 7777). Vous devez indiquer à la fois le code pays précédé d'un signe + et le numéro national d'abonné.
+    5. Entrez [l'ID](https://help.nexmo.com/hc/en-us/articles/217571017-What-is-a-Sender-ID) à partir duquel vous souhaitez envoyer des messages. Un format valide suit le [format de numérotation international E.164](https://en.wikipedia.org/wiki/E.164) (par exemple, pour un numéro aux Etats-Unis, `+1 999 888 7777 `). Vous devez spécifier à la fois le code pays précédé du signe `+` et le numéro national de l'abonné. Dans certains pays, Nexmo prend en charge les ID d'émetteur alphanumériques. {{site.data.keyword.appid_short_notm}} utilise la valeur que vous avez entrée en tant qu'ID d'émetteur Nexmo. Par conséquent, s'ils sont pris en charge par Nexmo, vous pouvez utiliser les ID avec {{site.data.keyword.appid_short_notm}}. 
 
 
 
@@ -298,7 +298,7 @@ En-tête :
        Authorization: Bearer <IAM_TOKEN>
        Content-Type: application/json
   ```
-  {: pre}
+  {: codeblock}
 
 Corps :
 
@@ -307,7 +307,7 @@ Corps :
    "isActive": true
    }
   ```
-  {: pre}
+  {: codeblock}
 
 
 Exemple de demande :
@@ -325,7 +325,7 @@ Exemple de demande :
   {: screen}
 
 2. Activez le canal d'authentification multi-facteur en envoyant une requête PUT au noeud final `/mfa/channels/{channel}` avec votre configuration d'authentification multi-facteur. Lorsque `isActive` est défini sur `true`, votre canal d'authentification multi-facteur est activé.
-`config` extrait la clé d'API et la valeur confidentielle Nexmo ainsi que le numéro `émetteur`.
+`config` extrait la clé d'API et le secret Nexmo ainsi que le numéro de `from`.
 
 En-tête :
 
@@ -335,7 +335,7 @@ En-tête :
        Authorization: Bearer <IAM_TOKEN>
        Content-Type: application/json
   ```
-  {: pre}
+  {: codeblock}
 
 Corps :
 
@@ -349,7 +349,7 @@ Corps :
       }
   }
   ```
-  {: pre}
+  {: codeblock}
 
 Exemple de demande :
 
@@ -382,7 +382,7 @@ En-tête :
      Authorization: Bearer <IAM_TOKEN>
      Content-Type: application/json
   ```
-  {: pre}
+  {: codeblock}
 
 Corps :
 
@@ -391,7 +391,7 @@ Corps :
     "phone_number": "phoneNumber-receives-test-message"
   }
   ```
-  {: pre}
+  {: codeblock}
 
 Exemple de demande :
 

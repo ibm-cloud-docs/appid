@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-11"
+lastupdated: "2019-05-20"
 
 keywords: authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
@@ -48,7 +48,7 @@ Vous pouvez utiliser des paramètres dans vos messages afin de les personnaliser
   </tr>
   <tr>
     <td><code>%{display.logo}</code></td>
-    <td> Affiche l'image que vous avez configurée pour votre widget de connexion. </td>
+    <td> Affiche l'image que vous avez configurée pour votre widget de connexion.</td>
   </tr>
   <tr>
     <td><code>%{user.displayName}</code></td>
@@ -80,7 +80,7 @@ Vous pouvez utiliser des paramètres dans vos messages afin de les personnaliser
 ### Courrier électronique de bienvenue
 {: #cd-messages-welcome}
 
-Lorsqu'un utilisateur se connecte à votre application, vous pouvez souhaiter lui envoyer un message de bienvenue.
+Lorsqu'un utilisateur se connecte à votre application, vous pouvez souhaiter lui envoyer un message de bienvenue. 
 {: shortdesc}
 
 1. Accédez à l'onglet **Modèles de flux de travaux > Courrier électronique de bienvenue** du tableau de bord du service.
@@ -95,8 +95,7 @@ Lorsqu'un utilisateur se connecte à votre application, vous pouvez souhaiter lu
 ### Courrier électronique de vérification
 {: #cd-messages-verification}
 
-Lorsqu'un utilisateur se connecte à votre application à l'aide de son adresse électronique, vous pouvez lui envoyer un message lui demandant de confirmer son identité. Vous limiterez ainsi le nombre de faux comptes (notamment les robots) qui peuvent s'inscrire à votre application. Vous pouvez restreindre l'accès à votre application tant que l'utilisateur n'a pas prouvé la validité de son adresse électronique.
-Utilisable aussi comme moyen de gérer pour quels utilisateurs vous créez des profils. Notez que les utilisateurs ajoutés manuellement via le tableau de bord {{site.data.keyword.appid_short_notm}} ou l'API de création d'utilisateur ne reçoivent pas automatiquement ce courrier électronique.
+Lorsqu'un utilisateur se connecte à votre application à l'aide de son adresse électronique, vous pouvez lui envoyer un message lui demandant de confirmer son identité. Vous limiterez ainsi le nombre de faux comptes (notamment les robots) qui peuvent s'inscrire à votre application. Vous pouvez restreindre l'accès à votre application jusqu'à ce qu'un utilisateur confirme son adresse e-mail, ou l'utiliser pour gérer les utilisateurs pour qui vous créez des profils. Notez que les utilisateurs ajoutés manuellement via le tableau de bord {{site.data.keyword.appid_short_notm}} ou l'API de création d'utilisateur ne reçoivent pas automatiquement ce courrier électronique.
 {: shortdesc}
 
 
@@ -143,7 +142,7 @@ Utilisable aussi comme moyen de gérer pour quels utilisateurs vous créez des p
 ### Courrier électronique de réinitialisation du mot de passe
 {: #cd-messages-reset}
 
-Lorsqu'un utilisateur interagit avec votre application, il peut avoir oublié son mot de passe ou souhaiter le mettre à jour. Vous pouvez personnaliser le courrier électronique de réponse à cette demande. Lorsqu'un utilisateur demande à modifier son mot de passe, celui-ci reste inchangé tant que l'utilisateur n'aura pas cliqué sur le lien figurant dans ce courrier électronique.
+Lorsqu'un utilisateur interagit avec votre application, il peut avoir oublié son mot de passe ou avoir besoin de le mettre à jour. Vous pouvez personnaliser le courrier électronique de réponse à cette demande. Lorsqu'un utilisateur demande à modifier son mot de passe, celui-ci reste inchangé tant que l'utilisateur n'aura pas cliqué sur le lien figurant dans ce courrier électronique.
 {: shortdesc}
 
 
@@ -167,7 +166,7 @@ Lorsqu'un utilisateur interagit avec votre application, il peut avoir oublié so
     </tr>
     <tr>
       <td><code>%{resetPassword.code}</code></td>
-      <td> Affiche un code d'accès à usage unique incorporé dans l'URL. Chaque personne recevra donc un code différent. Exemple : <code>https://us-south.appid.cloud.ibm.com/wfm/verify/6574839563478</code></td>
+      <td> Affiche un code d'accès à usage unique incorporé dans l'URL. Chaque personne recevra donc un code différent. Exemple : `https://us-south.appid.cloud.ibm.com/wfm/verify/6574839563478`</td>
     </tr>
     <tr>
       <td><code>%{resetPassword.link}</code></td>
@@ -195,7 +194,8 @@ Vous pouvez faire savoir à l'utilisateur que son mot de passe a changé. Cette 
 
 2. Définissez **Courrier électronique de changement de mot de passe** sur **Activé**.
 
-3. Personnalisez le contenu de votre message. Vous pouvez ajouter des paramètres et insérer des images à l'aide de l'interface utilisateur. Pour modifier la [langue](/docs/services/appid?topic=appid-cd-messages#cd-languages) du message, vous pouvez utiliser des <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization" target="_blank">API <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a> afin de définir la langue. Toutefois, le contenu et la traduction du message sont de votre seule responsabilité. Consultez le tableau suivant pour voir les différents paramètres utilisables dans votre message. Un blanc apparaît à la place d'un paramètre si l'utilisateur n'a pas fourni l'information correspondante.
+3. Personnalisez le contenu de votre message. Vous pouvez ajouter des paramètres et insérer des images à l'aide de l'interface utilisateur. Pour modifier la [langue](/docs/services/appid?topic=appid-cd-messages#cd-languages) du message, vous pouvez utiliser des <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization" target="_blank">API <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a> afin de définir la langue. Toutefois, le contenu et la traduction du message sont de votre seule responsabilité. Consultez le tableau suivant pour voir les différents paramètres utilisables dans votre message. Si un utilisateur ne fournit pas l'information recueillie par le paramètre, un blanc apparaît.
+  
 
   <table>
     <tr>
@@ -228,7 +228,7 @@ Avec {{site.data.keyword.appid_short_notm}}, vous pouvez définir un point d'ext
 Vous souhaiterez peut-être utiliser un émetteur de courrier électronique personnalisé pour les raisons suivantes :
 
 - **Domaine personnalisé**
-La configuration d'un répartiteur de courriers électroniques personnalisé vous permet d'avoir un contrôle complet sur l'envoi des messages électroniques. Cela inclut la personnalisation du domaine d'e-mail, ce qui peut réduire davantage les risques de filtrage des emails en tant que spam. Vous pouvez également améliorer davantage l'expérience de marque des utilisateurs de votre application.
+La configuration d'un répartiteur de courriers électroniques personnalisé vous permet d'avoir un contrôle complet sur l'envoi des messages électroniques. Cela inclut la personnalisation du domaine d'e-mail, ce qui peut réduire davantage les risques de filtrage des e-mails en tant que spam. Vous pouvez également améliorer davantage l'expérience de marque des utilisateurs de votre application.
 
 - **Analyses et dépannage**
 Obtenez des analyses de votre fournisseur d'e-mail telles que le nombre de personnes ayant ouvert les courriers électroniques ou les messages non distribués. Le fait de pouvoir suivre des messages individuels et consulter des statistiques globales peut vous aider à résoudre des problèmes.
@@ -284,28 +284,28 @@ Pour configurer votre émetteur de courrier électronique personnalisé, vous de
 
 2. Configurez un point d'extension pouvant écouter la demande d'envoi. Ce noeud final doit pouvoir lire le contenu provenant d'{{site.data.keyword.appid_short_notm}} et envoyer le courrier électronique avec votre émetteur de courrier électronique personnalisé.
 
-3. Le corps envoyé depuis {{site.data.keyword.appid_short_notm}} est au format suivant : `{"jws": "jws-format-string"}`. Après avoir décodé et vérifié le contenu, celui-ci est une chaîne JSON.
+3. Le corps envoyé par {{site.data.keyword.appid_short_notm}} est au format suivant : `{"jws": "jws-format-string"}`. Après avoir décodé et vérifié le contenu, celui-ci est une chaîne JSON.
 
   ```
-    {
-      "tenant": "tenant-id",
+  {
+    "tenant": "tenant-id",
       "iss" : "https://us-south.appid.cloud.ibm.com/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6050a61", 
       "iat": 1539173126,
       "jti": "uniq-id",
       "message": {
-          "to": "your@mail.com",
+        "to": "your@mail.com",
           "from": {
-              "name": "My Awesome Service",
+            "name": "My Awesome Service",
               "address": "no-reply@company.com"
-          },
+        },
           "replyTo": {
-              "name": "My Awesome Service",
+            "name": "My Awesome Service",
               "address": "yes-reply@company.com"
-          },
+        },
           "subject": "Welcome to My Awesome Service",
           "body": "<p>Hello<p><br/><p>Thanks for signing up John Doe</p>"
-      }
     }
+  }
   ```
   {: screen}
 
@@ -323,8 +323,8 @@ Pour configurer votre émetteur de courrier électronique personnalisé, vous de
       <td>Horodatage d'envoi du message.</td>
     </tr>
     <tr>
-      <td><code>jss</code></td>
-      <td>Entité émettrice principale du jeton JWS.</td>
+      <td><code>iss</code></td>
+      <td>Principe ou instance {{site.data.keyword.appid_short_notm}} ayant émis le jeton JWS.</td>
     </tr>
     <tr>
       <td><code>jti</code></td>
@@ -418,7 +418,7 @@ Pour chaque instance {{site.data.keyword.appid_short_notm}}, une clé privée et
 
 6. Vérifiez que votre configuration est correcte en testant votre répartiteur de courriers électroniques. Utilisez l'<a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/post_email_dispatcher_test" target="_blank">API de test</a> pour déclencher une demande auprès de votre émetteur de courrier électronique personnalisé configuré.
 
-Pour un exemple complet, voir <a href="https://www.ibm.com/blogs/bluemix/2018/10/use-ibm-cloud-app-id-and-your-email-provider-to-brand-mails-sent-to-app-users/" target="_blank">Use your own provider for mail sent with {{site.data.keyword.appid_full}}</a>.
+Pour un exemple complet, voir <a href="https://www.ibm.com/cloud/blog/use-ibm-cloud-app-id-and-your-email-provider-to-brand-mails-sent-to-app-users" target="_blank">Use your own provider for mail sent with {{site.data.keyword.appid_full}}</a>.
 
 
 

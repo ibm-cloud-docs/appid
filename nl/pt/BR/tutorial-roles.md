@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-08"
+lastupdated: "2019-05-31"
 
 keywords: authentication, authorization, identity, app security, secure, access management, roles, attributes, users
 
@@ -38,7 +38,7 @@ As APIs são uma novidade para você? Experimente com essa [Coleção do Postman
 Você é um desenvolvedor de um parque temático fictício. Você é designado com o gerenciamento de acesso para o [aplicativo da web](/docs/services/appid?topic=appid-web-apps) e sente que a maneira mais fácil de fazer isso é configurando funções para cada tipo de usuário. Você tem vários tipos diferentes de funções, como equipe do parque e visitantes, que precisam de níveis diferentes de permissões. Você deseja ser capaz de aperfeiçoar o processo e assegurar que os usuários tenham a função correta designada a partir da primeira vez que eles se conectem ao aplicativo.  
 {: shortdesc}
 
-Sem problemas! É possível usar o [recurso de atributos customizados](/docs/services/appid?topic=appid-custom-attributes) do {{site.data.keyword.appid_short_notm}} para armazenar qualquer tipo de informações relacionadas ao usuário. Portanto, como você está trabalhando com o controle de acesso baseado na função, é possível criar um atributo que é chamado `role` e designar valores diferentes para especificar um tipo de função. Por exemplo, o parque temático pode ter `visitors` ou `staff` que poderiam ser diferentes valores para o atributo `role`. Em seguida, é possível assegurar que seu código do aplicativo imponha as políticas de acesso e os privilégios que você designou.
+Sem problemas! É possível usar o [recurso de atributos customizados](/docs/services/appid?topic=appid-profiles) do {{site.data.keyword.appid_short_notm}} para armazenar qualquer tipo de informações relacionadas ao usuário. Portanto, como você está trabalhando com o controle de acesso baseado na função, é possível criar um atributo que é chamado `role` e designar valores diferentes para especificar um tipo de função. Por exemplo, o parque temático pode ter `visitors` ou `staff` que poderiam ser diferentes valores para o atributo `role`. Em seguida, é possível assegurar que seu código do aplicativo imponha as políticas de acesso e os privilégios que você designou.
 
 Embora este tutorial seja gravado especificamente com apps da web e o Cloud Directory em mente, os atributos podem ser usados em um sentido muito mais amplo. Os atributos customizados podem ser qualquer coisa que você deseja que eles sejam. Desde que você fique abaixo dos atributos de 100k e os formate como um objeto JSON simples, é possível armazenar todos os tipos de informações.
 {: note}
@@ -87,14 +87,14 @@ Esse processo não finaliza o registro do Cloud Directory. O usuário ainda deve
   ```
   ibmcloud login
   ```
-  {: pre}
+  {: codeblock}
 
 2. Obtenha um token de acesso do IAM.
 
   ```
   ibmcloud iam oauth-tokens
   ```
-  {: pre}
+  {: codeblock}
 
 3. Faça uma solicitação de POST para criar um perfil do usuário para o novo usuário que contém o atributo `staff`. Certifique-se de que é possível acessar e validar o e-mail que você usa.
 
@@ -113,7 +113,7 @@ Esse processo não finaliza o registro do Cloud Directory. O usuário ainda deve
     }
   }'
   ```
-  {: pre}
+  {: codeblock}
 
   Saída de resposta bem-sucedida:
 
@@ -132,7 +132,7 @@ Esse processo não finaliza o registro do Cloud Directory. O usuário ainda deve
   --header 'Authorization: Bearer <iam-access-token>' \
   --header 'Content-Type: application/json' \
   ```
-  {: pre}
+  {: codeblock}
 
   Corpo de resposta bem-sucedido:
 
@@ -154,7 +154,7 @@ Esse processo não finaliza o registro do Cloud Directory. O usuário ainda deve
 ## Etapa 3: Atualizando atributos do usuário
 {: #roles-update-attributes}
 
-O Cloud Land está crescendo. Para acompanhar o crescimento, sua empresa está contratando pessoas. O usuário `staff` da etapa dois agora é gerente. É possível atualizar seu perfil [designando uma nova função](/docs/services/appid?topic=appid-custom-attributes).
+O Cloud Land está crescendo. Para acompanhar o crescimento, sua empresa está contratando pessoas. O usuário `staff` da etapa dois agora é gerente. É possível atualizar seu perfil [designando uma nova função](/docs/services/appid?topic=appid-profiles#profile-set-custom).
 {: shortdesc}
 
 1. Atualize o perfil.
@@ -172,7 +172,7 @@ O Cloud Land está crescendo. Para acompanhar o crescimento, sua empresa está c
     }
   }'
   ```
-  {: pre}
+  {: codeblock}
 
 3. Visualize o perfil para verificar se ele foi atualizado corretamente.
 
@@ -182,7 +182,7 @@ O Cloud Land está crescendo. Para acompanhar o crescimento, sua empresa está c
   -- header 'Authorization: Bearer < iam-access-token>' \
   -- header 'Content-Type: application / json' \
   ```
-  {: pre}
+  {: codeblock}
 
   Saída de resposta bem-sucedida:
 
@@ -236,7 +236,7 @@ A [configuração do token](/docs/services/appid?topic=appid-customizing-tokens#
       ]
   }'
   ```
-  {: pre}
+  {: codeblock}
 
   <table>
     <tr>
@@ -314,7 +314,7 @@ Opcionalmente, é possível verificar se a etapa 4 foi bem-sucedida, visualizand
   --header `Accept: application/json`
   - d 'grant_type=password&username=<user-email>%40<user-email-domain>&password=<user-password>
   ```
-  {: pre}
+  {: codeblock}
 
 5. Decodifique o token de acesso.
   1. Copie o token na saída de resposta do comando anterior.

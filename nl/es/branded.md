@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-20"
 
 keywords: authentication, authorization, identity, app security, secure, customizing apps, directory, registry, 
 
@@ -62,15 +62,15 @@ El servicio utiliza flujos de otorgamiento de OAuth 2.0 para asignar el proceso 
 
 Sí. Compruebe cualquiera de los ejemplos siguientes para ver el directorio en la nube en acción:
 
-* <a href="https://www.ibm.com/blogs/bluemix/2018/01/use-branded-ui-user-sign-app-id/" target="_blank">Utilice una IU de su propia marca para el inicio de sesión del usuario con {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>
-* <a href="https://www.ibm.com/blogs/bluemix/2018/06/use-ui-flows-user-sign-sign-app-id/" target="_blank">Utilice una IU y flujos de su propia marca para el registro e inicio de sesión con {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>
-* <a href="https://www.ibm.com/blogs/bluemix/2018/06/custom-login-page-app-id-integration/" target="_blank">Utilice una página de inicio de sesión personalizada con {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>
+* <a href="https://www.ibm.com/cloud/blog/use-branded-ui-user-sign-app-id" target="_blank">Utilice una IU de su propia marca para el inicio de sesión del usuario con {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>
+* <a href="https://www.ibm.com/cloud/blog/use-ui-flows-user-sign-sign-app-id" target="_blank">Utilice una IU y flujos de su propia marca para el registro e inicio de sesión con {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>
+* <a href="https://www.ibm.com/cloud/blog/custom-login-page-app-id-integration" target="_blank">Utilice una página de inicio de sesión personalizada con {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>
 
 
 ## Gestión de marca en la app con el SDK de Android
 {: #branded-ui-android}
 
-Con el Directorio en la nube habilitado, puede llamar a pantallas personalizadas con el SDK de Android. Puede elegir la combinación de las pantallas con las que desea que sus usuarios puedan interactuar.<a href="https://www.ibm.com/blogs/bluemix/2018/01/use-branded-ui-user-sign-app-id/" target="blank">Consulte este blog<img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a> para obtener un ejemplo detallado.
+Con el Directorio en la nube habilitado, puede llamar a pantallas personalizadas con el SDK de Android. Puede elegir la combinación de las pantallas con las que desea que sus usuarios puedan interactuar.<a href="https://www.ibm.com/cloud/blog/use-branded-ui-user-sign-app-id" target="blank">Consulte este blog<img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a> para obtener un ejemplo detallado.
 {: shortdesc}
 
 
@@ -94,7 +94,7 @@ Con el Directorio en la nube habilitado, puede llamar a pantallas personalizadas
         }
   });
   ```
-  {: pre}
+  {: codeblock}
 
 </br>
 </br>
@@ -159,15 +159,15 @@ Mediante `WebAppStrategy`, los usuarios pueden iniciar sesión en sus apps web c
     </thead>
     <tbody>
       <tr>
-        <td><code> successRedirect </code></td>
+        <td><code>successRedirect</code></td>
         <td>El URL al que desea redirigir al usuario tras una autenticación correcta.</td>
       </tr>
       <tr>
-        <td><code> failureRedirect </code></td>
+        <td><code>failureRedirect</code></td>
         <td>El URL al que desea redirigir al usuario si la autenticación falla.</td>
       </tr>
       <tr>
-        <td><code> failureFlash </code></td>
+        <td><code>failureFlash</code></td>
         <td>Si se establece en <code>true</code>, se devuelve un mensaje de error desde el servicio del Directorio en la nube. De manera predeterminada, el valor se establece en <code>false</code>.</td>
       </tr>
     </tbody>
