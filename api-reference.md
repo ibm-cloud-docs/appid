@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-09"
+lastupdated: "2019-06-18"
 
 keywords: Authentication, authorization, identity, app security, secure, application identity, app to app, access token
 
@@ -10,7 +10,7 @@ subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -127,4 +127,4 @@ if (r.status_code >= 200) :~
 ## Next steps
 {: #api-try}
 
-To try it out yourself, see <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/" target="_blank">the {{site.data.keyword.appid_short_notm}} Management Rest API <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
+To try it out yourself, see the [{{site.data.keyword.appid_short_notm}} Management Rest API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/){: external}

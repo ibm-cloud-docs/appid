@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-14"
+lastupdated: "2019-06-18"
 
-keywords: authentication, authorization, identity, app security, secure, application identity, app to app, access token
+keywords: Authentication, authorization, identity, app security, secure, application identity, app to app, access token
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -37,7 +37,7 @@ There are several reasons that you might want one application to communicate wit
 ### How does the flow work?
 {: #app-flow-how}
 
-{{site.data.keyword.appid_short_notm}} leverages the OAuth 2.0 client credentials flow to protect communication. After an app registers with {{site.data.keyword.appid_short_notm}}, the app obtains a client ID and secret. With this information, the app can request an access token from {{site.data.keyword.appid_short_notm}} and be authorized to access a protected resource or API. In the application identity and authorization flow, the application is granted only an access token. It does not obtain an identity token or a refresh token. For more information about tokens, see [Understanding tokens](/docs/services/appid?topic=appid-tokens#tokens).
+{{site.data.keyword.appid_short_notm}} leverages the OAuth 2.0 client credentials flow to protect communication. After an app registers with {{site.data.keyword.appid_short_notm}}, the app obtains a client ID and secret. With this information, the app can request an access token from {{site.data.keyword.appid_short_notm}} and be authorized to access a protected resource or API. In the application identity and authorization flow, the application is granted only an access token. It does not obtain an identity token or a refresh token. For more information about tokens, see [Understanding tokens](/docs/services/appid?topic=appid-tokens).
 
 This work flow is meant to be used only with trusted applications where there is no risk of the secret being misused or leaked. The application always holds the client secret. It will not work for mobile apps.
 {: tip}
@@ -72,7 +72,7 @@ The client secret that is used to authenticate the client is highly sensitive an
 ### With the API
 {: #app-register-api}
 
-1. Make a POST request to the [`/management/v4/{tenantId}/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Applications/mgmt.registerApplication).
+1. Make a POST request to the [`/management/v4/{tenantId}/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Applications/mgmt.registerApplication){: external}.
 
   Request:
 
@@ -104,7 +104,7 @@ The client secret that is used to authenticate the client is highly sensitive an
 
 After your app is registered with {{site.data.keyword.appid_short_notm}} and you have obtained your credentials, you can make a request to the {{site.data.keyword.appid_short_notm}} authorization server to get an Access Token.
 
-1. Make an HTTP POST request to the [`/token` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization%20Server%20-%20Authorization%20Server%20V4/oauth-server.token). The authorization for the request is `Basic auth` with the client ID and secret being used as the username and password which are base64 encoded.
+1. Make an HTTP POST request to the [`/token` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization%20Server%20-%20Authorization%20Server%20V4/oauth-server.token){: external}. The authorization for the request is `Basic auth` with the client ID and secret being used as the username and password which are base64 encoded.
 
   Request :
   ```
@@ -130,9 +130,9 @@ After your app is registered with {{site.data.keyword.appid_short_notm}} and you
 ## Tutorial: End-to-end flow with the Node.js SDK
 {: tutorial-node}
 
-1. Obtain an [access token](/docs/services/appid?topic=appid-tokens#tokens) in one of the following ways:
+1. Obtain an [access token](/docs/services/appid?topic=appid-tokens) in one of the following ways:
 
-  * From the {{site.data.keyword.appid_short_notm}} [Node.js server SDK](https://github.com/ibm-cloud-security/appid-serversdk-nodejs) by using the token manager. Initialize the token manager with your app credentials and make a call to the `getApplicationIdentityToken()` method to obtain the token.
+  * From the {{site.data.keyword.appid_short_notm}} [Node.js server SDK](https://github.com/ibm-cloud-security/appid-serversdk-nodejs){: external} by using the token manager. Initialize the token manager with your app credentials and make a call to the `getApplicationIdentityToken()` method to obtain the token.
 
     ```
     const TokenManager = require('ibmcloud-appid').TokenManager;

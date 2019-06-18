@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-21"
+lastupdated: "2019-06-18"
 
-keywords: authentication, authorization, identity, app security, secure, access, tokens
+keywords: Authentication, authorization, identity, app security, secure, access, tokens
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -40,13 +40,13 @@ These key terms can help you understand the way that the service breaks down the
 
 ### OAuth 2
 {: #term-oauth}
-<a href="https://tools.ietf.org/html/rfc6749" target="_blank">OAuth 2 <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> is open standard protocol that is used to provide app authorization.
+[OAuth 2.0](https://tools.ietf.org/html/rfc6749){: external} is open standard protocol that is used to provide app authorization.
 
 
 ### Open ID Connect (OIDC)
 {: #term-oidc}
 
-<a href="https://openid.net/developers/specs/" target="_blank">OIDC <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> is an authentication layer that works on top of OAuth 2. When you use OIDC and {{site.data.keyword.appid_short_notm}} together, your application credentials help to configure your OAuth endpoints. When you use the SDK the endpoint URLs are built automatically. But, you can also build the URLs yourself by using your service credentials. The URL takes the following form: {{site.data.keyword.appid_short_notm}} service endpoint + "/oauth/v4" + /tenantID.
+[OIDC](https://openid.net/developers/specs/){: external} is an authentication layer that works on top of OAuth 2. When you use OIDC and {{site.data.keyword.appid_short_notm}} together, your application credentials help to configure your OAuth endpoints. When you use the SDK the endpoint URLs are built automatically. But, you can also build the URLs yourself by using your service credentials. The URL takes the following form: {{site.data.keyword.appid_short_notm}} service endpoint + "/oauth/v4" + /tenantID.
 
 Example:
 
@@ -94,12 +94,12 @@ When you use the SDK the endpoint URLs are built automatically.
 ### Tokens
 {: #term-token}
 
-The service uses three different types of tokens. Access tokens represent authorization and enable communication with [back-end resources](/docs/services/appid?topic=appid-backend) that are protected by authorization filters that are set by {{site.data.keyword.appid_short}}. Identity tokens represent authentication and contain information about the user. A refresh token can be used to obtain a new access token without re-authenticating the user. By using refresh tokens, users can allow their information to be remembered by the application. This way they can remain signed in. Tokens are set in the **Identity Providers > Manage** of the {{site.data.keyword.appid_short}} dashboard. For more information about tokens and how they're used in {{site.data.keyword.appid_short}}, check out [Managing tokens](/docs/services/appid?topic=appid-tokens#tokens).
+The service uses three different types of tokens. Access tokens represent authorization and enable communication with [back-end resources](/docs/services/appid?topic=appid-backend) that are protected by authorization filters that are set by {{site.data.keyword.appid_short}}. Identity tokens represent authentication and contain information about the user. A refresh token can be used to obtain a new access token without re-authenticating the user. By using refresh tokens, users can allow their information to be remembered by the application. This way they can remain signed in. Tokens are set in the **Identity Providers > Manage** of the {{site.data.keyword.appid_short}} dashboard. For more information about tokens and how they're used in {{site.data.keyword.appid_short}}, check out [Managing tokens](/docs/services/appid?topic=appid-tokens).
 
 ### Authorization headers
 {: #term-auth-header}
 
-{{site.data.keyword.appid_short}} complies with the <a href="https://tools.ietf.org/html/rfc6750" target="blank">token bearer specification <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> and uses a combination of access and identity tokens that are sent as an HTTP Authorization header. The Authorization header contains three different parts that are separated by white space. The tokens are base64 encoded. The identity token is optional.
+{{site.data.keyword.appid_short}} complies with the [token bearer specification](https://tools.ietf.org/html/rfc6750){: external} and uses a combination of access and identity tokens that are sent as an HTTP Authorization header. The Authorization header contains three different parts that are separated by white space. The tokens are base64 encoded. The identity token is optional.
 
 Example:
 
