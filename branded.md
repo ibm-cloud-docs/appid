@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-20"
+lastupdated: "2019-06-18"
 
-keywords: authentication, authorization, identity, app security, secure, customizing apps, directory, registry, 
+keywords: Authentication, authorization, identity, app security, secure, customizing apps, directory, registry, 
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -38,11 +38,13 @@ When you reuse your existing UIs, you can create a cohesive sign-in flow for you
 {: #branded-requirements}
 
 
-To display your own UIs, you must use [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory) as your identity provider. There are several different ways that Cloud Directory can be [configured](/docs/services/appid?topic=appid-cloud-directory). You can decide the types of messages that you want to send, and customize the content and design. Don't know what to say? Not a problem. There are example messages in the GUI that you can use.
+To display your own UIs, you must use [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory) as your identity provider. There are several different ways that Cloud Directory can be configured. You can decide the types of messages that you want to send, and customize the content and design. Don't know what to say? Not a problem. There are example messages in the GUI that you can use.
 
 
-Want to use a [language](/docs/services/appid?topic=appid-cd-messages#cd-languages) other than English? You can choose another language by using the <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/updateLocalization" target="_blank">language management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>, to display your own translated content.
+Want to use a [language](/docs/services/appid?topic=appid-cd-messages#cd-languages) other than English? You can choose another language by using the [language management APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/updateLocalization){: external}, to display your own translated content.
 {: tip}
+
+
 
 
 ### Can I use some of my own and some of the default screens?
@@ -53,7 +55,7 @@ Yes! You can create a hybrid flow that uses some of your screens and some of the
 ### How are the flows technically different?
 {: #branded-technically}
 
-The service uses OAuth 2.0 grant flows to map the authorization process. When you configure social identity providers such as Facebook, the <a href="https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html" target="_blank">Authorization Grant flow <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> is used to call the Login Widget. When you use your own screens, the <a href="https://oauthlib.readthedocs.io/en/stable/oauth2/grants/password.html" target="_blank">Resource Owner Password Credentials flow <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> is used to provide access and identity tokens that allow you to call your screens.
+The service uses OAuth 2.0 grant flows to map the authorization process. When you configure social identity providers such as Facebook, the [Authorization Grant flow](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html){: external} is used to call the Login Widget. When you use your own screens, the [Resource Owner Password Credentials flow](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/password.html){: external} is used to provide access and identity tokens that allow you to call your screens.
 
 
 
@@ -62,15 +64,15 @@ The service uses OAuth 2.0 grant flows to map the authorization process. When yo
 
 Yes! Check out any of the following examples to see Cloud Directory in action:
 
-* <a href="https://www.ibm.com/cloud/blog/use-branded-ui-user-sign-app-id" target="_blank">Use your own branded UI for user sign-in with {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
-* <a href="https://www.ibm.com/cloud/blog/use-ui-flows-user-sign-sign-app-id" target="_blank">Use your own UI and Flows for User Sign-Up and Sign-in with with {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
-* <a href="https://www.ibm.com/cloud/blog/custom-login-page-app-id-integration" target="_blank">Use a custom login page with  {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
+* [Use your own branded UI for user sign-in with {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/use-branded-ui-user-sign-app-id){: external}
+* [Use your own UI and Flows for User Sign-Up and Sign-in with with {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/use-ui-flows-user-sign-sign-app-id){: external}
+* [Use a custom login page with {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/custom-login-page-app-id-integration){: external}
 
 
 ## Branding your app with the Android SDK
 {: #branded-ui-android}
 
-With Cloud Directory enabled, you can call customized screens with the Android SDK. You can choose the combination of the screens that you'd like your users to be able to interact with.<a href="https://www.ibm.com/cloud/blog/use-branded-ui-user-sign-app-id" target="blank">Check out this blog<img src="../../icons/launch-glyph.svg" alt="External link icon"></a> for a detailed example!
+With Cloud Directory enabled, you can call customized screens with the Android SDK. You can choose the combination of the screens that you'd like your users to be able to interact with. For a detailed example, [check out this blog](https://www.ibm.com/cloud/blog/use-branded-ui-user-sign-app-id){: external}.
 {: shortdesc}
 
 
@@ -102,7 +104,7 @@ With Cloud Directory enabled, you can call customized screens with the Android S
 ## Branding your app with the iOS Swift SDK
 {: #branded-ui-ios-swift}
 
-With Cloud Directory enabled, you can call your own branded screens with the [iOS Swift SDK](https://github.com/ibm-cloud-security/appid-clientsdk-swift).
+With Cloud Directory enabled, you can call your own branded screens with the [iOS Swift SDK](https://github.com/ibm-cloud-security/appid-clientsdk-swift){: external}.
 {: shortdesc}
 
 </br>
@@ -173,7 +175,8 @@ By using `WebAppStrategy`, users can sign in to your web apps with their usernam
     </tbody>
   </table>
 
-**Note**: If you submit the request in HTML, you can use <a href="https://www.npmjs.com/package/body-parser" target="blank">body parser <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> middleware. To see the returned error message, you can use <a href="https://www.npmjs.com/package/connect-flash" target="blank">connect-flash <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>. To see it in action, check out the <a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs/blob/master/samples/web-app-sample.js" target="blank">web app sample <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
+**Note**: If you submit the request in HTML, you can use [body parser](https://www.npmjs.com/package/body-parser){: external} middleware. To see the returned error message, you can use [connect-flash](https://www.npmjs.com/package/connect-flash){: external}. To see it in action, check out the [web app sample](https://github.com/ibm-cloud-security/appid-serversdk-nodejs/blob/master/samples/web-app-sample.js){: external}.
+
 
 
 ## Branding your app with the API
@@ -184,7 +187,7 @@ You can display your own customized screens and take advantage of the authentica
 
 To make this possible, {{site.data.keyword.appid_short_notm}} exposes REST APIs. You can use the REST APIs to build a back-end server that serves your web apps, or to interact with a mobile app with your own custom screens.
 
-The management API is secured with IBM Cloud Identity and Access Management generated tokens, which means that account owners can specify who on their team has which level of access for each service instance. For more information about how IAM and {{site.data.keyword.appid_short_notm}} work together, see [Service access management](/docs/services/appid?topic=appid-service-access-management#service-access-management).
+The management API is secured with IBM Cloud Identity and Access Management generated tokens, which means that account owners can specify who on their team has which level of access for each service instance. For more information about how IAM and {{site.data.keyword.appid_short_notm}} work together, see [Service access management](/docs/services/appid?topic=appid-service-access-management).
 
 After you configure your [settings](/docs/services/appid?topic=appid-cloud-directory#cd-settings), you can call the following endpoints to display each screen.
 
@@ -194,11 +197,11 @@ After you configure your [settings](/docs/services/appid?topic=appid-cloud-direc
 You can use the `/sign_up` endpoint to allow users to sign themselves up for your app.
 Supply the following data in the request body:
   * Your tenantID.
-  * Cloud Directory user data. See [SCIM Full User Representation](https://tools.ietf.org/html/rfc7643#section-8.2) for more details.
+  * Cloud Directory user data. See [SCIM Full User Representation](https://tools.ietf.org/html/rfc7643#section-8.2){: external} for more details.
     * A `password` attribute.
     * In the email array with a `primary` attribute that is set to `true`, you must have at least 1 email address.
 
-Depending on your [email configuration](/docs/services/appid?topic=appid-cd-messages#cd-messages), a user might receive a request for verification, an email that welcomes them when they sign up for you app, or both. Both types of emails are triggered when a user signs up for your app. The verification email contains a link that the user can click to confirm their identity; a screen is displayed, that thanks them for verifying or confirms that their verification is complete.  
+Depending on your [email configuration](/docs/services/appid?topic=appid-cd-messages), a user might receive a request for verification, an email that welcomes them when they sign up for you app, or both. Both types of emails are triggered when a user signs up for your app. The verification email contains a link that the user can click to confirm their identity; a screen is displayed, that thanks them for verifying or confirms that their verification is complete.  
 
 To present your own post verification page:
 
@@ -274,7 +277,7 @@ Supply the following data in the request body:
 
 When a user is signed in to your app, they can update some of their information. You can use the `/Users/{userId}` to get and update their information.
 
-When the user details are updated, the endpoint gets the updated user data in the request body in [SCIM format](https://tools.ietf.org/html/rfc7643#section-8.2). Be sure that you change only the relevant details.
+When the user details are updated, the endpoint gets the updated user data in the request body in [SCIM format](https://tools.ietf.org/html/rfc7643#section-8.2){: external}. Be sure that you change only the relevant details.
 
 Their email address cannot be changed.
 {: tip}
