@@ -62,6 +62,9 @@ IBM Cloud App ID
         token-obtain.md
         customizing-tokens.md
         tokens.md
+
+    iam.md
+    api-reference.md
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
@@ -74,11 +77,10 @@ IBM Cloud App ID
         [Node.js server SDK](https://github.com/ibm-cloud-security/appid-serversdk-nodejs)
         [Swift server SDK](https://github.com/ibm-cloud-security/appid-serversdk-swift)
 
-    iam.md
-    api-reference.md
     at-events.md
     well-known.md
     rate-limits.md
+    privacy-policy.md
     {: .navgroup-end}
 
     {: .navgroup id="help"}
