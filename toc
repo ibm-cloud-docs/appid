@@ -25,10 +25,9 @@ IBM Cloud App ID
         web-apps.md
         mobile-apps.md
         backend-apps.md
+        app-to-app.md
         custom-auth.md
         progressive.md
-        app-to-app.md
-
     manageidp.md
 
     {: .topicgroup}
