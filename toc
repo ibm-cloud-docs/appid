@@ -26,8 +26,8 @@ IBM Cloud App ID
         mobile-apps.md
         backend-apps.md
         app-to-app.md
-        custom-auth.md
-        progressive.md
+    
+    istio.md
     manageidp.md
 
     {: .topicgroup}
@@ -61,6 +61,11 @@ IBM Cloud App ID
         token-obtain.md
         customizing-tokens.md
         tokens.md
+
+    {: .topicgroup}
+    Configuring advanced workflows
+        custom-auth.md
+        progressive.md
 
     iam.md
     api-reference.md
