@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-06-28"
 
 keywords: Authentication, authorization, identity, app security, secure, application identity, app to app, access token
 
@@ -217,6 +217,7 @@ After your app is registered with {{site.data.keyword.appid_short_notm}} and you
   ```
   const express = require('express'),
     passport = require('passport');
+    APIStrategy = require("ibmcloud-appid").APIStrategy;
 
   var app = express();
   app.use(passport.initialize());

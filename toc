@@ -25,10 +25,9 @@ IBM Cloud App ID
         web-apps.md
         mobile-apps.md
         backend-apps.md
-        custom-auth.md
-        progressive.md
         app-to-app.md
-
+    
+    istio.md
     manageidp.md
 
     {: .topicgroup}
@@ -62,6 +61,14 @@ IBM Cloud App ID
         token-obtain.md
         customizing-tokens.md
         tokens.md
+
+    {: .topicgroup}
+    Configuring advanced workflows
+        custom-auth.md
+        progressive.md
+
+    iam.md
+    api-reference.md
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
@@ -74,11 +81,10 @@ IBM Cloud App ID
         [Node.js server SDK](https://github.com/ibm-cloud-security/appid-serversdk-nodejs)
         [Swift server SDK](https://github.com/ibm-cloud-security/appid-serversdk-swift)
 
-    iam.md
-    api-reference.md
     at-events.md
     well-known.md
     rate-limits.md
+    privacy-policy.md
     {: .navgroup-end}
 
     {: .navgroup id="help"}
