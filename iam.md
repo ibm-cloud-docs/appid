@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-09"
+lastupdated: "2019-07-01"
 
 keywords: Authentication, authorization, identity, app security, secure, access, platform, management, permissions
 
@@ -97,7 +97,7 @@ The following table details actions that are mapped to service access roles. Ser
     <td>Can view the details of the service instance such as user data or identity provider information.</td>
   </tr>
   <tr>
-    <td> <i>Writer or Manager</i></td>
+    <td><i>Writer or Manager</i></td>
     <td>View and change an {{site.data.keyword.appid_short_notm}} instance.</td>
     <td>Can perform all Reader actions and edit the service instance, such as editing the identity provider configuration. </li></ul></td>
   </tr>
@@ -337,3 +337,4 @@ To view the {{site.data.keyword.appid_short_notm}} configurations from the CLI, 
     {: codeblock}
 
     The result is a 200 message that contains the identity provider information.
+
