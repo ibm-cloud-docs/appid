@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-28"
+lastupdated: "2019-07-01"
 
 keywords: Authentication, authorization, identity, app security, access, secure, development, any kube, kubernetes, icp, openshift, iks
 
@@ -122,7 +122,7 @@ To install the chart, initialize Helm in your cluster, define the options that y
 ## Applying an authorization and authentication policy
 {: #istio-apply-policy}
 
-An authentication or authorization policy is a set of conditions that must be met before a request can access a resource access. By defining an identity provider's service configuration and an access policy that outlines when a particular access control flow should be used, you can control access to any resource in your service mesh. To see example CRD's, check out the [samples directory](https://github.com/ibm-cloud-security/app-identity-and-access-adapter/samples/crds){: external}.
+An authentication or authorization policy is a set of conditions that must be met before a request can access a resource access. By defining an identity provider's service configuration and an access policy that outlines when a particular access control flow should be used, you can control access to any resource in your service mesh. To see example CRD's, check out the [samples directory](https://github.com/ibm-cloud-security/app-identity-and-access-adapter/tree/master/samples/crds){: external}.
 
 
 ### Defining a Configuration
