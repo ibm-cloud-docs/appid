@@ -41,7 +41,7 @@ Check out the following diagram to see SSO in action.
 3. If the credentials are valid, a user is signed in to your app. At the same time, {{site.data.keyword.appid_short_notm}}, creates a session and sets a cookie on the user's browser.
 4. If a user attempts to sign in to one of your other applications, {{site.data.keyword.appid_short_notm}} detects the session cookie and automatically signs the user into your app. {{site.data.keyword.appid_short_notm}} session cookies are instance-specific and are signed by the instance's unique private key.
 
-At this time, SSO is configured to work when Cloud Directory is the only identity provider enabled. If your instance of {{site.data.keyword.appid_short_notm}} is configured to use multiple identity providers, enabling SSO has no affect on the sign-in flow. Users are prompted to enter their Cloud Director credentials or choose one of the other providers at every sign in.
+At this time, SSO is configured to work when Cloud Directory is the only identity provider enabled. If your instance of {{site.data.keyword.appid_short_notm}} is configured to use multiple identity providers, enabling SSO has no affect on the sign-in flow. Users are prompted to enter their Cloud Directory credentials or choose one of the other providers at every sign in.
 {: note}
 
 
