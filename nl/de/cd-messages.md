@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-11"
+lastupdated: "2019-05-20"
 
 keywords: authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
@@ -44,7 +44,7 @@ Sie können Parameter in Ihren Nachrichten verwenden, um die Nachrichten weiter 
 
 <table>
   <tr>
-    <th colspan=2><img src="images/idea.png" alt="Symbol für weitere Informationen"/> Alle Nachrichtenparameter</th>
+    <th colspan=2><img src="images/idea.png" alt="Symbol für weitere Informationen"/> Alle Nachrichtenparameter </th>
   </tr>
   <tr>
     <td><code>%{display.logo}</code></td>
@@ -80,7 +80,7 @@ Sie können Parameter in Ihren Nachrichten verwenden, um die Nachrichten weiter 
 ### E-Mail: Willkommen
 {: #cd-messages-welcome}
 
-Wenn sich ein Benutzer für Ihre App registriert, dann möchten Sie ihm möglicherweise eine Nachricht senden, um ihn in Ihrer App willkommen zu heißen.
+Wenn sich ein Benutzer für Ihre App registriert, dann möchten Sie ihm möglicherweise eine Nachricht senden, um ihn in Ihrer App willkommen zu heißen. 
 {: shortdesc}
 
 1. Navigieren Sie zur Registerkarte **Workflowvorlagen > Willkommens-E-Mail** des Service-Dashboards.
@@ -88,7 +88,6 @@ Wenn sich ein Benutzer für Ihre App registriert, dann möchten Sie ihm möglich
 2. Legen Sie für **Willkommens-E-Mail** die Einstellung **Aktiviert** fest.
 
 3. Passen Sie den Inhalt Ihrer Nachricht an. Über die Benutzerschnittstelle können Sie Parameter hinzu- und Bilder einfügen. Um die [Sprache](/docs/services/appid?topic=appid-cd-messages#cd-languages) der Nachricht zu ändern, können Sie über die <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization" target="_blank">APIs <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a> die gewünschte Sprache festlegen. Allerdings ist zu beachten, dass Sie für den Inhalt und die Übersetzung der Nachricht verantwortlich sind. In der folgenden Tabelle finden Sie die Liste der Tabellen, die Sie in dieser Nachricht und in allen anderen Nachrichten, die Sie senden können, verwenden können. Wenn ein Benutzer die vom Parameter abgefragte Information nicht angibt, wird im entsprechenden Feld kein Wert angezeigt.
-
 
 4. Klicken Sie auf **Speichern**.
 
@@ -153,7 +152,6 @@ Wenn ein Benutzer mit Ihrer App interagiert, dann vergisst er möglicherweise se
 
 3. Passen Sie den Inhalt Ihrer Nachricht an. Über die Benutzerschnittstelle können Sie Parameter hinzu- und Bilder einfügen. Um die [Sprache](/docs/services/appid?topic=appid-cd-messages#cd-languages) der Nachricht zu ändern, können Sie über die <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization" target="_blank">APIs <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a> die gewünschte Sprache festlegen. Allerdings ist zu beachten, dass Sie für den Inhalt und die Übersetzung der Nachricht verantwortlich sind. In der folgenden Tabelle finden Sie die verschiedenen Parameter, die Sie in Ihrer Nachricht verwenden können. Wenn ein Benutzer die vom Parameter abgefragte Information nicht angibt, wird im entsprechenden Feld kein Wert angezeigt.
 
-
   <table>
     <tr>
       <th colspan=2><img src="images/idea.png" alt="Symbol für weitere Informationen"/> Parameter für vergessenes Kennwort</th>
@@ -168,7 +166,7 @@ Wenn ein Benutzer mit Ihrer App interagiert, dann vergisst er möglicherweise se
     </tr>
     <tr>
       <td><code>%{resetPassword.code}</code></td>
-      <td> Zeigt einen einmaligen Kenncode als Teil der URL an. Das bedeutet, dass jeder Person ein anderer Code zugeordnet ist. Beispiel: <code>https://us-south.appid.cloud.ibm.com/wfm/verify/6574839563478</code></td>
+      <td> Zeigt einen einmaligen Kenncode als Teil der URL an. Das bedeutet, dass jeder Person ein anderer Code zugeordnet ist. Beispiel: `https://us-south.appid.cloud.ibm.com/wfm/verify/6574839563478`</td>
     </tr>
     <tr>
       <td><code>%{resetPassword.link}</code></td>
@@ -189,7 +187,7 @@ Wenn ein Benutzer mit Ihrer App interagiert, dann vergisst er möglicherweise se
 ### E-Mail: Kennwortänderung
 {: #cd-messages-password-change}
 
-Sie können einen Benutzer über die Kennwortaktualisierung benachrichtigen. Dies ist nützlich, wenn die Anforderung zur Kennwortänderung nicht vom Benutzer ausging. So können die Benutzer die erforderlichen Schritte unternehmen, um ihr Konto erneut zu schützen.
+Sie können einen Benutzer über die Kennwortaktualisierung benachrichtigen. Dies ist nützlich, wenn die Anforderung zur Kennwortänderung nicht vom Benutzer ausging. Sie können die richtigen Schritte ausführen, um ihr Konto zu resichern.
 {: shortdesc}
 
 1. Navigieren Sie zur Registerkarte **Workflowvorlagen > Kennwortänderung** des Service-Dashboards.
@@ -197,6 +195,7 @@ Sie können einen Benutzer über die Kennwortaktualisierung benachrichtigen. Die
 2. Legen Sie für **E-Mail bei Kennwortänderung** die Einstellung **Aktiviert** fest.
 
 3. Passen Sie den Inhalt Ihrer Nachricht an. Über die Benutzerschnittstelle können Sie Parameter hinzu- und Bilder einfügen. Um die [Sprache](/docs/services/appid?topic=appid-cd-messages#cd-languages) der Nachricht zu ändern, können Sie über die <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization" target="_blank">APIs <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a> die gewünschte Sprache festlegen. Allerdings ist zu beachten, dass Sie für den Inhalt und die Übersetzung der Nachricht verantwortlich sind. In der folgenden Tabelle finden Sie die verschiedenen Parameter, die Sie in Ihrer Nachricht verwenden können. Wenn ein Benutzer die vom Parameter abgefragte Information nicht angibt, wird im entsprechenden Feld kein Wert angezeigt.
+
 
   <table>
     <tr>
@@ -283,28 +282,28 @@ Zum Konfigurieren Ihres angepassten E-Mail-Absenders müssen Sie die <a href="ht
 
 2. Konfigurieren Sie einen Erweiterungspunkt, der eine POST-Anforderungen überwachen kann. Dieser Endpunkt sollte in der Lage sein, die Nutzdaten zu lesen, die aus {{site.data.keyword.appid_short_notm}} stammen, und die E-Mail mit dem angepassten E-Mail-Absender zu senden.
 
-3. Der Hauptteil, der von {{site.data.keyword.appid_short_notm}} gesendet wird, hat das folgende Format: `{"jws": "jws-format-string"}`. Nachdem Sie die Nutzdaten entschlüsselt und verifiziert haben, ergibt sich als Inhalt eine JSON-Zeichenfolge.
+3. Der Hauptteil, der von {{site.data.keyword.appid_short_notm}} gesendet wird, weist das folgende Format auf: `{"jws": "jws-format-string"}`. Nachdem Sie die Nutzdaten entschlüsselt und verifiziert haben, ergibt sich als Inhalt eine JSON-Zeichenfolge.
 
   ```
-    {
-      "tenant": "tenant-id",
+  {
+    "tenant": "tenant-id",
       "iss" : "https://us-south.appid.cloud.ibm.com/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6050a61",
       "iat": 1539173126,
       "jti": "uniq-id",
       "message": {
-          "to": "your@mail.com",
+        "to": "your@mail.com",
           "from": {
-              "name": "My Awesome Service",
+            "name": "My Awesome Service",
               "address": "no-reply@company.com"
-          },
+        },
           "replyTo": {
-              "name": "My Awesome Service",
+            "name": "My Awesome Service",
               "address": "yes-reply@company.com"
-          },
+        },
           "subject": "Welcome to My Awesome Service",
           "body": "<p>Hello<p><br/><p>Thanks for signing up John Doe</p>"
-      }
     }
+  }
   ```
   {: screen}
 
@@ -322,8 +321,8 @@ Zum Konfigurieren Ihres angepassten E-Mail-Absenders müssen Sie die <a href="ht
       <td>Die Zeitmarke für den Zeitpunkt, zu dem die Nachricht gesendet wurde.</td>
     </tr>
     <tr>
-      <td><code>jss</code></td>
-      <td>Die App ID-Instanz, die das JWS-Token ausgegeben hat.</td>
+      <td><code>iss</code></td>
+      <td>Das Prinzip oder die {{site.data.keyword.appid_short_notm}}-Instanz, von dem bzw. der das JWS-Token ausgegeben wurde. </td>
     </tr>
     <tr>
       <td><code>jti</code></td>
@@ -335,11 +334,11 @@ Zum Konfigurieren Ihres angepassten E-Mail-Absenders müssen Sie die <a href="ht
     </tr>
     <tr>
       <td><code>message: from</code></br><code>name</code></br><code>address</code></td>
-      <td></br>Der Name des Absenders der Nachricht. </br>Die E-Mail-Adresse des Absenders.</td>
+      <td></br>Der Name des Absenders der Nachricht.</br>Die E-Mail-Adresse des Absenders.</td>
     </tr>
     <tr>
       <td><code>Optional: message: reply to</code></br><code>name</code></br><code>address</code></td>
-      <td></br>Der Name, der der Antwort-E-Mail-Adresse zugeordnet ist.</br>Die E-Mail-Adresse, an die ein Benutzer antworten kann.</td>
+      <td></br>Der Name, der der Antwort-E-Mail-Adresse zugeordnet ist.</br>Die E-Mail-Adresse, an die der Benutzer antworten kann.</td>
     </tr>
   </table>
 
@@ -417,7 +416,7 @@ Für jede {{site.data.keyword.appid_short_notm}}-Instanz wird ein privater und e
 
 6. Prüfen Sie, ob Ihre Konfiguration ordnungsgemäß eingerichtet ist, indem Sie Ihren E-Mail-Dispatcher testen. Verwenden Sie die <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/post_email_dispatcher_test" target="_blank">Test-API</a>, um eine Anforderung an Ihren konfigurierten angepassten E-Mail-Absender auszulösen.
 
-Ein vollständiges Beispiel finden Sie unter <a href="https://www.ibm.com/blogs/bluemix/2018/10/use-ibm-cloud-app-id-and-your-email-provider-to-brand-mails-sent-to-app-users/" target="_blank">Use your own provider for mail sent with {{site.data.keyword.appid_full}}</a>.
+Ein vollständiges Beispiel finden Sie unter <a href="https://www.ibm.com/cloud/blog/use-ibm-cloud-app-id-and-your-email-provider-to-brand-mails-sent-to-app-users" target="_blank">Use your own provider for mail sent with {{site.data.keyword.appid_full}}</a>.
 
 
 
@@ -973,8 +972,8 @@ Die Sprache, in der die schriftliche Benutzerkommunikation erfolgen kann, könne
   </tr>
   <tr>
     <td><code>lt-LT</code></td>
-    <td>Litauisch</td>
-    <td>Litauen</td>
+    <td>Khmer</td>
+    <td>Kambodscha</td>
   </tr>
   <tr>
     <td><code>mk-MK</code></td>
@@ -1054,7 +1053,7 @@ Die Sprache, in der die schriftliche Benutzerkommunikation erfolgen kann, könne
   <tr>
     <td><code>pt-MO</code></td>
     <td>Portugiesisch</td>
-    <td>Portugal</td>
+    <td>Sonderverwaltungszone Macao der Volksrepublik China</td>
   </tr>
   <tr>
     <td><code>pt-MZ</code></td>

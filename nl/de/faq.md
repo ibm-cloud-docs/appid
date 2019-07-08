@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-11"
+lastupdated: "2019-04-17"
 
 keywords: authentication, authorization, identity, app security, secure
 
@@ -131,3 +131,14 @@ In der folgenden Tabelle finden Sie Antworten auf häufige Fragen zur Verschlüs
   </tbody>
 </table>
 
+
+
+## Was ist der Unterschied zwischen {{site.data.keyword.appid_short_notm}} und Keycloak?
+{:# faq-keycloak}
+
+Sowohl {{site.data.keyword.appid_short_notm}} als auch Keycloak können verwendet werden, um eine Authentifizierung für Anwendungen und sichere Services bereitzustellen. Der Hauptunterschied zwischen den beiden Angeboten ist die Art und Weise, in der sie gepackt sind.
+{: shortdesc}
+
+Keycloak ist als Software gepackt, was bedeutet, dass der Entwickler nach dem Herunterladen für die Verwaltung der Funktionen verantwortlich ist. Er ist verantwortlich für das Hosting, die Hochverfügbarkeit, die Compliance, Sicherungen, DDoS-Schutz, Lastausgleich, Web-Firewalls, Datenbanken, usw. 
+
+{{site.data.keyword.appid_short_notm}} ist ein vollständig verwaltetes Angebot, das 'As-a-Service' bereitgestellt wird. Dies bedeutet, dass IBM den Betrieb des Service übernimmt und die Konformität, die Verfügbarkeit in mehreren Zonen, die Servicelevel-Agreements (SLAs) und vieles mehr verwaltet. {{site.data.keyword.appid_short_notm}} bietet außerdem die Nutzung der {{site.data.keyword.cloud_notm}}-Plattform ohne Vorbereitungs- oder Anpassungsaufwand, die native Laufzeiten und Services umfasst, zum Beispiel {{site.data.keyword.containershort_notm}}, {{site.data.keyword.openwhisk_short}} und {{site.data.keyword.cloudaccesstrailshort}}.

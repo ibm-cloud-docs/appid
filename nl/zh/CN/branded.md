@@ -275,7 +275,7 @@ subcollection: appid
 
 当用户登录到应用程序时，他们可以更新其部分信息。您可以使用 `/Users/{userId}` 来获取和更新其信息。
 
-更新用户详细信息后，端点会以 [SCIM 格式](https://tools.ietf.org/html/rfc7643#section-8.2) 获取请求主体中更新的用户数据。请确保仅更改相关详细信息。
+更新用户详细信息后，端点会以 [SCIM 格式](https://tools.ietf.org/html/rfc7643#section-8.2)获取请求主体中更新的用户数据。请确保仅更改相关详细信息。
 
 无法更改其电子邮件地址。
 {: tip}

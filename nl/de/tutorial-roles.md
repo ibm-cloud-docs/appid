@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-08"
+lastupdated: "2019-05-31"
 
 keywords: authentication, authorization, identity, app security, secure, access management, roles, attributes, users
 
@@ -38,7 +38,7 @@ Sie haben noch keine Kenntnisse in der API-Benutzung? Dann testen Sie sie mit di
 Sie sind als Entwickler für einen fiktiven Themenpark tätig. Ihre Aufgabe ist die Zugriffsverwaltung für die [Webanwendung](/docs/services/appid?topic=appid-web-apps) und Sie sind der Überzeugung, dass diese Aufgabe am einfachsten durch das Festlegen von Rollen für jeden Benutzertyp ausgeführt werden kann. Sie verfügen über unterschiedliche Rollentypen wie beispielsweise Parkmitarbeiter und Besucher, die ganz unterschiedliche Berechtigungsstufen benötigen. Sie möchten den Prozess optimieren und sicherstellen, dass Ihren Benutzern schon bei der ersten Anmeldung bei Ihrer Anwendung die korrekte Rolle zugeordnet wird.  
 {: shortdesc}
 
-Kein Problem! Sie können die [Funktion für angepasste Attribute](/docs/services/appid?topic=appid-custom-attributes) von {{site.data.keyword.appid_short_notm}} verwenden, um einen beliebigen Typ von benutzerbezogenen Informationen zu speichern. Da Sie mit der rollenbasierten Zugriffssteuerung arbeiten, können Sie ein Attribut erstellen, das die Bezeichnung `role` trägt und diesem Attribut unterschiedliche Werte zuordnen, um den Typ der Rolle anzugeben. Der Themenpark verfügt beispielsweise über die Rollen `visitors` (Besucher) oder `staff` (Mitarbeiter), die beide als unterschiedliche Werte für das Attribut `role` angegeben werden können. Anschließend können Sie sicherstellen, dass Ihr Anwendungscode die Verwendung der Zugriffsrichtlinien und Berechtigungen erzwingt, die Sie zugeordnet haben.
+Kein Problem! Sie können die [Funktion für angepasste Attribute](/docs/services/appid?topic=appid-profiles) von {{site.data.keyword.appid_short_notm}} verwenden, um einen beliebigen Typ von benutzerbezogenen Informationen zu speichern. Da Sie mit der rollenbasierten Zugriffssteuerung arbeiten, können Sie ein Attribut erstellen, das die Bezeichnung `role` trägt und diesem Attribut unterschiedliche Werte zuordnen, um den Typ der Rolle anzugeben. Der Themenpark verfügt beispielsweise über die Rollen `visitors` (Besucher) oder `staff` (Mitarbeiter), die beide als unterschiedliche Werte für das Attribut `role` angegeben werden können. Anschließend können Sie sicherstellen, dass Ihr Anwendungscode die Verwendung der Zugriffsrichtlinien und Berechtigungen erzwingt, die Sie zugeordnet haben.
 
 Obwohl dieses Lernprogramm speziell für Web-Apps und Cloud Directory geschrieben wurde, können die Attribute auch in anderen Bereichen eingesetzt werden. Angepasste Attribute können für jedes von Ihnen gewünschte Element erstellt werden. Solange Sie nicht mehr als 100000 Attribute definieren und sie als einfache JSON-Objekte formatieren, können Sie jeden beliebigen Informationstyp speichern!
 {: note}
@@ -87,14 +87,14 @@ Bei diesem Prozess wird die Cloud Directory-Registrierung nicht abgeschlossen. D
   ```
   ibmcloud login
   ```
-  {: pre}
+  {: codeblock}
 
 2. Fordern Sie ein IAM-Zugriffstoken an.
 
   ```
   ibmcloud iam oauth-tokens
   ```
-  {: pre}
+  {: codeblock}
 
 3. Setzen Sie eine POST-Anforderung ab, um ein Benutzerprofil für den neuen Benutzer zu erstellen, das das Attribut `staff` enthält. Vergewissern Sie sich, dass Sie auf die verwendete E-Mail-Adresse zugreifen und diese validieren können.
 
@@ -113,7 +113,7 @@ Bei diesem Prozess wird die Cloud Directory-Registrierung nicht abgeschlossen. D
     }
   }'
   ```
-  {: pre}
+  {: codeblock}
 
   Ausgabe für eine erfolgreiche Antwort:
 
@@ -132,7 +132,7 @@ Bei diesem Prozess wird die Cloud Directory-Registrierung nicht abgeschlossen. D
   --header 'Authorization: Bearer <iam-access-token>' \
   --header 'Content-Type: application/json' \
   ```
-  {: pre}
+  {: codeblock}
 
   Hauptteil für eine erfolgreiche Antwort:
 
@@ -154,7 +154,7 @@ Gut gemacht! Sie haben einen Benutzer für Ihre Anwendung vorab registriert. Wen
 ## Schritt 3: Benutzerattribute aktualisieren
 {: #roles-update-attributes}
 
-Cloud Land expandiert! Um dem Wachstum gerecht zu werden, stellt Ihr Unternehmen neue Mitarbeiter ein. Der Benutzer mit der Rolle `staff` aus Schritt 2 ist nun Manager geworden. Sie können sein Profil aktualisieren, indem Sie eine [neue Rolle zuordnen](/docs/services/appid?topic=appid-custom-attributes).
+Cloud Land expandiert! Um dem Wachstum gerecht zu werden, stellt Ihr Unternehmen neue Mitarbeiter ein. Der Benutzer mit der Rolle `staff` aus Schritt 2 ist nun Manager geworden. Sie können sein Profil aktualisieren, indem Sie eine [neue Rolle zuordnen](/docs/services/appid?topic=appid-profiles#profile-set-custom).
 {: shortdesc}
 
 1. Aktualisieren Sie das Profil.
@@ -172,7 +172,7 @@ Cloud Land expandiert! Um dem Wachstum gerecht zu werden, stellt Ihr Unternehmen
     }
   }'
   ```
-  {: pre}
+  {: codeblock}
 
 3. Zeigen Sie das Profil an, um sicherzustellen, dass es ordnungsgemäß aktualisiert wurde.
 
@@ -182,7 +182,7 @@ Cloud Land expandiert! Um dem Wachstum gerecht zu werden, stellt Ihr Unternehmen
   --header 'Authorization: Bearer <iam-access-token>' \
   --header 'Content-Type: application/json' \
   ```
-  {: pre}
+  {: codeblock}
 
   Ausgabe für eine erfolgreiche Antwort:
 
@@ -236,7 +236,7 @@ Die [Tokenkonfiguration](/docs/services/appid?topic=appid-customizing-tokens#cus
       ]
   }'
   ```
-  {: pre}
+  {: codeblock}
 
   <table>
     <tr>
@@ -314,7 +314,7 @@ Optional können Sie überprüfen, ob Schritt 4 erfolgreich war, indem Sie ein Z
   --header `Accept: application/json`
   - d 'grant_type=password&username=<user-email>%40<user-email-domain>&password=<user-password>
   ```
-  {: pre}
+  {: codeblock}
 
 5. Entschlüsseln Sie Ihr Zugriffstoken.
   1. Kopieren Sie das Token in die Antwortausgabe des vorherigen Befehls.

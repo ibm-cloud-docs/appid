@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-31"
 
 keywords: authentication, authorization, identity, app security, secure, custom, tokens, access, claim, attributes
 
@@ -26,7 +26,7 @@ subcollection: appid
 # Tokens anpassen
 {: #customizing-tokens}
 
-Sie können Ihre {{site.data.keyword.appid_short_notm}}-Tokens so konfigurieren, dass sie den spezifischen Anforderungen Ihrer Anwendung entsprechen.
+Sie können ein {{site.data.keyword.appid_short_notm}}-Token so konfigurieren, dass es den spezifischen Anforderungen der Anwendung entspricht.
 {: shortdesc}
 
 ## Informationen zur Anpassung
@@ -78,7 +78,7 @@ Sie können Ihre Tokens [in der GUI](/docs/services/appid?topic=appid-customizin
 </table>
 
 
-Da Tokens verwendet werden, um Benutzer zu identifizieren und Ihre Ressourcen zu schützen, hat die Lebensdauer eines Tokens unterschiedliche Auswirkungen. Durch das Anpassen Ihrer Tokenkonfiguration können Sie sicherstellen, dass Ihre Anforderungen hinsichtlich Sicherheit und Bedienungskomfort erfüllt werden. Sollte ein Token aber in die falschen Hände geraten, hat ein unbefugter Benutzer mehr Zeit, Ihre Anwendung zu beeinträchtigen. Weitere Informationen zu Sicherheitsaspekten finden Sie in [Angepasste Attribute](/docs/services/appid?topic=appid-custom-attributes).
+Da Tokens verwendet werden, um Benutzer zu identifizieren und Ihre Ressourcen zu schützen, hat die Lebensdauer eines Tokens unterschiedliche Auswirkungen. Durch das Anpassen Ihrer Tokenkonfiguration können Sie sicherstellen, dass Ihre Anforderungen hinsichtlich Sicherheit und Bedienungskomfort erfüllt werden. Sollte ein Token aber in die falschen Hände geraten, hat ein unbefugter Benutzer mehr Zeit, Ihre Anwendung zu beeinträchtigen. Weitere Informationen zu Sicherheitsaspekten finden Sie in [Angepasste Attribute festlegen](/docs/services/appid?topic=appid-profiles#profile-set-custom).
 {: important}
 
 
@@ -140,7 +140,8 @@ Die Claims, die von {{site.data.keyword.appid_short_notm}} zur Verfügung gestel
 
 *Eingeschränkte Claims*: Abhängig von dem Token, dem die Claims zugeordnet sind, haben einige Claims nur eingeschränkte Anpassungsmöglichkeiten. Für ein Zugriffstoken ist `scope` der einzige eingeschränkte Claim. Eine Überschreibung durch angepasste Zuordnungen ist nicht möglich, er kann jedoch mit Ihren eigenen Bereichen (Scopes) erweitert werden. Wenn die Bereichsanforderung (sog. Scope Claim) einem Zugriffstoken zugeordnet wird, muss der Wert eine Zeichenfolge sein und darf nicht das Präfix `appid_` haben, da er sonst ignoriert wird. In Identitätstokens können die Claims `identities` und `oauth_clients` nicht geändert oder überschrieben werden.
 
-*Normalisierte Claims*: Jedes Identitätstoken enthält eine Reihe von Claims, die von {{site.data.keyword.appid_short_notm}} als normalisierte Claims erkannt werden. Wenn sie verfügbar sind, werden sie dem Token direkt von Ihrem Identitätsprovider zugeordnet. Diese Claims können nicht explizit ausgelassen werden, sie können aber durch angepasste Claimzuordnungen außer Kraft gesetzt werden. Die Claims umfassen `name`, `email`, `picture`, `local` und `gender`.
+*Normalisierte Claims*: Jedes Identitätstoken enthält eine Reihe von Claims, die von {{site.data.keyword.appid_short_notm}} als normalisierte Claims erkannt werden. Wenn sie verfügbar sind, werden sie dem Token direkt von Ihrem Identitätsprovider zugeordnet. Diese Claims können nicht explizit ausgelassen werden, sie können aber durch angepasste Claims im Token außer Kraft gesetzt werden. Die Claims umfassen `name`, `email`, `picture`, `local` und `gender`. Hinweis: Hierdurch wird nicht das Attribut geändert oder gelöscht, sondern die Informationen geändert, die im Token zur Laufzeit vorhanden sind.
+
 
 
 ### Wie werden Claims bestimmten Tokens zugeordnet?
@@ -212,7 +213,7 @@ Stellen Sie sicher, dass die folgenden Anforderungen erfüllt werden:
        Authorization: 'Bearer <IAM_TOKEN>'
        Content-Type: application/json
   ```
-  {: pre}
+  {: codeblock}
 
   Hauptteil:
   ```
@@ -242,7 +243,7 @@ Stellen Sie sicher, dass die folgenden Anforderungen erfüllt werden:
        ]
    }
   ```
-  {: pre}
+  {: codeblock}
 
   <table>
     <thead>

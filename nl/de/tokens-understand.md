@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-11"
+lastupdated: "2019-06-05"
 
 keywords: authentication, authorization, identity, app security, secure, access, tokens
 
@@ -103,12 +103,12 @@ Beispieltoken:
   {: screen}
 
 
-Identitätstokens enthalten nur einen Teil der Benutzerinformationen. Wenn Sie alle Informationen anzeigen möchten, die vom Identitätsprovider zur Verfügung gestellt werden, können Sie den [Endpunkt /userinfo](/docs/services/appid?topic=appid-predefined-attributes#predefined-access-api) verwenden.
+Identitätstokens enthalten nur einen Teil der Benutzerinformationen. Wenn Sie alle Informationen anzeigen möchten, die vom Identitätsprovider zur Verfügung gestellt werden, können Sie den [Endpunkt /userinfo](/docs/services/appid?topic=appid-profiles#profile-predefined-api) verwenden.
 
 ## Was sind Aktualisierungstokens?
 {: #refresh}
 
-{{site.data.keyword.appid_short}} ermöglicht es, neue Zugriffs- und Identitätstokens ohne erneute Authentifizierung anzufordern - entsprechend der Definition in <a href="http://openid.net/specs/openid-connect-core-1_0.html#RefreshTokens" target="_blank">OIDC <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a>. Ein Aktualisierungstoken kann verwendet werden, um das Zugriffstoken zu erneuern, sodass ein Benutzer keine Maßnahmen zur Anmeldung ergreifen muss (z. B. Angabe von Anmeldeinformationen). Ähnlich wie Zugriffstokens enthalten auch Aktualisierungstokens Daten, die es {{site.data.keyword.appid_short_notm}} ermöglichen festzustellen, ob Sie berechtigt sind. Diese Tokens haben jedoch den Typ 'Opaque'.
+{{site.data.keyword.appid_short}} ermöglicht es, neue Zugriffs- und Identitätstokens ohne erneute Authentifizierung anzufordern - entsprechend der Definition in <a href="https://openid.net/specs/openid-connect-core-1_0.html#RefreshTokens" target="_blank">OIDC <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a>. Ein Aktualisierungstoken kann verwendet werden, um das Zugriffstoken zu erneuern, sodass ein Benutzer keine Maßnahmen zur Anmeldung ergreifen muss (z. B. Angabe von Anmeldeinformationen). Ähnlich wie Zugriffstokens enthalten auch Aktualisierungstokens Daten, die es {{site.data.keyword.appid_short_notm}} ermöglichen festzustellen, ob Sie berechtigt sind. Diese Tokens haben jedoch den Typ 'Opaque'.
 
 Aktualisierungstokens sind so konfiguriert, dass sie eine längere Lebensdauer aufweisen als ein reguläres Zugriffstoken. Wenn also die Gültigkeit eines Zugriffstokens abläuft, ist das Aktualisierungstoken weiterhin gültig und kann zum Verlängern des Zugriffstokens verwendet werden. Aktualisierungstokens von {{site.data.keyword.appid_short_notm}} können für 1 bis 90 Tage konfiguriert werden. Um die Vorteile von Aktualisierungstokens vollständig zu nutzen, behalten Sie die Tokens für ihre gesamte Lebensdauer bei oder bis sie erneuert werden. Ein Benutzer kann mit einem Aktualisierungstoken alleine nicht direkt auf Ressourcen zugreifen, d. h. eine längere Verwendung ist sicherer als dies bei Zugriffstokens der Fall wäre. Es empfiehlt sich, Aktualisierungstokens sicher von dem Client speichern zu lassen, von dem sie empfangen wurden, und sie nur an den Autorisierungsserver zu senden, der sie ausgegeben hat.
 
@@ -128,7 +128,7 @@ Tokens werden vom {{site.data.keyword.appid_short_notm}}-OAuth-Server ausgegeben
 ## Was geschieht mit den Informationen, die das Token enthält?
 {: #contains}
 
-Das Zugriffstoken enthält eine Reihe von JWT-Standardanforderungen (sog. Claims) und eine Reihe von {{site.data.keyword.appid_short_notm}}-spezifischen Claims (z. B. eine Tenant-ID). Das Identitätstoken enthält benutzerspezifische Informationen. Die Informationen in den Tokens werden als Claims als Teil eines [Benutzerprofils](/docs/services/appid?topic=appid-user-profile#user-profile) gespeichert.
+Das Zugriffstoken enthält eine Reihe von JWT-Standardanforderungen (sog. Claims) und eine Reihe von {{site.data.keyword.appid_short_notm}}-spezifischen Claims (z. B. eine Tenant-ID). Das Identitätstoken enthält benutzerspezifische Informationen. Die Informationen in den Tokens werden als Claims als Teil eines [Benutzerprofils](/docs/services/appid?topic=appid-profiles) gespeichert.
 
 ## Wie werden Tokens empfangen?
 {: #received}

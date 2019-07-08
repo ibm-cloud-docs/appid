@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-13"
 
 keywords: authentication, authorization, identity, app security, secure, application identity, app to app, access token
 
@@ -28,7 +28,13 @@ subcollection: appid
 Sie können die Management-API für die DevOps-Automation sowie für die Anpassung und Verwaltung Ihrer Instanzen von {{site.data.keyword.appid_full}} verwenden.
 {: shortdesc}
 
-Die Management-API wird mit Tokens geschützt, die von {{site.data.keyword.cloudaccesstraillong}} generiert werden. Mit IAM können Kontoeigner angeben, wer in ihrem Team über welche Zugriffsebene für die einzelnen Serviceinstanzen verfügen soll. Weitere Informationen zum Zusammenspiel von IAM und {{site.data.keyword.appid_short_notm}} finden Sie in [Servicezugriffsverwaltung](/docs/services/appid?topic=appid-service-access-management#service-access-management).
+Die Management-API wird mit Tokens geschützt, die von IAM (Identity and Access Management) generiert werden. Mit IAM können Kontoeigner angeben, wer in ihrem Team über welche Zugriffsebene für die einzelnen Serviceinstanzen verfügen soll. Weitere Informationen zum Zusammenspiel von IAM und {{site.data.keyword.appid_short_notm}} finden Sie in [Servicezugriffsverwaltung](/docs/services/appid?topic=appid-service-access-management).
+
+
+Möchten Sie die API in Aktion sehen? Sehen Sie sich das folgende Schulungsvideo an. 
+
+<iframe class="embed-responsive-item" id="about-appid-api" title="Informationen zur {{site.data.keyword.appid_short_notm}}-API" type="text/html" width="640" height="390" src="//www.youtube.com/embed/b2ABxvAdGg0?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
+
 
 Mit der API können Sie:
 * Die Konfiguration von {{site.data.keyword.appid_short_notm}} in der App Ihres DevOps-Prozesses automatisieren.
@@ -76,7 +82,7 @@ https://<region-endpoint>.appid.cloud.ibm.com/management
 {: #api-prereq}
 
 <ul><ul><li>Eine Serviceinstanz, die nach dem 15. März 2018 erstellt wurde. Wenn Sie über eine Instanz des Service verfügen, die vor diesem Datum erstellt wurde, erstellen Sie eine neue Instanz und konfigurieren Sie sie so, dass sie mit Ihrer aktuellen Instanz übereinstimmt. Stellen Sie sicher, dass Sie Ihre Apps für die Verwendung der neuen Instanz aktualisieren.</li>
-<li>Die [{{site.data.keyword.cloud_notm}}-CLI](/docs/cli/reference/ibmcloud/cloud-cli-install_use?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli) ist installiert.</li></ul></ul>
+<li>Die [{{site.data.keyword.cloud_notm}}-CLI](/docs/cli?topic=cloud-cli-ibmcloud-cli) ist installiert.</li></ul></ul>
 
 ## Beispielverwendung
 {: #api-example}

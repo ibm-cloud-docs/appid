@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-14"
 
 keywords: authentication, authorization, identity, app security, secure, application identity, app to app, access token
 
@@ -25,20 +25,19 @@ subcollection: appid
 # Anwendungsidentität und Autorisierung
 {: #app}
 
-Bei {{site.data.keyword.appid_short_notm}} können Sie Anwendungen mithilfe der Anwendungsidentität und des Autorisierungsablaufs durch Einsatz der OAuth2.0-Funktionalität schützen.
+Bei {{site.data.keyword.appid_short_notm}} können Sie Anwendungen mithilfe der Anwendungsidentität und des Autorisierungsablaufs durch Einsatz der OAuth 2.0-Funktionalität schützen.
 {: shortdesc}
 
 ## Informationen zum Kommunikationsablauf
 {: #app-understanding}
 
-Es kann aus mehreren Gründen sinnvoll sein, dass eine Anwendung ohne Benutzereingriff mit einem anderen Service oder einer anderen App kommunizieren kann. (Dies ist z. B. bei einer nicht interaktiven App der Fall, die auf eine andere Anwendung zugreifen muss, um ihre Funktion auszuführen). Dies kann Prozesse, CLIs, Daemons oder ein IoT-Gerät umfassen, das Umgebungsvariablen auf einem Upstream-Server überwacht und meldet. Der jeweilige Anwendungsfall ist für jede Anwendung spezifisch. Zu beachten ist aber, dass die Anforderungen im Auftrag der App ausgetauscht werden, nicht im Auftrag eines Endbenutzers, und es ist die App, die authentifiziert und autorisiert wird.
+Es kann aus mehreren Gründen sinnvoll sein, dass eine Anwendung ohne Benutzereingriff mit einem anderen Service oder einer anderen App kommunizieren kann. (Dies ist z. B. bei einer nicht interaktiven App der Fall, die auf eine andere Anwendung zugreifen muss, um ihre Funktion auszuführen). Dies kann Prozesse, CLIs, Dämonen oder ein IoT-Gerät umfassen, das Umgebungsvariablen auf einem Upstream-Server überwacht und meldet. Der jeweilige Anwendungsfall ist für jede Anwendung spezifisch. Zu beachten ist aber, dass die Anforderungen im Auftrag der App ausgetauscht werden, nicht im Auftrag eines Endbenutzers, und es ist die App, die authentifiziert und autorisiert wird.
 
-Ein Beispiel hierfür finden Sie unter <a href="https://www.ibm.com/blogs/bluemix/2018/02/using-app-id-secure-docker-kubernetes-applications/" target="_blank">{{site.data.keyword.appid_short_notm}} zur Sicherung von Docker- und Kubernetes-Anwendungen verwenden <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a>.
 
 ### Wie funktioniert der Ablauf?
 {: #app-flow-how}
 
-{{site.data.keyword.appid_short_notm}} nutzt den Ablauf für OAuth2.0-Clientberechtigungsnachweise, um die Kommunikation zu schützen. Wenn eine App bei {{site.data.keyword.appid_short_notm}} registriert wurde, ruft die App eine Client-ID und einen geheimen Schlüssel ab. Mit diesen Informationen kann die App ein Zugriffstoken von {{site.data.keyword.appid_short_notm}} anfordern und für den Zugriff auf eine geschützte Ressource oder API autorisiert werden. In dem Ablauf für Anwendungsidentität und Autorisierung wird der Anwendung nur ein Zugriffstoken erteilt. Sie erhält weder ein Identitätstoken noch ein Aktualisierungstoken. Weitere Informationen zu Tokens finden Sie unter [Informationen zu Token](/docs/services/appid?topic=appid-tokens#tokens).
+{{site.data.keyword.appid_short_notm}} nutzt den Ablauf für OAuth 2.0-Clientberechtigungsnachweise, um die Kommunikation zu schützen. Wenn eine App bei {{site.data.keyword.appid_short_notm}} registriert wurde, ruft die App eine Client-ID und einen geheimen Schlüssel ab. Mit diesen Informationen kann die App ein Zugriffstoken von {{site.data.keyword.appid_short_notm}} anfordern und für den Zugriff auf eine geschützte Ressource oder API autorisiert werden. In dem Ablauf für Anwendungsidentität und Autorisierung wird der Anwendung nur ein Zugriffstoken erteilt. Sie erhält weder ein Identitätstoken noch ein Aktualisierungstoken. Weitere Informationen zu Tokens finden Sie unter [Informationen zu Token](/docs/services/appid?topic=appid-tokens#tokens).
 
 Dieser Workflow soll nur bei vertrauenswürdigen Anwendungen verwendet werden, bei denen keine Gefahr besteht, dass der geheime Schlüssel missbraucht wird oder in falsche Hände gerät. Die Anwendung ist immer im Besitz des geheimen Clientschlüssels. Dies funktioniert nicht bei mobilen Apps.
 {: tip}
@@ -51,10 +50,14 @@ In der folgenden Abbildung sehen Sie die Richtung der Kommunikation zwischen dem
 ![{{site.data.keyword.appid_short_notm}} - Ablauf für Anwendungsidentität und Autorisierung](images/app-to-app-flow.png)
 Abbildung. Ablauf für Anwendungsidentität und Autorisierung
 
-1. Anwendung A registriert sich bei {{site.data.keyword.appid_short_notm}}, um eine Client-ID und einen geheimen Schlüssel zu erhalten.
-2. Die Anwendung A stellt eine Anforderung an {{site.data.keyword.appid_short_notm}}, indem sie die im vorherigen Schritt abgerufenen Berechtigungsnachweise sendet.
-3. {{site.data.keyword.appid_short_notm}} validiert die Anforderung, authentifiziert die App und gibt eine Antwort an Anwendung A zurück, die ein Zugriffstoken enthält.
-4. Anwendung A kann jetzt das Zugriffstoken verwenden, um Anforderungen an Anwendung B zu senden (z. B. eine geschützte Ressource).
+1. Sie registrieren die Anwendung, für die eine Authentifizierung erforderlich ist, um mit {{site.data.keyword.appid_short_notm}} auf eine geschützte Ressource zuzugreifen.  
+2. Anwendung A registriert sich bei {{site.data.keyword.appid_short_notm}}, um eine Client-ID und einen geheimen Schlüssel zu erhalten.
+3. Von Anwendung A wird durch Senden der im vorherigen Schritt abgerufenen Berechtigungsnachweise eine Anforderung an den Endpunkt `/token` des {{site.data.keyword.appid_short_notm}}-Autorisierungsservers gestellt. 
+4. {{site.data.keyword.appid_short_notm}} validiert die Anforderung, authentifiziert die App und gibt eine Antwort an Anwendung A zurück, die ein Zugriffstoken enthält.
+5. Anwendung A kann jetzt das gültige Zugriffstoken verwenden, um Anforderungen an geschützte Ressourcen wie Anwendung B zu senden. 
+
+Der geheime Clientschlüssel, der zum Authentifizieren des Clients verwendet wird, enthält sehr sensible Daten und muss vertraulich behandelt werden. Da der geheime Clientschlüssel von der Anwendung in der App verwendet wird, darf dieser Workflow nur mit vertrauenswürdigen Anwendungen verwendet werden. Durch die Verwendung einer vertrauenswürdigen Anwendung wird sichergestellt, dass der geheime Clientschlüssel nicht missbraucht wird oder in falsche Hände gerät.
+{: important}
 
 ## App registrieren
 {: #app-register}
@@ -79,7 +82,7 @@ Abbildung. Ablauf für Anwendungsidentität und Autorisierung
   -H 'Authorization: Bearer IAM_TOKEN' \
   -d '{"name": "ApplicationName"}'
   ```
-  {: pre}
+  {: codeblock}
 
   Beispielantwort:
 
@@ -111,7 +114,7 @@ Nachdem Ihre App bei {{site.data.keyword.appid_short_notm}} registriert wurde un
     -H 'Content-Type: application/x-www-form-urlencoded' \
     -d grant_type=client_credentials
   ```
-  {: pre}
+  {: codeblock}
 
   Beispielantwort:
   ```
@@ -121,7 +124,7 @@ Nachdem Ihre App bei {{site.data.keyword.appid_short_notm}} registriert wurde un
   "token_type": "Bearer"
   }
   ```
-  {: pre}
+  {: codeblock}
 
 
 ## Lernprogramm: End-to-End-Ablauf mit dem Node.js-SDK
@@ -134,10 +137,10 @@ Nachdem Ihre App bei {{site.data.keyword.appid_short_notm}} registriert wurde un
     ```
     const TokenManager = require('ibmcloud-appid').TokenManager;
     const config = {
-     clientId: "29a19759-aafb-41c7-9ef7-ee7b0ca88818",
-     tenantId: "39a37f57-a227-4bfe-a044-93b6e6060b61",
-     secret: "ZTEzZTA2MDAtMjljZS00MWNlLTk5NTktZDliMjY3YzUxZTYx",
-     oauthServerUrl: "https://eu-gb.appid.cloud.ibm.com/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6060b61"
+     clientId: "<client-ID>",
+     tenantId: "<tenant-ID>",
+     secret: "<secret>",
+     oauthServerUrl: "https://<region>.appid.cloud.ibm.com/oauth/v4/<tenant-ID>"
     };
 
     const tokenManager = new TokenManager(config);
@@ -148,7 +151,7 @@ Nachdem Ihre App bei {{site.data.keyword.appid_short_notm}} registriert wurde un
      //console.error('Error retrieving tokens : ' + err);
     });
     ```
-    {: pre}
+    {: codeblock}
 
   * Über den {{site.data.keyword.appid_short_notm}}-Autorisierungsserver.
   
@@ -186,7 +189,7 @@ Nachdem Ihre App bei {{site.data.keyword.appid_short_notm}} registriert wurde un
       });
     }
     ```
-    {: pre}
+    {: codeblock}
 
 2. Stellen Sie eine Anforderung an Ihre geschützte Ressource, indem Sie das Zugriffstoken verwenden, das Sie im vorherigen Schritt angefordert haben.
 
@@ -207,7 +210,7 @@ Nachdem Ihre App bei {{site.data.keyword.appid_short_notm}} registriert wurde un
       }
   });
   ```
-  {: pre}
+  {: codeblock}
 
 3. Sichern Sie Ihre geschützten Ressourcen ab, indem Sie die API-Strategie aus dem {{site.data.keyword.appid_short_notm}}-Node.js-SDK verwenden.
 
@@ -219,8 +222,8 @@ Nachdem Ihre App bei {{site.data.keyword.appid_short_notm}} registriert wurde un
   app.use(passport.initialize());
 
   passport.use(new APIStrategy({
-      oauthServerUrl: "https://us-south.appid.cloud.ibm.com/oauth/v4/398ec248-5e93-48b8-a122-ccabc714fe85",
-      tenantId:"398ec248-5e93-48b8-a122-ccabc714fe85"
+      oauthServerUrl: "https://<region>.appid.cloud.ibm.com/oauth/v4/<tenant-ID>",
+      tenantId:"<tenant-ID>"
   }));
 
   app.get('/protected_resource',
@@ -229,4 +232,4 @@ Nachdem Ihre App bei {{site.data.keyword.appid_short_notm}} registriert wurde un
           res.send("Hello from protected resource");
   });
   ```
-  {: pre}
+  {: codeblock}

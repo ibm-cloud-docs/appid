@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-31"
 
 keywords: authentication, authorization, identity, app security, secure, custom, proprietary, 
 
@@ -76,7 +76,7 @@ Abbildung. Die Anforderungsabläufe für die angepasste Authentifizierung
 ## JSON Web Token generieren
 {: #generating-jwts}
 
-Sie können Ihre überprüften Benutzerdaten in ein JWT mit angepasster Identität konvertieren, indem Sie ein <a href="https://tools.ietf.org/html/rfc7515" target="blank">JSON Web Token <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a> generieren. Das Token muss mit dem privaten Schlüssel signiert werden, der mit dem vorkonfigurierten öffentlichen Schlüssel übereinstimmt. Eine Liste der Tokensignierbibliotheken finden Sie unter <a href="https://jwt.io/" target="blank">jwt.io <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a>.
+Sie können Ihre überprüften Benutzerdaten in ein JWT mit angepasster Identität konvertieren, indem Sie ein <a href="https://tools.ietf.org/html/rfc7515" target="blank">JSON Web Token <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a> generieren. Das Token muss mit dem privaten Schlüssel signiert werden, der mit dem vorkonfigurierten öffentlichen Schlüssel übereinstimmt. Eine Liste der Tokensignierbibliotheken finden Sie unter <a href="https://jwt.io/" target="blank">https://jwt.io/ <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a>.
 {: shortdesc}
 
 ### Beispiel für ein JWT-Format
@@ -127,7 +127,7 @@ Tokennutzdaten:
     </tr>
     <tr>
       <td><code>aud</code></td>
-      <td>Die URL des OAuth-Servers. Format: https://{region}.appid.cloud.ibm.com/oauth/v4/{tenantId}.</td>
+      <td>Die URL des OAuth-Servers. Format: `https://{region}.appid.cloud.ibm.com/oauth/v4/{tenantId}`.</td>
     </tr>
     <tr>
       <td><code>exp</code></td>
@@ -139,7 +139,7 @@ Tokennutzdaten:
     </tr>
     <tr>
       <td>Normalisierte Anforderungen (Claims)</td>
-      <td>Alle [normalisierten Anforderungen](/docs/services/appid?topic=appid-tokens#tokens) (sog. Claims) werden in dem Identitätstoken bereitgestellt, das als Antwort auf diese Anforderung zurückgegeben wird. Weitere angepasste Claims können mithilfe des Endpunkts [`/userinfo` lokalisiert werden](/docs/services/appid?topic=appid-custom-attributes#custom-attributes).</td>
+      <td>Alle [normalisierten Anforderungen](/docs/services/appid?topic=appid-tokens) (sog. Claims) werden in dem Identitätstoken bereitgestellt, das als Antwort auf diese Anforderung zurückgegeben wird. Weitere angepasste Claims können mithilfe des Endpunkts [`/userinfo` lokalisiert werden](/docs/services/appid?topic=appid-profiles).</td>
     </tr>
     <tr>
       <td>Bereich (Scope)</td>

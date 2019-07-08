@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-09"
 
 keywords: authentication, authorization, identity, app security, secure, development, sso, directory, users, registry, multiple apps
 
@@ -62,7 +62,7 @@ Sie können SSO über die GUI konfigurieren.
 
 2. Legen Sie im Feld **Single Sign-on aktivieren** für SSO die Einstellung **Aktiviert** fest.
 
-3. Legen Sie die Zeitdauer fest, für die ein Benutzer inaktiv sein kann, bevor die SSO-Sitzung abläuft. Läuft die Sitzung ab, dann muss sich der Benutzer erneut anmelden. Die Zeitdauer wird in Minuten angegeben und das zulässige Maximum für die Inaktivität beträgt 10.080 Minuten (7 Tage). Die Standardzeitdauer beträgt 1440 Minuten (1 Tag).
+3. Legen Sie die Zeitdauer fest, für die ein Benutzer inaktiv sein kann, bevor die SSO-Sitzung abläuft. Läuft die Sitzung ab, dann muss sich der Benutzer erneut anmelden. Die Zeitdauer wird in Minuten angegeben und das zulässige Maximum für Inaktivität beträgt 10.080 Minuten (7 Tage). Die Standardzeitdauer beträgt 1440 Minuten (1 Tag).
 
 4. Fügen Sie die Weiterleitungs-URIs im Feld **Weiterleitungs-URI für Abmeldung** hinzu und klicken Sie dann auf das Pluszeichen (**+**). Beachten Sie hierbei unbedingt, dass nur Anwendungen registriert werden sollten, die Sie als vertrauenswürdig einstufen. Wenn Sie den URI registrieren, autorisieren Sie {{site.data.keyword.appid_short_notm}}, ihn in den Autorisierungsworkflow einzubinden.
 
@@ -129,7 +129,7 @@ Um einen Benutzer abzumelden, muss der Browser mithilfe der verfügbaren Informa
 ```
 https://<region>.appid.cloud.ibm.com/oauth/v4/<tenant-id>/cloud_directory/sso/logout?redirect_uri=<redirect_uri>&client_id=<clientId>
 ```
-{: pre}
+{: codeblock}
 
 <table>
   <tr>
@@ -182,7 +182,7 @@ POST https://<region>.appid.cloud.ibm.com/management/v4/{tenant-id}/cloud_direct
 Headers:
 Authorization: <IAM TOKEN>
 ```
-{: pre}
+{: codeblock}
 
 <table>
   <tr>

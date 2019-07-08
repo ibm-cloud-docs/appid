@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-06-06"
 
-keywords: authentication, authorization, identity, app security, secure, development, sign in, sign up, password, social, enterprise
+keywords: Authentication, authorization, identity, app security, secure, development, sign in, sign up, password, social, enterprise
 
 subcollection: appid
 
@@ -23,40 +23,31 @@ subcollection: appid
 {:download: .download}
 
 
-# Anmeldewidget anzeigen
+# Anmeldewidget verwenden
 {: #login-widget}
 
-{{site.data.keyword.appid_full}} stellt ein Anmeldewidget zur Verfügung, mit dem Sie Ihren Benutzern sichere Anmeldeoptionen bieten können.
+Mit {{site.data.keyword.appid_full}} können Sie eine Standardbenutzerschnittstelle verwenden, die als Anmeldewidget bezeichnet wird, um es den Benutzern der Anwendung zu ermöglichen, den Identitätsprovider auszuwählen, mit dem sie sich anmelden möchten. Wenn Sie Cloud Directory verwenden, werden vom Anmeldewidget auch weitere Benutzerschnittstellen für zusätzliche Funktionen bereitgestellt, zum Beispiel zum Anmelden, bei einem vergessenen Kennwort, für die Mehrfaktorauthentifizierung und vieles mehr.
 {: shortdesc}
 
-Wenn Ihre App für die Verwendung eines Identitätsproviders konfiguriert wurde, werden Besucher Ihrer App durch ein Anmeldewidget zur Anmeldeanzeige weitergeleitet. Mit dem Anmeldewidget können Sie vorkonfigurierte Anzeigen für Ihre Anmeldeabläufe anzeigen. Zusätzlich interessant ist hierbei, dass Sie Ihren Anmeldeablauf jederzeit aktualisieren können, ohne Ihren Quellcode in irgendeiner Weise zu ändern!
-
-Wollen Sie eine Benutzererfahrung kreieren, durch die sich Ihre App von anderen abhebt? Sie können [Ihre eigenen Anzeigen einbringen](/docs/services/appid?topic=appid-branded)!
-{: tip}
 
 ## Informationen zum Anmeldewidget
 {: #widget-understanding}
 
-Sie können die Vorteile von {{site.data.keyword.appid_short_notm}} auch ohne eigene UI-Anzeigen nutzen, indem Sie das Anmeldewidget verwenden.
-{: shortdesc}
+Einer der wichtigsten Vorteile des Anmeldewidgets ist die Tatsache, dass Sie mit der Verwendung von {{site.data.keyword.appid_short_notm}} beginnen können, bevor Sie eine eigene Benutzerschnittstellen für die Authentifizierung implementieren; dies erleichtert das Onboarding für Entwickler erheblich. 
 
-### Was ist der Standardwert?
+### Was ist das Standardverhalten eines Anmeldewidgets?
 {: #widget-default}
 
-Wenn mehr als ein Identitätsprovider konfiguriert ist, wird ein Benutzer an das Anmeldewidget weitergeleitet, wenn er versucht, sich bei Ihrer Anwendung anzumelden. Durch die Verwendung des Anmeldewidgets können Benutzer den Provider auswählen, mit dem sie ihre Identität überprüfen möchten. Wenn nur ein einziger Provider aktiviert (**Ein**) ist, werden Besucher zur Authentifizierungsanzeige des betreffenden Identitätsproviders weitergeleitet.
+Das Anmeldewidget ist standardmäßig für die Verwendung von Facebook, Google und Cloud Directory aktiviert. Sie können das Verhalten jederzeit ändern, indem Sie die Identitätsprovider auswählen, die Sie als Option konfigurieren möchten. Wenn mehrere Identitätsprovider aktiviert sind, wird vom Anmeldewidget ein Bildschirm angezeigt, in dem der Benutzer seinen Identitätsprovider auswählen kann. Wenn Sie jedoch einen einzelnen Provider aktiviert haben, wird den Benutzern die soeben genannte Auswahlanzeige nicht angezeigt. Sie werden direkt an den Identitätsprovider weitergeleitet, um mit dem Anmeldevorgang zu beginnen. 
 
-### Wie viele Informationen erhält {{site.data.keyword.appid_short_notm}} von einem Identitätsprovider?
-{: #widget-obtain-info}
+Wenn Sie zum Beispiel die Standardeinstellung verwenden (Facebook, Google und Cloud Directory), wird der Bildschirm den Benutzern angezeigt. Wenn Sie nur Facebook aktivieren, werden die Benutzer zur Authentifizierung direkt zu Facebook weitergeleitet.
 
-Wenn Sie Social-Media- oder unternehmenseigene Identitätsprovider verwenden, kann {{site.data.keyword.appid_short_notm}} die Kontoinformationen eines Benutzers lesen. Der Service verwendet ein Token und die Zusicherungen, die vom Identitätsprovider zurückgegeben werden, um zu überprüfen, ob ein Benutzer die Person ist, die er zu sein behauptet. Da der Service nie Schreibzugriff auf die Informationen hat, müssen die Benutzer den ausgewählten Identitätsprovider verwenden, um Aktionen wie das Zurücksetzen des Kennworts ausführen zu können. Wenn sich ein Benutzer beispielsweise mit Facebook bei Ihrer App anmeldet und dann sein Kennwort ändern will, muss er dies über www.facebook.com tun.
-
-Wenn Sie [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory) verwenden, ist {{site.data.keyword.appid_short_notm}} der Identitätsprovider. Der Service verwendet Ihre Registry, um Ihre Benutzeridentität zu überprüfen. Da {{site.data.keyword.appid_short_notm}} der Provider ist, können die Benutzer die Vorteile der erweiterten Funktionalität (wie z. B. das Zurücksetzen des Kennworts) direkt in ihrer App nutzen.
 
 
 ### Welche Anzeigen können für die einzelnen Provider angezeigt werden?
 {: #widget-options}
 
-In der folgenden Tabelle sehen Sie, welche Anzeigen Sie für den jeweiligen Identitätsprovidertyp anzeigen können.
+Wenn Sie Cloud Directory verwenden, kann Ihnen {{site.data.keyword.appid_short_notm}} die erweiterte Funktionalität der Benutzerverwaltung bieten. Die erweiterten Funktionen sind auch auf die Funktionalität des Anmeldewidgets anwendbar. Benutzer, die in Cloud Directory gespeichert sind, können die Vorteile der Funktionen genießen, zum Beispiel die Registrierung oder das Zurücksetzen des Kennworts direkt im Anmeldewidget. In der folgenden Tabelle sehen Sie, welche Anzeigen Sie für den jeweiligen Identitätsprovidertyp anzeigen können.
 
 <table>
   <thead>
@@ -101,14 +92,15 @@ In der folgenden Tabelle sehen Sie, welche Anzeigen Sie für den jeweiligen Iden
   </tbody>
 </table>
 
-</br>
-</br>
 
 ## Anmeldewidget anpassen
 {: #widget-customize}
 
-{{site.data.keyword.appid_short_notm}} stellt eine Standardanmeldeanzeige zur Verfügung, die Sie aufrufen können, wenn Sie keine eigenen Anzeigen der Benutzerschnittstellen haben. Sie können die Anzeige so anpassen, dass das Logo und die gewünschten Farben angezeigt werden.
+Das Anmeldewidget ist dynamisch. Sie können die Darstellung und Funktionsweise oder die Konfiguration des Identitätsproviders anpassen; die Änderungen werden unverzüglich wirksam. Es ist nicht erforderlich, den Anwendungscode zu aktualisieren oder die App auf irgendeine Art erneut bereitzustellen.
 {: shortdesc}
+
+Benötigen Sie mehr Anpassungen, als dies mithilfe des Anmeldewidgets möglich ist? Sie können Ihre eigene vollständig angepasste Benutzerschnittstelle für die Anmeldung, die Registrierung, das Zurücksetzen des Kennworts und weitere Abläufe implementieren, um eine Erfahrung zu erstellen, die für Ihre App einmalig ist. Prüfen Sie zunächst das [App-Branding](/docs/services/appid?topic=appid-branded).
+{: tip}
 
 Anpassen der Anzeige:
 
@@ -118,9 +110,6 @@ Anpassen der Anzeige:
 4. Wählen Sie eine Headerfarbe für das Widget aus der Farbauswahl aus oder geben Sie den hexadezimalen Code für eine andere Farbe ein.
 5. Prüfen Sie das Aussehen im Vorschaubereich und klicken Sie auf **Änderungen speichern**, wenn Sie mit den Anpassungen zufrieden sind. Eine Bestätigungsnachricht wird angezeigt.
 6. Aktualisieren Sie die Anmeldeseite im Browser, um Ihre Änderungen zu überprüfen.
-
-Nicht vergessen! Sie können {{site.data.keyword.appid_short_notm}} auch mit anderen Sprachen nutzen. Wenn Sie kein SDK für die Sprache haben, mit der Sie arbeiten, können Sie immer die APIs verwenden. Weitere Informationen finden Sie in <a href="https://www.ibm.com/blogs/bluemix/tag/app-id/" target="blank">unseren Blogs<img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a>.
-{: tip}
 
 
 ## Anmeldewidget mit dem Android-SDK anzeigen
@@ -183,7 +172,7 @@ Den folgenden Befehl in den Code einfügen.
       }
   });
   ```
-  {: pre}
+  {: codeblock}
 
 </br>
 

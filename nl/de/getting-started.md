@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-20"
+lastupdated: "2019-06-06"
 
-keywords: authentication, authorization, identity, app security, secure, development,
+keywords: Authentication, authorization, identity, app security, secure, development,
 
 subcollection: appid
 
@@ -63,7 +63,7 @@ Gehen Sie wie folgt vor, um eine Beispielapp zu erstellen:
 
 1. Klicken Sie auf **Beispiel herunterladen**.
 2. Klicken Sie auf die Sprache Ihrer Wahl, um das Beispiel herunterzuladen.
-  Die von Ihnen gesuchte Sprache wird nicht angezeigt? Kein Problem! Sie können mithilfe der APIs von {{site.data.keyword.appid_short_notm}} profitieren. Informieren Sie sich auch anhand <a href="https://www.ibm.com/blogs/bluemix/tag/app-id/" target="_blank">unserer Blogs<img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a> über zusätzliche Hilfe in anderen Sprachen.
+  Die von Ihnen gesuchte Sprache wird nicht angezeigt? Kein Problem! Sie können mithilfe der APIs von {{site.data.keyword.appid_short_notm}} profitieren.
   {: tip}
 3. Stellen Sie sicher, dass die Voraussetzungen installiert bzw. erfüllt sind.
 4. Führen Sie die Schritte unter **Erstellung und Ausführung** aus, um das Beispiel mit {{site.data.keyword.appid_short_notm}} einzurichten.

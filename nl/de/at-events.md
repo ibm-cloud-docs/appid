@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-05"
+lastupdated: "2019-05-01"
 
 keywords: authentication, authorization, identity, app security, secure, application identity, app to app, access token, activity
 
@@ -31,13 +31,19 @@ Sie können vom Benutzer initiierte Aktivitäten in Ihrer {{site.data.keyword.ap
 
 
 
-Weitere Informationen zur Funktionsweise des Service finden Sie in den [Dokumenten zu {{site.data.keyword.cloudaccesstrailshort}}](/docs/services/cloud-activity-tracker/reference?topic=cloud-activity-tracker-getting-started-with-cla#getting-started-with-cla).
+
+
+Weitere Informationen zur Funktionsweise des Service finden Sie in den [Dokumenten zu {{site.data.keyword.cloudaccesstrailshort}}](/docs/services/cloud-activity-tracker?topic=cloud-activity-tracker-getting-started#getting-started).
+
+
+
+
 
 
 ## Verwaltungsereignisse anzeigen
 {: #at-monitor-admin}
 
-Sie können Konfigurationsaktivitäten in Ihrer {{site.data.keyword.appid_short_notm}}-Instanz mit dem Service '{{site.data.keyword.cloudaccesstrailshort}}' anzeigen, verwalten und analysieren.
+Sie können Konfigurationsaktivitäten in Ihrer {{site.data.keyword.appid_short_notm}}-Instanz mit dem Service '{{site.data.keyword.at_short}}' anzeigen, verwalten und analysieren.
 {: shortdesc}
 
 Gehen Sie wie folgt vor, um Verwaltungsaktivitäten zu überwachen:
@@ -48,7 +54,7 @@ Gehen Sie wie folgt vor, um Verwaltungsaktivitäten zu überwachen:
 4. Nehmen Sie über die Dropdown-Liste die folgenden Konfigurationen vor, um nach Ereignissen zu suchen, die von {{site.data.keyword.appid_short_notm}} generiert werden.
     * Wählen Sie für **Protokolle anzeigen** die Option **Kontoprotokolle** aus.
     * Wählen Sie für **Durchsuchen** die Option **target.Management** aus.
-    * Geben Sie für **Filter** die Option **appid** ein.
+    * Geben Sie für **Filter** die Option `appid` ein.
 5. Klicken Sie auf **Filtern**.
 
 </br>
@@ -56,7 +62,7 @@ Gehen Sie wie folgt vor, um Verwaltungsaktivitäten zu überwachen:
 ## Liste der Verwaltungsereignisse
 {: #at-events-admin}
 
-Die folgende Tabelle enthält eine Liste der Ereignisse, die an {{site.data.keyword.cloudaccesstrailshort}} gesendet werden.
+Die folgende Tabelle enthält eine Liste der Ereignisse, die an {{site.data.cloudaccesstrailshort}} gesendet werden.
 
 <table>
   <tr>

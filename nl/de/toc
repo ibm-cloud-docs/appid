@@ -1,11 +1,11 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="appid" audience="service" arm="2093952" href="/docs/services/appid?topic=appid-getting-started#getting-started" path="services/appid"}
+{: .toc subcollection="appid" audience="service"  arm="2093952" href="/docs/services/appid?topic=appid-getting-started#getting-started" path="services/appid"}
 IBM Cloud App ID
 
     {: .navgroup id="learn"}
-    index.md
+    getting-started.md
     about.md
     authorization.md
 
@@ -20,14 +20,14 @@ IBM Cloud App ID
 
     {: .navgroup id="howto"}
     {: .topicgroup}
-    App ID zu Ihrer App hinzufügen
+    App ID zur App hinzufügen
+        adding-overview.md
         web-apps.md
         mobile-apps.md
         backend-apps.md
         custom-auth.md
         progressive.md
         app-to-app.md
-        well-known.md
 
     manageidp.md
 
@@ -50,17 +50,16 @@ IBM Cloud App ID
     Anmeldeerfahrung verwalten
         login-widget.md
         branded.md
-
+    
     {: .topicgroup}
-    Benutzerprofile speichern und darauf zugreifen
-        user-profile.md
-        predefined.md
-        custom-attributes.md
+    Benutzerprofile verwalten
+        profiles.md
         pre-sign-in.md
 
     {: .topicgroup}
     Tokens verwalten
         tokens-understand.md
+        token-obtain.md
         customizing-tokens.md
         tokens.md
     {: .navgroup-end}
@@ -78,6 +77,8 @@ IBM Cloud App ID
     iam.md
     api-reference.md
     at-events.md
+    well-known.md
+    rate-limits.md
     {: .navgroup-end}
 
     {: .navgroup id="help"}

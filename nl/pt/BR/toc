@@ -65,7 +65,7 @@ IBM Cloud App ID
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
-    [APIs do ID do app](https://us-south.appid.cloud.ibm.com/swagger-ui/#/)
+    [APIs do App ID](https://us-south.appid.cloud.ibm.com/swagger-ui/#/)
 
     {: .topicgroup}
     SDKs

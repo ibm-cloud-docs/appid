@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-21"
 
 keywords: authentication, authorization, identity, app security, secure, web apps, client, server
 
@@ -78,6 +78,11 @@ Folgendes wird vorausgesetzt:
 * Ihr Weiterleitungs-URI im {{site.data.keyword.appid_short_notm}}-Service-Dashboard
 
 
+Sehen Sie sich folgende Video an, um Informationen zum Schutz von Node-Knotenanwendungen mit {{site.data.keyword.appid_short_notm}} zu erhalten. Versuchen Sie es anschließend mithilfe einer [einfachen Beispielanwendung für Knoten](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02a-simple-node-web-app). 
+
+<iframe class="embed-responsive-item" id="appid-nodejs" title="Informationen zu {{site.data.keyword.appid_short_notm}}" type="text/html" width="640" height="390" src="//www.youtube.com/embed/6roa1ZOvwtw?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+
 ### Node.js-SDK installieren
 {: #web-nodejs-install}
 
@@ -88,7 +93,7 @@ Folgendes wird vorausgesetzt:
   ```bash
   npm install --save ibmcloud-appid
   ```
-  {: pre}
+  {: codeblock}
 
 ### Node.js-SDK initialisieren
 {: #web-nodejs-initialize}
@@ -102,7 +107,7 @@ Folgendes wird vorausgesetzt:
     const WebAppStrategy = require("ibmcloud-appid").WebAppStrategy;
     const CALLBACK_URL = "/ibm/cloud/appid/callback";
   ```
-  {: pre}
+  {: codeblock}
 
 2. Richten Sie die Express-App so ein, dass Middleware des Typs 'express-session' verwendet wird.
 
@@ -116,7 +121,7 @@ Folgendes wird vorausgesetzt:
     app.use(passport.initialize());
     app.use(passport.session());
   ```
-  {: pre}
+  {: codeblock}
 
   Sie müssen die Middleware mit dem passenden Sitzungsspeicher für die Produktionsumgebungen konfigurieren. Weitere Informationen finden Sie in der <a href="https://github.com/expressjs/session" target="_blank"> Dokumentation zu express.js<img src="../icons/launch-glyph.svg" alt="Symbol für externen Link"></a>.
   {: note}
@@ -134,7 +139,7 @@ Folgendes wird vorausgesetzt:
     -H 'Authorization: Bearer IAM_TOKEN' \
     -d '{"name": "ApplicationName"}'
     ```
-    {: pre}
+    {: codeblock}
 
     Beispielantwort:
     ```
@@ -166,9 +171,9 @@ Folgendes wird vorausgesetzt:
     redirectUri: "{app-url}" + CALLBACK_URL
     }));
   ```
-  {: pre}
+  {: codeblock}
 
-6. Konfigurieren Sie Passport mit Serialisierung und ohne Deserialisierung. Dieser Konfigurationsschritt ist für ein Aufrechterhalten authentifizierter Sitzungen für HTTP-Anforderungen erforderlich. Weitere Informationen finden Sie in der <a href="http://passportjs.org/docs" target="_blank">Dokumentation zu Passport <img src="../icons/launch-glyph.svg" alt="Symbol für externen Link"></a>.
+6. Konfigurieren Sie Passport mit Serialisierung und ohne Deserialisierung. Dieser Konfigurationsschritt ist für ein Aufrechterhalten authentifizierter Sitzungen für HTTP-Anforderungen erforderlich. Weitere Informationen finden Sie in der <a href="http://www.passportjs.org/docs/" target="_blank">Dokumentation zu Passport <img src="../icons/launch-glyph.svg" alt="Symbol für externen Link"></a>.
 
   ```javascript
   passport.serializeUser(function(user, cb) {
@@ -179,21 +184,21 @@ Folgendes wird vorausgesetzt:
     cb(null, obj);
     });
   ```
-  {: pre}
+  {: codeblock}
 
 5. Fügen Sie den nachfolgend dargestellten Code in der Datei `server.js` hinzu, um die Serviceweiterleitungen auszuführen.
 
    ```javascript
    app.get(CALLBACK_URL, passport.authenticate(WebAppStrategy.STRATEGY_NAME));
    ```
-   {: pre}
+   {: codeblock}
 
 6. Registrieren Sie Ihren geschützten Endpunkt.
 
    ```javascript
    app.get(‘/protected’, passport.authenticate(WebAppStrategy.STRATEGY_NAME), function(req, res) {res.json(req.user); });
    ```
-   {: pre}
+   {: codeblock}
 
 Weitere Informationen finden Sie im Abschnitt zum <a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs" target="_blank">{{site.data.keyword.appid_short_notm}}-Node.js GitHub-Repository <img src="../icons/launch-glyph.svg" alt="Symbol für externen Link"></a>.
 
@@ -214,6 +219,13 @@ Folgendes wird vorausgesetzt:
 * Java 1.8
 * Eine Liberty for Java-Webanwendung
 
+
+Sehen Sie sich folgende Video an, um Informationen zum Schutz von Liberty for Java-Anwendungen mit {{site.data.keyword.appid_short_notm}} zu erhalten. Versuchen Sie es anschließend mithilfe einer [einfachen Beispielanwendung für Liberty for Java](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02c-simple-liberty-web-app). 
+
+<iframe class="embed-responsive-item" id="appid-liberty-web" title="Informationen zu {{site.data.keyword.appid_short_notm}}" type="text/html" width="640" height="390" src="//www.youtube.com/embed/o_Er69YUsMQ?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+
+
 ### Liberty for Java-SDK installieren
 {: #web-liberty-install}
 
@@ -226,7 +238,7 @@ Folgendes wird vorausgesetzt:
       <feature>openidConnectClient-1.0</feature>
   </featureManager>
   ```
-  {: pre}
+  {: codeblock}
 
 2. Fordern Sie Ihre Berechtigungsnachweise auf eine der beiden folgenden Arten an.
 
@@ -241,7 +253,7 @@ Folgendes wird vorausgesetzt:
     -H 'Authorization: Bearer IAM_TOKEN' \
     -d '{"name": "ApplicationName"}'
     ```
-    {: pre}
+    {: codeblock}
 
     Beispielantwort:
     ```
@@ -271,7 +283,7 @@ Folgendes wird vorausgesetzt:
     trustAliasName="ibm.com"
   />
   ```
-  {: pre}
+  {: codeblock}
 
   <table>
   <caption>Tabelle. OIDC-Elementvariablen für Liberty for Java-Apps</caption>
@@ -280,7 +292,7 @@ Folgendes wird vorausgesetzt:
       <th> Beschreibung </th>
     </tr>
     <tr>
-    <td><code> clientID </code> </br> <code> secret </code> </br> <code> oauth-server-url </code> </br></td>
+    <td><code>clientID</code> </br> <code>secret</code> </br> <code>oauth-server-url</code> </br></td>
     <td>Führen Sie Schritt 2 aus, um Ihre Serviceberechtigungsnachweise abzurufen.</td>
     </tr>
     <tr>
@@ -320,14 +332,14 @@ Folgendes wird vorausgesetzt:
 ### Liberty for Java-SDK initialisieren
 {: #web-liberty-initialize}
 
-1. Definieren Sie in der Datei `server.xml` einen Autorisierungsfilter für die Angabe geschützter Ressourcen. Ist kein Filter <a href="https://www.ibm.com/support/knowledgecenter/en/SSD28V_8.5.5/com.ibm.websphere.wlp.core.doc/ae/rwlp_auth_filter.html" target="_blank">definiert <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a>, schützt der Service alle Ressourcen.
+1. Definieren Sie in der Datei `server.xml` einen Autorisierungsfilter für die Angabe geschützter Ressourcen. Ist kein Filter <a href="https://www.ibm.com/support/knowledgecenter/en/SSD28V_9.0.0/com.ibm.websphere.wlp.core.doc/ae/rwlp_auth_filter.html" target="_blank">definiert <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a>, schützt der Service alle Ressourcen.
 
   ```xml
   <authFilter id="myAuthFilter">
              <requestUrl id="myRequestUrl" urlPattern="/protected" matchType="contains"/>
     </authFilter>
   ```
-  {: pre}
+  {: codeblock}
 
 2. Definieren Sie Ihren speziellen Subjekttyp als `ALL_AUTHENTICATED_USERS`.
 
@@ -341,7 +353,7 @@ Folgendes wird vorausgesetzt:
             </application-bnd>
         </application>
   ```
-  {: pre}
+  {: codeblock}
 
 3. Laden Sie die Datei `libertySample-1.0.0.war` von <a href="https://github.com/ibm-cloud-security/appid-sample-code-snippets/tree/master/liberty-for-java" target="_blank">GitHub <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a> herunter und legen Sie sie im Ordner für Apps Ihres Servers ab. Wenn Ihr Server beispielsweise den Namen `defaultServer` trägt, wird die WAR-Datei unter `target/liberty/wlp/usr/servers/defaultServer/apps/` abgelegt.
 
@@ -352,7 +364,7 @@ Folgendes wird vorausgesetzt:
   <keyStore id="appidtruststore" password="Liberty" location="${server.config.dir}/mytruststore.jks"/>
   <ssl id="defaultSSLConfig" keyStoreRef="defaultKeyStore" trustStoreRef="appidtruststore"/>
   ```
-  {: pre}
+  {: codeblock}
 
 Für die SSL-Standardkonfiguration muss der Truststore für OpenID Connect konfiguriert sein. Weitere Informationen hierzu finden Sie unter <a href="https://www.ibm.com/support/knowledgecenter/en/SSEQTP_liberty/com.ibm.websphere.wlp.doc/ae/twlp_config_oidc_rp.html" target="_blank">OpenID Connect-Client in Liberty konfigurieren <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a>.
 {: tip}
@@ -390,7 +402,7 @@ Folgendes wird vorausgesetzt:
       <relativePath/>
   </parent>
   ```
-  {: pre}
+  {: codeblock}
 
 2. Fügen Sie die folgenden Abhängigkeiten zu Ihrer Maven-Datei `pom.xml` hinzu.
 
@@ -411,7 +423,7 @@ Folgendes wird vorausgesetzt:
       </dependency>
   </dependencies>
   ```
-  {: pre}
+  {: codeblock}
 
 3. Fügen Sie das Maven-Plug-in in dieselbe Datei ein.
 
@@ -421,7 +433,7 @@ Folgendes wird vorausgesetzt:
       <artifactId>spring-boot-maven-plugin</artifactId>
   </plugin>
   ```
-  {: pre}
+  {: codeblock}
 
 ### OAuth2 initialisieren
 {: #web-oauth-initialize}
@@ -432,7 +444,7 @@ Folgendes wird vorausgesetzt:
   @SpringBootApplication
   @EnableOAuth2Sso
   ```
-  {: pre}
+  {: codeblock}
 
 2. Erweitern Sie die Klasse mit `WebSecurityConfigurerAdapter`.
 3. Überschreiben Sie alle Sicherheitskonfigurationen und registrieren Sie Ihren geschützten Endpunkt.
@@ -445,7 +457,7 @@ Folgendes wird vorausgesetzt:
                 .and().logout().logoutSuccessUrl("/").permitAll();
     }
   ```
-  {: pre}
+  {: codeblock}
 
 
 ### Berechtigungsnachweise hinzufügen
@@ -464,7 +476,7 @@ Folgendes wird vorausgesetzt:
     -H 'Authorization: Bearer IAM_TOKEN' \
     -d '{"name": "ApplicationName"}'
     ```
-    {: pre}
+    {: codeblock}
 
     Beispielantwort:
     ```
@@ -491,9 +503,9 @@ Folgendes wird vorausgesetzt:
     resource:
       userInfoUri: {oauthServerUrl}/userinfo
   ```
-  {: pre}
+  {: codeblock}
 
-Ein Schritt-für-Schritt-Beispiel finden Sie in <a href="https://www.ibm.com/blogs/bluemix/2018/06/creating-spring-boot-applications-app-id/" target="_blank">diesem Blog</a>.
+Ein Schritt-für-Schritt-Beispiel finden Sie in <a href="https://www.ibm.com/cloud/blog/creating-spring-boot-applications-app-id" target="_blank">diesem Blog</a>.
 
 
 ## {{site.data.keyword.appid_short_notm}} mit anderen Sprachen verwenden

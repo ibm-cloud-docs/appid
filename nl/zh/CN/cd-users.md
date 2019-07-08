@@ -162,7 +162,8 @@ Cloud Directory 用户与 {{site.data.keyword.appid_short_notm}} 用户不同。
   ```
   {: screen}
 
-  要查看 {{site.data.keyword.appid_short_notm}} 支持的完整用户数据集，请查看 [SCIM 核心模式](https://tools.ietf.org/html/rfc7643#section-8.2)。{: tip}
+  要了解 {{site.data.keyword.appid_short_notm}} 支持的完整用户数据集，请查看 [SCIM 核心模式](https://tools.ietf.org/html/rfc7643#section-8.2)。
+  {: tip}
 
 
 ## 添加和删除用户

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-20"
 
 keywords: authentication, authorization, identity, app security, secure, customizing apps, directory, registry, 
 
@@ -38,7 +38,7 @@ Wenn Sie Ihre vorhandenen Benutzerschnittstellen wiederverwenden, können Sie ei
 {: #branded-requirements}
 
 
-Wenn Sie eigene Benutzerschnittstellen anzeigen möchten, müssen Sie als Identitätsprovider [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory) verwenden. Es gibt verschiedene Möglichkeiten, wie Cloud Directory [konfiguriert](/docs/services/appid?topic=appid-cloud-directory) werden kann. Sie können entscheiden, welche Art von Nachrichten Sie verwenden möchten, und Sie können Inhalt und Gestaltung anpassen. In der GUI gibt es Beispielnachrichten, die Sie verwenden können.
+Wenn Sie eigene Benutzerschnittstellen anzeigen möchten, müssen Sie als Identitätsprovider [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory) verwenden. Es gibt verschiedene Möglichkeiten, wie Cloud Directory [konfiguriert](/docs/services/appid?topic=appid-cloud-directory) werden kann. Sie können entscheiden, welche Art von Nachrichten Sie verwenden möchten, und Sie können Inhalt und Gestaltung anpassen. Wissen Sie nicht, was Sie sagen sollen? Nur zu! In der grafischen Benutzerschnittstelle werden Beispielnachrichten bereitgestellt, die Sie verwenden können. 
 
 
 Möchten Sie eine andere [Sprache](/docs/services/appid?topic=appid-cd-messages#cd-languages) als Englisch verwenden? Sie können eine andere Sprache auswählen, indem Sie die <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/updateLocalization" target="_blank">Management-APIs für Sprachen <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a> verwenden, um Ihren eigenen übersetzten Inhalt anzuzeigen.
@@ -53,7 +53,7 @@ Ja! Sie können einen Hybridablauf erstellen, in dem einige Ihrer Anzeigen und e
 ### Wie unterscheiden sich die Abläufe in technischer Hinsicht?
 {: #branded-technically}
 
-Der Service verwendet OAuth 2.0-Abläufe, um den Autorisierungsprozess zuzuordnen. Wenn Sie Social-Media-Identitätsprovider wie z. B. Facebook konfigurieren, wird der <a href="https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html" target="_blank">Oauth2-Berechtigungserteilungsablauf <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a> verwendet, um das Anmeldewidget aufzurufen. Wenn Sie eigene Anzeigen verwenden, wird der <a href="https://oauthlib.readthedocs.io/en/stable/oauth2/grants/password.html" target="_blank">Ablauf für die Kennwortberechtigungsnachweise der Ressourceneigner <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a> verwendet, um Zugriffs- und Identitätstokens bereitzustellen, die Ihnen das Aufrufen Ihrer Anzeigen ermöglichen.
+Der Service verwendet OAuth 2.0-Abläufe, um den Autorisierungsprozess zuzuordnen. Wenn Sie Social-Media-Identitätsprovider wie z. B. Facebook konfigurieren, wird der <a href="https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html" target="_blank">OAuth2-Berechtigungserteilungsablauf <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a> verwendet, um das Anmeldewidget aufzurufen. Wenn Sie eigene Anzeigen verwenden, wird der <a href="https://oauthlib.readthedocs.io/en/stable/oauth2/grants/password.html" target="_blank">Ablauf für die Kennwortberechtigungsnachweise der Ressourceneigner <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a> verwendet, um Zugriffs- und Identitätstokens bereitzustellen, die Ihnen das Aufrufen Ihrer Anzeigen ermöglichen.
 
 
 
@@ -62,15 +62,15 @@ Der Service verwendet OAuth 2.0-Abläufe, um den Autorisierungsprozess zuzuordne
 
 Ja! Die folgenden Beispiele zeigen Cloud Directory in Aktion:
 
-* <a href="https://www.ibm.com/blogs/bluemix/2018/01/use-branded-ui-user-sign-app-id/" target="_blank">Eigene an Ihr Brand-Marketing angepasste Benutzerschnittstelle für die Benutzeranmeldung mit {{site.data.keyword.appid_short_notm}} verwenden <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a>
-* <a href="https://www.ibm.com/blogs/bluemix/2018/06/use-ui-flows-user-sign-sign-app-id/" target="_blank">Eigene UI und Abläufe für Registrierung und Anmeldung mit {{site.data.keyword.appid_short_notm}} verwenden <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a>
-* <a href="https://www.ibm.com/blogs/bluemix/2018/06/custom-login-page-app-id-integration/" target="_blank">Angepasste Anmeldeseite mit {{site.data.keyword.appid_short_notm}} verwenden <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a>
+* <a href="https://www.ibm.com/cloud/blog/use-branded-ui-user-sign-app-id" target="_blank">Eigene an Ihr Brand-Marketing angepasste Benutzerschnittstelle für die Benutzeranmeldung mit {{site.data.keyword.appid_short_notm}} verwenden <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a>
+* <a href="https://www.ibm.com/cloud/blog/use-ui-flows-user-sign-sign-app-id" target="_blank">Eigene UI und Abläufe für Registrierung und Anmeldung mit {{site.data.keyword.appid_short_notm}} verwenden <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a>
+* <a href="https://www.ibm.com/cloud/blog/custom-login-page-app-id-integration" target="_blank">Angepasste Anmeldeseite mit {{site.data.keyword.appid_short_notm}} verwenden <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a>
 
 
 ## Branding der App mit dem Android-SDK
 {: #branded-ui-android}
 
-Wenn Cloud Directory aktiviert ist, können Sie mit dem Node.js-SDK angepasste Anzeigen aufrufen. Sie können die gewünschte Kombination der Anzeigen auswählen, mit denen die Benutzer interagieren sollen. <a href="https://www.ibm.com/blogs/bluemix/2018/01/use-branded-ui-user-sign-app-id/" target="blank">Lesen in diesem Blog <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a> ein ausführliches Beispiel dazu!
+Wenn Cloud Directory aktiviert ist, können Sie mit dem Node.js-SDK angepasste Anzeigen aufrufen. Sie können die gewünschte Kombination der Anzeigen auswählen, mit denen die Benutzer interagieren sollen. <a href="https://www.ibm.com/cloud/blog/use-branded-ui-user-sign-app-id" target="blank">Lesen in diesem Blog <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a> ein ausführliches Beispiel dazu!
 {: shortdesc}
 
 
@@ -94,7 +94,7 @@ Wenn Cloud Directory aktiviert ist, können Sie mit dem Node.js-SDK angepasste A
           }
   });
   ```
-  {: pre}
+  {: codeblock}
 
 </br>
 </br>

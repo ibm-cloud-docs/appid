@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-09"
 
 keywords: authentication, authorization, identity, app security, secure, development, two factor, mfa 
 
@@ -115,7 +115,7 @@ Sie können den E-Mail-Kanal für die Mehrfaktorauthentifizierung (MFA) über di
     <tbody>
       <tr>
         <td><code>%{display.logo}</code></td>
-        <td> Zeigt das Bild an, das Sie für das Anmeldewidget konfiguriert haben.</td>
+        <td> Zeigt das Bild an, das Sie für das Anmeldewidget konfiguriert haben. </td>
       </tr>
       <tr>
         <td><code>%{user.displayName}</code></td>
@@ -172,7 +172,7 @@ Stellen Sie sicher, dass die folgenden Anforderungen erfüllt werden:
        Authorization: Bearer <IAM_TOKEN>
        Content-Type: application/json
   ```
-  {: pre}
+  {: codeblock}
 
   Hauptteil:
   ```
@@ -180,7 +180,7 @@ Stellen Sie sicher, dass die folgenden Anforderungen erfüllt werden:
        "isActive": true
    }
   ```
-  {: pre}
+  {: codeblock}
 
   Beispielanforderung:
   ```
@@ -205,7 +205,7 @@ Stellen Sie sicher, dass die folgenden Anforderungen erfüllt werden:
        Authorization: Bearer <IAM_TOKEN>
        Content-Type: application/json
   ```
-  {: pre}
+  {: codeblock}
 
   Hauptteil:
   ```
@@ -213,7 +213,7 @@ Stellen Sie sicher, dass die folgenden Anforderungen erfüllt werden:
        "isActive": true
    }
   ```
-  {: pre}
+  {: codeblock}
 
   Beispielanforderung:
 
@@ -248,7 +248,7 @@ Sie können als zweite Form der Verifizierung eine SMS-Nachricht an Ihre Benutze
 
  - Rufen Sie die Nexmo-API-Schlüssel und den entsprechenden geheimen Schlüssel ab. Der Nexmo-API-Schlüssel und der entsprechende geheime Schlüssel sind auf der Seite mit den Einstellungen Ihres Kontos im Nexmo-Dashboard zu finden. Weitere Informationen zur Vorgehensweise beim Abrufen Ihrer Berechtigungsnachweise finden Sie in der [Nexmo-Dokumentation](https://developer.nexmo.com/concepts/guides/authentication#api-key-and-secret).
 
- - Registrieren Sie Ihre Absender-ID oder die `Absenderrufnummer` bei Nexmo. Diese `Absenderrufnummer` wird auf dem Telefon Ihres Benutzers als Absender der SMS angezeigt. Weitere Informationen finden Sie in der [Nexmo-Dokumentation](https://help.nexmo.com/hc/en-us/articles/217571017-What-is-a-Sender-ID).
+ - Registrieren Sie Ihre Absender-ID oder die `Absenderrufnummer` bei Nexmo. Diese `Absenderrufnummer` wird auf dem Telefon Ihres Benutzers als Absender der SMS angezeigt. In einigen Ländern werden von Nexmo alphanumerische Absender-IDs unterstützt. Von {{site.data.keyword.appid_short_notm}} wird der Wert verwendet, den Sie als Absender-ID für Nexmo eingegeben haben. Falls sie von Nexmo unterstützt werden, können Sie die IDs also mit {{site.data.keyword.appid_short_notm}} verwenden. Weitere Informationen finden Sie in der [Nexmo-Dokumentation](https://help.nexmo.com/hc/en-us/articles/217571017-What-is-a-Sender-ID).
 
 
 ### Mit der GUI
@@ -273,7 +273,7 @@ Informationen zum Konfigurieren der Mehrfaktorauthentifizierung über die GUI fi
 
     4. Kopieren Sie den **geheimen API-Schlüssel** im Nexmo-Dashboard und fügen Sie ihn im Feld **Geheimer Schlüssel** des {{site.data.keyword.appid_short_notm}}-Dashboards ein.
 
-    5. Geben Sie die [Nummer](https://help.nexmo.com/hc/en-us/articles/217571017-What-is-a-Sender-ID) ein, über die Sie Nachrichten absenden möchten. Gültige Nummern werden im [internationalen Nummernformat gemäß E.164](https://en.wikipedia.org/wiki/E.164) angegeben, z. B. in USA im Format +1 999 888 7777. Sie müssen sowohl den Landescode beginnend mit einem Plussymbol (+) als auch die nationale Teilnehmernummer angeben.
+    5. Geben Sie [die ID](https://help.nexmo.com/hc/en-us/articles/217571017-What-is-a-Sender-ID) ein, von der Sie Nachrichten senden möchten. Gültige Nummern werden im [internationalen Nummernformat gemäß E.164](https://en.wikipedia.org/wiki/E.164) angegeben, zum Beispiel in den USA im Format `+1 999 888 7777`. Sie müssen sowohl den Landescode beginnend mit einem Plussymbol `+` als auch die nationale Teilnehmernummer angeben. In einigen Ländern werden von Nexmo alphanumerische Absender-IDs unterstützt. Von {{site.data.keyword.appid_short_notm}} wird der Wert verwendet, den Sie als Absender-ID für Nexmo eingegeben haben. Falls sie von Nexmo unterstützt werden, können Sie die IDs also mit {{site.data.keyword.appid_short_notm}} verwenden. 
 
 
 
@@ -298,7 +298,7 @@ Header:
        Authorization: Bearer <IAM_TOKEN>
        Content-Type: application/json
   ```
-  {: pre}
+  {: codeblock}
 
 Hauptteil:
 
@@ -307,7 +307,7 @@ Hauptteil:
    "isActive": true
    }
   ```
-  {: pre}
+  {: codeblock}
 
 
 Beispielanforderung:
@@ -335,7 +335,7 @@ Header:
       Authorization: Bearer <IAM_TOKEN>
       Content-Type: application/json
   ```
-  {: pre}
+  {: codeblock}
 
 Hauptteil:
 
@@ -349,7 +349,7 @@ Hauptteil:
       }
   }
   ```
-  {: pre}
+  {: codeblock}
 
 Beispielanforderung:
 
@@ -381,7 +381,7 @@ Header:
      Authorization: Bearer <IAM_TOKEN>
      Content-Type: application/json
   ```
-  {: pre}
+  {: codeblock}
 
 Hauptteil:
 
@@ -390,7 +390,7 @@ Hauptteil:
     "phone_number": "phoneNumber-receives-test-message"
   }
   ```
-  {: pre}
+  {: codeblock}
 
 Beispielanforderung:
 

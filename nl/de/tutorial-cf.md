@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-20"
+lastupdated: "2019-05-09"
 
 keywords: authentication, authorization, identity, app security, secure, development, cloud foundry, access management, iam, java, node.js
 
@@ -74,7 +74,7 @@ Bevor Sie beginnen, müssen Sie sicherstellen, dass die folgenden vorausgesetzte
   ```
   ibmcloud login -a cloud.ibm.com -r <region>
   ```
-  {: pre}
+  {: codeblock}
 
   <table>
     <tr>
@@ -108,23 +108,23 @@ Bevor Sie beginnen, müssen Sie sicherstellen, dass die folgenden vorausgesetzte
   ```
   ibmcloud target --cf
   ```
-  {: pre}
+  {: codeblock}
 
 8. Erstellen Sie einen Alias für die {{site.data.keyword.appid_short_notm}}-Serviceinstanz.
 
   ```
   ibmcloud resource service-alias-create {ALIAS_NAME} --instance-name {SERVICE_INSTANCE_NAME}
   ```
-  {: pre}
+  {: codeblock}
 
-9. Bearbeiten Sie die Host- und Namenswerte in der Datei `manifest.yml` Ihres Projekts mit den Informationen, die im vorherigen Befehl abgerufen wurden. Fügen Sie den Alias, den Sie erstellen, zu Ihren Services hinzu.
+9. Fügen Sie den erstellten Aliasnamen zu den Services in der Datei `manifest.yml` hinzu.
 
 10. Binden Sie die Services, die in der Datei `manifest.yml` aufgelistet werden, indem Sie eine Beispielapp bereitstellen.
 
   ```
   ibmcloud app push
   ```
-  {: pre}
+  {: codeblock}
 
 ## Java-App bereitstellen
 {: #java}
@@ -144,7 +144,7 @@ Bevor Sie beginnen, müssen Sie sicherstellen, dass die folgenden vorausgesetzte
   ```
   mvn clean install
   ```
-  {: pre}
+  {: codeblock}
 
 7. Wechseln Sie in den Ordner 'Liberty'.
 
@@ -153,34 +153,29 @@ Bevor Sie beginnen, müssen Sie sicherstellen, dass die folgenden vorausgesetzte
   ```
   ibmcloud login -a cloud.ibm.com -r <region>
   ```
-  {: pre}
+  {: codeblock}
 
 8. Befolgen Sie die Eingabeaufforderungen des Systems, um die Cloud Foundry-Organisation und den entsprechenden Bereich, in denen Sie arbeiten wollen, als Ziel anzugeben.
 
   ```
   ibmcloud target --cf
   ```
-  {: pre}
+  {: codeblock}
 
 10. Erstellen Sie einen Alias für die {{site.data.keyword.appid_short_notm}}-Serviceinstanz.
 
   ```
   ibmcloud resource service-alias-create {ALIAS_NAME} --instance-name {SERVICE_INSTANCE_NAME}
   ```
-  {: pre}
+  {: codeblock}
 
-11. Bearbeiten Sie die Host- und Namenswerte in der Datei `manifest.yml` Ihres Projekts mit den Informationen, die im vorherigen Befehl abgerufen wurden. Fügen Sie den Alias, den Sie erstellen, zu Ihren Services hinzu.
+11. Fügen Sie den erstellten Aliasnamen zu den Services in der Datei `manifest.yml` hinzu.
 
   Beispiel:
   ```
     applications:
   - name: ApplicationName
-    host: HostName
-    buildpack: liberty-for-java
-    instances: 1
     memory: 512M
-    disk_quota: 1024M
-    timeout: 180
     services:
     - AppID-alias
   ```
@@ -191,5 +186,5 @@ Bevor Sie beginnen, müssen Sie sicherstellen, dass die folgenden vorausgesetzte
   ```
   ibmcloud app push
   ```
-  {: pre}
+  {: codeblock}
 

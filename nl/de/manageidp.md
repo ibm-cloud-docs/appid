@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-20"
 
 keywords: authentication, authorization, identity, app security, secure, development, identity provider, tokens, customization, lifetime
 
@@ -30,7 +30,11 @@ Identitätsprovider bieten durch die Authentifizierung eine zusätzliche Sicherh
 {: shortdesc}
 
 
-{{site.data.keyword.appid_short_notm}} interagiert mit Identitätsprovidern unter Verwendung verschiedener Protokolle wie z. B. OpenID Connect, SAML usw. Beispielsweise ist OpenID Connect das Protokoll, das für viele Social-Media-Provider wie Facebook, Google usw. verwendet wird. Unternehmensprovider wie beispielsweise <a href="https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-azure-active-directory/" target="_blank">Azure Active Directory <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a> oder <a href="https://www.ibm.com/blogs/bluemix/2018/03/setting-ibm-cloud-app-id-active-directory-federation-service/" target="_blank">Active Directory Federation Service <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a> verwenden in der Regel SAML als Identitätsprotokoll. Für [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory) verwendet der Service SCIM, um Identitätsinformationen zu verifizieren.
+{{site.data.keyword.appid_short_notm}} interagiert mit Identitätsprovidern unter Verwendung verschiedener Protokolle wie z. B. OpenID Connect, SAML usw. Beispielsweise ist OpenID Connect das Protokoll, das für viele Social-Media-Provider wie Facebook, Google usw. verwendet wird. Unternehmensprovider wie beispielsweise <a href="https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-azure-active-directory" target="_blank">Azure Active Directory <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a> oder <a href="https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-active-directory-federation-service" target="_blank">Active Directory Federation Service <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a> verwenden in der Regel SAML als Identitätsprotokoll. Für [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory) verwendet der Service SCIM, um Identitätsinformationen zu verifizieren.
+
+Wenn Sie Social-Media- oder unternehmenseigene Identitätsprovider verwenden, kann {{site.data.keyword.appid_short_notm}} die Kontoinformationen eines Benutzers lesen. Der Service verwendet ein Token und die Zusicherungen, die vom Identitätsprovider zurückgegeben werden, um zu überprüfen, ob ein Benutzer die Person ist, die er zu sein behauptet. Da der Service nie Schreibzugriff auf die Informationen hat, müssen die Benutzer den ausgewählten Identitätsprovider verwenden, um Aktionen wie das Zurücksetzen des Kennworts ausführen zu können. Wenn sich ein Benutzer beispielsweise mit Facebook an der App anmeldet und danach sein Kennwort ändern will, muss er diese Änderung über `www.facebook.com` vornehmen.
+
+Wenn Sie [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory) verwenden, ist {{site.data.keyword.appid_short_notm}} der Identitätsprovider. Der Service verwendet Ihre Registry, um Ihre Benutzeridentität zu überprüfen. Da {{site.data.keyword.appid_short_notm}} der Provider ist, können die Benutzer die Vorteile der erweiterten Funktionalität (wie z. B. das Zurücksetzen des Kennworts) direkt in ihrer App nutzen.
 
 Weitere Informationen zur Anwendungsidentität finden Sie unter [Anwendungsidentität](/docs/services/appid?topic=appid-app).
 {: tip}
@@ -90,7 +94,7 @@ Gehen Sie wie folgt vor, um Ihre Identitätsprovider zu verwalten:
 ## Weiterleitungs-URIs hinzufügen
 {: #add-redirect-uri}
 
-Ein Weiterleitungs-URI ist der Callback-Endpunkt Ihrer App. Während des Anmeldeablaufs validiert {{site.data.keyword.appid_short_notm}} die URIs, bevor Clients am Autorisierungsworkflow teilnehmen können. Dies trägt dazu bei, Phishing-Attacken und Codelecks zu vermeiden. Durch die Registrierung Ihres URI wird {{site.data.keyword.appid_short_notm}} darüber informiert, dass der URI vertrauenswürdig ist und dass Ihre Benutzer ohne Risiko zu diesem URI weitergeleitet werden können.
+Ein Weiterleitungs-URI ist der Callback-Endpunkt Ihrer App. Während des Anmeldeablaufs validiert {{site.data.keyword.appid_short_notm}} die URIs, bevor Clients am Autorisierungsworkflow teilnehmen können. Dies trägt dazu bei, Phishing-Attacken und Codelecks zu vermeiden. Durch die Registrierung des URI wird {{site.data.keyword.appid_short_notm}} darüber informiert, dass der URI vertrauenswürdig ist und dass Ihre Benutzer ohne Risiko zu diesem URI weitergeleitet werden können.
 
 Beachten Sie hierbei unbedingt, dass nur URIs von Anwendungen registriert werden sollten, die Sie als vertrauenswürdig einstufen.
 {: note}
@@ -98,7 +102,7 @@ Beachten Sie hierbei unbedingt, dass nur URIs von Anwendungen registriert werden
 
 1. Klicken Sie auf **Authentifizierungseinstellungen**, um Ihre Konfigurationsoptionen für URIs und Tokens anzuzeigen.
 
-2. Geben Sie im Feld **Webweiterleitungs-URI hinzufügen** den gewünschten URI ein. Jeder URI muss mit `http://` oder mit `https://` beginnen und muss den vollständigen Pfad einschließlich aller Abfrageparameter umfassen, damit die Weiterleitung erfolgreich ausgeführt werden kann. Benötigen Sie Hilfe bei der Formatierung? In der folgenden Tabelle sind verschiedene Beispiele aufgeführt.
+2. Geben Sie im Feld **Webweiterleitungs-URI hinzufügen** den gewünschten URI ein. Jeder URI muss mit `http://` oder mit `https://` beginnen und muss den vollständigen Pfad einschließlich aller Abfrageparameter umfassen, damit die Weiterleitung erfolgreich ausgeführt werden kann. Benötigen Sie Hilfe bei der Formatierung des URI? In der folgenden Tabelle sind verschiedene Beispiele aufgeführt.
 
   <table>
     <tr>
@@ -122,6 +126,12 @@ Beachten Sie hierbei unbedingt, dass nur URIs von Anwendungen registriert werden
 3. Klicken Sie auf das Plussymbol (**+**) im Feld **Webweiterleitungs-URI hinzufügen**.
 
 4. Wiederholen Sie die Schritte 1 bis 3, bis alle möglichen URIs zu Ihrer Liste hinzugefügt wurden.
+
+
+
+Sie sind nicht sicher, woher der Weiterleitungs-URI stammt? Sehen Sie sich das folgende Video an, um sich damit vertraut zu machen, wie Sie ihn abrufen und wie Sie ihn zur Liste hinzufügen können. 
+
+<iframe class="embed-responsive-item" id="redirecturi" title="{{site.data.keyword.appid_short_notm}}: Vorgehensweise zum Korrigieren eines ungültigen Weiterleitungs-URI" type="text/html" width="640" height="390" src="//www.youtube.com/embed/6hxqbvpc054?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
 
 
 

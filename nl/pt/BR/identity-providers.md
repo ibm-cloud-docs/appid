@@ -50,7 +50,7 @@ Você está limitado a 100 autenticações com as credenciais padrão por instâ
 como um provedor de identidade.
 {: shortdesc}
 
-### Obtendo um ID do app e segredo por meio do Facebook
+### Obtendo um App ID e segredo por meio do Facebook
 {: #facebook-appid-secret}
 
 Para usar o Facebook como um provedor de identidade, deve-se incluir e configurar a plataforma

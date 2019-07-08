@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-21"
 
 keywords: authentication, authorization, identity, app security, secure, access, tokens
 
@@ -28,71 +28,121 @@ subcollection: appid
 Möchten Sie mehr über die Unterschiede zwischen Autorisierung und Authentifizierung erfahren? Kein Problem! Im Folgenden erhalten Sie Informationen zur Terminologie, zu den Prozessen und zu der Art und Weise, wie der Service Tokens verwendet.
 {: shortdesc}
 
+Möchten Sie mehr über die Basiskonzepte der Autorisierung und Authentifizierung erfahren? Dann sind Sie hier genau richtig. Im folgenden Video erfahren Sie mehr über OAuth 2.0, Bewilligungstypen, OIDC und mehr.
+
+<iframe class="embed-responsive-item" id="about-appid-basics" title="Informationen zu {{site.data.keyword.appid_short_notm}}" type="text/html" width="640" height="390" src="//www.youtube.com/embed/ndlk-ZhKGXM?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
+
 
 ## Terminologie
 {: #terms}
 
 Diese Schlüsselbegriffe können Ihnen dabei helfen, die Aufgliederung des Autorisierungs- und Authentifizierungsprozesses durch den Service im Detail nachzuvollziehen.
 
-<dl>
-  <dt>OAuth 2</dt>
-    <dd><a href="https://tools.ietf.org/html/rfc6749" target="_blank">OAuth 2 <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a> ist ein Open-Standard-Protokoll, das für die Bereitstellung von App-Autorisierungsfunktionen verwendet wird.</dd>
-  <dt>Open ID Connect (OIDC)</dt>
-    <dd><p><a href="http://openid.net/developers/specs/" target="_blank">OIDC <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a> ist eine Authentifizierungsebene, die auf OAuth 2 aufbaut.</p>
-    <p>Wenn Sie OIDC und {{site.data.keyword.appid_short_notm}} verwenden, sind Ihre Anwendungsberechtigungsnachweise beim Konfigurieren der OAuth-Endpunkte hilfreich. Wenn Sie das SDK verwenden, werden die Endpunkt-URLs automatisch erstellt. Sie können die URLs jedoch auch selbst unter Verwendung Ihrer Serviceberechtigungsnachweise erstellen.</p> <p>Die URL hat das folgende Format: {{site.data.keyword.appid_short_notm}}-Serviceendpunkt + "/oauth/v4" + /tenantID.</p>
-    <p><pre class="codeblock">
-    <code>{
-      "clientId": "7eba72ef-b913-47b0-b3b6-54358bb69035",
-      "tenantId": "8f5aa500-357e-443a-aab6-bf878f852b5a",
-      "secret": "OWEzZGM4M2UtZjhlYS00MDI2LTkwNGItNDJmYzViMmU2YzIz",
-      "name":testing",
-      "oAuthServerUrl": "https://us-south.appid-oauth.cloud.ibm.com/oauth/v4/8f5aa500-357e-443a-aab6-bf878f852b5a",
-      "profilesUrl": "https://us-south.appid.cloud.ibm.com",
-      "discoveryEndpoint": "https://us-south.appid-oauth.cloud.ibm.com/oauth/v4/8f5aa500-357e-443a-aab6-bf878f852b5a/.well-known/openid-configuration"
-    }</code></pre></p>
-    <p>Im vorliegenden Beispiel lautet die URL <code>https://us-south.appid.cloud.ibm.com/oauth/v4/3x176051-a23x-40y4-9645-804943z660q0</code>. Anschließend fügen Sie den Endpunkt hinzu, an den Sie eine Anforderung stellen wollten. In der folgenden Tabelle sind verschiedene Beispiele für Endpunkte aufgeführt.</p>
-    <table>
-      <tr>
-        <th>Endpunkt</th>
-        <th>Format</th>
-      </tr>
-      <tr>
-        <td>Authorization</td>
-        <td>{oauthServerUrl}/authorization</td>
-      </tr>
-      <tr>
-        <td>Token</td>
-        <td>{oauthServerUrl}/token</td>
-      </tr>
-      <tr>
-        <td>User information</td>
-        <td>{oauthServerUrl}/userinfo</td>
-      </tr>
-      <tr>
-        <td>JWKS</td>
-        <td>{oauthServerUrl}/publickeys</td>
-      </tr>
-    </table>
-    <p><strong>Hinweis</strong>: Wenn Sie das SDK verwenden, werden die Endpunkt-URLs automatisch erstellt.</p></dd>
-  <dt>Token</dt>
-    <dd>Der Service verwendet drei verschiedene Arten von Token. Zugriffstokens stellen die Autorisierung dar und ermöglichen die Kommunikation mit [Back-End-Ressourcen](/docs/services/appid?topic=appid-backend), die durch Autorisierungsfilter geschützt sind, die von {{site.data.keyword.appid_short}} festgelegt werden. Identitätstokens stellen die Authentifizierung dar und enthalten Informationen zum Benutzer. Ein Aktualisierungstoken kann verwendet werden, um ein neues Zugriffstoken abzurufen, ohne den Benutzer erneut zu authentifizieren. Mithilfe von Aktualisierungstokens können Benutzer dafür sorgen, dass ihre Informationen von der Anwendung gespeichert werden und somit bei Bedarf verfügbar sind. Auf diese Weise bleiben die Benutzer angemeldet. Tokens werden unter <b>Identitätsprovider > Verwalten</b> im {{site.data.keyword.appid_short}}-Dashboard festgelegt. Weitere Informationen zu Tokens und dazu, wie sie in {{site.data.keyword.appid_short}} verwendet werden, finden Sie in [Tokens verwalten](/docs/services/appid?topic=appid-tokens#tokens).
-  </dd>
-  <dt>Berechtigungsheader</dt>
-    <dd><p>{{site.data.keyword.appid_short}} entspricht den <a href="https://tools.ietf.org/html/rfc6750" target="blank">Trägertokenspezifikationen<img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a> und verwendet eine Kombination aus Zugriffs- und Identitätstoken, die als HTTP-Berechtigungsheader gesendet werden. Der Berechtigungsheader enthält drei verschiedene Teile, die durch Leerzeichen getrennt sind. Die Tokens sind mit einer Base64-Codierung codiert. Das Identitätstoken ist optional.</br>
-    Beispiel:</p>
-    <pre><code>Authorization=Bearer {access_token} [{id_token}]
-</code></pre></dd>
-  <dt>API-Strategie</dt>
-    <dd><p>Die API-Strategie erwartet Anforderungen, die einen Autorisierungsheader mit einem gültigen Zugriffstoken enthalten. Die Anforderung kann auch ein Identitätstoken enthalten, dies ist jedoch nicht erforderlich. Wenn ein Token ungültig oder abgelaufen ist, gibt die API-Strategie einen HTTP 401-Fehler zurück, der den folgenden HTTP-Header enthält:</p> <pre><code>Www-Authenticate=Bearer scope="{scope}" error="{error}"</code></pre>
-    <p>Wenn die Anforderung ein gültiges Token zurückgibt, wird die Steuerung an die nächste Middleware übergeben und die Eigenschaft <code>appIdAuthorizationContext</code> wird in das Anforderungsobjekt eingefügt. Diese Eigenschaft enthält die ursprünglichen Zugriffs- und Identitätstokens sowie die entschlüsselten Nutzdaten als einfache JSON-Objekte.</dd>
-  <dt>Web-App-Strategie</dt>
-    <dd>Wenn die Web-App-Strategie nicht berechtigte Versuche, auf geschützte Ressourcen zuzugreifen, feststellt, wird der Benutzerbrowser automatisch zur Authentifizierungsseite weitergeleitet. Diese kann durch {{site.data.keyword.appid_short}} bereitgestellt werden. Nach der erfolgreichen Authentifizierung kehrt der Benutzer zur Callback-URL der Web-App zurück. Die Web-App-Strategie ruft Zugriffs- und Identitätstokens ab und speichert sie in einer HTTP-Sitzung unter <code>WebAppStrategy.AUTH_CONTEXT</code>. Der Benutzer kann entscheiden, ob die Zugriffs- und Identitätstokens in der App-Datenbank gespeichert werden sollen.</dd>
-  <dt>Datentrennung und -verschlüsselung</dt>
-    <dd><p>{{site.data.keyword.appid_short_notm}} speichert und verschlüsselt die Attribute von Benutzerprofilen. Als Multi-Tenant-Service besitzt jeder Tenant einen designierten Verschlüsselungsschlüssel. Die Benutzerdaten in jedem Tenant werden nur mit dem Schlüssel des Tenants verschlüsselt.</p>
-    <p>{{site.data.keyword.appid_short_notm}} stellt sicher, dass die privaten Daten vor dem Speichern verschlüsselt werden.</p></dd>
-  <dt>Weiterleitungs-URIs</dt>
-    <dd><p>{{site.data.keyword.appid_short_notm}} verwendet eine Liste vollständig qualifizierter, genehmigter URIs, um Ihre Benutzer nach einer Interaktion mit Ihrer App weiterzuleiten. Nachdem sich ein Benutzer z. B. erfolgreich angemeldet hat, leitet {{site.data.keyword.appid_short_notm}} den Benutzer zur Homepage Ihrer App oder zu einer anderen Seite weiter, die von Ihnen angegeben wurde. Das Format Ihres URI kann sich abhängig von Ihrer Anwendung ändern. Weitere Informationen zu diesem Thema finden Sie in [Weiterleitungs-URIs hinzufügen](/docs/services/appid?topic=appid-managing-idp#add-redirect-uri).</p></dd>
-  <dt>JSON Web Key Set (JWKS)</dt>
-    <dd>Ein JWKS stellt eine Gruppe von Verschlüsselungsschlüsseln dar. {{site.data.keyword.appid_short_notm}} verwendet JWKS, um die Authentizität der Tokens zu überprüfen, die vom Service generiert werden. Durch Verwendung der Schlüssel-ID bei der Überprüfung der Signatur kann sichergestellt werden, dass das Token von einer vertrauenswürdigen Quelle ({{site.data.keyword.appid_short_notm}}) stammt und dass die Informationen im Token zu keiner Zeit geändert wurden.</dd>
-</dl>
+### OAuth 2
+{: #term-oauth}
+<a href="https://tools.ietf.org/html/rfc6749" target="_blank">OAuth 2 <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a> ist ein Open-Standard-Protokoll, das für die Bereitstellung von App-Autorisierungsfunktionen verwendet wird.
+
+
+### Open ID Connect (OIDC)
+{: #term-oidc}
+
+<a href="https://openid.net/developers/specs/" target="_blank">OIDC <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a> ist eine Authentfifizierungsebene, die auf OAuth 2.0 basiert; wenn Sie OIDC und {{site.data.keyword.appid_short_notm}} gemeinsam verwenden, sind Ihre Anwendungsberechtigungsnachweise beim Konfigurieren der OAuth-Endpunkte hilfreich. Wenn Sie das SDK verwenden, werden die Endpunkt-URLs automatisch erstellt. Sie können die URLs jedoch auch selbst unter Verwendung Ihrer Serviceberechtigungsnachweise erstellen. Die URL hat das folgende Format: {{site.data.keyword.appid_short_notm}}-Serviceendpunkt + "/oauth/v4" + /tenantID.
+
+Beispiel:
+
+```
+{
+  "clientId": "7eba72ef-b913-47b0-b3b6-54358bb69035",
+  "tenantId": "8f5aa500-357e-443a-aab6-bf878f852b5a",
+  "secret": "OWEzZGM4M2UtZjhlYS00MDI2LTkwNGItNDJmYzViMmU2YzIz",
+  "name":testing",
+  "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v4/8f5aa500-357e-443a-aab6-bf878f852b5a",
+  "profilesUrl": "https://us-south.appid.cloud.ibm.com",
+  "discoveryEndpoint": "https://us-south.appid.ibm.cloud.com/oauth/v4/8f5aa500-357e-443a-aab6-bf878f852b5a/.well-known/openid-configuration"
+}
+```
+{: screen}
+
+Im vorliegenden Beispiel lautet die URL `https://us-south.appid.cloud.ibm.com/oauth/v4/3x176051-a23x-40y4-9645-804943z660q0`. Anschließend fügen Sie den Endpunkt hinzu, an den Sie eine Anforderung stellen wollten. In der folgenden Tabelle sind verschiedene Beispiele für Endpunkte aufgeführt.
+
+<table>
+  <tr>
+    <th>Endpunkt</th>
+    <th>Format</th>
+  </tr>
+  <tr>
+    <td>Authorization</td>
+    <td>{oauthServerUrl}/authorization</td>
+  </tr>
+  <tr>
+    <td>Token</td>
+    <td>{oauthServerUrl}/token</td>
+  </tr>
+  <tr>
+    <td>User information</td>
+    <td>{oauthServerUrl}/userinfo</td>
+  </tr>
+  <tr>
+    <td>JWKS</td>
+    <td>{oauthServerUrl}/publickeys</td>
+  </tr>
+</table>
+
+Wenn Sie das SDK verwenden, werden die Endpunkt-URLs automatisch erstellt.
+{: note}
+
+### Token
+{: #term-token}
+
+Der Service verwendet drei verschiedene Arten von Token. Zugriffstokens stellen die Autorisierung dar und ermöglichen die Kommunikation mit [Back-End-Ressourcen](/docs/services/appid?topic=appid-backend), die durch Autorisierungsfilter geschützt sind, die von {{site.data.keyword.appid_short}} festgelegt werden. Identitätstokens stellen die Authentifizierung dar und enthalten Informationen zum Benutzer. Ein Aktualisierungstoken kann verwendet werden, um ein neues Zugriffstoken abzurufen, ohne den Benutzer erneut zu authentifizieren. Mithilfe von Aktualisierungstokens können Benutzer dafür sorgen, dass ihre Informationen von der Anwendung gespeichert werden und somit bei Bedarf verfügbar sind. Auf diese Weise bleiben die Benutzer angemeldet. Tokens werden unter **Identitätsprovider > Verwalten** im {{site.data.keyword.appid_short}}-Dashboard festgelegt. Weitere Informationen zu Tokens und dazu, wie sie in {{site.data.keyword.appid_short}} verwendet werden, finden Sie in [Tokens verwalten](/docs/services/appid?topic=appid-tokens#tokens).
+
+### Berechtigungsheader
+{: #term-auth-header}
+
+{{site.data.keyword.appid_short}} entspricht den <a href="https://tools.ietf.org/html/rfc6750" target="blank">Trägertokenspezifikationen<img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a> und verwendet eine Kombination aus Zugriffs- und Identitätstoken, die als HTTP-Berechtigungsheader gesendet werden. Der Berechtigungsheader enthält drei verschiedene Teile, die durch Leerzeichen getrennt sind. Die Tokens sind mit einer Base64-Codierung codiert. Das Identitätstoken ist optional.
+
+Beispiel:
+
+```
+Authorization=Bearer {access_token} [{id_token}]
+```
+{: screen}
+
+
+### API-Strategie
+{: #term-api-strategy}
+
+Die API-Strategie erwartet Anforderungen, die einen Autorisierungsheader mit einem gültigen Zugriffstoken enthalten. Die Anforderung kann auch ein Identitätstoken enthalten, dies ist jedoch nicht erforderlich. Wenn ein Token ungültig oder abgelaufen ist, gibt die API-Strategie einen HTTP 401-Fehler zurück, der den folgenden HTTP-Header enthält:
+```
+Www-Authenticate=Bearer scope="{scope}" error="{error}"
+```
+{: screen}
+
+Wenn die Anforderung ein gültiges Token zurückgibt, wird die Steuerung an die nächste Middleware übergeben und die Eigenschaft `appIdAuthorizationContext` wird in das Anforderungsobjekt eingefügt. Diese Eigenschaft enthält die ursprünglichen Zugriffs- und Identitätstokens sowie die entschlüsselten Nutzdaten als einfache JSON-Objekte.
+
+### Web-App-Strategie
+{: #term-web-strategy}
+
+Wenn die Web-App-Strategie nicht berechtigte Versuche, auf geschützte Ressourcen zuzugreifen, feststellt, wird der Benutzerbrowser automatisch zur Authentifizierungsseite weitergeleitet. Diese kann durch {{site.data.keyword.appid_short}} bereitgestellt werden. Nach der erfolgreichen Authentifizierung kehrt der Benutzer zur Callback-URL der Web-App zurück. Die Web-App-Strategie ruft Zugriffs- und Identitätstokens ab und speichert sie in einer HTTP-Sitzung unter `WebAppStrategy.AUTH_CONTEXT`. Der Benutzer kann entscheiden, ob die Zugriffs- und Identitätstokens in der App-Datenbank gespeichert werden sollen.
+
+### Datentrennung und -verschlüsselung
+{: #term-data-encryption}
+
+{{site.data.keyword.appid_short_notm}} speichert und verschlüsselt die Attribute von Benutzerprofilen. Als Multi-Tenant-Service besitzt jeder Tenant einen designierten Verschlüsselungsschlüssel. Die Benutzerdaten in jedem Tenant werden nur mit dem Schlüssel des Tenants verschlüsselt.
+
+{{site.data.keyword.appid_short_notm}} stellt sicher, dass die privaten Daten vor dem Speichern verschlüsselt werden.
+{: note}
+
+
+### Weiterleitungs-URIs
+{: #term-redirect}
+
+{{site.data.keyword.appid_short_notm}} verwendet eine Liste vollständig qualifizierter, genehmigter URIs, um Ihre Benutzer nach einer Interaktion mit Ihrer App weiterzuleiten. Nachdem sich ein Benutzer z. B. erfolgreich angemeldet hat, leitet {{site.data.keyword.appid_short_notm}} den Benutzer zur Homepage Ihrer App oder zu einer anderen Seite weiter, die von Ihnen angegeben wurde. Das Format Ihres URI kann sich abhängig von Ihrer Anwendung ändern. Weitere Informationen zu diesem Thema finden Sie in [Weiterleitungs-URIs hinzufügen](/docs/services/appid?topic=appid-managing-idp#add-redirect-uri).
+
+
+### JSON Web Key Set (JWKS)
+{: #term-jwks}
+
+Ein JWKS stellt eine Gruppe von Verschlüsselungsschlüsseln dar. {{site.data.keyword.appid_short_notm}} verwendet JWKS, um die Authentizität der Tokens zu überprüfen, die vom Service generiert werden. Durch Verwendung der Schlüssel-ID bei der Überprüfung der Signatur kann sichergestellt werden, dass das Token von einer vertrauenswürdigen Quelle ({{site.data.keyword.appid_short_notm}}) stammt und dass die Informationen im Token zu keiner Zeit geändert wurden.
+
 

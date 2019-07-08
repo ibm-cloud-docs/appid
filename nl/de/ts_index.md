@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-14"
+lastupdated: "2019-05-21"
 
 keywords: authentication, authorization, identity, app security, secure, troubleshooting, help, support, requests, uri
 
@@ -25,7 +25,7 @@ subcollection: appid
 {:tsCauses: .tsCauses}
 {:tsResolve: .tsResolve}
 
-# Allgemeine Fehlerbehebung
+# Fehlerbehebung: Allgemein
 {: #troubleshooting}
 
 Wenn bei der Verwendung von {{site.data.keyword.appid_full}} Probleme auftreten, ziehen Sie die folgenden Verfahren zur Fehlerbehebung und zum Abrufen von Hilfe in Betracht.
@@ -35,11 +35,10 @@ Wenn bei der Verwendung von {{site.data.keyword.appid_full}} Probleme auftreten,
 {: #ts-gettinghelp}
 
 Sie können Hilfe erhalten, wenn Sie in einem Forum nach Informationen suchen oder Fragen stellen. Sie können auch ein Support-Ticket öffnen. Wenn Sie eine Frage über die Foren stellen, kennzeichnen Sie Ihre Frage, so dass sie von den {{site.data.keyword.cloud_notm}}-Entwicklerteams gesehen wird.
-  * Bei technischen Fragen zu {{site.data.keyword.appid_short_notm}} posten Sie Ihre Frage unter <a href="https://stackoverflow.com/search?q=ibm-appid" target="_blank">Stack Overflow <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a> und versehen Sie sie mit dem Tag "ibm-appid".
-  * Bei Fragen zum Service und zu den ersten Schritten verwenden Sie das Forum <a href="https://developer.ibm.com/answers/topics/appid/" target="_blank">dW Answers <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a>. Schließen Sie das Tag `appid` ein.
+  * Bei technischen Fragen zu {{site.data.keyword.appid_short_notm}} posten Sie Ihre Frage unter <a href="https://stackoverflow.com/" target="_blank">Stack Overflow <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a> und versehen Sie sie mit dem Tag "ibm-appid".
+  * Bei Fragen zum Service und zu den ersten Schritten verwenden Sie das Forum <a href="https://developer.ibm.com/" target="_blank">dW Answers <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a>. Schließen Sie das Tag `appid` ein.
 
 Weitere Informationen zum Anfordern von Unterstützung finden Sie in [Informationen zur Vorgehensweise beim Anfordern von Unterstützung](/docs/get-support?topic=get-support-getting-customer-support#getting-customer-support).
-
 
 
 ## Ein Benutzer wird nach dem Anmelden nicht an die App weitergeleitet
@@ -82,6 +81,30 @@ Die Einschränkungen gelten aus Sicherheitsgründen.
 {: tsResolve}
 Um das Problem zu beheben, prüfen Sie, ob die URL korrekt ist. Wenn Ihre URL den Anforderungen nicht entspricht, können Sie einen HTTPS-Endpunkt in Ihrer App erstellen, um den empfangenen Erteilungscode an Ihre angepasste URL umzuleiten. Geben Sie den erstellten Endpunkt als Weiterleitungs-URL in der {{site.data.keyword.appid_short_notm}}-Konsole an. Weitere Informationen zu Weiterleitungs-URIs finden Sie in [Weiterleitungs-URIs hinzufügen](/docs/services/appid?topic=appid-managing-idp#add-redirect-uri).
 
+## Ein Benutzer wird nach dem Anmelden nicht an den Identitätsprovider weitergeleitet
+{: #ts-redirect}
+
+{: tsSymptoms}
+Ein Benutzer versucht, sich bei Ihrer Anwendung anzumelden, aber die Anmeldeseite wird nicht angezeigt, wenn die Systemanfrage erfolgt.
+
+{: tsCauses}
+Der Identitätsprovider kann aus folgenden Gründen fehlschlagen:
+
+* Die von Ihnen konfigurierte Weiterleitungs-URL ist falsch.
+* Der Identitätsprovider erkennt die Authentifizierungsanforderung nicht.
+* Der Identitätsprovider erwartet eine HTTP-POST-Bindung.
+* Der Identitätsprovider erwartet eine signierte authnRequest.
+
+{: tsResolve}
+Sie können eine der folgenden Lösungen ausprobieren:
+
+* Aktualisieren Sie Ihre Anmelde-URL. Diese URL wird als Teil der authnRequest gesendet und muss exakt sein.
+* Stellen Sie sicher, dass Ihre {{site.data.keyword.appid_short_notm}}-Metadaten in den Einstellungen des Identitätsproviders korrekt definiert sind.
+* Konfigurieren Sie Ihren Identitätsprovider so, dass er die authnRequest in der HTTP-Weiterleitung (HTTP-Redirect) akzeptiert.
+* {{site.data.keyword.appid_short_notm}} unterstützt die Signierung von authnRequests nicht.
+
+Falls keine dieser Lösungen Abhilfe bringt, liegt möglicherweise ein Verbindungsproblem vor.
+{: tip}
 
 
 ## Ein Attribut zeigt den falschen Wert an

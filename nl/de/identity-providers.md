@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-25"
+lastupdated: "2019-04-23"
 
 keywords: authentication, authorization, identity, app security, secure, custom, proprietary, social, facebook, google, 
 
@@ -35,7 +35,7 @@ Mit {{site.data.keyword.appid_full}} können Sie Social-Identity-Provider konfig
 {{site.data.keyword.appid_short_notm}} stellt eine Standardkonfiguration bereit, die Sie bei der schnellen Ausführung des Service unterstützt.
 {: shortdesc}
 
-Wenn Sie App ID konfigurieren, dann werden Facebook, Google und Cloud Directory automatisch als Identitätsprovider aktiviert. Sie können die Konfiguration jederzeit ändern. Für Facebook und Google stehen Standardberechtigungsnachweise zur Verfügung, um zu testen, ob der Service benutzt werden soll, sollten jedoch die IBM Berechtigungsnachweise benutzt werden. Bevor Sie die App veröffentlichen, aktualisieren Sie die Konfiguration so, dass Ihre eigenen Berechtigungsnachweise verwendet werden.
+Wenn Sie {{site.data.keyword.appid_short_notm}} konfigurieren, werden Facebook, Google und Cloud Directory automatisch als Identitätsprovider aktiviert. Sie können die Konfiguration jederzeit ändern. Für Facebook und Google stehen Standardberechtigungsnachweise zur Verfügung, um zu testen, ob der Service benutzt werden soll, sollten jedoch die IBM Berechtigungsnachweise benutzt werden. Bevor Sie die App veröffentlichen, aktualisieren Sie die Konfiguration so, dass Ihre eigenen Berechtigungsnachweise verwendet werden.
 
 Mit den Standardberechtigungsnachweisen besteht eine Begrenzung von 100 Authentifizierungen pro Tag.
 {: note}
@@ -52,7 +52,7 @@ Sie können den {{site.data.keyword.appid_short}}-Service so konfigurieren, dass
 
 Zur Verwendung von Facebook als Identitätsprovider müssen Sie die Website-Plattform Ihrer Facebook-Anwendung hinzufügen und sie konfigurieren.
 
-1. Melden Sie sich bei Ihrem Konto auf der Website <a href="https://developers.facebook.com/docs/apps/register" target="_blank">Facebook for Developers<img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a> an.
+1. Melden Sie sich bei Ihrem Konto auf der Website <a href="https://developers.facebook.com/docs/apps#register" target="_blank">Facebook for Developers<img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a> an.
 2. Notieren Sie sich die Facebook-App-ID und den geheimen Schlüssel. Diese Werte werden benötigt, um Ihr Webprojekt für die Authentifizierung in Ihrem Service-Dashboard zu konfigurieren.
 3. Fügen Sie die Webplattform hinzu und geben Sie die Site-URL ein.
 4. Wählen Sie aus der Produktliste den Option **Facebook-Registrierung** aus.

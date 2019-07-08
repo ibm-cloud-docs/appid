@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-05-31"
 
 keywords: authentication, authorization, identity, app security, secure, development, user information, attributes, profiles, 
 
@@ -28,7 +28,7 @@ subcollection: appid
 Mit {{site.data.keyword.appid_full}} können Sie mit dem Erstellen eines Profils für Benutzer beginnen, von denen Sie wissen, dass sie Zugriff auf Ihre App benötigen werden, bevor sie sich zum ersten Mal anmelden.
 {: shortdesc}
 
-Weitere Informationen zu den Typen von Attributen finden Sie unter [Informationen zu Benutzerprofilen](/docs/services/appid?topic=appid-user-profile). Weitere Informationen zu angepassten Attributen und deren Sicherheitsaspekten finden Sie unter [Angepasste Attribute](/docs/services/appid?topic=appid-custom-attributes).
+Weitere Informationen zu den Attributtypen und Sicherheitsaspekten für die Arbeit mit angepassten Attributen finden Sie in [Benutzerprofile speichern und auf sie zugreifen](/docs/services/appid?topic=appid-profiles).
 {: tip}
 
 ## Informationen zur Vorabregistrierung
@@ -37,7 +37,7 @@ Weitere Informationen zu den Typen von Attributen finden Sie unter [Informatione
 ### Welche Gründe sprechen für die Verwendung der Vorabregistrierung?
 {: #preregister-why}
 
-Angenommen, Sie haben eine Anwendung, in der Sie {{site.data.keyword.appid_short_notm}} verwenden, um vorhandene Benutzer von Ihrem SAML-Identitätsprovider einzubinden. Möglicherweise gibt es bestimmte Benutzer, die schon beim ersten Anmelden `Admin`-Zugriff auf die Anwendung erhalten sollen. Um dies zu ermöglichen, können Sie den Endpunkt für die Vorabregistrierung verwenden, um ein angepasstes `admin`-Attribut für diese Benutzer festzulegen und ihnen den Zugriff auf die Administrationskonsole zu gewähren, ohne dass Sie weitere Aktionen hierfür ausführen müssen. Stellen Sie sicher, dass Sie mögliche [Sicherheitsprobleme](/docs/services/appid?topic=appid-custom-attributes#custom-attributes) berücksichtigen, die sich durch das Ändern der Standardeinstellung ergeben können.
+Angenommen, Sie haben eine Anwendung, in der Sie {{site.data.keyword.appid_short_notm}} verwenden, um vorhandene Benutzer von Ihrem SAML-Identitätsprovider einzubinden. Möglicherweise gibt es bestimmte Benutzer, die schon beim ersten Anmelden `Admin`-Zugriff auf die Anwendung erhalten sollen. Um dies zu ermöglichen, können Sie den Endpunkt für die Vorabregistrierung verwenden, um ein angepasstes `admin`-Attribut für diese Benutzer festzulegen und ihnen den Zugriff auf die Administrationskonsole zu gewähren, ohne dass Sie weitere Aktionen hierfür ausführen müssen. Stellen Sie sicher, dass Sie mögliche [Sicherheitsprobleme](/docs/services/appid?topic=appid-profiles#profile-set-custom) berücksichtigen, die sich durch das Ändern der Standardeinstellung ergeben können.
 
 ### Wie werden Benutzer identifiziert?
 {: #preregister-identify-user}
@@ -130,17 +130,17 @@ Wenn sich ein Benutzer zum ersten Mal bei Ihrer App anmeldet, sucht {{site.data.
 
 **So fügen Sie einen Benutzer hinzu:**
 
-1. Melden Sie sich bei IBM Cloud an.
+1. Melden Sie sich an IBM Cloud an.
   ```
   ibmcloud login
   ```
-  {: pre}
+  {: codeblock}
 
 2. Suchen Sie Ihr IAM-Token, indem Sie den folgenden Befehl ausführen.
   ```
   ibmcloud iam oauth-tokens
   ```
-  {: pre}
+  {: codeblock}
 
 3. Stellen Sie eine POST-Anforderung an den Endpunkt `/users`, der eine Beschreibung des Benutzers und der Attribute enthält, die Sie als JSON-Objekt festlegen möchten.
 
@@ -151,7 +151,7 @@ Wenn sich ein Benutzer zum ersten Mal bei Ihrer App anmeldet, sucht {{site.data.
        Authorization: 'Bearer <IAM_TOKEN>'
        Content-Type: application/json
   ```
-  {: pre}
+  {: codeblock}
 
   Hauptteil:
   ```
@@ -165,7 +165,7 @@ Wenn sich ein Benutzer zum ersten Mal bei Ihrer App anmeldet, sucht {{site.data.
        }
    }
   ```
-  {: pre}
+  {: codeblock}
 
   <table>
     <thead>
@@ -210,7 +210,7 @@ Wenn sich ein Benutzer zum ersten Mal bei Ihrer App anmeldet, sucht {{site.data.
 
 Beachten Sie, dass die vordefinierten Attribute eines Benutzers bis zur ersten Authentifizierung leer sind, der Benutzer aber für alle Zwecke ein vollständig authentifizierter Benutzer ist. Sie können ihre eindeutige ID genauso verwenden wie jemand, der bereits angemeldet ist. Beispielsweise können Sie das Profil ändern, suchen oder löschen.
 
-Nachdem Sie nun einem Benutzer bestimmte Attribute zugeordnet haben, versuchen Sie, auf [Attribute zuzugreifen oder Attribute zu aktualisieren](/docs/services/appid?topic=appid-custom-attributes).
+Nachdem Sie nun einem Benutzer bestimmte Attribute zugeordnet haben, versuchen Sie, auf [Attribute zuzugreifen oder Attribute zu aktualisieren](/docs/services/appid?topic=appid-profiles).
 
 
 </br>

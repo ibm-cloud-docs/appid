@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-04-23"
 
 keywords: authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
@@ -34,9 +34,9 @@ Sie können die Anforderungen, die die mit Cloud Directory verwendeten Kennwört
 Sichere Kennwörter sind schwerer oder sogar gar nicht durch Ausprobieren oder Algorithmen zu erraten. Zum Festlegen von Voraussetzungen für die Sicherheit eines Benutzerkennworts können Sie die folgenden Schritte ausführen.
 {: shortdesc}
 
-1. Navigieren Sie zur Registerkarte **Kennwortrichtlinien** des App ID-Dashboards.
+1. Navigieren Sie zur Registerkarte **Kennwortrichtlinien** des {{site.data.keyword.appid_short_notm}}-Dashboards.
 
-2. Klicken Sie im Feld **Kennwortsicherheit definieren** auf **Bearbeiten**. Daraufhin wird eine Anzeige aufgerufen.
+2. Klicken Sie im Feld **Kennwortsicherheit definieren** auf **Bearbeiten**. Daraufhin wird eine Anzeige geöffnet.
 
 3. Geben Sie im Feld **Kennwortsicherheit** eine gültige regex-Zeichenfolge an.
 
@@ -56,7 +56,7 @@ Die Kennwortsicherheit kann auf der Seite mit den Einstellungen für Cloud Direc
 {: #cd-advanced-password}
 
 
-Sie können die Sicherheit Ihrer Anwendung verbessern, indem Sie zusätzliche Kennworteinschränkungen definieren.
+Sie können die Sicherheit Ihrer Anwendung verbessern, indem Sie Kennworteinschränkungen definieren.
 {: shortdesc}
 
 
@@ -109,13 +109,13 @@ Sie haben de Möglichkeit, einen Benutzer zu entsperren, bevor der Sperrzeitraum
 Sie können verhindern, dass Ihre Benutzer ihr Kennwort in schneller Abfolge ändern, indem Sie eine Mindestdauer festlegen, die ein Benutzer zwischen den Kennwortänderungen warten muss.
 {: shortdesc}
 
-Dieses Feature ist besonders nützlich, wenn es in Verbindung mit der Richtlinie 'Kennwortwiederverwendung vermeiden' verwendet wird. Ohne diese Einschränkung könnte ein Benutzer sein Kennwort mehrfach in schneller Folge ändern, um die Einschränkung bei der Wiederverwendung kürzlich genutzter Kennwörter zu umgehen. Sie können einen beliebigen Wert zwischen 1 Stunde und 30 Tagen (angegeben in Stunden) auswählen.
+Dieses Feature ist besonders nützlich, wenn es in Verbindung mit der Richtlinie 'Kennwortwiederverwendung vermeiden' verwendet wird. Ohne diese Einschränkung könnte ein Benutzer sein Kennwort mehrfach in schneller Folge ändern, um die Einschränkung bei der Wiederverwendung kürzlich genutzter Kennwörter zu umgehen. Sie können einen beliebigen Wert im Bereich von 1 und 720 Stunden (30 Tage) auswählen. Der Wert im Feld wird in Stunden angegeben. 
 
 
 ### Richtlinie: Ablauf der Kennwortgültigkeit
 {: #cd-expiration}
 
-Aus Sicherheitsgründen sollten Sie erzwingen, dass die Benutzer ihr Kennwort nach einer bestimmten Zeit ändern.
+Aus Sicherheitsgründen sollten Sie erzwingen, dass die Benutzer ihr Kennwort nach einem bestimmten Zeitraum ändern.
 {: shortdesc}
 
 Wenn Sie die GUI oder die API verwenden, können Sie einen Zeitraum festlegen, für den die Kennwörter Ihres Benutzers gültig bleiben. Wenn das Kennwort eines Benutzers abgelaufen ist, muss er es bei der nächsten Anmeldung neu festlegen. Sie können eine beliebige Anzahl von vollen Tagen zwischen 1 und 90 auswählen.
