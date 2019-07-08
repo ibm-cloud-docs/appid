@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-09"
+lastupdated: "2019-07-03"
 
-keywords: authentication, authorization, identity, app security, secure, development, sso, directory, users, registry, multiple apps
+keywords: Authentication, authorization, identity, app security, secure, development, sso, directory, users, registry, multiple apps
 
 subcollection: appid
 
@@ -41,7 +41,7 @@ Check out the following diagram to see SSO in action.
 3. If the credentials are valid, a user is signed in to your app. At the same time, {{site.data.keyword.appid_short_notm}}, creates a session and sets a cookie on the user's browser.
 4. If a user attempts to sign in to one of your other applications, {{site.data.keyword.appid_short_notm}} detects the session cookie and automatically signs the user into your app. {{site.data.keyword.appid_short_notm}} session cookies are instance-specific and are signed by the instance's unique private key.
 
-If your instance is configured to use identity providers in addition to Cloud Directory such as SAML or Facebook, the Login Widget is still shown. Users are prompted to enter their Cloud Directory credentials or choose one of the other providers - even if they have a valid SSO session.
+At this time, SSO is configured to work when Cloud Directory is the only identity provider enabled. If your instance of {{site.data.keyword.appid_short_notm}} is configured to use multiple identity providers, enabling SSO has no affect on the sign-in flow. Users are prompted to enter their Cloud Directory credentials or choose one of the other providers at every sign in.
 {: note}
 
 

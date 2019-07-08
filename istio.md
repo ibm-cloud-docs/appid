@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-01"
+lastupdated: "2019-07-03"
 
 keywords: Authentication, authorization, identity, app security, access, secure, development, any kube, kubernetes, icp, openshift, iks
 
@@ -25,7 +25,7 @@ subcollection: appid
 # Securing multicloud apps with Istio
 {: #istio-adapter}
 
-By using the App Identity and Access adapter, you can centralize all of your identity management with a single instance of IBM Cloud App ID. Because enterprises use clouds from multiple providers or a combination of on and off-premise solutions, heterogenous deployment models can help you to preserve existing infrastructure and avoid vendor lock-in. The adapter can be configured to work with any OIDC compliant identity provider, which enables it to control authentication and authorization policies in all environments including frontend and backend applications. And, it does it all without any change to your code or the need to redeploy your application.
+By using the App Identity and Access adapter, you can centralize all of your identity management in a single place. Because enterprises use clouds from multiple providers or a combination of on and off-premise solutions, heterogenous deployment models can help you to preserve existing infrastructure and avoid vendor lock-in. The adapter can be configured to work with any OIDC compliant identity provider, such as {{site.data.keyword.appid_short_notm}}, which enables it to control authentication and authorization policies in all environments including frontend and backend applications. And, **it does it all without any change to your code or the need to redeploy your application**.
 {: shortdesc}
 
 
@@ -37,8 +37,7 @@ A multicloud computing environment combines multiple cloud and/ or private compu
 ![App Identity and Access adapter architecture diagram](images/istio-adapter.png)
 Figure. Multicloud deployment achieved with the App Identity and Access adapter.
 
-Due to an Istio limitation, the App Identity and Access adapter currently stores user session information internally and does *not* persist the information across replicas or over failover configurations. When using the adapter, limit your workloads to a single replica until the limitation is addressed.
-{: note}
+
 
 
 ## Understanding Istio and the adapter
@@ -48,6 +47,8 @@ Due to an Istio limitation, the App Identity and Access adapter currently stores
 
 Istio uses an Envoy proxy sidecar to mediate all inbound and outbound traffic for all services in the service mesh. By using the proxy, Istio extracts information about traffic, also known as telemetry, that is sent to the Istio component called Mixer to enforce policy decisions. The App Identity and Access adapter extends the Mixer functionality by analyzing the telemetry (attributes) against custom policies to control identity and access management into and across the service mesh. The access management policies are linked to particular Kubernetes services and can be finely tuned to specific service endpoints. For more information about policies and telemetry, see the [Istio documentation](https://istio.io/docs/concepts/policies-and-telemetry/){: external}. 
 
+Due to an Istio limitation, the App Identity and Access adapter currently stores user session information internally and does *not* persist the information across replicas or over failover configurations. When using the adapter, limit your workloads to a single replica until the limitation is addressed.
+{: note}
 
 ### Protecting frontend apps
 {: #istio-frontend}
@@ -124,8 +125,12 @@ To install the chart, initialize Helm in your cluster, define the options that y
 
 An authentication or authorization policy is a set of conditions that must be met before a request can access a resource access. By defining an identity provider's service configuration and an access policy that outlines when a particular access control flow should be used, you can control access to any resource in your service mesh. To see example CRD's, check out the [samples directory](https://github.com/ibm-cloud-security/app-identity-and-access-adapter/tree/master/samples/crds){: external}.
 
+To create a policy you just need to:
 
-### Defining a Configuration
+1. Define a configuration.
+2. Register the endpoint.
+
+### Defining a configuration
 {: #istio-apply-define}
 
 Depending on whether you're protecting frontend or backend applications, create a policy configuration with one of the following options.

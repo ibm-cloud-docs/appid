@@ -10,6 +10,11 @@ IBM Cloud App ID
     authorization.md
 
     {: .topicgroup}
+    Quick start guides
+        qs-node-web.md
+        qs-liberty-backend.md
+
+    {: .topicgroup}
     Tutorials
         tutorial-roles.md
         tutorial-kubernetes-auth.md
