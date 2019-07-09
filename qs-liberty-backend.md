@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-03"
+lastupdated: "2019-07-08"
 
 keywords: Authentication, authorization, identity, app security, secure, development, access management, liberty, backend, java, token
 
@@ -151,7 +151,7 @@ You can obtain your credentials in one of two ways.
         </tr>
         <tr>
             <td><code>issuerIdentifier</code></td>
-            <td>The issuer identifier defines your authorization server takes the following form: <code>https://{region}.cloud.ibm.com</code>. Region options include: <code>au-syd</code>, <code>eu-de</code>, <code>eu-gb</code>, <code>jp-tok</code>, and <code>us-south</code>. You can find your tenant ID in the credentials that you previously created.</td>
+            <td>The issuer identifier defines your authorization server takes the following form: <codeblock>https://{region}.cloud.ibm.com</codeblock>. Region options include: <code>au-syd</code>, <code>eu-de</code>, <code>eu-gb</code>, <code>jp-tok</code>, and <code>us-south</code>. You can find your tenant ID in the credentials that you previously created.</td>
         </tr>
         <tr>
             <td><code>signatureAlgorithm</code></td>

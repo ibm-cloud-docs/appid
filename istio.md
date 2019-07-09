@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-03"
+lastupdated: "2019-07-08"
 
 keywords: Authentication, authorization, identity, app security, access, secure, development, any kube, kubernetes, icp, openshift, iks
 
@@ -45,7 +45,7 @@ Figure. Multicloud deployment achieved with the App Identity and Access adapter.
 
 [Istio](https://istio.io) is an open source service mesh that layers transparently onto existing distributed applications that can integrate with Kubernetes. To reduce the complexity of deployments Istio provides behavioral insights and operational control over the service mesh as a whole. When App ID is combined with Istio, it becomes a scalable, integrated identity solution for multicloud architectures that does not require any custom application code changes. For more information, check out ["What is Istio?"](https://www.ibm.com/cloud/learn/istio?cm_mmc=OSocial_Youtube-_-Hybrid+Cloud_Cloud+Platform+Digital-_-WW_WW-_-IstioYTDescription&cm_mmca1=000023UA&cm_mmca2=10010608){: external}.
 
-Istio uses an Envoy proxy sidecar to mediate all inbound and outbound traffic for all services in the service mesh. By using the proxy, Istio extracts information about traffic, also known as telemetry, that is sent to the Istio component called Mixer to enforce policy decisions. The App Identity and Access adapter extends the Mixer functionality by analyzing the telemetry (attributes) against custom policies to control identity and access management into and across the service mesh. The access management policies are linked to particular Kubernetes services and can be finely tuned to specific service endpoints. For more information about policies and telemetry, see the [Istio documentation](https://istio.io/docs/concepts/policies-and-telemetry/){: external}. 
+Istio uses an Envoy proxy sidecar to mediate all inbound and outbound traffic for all services in the service mesh. By using the proxy, Istio extracts information about traffic, also known as telemetry, that is sent to the Istio component called Mixer to enforce policy decisions. The App Identity and Access adapter extends the Mixer functionality by analyzing the telemetry (attributes) against custom policies to control identity and access management into and across the service mesh. The access management policies are linked to particular Kubernetes services and can be finely tuned to specific service endpoints. For more information about policies and telemetry, see the [Istio documentation](https://istio.io/docs/concepts/observability/){: external}. 
 
 Due to an Istio limitation, the App Identity and Access adapter currently stores user session information internally and does *not* persist the information across replicas or over failover configurations. When using the adapter, limit your workloads to a single replica until the limitation is addressed.
 {: note}
@@ -267,7 +267,7 @@ spec:
 
 
 | Service Object | Type | Required | Description   |
-|----------------|:----:|:--------:| :-----------: |
+|:----------------:|:----:|:--------:| :-----------: |
 | `service` | string | yes | The name of Kubernetes service in the Policy namespace that you want to protect. |
 | `paths` | array[Path Object] | yes | A list of path objects that define the endpoints that you want to protect. If left empty, all paths are protected. |
 {: class="simple-tab-table"}
@@ -277,7 +277,7 @@ spec:
 {: tab-group="objects"}
 
 | Path Object    | Type | Required | Description   |
-|----------------|:----:|:--------:| :-----------: |
+|:----------------:|:----:|:--------:|:-----------:|
 | `exact or prefix` | string | yes | The path that you want to apply the policies on. Options include `exact` and `prefix`. `exact` matches the provides endpoints exactly with the last `/` trimmed. `prefix` matches the endpoints that begin with the route prefix that you provide. |
 | `method` | enum | no | The HTTP method protected. Valid options ALL, GET, PUT, POST, DELETE, PATCH - Defaults to ALL:  |
 | `policies` | array[Policy] | no | The OIDC/JWT policies that you want to apply.  |
@@ -288,7 +288,7 @@ spec:
 {: tab-group="objects"}
 
 | Policy Object  | Type | Required | Description   |
-|----------------|:----:|:--------:| :-----------: |
+|:----------------:|:----:|:--------:| :-----------: |
 | `policyType` | enum | yes | The type of OIDC policy. Options include: `jwt` or `oidc`. |
 | `config` | string | yes | The name of the provider config that you want to use. |
 | `redirectUri` | string | no | The url you want the user to be redirected after successful authentication, default: the original request url. |
@@ -300,7 +300,7 @@ spec:
 {: tab-group="objects"}
 
 | Rule Object  | Type | Required | Description   |
-|----------------|:----:|:--------:| :-----------: |
+|:----------------:|:----:|:--------:| :-----------: |
 | `claim` | string | yes | The claim that you want to validate. |
 | `match` | enum | no | The criteria required for claim validation. Options inlcude: `ALL`, `ANY` or `NOT`. The default is set to `ALL`. |
 | `source` | enum | no | The token where you want to apply the rule. Options inlcude: `access_token` or `id_token`. The default is set to `access_token`. |

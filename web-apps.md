@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-21"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, web apps, client, server
+keywords: Authentication, authorization, identity, app security, secure, web apps, client, server
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -48,9 +48,9 @@ Web apps often require users to authenticate in order to access protected conten
 
 2. If the user is unauthorized, the authentication flow is started with a redirect to {{site.data.keyword.appid_short_notm}}.
 
-3. Depending on the user's `/authorization` request parameters or identity provider configuration, it launches the Login Widget in the user's browser.
+3. Depending on the user's `/authorization` request parameters or identity provider configuration, it starts the Login Widget in the user's browser.
 
-4. The user chooses an identity provider to authenticate with and completes the sign in process.
+4. The user chooses an identity provider to authenticate with and completes the sign-in process.
 
 5. The identity provider redirects to the client app with the authorization code.
 
@@ -123,12 +123,12 @@ Check out the following video to learn about protecting Node applications with {
   ```
   {: codeblock}
 
-  You must configure the middleware with the proper session storage for production environments. For more information see the <a href="https://github.com/expressjs/session" target="_blank"> express.js docs<img src="../icons/launch-glyph.svg" alt="External link icon"></a>.
+  You must configure the middleware with the proper session storage for production environments. For more information, see the express.js docs<img src="../icons/launch-glyph.svg" alt="External link icon"></a>.
   {: note}
 
 3. Obtain your credentials in one of the following ways.
 
-  * By navigating to the **Applications** tab of the {{site.data.keyword.appid_short_notm}} dashboard. If you don't have an application listed, you can click **Add application** to create a new one.
+  * By navigating to the **Applications** tab of the {{site.data.keyword.appid_short_notm}} dashboard. If you don't have an application in the list, you can click **Add application** to create a one.
 
   * By making a POST request to the [`/management/v4/{tenantId}/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Applications/mgmt.registerApplication).
 
@@ -332,7 +332,7 @@ Check out the following video to learn about protecting Liberty for Java applica
 ### Initializing the Liberty for Java SDK
 {: #web-liberty-initialize}
 
-1. In your `server.xml` file, define an authorization filter to specify protected resources. If a filter is not <a href="https://www.ibm.com/support/knowledgecenter/en/SSD28V_9.0.0/com.ibm.websphere.wlp.core.doc/ae/rwlp_auth_filter.html" target="_blank">defined <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>, the service protects all resources.
+1. In your `server.xml` file, define an authorization filter to specify protected resources. If a filter is not <a href="https://www.ibm.com/support/knowledgecenter/en/SSD28V_liberty/com.ibm.websphere.wlp.core.doc/ae/rwlp_auth_filter.html" target="_blank">defined <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>, the service protects all resources.
 
   ```xml
   <authFilter id="myAuthFilter">
