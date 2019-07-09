@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, access management, roles, attributes, users
+keywords: Authentication, authorization, identity, app security, secure, access management, roles, attributes, users
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -26,7 +26,7 @@ subcollection: appid
 # Tutorial: Setting user roles
 {: #tutorial-roles}
 
-Ensuring that the right people, have the right access, at the right time can be difficult when you are coding your application. To help with that process, you can use {{site.data.keyword.appid_full}} to define a custom attribute such as `role`, which allows you to assign different types of users. Then, you can use your application to enforce varying levels of permissions for each type of user. By using this step-by-step guide you can learn to set user attributes, update them, and then inject them in to a token by using the {{site.data.keyword.appid_short_notm}} APIs.
+Ensuring that the right people, have the right access, at the right time can be difficult when you are coding your application. To help with that process, you can use {{site.data.keyword.appid_full}} to define a custom attribute such as `role`, which allows you to assign different types of users. Then, you can use your application to enforce varying levels of permissions for each type of user. By using this step-by-step guide that you can learn to set user attributes, update them, and then inject them in to a token by using the {{site.data.keyword.appid_short_notm}} APIs.
 {: shortdesc}
 
 New to the APIs? Try them out with this [Postman collection](https://github.com/ibm-cloud-security/appid-postman).
@@ -38,7 +38,7 @@ New to the APIs? Try them out with this [Postman collection](https://github.com/
 You are a developer for a fictional theme park. You're tasked with managing access for the [web application](/docs/services/appid?topic=appid-web-apps), and you feel the easiest way to do so is by setting roles for each type of user. You have several different types of roles such as park staff and visitors that all need different levels of permissions. You want to be able to streamline the process and ensure that your users are assigned the correct role from the first time they sign in to your application.  
 {: shortdesc}
 
-No problem! You can use the [custom attributes feature](/docs/services/appid?topic=appid-profiles) of {{site.data.keyword.appid_short_notm}} to store any type of user-related information. So, because you're working with role-based access control, you can create an attribute that is called `role` and assign different values to specify a type of role. For instance, the theme park might have `visitors` or `staff` that could each be different values for the `role` attribute. Then, you can ensure that your application code enforces the access policies and privileges that you assigned.
+No problem! You can use the [custom attributes feature](/docs/services/appid?topic=appid-profiles) of {{site.data.keyword.appid_short_notm}} to store any type of user-related information. So, because you're working with role-based access control, you can create an attribute that is called `role` and assign different values to specify a type of role. For instance, the theme park might have `visitors` or `staff` that can each be different values for the `role` attribute. Then, you can ensure that your application code enforces the access policies and privileges that you assigned.
 
 Although this tutorial is written specifically with web apps and Cloud Directory in mind, attributes can be used in a much broader sense. Custom attributes can be anything that you want them to be. As long as you stay under 100k attributes and you format them as a plain JSON object, you can store all types of information!
 {: note}
@@ -61,7 +61,7 @@ Be sure that you have the following prerequisites before you begin:
 Before you can start adding attributes for your Cloud Land users, you need to configure your instance of {{site.data.keyword.appid_short_notm}}.
 {: shortdesc}
 
-1. In the **Identity Providers** tab of the service dashboard, enable **Cloud Directory**. Although this tutorial uses [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory), you could also choose to use any of the other IdP's such as [SAML](/docs/services/appid?topic=appid-enterprise), [Facebook](/docs/services/appid?topic=appid-social#facebook), [Google](/docs/services/appid?topic=appid-social#google), or a [custom provider](/docs/services/appid?topic=appid-custom-identity).
+1. In the **Identity Providers** tab of the service dashboard, enable **Cloud Directory**. Although this tutorial uses [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory), you might also choose to use any of the other IdP's such as [SAML](/docs/services/appid?topic=appid-enterprise), [Facebook](/docs/services/appid?topic=appid-social#facebook), [Google](/docs/services/appid?topic=appid-social#google), or a [custom provider](/docs/services/appid?topic=appid-custom-identity).
 
 2. In the **Cloud Directory > Email Verification** tab, enable verification and set **Allow users to sign-in to your app without first verifying their email address** to **No**. When you use custom attributes to set permissions-related roles, be sure that users must validate their identity before they assume the attributes that you set.
 
@@ -73,7 +73,7 @@ Before you can start adding attributes for your Cloud Land users, you need to co
 Excellent! Your dashboard is configured and you're ready to start setting roles.
 
 
-## Step 2: Setting roles on behalf of another user prior to sign in
+## Step 2: Setting roles on behalf of another user before sign in
 {: #roles-set-before}
 
 Cloud Land has a new staff member! You know all of their information, but they don't start for several days. You can [preregister them](/docs/services/appid?topic=appid-preregister) by creating an {{site.data.keyword.appid_short_notm}} user and profile that contains the attributes such as the `staff` role.
@@ -295,7 +295,7 @@ Optionally, you can verify that step 4 was successful by viewing an access token
 1. For testing purposes, create a Cloud Directory user by using the {{site.data.keyword.appid_short_notm}} GUI.
 
   1. In the **Users** tab, click **Add User**. A form displays.
-  2. Enter a first and last name, an email, and password.
+  2. Enter a first and surname, an email, and password.
   3. Click **Save**.
 
 2. Encode your client ID and secret.
@@ -304,7 +304,7 @@ Optionally, you can verify that step 4 was successful by viewing an access token
   2. Use a base64 encoder to encode your authorization information.
   3. Copy the output to use in the following command.
 
-4. Sign in by using the APIs to obtain your access token information. The token returned is encoded.
+4. Sign in by using the APIs to obtain your access token information. The token that is returned is encoded.
 
   ```
   curl --request PUT \

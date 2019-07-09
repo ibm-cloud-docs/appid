@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-09"
 
 keywords: Authentication, authorization, identity, app security, secure, application identity, app to app, access token
 
@@ -55,6 +55,6 @@ Check out the following table to see how {{site.data.keyword.appid_short_notm}} 
     </tr>
     <tr>
         <td><a href="/docs/services/appid?topic=appid-anonymous#anonymous" target="_blank">Anonymous </a></td>
-        <td>With {{site.data.keyword.appid_short_notm}}, you can begin tracking a users activity prior to their initial sign in to your app by using anonymous authentication.</td>
+        <td>With {{site.data.keyword.appid_short_notm}}, you can begin tracking a users activity before their initial sign into your app by using anonymous authentication.</td>
     </tr>
 </table>
