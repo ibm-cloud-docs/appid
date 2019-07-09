@@ -55,23 +55,23 @@ You can use the {{site.data.keyword.appid_short_notm}} dashboard to view details
   </tr>
   <tr>
     <td>User identifier</td>
-    <td>The user identifier is dependant upon the type of user sign-up that you configured. If you have an email and password flow configured, the identifier is the user's email. If you use the username and password flow, the identifier is the username that is given at sign-up.</td>
+    <td>The user identifier is dependant upon the type of user sign-up that you configured. If you have an email and password flow configured, the identifier is the user's email. If you use the user name and password flow, the identifier is the user name that is given at sign-up.</td>
   </tr>
   <tr>
     <td>Email</td>
     <td>The primary email address that is attached to the user.</td>
   </tr>
     <tr>
-    <td>First and last name</td>
-    <td>Your user's first and last name as they provided during the sign-up process.</td>
+    <td>First and surname</td>
+    <td>Your user's first and surname as they provided during the sign-up process.</td>
   </tr>
   <tr>
     <td>Last Login</td>
-    <td>The time stamp of the last time that the user logged in to your application. Note: If you added your user through the dashboard, the login is blank until the user themselves signs into your app. When sign-in occurs they also become an App ID user.</td>
+    <td>The time stamp of the last time that the user logged in to your application. Note: If you added your user through the dashboard, the login is blank until the user themselves signs in to your app. When sign-in occurs, they also become an App ID user.</td>
   </tr>
   <tr>
     <td>ID</td>
-    <td>The ID that is assigned to the user by {{site.data.keyword.appid_short_notm}}. In the UI, it is not shown but you can copy the value and paste it in a text editor to see the value.</td>
+    <td>The ID that is assigned to the user by {{site.data.keyword.appid_short_notm}}. In the UI, it isn't shown but you can copy the value and paste it in a text editor to see the value.</td>
   </tr>
   <tr>
     <td>Predefined attributes</td>
@@ -172,7 +172,7 @@ You can use the {{site.data.keyword.appid_short_notm}} API to view details about
 You can manage your Cloud Directory users through the {{site.data.keyword.appid_short_notm}} dashboard or by using the APIs.
 {: shortdesc}
 
-When a user signs up for your application, they do so through a self-service workflow that automatically triggers emails such as a welcome or verification request. When you, as an administrator, add a user to your app a self-service workflow is not initiated, which means that users do not receive any emails from your application. If you want your users to still be notified that they've been added, you can trigger the messaging flows through the [App ID management API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.set_cloud_directory_email_dispatcher).
+When a user signs up for your application, they do so through a self-service workflow that automatically triggers emails such as a welcome or verification request. When you, as an administrator, add a user to your app a self-service workflow is not initiated, which means that users do not receive any emails from your application. If you want your users to still be notified that they're added, you can trigger the messaging flows through the [App ID management API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.set_cloud_directory_email_dispatcher).
 
 
 ### Adding users
@@ -187,11 +187,11 @@ If you disable self-service sign-up or add a user on their behalf, the user does
 
 **To add a user with the GUI:**
 
-1. Navigate to the **Cloud Directory > Users** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
+1. Go to the **Cloud Directory > Users** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
 
-2. Click **Add user**. A form displays.
+2. Click **Add user**. A form opens.
 
-3. Enter a **First name**, **Last name**, **Email**, and **Password**. Be sure that the email that you try to register is not already taken by another user. To be sure that you typed your password correctly, confirm it by entering it in the **Re-enter Password** field.
+3. Enter a **First name**, **Last name**, **Email**, and **Password**. Be sure that the email that you try to register is not already taken by another user. To be sure that you typed your password correctly, confirm it by entering it in the **Reenter Password** field.
 
 4. Click **Save**. A Cloud Directory user is created.
 
@@ -200,7 +200,7 @@ If you disable self-service sign-up or add a user on their behalf, the user does
 
 **To add a user with the API:**
 
-The following flow shows how to add a user with an email and password. You can also choose to use a username and password flow.
+The following flow shows how to add a user with an email and password. You can also choose to use a user name and password flow.
 
 1. Obtain your `tenantID` from your application or service credentials.
 
@@ -211,7 +211,7 @@ The following flow shows how to add a user with an email and password. You can a
   ```
   {: codeblock}
 
-3. With the token that you obtained in step 2, make a POST request to the `cloud-directory/users` endpoint. Note that this example uses the email/ password flow. You can also use the username/ password flow.
+3. With the token that you obtained in step 2, make a POST request to the `cloud-directory/users` endpoint. This example uses the email/ password flow. You can also use the username/ password flow.
 
   ```
   curl --X POST "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/Users"
@@ -243,11 +243,11 @@ If you want to remove a user from your directory, you can delete the user from t
 
 **To delete a user through the GUI:**
 
-1. Navigate to the **Cloud Directory > Users** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
+1. Go to the **Cloud Directory > Users** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
 
-2. Click the check box next to the user that you want to delete. A box displays.
+2. Click the check box next to the user that you want to delete. A box opens.
 
-3. In the box, click **Delete**. A screen displays.
+3. In the box, click **Delete**. A screen opens.
 
 4. Confirm that you understand that deleting a user cannot be undone by clicking **Delete**. If the action was a mistake, you can add the user to your directory again, but any information about that user is no longer available.
 
@@ -277,7 +277,7 @@ If you want to remove a user from your directory, you can delete the user from t
 ## Migrating users
 {: #user-migration}
 
-Occasionally, you might need to add a new instance of {{site.data.keyword.appid_short_notm}}. When you're working with Cloud Directory, this means that your users must be migrated to the new instance. To help with the migration, you can use the management APIs.
+Occasionally, you might need to add an instance of {{site.data.keyword.appid_short_notm}}. When you're working with Cloud Directory, your users must be migrated to the new instance. To help with the migration, you can use the management APIs.
 {: shortdesc}
 
 
@@ -304,7 +304,7 @@ curl -X GET --header ‘Accept: application/json’ --header ‘Authorization: B
   </tr>
   <tr>
     <td><code>encryption_secret</code></td>
-    <td>A custom string that is used to encrypt and decrypt a users hashed password.</td>
+    <td>A custom string that is used to encrypt and decrypt a user's hashed password.</td>
   </tr>
   <tr>
     <td><code>tenantID</code></td>
@@ -388,7 +388,7 @@ Before you get started, be sure that you have the following parameter informatio
 To run the script:
 
 1. Clone the <a href="https://github.com/ibm-cloud-security/appid-sample-code-snippets/tree/master/export-import-cloud-directory-users" target="_blank">repository <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
-2. Open terminal and navigate to the folder that you cloned the repo into.
+2. Open console and go to the folder that you cloned the repo into.
 3. Run the following command.
 
   ```

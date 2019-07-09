@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-20"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
+keywords: Authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -60,7 +60,7 @@ You can use parameters in your messages in order to further customize the messag
   </tr>
   <tr>
     <td><code>%{user.username}</code></td>
-    <td> Displays the user's specified username when the authentication method is set to username and password. </td>
+    <td> Displays the user's specified user name when the authentication method is set to user name and password. </td>
   </tr>
   <tr>
     <td><code>%{user.firstName}</code></td>
@@ -83,11 +83,11 @@ You can use parameters in your messages in order to further customize the messag
 When a user signs up for your application, you might want to send them a message that welcomes them to your app. 
 {: shortdesc}
 
-1. Navigate to the **Workflow templates > Welcome email** tab of the service dashboard.
+1. Go to the **Workflow templates > Welcome email** tab of the service dashboard.
 
 2. Set **Welcome email** to **Enabled**.
 
-3. Customize the content of your message. You can add parameters and insert images by using the UI. To change the [language](/docs/services/appid?topic=appid-cd-messages#cd-languages) of the message, you can use <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization" target="_blank">the APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to set the language. However, you are responsible for the content and translation of the message. Check out the following table to see the list of tables that you can use in this message and all of the other messages that you can send. If a user does not supply the information pulled by the parameter, it appears blank.
+3. Customize the content of your message. You can add parameters and insert images by using the UI. To change the [language](/docs/services/appid?topic=appid-cd-messages#cd-languages) of the message, you can use <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization" target="_blank">the APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to set the language. However, you are responsible for the content and translation of the message. Check out the following table to see the list of tables that you can use in this message and all of the other messages that you can send. If a user does not supply the information that is pulled by the parameter, it appears blank.
 
 4. Click **Save**.
 
@@ -95,17 +95,20 @@ When a user signs up for your application, you might want to send them a message
 ### Email: Verification
 {: #cd-messages-verification}
 
-When a user signs up for your application by using their email, you can send them an email that asks them to confirm their identity. By requesting a verification, you limit the number of fake accounts that can sign up for your app. You can restrict access to your app until a user verifies their email, or use it as a way to manage which users you create profiles for. Note that users who are manually added via the {{site.data.keyword.appid_short_notm}} dashboard or the create user API do not automatically receive this email.
+When a user signs up for your application by using their email, you can send them an email that asks them to confirm their identity. By requesting a verification, you limit the number of fake accounts that can sign up for your app. You can restrict access to your app until a user verifies their email, or use it as a way to manage which users you create profiles for.
 {: shortdesc}
 
+Users who are manually added via the {{site.data.keyword.appid_short_notm}} dashboard or the create user API do not automatically receive this email.
+{: note}
 
-1. Navigate to the **Workflow templates > Email verification** tab of the service dashboard.
+
+1. Go to the **Workflow templates > Email verification** tab of the service dashboard.
 
 2. Set **Email verification** to **Enabled**.
 
 3. Set **Allow users to sign in to your app without first verifying their email address** to **Yes**. When set to yes, users are able to interact with your application after they sign up, but before they verify their email address. The default setting is no.
 
-4. Customize the content of your message. You can add parameters and insert images by using the UI. To change the [language](/docs/services/appid?topic=appid-cd-messages#cd-languages) of the message, you can use <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization" target="_blank">the APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to set the language. However, you are responsible for the content and translation of the message. Check out the following table to see the different parameters that you can use in your message. If a user does not supply the information pulled by the parameter, it appears blank.
+4. Customize the content of your message. You can add parameters and insert images by using the UI. To change the [language](/docs/services/appid?topic=appid-cd-messages#cd-languages) of the message, you can use <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization" target="_blank">the APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to set the language. However, you are responsible for the content and translation of the message. Check out the following table to see the different parameters that you can use in your message. If a user does not supply the information that is pulled by the parameter, it appears blank.
 
   <table>
     <tr>
@@ -132,7 +135,7 @@ When a user signs up for your application by using their email, you can send the
   You can also use the message parameters that are listed in the [Welcome message](/docs/services/appid?topic=appid-cd-messages#cd-messages-welcome) section.
   {: tip}
 
-5. Define an expiration time for the action URL. The URL expiration is the amount of time, in minutes, that a user has to complete the action before the verification link expires. This setting also affects the amount of time that your reset password link is valid.
+5. Define an expiration time for the action URL. The URL expiration is the amount of time, in minutes, that a user must complete the action before the verification link expires. This setting also affects the amount of time that your reset password link is valid.
  
 6. Enter a URL for the page that you want to display after a user verifies their email in the **Thank you page URL** box. If you choose to leave this field blank, an {{site.data.keyword.appid_short_notm}} default page is displayed.
 
@@ -146,11 +149,11 @@ When a user interacts with your app, they might forget their password or need to
 {: shortdesc}
 
 
-1. Navigate to the **Workflow templates > Reset password** tab of the service dashboard.
+1. Go to the **Workflow templates > Reset password** tab of the service dashboard.
 
 2. Set **Forgot password email** to **Enabled**.
 
-3. Customize the content of your message. You can add parameters and insert images by using the UI. To change the [language](/docs/services/appid?topic=appid-cd-messages#cd-languages) of the message, you can use <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization" target="_blank">the APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to set the language. However, you are responsible for the content and translation of the message. Check out the following table to see the different parameters that you can use in your message. If a user does not supply the information pulled by the parameter, it appears blank.
+3. Customize the content of your message. You can add parameters and insert images by using the UI. To change the [language](/docs/services/appid?topic=appid-cd-messages#cd-languages) of the message, you can use <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization" target="_blank">the APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to set the language. However, you are responsible for the content and translation of the message. Check out the following table to see the different parameters that you can use in your message. If a user does not supply the information that is pulled by the parameter, it appears blank.
 
   <table>
     <tr>
@@ -177,7 +180,7 @@ When a user interacts with your app, they might forget their password or need to
   You can also use the message parameters that are listed in the [Welcome message](/docs/services/appid?topic=appid-cd-messages#cd-messages-welcome) section.
   {: tip}
 
-4. Define an expiration time for the action URL. The URL expiration is the amount of time, in minutes, that a user has to complete the action before the verification link expires. This setting also affects the amount of time that your reset password link is valid.
+4. Define an expiration time for the action URL. The URL expiration is the amount of time, in minutes, that a user must complete the action before the verification link expires. This setting also affects the amount of time that your reset password link is valid.
  
 5. Enter a URL for the page that you want to display after a user verifies their email in the **Reset password page URL** box. If you choose to leave this field blank, an {{site.data.keyword.appid_short_notm}} default page is displayed.
 
@@ -187,10 +190,10 @@ When a user interacts with your app, they might forget their password or need to
 ### Email: Password change
 {: #cd-messages-password-change}
 
-You can let a user know when their password has been updated. This is helpful if they did not request that their password be changed. They can take the proper steps to resecure their account.
+You can notify a user when their password is updated. The notification can be helpful if they did not request that their password be changed. They can take the proper steps to resecure their account.
 {: shortdesc}
 
-1. Navigate to the **Workflow templates > Password change** tab of the service dashboard.
+1. Go to the **Workflow templates > Password change** tab of the service dashboard.
 
 2. Set **Password changed email** to **Enabled**.
 
@@ -227,7 +230,7 @@ With {{site.data.keyword.appid_short_notm}}, you can define a custom extension p
 You might want to use a custom email sender for the following reasons:
 
 - **Personalized domain**
-By configuring a custom email dispatcher, you have full control over how the email messages are sent. This includes customizing the email domain, which might further reduce the chances of emails getting filtered as spam. You can also further enhance the branded experience for your app users.
+By configuring a custom email dispatcher, you have full control over how the email messages are sent. Most notably, you can customize the email domain, which can reduce the chances of an email being filtered as spam. You can also further enhance the branded experience for your app users.
 
 - **Insights and troubleshooting**
 Gain insights from your email provider, such as: the number of people that opened the emails or which messages were not delivered. Because you can track individual messages, and see overall statistics, this can help solve issues.

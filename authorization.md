@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-07-09"
 
 keywords: Authentication, authorization, identity, app security, secure, access, tokens
 
@@ -25,7 +25,7 @@ subcollection: appid
 # Key concepts
 {: #key-concepts}
 
-Confused about the differences between authorization and authentication? You're not alone. Check out the information on this page to learn about specific terminology, processes, and the way that the service uses tokens.
+Confused about the differences between authorization and authentication? You're not alone. Check out the following information to learn about specific terminology, processes, and the way that the service uses tokens.
 {: shortdesc}
 
 Want to know more about some of the basic concepts of authorization and authentication? Look no further. In the following video you can learn about OAuth 2.0, grant types, OIDC, and more.
@@ -46,7 +46,7 @@ These key terms can help you understand the way that the service breaks down the
 ### Open ID Connect (OIDC)
 {: #term-oidc}
 
-[OIDC](https://openid.net/developers/specs/){: external} is an authentication layer that works on top of OAuth 2. When you use OIDC and {{site.data.keyword.appid_short_notm}} together, your application credentials help to configure your OAuth endpoints. When you use the SDK the endpoint URLs are built automatically. But, you can also build the URLs yourself by using your service credentials. The URL takes the following form: {{site.data.keyword.appid_short_notm}} service endpoint + "/oauth/v4" + /tenantID.
+[OIDC](https://openid.net/developers/specs/){: external} is an authentication layer that works with OAuth 2. When you use OIDC and {{site.data.keyword.appid_short_notm}} together, your application credentials help to configure your OAuth endpoints. If you use the SDK, the endpoint URLs are built automatically. But, you can also build the URLs yourself by using your service credentials. The URL takes the following form: {{site.data.keyword.appid_short_notm}} service endpoint + "/oauth/v4" + /tenantID.
 
 Example:
 
@@ -88,18 +88,24 @@ Using this example, the URL would be `https://us-south.appid.cloud.ibm.com/oauth
   </tr>
 </table>
 
-When you use the SDK the endpoint URLs are built automatically.
+When you use the SDK, the endpoint URLs are built automatically.
 {: note}
 
 ### Tokens
 {: #term-token}
 
-The service uses three different types of tokens. Access tokens represent authorization and enable communication with [back-end resources](/docs/services/appid?topic=appid-backend) that are protected by authorization filters that are set by {{site.data.keyword.appid_short}}. Identity tokens represent authentication and contain information about the user. A refresh token can be used to obtain a new access token without re-authenticating the user. By using refresh tokens, users can allow their information to be remembered by the application. This way they can remain signed in. Tokens are set in the **Identity Providers > Manage** of the {{site.data.keyword.appid_short}} dashboard. For more information about tokens and how they're used in {{site.data.keyword.appid_short}}, check out [Managing tokens](/docs/services/appid?topic=appid-tokens).
+The service uses three different types of tokens. Tokens are set in the **Identity Providers > Manage** of the {{site.data.keyword.appid_short}} dashboard. For more information about tokens and how they're used in {{site.data.keyword.appid_short}}, check out [Managing tokens](/docs/services/appid?topic=appid-tokens).
+
+* Access tokens: Represent authorization and enable communication with protected [back-end resources](/docs/services/appid?topic=appid-backend). The resources are protected by authorization filters that are set by {{site.data.keyword.appid_short}}.
+
+* Identity tokens: Represent authentication and contain information about the user.
+
+* Refresh tokens: Can be used to obtain a new access token without reauthenticating the user. By using refresh tokens, users can allow their information to be remembered by the application, which means that they can stay signed in. 
 
 ### Authorization headers
 {: #term-auth-header}
 
-{{site.data.keyword.appid_short}} complies with the [token bearer specification](https://tools.ietf.org/html/rfc6750){: external} and uses a combination of access and identity tokens that are sent as an HTTP Authorization header. The Authorization header contains three different parts that are separated by white space. The tokens are base64 encoded. The identity token is optional.
+{{site.data.keyword.appid_short}} complies with the [token bearer specification](https://tools.ietf.org/html/rfc6750){: external} and uses a combination of access and identity tokens that are sent as an HTTP Authorization header. The Authorization header has three different parts that are separated by white space. The tokens are base64 encoded. The identity token is optional.
 
 Example:
 
@@ -143,6 +149,6 @@ When the web app strategy detects unauthorized attempts to access a protected re
 ### JSON Web Key Set (JWKS)
 {: #term-jwks}
 
-A JWKS represents a set of cryptographic keys. {{site.data.keyword.appid_short_notm}} uses a JWKS to verify the authenticity of the tokens that are generated by the service. By using the key ID to verify the signature we can ensure that the token was issued by a trusted source - {{site.data.keyword.appid_short_notm}}, and that the information within the token has never been changed.
+A JWKS represents a set of cryptographic keys. {{site.data.keyword.appid_short_notm}} uses a JWKS to verify the authenticity of the tokens that are generated by the service. By using the key ID to verify the signature, we can ensure that the token was issued by a trusted source - {{site.data.keyword.appid_short_notm}}, and that the information within the token has never been changed.
 
 

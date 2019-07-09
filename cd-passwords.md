@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-23"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
+keywords: Authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -34,17 +34,17 @@ You can set the requirements for the passwords that can be used with Cloud Direc
 A strong password makes it difficult, or even improbable for someone to guess the password in either a manual or automated way. To set requirements for the strength of a user's password, you can use the following steps.
 {: shortdesc}
 
-1. Navigate to the **Password Policies** tab of the {{site.data.keyword.appid_short_notm}}  dashboard.
+1. Go to the **Password policies** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
 
 2. In the **Define password strength** box, click **Edit**. A screen opens.
 
 3. Enter a valid regex string in the **Password strength** box.
 
   Examples:
-    - Must be at least 8 characters. Example regex: `^.{8,}$`
-    - Must contain one number, one lowercase letter, and one capital letter. Example regex: `^(?:(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).*)$`
-    - Must contain only English letters and numbers. Example regex: `^[A-Za-z0-9]*$`
-    - Must be at least one unique character. Example regex: `^(\w)\w*?(?!\1)\w+$`
+    - Must be at least 8 characters. (`^.{8,}$`)
+    - Must have one number, one lowercase letter, and one capital letter. (`^(?:(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).*)$`)
+    - Must have only English letters and numbers. (`^[A-Za-z0-9]*$`)
+    - Must have at least one unique character. (`^(\w)\w*?(?!\1)\w+$`)
 
 4. Click **Save**.
 
@@ -66,10 +66,10 @@ You can create an advanced password policy that consists of any combination of t
  - Avoid password reuse
  - Password expiration
  - Minimum period between password changes
- - Ensure password does not include username
+ - Ensure that the password does not include user name
 
 
- If you enable this feature, additional billing for advanced security capabilities is activated. For more information, see the [How does {{site.data.keyword.appid_short_notm}} calculate pricing](/docs/services/appid?topic=appid-faq#faq-pricing).
+ When you enable this feature, extra billing for advanced security capabilities is activated. For more information, see [how does {{site.data.keyword.appid_short_notm}} calculate pricing](/docs/services/appid?topic=appid-faq#faq-pricing).
  {: important}
 
 
@@ -79,9 +79,9 @@ You can create an advanced password policy that consists of any combination of t
 When your users are changing their password, you might want to prevent them from choosing a recently used password.
 {: shortdesc}
 
-By using the GUI or the API, you can choose the number of passwords that a user must have before they can repeat a previously used password. You can select any whole value in range 1 - 10.
+By using the GUI or the API, you can choose the number of passwords that a user must have before they are able to repeat a previously used password. Setting options include any whole value in range 1 - 10.
 
-If this option is turned on, a user cannot use a password that was recently used by them. If they try to set their password to a password that was recently used, they are shown an error in the default Login Widget GUI and are prompted to enter a different password.
+If this option is turned on, a user can't use a password that they recently used. If they try to set their password to one that was recently used, an error is shown in the default Login Widget GUI and the user is prompted to enter another option.
 
 Previous passwords are securely stored in the same way that a user's current password is stored.
 {: note}
@@ -93,12 +93,12 @@ Previous passwords are securely stored in the same way that a user's current pas
 You might want to protect your users' accounts by temporarily blocking the ability to sign in when a suspicious behavior is detected, such as multiple consecutive sign-in attempts with an incorrect password. This measure can help to prevent a malicious party from gaining access to a user's account by guessing a user's password.
 {: shortdesc}
 
-By using the GUI or the API, you can set the maximum number of unsuccessful sign-in attempts that a user can make before their account is temporarily locked. You can also set the amount of time that the account is locked for. You have the following options:
+By using the GUI or the API, you can set the maximum number of unsuccessful sign-in attempts that a user makes before their account is temporarily locked. You can also define the amount of time that the account is locked for. You have the following options:
 
 * Number of attempts: Any whole value 1 - 10.
 * Lockout period: Any whole value that is specified in minutes in the range 1 minute to 1440 minutes (24 hours).
 
-If an account is locked, users are unable to sign in or perform any other self-service operations, such as changing their password until the specified lockout period has elapsed. When the lockout period is over, the user is automatically unlocked.
+If an account is locked, users are unable to sign in or complete any other self-service operations, such as changing their password until the specified lockout period is complete. When the lockout period is over, the user is automatically unlocked.
 
 You can unlock a user before the lockout period is over. To see whether they are locked out, check whether the `active` field is set to `false`. You can also check to see whether their status on the **Users** tab of the service dashboard is set to `disabled`. To unlock a user, you must use [the API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Cloud_Directory_Users/updateCloudDirectoryUser) to set the `active` field to `true`.
 
@@ -109,7 +109,7 @@ You can unlock a user before the lockout period is over. To see whether they are
 You might want to prevent your users from quickly switching passwords by setting a minimum time that a user must wait between password changes.
 {: shortdesc}
 
-This feature is especially useful when used with the "Avoid password reuse" policy. Without this limitation, a user could simply change their password multiple times in quick succession to circumvent the limitation of reusing recent passwords. You can select any value in the range 1 and 720 hours (30 days). The field is specified in hours.
+This feature is especially useful when used with the "Avoid password reuse" policy. Without this limitation, a user might simply change their password multiple times in quick succession to circumvent the limitation of reusing recent passwords. You can select any value in the range 1 and 720 hours (30 days). The field is specified in hours.
 
 
 ### Policy: Password expiration
@@ -139,11 +139,12 @@ When this option is first set to on, any existing user passwords do not have an 
 {: note}
 
 
-### Policy: Ensure password does not include username
+### Policy: Ensure that the password does not include user name
 {: #cd-no-username}
 
-For stronger passwords, you might want to prevent users that contain their username or the first part of their email address.
+For stronger passwords, you might want to prevent users that contain their user name or the first part of their email address.
 {: shortdesc}
 
-This constraint is not case-sensitive, which means that users are not able to alter the case of some or all of the characters in order to use the personal information. To configure this option, toggle the switch to **on**.
+This constraint is not case-sensitive. Users are not able to alter the case of some or all of the characters in order to use the personal information. To configure this option, toggle the switch to **on**.
+{: note}
 
