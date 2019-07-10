@@ -101,7 +101,7 @@ Before you get started, be sure that you have installed the following prerequisi
 
 To install the chart, initialize Helm in your cluster, define the options that you want to use, and then run the installation command.
 
-1. If you're working with IBM Cloud Kubeneretes service, be sure to log in and set the context for your cluster.
+1. If you're working with IBM Cloud Kubernetes service, be sure to log in and set the context for your cluster.
 
 2. Install Helm in your cluster.
 
