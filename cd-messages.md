@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-09"
+lastupdated: "2019-07-10"
 
 keywords: Authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
@@ -25,7 +25,7 @@ subcollection: appid
 # Customizing emails
 {: #cd-types}
 
-When a user interacts with your application, there are times when you might want to send a reply or ask for verification. {{site.data.keyword.appid_short_notm}} provides default templates that you can use for the interactions. You can also use the templates as a guide and customize your messaging to fit your brand.
+When a user interacts with your application, you might want to send a reply or ask for verification. {{site.data.keyword.appid_short_notm}} provides default templates that you can use for the interactions. You can also use the templates as a guide and customize your messaging to fit your brand.
 {: shortdesc}
 
 {{site.data.keyword.appid_short_notm}} uses <a href="https://www.sendgrid.com" target="_blank">SendGrid <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> as a mail delivery service. All emails are sent with a single SendGrid account.
@@ -40,7 +40,7 @@ When you send messages to your users, you can use any combination of the followi
 In addition to the following message types, you can also take advantage of the [SSO](/docs/services/appid?topic=appid-cd-sso#cd-sso) and [MFA](/docs/services/appid?topic=appid-cd-mfa#cd-mfa) templates.
 {: tip}
 
-You can use parameters in your messages in order to further customize the messages. Check out the following table to see the parameters that you can use in all of the message types.
+For further customization, you can use parameters in your messages. Check out the following table to see the parameters that you can use in all of the message types.
 
 <table>
   <tr>
@@ -322,7 +322,7 @@ To configure your custom email sender, you must use the Cloud Directory <a href=
     </tr>
     <tr>
       <td><code>iat</code></td>
-      <td>The timestamp of when the sent message.</td>
+      <td>The time stamp of when the sent message.</td>
     </tr>
     <tr>
       <td><code>iss</code></td>
@@ -337,8 +337,8 @@ To configure your custom email sender, you must use the Cloud Directory <a href=
       <td>The email address of the recipient of the message.</td>
     </tr>
     <tr>
-      <td><code>message: from</code></br><code>name</code></br><code>address</code></td>
-      <td></br>The name of the sender of the message.</br>The email address of the sender.</td>
+      <td><code>message: from</code> </br><code>name</code> </br><code>address</code></td>
+      <td></br>The name of the sender of the message. </br>The email address of the sender.</td>
     </tr>
     <tr>
       <td><code>Optional: message: reply to</code></br><code>name</code></br><code>address</code></td>
@@ -420,7 +420,7 @@ For every {{site.data.keyword.appid_short_notm}} instance, a private and a publi
 
 6. Verify that your configuration is correctly set up by testing your email dispatcher. Use the <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/post_email_dispatcher_test" target="_blank">test API</a> to trigger a request to your configured custom email sender.
 
-For full working example, see <a href="https://www.ibm.com/cloud/blog/use-ibm-cloud-app-id-and-your-email-provider-to-brand-mails-sent-to-app-users" target="_blank">Use your own provider for mail sent with {{site.data.keyword.appid_full}}</a>.
+For full working example, see <a href="https://www.ibm.com/cloud/blog/use-ibm-cloud-app-id-and-your-email-provider-to-brand-mails-sent-to-app-users" target="_blank">Use your own provider for mail that is sent with {{site.data.keyword.appid_full}}</a>.
 
 
 
@@ -622,7 +622,7 @@ You can use <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Managemen
   <tr>
     <td><code>zh-Hant-MO</code></td>
     <td>Chinese-traditional</td>
-    <td>Macao SAR of the PRC</td>
+    <td>Macao S.A.R. of the PRC/td>
   </tr>
   <tr>
     <td><code>zh-Hant-TW</code></td>
@@ -1057,7 +1057,7 @@ You can use <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Managemen
   <tr>
     <td><code>pt-MO</code></td>
     <td>Portuguese</td>
-    <td>Macao SAR of the PRC</td>
+    <td>Macao S.A.R. of the PRC</td>
   </tr>
   <tr>
     <td><code>pt-MZ</code></td>
