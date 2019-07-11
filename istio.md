@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-10"
+lastupdated: "2019-07-11"
 
 keywords: Authentication, authorization, identity, app security, access, secure, development, any kube, kubernetes, icp, openshift, iks
 
@@ -268,8 +268,8 @@ spec:
 
 | Service Object | Type | Required | Description   |
 |:----------------:|:----:|:--------:| :-----------: |
-| `service` | string | Yes | The name of Kubernetes service in the Policy namespace that you want to protect. |
-| `paths` | array[Path Object] | Yes | A list of path objects that define the endpoints that you want to protect. If left empty, all paths are protected. |
+| `service` | `string` | Yes | The name of Kubernetes service in the Policy namespace that you want to protect. |
+| `paths` | `array[Path Object]` | Yes | A list of path objects that define the endpoints that you want to protect. If left empty, all paths are protected. |
 {: class="simple-tab-table"}
 {: caption="Table 1. Understanding the service object components" caption-side="top"}
 {: #service-object}
@@ -278,9 +278,9 @@ spec:
 
 | Path Object    | Type | Required | Description   |
 |:----------------:|:----:|:--------:|:-----------:|
-| `exact or prefix` | string | Yes | The path that you want to apply the policies on. Options include `exact` and `prefix`. `exact` matches the provided endpoints exactly with the last `/` trimmed. `prefix` matches the endpoints that begin with the route prefix that you provide. |
-| `method` | enum | No | The HTTP method protected. Valid options ALL, GET, PUT, POST, DELETE, PATCH - Defaults to ALL:  |
-| `policies` | array[Policy] | No | The OIDC/JWT policies that you want to apply.  |
+| `exact or prefix` | `string` | Yes | The path that you want to apply the policies on. Options include `exact` and `prefix`. `exact` matches the provided endpoints exactly with the last `/` trimmed. `prefix` matches the endpoints that begin with the route prefix that you provide. |
+| `method` | `enum` | No | The HTTP method protected. Valid options ALL, GET, PUT, POST, DELETE, PATCH - Defaults to ALL:  |
+| `policies` | `array[Policy]` | No | The OIDC/JWT policies that you want to apply.  |
 {: class="simple-tab-table"}
 {: caption="Table 2. Understanding the path object components" caption-side="top"}
 {: #path-object}
@@ -289,10 +289,10 @@ spec:
 
 | Policy Object  | Type | Required | Description   |
 |:----------------:|:----:|:--------:| :-----------: |
-| `policyType` | enum | Yes | The type of OIDC policy. Options include: `jwt` or `oidc`. |
-| `config` | string | Yes | The name of the provider config that you want to use. |
-| `redirectUri` | string | No | The url that you want the user to be redirected after successful authentication, default: the original request url. |
-| `rules` | array[Rule] | No | The set of rules that you want to use for token validation. |
+| `policyType` | `enum` | Yes | The type of OIDC policy. Options include: `jwt` or `oidc`. |
+| `config` | `string` | Yes | The name of the provider config that you want to use. |
+| `redirectUri` | `string` | No | The URL that you want the user to be redirected after successful authentication, default: the original request URL. |
+| `rules` | `array[Rule]` | No | The set of rules that you want to use for token validation. |
 {: class="simple-tab-table"}
 {: caption="Table 3. Understanding the policy object components" caption-side="top"}
 {: #policy-object}
@@ -301,10 +301,10 @@ spec:
 
 | Rule Object  | Type | Required | Description   |
 |:----------------:|:----:|:--------:| :-----------: |
-| `claim` | string | Yes | The claim that you want to validate. |
-| `match` | enum | No | The criteria required for claim validation. Options include: `ALL`, `ANY`, or `NOT`. The default is set to `ALL`. |
-| `source` | enum | No | The token where you want to apply the rule. Options include: `access_token` or `id_token`. The default is set to `access_token`. |
-| `values` | array[string] | Yes | The required set of values for validation. |
+| `claim` | `string` | Yes | The claim that you want to validate. |
+| `match` | `enum` | No | The criteria required for claim validation. Options include: `ALL`, `ANY`, or `NOT`. The default is set to `ALL`. |
+| `source` | `enum` | No | The token where you want to apply the rule. Options include: `access_token` or `id_token`. The default is set to `access_token`. |
+| `values` | `array[string]` | Yes | The required set of values for validation. |
 {: class="simple-tab-table"}
 {: caption="Table 4. Understanding the policy object components" caption-side="top"}
 {: #rule-object}
@@ -340,7 +340,7 @@ For more information about getting support, see [how do I get the support that I
 
 By default, logs are styled as JSON and provided at an `info` visibility level to provide for ease of integration with external logging systems. To update the logging configuration, you can use the Helm chart. Supported logging levels include range [-1, 7] as shown in Zap core. For more information about the levels, see the [Zap core documentation](https://godoc.org/go.uber.org/zap/zapcore#Level).
 
-When you're manually viewing JSON logs, you might want to tail the logs and "pretty print" them by using [jq](https://brewinstall.org/install-jq-on-mac-with-brew/).
+When you're manually viewing JSON logs, you might want to tail the logs and "pretty print" them by using [`jq`](https://brewinstall.org/install-jq-on-mac-with-brew/).
 {: note}
 
 **Adapter**
