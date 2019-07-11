@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-03"
+lastupdated: "2019-07-11"
 
 keywords: Authentication, authorization, identity, app security, secure, development, nodejs, frontend, web apps, 
 
@@ -185,7 +185,7 @@ Now that you have {{site.data.keyword.appid_short_notm}} installed, you're ready
 {: shortdesc}
 
 
-1. Configure the callback endpoint. The callback finishes the authorization process by retrieving access and identity tokens from App ID and redirecting the user to one of the following locations:<ul><li>The original URL of the request that triggered the authentication, as persisted in the HTTP session as `WebAppStrategy.ORIGINAL_URL`.</li><li>Specifying a redirect in the event of a successful authenticaton.</li><li>The application root (`/`) as shown in the next step.</li></ul>
+1. Configure the callback endpoint. The callback finishes the authorization process by retrieving access and identity tokens from App ID and redirecting the user to one of the following locations:<ul><li>The original URL of the request that triggered the authentication, as persisted in the HTTP session as `WebAppStrategy.ORIGINAL_URL`.</li><li>Specifying a redirect in the event of a successful authentication.</li><li>The application root (`/`) as shown in the next step.</li></ul>
 
     ```javascript
     app.get(CALLBACK_URL, passport.authenticate(WebAppStrategy.STRATEGY_NAME));

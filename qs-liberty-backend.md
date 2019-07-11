@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-09"
+lastupdated: "2019-07-11"
 
 keywords: Authentication, authorization, identity, app security, secure, development, access management, liberty, backend, java, token
 
@@ -96,7 +96,7 @@ You can obtain your credentials in one of two ways.
 {: #liberty-configure-server}
  
 1. Open your `server.xml` file.
-2. Add the following features to the `featureManager` section. Some features might come built in with Liberty. If you receive an error when you run your server, you can install them by running `.installUtility install <name_of_server>` from the bin directory of your liberty installaiton.
+2. Add the following features to the `featureManager` section. Some features might come built in with Liberty. If you receive an error when you run your server, you can install them by running `.installUtility install <name_of_server>` from the bin directory of your Liberty installation.
 
     ```xml
     <featureManager>
