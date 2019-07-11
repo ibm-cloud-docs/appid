@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-09"
+lastupdated: "2019-07-11"
 
 keywords: Authentication, authorization, identity, app security, secure, web apps, client, server
 
@@ -123,7 +123,7 @@ Check out the following video to learn about protecting Node applications with {
   ```
   {: codeblock}
 
-  You must configure the middleware with the proper session storage for production environments. For more information, see the express.js docs<img src="../icons/launch-glyph.svg" alt="External link icon"></a>.
+  You must configure the middleware with the proper session storage for production environments. For more information, see the [express.js](https://expressjs.com/){: external}.
   {: note}
 
 3. Obtain your credentials in one of the following ways.
