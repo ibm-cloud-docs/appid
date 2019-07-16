@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-27"
+lastupdated: "2019-07-16"
 
-keywords: authentication, authorization, identity, app security, secure, development, mobile, android, iOS
+keywords: Authentication, authorization, identity, app security, secure, development, mobile, android, iOS
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -253,9 +253,9 @@ The {{site.data.keyword.appid_short_notm}} client SDK is distributed with CocoaP
 3. Configure your application to process redirects through {{site.data.keyword.appid_short}}.
 
   ```swift
-  func application(application: UIApplication, open url: URL, options :[UIApplicationOpenURLOptionsKey: Any]) -> Bool {
-      return AppID.sharedInstance.application(application, open: url, options: options)
-  }
+  func application(_ application: UIApplication, open url: URL, options :[UIApplication.OpenURLOptionsKey : Any]) -> Bool {
+        return AppID.sharedInstance.application(application, open: url, options: options)
+    }
   ```
   {: codeblock}
 
