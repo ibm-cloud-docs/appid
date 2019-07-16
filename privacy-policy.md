@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-09"
+lastupdated: "2019-07-16"
 
 keywords: Authentication, authorization, identity, app security, secure, custom, proprietary, social, facebook, google, 
 
@@ -78,7 +78,7 @@ A user can instruct browser to refuse all cookies or to indicate when a cookie i
 
 Client uses the collected data for various purposes:
 * To perform development and testing of applications
-* To provide analysis or valuable information improve development and testing
+* To provide analysis or valuable information to improve development and testing
 * To monitor usage in development and testing
 * To detect, prevent, and address technical issues
 

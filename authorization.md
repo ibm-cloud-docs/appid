@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-09"
+lastupdated: "2019-07-16"
 
 keywords: Authentication, authorization, identity, app security, secure, access, tokens
 
@@ -105,7 +105,7 @@ The service uses three different types of tokens. Tokens are set in the **Identi
 ### Authorization headers
 {: #term-auth-header}
 
-{{site.data.keyword.appid_short}} complies with the [token bearer specification](https://tools.ietf.org/html/rfc6750){: external} and uses a combination of access and identity tokens that are sent as an HTTP Authorization header. The Authorization header has three different parts that are separated by white space. The tokens are base64 encoded. The identity token is optional.
+{{site.data.keyword.appid_short}} complies with the [Bearer token specification](https://tools.ietf.org/html/rfc6750){: external} and uses a combination of access and identity tokens that are sent as an HTTP Authorization header. The Authorization header has three different parts that are separated by white space. The tokens are base64 encoded. The identity token is optional.
 
 Example:
 
