@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-10"
+lastupdated: "2019-07-16"
 
 keywords: Authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
@@ -622,7 +622,7 @@ You can use <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Managemen
   <tr>
     <td><code>zh-Hant-MO</code></td>
     <td>Chinese-traditional</td>
-    <td>Macao S.A.R. of the PRC/td>
+    <td>Macao S.A.R. of the PRC</td>
   </tr>
   <tr>
     <td><code>zh-Hant-TW</code></td>
