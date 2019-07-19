@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-10"
+lastupdated: "2019-07-19"
 
 keywords: Authentication, authorization, identity, app security, secure, customizing apps, directory, registry, 
 
@@ -34,17 +34,9 @@ You can display your own customized screens, use your own flows, and take advant
 
 When you reuse your existing UIs, you can create a cohesive sign-in flow for your app. By using the same imagery, colors, and branding, your users are more likely to recognize your brand, even when not directly interacting with your app.
 
-### Are there any requirements to us my own screens?
-{: #branded-requirements}
-
-
-To display your own UIs, you must use [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory) as your identity provider. Cloud Directory can be configured in several different ways. You can decide the types of messages that you want to send, and customize the content and design. Don't know what to say? Not a problem. See the GUI for example messages that you can use.
-
 
 Want to use a [language](/docs/services/appid?topic=appid-cd-messages#cd-languages) other than English? You can choose another language by using the [language management APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/updateLocalization){: external}, to display your own translated content.
 {: tip}
-
-
 
 
 ### Can I use some of my own and some of the default screens?
