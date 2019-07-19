@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-20"
+lastupdated: "2019-07-10"
 
-keywords: authentication, authorization, identity, app security, secure, customizing apps, directory, registry, 
+keywords: Authentication, authorization, identity, app security, secure, customizing apps, directory, registry, 
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -38,22 +38,24 @@ Cuando reutiliza las IU existentes, puede crear un flujo de inicio de sesión co
 {: #branded-requirements}
 
 
-Para visualizar sus propias IU, debe utilizar el [Directorio en la nube](/docs/services/appid?topic=appid-cloud-directory) como proveedor de identidad. Hay varias formas de [configurar](/docs/services/appid?topic=appid-cloud-directory) el directorio en la nube. Puede decidir los tipos de mensajes que desea enviar y personalizar el contenido y diseño. ¿No sabe qué decir? Ningún problema. Puede utilizar los mensajes de muestra de la GUI.
+Para visualizar sus propias IU, debe utilizar el [Directorio en la nube](/docs/services/appid?topic=appid-cloud-directory) como proveedor de identidad. El directorio en la nube se puede configurar de varias maneras diferentes. Puede decidir los tipos de mensajes que desea enviar y personalizar el contenido y diseño. ¿No sabe qué decir? Ningún problema. Consulte la GUI para ver los mensajes de ejemplo que puede utilizar.
 
 
-¿Desea utilizar un [idioma](/docs/services/appid?topic=appid-cd-messages#cd-languages) que no sea el inglés? Puede eligir otro idioma utilizando las <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/updateLocalization" target="_blank">API de gestión de idiomas <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a> para visualizar su propio contenido traducido.
+¿Desea utilizar un [idioma](/docs/services/appid?topic=appid-cd-messages#cd-languages) que no sea el inglés? Puede elegir otro idioma utilizando las [API de gestión de idiomas](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/updateLocalization){: external} para visualizar su propio contenido traducido.
 {: tip}
+
+
 
 
 ### ¿Puedo utilizar algunas de mis pantallas y algunas de las predeterminadas?
 {: #branded-hybrid}
 
-Sí. Puede crear un flujo híbrido que utilice algunas de sus pantallas y algunas de las pantallas predeterminadas. Sin embargo, solo puede utilizar una opción por flujo. Como ejemplo, puede utilizar su propia pantalla de inicio de sesión y también utilizar la pantalla de inicio de sesión predeterminada. Pero, si opta por utilizar la pantalla de inicio de sesión predeterminada, debe seguir utilizándola durante todo el flujo de inicio de sesión, incluyendo la verificación de inicio de sesión.
+Sí. Puede crear un flujo híbrido que utilice algunas de sus pantallas y algunas de las pantallas predeterminadas. Sin embargo, solo puede utilizar una opción por flujo. Como ejemplo, puede utilizar su propia pantalla de inicio de sesión y también utilizar la pantalla de inicio de sesión predeterminada. No obstante, si opta por utilizar la pantalla de inicio de sesión predeterminada, debe seguir utilizándola durante todo el flujo de inicio de sesión, incluyendo la verificación de inicio de sesión.
 
 ### ¿En qué se diferencian técnicamente los flujos?
 {: #branded-technically}
 
-El servicio utiliza flujos de otorgamiento de OAuth 2.0 para asignar el proceso de autorización. Cuando configura proveedores de identidad sociales como Facebook, se utiliza el <a href="https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html" target="_blank">Flujo de otorgamiento de autorización <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a> para llamar al widget de inicio de sesión. Cuando utilice sus propias pantallas, se utiliza el <a href="https://oauthlib.readthedocs.io/en/stable/oauth2/grants/password.html" target="_blank">flujo de ROPC (credenciales de contraseña de propietario de recurso)<img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a> para proporcionar señales de identidad y acceso que le permitan llamar a las pantallas.
+El servicio utiliza flujos de otorgamiento de OAuth 2.0 para asignar el proceso de autorización. Cuando configura proveedores de identidad sociales como Facebook, se utiliza el [Flujo de otorgamiento de autorización](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html){: external} para llamar al widget de inicio de sesión. Cuando utilice sus propias pantallas, se utiliza el [flujo de ROPC (credenciales de contraseña de propietario de recurso)](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/password.html){: external} para proporcionar señales de identidad y acceso que le permitan llamar a las pantallas.
 
 
 
@@ -62,15 +64,15 @@ El servicio utiliza flujos de otorgamiento de OAuth 2.0 para asignar el proceso 
 
 Sí. Compruebe cualquiera de los ejemplos siguientes para ver el directorio en la nube en acción:
 
-* <a href="https://www.ibm.com/cloud/blog/use-branded-ui-user-sign-app-id" target="_blank">Utilice una IU de su propia marca para el inicio de sesión del usuario con {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>
-* <a href="https://www.ibm.com/cloud/blog/use-ui-flows-user-sign-sign-app-id" target="_blank">Utilice una IU y flujos de su propia marca para el registro e inicio de sesión con {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>
-* <a href="https://www.ibm.com/cloud/blog/custom-login-page-app-id-integration" target="_blank">Utilice una página de inicio de sesión personalizada con {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>
+* [Utilice una IU de su propia marca para el inicio de sesión del usuario con {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/use-branded-ui-user-sign-app-id){: external}
+* [Utilice una IU y flujos de su propia marca para el registro e inicio de sesión con {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/use-ui-flows-user-sign-sign-app-id){: external}
+* [Utilice una página de inicio de sesión personalizada con {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/custom-login-page-app-id-integration){: external}
 
 
 ## Gestión de marca en la app con el SDK de Android
 {: #branded-ui-android}
 
-Con el Directorio en la nube habilitado, puede llamar a pantallas personalizadas con el SDK de Android. Puede elegir la combinación de las pantallas con las que desea que sus usuarios puedan interactuar.<a href="https://www.ibm.com/cloud/blog/use-branded-ui-user-sign-app-id" target="blank">Consulte este blog<img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a> para obtener un ejemplo detallado.
+Con el Directorio en la nube habilitado, puede llamar a pantallas personalizadas con el SDK de Android. Puede elegir la combinación de las pantallas con las que desea que sus usuarios puedan interactuar. Para ver un ejemplo detallado, [consulte este blog](https://www.ibm.com/cloud/blog/use-branded-ui-user-sign-app-id){: external}.
 {: shortdesc}
 
 
@@ -102,7 +104,7 @@ Con el Directorio en la nube habilitado, puede llamar a pantallas personalizadas
 ## Gestión de marca en la app con el SDK de iOS Swift
 {: #branded-ui-ios-swift}
 
-Con el Directorio en la nube habilitado, puede llamar a las pantallas de su propia marca con el [SDK de iOS Swift](https://github.com/ibm-cloud-security/appid-clientsdk-swift).
+Con el Directorio en la nube habilitado, puede llamar a las pantallas de su propia marca con el [SDK de iOS Swift](https://github.com/ibm-cloud-security/appid-clientsdk-swift){: external}.
 {: shortdesc}
 
 </br>
@@ -173,7 +175,8 @@ Mediante `WebAppStrategy`, los usuarios pueden iniciar sesión en sus apps web c
     </tbody>
   </table>
 
-**Nota**: Si envía la solicitud en HTML, puede utilizar middleware <a href="https://www.npmjs.com/package/body-parser" target="blank">analizador de cuerpo <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>. Para ver el mensaje de error devuelto, puede utilizar <a href="https://www.npmjs.com/package/connect-flash" target="blank">connect-flash <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>. Para verlo en acción, consulte el <a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs/blob/master/samples/web-app-sample.js" target="blank">ejemplo de app web <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>.
+**Nota**: Si envía la solicitud en HTML, puede utilizar middleware [analizador de cuerpo](https://www.npmjs.com/package/body-parser){: external}. Para ver el mensaje de error devuelto, puede utilizar [connect-flash](https://www.npmjs.com/package/connect-flash){: external}. Para verlo en acción, consulte el [ejemplo de app web](https://github.com/ibm-cloud-security/appid-serversdk-nodejs/blob/master/samples/web-app-sample.js){: external}.
+
 
 
 ## Gestión de marca en la app con la API
@@ -184,7 +187,7 @@ Puede mostrar sus propias pantallas personalizadas y aprovechar las posibilidade
 
 Para hacer esto posible, {{site.data.keyword.appid_short_notm}} expone API REST. Puede utilizar las API REST para crear un servidor de fondo que sirva a sus apps web, o para interactuar con una app móvil con sus propias pantallas personalizadas.
 
-La API de gestión está protegida con las señales generadas por IBM Cloud Identity and Access Management, lo que significa que los propietarios de las cuentas pueden especificar qué persona de su equipo tiene qué nivel de acceso para cada instancia de servicio. Para obtener más información sobre cómo funcionan juntos IAM y {{site.data.keyword.appid_short_notm}}, consulte [Gestión de acceso de servicio](/docs/services/appid?topic=appid-service-access-management#service-access-management).
+La API de gestión está protegida con las señales generadas por IBM Cloud Identity and Access Management, lo que significa que los propietarios de las cuentas pueden especificar qué persona de su equipo tiene qué nivel de acceso para cada instancia de servicio. Para obtener más información sobre cómo funcionan juntos IAM y {{site.data.keyword.appid_short_notm}}, consulte [Gestión de acceso de servicio](/docs/services/appid?topic=appid-service-access-management).
 
 Después de configurar los [valores](/docs/services/appid?topic=appid-cloud-directory#cd-settings), puede llamar a los siguientes puntos finales para visualizar cada pantalla.
 
@@ -194,11 +197,11 @@ Después de configurar los [valores](/docs/services/appid?topic=appid-cloud-dire
 Puede utilizar el punto final `/sign_up` para permitir que los usuarios se registren ellos mismos para su app.
 Proporcione los datos siguientes en el cuerpo de solicitud:
   * Su tenantID.
-  * Datos de usuario del directorio en la nube. Consulte [Representación de usuario completo de SCIM](https://tools.ietf.org/html/rfc7643#section-8.2) para obtener más detalles.
+  * Datos de usuario del directorio en la nube. Consulte [Representación de usuario completo de SCIM](https://tools.ietf.org/html/rfc7643#section-8.2){: external} para obtener más detalles.
     * Un atributo `password`.
     * En la matriz de correo electrónico con un atributo `primary` establecido en `true`, debe tener al menos una dirección de correo electrónico.
 
-Dependiendo de las [configuración de correo electrónico](/docs/services/appid?topic=appid-cd-messages#cd-messages), un usuario podría recibir una solicitud para su verificación, o un correo electrónico que le da la bienvenida cuando se registra para su app o ambos. Ambos tipos de correos electrónicos se desencadenan cuando un usuario se registra para su app. El correo electrónico de verificación contiene un enlace en el que el usuario puede pulsar para confirmar su identidad; se muestra una pantalla que le agradece que realice una verificación o confirme que la misma se ha completado.  
+Dependiendo de la [configuración de correo electrónico](/docs/services/appid?topic=appid-cd-messages), un usuario podría recibir una solicitud para su verificación o un correo electrónico que le da la bienvenida cuando se registra para su app, o ambos. Ambos tipos de correos electrónicos se desencadenan cuando un usuario se registra para su app. El correo electrónico de verificación contiene un enlace en el que el usuario puede pulsar para confirmar su identidad; se muestra una pantalla que le agradece que realice una verificación o confirme que la misma se ha completado.  
 
 Para presentar su propia página postverificación:
 
@@ -215,7 +218,7 @@ Cuando se proporcione este valor, {{site.data.keyword.appid_short_notm}} llama a
 Puede utilizar el punto final `/forgot_password` para permitir que los usuarios recuperen su contraseña si la olvidan.
 
 Proporcione los datos siguientes en el cuerpo de solicitud:
-  * Su tenantID.
+  * Su ID de arrendatario.
   * El correo electrónico del usuario del directorio en la nube.
 
 Cuando se llame al punto final, se enviará un correo electrónico de restablecimiento de contraseña al usuario. El correo electrónico contiene un botón **Restablecer**. Una vez que pulsen el botón, se mostrará una pantalla mediante {{site.data.keyword.appid_short_notm}}, donde podrán restablecer su contraseña.
@@ -274,7 +277,7 @@ Proporcione los datos siguientes en el cuerpo de solicitud:
 
 Cuando un usuario haya iniciado sesión en su app, puede actualizar una parte de su información. Puede utilizar `/Users/{userId}` para obtener y actualizar su información.
 
-Cuando se actualizan los detalles de usuario, el punto final obtiene los datos de usuario actualizados en el cuerpo de solicitud en [formato SCIM](https://tools.ietf.org/html/rfc7643#section-8.2). Asegúrese de cambiar únicamente los detalles relevantes.
+Cuando se actualizan los detalles de usuario, el punto final obtiene los datos de usuario actualizados en el cuerpo de solicitud en [formato SCIM](https://tools.ietf.org/html/rfc7643#section-8.2){: external}. Asegúrese de cambiar únicamente los detalles relevantes.
 
 Su dirección de correo electrónico no se puede cambiar.
 {: tip}

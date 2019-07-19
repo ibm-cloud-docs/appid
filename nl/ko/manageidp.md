@@ -32,7 +32,7 @@ ID 제공자(IdP)는 인증을 통해 모바일 및 웹 앱에 대한 보안 레
 
 {{site.data.keyword.appid_short_notm}}는 OpenID Connect, SAML 등의 여러 프로토콜을 사용하여 ID 제공자와 상호작용합니다. 예를 들어 OpenID Connect는 Facebook, Google 등의 여러 소셜 제공자에서 사용되는 프로토콜입니다. <a href="https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-azure-active-directory" target="_blank">Azure Active Directory <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a> 또는 <a href="https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-active-directory-federation-service" target="_blank">Active Directory Federation Service <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a> 등의 엔터프라이즈 제공자는 일반적으로 SAML을 ID 프로토콜로 사용합니다. [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory)의 경우 서비스에서 SCIM을 사용하여 ID 정보를 확인합니다.
 
-소셜 또는 엔터프라이즈 ID 제공자를 사용하는 경우 {{site.data.keyword.appid_short_notm}}에는 사용자 계정 정보에 대한 읽기 액세스 권한이 있습니다. 이 서비스는 ID 제공자가 리턴하는 토큰 및 어설션을 사용하여 사용자가 자신이 누구라고 주장하는지 확인합니다. 이 서비스는 해당 정보에 대한 쓰기 액세스 권한이 없기 때문에 사용자는 선택한 ID 제공자를 통해 이동하여 비밀번호 재설정 등의 조치를 수행해야 합니다. 예를 들어 사용자가 Facebook을 통해 앱에 로그인한 후 비밀번호를 변경하려면 `www.facebook.com`으로 이동하여 작업을 수행해야 합니다. 
+소셜 또는 엔터프라이즈 ID 제공자를 사용하는 경우 {{site.data.keyword.appid_short_notm}}에는 사용자 계정 정보에 대한 읽기 액세스 권한이 있습니다. 이 서비스는 ID 제공자가 리턴하는 토큰 및 어설션을 사용하여 사용자가 자신이 누구라고 주장하는지 확인합니다. 이 서비스는 해당 정보에 대한 쓰기 액세스 권한이 없기 때문에 사용자는 선택한 ID 제공자를 통해 이동하여 비밀번호 재설정 등의 조치를 수행해야 합니다. 예를 들어 사용자가 Facebook을 통해 앱에 로그인한 후 비밀번호를 변경하려면 `www.facebook.com`으로 이동하여 작업을 수행해야 합니다.
 
 [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory)를 사용하는 경우 {{site.data.keyword.appid_short_notm}}가 ID 제공자입니다. 이 서비스는 레지스트리를 사용하여 사용자 ID를 확인합니다. {{site.data.keyword.appid_short_notm}}가 제공자이기 때문에 사용자는 앱에서 직접 고급 기능(예: 비밀번호 재설정)을 활용할 수 있습니다.
 
@@ -94,7 +94,7 @@ ID 제공자를 관리하려면 다음 작업을 수행하십시오.
 ## 경로 재지정 URI 추가
 {: #add-redirect-uri}
 
-경로 재지정 URI는 앱의 콜백 엔드포인트입니다. {{site.data.keyword.appid_short_notm}}는 사인인 플로우 중에 클라이언트에서 피싱 공격 및 코드 누출 권한 부여를 방지하는 데 도움이 되는 권한 워크플로우에 참가할 수 있도록 허용하기 전에 URI를 유효성 검증합니다. URI를 등록하면 {{site.data.keyword.appid_short_notm}}에서 해당 URI를 신뢰할 수 있으며 사용자의 경로를 재지정할 수 있습니다. 
+경로 재지정 URI는 앱의 콜백 엔드포인트입니다. {{site.data.keyword.appid_short_notm}}는 사인인 플로우 중에 클라이언트에서 피싱 공격 및 권한 부여 코드 누출을 방지하는 데 도움이 되는 권한 워크플로우에 참가할 수 있도록 허용하기 전에 URI를 유효성 검증합니다. URI를 등록하면 {{site.data.keyword.appid_short_notm}}에서 해당 URI를 신뢰할 수 있으며 사용자의 경로를 재지정할 수 있습니다.
 
 신뢰할 수 있는 애플리케이션의 URI만 등록해야 합니다.
 {: note}
@@ -129,7 +129,7 @@ ID 제공자를 관리하려면 다음 작업을 수행하십시오.
 
 
 
-경로 재지정 URI의 출처가 확실하지 않습니까? URI를 얻을 수 있는 위치와 목록에 추가하는 방법을 알아보려면 다음의 짧은 동영상을 시청하십시오. 
+경로 재지정 URI의 출처가 확실하지 않습니까? URI를 얻을 수 있는 위치와 목록에 추가하는 방법을 알아보려면 다음의 짧은 동영상을 시청하십시오.
 
 <iframe class="embed-responsive-item" id="redirecturi" title="{{site.data.keyword.appid_short_notm}}: 잘못된 경로 재지정 URI를 수정하는 방법" type="text/html" width="640" height="390" src="//www.youtube.com/embed/6hxqbvpc054?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
 

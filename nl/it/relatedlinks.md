@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-06"
+lastupdated: "2019-07-02"
 
 keywords: Authentication, authorization, identity, app security, secure
 
@@ -10,7 +10,7 @@ subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -85,7 +85,7 @@ Stai utilizzando più provider cloud? Consulta questo blog: <a href="https://www
 
 Hai appena iniziato? Prova a seguire alcune delle nostre esercitazioni e blog per assistenza nell'integrazione di {{site.data.keyword.appid_short_notm}} con le tue applicazioni.
 
-* <a href="https://www.ibm.com/blogs/cloud-archive/2018/05/announcing-app-id-integration-ibm-cloud-kubernetes-service/" target="_blank">Announcing {{site.data.keyword.appid_short_notm}} integration to {{site.data.keyword.containerlong}} <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a>
+* <a href="https://www.ibm.com/cloud/blog/announcing-app-id-integration-ibm-cloud-kubernetes-service" target="_blank">Announcing {{site.data.keyword.appid_short_notm}} integration to {{site.data.keyword.containerlong}} <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a>
 * <a href="https://www.ibm.com/cloud/blog/using-app-id-secure-docker-kubernetes-applications" target="_blank">Using {{site.data.keyword.appid_short_notm}} to secure Docker and Kubernetes applications <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a>
 * <a href="https://www.ibm.com/cloud/blog/authenticating-users-with-cloud-functions-api-gateway-and-app-id" target="_blank">Authenticating Users with Cloud Functions, API Gateway, and {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a>
 * <a href="/docs/tutorials?topic=solution-tutorials-serverless-mobile-backend#serverless-mobile-backend" target="_blank">Mobile application with a serverless backend <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a>
@@ -103,7 +103,7 @@ Vedi {{site.data.keyword.appid_short_notm}} in azione in questi esempi di mercat
 
 * <a href="https://www.ibm.com/support/knowledgecenter/SSQP8H/iot/platform/reference/security/app_id.html" target="_blank">{{site.data.keyword.appid_short_notm}} Authentication for Watson IoT Platform (Beta) <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a>
 * <a href="https://developer.ibm.com/articles/iot-trs-secure-iot-solutions3/" target="_blank">Design and build secure IoT solutions, part 3: Securing IoT applications <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a>
-* <a href="https://www.ibm.com/blogs/cloud-archive/2017/08/developing-finance-application-using-ibm-cloud/ " target="_blank">Developing a finance application by using {{site.data.keyword.cloud_notm}} <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a>
+* <a href="https://www.ibm.com/cloud/blog/developing-finance-application-using-ibm-cloud" target="_blank">Developing a finance application by using {{site.data.keyword.cloud_notm}} <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a>
 * <a href="/docs/tutorials?topic=solution-tutorials-cloud-e2e-security#cloud-e2e-security" target="_blank">Apply end to end security to a cloud application <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a>
 
 
@@ -134,3 +134,9 @@ Stai utilizzando un linguaggio specifico e vuoi vedere come {{site.data.keyword.
 
 * <a href="/docs/swift?topic=swift-getting-started" target="_blank">Programming with Swift on {{site.data.keyword.cloud_notm}} <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a>
 * <a href="/docs/node?topic=nodejs-getting-started" target="_blank">Programming with Node.js on {{site.data.keyword.cloud_notm}} <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a>
+
+
+## Esecuzione di test
+{: #rellinks-test}
+
+Pronto a iniziare a provare il servizio? Il modo più facile per provare le API consiste nell'utilizzare la [App ID Postman Collection](https://github.com/ibm-cloud-security/appid-postman){: external}.

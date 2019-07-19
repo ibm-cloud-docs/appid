@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-09"
+lastupdated: "2019-06-18"
 
-keywords: authentication, authorization, identity, app security, secure, backend, back-end, oauth, 
+keywords: Authentication, authorization, identity, app security, secure, backend, back-end, oauth, 
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -42,9 +42,9 @@ subcollection: appid
 ### 流程的技术基础是什么？
 {: #backend-technical-flow}
 
-{{site.data.keyword.appid_short_notm}} 实现 [OAuth 2.0](https://tools.ietf.org/html/rfc6749) 和 OIDC 规范，此规范使用不记名令牌进行认证和授权。这些令牌的格式设置为 [JSON Web 令牌](https://tools.ietf.org/html/rfc7519)，系统会对这些令牌进行数字签名，令牌中包含用于描述正在认证的主体以及身份提供者的声明。应用程序的 API 受访问令牌和身份令牌保护。需要访问 API 的客户端可以通过 {{site.data.keyword.appid_short_notm}} 向身份提供者进行认证，以交换这些令牌。必须验证令牌中的声明，以便授予对受保护 API 的访问权。
+{{site.data.keyword.appid_short_notm}} 实现 [OAuth 2.0](https://tools.ietf.org/html/rfc6749){: external} 和 OIDC 规范，此规范使用不记名令牌进行认证和授权。这些令牌的格式设置为 [JSON Web 令牌](https://tools.ietf.org/html/rfc7519){: external}，系统会对这些令牌进行数字签名，令牌中包含用于描述正在认证的主体以及身份提供者的声明。应用程序的 API 受访问令牌和身份令牌保护。需要访问 API 的客户端可以通过 {{site.data.keyword.appid_short_notm}} 向身份提供者进行认证，以交换这些令牌。必须验证令牌中的声明，以便授予对受保护 API 的访问权。
 
-有关如何在 {{site.data.keyword.appid_short_notm}} 中使用令牌的更多信息，请参阅[了解令牌](/docs/services/appid?topic=appid-tokens#tokens)。
+有关如何在 {{site.data.keyword.appid_short_notm}} 中使用令牌的更多信息，请参阅[了解令牌](/docs/services/appid?topic=appid-tokens#)。
 {: tip}
 
 
@@ -82,7 +82,7 @@ subcollection: appid
 您可以使用 {{site.data.keyword.appid_short_notm}} SDK 对服务器端应用程序强制实施认证和授权。`ApiStrategy` 通过要求作为请求的一部分对访问令牌和身份令牌进行验证，从而保护后端资源。
 {: shortdesc}
 
-{{site.data.keyword.appid_short_notm}} Node.js SDK 与 [Passport 框架](http://www.passportjs.org/)一起使用。
+{{site.data.keyword.appid_short_notm}} Node.js SDK 与 [Passport 框架](http://www.passportjs.org/){: external}一起使用。
 {: ph data-hd-programlang='javascript'}
 
 {{site.data.keyword.appid_short_notm}} 服务器端 Swift SDK 提供了用于保护后端应用程序的 API 保护中间件插件。通过将 API 与中间件相关联，可以保护应用程序免受未经授权的访问。在 API 受到保护后，中间件将确保对 {{site.data.keyword.appid_short_notm}} 生成的令牌进行验证。然后，您可以根据验证结果修改 API 的行为。
@@ -147,14 +147,14 @@ if #available(OSX 10.12, *) {
 {: codeblock}
 {: ph data-hd-programlang='swift'}
 
-请查看以下视频，以了解有关使用 {{site.data.keyword.appid_short_notm}} 来保护后端 Node 应用程序的信息。然后，使用[简单 Node 样本应用程序](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02b-simple-node-backend-app)自行试用。
+请查看以下视频，以了解有关使用 {{site.data.keyword.appid_short_notm}} 来保护后端 Node 应用程序的信息。然后，使用[简单 Node 样本应用程序](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02b-simple-node-backend-app){: external}自行试用。
 {: ph data-hd-programlang='javascript'}
 
 <iframe class="embed-responsive-item" id="appid-backend-nodejs" title="关于 {{site.data.keyword.appid_short_notm}}" type="text/html" width="640" height="390" src="//www.youtube.com/embed/jJLSgkHpZwA?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 {: ph data-hd-programlang='javascript'}
 
 
-请查看以下视频，以了解有关使用 {{site.data.keyword.appid_short_notm}} 来保护后端 Liberty for Java 应用程序的信息。然后，使用[简单 Liberty for Java 样本应用程序](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02d-simple-liberty-backend-app)自行试用。
+请查看以下视频，以了解有关使用 {{site.data.keyword.appid_short_notm}} 来保护后端 Liberty for Java 应用程序的信息。然后，使用[简单 Liberty for Java 样本应用程序](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02d-simple-liberty-backend-app){: external}自行试用。
 {: ph data-hd-programlang='java'}
 
 <iframe class="embed-responsive-item" id="appid-backend-liberty" title="关于 {{site.data.keyword.appid_short_notm}}" type="text/html" width="640" height="390" src="//www.youtube.com/embed/QA6DY2qqLaw?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
@@ -249,7 +249,7 @@ if #available(OSX 10.12, *) {
 ## 手动保护资源
 {: #backend-secure-api}
 
-要保护后端应用程序和受保护资源，您需要验证令牌。当客户端向资源发送请求时，您可以验证令牌是否符合定义的规范。令牌可能包含标识信息、作用域或您已实施的其他任何配置。可以通过多种方式来验证 {{site.data.keyword.appid_short_notm}} 的访问令牌和身份令牌。要获取帮助，请查看[验证令牌](/docs/services/appid?topic=appid-token-validation#token-validation)。
+要保护后端应用程序和受保护资源，您需要验证令牌。当客户端向资源发送请求时，您可以验证令牌是否符合定义的规范。令牌可能包含标识信息、作用域或您已实施的其他任何配置。可以通过多种方式来验证 {{site.data.keyword.appid_short_notm}} 的访问令牌和身份令牌。要获取帮助，请查看[验证令牌](/docs/services/appid?topic=appid-token-validation)。
 
 
 ## 后续步骤
@@ -261,5 +261,7 @@ if #available(OSX 10.12, *) {
 
 * 配置[身份提供者](/docs/services/appid?topic=appid-social)。
 * 定制并配置[登录窗口小部件](/docs/services/appid?topic=appid-login-widget)
-* 了解有关 <a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs" target="_blank">Node.js SDK <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a> 的更多信息
-* 了解有关 <a href="https://github.com/ibm-cloud-security/appid-serversdk-swift" target="_blank">Swift SDK <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a> 的更多信息
+* 了解有关 [Node.js SDK](https://github.com/ibm-cloud-security/appid-serversdk-nodejs){: external} 的更多信息
+* 了解有关 [Swift SDK](https://github.com/ibm-cloud-security/appid-serversdk-swift){: external} 的更多信息
+
+

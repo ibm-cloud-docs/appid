@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-06"
+lastupdated: "2019-07-09"
 
 keywords: Authentication, authorization, identity, app security, secure, attributes, user information, storing, accessing
 
@@ -10,7 +10,7 @@ subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -92,7 +92,7 @@ AppID.sharedInstance.userProfileManager.getUserInfo { (error: Error?, userInfo: 
 {: codeblock}
 {: ph data-hd-programlang='swift'}
 
-Como alternativa, puede pasar de forma explícita las señales de acceso y de identidad. La señal de identidad es opcional, pero cuando se pasa, se utiliza para validar la respuesta de información de usuario.
+Como alternativa, puede pasar de forma explícita las señales de acceso y de identidad. La señal de identidad es opcional, pero cuando se pasa, se utiliza para validar la respuesta.
 {: ph data-hd-programlang='swift'}
 
 ```
@@ -154,7 +154,7 @@ appId.getUserProfileManager().getUserInfo(accessToken, identityToken, new UserPr
 **Node.js**
 {: ph data-hd-programlang='javascript'}
 
-Mediante el uso de un SDK del lado del servidor, puede recuperar información adicional sobre los usuarios. Puede llamar al método siguiente utilizando las señales de acceso y de identidad almacenadas, o puede pasar de forma explícita las señales. La señal de identidad es opcional, pero cuando se pasa, se utiliza para validar la respuesta de información de usuario.
+Mediante el uso de un SDK del lado del servidor, puede recuperar información adicional sobre los usuarios. Puede llamar al método siguiente utilizando las señales de acceso y de identidad almacenadas, o puede pasar de forma explícita las señales. La señal de identidad es opcional, pero cuando se pasa, se utiliza para validar la respuesta.
 {: ph data-hd-programlang='javascript'}
 
 ```javascript
@@ -181,7 +181,7 @@ userProfileManager.getUserInfo(accessToken).then(function (profile) {
 **Swift del lado del servidor**
 {: ph data-hd-programlang='swift'}
 
-Mediante el uso de un SDK del lado del servidor, puede recuperar información adicional sobre los usuarios. Puede llamar al método siguiente utilizando las señales de acceso y de identidad almacenadas, o puede pasar de forma explícita las señales. La señal de identidad es opcional, pero cuando se pasa, se utiliza para validar la respuesta de información de usuario.
+Mediante el uso de un SDK del lado del servidor, puede recuperar información adicional sobre los usuarios. Puede llamar al método siguiente utilizando las señales de acceso y de identidad almacenadas, o puede pasar de forma explícita las señales. La señal de identidad es opcional, pero cuando se pasa, se utiliza para validar la respuesta.
 {: ph data-hd-programlang='swift'}
 
 

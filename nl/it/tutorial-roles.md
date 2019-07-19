@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, access management, roles, attributes, users
+keywords: Authentication, authorization, identity, app security, secure, access management, roles, attributes, users
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}

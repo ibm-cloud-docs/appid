@@ -88,7 +88,7 @@ E メールを使ってユーザーに MFA コードを送信するように {{s
 初めて MFA を有効にするときに、次の 2 つのことが起こります。
 
 - デフォルトでは E メール・チャネルが選択されています。 これを [SMS チャネル](/docs/services/appid?topic=appid-cd-mfa#cd-mfa-configure-sms)に切り替えることができます。
-- Cloud Directory のユーザー・プロファイルにアタッチされているプライマリー E メールが、{{site.data.keyword.appid_short_notm}} によって自動的に登録されます。
+- Cloud Directory のユーザー・プロファイルに関連付けられているプライマリー E メールが、{{site.data.keyword.appid_short_notm}} によって自動的に登録されます。
 
 [管理 API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/) または登録時の E メール検証による、ユーザーの E メールの確認がまだ行われていない場合、MFA コード検証に成功すると E メールの確認が行われます。
 
@@ -248,7 +248,7 @@ GUI を使用して MFA E メール・チャネルを構成できます。
 
  - Nexmo API 鍵と秘密を取得します。 Nexmo API 鍵と秘密は Nexmo ダッシュボードのアカウント設定ページにあります。 資格情報の取得方法について詳しくは、[Nexmo の資料](https://developer.nexmo.com/concepts/guides/authentication#api-key-and-secret)を参照してください。
 
- - 送信者 ID または `「送信者 (from)」`番号を Nexmo に登録します。 この`「送信者 (from)」`番号は、SMS の送り主が誰か、ユーザーの電話に表示されるときの番号です。 一部の国では、Nexmo は英数字の送信者 ID をサポートしています。{{site.data.keyword.appid_short_notm}} は、Nexmo の送信者 ID として入力された値を使用します。したがって、Nexmo によってサポートされている場合は、それらの ID を {{site.data.keyword.appid_short_notm}} で使用できます。詳しくは、[Nexmo の資料](https://help.nexmo.com/hc/en-us/articles/217571017-What-is-a-Sender-ID)を参照してください。
+ - 送信者 ID または `「送信者 (from)」`番号を Nexmo に登録します。 この`「送信者 (from)」`番号は、SMS の送り主が誰か、ユーザーの電話に表示されるときの番号です。 一部の国では、Nexmo は英数字の送信者 ID をサポートしています。 {{site.data.keyword.appid_short_notm}} は、Nexmo の送信者 ID として入力された値を使用します。 したがって、Nexmo によってサポートされている場合は、それらの ID を {{site.data.keyword.appid_short_notm}} で使用できます。 詳しくは、[Nexmo の資料](https://help.nexmo.com/hc/en-us/articles/217571017-What-is-a-Sender-ID)を参照してください。
 
 
 ### GUI を使用する場合
@@ -273,7 +273,7 @@ GUI を使用して MFA を構成する方法について詳しくは、[Cloud D
 
     4. Nexmo ダッシュボードの**「API 秘密 (API secret)」**をコピーして{{site.data.keyword.appid_short_notm}} ダッシュボードの**「秘密 (Secret)」**ボックスに貼り付けます。
 
-    5. メッセージの送信者として表示される [ID](https://help.nexmo.com/hc/en-us/articles/217571017-What-is-a-Sender-ID) を入力します。 有効な番号形式は [E.164 国際電話番号方式](https://en.wikipedia.org/wiki/E.164)に準拠します。例えば、米国の電話番号は `+1 999 888 7777` の形式です。プラス (`+`) 記号で始まる国別コードと、国内の加入者番号の両方を指定する必要があります。 一部の国では、Nexmo は英数字の送信者 ID をサポートしています。{{site.data.keyword.appid_short_notm}} は、Nexmo の送信者 ID として入力された値を使用します。したがって、Nexmo によってサポートされている場合は、それらの ID を {{site.data.keyword.appid_short_notm}} で使用できます。
+    5. メッセージの送信者として表示される [ID](https://help.nexmo.com/hc/en-us/articles/217571017-What-is-a-Sender-ID) を入力します。 有効な番号形式は [E.164 国際電話番号方式](https://en.wikipedia.org/wiki/E.164)に準拠します。例えば、米国の電話番号は `+1 999 888 7777` の形式です。 プラス (`+`) 記号で始まる国別コードと、国内の加入者番号の両方を指定する必要があります。 一部の国では、Nexmo は英数字の送信者 ID をサポートしています。 {{site.data.keyword.appid_short_notm}} は、Nexmo の送信者 ID として入力された値を使用します。 したがって、Nexmo によってサポートされている場合は、それらの ID を {{site.data.keyword.appid_short_notm}} で使用できます。
 
 
 

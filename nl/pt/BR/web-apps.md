@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-21"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, web apps, client, server
+keywords: Authentication, authorization, identity, app security, secure, web apps, client, server
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -58,9 +58,9 @@ meio do SDK ou API do {{site.data.keyword.appid_short_notm}}.
 
 2. Se o usuário estiver desautorizado, o fluxo de autenticação será iniciado com um redirecionamento para o {{site.data.keyword.appid_short_notm}}.
 
-3. Dependendo dos parâmetros de solicitação `/authorization` do usuário ou da configuração do provedor de identidade, ele ativa o Widget de login no navegador do usuário.
+3. Dependendo dos parâmetros de solicitação `/authorization` do usuário ou configuração do provedor de identidade, ele inicia o Widget de login no navegador do usuário.
 
-4. O usuário escolhe um provedor de identidade com o qual se autenticar e conclui o processo de conexão.
+4. O usuário escolhe um provedor de identidade para se autenticar e conclui o processo de conexão.
 
 5. O provedor de identidade é redirecionado para o aplicativo cliente com o código de autorização.
 
@@ -136,12 +136,12 @@ Verifique o vídeo a seguir para aprender sobre como proteger aplicativos de Nó
   ```
   {: codeblock}
 
-  Você deve configurar o middleware com o armazenamento de sessão adequado para ambientes de produção. Para obter mais informações, consulte os <a href="https://github.com/expressjs/session" target="_blank"> docs do express.js<img src="../icons/launch-glyph.svg" alt="Ícone de link externo"></a>.
+  Você deve configurar o middleware com o armazenamento de sessão adequado para ambientes de produção. Para obter mais informações, consulte os docs [express.js](https://expressjs.com/){: external}.
   {: note}
 
 3. Obtenha as suas credenciais de uma das maneiras a seguir.
 
-  * Navegando para a guia **Aplicativos** do painel do {{site.data.keyword.appid_short_notm}}. Se você não tiver um aplicativo listado, será possível clicar em **Incluir aplicativo** para criar um novo.
+  * Navegando para a guia **Aplicativos** do painel do {{site.data.keyword.appid_short_notm}}. Se você não tiver um aplicativo na lista, será possível clicar em **Incluir aplicativo** para criar um.
 
   * Ao fazer uma solicitação de POST para o terminal [`/management/v4/{tenantId}/applications`](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Applications/mgmt.registerApplication).
 
@@ -350,7 +350,7 @@ preencher os itens temporários.
 
 1. Em seu arquivo `server.xml`, defina um filtro de autorização para especificar os recursos
 protegidos. Se um filtro não for
-<a href="https://www.ibm.com/support/knowledgecenter/en/SSD28V_9.0.0/com.ibm.websphere.wlp.core.doc/ae/rwlp_auth_filter.html" target="_blank">definido
+<a href="https://www.ibm.com/support/knowledgecenter/en/SSD28V_liberty/com.ibm.websphere.wlp.core.doc/ae/rwlp_auth_filter.html" target="_blank">definido
 <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"> </a>, o serviço protegerá todos os
 recursos.
 

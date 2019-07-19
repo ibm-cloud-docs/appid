@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
+keywords: Authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
 subcollection: appid
 
 ---
  
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -29,7 +29,7 @@ subcollection: appid
 通过 Cloud Directory，您可以使用用于增强安全性的预构建功能以及自助服务来管理可缩放注册表中的用户。
 {: shortdesc}
 
-Cloud Directory 用户与 {{site.data.keyword.appid_short_notm}} 用户不同。用户可以使用您配置的不同身份提供者选项来注册应用程序，或者您可以将用户添加到目录。本主题中提到的用户是指与作为身份提供者的 Cloud Directory 关联的用户。
+Cloud Directory 用户与 {{site.data.keyword.appid_short_notm}} 用户不同。用户可以使用您配置的不同身份提供者选项来注册应用程序，或者您可以将用户添加到目录。此页面上提到的用户是指与作为身份提供者的 Cloud Directory 关联的用户。
 {: note}
 
 ## 查看用户信息
@@ -185,11 +185,11 @@ Cloud Directory 用户与 {{site.data.keyword.appid_short_notm}} 用户不同。
 
 
 
-**要使用 GUI 添加新用户，请执行以下操作：**
+**要使用 GUI 添加用户，请执行以下操作：**
 
-1. 导航至 {{site.data.keyword.appid_short_notm}} 仪表板的 **Cloud Directory > 用户**选项卡。
+1. 转至 {{site.data.keyword.appid_short_notm}} 仪表板的 **Cloud Directory > 用户**选项卡。
 
-2. 单击**添加用户**。这将显示一个表单。
+2. 单击**添加用户**。这将打开一个表单。
 
 3. 输入**名字**、**姓氏**、**电子邮件**和**密码**。请确保您尝试注册的电子邮件尚未被其他用户使用。要确保正确输入了密码，请通过在**重新输入密码**字段中输入密码来进行确认。
 
@@ -198,7 +198,7 @@ Cloud Directory 用户与 {{site.data.keyword.appid_short_notm}} 用户不同。
 </br>
 
 
-**要使用 API 添加新用户，请执行以下操作：**
+**要使用 API 添加用户，请执行以下操作：**
 
 以下流程说明如何使用电子邮件和密码添加用户。您还可以选择使用用户名和密码流程。
 
@@ -211,7 +211,7 @@ Cloud Directory 用户与 {{site.data.keyword.appid_short_notm}} 用户不同。
   ```
   {: codeblock}
 
-3. 使用步骤 2 中获取的令牌，向 `cloud-directory/users` 端点发出 POST 请求。请注意，此示例使用的是电子邮件/密码流程。您还可以使用用户名/密码流程。
+3. 使用步骤 2 中获取的令牌，向 `cloud-directory/users` 端点发出 POST 请求。此示例使用的是电子邮件/密码流程。您还可以使用用户名/密码流程。
 
   ```
   curl --X POST "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/Users"
@@ -243,11 +243,11 @@ Cloud Directory 用户与 {{site.data.keyword.appid_short_notm}} 用户不同。
 
 **要通过 GUI 删除用户，请执行以下操作：**
 
-1. 导航至 {{site.data.keyword.appid_short_notm}} 仪表板的 **Cloud Directory > 用户**选项卡。
+1. 转至 {{site.data.keyword.appid_short_notm}} 仪表板的 **Cloud Directory > 用户**选项卡。
 
-2. 单击要删除的用户旁边的复选框。这将显示一个框。
+2. 单击要删除的用户旁边的复选框。这将打开一个框。
 
-3. 在该框中，单击**删除**。这将显示一个屏幕。
+3. 在该框中，单击**删除**。这将打开一个屏幕。
 
 4. 确认您了解通过单击**删除**来删除用户是无法撤销的操作。如果这是误操作，您可以将用户重新添加到目录，但有关该用户的任何信息都不再可用。
 
@@ -277,7 +277,7 @@ Cloud Directory 用户与 {{site.data.keyword.appid_short_notm}} 用户不同。
 ## 迁移用户
 {: #user-migration}
 
-有时，您可能需要设置 {{site.data.keyword.appid_short_notm}} 的新实例。如果您使用的是 Cloud Directory，那么这意味着您的用户必须迁移到新实例。您可以使用管理 API 来帮助进行迁移。
+有时，您可能需要添加 {{site.data.keyword.appid_short_notm}} 的实例。使用 Cloud Directory 时，必须将用户迁移到新实例。要帮助进行迁移，可以使用管理 API。
 {: shortdesc}
 
 
@@ -388,7 +388,7 @@ curl -X POST --header ‘Content-Type: application/json’ --header ‘Accept: a
 要运行脚本，请执行以下操作：
 
 1. 克隆<a href="https://github.com/ibm-cloud-security/appid-sample-code-snippets/tree/master/export-import-cloud-directory-users" target="_blank">存储库 <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a>。
-2. 打开终端，并导航至在其中克隆了存储库的文件夹。
+2. 打开控制台，并转至在其中克隆了存储库的文件夹。
 3. 运行以下命令。
 
   ```

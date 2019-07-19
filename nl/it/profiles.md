@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-06"
+lastupdated: "2019-07-09"
 
 keywords: Authentication, authorization, identity, app security, secure, attributes, user information, storing, accessing
 
@@ -10,7 +10,7 @@ subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -28,7 +28,7 @@ subcollection: appid
 
 
 
-# Memorizzazione e accesso ai profili 
+# Memorizzazione e accesso ai profili
 {: #profiles}
 
 Un profilo utente contiene tutte le informazioni note su uno specifico utente compilate in un oggetto e memorizzate da {{site.data.keyword.appid_full}}. Le informazioni possono essere predefinite, assegnate o acquisite dai tuoi utenti mentre interagiscono con la tua applicazione. Per avvalerti della funzione profili, puoi creare delle esperienze dell'applicazione personalizzate per ogni utente.
@@ -65,7 +65,7 @@ Controlla la seguente immagine per vedere i diversi modi in cui puoi ottenere le
 Figura. Accesso alle opzioni del profilo utente
 
 
-App ID inserisce automaticamente un sottoinsieme di attributi nei tuoi token di accesso e identità. Puoi avvalerti dell'associazione delle attestazioni personalizzate e associare altre attestazioni predefinite e personalizzate nei tuoi token. Per ulteriori dettagli sul modo consigliato di accedere alle informazioni sull'utente, vedi [personalizzazione dei token](/docs/services/appid?topic=appid-customizing-tokens).
+App ID inserisce automaticamente un sottoinsieme di attributi nei tuoi token di accesso e identità. Puoi avvalerti dell'associazione delle attestazioni personalizzate e associare altre attestazioni predefinite e personalizzate nei tuoi token. Per ulteriori dettagli sul modo consigliato di accedere alle informazioni sull'utente, vedi [personalizzazione dei token](/docs/services/appid?topic=appid-customizing-tokens). 
 {: note}
 
 
@@ -92,7 +92,7 @@ AppID.sharedInstance.userProfileManager.getUserInfo { (error: Error?, userInfo: 
 {: codeblock}
 {: ph data-hd-programlang='swift'}
 
-In alternativa, puoi inoltrare esplicitamente i token di accesso e di identità. Il token di identità è facoltativo, ma quando viene passato, viene utilizzato per convalidare la risposta delle informazioni utente.
+In alternativa, puoi inoltrare esplicitamente i token di accesso e di identità. Il token di identità è facoltativo ma, quando viene passato, viene utilizzato per convalidare la risposta.
 {: ph data-hd-programlang='swift'}
 
 ```
@@ -154,7 +154,7 @@ appId.getUserProfileManager().getUserInfo(accessToken, identityToken, new UserPr
 **Node.js**
 {: ph data-hd-programlang='javascript'}
 
-Utilizzando un SDK lato server, puoi richiamare ulteriori informazioni sui tuoi utenti. Puoi richiamare il seguente metodo utilizzando i token di identità e di accesso memorizzati oppure puoi inoltrare esplicitamente i token. Il token di identità è facoltativo, ma quando viene passato, viene utilizzato per convalidare la risposta delle informazioni utente.
+Utilizzando un SDK lato server, puoi richiamare ulteriori informazioni sui tuoi utenti. Puoi richiamare il seguente metodo utilizzando i token di identità e di accesso memorizzati oppure puoi inoltrare esplicitamente i token. Il token di identità è facoltativo ma, quando viene passato, viene utilizzato per convalidare la risposta.
 {: ph data-hd-programlang='javascript'}
 
 ```javascript
@@ -181,7 +181,7 @@ userProfileManager.getUserInfo(accessToken).then(function (profile) {
 **Swift lato server**
 {: ph data-hd-programlang='swift'}
 
-Utilizzando un SDK lato server, puoi richiamare ulteriori informazioni sui tuoi utenti. Puoi richiamare il seguente metodo utilizzando i token di identità e di accesso memorizzati oppure puoi inoltrare esplicitamente i token. Il token di identità è facoltativo, ma quando viene passato, viene utilizzato per convalidare la risposta delle informazioni utente.
+Utilizzando un SDK lato server, puoi richiamare ulteriori informazioni sui tuoi utenti. Puoi richiamare il seguente metodo utilizzando i token di identità e di accesso memorizzati oppure puoi inoltrare esplicitamente i token. Il token di identità è facoltativo ma, quando viene passato, viene utilizzato per convalidare la risposta.
 {: ph data-hd-programlang='swift'}
 
 
@@ -263,7 +263,7 @@ Se le modifiche vengono apportate da un provider di identità esterno, puoi otte
 
 
 
-### Accesso all'endpoint `/attributes` 
+### Accesso all'endpoint `/attributes`
 {: #profile-attributes-access}
 
 A seconda della tua configurazione, gli attributi sono codificati e salvati come parte di un profilo utente quando un utente interagisce con la tua applicazione. L'interazione potrebbe essere un accesso utente o l'impostazione di una preferenza nella tua applicazione. Per accedere agli attributi, passa un token di accesso tramite un metodo API.
@@ -343,7 +343,7 @@ Per impostazione predefinita, gli attributi personalizzati sono modificabili e p
 {: important}
 
 1. Passa alla scheda **Profiles** del dashboard App ID e attiva gli attributi personalizzati selezionando **Enabled**.
-2. [Ottieni un token di accesso](/docs/services/appid?topic=appid-obtain-tokens). Tutte le richieste in entrata alla tua applicazione hanno un'intestazione di autorizzazione, con `access_token`. 
+2. [Ottieni un token di accesso](/docs/services/appid?topic=appid-obtain-tokens). Tutte le richieste in entrata alla tua applicazione hanno un'intestazione di autorizzazione, con `access_token`.
 3. Effettua una richiesta alle [API degli attributi](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Attributes) o aggiungi uno dei seguenti frammenti al tuo codice per utilizzare uno degli SDK forniti.
 
   **iOS Swift**

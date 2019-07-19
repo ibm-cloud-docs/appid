@@ -133,12 +133,12 @@ URL에 조회 매개변수를 포함하지 마십시오. 이는 유효성 검증
 
 
 
-## {{site.data.keyword.appid_short_notm}}와 Keycloak 간의 차이점은 무엇입니까? 
+## {{site.data.keyword.appid_short_notm}}와 Keycloak 간의 차이점은 무엇입니까?
 {:# faq-keycloak}
 
 {{site.data.keyword.appid_short_notm}}와 Keycloak은 모두 애플리케이션에 인증을 추가하고 서비스를 보안 설정하는 데 사용할 수 있습니다. 두 오퍼링 간의 주요한 차이점은 패키징 방식입니다.
 {: shortdesc}
 
-Keycloak은 소프트웨어로 패키징됩니다. 즉, 사용자가 다운로드한 이후에 제품 기능을 유지보수할 책임은 개발자에게 있습니다. 호스팅, 고가용성, 준수, 백업, DDoS 보호, 로드 밸런싱, 웹 방화벽, 데이터베이스에 대한 책임은 사용자에게 있습니다. 
+Keycloak은 소프트웨어로 패키징됩니다. 즉, 사용자가 다운로드한 이후에 제품 기능을 유지보수할 책임은 개발자에게 있습니다. 호스팅, 고가용성, 준수, 백업, DDoS 보호, 로드 밸런싱, 웹 방화벽, 데이터베이스에 대한 책임은 사용자에게 있습니다.
 
-{{site.data.keyword.appid_short_notm}}는 "서비스로" 제공되는 완전히 관리되는 오퍼링입니다. 즉, IBM에서 서비스 운영을 담당하고, 준수, 여러 구역의 가용성 및 SLA 등을 처리합니다. {{site.data.keyword.appid_short_notm}}는 또한 {{site.data.keyword.containershort_notm}}, {{site.data.keyword.openwhisk_short}}, {{site.data.keyword.cloudaccesstrailshort}} 등의 기본 런타임 및 서비스로 구성된, {{site.data.keyword.cloud_notm}} 플랫폼을 제공하는 즉시 사용 가능한 통합 환경도 제공합니다. 
+{{site.data.keyword.appid_short_notm}}는 "서비스로" 제공되는 완전히 관리되는 오퍼링입니다. 즉, IBM에서 서비스 운영을 담당하고, 준수, 여러 구역의 가용성 및 SLA 등을 처리합니다. {{site.data.keyword.appid_short_notm}}는 또한 {{site.data.keyword.containershort_notm}}, {{site.data.keyword.openwhisk_short}}, {{site.data.keyword.cloudaccesstrailshort}} 등의 기본 런타임 및 서비스로 구성된, {{site.data.keyword.cloud_notm}} 플랫폼을 제공하는 즉시 사용 가능한 통합 환경도 제공합니다.

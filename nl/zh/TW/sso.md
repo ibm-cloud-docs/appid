@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-09"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, development, sso, directory, users, registry, multiple apps
+keywords: Authentication, authorization, identity, app security, secure, development, sso, directory, users, registry, multiple apps
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -41,7 +41,7 @@ subcollection: appid
 3. 如果認證有效，使用者就會登入您的應用程式。同時，{{site.data.keyword.appid_short_notm}} 會建立一個階段作業，並在使用者的瀏覽器上設定 Cookie。
 4. 如果使用者嘗試登入您其他的應用程式之一，則 {{site.data.keyword.appid_short_notm}} 會偵測階段作業 Cookie，並讓使用者自動登入到您的應用程式。{{site.data.keyword.appid_short_notm}} 階段作業 Cookie 是實例特有的 Cookie，並由實例的唯一私密金鑰所簽署。
 
-如果您的實例已配置為除了使用 Cloud Directory 之外還使用其他身分提供者，例如 SAML 或 Facebook，則仍然會顯示「登入小組件」。會提示使用者輸入其 Cloud Directory 認證，或選擇其他提供者之一 - 即使他們具備有效的 SSO 階段作業也一樣。
+此時，SSO 已配置為在 Cloud Directory 是唯一啟用身分提供者的情況下運作。如果您的 {{site.data.keyword.appid_short_notm}} 實例配置為使用多身分提供者，在登入流程中啟用 SSO 不會有影響。在每次登入時，系統會提示使用者輸入其 Cloud Directory 認證，或選擇其他提供者之一。
 {: note}
 
 

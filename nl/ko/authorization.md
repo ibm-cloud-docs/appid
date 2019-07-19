@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-21"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, access, tokens
+keywords: Authentication, authorization, identity, app security, secure, access, tokens
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -25,10 +25,10 @@ subcollection: appid
 # 핵심 개념
 {: #key-concepts}
 
-권한과 인증 간의 차이점에 대해 혼란스러우십니까? 당신만 그런 것이 아닙니다. 이 페이지의 정보를 참조하여 특정 용어, 프로세스 및 서비스에서 토큰을 사용하는 방법에 대해 학습하십시오.
+권한과 인증 간의 차이점에 대해 혼란스러우십니까? 귀하만 그런 것이 아닙니다. 다음 정보를 확인하여 특정 용어, 프로세스 및 서비스에서 토큰을 사용하는 방법에 대해 알아보십시오.
 {: shortdesc}
 
-권한 부여 및 인증의 기본 개념에 대해 자세히 알고 싶으십니까? 그렇다면 더 이상 찾으실 필요가 없습니다. 다음 동영상에서 OAuth 2.0, 권한 부여 유형, OIDC 등에 대해 학습할 수 있습니다. 
+권한 부여 및 인증의 기본 개념에 대해 자세히 알고 싶으십니까? 그렇다면 더 이상 찾으실 필요가 없습니다. 다음 동영상에서 OAuth 2.0, 권한 부여 유형, OIDC 등에 대해 배울 수 있습니다.
 
 <iframe class="embed-responsive-item" id="about-appid-basics" title="{{site.data.keyword.appid_short_notm}} 정보" type="text/html" width="640" height="390" src="//www.youtube.com/embed/ndlk-ZhKGXM?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
 
@@ -40,13 +40,13 @@ subcollection: appid
 
 ### OAuth 2
 {: #term-oauth}
-<a href="https://tools.ietf.org/html/rfc6749" target="_blank">OAuth 2 <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>는 앱 권한을 제공하는 데 사용하는 개방형 표준 프로토콜입니다.
+[OAuth 2.0](https://tools.ietf.org/html/rfc6749){: external}은 앱 권한을 제공하는 데 사용하는 개방형 표준 프로토콜입니다.
 
 
 ### OIDC(Open ID Connect)
 {: #term-oidc}
 
-<a href="https://openid.net/developers/specs/" target="_blank">OIDC<img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>는 OAuth 2를 기반으로 작동하는 인증 계층입니다. OIDC와 {{site.data.keyword.appid_short_notm}}를 함께 사용할 경우 애플리케이션 인증 정보로 OAuth 엔드포인트를 구성하는 데 도움이 됩니다. SDK를 사용하는 경우 엔드포인트 URL이 자동으로 빌드됩니다. 그러나 서비스 인증 정보를 사용하여 자체적으로 URL을 빌드할 수도 있습니다. URL의 형식은 {{site.data.keyword.appid_short_notm}} 서비스 엔드포인트 + "/oauth/v4" + /tenantID입니다.
+[OIDC](https://openid.net/developers/specs/){: external}는 OAuth2와 작동하는 인증 계층입니다. OIDC와 {{site.data.keyword.appid_short_notm}}를 함께 사용하면 애플리케이션 인증 정보를 사용하여 OAuth 엔드포인트를 구성할 수 있습니다. SDK를 사용하는 경우 엔드포인트 URL이 자동으로 빌드됩니다. 그러나 서비스 인증 정보를 사용하여 자체적으로 URL을 빌드할 수도 있습니다. URL의 형식은 {{site.data.keyword.appid_short_notm}} 서비스 엔드포인트 + "/oauth/v4" + /tenantID입니다.
 
     예:
 
@@ -94,12 +94,18 @@ SDK를 사용하는 경우 엔드포인트 URL이 자동으로 빌드됩니다.
 ### 토큰
 {: #term-token}
 
-이 서비스는 서로 다른 세 가지 유형의 토큰을 사용합니다. 액세스 토큰은 권한을 나타내며 이를 사용하면 {{site.data.keyword.appid_short}}에 의해 설정된 권한 필터로 보호되는 [백엔드 리소스](/docs/services/appid?topic=appid-backend)와의 통신이 가능합니다. ID 토큰은 인증을 나타내며 사용자에 대한 정보를 포함합니다. 새로 고치기 토큰은 사용자를 재인증하지 않고 새 액세스 토큰을 얻기 위해 사용할 수 있습니다. 사용자는 새로 고치기 토큰을 사용하여 애플리케이션에서 정보를 기억하도록 허용할 수 있습니다. 이 방식으로 사인인된 상태를 유지할 수 있습니다. 토큰은 {{site.data.keyword.appid_short}} 대시보드의 **ID 제공자 > 관리**에서 설정됩니다. 토큰 및 {{site.data.keyword.appid_short}}에서 해당 토큰을 사용하는 방법에 대한 자세한 정보는 [토큰 관리](/docs/services/appid?topic=appid-tokens#tokens)를 참조하십시오.
+이 서비스는 서로 다른 세 가지 유형의 토큰을 사용합니다. 토큰은 {{site.data.keyword.appid_short}} 대시보드의 **ID 제공자 > 관리**에서 설정됩니다. 토큰 및 {{site.data.keyword.appid_short}}에서 해당 토큰을 사용하는 방법에 대한 자세한 정보는 [토큰 관리](/docs/services/appid?topic=appid-tokens)를 참조하십시오.
+
+* 액세스 토큰: 권한을 나타내며 이 토큰을 사용하여 보호된 [백엔드 리소스](/docs/services/appid?topic=appid-backend)와 통신할 수 있습니다. 리소스는 {{site.data.keyword.appid_short}}에서 설정하는 권한 필터로 보호합니다.
+
+* ID 토큰: 인증을 나타내며 사용자에 대한 정보를 포함합니다.
+
+* 새로 고치기 토큰: 사용자를 재인증하지 않고 새 액세스 토큰을 얻는 데 사용할 수 있습니다. 새로 고치기 토큰을 사용하면 애플리케이션에서 정보를 기억하게 할 수 있으므로, 계속 로그인한 상태로 남아 있을 수 있습니다. 
 
 ### 권한 헤더
 {: #term-auth-header}
 
-{{site.data.keyword.appid_short}}는 <a href="https://tools.ietf.org/html/rfc6750" target="blank">Token Bearer Specification <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>을 준수하며 HTTP 권한 헤더로 전송된 액세스 및 ID 토큰의 조합을 사용합니다. 권한 헤더에는 세 개의 서로 다른 파트가 공백으로 구분되어 있습니다. 토큰은 base64로 인코딩되어 있습니다. ID 토큰은 선택사항입니다.
+{{site.data.keyword.appid_short}}는 [token bearer 사양](https://tools.ietf.org/html/rfc6750){: external}을 준수하며 HTTP Authorization 헤더로 전송된 액세스 및 ID 토큰의 조합을 사용합니다. 권한 헤더에는 세 개의 서로 다른 파트가 공백으로 구분되어 있습니다. 토큰은 base64로 인코딩되어 있습니다. ID 토큰은 선택사항입니다.
 
     예:
 

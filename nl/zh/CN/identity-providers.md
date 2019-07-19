@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-23"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, custom, proprietary, social, facebook, google, 
+keywords: Authentication, authorization, identity, app security, secure, custom, proprietary, social, facebook, google, 
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -34,6 +34,10 @@ subcollection: appid
 
 {{site.data.keyword.appid_short_notm}} 提供了缺省配置，可帮助您快速启动并运行该服务。
 {: shortdesc}
+
+参与“服务许可用途”时，将使用数据。使用服务即表明您同意根据概述的[隐私策略](/docs/services/appid?topic=appid-privacy-policy)来收集和使用信息。
+{: important}
+
 
 配置 {{site.data.keyword.appid_short_notm}} 时，Facebook、Google 和 Cloud Directory 会作为身份提供者自动启用。您可以随时更改此配置。提供了用于 Facebook 和 Google 的缺省凭证，但这些凭证是 IBM 凭证，应该仅用于测试是否要使用该服务。在发布应用程序之前，请将配置更新为您自己的凭证。
 
@@ -105,3 +109,9 @@ subcollection: appid
     3. 将 URL 从 {{site.data.keyword.appid_short}} 粘贴到**授权重定向 URI** 字段中，然后单击**保存**。
 4. 单击**保存**，以更新 {{site.data.keyword.appid_short}} 中的 Google 配置。
 5. 对于 Web 应用程序，请在**管理**选项卡中输入重定向 URL。授权过程完成后，用户将被发送到此 URL。URL 必须遵循 `http` 或 `https` 方案。要获取更高级别的安全性，请使用 `https` 方案。
+
+
+
+
+
+

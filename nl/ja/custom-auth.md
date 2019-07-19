@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, custom, proprietary, 
+keywords: Authentication, authorization, identity, app security, secure, custom, proprietary, 
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -22,7 +22,7 @@ subcollection: appid
 {:deprecated: .deprecated}
 {:download: .download}
 
-# アプリでのカスタム ID の使用
+# カスタム ID
 {: #custom-auth}
 
 認証時に独自のカスタム ID プロバイダーを使用できます。 {{site.data.keyword.appid_full}} でサポートされている認証メカニズムの代替となる、任意の認証メカニズムに準拠した ID プロバイダーを使用できます (専有またはレガシーのものを含む)。

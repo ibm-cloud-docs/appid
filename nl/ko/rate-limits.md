@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-06"
+lastupdated: "2019-07-09"
 
 keywords: Authentication, authorization, identity, app security, secure, rates, cloud directory, rate limit, attempts
 
@@ -10,7 +10,7 @@ subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -32,7 +32,7 @@ subcollection: appid
 ## App ID Lite 플랜 
 {: #lite-limits}
 
-App ID의 Lite 인스턴스에 적합한 한계를 확인하려면 다음 표를 검토하십시오.  
+App ID의 Lite 인스턴스에 적합한 한계를 확인하려면 다음 표를 검토하십시오. 
 
 <table>
     <tr>
@@ -96,20 +96,20 @@ Cloud Directory와 연관된 한계를 확인하려면 다음 표를 검토하�
         <td>계정별 사인인 시도</td>
         <td>예</td>
         <td>무제한</td>
-        <td>인스턴스에 대한 모든 사인인 시도가 1분 동안 차단됩니다. </td>
+        <td>인스턴스에 대한 모든 사인인 시도가 1분 동안 차단됩니다.</td>
     </tr>
     <tr>
         <td>계정별 등록 시도</td>
         <td>예</td>
         <td>무제한</td>
-        <td>인스턴스에 대한 모든 등록 시도가 1분 동안 차단됩니다. </td>
+        <td>인스턴스에 대한 모든 등록 시도가 1분 동안 차단됩니다.</td>
     </tr>
     <tr>
         <td>이메일 전송 요청</td>
         <td>아니오</td>
         <td>사용자당 10분 동안 10개의 이메일</td>
-        <td>사용자에 대한 이메일 요청이 30분 동안 차단됩니다. </td>
+        <td>사용자에 대한 이메일 요청이 30분 동안 차단됩니다.</td>
     </tr>
 </table>
 
-자세한 정보는 <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateRateLimitConfig" target="_blank">비율 제한 관리 API</a>를 참조하십시오. 
+자세한 정보는 <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateRateLimitConfig" target="_blank">비율 제한 관리 API</a>를 참조하십시오.

@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-23"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
+keywords: Authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -34,17 +34,17 @@ subcollection: appid
 Uma senha forte torna difícil, ou mesmo improvável para alguém adivinhar a senha de uma maneira manual ou automatizada. Para configurar requisitos para a força da senha de um usuário, é possível usar as etapas a seguir.
 {: shortdesc}
 
-1. Navegue para a guia **Políticas de senha** do painel do {{site.data.keyword.appid_short_notm}}.
+1. Acesse a guia **Políticas de senha** do painel do {{site.data.keyword.appid_short_notm}}.
 
 2. Na caixa **Definir força da senha**, clique em **Editar**. Uma tela é aberta.
 
 3. Insira uma sequência de expressão regular válida na caixa **Segurança da senha**.
 
   Exemplos:
-    - Deve ter pelo menos 8 caracteres. Exemplo de regex: `^.{8,}$`
-    - Deve conter um número, uma letra minúscula e uma letra maiúscula. Exemplo de expressão regular: `^(?:(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).*)$`
-    - Deve conter somente letras e números em inglês. Exemplo de regex: `^[A-Za-z0-9]*$`
-    - Deve ser pelo menos um caractere exclusivo. Exemplo de regex: `^(\w)\w*?(?!\1)\w+$`
+    - Deve ter pelo menos 8 caracteres. (`^.{8,}$`)
+    - Deve ter um número, uma letra minúscula e uma letra maiúscula. (`^(?:(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).*)$`)
+    - Deve ter somente números e letras em inglês. (`^[A-Za-z0-9]*$`)
+    - Deve ter pelo menos um caractere exclusivo. (`^(\w)\w*?(?!\1)\w+$`)
 
 4. Clique em **Salvar**.
 
@@ -69,7 +69,7 @@ A força da senha pode ser configurada na página de configurações do Cloud Di
  - Assegure-se de que a senha não inclua o nome do usuário
 
 
- Se você ativar esse recurso, o faturamento adicional para recursos de segurança avançados será ativado. Para obter mais informações, consulte [Como {{site.data.keyword.appid_short_notm}} calcular a precificação](/docs/services/appid?topic=appid-faq#faq-pricing).
+ Quando você ativa esse recurso, o faturamento extra para recursos avançados de segurança é ativado. Para obter mais informações, consulte [Como o {{site.data.keyword.appid_short_notm}} calcula a precificação](/docs/services/appid?topic=appid-faq#faq-pricing).
  {: important}
 
 
@@ -80,9 +80,9 @@ Quando os usuários estiverem mudando a senha, talvez você queira evitar que el
 recentemente.
 {: shortdesc}
 
-Ao usar a GUI ou a API, é possível escolher o número de senhas que um usuário deve ter antes que possa repetir uma senha usada anteriormente. É possível selecionar qualquer valor inteiro no intervalo de 1 a 10.
+Usando a GUI ou a API, é possível escolher o número de senhas que um usuário deve ter antes de poderem repetir uma senha usada anteriormente. As opções de configuração incluem qualquer valor inteiro no intervalo de 1 a 10.
 
-Se essa opção estiver ativada, um usuário não poderá usar uma senha que tenha sido usada recentemente por eles. Se eles tentarem configurar sua senha para uma senha que foi usada recentemente, um erro será exibido na GUI do widget de login padrão e uma senha diferente será solicitada.
+Se essa opção for ativada, um usuário não poderá usar uma senha que ele usou recentemente. Se ele tentar configurar a senha para uma que foi usada recentemente, um erro será mostrado na GUI do Widget de login padrão e será solicitado que o usuário insira outra opção.
 
 As senhas anteriores são armazenadas de forma segura da mesma maneira que a senha atual de um usuário.
 {: note}
@@ -95,13 +95,12 @@ Talvez você queira proteger as contas de seus usuários bloqueando temporariame
 medida pode ajudar a evitar que uma parte maliciosa obtenha acesso à conta de um usuário supondo a sua senha.
 {: shortdesc}
 
-Usando a GUI ou a API, é possível configurar o número máximo de tentativas de conexão malsucedidas que um usuário pode fazer antes que sua conta seja temporariamente bloqueada. Também é possível configurar o período de tempo
-em que a conta ficará bloqueada. Você tem as opções a seguir:
+Usando a GUI ou a API, é possível configurar o número máximo de tentativas de conexão malsucedidas que um usuário faz antes de sua conta ser bloqueada temporariamente. Também é possível definir a quantia de tempo que a conta fica bloqueada. Você tem as opções a seguir:
 
 * Número de tentativas: qualquer valor inteiro de 1 a 10.
 * Período de bloqueio de acesso: qualquer valor inteiro especificado em minutos no intervalo de 1 minuto a 1.440 minutos (24 horas).
 
-Se uma conta estiver bloqueada, os usuários não poderão se conectar nem executar nenhuma outra operação de autoatendimento, como mudar sua senha, até que o período de bloqueio de acesso especificado tenha decorrido. Quando o período de bloqueio de acesso termina, o usuário é desbloqueado automaticamente.
+Se uma conta estiver bloqueada, os usuários não poderão se conectar nem concluir nenhuma outra operação de autoatendimento, como mudar a senha até que o período de bloqueio de acesso especificado seja concluído. Quando o período de bloqueio de acesso termina, o usuário é desbloqueado automaticamente.
 
 É possível desbloquear um usuário antes que o período de bloqueio de acesso termine. Para ver se eles estão bloqueados, verifique se o campo `active` está configurado como `false`. Também é possível verificar se o seu status na guia **Usuários** do painel de serviço está configurado como `disabled`. Para desbloquear um usuário, deve-se usar [a API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Cloud_Directory_Users/updateCloudDirectoryUser) para configurar o campo `active` como `true`.
 
@@ -112,7 +111,7 @@ Se uma conta estiver bloqueada, os usuários não poderão se conectar nem execu
 Talvez você queira evitar que seus usuários alternem as senhas rapidamente, configurando um tempo mínimo que um usuário deve aguardar entre as mudanças de senha.
 {: shortdesc}
 
-Esse recurso é especialmente útil quando usado com a política "Evitar reutilização de senha". Sem essa limitação, um usuário poderia simplesmente mudar sua senha várias vezes em sucessão rápida para contornar a limitação de reutilização de senhas recentes. É possível selecionar qualquer valor no intervalo de 1 e 720 horas (30 dias). O campo é especificado em horas.
+Esse recurso é especialmente útil quando usado com a política "Evitar reutilização de senha". Sem essa limitação, um usuário pode simplesmente mudar a senha várias vezes em uma sucessão rápida para contornar a limitação de reutilização de senhas recentes. É possível selecionar qualquer valor no intervalo de 1 e 720 horas (30 dias). O campo é especificado em horas.
 
 
 ### Política: Expiração de senha
@@ -143,13 +142,13 @@ atualizar a senha depois de ativar esse recurso.
 {: note}
 
 
-### Política: Assegurar que a senha não inclua o nome do usuário
+### Política: assegure-se de que a senha não inclua o nome do usuário
 {: #cd-no-username}
 
-Para senhas mais fortes, talvez você queira evitar os usuários que contenham seu nome de usuário ou a primeira
-parte de seu endereço de e-mail.
+Para senhas mais fortes, talvez você queira impedir usuários que contenham seu nome de usuário ou a primeira parte de seu endereço de e-mail.
 {: shortdesc}
 
-Essa restrição não faz distinção entre maiúsculas e minúsculas, o que significa que os usuários não conseguem alterar a capitalização de alguns ou todos os caracteres para usar as informações pessoais. Para
+Essa limitação não faz distinção entre maiúsculas e minúsculas. Os usuários não podem alterar as maiúsculas e minúsculas de alguns ou de todos os caracteres a fim de usar as informações pessoais. Para
 configurar essa opção, mude o comutador para **ativo**.
+{: note}
 

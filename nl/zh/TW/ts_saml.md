@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-21"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, development, idp, troubleshooting, redirected, validation
+keywords: Authentication, authorization, identity, app security, secure, development, troubleshooting, redirected, validation
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -32,7 +32,7 @@ subcollection: appid
 {: shortdesc}
 
 
-## 一般配置問題
+## 常見的配置問題
 {: #ts-common-saml}
 
 SAML 架構支援多個設定檔、流程及配置，這表示身分提供者配置務必要正確地配置。請參閱下列主題，以協助解決使用 SAML 時可能遇到的一些常見問題。
@@ -54,7 +54,7 @@ SAML 架構支援多個設定檔、流程及配置，這表示身分提供者配
 
 **發生原因**
 
-{{site.data.keyword.appid_short_notm}} 在鑑別要求之中會傳送一個不透明參數，稱為 `RelayState`。如果您未在回應中看到該參數，則表示您的身分提供者可能未配置成正確地傳回該參數。`RelayState` 採用下列格式。
+{{site.data.keyword.appid_short_notm}} 會傳送一個不易解讀的參數，其稱為 `RelayState`，作為鑑別要求的一部分。如果您未在回應中看到該參數，則表示您的身分提供者可能未配置成正確地傳回該參數。`RelayState` 採用下列格式。
 
 ```
 https://idp.example.org/SAML2/SSO/Redirect?SAMLRequest=request&RelayState=token
@@ -66,16 +66,16 @@ https://idp.example.org/SAML2/SSO/Redirect?SAMLRequest=request&RelayState=token
 請驗證已配置您的 SAML 提供者，將 `RelayState` 參數傳回給 {{site.data.keyword.appid_short_notm}}，而未以任何方式修改。
 
 
-### NameID 欄位遺漏或不正確
+### 名稱 ID 遺漏或不正確
 {: #ts-saml-nameid}
 
 **發生情況**
 
-傳送鑑別要求時，您收到有關 `NameID` 的錯誤。
+當您傳送鑑別要求時，您會收到有關 `NameID` 的錯誤。
 
 **發生原因**
 
-{{site.data.keyword.appid_short_notm}} 作為服務提供者，定義了服務及身分提供者識別使用者的方式。使用 {{site.data.keyword.appid_short_notm}}，使用者會在 `NameID` 鑑別要求的 `名稱 ID` 欄位中識別，如下列範例所示。
+{{site.data.keyword.appid_short_notm}} 作為服務提供者，定義了服務及身分提供者識別使用者的方式。使用 {{site.data.keyword.appid_short_notm}}，使用者會在 `NameID` 鑑別要求的 `NameID` 欄位中識別，如下列範例所示。
 
 ```
 <NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</NameIDFormat>
@@ -93,7 +93,7 @@ https://idp.example.org/SAML2/SSO/Redirect?SAMLRequest=request&RelayState=token
 
 **發生情況**
 
-當您傳送鑑別要求時，收到下列錯誤訊息：
+當您傳送鑑別要求時，會收到下列錯誤訊息：
 
 ```
 Could not verify SAML assertion signature. Ensure {{site.data.keyword.appid_short_notm}} is configurated with your SAML provider's signing certificate.
@@ -132,7 +132,7 @@ Unexpectedly received an encrypted assertion. Please enable response encryption 
 錯誤訊息 2： 
 
 ```
-Could not decrypt SAML assertion. Ensure your SAML provider is configured with the {{site.data.keyword.appid_short_notm}} encryption 
+Could not decrypt SAML assertion. Ensure your SAML provider is configured with the {{site.data.keyword.appid_short_notm}} encryption. 
 ```
 {: screen}
 
@@ -209,7 +209,7 @@ urn:oasis:names:tc:SAML:2.0:status:Responder
 
 **發生原因**
 
-{{site.data.keyword.appid_short_notm}} 可以配置為簽署 SAML 鑑別要求 (`AuthnRequest`)，但您的身分提供者必須配置為預期對應的配置。
+{{site.data.keyword.appid_short_notm}} 可以配置為簽署 SAML 鑑別要求 (`AuthNRequest`)，但您的身分提供者必須配置為預期對應的配置。
 
 **如何修正**
 
@@ -233,7 +233,7 @@ urn:oasis:names:tc:SAML:2.0:status:Responder
 ### 如何擷取 SAML 鑑別要求及回應？
 {: #ts-saml-capture}
 
-有一些瀏覽器外掛程式的選項，例如 [Firefox](https://addons.mozilla.org/en-US/firefox/addon/saml-tracer/) 和 [Chrome](https://chrome.google.com/webstore/detail/saml-tracer/mpdajninpobndbfcldcmbpnnbhibjmch?hl=en)，可用來擷取 SAML 要求和回應。不想使用外掛程式？沒有問題。Atlassian 提供更為[手動擷取方法](https://confluence.atlassian.com/jirakb/how-to-view-a-saml-responses-in-your-browser-for-troubleshooting-872129244.html)的指示。
+有一些瀏覽器外掛程式的選項，例如 [Firefox](https://addons.mozilla.org/en-US/firefox/addon/saml-tracer/) 和 [Chrome](https://chrome.google.com/webstore/detail/saml-tracer/mpdajninpobndbfcldcmbpnnbhibjmch?hl=en)，可用來擷取 SAML 要求和回應。不想使用外掛程式？沒有問題。Atlassian 提供更為[手動擷取方法](https://confluence.atlassian.com/jirakb/how-to-view-a-saml-responses-in-your-browser-for-troubleshooting-872129244.html)。
 
 
 ### 我不瞭解這些訊息！如何解碼？

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-06"
+lastupdated: "2019-07-09"
 
 keywords: Authentication, authorization, identity, app security, secure, development, sign in, sign up, password, social, enterprise
 
@@ -10,7 +10,7 @@ subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -38,7 +38,7 @@ subcollection: appid
 ### 預設的「登入小組件」行為是什麼？
 {: #widget-default}
 
-依預設，會啟用「登入小組件」來使用 Facebook、Google 及 Cloud Directory。您可以隨時藉由選擇要配置為選項的身分提供者來變更行為。啟用多個身分提供者時，「登入小組件」會呈現一個畫面，使用者可以在其中進行身分提供者選擇。但是，如果啟用了單一提供者，則使用者不會看到上述選擇畫面。他們會直接到身分提供者開始登入處理程序。
+依預設，會啟用「登入小組件」來使用 Facebook、Google 及 Cloud Directory。您可以隨時藉由選擇要配置為選項的身分提供者來變更行為。啟用多個身分提供者時，「登入小組件」會呈現一個畫面，使用者可以在其中進行身分提供者選擇。但是，如果啟用了單一提供者，則使用者不會看到上述選擇畫面。他們會直接連到身分提供者開始登入處理程序。
 
 例如，如果您正在使用預設值 - Facebook、Google 及 Cloud Directory，使用者會看到該畫面。如果僅啟用 Facebook，使用者會直接連到 Facebook 進行鑑別。
 
@@ -99,7 +99,7 @@ subcollection: appid
 登入小組件是動態的。您可以自訂外觀與操作方式或身分提供者配置，變更會立即套用。不需要更新應用程式碼或以任何方式重新部署應用程式！
 {: shortdesc}
 
-您需要比登入小組件所提供更多的自訂作業嗎？您可以實作自己的完整自訂使用者介面，來進行使用者登入、註冊、重設密碼及其他流程，以建立您應用程式的獨特體驗。若要開始，請參閱[將您的應用程式加上品牌](/docs/services/appid?topic=appid-branded)。
+您需要比登入小組件所提供更多的自訂作業嗎？您可以實作自己的完全自訂使用者介面，來進行使用者登入、註冊、重設密碼及其他流程，以建立您應用程式的獨特體驗。若要開始，請參閱[將您的應用程式加上品牌](/docs/services/appid?topic=appid-branded)。
 {: tip}
 
 若要自訂畫面，請執行下列動作：

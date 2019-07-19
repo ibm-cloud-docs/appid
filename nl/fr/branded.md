@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-20"
+lastupdated: "2019-07-10"
 
-keywords: authentication, authorization, identity, app security, secure, customizing apps, directory, registry, 
+keywords: Authentication, authorization, identity, app security, secure, customizing apps, directory, registry, 
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -38,11 +38,13 @@ Lorsque vous réutilisez vos interfaces utilisateur existantes, vous pouvez cré
 {: #branded-requirements}
 
 
-Pour afficher vos propres interfaces utilisateur, vous devez utiliser [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory) comme fournisseur d'identité. Cloud Directory peut être [configuré](/docs/services/appid?topic=appid-cloud-directory) de différentes manières. Vous pouvez choisir les types de messages que vous souhaitez envoyer et personnaliser le contenu et la conception. Vous ne savez pas quoi choisir ? Pas de problème. L'interface graphique contient des exemples de messages que vous pouvez utiliser.
+Pour afficher vos propres interfaces utilisateur, vous devez utiliser [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory) comme fournisseur d'identité. Cloud Directory peut être configuré de plusieurs manières. Vous pouvez choisir les types de messages que vous souhaitez envoyer et personnaliser le contenu et la conception. Vous ne savez pas quoi choisir ? Pas de problème. Reportez-vous à l'interface graphique pour consulter des exemples de messages que vous pouvez utiliser.
 
 
-Vous souhaitez utiliser une autre [langue](/docs/services/appid?topic=appid-cd-messages#cd-languages) que l'anglais ? Vous pouvez choisir une autre langue en utilisant les <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/updateLocalization" target="_blank">API de gestion des langues <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a> pour afficher votre propre contenu traduit.
+Vous souhaitez utiliser une autre [langue](/docs/services/appid?topic=appid-cd-messages#cd-languages) que l'anglais ? Vous pouvez choisir une autre langue en utilisant les [API de gestion des langues](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/updateLocalization){: external}, pour afficher votre propre contenu traduit.
 {: tip}
+
+
 
 
 ### Puis-je utiliser mes propres écrans et ceux fournis par défaut ?
@@ -53,7 +55,7 @@ Oui ! Vous pouvez créer un flux hybride qui utilise certains de vos écrans et 
 ### En quoi les flux sont-ils techniquement différents ?
 {: #branded-technically}
 
-Le service utilise des flux d'octroi d'autorisation OAuth 2.0 pour mapper le processus d'autorisation. Lorsque vous configurez des fournisseurs d'identité de réseaux sociaux tels que Facebook, le <a href="https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html" target="_blank">flux d'octroi d'autorisation <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a> est utilisé pour appeler le widget de connexion. Lorsque vous utilisez vos propres écrans, le <a href="https://oauthlib.readthedocs.io/en/stable/oauth2/grants/password.html" target="_blank">flux des données d'identification du mot de passe du propriétaire de la ressource <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a> est utilisé pour fournir des jetons d'accès et d'identité qui vous permettent d'appeler vos écrans.
+Le service utilise des flux d'octroi d'autorisation OAuth 2.0 pour mapper le processus d'autorisation. Lorsque vous configurez des fournisseurs d'identité de réseaux sociaux tels que Facebook, le [flux d'octroi d'autorisation](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html){: external} est utilisé pour appeler le widget de connexion. Lorsque vous utilisez vos propres écrans, le [flux des données d'identification du mot de passe du propriétaire de la ressource](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/password.html){: external} est utilisé pour fournir des jetons d'accès et d'identité qui vous permettent d'appeler vos écrans.
 
 
 
@@ -62,15 +64,15 @@ Le service utilise des flux d'octroi d'autorisation OAuth 2.0 pour mapper le pro
 
 Oui ! Consultez l'un des exemples suivants pour voir Cloud Directory en action :
 
-* <a href="https://www.ibm.com/cloud/blog/use-branded-ui-user-sign-app-id" target="_blank">Use your own branded UI for user sign-in with {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a>
-* <a href="https://www.ibm.com/cloud/blog/use-ui-flows-user-sign-sign-app-id" target="_blank">Use your own UI and Flows for User Sign-Up and Sign-in with {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a>
-* <a href="https://www.ibm.com/cloud/blog/custom-login-page-app-id-integration" target="_blank">Use a custom login page with {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a>
+* [Use your own branded UI for user sign-in with {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/use-branded-ui-user-sign-app-id){: external}
+* [Use your own UI and Flows for User Sign-Up and Sign-in with {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/use-ui-flows-user-sign-sign-app-id){: external}
+* [Custom login page with {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/custom-login-page-app-id-integration){: external}
 
 
 ## Association d'une marque à votre application avec le logiciel SDK Android
 {: #branded-ui-android}
 
-Lorsque Cloud Directory est activé, vous pouvez appeler des écrans personnalisés avec le logiciel SDK Android. Vous pouvez choisir la combinaison d'écrans avec lesquels vos utilisateurs pourront interagir. <a href="https://www.ibm.com/cloud/blog/use-branded-ui-user-sign-app-id" target="blank">Consultez ce blogue <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a> pour un exemple détaillé.
+Lorsque Cloud Directory est activé, vous pouvez appeler des écrans personnalisés avec le logiciel SDK Android. Vous pouvez choisir la combinaison d'écrans avec lesquels vos utilisateurs pourront interagir. Pour obtenir un exemple détaillé, [consultez ce blogue](https://www.ibm.com/cloud/blog/use-branded-ui-user-sign-app-id){: external}.
 {: shortdesc}
 
 
@@ -79,7 +81,7 @@ Lorsque Cloud Directory est activé, vous pouvez appeler des écrans personnalis
 {: #branded-android-sign-in}
 
 1. Configurez vos [paramètres](/docs/services/appid?topic=appid-cloud-directory#cd-settings) Cloud Directory dans l'interface graphique.
-2. Ajoutez le code suivant à votre application. Le flux de connexion est déclenché lorsqu'un utilisateur clique sur le bouton de connexion sur votre écran personnalisé. Vous obtenez des jetons d'accès, d'identité et d'actualisation en fournissant le nom d'utilisateur et le mot de passe de l'utilisateur final.
+2. Ajoutez le code suivant à votre application. Le flux de connexion est déclenché lorsqu'un utilisateur clique sur le bouton de connexion sur votre écran personnalisé. Vous obtenez des jetons d'accès, d'identité et d'actualisation en fournissant le nom d'utilisateur et le mot de passe de l'utilisateur.
 
   ```java
   AppID.getInstance().signinWithResourceOwnerPassword(getApplicationContext(), username, password,
@@ -103,7 +105,7 @@ Lorsque Cloud Directory est activé, vous pouvez appeler des écrans personnalis
 ## Association d'une marque à votre application avec le logiciel SDK iOS Swift
 {: #branded-ui-ios-swift}
 
-Lorsque Cloud Directory est activé, vous pouvez appeler vos propres écrans de marque avec le logiciel [SDK Swift iOS](https://github.com/ibm-cloud-security/appid-clientsdk-swift).
+Lorsque Cloud Directory est activé, vous pouvez appeler vos propres écrans de marque avec le logiciel [SDK Swift iOS](https://github.com/ibm-cloud-security/appid-clientsdk-swift){: external}.
 {: shortdesc}
 
 </br>
@@ -174,7 +176,8 @@ Avec `WebAppStrategy`, les utilisateurs peuvent se connecter à vos applications
     </tbody>
   </table>
 
-**Remarque** : si vous soumettez la demande en HTML, vous pouvez utiliser le middleware <a href="https://www.npmjs.com/package/body-parser" target="blank">body parser <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a>. Pour consulter le message d'erreur, vous pouvez utiliser <a href="https://www.npmjs.com/package/connect-flash" target="blank">connect-flash <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a>. Pour voir le logiciel en action, consultez l'<a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs/blob/master/samples/web-app-sample.js" target="blank">exemple d'application Web <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a>.
+**Remarque** : si vous soumettez la demande en HTML, vous pouvez utiliser le middleware [body parser](https://www.npmjs.com/package/body-parser){: external}. Pour consulter le message d'erreur renvoyé, vous pouvez utiliser [connect-flash](https://www.npmjs.com/package/connect-flash){: external}. Pour voir le logiciel en action, consultez le [modèle d'application Web](https://github.com/ibm-cloud-security/appid-serversdk-nodejs/blob/master/samples/web-app-sample.js){: external}.
+
 
 
 ## Association d'une marque à votre application avec l'API
@@ -185,7 +188,7 @@ Vous pouvez afficher vos propres écrans et tirer parti des fonctions d'authenti
 
 Pour que ces opérations soient possibles, {{site.data.keyword.appid_short_notm}} expose des API REST. Vous pouvez utiliser les API REST pour générer un serveur back end dédié à vos applications Web ou pour interagir avec une application mobile avec vos propres écrans personnalisés.
 
-L'API de gestion est sécurisée avec des jetons générés par IBM Cloud Identity and Access Management, de sorte que les propriétaires de compte peuvent spécifier le niveau d'accès de chaque membre de leur équipe pour chaque instance de service. Pour plus d'informations sur la façon dont IAM et {{site.data.keyword.appid_short_notm}} fonctionnent ensemble, voir [Gestion des accès de service](/docs/services/appid?topic=appid-service-access-management#service-access-management).
+L'API de gestion est sécurisée avec des jetons générés par IBM Cloud Identity and Access Management, de sorte que les propriétaires de compte peuvent spécifier le niveau d'accès de chaque membre de leur équipe pour chaque instance de service. Pour plus d'informations sur la façon dont IAM et {{site.data.keyword.appid_short_notm}} fonctionnent ensemble, voir [Gestion des accès de service](/docs/services/appid?topic=appid-service-access-management).
 
 Après avoir configuré vos [paramètres](/docs/services/appid?topic=appid-cloud-directory#cd-settings), vous pouvez appeler les noeuds finaux ci-dessous pour afficher chaque écran.
 
@@ -195,11 +198,11 @@ Après avoir configuré vos [paramètres](/docs/services/appid?topic=appid-cloud
 Vous pouvez utiliser le noeud final `/sign_up` pour autoriser les utilisateurs à s'inscrire à votre application.
 Indiquez les données suivantes dans le corps de demande :
   * Votre ID titulaire.
-  * Données utilisateur Cloud Directory. Voir [SCIM Full User Representation](https://tools.ietf.org/html/rfc7643#section-8.2) pour plus de détails.
+  * Données utilisateur Cloud Directory. Voir [SCIM Full User Representation](https://tools.ietf.org/html/rfc7643#section-8.2){: external} pour plus de détails.
     * Un attribut `password`.
     * Le tableau d'adresses électroniques dont l'attribut `primary` a la valeur `true` doit comporter au moins une adresse électronique.
 
-Selon votre [configuration de courrier électronique](/docs/services/appid?topic=appid-cd-messages#cd-messages), il est possible qu'un utilisateur reçoive une demande de vérification et/ou un courrier de bienvenue lorsqu'il se connecte à votre application. Ces deux types de courrier électronique sont déclenchés lorsqu'un utilisateur s'inscrit à votre application. L'e-mail de vérification contient un lien sur lequel l'utilisateur peut cliquer pour confirmer son identité, un écran qui s'affiche et remercie pour la vérification ou confirme que la vérification est terminée.  
+Selon votre [configuration de courrier électronique](/docs/services/appid?topic=appid-cd-messages), il est possible qu'un utilisateur reçoive une demande de vérification et/ou un courrier de bienvenue lorsqu'il se connecte à votre application. Ces deux types de courrier électronique sont déclenchés lorsqu'un utilisateur s'inscrit à votre application. L'e-mail de vérification contient un lien sur lequel l'utilisateur peut cliquer pour confirmer son identité, un écran qui s'affiche et remercie pour la vérification ou confirme que la vérification est terminée.  
 
 Pour présenter votre propre page post-vérification :
 
@@ -207,13 +210,13 @@ Pour présenter votre propre page post-vérification :
 2. Cliquez sur l'onglet **Vérification de l'adresse électronique**.
 3. Dans **custom verification page URL**, entrez l'URL de votre page d'arrivée.
 
-Si cette valeur est fournie, {{site.data.keyword.appid_short_notm}} appel l'URL au moyen d'une demande `context`. Lorsque vous appelez le noeud final `/sign_up/confirmation_result` et transmettez le paramètre `context` reçu, le résultat vous indique si l'utilisateur a vérifié son compte. Si tel est le cas, vous pouvez afficher votre page personnalisée.
+Si cette valeur est fournie, {{site.data.keyword.appid_short_notm}} appelle l'URL au moyen d'une requête `context`. Lorsque vous appelez le noeud final `/sign_up/confirmation_result` et transmettez le paramètre `context` reçu, le résultat vous indique si l'utilisateur a vérifié son compte. Si tel est le cas, vous pouvez afficher votre page personnalisée.
 
 
 ### Mot de passe oublié
 {: #branded-api-forgot-password}
 
-Vous pouvez utiliser le noeud final `/forgot_password` pour autoriser les utilisateurs à récupérer leur mot de passe en cas d'oubli.
+Vous pouvez utiliser le noeud final `/forgot_password` pour autoriser les utilisateurs à récupérer leur mot de passe s'ils l'ont oublié.
 
 Indiquez les données suivantes dans le corps de demande :
   * Votre ID titulaire.
@@ -221,13 +224,13 @@ Indiquez les données suivantes dans le corps de demande :
 
 Lorsque le noeud final est appelé, un courrier électronique de réinitialisation de mot de passe est envoyé à l'utilisateur. Il contient un bouton **Réinitialiser**. Une fois que l'utilisateur a cliqué sur le bouton, {{site.data.keyword.appid_short_notm}} affiche un écran permettant à l'utilisateur de réinitialiser son mot de passe.
 
-Vous pouvez présenter votre propre page post-réinitialisation de mot de passe :
+Vous pouvez présenter votre propre page après la réinitialisation de mot de passe :
 
 1. Configurez vos [paramètres](/docs/services/appid?topic=appid-cloud-directory#cd-settings) Cloud Directory dans l'interface graphique. **Permettre aux utilisateurs de gérer leur compte à partir de votre application** doit être défini sur **Activé**.
 2. Dans l'onglet **Réinitialiser le mot de passe** du tableau de bord du service, vérifiez que **E-mail d'oubli de mot de passe** est défini sur **Activé**.
 3. Entrez l'URL de votre page d'arrivée dans la zone d'**URL pour la page de réinitialisation de mot de passe personnalisée**.  
 
-Si cette valeur est fournie, {{site.data.keyword.appid_short_notm}} appel l'URL au moyen d'une demande `context`. Le paramètre `context` est utilisé pour recevoir le résultat lorsque le noeud final `/forgot_password/confirmation_result` est appelé. En cas de réussite, vous pouvez afficher votre page personnalisée.
+Si cette valeur est fournie, {{site.data.keyword.appid_short_notm}} appelle l'URL au moyen d'une requête `context`. Le paramètre `context` est utilisé pour recevoir le résultat lorsque le noeud final `/forgot_password/confirmation_result` est appelé. En cas de réussite, vous pouvez afficher votre page personnalisée.
 
 Ajoutez une chaîne aléatoire à votre page de réinitialisation de mot de passe personnalisée et transmettez-la à votre système de back end lorsque la demande est soumise. Demandez à votre gestionnaire de valider la chaîne et appelez le noeud final `/change_password` uniquement si elle est valide. Ainsi, vous pouvez réduire la vulnérabilité de votre noeud final de réinitialisation de mot de passe sur le système de back end.
 {: tip}
@@ -254,13 +257,13 @@ Indiquez les données suivantes dans le corps de demande :
   * Le nouveau mot de passe de l'utilisateur.
   * L'identificateur unique universel de l'utilisateur de Cloud Directory.
 
-Votre page de changement de mot de passe doit inviter l'utilisateur à entrer son mot de passe en cours et son nouveau mot de passe.
+Votre page de changement de mot de passe doit inviter l'utilisateur à entrer son mot de passe actuel et son nouveau mot de passe.
 {: tip}
 
-Votre système de back end valide le mot de passe en cours de l'utilisateur avec l'API ROP, et si celui-ci est valide, appelle le noeud final avec le nouveau mot de passe. En fonction de votre configuration, lorsqu'un mot de passe est changé, il est possible qu'{{site.data.keyword.appid_short_notm}} envoie un courrier électronique à l'utilisateur pour lui faire savoir qu'il y a eu un changement.
+Votre système de back end valide le mot de passe actuel de l'utilisateur avec l'API ROP, et si celui-ci est valide, appelle le noeud final avec le nouveau mot de passe. En fonction de votre configuration, lorsqu'un mot de passe est changé, il est possible qu'{{site.data.keyword.appid_short_notm}} envoie un courrier électronique à l'utilisateur pour lui faire savoir qu'il y a eu un changement.
 
 
-### Renvoyer
+### Renvoi
 {: #branded-api-resend}
 
 Vous pouvez utiliser `/resend/{templateName}` pour renvoyer un courrier électronique si un utilisateur ne l'a pas reçu pour une raison quelconque.
@@ -275,7 +278,7 @@ Indiquez les données suivantes dans le corps de demande :
 
 Lorsqu'un utilisateur est connecté à votre application, il peut mettre à jour certaines de ses informations. Vous pouvez utiliser le noeud final `/Users/{userId}` pour récupérer et mettre à jour ses informations.
 
-Lorsque les détails de l'utilisateur sont mis à jour, le noeud final obtient les données utilisateur mises à jour dans le corps de demande au [format SCIM](https://tools.ietf.org/html/rfc7643#section-8.2). Veillez à modifier uniquement les détails pertinents.
+Lorsque les détails de l'utilisateur sont mis à jour, le noeud final obtient les données utilisateur mises à jour dans le corps de demande au [format SCIM](https://tools.ietf.org/html/rfc7643#section-8.2){: external}. Veillez à modifier uniquement les détails pertinents.
 
 L'adresse électronique des utilisateurs ne peut pas être changée.
 {: tip}

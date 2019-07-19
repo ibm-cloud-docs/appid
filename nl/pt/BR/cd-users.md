@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
+keywords: Authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
 subcollection: appid
 
 ---
  
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -29,13 +29,13 @@ subcollection: appid
 Com o Cloud Directory, é possível gerenciar seus usuários em um registro escalável usando a funcionalidade pré-construída que aprimora a segurança e o autoatendimento.
 {: shortdesc}
 
-Um usuário do Cloud Directory não é a mesma coisa que um usuário do {{site.data.keyword.appid_short_notm}}. Os usuários podem inscrever-se para seu app usando as diferentes opções de provedor de identidade configuradas ou você pode incluí-las em seu diretório. Os usuários mencionados neste tópico são aqueles associados ao Cloud Directory como um provedor de identidade.
+Um usuário do Cloud Directory não é a mesma coisa que um usuário do {{site.data.keyword.appid_short_notm}}. Os usuários podem inscrever-se em seu app usando as diferentes opções de provedor de identidade configuradas ou você pode incluí-las em seu diretório. Os usuários que são mencionados nessa página são aqueles que estão associados ao Cloud Directory como um provedor de identidade.
 {: note}
 
 ## Visualizando informações sobre o usuário
 {: #cd-user-info}
 
-É possível ver todas as informações conhecidas sobre todos os usuários do Cloud Directory como um objeto JSON usando as APIs ou o painel.
+É possível ver todas as informações conhecidas sobre todos os usuários do Cloud Directory como um objeto JSON usando as APIs ou o painel. 
 {: shortdesc}
 
 
@@ -55,23 +55,23 @@ Um usuário do Cloud Directory não é a mesma coisa que um usuário do {{site.d
   </tr>
   <tr>
     <td>Identificador de usuários</td>
-    <td>O identificador de usuários depende do tipo de conexão de usuário que você configurou. Se você tiver um fluxo de e-mail e senha configurado, o identificador será o e-mail do usuário. Se você usar o nome de usuário e o fluxo de senha, o identificador será o nome de usuário fornecido na inscrição.</td>
+    <td>O identificador de usuários é dependente do tipo de inscrição do usuário que você configurou. Se você tiver um fluxo de e-mail e senha configurado, o identificador será o e-mail do usuário. Se você usar o fluxo de nome do usuário e senha, o identificador será o nome de usuário fornecido na inscrição.</td>
   </tr>
   <tr>
     <td>E-mail</td>
     <td>O endereço de e-mail principal anexado ao usuário.</td>
   </tr>
     <tr>
-    <td>Nome e sobrenome</td>
-    <td>O nome e o sobrenome do usuário conforme fornecidos durante o processo de inscrição.</td>
+    <td>Primeiro nome e sobrenome</td>
+    <td>O primeiro nome e o sobrenome do seu usuário conforme ele forneceu durante o processo de inscrição.</td>
   </tr>
   <tr>
     <td>Último login</td>
-    <td>O registro de data e hora da última vez em que o usuário efetuou login em seu aplicativo. Nota: se você tiver incluído o usuário por meio do painel, o login ficará em branco até que o próprio usuário se conecte ao app. Quando a conexão ocorre, ele também se torna um usuário do App ID.</td>
+    <td>O registro de data e hora da última vez em que o usuário efetuou login em seu aplicativo. Nota: se você incluiu seu usuário pelo painel, o login ficará em branco até que o próprio usuário se conecte ao seu app. Quando a conexão ocorrer, ele também se tornará um usuário do App ID.</td>
   </tr>
   <tr>
     <td>ID</td>
-    <td>O ID designado ao usuário pelo {{site.data.keyword.appid_short_notm}}. Na IU, ele não é mostrado, mas é possível copiar o valor e colá-lo em um editor de texto para ver o valor.</td>
+    <td>O ID designado ao usuário pelo {{site.data.keyword.appid_short_notm}}. Na IU, não é mostrado, mas é possível copiar o valor e colá-lo em um editor de texto para ver o valor.</td>
   </tr>
   <tr>
     <td>Atributos predefinidos</td>
@@ -83,7 +83,7 @@ Um usuário do Cloud Directory não é a mesma coisa que um usuário do {{site.d
   </tr>
   <tr>
     <td>Resumo</td>
-    <td>Todos os atributos são compilados para formar um perfil que fornece uma visão geral completa de seu usuário do Cloud Directory. Para obter mais informações, consulte [perfis do usuário](/docs/services/appid?topic=appid-profiles).</td>
+    <td>Todos os atributos são compilados para formar um perfil que fornece uma visão geral completa do seu usuário do Cloud Directory. Para obter mais informações, consulte [perfis do usuário](/docs/services/appid?topic=appid-profiles).</td>
   </tr>
 </table>
 
@@ -172,7 +172,7 @@ Um usuário do Cloud Directory não é a mesma coisa que um usuário do {{site.d
 É possível gerenciar os usuários do Cloud Directory por meio do painel do {{site.data.keyword.appid_short_notm}} ou usando as APIs.
 {: shortdesc}
 
-Quando um usuário se inscreve em seu aplicativo, ele faz isso por meio de um fluxo de trabalho de autoatendimento que aciona automaticamente e-mails, como uma solicitação de boas-vindas ou de verificação. Quando você, como administrador, inclui um usuário em seu app, um fluxo de trabalho de autoatendimento não é iniciado, o que significa que os usuários não recebem nenhum e-mail de seu aplicativo. Se você quiser que seus usuários ainda sejam notificados de que foram incluídos, será possível acionar os fluxos de sistema de mensagens por meio da [API de gerenciamento do App ID](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.set_cloud_directory_email_dispatcher).
+Quando um usuário se inscreve em seu aplicativo, ele faz isso por meio de um fluxo de trabalho de autoatendimento que aciona automaticamente e-mails, como uma solicitação de boas-vindas ou de verificação. Quando você, como administrador, inclui um usuário em seu app, um fluxo de trabalho de autoatendimento não é iniciado, o que significa que os usuários não recebem nenhum e-mail de seu aplicativo. Se você desejar que os usuários ainda sejam notificados de que estão incluídos, será possível acionar os fluxos de mensagens por meio da [API de gerenciamento de App ID](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.set_cloud_directory_email_dispatcher).
 
 
 ### Incluindo usuários
@@ -180,25 +180,25 @@ Quando um usuário se inscreve em seu aplicativo, ele faz isso por meio de um fl
 
 Quando um usuário se inscreve em seu aplicativo, ele é incluído como um usuário. Para propósitos de teste, é possível incluir um usuário por meio do painel do {{site.data.keyword.appid_short_notm}} ou usando a API.
 
-Se você desativar a inscrição por autoatendimento ou incluir um usuário em seu nome, o usuário não receberá um e-mail de boas-vindas ou de verificação quando for incluído.
+Se você desativar a inscrição de autoatendimento ou incluir um usuário em seu nome, o usuário não receberá um e-mail de boas-vindas ou verificação quando for incluído.
 {: tip}
 
 
 
-**Para incluir um novo usuário com a GUI:**
+**Para incluir um usuário com a GUI:**
 
-1. Navegue para a guia **Cloud Directory > Usuários** do painel do {{site.data.keyword.appid_short_notm}}.
+1. Acesse a guia **Cloud Directory > Usuários** do painel do {{site.data.keyword.appid_short_notm}}.
 
-2. Clique em **Incluir usuário**. Um formulário é exibido.
+2. Clique em **Incluir usuário**. Um formulário é aberto.
 
-3. Insira um **Nome**, **Sobrenome**, **E-mail** e **Senha**. Certifique-se de que o e-mail que você tenta registrar não esteja já tomado por outro usuário. Para ter certeza de que você digitou sua senha corretamente, confirme-a inserindo-a no campo **Reinserir senha**.
+3. Insira um **Nome**, **Sobrenome**, **E-mail** e **Senha**. Certifique-se de que o e-mail que você tenta registrar não esteja já tomado por outro usuário. Para ter certeza de que você digitou a senha corretamente, confirme-a digitando-a no campo **Reinserir senha**.
 
 4. Clique em **Salvar**. Um usuário do Diretório de Nuvem é criado.
 
 </br>
 
 
-**Para incluir um novo usuário com a API:**
+**Para incluir um usuário com a API:**
 
 O fluxo a seguir mostra como incluir um usuário com um e-mail e uma senha. Também é possível optar por usar um fluxo de nome de usuário e senha.
 
@@ -211,7 +211,7 @@ O fluxo a seguir mostra como incluir um usuário com um e-mail e uma senha. Tamb
   ```
   {: codeblock}
 
-3. Com o token obtido na etapa 2, faça uma solicitação de POST para o terminal `cloud-directory/users`. Observe que esse exemplo usa o fluxo de e-mail/senha. Também é possível usar o fluxo de nome de usuário/senha.
+3. Com o token obtido na etapa 2, faça uma solicitação de POST para o terminal `cloud-directory/users`. Esse exemplo usa o fluxo de e-mail/senha. Também é possível usar o fluxo de nome de usuário/senha.
 
   ```
   curl --X POST "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/Users"
@@ -243,11 +243,11 @@ Se quiser remover um usuário de seu diretório, será possível excluí-lo da G
 
 **Para excluir um usuário por meio da GUI:**
 
-1. Navegue para a guia **Cloud Directory > Usuários** do painel do {{site.data.keyword.appid_short_notm}}.
+1. Acesse a guia **Cloud Directory > Usuários** do painel do {{site.data.keyword.appid_short_notm}}.
 
-2. Clique na caixa de seleção ao lado do usuário que você deseja excluir. Uma caixa é exibida.
+2. Clique na caixa de seleção ao lado do usuário que você deseja excluir. Uma caixa é aberta.
 
-3. Na caixa, clique em **Excluir**. Uma tela é exibida.
+3. Na caixa, clique em **Excluir**. Uma tela é aberta.
 
 4. Confirme que você entende que a exclusão de um usuário não pode ser desfeita clicando em **Excluir**. Se a ação for um erro, será possível incluir o usuário em seu diretório novamente, mas qualquer informação sobre esse usuário não estará mais disponível.
 
@@ -277,8 +277,7 @@ Se quiser remover um usuário de seu diretório, será possível excluí-lo da G
 ## Migrando usuários
 {: #user-migration}
 
-Ocasionalmente, pode ser necessário configurar uma nova instância do {{site.data.keyword.appid_short_notm}}. Se
-você estiver usando o Cloud Directory, isso significará que seus usuários devem ser migrados para a nova instância. É possível usar as APIs de gerenciamento para ajudar com a migração.
+Ocasionalmente, é possível que precise incluir uma instância do {{site.data.keyword.appid_short_notm}}. Quando estiver trabalhando com o Cloud Directory, seus usuários deverão ser migrados para a nova instância. Para ajudar com a migração, é possível usar as APIs de gerenciamento.
 {: shortdesc}
 
 
@@ -305,7 +304,7 @@ curl -X GET --header ‘Accept: application/json’ --header ‘Authorization: B
   </tr>
   <tr>
     <td><code>encryption_secret</code></td>
-    <td>Uma sequência customizada que é usada para criptografar e decriptografar uma senha em hash do usuário.</td>
+    <td>Uma sequência customizada que é usada para criptografar e decriptografar a senha em hash de um usuário.</td>
   </tr>
   <tr>
     <td><code> tenantID </code></td>
@@ -382,14 +381,14 @@ Antes de iniciar, certifique-se de que você tenha as informações de parâmetr
   </tr>
   <tr>
     <td>Token do IAM</td>
-    <td>Certifique-se de ter as permissões de <code>manager</code> antes de obter o token. Para ajuda para obter um token do IAM, consulte <a href="/docs/iam?topic=iam-iamtoken_from_apikey#iamtoken_from_apikey" target="_blank">os docs <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a>.</td>
+    <td>Certifique-se de ter as permissões de <code>manager</code> antes de obter o token. Para obter ajuda com a obtenção de um token do IAM, confira <a href="/docs/iam?topic=iam-iamtoken_from_apikey#iamtoken_from_apikey" target="_blank">os docs <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a>.</td>
   </tr>
 </table>
 
 Para executar o script:
 
 1. Clone o <a href="https://github.com/ibm-cloud-security/appid-sample-code-snippets/tree/master/export-import-cloud-directory-users" target="_blank">repositório <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a>.
-2. Abra o terminal e navegue para a pasta na qual você clonou o repositório.
+2. Abra o console e acesse a pasta na qual você clonou o repositório.
 3. Execute o comando a seguir.
 
   ```

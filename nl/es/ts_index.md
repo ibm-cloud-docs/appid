@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-21"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, troubleshooting, help, support, requests, uri
+keywords: Authentication, authorization, identity, app security, secure, troubleshooting, help, support, requests, uri
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -93,15 +93,15 @@ El proveedor de identidad puede fallar por varias razones:
 * El URL de redirección configurado es incorrecto.
 * El proveedor de identidad no reconoce la solicitud de autenticación.
 * El proveedor de identidad espera un enlace HTTP-POST.
-* El proveedor de identidad espera una authnRequest firmada.
+* El proveedor de identidad espera una AuthnRequest firmada.
 
 {: tsResolve}
 Puede intentar algunas de estas soluciones:
 
-* Actualice el URL de inicio de sesión. Este URL se envía como parte de la authnRequest y debe ser exacto.
+* Actualice el URL de inicio de sesión. Este URL se envía como parte de la AuthnRequest y debe ser exacto.
 * Asegúrese de que los metadatos de {{site.data.keyword.appid_short_notm}} estén correctamente establecidos en los valores del proveedor de identidad.
-* Configure el proveedor de identidad para aceptar la authnRequest en HTTP-Redirect.
-* {{site.data.keyword.appid_short_notm}} no soporta la firma de authnRequests.
+* Configure el proveedor de identidad para aceptar la AuthnRequest en HTTP-Redirect.
+* {{site.data.keyword.appid_short_notm}} no soporta la firma de AuthnRequests.
 
 Si no funciona ninguna de las soluciones, es posible que pueda tener un problema de conexión.
 {: tip}
@@ -137,7 +137,7 @@ Intenta visualizar la página de inicio de la app pero recibe el siguiente error
 {: screen}
 
 {: tsCauses}
-Es posible que reciba un error de "demasiadas solicitudes" si está realizando pruebas automatizadas con un solo usuario virtual. Cada usuario está limitado a cinco intentos de inicio de sesión en un intervalo de tiempo de un minuto. Los intentos de inicio de sesión están limitados para evitar DDOS de fuerza bruta y otro tipo de ataques similares.
+Es posible que reciba un error de "demasiadas solicitudes" si está realizando pruebas automatizadas con un solo usuario virtual. Cada usuario está limitado a cinco intentos de inicio de sesión en un intervalo de tiempo de un minuto. Los intentos de inicio de sesión están limitados para evitar DDoS de fuerza bruta y otro tipo de ataques similares.
 
 {: tsResolve}
 Para resolver el problema, es posible que desee utilizar varios usuarios virtuales cuando realice las pruebas.

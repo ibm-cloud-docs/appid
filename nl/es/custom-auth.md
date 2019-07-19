@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, custom, proprietary, 
+keywords: Authentication, authorization, identity, app security, secure, custom, proprietary, 
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -22,7 +22,7 @@ subcollection: appid
 {:deprecated: .deprecated}
 {:download: .download}
 
-# Utilización de la identidad personalizada en la app
+# Identidad personalizada
 {: #custom-auth}
 
 Puede utilizar su propio proveedor de identidad personalizado cuando realice la autenticación. El proveedor de identidad puede ajustarse a cualquier mecanismo de autenticación alternativo a los soportados por {{site.data.keyword.appid_full}}, incluidos el propietario o herencia.

@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-21"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, troubleshooting, help, support, requests, uri
+keywords: Authentication, authorization, identity, app security, secure, troubleshooting, help, support, requests, uri
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -94,15 +94,15 @@ URL 可能由于以下原因而被拒绝：
 * 您配置的重定向 URL 不正确。
 * 身份提供者无法识别认证请求。
 * 身份提供者需要 HTTP-POST 绑定。
-* 身份提供者需要已签名的认证请求。
+* 身份提供者需要已签名的 AuthnRequest。
 
 {: tsResolve}
 您可以尝试以下某些解决方案：
 
-* 更新登录 URL。此 URL 作为认证请求的一部分发送，并且必须是完全一致。
+* 更新登录 URL。此 URL 作为 AuthnRequest 的一部分发送，并且必须是完全一致的。
 * 请确保在身份提供者设置中正确设置了 {{site.data.keyword.appid_short_notm}} 元数据。
-* 将身份提供者配置为接受 HTTP 重定向中的认证请求。
-* {{site.data.keyword.appid_short_notm}} 不支持签名的认证请求。
+* 将身份提供者配置为接受 HTTP-Redirect 中的 AuthnRequest。
+* {{site.data.keyword.appid_short_notm}} 不支持对 AuthnRequest 进行签名。
 
 如果解决方案都不起作用，那么可能是您的连接存在问题。
 {: tip}
@@ -138,7 +138,7 @@ URL 可能由于以下原因而被拒绝：
 {: screen}
 
 {: tsCauses}
-如果您是仅使用一个虚拟用户执行自动测试，那么可能会收到“请求太多”错误。每个用户的登录尝试次数限制为一分钟时间范围内五次。限制登录尝试次数可防止暴力 DDOS 和其他类型的类似攻击。
+如果您是仅使用一个虚拟用户执行自动测试，那么可能会收到“请求太多”错误。每个用户的登录尝试次数限制为一分钟时间范围内五次。限制登录尝试次数可防止暴力 DDoS 和其他类型的类似攻击。
 
 {: tsResolve}
 要解决此问题，您可能需要在执行测试时使用多个虚拟用户。

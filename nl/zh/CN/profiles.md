@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-06"
+lastupdated: "2019-07-09"
 
 keywords: Authentication, authorization, identity, app security, secure, attributes, user information, storing, accessing
 
@@ -10,7 +10,7 @@ subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -92,7 +92,7 @@ AppID.sharedInstance.userProfileManager.getUserInfo { (error: Error?, userInfo: 
 {: codeblock}
 {: ph data-hd-programlang='swift'}
 
-或者，也可以显式地传递访问和身份令牌。身份令牌为可选，但是在传递时，用于验证用户信息响应。
+或者，也可以显式地传递访问和身份令牌。身份令牌是可选的，但是如果传递了身份令牌，会将其用于验证响应。
 {: ph data-hd-programlang='swift'}
 
 ```
@@ -154,7 +154,7 @@ appId.getUserProfileManager().getUserInfo(accessToken, identityToken, new UserPr
 **Node.js**
 {: ph data-hd-programlang='javascript'}
 
-通过使用服务器端 SDK，您可以检索有关用户的其他信息。您可以使用存储的访问和身份令牌来调用以下方法，也可以显式地传递令牌。身份令牌为可选，但是在传递时，用于验证用户信息响应。
+通过使用服务器端 SDK，您可以检索有关用户的其他信息。您可以使用存储的访问和身份令牌来调用以下方法，也可以显式地传递令牌。身份令牌是可选的，但是如果传递了身份令牌，会将其用于验证响应。
 {: ph data-hd-programlang='javascript'}
 
 ```javascript
@@ -181,7 +181,7 @@ userProfileManager.getUserInfo(accessToken).then(function (profile) {
 **服务器端 Swift**
 {: ph data-hd-programlang='swift'}
 
-通过使用服务器端 SDK，您可以检索有关用户的其他信息。您可以使用存储的访问和身份令牌来调用以下方法，也可以显式地传递令牌。身份令牌为可选，但是在传递时，用于验证用户信息响应。
+通过使用服务器端 SDK，您可以检索有关用户的其他信息。您可以使用存储的访问和身份令牌来调用以下方法，也可以显式地传递令牌。身份令牌是可选的，但是如果传递了身份令牌，会将其用于验证响应。
 {: ph data-hd-programlang='swift'}
 
 

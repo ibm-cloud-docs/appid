@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-14"
+lastupdated: "2019-06-28"
 
-keywords: authentication, authorization, identity, app security, secure, application identity, app to app, access token
+keywords: Authentication, authorization, identity, app security, secure, application identity, app to app, access token
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -45,7 +45,7 @@ O {{site.data.keyword.appid_short_notm}} aproveita o fluxo de credenciais do cli
 essas informações, o aplicativo pode solicitar um token de acesso por meio do
 {{site.data.keyword.appid_short_notm}} e ser autorizado a acessar uma API ou um recurso protegido. No
 fluxo de identidade e autorização do aplicativo, apenas um token de acesso é fornecido ao aplicativo. Ele não obtém um token de identidade ou um token de atualização. Para
-obter mais informações sobre tokens, consulte [Entendendo os tokens](/docs/services/appid?topic=appid-tokens#tokens).
+obter mais informações sobre tokens, consulte [Entendendo os tokens](/docs/services/appid?topic=appid-tokens).
 
 Esse fluxo de trabalho é destinado a ser usado apenas com aplicativos confiáveis em que não há risco de o segredo ser
 usado indevidamente ou vazado. O aplicativo sempre mantém o segredo do cliente. Ele não funcionará para aplicativos móveis.
@@ -81,7 +81,7 @@ O segredo do cliente que é usado para autenticar o cliente é altamente sensív
 ### Com a API
 {: #app-register-api}
 
-1. Faça uma solicitação de POST para o terminal [`/management/v4/{tenantId}/applications`](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Applications/mgmt.registerApplication).
+1. Faça uma solicitação de POST para o [terminal `/management/v4/{tenantId}/applications`](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Applications/mgmt.registerApplication){: external}.
 
   Solicitação:
 
@@ -114,7 +114,7 @@ O segredo do cliente que é usado para autenticar o cliente é altamente sensív
 Após o seu aplicativo ser registrado com o {{site.data.keyword.appid_short_notm}} e você obter suas credenciais,
 será possível fazer uma solicitação para o servidor de autorizações {{site.data.keyword.appid_short_notm}} para obter um token de acesso.
 
-1. Faça uma solicitação de HTTP POST para o terminal [`/token`](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization%20Server%20-%20Authorization%20Server%20V4/oauth-server.token). A
+1. Faça uma solicitação de POST HTTP para o [terminal `/token`](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization%20Server%20-%20Authorization%20Server%20V4/oauth-server.token){: external}. A
 autorização para a solicitação é `Basic auth` com o identificador de cliente e o segredo sendo usado
 como o nome de usuário e a senha que são codificados em Base64.
 
@@ -142,9 +142,9 @@ como o nome de usuário e a senha que são codificados em Base64.
 ## Tutorial: fluxo de ponta a ponta com o SDK Node.js
 {: tutorial-node}
 
-1. Obtenha um [token de acesso](/docs/services/appid?topic=appid-tokens#tokens) de uma das seguintes maneiras:
+1. Obtenha um [token de acesso](/docs/services/appid?topic=appid-tokens) de uma das seguintes maneiras:
 
-  * Por meio do [SDK do servidor Node.js](https://github.com/ibm-cloud-security/appid-serversdk-nodejs) do {{site.data.keyword.appid_short_notm}} usando o gerenciador de token. Inicialize o gerenciador de token com suas credenciais de aplicativo e faça uma chamada para o método `getApplicationIdentityToken()` para obter o token.
+  * No [SDK do servidor Node.js](https://github.com/ibm-cloud-security/appid-serversdk-nodejs){: external} do {{site.data.keyword.appid_short_notm}} usando o gerenciador de token. Inicialize o gerenciador de token com suas credenciais de aplicativo e faça uma chamada para o método `getApplicationIdentityToken()` para obter o token.
 
     ```
     const TokenManager = require('ibmcloud-appid').TokenManager;
@@ -230,6 +230,7 @@ você registrou seu aplicativo ligando-o ao console do IBM Cloud, a URL poderá 
   ```
   const express = require('express'),
     passport = require('passport');
+    APIStrategy = require("ibmcloud-appid").APIStrategy;
 
   var app = express();
 app.use(passport.initialize());

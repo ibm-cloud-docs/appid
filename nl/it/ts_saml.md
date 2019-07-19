@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-21"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, development, idp, troubleshooting, redirected, validation
+keywords: Authentication, authorization, identity, app security, secure, development, troubleshooting, redirected, validation
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -35,7 +35,7 @@ Se hai dei problemi durante la configurazione di SAML da utilizzare con {{site.d
 ## Problemi comuni relativi alla configurazione
 {: #ts-common-saml}
 
-Il framework SAML supporta più profili, flussi e configurazioni, il che significa che è essenziale che la tua configurazione del provider di identità sia corretta. Consulta i seguenti argomenti per risolvere alcuni dei problemi comuni che potresti incontrare quando utilizzi SAML.
+Il framework SAML supporta più profili, flussi e configurazioni, il che significa che è essenziale che la tua configurazione del provider di identità sia eseguita corretta. Consulta i seguenti argomenti per risolvere alcuni dei problemi comuni che potresti riscontrare quando utilizzi SAML.
 {: shortdesc}
 
 
@@ -44,7 +44,7 @@ Per messaggi e codici di errore specifici dal tuo provider di identità che non 
 
 
 
-### Manca il parametro `RelayState` 
+### Manca il parametro `RelayState`
 {: #ts-saml-relaystate}
 
 **Cosa sta succedendo**
@@ -66,7 +66,7 @@ https://idp.example.org/SAML2/SSO/Redirect?SAMLRequest=request&RelayState=token
 Verifica che il tuo provider SAML sia configurato per restituire il parametro `RelayState` a {{site.data.keyword.appid_short_notm}} senza modificarlo in alcun modo.
 
 
-### Il campo NameID manca o non è corretto
+### L'ID nome manca o non è corretto
 {: #ts-saml-nameid}
 
 **Cosa sta succedendo**
@@ -93,7 +93,7 @@ Per risolvere il problema, assicurati che il tuo provider di identità `NameID` 
 
 **Cosa sta succedendo**
 
-Quando invii una richiesta di autenticazione ricevi il seguente messaggio di errore: 
+Quando invii una richiesta di autenticazione, ricevi il seguente messaggio di errore: 
 
 ```
 Could not verify SAML assertion signature. Ensure {{site.data.keyword.appid_short_notm}} is configurated with your SAML provider's signing certificate.
@@ -132,14 +132,14 @@ Unexpectedly received an encrypted assertion. Please enable response encryption 
 Messaggio di errore 2: 
 
 ```
-Could not decrypt SAML assertion. Ensure your SAML provider is configured with the {{site.data.keyword.appid_short_notm}} encryption 
+Could not decrypt SAML assertion. Ensure your SAML provider is configured with the {{site.data.keyword.appid_short_notm}} encryption.
 ```
 {: screen}
 
 
 **Perché sta succedendo**
 
-Se il tuo provider di identità è configurato per la crittografia, {{site.data.keyword.appid_short_notm}} deve essere configurato per firmare le richieste di autenticazione SAML (AuthnRequest). Quindi, il tuo provider di identità deve essere configurato per attendersi la configurazione corrispondente. Potresti ricevere questi errori per uno dei seguenti motivi: 
+Se il tuo provider di identità è configurato per la crittografia, {{site.data.keyword.appid_short_notm}} deve essere configurato per firmare le richieste di autenticazione SAML (AuthnRequest). Quindi, il tuo provider di identità deve essere configurato per attendersi la configurazione corrispondente. Potresti ricevere questi errori per uno dei seguenti motivi:
 
 - {{site.data.keyword.appid_short_notm}} non è configurato per aspettarsi che la risposta SAML del provider di identità sia crittografata.
 - {{site.data.keyword.appid_short_notm}} non può decrittografare correttamente le tue asserzioni.
@@ -157,7 +157,7 @@ Se ricevi il messaggio di errore 2, assicurati che il tuo certificato sia corret
 
 **Cosa sta succedendo**
 
-Quando invii una richiesta di autenticazione ricevi il seguente messaggio di errore generico: 
+Quando invii una richiesta di autenticazione, ricevi il seguente messaggio di errore generico:
 
 ```
 urn:oasis:names:tc:SAML:2.0:status:Responder
@@ -170,10 +170,10 @@ Anche se {{site.data.keyword.appid_short_notm}} invia la richiesta di autenticaz
 
 Potresti visualizzare il messaggio se il tuo provider di identità: 
 
-* non può trovare o verificare il nome utente.
-* non supporta il formato `NameID` definito nella richiesta di autenticazione (`AuthnRequest`).
-* non supporta il contesto di autenticazione.
-* richiede che la richiesta di autenticazione sia firmata o utilizzi un algoritmo specifico nella firma.
+* Non riesce a trovare o verificare il nome utente.
+* Non supporta il formato `NameID` definito nella richiesta di autenticazione (`AuthnRequest`).
+* Non supporta il contesto di autenticazione.
+* Richiede che la richiesta di autenticazione sia firmata o utilizzi un algoritmo specifico nella firma.
 
 **Come porvi rimedio**
 
@@ -217,7 +217,7 @@ Per risolvere il problema:
 
 * Verifica che {{site.data.keyword.cloud_notm}} sia configurato per firmare la richiesta di autenticazione impostando il parametro `signRequest` su `true` utilizzando l'[API set SAML IdP](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.set_saml_idp). Puoi controllare se la tua richiesta di autenticazione sia firmata controllando l'URL della richiesta. La firma è inclusa come un parametro di query. Ad esempio: `https://idp.example.org/SAML2/SSO/Redirect?SAMLRequest=request&SigAlg=value&Signature=value&RelayState=token`
 
-* Verifica che il tuo provider di identità sia configurato con il certificato corretto. Per ottenere il certificato di firma controlla il file XML di metadati {{site.data.keyword.cloud_notm}} che hai scaricato dal dashboard {{site.data.keyword.cloud_notm}}. Assicurati di utilizzare la chiave con `<KeyDescriptor use="signing">`. 
+* Verifica che il tuo provider di identità sia configurato con il certificato corretto. Per ottenere il certificato di firma controlla il file XML di metadati {{site.data.keyword.cloud_notm}} che hai scaricato dal dashboard {{site.data.keyword.cloud_notm}}. Assicurati di utilizzare la chiave con `<KeyDescriptor use="signing">`.
 
 * Verifica che il tuo provider di identità sia configurato all'utilizzo di `` come algoritmo di firma.
 

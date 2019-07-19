@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-06"
+lastupdated: "2019-07-09"
 
 keywords: Authentication, authorization, identity, app security, secure, attributes, user information, storing, accessing
 
@@ -10,7 +10,7 @@ subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -49,7 +49,7 @@ Vous pouvez stocker jusqu'à 100 Ko d'informations par utilisateur.
 {: note}
 
 
-## Accès aux profils d'utilisateur 
+## Accès aux profils d'utilisateur
 {: #profile-access}
 
 Il existe différentes façons d'accéder aux attributs. Après une authentification utilisateur réussie, votre application reçoit les jetons d'accès et d'identité d'{{site.data.keyword.appid_short_notm}}. Les informations de l'utilisateur et les attributs personnalisés sont protégés par un jeton d'accès généré par {{site.data.keyword.appid_short_notm}} à la fin du processus d'authentification. Le jeton d'identité contient un sous-ensemble normalisé d'attributs utilisateur (informations) qui est renvoyé par un fournisseur d'identité. Vous pouvez obtenir la liste complète des attributs utilisateur via le noeud final OIDC [`/userinfo`](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization_Server_V4/userInfo). 
@@ -65,7 +65,7 @@ Passez en revue l'image suivante pour voir les différentes façons dont vous po
 Figure. Accès aux options des profils d'utilisateurs
 
 
-App ID injecte automatiquement un sous-ensemble d'attributs dans vos jetons d'accès et d'identité. Vous pouvez tirer parti du mappage des réclamations personnalisées et mapper d'autres réclamations prédéfinies et personnalisées dans vos jetons. Pour en savoir plus sur la méthode recommandée pour accéder aux informations utilisateur, voir [Personnalisation des jetons](/docs/services/appid?topic=appid-customizing-tokens).
+App ID injecte automatiquement un sous-ensemble d'attributs dans vos jetons d'accès et d'identité. Vous pouvez tirer parti du mappage des réclamations personnalisées et mapper d'autres réclamations prédéfinies et personnalisées dans vos jetons. Pour en savoir plus sur la méthode recommandée pour accéder aux informations utilisateur, voir [Personnalisation des jetons](/docs/services/appid?topic=appid-customizing-tokens). 
 {: note}
 
 
@@ -92,7 +92,7 @@ AppID.sharedInstance.userProfileManager.getUserInfo { (error: Error?, userInfo: 
 {: codeblock}
 {: ph data-hd-programlang='swift'}
 
-Vous pouvez aussi transmettre explicitement des jetons d'accès et d'identité. Le jeton d'identité est facultatif mais lorsqu'il est transmis, il est utilisé pour valider la réponse relative aux informations utilisateur.
+Vous pouvez aussi transmettre explicitement des jetons d'accès et d'identité. Le jeton d'identité est facultatif mais lorsqu'il est transmis, il est utilisé pour valider la réponse.
 {: ph data-hd-programlang='swift'}
 
 ```
@@ -154,7 +154,7 @@ appId.getUserProfileManager().getUserInfo(accessToken, identityToken, new UserPr
 **Node.js**
 {: ph data-hd-programlang='javascript'}
 
-Si vous utilisez un logiciel SDK côté serveur, vous pouvez extraire des informations supplémentaires sur vos utilisateurs. Vous pouvez appeler la méthode ci-après en utilisant les jetons d'accès et d'identité stockés, ou transmettre explicitement les jetons. Le jeton d'identité est facultatif mais lorsqu'il est transmis, il est utilisé pour valider la réponse relative aux informations utilisateur.
+Si vous utilisez un logiciel SDK côté serveur, vous pouvez extraire des informations supplémentaires sur vos utilisateurs. Vous pouvez appeler la méthode ci-après en utilisant les jetons d'accès et d'identité stockés, ou transmettre explicitement les jetons. Le jeton d'identité est facultatif mais lorsqu'il est transmis, il est utilisé pour valider la réponse.
 {: ph data-hd-programlang='javascript'}
 
 ```javascript
@@ -181,7 +181,7 @@ userProfileManager.getUserInfo(accessToken).then(function (profile) {
 **Swift côté serveur**
 {: ph data-hd-programlang='swift'}
 
-Si vous utilisez un logiciel SDK côté serveur, vous pouvez extraire des informations supplémentaires sur vos utilisateurs. Vous pouvez appeler la méthode ci-après en utilisant les jetons d'accès et d'identité stockés, ou transmettre explicitement les jetons. Le jeton d'identité est facultatif mais lorsqu'il est transmis, il est utilisé pour valider la réponse relative aux informations utilisateur.
+Si vous utilisez un logiciel SDK côté serveur, vous pouvez extraire des informations supplémentaires sur vos utilisateurs. Vous pouvez appeler la méthode ci-après en utilisant les jetons d'accès et d'identité stockés, ou transmettre explicitement les jetons. Le jeton d'identité est facultatif mais lorsqu'il est transmis, il est utilisé pour valider la réponse.
 {: ph data-hd-programlang='swift'}
 
 

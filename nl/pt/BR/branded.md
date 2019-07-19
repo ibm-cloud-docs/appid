@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-20"
+lastupdated: "2019-07-10"
 
-keywords: authentication, authorization, identity, app security, secure, customizing apps, directory, registry, 
+keywords: Authentication, authorization, identity, app security, secure, customizing apps, directory, registry, 
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -41,27 +41,24 @@ diretamente com seu aplicativo.
 {: #branded-requirements}
 
 
-Para exibir suas próprias IUs, deve-se usar o [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory) como seu provedor de identidade. Há várias maneiras diferentes como o Cloud Directory pode ser
-[configurado](/docs/services/appid?topic=appid-cloud-directory). É possível decidir os tipos de mensagens que você deseja enviar e customizar o conteúdo e o design. Não sabe o que dizer? Não é um problema. Há mensagens de exemplo na GUI que podem ser usadas.
+Para exibir suas próprias IUs, deve-se usar o [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory) como seu provedor de identidade. O Cloud Directory pode ser configurado de várias maneiras diferentes. É possível decidir os tipos de mensagens que você deseja enviar e customizar o conteúdo e o design. Não sabe o que dizer? Não é um problema. Consulte a GUI para obter mensagens de exemplo que podem ser usadas.
 
 
-Deseja usar um [idioma](/docs/services/appid?topic=appid-cd-messages#cd-languages) diferente do inglês? É possível escolher outro
-idioma usando as
-<a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/updateLocalization" target="_blank">APIs de
-gerenciamento de idioma <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a>, para exibir seu próprio conteúdo traduzido.
+Deseja usar um [idioma](/docs/services/appid?topic=appid-cd-messages#cd-languages) diferente do inglês? É possível escolher outro idioma usando as [APIs de gerenciamento de idiomas](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/updateLocalization){: external} para exibir seu próprio conteúdo traduzido.
 {: tip}
+
+
 
 
 ### Posso usar algumas telas próprias e algumas telas padrão?
 {: #branded-hybrid}
 
-Sim! É possível criar um fluxo híbrido que usa algumas de suas telas e algumas das telas padrão. No entanto, é possível usar apenas uma opção por fluxo. Como um exemplo, é possível usar a sua própria tela de conexão e também usar a tela de conexão padrão. Mas, se você optar por usar a tela de conexão padrão, deverá continuar a usar o padrão por meio do fluxo de conexão inteiro, incluindo a verificação de conexão.
+Sim! É possível criar um fluxo híbrido que usa algumas de suas telas e algumas das telas padrão. No entanto, é possível usar apenas uma opção por fluxo. Como um exemplo, é possível usar a sua própria tela de conexão e também usar a tela de conexão padrão. Mas, se você optar por usar a tela de inscrição padrão, deverá continuar a usar o padrão em todo o fluxo de inscrição, incluindo na verificação de inscrição.
 
 ### Como os fluxos se diferenciam tecnicamente?
 {: #branded-technically}
 
-O serviço usa os fluxos de concessão OAuth 2.0 para mapear o processo de autorização. Quando você configura provedores de
-identidade sociais, como o Facebook, o <a href="https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html" target="_blank">Fluxo de concessão de autorização <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a> é usado para chamar o widget de login. Quando você usa suas próprias telas, o <a href="https://oauthlib.readthedocs.io/en/stable/oauth2/grants/password.html" target="_blank">Fluxo de Credenciais de Senha do Proprietário do Recurso <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a>é usado para fornecer acesso e tokens de identidade que permitem chamar suas telas.
+O serviço usa os fluxos de concessão OAuth 2.0 para mapear o processo de autorização. Quando você configura os provedores de identidade social, como o Facebook, o [Fluxo de concessão de autorização](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html){: external} é usado para chamar o Widget de login. Quando você usa suas próprias telas, o [fluxo de Credenciais de senha do proprietário do recurso](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/password.html){: external} é usado para fornecer tokens de acesso e identidade que podem ser utilizados para chamar suas telas.
 
 
 
@@ -70,17 +67,15 @@ identidade sociais, como o Facebook, o <a href="https://oauthlib.readthedocs.io/
 
 Sim! Consulte qualquer um dos exemplos a seguir para ver o Cloud Directory em ação:
 
-* <a href="https://www.ibm.com/cloud/blog/use-branded-ui-user-sign-app-id" target="_blank">Use a sua própria IU de marca para a conexão do usuário com o {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a>
-* <a href="https://www.ibm.com/cloud/blog/use-ui-flows-user-sign-sign-app-id" target="_blank">Use sua própria
-IU e fluxos para inscrição do usuário e inscrição com o {{site.data.keyword.appid_short_notm}}
-<img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a>
-* <a href="https://www.ibm.com/cloud/blog/custom-login-page-app-id-integration" target="_blank">Use uma página de login customizada com o {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a>
+* [Usar sua própria IU de marca para a conexão do usuário com o {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/use-branded-ui-user-sign-app-id){: external}
+* [Usar sua própria IU e seus fluxos para inscrição e conexão do usuário com o {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/use-ui-flows-user-sign-sign-app-id){: external}
+* [Usar uma página de login customizada com o {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/custom-login-page-app-id-integration){: external}
 
 
 ## Inserindo uma marca no aplicativo com o SDK do Android
 {: #branded-ui-android}
 
-Com o Cloud Directory ativado, é possível chamar telas customizadas com o SDK do Android. É possível escolher a combinação das telas com as quais você gostaria que seus usuários fossem capazes de interagir.<a href="https://www.ibm.com/cloud/blog/use-branded-ui-user-sign-app-id" target="blank">Veja este blog<img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a> para um exemplo detalhado!
+Com o Cloud Directory ativado, é possível chamar telas customizadas com o SDK do Android. É possível escolher a combinação das telas com as quais você gostaria que seus usuários fossem capazes de interagir. Para obter um exemplo detalhado, [confira este blog](https://www.ibm.com/cloud/blog/use-branded-ui-user-sign-app-id){: external}.
 {: shortdesc}
 
 
@@ -89,8 +84,7 @@ Com o Cloud Directory ativado, é possível chamar telas customizadas com o SDK 
 {: #branded-android-sign-in}
 
 1. Configure as [definições](/docs/services/appid?topic=appid-cloud-directory#cd-settings) do Cloud Directory na GUI.
-2. Inclua o código a seguir no aplicativo. O fluxo de conexão é acionado quando um usuário clica em Conectar em sua tela customizada. Você
-obtém os tokens de acesso, de identidade e de atualização fornecendo o nome de usuário e a senha do usuário final.
+2. Inclua o código a seguir no aplicativo. O fluxo de conexão é acionado quando um usuário clica em se conectar em sua tela customizada. Você obtém tokens de acesso, identidade e atualização fornecendo o nome de usuário e a senha do usuário.
 
   ```java
   AppID.getInstance().signinWithResourceOwnerPassword(getApplicationContext(), username, password,
@@ -114,7 +108,7 @@ obtém os tokens de acesso, de identidade e de atualização fornecendo o nome d
 ## Inserindo uma marca no aplicativo com o SDK do iOS Swift
 {: #branded-ui-ios-swift}
 
-Com o Cloud Directory ativado, é possível chamar suas próprias telas com marca com o [SDK do iOS Swift](https://github.com/ibm-cloud-security/appid-clientsdk-swift).
+Com o Cloud Directory ativado, é possível chamar suas próprias telas com marca com o [SDK do iOS Swift](https://github.com/ibm-cloud-security/appid-clientsdk-swift){: external}.
 {: shortdesc}
 
 </br>
@@ -150,7 +144,7 @@ Com o Cloud Directory ativado, é possível chamar as telas customizadas com o S
 ### Conectar
 {: #branded-node-sign-in}
 
-Usando o `WebAppStrategy`, os usuários podem se conectar aos seus apps da web com seu nome de usuário e uma senha. Depois que
+Ao usar `WebAppStrategy`, os usuários podem se conectar aos apps da web com seus nomes de usuário e senhas. Depois que
 um usuário se conecta com sucesso ao aplicativo, o token de acesso dele é persistido em uma sessão HTTP, desde que ela seja mantida
 ativa. Após a sessão HTTP ser fechada ou expirada, o token de acesso também é destruído.
 
@@ -188,8 +182,8 @@ valor é configurado como <code>false</code>.</td>
     </tbody>
   </table>
 
-**Nota**: se você enviar a solicitação em HTML, será possível usar o middleware do <a href="https://www.npmjs.com/package/body-parser" target="blank">analisador de corpo <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a>. Para ver a mensagem de erro retornada, é possível usar <a href="https://www.npmjs.com/package/connect-flash" target="blank">connect-flash <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a>. Para
-vê-lo em ação, consulte a <a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs/blob/master/samples/web-app-sample.js" target="blank">amostra do aplicativo da web <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a>.
+**Nota**: se você enviar a solicitação em HTML, será possível usar o middleware [body parser](https://www.npmjs.com/package/body-parser){: external}. Para ver a mensagem de erro retornada, é possível usar [connect-flash](https://www.npmjs.com/package/connect-flash){: external}. Para vê-lo em ação, confira a [amostra de app da web](https://github.com/ibm-cloud-security/appid-serversdk-nodejs/blob/master/samples/web-app-sample.js){: external}.
+
 
 
 ## Inserindo uma marca no aplicativo com a API
@@ -202,7 +196,7 @@ Para tornar isso possível, o {{site.data.keyword.appid_short_notm}} expõe as A
 APIs de REST para construir um servidor de back-end que atenda a seus aplicativos da web ou para interagir com um
 aplicativo móvel com suas próprias telas customizadas.
 
-A API de gerenciamento é protegida com tokens gerados pelo IBM Cloud Identity and Access Management, o que significa que os proprietários da conta podem especificar o nível de acesso para cada instância de serviço de cada um dos integrantes da equipe. Para mais informações sobre como o IAM e o {{site.data.keyword.appid_short_notm}} trabalham juntos, consulte [Gerenciamento de acesso de serviço](/docs/services/appid?topic=appid-service-access-management#service-access-management).
+A API de gerenciamento é protegida com tokens gerados pelo IBM Cloud Identity and Access Management, o que significa que os proprietários da conta podem especificar o nível de acesso para cada instância de serviço de cada um dos integrantes da equipe. Para mais informações sobre como o IAM e o {{site.data.keyword.appid_short_notm}} trabalham juntos, consulte [Gerenciamento de acesso de serviço](/docs/services/appid?topic=appid-service-access-management).
 
 Depois de configurar suas [configurações](/docs/services/appid?topic=appid-cloud-directory#cd-settings), é possível chamar os terminais a seguir para exibir cada tela.
 
@@ -212,12 +206,11 @@ Depois de configurar suas [configurações](/docs/services/appid?topic=appid-clo
 É possível usar o terminal `/sign_up` para permitir que os usuários se conectem ao seu aplicativo.
 Forneça os seguintes dados no corpo da solicitação:
   * Seu tenantID.
-  * Dados do usuário do Cloud Directory. Veja [Representação do usuário integral do SCIM](https://tools.ietf.org/html/rfc7643#section-8.2) para obter mais detalhes.
+  * Dados do usuário do Cloud Directory. Veja [Representação do usuário integral do SCIM](https://tools.ietf.org/html/rfc7643#section-8.2){: external} para obter mais detalhes.
     * Um atributo `password`.
-    * Na matriz de e-mail com um atributo `primary` que é configurado para `true`, deve-se ter pelo menos 1 endereço de e-mail.
+    * Na matriz de e-mail com um atributo `primary` configurado como `true`, deve-se ter pelo menos um endereço de e-mail.
 
-Dependendo de sua [configuração de e-mail](/docs/services/appid?topic=appid-cd-messages#cd-messages), um usuário pode
-receber uma solicitação de verificação e/ou um e-mail de boas-vindas ao se inscrever ao seu aplicativo. Ambos os tipos de e-mails são acionados quando um usuário se inscreve para seu app. O
+Dependendo da sua [configuração de e-mail](/docs/services/appid?topic=appid-cd-messages), um usuário pode receber uma solicitação para verificação, um e-mail que dá as boas-vindas quando ele se inscreve em seu app ou ambos. Ambos os tipos de e-mails são acionados quando um usuário se inscreve para seu app. O
 e-mail de verificação contém um link que o usuário pode clicar para confirmar sua identidade. Uma tela é exibida
 agradecendo pela verificação ou confirmando que sua verificação está concluída.  
 
@@ -227,16 +220,16 @@ Para apresentar sua própria página de verificação de postagem:
 2. Clique na guia **Verificação de e-mail**.
 3. Na **URL da página de verificação customizada**, insira a URL para a página inicial.
 
-Quando esse valor for fornecido, o {{site.data.keyword.appid_short_notm}} chamará a URL junto com uma consulta de `context`. Quando você chama o terminal `/sign_up/confirmation_result` e passa o parâmetro `context` recebido, o resultado indica se o usuário verificou sua conta. Se sim, será possível exibir sua página customizada.
+Quando esse valor for fornecido, o {{site.data.keyword.appid_short_notm}} chamará a URL junto com uma consulta de `context`. Quando você chama o terminal `/sign_up/confirmation_result` e passa o parâmetro `context` recebido, o resultado informa se seu usuário verificou a conta. Se sim, será possível exibir sua página customizada.
 
 
 ### Senha esquecida
 {: #branded-api-forgot-password}
 
-É possível usar o terminal `/forgot_password` para permitir que os usuários recuperem sua senha se a tiverem esquecido.
+É possível usar o terminal `/forgot_password` para permitir que os usuários recuperem suas senhas se as esqueceram.
 
 Forneça os seguintes dados no corpo da solicitação:
-  * Seu tenantID.
+  * O seu ID do locatário.
   * O e-mail do usuário do Cloud Directory.
 
 Quando o terminal é chamado, um e-mail de reconfiguração de senha é enviado para o usuário. O e-mail contém um botão **Reconfigurar**. Depois de pressionar o botão, uma tela é exibida pelo {{site.data.keyword.appid_short_notm}} em que é possível reconfigurar a sua senha.
@@ -249,7 +242,7 @@ Quando o terminal é chamado, um e-mail de reconfiguração de senha é enviado 
 
 Quando esse valor for fornecido, o {{site.data.keyword.appid_short_notm}} chamará a URL junto com uma consulta de `context`. O parâmetro `context` é usado para receber o resultado quando `/forgot_password/confirmation_result` é chamado. Se o resultado for bem-sucedido, será possível exibir sua página customizada.
 
-Inclua uma sequência aleatória em sua página customizada de reconfiguração de senha e passe-a ao seu backend quando a solicitação for enviada. Deixe o manipulador validar a sequência e chame o terminal `/change_password` somente se ele for válido. Ao fazer isso, é possível reduzir a vulnerabilidade do terminal de reconfiguração de senha de backend.
+Inclua uma sequência aleatória em sua página customizada de reconfiguração de senha e passe-a ao seu backend quando a solicitação for enviada. Deixe o manipulador validar a sequência e chame o terminal `/change_password` somente se ele for válido. Ao fazer isso, é possível reduzir a vulnerabilidade do seu terminal de senha de reconfiguração de back-end.
 {: tip}
 
 
@@ -274,7 +267,7 @@ Forneça os seguintes dados no corpo da solicitação:
   * A nova senha do usuário.
   * O UUID do usuário do Cloud Directory.
 
-Sua página de mudança de senha deve solicitar ao usuário para inserir sua senha atual e sua nova senha.
+Sua página de mudança de senha deve solicitar que o usuário insira sua senha atual e sua nova senha.
 {: tip}
 
 Seu backend valida a senha atual do usuário com a API do ROP e, se válida, chama o terminal com a nova senha. Dependendo da sua configuração, quando uma senha mudar, o {{site.data.keyword.appid_short_notm}} poderá enviar um e-mail para informar isso ao usuário.
@@ -296,7 +289,7 @@ Forneça os seguintes dados no corpo da solicitação:
 
 Quando um usuário está conectado ao seu app, ele pode atualizar algumas das suas informações. É possível usar o `/Users/{userId}` para obter e atualizar suas informações.
 
-Quando os detalhes do usuário são atualizados, o terminal obtém os dados do usuário atualizados no corpo da solicitação no [formato SCIM](https://tools.ietf.org/html/rfc7643#section-8.2). Certifique-se de que mudar somente os detalhes relevantes.
+Quando os detalhes do usuário são atualizados, o terminal obtém os dados do usuário atualizados no corpo da solicitação no [formato SCIM](https://tools.ietf.org/html/rfc7643#section-8.2){: external}. Certifique-se de que mudar somente os detalhes relevantes.
 
 Seu endereço de e-mail não pode ser mudado.
 {: tip}

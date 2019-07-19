@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-21"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, web apps, client, server
+keywords: Authentication, authorization, identity, app security, secure, web apps, client, server
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -48,9 +48,9 @@ Las apps web a menudo requieren que los usuarios se autentiquen para poder acced
 
 2. Si el usuario no está autorizado, el flujo de autenticación se inicia con una redirección a {{site.data.keyword.appid_short_notm}}.
 
-3. En función de la configuración del proveedor de identidad o los parámetros de solicitud `/authorization` del usuario, inicia el Widget de inicio de sesión con el navegador de usuarios.
+3. En función de los parámetros de solicitud de `/authorization` del usuario o de la configuración del proveedor de identidades, inicia el widget de inicio de sesión en el navegador del usuario.
 
-4. El usuario selecciona un proveedor de identidad con el que autenticarse y completa el proceso de inicio de sesión.
+4. El usuario elige un proveedor de identidades para autenticarse con y completa el proceso de inicio de sesión.
 
 5. El proveedor de identidad redirecciona a la app de cliente con el código de autorización.
 
@@ -123,12 +123,12 @@ Consulte el siguiente vídeo para obtener más información sobre la protección
   ```
   {: codeblock}
 
-  Debe configurar el middleware con el almacenamiento de sesión adecuado para entornos de producción. Para obtener más información, consulte la <a href="https://github.com/expressjs/session" target="_blank">documentación de express.js <img src="../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>.
+  Debe configurar el middleware con el almacenamiento de sesión adecuado para entornos de producción. Para obtener más información, consulte la documentación de [express.js](https://expressjs.com/){: external}.
   {: note}
 
 3. Obtenga las credenciales de una de las formas siguientes.
 
-  * Vaya al separador **Aplicaciones** del panel de control de {{site.data.keyword.appid_short_notm}}. Si no tiene ninguna aplicación listada, puede pulsar **Añadir aplicación** para crear una aplicación nueva.
+  * Vaya al separador **Aplicaciones** del panel de control de {{site.data.keyword.appid_short_notm}}. Si no tiene ninguna aplicación en la lista, puede pulsar **Añadir aplicación** para crear una.
 
   * Realice una solicitud POST en el punto final [`/management/v4/{tenantId}/applications`](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Applications/mgmt.registerApplication).
 
@@ -332,7 +332,7 @@ Consulte el siguiente vídeo para obtener más información sobre la protección
 ### Inicialización del SDK de Liberty for Java
 {: #web-liberty-initialize}
 
-1. En el archivo `server.xml`, defina un filtro de autorización para especificar recursos protegidos. Si no se <a href="https://www.ibm.com/support/knowledgecenter/en/SSD28V_9.0.0/com.ibm.websphere.wlp.core.doc/ae/rwlp_auth_filter.html" target="_blank">define <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a> un filtro, el servicio protege todos los recursos.
+1. En el archivo `server.xml`, defina un filtro de autorización para especificar recursos protegidos. Si no se <a href="https://www.ibm.com/support/knowledgecenter/en/SSD28V_liberty/com.ibm.websphere.wlp.core.doc/ae/rwlp_auth_filter.html" target="_blank">define <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a> un filtro, el servicio protege todos los recursos.
 
   ```xml
   <authFilter id="myAuthFilter">

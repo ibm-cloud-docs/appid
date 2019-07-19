@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-13"
+lastupdated: "2019-06-18"
 
-keywords: authentication, authorization, identity, app security, secure, application identity, app to app, access token
+keywords: Authentication, authorization, identity, app security, secure, application identity, app to app, access token
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -82,7 +82,7 @@ https://<region-endpoint>.appid.cloud.ibm.com/management
 {: #api-prereq}
 
 <ul><ul><li>2018 年 3 月 15 日之后创建的服务实例。如果您的服务实例创建于该日期之前，请创建新实例并将其配置为与当前实例匹配。请确保更新应用程序以使用新实例。</li>
-<li>已安装 [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-ibmcloud-cli)。</li></ul></ul>
+<li>已安装 [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started)。</li></ul></ul>
 
 ## 用法示例
 {: #api-example}
@@ -127,4 +127,4 @@ if (r.status_code >= 200) :~
 ## 后续步骤
 {: #api-try}
 
-要亲自试用，请参阅 <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/" target="_blank">{{site.data.keyword.appid_short_notm}} 管理 Rest API <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a>
+要亲自试用，请参阅 [{{site.data.keyword.appid_short_notm}} 管理 REST API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/){: external}

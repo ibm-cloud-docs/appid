@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-06"
+lastupdated: "2019-06-18"
 
 keywords: Authentication, authorization, identity, app security, secure, compliance, high availability, ha, disaster recover, dr, protocols, oauth, oidc
 
@@ -10,7 +10,7 @@ subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -46,7 +46,7 @@ Cloud Directory はどのようなことができますか? このビデオで�
     <th>ソリューション</th>
   </tr>
   <tr>
-    <td>モバイル・アプリや Web アプリに[許可と認証](/docs/services/appid?topic=appid-key-concepts#key-concepts)を追加する必要があるが、セキュリティーに関する背景知識がない。</td>
+    <td>モバイル・アプリや Web アプリに[許可と認証](/docs/services/appid?topic=appid-key-concepts)を追加する必要があるが、セキュリティーに関する背景知識がない。</td>
     <td>{{site.data.keyword.appid_short_notm}} を使用すれば、アプリに認証ステップを簡単に追加できます。 API、SDK、事前構築された UI、または独自のブランド・マークが付いた UI を使用する、E メールまたはユーザー名によるサインイン、ソーシャル・サインイン、またはエンタープライズ・サインインをアプリに追加することができます。</td>
   </tr>
   <tr>
@@ -59,7 +59,7 @@ Cloud Directory はどのようなことができますか? このビデオで�
   </tr>
   <tr>
     <td>スケーラブルな方法でユーザーを管理したい。</td>
-    <td> {{site.data.keyword.appid_short_notm}} では、[Cloud Directory](/docs/services/appid?topic=appid-cloud-directory#cloud-directory) を作成できます。これにより、ユーザー登録とサインインをアプリに追加できます。 Cloud Directory は、ユーザー・ベースに合わせて拡張可能なユーザー・レジストリーを維持するためのフレームワークを提供します。 事前構築されたセルフサービスの機能 (E メールの検証やパスワードのリセットなど) を利用することで、アプリはユーザーを安全に認証できるようになります。</td>
+    <td> {{site.data.keyword.appid_short_notm}} では、[Cloud Directory](/docs/services/appid?topic=appid-cloud-directory) を作成できます。これにより、ユーザー登録とサインインをアプリに追加できます。 Cloud Directory は、ユーザー・ベースに合わせて拡張可能なユーザー・レジストリーを維持するためのフレームワークを提供します。 事前構築されたセルフサービスの機能 (E メールの検証やパスワードのリセットなど) を利用することで、アプリはユーザーを安全に認証できるようになります。</td>
   </tr>
 </table>
 
@@ -92,13 +92,13 @@ Cloud Directory はどのようなことができますか? このビデオで�
 
 <dl>
   <dt>{{site.data.keyword.containershort_notm}}</dt>
-    <dd>標準クラスター内に Ingress を構成することにより、クラスター・レベルでアプリを保護できます。 始めに <a href="/docs/containers?topic=containers-ingress_annotation#appid-auth">{{site.data.keyword.appid_short_notm}} 認証 Ingress アノテーション</a>または <a href="https://www.ibm.com/blogs/cloud-archive/2018/05/announcing-app-id-integration-ibm-cloud-kubernetes-service/">Announcing {{site.data.keyword.appid_short_notm}} integration to {{site.data.keyword.containerlong_notm}} <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> ブログ投稿を確認してください。</dd>
+    <dd>標準クラスター内に Ingress を構成することにより、クラスター・レベルでアプリを保護できます。 始めに <a href="/docs/containers?topic=containers-ingress_annotation#appid-auth">{{site.data.keyword.appid_short_notm}} 認証 Ingress アノテーション</a>または <a href="https://www.ibm.com/cloud/blog/announcing-app-id-integration-ibm-cloud-kubernetes-service">Announcing {{site.data.keyword.appid_short_notm}} integration to {{site.data.keyword.containerlong_notm}} <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> ブログ投稿を確認してください。</dd>
   <dt>{{site.data.keyword.openwhisk_short}} および {site.data.keyword.apiconnect_short}}</dt>
-    <dd>[{{site.data.keyword.openwhisk_short}}](/docs/openwhisk?topic=cloud-functions-getting_started#getting_started) と [API Connect](/docs/services/apiconnect?topic=apiconnect-getting-started) を使用して API を作成すると、アプリ・コードではなくゲートウェイでアプリケーションを保護できます。 実際の統合を確認するには、<a href="https://www.youtube.com/watch?v=Fa9YD2NGZiE" target="_blank">Simple and fast social login OAuth with API Connect and {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> をご覧ください。</dd>
+    <dd>[{{site.data.keyword.openwhisk_short}}](/docs/openwhisk?topic=cloud-functions-getting-started) と [API Connect](/docs/services/apiconnect?topic=apiconnect-getting-started) を使用して API を作成すると、アプリ・コードではなくゲートウェイでアプリケーションを保護できます。 実際の統合を確認するには、<a href="https://www.youtube.com/watch?v=Fa9YD2NGZiE" target="_blank">Simple and fast social login OAuth with API Connect and {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> をご覧ください。</dd>
   <dt>Cloud Foundry</dt>
     <dd>提供されているサンプル Cloud Foundry アプリのいずれかを試してみて、アプリに {{site.data.keyword.appid_short_notm}} を組み込む方法を確認してください。</dd>
   <dt>{{site.data.keyword.cloudaccesstrailshort}}</dt>
-    <dd>[{{site.data.keyword.cloudaccesstrailshort}} の資料](/docs/services/cloud-activity-tracker?topic=cloud-activity-tracker-getting-started#getting-started)を使用し、{{site.data.keyword.appid_short_notm}} で行われた管理アクティビティー (ダッシュボード構成の変更など) をモニターできます。</dd>
+    <dd>[{{site.data.keyword.cloudaccesstrailshort}} の資料](/docs/services/cloud-activity-tracker?topic=cloud-activity-tracker-getting-started)を使用し、{{site.data.keyword.appid_short_notm}} で行われた管理アクティビティー (ダッシュボード構成の変更など) をモニターできます。</dd>
   <dt>iOS プログラミング・ガイド</dt>
     <dd>Apple 対応アプリを開発しますか? {{site.data.keyword.cloud_notm}} を使用する既存の iOS アプリの学習、実験、拡張を行うには、[iOS プログラミング・ガイド](/docs/swift?topic=swift-getting-started)を実際に使ってみてください。</dd>
   <dt>Node.js プログラミング・ガイド</dt>
@@ -114,7 +114,7 @@ Cloud Directory はどのようなことができますか? このビデオで�
 
 {{site.data.keyword.appid_short_notm}} は、企業向けのアプリケーションと消費者向けのアプリケーションの両方で広く使用されている既知の業界標準プロトコルと仕様のセットである OAuth 2.0 Authorization Framework、および Open ID Connect に基づいています。 OAuth 2.0 は、保護リソースにアクセスするための許可の取得と検証のために使用されています。 それに加えて、Open ID Connect により、認証と ID 保護のレイヤーがアプリケーションに追加されています。
 
-[認定](https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=BF31C8008D7C11E59F9AD7336D7D0FFB)の詳細なリストを確認するには、{{site.data.keyword.appid_short_notm}} ソフトウェア製品互換性レポートのセクション 5.4 を参照してください。 認定に加えて、{{site.data.keyword.appid_short_notm}} は、OAuth 2.0、OpenID Connect、JSON Web Token (JWT)、JSON Web Signature (JWS)、System for Cross-domain Identity Management (SCIM) の仕様にも準拠しています。 
+[認定](https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=BF31C8008D7C11E59F9AD7336D7D0FFB){: external}の詳細なリストを確認するには、{{site.data.keyword.appid_short_notm}} ソフトウェア製品互換性レポートのセクション 5.4 を参照してください。 認定に加えて、{{site.data.keyword.appid_short_notm}} は、OAuth 2.0、OpenID Connect、JSON Web Token (JWT)、JSON Web Signature (JWS)、System for Cross-domain Identity Management (SCIM) の仕様にも準拠しています。 
 
 
 ## 地域的高可用性
@@ -127,4 +127,5 @@ Cloud Directory はどのようなことができますか? このビデオで�
 
 {{site.data.keyword.appid_short_notm}} に保管されるデータは暗号化され、複数のアベイラビリティー・ゾーンにわたって広がるデータベース・クラスターで保持されます。 データは別個の暗号化されたオブジェクト・ストレージでもバックアップされます。
 
-{{site.data.keyword.appid_short_notm}} は地域サービスであるため、自動地域間フェイルオーバーや地域間災害復旧は提供しません。 ただし、{{site.data.keyword.appid_short_notm}} には、<a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/" target="_blank">広範囲 API <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> が用意されています。開発者はこれを使用して、手動でサービス構成を {{site.data.keyword.appid_short_notm}} の別のインスタンス (複数可) と同期することができます。
+{{site.data.keyword.appid_short_notm}} は地域サービスであるため、自動地域間フェイルオーバーや地域間災害復旧は提供しません。 ただし、{{site.data.keyword.appid_short_notm}} には、[多種多様な API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/){: external} が用意されているので、開発者は API を使用してサービス構成を {{site.data.keyword.appid_short_notm}} の別のインスタンスと手動で同期することができます。
+

@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-01"
+lastupdated: "2019-06-18"
 
-keywords: authentication, authorization, identity, app security, secure, application identity, app to app, access token, activity
+keywords: Authentication, authorization, identity, app security, secure, application identity, app to app, access token, activity
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -33,7 +33,7 @@ subcollection: appid
 
 
 
-サービスの動作について詳しくは、[{{site.data.keyword.cloudaccesstrailshort}} の資料](/docs/services/cloud-activity-tracker?topic=cloud-activity-tracker-getting-started#getting-started)を参照してください。
+サービスの動作について詳しくは、[{{site.data.keyword.cloudaccesstrailshort}} の資料](/docs/services/cloud-activity-tracker?topic=cloud-activity-tracker-getting-started)を参照してください。
 
 
 

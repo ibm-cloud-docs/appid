@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, access management, roles, attributes, users
+keywords: Authentication, authorization, identity, app security, secure, access management, roles, attributes, users
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -26,7 +26,7 @@ subcollection: appid
 # 指導教學：設定使用者角色
 {: #tutorial-roles}
 
-當您撰寫應用程式的程式碼時，要確保對的人在對的時間具有對的存取權可能很困難。為了協助完成這項處理程序，您可以使用 {{site.data.keyword.appid_full}} 來定義自訂屬性，例如 `role`，它可讓您指派不同類型的使用者。然後，您可以使用應用程式來針對每一種類型的使用者施行不同層次的許可權。藉由使用此逐步指引，您可以瞭解如何設定使用者屬性，更新它們，然後使用 {{site.data.keyword.appid_short_notm}} API 將它們注入記號中。
+當您撰寫應用程式的程式碼時，要確保對的人在對的時間具有對的存取權可能很困難。為了協助完成這項處理程序，您可以使用 {{site.data.keyword.appid_full}} 來定義自訂屬性，例如 `role`，它可讓您指派不同類型的使用者。然後，您可以使用應用程式來針對每一種類型的使用者施行不同層次的許可權。透過使用此逐步指引，您可以瞭解如何設定使用者屬性、更新它們，然後使用 {{site.data.keyword.appid_short_notm}} API 將它們注入記號中。
 {: shortdesc}
 
 初次使用 API？請透過這個 [Postman 集合](https://github.com/ibm-cloud-security/appid-postman)來試用它們。

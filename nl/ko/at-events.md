@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-01"
+lastupdated: "2019-06-18"
 
-keywords: authentication, authorization, identity, app security, secure, application identity, app to app, access token, activity
+keywords: Authentication, authorization, identity, app security, secure, application identity, app to app, access token, activity
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -33,7 +33,7 @@ subcollection: appid
 
 
 
-서비스가 작동하는 방식에 대한 자세한 정보는 [{{site.data.keyword.cloudaccesstrailshort}} 문서](/docs/services/cloud-activity-tracker?topic=cloud-activity-tracker-getting-started#getting-started)를 참조하십시오.
+서비스가 작동하는 방식에 대한 자세한 정보는 [{{site.data.keyword.cloudaccesstrailshort}} 문서](/docs/services/cloud-activity-tracker?topic=cloud-activity-tracker-getting-started)를 참조하십시오.
 
 
 

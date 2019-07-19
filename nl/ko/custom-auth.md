@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, custom, proprietary, 
+keywords: Authentication, authorization, identity, app security, secure, custom, proprietary, 
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -22,7 +22,7 @@ subcollection: appid
 {:deprecated: .deprecated}
 {:download: .download}
 
-# 앱에서 사용자 정의 ID 사용
+# 사용자 정의 ID
 {: #custom-auth}
 
 인증 시 고유한 사용자 정의 ID 제공자를 사용할 수 있습니다. ID 제공자는 소유권 또는 레거시를 포함하여 {{site.data.keyword.appid_full}}에서 지원되는 메커니즘으로 대체되는 인증 메커니즘을 준수할 수 있습니다.
@@ -128,7 +128,7 @@ subcollection: appid
     </tr>
     <tr>
       <td><code> aud </code></td>
-      <td>OAuth 서버 URL입니다. 형식: `https://{region}.appid.cloud.ibm.com/oauth/v4/{tenantId}` </td>
+      <td>OAuth 서버 URL입니다. 형식: `https://{region}.appid.cloud.ibm.com/oauth/v4/{tenantId}`</td>
     </tr>
     <tr>
       <td><code> exp </code></td>

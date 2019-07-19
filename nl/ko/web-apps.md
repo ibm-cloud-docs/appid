@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-21"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, web apps, client, server
+keywords: Authentication, authorization, identity, app security, secure, web apps, client, server
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -48,9 +48,9 @@ subcollection: appid
 
 2. 사용자에게 권한이 없는 경우 {{site.data.keyword.appid_short_notm}}로 경로 재지정되면서 인증 플로우가 시작됩니다.
 
-3. 사용자의 `/authorization` 요청 매개변수 또는 ID 제공자 구성에 따라 사용자의 브라우저에서 로그인 위젯이 실행됩니다.
+3. 사용자의 `/authorization` 요청 매개변수 또는 ID 제공자 구성에 따라 사용자의 브라우저에서 로그인 위젯을 시작합니다.
 
-4. 사용자가 인증할 ID 제공자를 선택하고 사인인 프로세스를 완료합니다.
+4. 사용자가 인증할 ID 제공자를 선택하고 로그인 프로세스를 완료합니다.
 
 5. ID 제공자는 인증 코드가 포함된 클라이언트 앱으로 경로 재지정됩니다.
 
@@ -78,7 +78,7 @@ Node.js 웹 애플리케이션에서 작동하도록 {{site.data.keyword.appid_s
 * {{site.data.keyword.appid_short_notm}} 서비스 대시보드의 경로 재지정 URI 세트
 
 
-{{site.data.keyword.appid_short_notm}}를 사용한 Node 애플리케이션 보호에 대해 학습하려면 다음 동영상을 확인하십시오. 그런 다음 [간단한 Node 샘플 앱](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02a-simple-node-web-app)을 사용하여 직접 시도해 보십시오. 
+{{site.data.keyword.appid_short_notm}}를 사용한 Node 애플리케이션 보호에 대해 학습하려면 다음 동영상을 확인하십시오. 그런 다음 [간단한 Node 샘플 앱](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02a-simple-node-web-app)을 사용하여 직접 시도해 보십시오.
 
 <iframe class="embed-responsive-item" id="appid-nodejs" title="{{site.data.keyword.appid_short_notm}} 정보" type="text/html" width="640" height="390" src="//www.youtube.com/embed/6roa1ZOvwtw?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
@@ -123,12 +123,12 @@ Node.js 웹 애플리케이션에서 작동하도록 {{site.data.keyword.appid_s
   ```
   {: codeblock}
 
-  프로덕션 환경에 적합한 세션 스토리지로 미들웨어를 구성해야 합니다. 자세한 정보는 <a href="https://github.com/expressjs/session" target="_blank"> express.js 문서<img src="../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>를 참조하십시오.
+  프로덕션 환경에 적합한 세션 스토리지로 미들웨어를 구성해야 합니다. 자세한 정보는 [express.js](https://expressjs.com/){: external} 문서를 참조하십시오.
   {: note}
 
 3. 다음 방법 중 하나를 통해 인증 정보를 받으십시오.
 
-  * {{site.data.keyword.appid_short_notm}} 대시보드의 **애플리케이션** 탭으로 이동하십시오. 애플리케이션이 나열되지 않을 경우 **애플리케이션 추가**를 클릭하여 새 애플리케이션을 작성하십시오.
+  * {{site.data.keyword.appid_short_notm}} 대시보드의 **애플리케이션** 탭으로 이동하십시오. 애플리케이션이 나열되지 않을 경우 **애플리케이션 추가**를 클릭하여 애플리케이션을 작성하십시오.
 
   * [`/management/v4/{tenantId}/applications` 엔드포인트](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Applications/mgmt.registerApplication)에 대한 POST 요청을 작성하십시오.
 
@@ -220,7 +220,7 @@ Liberty for Java 웹 애플리케이션에서 작동하도록 {{site.data.keywor
 * A Liberty for Java 웹 애플리케이션
 
 
-{{site.data.keyword.appid_short_notm}}를 사용한 Liberty for Java 애플리케이션 보호에 대해 학습하려면 다음 동영상을 확인하십시오. 그런 다음 [간단한 Liberty for Java 샘플 앱](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02c-simple-liberty-web-app)을 사용하여 직접 시도해 보십시오. 
+{{site.data.keyword.appid_short_notm}}를 사용한 Liberty for Java 애플리케이션 보호에 대해 학습하려면 다음 동영상을 확인하십시오. 그런 다음 [간단한 Liberty for Java 샘플 앱](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02c-simple-liberty-web-app)을 사용하여 직접 시도해 보십시오.
 
 <iframe class="embed-responsive-item" id="appid-liberty-web" title="{{site.data.keyword.appid_short_notm}} 정보" type="text/html" width="640" height="390" src="//www.youtube.com/embed/o_Er69YUsMQ?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
@@ -332,7 +332,7 @@ Liberty for Java 웹 애플리케이션에서 작동하도록 {{site.data.keywor
 ### Liberty for Java SDK 초기화
 {: #web-liberty-initialize}
 
-1. `server.xml` 파일에서 보호된 리소스를 지정하는 권한 필터를 정의하십시오. 필터가 <a href="https://www.ibm.com/support/knowledgecenter/en/SSD28V_9.0.0/com.ibm.websphere.wlp.core.doc/ae/rwlp_auth_filter.html" target="_blank">정의 <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>되지 않은 경우 이 서비스에서 모든 리소스를 보호합니다.
+1. `server.xml` 파일에서 보호된 리소스를 지정하는 권한 필터를 정의하십시오. 필터가 <a href="https://www.ibm.com/support/knowledgecenter/en/SSD28V_liberty/com.ibm.websphere.wlp.core.doc/ae/rwlp_auth_filter.html" target="_blank">정의 <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>되지 않은 경우 이 서비스에서 모든 리소스를 보호합니다.
 
   ```xml
   <authFilter id="myAuthFilter">

@@ -31,7 +31,7 @@ subcollection: appid
 # 取得記號
 {: #obtain-tokens}
 
-當使用者或後端服務與您的應用程式互動時，他們可能需要獲得授權才能執行特定動作。{{site.data.keyword.appid_short_notm}} 會驗證提出要求的實體已獲授權，並將存取權和身分記號傳回給您的應用程式。如果提出要求的實體是一般使用者，則記號可能包含使用者的相關資訊，例如其許可權的範圍及其名稱。如果是後端服務，則只會傳回存取記號。
+當使用者或後端服務與您的應用程式互動時，他們可能需要獲得授權才能執行特定動作。{{site.data.keyword.appid_short_notm}} 會驗證提出要求的實體已獲授權，並將存取及身分記號傳回給您的應用程式。如果提出要求的實體是一般使用者，則記號可能包含使用者的相關資訊，例如其許可權的範圍及其名稱。如果是後端服務，則只會傳回存取記號。
 {: shortdesc}
 
 
@@ -49,7 +49,7 @@ subcollection: appid
 
 2. 如果您已經列出一組認證，則可以跳到步驟 3。如果沒有，請建立一組。
     1. 在**應用程式**標籤上，按一下**新增應用程式**。
-    2. 給與應用程式名稱，然後按一下**儲存**，以回到已登錄應用程式的清單。應用程式的名稱不能超過 50 個字元。
+    2. 提供應用程式名稱，然後按一下**儲存**，以回到已登錄應用程式的清單。應用程式的名稱不能超過 50 個字元。
 
 3. 從已登錄應用程式的清單中，選取您要使用的應用程式。此列會展開以顯示您的認證。
 
@@ -90,10 +90,10 @@ subcollection: appid
 
 
 
-## 取得存取權和身分記號
+## 取得存取及身分記號
 {: #obtain-access-id-tokens}
 
-利用用戶端 ID 和密碼，您可以使用下列步驟來取得存取權和身分記號。
+利用用戶端 ID 和密碼，您可以使用下列步驟來取得存取及身分記號。
 {: shortdesc}
 
 
@@ -216,4 +216,4 @@ iOS Swift：
   ```
   {: codeblock}
 
-您用來取得記號的授權類型，可以根據您使用的授權類型而有所不同。如需詳細的選項清單，請參閱[Swagger 文件](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization%20Server%20-%20Authorization%20Server%20V4/oauth-server.token)。
+您用來取得記號的授權類型，可能會根據您使用的授權類型而有所不同。如需詳細的選項清單，請參閱 [Swagger 文件](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization%20Server%20-%20Authorization%20Server%20V4/oauth-server.token)。

@@ -249,7 +249,7 @@ MFA 是一種確認使用者身分的方法，需要使用者使用多個因素�
 
  - 取得 Nexmo API 金鑰及密碼。您可以在 Nexmo 儀表板的帳戶設定頁面中找到 Nexmo API 金鑰及密碼。如需如何取得認證的進一步資訊，請參閱 [Nexmo 文件](https://developer.nexmo.com/concepts/guides/authentication#api-key-and-secret)。
 
- - 向 Nexmo 登錄您的傳送端 ID 或 `from` 號碼。這個 `from` 號碼出現在使用者的電話中，以顯示 SMS 來自何人。在某些國家/地區中，Nexmo 支援英數傳送端 ID。{{site.data.keyword.appid_short_notm}} 會使用您輸入的值為 Nexmo 的傳送端 ID。因此，如果 Nexmo 支援它們，您可以將 ID 用於 {{site.data.keyword.appid_short_notm}}。如需相關資訊，請參閱 [Nexmo 文件](https://help.nexmo.com/hc/en-us/articles/217571017-What-is-a-Sender-ID)。
+ - 向 Nexmo 登錄您的傳送端 ID 或 `from` 號碼。這個 `from` 號碼出現在使用者的電話中，以顯示 SMS 來自何人。在某些國家/地區中，Nexmo 支援英數傳送端 ID。{{site.data.keyword.appid_short_notm}} 會使用您輸入的值作為 Nexmo 的傳送端 ID。因此，如果 Nexmo 支援它們，您可以將 ID 用於 {{site.data.keyword.appid_short_notm}}。如需相關資訊，請參閱 [Nexmo 文件](https://help.nexmo.com/hc/en-us/articles/217571017-What-is-a-Sender-ID)。
 
 
 ### 使用 GUI
@@ -274,7 +274,7 @@ MFA 是一種確認使用者身分的方法，需要使用者使用多個因素�
 
     4. 複製 Nexmo 儀表板中的 **API 密碼**，並將它貼到 {{site.data.keyword.appid_short_notm}} 儀表板的**密碼**方框中。
 
-    5. 輸入您要從中傳送訊息的 [ID](https://help.nexmo.com/hc/en-us/articles/217571017-What-is-a-Sender-ID)。有效號碼格式遵循 [E.164 國際編號格式](https://en.wikipedia.org/wiki/E.164)（例如 USA 號碼格式為 `+1 999 888 7777 `）。您必須同時指定國碼（以 `+` 符號開頭）及國家訂閱者號碼。在某些國家/地區中，Nexmo 支援英數傳送端 ID。{{site.data.keyword.appid_short_notm}} 會使用您輸入的值為 Nexmo 的傳送端 ID。因此，如果 Nexmo 支援它們，您可以將 ID 用於 {{site.data.keyword.appid_short_notm}}。
+    5. 輸入您要從中傳送訊息的 [ID](https://help.nexmo.com/hc/en-us/articles/217571017-What-is-a-Sender-ID)。有效的號碼格式會遵循 [E.164 國際編號格式](https://en.wikipedia.org/wiki/E.164)（例如 USA 號碼格式為 `+1 999 888 7777 `）。您必須同時指定國碼（以 `+` 符號開頭）及國家訂閱者號碼。在某些國家/地區中，Nexmo 支援英數傳送端 ID。{{site.data.keyword.appid_short_notm}} 會使用您輸入的值作為 Nexmo 的傳送端 ID。因此，如果 Nexmo 支援它們，您可以將 ID 用於 {{site.data.keyword.appid_short_notm}}。
 
 
 

@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, access management, roles, attributes, users
+keywords: Authentication, authorization, identity, app security, secure, access management, roles, attributes, users
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -295,7 +295,7 @@ Opcionalmente, puede verificar que el paso 4 se ha realizado correctamente visua
 1. A efectos de prueba, cree un usuario del directorio en la nube utilizando la GUI de {{site.data.keyword.appid_short_notm}}.
 
   1. En el separador **Usuarios**, pulse **Añadir usuario**. Aparece un formulario.
-  2. Escriba un nombre y apellido, correo electrónico y contraseña.
+  2. Escriba un nombre y un apellido, un correo electrónico y una contraseña.
   3. Pulse **Guardar**.
 
 2. Codifique el ID de cliente y el secreto.
@@ -304,7 +304,7 @@ Opcionalmente, puede verificar que el paso 4 se ha realizado correctamente visua
   2. Utilice un codificador base64 para codificar la información de autorización.
   3. Copie la salida que se va a utilizar en el mandato siguiente.
 
-4. Inicie sesión utilizando las API para obtener información de señal de acceso. La señal devuelta está codificada.
+4. Inicie sesión utilizando las API para obtener información de señal de acceso. La señal que se devuelve está codificada.
 
   ```
   curl --request PUT \

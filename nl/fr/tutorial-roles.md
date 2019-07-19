@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, access management, roles, attributes, users
+keywords: Authentication, authorization, identity, app security, secure, access management, roles, attributes, users
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -26,7 +26,7 @@ subcollection: appid
 # Tutoriel : Définition de rôles utilisateur
 {: #tutorial-roles}
 
-S'assurer que les bonnes personnes disposent des bons droits au bon moment peut s'avérer difficile lorsque vous codifiez votre application. Pour vous aider dans ce processus, vous pouvez utiliser {{site.data.keyword.appid_full}} afin de définir un attribut personnalisé tel que `rôle`, qui vous permet d'affecter différents types d'utilisateur. Ensuite, vous utilisez votre application pour imposer divers niveaux de droits à chaque type d'utilisateur. Ce guide pas à pas vous apprend à définir des attributs utilisateur puis à les injecter dans un jeton à l'aide des API {{site.data.keyword.appid_short_notm}}.
+S'assurer que les bonnes personnes disposent des bons droits au bon moment peut s'avérer difficile lorsque vous codifiez votre application. Pour vous aider dans ce processus, vous pouvez utiliser {{site.data.keyword.appid_full}} afin de définir un attribut personnalisé tel que `rôle`, qui vous permet d'affecter différents types d'utilisateur. Ensuite, vous utilisez votre application pour imposer divers niveaux de droits à chaque type d'utilisateur. Ce guide pas à pas vous apprend à définir des attributs utilisateur,à les mettre à jour, puis à les injecter dans un jeton à l'aide des API {{site.data.keyword.appid_short_notm}}.
 {: shortdesc}
 
 Des nouveautés dans les API ? Testez-les avec cette [ collection Postman](https://github.com/ibm-cloud-security/appid-postman).
@@ -38,7 +38,7 @@ Des nouveautés dans les API ? Testez-les avec cette [ collection Postman](https
 Vous êtes développeur d'un parc à thèmes de fiction. Vous êtes chargé de gérer l'accès à l'[application Web](/docs/services/appid?topic=appid-web-apps) et vous pensez que le moyen le plus simple est de définir des rôles pour chaque type d'utilisateur. Vous avez différents types de rôle tels que les employés du parc et les visiteurs qui ont tous besoin de différents niveaux de droits. Vous voulez rationaliser le processus et garantir que vos utilisateurs se voient affecter le rôle approprié lors de leur première connexion à votre application.  
 {: shortdesc}
 
-Pas de problème ! Vous pouvez utiliser la [fonctionnalité d'attributs personnalisés](/docs/services/appid?topic=appid-profiles) d'{{site.data.keyword.appid_short_notm}} pour stocker tout type d'information relative aux utilisateurs. Etant donné que vous travaillez avec le contrôle d'accès basé sur les rôles, vous pouvez créer un attribut nommé `rôle` et affecter différentes valeurs afin de spécifier un type de rôle. Par exemple, le parc à thèmes peut avoir des `visiteurs` (visitors) ou des `employés` (staff) ayant chacun des valeurs différentes pour l'attribut `rôle`. Ensuite, vous pouvez vos assurer que votre code d'application impose les privilèges et règles d'accès que vous affectez.
+Pas de problème ! Vous pouvez utiliser la [fonctionnalité d'attributs personnalisés](/docs/services/appid?topic=appid-profiles) d'{{site.data.keyword.appid_short_notm}} pour stocker tout type d'information relative aux utilisateurs. Etant donné que vous travaillez avec le contrôle d'accès basé sur les rôles, vous pouvez créer un attribut nommé `rôle` et affecter différentes valeurs afin de spécifier un type de rôle. Par exemple, le parc à thèmes peut avoir des visiteurs (`visitors`) ou des employés (`staff`) pouvant avoir chacun des valeurs différentes pour l'attribut `role`. Ensuite, vous pouvez vos assurer que votre code d'application impose les privilèges et règles d'accès que vous affectez.
 
 Bien que ce tutoriel soit écrit en ayant spécifiquement à l'esprit des applications Web et Cloud Directory, les attributs peuvent avoir une portée bien plus large. Les attributs personnalisés peuvent être tout ce que vous voulez qu'ils soient. Sous réserve que ce soit des attributs de moins de 100k et au format d'objet JSON ordinaire, vous pouvez stocker tout type d'information.
 {: note}
@@ -61,7 +61,7 @@ Avant de commencer, assurez-vous de disposer des prérequis suivants :
 Avant de commencer à ajouter des attributs pour les utilisateurs de votre parc sur le cloud, vous devez configurer votre instance {{site.data.keyword.appid_short_notm}}.
 {: shortdesc}
 
-1. Dans l'onglet **Fournisseurs d'identité** du tableau de bord du service, activez **Cloud Directory**. Bien que ce tutoriel utilise [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory), vous pouvez également utiliser tout autre fournisseurs d'identité tel que [SAML](/docs/services/appid?topic=appid-enterprise), [Facebook](/docs/services/appid?topic=appid-social#facebook), [Google](/docs/services/appid?topic=appid-social#google) ou un [fournisseur personnalisé](/docs/services/appid?topic=appid-custom-identity).
+1. Dans l'onglet **Fournisseurs d'identité** du tableau de bord du service, activez **Cloud Directory**. Bien que ce tutoriel utilise [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory), vous pouvez également choisir d'utiliser tout autre fournisseurs d'identité tel que [SAML](/docs/services/appid?topic=appid-enterprise), [Facebook](/docs/services/appid?topic=appid-social#facebook), [Google](/docs/services/appid?topic=appid-social#google) ou un [fournisseur personnalisé](/docs/services/appid?topic=appid-custom-identity).
 
 2. Dans l'onglet **Cloud Directory > Vérification de l'adresse électronique**, activez la vérification et définissez **Permettre aux utilisateurs de se connecter à votre application sans vérifier d'abord leur adresse électronique** sur **Non**. Lorsque vous utilisez des attributs personnalisés pour définir des rôles associés à des droits, assurez-vous que les utilisateurs doivent valider leur identité avant qu'ils n'assument les attributs que vous avez définis.
 
@@ -295,7 +295,7 @@ Vous pouvez vérifier si l'étape 4 a réussi en affichant un jeton d'accès.
 1. A des fins de test, créez un utilisateur Cloud Directory à l'aide de l'interface graphique {{site.data.keyword.appid_short_notm}}.
 
   1. Dans l'onglet **Utilisateurs**, cliquez sur **Ajouter un utilisateur**. Un écran s'affiche.
-  2. Entrez un prénom et un nom, une adresse électronique et un mot de passe.
+  2. Entrez un prénom et un nom de famille, une adresse électronique et un mot de passe.
   3. Cliquez sur **Sauvegarder**.
 
 2. Codez votre ID client et votre secret.
@@ -304,7 +304,7 @@ Vous pouvez vérifier si l'étape 4 a réussi en affichant un jeton d'accès.
   2. Utilisez un encodeur en Base64 pour encoder vos informations d'autorisation.
   3. Copiez la sortie à utiliser dans la commande suivante.
 
-4. Connectez-vous à l'aide des API afin d'obtenir vos informations de jeton d'accès. Le jeton renvoyé est codé.
+4. Connectez-vous à l'aide des API afin d'obtenir vos informations de jeton d'accès. Le jeton qui est renvoyé est codé.
 
   ```
   curl --request PUT \

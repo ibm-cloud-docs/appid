@@ -93,7 +93,7 @@ Content-Type: application/json
 
 1. **사용자 정의 ID 제공자** 탭에서 **테스트**를 클릭하여 테스트 애플리케이션을 여십시오.
 
-2. 사용자 정의 ID [프로토콜](/docs/services/appid?topic=appid-custom-auth#generating-jwts)에 따라 [JWT 예](https://jwt.io/)를 작성하십시오. 
+2. 사용자 정의 ID [프로토콜](/docs/services/appid?topic=appid-custom-auth#generating-jwts)에 따라 [JWT 예](https://jwt.io/)를 작성하십시오.
 
 3. **JSON 웹 토큰**으로 레이블 지정된 상자에 JWT를 붙여넣은 후 **테스트**를 클릭하여 샘플 인증을 실행하십시오.
 

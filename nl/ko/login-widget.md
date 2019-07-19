@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-06"
+lastupdated: "2019-07-09"
 
 keywords: Authentication, authorization, identity, app security, secure, development, sign in, sign up, password, social, enterprise
 
@@ -10,7 +10,7 @@ subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -33,14 +33,14 @@ subcollection: appid
 ## 로그인 위젯에 대한 정보
 {: #widget-understanding}
 
-로그인 위젯의 가장 뛰어난 부분 중 하나는 사용자가 자체 인증 UI를 구현하기 전에 {{site.data.keyword.appid_short_notm}}를 사용할 수 있다는 점입니다. 따라서 개발자의 온보딩 경험이 훨씬 쉬워집니다. 
+로그인 위젯의 가장 뛰어난 부분 중 하나는 사용자가 자체 인증 UI를 구현하기 전에 {{site.data.keyword.appid_short_notm}}를 사용할 수 있다는 점입니다. 따라서 개발자의 온보딩 경험이 훨씬 쉬워집니다.
 
-### 기본 로그인 위젯 동작은 무엇입니까? 
+### 기본 로그인 위젯 동작은 무엇입니까?
 {: #widget-default}
 
-기본적으로 로그인 위젯에서는 Facebook, Google 및 Cloud Directory를 사용할 수 있습니다. 구성하려는 ID 제공자를 옵션으로 선택하여 언제든지 동작을 변경할 수 있습니다. 둘 이상의 ID 제공자가 사용으로 설정된 경우 로그인 위젯은 사용자가 자신의 ID 제공자를 선택할 수 있는 화면을 표시합니다. 그러나 하나의 제공자가 사용으로 설정된 경우 앞에서 언급한 선택 화면이 표시되지 않습니다. ID 제공자로 직접 이동되어 사인인 프로세스가 시작됩니다. 
+기본적으로 로그인 위젯에서는 Facebook, Google 및 Cloud Directory를 사용할 수 있습니다. 구성하려는 ID 제공자를 옵션으로 선택하여 언제든지 동작을 변경할 수 있습니다. 둘 이상의 ID 제공자가 사용으로 설정된 경우 로그인 위젯은 사용자가 자신의 ID 제공자를 선택할 수 있는 화면을 표시합니다. 그러나 하나의 제공자가 사용으로 설정된 경우 앞에서 언급한 선택 화면이 표시되지 않습니다. ID 제공자로 직접 이동되어 사인인 프로세스가 시작됩니다.
 
-예를 들어 기본값(Facebook, Google, Cloud Directory)을 사용 중인 경우 사용자에게 화면이 표시됩니다. Facebook만 사용으로 설정할 경우 인증을 위해 Facebook으로 직접 이동됩니다. 
+예를 들어 기본값(Facebook, Google, Cloud Directory)을 사용 중인 경우 사용자에게 화면이 표시됩니다. Facebook만 사용으로 설정할 경우 인증을 위해 Facebook으로 직접 이동됩니다.
 
 
 
@@ -425,7 +425,7 @@ Cloud Directory를 사용할 경우, {{site.data.keyword.appid_short_notm}}는 �
   ```
   {: codeblock}
 
-`WebAppStrategy`를 사용하여 사용자는 사용자 이름과 비밀번호로 웹 앱에 로그인할 수 있습니다. 로그인에 성공한 후에 사용자의 액세스 토큰은 HTTP 세션에 저장되며 세션 중에 사용 가능합니다. HTTP 세션이 영구 삭제되거나 만료되면 토큰이 유효하지 않게 됩니다.
+`WebAppStrategy`를 사용하여 사용자는 사용자 이름과 비밀번호로 웹 앱에 사인인할 수 있습니다. 로그인에 성공한 후에 사용자의 액세스 토큰은 HTTP 세션에 저장되며 세션 중에 사용 가능합니다. HTTP 세션이 영구 삭제되거나 만료되면 토큰이 유효하지 않게 됩니다.
 {: tip}
 
 </br>

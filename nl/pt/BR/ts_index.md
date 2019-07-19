@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-21"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, troubleshooting, help, support, requests, uri
+keywords: Authentication, authorization, identity, app security, secure, troubleshooting, help, support, requests, uri
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -98,15 +98,15 @@ O provedor de identidade pode falhar por várias razões:
 * Sua URL de redirecionamento configurada está incorreta.
 * O provedor de identidade não reconhece a solicitação de autenticação.
 * O provedor de identidade espera uma ligação HTTP-POST.
-* O provedor de identidade espera um authnRequest assinado.
+* O provedor de identidade espera uma AuthnRequest assinada.
 
 {: tsResolve}
 É possível tentar algumas destas soluções:
 
-* Atualize sua URL de conexão. Essa URL é enviada como parte do authnRequest e deve ser exata.
+* Atualize sua URL de conexão. Essa URL é enviada como parte da AuthnRequest e deve ser exata.
 * Certifique-se de que seus metadados do {{site.data.keyword.appid_short_notm}} estejam definidos corretamente em suas configurações de provedor de identidade.
-* Configure seu provedor de identidade para aceitar o authnRequest no HTTP-Redirect.
-* O {{site.data.keyword.appid_short_notm}} não suporta assinatura de authnRequests.
+* Configure seu provedor de identidade para aceitar a AuthnRequest no HTTP-Redirect.
+* O {{site.data.keyword.appid_short_notm}} não suporta assinar AuthnRequests.
 
 Se nenhuma das soluções funcionar, possivelmente você terá um problema de conexão.
 {: tip}
@@ -143,7 +143,7 @@ Você tenta visualizar a página inicial de seu app, mas recebe o erro a seguir:
 {: screen}
 
 {: tsCauses}
-Você poderá receber um erro "excesso de solicitações" se estiver executando o teste automatizado com apenas um usuário virtual. Cada usuário é limitado a cinco tentativas de conexão em uma amplitude de tempo de um minuto. As tentativas de conexão são limitadas para evitar DDOS de força bruta e outros tipos de ataques semelhantes.
+Você poderá receber um erro "excesso de solicitações" se estiver executando o teste automatizado com apenas um usuário virtual. Cada usuário é limitado a cinco tentativas de conexão em uma amplitude de tempo de um minuto. As tentativas de conexão são limitadas para evitar DDoS de força bruta e outros tipos de ataques semelhantes.
 
 {: tsResolve}
 Para resolver o problema, você pode desejar usar múltiplos usuários virtuais ao executar o teste.

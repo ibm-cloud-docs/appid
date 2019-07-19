@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-14"
+lastupdated: "2019-06-28"
 
-keywords: authentication, authorization, identity, app security, secure, application identity, app to app, access token
+keywords: Authentication, authorization, identity, app security, secure, application identity, app to app, access token
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -37,7 +37,7 @@ subcollection: appid
 ### フローの仕組み
 {: #app-flow-how}
 
-{{site.data.keyword.appid_short_notm}} は、OAuth 2.0 クライアント資格情報フローを利用して通信を保護します。 アプリが {{site.data.keyword.appid_short_notm}} に登録されると、そのアプリはクライアント ID とシークレットを取得します。 アプリは、これらの情報を使用して {{site.data.keyword.appid_short_notm}} にアクセス・トークンを要求し、保護リソースまたは保護 API へのアクセスが許可されます。 アプリケーション識別および許可フローでは、アプリケーションに与えられるのはアクセス・トークンのみです。 識別トークンやリフレッシュ・トークンは取得しません。 トークンについて詳しくは、[トークンについて](/docs/services/appid?topic=appid-tokens#tokens)を参照してください。
+{{site.data.keyword.appid_short_notm}} は、OAuth 2.0 クライアント資格情報フローを利用して通信を保護します。 アプリが {{site.data.keyword.appid_short_notm}} に登録されると、そのアプリはクライアント ID とシークレットを取得します。 アプリは、これらの情報を使用して {{site.data.keyword.appid_short_notm}} にアクセス・トークンを要求し、保護リソースまたは保護 API へのアクセスが許可されます。 アプリケーション識別および許可フローでは、アプリケーションに与えられるのはアクセス・トークンのみです。 識別トークンやリフレッシュ・トークンは取得しません。 トークンについて詳しくは、[トークンについて](/docs/services/appid?topic=appid-tokens)を参照してください。
 
 このワークフローは、シークレットの誤用または漏えいのリスクがない、信頼できるアプリケーションでのみ使用することを想定しています。 アプリケーションは常にクライアント・シークレットを保持します。 モバイル・アプリには向いていません。
 {: tip}
@@ -56,7 +56,7 @@ subcollection: appid
 4. {{site.data.keyword.appid_short_notm}} は要求を検証し、アプリを認証し、アクセス・トークンを入れた応答をアプリケーション A に返します。
 5. アプリケーション A は、その有効なアクセス・トークンを使用して、アプリケーション B などの保護リソースに要求を送信できるようになりました。
 
-クライアントの認証に使用するクライアント・シークレットは、機密性が非常に高いので機密を維持する必要があります。アプリケーションがクライアント・シークレットをアプリ内で使用するので、このワークフローは、信頼できるアプリケーションでのみ使用する必要があります。信頼できるアプリケーションを使用することで、クライアント・シークレットの漏えいや悪用を防止します。
+クライアントの認証に使用するクライアント・シークレットは、機密性が非常に高いので機密を維持する必要があります。 アプリケーションがクライアント・シークレットをアプリ内で使用するので、このワークフローは、信頼できるアプリケーションでのみ使用する必要があります。 信頼できるアプリケーションを使用することで、クライアント・シークレットの漏えいや悪用を防止します。
 {: important}
 
 ## アプリの登録
@@ -72,7 +72,7 @@ subcollection: appid
 ### API を使用する場合
 {: #app-register-api}
 
-1. [`/management/v4/{tenantId}/applications` エンドポイント](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Applications/mgmt.registerApplication)に対して POST 要求を行います。
+1. [`/management/v4/{tenantId}/applications` エンドポイント](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Applications/mgmt.registerApplication){: external}に対して POST 要求を行います。
 
   要求:
 
@@ -104,7 +104,7 @@ subcollection: appid
 
 アプリが {{site.data.keyword.appid_short_notm}} に登録され、資格情報を取得したら、{{site.data.keyword.appid_short_notm}} 許可サーバーに要求を行ってアクセス・トークンを取得することができます。
 
-1. [`/token` エンドポイント](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization%20Server%20-%20Authorization%20Server%20V4/oauth-server.token)に対して HTTP POST 要求を行います。 要求の許可は `Basic auth` であり、クライアント ID とシークレットを Base64 でエンコードしたユーザー名およびパスワードとして使用します。
+1. [`/token` エンドポイント](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization%20Server%20-%20Authorization%20Server%20V4/oauth-server.token){: external}に対して HTTP POST 要求を行います。 要求の許可は `Basic auth` であり、クライアント ID とシークレットを Base64 でエンコードしたユーザー名およびパスワードとして使用します。
 
   要求:
   ```
@@ -130,9 +130,9 @@ subcollection: appid
 ## チュートリアル: Node.js SDK を使用したエンドツーエンドのフロー
 {: tutorial-node}
 
-1. 以下のいずれかの方法で[アクセス・トークン](/docs/services/appid?topic=appid-tokens#tokens)を取得します。
+1. 以下のいずれかの方法で[アクセス・トークン](/docs/services/appid?topic=appid-tokens)を取得します。
 
-  * トークン・マネージャーを使用して {{site.data.keyword.appid_short_notm}} [Node.js server SDK](https://github.com/ibm-cloud-security/appid-serversdk-nodejs) から取得する。 アプリの資格情報を使用してトークン・マネージャーを初期化し、`getApplicationIdentityToken()` メソッドを呼び出してトークンを取得します。
+  * トークン・マネージャーを使用して {{site.data.keyword.appid_short_notm}} [Node.js server SDK](https://github.com/ibm-cloud-security/appid-serversdk-nodejs){: external} から取得する。 アプリの資格情報を使用してトークン・マネージャーを初期化し、`getApplicationIdentityToken()` メソッドを呼び出してトークンを取得します。
 
     ```
     const TokenManager = require('ibmcloud-appid').TokenManager;
@@ -217,6 +217,7 @@ subcollection: appid
   ```
   const express = require('express'),
     passport = require('passport');
+    APIStrategy = require("ibmcloud-appid").APIStrategy;
 
   var app = express();
 app.use(passport.initialize());

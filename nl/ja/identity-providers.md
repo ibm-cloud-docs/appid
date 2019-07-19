@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-23"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, custom, proprietary, social, facebook, google, 
+keywords: Authentication, authorization, identity, app security, secure, custom, proprietary, social, facebook, google, 
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -34,6 +34,10 @@ subcollection: appid
 
 {{site.data.keyword.appid_short_notm}} に用意されているデフォルト構成は、サービスを迅速に稼働させるのに役立ちます。
 {: shortdesc}
+
+「本サービスの許諾される利用」を行うときには、データが使用されます。お客様は、このサービスを使用することにより、概説している[プライバシー・ポリシー](/docs/services/appid?topic=appid-privacy-policy)に沿った情報の収集と使用に同意するものとします。
+{: important}
+
 
 {{site.data.keyword.appid_short_notm}} を構成すると、Facebook、Google、Cloud Directory は自動的に ID プロバイダーとして有効になります。 いつでも構成を変更できます。 Facebook と Google 用のデフォルトの資格情報が設定されていますが、これらは IBM の資格情報です。これらは、サービスを使用するかどうかのテストのみに使用してください。 アプリを公開する前に、自分の資格情報になるように構成を更新してください。
 
@@ -105,3 +109,9 @@ Google プロジェクトを構成してクライアント ID とシークレッ
     3. {{site.data.keyword.appid_short}} の URL を**「許可されたリダイレクト URI」**フィールドに貼り付けて、**「保存」**をクリックします。
 4. **「保存」**をクリックして、{{site.data.keyword.appid_short}} の Google 構成を更新します。
 5. Web アプリの場合は、**「管理」**タブにリダイレクト URL を入力します。 許可プロセスが完了すると、ユーザーがその URL に送信されます。 URL は `http` または `https` スキームに従う必要があります。 高水準のセキュリティーを実現するには、`https` スキームを使用します。
+
+
+
+
+
+

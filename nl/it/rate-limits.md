@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-06"
+lastupdated: "2019-07-09"
 
 keywords: Authentication, authorization, identity, app security, secure, rates, cloud directory, rate limit, attempts
 
@@ -10,7 +10,7 @@ subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -36,7 +36,7 @@ Controlla la seguente tabella per vedere i limiti in atto per le istanze del pia
 
 <table>
     <tr>
-        <th>Risorsa </th>
+        <th>Risorsa</th>
         <th>Massimo</th>
     </tr>
     <tr>
@@ -49,7 +49,7 @@ Controlla la seguente tabella per vedere i limiti in atto per le istanze del pia
     </tr>
 </table>
 
-## Generale 
+## Generale
 {: #general-limits}
 
 La seguente tabella elenca i limiti massimi per utente per le risorse IBM Cloud App ID e il periodo di blocco quando vengono superati i limiti. Questi limiti si applicano a tutti gli utenti che possono creare le risorse IBM Cloud App ID.
@@ -88,7 +88,7 @@ Controlla la seguente tabella per vedere i limiti associati a Cloud Directory.
 <table>
     <tr>
         <th>API</th>
-        <th>Configurabile </th>
+        <th>Configurabile</th>
         <th>Limite</th>
         <th>Quando superato</th>
     </tr>

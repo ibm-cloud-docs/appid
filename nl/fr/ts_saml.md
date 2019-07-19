@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-21"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, development, idp, troubleshooting, redirected, validation
+keywords: Authentication, authorization, identity, app security, secure, development, troubleshooting, redirected, validation
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -35,7 +35,7 @@ Si vous rencontrez des problèmes lorsque vous configurez SAML pour travailler a
 ## Problèmes de configuration courants
 {: #ts-common-saml}
 
-L'infrastructure SAML prend en charge plusieurs profils, flux et configurations, et par conséquent il est essentiel que la configuration de votre fournisseur d'identité soit correctement définie. Consultez les rubriques suivantes pour vous aider à résoudre certains des problèmes courants que vous pourriez rencontrer lorsque vous travaillez avec SAML.
+L'infrastructure SAML prend en charge plusieurs profils, flux et configurations, et par conséquent il est essentiel que la configuration de votre fournisseur d'identité soit correctement effectuée. Consultez les rubriques suivantes pour vous aider à résoudre certains des problèmes courants que vous pourriez rencontrer lorsque vous utilisez SAML.
 {: shortdesc}
 
 
@@ -54,7 +54,7 @@ Le paramètre `RelayState` est manquant dans votre réponse d'authentification.
 
 **Pourquoi ?**
 
-{{site.data.keyword.appid_short_notm}} envoie un paramètre opaque appelé `RelayState` dans la demande d'authentification. Si vous ne voyez pas le paramètre dans votre réponse, il se peut que votre fournisseur d'identité ne soit pas configuré pour le renvoyer correctement. Le paramètre `RelayState` a le format suivant.
+{{site.data.keyword.appid_short_notm}} envoie un paramètre opaque appelé `RelayState` dans le cadre de la demande d'authentification. Si vous ne voyez pas ce paramètre dans votre réponse, il se peut que votre fournisseur d'identité ne soit pas configuré pour le renvoyer correctement. Le paramètre `RelayState` a le format suivant.
 
 ```
 https://idp.example.org/SAML2/SSO/Redirect?SAMLRequest=request&RelayState=token
@@ -66,12 +66,12 @@ https://idp.example.org/SAML2/SSO/Redirect?SAMLRequest=request&RelayState=token
 Vérifiez que votre fournisseur SAML est configuré pour renvoyer le paramètre `RelayState` à {{site.data.keyword.appid_short_notm}} sans le modifier en aucune façon.
 
 
-### Zone NameID manquante ou incorrecte
+### Paramètre NameId manquant ou incorrect
 {: #ts-saml-nameid}
 
 **Que se passe-t-il ?**
 
-Lorsque vous envoyez une demande d'authentification, vous recevez une erreur concernant `NameID`.
+Lorsque vous envoyez une demande d'authentification, vous recevez une erreur concernant le paramètre `NameID`.
 
 **Pourquoi ?**
 
@@ -84,7 +84,7 @@ Lorsque vous envoyez une demande d'authentification, vous recevez une erreur con
 
 **Comment résoudre le problème ?**
 
-Pour résoudre le problème, assurez-vous que votre fournisseur d'identité `NameID` est formaté en tant qu'adresse e-mail. Vérifiez que tous les utilisateurs de votre registre de fournisseurs d'identité ont un format d'adresse e-mail valide. Ensuite, vérifiez que la zone `NameID` est correctement définie pour qu'un e-mail valide soit toujours renvoyé, même si les utilisateurs de votre registre ont plusieurs adresses e-mail.
+Pour résoudre le problème, assurez-vous que le paramètre `NameID` de votre fournisseur d'identité est formaté en tant qu'adresse e-mail. Vérifiez que tous les utilisateurs de votre registre de fournisseurs d'identité ont un format d'adresse e-mail valide. Ensuite, vérifiez que la zone `NameID` est correctement définie pour qu'un e-mail valide soit toujours renvoyé, même si les utilisateurs de votre registre ont plusieurs adresses e-mail.
 
 
 
@@ -102,7 +102,7 @@ Could not verify SAML assertion signature. Ensure {{site.data.keyword.appid_shor
 
 **Pourquoi ?**
 
-{{site.data.keyword.appid_short_notm}} s'attend à ce que toutes les assertions SAML présentes dans votre réponse soient signées. Si le service ne peut pas trouver ou vérifier la signature dans la réponse, l'erreur est retournée.
+{{site.data.keyword.appid_short_notm}} s'attend à ce que toutes les assertions SAML présentes dans votre réponse soient signées. Si le service ne peut pas trouver ou vérifier la signature dans la réponse, cette erreur est renvoyée.
 
 **Comment résoudre le problème ?**
 
@@ -132,7 +132,7 @@ Unexpectedly received an encrypted assertion. Please enable response encryption 
 Message d'erreur 2 : 
 
 ```
-Could not decrypt SAML assertion. Ensure your SAML provider is configured with the {{site.data.keyword.appid_short_notm}} encryption 
+Could not decrypt SAML assertion. Ensure your SAML provider is configured with the {{site.data.keyword.appid_short_notm}} encryption. 
 ```
 {: screen}
 
@@ -149,7 +149,7 @@ Si votre fournisseur d'identité est configuré pour le chiffrement, {{site.data
 
 Si vous recevez le message d'erreur 1, vérifiez que votre configuration SAML est configurée pour recevoir une réponse chiffrée. Par défaut, {{site.data.keyword.appid_short_notm}} ne s'attend pas à ce que la réponse soit chiffrée. Pour configurer le chiffrement, définissez le paramètre `encryptResponse` sur **true** à l'aide de [l'API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.set_saml_idp).
 
-Si vous recevez le message d'erreur 2, assurez-vous que votre certificat est correct. Vous pouvez obtenir le certificat de signature à partir du fichier XML de métadonnées de {{site.data.keyword.appid_short_notm}}. Assurez-vous d'utiliser la clé avec `<KeyDescriptor use="signing">`.Vérifiez que votre fournisseur d'identité est configuré pour utiliser `` comme algorithme de signature. 
+Si vous recevez le message d'erreur 2, assurez-vous que votre certificat est correct. Vous pouvez obtenir le certificat de signature à partir du fichier XML de métadonnées de {{site.data.keyword.appid_short_notm}}. Assurez-vous d'utiliser la clé avec `<KeyDescriptor use="signing">`. Vérifiez que votre fournisseur d'identité est configuré pour utiliser `` comme algorithme de signature. 
 
 
 ### Code d'erreur du répondeur
@@ -170,10 +170,10 @@ Bien que {{site.data.keyword.appid_short_notm}} envoie la demande d'authentifica
 
 Le message peut s'afficher si votre fournisseur d'identité : 
 
-* ne peut pas trouver ou vérifier le nom d'utilisateur.
-* ne prend pas en charge le format `NameID` qui est défini dans la demande d'authentification (`AuthnRequest`).
-* ne prend pas en charge le contexte d'authentification.
-* exige que la demande d'authentification soit signée ou utilise un algorithme spécifique dans la signature.
+* Ne parvient pas à trouver ou vérifier le nom d'utilisateur
+* Ne prend pas en charge le format `NameID` défini dans la demande d'authentification (`AuthnRequest`).
+* Ne prend pas en charge le contexte d'authentification.
+* Nécessite que la demande d'authentification soit signée ou utilise un algorithme spécifique dans la signature.
 
 **Comment résoudre le problème ?**
 

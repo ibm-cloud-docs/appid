@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-20"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, development, ingress, policy, networking, containers, kubernetes
+keywords: Authentication, authorization, identity, app security, secure, development, ingress, policy, networking, containers, kubernetes
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -63,7 +63,7 @@ subcollection: appid
 
 * 다음과 같은 CLI:
 
-  * [{{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli)
+  * [{{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-getting-started)
   * [Kubernetes](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
   * [Docker](https://www.docker.com/products/container-runtime#/download)
 
@@ -85,7 +85,7 @@ CLI 및 플러그인을 다운로드하고 Kubernetes Service 환경을 구성�
 {: shortdesc}
 
 
-1. {{site.data.keyword.cloud_notm}} CLI에 로그인하십시오. CLI의 프롬프트에 따라 로그인을 완료하십시오. 연합 ID를 사용하는 경우, 명령 끝에 `--sso` 플래그를 추가해야 합니다. 
+1. {{site.data.keyword.cloud_notm}} CLI에 로그인하십시오. CLI의 프롬프트에 따라 로그인을 완료하십시오. 연합 ID를 사용하는 경우, 명령 끝에 `--sso` 플래그를 추가해야 합니다.
 
   ```
   ibmcloud login -a cloud.ibm.com -r <region>

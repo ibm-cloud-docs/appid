@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-09"
+lastupdated: "2019-06-18"
 
-keywords: authentication, authorization, identity, app security, secure, backend, back-end, oauth, 
+keywords: Authentication, authorization, identity, app security, secure, backend, back-end, oauth, 
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -42,13 +42,13 @@ subcollection: appid
 ### このフローの技術基盤
 {: #backend-technical-flow}
 
-{{site.data.keyword.appid_short_notm}} は、認証と許可にベアラー・トークンを使用する、[OAuth 2.0](https://tools.ietf.org/html/rfc6749) および OIDC 仕様を実装します。 このトークンは [JSON Web トークン](https://tools.ietf.org/html/rfc7519)としてフォーマットされ、デジタル署名されます。そのトークンには、認証されているサブジェクトと ID プロバイダーを記述するクレームが格納されます。 アプリケーションの API は、アクセス・トークンと識別トークンによって保護されます。 API にアクセスする必要があるクライアントは、それらのトークンを交換することによって、{{site.data.keyword.appid_short_notm}} を介して ID プロバイダーで認証されます。 トークン内のクレームの検証に合格すると、保護 API へのアクセスが許可されます。
+{{site.data.keyword.appid_short_notm}} は、認証と許可にベアラー・トークンを使用する、[OAuth 2.0](https://tools.ietf.org/html/rfc6749){: external} および OIDC 仕様を実装します。 このトークンは [JSON Web トークン](https://tools.ietf.org/html/rfc7519){: external}としてフォーマットされ、デジタル署名されます。そのトークンには、認証されているサブジェクトと ID プロバイダーを記述するクレームが格納されます。 アプリケーションの API は、アクセス・トークンと識別トークンによって保護されます。 API にアクセスする必要があるクライアントは、それらのトークンを交換することによって、{{site.data.keyword.appid_short_notm}} を介して ID プロバイダーで認証されます。 トークン内のクレームの検証に合格すると、保護 API へのアクセスが許可されます。
 
-{{site.data.keyword.appid_short_notm}} でのトークンの使用方法について詳しくは、[トークンについて](/docs/services/appid?topic=appid-tokens#tokens)を参照してください。
+{{site.data.keyword.appid_short_notm}} でのトークンの使用方法について詳しくは、[トークンについて](/docs/services/appid?topic=appid-tokens#)を参照してください。
 {: tip}
 
 
-### このフローの概要
+### フローの概要
 {: #backend-flow}
 
 ![{{site.data.keyword.appid_short_notm}} のバックエンド・フロー。図に続いてステップが順番にリストされています。](images/backend-flow.png)
@@ -82,7 +82,7 @@ subcollection: appid
 {{site.data.keyword.appid_short_notm}} SDK を使用して、サーバー・サイドのアプリケーションの認証と許可を実施できます。 `ApiStrategy` はバックエンド・リソースを保護するために、要求の一部としてアクセス・トークンと識別トークンを検証することを求めます。
 {: shortdesc}
 
-{{site.data.keyword.appid_short_notm}} Node.js SDK は、[Passport フレームワーク](http://www.passportjs.org/)と連動して機能します。
+{{site.data.keyword.appid_short_notm}} Node.js SDK は、[Passport フレームワーク](http://www.passportjs.org/){: external}と連動して機能します。
 {: ph data-hd-programlang='javascript'}
 
 {{site.data.keyword.appid_short_notm}} サーバー・サイド Swift SDK には、バックエンド・アプリの保護に使用する API 保護ミドルウェア・プラグインが用意されています。 API をミドルウェアと関連付けることで、アプリを不正アクセスから保護することができます。 API を保護した後、{{site.data.keyword.appid_short_notm}} が生成したトークンがこのミドルウェアによって確実に検証されます。 その検証結果に応じて API の動作を変更できます。
@@ -147,14 +147,14 @@ if #available(OSX 10.12, *) {
 {: codeblock}
 {: ph data-hd-programlang='swift'}
 
-{{site.data.keyword.appid_short_notm}} を使用してバックエンドの Node アプリケーションを保護する方法については、次のビデオをご覧ください。その後、[単純な Node サンプル・アプリ](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02b-simple-node-backend-app)を使用して試してください。
+{{site.data.keyword.appid_short_notm}} を使用してバックエンドの Node アプリケーションを保護する方法については、次のビデオをご覧ください。 その後、[単純な Node サンプル・アプリ](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02b-simple-node-backend-app){: external}を使用して試してください。
 {: ph data-hd-programlang='javascript'}
 
 <iframe class="embed-responsive-item" id="appid-backend-nodejs" title="{{site.data.keyword.appid_short_notm}} の概要" type="text/html" width="640" height="390" src="//www.youtube.com/embed/jJLSgkHpZwA?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 {: ph data-hd-programlang='javascript'}
 
 
-{{site.data.keyword.appid_short_notm}} を使用してバックエンドの Liberty for Java アプリケーションを保護する方法については、次のビデオをご覧ください。その後、[単純な Liberty for Java サンプル・アプリ](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02d-simple-liberty-backend-app)を使用して試してください。
+{{site.data.keyword.appid_short_notm}} を使用してバックエンドの Liberty for Java アプリケーションを保護する方法については、次のビデオをご覧ください。 その後、[単純な Liberty for Java サンプル・アプリ](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02d-simple-liberty-backend-app){: external}を使用して試してください。
 {: ph data-hd-programlang='java'}
 
 <iframe class="embed-responsive-item" id="appid-backend-liberty" title="{{site.data.keyword.appid_short_notm}} の概要" type="text/html" width="640" height="390" src="//www.youtube.com/embed/QA6DY2qqLaw?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
@@ -249,7 +249,7 @@ Node.js アプリが {{site.data.keyword.cloud_notm}} 上で実行され、{{sit
 ## 手動でのリソースの保護
 {: #backend-secure-api}
 
-バックエンド・アプリと保護リソースを保護するには、トークンを検証する必要があります。 クライアントがリソースに対する要求を送信するとき、定義された仕様をトークンが満たしているかどうかを検査できます。 識別情報やスコープなど、指定した構成がトークンに含まれている可能性があります。 {{site.data.keyword.appid_short_notm}} のアクセス・トークンと識別トークンは、いくつかの方法で検証できます。 ヘルプ情報が必要な場合は、[トークンの検証](/docs/services/appid?topic=appid-token-validation#token-validation)を確認してください。
+バックエンド・アプリと保護リソースを保護するには、トークンを検証する必要があります。 クライアントがリソースに対する要求を送信するとき、定義された仕様をトークンが満たしているかどうかを検査できます。 識別情報やスコープなど、指定した構成がトークンに含まれている可能性があります。 {{site.data.keyword.appid_short_notm}} のアクセス・トークンと識別トークンは、いくつかの方法で検証できます。 ヘルプ情報が必要な場合は、[トークンの検証](/docs/services/appid?topic=appid-token-validation)を確認してください。
 
 
 ## 次のステップ
@@ -259,5 +259,7 @@ Node.js アプリが {{site.data.keyword.cloud_notm}} 上で実行され、{{sit
 
 * [ID プロバイダー](/docs/services/appid?topic=appid-social)を構成します
 * [ログイン・ウィジェット](/docs/services/appid?topic=appid-login-widget)のカスタマイズと構成を行います
-* <a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs" target="_blank">Node.js SDK <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> について学習します
-* <a href="https://github.com/ibm-cloud-security/appid-serversdk-swift" target="_blank">Swift SDK <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> について学習します
+* [Node.js SDK](https://github.com/ibm-cloud-security/appid-serversdk-nodejs){: external} について学習します
+* [Swift SDK](https://github.com/ibm-cloud-security/appid-serversdk-swift){: external} について学習します
+
+

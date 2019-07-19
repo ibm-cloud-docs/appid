@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-13"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, access, platform, management, permissions
+keywords: Authentication, authorization, identity, app security, secure, access, platform, management, permissions
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -97,7 +97,7 @@ IAM에 대한 자세한 정보는 [IAM 액세스](/docs/iam?topic=iam-userroles)
     <td>사용자 데이터 또는 ID 제공자 정보 등 서비스 인스턴스의 세부사항을 볼 수 있습니다.</td>
   </tr>
   <tr>
-    <td> <i>작성자 또는 관리자</i></td>
+    <td><i>작성자 또는 관리자</i></td>
     <td>{{site.data.keyword.appid_short_notm}} 인스턴스를 보고 변경합니다.</td>
     <td>모든 독자 조치를 수행하고 서비스 인스턴스를 편집(예: ID 제공자 구성 편집)할 수 있습니다. </li></ul></td>
   </tr>
@@ -243,7 +243,7 @@ UI에서 사용자 역할 지정에 대한 자세한 정보는 [IAM 액세스 �
 
 시작하기 전에:
 
-* [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-ibmcloud-cli)를 설치하십시오.
+* [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started)를 설치하십시오.
 
 액세스 권한을 업데이트하기 위해 관리자는 다음 단계를 완료합니다.
 
@@ -338,3 +338,4 @@ CLI에서 {{site.data.keyword.appid_short_notm}} 구성을 보기 위해 팀 구
     {: codeblock}
 
         결과로 ID 제공자 정보가 포함된 200 메시지가 생성됩니다.
+

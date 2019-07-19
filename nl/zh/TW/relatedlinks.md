@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-06"
+lastupdated: "2019-07-02"
 
 keywords: Authentication, authorization, identity, app security, secure
 
@@ -10,7 +10,7 @@ subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -40,7 +40,7 @@ subcollection: appid
 ## 簡介
 {: #rellinks-intro}
 
-藉由閱讀一些部落格並觀看一些影片，進一步瞭解 {{site.data.keyword.appid_short_notm}}！
+透過閱讀一些部落格並觀看一些影片，進一步瞭解 {{site.data.keyword.appid_short_notm}}！
 
 * <a href="https://www.youtube.com/watch?v=XlrCjHdK43Q" target="_blank">Introducing {{site.data.keyword.appid_short_notm}}: video<img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>
 * <a href="https://www.ibm.com/cloud/blog/cloud-app-security-makes-secure-app" target="_blank">Cloud App Security - What makes a secure app? <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>
@@ -75,7 +75,7 @@ subcollection: appid
 
 
 
-使用多個雲端提供者？請參閱此部落格：<a href="https://www.ibm.com/cloud/blog/adding-sign-in-to-multicloud-applications-without-code-changes" target="_blank">在沒有變更程式碼的情況下將登入新增至多雲端應用程式 <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>
+使用多個雲端提供者？請參閱此部落格：<a href="https://www.ibm.com/cloud/blog/adding-sign-in-to-multicloud-applications-without-code-changes" target="_blank">Adding sign in to multicloud applications without code changes <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>
 {: tip}
 
 
@@ -85,7 +85,7 @@ subcollection: appid
 
 剛剛開始使用嗎？嘗試瀏覽我們的一些指導教學及部落格，以取得將 {{site.data.keyword.appid_short_notm}} 整合至您應用程式的協助！
 
-* <a href="https://www.ibm.com/blogs/cloud-archive/2018/05/announcing-app-id-integration-ibm-cloud-kubernetes-service/" target="_blank">Announcing {{site.data.keyword.appid_short_notm}} integration to {{site.data.keyword.containerlong}} <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>
+* <a href="https://www.ibm.com/cloud/blog/announcing-app-id-integration-ibm-cloud-kubernetes-service" target="_blank">Announcing {{site.data.keyword.appid_short_notm}} integration to {{site.data.keyword.containerlong}} <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>
 * <a href="https://www.ibm.com/cloud/blog/using-app-id-secure-docker-kubernetes-applications" target="_blank">Using {{site.data.keyword.appid_short_notm}} to secure Docker and Kubernetes applications <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>
 * <a href="https://www.ibm.com/cloud/blog/authenticating-users-with-cloud-functions-api-gateway-and-app-id" target="_blank">Authenticating Users with Cloud Functions, API Gateway, and {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>
 * <a href="/docs/tutorials?topic=solution-tutorials-serverless-mobile-backend#serverless-mobile-backend" target="_blank">無伺服器後端的行動應用程式 <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>
@@ -103,7 +103,7 @@ subcollection: appid
 
 * <a href="https://www.ibm.com/support/knowledgecenter/SSQP8H/iot/platform/reference/security/app_id.html" target="_blank">{{site.data.keyword.appid_short_notm}} Authentication for Watson IoT Platform (Beta) <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>
 * <a href="https://developer.ibm.com/articles/iot-trs-secure-iot-solutions3/" target="_blank">Design and build secure IoT solutions, part 3: Securing IoT applications <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>
-* <a href="https://www.ibm.com/blogs/cloud-archive/2017/08/developing-finance-application-using-ibm-cloud/ " target="_blank">Developing a finance application by using {{site.data.keyword.cloud_notm}} <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>
+* <a href="https://www.ibm.com/cloud/blog/developing-finance-application-using-ibm-cloud" target="_blank">Developing a finance application by using {{site.data.keyword.cloud_notm}} <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>
 * <a href="/docs/tutorials?topic=solution-tutorials-cloud-e2e-security#cloud-e2e-security" target="_blank">Apply end to end security to a cloud application <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>
 
 
@@ -134,3 +134,9 @@ subcollection: appid
 
 * <a href="/docs/swift?topic=swift-getting-started" target="_blank">Programming with Swift on {{site.data.keyword.cloud_notm}} <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>
 * <a href="/docs/node?topic=nodejs-getting-started" target="_blank">Programming with Node.js on {{site.data.keyword.cloud_notm}} <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>
+
+
+## 測試
+{: #rellinks-test}
+
+準備好開始嘗試服務了嗎？嘗試 API 最簡單的方法是使用 [App ID Postman collection](https://github.com/ibm-cloud-security/appid-postman){: external}。

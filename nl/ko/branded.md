@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-20"
+lastupdated: "2019-07-10"
 
-keywords: authentication, authorization, identity, app security, secure, customizing apps, directory, registry, 
+keywords: Authentication, authorization, identity, app security, secure, customizing apps, directory, registry, 
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -38,11 +38,13 @@ subcollection: appid
 {: #branded-requirements}
 
 
-고유한 UI를 사용하려면 [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory)를 ID 제공자로 사용해야 합니다. Cloud Directory를 [구성](/docs/services/appid?topic=appid-cloud-directory)할 수 있는 몇 가지 서로 다른 방법이 존재합니다. 전송할 메시지의 유형을 결정하고 컨텐츠 및 디자인을 사용자 정의할 수 있습니다. 어떤 메시지를 전송할지 모르시겠습니까? 문제 없습니다. GUI에 사용 가능한 예제 메시지가 있습니다.
+고유한 UI를 사용하려면 [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory)를 ID 제공자로 사용해야 합니다. Cloud Directory는 여러 다른 방식으로 구성할 수 있습니다. 전송할 메시지의 유형을 결정하고 컨텐츠 및 디자인을 사용자 정의할 수 있습니다. 어떤 메시지를 전송할지 모르시겠습니까? 문제 없습니다. 사용할 수 있는 예제 메시지는 GUI를 참조하십시오.
 
 
-영어 이외의 [언어](/docs/services/appid?topic=appid-cd-messages#cd-languages)를 사용하시겠습니까? 자체 번역 컨텐츠를 표시하기 위해 <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/updateLocalization" target="_blank">언어 관리 API <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>를 사용하여 다른 언어를 선택할 수 있습니다.
+영어 이외의 [언어](/docs/services/appid?topic=appid-cd-messages#cd-languages)를 사용하시겠습니까? 번역된 고유 컨텐츠를 표시하도록 [언어 관리 API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/updateLocalization){: external}를 사용하여 다른 언어를 선택할 수 있습니다.
 {: tip}
+
+
 
 
 ### 일부는 고유 화면을 사용하고 일부는 기본 화면을 사용할 수 있습니까?
@@ -53,7 +55,7 @@ subcollection: appid
 ### 기술적으로 이 플로우가 어떻게 다릅니까?
 {: #branded-technically}
 
-이 서비스는 OAuth 2.0 권한 부여 플로우를 사용하여 권한 프로세스를 맵핑합니다. Facebook 등의 소셜 ID 제공자를 구성하는 경우 <a href="https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html" target="_blank">권한 부여 플로우 <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>를 사용하여 로그인 위젯을 호출합니다. 고유 화면을 사용하는 경우 <a href="https://oauthlib.readthedocs.io/en/stable/oauth2/grants/password.html" target="_blank">리소스 소유자 비밀번호 인증 정보 플로우 <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>를 사용하여 화면을 호출할 수 있도록 해주는 액세스 및 ID 토큰을 제공합니다.
+이 서비스는 OAuth 2.0 권한 부여 플로우를 사용하여 권한 프로세스를 맵핑합니다. Facebook 등의 소셜 ID 제공자를 구성하는 경우 [권한 부여 플로우](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html){: external}를 사용하여 로그인 위젯을 호출합니다. 고유 화면을 사용하는 경우 [리소스 소유자 비밀번호 인증 정보 플로우](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/password.html){: external}를 사용하여 화면을 호출하는 데 사용할 수 있는 액세스 및 ID 토큰을 제공합니다.
 
 
 
@@ -62,15 +64,15 @@ subcollection: appid
 
 예! 작동 중에 Cloud Directory를 확인하려면 다음 예제를 참조하십시오.
 
-* <a href="https://www.ibm.com/cloud/blog/use-branded-ui-user-sign-app-id" target="_blank">Use your own branded UI for user sign-in with {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>
-* <a href="https://www.ibm.com/cloud/blog/use-ui-flows-user-sign-sign-app-id" target="_blank">Use your own UI and Flows for User Sign-Up and Sign-in with with {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>
-* <a href="https://www.ibm.com/cloud/blog/custom-login-page-app-id-integration" target="_blank">Use a custom login page with  {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>
+* [Use your own branded UI for user sign-in with {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/use-branded-ui-user-sign-app-id){: external}
+* [Use your own UI and Flows for User Sign-Up and Sign-in with {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/use-ui-flows-user-sign-sign-app-id){: external}
+* [Use a custom login page with {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/custom-login-page-app-id-integration){: external}
 
 
 ## Android SDK로 앱 브랜드화
 {: #branded-ui-android}
 
-Cloud Directory를 사용하면 Android SDK로 사용자 정의된 화면을 호출할 수 있습니다. 사용자가 상호 작용할 수 있는 화면의 조합을 선택할 수 있습니다. 세부 예제는 <a href="https://www.ibm.com/cloud/blog/use-branded-ui-user-sign-app-id" target="blank">Check out this blog<img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>의 내용을 참조하십시오.
+Cloud Directory를 사용하면 Android SDK로 사용자 정의된 화면을 호출할 수 있습니다. 사용자가 상호 작용할 수 있는 화면의 조합을 선택할 수 있습니다. 자세한 예제는 [이 블로그를 확인](https://www.ibm.com/cloud/blog/use-branded-ui-user-sign-app-id){: external}하십시오.
 {: shortdesc}
 
 
@@ -79,7 +81,7 @@ Cloud Directory를 사용하면 Android SDK로 사용자 정의된 화면을 호
 {: #branded-android-sign-in}
 
 1. GUI에서 Cloud Directory [설정](/docs/services/appid?topic=appid-cloud-directory#cd-settings)을 구성하십시오.
-2. 애플리케이션에 다음 코드를 추가하십시오. 사용자가 사용자 정의 화면에서 사인인을 클릭하면 사인인 플로우가 트리거됩니다. 일반 사용자의 사용자 이름 및 비밀번호를 제공하여 액세스, ID 및 새로 고치기 토큰을 받을 수 있습니다.
+2. 애플리케이션에 다음 코드를 추가하십시오. 사용자가 사용자 정의 화면에서 사인인을 클릭하면 사인인 플로우가 트리거됩니다. 사용자의 사용자 이름 및 비밀번호를 제공하여 액세스, ID 및 새로 고치기 토큰을 받을 수 있습니다.
 
   ```java
   AppID.getInstance().signinWithResourceOwnerPassword(getApplicationContext(), username, password, new TokenResponseListener() {
@@ -102,7 +104,7 @@ Cloud Directory를 사용하면 Android SDK로 사용자 정의된 화면을 호
 ## iOS Swift SDK로 앱 브랜드화
 {: #branded-ui-ios-swift}
 
-Cloud Directory가 사용으로 설정되어 있는 경우 [iOS Swift SDK](https://github.com/ibm-cloud-security/appid-clientsdk-swift)를 통해 고유한 브랜드의 화면을 호출할 수 있습니다.
+Cloud Directory가 사용으로 설정되어 있는 경우 [iOS Swift SDK](https://github.com/ibm-cloud-security/appid-clientsdk-swift){: external}를 통해 고유한 브랜드의 화면을 호출할 수 있습니다.
 {: shortdesc}
 
 </br>
@@ -173,7 +175,8 @@ Cloud Directory가 사용되는 경우에는 Node.js SDK로 사용자 정의된 
     </tbody>
   </table>
 
-**참고**: HTML 형식으로 요청을 제출하는 경우 <a href="https://www.npmjs.com/package/body-parser" target="blank">본문 구문 분석기 <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a> 미들웨어를 사용할 수 있습니다. 리턴되는 오류 메시지를 확인하기 위해 <a href="https://www.npmjs.com/package/connect-flash" target="blank">connect-flash <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>를 사용할 수 있습니다. 작동 중에 확인하려면 <a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs/blob/master/samples/web-app-sample.js" target="blank">웹 앱 샘플 <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>을 참조하십시오.
+**참고**: HTML 형식으로 요청을 제출하는 경우 [본문 구문 분석기](https://www.npmjs.com/package/body-parser){: external} 미들웨어를 사용할 수 있습니다. [connect-flash](https://www.npmjs.com/package/connect-flash){: external}를 사용하여 리턴된 오류 메시지를 볼 수 있습니다. 작동 중에 확인하려면 [웹 앱 샘플](https://github.com/ibm-cloud-security/appid-serversdk-nodejs/blob/master/samples/web-app-sample.js){: external}을 확인하십시오.
+
 
 
 ## API로 앱 브랜드화
@@ -184,7 +187,7 @@ Cloud Directory가 사용되는 경우에는 Node.js SDK로 사용자 정의된 
 
 이를 가능하게 하도록 {{site.data.keyword.appid_short_notm}}에서 REST API를 공개합니다. REST API를 사용하여 웹 앱을 서비스하는 백엔드 서버를 빌드하거나 고유한 사용자 정의 화면을 통해 모바일 앱과 상호작용할 수 있습니다.
 
-관리 API의 경우 IBM Cloud Identity and Access Management에서 생성된 토큰을 통해 보안이 적용되며, 이는 계정 소유자가 해당 팀에서 어떤 사용자가 각각의 서비스 인스턴스에 대해 어떤 레벨의 액세스 권한을 보유하는지 지정할 수 있음을 의미합니다. IAM 및 {{site.data.keyword.appid_short_notm}}가 함께 작동되는 방법에 대한 자세한 정보는 [서비스 액세스 관리](/docs/services/appid?topic=appid-service-access-management#service-access-management)를 참조하십시오.
+관리 API의 경우 IBM Cloud Identity and Access Management에서 생성된 토큰을 통해 보안이 적용되며, 이는 계정 소유자가 해당 팀에서 어떤 사용자가 각각의 서비스 인스턴스에 대해 어떤 레벨의 액세스 권한을 보유하는지 지정할 수 있음을 의미합니다. IAM 및 {{site.data.keyword.appid_short_notm}}가 함께 작동되는 방법에 대한 자세한 정보는 [서비스 액세스 관리](/docs/services/appid?topic=appid-service-access-management)를 참조하십시오.
 
 [설정](/docs/services/appid?topic=appid-cloud-directory#cd-settings)을 구성한 후에는 다음 엔드포인트를 호출하여 각각의 화면을 표시할 수 있습니다.
 
@@ -194,11 +197,11 @@ Cloud Directory가 사용되는 경우에는 Node.js SDK로 사용자 정의된 
 `/sign_up` 엔드포인트를 사용하여 사용자가 직접 앱에 등록하도록 허용할 수 있습니다.
 요청 본문에서 다음 데이터를 제공하십시오.
   * tenantID.
-  * Cloud Directory 사용자 데이터. 세부사항은 [SCIM 전체 사용자 표시](https://tools.ietf.org/html/rfc7643#section-8.2)를 참조하십시오.
+  * Cloud Directory 사용자 데이터. 세부사항은 [SCIM 전체 사용자 표시](https://tools.ietf.org/html/rfc7643#section-8.2){: external}를 참조하십시오.
     * `password` 속성.
-    * `true`로 설정된 `primary` 속성의 이메일 배열에서, 최소한 1개의 이메일 주소가 있어야 합니다.
+    * `true`로 설정된 `primary` 속성의 이메일 배열에서, 최소한 one개의 이메일 주소가 있어야 합니다.
 
-[이메일 구성](/docs/services/appid?topic=appid-cd-messages#cd-messages)에 따라 사용자가 검증 요청을 수신하거나, 앱에 등록 시 환영하는 이메일을 수신하거나, 또는 둘 다 수신할 수 있습니다. 두 가지 유형의 이메일 모두 사용자가 앱에 등록할 때 트리거됩니다. 검증 이메일에는 사용자가 해당 ID를 확인하기 위해 클릭할 수 있는 링크가 포함되어 있으며, 검증을 수행한 것에 감사하거나 검증이 완료되었음을 확인하는 화면이 표시됩니다.  
+[이메일 구성](/docs/services/appid?topic=appid-cd-messages)에 따라 사용자가 검증 요청을 수신하거나, 앱에 등록 시 환영하는 이메일을 수신하거나, 또는 둘 다 수신할 수 있습니다. 두 가지 유형의 이메일 모두 사용자가 앱에 등록할 때 트리거됩니다. 검증 이메일에는 사용자가 해당 ID를 확인하기 위해 클릭할 수 있는 링크가 포함되어 있으며, 검증을 수행한 것에 감사하거나 검증이 완료되었음을 확인하는 화면이 표시됩니다.  
 
 고유한 사후 검증 페이지를 표시하려면 다음 작업을 수행하십시오.
 
@@ -215,7 +218,7 @@ Cloud Directory가 사용되는 경우에는 Node.js SDK로 사용자 정의된 
 `/forgot_password` 엔드포인트를 사용하면 사용자가 자체 비밀번호를 잊은 경우에 이를 복구하도록 허용할 수 있습니다.
 
 요청 본문에서 다음 데이터를 제공하십시오.
-  * tenantID.
+  * 테넌트 ID.
   * Cloud Directory 사용자의 이메일.
 
 엔드포인트가 호출된 경우에는 비밀번호 재설정 이메일이 사용자에게 발송됩니다. 이메일에는 **재설정** 단추가 포함되어 있습니다. 단추를 누르면 {{site.data.keyword.appid_short_notm}}에 비밀번호를 재설정할 수 있는 화면이 표시됩니다.
@@ -274,7 +277,7 @@ Cloud Directory가 사용되는 경우에는 Node.js SDK로 사용자 정의된 
 
 사용자가 앱에 사인인한 경우에는 일부 자체 정보를 업데이트할 수 있습니다. `/Users/{userId}`를 사용하여 해당 정보를 가져오고 업데이트할 수 있습니다.
 
-사용자 세부사항이 업데이트되는 경우, 엔드포인트는 [SCIM 형식](https://tools.ietf.org/html/rfc7643#section-8.2)으로 요청 본문의 업데이트된 사용자 데이터를 가져옵니다. 반드시 관련 세부사항만 변경하십시오.
+사용자 세부사항이 업데이트되는 경우, 엔드포인트는 [SCIM 형식](https://tools.ietf.org/html/rfc7643#section-8.2){: external}으로 요청 본문의 업데이트된 사용자 데이터를 가져옵니다. 반드시 관련 세부사항만 변경하십시오.
 
 사용자의 이메일 주소는 변경할 수 없습니다.
 {: tip}

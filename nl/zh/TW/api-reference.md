@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-13"
+lastupdated: "2019-06-18"
 
-keywords: authentication, authorization, identity, app security, secure, application identity, app to app, access token
+keywords: Authentication, authorization, identity, app security, secure, application identity, app to app, access token
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -31,7 +31,7 @@ subcollection: appid
 管理 API 是使用 Identity and Access Management (IAM) 產生的記號來保護。使用 IAM，帳戶擁有者可以指定其團隊成員對每個服務實例的存取層次。如需 IAM 與 {{site.data.keyword.appid_short_notm}} 如何合作的相關資訊，請參閱[服務存取管理](/docs/services/appid?topic=appid-service-access-management)。
 
 
-想要查看運作中的 API 嗎？請參閱下列視訊指導教學！
+想要查看運作中的 API 嗎？請觀看下列視訊指導教學！
 
 <iframe class="embed-responsive-item" id="about-appid-api" title="關於 {{site.data.keyword.appid_short_notm}} API" type="text/html" width="640" height="390" src="//www.youtube.com/embed/b2ABxvAdGg0?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
 
@@ -82,7 +82,7 @@ https://<region-endpoint>.appid.cloud.ibm.com/management
 {: #api-prereq}
 
 <ul><ul><li>一個在 2018 年 3 月 15 日之後建立的服務實例。如果您的服務實例是在該日期之前所建立，請建立新的實例，並將它配置為符合您的現行實例。請務必更新您的應用程式以使用新的實例。</li>
-<li>已安裝 [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-ibmcloud-cli)。</li></ul></ul>
+<li>已安裝 [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started)。</li></ul></ul>
 
 ## 範例用法
 {: #api-example}
@@ -127,4 +127,4 @@ if (r.status_code >= 200) :~
 ## 後續步驟
 {: #api-try}
 
-若要自行嘗試，請參閱 <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/" target="_blank">{{site.data.keyword.appid_short_notm}} 管理 Rest API <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>
+若要自行嘗試，請參閱 [{{site.data.keyword.appid_short_notm}} 管理 Rest API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/){: external}

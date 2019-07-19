@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-09"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, development, sso, directory, users, registry, multiple apps
+keywords: Authentication, authorization, identity, app security, secure, development, sso, directory, users, registry, multiple apps
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -41,7 +41,7 @@ Consulta il seguente diagramma per vedere SSO in azione.
 3. Se le credenziali sono valide, un utente accede alla tua applicazione. Allo stesso tempo, {{site.data.keyword.appid_short_notm}}, crea una sessione e imposta un cookie sul browser dell'utente.
 4. Se un utente prova ad eseguire l'accesso a una delle tue altre applicazioni, {{site.data.keyword.appid_short_notm}} rileva il cookie di sessione e all'utente viene consentito l'accesso alla tua applicazione in modo automatico. I cookie di sessione di {{site.data.keyword.appid_short_notm}} sono specifici per l'istanza e sono firmati dalla chiave privata univoca dell'istanza.
 
-Se la tua istanza è configurata per utilizzare provider di identità in aggiunta a Cloud Directory come ad esempio SAML o Facebook, il Widget di accesso viene comunque visualizzato. Agli utenti viene richiesto di immettere le loro credenziali Cloud Foundry o di scegliere uno degli altri provider, anche se hanno una sessione SSO valida.
+Attualmente, SSO è configurato per funzionare quando Cloud Directory è l'unico provider di identità abilitato. Se la tua istanza di {{site.data.keyword.appid_short_notm}} è configurata per utilizzare più provider di identità, l'abilitazione di SSO non ha alcun effetto sul flusso di accesso. Agli utenti viene richiesto di immettere le loro credenziali Cloud Foundry o di scegliere uno degli altri provider a ogni accesso.
 {: note}
 
 

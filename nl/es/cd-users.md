@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
+keywords: Authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
 subcollection: appid
 
 ---
  
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -29,7 +29,7 @@ subcollection: appid
 Con el Directorio en la nube, puede gestionar los usuarios en un registro escalable utilizando una funcionalidad preconstruida que mejora la seguridad y el autoservicio.
 {: shortdesc}
 
-Un usuario del directorio en la nube no es lo mismo que un usuario de {{site.data.keyword.appid_short_notm}}. Los usuarios pueden registrarse en la app utilizando las distintas opciones de proveedor de identidades que haya configurado, o bien puede añadirlos a su directorio. Los usuarios que se mencionan en este tema son los que están asociados al Directorio en la nube como proveedor de identidad.
+Un usuario del directorio en la nube no es lo mismo que un usuario de {{site.data.keyword.appid_short_notm}}. Los usuarios pueden registrarse en la app utilizando las distintas opciones de proveedor de identidades que haya configurado, o bien puede añadirlos a su directorio. Los usuarios que se mencionan en esta página son los que están asociados al Directorio en la nube como proveedor de identidad.
 {: note}
 
 ## Visualización de la información de usuario
@@ -63,7 +63,7 @@ Puede utilizar el panel de control de {{site.data.keyword.appid_short_notm}} par
   </tr>
     <tr>
     <td>Nombre y apellido</td>
-    <td>El nombre y apellido de usuario tal como se han especificado durante el proceso de registro.</td>
+    <td>El nombre y el apellido del usuario que se proporcionaron durante el proceso de registro.</td>
   </tr>
   <tr>
     <td>Último inicio de sesión</td>
@@ -185,11 +185,11 @@ Si inhabilita el registro de autoservicio o añade a un usuario, el usuario no r
 
 
 
-**Para añadir un nuevo usuario con la GUI:**
+**Para añadir un usuario con la GUI:**
 
 1. Vaya al separador **Directorio en la nube > Usuarios** del panel de control de {{site.data.keyword.appid_short_notm}}.
 
-2. Pulse **Añadir usuario**. Aparece un formulario.
+2. Pulse **Añadir usuario**. Se abrirá un formulario.
 
 3. Escriba un **Nombre**, **Apellido**, **Correo electrónico** y **Contraseña**. Asegúrese de que el correo electrónico que intenta registrar no lo tenga otro usuario. Para estar seguro de que ha escrito correctamente la contraseña, confirme la contraseña introduciéndola en el campo **Vuelva a escribir la contraseña**.
 
@@ -198,7 +198,7 @@ Si inhabilita el registro de autoservicio o añade a un usuario, el usuario no r
 </br>
 
 
-**Para añadir un nuevo usuario con la API:**
+**Para añadir un usuario con la API:**
 
 El siguiente flujo muestra cómo añadir un usuario con un correo electrónico y una contraseña. También puede elegir utilizar un flujo de nombre de usuario y contraseña.
 
@@ -211,7 +211,7 @@ El siguiente flujo muestra cómo añadir un usuario con un correo electrónico y
   ```
   {: codeblock}
 
-3. Con la señal que ha obtenido en el paso 2, realice una solicitud POST al punto final `cloud-directory/users`. Tenga en cuenta que este ejemplo utiliza el flujo de correo electrónico/contraseña. También puede utilizar el flujo de nombre de usuario/contraseña.
+3. Con la señal que ha obtenido en el paso 2, realice una solicitud POST al punto final `cloud-directory/users`. Este ejemplo utiliza el flujo de correo electrónico/contraseña. También puede utilizar el flujo de nombre de usuario/contraseña.
 
   ```
   curl --X POST "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/Users"
@@ -245,9 +245,9 @@ Si desea eliminar un usuario del directorio, puede suprimir el usuario de la GUI
 
 1. Vaya al separador **Directorio en la nube > Usuarios** del panel de control de {{site.data.keyword.appid_short_notm}}.
 
-2. Pulse sobre el recuadro de selección situado junto al usuario que desea suprimir. Aparece un recuadro.
+2. Pulse sobre el recuadro de selección situado junto al usuario que desea suprimir. Se abrirá un recuadro.
 
-3. En el recuadro, pulse **Suprimir**. Se mostrará una pantalla.
+3. En el recuadro, pulse **Suprimir**. Se abre una pantalla.
 
 4. Confirme que comprende que la acción de suprimir un usuario no se puede deshacer pulsando **Suprimir**. Si la acción fue un error, puede volver a añadir el usuario al directorio, pero cualquier información acerca de ese usuario ya no estará disponible.
 
@@ -277,7 +277,7 @@ Si desea eliminar un usuario del directorio, puede suprimir el usuario de la GUI
 ## Migración de usuarios
 {: #user-migration}
 
-Es posible que en alguna ocasión deba configurar una nueva instancia de {{site.data.keyword.appid_short_notm}}. Si utiliza el directorio en la nube, esto significa que los usuarios deben migrarse a la nueva instancia. Puede utilizar las API de gestión para que le ayuden con la migración.
+En ocasiones, es posible que tenga que añadir una instancia de {{site.data.keyword.appid_short_notm}}. Cuando está trabajando con el directorio en la nube, los usuarios deben migrarse a la instancia nueva. Para facilitar la migración, puede utilizar las API de gestión.
 {: shortdesc}
 
 
@@ -388,7 +388,7 @@ Antes de empezar, asegúrese de tener la siguiente información de parámetro:
 Para ejecutar el script:
 
 1. Clone el <a href="https://github.com/ibm-cloud-security/appid-sample-code-snippets/tree/master/export-import-cloud-directory-users" target="_blank">repositorio <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>.
-2. Abra el terminal y vaya a la carpeta en la que ha clonado el repositorio.
+2. Abra la consola y vaya a la carpeta en la que ha clonado el repositorio.
 3. Ejecute el mandato siguiente.
 
   ```

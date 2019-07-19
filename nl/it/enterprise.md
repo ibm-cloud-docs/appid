@@ -36,7 +36,7 @@ Utilizzi un provider di identità SAML specifico? Consulta uno di questi post di
 ## Descrizione di SAML
 {: #saml-understanding}
 
-SAML (Security Assertion Markup Language) è un open standard per lo scambio di dati di autenticazione e autorizzazione tra un provider di identità che asserisce l'identità dell'utente e un provider di servizi che utilizza le informazioni sull'identità dell'utente.
+SAML (Security Assertion Markup Language) è uno standard aperto per lo scambio di dati di autenticazione e autorizzazione tra un provider di identità che asserisce l'identità dell'utente e un provider di servizi che utilizza le informazioni sull'identità dell'utente.
 {: shortdesc}
 
 Il protocollo <a href="http://saml.xml.org/saml-specifications" target="blank">SAML <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a> supporta diversi profili e opzioni di associazione. {{site.data.keyword.appid_short_notm}} supporta il profilo SSO del browser web, con l'associazione HTTP Post.

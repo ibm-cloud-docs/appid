@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-23"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, custom, proprietary, social, facebook, google, 
+keywords: Authentication, authorization, identity, app security, secure, custom, proprietary, social, facebook, google, 
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -36,6 +36,10 @@ eles não precisarão mais se lembrar de várias senhas diferentes para aplicati
 
 O {{site.data.keyword.appid_short_notm}} fornece uma configuração padrão para ajudá-lo a iniciar rapidamente o serviço.
 {: shortdesc}
+
+Os dados são usados quando você se compromete com os Usos permitidos do Serviço. Ao usar o Serviço, você concorda com a coleta e o uso de informações de acordo com a [política de privacidade](/docs/services/appid?topic=appid-privacy-policy) descrita.
+{: important}
+
 
 Quando você configura o {{site.data.keyword.appid_short_notm}}, o Facebook, o Google e o Cloud Directory são ativados automaticamente como provedores de identidade. É possível mudar a configuração a qualquer momento. Há credenciais padrão no lugar para o Facebook e o Google, mas elas são credenciais da IBM e devem ser usadas para testar se apenas o serviço deve ser usado. Antes de publicar o seu app, atualize a configuração para as suas próprias credenciais.
 
@@ -117,3 +121,9 @@ nos detalhes do provedor de identidade do Google.
 redirecionamento autorizados** e clique em **Salvar**.
 4. Clique em **Salvar** para atualizar sua configuração do Google no {{site.data.keyword.appid_short}}.
 5. Para apps da web, insira uma URL de redirecionamento na guia **Gerenciar**. Após a conclusão do processo de autorização, um usuário será enviado para essa URL. A URL deve seguir um esquema `http` ou `https`. Para um nível mais alto de segurança, use um esquema `https`.
+
+
+
+
+
+

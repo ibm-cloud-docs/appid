@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, custom, proprietary, 
+keywords: Authentication, authorization, identity, app security, secure, custom, proprietary, 
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -22,7 +22,7 @@ subcollection: appid
 {:deprecated: .deprecated}
 {:download: .download}
 
-# 在應用程式中使用自訂身分
+# 自訂身分
 {: #custom-auth}
 
 當您鑑別時，可以使用自己的自訂身分提供者。您的身分提供者可以符合任何鑑別機制，只要其為 {{site.data.keyword.appid_full}} 支援之鑑別機制的替代方案，包括專屬或舊式鑑別機制。
@@ -76,7 +76,7 @@ subcollection: appid
 ## 產生 JSON Web 記號
 {: #generating-jwts}
 
-您可以藉由產生 <a href="https://tools.ietf.org/html/rfc7515" target="blank">JSON Web 記號 <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>，來將已驗證的使用者資料轉換為自訂身分 JWT。必須使用符合您預先配置之公開金鑰的私密金鑰來簽署記號。如需記號簽署程式庫的清單，請參閱 <a href="https://jwt.io/" target="blank">https://jwt.io/ <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>。
+您可以透過產生 <a href="https://tools.ietf.org/html/rfc7515" target="blank">JSON Web 記號 <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>，來將已驗證的使用者資料轉換為自訂身分 JWT。必須使用符合您預先配置之公開金鑰的私密金鑰來簽署記號。如需記號簽署程式庫的清單，請參閱 <a href="https://jwt.io/" target="blank">https://jwt.io/ <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>。
 {: shortdesc}
 
 ### JWT 格式範例

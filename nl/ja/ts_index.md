@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-21"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, troubleshooting, help, support, requests, uri
+keywords: Authentication, authorization, identity, app security, secure, troubleshooting, help, support, requests, uri
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -79,7 +79,7 @@ subcollection: appid
 この制限事項はセキュリティーのために課されています。
 
 {: tsResolve}
-この問題を解決するには、URL が正しいことを確認します。 URL が要件を満たしていない場合は、アプリに HTTPS エンドポイントを作成して、受信した付与コードをカスタム URL にリダイレクトできます。 作成したエンドポイントを、{{site.data.keyword.appid_short_notm}} コンソールでリダイレクト URL として指定します。 リダイレクト URI について詳しくは、[リダイレクト URI の追加](/docs/services/appid?topic=appid-managing-idp#add-redirect-uri)を参照してください。
+この問題を解決するには、URL が正しいことを確認します。 URL が要件を満たしていない場合は、アプリに HTTPS エンドポイントを作成して、受信した認可コードをカスタム URL にリダイレクトできます。 作成したエンドポイントを、{{site.data.keyword.appid_short_notm}} コンソールでリダイレクト URL として指定します。 リダイレクト URI について詳しくは、[リダイレクト URI の追加](/docs/services/appid?topic=appid-managing-idp#add-redirect-uri)を参照してください。
 
 ## ユーザーが ID プロバイダーにリダイレクトされない
 {: #ts-redirect}
@@ -93,15 +93,15 @@ ID プロバイダーが以下のような理由で失敗している可能性�
 * 構成済みのリダイレクト URL が正しくない。
 * ID プロバイダーが認証要求を認識しない。
 * ID プロバイダーが HTTP-POST バインディングを必要としている。
-* ID プロバイダーが署名済み authnRequest を必要としている。
+* ID プロバイダーが署名済み AuthnRequest を必要としている。
 
 {: tsResolve}
 以下のような解決法を試行できます。
 
-* サインイン URL を更新します。 この URL は authnRequest の一部として送信されるため、正確でなければなりません。
+* サインイン URL を更新します。 この URL は AuthnRequest の一部として送信されるため、正確でなければなりません。
 * {{site.data.keyword.appid_short_notm}} メタデータが ID プロバイダー設定で正しく設定されていることを確認します。
-* HTTP リダイレクトで authnRequest を受け入れるように ID プロバイダーを構成します。
-* {{site.data.keyword.appid_short_notm}} では、authnRequest の署名はサポートされていません。
+* HTTP リダイレクトで AuthnRequest を受け入れるように ID プロバイダーを構成します。
+* {{site.data.keyword.appid_short_notm}} では、AuthnRequest の署名はサポートされていません。
 
 これらの方法で解決できない場合は、接続の問題がある可能性があります。
 {: tip}
@@ -137,7 +137,7 @@ ID プロバイダー設定で属性をマップします。 {{site.data.keyword
 {: screen}
 
 {: tsCauses}
-「要求が多すぎます」エラーは、仮想ユーザー 1 人だけで自動テストを実行した場合に受け取ることがあります。 各ユーザーのサインインの試行回数は 1 分間に 5 回に限られています。 サインインの試行回数が限定されているのは、ブルート・フォース DDOS 攻撃 (総当たり攻撃) やその他の似たようなタイプの攻撃を防止するためです。
+「要求が多すぎます」エラーは、仮想ユーザー 1 人だけで自動テストを実行した場合に受け取ることがあります。 各ユーザーのサインインの試行回数は 1 分間に 5 回に限られています。 サインインの試行回数が制限されているのは、ブルート・フォース DDoS 攻撃やその他の似たようなタイプの攻撃を防止するためです。
 
 {: tsResolve}
 この問題を解決するために、テストを行うときに複数の仮想ユーザーを使用することをお勧めします。

@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-20"
+lastupdated: "2019-07-10"
 
-keywords: authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
+keywords: Authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -25,7 +25,7 @@ subcollection: appid
 # Personnalisation des courriers électroniques
 {: #cd-types}
 
-Lorsqu'un utilisateur interagit avec votre application, vous pouvez parfois souhaiter envoyer une réponse ou demander une vérification. {{site.data.keyword.appid_short_notm}} fournit des modèles par défaut que vous pouvez utiliser pour les interactions. Vous pouvez également utiliser les modèles pour vous guider et personnaliser vos messages de manière à les adapter à votre marque.
+Lorsqu'un utilisateur interagit avec votre application, vous souhaiterez lui envoyer une réponse ou solliciter une vérification. {{site.data.keyword.appid_short_notm}} fournit des modèles par défaut que vous pouvez utiliser pour les interactions. Vous pouvez également utiliser les modèles pour vous guider et personnaliser vos messages de manière à les adapter à votre marque.
 {: shortdesc}
 
 {{site.data.keyword.appid_short_notm}} utilise <a href="https://www.sendgrid.com" target="_blank">SendGrid <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a> comme service de distribution de courrier. Tous les courriers électroniques sont envoyés à l'aide d'un seul compte SendGrid.
@@ -40,7 +40,7 @@ Lorsque vous envoyez des messages à vos utilisateurs, vous pouvez utiliser n'im
 Outre les types de message suivants, vous pouvez également profiter des modèles de [connexion unique](/docs/services/appid?topic=appid-cd-sso#cd-sso) et  d'[authentification multi-facteur](/docs/services/appid?topic=appid-cd-mfa#cd-mfa).
 {: tip}
 
-Vous pouvez utiliser des paramètres dans vos messages afin de les personnaliser encore plus. Consultez le tableau suivant pour voir les paramètres utilisables dans tous les types de message.
+Vous pouvez utiliser des paramètres dans vos messages pour aller plus loin dans la personnalisation. Consultez le tableau suivant pour voir les paramètres utilisables dans tous les types de message.
 
 <table>
   <tr>
@@ -60,7 +60,7 @@ Vous pouvez utiliser des paramètres dans vos messages afin de les personnaliser
   </tr>
   <tr>
     <td><code>%{user.username}</code></td>
-    <td> Affiche le nom d'utilisateur spécifié pour l'utilisateur lorsque l'authentification est effectuée à l'aide d'un nom d'utilisateur et d'un mot de passe. </td>
+    <td> Affiche le nom d'utilisateur spécifié pour l'utilisateur lorsque l'authentification est définie à l'aide d'un nom d'utilisateur et d'un mot de passe. </td>
   </tr>
   <tr>
     <td><code>%{user.firstName}</code></td>
@@ -87,7 +87,7 @@ Lorsqu'un utilisateur se connecte à votre application, vous pouvez souhaiter lu
 
 2. Définissez **Courrier électronique de bienvenue** sur **Activé**.
 
-3. Personnalisez le contenu de votre message. Vous pouvez ajouter des paramètres et insérer des images à l'aide de l'interface utilisateur. Pour modifier la [langue](/docs/services/appid?topic=appid-cd-messages#cd-languages) du message, vous pouvez utiliser des <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization" target="_blank">API <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a> afin de définir la langue. Toutefois, le contenu et la traduction du message sont de votre seule responsabilité. Consultez le tableau suivant pour la liste des tables utilisables dans ce message et dans tous les autres messages que vous pouvez envoyer. Un blanc apparaît à la place d'un paramètre si l'utilisateur n'a pas fourni l'information correspondante.
+3. Personnalisez le contenu de votre message. Vous pouvez ajouter des paramètres et insérer des images à l'aide de l'interface utilisateur. Pour modifier la [langue](/docs/services/appid?topic=appid-cd-messages#cd-languages) du message, vous pouvez utiliser des <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization" target="_blank">API <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a> afin de définir la langue. Toutefois, le contenu et la traduction du message sont de votre seule responsabilité. Consultez le tableau suivant pour la liste des tables utilisables dans ce message et dans tous les autres messages que vous pouvez envoyer. Si un utilisateur ne fournit pas l'information recueillie par le paramètre, un blanc apparaît.
 
 4. Cliquez sur **Sauvegarder**.
 
@@ -95,8 +95,11 @@ Lorsqu'un utilisateur se connecte à votre application, vous pouvez souhaiter lu
 ### Courrier électronique de vérification
 {: #cd-messages-verification}
 
-Lorsqu'un utilisateur se connecte à votre application à l'aide de son adresse électronique, vous pouvez lui envoyer un message lui demandant de confirmer son identité. Vous limiterez ainsi le nombre de faux comptes (notamment les robots) qui peuvent s'inscrire à votre application. Vous pouvez restreindre l'accès à votre application jusqu'à ce qu'un utilisateur confirme son adresse e-mail, ou l'utiliser pour gérer les utilisateurs pour qui vous créez des profils. Notez que les utilisateurs ajoutés manuellement via le tableau de bord {{site.data.keyword.appid_short_notm}} ou l'API de création d'utilisateur ne reçoivent pas automatiquement ce courrier électronique.
+Lorsqu'un utilisateur se connecte à votre application à l'aide de son adresse électronique, vous pouvez lui envoyer un message lui demandant de confirmer son identité. Vous limiterez ainsi le nombre de faux comptes (notamment les robots) qui peuvent s'inscrire à votre application. Vous pouvez restreindre l'accès à votre application jusqu'à ce qu'un utilisateur confirme son adresse e-mail, ou l'utiliser pour gérer les utilisateurs pour qui vous créez des profils.
 {: shortdesc}
+
+Les utilisateurs ajoutés manuellement via le tableau de bord {{site.data.keyword.appid_short_notm}} ou l'API de création d'utilisateur ne reçoivent pas automatiquement ce courrier électronique.
+{: note}
 
 
 1. Accédez à l'onglet **Modèles de flux de travaux > Vérification de l'adresse électronique** du tableau de bord du service.
@@ -105,7 +108,7 @@ Lorsqu'un utilisateur se connecte à votre application à l'aide de son adresse 
 
 3. Définissez **Permettre aux utilisateurs de se connecter à votre application sans vérifier d'abord leur adresse électronique** sur **Oui**. Lorsque cette option est définie sur Oui, les utilisateurs peuvent interagir avec votre application une fois connectés et avant vérification de leur adresse électronique. La valeur par défaut est Non.
 
-4. Personnalisez le contenu de votre message. Vous pouvez ajouter des paramètres et insérer des images à l'aide de l'interface utilisateur. Pour modifier la [langue](/docs/services/appid?topic=appid-cd-messages#cd-languages) du message, vous pouvez utiliser des <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization" target="_blank">API <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a> afin de définir la langue. Toutefois, le contenu et la traduction du message sont de votre seule responsabilité. Consultez le tableau suivant pour voir les différents paramètres utilisables dans votre message. Un blanc apparaît à la place d'un paramètre si l'utilisateur n'a pas fourni l'information correspondante.
+4. Personnalisez le contenu de votre message. Vous pouvez ajouter des paramètres et insérer des images à l'aide de l'interface utilisateur. Pour modifier la [langue](/docs/services/appid?topic=appid-cd-messages#cd-languages) du message, vous pouvez utiliser des <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization" target="_blank">API <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a> afin de définir la langue. Toutefois, le contenu et la traduction du message sont de votre seule responsabilité. Consultez le tableau suivant pour voir les différents paramètres utilisables dans votre message. Si un utilisateur ne fournit pas l'information recueillie par le paramètre, un blanc apparaît.
 
   <table>
     <tr>
@@ -150,7 +153,7 @@ Lorsqu'un utilisateur interagit avec votre application, il peut avoir oublié so
 
 2. Définissez **Courrier électronique d'oubli de mot de passe** sur **Activé**.
 
-3. Personnalisez le contenu de votre message. Vous pouvez ajouter des paramètres et insérer des images à l'aide de l'interface utilisateur. Pour modifier la [langue](/docs/services/appid?topic=appid-cd-messages#cd-languages) du message, vous pouvez utiliser des <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization" target="_blank">API <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a> afin de définir la langue. Toutefois, le contenu et la traduction du message sont de votre seule responsabilité. Consultez le tableau suivant pour voir les différents paramètres utilisables dans votre message. Un blanc apparaît à la place d'un paramètre si l'utilisateur n'a pas fourni l'information correspondante.
+3. Personnalisez le contenu de votre message. Vous pouvez ajouter des paramètres et insérer des images à l'aide de l'interface utilisateur. Pour modifier la [langue](/docs/services/appid?topic=appid-cd-messages#cd-languages) du message, vous pouvez utiliser des <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization" target="_blank">API <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a> afin de définir la langue. Toutefois, le contenu et la traduction du message sont de votre seule responsabilité. Consultez le tableau suivant pour voir les différents paramètres utilisables dans votre message. Si un utilisateur ne fournit pas l'information recueillie par le paramètre, un blanc apparaît.
 
   <table>
     <tr>
@@ -187,7 +190,7 @@ Lorsqu'un utilisateur interagit avec votre application, il peut avoir oublié so
 ### Courrier électronique de changement de mot de passe
 {: #cd-messages-password-change}
 
-Vous pouvez faire savoir à l'utilisateur que son mot de passe a changé. Cette option est particulièrement utile s'il n'en a pas fait la demande. Il peut alors effectuer les étapes appropriées pour resécuriser son compte.
+Vous pouvez avertir un utilisateur de la mise à jour de son mot de passe. Cette notification peut s'avérer utile lorsqu'il n'a pas demandé de changement de mot de passe. Il peut alors effectuer les étapes appropriées pour resécuriser son compte.
 {: shortdesc}
 
 1. Accédez à l'onglet **Modèles de flux de travaux > Changer le mot de passe** du tableau de bord du service.
@@ -195,7 +198,6 @@ Vous pouvez faire savoir à l'utilisateur que son mot de passe a changé. Cette 
 2. Définissez **Courrier électronique de changement de mot de passe** sur **Activé**.
 
 3. Personnalisez le contenu de votre message. Vous pouvez ajouter des paramètres et insérer des images à l'aide de l'interface utilisateur. Pour modifier la [langue](/docs/services/appid?topic=appid-cd-messages#cd-languages) du message, vous pouvez utiliser des <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization" target="_blank">API <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a> afin de définir la langue. Toutefois, le contenu et la traduction du message sont de votre seule responsabilité. Consultez le tableau suivant pour voir les différents paramètres utilisables dans votre message. Si un utilisateur ne fournit pas l'information recueillie par le paramètre, un blanc apparaît.
-  
 
   <table>
     <tr>
@@ -228,7 +230,7 @@ Avec {{site.data.keyword.appid_short_notm}}, vous pouvez définir un point d'ext
 Vous souhaiterez peut-être utiliser un émetteur de courrier électronique personnalisé pour les raisons suivantes :
 
 - **Domaine personnalisé**
-La configuration d'un répartiteur de courriers électroniques personnalisé vous permet d'avoir un contrôle complet sur l'envoi des messages électroniques. Cela inclut la personnalisation du domaine d'e-mail, ce qui peut réduire davantage les risques de filtrage des e-mails en tant que spam. Vous pouvez également améliorer davantage l'expérience de marque des utilisateurs de votre application.
+La configuration d'un répartiteur de courriers électroniques personnalisé vous permet d'avoir un contrôle complet sur l'envoi des messages électroniques. Vous pouvez notamment personnaliser le domaine de messagerie électronique, ce qui peut éviter à un courrier électronique d'atterrir dans le courrier indésirable. Vous pouvez également améliorer davantage l'expérience de marque des utilisateurs de votre application.
 
 - **Analyses et dépannage**
 Obtenez des analyses de votre fournisseur d'e-mail telles que le nombre de personnes ayant ouvert les courriers électroniques ou les messages non distribués. Le fait de pouvoir suivre des messages individuels et consulter des statistiques globales peut vous aider à résoudre des problèmes.
@@ -335,7 +337,7 @@ Pour configurer votre émetteur de courrier électronique personnalisé, vous de
       <td>Adresse électronique du destinataire du message.</td>
     </tr>
     <tr>
-      <td><code>message: from</code></br><code>nom</code></br><code>adresse</code></td>
+      <td><code>message: from</code> </br><code>nom</code> </br><code>adresse</code></td>
       <td></br>Nom de l'émetteur du message.</br>Adresse électronique de l'émetteur.</td>
     </tr>
     <tr>
@@ -418,7 +420,7 @@ Pour chaque instance {{site.data.keyword.appid_short_notm}}, une clé privée et
 
 6. Vérifiez que votre configuration est correcte en testant votre répartiteur de courriers électroniques. Utilisez l'<a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/post_email_dispatcher_test" target="_blank">API de test</a> pour déclencher une demande auprès de votre émetteur de courrier électronique personnalisé configuré.
 
-Pour un exemple complet, voir <a href="https://www.ibm.com/cloud/blog/use-ibm-cloud-app-id-and-your-email-provider-to-brand-mails-sent-to-app-users" target="_blank">Use your own provider for mail sent with {{site.data.keyword.appid_full}}</a>.
+Pour un exemple complet, voir l'article <a href="https://www.ibm.com/cloud/blog/use-ibm-cloud-app-id-and-your-email-provider-to-brand-mails-sent-to-app-users" target="_blank">Use your own provider for mail sent with {{site.data.keyword.appid_full}}</a>.
 
 
 
@@ -620,7 +622,7 @@ Vous pouvez utiliser <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/
   <tr>
     <td><code>zh-Hant-MO</code></td>
     <td>Chinois traditionnel</td>
-    <td>Région administrative spéciale de Macao de la République populaire de Chine</td>
+    <td>Macao, région administrative spéciale de la République populaire de Chine</td>
   </tr>
   <tr>
     <td><code>zh-Hant-TW</code></td>
@@ -1055,7 +1057,7 @@ Vous pouvez utiliser <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/
   <tr>
     <td><code>pt-MO</code></td>
     <td>Portugais</td>
-    <td>Région administrative spéciale de Macao de la République populaire de Chine</td>
+    <td>Macao, région administrative spéciale de la République populaire de Chine</td>
   </tr>
   <tr>
     <td><code>pt-MZ</code></td>

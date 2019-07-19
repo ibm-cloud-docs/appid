@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, custom, proprietary, 
+keywords: Authentication, authorization, identity, app security, secure, custom, proprietary, 
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -22,10 +22,10 @@ subcollection: appid
 {:deprecated: .deprecated}
 {:download: .download}
 
-# Utilizzo dell'identità personalizzata nella tua applicazione
+# Identità personalizzata
 {: #custom-auth}
 
-Puoi utilizzare il tuo provider di identità personalizzato quando esegui l'autenticazione. Il tuo provider di identità può conformarsi a qualsiasi meccanismo di autenticazione alternativo a quelli supportati da {{site.data.keyword.appid_full}}, inclusi proprietà o legacy.
+Puoi utilizzare il tuo provider di identità personalizzata quando esegui l'autenticazione. Il tuo provider di identità può conformarsi a qualsiasi meccanismo di autenticazione alternativo a quelli supportati da {{site.data.keyword.appid_full}}, inclusi proprietà o legacy.
 {: shortdesc}
 
 ## Panoramica

@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, access management, roles, attributes, users
+keywords: Authentication, authorization, identity, app security, secure, access management, roles, attributes, users
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -26,7 +26,7 @@ subcollection: appid
 # チュートリアル: ユーザーの役割の設定
 {: #tutorial-roles}
 
-アプリケーションのコーディング時に、適切な人が、適切な時に、適切なアクセス権を持っていることを確認するのは困難な場合があります。 この処理を行うために、{{site.data.keyword.appid_full}} を使用して `role` などのカスタム属性を定義して、さまざまなタイプのユーザーを割り当てることができます。 それから、アプリケーションを使用して、ユーザーのタイプごとに各種レベルの許可を実施できます。 以下のステップバイステップ・ガイドを使用すると、{{site.data.keyword.appid_short_notm}} API を使用することにより、ユーザー属性を設定して更新してからトークン内に挿入する方法を学習できます。
+アプリケーションのコーディング時に、適切な人が、適切な時に、適切なアクセス権を持っていることを確認するのは困難な場合があります。 この処理を行うために、{{site.data.keyword.appid_full}} を使用して `role` などのカスタム属性を定義して、さまざまなタイプのユーザーを割り当てることができます。 それから、アプリケーションを使用して、ユーザーのタイプごとに各種レベルの許可を実施できます。 以下のステップバイステップ・ガイドでは、{{site.data.keyword.appid_short_notm}} API を使用してユーザー属性の設定、更新、トークンへの挿入を行う方法を学習できます。
 {: shortdesc}
 
 これらの API を使用するのが初めての場合、 [こちらにある Postman コレクション](https://github.com/ibm-cloud-security/appid-postman)で API を試用できます。
@@ -38,7 +38,7 @@ subcollection: appid
 あなたは架空のテーマパークの開発者です。 [Web アプリケーション](/docs/services/appid?topic=appid-web-apps)のアクセスを管理する仕事を課されており、この仕事を行う最も簡単な方法はユーザーのタイプごとに役割を設定することであると思っています。 テーマパークのスタッフや訪問客など、複数の異なるタイプの役割があり、それぞれに異なるレベルの許可が必要です。 あなたは、このプロセスを合理化し、アプリケーションへの初回サインイン時からユーザーに正しい役割が割り当てられるようにしようとしています。  
 {: shortdesc}
 
-問題ありません。 どのタイプのユーザー関連情報でも、{{site.data.keyword.appid_short_notm}} の [カスタム属性フィーチャー](/docs/services/appid?topic=appid-profiles)を使用して保管することができます。 ここでは、役割ベースのアクセス制御を処理しているので、`role` という属性を作成し、各種の値を割り当てて、役割のタイプを指定できます。 例えば、テーマパークであれば、`visitors` や `staff` をそれぞれ `role` 属性に対する種々の値として使用できます。 その後、割り当てたアクセス・ポリシーと特権をアプリケーション・コードで実施することができます。
+問題ありません。 どのタイプのユーザー関連情報でも、{{site.data.keyword.appid_short_notm}} の [カスタム属性フィーチャー](/docs/services/appid?topic=appid-profiles)を使用して保管することができます。 ここでは、役割ベースのアクセス制御を処理しているので、`role` という属性を作成し、各種の値を割り当てて、役割のタイプを指定できます。 例えば、このテーマパークの `visitors` と `staff` の `role` 属性には別々の値を指定します。その後、割り当てたアクセス・ポリシーと特権をアプリケーション・コードで実施することができます。
 
 このチュートリアルは特に Web アプリと Cloud Directory を念頭に置いて書かれていますが、属性はもっと広い意味で使用できます。 カスタム属性は、どんなものにでもすることができます。 属性の数が 100000 未満で、それらの形式が平文の JSON オブジェクトであれば、あらゆるタイプの情報を保管できます。
 {: note}
@@ -61,7 +61,7 @@ subcollection: appid
 クラウド・ランドのユーザーに関する属性の追加を開始する前に、{{site.data.keyword.appid_short_notm}} のインスタンスを構成する必要があります。
 {: shortdesc}
 
-1. サービス・ダッシュボードの**「ID プロバイダー」**タブで、**「Cloud Directory」**を有効にします。 このチュートリアルでは [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory) を使用していますが、[SAML](/docs/services/appid?topic=appid-enterprise)、[Facebook](/docs/services/appid?topic=appid-social#facebook)、[Google](/docs/services/appid?topic=appid-social#google)、または[カスタム・プロバイダー](/docs/services/appid?topic=appid-custom-identity)など、他の IdP を選択することもできます。
+1. サービス・ダッシュボードの**「ID プロバイダー」**タブで、**「Cloud Directory」**を有効にします。 このチュートリアルでは [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory) を使用しますが、[SAML](/docs/services/appid?topic=appid-enterprise)、[Facebook](/docs/services/appid?topic=appid-social#facebook)、[Google](/docs/services/appid?topic=appid-social#google)、[カスタム・プロバイダー](/docs/services/appid?topic=appid-custom-identity)など、他の IdP を選択することもできます。
 
 2. **「Cloud Directory」>「E メールの検証 (Email Verification)」**タブで、検証を有効にして、**「最初にユーザーの E メール・アドレスを検証せずに、ユーザーがアプリケーションにサインインできるようにする」**を**「いいえ」**に設定します。カスタム属性を使用して許可関連の役割を設定する際には、設定する属性をユーザーに割り当てる前にそのユーザーの ID の検証が必ず行われるようにしてください。
 
@@ -73,7 +73,7 @@ subcollection: appid
 順調です! ダッシュボードが構成され、役割の設定を開始する準備ができました。
 
 
-## ステップ 2: まだサインインしていない別のユーザーのために役割を設定する
+## ステップ 2: まだサインインしていない別のユーザーの役割の設定
 {: #roles-set-before}
 
 クラウド・ランドに新しいスタッフ・メンバーが加わりました。 メンバーの情報はすべてわかっていますが、それらのメンバーは数日間は始動しません。 {{site.data.keyword.appid_short_notm}} ユーザーと、`staff` 役割などの属性が含まれるプロファイルを作成して、彼らを[事前登録](/docs/services/appid?topic=appid-preregister)できます。

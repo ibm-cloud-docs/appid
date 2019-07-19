@@ -77,7 +77,7 @@ https://{region}.appid.ibm.cloud.com/oauth/v4/{tenantId}/.well-known/openid-conf
 
 **엔드포인트는 어떻게 호출합니까?**
 
-엔드포인트를 호출하려면 올바른 테넌트 ID가 있어야 하며 검색 문서 URI를 애플리케이션 코드로 하드코딩해야 합니다. 
+엔드포인트를 호출하려면 올바른 테넌트 ID가 있어야 하며 검색 문서 URI를 애플리케이션 코드로 하드코딩해야 합니다.
 
 다음 샘플 cURL 요청을 참조하십시오.
 
@@ -88,7 +88,7 @@ curl -X GET "https://{region}.appid.cloud.ibm.com/oauth/v4/{tenant-id}/.well-kno
 
 **호출에서 리턴할 것으로 예상할 수 있는 항목은 무엇입니까?**
 
-리턴되는 응답은 다음 예와 유사합니다. 
+리턴되는 응답은 다음 예와 유사합니다.
 
 ```bash
 {
@@ -165,7 +165,7 @@ curl -X GET "https://{region}.appid.cloud.ibm.com/oauth/v4/{tenant-id}/.well-kno
   </tr>
   <tr>
     <td><code>userinfo_endpoint</code></td>
-    <td>{{site.data.keyword.appid_short_notm}} <code>/userinfo</code> 엔드포인트의 URL입니다. </td>
+    <td>{{site.data.keyword.appid_short_notm}} <code>/userinfo</code> 엔드포인트의 URL입니다.</td>
   </tr>
   <tr>
     <td><code>scopes_supported</code></td>

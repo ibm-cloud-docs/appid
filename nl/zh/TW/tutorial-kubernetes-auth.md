@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-20"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, development, ingress, policy, networking, containers, kubernetes
+keywords: Authentication, authorization, identity, app security, secure, development, ingress, policy, networking, containers, kubernetes
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -37,10 +37,10 @@ subcollection: appid
 2. 對於 API 流程，Ingress 控制器會嘗試驗證所提供的記號。如果使用 Web 流程，它將開始三腳式 OIDC 鑑別處理程序。
 3. {{site.data.keyword.appid_short_notm}} 透過顯示「登入小組件」來開始鑑別處理程序。
 4. 使用者提供使用者名稱或電子郵件及密碼。
-5. Ingress 控制器會取得 {{site.data.keyword.appid_short_notm}} 中的存取記號及身分記號以進行授權。
+5. Ingress 控制器會取得 {{site.data.keyword.appid_short_notm}} 中的存取及身分記號以進行授權。
 6. Ingress 控制器驗證及轉遞至應用程式的每一個要求都具有包含記號的授權標頭。
 
-Ingress 控制器與 {{site.data.keyword.appid_short_notm}} 的整合目前不支援重新整理記號。當存取記號及身分記號到期時，使用者必須重新鑑別。
+Ingress 控制器與 {{site.data.keyword.appid_short_notm}} 的整合目前不支援重新整理記號。當存取及身分記號到期時，使用者必須重新鑑別。
 {: note}
 
 
@@ -63,7 +63,7 @@ Ingress 控制器與 {{site.data.keyword.appid_short_notm}} 的整合目前不�
 
 * 下列 CLI：
 
-  * [{{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli)
+  * [{{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-getting-started)
   * [Kubernetes](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
   * [Docker](https://www.docker.com/products/container-runtime#/download)
 
@@ -265,7 +265,7 @@ Ingress 控制器與 {{site.data.keyword.appid_short_notm}} 的整合目前不�
     </tr>
     <tr>
       <td><code>idToken</code></td>
-      <td>選用項目：Liberty OIDC 用戶端無法同時剖析存取記號及身分記號。當使用 Liberty 時，請將這個值設為 <code>false</code>，這樣身分記號就不會傳送到 Liberty 伺服器。</td>
+      <td>選用項目：Liberty OIDC 用戶端無法同時剖析存取及身分記號。當使用 Liberty 時，請將這個值設為 <code>false</code>，這樣身分記號就不會傳送到 Liberty 伺服器。</td>
     </tr>
     <tr>
       <td><code>secretName</code></td>

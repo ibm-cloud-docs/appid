@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-06"
+lastupdated: "2019-07-09"
 
 keywords: Authentication, authorization, identity, app security, secure, development,
 
@@ -10,7 +10,7 @@ subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -31,7 +31,7 @@ subcollection: appid
 사용자가 앱에 사인인하도록 요구함으로써 공개 소셜 프로파일의 정보 또는 앱 환경 설정 등의 사용자 데이터를 저장한 후에 해당 데이터를 사용하여 앱의 각 환경(experience)을 사용자 정의할 수 있습니다. {{site.data.keyword.appid_short_notm}}에서 프레임워크를 제공하지만 Cloud Directory에서 작동하는 경우 고유 브랜드 사인인 화면을 가져올 수도 있습니다.
 
 귀하의 피드백과 질문을 듣고 싶습니다!
-* {{site.data.keyword.appid_short_notm}}에 대한 기술적 질문이 있는 경우 <a href="https://stackoverflow.com" target="_blank">스택 오버플로우 <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>에 질문을 게시하고 해당 질문에 `ibm-appid` 태그를 지정하십시오.
+* {{site.data.keyword.appid_short_notm}}에 대한 기술적 질문이 있는 경우 <a href="https://stackoverflow.com" target="_blank">Stack Overflow <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>에 질문을 게시하고 해당 질문에 `ibm-appid` 태그를 지정하십시오.
 * 서비스 및 시작하기 지시사항에 대한 질문이 있는 경우, <a href="https://developer.ibm.com" target="_blank"> developerWorks dW Answers <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a> 포럼을 사용하십시오. `appid` 태그를 포함하십시오.
 
 ## 서비스 인스턴스 작성

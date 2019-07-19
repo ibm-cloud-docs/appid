@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-20"
+lastupdated: "2019-07-10"
 
-keywords: authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
+keywords: Authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -25,7 +25,7 @@ subcollection: appid
 # Personalizzazione delle email
 {: #cd-types}
 
-Quando un utente interagisce con la tua applicazione, ci sono volte in cui potresti voler inviare una risposta o chiedere una verifica. {{site.data.keyword.appid_short_notm}} fornisce dei template predefiniti che puoi utilizzare per le interazioni. Puoi anche utilizzare i template come una guida e personalizzare la tua messaggistica per rispondere alle esigenze del tuo marchio.
+Quando un utente interagisce con la tua applicazione, potresti voler inviare una risposta o chiedere una verifica. {{site.data.keyword.appid_short_notm}} fornisce dei template predefiniti che puoi utilizzare per le interazioni. Puoi anche utilizzare i template come una guida e personalizzare la tua messaggistica per rispondere alle esigenze del tuo marchio.
 {: shortdesc}
 
 {{site.data.keyword.appid_short_notm}} utilizza <a href="https://www.sendgrid.com" target="_blank">SendGrid <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a> come servizio di recapito email. Tutte le email vengono inviate con un unico account SendGrid.
@@ -40,7 +40,7 @@ Quando invii messaggi ai tuoi utenti, puoi utilizzare qualsiasi combinazione dei
 Oltre ai seguenti tipi di messaggio, puoi anche avvalerti dei template [SSO](/docs/services/appid?topic=appid-cd-sso#cd-sso) e [MFA](/docs/services/appid?topic=appid-cd-mfa#cd-mfa).
 {: tip}
 
-Puoi utilizzare i parametri nei tuoi messaggi per personalizzarli ulteriormente. Consulta la seguente tabella per vedere i parametri che puoi utilizzare in tutti i tipi di messaggio.
+Per un'ulteriore personalizzazione, puoi usare i parametri nei tuoi messaggi. Consulta la seguente tabella per vedere i parametri che puoi utilizzare in tutti i tipi di messaggio.
 
 <table>
   <tr>
@@ -83,7 +83,7 @@ Puoi utilizzare i parametri nei tuoi messaggi per personalizzarli ulteriormente.
 Quando un utente si registra per la tua applicazione, potresti volergli inviare un messaggio di benvenuto alla tua applicazione. 
 {: shortdesc}
 
-1. Passa alla scheda **Workflow templates > Welcome email** del dashboard del servizio.
+1. Vai alla scheda **Workflow templates > Welcome email** del dashboard del servizio.
 
 2. Imposta **Welcome email** su **Enabled**.
 
@@ -95,11 +95,14 @@ Quando un utente si registra per la tua applicazione, potresti volergli inviare 
 ### Email: verifica
 {: #cd-messages-verification}
 
-Quando un utente si registra per la tua applicazione utilizzando la sua email, puoi inviargli una email che gli chiede di confermare la sua identità. Richiedendo una verifica, limiti il numero di account falsi che possono registrarsi alla tua applicazione. Puoi limitare l'accesso alla tua applicazione finché un utente verifica la propria email o utilizzarla come un modo per gestire per quali utenti crei i profili. Tieni presente che gli utenti che vengono aggiunti manualmente tramite il dashboard {{site.data.keyword.appid_short_notm}} o l'API utente di creazione, non ricevono automaticamente questa email.
+Quando un utente si registra per la tua applicazione utilizzando la sua email, puoi inviargli una email che gli chiede di confermare la sua identità. Richiedendo una verifica, limiti il numero di account falsi che possono registrarsi alla tua applicazione. Puoi limitare l'accesso alla tua applicazione finché un utente verifica la propria email o utilizzarla come un modo per gestire per quali utenti crei i profili.
 {: shortdesc}
 
+Gli utenti che vengono aggiunti manualmente tramite il dashboard {{site.data.keyword.appid_short_notm}} o l'API utente di creazione non ricevono automaticamente questa email.
+{: note}
 
-1. Passa alla scheda **Workflow templates > Email verification** del dashboard del servizio.
+
+1. Vai alla scheda **Workflow templates > Email verification** del dashboard del servizio.
 
 2. Imposta **Email verification** su **Enabled**.
 
@@ -121,7 +124,7 @@ Quando un utente si registra per la tua applicazione utilizzando la sua email, p
     </tr>
     <tr>
       <td><code>%{verify.code}</code></td>
-      <td> Verifica l'URL di verifica monouso. </td>
+      <td> Visualizza un URL di verifica monouso. </td>
     </tr>
     <tr>
       <td><code>%{verify.link}</code></td>
@@ -132,7 +135,7 @@ Quando un utente si registra per la tua applicazione utilizzando la sua email, p
   Puoi anche utilizzare i parametri di messaggio elencati nella sezione [Messaggio di benvenuto](/docs/services/appid?topic=appid-cd-messages#cd-messages-welcome).
   {: tip}
 
-5. Definisci un tempo di scadenza per l'URL dell'azione. La scadenza dell'URL è la quantità di tempo, in minuti, di cui un utente dispone per completare l'azione prima che il link di verifica scada. Questa impostazione influenza anche la quantità di tempo per cui il tuo link di reimpostazione della password è valido.
+5. Definisci un tempo di scadenza per l'URL dell'azione. La scadenza dell'URL è la quantità di tempo, in minuti, entro cui l'utente deve completare l'azione prima che il link di verifica scada. Questa impostazione influenza anche la quantità di tempo per cui il tuo link di reimpostazione della password è valido.
  
 6. Immetti un URL per la pagina che vuoi visualizzare dopo che un utente ha eseguito la verifica della sua email nella casella **Thank you page URL**. Se scegli di lasciare vuoto questo campo, viene visualizzata una pagina predefinita {{site.data.keyword.appid_short_notm}}.
 
@@ -146,7 +149,7 @@ Quando un utente interagisce con la tua applicazione, potrebbe dimenticare la su
 {: shortdesc}
 
 
-1. Passa alla scheda **Workflow templates > Reset password** del dashboard del servizio.
+1. Vai alla scheda **Workflow templates > Reset password** del dashboard del servizio.
 
 2. Imposta **Forgot password email** su **Enabled**.
 
@@ -177,7 +180,7 @@ Quando un utente interagisce con la tua applicazione, potrebbe dimenticare la su
   Puoi anche utilizzare i parametri di messaggio elencati nella sezione [Messaggio di benvenuto](/docs/services/appid?topic=appid-cd-messages#cd-messages-welcome).
   {: tip}
 
-4. Definisci un tempo di scadenza per l'URL dell'azione. La scadenza dell'URL è la quantità di tempo, in minuti, di cui un utente dispone per completare l'azione prima che il link di verifica scada. Questa impostazione influenza anche la quantità di tempo per cui il tuo link di reimpostazione della password è valido.
+4. Definisci un tempo di scadenza per l'URL dell'azione. La scadenza dell'URL è la quantità di tempo, in minuti, entro cui l'utente deve completare l'azione prima che il link di verifica scada. Questa impostazione influenza anche la quantità di tempo per cui il tuo link di reimpostazione della password è valido.
  
 5. Immetti un URL per la pagina che vuoi visualizzare dopo che un utente ha eseguito la verifica della sua email nella casella **Reset password page URL**. Se scegli di lasciare vuoto questo campo, viene visualizzata una pagina predefinita {{site.data.keyword.appid_short_notm}}.
 
@@ -187,15 +190,14 @@ Quando un utente interagisce con la tua applicazione, potrebbe dimenticare la su
 ### Email: modifica della password
 {: #cd-messages-password-change}
 
-Puoi far sapere a un utente quando la propria password è stata aggiornata. Ciò è utile se non ha richiesto che la sua password venga modificata. Gli utenti possono prendere le misure appropriate per riproteggere i propri account.
+Puoi inviare una notifica a un utente quando la sua password viene aggiornata. La notifica può essere utile nel caso in cui l'utente non abbia richiesto una modifica della sua password. Gli utenti possono prendere le misure appropriate per riproteggere i propri account.
 {: shortdesc}
 
-1. Passa alla scheda **Workflow templates > Password change** del dashboard del servizio.
+1. Vai alla scheda **Workflow templates > Password change** del dashboard del servizio.
 
 2. Imposta **Password changed email** su **Enabled**.
 
 3. Personalizza il contenuto del tuo messaggio. Puoi aggiungere parametri e inserire messaggi utilizzando l'IU. Per modificare la [lingua](/docs/services/appid?topic=appid-cd-messages#cd-languages) del messaggio, puoi utilizzare <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization" target="_blank">le API <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a> per impostare la lingua. Sei tuttavia responsabile del contenuto e della traduzione del messaggio. Consulta la seguente tabella per vedere i diversi parametri che puoi utilizzare nel tuo messaggio. Se un utente non fornisce le informazioni estratte dal parametro, questi campi saranno vuoti.
-  
 
   <table>
     <tr>
@@ -228,7 +230,7 @@ Con {{site.data.keyword.appid_short_notm}}, puoi definire un punto di estensione
 Potresti voler utilizzare un mittente email personalizzato per i seguenti motivi:
 
 - **Dominio personalizzato**
-Configurando un dispatcher email personalizzato, hai il controllo completo su come vengono inviati i messaggi email. Questa opzione include la personalizzazione del dominio email, che potrebbe ridurre ulteriormente le possibilità che le email vengano filtrate come spam. Puoi anche migliorare ulteriormente l'esperienza personalizzata per i tuoi utenti dell'applicazione.
+Configurando un dispatcher email personalizzato, hai il controllo completo su come vengono inviati i messaggi email. In particolare, puoi personalizzare il dominio email, il che può ridurre le possibilità di una email filtrata come posta indesiderata. Puoi anche migliorare ulteriormente l'esperienza personalizzata per i tuoi utenti dell'applicazione.
 
 - **Informazioni approfondite e risoluzione dei problemi**
 Ottieni delle informazioni approfondite dal tuo provider email, come ad esempio: il numero di persone che ha aperto le email o a cui i messaggi non sono stati recapitati. Poiché puoi tenere traccia di messaggi individuali e visualizzare le statistiche generali, questo può essere utile a risolvere dei problemi.
@@ -320,7 +322,7 @@ Per configurare il tuo mittente email personalizzato, devi utilizzare la <a href
     </tr>
     <tr>
       <td><code> iat </code></td>
-      <td>La data/ora di quando viene inviato il messaggio.</td>
+      <td>La data/ora di quando è stato inviato il messaggio.</td>
     </tr>
     <tr>
       <td><code>iss</code></td>
@@ -335,7 +337,7 @@ Per configurare il tuo mittente email personalizzato, devi utilizzare la <a href
       <td>L'indirizzo email del destinatario del messaggio.</td>
     </tr>
     <tr>
-      <td><code>message: from</code></br><code>name</code></br><code>address</code></td>
+      <td><code>message: from</code> </br><code>name</code> </br><code>address</code></td>
       <td></br>Il nome del mittente del messaggio.</br>L'indirizzo email del mittente.</td>
     </tr>
     <tr>
@@ -418,7 +420,7 @@ Per ogni istanza {{site.data.keyword.appid_short_notm}}, viene generata una chia
 
 6. Verifica che la tua configurazione sia impostata correttamente verificando il tuo dispatcher email. Utilizza l'<a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/post_email_dispatcher_test" target="_blank">API di test</a> per attivare una richiesta al tuo mittente email personalizzato configurato.
 
-Per un esempio funzionante completo, consulta <a href="https://www.ibm.com/cloud/blog/use-ibm-cloud-app-id-and-your-email-provider-to-brand-mails-sent-to-app-users" target="_blank">Use your own provider for mail sent with {{site.data.keyword.appid_full}}</a>.
+Per un esempio funzionante completo, consulta <a href="https://www.ibm.com/cloud/blog/use-ibm-cloud-app-id-and-your-email-provider-to-brand-mails-sent-to-app-users" target="_blank">Use your own provider for mail that is sent with {{site.data.keyword.appid_full}}</a>.
 
 
 
@@ -620,7 +622,7 @@ Puoi utilizzare <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Manag
   <tr>
     <td><code>zh-Hant-MO</code></td>
     <td>Cinese tradizionale</td>
-    <td>RAS di Macao della Repubblica popolare cinese</td>
+    <td>Macao (S.A.R.) della Repubblica Popolare Cinese</td>
   </tr>
   <tr>
     <td><code>zh-Hant-TW</code></td>
@@ -1055,7 +1057,7 @@ Puoi utilizzare <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Manag
   <tr>
     <td><code>pt-MO</code></td>
     <td>Portoghese</td>
-    <td>RAS di Macao della Repubblica popolare cinese</td>
+    <td>Macao S.A.R. della Repubblica Popolare Cinese</td>
   </tr>
   <tr>
     <td><code>pt-MZ</code></td>

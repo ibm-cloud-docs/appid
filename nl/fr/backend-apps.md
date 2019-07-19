@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-09"
+lastupdated: "2019-06-18"
 
-keywords: authentication, authorization, identity, app security, secure, backend, back-end, oauth, 
+keywords: Authentication, authorization, identity, app security, secure, backend, back-end, oauth, 
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -42,13 +42,13 @@ Le développement d'applications de back end consiste notamment à vérifier que
 ### Quelle est la base technique du flux ?
 {: #backend-technical-flow}
 
-{{site.data.keyword.appid_short_notm}} implémente [OAuth 2.0](https://tools.ietf.org/html/rfc6749) et la spécification OIDC, qui utilise des jetons bearer pour l'authentification et l'autorisation. Ces jetons sont formatés comme des [jetons Web JSON](https://tools.ietf.org/html/rfc7519), signés numériquement et contenant des réclamations qui décrivent le sujet en cours d'authentification et le fournisseur d'identité. Les API de votre application sont protégées par des jetons d'accès et d'identité. Les clients qui doivent accéder à vos API peuvent s'authentifier auprès du fournisseur d'identité via {{site.data.keyword.appid_short_notm}} en échange de ces jetons. Les réclamations contenues dans les jetons doivent être validées pour qu'un accès aux API protégées soit accordé.
+{{site.data.keyword.appid_short_notm}} implémente [OAuth 2.0](https://tools.ietf.org/html/rfc6749){: external} et la spécification OIDC, qui utilise des jetons bearer pour l'authentification et l'autorisation. Ces jetons sont formatés comme des [jetons Web JSON](https://tools.ietf.org/html/rfc7519){: external}, signés numériquement et contenant des réclamations qui décrivent le sujet en cours d'authentification et le fournisseur d'identité. Les API de votre application sont protégées par des jetons d'accès et d'identité. Les clients qui doivent accéder à vos API peuvent s'authentifier auprès du fournisseur d'identité via {{site.data.keyword.appid_short_notm}} en échange de ces jetons. Les réclamations contenues dans les jetons doivent être validées pour qu'un accès aux API protégées soit accordé.
 
-Pour plus d'informations sur l'utilisation des jetons dans {{site.data.keyword.appid_short_notm}}, voir [Connaissance des jetons](/docs/services/appid?topic=appid-tokens#tokens).
+Pour plus d'informations sur l'utilisation des jetons dans {{site.data.keyword.appid_short_notm}}, voir [Connaissance des jetons](/docs/services/appid?topic=appid-tokens#).
 {: tip}
 
 
-### A quoi ressemble ce flux ?
+### A quoi ressemble le flux ?
 {: #backend-flow}
 
 Flux de back end ![{{site.data.keyword.appid_short_notm}}. Les étapes sont répertoriées dans l'ordre dans l'image suivante.](images/backend-flow.png)
@@ -82,7 +82,7 @@ Flux de back end ![{{site.data.keyword.appid_short_notm}}. Les étapes sont rép
 Vous pouvez utiliser les logiciels SDK {{site.data.keyword.appid_short_notm}} pour imposer l'authentification et l'autorisation à vos applications côté serveur. `ApiStrategy` sécurise vos ressources de back end en exigeant que les jetons d'accès et d'identité soient validés dans le cadre de la demande.
 {: shortdesc}
 
-Le logiciel SDK Node.js d'{{site.data.keyword.appid_short_notm}} fonctionne conjointement avec l'[infrastructure Passport](http://www.passportjs.org/).
+Le logiciel SDK Node.js d'{{site.data.keyword.appid_short_notm}} fonctionne conjointement avec l'[infrastructure Passport](http://www.passportjs.org/){: external}.
 {: ph data-hd-programlang='javascript'}
 
 Le logiciel SDK Swift côté serveur d'{{site.data.keyword.appid_short_notm}} fournit un plug-in de middleware de protection d'API qui permet de protéger vos applications de back end. En associant vos API au middleware, vous pouvez protéger votre application contre les accès non autorisés. Une fois l'API protégée, le middleware s'assure que les jetons générés par {{site.data.keyword.appid_short_notm}} sont validés. Vous pouvez alors modifier le comportement de l'API en fonction des résultats de la validation.
@@ -147,14 +147,14 @@ if #available(OSX 10.12, *) {
 {: codeblock}
 {: ph data-hd-programlang='swift'}
 
-Visionnez la vidéo suivante pour en savoir plus sur la protection des applications Node de back end avec {{site.data.keyword.appid_short_notm}}. Ensuite, faites vous-même un essai à l'aide d'un [exemple d'application Node simple](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02b-simple-node-backend-app).
+Visionnez la vidéo suivante pour en savoir plus sur la protection des applications Node de back end avec {{site.data.keyword.appid_short_notm}}. Ensuite, faites vous-même un essai à l'aide d'un [exemple d'application Node simple](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02b-simple-node-backend-app){: external}.
 {: ph data-hd-programlang='javascript'}
 
 <iframe class="embed-responsive-item" id="appid-backend-nodejs" title="A propos de {{site.data.keyword.appid_short_notm}}" type="text/html" width="640" height="390" src="//www.youtube.com/embed/jJLSgkHpZwA?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 {: ph data-hd-programlang='javascript'}
 
 
-Visionnez la vidéo suivante pour en savoir plus sur la protection des applications Liberty for Java de back end avec {{site.data.keyword.appid_short_notm}}. Ensuite, faites vous-même un essai à l'aide d'un [exemple d'application Liberty for Java simple](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02d-simple-liberty-backend-app).
+Visionnez la vidéo suivante pour en savoir plus sur la protection des applications Liberty for Java de back end avec {{site.data.keyword.appid_short_notm}}. Ensuite, faites vous-même un essai à l'aide d'un [exemple d'application Liberty for Java simple](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02d-simple-liberty-backend-app){: external}.
 {: ph data-hd-programlang='java'}
 
 <iframe class="embed-responsive-item" id="appid-backend-liberty" title="A propos de {{site.data.keyword.appid_short_notm}}" type="text/html" width="640" height="390" src="//www.youtube.com/embed/QA6DY2qqLaw?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
@@ -249,7 +249,7 @@ Lorsque les jetons sont valides, le middleware suivant de la chaîne de demande 
 ## Protection manuelle des ressources
 {: #backend-secure-api}
 
-Pour sécuriser vos ressources protégées et vos applications de back end, vous devez valider un jeton. Lorsqu'un client envoie une demande à votre ressource vous pouvez vérifier que le jeton répond aux spécifications définies. Le jeton peut inclure des informations d'identification, une portée ou toute autre configuration en place. Vous pouvez valider des jetons d'accès et d'identité {{site.data.keyword.appid_short_notm}} de plusieurs manières. Pour obtenir de l'aide, voir [Validation des jetons](/docs/services/appid?topic=appid-token-validation#token-validation).
+Pour sécuriser vos ressources protégées et vos applications de back end, vous devez valider un jeton. Lorsqu'un client envoie une demande à votre ressource vous pouvez vérifier que le jeton répond aux spécifications définies. Le jeton peut inclure des informations d'identification, une portée ou toute autre configuration en place. Vous pouvez valider des jetons d'accès et d'identité {{site.data.keyword.appid_short_notm}} de plusieurs manières. Pour obtenir de l'aide, voir [Validation des jetons](/docs/services/appid?topic=appid-token-validation).
 
 
 ## Etapes suivantes
@@ -259,5 +259,7 @@ Pour sécuriser vos ressources protégées et vos applications de back end, vous
 
 * Configurer vos [fournisseurs d'identité](/docs/services/appid?topic=appid-social)
 * Personnaliser et configurer [le widget de connexion](/docs/services/appid?topic=appid-login-widget)
-* En savoir plus sur le <a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs" target="_blank">logiciel SDK Node.js<img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a>
-* En savoir plus sur le <a href="https://github.com/ibm-cloud-security/appid-serversdk-swift" target="_blank">logiciel SDK Swift<img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a>
+* En savoir plus sur le logiciel [SDK Node.js](https://github.com/ibm-cloud-security/appid-serversdk-nodejs){: external}
+* En savoir plus sur le logiciel [SDK Swift](https://github.com/ibm-cloud-security/appid-serversdk-swift){: external}
+
+

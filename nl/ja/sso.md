@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-09"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, development, sso, directory, users, registry, multiple apps
+keywords: Authentication, authorization, identity, app security, secure, development, sso, directory, users, registry, multiple apps
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -41,7 +41,7 @@ SSO がどのように動作するのかを、次の図で見てみましょう�
 3. 資格情報が有効であれば、ユーザーはアプリにサインインします。 同時に、{{site.data.keyword.appid_short_notm}} はセッションを作成し、ユーザーのブラウザーに Cookie を設定します。
 4. ユーザーが他のアプリケーションのいずれかにサインインを試みると、{{site.data.keyword.appid_short_notm}} はセッション Cookie を検出し、そのユーザーを自動的にアプリにサインインさせます。 {{site.data.keyword.appid_short_notm}} のセッション Cookie はインスタンス固有であり、インスタンスの固有の秘密鍵によって署名されます。
 
-Cloud Directory のほかに SAML や Facebook などの ID プロバイダーを使用するようにインスタンスが構成されている場合でも、ログイン・ウィジェットは表示されます。 ユーザーが有効な SSO セッションを持っていても、Cloud Directory の資格情報を入力するかまたは他のプロバイダーのいずれかを選択することを求める、プロンプトが表示されます。
+SSO は、現時点では、使用可能な ID プロバイダーが Cloud Directory のみの場合に機能するように構成されています。複数の ID プロバイダーを使用するように {{site.data.keyword.appid_short_notm}} のインスタンスが構成されている場合は、SSO を有効にしてもサインイン・フローは変わりません。ユーザーはサインインのたびに Cloud Directory 資格情報を入力するか他のいずれかのプロバイダーを選択するよう求められます。
 {: note}
 
 
@@ -62,7 +62,7 @@ GUI を使用して SSO を構成できます。
 
 2. **「シングル・サインオンを有効にする (Enable single sign-on)」**ボックスで SSO を**「有効 (Enabled)」**に切り替えます。
 
-3. ユーザーがアクティブ状態にない時間がどれだけ経過すれば SSO セッションの有効期限が切れるか、その時間を設定します。 セッションの有効期限が切れると、ユーザーはもう一度サインインしなければなりません。 この時間は分単位で指定し、非アクティブでいられる最大許容時間は 10,080 分 (7 日間) です。デフォルトの時間は 1440 分で、これは 1 日に相当します。
+3. ユーザーがアクティブ状態にない時間がどれだけ経過すれば SSO セッションの有効期限が切れるか、その時間を設定します。 セッションの有効期限が切れると、ユーザーはもう一度サインインしなければなりません。 この時間は分単位で指定し、非アクティブでいられる最大許容時間は 10,080 分 (7 日間) です。 デフォルトの時間は 1440 分で、これは 1 日に相当します。
 
 4. **「ログアウト・リダイレクト URI (Logout redirect URI)」**ボックスにリダイレクト URI を追加し、**+** 記号をクリックします。 信頼できるアプリケーションだけを登録するよう、確認してください。 URI を登録することによって、{{site.data.keyword.appid_short_notm}} が許可ワークフローにこの URI を含めることを許可することになります。
 

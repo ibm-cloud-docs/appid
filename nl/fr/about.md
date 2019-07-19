@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-06"
+lastupdated: "2019-06-18"
 
 keywords: Authentication, authorization, identity, app security, secure, compliance, high availability, ha, disaster recover, dr, protocols, oauth, oidc
 
@@ -10,7 +10,7 @@ subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -46,7 +46,7 @@ Que peut vous apporter Cloud Directory ? Regardez cette vidéo pour en savoir pl
     <th>Solution</th>
   </tr>
   <tr>
-    <td>Vous devez ajouter un mécanisme d'[autorisation et d'authentification](/docs/services/appid?topic=appid-key-concepts#key-concepts) à vos applications mobiles et Web, mais vous n'avez pas d'expérience en matière de sécurité.</td>
+    <td>Vous devez ajouter un mécanisme d'[autorisation et d'authentification](/docs/services/appid?topic=appid-key-concepts) à vos applications mobiles et Web, mais vous n'avez pas d'expérience en matière de sécurité.</td>
     <td>{{site.data.keyword.appid_short_notm}} facilite l'ajout d'une étape d'authentification à vos applications. Vous pouvez ajouter une connexion par adresse électronique ou nom d'utilisateur, une connexion par réseau social ou une connexion d'entreprise à vos applications avec des API, des logiciels SDK, des interfaces utilisateur prégénérées ou vos propres interfaces utilisateur de marque.</td>
   </tr>
   <tr>
@@ -59,7 +59,7 @@ Que peut vous apporter Cloud Directory ? Regardez cette vidéo pour en savoir pl
   </tr>
   <tr>
     <td>Vous voulez gérer les utilisateurs de façon évolutive.</td>
-    <td> Avec {{site.data.keyword.appid_short_notm}} vous pouvez créer un [répertoire cloud (Cloud Directory)](/docs/services/appid?topic=appid-cloud-directory#cloud-directory) qui vous permet d'ajouter des processus d'inscription et de connexion d'utilisateur à vos applications. Cloud Directory met à disposition l'infrastructure permettant de gérer un registre d'utilisateurs qui peut évoluer avec votre base d'utilisateurs. Avec la fonctionnalité préconfigurée de libre-service, telle que la vérification et la réinitialisation du mot de passe, vous avez la garantie que votre application authentifie les utilisateurs en toute sécurité.</td>
+    <td> Avec {{site.data.keyword.appid_short_notm}} vous pouvez créer un [répertoire cloud (Cloud Directory)](/docs/services/appid?topic=appid-cloud-directory) qui vous permet d'ajouter des processus d'inscription et de connexion d'utilisateur à vos applications. Cloud Directory met à disposition l'infrastructure permettant de gérer un registre d'utilisateurs qui peut évoluer avec votre base d'utilisateurs. Avec la fonctionnalité préconfigurée de libre-service, telle que la vérification et la réinitialisation du mot de passe, vous avez la garantie que votre application authentifie les utilisateurs en toute sécurité.</td>
   </tr>
 </table>
 
@@ -92,13 +92,13 @@ Vous pouvez utiliser {{site.data.keyword.appid_short_notm}} avec d'autres offres
 
 <dl>
   <dt>{{site.data.keyword.containershort_notm}}</dt>
-    <dd>En configurant Ingress dans un cluster standard, vous pouvez sécuriser vos applications au niveau du cluster. Consultez l'<a href="/docs/containers?topic=containers-ingress_annotation#appid-auth">{{site.data.keyword.appid_short_notm}}annotation Ingress relative à l'authentification</a> ou l'article de blogue <a href="https://www.ibm.com/blogs/cloud-archive/2018/05/announcing-app-id-integration-ibm-cloud-kubernetes-service/">Announcing {{site.data.keyword.appid_short_notm}} integration to {{site.data.keyword.containerlong_notm}} <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a> pour commencer.</dd>
+    <dd>En configurant Ingress dans un cluster standard, vous pouvez sécuriser vos applications au niveau du cluster. Consultez l'<a href="/docs/containers?topic=containers-ingress_annotation#appid-auth">{{site.data.keyword.appid_short_notm}}annotation Ingress relative à l'authentification</a> ou l'article de blogue <a href="https://www.ibm.com/cloud/blog/announcing-app-id-integration-ibm-cloud-kubernetes-service">Announcing {{site.data.keyword.appid_short_notm}} integration to {{site.data.keyword.containerlong_notm}} <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a> pour commencer.</dd>
   <dt>{{site.data.keyword.openwhisk_short}} et {site.data.keyword.apiconnect_short}}</dt>
-    <dd>Lorsque vous créez vos API avec [{{site.data.keyword.openwhisk_short}}](/docs/openwhisk?topic=cloud-functions-getting_started#getting_started) et [API Connect](/docs/services/apiconnect?topic=apiconnect-getting-started), vous avez la possibilité de sécuriser vos applications au niveau de la passerelle plutôt que dans le code applicatif. Pour voir l'intégration en action, regardez <a href="https://www.youtube.com/watch?v=Fa9YD2NGZiE" target="_blank">Simple and fast social login OAuth with API Connect and {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a>.</dd>
+    <dd>Lorsque vous créez vos API avec [{{site.data.keyword.openwhisk_short}}](/docs/openwhisk?topic=cloud-functions-getting-started) et [API Connect](/docs/services/apiconnect?topic=apiconnect-getting-started), vous avez la possibilité de sécuriser vos applications au niveau de la passerelle plutôt que dans le code applicatif. Pour voir l'intégration en action, regardez <a href="https://www.youtube.com/watch?v=Fa9YD2NGZiE" target="_blank">Simple and fast social login OAuth with API Connect and {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a>.</dd>
   <dt>Cloud Foundry</dt>
     <dd>Suivez l'un des exemples d'application Cloud Foundry fournis pour découvrir comment vous pouvez intégrer {{site.data.keyword.appid_short_notm}} à vos applications.</dd>
   <dt>{{site.data.keyword.cloudaccesstrailshort}}</dt>
-    <dd>Vous pouvez surveiller les activités administratives réalisées dans {{site.data.keyword.appid_short_notm}} comme les modifications apportées à la configuration du tableau de bord, à l'aide de la [documentation de {{site.data.keyword.cloudaccesstrailshort}}](/docs/services/cloud-activity-tracker?topic=cloud-activity-tracker-getting-started#getting-started).</dd>
+    <dd>Vous pouvez surveiller les activités d'administration réalisées dans {{site.data.keyword.appid_short_notm}}, telle que les modifications apportées à la configuration du tableau de bord à l'aide de la [documentation {{site.data.keyword.cloudaccesstrailshort}}](/docs/services/cloud-activity-tracker?topic=cloud-activity-tracker-getting-started).</dd>
   <dt>Guide de programmation iOS</dt>
     <dd>Vous développez des applications pour Apple ? Consultez le manuel [iOS programming guide](/docs/swift?topic=swift-getting-started) pour apprendre, expérimenter, et améliorer vos applications iOS existantes avec {{site.data.keyword.cloud_notm}}.</dd>
   <dt>Guide de programmation Node.js</dt>
@@ -114,7 +114,7 @@ Vous pouvez utiliser {{site.data.keyword.appid_short_notm}} avec d'autres offres
 
 {{site.data.keyword.appid_short_notm}} s'appuie sur un ensemble reconnu de spécifications et de protocoles normalisés de l'industrie fréquemment utilisés à la fois dans les applications d'entreprise et grand public, la structure d'autorisation OAuth 2.0 et OIDC (Open ID Connect). La structure d'autorisation OAuth 2.0 est utilisée pour obtenir et vérifier les autorisations d'accès à des ressources protégées. Open ID Connect ajoute une couche supplémentaire d'authentification et de protection des identités à votre application.
 
-Voir la section 5.4 du rapport sur la compatibilité des produits logiciels {{site.data.keyword.appid_short_notm}} pour la liste complète des [certifications](https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=BF31C8008D7C11E59F9AD7336D7D0FFB). Outre les certifications, {{site.data.keyword.appid_short_notm}} est également conforme aux spécifications suivantes : OAuth 2.0, OpenID Connect, JSON Web Token (JWT), JSON Web Signature (JWS), System for Cross-domain Identity Management (SCIM). 
+Voir la section 5.4 du rapport sur la compatibilité des produits logiciels {{site.data.keyword.appid_short_notm}} pour la liste complète des [certifications](https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=BF31C8008D7C11E59F9AD7336D7D0FFB){: external}. Outre les certifications, {{site.data.keyword.appid_short_notm}} est également conforme aux spécifications suivantes : OAuth 2.0, OpenID Connect, JSON Web Token (JWT), JSON Web Signature (JWS), System for Cross-domain Identity Management (SCIM). 
 
 
 ## Haute disponibilité régionale
@@ -127,4 +127,5 @@ Dans chaque région à zones multiples, chaque zone dispose de son propre cluste
 
 Les données stockées dans {{site.data.keyword.appid_short_notm}} sont chiffrées et conservées dans un cluster de base de données réparti sur les zones de disponibilité. Les données sont également sauvegardées dans un stockage d'objets chiffré séparé.
 
-Etant donné qu'{{site.data.keyword.appid_short_notm}} est un service régional, il ne fournit pas de basculement interrégional automatisé ou de reprise après incident interrégionale. {{site.data.keyword.appid_short_notm}} fournit toutefois une <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/" target="_blank">API complète<img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a> que les développeurs peuvent utiliser pour synchroniser manuellement leur configuration de service avec une ou plusieurs autres instances {{site.data.keyword.appid_short_notm}}.
+Etant donné qu'{{site.data.keyword.appid_short_notm}} est un service régional, il ne fournit pas de basculement interrégional automatisé ou de reprise après incident interrégionale. {{site.data.keyword.appid_short_notm}} fournit toutefois une [API complète](https://us-south.appid.cloud.ibm.com/swagger-ui/#/){: external} que les développeurs peuvent utiliser pour synchroniser manuellement leur configuration de service avec une ou plusieurs autres instances d'{{site.data.keyword.appid_short_notm}}.
+

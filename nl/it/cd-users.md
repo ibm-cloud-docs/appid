@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
+keywords: Authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
 subcollection: appid
 
 ---
  
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -29,13 +29,13 @@ subcollection: appid
 Con Cloud Directory, puoi gestire i tuoi utenti in un registro scalabile utilizzando una funzionalità predefinita che migliora la sicurezza e il self service.
 {: shortdesc}
 
-Un utente Cloud Directory non è la stessa cosa di un utente {{site.data.keyword.appid_short_notm}}. Gli utenti possono registrarsi per la tua applicazione utilizzando le diverse opzioni del provider di identità da te configurate oppure puoi aggiungerli alla tua directory. Gli utenti menzionati in questo argomento sono quelli associati a Cloud Directory con un provider di identità.
+Un utente Cloud Directory non è la stessa cosa di un utente {{site.data.keyword.appid_short_notm}}. Gli utenti possono registrarsi per la tua applicazione utilizzando le diverse opzioni del provider di identità da te configurate oppure puoi aggiungerli alla tua directory. Gli utenti menzionati in questa pagina sono quelli associati a Cloud Directory come un provider di identità.
 {: note}
 
 ## Visualizzazione delle informazioni sull'utente
 {: #cd-user-info}
 
-Puoi visualizzare tutte le informazioni note su tutti i tuoi utenti Cloud Directory come un oggetto JSON utilizzando le API o il dashboard.
+Puoi visualizzare tutte le informazioni note su tutti i tuoi utenti Cloud Directory come un oggetto JSON utilizzando le API o il dashboard. 
 {: shortdesc}
 
 
@@ -47,11 +47,11 @@ Puoi utilizzare il dashboard {{site.data.keyword.appid_short_notm}} per visualiz
 
 2. Sfoglia la tabella o ricerca utilizzando un indirizzo email per trovare l'utente per cui vuoi visualizzare le informazioni.
 
-3. Nel menu di overflow nella riga dell'utente, fai clic su **View user details**. Si apre una pagina che contiene le informazioni dell'utente. Consulta la seguente tabella per vedere quali informazioni puoi visualizzare. 
+3. Nel menu di overflow nella riga dell'utente, fai clic su **View user details**. Si apre una pagina che contiene le informazioni dell'utente. Consulta la seguente tabella per vedere quali informazioni puoi visualizzare.
 
 <table>
   <tr>
-    <th colspan="2">Dettagli utente </th>
+    <th colspan="2">Dettagli utente</th>
   </tr>
   <tr>
     <td>Identificativo utente</td>
@@ -63,11 +63,11 @@ Puoi utilizzare il dashboard {{site.data.keyword.appid_short_notm}} per visualiz
   </tr>
     <tr>
     <td>Nome e cognome</td>
-    <td>Il nome e il cognome del tuo utente come sono stati forniti durante il processo di registrazione.</td>
+    <td>Il nome e il cognome del tuo utente come sono forniti durante il processo di registrazione.</td>
   </tr>
   <tr>
     <td>Ultimo accesso</td>
-    <td>La data/ora dell'ultima volta in cui l'utente ha eseguito l'accesso alla tua applicazione. Nota: se hai aggiunto il tuo utente tramite il dashboard, l'accesso è vuoto finché l'utente stesso non accede alla tua applicazione. Quando si verifica l'accesso diventano anche un utente App ID.</td>
+    <td>La data/ora dell'ultima volta in cui l'utente ha eseguito l'accesso alla tua applicazione. Nota: se hai aggiunto il tuo utente tramite il dashboard, l'accesso è vuoto finché l'utente stesso non accede alla tua applicazione. Quando si verifica l'accesso diventa anche un utente App ID.</td>
   </tr>
   <tr>
     <td>ID</td>
@@ -185,20 +185,20 @@ Se disabiliti la registrazione self service o aggiungi un utente per suo conto, 
 
 
 
-**Per aggiungere un nuovo utente con la GUI:**
+**Per aggiungere un utente con la GUI:**
 
-1. Passa alla scheda **Cloud Directory > Users** del dashboard {{site.data.keyword.appid_short_notm}}.
+1. Vai alla scheda **Cloud Directory > Users** del dashboard {{site.data.keyword.appid_short_notm}}.
 
-2. Fai clic su **Add user**. Viene visualizzato un modulo.
+2. Fai clic su **Add user**. Viene aperto un modulo.
 
-3. Immetti dei valori per **First name**, **Last name**, **Email** e **Password**. Assicurati che l'email che tenti di registrare non sia già stata presa da un altro utente. Assicurati di avere digitato la tua password correttamente confermandola immettendola nel campo **Re-enter Password**.
+3. Immetti dei valori per **First name**, **Last name**, **Email** e **Password**. Assicurati che l'email che tenti di registrare non sia già stata presa da un altro utente. Assicurati di avere digitato la tua password correttamente confermandola immettendola nel campo **Reenter Password**.
 
 4. Fai clic su **Save**. Viene creato un utente Cloud Directory.
 
 </br>
 
 
-**Per aggiungere un nuovo utente con l'API:**
+**Per aggiungere un utente con la API:**
 
 Il seguente flusso mostra come aggiungere un utente con un'email e una password. Puoi anche scegliere di utilizzare un flusso di nome utente e password.
 
@@ -211,7 +211,7 @@ Il seguente flusso mostra come aggiungere un utente con un'email e una password.
   ```
   {: codeblock}
 
-3. Con il token ottenuto nel passo 2, effettua una richiesta POST all'endpoint `cloud-directory/users`. Tieni presente che questo esempio utilizza il flusso email/ password. Puoi anche utilizzare il flusso nome utente/ password.
+3. Con il token ottenuto nel passo 2, effettua una richiesta POST all'endpoint `cloud-directory/users`. Questo esempio utilizza il flusso email/ password. Puoi anche utilizzare il flusso nome utente/ password.
 
   ```
   curl --X POST "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/Users"
@@ -243,11 +243,11 @@ Se vuoi rimuovere un utente dalla tua directory, puoi eliminarlo dalla GUI o uti
 
 **Per eliminare un utente tramite la GUI:**
 
-1. Passa alla scheda **Cloud Directory > Users** del dashboard {{site.data.keyword.appid_short_notm}}.
+1. Vai alla scheda **Cloud Directory > Users** del dashboard {{site.data.keyword.appid_short_notm}}.
 
-2. Fai clic sulla casella di spunta accanto all'utente che vuoi eliminare. Viene visualizzata una casella.
+2. Fai clic sulla casella di spunta accanto all'utente che vuoi eliminare. Viene aperta una casella.
 
-3. Nella casella, fai clic su **Delete**. Viene visualizzata una schermata.
+3. Nella casella, fai clic su **Delete**. Viene aperta una schermata.
 
 4. Conferma che comprendi che l'eliminazione di un utente non può essere annullata facendo clic su **Delete**. Se l'azione è stato un errore, puoi aggiungere nuovamente l'utente alla tua directory ma tutte le informazioni su tale utente non saranno più disponibili.
 
@@ -277,7 +277,7 @@ Se vuoi rimuovere un utente dalla tua directory, puoi eliminarlo dalla GUI o uti
 ## Migrazione di utenti
 {: #user-migration}
 
-Occasionalmente potresti dover configurare una nuova istanza di {{site.data.keyword.appid_short_notm}}. Se stai utilizzando Cloud Directory, questo significa che i tuoi utenti devono essere migrati alla nuova istanza. Puoi utilizzare le API di gestione per aiutarti con la migrazione.
+Occasionalmente, potresti aver bisogno di aggiungere un'istanza di {{site.data.keyword.appid_short_notm}}. Quando utilizzi Cloud Directory, i tuoi utenti devono essere migrati alla nuova istanza. Per un aiuto con la migrazione, puoi utilizzare le API di gestione.
 {: shortdesc}
 
 
@@ -304,7 +304,7 @@ curl -X GET --header ‘Accept: application/json’ --header ‘Authorization: B
   </tr>
   <tr>
     <td><code>encryption_secret</code></td>
-    <td>Una stringa personalizzata utilizzata per codificare e decodificare una password con hash degli utenti.</td>
+    <td>Una stringa personalizzata utilizzata per codificare e decodificare una password con hash dell'utente.</td>
   </tr>
   <tr>
     <td><code>tenantID</code></td>
@@ -388,7 +388,7 @@ Prima di iniziare, assicurati di avere le seguenti informazioni sui parametri:
 Per eseguire lo script:
 
 1. Clona il <a href="https://github.com/ibm-cloud-security/appid-sample-code-snippets/tree/master/export-import-cloud-directory-users" target="_blank">repository <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a>.
-2. Apri il terminale e passa alla cartella in cui hai clonato il repository.
+2. Apri la console e vai alla cartella in cui hai clonato il repository.
 3. Immetti il seguente comando.
 
   ```

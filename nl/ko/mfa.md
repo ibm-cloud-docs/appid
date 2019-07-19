@@ -274,7 +274,7 @@ GUI를 사용하여 MFA를 구성하려면 [Cloud Directory](/docs/services/appi
 
     4. Nexmo 대시보드에서 **API 시크릿**을 복사하여 {{site.data.keyword.appid_short_notm}} 대시보드의 **시크릿** 상자에 붙여넣으십시오.
 
-    5. 메시지를 전송할 송신 [ID](https://help.nexmo.com/hc/en-us/articles/217571017-What-is-a-Sender-ID)를 입력하십시오. 올바른 번호 형식은 [E.164 국제 번호 지정 형식](https://en.wikipedia.org/wiki/E.164)을 따릅니다. 예를 들어 미국 번호의 경우 `+1 999 888 7777 ` 형식을 사용합니다. `+` 기호로 시작되는 국가 코드 및 국제 가입자 번호를 둘 다 지정해야 합니다. 일부 국가의 경우 Nexmo에서 영숫자 발신인 ID를 지원합니다. {{site.data.keyword.appid_short_notm}}에서는 Nexmo의 발신인 ID로 입력한 값이 사용됩니다. 따라서 Nexmo에서 지원하는 경우 {{site.data.keyword.appid_short_notm}}에서 해당 ID를 사용할 수 있습니다. 
+    5. 메시지를 전송할 송신 [ID](https://help.nexmo.com/hc/en-us/articles/217571017-What-is-a-Sender-ID)를 입력하십시오. 올바른 번호 형식은 [E.164 국제 번호 지정 형식](https://en.wikipedia.org/wiki/E.164)을 따릅니다. 예를 들어 미국 번호의 경우 `+1 999 888 7777 ` 형식을 사용합니다. `+` 기호로 시작되는 국가 코드 및 국제 가입자 번호를 둘 다 지정해야 합니다. 일부 국가의 경우 Nexmo에서 영숫자 발신인 ID를 지원합니다. {{site.data.keyword.appid_short_notm}}에서는 Nexmo의 발신인 ID로 입력한 값이 사용됩니다. 따라서 Nexmo에서 지원하는 경우 {{site.data.keyword.appid_short_notm}}에서 해당 ID를 사용할 수 있습니다.
 
 
 

@@ -25,7 +25,7 @@ subcollection: appid
 # SAML
 {: #enterprise}
 
-SAML ベースの ID プロバイダーがある場合、サード・パーティー・プロバイダーへのシングル・サインオン (SSO) ログインを開始するサービス・プロバイダーとして機能するように {{site.data.keyword.appid_short_notm}} を構成できます。サインイン・フローの中で、ユーザーは簡単に認証を受け、アプリや保護 API にアクセスするための {{site.data.keyword.appid_short_notm}} セキュリティー・トークンを取得できます。
+SAML ベースの ID プロバイダーがある場合、サード・パーティー・プロバイダーへのシングル・サインオン (SSO) ログインを開始するサービス・プロバイダーとして機能するように {{site.data.keyword.appid_short_notm}} を構成できます。 サインイン・フローの中で、ユーザーは簡単に認証を受け、アプリや保護 API にアクセスするための {{site.data.keyword.appid_short_notm}} セキュリティー・トークンを取得できます。
 {: shortdesc}
 
  
@@ -44,13 +44,13 @@ Security Assertion Markup Language (SAML) は、ユーザーの身分を表明�
 ### フローの技術基盤
 {: #saml-tech-basis}
 
-SAML 2.0 は、認証と許可の標準として最も確立されたフレームワークの 1 つです。これは、サービス・プロバイダー ({{site.data.keyword.appid_short_notm}}) と ID プロバイダーの間の XML ベースのプロトコルです。ID プロバイダーは、ユーザーを認証すると、そのユーザーに関するアサーションまたはステートメントを含む SAML トークンを作成します。一般にはステートメントには以下が含まれます。
+SAML 2.0 は、認証と許可の標準として最も確立されたフレームワークの 1 つです。 これは、サービス・プロバイダー ({{site.data.keyword.appid_short_notm}}) と ID プロバイダーの間の XML ベースのプロトコルです。 ID プロバイダーは、ユーザーを認証すると、そのユーザーに関するアサーションまたはステートメントを含む SAML トークンを作成します。 一般にはステートメントには以下が含まれます。
 
-- ユーザーの認証に使用した方法などの認証情報 - パスワードや MFA など ...
+- ユーザーの認証に使用した方法などの認証情報 - パスワードや MFA など。
 - ユーザーに関連付けられた属性 - ユーザーが属するグループ。
 - 特定のリソースに対する特定のアクションの実行をユーザーに許可するかどうかを示す許可決定。
 
-アサーションが {{site.data.keyword.appid_short_notm}} に返されると、サービスはユーザー ID を統合し、適切なトークンが生成されます。以下のいずれかの OIDC クレームに SAML アサーションが対応している場合、その SAML アサーションは自動的に識別トークンに追加されます。  これらの値の 1 つ以上がプロバイダー側で変更された場合、新しい値は、ユーザーが再びログインした後でないと使用できるようになりません。
+アサーションが {{site.data.keyword.appid_short_notm}} に返されると、サービスはユーザー ID を統合し、適切なトークンが生成されます。 以下のいずれかの OIDC クレームに SAML アサーションが対応している場合、その SAML アサーションは自動的に識別トークンに追加されます。  これらの値の 1 つ以上がプロバイダー側で変更された場合、新しい値は、ユーザーが再びログインした後でないと使用できるようになりません。
 
  * `name`
  * `email`
@@ -63,15 +63,15 @@ SAML 2.0 は、認証と許可の標準として最も確立されたフレー�
 ### フローの概要
 {: #saml-flow}
 
-{{site.data.keyword.appid_short_notm}} と ID プロバイダーは SAML フレームワークを使用してユーザーを認証しますが、{{site.data.keyword.appid_short_notm}} は、より新しい OAuth 2.0/OIDC フレームワークを使用してアプリケーションとセキュリティー・トークンを交換します。次の図を参照して、情報の詳しいフローを確認してください。
+{{site.data.keyword.appid_short_notm}} と ID プロバイダーは SAML フレームワークを使用してユーザーを認証しますが、{{site.data.keyword.appid_short_notm}} は、より新しい OAuth 2.0/OIDC フレームワークを使用してアプリケーションとセキュリティー・トークンを交換します。 次の図を参照して、情報の詳しいフローを確認してください。
 
 ![SAML エンタープライズ認証フロー](/images/ibmid-flow.png)
 
-1. ユーザーが、アプリケーション上のログイン・ページまたは制限付きリソースにアクセスします。これにより、{{site.data.keyword.appid_short_notm}} SDK または API を介して `{{site.data.keyword.appid_short_notm}}/authorization` エンドポイントへの要求が開始されます。ユーザーが許可されていない場合、認証フローは {{site.data.keyword.appid_short_notm}} へのリダイレクトから始まります。
+1. ユーザーが、アプリケーション上のログイン・ページまたは制限付きリソースにアクセスします。これにより、{{site.data.keyword.appid_short_notm}} SDK または API を介して `{{site.data.keyword.appid_short_notm}}/authorization` エンドポイントへの要求が開始されます。 ユーザーが許可されていない場合、認証フローは {{site.data.keyword.appid_short_notm}} へのリダイレクトから始まります。
 2. {{site.data.keyword.appid_short_notm}} が SAML 認証要求 (AuthNRequest) を生成し、ブラウザーはユーザーを SAML ID プロバイダーに自動的にリダイレクトします。
 3. ID プロバイダーが SAML 要求を解析し、ユーザーを認証し、そのユーザーのアサーションを含む SAML 応答を生成します。
 4. ID プロバイダーが、SAML 応答と一緒にユーザーと応答を {{site.data.keyword.appid_short_notm}} にリダイレクトします。
-5. 認証が成功した場合、{{site.data.keyword.appid_short_notm}} は、ユーザーの許可と認証を表すアクセス・トークンと識別トークンを作成し、それらをアプリに返します。認証が失敗した場合、{{site.data.keyword.appid_short_notm}} は ID プロバイダーのエラー・コードをアプリに返します。
+5. 認証が成功した場合、{{site.data.keyword.appid_short_notm}} は、ユーザーの許可と認証を表すアクセス・トークンと識別トークンを作成し、それらをアプリに返します。 認証が失敗した場合、{{site.data.keyword.appid_short_notm}} は ID プロバイダーのエラー・コードをアプリに返します。
 6. アプリまたは保護リソースへのアクセスがユーザーに許可されます。
 
 
@@ -84,7 +84,7 @@ SAML 2.0 は、認証と許可の標準として最も確立されたフレー�
 現在、{{site.data.keyword.appid_short_notm}} は ID プロバイダーから開始されるフローをサポートしていないので、現時点ではこのようなフローをこのサービスで使用してはいけません。
 {: note}
 
-ID プロバイダーが SSO をサポートしている場合は、既に確立された SSO セッションを SAML 認証で使用してユーザーを認証することが可能です。対応していない場合は、ユーザーはログイン・ページにリダイレクトされます。{{site.data.keyword.cloud_notm}} の認証要求に定義されている認証要件と、SSO を確立するために ID プロバイダーが使用するものを、ID プロバイダーが対応付けられない場合、ユーザーはリダイレクトされることがあります。例えば、ID プロバイダーが生体認証を使用してユーザーの SSO セッションを確立する場合は、{{site.data.keyword.appid_short_notm}} のデフォルトの認証コンテキストを変更する必要があります。デフォルトでは、{{site.data.keyword.appid_short_notm}} は、HTTPS を介してパスワードでユーザーが認証されること (`urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport`) を予期します。
+ID プロバイダーが SSO をサポートしている場合は、既に確立された SSO セッションを SAML 認証で使用してユーザーを認証することが可能です。 サポートしていない場合は、ユーザーはログイン・ページにリダイレクトされます。 {{site.data.keyword.cloud_notm}} の認証要求に定義されている認証要件と、SSO を確立するために ID プロバイダーが使用するものを、ID プロバイダーが対応付けられない場合、ユーザーはリダイレクトされることがあります。 例えば、ID プロバイダーが生体認証を使用してユーザーの SSO セッションを確立する場合は、{{site.data.keyword.appid_short_notm}} のデフォルトの認証コンテキストを変更する必要があります。 デフォルトでは、{{site.data.keyword.appid_short_notm}} は、HTTPS を介してパスワードでユーザーが認証されること (`urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport`) を予期します。
 
 
 
@@ -125,7 +125,7 @@ SAML は ID プロバイダーとして構成されるまで有効にするこ�
     </tr>
     <tr>
       <td><code>NameID Format</code></td>
-      <td>アサーションのサブジェクトで送信する必要がある ID 形式と {{site.data.keyword.appid_short_notm}} がユーザーを識別する方法を ID プロバイダーが認識する手段。ID の形式は <code><saml:NameID Format="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"/></code> にする必要があります。</td>
+      <td>アサーションのサブジェクトで送信する必要がある ID 形式と {{site.data.keyword.appid_short_notm}} がユーザーを識別する方法を ID プロバイダーが認識する手段。 ID の形式は <code><saml:NameID Format="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"/></code> にする必要があります。</td>
     </tr>
     <tr>
       <td><code>WantAssertionsSigned</code></td>
@@ -212,7 +212,7 @@ ID プロバイダーからデータを取得し、それを {{site.data.keyword
   ```
   {: screen}
 
-2. 次の例の値をプロバイダーの情報に置き換えて、SAML 構成を作成します。この例に示している値は必須ですが、表に示すように、より多くの情報を含めることもできます。
+2. 次の例の値をプロバイダーの情報に置き換えて、SAML 構成を作成します。 この例に示している値は必須ですが、表に示すように、より多くの情報を含めることもできます。
 
   ```
   "config": {
@@ -257,15 +257,15 @@ ID プロバイダーからデータを取得し、それを {{site.data.keyword
     </tr>
     <tr>
       <td>オプション: <code>secondary-certificate-example-pem-format</code></td>
-      <td>SAML ID プロバイダーから発行されたバックアップ証明書。1 次証明書で署名検証に失敗した場合に使用されます。<strong>注</strong>: 同じ署名鍵をそのまま使用する場合、証明書の認証が期限切れを理由に {{site.data.keyword.appid_short_notm}} でブロックされることはありません。</td>
+      <td>SAML ID プロバイダーから発行されたバックアップ証明書。 1 次証明書で署名検証に失敗した場合に使用されます。 <strong>注</strong>: 同じ署名鍵をそのまま使用する場合、証明書の認証が期限切れを理由に {{site.data.keyword.appid_short_notm}} でブロックされることはありません。</td>
     </tr>
     <tr>
       <td>オプション: <code>authnContext</code></td>
-      <td>認証コンテキストは、認証および SAML アサーションの品質を検証するために使用されます。 認証コンテキストを追加するには、クラス配列と比較ストリングをコードに追加します。<code>class</code> パラメーターと <code>comparison</code> パラメーターの両方を、適切な値で更新してください。 例えば、<code>class</code> パラメーターは <code>urn:oasis:names:tc:SAML:2.0:ac:classes:YourChosenClassValue</code> のようになります。</td>
+      <td>認証コンテキストは、認証および SAML アサーションの品質を検証するために使用されます。 認証コンテキストを追加するには、クラス配列と比較ストリングをコードに追加します。 <code>class</code> パラメーターと <code>comparison</code> パラメーターの両方を、適切な値で更新してください。 例えば、<code>class</code> パラメーターは <code>urn:oasis:names:tc:SAML:2.0:ac:classes:YourChosenClassValue</code> のようになります。</td>
     </tr>
   </table>
 
-3. [`/saml` API エンドポイント](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.set_saml_idp)に PUT 要求を行い、ステップ 2 で作成した構成を {{site.data.keyword.appid_short_notm}} に設定します。次の例を参照して、どのような要求になるかを確認してください。
+3. [`/saml` API エンドポイント](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.set_saml_idp)に PUT 要求を行い、ステップ 2 で作成した構成を {{site.data.keyword.appid_short_notm}} に設定します。 次の例を参照して、どのような要求になるかを確認してください。
 
   ```
   curl --request PUT \
@@ -310,7 +310,7 @@ SAML ID プロバイダーと {{site.data.keyword.appid_short_notm}} の間で�
 ## SAML FAQ
 {: #saml-assertions}
 
-さまざまな方法で SAML アサーションを返すことができます。次の例を参照して、{{site.data.keyword.appid_short_notm}} が予期する応答の形式を確認してください。
+さまざまな方法で SAML アサーションを返すことができます。 次の例を参照して、{{site.data.keyword.appid_short_notm}} が予期する応答の形式を確認してください。
 {: shortdesc}
 
 

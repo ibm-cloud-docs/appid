@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-14"
+lastupdated: "2019-06-28"
 
-keywords: authentication, authorization, identity, app security, secure, application identity, app to app, access token
+keywords: Authentication, authorization, identity, app security, secure, application identity, app to app, access token
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -37,7 +37,7 @@ Esistono diversi motivi per cui potresti volere che un'applicazione comunichi co
 ### Come funziona il flusso?
 {: #app-flow-how}
 
-{{site.data.keyword.appid_short_notm}} utilizza il flusso di credenziali client OAuth 2.0 per proteggere la comunicazione. Dopo aver registrato un'applicazione con {{site.data.keyword.appid_short_notm}}, l'applicazione ottiene un segreto e un ID client. Con queste informazioni, l'applicazione può richiedere un token di accesso da {{site.data.keyword.appid_short_notm}} ed essere autorizzata ad accedere a un'API o una risorsa protetta. Nel flusso di identità e autorizzazione dell'applicazione, all'applicazione viene concesso solo un token di accesso. Non ottiene un token di identità o un token di aggiornamento. Per ulteriori informazioni sui token, consulta [Descrizione dei token](/docs/services/appid?topic=appid-tokens#tokens).
+{{site.data.keyword.appid_short_notm}} utilizza il flusso di credenziali client OAuth 2.0 per proteggere la comunicazione. Dopo aver registrato un'applicazione con {{site.data.keyword.appid_short_notm}}, l'applicazione ottiene un segreto e un ID client. Con queste informazioni, l'applicazione può richiedere un token di accesso da {{site.data.keyword.appid_short_notm}} ed essere autorizzata ad accedere a un'API o una risorsa protetta. Nel flusso di identità e autorizzazione dell'applicazione, all'applicazione viene concesso solo un token di accesso. Non ottiene un token di identità o un token di aggiornamento. Per ulteriori informazioni sui token, consulta [Descrizione dei token](/docs/services/appid?topic=appid-tokens).
 
 Questo flusso di lavoro è pensato per essere utilizzato solo con applicazioni affidabili in cui non esiste alcun rischio che il segreto venga utilizzato in modo improprio o fatto trapelare. L'applicazione ospita sempre il segreto client. Non funzionerà per le applicazioni mobili.
 {: tip}
@@ -72,7 +72,7 @@ Il segreto client utilizzato per autenticare il client è altamente sensibile e 
 ### Con l'API
 {: #app-register-api}
 
-1. Esegui una richiesta POST all'endpoint [`/management/v4/{tenantId}/applications`](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Applications/mgmt.registerApplication).
+1. Esegui una richiesta POST all'endpoint [`/management/v4/{tenantId}/applications`](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Applications/mgmt.registerApplication){: external}.
 
   Richiesta:
 
@@ -104,7 +104,8 @@ Il segreto client utilizzato per autenticare il client è altamente sensibile e 
 
 Dopo aver registrato la tua applicazione con {{site.data.keyword.appid_short_notm}} e aver ottenuto le tue credenziali, puoi effettuare una richiesta al server di autorizzazione {{site.data.keyword.appid_short_notm}} per ottenere un token di accesso.
 
-1. Esegui una richiesta HTTP POST all'[endpoint `/token`](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization%20Server%20-%20Authorization%20Server%20V4/oauth-server.token). L'autorizzazione per la richiesta è `Basic auth` con il segreto e l'ID client utilizzati come la password e il nome utente codificati base64.
+1. Esegui una richiesta HTTP POST
+all'[endpoint `/token`](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization%20Server%20-%20Authorization%20Server%20V4/oauth-server.token){: external}. L'autorizzazione per la richiesta è `Basic auth` con il segreto e l'ID client utilizzati come la password e il nome utente codificati base64.
 
   Richiesta:
   ```
@@ -130,9 +131,9 @@ Dopo aver registrato la tua applicazione con {{site.data.keyword.appid_short_not
 ## Esercitazione: flusso end-to-end con l'SDK Node.js
 {: tutorial-node}
 
-1. Ottieni un [token di accesso](/docs/services/appid?topic=appid-tokens#tokens) in uno dei seguenti modi:
+1. Ottieni un [token di accesso](/docs/services/appid?topic=appid-tokens) in uno dei seguenti modi:
 
-  * Dall'SDK server {{site.data.keyword.appid_short_notm}} [Node.js](https://github.com/ibm-cloud-security/appid-serversdk-nodejs) utilizzando il gestore dei token. Inizializza il gestore dei token con le tue credenziali dell'applicazione ed esegui una chiamata al metodo `getApplicationIdentityToken()` per ottenere il token.
+  * Dall'SDK server {{site.data.keyword.appid_short_notm}} [Node.js](https://github.com/ibm-cloud-security/appid-serversdk-nodejs){: external} utilizzando il gestore dei token. Inizializza il gestore dei token con le tue credenziali dell'applicazione ed esegui una chiamata al metodo `getApplicationIdentityToken()` per ottenere il token.
 
     ```
     const TokenManager = require('ibmcloud-appid').TokenManager;
@@ -217,6 +218,7 @@ Dopo aver registrato la tua applicazione con {{site.data.keyword.appid_short_not
   ```
   const express = require('express'),
     passport = require('passport');
+    APIStrategy = require("ibmcloud-appid").APIStrategy;
 
   var app = express();
   app.use(passport.initialize());

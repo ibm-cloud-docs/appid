@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-21"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, access, tokens
+keywords: Authentication, authorization, identity, app security, secure, access, tokens
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -25,7 +25,7 @@ subcollection: appid
 # Concepts clés
 {: #key-concepts}
 
-Vous êtes perdus entre autorisation et authentification ? Vous n'êtes pas seul. Consultez les informations de cette page pour en savoir plus sur la terminologie, les processus et la manière dont le service utilise les jetons.
+Vous êtes perdu entre autorisation et authentification ? Vous n'êtes pas seul. Consultez les informations suivantes pour en savoir plus sur la terminologie spécifique, les processus et la manière dont le service utilise les jetons.
 {: shortdesc}
 
 Vous voulez en savoir plus sur les concepts de base de l'autorisation et de l'authentification ? Ne cherchez pas plus loin. Dans la vidéo suivante, vous pouvez en savoir plus sur OAuth 2.0, les types d'octroi, OIDC, et plus encore.
@@ -40,13 +40,13 @@ Ces termes clés peuvent vous aider à comprendre de quelle manière le service 
 
 ### OAuth 2
 {: #term-oauth}
-<a href="https://tools.ietf.org/html/rfc6749" target="_blank">OAuth 2 <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a> est un protocole à norme ouverte utilisé pour fournir une autorisation d'application.
+[OAuth 2.0](https://tools.ietf.org/html/rfc6749){: external} est un protocole standard open source utilisé pour fournir une autorisation d'application.
 
 
 ### OIDC (Open ID Connect)
 {: #term-oidc}
 
-<a href="https://openid.net/developers/specs/" target="_blank">OIDC <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a> est une couche d'authentification qui fonctionne sur OAuth 2. Lorsque vous utilisez OIDC et {{site.data.keyword.appid_short_notm}} ensemble, les données d'identification de votre application permettent de configurer vos noeuds finaux. Lorsque vous utilisez le logiciel SDK, les URL des noeuds finaux sont générées automatiquement. Toutefois, vous pouvez aussi les générer vous-même en utilisant vos données d'identification du service. L'URL est au format suivant : noeud final du service {{site.data.keyword.appid_short_notm}} + "/oauth/v4" + /ID titulaire.
+[OIDC](https://openid.net/developers/specs/){: external} est une couche d'authentification qui fonctionne avec OAuth 2. Lorsque vous utilisez OIDC et {{site.data.keyword.appid_short_notm}} ensemble, les données d'identification de votre application permettent de configurer vos noeuds finaux OAuth. Si vous utilisez le logiciel SDK, les URL des noeuds finaux sont générées automatiquement. Toutefois, vous pouvez aussi les générer vous-même en utilisant vos données d'identification du service. L'URL est au format suivant : noeud final du service {{site.data.keyword.appid_short_notm}} + "/oauth/v4" + /ID titulaire.
 
 Exemple :
 
@@ -75,7 +75,7 @@ Sur la base de cet exemple, l'URL sera `https://us-south.appid.cloud.ibm.com/oau
     <td>{oauthServerUrl}/authorization</td>
   </tr>
   <tr>
-    <td>Token</td>
+    <td>Jeton</td>
     <td>{oauthServerUrl}/token</td>
   </tr>
   <tr>
@@ -94,12 +94,18 @@ Lorsque vous utilisez le logiciel SDK, les URL des noeuds finaux sont générée
 ### Jetons
 {: #term-token}
 
-Le service utilise trois types de jeton différents. Les jetons d'accès représentent une autorisation et permettent de communiquer avec des [ressources de back end](/docs/services/appid?topic=appid-backend) protégées par des filtres d'autorisation appliqués par {{site.data.keyword.appid_short}}. Les jetons d'identité représentent une authentification et contiennent des informations concernant l'utilisateur. Un jeton d'actualisation peut être utilisé pour obtenir un nouveau jeton d'accès sans nouvelle authentification de l'utilisateur. A l'aide des jetons d'actualisation, les utilisateurs peuvent autoriser l'application à mémoriser leurs informations. Ainsi, ils peuvent rester connectés. Les jetons sont définis dans **Fournisseurs d'identité > Gérer** du tableau de bord {{site.data.keyword.appid_short}}. Pour plus d'informations sur les jetons et leur utilisation dans {{site.data.keyword.appid_short}}, voir [Gestion des jetons](/docs/services/appid?topic=appid-tokens#tokens).
+Le service utilise trois types de jeton différents. Les jetons sont définis dans **Fournisseurs d'identité > Gérer** du tableau de bord {{site.data.keyword.appid_short}}. Pour plus d'informations sur les jetons et leur utilisation dans {{site.data.keyword.appid_short}}, voir [Gestion des jetons](/docs/services/appid?topic=appid-tokens).
+
+* Jetons d'accès : représentent l'autorisation et permettent la communication avec des [ressources de back end](/docs/services/appid?topic=appid-backend) protégées. Les ressources sont protégées par des filtres d'autorisation définis par {{site.data.keyword.appid_short}}.
+
+* Jetons d'identité : représentent l'authentification et contiennent des informations concernant l'utilisateur.
+
+* Jetons d'actualisation : peuvent être utilisés pour obtenir un nouveau jeton d'accès sans nouvelle authentification de l'utilisateur. A l'aide des jetons d'actualisation, les utilisateurs peuvent autoriser l'application à mémoriser leurs informations, ce qui signifie qu'ils peuvent rester connectés.  
 
 ### En-têtes d'autorisation
 {: #term-auth-header}
 
-{{site.data.keyword.appid_short}} respecte la <a href="https://tools.ietf.org/html/rfc6750" target="blank">spécification du jeton du porteur<img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a> et utilise une combinaison de jetons d'accès et d'identité envoyée sous forme d'en-tête d'autorisation HTTP. L'en-tête d'autorisation se compose de trois parties distinctes séparées par un espace. Les jetons sont codés en Base64. Le jeton d'identité est facultatif.
+{{site.data.keyword.appid_short}} respecte la [spécification de jeton bearer](https://tools.ietf.org/html/rfc6750){: external} et utilise une combinaison de jetons d'accès et d'identité envoyée sous forme d'en-tête d'autorisation HTTP. L'en-tête d'autorisation se compose de trois parties distinctes séparées par un espace. Les jetons sont codés en Base64. Le jeton d'identité est facultatif.
 
 Exemple :
 
@@ -118,7 +124,7 @@ Www-Authenticate=Bearer scope="{scope}" error="{error}"
 ```
 {: screen}
 
-Si la demande renvoie un jeton valide, le contrôle passe au middleware suivant et la propriété `appIdAuthorizationContext` est injectée dans l'objet de demande. Cette propriété contient les jetons d'accès et d'identité originaux, ainsi que les informations de contenu décodées sous forme d'objets JSON ordinaires.
+Si la demande renvoie un jeton valide, le contrôle passe au middleware suivant et la propriété `appIdAuthorizationContext` est injectée dans l'objet de la demande. Cette propriété contient les jetons d'accès et d'identité originaux, ainsi que les informations de contenu décodées sous forme d'objets JSON ordinaires.
 
 ### Stratégie d'application Web
 {: #term-web-strategy}
@@ -143,6 +149,6 @@ Lorsque la stratégie d'application Web détecte des tentatives non autorisées 
 ### Jeu de clés Web JSON (JWKS)
 {: #term-jwks}
 
-Un jeu de clés JWKS représente un ensemble de clés cryptographiques. {{site.data.keyword.appid_short_notm}} utilise un jeu de clés JWKS pour vérifier l'authenticité des jetons que génère le service. En utilisant l'ID de clé pour vérifier la signature vous pouvez vous assurer que le jeton a été émis par une source digne de confiance, {{site.data.keyword.appid_short_notm}}, et que les informations qu'il contient n'ont jamais été modifiées.
+Un jeu de clés JWKS représente un ensemble de clés cryptographiques. {{site.data.keyword.appid_short_notm}} utilise un jeu de clés JWKS pour vérifier l'authenticité des jetons que génère le service. En utilisant l'ID de clé pour vérifier la signature, nous pouvons garantir que le jeton a été émis par une source digne de confiance, {{site.data.keyword.appid_short_notm}}, et que les informations qu'il contient n'ont jamais été modifiées.
 
 

@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-13"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, access, platform, management, permissions
+keywords: Authentication, authorization, identity, app security, secure, access, platform, management, permissions
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -98,7 +98,7 @@ A tabela a seguir detalha as ações que são mapeadas para as funções de aces
     <td>Pode visualizar os detalhes da instância de serviço, como dados do usuário ou informações do provedor de identidade.</td>
   </tr>
   <tr>
-    <td> <i>Gravador ou gerenciador</i></td>
+    <td><i>Gravador ou gerenciador</i></td>
     <td>Visualizar e mudar uma instância do {{site.data.keyword.appid_short_notm}}.</td>
     <td>Pode executar todas as ações do Leitor e editar a instância de serviço, como editar a configuração do provedor de identidade. </li></ul></td>
   </tr>
@@ -245,7 +245,7 @@ Neste cenário, um administrador criou uma instância do {{site.data.keyword.app
 
 Antes de iniciar:
 
-* Instale a [CLI do {{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-ibmcloud-cli).
+* Instale a [CLI do {{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-getting-started).
 
 Para atualizar permissões de acesso, o administrador conclui as etapas a seguir:
 
@@ -340,3 +340,4 @@ Para visualizar as configurações do {{site.data.keyword.appid_short_notm}} da 
     {: codeblock}
 
     O resultado é uma mensagem 200 que contém as informações do provedor de identidade.
+

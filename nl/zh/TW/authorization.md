@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-21"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, access, tokens
+keywords: Authentication, authorization, identity, app security, secure, access, tokens
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -25,7 +25,7 @@ subcollection: appid
 # 主要概念
 {: #key-concepts}
 
-對授權與鑑別之間的差異感到困惑嗎？不是只有您而已。請參閱此頁面上的資訊，以瞭解特定術語、處理程序，以及服務使用記號的方式。
+對授權與鑑別之間的差異感到困惑嗎？不是只有您而已。請查看下列資訊，以瞭解特定術語、處理程序，以及服務使用記號的方式。
 {: shortdesc}
 
 想要進一步瞭解授權與鑑別的部分基本概念？不必再找了。在下列視訊中，您可以瞭解 OAuth 2.0、授權類型、OIDC 等等。
@@ -40,13 +40,13 @@ subcollection: appid
 
 ### OAuth 2
 {: #term-oauth}
-<a href="https://tools.ietf.org/html/rfc6749" target="_blank">OAuth 2 <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a> 是用來提供應用程式授權的開放式標準通訊協定。
+[OAuth 2.0](https://tools.ietf.org/html/rfc6749){: external} 是用來提供應用程式授權的開放式標準通訊協定。
 
 
 ### Open ID Connect (OIDC)
 {: #term-oidc}
 
-<a href="https://openid.net/developers/specs/" target="_blank">OIDC <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a> 借助 OAuth 2 而運作的鑑別層。當您將 OIDC 與 {{site.data.keyword.appid_short_notm}} 一起使用時，您的應用程式認證有助於配置 OAuth 端點。當您使用 SDK 時，會自動建置端點 URL。但是，您也可以使用服務憑證自行建置 URL。URL 採用下列格式：{{site.data.keyword.appid_short_notm}} 服務端點 + "/oauth/v4" + /tenantID。
+[OIDC](https://openid.net/developers/specs/){: external} 是使用 OAuth 2 的鑑別層。當您使用 OIDC 及 {{site.data.keyword.appid_short_notm}} 時，您的應用程式認證有助於配置您的 OAuth 端點。如果您使用 SDK，端點 URL 會自動建置。但是，您也可以使用服務憑證自行建置 URL。URL 採用下列格式：{{site.data.keyword.appid_short_notm}} 服務端點 + "/oauth/v4" + /tenantID。
 
 範例：
 
@@ -63,7 +63,7 @@ subcollection: appid
 ```
 {: screen}
 
-使用此範例，URL 會是 `https://us-south.appid.cloud.ibm.com/oauth/v4/3x176051-a23x-40y4-9645-804943z660q0`。然後，您要附加您想對其提出要求的端點。請參閱下表，以查看一些範例端點。
+使用此範例，URL 會是 `https://us-south.appid.cloud.ibm.com/oauth/v4/3x176051-a23x-40y4-9645-804943z660q0`。然後，您要附加您想對其提出要求的端點。請查看下表，以查看一些範例端點。
 
 <table>
   <tr>
@@ -94,12 +94,18 @@ subcollection: appid
 ### 記號
 {: #term-token}
 
-服務使用三種不同類型的記號。存取記號代表授權，並啟用與[後端資源](/docs/services/appid?topic=appid-backend)的通訊，這些資源會受到 {{site.data.keyword.appid_short}} 所設定的授權過濾器保護。身分記號代表鑑別，並包含使用者的相關資訊。重新整理記號可以用來取得新的存取記號，而不需要重新鑑別使用者。藉由使用重新整理記號，使用者可以容許應用程式記住其資訊。如此，他們便可以保持登入狀態。記號是在 {{site.data.keyword.appid_short}} 儀表板的**身分提供者 > 管理**中設定。如需記號及如何在 {{site.data.keyword.appid_short}} 中使用它們的相關資訊，請參閱[管理記號](/docs/services/appid?topic=appid-tokens#tokens)。
+服務使用三種不同類型的記號。記號是在 {{site.data.keyword.appid_short}} 儀表板的**身分提供者 > 管理**中設定。如需記號及如何在 {{site.data.keyword.appid_short}} 中使用它們的相關資訊，請參閱[管理記號](/docs/services/appid?topic=appid-tokens)。
+
+* 存取記號：代表授權，並啟用與保護[後端資源](/docs/services/appid?topic=appid-backend)的通訊。這些資源會受到 {{site.data.keyword.appid_short}} 所設定的授權過濾器保護。
+
+* 身分記號：代表鑑別，並包含使用者的相關資訊。
+
+* 重新整理記號：可用來取得新的存取記號，而不需要重新鑑別使用者。透過使用重新整理記號，使用者可以容許應用程式記住其資訊，這表示他們可以維持登入狀態。 
 
 ### 授權標頭
 {: #term-auth-header}
 
-{{site.data.keyword.appid_short}} 符合<a href="https://tools.ietf.org/html/rfc6750" target="blank">記號載送規格 <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>，並使用傳送為 HTTP Authorization 標頭的存取及身分記號組合。Authorization 標頭包含依空格區隔的三個不同部分。這些記號是 base64 編碼。身分記號是選用項目。
+{{site.data.keyword.appid_short}} 符合[記號載送規格](https://tools.ietf.org/html/rfc6750){: external}，並使用作為 HTTP Authorization 標頭傳送的存取及身分記號組合。Authorization 標頭包含依空格區隔的三個不同部分。這些記號是 base64 編碼。身分記號是選用項目。
 
 範例：
 
@@ -143,6 +149,6 @@ Web 應用程式策略偵測到未獲授權的受保護資源存取嘗試時，�
 ### JSON Web Key Set (JWKS)
 {: #term-jwks}
 
-JWKS 代表一組加密金鑰。{{site.data.keyword.appid_short_notm}} 使用 JWKS 來驗證服務所產生之記號的確實性。藉由使用金鑰 ID 來驗證簽章，我們可以確定記號是由授信來源 {{site.data.keyword.appid_short_notm}} 所發出，且記號內的資訊從未變更過。
+JWKS 代表一組加密金鑰。{{site.data.keyword.appid_short_notm}} 使用 JWKS 來驗證服務所產生之記號的確實性。透過使用金鑰 ID 來驗證簽章，我們可以確定記號是由授信來源 - {{site.data.keyword.appid_short_notm}} 所發出，且記號內的資訊從未變更過。
 
 

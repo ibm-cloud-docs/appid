@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-13"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, access, platform, management, permissions
+keywords: Authentication, authorization, identity, app security, secure, access, platform, management, permissions
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -97,7 +97,7 @@ Le tableau ci-dessous détaille les actions qui sont mappées aux rôles d'accè
     <td>Peut afficher les détails de l'instance de service tels que les données utilisateur ou les informations de fournisseur d'identité.</td>
   </tr>
   <tr>
-    <td> <i>Rédacteur ou gestionnaire</i></td>
+    <td><i>Rédacteur ou gestionnaire</i></td>
     <td>Afficher et modifier une instance d'{{site.data.keyword.appid_short_notm}}.</td>
     <td>Peut effectuer toutes les actions de lecteur, comme l'édition de la configuration de fournisseur d'identité. </li></ul></td>
   </tr>
@@ -243,7 +243,7 @@ Dans ce scénario, un administrateur a créé une instance d'{{site.data.keyword
 
 Avant de commencer :
 
-* Installez l'[interface CLI {{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-ibmcloud-cli).
+* Installez l'[interface de ligne de commande d'{{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-getting-started).
 
 Pour mettre à jour les droits d'accès, vous devez procédez comme suit en tant qu'administrateur :
 
@@ -337,3 +337,4 @@ Pour afficher la configuration d'{{site.data.keyword.appid_short_notm}} depuis l
     {: codeblock}
 
     Le résultat est un message 200 qui contient les informations de fournisseur d'identité.
+

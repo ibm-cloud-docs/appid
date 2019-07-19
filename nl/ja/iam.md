@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-13"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, access, platform, management, permissions
+keywords: Authentication, authorization, identity, app security, secure, access, platform, management, permissions
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -97,7 +97,7 @@ IAM について詳しくは、[IAM のアクセス権限](/docs/iam?topic=iam-u
     <td>ユーザー・データや ID プロバイダー情報など、サービス・インスタンスの詳細を表示できます。</td>
   </tr>
   <tr>
-    <td> <i>ライターまたは管理者</i></td>
+    <td><i>ライターまたは管理者</i></td>
     <td>{{site.data.keyword.appid_short_notm}} インスタンスを表示および変更できます。</td>
     <td>リーダーのすべてのアクション、およびサービス・インスタンスの編集 (ID プロバイダー構成の編集など) を実行できます。 </li></ul></td>
   </tr>
@@ -243,7 +243,7 @@ UI でユーザー役割を割り当てる方法について詳しくは、[IAM 
 
 開始前に、以下のことを行います。
 
-* [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-ibmcloud-cli) をインストールします。
+* [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started) をインストールします。
 
 アクセス許可を更新するために、管理者は以下の手順を実行します。
 
@@ -337,3 +337,4 @@ UI でユーザー役割を割り当てる方法について詳しくは、[IAM 
     {: codeblock}
 
     結果として、ID プロバイダー情報が入った 200 メッセージが得られます。
+

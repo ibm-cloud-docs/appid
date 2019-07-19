@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-09"
+lastupdated: "2019-06-18"
 
-keywords: authentication, authorization, identity, app security, secure, backend, back-end, oauth, 
+keywords: Authentication, authorization, identity, app security, secure, backend, back-end, oauth, 
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -26,7 +26,7 @@ subcollection: appid
 {:swift: .ph data-hd-programlang='swift'}
 {:curl: .ph data-hd-programlang='curl'}
 
-# Apps de back-end
+# Aplicativos de back-end
 {: #backend}
 
 É possível usar os SDKs e APIs do {{site.data.keyword.appid_full}} para proteger seus terminais e APIs de aplicativo de back-end.
@@ -36,20 +36,21 @@ subcollection: appid
 ## Entendendo o fluxo
 {: #backend-understanding}
 
-Parte do desenvolvimento de apps de back-end é verificar se suas APIs estão protegidas contra acesso desautorizado. Os SDKs do {{site.data.keyword.appid_short_notm}} facilitam a proteção de seus terminais de API e garantem a segurança de seu aplicativo.
+Parte do desenvolvimento dos aplicativos back-end é verificar se suas APIs estão protegidas contra acesso não
+autorizado. Os SDKs do {{site.data.keyword.appid_short_notm}} facilitam a proteção de seus terminais de API e garantem a segurança de seu aplicativo.
 
 
 ### Qual é a base técnica do fluxo?
 {: #backend-technical-flow}
 
-O {{site.data.keyword.appid_short_notm}} implementa o [OAuth 2.0](https://tools.ietf.org/html/rfc6749) e a especificação OIDC, que usa tokens de acesso para autenticação e autorização. Esses
-tokens são formatados como [JSON Web Tokens](https://tools.ietf.org/html/rfc7519), que são assinados
+O {{site.data.keyword.appid_short_notm}} implementa o [OAuth 2.0](https://tools.ietf.org/html/rfc6749){: external} e a especificação OIDC, que usa tokens de acesso para autenticação e autorização. Esses
+tokens são formatados como [JSON Web Tokens](https://tools.ietf.org/html/rfc7519){: external}, que são assinados
 digitalmente e contêm solicitações que descrevem o assunto que está sendo autenticado e o provedor de
 identidade. As APIs de seu aplicativo são protegidas pelos tokens de acesso e de identidade. Clientes que precisam de
 acesso às suas APIs podem se autenticar com o provedor de identidade por meio do {{site.data.keyword.appid_short_notm}} em troca desses tokens. As
 solicitações nos tokens devem ser validadas para conceder acesso às APIs protegidas.
 
-Para obter mais informações sobre como os tokens são usados no {{site.data.keyword.appid_short_notm}}, consulte [Entendendo os tokens](/docs/services/appid?topic=appid-tokens#tokens).
+Para obter mais informações sobre como os tokens são usados no {{site.data.keyword.appid_short_notm}}, consulte [Entendendo os tokens](/docs/services/appid?topic=appid-tokens#).
 {: tip}
 
 
@@ -87,7 +88,7 @@ Para obter mais informações sobre como os tokens são usados no {{site.data.ke
 É possível usar os SDKs do {{site.data.keyword.appid_short_notm}} para impor a autenticação e a autorização para os aplicativos do lado do servidor. O `ApiStrategy` funciona para proteger os recursos de back-end requerendo que os tokens de acesso e de identidade sejam validados como parte da solicitação.
 {: shortdesc}
 
-O SDK Node.js do {{site.data.keyword.appid_short_notm}} funciona em conjunto com a estrutura do [Passaport](http://www.passportjs.org/).
+O SDK Node.js do {{site.data.keyword.appid_short_notm}} funciona em conjunto com a estrutura do [Passaport](http://www.passportjs.org/){: external}.
 {: ph data-hd-programlang='javascript'}
 
 O {{site.data.keyword.appid_short_notm}}servidor Swift do lado do servidor fornece um plug-in de middleware de proteção de API que é usado para proteger seus aplicativos de backend. Associando suas APIs com o middleware, é possível proteger seu app de acesso desautorizado. Após a API ser protegida, o middleware assegura que os tokens gerados pelo {{site.data.keyword.appid_short_notm}} sejam validados. Em seguida, é possível modificar o comportamento da API dependendo dos resultados da validação.
@@ -152,14 +153,14 @@ if #available(OSX 10.12, *) {
 {: codeblock}
 {: ph data-hd-programlang='swift'}
 
-Verifique o vídeo a seguir para aprender sobre como proteger aplicativos de Nó de back-end com o {{site.data.keyword.appid_short_notm}}. Em seguida, experimente você mesmo usando um [app de amostra de Nó simples](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02b-simple-node-backend-app).
+Verifique o vídeo a seguir para aprender sobre como proteger aplicativos de Nó de back-end com o {{site.data.keyword.appid_short_notm}}. Em seguida, experimente você mesmo usando um [app de amostra de Nó simples](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02b-simple-node-backend-app){: external}.
 {: ph data-hd-programlang='javascript'}
 
 <iframe class="embed-responsive-item" id="appid-backend-nodejs" title="Sobre o {{site.data.keyword.appid_short_notm}}" type="text/html" width="640" height="390" src="//www.youtube.com/embed/jJLSgkHpZwA?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 {: ph data-hd-programlang='javascript'}
 
 
-Verifique o vídeo a seguir para aprender sobre como proteger aplicativos de back-end Liberty for Java com o {{site.data.keyword.appid_short_notm}}. Em seguida, experimente você mesmo usando um [app de amostra Liberty for Java simples](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02d-simple-liberty-backend-app).
+Verifique o vídeo a seguir para aprender sobre como proteger aplicativos de back-end Liberty for Java com o {{site.data.keyword.appid_short_notm}}. Em seguida, experimente você mesmo usando um [app de amostra Liberty for Java simples](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02d-simple-liberty-backend-app){: external}.
 {: ph data-hd-programlang='java'}
 
 <iframe class="embed-responsive-item" id="appid-backend-liberty" title="Sobre o {{site.data.keyword.appid_short_notm}}" type="text/html" width="640" height="390" src="//www.youtube.com/embed/QA6DY2qqLaw?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
@@ -256,7 +257,7 @@ Quando os tokens são válidos, o próximo middleware na cadeia de solicitação
 {: #backend-secure-api}
 
 Para assegurar seus apps de back-end e os recursos protegidos, é necessário validar um token. Quando um cliente envia uma solicitação para seu recurso, é possível verificar se o token atende às especificações definidas. O token pode incluir a identificação de informações, o escopo ou qualquer outra configuração que você tenha estabelecida. É possível validar os
-tokens de identidade e de acesso do {{site.data.keyword.appid_short_notm}} de várias maneiras. Para obter ajuda, efetue o registro de saída de [Validação de tokens](/docs/services/appid?topic=appid-token-validation#token-validation).
+tokens de identidade e de acesso do {{site.data.keyword.appid_short_notm}} de várias maneiras. Para obter ajuda, efetue o registro de saída de [Validação de tokens](/docs/services/appid?topic=appid-token-validation).
 
 
 ## Próximas Etapas
@@ -266,5 +267,7 @@ Com o {{site.data.keyword.appid_short_notm}} instalado em seu aplicativo, você 
 
 * Configure os seus [provedores de identidade](/docs/services/appid?topic=appid-social)
 * Customize e configure [o Widget de login](/docs/services/appid?topic=appid-login-widget)
-* Saiba mais sobre o <a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs" target="_blank">SDK do Node.js<img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a>
-* Saiba mais sobre o <a href="https://github.com/ibm-cloud-security/appid-serversdk-swift" target="_blank">SDK do Swift<img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a>
+* Saiba mais sobre o [SDK do Node.js](https://github.com/ibm-cloud-security/appid-serversdk-nodejs){: external}
+* Saiba mais sobre o [SDK do Swift](https://github.com/ibm-cloud-security/appid-serversdk-swift){: external}
+
+

@@ -41,10 +41,10 @@ SAML(Security Assertion Markup Language)은 사용자 ID를 어설션하는 ID �
 
 <a href="http://saml.xml.org/saml-specifications" target="blank">SAML <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a> 프로토콜은 다양한 프로파일 및 바인드 옵션을 지원합니다. {{site.data.keyword.appid_short_notm}}는 HTTP POST 바인딩과 함께 웹 브라우저 SSO 프로파일을 지원합니다.
 
-### 플로우의 기술적 기반은 무엇입니까? 
+### 플로우의 기술적 기반은 무엇입니까?
 {: #saml-tech-basis}
 
-SAML 2.0은 인증 및 권한 부여 표준에 대한 가장 대표적인 프레임워크 중 하나로서, 서비스 제공자({{site.data.keyword.appid_short_notm}})와 ID 제공자 간 XML 기반 프로토콜입니다. ID 제공자가 사용자를 인증하면 사용자에 대한 어설션 또는 명령문이 포함된 SAML 토큰이 작성됩니다. 명령문에는 다음이 포함될 수 있습니다. 
+SAML 2.0은 인증 및 권한 부여 표준에 대한 가장 대표적인 프레임워크 중 하나로서, 서비스 제공자({{site.data.keyword.appid_short_notm}})와 ID 제공자 간 XML 기반 프로토콜입니다. ID 제공자가 사용자를 인증하면 사용자에 대한 어설션 또는 명령문이 포함된 SAML 토큰이 작성됩니다. 명령문에는 다음이 포함될 수 있습니다.
 
 - 사용자 인증 방법과 같은 인증 정보 - 비밀번호, MFA 등...
 - 사용자와 연관된 속성 - 사용자가 속한 그룹
@@ -63,23 +63,23 @@ SAML 2.0은 인증 및 권한 부여 표준에 대한 가장 대표적인 프레
 ### 이 플로우의 형태는 어떻습니까?
 {: #saml-flow}
 
-{{site.data.keyword.appid_short_notm}}와 ID 제공자는 SAML 프레임워크를 사용하여 사용자를 인증하지만, {{site.data.keyword.appid_short_notm}}는 최신 OAuth 2.0/OIDC 프레임워크를 사용하여 애플리케이션과 보안 토큰을 교환합니다. 자세한 정보 플로우를 보려면 다음 이미지를 확인하십시오. 
+{{site.data.keyword.appid_short_notm}}와 ID 제공자는 SAML 프레임워크를 사용하여 사용자를 인증하지만, {{site.data.keyword.appid_short_notm}}는 최신 OAuth 2.0/OIDC 프레임워크를 사용하여 애플리케이션과 보안 토큰을 교환합니다. 자세한 정보 플로우를 보려면 다음 이미지를 확인하십시오.
 
 ![SAML 엔터프라이즈 인증 플로우](/images/ibmid-flow.png)
 
-1. 사용자가 자신의 애플리케이션에서 로그인 페이지 또는 제한된 리소스에 액세스합니다. 그러면 {{site.data.keyword.appid_short_notm}} SDK 또는 API를 통해 {{site.data.keyword.appid_short_notm}} `/authorization` 엔드포인트에 대한 요청이 시작됩니다. 권한이 없는 사용자일 경우 {{site.data.keyword.appid_short_notm}}로 경로 재지정되면서 인증 플로우가 시작됩니다. 
-2. {{site.data.keyword.appid_short_notm}}에서 SAML 인증 요청(AuthNRequest)을 생성하고 브라우저에서 사용자가 SAML ID 제공자로 자동 경로 재지정됩니다. 
-3. ID 제공자가 SAML 요청을 구문 분석하고 사용자를 인증하며 해당 어설션을 사용하여 SAML 응답을 생성합니다. 
-4. ID 제공자가 SAML 응답을 사용하여 사용자와 응답을 다시 {{site.data.keyword.appid_short_notm}}로 경로 재지정합니다. 
-5. 인증에 성공하면 {{site.data.keyword.appid_short_notm}}에서 사용자의 권한 부여 및 인증을 나타내는 액세스 및 ID 토큰을 작성한 후 이를 앱에 리턴합니다. 인증에 실패하면 {{site.data.keyword.appid_short_notm}}에서 ID 제공자 오류 코드를 앱에 리턴합니다. 
-6. 사용자에게 앱 또는 보호된 리소스에 대한 액세스 권한이 부여됩니다. 
+1. 사용자가 자신의 애플리케이션에서 로그인 페이지 또는 제한된 리소스에 액세스합니다. 그러면 {{site.data.keyword.appid_short_notm}} SDK 또는 API를 통해 {{site.data.keyword.appid_short_notm}} `/authorization` 엔드포인트에 대한 요청이 시작됩니다. 권한이 없는 사용자일 경우 {{site.data.keyword.appid_short_notm}}로 경로 재지정되면서 인증 플로우가 시작됩니다.
+2. {{site.data.keyword.appid_short_notm}}에서 SAML 인증 요청(AuthNRequest)을 생성하고 브라우저에서 사용자가 SAML ID 제공자로 자동 경로 재지정됩니다.
+3. ID 제공자가 SAML 요청을 구문 분석하고 사용자를 인증하며 해당 어설션을 사용하여 SAML 응답을 생성합니다.
+4. ID 제공자가 SAML 응답을 사용하여 사용자와 응답을 다시 {{site.data.keyword.appid_short_notm}}로 경로 재지정합니다.
+5. 인증에 성공하면 {{site.data.keyword.appid_short_notm}}에서 사용자의 권한 부여 및 인증을 나타내는 액세스 및 ID 토큰을 작성한 후 이를 앱에 리턴합니다. 인증에 실패하면 {{site.data.keyword.appid_short_notm}}에서 ID 제공자 오류 코드를 앱에 리턴합니다.
+6. 사용자에게 앱 또는 보호된 리소스에 대한 액세스 권한이 부여됩니다.
 
 
 
-### SSO의 경우 플로우가 변경됩니까? 
+### SSO의 경우 플로우가 변경됩니까?
 {: #saml-sso-flow}
 
-{{site.data.keyword.appid_short_notm}}가 구현하는 웹 브라우저 SSO 프로파일은 서비스 제공자를 통해 시작됩니다. 즉, {{site.data.keyword.appid_short_notm}}가 SAML 요청을 ID 제공자에게 전송하여 인증 세션을 시작해야 합니다.  
+{{site.data.keyword.appid_short_notm}}가 구현하는 웹 브라우저 SSO 프로파일은 서비스 제공자를 통해 시작됩니다. 즉, {{site.data.keyword.appid_short_notm}}가 SAML 요청을 ID 제공자에게 전송하여 인증 세션을 시작해야 합니다. 
 
 {{site.data.keyword.appid_short_notm}}는 현재 ID 제공자를 통해 시작된 플로우를 지원하지 않으므로 현재 이 플로우를 서비스와 함께 사용하면 안됩니다.
 {: note}
@@ -91,7 +91,7 @@ ID 제공자가 SSO를 지원할 경우 SAML 인증 시 이미 설정된 SSO 세
 ## {{site.data.keyword.appid_short_notm}}와 함께 작동하도록 SAML 구성
 {: #saml-configure}
 
-{{site.data.keyword.appid_short_notm}}의 메타데이터는 ID 제공자에게 제공하고 ID 제공자의 메타데이터는 {{site.data.keyword.appid_short_notm}}에 제공하여 SAML이 {{site.data.keyword.appid_short_notm}}와 함께 작동하도록 구성할 수 있습니다. 
+{{site.data.keyword.appid_short_notm}}의 메타데이터는 ID 제공자에게 제공하고 ID 제공자의 메타데이터는 {{site.data.keyword.appid_short_notm}}에 제공하여 SAML이 {{site.data.keyword.appid_short_notm}}와 함께 작동하도록 구성할 수 있습니다.
 
 
 
@@ -182,7 +182,6 @@ ID 제공자로부터 데이터를 받아서 {{site.data.keyword.appid_short_not
 
 1. [`/saml` API 엔드포인트](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.get_saml_idp)에 대한 GET 요청을 작성하여 인증 컨텍스트 및 인증을 포함한 현재 SAML 구성을 확인하십시오.
 
-
   코드 예제:
   ```
   curl --request GET \
@@ -213,7 +212,7 @@ ID 제공자로부터 데이터를 받아서 {{site.data.keyword.appid_short_not
   ```
   {: screen}
 
-2. 다음 예의 값을 제공자가 제공한 정보로 대체하여 SAML 구성을 작성하십시오. 예에 표시된 값은 필수지만, 표에 표시된 추가 정보를 포함하도록 선택할 수 있습니다. 
+2. 다음 예의 값을 제공자가 제공한 정보로 대체하여 SAML 구성을 작성하십시오. 예에 표시된 값은 필수지만, 표에 표시된 추가 정보를 포함하도록 선택할 수 있습니다.
 
   ```
   "config": {
@@ -250,7 +249,7 @@ ID 제공자로부터 데이터를 받아서 {{site.data.keyword.appid_short_not
     </tr>
     <tr>
       <td><code>displayName</code></td>
-      <td>SAML 구성에 지정한 이름입니다. </td>
+      <td>SAML 구성에 지정한 이름입니다.</td>
     </tr>
     <tr>
       <td><code>primary-certificate-example-pem-format</code></td>
@@ -258,15 +257,15 @@ ID 제공자로부터 데이터를 받아서 {{site.data.keyword.appid_short_not
     </tr>
     <tr>
       <td>선택사항: <code>secondary-certificate-example-pem-format</code></td>
-      <td>SAML ID 제공자가 발행한 백업 인증서입니다. 기본 인증서의 서명 유효성 검증이 실패할 경우에 사용됩니다. <strong>고</strong>: 서명 키가 동일하게 유지되면 {{site.data.keyword.appid_short_notm}}는 만료된 인증서에 대한 인증을 차단하지 않습니다. </td>
+      <td>SAML ID 제공자가 발행한 백업 인증서입니다. 기본 인증서의 서명 유효성 검증이 실패할 경우에 사용됩니다. <strong>고</strong>: 서명 키가 동일하게 유지되면 {{site.data.keyword.appid_short_notm}}는 만료된 인증서에 대한 인증을 차단하지 않습니다.</td>
     </tr>
     <tr>
       <td>선택사항: <code>authnContext</code></td>
-      <td>인증 컨텍스트는 인증 및 SAML 어설션의 품질을 확인하는 데 사용됩니다. 코드에 클래스 배열 및 비교 문자열을 추가하여 인증 컨텍스트를 추가할 수 있습니다. <code>class</code> 및 <code>comparison</code> 매개변수를 둘 다 사용자의 고유한 값으로 업데이트해야 합니다. 예를 들어 <code>class</code> 매개변수는 <code>urn:oasis:names:tc:SAML:2.0:ac:classes:YourChosenClassValue</code>와 유사할 수 있습니다. </td>
+      <td>인증 컨텍스트는 인증 및 SAML 어설션의 품질을 확인하는 데 사용됩니다. 코드에 클래스 배열 및 비교 문자열을 추가하여 인증 컨텍스트를 추가할 수 있습니다. <code>class</code> 및 <code>comparison</code> 매개변수를 둘 다 사용자의 고유한 값으로 업데이트해야 합니다. 예를 들어 <code>class</code> 매개변수는 <code>urn:oasis:names:tc:SAML:2.0:ac:classes:YourChosenClassValue</code>와 유사할 수 있습니다.</td>
     </tr>
   </table>
 
-3. [`/saml` API 엔드포인트](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.set_saml_idp)에 대해 PUT 요청을 작성하여 2단계에서 작성한 구성을 {{site.data.keyword.appid_short_notm}}에 제공하십시오. 사용자의 요청을 살펴보려면 다음 예를 확인하십시오. 
+3. [`/saml` API 엔드포인트](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.set_saml_idp)에 대해 PUT 요청을 작성하여 2단계에서 작성한 구성을 {{site.data.keyword.appid_short_notm}}에 제공하십시오. 사용자의 요청을 살펴보려면 다음 예를 확인하십시오.
 
   ```
   curl --request PUT \

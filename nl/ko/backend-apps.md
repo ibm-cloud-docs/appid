@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-09"
+lastupdated: "2019-06-18"
 
-keywords: authentication, authorization, identity, app security, secure, backend, back-end, oauth, 
+keywords: Authentication, authorization, identity, app security, secure, backend, back-end, oauth, 
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -42,9 +42,9 @@ subcollection: appid
 ### 이 플로우의 기술적 기반은 무엇입니까?
 {: #backend-technical-flow}
 
-{{site.data.keyword.appid_short_notm}}는 인증 및 권한을 위해 전달자(bearer) 토큰을 사용하는 [OAuth 2.0](https://tools.ietf.org/html/rfc6749) 및 OIDC 스펙을 구현합니다. 이러한 토큰은 디지털 방식으로 서명되며 인증할 대상 및 ID 제공자에 대해 설명하는 청구가 포함된 [JSON 웹 토큰](https://tools.ietf.org/html/rfc7519)으로 형식화됩니다. 애플리케이션의 API는 액세스 및 ID 토큰을 통해 보호됩니다. API에 액세스해야 하는 클라이언트는 이러한 토큰과 교환하여 {{site.data.keyword.appid_short_notm}}를 통해 ID 제공자로 인증할 수 있습니다. 보호된 API에 대한 액세스 권한을 부여하기 위해서는 토큰에 있는 청구를 유효성 검증해야 합니다.
+{{site.data.keyword.appid_short_notm}}는 인증 및 권한을 위해 전달자(bearer) 토큰을 사용하는 [OAuth 2.0](https://tools.ietf.org/html/rfc6749){: external} 및 OIDC 스펙을 구현합니다. 이러한 토큰은 디지털 방식으로 서명되며 인증할 대상 및 ID 제공자에 대해 설명하는 청구가 포함된 [JSON 웹 토큰](https://tools.ietf.org/html/rfc7519){: external}으로 형식화됩니다. 애플리케이션의 API는 액세스 및 ID 토큰을 통해 보호됩니다. API에 액세스해야 하는 클라이언트는 이러한 토큰과 교환하여 {{site.data.keyword.appid_short_notm}}를 통해 ID 제공자로 인증할 수 있습니다. 보호된 API에 대한 액세스 권한을 부여하기 위해서는 토큰에 있는 청구를 유효성 검증해야 합니다.
 
-{{site.data.keyword.appid_short_notm}}에서 토큰을 사용하는 방법에 대한 자세한 정보는 [토큰에 대한 정보](/docs/services/appid?topic=appid-tokens#tokens)를 참조하십시오.
+{{site.data.keyword.appid_short_notm}}에서 토큰을 사용하는 방법에 대한 자세한 정보는 [토큰에 대한 정보](/docs/services/appid?topic=appid-tokens#)를 참조하십시오.
 {: tip}
 
 
@@ -82,7 +82,7 @@ subcollection: appid
 {{site.data.keyword.appid_short_notm}} SDK를 사용하여 서버 측 애플리케이션에 대한 인증 및 권한을 적용할 수 있습니다. `ApiStrategy`는 요청의 일부로 액세스 및 ID 토큰을 유효성 검증하도록 요구하여 백엔드 리소스에 보안을 적용하기 위해 작동합니다.
 {: shortdesc}
 
-{{site.data.keyword.appid_short_notm}} Node.js SDK는 [패스포트 프레임워크](http://www.passportjs.org/)와 함께 작동합니다.
+{{site.data.keyword.appid_short_notm}} Node.js SDK는 [패스포트 프레임워크](http://www.passportjs.org/){: external}와 함께 작동합니다.
 {: ph data-hd-programlang='javascript'}
 
 {{site.data.keyword.appid_short_notm}} 서버 측 Swift SDK는 백엔드 앱을 보호하기 위해 사용되는 API 보호 미들웨어 플러그인을 제공합니다. API를 해당 미들웨어와 연관시켜 권한 없는 액세스로부터 앱을 보호할 수 있습니다. API가 보호된 후에 미들웨어는 {{site.data.keyword.appid_short_notm}}에 의해 생성된 토큰이 유효성 검증되는지 확인합니다. 그리고 유효성 검증 결과에 따라 API의 작동을 수정할 수 있습니다.
@@ -147,14 +147,14 @@ if #available(OSX 10.12, *) {
 {: codeblock}
 {: ph data-hd-programlang='swift'}
 
-{{site.data.keyword.appid_short_notm}}를 사용한 백엔드 Node 애플리케이션 보호에 대해 학습하려면 다음 동영상을 확인하십시오. 그런 다음 [간단한 Node 샘플 앱](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02b-simple-node-backend-app)을 사용하여 직접 시도해 보십시오.
+{{site.data.keyword.appid_short_notm}}를 사용한 백엔드 Node 애플리케이션 보호에 대해 학습하려면 다음 동영상을 확인하십시오. 그런 다음 [간단한 Node 샘플 앱](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02b-simple-node-backend-app){: external}을 사용하여 직접 시도해 보십시오.
 {: ph data-hd-programlang='javascript'}
 
 <iframe class="embed-responsive-item" id="appid-backend-nodejs" title="{{site.data.keyword.appid_short_notm}} 정보" type="text/html" width="640" height="390" src="//www.youtube.com/embed/jJLSgkHpZwA?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 {: ph data-hd-programlang='javascript'}
 
 
-{{site.data.keyword.appid_short_notm}}를 사용한 백엔드 Liberty for Java 애플리케이션 보호에 대해 학습하려면 다음 동영상을 확인하십시오. 그런 다음 [간단한 Liberty for Java 샘플 앱](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02d-simple-liberty-backend-app)을 사용하여 직접 시도해 보십시오.
+{{site.data.keyword.appid_short_notm}}를 사용한 백엔드 Liberty for Java 애플리케이션 보호에 대해 학습하려면 다음 동영상을 확인하십시오. 그런 다음 [간단한 Liberty for Java 샘플 앱](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02d-simple-liberty-backend-app){: external}을 사용하여 직접 시도해 보십시오.
 {: ph data-hd-programlang='java'}
 
 <iframe class="embed-responsive-item" id="appid-backend-liberty" title="{{site.data.keyword.appid_short_notm}} 정보" type="text/html" width="640" height="390" src="//www.youtube.com/embed/QA6DY2qqLaw?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
@@ -249,7 +249,7 @@ Node.js 앱이 {{site.data.keyword.cloud_notm}}에서 실행되고 {{site.data.k
 ## 수동으로 리소스 보호
 {: #backend-secure-api}
 
-백엔드 앱 및 보호된 리소스에 보안을 적용하려면 토큰을 유효성 검증해야 합니다. 클라이언트에서 리소스에 대한 요청을 전송하면 해당 토큰이 정의된 스펙을 충족하는지 확인할 수 있습니다. 토큰에는 식별 정보, 범위 또는 적용된 기타 구성이 포함될 수 있습니다. 여러 가지 방법으로 {{site.data.keyword.appid_short_notm}} 액세스 및 ID 토큰을 유효성 검증할 수 있습니다. 도움말은 [토큰 유효성 검증](/docs/services/appid?topic=appid-token-validation#token-validation)을 참조하십시오.
+백엔드 앱 및 보호된 리소스에 보안을 적용하려면 토큰을 유효성 검증해야 합니다. 클라이언트에서 리소스에 대한 요청을 전송하면 해당 토큰이 정의된 스펙을 충족하는지 확인할 수 있습니다. 토큰에는 식별 정보, 범위 또는 적용된 기타 구성이 포함될 수 있습니다. 여러 가지 방법으로 {{site.data.keyword.appid_short_notm}} 액세스 및 ID 토큰을 유효성 검증할 수 있습니다. 도움말은 [토큰 유효성 검증](/docs/services/appid?topic=appid-token-validation)을 참조하십시오.
 
 
 ## 다음 단계
@@ -259,5 +259,7 @@ Node.js 앱이 {{site.data.keyword.cloud_notm}}에서 실행되고 {{site.data.k
 
 * [ID 제공자](/docs/services/appid?topic=appid-social) 구성
 * [로그인 위젯](/docs/services/appid?topic=appid-login-widget) 사용자 정의 및 구성
-* <a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs" target="_blank">Node.js SDK<img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>에 대한 정보 확인
-* <a href="https://github.com/ibm-cloud-security/appid-serversdk-swift" target="_blank">Swift SDK<img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>에 대한 정보 확인
+* [Node.js SDK](https://github.com/ibm-cloud-security/appid-serversdk-nodejs){: external}에 관해 자세히 보기
+* [Swift SDK](https://github.com/ibm-cloud-security/appid-serversdk-swift){: external}에 관해 자세히 보기
+
+

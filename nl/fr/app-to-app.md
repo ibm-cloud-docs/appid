@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-14"
+lastupdated: "2019-06-28"
 
-keywords: authentication, authorization, identity, app security, secure, application identity, app to app, access token
+keywords: Authentication, authorization, identity, app security, secure, application identity, app to app, access token
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -37,7 +37,7 @@ Vous pouvez souhaiter qu'une application communique avec un autre service ou une
 ### Comment fonctionne le flux ?
 {: #app-flow-how}
 
-{{site.data.keyword.appid_short_notm}} exploite le flux des données d'identification du client OAuth 2.0 pour protéger la communication. Lorsqu'une application s'enregistre auprès d'{{site.data.keyword.appid_short_notm}}, elle obtient un ID client et un secret. Avec ces informations, l'application peut demander un jeton d'accès à {{site.data.keyword.appid_short_notm}} et être autorisée à accéder à une ressource protégée ou une API. Dans l'identité d'application et le flux d'autorisation, l'application se voit uniquement attribuer un jeton d'accès. Elle n'obtient pas de jeton d'identité ou de jeton d'actualisation. Pour plus d'informations sur les jetons, voir [Connaissance des jetons](/docs/services/appid?topic=appid-tokens#tokens).
+{{site.data.keyword.appid_short_notm}} exploite le flux des données d'identification du client OAuth 2.0 pour protéger la communication. Lorsqu'une application s'enregistre auprès d'{{site.data.keyword.appid_short_notm}}, elle obtient un ID client et un secret. Avec ces informations, l'application peut demander un jeton d'accès à {{site.data.keyword.appid_short_notm}} et être autorisée à accéder à une ressource protégée ou une API. Dans l'identité d'application et le flux d'autorisation, l'application se voit uniquement attribuer un jeton d'accès. Elle n'obtient pas de jeton d'identité ou de jeton d'actualisation. Pour plus d'informations sur les jetons, voir [Connaissance des jetons](/docs/services/appid?topic=appid-tokens).
 
 Ce flux de travaux est destiné à être utilisé uniquement avec des applications sécurisées dans lesquelles le secret ne risque pas d'être mal utilisé ou divulgué. L'application conserve toujours la valeur secrète du client. Elle ne fonctionne pas pour les applications mobiles.
 {: tip}
@@ -72,7 +72,7 @@ Le secret client utilisé pour authentifier le client est très sensible et doit
 ### Avec l'API
 {: #app-register-api}
 
-1. Envoyez une requête POST au noeud final [`/management/v4/{tenantId}/applications`](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Applications/mgmt.registerApplication).
+1. Envoyez une demande POST au noeud final [`/management/v4/{tenantId}/applications`](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Applications/mgmt.registerApplication){: external}.
 
   Demande :
 
@@ -104,7 +104,7 @@ Le secret client utilisé pour authentifier le client est très sensible et doit
 
 Lorsque votre application est enregistrée auprès d'{{site.data.keyword.appid_short_notm}} et que vous avez obtenu vos données d'identification, vous pouvez envoyer une demande au serveur d'autorisations {{site.data.keyword.appid_short_notm}} pour obtenir un jeton d'accès.
 
-1. Envoyez une requête POST HTTP au noeud final [`/token`](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization%20Server%20-%20Authorization%20Server%20V4/oauth-server.token). L'autorisation pour la demande est `Basic auth`, avec l'ID client et le secret utilisés comme nom d'utilisateur et mot de passe codés en base64.
+1. Envoyez une demande POST HTTP au noeud final [`/token`](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization%20Server%20-%20Authorization%20Server%20V4/oauth-server.token){: external}. L'autorisation pour la demande est `Basic auth`, avec l'ID client et le secret utilisés comme nom d'utilisateur et mot de passe codés en base64.
 
   Demande :
   ```
@@ -130,9 +130,9 @@ Lorsque votre application est enregistrée auprès d'{{site.data.keyword.appid_s
 ## Tutoriel : flux de bout en bout avec le logiciel SDK Node.js
 {: tutorial-node}
 
-1. Obtenez un [jeton d'accès](/docs/services/appid?topic=appid-tokens#tokens) de l'une des manières suivantes :
+1. Obtenez un [jeton d'accès](/docs/services/appid?topic=appid-tokens) de l'une des manières suivantes :
 
-  * A partir du [logiciel SDK serveur Node.js](https://github.com/ibm-cloud-security/appid-serversdk-nodejs) {{site.data.keyword.appid_short_notm}} à l'aide du gestionnaire de jetons. Initialisez le gestionnaire de jetons avec les données d'identification de votre application et appelez la méthode `getApplicationIdentityToken()` pour obtenir le jeton.
+  * A partir du [logiciel SDK serveur Node.js](https://github.com/ibm-cloud-security/appid-serversdk-nodejs){: external} {{site.data.keyword.appid_short_notm}} à l'aide du gestionnaire de jetons. Initialisez le gestionnaire de jetons avec les données d'identification de votre application et appelez la méthode `getApplicationIdentityToken()` pour obtenir le jeton.
 
     ```
     const TokenManager = require('ibmcloud-appid').TokenManager;
@@ -217,6 +217,7 @@ Lorsque votre application est enregistrée auprès d'{{site.data.keyword.appid_s
   ```
   const express = require('express'),
     passport = require('passport');
+    APIStrategy = require("ibmcloud-appid").APIStrategy;
 
   var app = express();
   app.use(passport.initialize());

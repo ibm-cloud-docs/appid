@@ -88,7 +88,7 @@ Pour les toutes dernières informations de tarification, vous pouvez créer une 
 
 Une URI de redirection est le noeud final de rappel de votre application. Pour empêcher les attaques par hameçonnage, {{site.data.keyword.appid_short_notm}} valide l'URI par rapport à la liste blanche des URI de redirection. En cas d'hameçonnage, il est possible qu'un pirate puisse accéder à vos jetons utilisateur. Pour plus d'informations sur les URI de redirection, voir [Ajout d'URI de redirection](/docs/services/appid?topic=appid-managing-idp#add-redirect-uri).
 
-N'incluez pas de paramètres de demande dans votre URL. Ils sont ignorés lors du processus de validation. Exemple d'URL : `http://hôte:[port]/chemin`
+N'incluez pas de paramètres de requête dans votre URL. Ils sont ignorés lors du processus de validation. Exemple d'URL : `http://hôte:[port]/chemin`
 {: tip}
 
 

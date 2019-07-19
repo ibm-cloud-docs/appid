@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-13"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, access, platform, management, permissions
+keywords: Authentication, authorization, identity, app security, secure, access, platform, management, permissions
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -97,7 +97,7 @@ La tabla siguiente detalla las acciones que se correlacionan con roles de acceso
     <td>Puede ver los detalles de la instancia de servicio como los datos de usuario o la información del proveedor de identidad.</td>
   </tr>
   <tr>
-    <td> <i>Escritor o Gestor</i></td>
+    <td><i>Escritor o Gestor</i></td>
     <td>Ver y cambiar una instancia de {{site.data.keyword.appid_short_notm}}.</td>
     <td>Puede realizar todas las acciones del Lector y editar la instancia de servicio, como por ejemplo editar la configuración del proveedor de identidad. </li></ul></td>
   </tr>
@@ -243,7 +243,7 @@ En este caso de ejemplo, un administrador ha creado una instancia de {{site.data
 
 Antes de empezar:
 
-* Instale la [CLI de {{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-ibmcloud-cli).
+* Instale la [CLI de {{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-getting-started).
 
 Para actualizar los permisos de acceso, el administrador completa los pasos siguientes:
 
@@ -337,3 +337,4 @@ Para ver las configuraciones de {{site.data.keyword.appid_short_notm}} de la CLI
     {: codeblock}
 
     El resultado es un mensaje 200 que contiene la información del proveedor de identidad.
+

@@ -273,7 +273,7 @@ Pour configurer l'authentification multi-facteur avec l'interface graphique, con
 
     4. Copiez la valeur de la zone **API secret** du tableau de bord Nexmo et collez-la dans la zone **Secret** du tableau de bord {{site.data.keyword.appid_short_notm}}.
 
-    5. Entrez [l'ID](https://help.nexmo.com/hc/en-us/articles/217571017-What-is-a-Sender-ID) à partir duquel vous souhaitez envoyer des messages. Un format valide suit le [format de numérotation international E.164](https://en.wikipedia.org/wiki/E.164) (par exemple, pour un numéro aux Etats-Unis, `+1 999 888 7777 `). Vous devez spécifier à la fois le code pays précédé du signe `+` et le numéro national de l'abonné. Dans certains pays, Nexmo prend en charge les ID d'émetteur alphanumériques. {{site.data.keyword.appid_short_notm}} utilise la valeur que vous avez entrée en tant qu'ID d'émetteur Nexmo. Par conséquent, s'ils sont pris en charge par Nexmo, vous pouvez utiliser les ID avec {{site.data.keyword.appid_short_notm}}. 
+    5. Entrez [l'ID](https://help.nexmo.com/hc/en-us/articles/217571017-What-is-a-Sender-ID) à partir duquel vous souhaitez envoyer des messages. Un format valide suit le [format de numérotation international E.164](https://en.wikipedia.org/wiki/E.164) (par exemple, pour un numéro aux Etats-Unis, `+1 999 888 7777 `). Vous devez spécifier à la fois le code pays précédé du signe `+` et le numéro national de l'abonné. Dans certains pays, Nexmo prend en charge les ID d'émetteur alphanumériques. {{site.data.keyword.appid_short_notm}} utilise la valeur que vous avez entrée en tant qu'ID d'émetteur Nexmo. Par conséquent, s'ils sont pris en charge par Nexmo, vous pouvez utiliser les ID avec {{site.data.keyword.appid_short_notm}}.
 
 
 

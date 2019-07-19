@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-20"
+lastupdated: "2019-07-10"
 
-keywords: authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
+keywords: Authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -25,7 +25,7 @@ subcollection: appid
 # 定制电子邮件
 {: #cd-types}
 
-用户与应用程序进行交互时，有时您可能希望发送回复或请求验证。{{site.data.keyword.appid_short_notm}} 提供了可用于交互的缺省模板。此外，您还可以使用这些模板作为指南，定制消息传递以适合您的品牌。
+用户与应用程序进行交互时，您可能希望发送回复或请求验证。{{site.data.keyword.appid_short_notm}} 提供了可用于交互的缺省模板。此外，您还可以使用这些模板作为指南，定制消息传递以适合您的品牌。
 {: shortdesc}
 
 {{site.data.keyword.appid_short_notm}} 使用 <a href="https://www.sendgrid.com" target="_blank">SendGrid <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a> 作为邮件传递服务。所有电子邮件都会使用单个 SendGrid 帐户发送。
@@ -40,7 +40,7 @@ subcollection: appid
 除了以下消息类型外，还可以利用 [SSO](/docs/services/appid?topic=appid-cd-sso#cd-sso) 和 [MFA](/docs/services/appid?topic=appid-cd-mfa#cd-mfa) 模板。
 {: tip}
 
-可以在消息中使用参数，以便进一步定制消息。请查看下表以了解可以在所有消息类型中使用的参数。
+要进一步定制，可以在消息中使用参数。请查看下表以了解可以在所有消息类型中使用的参数。
 
 <table>
   <tr>
@@ -83,12 +83,11 @@ subcollection: appid
 用户向应用程序注册时，您可能希望向用户发送一条消息，欢迎他们使用您的应用程序。
 {: shortdesc}
 
-1. 导航至服务仪表板的**工作流程模板 > 欢迎电子邮件**选项卡。
+1. 转至服务仪表板的**工作流程模板 > 欢迎电子邮件**选项卡。
 
 2. 将**欢迎电子邮件**设置为**已启用**。
 
 3. 定制消息的内容。可以使用 UI 添加参数和插入图像。要更改消息的[语言](/docs/services/appid?topic=appid-cd-messages#cd-languages)，可以使用 <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization" target="_blank">API <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a> 来设置语言。但是，消息的内容和翻译由您自己负责。请查看下表以了解可在此消息中使用的表的列表以及可以发送的其他所有消息。如果用户未提供参数拉出的信息，那么会显示为空。
-
 
 4. 单击**保存**。
 
@@ -96,18 +95,20 @@ subcollection: appid
 ### 电子邮件：验证
 {: #cd-messages-verification}
 
-用户使用自己的电子邮件注册应用程序时，您可以向他们发送一封电子邮件，要求他们确认自己的身份。通过请求验证，您可以限制可注册应用程序的伪帐户数。您可以限制为当用户已验证电子邮件后才可访问应用程序，或用于管理您将为哪些用户创建概要文件。请注意，通过 {{site.data.keyword.appid_short_notm}} 仪表板或创建用户 API 手动添加的用户不会自动收到此电子邮件。
+用户使用自己的电子邮件注册应用程序时，您可以向他们发送一封电子邮件，要求他们确认自己的身份。通过请求验证，您可以限制可注册应用程序的伪帐户数。您可以限制为当用户已验证电子邮件后才可访问应用程序，或用于管理您将为哪些用户创建概要文件。
 {: shortdesc}
 
+通过 {{site.data.keyword.appid_short_notm}} 仪表板或“创建用户”API 手动添加的用户不会自动收到此电子邮件。
+{: note}
 
-1. 导航至服务仪表板的**工作流程模板 > 电子邮件验证**选项卡。
+
+1. 转至服务仪表板的**工作流程模板 > 电子邮件验证**选项卡。
 
 2. 将**电子邮件验证**设置为**已启用**。
 
 3. 将**允许用户在未先验证其电子邮件地址的情况下登录到应用程序**设置为**是**。设置为“是”时，用户向应用程序注册后，但在验证其电子邮件地址之前，能够与应用程序进行交互。缺省设置为“否”。
 
 4. 定制消息的内容。可以使用 UI 添加参数和插入图像。要更改消息的[语言](/docs/services/appid?topic=appid-cd-messages#cd-languages)，可以使用 <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization" target="_blank">API <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a> 来设置语言。但是，消息的内容和翻译由您自己负责。请查看下表以了解可以在消息中使用的不同参数。如果用户未提供参数拉出的信息，那么会显示为空。
-
 
   <table>
     <tr>
@@ -148,12 +149,11 @@ subcollection: appid
 {: shortdesc}
 
 
-1. 导航至服务仪表板的**工作流程模板 > 重置密码**选项卡。
+1. 转至服务仪表板的**工作流程模板 > 重置密码**选项卡。
 
 2. 将**忘记密码电子邮件**设置为**已启用**。
 
 3. 定制消息的内容。可以使用 UI 添加参数和插入图像。要更改消息的[语言](/docs/services/appid?topic=appid-cd-messages#cd-languages)，可以使用 <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization" target="_blank">API <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a> 来设置语言。但是，消息的内容和翻译由您自己负责。请查看下表以了解可以在消息中使用的不同参数。如果用户未提供参数拉出的信息，那么会显示为空。
-
 
   <table>
     <tr>
@@ -190,10 +190,10 @@ subcollection: appid
 ### 电子邮件：密码更改
 {: #cd-messages-password-change}
 
-您可以在用户密码进行更新后告知用户。在用户并未请求更改密码时，该功能很有用。他们可以采取适当步骤来重新保护自己帐户的安全。
+您可以在用户密码更新时通知用户。在用户并未请求更改密码时，该通知很有用。他们可以采取适当步骤来重新保护自己帐户的安全。
 {: shortdesc}
 
-1. 导航至服务仪表板的**工作流程模板 > 密码更改**选项卡。
+1. 转至服务仪表板的**工作流程模板 > 密码更改**选项卡。
 
 2. 将**密码已更改电子邮件**设置为**已启用**。
 
@@ -231,7 +231,7 @@ subcollection: appid
 出于以下原因，您可能希望使用定制电子邮件发件人：
 
 - **个性化域**
-通过配置定制电子邮件分派器，可以全面控制电子邮件发送方式。这包括定制电子邮件域，通过定制，可进一步降低电子邮件被当成垃圾邮件过滤掉的机率。此外，还可以进一步增强应用程序用户的品牌体验。
+通过配置定制电子邮件分派器，可以全面控制电子邮件发送方式。最值得注意的是，您可以定制电子邮件域，通过定制，可进一步降低电子邮件被当成垃圾邮件过滤掉的机率。此外，还可以进一步增强应用程序用户的品牌体验。
 
 - **洞察和故障诊断**
 通过电子邮件提供者获得洞察，例如：打开电子邮件的人数或哪些消息未传递。由于您可以跟踪各个消息，并且可以查看总体统计信息，因此这可以帮助解决问题。
@@ -338,7 +338,7 @@ subcollection: appid
       <td>消息收件人的电子邮件地址。</td>
     </tr>
     <tr>
-      <td><code>message: from</code></br><code>name</code></br><code>address</code></td>
+      <td><code>message: from</code> </br><code>name</code> </br><code>address</code></td>
       <td></br>消息发件人的姓名。</br>发件人的电子邮件地址。</td>
     </tr>
     <tr>
@@ -420,7 +420,7 @@ subcollection: appid
 
 6. 通过测试电子邮件分派器来验证配置是否已正确设置。使用<a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/post_email_dispatcher_test" target="_blank">测试 API</a> 可触发对已配置的定制电子邮件发件人的请求。
 
-有关完整的有效示例，请参阅 <a href="https://www.ibm.com/cloud/blog/use-ibm-cloud-app-id-and-your-email-provider-to-brand-mails-sent-to-app-users" target="_blank">Use your own provider for mail sent with {{site.data.keyword.appid_full}}</a>。
+有关完整的有效示例，请参阅 <a href="https://www.ibm.com/cloud/blog/use-ibm-cloud-app-id-and-your-email-provider-to-brand-mails-sent-to-app-users" target="_blank">Use your own provider for mail that is sent with {{site.data.keyword.appid_full}}</a>。
 
 
 

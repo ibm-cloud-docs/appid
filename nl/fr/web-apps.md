@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-21"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, web apps, client, server
+keywords: Authentication, authorization, identity, app security, secure, web apps, client, server
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -48,7 +48,7 @@ Les applications Web exigent souvent que les utilisateurs s'authentifient pour p
 
 2. Si l'utilisateur n'est pas autorisé, le flux d'authentification est démarré et redirigé vers {{site.data.keyword.appid_short_notm}}.
 
-3. Selon les paramètres de demande `/authorization` de l'utilisateur ou la configuration du fournisseur d'identité, il lance le widget de connexion dans le navigateur de l'utilisateur.
+3. Selon les paramètres de demande `/authorization` de l'utilisateur ou la configuration du fournisseur d'identité, il démarre le widget de connexion dans le navigateur de l'utilisateur.
 
 4. L'utilisateur choisit un fournisseur d'identité pour l'authentification et effectue le processus de connexion.
 
@@ -123,16 +123,16 @@ Visionnez la vidéo suivante pour en savoir plus sur la protection des applicati
   ```
   {: codeblock}
 
-  Vous devez configurer le middleware avec le stockage de session approprié pour les environnements de production. Pour plus d'informations, voir la <a href="https://github.com/expressjs/session" target="_blank">documentation express.js<img src="../icons/launch-glyph.svg" alt="Icône de lien externe"></a>.
+  Vous devez configurer le middleware avec le stockage de session approprié pour les environnements de production. Pour plus d'informations, voir la documentation [express.js](https://expressjs.com/){: external}.
   {: note}
 
 3. Procurez-vous vos données d'identification de l'une des manières suivantes :
 
-  * Accédez à l'onglet **Applications** du tableau de bord {{site.data.keyword.appid_short_notm}}. Si aucune application n'est répertoriée, cliquez sur **Ajouter une application** pour en créer une.
+  * Accédez à l'onglet **Applications** du tableau de bord {{site.data.keyword.appid_short_notm}}. Si aucune application ne figure dans la liste, cliquez sur **Ajouter une application** pour en créer une.
 
-  * Envoyez une requête POST au noeud final [`/management/v4/{tenantId}/applications`](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Applications/mgmt.registerApplication).
+  * Envoyez une demande POST au noeud final [`/management/v4/{tenantId}/applications`](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Applications/mgmt.registerApplication).
 
-    Format de la requête :
+    Format de la demande :
     ```
     curl -X POST \  https://us-south.appid.cloud.ibm.com/management/v4/39a37f57-a227-4bfe-a044-93b6e6060b61/applications/ \
     -H 'Content-Type: application/json' \
@@ -244,9 +244,9 @@ Visionnez la vidéo suivante pour en savoir plus sur la protection des applicati
 
   * Accédez à l'onglet **Applications** du tableau de bord {{site.data.keyword.appid_short_notm}}. Si aucune application n'est encore répertoriée, cliquez sur **Ajouter une application** pour en créer une.
 
-  * Envoyez une requête POST au noeud final [`/management/v4/{tenantId}/applications`](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Applications/registerApplication).
+  * Envoyez une demande POST au noeud final [`/management/v4/{tenantId}/applications`](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Applications/registerApplication).
 
-    Format de la requête :
+    Format de la demande :
     ```
     curl -X POST \  https://us-south.appid.cloud.ibm.com/management/v4/39a37f57-a227-4bfe-a044-93b6e6060b61/applications/ \
     -H 'Content-Type: application/json' \
@@ -332,7 +332,7 @@ Visionnez la vidéo suivante pour en savoir plus sur la protection des applicati
 ### Initialisation du logiciel SDK Liberty for Java
 {: #web-liberty-initialize}
 
-1. Dans votre fichier `server.xml`, définissez un filtre d'autorisation pour spécifier des ressources protégées. Si aucun filtre n'est <a href="https://www.ibm.com/support/knowledgecenter/en/SSD28V_9.0.0/com.ibm.websphere.wlp.core.doc/ae/rwlp_auth_filter.html" target="_blank">défini <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a>, le service protège toutes les ressources.
+1. Dans votre fichier `server.xml`, définissez un filtre d'autorisation pour spécifier des ressources protégées. Si aucun filtre n'est <a href="https://www.ibm.com/support/knowledgecenter/en/SSD28V_liberty/com.ibm.websphere.wlp.core.doc/ae/rwlp_auth_filter.html" target="_blank">défini <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a>, le service protège toutes les ressources.
 
   ```xml
   <authFilter id="myAuthFilter">
@@ -467,9 +467,9 @@ Vous devez disposer des prérequis suivants :
 
   * Accédez à l'onglet **Applications** du tableau de bord {{site.data.keyword.appid_short_notm}}. Si aucune application n'est encore répertoriée, cliquez sur **Ajouter une application** pour en créer une.
 
-  * Envoyez une requête POST au noeud final [`/management/v4/{tenantId}/applications`](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Applications/registerApplication).
+  * Envoyez une demande POST au noeud final [`/management/v4/{tenantId}/applications`](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Applications/registerApplication).
 
-    Format de la requête :
+    Format de la demande :
     ```
     curl -X POST \  https://us-south.appid.cloud.ibm.com/management/v4/39a37f57-a227-4bfe-a044-93b6e6060b61/applications/ \
     -H 'Content-Type: application/json' \

@@ -131,7 +131,7 @@ subcollection: appid
 
 **사용자를 추가하려면 다음 작업을 수행하십시오.**
 
-1. IBM Cloud에 로그인하십시오. 
+1. IBM Cloud에 로그인하십시오.
   ```
   ibmcloud login
   ```

@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-09"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, development, cloud foundry, access management, iam, java, node.js
+keywords: Authentication, authorization, identity, app security, secure, development, cloud foundry, access management, iam, java, node.js
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -53,7 +53,7 @@ Cloud Foundry 应用程序是在其他平台上托管的？没问题。您可以
 
 * {{site.data.keyword.cloud_notm}} 帐户
 * {{site.data.keyword.appid_short_notm}} 的实例。
-* 本地安装的 [{{site.data.keyword.cloud_notm}} CLI](/docs/cli/reference/ibmcloud?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli)
+* 本地安装的 [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started)
 
 ## 部署 Node.js 应用程序
 {: #cf-node}

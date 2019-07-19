@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-06"
+lastupdated: "2019-07-02"
 
 keywords: Authentication, authorization, identity, app security, secure
 
@@ -10,7 +10,7 @@ subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -85,7 +85,7 @@ subcollection: appid
 
 刚刚入门？浏览我们的一些教程和博客以获取将 {{site.data.keyword.appid_short_notm}} 集成到应用程序的帮助！
 
-* <a href="https://www.ibm.com/blogs/cloud-archive/2018/05/announcing-app-id-integration-ibm-cloud-kubernetes-service/" target="_blank">Announcing {{site.data.keyword.appid_short_notm}} integration to {{site.data.keyword.containerlong}} <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a>
+* <a href="https://www.ibm.com/cloud/blog/announcing-app-id-integration-ibm-cloud-kubernetes-service" target="_blank">Announcing {{site.data.keyword.appid_short_notm}} integration to {{site.data.keyword.containerlong}} <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a>
 * <a href="https://www.ibm.com/cloud/blog/using-app-id-secure-docker-kubernetes-applications" target="_blank">使用 {{site.data.keyword.appid_short_notm}} 保护 Docker 和 Kubernetes 应用程序 <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a>
 * <a href="https://www.ibm.com/cloud/blog/authenticating-users-with-cloud-functions-api-gateway-and-app-id" target="_blank">Authenticating Users with Cloud Functions, API Gateway, and {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a>
 * <a href="/docs/tutorials?topic=solution-tutorials-serverless-mobile-backend#serverless-mobile-backend" target="_blank">使用无服务器后端的移动应用程序 <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a>
@@ -103,7 +103,7 @@ subcollection: appid
 
 * <a href="https://www.ibm.com/support/knowledgecenter/SSQP8H/iot/platform/reference/security/app_id.html" target="_blank">{{site.data.keyword.appid_short_notm}} Authentication for Watson IoT Platform (Beta) <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a>
 * <a href="https://developer.ibm.com/articles/iot-trs-secure-iot-solutions3/" target="_blank">Design and build secure IoT solutions, part 3: Securing IoT applications <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a>
-* <a href="https://www.ibm.com/blogs/cloud-archive/2017/08/developing-finance-application-using-ibm-cloud/ " target="_blank">Developing a finance application by using {{site.data.keyword.cloud_notm}} <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a>
+* <a href="https://www.ibm.com/cloud/blog/developing-finance-application-using-ibm-cloud" target="_blank">Developing a finance application by using {{site.data.keyword.cloud_notm}} <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a>
 * <a href="/docs/tutorials?topic=solution-tutorials-cloud-e2e-security#cloud-e2e-security" target="_blank">将端到端安全性应用于云应用程序 <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a>
 
 
@@ -134,3 +134,9 @@ subcollection: appid
 
 * <a href="/docs/swift?topic=swift-getting-started" target="_blank">Programming with Swift on {{site.data.keyword.cloud_notm}} <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a>
 * <a href="/docs/node?topic=nodejs-getting-started" target="_blank">Programming with Node.js on {{site.data.keyword.cloud_notm}} <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a>
+
+
+## 测试
+{: #rellinks-test}
+
+准备好开始试用服务了吗？试用 API 的最简单方法是使用 [App ID Postman 集合](https://github.com/ibm-cloud-security/appid-postman){: external}。

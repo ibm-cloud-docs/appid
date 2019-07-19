@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, access management, roles, attributes, users
+keywords: Authentication, authorization, identity, app security, secure, access management, roles, attributes, users
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -38,7 +38,7 @@ subcollection: appid
 假设您是一个虚构的主题公园的开发者。您的任务是管理 [Web 应用程序](/docs/services/appid?topic=appid-web-apps)的访问权，并且您认为这样做的最简单方法是针对每种类型的用户设置角色。您有多种不同类型的角色，例如公园员工和游客，所有角色都需要不同级别的许可权。您希望能够简化流程，并确保用户在首次登录到应用程序时就分配有正确的角色。  
 {: shortdesc}
 
-没问题！您可以使用 {{site.data.keyword.appid_short_notm}} 的[定制属性功能](/docs/services/appid?topic=appid-profiles)来存储任何类型的用户相关信息。由于您使用的是基于角色的访问控制，因此可以创建名为 `role` 的属性，并分配不同的值来指定角色类型。例如，主题公园可能有 `visitor` 或 `staff`，可作为 `role` 属性的不同值。然后，可以确保应用程序代码强制实施您分配的访问策略和特权。
+没问题！您可以使用 {{site.data.keyword.appid_short_notm}} 的[定制属性功能](/docs/services/appid?topic=appid-profiles)来存储任何类型的用户相关信息。由于您使用的是基于角色的访问控制，因此可以创建名为 `role` 的属性，并分配不同的值来指定角色类型。例如，主题公园可能有 `visitor` 或 `staff`，分别可作为 `role` 属性的不同值。然后，可以确保应用程序代码强制实施您分配的访问策略和特权。
 
 虽然本教程是专门针对 Web 应用程序和 Cloud Directory 编写的，但属性的适用范围要大得多。定制属性可以是您希望使用的任何内容。只要属性数不超过 100,000 个，且格式设置为纯 JSON 对象，就可以存储所有类型的信息！
 {: note}

@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-20"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, development, ingress, policy, networking, containers, kubernetes
+keywords: Authentication, authorization, identity, app security, secure, development, ingress, policy, networking, containers, kubernetes
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -63,7 +63,7 @@ Avant de commencer, vérifiez que les prérequis suivants sont respectés.
 
 * Les interfaces de ligne de commande suivantes :
 
-  * [{{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli)
+  * [{{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-getting-started)
   * [Kubernetes](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
   * [Docker](https://www.docker.com/products/container-runtime#/download)
 
@@ -81,7 +81,7 @@ Allons-y !
 ## Etape 1 : Liaison d'{{site.data.keyword.appid_short_notm}} à votre cluster
 {: #kube-create-appid}
 
-En liant votre instance de {{site.data.keyword.appid_short_notm}} à votre cluster, toutes les instances de votre application qui se trouvent dans ce cluster peuvent être contrôlées par la même instance de {{site.data.keyword.appid_short_notm}}. De même, vos métadonnées et données d'identification {{site.data.keyword.appid_short_notm}} sont disponibles en tant que valeurs confidentielles Kubernetes dès le démarrage de votre application.
+En liant votre instance d'{{site.data.keyword.appid_short_notm}} à votre cluster, toutes les instances de votre application qui se trouvent dans ce cluster peuvent être contrôlées par la même instance de {{site.data.keyword.appid_short_notm}}. De même, vos métadonnées et données d'identification {{site.data.keyword.appid_short_notm}} sont disponibles en tant que valeurs confidentielles Kubernetes dès le démarrage de votre application.
 {: shortdesc}
 
 

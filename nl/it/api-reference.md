@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-13"
+lastupdated: "2019-06-18"
 
-keywords: authentication, authorization, identity, app security, secure, application identity, app to app, access token
+keywords: Authentication, authorization, identity, app security, secure, application identity, app to app, access token
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -82,7 +82,7 @@ https://<region-endpoint>.appid.cloud.ibm.com/management
 {: #api-prereq}
 
 <ul><ul><li>Un'istanza del servizio creata dopo il 15 marzo 2018. Se hai un'istanza del servizio creata prima di questa data, crea una nuova istanza e configurala in modo che corrisponda alla tua istanza corrente. Assicurati di aggiornare le tue applicazioni per utilizzare la nuova istanza.</li>
-<li>La [CLI {{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-ibmcloud-cli) installata</li></ul></ul>
+<li>La [CLI {{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-getting-started) installata.</li></ul></ul>
 
 ## Utilizzo di esempio
 {: #api-example}
@@ -127,4 +127,4 @@ if (r.status_code >= 200) :~
 ## Passi successivi
 {: #api-try}
 
-Per provare tu stesso, vedi <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/" target="_blank">{{site.data.keyword.appid_short_notm}} Management Rest API <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a>
+Per provare tu stesso, vedi [{{site.data.keyword.appid_short_notm}} Management Rest API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/){: external}

@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-20"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, development, ingress, policy, networking, containers, kubernetes
+keywords: Authentication, authorization, identity, app security, secure, development, ingress, policy, networking, containers, kubernetes
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -63,7 +63,7 @@ Antes de poder iniciar, assegure-se de que você tenha os pré-requisitos a segu
 
 * As CLIs a seguir:
 
-  * [{{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli)
+  * [{{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-getting-started)
   * [Kubernetes](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
   * [Docker](https://www.docker.com/products/container-runtime#/download)
 

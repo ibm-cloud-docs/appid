@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-20"
+lastupdated: "2019-07-10"
 
-keywords: authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
+keywords: Authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -25,7 +25,7 @@ subcollection: appid
 # 自訂電子郵件
 {: #cd-types}
 
-當使用者與您的應用程式互動時，有時候您可能想要傳送回覆或要求驗證。{{site.data.keyword.appid_short_notm}} 提供您可用於互動的預設範本。您也可以使用範本作為指引，並自訂傳訊以符合您的品牌。
+當使用者與您的應用程式互動時，您可以想要傳送回覆或要求驗證。{{site.data.keyword.appid_short_notm}} 提供您可用於互動的預設範本。您也可以使用範本作為指引，並自訂傳訊以符合您的品牌。
 {: shortdesc}
 
 {{site.data.keyword.appid_short_notm}} 使用 <a href="https://www.sendgrid.com" target="_blank">SendGrid <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a> 作為郵件傳送服務。所有電子郵件都是使用單一 SendGrid 帳戶所傳送。
@@ -40,7 +40,7 @@ subcollection: appid
 除了下列訊息類型之外，您還可以利用 [SSO](/docs/services/appid?topic=appid-cd-sso#cd-sso) 及 [MFA](/docs/services/appid?topic=appid-cd-mfa#cd-mfa) 範本。
 {: tip}
 
-您可以在訊息中使用參數，以進一步自訂訊息。請參閱下表，以查看您可以在所有訊息類型中使用的參數。
+若要進行進一步的自訂作業，您可以在訊息中使用參數。請參閱下表，以查看您可以在所有訊息類型中使用的參數。
 
 <table>
   <tr>
@@ -60,7 +60,7 @@ subcollection: appid
   </tr>
   <tr>
     <td><code>%{user.username}</code></td>
-    <td> 鑑別方法設為使用者名稱及密碼時，會顯示使用者的指定使用者名稱。 </td>
+    <td> 當鑑別方法設為使用者名稱及密碼時，會顯示使用者的指定使用者名稱。 </td>
   </tr>
   <tr>
     <td><code>%{user.firstName}</code></td>
@@ -83,7 +83,7 @@ subcollection: appid
 當使用者註冊您的應用程式時，您可能想要傳送一則訊息給他們，來歡迎他們使用您的應用程式。
 {: shortdesc}
 
-1. 導覽至服務儀表板的**工作流程範本 > 歡迎使用電子郵件**標籤。
+1. 移至服務儀表板的**工作流程範本 > 歡迎使用電子郵件**標籤。
 
 2. 將**歡迎使用電子郵件**設為**已啟用**。
 
@@ -95,11 +95,14 @@ subcollection: appid
 ### 電子郵件：驗證
 {: #cd-messages-verification}
 
-當使用者透過其電子郵件來註冊您的應用程式時，您可以傳送電子郵件給他們，要求他們確認其身分。藉由要求驗證，您可以限制可以登入您應用程式之偽造帳戶的數目。您可以限制應用程式的存取，直到使用者已驗證其電子郵件，或使用它作為管理您可以為哪些使用者建立設定檔的方法。請注意，透過 {{site.data.keyword.appid_short_notm}} 儀表板或建立使用者 API 手動新增的使用者，不會自動收到此電子郵件。
+當使用者透過其電子郵件來註冊您的應用程式時，您可以傳送電子郵件給他們，要求他們確認其身分。透過要求驗證，您可以限制可以登入您應用程式之偽造帳戶的數目。您可以限制應用程式的存取，直到使用者已驗證其電子郵件為止，或是使用它作為管理您為哪些使用者建立設定檔的方法。
 {: shortdesc}
 
+透過 {{site.data.keyword.appid_short_notm}} 儀表板或建立使用者 API 手動新增的使用者，不會自動收到此電子郵件。
+{: note}
 
-1. 導覽至服務儀表板的**工作流程範本 > 電子郵件驗證**標籤。
+
+1. 移至服務儀表板的**工作流程範本 > 電子郵件驗證**標籤。
 
 2. 將**電子郵件驗證**設為**已啟用**。
 
@@ -146,7 +149,7 @@ subcollection: appid
 {: shortdesc}
 
 
-1. 導覽至服務儀表板的**工作流程範本 > 重設密碼**標籤。
+1. 移至服務儀表板的**工作流程範本 > 重設密碼**標籤。
 
 2. 將**忘記密碼電子郵件**設為**已啟用**。
 
@@ -187,10 +190,10 @@ subcollection: appid
 ### 電子郵件：密碼變更
 {: #cd-messages-password-change}
 
-您可以讓使用者知道其密碼何時已更新。如果他們並未要求變更其密碼，此舉很有用。他們可以採取適當的步驟來重新保護其帳戶的安全。
+更新使用者的密碼時，您可以通知使用者。如果他們並未要求變更其密碼，則此通知會很有用。他們可以採取適當的步驟來重新保護帳戶安全。
 {: shortdesc}
 
-1. 導覽至服務儀表板的**工作流程範本 > 密碼變更**標籤。
+1. 移至服務儀表板的**工作流程範本 > 密碼變更**標籤。
 
 2. 將**密碼變更電子郵件**設為**已啟用**。
 
@@ -227,7 +230,7 @@ subcollection: appid
 您可能基於下列原因而想要使用自訂電子郵件寄件者：
 
 - **個人化網域**
-配置自訂電子郵件分派器，您可以完全控制電子郵件訊息的傳送方式。這包括自訂電子郵件網域，如此可進一步降低電子郵件被過濾為垃圾郵件的機會。您也可以進一步加強應用程式使用者的品牌體驗。
+配置自訂電子郵件分派器，您可以完全控制電子郵件訊息的傳送方式。通常，您可以自訂電子郵件網域，這可以減少將電子郵件過濾為垃圾郵件的可能性。您也可以進一步加強應用程式使用者的品牌體驗。
 
 - **見解與疑難排解**
 從電子郵件提供者獲得見解，例如：已開啟電子郵件的人員數目或哪些訊息尚未遞送。因為您可以追蹤個別訊息，並查看整體統計資料，所以這可以協助解決問題。
@@ -319,11 +322,11 @@ subcollection: appid
     </tr>
     <tr>
       <td><code> iat </code> </td>
-      <td>已傳送訊息的時間戳記。</td>
+      <td>傳送訊息的時間戳記。</td>
     </tr>
     <tr>
       <td><code>iss</code></td>
-      <td>發出 JWS 記號的原則或 {{site.data.keyword.appid_short_notm}} 實例。</td>
+      <td>發出 JWS 記號的起源，或 {{site.data.keyword.appid_short_notm}} 實例。</td>
     </tr>
     <tr>
       <td><code>jti</code></td>
@@ -334,11 +337,11 @@ subcollection: appid
       <td>訊息收件者的電子郵件位址。</td>
     </tr>
     <tr>
-      <td><code>message: from</code></br><code>name</code></br><code>address</code></td>
+      <td><code>message: from</code> </br><code>name</code> </br><code>address</code></td>
       <td></br>訊息寄件者的名稱。</br>寄件者的電子郵件位址。</td>
     </tr>
     <tr>
-      <td><code>Optional: message: reply to</code></br><code>name</code></br><code>address</code></td>
+      <td><code>選用項目：message: reply to</code></br><code>name</code></br><code>address</code></td>
       <td></br>附加至回覆電子郵件位址的名稱。</br>使用者可以回覆的電子郵件位址。</td>
     </tr>
   </table>
@@ -618,7 +621,7 @@ subcollection: appid
   <tr>
     <td><code>zh-Hant-MO</code></td>
     <td>繁體中文</td>
-    <td>中華人民共和國澳門特別行政區</td>
+    <td>中國澳門特別行政區</td>
   </tr>
   <tr>
     <td><code>zh-Hant-TW</code></td>
@@ -1053,7 +1056,7 @@ subcollection: appid
   <tr>
     <td><code>pt-MO</code></td>
     <td>葡萄牙文</td>
-    <td>中華人民共和國澳門特別行政區</td>
+    <td>中國澳門特別行政區</td>
   </tr>
   <tr>
     <td><code>pt-MZ</code></td>

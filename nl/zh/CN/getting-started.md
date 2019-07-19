@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-06"
+lastupdated: "2019-07-09"
 
 keywords: Authentication, authorization, identity, app security, secure, development,
 
@@ -10,7 +10,7 @@ subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -63,7 +63,8 @@ subcollection: appid
 
 1. 单击**下载样本**。
 2. 单击您选择的语言以下载样本。
-  看不到要查找的语言？别担心！您可以通过 API 来使用 {{site.data.keyword.appid_short_notm}}。{: tip}
+  看不到要查找的语言？别担心！您可以通过 API 来使用 {{site.data.keyword.appid_short_notm}}。
+  {: tip}
 3. 请确保已安装或完成了先决条件。
 4. 按照**构建和运行**步骤，使用 {{site.data.keyword.appid_short_notm}} 设置样本。
 5. 单击**复查活动**以查看所发生的任何认证事件。任何类型的登录都将创建一个事件并在此页面上显示。

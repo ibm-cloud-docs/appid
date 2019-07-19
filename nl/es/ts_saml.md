@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-21"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, development, idp, troubleshooting, redirected, validation
+keywords: Authentication, authorization, identity, app security, secure, development, troubleshooting, redirected, validation
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -54,7 +54,7 @@ Falta el parámetro `RelayState` en la respuesta de autenticación.
 
 **¿Por qué sucede?**
 
-{{site.data.keyword.appid_short_notm}} envía un parámetro opaco conocido como `RelayState` como parte de la solicitud de autenticación. Si no ve el parámetro en la respuesta, es posible que el proveedor de identidad no esté configurado para devolverlo correctamente. `RelayState` tiene el formato siguiente:
+{{site.data.keyword.appid_short_notm}} envía un parámetro opaco que se conoce como `RelayState` como parte de la solicitud de autenticación. Si no ve el parámetro en la respuesta, es posible que el proveedor de identidad no esté configurado para devolverlo correctamente. `RelayState` tiene el formato siguiente:
 
 ```
 https://idp.example.org/SAML2/SSO/Redirect?SAMLRequest=request&RelayState=token
@@ -66,12 +66,12 @@ https://idp.example.org/SAML2/SSO/Redirect?SAMLRequest=request&RelayState=token
 Verifique que el proveedor de SAML está configurado para devolver el parámetro `RelayState` a {{site.data.keyword.appid_short_notm}} sin modificarlo en nada.
 
 
-### Falta el campo NameID o es incorrecto
+### Falta el ID de nombre o es incorrecto
 {: #ts-saml-nameid}
 
 **¿Qué sucede?**
 
-Cuando envía una solicitud de autenticación, recibe un error relacionado con el `NameID`.
+Cuando envía una solicitud de autenticación, recibe un error que está relacionado con el `NameID`.
 
 **¿Por qué sucede?**
 
@@ -132,7 +132,7 @@ Unexpectedly received an encrypted assertion. Please enable response encryption 
 Mensaje de error 2: 
 
 ```
-Could not decrypt SAML assertion. Ensure your SAML provider is configured with the {{site.data.keyword.appid_short_notm}} encryption 
+Could not decrypt SAML assertion. Ensure your SAML provider is configured with the {{site.data.keyword.appid_short_notm}} encryption. 
 ```
 {: screen}
 
@@ -170,10 +170,10 @@ Aunque {{site.data.keyword.appid_short_notm}} envía la solicitud de autenticaci
 
 Puede que vea el mensaje si su proveedor de identidad: 
 
-* no puede encontrar ni verificar el nombre de usuario.
+* No puede encontrar ni verificar el nombre de usuario.
 * No admite el formato `NameID` definido en la solicitud de autenticación (`AuthnRequest`).
-* no admite el contexto de autenticación.
-* requiere que la solicitud de autenticación se firme o que se utilice un algoritmo específico en la firma.
+* No admite el contexto de autenticación.
+* Requiere que la solicitud de autenticación se firme o que se utilice un algoritmo específico en la firma.
 
 **¿Cómo se soluciona?**
 

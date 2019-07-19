@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-20"
+lastupdated: "2019-07-10"
 
-keywords: authentication, authorization, identity, app security, secure, customizing apps, directory, registry, 
+keywords: Authentication, authorization, identity, app security, secure, customizing apps, directory, registry, 
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -38,11 +38,13 @@ Quando riutilizzi le tue IU esistenti, puoi creare un flusso di accesso coerente
 {: #branded-requirements}
 
 
-Per visualizzare le tue IU, devi utilizzare [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory) come tuo provider di identità. Esistono molti modi in cui può essere [configurato](/docs/services/appid?topic=appid-cloud-directory) Cloud Directory. Puoi decidere i tipi di messaggi che vuoi inviare e personalizzarne il contenuto e il design. Non sai cosa dire? Non è un problema. Sono presenti dei messaggi di esempio nella GUI che puoi utilizzare.
+Per visualizzare le tue IU, devi utilizzare [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory) come tuo provider di identità. Cloud Directory può essere configurato in più modi differenti. Puoi decidere i tipi di messaggi che vuoi inviare e personalizzarne il contenuto e il design. Non sai cosa dire? Non è un problema. Vedi la GUI per i messaggi di esempio che puoi utilizzare.
 
 
-Vuoi utilizzare una [lingua](/docs/services/appid?topic=appid-cd-messages#cd-languages) diversa dall'inglese? Puoi scegliere un'altra lingua utilizzando le <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/updateLocalization" target="_blank">API di gestione della lingua <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a>, per visualizzare il tuo contenuto tradotto.
+Vuoi utilizzare una [lingua](/docs/services/appid?topic=appid-cd-messages#cd-languages) diversa dall'inglese? Puoi scegliere un'altra lingua utilizzando le [API di gestione della lingua](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/updateLocalization){: external} per visualizzare il tuo contenuto tradotto.
 {: tip}
+
+
 
 
 ### Posso utilizzare qualcuna delle mie schermate e qualcuna di quelle predefinite?
@@ -53,7 +55,7 @@ Sì. Puoi creare un flusso ibrido che utilizza qualcuna delle tue schermate e qu
 ### In che modo i flussi sono tecnicamente diversi?
 {: #branded-technically}
 
-Il servizio utilizza i flussi di concessione OAuth 2.0 per associare il processo di autorizzazione. Quando configuri i provider di identità social come Facebook, viene utilizzato il <a href="https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html" target="_blank">flusso Authorization Grant <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a> per richiamare il Widget di accesso. Quando utilizzi le tue schermate, viene utilizzato il <a href="https://oauthlib.readthedocs.io/en/stable/oauth2/grants/password.html" target="_blank">flusso Resource Owner Password Credentials <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a> per fornire i token di accesso e identità che ti consentono di richiamare le tue schermate.
+Il servizio utilizza i flussi di concessione OAuth 2.0 per associare il processo di autorizzazione. Quando configuri i provider di identità social come Facebook, viene utilizzato il [flusso di concessione dell'autorizzazione](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html){: external} per richiamare il Widget di accesso. Quando utilizzi le tue schermate, viene utilizzato il [flusso di credenziali di password al proprietario della risorsa](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/password.html){: external} per fornire i token di accesso e identità che ti consentono di richiamare le tue schermate.
 
 
 
@@ -62,15 +64,15 @@ Il servizio utilizza i flussi di concessione OAuth 2.0 per associare il processo
 
 Sì. Consulta uno qualsiasi dei seguenti esempi per vedere come funziona Cloud Directory:
 
-* <a href="https://www.ibm.com/cloud/blog/use-branded-ui-user-sign-app-id" target="_blank">Use your own branded UI for user sign-in with {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a>
-* <a href="https://www.ibm.com/cloud/blog/use-ui-flows-user-sign-sign-app-id" target="_blank">Use your own UI and Flows for User Sign-Up and Sign-in with with {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a>
-* <a href="https://www.ibm.com/cloud/blog/custom-login-page-app-id-integration" target="_blank">Use a custom login page with  {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a>
+* [Use your own branded UI for user sign-in with {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/use-branded-ui-user-sign-app-id){: external}
+* [Use your own UI and Flows for User Sign-Up and Sign-in with {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/use-ui-flows-user-sign-sign-app-id){: external}
+* [Use a custom login page with {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/custom-login-page-app-id-integration){: external}
 
 
 ## Personalizzazione della tua applicazione con l'SDK Android
 {: #branded-ui-android}
 
-Con Cloud Directory abilitato, puoi richiamare le schermate personalizzate con l'SDK Android. Puoi scegliere la combinazione delle schermate con cui desideri che i tuoi utenti possano interagire. <a href="https://www.ibm.com/cloud/blog/use-branded-ui-user-sign-app-id" target="blank">Consulta questo blog<img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a> per un esempio dettagliato.
+Con Cloud Directory abilitato, puoi richiamare le schermate personalizzate con l'SDK Android. Puoi scegliere la combinazione di schermate con cui desideri che i tuoi utenti possono interagire. Per un esempio dettagliato, [consulta questo blog](https://www.ibm.com/cloud/blog/use-branded-ui-user-sign-app-id){: external}.
 {: shortdesc}
 
 
@@ -79,7 +81,7 @@ Con Cloud Directory abilitato, puoi richiamare le schermate personalizzate con l
 {: #branded-android-sign-in}
 
 1. Configura le tue [impostazioni](/docs/services/appid?topic=appid-cloud-directory#cd-settings) di Cloud Directory nella GUI.
-2. Aggiungi il seguente codice alla tua applicazione. Il flusso di accesso viene attivato quando un utente fa clic su Accedi sulla tua schermata personalizzata. Ottieni i token di accesso, identità e aggiornamento fornendo la password e il nome utente dell'utente finale.
+2. Aggiungi il seguente codice alla tua applicazione. Il flusso di accesso viene attivato quando un utente fa clic su Accedi sulla tua schermata personalizzata. Ottieni i token di accesso, identità e aggiornamento fornendo la password e il nome dell'utente.
 
   ```java
   AppID.getInstance().signinWithResourceOwnerPassword(getApplicationContext(), username, password,
@@ -103,7 +105,7 @@ Con Cloud Directory abilitato, puoi richiamare le schermate personalizzate con l
 ## Personalizzazione della tua applicazione con l'SDK iOS Swift
 {: #branded-ui-ios-swift}
 
-Con Cloud Directory abilitato, puoi richiamare le schermate personalizzate con l'[SDK iOS Swift](https://github.com/ibm-cloud-security/appid-clientsdk-swift).
+Con Cloud Directory abilitato, puoi richiamare le schermate personalizzate con l'[SDK iOS Swift](https://github.com/ibm-cloud-security/appid-clientsdk-swift){: external}.
 {: shortdesc}
 
 </br>
@@ -174,7 +176,8 @@ Utilizzando `WebAppStrategy`, gli utenti possono accedere alle tue applicazioni 
     </tbody>
   </table>
 
-**Nota**: se invii la richiesta in HTML, puoi utilizzare il middleware <a href="https://www.npmjs.com/package/body-parser" target="blank">body parser <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a>. Per visualizzare il messaggio di errore restituito, puoi utilizzare <a href="https://www.npmjs.com/package/connect-flash" target="blank">connect-flash <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a>. Per vederlo in azione, consulta l'<a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs/blob/master/samples/web-app-sample.js" target="blank">esempio di applicazione web <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a>.
+**Nota**: se invii la richiesta in HTML, puoi utilizzare il middleware [body-parser](https://www.npmjs.com/package/body-parser){: external}. Per visualizzare il messaggio di errore restituito, puoi utilizzare [connect-flash](https://www.npmjs.com/package/connect-flash){: external}. Per vederlo in azione, consulta l'[esempio di applicazione web](https://github.com/ibm-cloud-security/appid-serversdk-nodejs/blob/master/samples/web-app-sample.js){: external}.
+
 
 
 ## Personalizzazione della tua applicazione con l'API
@@ -185,7 +188,7 @@ Puoi visualizzare le tue proprie schermate personalizzate e sfruttare le funzion
 
 Per renderlo possibile, {{site.data.keyword.appid_short_notm}} espone le API REST. Puoi utilizzare le API REST per creare un server di backend che funzioni per le tue applicazioni web o per interagire con un'applicazione mobile con le tue schermate personalizzate.
 
-L'API di gestione è protetta con i token generati da IBM Cloud Identity e Access Management, il che significa che i proprietari degli account possono quali sono i livelli di accesso a disposizione dei vari membri del proprio team per ciascuna istanza del servizio. Per ulteriori informazioni su come funzionano insieme IAM e {{site.data.keyword.appid_short_notm}}, vedi [Gestione dell'accesso al servizio](/docs/services/appid?topic=appid-service-access-management#service-access-management).
+L'API di gestione è protetta con i token generati da IBM Cloud Identity e Access Management, il che significa che i proprietari degli account possono quali sono i livelli di accesso a disposizione dei vari membri del proprio team per ciascuna istanza del servizio. Per ulteriori informazioni su come funzionano insieme IAM e {{site.data.keyword.appid_short_notm}}, vedi [Gestione dell'accesso al servizio](/docs/services/appid?topic=appid-service-access-management).
 
 Dopo che hai configurato le tue [impostazioni](/docs/services/appid?topic=appid-cloud-directory#cd-settings), puoi richiamare i seguenti endpoint per visualizzare ogni schermata.
 
@@ -195,11 +198,11 @@ Dopo che hai configurato le tue [impostazioni](/docs/services/appid?topic=appid-
 Puoi utilizzare l'endpoint `/sign_up` per consentire agli utenti di registrarsi alla tua applicazione.
 Fornisci i seguenti dati nel corpo della richiesta:
   * Il tuo ID tenant.
-  * I dati utente Cloud Directory. Vedi [SCIM Full User Representation](https://tools.ietf.org/html/rfc7643#section-8.2) per ulteriori dettagli.
+  * I dati utente Cloud Directory. Vedi [SCIM Full User Representation](https://tools.ietf.org/html/rfc7643#section-8.2){: external} per ulteriori dettagli.
     * Un attributo `password`.
-    * Nell'array di email con un attributo `primary` impostato su `true`, devi avere almeno 1 indirizzo email.
+    * Nell'array di email con un attributo `primary` impostato su `true`, devi avere almeno un indirizzo email.
 
-A seconda della tua [configurazione email](/docs/services/appid?topic=appid-cd-messages#cd-messages), un utente potrebbe ricevere una richiesta di verifica, un'email di benvenuto quando si registra alla tua applicazione o entrambe. Entrambi i tipi di email vengono attivati quando un utente si registra alla tua applicazione. L'email di verifica contiene un link su cui può fare clic l'utente per confermare la sua identità; viene visualizzata una schermata che ringrazia della verifica o che conferma che la verifica è stata completata.  
+A seconda della tua [configurazione email](/docs/services/appid?topic=appid-cd-messages), un utente potrebbe ricevere una richiesta di verifica, un'email di benvenuto quando si registra alla tua applicazione o entrambe. Entrambi i tipi di email vengono attivati quando un utente si registra alla tua applicazione. L'email di verifica contiene un link su cui può fare clic l'utente per confermare la sua identità; viene visualizzata una schermata che ringrazia della verifica o che conferma che la verifica è stata completata.  
 
 Per presentare la tua pagina di post-verifica:
 
@@ -213,7 +216,7 @@ Quando viene fornito questo valore, {{site.data.keyword.appid_short_notm}} richi
 ### Password dimenticata
 {: #branded-api-forgot-password}
 
-Puoi utilizzare l'endpoint `/forgot_password` per consentire agli utenti di recuperare la propria password nel caso in cui la dimentichino.
+Puoi utilizzare l'endpoint `/forgot_password` per consentire agli utenti di recuperare la propria password se la dimenticano.
 
 Fornisci i seguenti dati nel corpo della richiesta:
   * Il tuo ID tenant.
@@ -254,7 +257,7 @@ Fornisci i seguenti dati nel corpo della richiesta:
   * La nuova password dell'utente.
   * L'UUID utente Cloud Directory.
 
-La tua pagina di modifica della password dovrebbe richiedere all'utente di immettere la password corrente e la nuova password.
+La tua pagina di modifica della password deve richiedere all'utente di immettere la password corrente e la nuova password.
 {: tip}
 
 Il tuo backend convalida la password corrente dell'utente con l'API ROP e, se valida, richiama l'endpoint con la nuova password. A seconda della tua configurazione, quando una password viene modificata {{site.data.keyword.appid_short_notm}} potrebbe inviare un'email all'utente facendogli sapere che c'è stata una modifica.
@@ -275,7 +278,7 @@ Fornisci i seguenti dati nel corpo della richiesta:
 
 Quando un utente accede alla tua applicazione, può aggiornare alcune delle sue informazioni. Puoi utilizzare `/Users/{userId}` per ottenere e aggiornare le sue informazioni.
 
-Quando i dettagli dell'utente vengono aggiornati, l'endpoint riceve i dati utente aggiornati nel corpo della richiesta in [formato SCIM](https://tools.ietf.org/html/rfc7643#section-8.2). Assicurati di modificare solo i dettagli pertinenti.
+Quando i dettagli dell'utente vengono aggiornati, l'endpoint riceve i dati utente aggiornati nel corpo della richiesta in [formato SCIM](https://tools.ietf.org/html/rfc7643#section-8.2){: external}. Assicurati di modificare solo i dettagli pertinenti.
 
 L'indirizzo email non può essere modificato.
 {: tip}

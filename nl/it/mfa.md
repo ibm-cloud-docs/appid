@@ -273,7 +273,7 @@ Per configurare la MFA con la GUI, consulta [Cloud Directory](/docs/services/app
 
     4. Copia il segreto API (**API Secret**) nel dashboard Nexmo e incollalo nella casella **Secret** nel dashboard {{site.data.keyword.appid_short_notm}}.
 
-    5. Immetti [l'ID](https://help.nexmo.com/hc/en-us/articles/217571017-What-is-a-Sender-ID) da cui vuoi inviare i messaggi. Un formato di numero valido rispetta il [formato della numerazione internazionale E.164](https://en.wikipedia.org/wiki/E.164) Ad esempio, numero degli Stati Uniti ha il formato `+1 999 888 7777 `. Devi specificare sia il prefisso internazionale, che inizia con un simbolo `+`, che il numero dell'abbonato nazionale. In alcuni paesi, Nexmo supporta ID mittente alfanumerici. {{site.data.keyword.appid_short_notm}} utilizza il valore che hai immesso come ID mittente di Nexmo. Quindi, se sono supportati da Nexmo, puoi utilizzare gli ID con {{site.data.keyword.appid_short_notm}}. 
+    5. Immetti [l'ID](https://help.nexmo.com/hc/en-us/articles/217571017-What-is-a-Sender-ID) da cui vuoi inviare i messaggi. Un formato di numero valido rispetta il [formato della numerazione internazionale E.164](https://en.wikipedia.org/wiki/E.164) Ad esempio, numero degli Stati Uniti ha il formato `+1 999 888 7777 `. Devi specificare sia il prefisso internazionale, che inizia con un simbolo `+`, che il numero dell'abbonato nazionale. In alcuni paesi, Nexmo supporta ID mittente alfanumerici. {{site.data.keyword.appid_short_notm}} utilizza il valore che hai immesso come ID mittente di Nexmo. Quindi, se sono supportati da Nexmo, puoi utilizzare gli ID con {{site.data.keyword.appid_short_notm}}.
 
 
 

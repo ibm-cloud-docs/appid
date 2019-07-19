@@ -23,7 +23,7 @@ subcollection: appid
 {:download: .download}
 
 
-# Documento di rilevamento OIDC 
+# Documento di rilevamento OIDC
 {: #discovery}
 
 OpenID Connect supporta un protocollo di rilevamento che contiene delle informazioni che puoi utilizzare per configurare le tue applicazioni e autenticare gli utenti come ad esempio i token e le chiavi pubbliche.

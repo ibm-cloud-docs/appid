@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-09"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, development, cloud foundry, access management, iam, java, node.js
+keywords: Authentication, authorization, identity, app security, secure, development, cloud foundry, access management, iam, java, node.js
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -53,7 +53,7 @@ Antes de iniciar, certifique-se de que você tenha os pré-requisitos a seguir:
 
 * Uma conta do {{site.data.keyword.cloud_notm}}
 * Uma instância do {{site.data.keyword.appid_short_notm}}
-* A [CLI do {{site.data.keyword.cloud_notm}}](/docs/cli/reference/ibmcloud?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli) instalada localmente
+* A [CLI do {{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-getting-started) instalada localmente
 
 ## Implementando um app Node.js
 {: #cf-node}

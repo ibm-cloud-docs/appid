@@ -38,7 +38,7 @@ Lorsque les utilisateurs ou les services de back end interagissent avec votre ap
 ## Obtention de votre ID de client et de votre secret
 {: #obtain-clientid-secret}
 
-Pour obtenir des jetons, vous devez avoir votre ID de client et votre secret. Les données d'identification sont spécifiques à chaque application et sont utilisées pour identifier et valider les utilisateurs auxquels un jeton peut être attribué.
+Pour obtenir des jetons, vous devez avoir votre ID de client et votre secret. Les données d'identification sont spécifiques à chaque application et sont utilisées pour identifier et valider les utilisateurs auxquels un jeton peut être attribué. 
 {: shortdesc}
 
 

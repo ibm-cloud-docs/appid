@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-06"
+lastupdated: "2019-07-09"
 
 keywords: Authentication, authorization, identity, app security, secure, attributes, user information, storing, accessing
 
@@ -10,7 +10,7 @@ subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -31,14 +31,14 @@ subcollection: appid
 # プロファイルの保管とアクセス
 {: #profiles}
 
-ユーザー・プロファイルは、特定のユーザーに関する既知のすべての情報を 1 つのオブジェクトにまとめたものであり、{{site.data.keyword.appid_full}} によって保管されます。これらの情報は、事前定義したり、割り当てたり、ユーザーとアプリケーションの対話の中で収集したりできます。プロファイル機能を利用することで、ユーザーごとにパーソナライズされたアプリ・エクスペリエンスを構築できます。
+ユーザー・プロファイルは、特定のユーザーに関する既知のすべての情報を 1 つのオブジェクトにまとめたものであり、{{site.data.keyword.appid_full}} によって保管されます。 これらの情報は、事前定義したり、割り当てたり、ユーザーとアプリケーションの対話の中で収集したりできます。 プロファイル機能を利用することで、ユーザーごとにパーソナライズされたアプリ・エクスペリエンスを構築できます。
 {: shortdesc}
 
 
-クラウド・ディレクトリーのユーザーについては、[ユーザーの管理](/docs/services/appid?topic=appid-cd-users)を参照してください。
+クラウド・ディレクトリーのユーザーについては、 [ユーザーの管理](/docs/services/appid?topic=appid-cd-users)を参照してください。
 {: tip}
 
-App ID で取得して保管できる情報には、事前定義属性とカスタム属性という 2 つのタイプがあります。事前定義属性はユーザーの ID に固有のもので、ユーザーがアプリにサインインするときに ID プロバイダーから返されます。事前定義属性には、名前や年齢などの情報を含めることができます。カスタム属性は、ユーザーに関する追加情報を保管するために使用します。管理者が設定することも、ユーザーとアプリの対話の中で収集することもできます。カスタム属性には、割り当てられた役割、食べ物の好み、機内での通路側座席の好みなどを含めることができます。
+App ID で取得して保管できる情報には、事前定義属性とカスタム属性という 2 つのタイプがあります。 事前定義属性はユーザーの ID に固有のもので、ユーザーがアプリにサインインするときに ID プロバイダーから返されます。事前定義属性には、名前や年齢などの情報を含めることができます。 カスタム属性は、ユーザーに関する追加情報を保管するために使用します。 管理者が設定することも、ユーザーとアプリの対話の中で収集することもできます。 カスタム属性には、割り当てられた役割、食べ物の好み、機内での通路側座席の好みなどを含めることができます。
 
 
 ![{{site.data.keyword.appid_short_notm}} ユーザー・プロファイル](images/user-profile-makeup.png)
@@ -52,7 +52,7 @@ App ID で取得して保管できる情報には、事前定義属性とカス�
 ## ユーザー・プロファイルへのアクセス
 {: #profile-access}
 
-属性にはさまざまな方法でアクセスできます。ユーザー認証が成功すると、アプリは {{site.data.keyword.appid_short_notm}} からアクセス・トークンと識別トークンを受け取ります。ユーザー情報エンドポイントとカスタム属性エンドポイントはどちらも、認証プロセスの最後に {{site.data.keyword.appid_short_notm}} によって生成されるアクセス・トークンによって保護されます。 識別トークンには、ID プロバイダーから返されたユーザー属性 (情報) のサブセットが正規化されたものが入っています。ユーザー属性の完全なリストを取得するときには、OIDC [`/userinfo` エンドポイント](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization_Server_V4/userInfo)を使用できます。 
+属性にはさまざまな方法でアクセスできます。 ユーザー認証が成功すると、アプリは {{site.data.keyword.appid_short_notm}} からアクセス・トークンと識別トークンを受け取ります。 ユーザー情報エンドポイントとカスタム属性エンドポイントはどちらも、認証プロセスの最後に {{site.data.keyword.appid_short_notm}} によって生成されるアクセス・トークンによって保護されます。 識別トークンには、ID プロバイダーから返されたユーザー属性 (情報) のサブセットが正規化されたものが入っています。 ユーザー属性の完全なリストを取得するときには、OIDC [`/userinfo` エンドポイント](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization_Server_V4/userInfo)を使用できます。 
 {: shortdesc}
 
 
@@ -65,7 +65,7 @@ App ID で取得して保管できる情報には、事前定義属性とカス�
 図. ユーザー・プロファイルへのアクセス・オプション
 
 
-App ID は、属性のサブセットをアクセス・トークンと識別トークンに自動的に挿入します。カスタム・クレーム・マッピングを利用して、他の事前定義クレームおよびカスタム・クレームをトークンにマップすることができます。ユーザー情報にアクセスする方法としてお勧めする方法について詳しくは、[トークンのカスタマイズ](/docs/services/appid?topic=appid-customizing-tokens)を参照してください。
+App ID は、属性のサブセットをアクセス・トークンと識別トークンに自動的に挿入します。 カスタム・クレーム・マッピングを利用して、他の事前定義クレームおよびカスタム・クレームをトークンにマップすることができます。 ユーザー情報にアクセスする方法としてお勧めする方法について詳しくは、[トークンのカスタマイズ](/docs/services/appid?topic=appid-customizing-tokens)を参照してください。 
 {: note}
 
 
@@ -92,7 +92,7 @@ AppID.sharedInstance.userProfileManager.getUserInfo { (error: Error?, userInfo: 
 {: codeblock}
 {: ph data-hd-programlang='swift'}
 
-代わりに、アクセス権限と識別トークンを明示的に渡すことができます。 識別トークンはオプションですが、渡された場合には、ユーザー情報応答の検証に使用されます。
+代わりに、アクセス権限と識別トークンを明示的に渡すことができます。 識別トークンはオプションですが、渡された場合には、応答の検証に使用されます。
 {: ph data-hd-programlang='swift'}
 
 ```
@@ -154,7 +154,7 @@ appId.getUserProfileManager().getUserInfo(accessToken, identityToken, new UserPr
 **Node.js**
 {: ph data-hd-programlang='javascript'}
 
-サーバー・サイドの SDK を使用すると、ユーザーに関する追加情報を取得できます。 ストアード・アクセスと ID トークンを使用して以下のメソッドを呼び出すことも、トークンを明示的に渡すこともできます。 識別トークンはオプションですが、渡された場合には、ユーザー情報応答の検証に使用されます。
+サーバー・サイドの SDK を使用すると、ユーザーに関する追加情報を取得できます。 ストアード・アクセスと ID トークンを使用して以下のメソッドを呼び出すことも、トークンを明示的に渡すこともできます。 識別トークンはオプションですが、渡された場合には、応答の検証に使用されます。
 {: ph data-hd-programlang='javascript'}
 
 ```javascript
@@ -181,7 +181,7 @@ userProfileManager.getUserInfo(accessToken).then(function (profile) {
 **サーバー・サイドの Swift**
 {: ph data-hd-programlang='swift'}
 
-サーバー・サイドの SDK を使用すると、ユーザーに関する追加情報を取得できます。 ストアード・アクセスと ID トークンを使用して以下のメソッドを呼び出すことも、トークンを明示的に渡すこともできます。 識別トークンはオプションですが、渡された場合には、ユーザー情報応答の検証に使用されます。
+サーバー・サイドの SDK を使用すると、ユーザーに関する追加情報を取得できます。 ストアード・アクセスと ID トークンを使用して以下のメソッドを呼び出すことも、トークンを明示的に渡すこともできます。 識別トークンはオプションですが、渡された場合には、応答の検証に使用されます。
 {: ph data-hd-programlang='swift'}
 
 
@@ -343,7 +343,7 @@ userProfileManager.getUserInfo(accessToken: accessToken) { (err, userInfo) in
 {: important}
 
 1. App ID ダッシュボードの**「プロファイル」**タブにナビゲートし、カスタム属性を**「有効」**に切り替えます。
-2. [アクセス・トークンを入手します](/docs/services/appid?topic=appid-obtain-tokens)。 アプリに対するすべての着信要求には許可ヘッダーがあり、そこには `access_token` が含まれています。
+2. [アクセス・トークンを取得します](/docs/services/appid?topic=appid-obtain-tokens)。アプリに対するすべての着信要求には許可ヘッダーがあり、そこには `access_token` が含まれています。
 3. [属性 API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Attributes) に要求を発行します。または、以下のいずれかのスニペットをコードに追加して、用意されているいずれかの SDK を使用します。
 
   **iOS Swift**

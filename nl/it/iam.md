@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-13"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, access, platform, management, permissions
+keywords: Authentication, authorization, identity, app security, secure, access, platform, management, permissions
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -97,7 +97,7 @@ La seguente tabella descrive le azioni associate ai ruoli di accesso al servizio
     <td>Puoi visualizzare i dettagli dell'istanza del servizio come dati utente o informazioni sul provider di identità.</td>
   </tr>
   <tr>
-    <td> <i>Scrittore o Gestore</i></td>
+    <td><i>Scrittore o Gestore</i></td>
     <td>Visualizza e modifica un'istanza {{site.data.keyword.appid_short_notm}}.</td>
     <td>Puoi eseguire tutte le azioni del Lettore e modificare l'istanza del servizio, ad esempio modificare la configurazione del provider di identità. </li></ul></td>
   </tr>
@@ -243,7 +243,7 @@ In questo scenario, un amministratore ha creato un'istanza di {{site.data.keywor
 
 Prima di cominciare:
 
-* Installa la [CLI {{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-ibmcloud-cli).
+* Installa la [CLI {{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-getting-started).
 
 Per aggiornare le autorizzazioni di accesso, l'amministratore completa la seguente procedura:
 
@@ -337,3 +337,4 @@ Per visualizzare la configurazione di {{site.data.keyword.appid_short_notm}} dal
     {: codeblock}
 
     Il risultato è un messaggio 200 che contiene le informazioni sul provider di identità.
+

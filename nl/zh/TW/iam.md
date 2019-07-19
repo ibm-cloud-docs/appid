@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-13"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, access, platform, management, permissions
+keywords: Authentication, authorization, identity, app security, secure, access, platform, management, permissions
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -97,7 +97,7 @@ subcollection: appid
     <td>可以檢視服務實例的詳細資料，例如使用者資料或身分提供者資訊。</td>
   </tr>
   <tr>
-    <td> <i>作者或管理員</i></td>
+    <td><i>作者或管理員</i></td>
     <td>檢視及變更 {{site.data.keyword.appid_short_notm}} 實例。</td>
     <td>可以執行所有「讀者」動作並編輯服務實例，例如編輯身分提供者配置。</li></ul></td>
   </tr>
@@ -243,7 +243,7 @@ subcollection: appid
 
 開始之前：
 
-* 安裝 [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-ibmcloud-cli)。
+* 安裝 [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started)。
 
 若要更新存取權，管理者會完成下列步驟：
 
@@ -343,3 +343,4 @@ subcollection: appid
     {: codeblock}
 
         結果為 200 訊息，其中包含身分提供者資訊。
+

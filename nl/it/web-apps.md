@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-21"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, web apps, client, server
+keywords: Authentication, authorization, identity, app security, secure, web apps, client, server
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -123,12 +123,12 @@ Consulta il seguente video per ottenere ulteriori informazioni sulla protezione 
   ```
   {: codeblock}
 
-  Devi configurare il middleware con l'archivio della sessione appropriato per gli ambienti di produzione. Per ulteriori informazioni consulta <a href="https://github.com/expressjs/session" target="_blank">express.js docs <img src="../icons/launch-glyph.svg" alt="Icona link esterno"></a>.
+  Devi configurare il middleware con l'archivio della sessione appropriato per gli ambienti di produzione. Per ulteriori informazioni, consulta la documentazione di [express.js](https://expressjs.com/){: external}.
   {: note}
 
 3. Ottieni le tue credenziali in uno dei seguenti modi.
 
-  * Passando alla scheda **Applications** del dashboard {{site.data.keyword.appid_short_notm}}. Se non hai un'applicazione elencata, puoi fare clic su **Add application** per crearne una nuova.
+  * Passando alla scheda **Applications** del dashboard {{site.data.keyword.appid_short_notm}}. Se non hai un'applicazione nell'elenco, puoi fare clic su **Add application** per crearne una,
 
   * Eseguendo una richiesta POST all'[endpoint `/management/v4/{tenantId}/applications`](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Applications/mgmt.registerApplication).
 
@@ -332,7 +332,7 @@ Consulta il seguente video per ottenere ulteriori informazioni sulla protezione 
 ### Inizializzazione dell'SDK Liberty for Java
 {: #web-liberty-initialize}
 
-1. Nel tuo file `server.xml`, definisci un filtro di autorizzazione per specificare le risorse protette. Se non viene <a href="https://www.ibm.com/support/knowledgecenter/en/SSD28V_9.0.0/com.ibm.websphere.wlp.core.doc/ae/rwlp_auth_filter.html" target="_blank">definito un filtro <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a>, il servizio protegge tutte le risorse.
+1. Nel tuo file `server.xml`, definisci un filtro di autorizzazione per specificare le risorse protette. Se non viene <a href="https://www.ibm.com/support/knowledgecenter/en/SSD28V_liberty/com.ibm.websphere.wlp.core.doc/ae/rwlp_auth_filter.html" target="_blank">definito un filtro <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a>, il servizio protegge tutte le risorse.
 
   ```xml
   <authFilter id="myAuthFilter">

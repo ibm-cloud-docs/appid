@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-21"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, troubleshooting, help, support, requests, uri
+keywords: Authentication, authorization, identity, app security, secure, troubleshooting, help, support, requests, uri
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -25,7 +25,7 @@ subcollection: appid
 {:tsCauses: .tsCauses}
 {:tsResolve: .tsResolve}
 
-# Risoluzione dei problemi: generale 
+# Risoluzione dei problemi: generale
 {: #troubleshooting}
 
 Se hai dei problemi quando utilizzi {{site.data.keyword.appid_full}}, considera queste tecniche per la risoluzione dei problemi e per ottenere assistenza.
@@ -93,15 +93,15 @@ Il provider di identità potrebbe non funzionare per diversi motivi:
 * Il tuo URL di reindirizzamento configurato non è corretto.
 * Il provider di identità non riconosce la richiesta di autenticazione.
 * Il provider di identità prevede l'associazione HTTP-POST.
-* Il provider di identità prevede una authnRequest firmata.
+* Il provider di identità prevede una AuthnRequest firmata.
 
 {: tsResolve}
 Puoi provare alcune di queste soluzioni:
 
-* Aggiorna il tuo URL di accesso. Questo URL viene inviato come parte di authnRequest e deve essere esatto.
+* Aggiorna il tuo URL di accesso. Questo URL viene inviato come parte di AuthnRequest e deve essere esatto.
 * Assicurati che i metadati {{site.data.keyword.appid_short_notm}} siano impostati correttamente nelle impostazioni del tuo provider di identità.
-* Configura il tuo provider di identità per accettare la authnRequest in HTTP-Redirect.
-* {{site.data.keyword.appid_short_notm}} non supporta la firma di authnRequest.
+* Configura il tuo provider di identità per accettare la AuthnRequest in HTTP-Redirect.
+* {{site.data.keyword.appid_short_notm}} non supporta la firma di AuthnRequest.
 
 Se nessuna delle soluzioni funziona, è possibile che tu abbia un problema di connessione.
 {: tip}
@@ -137,7 +137,7 @@ Provi a visualizzare la home page della tua applicazione ma ricevi il seguente e
 {: screen}
 
 {: tsCauses}
-Potresti ricevere un errore "too many requests" se stai eseguendo una verifica automatizzata con solo un singolo utente virtuale. Ogni utente è limitato a cinque tentativi di accesso in un arco di tempo di un minuto. I tentativi di accesso sono limitati per evitare attacchi DDOS di forza bruta e altri tipi di attacchi simili.
+Potresti ricevere un errore "too many requests" se stai eseguendo una verifica automatizzata con solo un singolo utente virtuale. Ogni utente è limitato a cinque tentativi di accesso in un arco di tempo di un minuto. I tentativi di accesso sono limitati per evitare attacchi DDoS di forza bruta e altri tipi di attacchi simili.
 
 {: tsResolve}
 Per risolvere il problema, potresti voler utilizzare più utenti virtuali quando esegui la verifica.

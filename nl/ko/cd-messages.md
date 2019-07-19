@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-20"
+lastupdated: "2019-07-10"
 
-keywords: authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
+keywords: Authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -25,7 +25,7 @@ subcollection: appid
 # 이메일 사용자 정의
 {: #cd-types}
 
-사용자가 애플리케이션과 상호작용할 때 응답을 전송하거나 검증을 요청해야 하는 경우도 있습니다. {{site.data.keyword.appid_short_notm}}는 상호작용에 사용할 수 있는 기본 템플리트를 제공합니다. 또한 템플리트를 안내서로 사용하여 브랜드에 맞게 메시징을 사용자 정의할 수 있습니다.
+사용자가 애플리케이션과 상호작용할 때 응답을 전송하거나 검증을 요청할 수 있습니다. {{site.data.keyword.appid_short_notm}}는 상호작용에 사용할 수 있는 기본 템플리트를 제공합니다. 또한 템플리트를 안내서로 사용하여 브랜드에 맞게 메시징을 사용자 정의할 수 있습니다.
 {: shortdesc}
 
 {{site.data.keyword.appid_short_notm}}는 <a href="https://www.sendgrid.com" target="_blank">SendGrid <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>를 메일 전달 서비스로 사용합니다. 모든 이메일은 단일 SendGrid 계정으로 발송됩니다.
@@ -40,7 +40,7 @@ subcollection: appid
 다음 메시지 유형 이외에 [SSO](/docs/services/appid?topic=appid-cd-sso#cd-sso) 및 [MFA](/docs/services/appid?topic=appid-cd-mfa#cd-mfa) 템플리트도 활용할 수 있습니다.
 {: tip}
 
-메시지를 추가로 사용자 정의하기 위해 메시지에서 매개변수를 사용할 수 있습니다. 모든 메시지 유형에서 사용할 수 있는 매개변수를 확인하려면 다음 표를 참조하십시오.
+추가로 사용자 정의하려면 메시지에 매개변수를 사용할 수 있습니다. 모든 메시지 유형에서 사용할 수 있는 매개변수를 확인하려면 다음 표를 참조하십시오.
 
 <table>
   <tr>
@@ -95,8 +95,11 @@ subcollection: appid
 ### 이메일: 검증
 {: #cd-messages-verification}
 
-사용자가 이메일을 사용하여 애플리케이션에 등록할 때 해당 사용자에게 ID를 확인하도록 요청하는 이메일을 발송할 수 있습니다. 검증을 요청하여 앱에 등록할 수 있는 허위 계정의 수를 제한할 수 있습니다. 사용자가 이메일을 검증할 때까지 앱에 대한 액세스를 제한하거나 프로파일을 작성하는 사용자를 관리하는 방법으로 사용할 수 있습니다. {{site.data.keyword.appid_short_notm}} 대시보드 또는 사용자 작성 API를 통해 수동으로 추가된 사용자의 경우 이 이메일을 자동으로 수신하지 않습니다.
+사용자가 이메일을 사용하여 애플리케이션에 등록할 때 해당 사용자에게 ID를 확인하도록 요청하는 이메일을 발송할 수 있습니다. 검증을 요청하여 앱에 등록할 수 있는 허위 계정의 수를 제한할 수 있습니다. 사용자가 이메일을 검증할 때까지 앱에 대한 액세스를 제한하거나 프로파일을 작성하는 사용자를 관리하는 방법으로 사용할 수 있습니다.
 {: shortdesc}
+
+{{site.data.keyword.appid_short_notm}} 대시보드 또는 사용자 작성 API를 통해 수동으로 추가된 사용자의 경우 이 이메일을 자동으로 수신하지 않습니다.
+{: note}
 
 
 1. 서비스 대시보드의 **워크플로우 템플리트 > 이메일 검증** 탭으로 이동하십시오.
@@ -187,7 +190,7 @@ subcollection: appid
 ### 이메일: 비밀번호 변경
 {: #cd-messages-password-change}
 
-비밀번호가 업데이트될 때 사용자에게 알릴 수 있습니다. 이는 사용자가 비밀번호 변경을 요청하지 않은 경우에 유용합니다. 계정의 보안을 재설정하기 위한 적절한 단계를 수행할 수 있습니다.
+비밀번호가 업데이트되면 사용자에게 알릴 수 있습니다. 알림은 사용자가 비밀번호 변경을 요청하지 않은 경우에 유용합니다. 계정의 보안을 재설정하기 위한 적절한 단계를 수행할 수 있습니다.
 {: shortdesc}
 
 1. 서비스 대시보드의 **워크플로우 템플리트 > 비밀번호 변경** 탭으로 이동하십시오.
@@ -195,7 +198,6 @@ subcollection: appid
 2. **비밀번호 변경 이메일**을 **사용**으로 설정하십시오.
 
 3. 메시지의 컨텐츠를 사용자 정의하십시오. UI를 사용하여 매개변수를 추가하고 이미지를 삽입할 수 있습니다. 메시지의 [언어](/docs/services/appid?topic=appid-cd-messages#cd-languages)를 변경하기 위해 <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization" target="_blank">API <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>를 사용하여 언어를 설정할 수 있습니다. 하지만 메시지의 컨텐츠 및 번역은 사용자의 책임입니다. 메시지에서 사용할 수 있는 다양한 매개변수를 확인하려면 다음 표를 참조하십시오. 사용자가 해당 매개변수를 통해 가져오는 정보를 제공하지 않을 경우 공백으로 표시됩니다.
-  
 
   <table>
     <tr>
@@ -228,7 +230,7 @@ subcollection: appid
 다음과 같은 이유로 사용자 정의 이메일 발신인을 사용할 수 있습니다.
 
 - **개인화된 도메인**
-사용자 정의 이메일 디스패처를 사용하여 이메일 메시지가 발송되는 방법을 완전히 제어할 수 있습니다. 여기에는 이메일이 스팸으로 필터링될 확률을 추가적으로 줄일 수 있는 이메일 도메인 사용자 정의가 포함됩니다. 또한 앱 사용자의 브랜드 경험을 더욱 향상시킬 수 있습니다.
+사용자 정의 이메일 디스패처를 사용하여 이메일 메시지가 발송되는 방법을 완전히 제어할 수 있습니다. 특히 이메일 도메인을 사용자 정의할 수 있습니다. 그러면 이메일이 스팸으로 필터링되는 확률을 줄일 수 있습니다. 또한 앱 사용자의 브랜드 경험을 더욱 향상시킬 수 있습니다.
 
 - **인사이트 및 문제점 해결**
 이메일 제공자로부터 이메일을 연 사용자 수 또는 전달되지 않은 메시지 등의 인사이트를 얻을 수 있습니다. 개별 메시지를 추적하고 전체적인 통계를 확인할 수 있기 때문에 이 인사이트를 통해 문제를 해결할 수 있습니다.
@@ -324,7 +326,7 @@ subcollection: appid
     </tr>
     <tr>
       <td><code> iss </code></td>
-      <td>JWS 토큰을 발행한 프린시펄 또는 {{site.data.keyword.appid_short_notm}} 인스턴스입니다. </td>
+      <td>JWS 토큰을 발행한 프린시펄 또는 {{site.data.keyword.appid_short_notm}} 인스턴스입니다.</td>
     </tr>
     <tr>
       <td><code>jti</code></td>
@@ -335,12 +337,12 @@ subcollection: appid
       <td>메시지 수신인의 이메일 주소입니다.</td>
     </tr>
     <tr>
-      <td><code>message: from</code></br><code>name</code></br><code>address</code></td>
-      <td></br>메시지 발신인의 이름입니다. </br>발신인의 이메일 주소입니다. </td>
+      <td><code>message: from</code> </br><code>name</code> </br><code>address</code></td>
+      <td></br>메시지 발신인의 이름입니다. </br>발신인의 이메일 주소입니다.</td>
     </tr>
     <tr>
       <td><code>선택사항: message: reply to</code></br><code>name</code></br><code>address</code></td>
-      <td></br>응답 이메일 주소에 첨부되는 이름입니다. </br>사용자가 응답할 수 있는 이메일 주소입니다. </td>
+      <td></br>응답 이메일 주소에 첨부되는 이름입니다. </br>사용자가 응답할 수 있는 이메일 주소입니다.</td>
     </tr>
   </table>
 
@@ -620,8 +622,7 @@ subcollection: appid
   <tr>
     <td><code>zh-Hant-MO</code></td>
     <td>대만어</td>
-    <td>마카오</td>
-  </tr>
+    <td>중국의 마카오 S.A.R.</tr>
   <tr>
     <td><code>zh-Hant-TW</code></td>
     <td>대만어</td>
@@ -1055,7 +1056,7 @@ subcollection: appid
   <tr>
     <td><code>pt-MO</code></td>
     <td>포르투갈어</td>
-    <td>마카오</td>
+    <td>중국의 마카오 S.A.R.</td>
   </tr>
   <tr>
     <td><code>pt-MZ</code></td>

@@ -38,7 +38,7 @@ Quando os usuários ou os serviços de back-end interagem com seu app, eles pode
 ## Obtendo seu identificador de cliente e segredo
 {: #obtain-clientid-secret}
 
-Para obter tokens, deve-se ter seu identificador de cliente e segredo. As credenciais são específicas para cada aplicativo e são usadas para ajudar a identificar e validar os usuários para os quais um token pode ser designado.
+Para obter tokens, deve-se ter seu identificador de cliente e segredo. As credenciais são específicas para cada aplicativo e são usadas para ajudar a identificar e validar os usuários para os quais um token pode ser designado. 
 {: shortdesc}
 
 
@@ -59,7 +59,7 @@ Para obter tokens, deve-se ter seu identificador de cliente e segredo. As creden
 ### Usando a API
 {: #credentials-api}
 
-1.  Faça uma solicitação de POST para o terminal [`/management/v4/{tenantId}/applications`](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Applications/mgmt.registerApplication).
+1.  Faça uma solicitação de POST para o [terminal `/management/v4/{tenantId}/applications`](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Applications/mgmt.registerApplication).
 
   Solicitação:
 

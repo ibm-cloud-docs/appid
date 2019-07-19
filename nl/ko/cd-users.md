@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
+keywords: Authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
 subcollection: appid
 
 ---
  
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -29,25 +29,25 @@ subcollection: appid
 Cloud Directory를 사용할 경우 보안 및 셀프 서비스를 강화하는 사전 빌드 기능을 통해 확장 가능한 레지스트리에서 사용자를 관리할 수 있습니다.
 {: shortdesc}
 
-Cloud Directory 사용자는 {{site.data.keyword.appid_short_notm}} 사용자와 다릅니다. 사용자는 구성된 다양한 ID 제공자 옵션을 사용하여 앱에 등록하거나, 디렉토리에 사용자를 추가할 수 있습니다. 이 주제에서 설명하는 사용자는 ID 제공자 역할을 하는 Cloud Directory와 연관된 사용자입니다.
+Cloud Directory 사용자는 {{site.data.keyword.appid_short_notm}} 사용자와 다릅니다. 사용자는 구성된 다양한 ID 제공자 옵션을 사용하여 앱에 등록하거나, 디렉토리에 사용자를 추가할 수 있습니다. 이 페이지에서 설명하는 사용자는 ID 제공자 역할을 하는 Cloud Directory와 연관된 사용자입니다.
 {: note}
 
 ## 사용자 정보 보기
 {: #cd-user-info}
 
-API를 사용하거나 대시보드를 사용하여 모든 Cloud Directory 사용자에 대해 JSON 오브젝트로 알려진 모든 정보를 확인할 수 있습니다.
+API를 사용하거나 대시보드를 사용하여 모든 Cloud Directory 사용자에 대해 JSON 오브젝트로 알려진 모든 정보를 확인할 수 있습니다. 
 {: shortdesc}
 
 
 ### GUI 사용
 
-{{site.data.keyword.appid_short_notm}} 대시보드에서 앱 사용자에 대한 세부사항을 볼 수 있습니다.  
+{{site.data.keyword.appid_short_notm}} 대시보드에서 앱 사용자에 대한 세부사항을 볼 수 있습니다. 
 
-1. {{site.data.keyword.appid_short_notm}} 인스턴스의 **Cloud Directory > 사용자** 탭으로 이동하십시오. 
+1. {{site.data.keyword.appid_short_notm}} 인스턴스의 **Cloud Directory > 사용자** 탭으로 이동하십시오.
 
-2. 테이블을 검토하거나 이메일 주소로 검색하여 정보를 보려는 사용자를 찾으십시오. 
+2. 테이블을 검토하거나 이메일 주소로 검색하여 정보를 보려는 사용자를 찾으십시오.
 
-3. 사용자 행의 오버플로우 메뉴에서 **사용자 세부사항 보기**를 클릭하십시오. 사용자 정보가 포함된 페이지가 열립니다. 다음 표에서 볼 수 있는 정보를 확인하십시오. 
+3. 사용자 행의 오버플로우 메뉴에서 **사용자 세부사항 보기**를 클릭하십시오. 사용자 정보가 포함된 페이지가 열립니다. 다음 표에서 볼 수 있는 정보를 확인하십시오.
 
 <table>
   <tr>
@@ -59,15 +59,15 @@ API를 사용하거나 대시보드를 사용하여 모든 Cloud Directory 사�
   </tr>
   <tr>
     <td>이메일</td>
-    <td>사용자에게 첨부되는 기본 이메일 주소입니다. </td>
+    <td>사용자에게 첨부되는 기본 이메일 주소입니다.</td>
   </tr>
     <tr>
-    <td>성명</td>
-    <td>등록 프로세스 중에 제공한 사용자의 성명입니다. </td>
+    <td>이름과 성</td>
+    <td>가입 프로세스 중에 제공한 사용자의 이름과 성입니다.</td>
   </tr>
   <tr>
     <td>마지막 로그인</td>
-    <td>사용자가 애플리케이션에 마지막으로 로그인한 시간의 시간소인입니다. 참고: 대시보드를 통해 사용자를 추가한 경우에는 사용자가 앱에 직접 사인인할 때까지 로그인이 비어 있습니다. 사인인이 발생하면 App ID 사용자가 됩니다. </td>
+    <td>사용자가 애플리케이션에 마지막으로 로그인한 시간의 시간소인입니다. 참고: 대시보드를 통해 사용자를 추가한 경우에는 사용자가 앱에 직접 로그인할 때까지 로그인이 비어 있습니다. 로그인을 수행하면 App ID 사용자가 됩니다. </td>
   </tr>
   <tr>
     <td>ID</td>
@@ -75,15 +75,15 @@ API를 사용하거나 대시보드를 사용하여 모든 Cloud Directory 사�
   </tr>
   <tr>
     <td>사전 정의된 속성</td>
-    <td>사전 정의된 속성은 SCIM 기반 사용자에 대해 알려진 속성입니다. </td>
+    <td>사전 정의된 속성은 SCIM 기반 사용자에 대해 알려진 속성입니다.</td>
   </tr>
   <tr>
     <td>사용자 정의 속성</td>
-    <td>사용자 정의 속성은 사용자 프로파일에 추가되거나 애플리케이션과 상호작용하는 사용자에 대해 학습한 추가 정보입니다. </td>
+    <td>사용자 정의 속성은 사용자 프로파일에 추가되거나 애플리케이션과 상호작용하는 사용자에 대해 학습한 추가 정보입니다.</td>
   </tr>
   <tr>
     <td>요약</td>
-    <td>모든 속성을 컴파일하여 Cloud Directory 사용자의 전체 개요를 제공하는 하나의 프로파일을 생성합니다. 자세한 정보는 [사용자 프로파일](/docs/services/appid?topic=appid-profiles)을 참조하십시오. </td>
+    <td>모든 속성을 컴파일하여 Cloud Directory 사용자의 전체 개요를 제공하는 하나의 프로파일을 생성합니다. 자세한 정보는 [사용자 프로파일](/docs/services/appid?topic=appid-profiles)을 참조하십시오.</td>
   </tr>
 </table>
 
@@ -91,11 +91,11 @@ API를 사용하거나 대시보드를 사용하여 모든 Cloud Directory 사�
 
 ### API 사용
 
-{{site.data.keyword.appid_short_notm}} API를 사용하여 앱 사용자에 대한 세부사항을 볼 수 있습니다.  
+{{site.data.keyword.appid_short_notm}} API를 사용하여 앱 사용자에 대한 세부사항을 볼 수 있습니다. 
 
-1. 서비스 인스턴스에서 테넌트 ID를 얻으십시오. 
+1. 서비스 인스턴스에서 테넌트 ID를 얻으십시오.
 
-2. 식별 조회(예: 이메일 주소)로 App ID 사용자를 검색하여 사용자 ID를 찾으십시오. 
+2. 식별 조회(예: 이메일 주소)로 App ID 사용자를 검색하여 사용자 ID를 찾으십시오.
 
   ```
   curl -X GET "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/Users?query={identifying-search-query}" -H "accept: application/json" -H "authorization: Bearer {token}"
@@ -109,7 +109,7 @@ API를 사용하거나 대시보드를 사용하여 모든 Cloud Directory 사�
   ```
   {: screen}
 
-3. 이전 단계에서 얻은 ID로 `cloud_directory/users` 엔드포인트에 대해 GET 요청을 작성하여 전체 사용자 프로파일을 표시하십시오. 
+3. 이전 단계에서 얻은 ID로 `cloud_directory/users` 엔드포인트에 대해 GET 요청을 작성하여 전체 사용자 프로파일을 표시하십시오.
 
   ```
   curl -X GET "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/Users/{user-ID}" -H "accept: application/json" -H "authorization: Bearer {token}"
@@ -185,11 +185,11 @@ API를 사용하거나 대시보드를 사용하여 모든 Cloud Directory 사�
 
 
 
-**GUI를 사용하여 새 사용자 추가:**
+**GUI를 사용하여 사용자 추가:**
 
 1. {{site.data.keyword.appid_short_notm}} 대시보드의 **Cloud Directory > 사용자** 탭으로 이동하십시오.
 
-2. **사용자 추가**를 클릭하십시오. 양식이 표시됩니다.
+2. **사용자 추가**를 클릭하십시오. 양식이 열립니다. 
 
 3. **이름**, **성**, **이메일** 및 **비밀번호**를 입력하십시오. 등록하려는 이메일을 다른 사용자가 이미 사용하고 있지 않은지 확인하십시오. 비밀번호를 올바르게 입력하기 위해 **비밀번호 다시 입력** 필드에 해당 비밀번호를 입력하여 확인하십시오.
 
@@ -198,20 +198,20 @@ API를 사용하거나 대시보드를 사용하여 모든 Cloud Directory 사�
 </br>
 
 
-**API를 사용하여 새 사용자 추가:**
+**API를 사용하여 사용자 추가:**
 
 다음 플로우는 이메일 및 비밀번호를 사용하여 사용자를 추가하는 방법을 보여줍니다. 사용자 이름 및 비밀번호 플로우를 사용하도록 선택할 수도 있습니다. 
 
-1. 애플리케이션 또는 서비스 인증 정보에서 `tenantID`를 얻으십시오. 
+1. 애플리케이션 또는 서비스 인증 정보에서 `tenantID`를 얻으십시오.
 
-2. {{site.data.keyword.cloud_notm}} IAM 토큰을 얻으십시오. 
+2. {{site.data.keyword.cloud_notm}} IAM 토큰을 얻으십시오.
 
   ```
   curl --X GET "https://iam.cloud.ibm.com/oidc/token" -H "accept: application/x-www-form-urlencoded"
   ```
   {: codeblock}
 
-3. 2단계에서 얻은 토큰을 사용하여 `cloud-directory/users` 엔드포인트에 대해 POST 요청을 작성하십시오. 이 예에서는 이메일/비밀번호 플로우를 사용합니다. 사용자 이름/비밀번호 플로우를 사용할 수도 있습니다. 
+3. 2단계에서 얻은 토큰을 사용하여 `cloud-directory/users` 엔드포인트에 대해 POST 요청을 작성하십시오. 이 예에서는 이메일/비밀번호 플로우를 사용합니다. 사용자 이름/비밀번호 플로우를 사용할 수도 있습니다.
 
   ```
   curl --X POST "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/Users"
@@ -245,9 +245,9 @@ API를 사용하거나 대시보드를 사용하여 모든 Cloud Directory 사�
 
 1. {{site.data.keyword.appid_short_notm}} 대시보드의 **Cloud Directory > 사용자** 탭으로 이동하십시오.
 
-2. 삭제할 사용자의 옆에 있는 선택란을 클릭하십시오. 상자가 표시됩니다.
+2. 삭제할 사용자의 옆에 있는 선택란을 클릭하십시오. 상자가 열립니다.
 
-3. 상자에서 **삭제**를 클릭하십시오. 화면이 표시됩니다.
+3. 상자에서 **삭제**를 클릭하십시오. 화면이 열립니다.
 
 4. **삭제**를 클릭하여 사용자를 삭제하면 해당 작업을 취소할 수 없습니다. 실수로 이 조치를 수행한 경우 사용자를 다시 디렉토리에 추가할 수 있지만 해당 사용자에 대한 정보는 더 이상 사용할 수 없습니다.
 
@@ -255,16 +255,16 @@ API를 사용하거나 대시보드를 사용하여 모든 Cloud Directory 사�
 
 **API를 통해 사용자 삭제:**
 
-1. 테넌트 ID를 얻으십시오. 
+1. 테넌트 ID를 얻으십시오.
 
-2. 사용자에게 첨부된 이메일로 디렉토리를 검색하여 사용자 ID를 찾으십시오. 
+2. 사용자에게 첨부된 이메일로 디렉토리를 검색하여 사용자 ID를 찾으십시오.
 
   ```
   curl -X GET "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/users?email={user-email}" -H "accept: application/json"
   ```
   {: codeblock}
 
-3. 사용자를 삭제하십시오. 
+3. 사용자를 삭제하십시오.
 
   ```
   curl --X DELETE "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/Users/{user-GUID}"
@@ -277,7 +277,7 @@ API를 사용하거나 대시보드를 사용하여 모든 Cloud Directory 사�
 ## 사용자 마이그레이션
 {: #user-migration}
 
-{{site.data.keyword.appid_short_notm}}의 새 인스턴스를 설정해야 하는 경우도 있습니다. Cloud Directory를 사용하는 경우 이 설정은 사용자를 새 인스턴스로 마이그레이션해야 함을 의미합니다. 관리 API를 사용하여 마이그레이션을 지원할 수 있습니다.
+경우에 따라 {{site.data.keyword.appid_short_notm}}의 인스턴스를 추가해야 할 수도 있습니다. Cloud Directory를 사용하여 작업하는 경우 사용자를 새 인스턴스에 마이그레이션해야 합니다. 마이그레이션을 지원하기 위해 관리 API를 사용할 수 있습니다.
 {: shortdesc}
 
 
@@ -388,7 +388,7 @@ curl -X POST --header ‘Content-Type: application/json’ --header ‘Accept: a
 스크립트를 실행하려면 다음 작업을 수행하십시오.
 
 1. <a href="https://github.com/ibm-cloud-security/appid-sample-code-snippets/tree/master/export-import-cloud-directory-users" target="_blank">저장소 <img src="../../icons/launch-glyph.svg" alt="외부 링크 아이콘"></a>를 복제하십시오.
-2. 터미널을 열고 저장소를 복제한 폴더로 이동하십시오.
+2. 콘솔을 열고 저장소를 복제한 폴더로 이동하십시오.
 3. 다음 명령을 실행하십시오.
 
   ```

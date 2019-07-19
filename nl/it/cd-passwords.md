@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-23"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
+keywords: Authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -34,17 +34,17 @@ Puoi configurare i requisiti delle password che possono essere utilizzati con Cl
 Una password complessa rende difficile o persino improbabile, che qualcuno la indovini in modo manuale o automatizzato. Per impostare i requisiti per la complessità di una password dell'utente, puoi utilizzare la seguente procedura.
 {: shortdesc}
 
-1. Passa alla scheda **Password Policies** del dashboard {{site.data.keyword.appid_short_notm}}.
+1. Vai alla scheda **Password policies** del dashboard {{site.data.keyword.appid_short_notm}}.
 
 2. Nella casella **Define password strength**, fai clic su **Edit**. Viene aperta una schermata.
 
 3. Immetti una stringa regex valida nella casella **Password strength**.
 
   Esempi:
-    - Deve avere una lunghezza di almeno 8 caratteri. Regex di esempio: `^.{8,}$`
-    - Deve contenere un numero, una lettera minuscola e una lettera maiuscola. Regex di esempio: `^(?:(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).*)$`
-    - Deve contenere solo lettere e numeri inglesi. Regex di esempio: `^[A-Za-z0-9]*$`
-    - Deve avere almeno un carattere univoco. Regex di esempio: `^(\w)\w*?(?!\1)\w+$`
+    - Deve avere una lunghezza di almeno 8 caratteri. (`^.{8,}$`)
+    - Deve avere un numero, una lettera minuscola e una lettera maiuscola. (`^(?:(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).*)$`)
+    - Deve avere solo lettere e numeri inglesi. (`^[A-Za-z0-9]*$`)
+    - Deve avere almeno un carattere univoco. (`^(\w)\w*?(?!\1)\w+$`)
 
 4. Fai clic su **Save**.
 
@@ -66,10 +66,10 @@ Puoi creare una politica della password avanzata che consiste in qualsiasi combi
  - Evitare il riutilizzo della password
  - Scadenza della password
  - Periodo minimo tra le modifiche alla password
- - Accertarsi che la password non includa il nome utente
+ - Assicurati che la password non includa il nome utente
 
 
- Se abiliti questa funzione, viene attivata un ulteriore fatturazione per le funzionalità di sicurezza avanzate. Per ulteriori informazioni, vedi [Come calcola i prezzi {{site.data.keyword.appid_short_notm}}](/docs/services/appid?topic=appid-faq#faq-pricing).
+ Quando abiliti questa funzione, viene attivata un'ulteriore fatturazione per le funzionalità di sicurezza avanzate. Per ulteriori informazioni, vedi [Come calcola i prezzi {{site.data.keyword.appid_short_notm}}](/docs/services/appid?topic=appid-faq#faq-pricing).
  {: important}
 
 
@@ -79,9 +79,9 @@ Puoi creare una politica della password avanzata che consiste in qualsiasi combi
 Quando i tuoi utenti stanno modificando le proprie password, potresti volergli impedire di scegliere una password utilizzata recentemente.
 {: shortdesc}
 
-Utilizzando la GUI o l'API, puoi scegliere il numero di password che un utente deve utilizzare prima di poter ripetere una password utilizzata precedentemente. Puoi selezionare qualsiasi valore intero compreso nell'intervallo 1 - 10.
+Utilizzando la GUI o l'API, puoi scegliere il numero di password che un utente deve utilizzare prima di poter ripetere una password utilizzata precedentemente. Le opzioni di impostazione includono qualsiasi valore intero compreso nell'intervallo 1 .- 10.
 
-Se questa opzione è attivata, un utente non può utilizzare una password che ha usato di recente. Se prova a impostare la sua password su una password utilizzata di recente, viene visualizzato un errore nella GUI del Widget di accesso predefinita e gli viene richiesto di immettere una password differente.
+Se questa opzione è attivata, un utente non può utilizzare una password che ha usato di recente. Se prova a impostare la sua password su una password utilizzata di recente, viene visualizzato un errore nella GUI del Widget di accesso predefinita e gli viene richiesto di immettere un'altra opzione.
 
 Le password precedenti sono memorizzate in modo sicuro nello stesso modo in cui viene memorizzata la password corrente di un utente.
 {: note}
@@ -93,12 +93,12 @@ Le password precedenti sono memorizzate in modo sicuro nello stesso modo in cui 
 Potresti voler proteggere gli account dei tuoi utenti bloccando temporaneamente la capacità di accedere quando viene rilevato un comportamento sospetto, come ad esempio più tentativi di accesso consecutivi con una password non corretta. Questa misura può aiutare ad evitare che dei malintenzionati ottengano l'accesso all'account di un utente indovinandone la password.
 {: shortdesc}
 
-Utilizzando la GUI o l'API, puoi impostare il numero massimo di tentativi di accesso non riusciti che un utente può tentare prima che il proprio account venga bloccato temporaneamente. Puoi inoltre impostare la quantità di tempo in cui l'account viene bloccato. Hai le seguenti opzioni:
+Utilizzando la GUI o l'API, puoi impostare il numero massimo di tentativi di accesso non riusciti che un utente effettua prima che il proprio account venga bloccato temporaneamente. Puoi anche definire la quantità di tempo per cui l'account viene bloccato. Hai le seguenti opzioni:
 
 * Numero di tentativi: qualsiasi valore intero compreso tra 1 e 10.
 * Periodo di blocco: qualsiasi valore intero specificato in minuti nell'intervallo compreso tra 1 minuto e 1440 minuti (24 ore).
 
-Se un account viene bloccato, gli utenti non possono accedere o eseguire altre operazioni self service, come ad esempio la modifica della propria password, finché non trascorre il periodo di blocco specificato. Quando termina il periodo di blocco, l'utente viene sbloccato automaticamente.
+Se un account viene bloccato, gli utenti non possono accedere o completare altre operazioni self service, come ad esempio la modifica della propria password, finché non trascorre il periodo di blocco specificato. Quando termina il periodo di blocco, l'utente viene sbloccato automaticamente.
 
 Puoi sbloccare un utente prima del termine del periodo di blocco. Per vedere se gli utenti sono bloccati, controlla se il campo `active` è impostato su `false`. Puoi anche controllare se il loro stato sulla scheda **Users** del dashboard del servizio è impostato su `disabled`. Per sbloccare un utente, devi utilizzare [l'API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Cloud_Directory_Users/updateCloudDirectoryUser) per impostare il campo `active` su `true`.
 
@@ -139,11 +139,12 @@ Quando questa opzione viene attivata per la prima volta, tutte le password utent
 {: note}
 
 
-### Politica: Assicurarsi che la password non includa il nome utente
+### Politica: Assicurati che la password non includa il nome utente
 {: #cd-no-username}
 
 Per delle password più sicure, potresti voler impedire agli utenti di includere il loro nome utente o la prima parte del loro indirizzo email.
 {: shortdesc}
 
-Questo vincolo non è sensibile al maiuscolo/minuscolo, il che significa che gli utenti non possono modificare il maiuscolo/minuscolo di alcuni o di tutti i caratteri in modo da utilizzare delle informazioni personali. Per configurare questa opzione, imposta lo switch su **on**.
+Questo vincolo non è sensibile a maiuscole/minuscole. Gli utenti non possono modificare le maiuscole/minuscole di alcuni o di tutti i caratteri in modo da utilizzare delle informazioni personali. Per configurare questa opzione, imposta lo switch su **on**.
+{: note}
 

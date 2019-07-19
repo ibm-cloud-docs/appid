@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-09"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, development, sso, directory, users, registry, multiple apps
+keywords: Authentication, authorization, identity, app security, secure, development, sso, directory, users, registry, multiple apps
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -41,7 +41,7 @@ Cloud Directory에서 싱글 사인온(SSO)을 사용하는 경우 여러 웹 �
 3. 인증 정보가 올바른 경우 사용자가 앱에 사인인됩니다. 동시에 {{site.data.keyword.appid_short_notm}}에서 세션을 작성하고 사용자의 브라우저에 쿠키를 설정합니다.
 4. 사용자가 다른 애플리케이션 중 하나에 사인인하려고 시도하는 경우 {{site.data.keyword.appid_short_notm}}에서 세션 쿠키를 발견하여 자동으로 사용자를 앱에 사인인합니다. {{site.data.keyword.appid_short_notm}} 세션 쿠키는 인스턴스별로 고유하며 해당 인스턴스의 고유 개인 키로 서명됩니다.
 
-Cloud Directory 뿐만 아니라 SAML 또는 Facebook 등의 ID 제공자를 사용하도록 인스턴스가 구성되어 있는 경우 로그인 위젯이 계속 표시됩니다. 올바른 SSO 세션이 포함되어 있는 경우에도 사용자에게 Cloud Directory 인증 정보를 입력하거나 다른 제공자 중 하나를 선택하도록 요청하는 프롬프트가 표시됩니다.
+이때 Cloud Directory가 사용되는 유일한 ID 제공자이면 SSO가 작동하도록 구성됩니다. {{site.data.keyword.appid_short_notm}}의 인스턴스가 여러 ID 제공자를 사용하도록 구성되면 SSO를 사용으로 설정해도 로그인 플로우에 영향을 미치지 않습니다. Cloud Directory 인증 정보를 입력하거나 사인인할 때마다 다른 제공자 중 하나를 선택하도록 프롬프트가 표시됩니다.
 {: note}
 
 

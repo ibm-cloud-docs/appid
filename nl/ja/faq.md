@@ -136,9 +136,9 @@ URL には照会パラメーターは含めないでください。 それらは
 ## {{site.data.keyword.appid_short_notm}} と Keycloak の違いは何ですか?
 {:# faq-keycloak}
 
-{{site.data.keyword.appid_short_notm}} も Keycloak も、アプリケーションに認証を追加してサービスを保護するために使用できます。この 2 つのオファリングの主な違いは、そのパッケージングにあります。
+{{site.data.keyword.appid_short_notm}} も Keycloak も、アプリケーションに認証を追加してサービスを保護するために使用できます。 この 2 つのオファリングの主な違いは、そのパッケージングにあります。
 {: shortdesc}
 
-Keycloak はソフトウェアとしてパッケージされています。つまり、ダウンロードした後は、開発者が製品の機能を保守する必要があります。ホスティング、高可用性、コンプライアンス、バックアップ、DDoS 対策、ロード・バランシング、Web ファイアウォール、データベースなどには開発者が対応します。
+Keycloak はソフトウェアとしてパッケージされています。つまり、ダウンロードした後は、開発者が製品の機能を保守する必要があります。 ホスティング、高可用性、コンプライアンス、バックアップ、DDoS 対策、ロード・バランシング、Web ファイアウォール、データベースなどには開発者が対応します。
 
-{{site.data.keyword.appid_short_notm}} は、「as-a-Service」として提供されるフル・マネージドのオファリングです。つまり、IBM がサービスの運用を管理し、準拠性、複数のゾーンでの可用性、SLA などに対応することを意味します。また、{{site.data.keyword.appid_short_notm}} では、{{site.data.keyword.containershort_notm}}、{{site.data.keyword.openwhisk_short}}、{{site.data.keyword.cloudaccesstrailshort}} などのネイティブのランタイムやサービスが含まれている {{site.data.keyword.cloud_notm}} Platform との統合エクスペリエンスをすぐに使用できます。
+{{site.data.keyword.appid_short_notm}} は、「as-a-Service」として提供されるフル・マネージドのオファリングです。 つまり、IBM がサービスの運用を管理し、準拠性、複数のゾーンでの可用性、SLA などに対応することを意味します。 また、{{site.data.keyword.appid_short_notm}} では、{{site.data.keyword.containershort_notm}}、{{site.data.keyword.openwhisk_short}}、{{site.data.keyword.cloudaccesstrailshort}} などのネイティブのランタイムやサービスが含まれている {{site.data.keyword.cloud_notm}} Platform との統合エクスペリエンスをすぐに使用できます。

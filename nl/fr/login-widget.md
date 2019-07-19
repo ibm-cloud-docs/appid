@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-06"
+lastupdated: "2019-07-09"
 
 keywords: Authentication, authorization, identity, app security, secure, development, sign in, sign up, password, social, enterprise
 
@@ -10,7 +10,7 @@ subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -23,7 +23,7 @@ subcollection: appid
 {:download: .download}
 
 
-# Utilisation du widget de connexion 
+# Utilisation du widget de connexion
 {: #login-widget}
 
 Avec {{site.data.keyword.appid_full}}, vous pouvez utiliser une interface utilisateur par défaut, appelée un widget de connexion, pour permettre aux utilisateurs de l'application de choisir le fournisseur d'identité avec lequel ils souhaitent se connecter. Si vous utilisez Cloud Directory, le widget de connexion fournit également des interfaces utilisateur supplémentaires avec des fonctionnalités supplémentaires telles que l'inscription, l'oubli du mot de passe, l'authentification multi facteur, etc.

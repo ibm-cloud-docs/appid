@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, access management, roles, attributes, users
+keywords: Authentication, authorization, identity, app security, secure, access management, roles, attributes, users
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -73,7 +73,7 @@ Cloud Land 사용자에 대한 속성 추가를 시작하려면 먼저 {{site.da
 수고하셨습니다! 대시보드가 구성되었으며 역할 설정을 시작할 준비가 되었습니다.
 
 
-## 2단계: 로그인하기 전에 다른 사용자 대신 역할 설정
+## 2단계: 사인인하기 전에 다른 사용자 대신 역할 설정
 {: #roles-set-before}
 
 Cloud Land에 새로운 직원 구성원이 추가되었습니다! 해당 구성원의 정보를 모두 알고 있지만 해당 구성원이 며칠 동안 시작하지 않았습니다. {{site.data.keyword.appid_short_notm}} 사용자 및 `staff` 역할 등의 속성이 포함된 프로파일을 작성하여 [해당 구성원을 사전 등록](/docs/services/appid?topic=appid-preregister)할 수 있습니다.

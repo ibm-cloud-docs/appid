@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-06"
+lastupdated: "2019-07-09"
 
 keywords: Authentication, authorization, identity, app security, secure, attributes, user information, storing, accessing
 
@@ -10,7 +10,7 @@ subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -31,14 +31,14 @@ subcollection: appid
 # 儲存及存取設定檔
 {: #profiles}
 
-使用者設定檔是關於特定使用者的所有已知資訊，編譯成為一個物件，並由 {{site.data.keyword.appid_full}} 儲存。資訊可能是預先定義、受指派，或是在使用者與應用程式互動時得知。透過利用設定檔特性，您可以為每位使用者建置個人化的應用程式體驗。
+使用者設定檔是關於特定使用者的所有已知資訊，編譯成為一個物件，並由 {{site.data.keyword.appid_full}} 儲存。資訊可能是預先定義、受指派，或是在使用者與應用程式互動時瞭解。透過利用設定檔特性，您可以為每位使用者建置個人化的應用程式體驗。
 {: shortdesc}
 
 
 在尋找 Cloud Directory 使用者的相關資訊？請參閱[管理使用者](/docs/services/appid?topic=appid-cd-users)。
 {: tip}
 
-有兩種類型的資訊可由 App ID 取得並儲存：預先定義的屬性和自訂屬性。預先定義的屬性專屬於使用者的身分，當使用者登入應用程式時會由身分提供者傳回，且可以包含例如姓名或年齡的資訊。自訂屬性是用來儲存使用者的其他相關資訊。它們可以由您設定，或是在使用者與應用程式互動時得知。自訂屬性可能包含已指派的角色、食物喜好設定或飛機上喜好的走道座位。
+有兩種類型的資訊可由 App ID 取得並儲存：預先定義的屬性和自訂屬性。預先定義的屬性是使用者身分所特有，當使用者登入應用程式時會由身分提供者傳回，且可以包含例如姓名或年齡的資訊。自訂屬性用來儲存使用者的其他相關資訊。它們可以由您設定，或是在使用者與應用程式互動時瞭解。自訂屬性可能包含已指派的角色、食物喜好或飛機上喜好的走道座位。
 
 
 ![{{site.data.keyword.appid_short_notm}} 使用者設定檔](images/user-profile-makeup.png)
@@ -52,7 +52,7 @@ subcollection: appid
 ## 存取使用者設定檔
 {: #profile-access}
 
-您可以使用不同的方式來存取屬性。在成功使用者鑑別之後，您的應用程式會從 {{site.data.keyword.appid_short_notm}} 收到存取及身分記號。在鑑別處理程序結束時，{{site.data.keyword.appid_short_notm}} 所產生的存取記號會同時保護使用者資訊及自訂屬性端點。身分記號包含身分提供者所傳回之使用者屬性（資訊）的正規化子集。若要取得完整的使用者屬性清單，您可以使用 OIDC [`/userinfo` 端點](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization_Server_V4/userInfo)。
+您可以使用不同的方式來存取屬性。在成功進行使用者鑑別之後，您的應用程式會從 {{site.data.keyword.appid_short_notm}} 收到存取及身分記號。在鑑別處理程序結束時，{{site.data.keyword.appid_short_notm}} 所產生的存取記號會同時保護使用者資訊及自訂屬性端點。身分記號包含身分提供者所傳回之使用者屬性（資訊）的正規化子集。若要取得完整的使用者屬性清單，您可以使用 OIDC [`/userinfo` 端點](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization_Server_V4/userInfo)。
 {: shortdesc}
 
 
@@ -92,7 +92,7 @@ AppID.sharedInstance.userProfileManager.getUserInfo { (error: Error?, userInfo: 
 {: codeblock}
 {: ph data-hd-programlang='swift'}
 
-或者，您可以明確地傳遞存取及身分記號。身分記號是選用性的，但如果有傳遞，則會用它來驗證使用者資訊回應。
+或者，您可以明確地傳遞存取及身分記號。身分記號是選用項目，但如果有傳遞，則會用它來驗證回應。
 {: ph data-hd-programlang='swift'}
 
 ```
@@ -154,7 +154,7 @@ appId.getUserProfileManager().getUserInfo(accessToken, identityToken, new UserPr
 **Node.js**
 {: ph data-hd-programlang='javascript'}
 
-藉由使用伺服器端 SDK，您可以擷取使用者的其他資訊。 您可以使用預存存取及身分記號來呼叫下列方法，也可以明確地傳遞記號。身分記號是選用性的，但如果有傳遞，則會用它來驗證使用者資訊回應。
+透過使用伺服器端 SDK，您可以擷取使用者的其他資訊。 您可以使用預存存取及身分記號來呼叫下列方法，也可以明確地傳遞記號。身分記號是選用項目，但如果有傳遞，則會用它來驗證回應。
 {: ph data-hd-programlang='javascript'}
 
 ```javascript
@@ -181,7 +181,7 @@ userProfileManager.getUserInfo(accessToken).then(function (profile) {
 **伺服器端 Swift**
 {: ph data-hd-programlang='swift'}
 
-藉由使用伺服器端 SDK，您可以擷取使用者的其他資訊。 您可以使用預存存取及身分記號來呼叫下列方法，也可以明確地傳遞記號。身分記號是選用性的，但如果有傳遞，則會用它來驗證使用者資訊回應。
+透過使用伺服器端 SDK，您可以擷取使用者的其他資訊。 您可以使用預存存取及身分記號來呼叫下列方法，也可以明確地傳遞記號。身分記號是選用項目，但如果有傳遞，則會用它來驗證回應。
 {: ph data-hd-programlang='swift'}
 
 
@@ -333,7 +333,7 @@ function getAllAttributes(accessTokenString) {}
 ## 設定自訂屬性
 {: #profile-set-custom}
 
-您可以藉由設定自訂屬性，將使用者的相關資訊（例如角色或喜好設定）新增至其設定檔。
+您可以透過設定自訂屬性，將使用者的相關資訊（例如角色或喜好）新增至其設定檔。
 {: shortdesc}
 
 依預設，自訂屬性是可修改的，而且可以使用來自用戶端應用程式的 App ID 存取記號予以更新。這表示，在沒有採取適當預防措施的情況下，若使用者或應用程式對存取記號具有存取權，則在第一位使用者登入之後，他們就可以立即更新自訂屬性。這可能會導致非預期的結果。例如，使用者可以將其角色從使用者變更為管理者，因而可能會向惡意使用者公開管理專用權。

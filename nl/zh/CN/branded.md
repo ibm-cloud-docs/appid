@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-20"
+lastupdated: "2019-07-10"
 
-keywords: authentication, authorization, identity, app security, secure, customizing apps, directory, registry, 
+keywords: Authentication, authorization, identity, app security, secure, customizing apps, directory, registry, 
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -38,11 +38,13 @@ subcollection: appid
 {: #branded-requirements}
 
 
-要显示您自己的 UI，您必须将 [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory) 用作身份提供者。可通过多种不同的方式来[配置](/docs/services/appid?topic=appid-cloud-directory) Cloud Directory。您可以决定要发送的消息类型，并定制相关内容和设计。不知道该怎么说？没问题。GUI 中有一些示例消息可供您使用。
+要显示您自己的 UI，您必须将 [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory) 用作身份提供者。Cloud Directory 可以通过多种不同方式进行配置。您可以决定要发送的消息类型，并定制相关内容和设计。不知道该怎么说？没问题。请参阅 GUI 以获取可以使用的示例消息。
 
 
-要使用除英语之外的其他[语言](/docs/services/appid?topic=appid-cd-messages#cd-languages)？您可以使用<a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/updateLocalization" target="_blank">语言管理 API <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a> 来选择其他语言，以显示您自己的已翻译内容。
+要使用除英语之外的其他[语言](/docs/services/appid?topic=appid-cd-messages#cd-languages)？您可以使用[语言管理 API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/updateLocalization){: external} 来选择其他语言，以显示您自己的已翻译内容。
 {: tip}
+
+
 
 
 ### 我可以使用自己的屏幕和一些缺省屏幕吗？
@@ -53,7 +55,7 @@ subcollection: appid
 ### 这些流程在技术上有何不同？
 {: #branded-technically}
 
-服务使用 OAuth 2.0 授权流程来映射授权过程。配置社交身份提供者（例如 Facebook）时，<a href="https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html" target="_blank">授权流程 <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a> 用于调用登录窗口小部件。您使用自己的屏幕时，<a href="https://oauthlib.readthedocs.io/en/stable/oauth2/grants/password.html" target="_blank">资源所有者密码凭证流程 <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a> 会用于提供访问令牌和身份令牌，以允许您调用自己的屏幕。
+服务使用 OAuth 2.0 授权流程来映射授权过程。配置社交身份提供者（例如 Facebook）时，[授权流程](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html){: external}用于调用登录窗口小部件。您使用自己的屏幕时，[资源所有者密码凭证流程](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/password.html){: external}会用于提供访问令牌和身份令牌，您可借此调用自己的屏幕。
 
 
 
@@ -62,15 +64,15 @@ subcollection: appid
 
 有！请查看以下任一示例以了解 Cloud Directory 的工作方式：
 
-* <a href="https://www.ibm.com/cloud/blog/use-branded-ui-user-sign-app-id" target="_blank">Use your own branded UI for user sign-in with {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a>
-* <a href="https://www.ibm.com/cloud/blog/use-ui-flows-user-sign-sign-app-id" target="_blank">Use your own UI and Flows for User Sign-Up and Sign-in with with {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a>
-* <a href="https://www.ibm.com/cloud/blog/custom-login-page-app-id-integration" target="_blank">Use a custom login page with  {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a>
+* [Use your own branded UI for user sign-in with {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/use-branded-ui-user-sign-app-id){: external}
+* [Use your own UI and Flows for User Sign-Up and Sign-in with {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/use-ui-flows-user-sign-sign-app-id){: external}
+* [Use a custom login page with {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/custom-login-page-app-id-integration){: external}
 
 
 ## 使用 Android SDK 来为应用程序添加品牌形象
 {: #branded-ui-android}
 
-在启用 Cloud Directory 的情况下，可以使用 Android SDK 来调用定制屏幕。您可以选择希望用户能够与其进行交互的屏幕组合。<a href="https://www.ibm.com/cloud/blog/use-branded-ui-user-sign-app-id" target="blank">查看此博客 <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a> 以获取详细示例！
+在启用 Cloud Directory 的情况下，可以使用 Android SDK 来调用定制屏幕。您可以选择希望用户能够与其进行交互的屏幕组合。有关详细示例，请[查看此博客](https://www.ibm.com/cloud/blog/use-branded-ui-user-sign-app-id){: external}。
 {: shortdesc}
 
 
@@ -79,7 +81,7 @@ subcollection: appid
 {: #branded-android-sign-in}
 
 1. 在 GUI 中配置 Cloud Directory [设置](/docs/services/appid?topic=appid-cloud-directory#cd-settings)。
-2. 将以下代码添加到应用程序中。用户单击定制屏幕上的登录时，将触发登录流程。通过提供最终用户的用户名和密码，可获取访问令牌、身份令牌和刷新令牌。
+2. 将以下代码添加到应用程序中。用户单击定制屏幕上的登录时，将触发登录流程。通过提供用户的用户名和密码，可获取访问令牌、身份令牌和刷新令牌。
 
   ```java
   AppID.getInstance().signinWithResourceOwnerPassword(getApplicationContext(), username, password,
@@ -103,7 +105,7 @@ subcollection: appid
 ## 使用 iOS Swift SDK 来为应用程序添加品牌形象
 {: #branded-ui-ios-swift}
 
-在启用 Cloud Directory 的情况下，可以使用 [iOS Swift SDK](https://github.com/ibm-cloud-security/appid-clientsdk-swift) 来调用您自己的品牌屏幕。
+在启用 Cloud Directory 的情况下，可以使用 [iOS Swift SDK](https://github.com/ibm-cloud-security/appid-clientsdk-swift){: external} 来调用您自己的品牌屏幕。
 {: shortdesc}
 
 </br>
@@ -175,7 +177,8 @@ subcollection: appid
     </tbody>
   </table>
 
-**注**：如果以 HTML 形式提交请求，那么可以使用<a href="https://www.npmjs.com/package/body-parser" target="blank">主体解析器 <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a> 中间件。要查看返回的错误消息，可以使用 <a href="https://www.npmjs.com/package/connect-flash" target="blank">connect-flash <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a>。要了解其工作方式，请查看 <a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs/blob/master/samples/web-app-sample.js" target="blank">Web 应用程序样本 <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a>。
+**注**：如果以 HTML 形式提交请求，那么可以使用[主体解析器](https://www.npmjs.com/package/body-parser){: external}中间件。要查看返回的错误消息，可以使用 [connect-flash](https://www.npmjs.com/package/connect-flash){: external}。要了解其工作方式，请查看 [Web 应用程序样本](https://github.com/ibm-cloud-security/appid-serversdk-nodejs/blob/master/samples/web-app-sample.js){: external}。
+
 
 
 ## 使用 API 为应用程序添加品牌形象
@@ -186,7 +189,7 @@ subcollection: appid
 
 为了实现此目标，{{site.data.keyword.appid_short_notm}} 公开了 REST API。您可使用这些 REST API 构建为 Web 应用程序提供服务的后端服务器，或使用自己的定制屏幕与移动应用程序进行交互。
 
-管理 API 通过 IBM Cloud Identity and Access Management 生成的令牌进行保护，这意味着帐户所有者可以指定团队中哪个成员对每个服务实例具备哪种访问级别。有关 IAM 和 {{site.data.keyword.appid_short_notm}} 如何协作的更多信息，请参阅[服务访问管理](/docs/services/appid?topic=appid-service-access-management#service-access-management)。
+管理 API 通过 IBM Cloud Identity and Access Management 生成的令牌进行保护，这意味着帐户所有者可以指定团队中哪个成员对每个服务实例具备哪种访问级别。有关 IAM 和 {{site.data.keyword.appid_short_notm}} 如何协作的更多信息，请参阅[服务访问管理](/docs/services/appid?topic=appid-service-access-management)。
 
 在配置[设置](/docs/services/appid?topic=appid-cloud-directory#cd-settings)后，您可以调用以下端点以显示每个屏幕。
 
@@ -195,11 +198,11 @@ subcollection: appid
 
 您可以使用 `/sign_up` 端点来允许用户向应用程序注册。在请求主体中提供以下数据：
   * 您的租户标识。
-  * Cloud Directory 用户数据。请参阅 [SCIM Full User Representation](https://tools.ietf.org/html/rfc7643#section-8.2) 以获取更多详细信息。
+  * Cloud Directory 用户数据。请参阅 [SCIM Full User Representation](https://tools.ietf.org/html/rfc7643#section-8.2){: external} 以获取更多详细信息。
     * `password` 属性。
-    * 在 `primary` 属性设置为 `true` 的电子邮件数组中，必须包含至少 1 个电子邮件地址。
+    * 在 `primary` 属性设置为 `true` 的电子邮件数组中，您必须至少具有一个电子邮件地址。
 
-根据您的[电子邮件配置](/docs/services/appid?topic=appid-cd-messages#cd-messages)，用户向应用程序注册时，可能会收到验证请求和/或收到欢迎他们的电子邮件。用户注册您的应用程序时，将触发这两种类型的电子邮件。验证电子邮件包含用户可单击以确认其身份的链接；这将显示一个屏幕，感谢他们验证或确认其验证已完成。  
+根据您的[电子邮件配置](/docs/services/appid?topic=appid-cd-messages)，用户向应用程序注册时，可能会收到验证请求和/或收到欢迎电子邮件。用户注册您的应用程序时，将触发这两种类型的电子邮件。验证电子邮件包含用户可单击以确认其身份的链接；这将显示一个屏幕，感谢他们验证或确认其验证已完成。  
 
 要显示您自己的发布验证页面，请执行以下操作：
 
@@ -229,7 +232,7 @@ subcollection: appid
 
 当提供此值时，{{site.data.keyword.appid_short_notm}} 将调用 URL 和 `context` 查询。`context` 参数用于在调用 `/forgot_password/confirmtion_result` 时接收结果。如果结果成功，那么可以显示定制页面。
 
-向定制重置密码页面添加一个随机字符串，并在提交请求时将其传递到后端。让您的处理程序验证字符串，并仅在其有效时调用 `/change_password` 端点。这样做，您可以降低后端重置密码端点的漏洞。
+向定制重置密码页面添加一个随机字符串，并在提交请求时将其传递到后端。让您的处理程序验证字符串，并仅在其有效时调用 `/change_password` 端点。这样做，您可以减少后端重置密码端点的漏洞。
 {: tip}
 
 
@@ -254,7 +257,7 @@ subcollection: appid
   * 用户新密码
   * Cloud Directory 用户 UUID。
 
-您的更改密码页面应提示用户输入其当前密码及其新密码。
+您的更改密码页面必须提示用户输入其当前密码及其新密码。
 {: tip}
 
 您的后端使用 ROP API 验证用户的当前密码，如果有效，则使用新密码调用端点。根据您的配置，当更改密码时，{{site.data.keyword.appid_short_notm}} 可能会向用户发送电子邮件，告知用户发生密码更改。
@@ -275,7 +278,7 @@ subcollection: appid
 
 当用户登录到应用程序时，他们可以更新其部分信息。您可以使用 `/Users/{userId}` 来获取和更新其信息。
 
-更新用户详细信息后，端点会以 [SCIM 格式](https://tools.ietf.org/html/rfc7643#section-8.2)获取请求主体中更新的用户数据。请确保仅更改相关详细信息。
+更新用户详细信息后，端点会以 [SCIM 格式](https://tools.ietf.org/html/rfc7643#section-8.2){: external}获取请求主体中更新的用户数据。请确保仅更改相关详细信息。
 
 无法更改其电子邮件地址。
 {: tip}

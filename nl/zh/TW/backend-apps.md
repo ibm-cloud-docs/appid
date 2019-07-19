@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-09"
+lastupdated: "2019-06-18"
 
-keywords: authentication, authorization, identity, app security, secure, backend, back-end, oauth, 
+keywords: Authentication, authorization, identity, app security, secure, backend, back-end, oauth, 
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -36,19 +36,19 @@ subcollection: appid
 ## 瞭解流程
 {: #backend-understanding}
 
-開發後端應用程式的一部分工作是驗證您的 API 受到保護，不會遭到未獲授權的存取。{{site.data.keyword.appid_short_notm}} SDK 可讓您保護 API 端點，並確保應用程式的安全。
+開發後端應用程式的一部分是驗證您的 API 受到保護，不會遭到未獲授權的存取。{{site.data.keyword.appid_short_notm}} SDK 可讓您保護 API 端點，並確保應用程式的安全。
 
 
 ### 何謂流程的技術基準？
 {: #backend-technical-flow}
 
-{{site.data.keyword.appid_short_notm}} 會實作 [OAuth 2.0](https://tools.ietf.org/html/rfc6749) 及 OIDC 規格，其使用載送記號來進行鑑別及授權。這些記號會格式化為 [JSON Web 記號](https://tools.ietf.org/html/rfc7519)，其是以數位方式簽署，且包含說明正在鑑別之主題及身分提供者的要求。應用程式的 API 受存取記號及身分記號保護。需要存取 API 的用戶端可以透過 {{site.data.keyword.appid_short_notm}} 向身分提供者進行鑑別，以交換這些記號。必須驗證記號中的要求，才能授與對受保護 API 的存取權。
+{{site.data.keyword.appid_short_notm}} 會實作 [OAuth 2.0](https://tools.ietf.org/html/rfc6749){: external} 及 OIDC 規格，其使用載送記號來進行鑑別及授權。這些記號會格式化為 [JSON Web 記號](https://tools.ietf.org/html/rfc7519){: external}，其是以數位方式簽署，且包含說明正在鑑別之主題及身分提供者的要求。應用程式的 API 受存取及身分記號保護。需要存取 API 的用戶端可以透過 {{site.data.keyword.appid_short_notm}} 向身分提供者進行鑑別，以交換這些記號。必須驗證記號中的要求，才能授與對受保護 API 的存取權。
 
-如需如何在 {{site.data.keyword.appid_short_notm}}中使用記號的相關資訊，請參閱[瞭解記號](/docs/services/appid?topic=appid-tokens#tokens)。
+如需如何在 {{site.data.keyword.appid_short_notm}}中使用記號的相關資訊，請參閱[瞭解記號](/docs/services/appid?topic=appid-tokens#)。
 {: tip}
 
 
-### 此流程具有怎樣的外觀？
+### 流程具有怎樣的外觀？
 {: #backend-flow}
 
 ![{{site.data.keyword.appid_short_notm}} 後端流程。影像後面依序列出步驟。](images/backend-flow.png)
@@ -63,7 +63,7 @@ subcollection: appid
   ```
   {: screen}
 
-2. 如果客戶符合資格，則授權伺服器會傳回存取記號。
+2. 如果用戶端符合資格，則授權伺服器會傳回存取記號。
 
 3. 用戶端會將要求傳送至受保護的資源。可以使用多種方式來傳送要求，這會隨著所使用的 HTTP 用戶端檔案庫而不同，但要求通常會採用下列格式：
 
@@ -79,13 +79,13 @@ subcollection: appid
 ## 使用 SDK 保護資源
 {: #backend-secure}
 
-您可以使用 {{site.data.keyword.appid_short_notm}} SDK，對伺服器端應用程式施行鑑別及授權。`ApiStrategy` 藉由在要求過程中要求驗證存取記號及身分記號，致力於保護後端資源的安全。
+您可以使用 {{site.data.keyword.appid_short_notm}} SDK，對伺服器端應用程式施行鑑別及授權。`ApiStrategy` 透過在要求過程中要求驗證存取及身分記號，致力於保護後端資源的安全。
 {: shortdesc}
 
-{{site.data.keyword.appid_short_notm}} Node.js SDK 與 [Passport 架構](http://www.passportjs.org/)一起使用。
+{{site.data.keyword.appid_short_notm}} Node.js SDK 與 [Passport 架構](http://www.passportjs.org/){: external}一起使用。
 {: ph data-hd-programlang='javascript'}
 
-{{site.data.keyword.appid_short_notm}} 伺服器端 Swift SDK 提供一個用來保護後端應用程式的 API 保護中介軟體外掛程式。藉由建立 API 與中介軟體的關聯，您可以保護應用程式免於遭受未獲授權的存取。在 API 受到保護之後，中介軟體可確保驗證由 {{site.data.keyword.appid_short_notm}} 產生的記號。然後，您可以根據驗證結果來修改 API 的行為。
+{{site.data.keyword.appid_short_notm}} 伺服器端 Swift SDK 提供一個用來保護後端應用程式的 API 保護中介軟體外掛程式。透過建立 API 與中介軟體的關聯，您可以保護應用程式免於遭受未獲授權的存取。在 API 受到保護之後，中介軟體可確保驗證由 {{site.data.keyword.appid_short_notm}} 產生的記號。然後，您可以根據驗證結果來修改 API 的行為。
 {: ph data-hd-programlang='swift'}
 
 請參閱下列程式碼 Snippet，以取得如何保護 `/protectedendpoint` API 的範例。
@@ -147,14 +147,14 @@ if #available(OSX 10.12, *) {
 {: codeblock}
 {: ph data-hd-programlang='swift'}
 
-請觀看下列視訊，瞭解如何使用 {{site.data.keyword.appid_short_notm}} 保護後端 Node 應用程式。然後，使用[簡單的 Node 應用程式範例](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02b-simple-node-backend-app)自行嘗試。
+請觀看下列視訊，瞭解如何使用 {{site.data.keyword.appid_short_notm}} 保護後端 Node 應用程式。然後，使用[簡單的 Node 應用程式範例](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02b-simple-node-backend-app){: external}自行嘗試。
 {: ph data-hd-programlang='javascript'}
 
 <iframe class="embed-responsive-item" id="appid-backend-nodejs" title="關於 {{site.data.keyword.appid_short_notm}}" type="text/html" width="640" height="390" src="//www.youtube.com/embed/jJLSgkHpZwA?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 {: ph data-hd-programlang='javascript'}
 
 
-請觀看下列視訊，瞭解如何使用 {{site.data.keyword.appid_short_notm}} 保護後端 Liberty for Java 應用程式。然後，使用[簡單的 Liberty for Java 應用程式範例](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02d-simple-liberty-backend-app)自行嘗試。
+請觀看下列視訊，瞭解如何使用 {{site.data.keyword.appid_short_notm}} 保護後端 Liberty for Java 應用程式。然後，使用[簡單的 Liberty for Java 應用程式範例](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02d-simple-liberty-backend-app){: external}自行嘗試。
 {: ph data-hd-programlang='java'}
 
 <iframe class="embed-responsive-item" id="appid-backend-liberty" title="關於 {{site.data.keyword.appid_short_notm}}" type="text/html" width="640" height="390" src="//www.youtube.com/embed/QA6DY2qqLaw?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
@@ -242,14 +242,14 @@ if #available(OSX 10.12, *) {
   {: codeblock}
   {: ph data-hd-programlang='javascript'}
 
-當記號有效時，會呼叫要求鏈中的下一個中介軟體，並將 `appIdAuthorizationContext` 內容新增至要求物件。此內容包含原始存取記號及身分記號，以及記號的解碼有效負載資訊。
+當記號有效時，會呼叫要求鏈中的下一個中介軟體，並將 `appIdAuthorizationContext` 內容新增至要求物件。此內容包含原始存取及身分記號，以及記號的解碼有效負載資訊。
 {: ph data-hd-programlang='javascript'}
 
 
 ## 手動保護資源
 {: #backend-secure-api}
 
-若要保護後端應用程式及受保護資源的安全，您需要驗證記號。當用戶端向您的資源傳送要求時，您可以驗證該記號符合已定義的規格。記號可能包括識別資訊、範圍或您已擁有的任何其他配置。您可以採用數種方式來驗證 {{site.data.keyword.appid_short_notm}} 存取及身分記號。如需協助，請參閱[驗證記號](/docs/services/appid?topic=appid-token-validation#token-validation)。
+若要保護後端應用程式及受保護資源的安全，您需要驗證記號。當用戶端向您的資源傳送要求時，您可以驗證該記號符合已定義的規格。記號可能包括識別資訊、範圍或您已擁有的任何其他配置。您可以採用數種方式來驗證 {{site.data.keyword.appid_short_notm}} 存取及身分記號。如需協助，請參閱[驗證記號](/docs/services/appid?topic=appid-token-validation)。
 
 
 ## 後續步驟
@@ -259,5 +259,7 @@ if #available(OSX 10.12, *) {
 
 * 配置您的[身分提供者](/docs/services/appid?topic=appid-social)
 * 自訂並配置[登入小組件](/docs/services/appid?topic=appid-login-widget)
-* 進一步瞭解 <a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs" target="_blank">Node.js SDK<img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>
-* 進一步瞭解 <a href="https://github.com/ibm-cloud-security/appid-serversdk-swift" target="_blank">Swift SDK<img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>
+* 進一步瞭解 [Node.js SDK](https://github.com/ibm-cloud-security/appid-serversdk-nodejs){: external}
+* 進一步瞭解 [Swift SDK](https://github.com/ibm-cloud-security/appid-serversdk-swift){: external}
+
+

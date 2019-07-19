@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-09"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, development, sso, directory, users, registry, multiple apps
+keywords: Authentication, authorization, identity, app security, secure, development, sso, directory, users, registry, multiple apps
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -41,7 +41,7 @@ Efetue o registro de saída do diagrama a seguir para ver a SSO em ação.
 3. Se as credenciais forem válidas, um usuário será conectado ao seu app. Ao mesmo tempo, o {{site.data.keyword.appid_short_notm}} cria uma sessão e configura um cookie no navegador do usuário.
 4. Se um usuário tentar efetuar sign in em um de seus outros aplicativos, o {{site.data.keyword.appid_short_notm}}detectará o cookie de sessão e assinará automaticamente o usuário em seu app. Os cookies de sessão do {{site.data.keyword.appid_short_notm}} são específicos da instância e são conectados pela chave privada exclusiva da instância.
 
-Se a sua instância estiver configurada para usar provedores de identidade além do Cloud Directory, como o SAML ou o Facebook, o widget de login ainda será mostrado. Os usuários são solicitados a inserir suas credenciais do Cloud Directory ou escolher um dos outros provedores, mesmo se eles tiverem uma sessão SSO válida.
+Neste momento, a SSO é configurada para funcionar quando o Cloud Directory é o único provedor de identidade ativado. Se sua instância do {{site.data.keyword.appid_short_notm}} estiver configurada para usar múltiplos provedores de identidade, a ativação da SSO não terá efeito no fluxo de conexão. É solicitado que os usuários insiram suas credenciais do Cloud Directory ou escolham um dos outros provedores em cada conexão.
 {: note}
 
 

@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-09"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, development, sso, directory, users, registry, multiple apps
+keywords: Authentication, authorization, identity, app security, secure, development, sso, directory, users, registry, multiple apps
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -23,7 +23,7 @@ subcollection: appid
 {:download: .download}
 
 
-# Connexion unique
+# Connexion unique (SSO)
 {: #cd-sso}
 
 Avec la connexion unique pour Cloud Directory, vous pouvez offrir une expérience d'authentification fluide entre plusieurs applications Web. Si la connexion unique est activée lorsqu'un utilisateur se connecte pour la première fois, il n'aura pas à entrer de nouveau ses données d'identification à sa prochaine connexion. Il sera automatiquement connecté à toutes les applications protégées par la même instance {{site.data.keyword.appid_short_notm}}.
@@ -41,7 +41,7 @@ Examinez le diagramme suivant pour voir comment fonctionne la connexion unique.
 3. Si les données d'identification sont valides, l'utilisateur est connecté à votre application. En parallèle, {{site.data.keyword.appid_short_notm}} crée une session et définit un cookie sur le navigateur de l'utilisateur.
 4. Si un utilisateur tente de se connecter à l'une de vos autres applications, {{site.data.keyword.appid_short_notm}} détecte le cookie de session et connecte automatiquement l'utilisateur à votre application. Les cookies de session {{site.data.keyword.appid_short_notm}} sont propres à une instance et signés à l'aide de la clé privée unique de l'instance.
 
-Si votre instance est configurée de manière à utiliser, en plus de Cloud Directory, des fournisseurs d'identité tels que SAML ou Facebook, le widget de connexion est toujours affiché. Les utilisateurs sont invités à entrer leurs données d'identification Cloud Directory ou à sélectionner l'un des autres fournisseurs, même s'ils disposent d'une session de connexion unique valide.
+Pour le moment, la connexion unique est configurée pour fonctionner lorsque Cloud Directory est le seul fournisseur d'identité activé. Si votre instance d'{{site.data.keyword.appid_short_notm}} est configurée pour utiliser plusieurs fournisseurs d'identité, l'activation de la connexion unique n'a aucun effet sur le flux de connexion. Les utilisateurs sont invités à entrer leurs données d'identification Cloud Directory ou à sélectionner l'un des autres fournisseurs à chaque connexion.
 {: note}
 
 
@@ -154,10 +154,10 @@ Même si la session de connexion unique est interrompue, un utilisateur qui disp
 {: note}
 
 
-### Accès avec le logiciel SDK de serveur Node.JS
+### Accès avec le logiciel SDK serveur Node.JS
 {: #cd-sso-log-out-nodejs}
 
-Vous pouvez également utiliser le logiciel SDK de serveur Node.js {{site.data.keyword.appid_short_notm}} pour gérer automatiquement la redirection.
+Vous pouvez également utiliser le logiciel SDK serveur Node.js {{site.data.keyword.appid_short_notm}} pour gérer automatiquement la redirection.
 
 Exemple :
 

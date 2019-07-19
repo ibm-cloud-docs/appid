@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-21"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, troubleshooting, help, support, requests, uri
+keywords: Authentication, authorization, identity, app security, secure, troubleshooting, help, support, requests, uri
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -93,15 +93,15 @@ subcollection: appid
 * 配置的重新導向 URL 不正確。
 * 身分提供者無法辨識鑑別要求。
 * 身分提供者預期 HTTP-POST 連結。
-* 身分提供者預期已簽署的 authnRequest。
+* 身分提供者預期已簽署的 AuthnRequest。
 
 {: tsResolve}
 您可以嘗試下列部分解決方案：
 
-* 更新您的登入 URL。此 URL 會當作 authnRequest 的一部分傳送，而且必須完全一樣。
+* 更新您的登入 URL。此 URL 會當作 AuthnRequest 的一部分傳送，而且必須完全一樣。
 * 確定已在您的身分提供者設定中正確設定您的 {{site.data.keyword.appid_short_notm}} meta 資料。
-* 將您的身分提供者配置為接受 HTTP-Redirect 中的 authnRequest。
-* {{site.data.keyword.appid_short_notm}} 不支援簽署 authnRequest。
+* 將您的身分提供者配置為接受 HTTP-Redirect 中的 AuthnRequest。
+* {{site.data.keyword.appid_short_notm}} 不支援簽署 AuthnRequest。
 
 如果解決方案未作用，則可能是您發生連線問題。
 {: tip}
@@ -137,7 +137,7 @@ subcollection: appid
 {: screen}
 
 {: tsCauses}
-如果您僅以一個虛擬使用者來執行自動化測試，可能會收到「要求太多」錯誤。每一位使用者在 1 分鐘的時間跨距內僅限於五次登入嘗試。登入嘗試受到限制，是為了以避免強制入侵 DDOS 及其他類型的類似攻擊。
+如果您僅以一個虛擬使用者來執行自動化測試，可能會收到「要求太多」錯誤。每一位使用者在 1 分鐘的時間跨距內僅限於五次登入嘗試。登入嘗試受到限制，是為了以避免強制入侵 DDoS 及其他類型的類似攻擊。
 
 {: tsResolve}
 若要解決此問題，您可以在執行測試時使用多個虛擬使用者。

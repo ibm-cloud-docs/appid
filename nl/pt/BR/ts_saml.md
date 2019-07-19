@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-21"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, development, idp, troubleshooting, redirected, validation
+keywords: Authentication, authorization, identity, app security, secure, development, troubleshooting, redirected, validation
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -35,7 +35,7 @@ Se tiver problemas quando estiver configurando o SAML para trabalhar com o {{sit
 ## Problemas comuns de configuração
 {: #ts-common-saml}
 
-A estrutura SAML suporta vários perfis, fluxos e configurações, o que significa que é essencial que sua configuração do provedor de identidade esteja definida corretamente. Verifique os tópicos a seguir para ajudar a resolver alguns dos problemas comuns que você pode encontrar ao trabalhar com o SAML.
+A estrutura do SAML suporta múltiplos perfis, fluxos e configurações, o que significa que é essencial que sua configuração do provedor de identidade seja feita corretamente. Confira os tópicos a seguir para obter ajuda para resolver alguns dos problemas mais comuns que você pode encontrar ao trabalhar com o SAML.
 {: shortdesc}
 
 
@@ -54,7 +54,7 @@ O parâmetro `RelayState` está ausente em sua resposta de autenticação.
 
 **Por que isso está acontecendo?**
 
-O {{site.data.keyword.appid_short_notm}} envia um parâmetro opaco conhecido como `RelayState` como parte da solicitação de autenticação. Se você não vir o parâmetro em sua resposta, seu provedor de identidade poderá não estar configurado para retorná-lo corretamente. O `RelayState` usa o formato a seguir.
+O {{site.data.keyword.appid_short_notm}} envia um parâmetro opaco que é conhecido como `RelayState` como parte da solicitação de autenticação. Se você não vir o parâmetro em sua resposta, seu provedor de identidade poderá não estar configurado para retorná-lo corretamente. O `RelayState` usa o formato a seguir.
 
 ```
 https://idp.example.org/SAML2/SSO/Redirect?SAMLRequest=request&RelayState=token
@@ -66,12 +66,12 @@ https://idp.example.org/SAML2/SSO/Redirect?SAMLRequest=request&RelayState=token
 Verifique se o seu provedor SAML está configurado para retornar o parâmetro `RelayState` para o {{site.data.keyword.appid_short_notm}} sem modificá-lo de nenhuma maneira.
 
 
-### Campo NameID ausente ou incorreto
+### ID de nome ausente ou incorreto
 {: #ts-saml-nameid}
 
 **O que está acontecendo**
 
-Ao enviar uma solicitação de autenticação, você recebe um erro sobre o `NameID`.
+Quando você envia uma solicitação de autenticação, você recebe um erro que considera o `NameID`.
 
 **Por que isso está acontecendo?**
 
@@ -93,7 +93,7 @@ Para resolver o problema, certifique-se de que seu provedor de identidade `NameI
 
 **O que está acontecendo**
 
-Ao enviar uma solicitação de autenticação, você recebe a mensagem de erro a seguir:
+Quando você envia uma solicitação de autenticação, você recebe a mensagem de erro a seguir:
 
 ```
 Could not verify SAML assertion signature. Ensure {{site.data.keyword.appid_short_notm}} is configurated with your SAML provider's signing certificate.
@@ -102,7 +102,7 @@ Could not verify SAML assertion signature. Ensure {{site.data.keyword.appid_shor
 
 **Por que isso está acontecendo?**
 
-O {{site.data.keyword.appid_short_notm}} espera todas as asserções SAML em sua resposta a serem assinadas. Se o serviço não puder localizar ou verificar a assinatura na resposta, o erro será retornado.
+O {{site.data.keyword.appid_short_notm}} espera que todas as asserções SAML em sua resposta sejam assinadas. Se o serviço não puder localizar ou verificar a assinatura na resposta, o erro será retornado.
 
 **Como corrigir isso**
 
@@ -132,7 +132,7 @@ Unexpectedly received an encrypted assertion. Please enable response encryption 
 Mensagem de erro 2: 
 
 ```
-Could not decrypt SAML assertion. Ensure your SAML provider is configured with the {{site.data.keyword.appid_short_notm}} encryption 
+Could not decrypt SAML assertion. Assegure-se de que o provedor SAML esteja configurado com a criptografia {{site.data.keyword.appid_short_notm}}.
 ```
 {: screen}
 
@@ -170,10 +170,10 @@ Embora o {{site.data.keyword.appid_short_notm}} envie a solicitação de autenti
 
 Você poderá ver a mensagem se seu provedor de identidade: 
 
-* não puder localizar ou verificar o nome de usuário.
-* não suportar o formato `NameID` definido na solicitação de autenticação (`AuthnRequest`).
-* não suportar o contexto de autenticação.
-* requerer que a solicitação de autenticação seja assinada ou use um algoritmo específico na assinatura.
+* Não é possível localizar ou verificar o nome do usuário.
+* Não suporta o formato `NameID` que é definido na solicitação de autenticação (`AuthnRequest`).
+* Não suporta o contexto de autenticação.
+* Requer que a solicitação de autenticação seja assinada ou use um algoritmo específico na assinatura.
 
 **Como corrigir isso**
 
@@ -233,7 +233,7 @@ Tem a configuração correta, mas ainda apresenta erro? Verifique algumas das di
 ### Como capturar minha solicitação e resposta de autenticação SAML?
 {: #ts-saml-capture}
 
-Há várias opções para plug-ins do navegador, como [Firefox](https://addons.mozilla.org/en-US/firefox/addon/saml-tracer/) e [Chrome](https://chrome.google.com/webstore/detail/saml-tracer/mpdajninpobndbfcldcmbpnnbhibjmch?hl=en), que podem ser usadas para capturar suas solicitações e respostas do SAML. Não quer usar um plug-in? Sem problemas. A Atlassian fornece instruções para uma [abordagem de extração mais manual](https://confluence.atlassian.com/jirakb/how-to-view-a-saml-responses-in-your-browser-for-troubleshooting-872129244.html).
+Há várias opções para plug-ins do navegador, como [Firefox](https://addons.mozilla.org/en-US/firefox/addon/saml-tracer/) e [Chrome](https://chrome.google.com/webstore/detail/saml-tracer/mpdajninpobndbfcldcmbpnnbhibjmch?hl=en), que podem ser usadas para capturar suas solicitações e respostas do SAML. Não quer usar um plug-in? Sem problemas. O Atlassian fornece instruções para uma [abordagem de extração mais manual](https://confluence.atlassian.com/jirakb/how-to-view-a-saml-responses-in-your-browser-for-troubleshooting-872129244.html).
 
 
 ### Não entendo as mensagens. Como posso decodificá-las?

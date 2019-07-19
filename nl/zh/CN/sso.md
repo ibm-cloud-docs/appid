@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-09"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, development, sso, directory, users, registry, multiple apps
+keywords: Authentication, authorization, identity, app security, secure, development, sso, directory, users, registry, multiple apps
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -41,7 +41,7 @@ subcollection: appid
 3. 如果凭证有效，用户将登录到应用程序。同时，{{site.data.keyword.appid_short_notm}} 会创建会话并在用户的浏览器上设置 cookie。
 4. 如果用户尝试登录到其他某个应用程序，那么 {{site.data.keyword.appid_short_notm}} 会检测会话 cookie，并使用户自动登录到该应用程序。{{site.data.keyword.appid_short_notm}} 会话 cookie 是特定于实例的，并且由实例的唯一专用密钥进行签名。
 
-如果实例配置为不仅使用 Cloud Directory，还使用其他身份提供者（例如，SAML 或 Facebook），那么仍会显示登录窗口小部件。系统会提示用户输入其 Cloud Directory 凭证或选择其他某个提供者，即使用户具有有效的 SSO 会话也是如此。
+此时，SSO 已配置为在 Cloud Directory 是启用的唯一身份提供者时有效。如果 {{site.data.keyword.appid_short_notm}} 的实例配置为使用多个身份提供者，那么启用 SSO 不会影响登录流程。用户每次登录时，系统都会提示用户输入其 Cloud Directory 凭证或选择其他某个提供者。
 {: note}
 
 

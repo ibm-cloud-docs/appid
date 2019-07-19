@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-21"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, development, idp, troubleshooting, redirected, validation
+keywords: Authentication, authorization, identity, app security, secure, development, troubleshooting, redirected, validation
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -35,7 +35,7 @@ subcollection: appid
 ## 常见配置问题
 {: #ts-common-saml}
 
-SAML 框架支持多个概要文件、流程和配置，这意味着对身份提供者配置进行正确配置至关重要。请查看以下主题，以帮助解决使用 SAML 时可能会遇到的一些常见问题。
+SAML 框架支持多个概要文件、流程和配置，这意味着正确完成身份提供者配置至关重要。请查看以下主题，以帮助解决使用 SAML 时可能会遇到的一些常见问题。
 {: shortdesc}
 
 
@@ -66,7 +66,7 @@ https://idp.example.org/SAML2/SSO/Redirect?SAMLRequest=request&RelayState=token
 验证 SAML 提供者是否已配置为将 `RelayState` 参数不作任何修改就返回到 {{site.data.keyword.appid_short_notm}}。
 
 
-### 缺少 NameID 字段或此字段不正确
+### 缺少名称标识或名称标识不正确
 {: #ts-saml-nameid}
 
 **问题描述**
@@ -173,7 +173,7 @@ urn:oasis:names:tc:SAML:2.0:status:Responder
 * 找不到用户名或无法验证用户名。
 * 不支持认证请求 (`AuthnRequest`) 中定义的 `NameID` 格式。
 * 不支持认证上下文。
-* 需要认证请求进行签名，或者在签名中使用特定算法。
+* 需要对认证请求进行签名，或者在签名中使用特定算法。
 
 **解决方法**
 

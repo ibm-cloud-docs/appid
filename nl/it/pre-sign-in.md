@@ -108,7 +108,7 @@ Per garantire l'integrità degli attributi utente preregistrati, Cloud Directory
   * Per verificare un'identità degli utenti tramite l'email, imposta **Email verification** su **On** nella scheda **Cloud Directory** del dashboard del servizio. Se aggiungi un utente ed accede alla tua applicazione senza prima verificare la propria email, l'accesso viene completato correttamente, ma i suoi attributi predefiniti vengono eliminati.
   * Per verificare gli utenti manualmente devi essere un amministratore ed utilizzare le [API di gestione](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.createCloudDirectoryUser) di Cloud Directory. Quando crei o aggiorni un utente, devi impostare in modo esplicito il campo `status` su `CONFIRMED` all'interno del tuo payload dei dati utente.
 
-**C'è qualcosa di speciale che devo fare quando utilizzo un provider di identità personalizzato?**
+**C'è qualcosa di speciale che devo fare quando utilizzo un provider di identità personalizzata?**
 
 Quando aggiungi delle informazioni sull'utente alla tua applicazione in anticipo, puoi utilizzare un qualsiasi identificativo univoco fornito dal flusso di autenticazione. L'identificativo deve corrispondere _esattamente_ al `sub` del JWT (JSON web token) inviato durante la richiesta di autorizzazione. Se l'identificativo non corrisponde, il profilo che vuoi aggiungere non viene collegato correttamente.
 

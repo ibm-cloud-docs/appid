@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-10"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, application identity, app to app, access token
+keywords: Authentication, authorization, identity, app security, secure, application identity, app to app, access token
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -23,7 +23,7 @@ subcollection: appid
 {:download: .download}
 
 
-# Ajout de {{site.data.keyword.appid_short_notm}} - Présentation
+# Ajout d'{{site.data.keyword.appid_short_notm}} - Présentation
 {: #adding-overview}
 
 
@@ -38,23 +38,23 @@ Consultez le tableau suivant pour voir comment {{site.data.keyword.appid_short_n
         <th colspan=2>Type d'application</th>
     </tr>
     <tr>
-        <td><a href="/docs/services/appid?topic=appid-web-apps#web-apps" target="_blank">Web <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a></td>
+        <td><a href="/docs/services/appid?topic=appid-web-apps#web-apps" target="_blank">Web </a></td>
         <td>Vous pouvez utiliser le flux Web pour authentifier les utilisateurs en toute sécurité dans votre application et pour protéger vos ressources côté serveur.</td>
     </tr>
     <tr>
-        <td><a href="/docs/services/appid?topic=appid-mobile-apps#mobile-apps" target="_blank">Mobile <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a></td>
-        <td>Le flux mobile de {{site.data.keyword.appid_short_notm}} est très utile lorsque vous développez des applications qui sont faites pour être installées sur le périphérique d'un utilisateur en tant qu'application native.</td>
+        <td><a href="/docs/services/appid?topic=appid-mobile-apps#mobile-apps" target="_blank">Mobile </a></td>
+        <td>Le flux mobile d'{{site.data.keyword.appid_short_notm}} est très utile lorsque vous développez des applications qui sont faites pour être installées sur le périphérique d'un utilisateur en tant qu'application native.</td>
     </tr>
     <tr>
-        <td><a href="/docs/services/appid?topic=appid-backend#backend" target="_blank">Back end <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a></td>
-        <td>Le flux back end vous permet de protéger vos ressources de développement et les noeuds finaux d'API contre tout accès non autorisé et assurer la sécurité de votre application.</td>
+        <td><a href="/docs/services/appid?topic=appid-backend#backend" target="_blank">Back end </a></td>
+        <td>Le flux de back end vous permet de protéger vos ressources de développement et les noeuds finaux d'API contre tout accès non autorisé et assurer la sécurité de votre application.</td>
     </tr>
     <tr>
-        <td><a href="/docs/services/appid?topic=appid-custom-auth#custom-auth" target="_blank">Personnalisé <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a></td>
+        <td><a href="/docs/services/appid?topic=appid-custom-auth#custom-auth" target="_blank">Personnalisé </a></td>
         <td>Vous avez déjà votre propre flux personnalisé ? Pas de problème. Vous pouvez utiliser le flux d'identité personnalisé pour intégrer {{site.data.keyword.appid_short_notm}} à votre application.</td>
     </tr>
     <tr>
-        <td><a href="/docs/services/appid?topic=appid-anonymous#anonymous" target="_blank">Anonyme <img src="../../icons/launch-glyph.svg" alt="Icône de lien externe"></a></td>
-        <td>Avec {{site.data.keyword.appid_short_notm}}, vous pouvez commencer à suivre les activités des utilisateurs avant leur connexion initiale à votre application grâce à l'authentification anonyme.</td>
+        <td><a href="/docs/services/appid?topic=appid-anonymous#anonymous" target="_blank">Anonyme</a></td>
+        <td>Avec {{site.data.keyword.appid_short_notm}}, vous pouvez commencer à suivre les activités des utilisateurs avant leur connexion initiale à votre application en utilisant l'authentification anonyme.</td>
     </tr>
 </table>

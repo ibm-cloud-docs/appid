@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-23"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, custom, proprietary, social, facebook, google, 
+keywords: Authentication, authorization, identity, app security, secure, custom, proprietary, social, facebook, google, 
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -34,6 +34,10 @@ Avec {{site.data.keyword.appid_full}}, vous pouvez configurer des fournisseurs d
 
 {{site.data.keyword.appid_short_notm}} fournit une configuration par défaut pour vous aider à être rapidement opérationnel avec le service.
 {: shortdesc}
+
+Les données sont utilisées lorsque vous vous lancez dans les utilisations autorisées du service. En utilisant le service, vous acceptez de collecter et d'utiliser les informations en accord avec la [politique de confidentialité](/docs/services/appid?topic=appid-privacy-policy) établie.
+{: important}
+
 
 Lorsque vous configurez {{site.data.keyword.appid_short_notm}}, Facebook, Google et Cloud Directory sont automatiquement activés en tant que fournisseurs d'identité. Vous pouvez modifier la configuration à tout moment. Des données d'identification par défaut sont en place pour Facebook et Google, mais ce sont des données d'identification IBM destinées uniquement à tester l'utilisation du service. Avant de publier votre application, mettez à jour la configuration avec vos propres données d'identification.
 
@@ -105,3 +109,9 @@ Une fois que vous avez configuré votre projet Google et obtenu votre ID client 
     3. Collez l'URL depuis {{site.data.keyword.appid_short}} dans la zone **URI de redirection autorisés**, puis cliquez sur**Sauvegarder**.
 4. Cliquez sur **Sauvegarder** pour mettre à jour votre configuration Google dans {{site.data.keyword.appid_short}}.
 5. Pour les applications Web, entrez l'URL de redirection dans l'onglet **Gérer**. Une fois le processus d'autorisation terminé, un utilisateur est envoyé à cette adresse URL. L'URL doit suivre un schéma `http` ou `https`. Pour un niveau de sécurité renforcé, utilisez un schéma `https`.
+
+
+
+
+
+

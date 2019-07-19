@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-23"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
+keywords: Authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -35,17 +35,17 @@ subcollection: appid
 如果密码强度高，就难以甚至不可能通过手动或自动方式来猜到密码。要设置用户密码强度需求，可以使用以下步骤。
 {: shortdesc}
 
-1. 导航至 {{site.data.keyword.appid_short_notm}} 仪表板的**密码策略**选项卡。
+1. 转至 {{site.data.keyword.appid_short_notm}} 仪表板的**密码策略**选项卡。
 
 2. 在**定义密码强度**框中，单击**编辑**。这将打开一个屏幕。
 
 3. 在**密码强度**框中输入有效的正则表达式字符串。
 
   示例：
-    - 必须至少为 8 个字符。示例正则表达式：`^.{8,}$`
-    - 必须包含一个数字、一个小写字母和一个大写字母。示例正则表达式：`^(?:(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).*)$`
-    - 必须仅包含英语字母和数字。示例正则表达式：`^[A-Za-z0-9]*$`
-    - 必须至少为一个唯一字符。示例正则表达式：`^(\w)\w*?(?!\1)\w+$`
+    - 必须至少为 8 个字符。(`^.{8,}$`)
+    - 必须包含一个数字、一个小写字母和一个大写字母。(`^(?:(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).*)$`)
+    - 必须仅包含英语字母和数字。(`^[A-Za-z0-9]*$`)
+    - 必须至少包含一个唯一字符。(`^(\w)\w*?(?!\1)\w+$`)
 
 4. 单击**保存**。
 
@@ -70,7 +70,7 @@ subcollection: appid
  - 确保密码不包含用户名
 
 
- 如果启用此功能，那么将激活对高级安全功能的额外计费。有关更多信息，请参阅 [{{site.data.keyword.appid_short_notm}} 如何计算定价](/docs/services/appid?topic=appid-faq#faq-pricing)。
+ 启用此功能时，将激活对高级安全功能的额外计费。有关更多信息，请参阅 [{{site.data.keyword.appid_short_notm}} 如何计算定价](/docs/services/appid?topic=appid-faq#faq-pricing)。
  {: important}
 
 
@@ -80,9 +80,9 @@ subcollection: appid
 用户更改其密码时，您可能希望阻止他们选择最近使用过的密码。
 {: shortdesc}
 
-通过使用 GUI 或 API，可以选择用户必须使用了多少个新密码之后才能重复使用先前用过的密码。可以选择范围在 1 到 10 之间的任何整数值。
+通过使用 GUI 或 API，可以选择用户必须使用了多少个新密码之后才能重复使用先前用过的密码。设置选项包括范围在 1 到 10 之间的任何整数值。
 
-如果开启此选项，那么用户无法使用自己最近使用过的密码。如果用户尝试将其密码设置为自己最近使用过的密码，那么会在缺省登录窗口小部件 GUI 中向该用户显示错误，并提示该用户输入其他密码。
+如果开启此选项，那么用户无法使用自己最近使用过的密码。如果用户尝试将其密码设置为自己最近使用过的密码，那么会在缺省登录窗口小部件 GUI 中显示错误，并提示该用户输入其他选项。
 
 先前的密码会以用户当前密码的存储方式安全地存储。
 {: note}
@@ -94,12 +94,12 @@ subcollection: appid
 您可能希望在检测到可疑行为（例如，多次连续尝试使用不正确的密码登录）时暂时阻止登录能力，从而保护用户的帐户。此度量可以帮助阻止恶意方通过猜测用户密码来获得对用户帐户的访问权。
 {: shortdesc}
 
-通过使用 GUI 或 API，可以设置用户在最多尝试登录失败多少次后，其帐户会暂时锁定。您还可以设置帐户锁定的时间长度。可以选择以下选项：
+通过使用 GUI 或 API，可以设置用户在最多尝试登录失败多少次后，其帐户会暂时锁定。您还可以定义帐户锁定的时间长度。可以选择以下选项：
 
 * 尝试次数：1 到 10 之间的任何整数值。
 * 锁定期：在 1 分钟到 1440 分钟（24 小时）范围内指定的任何整数值（以分钟为单位）。
 
-如果帐户已锁定，那么用户无法登录，也无法执行其他任何自助服务操作（例如，更改其密码），直到指定的锁定期过后才行。锁定期结束后，将对用户自动解锁。
+如果帐户已锁定，那么用户无法登录，也无法完成其他任何自助服务操作（例如，更改其密码），直到指定的锁定期过后才行。锁定期结束后，将对用户自动解锁。
 
 您可以在锁定期结束之前对用户解锁。要确定用户是否被锁定，请查看 `active` 字段是否设置为 `false`。还可以检查服务仪表板的**用户**选项卡上用户的状态是否设置为`已禁用`。要对用户解锁，您必须使用 [API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Cloud_Directory_Users/updateCloudDirectoryUser) 将 `active` 字段设置为 `true`。
 
@@ -146,5 +146,6 @@ subcollection: appid
 为了获得更高强度的密码，您可能希望阻止用户在密码中包含其用户名或其电子邮件地址的第一部分。
 {: shortdesc}
 
-此约束不区分大小写，这意味着用户无法通过变更其中部分或全部字符的大小写来使用个人信息。要配置此选项，请将开关切换为**开启**。
+此约束不区分大小写。用户无法通过变更其中部分或全部字符的大小写来使用个人信息。要配置此选项，请将开关切换为**开启**。
+{: note}
 

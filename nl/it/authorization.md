@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-21"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, access, tokens
+keywords: Authentication, authorization, identity, app security, secure, access, tokens
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -25,10 +25,10 @@ subcollection: appid
 # Concetti chiave
 {: #key-concepts}
 
-Sei confuso circa le differenze tra autorizzazione e autenticazione? Non sei il solo. Consulta le informazioni su questa pagina per conoscere la terminologia specifica, i processi e il modo in cui il servizio utilizza i token.
+Sei confuso circa le differenze tra autorizzazione e autenticazione? Non sei il solo. Consulta le seguenti informazioni per conoscere la terminologia specifica, i processi e il modo in cui il servizio utilizza i token.
 {: shortdesc}
 
-Vuoi saperne di più su alcuni dei concetti base dell'autorizzazione e dell'autenticazione?  Non cercare altrove. Nel seguente video puoi avere informazioni su OAuth 2.0, i tipi di concessione, OIDC e altro.
+Vuoi saperne di più su alcuni dei concetti base dell'autorizzazione e dell'autenticazione? Non cercare altrove. Nel seguente video puoi avere informazioni su OAuth 2.0, i tipi di concessione, OIDC e altro.
 
 <iframe class="embed-responsive-item" id="about-appid-basics" title="Informazioni su {{site.data.keyword.appid_short_notm}}" type="text/html" width="640" height="390" src="//www.youtube.com/embed/ndlk-ZhKGXM?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
 
@@ -40,13 +40,13 @@ Questi termini chiave possono aiutarti a comprendere il modo in cui il servizio 
 
 ### OAuth 2
 {: #term-oauth}
-<a href="https://tools.ietf.org/html/rfc6749" target="_blank">OAuth 2 <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a> è un protocollo open standard utilizzato per fornire l'autorizzazione dell'applicazione.
+[OAuth 2.0](https://tools.ietf.org/html/rfc6749){: external} è un protocollo a standard aperto utilizzato per fornire l'autorizzazione dell'applicazione.
 
 
 ### Open ID Connect (OIDC)
 {: #term-oidc}
 
-<a href="https://openid.net/developers/specs/" target="_blank">OIDC <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a> è un livello di autenticazione che funziona con OAuth 2. Quando utilizzi insieme OIDC e {{site.data.keyword.appid_short_notm}}, le tue credenziali dell'applicazione ti aiutano a configurare i tuoi endpoint OAuth. Quando utilizzi l'SDK, gli URL dell'endpoint vengono creati automaticamente. Tuttavia, puoi anche creare gli URL utilizzando le tue credenziali di servizio. L'URL assume il seguente formato: {{site.data.keyword.appid_short_notm}} service endpoint + "/oauth/v4" + /tenantID.
+[OIDC](https://openid.net/developers/specs/){: external} è un livello di autenticazione che funziona con OAuth 2. Quando utilizzi insieme OIDC e {{site.data.keyword.appid_short_notm}}, le tue credenziali dell'applicazione ti aiutano a configurare i tuoi endpoint OAuth. Se utilizzi l'SDK, gli URL dell'endpoint vengono creati automaticamente. Tuttavia, puoi anche creare gli URL utilizzando le tue credenziali di servizio. L'URL assume il seguente formato: {{site.data.keyword.appid_short_notm}} service endpoint + "/oauth/v4" + /tenantID.
 
 Esempio:
 
@@ -94,12 +94,18 @@ Quando utilizzi l'SDK, gli URL dell'endpoint vengono creati automaticamente.
 ### Token
 {: #term-token}
 
-Il servizio utilizza tre diversi tipi di token. I token di accesso rappresentano l'autorizzazione e abilitano la comunicazione con le [risorse di backend](/docs/services/appid?topic=appid-backend) che sono protette dai filtri di autorizzazione impostati da {{site.data.keyword.appid_short}}. I token di identità rappresentano l'autenticazione e contengono le informazioni sull'utente. È possibile utilizzare un token di aggiornamento per ottenere un nuovo token di accesso senza riautenticare l'utente. Utilizzando i token di aggiornamento, gli utenti possono consentire che le relative informazioni vengano ricordate dall'applicazione. In questo modo possono rimanere collegati. I token sono impostati in **Identity Providers > Manage** del dashboard {{site.data.keyword.appid_short}}. Per ulteriori informazioni sui token e su come vengono utilizzati in {{site.data.keyword.appid_short}}, consulta [Gestione dei token](/docs/services/appid?topic=appid-tokens#tokens).
+Il servizio utilizza tre diversi tipi di token. I token sono impostati in **Identity Providers > Manage** del dashboard {{site.data.keyword.appid_short}}. Per ulteriori informazioni sui token e su come vengono utilizzati in {{site.data.keyword.appid_short}}, consulta [Gestione dei token](/docs/services/appid?topic=appid-tokens).
+
+* Token di accesso: rappresentano l'autorizzazione e abilitano le comunicazioni con le [risorse di back-end](/docs/services/appid?topic=appid-backend) protette. Le risorse sono protette dai filtri di autorizzazione impostati da {{site.data.keyword.appid_short}}.
+
+* Token di identità: rappresentano l'autenticazione e contengono informazioni sull'utente.
+
+* Token di aggiornamento; possono essere utilizzati per ottenere un nuovo token di accesso senza riautenticare l'utente.Utilizzando i token di aggiornamento, gli utenti possono consentire che le loro informazioni vengano ricordate dall'applicazione, il che significa che possono restare collegati. 
 
 ### Intestazioni di autorizzazione
 {: #term-auth-header}
 
-{{site.data.keyword.appid_short}} è conforme alla <a href="https://tools.ietf.org/html/rfc6750" target="blank">specifica di connessione del token <img src="../../icons/launch-glyph.svg" alt="Icona link esterno"></a> e utilizza una combinazione di token di accesso e di identità che vengono inviati come un'intestazione di autorizzazione HTTP. L'intestazione di autorizzazione contiene tre parti diverse che sono separate da spazi vuoti. I token sono codificati base64. Il token di identità è facoltativo.
+{{site.data.keyword.appid_short}} è conforme alla [specifica del token di connessione](https://tools.ietf.org/html/rfc6750){: external} e utilizza una combinazione di token di accesso e identità che vengono inviati come un'intestazione di autorizzazione HTTP. L'intestazione di autorizzazione ha tre parti diverse che sono separate da spazi vuoti. I token sono codificati base64. Il token di identità è facoltativo.
 
 Esempio:
 

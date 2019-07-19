@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-20"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, development, ingress, policy, networking, containers, kubernetes
+keywords: Authentication, authorization, identity, app security, secure, development, ingress, policy, networking, containers, kubernetes
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -63,7 +63,7 @@ Ingress コントローラーと {{site.data.keyword.appid_short_notm}} の統�
 
 * 次の CLI:
 
-  * [{{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli)
+  * [{{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-getting-started)
   * [Kubernetes](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
   * [Docker](https://www.docker.com/products/container-runtime#/download)
 
@@ -81,7 +81,7 @@ CLI やプラグインをダウンロードしたり Kubernetes Service 環境�
 ## ステップ 1: {{site.data.keyword.appid_short_notm}} のクラスターへのバインド
 {: #kube-create-appid}
 
-{{site.data.keyword.appid_short_notm}} のインスタンスをクラスターにバインドすると、そのクラスター内にあるアプリのすべてのインスタンスを、その同じ {{site.data.keyword.appid_short_notm}} インスタンスで制御できます。また、アプリケーションを起動するとすぐに、{{site.data.keyword.appid_short_notm}} のメタデータと資格情報を Kubernetes シークレットとして使用できるようになります。
+{{site.data.keyword.appid_short_notm}} のインスタンスをクラスターにバインドすると、そのクラスター内にあるアプリのすべてのインスタンスを、その同じ {{site.data.keyword.appid_short_notm}} インスタンスで制御できます。 また、アプリケーションを起動するとすぐに、{{site.data.keyword.appid_short_notm}} のメタデータと資格情報を Kubernetes シークレットとして使用できるようになります。
 {: shortdesc}
 
 
@@ -193,11 +193,11 @@ CLI やプラグインをダウンロードしたり Kubernetes Service 環境�
 ## ステップ 3: Ingress の構成
 {: kube-ingress}
 
-クラスターの作成中に、プライベートおよびパブリックの IBM Kubernetes Service アプリケーション・ロード・バランサー (ALB) が両方とも自動的に作成されます。アプリケーションをデプロイし、Ingress コントローラーを利用するには、デプロイメント・スクリプトを作成します。
+クラスターの作成中に、プライベートおよびパブリックの IBM Kubernetes Service アプリケーション・ロード・バランサー (ALB) が両方とも自動的に作成されます。 アプリケーションをデプロイし、Ingress コントローラーを利用するには、デプロイメント・スクリプトを作成します。
 {: shortdesc}
 
 
-統合のパフォーマンスを最大限に高めるには、常に最新バージョンの IBM Kubernetes Service アプリケーション・ロード・バランサー (ALB) を使用することをお勧めします。デフォルトでは、クラスターの自動更新が有効になっています。自動更新について詳しくは、[On-demand ALB update feature on {{site.data.keyword.containershort}}](https://www.ibm.com/cloud/blog/on-demand-alb-update-feature-on-ibm-cloud-kubernetes-service) を参照してください。
+統合のパフォーマンスを最大限に高めるには、常に最新バージョンの IBM Kubernetes Service アプリケーション・ロード・バランサー (ALB) を使用することをお勧めします。 デフォルトでは、クラスターの自動更新が有効になっています。 自動更新について詳しくは、[On-demand ALB update feature on {{site.data.keyword.containershort}}](https://www.ibm.com/cloud/blog/on-demand-alb-update-feature-on-ibm-cloud-kubernetes-service) を参照してください。
 {: tip}
 
 1. {{site.data.keyword.appid_short_notm}} をクラスターにバインドした際にクラスター名前空間に作成されたシークレットを取得します。 注: これはコンテナー・レジストリーの名前空間では**ありません**。

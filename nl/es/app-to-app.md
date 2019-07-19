@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-14"
+lastupdated: "2019-06-28"
 
-keywords: authentication, authorization, identity, app security, secure, application identity, app to app, access token
+keywords: Authentication, authorization, identity, app security, secure, application identity, app to app, access token
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -37,7 +37,7 @@ Existen varias razones por las que es posible que desee que una aplicación se c
 ### ¿Cómo funciona el flujo?
 {: #app-flow-how}
 
-{{site.data.keyword.appid_short_notm}} optimiza el flujo de las credenciales del cliente OAuth 2.0 para proteger la comunicación. Después de que una app se registre con {{site.data.keyword.appid_short_notm}}, esta obtiene un ID de cliente y un secreto. Con esta información, la app puede solicitar una señal de acceso de {{site.data.keyword.appid_short_notm}} y obtener autorización para acceder a un recurso o API protegidos. En el flujo de autorización e identidad de la aplicación, esta obtiene únicamente una señal de acceso. No obtiene una señal de identidad o de renovación. Para obtener más información sobre las señales, consulte [Comprensión de las señales](/docs/services/appid?topic=appid-tokens#tokens).
+{{site.data.keyword.appid_short_notm}} optimiza el flujo de las credenciales del cliente OAuth 2.0 para proteger la comunicación. Después de que una app se registre con {{site.data.keyword.appid_short_notm}}, esta obtiene un ID de cliente y un secreto. Con esta información, la app puede solicitar una señal de acceso de {{site.data.keyword.appid_short_notm}} y obtener autorización para acceder a un recurso o API protegidos. En el flujo de autorización e identidad de la aplicación, esta obtiene únicamente una señal de acceso. No obtiene una señal de identidad o de renovación. Para obtener más información sobre las señales, consulte [Comprensión de las señales](/docs/services/appid?topic=appid-tokens).
 
 Este flujo de trabajo está pensado para utilizarse solo con aplicaciones de confianza en las que no existe riesgo de que el secreto se utilice de forma indebida o de que se filtre. La aplicación siempre mantiene el secreto del cliente. No funcionará en apps para móvil.
 {: tip}
@@ -72,7 +72,7 @@ El secreto de cliente que se utiliza para autenticar el cliente es muy sensible 
 ### Con la API
 {: #app-register-api}
 
-1. Realice una solicitud POST en el punto final [`/management/v4/{tenantId}/applications`](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Applications/mgmt.registerApplication).
+1. Realice una solicitud POST en el [punto final `/management/v4/{tenantId}/applications`](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Applications/mgmt.registerApplication){: external}.
 
   Solicitud:
 
@@ -104,7 +104,7 @@ El secreto de cliente que se utiliza para autenticar el cliente es muy sensible 
 
 Una vez que haya registrado la app con {{site.data.keyword.appid_short_notm}} y haya obtenido las credenciales, puede realizar una solicitud al servidor de autorización {{site.data.keyword.appid_short_notm}} para obtener una señal de acceso.
 
-1. Realice una solicitud POST HTTP en el punto final [`/token`](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization%20Server%20-%20Authorization%20Server%20V4/oauth-server.token). La autorización para la solicitud es `Basic auth` con el ID de cliente y el secreto que se utilizan como nombre de usuario y contraseña codificados en base64.
+1. Realice una solicitud POST HTTP en el [punto final `/token`](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization%20Server%20-%20Authorization%20Server%20V4/oauth-server.token){: external}. La autorización para la solicitud es `Basic auth` con el ID de cliente y el secreto que se utilizan como nombre de usuario y contraseña codificados en base64.
 
   Solicitud:
   ```
@@ -130,9 +130,9 @@ Una vez que haya registrado la app con {{site.data.keyword.appid_short_notm}} y 
 ## Guía de aprendizaje: Flujo de extremo a extremo con el SDK de Node.js
 {: tutorial-node}
 
-1. Obtenga una [señal de acceso](/docs/services/appid?topic=appid-tokens#tokens) de una de las formas siguientes:
+1. Obtenga una [señal de acceso](/docs/services/appid?topic=appid-tokens) de una de las formas siguientes:
 
-  * Desde el {{site.data.keyword.appid_short_notm}} [SDK del servidor Node.js](https://github.com/ibm-cloud-security/appid-serversdk-nodejs) utilizando el gestor de señales. Inicialice el gestor de señales con las credenciales de la app y llame al método `getApplicationIdentityToken()` para obtener la señal.
+  * Desde el {{site.data.keyword.appid_short_notm}} [SDK del servidor Node.js](https://github.com/ibm-cloud-security/appid-serversdk-nodejs){: external} utilizando el gestor de señales. Inicialice el gestor de señales con las credenciales de la app y llame al método `getApplicationIdentityToken()` para obtener la señal.
 
     ```
     const TokenManager = require('ibmcloud-appid').TokenManager;
@@ -217,6 +217,7 @@ Una vez que haya registrado la app con {{site.data.keyword.appid_short_notm}} y 
   ```
   const express = require('express'),
     passport = require('passport');
+    APIStrategy = require("ibmcloud-appid").APIStrategy;
 
   var app = express();
   app.use(passport.initialize());

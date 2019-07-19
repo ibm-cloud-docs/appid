@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-20"
+lastupdated: "2019-07-10"
 
-keywords: authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
+keywords: Authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -25,7 +25,7 @@ subcollection: appid
 # Customizando e-mails
 {: #cd-types}
 
-Quando um usuário interage com seu aplicativo, há momentos em que você pode desejar enviar uma resposta ou solicitar uma verificação. O {{site.data.keyword.appid_short_notm}} fornece modelos padrão que podem ser usados para as interações. Também é possível usar os modelos como um guia e customizar seu sistema de mensagens para se ajustar à sua marca.
+Quando um usuário interage com seu aplicativo, talvez você queira enviar uma resposta ou solicitar verificação. O {{site.data.keyword.appid_short_notm}} fornece modelos padrão que podem ser usados para as interações. Também é possível usar os modelos como um guia e customizar seu sistema de mensagens para se ajustar à sua marca.
 {: shortdesc}
 
 O
@@ -42,7 +42,7 @@ Quando você envia mensagens para seus usuários, é possível usar qualquer com
 Além dos tipos de mensagens a seguir, também é possível aproveitar os modelos [SSO](/docs/services/appid?topic=appid-cd-sso#cd-sso) e [MFA](/docs/services/appid?topic=appid-cd-mfa#cd-mfa).
 {: tip}
 
-É possível usar parâmetros em suas mensagens para customizar ainda mais as mensagens. Efetue o registro de saída da tabela a seguir para ver os parâmetros que podem ser usados em todos os tipos de mensagens.
+Para customização adicional, é possível usar parâmetros em suas mensagens. Efetue o registro de saída da tabela a seguir para ver os parâmetros que podem ser usados em todos os tipos de mensagens.
 
 <table>
   <tr>
@@ -62,7 +62,7 @@ Além dos tipos de mensagens a seguir, também é possível aproveitar os modelo
   </tr>
   <tr>
     <td><code>%{user.username}</code></td>
-    <td> Exibe o nome do usuário especificado quando o método de autenticação é configurado para o nome do usuário e a senha. </td>
+    <td> Exibe o nome do usuário especificado quando o método de autenticação é configurado como nome do usuário e senha. </td>
   </tr>
   <tr>
     <td><code>%{user.firstName}</code></td>
@@ -85,7 +85,7 @@ Além dos tipos de mensagens a seguir, também é possível aproveitar os modelo
 Quando um usuário se conecta a seu aplicativo, você pode desejar enviar a eles uma mensagem que os recebe em seu app. 
 {: shortdesc}
 
-1. Navegue para a guia **Modelos de Fluxo de Trabalho >E-mail de Boas-vindas**do painel de serviço.
+1. Acesse a guia **Modelos de fluxo de trabalho > E-mail de boas-vindas** do painel de serviço.
 
 2. Configure **E-mail de boas-vindas** para **Ativado**.
 
@@ -97,12 +97,14 @@ Quando um usuário se conecta a seu aplicativo, você pode desejar enviar a eles
 ### E-mail: Verificação
 {: #cd-messages-verification}
 
-Quando um usuário se conecta a seu aplicativo usando seu e-mail, é possível enviar um e-mail solicitando que ele confirme sua identidade. Ao solicitar uma verificação, você limita o número de contas falsas que podem se inscrever para seu app. É possível restringir o acesso ao app até que um usuário verifique seu e-mail ou use-o como uma maneira de gerenciar para quais usuários você cria perfis. Observe
-que os usuários que são incluídos manualmente por meio do painel do {{site.data.keyword.appid_short_notm}} ou da API de criação de usuário não recebem automaticamente esse e-mail.
+Quando um usuário se conecta a seu aplicativo usando seu e-mail, é possível enviar um e-mail solicitando que ele confirme sua identidade. Ao solicitar uma verificação, você limita o número de contas falsas que podem se inscrever para seu app. É possível restringir o acesso ao app até que um usuário verifique seu e-mail ou use-o como uma maneira de gerenciar para quais usuários você cria perfis.
 {: shortdesc}
 
+Os usuários que são manualmente incluídos por meio do painel do {{site.data.keyword.appid_short_notm}} ou a API do usuário de criação não recebem esse e-mail automaticamente.
+{: note}
 
-1. Navegue para a guia **Modelos de fluxo de trabalho > Verificação de e-mail** do painel de serviço.
+
+1. Acesse a guia **Modelos de fluxo de trabalho > Verificação de e-mail** do painel de serviço.
 
 2. Configure **Verificação de e-mail** para **Ativado**.
 
@@ -135,7 +137,7 @@ que os usuários que são incluídos manualmente por meio do painel do {{site.da
   Também é possível usar os parâmetros de mensagem listados na seção [Mensagem de boas-vindas](/docs/services/appid?topic=appid-cd-messages#cd-messages-welcome).
   {: tip}
 
-5. Defina um prazo de expiração para a URL de ação. A expiração da URL é a quantidade de tempo, em minutos, que um usuário tem que concluir a ação antes que o link de verificação expire. Essa configuração também afeta a quantidade de tempo que seu link de reconfiguração de senha é válido.
+5. Defina um prazo de expiração para a URL de ação. A expiração da URL é a quantia de tempo, em minutos, em que um usuário deve concluir a ação antes de o link de verificação expirar. Essa configuração também afeta a quantidade de tempo que seu link de reconfiguração de senha é válido.
  
 6. Insira uma URL para a página que você deseja exibir após um usuário verificar seu e-mail na caixa **URL da página de agradecimento**. Se você optar por deixar esse campo em branco, uma página {{site.data.keyword.appid_short_notm}} padrão será exibida.
 
@@ -149,7 +151,7 @@ Quando um usuário interage com seu app, pode acontecer de esquecer a senha ou p
 {: shortdesc}
 
 
-1. Navegue para a guia **Modelos de fluxo de trabalho > Reconfigurar senha** do painel de serviço.
+1. Acesse a guia **Modelos de fluxo de trabalho > Reconfigurar senha** do painel de serviço.
 
 2. Configure **E-mail de senha esquecida** para **Ativado**.
 
@@ -180,7 +182,7 @@ Quando um usuário interage com seu app, pode acontecer de esquecer a senha ou p
   Também é possível usar os parâmetros de mensagem listados na seção [Mensagem de boas-vindas](/docs/services/appid?topic=appid-cd-messages#cd-messages-welcome).
   {: tip}
 
-4. Defina um prazo de expiração para a URL de ação. A expiração da URL é a quantidade de tempo, em minutos, que um usuário tem que concluir a ação antes que o link de verificação expire. Essa configuração também afeta a quantidade de tempo que seu link de reconfiguração de senha é válido.
+4. Defina um prazo de expiração para a URL de ação. A expiração da URL é a quantia de tempo, em minutos, em que um usuário deve concluir a ação antes de o link de verificação expirar. Essa configuração também afeta a quantidade de tempo que seu link de reconfiguração de senha é válido.
  
 5. Insira uma URL para a página que você deseja exibir após um usuário verificar seu e-mail na caixa **URL da página de reconfiguração de senha**. Se você optar por deixar esse campo em branco, uma página {{site.data.keyword.appid_short_notm}} padrão será exibida.
 
@@ -190,10 +192,10 @@ Quando um usuário interage com seu app, pode acontecer de esquecer a senha ou p
 ### E-mail: mudança de senha
 {: #cd-messages-password-change}
 
-É possível informar um usuário quando a senha é atualizada. Isso é útil se eles não solicitaram que suas senhas fossem mudadas. Eles podem tomar as etapas adequadas para tornar a proteger sua conta.
+É possível notificar um usuário quando a senha dele for atualizada. A notificação pode ser útil se ele não solicitou que a senha fosse mudada. Eles podem tomar as etapas adequadas para tornar a proteger sua conta.
 {: shortdesc}
 
-1. Navegue para a guia **Modelos de fluxo de trabalho > Mudança de senha** do painel de serviço.
+1. Acesse a guia **Modelos de fluxo de trabalho > Mudança de senha** do painel de serviço.
 
 2. Configure **E-mail de senha mudada** para **Ativado**.
 
@@ -231,7 +233,7 @@ Você pode desejar usar um remetente de e-mail customizado pelos motivos a segui
 
 - **Domínio personalizado**
 Configurando um dispatcher de e-mail customizado, você tem controle total sobre como as mensagens de e-mail são
-enviadas. Isso inclui a customização do domínio de e-mail, que pode reduzir ainda mais as chances de e-mails serem filtrados como spam. Também é possível aprimorar ainda mais a experiência de marca para os usuários do app.
+enviadas. Mais especificamente, é possível customizar o domínio de e-mail, que pode reduzir as chances de um e-mail ser filtrado como spam. Também é possível aprimorar ainda mais a experiência de marca para os usuários do app.
 
 - **Insights e resolução de problemas**
 Obtenha insights de seu provedor de e-mail, como: o número de pessoas que abriram os e-mails ou quais mensagens não foram entregues. Como é possível rastrear mensagens individuais e ver estatísticas gerais, isso pode ajudar a resolver problemas.
@@ -323,7 +325,7 @@ que vem do {{site.data.keyword.appid_short_notm}} e enviar o e-mail com o emisso
     </tr>
     <tr>
       <td><code> iat </code></td>
-      <td>O registro de data e hora de quando a mensagem enviada.</td>
+      <td>O registro de data e hora de quando a mensagem foi enviada.</td>
     </tr>
     <tr>
       <td><code> iss </code></td>
@@ -338,7 +340,7 @@ que vem do {{site.data.keyword.appid_short_notm}} e enviar o e-mail com o emisso
       <td>O endereço de e-mail do destinatário da mensagem.</td>
     </tr>
     <tr>
-      <td><code>mensagem: de</code></br><code>nome</code></br><code>endereço</code></td>
+      <td><code>mensagem: de</code> </br><code>nome</code> </br><code>endereço</code></td>
       <td></br>O nome do emissor da mensagem.</br>O endereço de email do remetente.</td>
     </tr>
     <tr>
@@ -425,7 +427,7 @@ possível usar a chave pública para verificar se a carga útil é gerada pelo {
 
 6. Verifique se a configuração está corretamente configurada testando seu dispatcher de e-mail. Use a <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/post_email_dispatcher_test" target="_blank">API de teste</a> para acionar uma solicitação para o remetente de e-mail customizado configurado.
 
-Para obter o exemplo de trabalho completo, consulte <a href="https://www.ibm.com/cloud/blog/use-ibm-cloud-app-id-and-your-email-provider-to-brand-mails-sent-to-app-users" target="_blank">Usar seu próprio provedor para e-mail enviado com o {{site.data.keyword.appid_full}}</a>.
+Para obter o exemplo de trabalho integral, consulte <a href="https://www.ibm.com/cloud/blog/use-ibm-cloud-app-id-and-your-email-provider-to-brand-mails-sent-to-app-users" target="_blank">Usar seu próprio provedor para e-mail enviado com o {{site.data.keyword.appid_full}}</a>.
 
 
 
@@ -627,7 +629,7 @@ Para obter o exemplo de trabalho completo, consulte <a href="https://www.ibm.com
   <tr>
     <td><code> zh-Hant-MO </code></td>
     <td>Chinês-tradicional</td>
-    <td>Macao SAR do PRC</td>
+    <td>RAE de Macau da RPC</td>
   </tr>
   <tr>
     <td><code>zh-Hant-TW</code></td>
@@ -1062,7 +1064,7 @@ Para obter o exemplo de trabalho completo, consulte <a href="https://www.ibm.com
   <tr>
     <td><code> pt-MO </code></td>
     <td>Português</td>
-    <td>Macao SAR do PRC</td>
+    <td>RAE de Macau da RPC</td>
   </tr>
   <tr>
     <td><code> pt-MZ </code></td>

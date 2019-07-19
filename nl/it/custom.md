@@ -25,7 +25,7 @@ subcollection: appid
 # Personalizzato
 {: #custom-identity}
 
-Puoi utilizzare il tuo provider di identità personalizzato quando esegui l'autenticazione. Il tuo provider di identità può conformarsi a qualsiasi meccanismo di autenticazione che non viene specificatamente supportato da {{site.data.keyword.appid_full}}, inclusa la proprietà.
+Puoi utilizzare il tuo provider di identità personalizzata quando esegui l'autenticazione. Il tuo provider di identità può conformarsi a qualsiasi meccanismo di autenticazione che non viene specificatamente supportato da {{site.data.keyword.appid_full}}, inclusa la proprietà.
 {: shortdesc}
 
 Quando {{site.data.keyword.appid_short_notm}} non fornisce il supporto diretto per un particolare provider di identità, puoi utilizzare il flusso di identità personalizzato per collegare il protocollo di autenticazione al flusso di autenticazione esistente di {{site.data.keyword.appid_short_notm}}. Ad esempio, vuoi utilizzare GitHub o LinkedIn per consentire agli utenti di accedere. Puoi utilizzare l'SDK esistente del provider di identità per facilitare le informazioni sull'autenticazione utente prima di impacchettarle e scambiarle con {{site.data.keyword.appid_short_notm}}. In molti scenari aziendali, un provider di identità legacy potrebbe utilizzare il proprio protocollo di autenticazione personalizzato, ma tuo vuoi ancora utilizzare le funzionalità di {{site.data.keyword.appid_short_notm}}. Per questo tipo di scenario, il flusso di identità personalizzato fornisce un mezzo disaccoppiato per autenticare in modo sicuro i tuoi utenti senza esporne le credenziali.
@@ -33,13 +33,13 @@ Quando {{site.data.keyword.appid_short_notm}} non fornisce il supporto diretto p
 ## Configurazione dell'identità personalizzata
 {: #custom-configure}
 
-Puoi utilizzare la seguente procedura per configurare il tuo provider di identità personalizzato per l'utilizzo con {{site.data.keyword.appid_short_notm}}.
+Puoi utilizzare la seguente procedura per configurare il tuo provider di identità personalizzata per l'utilizzo con {{site.data.keyword.appid_short_notm}}.
 {: shortdesc}
 
 ### Prima di cominciare
 {: #custom-identity-before}
 
-Per stabilire l'affidabilità tra {{site.data.keyword.appid_short_notm}} e il tuo provider di identità personalizzato, devi avere una coppia di chiavi RSA PEM con una lunghezza minima di 2048. Assicurati di aver eseguito in modo sicuro il backup di tutte le chiavi che utilizzi nella produzione.
+Per stabilire l'affidabilità tra {{site.data.keyword.appid_short_notm}} e il tuo provider di identità personalizzata, devi avere una coppia di chiavi RSA PEM con una lunghezza minima di 2048. Assicurati di aver eseguito in modo sicuro il backup di tutte le chiavi che utilizzi nella produzione.
 
 Come vengono utilizzate le chiavi?
 
@@ -102,4 +102,4 @@ Se ha esito positivo, puoi ora visualizzare i token di identità e accesso {{sit
 ## Passi successivi
 {: #custom-identity-next}
 
-Ora che è stato configurato il tuo provider di identità personalizzato, [aggiungilo alla tua applicazione](/docs/services/appid?topic=appid-custom-auth#custom-auth)!
+Ora che è stato configurato il tuo provider di identità personalizzata, [aggiungilo alla tua applicazione](/docs/services/appid?topic=appid-custom-auth#custom-auth)!

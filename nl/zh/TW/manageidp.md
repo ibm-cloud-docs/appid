@@ -94,7 +94,7 @@ subcollection: appid
 ## 新增重新導向 URI
 {: #add-redirect-uri}
 
-重新導向 URI 是應用程式的回呼端點。在登入流程期間，{{site.data.keyword.appid_short_notm}} 會在容許用戶端參與授權工作流程之前先驗證 URI，這有助於防止網路釣魚攻擊及授權碼洩漏。透過登錄 URI，您將告訴 {{site.data.keyword.appid_short_notm}} 此 URI 是可信任的，可以重新導向您的使用者。
+重新導向 URI 是應用程式的回呼端點。在登入流程期間，{{site.data.keyword.appid_short_notm}} 會在容許用戶端參與授權工作流程之前先驗證 URI，這有助於防止網路釣魚攻擊及授權碼洩漏。透過登錄 URI，您將告訴 {{site.data.keyword.appid_short_notm}} 此 URI 是可信任的，可以將您的使用者重新導向。
 
 請務必只登錄您信任的應用程式 URI。
 {: note}
@@ -102,7 +102,7 @@ subcollection: appid
 
 1. 按一下**鑑別設定**，以查看 URI 及記號配置選項。
 
-2. 在**新增 Web 重新導向 URI** 欄位中，鍵入 URI。每一個 URI 都應該以 `http://` 或 `https://` 作為開頭，而且必須包含完整路徑，其中包括要讓重新導向順利完成的任何查詢參數。需要協助格式化您的 URI？請查看下表的一些範例。
+2. 在**新增 Web 重新導向 URI** 欄位中，鍵入 URI。每一個 URI 都應該以 `http://` 或 `https://` 作為開頭，而且必須包含完整路徑，其中包括要讓重新導向順利完成的任何查詢參數。需要格式化 URI 的協助？請查看下表的一些範例。
 
   <table>
     <tr>

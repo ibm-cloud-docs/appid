@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-21"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, web apps, client, server
+keywords: Authentication, authorization, identity, app security, secure, web apps, client, server
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -48,7 +48,7 @@ Web アプリでは、保護コンテンツにアクセスするために、し�
 
 2. ユーザーが許可されていない場合、{{site.data.keyword.appid_short_notm}} へのリダイレクトによって認証フローが開始します。
 
-3. ユーザーの `/authorization` 要求パラメーターまたは ID プロバイダー構成に応じて、ユーザーのブラウザー内でログイン・ウィジェットが起動します。
+3. ユーザーの `/authorization` 要求パラメーターまたは ID プロバイダー構成に応じて、ユーザーのブラウザー内でログイン・ウィジェットを開始します。
 
 4. ユーザーは、認証を行うための ID プロバイダーを選択し、サインイン・プロセスを実行します。
 
@@ -78,7 +78,7 @@ Web アプリでは、保護コンテンツにアクセスするために、し�
 * {{site.data.keyword.appid_short_notm}} サービス・ダッシュボードで設定されたリダイレクト URI
 
 
-{{site.data.keyword.appid_short_notm}} を使用した Node アプリケーションの保護については、以下のビデオをご覧ください。その後、[単純な Node サンプル・アプリ](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02a-simple-node-web-app)を使用して試してください。
+{{site.data.keyword.appid_short_notm}} を使用した Node アプリケーションの保護については、以下のビデオをご覧ください。 その後、[単純な Node サンプル・アプリ](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02a-simple-node-web-app)を使用して試してください。
 
 <iframe class="embed-responsive-item" id="appid-nodejs" title="{{site.data.keyword.appid_short_notm}} の概要" type="text/html" width="640" height="390" src="//www.youtube.com/embed/6roa1ZOvwtw?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
@@ -123,12 +123,12 @@ Web アプリでは、保護コンテンツにアクセスするために、し�
   ```
   {: codeblock}
 
-  ミドルウェアには、実稼働環境用の適切なセッション・ストレージを構成する必要があります。 詳細については、<a href="https://github.com/expressjs/session" target="_blank">express.js の資料 <img src="../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> を参照してください。
+  ミドルウェアには、実稼働環境用の適切なセッション・ストレージを構成する必要があります。 詳しくは、[express.js](https://expressjs.com/){: external} の資料を参照してください。
   {: note}
 
 3. 次のいずれかの方法で資格情報を入手します。
 
-  * {{site.data.keyword.appid_short_notm}} ダッシュボードの**「アプリケーション」**タブに移動します。 リスト内にアプリケーションがない場合は、**「アプリケーションの追加 (Add application)」**をクリックして新しいアプリケーションを作成できます。
+  * {{site.data.keyword.appid_short_notm}} ダッシュボードの**「アプリケーション」**タブに移動します。 リスト内にアプリケーションがない場合は、**「アプリケーションの追加 (Add application)」**をクリックしてアプリケーションを作成できます。
 
   * [`/management/v4/{tenantId}/applications` エンドポイント](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Applications/mgmt.registerApplication)に対して POST 要求を行います。
 
@@ -220,7 +220,7 @@ Web アプリでは、保護コンテンツにアクセスするために、し�
 * Liberty for Java Web アプリケーション
 
 
-{{site.data.keyword.appid_short_notm}} を使用した Liberty for Java アプリケーションの保護については、以下のビデオをご覧ください。その後、[単純な Liberty for Java サンプル・アプリ](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02c-simple-liberty-web-app)を使用して試してください。
+{{site.data.keyword.appid_short_notm}} を使用した Liberty for Java アプリケーションの保護については、以下のビデオをご覧ください。 その後、[単純な Liberty for Java サンプル・アプリ](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02c-simple-liberty-web-app)を使用して試してください。
 
 <iframe class="embed-responsive-item" id="appid-liberty-web" title="{{site.data.keyword.appid_short_notm}} の概要" type="text/html" width="640" height="390" src="//www.youtube.com/embed/o_Er69YUsMQ?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
@@ -332,7 +332,7 @@ Web アプリでは、保護コンテンツにアクセスするために、し�
 ### Liberty for Java SDK の初期化
 {: #web-liberty-initialize}
 
-1. `server.xml` ファイルで、保護リソースを指定するための許可フィルターを定義します。 フィルターを<a href="https://www.ibm.com/support/knowledgecenter/en/SSD28V_9.0.0/com.ibm.websphere.wlp.core.doc/ae/rwlp_auth_filter.html" target="_blank">定義 <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> しない場合は、サービスによってすべてのリソースが保護されます。
+1. `server.xml` ファイルで、保護リソースを指定するための許可フィルターを定義します。 フィルターを<a href="https://www.ibm.com/support/knowledgecenter/en/SSD28V_liberty/com.ibm.websphere.wlp.core.doc/ae/rwlp_auth_filter.html" target="_blank">定義 <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> しない場合は、サービスによってすべてのリソースが保護されます。
 
   ```xml
   <authFilter id="myAuthFilter">

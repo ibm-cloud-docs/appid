@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-21"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, access, tokens
+keywords: Authentication, authorization, identity, app security, secure, access, tokens
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -25,8 +25,7 @@ subcollection: appid
 # Conceitos-chave
 {: #key-concepts}
 
-Confuso sobre as diferenças entre autorização e autenticação? Você não está sozinho. Consulte as informações nesta
-página para saber sobre terminologia específica, os processos e a maneira como o serviço usa os tokens.
+Confuso sobre as diferenças entre autorização e autenticação? Você não está sozinho. Confira as informações a seguir para aprender sobre a terminologia específica, os processos e a forma que o serviço usa tokens.
 {: shortdesc}
 
 Quer saber mais sobre alguns dos conceitos básicos de autorização e autenticação? Não procure mais. No vídeo a seguir, é possível aprender sobre o OAuth 2.0, os tipos de concessão, o OIDC e mais.
@@ -41,13 +40,13 @@ Estes termos chave podem ajudá-lo a entender a maneira como o serviço divide o
 
 ### OAuth 2
 {: #term-oauth}
-<a href="https://tools.ietf.org/html/rfc6749" target="_blank">OAuth 2 <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a> é o protocolo de padrão aberto usado para fornecer autorização de app.
+O [OAuth 2.0](https://tools.ietf.org/html/rfc6749){: external} é um protocolo de padrão aberto que é usado para fornecer autorização de app.
 
 
 ### Open ID Connect (OIDC)
 {: #term-oidc}
 
-<a href="https://openid.net/developers/specs/" target="_blank">OIDC <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a> é uma camada de autenticação que funciona na parte superior do OAuth 2. Quando você usa o OIDC e o {{site.data.keyword.appid_short_notm}} juntos, suas credenciais de aplicativo ajudam a configurar seus terminais do OAuth. Ao usar o SDK, as URLs de terminal são construídas automaticamente. Mas, também é possível construir
+O [OIDC](https://openid.net/developers/specs/){: external} é uma camada de autenticação que funciona com o OAuth 2. Quando você usa o OIDC e o {{site.data.keyword.appid_short_notm}} juntos, suas credenciais de aplicativo ajudam a configurar seus terminais OAuth. Se você usar o SDK, as URLs do terminal serão construídas automaticamente. Mas, também é possível construir
 as URLs você mesmo usando as suas credenciais de serviço. A URL assume o seguinte formato: {{site.data.keyword.appid_short_notm}} service endpoint + "/oauth/v4" + /tenantID.
 
 Exemplo:
@@ -90,20 +89,24 @@ Usando este exemplo, a URL seria `https://us-south.appid.cloud.ibm.com/oauth/v4/
   </tr>
 </table>
 
-Ao usar o SDK, as URLs de terminal são construídas automaticamente.
+Ao usar o SDK, as URLs de terminal serão construídas automaticamente.
 {: note}
 
 ### Tokens
 {: #term-token}
 
-O serviço usa três tipos diferentes de tokens. Os tokens de acesso representam a autorização e permitem a comunicação com os [recursos de backend](/docs/services/appid?topic=appid-backend) que são protegidos por filtros de autorização configurados pelo {{site.data.keyword.appid_short}}. Os tokens de identidade representam a autenticação e contêm informações sobre o usuário. Um
-token de atualização pode ser usado para obter um novo token de acesso sem autenticar novamente o usuário. Ao usar tokens de atualização, os usuários podem
-permitir que as suas informações sejam lembradas pelo aplicativo. Dessa forma, eles podem permanecer conectados. Os tokens são configurados nos **Provedores de identidade > Gerenciar** do painel do {{site.data.keyword.appid_short}}. Para obter mais informações sobre tokens e como eles são usados no {{site.data.keyword.appid_short}}, consulte [Gerenciando tokens](/docs/services/appid?topic=appid-tokens#tokens).
+O serviço usa três tipos diferentes de tokens. Os tokens são configurados nos **Provedores de identidade > Gerenciar** do painel do {{site.data.keyword.appid_short}}. Para obter mais informações sobre tokens e como eles são usados no {{site.data.keyword.appid_short}}, consulte [Gerenciando tokens](/docs/services/appid?topic=appid-tokens).
+
+* Tokens de acesso: representam a autorização e permitem a comunicação com os [recursos de back-end](/docs/services/appid?topic=appid-backend) protegidos. Os recursos são protegidos por filtros de autorização que são configurados pelo {{site.data.keyword.appid_short}}.
+
+* Tokens de identidade: representam a autenticação e contêm informações sobre o usuário.
+
+* Tokens de atualização: podem ser usados para obter um novo token de acesso sem autenticar novamente o usuário. Ao usar tokens de atualização, os usuários podem permitir que suas informações sejam lembradas pelo aplicativo, o que significa que eles podem permanecer conectados. 
 
 ### Cabeçalhos de autorização
 {: #term-auth-header}
 
-O {{site.data.keyword.appid_short}} está em conformidade com a <a href="https://tools.ietf.org/html/rfc6750" target="blank">especificação de acesso de token <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a> e usa uma combinação de tokens de acesso e de identidade que são enviados como um cabeçalho de Autorização HTTP. O cabeçalho de Autorização contém três partes diferentes que são separadas por espaço em branco. Os tokens são codificados em base64. O token de identidade é opcional.
+O {{site.data.keyword.appid_short}} está em conformidade com a [especificação de portador de token](https://tools.ietf.org/html/rfc6750){: external} e usa uma combinação de tokens de acesso e identidade que são enviadas como um cabeçalho de Autorização HTTP. O Cabeçalho de autorização tem três partes diferentes que são separadas por espaços em branco. Os tokens são codificados em base64. O token de identidade é opcional.
 
 Exemplo:
 
@@ -149,6 +152,6 @@ O{{site.data.keyword.appid_short_notm}}usa uma lista de URIs totalmente qualific
 ### Conjunto de chaves da web JSON (JWKS)
 {: #term-jwks}
 
-Um JWKS representa um conjunto de chaves criptográficas. O {{site.data.keyword.appid_short_notm}} usa um JWKS para verificar a autenticidade dos tokens que são gerados pelo serviço. Usando o ID da chave para verificar a assinatura, é possível assegurar que o token foi emitido por uma origem confiável, o {{site.data.keyword.appid_short_notm}} e que as informações dentro do token nunca foram mudadas.
+Um JWKS representa um conjunto de chaves criptográficas. O {{site.data.keyword.appid_short_notm}} usa um JWKS para verificar a autenticidade dos tokens que são gerados pelo serviço. Usando o ID de chave para verificar a assinatura, podemos assegurar que o token foi emitido por uma fonte confiável, {{site.data.keyword.appid_short_notm}}, e que as informações no token nunca foram mudadas.
 
 

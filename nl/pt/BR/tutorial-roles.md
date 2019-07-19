@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, access management, roles, attributes, users
+keywords: Authentication, authorization, identity, app security, secure, access management, roles, attributes, users
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -26,7 +26,7 @@ subcollection: appid
 # Tutorial: configurando funções de usuário
 {: #tutorial-roles}
 
-Assegurar que as pessoas certas tenham o acesso correto no momento certo pode ser difícil quando você está codificando seu aplicativo. Para ajudar com esse processo, é possível usar o {{site.data.keyword.appid_full}} para definir um atributo customizado, como `role`, que permite designar diferentes tipos de usuários. Em seguida, é possível usar seu aplicativo para impor níveis variados de permissões para cada tipo de usuário. Ao usar esse guia passo a passo, é possível aprender a configurar atributos do usuário, atualizá-los e, em seguida, injetá-los em um token usando as APIs do {{site.data.keyword.appid_short_notm}}.
+Assegurar que as pessoas certas tenham o acesso correto no momento certo pode ser difícil quando você está codificando seu aplicativo. Para ajudar com esse processo, é possível usar o {{site.data.keyword.appid_full}} para definir um atributo customizado, como `role`, que permite designar diferentes tipos de usuários. Em seguida, é possível usar seu aplicativo para impor níveis variados de permissões para cada tipo de usuário. Usando esse guia passo a passo, você pode aprender a configurar atributos, atualizá-los e injetá-los em um token usando as APIs do {{site.data.keyword.appid_short_notm}}.
 {: shortdesc}
 
 As APIs são uma novidade para você? Experimente com essa [Coleção do Postman](https://github.com/ibm-cloud-security/appid-postman).
@@ -38,7 +38,7 @@ As APIs são uma novidade para você? Experimente com essa [Coleção do Postman
 Você é um desenvolvedor de um parque temático fictício. Você é designado com o gerenciamento de acesso para o [aplicativo da web](/docs/services/appid?topic=appid-web-apps) e sente que a maneira mais fácil de fazer isso é configurando funções para cada tipo de usuário. Você tem vários tipos diferentes de funções, como equipe do parque e visitantes, que precisam de níveis diferentes de permissões. Você deseja ser capaz de aperfeiçoar o processo e assegurar que os usuários tenham a função correta designada a partir da primeira vez que eles se conectem ao aplicativo.  
 {: shortdesc}
 
-Sem problemas! É possível usar o [recurso de atributos customizados](/docs/services/appid?topic=appid-profiles) do {{site.data.keyword.appid_short_notm}} para armazenar qualquer tipo de informações relacionadas ao usuário. Portanto, como você está trabalhando com o controle de acesso baseado na função, é possível criar um atributo que é chamado `role` e designar valores diferentes para especificar um tipo de função. Por exemplo, o parque temático pode ter `visitors` ou `staff` que poderiam ser diferentes valores para o atributo `role`. Em seguida, é possível assegurar que seu código do aplicativo imponha as políticas de acesso e os privilégios que você designou.
+Sem problemas! É possível usar o [recurso de atributos customizados](/docs/services/appid?topic=appid-profiles) do {{site.data.keyword.appid_short_notm}} para armazenar qualquer tipo de informações relacionadas ao usuário. Portanto, como você está trabalhando com o controle de acesso baseado na função, é possível criar um atributo que é chamado `role` e designar valores diferentes para especificar um tipo de função. Por exemplo, o parque temático pode ter `visitors` ou `staff` que podem ser valores diferentes para o atributo `role`. Em seguida, é possível assegurar que seu código do aplicativo imponha as políticas de acesso e os privilégios que você designou.
 
 Embora este tutorial seja gravado especificamente com apps da web e o Cloud Directory em mente, os atributos podem ser usados em um sentido muito mais amplo. Os atributos customizados podem ser qualquer coisa que você deseja que eles sejam. Desde que você fique abaixo dos atributos de 100k e os formate como um objeto JSON simples, é possível armazenar todos os tipos de informações.
 {: note}
@@ -61,7 +61,7 @@ Certifique-se de que você tenha os pré-requisitos a seguir antes de iniciar:
 Antes de poder iniciar a inclusão de atributos para os usuários do Cloud Land, é necessário configurar a sua instância do {{site.data.keyword.appid_short_notm}}.
 {: shortdesc}
 
-1. Na guia **Provedores de identidade** do painel de serviço, ative o **Cloud Directory**. Embora este tutorial use o [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory), também é possível escolher usar qualquer um dos outros IdPs, como [SAML](/docs/services/appid?topic=appid-enterprise), [Facebook](/docs/services/appid?topic=appid-social#facebook), [Google](/docs/services/appid?topic=appid-social#google) ou um [provedor customizado](/docs/services/appid?topic=appid-custom-identity).
+1. Na guia **Provedores de identidade** do painel de serviço, ative o **Cloud Directory**. Embora esse tutorial use o [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory), também é possível que você escolha usar qualquer um dos outros IdPs como [SAML](/docs/services/appid?topic=appid-enterprise), [Facebook](/docs/services/appid?topic=appid-social#facebook), [Google](/docs/services/appid?topic=appid-social#google) ou um [provedor customizado](/docs/services/appid?topic=appid-custom-identity).
 
 2. Na guia **Cloud Directory > Verificação de e-mail**, ative a verificação e configure **Permitir que os usuários se conectem ao seu aplicativo sem primeiro verificar seu endereço de e-mail** para **Não**. Ao usar atributos customizados para configurar funções relacionadas a permissões, certifique-se de que os usuários devem validar sua identidade antes que assumam os atributos que você configurou.
 
@@ -73,7 +73,7 @@ Antes de poder iniciar a inclusão de atributos para os usuários do Cloud Land,
 Excelente! Seu painel está configurado e você está pronto para iniciar a configuração de funções.
 
 
-## Etapa 2: Configurando funções em nome de outro usuário antes da conexão
+## Etapa 2: configurando funções em nome de outro usuário antes da conexão
 {: #roles-set-before}
 
 O Cloud Land tem um novo membro de equipe. Você conhece todas as informações dele, mas ele não começará nos próximos dias. É possível [pré-registrar essas informações](/docs/services/appid?topic=appid-preregister) criando um usuário do {{site.data.keyword.appid_short_notm}} e um perfil que contém os atributos, como a função `staff`.
@@ -295,7 +295,7 @@ Opcionalmente, é possível verificar se a etapa 4 foi bem-sucedida, visualizand
 1. Para propósitos de teste, crie um usuário do Cloud Directory usando a GUI do {{site.data.keyword.appid_short_notm}}.
 
   1. Na guia **Usuários**, clique em **Incluir usuário**. Um formulário é exibido.
-  2. Insira um nome e sobrenome, um e-mail e uma senha.
+  2. Insira um primeiro nome e um sobrenome, um e-mail e uma senha.
   3. Clique em **Salvar**.
 
 2. Codifique o ID e o segredo do cliente.
@@ -304,7 +304,7 @@ Opcionalmente, é possível verificar se a etapa 4 foi bem-sucedida, visualizand
   2. Use um codificador Base64 para codificar suas informações de autorização.
   3. Copie a saída a ser usada no comando a seguir.
 
-4. Conecte-se usando as APIs para obter as informações do token de acesso. O token retornado é codificado.
+4. Conecte-se usando as APIs para obter as informações do token de acesso. O token que é retornado está codificado.
 
   ```
   curl --request PUT \

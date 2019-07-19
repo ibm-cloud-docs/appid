@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-13"
+lastupdated: "2019-06-18"
 
-keywords: authentication, authorization, identity, app security, secure, application identity, app to app, access token
+keywords: Authentication, authorization, identity, app security, secure, application identity, app to app, access token
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -82,7 +82,7 @@ https://<region-endpoint>.appid.cloud.ibm.com/management
 {: #api-prereq}
 
 <ul><ul><li>2018 年 3 月 15 日より後にサービス・インスタンスが作成されていること。 この日付より前にサービスのインスタンスが作成されている場合は、新しいインスタンスを作成し、現行インスタンスと合うように構成してください。 新しいインスタンスを使用するようにアプリを更新する必要があります。</li>
-<li>[{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-ibmcloud-cli) がインストールされていること。</li></ul></ul>
+<li>[{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started) がインストールされていること。</li></ul></ul>
 
 ## 使用例
 {: #api-example}
@@ -127,4 +127,4 @@ if (r.status_code >= 200) :~
 ## 次のステップ
 {: #api-try}
 
-これを実際に試してみるには、<a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/" target="_blank">{{site.data.keyword.appid_short_notm}} 管理 Rest API <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> を参照してください
+実際に試してみるには、[{{site.data.keyword.appid_short_notm}} 管理 Rest API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/){: external} を参照してください

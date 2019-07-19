@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-23"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, custom, proprietary, social, facebook, google, 
+keywords: Authentication, authorization, identity, app security, secure, custom, proprietary, social, facebook, google, 
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -34,6 +34,10 @@ Con {{site.data.keyword.appid_full}}, puede configurar proveedores de identidad 
 
 {{site.data.keyword.appid_short_notm}} proporciona una configuración predeterminada para ayudar a empezar y trabajar rápidamente con el servicio.
 {: shortdesc}
+
+Los datos se utilizan cuando el usuario participa en los Usos permitidos del servicio. Al utilizar el servicio, acepta la recopilación y el uso de la información de acuerdo con la [política de privacidad](/docs/services/appid?topic=appid-privacy-policy) que se describe.
+{: important}
+
 
 Cuando configura {{site.data.keyword.appid_short_notm}}, Facebook, Google, y Directorio en la nube se habilitan automáticamente como proveedores. Puede cambiar la configuración en cualquier momento. Existen credenciales predeterminadas para Facebook y Google, pero son credenciales de IBM y se deben utilizar solo para probar si se utiliza el servicio. Antes de publicar la app, actualice la configuración a sus propias credenciales.
 
@@ -105,3 +109,9 @@ Después de configurar el proyecto de Google y de tener el ID de cliente y el se
     3. Pegue el URL de {{site.data.keyword.appid_short}} en el campo **URI de redirección autorizados** y haga clic en **Guardar**.
 4. Haga clic en **Guardar** para actualizar su configuración de Google en {{site.data.keyword.appid_short}}.
 5. Para apps web, introduzca un URL de redirección en el separador **Gestionar**. Una vez que se haya completado el proceso de autorización, se envía un usuario a este URL. El URL debe seguir un esquema `http` o `https`. Para obtener un mayor nivel de seguridad, utilice un esquema `https`.
+
+
+
+
+
+

@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-23"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, custom, proprietary, social, facebook, google, 
+keywords: Authentication, authorization, identity, app security, secure, custom, proprietary, social, facebook, google, 
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -34,6 +34,10 @@ Con {{site.data.keyword.appid_full}}, puoi configurare i provider di identità s
 
 {{site.data.keyword.appid_short_notm}} fornisce una configurazione predefinita per aiutarti ad utilizzare velocemente il servizio.
 {: shortdesc}
+
+I dati vengono utilizzati quando ti dedichi agli Utilizzi consentiti del Servizio. Utilizzando il Servizio, accetti la raccolta e l'utilizzo di informazioni nel rispetto della [normativa sulla privacy](/docs/services/appid?topic=appid-privacy-policy) riportata.
+{: important}
+
 
 Quando configuri {{site.data.keyword.appid_short_notm}}, Facebook, Google e Cloud Directory vengono automaticamente abilitati come provider di identità. Puoi modificare la configurazione in qualsiasi momento. Sono disponibili delle credenziali predefinite per Facebook e Google ma si tratta di credenziali IBM e devono essere utilizzate solo per verificare se utilizzare il servizio. Prima di pubblicare la tua applicazione, aggiorna la configurazione con le tue proprie credenziali.
 
@@ -105,3 +109,9 @@ Una volta che hai configurato il tuo progetto Google e disponi del segreto e ID 
     3. Incolla l'URL da {{site.data.keyword.appid_short}} nel campo **Authorized redirect URIs** e fai clic su **Save**.
 4. Fai clic su **Save** per aggiornare la tua configurazione di Google in {{site.data.keyword.appid_short}}.
 5. Per le applicazioni web, immetti un URL di reindirizzamento nella scheda **Manage**. Dopo il completamento del processo di autorizzazione, viene inviato un utente a questo URL. L'URL deve seguire uno schema `http` o `https`. Per un maggiore livello di sicurezza, utilizza uno schema `https`.
+
+
+
+
+
+

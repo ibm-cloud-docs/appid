@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-09"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, development, sso, directory, users, registry, multiple apps
+keywords: Authentication, authorization, identity, app security, secure, development, sso, directory, users, registry, multiple apps
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -41,7 +41,7 @@ Consulte el diagrama siguiente para ver el inicio de sesión único en acción.
 3. Si las credenciales son válidas, el usuario inicia sesión en la app. Al mismo tiempo, {{site.data.keyword.appid_short_notm}} crea una sesión y establece una cookie en el navegador del usuario.
 4. Si un usuario intenta iniciar sesión en una de las otras aplicaciones, {{site.data.keyword.appid_short_notm}} detecta la cookie de sesión y automáticamente inicia la sesión en la app para el usuario. Las cookies de sesión de {{site.data.keyword.appid_short_notm}} son específicas de la instancia y están firmadas por la clave privada exclusiva de la instancia.
 
-Si su instancia está configurada para utilizar proveedores de identidad junto con el directorio en la nube, como SAML o Facebook, aún se mostrará el widget de inicio de sesión. Se solicita a los usuarios que entren en sus credenciales del directorio en la nube o que elijan uno de los demás proveedores, incluso si tienen una sesión de SSO válida.
+En ese momento, SSO está configurado para funcionar cuando el directorio en la nube es el único proveedor de identidad habilitado. Si la instancia de {{site.data.keyword.appid_short_notm}} se ha configurado para utilizar varios proveedores de identidad, la habilitación del SSO no afecta al flujo de inicio de sesión. Se solicita a los usuarios que entren sus credenciales del directorio en la nube o que elijan uno de los demás proveedores en cada inicio de sesión.
 {: note}
 
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-06"
+lastupdated: "2019-06-18"
 
 keywords: Authentication, authorization, identity, app security, secure, compliance, high availability, ha, disaster recover, dr, protocols, oauth, oidc
 
@@ -10,7 +10,7 @@ subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -46,7 +46,7 @@ Cloud Directory 可以为您做什么？请观看以下视频以了解有关该�
     <th>解决方案</th>
   </tr>
   <tr>
-    <td>您需要向移动和 Web 应用程序添加[授权和认证](/docs/services/appid?topic=appid-key-concepts#key-concepts)，但不具有安全后台。</td>
+    <td>您需要向移动和 Web 应用程序添加[授权和认证](/docs/services/appid?topic=appid-key-concepts)，但不具有安全后台。</td>
     <td>使用 {{site.data.keyword.appid_short_notm}}，可以轻松地向您的应用程序中添加认证步骤。您可以使用 API、SDK、预先构建的 UI 或您自己的品牌 UI 向应用程序添加电子邮件或用户名登录、社交登录或企业登录。</td>
   </tr>
   <tr>
@@ -59,7 +59,7 @@ Cloud Directory 可以为您做什么？请观看以下视频以了解有关该�
   </tr>
   <tr>
     <td>您希望以可缩放的方式管理用户。</td>
-    <td> 通过 {{site.data.keyword.appid_short_notm}}，您可以创建 [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory#cloud-directory)，这样您可以将用户注册和用户登录添加到您的应用程序中。Cloud Directory 为您提供的框架可以维护用户注册表，该表会随着用户数量的增加而缩放。利用预先构建的自助服务（如电子邮件验证和密码重置），就可以确信应用程序会对用户进行安全的认证。</td>
+    <td> 通过 {{site.data.keyword.appid_short_notm}}，您可以创建 [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory)，这样您可以将用户注册和用户登录添加到您的应用程序中。Cloud Directory 为您提供的框架可以维护用户注册表，该表会随着用户数量的增加而缩放。利用预先构建的自助服务（如电子邮件验证和密码重置），就可以确信应用程序会对用户进行安全的认证。</td>
   </tr>
 </table>
 
@@ -92,13 +92,13 @@ Cloud Directory 可以为您做什么？请观看以下视频以了解有关该�
 
 <dl>
   <dt>{{site.data.keyword.containershort_notm}}</dt>
-    <dd>通过在标准集群中配置 Ingress，您可以在集群级别保护应用程序。请查看 <a href="/docs/containers?topic=containers-ingress_annotation#appid-auth">{{site.data.keyword.appid_short_notm}} 认证 Ingress 注释</a>或 <a href="https://www.ibm.com/blogs/cloud-archive/2018/05/announcing-app-id-integration-ibm-cloud-kubernetes-service/">Announcing {{site.data.keyword.appid_short_notm}} integration to {{site.data.keyword.containerlong_notm}} <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a> 博客帖子以开始使用。</dd>
+    <dd>通过在标准集群中配置 Ingress，您可以在集群级别保护应用程序。请查看 <a href="/docs/containers?topic=containers-ingress_annotation#appid-auth">{{site.data.keyword.appid_short_notm}} 认证 Ingress 注释</a>或 <a href="https://www.ibm.com/cloud/blog/announcing-app-id-integration-ibm-cloud-kubernetes-service">Announcing {{site.data.keyword.appid_short_notm}} integration to {{site.data.keyword.containerlong_notm}} <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a> 博客帖子以开始使用。</dd>
   <dt>{{site.data.keyword.openwhisk_short}} 和 {site.data.keyword.apiconnect_short}}</dt>
-    <dd>使用 [{{site.data.keyword.openwhisk_short}}](/docs/openwhisk?topic=cloud-functions-getting_started#getting_started) 和 [API Connect](/docs/services/apiconnect?topic=apiconnect-getting-started) 创建 API 时，您可以在网关而不是应用程序代码级别保护应用程序。要了解集成工作方式，请观看 <a href="https://www.youtube.com/watch?v=Fa9YD2NGZiE" target="_blank">Simple and fast social login OAuth with API Connect and {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a>。</dd>
+    <dd>使用 [{{site.data.keyword.openwhisk_short}}](/docs/openwhisk?topic=cloud-functions-getting-started) 和 [API Connect](/docs/services/apiconnect?topic=apiconnect-getting-started) 创建 API 时，您可以在网关而不是应用程序代码级别保护应用程序。要了解集成工作方式，请观看 <a href="https://www.youtube.com/watch?v=Fa9YD2NGZiE" target="_blank">Simple and fast social login OAuth with API Connect and {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a>。</dd>
   <dt>Cloud Foundry</dt>
     <dd>试用提供的某个样本 Cloud Foundry 应用程序，以了解如何将 {{site.data.keyword.appid_short_notm}} 集成到应用程序中。</dd>
   <dt>{{site.data.keyword.cloudaccesstrailshort}}</dt>
-    <dd>您可以使用 [{{site.data.keyword.cloudaccesstrailshort}} 文档](/docs/services/cloud-activity-tracker?topic=cloud-activity-tracker-getting-started#getting-started)来了解如何监视在 {{site.data.keyword.appid_short_notm}} 中生成的管理活动，例如更改仪表板配置。</dd>
+    <dd>您可以使用 [{{site.data.keyword.cloudaccesstrailshort}} 文档](/docs/services/cloud-activity-tracker?topic=cloud-activity-tracker-getting-started)来了解如何监视在 {{site.data.keyword.appid_short_notm}} 中生成的管理活动，例如更改仪表板配置。</dd>
   <dt>iOS 编程指南</dt>
     <dd>是否开发 Apple 应用程序？请试用 [iOS 编程指南](/docs/swift?topic=swift-getting-started)，借助 {{site.data.keyword.cloud_notm}} 来学习、试验以及改进现有的 iOS 应用程序。</dd>
   <dt>Node.js 编程指南</dt>
@@ -114,7 +114,7 @@ Cloud Directory 可以为您做什么？请观看以下视频以了解有关该�
 
 {{site.data.keyword.appid_short_notm}} 基于在面向企业和面向消费者的应用程序中常见的一组众所周知的行业标准协议和规范：OAuth 2.0 授权框架和 Open ID Connect。OAuth 2.0 用于获取和验证用于访问受保护资源的授权。在此基础上，Open ID Connect 向应用程序添加认证和身份保护层。
 
-请参阅 {{site.data.keyword.appid_short_notm}} 软件产品兼容性报告的第 5.4 部分，以查看完整的[证书](https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=BF31C8008D7C11E59F9AD7336D7D0FFB)列表。除了认证外，{{site.data.keyword.appid_short_notm}} 还符合以下规范：OAuth 2.0、OpenID Connect、JSON Web 令牌 (JWT)、JSON Web 签名 (JWS) 和跨域身份管理系统 (SCIM)。 
+请参阅 {{site.data.keyword.appid_short_notm}} 软件产品兼容性报告的第 5.4 部分，以查看完整的[证书](https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=BF31C8008D7C11E59F9AD7336D7D0FFB){: external}列表。除了认证外，{{site.data.keyword.appid_short_notm}} 还符合以下规范：OAuth 2.0、OpenID Connect、JSON Web 令牌 (JWT)、JSON Web 签名 (JWS) 和跨域身份管理系统 (SCIM)。 
 
 
 ## 区域高可用性
@@ -127,4 +127,5 @@ Cloud Directory 可以为您做什么？请观看以下视频以了解有关该�
 
 存储在 {{site.data.keyword.appid_short_notm}} 中的数据会加密并持久存储在跨可用性专区分布的数据库集群中。数据还会在单独的加密对象存储器中进行备份。
 
-由于 {{site.data.keyword.appid_short_notm}} 是区域服务，因此不会提供自动跨区域故障转移或跨区域灾难恢复。但是， {{site.data.keyword.appid_short_notm}} 提供了<a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/" target="_blank">丰富的 API <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a>，可供开发者用于手动将其服务配置与 {{site.data.keyword.appid_short_notm}} 的其他实例同步。
+由于 {{site.data.keyword.appid_short_notm}} 是区域服务，因此不会提供自动跨区域故障转移或跨区域灾难恢复。但是，{{site.data.keyword.appid_short_notm}} 提供了[丰富的 API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/){: external}，可供开发者用于手动将其服务配置与 {{site.data.keyword.appid_short_notm}} 的其他实例同步。
+

@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-20"
+lastupdated: "2019-07-10"
 
-keywords: authentication, authorization, identity, app security, secure, customizing apps, directory, registry, 
+keywords: Authentication, authorization, identity, app security, secure, customizing apps, directory, registry, 
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -38,11 +38,13 @@ subcollection: appid
 {: #branded-requirements}
 
 
-独自の UI を表示するには、ID プロバイダーとして [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory) を使用する必要があります。 クラウド・ディレクトリーを[構成](/docs/services/appid?topic=appid-cloud-directory)する方法はいくつかあります。 送信するメッセージのタイプを決定し、コンテンツとデザインをカスタマイズすることができます。 どんなメッセージを使用すればよいでしょうか? 問題ありません。 GUI には、使用できるメッセージの例があります。
+独自の UI を表示するには、ID プロバイダーとして [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory) を使用する必要があります。 Cloud Directory は、さまざまな方法で構成できます。送信するメッセージのタイプを決定し、コンテンツとデザインをカスタマイズすることができます。 どんなメッセージを使用すればよいでしょうか? 問題ありません。 使用できるメッセージの例については、GUI を参照してください。
 
 
-英語以外の[言語](/docs/services/appid?topic=appid-cd-messages#cd-languages)を使用する必要がありますか? <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/updateLocalization" target="_blank">言語管理 API <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> を使用して別の言語を選択し、翻訳された独自のコンテンツを表示することができます。
+英語以外の[言語](/docs/services/appid?topic=appid-cd-messages#cd-languages)を使用する必要がありますか? [言語管理 API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/updateLocalization){: external} を使用して別の言語を選択し、翻訳された独自のコンテンツを表示することができます。
 {: tip}
+
+
 
 
 ### 独自の画面のいくつかとデフォルトの画面のいくつかを使用することはできますか?
@@ -53,7 +55,7 @@ subcollection: appid
 ### 各フローは技術的にどのように異なっていますか?
 {: #branded-technically}
 
-このサービスでは、OAuth 2.0 付与フローを使用して許可プロセスをマップします。 Facebook などのソーシャル ID プロバイダーを構成する場合は、<a href="https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html" target="_blank">許可付与フロー <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> を使用してログイン・ウィジェットが呼び出されます。 独自の画面を使用する場合は、<a href="https://oauthlib.readthedocs.io/en/stable/oauth2/grants/password.html" target="_blank">リソース所有者のパスワード資格情報フロー <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> を使用して、アクセス・トークンと識別トークンを提供して画面の呼び出しを可能にします。
+このサービスでは、OAuth 2.0 付与フローを使用して許可プロセスをマップします。 Facebook などのソーシャル ID プロバイダーを構成する場合は、[許可付与フロー](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html){: external}を使用してログイン・ウィジェットが呼び出されます。独自の画面を使用する場合は、[リソース所有者のパスワード資格情報フロー](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/password.html){: external}を使用して、画面の呼び出しに使用できるアクセス・トークンと識別トークンを提供します。
 
 
 
@@ -62,15 +64,16 @@ subcollection: appid
 
 はい。 以下のいずれかのサンプルを参照して、クラウド・ディレクトリーが機能する様子を確認してください。
 
-* <a href="https://www.ibm.com/cloud/blog/use-branded-ui-user-sign-app-id" target="_blank">Use your own branded UI for user sign-in with {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a>
-* <a href="https://www.ibm.com/cloud/blog/use-ui-flows-user-sign-sign-app-id" target="_blank">Use your own UI and Flows for User Sign-Up and Sign-in with with {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a>
-* <a href="https://www.ibm.com/cloud/blog/custom-login-page-app-id-integration" target="_blank">Use a custom login page with  {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a>
+* [Use your own branded UI for user sign-in with {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/use-branded-ui-user-sign-app-id){: external}
+* [Use your own UI and Flows for User Sign-Up and Sign-in with {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/use-ui-flows-user-sign-sign-app-id){: external}
+* [Use a custom login page with {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/custom-login-page-app-id-integration){: external}
 
 
 ## Android SDK によるアプリのブランド設定
 {: #branded-ui-android}
 
-クラウド・ディレクトリーを有効にした場合は、Android SDK を使用してカスタマイズした画面を呼び出せます。 ユーザーの対話に使用できるようにする画面の組み合わせを選択できます。詳しい例については、<a href="https://www.ibm.com/cloud/blog/use-branded-ui-user-sign-app-id" target="blank">このブログ <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"> を確認してください</a>。
+クラウド・ディレクトリーを有効にした場合は、Android SDK を使用してカスタマイズした画面を呼び出せます。 ユーザーとの対話に使用する画面の組み合わせを選択できます。詳しい例については、
+[このブログを参照してください](https://www.ibm.com/cloud/blog/use-branded-ui-user-sign-app-id){: external}。
 {: shortdesc}
 
 
@@ -79,7 +82,7 @@ subcollection: appid
 {: #branded-android-sign-in}
 
 1. GUI でクラウド・ディレクトリーの[設定](/docs/services/appid?topic=appid-cloud-directory#cd-settings)を構成します。
-2. 以下のコードをアプリケーションに追加します。 ユーザーがカスタム画面でサインインをクリックすると、サインイン・フローがトリガーされます。 エンド・ユーザーのユーザー名とパスワードを指定して、アクセス・トークン、識別トークン、リフレッシュ・トークンを取得します。
+2. 以下のコードをアプリケーションに追加します。 ユーザーがカスタム画面でサインインをクリックすると、サインイン・フローがトリガーされます。ユーザーのユーザー名とパスワードを指定して、アクセス・トークン、識別トークン、リフレッシュ・トークンを取得します。
 
   ```java
   AppID.getInstance().signinWithResourceOwnerPassword(getApplicationContext(), username, password,
@@ -103,7 +106,7 @@ subcollection: appid
 ## iOS Swift SDK によるアプリのブランド設定
 {: #branded-ui-ios-swift}
 
-クラウド・ディレクトリーを有効にした場合は、[iOS Swift SDK](https://github.com/ibm-cloud-security/appid-clientsdk-swift) を使用して独自のブランド・マークがついた画面を呼び出せます。
+クラウド・ディレクトリーを有効にした場合は、[iOS Swift SDK](https://github.com/ibm-cloud-security/appid-clientsdk-swift){: external} を使用して独自のブランド・マークがついた画面を呼び出せます。
 {: shortdesc}
 
 </br>
@@ -139,7 +142,7 @@ Cloud Directory を有効にした場合は、Node.js SDK を使用してカス�
 ### サインイン
 {: #branded-node-sign-in}
 
-`WebAppStrategy` を使用すると、ユーザーはユーザー名とパスワードで Web アプリにサインインできます。 ユーザーがアプリに正常にサインインすると、アクセス・トークンは、HTTP セッションが存続している限り、そのセッションで持続します。 HTTP セッションが閉じられるか期限切れになると、アクセス・トークンも破棄されます。
+`WebAppStrategy` を使用すると、ユーザーはユーザー名とパスワードで Web アプリにサインインできます。ユーザーがアプリに正常にサインインすると、アクセス・トークンは、HTTP セッションが存続している限り、そのセッションで持続します。 HTTP セッションが閉じられるか期限切れになると、アクセス・トークンも破棄されます。
 
 
 1. GUI でクラウド・ディレクトリーの[設定](/docs/services/appid?topic=appid-cloud-directory#cd-settings)を構成します。
@@ -174,7 +177,8 @@ Cloud Directory を有効にした場合は、Node.js SDK を使用してカス�
     </tbody>
   </table>
 
-**注**: HTML で要求を送信する場合、<a href="https://www.npmjs.com/package/body-parser" target="blank">body parser <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> ミドルウェアを使用することができます。 返されたエラー・メッセージを参照するには、<a href="https://www.npmjs.com/package/connect-flash" target="blank">connect-flash <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> を使用することができます。 実際に機能する様子を確認するには、<a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs/blob/master/samples/web-app-sample.js" target="blank">web app sample <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> を参照してください。
+**注**: HTML で要求を送信する場合は、[body parser](https://www.npmjs.com/package/body-parser){: external} ミドルウェアを使用できます。返されたエラー・メッセージを表示するために、[connect-flash](https://www.npmjs.com/package/connect-flash){: external} を使用することができます。実際に試してみるには、[web app sample](https://github.com/ibm-cloud-security/appid-serversdk-nodejs/blob/master/samples/web-app-sample.js){: external} を参照してください。
+
 
 
 ## API によるアプリのブランド設定
@@ -185,7 +189,7 @@ Cloud Directory を有効にした場合は、Node.js SDK を使用してカス�
 
 これを可能にするために、{{site.data.keyword.appid_short_notm}} は REST API を公開しています。 REST API を使用して、Web アプリにサービスを提供するバックエンド・サーバーを構築したり、独自のカスタム画面を使用してモバイル・アプリと対話したりできます。
 
-管理 API は、IBM Cloud Identity and Access Management で生成されたトークンで保護されます。これは、各サービス・インスタンスに対してチームの誰がどのレベルのアクセス権限を持つかをアカウント所有者が指定できるということを意味します。 IAM と {{site.data.keyword.appid_short_notm}} の連動方法について詳しくは、[サービス・アクセス管理](/docs/services/appid?topic=appid-service-access-management#service-access-management)を参照してください。
+管理 API は、IBM Cloud Identity and Access Management で生成されたトークンで保護されます。これは、各サービス・インスタンスに対してチームの誰がどのレベルのアクセス権限を持つかをアカウント所有者が指定できるということを意味します。 IAM と {{site.data.keyword.appid_short_notm}} の連動方法について詳しくは、[サービス・アクセス管理](/docs/services/appid?topic=appid-service-access-management)を参照してください。
 
 [設定](/docs/services/appid?topic=appid-cloud-directory#cd-settings)を構成したら、以下のエンドポイントを呼び出して各画面を表示できます。
 
@@ -195,11 +199,11 @@ Cloud Directory を有効にした場合は、Node.js SDK を使用してカス�
 `/sign_up` エンドポイントを使用して、各ユーザーが自分でアプリに登録できるようにします。
 要求本体に以下のデータを指定します。
   * tenantID。
-  * クラウド・ディレクトリーのユーザー・データ。 詳しくは、[SCIM Full User Representation](https://tools.ietf.org/html/rfc7643#section-8.2) を参照してください。
+  * クラウド・ディレクトリーのユーザー・データ。 詳しくは、[SCIM Full User Representation](https://tools.ietf.org/html/rfc7643#section-8.2){: external} を参照してください。
     * `password` 属性。
-    * `true` に設定された `primary` 属性のある email 配列に、少なくとも 1 つの E メール・アドレスが必要です。
+    * `true` に設定した `primary` 属性を持つ email 配列に、E メール・アドレスを 1 つ以上指定する必要があります。
 
-[E メール構成](/docs/services/appid?topic=appid-cd-messages#cd-messages)に応じて、ユーザーは確認の要求を受け取るか、アプリへの登録時のウェルカム・メールを受け取るか、その両方を受け取ります。 どちらのタイプの E メールも、ユーザーがアプリに登録したときにトリガーされます。 確認メールには、ユーザーがクリックすることによって同一性を確認できるリンクが用意されています。クリックすると、確認操作に対する感謝、または確認の完了を伝える画面が表示されます。  
+[E メール構成](/docs/services/appid?topic=appid-cd-messages)に応じて、ユーザーは確認の要求を受け取るか、アプリへの登録時のウェルカム・メールを受け取るか、その両方を受け取ります。どちらのタイプの E メールも、ユーザーがアプリに登録したときにトリガーされます。 確認メールには、ユーザーがクリックすることによって同一性を確認できるリンクが用意されています。クリックすると、確認操作に対する感謝、または確認の完了を伝える画面が表示されます。  
 
 独自に用意した確認後のページを表示するには、以下のようにします。
 
@@ -207,7 +211,7 @@ Cloud Directory を有効にした場合は、Node.js SDK を使用してカス�
 2. **「E メールの検証」**タブをクリックします。
 3. **「カスタム検証ページの URL」**に、独自のランディング・ページの URL を入力します。
 
-この値を指定した場合、{{site.data.keyword.appid_short_notm}} はその URL を `context` 照会とともに呼び出します。 `/sign_up/confirmation_result` エンドポイントを呼び出し、受け取った `context` パラメーターを渡すと、その結果から、各ユーザーが自分のアカウントを確認したかどうかが分かります。 確認が済んでいる場合は、独自のカスタム・ページを表示できます。
+この値を指定した場合、{{site.data.keyword.appid_short_notm}} はその URL を `context` 照会とともに呼び出します。 `/sign_up/confirmation_result` エンドポイントを呼び出し、受け取った `context` パラメーターを渡すと、その結果から、各ユーザーが自分のアカウントを確認したかどうかがわかります。確認が済んでいる場合は、独自のカスタム・ページを表示できます。
 
 
 ### パスワードを忘れた場合
@@ -216,7 +220,7 @@ Cloud Directory を有効にした場合は、Node.js SDK を使用してカス�
 `/forgot_password` エンドポイントを使用して、ユーザーがパスワードを忘れた場合に自分でパスワードを回復できるようにします。
 
 要求本体に以下のデータを指定します。
-  * tenantID。
+  * テナント ID。
   * クラウド・ディレクトリー・ユーザーの E メール。
 
 このエンドポイントが呼び出されると、パスワード・リセット E メールがユーザーに送信されます。 この E メールには**「リセット (Reset)」**ボタンがあります。 このボタンをユーザーが押すと、パスワードを再設定できる画面が {{site.data.keyword.appid_short_notm}} によって表示されます。
@@ -275,7 +279,7 @@ Cloud Directory を有効にした場合は、Node.js SDK を使用してカス�
 
 ユーザーは、アプリにサインインしているときに、ユーザー情報の一部を自分で更新することができます。 そのような情報は、`/Users/{userId}` で取得して更新できます。
 
-ユーザー詳細が更新されると、このエンドポイントは、更新されたユーザー・データを [SCIM 形式](https://tools.ietf.org/html/rfc7643#section-8.2)で要求本体から取得します。 関連する詳細のみを変更するようにしてください。
+ユーザー詳細が更新されると、このエンドポイントは、更新されたユーザー・データを [SCIM 形式](https://tools.ietf.org/html/rfc7643#section-8.2){: external}で要求本体から取得します。 関連する詳細のみを変更するようにしてください。
 
 ユーザーの E メール・アドレスは変更できません。
 {: tip}

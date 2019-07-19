@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-21"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, web apps, client, server
+keywords: Authentication, authorization, identity, app security, secure, web apps, client, server
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -124,12 +124,12 @@ Web 应用程序通常需要用户进行认证才能访问受保护的内容。{
     ```
   {: codeblock}
 
-  必须针对生产环境为中间件配置合适的会话存储量。有关更多信息，请参阅 <a href="https://github.com/expressjs/session" target="_blank">express.js 文档 <img src="../icons/launch-glyph.svg" alt="外部链接图标"></a>。
+  必须针对生产环境为中间件配置合适的会话存储量。有关更多信息，请参阅 [express.js](https://expressjs.com/){: external} 文档。
   {: note}
 
 3. 通过以下其中一种方式获取凭证。
 
-  * 导航至 {{site.data.keyword.appid_short_notm}} 仪表板的**应用程序**选项卡。如果未列出应用程序，那么可以单击**添加应用程序**来创建新应用程序。
+  * 导航至 {{site.data.keyword.appid_short_notm}} 仪表板的**应用程序**选项卡。如果列表中没有应用程序，那么可以单击**添加应用程序**来创建应用程序。
 
   * 对 [`/management/v4/{tenantId}/applications` 端点](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Applications/mgmt.registerApplication)发出 POST 请求。
 
@@ -325,7 +325,7 @@ Web 应用程序通常需要用户进行认证才能访问受保护的内容。{
 ### 初始化 Liberty for Java SDK
 {: #web-liberty-initialize}
 
-1. 在 `server.xml` 文件中，定义授权过滤器以指定受保护资源。如果未<a href="https://www.ibm.com/support/knowledgecenter/en/SSD28V_9.0.0/com.ibm.websphere.wlp.core.doc/ae/rwlp_auth_filter.html" target="_blank">定义 <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a> 过滤器，那么服务将保护所有资源。
+1. 在 `server.xml` 文件中，定义授权过滤器以指定受保护资源。如果未<a href="https://www.ibm.com/support/knowledgecenter/en/SSD28V_liberty/com.ibm.websphere.wlp.core.doc/ae/rwlp_auth_filter.html" target="_blank">定义 <img src="../../icons/launch-glyph.svg" alt="外部链接图标"></a> 过滤器，那么服务将保护所有资源。
 
   ```xml
   <authFilter id="myAuthFilter">

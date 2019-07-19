@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-06"
+lastupdated: "2019-07-09"
 
 keywords: Authentication, authorization, identity, app security, secure, rates, cloud directory, rate limit, attempts
 
@@ -10,7 +10,7 @@ subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -26,7 +26,7 @@ subcollection: appid
 # App ID の制限
 {: #limits}
 
-App ID のインスタンスが送受信するトラフィック量を制御するために、レート制限が使用されます。要求またはリソースを制限することで、アプリケーションを保護できます。
+App ID のインスタンスが送受信するトラフィック量を制御するために、レート制限が使用されます。 要求またはリソースを制限することで、アプリケーションを保護できます。
 {: shortdesc}
 
 ## App ID ライト・プラン 
@@ -52,7 +52,7 @@ App ID のインスタンスが送受信するトラフィック量を制御す�
 ## 一般
 {: #general-limits}
 
-IBM Cloud App ID リソースに対するユーザーごとの上限と、その制限を超えた場合のブロック時間を以下の表にリストします。これらの制限は、IBM Cloud App ID リソースを作成できるすべてのユーザーに適用されます。
+IBM Cloud App ID リソースに対するユーザーごとの上限と、その制限を超えた場合のブロック時間を以下の表にリストします。 これらの制限は、IBM Cloud App ID リソースを作成できるすべてのユーザーに適用されます。
 {: shortdesc}
 
 <table>

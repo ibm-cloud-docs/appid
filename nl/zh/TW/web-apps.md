@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-21"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, web apps, client, server
+keywords: Authentication, authorization, identity, app security, secure, web apps, client, server
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -125,12 +125,12 @@ Web 應用程式通常需要使用者進行鑑別，才能存取受保護內容�
     ```
   {: codeblock}
 
-  您必須為正式作業環境配置具有適當階段作業儲存空間的中介軟體。如需相關資訊，請參閱 <a href="https://github.com/expressjs/session" target="_blank">express.js 文件 <img src="../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>。
+  您必須為正式作業環境配置具有適當階段作業儲存空間的中介軟體。如需相關資訊，請參閱 [express.js](https://expressjs.com/){: external} 文件。
   {: note}
 
 3. 以下列其中一種方式取得您的認證。
 
-  * 導覽至 {{site.data.keyword.appid_short_notm}} 儀表板的**應用程式**標籤。如果未列出任何應用程式，您可以按一下**新增應用程式**來建立一個新的應用程式。
+  * 導覽至 {{site.data.keyword.appid_short_notm}} 儀表板的**應用程式**標籤。如果清單中沒有應用程式，您可以按一下**新增應用程式**來建立一個新的應用程式。
 
   * 透過對 [`/management/v4/{tenantId}/applications` 端點提出 POST 要求](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Applications/mgmt.registerApplication)。
 
@@ -327,7 +327,7 @@ Web 應用程式通常需要使用者進行鑑別，才能存取受保護內容�
 ### 起始設定 Liberty for Java SDK
 {: #web-liberty-initialize}
 
-1. 在 `server.xml` 檔案中，定義授權過濾器以指定受保護的資源。如果過濾器未<a href="https://www.ibm.com/support/knowledgecenter/en/SSD28V_9.0.0/com.ibm.websphere.wlp.core.doc/ae/rwlp_auth_filter.html" target="_blank">定義 <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>，則服務會保護所有資源。
+1. 在 `server.xml` 檔案中，定義授權過濾器以指定受保護的資源。如果過濾器未<a href="https://www.ibm.com/support/knowledgecenter/en/SSD28V_liberty/com.ibm.websphere.wlp.core.doc/ae/rwlp_auth_filter.html" target="_blank">定義 <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>，則服務會保護所有資源。
 
   ```xml
   <authFilter id="myAuthFilter">

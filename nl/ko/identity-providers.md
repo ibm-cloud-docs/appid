@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-23"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, custom, proprietary, social, facebook, google, 
+keywords: Authentication, authorization, identity, app security, secure, custom, proprietary, social, facebook, google, 
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -34,6 +34,10 @@ subcollection: appid
 
 {{site.data.keyword.appid_short_notm}}는 신속하게 서비스를 시작하고 실행할 수 있도록 해주는 기본 구성을 제공합니다.
 {: shortdesc}
+
+허가된 서비스 사용에 참여할 때 데이터를 사용합니다. 서비스를 사용하면 규정된 [개인정보처리방침](/docs/services/appid?topic=appid-privacy-policy)에 따라 정보를 수집하고 사용하는 것에 동의하는 것입니다.
+{: important}
+
 
 {{site.data.keyword.appid_short_notm}}, Facebook, Google 및 Cloud Directory를 구성하면 자동으로 ID 제공자로 설정됩니다. 언제든지 구성을 변경할 수 있습니다. Facebook 및 Google의 경우 기본 인증 정보가 있지만 해당 인증 정보는 IBM 인증 정보이며 서비스를 사용할 것인지 여부를 테스트하는 용도로만 사용해야 합니다. 앱을 공개하기 전에 자체 인증 정보로 구성을 업데이트하십시오.
 
@@ -98,10 +102,16 @@ Google을 ID 제공자로 사용하도록 {{site.data.keyword.appid_short}} 서�
 Google 프로젝트를 구성하고 클라이언트 ID 및 본인확인정보를 보유한 후에는 Google 인증에 대해 서비스 대시보드를 편집할 수 있습니다.
 
 1. 서비스 대시보드의 **관리** 페이지에서 **Google**을 선택하고 **편집**을 클릭하십시오.
-2. Google 개발자 콘솔에서 얻은 클라이언트 ID 및 본인확인정보를 입력하십시오.
+2. Google 개발자 콘솔에서 가져온 클라이언트 ID 및 본인확인정보를 입력하십시오.
 3. {{site.data.keyword.appid_short}} URL의 권한을 부여하십시오.
     1. Google ID 제공자 세부사항에서 **Google 개발자 콘솔의 경로 재지정 URL**을 복사하십시오.
     2. Google 프로젝트의 인증 정보 페이지에서 이 통합을 위해 작성한 클라이언트 ID를 선택하십시오.
     3. {{site.data.keyword.appid_short}}의 URL을 **권한 부여된 경로 재지정 URI** 필드에 붙여넣고 **저장**을 클릭하십시오.
 4. **저장**을 클릭하여 {{site.data.keyword.appid_short}}의 Google 구성을 업데이트하십시오.
 5. 웹 앱에 대해 **관리** 탭에서 경로 재지정 URL을 입력하십시오. 권한 부여 프로세스가 완료되면 사용자가 이 URL로 보내집니다. URL은 `http` 또는 `https` 스킴을 따라야 합니다. 보안 레벨을 높이려면 `https` 스킴을 사용하십시오.
+
+
+
+
+
+

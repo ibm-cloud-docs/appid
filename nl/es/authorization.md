@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-21"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, access, tokens
+keywords: Authentication, authorization, identity, app security, secure, access, tokens
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -25,7 +25,7 @@ subcollection: appid
 # Conceptos clave
 {: #key-concepts}
 
-¿Está confundido sobre las diferencias entre la autorización y la autenticación? No es el único. Consulte la información de esta página para conocer terminología específica, procesos y la forma en que el servicio utiliza las señales.
+¿Está confundido sobre las diferencias entre la autorización y la autenticación? No es el único. Consulte la información siguiente para conocer terminología específica, procesos y la forma en que el servicio utiliza las señales.
 {: shortdesc}
 
 ¿Desea saber más sobre algunos conceptos básicos de la autorización y la autenticación? No busque más. En el siguiente vídeo puede aprender sobre OAuth 2.0, tipos de otorgamiento, OIDC, etc.
@@ -40,13 +40,13 @@ Estos términos clave pueden ayudarle a comprender la forma en que el servicio d
 
 ### OAuth 2
 {: #term-oauth}
-<a href="https://tools.ietf.org/html/rfc6749" target="_blank">OAuth 2 <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a> es un protocolo estándar que se utiliza para proporcionar autorización de apps.
+[OAuth 2.0](https://tools.ietf.org/html/rfc6749){: external} es un protocolo estándar que se utiliza para proporcionar autorización de apps.
 
 
 ### Open ID Connect (OIDC)
 {: #term-oidc}
 
-<a href="https://openid.net/developers/specs/" target="_blank">OIDC <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a> es una capa de autenticación que opera encima de OAuth 2. Cuando utiliza OIDC junto con {{site.data.keyword.appid_short_notm}}, sus credenciales de aplicación le permiten configurar los puntos finales de OAuth. Cuando utiliza el SDK, los URL de punto final se crean automáticamente. Sin embargo, también puede crear los URL por su cuenta con sus credenciales de servicio. El URL tiene el siguiente formato: punto final de servicio de {{site.data.keyword.appid_short_notm}} + "/oauth/v4" + /tenantID.
+[OIDC](https://openid.net/developers/specs/){: external} es una capa de autenticación que opera con OAuth 2. Cuando utiliza OIDC junto con {{site.data.keyword.appid_short_notm}}, sus credenciales de aplicación le permiten configurar los puntos finales de OAuth. Si utiliza el SDK, los URL de punto final se crean automáticamente. Sin embargo, también puede crear los URL por su cuenta con sus credenciales de servicio. El URL tiene el siguiente formato: punto final de servicio de {{site.data.keyword.appid_short_notm}} + "/oauth/v4" + /tenantID.
 
 Ejemplo:
 
@@ -94,12 +94,18 @@ Cuando utiliza el SDK, los URL de punto final se crean automáticamente.
 ### Señales
 {: #term-token}
 
-El servicio utiliza tres tipos de señales distintas. Las señales de acceso representan una autorización y permiten la comunicación con [recursos de fondo](/docs/services/appid?topic=appid-backend) que están protegidos por filtros de autorización definidos por {{site.data.keyword.appid_short}}. Las señales de identidad representan una autenticación y contienen información sobre el usuario. Se puede utilizar una señal para renovación para obtener una nueva señal de acceso sin volver a autenticar al usuario. Mediante el uso de señales para renovación, los usuarios pueden permitir que la aplicación recuerde sus datos. De esta forma, pueden mantener la sesión iniciada. Las señales se definen en **Proveedores de identidad > Gestionar** del panel de control de {{site.data.keyword.appid_short}}. Para obtener más información sobre las señales y cómo se utilizan en {{site.data.keyword.appid_short}}, consulte [Gestión de señales](/docs/services/appid?topic=appid-tokens#tokens).
+El servicio utiliza tres tipos de señales distintas. Las señales se definen en **Proveedores de identidad > Gestionar** del panel de control de {{site.data.keyword.appid_short}}. Para obtener más información sobre las señales y cómo se utilizan en {{site.data.keyword.appid_short}}, consulte [Gestión de señales](/docs/services/appid?topic=appid-tokens).
+
+* Señales de acceso: representan la autorización y permiten la comunicación con [recursos de fondo](/docs/services/appid?topic=appid-backend). Los recursos están protegidos por filtros de autorización definidos por {{site.data.keyword.appid_short}}.
+
+* Señales de identidad: representan la autenticación y contienen información sobre el usuario.
+
+* Señales de renovación: se pueden utilizar para obtener una nueva señal de acceso sin volver a autenticar al usuario. Mediante el uso de señales para renovación, los usuarios pueden permitir que la aplicación recuerde sus datos, lo que significa que pueden mantener la sesión iniciada. 
 
 ### Cabeceras de autorización
 {: #term-auth-header}
 
-{{site.data.keyword.appid_short}} cumple con la <a href="https://tools.ietf.org/html/rfc6750" target="blank">especificación de señal de portador <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a> y utiliza una combinación de señales de acceso e identidad que se envían como una cabecera de autorización HTTP. La cabecera de autorización contiene tres partes distintas separadas con un espacio en blanco. Las señales están codificadas en base64. La señal de identidad es opcional.
+{{site.data.keyword.appid_short}} cumple con la [especificación de señal de portador](https://tools.ietf.org/html/rfc6750){: external} y utiliza una combinación de señales de acceso e identidad que se envían como una cabecera de autorización HTTP. La cabecera de autorización tiene tres partes distintas separadas con un espacio en blanco. Las señales están codificadas en base64. La señal de identidad es opcional.
 
 Ejemplo:
 

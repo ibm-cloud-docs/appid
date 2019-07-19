@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-14"
+lastupdated: "2019-06-28"
 
-keywords: authentication, authorization, identity, app security, secure, application identity, app to app, access token
+keywords: Authentication, authorization, identity, app security, secure, application identity, app to app, access token
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -37,7 +37,7 @@ subcollection: appid
 ### 此流程是如何运作的？
 {: #app-flow-how}
 
-{{site.data.keyword.appid_short_notm}} 利用 OAuth 2.0 客户端凭证流程来保护通信。应用程序向 {{site.data.keyword.appid_short_notm}} 注册后，该应用程序将获得客户端标识和私钥。借助这些信息，应用程序可以向 {{site.data.keyword.appid_short_notm}} 请求访问令牌，并有权访问受保护资源或 API。在应用程序身份和授权流程中，只会向应用程序授予访问令牌。应用程序不会获得身份令牌或刷新令牌。有关令牌的更多信息，请参阅[了解令牌](/docs/services/appid?topic=appid-tokens#tokens)。
+{{site.data.keyword.appid_short_notm}} 利用 OAuth 2.0 客户端凭证流程来保护通信。应用程序向 {{site.data.keyword.appid_short_notm}} 注册后，该应用程序将获得客户端标识和私钥。借助这些信息，应用程序可以向 {{site.data.keyword.appid_short_notm}} 请求访问令牌，并有权访问受保护资源或 API。在应用程序身份和授权流程中，只会向应用程序授予访问令牌。应用程序不会获得身份令牌或刷新令牌。有关令牌的更多信息，请参阅[了解令牌](/docs/services/appid?topic=appid-tokens)。
 
 此工作流程应仅用于可信应用程序，即不存在误用或泄漏私钥的风险的应用程序。应用程序会始终保存客户端私钥。此私钥对于移动应用程序无效。
 {: tip}
@@ -72,7 +72,7 @@ subcollection: appid
 ### 使用 API
 {: #app-register-api}
 
-1. 对 [`/management/v4/{tenantId}/applications` 端点](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Applications/mgmt.registerApplication)发出 POST 请求。
+1. 对 [`/management/v4/{tenantId}/applications` 端点](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Applications/mgmt.registerApplication){: external}发出 POST 请求。
 
   请求：
 
@@ -104,7 +104,7 @@ subcollection: appid
 
 向 {{site.data.keyword.appid_short_notm}} 注册应用程序并且您已获得凭证后，可以对 {{site.data.keyword.appid_short_notm}} 授权服务器发出请求以获取访问令牌。
 
-1. 对 [`/token` 端点](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization%20Server%20-%20Authorization%20Server%20V4/oauth-server.token)发出 HTTP POST 请求。请求的授权是`基本认证`，其中客户端标识和私钥用作经过 Base64 编码的用户名和密码。
+1. 对 [`/token` 端点](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization%20Server%20-%20Authorization%20Server%20V4/oauth-server.token){: external}发出 HTTP POST 请求。请求的授权是`基本认证`，其中客户端标识和私钥用作经过 Base64 编码的用户名和密码。
 
   请求：
   ```
@@ -130,9 +130,9 @@ subcollection: appid
 ## 教程：使用 Node.js SDK 的端到端流程
 {: tutorial-node}
 
-1. 通过以下其中一种方式获取[访问令牌](/docs/services/appid?topic=appid-tokens#tokens)：
+1. 通过以下其中一种方式获取[访问令牌](/docs/services/appid?topic=appid-tokens)：
 
-  * 通过 {{site.data.keyword.appid_short_notm}} [Node.js 服务器 SDK](https://github.com/ibm-cloud-security/appid-serversdk-nodejs) 并使用令牌管理器。使用应用程序凭证初始化令牌管理器，然后调用 `getApplicationIdentityToken()` 方法来获取令牌。
+  * 通过 {{site.data.keyword.appid_short_notm}} [Node.js 服务器 SDK](https://github.com/ibm-cloud-security/appid-serversdk-nodejs){: external} 并使用令牌管理器。使用应用程序凭证初始化令牌管理器，然后调用 `getApplicationIdentityToken()` 方法来获取令牌。
 
     ```
     const TokenManager = require('ibmcloud-appid').TokenManager;
@@ -217,6 +217,7 @@ subcollection: appid
   ```
   const express = require('express'),
     passport = require('passport');
+    APIStrategy = require("ibmcloud-appid").APIStrategy;
 
   var app = express();
   app.use(passport.initialize());

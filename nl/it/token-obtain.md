@@ -28,7 +28,7 @@ subcollection: appid
 
 
 
-# Ottenimento dei token 
+# Ottenimento dei token
 {: #obtain-tokens}
 
 Quando gli utenti e i servizi di backend interagiscono con la tua applicazione, potrebbero dover essere autorizzati per eseguire azioni specifiche. {{site.data.keyword.appid_short_notm}} verifica che l'entità che effettua la richiesta sia autorizzata e restituisce i token di accesso e identità alla tua applicazione. Se l'entità che effettua la richiesta è un utente finale, i token potrebbero contenere delle informazioni sull'utente, ad esempio l'ambito delle loro autorizzazioni e il loro nome. Se si tratta di un servizio di backend, viene restituito solo un token di accesso.
@@ -38,7 +38,7 @@ Quando gli utenti e i servizi di backend interagiscono con la tua applicazione, 
 ## Ottenimento del tuo segreto e del tuo ID client
 {: #obtain-clientid-secret}
 
-Per poter ottenere i token, devi avere i tuoi segreto e ID client. Le credenziali sono specifiche per ogni applicazione e vengono utilizzate per identificare e convalidare gli utenti a cui potrebbe essere assegnato un token.
+Per poter ottenere i token, devi avere i tuoi segreto e ID client. Le credenziali sono specifiche per ogni applicazione e vengono utilizzate per identificare e convalidare gli utenti a cui potrebbe essere assegnato un token. 
 {: shortdesc}
 
 

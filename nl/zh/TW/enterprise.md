@@ -29,7 +29,7 @@ subcollection: appid
 {: shortdesc}
 
  
-使用特定的 SAML 身分提供者嗎？請參閱下列部落格文章之一，以了解如何使用 [Ping One ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")](https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-ping-one)、[Azure Active Directory ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")](https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-azure-active-directory) 或 [Active Directory Federation Service ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")](https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-active-directory-federation-service) 來設定 {{site.data.keyword.appid_short_notm}}。
+正在使用特定的 SAML 身分提供者嗎？請參閱下列部落格文章之一，以了解如何使用 [Ping One ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")](https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-ping-one)、[Azure Active Directory ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")](https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-azure-active-directory) 或 [Active Directory Federation Service ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")](https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-active-directory-federation-service) 來設定 {{site.data.keyword.appid_short_notm}}。
 {: tip}
 
 
@@ -63,7 +63,7 @@ SAML 2.0 是鑑別及授權標準最受公認的架構之一。它是服務提�
 ### 流程具有怎樣的外觀？
 {: #saml-flow}
 
-雖然 {{site.data.keyword.appid_short_notm}} 和您的身分提供者使用 SAML 架構來鑑別使用者，但 {{site.data.keyword.appid_short_notm}} 仍使用較現代的 OAuth 2.0/ OIDC 架構來與應用程式交換安全記號。請參閱下列影像，以查看詳細的資訊流程。
+雖然 {{site.data.keyword.appid_short_notm}} 和您的身分提供者使用 SAML 架構來鑑別使用者，但 {{site.data.keyword.appid_short_notm}} 仍使用較現代的 OAuth 2.0/OIDC 架構來與應用程式交換安全記號。請參閱下列影像，以查看詳細的資訊流程。
 
 ![SAML 企業鑑別流程](/images/ibmid-flow.png)
 
@@ -71,7 +71,7 @@ SAML 2.0 是鑑別及授權標準最受公認的架構之一。它是服務提�
 2. {{site.data.keyword.appid_short_notm}} 會產生 SAML 鑑別要求 (AuthNRequest)，而瀏覽器會自動將使用者重新導向至 SAML 身分提供者。
 3. 身分提供者會剖析 SAML 要求、鑑別使用者，以及產生具有其主張的 SAML 回應。
 4. 身分提供者會使用 SAML 回應，將使用者及回應重新導向回 {{site.data.keyword.appid_short_notm}}。
-5. 如果鑑別成功，{{site.data.keyword.appid_short_notm}} 會建立代表使用者授權和鑑別的存取權和身分記號，並將它們傳回給應用程式。如果鑑別失敗，{{site.data.keyword.appid_short_notm}} 會將身分提供者錯誤碼傳回給應用程式。
+5. 如果鑑別成功，{{site.data.keyword.appid_short_notm}} 會建立代表使用者授權和鑑別的存取及身分記號，並將它們傳回給應用程式。如果鑑別失敗，{{site.data.keyword.appid_short_notm}} 會將身分提供者錯誤碼傳回給應用程式。
 6. 使用者會獲授與對應用程式或受保護資源的存取權。
 
 

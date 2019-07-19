@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-21"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, troubleshooting, help, support, requests, uri
+keywords: Authentication, authorization, identity, app security, secure, troubleshooting, help, support, requests, uri
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -79,7 +79,7 @@ subcollection: appid
 이 제한사항은 보안 용도로 사용됩니다.
 
 {: tsResolve}
-이 문제를 해결하려면 URL이 올바른지 확인하십시오. URL에서 요구사항을 충족하지 않을 경우 앱에서 HTTPS 엔드포인트를 작성하여 수신된 권한 코드를 사용자 정의 URL로 경로 재지정할 수 있습니다. {{site.data.keyword.appid_short_notm}} 콘솔에서 작성된 엔드포인트를 경로 재지정 URL로 지정하십시오. 경로 재지정 URI에 대한 자세한 정보는 [경로 재지정 URI 추가](/docs/services/appid?topic=appid-managing-idp#add-redirect-uri)를 참조하십시오.
+이 문제를 해결하려면 URL이 올바른지 확인하십시오. URL에서 요구사항을 충족하지 않을 경우 앱에서 HTTPS 엔드포인트를 작성하여 수신된 권한 부여 코드를 사용자 정의 URL로 경로 재지정할 수 있습니다. {{site.data.keyword.appid_short_notm}} 콘솔에서 작성된 엔드포인트를 경로 재지정 URL로 지정하십시오. 경로 재지정 URI에 대한 자세한 정보는 [경로 재지정 URI 추가](/docs/services/appid?topic=appid-managing-idp#add-redirect-uri)를 참조하십시오.
 
 ## 사용자가 ID 제공자로 경로 재지정되지 않음
 {: #ts-redirect}
@@ -93,14 +93,14 @@ ID 제공자는 여러 이유로 인해 실패할 수 있습니다.
 * 구성된 경로 재지정 URL이 올바르지 않습니다.
 * ID 제공자가 인증 요청을 인식하지 않습니다.
 * ID 제공자가 HTTP-POST 바인딩을 예상합니다.
-* ID 제공자가 서명된 authnRequest를 예상합니다.
+* ID 제공자가 서명된 AuthnRequest를 기대합니다.
 
 {: tsResolve}
 다음 솔루션 중 일부를 시도할 수 있습니다.
 
-* 사인인 URL을 업데이트하십시오. 이 URL은 authnRequest의 일부로서 전송되며 정확해야 합니다.
+* 사인인 URL을 업데이트하십시오. 이 URL은 AuthnRequest의 일부로서 전송되며 정확해야 합니다.
 * {{site.data.keyword.appid_short_notm}} 메타데이터가 ID 제공자 설정에서 올바르게 설정되었는지 확인합니다.
-* HTTP 경로 재지정에서 authnRequest를 승인하도록 ID 제공자를 구성합니다.
+* HTTP 경로 재지정에서 AuthnRequest를 승인하도록 ID 제공자를 구성합니다.
 * {{site.data.keyword.appid_short_notm}}가 서명 authnRequest를 지원하지 않습니다.
 
 이 중에서 어떤 솔루션도 적용되지 않으면 연결에 문제가 있을 수 있습니다.
@@ -137,7 +137,7 @@ ID 제공자 설정의 속성을 맵핑하십시오. {{site.data.keyword.appid_s
 {: screen}
 
 {: tsCauses}
-한 명의 가상 사용자만으로 자동화된 테스트를 수행하는 경우 "요청이 너무 많음" 오류가 수신될 수 있습니다. 각각의 사용자는 1분 범위 내에 5번의 사인인을 시도할 수 있도록 제한되어 있습니다. 무차별 대입공격 강제 실행 DDOS 및 기타 유사한 유형의 공격을 차단하기 위해 사인인 시도가 제한되어 있습니다.
+한 명의 가상 사용자만으로 자동화된 테스트를 수행하는 경우 "요청이 너무 많음" 오류가 수신될 수 있습니다. 각각의 사용자는 1분 범위 내에 5번의 사인인을 시도할 수 있도록 제한되어 있습니다. 무차별 대입공격 강제 실행 DDoS 및 기타 유사한 유형의 공격을 차단하기 위해 사인인 시도가 제한되어 있습니다.
 
 {: tsResolve}
 문제를 해결하려면 테스트를 수행할 때 복수의 가상 사용자를 사용하십시오.

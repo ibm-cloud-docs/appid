@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-23"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, custom, proprietary, social, facebook, google, 
+keywords: Authentication, authorization, identity, app security, secure, custom, proprietary, social, facebook, google, 
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -34,6 +34,10 @@ subcollection: appid
 
 {{site.data.keyword.appid_short_notm}} 提供預設配置，以協助您快速開始進行服務。
 {: shortdesc}
+
+當您處於「允許使用服務」時，會使用資料。透過使用「服務」，您同意根據所概述的[隱私權原則](/docs/services/appid?topic=appid-privacy-policy)對資訊進行收集與使用。
+{: important}
+
 
 配置 {{site.data.keyword.appid_short_notm}} 時，Facebook、Google 及 Cloud Directory 會自動啟用作為身分提供者。您可以隨時變更此配置。Facebook 及 Google 已經有預設認證，但它們是 IBM 認證，只應用於測試是否使用該服務。在發佈應用程式之前，請將配置更新為您自己的認證。
 
@@ -105,3 +109,9 @@ subcollection: appid
     3. 將來自 {{site.data.keyword.appid_short}} 的 URL 貼到**已授權的重新導向 URI** 欄位，然後按一下**儲存**。
 4. 按一下**儲存**以在 {{site.data.keyword.appid_short}} 中更新您的 Google 配置。
 5. 若為 Web 應用程式，在**管理**標籤中輸入重新導向 URL。授權處理程序完成之後，使用者會被傳送至這個 URL。URL 必須遵循 `http` 或 `https` 架構。若要獲得更高安全等級，請使用 `https` 架構。
+
+
+
+
+
+

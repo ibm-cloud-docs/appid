@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-06"
+lastupdated: "2019-07-02"
 
 keywords: Authentication, authorization, identity, app security, secure
 
@@ -10,7 +10,7 @@ subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -91,7 +91,7 @@ Usando múltiplos provedores em nuvem? Verifique o blog: <a href="https://www.ib
 
 Começamos a começar? Experimente alguns dos nossos tutoriais e blogs para obter ajudar com a integração do {{site.data.keyword.appid_short_notm}} em seus aplicativos!
 
-* <a href="https://www.ibm.com/blogs/cloud-archive/2018/05/announcing-app-id-integration-ibm-cloud-kubernetes-service/" target="_blank"> Anunciando a integração do  {{site.data.keyword.appid_short_notm}}  ao  {{site.data.keyword.containerlong}}  <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"> </a>
+* <a href="https://www.ibm.com/cloud/blog/announcing-app-id-integration-ibm-cloud-kubernetes-service" target="_blank"> Anunciando a integração do  {{site.data.keyword.appid_short_notm}}  ao  {{site.data.keyword.containerlong}}  <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"> </a>
 * <a href="https://www.ibm.com/cloud/blog/using-app-id-secure-docker-kubernetes-applications" target="_blank">Usando o {{site.data.keyword.appid_short_notm}} para proteger aplicativos Docker e Kubernetes <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a>
 * <a href="https://www.ibm.com/cloud/blog/authenticating-users-with-cloud-functions-api-gateway-and-app-id" target="_blank">Autenticando usuários com Cloud Functions, gateway de API e {{site.data.keyword.appid_short_notm}}<img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a>
 * <a href="/docs/tutorials?topic=solution-tutorials-serverless-mobile-backend#serverless-mobile-backend" target="_blank">Aplicativo móvel com um back-end sem servidor <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a>
@@ -109,7 +109,7 @@ Consulte {{site.data.keyword.appid_short_notm}} em ação nestes exemplos de mer
 
 * <a href="https://www.ibm.com/support/knowledgecenter/SSQP8H/iot/platform/reference/security/app_id.html" target="_blank">{{site.data.keyword.appid_short_notm}} Autenticação para o Watson IoT Platform (Beta) <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a>
 * <a href="https://developer.ibm.com/articles/iot-trs-secure-iot-solutions3/" target="_blank">Projetar e construir soluções IoT seguras, parte 3: protegendo aplicativos IoT <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a>
-* <a href="https://www.ibm.com/blogs/cloud-archive/2017/08/developing-finance-application-using-ibm-cloud/ " target="_blank">Desenvolvendo um aplicativo de finanças usando o {{site.data.keyword.cloud_notm}}<img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a>
+* <a href="https://www.ibm.com/cloud/blog/developing-finance-application-using-ibm-cloud" target="_blank">Desenvolvendo um aplicativo de finanças usando o {{site.data.keyword.cloud_notm}}<img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a>
 * <a href="/docs/tutorials?topic=solution-tutorials-cloud-e2e-security#cloud-e2e-security" target="_blank">Aplicar a segurança de ponta a ponta a um aplicativo em nuvem <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a>
 
 
@@ -128,9 +128,9 @@ Precisa de ajuda para se integrar aos aplicativos corporativos? Não se preocupe
 
 Deseja ter uma experiência customizada para os seus usuários? Não é um problema.
 
-* <a href="https://www.ibm.com/cloud/blog/use-branded-ui-user-sign-app-id" target="_blank">Use a sua própria IU de marca para a conexão do usuário com o {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a>
-* <a href="https://www.ibm.com/cloud/blog/use-ui-flows-user-sign-sign-app-id" target="_blank">Use sua própria
-IU e os fluxos para inscrição do usuário e inscrição com o {{site.data.keyword.appid_short_notm}}
+* <a href="https://www.ibm.com/cloud/blog/use-branded-ui-user-sign-app-id" target="_blank">Usar sua própria IU de marca para a conexão do usuário com o {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a>
+* <a href="https://www.ibm.com/cloud/blog/use-ui-flows-user-sign-sign-app-id" target="_blank">Usar sua própria
+IU e seus fluxos para inscrição e conexão do usuário com o {{site.data.keyword.appid_short_notm}}
 <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a>
 * <a href="https://www.ibm.com/cloud/blog/custom-login-page-app-id-integration" target="_blank">Use uma página de login customizada com o {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a>
 * <a href="https://www.ibm.com/cloud/blog/use-ibm-cloud-app-id-and-your-email-provider-to-brand-mails-sent-to-app-users" target="_blank">Use
@@ -145,3 +145,9 @@ se ajusta a outros serviços do {{site.data.keyword.cloud_notm}}? Confira um dos
 
 * <a href="/docs/swift?topic=swift-getting-started" target="_blank">Programando com o Swift no {{site.data.keyword.cloud_notm}}<img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a>
 * <a href="/docs/node?topic=nodejs-getting-started" target="_blank">Programando com o Node.js no {{site.data.keyword.cloud_notm}}<img src="../../icons/launch-glyph.svg" alt="Ícone de link externo"></a>
+
+
+## Teste
+{: #rellinks-test}
+
+Pronto para começar a experimentar o serviço? A forma mais fácil de experimentar as APIs é usando a [coleta de Postman de App ID](https://github.com/ibm-cloud-security/appid-postman){: external}.

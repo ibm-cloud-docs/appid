@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-13"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, access, platform, management, permissions
+keywords: Authentication, authorization, identity, app security, secure, access, platform, management, permissions
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -97,7 +97,7 @@ subcollection: appid
     <td>可以查看服务实例的详细信息，例如用户数据或身份提供者信息。</td>
   </tr>
   <tr>
-    <td> <i>写入者或管理者</i></td>
+    <td><i>写入者或管理者</i></td>
     <td>查看和更改 {{site.data.keyword.appid_short_notm}} 实例。</td>
     <td>可以执行所有读取者操作并编辑服务实例，例如编辑身份提供者配置。</li></ul></td>
   </tr>
@@ -243,7 +243,7 @@ subcollection: appid
 
 开始之前：
 
-* 安装 [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-ibmcloud-cli)。
+* 安装 [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started)。
 
 要更新访问许可权，管理员将完成下列步骤：
 
@@ -337,3 +337,4 @@ subcollection: appid
     {: codeblock}
 
     结果显示包含身份提供者信息的 200 条消息。
+

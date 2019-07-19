@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-06"
+lastupdated: "2019-07-09"
 
 keywords: Authentication, authorization, identity, app security, secure, attributes, user information, storing, accessing
 
@@ -10,7 +10,7 @@ subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -68,7 +68,7 @@ Revise a imagem a seguir para ver as diferentes maneiras nas quais é possível 
 Figura. Acessar opções de perfil do usuário
 
 
-O App ID injeta um subconjunto de atributos em seus tokens de acesso e de identidade automaticamente. É possível aproveitar o mapeamento de solicitações customizadas e mapear outras solicitações predefinidas e customizadas em seus tokens. Para obter mais detalhes sobre a maneira recomendada de acessar informações do usuário, consulte [customizando tokens](/docs/services/appid?topic=appid-customizing-tokens).
+O App ID injeta um subconjunto de atributos em seus tokens de acesso e de identidade automaticamente. É possível aproveitar o mapeamento de solicitações customizadas e mapear outras solicitações predefinidas e customizadas em seus tokens. Para obter mais detalhes sobre a maneira recomendada de acessar informações do usuário, consulte [customizando tokens](/docs/services/appid?topic=appid-customizing-tokens). 
 {: note}
 
 
@@ -92,7 +92,7 @@ AppID.sharedInstance.userProfileManager.getUserInfo { (error: Error?, userInfo: 
 {: codeblock}
 {: ph data-hd-programlang='swift'}
 
-Como alternativa, é possível passar explicitamente os tokens de acesso e de identidade. O token de identidade é opcional, mas quando passado, ele é usado para validar a resposta de informações do usuário.
+Como alternativa, é possível passar explicitamente os tokens de acesso e de identidade. O token de identidade é opcional, mas, quando passado, é usado para validar a resposta.
 {: ph data-hd-programlang='swift'}
 
 ```
@@ -144,7 +144,7 @@ appId.getUserProfileManager( ).getUserInfo (accessToken, identityToken, new User
 **Node.js**
 {: ph data-hd-programlang='javascript'}
 
-Usando um SDK do lado do servidor, é possível recuperar informações adicionais sobre os seus usuários. É possível chamar o método a seguir usando os tokens de acesso e de identidade armazenados ou é possível passar explicitamente os tokens. O token de identidade é opcional, mas quando passado, ele é usado para validar a resposta de informações do usuário.
+Usando um SDK do lado do servidor, é possível recuperar informações adicionais sobre os seus usuários. É possível chamar o método a seguir usando os tokens de acesso e de identidade armazenados ou é possível passar explicitamente os tokens. O token de identidade é opcional, mas, quando passado, é usado para validar a resposta.
 {: ph data-hd-programlang='javascript'}
 
 ```javascript
@@ -171,7 +171,7 @@ userProfileManager.getUserInfo(accessToken).then(function (profile) {
 **Swift do lado do servidor**
 {: ph data-hd-programlang='swift'}
 
-Usando um SDK do lado do servidor, é possível recuperar informações adicionais sobre os seus usuários. É possível chamar o método a seguir usando os tokens de acesso e de identidade armazenados ou é possível passar explicitamente os tokens. O token de identidade é opcional, mas quando passado, ele é usado para validar a resposta de informações do usuário.
+Usando um SDK do lado do servidor, é possível recuperar informações adicionais sobre os seus usuários. É possível chamar o método a seguir usando os tokens de acesso e de identidade armazenados ou é possível passar explicitamente os tokens. O token de identidade é opcional, mas, quando passado, é usado para validar a resposta.
 {: ph data-hd-programlang='swift'}
 
 

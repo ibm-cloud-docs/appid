@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
+keywords: Authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
 subcollection: appid
 
 ---
  
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -29,7 +29,7 @@ subcollection: appid
 使用 Cloud Directory，您可以使用預先建置的功能（它會加強安全及自助），在可擴充的登錄中管理使用者。
 {: shortdesc}
 
-Cloud Directory 使用者與 {{site.data.keyword.appid_short_notm}} 使用者不同。使用者可以使用不同於您所配置的身分提供者選項來註冊您的應用程式，您也可以將他們新增至您的目錄。本主題所提及的使用者，是與作為身分提供者的 Cloud Directory 相關聯的那些使用者。
+Cloud Directory 使用者與 {{site.data.keyword.appid_short_notm}} 使用者不同。使用者可以使用您配置的不同身分提供者選項來註冊您的應用程式，您也可以將他們新增至您的目錄。此頁面上所提及的使用者，是指與作為身分提供者的 Cloud Directory 相關聯的那些使用者。
 {: note}
 
 ## 檢視使用者資訊
@@ -55,23 +55,23 @@ Cloud Directory 使用者與 {{site.data.keyword.appid_short_notm}} 使用者不
   </tr>
   <tr>
     <td>使用者 ID</td>
-    <td>使用者 ID 視您所配置的使用者註冊類型而定。如果您已配置電子郵件及密碼流程，則該 ID 是使用者的電子郵件。如果您使用使用者名稱及密碼流程，則 ID 是在註冊時提供的使用者名稱。</td>
+    <td>使用者 ID 視您所配置的使用者註冊類型而定。如果您已配置電子郵件及密碼流程，則 ID 是使用者的電子郵件。如果您使用使用者名稱及密碼流程，則 ID 是在註冊時提供的使用者名稱。</td>
   </tr>
   <tr>
     <td>電子郵件</td>
     <td>附加至使用者的主要電子郵件位址。</td>
   </tr>
     <tr>
-    <td>名字和姓氏</td>
-    <td>使用者在註冊過程中所提供的名字和姓氏。</td>
+    <td>名字及姓氏</td>
+    <td>使用者在註冊程序期間所提供的名字及姓氏。</td>
   </tr>
   <tr>
     <td>前次登入時間</td>
-    <td>使用者前次登入應用程式的時間戳記。附註：如果您是透過儀表板新增使用者，則在使用者自己登入您的應用程式之前，登入會是空白。登入時，他們也會變成 App ID 使用者。</td>
+    <td>使用者前次登入應用程式的時間戳記。附註：如果您是透過儀表板新增使用者，則在使用者自己登入應用程式之前，登入會是空白的。在進行登入時，他們也會變成 App ID 使用者。</td>
   </tr>
   <tr>
     <td>ID</td>
-    <td>{{site.data.keyword.appid_short_notm}} 指派給使用者的 ID。在使用者介面中，不會顯示該值，但您可以複製該值，並將其貼到文字編輯器中，以查看該值。</td>
+    <td>{{site.data.keyword.appid_short_notm}} 指派給使用者的 ID。在使用者介面中，不會顯示該值，但您可以複製該值，並貼到文字編輯器中，以查看該值。</td>
   </tr>
   <tr>
     <td>預先定義屬性</td>
@@ -95,7 +95,7 @@ Cloud Directory 使用者與 {{site.data.keyword.appid_short_notm}} 使用者不
 
 1. 從服務實例中取得您的承租戶 ID。
 
-2. 以識別查詢（例如電子郵件位址）搜尋您的 App ID 使用者，尋找使用者 ID。
+2. 使用識別查詢（例如電子郵件位址）搜尋您的 App ID 使用者，以尋找使用者 ID。
 
   ```
   curl -X GET "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/Users?query={identifying-search-query}" -H "accept: application/json" -H "authorization: Bearer {token}"
@@ -109,7 +109,7 @@ Cloud Directory 使用者與 {{site.data.keyword.appid_short_notm}} 使用者不
   ```
   {: screen}
 
-3. 藉由使用您在先前步驟中所取得的 ID，對 `cloud_directory/users` 端點發出 GET 要求，以查看其完整使用者設定檔。
+3. 透過使用您在先前步驟中所取得的 ID，對 `cloud_directory/users` 端點發出 GET 要求，以查看其完整使用者設定檔。
 
   ```
   curl -X GET "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/Users/{user-ID}" -H "accept: application/json" -H "authorization: Bearer {token}"
@@ -172,7 +172,7 @@ Cloud Directory 使用者與 {{site.data.keyword.appid_short_notm}} 使用者不
 您可以透過 {{site.data.keyword.appid_short_notm}} 儀表板或使用 API 來管理 Cloud Directory 使用者。
 {: shortdesc}
 
-當使用者註冊應用程式時，他們會透過自助工作流程來這麼做，工作流程會自動觸發電子郵件，例如歡迎或驗證要求。身為管理者的您將使用者新增至應用程式時，不會起始自助工作流程，這表示使用者不會收到來自您應用程式的任何電子郵件。如果您希望使用者仍然收到已新增他們的通知，可以透過 [App ID 管理 API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.set_cloud_directory_email_dispatcher) 來觸發傳訊流程。
+當使用者註冊應用程式時，他們會透過自助工作流程來進行，工作流程會自動觸發電子郵件，例如歡迎或驗證要求。身為管理者的您將使用者新增至應用程式時，不會起始自助工作流程，這表示使用者不會收到來自您應用程式的任何電子郵件。如果您希望使用者仍然收到已新增他們的通知，可以透過 [App ID 管理 API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.set_cloud_directory_email_dispatcher) 來觸發傳訊流程。
 
 
 ### 新增使用者
@@ -180,16 +180,16 @@ Cloud Directory 使用者與 {{site.data.keyword.appid_short_notm}} 使用者不
 
 當使用者註冊您的應用程式時，系統會將他們新增為使用者。為了進行測試，您可以透過 {{site.data.keyword.appid_short_notm}} 儀表板或使用 API 來新增使用者。
 
-如果您停用自助登入或代表使用者新增他們，則在新增使用者時，他們不會收到歡迎或驗證電子郵件。
+如果您停用自助登入或新增一個代表他們的使用者，則在新增使用者時，他們不會收到歡迎或驗證電子郵件。
 {: tip}
 
 
 
 **若要使用 GUI 新增使用者，請執行下列動作：**
 
-1. 導覽至 {{site.data.keyword.appid_short_notm}} 儀表板的 **Cloud Directory > 使用者**標籤。
+1. 移至 {{site.data.keyword.appid_short_notm}} 儀表板的 **Cloud Directory > 使用者**標籤。
 
-2. 按一下**新增使用者**。即會顯示表單。
+2. 按一下**新增使用者**。即會開啟表單。
 
 3. 輸入**名字**、**姓氏**、**電子郵件**及**密碼**。請確定您嘗試要登錄的電子郵件尚未由另一位使用者使用。若要確定您已正確鍵入密碼，請在**重新輸入密碼**欄位中輸入該密碼來加以確認。
 
@@ -211,7 +211,7 @@ Cloud Directory 使用者與 {{site.data.keyword.appid_short_notm}} 使用者不
   ```
   {: codeblock}
 
-3. 使用您在步驟 2 中取得的記號，對 `cloud-directory/users` 端點發出 POST 要求。請注意，此範例使用電子郵件/密碼流程。您也可以使用使用者名稱/密碼流程。
+3. 使用您在步驟 2 中取得的記號，對 `cloud-directory/users` 端點發出 POST 要求。這個範例使用電子郵件/密碼流程。您也可以使用使用者名稱/密碼流程。
 
   ```
   curl --X POST "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/Users"
@@ -238,16 +238,16 @@ Cloud Directory 使用者與 {{site.data.keyword.appid_short_notm}} 使用者不
 ### 刪除使用者
 {: #delete-users}
 
-如果您要從目錄中移除使用者，則可以從 GUI 或使用 API 刪除該使用者。
+如果您要從目錄移除使用者，則可以從 GUI 或使用 API 刪除該使用者。
 {: shortdesc}
 
 **若要透過 GUI 刪除使用者，請執行下列動作：**
 
-1. 導覽至 {{site.data.keyword.appid_short_notm}} 儀表板的 **Cloud Directory > 使用者**標籤。
+1. 移至 {{site.data.keyword.appid_short_notm}} 儀表板的 **Cloud Directory > 使用者**標籤。
 
-2. 請按一下您要刪除之使用者旁的勾選框。即會顯示方框。
+2. 請按一下您要刪除之使用者旁的勾選框。即會開啟方框。
 
-3. 在此方框中，按一下**刪除**。即會顯示畫面。
+3. 在此方框中，按一下**刪除**。即會開啟畫面。
 
 4. 按一下**刪除**，以確認您瞭解刪除使用者動作無法復原。如果此動作是錯的，您可以重新將使用者新增至目錄中，但該使用者的任何相關資訊已不再可用。
 
@@ -277,7 +277,7 @@ Cloud Directory 使用者與 {{site.data.keyword.appid_short_notm}} 使用者不
 ## 移轉使用者
 {: #user-migration}
 
-您有時可能需要設定新的 {{site.data.keyword.appid_short_notm}} 實例。如果您是使用「雲端目錄」，這表示您的使用者必須移轉至新的實例。您可以使用管理 API 來協助移轉。
+有時，您可能需要新增 {{site.data.keyword.appid_short_notm}} 的實例。如果您是使用 Cloud Directory，您的使用者必須移轉至新的實例。若要協助移轉，您可以使用管理 API。
 {: shortdesc}
 
 
@@ -381,14 +381,14 @@ curl -X POST --header ‘Content-Type: application/json’ --header ‘Accept: a
   </tr>
   <tr>
     <td>IAM 記號</td>
-    <td>在取得記號之前，請確定您具有<code>管理員</code>許可權。如需協助取得 IAM 記號，請參閱<a href="/docs/iam?topic=iam-iamtoken_from_apikey#iamtoken_from_apikey" target="_blank">文件 <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>。</td>
+    <td>在取得記號之前，請確定您具有<code>管理員</code>許可權。如需協助取得 IAM 記號，請參閱 <a href="/docs/iam?topic=iam-iamtoken_from_apikey#iamtoken_from_apikey" target="_blank">文件 <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>。</td>
   </tr>
 </table>
 
 若要執行 Script，請執行下列動作：
 
 1. 複製<a href="https://github.com/ibm-cloud-security/appid-sample-code-snippets/tree/master/export-import-cloud-directory-users" target="_blank">儲存庫 <img src="../../icons/launch-glyph.svg" alt="外部鏈結圖示"></a>。
-2. 開啟終端機，並導覽至您將儲存庫複製到其中的資料夾。
+2. 開啟主控台，移至您複製儲存庫的資料夾。
 3. 執行下列指令。
 
   ```

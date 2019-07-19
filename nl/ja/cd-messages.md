@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-20"
+lastupdated: "2019-07-10"
 
-keywords: authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
+keywords: Authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -25,7 +25,7 @@ subcollection: appid
 # E メールのカスタマイズ
 {: #cd-types}
 
-ユーザーがアプリケーションと対話するときに、ユーザーに応答を送信したい場合や、検証を求めたい場合があります。 {{site.data.keyword.appid_short_notm}} には、対話に使用できるデフォルトのテンプレートが用意されています。 これらのテンプレートを基にして、ブランドに合ったメッセージングをカスタマイズすることもできます。
+アプリケーションと対話しているユーザーに、応答を送信したい場合や、検証を求めたい場合があります。{{site.data.keyword.appid_short_notm}} には、対話に使用できるデフォルトのテンプレートが用意されています。 これらのテンプレートを基にして、ブランドに合ったメッセージングをカスタマイズすることもできます。
 {: shortdesc}
 
 {{site.data.keyword.appid_short_notm}} は <a href="https://www.sendgrid.com" target="_blank">SendGrid <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> をメール配信サービスとして使用します。 すべての E メールは、単一の SendGrid アカウントを使用して送信されます。
@@ -40,7 +40,7 @@ subcollection: appid
 以下のメッセージ・タイプに加えて、[SSO](/docs/services/appid?topic=appid-cd-sso#cd-sso) 用テンプレートと [MFA](/docs/services/appid?topic=appid-cd-mfa#cd-mfa) 用テンプレートを利用することもできます。
 {: tip}
 
-メッセージをさらにカスタマイズするために、メッセージ内でパラメーターを使用できます。 次の表を参照して、すべてのメッセージ・タイプで使用できるパラメーターを確認してください。
+さらにカスタマイズしたい場合は、メッセージの中でパラメーターを使用できます。次の表を参照して、すべてのメッセージ・タイプで使用できるパラメーターを確認してください。
 
 <table>
   <tr>
@@ -60,7 +60,7 @@ subcollection: appid
   </tr>
   <tr>
     <td><code>%{user.username}</code></td>
-    <td> 認証方式がユーザー名とパスワードに設定されているとき、ユーザーが指定したユーザー名を表示します。 </td>
+    <td> 認証方式がユーザー名とパスワードに設定されている場合に、ユーザーから指定されたユーザー名を表示します。</td>
   </tr>
   <tr>
     <td><code>%{user.firstName}</code></td>
@@ -83,7 +83,7 @@ subcollection: appid
 ユーザーがアプリケーションに登録するときに、アプリのウェルカム・メッセージをユーザーに送信することができます。 
 {: shortdesc}
 
-1. サービス・ダッシュボードの**「ワークフロー・テンプレート (Workflow templates)」>「ようこそ E メール (Welcome email)」**タブにナビゲートします。
+1. サービス・ダッシュボードの**「ワークフロー・テンプレート (Workflow templates)」>「ようこそ E メール (Welcome email)」**タブに移動します。
 
 2. **「ようこそ E メール (Welcome email)」**を**「有効」**に設定します。
 
@@ -95,15 +95,18 @@ subcollection: appid
 ### E メール: 検証
 {: #cd-messages-verification}
 
-ユーザーが E メールを使用してアプリケーションに登録するとき、アイデンティティーの確認を求める E メールをユーザーに送信できます。 検証を要求することで、アプリに登録されるおそれのある偽アカウントの数を抑制します。 E メールをユーザーが検証するまでアプリへのアクセスを制限したり、プロファイルを作成するユーザーを管理する手段として E メール検証を利用したりできます。なお、{{site.data.keyword.appid_short_notm}} ダッシュボードまたはユーザー作成 API を使用して手動で追加されたユーザーは、この E メールを自動受信しません。
+ユーザーが E メールを使用してアプリケーションに登録するとき、アイデンティティーの確認を求める E メールをユーザーに送信できます。 検証を要求することで、アプリに登録されるおそれのある偽アカウントの数を抑制します。 E メールをユーザーが検証するまでアプリへのアクセスを制限したり、プロファイルを作成するユーザーを管理する手段として E メール検証を利用したりできます。
 {: shortdesc}
 
+{{site.data.keyword.appid_short_notm}} ダッシュボードまたはユーザー作成 API を使用して手動で追加したユーザーには、この E メールは自動送信されません。
+{: note}
 
-1. サービス・ダッシュボードの**「ワークフロー・テンプレート (Workflow templates)」>「E メール検証 (Email verification)」**タブにナビゲートします。
+
+1. サービス・ダッシュボードの**「ワークフロー・テンプレート (Workflow templates)」>「E メール検証 (Email verification)」**タブに移動します。
 
 2. **「E メール検証 (Email verification)」**を**「有効」**に設定します。
 
-3. **「最初にユーザーの E メール・アドレスを検証せずに、ユーザーがアプリケーションにサインインできるようにする」**を**「はい」**に設定します。 「はい」に設定すると、ユーザーは登録後に、まだ E メール・アドレスを検証していない状態で、アプリケーションと対話できるようになります。デフォルト設定は「いいえ」です。
+3. **「最初にユーザーの E メール・アドレスを検証せずに、ユーザーがアプリケーションにサインインできるようにする」**を**「はい」**に設定します。 「はい」に設定すると、ユーザーは登録後に、まだ E メール・アドレスを検証していない状態で、アプリケーションと対話できるようになります。 デフォルト設定は「いいえ」です。
 
 4. メッセージの内容をカスタマイズします。 UI を使用して、パラメーターを追加したり、画像を挿入したりできます。 メッセージの[言語](/docs/services/appid?topic=appid-cd-messages#cd-languages)を変更するには、<a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization" target="_blank">API <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> を使用して言語を設定します。 ただし、メッセージの内容と翻訳については、ご自身の責任になります。 次の表を参照して、メッセージで使用できるさまざまなパラメーターを確認してください。 パラメーターによってプルされた情報をユーザーが指定していない場合は、ブランクとして表示されます。
 
@@ -132,7 +135,7 @@ subcollection: appid
   [ウェルカム・メッセージ](/docs/services/appid?topic=appid-cd-messages#cd-messages-welcome)のセクションにリストされているメッセージ・パラメーターを使用することもできます。
   {: tip}
 
-5. アクション URL の有効期限時間を定義します。 URL の有効期限は分単位の時間であり、ユーザーはこの時間内にアクションを完了する必要があります。この時間が経過すると、検証リンクが期限切れになります。 この設定は、パスワード再設定リンクが有効である時間にも影響します。
+5. アクション URL の有効期限時間を定義します。 この URL の有効期間は分単位の時間であり、ユーザーは検証リンクが期限切れになる前にアクションを完了する必要があります。この設定は、パスワード再設定リンクが有効である時間にも影響します。
  
 6. E メールをユーザーが検証した後に表示するページの URL を、**「Thank you ページの URL (Thank you page URL)」**ボックスに入力します。 このフィールドをブランクのままにしておくことを選択した場合は、{{site.data.keyword.appid_short_notm}} のデフォルト・ページが表示されます。
 
@@ -142,11 +145,11 @@ subcollection: appid
 ### E メール: パスワードの再設定
 {: #cd-messages-reset}
 
-ユーザーがアプリと対話するときに、パスワードを忘れている場合や、パスワードを更新する必要がある場合があります。その要求に対する E メール応答をカスタマイズすることができます。 ユーザーがパスワードの変更を要求しても、ユーザーがこの E メール内のリンクをクリックするまでパスワードは変更されません。
+ユーザーがアプリと対話するときに、パスワードを忘れている場合や、パスワードを更新する必要がある場合があります。 その要求に対する E メール応答をカスタマイズすることができます。 ユーザーがパスワードの変更を要求しても、ユーザーがこの E メール内のリンクをクリックするまでパスワードは変更されません。
 {: shortdesc}
 
 
-1. サービス・ダッシュボードの**「ワークフロー・テンプレート (Workflow templates)」>「パスワードのリセット」**タブにナビゲートします。
+1. サービス・ダッシュボードの**「ワークフロー・テンプレート (Workflow templates)」>「パスワードのリセット」**タブに移動します。
 
 2. **「パスワードを忘れた場合の E メール (Forgot password email)」**を**「有効」**に設定します。
 
@@ -177,7 +180,7 @@ subcollection: appid
   [ウェルカム・メッセージ](/docs/services/appid?topic=appid-cd-messages#cd-messages-welcome)のセクションにリストされているメッセージ・パラメーターを使用することもできます。
   {: tip}
 
-4. アクション URL の有効期限時間を定義します。 URL の有効期限は分単位の時間であり、ユーザーはこの時間内にアクションを完了する必要があります。この時間が経過すると、検証リンクが期限切れになります。 この設定は、パスワード再設定リンクが有効である時間にも影響します。
+4. アクション URL の有効期限時間を定義します。 この URL の有効期間は分単位の時間であり、ユーザーは検証リンクが期限切れになる前にアクションを完了する必要があります。この設定は、パスワード再設定リンクが有効である時間にも影響します。
  
 5. E メールをユーザーが検証した後に表示するページの URL を、**「パスワード再設定ページの URL (Reset password page URL)」**ボックスに入力します。 このフィールドをブランクのままにしておくことを選択した場合は、{{site.data.keyword.appid_short_notm}} のデフォルト・ページが表示されます。
 
@@ -187,10 +190,10 @@ subcollection: appid
 ### E メール: パスワードの変更
 {: #cd-messages-password-change}
 
-パスワードが更新されたときにユーザーに通知することができます。 これは、ユーザーがパスワードの変更を要求しなかった場合に役立ちます。 ユーザーは適切な手順に沿って、アカウントを再びセキュアにすることができます。
+パスワードが更新されたときにユーザーに通知することができます。通知は、ユーザーがパスワードの変更を要求していなかった場合に役立ちます。ユーザーは適切な手順に沿って、アカウントを再びセキュアにすることができます。
 {: shortdesc}
 
-1. サービス・ダッシュボードの**「ワークフロー・テンプレート (Workflow templates)」>「パスワードの変更 (Password change)」**タブにナビゲートします。
+1. サービス・ダッシュボードの**「ワークフロー・テンプレート (Workflow templates)」>「パスワードの変更 (Password change)」**タブに移動します。
 
 2. **「パスワードが変更された場合の E メール (Password changed email)」**を**「有効」**に設定します。
 
@@ -227,7 +230,7 @@ subcollection: appid
 以下の理由で、カスタム E メール送信者を使用したい場合があります。
 
 - **個別設定ドメイン**
-カスタム E メール・ディスパッチャーを構成すると、E メール・メッセージの送信方法を自由に制御できます。 例えば、E メール・ドメインをカスタマイズして、E メールがスパムとしてフィルタリングされる可能性をさらに低くすることができます。アプリ・ユーザーのブランド・エクスペリエンスをさらに向上させることもできます。
+カスタム E メール・ディスパッチャーを構成すると、E メール・メッセージの送信方法を自由に制御できます。 特に注目すべきは、E メール・ドメインをカスタマイズして、E メールがスパムとしてフィルタリングされる可能性を減らすことができる点です。アプリ・ユーザーのブランド・エクスペリエンスをさらに向上させることもできます。
 
 - **洞察とトラブルシューティング**
 E メール・プロバイダーから洞察が得られます。例えば、E メールを開封したユーザーの数や、配信されなかったメッセージを特定できます。 個々のメッセージを追跡し、全般的な統計を確認できるので、問題の解決に役立ちます。
@@ -283,7 +286,7 @@ E メール・プロバイダーから洞察が得られます。例えば、E �
 
 2. POST 要求を listen できる拡張ポイントを構成します。 このエンドポイントは、{{site.data.keyword.appid_short_notm}} からのペイロードを読み取り、カスタム E メール送信者で E メールを送信することができるものでなければなりません。
 
-3. {{site.data.keyword.appid_short_notm}} から送信される本体の形式は、`{"jws": "jws-format-string"}` です。ペイロードをデコードして確認した後のコンテンツは JSON 文字列です。
+3. {{site.data.keyword.appid_short_notm}} から送信される本体の形式は、`{"jws": "jws-format-string"}` です。 ペイロードをデコードして確認した後のコンテンツは JSON 文字列です。
 
   ```
   {
@@ -334,12 +337,12 @@ E メール・プロバイダーから洞察が得られます。例えば、E �
       <td>メッセージの受信者の E メール・アドレス。</td>
     </tr>
     <tr>
-      <td><code>message: from</code></br><code>name</code></br><code>address</code></td>
+      <td><code>message: from</code> </br><code>name</code> </br><code>address</code></td>
       <td></br>メッセージの送信者の名前。</br>送信者の E メール・アドレス。</td>
     </tr>
     <tr>
       <td><code>オプション: message: reply to</code></br><code>name</code></br><code>address</code></td>
-      <td></br>応答 E メール・アドレスに付加する名前。</br>ユーザーの応答先になる E メール・アドレス。</td>
+      <td></br>応答 E メール・アドレスに関連付ける名前。</br>ユーザーの応答先になる E メール・アドレス。</td>
     </tr>
   </table>
 
@@ -417,7 +420,7 @@ E メール・プロバイダーから洞察が得られます。例えば、E �
 
 6. E メール・ディスパッチャーをテストして、構成が正しくセットアップされていることを確認します。 <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/post_email_dispatcher_test" target="_blank">テスト API</a> を使用して、構成済みのカスタム E メール送信者への要求をトリガーしてください。
 
-操作の例全体については、<a href="https://www.ibm.com/cloud/blog/use-ibm-cloud-app-id-and-your-email-provider-to-brand-mails-sent-to-app-users" target="_blank">Use your own provider for mail sent with {{site.data.keyword.appid_full}}</a> を参照してください。
+実装例については、<a href="https://www.ibm.com/cloud/blog/use-ibm-cloud-app-id-and-your-email-provider-to-brand-mails-sent-to-app-users" target="_blank">Use your own provider for mail sent with {{site.data.keyword.appid_full}}</a> を参照してください。
 
 
 

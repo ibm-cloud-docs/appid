@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-06"
+lastupdated: "2019-06-18"
 
 keywords: Authentication, authorization, identity, app security, secure, compliance, high availability, ha, disaster recover, dr, protocols, oauth, oidc
 
@@ -10,7 +10,7 @@ subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -46,7 +46,7 @@ La seguridad de aplicación se puede complicar de forma increíble. Para la mayo
     <th>Solución</th>
   </tr>
   <tr>
-    <td>Debe añadir [autorización y autenticación](/docs/services/appid?topic=appid-key-concepts#key-concepts) a sus apps web y móvil pero no tiene un fondo de seguridad.</td>
+    <td>Debe añadir [autorización y autenticación](/docs/services/appid?topic=appid-key-concepts) a sus apps web y móvil pero no tiene un fondo de seguridad.</td>
     <td>{{site.data.keyword.appid_short_notm}} permite añadir fácilmente un paso de autenticación a sus apps. Puede añadir inicio de sesión de correo electrónico o nombre de usuario, social o empresarial a sus apps con API, SDK, IU creadas previamente o IU de su propia marca.</td>
   </tr>
   <tr>
@@ -59,7 +59,7 @@ La seguridad de aplicación se puede complicar de forma increíble. Para la mayo
   </tr>
   <tr>
     <td>Desea gestionar usuarios de forma escalable.</td>
-    <td> Con {{site.data.keyword.appid_short_notm}} puede crear un [directorio en la nube](/docs/services/appid?topic=appid-cloud-directory#cloud-directory), que le permite añadir el registro e inicio de sesión de usuarios a sus apps. El directorio en la nube le proporciona la infraestructura para mantener un registro de usuarios que puede escalar con su base de usuarios. Con la funcionalidad integrada para el autoservicio, como verificación de correo electrónico y restablecimiento de contraseñas, puede garantizar la seguridad de la autenticación de los usuarios de su app.</td>
+    <td> Con {{site.data.keyword.appid_short_notm}} puede crear un [directorio en la nube](/docs/services/appid?topic=appid-cloud-directory), que le permite añadir el registro e inicio de sesión de usuarios a sus apps. El directorio en la nube le proporciona la infraestructura para mantener un registro de usuarios que puede escalar con su base de usuarios. Con la funcionalidad integrada para el autoservicio, como verificación de correo electrónico y restablecimiento de contraseñas, puede garantizar la seguridad de la autenticación de los usuarios de su app.</td>
   </tr>
 </table>
 
@@ -92,13 +92,13 @@ Puede utilizar {{site.data.keyword.appid_short_notm}} con otras ofertas de {{sit
 
 <dl>
   <dt>{{site.data.keyword.containershort_notm}}</dt>
-    <dd>Al configurar el ingreso en un clúster estándar, puede proteger sus apps en el nivel de clúster. Consulte la <a href="/docs/containers?topic=containers-ingress_annotation#appid-auth">anotación de Ingress de autenticación de {{site.data.keyword.appid_short_notm}} </a> o la publicación de blog <a href="https://www.ibm.com/blogs/cloud-archive/2018/05/announcing-app-id-integration-ibm-cloud-kubernetes-service/">Anuncio de la integración de {{site.data.keyword.appid_short_notm}} a {{site.data.keyword.containerlong_notm}} <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a> para empezar.</dd>
+    <dd>Al configurar el ingreso en un clúster estándar, puede proteger sus apps en el nivel de clúster. Consulte la <a href="/docs/containers?topic=containers-ingress_annotation#appid-auth">anotación de Ingress de autenticación de {{site.data.keyword.appid_short_notm}} </a> o la publicación de blog <a href="https://www.ibm.com/cloud/blog/announcing-app-id-integration-ibm-cloud-kubernetes-service">Anuncio de la integración de {{site.data.keyword.appid_short_notm}} a {{site.data.keyword.containerlong_notm}} <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a> para empezar.</dd>
   <dt>{{site.data.keyword.openwhisk_short}} y {site.data.keyword.apiconnect_short}}</dt>
-    <dd>Al crear sus API con [{{site.data.keyword.openwhisk_short}}](/docs/openwhisk?topic=cloud-functions-getting_started#getting_started) y [API Connect](/docs/services/apiconnect?topic=apiconnect-getting-started), puede proteger sus aplicaciones en la pasarela en lugar de en el código de la app. Para ver la integración en acción, vea <a href="https://www.youtube.com/watch?v=Fa9YD2NGZiE" target="_blank">OAuth de inicio de sesión en redes sociales rápido y simple con API Connect y {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>.</dd>
+    <dd>Al crear sus API con [{{site.data.keyword.openwhisk_short}}](/docs/openwhisk?topic=cloud-functions-getting-started) y [API Connect](/docs/services/apiconnect?topic=apiconnect-getting-started), puede proteger sus aplicaciones en la pasarela en lugar de en el código de la app. Para ver la integración en acción, vea <a href="https://www.youtube.com/watch?v=Fa9YD2NGZiE" target="_blank">OAuth de inicio de sesión en redes sociales rápido y simple con API Connect y {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>.</dd>
   <dt>Cloud Foundry</dt>
     <dd>Pruebe una de las apps de Cloud Foundry de muestra que se proporcionan para ver cómo puede integrar {{site.data.keyword.appid_short_notm}} en sus apps.</dd>
   <dt>{{site.data.keyword.cloudaccesstrailshort}}</dt>
-    <dd>Puede supervisar la actividad administrativa que se realiza en {{site.data.keyword.appid_short_notm}} como los cambios en la configuración del panel de control, utilizando la [documentación de {{site.data.keyword.cloudaccesstrailshort}}](/docs/services/cloud-activity-tracker?topic=cloud-activity-tracker-getting-started#getting-started).</dd>
+    <dd>Puede supervisar la actividad administrativa que se realiza en {{site.data.keyword.appid_short_notm}} como los cambios en la configuración del panel de control, utilizando la [documentación de {{site.data.keyword.cloudaccesstrailshort}}](/docs/services/cloud-activity-tracker?topic=cloud-activity-tracker-getting-started).</dd>
   <dt>Guía de programación de iOS</dt>
     <dd>¿Desarrolla apps para Apple? Pruebe la [Guía de programación de iOS](/docs/swift?topic=swift-getting-started) para aprender, experimentar y mejorar sus apps de iOS existentes con {{site.data.keyword.cloud_notm}}.</dd>
   <dt>Guía de programación de Node.js</dt>
@@ -114,7 +114,7 @@ Puede utilizar {{site.data.keyword.appid_short_notm}} con otras ofertas de {{sit
 
 {{site.data.keyword.appid_short_notm}} se basa en un conjunto de protocolos estándares y estándares del sector conocidos, que se suelen encontrar tanto en aplicaciones de empresa como en aplicaciones de cara al consumidor, OAuth 2.0 Authorization Framework y Open ID Connect. OAuth 2.0 se utiliza para obtener y verificar la autorización para acceder a recursos protegidos. Además, Open ID Connect añade una capa de autenticación y protección de identidad a la aplicación.
 
-Consulte la sección 5.4 del informe de compatibilidad de productos de software {{site.data.keyword.appid_short_notm}} para revisar una lista completa de las [certificaciones](https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=BF31C8008D7C11E59F9AD7336D7D0FFB). Además de las certificaciones, {{site.data.keyword.appid_short_notm}} también es compatible con las especificaciones siguientes: OAuth 2.0, OpenID Connect, JSON Web Token (JWT), JSON Web Signature (JWS), System for Cross-domain Identity Management (SCIM). 
+Consulte la sección 5.4 del informe de compatibilidad de productos de software {{site.data.keyword.appid_short_notm}} para revisar una lista completa de las [certificaciones](https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=BF31C8008D7C11E59F9AD7336D7D0FFB){: external}. Además de las certificaciones, {{site.data.keyword.appid_short_notm}} también es compatible con las especificaciones siguientes: OAuth 2.0, OpenID Connect, JSON Web Token (JWT), JSON Web Signature (JWS), System for Cross-domain Identity Management (SCIM). 
 
 
 ## Alta disponibilidad regional
@@ -127,4 +127,5 @@ En cada región multizona soportada, cada zona tiene su propio pulgadas de {{sit
 
 Los datos que se almacenan en {{site.data.keyword.appid_short_notm}} están cifrados y son persistentes en un clúster de base de datos que se distribuye en distintas zonas de disponibilidad. La copia de seguridad de los datos también se realiza en un almacenamiento de objetos cifrados independiente.
 
-Como {{site.data.keyword.appid_short_notm}} es un servicio regional, no proporciona migración tras error ni recuperación tras desastre entre regiones de forma automatizada. Sin embargo, {{site.data.keyword.appid_short_notm}} proporciona una <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/" target="_blank">amplia API<img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a> que los desarrolladores pueden utilizar para sincronizar manualmente su configuración de servicio con otra instancia o instancias de {{site.data.keyword.appid_short_notm}}.
+Como {{site.data.keyword.appid_short_notm}} es un servicio regional, no proporciona migración tras error ni recuperación tras desastre entre regiones de forma automatizada. Sin embargo, {{site.data.keyword.appid_short_notm}} proporciona una [amplia API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/){: external} que los desarrolladores pueden utilizar para sincronizar manualmente su configuración de servicio con otra instancia o instancias de {{site.data.keyword.appid_short_notm}}.
+

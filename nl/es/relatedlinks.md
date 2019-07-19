@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-06"
+lastupdated: "2019-07-02"
 
 keywords: Authentication, authorization, identity, app security, secure
 
@@ -10,7 +10,7 @@ subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -85,7 +85,7 @@ Obtenga más información sobre {{site.data.keyword.appid_short_notm}} leyendo a
 
 ¿Acaba de empezar? Revise algunas de las guías de aprendizaje y los blogs para facilitar la integración de {{site.data.keyword.appid_short_notm}} en sus apps.
 
-* <a href="https://www.ibm.com/blogs/cloud-archive/2018/05/announcing-app-id-integration-ibm-cloud-kubernetes-service/" target="_blank">Anuncio de la integración de {{site.data.keyword.appid_short_notm}} en {{site.data.keyword.containerlong}} <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>
+* <a href="https://www.ibm.com/cloud/blog/announcing-app-id-integration-ibm-cloud-kubernetes-service" target="_blank">Anuncio de la integración de {{site.data.keyword.appid_short_notm}} en {{site.data.keyword.containerlong}} <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>
 * <a href="https://www.ibm.com/cloud/blog/using-app-id-secure-docker-kubernetes-applications" target="_blank">Uso de {{site.data.keyword.appid_short_notm}} para proteger aplicaciones de Docker y Kubernetes <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>
 * <a href="https://www.ibm.com/cloud/blog/authenticating-users-with-cloud-functions-api-gateway-and-app-id" target="_blank">Autenticación de usuarios con Cloud Functions, API Gateway y {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>
 * <a href="/docs/tutorials?topic=solution-tutorials-serverless-mobile-backend#serverless-mobile-backend" target="_blank">Aplicación móvil con un programa de fondo sin servidor <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>
@@ -103,7 +103,7 @@ Consulte {{site.data.keyword.appid_short_notm}} en acción en estos ejemplos de 
 
 * <a href="https://www.ibm.com/support/knowledgecenter/SSQP8H/iot/platform/reference/security/app_id.html" target="_blank">{{site.data.keyword.appid_short_notm}} Authentication for Watson IoT Platform (Beta) <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>
 * <a href="https://developer.ibm.com/articles/iot-trs-secure-iot-solutions3/" target="_blank">Diseñar y crear soluciones IoT seguras, parte 3: Protección de aplicaciones IoT <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>
-* <a href="https://www.ibm.com/blogs/cloud-archive/2017/08/developing-finance-application-using-ibm-cloud/ " target="_blank">Desarrollo de una aplicación de finanzas mediante {{site.data.keyword.cloud_notm}} <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>
+* <a href="https://www.ibm.com/cloud/blog/developing-finance-application-using-ibm-cloud" target="_blank">Desarrollo de una aplicación de finanzas mediante {{site.data.keyword.cloud_notm}} <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>
 * <a href="/docs/tutorials?topic=solution-tutorials-cloud-e2e-security#cloud-e2e-security" target="_blank">Aplicar seguridad de extremo a extremo a una aplicación en la nube <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>
 
 
@@ -134,3 +134,9 @@ Consulte {{site.data.keyword.appid_short_notm}} en acción en estos ejemplos de 
 
 * <a href="/docs/swift?topic=swift-getting-started" target="_blank">Programación con Swift en {{site.data.keyword.cloud_notm}} <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>
 * <a href="/docs/node?topic=nodejs-getting-started" target="_blank">Programación con Node.js en {{site.data.keyword.cloud_notm}} <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>
+
+
+## Pruebas
+{: #rellinks-test}
+
+¿Está listo para probar el servicio? La forma más fácil de probar las API es utilizando la [recopilación de Postman de App ID](https://github.com/ibm-cloud-security/appid-postman){: external}.

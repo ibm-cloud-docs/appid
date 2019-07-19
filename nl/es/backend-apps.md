@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-09"
+lastupdated: "2019-06-18"
 
-keywords: authentication, authorization, identity, app security, secure, backend, back-end, oauth, 
+keywords: Authentication, authorization, identity, app security, secure, backend, back-end, oauth, 
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -42,13 +42,13 @@ Parte del desarrollo de apps de fondo es verificar que las API estén protegidas
 ### ¿Cuál es la base técnica del flujo?
 {: #backend-technical-flow}
 
-{{site.data.keyword.appid_short_notm}} implementa [OAuth 2.0](https://tools.ietf.org/html/rfc6749) y la especificación OIDC, que utiliza señales portadores para la autenticación y autorización. Estas señales tienen el formato de [señales web de JSON](https://tools.ietf.org/html/rfc7519), que están firmadas digitalmente y contienen reclamaciones que describen el sujeto que se está autenticando y el proveedor de identidad. Las API de la aplicación están protegidas por señales de identidad y acceso. Es posible autenticar los clientes que necesitan acceso a las API con el proveedor de identidad mediante {{site.data.keyword.appid_short_notm}} a cambio de estas señales. Las reclamaciones de las señales tienen que ser validadas para poder otorgar acceso a las API protegidas.
+{{site.data.keyword.appid_short_notm}} implementa [OAuth 2.0](https://tools.ietf.org/html/rfc6749){: external} y la especificación OIDC, que utiliza señales portadores para la autenticación y autorización. Estas señales tienen el formato de [señales web de JSON](https://tools.ietf.org/html/rfc7519){: external}, que están firmadas digitalmente y contienen reclamaciones que describen el sujeto que se está autenticando y el proveedor de identidad. Las API de la aplicación están protegidas por señales de identidad y acceso. Es posible autenticar los clientes que necesitan acceso a las API con el proveedor de identidad mediante {{site.data.keyword.appid_short_notm}} a cambio de estas señales. Las reclamaciones de las señales tienen que ser validadas para poder otorgar acceso a las API protegidas.
 
-Para obtener más información sobre cómo se utilizan las señales en {{site.data.keyword.appid_short_notm}}, consulte [Comprensión de las señales](/docs/services/appid?topic=appid-tokens#tokens).
+Para obtener más información sobre cómo se utilizan las señales en {{site.data.keyword.appid_short_notm}}, consulte [Comprensión de las señales](/docs/services/appid?topic=appid-tokens#).
 {: tip}
 
 
-### ¿Qué aspecto tiene este flujo?
+### ¿Qué aspecto tiene el flujo?
 {: #backend-flow}
 
 ![Flujo de fondo de {{site.data.keyword.appid_short_notm}}. Los pasos se listan por orden, siguiendo la imagen.](images/backend-flow.png)
@@ -82,7 +82,7 @@ Para obtener más información sobre cómo se utilizan las señales en {{site.da
 Puede utilizar los SDK de {{site.data.keyword.appid_short_notm}} para aplicar la autenticación y la autorización en las aplicaciones del lado del servidor. `ApiStrategy` trabaja con sus recursos de fondo solicitando que las señales de identidad y acceso se validen como parte de la solicitud.
 {: shortdesc}
 
-El SDK de Node.js de {{site.data.keyword.appid_short_notm}} funciona junto con la [infraestructura Passport](http://www.passportjs.org/).
+El SDK de Node.js de {{site.data.keyword.appid_short_notm}} funciona junto con la [infraestructura Passport](http://www.passportjs.org/){: external}.
 {: ph data-hd-programlang='javascript'}
 
 El SDK de Swift del lado del servidor de {{site.data.keyword.appid_short_notm}} proporciona un plugin de middleware de protección de la API que se utiliza para proteger sus apps de fondo. Al asociar las API con el middleware, puede proteger la app de acceso no autorizado. Una vez que la API esté protegida, el middleware garantiza que las señales generadas por {{site.data.keyword.appid_short_notm}} estén validadas. Entonces podrá modificar el comportamiento de la API dependiendo de los resultados de la validación.
@@ -147,14 +147,14 @@ if #available(OSX 10.12, *) {
 {: codeblock}
 {: ph data-hd-programlang='swift'}
 
-Consulte el siguiente vídeo para obtener más información sobre la protección de las aplicaciones Node de fondo con {{site.data.keyword.appid_short_notm}}. A continuación, intente hacerlo usted mismo utilizando una [app de ejemplo de Node simple](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02b-simple-node-backend-app).
+Consulte el siguiente vídeo para obtener más información sobre la protección de las aplicaciones Node de fondo con {{site.data.keyword.appid_short_notm}}. A continuación, intente hacerlo usted mismo utilizando una [app de ejemplo de Node simple](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02b-simple-node-backend-app){: external}.
 {: ph data-hd-programlang='javascript'}
 
 <iframe class="embed-responsive-item" id="appid-backend-nodejs" title="Acerca de {{site.data.keyword.appid_short_notm}}" type="text/html" width="640" height="390" src="//www.youtube.com/embed/jJLSgkHpZwA?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 {: ph data-hd-programlang='javascript'}
 
 
-Consulte el siguiente vídeo para obtener más información sobre la protección de las aplicaciones Liberty for Java de fondo con {{site.data.keyword.appid_short_notm}}. A continuación, intente hacerlo usted mismo utilizando una [app de ejemplo de Liberty for Java simple](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02d-simple-liberty-backend-app).
+Consulte el siguiente vídeo para obtener más información sobre la protección de las aplicaciones Liberty for Java de fondo con {{site.data.keyword.appid_short_notm}}. A continuación, intente hacerlo usted mismo utilizando una [app de ejemplo de Liberty for Java simple](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02d-simple-liberty-backend-app){: external}.
 {: ph data-hd-programlang='java'}
 
 <iframe class="embed-responsive-item" id="appid-backend-liberty" title="Acerca de {{site.data.keyword.appid_short_notm}}" type="text/html" width="640" height="390" src="//www.youtube.com/embed/QA6DY2qqLaw?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
@@ -249,7 +249,7 @@ Cuando las señales son válidas, se llama al siguiente middleware en la cadena 
 ## Protección de recursos de forma manual
 {: #backend-secure-api}
 
-Para proteger las apps de fondo y los recursos protegidos, tiene que validar una señal. Cuando un cliente envía una solicitud a su recurso, puede verificar que la señal cumpla las especificaciones definidas. La señal puede incluir información de identificación, el ámbito o cualquier otra configuración que tenga establecida. Puede validar señales de identidad y acceso de {{site.data.keyword.appid_short_notm}} de diversas formas. Para obtener ayuda, consulte [Validación de señales](/docs/services/appid?topic=appid-token-validation#token-validation).
+Para proteger las apps de fondo y los recursos protegidos, tiene que validar una señal. Cuando un cliente envía una solicitud a su recurso, puede verificar que la señal cumpla las especificaciones definidas. La señal puede incluir información de identificación, el ámbito o cualquier otra configuración que tenga establecida. Puede validar señales de identidad y acceso de {{site.data.keyword.appid_short_notm}} de diversas formas. Para obtener ayuda, consulte [Validación de señales](/docs/services/appid?topic=appid-token-validation).
 
 
 ## Pasos siguientes
@@ -259,5 +259,7 @@ Con {{site.data.keyword.appid_short_notm}} instalado en la aplicación, casi est
 
 * Configure los [proveedores de identidad](/docs/services/appid?topic=appid-social)
 * Personalice y configure el [widget de inicio de sesión](/docs/services/appid?topic=appid-login-widget)
-* Obtenga más información sobre el <a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs" target="_blank">SDK de Node.js <img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>
-* Obtenga más información sobre el <a href="https://github.com/ibm-cloud-security/appid-serversdk-swift" target="_blank">SDK de Swift<img src="../../icons/launch-glyph.svg" alt="Icono de enlace externo"></a>
+* Obtenga más información sobre el [SDK de Node.js](https://github.com/ibm-cloud-security/appid-serversdk-nodejs){: external}
+* Obtenga más información sobre el [SDK de Swift](https://github.com/ibm-cloud-security/appid-serversdk-swift){: external}
+
+

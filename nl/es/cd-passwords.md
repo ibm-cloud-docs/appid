@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-23"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
+keywords: Authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -41,10 +41,10 @@ Una contraseña segura es difícil o improbable de adivinar ya sea de forma manu
 3. Especifique una serie de expresiones regulares válida en el recuadro **Fortaleza de contraseña**.
 
   Ejemplos:
-    - Debe tener al menos 8 caracteres. Expresión regular de ejemplo: `^.{8,}$`
-    - Debe contener un número, una letra minúscula y una letra mayúscula. Expresión regular de ejemplo: `^(?:(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).*)$`
-    - Debe contener solo letras y números ingleses. Expresión regular de ejemplo: `^[A-Za-z0-9]*$`
-    - Debe tener al menos un carácter exclusivo. Expresión regular de ejemplo: `^(\w)\w*?(?!\1)\w+$`
+    - Debe tener al menos 8 caracteres. (`^.{8,}$`)
+    - Debe tener un número, una letra minúscula y una letra mayúscula. (`^(?:(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).*)$`)
+    - Debe tener solo letras y números ingleses. (`^[A-Za-z0-9]*$`)
+    - Debe tener al menos un carácter exclusivo. (`^(\w)\w*?(?!\1)\w+$`)
 
 4. Pulse **Guardar**.
 
@@ -66,10 +66,10 @@ Puede crear una política de contraseñas avanzada que esté formada por cualqui
  - Evitar la reutilización de las contraseñas
  - Caducidad de la contraseña
  - Período mínimo entre los cambios de contraseña
- - Garantizar que la contraseña no incluye el nombre de usuario
+ - Asegúrese de que la contraseña no incluye el nombre de usuario
 
 
- Si habilita esta característica, se activará la facturación adicional para las prestaciones de seguridad avanzadas. Para obtener más información, consulte [¿Cómo calcula {{site.data.keyword.appid_short_notm}} los precios?](/docs/services/appid?topic=appid-faq#faq-pricing)
+ Cuando se habilita esta característica, se activa la facturación adicional para las prestaciones de seguridad avanzada. Para obtener más información, consulte [¿Cómo calcula {{site.data.keyword.appid_short_notm}} los precios?](/docs/services/appid?topic=appid-faq#faq-pricing)
  {: important}
 
 
@@ -79,9 +79,9 @@ Puede crear una política de contraseñas avanzada que esté formada por cualqui
 Cuando los usuarios cambien la contraseña, es posible que desee evitar que elijan una contraseña utilizada recientemente.
 {: shortdesc}
 
-Mediante la GUI o la API, puede seleccionar el número de contraseñas que debe tener un usuario antes de poder repetir una contraseña utilizada anteriormente. Puede seleccionar cualquier valor entero entre 1 y 10.
+Mediante la GUI o la API, puede seleccionar el número de contraseñas que debe tener un usuario antes de poder repetir una contraseña utilizada anteriormente. Las opciones de configuración incluyen cualquier valor entero entre 1 y 10.
 
-Si está opción está activada, un usuario no puede utilizar una contraseña que ya haya utilizado recientemente. Si intentan establecer su contraseña en una contraseña utilizada recientemente, aparecerá un error en la GUI del widget de inicio de sesión predeterminado y se les solicitará que especifiquen una contraseña distinta.
+Si está opción está activada, un usuario no puede utilizar una contraseña que ya haya utilizado recientemente. Si intenta establecer su contraseña en una que se ha utilizado recientemente, se muestra un error en la GUI del widget de inicio de sesión predeterminado y se solicita al usuario que especifique otra opción.
 
 Las contraseñas anteriores se almacenan de forma segura de la misma forma que se almacena la contraseña actual de un usuario.
 {: note}
@@ -93,7 +93,7 @@ Las contraseñas anteriores se almacenan de forma segura de la misma forma que s
 Es posible que desee proteger las cuentas de los usuarios bloqueando temporalmente la posibilidad de iniciar sesión cuando se detecta un comportamiento sospechoso como, por ejemplo, múltiples intentos de inicio de sesión consecutivos con una contraseña incorrecta. Esta medida puede ayudarle a evitar que una parte maliciosa obtenga acceso a la cuenta de un usuario adivinando la contraseña del mismo.
 {: shortdesc}
 
-Mediante la GUI o la API, puede establecer el número máximo de intentos de inicio de sesión fallidos que puede realizar un usuario antes de que su cuenta quede bloqueada temporalmente. También puede establecer la cantidad de tiempo que la cuenta está bloqueada. Dispone de las siguientes opciones:
+Mediante la GUI o la API, puede establecer el número máximo de intentos de inicio de sesión fallidos que puede realizar un usuario antes de que su cuenta quede bloqueada temporalmente. También puede definir la cantidad de tiempo que la cuenta está bloqueada. Dispone de las siguientes opciones:
 
 * Número de intentos: Cualquier valor entero entre 1 y 10.
 * Período de bloqueo: Cualquier valor entero especificado en minutos en el rango de 1 minuto a 1440 minutos (24 horas).
@@ -139,11 +139,12 @@ Cuando se activa esta opción por primera vez, las contraseñas de usuario exist
 {: note}
 
 
-### Política: Garantizar que la contraseña no incluye el nombre de usuario
+### Política: garantizar que la contraseña no incluya el nombre de usuario
 {: #cd-no-username}
 
 Para obtener contraseñas más fuertes, es posible que desee evitar los usuarios que contienen su nombre de usuario o la primera parte de su dirección de correo electrónico.
 {: shortdesc}
 
-Esta restricción distingue entre mayúsculas y minúsculas, lo que significa que los usuarios no pueden alterar las mayúsculas y minúsculas de algunos o varios caracteres para poder utilizar la información personal. Para configurar esta opción, cambie el conmutado en **Activado**.
+Esta restricción no distingue entre mayúsculas y minúsculas. Los usuarios no pueden alterar las mayúsculas y minúsculas de algunos o varios caracteres para poder utilizar la información personal. Para configurar esta opción, cambie el conmutado en **Activado**.
+{: note}
 

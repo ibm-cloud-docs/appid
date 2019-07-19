@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-21"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, access, tokens
+keywords: Authentication, authorization, identity, app security, secure, access, tokens
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -25,10 +25,10 @@ subcollection: appid
 # 主要な概念
 {: #key-concepts}
 
-許可と認証の違いは間違えやすいので、注意が必要です。 このページの情報を参照して、特定の用語とプロセスについて、またサービスでトークンを使用する仕組みについて把握してください。
+許可と認証の違いは間違えやすいので、注意が必要です。 以下の情報を参照して、具体的な用語やプロセス、このサービスでトークンが使用される方法について理解してください。
 {: shortdesc}
 
-許可と認証の基本的な概念についてもっと詳しく知りたいですか? ここにあります。次のビデオで、OAuth 2.0、付与タイプ、OIDC などについて説明しています。
+許可と認証の基本的な概念についてもっと詳しく知りたいですか? ここにあります。 次のビデオで、OAuth 2.0、付与タイプ、OIDC などについて説明しています。
 
 <iframe class="embed-responsive-item" id="about-appid-basics" title="{{site.data.keyword.appid_short_notm}} の概要" type="text/html" width="640" height="390" src="//www.youtube.com/embed/ndlk-ZhKGXM?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
 
@@ -40,13 +40,13 @@ subcollection: appid
 
 ### OAuth 2
 {: #term-oauth}
-<a href="https://tools.ietf.org/html/rfc6749" target="_blank">OAuth 2 <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> は、アプリに許可を実装するために使用されているオープン・スタンダードのプロトコルです。
+[OAuth 2.0](https://tools.ietf.org/html/rfc6749){: external} は、アプリの許可を実装するために使用されるオープン・スタンダードのプロトコルです。
 
 
 ### Open ID Connect (OIDC)
 {: #term-oidc}
 
-<a href="https://openid.net/developers/specs/" target="_blank">OIDC <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> は、OAuth 2 の上で機能する認証レイヤーです。OIDC と {{site.data.keyword.appid_short_notm}} を一緒に使用する場合、OAuth エンドポイントを構成するときにアプリケーション資格情報が役立ちます。SDK を使用する場合、エンドポイント URL は自動的に作成されます。 しかし、サービス資格情報を使用して、URL を自分で作成することもできます。 URL には、{{site.data.keyword.appid_short_notm}} service endpoint + "/oauth/v4" + /tenantID の形式を使用します。
+[OIDC](https://openid.net/developers/specs/){: external} は、OAuth 2 で使用できる認証レイヤーです。OIDC と {{site.data.keyword.appid_short_notm}} を一緒に使用すると、アプリケーションの資格情報を使用して OAuth エンドポイントを構成できます。SDK を使用する場合、エンドポイント URL は自動的に作成されます。しかし、サービス資格情報を使用して、URL を自分で作成することもできます。 URL には、{{site.data.keyword.appid_short_notm}} service endpoint + "/oauth/v4" + /tenantID の形式を使用します。
 
 例:
 
@@ -94,12 +94,18 @@ SDK を使用する場合、エンドポイント URL は自動的に作成さ�
 ### トークン
 {: #term-token}
 
-サービスは、3 種類の異なるトークンを使用します。 アクセス・トークンとは許可を表すものであり、{{site.data.keyword.appid_short}} で設定された許可フィルターで保護されている[バックエンド・リソース](/docs/services/appid?topic=appid-backend)との通信を可能にします。 識別トークンとは認証を表すものであり、ユーザーに関する情報が含まれています。 リフレッシュ・トークンは、ユーザーの再認証なしで新規アクセス・トークンを取得するために使用できます。 リフレッシュ・トークンを使用すると、ユーザーは自分の情報をアプリケーションに記憶させることができます。 これにより、サインインした状態を保つことができます。 トークンの設定は、{{site.data.keyword.appid_short}} ダッシュボードの**「ID プロバイダー」>「管理」**で行います。 トークンおよび {{site.data.keyword.appid_short}} でトークンを使用する方法について詳しくは、[トークンの管理](/docs/services/appid?topic=appid-tokens#tokens)を参照してください。
+サービスは、3 種類の異なるトークンを使用します。 トークンの設定は、{{site.data.keyword.appid_short}} ダッシュボードの**「ID プロバイダー」>「管理」**で行います。 トークンおよび {{site.data.keyword.appid_short}} でトークンを使用する方法について詳しくは、[トークンの管理](/docs/services/appid?topic=appid-tokens)を参照してください。
+
+* アクセス・トークン: 許可証に相当します。これにより、保護されている [バックエンド・リソース](/docs/services/appid?topic=appid-backend)との通信が可能になります。リソースは、{{site.data.keyword.appid_short}} で設定する許可フィルターによって保護されます。
+
+* 識別トークン: 認証書に相当します。ユーザーに関する情報が含まれています。
+
+* リフレッシュ・トークン: これにより、ユーザーの再認証を行わずに新規アクセス・トークンを取得できます。リフレッシュ・トークンを使用すると、ユーザーの情報をアプリケーションに記憶させられるので、サインインした状態を保持することができます。 
 
 ### 許可ヘッダー
 {: #term-auth-header}
 
-{{site.data.keyword.appid_short}} は <a href="https://tools.ietf.org/html/rfc6750" target="blank">トークン・ベアラー仕様 <img src="../../icons/launch-glyph.svg" alt="外部リンク・アイコン"></a> に準拠しており、HTTP 許可ヘッダーとして送信されるアクセス・トークンと識別トークンの組み合わせを使用します。 許可ヘッダーは、空白文字で区切られた 3 つの部分で構成されます。 これらのトークンは base64 でエンコードされます。 識別トークンはオプションです。
+{{site.data.keyword.appid_short}} は[トークン・ベアラー仕様](https://tools.ietf.org/html/rfc6750){: external}に準拠しており、HTTP 許可ヘッダーとして送信されるアクセス・トークンと識別トークンの組み合わせを使用します。許可ヘッダーは、空白文字で区切られた 3 つの部分で構成されます。これらのトークンは base64 でエンコードされます。 識別トークンはオプションです。
 
 例:
 
@@ -143,6 +149,6 @@ Web アプリ戦略は、保護リソースに対する無許可のアクセス�
 ### JSON Web Key Set (JWKS)
 {: #term-jwks}
 
-JWKS は、暗号鍵のセットを表します。 {{site.data.keyword.appid_short_notm}} は JWKS を使用して、サービスによって生成されたトークンの真正性を検証します。 鍵 ID を使用して署名を検証することにより、信頼できるソース {{site.data.keyword.appid_short_notm}} によってトークンが発行されたこと、およびトークン内の情報が変更されてはいないことを確認できます。
+JWKS は、暗号鍵のセットを表します。 {{site.data.keyword.appid_short_notm}} は JWKS を使用して、サービスによって生成されたトークンの真正性を検証します。 鍵 ID を使用して署名を検証することにより、信頼できるソース {{site.data.keyword.appid_short_notm}} によってトークンが発行されたこと、およびトークン内の情報が変更されていないことを確認できます。
 
 
