@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-09"
+lastupdated: "2019-07-22"
 
 keywords: Authentication, authorization, identity, app security, secure, development,
 
@@ -27,6 +27,9 @@ subcollection: appid
 
 Application security can be incredibly complicated. For most developers, it's one of the hardest parts of creating an app. How can you be sure that you are protecting your users information? By integrating {{site.data.keyword.appid_full}} into your apps, you can secure resources and add authentication; even when you don't have a lot of security experience.
 {: shortdesc}
+
+Getting started? Try walking through our [video tutorials](https://www.youtube.com/watch?v=EZWl1ij3dAE&list=UUdWhdi8GES-V-TFuTwjobrA){: external}. 
+{: note}
 
 By requiring users to sign in to your app, you can store user data such as app preferences or information from the public social profiles, and then use that data to customize each experience of your app. {{site.data.keyword.appid_short_notm}} provides a framework for you, but you can also bring your own branded sign in screens when working with cloud directory.
 
