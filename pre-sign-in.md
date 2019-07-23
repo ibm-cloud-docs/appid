@@ -25,10 +25,10 @@ subcollection: appid
 # Preregistering future users
 {: #preregister}
 
-With {{site.data.keyword.appid_full}}, you can start building a profile for users that you know are going to need access to your app, prior to their initial sign-in.
+With {{site.data.keyword.appid_full}}, you can start building a profile for users that you know are going to need access to your app before their initial sign-in.
 {: shortdesc}
 
-To learn more about the security considerations that you should make when working with custom attributes, see [Storing and accessing user profiles](/docs/services/appid?topic=appid-profiles).
+To learn more about the security considerations that might apply when you work with custom attributes, see [Storing and accessing user profiles](/docs/services/appid?topic=appid-profiles).
 {: tip}
 
 
@@ -46,8 +46,9 @@ Consider an application where you use {{site.data.keyword.appid_short_notm}} to 
 
 You can identify your users by using one of the following:
 
-* The user's unique ID, called the **GUID**, in the identity provider. Although this identifier always exists and is guaranteed to be unique, it is not always readily available or easy to understand. For instance, Cloud Directory uses a random 16 byte GUID.
-* If available, the user's **email**.
+* The email address with which the user signs in to your app.
+* If available, the user's unique ID, called the **GUID**, in the identity provider. Although this identifier always exists and is guaranteed to be unique, it is not always readily available or easy to understand. For instance, Cloud Directory uses a random 16-byte GUID.
+
 
 ### What information do the identity providers provide?
 {: #preregister-idp-provide}
@@ -101,25 +102,23 @@ Check out the following table to see which type of identity information that you
 {: #preregister-cd}
 
 
-In order to ensure the integrity of the preregistered user attributes, Cloud Directory places additional requirements on its users. Preregistration can only occur when email validation is enabled and verified. If you preregister a Cloud Directory user with specific attributes, then those attributes are intended for a specific person. If the email is not verified first, it is possible for another user to claim the email address and any attributes that are assigned to it.
+In order to ensure the integrity of the preregistered user attributes, Cloud Directory places extra requirements on its users. Preregistration can occur only when email validation is enabled and verified. If you preregister a Cloud Directory user with specific attributes, then those attributes are intended for a specific person. If the email is not verified first, it is possible for another user to claim the email address and any attributes that are assigned to it.
 
 1. Set Cloud Directory to email and password mode. You can do this through the UI in the general settings on the **Cloud Directory** tab. You can also set it through the [management APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.createCloudDirectoryUser).
 
 2. Verify the users email address to confirm their identity in one of the following ways:
 
-  * To verify a users identity through email, set **Email verification** to **On** in the **Cloud Directory** tab of the service dashboard. If a user is added by you and signs in to your app without first verifying their email, the sign in completes successfully, but their predefined attribute is deleted.
-  * To verify users manually you must be an administrator and use the Cloud Directory [management APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.createCloudDirectoryUser). When creating or updating a user, you should explicitly set the `status` field to `CONFIRMED` within your user data payload.
+  * To verify a users identity through email, set **Email verification** to **On** in the **Cloud Directory** tab of the service dashboard. If a user is added by you and signs in to your app without first verifying their email, the sign-in completes successfully, but their predefined attribute is deleted.
+  * To verify users manually, you must be an administrator and use the Cloud Directory [management APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.createCloudDirectoryUser). When creating or updating a user, you should explicitly set the `status` field to `CONFIRMED` within your user data payload.
 
 
 
 
 
-### Is there anything special that I need to do when using a custom identity provider?
+### Is there anything special that I need to do when I use a custom identity provider?
 {: #preregister-custom}
 
 When you add user information to your application in advance, you can use any unique identifier that is provided by the authentication flow. The identifier must _exactly_ match the `sub` of the signed JSON Web Token that is sent during the authorization request. If the identifier does not match, then the profile that you want to add is not linked successfully.
-
-
 
 
 ## Adding user information to your app
@@ -137,7 +136,7 @@ To add custom attributes for a specific user with the [/users Management API end
 * Which identity provider that the user is going to use to sign in.
 * The user's unique identifier that is provided by the identity provider.
 
-When a user signs into your app for the first time, {{site.data.keyword.appid_short_notm}} searches for the user. If found, the user inherits the identity that you assigned. If the user is not found, then a new user is created based on the information that is provided by the identity provider.
+When a user signs in to your app for the first time, {{site.data.keyword.appid_short_notm}} searches for the user. If found, the user inherits the identity that you assigned. If the user isn't found, then a new user is created based on the information that is provided by the identity provider.
 
 
 
@@ -197,7 +196,7 @@ When a user signs into your app for the first time, {{site.data.keyword.appid_sh
     <tbody>
       <tr>
         <td><code><em>idp</em></code></td>
-        <td>The identity provider that the user will authenticate with. Options include: `saml`, `cloud_directory`, `facebook`, `google`, `appid_custom`, `ibmid`.</td>
+        <td>The identity provider that the user authenticates with. Options include: `saml`, `cloud_directory`, `facebook`, `google`, `appid_custom`, `ibmid`.</td>
       </tr>
       <tr>
         <td><code><em>idp-identity</em></code></td>
@@ -205,7 +204,7 @@ When a user signs into your app for the first time, {{site.data.keyword.appid_sh
       </tr>
       <tr>
         <td><code><em>profile</em></code></td>
-        <td>The user's profile containing the custom attribute JSON mapping.</td>
+        <td>The user's profile that contains the custom attribute JSON mapping.</td>
       </tr>
     </tbody>
   </table>
@@ -221,22 +220,35 @@ When a user signs into your app for the first time, {{site.data.keyword.appid_sh
   ```
   {: screen}
 
-3. Verify that registration was successful in one of the following ways:
+3. Verify that registration was successful.
+
+  * Check for the user profile that was created.
+
+    ```
+    curl --request GET https://us-south.appid.cloud.ibm.com/management/v4/{{APPID_TENANT_ID}}/users/{{user_profile_id}}/profile \
+    --header 'Authorization: Bearer <iam-access-token>' \
+    --header 'Content-Type: application/json' \
+    ```
+    {: codeblock}
   * Check for the user ID in the response.
     ```
     {
-        "id": "<{{site.data.keyword.appid_short_notm}} User Id>"
+        "id": "5ce78e09-1356-4ef8-a45d-808b633101db",
+        "identities": [],
+        "attributes": {
+            "role": "manager"
+        }
     }
     ```
     {: screen}
-  * Check for the user profile that was created.
+  
 
 
 
 ## Next steps
 {: #preregister-next}
 
-Now that you have associated a user that is with specific attributes, try [accessing or updating attributes](/docs/services/appid?topic=appid-profiles)!
+Now that you associated a future user with specific attributes, try [accessing or updating attributes](/docs/services/appid?topic=appid-profiles)!
 
 
 </br>
