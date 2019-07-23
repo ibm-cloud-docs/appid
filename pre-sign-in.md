@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-22"
+lastupdated: "2019-07-23"
 
 keywords: Authentication, authorization, identity, app security, secure, development, user information, attributes, profiles, 
 
@@ -113,7 +113,9 @@ In order to ensure the integrity of the preregistered user attributes, Cloud Dir
 
 
 
-**Is there anything special that I need to do when using a custom identity provider?**
+
+### Is there anything special that I need to do when using a custom identity provider?
+{: #preregister-custom}
 
 When you add user information to your application in advance, you can use any unique identifier that is provided by the authentication flow. The identifier must _exactly_ match the `sub` of the signed JSON Web Token that is sent during the authorization request. If the identifier does not match, then the profile that you want to add is not linked successfully.
 

@@ -71,7 +71,7 @@ IBM Cloud App ID
     Configuring advanced workflows
         custom-auth.md
         progressive.md
-
+        
     iam.md
     api-reference.md
     {: .navgroup-end}
