@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-17"
+lastupdated: "2019-07-22"
 
 keywords: Authentication, authorization, identity, app security, secure, development, sign in, sign up, password, social, enterprise
 
@@ -91,6 +91,7 @@ When you use Cloud Directory, {{site.data.keyword.appid_short_notm}} is able to 
     </tr>
   </tbody>
 </table>
+
 
 
 ## Customizing the Login Widget
