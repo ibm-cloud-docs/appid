@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-22"
+lastupdated: "2019-07-30"
 
 keywords: Authentication, authorization, identity, app security, secure
 
@@ -46,7 +46,7 @@ We’d love to hear from you with feedback and questions! To get started with {{
 Get to know more about {{site.data.keyword.appid_short_notm}} by reading through some blogs and watching some videos!
 
 * <a href="https://www.youtube.com/watch?v=XlrCjHdK43Q" target="_blank">Introducing {{site.data.keyword.appid_short_notm}}: video<img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
-* <a href="https://www.ibm.com/cloud/blog/cloud-app-security-makes-secure-app" target="_blank">Cloud App Security - What makes a secure app? <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
+* <a href="hhttps://www.ibm.com/blogs/cloud-archive/2017/08/cloud-app-security-makes-secure-app/" target="_blank">Cloud App Security - What makes a secure app? <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 * <a href="https://www.ibm.com/cloud/garage/architectures/securityArchitecture/security-for-application" target="_blank">Security to safeguard and monitor your apps <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 * <a href="https://www.youtube.com/watch?v=cDSYNFn4rX8" target="_blank">Add sign up and sign in to your apps with {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 
