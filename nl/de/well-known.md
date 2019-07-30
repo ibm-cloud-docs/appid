@@ -88,7 +88,7 @@ curl -X GET "https://{region}.appid.cloud.ibm.com/oauth/v4/{tenant-id}/.well-kno
 
 **Was gibt der Aufruf zurück?**
 
-Die zurückgegebene Antwort ähnelt der im folgenden Beispiel: 
+Die zurückgegebene Antwort ähnelt der im folgenden Beispiel:
 
 ```bash
 {
@@ -165,7 +165,7 @@ Die zurückgegebene Antwort ähnelt der im folgenden Beispiel:
   </tr>
   <tr>
     <td><code>userinfo_endpoint</code></td>
-    <td>Die URL des {{site.data.keyword.appid_short_notm}}-Endpunkts <code>/userinfo</code>. </td>
+    <td>Die URL des {{site.data.keyword.appid_short_notm}}-Endpunkts <code>/userinfo</code>.</td>
   </tr>
   <tr>
     <td><code>scopes_supported</code></td>

@@ -273,7 +273,7 @@ Informationen zum Konfigurieren der Mehrfaktorauthentifizierung über die GUI fi
 
     4. Kopieren Sie den **geheimen API-Schlüssel** im Nexmo-Dashboard und fügen Sie ihn im Feld **Geheimer Schlüssel** des {{site.data.keyword.appid_short_notm}}-Dashboards ein.
 
-    5. Geben Sie [die ID](https://help.nexmo.com/hc/en-us/articles/217571017-What-is-a-Sender-ID) ein, von der Sie Nachrichten senden möchten. Gültige Nummern werden im [internationalen Nummernformat gemäß E.164](https://en.wikipedia.org/wiki/E.164) angegeben, zum Beispiel in den USA im Format `+1 999 888 7777`. Sie müssen sowohl den Landescode beginnend mit einem Plussymbol `+` als auch die nationale Teilnehmernummer angeben. In einigen Ländern werden von Nexmo alphanumerische Absender-IDs unterstützt. Von {{site.data.keyword.appid_short_notm}} wird der Wert verwendet, den Sie als Absender-ID für Nexmo eingegeben haben. Falls sie von Nexmo unterstützt werden, können Sie die IDs also mit {{site.data.keyword.appid_short_notm}} verwenden. 
+    5. Geben Sie [die ID](https://help.nexmo.com/hc/en-us/articles/217571017-What-is-a-Sender-ID) ein, von der Sie Nachrichten senden möchten. Gültige Nummern werden im [internationalen Nummernformat gemäß E.164](https://en.wikipedia.org/wiki/E.164) angegeben, zum Beispiel in den USA im Format `+1 999 888 7777`. Sie müssen sowohl den Landescode beginnend mit einem Plussymbol `+` als auch die nationale Teilnehmernummer angeben. In einigen Ländern werden von Nexmo alphanumerische Absender-IDs unterstützt. Von {{site.data.keyword.appid_short_notm}} wird der Wert verwendet, den Sie als Absender-ID für Nexmo eingegeben haben. Falls sie von Nexmo unterstützt werden, können Sie die IDs also mit {{site.data.keyword.appid_short_notm}} verwenden.
 
 
 

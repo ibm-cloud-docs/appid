@@ -143,7 +143,6 @@ Die Claims, die von {{site.data.keyword.appid_short_notm}} zur Verfügung gestel
 *Normalisierte Claims*: Jedes Identitätstoken enthält eine Reihe von Claims, die von {{site.data.keyword.appid_short_notm}} als normalisierte Claims erkannt werden. Wenn sie verfügbar sind, werden sie dem Token direkt von Ihrem Identitätsprovider zugeordnet. Diese Claims können nicht explizit ausgelassen werden, sie können aber durch angepasste Claims im Token außer Kraft gesetzt werden. Die Claims umfassen `name`, `email`, `picture`, `local` und `gender`. Hinweis: Hierdurch wird nicht das Attribut geändert oder gelöscht, sondern die Informationen geändert, die im Token zur Laufzeit vorhanden sind.
 
 
-
 ### Wie werden Claims bestimmten Tokens zugeordnet?
 {: #custom-claims-mapping}
 

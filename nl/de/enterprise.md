@@ -46,9 +46,9 @@ Das <a href="http://saml.xml.org/saml-specifications" target="blank">SAML-Protok
 
 SAML 2.0 ist eines der etabliertesten Frameworks für Authentifizierungs- und Autorisierungsstandards. Es handelt sich hierbei um ein XML-basiertes Protokoll zwischen einem Service-Provider ({{site.data.keyword.appid_short_notm}}) und einem Identitätsprovider. Wenn ein Identitätsprovider einen Benutzer authentifiziert, erstellt er SAML-Tokens, die Zusicherungen oder Anweisungen zum Benutzer enthalten. Die Anweisungen können Folgendes enthalten:
 
-- Authentifizierungsinformationen wie die Authentifizierungsmethode des Benutzers - ein Kennwort, eine Mehrfaktorenautentifizierung (MFA), etc. 
-- Dem Benutzer zugeordnete Attribute - zu welcher Gruppe er gehört. 
-- Berechtigungsentscheidungen, aus denen hervorgeht, ob der Benutzer eine bestimmte Aktion für eine bestimmte Ressource ausführen darf. 
+- Authentifizierungsinformationen wie die Authentifizierungsmethode des Benutzers - ein Kennwort, eine Mehrfaktorenautentifizierung (MFA), etc.
+- Dem Benutzer zugeordnete Attribute - zu welcher Gruppe er gehört.
+- Berechtigungsentscheidungen, aus denen hervorgeht, ob der Benutzer eine bestimmte Aktion für eine bestimmte Ressource ausführen darf.
 
 Wenn die Zusicherungen an {{site.data.keyword.appid_short_notm}} zurückgegeben werden, wird die Benutzeridentität vom Service eingebunden und die entsprechenden Tokens werden generiert. Wenn die SAML-Zusicherung einem der folgenden OIDC-Claims entspricht, dann wird sie automatisch zum Identitätstoken hinzufügt.  Dabei ist zu beachten, dass nach einer Änderung von Werten auf der Providerseite die neuen Werte erst nach einer erneuten Anmeldung des Benutzers verfügbar sind.
 
@@ -63,14 +63,14 @@ Die Zusicherungen, die keinem der Standardnamen zugeordnet werden können, werde
 ### Wie sieht der Ablauf aus?
 {: #saml-flow}
 
-Auch wenn von {{site.data.keyword.appid_short_notm}} und vom Identitätsprovider das SAML-Framework zum Authentifizieren des Benutzers verwendet wird, wird von {{site.data.keyword.appid_short_notm}} das modernere OAuth 2.0-/OIDC-Framework zum Austauschen der Sicherheitstoken mit der Anwendung verwendet. Überprüfen Sie die folgende Abbildung, um sich mit dem detaillierten Informationsfluss vertraut zu machen. 
+Auch wenn von {{site.data.keyword.appid_short_notm}} und vom Identitätsprovider das SAML-Framework zum Authentifizieren des Benutzers verwendet wird, wird von {{site.data.keyword.appid_short_notm}} das modernere OAuth 2.0-/OIDC-Framework zum Austauschen der Sicherheitstoken mit der Anwendung verwendet. Überprüfen Sie die folgende Abbildung, um sich mit dem detaillierten Informationsfluss vertraut zu machen.
 
 ![Authentifizierungsablauf für SAML Enterprise](/images/ibmid-flow.png)
 
 1. Ein Benutzer greift auf die Anmeldeseite oder eine begrenzte Ressource für eine Anwendung zu, wodurch eine Anforderung an den {{site.data.keyword.appid_short_notm}}-Endpunkt `/authorization` entweder über ein SDK oder eine API von {{site.data.keyword.appid_short_notm}} initiiert wird. Wenn der Benutzer nicht berechtigt ist, wird der Authentifizierungsablauf mit einer Weiterleitung an {{site.data.keyword.appid_short_notm}} gestartet.
 2. Von {{site.data.keyword.appid_short_notm}} wird eine SAML-Authentifizierungsanforderung (AuthNRequest) generiert und der Benutzer automatisch vom Browser an den SAML-Identitätsprovider weitergeleitet.
-3. Vom Identitätsprovider wird die SAML-Anforderung ausgewertet, der Benutzer authentifiziert und eine SAML-Antwort mit den jeweiligen Zusicherungen generiert. 
-4. Vom Identitätsprovider werden der Benutzer und die Antwort mit der SAML-Antwort an {{site.data.keyword.appid_short_notm}} weitergeleitet. 
+3. Vom Identitätsprovider wird die SAML-Anforderung ausgewertet, der Benutzer authentifiziert und eine SAML-Antwort mit den jeweiligen Zusicherungen generiert.
+4. Vom Identitätsprovider werden der Benutzer und die Antwort mit der SAML-Antwort an {{site.data.keyword.appid_short_notm}} weitergeleitet.
 5. Wenn die Authentifizierung erfolgreich ist, werden von {{site.data.keyword.appid_short_notm}} Zugriffs- und Identitätstokens erstellt (Autorisierung und Authentifizierung eines Benutzers) und an die App zurückgegeben. Wenn die Authentifizierung fehlschlägt, wird der Fehlercode des Identitätsproviders von {{site.data.keyword.appid_short_notm}} an die App zurückgegeben.
 6. Dem Benutzer wird Zugriff auf die App oder die geschützten Ressourcen gewährt.
 
@@ -91,7 +91,7 @@ Wenn vom Identitätsprovider SSO unterstützt wird, kann von der SAML-Authentifi
 ## SAML für Verwendung mit {{site.data.keyword.appid_short_notm}} konfigurieren
 {: #saml-configure}
 
-Sie können SAML für die Verwendung mit {{site.data.keyword.appid_short_notm}} konfigurieren, indem Sie die Metadaten von {{site.data.keyword.appid_short_notm}} dem Identitätsprovider und die Metadaten des Identitätsproviders wiederum {{site.data.keyword.appid_short_notm}} bereitstellen. 
+Sie können SAML für die Verwendung mit {{site.data.keyword.appid_short_notm}} konfigurieren, indem Sie die Metadaten von {{site.data.keyword.appid_short_notm}} dem Identitätsprovider und die Metadaten des Identitätsproviders wiederum {{site.data.keyword.appid_short_notm}} bereitstellen.
 
 
 
@@ -212,7 +212,7 @@ Möchten Sie einen Authentifizierungskontext festlegen? Sie können dies über d
   ```
   {: screen}
 
-2. Erstellen Sie eine SAML-Konfiguration durch Ersetzen der Werte im folgenden Beispiel durch die Informationen von Ihrem Provider. Die im Beispiel verwendeten Werte sind erforderlich, Sie können jedoch mehr Informationen als in der Tabelle dargestellt angeben. 
+2. Erstellen Sie eine SAML-Konfiguration durch Ersetzen der Werte im folgenden Beispiel durch die Informationen von Ihrem Provider. Die im Beispiel verwendeten Werte sind erforderlich, Sie können jedoch mehr Informationen als in der Tabelle dargestellt angeben.
 
   ```
   "config": {
@@ -257,15 +257,15 @@ Möchten Sie einen Authentifizierungskontext festlegen? Sie können dies über d
     </tr>
     <tr>
       <td>Optional: <code>secondary-certificate-example-pem-format</code></td>
-      <td>Das Sicherungszertifikat, das vom SAML-Identitätsprovider ausgegeben wird. Es wird verwendet, wenn die Signaturvalidierung mit dem primären Zertifikat fehlschlägt. <strong>Hinweis:</strong> Falls der Signierschlüssel gleich bleibt, blockiert {{site.data.keyword.appid_short_notm}} die Authentifizierung für abgelaufene Zertifikate nicht. </td>
+      <td>Das Sicherungszertifikat, das vom SAML-Identitätsprovider ausgegeben wird. Es wird verwendet, wenn die Signaturvalidierung mit dem primären Zertifikat fehlschlägt. <strong>Hinweis:</strong> Falls der Signierschlüssel gleich bleibt, blockiert {{site.data.keyword.appid_short_notm}} die Authentifizierung für abgelaufene Zertifikate nicht.</td>
     </tr>
     <tr>
       <td>Optional: <code>authnContext</code></td>
-      <td>Der Authentifizierungskontext wird verwendet, um die Qualität der Authentifizierung und SAML-Zusicherungen zu überprüfen. Sie können einen Authentifizierungskontext hinzufügen, indem Sie ein Klassenarray und eine Vergleichszeichenfolge zu Ihrem Code hinzufügen. Sie müssen die Parameter <code>class</code> und <code>comparison</code> mit Ihren Werten aktualisieren. Der Parameter <code>class</code> kann beispielsweise dem Wert für <code>urn:oasis:names:tc:SAML:2.0:ac:classes:YourChosenClassValue</code> ähneln. </td>
+      <td>Der Authentifizierungskontext wird verwendet, um die Qualität der Authentifizierung und SAML-Zusicherungen zu überprüfen. Sie können einen Authentifizierungskontext hinzufügen, indem Sie ein Klassenarray und eine Vergleichszeichenfolge zu Ihrem Code hinzufügen. Sie müssen die Parameter <code>class</code> und <code>comparison</code> mit Ihren Werten aktualisieren. Der Parameter <code>class</code> kann beispielsweise dem Wert für <code>urn:oasis:names:tc:SAML:2.0:ac:classes:YourChosenClassValue</code> ähneln.</td>
     </tr>
   </table>
 
-3. Erstellen Sie eine PUT-Anforderung für den [API-Endpunkt `/saml`](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.set_saml_idp), um die Konfiguration anzugeben, die Sie in Schritt 2 in {{site.data.keyword.appid_short_notm}} erstellt haben. Überprüfen Sie das folgende Beispiel, um sich damit vertraut zu machen, wie Ihre Anforderung aussehen kann. 
+3. Erstellen Sie eine PUT-Anforderung für den [API-Endpunkt `/saml`](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.set_saml_idp), um die Konfiguration anzugeben, die Sie in Schritt 2 in {{site.data.keyword.appid_short_notm}} erstellt haben. Überprüfen Sie das folgende Beispiel, um sich damit vertraut zu machen, wie Ihre Anforderung aussehen kann.
 
   ```
   curl --request PUT \

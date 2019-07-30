@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-13"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, access, platform, management, permissions
+keywords: Authentication, authorization, identity, app security, secure, access, platform, management, permissions
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -97,7 +97,7 @@ Die folgende Tabelle führt die Aktionen detailliert auf, die zu Servicezugriffs
     <td>Kann die Details der Serviceinstanz wie Benutzerdaten oder Identitätsproviderdaten anzeigen.</td>
   </tr>
   <tr>
-    <td> <i>Leseberechtigter oder Manager</i></td>
+    <td><i>Leseberechtigter oder Manager</i></td>
     <td>{{site.data.keyword.appid_short_notm}}-Instanz anzeigen und ändern.</td>
     <td>Kann alle Aktionen eines Leseberechtigten ausführen und die Serviceinstanz bearbeiten, also zum Beispiel die Konfiguration des Identitätsproviders bearbeiten. </li></ul></td>
   </tr>
@@ -243,7 +243,7 @@ In diesem Szenario erstellte ein Administrator eine Instanz von {{site.data.keyw
 
 Vorbereitungen:
 
-* Installieren Sie die [{{site.data.keyword.cloud_notm}}-CLI](/docs/cli?topic=cloud-cli-ibmcloud-cli).
+* Installieren Sie die [{{site.data.keyword.cloud_notm}}-CLI](/docs/cli?topic=cloud-cli-getting-started).
 
 Der Administrator führt die folgenden Schritte aus, um die Zugriffsberechtigungen zu aktualisieren:
 
@@ -337,3 +337,4 @@ Zur Anzeige der {{site.data.keyword.appid_short_notm}}-Konfigurationen über die
     {: codeblock}
 
     Das Ergebnis ist eine 200 Nachricht, die die Identitätsproviderdaten enthält.
+

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-06"
+lastupdated: "2019-07-09"
 
 keywords: Authentication, authorization, identity, app security, secure, attributes, user information, storing, accessing
 
@@ -10,7 +10,7 @@ subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -38,7 +38,7 @@ Ein Benutzerprofil umfasst alle Informationen, die zu einem bestimmten Benutzer 
 Suchen Sie nach Informationen zu den Cloud Directory-Benutzern? Weitere Informationen finden Sie unter [Benutzer verwalten](/docs/services/appid?topic=appid-cd-users).
 {: tip}
 
-Es gibt zwei Arten von Informationen, die mithilfe der App-ID abgerufen und gespeichert werden können: vordefinierte Attribute und angepasste Attribute. Vordefinierte Attribute sind spezifisch für die Identität der Benutzer und werden von einem Identitätsprovider zurückgegeben, wenn sich der Benutzer an der App anmeldet; sie können Informationen wie seinen Name oder sein Alter umfassen. Angepasste Attribute werden verwendet, um zusätzliche Informationen zu den Benutzern zu speichern. Sie können von Ihnen festgelegt oder anhand der Interaktion mit dem Benutzer erfasst werden. Angepasste Attribute können zum Beispiel eine zugeordnete Rolle, eine Vorliebe für bestimmte Lebensmittel oder die Bevorzugung von Gangplätzen im Flugzeug sein. 
+Es gibt zwei Arten von Informationen, die mithilfe der App-ID abgerufen und gespeichert werden können: vordefinierte Attribute und angepasste Attribute. Vordefinierte Attribute sind spezifisch für die Identität der Benutzer und werden von einem Identitätsprovider zurückgegeben, wenn sich der Benutzer an der App anmeldet; sie können Informationen wie seinen Name oder sein Alter umfassen. Angepasste Attribute werden verwendet, um zusätzliche Informationen zu den Benutzern zu speichern. Sie können von Ihnen festgelegt oder anhand der Interaktion mit dem Benutzer erfasst werden. Angepasste Attribute können zum Beispiel eine zugeordnete Rolle, eine Vorliebe für bestimmte Lebensmittel oder die Bevorzugung von Gangplätzen im Flugzeug sein.
 
 
 ![{{site.data.keyword.appid_short_notm}}-Benutzerprofile](images/user-profile-makeup.png)
@@ -59,12 +59,13 @@ Es gibt verschiedene Methoden, auf Attribute zuzugreifen. Nach einer erfolgreich
 Weitere Informationen zu Identitäts- und Zugriffstokens finden Sie unter [Informationen zu Tokens](/docs/services/appid?topic=appid-tokens#tokens) und [Tokens validieren](/docs/services/appid?topic=appid-token-validation).
 
 
-Überprüfen Sie die folgende Abbildung, um sich mit den verschiedenen Möglichkeiten vertraut zu machen, die Ihnen zum Abrufen der Benutzerinformationen zur Verfügung stehen. 
+Überprüfen Sie die folgende Abbildung, um sich mit den verschiedenen Möglichkeiten vertraut zu machen, die Ihnen zum Abrufen der Benutzerinformationen zur Verfügung stehen.
 
-Abbildung ![{{site.data.keyword.appid_short_notm}} Laufzeitoptionen der Benutzerprofile](images/user-profile-runtime.png). Optionen für den Zugriff auf Benutzerprofile
+![{{site.data.keyword.appid_short_notm}} Laufzeitoptionen der Benutzerprofile](images/user-profile-runtime.png)
+Abbildung. Optionen für den Zugriff auf Benutzerprofile
 
 
-Von App ID wird eine Teilmenge der Attribute automatisch in die Zugriffs- und Identitätstoken eingefügt. Sie können die Vorteile der angepassten Claimzuordnung nutzen und weitere vordefinierte und angepasste Claims in den Tokens zuordnen. Weitere Informationen zur empfohlenen Methode für den Zugriff auf Benutzerinformationen finden Sie unter [Tokens anpassen](/docs/services/appid?topic=appid-customizing-tokens).
+Von App ID wird eine Teilmenge der Attribute automatisch in die Zugriffs- und Identitätstoken eingefügt. Sie können die Vorteile der angepassten Claimzuordnung nutzen und weitere vordefinierte und angepasste Claims in den Tokens zuordnen. Weitere Informationen zur empfohlenen Methode für den Zugriff auf Benutzerinformationen finden Sie unter [Tokens anpassen](/docs/services/appid?topic=appid-customizing-tokens). 
 {: note}
 
 
@@ -91,7 +92,7 @@ AppID.sharedInstance.userProfileManager.getUserInfo { (error: Error?, userInfo: 
 {: codeblock}
 {: ph data-hd-programlang='swift'}
 
-Sie können stattdessen jedoch auch explizit Zugriffs- und Identitätstokens übergeben. Das Identitätstoken ist optional und dient, wenn es übergeben wird, zur Validierung der Antwort auf die Benutzerinformationen.
+Sie können stattdessen jedoch auch explizit Zugriffs- und Identitätstokens übergeben. Das Identitätstoken ist optional und dient, wenn es übergeben wird, zur Validierung der Antwort.
 {: ph data-hd-programlang='swift'}
 
 ```
@@ -153,7 +154,7 @@ appId.getUserProfileManager().getUserInfo(accessToken, identityToken, new UserPr
 **Node.js**
 {: ph data-hd-programlang='javascript'}
 
-Mithilfe eines serverseitigen SDKs können Sie zusätzliche Informationen zu Ihren Benutzern abrufen. Sie können die folgende Methode mit den gespeicherten Zugriffs- und Identitätstokens aufrufen oder Tokens explizit übergeben. Das Identitätstoken ist optional und dient, wenn es übergeben wird, zur Validierung der Antwort auf die Benutzerinformationen.
+Mithilfe eines serverseitigen SDKs können Sie zusätzliche Informationen zu Ihren Benutzern abrufen. Sie können die folgende Methode mit den gespeicherten Zugriffs- und Identitätstokens aufrufen oder Tokens explizit übergeben. Das Identitätstoken ist optional und dient, wenn es übergeben wird, zur Validierung der Antwort.
 {: ph data-hd-programlang='javascript'}
 
 ```javascript
@@ -180,7 +181,7 @@ userProfileManager.getUserInfo(accessToken).then(function (profile) {
 **Serverseitiges Swift**
 {: ph data-hd-programlang='swift'}
 
-Mithilfe eines serverseitigen SDKs können Sie zusätzliche Informationen zu Ihren Benutzern abrufen. Sie können die folgende Methode mit den gespeicherten Zugriffs- und Identitätstokens aufrufen oder Tokens explizit übergeben. Das Identitätstoken ist optional und dient, wenn es übergeben wird, zur Validierung der Antwort auf die Benutzerinformationen.
+Mithilfe eines serverseitigen SDKs können Sie zusätzliche Informationen zu Ihren Benutzern abrufen. Sie können die folgende Methode mit den gespeicherten Zugriffs- und Identitätstokens aufrufen oder Tokens explizit übergeben. Das Identitätstoken ist optional und dient, wenn es übergeben wird, zur Validierung der Antwort.
 {: ph data-hd-programlang='swift'}
 
 
@@ -341,9 +342,9 @@ Sie können zum Profil der Benutzer durch Festlegen eines angepassten Attributs 
 Angepasste Attribute können standardmäßig geändert werden und können mit einem App ID-Zugriffstoken von einer Clientanwendung aus aktualisiert werden. Dies bedeutet, dass der Benutzer oder die Anwendung ohne besondere Vorsichtsmaßnahmen die angepassten Attribute unmittelbar nach der ersten Anmeldung aktualisieren kann, vorausgesetzt, es besteht Zugriff auf ein Zugriffstoken. Dies kann unbeabsichtigte Folgen haben. Ein Benutzer könnte beispielsweise seine Rolle von 'Benutzer' in 'Administrator' ändern. Dadurch könnten Administratorberechtigungen in die falschen Hände gelangen.
 {: important}
 
-1. Navigieren Sie im APP ID-Dashboard zur Registerkarte **Profile** und schalten Sie für die angepassten Attribute zu **Aktiviert** um. 
-2. [Rufen Sie ein Zugriffstoken ab](/docs/services/appid?topic=appid-obtain-tokens). Alle eingehenden Anforderungen an Ihre App verfügen über einen Berechtigungsheader mit der Angabe `access_token`. 
-3. Erstellen Sie eine Anforderung an die [APIs für Attribute](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Attributes) oder fügen Sie eines der folgenden Snippets zum Verwenden eines der bereitgestellten SDKs zum Code hinzu. 
+1. Navigieren Sie im APP ID-Dashboard zur Registerkarte **Profile** und schalten Sie für die angepassten Attribute zu **Aktiviert** um.
+2. [Rufen Sie ein Zugriffstoken ab](/docs/services/appid?topic=appid-obtain-tokens). Alle eingehenden Anforderungen an Ihre App verfügen über einen Berechtigungsheader mit der Angabe `access_token`.
+3. Erstellen Sie eine Anforderung an die [APIs für Attribute](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Attributes) oder fügen Sie eines der folgenden Snippets zum Verwenden eines der bereitgestellten SDKs zum Code hinzu.
 
   **iOS Swift**
   {: ph data-hd-programlang='swift'}

@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-09"
+lastupdated: "2019-06-18"
 
-keywords: authentication, authorization, identity, app security, secure, backend, back-end, oauth, 
+keywords: Authentication, authorization, identity, app security, secure, backend, back-end, oauth, 
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -42,13 +42,13 @@ Ein Bestandteil der Entwicklung von Back-End-Apps besteht darin zu überprüfen,
 ### Was ist die technische Basis des Ablaufs?
 {: #backend-technical-flow}
 
-{{site.data.keyword.appid_short_notm}} implementiert die [OAuth 2.0](https://tools.ietf.org/html/rfc6749)- und die OIDC-Spezifikation, die Trägertokens für Authentifizierung und Autorisierung verwendet. Diese Tokens werden als [JSON Web Token (JWT)](https://tools.ietf.org/html/rfc7519) formatiert, die digital signiert sind und Anforderungen (sog. Claims) enthalten, die das zu authentifizierende Subjekt und den Identitätsprovider beschreiben. Die APIs Ihrer Anwendung werden durch Zugriffs- und Identitätstokens geschützt. Clients, die Zugriff auf Ihre APIs benötigen, können sich mit dem Identitätsprovider über {{site.data.keyword.appid_short_notm}} im Austausch für diese Tokens authentifizieren. Die Claims in den Tokens müssen validiert worden sein, um den Zugriff auf die geschützten APIs zu gewähren.
+{{site.data.keyword.appid_short_notm}} implementiert die [OAuth 2.0](https://tools.ietf.org/html/rfc6749){: external}- und die OIDC-Spezifikation, die Trägertokens für Authentifizierung und Autorisierung verwendet. Diese Tokens werden als [JSON Web Token (JWT)](https://tools.ietf.org/html/rfc7519){: external} formatiert, die digital signiert sind und Anforderungen (sog. Claims) enthalten, die das zu authentifizierende Subjekt und den Identitätsprovider beschreiben. Die APIs Ihrer Anwendung werden durch Zugriffs- und Identitätstokens geschützt. Clients, die Zugriff auf Ihre APIs benötigen, können sich mit dem Identitätsprovider über {{site.data.keyword.appid_short_notm}} im Austausch für diese Tokens authentifizieren. Die Claims in den Tokens müssen validiert worden sein, um den Zugriff auf die geschützten APIs zu gewähren.
 
-Weitere Informationen dazu, wie Tokens in {{site.data.keyword.appid_short_notm}} verwendet werden, finden Sie unter [Informationen zu Token](/docs/services/appid?topic=appid-tokens#tokens).
+Weitere Informationen dazu, wie Tokens in {{site.data.keyword.appid_short_notm}} verwendet werden, finden Sie unter [Informationen zu Tokens](/docs/services/appid?topic=appid-tokens#).
 {: tip}
 
 
-### Wie sieht dieser Ablauf aus?
+### Wie sieht der Ablauf aus?
 {: #backend-flow}
 
 ![{{site.data.keyword.appid_short_notm}}-Back-End-Ablauf. Die Schritte werden in der vorgegebenen Reihenfolge nach der Abbildung aufgelistet.](images/backend-flow.png)
@@ -82,7 +82,7 @@ Weitere Informationen dazu, wie Tokens in {{site.data.keyword.appid_short_notm}}
 Sie können die {{site.data.keyword.appid_short_notm}}-SDKs verwenden, um die Authentifizierung und Autorisierung für Ihre serverseitigen Anwendungen zu erzwingen. Mit `ApiStrategy` können Sie Ihre Back-End-Ressourcen absichern. Dazu wird die Validierung der Zugriffs- und Identitätstokens im Rahmen der Anforderung zwingend durchgeführt.
 {: shortdesc}
 
-Das Node.js-SDK von {{site.data.keyword.appid_short_notm}} arbeitet zusammen mit dem [Passport-Framework](http://www.passportjs.org/).
+Das Node.js-SDK von {{site.data.keyword.appid_short_notm}} arbeitet zusammen mit dem [Passport-Framework](http://www.passportjs.org/){: external}.
 {: ph data-hd-programlang='javascript'}
 
 Das serverseitige Swift-SDK von {{site.data.keyword.appid_short_notm}} stellt ein Plug-in für eine Middleware zum API-Schutz zur Verfügung, das zum Schutz der Back-End-Apps verwendet wird. Durch die Zuordnung Ihrer APIs zur Middleware können Sie Ihre App vor unbefugtem Zugriff schützen. Nachdem die API geschützt ist, stellt die Middleware sicher, dass die Token, die von {{site.data.keyword.appid_short_notm}} generiert wurden, validiert werden. Sie können dann das Verhalten der API abhängig von den Validierungsergebnissen ändern.
@@ -147,14 +147,14 @@ if #available(OSX 10.12, *) {
 {: codeblock}
 {: ph data-hd-programlang='swift'}
 
-Sehen Sie sich das folgende Video an, um Informationen zum Schutz von Back-End-Knotenanwendungen mit {{site.data.keyword.appid_short_notm}} zu erhalten. Versuchen Sie es anschließend mithilfe einer [einfachen Beispielanwendung für Knoten](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02b-simple-node-backend-app).
+Sehen Sie sich das folgende Video an, um Informationen zum Schutz von Back-End-Knotenanwendungen mit {{site.data.keyword.appid_short_notm}} zu erhalten. Versuchen Sie es anschließend mithilfe einer [einfachen Beispielanwendung für Knoten](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02b-simple-node-backend-app){: external}.
 {: ph data-hd-programlang='javascript'}
 
 <iframe class="embed-responsive-item" id="appid-backend-nodejs" title="Informationen zu {{site.data.keyword.appid_short_notm}}" type="text/html" width="640" height="390" src="//www.youtube.com/embed/jJLSgkHpZwA?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 {: ph data-hd-programlang='javascript'}
 
 
-Sehen Sie sich das folgende Video an, um Informationen zum Schutz von Back-End-Liberty for Java-Anwendungen mit {{site.data.keyword.appid_short_notm}} zu erhalten. Versuchen Sie es anschließend mithilfe einer [einfachen Beispielanwendung für Liberty for Java](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02d-simple-liberty-backend-app).
+Sehen Sie sich das folgende Video an, um Informationen zum Schutz von Back-End-Liberty for Java-Anwendungen mit {{site.data.keyword.appid_short_notm}} zu erhalten. Versuchen Sie es anschließend mithilfe einer [einfachen Beispielanwendung für Liberty for Java](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02d-simple-liberty-backend-app){: external}.
 {: ph data-hd-programlang='java'}
 
 <iframe class="embed-responsive-item" id="appid-backend-liberty" title="Informationen zu {{site.data.keyword.appid_short_notm}}" type="text/html" width="640" height="390" src="//www.youtube.com/embed/QA6DY2qqLaw?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
@@ -249,7 +249,7 @@ Wenn die Tokens gültig sind, wird die nächste Middleware in der Anforderungske
 ## Ressourcen manuell schützen
 {: #backend-secure-api}
 
-Um Ihre Back-End-Apps und geschützten Ressourcen zu sichern, müssen Sie ein Token überprüfen. Wenn ein Client eine Anforderung an Ihre Ressource sendet, können Sie prüfen, ob das Token die definierten Spezifikationen erfüllt. Das Token kann Identifikationsinformationen, den Geltungsbereich oder andere Konfigurationsdaten enthalten, die Sie definiert haben. Sie können {{site.data.keyword.appid_short_notm}}-Zugriffs- und Identitätstokens auf verschiedene Arten prüfen. Weitere Informationen zu diesem Thema finden Sie in [Tokens validieren](/docs/services/appid?topic=appid-token-validation#token-validation).
+Um Ihre Back-End-Apps und geschützten Ressourcen zu sichern, müssen Sie ein Token überprüfen. Wenn ein Client eine Anforderung an Ihre Ressource sendet, können Sie prüfen, ob das Token die definierten Spezifikationen erfüllt. Das Token kann Identifikationsinformationen, den Geltungsbereich oder andere Konfigurationsdaten enthalten, die Sie definiert haben. Sie können {{site.data.keyword.appid_short_notm}}-Zugriffs- und Identitätstokens auf verschiedene Arten prüfen. Weitere Informationen zu diesem Thema finden Sie in [Tokens validieren](/docs/services/appid?topic=appid-token-validation).
 
 
 ## Nächste Schritte
@@ -259,5 +259,7 @@ Wenn {{site.data.keyword.appid_short_notm}} in Ihrer Anwendung installiert ist, 
 
 * Konfigurieren Ihrer [Identitätsprovider](/docs/services/appid?topic=appid-social)
 * Anpassen und Konfigurieren [des Anmeldewidgets](/docs/services/appid?topic=appid-login-widget)
-* Abrufen weiterer Informationen zum <a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs" target="_blank">Node.js-SDK<img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a>
-* Abrufen weiterer Informationen zum <a href="https://github.com/ibm-cloud-security/appid-serversdk-swift" target="_blank">Swift-SDK<img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a>
+* Abrufen weiterer Informationen zum [Node.js-SDK](https://github.com/ibm-cloud-security/appid-serversdk-nodejs){: external}
+* Abrufen weiterer Informationen zum [Swift-SDK](https://github.com/ibm-cloud-security/appid-serversdk-swift){: external}
+
+

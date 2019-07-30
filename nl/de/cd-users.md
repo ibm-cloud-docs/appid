@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
+keywords: Authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
 subcollection: appid
 
 ---
  
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -29,25 +29,25 @@ subcollection: appid
 Mit Cloud Directory können Sie Benutzer in einer skalierbaren Registry mithilfe vordefinierter Funktionen verwalten, die die Sicherheit und den Self-Service erhöhen.
 {: shortdesc}
 
-Ein Cloud Directory-Benutzer ist nicht identisch mit einem {{site.data.keyword.appid_short_notm}}-Benutzer. Benutzer können sich unter Verwendung der von Ihnen konfigurierten Identitätsprovideroptionen bei der App registrieren; alternativ können Sie sie zum Verzeichnis hinzufügen. Bei den in diesem Abschnitt aufgeführten Benutzern handelt es sich um diejenigen Benutzer, die Cloud Directory als Identitätsprovider zugeordnet sind.
+Ein Cloud Directory-Benutzer ist nicht identisch mit einem {{site.data.keyword.appid_short_notm}}-Benutzer. Benutzer können sich unter Verwendung der von Ihnen konfigurierten Identitätsprovideroptionen bei der App registrieren; alternativ können Sie sie zum Verzeichnis hinzufügen. Die Benutzer, die auf dieser Seite genannt werden, sind diejenigen, die Cloud Directory als Identitätsprovider zugeordnet sind.
 {: note}
 
 ## Benutzerinformationen anzeigen
 {: #cd-user-info}
 
-Sie können alle Informationen, die zu allen Cloud Directory-Benutzer vorhanden sind, mithilfe der APIs oder des Dashboards als JSON-Objekt anzeigen.
+Sie können alle Informationen, die zu allen Cloud Directory-Benutzer vorhanden sind, mithilfe der APIs oder des Dashboards als JSON-Objekt anzeigen. 
 {: shortdesc}
 
 
 ### Mit der GUI
 
-Sie können im {{site.data.keyword.appid_short_notm}}-Dashboard Details zu den App-Benutzern anzeigen.  
+Sie können im {{site.data.keyword.appid_short_notm}}-Dashboard Details zu den App-Benutzern anzeigen. 
 
 1. Navigieren Sie zur Registerkarte **Cloud Directory > Benutzer** der {{site.data.keyword.appid_short_notm}}-Instanz.
 
-2. Durchsuchen Sie die Tabelle oder suchen Sie mithilfe einer E-Mail-Adresse, um den Benutzer zu finden, für den Sie die Informationen anzeigen möchten. 
+2. Durchsuchen Sie die Tabelle oder suchen Sie mithilfe einer E-Mail-Adresse, um den Benutzer zu finden, für den Sie die Informationen anzeigen möchten.
 
-3. Klicken Sie im Überlaufmenü in der Zeile des Benutzers auf **Benutzerdetails anzeigen**. Es wird eine Seite geöffnet, auf der die Informationen des Benutzers enthalten sind. In der folgenden Tabelle sehen Sie, welche Informationen angezeigt werden. 
+3. Klicken Sie im Überlaufmenü in der Zeile des Benutzers auf **Benutzerdetails anzeigen**. Es wird eine Seite geöffnet, auf der die Informationen des Benutzers enthalten sind. In der folgenden Tabelle sehen Sie, welche Informationen angezeigt werden.
 
 <table>
   <tr>
@@ -55,27 +55,27 @@ Sie können im {{site.data.keyword.appid_short_notm}}-Dashboard Details zu den A
   </tr>
   <tr>
     <td>Benutzer-ID</td>
-    <td>Die Benutzer-ID hängt vom Typ der von Ihnen konfigurierten Benutzeranmeldung ab. Wenn Sie einen Ablauf für E-Mail und Kennwort konfiguriert haben, ist die ID die Benutzer-E-Mail. Wenn Sie den Ablauf für Benutzername und Kennwort verwenden, ist die ID der Benutzername, der bei der Anmeldung angegeben wird.</td>
+    <td>Die Benutzer-ID hängt vom Typ der Benutzeranmeldung ab, die Sie konfiguriert haben. Wenn Sie einen Ablauf für E-Mail und Kennwort konfiguriert haben, ist die ID die Benutzer-E-Mail. Wenn Sie den Ablauf mit Benutzername und Kennwort verwenden, ist der Benutzername der, der bei der Anmeldung angegeben wurde. </td>
   </tr>
   <tr>
     <td>E-Mail</td>
-    <td>Die primäre E-Mail-Adresse, die dem Benutzer zugeordnet ist. </td>
+    <td>Die primäre E-Mail-Adresse, die dem Benutzer zugeordnet ist.</td>
   </tr>
     <tr>
     <td>Vor- und Nachname</td>
-    <td>Der Vor- und Nachname, den Sie während des Anmeldeprozesses angegeben haben. </td>
+    <td>Der Vor- und Nachname des Benutzers, wie er während der Anmeldung angegeben wurde. </td>
   </tr>
   <tr>
     <td>Letzte Anmeldung</td>
-    <td>Die Zeitmarke des letzten Zeitpunkts, an dem sich der Benutzer an der Anwendung angemeldet hat. Hinweis: Wenn Sie den Benutzer über das Dashboard hinzugefügt haben, ist die Anmeldung leer, bis sich der Benutzer selbst an der App anmeldet. Sobald sich der Benutzer angemeldet hat, wird er zu einem App ID-Benutzer. </td>
+    <td>Die Zeitmarke des letzten Zeitpunkts, an dem sich der Benutzer an der Anwendung angemeldet hat. Hinweis: Wenn Sie Ihre Benutzer über das Dashboard hinzugefügt haben, ist die Anmeldung leer, bis der Benutzer sich selbst bei Ihrer App anmeldet. Wenn die Anmeldung erfolgt, werden die Benutzer ebenfalls App-ID-Benutzer. </td>
   </tr>
   <tr>
     <td>ID</td>
-    <td>Die ID, die dem Benutzer von {{site.data.keyword.appid_short_notm}} zugeordnet wird. In der Benutzerschnittstelle wird sie nicht angezeigt, Sie können den Wert jedoch kopieren und in einen Texteditor einfügen, um ihn anzuzeigen. </td>
+    <td>Die ID, die dem Benutzer von {{site.data.keyword.appid_short_notm}} zugeordnet wird. Sie wird in der Benutzerschnittstelle angezeigt, aber Sie können den Wert kopieren und in einem Texteditor einfügen, um den Wert anzuzeigen. </td>
   </tr>
   <tr>
     <td>Vordefinierte Attribute</td>
-    <td>Vordefinierte Attribute sind Daten, die über einen Benutzer auf der Basis von SCIM bekannt sind. </td>
+    <td>Vordefinierte Attribute sind Daten, die über einen Benutzer auf der Basis von SCIM bekannt sind.</td>
   </tr>
   <tr>
     <td>Angepasste Attribute</td>
@@ -83,7 +83,7 @@ Sie können im {{site.data.keyword.appid_short_notm}}-Dashboard Details zu den A
   </tr>
   <tr>
     <td>Zusammenfassung</td>
-    <td>Alle Attribute werden zu einem Profil kompiliert, das Ihnen eine vollständige Übersicht über den Cloud-Directory-Benutzer gibt. Weitere Informationen finden Sie unter [Benutzerprofile](/docs/services/appid?topic=appid-profiles).</td>
+    <td>Alle Attribute werden kompiliert, um ein Profil zu bilden, mit dem Sie einen kompletten Überblick über Ihre Cloud Directory-Benutzer erhalten. Weitere Informationen finden Sie unter [Benutzerprofile](/docs/services/appid?topic=appid-profiles).</td>
   </tr>
 </table>
 
@@ -91,7 +91,7 @@ Sie können im {{site.data.keyword.appid_short_notm}}-Dashboard Details zu den A
 
 ### Mit der API
 
-Sie können in der {{site.data.keyword.appid_short_notm}}-API Details zu den App-Benutzern anzeigen.  
+Sie können in der {{site.data.keyword.appid_short_notm}}-API Details zu den App-Benutzern anzeigen. 
 
 1. Rufen Sie Ihre Tenant-ID von der Instanz des Service ab.
 
@@ -172,7 +172,7 @@ Sie können in der {{site.data.keyword.appid_short_notm}}-API Details zu den App
 Sie können die Cloud Directory-Benutzer über das {{site.data.keyword.appid_short_notm}}-Dashboard oder die APIs verwalten.
 {: shortdesc}
 
-Wenn sich ein Benutzer bei der Anmeldung registriert, wird diese Anmeldung über einen Self-Service-Workflow durchgeführt, von dem automatisch E-Mails ausgelöst werden, zum Beispiel Willkommens- oder Verifizierungsanforderungen. Wenn Sie als Administrator einen Benutzer zu Ihrer App hinzufügen, wird kein Self-Service-Workflow eingeleitet, was bedeutet, dass Benutzer keine E-Mails von Ihrer Anwendung erhalten. Wenn die Benutzer trotzdem darüber benachrichtigt werden sollen, dass sie hinzugefügt wurden, können Sie die Nachrichtenflüsse über die [API für das App-ID-Management](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.set_cloud_directory_email_dispatcher) auslösen.
+Wenn sich ein Benutzer bei der Anmeldung registriert, wird diese Anmeldung über einen Self-Service-Workflow durchgeführt, von dem automatisch E-Mails ausgelöst werden, zum Beispiel Willkommens- oder Verifizierungsanforderungen. Wenn Sie als Administrator einen Benutzer zu Ihrer App hinzufügen, wird kein Self-Service-Workflow eingeleitet, was bedeutet, dass Benutzer keine E-Mails von Ihrer Anwendung erhalten. Wenn Sie möchten, dass Benutzer weiterhin dann benachrichtigt werden, wenn Sie hinzugefügt werden, können Sie die Nachrichtenweiterleitungen über die [Management-API der App-ID](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.set_cloud_directory_email_dispatcher) auslösen.
 
 
 ### Benutzer hinzufügen
@@ -180,29 +180,29 @@ Wenn sich ein Benutzer bei der Anmeldung registriert, wird diese Anmeldung über
 
 Wenn sich ein Benutzer bei der Anmeldung registriert, wird er als Benutzer hinzugefügt. Zu Testzwecken können Sie einen Benutzer über das {{site.data.keyword.appid_short_notm}}-Dashboard oder die API hinzufügen.
 
-Wenn Sie die Self-Service-Registrierung inaktivieren oder einen Benutzer in seinem Namen hinzufügen, erhält der Benutzer keine Willkommens- oder Verifizierungs-E-Mail, wenn er hinzugefügt wird.
+Wenn Sie die Self-Service-Anmeldung inaktivieren oder einen Benutzer in seinem Namen hinzufügen, erhält der Benutzer keine Willkommens- oder Bestätigungsnachricht, wenn er hinzugefügt wird.
 {: tip}
 
 
 
-**Gehen Sie wie folgt vor, um einen neuen Benutzer in der grafischen Benutzerschnittstelle hinzuzufügen:**
+**Gehen Sie wie folgt vor, um einen Benutzer mit der GUI hinzuzufügen:**
 
-1. Navigieren Sie zur Registerkarte **Cloud Directory > Benutzer** des {{site.data.keyword.appid_short_notm}}-Dashboards.
+1. Wechseln Sie auf die Registerkarte **Cloudverzeichnis > Benutzer** im {{site.data.keyword.appid_short_notm}}-Dashboard.
 
-2. Klicken Sie auf **Benutzer hinzufügen**. Daraufhin wird ein Formular angezeigt.
+2. Klicken Sie auf **Benutzer hinzufügen**. Ein Formular wird geöffnet.
 
-3. Geben Sie einen Wert für **Vorname**, **Nachname**, **E-Mail** und **Kennwort** ein. Vergewissern Sie sich, dass die E-Mail-Adresse, die Sie zur Registrierung verwenden wollen, nicht bereits von einem anderen Benutzer benutzt wird. Um sicherzustellen, dass Ihnen bei der Kennworteingabe kein Fehler unterlaufen ist, müssen Sie das Kennwort bestätigen, indem Sie es im Feld **Kennwort erneut eingeben** ein zweites Mal eingeben.
+3. Geben Sie einen Wert für **Vorname**, **Nachname**, **E-Mail** und **Kennwort** ein. Vergewissern Sie sich, dass die E-Mail-Adresse, die Sie zur Registrierung verwenden wollen, nicht bereits von einem anderen Benutzer benutzt wird. Um sicherzustellen, dass Sie Ihr Kennwort korrekt eingegeben haben, bestätigen Sie dies durch Eingabe in das Feld **Kennwort erneut eingeben**. 
 
 4. Klicken Sie auf **Speichern**. Daraufhin wird ein Cloud Directory-Benutzer erstellt.
 
 </br>
 
 
-**Gehen Sie wie folgt vor, um einen neuen Benutzer in der API hinzuzufügen:**
+**Gehen Sie wie folgt vor, um einen Benutzer mit der API hinzuzufügen: **
 
-Am folgenden Ablauf wird erläutert, wie ein Benutzer mit einer E-Mail und einem Kennwort hinzugefügt wird. Sie können auch einen Ablauf mit Benutzername und Kennwort verwenden.
+Am folgenden Ablauf wird erläutert, wie ein Benutzer mit einer E-Mail und einem Kennwort hinzugefügt wird. Sie können ferner auswählen, dass ein Ablauf mit Benutzername und Kennwort verwendet wird. 
 
-1. Rufen Sie den Wert für `tenantID` von der Anwendung oder die Serviceberechtigungsnachweise ab. 
+1. Rufen Sie den Wert für `tenantID` von der Anwendung oder die Serviceberechtigungsnachweise ab.
 
 2. Rufen Sie das {{site.data.keyword.cloud_notm}}-IAM-Token ab.
 
@@ -211,7 +211,7 @@ Am folgenden Ablauf wird erläutert, wie ein Benutzer mit einer E-Mail und einem
   ```
   {: codeblock}
 
-3. Erstellen Sie mit dem Token, das Sie in Schritt 2 erhalten haben, eine POST-Anforderung an den Endpunkt `cloud-directory/users`. Beachten Sie, dass im folgenden Beispiel der Ablauf für E-Mail und Kennwort verwendet wird. Sie können auch den Ablauf für Benutzername und Kennwort verwenden.
+3. Erstellen Sie mit dem Token, das Sie in Schritt 2 erhalten haben, eine POST-Anforderung an den Endpunkt `cloud-directory/users`. Dieses Beispiel verwendet den Ablauf mit E-Mail und Kennwort. Sie können auch den Ablauf für Benutzername und Kennwort verwenden.
 
   ```
   curl --X POST "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/Users"
@@ -243,11 +243,11 @@ Wenn Sie einen Benutzer aus dem Verzeichnis entfernen möchten, können Sie den 
 
 **Gehen Sie wie folgt vor, um einen Benutzer in der grafischen Benutzerschnittstelle zu löschen:**
 
-1. Navigieren Sie zur Registerkarte **Cloud Directory > Benutzer** des {{site.data.keyword.appid_short_notm}}-Dashboards.
+1. Wechseln Sie auf die Registerkarte **Cloudverzeichnis > Benutzer** im {{site.data.keyword.appid_short_notm}}-Dashboard.
 
-2. Klicken Sie auf das Kontrollkästchen neben dem Benutzer, den Sie löschen möchten. Daraufhin wird ein Feld angezeigt.
+2. Klicken Sie auf das Kontrollkästchen neben dem Benutzer, den Sie löschen möchten. Ein Feld wird angezeigt. 
 
-3. Klicken Sie in dem Feld auf **Löschen**. Daraufhin wird eine Anzeige aufgerufen.
+3. Klicken Sie in dem Feld auf **Löschen**. Daraufhin wird eine Anzeige geöffnet.
 
 4. Bestätigen Sie, dass Sie wissen, dass das Löschen eines Benutzers nicht rückgängig gemacht werden kann, indem Sie auf **Löschen** klicken. Wenn die Aktion fälschlicherweise ausgeführt wurde, dann können Sie den Benutzer erneut zu Ihrem Verzeichnis hinzufügen, die zuvor zu dem betreffenden Benutzer vorhandenen Daten sind jedoch nicht mehr verfügbar.
 
@@ -257,7 +257,7 @@ Wenn Sie einen Benutzer aus dem Verzeichnis entfernen möchten, können Sie den 
 
 1. Rufen Sie Ihre Tenant-ID ab.
 
-2. Durchsuchen Sie mithilfe der E-Mail-Adresse, die dem Benutzer zugeordnet ist, das Verzeichnis nach der ID des Benutzers. 
+2. Durchsuchen Sie mithilfe der E-Mail-Adresse, die dem Benutzer zugeordnet ist, das Verzeichnis nach der ID des Benutzers.
 
   ```
   curl -X GET "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/users?email={user-email}" -H "accept: application/json"
@@ -277,7 +277,7 @@ Wenn Sie einen Benutzer aus dem Verzeichnis entfernen möchten, können Sie den 
 ## Benutzer migrieren
 {: #user-migration}
 
-Es kann vorkommen, dass Sie eine neue Instanz von {{site.data.keyword.appid_short_notm}} einrichten müssen. Wenn Sie Cloud Directory verwenden, bedeutet dies, dass Ihre Benutzer auf die neue Instanz migriert werden müssen. Sie können die Management-APIs verwenden, die Sie bei der Migration unterstützen.
+Gelegentlich müssen Sie vielleicht eine Instanz von {{site.data.keyword.appid_short_notm}} hinzufügen. Wenn Sie mit Cloud Directory arbeiten, müssen Ihre Benutzer auf die neue Instanz migriert werden. Um die Migration zu unterstützen, können Sie die Management-APIs verwenden.
 {: shortdesc}
 
 
@@ -304,7 +304,7 @@ curl -X GET --header ‘Accept: application/json’ --header ‘Authorization: B
   </tr>
   <tr>
     <td><code>encryption_secret</code></td>
-    <td>Eine angepasste Zeichenfolge, die zum Verschlüsseln und Entschlüsseln eines hashverschlüsselten Benutzerkennworts verwendet wird.</td>
+    <td>Eine angepasste Zeichenfolge, die zur Ver- und Entschlüsselung eines hashverschlüsselten Benutzerkennworts verwendet wird. </td>
   </tr>
   <tr>
     <td><code>tenantID</code></td>
@@ -381,14 +381,14 @@ Bevor Sie beginnen, stellen Sie sicher, dass Sie über die folgenden Parameterin
   </tr>
   <tr>
     <td>IAM-Token</td>
-    <td>Stellen Sie sicher, dass Sie über <code>manager</code>-Berechtigungen verfügen, bevor Sie das Token anfordern. Hilfe zum Anfordern eines IAM-Tokens finden Sie in der <a href="/docs/iam?topic=iam-iamtoken_from_apikey#iamtoken_from_apikey" target="_blank">Dokumentation <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a>.</td>
+    <td>Stellen Sie sicher, dass Sie über <code>manager</code>-Berechtigungen verfügen, bevor Sie das Token anfordern. Hilfe beim Abrufen eines IAM-Tokens finden Sie in den <a href="/docs/iam?topic=iam-iamtoken_from_apikey#iamtoken_from_apikey" target="_blank">Dokumenten <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a>.</td>
   </tr>
 </table>
 
 So führen Sie das Script aus:
 
 1. Klonen Sie das <a href="https://github.com/ibm-cloud-security/appid-sample-code-snippets/tree/master/export-import-cloud-directory-users" target="_blank">Repository <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a>.
-2. Öffnen Sie das Terminal und navigieren Sie zu dem Ordner, in den Sie das Repository geklont haben.
+2. Öffnen Sie die Konsole und wechseln Sie in den Ordner, in den Sie das Repository geklont haben. 
 3. Führen Sie den folgenden Befehl aus.
 
   ```

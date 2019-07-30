@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-20"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, development, ingress, policy, networking, containers, kubernetes
+keywords: Authentication, authorization, identity, app security, secure, development, ingress, policy, networking, containers, kubernetes
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -63,7 +63,7 @@ Bevor Sie beginnen können, müssen Sie sicherstellen, dass die folgenden voraus
 
 * Die folgenden CLIs:
 
-  * [{{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-ibmcloud-cli#ibmcloud-cli)
+  * [{{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-getting-started)
   * [Kubernetes](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
   * [Docker](https://www.docker.com/products/container-runtime#/download)
 
@@ -85,7 +85,7 @@ Wenn Sie die {{site.data.keyword.appid_short_notm}}-Instanz an den Cluster binde
 {: shortdesc}
 
 
-1. Melden Sie sich bei der {{site.data.keyword.cloud_notm}}-CLI an. Folgen Sie den Eingabeaufforderungen in der CLI, um die Anmeldung durchzuführen. Wenn Sie eine eingebundene ID verwenden, stellen Sie sicher, dass das Flag `--sso` am Ende des Befehls angehängt ist. 
+1. Melden Sie sich bei der {{site.data.keyword.cloud_notm}}-CLI an. Folgen Sie den Eingabeaufforderungen in der CLI, um die Anmeldung durchzuführen. Wenn Sie eine eingebundene ID verwenden, stellen Sie sicher, dass das Flag `--sso` am Ende des Befehls angehängt ist.
 
   ```
   ibmcloud login -a cloud.ibm.com -r <region>

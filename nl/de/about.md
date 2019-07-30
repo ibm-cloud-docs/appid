@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-06"
+lastupdated: "2019-06-18"
 
 keywords: Authentication, authorization, identity, app security, secure, compliance, high availability, ha, disaster recover, dr, protocols, oauth, oidc
 
@@ -10,7 +10,7 @@ subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -46,7 +46,7 @@ Wie können Sie Cloud Directory einsetzen? Sehen Sie sich dieses Video an, um me
     <th>Lösung</th>
   </tr>
   <tr>
-    <td>Sie müssen eine Funktion für die [Autorisierung und Authentifizierung](/docs/services/appid?topic=appid-key-concepts#key-concepts) zu Ihren mobilen Apps und Web-Apps hinzufügen, verfügen jedoch nicht über Hintergrundkenntnisse im Bereich der Sicherheit.</td>
+    <td>Sie müssen eine Funktion für die [Autorisierung und Authentifizierung](/docs/services/appid?topic=appid-key-concepts) zu Ihren mobilen Apps und Web-Apps hinzufügen, verfügen jedoch nicht über Hintergrundkenntnisse im Bereich der Sicherheit.</td>
     <td>Mit {{site.data.keyword.appid_short_notm}} können Sie ohne großen Aufwand einen Authentifizierungsschritt in Ihre Apps integrieren. Sie können eine Anmeldung über eine E-Mail-Adresse oder einen Benutzernamen, eine Anmeldung über soziale Medien oder eine Unternehmensanmeldung mithilfe von APIs, SDKs, vorgefertigten Benutzerschnittstellen oder eigenen, an Ihr Brand-Marketing angepassten Benutzerschnittstellen zu Ihren Apps hinzufügen.</td>
   </tr>
   <tr>
@@ -59,7 +59,7 @@ Wie können Sie Cloud Directory einsetzen? Sehen Sie sich dieses Video an, um me
   </tr>
   <tr>
     <td>Sie möchten Benutzer in einem skalierbaren Rahmen verwalten.</td>
-    <td> Mit {{site.data.keyword.appid_short_notm}} können Sie ein [Cloud Directory-System](/docs/services/appid?topic=appid-cloud-directory#cloud-directory) erstellen und auf diese Weise Registrierungs- und Anmeldefunktionen für Benutzer zu Ihren Apps hinzuzufügen. Cloud Directory stellt das Framework zur Verwaltung einer Benutzerregistry bereit, die dem jeweiligen Benutzerstamm entsprechend skaliert werden kann. Mit der vordefinierten Self-Service-Funktionalität, z. B. für die E-Mail-Verifizierung und das Zurücksetzen von Kennwörtern, können Sie sich darauf verlassen, dass Ihre App eine sichere Benutzerauthentifizierung bietet.</td>
+    <td> Mit {{site.data.keyword.appid_short_notm}} können Sie ein [Cloud Directory-System](/docs/services/appid?topic=appid-cloud-directory) erstellen und auf diese Weise Registrierungs- und Anmeldefunktionen für Benutzer zu Ihren Apps hinzuzufügen. Cloud Directory stellt das Framework zur Verwaltung einer Benutzerregistry bereit, die dem jeweiligen Benutzerstamm entsprechend skaliert werden kann. Mit der vordefinierten Self-Service-Funktionalität, z. B. für die E-Mail-Verifizierung und das Zurücksetzen von Kennwörtern, können Sie sich darauf verlassen, dass Ihre App eine sichere Benutzerauthentifizierung bietet.</td>
   </tr>
 </table>
 
@@ -75,10 +75,10 @@ Mit {{site.data.keyword.appid_short_notm}} können Sie eine zusätzliche Sicherh
 <dl>
   <dt>Anwendung</dt>
     <dd><strong>Server-SDK</strong>: Sie können die Back-End-Ressourcen, die in {{site.data.keyword.cloud_notm}} bereitgestellt werden, und die Web-Apps mit dem Server-SDK schützen. Das Server-SDK extrahiert das Zugriffstoken aus einer Anforderung und validiert es mit {{site.data.keyword.appid_short_notm}}. </br>
-<strong>Client-SDK</strong>: Sie können mobile Apps mit dem Android- oder iOS-Client-SDK schützen. Das Client-SDK kommuniziert mit den Cloud-Ressourcen, um den Authentifizierungsprozess zu starten, sobald eine Autorisierungsanforderung festgestellt wird.</dd>
+    <strong>Client-SDK</strong>: Sie können mobile Apps mit dem Android- oder iOS-Client-SDK schützen. Das Client-SDK kommuniziert mit den Cloud-Ressourcen, um den Authentifizierungsprozess zu starten, sobald eine Autorisierungsanforderung festgestellt wird.</dd>
   <dt>{{site.data.keyword.cloud_notm}}</dt>
     <dd><strong>{{site.data.keyword.appid_short_notm}}</strong>: Nach der erfolgreichen Authentifizierung gibt {{site.data.keyword.appid_short_notm}} Zugriffs- und Identitätstokens an die App zurück.</br>
-<strong>Cloud Directory</strong>: Benutzer können sich mit ihrer E-Mail-Adresse und einem Kennwort bei Ihrem Service registrieren. Sie können die Benutzer dann in einer Listenansicht über die Benutzerschnittstelle verwalten. Mit Cloud Directory fungiert {{site.data.keyword.appid_short_notm}} als Ihr Identitätsprovider.</dd>
+    <strong>Cloud Directory</strong>: Benutzer können sich mit ihrer E-Mail-Adresse und einem Kennwort bei Ihrem Service registrieren. Sie können die Benutzer dann in einer Listenansicht über die Benutzerschnittstelle verwalten. Mit Cloud Directory fungiert {{site.data.keyword.appid_short_notm}} als Ihr Identitätsprovider.</dd>
   <dt>Extern (anderer Anbieter)</dt>
     <dd><strong>Social-Media- und Unternehmensidentitätsprovider</strong>: {{site.data.keyword.appid_short_notm}} unterstützt Facebook, Google+ und SAML 2.0 Federation als Identitätsprovideroptionen. Der Service veranlasst eine Weiterleitung an den Identitätsprovider und überprüft die zurückgegebenen Authentifizierungstoken. Wenn die Tokens gültig sind, gewährt der Service Zugriff auf Ihre App, ohne dass Zugriff auf die tatsächliche Kennphrase besteht.</dd>
 </dl>
@@ -92,13 +92,13 @@ Sie können {{site.data.keyword.appid_short_notm}} mit anderen {{site.data.keywo
 
 <dl>
   <dt>{{site.data.keyword.containershort_notm}}</dt>
-    <dd>Durch die Konfiguration von Ingress in einem Standardcluster können Sie Ihre Apps auf Clusterebene schützen. Einen Einstieg in dieses Thema vermitteln die Blogeinträge <a href="/docs/containers?topic=containers-ingress_annotation#appid-auth">{{site.data.keyword.appid_short_notm}} authentication Ingress annotation</a> und <a href="https://www.ibm.com/blogs/cloud-archive/2018/05/announcing-app-id-integration-ibm-cloud-kubernetes-service/">Announcing {{site.data.keyword.appid_short_notm}} integration to {{site.data.keyword.containerlong_notm}} <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a>.</dd>
+    <dd>Durch die Konfiguration von Ingress in einem Standardcluster können Sie Ihre Apps auf Clusterebene schützen. Einen Einstieg in dieses Thema vermitteln die Blogeinträge <a href="/docs/containers?topic=containers-ingress_annotation#appid-auth">{{site.data.keyword.appid_short_notm}} authentication Ingress annotation</a> und <a href="https://www.ibm.com/cloud/blog/announcing-app-id-integration-ibm-cloud-kubernetes-service">Announcing {{site.data.keyword.appid_short_notm}} integration to {{site.data.keyword.containerlong_notm}} <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a>.</dd>
   <dt>{{site.data.keyword.openwhisk_short}} und {site.data.keyword.apiconnect_short}}</dt>
-    <dd>Wenn Sie Ihre APIs mit [{{site.data.keyword.openwhisk_short}}](/docs/openwhisk?topic=cloud-functions-getting_started#getting_started) und [API Connect](/docs/services/apiconnect?topic=apiconnect-getting-started) erstellen, können Sie Ihre Anwendungen auf dem Gateway anstatt in Ihrem App-Code sichern. Wenn Sie den Verlauf der Integration verfolgen möchten, sehen Sie sich <a href="https://www.youtube.com/watch?v=Fa9YD2NGZiE" target="_blank">Einfache und schnelle Social-Media-OAuth-Registrierung mit API und {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a> an.</dd>
+    <dd>Wenn Sie Ihre APIs mit [{{site.data.keyword.openwhisk_short}}](/docs/openwhisk?topic=cloud-functions-getting-started) und [API Connect](/docs/services/apiconnect?topic=apiconnect-getting-started) erstellen, können Sie Ihre Anwendungen auf dem Gateway anstatt in Ihrem App-Code sichern. Wenn Sie den Verlauf der Integration verfolgen möchten, sehen Sie sich <a href="https://www.youtube.com/watch?v=Fa9YD2NGZiE" target="_blank">Einfache und schnelle Social-Media-OAuth-Registrierung mit API und {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a> an.</dd>
   <dt>Cloud Foundry</dt>
     <dd>Probieren Sie eine der bereitgestellten Cloud Foundry-Beispielapps aus, um zu sehen, wie Sie {{site.data.keyword.appid_short_notm}} in Ihre Apps integrieren können.</dd>
   <dt>{{site.data.keyword.cloudaccesstrailshort}}</dt>
-    <dd>Sie können Verwaltungsaktivitäten in {{site.data.keyword.appid_short_notm}}, zum Beispiel Änderungen an der Dashboardkonfiguration, anhand der [{{site.data.keyword.cloudaccesstrailshort}}-Dokumente](/docs/services/cloud-activity-tracker?topic=cloud-activity-tracker-getting-started#getting-started) überwachen. </dd>
+    <dd>Sie können Verwaltungsaktivitäten in {{site.data.keyword.appid_short_notm}}, zum Beispiel Änderungen an der Dashboardkonfiguration, anhand der [{{site.data.keyword.cloudaccesstrailshort}}-Dokumente](/docs/services/cloud-activity-tracker?topic=cloud-activity-tracker-getting-started) überwachen.</dd>
   <dt>Leitfaden für die Programmierung mit iOS</dt>
     <dd>Entwickeln Sie Apps für Apple? Ziehen Sie den [Leitfaden für die Programmierung mit iOS](/docs/swift?topic=swift-getting-started) zurate, um mehr über das Zusammenspiel Ihrer vorhandenen iOS-Apps mit {{site.data.keyword.cloud_notm}} zu erfahren, Neues auszuprobieren und diese Apps zu erweitern.</dd>
   <dt>Leitfaden für die Programmierung mit Node.js</dt>
@@ -114,7 +114,7 @@ Sie können {{site.data.keyword.appid_short_notm}} mit anderen {{site.data.keywo
 
 {{site.data.keyword.appid_short_notm}} basiert auf einer Reihe gängiger, dem Branchenstandard entsprechender Protokolle und Spezifikationen, die sowohl in unternehmens- als auch in verbraucherorientierten Anwendungen, dem OAuth 2.0-Autorisierungsframework und Open ID Connect häufig zum Einsatz kommen. OAuth 2.0 wird zum Anfordern und Überprüfen der Autorisierung für den Zugriff auf geschützte Ressourcen verwendet. Darüber hinaus fügt Open ID Connect Ihren Anwendungen eine Ebene für die Authentifizierung und den Identitätsschutz hinzu.
 
-Eine vollständige Liste von [Zertifizierungen](https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=BF31C8008D7C11E59F9AD7336D7D0FFB) finden Sie in Abschnitt 5.4 des Berichts zur Kompatibilität von Softwareprodukten für {{site.data.keyword.appid_short_notm}}. Zusätzlich zu den Zertifizierungen werden von {{site.data.keyword.appid_short_notm}} auch die folgenden Spezifikationen eingehalten: OAuth 2.0, OpenID Connect, JSON Web Token (JWT), JSON Web Signature (JWS), System for Cross-Domain Identity Management (SCIM). 
+Eine vollständige Liste von [Zertifizierungen](https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=BF31C8008D7C11E59F9AD7336D7D0FFB){: external} finden Sie in Abschnitt 5.4 des Berichts zur Kompatibilität von Softwareprodukten für {{site.data.keyword.appid_short_notm}}. Zusätzlich zu den Zertifizierungen werden von {{site.data.keyword.appid_short_notm}} auch die folgenden Spezifikationen eingehalten: OAuth 2.0, OpenID Connect, JSON Web Token (JWT), JSON Web Signature (JWS), System for Cross-Domain Identity Management (SCIM). 
 
 
 ## Regionale Hochverfügbarkeit
@@ -127,4 +127,5 @@ In jeder unterstützten Mehrzonenregion verfügt jede Zone über einen eigenen {
 
 Die in {{site.data.keyword.appid_short_notm}} gespeicherten Daten werden verschlüsselt und in einem Datenbankcluster, der über die Verfügbarkeitszonen verteilt ist, dauerhaft gespeichert. Außerdem werden die Daten in einem separaten verschlüsselten Object Storage-System gesichert.
 
-Da es sich bei {{site.data.keyword.appid_short_notm}} um einen regionalen Service handelt, stellt er keine automatisierten regionsübergreifenden Failoverfunktionen oder regionsübergreifenden Funktionen für die Wiederherstellung nach einem Stör-/Katastrophenfall bereit. Allerdings stellt {{site.data.keyword.appid_short_notm}} <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/" target="_blank">zahlreiche APIs <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a> bereit, die von Entwicklern zur manuellen Synchronisation ihrer Servicekonfiguration mit weiteren Instanzen von {{site.data.keyword.appid_short_notm}} verwendet werden können.
+Da es sich bei {{site.data.keyword.appid_short_notm}} um einen regionalen Service handelt, stellt er keine automatisierten regionsübergreifenden Failoverfunktionen oder regionsübergreifenden Funktionen für die Wiederherstellung nach einem Stör-/Katastrophenfall bereit. Allerdings stellt {{site.data.keyword.appid_short_notm}} eine [umfangreiche API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/){: external} zur Verfügung, die Entwickler nutzen können, um ihre Servicekonfiguration manuell mit einer oder mehreren anderen Instanzen von {{site.data.keyword.appid_short_notm}} zu synchronisieren.
+

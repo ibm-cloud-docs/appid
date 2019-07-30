@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-06"
+lastupdated: "2019-07-09"
 
 keywords: Authentication, authorization, identity, app security, secure, rates, cloud directory, rate limit, attempts
 
@@ -10,7 +10,7 @@ subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -32,7 +32,7 @@ Zum Steuern des Datenverkehrsvolumens durch die App ID-Instanz wird eine Ratenbe
 ## App ID-Lite-Plan 
 {: #lite-limits}
 
-Überprüfen Sie die folgende Tabelle, um sich mit den Einschränkungen vertraut zu machen, die für Lite-Instanzen von App ID gelten.  
+Überprüfen Sie die folgende Tabelle, um sich mit den Einschränkungen vertraut zu machen, die für Lite-Instanzen von App ID gelten. 
 
 <table>
     <tr>

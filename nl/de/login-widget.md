@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-06"
+lastupdated: "2019-07-09"
 
 keywords: Authentication, authorization, identity, app security, secure, development, sign in, sign up, password, social, enterprise
 
@@ -10,7 +10,7 @@ subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -33,12 +33,12 @@ Mit {{site.data.keyword.appid_full}} können Sie eine Standardbenutzerschnittste
 ## Informationen zum Anmeldewidget
 {: #widget-understanding}
 
-Einer der wichtigsten Vorteile des Anmeldewidgets ist die Tatsache, dass Sie mit der Verwendung von {{site.data.keyword.appid_short_notm}} beginnen können, bevor Sie eine eigene Benutzerschnittstellen für die Authentifizierung implementieren; dies erleichtert das Onboarding für Entwickler erheblich. 
+Einer der wichtigsten Vorteile des Anmeldewidgets ist die Tatsache, dass Sie mit der Verwendung von {{site.data.keyword.appid_short_notm}} beginnen können, bevor Sie eine eigene Benutzerschnittstellen für die Authentifizierung implementieren; dies erleichtert das Onboarding für Entwickler erheblich.
 
 ### Was ist das Standardverhalten eines Anmeldewidgets?
 {: #widget-default}
 
-Das Anmeldewidget ist standardmäßig für die Verwendung von Facebook, Google und Cloud Directory aktiviert. Sie können das Verhalten jederzeit ändern, indem Sie die Identitätsprovider auswählen, die Sie als Option konfigurieren möchten. Wenn mehrere Identitätsprovider aktiviert sind, wird vom Anmeldewidget ein Bildschirm angezeigt, in dem der Benutzer seinen Identitätsprovider auswählen kann. Wenn Sie jedoch einen einzelnen Provider aktiviert haben, wird den Benutzern die soeben genannte Auswahlanzeige nicht angezeigt. Sie werden direkt an den Identitätsprovider weitergeleitet, um mit dem Anmeldevorgang zu beginnen. 
+Das Anmeldewidget ist standardmäßig für die Verwendung von Facebook, Google und Cloud Directory aktiviert. Sie können das Verhalten jederzeit ändern, indem Sie die Identitätsprovider auswählen, die Sie als Option konfigurieren möchten. Wenn mehrere Identitätsprovider aktiviert sind, wird vom Anmeldewidget ein Bildschirm angezeigt, in dem der Benutzer seinen Identitätsprovider auswählen kann. Wenn Sie jedoch einen einzelnen Provider aktiviert haben, wird den Benutzern die soeben genannte Auswahlanzeige nicht angezeigt. Sie werden direkt an den Identitätsprovider weitergeleitet, um mit dem Anmeldevorgang zu beginnen.
 
 Wenn Sie zum Beispiel die Standardeinstellung verwenden (Facebook, Google und Cloud Directory), wird der Bildschirm den Benutzern angezeigt. Wenn Sie nur Facebook aktivieren, werden die Benutzer zur Authentifizierung direkt zu Facebook weitergeleitet.
 

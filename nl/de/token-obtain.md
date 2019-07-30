@@ -38,7 +38,7 @@ Wenn Benutzer oder Back-End-Services mit der App interagieren, müssen sie mögl
 ## Client-ID und geheimen Schlüssel abrufen
 {: #obtain-clientid-secret}
 
-Damit Sie Tokens abrufen können, müssen Sie über eine Client-ID und einen geheimen Schlüssel verfügen. Die Berechtigungsnachweise sind für jede einzelne Anwendung spezifisch und werden dazu verwendet, die Benutzer zu identifizieren und zu überprüfen, denen möglicherweise ein Token zugeordnet wird.
+Damit Sie Tokens abrufen können, müssen Sie über eine Client-ID und einen geheimen Schlüssel verfügen. Die Berechtigungsnachweise sind für jede einzelne Anwendung spezifisch und werden dazu verwendet, die Benutzer zu identifizieren und zu überprüfen, denen möglicherweise ein Token zugeordnet wird. 
 {: shortdesc}
 
 
@@ -47,7 +47,7 @@ Damit Sie Tokens abrufen können, müssen Sie über eine Client-ID und einen geh
 
 1. Navigieren Sie zur Registerkarte **Anwendungen** des {{site.data.keyword.appid_short_notm}}-Dashboards.
 
-2. Wenn bereits ein Satz an Berechtigungsnachweisen aufgelistet wird, können Sie mit Schritt 3 fortfahren; ist dies nicht der Fall, erstellen Sie diese. 
+2. Wenn bereits ein Satz an Berechtigungsnachweisen aufgelistet wird, können Sie mit Schritt 3 fortfahren; ist dies nicht der Fall, erstellen Sie diese.
     1. Klicken Sie in der Registerkarte **Anwendungen** auf **Anwendung hinzufügen**.
     2. Legen Sie für die Anwendung einen Namen fest und klicken Sie auf **Speichern**, um zur Liste der registrierten Apps zurückzukehren. Der Name Ihrer Anwendung darf nicht mehr als 50 Zeichen lang sein.
 
@@ -102,7 +102,7 @@ Mit einer Client-ID und einem geheimen Schlüssel können Sie durch Ausführen d
 
 1. Rufen Sie Ihre Tenant-ID, Ihre Client-ID, den geheimen Schlüssel und die OAuth-Server-URL von Ihren Berechtigungsnachweisen ab.
 
-2. Aktualisieren Sie mithilfe der Informationen aus Schritt 1 das folgende Code-Snippet und fügen Sie es in Ihre Anwendung ein. Der Standardcode ist der für Node.js. Wenn Sie mit einer anderen Sprache arbeiten, können Sie diese am Anfang dieses Abschnitts auswählen. 
+2. Aktualisieren Sie mithilfe der Informationen aus Schritt 1 das folgende Code-Snippet und fügen Sie es in Ihre Anwendung ein. Der Standardcode ist der für Node.js. Wenn Sie mit einer anderen Sprache arbeiten, können Sie diese am Anfang dieses Abschnitts auswählen.
 
   Node:
   {: ph data-hd-programlang='javascript'}
@@ -202,7 +202,7 @@ Server Swift:
     2. Verwenden Sie einen Base64-Encoder, um Ihre Autorisierungsinformationen zu verschlüsseln.
     3. Kopieren Sie die Ausgabe.
 
-3. Erstellen Sie eine Anforderung für die API zum Abrufen eines Tokens. Der Datenabschnitt der Anforderung variiert abhängig von der Art des Bewilligungstyps, den Sie verwenden.  
+3. Erstellen Sie eine Anforderung für die API zum Abrufen eines Tokens. Der Datenabschnitt der Anforderung variiert abhängig von der Art des Bewilligungstyps, den Sie verwenden. 
 
   ```
   curl -X POST \

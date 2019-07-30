@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-23"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
+keywords: Authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -34,17 +34,17 @@ Sie können die Anforderungen, die die mit Cloud Directory verwendeten Kennwört
 Sichere Kennwörter sind schwerer oder sogar gar nicht durch Ausprobieren oder Algorithmen zu erraten. Zum Festlegen von Voraussetzungen für die Sicherheit eines Benutzerkennworts können Sie die folgenden Schritte ausführen.
 {: shortdesc}
 
-1. Navigieren Sie zur Registerkarte **Kennwortrichtlinien** des {{site.data.keyword.appid_short_notm}}-Dashboards.
+1. Wechseln Sie zur Registerkarte **Kennwortrichtlinien** im {{site.data.keyword.appid_short_notm}}-Dashboard.
 
 2. Klicken Sie im Feld **Kennwortsicherheit definieren** auf **Bearbeiten**. Daraufhin wird eine Anzeige geöffnet.
 
 3. Geben Sie im Feld **Kennwortsicherheit** eine gültige regex-Zeichenfolge an.
 
   Beispiele:
-    - Muss aus mindestens acht Zeichen bestehen. Regulärer Beispielausdruck: `^.{8,}$`
-    - Muss eine Ziffer, einen Kleinbuchstaben und einen Großbuchstaben enthalten. Regulärer Beispielausdruck: `^(?:(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).*)$`
-    - Darf nur lateinische Buchstaben und arabische Ziffern enthalten. Regulärer Beispielausdruck: `^[A-Za-z0-9]*$`
-    - Muss mindestens ein Sonderzeichen enthalten. Regulärer Beispielausdruck: `^(\w)\w*?(?!\1)\w+$`
+    - Muss aus mindestens acht Zeichen bestehen. (`^.{8,}$`)
+    - Muss eine Ziffer, einen Kleinbuchstaben und einen Großbuchstaben enthalten. (`^(?:(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).*)$`)
+    - Darf nur im Englischen übliche Buchstaben und Ziffern enthalten. (`^[A-Za-z0-9]*$`)
+    - Muss mindestens ein Sonderzeichen enthalten. (`^(\w)\w*?(?!\1)\w+$`)
 
 4. Klicken Sie auf **Speichern**.
 
@@ -66,10 +66,10 @@ Sie können eine erweiterte Kennwortrichtlinie erstellen, die aus einer beliebig
  - Kennwortwiederverwendung vermeiden
  - Ablauf der Kennwortgültigkeit
  - Mindestzeitraum zwischen Kennwortänderungen
- - Verwendung des Benutzernamens im Kennwort verhindern
+ - Sicherstellen, dass das Kennwort nicht den Benutzernamen enthält
 
 
- Wenn Sie dieses Feature aktivieren, fallen zusätzliche Kosten für die erweiterten Sicherheitsfunktionen an. Weitere Informationen zu diesem Thema finden Sie im Abschnitt [Wie wird die Preisstruktur in {{site.data.keyword.appid_short_notm}} berechnet?](/docs/services/appid?topic=appid-faq#faq-pricing).
+ Wenn Sie diese Funktion aktivieren, wird eine gesonderte Abrechnung für erweiterte Sicherheitsfunktionen aktiviert. Weitere Informationen finden Sie unter [Wie berechnet {{site.data.keyword.appid_short_notm}} die Kosten?](/docs/services/appid?topic=appid-faq#faq-pricing).
  {: important}
 
 
@@ -79,9 +79,9 @@ Sie können eine erweiterte Kennwortrichtlinie erstellen, die aus einer beliebig
 Wenn Ihre Benutzer ihr Kennwort ändern, können Sie sie daran hindern, ein Kennwort auszuwählen, das bereits kurz zuvor verwendet wurde.
 {: shortdesc}
 
-Mithilfe der GUI oder der API können Sie angeben, nach wie viel Kennwortänderungen ein bereits zuvor genutztes Kennwort nochmals verwendet werden kann. Sie können eine beliebige ganze Zahl zwischen 1 und 10 auswählen.
+Durch die Verwendung der GUI oder der API können Sie die Anzahl der Kennwörter auswählen, die ein Benutzer aufweisen muss, bevor das zuvor verwendete Kennwort erneut verwendet werden darf. Die Einstellungsoptionen umfassen jeden ganzzahligen Wert im Bereich von 1 - 10.
 
-Wenn diese Option aktiviert ist, kann ein Benutzer kein Kennwort verwenden, das erst kürzlich von ihm verwendet wurde. Versucht ein Benutzer, ein erst kürzlich verwendetes Kennwort erneut festzulegen, dann wird in der standardmäßigen Anmeldewidget-GUI ein Fehler angezeigt und der Benutzer wird aufgefordert, ein anderes Kennwort einzugeben.
+Falls diese Option aktiviert ist, kann ein Benutzer ein kürzlich verwendetes Kennwort nicht erneut verwenden. Wenn ein Benutzer versucht, für ein Kennwort das zuvor verwendete Kennwort erneut festzulegen, wird ein Fehler in der Standard-GUI des Anmelde-Widgets angezeigt und der Benutzer wird aufgefordert, ein anderes Kennwort einzugeben. 
 
 Früher verwendete Kennwörter werden genauso sicher gespeichert wie das aktuelle Kennwort des Benutzers.
 {: note}
@@ -93,12 +93,12 @@ Früher verwendete Kennwörter werden genauso sicher gespeichert wie das aktuell
 Sie können die Konten Ihrer Benutzer schützen, indem Sie die Möglichkeit zum Anmelden vorübergehend blockieren, wenn ein verdächtiges Verhalten festgestellt wird (z. B. ein mehrmaliger Anmeldeversuch mit einem falschen Kennwort). Diese Maßnahme soll böswillige Versuche verhindern, durch Erraten des Kennworts Zugriff auf das Konto eines Benutzers zu erlangen.
 {: shortdesc}
 
-Wenn Sie die GUI oder die API verwenden, können Sie die maximale Anzahl nicht erfolgreicher Anmeldeversuche festlegen, bis ein Konto vorübergehend gesperrt wird. Sie können auch die Zeitdauer festlegen, für die das Konto gesperrt ist. Sie haben die folgenden Optionen:
+Durch die Verwendung der GUI oder der API können Sie die maximale Anzahl nicht erfolgreicher Anmeldeversuche festlegen, die ein Benutzer ausführen kann, bevor sein Konto temporär gesperrt wird. Sie können ferner definieren, wie lange diese Kontosperre dauern soll. Sie haben die folgenden Optionen:
 
 * Anzahl der Versuche: Eine beliebige ganze Zahl zwischen 1 und 10.
 * Sperrzeitraum: Ein beliebiger ganzzahliger Wert in Minuten im Bereich zwischen 1 Minute und 1440 Minuten (24 Stunden).
 
-Wenn ein Konto gesperrt ist, können sich Benutzer nicht anmelden oder andere Self-Service-Operationen ausführen (z. B. das Kennwort ändern), bis der angegebene Sperrzeitraum abgelaufen ist. Wenn die Sperrfrist abgelaufen ist, wird der Benutzer automatisch entsperrt.
+Wenn ein Konto gesperrt ist, können Benutzer sich weder anmelden noch andere Self-Service-Operationen wie Kennwortänderungen usw. vornehmen, bis der angegebene Sperrzeitraum abgelaufen ist. Wenn die Sperrfrist abgelaufen ist, wird der Benutzer automatisch entsperrt.
 
 Sie haben de Möglichkeit, einen Benutzer zu entsperren, bevor der Sperrzeitraum abgelaufen ist. Um zu ermitteln, ob ein Benutzer gesperrt ist, müssen Sie prüfen, ob das Feld `active` auf `false` gesetzt ist. Sie können außerdem überprüfen, ob der Benutzerstatus auf der Registerkarte **Benutzer** des Service-Dashboards auf `disabled` gesetzt ist. Um einen Benutzer zu entsperren, müssen Sie [die API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Cloud_Directory_Users/updateCloudDirectoryUser) verwenden, um das Feld `active` auf `true` zu setzen.
 
@@ -109,7 +109,7 @@ Sie haben de Möglichkeit, einen Benutzer zu entsperren, bevor der Sperrzeitraum
 Sie können verhindern, dass Ihre Benutzer ihr Kennwort in schneller Abfolge ändern, indem Sie eine Mindestdauer festlegen, die ein Benutzer zwischen den Kennwortänderungen warten muss.
 {: shortdesc}
 
-Dieses Feature ist besonders nützlich, wenn es in Verbindung mit der Richtlinie 'Kennwortwiederverwendung vermeiden' verwendet wird. Ohne diese Einschränkung könnte ein Benutzer sein Kennwort mehrfach in schneller Folge ändern, um die Einschränkung bei der Wiederverwendung kürzlich genutzter Kennwörter zu umgehen. Sie können einen beliebigen Wert im Bereich von 1 und 720 Stunden (30 Tage) auswählen. Der Wert im Feld wird in Stunden angegeben. 
+Dieses Feature ist besonders nützlich, wenn es in Verbindung mit der Richtlinie 'Kennwortwiederverwendung vermeiden' verwendet wird. Ohne diese Einschränkung kann ein Benutzer sein Kennwort mehrfach in kurzer Abfolge ändern, um die Einschränkung bei der Wiederverwendung von kürzlich verwendeten Kennwörtern zu umgehen. Sie können einen beliebigen Wert im Bereich von 1 und 720 Stunden (30 Tage) auswählen. Der Wert im Feld wird in Stunden angegeben.
 
 
 ### Richtlinie: Ablauf der Kennwortgültigkeit
@@ -139,11 +139,12 @@ Wenn diese Option zunächst auf "Ein" gesetzt ist, haben alle vorhandenen Benutz
 {: note}
 
 
-### Richtlinie: Verwendung des Benutzernamens im Kennwort verhindern
+### Richtlinie: Stellen Sie sicher, dass das Kennwort nicht den Benutzernamen enthält. 
 {: #cd-no-username}
 
-Um die Kennwortsicherheit zu verbessern, muss verhindert werden, dass die Benutzer ihren Benutzernamen oder den ersten Teil ihrer E-Mail-Adresse im Kennwort verwenden.
+Zur Verwendung sichererer Kennwörter möchten Sie möglicherweise verhindern, dass Benutzer ihren Benutzernamen oder einen Teil ihrer E-Mail-Adresse im Kennwort verwenden.
 {: shortdesc}
 
-Bei dieser Einschränkung muss die Groß-/Kleinschreibung nicht beachtet werden. Allerdings können die Benutzer die Groß-/Kleinschreibung bestimmter Zeichen oder aller Zeichen nicht ändern, um die persönlichen Daten zu verwenden. Um diese Option zu konfigurieren, setzen Sie die Option auf **Ein**.
+Bei dieser Einschränkung muss die Groß-/Kleinschreibung nicht beachtet werden. Die Benutzer können die Groß-/Kleinschreibung einiger oder aller Zeichen nicht ändern, um persönliche Daten zu verwenden. Um diese Option zu konfigurieren, setzen Sie die Option auf **Ein**.
+{: note}
 

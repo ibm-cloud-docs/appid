@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-21"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, development, idp, troubleshooting, redirected, validation
+keywords: Authentication, authorization, identity, app security, secure, development, troubleshooting, redirected, validation
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -35,7 +35,7 @@ Wenn bei der Konfiguration von SAML für die Nutzung mit {{site.data.keyword.app
 ## Allgemeine Konfigurationsprobleme
 {: #ts-common-saml}
 
-Da vom SAML-Framework mehrere Profile, Abläufe und Konfigurationen unterstützt werden, ist es besonders wichtig, dass die Konfiguration des Identitätsproviders ordnungsgemäß ist. In den folgenden Abschnitten finden Sie Hilfe zum Beheben einiger allgemeiner Probleme, die bei der Arbeit mit SAML auftreten können.
+Da vom SAML-Framework mehrere Profile, Abläufe und Konfigurationen unterstützt werden, ist es besonders wichtig, dass die Konfiguration des Identitätsproviders ordnungsgemäß erfolgt ist. In den folgenden Abschnitten finden Sie Hilfe zum Beheben einiger allgemeiner Probleme, die bei der Arbeit mit SAML auftreten können.
 {: shortdesc}
 
 
@@ -54,7 +54,7 @@ Der Parameter `RelayState` fehlt in der Authentifizierungsantwort.
 
 **Ursache**
 
-Von {{site.data.keyword.appid_short_notm}} wird ein nicht transparenter Parameter gesendet, der als `RelayState` bezeichnet wird und Teil der Authentifizierungsanforderung ist. Wenn der Parameter in der Antwort nicht angezeigt wird, ist der Identitätsprovider möglicherweise nicht so konfiguriert, dass er ordnungsgemäß zurückgegeben wird. Für `RelayState` wird das folgende Format verwendet. 
+Von {{site.data.keyword.appid_short_notm}} wird ein nicht transparenter Parameter gesendet, der als `RelayState` bezeichnet wird und Teil der Authentifizierungsanforderung ist. Wenn der Parameter in der Antwort nicht angezeigt wird, ist der Identitätsprovider möglicherweise nicht so konfiguriert, dass er ordnungsgemäß zurückgegeben wird. Für `RelayState` wird das folgende Format verwendet.
 
 ```
 https://idp.example.org/SAML2/SSO/Redirect?SAMLRequest=request&RelayState=token
@@ -63,10 +63,10 @@ https://idp.example.org/SAML2/SSO/Redirect?SAMLRequest=request&RelayState=token
 
 **Lösung**
 
-Stellen Sie sicher, dass der SAML-Provider so konfiguriert ist, dass der Parameter `RelayState` ohne eine Änderung an {{site.data.keyword.appid_short_notm}} zurückgegeben wird. 
+Stellen Sie sicher, dass der SAML-Provider so konfiguriert ist, dass der Parameter `RelayState` ohne eine Änderung an {{site.data.keyword.appid_short_notm}} zurückgegeben wird.
 
 
-### Fehlendes oder falsches Feld 'NameID'
+### Fehlende oder falsche Namens-ID
 {: #ts-saml-nameid}
 
 **Problem**
@@ -75,7 +75,7 @@ Wenn Sie eine Authentifizierungsanforderung senden, empfangen Sie einen Fehler i
 
 **Ursache**
 
-Von {{site.data.keyword.appid_short_notm}} als Service-Provider wird definiert, wie die Benutzer vom Service und Identitätsprovider identifiziert werden. Mit {{site.data.keyword.appid_short_notm}} werden die Benutzer in der Authentifizierungsanforderung `NameID` im Feld `NameID` wie im folgenden Beispiel dargestellt identifiziert. 
+Von {{site.data.keyword.appid_short_notm}} als Service-Provider wird definiert, wie die Benutzer vom Service und Identitätsprovider identifiziert werden. Mit {{site.data.keyword.appid_short_notm}} werden die Benutzer in der Authentifizierungsanforderung `NameID` im Feld `NameID` wie im folgenden Beispiel dargestellt identifiziert.
 
 ```
 <NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</NameIDFormat>
@@ -84,7 +84,7 @@ Von {{site.data.keyword.appid_short_notm}} als Service-Provider wird definiert, 
 
 **Lösung**
 
-Stellen Sie zur Lösung des Problems sicher, dass der Wert von `NameID` als E-Mail-Adresse formatiert ist. Stellen Sie sicher, dass alle Benutzer in der Registry des Identitätsproviders über ein gültiges E-Mail-Adressformat verfügen. Stellen Sie anschließend sicher, dass das Feld `NameID` entsprechend definiert ist, sodass immer eine gültige E-Mail zurückgegeben wird - auch wenn Benutzer in der Registry über mehrere E-Mails verfügen. 
+Stellen Sie zur Lösung des Problems sicher, dass der Wert von `NameID` als E-Mail-Adresse formatiert ist. Stellen Sie sicher, dass alle Benutzer in der Registry des Identitätsproviders über ein gültiges E-Mail-Adressformat verfügen. Stellen Sie anschließend sicher, dass das Feld `NameID` entsprechend definiert ist, sodass immer eine gültige E-Mail zurückgegeben wird - auch wenn Benutzer in der Registry über mehrere E-Mails verfügen.
 
 
 
@@ -109,7 +109,7 @@ Von {{site.data.keyword.appid_short_notm}} wird erwartet, dass alle SAML-Zusiche
 Stellen Sie zur Behebung des Problems Folgendes sicher:
 
 * Sie haben das Signierzertifikat aus der XML-Datei mit den Metadaten des Identitätsproviders extrahiert. Stellen Sie sicher, dass Sie den Schlüssel mit `<KeyDescriptor use="signing">` verwenden.
-* Sie haben den Antwortsignieralgorithmus XXX festgelegt.  
+* Sie haben den Antwortsignieralgorithmus XXX festgelegt. 
 
 
 
@@ -120,7 +120,7 @@ Stellen Sie zur Behebung des Problems Folgendes sicher:
 
 **Problem**
 
-Als Antwort auf Ihre Authentifizierungsanforderung empfangen Sie eine der folgenden Fehlernachrichten. 
+Als Antwort auf Ihre Authentifizierungsanforderung empfangen Sie eine der folgenden Fehlernachrichten.
 
 Fehlernachricht 1:
 
@@ -132,17 +132,17 @@ Unexpectedly received an encrypted assertion. Please enable response encryption 
 Fehlernachricht 2: 
 
 ```
-Could not decrypt SAML assertion. Ensure your SAML provider is configured with the {{site.data.keyword.appid_short_notm}} encryption
+Could not decrypt SAML assertion. Ensure your SAML provider is configured with the {{site.data.keyword.appid_short_notm}} encryption. 
 ```
 {: screen}
 
 
 **Ursache**
 
-Wenn für den Identitätsprovider eine Verschlüsselung konfiguriert wurde, muss für {{site.data.keyword.appid_short_notm}} das Signieren der SAML-Authentifizierungsanforderungen (AuthnRequest) konfiguriert werden. Danach muss der Identitätsprovider so konfiguriert werden, dass von ihm die entsprechende Konfiguration erwartet wird. Diese Fehler können aus einem der folgenden Gründe auftreten: 
+Wenn für den Identitätsprovider eine Verschlüsselung konfiguriert wurde, muss für {{site.data.keyword.appid_short_notm}} das Signieren der SAML-Authentifizierungsanforderungen (AuthnRequest) konfiguriert werden. Danach muss der Identitätsprovider so konfiguriert werden, dass von ihm die entsprechende Konfiguration erwartet wird. Diese Fehler können aus einem der folgenden Gründe auftreten:
 
-- {{site.data.keyword.appid_short_notm}} ist nicht so konfiguriert, dass eine Verschlüsslung der SAML-Antwort des Identitätsproviders erwartet wird. 
-- Die Zusicherungen können von {{site.data.keyword.appid_short_notm}} nicht ordnungsgemäß entschlüsselt werden. 
+- {{site.data.keyword.appid_short_notm}} ist nicht so konfiguriert, dass eine Verschlüsslung der SAML-Antwort des Identitätsproviders erwartet wird.
+- {{site.data.keyword.appid_short_notm}} kann Ihre Zusicherungen nicht korrekt entschlüsseln.
 
 
 **Lösung**
@@ -157,7 +157,7 @@ Wenn Sie Fehlernachricht 2 empfangen, stellen Sie sicher, dass Ihr Zertifikat ko
 
 **Problem**
 
-Wenn Sie eine Authentifizierungsanforderung senden, empfangen Sie die folgende allgemeine Fehlernachricht: 
+Wenn Sie eine Authentifizierungsanforderung senden, empfangen Sie die folgende allgemeine Fehlernachricht:
 
 ```
 urn:oasis:names:tc:SAML:2.0:status:Responder
@@ -166,14 +166,14 @@ urn:oasis:names:tc:SAML:2.0:status:Responder
 
 **Ursache**
 
-Von {{site.data.keyword.appid_short_notm}} wird zwar die Anfangsauthentifizierungsanforderung gesendet, vom Identitätsprovider muss jedoch die Benutzerauthentifizierung ausgeführt und die Antwort zurückgegeben werden. Auslöser für die diese Fehlernachricht können mehrere Gründe sein. 
+Von {{site.data.keyword.appid_short_notm}} wird zwar die Anfangsauthentifizierungsanforderung gesendet, vom Identitätsprovider muss jedoch die Benutzerauthentifizierung ausgeführt und die Antwort zurückgegeben werden. Auslöser für die diese Fehlernachricht können mehrere Gründe sein.
 
 Möglicherweise wird die Nachricht angezeigt, wenn der Identitätsprovider: 
 
-* den Benutzernamen nicht finden oder verifizieren kann.
-* das Format von `NameID` nicht unterstützt, das in der Authentifizierungsanforderung (`AuthnRequest`) definiert ist.
+* den Benutzername nicht finden oder nicht überprüfen kann.
+* das Format `NameID` nicht unterstützt, das in der Authentifizierungsanforderung (`AuthnRequest`) definiert ist.
 * den Authentifizierungskontext nicht unterstützt.
-* das Signieren der Authentifizierungsanforderung erwartet oder einen bestimmten Algorithmus in der Signatur verwendet.
+* eine signierte Authentifizierungsanforderung oder die Verwendung eines bestimmten Algorithmus in der Signatur erfordert. 
 
 **Lösung**
 
@@ -195,7 +195,7 @@ Wenn von {{site.data.keyword.appid_short_notm}} eine Authentifizierungsanforderu
 
 **Lösung**
 
-Zur Behebung des Problems können Sie Ihren Authentifizierungskontext aktualisieren. Von {{site.data.keyword.appid_short_notm}} werden standardmäßig die Authentifizierungsklasse `urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport` und der Abgleich `exact` verwendet. Sie können den Kontextparameter mithilfe der APIs so aktualisieren, dass er für den Anwendungsfall geeignet ist. 
+Zur Behebung des Problems können Sie Ihren Authentifizierungskontext aktualisieren. Von {{site.data.keyword.appid_short_notm}} werden standardmäßig die Authentifizierungsklasse `urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport` und der Abgleich `exact` verwendet. Sie können den Kontextparameter mithilfe der APIs so aktualisieren, dass er für den Anwendungsfall geeignet ist.
 
 
 
@@ -209,7 +209,7 @@ Sie empfangen eine Fehlernachricht, aus der hervorgeht, dass eine Authentifizier
 
 **Ursache**
 
-{{site.data.keyword.appid_short_notm}} kann zwar so konfiguriert werden, dass die SAML-Authentifizierung (`AuthNRequest`) signiert wird, der Identitätsprovider muss jedoch auch für die entsprechende Konfiguration konfiguriert sein. 
+{{site.data.keyword.appid_short_notm}} kann zwar so konfiguriert werden, dass die SAML-Authentifizierung (`AuthNRequest`) signiert wird, der Identitätsprovider muss jedoch auch für die entsprechende Konfiguration konfiguriert sein.
 
 **Lösung**
 
@@ -217,7 +217,7 @@ Gehen Sie wie folgt vor, um das Problem zu lösen:
 
 * Stellen Sie sicher, dass {{site.data.keyword.cloud_notm}} für die Signierung der Authentifizierungsanforderung konfiguriert ist; legen Sie hierzu für den Parameter `signRequest` mithilfe der [API zum Festlegen der SAML-IDP](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.set_saml_idp) den Wert `true` fest. Sie können überprüfen, ob Ihre Authentifizierungsanforderung signiert ist, indem Sie die Anforderungs-URL anzeigen. Die Signatur ist als Abfrageparameter eingeschlossen. Beispiel: `https://idp.example.org/SAML2/SSO/Redirect?SAMLRequest=request&SigAlg=value&Signature=value&RelayState=token`
 
-* Stellen Sie sicher, dass der Identitätsprovider mit dem korrekten Zertifikat konfiguriert ist. Überprüfen Sie zum Beschaffen des Signierzertifikats die XML-Datei mit den {{site.data.keyword.cloud_notm}}-Metadaten, die Sie über das {{site.data.keyword.cloud_notm}}-Dashboard heruntergeladen haben. Stellen Sie sicher, dass Sie den Schlüssel mit `<KeyDescriptor use="signing">` verwenden. 
+* Stellen Sie sicher, dass der Identitätsprovider mit dem korrekten Zertifikat konfiguriert ist. Überprüfen Sie zum Beschaffen des Signierzertifikats die XML-Datei mit den {{site.data.keyword.cloud_notm}}-Metadaten, die Sie über das {{site.data.keyword.cloud_notm}}-Dashboard heruntergeladen haben. Stellen Sie sicher, dass Sie den Schlüssel mit `<KeyDescriptor use="signing">` verwenden.
 
 * Stellen Sie sicher, dass der Identitätsprovider für die Verwendung von `` als Signieralgorithmus konfiguriert ist.
 
@@ -233,7 +233,7 @@ Ist die Konfiguration korrekt, aber es tritt trotzdem noch ein Fehler auf? Über
 ### Wie erfasse ich Anforderung und Antwort meiner SAML-Authentifizierung?
 {: #ts-saml-capture}
 
-Es gibt verschiedene Optionen für Browser-Plug-ins, zum Beispiel für [Firefox](https://addons.mozilla.org/en-US/firefox/addon/saml-tracer/) und [Chrome](https://chrome.google.com/webstore/detail/saml-tracer/mpdajninpobndbfcldcmbpnnbhibjmch?hl=en), die zum Erfassen der SAML-Anforderungen und -Antworten verwendet werden können. Möchten Sie kein Plug-in verwenden? Das ist kein Problem. Von Atlassian werden Anweisungen zu einem [manuelleren Extraktionsansatz](https://confluence.atlassian.com/jirakb/how-to-view-a-saml-responses-in-your-browser-for-troubleshooting-872129244.html) bereitgestellt. 
+Es gibt verschiedene Optionen für Browser-Plug-ins, zum Beispiel für [Firefox](https://addons.mozilla.org/en-US/firefox/addon/saml-tracer/) und [Chrome](https://chrome.google.com/webstore/detail/saml-tracer/mpdajninpobndbfcldcmbpnnbhibjmch?hl=en), die zum Erfassen der SAML-Anforderungen und -Antworten verwendet werden können. Möchten Sie kein Plug-in verwenden? Das ist kein Problem. Von Atlassian werden Anweisungen zu einem [manuellen Extraktionsansatz](https://confluence.atlassian.com/jirakb/how-to-view-a-saml-responses-in-your-browser-for-troubleshooting-872129244.html) bereitgestellt. 
 
 
 ### Ich verstehe die Nachrichten nicht. Wie kann ich sie entschlüsseln?

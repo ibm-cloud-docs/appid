@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-21"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, access, tokens
+keywords: Authentication, authorization, identity, app security, secure, access, tokens
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -25,7 +25,7 @@ subcollection: appid
 # Zentrale Konzepte
 {: #key-concepts}
 
-Möchten Sie mehr über die Unterschiede zwischen Autorisierung und Authentifizierung erfahren? Kein Problem! Im Folgenden erhalten Sie Informationen zur Terminologie, zu den Prozessen und zu der Art und Weise, wie der Service Tokens verwendet.
+Möchten Sie mehr über die Unterschiede zwischen Autorisierung und Authentifizierung erfahren? Kein Problem! Beachten Sie die folgenden Informationen zur Terminologie, zu den Prozessen und zu der Art und Weise, wie der Service Tokens verwendet.
 {: shortdesc}
 
 Möchten Sie mehr über die Basiskonzepte der Autorisierung und Authentifizierung erfahren? Dann sind Sie hier genau richtig. Im folgenden Video erfahren Sie mehr über OAuth 2.0, Bewilligungstypen, OIDC und mehr.
@@ -40,13 +40,13 @@ Diese Schlüsselbegriffe können Ihnen dabei helfen, die Aufgliederung des Autor
 
 ### OAuth 2
 {: #term-oauth}
-<a href="https://tools.ietf.org/html/rfc6749" target="_blank">OAuth 2 <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a> ist ein Open-Standard-Protokoll, das für die Bereitstellung von App-Autorisierungsfunktionen verwendet wird.
+[OAuth 2.0](https://tools.ietf.org/html/rfc6749){: external} ist ein Open-Standard-Protokoll, das für die Bereitstellung von App-Autorisierungsfunktionen verwendet wird. 
 
 
 ### Open ID Connect (OIDC)
 {: #term-oidc}
 
-<a href="https://openid.net/developers/specs/" target="_blank">OIDC <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a> ist eine Authentfifizierungsebene, die auf OAuth 2.0 basiert; wenn Sie OIDC und {{site.data.keyword.appid_short_notm}} gemeinsam verwenden, sind Ihre Anwendungsberechtigungsnachweise beim Konfigurieren der OAuth-Endpunkte hilfreich. Wenn Sie das SDK verwenden, werden die Endpunkt-URLs automatisch erstellt. Sie können die URLs jedoch auch selbst unter Verwendung Ihrer Serviceberechtigungsnachweise erstellen. Die URL hat das folgende Format: {{site.data.keyword.appid_short_notm}}-Serviceendpunkt + "/oauth/v4" + /tenantID.
+[OIDC](https://openid.net/developers/specs/){: external} ist eine Authentfifizierungsebene, die zusammen mit OAuth 2.0 eingesetzt wird. Wenn Sie OIDC und {{site.data.keyword.appid_short_notm}} gemeinsam verwenden, sind Ihre Anwendungsberechtigungsnachweise beim Konfigurieren der OAuth-Endpunkte hilfreich. Wenn Sie das SDK verwenden, werden die Endpunkt-URLs automatisch erstellt. Sie können die URLs jedoch auch selbst unter Verwendung Ihrer Serviceberechtigungsnachweise erstellen. Die URL hat das folgende Format: {{site.data.keyword.appid_short_notm}}-Serviceendpunkt + "/oauth/v4" + /tenantID.
 
 Beispiel:
 
@@ -94,12 +94,18 @@ Wenn Sie das SDK verwenden, werden die Endpunkt-URLs automatisch erstellt.
 ### Token
 {: #term-token}
 
-Der Service verwendet drei verschiedene Arten von Token. Zugriffstokens stellen die Autorisierung dar und ermöglichen die Kommunikation mit [Back-End-Ressourcen](/docs/services/appid?topic=appid-backend), die durch Autorisierungsfilter geschützt sind, die von {{site.data.keyword.appid_short}} festgelegt werden. Identitätstokens stellen die Authentifizierung dar und enthalten Informationen zum Benutzer. Ein Aktualisierungstoken kann verwendet werden, um ein neues Zugriffstoken abzurufen, ohne den Benutzer erneut zu authentifizieren. Mithilfe von Aktualisierungstokens können Benutzer dafür sorgen, dass ihre Informationen von der Anwendung gespeichert werden und somit bei Bedarf verfügbar sind. Auf diese Weise bleiben die Benutzer angemeldet. Tokens werden unter **Identitätsprovider > Verwalten** im {{site.data.keyword.appid_short}}-Dashboard festgelegt. Weitere Informationen zu Tokens und dazu, wie sie in {{site.data.keyword.appid_short}} verwendet werden, finden Sie in [Tokens verwalten](/docs/services/appid?topic=appid-tokens#tokens).
+Der Service verwendet drei verschiedene Arten von Token. Tokens werden unter **Identitätsprovider > Verwalten** im {{site.data.keyword.appid_short}}-Dashboard festgelegt. Weitere Informationen zu Tokens und dazu, wie sie in {{site.data.keyword.appid_short}} verwendet werden, finden Sie in [Tokens verwalten](/docs/services/appid?topic=appid-tokens).
+
+* Zugriffstokens: Stellen die Autorisierung dar und ermöglichen die Kommunikation mit geschützten [Back-End-Ressourcen](/docs/services/appid?topic=appid-backend). Die Ressourcen werden durch Berechtigungsfilter geschützt, die von {{site.data.keyword.appid_short}} definiert werden.
+
+* Identitätstoken: Stellen die Authentifizierung dar und enthalten Informationen zum Benutzer. 
+
+* Aktualisierungstoken: Können verwendet werden, um neue Token abzurufen, ohne den Benutzer erneut zu authentifizieren. Durch die Verwendung von Aktualisierungstoken können Benutzer Ihre Informationen in der Anwendung speichern, das heißt, sie können angemeldet bleiben.  
 
 ### Berechtigungsheader
 {: #term-auth-header}
 
-{{site.data.keyword.appid_short}} entspricht den <a href="https://tools.ietf.org/html/rfc6750" target="blank">Trägertokenspezifikationen<img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a> und verwendet eine Kombination aus Zugriffs- und Identitätstoken, die als HTTP-Berechtigungsheader gesendet werden. Der Berechtigungsheader enthält drei verschiedene Teile, die durch Leerzeichen getrennt sind. Die Tokens sind mit einer Base64-Codierung codiert. Das Identitätstoken ist optional.
+{{site.data.keyword.appid_short}} entspricht der [Token-Bearer-Spezifikation](https://tools.ietf.org/html/rfc6750){: external} und verwendet eine Kombination von Zugriffs- und Identitätstoken, die als HTTP-Berechtigungsheader gesendet werden. Der Berechtigungsheader verfügt über drei unterschiedliche Teile, die durch Leerzeichen voneinander getrennt sind. Die Tokens sind mit einer Base64-Codierung codiert. Das Identitätstoken ist optional.
 
 Beispiel:
 
@@ -143,6 +149,6 @@ Wenn die Web-App-Strategie nicht berechtigte Versuche, auf geschützte Ressource
 ### JSON Web Key Set (JWKS)
 {: #term-jwks}
 
-Ein JWKS stellt eine Gruppe von Verschlüsselungsschlüsseln dar. {{site.data.keyword.appid_short_notm}} verwendet JWKS, um die Authentizität der Tokens zu überprüfen, die vom Service generiert werden. Durch Verwendung der Schlüssel-ID bei der Überprüfung der Signatur kann sichergestellt werden, dass das Token von einer vertrauenswürdigen Quelle ({{site.data.keyword.appid_short_notm}}) stammt und dass die Informationen im Token zu keiner Zeit geändert wurden.
+Ein JWKS stellt eine Gruppe von Verschlüsselungsschlüsseln dar. {{site.data.keyword.appid_short_notm}} verwendet JWKS, um die Authentizität der Tokens zu überprüfen, die vom Service generiert werden. Durch die Verwendung der Schlüssel-ID zur Überprüfung der Signatur kann sichergestellt werden, dass das Token von einer vertrauenswürdigen Quelle, {{site.data.keyword.appid_short_notm}}, stammt und dass die Informationen im Token nicht verändert wurden. 
 
 

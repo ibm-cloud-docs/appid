@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-23"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, custom, proprietary, social, facebook, google, 
+keywords: Authentication, authorization, identity, app security, secure, custom, proprietary, social, facebook, google, 
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -34,6 +34,10 @@ Mit {{site.data.keyword.appid_full}} können Sie Social-Identity-Provider konfig
 
 {{site.data.keyword.appid_short_notm}} stellt eine Standardkonfiguration bereit, die Sie bei der schnellen Ausführung des Service unterstützt.
 {: shortdesc}
+
+Die Daten werden verwendet, wenn Sie die zulässigen Verwendungen des Service beauftragen. Durch die Verwendung des Service stimmen Sie der Erfassung und Verwendung von Informationen gemäß der beschriebenen [Datenschutzrichtlinie](/docs/services/appid?topic=appid-privacy-policy) zu.
+{: important}
+
 
 Wenn Sie {{site.data.keyword.appid_short_notm}} konfigurieren, werden Facebook, Google und Cloud Directory automatisch als Identitätsprovider aktiviert. Sie können die Konfiguration jederzeit ändern. Für Facebook und Google stehen Standardberechtigungsnachweise zur Verfügung, um zu testen, ob der Service benutzt werden soll, sollten jedoch die IBM Berechtigungsnachweise benutzt werden. Bevor Sie die App veröffentlichen, aktualisieren Sie die Konfiguration so, dass Ihre eigenen Berechtigungsnachweise verwendet werden.
 
@@ -105,3 +109,9 @@ Nachdem Sie das Google-Projekt konfiguriert und die Client-ID sowie den geheimen
     3. Fügen Sie die URL aus {{site.data.keyword.appid_short}} in das Feld **Autorisierte Weiterleitungs-URIs** ein und klicken Sie auf **Speichern**.
 4. Klicken Sie auf **Speichern**, um die Google-Konfiguration in {{site.data.keyword.appid_short}} zu aktualisieren.
 5. Geben Sie für die Web-Apps eine Weiterleitungs-URL auf der Registerkarte **Verwalten** ein. Nach dem Abschluss des Autorisierungsprozesses wird ein Benutzer an diese URL weitergeleitet. Die URL muss das Schema `http` oder `https` enthalten. Verwenden Sie das Schema `https`, wenn eine höhere Sicherheitsstufe gewünscht ist.
+
+
+
+
+
+

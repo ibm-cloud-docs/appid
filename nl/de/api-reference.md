@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-13"
+lastupdated: "2019-06-18"
 
-keywords: authentication, authorization, identity, app security, secure, application identity, app to app, access token
+keywords: Authentication, authorization, identity, app security, secure, application identity, app to app, access token
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -31,7 +31,7 @@ Sie können die Management-API für die DevOps-Automation sowie für die Anpassu
 Die Management-API wird mit Tokens geschützt, die von IAM (Identity and Access Management) generiert werden. Mit IAM können Kontoeigner angeben, wer in ihrem Team über welche Zugriffsebene für die einzelnen Serviceinstanzen verfügen soll. Weitere Informationen zum Zusammenspiel von IAM und {{site.data.keyword.appid_short_notm}} finden Sie in [Servicezugriffsverwaltung](/docs/services/appid?topic=appid-service-access-management).
 
 
-Möchten Sie die API in Aktion sehen? Sehen Sie sich das folgende Schulungsvideo an. 
+Möchten Sie die API in Aktion sehen? Sehen Sie sich das folgende Schulungsvideo an.
 
 <iframe class="embed-responsive-item" id="about-appid-api" title="Informationen zur {{site.data.keyword.appid_short_notm}}-API" type="text/html" width="640" height="390" src="//www.youtube.com/embed/b2ABxvAdGg0?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
 
@@ -82,7 +82,7 @@ https://<region-endpoint>.appid.cloud.ibm.com/management
 {: #api-prereq}
 
 <ul><ul><li>Eine Serviceinstanz, die nach dem 15. März 2018 erstellt wurde. Wenn Sie über eine Instanz des Service verfügen, die vor diesem Datum erstellt wurde, erstellen Sie eine neue Instanz und konfigurieren Sie sie so, dass sie mit Ihrer aktuellen Instanz übereinstimmt. Stellen Sie sicher, dass Sie Ihre Apps für die Verwendung der neuen Instanz aktualisieren.</li>
-<li>Die [{{site.data.keyword.cloud_notm}}-CLI](/docs/cli?topic=cloud-cli-ibmcloud-cli) ist installiert.</li></ul></ul>
+<li>Die [{{site.data.keyword.cloud_notm}}-CLI](/docs/cli?topic=cloud-cli-getting-started) ist installiert.</li></ul></ul>
 
 ## Beispielverwendung
 {: #api-example}
@@ -127,4 +127,4 @@ if (r.status_code >= 200) :~
 ## Nächste Schritte
 {: #api-try}
 
-Versuchen Sie es nun selbst. Weitere Informationen finden Sie im Abschnitt zur <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/" target="_blank"> {{site.data.keyword.appid_short_notm}}-Management-REST-API <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a>.
+Versuchen Sie es nun selbst. Weitere Informationen finden Sie unter [{{site.data.keyword.appid_short_notm}}-Management-Rest-API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/){: external}

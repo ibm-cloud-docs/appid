@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, custom, proprietary, 
+keywords: Authentication, authorization, identity, app security, secure, custom, proprietary, 
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -22,7 +22,7 @@ subcollection: appid
 {:deprecated: .deprecated}
 {:download: .download}
 
-# Angepasste Identität in Ihrer App verwenden
+# Angepasste Identität
 {: #custom-auth}
 
 Wenn Sie sich authentifizieren, können Sie Ihren eigenen angepassten Identitätsprovider verwenden. Ihr Identitätsprovider kann jedem Authentifizierungsmechanismus entsprechen, der nicht speziell von {{site.data.keyword.appid_full}} unterstützt wird (einschließlich proprietärer oder traditioneller Provider).

@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-09"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, development, sso, directory, users, registry, multiple apps
+keywords: Authentication, authorization, identity, app security, secure, development, sso, directory, users, registry, multiple apps
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -41,7 +41,7 @@ Im folgenden Diagramm ist die Funktionsweise von SSO dargestellt.
 3. Wenn die Berechtigungsnachweise gültig sind, dann wird der Benutzer bei Ihrer App angemeldet. Gleichzeitig erstellt {{site.data.keyword.appid_short_notm}} eine Sitzung und legt im Browser des Benutzers ein Cookie fest.
 4. Wenn der Benutzer versucht, sich bei einer Ihrer anderen Anwendungen anzumelden, dann erkennt {{site.data.keyword.appid_short_notm}} das Sitzungscookie und meldet den Benutzer automatisch bei Ihrer App an. {{site.data.keyword.appid_short_notm}}-Sitzungscookies sind instanzspezifisch und werden mit dem eindeutigen privaten Schlüssel der Instanz signiert.
 
-Wenn Ihre Instanz so konfiguriert ist, dass Identitätsprovider (z. B. SAML oder Facebook) zusammen mit Cloud Directory verwendet werden, dann wird weiterhin das Anmeldewidget angezeigt. Benutzter werden zur Eingabe ihrer Cloud Directory-Berechtigungsnachweise oder zur Auswahl eines der anderen Provider aufgefordert, auch wenn sie über eine gültige SSO-Sitzung verfügen.
+Zu diesem Zeitpunkt ist SSO so konfiguriert, dass es funktioniert, wenn Cloud Directory der einzige aktivierte Identitätsprovider ist. Wenn Ihre Instanz von {{site.data.keyword.appid_short_notm}} für die Verwendung mehrerer Identitätsprovider konfiguriert ist, hat das Aktivieren von SSO keinen Einfluss auf den Anmeldeablauf. Benutzer werden bei jeder Anmeldung zur Eingabe ihrer Cloud Directory-Berechtigungsnachweise oder zur Auswahl eines der anderen Provider aufgefordert.
 {: note}
 
 

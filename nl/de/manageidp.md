@@ -129,7 +129,7 @@ Beachten Sie hierbei unbedingt, dass nur URIs von Anwendungen registriert werden
 
 
 
-Sie sind nicht sicher, woher der Weiterleitungs-URI stammt? Sehen Sie sich das folgende Video an, um sich damit vertraut zu machen, wie Sie ihn abrufen und wie Sie ihn zur Liste hinzufügen können. 
+Sie sind nicht sicher, woher der Weiterleitungs-URI stammt? Sehen Sie sich das folgende Video an, um sich damit vertraut zu machen, wie Sie ihn abrufen und wie Sie ihn zur Liste hinzufügen können.
 
 <iframe class="embed-responsive-item" id="redirecturi" title="{{site.data.keyword.appid_short_notm}}: Vorgehensweise zum Korrigieren eines ungültigen Weiterleitungs-URI" type="text/html" width="640" height="390" src="//www.youtube.com/embed/6hxqbvpc054?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
 

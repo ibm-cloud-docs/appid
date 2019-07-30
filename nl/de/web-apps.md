@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-21"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, web apps, client, server
+keywords: Authentication, authorization, identity, app security, secure, web apps, client, server
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -78,7 +78,7 @@ Folgendes wird vorausgesetzt:
 * Ihr Weiterleitungs-URI im {{site.data.keyword.appid_short_notm}}-Service-Dashboard
 
 
-Sehen Sie sich folgende Video an, um Informationen zum Schutz von Node-Knotenanwendungen mit {{site.data.keyword.appid_short_notm}} zu erhalten. Versuchen Sie es anschließend mithilfe einer [einfachen Beispielanwendung für Knoten](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02a-simple-node-web-app). 
+Sehen Sie sich folgende Video an, um Informationen zum Schutz von Node-Knotenanwendungen mit {{site.data.keyword.appid_short_notm}} zu erhalten. Versuchen Sie es anschließend mithilfe einer [einfachen Beispielanwendung für Knoten](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02a-simple-node-web-app).
 
 <iframe class="embed-responsive-item" id="appid-nodejs" title="Informationen zu {{site.data.keyword.appid_short_notm}}" type="text/html" width="640" height="390" src="//www.youtube.com/embed/6roa1ZOvwtw?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
@@ -123,12 +123,12 @@ Sehen Sie sich folgende Video an, um Informationen zum Schutz von Node-Knotenanw
   ```
   {: codeblock}
 
-  Sie müssen die Middleware mit dem passenden Sitzungsspeicher für die Produktionsumgebungen konfigurieren. Weitere Informationen finden Sie in der <a href="https://github.com/expressjs/session" target="_blank"> Dokumentation zu express.js<img src="../icons/launch-glyph.svg" alt="Symbol für externen Link"></a>.
+  Sie müssen die Middleware mit dem passenden Sitzungsspeicher für die Produktionsumgebungen konfigurieren. Weitere Informationen finden Sie in der [ Dokumentation zu express.js](https://expressjs.com/){: external}.
   {: note}
 
 3. Fordern Sie Ihre Berechtigungsnachweise auf eine der folgenden Arten an.
 
-  * Navigieren Sie zur Registerkarte **Anwendungen** des {{site.data.keyword.appid_short_notm}}-Dashboards. Wenn keine Anwendung aufgelistet wird, dann können Sie auf **Anwendung hinzufügen** klicken, um eine neue Anwendung zu erstellen.
+  * Navigieren Sie zur Registerkarte **Anwendungen** des {{site.data.keyword.appid_short_notm}}-Dashboards. Wenn keine Anwendung aufgelistet wird, dann können Sie auf **Anwendung hinzufügen** klicken, um eine Anwendung zu erstellen.
 
   * Erstellen Sie eine POST-Anforderung an den Endpunkt [`/management/v4/{tenantId}/applications`](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Applications/mgmt.registerApplication).
 
@@ -220,7 +220,7 @@ Folgendes wird vorausgesetzt:
 * Eine Liberty for Java-Webanwendung
 
 
-Sehen Sie sich folgende Video an, um Informationen zum Schutz von Liberty for Java-Anwendungen mit {{site.data.keyword.appid_short_notm}} zu erhalten. Versuchen Sie es anschließend mithilfe einer [einfachen Beispielanwendung für Liberty for Java](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02c-simple-liberty-web-app). 
+Sehen Sie sich folgende Video an, um Informationen zum Schutz von Liberty for Java-Anwendungen mit {{site.data.keyword.appid_short_notm}} zu erhalten. Versuchen Sie es anschließend mithilfe einer [einfachen Beispielanwendung für Liberty for Java](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02c-simple-liberty-web-app).
 
 <iframe class="embed-responsive-item" id="appid-liberty-web" title="Informationen zu {{site.data.keyword.appid_short_notm}}" type="text/html" width="640" height="390" src="//www.youtube.com/embed/o_Er69YUsMQ?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
@@ -332,7 +332,7 @@ Sehen Sie sich folgende Video an, um Informationen zum Schutz von Liberty for Ja
 ### Liberty for Java-SDK initialisieren
 {: #web-liberty-initialize}
 
-1. Definieren Sie in der Datei `server.xml` einen Autorisierungsfilter für die Angabe geschützter Ressourcen. Ist kein Filter <a href="https://www.ibm.com/support/knowledgecenter/en/SSD28V_9.0.0/com.ibm.websphere.wlp.core.doc/ae/rwlp_auth_filter.html" target="_blank">definiert <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a>, schützt der Service alle Ressourcen.
+1. Definieren Sie in der Datei `server.xml` einen Autorisierungsfilter für die Angabe geschützter Ressourcen. Ist kein Filter <a href="https://www.ibm.com/support/knowledgecenter/en/SSD28V_liberty/com.ibm.websphere.wlp.core.doc/ae/rwlp_auth_filter.html" target="_blank">definiert <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a>, schützt der Service alle Ressourcen.
 
   ```xml
   <authFilter id="myAuthFilter">

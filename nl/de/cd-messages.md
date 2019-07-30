@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-20"
+lastupdated: "2019-07-10"
 
-keywords: authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
+keywords: Authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -25,7 +25,7 @@ subcollection: appid
 # E-Mails anpassen
 {: #cd-types}
 
-Wenn ein Benutzer mit Ihrer Anwendung interagiert, kann es in bestimmten Situationen erforderlich sein, eine Antwort zu senden oder eine Verifizierung anzufordern. {{site.data.keyword.appid_short_notm}} stellt Standardvorlagen bereit, die Sie für die Interaktionen verwenden können. Außerdem können Sie die Vorlagen als Leitfaden und dazu verwenden, Ihre Nachrichtenübertragung an die individuellen Anforderungen Ihres Produktbereichs anzupassen.
+Wenn ein Benutzer mit Ihrer Anwendung interagiert, kann es erforderlich sein, eine Antwort zu senden oder eine Verifizierung anzufordern. {{site.data.keyword.appid_short_notm}} stellt Standardvorlagen bereit, die Sie für die Interaktionen verwenden können. Außerdem können Sie die Vorlagen als Leitfaden und dazu verwenden, Ihre Nachrichtenübertragung an die individuellen Anforderungen Ihres Produktbereichs anzupassen.
 {: shortdesc}
 
 {{site.data.keyword.appid_short_notm}} verwendet <a href="https://www.sendgrid.com" target="_blank">SendGrid <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a> als Mailzustellungsservice. Alle E-Mails werden über ein einzelnes SendGrid-Konto gesendet.
@@ -95,8 +95,11 @@ Wenn sich ein Benutzer für Ihre App registriert, dann möchten Sie ihm möglich
 ### E-Mail: Verifizierung
 {: #cd-messages-verification}
 
-Wenn sich ein Benutzer für Ihre Anwendung anhand seiner E-Mail-Adresse registriert, dann können Sie ihm eine Nachricht senden, um ihn zur Bestätigung seiner Identität aufzufordern. Indem Sie eine Verifizierung anfordern, begrenzen Sie die Anzahl der gefälschten Konten, die sich bei Ihrer App registrieren können. Sie können den Zugriff auf Ihre App einschränken, bis ein Benutzer seine E-Mail-Adresse verifiziert hat, oder Sie können auf diese Weise die Erstellung von Profilen für bestimmte Benutzer verwalten. Beachten Sie, dass Benutzer, die manuell über das {{site.data.keyword.appid_short_notm}}-Dashboard oder die API zum Erstellen von Benutzern hinzugefügt werden, diese E-Mail nicht automatisch erhalten.
+Wenn sich ein Benutzer für Ihre Anwendung anhand seiner E-Mail-Adresse registriert, dann können Sie ihm eine Nachricht senden, um ihn zur Bestätigung seiner Identität aufzufordern. Indem Sie eine Verifizierung anfordern, begrenzen Sie die Anzahl der gefälschten Konten, die sich bei Ihrer App registrieren können. Sie können den Zugriff auf Ihre App einschränken, bis ein Benutzer seine E-Mail-Adresse verifiziert hat, oder Sie können auf diese Weise die Erstellung von Profilen für bestimmte Benutzer verwalten.
 {: shortdesc}
+
+Benutzer, die manuell über das {{site.data.keyword.appid_short_notm}}-Dashboard oder die API zum Erstellen von Benutzern hinzugefügt werden, erhalten diese E-Mail nicht automatisch.
+{: note}
 
 
 1. Navigieren Sie zur Registerkarte **Workflowvorlagen > E-Mail-Verifizierung** des Service-Dashboards.
@@ -187,7 +190,7 @@ Wenn ein Benutzer mit Ihrer App interagiert, dann vergisst er möglicherweise se
 ### E-Mail: Kennwortänderung
 {: #cd-messages-password-change}
 
-Sie können einen Benutzer über die Kennwortaktualisierung benachrichtigen. Dies ist nützlich, wenn die Anforderung zur Kennwortänderung nicht vom Benutzer ausging. Sie können die richtigen Schritte ausführen, um ihr Konto zu resichern.
+Sie können einen Benutzer benachrichtigen, wenn sein Kennwort aktualisiert wird. Die Benachrichtigung kann hilfreich sein, wenn die Anforderung zur Kennwortänderung nicht vom Benutzer ausging. Sie können die erforderlichen Schritte ausführen, um ihr Konto wieder zu schützen.
 {: shortdesc}
 
 1. Navigieren Sie zur Registerkarte **Workflowvorlagen > Kennwortänderung** des Service-Dashboards.
@@ -195,7 +198,6 @@ Sie können einen Benutzer über die Kennwortaktualisierung benachrichtigen. Die
 2. Legen Sie für **E-Mail bei Kennwortänderung** die Einstellung **Aktiviert** fest.
 
 3. Passen Sie den Inhalt Ihrer Nachricht an. Über die Benutzerschnittstelle können Sie Parameter hinzu- und Bilder einfügen. Um die [Sprache](/docs/services/appid?topic=appid-cd-messages#cd-languages) der Nachricht zu ändern, können Sie über die <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization" target="_blank">APIs <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a> die gewünschte Sprache festlegen. Allerdings ist zu beachten, dass Sie für den Inhalt und die Übersetzung der Nachricht verantwortlich sind. In der folgenden Tabelle finden Sie die verschiedenen Parameter, die Sie in Ihrer Nachricht verwenden können. Wenn ein Benutzer die vom Parameter abgefragte Information nicht angibt, wird im entsprechenden Feld kein Wert angezeigt.
-
 
   <table>
     <tr>
@@ -227,7 +229,7 @@ Mit {{site.data.keyword.appid_short_notm}} können Sie einen angepassten Erweite
 
 Aus den folgenden Gründen kann die Verendung eines angepassten E-Mail-Absenders sinnvoll sein:
 
-- **Personalisierte Domäne** Wenn Sie einen angepassten E-Mail-Dispatcher konfigurieren, haben Sie vollständige Kontrolle darüber, wie die E-Mail-Nachrichten gesendet werden. Dies umfasst das Anpassen der E-Mail-Domäne, wodurch die Wahrscheinlichkeit verringert wird, dass E-Mails als Spam gefiltert werden. Außerdem können Sie die Markenkennzeichnung und damit die Wiedererkennung für Ihre App-Benutzer weiter verbessern.
+- **Personalisierte Domäne** Wenn Sie einen angepassten E-Mail-Dispatcher konfigurieren, haben Sie vollständige Kontrolle darüber, wie die E-Mail-Nachrichten gesendet werden. Vor allem können Sie die E-Mail-Domain anpassen, was die Wahrscheinlichkeit, dass eine E-Mail als Spam herausgefiltert wird, reduzieren kann. Außerdem können Sie die Markenkennzeichnung und damit die Wiedererkennung für Ihre App-Benutzer weiter verbessern.
 
 - **Analyse und Fehlerbehebung** Ihr E-Mail-Provider kann Ihnen wichtige Informationen zur Verfügung stellen, z. B. wie viele Personen die E-Mails geöffnet haben oder welche Nachrichten nicht zugestellt wurden. Da Sie einzelne Nachrichten verfolgen und Zugriff auf die Gesamtstatistik erhalten, kann dies zur Behebung von Problemen beitragen.
 
@@ -318,11 +320,11 @@ Zum Konfigurieren Ihres angepassten E-Mail-Absenders müssen Sie die <a href="ht
     </tr>
     <tr>
       <td><code>iat</code></td>
-      <td>Die Zeitmarke für den Zeitpunkt, zu dem die Nachricht gesendet wurde.</td>
+      <td>Die Zeitmarke des Sendens der Nachricht. </td>
     </tr>
     <tr>
       <td><code>iss</code></td>
-      <td>Das Prinzip oder die {{site.data.keyword.appid_short_notm}}-Instanz, von dem bzw. der das JWS-Token ausgegeben wurde. </td>
+      <td>Das Prinzip oder die {{site.data.keyword.appid_short_notm}}-Instanz, von dem bzw. der das JWS-Token ausgegeben wurde.</td>
     </tr>
     <tr>
       <td><code>jti</code></td>
@@ -333,7 +335,7 @@ Zum Konfigurieren Ihres angepassten E-Mail-Absenders müssen Sie die <a href="ht
       <td>Die E-Mail-Adresse des Empfängers der Nachricht.</td>
     </tr>
     <tr>
-      <td><code>message: from</code></br><code>name</code></br><code>address</code></td>
+      <td><code>message: from</code> </br><code>name</code> </br><code>address</code></td>
       <td></br>Der Name des Absenders der Nachricht.</br>Die E-Mail-Adresse des Absenders.</td>
     </tr>
     <tr>
@@ -618,7 +620,7 @@ Die Sprache, in der die schriftliche Benutzerkommunikation erfolgen kann, könne
   <tr>
     <td><code>zh-Hant-MO</code></td>
     <td>Chinesisch in traditioneller Schreibweise</td>
-    <td>Sonderverwaltungszone Macao der Volksrepublik China</td>
+    <td>Sonderverwaltungszone Macao der VR China</td>
   </tr>
   <tr>
     <td><code>zh-Hant-TW</code></td>
@@ -1053,7 +1055,7 @@ Die Sprache, in der die schriftliche Benutzerkommunikation erfolgen kann, könne
   <tr>
     <td><code>pt-MO</code></td>
     <td>Portugiesisch</td>
-    <td>Sonderverwaltungszone Macao der Volksrepublik China</td>
+    <td>Sonderverwaltungszone Macao der VR China</td>
   </tr>
   <tr>
     <td><code>pt-MZ</code></td>
@@ -1163,7 +1165,7 @@ Die Sprache, in der die schriftliche Benutzerkommunikation erfolgen kann, könne
   <tr>
     <td><code>es-MX</code></td>
     <td>Spanisch</td>
-    <td>Mexico</td>
+    <td>Mexiko</td>
   </tr>
   <tr>
     <td><code>es-NI</code></td>

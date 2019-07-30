@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-21"
+lastupdated: "2019-07-09"
 
-keywords: authentication, authorization, identity, app security, secure, troubleshooting, help, support, requests, uri
+keywords: Authentication, authorization, identity, app security, secure, troubleshooting, help, support, requests, uri
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -93,15 +93,15 @@ Der Identitätsprovider kann aus folgenden Gründen fehlschlagen:
 * Die von Ihnen konfigurierte Weiterleitungs-URL ist falsch.
 * Der Identitätsprovider erkennt die Authentifizierungsanforderung nicht.
 * Der Identitätsprovider erwartet eine HTTP-POST-Bindung.
-* Der Identitätsprovider erwartet eine signierte authnRequest.
+* Der Identitätsprovider erwartet eine signierte AuthnRequest.
 
 {: tsResolve}
 Sie können eine der folgenden Lösungen ausprobieren:
 
-* Aktualisieren Sie Ihre Anmelde-URL. Diese URL wird als Teil der authnRequest gesendet und muss exakt sein.
+* Aktualisieren Sie Ihre Anmelde-URL. Diese URL wird als Teil der AuthnRequest gesendet und muss exakt sein.
 * Stellen Sie sicher, dass Ihre {{site.data.keyword.appid_short_notm}}-Metadaten in den Einstellungen des Identitätsproviders korrekt definiert sind.
-* Konfigurieren Sie Ihren Identitätsprovider so, dass er die authnRequest in der HTTP-Weiterleitung (HTTP-Redirect) akzeptiert.
-* {{site.data.keyword.appid_short_notm}} unterstützt die Signierung von authnRequests nicht.
+* Konfigurieren Sie Ihren Identitätsprovider so, dass er die AuthnRequest in der HTTP-Weiterleitung (HTTP-Redirect) akzeptiert.
+* {{site.data.keyword.appid_short_notm}} unterstützt die Signierung von AuthnRequests nicht.
 
 Falls keine dieser Lösungen Abhilfe bringt, liegt möglicherweise ein Verbindungsproblem vor.
 {: tip}
@@ -137,7 +137,7 @@ Sie versuchen, die Homepage Ihrer App anzuzeigen, empfangen jedoch den folgenden
 {: screen}
 
 {: tsCauses}
-Möglicherweise erhalten Sie einen Fehler aufgrund zu vieler Anforderungen, wenn Sie automatisierte Tests mit nur einem virtuellen Benutzer durchführen. Jeder Benutzer kann innerhalb eines Zeitraums von einer Minute maximal fünf Anmeldeversuche durchführen. Die Anzahl der Anmeldeversuche wird begrenzt, um Brute-Force-DDOS und andere Typen ähnlicher Attacken zu verhindern.
+Möglicherweise erhalten Sie einen Fehler aufgrund zu vieler Anforderungen, wenn Sie automatisierte Tests mit nur einem virtuellen Benutzer durchführen. Jeder Benutzer kann innerhalb eines Zeitraums von einer Minute maximal fünf Anmeldeversuche durchführen. Die Anzahl der Anmeldeversuche wird begrenzt, um Brute-Force-DDoS und andere Typen ähnlicher Attacken zu verhindern.
 
 {: tsResolve}
 Um das Problem zu beheben, können Sie beim Durchführen von Tests mehrere virtuelle Benutzer verwenden.

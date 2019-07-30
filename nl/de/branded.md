@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-20"
+lastupdated: "2019-07-10"
 
-keywords: authentication, authorization, identity, app security, secure, customizing apps, directory, registry, 
+keywords: Authentication, authorization, identity, app security, secure, customizing apps, directory, registry, 
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -38,11 +38,13 @@ Wenn Sie Ihre vorhandenen Benutzerschnittstellen wiederverwenden, können Sie ei
 {: #branded-requirements}
 
 
-Wenn Sie eigene Benutzerschnittstellen anzeigen möchten, müssen Sie als Identitätsprovider [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory) verwenden. Es gibt verschiedene Möglichkeiten, wie Cloud Directory [konfiguriert](/docs/services/appid?topic=appid-cloud-directory) werden kann. Sie können entscheiden, welche Art von Nachrichten Sie verwenden möchten, und Sie können Inhalt und Gestaltung anpassen. Wissen Sie nicht, was Sie sagen sollen? Nur zu! In der grafischen Benutzerschnittstelle werden Beispielnachrichten bereitgestellt, die Sie verwenden können. 
+Wenn Sie eigene Benutzerschnittstellen anzeigen möchten, müssen Sie als Identitätsprovider [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory) verwenden. Das Cloudverzeichnis kann auf verschiedene Weise konfiguriert werden. Sie können entscheiden, welche Art von Nachrichten Sie verwenden möchten, und Sie können Inhalt und Gestaltung anpassen. Wissen Sie nicht, was Sie sagen sollen? Nur zu! In der grafischen Benutzerschnittstelle finden Sie Beispielnachrichten, die Sie verwenden können.
 
 
-Möchten Sie eine andere [Sprache](/docs/services/appid?topic=appid-cd-messages#cd-languages) als Englisch verwenden? Sie können eine andere Sprache auswählen, indem Sie die <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/updateLocalization" target="_blank">Management-APIs für Sprachen <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a> verwenden, um Ihren eigenen übersetzten Inhalt anzuzeigen.
+Möchten Sie eine andere [Sprache](/docs/services/appid?topic=appid-cd-messages#cd-languages) als Englisch verwenden? Sie können eine andere Sprache auswählen, indem Sie die [Sprachverwaltungs-APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/updateLocalization){: external} verwenden, um Ihren eigenen übersetzten Inhalt anzuzeigen.
 {: tip}
+
+
 
 
 ### Kann ich eigene Anzeigen und Standardanzeigen zusammen verwenden?
@@ -53,7 +55,7 @@ Ja! Sie können einen Hybridablauf erstellen, in dem einige Ihrer Anzeigen und e
 ### Wie unterscheiden sich die Abläufe in technischer Hinsicht?
 {: #branded-technically}
 
-Der Service verwendet OAuth 2.0-Abläufe, um den Autorisierungsprozess zuzuordnen. Wenn Sie Social-Media-Identitätsprovider wie z. B. Facebook konfigurieren, wird der <a href="https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html" target="_blank">OAuth2-Berechtigungserteilungsablauf <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a> verwendet, um das Anmeldewidget aufzurufen. Wenn Sie eigene Anzeigen verwenden, wird der <a href="https://oauthlib.readthedocs.io/en/stable/oauth2/grants/password.html" target="_blank">Ablauf für die Kennwortberechtigungsnachweise der Ressourceneigner <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a> verwendet, um Zugriffs- und Identitätstokens bereitzustellen, die Ihnen das Aufrufen Ihrer Anzeigen ermöglichen.
+Der Service verwendet OAuth 2.0-Abläufe, um den Autorisierungsprozess zuzuordnen. Wenn Sie Social-Media-Identitätsprovider wie z. B. Facebook konfigurieren, wird der [Berechtigungserteilungsablauf](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html){: external} verwendet, um das Anmeldewidget aufzurufen. Wenn Sie eigene Anzeigen verwenden, wird der [Ablauf für die Kennwortberechtigungsnachweise der Ressourceneigner](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/password.html){: external} verwendet, um Zugriffs- und Identitätstokens bereitzustellen, mit denen Sie Ihre Anzeigen aufrufen können. 
 
 
 
@@ -62,15 +64,15 @@ Der Service verwendet OAuth 2.0-Abläufe, um den Autorisierungsprozess zuzuordne
 
 Ja! Die folgenden Beispiele zeigen Cloud Directory in Aktion:
 
-* <a href="https://www.ibm.com/cloud/blog/use-branded-ui-user-sign-app-id" target="_blank">Eigene an Ihr Brand-Marketing angepasste Benutzerschnittstelle für die Benutzeranmeldung mit {{site.data.keyword.appid_short_notm}} verwenden <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a>
-* <a href="https://www.ibm.com/cloud/blog/use-ui-flows-user-sign-sign-app-id" target="_blank">Eigene UI und Abläufe für Registrierung und Anmeldung mit {{site.data.keyword.appid_short_notm}} verwenden <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a>
-* <a href="https://www.ibm.com/cloud/blog/custom-login-page-app-id-integration" target="_blank">Angepasste Anmeldeseite mit {{site.data.keyword.appid_short_notm}} verwenden <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a>
+* [Eigene an Brand-Marketing angepasste Benutzerschnittstelle für die Benutzeranmeldung bei {{site.data.keyword.appid_short_notm}} verwenden](https://www.ibm.com/cloud/blog/use-branded-ui-user-sign-app-id){: external}
+* [Eigene UI und Abläufe für Registrierung und Anmeldung bei {{site.data.keyword.appid_short_notm}} verwenden ](https://www.ibm.com/cloud/blog/use-ui-flows-user-sign-sign-app-id){: external}
+* [Angepasste Anmeldeseite mit {{site.data.keyword.appid_short_notm}} verwenden ](https://www.ibm.com/cloud/blog/custom-login-page-app-id-integration){: external}
 
 
 ## Branding der App mit dem Android-SDK
 {: #branded-ui-android}
 
-Wenn Cloud Directory aktiviert ist, können Sie mit dem Node.js-SDK angepasste Anzeigen aufrufen. Sie können die gewünschte Kombination der Anzeigen auswählen, mit denen die Benutzer interagieren sollen. <a href="https://www.ibm.com/cloud/blog/use-branded-ui-user-sign-app-id" target="blank">Lesen in diesem Blog <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a> ein ausführliches Beispiel dazu!
+Wenn Cloud Directory aktiviert ist, können Sie mit dem Node.js-SDK angepasste Anzeigen aufrufen. Sie können die gewünschte Kombination der Anzeigen auswählen, mit denen die Benutzer interagieren sollen. Ein ausführliches Beispiel finden Sie [in diesem Blog](https://www.ibm.com/cloud/blog/use-branded-ui-user-sign-app-id){: external}.
 {: shortdesc}
 
 
@@ -79,7 +81,7 @@ Wenn Cloud Directory aktiviert ist, können Sie mit dem Node.js-SDK angepasste A
 {: #branded-android-sign-in}
 
 1. Konfigurieren Sie Ihre [Einstellungen](/docs/services/appid?topic=appid-cloud-directory#cd-settings) für Cloud Directory in der GUI.
-2. Fügen Sie den folgenden Code zu Ihrer Anwendung hinzu. Der Anmeldeablauf wird ausgelöst, wenn ein Benutzer in der angepassten Anzeige auf 'Anmelden' klickt. Sie erhalten Zugriffs-, Identitäts- und Aktualisierungstoken, indem Sie Name und Kennwort des Endbenutzers angeben.
+2. Fügen Sie den folgenden Code zu Ihrer Anwendung hinzu. Der Anmeldeablauf wird ausgelöst, wenn ein Benutzer in der angepassten Anzeige auf 'Anmelden' klickt. Sie erhalten Zugriffs-, Identitäts- und Aktualisierungstoken, indem Sie Name und Kennwort des Benutzers angeben.
 
   ```java
   AppID.getInstance().signinWithResourceOwnerPassword(getApplicationContext(), username, password, new TokenResponseListener() {
@@ -102,7 +104,7 @@ Wenn Cloud Directory aktiviert ist, können Sie mit dem Node.js-SDK angepasste A
 ## Branding der App mit dem iOS-Swift-SDK
 {: #branded-ui-ios-swift}
 
-Wenn Cloud Directory aktiviert ist, können Sie mit dem [iOS-Swift-SDK](https://github.com/ibm-cloud-security/appid-clientsdk-swift) eigene, an das Brand-Marketing Ihres Unternehmens angepasste Anzeigen aufrufen.
+Wenn Cloud Directory aktiviert ist, können Sie mit dem [iOS-Swift-SDK](https://github.com/ibm-cloud-security/appid-clientsdk-swift){: external} eigene, an das Brand-Marketing Ihres Unternehmens angepasste Anzeigen aufrufen.
 {: shortdesc}
 
 </br>
@@ -173,7 +175,8 @@ Mithilfe von `WebAppStrategy` können Benutzer sich bei Ihren Web-Apps mit ihrem
     </tbody>
   </table>
 
-**Hinweis**: Wenn Sie die Anforderung in HTML übergeben, können Sie die Middleware <a href="https://www.npmjs.com/package/body-parser" target="blank">body parser <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a> verwenden. Zum Anzeigen der zurückgegebenen Fehlernachricht eignet sich <a href="https://www.npmjs.com/package/connect-flash" target="blank">connect-flash <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a>. Unter <a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs/blob/master/samples/web-app-sample.js" target="blank">Web-App-Beispiel <img src="../../icons/launch-glyph.svg" alt="Symbol für externen Link"></a> wird die Funktionsweise gezeigt.
+**Hinweis**: Wenn Sie die Anforderung in HTML übergeben, können Sie die Middleware [body parser](https://www.npmjs.com/package/body-parser){: external} verwenden. Zum Anzeigen der zurückgegebenen Fehlernachricht eignet sich [connect-flash](https://www.npmjs.com/package/connect-flash){: external}. Die Funktionsweise können Sie sich im [Web-App-Beispiel](https://github.com/ibm-cloud-security/appid-serversdk-nodejs/blob/master/samples/web-app-sample.js){: external} ansehen.
+
 
 
 ## Branding der App mit der API
@@ -184,7 +187,7 @@ Sie können eigene angepasste Anzeigen anzeigen und die Authentifizierungs- und 
 
 Um dies zu ermöglichen, stellt {{site.data.keyword.appid_short_notm}} die REST-APIs zur Verfügung. Sie können die REST-APIs verwenden, um einen Back-End-Server zu erstellen, der Ihren Web-Apps dient oder um mit einer mobilen App mit Ihren angepassten Anzeigen zu interagieren.
 
-Die Management-API wird mithilfe von Tokens gesichert, die von IBM Cloud Identity and Access Management generiert werden. Dies bedeutet, dass Kontoeigner angeben können, wer in ihrem Team über welche Zugriffsebene für die einzelnen Serviceinstanzen verfügen soll. Weitere Informationen dazu, wie IAM und {{site.data.keyword.appid_short_notm}} zusammenarbeiten, finden Sie in [Servicezugriffsverwaltung](/docs/services/appid?topic=appid-service-access-management#service-access-management).
+Die Management-API wird mithilfe von Tokens gesichert, die von IBM Cloud Identity and Access Management generiert werden. Dies bedeutet, dass Kontoeigner angeben können, wer in ihrem Team über welche Zugriffsebene für die einzelnen Serviceinstanzen verfügen soll. Weitere Informationen dazu, wie IAM und {{site.data.keyword.appid_short_notm}} zusammenarbeiten, finden Sie in [Servicezugriffsverwaltung](/docs/services/appid?topic=appid-service-access-management).
 
 Nach der Konfiguration Ihrer [Einstellungen](/docs/services/appid?topic=appid-cloud-directory#cd-settings) können Sie die folgenden Endpunkte aufrufen, um die einzelnen Anzeigen aufzurufen.
 
@@ -194,11 +197,11 @@ Nach der Konfiguration Ihrer [Einstellungen](/docs/services/appid?topic=appid-cl
 Mit dem Endpunkt `/sign_up` können Sie es Benutzern ermöglichen, sich bei Ihrer App zu registrieren.
 Übergeben Sie die folgenden Daten im Anforderungshauptteil:
   * Ihre Tenant-ID (tenantID).
-  * Cloud Directory-Benutzerdaten. Weitere Details finden Sie in [SCIM Full User Representation](https://tools.ietf.org/html/rfc7643#section-8.2).
+  * Cloud Directory-Benutzerdaten. Weitere Details finden Sie in [SCIM Full User Representation](https://tools.ietf.org/html/rfc7643#section-8.2){: external}.
     * Ein Kennwortattribut `password`.
     * Im E-Mail-Bereich, bei dem für das primäre Attribut (`primary`) der Wert `true` festgelegt ist, müssen Sie über mindestens eine E-Mail-Adresse verfügen.
 
-Abhängig von Ihrer [E-Mail-Konfiguration](/docs/services/appid?topic=appid-cd-messages#cd-messages) erhält ein Benutzer möglicherweise die Anforderung für die Verifizierung und/oder eine Begrüßungs-E-Mail, wenn er sich für Ihre App registriert. Beide Typen von E-Mails werden ausgelöst, wenn ein Benutzer sich für Ihre App registriert. Die Bestätigungs-E-Mail enthält einen Link, auf den der Benutzer klicken kann, um seine Identität zu bestätigen; es erscheint eine Anzeige mit einem Dank für die Bestätigung oder dem Hinweis, dass die Prüfung abgeschlossen ist.  
+Abhängig von Ihrer [E-Mail-Konfiguration](/docs/services/appid?topic=appid-cd-messages) erhält ein Benutzer möglicherweise die Anforderung für die Verifizierung und/oder eine Begrüßungs-E-Mail, wenn er sich für Ihre App registriert. Beide Typen von E-Mails werden ausgelöst, wenn ein Benutzer sich für Ihre App registriert. Die Bestätigungs-E-Mail enthält einen Link, auf den der Benutzer klicken kann, um seine Identität zu bestätigen; es erscheint eine Anzeige mit einem Dank für die Bestätigung oder dem Hinweis, dass die Prüfung abgeschlossen ist.  
 
 Gehen Sie wie folgt vor, um eine eigene Seite anzugeben, die nach der Verifizierung angezeigt werden soll:
 
@@ -212,10 +215,10 @@ Wenn dieser Wert bereitgestellt ist, ruft {{site.data.keyword.appid_short_notm}}
 ### Kennwort vergessen
 {: #branded-api-forgot-password}
 
-Sie können den Endpunkt `/forgot_password` verwenden, um Benutzern zu ermöglichen, Ihr Kennwort wiederherzustellen, falls Sie es vergessen haben sollten.
+Sie können den Endpunkt `/forgot_password` verwenden, um Benutzern zu ermöglichen, Ihr Kennwort wiederherzustellen, falls Sie es vergessen.
 
 Übergeben Sie die folgenden Daten im Anforderungshauptteil:
-  * Ihre Tenant-ID (tenantID).
+  * Ihre Tenant-ID.
   * Die E-Mail des Cloud Directory-Benutzers.
 
 Wenn der Endpunkt aufgerufen wird, wird die E-Mail zum Zurücksetzen des Kennworts an den Benutzer gesendet. Die E-Mail enthält die Schaltfläche **Zurücksetzen**. Nachdem die Benutzer auf diese Schaltfläche geklickt haben, wird von {{site.data.keyword.appid_short_notm}} eine Anzeige aufgerufen, in der sie ihr Kennwort zurücksetzen können.
@@ -253,7 +256,7 @@ Gehen Sie wie folgt vor, um Benutzern das Ändern ihres Kennworts zu ermögliche
   * Das neue Kennwort des Benutzers.
   * Die Cloud Directory-Benutzer-UUID.
 
-Ihre Seite zum Ändern des Kennworts sollte den Benutzer auffordern, sein aktuelles Kennwort und sein neues Kennwort einzugeben.
+Ihre Seite zum Ändern des Kennworts muss den Benutzer auffordern, sein aktuelles Kennwort und sein neues Kennwort einzugeben.
 {: tip}
 
 Ihr Back-End validiert das aktuelle Kennwort des Benutzers mit der ROP-API und falls dieses gültig ist, wird der Endpunkt mit dem neuen Kennwort aufgerufen. Abhängig von Ihrer Konfiguration sendet {{site.data.keyword.appid_short_notm}} beim Ändern des Kennworts möglicherweise eine E-Mail an den Benutzer und lässt diesen wissen, dass eine Änderung vorgenommen wurde.
@@ -274,7 +277,7 @@ Sie können den Endpunkt `/resend/{templateName}` verwenden, um eine E-Mail erne
 
 Wenn ein Benutzer bei Ihrer App angemeldet ist, kann er einige seiner Daten aktualisieren. Sie können `/Users/{userId}` verwenden, um die Daten abzurufen und zu aktualisieren.
 
-Wenn die Benutzerdetails aktualisiert werden, ruft der Endpunkt die aktualisierten Benutzerdaten im Anforderungshauptteil im [SCIM-Format](https://tools.ietf.org/html/rfc7643#section-8.2) ab. Stellen Sie sicher, dass Sie nur die relevanten Details ändern.
+Wenn die Benutzerdetails aktualisiert werden, ruft der Endpunkt die aktualisierten Benutzerdaten im Anforderungshauptteil im [SCIM-Format](https://tools.ietf.org/html/rfc7643#section-8.2){: external} ab. Stellen Sie sicher, dass Sie nur die relevanten Details ändern.
 
 Die E-Mail-Adresse kann nicht geändert werden.
 {: tip}
