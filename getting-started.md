@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-22"
+lastupdated: "2019-07-31"
 
 keywords: Authentication, authorization, identity, app security, secure, development,
 
@@ -35,7 +35,8 @@ By requiring users to sign in to your app, you can store user data such as app p
 
 We’d love to hear from you with feedback and questions!
 * If you have technical questions about {{site.data.keyword.appid_short_notm}}, post your question on <a href="https://stackoverflow.com" target="_blank">Stack Overflow <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> and tag your question with `ibm-appid`.
-* For questions about the service and getting started instructions, use the <a href="https://developer.ibm.com" target="_blank">dW Answers <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> forum. Include the `appid` tag.
+* For questions about the service and getting started instructions, use the <a href="https://developer.ibm.com" target="_blank">IBM Developer Answers <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> forum. Include the `appid` tag.
+* Reach out directly to the development team on [Slack](https://ibm-container-service.slack.com)! 
 
 ## Creating a service instance
 {: #create}
@@ -61,6 +62,8 @@ You can use one of the preconfigured sample apps to get familiar with working wi
 {: shortdesc}
 
 Out of the box, the sample apps are configured with two identity providers and the ability to review authentication. Sample apps are offered in `iOS Swift`, `Android`, `Node.js`, and `Java`. If you don't see a language in which you feel comfortable working, don't worry! You can integrate {{site.data.keyword.appid_short_notm}} into your own sample application by using the provided APIs.
+
+Before you get started, check to be sure that you have the [IBM Cloud prerequistes](/docs/overview?topic=overview-prereqs-platform). 
 
 To build a sample app:
 
