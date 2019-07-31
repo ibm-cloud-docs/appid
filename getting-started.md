@@ -63,6 +63,8 @@ You can use one of the preconfigured sample apps to get familiar with working wi
 
 Out of the box, the sample apps are configured with two identity providers and the ability to review authentication. Sample apps are offered in `iOS Swift`, `Android`, `Node.js`, and `Java`. If you don't see a language in which you feel comfortable working, don't worry! You can integrate {{site.data.keyword.appid_short_notm}} into your own sample application by using the provided APIs.
 
+Before you get started, check to be sure that you have the [IBM Cloud prerequistes](/docs/overview?topic=overview-prereqs-platform). 
+
 To build a sample app:
 
 1. Click **Download Sample**.
