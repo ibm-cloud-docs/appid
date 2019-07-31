@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-30"
+lastupdated: "2019-07-31"
 
 keywords: Authentication, authorization, identity, app security, secure
 
@@ -37,7 +37,7 @@ Getting started? Try walking through our [video tutorials](https://www.youtube.c
 
 We’d love to hear from you with feedback and questions! To get started with {{site.data.keyword.appid_short}}, check it out in the {{site.data.keyword.cloud_notm}} catalog.
 * If you have technical questions about {{site.data.keyword.appid_short_notm}}, post your question on <a href="https://stackoverflow.com" target="_blank">Stack Overflow <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> and tag your question with "ibm-appid".
-* For questions about the service and getting started instructions, use the <a href="https://developer.ibm.com" target="_blank">dW Answers <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> forum. Include the `appid` tag.
+* For questions about the service and getting started instructions, use the <a href="https://developer.ibm.com" target="_blank">IBM Developer Answers <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> forum. Include the `appid` tag.
 * Reach out directly to the development team on [Slack](https://ibm-container-service.slack.com)! 
 
 
