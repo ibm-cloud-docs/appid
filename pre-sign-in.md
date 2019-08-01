@@ -136,7 +136,7 @@ A user's predefined attributes are empty until their first authentication. Altho
 Before you get started, you must have the following information:
 
 * Which identity provider that the user with which the user signs in.
-* The email of the user that you want to add or their [unique identifier](/docs/services/appid?topic=appid-preregistration#preregister-id-provide)
+* The email of the user that you want to add or their [unique identifier](/docs/services/appid?topic=appid-preregistration#preregister-idp-provide)
 * The [custom attribute](/docs/services/appid?topic=appid-profiles) information that you want to assign.
 
 
