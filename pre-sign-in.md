@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-23"
+lastupdated: "2019-08-01"
 
 keywords: Authentication, authorization, identity, app security, secure, development, user information, attributes, profiles, 
 
@@ -35,10 +35,11 @@ To learn more about the security considerations that might apply when you work w
 ## Understanding preregistration
 {: #preregister-understand}
 
+There might be times when you are developing an application that you already know who your app users are going to be. These users are known as "future users". You might know ahead of time that certain users need specific permission levels or a specific food preference before they ever start interacting with your app. For example, you work for a development company and you hire a new person to function as a team lead. You might want to assign that user `admin` access to your app before they start so that when they sign in the first time, they can immediately start working without any further interaction on your part. Say that same person is a vegetarian. By noting it as a custom attribute in their profile, the preference can be pulled for all team lunches without them having to remind you.
 
+By default, the ability for users to change their own custom attributes through the application is set to off. You can give your users that ability, but before you do be sure that you understand and have considered the [security issues](/docs/services/appid?topic=appid-profiles#profile-set-custom) that can arise.
 
-
-Consider an application where you use {{site.data.keyword.appid_short_notm}} to federate existing users from your SAML identity provider. You might want certain users to have `admin` access immediately upon signing into the application for the first time. To make this happen, you can use the preregistration endpoint to set a custom `admin` attribute for those users and grant them access to the administration console without any further action on your part. Be sure to consider the [security issues](/docs/services/appid?topic=appid-profiles#profile-set-custom) that can arise by changing the default setting.
+To assign custom attributes for future users, you can use either [the GUI](/docs/services/appid?topic=appid-preregister#preregister-gui) or the [preregistration endpoint](/docs/services/appid?topic=appid-preregister#preregister-api).
 
 
 ### How are users identified?
@@ -101,16 +102,13 @@ Check out the following table to see which type of identity information that you
 ### How is Cloud Directory handled?
 {: #preregister-cd}
 
+To ensure the integrity of a future user, Cloud Directory places extra requirements on preregistration. 
 
-In order to ensure the integrity of the preregistered user attributes, Cloud Directory places extra requirements on its users. Preregistration can occur only when email validation is enabled and verified. If you preregister a Cloud Directory user with specific attributes, then those attributes are intended for a specific person. If the email is not verified first, it is possible for another user to claim the email address and any attributes that are assigned to it.
+* You must use an email, not a user name, to add the user. If you don't have any users yet, switch to email and password mode to add future users. If you do have users, you must wait until the user has signed in to assign custom attributes.
+* The user must confirm their identity through verification. When you add a future user with specific attributes, those attributes are intended for that person. Any user that signs in by using an email that is registered to a future user must verify their email address before they are granted access to your app. To complete the verification requirements, you can send an email to have the user verify or manually verify their address on their behalf. To allow for self-verification, set **Email verification** to **On** in the **Cloud Directory** tab of the service dashboard. This sends an email to the user to request verification on their initial sign-in. To verify users manually, you must be an administrator. Make a request to the Cloud Directory [management APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.createCloudDirectoryUser) to set the `status` field in the payload to `CONFIRMED`.  
 
-1. Set Cloud Directory to email and password mode. You can do this through the UI in the general settings on the **Cloud Directory** tab. You can also set it through the [management APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.createCloudDirectoryUser).
-
-2. Verify the users email address to confirm their identity in one of the following ways:
-
-  * To verify a users identity through email, set **Email verification** to **On** in the **Cloud Directory** tab of the service dashboard. If a user is added by you and signs in to your app without first verifying their email, the sign-in completes successfully, but their predefined attribute is deleted.
-  * To verify users manually, you must be an administrator and use the Cloud Directory [management APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.createCloudDirectoryUser). When creating or updating a user, you should explicitly set the `status` field to `CONFIRMED` within your user data payload.
-
+If a future user is added by you and signs in to your app without verifying their email, their custom attributes are deleted and the profile is created from scratch.
+{: important}
 
 
 
@@ -121,32 +119,57 @@ In order to ensure the integrity of the preregistered user attributes, Cloud Dir
 When you add user information to your application in advance, you can use any unique identifier that is provided by the authentication flow. The identifier must _exactly_ match the `sub` of the signed JSON Web Token that is sent during the authorization request. If the identifier does not match, then the profile that you want to add is not linked successfully.
 
 
-## Adding user information to your app
+## Adding a future user
 {: #preregister-add-info}
 
 Now that you've learned about the process and considered your security implications, try adding a user. 
 
 
-
-
-**Before you begin:**
-
-To add custom attributes for a specific user with the [/users Management API endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Users/mgmt.users_search_user_profile), you must know the following information:
-
-* Which identity provider that the user is going to use to sign in.
-* The user's unique identifier that is provided by the identity provider.
-
-When a user signs in to your app for the first time, {{site.data.keyword.appid_short_notm}} searches for the user. If found, the user inherits the identity that you assigned. If the user isn't found, then a new user is created based on the information that is provided by the identity provider.
+A user's predefined attributes are empty until their first authentication. Although they're empty, the user is still fully authenticated. You can use their profile ID just as you would someone who has already signed in. For instance, you can modify, search, or delete the profile.
+{: tip}
 
 
 
+### Before you begin
+{: #preregister-before}
+
+Before you get started, you must have the following information:
+
+* Which identity provider that the user with which the user signs in.
+* The email of the user that you want to add or their [unique identifier](/docs/services/appid?topic=appid-preregistration#preregister-id-provide)
+* The [custom attribute](/docs/services/appid?topic=appid-profiles) information that you want to assign.
 
 
+### With the GUI
+{: #preregister-gui}
 
-**To add a user:**
+You can add a future user and their custom attributes by using the GUI.
+
+The ability to add future users is disabled for the user name and password configuration of Cloud Directory.
+{: note}
+
+1. Go to the **User Profiles** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
+2. Click **Future users**. If you already have future users, you see a table with a list of the user's that you already added. To add another user, click **Build a profile**. If you don't have any users yet, click **Get Started**. A screen opens.
+3. Enter your user's email.
+4. Select the identity provider that they sign in with from the **Identity Provider** drop down.
+5. Add custom attributes by entering the information in a JSON object as shown in the following example.
+
+  ```
+  { 
+    "food": "Pizza", 
+    "preference": "Vegetarian",
+    "points": "37"
+  }
+  ```
+  {: screen}
+
+6. Click **Save**. The table displays and the user is assigned an identifier.
 
 
+### With the API
+{: #preregister-api}
 
+You can add a future user and their custom attributes by using the API.
 
 1. Log in to IBM Cloud.
 
