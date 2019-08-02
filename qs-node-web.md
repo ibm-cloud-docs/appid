@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-11"
+lastupdated: "2019-08-02"
 
 keywords: Authentication, authorization, identity, app security, secure, development, nodejs, frontend, web apps, 
 
@@ -221,7 +221,7 @@ You can pull information that is provided by your identity providers to personal
 1. Configure your application to obtain user information. `protected` is a place holder variable that you can change to match the endpoint for your application.
 
     ```javascript
-    app.get("/protected", passport.authenticate(WebAppStrategy.STRATEGY_NAME), function(req, res){
+    app.get("/protected_resource", passport.authenticate(WebAppStrategy.STRATEGY_NAME), function(req, res){
         res.json(req.user);
     });
     ```

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-08-02"
 
 keywords: Authentication, authorization, identity, app security, secure, backend, back-end, oauth, 
 
@@ -233,7 +233,7 @@ The following snippet demonstrates how to use `ApiStrategy` in an Express app to
 {: ph data-hd-programlang='javascript'}
 
   ```javascript
-   app.get('/protected', passport.authenticate('APIStrategy.STRATEGY_NAME', { session: false }), function(request, response){
+   app.get('/protected_resource', passport.authenticate('APIStrategy.STRATEGY_NAME', { session: false }), function(request, response){
       console.log("Security context", request.appIdAuthorizationContext);
       response.send(200, "Success!");
       }

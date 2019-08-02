@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-11"
+lastupdated: "2019-08-02"
 
 keywords: Authentication, authorization, identity, app security, secure, web apps, client, server
 
@@ -196,7 +196,7 @@ Check out the following video to learn about protecting Node applications with {
 6. Register your protected endpoint.
 
    ```javascript
-   app.get(‘/protected’, passport.authenticate(WebAppStrategy.STRATEGY_NAME), function(req, res) {res.json(req.user); });
+   app.get(‘/protected_resource’, passport.authenticate(WebAppStrategy.STRATEGY_NAME), function(req, res) {res.json(req.user); });
    ```
    {: codeblock}
 
@@ -336,7 +336,7 @@ Check out the following video to learn about protecting Liberty for Java applica
 
   ```xml
   <authFilter id="myAuthFilter">
-      <requestUrl id="myRequestUrl" urlPattern="/protected" matchType="contains"/>
+      <requestUrl id="myRequestUrl" urlPattern="/protected_resource" matchType="contains"/>
   </authFilter>
   ```
   {: codeblock}
@@ -452,7 +452,7 @@ You must have the following prerequisites:
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/protectedResource").authenticated()
+                .antMatchers("/protected_Resource").authenticated()
                 .and().logout().logoutSuccessUrl("/").permitAll();
     }
   ```
