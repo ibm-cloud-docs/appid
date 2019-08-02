@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-31"
+lastupdated: "2019-08-02"
 
 keywords: Authentication, authorization, identity, app security, secure, development,
 
@@ -44,6 +44,9 @@ We’d love to hear from you with feedback and questions!
 Create and bind an instance of {{site.data.keyword.appid_short_notm}} to your app to get started.
 {: shortdesc}
 
+Before you get started, check to be sure that you have the [IBM Cloud prerequisites](/docs/overview?topic=overview-prereqs-platform). 
+{: note}
+
 1. In the {{site.data.keyword.cloud_notm}} catalog, select {{site.data.keyword.appid_short_notm}}. The service configuration screen opens.
 2. Give your service instance a name, or use the preset name.
 3. Select your pricing plan and click **Create**.
@@ -62,8 +65,6 @@ You can use one of the preconfigured sample apps to get familiar with working wi
 {: shortdesc}
 
 Out of the box, the sample apps are configured with two identity providers and the ability to review authentication. Sample apps are offered in `iOS Swift`, `Android`, `Node.js`, and `Java`. If you don't see a language in which you feel comfortable working, don't worry! You can integrate {{site.data.keyword.appid_short_notm}} into your own sample application by using the provided APIs.
-
-Before you get started, check to be sure that you have the [IBM Cloud prerequistes](/docs/overview?topic=overview-prereqs-platform). 
 
 To build a sample app:
 
