@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-29"
+lastupdated: "2019-08-05"
 
-keywords: authentication, authorization, identity, app security, secure, access management, roles, attributes, users
+keywords: Authentication, authorization, identity, app security, secure, access management, roles, attributes, users
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -64,7 +64,7 @@ In order to obtain tokens, you must have your client ID and secret. The credenti
   Request:
 
   ```
-  curl -X POST \  https://us-south.appid.cloud.ibm.com/management/v4/39a37f57-a227-4bfe-a044-93b6e6060b61/applications/ \
+  curl -X POST https://us-south.appid.cloud.ibm.com/management/v4/39a37f57-a227-4bfe-a044-93b6e6060b61/applications/ \
   -H 'Content-Type: application/json' \
   -H 'Authorization: Bearer IAM_TOKEN' \
   -d '{"name": "ApplicationName"}'
@@ -205,8 +205,7 @@ Server Swift:
 3. Make a request to the API to obtain a token. The data section of your request varies depending on the type of grant type that you're using. 
 
   ```
-  curl -X POST \
-  https://{region}.appid.cloud.ibm.com/oauth/v4/{tenant_id}/token \
+  curl -X POST https://{region}.appid.cloud.ibm.com/oauth/v4/{tenant_id}/token \
   -H 'Authorization: Basic base64Encoded{{client-ID}:{client-secret}}' \
   -H 'Content-Type: application/x-www-form-urlencoded' \
   -H `Accept: application/json` \
