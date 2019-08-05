@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-09"
+lastupdated: "2019-08-05"
 
-keywords: authentication, authorization, identity, app security, secure, development, two factor, mfa 
+keywords: Authentication, authorization, identity, app security, secure, development, two factor, mfa 
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -23,18 +23,18 @@ subcollection: appid
 {:download: .download}
 
 
-# Multi-factor authentication
+# Multi-factor authentication (MFA)
 {: #cd-mfa}
 
 
-By requireing multiple factors during sign in, you can increase the security of user authentication to your apps. With Cloud Directory for {{site.data.keyword.appid_full}}, the first factor is the Cloud Directory user's password, which they normally use to sign in. The second authentication factor is a one-time code that {{site.data.keyword.appid_short_notm}} sends to the user either as an SMS or email. {{site.data.keyword.appid_short_notm}} uses a combination of both factors to verify the identity of a user.
+By requiring multiple factors during sign-in, you can increase the security of user authentication to your apps. With Cloud Directory for {{site.data.keyword.appid_full}}, the first factor is the Cloud Directory user's password, which they normally use to sign in. The second authentication factor is a one-time code that {{site.data.keyword.appid_short_notm}} sends to the user either as an SMS or email. {{site.data.keyword.appid_short_notm}} uses a combination of both factors to verify the identity of a user.
 {: shortdesc}
 
 {{site.data.keyword.appid_short_notm}} MFA is supported as part of the OAuth 2.0 authorization code flow for Cloud Directory users through the Login Widget. If you're using enterprise sign-in with SAML 2.0 or social login,
 you can enable MFA through that identity provider.
 {: note}
 
-When MFA is enabled, the {{site.data.keyword.appid_short_notm}} Login Widget requires a second form of verification (second authentication factor) every time a user attempts to sign in. After a user has successfully entered their credentials, a one-time code is sent to the email or phone number that is registered to their account.
+When MFA is enabled, the {{site.data.keyword.appid_short_notm}} Login Widget requires a second form of verification (second authentication factor) every time a user attempts to sign in. After a user successfully enters their credentials, a one-time code is sent to the email or phone number that is registered to their account.
 
 Check out the following diagram to see how the MFA flow works.
 
@@ -68,7 +68,7 @@ The first time that MFA is enabled, it is set to use email by default. You can c
   </tr>
   <tr>
     <td>Code expiration</td>
-    <td>Fifteen minutes <br> If a user does not validate their code within 15 minutes, they can request that another code is sent as long as the authentication session has not expired. Within the authentication session, the code can be sent multiple times. Once the authentication session expires, the user must repeat the login process from the beginning.</td>
+    <td>Fifteen minutes <br> If a user does not validate their code within 15 minutes, they can request that another code is sent as long as the authentication session is not expired. Within the authentication session, the code can be sent multiple times. Once the authentication session expires, the user must repeat the login process from the beginning.</td>
   </tr>
 </table>
 
@@ -105,7 +105,7 @@ You can configure the MFA email channel through the GUI.
 
 2. In the **Enable multi-factor authentication** box, on the **settings tab**, toggle MFA to **Enabled**. Acknowledge that you understand that MFA is charged as an [advanced security event](/docs/services/appid?topic=appid-faq#faq-pricing). By default, **Email** is selected as the **Authentication method**.
 
-3. In the **Email channel** tab, review the **Email template**. You can choose to send the template with the provided wording or write your own message. Be sure to use the correct HTML tagging. In the GUI you can add parameters and insert images. To change the [language](/docs/services/appid?topic=appid-cd-messages#cd-languages) of the message, you can use <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization" target="_blank">the APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to set the language. However, you are responsible for the content and translation of the message. Check out the following table to see the list of tables that you can use in this message and all of the other messages that you can send. If a user does not supply the information pulled by the parameter, it appears blank.
+3. In the **Email channel** tab, review the **Email template**. You can choose to send the template with the provided wording or write your own message. Be sure to use the correct HTML tagging. In the GUI you can add parameters and insert images. To change the [language](/docs/services/appid?topic=appid-cd-messages#cd-languages) of the message, you can use <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization" target="_blank">the APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to set the language. However, you are responsible for the content and translation of the message. Check out the following table to see the list of tables that you can use in this message and all of the other messages that you can send. If a user does not supply the information that is pulled by the parameter, it appears blank.
 
   <table>
     <thead>
@@ -231,7 +231,7 @@ Be sure that you have the following prerequisites:
   ```
   {: screen}
 
-If your {{site.data.keyword.appid_short_notm}} Cloud Directory instance is configured to work with a custom email dispatcher then MFA uses the same dispatcher to send the one-time code. For more information on setting up a custom dispatcher, refer to the [Cloud Directory](/docs/services/appid?topic=appid-cd-messages#cd-custom-email) docs.
+If your {{site.data.keyword.appid_short_notm}} Cloud Directory instance is configured to work with a custom email dispatcher, then MFA uses the same dispatcher to send the one-time code. For more information on setting up a custom dispatcher, refer to the [Cloud Directory](/docs/services/appid?topic=appid-cd-messages#cd-custom-email) docs.
 {: note}
 
 
@@ -274,7 +274,7 @@ To configure MFA with the GUI, check out [Cloud Directory](/docs/services/appid?
 
     4. Copy the **API secret** in the Nexmo dashboard and paste it in the **Secret** box in the {{site.data.keyword.appid_short_notm}} dashboard.
 
-    5. Enter [the ID](https://help.nexmo.com/hc/en-us/articles/217571017-What-is-a-Sender-ID) that you want to send messages from. A valid number format follows the [E.164 international numbering format](https://en.wikipedia.org/wiki/E.164) For example, a USA number takes the form `+1 999 888 7777 `. You must specify both the country code, starting with a `+` symbol and the national subscriber number. In some countries, Nexmo supports alpha-numeric sender IDs. {{site.data.keyword.appid_short_notm}} uses the value that you enter as Nexmo's sender ID. So, if they are supported by Nexmo, you can use the IDs with {{site.data.keyword.appid_short_notm}}.
+    5. Enter [the ID](https://help.nexmo.com/hc/en-us/articles/217571017-What-is-a-Sender-ID) that you want to send messages from. A valid number format follows the [E.164 international numbering format](https://en.wikipedia.org/wiki/E.164). For example, a US number takes the form `+1 999 888 7777 `. You must specify both the country code, starting with a `+` symbol and the national subscriber number. In some countries, Nexmo supports alpha-numeric sender IDs. {{site.data.keyword.appid_short_notm}} uses the value that you enter as Nexmo's sender ID. So, if they are supported by Nexmo, you can use the IDs with {{site.data.keyword.appid_short_notm}}.
 
 
 
@@ -291,121 +291,121 @@ Be sure that you have the following prerequisites:
 
 1. Enable MFA, by making a PUT request to the `/config/mfa` endpoint with your MFA configuration to set `isActive` to `true`.
 
-Header:
+  Header:
 
-  ```
-  PUT {management-url}/management/v4/{tenantId}/config/mfa
-    Host: <management-server-url>
-    Authorization: Bearer <IAM_TOKEN>
-    Content-Type: application/json
-  ```
-  {: codeblock}
+    ```
+    PUT {management-url}/management/v4/{tenantId}/config/mfa
+      Host: <management-server-url>
+      Authorization: Bearer <IAM_TOKEN>
+      Content-Type: application/json
+    ```
+    {: codeblock}
 
-Body:
+  Body:
 
-  ```
-  {
-   "isActive": true
-  }
-  ```
-  {: codeblock}
-
-
-Example request:
-
-  ```
-  $ curl -X PUT
-  --header 'Content-Type: application/json'
-  --header 'Accept: application/json'
-  --header 'Authorization: Bearer <IAM_TOKEN>'
-  -d '{
+    ```
+    {
     "isActive": true
-  }'
-  '{management-url}/management/v4/{tenantId}/config/mfa'
-  ```
-  {: screen}
+    }
+    ```
+    {: codeblock}
+
+
+  Example request:
+
+    ```
+    $ curl -X PUT
+    --header 'Content-Type: application/json'
+    --header 'Accept: application/json'
+    --header 'Authorization: Bearer <IAM_TOKEN>'
+    -d '{
+      "isActive": true
+    }'
+    '{management-url}/management/v4/{tenantId}/config/mfa'
+    ```
+    {: screen}
 
 2. Enable your MFA channel by making a PUT request to the `/mfa/channels/{channel}` endpoint with your MFA configuration. When `isActive` is set to `true`, your MFA channel is enabled.
 The `config` takes in the Nexmo API key and secret as well as the `from` number.
 
-Header:
+  Header:
 
-  ```
-  PUT /management/v4/{tenantId}/mfa/channels/{channel}
+    ```
+    PUT /management/v4/{tenantId}/mfa/channels/{channel}
+        Host: <management-server-url>
+        Authorization: Bearer <IAM_TOKEN>
+        Content-Type: application/json
+    ```
+    {: codeblock}
+
+  Body:
+
+    ```
+    {
+        "isActive": true,
+        "config": {
+          "key": "nexmo key",
+          "secret": "nexmo secret",
+          "from": sender-phoneNumber
+        }
+    }
+    ```
+    {: codeblock}
+
+  Example request:
+
+    ```
+    $ curl -X PUT
+    --header 'Content-Type: application/json'
+    --header 'Accept: application/json'
+    --header 'Authorization: Bearer <IAM_TOKEN>'
+    -d '{
+          "isActive": true,
+          "config": {
+            "key": "key",
+            "secret": "secret",
+            "from": 12345678900
+          }
+      }'
+    '{management-url}/management/v4/{tenantId}/mfa/channels/nexmo'
+    ```
+    {: screen}
+
+
+3. Once the channel is successfully configured, verify that your Nexmo configuration and connection is set up
+correctly by using the test button on the UI or by using the management API.
+
+  Header:
+
+    ```
+    POST /management/v4/{tenantId}/config/cloud_directory/sms_dispatcher/test
       Host: <management-server-url>
       Authorization: Bearer <IAM_TOKEN>
       Content-Type: application/json
-  ```
-  {: codeblock}
+    ```
+    {: codeblock}
 
-Body:
+  Body:
 
-  ```
-  {
-      "isActive": true,
-      "config": {
-        "key": "nexmo key",
-        "secret": "nexmo secret",
-        "from": sender-phoneNumber
-      }
-  }
-  ```
-  {: codeblock}
+    ```
+    {
+      "phone_number": "phoneNumber-receives-test-message"
+    }
+    ```
+    {: codeblock}
 
-Example request:
+  Example request:
 
-  ```
-  $ curl -X PUT
-   --header 'Content-Type: application/json'
-   --header 'Accept: application/json'
-   --header 'Authorization: Bearer <IAM_TOKEN>'
-   -d '{
-         "isActive": true,
-         "config": {
-          "key": "key",
-          "secret": "secret",
-          "from": 12345678900
-        }
-     }'
-   '{management-url}/management/v4/{tenantId}/mfa/channels/nexmo'
-  ```
-  {: screen}
-
-
-3. Once the channel is successfully configured, verify your Nexmo configuration and connection is setup
-correctly using the test button on the UI or using the management API.
-
-Header:
-
-  ```
-  POST /management/v4/{tenantId}/config/cloud_directory/sms_dispatcher/test
-     Host: <management-server-url>
-     Authorization: Bearer <IAM_TOKEN>
-     Content-Type: application/json
-  ```
-  {: codeblock}
-
-Body:
-
-  ```
-  {
-    "phone_number": "phoneNumber-receives-test-message"
-  }
-  ```
-  {: codeblock}
-
-Example request:
-
-  ```
-  $ curl -X POST
-  --header 'Content-Type: application/json'
-  --header 'Accept: application/json'
-  --header 'Authorization: Bearer <IAM_TOKEN>'
-  -d '{
-        "phone_number": "+1 999 999 9999"
-      }'
-  '{management-url}/management/v4/{tenantId}/config/cloud_directory/sms_dispatcher/test'
-  ```
-  {: screen}
+    ```
+    $ curl -X POST
+    --header 'Content-Type: application/json'
+    --header 'Accept: application/json'
+    --header 'Authorization: Bearer <IAM_TOKEN>'
+    -d '{
+          "phone_number": "+1 999 999 9999"
+        }'
+    '{management-url}/management/v4/{tenantId}/config/cloud_directory/sms_dispatcher/test'
+    ```
+    {: screen}
 
   </br>
