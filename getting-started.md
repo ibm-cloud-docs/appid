@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-08-02"
+lastupdated: "2019-08-06"
 
 keywords: Authentication, authorization, identity, app security, secure, development,
 
@@ -28,9 +28,6 @@ subcollection: appid
 Application security can be incredibly complicated. For most developers, it's one of the hardest parts of creating an app. How can you be sure that you are protecting your users information? By integrating {{site.data.keyword.appid_full}} into your apps, you can secure resources and add authentication; even when you don't have a lot of security experience.
 {: shortdesc}
 
-Getting started? Try walking through our [video tutorials](https://www.youtube.com/watch?v=EZWl1ij3dAE&list=UUdWhdi8GES-V-TFuTwjobrA){: external}. 
-{: note}
-
 By requiring users to sign in to your app, you can store user data such as app preferences or information from the public social profiles, and then use that data to customize each experience of your app. {{site.data.keyword.appid_short_notm}} provides a framework for you, but you can also bring your own branded sign in screens when working with cloud directory.
 
 We’d love to hear from you with feedback and questions!
@@ -38,19 +35,21 @@ We’d love to hear from you with feedback and questions!
 * For questions about the service and getting started instructions, use the <a href="https://developer.ibm.com" target="_blank">IBM Developer Answers <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> forum. Include the `appid` tag.
 * Reach out directly to the development team on [Slack](https://ibm-container-service.slack.com)! 
 
+Getting started? Try walking through our [video tutorials](https://www.youtube.com/watch?v=EZWl1ij3dAE&list=UUdWhdi8GES-V-TFuTwjobrA){: external}. 
+{: note}
+
+
 ## Creating a service instance
 {: #create}
 
 Create and bind an instance of {{site.data.keyword.appid_short_notm}} to your app to get started.
 {: shortdesc}
 
-Before you get started, check to be sure that you have the [IBM Cloud prerequisites](/docs/overview?topic=overview-prereqs-platform). 
-{: note}
-
-1. In the {{site.data.keyword.cloud_notm}} catalog, select {{site.data.keyword.appid_short_notm}}. The service configuration screen opens.
-2. Give your service instance a name, or use the preset name.
-3. Select your pricing plan and click **Create**.
-4. Bind your instance of {{site.data.keyword.appid_short_notm}}.
+1. Check to be sure that you have the [IBM Cloud prerequisites](/docs/overview?topic=overview-prereqs-platform). 
+2. In the {{site.data.keyword.cloud_notm}} catalog, select {{site.data.keyword.appid_short_notm}}. The service configuration screen opens.
+3. Give your service instance a name, or use the preset name.
+4. Select your pricing plan and click **Create**.
+5. Bind your instance of {{site.data.keyword.appid_short_notm}}.
     1. To see a list of apps that you can bind to your service instance, click **Connections**.
     2. Click **Create connection**. A page opens with all of the apps that you have the option to bind.
     3. Click **Connect** on the app that you want to bind.
@@ -64,7 +63,7 @@ That's it! You're ready to start configuring your application settings.
 You can use one of the preconfigured sample apps to get familiar with working with the service.
 {: shortdesc}
 
-Out of the box, the sample apps are configured with two identity providers and the ability to review authentication. Sample apps are offered in `iOS Swift`, `Android`, `Node.js`, and `Java`. If you don't see a language in which you feel comfortable working, don't worry! You can integrate {{site.data.keyword.appid_short_notm}} into your own sample application by using the provided APIs.
+Out of the box, the sample apps are configured with two identity providers and the ability to review authentication. Sample apps are offered in `iOS Swift`, `Android`, `Node.js`, and `Java`. If you don't see a language in which you feel comfortable working, don't worry! You can integrate {{site.data.keyword.appid_short_notm}} into your own application by using the provided APIs.
 
 To build a sample app:
 

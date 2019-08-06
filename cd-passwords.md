@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-23"
+lastupdated: "2019-08-05"
 
 keywords: Authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
@@ -148,7 +148,7 @@ When this option is first set to on, any existing user passwords do not have an 
 ### Policy: Ensure that the password does not include user name
 {: #cd-no-username}
 
-For stronger passwords, you might want to prevent users that contain their user name or the first part of their email address.
+For stronger passwords, you might want to prevent users from creating a password that contains their username or the first part of their email address.
 {: shortdesc}
 
 This constraint is not case-sensitive. Users are not able to alter the case of some or all of the characters in order to use the personal information. To configure this option, toggle the switch to **on**.

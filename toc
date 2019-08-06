@@ -21,6 +21,7 @@ IBM Cloud App ID
         tutorial-cf.md
 
     relatedlinks.md
+    whats-new.md
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
