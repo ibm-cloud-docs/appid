@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-09"
+lastupdated: "2019-08-06"
 
 keywords: Authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
@@ -45,7 +45,7 @@ You can use the {{site.data.keyword.appid_short_notm}} dashboard to view details
 
 1. Navigate to the **Cloud Directory > Users** tab of your {{site.data.keyword.appid_short_notm}} instance.
 
-2. Look through the table or search by using an email address to find the user that you want to see the information for.
+2. Look through the table or search by using an email address to find the user that you want to see the information for. The search term must be exact.
 
 3. In the overflow menu in the user's row, click **View user details**. A page opens that contains the user's information. Check out the following table to see what information you can see.
 
