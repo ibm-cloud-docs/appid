@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-11"
+lastupdated: "2019-08-06"
 
 keywords: Authentication, authorization, identity, app security, access, secure, development, any kube, kubernetes, icp, openshift, iks
 
@@ -27,6 +27,13 @@ subcollection: appid
 
 By using the App Identity and Access adapter, you can centralize all of your identity management in a single place. Because enterprises use clouds from multiple providers or a combination of on and off-premise solutions, heterogeneous deployment models can help you to preserve existing infrastructure and avoid vendor lock-in. The adapter can be configured to work with any OIDC-compliant identity provider, such as {{site.data.keyword.appid_short_notm}}, which enables it to control authentication and authorization policies in all environments including front end and backend applications. And, **it does it all without any change to your code or the need to redeploy your application**.
 {: shortdesc}
+
+
+What can the App Identity and Access adapter do for you? Check out this video to learn more about how quickly you can protect your multi-cloud applications.
+
+<iframe class="embed-responsive-item" id="about-app-identity-access-adapter" title="Using Istio to Secure Your Multicloud Kubernetes Applications with Zero Code Change" type="text/html" width="640" height="390" src="//www.youtube.com/embed/z1kCjxOw9Vs?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
+
+
 
 
 ## Multicloud architecture
