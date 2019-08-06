@@ -88,6 +88,8 @@ IBM Cloud App ID
         [iOS Swift client SDK](https://github.com/ibm-cloud-security/appid-clientsdk-swift)
         [Node.js server SDK](https://github.com/ibm-cloud-security/appid-serversdk-nodejs)
         [Swift server SDK](https://github.com/ibm-cloud-security/appid-serversdk-swift)
+
+    whats-new.md
     at-events.md
     well-known.md
     rate-limits.md
