@@ -63,7 +63,7 @@ That's it! You're ready to start configuring your application settings.
 You can use one of the preconfigured sample apps to get familiar with working with the service.
 {: shortdesc}
 
-Out of the box, the sample apps are configured with two identity providers and the ability to review authentication. Sample apps are offered in `iOS Swift`, `Android`, `Node.js`, and `Java`. If you don't see a language in which you feel comfortable working, don't worry! You can integrate {{site.data.keyword.appid_short_notm}} into your own sample application by using the provided APIs.
+Out of the box, the sample apps are configured with two identity providers and the ability to review authentication. Sample apps are offered in `iOS Swift`, `Android`, `Node.js`, and `Java`. If you don't see a language in which you feel comfortable working, don't worry! You can integrate {{site.data.keyword.appid_short_notm}} into your own application by using the provided APIs.
 
 To build a sample app:
 

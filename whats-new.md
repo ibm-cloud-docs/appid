@@ -4,9 +4,9 @@ copyright:
   years: 2017, 2019
 lastupdated: "2019-08-06"
 
-keywords: certificates, SSL,
+keywords: authentication, application identity, authorization, app security, single sign on, mfa, cloud directory
 
-subcollection: certificate-manager
+subcollection: appid
 
 ---
 
@@ -75,7 +75,7 @@ The following features and changes to the {{site.data.keyword.appid_short_notm}}
 
 - **Updated dashboard**  
 
-    Navigate through your Cloud Directory information quickly! Using [{{site.data.keyword.cloud_notm}} Design Thinking](https://www.ibm.com/design/thinking/){: external}, the {{site.data.keyword.appid_short_notm}} dashboard has been redesigned to give you an even better user experience.
+    Navigate through your Cloud Directory information quickly! Using [IBM Design Thinking](https://www.ibm.com/design/thinking/){: external}, the {{site.data.keyword.appid_short_notm}} dashboard has been redesigned to give you an even better user experience.
 
 
 
