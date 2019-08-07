@@ -152,29 +152,6 @@ You can migrate the information in one instance of {{site.data.keyword.appid_sho
             "points": 150
           }
         },
-        {
-          "id": "1439d777-185d-4be1-8f4a-c4e8142b87ea",
-          "name": "App ID Facebook User profile",
-          "email": "mail@mail.com",
-          "identities": [
-            {
-              "provider": "facebook",
-              "id": "100195207128541",
-              "picture": {
-                "data": {
-                  "height": 50,
-                  "width": 50,
-                  "url": "https://profilePic.com"
-                }
-              },
-              "first_name": "AppID",
-              "last_name": "Development"
-            }
-          ],
-          "attributes": {
-            "points": 250
-          }
-        }
       ]
     }'
     ```
