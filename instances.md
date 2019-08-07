@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-31"
+lastupdated: "2019-08-07"
 
 keywords: Authentication, authorization, identity, app security, secure, access, platform, management, permissions
 
@@ -40,10 +40,145 @@ You can migrate the information in one instance of {{site.data.keyword.appid_sho
 
 2. Duplicate your identity provider configuration by using the GUI.
 
-3. If you're using Cloud Directory as your identity provider, migrate your user information by [exporting and importing your users](/docs/services/appid?topic=appid-cd-users#user-migration). Users are exported as a JSON object. You can choose to import the entire object into the new instance or break it up and divide the users as you see fit if you have more than one.
+3. Migrate your users. Known users are exported as a JSON object. Anonymous user's cannot be migrated. You can choose to import the entire object into the new instance or break it up and divide the users as you see fit if you have more than one instance.
 
-  If you're using another federated identity provider, users are added to your new instance at their next sign in to your application. Currently, there is no export or import process in place for users outside of Cloud Directory. Any profiles associated with users that are federated by another provider are lost.
+  For Cloud Directory, see [Migrating users](/docs/services/appid?topic=appid-cd-users#user-migration). For federated identity providers, use the following steps.
   {: note}
+
+  1. Ensure that you are assigned the `Manager` [IAM role](/docs/iam?topic=iam-getstarted#getstarted) for both instances of {{site.data.keyword.appid_short_notm}}.
+  2. Export the users from your original instance of the service.
+
+    ```
+    curl -X GET https://us-south.appid.cloud.ibm.com/management/v4/{tenant-ID}/users/export \
+    --header ‘Accept: application/json’ \
+    --header ‘Authorization: Bearer {IAM-token}’
+    ```
+    {: codeblock}
+
+    <table>
+      <caption>User import command variables</caption>
+      <tr>
+        <th>Variable</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td><code>tenantID</code></td>
+        <td>The service tenant ID can be found in your service credentials. You can find your service or application credentials in the {{site.data.keyword.appid_short_notm}} dashboard.</td>
+      </tr>
+      <tr>
+        <td><code>iam-token</code></td>
+        <td>Your IAM token.</td>
+      </tr>
+    </table>
+
+    Example response:
+
+    ```
+    {
+      "itemsPerPage": 2,
+      "totalResults": 2,
+      "requestOptions": {},
+      "users": [
+        {
+          "id": "7ae804f3-0ed3-45f0-bc6b-1c6af868e6d6",
+          "name": "App ID Google User profile",
+          "email": "your@mail.com",
+          "identities": [
+            {
+              "provider": "google",
+              "id": "105646725068605084546",
+              "idpUserInfo": {
+                "id": "105646725068605084546",
+                "email": "your@mail.com",
+                "picture": "profilePic.jpg"
+              }
+            }
+          ],
+          "attributes": {
+            "points": 150
+          }
+        },
+        {
+          "id": "1439d777-185d-4be1-8f4a-c4e8142b87ea",
+          "name": "App ID Facebook User profile",
+          "email": "mail@mail.com",
+          "identities": [
+            {
+              "provider": "facebook",
+              "id": "100195207128541",
+              "picture": {
+                "data": {
+                  "height": 50,
+                  "width": 50,
+                  "url": "https://profilePic.com"
+                }
+              },
+              "first_name": "AppID",
+              "last_name": "Development"
+            }
+          ],
+          "attributes": {
+            "points": 250
+          }
+        }
+      ]
+    }
+    ```
+    {: screen}
+
+  3. Import the users to your new instance of the service.
+
+    ```
+    curl -X GET https://us-south.appid.cloud.ibm.com/management/v4/{tenant-ID}/users/import \
+    --header ‘Accept: application/json’ \
+    --header ‘Authorization: Bearer {IAM-token}’ \
+    -d ‘"users": [
+        {
+          "id": "7ae804f3-0ed3-45f0-bc6b-1c6af868e6d6",
+          "name": "App ID Google User profile",
+          "email": "your@mail.com",
+          "identities": [
+            {
+              "provider": "google",
+              "id": "105646725068605084546",
+              "idpUserInfo": {
+                "id": "105646725068605084546",
+                "email": "your@mail.com",
+                "picture": "profilePic.jpg"
+              }
+            }
+          ],
+          "attributes": {
+            "points": 150
+          }
+        },
+        {
+          "id": "1439d777-185d-4be1-8f4a-c4e8142b87ea",
+          "name": "App ID Facebook User profile",
+          "email": "mail@mail.com",
+          "identities": [
+            {
+              "provider": "facebook",
+              "id": "100195207128541",
+              "picture": {
+                "data": {
+                  "height": 50,
+                  "width": 50,
+                  "url": "https://profilePic.com"
+                }
+              },
+              "first_name": "AppID",
+              "last_name": "Development"
+            }
+          ],
+          "attributes": {
+            "points": 250
+          }
+        }
+      ]
+    }'
+    ```
+    {: codeblock}
 
 4. Create application credentials to invoke the new service instance.
 
@@ -58,3 +193,4 @@ You can migrate the information in one instance of {{site.data.keyword.appid_sho
 5. Update your application to use the new credentials including any URLs. 
 
 6. Depending on your configuration, you might need to redeploy or unbind and rebind your application.
+
