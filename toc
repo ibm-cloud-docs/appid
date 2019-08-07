@@ -43,7 +43,7 @@ IBM Cloud App ID
         custom.md
 
     {: .topicgroup}
-    Managing Cloud Directory
+    Configuring Cloud Directory
         cd-configuring.md
         cd-messages.md
         cd-passwords.md

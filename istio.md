@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-08-06"
+lastupdated: "2019-08-07"
 
 keywords: Authentication, authorization, identity, app security, access, secure, development, any kube, kubernetes, icp, openshift, iks
 
@@ -32,7 +32,6 @@ By using the App Identity and Access adapter, you can centralize all of your ide
 What can the App Identity and Access adapter do for you? Check out this video to learn more about how quickly you can protect your multi-cloud applications.
 
 <iframe class="embed-responsive-item" id="about-app-identity-access-adapter" title="Using Istio to Secure Your Multicloud Kubernetes Applications with Zero Code Change" type="text/html" width="640" height="390" src="//www.youtube.com/embed/z1kCjxOw9Vs?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
-
 
 
 
