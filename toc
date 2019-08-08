@@ -43,7 +43,7 @@ IBM Cloud App ID
         custom.md
 
     {: .topicgroup}
-    Configuring Cloud Directory
+    Hosting your own user registry
         cd-configuring.md
         cd-messages.md
         cd-passwords.md
@@ -57,7 +57,7 @@ IBM Cloud App ID
         branded.md
     
     {: .topicgroup}
-    Managing user profiles
+    Personalizing user experiences
         profiles.md
         pre-sign-in.md
 
