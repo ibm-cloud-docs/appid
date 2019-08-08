@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-31"
+lastupdated: "2019-08-08"
 
 keywords: Authentication, authorization, identity, app security, secure, access, platform, management, permissions
 
@@ -40,7 +40,7 @@ You can migrate the information in one instance of {{site.data.keyword.appid_sho
 
 2. Duplicate your identity provider configuration by using the GUI.
 
-3. If you're using Cloud Directory as your identity provider, migrate your user information by [exporting and importing your users](/docs/services/appid?topic=appid-cd-users#user-migration). Users are exported as a JSON object. You can choose to import the entire object into the new instance or break it up and divide the users as you see fit if you have more than one.
+3. Migrate your users. If you're using Cloud Directory as your identity provider, migrate your user information by [exporting and importing your users](/docs/services/appid?topic=appid-cd-users#user-migration). Users are exported as a JSON object. You can choose to import the entire object into the new instance or break it up and divide the users as you see fit if you have more than one.
 
   If you're using another federated identity provider, users are added to your new instance at their next sign in to your application. Currently, there is no export or import process in place for users outside of Cloud Directory. Any profiles associated with users that are federated by another provider are lost.
   {: note}
@@ -58,3 +58,4 @@ You can migrate the information in one instance of {{site.data.keyword.appid_sho
 5. Update your application to use the new credentials including any URLs. 
 
 6. Depending on your configuration, you might need to redeploy or unbind and rebind your application.
+
