@@ -60,25 +60,16 @@ Check out the [whitepaper](https://www.ibm.com/cloud/blog/ibm-cloud-app-id-techn
 
 Interested in securing your applications? Check out the blogs and samples here to see how it's done.
 
-<img src="images/blog-code.svg" alt="Classic infrastructure provider icon" width="25" style="width:25px; border-style: none"/> [Securing Angular + Node.js Applications by using {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/securing-angularnode-js-applications-using-app-id){: external}
-
-[Securing single page apps with {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/securing-single-page-apps-app-id-service){: external}
-
-[Creating Spring Boot applications with {{site.data.keyword.appid_long}}](https://www.ibm.com/cloud/blog/creating-spring-boot-applications-app-id){: external}
-
-<img src="images/logo--github.svg" alt="Classic infrastructure provider icon" width="25" style="width:25px; border-style: none"/> [Using {{site.data.keyword.appid_short_notm}} with Python](https://github.com/mnsn/appid-python-flask-example){: external}
-
-<img src="images/logo--github.svg" alt="Classic infrastructure provider icon" width="25" style="width:25px; border-style: none"/> [Using Python Flask-pyoidc with {{site.data.keyword.appid_short_notm}}](https://github.com/IBM-Cloud/github-traffic-stats){: external}
-
-<img src="images/logo--github.svg" alt="Classic infrastructure provider icon" width="25" style="width:25px; border-style: none"/> [Securing a VueJS app by using {{site.data.keyword.appid_short_notm}}](https://github.com/ibmets/appid-vue-client){: external}
-
-[Creating Go applications with {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/creating-go-applications-with-app-id){: external}
-
-[Sign in your app users with any identity provider by using {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/app-id-integrate-custom-identity){: external}
-
-[Authenticating Web Users with OpenID and JWT](http://heidloff.net/article/authenticating-web-users-openid-connect-jwt/){: external}
-
-[Authorization in Cloud-Native Apps in Istio via OpenID](http://heidloff.net/article/authentication-authorization-openid-connect-istio){: external}
+* <img src="images/blog-code.svg" alt="Icon indicating that this blog contains sample code" width="25" style="width:25px; border-style: none"/> [Securing Angular + Node.js Applications by using {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/securing-angularnode-js-applications-using-app-id){: external}
+* [Securing single page apps with {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/securing-single-page-apps-app-id-service){: external}
+* [Creating Spring Boot applications with {{site.data.keyword.appid_long}}](https://www.ibm.com/cloud/blog/creating-spring-boot-applications-app-id){: external}
+* <img src="images/logo--github.svg" alt="Github logo" width="25" style="width:25px; border-style: none"/> [Using {{site.data.keyword.appid_short_notm}} with Python](https://github.com/mnsn/appid-python-flask-example){: external}
+* <img src="images/logo--github.svg" alt="Github icon" width="25" style="width:25px; border-style: none"/> [Using Python Flask-pyoidc with {{site.data.keyword.appid_short_notm}}](https://github.com/IBM-Cloud/github-traffic-stats){: external}
+* <img src="images/logo--github.svg" alt="Github icon" width="25" style="width:25px; border-style: none"/> [Securing a VueJS app by using {{site.data.keyword.appid_short_notm}}](https://github.com/ibmets/appid-vue-client){: external}
+* [Creating Go applications with {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/creating-go-applications-with-app-id){: external}
+* [Sign in your app users with any identity provider by using {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/app-id-integrate-custom-identity){: external}
+* [Authenticating Web Users with OpenID and JWT](http://heidloff.net/article/authenticating-web-users-openid-connect-jwt/){: external}
+* [Authorization in Cloud-Native Apps in Istio via OpenID](http://heidloff.net/article/authentication-authorization-openid-connect-istio){: external}
 
 
 Using multiple cloud providers? Check out the blog [Adding sign in to multicloud applications without code changes](https://www.ibm.com/cloud/blog/adding-sign-in-to-multicloud-applications-without-code-changes){: external}.

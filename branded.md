@@ -39,6 +39,11 @@ Want to use a [language](/docs/services/appid?topic=appid-cd-messages#cd-languag
 {: tip}
 
 
+## What information do I need to obtain with my sign in or sign up screen?
+{: #branded-form-submit}
+
+When you make the request to submit your sign-in form, it must contain both username and password parameters in your request body. This means that your sign in or sign up page must ask that information from your users.
+
 
 ### Can I use some of my own and some of the default screens?
 {: #branded-hybrid}
