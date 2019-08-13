@@ -35,7 +35,7 @@ Getting started? Try walking through our [video tutorials](https://youtu.be/tBOF
 ## Contact us
 {: #rellinks-contact}
 
-We’d love to hear from you with feedback and questions! To get started with {{site.data.keyword.appid_short}}, check it out in the {{site.data.keyword.cloud_notm}} catalog.
+We’d love to hear from you with feedback and questions! To get started with {{site.data.keyword.appid_short}}, check out in the {{site.data.keyword.cloud_notm}} catalog.
 * If you have technical questions about {{site.data.keyword.appid_short_notm}}, post your question on [Stack Overflow](https://stackoverflow.com){: external} and tag your question with "ibm-appid".
 * For questions about the service and getting started instructions, use the [IBM Developer Answers](https://developer.ibm.com){: external} forum. Include the `appid` tag.
 * Reach out directly to the development team on [Slack](https://ibm-container-service.slack.com)! 
@@ -46,10 +46,10 @@ We’d love to hear from you with feedback and questions! To get started with {{
 
 Get to know more about {{site.data.keyword.appid_short_notm}} by reading through some blogs and watching some videos!
 
-* <img src="images/video.svg" alt="Classic infrastructure provider icon" width="25" style="width:25px; border-style: none"/> [Introducing {{site.data.keyword.appid_short_notm}}: video](https://www.youtube.com/watch?v=XlrCjHdK43Q){: external}
+* <img src="images/video.svg" alt="Classic infrastructure provider icon" width="25" style="width:25px; border-style: none"/> [Introducing {{site.data.keyword.appid_short_notm}}](https://www.youtube.com/watch?v=XlrCjHdK43Q){: external}
 * [Cloud App Security - What makes a secure app?](https://www.ibm.com/blogs/cloud-archive/2017/08/cloud-app-security-makes-secure-app/){: external}
 * [Security to safeguard and monitor your apps](https://www.ibm.com/cloud/garage/architectures/securityArchitecture/security-for-application){: external}
-* [Add sign up and sign in to your apps with {{site.data.keyword.appid_short_notm}}](https://www.youtube.com/watch?v=cDSYNFn4rX8){: external}
+* <img src="images/video.svg" alt="Classic infrastructure provider icon" width="25" style="width:25px; border-style: none"/> [Add sign up and sign in to your apps with {{site.data.keyword.appid_short_notm}}](https://www.youtube.com/watch?v=cDSYNFn4rX8){: external}
 
 Check out the [whitepaper](https://www.ibm.com/cloud/blog/ibm-cloud-app-id-technical-white-paper-now-available){: external} for an even deeper dive into the teachnical details of the service.
 {: tip}
@@ -110,9 +110,10 @@ See {{site.data.keyword.appid_short_notm}} in action in these market examples.
 
 Need help integrating with your enterprise apps? Don't worry! {{site.data.keyword.appid_short_notm}} can do that too.
 
-* <a href="https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-azure-active-directory" target="_blank">Setting up {{site.data.keyword.appid_long}} with your Azure Active Directory <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
-* <a href="https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-ping-one" target="_blank">Setting up {{site.data.keyword.appid_long}} with Ping One <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
-* <a href="https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-active-directory-federation-service" target="_blank">Setting up {{site.data.keyword.appid_long}} with your Active Directory Federation Service <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
+* [Setting up {{site.data.keyword.appid_long}} with your Azure Active Directory](https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-azure-active-directory){: external}
+* [Setting up {{site.data.keyword.appid_long}} with Ping One](https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-ping-one){: external}
+* [Setting up {{site.data.keyword.appid_long}} with your Active Directory Federation Service](https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-active-directory-federation-service){: external}
+
 
 
 ## Custom sign-in experience
