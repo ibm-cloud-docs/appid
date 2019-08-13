@@ -46,7 +46,7 @@ We’d love to hear from you with feedback and questions! To get started with {{
 
 Get to know more about {{site.data.keyword.appid_short_notm}} by reading through some blogs and watching some videos!
 
-![Video icon](images/video.svg) [Introducing {{site.data.keyword.appid_short_notm}}: video](https://www.youtube.com/watch?v=XlrCjHdK43Q){: external}
+* <img src="images/video.svg" alt="Classic infrastructure provider icon" width="25" style="width:25px; border-style: none"/> [Introducing {{site.data.keyword.appid_short_notm}}: video](https://www.youtube.com/watch?v=XlrCjHdK43Q){: external}
 * [Cloud App Security - What makes a secure app?](https://www.ibm.com/blogs/cloud-archive/2017/08/cloud-app-security-makes-secure-app/){: external}
 * [Security to safeguard and monitor your apps](https://www.ibm.com/cloud/garage/architectures/securityArchitecture/security-for-application){: external}
 * [Add sign up and sign in to your apps with {{site.data.keyword.appid_short_notm}}](https://www.youtube.com/watch?v=cDSYNFn4rX8){: external}
