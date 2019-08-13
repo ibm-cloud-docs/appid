@@ -36,8 +36,8 @@ Getting started? Try walking through our [video tutorials](https://youtu.be/tBOF
 {: #rellinks-contact}
 
 We’d love to hear from you with feedback and questions! To get started with {{site.data.keyword.appid_short}}, check it out in the {{site.data.keyword.cloud_notm}} catalog.
-* If you have technical questions about {{site.data.keyword.appid_short_notm}}, post your question on <a href="https://stackoverflow.com" target="_blank">Stack Overflow <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> and tag your question with "ibm-appid".
-* For questions about the service and getting started instructions, use the <a href="https://developer.ibm.com" target="_blank">IBM Developer Answers <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> forum. Include the `appid` tag.
+* If you have technical questions about {{site.data.keyword.appid_short_notm}}, post your question on [Stack Overflow](https://stackoverflow.com){: external} and tag your question with "ibm-appid".
+* For questions about the service and getting started instructions, use the [IBM Developer Answers](https://developer.ibm.com){: external} forum. Include the `appid` tag.
 * Reach out directly to the development team on [Slack](https://ibm-container-service.slack.com)! 
 
 
@@ -46,19 +46,13 @@ We’d love to hear from you with feedback and questions! To get started with {{
 
 Get to know more about {{site.data.keyword.appid_short_notm}} by reading through some blogs and watching some videos!
 
-* <a href="https://www.youtube.com/watch?v=XlrCjHdK43Q" target="_blank">Introducing {{site.data.keyword.appid_short_notm}}: video<img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
-* <a href="https://www.ibm.com/blogs/cloud-archive/2017/08/cloud-app-security-makes-secure-app/" target="_blank">Cloud App Security - What makes a secure app? <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
-* <a href="https://www.ibm.com/cloud/garage/architectures/securityArchitecture/security-for-application" target="_blank">Security to safeguard and monitor your apps <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
-* <a href="https://www.youtube.com/watch?v=cDSYNFn4rX8" target="_blank">Add sign up and sign in to your apps with {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
+![Video icon](images/video.svg) [Introducing {{site.data.keyword.appid_short_notm}}: video](https://www.youtube.com/watch?v=XlrCjHdK43Q){: external}
+* [Cloud App Security - What makes a secure app?](https://www.ibm.com/blogs/cloud-archive/2017/08/cloud-app-security-makes-secure-app/){: external}
+* [Security to safeguard and monitor your apps](https://www.ibm.com/cloud/garage/architectures/securityArchitecture/security-for-application){: external}
+* [Add sign up and sign in to your apps with {{site.data.keyword.appid_short_notm}}](https://www.youtube.com/watch?v=cDSYNFn4rX8){: external}
 
-
-
-## White paper
-{: #rellinks-paper}
-
-Want to know the gritty details about how the service works? Check out the technical white paper.
-
-* <a href="https://www.ibm.com/cloud/blog/ibm-cloud-app-id-technical-white-paper-now-available" target="_blank">{{site.data.keyword.appid_long}} technical white paper - Now Available <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
+Check out the [whitepaper](https://www.ibm.com/cloud/blog/ibm-cloud-app-id-technical-white-paper-now-available){: external} for an even deeper dive into the teachnical details of the service.
+{: tip}
 
 
 ## Securing apps
@@ -66,20 +60,19 @@ Want to know the gritty details about how the service works? Check out the techn
 
 Interested in securing your applications? Check out the blogs and samples here to see how it's done.
 
-* <a href="https://www.ibm.com/cloud/blog/securing-angularnode-js-applications-using-app-id" target="_blank">Securing Angular + Node.js Applications by using {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
-* <a href="https://www.ibm.com/cloud/blog/securing-single-page-apps-app-id-service" target="_blank">Securing single page apps with {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
-* <a href="https://www.ibm.com/cloud/blog/creating-spring-boot-applications-app-id" target="_blank">Creating Spring Boot applications with {{site.data.keyword.appid_long}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
-* <a href="https://github.com/mnsn/appid-python-flask-example" target="_blank">Using {{site.data.keyword.appid_short_notm}} with Python <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
-* <a href="https://github.com/IBM-Cloud/github-traffic-stats" target="_blank">Using Python Flask-pyoidc with {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
-* <a href="https://github.com/ibmets/appid-vue-client" target="_blank">Securing a VueJS app by using {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
-* <a href="https://www.ibm.com/cloud/blog/creating-go-applications-with-app-id" target="_blank">Creating Go applications with {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
-* <a href="https://www.ibm.com/cloud/blog/app-id-integrate-custom-identity" target="_blank">Sign in your app users with any identity provider by using {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
-* <a href="http://heidloff.net/article/authenticating-web-users-openid-connect-jwt/" target="_blank">Authenticating Web Users with OpenID and JWT <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
-* <a href="http://heidloff.net/article/authentication-authorization-openid-connect-istio" target="_blank">Authorization in Cloud-Native Apps in Istio via OpenID <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
+* [Securing Angular + Node.js Applications by using {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/securing-angularnode-js-applications-using-app-id){: external}
+* [Securing single page apps with {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/securing-single-page-apps-app-id-service){: external}
+* [Creating Spring Boot applications with {{site.data.keyword.appid_long}}](https://www.ibm.com/cloud/blog/creating-spring-boot-applications-app-id){: external}
+* [Using {{site.data.keyword.appid_short_notm}} with Python](https://github.com/mnsn/appid-python-flask-example){: external}
+* [Using Python Flask-pyoidc with {{site.data.keyword.appid_short_notm}}](https://github.com/IBM-Cloud/github-traffic-stats){: external}
+* [Securing a VueJS app by using {{site.data.keyword.appid_short_notm}}](https://github.com/ibmets/appid-vue-client){: external}
+* [Creating Go applications with {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/creating-go-applications-with-app-id){: external}
+* [Sign in your app users with any identity provider by using {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/app-id-integrate-custom-identity){: external}
+* [Authenticating Web Users with OpenID and JWT](http://heidloff.net/article/authenticating-web-users-openid-connect-jwt/){: external}
+* [http://heidloff.net/article/authentication-authorization-openid-connect-istio](Authorization in Cloud-Native Apps in Istio via OpenID){: external}
 
 
-
-Using multiple cloud providers? Check out the blog: <a href="https://www.ibm.com/cloud/blog/adding-sign-in-to-multicloud-applications-without-code-changes" target="_blank">Adding sign in to multicloud applications without code changes <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
+Using multiple cloud providers? Check out the blog [Adding sign in to multicloud applications without code changes](https://www.ibm.com/cloud/blog/adding-sign-in-to-multicloud-applications-without-code-changes){ :external}.
 {: tip}
 
 
@@ -89,14 +82,14 @@ Using multiple cloud providers? Check out the blog: <a href="https://www.ibm.com
 
 Just getting started? Try walking through some of our tutorials and blogs for help integrating {{site.data.keyword.appid_short_notm}} into your apps!
 
-* <a href="https://www.ibm.com/cloud/blog/announcing-app-id-integration-ibm-cloud-kubernetes-service" target="_blank">Announcing {{site.data.keyword.appid_short_notm}} integration to {{site.data.keyword.containerlong}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
-* <a href="https://www.ibm.com/cloud/blog/using-app-id-secure-docker-kubernetes-applications" target="_blank">Using {{site.data.keyword.appid_short_notm}} to secure Docker and Kubernetes applications <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
-* <a href="https://www.ibm.com/cloud/blog/authenticating-users-with-cloud-functions-api-gateway-and-app-id" target="_blank">Authenticating Users with Cloud Functions, API Gateway, and {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
-* <a href="/docs/tutorials?topic=solution-tutorials-serverless-mobile-backend#serverless-mobile-backend" target="_blank">Mobile application with a serverless back-end <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
-* <a href="/docs/tutorials?topic=solution-tutorials-serverless-github-traffic-analytics#serverless-github-traffic-analytics" target="_blank">Combining serverless and Cloud Foundry for data retrieval and analytics <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
-* <a href="https://www.ibm.com/cloud/blog/how-to-configure-ibm-cloud-app-id-from-the-toolchain" target="_blank">Configuring {{site.data.keyword.appid_short_notm}} From the Toolchain <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
-* <a href="http://heidloff.net/article/user-authorization-serverless-web-applications-openwhisk" target="_blank">User Authorization in Serverless Web Applications <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
-* <a href="http://heidloff.net/article/user-authentication-serverless-openwhisk" target="_blank">Authentication of Users in Serverless Applications <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
+* [Announcing {{site.data.keyword.appid_short_notm}} integration to {{site.data.keyword.containerlong}}](https://www.ibm.com/cloud/blog/announcing-app-id-integration-ibm-cloud-kubernetes-service){: external}
+* [Using {{site.data.keyword.appid_short_notm}} to secure Docker and Kubernetes applications](https://www.ibm.com/cloud/blog/using-app-id-secure-docker-kubernetes-applications){: external}
+* [Authenticating Users with Cloud Functions, API Gateway, and {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/authenticating-users-with-cloud-functions-api-gateway-and-app-id){: external}
+* [Mobile application with a serverless back-end](/docs/tutorials?topic=solution-tutorials-serverless-mobile-backend#serverless-mobile-backend)
+* [Combining serverless and Cloud Foundry for data retrieval and analytics](/docs/tutorials?topic=solution-tutorials-serverless-github-traffic-analytics#serverless-github-traffic-analytics)
+* [Configuring {{site.data.keyword.appid_short_notm}} From the Toolchain](https://www.ibm.com/cloud/blog/how-to-configure-ibm-cloud-app-id-from-the-toolchain){: external}
+* [User Authorization in Serverless Web Applications](http://heidloff.net/article/user-authorization-serverless-web-applications-openwhisk){: external}
+* [Authentication of Users in Serverless Applications](http://heidloff.net/article/user-authentication-serverless-openwhisk){: external}
 
 
 
@@ -105,10 +98,11 @@ Just getting started? Try walking through some of our tutorials and blogs for he
 
 See {{site.data.keyword.appid_short_notm}} in action in these market examples.
 
-* <a href="https://www.ibm.com/support/knowledgecenter/SSQP8H/iot/platform/reference/security/app_id.html" target="_blank">{{site.data.keyword.appid_short_notm}} Authentication for Watson IoT Platform (Beta) <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
-* <a href="https://developer.ibm.com/articles/iot-trs-secure-iot-solutions3/" target="_blank">Design and build secure IoT solutions, part 3: Securing IoT applications <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
-* <a href="https://www.ibm.com/cloud/blog/developing-finance-application-using-ibm-cloud" target="_blank">Developing a finance application by using {{site.data.keyword.cloud_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
-* <a href="/docs/tutorials?topic=solution-tutorials-cloud-e2e-security#cloud-e2e-security" target="_blank">Apply end to end security to a cloud application <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
+* [{{site.data.keyword.appid_short_notm}} Authentication for Watson IoT Platform (Beta)](https://www.ibm.com/support/knowledgecenter/SSQP8H/iot/platform/reference/security/app_id.html){: external}
+* [Design and build secure IoT solutions, part 3: Securing IoT applications](https://developer.ibm.com/articles/iot-trs-secure-iot-solutions3/){: external}
+* [Developing a finance application by using {{site.data.keyword.cloud_notm}}](https://www.ibm.com/cloud/blog/developing-finance-application-using-ibm-cloud){: external}
+* [Apply end to end security to a cloud application](/docs/tutorials?topic=solution-tutorials-cloud-e2e-security#cloud-e2e-security)
+
 
 
 ## Integrating with your enterprise user directory
@@ -126,18 +120,19 @@ Need help integrating with your enterprise apps? Don't worry! {{site.data.keywor
 
 Want to have a custom experience for your users? Not a problem.
 
-* <a href="https://www.ibm.com/cloud/blog/use-branded-ui-user-sign-app-id" target="_blank">Use your own branded UI for user sign-in with {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
-* <a href="https://www.ibm.com/cloud/blog/use-ui-flows-user-sign-sign-app-id" target="_blank">Use your own UI and Flows for User Sign-Up and Sign-in with {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
-* <a href="https://www.ibm.com/cloud/blog/custom-login-page-app-id-integration" target="_blank">Use a custom login page with  {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
-* <a href="https://www.ibm.com/cloud/blog/use-ibm-cloud-app-id-and-your-email-provider-to-brand-mails-sent-to-app-users" target="_blank">Use Your Own Provider for Mail Sent with {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
+* [Use your own branded UI for user sign-in with {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/use-branded-ui-user-sign-app-id){: external}
+* [Use your own UI and Flows for User Sign-Up and Sign-in with {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/use-ui-flows-user-sign-sign-app-id){: external}
+* [Use a custom login page with  {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/custom-login-page-app-id-integration){: external}
+* [Use Your Own Provider for Mail Sent with {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/use-ibm-cloud-app-id-and-your-email-provider-to-brand-mails-sent-to-app-users){: external}
+
 
 ## Programming guides
 {: #rellinks-guide}
 
 Are you working in a specific language and want to see how {{site.data.keyword.appid_short_notm}} fits in with other {{site.data.keyword.cloud_notm}} services? Check out one of the programming guides.
 
-* <a href="/docs/swift?topic=swift-getting-started" target="_blank">Programming with Swift on {{site.data.keyword.cloud_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
-* <a href="/docs/node?topic=nodejs-getting-started" target="_blank">Programming with Node.js on {{site.data.keyword.cloud_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
+* [Programming with Swift on {{site.data.keyword.cloud_notm}}](/docs/swift?topic=swift-getting-started){ :external}
+* [Programming with Node.js on {{site.data.keyword.cloud_notm}}](/docs/node?topic=nodejs-getting-started){ :external}
 
 
 ## Testing
