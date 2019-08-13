@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-08-06"
+lastupdated: "2019-08-13"
 
 keywords: Authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
@@ -174,7 +174,6 @@ You can manage your Cloud Directory users through the {{site.data.keyword.appid_
 
 When a user signs up for your application, they do so through a self-service workflow that automatically triggers emails such as a welcome or verification request. When you, as an administrator, add a user to your app a self-service workflow is not initiated, which means that users do not receive any emails from your application. If you want your users to still be notified that they're added, you can trigger the messaging flows through the [App ID management API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.set_cloud_directory_email_dispatcher).
 
-
 ### Adding users
 {: #add-users}
 
@@ -196,6 +195,9 @@ If you disable self-service sign-up or add a user on their behalf, the user does
 4. Click **Save**. A Cloud Directory user is created.
 
 </br>
+
+
+
 
 
 **To add a user with the API:**
@@ -232,6 +234,8 @@ The following flow shows how to add a user with an email and password. You can a
   ```
   {: codeblock}
 
+
+
 </br>
 
 
@@ -252,6 +256,10 @@ If you want to remove a user from your directory, you can delete the user from t
 4. Confirm that you understand that deleting a user cannot be undone by clicking **Delete**. If the action was a mistake, you can add the user to your directory again, but any information about that user is no longer available.
 
 </br>
+
+
+
+
 
 **To delete a user by using the API:**
 
