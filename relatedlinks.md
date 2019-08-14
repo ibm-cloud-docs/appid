@@ -46,10 +46,10 @@ We’d love to hear from you with feedback and questions! To get started with {{
 
 Get to know more about {{site.data.keyword.appid_short_notm}} by reading through some blogs and watching some videos!
 
-* <img src="images/video.svg" alt="Classic infrastructure provider icon" width="20" style="width:20px; border-style: none"/> [Introducing {{site.data.keyword.appid_short_notm}}](https://www.youtube.com/watch?v=XlrCjHdK43Q){: external}
-* [Cloud App Security - What makes a secure app?](https://www.ibm.com/blogs/cloud-archive/2017/08/cloud-app-security-makes-secure-app/){: external}
+* <img src="images/video.svg" alt="Video icon" width="20" style="width:20px; border-style: none"/> [Introducing {{site.data.keyword.appid_short_notm}}](https://www.youtube.com/watch?v=XlrCjHdK43Q){: external}
+* <img src="images/blog.svg" alt="General blog icon" width="20" style="width:20px; border-style: none"/> [Cloud App Security - What makes a secure app?](https://www.ibm.com/blogs/cloud-archive/2017/08/cloud-app-security-makes-secure-app/){: external}
 * [Security to safeguard and monitor your apps](https://www.ibm.com/cloud/garage/architectures/securityArchitecture/security-for-application){: external}
-* <img src="images/video.svg" alt="Classic infrastructure provider icon" width="20" style="width:20px; border-style: none"/> [Add sign up and sign in to your apps with {{site.data.keyword.appid_short_notm}}](https://www.youtube.com/watch?v=cDSYNFn4rX8){: external}
+* <img src="images/video.svg" alt="Video icon" width="20" style="width:20px; border-style: none"/> [Add sign up and sign in to your apps with {{site.data.keyword.appid_short_notm}}](https://www.youtube.com/watch?v=cDSYNFn4rX8){: external}
 * [Technical white paper](https://www.ibm.com/cloud/blog/ibm-cloud-app-id-technical-white-paper-now-available){: external}
 {: tip}
 
