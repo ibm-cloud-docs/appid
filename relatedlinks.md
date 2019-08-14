@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-08-13"
+lastupdated: "2019-08-14"
 
 keywords: Authentication, authorization, identity, app security, secure
 
@@ -51,7 +51,7 @@ Get to know more about {{site.data.keyword.appid_short_notm}} by reading through
 * [Security to safeguard and monitor your apps](https://www.ibm.com/cloud/garage/architectures/securityArchitecture/security-for-application){: external}
 * <img src="images/video.svg" alt="Classic infrastructure provider icon" width="25" style="width:25px; border-style: none"/> [Add sign up and sign in to your apps with {{site.data.keyword.appid_short_notm}}](https://www.youtube.com/watch?v=cDSYNFn4rX8){: external}
 
-Check out the [whitepaper](https://www.ibm.com/cloud/blog/ibm-cloud-app-id-technical-white-paper-now-available){: external} for an even deeper dive into the teachnical details of the service.
+Check out the [white paper](https://www.ibm.com/cloud/blog/ibm-cloud-app-id-technical-white-paper-now-available){: external} for an even deeper dive into the technical details of the service.
 {: tip}
 
 
@@ -63,9 +63,9 @@ Interested in securing your applications? Check out the blogs and samples here t
 * <img src="images/blog-code.svg" alt="Icon indicating that this blog contains sample code" width="25" style="width:25px; border-style: none"/> [Securing Angular + Node.js Applications by using {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/securing-angularnode-js-applications-using-app-id){: external}
 * [Securing single page apps with {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/securing-single-page-apps-app-id-service){: external}
 * [Creating Spring Boot applications with {{site.data.keyword.appid_long}}](https://www.ibm.com/cloud/blog/creating-spring-boot-applications-app-id){: external}
-* <img src="images/logo--github.svg" alt="Github logo" width="25" style="width:25px; border-style: none"/> [Using {{site.data.keyword.appid_short_notm}} with Python](https://github.com/mnsn/appid-python-flask-example){: external}
-* <img src="images/logo--github.svg" alt="Github icon" width="25" style="width:25px; border-style: none"/> [Using Python Flask-pyoidc with {{site.data.keyword.appid_short_notm}}](https://github.com/IBM-Cloud/github-traffic-stats){: external}
-* <img src="images/logo--github.svg" alt="Github icon" width="25" style="width:25px; border-style: none"/> [Securing a VueJS app by using {{site.data.keyword.appid_short_notm}}](https://github.com/ibmets/appid-vue-client){: external}
+* <img src="images/logo--github.svg" alt="GitHub logo" width="25" style="width:25px; border-style: none"/> [Using {{site.data.keyword.appid_short_notm}} with Python](https://github.com/mnsn/appid-python-flask-example){: external}
+* <img src="images/logo--github.svg" alt="GitHub icon" width="25" style="width:25px; border-style: none"/> [Using Python Flask-pyoidc with {{site.data.keyword.appid_short_notm}}](https://github.com/IBM-Cloud/github-traffic-stats){: external}
+* <img src="images/logo--github.svg" alt="GitHub icon" width="25" style="width:25px; border-style: none"/> [Securing a VueJS app by using {{site.data.keyword.appid_short_notm}}](https://github.com/ibmets/appid-vue-client){: external}
 * [Creating Go applications with {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/creating-go-applications-with-app-id){: external}
 * [Sign in your app users with any identity provider by using {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/app-id-integrate-custom-identity){: external}
 * [Authenticating Web Users with OpenID and JWT](http://heidloff.net/article/authenticating-web-users-openid-connect-jwt/){: external}
