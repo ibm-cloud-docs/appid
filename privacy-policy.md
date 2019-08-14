@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-16"
+lastupdated: "2019-08-14"
 
 keywords: Authentication, authorization, identity, app security, secure, custom, proprietary, social, facebook, google, 
 
@@ -29,7 +29,7 @@ subcollection: appid
 **Effective: July 2019**
 
 
-Client performs development and testing of applications using the default configuration of {{site.data.keyword.appid_full}} (“{{site.data.keyword.appid_short_notm}}” or "Service") for Facebook or Google. Client uses the default settings of {{site.data.keyword.appid_short_notm}} only for evaluation and testing purposes, and to determine whether to incorporate {{site.data.keyword.appid_short_notm}} into the application(s) being developed by Client (“Permitted Uses”). Client will not use the default settings of {{site.data.keyword.appid_short_notm}} for any uses or purposes other than the previously stated Permitted Uses.  
+Developer, hereinafter referred to as “Client”, performs development and testing of applications using the default configuration of {{site.data.keyword.appid_full}} (“{{site.data.keyword.appid_short_notm}}” or "Service") for Facebook or Google. Client uses the default settings of {{site.data.keyword.appid_short_notm}} only for evaluation and testing purposes, and to determine whether to incorporate {{site.data.keyword.appid_short_notm}} into the application(s) being developed by Client (“Permitted Uses”). Client will not use the default settings of {{site.data.keyword.appid_short_notm}} for any uses or purposes other than the previously stated Permitted Uses.  
 
 Client will implement a Privacy Policy, separate from this document, upon transition of applications from development to production.  
 
@@ -131,4 +131,4 @@ This Privacy Policy should be reviewed periodically for any changes. Changes to 
 ## Contact Us
 {: #policy-contact}
 
-For any questions about this Privacy Policy, please contact [IBM Support](https://www.ibm.com/cloud/support){: external}.
+For any questions about this Privacy Policy, please contact the client.
