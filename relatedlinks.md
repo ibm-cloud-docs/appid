@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-08-14"
+lastupdated: "2019-08-15"
 
 keywords: Authentication, authorization, identity, app security, secure
 
@@ -48,7 +48,7 @@ Get to know more about {{site.data.keyword.appid_short_notm}} by reading through
 
 * <img src="images/video.svg" alt="Video icon" width="20" style="width:20px; border-style: none"/> [Introducing {{site.data.keyword.appid_short_notm}}](https://www.youtube.com/watch?v=XlrCjHdK43Q){: external}
 * <img src="images/blog.svg" alt="General blog icon" width="20" style="width:20px; border-style: none"/> [Cloud App Security - What makes a secure app?](https://www.ibm.com/blogs/cloud-archive/2017/08/cloud-app-security-makes-secure-app/){: external}
-* [Security to safeguard and monitor your apps](https://www.ibm.com/cloud/garage/architectures/securityArchitecture/security-for-application){: external}
+* <img src="images/garage-article.svg" alt="Cloud Garage icon" width="20" style="width:20px; border-style: none"/> [Security to safeguard and monitor your apps](https://www.ibm.com/cloud/garage/architectures/securityArchitecture/security-for-application){: external}
 * <img src="images/video.svg" alt="Video icon" width="20" style="width:20px; border-style: none"/> [Add sign up and sign in to your apps with {{site.data.keyword.appid_short_notm}}](https://www.youtube.com/watch?v=cDSYNFn4rX8){: external}
 * [Technical white paper](https://www.ibm.com/cloud/blog/ibm-cloud-app-id-technical-white-paper-now-available){: external}
 {: tip}
@@ -63,7 +63,7 @@ Be sure that you're using version 4 of the [runtime APIs](https://www.ibm.com/bl
 Interested in securing your applications? Check out the blogs and samples here to see how it's done.
 
 * <img src="images/blog-code.svg" alt="Icon indicating that this blog contains sample code" width="20" style="width:20px; border-style: none"/> [Securing Angular + Node.js Applications by using {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/securing-angularnode-js-applications-using-app-id){: external}
-* [Securing single page apps with {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/securing-single-page-apps-app-id-service){: external}
+* <img src="images/blog.svg" alt="General blog icon" width="20" style="width:20px; border-style: none"/> [Securing single page apps with {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/securing-single-page-apps-app-id-service){: external}
 * [Creating Spring Boot applications with {{site.data.keyword.appid_long}}](https://www.ibm.com/cloud/blog/creating-spring-boot-applications-app-id){: external}
 * <img src="images/logo--github.svg" alt="GitHub logo" width="20" style="width:20px; border-style: none"/> [Using {{site.data.keyword.appid_short_notm}} with Python](https://github.com/mnsn/appid-python-flask-example){: external}
 * <img src="images/logo--github.svg" alt="GitHub icon" width="20" style="width:20px; border-style: none"/> [Using Python Flask-pyoidc with {{site.data.keyword.appid_short_notm}}](https://github.com/IBM-Cloud/github-traffic-stats){: external}
