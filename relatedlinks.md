@@ -144,3 +144,45 @@ Are you working in a specific language and want to see how {{site.data.keyword.a
 {: #rellinks-test}
 
 Ready to start trying out the service? The easiest way to try out the APIs is by using the [App ID Postman collection](https://github.com/ibm-cloud-security/appid-postman){: external}.
+
+
+## Icon legend
+{: #icons}
+
+
+Check out the following explanations to see how each icon listed in this topic correlates to the type of content that you see in each of the accompanying links.
+
+<table>
+  <tr>
+    <th>Icon</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><img src="images/blog.svg" alt="General blog icon" width="25" style="width:25px; border-style: none"/></td>
+    <td>This icon idicates that the link correlates to a blog that is similar to an announcement,general information, or general explanations of concepts.</td>
+  </tr>
+  <tr>
+    <td><img src="images/blog-code.svg" alt="Icon indicating that this blog contains sample code" width="25" style="width:25px; border-style: none"/></td>
+    <td>This icon idicates that the link correlates to a blog that contains some type of sample code.</td>
+  </tr>
+  <tr>
+    <td><img src="images/garage-article.svg" alt="Cloud Garage icon" width="25" style="width:25px; border-style: none"/></td>
+    <td>This icon indicates that the link correlates to an article that can be found in the Cloud Garage Architecture Center.</td>
+  </tr>
+  <tr>
+    <td><img src="images/logo--github.svg" alt="GitHub icon" width="25" style="width:25px; border-style: none"/></td>
+    <td>This icon idicates that the link correlates to a sample app repository that is hosted in GitHub.</td>
+  </tr>
+  <tr>
+    <td><img src="images/tutorial.svg" alt="Tutorial icon" width="25" style="width:25px; border-style: none"/></td>
+    <td>This icon indicates that the link correlates to a tutorial that exists outside of a blog.</td>
+  </tr>
+  <tr>
+    <td><img src="images/video.svg" alt="Video icon" width="25" style="width:25px; border-style: none"/></td>
+    <td>This icon indicates that the link correlates to a video that is hosted on YouTube.</td>
+  </tr>
+  <tr>
+    <td><img src="images/whitepaper-icon.svg" alt="White paper icon" width="25" style="width:25px; border-style: none"/></td>
+    <td>This icon indicates that the link correlates to the white paper.</td>
+  </tr>
+</table>
