@@ -38,7 +38,9 @@ Getting started? Try walking through our [video tutorials](https://youtu.be/tBOF
 We’d love to hear from you with feedback and questions! To get started with {{site.data.keyword.appid_short}}, check out the {{site.data.keyword.cloud_notm}} catalog.
 * If you have technical questions about {{site.data.keyword.appid_short_notm}}, post your question on [Stack Overflow](https://stackoverflow.com){: external} and tag your question with "ibm-appid".
 * For questions about the service and getting started instructions, use the [IBM Developer Answers](https://developer.ibm.com){: external} forum. Include the `appid` tag.
-* Reach out directly to the development team on [Slack](https://ibm-container-service.slack.com)! 
+
+You can reach out directly to the development team on [Slack](https://ibm-container-service.slack.com)!
+{: tip}
 
 
 ## Introduction
@@ -50,8 +52,7 @@ Get to know more about {{site.data.keyword.appid_short_notm}} by reading through
 * <img src="images/blog.svg" alt="General blog icon" width="20" style="width:20px; border-style: none"/> [Cloud App Security - What makes a secure app?](https://www.ibm.com/blogs/cloud-archive/2017/08/cloud-app-security-makes-secure-app/){: external}
 * <img src="images/garage-article.svg" alt="Cloud Garage icon" width="20" style="width:20px; border-style: none"/> [Security to safeguard and monitor your apps](https://www.ibm.com/cloud/garage/architectures/securityArchitecture/security-for-application){: external}
 * <img src="images/video.svg" alt="Video icon" width="20" style="width:20px; border-style: none"/> [Add sign up and sign in to your apps with {{site.data.keyword.appid_short_notm}}](https://www.youtube.com/watch?v=cDSYNFn4rX8){: external}
-* [Technical white paper](https://www.ibm.com/cloud/blog/ibm-cloud-app-id-technical-white-paper-now-available){: external}
-{: tip}
+* <img src="images/whitepaper-icon.svg" alt="White paper icon" width="20" style="width:20px; border-style: none"/> [Technical white paper](https://www.ibm.com/cloud/blog/ibm-cloud-app-id-technical-white-paper-now-available){: external}
 
 Be sure that you're using version 4 of the [runtime APIs](https://www.ibm.com/blogs/cloud-archive/2019/04/ibm-cloud-app-id-v4-runtime-apis-update/){: external}.
 {: tip}
@@ -64,17 +65,18 @@ Interested in securing your applications? Check out the blogs and samples here t
 
 * <img src="images/blog-code.svg" alt="Icon indicating that this blog contains sample code" width="20" style="width:20px; border-style: none"/> [Securing Angular + Node.js Applications by using {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/securing-angularnode-js-applications-using-app-id){: external}
 * <img src="images/blog.svg" alt="General blog icon" width="20" style="width:20px; border-style: none"/> [Securing single page apps with {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/securing-single-page-apps-app-id-service){: external}
-* [Creating Spring Boot applications with {{site.data.keyword.appid_long}}](https://www.ibm.com/cloud/blog/creating-spring-boot-applications-app-id){: external}
+* <img src="images/blog-code.svg" alt="Icon indicating that this blog contains sample code" width="20" style="width:20px; border-style: none"/> [Creating Spring Boot applications with {{site.data.keyword.appid_long}}](https://www.ibm.com/cloud/blog/creating-spring-boot-applications-app-id){: external}
 * <img src="images/logo--github.svg" alt="GitHub logo" width="20" style="width:20px; border-style: none"/> [Using {{site.data.keyword.appid_short_notm}} with Python](https://github.com/mnsn/appid-python-flask-example){: external}
 * <img src="images/logo--github.svg" alt="GitHub icon" width="20" style="width:20px; border-style: none"/> [Using Python Flask-pyoidc with {{site.data.keyword.appid_short_notm}}](https://github.com/IBM-Cloud/github-traffic-stats){: external}
 * <img src="images/logo--github.svg" alt="GitHub icon" width="20" style="width:20px; border-style: none"/> [Securing a VueJS app by using {{site.data.keyword.appid_short_notm}}](https://github.com/ibmets/appid-vue-client){: external}
-* [Creating Go applications with {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/creating-go-applications-with-app-id){: external}
-* [Sign in your app users with any identity provider by using {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/app-id-integrate-custom-identity){: external}
-* [Authenticating Web Users with OpenID and JWT](http://heidloff.net/article/authenticating-web-users-openid-connect-jwt/){: external}
-* [Authorization in Cloud-Native Apps in Istio via OpenID](http://heidloff.net/article/authentication-authorization-openid-connect-istio){: external}
+* <img src="images/blog-code.svg" alt="Icon indicating that this blog contains sample code" width="20" style="width:20px; border-style: none"/> [Creating Go applications with {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/creating-go-applications-with-app-id){: external}
+* <img src="images/blog-code.svg" alt="Icon indicating that this blog contains sample code" width="20" style="width:20px; border-style: none"/> [Sign in your app users with any identity provider by using {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/app-id-integrate-custom-identity){: external}
+* <img src="images/blog-code.svg" alt="Icon indicating that this blog contains sample code" width="20" style="width:20px; border-style: none"/> [Authenticating Web Users with OpenID and JWT](http://heidloff.net/article/authenticating-web-users-openid-connect-jwt/){: external}
+* <img src="images/blog-code.svg" alt="Icon indicating that this blog contains sample code" width="20" style="width:20px; border-style: none"/> [Authorization in Cloud-Native Apps in Istio via OpenID](http://heidloff.net/article/authentication-authorization-openid-connect-istio){: external}
+* <img src="images/blog.svg" alt="General blog icon" width="20" style="width:20px; border-style: none"/> [Adding sign in to multicloud applications without code changes](https://www.ibm.com/cloud/blog/adding-sign-in-to-multicloud-applications-without-code-changes)
 
 
-Using multiple cloud providers? Check out the blog [Adding sign in to multicloud applications without code changes](https://www.ibm.com/cloud/blog/adding-sign-in-to-multicloud-applications-without-code-changes){: external}.
+Using multiple cloud providers? Check out the blog [Using Istio to secure your multicloud Kubernetes applications with zero code changes](https://www.ibm.com/cloud/blog/using-istio-to-secure-your-multicloud-kubernetes-applications-with-zero-code-change){: external}.
 {: tip}
 
 
@@ -84,7 +86,7 @@ Using multiple cloud providers? Check out the blog [Adding sign in to multicloud
 
 Just getting started? Try walking through some of our tutorials and blogs for help integrating {{site.data.keyword.appid_short_notm}} into your apps!
 
-* [Announcing {{site.data.keyword.appid_short_notm}} integration to {{site.data.keyword.containerlong}}](https://www.ibm.com/cloud/blog/announcing-app-id-integration-ibm-cloud-kubernetes-service){: external}
+* <img src="images/blog.svg" alt="General blog icon" width="20" style="width:20px; border-style: none"/> [Announcing {{site.data.keyword.appid_short_notm}} integration to {{site.data.keyword.containerlong}}](https://www.ibm.com/cloud/blog/announcing-app-id-integration-ibm-cloud-kubernetes-service){: external}
 * [Using {{site.data.keyword.appid_short_notm}} to secure Docker and Kubernetes applications](https://www.ibm.com/cloud/blog/using-app-id-secure-docker-kubernetes-applications){: external}
 * [Authenticating Users with Cloud Functions, API Gateway, and {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/authenticating-users-with-cloud-functions-api-gateway-and-app-id){: external}
 * [Mobile application with a serverless back-end](/docs/tutorials?topic=solution-tutorials-serverless-mobile-backend#serverless-mobile-backend)
