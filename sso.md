@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-09"
+lastupdated: "2019-08-15"
 
 keywords: Authentication, authorization, identity, app security, secure, development, sso, directory, users, registry, multiple apps
 
@@ -27,6 +27,7 @@ subcollection: appid
 {: #cd-sso}
 
 With Single sign-on (SSO) for Cloud Directory, you can provide a smooth authentication experience between multiple web apps. If SSO is turned on when a user initially signs in, they are not required to reenter their credentials the next time they sign-in. Instead, they are automatically signed in to any of your apps that are protected by the same {{site.data.keyword.appid_short_notm}} instance.
+
 
 
 ## How it works
