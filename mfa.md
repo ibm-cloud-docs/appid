@@ -162,75 +162,27 @@ Be sure that you have the following prerequisites:
 * Your Identity and Access Management (IAM) token. For help with obtaining an IAM token, check out the [IAM docs](/docs/iam?topic=iam-iamtoken_from_apikey#iamtoken_from_apikey).
 
 
-1. Enable MFA, by making a PUT request to the `/config/mfa` endpoint with your MFA configuration to set `isActive` to `true`.
-
-  Header:
+1. Enable MFA by making a PUT request to the `/config/mfa` endpoint with your MFA configuration to set `isActive` to `true`.
 
   ```
-  PUT {management-url}/management/v4/{tenantId}/config/mfa
-       Host: <management-server-url>
-       Authorization: Bearer <IAM_TOKEN>
-       Content-Type: application/json
+  curl -X PUT {management-url}/management/v4/{tenantId}/config/mfa
+    --header 'Content-Type: application/json' \
+    --header 'Accept: application/json' \
+    --header 'Authorization: Bearer <IAM_TOKEN>' \
+    -d '{"isActive": true}'
   ```
   {: codeblock}
-
-  Body:
-
-  ```
-   {
-       "isActive": true
-   }
-  ```
-  {: codeblock}
-
-  Example request:
-  
-  ```
-  $ curl -X PUT
-    --header 'Content-Type: application/json'
-    --header 'Accept: application/json'
-    --header 'Authorization: Bearer <IAM_TOKEN>'
-    -d '{
-          "isActive": true
-      }'
-    }'
-    '{management-url}/management/v4/{tenantId}/config/mfa'
-  ```
-  {: screen}
 
 2. Enable your MFA channel by making a PUT request to the `/mfa/channels/{channel}` endpoint with your MFA configuration. When `isActive` is set to `true`, your MFA channel is enabled.
 
-  Header:
   ```
-  PUT /management/v4/{tenantId}/mfa/channels/{channel}
-       Host: <management-server-url>
-       Authorization: Bearer <IAM_TOKEN>
-       Content-Type: application/json
-  ```
-  {: codeblock}
-
-  Body:
-  ```
-   {
-       "isActive": true
-   }
+  $ curl -X PUT {management-url}/management/v4/{tenantId}/mfa/channels/email \
+    --header 'Content-Type: application/json' \
+    --header 'Accept: application/json' \
+    --header 'Authorization: Bearer <IAM_TOKEN>' \
+    -d '{"isActive": true}'
   ```
   {: codeblock}
-
-  Example request:
-
-  ```
-  $ curl -X PUT
-    --header 'Content-Type: application/json'
-    --header 'Accept: application/json'
-    --header 'Authorization: Bearer <IAM_TOKEN>'
-    -d '{
-          "isActive": true
-      }'
-    }'
-    '{management-url}/management/v4/{tenantId}/mfa/channels/email'
-  ```
-  {: screen}
 
 If your {{site.data.keyword.appid_short_notm}} Cloud Directory instance is configured to work with a custom email dispatcher, then MFA uses the same dispatcher to send the one-time code. For more information on setting up a custom dispatcher, refer to the [Cloud Directory](/docs/services/appid?topic=appid-cd-messages#cd-custom-email) docs.
 {: note}
