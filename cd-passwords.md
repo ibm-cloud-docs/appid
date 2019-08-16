@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-08-05"
+lastupdated: "2019-08-16"
 
 keywords: Authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
@@ -25,8 +25,9 @@ subcollection: appid
 # Defining password policies
 {: #cd-strength}
 
-You can set the requirements for the passwords that can be used with Cloud Directory. By defining specific requirements that your users must adhere to, you can ensure more secure applications.
+Password policies, such as stregnth requirements, help you to enforce more secure applications. By defining advanced policies, you can define the rules that a user must conform to when they set their password or attempt to sign in to your app. For example, you can set the number of times that a user can try to sign in before they are locked out of their account.
 {: shortdesc}
+
 
 ## Policy: password strength
 {: #cd-password-strength}
@@ -34,7 +35,9 @@ You can set the requirements for the passwords that can be used with Cloud Direc
 A strong password makes it difficult, or even improbable for someone to guess the password in either a manual or automated way. To set requirements for the strength of a user's password, you can use the following steps.
 {: shortdesc}
 
-1. Go to the **Password policies** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
+To set this configuration by using the GUI:
+
+1. Go to the **Cloud Directory > Password policies** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
 
 2. In the **Define password strength** box, click **Edit**. A screen opens.
 
@@ -82,12 +85,20 @@ You can create an advanced password policy that consists of any combination of t
 ### Policy: Avoid Password Reuse
 {: #cd-avoid-reuse}
 
-When your users are changing their password, you might want to prevent them from choosing a recently used password.
+You might want to prevent your users from choosing a recently used password when they attempt to create a new one. If they try to set their password to one that was recently used, an error is shown in the default Login Widget GUI and the user is prompted to enter another option. This setting allows for you to choose the number of passwords that a user must have before they're able to repeat a previously used password.
 {: shortdesc}
 
-By using the GUI or the API, you can choose the number of passwords that a user must have before they are able to repeat a previously used password. Setting options include any whole value in range 1 - 10.
+To set this configuration by using the GUI:
 
-If this option is turned on, a user can't use a password that they recently used. If they try to set their password to one that was recently used, an error is shown in the default Login Widget GUI and the user is prompted to enter another option.
+1. Go to the **Cloud Directory > Password policies** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
+
+2. Toggle **Advanced password policy** to **Enabled**.
+
+3. Specify **The number of times that a password can't be repeated**. You can use any whole value in range 1 - 10.
+
+4. Toggle **The number of times that a password can't be repeated** to **Enabled**.
+
+5. Click **Save**.
 
 Previous passwords are securely stored in the same way that a user's current password is stored.
 {: note}
@@ -96,17 +107,28 @@ Previous passwords are securely stored in the same way that a user's current pas
 ### Policy: Lockout after repeated wrong credentials
 {: #cd-lockout}
 
-You might want to protect your users' accounts by temporarily blocking the ability to sign in when a suspicious behavior is detected, such as multiple consecutive sign-in attempts with an incorrect password. This measure can help to prevent a malicious party from gaining access to a user's account by guessing a user's password.
+You might want to protect your users' accounts by temporarily blocking the ability to sign in when a suspicious behavior is detected, such as multiple consecutive sign-in attempts with an incorrect password. This measure can help to prevent a malicious party from gaining access to a user's account by guessing their password.
 {: shortdesc}
 
-By using the GUI or the API, you can set the maximum number of unsuccessful sign-in attempts that a user makes before their account is temporarily locked. You can also define the amount of time that the account is locked for. You have the following options:
+If an account is locked, users are unable to sign in or complete any other self-service operations until the specified lockout period is complete. When the lockout period is over, the user is automatically unlocked.
 
-* Number of attempts: Any whole value 1 - 10.
-* Lockout period: Any whole value that is specified in minutes in the range 1 minute to 1440 minutes (24 hours).
+To set this configuration by using the GUI:
 
-If an account is locked, users are unable to sign in or complete any other self-service operations, such as changing their password until the specified lockout period is complete. When the lockout period is over, the user is automatically unlocked.
+1. Go to the **Cloud Directory > Password policies** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
+
+2. Toggle **Advanced password policy** to **Enabled**.
+
+3. Specify **The number of times a user can try to sign in before getting locked out**. You can use any whole value in range 1 - 10.
+
+4. Specify **The time a user will be locked out after trying to sign in with wrong credentials**. The time is specified in minutes. You can use any whole value in range 1 - 1440 (24 hours).
+
+5. Toggle **The number of times a user can try to sign in before getting locked out** row to **Enabled**.
+
+6. Click **Save**.
+
 
 You can unlock a user before the lockout period is over. To see whether they are locked out, check whether the `active` field is set to `false`. You can also check to see whether their status on the **Users** tab of the service dashboard is set to `disabled`. To unlock a user, you must use [the API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Cloud_Directory_Users/updateCloudDirectoryUser) to set the `active` field to `true`.
+{: note}
 
 
 ### Policy: Minimum period between password changes
@@ -115,18 +137,43 @@ You can unlock a user before the lockout period is over. To see whether they are
 You might want to prevent your users from quickly switching passwords by setting a minimum time that a user must wait between password changes.
 {: shortdesc}
 
-This feature is especially useful when used with the "Avoid password reuse" policy. Without this limitation, a user might simply change their password multiple times in quick succession to circumvent the limitation of reusing recent passwords. You can select any value in the range 1 and 720 hours (30 days). The field is specified in hours.
+This feature is especially useful when used with the "Avoid password reuse" policy. Without this limitation, a user might simply change their password multiple times in quick succession to circumvent the limitation of reusing recent passwords.
+
+To set this configuration by using the GUI:
+
+1. Go to the **Cloud Directory > Password policies** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
+
+2. Toggle **Advanced password policy** to **Enabled**.
+
+3. Specify **The minimum time between password changes**. The time is specified in hours. You can use any whole value in range 1 - 720 (30 days).
+
+4. Toggle **The minimum time between password changes** to **Enabled**.
+
+5. Click **Save**.
 
 
 ### Policy: Password expiration
 {: #cd-expiration}
 
-For security reasons, you might want to enforce a password rotation policy, such that your users must change their password after a specified amount of time.
+For security reasons, you might want to enforce a password rotation policy. By setting an expiration for your users password, they are forced to update their password in order to retain access to your application. This lessons the chance that a user's credentials can cause long term damage to your application. When their password expires, your users are forced to reset it on their next sign-in attempt.
 {: shortdesc}
 
-By using the GUI or the API, you can set a time period for which your user's passwords remain valid. After a user's password expires, they are forced to reset their password on the next sign-in. You can select any number of full days in range 1 and 90.
+To set this configuration by using the GUI:
 
-You can quickly get started with the Login Widget by using the provided default GUI. The user is directed to supply a new password before the sign-in is complete.
+1. Go to the **Cloud Directory > Password policies** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
+
+2. Toggle **Advanced password policy** to **Enabled**.
+
+3. Specify a **Password expiration time**. The time is specified in days. You can use any whole value in range 1 - 90.
+
+4. Toggle **Password expiration time** to **Enabled**.
+
+5. Click **Save**.
+
+When this option is first set to on, any existing user passwords do not have an expiration date. To ensure that all of your users are limited by the password rotation policy, you might encourage users to update their password after you configure this feature.
+{: note}
+
+**Custom sign in experience**
 
 If you're using a custom sign-in experience, an error is triggered when a user attempts to sign in with an expired password. It is your responsibility to configure your application to provide the necessary user experience. You can call the change password API to set the new password.
 
@@ -141,8 +188,6 @@ The token endpoint response looks similar to the following:
 ```
 {: screen}
 
-When this option is first set to on, any existing user passwords do not have an expiration date. The expiration period begins for the users when their password is changed. You might want to encourage users to update their password after you set this feature to on.
-{: note}
 
 
 ### Policy: Ensure that the password does not include user name
@@ -150,6 +195,16 @@ When this option is first set to on, any existing user passwords do not have an 
 
 For stronger passwords, you might want to prevent users from creating a password that contains their username or the first part of their email address.
 {: shortdesc}
+
+To set this configuration by using the GUI:
+
+1. Go to the **Cloud Directory > Password policies** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
+
+2. Toggle **Advanced password policy** to **Enabled**.
+
+3. Toggle **Password should not contain user ID** to **Enabled**.
+
+4. Click **Save**.
 
 This constraint is not case-sensitive. Users are not able to alter the case of some or all of the characters in order to use the personal information. To configure this option, toggle the switch to **on**.
 {: note}

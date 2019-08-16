@@ -45,8 +45,8 @@ IBM Cloud App ID
     {: .topicgroup}
     Hosting your own user registry
         cd-configuring.md
-        cd-messages.md
         cd-passwords.md
+        cd-messages.md
         mfa.md
         sso.md
         cd-users.md
