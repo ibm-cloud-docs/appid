@@ -162,11 +162,12 @@ Be sure that you have the following prerequisites:
 * Your {{site.data.keyword.appid_short_notm}} instance's tenant ID. This ID can be found in the **Service Credentials** section of the dashboard.
 * Your Identity and Access Management (IAM) token. For help with obtaining an IAM token, check out the [IAM docs](/docs/iam?topic=iam-iamtoken_from_apikey#iamtoken_from_apikey).
 
+To enable MFA:
 
 1. Enable MFA by making a PUT request to the `/config/mfa` endpoint with your MFA configuration to set `isActive` to `true`.
 
   ```
-  cURL -X PUT https://<region>.appid.cloud.ibm.com/management/v4/{tenantId}/config/mfa
+  cURL -X PUT https://<region>.appid.cloud.ibm.com/management/v4/{tenantId}/config/mfa \
     --header 'Content-Type: application/json' \
     --header 'Accept: application/json' \
     --header 'Authorization: Bearer <IAM_TOKEN>' \
@@ -197,7 +198,8 @@ If your {{site.data.keyword.appid_short_notm}} Cloud Directory instance is confi
 You can send an SMS message to your users as a second form of verification. When you enable SMS, {{site.data.keyword.appid_short_notm}} automatically tries to register the first [valid](https://en.wikipedia.org/wiki/E.164) primary phone number that is found in a Cloud Directory user's profile. If the number is invalid or no phone number is found on the user's profile, then a registration widget is displayed for the user to add a number. Then, the number is part of the user's profile and after validation, becomes the default number that is used for MFA.
 {: shortdesc}
 
-**Before you begin**
+### Before you begin
+{: #cd-mfa-configure-sms-before}
 
 {{site.data.keyword.appid_short_notm}} uses [Nexmo](https://www.nexmo.com/products/sms) to send MFA SMS one-time codes. Before you get started, be sure that you have an instance of {{site.data.keyword.appid_short_notm}} that is on the [graduated tier pricing plan](/docs/services/appid?topic=appid-faq#faq-pricing) and the following Nexmo information.
 
@@ -259,7 +261,7 @@ To enable MFA:
 The `config` takes in the Nexmo API key and secret as well as the `from` number.
 
     ```
-    cURL -X PUT https://<region>.appid.cloud.ibm.com/management/v4/{tenantId}/mfa/channels/nexmo'
+    cURL -X PUT https://<region>.appid.cloud.ibm.com/management/v4/{tenantId}/mfa/channels/nexmo' \
     --header 'Content-Type: application/json' \ 
     --header 'Accept: application/json' \ 
     --header 'Authorization: Bearer <IAM_TOKEN>' \
