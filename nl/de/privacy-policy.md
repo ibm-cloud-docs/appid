@@ -29,19 +29,19 @@ subcollection: appid
 **Gültig ab: Juli 2019**
 
 
-Der Kunde führt die Entwicklung und den Test von Anwendungen mit der Standardkonfiguration von {{site.data.keyword.appid_full}} (“{{site.data.keyword.appid_short_notm}}” oder "Service") für Facebook oder Google durch. Der Kunde verwendet die Standardeinstellungen von {{site.data.keyword.appid_short_notm}} ausschließlich für die Evaluierung und zu Testzwecken und um festzustellen, ob {{site.data.keyword.appid_short_notm}} in die vom Kunden entwickelte(n) Anwendung(en) integriert werden soll (“Zulässige Verwendungen”). Der Kunde verwendet die Standardeinstellungen von {{site.data.keyword.appid_short_notm}} nicht zu anderen als den oben genannten zulässigen Verwendungen.   
+Der Kunde entwickelt und testet Anwendungen und nutzt hierbei die Standardkonfiguration von {{site.data.keyword.appid_full}} (“{{site.data.keyword.appid_short_notm}}” oder "Service") für Facebook oder. Der Kunde verwendet die Standardeinstellungen von {{site.data.keyword.appid_short_notm}} ausschließlich zu Zwecken der Evaluierung und des Tests und um festzustellen, ob {{site.data.keyword.appid_short_notm}} in die vom Kunden entwickelte(n) Anwendung(en) integriert werden soll (“Zulässige Verwendungen”). Der Kunde wird die Standardeinstellungen von {{site.data.keyword.appid_short_notm}} für keinen anderen Zweck als die oben aufgeführten zulässigen Verwendungen nutzen.   
 
 Der Kunde wird eine eigene von diesem Dokument getrennte Datenschutzrichtlinie implementieren, wenn die Anwendungen vom Entwicklungsstadium in die Produktion übergehen.   
 
-Dieses Dokument enthält Informationen zu den Richtlinien bezüglich der Datenerfassung, Datennutzung und der Weitergabe personenbezogener Daten bei der zulässigen Verwendungen des Service durch den Kunden, sowie zu den mit diesen Daten verbundenen Wahlmöglichkeiten.  
+Dieses Dokument enthält Informationen zu den Richtlinien bezüglich der Erhebung, Nutzung und Weitergabe personenbezogener Daten bei der zulässigen Verwendungen des Service durch den Kunden sowie zu den mit diesen Daten verbundenen Wahlmöglichkeiten.  
 
-Der Kunde verwendet bei der zulässigen Verwendung des Service Daten. Durch die Verwendung des Service stimmt der Kunde der Datenerfassung und Datennutzung entsprechend dieser Datenschutzrichtlinie zu.
+Der Kunde nutzt bei der zulässigen Verwendung des Service Daten. Durch die Verwendung des Service stimmt der Kunde der Erhebung und Nutzung der Daten entsprechend dieser Datenschutzrichtlinie zu.
 {: important}
 
-## Datenerfassung und Datennutzung
+## Erhebung und Nutzung der Daten
 {: #information-collection}
 
-Der Kunde erfasst für die zulässigen Verwendungen verschiedene Arten von Daten. Die folgenden Arten von Daten werden erfasst und wie folgt beschrieben: Personenbezogene Daten, Nutzungsdaten und Protokollierungs- sowie Cookiedaten. 
+Der Kunde erfasst für die zulässigen Verwendungen verschiedene Arten von Daten. Die folgenden Arten von Daten werden erfasst und wie folgt beschrieben: Personenbezogene Daten, Nutzungsdaten und Tracking- sowie Cookiedaten. 
 
 ### Personenbezogene Daten
 {: #personal-data}
@@ -64,14 +64,14 @@ Bei der zulässigen Verwendung des Service kann der Kunde bestimmte Daten automa
 * Die Typen der verwendeten Internet-Browser
 * Eindeutige Gerätekennungen und andere Diagnosedaten
 
-### Protokollierungs- & Cookiedaten
+### Tracking- und Cookiedaten
 {: #tracking-cookies}
 
-Der Kunde kann Cookies und ähnliche Überwachungstechniken bei Entwicklungsaktivitäten verwenden. 
+Der Kunde kann Cookies und ähnliche Trackingtechnologien bei Entwicklungsaktivitäten verwenden. 
 
-Cookies sind Dateien mit einen geringen Datenvolumen, die eine anonyme eindeutige ID enthalten können. Cookies werden von einer Webseite an die Browser von Benutzern gesendet und auf deren Geräten gespeichert. Ebenfalls verwendete Überwachungstechnologien sind Beaconnachrichten, Tags und Scripts zur Erfassung und Verfolgung von Daten sowie zur Verbesserung und Analyse unseres Service. 
+Cookies sind Dateien mit einen geringen Datenvolumen, die eine anonyme eindeutige ID enthalten können. Cookies werden von einer Webseite an die Browser von Benutzern gesendet und auf deren Geräten gespeichert. Ebenfalls verwendete Tracking-/Überwachungstechnologien sind Beacons, Tags und Scripts zur Erfassung und Verfolgung von Daten sowie zur Verbesserung und Analyse unseres Service. 
 
-Ein Benutzer kann den Browser anweisen, alle Cookies abzulehnen oder anzuzeigen, wenn ein Cookie gesendet wird. Wenn ein Benutzer keine Cookies akzeptiert, können möglicherweise nicht alle Teile des bereitgestellten Service verwendet werden. 
+Ein Benutzer kann im jeweiligen Browser einstellen, dass alle Cookies abgelehnt werden oder dass angezeigt wird, wenn ein Cookie gesendet wird. Wenn ein Benutzer keine Cookies akzeptiert, können möglicherweise nicht alle Teile des bereitgestellten Service verwendet werden. 
 
 ## Verwendung von Daten
 {: #use-data}
@@ -86,16 +86,16 @@ Der Kunde verwendet die erfassten Daten zu verschiedenen Zwecken:
 ## Datenübertragung
 {: #transfer-data}
 
-Daten, einschließlich personenbezogener Daten, können auf andere Computer übertragen und — auf diesen verwaltet — werden. Diese Computer können sich in einem anderen Staat, einem anderen Bundesland oder an einem sonstigen Standort befinden, dessen Datenschutzgesetze sich von denen unterscheiden können, die am Standort des Kunden gelten. 
+Daten, einschließlich personenbezogener Daten, können auf andere Computer übertragen - und auf diesen verwaltet — werden. Diese Computer können sich in einem anderen Staat, einem anderen Bundesland oder an einem sonstigen Standort befinden, dessen Datenschutzgesetze sich von denen unterscheiden können, die am Standort des Kunden gelten. 
 
-Der Kunde wird alle angemessenen und erforderlichen Maßnahmen ergreifen, um sicherzustellen, dass personenbezogene Daten entsprechend der vorliegenden Datenschutzrichtlinie geschützt werden. Der Kunde wir ferner sicherstellen, dass keine Übertragung von personenbezogenen Daten an eine Organisation oder in ein Land erfolgt, wenn keine entsprechenden Aufsichtsbehörden und Kontrollmechanismen vorhanden sind. Dies umfasst bei Bedarf auch die Einholung einer Einwilligung und die Gewährleistung des Schutzes von personenbezogenen und anderen persönlichen Daten. 
+Der Kunde wird alle angemessenen und erforderlichen Maßnahmen ergreifen, um sicherzustellen, dass personenbezogene Daten entsprechend der vorliegenden Datenschutzrichtlinie geschützt werden. Der Kunde wir ferner sicherstellen, dass keine Übertragung von personenbezogenen Daten an eine Organisation oder in ein Land erfolgt, wenn keine entsprechenden Berechtigungen und Kontrollmechanismen vorhanden sind. Dies umfasst bei Bedarf auch die Einholung einer Einwilligung und die Gewährleistung des Schutzes von personenbezogenen und anderen persönlichen Daten. 
 
 ## Weitergabe von Daten
 
 **Gesetzliche Anforderungen**
 
 Der Kunde kann personenbezogene Daten in dem Vertrauen offenlegen, dass die Offenlegung dieser Daten aus einem der folgenden Gründe erforderlich ist: 
-* Um rechtliche Verpflichtungen einzuhalten
+* Um rechtliche Verpflichtungen zu erfüllen
 * Um die Rechte oder das Eigentum des Kunden zu schützen und zu verteidigen
 * Um möglichen Missbrauch in Verbindung mit Entwicklungs- und Testaktivitäten zu vermeiden oder ggf. zu untersuchen
 * Um den Schutz von personenbezogenen Daten zu gewährleisten
