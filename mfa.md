@@ -77,6 +77,7 @@ The first time that MFA is enabled, it is set to use email by default. You can c
   <li>Value: The actual attribute value such as email address or phone number.</li>
   <li>Primary: A Boolean value that indicates the preferred value for the attribute. The primary attribute value <code>true</code> can occur once and only once. If not specified, the value of <code>primary</code> is assumed to be <code>false</code>.</li>
 </ul>For more information, check out the [Cloud Directory docs](/docs/services/appid?topic=appid-cloud-directory#cloud-directory).</p>
+{: note}
 
 
 
