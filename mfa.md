@@ -235,12 +235,14 @@ To configure MFA with the GUI, check out [Cloud Directory](/docs/services/appid?
 ### With the APIs
 {: #cd-mfa-configure-sms-api}
 
-**Before you begin**
-
-Be sure that you have the following prerequisites:
+Before you get started with the API, be sure that you have the following prerequisites:
 
 * Your {{site.data.keyword.appid_short_notm}} instance's tenant ID. This ID can be found in the **Service Credentials** section of the dashboard.
 * Your Identity and Access Management (IAM) token. For help with obtaining an IAM token, check out the [IAM docs](/docs/iam?topic=iam-iamtoken_from_apikey).
+
+
+To enable MFA:
+
 
 1. Enable MFA, by making a PUT request to the `/config/mfa` endpoint with your MFA configuration to set `isActive` to `true`.
 
@@ -271,7 +273,6 @@ The `config` takes in the Nexmo API key and secret as well as the `from` number.
     }'
     ```
     {: codeblock}
-
 
 3. Once the channel is successfully configured, verify that your Nexmo configuration and connection is set up
 correctly by using the test button on the UI or by using the management API.
