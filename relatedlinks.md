@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-08-15"
+lastupdated: "2019-08-16"
 
 keywords: Authentication, authorization, identity, app security, secure
 
@@ -159,7 +159,7 @@ Check out the following explanations to see how each icon listed in this topic c
   </tr>
   <tr>
     <td><img src="images/blog.svg" alt="General blog icon" width="25" style="width:25px; border-style: none"/></td>
-    <td>This icon idicates that the link correlates to a blog that is similar to an announcement,general information, or general explanations of concepts.</td>
+    <td>This icon idicates that the link correlates to a blog that is similar to an announcement, general information, or general explanations of concepts.</td>
   </tr>
   <tr>
     <td><img src="images/blog-code.svg" alt="Icon indicating that this blog contains sample code" width="25" style="width:25px; border-style: none"/></td>
