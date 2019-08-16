@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-19"
+lastupdated: "2019-08-13"
 
 keywords: Authentication, authorization, identity, app security, secure, customizing apps, directory, registry, 
 
@@ -25,7 +25,7 @@ subcollection: appid
 # Branding your app
 {: #branded}
 
-You can display your own customized screens, use your own flows, and take advantage of the authentication and authorization capabilities of {{site.data.keyword.appid_full}}. By using Cloud Directory as your identity provider, your users are able to interact with your app with less help from you. They're able to sign in, sign up, change their password, and more without asking for help.
+With {{site.data.keyword.appid_full}}, you can customize the entire sign-up experience of your application by using your own branded screens. You can replace the provided sign in widget with your own, add extra fields, validate password strength and verify email addresses against a black list!
 {: shortdesc}
 
 
@@ -37,6 +37,12 @@ When you reuse your existing UIs, you can create a cohesive sign-in flow for you
 
 Want to use a [language](/docs/services/appid?topic=appid-cd-messages#cd-languages) other than English? You can choose another language by using the [language management APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/updateLocalization){: external}, to display your own translated content.
 {: tip}
+
+
+## What information do I need to obtain with my sign in or sign up screen?
+{: #branded-form-submit}
+
+When you make the request to submit your sign-in form, it must contain both username and password parameters in your request body. This means that your sign in or sign up page must ask that information from your users.
 
 
 ### Can I use some of my own and some of the default screens?
@@ -90,8 +96,7 @@ With Cloud Directory enabled, you can call customized screens with the Android S
   ```
   {: codeblock}
 
-</br>
-</br>
+
 
 ## Branding your app with the iOS Swift SDK
 {: #branded-ui-ios-swift}
@@ -99,7 +104,7 @@ With Cloud Directory enabled, you can call customized screens with the Android S
 With Cloud Directory enabled, you can call your own branded screens with the [iOS Swift SDK](https://github.com/ibm-cloud-security/appid-clientsdk-swift){: external}.
 {: shortdesc}
 
-</br>
+
 
 ### Sign in
 {: #branded-ios-sign-in}
