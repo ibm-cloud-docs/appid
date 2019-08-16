@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-08-05"
+lastupdated: "2019-08-16"
 
 keywords: Authentication, authorization, identity, app security, secure, development, two factor, mfa 
 
@@ -156,8 +156,6 @@ You can configure the MFA email channel through the GUI.
 ### With the APIs
 {: #cd-mfa-configure-email-apis}
 
-**Before you begin**
-
 Be sure that you have the following prerequisites:
 
 * Your {{site.data.keyword.appid_short_notm}} instance's tenant ID. This ID can be found in the **Service Credentials** section of the dashboard.
@@ -167,6 +165,7 @@ Be sure that you have the following prerequisites:
 1. Enable MFA, by making a PUT request to the `/config/mfa` endpoint with your MFA configuration to set `isActive` to `true`.
 
   Header:
+
   ```
   PUT {management-url}/management/v4/{tenantId}/config/mfa
        Host: <management-server-url>
@@ -176,6 +175,7 @@ Be sure that you have the following prerequisites:
   {: codeblock}
 
   Body:
+
   ```
    {
        "isActive": true
@@ -184,6 +184,7 @@ Be sure that you have the following prerequisites:
   {: codeblock}
 
   Example request:
+  
   ```
   $ curl -X PUT
     --header 'Content-Type: application/json'
