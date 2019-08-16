@@ -165,7 +165,7 @@ Be sure that you have the following prerequisites:
 1. Enable MFA by making a PUT request to the `/config/mfa` endpoint with your MFA configuration to set `isActive` to `true`.
 
   ```
-  curl -X PUT {management-url}/management/v4/{tenantId}/config/mfa
+  cURL -X PUT https://<region>.appid.cloud.ibm.com/management/v4/{tenantId}/config/mfa
     --header 'Content-Type: application/json' \
     --header 'Accept: application/json' \
     --header 'Authorization: Bearer <IAM_TOKEN>' \
@@ -176,7 +176,7 @@ Be sure that you have the following prerequisites:
 2. Enable your MFA channel by making a PUT request to the `/mfa/channels/{channel}` endpoint with your MFA configuration. When `isActive` is set to `true`, your MFA channel is enabled.
 
   ```
-  $ curl -X PUT {management-url}/management/v4/{tenantId}/mfa/channels/email \
+  $ cURL -X PUT https://<region>.appid.cloud.ibm.com/management/v4/{tenantId}/mfa/channels/email \
     --header 'Content-Type: application/json' \
     --header 'Accept: application/json' \
     --header 'Authorization: Bearer <IAM_TOKEN>' \
@@ -241,124 +241,47 @@ Be sure that you have the following prerequisites:
 * Your {{site.data.keyword.appid_short_notm}} instance's tenant ID. This ID can be found in the **Service Credentials** section of the dashboard.
 * Your Identity and Access Management (IAM) token. For help with obtaining an IAM token, check out the [IAM docs](/docs/iam?topic=iam-iamtoken_from_apikey).
 
-
 1. Enable MFA, by making a PUT request to the `/config/mfa` endpoint with your MFA configuration to set `isActive` to `true`.
 
-  Header:
-
     ```
-    PUT {management-url}/management/v4/{tenantId}/config/mfa
-      Host: <management-server-url>
-      Authorization: Bearer <IAM_TOKEN>
-      Content-Type: application/json
-    ```
-    {: codeblock}
-
-  Body:
-
-    ```
-    {
-    "isActive": true
-    }
+    cURL -X PUT https://<region>.appid.cloud.ibm.com/management/v4/{tenantId}/config/mfa \
+    --header 'Content-Type: application/json' \
+    --header 'Accept: application/json' \
+    --header 'Authorization: Bearer <IAM_TOKEN>' \
+    -d '{"isActive": true}'
     ```
     {: codeblock}
-
-
-  Example request:
-
-    ```
-    $ curl -X PUT
-    --header 'Content-Type: application/json'
-    --header 'Accept: application/json'
-    --header 'Authorization: Bearer <IAM_TOKEN>'
-    -d '{
-      "isActive": true
-    }'
-    '{management-url}/management/v4/{tenantId}/config/mfa'
-    ```
-    {: screen}
 
 2. Enable your MFA channel by making a PUT request to the `/mfa/channels/{channel}` endpoint with your MFA configuration. When `isActive` is set to `true`, your MFA channel is enabled.
 The `config` takes in the Nexmo API key and secret as well as the `from` number.
 
-  Header:
-
     ```
-    PUT /management/v4/{tenantId}/mfa/channels/{channel}
-        Host: <management-server-url>
-        Authorization: Bearer <IAM_TOKEN>
-        Content-Type: application/json
-    ```
-    {: codeblock}
-
-  Body:
-
-    ```
-    {
+    cURL -X PUT https://<region>.appid.cloud.ibm.com/management/v4/{tenantId}/mfa/channels/nexmo'
+    --header 'Content-Type: application/json' \ 
+    --header 'Accept: application/json' \ 
+    --header 'Authorization: Bearer <IAM_TOKEN>' \
+    -d '{
         "isActive": true,
         "config": {
           "key": "nexmo key",
           "secret": "nexmo secret",
           "from": sender-phoneNumber
         }
-    }
+    }'
     ```
     {: codeblock}
-
-  Example request:
-
-    ```
-    $ curl -X PUT
-    --header 'Content-Type: application/json'
-    --header 'Accept: application/json'
-    --header 'Authorization: Bearer <IAM_TOKEN>'
-    -d '{
-          "isActive": true,
-          "config": {
-            "key": "key",
-            "secret": "secret",
-            "from": 12345678900
-          }
-      }'
-    '{management-url}/management/v4/{tenantId}/mfa/channels/nexmo'
-    ```
-    {: screen}
 
 
 3. Once the channel is successfully configured, verify that your Nexmo configuration and connection is set up
 correctly by using the test button on the UI or by using the management API.
 
-  Header:
-
     ```
-    POST /management/v4/{tenantId}/config/cloud_directory/sms_dispatcher/test
-      Host: <management-server-url>
-      Authorization: Bearer <IAM_TOKEN>
-      Content-Type: application/json
-    ```
-    {: codeblock}
-
-  Body:
-
-    ```
-    {
-      "phone_number": "phoneNumber-receives-test-message"
-    }
+    cURL -X PUT https://<region>.appid.cloud.ibm.com/management/v4/{tenantId}/config/cloud_directory/sms_dispatcher/test \
+    --header 'Content-Type: application/json' \
+    --header 'Accept: application/json' \ 
+    --header 'Authorization: Bearer <IAM_TOKEN>' \
+    -d '{"phone_number": "+1 999 999 9999"}'
     ```
     {: codeblock}
-
-  Example request:
-
-    ```
-    $ curl -X POST
-    --header 'Content-Type: application/json'
-    --header 'Accept: application/json'
-    --header 'Authorization: Bearer <IAM_TOKEN>'
-    -d '{
-          "phone_number": "+1 999 999 9999"
-        }'
-    '{management-url}/management/v4/{tenantId}/config/cloud_directory/sms_dispatcher/test'
-    ```
-    {: screen}
 
   </br>
