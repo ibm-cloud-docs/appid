@@ -30,11 +30,12 @@ subcollection: appid
 
 Client, hereinafter referred to as “Developer”, performs development and testing of applications using the default configuration of {{site.data.keyword.appid_full}} (“{{site.data.keyword.appid_short_notm}}” or "Service") for Facebook or Google. Developer uses the default settings of {{site.data.keyword.appid_short_notm}} only for evaluation and testing purposes, and to determine whether to incorporate {{site.data.keyword.appid_short_notm}} into the application(s) being developed by Developer (“Permitted Uses”). Developer will not use the default settings of {{site.data.keyword.appid_short_notm}} for any uses or purposes other than the previously stated Permitted Uses.  
 
-Developer will implement a Privacy Policy, separate from this document, upon transition of applications from development to production.  
+Developer will implement a Privacy Policy, separate from this document, upon transition of applications from development to production.
 
-This document informs of: the policies regarding the collection, use, disclosure, or any other operations carried out (“Processing”) on personally identifiable information that can be used to contact or identify a person (“Personal data”); and Developer’s responsibilities when engaging in the Permitted Uses of the Service, and the choices associated with the Processing of Personal Data.
+This document informs of: the policies regarding the collection, use, disclosure, or any other operations carried out (“Processing”) on personally identifiable information that can be used to contact or identify a person (“Personal Data”); and Developer’s responsibilities when engaging in the Permitted Uses of the Service, and the choices associated with the Processing of Personal Data.
 
 Developer will Process Personal Data while engaging in the Permitted Uses of the Service. By using the Service, Developer confirms that it is Processing Personal Data in accordance with this policy and applicable laws.
+
 {: important}
 
 ## Information Collection And Use
@@ -68,11 +69,12 @@ When engaging in the Permitted Uses of the Service, Developer may collect certai
 
 Developer may use cookies and similar tracking technologies in development activities.
 
-Cookies are files with small amount of data which may include a unique identifier. Cookies are sent to a user’s browser from a website and stored on your device. Tracking technologies also used are beacons, tags, and scripts to collect and track information and to improve and analyze our Service.
+Cookies are files with small amount of data which may include a unique identifier. Cookies are sent to a user’s browser from a website and stored on the user’s device. Tracking technologies also used are beacons, tags, and scripts to collect and track information and to improve and analyze the Service.
 
-A user can instruct browser to refuse all cookies or to indicate when a cookie is being sent. However, if a user does not accept cookies, it may not be feasible to use some portions of a provided service.
+A user can instruct their browser to refuse all cookies or to indicate when a cookie is being sent. However, if a user does not accept cookies, it may not be feasible to use some portions of a provided service.
 
-## Use of Data
+
+## Use Of Data
 {: #use-data}
 
 Developer uses the collected data for various purposes:
@@ -87,7 +89,7 @@ Developer uses the collected data for various purposes:
 
 Information, including Personal Data, may be transferred to — and maintained on — computers located outside of Developer’s state, province, country or other governmental jurisdiction where the data protection laws may differ than those from Developer’s jurisdiction.
 
-Developer will take all steps reasonably necessary to ensure that Personal Data is treated securely and in accordance with this Privacy Policy. Developer will also ensure no transfer of Personal Data will take place to an organization or a country, unless there are adequate authorizations and controls in place including obtaining consent where necessary and ensuring the security of Personal Data and other personal information.
+Developer will take all steps reasonably necessary to ensure that Personal Data is treated securely and in accordance with this Privacy Policy and applicable law. Developer will also ensure no transfer of Personal Data will take place to an organization or a country, unless there are adequate authorizations and controls in place including obtaining consent where necessary and ensuring the security of Personal Data.
 
 ## Disclosure Of Data
 
@@ -104,7 +106,7 @@ Developer may disclose Personal Data in the good faith belief that such action i
 ## Security Of Data
 {: #data-security}
 
-Developer will strive to use commercially acceptable means to protect all Personal Data used in performing the Permitted Uses of the Service.
+Developer will strive to use appropriate means to protect all Personal Data used in performing the Permitted Uses of the Service.
 
 ## Service Providers
 {: #service-providers}

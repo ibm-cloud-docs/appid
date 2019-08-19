@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-09"
+lastupdated: "2019-08-19"
 
 keywords: Authentication, authorization, identity, app security, secure, attributes, user information, storing, accessing
 
@@ -34,11 +34,11 @@ subcollection: appid
 A user profile is all of the information that is known about a specific user compiled into one object and stored by {{site.data.keyword.appid_full}}. The information might be predefined, assigned, or learned about your users as they interact with your application. By taking advantage of the profiles feature, you can build personalized app experiences for each user.
 {: shortdesc}
 
-
 Looking for information about your Cloud Directory users? Check out [managing users](/docs/services/appid?topic=appid-cd-users).
 {: tip}
 
-There are two types of information that can be obtained and stored by App ID: predefined attributes and custom attributes. Predefined attributes are specific to the identity of your users and are returned by an identity provider when your user signs in to your app and can include information such as their name or age. Custom attributes are used to store additional information about your users. They can be set by you or learned about the user as they interact with your app. Custom attributes might include an assigned role, a food preference, or a prefered aisle seat on an airplane.
+
+There are two types of information that can be obtained and stored by {{site.data.keyword.appid_short_notm}}: predefined attributes and custom attributes. Predefined attributes are specific to the identity of your users and are returned by an identity provider when your user signs in to your app and can include information such as their name or age. Custom attributes are used to store additional information about your users. They can be set by you or learned about the user as they interact with your app. Custom attributes might include an assigned role, a food preference, or a prefered aisle seat on an airplane.
 
 
 ![{{site.data.keyword.appid_short_notm}} user profiles](images/user-profile-makeup.png)
@@ -64,8 +64,7 @@ Review the following image to see the different ways in which you can obtain use
 ![{{site.data.keyword.appid_short_notm}} user profiles runtime options](images/user-profile-runtime.png)
 Figure. Access user profile options
 
-
-App ID injects a subset of attributes into your access and identity tokens automatically. You can take advantage of custom claims mapping and map other predefined and custom claims into your tokens. For more details about the recommended way to access user information, see [customizing tokens](/docs/services/appid?topic=appid-customizing-tokens). 
+{{site.data.keyword.appid_short_notm}} injects a subset of attributes into your access and identity tokens automatically. You can take advantage of custom claims mapping and map other predefined and custom claims into your tokens. For more details about the recommended way to access user information, see [customizing tokens](/docs/services/appid?topic=appid-customizing-tokens). 
 {: note}
 
 
@@ -269,8 +268,8 @@ If changes are made by an external identity provider, you can get the updated in
 Depending on your configuration, attributes are encrypted and saved as part of a user profile when a user interacts with your application. The interaction could be a user signing in or setting a preference in your app. To access the attributes, pass an access token through an API method.
 {: shortdesc}
 
-**iOS Swift**
-{: ph data-hd-programlang='swift'}
+  **iOS Swift**
+  {: ph data-hd-programlang='swift'}
 
   ```
   func setAttribute(key: String, value: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
@@ -284,6 +283,18 @@ Depending on your configuration, attributes are encrypted and saved as part of a
 
   func deleteAttribute(key: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
   func deleteAttribute(key: String, accessTokenString: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
+  ```
+  {: codeblock}
+  {: ph data-hd-programlang='swift'}
+
+  **Server-side swift**
+  {: ph data-hd-programlang='swift'}
+
+  ```
+  func getAllAttributes(accessToken: String, completionHandler: (Swift.Error?, [String: Any]?) -> Void)
+  func getAttribute(accessToken: String, attributeName: String, completionHandler: (Swift.Error?, [String: Any]?) -> Void)
+  func setAttribute(accessToken: String, attributeName: String, attributeValue : "abc", completionHandler: (Swift.Error?, [String: Any]?) -> Void)
+  func deleteAllAttributes(accessToken: String, completionHandler: (Swift.Error?, [String: Any]?) -> Void)
   ```
   {: codeblock}
   {: ph data-hd-programlang='swift'}
@@ -319,18 +330,6 @@ Depending on your configuration, attributes are encrypted and saved as part of a
   {: codeblock}
   {: ph data-hd-programlang='javascript'}
 
-  **Server-side swift**
-  {: ph data-hd-programlang='swift'}
-
-  ```
-  func getAllAttributes(accessToken: String, completionHandler: (Swift.Error?, [String: Any]?) -> Void)
-  func getAttribute(accessToken: String, attributeName: String, completionHandler: (Swift.Error?, [String: Any]?) -> Void)
-  func setAttribute(accessToken: String, attributeName: String, attributeValue : "abc", completionHandler: (Swift.Error?, [String: Any]?) -> Void)
-  func deleteAllAttributes(accessToken: String, completionHandler: (Swift.Error?, [String: Any]?) -> Void)
-  ```
-  {: codeblock}
-  {: ph data-hd-programlang='swift'}
-
 
 
 ## Setting custom attributes
@@ -339,10 +338,10 @@ Depending on your configuration, attributes are encrypted and saved as part of a
 You can add information about your users to their profile such as a role or preference, by setting a custom attribute.
 {: shortdesc}
 
-By default, custom attributes are modifiable and can be updated by using an App ID access token from a client application. This means that without taking proper precautions either the user or the application can update custom attributes immediately following the first user sign in, provided that they have access to an access token. This can potentially lead to unintended consequences. For example, a user could change their role from user to admin, which might expose administrative privileges to malicious users.
+By default, custom attributes are modifiable and can be updated by using an {{site.data.keyword.appid_short_notm}} access token from a client application. This means that without taking proper precautions either the user or the application can update custom attributes immediately following the first user sign in, provided that they have access to an access token. This can potentially lead to unintended consequences. For example, a user could change their role from user to admin, which might expose administrative privileges to malicious users.
 {: important}
 
-1. Navigate to the **Profiles** tab of the App ID dashboard and toggle custom attributes to **Enabled**.
+1. Navigate to the **Profiles** tab of the {{site.data.keyword.appid_short_notm}} dashboard and toggle custom attributes to **Enabled**.
 2. [Obtain an access token](/docs/services/appid?topic=appid-obtain-tokens). All incoming requests to your app have an authorization header, with `access_token`.
 3. Make a request to the [the attributes APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Attributes) or add one of the following snippets to your code to use one of the provided SDKs.
 
@@ -395,8 +394,8 @@ By default, custom attributes are modifiable and can be updated by using an App 
   {: codeblock}
   {: ph data-hd-programlang='javascript'}
 
-**Server-side Swift**
-{: ph data-hd-programlang='swift'}
+  **Server-side Swift**
+  {: ph data-hd-programlang='swift'}
 
   ```
   let userProfileManager = UserProfileManager(options: options)
