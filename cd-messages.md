@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-16"
+lastupdated: "2019-08-16"
 
 keywords: Authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
@@ -83,7 +83,7 @@ For further customization, you can use parameters in your messages. Check out th
 When a user signs up for your application, you might want to send them a message that welcomes them to your app. 
 {: shortdesc}
 
-1. Go to the **Workflow templates > Welcome email** tab of the service dashboard.
+1. Go to the **Cloud Directory > Workflow templates > Welcome email** tab of the service dashboard.
 
 2. Set **Welcome email** to **Enabled**.
 
@@ -102,7 +102,7 @@ Users who are manually added via the {{site.data.keyword.appid_short_notm}} dash
 {: note}
 
 
-1. Go to the **Workflow templates > Email verification** tab of the service dashboard.
+1. Go to the **Cloud Directory > Workflow templates > Email verification** tab of the service dashboard.
 
 2. Set **Email verification** to **Enabled**.
 
@@ -149,7 +149,7 @@ When a user interacts with your app, they might forget their password or need to
 {: shortdesc}
 
 
-1. Go to the **Workflow templates > Reset password** tab of the service dashboard.
+1. Go to the **Cloud Directory > Workflow templates > Reset password** tab of the service dashboard.
 
 2. Set **Forgot password email** to **Enabled**.
 
@@ -193,7 +193,7 @@ When a user interacts with your app, they might forget their password or need to
 You can notify a user when their password is updated. The notification can be helpful if they did not request that their password be changed. They can take the proper steps to resecure their account.
 {: shortdesc}
 
-1. Go to the **Workflow templates > Password change** tab of the service dashboard.
+1. Go to the **Cloud Directory > Workflow templates > Password change** tab of the service dashboard.
 
 2. Set **Password changed email** to **Enabled**.
 
@@ -242,7 +242,7 @@ After the extension point is configured, it is called by {{site.data.keyword.app
 ### Configuring the custom sender
 {: #cd-messages-configure-custom-sender}
 
-To configure your custom email sender, you must use the Cloud Directory <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.set_cloud_directory_email_dispatcher" target="_blank">Management API</a>.
+To configure your custom email sender, you must use the Cloud Directory [Management APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.set_cloud_directory_email_dispatcher){: external}.
 
 
 1. Provide the URL. Additionally you can provide authorization information. The supported authorization types are: `Basic authorization` or `constant authorization header value`.

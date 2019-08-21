@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-09"
+lastupdated: "2019-08-19"
 
 keywords: Authentication, authorization, identity, app security, secure, rates, cloud directory, rate limit, attempts
 
@@ -23,16 +23,16 @@ subcollection: appid
 {:download: .download}
 
 
-# App ID limits
+# {{site.data.keyword.appid_short_notm}} limits
 {: #limits}
 
-Rate limiting is used to control the amount of traffic that is coming and going through your instance of App ID. By limiting requests or resources, you can protect your applications.
+Rate limiting is used to control the amount of traffic that is coming and going through your instance of {{site.data.keyword.appid_full}}. By limiting requests or resources, you can protect your applications.
 {: shortdesc}
 
-## App ID lite plan 
+## {{site.data.keyword.appid_short_notm}} lite plan 
 {: #lite-limits}
 
-Review the following table to see the limits that are in place for lite instances of App ID. 
+Review the following table to see the limits that are in place for lite instances of {{site.data.keyword.appid_short_notm}}. 
 
 <table>
     <tr>
@@ -52,7 +52,7 @@ Review the following table to see the limits that are in place for lite instance
 ## General
 {: #general-limits}
 
-The following table lists the maximum per user limits for IBM Cloud App ID resources and the blocking period when the limits are exceeded. These limits apply to any user who can create IBM Cloud App ID resources.
+The following table lists the maximum per user limits for {{site.data.keyword.appid_short_notm}} resources and the blocking period when the limits are exceeded. These limits apply to any user who can create {{site.data.keyword.appid_short_notm}} resources.
 {: shortdesc}
 
 <table>
@@ -107,9 +107,15 @@ Review the following table to see limits that are associated with Cloud Director
     <tr>
         <td>Email sending request</td>
         <td>No</td>
-        <td>10 emails in 10 minutes per user</td>
+        <td>10 emails in 5 minutes per user</td>
         <td>Email requests for the user are blocked for 30 minutes.</td>
+    </tr>
+    <tr>
+        <td>SMS sending request</td>
+        <td>No</td>
+        <td>10 SMS in 5 minutes per user</td>
+        <td>SMS requests for the user are blocked for 30 minutes.</td>
     </tr>
 </table>
 
-For more information, see the <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateRateLimitConfig" target="_blank">rate limit management API.</a>
+For more information, see the [rate limit management API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateRateLimitConfig){: external}.

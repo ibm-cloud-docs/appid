@@ -63,7 +63,7 @@ You can configure the SSO through the GUI.
 
 1. Navigate to the **Cloud Directory > Single Sign-on** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
 
-2. In the **Enable single sign-on** box toggle SSO to **Enabled**.
+2. Toggle **Enable single sign-on** to **Enabled**.
 
 3. Set the amount of time that a user can be inactive before the SSO session expires. When it expires, they must sign in again. The time is specified in minutes and the maximum allowed time for inactivity is 10,080 minutes (7 days). The default time is 1440 minutes which is the equivalent of 1 day.
 

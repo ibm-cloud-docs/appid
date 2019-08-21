@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-08-07"
+lastupdated: "2019-08-21"
 
 keywords: Authentication, authorization, identity, app security, access, secure, development, any kube, kubernetes, icp, openshift, iks
 
@@ -119,12 +119,21 @@ To install the chart, initialize Helm in your cluster, define the options that y
     You might want to configure Helm to use `--tls` mode. For help with enabling TLS, check out the [Helm repository](https://github.com/helm/helm/blob/master/docs/tiller_ssl.md){: external}. If you enable TLS, be sure to append `--tls` to every Helm command that you run. For more information about using Helm with IBM Cloud Kubernetes Service, see [Adding services by using Helm Charts](/docs/containers?topic=containers-helm#public_helm_install).
     {: tip}
 
+3. Add the repository.
+
+  ```bash
+  helm repo add appidentityandaccessadapter https://raw.githubusercontent.com/ibm-cloud-security/app-identity-and-access-adapter/master/helm/appidentityandaccessadapter
+  ```
+
 3. Install the chart.
 
     ```bash
-    helm install ./helm/appidentityandaccessadapter --name appidentityandaccessadapter
+    helm install --name appidentityandaccessadapter appidentityandaccessadapter/appidentityandaccessadapter
     ```
     {: codeblock}
+
+    You can specify an image tag during installation by setting the `image.tag` flag. For example `--set image.tag=0.4.0`. You can also install the chart locally. To do so, clone the repo by running `git clone git@github.com:ibm-cloud-security/app-identity-and-access-adapter.git` before you run the installation command.
+    {: tip}
 
 ## Applying an authorization and authentication policy
 {: #istio-apply-policy}
@@ -150,7 +159,7 @@ Depending on whether you're protecting front end or backend applications, create
         name:      oidc-provider-config
         namespace: sample-namespace
     spec:
-        discoveryUrl: https://us-south.appid.cloud.ibm.com/oauth/v4/<tenant-ID>/oidc-discovery/.well-known
+        discoveryUrl: https://us-south.appid.cloud.ibm.com/oauth/v4/<tenant_ID>/.well-known/openid-configuration
         clientId:     <client-ID>
         clientSecret: <randomlyGeneratedClientSecret>
         clientSecretRef:
