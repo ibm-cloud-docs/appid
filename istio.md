@@ -107,7 +107,7 @@ Before you get started, be sure that you have installed the following prerequisi
 
 To install the chart, initialize Helm in your cluster, define the options that you want to use, and then run the installation command.
 
-1. If you're working with IBM Cloud Kubernetes service, be sure to log in and set the context for your cluster.
+1. If you're working with IBM Cloud Kubernetes Service, be sure to log in and set the context for your cluster.
 
 2. Install Helm in your cluster.
 
@@ -125,7 +125,7 @@ To install the chart, initialize Helm in your cluster, define the options that y
   helm repo add appidentityandaccessadapter https://raw.githubusercontent.com/ibm-cloud-security/app-identity-and-access-adapter/master/helm/appidentityandaccessadapter
   ```
 
-3. Install the chart.
+4. Install the chart.
 
     ```bash
     helm install --name appidentityandaccessadapter appidentityandaccessadapter/appidentityandaccessadapter
@@ -283,7 +283,7 @@ spec:
 
 | Service Object | Type | Required | Description   |
 |:----------------:|:----:|:--------:| :-----------: |
-| `service` | `string` | Yes | The name of Kubernetes service in the Policy namespace that you want to protect. |
+| `serviceName` | `string` | Yes | The name of Kubernetes service in the Policy namespace that you want to protect. |
 | `paths` | `array[Path Object]` | Yes | A list of path objects that define the endpoints that you want to protect. If left empty, all paths are protected. |
 {: class="simple-tab-table"}
 {: caption="Table 1. Understanding the service object components" caption-side="top"}
