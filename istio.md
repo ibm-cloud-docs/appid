@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-08-07"
+lastupdated: "2019-08-21"
 
 keywords: Authentication, authorization, identity, app security, access, secure, development, any kube, kubernetes, icp, openshift, iks
 
@@ -150,7 +150,7 @@ Depending on whether you're protecting front end or backend applications, create
         name:      oidc-provider-config
         namespace: sample-namespace
     spec:
-        discoveryUrl: https://us-south.appid.cloud.ibm.com/oauth/v4/<tenant-ID>/oidc-discovery/.well-known
+        discoveryUrl: https://us-south.appid.cloud.ibm.com/oauth/v4/<tenant_ID>/.well-known/openid-configuration
         clientId:     <client-ID>
         clientSecret: <randomlyGeneratedClientSecret>
         clientSecretRef:
