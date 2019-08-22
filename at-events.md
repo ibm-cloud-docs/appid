@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-08-21"
 
 keywords: Authentication, authorization, identity, app security, secure, application identity, app to app, access token, activity
 
@@ -21,6 +21,7 @@ subcollection: appid
 {:important: .important}
 {:deprecated: .deprecated}
 {:download: .download}
+{:preview: .preview}
 
 
 # {{site.data.keyword.cloudaccesstrailshort}} events
