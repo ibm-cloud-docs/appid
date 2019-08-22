@@ -27,7 +27,7 @@ subcollection: appid
 {: #adding-overview}
 
 
-You can quickly make authentication and authorization part of your application by integrating {{site.data.keyword.appid_short_notm}}. No matter which type of flow that you use, you can securely authenticate users to your app. With authentication in place, you can provide personalized user experiences across all types of devices.
+You can quickly add authentication and authorization to your application by integrating {{site.data.keyword.appid_short_notm}}. No matter which type of flow that you use, you can securely authenticate users to your app. With authentication in place, you can provide personalized user experiences across all types of devices.
 {: shortdesc}
 
 
