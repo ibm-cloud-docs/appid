@@ -8,11 +8,7 @@ IBM Cloud App ID
     getting-started.md
     about.md
     authorization.md
-    relatedlinks.md
-    whats-new.md
-    {: .navgroup-end}
 
-    {: .navgroup id="howto"}
     {: .topicgroup}
     Quick start guides
         qs-node-web.md
@@ -24,6 +20,11 @@ IBM Cloud App ID
         tutorial-kubernetes-auth.md
         tutorial-cf.md
 
+    relatedlinks.md
+    whats-new.md
+    {: .navgroup-end}
+
+    {: .navgroup id="howto"}
     {: .topicgroup}
     Adding App ID to your app
         adding-overview.md
