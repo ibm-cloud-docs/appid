@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-18"
+lastupdated: "2019-08-22"
 
 keywords: Authentication, authorization, identity, app security, secure, application identity, app to app, access token
 
@@ -94,8 +94,8 @@ import requests
 import json
 
 tenantId = '<{{site.data.keyword.appid_short_notm}} instance>'
-Img = '<Logo file location>'
-apiKey = '<IAM API key>'
+Img = '<Logo_file_location>'
+apiKey = '<IAM_API_key>'
 
 # get an IAM token
 headers = {'Content-Type': 'application/x-www-form-urlencoded', 'Accept':'application
@@ -127,4 +127,4 @@ if (r.status_code >= 200) :~
 ## Next steps
 {: #api-try}
 
-To try it out yourself, see the [{{site.data.keyword.appid_short_notm}} Management Rest API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/){: external}
+To try it out yourself, see the [{{site.data.keyword.appid_short_notm}} Management Rest API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/){: external}.

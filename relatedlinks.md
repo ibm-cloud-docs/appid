@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-08-20"
+lastupdated: "2019-08-23"
 
 keywords: Authentication, authorization, identity, app security, secure
 
@@ -23,7 +23,7 @@ subcollection: appid
 {:download: .download}
 
 
-# Discover
+# Explore related content
 {: #rellinks}
 
 You can use the following related links and samples to learn more about and interact with {{site.data.keyword.appid_full}}.
