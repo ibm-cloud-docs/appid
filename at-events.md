@@ -490,13 +490,14 @@ A user that generates a runtime event is identified as a GUID rather than by nam
 {: shortdesc}
 
 
-The following scenario works only for Cloud Directory users. If the user is defined by an external IdP such as Google or Facebook, only that IdP can interpret the GUID.
+The following scenario works only for Cloud Directory users. If the user is defined by an external IdP such as Google or Facebook, only that identity provider can interpret the GUID.
 {: note}
 
 
-**Extracting user information from the GUID**
+### Extracting user information from the GUID
+{: #at-extract-information}
 
-Example: An event in the {{site.data.keyword.at_short}} console contains the following fields.
+An event in the {{site.data.keyword.at_short}} console contains the following fields.
 
 <table>
   <tr>
@@ -507,16 +508,18 @@ Example: An event in the {{site.data.keyword.at_short}} console contains the fol
   <tr>
     <td>initiator.id</td>
     <td>cb967e0d-43c1-454a-968d-0efa24766846</td>
-    <td>Contains the tenant ID.</td>
+    <td>The tenant ID.</td>
   </tr>
   <tr>
     <td>target.name</td>
     <td>cloud_directory:34e1ea6d-cc02-4941-9462-7e9c5a40b360</td>
-    <td>Contains the user ID.</td>
+    <td>The user ID.</td>
   </tr>
 </table>
 
+</br>
 
+To find the user information that aligns with the event GUID, use the following steps.
 
 1. In the **Credentials** tab of the {{site.data.keyword.appid_short_notm}} dashboard, copy and save the information in the `apiKey` and `tenantID` fields. The tenant ID should match the ID of the event. If no credentials exist, create a set.
 
