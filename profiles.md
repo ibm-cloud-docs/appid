@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-08-19"
+lastupdated: "2019-08-28"
 
 keywords: Authentication, authorization, identity, app security, secure, attributes, user information, storing, accessing
 
@@ -30,6 +30,7 @@ subcollection: appid
 
 # Storing and accessing profiles
 {: #profiles}
+
 
 A user profile is all of the information that is known about a specific user compiled into one object and stored by {{site.data.keyword.appid_full}}. The information might be predefined, assigned, or learned about your users as they interact with your application. By taking advantage of the profiles feature, you can build personalized app experiences for each user.
 {: shortdesc}
@@ -421,4 +422,6 @@ For more information about working with a specific language SDK, see the followi
 * <a href="https://github.com/ibm-cloud-security/appid-clientsdk-swift" target="_blank">iOS Swift SDK <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 * <a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs" target="_blank">Node.js SDK <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 * <a href="https://github.com/ibm-cloud-security/appid-serversdk-swift" target="_blank">Server Swift SDK <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
+
+
 

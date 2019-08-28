@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-09"
+lastupdated: "2019-08-28"
 
-keywords: Authentication, authorization, identity, app security, secure, development, ingress, policy, networking, containers, kubernetes
+keywords: authentication, authorization, identity, app security, secure, development, ingress, policy, networking, containers, kubernetes
 
 subcollection: appid
 
