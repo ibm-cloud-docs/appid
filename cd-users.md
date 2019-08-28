@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-08-13"
+lastupdated: "2019-08-28"
 
 keywords: Authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
@@ -98,21 +98,25 @@ You can use the {{site.data.keyword.appid_short_notm}} API to view details about
 2. Search your App ID users with an identifying query, such as an email address, to find the user ID.
 
   ```
-  curl -X GET "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/Users?query={identifying-search-query}" -H "accept: application/json" -H "authorization: Bearer {token}"
+  curl -X GET "https://<region>.appid.cloud.ibm.com/management/v4/<tenant-ID>/cloud_directory/Users?query=<identifying-search-query>" \
+   -H "accept: application/json" \
+   -H "authorization: Bearer <token>"
   ```
   {: codeblock}
 
   Example:
 
   ```
-  curl -X GET https://us-south.appid.cloud.ibm.com/management/v4/e19a2778-3262-4986-8875-8khjafsdkhjsdafkjh/cloud_directory/Users?query=example@email.com -H "accept: application/json" -H "authorization: Bearer eyJraWQiOiIyMDE3MTEyOSIsImFsZ...."
+  curl -X GET https://us-south.appid.cloud.ibm.com/management/v4/e19a2778-3262-4986-8875-8khjafsdkhjsdafkjh/cloud_directory/Users?query=user@domain.com -H "accept: application/json" -H "authorization: Bearer eyJraWQiOiIyMDE3MTEyOSIsImFsZ...."
   ```
   {: screen}
 
 3. By using the ID that you obtained in the previous step, make a GET request to the `cloud_directory/users` endpoint to see their full user profile.
 
   ```
-  curl -X GET "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/Users/{user-ID}" -H "accept: application/json" -H "authorization: Bearer {token}"
+  curl -X GET "https://<region>.appid.cloud.ibm.com/management/v4/<tenant-ID>/cloud_directory/Users/<user-ID>" \
+  -H "accept: application/json" \
+  -H "authorization: Bearer <token>"
   ```
   {: codeblock}
 
@@ -198,13 +202,9 @@ If you disable self-service sign-up or add a user on their behalf, the user does
 
 
 
-
-
 **To add a user with the API:**
 
-The following flow shows how to add a user with an email and password. You can also choose to use a user name and password flow.
-
-1. Obtain your `tenantID` from your application or service credentials.
+1. Obtain your tenant ID from your application or service credentials.
 
 2. Obtain an {{site.data.keyword.cloud_notm}} IAM token.
 
@@ -213,24 +213,14 @@ The following flow shows how to add a user with an email and password. You can a
   ```
   {: codeblock}
 
-3. With the token that you obtained in step 2, make a POST request to the `cloud-directory/users` endpoint. This example uses the email/ password flow. You can also use the username/ password flow.
+3. Run the following user to create a new user and a profile at the same time.
 
   ```
-  curl --X POST "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/Users"
-  -H "accept: application/json"
-  -H "content-type: application/json"
-  -H "authorization: Bearer {token}"
-  -d {
-    "displayName": "Test User",
-    "password": "{App-ID-Cloud-Directory-User-Password}",
-    "active": true,
-    "emails": [
-      {
-        "value": "{App-ID-Cloud-Directory-User-Email}",
-        "primary": true
-      }
-    ]
-  }
+  curl -X POST "https://<region>.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/sign_up?shouldCreateProfile=true&language=en" \
+  -H "accept: application/json" \
+  -H "Content-Type: application/json" \
+  -H "authorization: Bearer <token>" \
+  -d "{ \"active\": true, \"emails\": [ { \"value\": \"<user@domain.com>\", \"primary\": true } ], \"userName\": \"<myUserName>\", \"password\": \"<userPassword>\"}"
   ```
   {: codeblock}
 
@@ -258,28 +248,34 @@ If you want to remove a user from your directory, you can delete the user from t
 </br>
 
 
-
-
-
 **To delete a user by using the API:**
 
 1. Obtain your tenant ID.
 
-2. By using the email that is attached to the user, search your directory to find the user's ID.
+2. Obtain an {{site.data.keyword.cloud_notm}} IAM token.
 
   ```
-  curl -X GET "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/users?email={user-email}" -H "accept: application/json"
-  ```
-  {: codeblock}
-
-3. Delete the user.
-
-  ```
-  curl --X DELETE "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/Users/{user-GUID}"
+  curl --X GET "https://iam.cloud.ibm.com/oidc/token" \
   -H "accept: application/x-www-form-urlencoded"
   ```
   {: codeblock}
 
+3. By using the email that is attached to the user, search your directory to find the user's ID.
+
+  ```
+  curl -X GET "https://<region>.appid.cloud.ibm.com/management/v4/<tenant-ID>/users?email=<user@domain.com>" \
+  -H "accept: application/json"
+  ```
+  {: codeblock}
+
+4. Delete the user.
+
+  ```
+  curl -X DELETE "https://<region>.appid.test.cloud.ibm.com/management/v4/<tenant-ID>/cloud_directory/remove/<user-ID>" \
+  -H "accept: application/json" \
+  -H "authorization: Bearer <token>"
+  ```
+  {: codeblock}
 
 
 ## Migrating users
@@ -301,7 +297,9 @@ Before you can add your users to the new instance, you need to export them from 
 Example cURL command:
 
 ```
-curl -X GET --header ‘Accept: application/json’ --header ‘Authorization: Bearer <iam-token>’ ’https://us-south.appid.cloud.ibm.com/management/v4/111c9bj3-xxxx-4b5b-zzzz-24ad9440k8j9/cloud_directory/export?encryption_secret=myCoolSecret'
+curl -X GET ’https://<region>.appid.cloud.ibm.com/management/v4/<tenant-ID>/cloud_directory/export?encryption_secret=<mySecret>' \
+-H ‘Accept: application/json’ \
+-H ‘Authorization: Bearer <iam-token>'
 ```
 {: codeblock}
 
@@ -357,7 +355,7 @@ curl -X POST --header ‘Content-Type: application/json’ --header ‘Accept: a
         “attributes”: {}
       }
     }
-]}’ ‘https://us-south.appid.cloud.ibm.com/management/v4/111c9bj3-xxxx-4b5b-zzzz-24ad9440k8j9/cloud_directory/import?encryption_secret=myCoolSecret’
+]}’ ‘https://us-south.appid.cloud.ibm.com/management/v4/111c9bj3-xxxx-4b5b-zzzz-24ad9440k8j9/cloud_directory/import?encryption_secret=mySecret’
 ```
 {: codeblock}
 
