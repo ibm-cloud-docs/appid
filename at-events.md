@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-08-28"
+lastupdated: "2019-08-29"
 
 keywords: Authentication, authorization, identity, app security, secure, application identity, app to app, access token, activity
 
@@ -279,8 +279,8 @@ This feature is available only for instances on graduated tier payment plan that
 
 1. Log in to your {{site.data.keyword.cloud_notm}} account.
 2. From the catalog, provision an instance of the {{site.data.keyword.at_short}} service in the same account as your {{site.data.keyword.appid_short_notm}} instance.
-3. In the {{site.data.keyword.appid_short_notm}} dashboard, click **Identity providers > Manage > Authentication settings**.
-4. In the **Runtime Activity** panel, toggle the switch to enable tracking of runtime activities for the current instance. A message displays that notifies you that the feature is enabled.
+3. In the {{site.data.keyword.appid_short_notm}} dashboard, click **Manage authentication > Authentication settings**.
+4. Scroll to the **Runtime Activity** panel and toggle the switch to enable tracking of runtime authentication activity. A message displays that notifies you that the feature is enabled and that you are charged differently. For more information, see [How does App ID calculate pricing](/docs/services/appid?topic=appid-faq#faq-pricing).
 5. From the **Observability > Activity Tracker** tab in the console navigation, verify the information for the instance that you created.
 6. Click **View LogDNA**. When the dashboard loads, you see an overall view of all of the activity in your account. You can use the search operators to filter your results by tags, sources, apps or levels. You can also search for specific events or jump to a specific timeframe.
 7. From the **All Apps** drop-down, select the instance of {{site.data.keyword.appid_short_notm}} that you want to track events for.
