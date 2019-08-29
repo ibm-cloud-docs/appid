@@ -24,7 +24,7 @@ subcollection: appid
 {:preview: .preview}
 
 
-# {{site.data.keyword.at_short}} events
+# Activity Tracker events
 {: #at-events}
 
 You can view, manage, and analyze user-initiated activities made in your {{site.data.keyword.appid_full}} service instance by using the {{site.data.keyword.at_short}} service.
@@ -36,12 +36,8 @@ By integrating {{site.data.keyword.at_short}} with {{site.data.keyword.appid_sho
 
 For more information about how the service works, see the [{{site.data.keyword.at_short}} docs](/docs/services/Activity-Tracker-with-LogDNA?topic=logdnaat-cloud_services).
 
-The {{site.data.keyword.at_short}} service is available for App ID in the London, Dallas, and Tokyo regions.
+The {{site.data.keyword.at_short}} service is available for {{site.data.keyword.appid_short_notm}} in the London, Dallas, and Tokyo regions.
 {: preview}
-
-
-
-
 
 
 ## Viewing administrative events
@@ -66,6 +62,7 @@ You can view, manage, and analyze configuration activity that is made in your {{
 Check out the following table for a list of the events that are sent to {{site.data.keyword.at_short}}.
 
 <table>
+  <caption>Table 1. Actions that you can take that are tracked by {{site.data.keyword.at_short}}</caption>
   <tr>
     <th>Action</th>
     <th>Description</th>
@@ -294,6 +291,7 @@ This feature is available only for instances on graduated tier payment plan that
 Check out the following table for a list of the runtime events that are sent to {{site.data.keyword.at_short}}.
 
 <table>
+  <caption>Table 2. Actions that can be tracked as authentication events at runtime</caption>
   <tr>
     <th>Description</th>
     <th>Action</th>
@@ -500,6 +498,7 @@ The following scenario works only for Cloud Directory users. If the user is defi
 An event in the {{site.data.keyword.at_short}} console contains the following fields.
 
 <table>
+  <caption>Table 3. Example fields that can be found in an event from the {{site.data.keyword.at_short}} console</caption>
   <tr>
     <th>Field</th>
     <th>Value</th>

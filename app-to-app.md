@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-28"
+lastupdated: "2019-08-29"
 
 keywords: Authentication, authorization, identity, app security, secure, application identity, app to app, access token
 
@@ -77,10 +77,10 @@ The client secret that is used to authenticate the client is highly sensitive an
   Request:
 
   ```
-  curl -X POST \  https://us-south.appid.cloud.ibm.com/management/v4/39a37f57-a227-4bfe-a044-93b6e6060b61/applications/ \
+  curl -X POST \  https://<region>.appid.cloud.ibm.com/management/v4/<tenant-ID>/applications/ \
   -H 'Content-Type: application/json' \
-  -H 'Authorization: Bearer IAM_TOKEN' \
-  -d '{"name": "ApplicationName"}'
+  -H 'Authorization: Bearer <IAM-token>' \
+  -d '{"name": "<Application-Name>"}'
   ```
   {: codeblock}
 

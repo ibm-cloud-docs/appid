@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-08-22"
+lastupdated: "2019-08-29"
 
 keywords: Authentication, authorization, identity, app security, secure, application identity, app to app, access token
 
@@ -50,6 +50,7 @@ https://<region-endpoint>.appid.cloud.ibm.com/management
 
 
 <table>
+  <caption>Table 1. Region options</caption>
   <tr>
     <th>Region</th>
     <th>Endpoint</th>

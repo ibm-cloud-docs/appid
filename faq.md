@@ -55,7 +55,7 @@ Advanced security features give you the ability to strengthen the security of yo
 By default, advanced security features are disabled. If you turn on MFA,runtime activity tracking, or password policy management you incur an extra charge. For example, if you obtained 10,000 access tokens. Then, you turned on password policy management and obtained 10,000 more. You would pay for 20,000 authentication events and 10,000 advanced security events. If you disable all of the advanced features, your account reverts to the lower-cost policy.
 
 <table>
-  <caption>Description of the benefits that are gained with advanced authentication events</caption>
+  <caption>Table 1. Description of the benefits that are gained with advanced authentication events</caption>
   <tr>
     <th>Feature</th>
     <th>Benefit</th>
@@ -107,6 +107,7 @@ Do not include any query parameters in your URL. They are ignored in the validat
 Check out the following table for answers to commonly asked questions about encryption.
 
 <table>
+  <caption>Table 2. Frequently asked questions abotu how {{site.data.keyword.appid_short_notm}} handles encryption</caption>
   <thead>
     <th colspan=2><img src="images/idea.png" alt="More information icon"/>  </th>
   </thead>
