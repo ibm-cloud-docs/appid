@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-08-29"
+lastupdated: "2019-08-30"
 
 keywords: Authentication, authorization, identity, app security, secure, application identity, app to app, access token, activity
 
@@ -66,7 +66,7 @@ Check out the following table for a list of the events that are sent to {{site.d
   <tr>
     <th>Action</th>
     <th>Description</th>
-    <th>UI Location</th>
+    <th>GUI action</th>
   </tr>
   <tr>
     <td><code>read.recentActivity</code></td>
@@ -76,27 +76,27 @@ Check out the following table for a list of the events that are sent to {{site.d
   <tr>
     <td><code>read.idpConfig</code></td>
     <td>View the identity provider configuration.</td>
-    <td>Can be found in the <strong>Identity Providers > Manage</strong> tab.</td>
+    <td>Can be found in the <strong>Manage authentication > Identity Providers</strong> tab.</td>
   </tr>
   <tr>
     <td><code>update.idpConfig</code></td>
     <td>Update the identity provider configuration.</td>
-    <td>Can be updated in the <strong>Identity Providers > Manage</strong> tab.</td>
+    <td>Can be updated in the <strong>Manage authentication > Identity Providers</strong> tab.</td>
   </tr>
   <tr>
     <td><code>read.tokensConfig</code></td>
     <td>View the token expiration configuration.</td>
-    <td>Can be found in the <strong>Identity Providers > Token Expiration</strong> tab.</td>
+    <td>Can be found in the <strong>Manage authentication > Authentication Settings</strong> tab.</td>
   </tr>
   <tr>
     <td><code>read.isProfilesActive</code></td>
     <td>View the user profile storage configuration.</td>
-    <td>Can be found in the <strong>Activity Log</strong> in the <strong>Overview</strong> tab.</td>
+    <td>Can be found in the <strong>User Profiles</strong> tab.</td>
   </tr>
   <tr>
     <td><code>update.isProfilesActive</code></td>
     <td>Update your user profile storage configuration.</td>
-    <td>Can be found in the <strong>Profiles</strong> tab.</td>
+    <td>Can be found in the <strong> User Profiles</strong> tab.</td>
   </tr>
   <tr>
     <td><code>read.themeColor</code></td>
@@ -141,7 +141,7 @@ Check out the following table for a list of the events that are sent to {{site.d
   <tr>
     <td><code>read.cloudDirectoryUser</code></td>
     <td>View a Cloud Directory user.</td>
-    <td>Can be found in the <strong>Users</strong> tab.</td>
+    <td>Can be found in the <strong>Cloud Directory > Users > View user details</strong> tab.</td>
   </tr>
   <tr>
     <td><code>update.cloudDirectoryUser</code></td>
