@@ -8,6 +8,7 @@ IBM Cloud App ID
     getting-started.md
     about.md
     authorization.md
+
     relatedlinks.md
     whats-new.md
     {: .navgroup-end}
