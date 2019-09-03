@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-08-30"
+lastupdated: "2019-09-03"
 
 keywords: Authentication, authorization, identity, app security, secure, application identity, app to app, access token, activity
 
@@ -263,6 +263,9 @@ Check out the following table for a list of the events that are sent to {{site.d
 
 With {{site.data.keyword.at_short}}, you can review runtime activity made by an app user, such as logins, password resets, and authentications.
 {: shortdesc}
+
+The ability to track runtime authentication events is available for {{site.data.keyword.appid_short_notm}} in the London, Dallas, and Tokyo regions.
+{: preview}
 
 The reported events are per account, but there are limitations on the data rate and retention period of the collected runtime events. Increasing the limits might require an upgrade of the {{site.data.keyword.at_short}} service. For more information about the service limits, see the [{{site.data.keyword.at_short}} docs](/docs/services/Activity-Tracker-with-LogDNA?topic=logdnaat-service_plan).
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-08-29"
+lastupdated: "2019-09-03"
 
 keywords: Authentication, authorization, identity, app security, secure, compliance, high availability, ha, disaster recovery, dr, protocols, oauth, oidc
 
@@ -129,4 +129,13 @@ In each supported multizone region, every zone has its own {{site.data.keyword.c
 Data that is stored in {{site.data.keyword.appid_short_notm}} is encrypted and persisted in a database cluster that is spread across availability zones. The data is also back up in a separate encrypted object storage.
 
 Because {{site.data.keyword.appid_short_notm}} is a regional service, it does not provide automated cross-regional failover or cross-regional disaster recovery. However, {{site.data.keyword.appid_short_notm}} does provide an [extensive API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/){: external} that developers can use to manually synchronize their service configuration with another instance or instances of {{site.data.keyword.appid_short_notm}}.
+
+## Data separation and encryption
+{: #data-encryption}
+
+{{site.data.keyword.appid_short_notm}} stores and encrypts user profile attributes. As a multi-tenant service, every tenant has a designated encryption key and user data in each tenant is encrypted with only that tenant's key.
+
+{{site.data.keyword.appid_short_notm}} ensures that private information is encrypted before it is stored.
+{: note}
+
 
