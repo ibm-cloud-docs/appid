@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-08-28"
+lastupdated: "2019-09-04"
 
 keywords: Authentication, authorization, identity, app security, secure, attributes, user information, storing, accessing
 
@@ -32,14 +32,14 @@ subcollection: appid
 {: #profiles}
 
 
-A user profile is all of the information that is known about a specific user compiled into one object and stored by {{site.data.keyword.appid_full}}. The information might be predefined, assigned, or learned about your users as they interact with your application. By taking advantage of the profiles feature, you can build personalized app experiences for each user.
+A user profile is all of the information that is known about a specific user, who is compiled into one object and stored by {{site.data.keyword.appid_full}}. The information might be predefined, assigned, or learned about your users as they interact with your application. By taking advantage of the profiles feature, you can build personalized app experiences for each user.
 {: shortdesc}
 
 Looking for information about your Cloud Directory users? Check out [managing users](/docs/services/appid?topic=appid-cd-users).
 {: tip}
 
 
-There are two types of information that can be obtained and stored by {{site.data.keyword.appid_short_notm}}: predefined attributes and custom attributes. Predefined attributes are specific to the identity of your users and are returned by an identity provider when your user signs in to your app and can include information such as their name or age. Custom attributes are used to store additional information about your users. They can be set by you or learned about the user as they interact with your app. Custom attributes might include an assigned role, a food preference, or a prefered aisle seat on an airplane.
+Two types of information can be obtained and stored by {{site.data.keyword.appid_short_notm}}: predefined attributes and custom attributes. Predefined attributes are specific to the identity of your users and are returned by an identity provider when your user signs in to your app and can include information such as their name or age. Custom attributes are used to store additional information about your users. They can be set by you or learned about the user as they interact with your app. Custom attributes might include an assigned role, a food preference, or a preferred aisle seat on an airplane.
 
 
 ![{{site.data.keyword.appid_short_notm}} user profiles](images/user-profile-makeup.png)
@@ -78,7 +78,7 @@ To see the information about your users that is provided by your configured iden
 **iOS Swift**
 {: ph data-hd-programlang='swift'}
 
-If new tokens are not explicitly passed to the SDK, {{site.data.keyword.appid_short_notm}} uses the last received tokens to retrieve and validate the response. For example, you can execute the following code after a successful authentication and the SDK retrieves additional information about the user.
+If new tokens are not explicitly passed to the SDK, {{site.data.keyword.appid_short_notm}} uses the last received tokens to retrieve and validate the response. For example, you can run the following code after a successful authentication and the SDK retrieves additional information about the user.
 {: ph data-hd-programlang='swift'}
 
 ```
@@ -109,7 +109,7 @@ AppID.sharedInstance.userProfileManager.getUserInfo(accessToken: String, identit
 **Java**
 {: ph data-hd-programlang='java'}
 
-If new tokens are not explicitly passed to the SDK, {{site.data.keyword.appid_short_notm}} uses the last received tokens to retrieve and validate the response. For example, you can execute the following code after a successful authentication and the SDK retrieves additional information about the user.
+If new tokens are not explicitly passed to the SDK, {{site.data.keyword.appid_short_notm}} uses the last received tokens to retrieve and validate the response. For example, you can run the following code after a successful authentication and the SDK retrieves additional information about the user.
 {: ph data-hd-programlang='java'}
 
 ```
@@ -266,7 +266,7 @@ If changes are made by an external identity provider, you can get the updated in
 ### Accessing the `/attributes` endpoint
 {: #profile-attributes-access}
 
-Depending on your configuration, attributes are encrypted and saved as part of a user profile when a user interacts with your application. The interaction could be a user signing in or setting a preference in your app. To access the attributes, pass an access token through an API method.
+Depending on your configuration, attributes are encrypted and saved as part of a user profile when a user interacts with your application. The interaction might be a user signing in or setting a preference in your app. To access the attributes, pass an access token through an API method.
 {: shortdesc}
 
   **iOS Swift**
@@ -339,12 +339,12 @@ Depending on your configuration, attributes are encrypted and saved as part of a
 You can add information about your users to their profile such as a role or preference, by setting a custom attribute.
 {: shortdesc}
 
-By default, custom attributes are modifiable and can be updated by using an {{site.data.keyword.appid_short_notm}} access token from a client application. This means that without taking proper precautions either the user or the application can update custom attributes immediately following the first user sign in, provided that they have access to an access token. This can potentially lead to unintended consequences. For example, a user could change their role from user to admin, which might expose administrative privileges to malicious users.
+By default, custom attributes are modifiable and can be updated by using an {{site.data.keyword.appid_short_notm}} access token from a client application. This means that without taking proper precautions either the user or the application can update custom attributes immediately following the first user sign-in, if they have an access token. This can potentially lead to unintended consequences. For example, a user might change their role from user to admin, which might expose administrative privileges to malicious users.
 {: important}
 
 1. Navigate to the **Profiles** tab of the {{site.data.keyword.appid_short_notm}} dashboard and toggle custom attributes to **Enabled**.
 2. [Obtain an access token](/docs/services/appid?topic=appid-obtain-tokens). All incoming requests to your app have an authorization header, with `access_token`.
-3. Make a request to the [the attributes APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Attributes) or add one of the following snippets to your code to use one of the provided SDKs.
+3. Make a request to the [attributes APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Attributes) or add one of the following snippets to your code to use one of the provided SDKs.
 
   **iOS Swift**
   {: ph data-hd-programlang='swift'}
