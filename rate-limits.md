@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-08-19"
+lastupdated: "2019-09-04"
 
 keywords: Authentication, authorization, identity, app security, secure, rates, cloud directory, rate limit, attempts
 
@@ -63,7 +63,7 @@ The following table lists the maximum per user limits for {{site.data.keyword.ap
     </tr>
     <tr>
         <td>Sign in attempts by one user</td>
-        <td>5 per minute</td>
+        <td>11 per minute</td>
         <td>User unable to sign in for 1 minute.</td>
     </tr>
     <tr>
