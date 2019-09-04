@@ -43,11 +43,12 @@ For specific error codes and messages from your identity provider that you don't
 {: note}
 
 
-### Troubleshooting
-{: #w3id-troubleshooting}
+### SAML message signature could not be validated
+{: #ts-saml-w3id}
 
 
 **What's happening**
+
 When you test your application, you receive the following error message:
 
 ```
@@ -56,9 +57,11 @@ The SAML message signature could not be validated
 {: screen}
 
 **Why it's happening**
+
 This error occurs when {{site.data.keyword.appid_short_notm}} cannot verify the signature that is sent by SAML.
 
 **How to fix it**
+
 To resolve the issue, verify that you have **Inbound Signature** set to **None** in your configuration.
 
 
