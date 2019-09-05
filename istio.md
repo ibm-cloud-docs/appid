@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-04"
+lastupdated: "2019-09-05"
 
-keywords: Authentication, authorization, identity, app security, access, secure, development, any kube, kubernetes, icp, openshift, iks
+keywords: authentication, authorization, identity, app security, access, secure, development, any kube, kubernetes, icp, openshift, iks
 
 subcollection: appid
 
@@ -22,7 +22,7 @@ subcollection: appid
 {:deprecated: .deprecated}
 {:download: .download}
 
-# Securing multicloud apps with Istio
+# Multicloud apps with Istio
 {: #istio-adapter}
 
 By using the App Identity and Access adapter, you can centralize all of your identity management in a single place. Because enterprises use clouds from multiple providers or a combination of on and off-premise solutions, heterogeneous deployment models can help you to preserve existing infrastructure and avoid vendor lock-in. The adapter can be configured to work with any OIDC-compliant identity provider, such as {{site.data.keyword.appid_short_notm}}, which enables it to control authentication and authorization policies in all environments including front end and backend applications. And, **it does it all without any change to your code or the need to redeploy your application**.
@@ -49,7 +49,7 @@ Figure. Multicloud deployment - achieved with the App Identity and Access adapte
 ## Understanding Istio and the adapter
 {: #istio-architecure}
 
-[Istio](https://istio.io) is an open source service mesh that layers transparently onto existing distributed applications that can integrate with Kubernetes. To reduce the complexity of deployments Istio provides behavioral insights and operational control over the service mesh as a whole. When App ID is combined with Istio, it becomes a scalable, integrated identity solution for multicloud architectures that does not require any custom application code changes. For more information, check out ["What is Istio?"](https://www.ibm.com/cloud/learn/istio){: external}.
+[Istio](https://istio.io) is an open source service mesh that layers transparently onto existing distributed applications that can integrate with Kubernetes. To reduce the complexity of deployments Istio provides behavioral insights and operational control over the service mesh as a whole. When {{site.data.keyword.appid_short_notm}} is combined with Istio, it becomes a scalable, integrated identity solution for multicloud architectures that does not require any custom application code changes. For more information, check out ["What is Istio?"](https://www.ibm.com/cloud/learn/istio){: external}.
 
 Istio uses an Envoy proxy sidecar to mediate all inbound and outbound traffic for all services in the service mesh. By using the proxy, Istio extracts information about traffic, also known as telemetry, that is sent to the Istio component called Mixer to enforce policy decisions. The App Identity and Access adapter extends the Mixer functionality by analyzing the telemetry (attributes) against custom policies to control identity and access management into and across the service mesh. The access management policies are linked to particular Kubernetes services and can be finely tuned to specific service endpoints. For more information about policies and telemetry, see the [Istio documentation](https://istio.io/docs/concepts/observability/){: external}. 
 
@@ -111,13 +111,13 @@ To install the chart, initialize Helm in your cluster, define the options that y
 
 2. Install Helm in your cluster.
 
-    ```bash
-    helm init
-    ```
-    {: codeblock}
+  ```bash
+  helm init
+  ```
+  {: codeblock}
 
-    You might want to configure Helm to use `--tls` mode. For help with enabling TLS, check out the [Helm repository](https://github.com/helm/helm/blob/master/docs/tiller_ssl.md){: external}. If you enable TLS, be sure to append `--tls` to every Helm command that you run. For more information about using Helm with IBM Cloud Kubernetes Service, see [Adding services by using Helm Charts](/docs/containers?topic=containers-helm#public_helm_install).
-    {: tip}
+  You might want to configure Helm to use `--tls` mode. For help with enabling TLS, check out the [Helm repository](https://github.com/helm/helm/blob/master/docs/tiller_ssl.md){: external}. If you enable TLS, be sure to append `--tls` to every Helm command that you run. For more information about using Helm with IBM Cloud Kubernetes Service, see [Adding services by using Helm Charts](/docs/containers?topic=containers-helm#public_helm_install).
+  {: tip}
 
 3. Add the repository.
 
@@ -127,13 +127,13 @@ To install the chart, initialize Helm in your cluster, define the options that y
 
 4. Install the chart.
 
-    ```bash
-    helm install --name appidentityandaccessadapter appidentityandaccessadapter/appidentityandaccessadapter
-    ```
-    {: codeblock}
+  ```bash
+  helm install --name appidentityandaccessadapter appidentityandaccessadapter/appidentityandaccessadapter
+  ```
+  {: codeblock}
 
-    You can specify an image tag during installation by setting the `image.tag` flag. For example `--set image.tag=0.4.0`. You can also install the chart locally. To do so, clone the repo by running `git clone git@github.com:ibm-cloud-security/app-identity-and-access-adapter.git` before you run the installation command.
-    {: tip}
+  You can specify an image tag during installation by setting the `image.tag` flag. For example `--set image.tag=0.4.0`. You can also install the chart locally. To do so, clone the repo by running `git clone git@github.com:ibm-cloud-security/app-identity-and-access-adapter.git` before you run the installation command.
+  {: tip}
 
 ## Applying an authorization and authentication policy
 {: #istio-apply-policy}
@@ -152,70 +152,67 @@ Depending on whether you're protecting front end or backend applications, create
 
 * For front-end applications: Browser-based applications that require user authentication can be configured to use the OIDC / OAuth 2.0 authentication flow. To define an `OidcConfig` CRD containing the client used to facilitate the authentication flow with the Identity provider, use the following example as a guide.
 
-    ```yaml
-    apiVersion: "security.cloud.ibm.com/v1"
-    kind: OidcConfig
-    metadata:
-        name:      oidc-provider-config
-        namespace: sample-namespace
-    spec:
-        discoveryUrl: https://us-south.appid.cloud.ibm.com/oauth/v4/<tenant_ID>/.well-known/openid-configuration
-        clientId:     <client-ID>
-        clientSecret: <randomlyGeneratedClientSecret>
-        clientSecretRef:
-            name: <name-of-my-kube-secret>
-            key: <key-in-my-kube-secret>
-    ```
-    {: screen}
+  ```yaml
+  apiVersion: "security.cloud.ibm.com/v1"
+  kind: OidcConfig
+  metadata:
+      name:      oidc-provider-config
+      namespace: sample-namespace
+  spec:
+      discoveryUrl: https://us-south.appid.cloud.ibm.com/oauth/v4/<tenant_ID>/.well-known/openid-configuration
+      clientId:     <client-ID>
+      clientSecret: <randomlyGeneratedClientSecret>
+      clientSecretRef:
+          name: <name-of-my-kube-secret>
+          key: <key-in-my-kube-secret>
+  ```
+  {: screen}
 
-    <table>
-        <thead>
-        <tr>
-            <th>Field</th>
-            <th style="text-align:center">Type</th>
-            <th style="text-align:center">Required</th>
-            <th style="text-align:center">Description</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td><code>discoveryUrl</code></td>
-            <td style="text-align:center">string</td>
-            <td style="text-align:center">Yes</td>
-            <td style="text-align:center">A well-known endpoint that provides a JSON document of OIDC/OAuth 2.0 configuration information.</td>
-        </tr>
-        <tr>
-            <td><code>clientId</code></td>
-            <td style="text-align:center">string</td>
-            <td style="text-align:center">Yes</td>
-            <td style="text-align:center">An identifier for the client that is used for authentication.</td>
-        </tr>
-        <tr>
-            <td><code>clientSecret</code></td>
-            <td style="text-align:center">string</td>
-            <td style="text-align:center">*No</td>
-            <td style="text-align:center">A plain text secret that is used to authenticate the client. If not provided, a <code>clientSecretRef</code> must exist.</td>
-        </tr>
-        <tr>
-            <td><code>clientSecretRef</code></td>
-            <td style="text-align:center">object</td>
-            <td style="text-align:center">No</td>
-            <td style="text-align:center">A reference secret that is used to authenticate the client. The reference can be used in place of the <code>clientSecret</code>.</td>
-        </tr>
-        <tr>
-            <td><code>clientSecretRef.name</code></td>
-            <td style="text-align:center">string</td>
-            <td style="text-align:center">Yes</td>
-            <td style="text-align:center">The name of the Kubernetes Secret that contains the <code>clientSecret</code>.</td>
-        </tr>
-        <tr>
-            <td><code>clientSecretRef.key</code></td>
-            <td style="text-align:center">string</td>
-            <td style="text-align:center">Yes</td>
-            <td style="text-align:center">The field within the Kubernetes Secret that holds the <code>clientSecret</code>.</td>
-        </tr>
-        </tbody>
-    </table>
+  <table>
+    <caption>Table 1. YAML configuration file components explained</caption>
+    <tr>
+      <th>Field</th>
+      <th style="text-align:center">Type</th>
+      <th style="text-align:center">Required</th>
+      <th style="text-align:center">Description</th>
+    </tr>
+    <tr>
+      <td><code>discoveryUrl</code></td>
+      <td style="text-align:center">string</td>
+      <td style="text-align:center">Yes</td>
+      <td style="text-align:center">A well-known endpoint that provides a JSON document of OIDC/OAuth 2.0 configuration information.</td>
+    </tr>
+    <tr>
+      <td><code>clientId</code></td>
+      <td style="text-align:center">string</td>
+      <td style="text-align:center">Yes</td>
+      <td style="text-align:center">An identifier for the client that is used for authentication.</td>
+    </tr>
+    <tr>
+      <td><code>clientSecret</code></td>
+      <td style="text-align:center">string</td>
+      <td style="text-align:center">*No</td>
+      <td style="text-align:center">A plain text secret that is used to authenticate the client. If not provided, a <code>clientSecretRef</code> must exist.</td>
+    </tr>
+    <tr>
+      <td><code>clientSecretRef</code></td>
+      <td style="text-align:center">object</td>
+      <td style="text-align:center">No</td>
+      <td style="text-align:center">A reference secret that is used to authenticate the client. The reference can be used in place of the <code>clientSecret</code>.</td>
+    </tr>
+    <tr>
+      <td><code>clientSecretRef.name</code></td>
+      <td style="text-align:center">string</td>
+      <td style="text-align:center">Yes</td>
+      <td style="text-align:center">The name of the Kubernetes Secret that contains the <code>clientSecret</code>.</td>
+    </tr>
+    <tr>
+      <td><code>clientSecretRef.key</code></td>
+      <td style="text-align:center">string</td>
+      <td style="text-align:center">Yes</td>
+      <td style="text-align:center">The field within the Kubernetes Secret that holds the <code>clientSecret</code>.</td>
+    </tr>
+  </table>
 
 * For backend applications: The OAuth 2.0 Bearer token spec defines a pattern for protecting APIs by using [JSON Web Tokens (JWTs)](https://tools.ietf.org/html/rfc7519.html){: external}. By using the following configuration as an example, define a `JwtConfig` CRD that contains the public key resource, which is used to validate token signatures.
 
@@ -286,7 +283,7 @@ spec:
 | `serviceName` | `string` | Yes | The name of Kubernetes service in the Policy namespace that you want to protect. |
 | `paths` | `array[Path Object]` | Yes | A list of path objects that define the endpoints that you want to protect. If left empty, all paths are protected. |
 {: class="simple-tab-table"}
-{: caption="Table 1. Understanding the service object components" caption-side="top"}
+{: caption="Table 2. Understanding the service object components" caption-side="top"}
 {: #service-object}
 {: tab-title="Service object"}
 {: tab-group="objects"}
@@ -297,7 +294,7 @@ spec:
 | `method` | `enum` | No | The HTTP method protected. Valid options ALL, GET, PUT, POST, DELETE, PATCH - Defaults to ALL:  |
 | `policies` | `array[Policy]` | No | The OIDC/JWT policies that you want to apply.  |
 {: class="simple-tab-table"}
-{: caption="Table 2. Understanding the path object components" caption-side="top"}
+{: caption="Table 3. Understanding the path object components" caption-side="top"}
 {: #path-object}
 {: tab-title="Path object"}
 {: tab-group="objects"}
@@ -309,7 +306,7 @@ spec:
 | `redirectUri` | `string` | No | The URL that you want the user to be redirected after successful authentication, default: the original request URL. |
 | `rules` | `array[Rule]` | No | The set of rules that you want to use for token validation. |
 {: class="simple-tab-table"}
-{: caption="Table 3. Understanding the policy object components" caption-side="top"}
+{: caption="Table 4. Understanding the policy object components" caption-side="top"}
 {: #policy-object}
 {: tab-title="Policy object"}
 {: tab-group="objects"}
@@ -321,7 +318,7 @@ spec:
 | `source` | `enum` | No | The token where you want to apply the rule. Options include: `access_token` or `id_token`. The default is set to `access_token`. |
 | `values` | `array[string]` | Yes | The required set of values for validation. |
 {: class="simple-tab-table"}
-{: caption="Table 4. Understanding the policy object components" caption-side="top"}
+{: caption="Table 5. Understanding the policy object components" caption-side="top"}
 {: #rule-object}
 {: tab-title="Rule object"}
 {: tab-group="objects"}
@@ -344,8 +341,8 @@ kubectl delete secret appidentityandaccessadapter-keys -n istio-system
 
 If you encounter an issue while you work with the App Identity and Access adapter, consider the following FAQ's and troubleshooting techniques. For more help, You can ask questions through a forum or open a support ticket. When you use the forums to ask a question, tag your question so that it's seen by the {{site.data.keyword.appid_short_notm}} development team.
 
-  * If you have technical questions about {{site.data.keyword.appid_short_notm}}, post your question on <a href="https://stackoverflow.com/" target="_blank">Stack Overflow <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> and tag your question with "ibm-appid".
-  * For questions about the service and getting started instructions, use the <a href="https://developer.ibm.com/" target="_blank">dW Answers <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> forum. Include the `appid` tag.
+  * If you have technical questions about {{site.data.keyword.appid_short_notm}}, post your question on [Stack Overflow](https://stackoverflow.com/){: external} and tag your question with `ibm-appid`.
+  * For questions about the service and getting started instructions, use the [dW Answers](https://developer.ibm.com/){: external} forum. Include the `appid` tag.
 
 For more information about getting support, see [how do I get the support that I need](/docs/get-support?topic=get-support-getting-customer-support#getting-customer-support).
 
@@ -353,9 +350,9 @@ For more information about getting support, see [how do I get the support that I
 ### Troubleshooting: Logging
 {: #istio-logging}
 
-By default, logs are styled as JSON and provided at an `info` visibility level to provide for ease of integration with external logging systems. To update the logging configuration, you can use the Helm chart. Supported logging levels include range [-1, 7] as shown in Zap core. For more information about the levels, see the [Zap core documentation](https://godoc.org/go.uber.org/zap/zapcore#Level).
+By default, logs are styled as JSON and provided at an `info` visibility level to provide for ease of integration with external logging systems. To update the logging configuration, you can use the Helm chart. Supported logging levels include range [-1, 7] as shown in Zap core. For more information about the levels, see the [Zap core documentation](https://godoc.org/go.uber.org/zap/zapcore#Level){: external}.
 
-When you're manually viewing JSON logs, you might want to tail the logs and "pretty print" them by using [`jq`](https://brewinstall.org/install-jq-on-mac-with-brew/).
+When you're manually viewing JSON logs, you might want to tail the logs and "pretty print" them by using [`jq`](https://brewinstall.org/install-jq-on-mac-with-brew/){: external}.
 {: note}
 
 **Adapter**

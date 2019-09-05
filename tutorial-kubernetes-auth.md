@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-08-28"
+lastupdated: "2019-09-05"
 
 keywords: authentication, authorization, identity, app security, secure, development, ingress, policy, networking, containers, kubernetes
 
@@ -23,7 +23,7 @@ subcollection: appid
 {:download: .download}
 
 
-# Tutorial: Configuring Ingress to use {{site.data.keyword.appid_short_notm}}
+# Containerized apps with Ingress
 {: #kube-auth}
 
 You can consistently enforce policy-driven security by using the Ingress networking capability in {{site.data.keyword.containerlong}}. With this approach, you can enable authorization and authentication for all of the applications in your cluster at the same time, without ever changing your app code! With this step-by-step guide, you can learn how to configure your Ingress controller to use {{site.data.keyword.appid_short_notm}}.
@@ -31,7 +31,7 @@ You can consistently enforce policy-driven security by using the Ingress network
 
 Check out the following diagram to see the authentication flow:
 
-![{{site.data.keyword.appid_short_notm}} Kubernetes integration architecture](images/kube-integration.png)
+![{{site.data.keyword.appid_short_notm}} Kubernetes integration architecture](images/kube-integration.png){: caption="Figure 1. {{site.data.keyword.appid_short_notm}} Kubernetes integration architecture" caption-side="bottom"}
 
 1. A user opens your application and triggers a request to the web app or API.
 2. For the API flow, the Ingress controller attempts to validate the supplied tokens. If the web flow is used, it kicks off a three-leg OIDC authentication process.

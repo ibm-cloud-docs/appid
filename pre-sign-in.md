@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-08-02"
+lastupdated: "2019-09-05"
 
 keywords: Authentication, authorization, identity, app security, secure, development, user information, attributes, profiles, 
 
@@ -57,6 +57,7 @@ You can identify your users by using one of the following:
 Check out the following table to see which type of identity information that you can use.
 
 <table>
+  <caption>Table 1. Types of identity information that can be used with each provider</caption>
   <thead>
     <tr>
       <th>Identity provider</th>
@@ -105,7 +106,7 @@ Check out the following table to see which type of identity information that you
 To ensure the integrity of a future user, Cloud Directory places extra requirements on preregistration. 
 
 * You must use an email, not a user name, to add the user. If you don't have any users yet, switch to email and password mode to add future users. If you do have users, you must wait until the user has signed in to assign custom attributes.
-* The user must confirm their identity through verification. When you add a future user with specific attributes, those attributes are intended for that person. Any user that signs in by using an email that is registered to a future user must verify their email address before they are granted access to your app. To complete the verification requirements, you can send an email to have the user verify or manually verify their address on their behalf. To allow for self-verification, set **Email verification** to **On** in the **Cloud Directory** tab of the service dashboard. This sends an email to the user to request verification on their initial sign-in. To verify users manually, you must be an administrator. Make a request to the Cloud Directory [management APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.createCloudDirectoryUser) to set the `status` field in the payload to `CONFIRMED`.  
+* The user must confirm their identity through verification. When you add a future user with specific attributes, those attributes are intended for that person. Any user that signs in by using an email that is registered to a future user must verify their email address before they are granted access to your app. To complete the verification requirements, you can send an email to have the user verify or manually verify their address on their behalf. To allow for self-verification, set **Email verification** to **On** in the **Cloud Directory** tab of the service dashboard. This sends an email to the user to request verification on their initial sign-in. To verify users manually, you must be an administrator. Make a request to the Cloud Directory [management APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.createCloudDirectoryUser){: external} to set the `status` field in the payload to `CONFIRMED`.  
 
 If a future user is added by you and signs in to your app without verifying their email, their custom attributes are deleted and the profile is created from scratch.
 {: important}
@@ -213,8 +214,10 @@ You can add a future user and their custom attributes by using the API.
   {: codeblock}
 
   <table>
+    <caption>Table 2. The components of the POST request</caption>
     <thead>
-      <th colspan=2><img src="images/idea.png" alt="Idea icon"/> Understanding the components</th>
+      <th>Components</th>
+      <th>Description</th>
     </thead>
     <tbody>
       <tr>

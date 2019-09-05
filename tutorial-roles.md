@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-23"
+lastupdated: "2019-09-05"
 
 keywords: Authentication, authorization, identity, app security, secure, access management, roles, attributes, users
 
@@ -238,6 +238,7 @@ Becoming more popular, the theme park continues to grow! With so many new visito
   {: codeblock}
 
   <table>
+    <caption>Table 1. Token configuration variables</caption>
     <tr>
       <th>Variable</th>
       <th>Description</th>

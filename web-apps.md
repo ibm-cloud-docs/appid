@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-08-02"
+lastupdated: "2019-09-05"
 
 keywords: Authentication, authorization, identity, app security, secure, web apps, client, server
 
@@ -42,7 +42,7 @@ Web apps often require users to authenticate in order to access protected conten
 
 **How does this flow work?**
 
-![{{site.data.keyword.appid_short_notm}} request flow](images/web-flow.png)
+![{{site.data.keyword.appid_short_notm}} request flow](images/web-flow.png){: caption="Figure 1. {{site.data.keyword.appid_short_notm}} request flow" caption-side="bottom"}
 
 1. A user initiates the authorization flow by sending a request to the `/authorization` endpoint via the {{site.data.keyword.appid_short_notm}} SDK or API.
 
@@ -78,7 +78,7 @@ You must have the following prerequisites:
 * Your redirect URI set in the {{site.data.keyword.appid_short_notm}} service dashboard
 
 
-Check out the following video to learn about protecting Node applications with {{site.data.keyword.appid_short_notm}}. Then, try it out yourself by using a [simple Node sample app](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02a-simple-node-web-app).
+Check out the following video to learn about protecting Node applications with {{site.data.keyword.appid_short_notm}}. Then, try it out yourself by using a [simple Node sample app](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02a-simple-node-web-app){: external}.
 
 <iframe class="embed-responsive-item" id="appid-nodejs" title="About {{site.data.keyword.appid_short_notm}}" type="text/html" width="640" height="390" src="//www.youtube.com/embed/6roa1ZOvwtw?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
@@ -130,7 +130,7 @@ Check out the following video to learn about protecting Node applications with {
 
   * By navigating to the **Applications** tab of the {{site.data.keyword.appid_short_notm}} dashboard. If you don't have an application in the list, you can click **Add application** to create a one.
 
-  * By making a POST request to the [`/management/v4/{tenantId}/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Applications/mgmt.registerApplication).
+  * By making a POST request to the [`/management/v4/{tenantId}/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Applications/mgmt.registerApplication){: external}.
 
     Request format:
     ```
@@ -244,7 +244,7 @@ Check out the following video to learn about protecting Liberty for Java applica
 
   * By navigating to the **Applications** tab of the {{site.data.keyword.appid_short_notm}} dashboard. If you don't already have one, you can click **Add application** to create a new one.
 
-  * By making a POST request to the [`/management/v4/{tenantId}/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Applications/registerApplication).
+  * By making a POST request to the [`/management/v4/{tenantId}/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Applications/registerApplication){: external}.
 
     Request format:
     ```

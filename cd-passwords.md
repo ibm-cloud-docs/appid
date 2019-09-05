@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-08-16"
+lastupdated: "2019-09-05"
 
 keywords: Authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
@@ -51,8 +51,9 @@ To set this configuration by using the GUI:
 
 4. Click **Save**.
 
-Password strength can be set in the Cloud Directory settings page in {{site.data.keyword.appid_short_notm}} Console, or by using <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.set_cloud_directory_password_regex" target="_blank">the management APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
+Password strength can be set in the Cloud Directory settings page in the {{site.data.keyword.appid_short_notm}} dashboard, or by using [the management APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.set_cloud_directory_password_regex){: external}.
 {: note}
+
 
 ### Setting a custom error message
 {: #cd-custom-error}

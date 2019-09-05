@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-09"
+lastupdated: "2019-09-05"
 
 keywords: Authentication, authorization, identity, app security, secure, development, cloud foundry, access management, iam, java, node.js
 
@@ -44,7 +44,7 @@ Is your Cloud Foundry app hosted on another platform? No problem. You can define
 
 Check out how the models fit together in the following diagram:
 
-![Binding a Cloud Foundry app](images/cf-alias.png)
+![Binding a Cloud Foundry app](images/cf-alias.png){: caption="Figure 1. Binding a Cloud Foundry app" caption-side="bottom"}
 
 ## Before you begin
 {: #cf-before}
@@ -77,6 +77,7 @@ Before you get started, be sure that you have the following prerequisites:
   {: codeblock}
 
   <table>
+    <caption>Table 1. Available regions</caption>
     <tr>
       <th>Region</th>
       <th>Endpoint</th>

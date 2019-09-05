@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-16"
+lastupdated: "2019-09-05"
 
 keywords: Authentication, authorization, identity, app security, secure, development, mobile, android, iOS
 
@@ -38,7 +38,7 @@ A mobile flow is useful when you are developing an app that is to be installed o
 
 Since native applications are installed directly on a user's device, private user information and application credentials can be extracted by third-parties with relative ease. By default, these types of applications are known as untrusted clients as they cannot store global credentials or user refresh tokens. As a result, untrusted clients require users to input their credentials every time their access tokens expire.
 
-In order to convert your application into a trusted client, {{site.data.keyword.appid_short}} leverages [Dynamic Client Registration](https://tools.ietf.org/html/rfc7591). Before an application instance begins authenticating users, it first registers as an OAuth2 client with {{site.data.keyword.appid_short}}. As a result of client registration, your application receives an installation-specific client ID that can be digitally signed and used to authorize requests with {{site.data.keyword.appid_short}}. Since {{site.data.keyword.appid_short}} stores your application's corresponding public key, it can validate your request signature that allows your application to be viewed as a confidential client. This process minimizes your application's risk of exposing credentials indefinitely and greatly improves the user experience by allowing automatic token refresh.
+In order to convert your application into a trusted client, {{site.data.keyword.appid_short}} leverages [Dynamic Client Registration](https://tools.ietf.org/html/rfc7591){: external}. Before an application instance begins authenticating users, it first registers as an OAuth2 client with {{site.data.keyword.appid_short}}. As a result of client registration, your application receives an installation-specific client ID that can be digitally signed and used to authorize requests with {{site.data.keyword.appid_short}}. Since {{site.data.keyword.appid_short}} stores your application's corresponding public key, it can validate your request signature that allows your application to be viewed as a confidential client. This process minimizes your application's risk of exposing credentials indefinitely and greatly improves the user experience by allowing automatic token refresh.
 
 Following registration, your users authenticate using either the OAuth2 `authorization code` or `resource owner password` [authorization grant](https://tools.ietf.org/html/rfc6749#section-1.3) flows to authenticate users.
 
@@ -53,7 +53,7 @@ Following registration, your users authenticate using either the OAuth2 `authori
 ### Authorization flow
 {: #mobile-auth-flow}
 
-![{{site.data.keyword.appid_short_notm}} app to app flow](images/mobile-flow.png)
+![{{site.data.keyword.appid_short_notm}} app to app flow](images/mobile-flow.png){: caption="Figure 1. {{site.data.keyword.appid_short_notm}} app to app flow" caption-side="bottom"}
 
 1. The {{site.data.keyword.appid_short}} SDK starts the authorization process using the {{site.data.keyword.appid_short_notm}} `/authorization` endpoint.
 2. The login widget is displayed to the user.

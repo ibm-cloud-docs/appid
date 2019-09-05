@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-04"
+lastupdated: "2019-09-05"
 
 keywords: Authentication, authorization, identity, app security, secure, custom, service provider, identity provider, enterprise, assertions
 
@@ -29,7 +29,7 @@ When you have a SAML-based identity provider, you can configure {{site.data.keyw
 {: shortdesc}
 
  
-Working with a specific SAML identity provider? Check out one of these blog posts on setting up {{site.data.keyword.appid_short_notm}} with [Ping One ![External link icon](../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-ping-one), [an Azure Active Directory ![External link icon](../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-azure-active-directory), or [an Active Directory Federation Service ![External link icon](../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-active-directory-federation-service).
+Working with a specific SAML identity provider? Check out one of these blog posts on setting up {{site.data.keyword.appid_short_notm}} with [Ping One](https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-ping-one){: external}, [an Azure Active Directory](https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-azure-active-directory){: external}, or [an Active Directory Federation Service](https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-active-directory-federation-service){: external}.
 {: tip}
 
 
@@ -39,7 +39,8 @@ Working with a specific SAML identity provider? Check out one of these blog post
 Security Assertion Markup Language (SAML) is an open standard for exchanging authentication and authorization data between an identity provider who asserts the user identity and a service provider who consumes the user identity information.
 {: shortdesc}
 
-The <a href="http://saml.xml.org/saml-specifications" target="blank">SAML <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> protocol supports different profiles and bind options. {{site.data.keyword.appid_short_notm}} supports the web browser SSO profile, with HTTP Post binding.
+The [SAML](http://saml.xml.org/saml-specifications){: external} protocol supports different profiles and bind options. {{site.data.keyword.appid_short_notm}} supports the web browser SSO profile, with HTTP Post binding.
+
 
 ### What's the flows technical basis?
 {: #saml-tech-basis}
@@ -65,7 +66,8 @@ The assertions that do not correspond to any of the standard names are ignored b
 
 Although {{site.data.keyword.appid_short_notm}} and your identity provider use the SAML framework to authenticate the user, {{site.data.keyword.appid_short_notm}} still uses the more modern OAuth 2.0/ OIDC framework to exchange security tokens with the application. Check out the following image to see a detailed flow of information.
 
-![SAML enterprise authentication flow](/images/ibmid-flow.png)
+![SAML enterprise authentication flow](/images/ibmid-flow.png){: caption="Figure 1. How an enterprise SAML authentication flow works" caption-side="bottom"}
+
 
 1. A user access the login page or restricted resource on their application, which initiates a request to the {{site.data.keyword.appid_short_notm}} `/authorization` endpoint through either an {{site.data.keyword.appid_short_notm}} SDK or API. If the user is unauthorized, the authentication flow begins with a redirect to {{site.data.keyword.appid_short_notm}}.
 2. {{site.data.keyword.appid_short_notm}} generates a SAML authentication request (AuthNRequest) and the browser automatically redirects the user to the SAML identity provider.
@@ -134,8 +136,7 @@ The service expects a SAML assertion to look like the following example.
 ### What types of algorithms are supported by {{site.data.keyword.appid_short_notm}}?
 {: #saml-signatures}
 
-{{site.data.keyword.appid_short_notm}} uses the <a href="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" target="_blank">RSA-SHA256 <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> algorithm to process XML digital signatures.
-
+{{site.data.keyword.appid_short_notm}} uses the [RSA-SHA256](http://www.w3.org/2001/04/xmldsig-more#rsa-sha256){: external} algorithm to process XML digital signatures.
 
 
 
@@ -157,7 +158,9 @@ You cannot enable SAML until after you have configured it as an identity provide
 
 1. In the **Manage** tab of the {{site.data.keyword.appid_short_notm}} dashboard, click **Edit** in the **SAML** row to configure your settings.
 2. Click **Download SAML Metadata file**. Your identity provider expects the following information from the file.
+
   <table>
+    <caption>Table 1. The information that is found in your metadata file</caption>
     <tr>
       <th> Variable </th>
       <th> Description </th>
@@ -182,6 +185,10 @@ You cannot enable SAML until after you have configured it as an identity provide
       <td><code>WantAssertionsSigned</code></td>
       <td>The way that an identity provider checks to see if it needs to sign the assertion. The service expects that the assertion is signed, but does not support encrypted assertions.</td>
     </tr>
+    <tr>
+      <td><code>KeyDescriptor</code></td>
+      <td>The SAML signing and encryption certificates that can be used to configure your identity provider to verify the signed SAML request and encrypt the response.</td>
+    </tr>
   </table>
 
 3. Provide the data to your identity provider. If your identity provider supports uploading the metadata file, you can do so. If it doesn't, configure the properties manually. Not every identity provider uses the same properties, so you might not use all of them.
@@ -203,6 +210,7 @@ You can obtain data from your identity provider and provide it to {{site.data.ke
 
 1. Navigate to the **SAML 2.0** tab of the {{site.data.keyword.appid_short_notm}} dashboard. Enter the following metadata that you obtained from the identity provider in the **Provide Metadata from SAML IdP** section.
   <table>
+    <caption>Table 2. The information that must be provided to {{site.data.keyword.appid_short_notm}}</caption>
     <tr>
       <th> Variable </th>
       <th> Description </th>
@@ -231,7 +239,7 @@ Want to set an authentication context? You can do so through the API.
 
 **Providing metadata with the API**
 
-1. View your current SAML configuration, including your authentication context and certificates, by making a GET request to the  [`/saml` API endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.get_saml_idp).
+1. View your current SAML configuration, including your authentication context and certificates, by making a GET request to the  [`/saml` API endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.get_saml_idp){: external}.
 
   Example code:
   ```
@@ -286,6 +294,7 @@ Want to set an authentication context? You can do so through the API.
   {: #configuring-saml-new}
 
   <table>
+    <caption>Table 3. SAML configuration variables</caption>
     <tr>
       <th> Variable </th>
       <th> Description </th>
@@ -316,7 +325,7 @@ Want to set an authentication context? You can do so through the API.
     </tr>
   </table>
 
-3. Make a PUT request to the [`/saml` API endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.set_saml_idp) to provide the configuration that you created in step 2 to {{site.data.keyword.appid_short_notm}}. Check out the following example to see what your request might look like.
+3. Make a PUT request to the [`/saml` API endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.set_saml_idp){: external} to provide the configuration that you created in step 2 to {{site.data.keyword.appid_short_notm}}. Check out the following example to see what your request might look like.
 
   ```
   curl --request PUT \

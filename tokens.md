@@ -2,14 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-23"
+lastupdated: "2019-09-05"
 
-keywords: authentication, authorization, identity, app security, secure, tokens, jwt, development
+keywords: Authentication, authorization, identity, app security, secure, tokens, jwt, development
 
 subcollection: appid
 
 ---
 
+{:external: target="_blank" .external}
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
@@ -34,7 +35,7 @@ For more information about how tokens are used in {{site.data.keyword.appid_shor
 
 Tokens are used to verify that a person is who they say that they are. They confirm any access permissions that the user might hold, for a specified length of time. When a user signs into your application and is issued a token, your app must validate the user before they are given access.
 
-</br>
+
 
 **What if I'm working in a language that {{site.data.keyword.appid_short_notm}} doesn't have an SDK for?**
 
@@ -44,11 +45,7 @@ Don't worry! You have three options:
 * Implement your own validation logic
 * Use any OIDC-compliant open source SDK
 
-Based on feedback, option 1 is usually the easiest way to go.
-{: tip}
 
-</br>
-</br>
 
 ## Using the {{site.data.keyword.appid_short_notm}} APIs
 {: #remote-validation}
@@ -158,8 +155,10 @@ You can validate your tokens locally by parsing the token, verifying the token s
     {: screen}
 
   <table>
+    <caption>Table 1. Public key parameters</caption>
     <thead>
-      <th colspan=2><img src="images/idea.png" alt="More information icon"/> Public key parameters </th>
+      <th>Parameter</th>
+      <th>Description</th>
     </thead>
     <tbody>
       <tr>
@@ -189,29 +188,29 @@ You can validate your tokens locally by parsing the token, verifying the token s
 
 6. Validate the claims that are stored in the tokens. To verify future checks, you can use [this list](https://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation).
   <table>
-    <thead>
-      <th colspan=2><img src="images/idea.png" alt="More information icon"/> Claims that must be validated </th>
-    </thead>
-    <tbody>
-      <tr>
-        <td><code>iss</code></td>
-        <td>The issuer must be the same as the {{site.data.keyword.appid_short_notm}} OAuth server.</td>
-      </tr>
-      <tr>
-        <td><code>exp</code></td>
-        <td>The current time must be less than the expiry time.</td>
-      </tr>
-      <tr>
-        <td><code>aud</code></td>
-        <td>The audience must contain the client ID of your app.</td>
-      </tr>
-      <tr>
-        <td><code>tenant</code></td>
-        <td>The tenant must contain the tenant ID of your app.</td>
-      </tr>
-      <tr>
-        <td><code>scope</code></td>
-        <td>The scope of permissions that is granted to the user. This is specific to the access token.</td>
-      </tr>
-    </tbody>
+    <caption>Table 2. Claims that must be validated</caption>
+    <tr>
+      <th>Claim</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td><code>iss</code></td>
+      <td>The issuer must be the same as the {{site.data.keyword.appid_short_notm}} OAuth server.</td>
+    </tr>
+    <tr>
+      <td><code>exp</code></td>
+      <td>The current time must be less than the expiry time.</td>
+    </tr>
+    <tr>
+      <td><code>aud</code></td>
+      <td>The audience must contain the client ID of your app.</td>
+    </tr>
+    <tr>
+      <td><code>tenant</code></td>
+      <td>The tenant must contain the tenant ID of your app.</td>
+    </tr>
+    <tr>
+      <td><code>scope</code></td>
+      <td>The scope of permissions that is granted to the user. This is specific to the access token.</td>
+    </tr>
   </table>

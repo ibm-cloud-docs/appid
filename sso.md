@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-08-16"
+lastupdated: "2019-09-05"
 
 keywords: Authentication, authorization, identity, app security, secure, development, sso, directory, users, registry, multiple apps
 
@@ -37,7 +37,7 @@ With Single sign-on (SSO) for Cloud Directory, you can provide a smooth authenti
 
 Check out the following diagram to see SSO in action.
 
-![SSO diagram](images/sso.png)
+![SSO diagram](images/sso.png){: caption="Figure 1. Cloud Directory SSO flow" caption-side="bottom"}
 
 1. A Cloud Directory user signs in to your app for the first time.
 2. They are asked to authenticate by providing either a user name or email and password.
@@ -93,6 +93,7 @@ An example call:
 {: screen}
 
 <table>
+  <caption>Table 1. SSO configuration settings</caption>
   <tr>
     <th>Setting</th>
     <th>Definition</th>
@@ -135,6 +136,7 @@ https://<region>.appid.cloud.ibm.com/oauth/v4/<tenant-id>/cloud_directory/sso/lo
 {: codeblock}
 
 <table>
+  <caption>Table 2. SSO sign out API call variables</caption>
   <tr>
     <th>Variable</th>
     <th>Value</th>
@@ -188,6 +190,7 @@ Authorization: <IAM TOKEN>
 {: codeblock}
 
 <table>
+  <caption>Table 3. Variables that are needed to end all SSO sessions for a user</caption>
   <tr>
     <th>Variable</th>
     <th>Value</th>

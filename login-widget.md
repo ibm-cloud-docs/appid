@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-22"
+lastupdated: "2019-09-05"
 
 keywords: Authentication, authorization, identity, app security, secure, development, sign in, sign up, password, social, enterprise
 
@@ -50,48 +50,50 @@ For example, if you're using the default - Facebook, Google, and Cloud Directory
 When you use Cloud Directory, {{site.data.keyword.appid_short_notm}} is able to provide you with the extended functionality of user management. The extended functionality also applies to the Login Widgets capabilities. User's that are stored in Cloud Directory can take advantage of the functionality such as signing up or resetting their password directly in the Login Widget. Check out the following table to see which screens you can display for each type of identity provider.
 
 <table>
-  <thead>
-    <tr>
-      <th>Login Widget screen</th>
-      <th>Social identity provider</th>
-      <th>Enterprise identity provider</th>
-      <th>Cloud Directory</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Sign in</td>
-      <td><img src="images/confirm.png" width="32" alt="Feature available" style="width:32px;" /></td>
-      <td><img src="images/confirm.png" width="32" alt="Feature available" style="width:32px;" /></td>
-      <td><img src="images/confirm.png" width="32" alt="Feature available" style="width:32px;" /></td>
-    </tr>
-    <tr>
-      <td>Sign up</td>
-      <td> </td>
-      <td> </td>
-      <td><img src="images/confirm.png" width="32" alt="Feature available" style="width:32px;" /></td>
-    </tr>
-    <tr>
-      <td>Forgot password</td>
-      <td> </td>
-      <td> </td>
-      <td><img src="images/confirm.png" width="32" alt="Feature available" style="width:32px;" /></td>
-    </tr>
-    <tr>
-      <td>Change password</td>
-      <td> </td>
-      <td> </td>
-      <td><img src="images/confirm.png" width="32" alt="Feature available" style="width:32px;" /></td>
-    </tr>
-    <tr>
-      <td>Account details</td>
-      <td> </td>
-      <td> </td>
-      <td><img src="images/confirm.png" width="32" alt="Feature available" style="width:32px;" /></td>
-    </tr>
-  </tbody>
+  <caption>Table 1. The Login Widget screens that each identity provider can display</caption>
+  <tr>
+    <th>Login Widget screen</th>
+    <th>Social identity provider</th>
+    <th>Enterprise identity provider</th>
+    <th>Cloud Directory</th>
+  </tr>
+  <tr>
+    <td>Sign in</td>
+    <td><img src="images/confirm.png" width="32" alt="Feature available" style="width:32px;" /></td>
+    <td><img src="images/confirm.png" width="32" alt="Feature available" style="width:32px;" /></td>
+    <td><img src="images/confirm.png" width="32" alt="Feature available" style="width:32px;" /></td>
+  </tr>
+  <tr>
+    <td>Sign up</td>
+    <td> </td>
+    <td> </td>
+    <td><img src="images/confirm.png" width="32" alt="Feature available" style="width:32px;" /></td>
+  </tr>
+  <tr>
+    <td>Forgot password</td>
+    <td> </td>
+    <td> </td>
+    <td><img src="images/confirm.png" width="32" alt="Feature available" style="width:32px;" /></td>
+  </tr>
+  <tr>
+    <td>Change password</td>
+    <td> </td>
+    <td> </td>
+    <td><img src="images/confirm.png" width="32" alt="Feature available" style="width:32px;" /></td>
+  </tr>
+  <tr>
+    <td>Account details</td>
+    <td> </td>
+    <td> </td>
+    <td><img src="images/confirm.png" width="32" alt="Feature available" style="width:32px;" /></td>
+  </tr>
 </table>
 
+
+### Customizing an SSO login flow
+{: #widget-custom-sso}
+
+After a successful authentication, App ID creates a session cookie with encrypted access and identity tokens that your apps can use for authentication. Another way to customize the flow is to send an access token to your browser so that any browser app can use the token in its AJAX request.
 
 
 ## Customizing the Login Widget
@@ -116,7 +118,7 @@ To customize the screen:
 ## Displaying the Login Widget with the Android SDK
 {: #widget-display-android}
 
-You can call preconfigured screens with the [Android client SDK](https://github.com/ibm-cloud-security/appid-clientsdk-android).
+You can call preconfigured screens with the [Android client SDK](https://github.com/ibm-cloud-security/appid-clientsdk-android){: external}.
 {: shortdesc}
 
 Place the following command in your code.
@@ -269,7 +271,7 @@ Place the following command in your code.
 ## Displaying the Login Widget with the iOS Swift SDK
 {: #widget-display-ios-swift}
 
-You can call preconfigured screens with the [iOS Swift client SDK](https://github.com/ibm-cloud-security/appid-clientsdk-swift).
+You can call preconfigured screens with the [iOS Swift client SDK](https://github.com/ibm-cloud-security/appid-clientsdk-swift){: external}.
 {: shortdesc}
 
 Place the following command in your code.
@@ -412,7 +414,7 @@ Place the following command in your code.
 ## Displaying the Login Widget with the Node.js SDK
 {: #widget-display-nodejs}
 
-You can call preconfigured screens with the [Node.js server SDK](https://github.com/ibm-cloud-security/appid-serversdk-nodejs).
+You can call preconfigured screens with the [Node.js server SDK](https://github.com/ibm-cloud-security/appid-serversdk-nodejs){: external}.
 {: shortdesc}
 
 Add a post route to your app that can be called with the username and password parameters and log in by using the resource owner password.
