@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-05"
+lastupdated: "2019-09-06"
 
 keywords: Authentication, authorization, identity, app security, secure, application identity, app to app, access token
 
@@ -63,7 +63,7 @@ Check out the following table to see how {{site.data.keyword.appid_short_notm}} 
         <td>With {{site.data.keyword.appid_short_notm}}, you can consistently enforce policy-driven security by using the Ingress networking capability in {{site.data.keyword.containerlong}}.</td>
     </tr>
     <tr>
-        <td><a href="/docs/services/appid?topic=appid-istio" target="_blank">Istio </a></td>
+        <td><a href="/docs/services/appid?topic=appid-istio-adapter" target="_blank">Istio </a></td>
         <td>By using the App Identity and Access adapter, you can centralize all of your identity management in a single place. Because enterprises use clouds from multiple providers or a combination of on and off-premise solutions, heterogeneous deployment models can help you to preserve existing infrastructure and avoid vendor lock-in.</td>
     </tr>
 </table>
