@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-08-23"
+lastupdated: "2019-09-06"
 
 keywords: Authentication, authorization, identity, app security, secure, custom, proprietary, social, facebook, google, 
 
@@ -35,7 +35,7 @@ With {{site.data.keyword.appid_full}}, you can configure social identity provide
 {{site.data.keyword.appid_short_notm}} provides a default configuration to help you get up and running quickly with the service.
 {: shortdesc}
 
-Data is used when you engage in the Permitted Uses of the Service. By using the Service, you agree to the collection and use of information in accordance with the outlined [privacy policy](/docs/services/appid?topic=appid-privacy-policy).
+Data is used when you engage in the Permitted Uses of the Service. By using the Service, you agree to adopting the policy for the collection and use of information in accordance with the outlined [privacy policy](/docs/services/appid?topic=appid-privacy-policy).
 {: important}
 
 

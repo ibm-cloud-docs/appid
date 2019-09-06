@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-05"
+lastupdated: "2019-09-06"
 
-keywords: Authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
+keywords: authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
 subcollection: appid
 
@@ -307,8 +307,9 @@ curl -X GET ’https://<region>.appid.cloud.ibm.com/management/v4/<tenant-ID>/cl
 {: codeblock}
 
 <table>
+  <caption>Table 2. Descriptions of the parameters that need to be provided in the export request</caption>
   <tr>
-    <th>Variable</th>
+    <th>Parameters</th>
     <th>Description</th>
   </tr>
   <tr>
@@ -371,6 +372,7 @@ curl -X POST --header ‘Content-Type: application/json’ --header ‘Accept: a
 Before you get started, be sure that you have the following parameter information:
 
 <table>
+  <caption>Table 3. Descriptions of the parameters that need to be provided to run the migration script</caption>
   <tr>
     <th>Parameter</th>
     <th>Description</th>
@@ -402,7 +404,7 @@ To run the script:
   ```
   {: codeblock}
 
-2. Open console and go to the folder that you cloned the repo into.
+2. In terminal, change to the folder that you cloned the repo into.
 3. Run the following command.
 
   ```

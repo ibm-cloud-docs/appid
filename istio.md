@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-05"
+lastupdated: "2019-09-06"
 
 keywords: authentication, authorization, identity, app security, access, secure, development, any kube, kubernetes, icp, openshift, iks
 
@@ -40,9 +40,7 @@ What can the App Identity and Access adapter do for you? Check out this video to
 
 A multicloud computing environment combines multiple cloud and/ or private computing environments into a single network architecture. By distributing workloads across multiple environments, you might find improved resiliency, flexibility, and greater cost-effificiency. To achieve the benefits, it's common to use a container-based application with an orchestration layer, such as Kubernetes.
 
-![App Identity and Access adapter architecture diagram](images/istio-adapter.png)
-Figure. Multicloud deployment - achieved with the App Identity and Access adapter.
-
+![App Identity and Access adapter architecture diagram](images/istio-adapter.png){: caption="Figure 1. Multicloud deployment - achieved with the App Identity and Access adapter" caption-side="bottom"}
 
 
 
@@ -336,18 +334,9 @@ kubectl delete secret appidentityandaccessadapter-keys -n istio-system
 {: codeblock}
 
 
-## FAQ and troubleshooting
-{: #istio-faq}
-
-If you encounter an issue while you work with the App Identity and Access adapter, consider the following FAQ's and troubleshooting techniques. For more help, You can ask questions through a forum or open a support ticket. When you use the forums to ask a question, tag your question so that it's seen by the {{site.data.keyword.appid_short_notm}} development team.
-
-  * If you have technical questions about {{site.data.keyword.appid_short_notm}}, post your question on [Stack Overflow](https://stackoverflow.com/){: external} and tag your question with `ibm-appid`.
-  * For questions about the service and getting started instructions, use the [dW Answers](https://developer.ibm.com/){: external} forum. Include the `appid` tag.
-
-For more information about getting support, see [how do I get the support that I need](/docs/get-support?topic=get-support-getting-customer-support#getting-customer-support).
 
 
-### Troubleshooting: Logging
+## Configuring logging
 {: #istio-logging}
 
 By default, logs are styled as JSON and provided at an `info` visibility level to provide for ease of integration with external logging systems. To update the logging configuration, you can use the Helm chart. Supported logging levels include range [-1, 7] as shown in Zap core. For more information about the levels, see the [Zap core documentation](https://godoc.org/go.uber.org/zap/zapcore#Level){: external}.
@@ -355,7 +344,8 @@ By default, logs are styled as JSON and provided at an `info` visibility level t
 When you're manually viewing JSON logs, you might want to tail the logs and "pretty print" them by using [`jq`](https://brewinstall.org/install-jq-on-mac-with-brew/){: external}.
 {: note}
 
-**Adapter**
+### Adapter
+{: #istio-logging-adapter}
 
 To see the adapter logs, you can use `kubectl` or access the pod from the `appidentityandaccessadapter` pod from the Kubernetes console.
 
@@ -365,7 +355,8 @@ $ adapter_logs | jq
 ```
 {: codeblock}
 
-**Mixer**
+### Mixer
+{: #istio-logging-mixer}
 
 If the adapter does not appear to receive requests, check the Mixer logs to ensure that it's successfully connected to the adapter.
 

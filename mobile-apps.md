@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-05"
+lastupdated: "2019-09-06"
 
-keywords: Authentication, authorization, identity, app security, secure, development, mobile, android, iOS
+keywords: authentication, authorization, identity, app security, secure, development, mobile, android, iOS
 
 subcollection: appid
 
@@ -53,7 +53,7 @@ Following registration, your users authenticate using either the OAuth2 `authori
 ### Authorization flow
 {: #mobile-auth-flow}
 
-![{{site.data.keyword.appid_short_notm}} app to app flow](images/mobile-flow.png){: caption="Figure 1. {{site.data.keyword.appid_short_notm}} app to app flow" caption-side="bottom"}
+![{{site.data.keyword.appid_short_notm}} mobile request flow](images/mobile-flow.png){: caption="Figure 1. {{site.data.keyword.appid_short_notm}} mobile request flow" caption-side="bottom"}
 
 1. The {{site.data.keyword.appid_short}} SDK starts the authorization process using the {{site.data.keyword.appid_short_notm}} `/authorization` endpoint.
 2. The login widget is displayed to the user.

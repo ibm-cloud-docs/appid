@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-05"
+lastupdated: "2019-09-06"
 
 keywords: Authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
@@ -321,6 +321,7 @@ To configure your custom email sender, you must use the Cloud Directory [Managem
   {: screen}
 
   <table>
+    <caption>Table 5. The components of the email that is sent by {{site.data.keyword.appid_short_notm}}</caption>
     <tr>
       <th>Variable</th>
       <th>Description</th>
@@ -442,6 +443,7 @@ You can use [the language management APIs](https://us-south.appid.cloud.ibm.com/
 {: shortdesc}
 
 <table>
+  <caption>Table 6. Languages that are supported</caption>
   <col width="20%">
   <col width="25%">
   <col width="35%">

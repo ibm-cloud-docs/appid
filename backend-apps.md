@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-05"
+lastupdated: "2019-09-06"
 
-keywords: Authentication, authorization, identity, app security, secure, backend, back-end, oauth, 
+keywords: authentication, authorization, identity, app security, secure, backend, back-end, oauth, 
 
 subcollection: appid
 
@@ -51,7 +51,7 @@ For more information about how tokens are used in {{site.data.keyword.appid_shor
 ### What does the flow look like?
 {: #backend-flow}
 
-![{{site.data.keyword.appid_short_notm}} backend flow. Steps are listed in order, following the image.](images/backend-flow.png){: caption="Figure 1. Backend application flow" caption-side="bottom"}
+![{{site.data.keyword.appid_short_notm}} backend flow](images/backend-flow.png){: caption="Figure 1. Backend application flow" caption-side="bottom"}
 
 1. A client makes a POST request to the {{site.data.keyword.appid_short_notm}} authorization server to obtain an access token. A POST request generally takes the following form:
 
