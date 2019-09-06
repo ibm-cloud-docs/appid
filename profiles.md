@@ -247,7 +247,7 @@ AppID.sharedInstance.userProfileManager.getUserInfo(accessToken: String, identit
 {: codeblock}
 {: ph data-hd-programlang='swift'}
 
-**Andriod Java**
+**Android Java**
 {: ph data-hd-programlang='java'}
 
 If new tokens are not explicitly passed to the SDK, {{site.data.keyword.appid_short_notm}} uses the last received tokens to retrieve and validate the response. For example, you can run the following code after a successful authentication and the SDK retrieves additional information about the user.
@@ -542,7 +542,7 @@ You can add the following code to your application to allow a user to update the
     {: codeblock}
     {: ph data-hd-programlang='swift'}
 
-    **Andriod Java**
+    **Android Java**
     {: ph data-hd-programlang='java'}
 
     ```
