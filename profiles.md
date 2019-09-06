@@ -4,7 +4,7 @@ copyright:
   years: 2017, 2019
 lastupdated: "2019-09-06"
 
-keywords: Authentication, authorization, identity, app security, secure, attributes, user information, storing, accessing
+keywords: authentication, authorization, identity, app security, secure, attributes, user information, storing, accessing
 
 subcollection: appid
 
@@ -247,7 +247,7 @@ AppID.sharedInstance.userProfileManager.getUserInfo(accessToken: String, identit
 {: codeblock}
 {: ph data-hd-programlang='swift'}
 
-**Java**
+**Andriod Java**
 {: ph data-hd-programlang='java'}
 
 If new tokens are not explicitly passed to the SDK, {{site.data.keyword.appid_short_notm}} uses the last received tokens to retrieve and validate the response. For example, you can run the following code after a successful authentication and the SDK retrieves additional information about the user.
@@ -441,7 +441,7 @@ Depending on your configuration, attributes are encrypted and saved as part of a
   {: codeblock}
   {: ph data-hd-programlang='swift'}
 
-  **Java**
+  **Android Java**
   {: ph data-hd-programlang='java'}
 
   ```
@@ -542,7 +542,7 @@ You can add the following code to your application to allow a user to update the
     {: codeblock}
     {: ph data-hd-programlang='swift'}
 
-    **Java**
+    **Andriod Java**
     {: ph data-hd-programlang='java'}
 
     ```
