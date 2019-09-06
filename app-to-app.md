@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-06-28"
+lastupdated: "2019-09-05"
 
 keywords: Authentication, authorization, identity, app security, secure, application identity, app to app, access token
 
@@ -47,8 +47,7 @@ This work flow is meant to be used only with trusted applications where there is
 
 In the following image, you can see the direction of communication between the service and your application.
 
-![{{site.data.keyword.appid_short_notm}} application identity and authorization flow](images/app-to-app-flow.png)
-Figure. application identity and authorization flow
+![{{site.data.keyword.appid_short_notm}} application identity and authorization flow](images/app-to-app-flow.png){: caption="Figure 1. Application identity and authorization flow" caption-side="bottom"}
 
 1. You register the application that needs to authenticate to access a protected resource with {{site.data.keyword.appid_short_notm}}. 
 2. Application A registers with {{site.data.keyword.appid_short_notm}} to obtain a client ID and secret.
@@ -77,10 +76,10 @@ The client secret that is used to authenticate the client is highly sensitive an
   Request:
 
   ```
-  curl -X POST \  https://us-south.appid.cloud.ibm.com/management/v4/39a37f57-a227-4bfe-a044-93b6e6060b61/applications/ \
+  curl -X POST \  https://<region>.appid.cloud.ibm.com/management/v4/<tenant-ID>/applications/ \
   -H 'Content-Type: application/json' \
-  -H 'Authorization: Bearer IAM_TOKEN' \
-  -d '{"name": "ApplicationName"}'
+  -H 'Authorization: Bearer <IAM-token>' \
+  -d '{"name": "<Application-Name>"}'
   ```
   {: codeblock}
 

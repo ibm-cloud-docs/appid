@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-08-02"
+lastupdated: "2019-09-05"
 
 keywords: Authentication, authorization, identity, app security, secure, development, nodejs, frontend, web apps, 
 
@@ -31,7 +31,7 @@ With {{site.data.keyword.appid_short_notm}}, you can easily protect your Node.js
 
 Check out the following diagram to see the Authorization Code OAuth 2.0 workflow.
 
-![Node.js application authorization flow](images/node_web.png)
+![Node.js application authorization flow](images/node_web.png){: caption="Figure 1. Node.js application flow" caption-side="bottom"}
 
 1. A user attempts to gain access to your protected web application but they are unauthorized.
 2. Your application redirects the user to {{site.data.keyword.appid_short_notm}}.
@@ -65,6 +65,9 @@ Before you get started with {{site.data.keyword.appid_short_notm}} in your Node.
 * [The IBM Cloud CLI](/docs/cli?topic=cloud-cli-getting-started)
 * [NPM version 4+](https://www.npmjs.com/get-npm){: external}
 * [Node version 6+](https://nodejs.org/en/download/){: external}
+
+This SDK uses the `log4js` package for logging. By default, the logging level is set to `info`. To create your own logging configuration, add a `log4js.json` file and set the `process.env.LOG4JS_CONFIG` environment variable to your json file.
+{: note}
 
 
 ## Step 1: Register your redirect URI
@@ -130,7 +133,7 @@ The easiest way to work with {{site.data.keyword.appid_short_notm}} is to take a
 2. Install the following NPM requirements.
 
     ```javascript
-    npm install --save express express-session passport
+    npm install --save express express-session passport 
     ```
     {: codeblock}
 
@@ -145,6 +148,7 @@ The easiest way to work with {{site.data.keyword.appid_short_notm}} is to take a
 
     ```javascript
     const express = require('express'); 								// https://www.npmjs.com/package/express
+    const log4js = require('log4js');                                   // https://www.npmjs.com/package/log4js
     const session = require('express-session');							// https://www.npmjs.com/package/express-session
     const passport = require('passport');								// https://www.npmjs.com/package/passport
     const WebAppStrategy = require('ibmcloud-appid').WebAppStrategy;	// https://www.npmjs.com/package/ibmcloud-appid

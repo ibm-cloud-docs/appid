@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-31"
+lastupdated: "2019-09-05"
 
-keywords: authentication, authorization, identity, app security, secure, custom, tokens, access, claim, attributes
+keywords: Authentication, authorization, identity, app security, secure, custom, tokens, access, claim, attributes
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -38,13 +38,14 @@ You can configure your {{site.data.keyword.appid_short_notm}} token to meet the 
 * Identity tokens: Contain personal information and are used to authenticate a user. Depending on your app configuration, identity tokens can be issued before a user is authenticated. This allows you to start associating attributes with your users before they sign in to your application.
 * Refresh tokens: Can be used to extend the amount of time that a user can go without re-authenticating.
 
-Want to learn more about tokens? Read more in [Understanding tokens](/docs/services/appid?topic=appid-tokens#tokens).
+Want to learn more about tokens? Read more in [Understanding tokens](/docs/services/appid?topic=appid-tokens).
 {: tip}
 
 
-You can customize your tokens [in the GUI](/docs/services/appid?topic=appid-customizing-tokens#configuring-tokens-ui) or by using [the API](/docs/services/appid?topic=appid-customizing-tokens#configuring-tokens-api) by setting the lifespan validity or by adding custom claims to your tokens. Check out the following table to see how lifespan is configured or continue reading to learn about mapping custom attributes.
+You can customize your tokens [in the GUI](/docs/services/appid?topic=appid-customizing-tokens#configuring-tokens-ui) or by using [the API](/docs/services/appid?topic=appid-customizing-tokens#configuring-tokens-api){: external} by setting the lifespan validity or by adding custom claims to your tokens. Check out the following table to see how lifespan is configured or continue reading to learn about mapping custom attributes.
 
 <table>
+  <caption>Table 1. Toekn customization options</caption>
   <tr>
     <th>Token type</th>
     <th>Value type</th>
@@ -85,7 +86,7 @@ Because tokens are used to identify users and secure your resources, the lifespa
 ## Understanding custom attributes and claims
 {: #custom-claims}
 
-You can map user profile attributes to your access and identity token claims. This means that you don't have to go to the [/userinfo endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization_Server_V4/userInfo) or pull custom attributes later, because they're already stored in the tokens!
+You can map user profile attributes to your access and identity token claims. This means that you don't have to go to the [/userinfo endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization_Server_V4/userInfo){: external} or pull custom attributes later, because they're already stored in the tokens!
 {: shortdesc}
 
 ### What is a claim?
@@ -140,7 +141,9 @@ The claims that are provided by {{site.data.keyword.appid_short_notm}} fall into
 
 *Restricted claims*: Depending on the token that the claims are mapped to, some claims have limited customization possibilities. For an access token, `scope` is the only restricted claim. It cannot be overridden by custom mappings, but it can be extended with your own scopes. When the scope claim is mapped to an access token, the value must be a string and cannot be prefixed by `appid_` or it will be ignored. In identity tokens, the claims `identities` and `oauth_clients` cannot be modified or overridden.
 
-*Normalized claims*: Every identity token contains a set of claims that is recognized by {{site.data.keyword.appid_short_notm}} as normalized claims. When they are available, they are directly mapped from your identity provider to the token. These claims cannot be explicitly omitted but can be overwritten in your token by custom claims. The claims include `name`, `email`, `picture`, `local`, and `gender`. Note: This does not change or eliminate the attribute, but does change the information that is present in the token at runtime.
+*Normalized claims*: Every identity token contains a set of claims that is recognized by {{site.data.keyword.appid_short_notm}} as normalized claims. When they are available, they are directly mapped from your identity provider to the token. These claims cannot be explicitly omitted but can be overwritten in your token by custom claims. The claims include `name`, `email`, `picture`, and `local`. 
+
+Note: This does not change or eliminate the attribute, but does change the information that is present in the token at runtime.
 
 
 ### How are claims mapped to tokens?
@@ -149,21 +152,21 @@ The claims that are provided by {{site.data.keyword.appid_short_notm}} fall into
 Each mapping is defined by a data source object and a key that is used to retrieve the claim. Each custom claim is set for each token separately and are sequentially applied. You can register up to 100 claims for each token up to a maximum payload of 100KB.
 
 <table>
-    <thead>
-      <th colspan=3><img src="images/idea.png" alt="Idea icon"/> Understanding claim mapping objects</th>
-    </thead>
-    <tbody>
-      <tr>
-        <td><code><em>source</em></code></td>
-        <td>Required</td>
-        <td>Defines the source of the claim. It can refer to the identity provider's user information or the user's {{site.data.keyword.appid_short_notm}} custom attributes. </br> Options include: `saml`, `cloud_directory`, `facebook`, `google`, `appid_custom`, `ibmid`, and `attributes`.</td>
-      </tr>
-      <tr>
-        <td><code><em>sourceClaim</em></code></td>
-        <td>Required</td>
-        <td>Defines the source data's claim. </td>
-      </tr>
-    </tbody>
+  <caption>Table 2. Claim mapping objects</caption>
+    <tr>
+      <th>Object</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td><code><em>source</em></code></td>
+      <td>Required</td>
+      <td>Defines the source of the claim. It can refer to the identity provider's user information or the user's {{site.data.keyword.appid_short_notm}} custom attributes. </br> Options include: <code>saml`, <code>cloud_directory</code>, <code>facebook</code>, <code>google</code>, <code>appid_custom</code>,  and <code>attributes</code>.</td>
+    </tr>
+    <tr>
+      <td><code><em>sourceClaim</em></code></td>
+      <td>Required</td>
+      <td>Defines the source data's claim. </td>
+    </tr>
   </table>
 
 You can reference nested claims in your mappings by using the dot syntax. Example: `nested.attribute`
@@ -187,7 +190,7 @@ You can configure your {{site.data.keyword.appid_short_notm}} tokens by using th
   1. To allow sign in without the need for user interaction, set **refresh tokens** to **On**.
   2. Set your refresh token lifetime. Expiration is set in days and can be any value in range 1 to 90. The smaller the number, the more frequently a user must sign themselves in.
   3. Set your access token lifetime. The expiration is set in minutes and can be in range 5 to 1440. The smaller the value, the more protection that you have in cases of token theft.
-  4. Set your anonymous token lifetime. An [anonymous token](/docs/services/appid?topic=appid-anonymous#anonymous) is assigned to users the moment they begin interacting with your app. When a user signs in, the information in the anonymous token is then transferred to the token associated with the user. Expiration is set in days and can be any value between 1 and 90.
+  4. Set your anonymous token lifetime. An [anonymous token](/docs/services/appid?topic=appid-anonymous) is assigned to users the moment they begin interacting with your app. When a user signs in, the information in the anonymous token is then transferred to the token associated with the user. Expiration is set in days and can be any value between 1 and 90.
 
 </br>
 

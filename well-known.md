@@ -2,15 +2,15 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-21"
+lastupdated: "2019-09-05"
 
-keywords: authentication, authorization, identity, app security, secure, discovery endpoint, oidc, public keys, tokens, well known endpoint
+keywords: Authentication, authorization, identity, app security, secure, discovery endpoint, oidc, public keys, tokens, well known endpoint
 
 subcollection: appid
 
 ---
 
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:pre: .pre}
@@ -47,6 +47,7 @@ https://{region}.appid.ibm.cloud.com/oauth/v4/{tenantId}/.well-known/openid-conf
 {: codeblock}
 
 <table>
+  <caption>Table 1. IBM Cloud regions</caption>
   <tr>
     <th>Region</th>
     <th>Endpoint</th>

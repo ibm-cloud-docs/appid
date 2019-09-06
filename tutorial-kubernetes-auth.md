@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-09"
+lastupdated: "2019-09-06"
 
-keywords: Authentication, authorization, identity, app security, secure, development, ingress, policy, networking, containers, kubernetes
+keywords: authentication, authorization, identity, app security, secure, development, ingress, policy, networking, containers, kubernetes
 
 subcollection: appid
 
@@ -23,7 +23,7 @@ subcollection: appid
 {:download: .download}
 
 
-# Tutorial: Configuring Ingress to use {{site.data.keyword.appid_short_notm}}
+# Containerized apps with Ingress
 {: #kube-auth}
 
 You can consistently enforce policy-driven security by using the Ingress networking capability in {{site.data.keyword.containerlong}}. With this approach, you can enable authorization and authentication for all of the applications in your cluster at the same time, without ever changing your app code! With this step-by-step guide, you can learn how to configure your Ingress controller to use {{site.data.keyword.appid_short_notm}}.
@@ -31,7 +31,7 @@ You can consistently enforce policy-driven security by using the Ingress network
 
 Check out the following diagram to see the authentication flow:
 
-![{{site.data.keyword.appid_short_notm}} Kubernetes integration architecture](images/kube-integration.png)
+![{{site.data.keyword.appid_short_notm}} Kubernetes integration architecture](images/kube-integration.png){: caption="Figure 1. {{site.data.keyword.appid_short_notm}} Kubernetes integration architecture" caption-side="bottom"}
 
 1. A user opens your application and triggers a request to the web app or API.
 2. For the API flow, the Ingress controller attempts to validate the supplied tokens. If the web flow is used, it kicks off a three-leg OIDC authentication process.
@@ -44,7 +44,7 @@ The Ingress Controller integration with {{site.data.keyword.appid_short_notm}} c
 {: note}
 
 
-## Before you Begin
+## Before you begin
 {: #kube-prereqs}
 
 Before you can get started, ensure that you have the following prerequisites.
@@ -76,9 +76,7 @@ For help with getting the CLIs and plug-ins downloaded and your Kubernetes Servi
 {: tip}
 
 
-Let's get started!
-
-## Step 1: Binding {{site.data.keyword.appid_short_notm}} to your cluster
+## Binding {{site.data.keyword.appid_short_notm}} to your cluster
 {: #kube-create-appid}
 
 By binding your instance of {{site.data.keyword.appid_short_notm}} to your cluster, all instances of your app that are located in that cluster can be controlled by the same instance of {{site.data.keyword.appid_short_notm}} . Also,your {{site.data.keyword.appid_short_notm}} metadata and credentials are available as soon as your application starts as Kubernetes secrets.
@@ -93,6 +91,7 @@ By binding your instance of {{site.data.keyword.appid_short_notm}} to your clust
   {: codeblock}
 
   <table>
+    <caption>Table 1. Available {{site.data.keyword.cloud_notm}} regions</caption>
     <tr>
       <th>Region</th>
       <th>Endpoint</th>
@@ -158,9 +157,8 @@ By binding your instance of {{site.data.keyword.appid_short_notm}} to your clust
   ```
   {: screen}
 
-Great work!
 
-## Step 2: Pushing your app to Container Registry
+## Pushing your app to Container Registry
 {: #kube-registry}
 
 In order for your application to run in Kubernetes, you must host it in a registry.
@@ -188,9 +186,9 @@ In order for your application to run in Kubernetes, you must host it in a regist
   ```
   {: codeblock}
 
-Nice! You're almost ready to deploy.
 
-## Step 3: Configuring Ingress
+
+## Configuring Ingress
 {: kube-ingress}
 
 During cluster creation, both a private and a public IBM Kubernetes Service Application Load Balancer (ALB) are created for you. To deploy your application and take advantage of your Ingress controller, create a deployment script.
@@ -243,6 +241,7 @@ To ensure the best performance of the integration, it is recommended that you al
   {: screen}
 
   <table>
+    <caption>Table 2. Understanding YAML file components</caption>
     <tr>
       <th>Variable</th>
       <th>Description</th>
@@ -280,10 +279,10 @@ To ensure the best performance of the integration, it is recommended that you al
   ```
   {: codeblock}
 
-Great work!
 
 
-## Step 4: Adding your redirect URLs
+
+## Adding your redirect URLs
 {: #kube-add-redirect}
 
 A redirect URL is the URL for the site that you want {{site.data.keyword.appid_short_notm}} to send your users to after successful authentication.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-09"
+lastupdated: "2019-09-05"
 
 keywords: Authentication, authorization, identity, app security, secure, custom, proprietary, 
 
@@ -62,8 +62,7 @@ The custom identity workflow is built on the JWT-Bearer extension grant type tha
 
 As with all authentication flows, custom identity requires that the application is able to establish a degree of trust with {{site.data.keyword.appid_short_notm}} to ensure the integrity of identity provider user information. Custom identity employs an asymmetric RSA public and private key pair to establish its trust relationship. Depending on your architectural requirements, custom identity supports two trust models that differ only in the storage location and usage of the private key.
 
-![Custom authentication request flow](images/customauth.png)
-Figure. The request flows for custom authentication
+![Custom authentication request flow](images/customauth.png){: caption="Figure 1. The request flows for custom authentication" caption-side="bottom"}
 
 <dl>
   <dt>1. Identity provider signed</dt>
@@ -76,8 +75,9 @@ Figure. The request flows for custom authentication
 ## Generating a JSON web token
 {: #generating-jwts}
 
-You can convert your verified user data to a custom identity JWT by generating a <a href="https://tools.ietf.org/html/rfc7515" target="blank">JSON web token <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>. The token must be signed with the private key that matches your preconfigured public key. For a list of token signing libraries, check out <a href="https://jwt.io/" target="blank">https://jwt.io/ <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
+You can convert your verified user data to a custom identity JWT by generating a [JSON web token](https://tools.ietf.org/html/rfc7515){: external}. The token must be signed with the private key that matches your preconfigured public key. For a list of token signing libraries, check out [https://jwt.io/](https://jwt.io/){: external}.
 {: shortdesc}
+
 
 ### Example JWT format
 {: #jwts-example}
@@ -117,8 +117,11 @@ Token payload:
   {: screen}
 
   <table>
-  <thead>
-    <th colspan=2><img src="images/idea.png" alt="More information icon"/> JWS Fields</th>
+    <caption>Table 1. JWS fields</caption>
+    <tr>
+      <th>Field</th>
+      <th>Description</th>
+    </tr>
   </thead>
   <tbody>
     <tr>
@@ -151,7 +154,7 @@ Token payload:
 ## Retrieving {{site.data.keyword.appid_short_notm}} tokens
 {: #exchanging-jwts}
 
-To create the bridge between your custom provider and {{site.data.keyword.appid_short_notm}}, you need to have {{site.data.keyword.appid_short_notm}} tokens. To obtain service tokens, exchange your verified user information by using the [`/token` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization_Server_V4/token).
+To create the bridge between your custom provider and {{site.data.keyword.appid_short_notm}}, you need to have {{site.data.keyword.appid_short_notm}} tokens. To obtain service tokens, exchange your verified user information by using the [`/token` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization_Server_V4/token){: external}.
 {: shortdesc}
 
   ```
@@ -163,25 +166,25 @@ To create the bridge between your custom provider and {{site.data.keyword.appid_
   ```
   {: codeblock}
   <table>
-    <thead>
-      <th colspan=2><img src="images/idea.png" alt="More information icon"/> Request Construction</th>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Content-type</td>
-        <td><code>applications/x-www-from-urlencoded</code></td>
-      </tr>
-      <tr>
-        <td>grant_type</td>
-        <td><code>urn:ietf:params:oauth:grant-type:jwt-bearer</code></td>
-      </tr>
-      <tr>
-        <td>assertion</td>
-        <td>A JWS payload string.</td>
-      </tr>
-      <tr>
-        <td>scope</td>
-        <td>A white space separated list of your custom scopes.</td>
-      </tr>
-    </tbody>
+    <caption>Table 2. Required request variables</caption>
+    <tr>
+      <th>Variable</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>Content-type</td>
+      <td><code>applications/x-www-from-urlencoded</code></td>
+    </tr>
+    <tr>
+      <td>grant_type</td>
+      <td><code>urn:ietf:params:oauth:grant-type:jwt-bearer</code></td>
+    </tr>
+    <tr>
+      <td>assertion</td>
+      <td>A JWS payload string.</td>
+    </tr>
+    <tr>
+      <td>scope</td>
+      <td>A white space separated list of your custom scopes.</td>
+    </tr>
   </table>

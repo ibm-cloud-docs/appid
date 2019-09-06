@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-08-19"
+lastupdated: "2019-09-05"
 
 keywords: Authentication, authorization, identity, app security, secure, rates, cloud directory, rate limit, attempts
 
@@ -35,6 +35,7 @@ Rate limiting is used to control the amount of traffic that is coming and going 
 Review the following table to see the limits that are in place for lite instances of {{site.data.keyword.appid_short_notm}}. 
 
 <table>
+    <caption>Table 1. Limits for lite instances</caption>
     <tr>
         <th>Resource</th>
         <th>Maximum</th>
@@ -56,6 +57,7 @@ The following table lists the maximum per user limits for {{site.data.keyword.ap
 {: shortdesc}
 
 <table>
+    <caption>Table 2. General rate limits</caption>
     <tr>
         <th>API</th>
         <th>Limit</th>
@@ -63,7 +65,7 @@ The following table lists the maximum per user limits for {{site.data.keyword.ap
     </tr>
     <tr>
         <td>Sign in attempts by one user</td>
-        <td>5 per minute</td>
+        <td>11 per minute</td>
         <td>User unable to sign in for 1 minute.</td>
     </tr>
     <tr>
@@ -86,6 +88,7 @@ Review the following table to see limits that are associated with Cloud Director
 {: shortdesc}
 
 <table>
+    <caption>Table 3. Cloud Directory limits</caption>
     <tr>
         <th>API</th>
         <th>Configurable</th>

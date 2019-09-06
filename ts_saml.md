@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-09"
+lastupdated: "2019-09-04"
 
 keywords: Authentication, authorization, identity, app security, secure, development, troubleshooting, redirected, validation
 
@@ -41,6 +41,28 @@ The SAML framework supports multiple profiles, flows, and configurations, which 
 
 For specific error codes and messages from your identity provider that you don't see on this page, it can be helpful to search the [SAML specification](http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0.html) for detailed explanations. If you don't find what you're looking for, you can reach out to your identity providers admin for more information.
 {: note}
+
+
+### SAML message signature could not be validated
+{: #ts-saml-w3id}
+
+
+**What's happening**
+
+When you test your application, you receive the following error message:
+
+```
+The SAML message signature could not be validated
+```
+{: screen}
+
+**Why it's happening**
+
+This error occurs when {{site.data.keyword.appid_short_notm}} cannot verify the signature that is sent by SAML.
+
+**How to fix it**
+
+To resolve the issue, verify that you have **Inbound Signature** set to **None** in your configuration.
 
 
 

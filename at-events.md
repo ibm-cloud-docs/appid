@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-08-28"
+lastupdated: "2019-09-04"
 
 keywords: Authentication, authorization, identity, app security, secure, application identity, app to app, access token, activity
 
@@ -24,7 +24,7 @@ subcollection: appid
 {:preview: .preview}
 
 
-# {{site.data.keyword.at_short}} events
+# Activity Tracker events
 {: #at-events}
 
 You can view, manage, and analyze user-initiated activities made in your {{site.data.keyword.appid_full}} service instance by using the {{site.data.keyword.at_short}} service.
@@ -36,12 +36,8 @@ By integrating {{site.data.keyword.at_short}} with {{site.data.keyword.appid_sho
 
 For more information about how the service works, see the [{{site.data.keyword.at_short}} docs](/docs/services/Activity-Tracker-with-LogDNA?topic=logdnaat-cloud_services).
 
-The {{site.data.keyword.at_short}} service is available for App ID in the London, Dallas, and Tokyo regions.
+The {{site.data.keyword.at_short}} service is available for {{site.data.keyword.appid_short_notm}} in the London, Dallas, Frankfurt, and Tokyo regions.
 {: preview}
-
-
-
-
 
 
 ## Viewing administrative events
@@ -66,10 +62,11 @@ You can view, manage, and analyze configuration activity that is made in your {{
 Check out the following table for a list of the events that are sent to {{site.data.keyword.at_short}}.
 
 <table>
+  <caption>Table 1. Actions that you can take that are tracked by {{site.data.keyword.at_short}}</caption>
   <tr>
     <th>Action</th>
     <th>Description</th>
-    <th>UI Location</th>
+    <th>GUI action</th>
   </tr>
   <tr>
     <td><code>read.recentActivity</code></td>
@@ -79,27 +76,27 @@ Check out the following table for a list of the events that are sent to {{site.d
   <tr>
     <td><code>read.idpConfig</code></td>
     <td>View the identity provider configuration.</td>
-    <td>Can be found in the <strong>Identity Providers > Manage</strong> tab.</td>
+    <td>Can be found in the <strong>Manage authentication > Identity Providers</strong> tab.</td>
   </tr>
   <tr>
     <td><code>update.idpConfig</code></td>
     <td>Update the identity provider configuration.</td>
-    <td>Can be updated in the <strong>Identity Providers > Manage</strong> tab.</td>
+    <td>Can be updated in the <strong>Manage authentication > Identity Providers</strong> tab.</td>
   </tr>
   <tr>
     <td><code>read.tokensConfig</code></td>
     <td>View the token expiration configuration.</td>
-    <td>Can be found in the <strong>Identity Providers > Token Expiration</strong> tab.</td>
+    <td>Can be found in the <strong>Manage authentication > Authentication Settings</strong> tab.</td>
   </tr>
   <tr>
     <td><code>read.isProfilesActive</code></td>
     <td>View the user profile storage configuration.</td>
-    <td>Can be found in the <strong>Activity Log</strong> in the <strong>Overview</strong> tab.</td>
+    <td>Can be found in the <strong>User Profiles</strong> tab.</td>
   </tr>
   <tr>
     <td><code>update.isProfilesActive</code></td>
     <td>Update your user profile storage configuration.</td>
-    <td>Can be found in the <strong>Profiles</strong> tab.</td>
+    <td>Can be found in the <strong> User Profiles</strong> tab.</td>
   </tr>
   <tr>
     <td><code>read.themeColor</code></td>
@@ -144,7 +141,7 @@ Check out the following table for a list of the events that are sent to {{site.d
   <tr>
     <td><code>read.cloudDirectoryUser</code></td>
     <td>View a Cloud Directory user.</td>
-    <td>Can be found in the <strong>Users</strong> tab.</td>
+    <td>Can be found in the <strong>Cloud Directory > Users > View user details</strong> tab.</td>
   </tr>
   <tr>
     <td><code>update.cloudDirectoryUser</code></td>
@@ -267,6 +264,9 @@ Check out the following table for a list of the events that are sent to {{site.d
 With {{site.data.keyword.at_short}}, you can review runtime activity made by an app user, such as logins, password resets, and authentications.
 {: shortdesc}
 
+The ability to track runtime authentication events is available for {{site.data.keyword.appid_short_notm}} in the London, Dallas, and Tokyo regions.
+{: preview}
+
 The reported events are per account, but there are limitations on the data rate and retention period of the collected runtime events. Increasing the limits might require an upgrade of the {{site.data.keyword.at_short}} service. For more information about the service limits, see the [{{site.data.keyword.at_short}} docs](/docs/services/Activity-Tracker-with-LogDNA?topic=logdnaat-service_plan).
 
 This feature is available only for instances on graduated tier payment plan that were created after March 15, 2018. Using this feature incurs an extra charge. For more information on graduated tier pricing, see the [{{site.data.keyword.cloud_notm}} pricing docs](/docs/services/appid?topic=appid-faq#faq-pricing).
@@ -279,8 +279,8 @@ This feature is available only for instances on graduated tier payment plan that
 
 1. Log in to your {{site.data.keyword.cloud_notm}} account.
 2. From the catalog, provision an instance of the {{site.data.keyword.at_short}} service in the same account as your {{site.data.keyword.appid_short_notm}} instance.
-3. In the {{site.data.keyword.appid_short_notm}} dashboard, click **Identity providers > Manage > Authentication settings**.
-4. In the **Runtime Activity** panel, toggle the switch to enable tracking of runtime activities for the current instance. A message displays that notifies you that the feature is enabled.
+3. In the {{site.data.keyword.appid_short_notm}} dashboard, click **Manage authentication > Authentication settings**.
+4. Scroll to the **Runtime Activity** panel and toggle the switch to enable tracking of runtime authentication activity. A message displays that notifies you that the feature is enabled and that you are charged differently. For more information, see [How does App ID calculate pricing](/docs/services/appid?topic=appid-faq#faq-pricing).
 5. From the **Observability > Activity Tracker** tab in the console navigation, verify the information for the instance that you created.
 6. Click **View LogDNA**. When the dashboard loads, you see an overall view of all of the activity in your account. You can use the search operators to filter your results by tags, sources, apps or levels. You can also search for specific events or jump to a specific timeframe.
 7. From the **All Apps** drop-down, select the instance of {{site.data.keyword.appid_short_notm}} that you want to track events for.
@@ -294,6 +294,7 @@ This feature is available only for instances on graduated tier payment plan that
 Check out the following table for a list of the runtime events that are sent to {{site.data.keyword.at_short}}.
 
 <table>
+  <caption>Table 2. Actions that can be tracked as authentication events at runtime</caption>
   <tr>
     <th>Description</th>
     <th>Action</th>
@@ -500,6 +501,7 @@ The following scenario works only for Cloud Directory users. If the user is defi
 An event in the {{site.data.keyword.at_short}} console contains the following fields.
 
 <table>
+  <caption>Table 3. Example fields that can be found in an event from the {{site.data.keyword.at_short}} console</caption>
   <tr>
     <th>Field</th>
     <th>Value</th>

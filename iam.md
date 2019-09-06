@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-09"
+lastupdated: "2019-09-05"
 
 keywords: Authentication, authorization, identity, app security, secure, access, platform, management, permissions
 
@@ -53,6 +53,7 @@ Policies enable access to be granted at different levels. Some of the options in
 Platform management roles enable users to perform tasks on service resources at the platform level. For example, roles can be assigned to determine who can create or delete IDs, create instances, and bind instances to apps. The following table details the actions as they correlate to platform management roles.
 
 <table>
+  <caption>Table 1. Platform roles, permissions, and the example actions that each role can take</caption>
   <tr>
     <th>Platform role</th>
     <th>Permissions</th>
@@ -86,6 +87,7 @@ The following table details actions that are mapped to service access roles. Ser
 
 
 <table>
+  <caption>Table 2. Service roles, permissions, and the example actions that each role can take</caption>
   <tr>
     <th>Service role</th>
     <th>Permissions</th>
@@ -115,6 +117,7 @@ Every user that accesses the {{site.data.keyword.appid_short_notm}} service in y
 The actions are customized and defined by the {{site.data.keyword.cloud_notm}} service as operations that are allowed to be performed in the service. The actions are then mapped to IAM user roles. Some of the actions taken you can track with the {{site.data.keyword.cloudaccesstrailshort}} service. In the following table, the actions and required permissions for {{site.data.keyword.appid_short_notm}} are mapped.
 
 <table>
+  <caption>Table 3. {{site.data.keyword.appid_short_notm}} access policies</caption>
   <tr>
     <th>Action</th>
     <th>Explanation</th>
@@ -255,86 +258,87 @@ To update access permissions, the admin completes the following steps:
 
 4. Sign in with the {{site.data.keyword.cloud_notm}} CLI in your terminal.
 
-    ```
-    ibmcloud login -api -a https://api.{region}.cloud.ibm.com
-    ```
-    {: codeblock}
+  ```
+  ibmcloud login -api -a https://api.{region}.cloud.ibm.com
+  ```
+  {: codeblock}
 
-    <table>
-      <tr>
-        <th>Region</th>
-        <th>Endpoint</th>
-      </tr>
-      <tr>
-        <td>Dallas</td>
-        <td><code>us-south</code></td>
-      </tr>
-      <tr>
-        <td>Frankfurt</td>
-        <td><code>eu-de</code></td>
-      </tr>
-      <tr>
-        <td>Sydney</td>
-        <td><code>au-syd</code></td>
-      </tr>
-      <tr>
-        <td>London</td>
-        <td><code>eu-gb</code></td>
-      </tr>
-      <tr>
-        <td>Tokyo</td>
-        <td><code>jp-tok</code></td>
-      </tr>
-    </table>
+  <table>
+    <caption>Table 4. Region options that you can use to work with {{site.data.keyword.cloud_notm}} and {{site.data.keyword.appid_short_notm}}</caption>
+    <tr>
+      <th>Region</th>
+      <th>Endpoint</th>
+    </tr>
+    <tr>
+      <td>Dallas</td>
+      <td><code>us-south</code></td>
+    </tr>
+    <tr>
+      <td>Frankfurt</td>
+      <td><code>eu-de</code></td>
+    </tr>
+    <tr>
+      <td>Sydney</td>
+      <td><code>au-syd</code></td>
+    </tr>
+    <tr>
+      <td>London</td>
+      <td><code>eu-gb</code></td>
+    </tr>
+    <tr>
+      <td>Tokyo</td>
+      <td><code>jp-tok</code></td>
+    </tr>
+  </table>
 
 5. Get an IAM token and make a note of it.
 
-    ```
-    ibmcloud iam oauth-tokens
-    ```
-    {: codeblock}
+  ```
+  ibmcloud iam oauth-tokens
+  ```
+  {: codeblock}
 
 6. Verify that the team member cannot make changes.
 
-    ```
-    curl -X PUT --header 'Content-Type: application/json' \
-    --header 'Accept: application/json' \
-    --header 'Authorization: <IAM token value>' \
-    -d '{
-     "isActive": false,
-     "config": {
-       "idpId": "appID",
-       "secret": "appsecret"
-     }
-    }' \
-    'https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/config/idps/facebook'
-    ```
-    {: codeblock}
+  ```
+  curl -X PUT --header 'Content-Type: application/json' \
+  --header 'Accept: application/json' \
+  --header 'Authorization: <IAM token value>' \
+  -d '{
+    "isActive": false,
+    "config": {
+      "idpId": "appID",
+      "secret": "appsecret"
+    }
+  }' \
+  'https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/config/idps/facebook'
+  ```
+  {: codeblock}
 
-    The result is a 403 unauthorized message.
+  The result is a 403 unauthorized message.
 
 To view the {{site.data.keyword.appid_short_notm}} configurations from the CLI, the team member completes the following steps:
 
 1. Using the {{site.data.keyword.cloud_notm}} CLI in your terminal, sign in.
 
-    ```
-    ibmcloud login -a api.<region>.console.cloud.ibm.com
-    ```
-    {: codeblock}
+  ```
+  ibmcloud login -a api.<region>.console.cloud.ibm.com
+  ```
+  {: codeblock}
 
 2. Get an IAM token and make a note of it.
 
-    ```
-    ibmcloud iam oauth-tokens
-    ```
-    {: codeblock}
+  ```
+  ibmcloud iam oauth-tokens
+  ```
+  {: codeblock}
 
 3. View the identity provider configuration for Facebook by using cURL.
 
-    ```
-    curl -X GET --header 'Accept: application/json' --header 'Authorization: <IAM token value>' \  'https://us-south.appid.cloud.ibm.com/management/v4/<tenant-ID>/config/idps/facebook'
-    ```
-    {: codeblock}
+  ```
+  curl -X GET --header 'Accept: application/json' --header 'Authorization: <IAM token value>' \  'https://us-south.appid.cloud.ibm.com/management/v4/<tenant-ID>/config/idps/facebook'
+  ```
+  {: codeblock}
 
-    The result is a 200 message that contains the identity provider information.
+  The result is a 200 message that contains the identity provider information.
 

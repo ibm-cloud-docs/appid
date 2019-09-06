@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-08-06"
+lastupdated: "2019-09-04"
 
 keywords: Authentication, authorization, identity, app security, secure, development,
 
@@ -35,7 +35,7 @@ We’d love to hear from you with feedback and questions!
 * For questions about the service and getting started instructions, use the <a href="https://developer.ibm.com" target="_blank">IBM Developer Answers <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> forum. Include the `appid` tag.
 * Reach out directly to the development team on [Slack](https://ibm-container-service.slack.com)! 
 
-Getting started? Try walking through our [video tutorials](https://www.youtube.com/watch?v=EZWl1ij3dAE&list=UUdWhdi8GES-V-TFuTwjobrA){: external}. 
+Getting started? Try walking through our [video tutorials](https://www.youtube.com/playlist?list=PLbAYXkuqwrX2WLQqR0LUtjT77d4hisvfK){: external}. 
 {: note}
 
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-08-16"
+lastupdated: "2019-09-05"
 
 keywords: Authentication, authorization, identity, app security, secure, development, two factor, mfa 
 
@@ -38,7 +38,7 @@ When MFA is enabled, the {{site.data.keyword.appid_short_notm}} Login Widget req
 
 Check out the following diagram to see how the MFA flow works.
 
-![MFA flow](images/mfa.png)
+![MFA flow](images/mfa.png){: caption="Figure 1. Cloud Directory MFA flow" caption-side="bottom"}
 
 1. A user is shown {{site.data.keyword.appid_short_notm}}'s Login Widget and inputs their Cloud Directory user credentials. The credentials can be either their email or user name and their password. The Cloud Directory user credentials form the first authentication factor.
 
@@ -58,6 +58,7 @@ The first time that MFA is enabled, it is set to use email by default. You can c
 
 
 <table>
+  <caption>Table 1. MFA limits</caption>
   <tr>
     <th>Setting</th>
     <th>Description</th>
@@ -109,45 +110,43 @@ You can configure the MFA email channel through the GUI.
 3. In the **Email channel** tab, review the **Email template**. You can choose to send the template with the provided wording or write your own message. Be sure to use the correct HTML tagging. In the GUI you can add parameters and insert images. To change the [language](/docs/services/appid?topic=appid-cd-messages#cd-languages) of the message, you can use <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization" target="_blank">the APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to set the language. However, you are responsible for the content and translation of the message. Check out the following table to see the list of tables that you can use in this message and all of the other messages that you can send. If a user does not supply the information that is pulled by the parameter, it appears blank.
 
   <table>
-    <thead>
-      <tr>
-        <th colspan=2><img src="images/idea.png" alt="More information icon"/> MFA message parameters</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><code>%{display.logo}</code></td>
-        <td> Displays the image that you configured for your Login Widget. </td>
-      </tr>
-      <tr>
-        <td><code>%{user.displayName}</code></td>
-        <td> Displays the screen name a user chose to use when interacting with the app. </td>
-      </tr>
-      <tr>
-        <td><code>%{user.email}</code></td>
-        <td> Displays the user's registered email address. </td>
-      </tr>
-      <tr>
-        <td><code>%{user.username}</code></td>
-        <td> Displays the user's specified username when the authentication method is set to username and password. </td>
-      </tr>
-      <tr>
-        <td><code>%{user.firstName}</code></td>
-        <td> Displays the user's specified given name. </td>
-      </tr>
-      <tr>
-        <td><code>%{user.formattedName}</code></td>
-        <td> Displays the user's full name. </td>
-      </tr>
-      <tr>
-        <td><code>%{user.lastName}</code></td>
-        <td> Displays the user's specified surname. </td>
-      </tr>
-      <tr>
-        <td><code>%{mfa.code}</code></td>
-        <td> Displays a one-time MFA verification code. </td>
-      </tr>
-    </tbody>
+    <caption>Table 2. MFA message parameters</caption>
+    <tr>
+      <th>Parameter</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td><code>%{display.logo}</code></td>
+      <td> Displays the image that you configured for your Login Widget. </td>
+    </tr>
+    <tr>
+      <td><code>%{user.displayName}</code></td>
+      <td> Displays the screen name a user chose to use when interacting with the app. </td>
+    </tr>
+    <tr>
+      <td><code>%{user.email}</code></td>
+      <td> Displays the user's registered email address. </td>
+    </tr>
+    <tr>
+      <td><code>%{user.username}</code></td>
+      <td> Displays the user's specified username when the authentication method is set to username and password. </td>
+    </tr>
+    <tr>
+      <td><code>%{user.firstName}</code></td>
+      <td> Displays the user's specified given name. </td>
+    </tr>
+    <tr>
+      <td><code>%{user.formattedName}</code></td>
+      <td> Displays the user's full name. </td>
+    </tr>
+    <tr>
+      <td><code>%{user.lastName}</code></td>
+      <td> Displays the user's specified surname. </td>
+    </tr>
+    <tr>
+      <td><code>%{mfa.code}</code></td>
+      <td> Displays a one-time MFA verification code. </td>
+    </tr>
   </table>
 
   If a user does not supply the information pulled by the parameter, it appears blank.
@@ -195,17 +194,17 @@ If your {{site.data.keyword.appid_short_notm}} Cloud Directory instance is confi
 ## Configuring MFA to work with SMS
 {: #cd-mfa-configure-sms}
 
-You can send an SMS message to your users as a second form of verification. When you enable SMS, {{site.data.keyword.appid_short_notm}} automatically tries to register the first [valid](https://en.wikipedia.org/wiki/E.164) primary phone number that is found in a Cloud Directory user's profile. If the number is invalid or no phone number is found on the user's profile, then a registration widget is displayed for the user to add a number. Then, the number is part of the user's profile and after validation, becomes the default number that is used for MFA.
+You can send an SMS message to your users as a second form of verification. When you enable SMS, {{site.data.keyword.appid_short_notm}} automatically tries to register the first [valid](https://en.wikipedia.org/wiki/E.164){: external} primary phone number that is found in a Cloud Directory user's profile. If the number is invalid or no phone number is found on the user's profile, then a registration widget is displayed for the user to add a number. Then, the number is part of the user's profile and after validation, becomes the default number that is used for MFA.
 {: shortdesc}
 
 ### Before you begin
 {: #cd-mfa-configure-sms-before}
 
-{{site.data.keyword.appid_short_notm}} uses [Nexmo](https://www.nexmo.com/products/sms) to send MFA SMS one-time codes. Before you get started, be sure that you have an instance of {{site.data.keyword.appid_short_notm}} that is on the [graduated tier pricing plan](/docs/services/appid?topic=appid-faq#faq-pricing) and the following Nexmo information.
+{{site.data.keyword.appid_short_notm}} uses [Nexmo](https://www.nexmo.com/products/sms){: external} to send MFA SMS one-time codes. Before you get started, be sure that you have an instance of {{site.data.keyword.appid_short_notm}} that is on the [graduated tier pricing plan](/docs/services/appid?topic=appid-faq#faq-pricing) and the following Nexmo information.
 
- - Obtain your Nexmo API key and secret. You can find the Nexmo API key and secret in your account settings page on the Nexmo dashboard. Check out the [Nexmo documentation](https://developer.nexmo.com/concepts/guides/authentication#api-key-and-secret) for further information on how to obtain your credentials.
+ - Obtain your Nexmo API key and secret. You can find the Nexmo API key and secret in your account settings page on the Nexmo dashboard. Check out the [Nexmo documentation](https://developer.nexmo.com/concepts/guides/authentication#api-key-and-secret){: external} for further information on how to obtain your credentials.
 
- - Register your sender ID or the `from` number with Nexmo. This `from` number is what appears on your user's phone to show who the SMS is from. In some countries, Nexmo supports alpha-numeric sender IDs. {{site.data.keyword.appid_short_notm}} uses the value that you enter as Nexmo's sender ID. So, if they are supported by Nexmo, you can use the IDs with {{site.data.keyword.appid_short_notm}}. For more information, check out the [Nexmo documentation](https://help.nexmo.com/hc/en-us/articles/217571017-What-is-a-Sender-ID).
+ - Register your sender ID or the `from` number with Nexmo. This `from` number is what appears on your user's phone to show who the SMS is from. In some countries, Nexmo supports alpha-numeric sender IDs. {{site.data.keyword.appid_short_notm}} uses the value that you enter as Nexmo's sender ID. So, if they are supported by Nexmo, you can use the IDs with {{site.data.keyword.appid_short_notm}}. For more information, check out the [Nexmo documentation](https://help.nexmo.com/hc/en-us/articles/217571017-What-is-a-Sender-ID){: external}.
 
 
 ### With the GUI
