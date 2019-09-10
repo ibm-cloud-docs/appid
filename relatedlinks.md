@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-04"
+lastupdated: "2019-09-10"
 
 keywords: Authentication, authorization, identity, app security, secure
 
@@ -29,7 +29,7 @@ subcollection: appid
 You can use the following related links and samples to learn more about and interact with {{site.data.keyword.appid_full}}.
 {: shortdesc}
 
-Getting started? Try walking through our [video tutorials](https://www.youtube.com/playlist?list=PLbAYXkuqwrX2WLQqR0LUtjT77d4hisvfK){: external}. 
+Getting started? Try walking through our [video tutorials](https://www.youtube.com/playlist?list=PLzpeuWUENMK2tmzSRRx7W_mplw1x4h7ch){: external}. 
 {: note}
 
 ## Contact us
