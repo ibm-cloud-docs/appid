@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-06"
+lastupdated: "2019-09-11"
 
 keywords: authentication, authorization, identity, app security, secure, web apps, client, server
 
@@ -193,7 +193,7 @@ Check out the following video to learn about protecting Node applications with {
    ```
    {: codeblock}
 
-6. Register your protected endpoint.
+6. Register your protected endpoint by adding the following code snippet into your `app.js` file.
 
    ```javascript
    app.get(‘/protected_resource’, passport.authenticate(WebAppStrategy.STRATEGY_NAME), function(req, res) {res.json(req.user); });
