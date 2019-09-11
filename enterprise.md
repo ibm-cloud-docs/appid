@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-05"
+lastupdated: "2019-09-11"
 
 keywords: Authentication, authorization, identity, app security, secure, custom, service provider, identity provider, enterprise, assertions
 
@@ -288,6 +288,8 @@ Want to set an authentication context? You can do so through the API.
       "secondary-certificate-example-pem-format"
     ],
     "displayName": "my saml example",
+    "signRequest": true ,
+    "encryptResponse": true
   }
   ```
   {: codeblock}
@@ -322,6 +324,14 @@ Want to set an authentication context? You can do so through the API.
     <tr>
       <td>Optional: <code>authnContext</code></td>
       <td>The authentication context is used to verify the quality of the authentication and SAML assertions. You can add an authentication context by adding a class array and comparison string to your code. BE sure to update both the <code>class</code> and <code>comparison</code> parameters with your values. For example, a <code>class</code> parameter might look similar to <code>urn:oasis:names:tc:SAML:2.0:ac:classes:YourChosenClassValue</code>.</td>
+    </tr>
+    <tr>
+      <td>Optional: <code>signRequest</code></td>
+      <td>The <code>signRequest</code> flag provides the capability to send a signed SAML request to an identity provider that is signed by using the tenant's SAML signing private key. To configure your SAML identity provider to receive a signed request you need the signing certificate from the metadata file that you can download in the <code>KeyDescriptor use="signing"</code> field. By default, request signing is set to `off`.</td>
+    </tr>
+    <tr>
+      <td>Optional: <code>encryptResponse</code></td>
+      <td>The <code>encryptResponse</code> flag allows for you to receive an encrypted response from your identity provider as part of the authentication request. To configure your SAML identity provider to send an encrypted response, you need the encryption certificate that can be found in the metadata file in the <code>KeyDescriptor use="encryption"</code> field. By default, response encryption is set to `off`.</td>
     </tr>
   </table>
 
