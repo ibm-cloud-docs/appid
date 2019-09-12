@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-05"
+lastupdated: "2019-09-12"
 
 keywords: Authentication, authorization, identity, app security, secure, custom, tokens, access, claim, attributes
 
@@ -45,7 +45,7 @@ Want to learn more about tokens? Read more in [Understanding tokens](/docs/servi
 You can customize your tokens [in the GUI](/docs/services/appid?topic=appid-customizing-tokens#configuring-tokens-ui) or by using [the API](/docs/services/appid?topic=appid-customizing-tokens#configuring-tokens-api){: external} by setting the lifespan validity or by adding custom claims to your tokens. Check out the following table to see how lifespan is configured or continue reading to learn about mapping custom attributes.
 
 <table>
-  <caption>Table 1. Toekn customization options</caption>
+  <caption>Table 1. Token customization options</caption>
   <tr>
     <th>Token type</th>
     <th>Value type</th>
@@ -210,10 +210,9 @@ Be sure that you have the following prerequisites:
 
   Header:
   ```
-  PUT {management-url}/management/v4/{tenantId}/tokens
-       Host: <management-server-url>
-       Authorization: 'Bearer <IAM_TOKEN>'
-       Content-Type: application/json
+  PUT -X "https://<region>.appid.cloud.ibm.com/management/v4/{tenantId}/tokens"
+    -H Authorization: 'Bearer <IAM_TOKEN>'
+    -H Content-Type: application/json
   ```
   {: codeblock}
 
@@ -248,58 +247,31 @@ Be sure that you have the following prerequisites:
   {: codeblock}
 
   <table>
-    <thead>
-      <th colspan=3><img src="images/idea.png" alt="Idea icon"/> Understanding the token configuration</th>
-    </thead>
-    <tbody>
-      <tr>
-        <td><code><em>access</em></code></td>
-        <td>Optional</td>
-        <td>Object containing expiration time, `expires_in`, in minutes of your access and identity tokens. </br> </br> The default expiration is 60 minutes. </td>
-      </tr>
-      <tr>
-          <td><code><em>refresh</em></code></td>
-          <td>Optional</td>
-          <td>Object that contains the expiration time, `expires_in`, in days of your refresh token. </br> </br> The default expiration is 30 days. </td>
-      </tr>
-      <tr>
-          <td><code><em>anonymousAccess</em></code></td>
-          <td>Optional</td>
-          <td>Object that contains the expiration time, `expires_in`, in days of your anonymous access and identity tokens. </br> </br> The default expiration is 30 days.
-      </tr>
-      <tr>
-          <td><code><em>accessTokenClaims</em></code></td>
-          <td>Optional</td>
-          <td>An array that contains the objects that are created when claims related to access tokens are mapped.</td>
-      </tr>
-      <tr>
-          <td><code><em>idTokenClaims</em></code></td>
-          <td>Optional</td>
-          <td>An array that contains the objects that are created when claims related to identity tokens are mapped.</td>
-      </tr>
-    </tbody>
+    <caption>Table 3. Understanding the token configuration</caption>
+    <tr>
+      <th>Variable</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td><code><em>access</em></code></td>
+      <td>Object containing expiration time, `expires_in`, in minutes of your access and identity tokens. </br> </br> The default expiration is 60 minutes. </td>
+    </tr>
+    <tr>
+      <td><code><em>refresh</em></code></td>
+      <td>Object that contains the expiration time, `expires_in`, in days of your refresh token. </br> </br> The default expiration is 30 days. </td>
+    </tr>
+    <tr>
+      <td><code><em>anonymousAccess</em></code></td>
+      <td>Object that contains the expiration time, `expires_in`, in days of your anonymous access and identity tokens. </br> </br> The default expiration is 30 days.
+    </tr>
+    <tr>
+      <td><code><em>accessTokenClaims</em></code></td>
+      <td>An array that contains the objects that are created when claims related to access tokens are mapped.</td>
+    </tr>
+    <tr>
+      <td><code><em>idTokenClaims</em></code></td>
+      <td>An array that contains the objects that are created when claims related to identity tokens are mapped.</td>
+    </tr>
   </table>
 
-  Example request:
-  ```
-  $ curl -X PUT
-    --header 'Content-Type: application/json'
-    --header 'Accept: application/json'
-    --header 'Authorization: <IAM Token'
-    -d '{
-          "accessTokenClaims": [
-            {
-              "source": "saml",
-              "sourceClaim": "name_id"
-            }
-          ],
-          "idTokenClaims": [
-            {
-              "source": "attributes",
-              "sourceClaim": "theme"
-            }
-          ]
-      }'
-  }' '{management-url}/management/v4/{Tenant ID}/config/tokens'
-  ```
-  {: screen}
+

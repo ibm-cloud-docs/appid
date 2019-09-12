@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-09"
+lastupdated: "2019-09-12"
 
 keywords: authentication, application identity, authorization, app security, single sign on, mfa, cloud directory
 
@@ -26,6 +26,14 @@ subcollection: appid
 {: #release-notes}
 
 The following features and changes to the {{site.data.keyword.appid_short_notm}} service are now available.
+
+## September 2019
+{: #September2019}
+
+- **Increase the security of your SAML flow**
+
+    You can now increase the security of your SAML work flows by enabling request signing and response encryption. For more information, see [SAML](/docs/services/appid?topic=appid-enterprise).
+
 
 ## August 2019
 {: #August2019}
