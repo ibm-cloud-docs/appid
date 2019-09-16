@@ -199,11 +199,7 @@ If you disable self-service sign-up or add a user on their behalf, the user does
 
 | Adding a user with the API |
 |:-----------------|
-| <p><ol><li>Obtain your tenant ID from your application or service credentials.</li> <li>Obtain an {{site.data.keyword.cloud_notm}} IAM token. <p><pre class="pre"><code>curl --X GET "https://iam.cloud.ibm.com/oidc/token" -H "accept: application/x-www-form-urlencoded"</code></pre></p></li> <li>Run the following user to create a new user and a profile at the same time.<p><pre class="pre"><code>curl -X POST "https://<region>.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/sign_up?shouldCreateProfile=true&language=en" \
-  -H "accept: application/json" \
-  -H "Content-Type: application/json" \
-  -H "authorization: Bearer <token>" \
-  -d "{ \"active\": true, \"emails\": [ { \"value\": \"<user@domain.com>\", \"primary\": true } ], \"userName\": \"<myUserName>\", \"password\": \"<userPassword>\"}"</code></pre></p></li></ol></p> |
+| <p><ol><li>Obtain your tenant ID from your application or service credentials.</li> <li>Obtain an {{site.data.keyword.cloud_notm}} IAM token. <p><pre class="pre"><code>curl --X GET "https://iam.cloud.ibm.com/oidc/token" -H "accept: application/x-www-form-urlencoded"</code></pre></p></li> <li>Run the following user to create a new user and a profile at the same time.<p><pre class="pre"><code>curl -X POST "https://<region>.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/sign_up?shouldCreateProfile=true&language=en" \</br> -H "accept: application/json" \</br>  -H "Content-Type: application/json" \</br>  -H "authorization: Bearer <token>" \</br>  -d "{ \"active\": true, \"emails\": [ { \"value\": \"<user@domain.com>\", \"primary\": true } ], \"userName\": \"<myUserName>\", \"password\": \"<userPassword>\"}"</code></pre></p></li></ol></p> |
 {: caption="Adding a user with the API" caption-side="bottom"}
 {: #add-user-2}
 {: tab-title="API"}
