@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-06"
+lastupdated: "2019-09-16"
 
 keywords: authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
@@ -188,47 +188,29 @@ When a user signs up for your application, they are added as a user. For test pu
 If you disable self-service sign-up or add a user on their behalf, the user does not receive a welcome or verification email when they're added.
 {: tip}
 
+| Adding a user with the GUI |
+|:-----------------|
+| <p><ol><li> Go to the **Cloud Directory > Users** tab of the {{site.data.keyword.appid_short_notm}} dashboard.</li> <li>Click **{{site.data.keyword.cos_full_notm}}**.</li> <li>Click **Add user**. A form opens.</li><li> In the **COS Instance** dropdown, select your {{site.data.keyword.cos_full_notm}} instance.</li> <li>Enter a **First name**, **Last name**, **Email**, and **Password**. Be sure that the email that you try to register is not already taken by another user. To be sure that you typed your password correctly, confirm it by entering it in the **Reenter Password** field.</li> <li>Click **Save**. A Cloud Directory user is created.</li></ol></p> |
+{: caption="Adding a user with the GUI" caption-side="bottom"}
+{: #add-user-1}
+{: tab-title="GUI"}
+{: tab-group="add-user"}
+{: class="simple-tab-table"}
 
-
-**To add a user with the GUI:**
-
-1. Go to the **Cloud Directory > Users** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
-
-2. Click **Add user**. A form opens.
-
-3. Enter a **First name**, **Last name**, **Email**, and **Password**. Be sure that the email that you try to register is not already taken by another user. To be sure that you typed your password correctly, confirm it by entering it in the **Reenter Password** field.
-
-4. Click **Save**. A Cloud Directory user is created.
-
-</br>
-
-
-
-**To add a user with the API:**
-
-1. Obtain your tenant ID from your application or service credentials.
-
-2. Obtain an {{site.data.keyword.cloud_notm}} IAM token.
-
-  ```
-  curl --X GET "https://iam.cloud.ibm.com/oidc/token" -H "accept: application/x-www-form-urlencoded"
-  ```
-  {: codeblock}
-
-3. Run the following user to create a new user and a profile at the same time.
-
-  ```
-  curl -X POST "https://<region>.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/sign_up?shouldCreateProfile=true&language=en" \
+| Adding a user with the API |
+|:-----------------|
+| <p><ol><li>Obtain your tenant ID from your application or service credentials.</li> <li>Obtain an {{site.data.keyword.cloud_notm}} IAM token. <p><pre class="pre"><code>curl --X GET "https://iam.cloud.ibm.com/oidc/token" -H "accept: application/x-www-form-urlencoded"</code></pre></p></li> <li>Run the following user to create a new user and a profile at the same time.<p><pre class="pre"><code>curl -X POST "https://<region>.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/sign_up?shouldCreateProfile=true&language=en" \
   -H "accept: application/json" \
   -H "Content-Type: application/json" \
   -H "authorization: Bearer <token>" \
-  -d "{ \"active\": true, \"emails\": [ { \"value\": \"<user@domain.com>\", \"primary\": true } ], \"userName\": \"<myUserName>\", \"password\": \"<userPassword>\"}"
-  ```
-  {: codeblock}
+  -d "{ \"active\": true, \"emails\": [ { \"value\": \"<user@domain.com>\", \"primary\": true } ], \"userName\": \"<myUserName>\", \"password\": \"<userPassword>\"}"</code></pre></p></li></ol></p> |
+{: caption="Adding a user with the API" caption-side="bottom"}
+{: #add-user-2}
+{: tab-title="API"}
+{: tab-group="add-user"}
+{: class="simple-tab-table"}
 
 
-
-</br>
 
 
 ### Deleting users
