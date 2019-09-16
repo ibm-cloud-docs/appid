@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-05"
+lastupdated: "2019-09-16"
 
 keywords: Authentication, authorization, identity, app security, secure, compliance, high availability, ha, disaster recovery, dr, protocols, oauth, oidc
 
@@ -38,7 +38,7 @@ Application security can be incredibly complicated. For most developers, it's on
 
 What can Cloud Directory do for you? Check out this video to learn more about the different ways that you can use the service and then read more in the following table about other scenarios.
 
-<iframe class="embed-responsive-item" id="about-appid" title="About {{site.data.keyword.appid_short_notm}}" type="text/html" width="640" height="390" src="//www.youtube.com/embed/XlrCjHdK43Q?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
+
 
 <table>
   <caption>Table 1. Reasons to use the {{site.data.keyword.appid_short_notm}} service</caption>

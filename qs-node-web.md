@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-05"
+lastupdated: "2019-09-16"
 
 keywords: Authentication, authorization, identity, app security, secure, development, nodejs, frontend, web apps, 
 
@@ -49,10 +49,9 @@ Check out the following diagram to see the Authorization Code OAuth 2.0 workflow
 
 Check out the following video to see how you can use {{site.data.keyword.appid_short_notm}} to protect a simple Node.js web application. All of the information that is covered in the video can also be found in written form on this page.
 
-<iframe class="embed-responsive-item" id="appid-web-node" title="About {{site.data.keyword.appid_short_notm}} Node.js applications" type="text/html" width="640" height="390" src="//www.youtube.com/embed/6roa1ZOvwtw?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-
 Don't have an app that you can try out the flow with? No problem! {{site.data.keyword.appid_short_notm}} provides a [simple Node.js web sample app](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02a-simple-node-web-app){: external}.
 
+<iframe class="embed-responsive-item" id="appid-web-node" title="About {{site.data.keyword.appid_short_notm}} Node.js applications" type="text/html" width="640" height="390" src="//www.youtube.com/embed/6roa1ZOvwtw?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
  
 
 ## Before you begin

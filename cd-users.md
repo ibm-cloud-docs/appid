@@ -40,6 +40,7 @@ You can see all of the information that is known about all of your Cloud Directo
 
 
 ### With the GUI
+{: #cd-view-gui}
 
 You can use the {{site.data.keyword.appid_short_notm}} dashboard to view details about your app users. 
 
@@ -92,6 +93,7 @@ You can use the {{site.data.keyword.appid_short_notm}} dashboard to view details
 </br>
 
 ### With the API
+{: #cd-view-api}
 
 You can use the {{site.data.keyword.appid_short_notm}} API to view details about your app users. 
 
@@ -186,7 +188,7 @@ If you disable self-service sign-up or add a user on their behalf, the user does
 {: tip}
 
 
-### Adding a user with the GUI
+### With the GUI
 {: #add-user-gui}
 
 1. Go to the **Cloud Directory > Users** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
@@ -201,7 +203,7 @@ If you disable self-service sign-up or add a user on their behalf, the user does
 
 
 
-### Adding a user with the API
+### With the API
 {: #add-user-api}
 
 
@@ -233,7 +235,7 @@ If you disable self-service sign-up or add a user on their behalf, the user does
 If you want to remove a user from your directory, you can delete the user from the GUI or by using the APIs.
 {: shortdesc}
 
-### Deleting a user through the GUI
+### With the GUI
 {: #delete-user-gui}
 
 1. Go to the **Cloud Directory > Users** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
@@ -246,7 +248,7 @@ If you want to remove a user from your directory, you can delete the user from t
 
 
 
-### Deleting a user by using the API
+### With the API
 {: #delete-user-api}
 
 1. Obtain your tenant ID.

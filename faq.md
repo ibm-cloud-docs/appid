@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-08-29"
+lastupdated: "2019-09-16"
 
 keywords: Authentication, authorization, identity, app security, secure
 
@@ -52,7 +52,7 @@ An authentication event occurs when a new access token, regular or anonymous, is
 Advanced security features give you the ability to strengthen the security of your application.
 {: shortdesc}
 
-By default, advanced security features are disabled. If you turn on MFA,runtime activity tracking, or password policy management you incur an extra charge. For example, if you obtained 10,000 access tokens. Then, you turned on password policy management and obtained 10,000 more. You would pay for 20,000 authentication events and 10,000 advanced security events. If you disable all of the advanced features, your account reverts to the lower-cost policy.
+By default, advanced security features are disabled. If you turn on MFA,runtime activity tracking, or password policy management you incur an extra charge. For example, if you obtained 10,000 access tokens. Then, you turned on password policy management and obtained 10,000 more. You would pay for 20,000 authentication events and 10,000 advanced security events. If you disable all of the advanced features, your account reverts to the original-cost policy.
 
 <table>
   <caption>Table 1. Description of the benefits that are gained with advanced authentication events</caption>
@@ -73,8 +73,6 @@ By default, advanced security features are disabled. If you turn on MFA,runtime 
     <td>As an account owner, you can enforce more secure passwords for Cloud Directory by configuring a set of rules that user passwords must conform to. Examples include, the number of attempted sign-ins before lockout, expiration times, minimum time span between password updates, or the number of times that a password can't be repeated. For a complete list of the options and set-up information, see [Advanced password management](/docs/services/appid?topic=appid-cd-strength#cd-advanced-password).</td>
   </tr>
 </table>
-
-
 
 These features are available only to those instances that are on the graduated tier pricing plan and that were created after 15 March 2018.
 {: note}
