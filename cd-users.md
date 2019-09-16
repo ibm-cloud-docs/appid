@@ -172,50 +172,69 @@ You can use the {{site.data.keyword.appid_short_notm}} API to view details about
   {: tip}
 
 
-## Adding and deleting users
-{: #add-delete-users}
 
-You can manage your Cloud Directory users through the {{site.data.keyword.appid_short_notm}} dashboard or by using the APIs.
+
+## Adding users
+{: #add-users}
+
+When a user signs up for your application, they are added as a user. For test purposes, you can add a user through the {{site.data.keyword.appid_short_notm}} dashboard or by using the API.
 {: shortdesc}
 
 When a user signs up for your application, they do so through a self-service workflow that automatically triggers emails such as a welcome or verification request. When you, as an administrator, add a user to your app a self-service workflow is not initiated, which means that users do not receive any emails from your application. If you want your users to still be notified that they're added, you can trigger the messaging flows through the [App ID management API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.set_cloud_directory_email_dispatcher){: external}.
 
-### Adding users
-{: #add-users}
-
-When a user signs up for your application, they are added as a user. For test purposes, you can add a user through the {{site.data.keyword.appid_short_notm}} dashboard or by using the API.
-
 If you disable self-service sign-up or add a user on their behalf, the user does not receive a welcome or verification email when they're added.
 {: tip}
 
-| Adding a user with the GUI |
-|:-----------------|
-| <p><ol><li> Go to the **Cloud Directory > Users** tab of the {{site.data.keyword.appid_short_notm}} dashboard.</li> <li>Click **{{site.data.keyword.cos_full_notm}}**.</li> <li>Click **Add user**. A form opens.</li><li> In the **COS Instance** dropdown, select your {{site.data.keyword.cos_full_notm}} instance.</li> <li>Enter a **First name**, **Last name**, **Email**, and **Password**. Be sure that the email that you try to register is not already taken by another user. To be sure that you typed your password correctly, confirm it by entering it in the **Reenter Password** field.</li> <li>Click **Save**. A Cloud Directory user is created.</li></ol></p> |
-{: caption="Adding a user with the GUI" caption-side="bottom"}
-{: #add-user-1}
-{: tab-title="GUI"}
-{: tab-group="add-user"}
-{: class="simple-tab-table"}
 
-| Adding a user with the API |
-|:-----------------|
-| <p><ol><li>Obtain your tenant ID from your application or service credentials.</li> <li>Obtain an {{site.data.keyword.cloud_notm}} IAM token. <p><pre class="pre"><code>curl --X GET "https://iam.cloud.ibm.com/oidc/token" -H "accept: application/x-www-form-urlencoded"</code></pre></p></li> <li>Run the following user to create a new user and a profile at the same time.<p><pre class="pre"><code>curl -X POST "https://<region>.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/sign_up?shouldCreateProfile=true&language=en" \</br> -H "accept: application/json" \</br>  -H "Content-Type: application/json" \</br>  -H "authorization: Bearer <token>" \</br>  -d "{ \"active\": true, \"emails\": [ { \"value\": \"<user@domain.com>\", \"primary\": true } ], \"userName\": \"<myUserName>\", \"password\": \"<userPassword>\"}"</code></pre></p></li></ol></p> |
-{: caption="Adding a user with the API" caption-side="bottom"}
-{: #add-user-2}
-{: tab-title="API"}
-{: tab-group="add-user"}
-{: class="simple-tab-table"}
+### Adding a user with the GUI
+{: #add-user-gui}
+
+1. Go to the **Cloud Directory > Users** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
+
+2. Click **Add user**. A form opens.
+
+3. Enter a **First name**, **Last name**, **Email**, and **Password**. Be sure that the email that you try to register is not already taken by another user. To be sure that you typed your password correctly, confirm it by entering it in the **Reenter Password** field.
+
+4. Click **Save**. A Cloud Directory user is created.
+
+</br>
 
 
 
+### Adding a user with the API
+{: #add-user-api}
 
-### Deleting users
+
+1. Obtain your tenant ID from your application or service credentials.
+
+2. Obtain an {{site.data.keyword.cloud_notm}} IAM token.
+
+  ```
+  curl --X GET "https://iam.cloud.ibm.com/oidc/token" -H "accept: application/x-www-form-urlencoded"
+  ```
+  {: codeblock}
+
+3. Run the following user to create a new user and a profile at the same time.
+
+  ```
+  curl -X POST "https://<region>.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/sign_up?shouldCreateProfile=true&language=en" \
+  -H "accept: application/json" \
+  -H "Content-Type: application/json" \
+  -H "authorization: Bearer <token>" \
+  -d "{ \"active\": true, \"emails\": [ { \"value\": \"<user@domain.com>\", \"primary\": true } ], \"userName\": \"<myUserName>\", \"password\": \"<userPassword>\"}"
+  ```
+  {: codeblock}
+
+
+
+## Deleting users
 {: #delete-users}
 
 If you want to remove a user from your directory, you can delete the user from the GUI or by using the APIs.
 {: shortdesc}
 
-**To delete a user through the GUI:**
+### Deleting a user through the GUI
+{: #delete-user-gui}
 
 1. Go to the **Cloud Directory > Users** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
 
@@ -225,10 +244,10 @@ If you want to remove a user from your directory, you can delete the user from t
 
 4. Confirm that you understand that deleting a user cannot be undone by clicking **Delete**. If the action was a mistake, you can add the user to your directory again, but any information about that user is no longer available.
 
-</br>
 
 
-**To delete a user by using the API:**
+### Deleting a user by using the API
+{: #delete-user-api}
 
 1. Obtain your tenant ID.
 
@@ -270,7 +289,7 @@ You must be assigned the `Manager` [IAM role](/docs/iam?topic=iam-getstarted#get
 
 
 ### Exporting
-{: cd-export}
+{: #cd-export}
 
 Before you can add your users to the new instance, you need to export them from your current instance. To do so, you can use the [export management API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.cloudDirectoryExport){: external}.
 
@@ -343,7 +362,7 @@ curl -X POST --header ‘Content-Type: application/json’ --header ‘Accept: a
 
 
 ### Migration script
-{: cd-migration-script}
+{: #cd-migration-script}
 
 {{site.data.keyword.appid_short_notm}} provides a migration script that you can use through the CLI that can help speed up the migration process.
 
@@ -373,7 +392,7 @@ Before you get started, be sure that you have the following parameter informatio
   </tr>
 </table>
 
-To run the script:
+</br>
 
 1. Clone the [repository](https://github.com/ibm-cloud-security/appid-sample-code-snippets/tree/master/export-import-cloud-directory-users){: external}.
 
