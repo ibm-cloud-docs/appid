@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-12"
+lastupdated: "2019-09-16"
 
 keywords: authentication, application identity, authorization, app security, single sign on, mfa, cloud directory
 
@@ -56,7 +56,7 @@ The following features and changes to the {{site.data.keyword.appid_short_notm}}
 
 - **Slack channel**
 
-    Have questions while working with {{site.data.keyword.appid_short_notm}}? Get in touch directly with the development team on [Slack](https://ibm-container-service.slack.com){: external}!
+    Have questions while working with {{site.data.keyword.appid_short_notm}}? Get in touch directly with the development team on [Slack](https://www.ibm.com/cloud/blog/announcements/get-help-with-ibm-cloud-app-id-related-questions-on-slack){: external}!
 
 - **The {{site.data.keyword.appid_short_notm}} Identity and Access Istio adapter**  
 

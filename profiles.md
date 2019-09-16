@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-06"
+lastupdated: "2019-09-16"
 
 keywords: authentication, authorization, identity, app security, secure, attributes, user information, storing, accessing
 
@@ -52,10 +52,12 @@ You can store 100 KB of information for each user.
 ### How do I get the user profile information?
 {: #profile-endpoint}
 
-There are several different ways in which you can access user information, as well as several different reasons why you would want to. The endpoint that you choose to call can vary depending on your use case. If you're not sure which one works best for your flow, join our Slack channel and chat directly with our development team for some advice.
+There are several different ways in which you can access user information, as well as several different reasons why you would want to. The endpoint that you choose to call can vary depending on your use case.
 
-The easiest way's to work with user information are by using the GUI or an SDK. With those options, all of the API calls are done behind the scenes for you.
+Not sure which one works best? Join our [Slack channel](https://www.ibm.com/cloud/blog/announcements/get-help-with-ibm-cloud-app-id-related-questions-on-slack){: external} and get advice directly from our development team.
 {: tip}
+
+
 
 If you need to work with an API, check out the following image and corresponding informaiton to see how the information is pulled.
 
@@ -72,9 +74,9 @@ If you need to work with an API, check out the following image and corresponding
     <dd>If you're building administrative interfaces or process that might apply to multiple users, you can use the App ID management API. Specifically, you can use the <code>/users</code> endpoint.</dd>
 </dl>
 
-
-Not sure which one works best? Join our [Slack channel](https://ibm-container-service.slack.com){: external} and get advice directly from our development team.
+The easiest way's to work with user information are by using the GUI or an SDK. With those options, all of the API calls are done behind the scenes for you.
 {: tip}
+
 
 ## Viewing user profiles as an administrator
 {: #profile-view}
