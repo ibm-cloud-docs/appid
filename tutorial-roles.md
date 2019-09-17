@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-05"
+lastupdated: "2019-09-17"
 
 keywords: Authentication, authorization, identity, app security, secure, access management, roles, attributes, users
 
@@ -26,7 +26,7 @@ subcollection: appid
 # Tutorial: Setting user roles
 {: #tutorial-roles}
 
-Ensuring that the right people, have the right access, at the right time can be difficult when you are coding your application. To help with that process, you can use {{site.data.keyword.appid_full}} to define a custom attribute such as `role`, which allows you to assign different types of users. Then, you can use your application to enforce varying levels of permissions for each type of user. By using this step-by-step guide that you can learn to set user attributes, update them, and then inject them in to a token by using the {{site.data.keyword.appid_short_notm}} APIs.
+Ensuring that the correct people, have the approved access, when they need it can be difficult when you are coding your application. To help with that process, you can use {{site.data.keyword.appid_full}} to define a custom attribute such as `role`, which allows you to assign different types of users. Then, you can use your application to enforce varying levels of permissions for each type of user. By using this step-by-step guide that you can learn to set user attributes, update them, and then inject them in to a token by using the {{site.data.keyword.appid_short_notm}} APIs.
 {: shortdesc}
 
 New to the APIs? Try them out with this [Postman collection](https://github.com/ibm-cloud-security/appid-postman).

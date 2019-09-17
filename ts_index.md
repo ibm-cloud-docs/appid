@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-16"
+lastupdated: "2019-09-17"
 
 keywords: Authentication, authorization, identity, app security, secure, troubleshooting, help, support, requests, uri
 
@@ -59,7 +59,7 @@ Sign in might fail for the following reasons:
 For a redirect to occur:
 
 * Verify that your redirect URL is correct. It must be exact for the redirect to work.
-* Be sure that your user is signing in with the right credentials
+* Be sure that your user is signing in with the correct credentials
 * Check that they're configured in your identity provider user settings.
 
 
@@ -138,7 +138,7 @@ You attempt to view the home page of your app but receive the following error:
 {: screen}
 
 {: tsCauses}
-You might receive a "too many requests" error if you are performing automated testing with only one virtual user. Each user is limited to five sign in attempts in a one-minute time span. Sign in attempts are limited in order to prevent brute force DDoS and other types of similar attacks.
+You might receive a `too many requests` error if you are performing automated testing with only one virtual user. Each user is limited to five sign in attempts in a one-minute time span. Sign in attempts are limited in order to prevent brute force DDoS and other types of similar attacks.
 
 {: tsResolve}
 To resolve the issue, you might want to use multiple virtual users when you perform testing.
