@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-16"
+lastupdated: "2019-09-17"
 
 keywords: Authentication, authorization, identity, app security, secure
 
@@ -66,7 +66,7 @@ By default, advanced security features are disabled. If you turn on MFA,runtime 
   </tr>
   <tr>
     <td>Runtime authentication activity tracking</td>
-    <td>By integrating {{site.data.keyword.at_short}} with {{site.data.keyword.appid_short_notm}} you can track two different types of authentication events at runtime. For example: A password reset request, authentication failures, or a user log out.</td>
+    <td>By integrating {{site.data.keyword.at_short}} with {{site.data.keyword.appid_short_notm}} you can track two different types of authentication events at runtime. For example: A password reset request, authentication failures, or a user log out. for more information, see [Viewing runtime events](/docs/services/appid?topic=appid-at-events#at-monitor-runtime).</td>
   </tr>
   <tr>
     <td>Password policy management</td>
@@ -141,6 +141,7 @@ Check out the following table for answers to commonly asked questions about encr
 
 ## What is the difference between {{site.data.keyword.appid_short_notm}} and Keycloak?
 {:# faq-keycloak}
+{: faq}
 
 Both {{site.data.keyword.appid_short_notm}} and Keycloak can be used to add authentication to applications and secure services. The main difference between the two offerings is the way in which they're packaged.
 {: shortdesc}
@@ -148,3 +149,4 @@ Both {{site.data.keyword.appid_short_notm}} and Keycloak can be used to add auth
 Keycloak is packaged as software which means that you, as the developer, are responsible for maintaining functionality of the product after you download it. You're responsible for hosting, high-availability, compliance, backups, DDoS protection, load balancing, web firewalls, databases, and more.
 
 {{site.data.keyword.appid_short_notm}} is a fully managed offering that is provided "as-a-service". This means that IBM takes care of the operation of the service, handles compliancy, availability in multiple zones, SLA, and more. {{site.data.keyword.appid_short_notm}} also has an out-of-the-box integrated experience with the {{site.data.keyword.cloud_notm}} Platform that includes native runtimes and services such as the {{site.data.keyword.containershort_notm}}, {{site.data.keyword.openwhisk_short}}, and {{site.data.keyword.cloudaccesstrailshort}}.
+
