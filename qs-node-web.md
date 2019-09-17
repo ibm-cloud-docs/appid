@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-16"
+lastupdated: "2019-09-17"
 
 keywords: Authentication, authorization, identity, app security, secure, development, nodejs, frontend, web apps, 
 
@@ -132,7 +132,7 @@ The easiest way to work with {{site.data.keyword.appid_short_notm}} is to take a
 2. Install the following NPM requirements.
 
     ```javascript
-    npm install --save express express-session passport 
+    npm install --save express express-session passport log4js pug
     ```
     {: codeblock}
 
@@ -158,6 +158,7 @@ The easiest way to work with {{site.data.keyword.appid_short_notm}} is to take a
 
     ```javascript
     const app = express();
+    const logger = log4js.getLogger("testApp");
     app.use(session({
         secret: '123456',
         resave: true,

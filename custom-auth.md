@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-05"
+lastupdated: "2019-09-17"
 
 keywords: Authentication, authorization, identity, app security, secure, custom, proprietary, 
 
@@ -44,9 +44,9 @@ When {{site.data.keyword.appid_short_notm}} does not provide direct support for 
 
 There are many scenarios where a different authentication flow is necessary:
 
- - Proprietary, in-house identity providers 
- - Third-party identity providers 
- - Complicated authentication flows, which can include proprietary multi-factor mechanisms 
+* Proprietary, in-house identity providers 
+* Third-party identity providers 
+* Complicated authentication flows, which can include proprietary multi-factor mechanisms 
 
 Occasionally, a legacy provider might use their own custom authentication protocol. Because the custom identity flow completely decouples authentication from authorization, you can adopt any authentication mechanism of your choice and then provide the resulting authentication information to {{site.data.keyword.appid_short_notm}}. All without exposing user credentials.
 
@@ -165,6 +165,7 @@ To create the bridge between your custom provider and {{site.data.keyword.appid_
   scope="<space separated scope array>"
   ```
   {: codeblock}
+
   <table>
     <caption>Table 2. Required request variables</caption>
     <tr>
