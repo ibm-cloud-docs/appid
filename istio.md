@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-06"
+lastupdated: "2019-09-17"
 
 keywords: authentication, authorization, identity, app security, access, secure, development, any kube, kubernetes, icp, openshift, iks
 
@@ -31,7 +31,7 @@ By using the App Identity and Access adapter, you can centralize all of your ide
 
 What can the App Identity and Access adapter do for you? Check out this video to learn more about how quickly you can protect your multi-cloud applications.
 
-<iframe class="embed-responsive-item" id="about-app-identity-access-adapter" title="Using Istio to Secure Your Multicloud Kubernetes Applications with Zero Code Change" type="text/html" width="640" height="390" src="//www.youtube.com/embed/z1kCjxOw9Vs?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
+<iframe class="embed-responsive-item" id="about-app-identity-access-adapter" title="Using Istio to Secure Your Multicloud Kubernetes Applications with Zero Code Change" type="text/html" width="640" height="390" src="//www.youtube.com/embed/z1kCjxOw9Vs?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>{: caption="Video 1. Using Istio to secure your Multicloud Kubernetes Applications" caption-side="bottom"}
 
 
 
@@ -47,7 +47,7 @@ A multicloud computing environment combines multiple cloud and/ or private compu
 ## Understanding Istio and the adapter
 {: #istio-architecure}
 
-[Istio](https://istio.io) is an open source service mesh that layers transparently onto existing distributed applications that can integrate with Kubernetes. To reduce the complexity of deployments Istio provides behavioral insights and operational control over the service mesh as a whole. When {{site.data.keyword.appid_short_notm}} is combined with Istio, it becomes a scalable, integrated identity solution for multicloud architectures that does not require any custom application code changes. For more information, check out ["What is Istio?"](https://www.ibm.com/cloud/learn/istio){: external}.
+[Istio](https://istio.io) is an open source service mesh that layers transparently onto existing distributed applications that can integrate with Kubernetes. To reduce the complexity of deployments Istio provides behavioral insights and operational control over the service mesh as a whole. When {{site.data.keyword.appid_short_notm}} is combined with Istio, it becomes a scalable, integrated identity solution for multicloud architectures that does not require any custom application code changes. For more information, check out [What is Istio](https://www.ibm.com/cloud/learn/istio){: external}.
 
 Istio uses an Envoy proxy sidecar to mediate all inbound and outbound traffic for all services in the service mesh. By using the proxy, Istio extracts information about traffic, also known as telemetry, that is sent to the Istio component called Mixer to enforce policy decisions. The App Identity and Access adapter extends the Mixer functionality by analyzing the telemetry (attributes) against custom policies to control identity and access management into and across the service mesh. The access management policies are linked to particular Kubernetes services and can be finely tuned to specific service endpoints. For more information about policies and telemetry, see the [Istio documentation](https://istio.io/docs/concepts/observability/){: external}. 
 
@@ -279,7 +279,7 @@ spec:
 | Service Object | Type | Required | Description   |
 |:----------------:|:----:|:--------:| :-----------: |
 | `serviceName` | `string` | Yes | The name of Kubernetes service in the Policy namespace that you want to protect. |
-| `paths` | `array[Path Object]` | Yes | A list of path objects that define the endpoints that you want to protect. If left empty, all paths are protected. |
+| `paths` | `array[Path Object]` | Yes | A list of path objects that define the endpoints that you want to protect. If not specified, all paths are protected. |
 {: class="simple-tab-table"}
 {: caption="Table 2. Understanding the service object components" caption-side="top"}
 {: #service-object}
