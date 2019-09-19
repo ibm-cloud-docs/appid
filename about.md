@@ -21,7 +21,7 @@ subcollection: appid
 {:important: .important}
 {:deprecated: .deprecated}
 {:download: .download}
-{:script: .script}
+{:script: data-hd-video='script'}
 
 # About {{site.data.keyword.appid_short_notm}}
 {: #about}
