@@ -31,7 +31,9 @@ Application security can be incredibly complicated. For most developers, it's on
 
 What can {{site.data.keyword.appid_short_notm}} do for you? Check out this video to learn more!
 
-<iframe class="embed-responsive-item" id="about-appid" title="About {{site.data.keyword.appid_short_notm}}" type="text/html" width="640" height="390" src="//www.youtube.com/embed/XlrCjHdK43Q?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
+<div class="embed-responsive embed-responsive-16by9" data-hd-video="video">
+   <iframe class="embed-responsive-item" id="about-appid" title="About {{site.data.keyword.appid_short_notm}}" type="text/html" width="640" height="390" src="//www.youtube.com/embed/XlrCjHdK43Q?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
+</div>
 
 ## Video transcript
 {: #transcript-about-appid}
