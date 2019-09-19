@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-18"
+lastupdated: "2019-09-19"
 
 keywords: Authentication, authorization, identity, app security, secure, compliance, high availability, ha, disaster recovery, dr, protocols, oauth, oidc
 
@@ -21,6 +21,7 @@ subcollection: appid
 {:important: .important}
 {:deprecated: .deprecated}
 {:download: .download}
+{:script: .script}
 
 # About {{site.data.keyword.appid_short_notm}}
 {: #about}
