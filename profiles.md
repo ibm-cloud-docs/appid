@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-17"
+lastupdated: "2019-09-19"
 
 keywords: authentication, authorization, identity, app security, secure, attributes, user information, storing, accessing
 
@@ -46,7 +46,7 @@ A user profile is all of the information that is known about a specific user - c
 ![{{site.data.keyword.appid_short_notm}} user profiles](images/user-profile-makeup.png){: caption="Figure 1. User profile information flow" caption-side="bottom"}
 
 
-You can store 100 KB of information for each user.
+You can store up to 100 KB of information for each user.
 {: note}
 
 ### How do I get the user profile information?
@@ -59,7 +59,7 @@ Not sure which one works best? Join our [Slack channel](https://www.ibm.com/clou
 
 
 
-If you need to work with an API, check out the following image and corresponding informaiton to see how the information is pulled.
+If you need to work with an API, check out the following image and corresponding information to see how the information is pulled.
 
 ![{{site.data.keyword.appid_short_notm}} user profile endpoint options](images/user-profile-endpoints.png){: caption="Figure 2. Endpoint options that can be used to access user information" caption-side="bottom"}
 
@@ -71,7 +71,7 @@ If you need to work with an API, check out the following image and corresponding
   <dt><code>/api/v1/attributes</code></dt>
     <dd>If your application requires reading and updating custom profile attributes for a currently logged in user, then you can use the /attributes endpoint. For example, the user wants to update a food preference.</dd>
   <dt><code>/management/v4/{tenantId}/users</code></dt>
-    <dd>If you're building administrative interfaces or process that might apply to multiple users, you can use the App ID management API. Specifically, you can use the <code>/users</code> endpoint.</dd>
+    <dd>If you're building administrative interfaces or processes that might apply to multiple users, you can use the App ID management API. Specifically, you can use the <code>/users</code> endpoint.</dd>
 </dl>
 
 The easiest ways to work with user information are by using the GUI or an SDK. With those options, all of the API calls are done behind the scenes for you.
@@ -81,7 +81,7 @@ The easiest ways to work with user information are by using the GUI or an SDK. W
 ## Viewing user profiles as an administrator
 {: #profile-view}
 
-You can see all of the information that is known about all of your Cloud Directory users as a JSON object by using the APIs or by using the dashboard. 
+You can see all of the information that is known about all of your users as a JSON object by using the APIs or by using the dashboard. 
 {: shortdesc}
 
 
@@ -511,9 +511,9 @@ You can add the following code to your application to allow a user to update the
 
 3. Obtain an IAM token.
 
-  1. In the IBM Cloud dashboard, click **Manage > Access (IAM)**.
-  2. Select **IBM Cloud API keys**.
-  3. Click **Create an IBM Cloud API key**.
+  1. In the {{site.data.keyword.cloud_notm}} dashboard, click **Manage > Access (IAM)**.
+  2. Select **{{site.data.keyword.cloud_notm}} API keys**.
+  3. Click **Create an {{site.data.keyword.cloud_notm}} API key**.
   4. Give your key a name and describe it. Click Create. A screen displays with your key.
   5. Click **Copy** or **Download** your key. When you close the screen, you can no longer access the key.
   6. Make the following cURL request with the API key that you created.
@@ -600,7 +600,7 @@ You can add the following code to your application to allow a user to update the
 {: #profile-attribute-api}
 
 
-If you're an administrator, you can use the `/users` endpoint. If you want to configure self-service for your users at runtime, use the `/attributes` endpoint. To set custom attributes before a user signs into your application, see [preregistering future users](/docs/services/appid?topic=appid-preregister).
+If you're an administrator, you can use the `/users` endpoint. If you want to configure self-service for your users at runtime, use the `/attributes` endpoint. To set custom attributes before a user signs in to your application, see [preregistering future users](/docs/services/appid?topic=appid-preregister).
 
 1. Go to the **User profiles > Settings** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
 
@@ -608,9 +608,9 @@ If you're an administrator, you can use the `/users` endpoint. If you want to co
 
 3. Obtain an IAM token.
 
-  1. In the IBM Cloud dashboard, click **Manage > Access (IAM)**.
-  2. Select **IBM Cloud API keys**.
-  3. Click **Create an IBM Cloud API key**.
+  1. In the {{site.data.keyword.cloud_notm}} dashboard, click **Manage > Access (IAM)**.
+  2. Select **{{site.data.keyword.cloud_notm}} API keys**.
+  3. Click **Create an {{site.data.keyword.cloud_notm}} API key**.
   4. Give your key a name and describe it. Click Create. A screen displays with your key.
   5. Click **Copy** or **Download** your key. When you close the screen, you can no longer access the key.
   6. Make the following cURL request with the API key that you created.

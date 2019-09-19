@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-17"
+lastupdated: "2019-09-19"
 
 keywords: Authentication, authorization, identity, app security, secure
 
@@ -38,6 +38,9 @@ This FAQ provides answers to common questions about the {{site.data.keyword.appi
 With {{site.data.keyword.appid_short_notm}}, you pay less as you use more resources.
 {: shortdesc}
 
+For the most up-to-date pricing information, you can create a cost estimate by clicking **Add to estimate** in the {{site.data.keyword.appid_short_notm}} section of the [{{site.data.keyword.cloud_notm}} catalog](https://cloud.ibm.com/catalog/services/app-id).
+{: tip}
+
 The graduated tier plan consists of three parts: the number of authentication events, both regular and advanced security, and the number of authorized users. You are charged each month, based on the summary of the two parts. The total price is the cumulative charge for each level of usage, consisting of your quantity multiplied by the unit price at that tier.
 
 Your first 1000 authentication events and first 1000 authorized users are free each month, except for any advanced security events. Any advanced security events incur an extra charge.
@@ -52,7 +55,7 @@ An authentication event occurs when a new access token, regular or anonymous, is
 Advanced security features give you the ability to strengthen the security of your application.
 {: shortdesc}
 
-By default, advanced security features are disabled. If you turn on MFA,runtime activity tracking, or password policy management you incur an extra charge. For example, if you obtained 10,000 access tokens. Then, you turned on password policy management and obtained 10,000 more. You would pay for 20,000 authentication events and 10,000 advanced security events. If you disable all of the advanced features, your account reverts to the original-cost policy.
+By default, advanced security features are disabled. If you turn on MFA, runtime activity tracking, or password policy management you incur an extra charge. For example, if you obtained 10,000 access tokens. Then, you turned on password policy management and obtained 10,000 more. You would pay for 20,000 authentication events and 10,000 advanced security events. If you disable all of the advanced features, your account reverts to the original-cost policy.
 
 <table>
   <caption>Table 1. Description of the benefits that are gained with advanced authentication events</caption>
@@ -66,7 +69,7 @@ By default, advanced security features are disabled. If you turn on MFA,runtime 
   </tr>
   <tr>
     <td>Runtime authentication activity tracking</td>
-    <td>By integrating {{site.data.keyword.at_short}} with {{site.data.keyword.appid_short_notm}} you can track two different types of authentication events at runtime. For example: A password reset request, authentication failures, or a user log out. for more information, see [Viewing runtime events](/docs/services/appid?topic=appid-at-events#at-monitor-runtime).</td>
+    <td>By integrating {{site.data.keyword.at_short}} with {{site.data.keyword.appid_short_notm}} you can track two different types of authentication events at runtime. For example: A password reset request, authentication failures, or a user logout. For more information, see [Viewing runtime events](/docs/services/appid?topic=appid-at-events#at-monitor-runtime).</td>
   </tr>
   <tr>
     <td>Password policy management</td>
@@ -81,9 +84,6 @@ These features are available only to those instances that are on the graduated t
 {: #faq-authorized}
 
 An authorized user is a unique user that signs in with your service whether directly or indirectly, including anonymous users. You are charged for one authorized user each time a new user signs in to your application, including anonymous users. For example, if a user signs in with Facebook and later signs in by using Google, they are considered two separate authorized users.
-
-For the most up-to-date pricing information, you can create a cost estimate by clicking **Add to estimate** in the {{site.data.keyword.appid_short_notm}} section of the [{{site.data.keyword.cloud_notm}} catalog](https://cloud.ibm.com/catalog/services/app-id).
-{: tip}
 
 
 
@@ -105,14 +105,14 @@ Do not include any query parameters in your URL. They are ignored in the validat
 Check out the following table for answers to commonly asked questions about encryption.
 
 <table>
-  <caption>Table 2. Frequently asked questions abotu how {{site.data.keyword.appid_short_notm}} handles encryption</caption>
+  <caption>Table 2. Frequently asked questions about how {{site.data.keyword.appid_short_notm}} handles encryption</caption>
   <thead>
     <th colspan=2><img src="images/idea.png" alt="More information icon"/>  </th>
   </thead>
   <tbody>
     <tr>
       <td>Why do you use encryption?</td>
-      <td>One way that we protect our users information is by encrypting customer data at rest The service encrypts customer data at rest with per-tenant keys.</td>
+      <td>One way that we protect our users information is by encrypting customer data at rest. The service encrypts customer data at rest with per-tenant keys.</td>
     </tr>
     <tr>
       <td>Did you build your own algorithms? Which ones do you use in your code?</td>
@@ -124,7 +124,7 @@ Check out the following table for answers to commonly asked questions about encr
     </tr>
     <tr>
       <td>How do you store keys?</td>
-      <td>Keys are generated, encrypted with a master key that is specific to each region, and then stored locally. The master keys are stored in {{site.data.keyword.keymanagementserviceshort}}. At the storage and middleware levels, there is service level encryption which means that there is one key for all customers. At the app level, each customer has their own encryption key.</td>
+      <td>Keys are generated, encrypted with a master key that is specific to each region, and then stored locally. The master keys are stored in {{site.data.keyword.keymanagementserviceshort}}. At the storage and middleware levels, there is service level encryption, which means that there is one key for all customers. At the app level, each customer has their own encryption key.</td>
     </tr>
     <tr>
       <td>What is the key strength that you use?</td>
@@ -143,10 +143,10 @@ Check out the following table for answers to commonly asked questions about encr
 {:# faq-keycloak}
 {: faq}
 
-Both {{site.data.keyword.appid_short_notm}} and Keycloak can be used to add authentication to applications and secure services. The main difference between the two offerings is the way in which they're packaged.
+Both {{site.data.keyword.appid_short_notm}} and Keycloak can be used to add authentication to applications and secure services. The main difference between the two offerings is how they're packaged.
 {: shortdesc}
 
-Keycloak is packaged as software which means that you, as the developer, are responsible for maintaining functionality of the product after you download it. You're responsible for hosting, high-availability, compliance, backups, DDoS protection, load balancing, web firewalls, databases, and more.
+Keycloak is packaged as software, which means that you, as the developer, are responsible for maintaining functionality of the product after you download it. You're responsible for hosting, high-availability, compliance, backups, DDoS protection, load balancing, web firewalls, databases, and more.
 
 {{site.data.keyword.appid_short_notm}} is a fully managed offering that is provided "as-a-service". This means that IBM takes care of the operation of the service, handles compliancy, availability in multiple zones, SLA, and more. {{site.data.keyword.appid_short_notm}} also has an out-of-the-box integrated experience with the {{site.data.keyword.cloud_notm}} Platform that includes native runtimes and services such as the {{site.data.keyword.containershort_notm}}, {{site.data.keyword.openwhisk_short}}, and {{site.data.keyword.cloudaccesstrailshort}}.
 
