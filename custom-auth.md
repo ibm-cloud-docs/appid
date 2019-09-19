@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-17"
+lastupdated: "2019-09-19"
 
 keywords: Authentication, authorization, identity, app security, secure, custom, proprietary, 
 
@@ -122,8 +122,6 @@ Token payload:
       <th>Field</th>
       <th>Description</th>
     </tr>
-  </thead>
-  <tbody>
     <tr>
       <td><code>iss</code></td>
       <td>Should contain a reference to your identity provider.</td>
@@ -148,7 +146,6 @@ Token payload:
       <td>Scope</td>
       <td>By default, all {{site.data.keyword.appid_short_notm}} tokens contain a group of preset scopes. You can request extra scopes by doing one of the following:<ul><li> Specify the scope in the scope field of your JWS token.</li> <li>Specify the scope through the url-form scopes parameter of the `/token` request.</li></ul></td>
     </tr>
-  </tbody>
   </table>
 
 ## Retrieving {{site.data.keyword.appid_short_notm}} tokens

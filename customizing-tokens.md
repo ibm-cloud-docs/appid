@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-17"
+lastupdated: "2019-09-19"
 
 keywords: Authentication, authorization, identity, app security, secure, custom, tokens, access, claim, attributes
 
@@ -160,7 +160,7 @@ Each mapping is defined by a data source object and a key that is used to retrie
     <tr>
       <td><code><em>source</em></code></td>
       <td>Required</td>
-      <td>Defines the source of the claim. It can refer to the identity provider's user information or the user's {{site.data.keyword.appid_short_notm}} custom attributes. </br> Options include: <code>saml`, <code>cloud_directory</code>, <code>facebook</code>, <code>google</code>, <code>appid_custom</code>,  and <code>attributes</code>.</td>
+      <td>Defines the source of the claim. It can refer to the identity provider's user information or the user's {{site.data.keyword.appid_short_notm}} custom attributes. </br> Options include: <code>saml</code>, <code>cloud_directory</code>, <code>facebook</code>, <code>google</code>, <code>appid_custom</code>,  and <code>attributes</code>.</td>
     </tr>
     <tr>
       <td><code><em>sourceClaim</em></code></td>
