@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-05"
+lastupdated: "2019-09-17"
 
 keywords: Authentication, authorization, identity, app security, secure, discovery endpoint, oidc, public keys, tokens, well known endpoint
 
@@ -37,7 +37,8 @@ You can obtain the discovery document and the information that it contains by ca
 {: shortdesc}
 
 
-**Where can I find the endpoint?**
+### Where can I find the endpoint?
+{: #wellknown-endpoint}
 
 You can find the endpoint at the following URL:
 
@@ -76,7 +77,8 @@ https://{region}.appid.ibm.cloud.com/oauth/v4/{tenantId}/.well-known/openid-conf
 
 
 
-**How do I call the endpoint?**
+### How do I call the endpoint?
+{: #wellknown-endpoint-call}
 
 To make a call to the endpoint, you must have a valid tenant ID and you must hardcode the discovery document URI into your application code.
 
@@ -87,7 +89,8 @@ curl -X GET "https://{region}.appid.cloud.ibm.com/oauth/v4/{tenant-id}/.well-kno
 ```
 {:codeblock}
 
-**What can I expect the call to return?**
+### What can I expect the call to return?
+{: #wellknown-response}
 
 The response that is returned looks similar to the following example:
 

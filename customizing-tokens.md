@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-12"
+lastupdated: "2019-09-17"
 
 keywords: Authentication, authorization, identity, app security, secure, custom, tokens, access, claim, attributes
 
@@ -123,7 +123,7 @@ A claim is a statement that an entity makes about itself or on behalf of someone
 ```
 {: screen}
 
-If you have customized expiration information for your token, you must set it in every request. If you don't, this request overwrites your current configuration and the default is used for anything left undefined.
+If you have customized expiration information for your token, you must set it in every request. If you don't, this request overwrites your current configuration and the default is used for anything that is undefined.
 {: note}
 
 ### Why would I want to add claims to my tokens?
@@ -172,17 +172,10 @@ Each mapping is defined by a data source object and a key that is used to retrie
 You can reference nested claims in your mappings by using the dot syntax. Example: `nested.attribute`
 {:tip}
 
-</br>
 
-## Configuring {{site.data.keyword.appid_short_notm}} tokens
+
+## Configuring token lifespan with the GUI
 {: #configuring-tokens}
-
-You can configure your {{site.data.keyword.appid_short_notm}} tokens by using the GUI or the management APIs.
-{: shortdesc}
-
-
-### Configuring token lifespan with the GUI
-{: #configuring-tokens-ui}
 
 1. Navigate to your service dashboard.
 2. In the **Identity Providers** section of the navigation, select the **Manage** page.
@@ -194,84 +187,86 @@ You can configure your {{site.data.keyword.appid_short_notm}} tokens by using th
 
 </br>
 
-### Configuring tokens with the Management APIs
+## Configuring tokens with the Management APIs
 {: #configuring-tokens-api}
 
-**Before you begin**
+### Before you begin
+{: #configure-tokens-api-before}
 
 Be sure that you have the following prerequisites:
 
 * Your {{site.data.keyword.appid_short_notm}} instance's tenant ID. This can be found in the **Service Credentials** section of the GUI.
 * Your Identity and Access Management (IAM) token. For help obtaining an IAM token, check out the [IAM docs](/docs/iam?topic=iam-iamtoken_from_apikey).
 
-**Mapping your claims**
+### Mapping your claims
+{: #custom-claim-mapping}
 
-1. Make a PUT request to the `/config/tokens` endpoint with your token configuration.
+Make a PUT request to the `/config/tokens` endpoint with your token configuration.
 
-  Header:
-  ```
-  PUT -X "https://<region>.appid.cloud.ibm.com/management/v4/{tenantId}/tokens"
-    -H Authorization: 'Bearer <IAM_TOKEN>'
-    -H Content-Type: application/json
-  ```
-  {: codeblock}
+Header:
+```
+PUT -X "https://<region>.appid.cloud.ibm.com/management/v4/{tenantId}/tokens"
+  -H Authorization: 'Bearer <IAM_TOKEN>'
+  -H Content-Type: application/json
+```
+{: codeblock}
 
-  Body:
-  ```
-   {
-       "access": {
-           "expires_in": 3600,
-       },
-       "refresh": {
-           "expires_in": 2592000,
-           "enabled": true
-       },
-       "anonymous": {
-           "expires_in": 2592000,
-           "enabled": true
-       },
-       "accessTokenClaims": [
-           {
-              "source": "saml",
-              "sourceClaim": "name_id"
-           }
-       ],
-       "idTokenClaims": [
-           {
-              "source": "saml",
-              "sourceClaim": "attributes.uid"
-           }
-       ]
-   }
-  ```
-  {: codeblock}
+Body:
+```
+  {
+      "access": {
+          "expires_in": 3600,
+      },
+      "refresh": {
+          "expires_in": 2592000,
+          "enabled": true
+      },
+      "anonymous": {
+          "expires_in": 2592000,
+          "enabled": true
+      },
+      "accessTokenClaims": [
+          {
+            "source": "saml",
+            "sourceClaim": "name_id"
+          }
+      ],
+      "idTokenClaims": [
+          {
+            "source": "saml",
+            "sourceClaim": "attributes.uid"
+          }
+      ]
+  }
+```
+{: codeblock}
 
-  <table>
-    <caption>Table 3. Understanding the token configuration</caption>
-    <tr>
-      <th>Variable</th>
-      <th>Description</th>
-    </tr>
-    <tr>
-      <td><code><em>access</em></code></td>
-      <td>Object containing expiration time, `expires_in`, in minutes of your access and identity tokens. </br> </br> The default expiration is 60 minutes. </td>
-    </tr>
-    <tr>
-      <td><code><em>refresh</em></code></td>
-      <td>Object that contains the expiration time, `expires_in`, in days of your refresh token. </br> </br> The default expiration is 30 days. </td>
-    </tr>
-    <tr>
-      <td><code><em>anonymousAccess</em></code></td>
-      <td>Object that contains the expiration time, `expires_in`, in days of your anonymous access and identity tokens. </br> </br> The default expiration is 30 days.
-    </tr>
-    <tr>
-      <td><code><em>accessTokenClaims</em></code></td>
-      <td>An array that contains the objects that are created when claims related to access tokens are mapped.</td>
-    </tr>
-    <tr>
-      <td><code><em>idTokenClaims</em></code></td>
-      <td>An array that contains the objects that are created when claims related to identity tokens are mapped.</td>
-    </tr>
-  </table>
+<table>
+  <caption>Table 3. Understanding the token configuration</caption>
+  <tr>
+    <th>Variable</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><code><em>access</em></code></td>
+    <td>Object containing expiration time, `expires_in`, in minutes of your access and identity tokens. </br> </br> The default expiration is 60 minutes. </td>
+  </tr>
+  <tr>
+    <td><code><em>refresh</em></code></td>
+    <td>Object that contains the expiration time, `expires_in`, in days of your refresh token. </br> </br> The default expiration is 30 days. </td>
+  </tr>
+  <tr>
+    <td><code><em>anonymousAccess</em></code></td>
+    <td>Object that contains the expiration time, `expires_in`, in days of your anonymous access and identity tokens. </br> </br> The default expiration is 30 days.
+  </tr>
+  <tr>
+    <td><code><em>accessTokenClaims</em></code></td>
+    <td>An array that contains the objects that are created when claims related to access tokens are mapped.</td>
+  </tr>
+  <tr>
+    <td><code><em>idTokenClaims</em></code></td>
+    <td>An array that contains the objects that are created when claims related to identity tokens are mapped.</td>
+  </tr>
+</table>
 
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-11"
+lastupdated: "2019-09-17"
 
 keywords: authentication, authorization, identity, app security, secure, web apps, client, server
 
@@ -32,15 +32,18 @@ With {{site.data.keyword.appid_full}}, you can quickly construct an authenticati
 ## Understanding the flow
 {: #web-understanding}
 
-**When would this flow be useful?**
+### When would this flow be useful?
+{: #web-flow-useful}
 
 When you are developing a web application, you can use the {{site.data.keyword.appid_short_notm}} web flow to securely authenticate users. Users are then able to access your server-side protected content in your web apps.
 
-**What is the flow's technical basis?**
+### What is the flow's technical basis?
+{: #web-flow-tech-basis}
 
 Web apps often require users to authenticate in order to access protected content. {{site.data.keyword.appid_short_notm}} uses the OIDC authorization code flow to securely authenticate users. With this flow, when the user is authenticated, the app receives an authorization code. The code is then exchanged for an access, identity, and refresh token. In code, exchange step the tokens are always sent via a secure backchannel between the app and the OIDC server. This provides an extra layer of security as the attacker is not able to intercept the tokens. These tokens can be sent directly to the web server hosting application for user authentication.
 
-**How does this flow work?**
+### How does this flow work?
+{: #web-flow-work}
 
 ![{{site.data.keyword.appid_short_notm}} web app request flow](images/web-flow.png){: caption="Figure 1. {{site.data.keyword.appid_short_notm}} web app request flow" caption-side="bottom"}
 
@@ -67,7 +70,8 @@ Web apps often require users to authenticate in order to access protected conten
 You can configure {{site.data.keyword.appid_short_notm}} to work with your Node.js web applications.
 {: shortdesc}
 
-**Before you begin**
+### Before you begin
+{: #web-configure-node-begin}
 
 You must have the following prerequisites:
 
@@ -210,7 +214,8 @@ For more information, see the <a href="https://github.com/ibm-cloud-security/app
 You can configure {{site.data.keyword.appid_short_notm}} to work with your Liberty for Java web applications.
 {:shortdesc}
 
-**Before you begin**
+### Before you begin
+{: #web-configure-liberty-before}
 
 You must have the following prerequisites:
 * An instance of the {{site.data.keyword.appid_short_notm}} service
@@ -221,6 +226,8 @@ You must have the following prerequisites:
 
 
 Check out the following video to learn about protecting Liberty for Java applications with {{site.data.keyword.appid_short_notm}}. Then, try it out yourself by using a [simple Liberty for Java sample app](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02c-simple-liberty-web-app).
+
+
 
 <iframe class="embed-responsive-item" id="appid-liberty-web" title="About {{site.data.keyword.appid_short_notm}}" type="text/html" width="640" height="390" src="//www.youtube.com/embed/o_Er69YUsMQ?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
@@ -376,7 +383,8 @@ By default SSL configuration requires the truststore be configured for OpenID Co
 You can configure {{site.data.keyword.appid_short_notm}} to work with your Spring Boot applications.
 {:shortdesc}
 
-**Before you begin**
+### Before you begin
+{: #web-configure-spring-boot-before}
 
 You must have the following prerequisites:
 

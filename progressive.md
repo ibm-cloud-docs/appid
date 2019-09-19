@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-05"
+lastupdated: "2019-09-17"
 
 keywords: Authentication, authorization, identity, app security, secure, anonymous, progressive, profiles, sign in
 
@@ -25,7 +25,7 @@ subcollection: appid
 # Anonymous authentication
 {: #anonymous}
 
-When developing apps, one of the biggest concerns is security. How can you ensure that only users with the right access, are using your app? You need to use an authorization process. In most processes authorization and authentication are coupled together, which can make changing your security policies and identity providers complicated. With {{site.data.keyword.appid_full}}, authorization and authentication are separate processes.
+When developing apps, one of the biggest concerns is security. How can you ensure that only users with approved access, are using your app? You need to use an authorization process. In most processes authorization and authentication are coupled together, which can make changing your security policies and identity providers complicated. With {{site.data.keyword.appid_full}}, authorization and authentication are separate processes.
 {: shortdesc}
 
 

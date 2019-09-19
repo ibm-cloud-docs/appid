@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-06"
+lastupdated: "2019-09-19"
 
 keywords: authentication, authorization, identity, app security, secure, attributes, user information, storing, accessing
 
@@ -46,18 +46,20 @@ A user profile is all of the information that is known about a specific user - c
 ![{{site.data.keyword.appid_short_notm}} user profiles](images/user-profile-makeup.png){: caption="Figure 1. User profile information flow" caption-side="bottom"}
 
 
-You can store 100 KB of information for each user.
+You can store up to 100 KB of information for each user.
 {: note}
 
 ### How do I get the user profile information?
 {: #profile-endpoint}
 
-There are several different ways in which you can access user information, as well as several different reasons why you would want to. The endpoint that you choose to call can vary depending on your use case. If you're not sure which one works best for your flow, join our Slack channel and chat directly with our development team for some advice.
+There are several different ways in which you can access user information, as well as several different reasons why you would want to. The endpoint that you choose to call can vary depending on your use case.
 
-The easiest way's to work with user information are by using the GUI or an SDK. With those options, all of the API calls are done behind the scenes for you.
+Not sure which one works best? Join our [Slack channel](https://www.ibm.com/cloud/blog/announcements/get-help-with-ibm-cloud-app-id-related-questions-on-slack){: external} and get advice directly from our development team.
 {: tip}
 
-If you need to work with an API, check out the following image and corresponding informaiton to see how the information is pulled.
+
+
+If you need to work with an API, check out the following image and corresponding information to see how the information is pulled.
 
 ![{{site.data.keyword.appid_short_notm}} user profile endpoint options](images/user-profile-endpoints.png){: caption="Figure 2. Endpoint options that can be used to access user information" caption-side="bottom"}
 
@@ -69,17 +71,17 @@ If you need to work with an API, check out the following image and corresponding
   <dt><code>/api/v1/attributes</code></dt>
     <dd>If your application requires reading and updating custom profile attributes for a currently logged in user, then you can use the /attributes endpoint. For example, the user wants to update a food preference.</dd>
   <dt><code>/management/v4/{tenantId}/users</code></dt>
-    <dd>If you're building administrative interfaces or process that might apply to multiple users, you can use the App ID management API. Specifically, you can use the <code>/users</code> endpoint.</dd>
+    <dd>If you're building administrative interfaces or processes that might apply to multiple users, you can use the App ID management API. Specifically, you can use the <code>/users</code> endpoint.</dd>
 </dl>
 
-
-Not sure which one works best? Join our [Slack channel](https://ibm-container-service.slack.com){: external} and get advice directly from our development team.
+The easiest ways to work with user information are by using the GUI or an SDK. With those options, all of the API calls are done behind the scenes for you.
 {: tip}
+
 
 ## Viewing user profiles as an administrator
 {: #profile-view}
 
-You can see all of the information that is known about all of your Cloud Directory users as a JSON object by using the APIs or by using the dashboard. 
+You can see all of the information that is known about all of your users as a JSON object by using the APIs or by using the dashboard. 
 {: shortdesc}
 
 
@@ -113,7 +115,7 @@ You can use the {{site.data.keyword.appid_short_notm}} dashboard to view details
       <td>Your user's first and surname as issued by the identity provider.</td>
     </tr>
     <tr>
-      <td>Identity Provider</td>
+      <td>Identity provider</td>
       <td>The provider that your user chose to sign in with.</td>
     </tr>
     <tr>
@@ -205,7 +207,7 @@ You can use the {{site.data.keyword.appid_short_notm}} API to view details about
   {: tip}
 
 
-## Accessing attributes at run time
+## Accessing attributes at runtime
 {: profile-access-runtime}
 
 After successful user authentication, your app receives access and identity tokens from {{site.data.keyword.appid_short_notm}}. The service automatically injects a subset of attributes into your access and identity tokens. If the information isn't in the token, you can use any of the following endpoints to find the information. 
@@ -216,7 +218,7 @@ After successful user authentication, your app receives access and identity toke
 To see the information about your users that is provided by your configured identity providers, you can access your predefined attributes.
 {: shortdesc}
 
-**iOS Swift**
+iOS Swift
 {: ph data-hd-programlang='swift'}
 
 If new tokens are not explicitly passed to the SDK, {{site.data.keyword.appid_short_notm}} uses the last received tokens to retrieve and validate the response. For example, you can run the following code after a successful authentication and the SDK retrieves additional information about the user.
@@ -247,7 +249,7 @@ AppID.sharedInstance.userProfileManager.getUserInfo(accessToken: String, identit
 {: codeblock}
 {: ph data-hd-programlang='swift'}
 
-**Android Java**
+Android Java
 {: ph data-hd-programlang='java'}
 
 If new tokens are not explicitly passed to the SDK, {{site.data.keyword.appid_short_notm}} uses the last received tokens to retrieve and validate the response. For example, you can run the following code after a successful authentication and the SDK retrieves additional information about the user.
@@ -292,7 +294,7 @@ appId.getUserProfileManager().getUserInfo(accessToken, identityToken, new UserPr
 {: codeblock}
 {: ph data-hd-programlang='java'}
 
-**Node.js**
+Node.js
 {: ph data-hd-programlang='javascript'}
 
 By using a server-side SDK, you can retrieve additional information about your users. You can call the following method by using the stored access and identity tokens, or you can explicitly pass the tokens. The identity token is optional, but when passed, it's used to validate the response.
@@ -319,7 +321,7 @@ userProfileManager.getUserInfo(accessToken).then(function (profile) {
 {: ph data-hd-programlang='javascript'}
 
 
-**Server-side Swift**
+Server-side Swift
 {: ph data-hd-programlang='swift'}
 
 By using a server-side SDK, you can retrieve additional information about your users. You can call the following method by using the stored access and identity tokens, or you can explicitly pass the tokens. The identity token is optional, but when passed, it's used to validate the response.
@@ -410,7 +412,7 @@ If changes are made by an external identity provider, you can get the updated in
 Depending on your configuration, attributes are encrypted and saved as part of a user profile when a user interacts with your application. The interaction might be a user signing in or setting a preference in your app. To access the attributes, pass an access token through an API method.
 {: shortdesc}
 
-  **iOS Swift**
+  iOS Swift
   {: ph data-hd-programlang='swift'}
 
   ```
@@ -429,7 +431,7 @@ Depending on your configuration, attributes are encrypted and saved as part of a
   {: codeblock}
   {: ph data-hd-programlang='swift'}
 
-  **Server-side swift**
+  Server-side swift
   {: ph data-hd-programlang='swift'}
 
   ```
@@ -441,7 +443,7 @@ Depending on your configuration, attributes are encrypted and saved as part of a
   {: codeblock}
   {: ph data-hd-programlang='swift'}
 
-  **Android Java**
+  Android Java
   {: ph data-hd-programlang='java'}
 
   ```
@@ -460,7 +462,7 @@ Depending on your configuration, attributes are encrypted and saved as part of a
   {: codeblock}
   {: ph data-hd-programlang='java'}
 
-  **Node.js**
+  Node.js
   {: ph data-hd-programlang='javascript'}
 
   ```
@@ -509,9 +511,9 @@ You can add the following code to your application to allow a user to update the
 
 3. Obtain an IAM token.
 
-  1. In the IBM Cloud dashboard, click **Manage > Access (IAM)**.
-  2. Select **IBM Cloud API keys**.
-  3. Click **Create an IBM Cloud API key**.
+  1. In the {{site.data.keyword.cloud_notm}} dashboard, click **Manage > Access (IAM)**.
+  2. Select **{{site.data.keyword.cloud_notm}} API keys**.
+  3. Click **Create an {{site.data.keyword.cloud_notm}} API key**.
   4. Give your key a name and describe it. Click Create. A screen displays with your key.
   5. Click **Copy** or **Download** your key. When you close the screen, you can no longer access the key.
   6. Make the following cURL request with the API key that you created.
@@ -528,7 +530,7 @@ You can add the following code to your application to allow a user to update the
 
 4. By using the `attributes` endpoint, make a PUT request.
 
-    **iOS Swift**
+    iOS Swift
     {: ph data-hd-programlang='swift'}
 
     ```
@@ -542,7 +544,7 @@ You can add the following code to your application to allow a user to update the
     {: codeblock}
     {: ph data-hd-programlang='swift'}
 
-    **Android Java**
+    Android Java
     {: ph data-hd-programlang='java'}
 
     ```
@@ -561,7 +563,7 @@ You can add the following code to your application to allow a user to update the
     {: codeblock}
     {: ph data-hd-programlang='java'}
 
-    **Node.js**
+    Node.js
     {: ph data-hd-programlang='javascript'}
 
     ```
@@ -577,7 +579,7 @@ You can add the following code to your application to allow a user to update the
     {: codeblock}
     {: ph data-hd-programlang='javascript'}
 
-    **Server-side Swift**
+    Server-side Swift
     {: ph data-hd-programlang='swift'}
 
     ```
@@ -598,7 +600,7 @@ You can add the following code to your application to allow a user to update the
 {: #profile-attribute-api}
 
 
-If you're an administrator, you can use the `/users` endpoint. If you want to configure self-service for your users at run time, use the `/attributes` endpoint. To set custom attributes before a user signs into your application, see [preregistering future users](/docs/services/appid?topic=appid-preregister).
+If you're an administrator, you can use the `/users` endpoint. If you want to configure self-service for your users at runtime, use the `/attributes` endpoint. To set custom attributes before a user signs in to your application, see [preregistering future users](/docs/services/appid?topic=appid-preregister).
 
 1. Go to the **User profiles > Settings** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
 
@@ -606,9 +608,9 @@ If you're an administrator, you can use the `/users` endpoint. If you want to co
 
 3. Obtain an IAM token.
 
-  1. In the IBM Cloud dashboard, click **Manage > Access (IAM)**.
-  2. Select **IBM Cloud API keys**.
-  3. Click **Create an IBM Cloud API key**.
+  1. In the {{site.data.keyword.cloud_notm}} dashboard, click **Manage > Access (IAM)**.
+  2. Select **{{site.data.keyword.cloud_notm}} API keys**.
+  3. Click **Create an {{site.data.keyword.cloud_notm}} API key**.
   4. Give your key a name and describe it. Click Create. A screen displays with your key.
   5. Click **Copy** or **Download** your key. When you close the screen, you can no longer access the key.
   6. Make the following cURL request with the API key that you created.
@@ -660,7 +662,7 @@ To completely delete a profile and remove someone as a user of your application,
 
 3. In the overflow menu of the user's row, click **Delete**. A confirmation screen opens.
 
-4. Verify that you're deleting the correct user by checking their email against the one displayed. If it is the right user, click **Delete**. This action cannot be undone. The user can be readded but their profile shows that they are a new user as of the date that they're readded.
+4. Verify that you're deleting the correct user by checking their email against the one displayed. If it is the correct user, click **Delete**. This action cannot be undone. The user can be readded but their profile shows that they are a new user as of the date that they're readded.
 
 ### With the API
 {: #profile-delete-api}

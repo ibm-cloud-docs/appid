@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-06"
+lastupdated: "2019-09-17"
 
 keywords: authentication, authorization, identity, app security, secure, development, mobile, android, iOS
 
@@ -68,7 +68,8 @@ Following registration, your users authenticate using either the OAuth2 `authori
 Get started with {{site.data.keyword.appid_short}} with our SDKs.
 {: shortdesc}
 
-**Before you begin**
+### Before you begin
+{: #mobile-before-begin}
 
 You need the following information:
 
@@ -104,7 +105,11 @@ You need the following information:
 ## Authenticating with the Android SDK
 {: #mobile-android}
 
-**Before you begin**
+Protect your mobile applications using the {{site.data.keyword.appid_short}} client SDK.
+{: shortdesc}
+
+### Before you begin
+{: #mobile-android-before}
 
 You must have the following prerequisites before getting started:
 
@@ -171,8 +176,7 @@ You must have the following prerequisites before getting started:
     ```
     {: codeblock}
 
-</br>
-</br>
+
 
 ## Authenticating with the iOS Swift SDK
 {: #mobile-ios}
@@ -180,8 +184,8 @@ You must have the following prerequisites before getting started:
 Protect your mobile applications using the {{site.data.keyword.appid_short}} client SDK.
 {:shortdesc}
 
-</br>
-**Before you begin**
+### Before you begin
+{: #mobile-ios-before}
 
 You must have the following prerequisites before getting started:
 
@@ -189,7 +193,7 @@ You must have the following prerequisites before getting started:
   * CocoaPods 1.1.0 or higher
   * iOS 10.0 or higher
 
-</br>
+
 
 ### Installing the SDK
 {: #mobile-ios-install}

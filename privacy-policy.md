@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-08-19"
+lastupdated: "2019-09-16"
 
 keywords: Authentication, authorization, identity, app security, secure, custom, proprietary, social, facebook, google, 
 
@@ -26,7 +26,8 @@ subcollection: appid
 # Privacy policy: Default Facebook and Google settings
 {: #privacy-policy}
 
-**Effective: August 2019**
+## Effective: August 2019
+{: #effective}{: notoc}
 
 Client, hereinafter referred to as “Developer”, performs development and testing of applications using the default configuration of {{site.data.keyword.appid_full}} (“{{site.data.keyword.appid_short_notm}}” or "Service") for Facebook or Google. Developer uses the default settings of {{site.data.keyword.appid_short_notm}} only for evaluation and testing purposes, and to determine whether to incorporate {{site.data.keyword.appid_short_notm}} into the application(s) being developed by Developer (“Permitted Uses”). Developer will not use the default settings of {{site.data.keyword.appid_short_notm}} for any uses or purposes other than the previously stated Permitted Uses.  
 
@@ -35,7 +36,6 @@ Developer will implement a Privacy Policy, separate from this document, upon tra
 This document informs of: the policies regarding the collection, use, disclosure, or any other operations carried out (“Processing”) on personally identifiable information that can be used to contact or identify a person (“Personal Data”); and Developer’s responsibilities when engaging in the Permitted Uses of the Service, and the choices associated with the Processing of Personal Data.
 
 Developer will Process Personal Data while engaging in the Permitted Uses of the Service. By using the Service, Developer confirms that it is Processing Personal Data in accordance with this policy and applicable laws.
-
 {: important}
 
 ## Information Collection And Use
@@ -93,7 +93,8 @@ Developer will take all steps reasonably necessary to ensure that Personal Data 
 
 ## Disclosure Of Data
 
-**Legal Requirements**
+### Legal Requirements
+{: #legal-requirements}
 
 Developer may disclose Personal Data in the good faith belief that such action is necessary:
 * To comply with a legal obligation

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-05"
+lastupdated: "2019-09-17"
 
 keywords: Authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
@@ -58,7 +58,7 @@ Password strength can be set in the Cloud Directory settings page in the {{site.
 ### Setting a custom error message
 {: #cd-custom-error}
 
-If you set your own password regex policy and a user chooses a password that does not meet your requirements, the default message is "The password doesn't meet the strength requirements." You can also choose to set your own message by using the [`/management/v4/{tenantId}/config/cloud_directory/password_regex` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.set_cloud_directory_password_regex){: external}. 
+If you set your own password regex policy and a user chooses a password that does not meet your requirements, the default message is `The password doesn't meet the strength requirements.` You can also choose to set your own message by using the [`/management/v4/{tenantId}/config/cloud_directory/password_regex` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.set_cloud_directory_password_regex){: external}. 
 
 
 
@@ -138,7 +138,7 @@ You can unlock a user before the lockout period is over. To see whether they are
 You might want to prevent your users from quickly switching passwords by setting a minimum time that a user must wait between password changes.
 {: shortdesc}
 
-This feature is especially useful when used with the "Avoid password reuse" policy. Without this limitation, a user might simply change their password multiple times in quick succession to circumvent the limitation of reusing recent passwords.
+This feature is especially useful when used with the `Avoid password reuse` policy. Without this limitation, a user might simply change their password multiple times in quick succession to circumvent the limitation of reusing recent passwords.
 
 To set this configuration by using the GUI:
 

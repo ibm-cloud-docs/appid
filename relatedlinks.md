@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-10"
+lastupdated: "2019-09-16"
 
 keywords: Authentication, authorization, identity, app security, secure
 
@@ -39,7 +39,7 @@ We’d love to hear from you with feedback and questions! To get started with {{
 * If you have technical questions about {{site.data.keyword.appid_short_notm}}, post your question on [Stack Overflow](https://stackoverflow.com){: external} and tag your question with "ibm-appid".
 * For questions about the service and getting started instructions, use the [IBM Developer Answers](https://developer.ibm.com){: external} forum. Include the `appid` tag.
 
-You can reach out directly to the development team on [Slack](https://ibm-container-service.slack.com){: external}!
+You can reach out directly to the development team on [Slack](https://www.ibm.com/cloud/blog/announcements/get-help-with-ibm-cloud-app-id-related-questions-on-slack){: external}!
 {: tip}
 
 
