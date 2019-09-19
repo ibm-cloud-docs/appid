@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-11"
+lastupdated: "2019-09-19"
 
 keywords: Authentication, authorization, identity, app security, secure, application identity, app to app, access token, activity
 
@@ -363,7 +363,7 @@ Check out the following table for a list of the runtime events that are sent to 
     <td><code>appid/user</code></td>
   </tr>
   <tr>
-    <td>SAML authentication failure</code></td>
+    <td>SAML authentication failure</td>
     <td><code>appid.user.authentication</code></td>
     <td><code>failure</code></td>
     <td><code>401</code></td>
@@ -430,8 +430,8 @@ Check out the following table for a list of the runtime events that are sent to 
     <td><code>appid.user.tokens.revoke</code></td>
     <td><code>success</code></td>
     <td><code>200</code></td>
-    <td><code>[appid user CRN]</code></td>
-    <td><code>[idp]:[GUID]</code></td>
+    <td><code>appid user CRN</code></td>
+    <td><code>idp:[GUID]</code></td>
     <td><code>appid/user</code></td>
   </tr>
   <tr>
@@ -439,8 +439,8 @@ Check out the following table for a list of the runtime events that are sent to 
     <td><code>appid.user.tokens.revoke</code></td>
     <td><code>failure</code></td>
     <td><code>400</code></td>
-    <td><code>[appid user CRN]</code></td>
-    <td><code>[idp]:[GUID]</code></td>
+    <td><code>appid user CRN</code></td>
+    <td><code>idp:[GUID]</code></td>
     <td><code>appid/user</code></td>
   </tr>
   <tr>
@@ -448,8 +448,8 @@ Check out the following table for a list of the runtime events that are sent to 
     <td><code>appid.user.logout</code></td>
     <td><code>success</code></td>
     <td><code>200</code></td>
-    <td><code>[appid user CRN]</code></td>
-    <td><code>[idp]:[GUID]</code></td>
+    <td><code>appid user CRN</code></td>
+    <td><code>idp:[GUID]</code></td>
     <td><code>appid/user</code></td>
   </tr>
 </table>
