@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-16"
+lastupdated: "2019-09-23"
 
 keywords: authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
@@ -216,7 +216,7 @@ If you disable self-service sign-up or add a user on their behalf, the user does
   ```
   {: codeblock}
 
-3. Run the following user to create a new user and a profile at the same time.
+3. Run the following command to create a new user and a profile at the same time.
 
   ```
   curl -X POST "https://<region>.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/sign_up?shouldCreateProfile=true&language=en" \
