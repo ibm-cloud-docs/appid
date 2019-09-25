@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-19"
+lastupdated: "2019-09-25"
 
 keywords: Authentication, authorization, identity, app security, secure, custom, tokens, access, claim, attributes
 
@@ -152,19 +152,17 @@ Note: This does not change or eliminate the attribute, but does change the infor
 Each mapping is defined by a data source object and a key that is used to retrieve the claim. Each custom claim is set for each token separately and are sequentially applied. You can register up to 100 claims for each token up to a maximum payload of 100KB.
 
 <table>
-  <caption>Table 2. Claim mapping objects</caption>
+  <caption>Table 2. Required claim mapping options</caption>
     <tr>
       <th>Object</th>
       <th>Description</th>
     </tr>
     <tr>
       <td><code><em>source</em></code></td>
-      <td>Required</td>
       <td>Defines the source of the claim. It can refer to the identity provider's user information or the user's {{site.data.keyword.appid_short_notm}} custom attributes. </br> Options include: <code>saml</code>, <code>cloud_directory</code>, <code>facebook</code>, <code>google</code>, <code>appid_custom</code>,  and <code>attributes</code>.</td>
     </tr>
     <tr>
       <td><code><em>sourceClaim</em></code></td>
-      <td>Required</td>
       <td>Defines the source data's claim. </td>
     </tr>
   </table>
