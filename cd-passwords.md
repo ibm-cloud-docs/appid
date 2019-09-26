@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-17"
+lastupdated: "2019-09-23"
 
 keywords: Authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
@@ -156,7 +156,7 @@ To set this configuration by using the GUI:
 ### Policy: Password expiration
 {: #cd-expiration}
 
-For security reasons, you might want to enforce a password rotation policy. By setting an expiration for your users password, they are forced to update their password in order to retain access to your application. This lessons the chance that a user's credentials can cause long term damage to your application. When their password expires, your users are forced to reset it on their next sign-in attempt.
+For security reasons, you might want to enforce a password rotation policy. By setting an expiration for your users password, they are forced to update their password in order to retain access to your application. This lessens the chance that a user's credentials can cause long term damage to your application. When their password expires, your users are forced to reset it on their next sign-in attempt.
 {: shortdesc}
 
 To set this configuration by using the GUI:

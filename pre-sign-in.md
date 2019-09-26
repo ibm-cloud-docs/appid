@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-05"
+lastupdated: "2019-09-26"
 
 keywords: Authentication, authorization, identity, app security, secure, development, user information, attributes, profiles, 
 
@@ -136,7 +136,7 @@ A user's predefined attributes are empty until their first authentication. Altho
 
 Before you get started, you must have the following information:
 
-* Which identity provider that the user with which the user signs in.
+* Which identity provider that the user will sign in with.
 * The email of the user that you want to add or their [unique identifier](/docs/services/appid?topic=appid-preregister#preregister-idp-provide).
 * The [custom attribute](/docs/services/appid?topic=appid-profiles) information that you want to assign.
 
