@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-19"
+lastupdated: "2019-09-27"
 
 keywords: Authentication, authorization, identity, app security, secure, compliance, high availability, ha, disaster recovery, dr, protocols, oauth, oidc
 
@@ -151,5 +151,6 @@ Because {{site.data.keyword.appid_short_notm}} is a regional service, it does no
 
 {{site.data.keyword.appid_short_notm}} ensures that private information is encrypted before it is stored.
 {: note}
+
 
 
