@@ -23,8 +23,6 @@ subcollection: appid
 {:download: .download}
 
 
-
-
 # Managing profiles
 {: #user-admin}
 
