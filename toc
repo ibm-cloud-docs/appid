@@ -37,10 +37,6 @@ IBM Cloud App ID
         app-to-app.md
         custom-auth.md
         progressive.md
-
-    {: .topicgroup}
-    Securing your containerized apps
-        kube-overview.md
         istio.md
         tutorial-kubernetes-auth.md
     
