@@ -39,7 +39,7 @@ IBM Cloud App ID
         progressive.md
         istio.md
         tutorial-kubernetes-auth.md
-    
+        
     manageidp.md
 
     {: .topicgroup}
