@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-06"
+lastupdated: "2019-10-15"
 
 keywords: Authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
 
@@ -28,7 +28,7 @@ subcollection: appid
 When a user interacts with your application, you might want to send a reply or ask for verification. {{site.data.keyword.appid_short_notm}} provides default templates that you can use for the interactions. You can also use the templates as a guide and customize your messaging to fit your brand.
 {: shortdesc}
 
-{{site.data.keyword.appid_short_notm}} uses [SendGrid](https://www.sendgrid.com){: external} as a mail delivery service. All emails are sent with a single SendGrid account.
+{{site.data.keyword.appid_short_notm}} uses [SendGrid](https://sendgrid.com/){: external} as a mail delivery service. All emails are sent with a single SendGrid account.
 {: note}
 
 
@@ -233,15 +233,17 @@ You can notify a user when their password is updated. The notification can be he
 ## Using a custom email sender
 {: #cd-custom-email}
 
-With {{site.data.keyword.appid_short_notm}}, you can define a custom extension point to send your Cloud Directory email messages. By defining an extension point, you have full control of how the emails are sent and you can use your own domain name. By default, {{site.data.keyword.appid_short_notm}} uses [SendGrid](https://www.sendgrid.com){: external} as a mail delivery service.
+With {{site.data.keyword.appid_short_notm}}, you can define a custom extension point to send your Cloud Directory email messages. By defining an extension point, you have full control of how the emails are sent and you can use your own domain name. By default, {{site.data.keyword.appid_short_notm}} uses [SendGrid](https://sendgrid.com/){: external} as a mail delivery service.
  {: shortdesc}
 
 You might want to use a custom email sender for the following reasons:
 
 - **Personalized domain**
+
 By configuring a custom email dispatcher, you have full control over how the email messages are sent. Most notably, you can customize the email domain, which can reduce the chances of an email being filtered as spam. You can also further enhance the branded experience for your app users.
 
 - **Insights and troubleshooting**
+
 Gain insights from your email provider, such as: the number of people that opened the emails or which messages were not delivered. Because you can track individual messages, and see overall statistics, this can help solve issues.
 
 After the extension point is configured, it is called by {{site.data.keyword.appid_short_notm}} whenever an email message needs to be sent. The extension point contains all of the information about the message, including the final content of the email body.
