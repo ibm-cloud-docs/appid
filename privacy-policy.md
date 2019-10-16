@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-26"
+lastupdated: "2019-10-16"
 
 keywords: Authentication, authorization, identity, app security, secure, custom, proprietary, social, facebook, google, 
 
@@ -93,6 +93,7 @@ Information, including Personal Data, may be transferred to — and maintained o
 Developer will take all steps reasonably necessary to ensure that Personal Data is treated securely and in accordance with this Privacy Policy and applicable law. Developer will also ensure no transfer of Personal Data will take place to an organization or a country, unless there are adequate authorizations and controls in place including obtaining consent where necessary and ensuring the security of Personal Data.
 
 ## Disclosure Of Data
+{: #data-disclosure}
 
 ### Legal Requirements
 {: #legal-requirements}
