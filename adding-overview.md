@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-06"
+lastupdated: "2019-10-08"
 
-keywords: Authentication, authorization, identity, app security, secure, application identity, app to app, access token
+keywords: authentication, authorization, identity, app security, secure, application identity, app to app, access token
 
 subcollection: appid
 
@@ -27,7 +27,7 @@ subcollection: appid
 {: #adding-overview}
 
 
-You can quickly add authentication and authorization to your application by integrating {{site.data.keyword.appid_short_notm}}. No matter which type of flow that you use, you can securely authenticate users to your app. With authentication in place, you can provide personalized user experiences across all types of devices.
+You can quickly add authentication and authorization to your application by integrating {{site.data.keyword.appid_short_notm}}. Regardless of the type of flow that you use, you can securely authenticate users to your app. With authentication in place, you can provide personalized user experiences across all types of devices.
 {: shortdesc}
 
 
@@ -56,7 +56,7 @@ Check out the following table to see how {{site.data.keyword.appid_short_notm}} 
     </tr>
     <tr>
         <td><a href="/docs/services/appid?topic=appid-anonymous" target="_blank">Anonymous </a></td>
-        <td>With {{site.data.keyword.appid_short_notm}}, you can begin tracking a users activity before their initial sign into your app by using anonymous authentication.</td>
+        <td>With {{site.data.keyword.appid_short_notm}}, you can begin tracking a users activity before their initial sign in to your app by using anonymous authentication.</td>
     </tr>
     <tr>
         <td><a href="/docs/services/appid?topic=appid-kube-auth" target="_blank">Ingress </a></td>

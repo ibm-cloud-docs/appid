@@ -29,7 +29,7 @@ IBM Cloud App ID
         tutorial-cf.md
 
     {: .topicgroup}
-    Securing your applications
+    Securing your apps
         adding-overview.md
         web-apps.md
         mobile-apps.md
@@ -39,7 +39,7 @@ IBM Cloud App ID
         progressive.md
         istio.md
         tutorial-kubernetes-auth.md
-    
+        
     manageidp.md
 
     {: .topicgroup}

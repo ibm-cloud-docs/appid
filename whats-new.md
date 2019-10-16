@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-16"
+lastupdated: "2019-10-09"
 
 keywords: authentication, application identity, authorization, app security, single sign on, mfa, cloud directory
 
@@ -27,6 +27,9 @@ subcollection: appid
 
 The following features and changes to the {{site.data.keyword.appid_short_notm}} service are now available.
 
+
+
+
 ## September 2019
 {: #September2019}
 
@@ -44,7 +47,7 @@ The following features and changes to the {{site.data.keyword.appid_short_notm}}
 
 - **Edit user profile information directly in the dashboard**
 
-    You can now update profiles for users of your application through the {{site.data.keyword.appid_short_notm}} dashboard. Then, you can use that information to personalize their experiance of your app. For more information, see [user profiles](/docs/services/appid?topic=appid-profiles).
+    You can now update profiles for users of your application through the {{site.data.keyword.appid_short_notm}} dashboard. Then, you can use that information to personalize their experience of your app. For more information, see [user profiles](/docs/services/appid?topic=appid-profiles).
 
 
 ## July 2019

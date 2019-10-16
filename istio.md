@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-17"
+lastupdated: "2019-10-15"
 
 keywords: authentication, authorization, identity, app security, access, secure, development, any kube, kubernetes, icp, openshift, iks
 
@@ -92,7 +92,7 @@ Before you get started, be sure that you have installed the following prerequisi
 
 - [Kubernetes Cluster](https://kubernetes.io/){: external}
 - [Helm](https://helm.sh/){: external}
-- [Istio v1.1+](https://istio.io/docs/setup/kubernetes/install/){: external}
+- [Istio v1.1+](https://istio.io/docs/setup/install/){: external}
   
   You can also use [IBM Cloud Kubernetes Service Managed Istio](/docs/containers?topic=containers-istio).
   {: note}
