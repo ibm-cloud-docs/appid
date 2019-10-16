@@ -66,6 +66,10 @@ IBM Cloud App ID
     Personalizing user experiences
         profiles.md
         customizing-tokens.md
+
+    {: .topicgroup}
+    Administrating users
+        user-admin.md
         pre-sign-in.md
 
     {: .topicgroup}
