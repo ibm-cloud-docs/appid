@@ -393,6 +393,3 @@ You can test the configuration between your SAML Identity Provider and {{site.da
 Having trouble? Check out [Troubleshooting: SAML](/docs/services/appid?topic=appid-troubleshooting-idp#troubleshooting-idp).
 {: tip}
 
-
-
-
