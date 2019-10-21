@@ -110,6 +110,8 @@ SAML assertions can be returned in different ways. Check out the following examp
 {: shortdesc}
 
 
+
+
 ### What does {{site.data.keyword.appid_short_notm}} expect a SAML assertion to look like?
 {: #saml-example}
 
