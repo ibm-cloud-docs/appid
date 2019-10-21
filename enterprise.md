@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-11"
+lastupdated: "2019-10-21"
 
 keywords: Authentication, authorization, identity, app security, secure, custom, service provider, identity provider, enterprise, assertions
 
@@ -25,16 +25,24 @@ subcollection: appid
 # SAML
 {: #enterprise}
 
-When you have a SAML-based identity provider, you can configure {{site.data.keyword.appid_short_notm}} to act as a service provider that initiates a single sign-on (SSO) log in to a third-party provider. During the sign in flow, your users can be easily authenticated and are able obtain {{site.data.keyword.appid_short_notm}} security tokens that allow them to access your apps and protected APIs.
+
+
+
+When you have a SAML-based identity provider, you can configure {{site.data.keyword.appid_short_notm}} to act as a service provider that initiates a single sign-on (SSO) log in to that third-party provider. During the sign in flow, your users can be easily authenticated and are able obtain {{site.data.keyword.appid_short_notm}} security tokens that allow them to access your apps and protected APIs.
 {: shortdesc}
 
+
  
-Working with a specific SAML identity provider? Check out one of these blog posts on setting up {{site.data.keyword.appid_short_notm}} with [Ping One](https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-ping-one){: external}, [an Azure Active Directory](https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-azure-active-directory){: external}, or [an Active Directory Federation Service](https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-active-directory-federation-service){: external}.
+Working with a specific SAML identity provider? Try out one of the following blogs to help you set up {{site.data.keyword.appid_short_notm}} with [Ping One](https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-ping-one){: external}, [an Azure Active Directory](https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-azure-active-directory){: external}, or [an Active Directory Federation Service](https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-active-directory-federation-service){: external}.
 {: tip}
 
 
 ## Understanding SAML
 {: #saml-understanding}
+
+
+
+
 
 Security Assertion Markup Language (SAML) is an open standard for exchanging authentication and authorization data between an identity provider who asserts the user identity and a service provider who consumes the user identity information.
 {: shortdesc}
@@ -61,16 +69,18 @@ When the assertions are returned to {{site.data.keyword.appid_short_notm}}, the 
 The assertions that do not correspond to any of the standard names are ignored by default, but if your SAML provider returns other assertions, it is possible to obtain the information when a user logs in. By creating an array of the assertions that you want to use, you can [inject the information into your tokens](/docs/services/appid?topic=appid-customizing-tokens#customizing-tokens). But, be sure not to add more information than necessary to your tokens. Tokens are usually sent in http headers and headers are limited in size.
 {: tip}
 
+
+
 ### What does the flow look like?
 {: #saml-flow}
 
-Although {{site.data.keyword.appid_short_notm}} and your identity provider use the SAML framework to authenticate the user, {{site.data.keyword.appid_short_notm}} still uses the more modern OAuth 2.0/ OIDC framework to exchange security tokens with the application. Check out the following image to see a detailed flow of information.
+Although {{site.data.keyword.appid_short_notm}} and your identity provider use the SAML framework to authenticate the user, {{site.data.keyword.appid_short_notm}} still uses the more modern OAuth 2.0/ OIDC framework to exchange security tokens with your application. Check out the following image to see a detailed flow of information.
 
 ![SAML enterprise authentication flow](/images/ibmid-flow.png){: caption="Figure 1. How an enterprise SAML authentication flow works" caption-side="bottom"}
 
 
 1. A user access the login page or restricted resource on their application, which initiates a request to the {{site.data.keyword.appid_short_notm}} `/authorization` endpoint through either an {{site.data.keyword.appid_short_notm}} SDK or API. If the user is unauthorized, the authentication flow begins with a redirect to {{site.data.keyword.appid_short_notm}}.
-2. {{site.data.keyword.appid_short_notm}} generates a SAML authentication request (AuthNRequest) and the browser automatically redirects the user to the SAML identity provider.
+2. {{site.data.keyword.appid_short_notm}} generates a SAML authentication request (`AuthNRequest`) and the browser automatically redirects the user to the SAML identity provider.
 3. The identity provider parses the SAML request, authenticates the user, and generates a SAML response with its assertions.
 4. The identity provider redirects the user and the response back to {{site.data.keyword.appid_short_notm}} with the SAML response.
 5. If the authentication is successful, {{site.data.keyword.appid_short_notm}} creates access and identity tokens that represent a user's authorization and authentication and returns them to the app. If the authentication fails, {{site.data.keyword.appid_short_notm}} returns the identity provider error code to the app.
@@ -78,15 +88,20 @@ Although {{site.data.keyword.appid_short_notm}} and your identity provider use t
 
 
 
-### Does SSO change the flow?
+
+### How does SSO change the flow?
 {: #saml-sso-flow}
+
+
+
+
 
 The web browser SSO profile that {{site.data.keyword.appid_short_notm}} implements is service provider initiated, which means that {{site.data.keyword.appid_short_notm}} must send a SAML request to the identity provider to initiate the authentication session. 
 
-{{site.data.keyword.appid_short_notm}} does not currently support identity provider initiated flows and they should not be used with the service at this time.
-{: note}
 
 If your identity provider supports SSO, then it is possible that the SAML authentication uses the already established SSO session to authenticate the user. If it does not, the user is redirected to a login page. They might be redirected if your identity provider can't match the authentication requirements that are defined in {{site.data.keyword.cloud_notm}}'s authentication request with what it uses to establish SSO. For example, if your identity provider establishes a user SSO session by using biometrics, then {{site.data.keyword.appid_short_notm}}'s default authentication context must be changed. By default, {{site.data.keyword.appid_short_notm}} expects users to be authenticated by password over HTTPS: `urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport`.
+
+
 
 ## Understanding assertions
 {: #saml-assertions}
