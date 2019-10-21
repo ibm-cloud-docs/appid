@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-10-07"
+lastupdated: "2019-10-21"
 
 keywords: authentication, authorization, identity, app security, secure, attributes, user information, storing, accessing, administration, admin, administering
 
@@ -164,7 +164,7 @@ You can use the {{site.data.keyword.appid_short_notm}} API to view details about
 
 
 ## Setting custom attributes
-{: #profile-set-custom}
+{: #admin-set-custom}
 
 You can add information about your users to their profile such as a role or preference, by setting a custom attribute.
 {: shortdesc}
@@ -173,7 +173,7 @@ By default, custom attributes are modifiable and can be updated by using an {{si
 {: important}
 
 ### With the GUI
-{: #profile-attribute-gui}
+{: #admin-attribute-gui}
 
 You can set and update custom attributes for your users in the {{site.data.keyword.appid_short_notm}} dashboard.
 
@@ -189,7 +189,7 @@ You can set and update custom attributes for your users in the {{site.data.keywo
 
 
 ### With the API
-{: #profile-attribute-api}
+{: #admin-attribute-api}
 
 If you're an administrator, you can use the `/users` endpoint. To set custom attributes before a user signs in to your application for the first time, see [preregistering future users](/docs/services/appid?topic=appid-preregister).
 
