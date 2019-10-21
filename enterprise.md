@@ -106,8 +106,10 @@ If your identity provider supports SSO, then it is possible that the SAML authen
 ## Understanding assertions
 {: #saml-assertions}
 
+
 SAML assertions can be returned in different ways. Check out the following examples to see the way in which {{site.data.keyword.appid_short_notm}} expects the response to be formatted.
 {: shortdesc}
+
 
 
 
