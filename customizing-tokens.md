@@ -26,8 +26,9 @@ subcollection: appid
 # Customizing tokens
 {: #customizing-tokens}
 
-With App ID, tokens are used to identify users and secure your resources. You can choose to customize the information that is injected in to the tokens by the service. For more information about tokens and how they're used in App ID, see [Understanding tokens](/docs/services/appid?topic=appid-tokens).
+With App ID, tokens are used to identify users and secure your resources. You can choose to customize the information that is injected in to the tokens by the service. By injecting the information into your tokens, it's available to your application at runtime without you having to configure extra network calls. Additionally you can ensure the integrity of any information that is used at runtime because it is stored in a signed token. For more information about tokens and how they're used in App ID, see [Understanding tokens](/docs/services/appid?topic=appid-tokens).
 {: shortdesc}
+
 
 By customizing your token configuration, you can ensure that your security and user experience needs are met. However, should a token ever become compromised, a malicious user has more information or time that can be used to affect your application. Be sure that you understand the security implications of the customizations that you you want to make before you make them. 
 {: important}
@@ -74,25 +75,22 @@ A claim is a statement that an entity makes about itself or on behalf of someone
 {: screen}
 
 
-
-### Why would I want to add claims to my tokens?
-{: #why-custom-claims}
-
-Without having to make extra network calls, everything that your app may need to know about a user or what they can do is already in the token! Provided that you don't have massive amounts of data, this makes you more efficient. Additionally, you can ensure the integrity of these mapped attributes when they are sent across the network because they are stored in a signed token.
-
-
 ### What types of claims can I define?
 {: #custom-claim-types}
 
 The claims that are provided by {{site.data.keyword.appid_short_notm}} fall into several categories that are differentiated by their level of customization.
 
-*Registered claims*: There are some claims in the access and identity tokens that are defined by {{site.data.keyword.appid_short_notm}} and cannot be overridden by custom mappings. If your claim is restricted, it is ignored by the service. The claims are `iss`, `aud`, `sub`, `iat`, `exp`, `amr`, and `tenant`.
+<dl>
+  <dt>Registered claims</dt>
+    <dd>Registered claims are present in your access and identity tokens and are defined by {{site.data.keyword.appid_short_notm}}. They <b>cannot</b> be overridden by custom mappings. These claims are ignored by the service and include <code>iss</code>, <code>aud</code>, <code>sub</code>, <code>iat</code>, <code>exp</code>, <code>amr</code>, and <code>tenant</code>.</dd>
+  <dt>Restricted claims</dt>
+    <dd>Restricted claims are those that have limited customization possibilities and cannot be overwritten by custom mappings. For an access token, <code>scope</scope> is the only restricted claim. Although it cannot be overwritten, it can be extended with your own scope. When a scope is mapped to an access token, the value must be a string and cannot be prefixed by <code>appid_</code> or it is ignored. In identity tokens, the claims <code>identities</code> and <code>oauth_clients</code> cannot be modified or overwritten.</dd>
+  <dt>Normalized claims</dt>
+    <dd>In each identity token, there is a set of claims that is recognized by {{site.data.keyword.appid_short_notm}} as normalized. When available, the claims are mapped directly from your identity provider to the token by default. The claims can't be explicitly omitted but they can be overwritten in your token by custom claims. The claims include <code>name</code>, <code>email</code>, <code>picture</code>, and <code>locale</code>.</dd>
+</dl>
 
-*Restricted claims*: Depending on the token that the claims are mapped to, some claims have limited customization possibilities. For an access token, `scope` is the only restricted claim. It cannot be overridden by custom mappings, but it can be extended with your own scopes. When the scope claim is mapped to an access token, the value must be a string and cannot be prefixed by `appid_` or it will be ignored. In identity tokens, the claims `identities` and `oauth_clients` cannot be modified or overridden.
-
-*Normalized claims*: Every identity token contains a set of claims that is recognized by {{site.data.keyword.appid_short_notm}} as normalized claims. When they are available, they are directly mapped from your identity provider to the token. These claims cannot be explicitly omitted but can be overwritten in your token by custom claims. The claims include `name`, `email`, `picture`, and `local`. 
-
-Note: This does not change or eliminate the attribute, but does change the information that is present in the token at runtime.
+Defining a claim for your token does not change or eliminate the attribute. It changes the information that is present in the token at runtime.
+{: note}
 
 
 ### How are claims mapped to tokens?
@@ -101,7 +99,7 @@ Note: This does not change or eliminate the attribute, but does change the infor
 Each mapping is defined by a data source object and a key that is used to retrieve the claim. Each custom claim is set for each token separately and are sequentially applied. You can register up to 100 claims for each token up to a maximum payload of 100KB.
 
 <table>
-  <caption>Table 2. Required claim mapping options</caption>
+  <caption>Table 1. Required claim mapping options</caption>
     <tr>
       <th>Object</th>
       <th>Description</th>
@@ -191,7 +189,7 @@ If you just want to configure the lifespan of your token, you can quickly make t
   {: codeblock}
 
   <table>
-    <caption>Table 3. Understanding the token configuration</caption>
+    <caption>Table 2. Understanding the token configuration</caption>
     <tr>
       <th>Variable</th>
       <th>Description</th>
