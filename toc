@@ -68,7 +68,7 @@ IBM Cloud App ID
         customizing-tokens.md
 
     {: .topicgroup}
-    Administrating users
+    Administering users and profiles
         user-admin.md
         pre-sign-in.md
 
@@ -87,6 +87,7 @@ IBM Cloud App ID
         [Android client SDK](https://github.com/ibm-cloud-security/appid-clientsdk-android)
         [iOS Swift client SDK](https://github.com/ibm-cloud-security/appid-clientsdk-swift)
         [Node.js server SDK](https://github.com/ibm-cloud-security/appid-serversdk-nodejs)
+        [JavaScript SDK](https://github.com/ibm-cloud-security/appid-clientsdk-js)
         [Swift server SDK](https://github.com/ibm-cloud-security/appid-serversdk-swift)
 
     {: .topicgroup}

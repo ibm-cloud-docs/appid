@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-11"
+lastupdated: "2019-10-25"
 
 keywords: Authentication, authorization, identity, app security, secure, custom, service provider, identity provider, enterprise, assertions
 
@@ -25,74 +25,70 @@ subcollection: appid
 # SAML
 {: #enterprise}
 
-When you have a SAML-based identity provider, you can configure {{site.data.keyword.appid_short_notm}} to act as a service provider that initiates a single sign-on (SSO) log in to a third-party provider. During the sign in flow, your users can be easily authenticated and are able obtain {{site.data.keyword.appid_short_notm}} security tokens that allow them to access your apps and protected APIs.
+If you're using a SAML-based identity provider, you can configure {{site.data.keyword.appid_short_notm}} to initiate a single sign on (SSO) experience. In this type of flow, {{site.data.keyword.appid_short_notm}} acts as a service provider and provides security tokens for your authorized users.
 {: shortdesc}
 
  
-Working with a specific SAML identity provider? Check out one of these blog posts on setting up {{site.data.keyword.appid_short_notm}} with [Ping One](https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-ping-one){: external}, [an Azure Active Directory](https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-azure-active-directory){: external}, or [an Active Directory Federation Service](https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-active-directory-federation-service){: external}.
+Working with a specific SAML identity provider? Try out one of the following blogs to help you set up {{site.data.keyword.appid_short_notm}} with [Reusing Existing Red Hat SSO and Keycloak for Applications That Run on IBM Cloud with App ID](https://www.ibm.com/cloud/blog/reusing-existing-red-hat-sso-and-keycloak-for-applications-that-run-on-ibm-cloud-with-app-id){: external}, [an Azure Active Directory](https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-azure-active-directory){: external}, or [Protecting Your Cloud Applications with App ID and an Existing IBM Cloud Identity User Repository](https://www.ibm.com/cloud/blog/protecting-your-cloud-applications-with-app-id-and-existing-ibm-cloud-identity-user-repository){: external}.
 {: tip}
 
 
 ## Understanding SAML
 {: #saml-understanding}
 
-Security Assertion Markup Language (SAML) is an open standard for exchanging authentication and authorization data between an identity provider who asserts the user identity and a service provider who consumes the user identity information.
-{: shortdesc}
+Security Assertion Markup Language (SAML) is an open standard that is used to exchange authentication and authorization data between the provider that asserts an identity and a provider that consumes the identity information. SAML 2.0 is based in XML and is a well established framework for authentication and authorization standards. 
 
-The [SAML](http://saml.xml.org/saml-specifications){: external} protocol supports different profiles and bind options. {{site.data.keyword.appid_short_notm}} supports the web browser SSO profile, with HTTP Post binding.
+The SAML protocol provides a bridge between {{site.data.keyword.appid_short_notm}} (service provider) and your identity provider. When the identity provider authenticates a user, it creates SAML tokens, that contain information about the user such as how they authenticated, attributes that are associated with them, or authorization parameters. Check out the following table for examples.
 
+| Type of information | Examples         | 
+|:--------------------|:-----------------|
+| Authentication | Users might have authenticated with a password, by using MFA, or another way. |
+| Attributes | Any attributes such as groups that they belong to or a preference of some kind. |
+| Authorization decisions | Occasionally users might be granted more or less permissions than others. |
+{: caption="Table 1. Understanding the types of information returned in a SAML token" caption-side="top"}
 
-### What's the flows technical basis?
-{: #saml-tech-basis}
-
-SAML 2.0 is one of the most established frameworks for authentication and authorization standards. It is an XML-based protocol between a service provider ({{site.data.keyword.appid_short_notm}}) and an identity provider. When an identity provider authenticates a user, it creates SAML tokens, which contain assertions, or statements, about the user. The statements might contain:
-
-- authentication information like how the user was authenticated - a password, MFA, etc ...
-- attributes associated with the user - which group they belong in.
-- authorization decisions which state whether the user is allowed to perform a particular action on a particular resource.
-
-When the assertions are returned to {{site.data.keyword.appid_short_notm}}, the service federates the user identity and the appropriate tokens are generated. If the SAML assertion corresponds to one of the following OIDC claims, it is automatically added to the identity token.  If one or more of those values change on the provider's side, the new values are available only after the user logs in again.
-
- * `name`
- * `email`
- * `locale`
- * `picture`
-
-The assertions that do not correspond to any of the standard names are ignored by default, but if your SAML provider returns other assertions, it is possible to obtain the information when a user logs in. By creating an array of the assertions that you want to use, you can [inject the information into your tokens](/docs/services/appid?topic=appid-customizing-tokens#customizing-tokens). But, be sure not to add more information than necessary to your tokens. Tokens are usually sent in http headers and headers are limited in size.
-{: tip}
 
 ### What does the flow look like?
 {: #saml-flow}
 
-Although {{site.data.keyword.appid_short_notm}} and your identity provider use the SAML framework to authenticate the user, {{site.data.keyword.appid_short_notm}} still uses the more modern OAuth 2.0/ OIDC framework to exchange security tokens with the application. Check out the following image to see a detailed flow of information.
+Although the SAML framework is used to authenticate the user, {{site.data.keyword.appid_short_notm}} still uses a more modern OIDC protocol to exchange security tokens with your application. Check out the following image to see a detailed flow of information.
 
 ![SAML enterprise authentication flow](/images/ibmid-flow.png){: caption="Figure 1. How an enterprise SAML authentication flow works" caption-side="bottom"}
 
-
 1. A user access the login page or restricted resource on their application, which initiates a request to the {{site.data.keyword.appid_short_notm}} `/authorization` endpoint through either an {{site.data.keyword.appid_short_notm}} SDK or API. If the user is unauthorized, the authentication flow begins with a redirect to {{site.data.keyword.appid_short_notm}}.
-2. {{site.data.keyword.appid_short_notm}} generates a SAML authentication request (AuthNRequest) and the browser automatically redirects the user to the SAML identity provider.
+2. {{site.data.keyword.appid_short_notm}} generates a SAML authentication request (`AuthNRequest`) and the browser automatically redirects the user to the SAML identity provider.
 3. The identity provider parses the SAML request, authenticates the user, and generates a SAML response with its assertions.
 4. The identity provider redirects the user and the response back to {{site.data.keyword.appid_short_notm}} with the SAML response.
 5. If the authentication is successful, {{site.data.keyword.appid_short_notm}} creates access and identity tokens that represent a user's authorization and authentication and returns them to the app. If the authentication fails, {{site.data.keyword.appid_short_notm}} returns the identity provider error code to the app.
 6. The user is granted access to the app or the protected resources.
 
 
-
-### Does SSO change the flow?
-{: #saml-sso-flow}
-
-The web browser SSO profile that {{site.data.keyword.appid_short_notm}} implements is service provider initiated, which means that {{site.data.keyword.appid_short_notm}} must send a SAML request to the identity provider to initiate the authentication session. 
-
-{{site.data.keyword.appid_short_notm}} does not currently support identity provider initiated flows and they should not be used with the service at this time.
+{{site.data.keyword.appid_short_notm}} initiates a service provider SSO profile through a web browser, which means that {{site.data.keyword.appid_short_notm}} sends a SAML request to the identity provider. At this time, identity provider initiated flows are not supported.
 {: note}
 
-If your identity provider supports SSO, then it is possible that the SAML authentication uses the already established SSO session to authenticate the user. If it does not, the user is redirected to a login page. They might be redirected if your identity provider can't match the authentication requirements that are defined in {{site.data.keyword.cloud_notm}}'s authentication request with what it uses to establish SSO. For example, if your identity provider establishes a user SSO session by using biometrics, then {{site.data.keyword.appid_short_notm}}'s default authentication context must be changed. By default, {{site.data.keyword.appid_short_notm}} expects users to be authenticated by password over HTTPS: `urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport`.
+
+### How does SSO change the flow?
+{: #saml-sso-flow}
+
+
+The workflow for SSO is similar. The only deviation from the described workflow is in step 3 of the previous section. With SSO enabled, before a user is asked to authenticate, the identity provider checks whether a user already has an established authentication session. If yes, the user is not asked to authenticate and the flow continues as usual. If an SSO session is unavailable, then the user is redirected to a log in page. They might also be redirected if your identity provider can't match the authentication requirements that are defined in {{site.data.keyword.appid_short_notm}}'s request with what it uses to establish SSO. For example, if your identity provider establishes a user SSO session by using biometrics, then {{site.data.keyword.appid_short_notm}}'s default authentication must be changed. By default, {{site.data.keyword.appid_short_notm}} expects users to be authenticated by password over HTTPS: `urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport`.
+
+
 
 ## Understanding assertions
 {: #saml-assertions}
 
-SAML assertions can be returned in different ways. Check out the following examples to see the way in which {{site.data.keyword.appid_short_notm}} expects the response to be formatted.
-{: shortdesc}
+When the SAML assertion is returned to {{site.data.keyword.appid_short_notm}}, the service federates the user identity and generates the appropriate tokens. If the SAML assertion corresponds to one of the standard OIDC claims, it's automatically added to the identity token. The assertions that don't have a match, are ignored by default. If your SAML provider returns other assertions, it's possible configure {{site.data.keyword.appid_short_notm}} to [inject the information into your tokens](/docs/services/appid?topic=appid-customizing-tokens#customizing-tokens). But, be sure not to add more information than necessary to your tokens as they're typically sent in HTTP headers and limited in size.
+
+The standard OIDC claims that {{site.data.keyword.appid_short_notm}} attempts to map to your assertion: 
+
+ * `name`
+ * `email`
+ * `locale`
+ * `picture`
+
+If one or more of those values change on the identity provider's side, the new values are available after the user logs in again.
+{: note}
 
 
 ### What does {{site.data.keyword.appid_short_notm}} expect a SAML assertion to look like?
@@ -140,10 +136,10 @@ The service expects a SAML assertion to look like the following example.
 
 
 
-## Configuring SAML to work with {{site.data.keyword.appid_short_notm}}
+## Configuring SAML IdPs to work with {{site.data.keyword.appid_short_notm}}
 {: #saml-configure}
 
-You can configure SAML to work with {{site.data.keyword.appid_short_notm}} by providing metadata from {{site.data.keyword.appid_short_notm}} to your identity provider and metadata from your identity provider to {{site.data.keyword.appid_short_notm}}.
+You can configure SAML identity providers to work with {{site.data.keyword.appid_short_notm}} by providing metadata from {{site.data.keyword.appid_short_notm}} to your identity provider and metadata from your identity provider to {{site.data.keyword.appid_short_notm}}.
 
 
 
@@ -357,8 +353,7 @@ Want to set an authentication context? You can do so through the API.
   {: screen}
 
 
-
-## Testing your configuration
+### Testing your configuration
 {: #saml-testing}
 
 You can test the configuration between your SAML Identity Provider and {{site.data.keyword.appid_short_notm}}.
@@ -373,7 +368,4 @@ You can test the configuration between your SAML Identity Provider and {{site.da
 
 Having trouble? Check out [Troubleshooting: SAML](/docs/services/appid?topic=appid-troubleshooting-idp#troubleshooting-idp).
 {: tip}
-
-
-
 
