@@ -26,7 +26,7 @@ subcollection: appid
 # Customizing tokens
 {: #customizing-tokens}
 
-With App ID, tokens are used to identify users and secure your resources. You can choose to customize the information that is injected in to the tokens by the service. By injecting the information into your tokens, it's available to your application at runtime without you having to configure extra network calls. Additionally you can ensure the integrity of any information that is used at runtime because it is stored in a signed token. For more information about tokens and how they're used in App ID, see [Understanding tokens](/docs/services/appid?topic=appid-tokens).
+With {{site.data.keyword.appid_short_notm}}, tokens are used to identify users and secure your resources. You can choose to customize the information that is injected in to the tokens by the service. By injecting the information into your tokens, it's available to your application at runtime without you having to configure extra network calls. Additionally you can ensure the integrity of any information that is used at runtime because it is stored in a signed token. For more information about tokens and how they're used in {{site.data.keyword.appid_short_notm}}, see [Understanding tokens](/docs/services/appid?topic=appid-tokens).
 {: shortdesc}
 
 
@@ -36,12 +36,6 @@ By customizing your token configuration, you can ensure that your security and u
 
 ## Understanding custom claims mapping
 {: #custom-claims}
-
-You can map user profile attributes to your access and identity token claims. This means that you don't have to go to the [/userinfo endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization_Server_V4/userInfo){: external} or pull custom attributes later, because they're already stored in the tokens!
-{: shortdesc}
-
-### What is a claim?
-{: #custom-claims-defined}
 
 A claim is a statement that an entity makes about itself or on behalf of someone else. For example, if you signed into an application by using an identity provider, the provider would send the application a group of claims or statements about you to the app so that it can group with information that it already knows about you. This way, when you sign in, the app is set up with your information, in the way that you configured it. Check out the following example to see how to format the JSON object.
 
@@ -84,7 +78,7 @@ The claims that are provided by {{site.data.keyword.appid_short_notm}} fall into
   <dt>Registered claims</dt>
     <dd>Registered claims are present in your access and identity tokens and are defined by {{site.data.keyword.appid_short_notm}}. They <b>cannot</b> be overridden by custom mappings. These claims are ignored by the service and include <code>iss</code>, <code>aud</code>, <code>sub</code>, <code>iat</code>, <code>exp</code>, <code>amr</code>, and <code>tenant</code>.</dd>
   <dt>Restricted claims</dt>
-    <dd>Restricted claims are those that have limited customization possibilities and cannot be overwritten by custom mappings. For an access token, <code>scope</scope> is the only restricted claim. Although it cannot be overwritten, it can be extended with your own scope. When a scope is mapped to an access token, the value must be a string and cannot be prefixed by <code>appid_</code> or it is ignored. In identity tokens, the claims <code>identities</code> and <code>oauth_clients</code> cannot be modified or overwritten.</dd>
+    <dd>Restricted claims are those that have limited customization possibilities and cannot be overwritten by custom mappings. For an access token, <code>scope</code> is the only restricted claim. Although it cannot be overwritten, it can be extended with your own scope. When a scope is mapped to an access token, the value must be a string and cannot be prefixed by <code>appid_</code> or it is ignored. In identity tokens, the claims <code>identities</code> and <code>oauth_clients</code> cannot be modified or overwritten.</dd>
   <dt>Normalized claims</dt>
     <dd>In each identity token, there is a set of claims that is recognized by {{site.data.keyword.appid_short_notm}} as normalized. When available, the claims are mapped directly from your identity provider to the token by default. The claims can't be explicitly omitted but they can be overwritten in your token by custom claims. The claims include <code>name</code>, <code>email</code>, <code>picture</code>, and <code>locale</code>.</dd>
 </dl>
@@ -106,7 +100,7 @@ Each mapping is defined by a data source object and a key that is used to retrie
     </tr>
     <tr>
       <td><code><em>source</em></code></td>
-      <td>Defines the source of the claim. It can refer to the identity provider's user information or the user's {{site.data.keyword.appid_short_notm}} custom attributes. </br> Options include: <code>saml</code>, <code>cloud_directory</code>, <code>facebook</code>, <code>google</code>, <code>appid_custom</code>,  and <code>attributes</code>.</td>
+      <td>Defines the source of the claim. It can refer to the identity provider's user information or the user's {{site.data.keyword.appid_short_notm}} custom attributes. </br> Options include: <code>saml</code>, <code>cloud_directory</code>, <code>facebook</code>, <code>google</code>, <code>appid_custom</code>, and <code>attributes</code>.</td>
     </tr>
     <tr>
       <td><code><em>sourceClaim</em></code></td>
@@ -115,13 +109,13 @@ Each mapping is defined by a data source object and a key that is used to retrie
   </table>
 
 You can reference nested claims in your mappings by using the dot syntax. Example: `nested.attribute`
-{:tip}
+{: tip}
 
 
 ## Configuring tokens
 {: #configuring-tokens}
 
-With the API, you can customize the information that is returned in your App ID tokens.
+With the API, you can customize the information that is returned in your {{site.data.keyword.appid_short_notm}} tokens.
 {: shortdesc}
 
 If you just want to configure the lifespan of your token, you can quickly make the changes through the service dashboard. For more information, see [Managing authentication](/docs/services/appid?topic=appid-managing-idp#idp-token-lifetime).
