@@ -28,7 +28,7 @@ subcollection: appid
 
 
 
-# Personalizing app experiences
+# Storing and accessing attributes
 {: #profiles}
 
 
