@@ -33,15 +33,7 @@ By customizing your token configuration, you can ensure that your security and u
 {: important}
 
 
-
-
-
-
-Because tokens are used to identify users and secure your resources, the lifespan of a token affects several different things. By customizing your token configuration you can ensure that your security and user experience needs are met. However, should a token ever become compromised, a malicious user has more time to affect your application. You can learn more about security considerations in [Setting custom attributes](/docs/services/appid?topic=appid-profiles#profile-set-custom).
-{: important}
-
-
-## Understanding custom attributes and claims
+## Understanding custom claims mapping
 {: #custom-claims}
 
 You can map user profile attributes to your access and identity token claims. This means that you don't have to go to the [/userinfo endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization_Server_V4/userInfo){: external} or pull custom attributes later, because they're already stored in the tokens!
@@ -81,8 +73,7 @@ A claim is a statement that an entity makes about itself or on behalf of someone
 ```
 {: screen}
 
-If you have customized expiration information for your token, you must set it in every request. If you don't, this request overwrites your current configuration and the default is used for anything that is undefined.
-{: note}
+
 
 ### Why would I want to add claims to my tokens?
 {: #why-custom-claims}
@@ -132,17 +123,11 @@ You can reference nested claims in your mappings by using the dot syntax. Exampl
 ## Configuring tokens
 {: #configuring-tokens}
 
-
-
-
-You can customize your tokens [in the GUI](/docs/services/appid?topic=appid-customizing-tokens#configuring-tokens-ui) or by using [the API](/docs/services/appid?topic=appid-customizing-tokens#configuring-tokens-api){: external} by setting the lifespan validity or by adding custom claims to your tokens. Check out the following table to see how lifespan is configured or continue reading to learn about mapping custom attributes.
-
-
-
-With the API, you can customize the information that is returned in your App ID tokens as well as setting the lifespan.
+With the API, you can customize the information that is returned in your App ID tokens.
+{: shortdesc}
 
 If you just want to configure the lifespan of your token, you can quickly make the changes through the service dashboard. For more information, see [Managing authentication](/docs/services/appid?topic=appid-managing-idp#idp-token-lifetime).
-
+{: tip}
 
 1. Obtain an IAM token. For more information, see the [IAM documentation](/docs/iam?topic=iam-getstarted#getstarted).
 
