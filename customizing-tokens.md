@@ -131,11 +131,11 @@ If you just want to configure the lifespan of your token, you can quickly make t
 
 1. Obtain an IAM token. For more information, see the [IAM documentation](/docs/iam?topic=iam-getstarted#getstarted).
 
-  1. In the IBM Cloud dashboard, click Manage > Access (IAM).
-  2. Select IBM Cloud API keys.
-  3. Click Create an IBM Cloud API key
-  4. Give your key a name and describe it. Click Create. A screen displays with your your key.
-  5. Click Copy or Download your key. When you close the screen, you can no longer access the key.
+  1. In the IBM Cloud dashboard, click **Manage > Access (IAM)**.
+  2. Select **IBM Cloud API keys**.
+  3. Click **Create an IBM Cloud API key**.
+  4. Give your key a name and describe it. Click **Create**. A screen displays with your your key.
+  5. Click **Copy** or download your key. When you close the screen, you can no longer access the key.
   6. Make the following cURL request with the API key that you created.
 
     ```
