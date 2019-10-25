@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-10-23"
+lastupdated: "2019-10-25"
 
 keywords: Authentication, authorization, identity, app security, secure, custom, service provider, identity provider, enterprise, assertions
 
@@ -29,13 +29,12 @@ If you're using a SAML-based identity provider, you can configure {{site.data.ke
 {: shortdesc}
 
  
-Working with a specific SAML identity provider? Try out one of the following blogs to help you set up {{site.data.keyword.appid_short_notm}} with [Ping One](https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-ping-one){: external}, [an Azure Active Directory](https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-azure-active-directory){: external}, or [an Active Directory Federation Service](https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-active-directory-federation-service){: external}.
+Working with a specific SAML identity provider? Try out one of the following blogs to help you set up {{site.data.keyword.appid_short_notm}} with [Reusing Existing Red Hat SSO and Keycloak for Applications That Run on IBM Cloud with App ID](https://www.ibm.com/cloud/blog/reusing-existing-red-hat-sso-and-keycloak-for-applications-that-run-on-ibm-cloud-with-app-id){: external}, [an Azure Active Directory](https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-azure-active-directory){: external}, or [Protecting Your Cloud Applications with App ID and an Existing IBM Cloud Identity User Repository](https://www.ibm.com/cloud/blog/protecting-your-cloud-applications-with-app-id-and-existing-ibm-cloud-identity-user-repository){: external}.
 {: tip}
 
 
 ## Understanding SAML
 {: #saml-understanding}
-
 
 Security Assertion Markup Language (SAML) is an open standard that is used to exchange authentication and authorization data between the provider that asserts an identity and a provider that consumes the identity information. SAML 2.0 is based in XML and is a well established framework for authentication and authorization standards. 
 
@@ -44,7 +43,7 @@ The SAML protocol provides a bridge between {{site.data.keyword.appid_short_notm
 | Type of information | Examples         | 
 |:--------------------|:-----------------|
 | Authentication | Users might have authenticated with a password, by using MFA, or another way. |
-| Attributes | Any attributes such as groups that they belong to or a preference of some kind.  |
+| Attributes | Any attributes such as groups that they belong to or a preference of some kind. |
 | Authorization decisions | Occasionally users might be granted more or less permissions than others. |
 {: caption="Table 1. Understanding the types of information returned in a SAML token" caption-side="top"}
 
@@ -72,7 +71,7 @@ Although the SAML framework is used to authenticate the user, {{site.data.keywor
 {: #saml-sso-flow}
 
 
-The workflow for SSO is similar. The only deviation from the described workflow is in step 3. With SSO enabled, before a user is asked to authenticate, the identity provider checks whether a user already has an established authentication session. If yes, the user is not asked to authenticate and the flow continues as usual. If an SSO session is unavailable, then the user is redirected to a log in page. They might also be redirected if your identity provider can't match the authentication requirements that are defined in {{site.data.keyword.appid_short_notm}}'s request with what it uses to establish SSO. For example, if your identity provider establishes a user SSO session by using biometrics, then {{site.data.keyword.appid_short_notm}}'s default authentication must be changed. By default, {{site.data.keyword.appid_short_notm}} expects users to be authenticated by password over HTTPS: `urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport`.
+The workflow for SSO is similar. The only deviation from the described workflow is in step 3 of the previous section. With SSO enabled, before a user is asked to authenticate, the identity provider checks whether a user already has an established authentication session. If yes, the user is not asked to authenticate and the flow continues as usual. If an SSO session is unavailable, then the user is redirected to a log in page. They might also be redirected if your identity provider can't match the authentication requirements that are defined in {{site.data.keyword.appid_short_notm}}'s request with what it uses to establish SSO. For example, if your identity provider establishes a user SSO session by using biometrics, then {{site.data.keyword.appid_short_notm}}'s default authentication must be changed. By default, {{site.data.keyword.appid_short_notm}} expects users to be authenticated by password over HTTPS: `urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport`.
 
 
 
@@ -354,8 +353,7 @@ Want to set an authentication context? You can do so through the API.
   {: screen}
 
 
-
-## Testing your configuration
+### Testing your configuration
 {: #saml-testing}
 
 You can test the configuration between your SAML Identity Provider and {{site.data.keyword.appid_short_notm}}.

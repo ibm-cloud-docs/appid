@@ -68,7 +68,7 @@ IBM Cloud App ID
         customizing-tokens.md
 
     {: .topicgroup}
-    Administrating users
+    Administering users and profiles
         user-admin.md
         pre-sign-in.md
 
