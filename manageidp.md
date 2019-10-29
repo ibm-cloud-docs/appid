@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-10-25"
+lastupdated: "2019-10-29"
 
 keywords: Authentication, authorization, identity, app security, secure, development, identity provider, tokens, customization, lifetime
 
@@ -80,8 +80,6 @@ There are several providers that the service can be configured to use. Check out
 An identity provider creates and manages information about an entity such as a user, a functional ID, or an application. The provider verifies the identity of the entity by using credentials, such as a password. Then, the IdP sends the identity information to another service provider. Because the identity provider authenticates the entity, {{site.data.keyword.appid_short_notm}} is able to authorize it and grant access to your apps.
 {: shortdesc}
 
-To manage your identity providers:
-
 1. Navigate to your service dashboard.
 2. In the **Identity Providers** section of the navigation, select the **Manage** page.
 3. On the **Identity Providers** tab, set the providers that you want to use, to **On**.
@@ -95,10 +93,6 @@ To manage your identity providers:
 {: #add-redirect-uri}
 
 A redirect URI is the callback endpoint of your app. During the sign in flow, {{site.data.keyword.appid_short_notm}} validates the URIs before allowing clients to participate in the authorization workflow which helps to prevent phishing attacks and grant code leakage. By registering your URI, you're telling {{site.data.keyword.appid_short_notm}} that the URI is trusted and it's OK to redirect your users.
-
-Be sure to only register URIs of applications that you trust.
-{: note}
-
 
 1. Click **Authentication Settings** to see your URI and token configuration options.
 
@@ -126,8 +120,10 @@ Be sure to only register URIs of applications that you trust.
 
 3. Click the **+** symbol in the **Add web redirect URIs** box.
 
-4. Repeat steps one through three until all possible URIs are added to your list.
+    Be sure to only register URIs of applications that you trust.
+    {: important}
 
+4. Repeat steps one through three until all possible URIs are added to your list.
 
 
 Not sure where your redirect URI comes from? Watch the following short video to see where to get it and how to add it to your list.
@@ -145,11 +141,11 @@ When you set a token expiration it applies to all providers that you have config
 {: tip}
 
 1. Go to the **Manage Authentication > Authentication settings** tab of the service dashboard.
-2. To allow sign in without the need for user interaction, toggle refresh token to **Enabled**.
-2. In the **Sign-in Expiration** tab, add a value for each token type as descirbed in the following table.
+2. In the **Sign-in Expiration** tab, toggle refresh token to **Enabled**.
+3. For each token type, add a value for each token type as described in the following table.
 
   <table>
-    <caption>Table 1. Token types and customization options</caption>
+    <caption>Table 3. Token types and customization options</caption>
     <tr>
       <th>Token type</th>
       <th>Description</th>
@@ -169,7 +165,7 @@ When you set a token expiration it applies to all providers that you have config
       <td colspan="4">Identity tokens are automatically configured to match the length of time that you set for access tokens. These values cannot be different.</td>
     </tr>
     <tr>
-      <td>[Refresh]((/docs/services/appid?topic=appid-tokens#refresh)</td>
+      <td>[Refresh](/docs/services/appid?topic=appid-tokens#refresh)</td>
       <td>The smaller the number, the more frequently a user must sign themselves in.</td>
       <td>Days</td>
       <td>30</td>
@@ -177,7 +173,7 @@ When you set a token expiration it applies to all providers that you have config
     </tr>
     <tr>
       <td>[Anonymous](/docs/services/appid?topic=appid-anonymous)</td>
-      <td>Anonymous tokens are assigned to users the moment they begin interacting with your app. When a user signs in, the information in the anonymous token is then transferred to the token associated with the user. Expiration is set in days and can be any value between 1 and 90.</td>
+      <td>Anonymous tokens are assigned to users the moment they begin interacting with your app. When a user signs in, the information in the anonymous token is then transferred to the token associated with the user.</td>
       <td>Days</td>
       <td>30</td>
       <td>Any value between 1 and 90</td>
@@ -185,3 +181,7 @@ When you set a token expiration it applies to all providers that you have config
   </table>
 
 3. Click **Save**. 
+
+Want to customize your tokens further? Try using the API to [map custom claims](/docs/services/appid?topic=appid-customizing-tokens) to your tokens so that the user information is available at runtime.
+{: tip}
+

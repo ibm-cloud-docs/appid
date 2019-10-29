@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-10-25"
+lastupdated: "2019-10-29"
 
 keywords: Authentication, authorization, identity, app security, secure, custom, tokens, access, claim, attributes
 
@@ -26,47 +26,18 @@ subcollection: appid
 # Customizing tokens
 {: #customizing-tokens}
 
-With {{site.data.keyword.appid_short_notm}}, tokens are used to identify users and secure your resources. You can choose to customize the information that is injected in to the tokens by the service. By injecting the information into your tokens, it's available to your application at runtime without you having to configure extra network calls. Additionally you can ensure the integrity of any information that is used at runtime because it is stored in a signed token. For more information about tokens and how they're used in {{site.data.keyword.appid_short_notm}}, see [Understanding tokens](/docs/services/appid?topic=appid-tokens).
+With {{site.data.keyword.appid_short_notm}}, tokens are used to identify users and secure your resources. You can choose to customize the information that is injected in to the tokens by the service. By injecting the information into your tokens, it's available to your application at runtime without you having to configure extra network calls. For more information about tokens and how they're used in {{site.data.keyword.appid_short_notm}}, see [Understanding tokens](/docs/services/appid?topic=appid-tokens).
 {: shortdesc}
 
 
-By customizing your token configuration, you can ensure that your security and user experience needs are met. However, should a token ever become compromised, a malicious user has more information or time that can be used to affect your application. Be sure that you understand the security implications of the customizations that you you want to make before you make them. 
+By customizing your token configuration, you can ensure that your security and user experience needs are met. However, should a token ever become compromised, a malicious user might have more information or time that can be used to affect your application. Be sure that you understand the security implications of the customizations that you want to make before you make them. 
 {: important}
 
 
 ## Understanding custom claims mapping
 {: #custom-claims}
 
-A claim is a statement that an entity makes about itself or on behalf of someone else. For example, if you signed into an application by using an identity provider, the provider would send the application a group of claims or statements about you to the app so that it can group with information that it already knows about you. This way, when you sign in, the app is set up with your information, in the way that you configured it. Check out the following example to see how to format the JSON object.
-
-```
-{
-  "accessTokenClaims": [
-    {
-      "source": "saml",
-      "sourceClaim": "moderator"
-    }
-  ],
-  "idTokenClaims": [
-    {
-      "source": "saml",
-      "sourceClaim": "moderator"
-    }
-  ],
-  "access": {
-    "expires_in": 3600
-  },
-  "refresh": {
-    "expires_in": 2592000,
-    "enabled": true
-  },
-  "anonymousAccess": {
-    "expires_in": 2592000,
-    "enabled": true
-  }
-}
-```
-{: screen}
+A claim is a statement that an entity makes about itself or on behalf of someone else. For example, if you signed into an application by using an identity provider, the provider would send the application a group of claims or statements about you to the app so that it can group with information that it already knows about you. This way, when you sign in, the app is set up with your information, in the way that you configured it. 
 
 
 ### What types of claims can I define?
@@ -75,41 +46,72 @@ A claim is a statement that an entity makes about itself or on behalf of someone
 The claims that are provided by {{site.data.keyword.appid_short_notm}} fall into several categories that are differentiated by their level of customization.
 
 <dl>
-  <dt>Registered claims</dt>
-    <dd>Registered claims are present in your access and identity tokens and are defined by {{site.data.keyword.appid_short_notm}}. They <b>cannot</b> be overridden by custom mappings. These claims are ignored by the service and include <code>iss</code>, <code>aud</code>, <code>sub</code>, <code>iat</code>, <code>exp</code>, <code>amr</code>, and <code>tenant</code>.</dd>
-  <dt>Restricted claims</dt>
-    <dd>Restricted claims are those that have limited customization possibilities and cannot be overwritten by custom mappings. For an access token, <code>scope</code> is the only restricted claim. Although it cannot be overwritten, it can be extended with your own scope. When a scope is mapped to an access token, the value must be a string and cannot be prefixed by <code>appid_</code> or it is ignored. In identity tokens, the claims <code>identities</code> and <code>oauth_clients</code> cannot be modified or overwritten.</dd>
   <dt>Normalized claims</dt>
     <dd>In each identity token, there is a set of claims that is recognized by {{site.data.keyword.appid_short_notm}} as normalized. When available, the claims are mapped directly from your identity provider to the token by default. The claims can't be explicitly omitted but they can be overwritten in your token by custom claims. The claims include <code>name</code>, <code>email</code>, <code>picture</code>, and <code>locale</code>.</dd>
+  <dt>Restricted claims</dt>
+    <dd>Restricted claims are those that have limited customization possibilities and cannot be overwritten by custom mappings. For an access token, <code>scope</code> is the only restricted claim. Although it cannot be overwritten, it can be extended with your own scope. When a scope is mapped to an access token, the value must be a string and cannot be prefixed by <code>appid_</code> or it is ignored. In identity tokens, the claims <code>identities</code> and <code>oauth_clients</code> cannot be modified or overwritten.</dd>
+  <dt>Registered claims</dt>
+    <dd>Registered claims are present in your access and identity tokens and are defined by {{site.data.keyword.appid_short_notm}}. They <b>cannot</b> be overridden by custom mappings. These claims are ignored by the service and include <code>iss</code>, <code>aud</code>, <code>sub</code>, <code>iat</code>, <code>exp</code>, <code>amr</code>, and <code>tenant</code>.</dd>
 </dl>
 
-Defining a claim for your token does not change or eliminate the attribute. It changes the information that is present in the token at runtime.
+Defining a claim for your token does not change or eliminate [the attribute](/docs/services/appid?topic=appid-profiles). It changes the information that is present in the token at runtime.
 {: note}
 
 
 ### How are claims mapped to tokens?
 {: #custom-claims-mapping}
 
-Each mapping is defined by a data source object and a key that is used to retrieve the claim. Each custom claim is set for each token separately and are sequentially applied. You can register up to 100 claims for each token up to a maximum payload of 100KB.
+Each mapping is defined by a data source object and a key that is used to retrieve the claim. You can inject up to 100 claims into each token provided that the maximum payload remains less than 100KB. If you want to use nested claims, you can include them by using the dot syntax. For example, `nested.attribute`.
+
+The claims are set for each token separately and are sequentially applied as shown in the following example. 
+
+```
+{
+  "accessTokenClaims": [
+    {
+      "source": "saml",
+      "sourceClaim": "moderator"
+    }
+    {
+      "source": "saml",
+      "sourceClaim": "viewer"
+    }
+  ],
+  "idTokenClaims": [
+    {
+      "source": "saml",
+      "sourceClaim": "attributes.uid"
+    }
+    {
+      "source": "saml",
+      "sourceClaim": "Courtney"
+    }
+    {
+      "source": "saml",
+      "sourceClaim": "United States"
+    }
+  ]
+}
+```
+{: screen}
+
 
 <table>
-  <caption>Table 1. Required claim mapping options</caption>
+  <caption>Table 1. Claims mapping variables explained</caption>
     <tr>
       <th>Object</th>
       <th>Description</th>
     </tr>
     <tr>
       <td><code><em>source</em></code></td>
-      <td>Defines the source of the claim. It can refer to the identity provider's user information or the user's {{site.data.keyword.appid_short_notm}} custom attributes. </br> Options include: <code>saml</code>, <code>cloud_directory</code>, <code>facebook</code>, <code>google</code>, <code>appid_custom</code>, and <code>attributes</code>.</td>
+      <td>Defines the source of the claim. Options include: <code>saml</code>, <code>cloud_directory</code>, <code>facebook</code>, <code>google</code>, <code>appid_custom</code>, and <code>attributes</code>.</td>
     </tr>
     <tr>
       <td><code><em>sourceClaim</em></code></td>
-      <td>Defines the source data's claim. </td>
+      <td>Defines the claim as provided by the source. It can refer to the identity provider's user information or the user's {{site.data.keyword.appid_short_notm}} custom attributes.</td>
     </tr>
-  </table>
+</table>
 
-You can reference nested claims in your mappings by using the dot syntax. Example: `nested.attribute`
-{: tip}
 
 
 ## Configuring tokens
@@ -135,7 +137,7 @@ If you just want to configure the lifespan of your token, you can quickly make t
     --header "Content-Type: application/x-www-form-urlencoded" \
     --header "Accept: application/json" \
     --data-urlencode "grant_type=urn:ibm:params:oauth:grant-type:apikey" \
-    --data-urlencode "apikey={apikey}" \
+    --data-urlencode "apikey=<api_key>" \
     "https://iam.cloud.ibm.com/identity/token"
     ```
     {: codeblock}
@@ -146,39 +148,39 @@ If you just want to configure the lifespan of your token, you can quickly make t
 
   Header:
   ```
-  PUT -X "https://<region>.appid.cloud.ibm.com/management/v4/{tenantId}/tokens"
-    -H Authorization: 'Bearer <IAM_TOKEN>'
+  PUT -X "https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/tokens"
+    -H Authorization: 'Bearer <IAM_Token>'
     -H Content-Type: application/json
   ```
   {: codeblock}
 
   Body:
   ```
-    {
-        "access": {
-            "expires_in": 3600,
-        },
-        "refresh": {
-            "expires_in": 2592000,
-            "enabled": true
-        },
-        "anonymous": {
-            "expires_in": 2592000,
-            "enabled": true
-        },
-        "accessTokenClaims": [
-            {
-              "source": "saml",
-              "sourceClaim": "name_id"
-            }
-        ],
-        "idTokenClaims": [
-            {
-              "source": "saml",
-              "sourceClaim": "attributes.uid"
-            }
-        ]
-    }
+  {
+    "access": {
+        "expires_in": 3600,
+    },
+    "refresh": {
+        "expires_in": 2592000,
+        "enabled": true
+    },
+    "anonymous": {
+        "expires_in": 2592000,
+        "enabled": true
+    },
+    "accessTokenClaims": [
+        {
+          "source": "saml",
+          "sourceClaim": "name_id"
+        }
+    ],
+    "idTokenClaims": [
+        {
+          "source": "saml",
+          "sourceClaim": "attributes.uid"
+        }
+    ]
+  }
   ```
   {: codeblock}
 
