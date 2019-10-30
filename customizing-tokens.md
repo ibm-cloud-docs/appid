@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-10-29"
+lastupdated: "2019-10-30"
 
 keywords: Authentication, authorization, identity, app security, secure, custom, tokens, access, claim, attributes
 
@@ -84,11 +84,11 @@ The claims are set for each token separately and are sequentially applied as sho
     }
     {
       "source": "saml",
-      "sourceClaim": "Courtney"
+      "sourceClaim": "Name"
     }
     {
       "source": "saml",
-      "sourceClaim": "United States"
+      "sourceClaim": "Country"
     }
   ]
 }

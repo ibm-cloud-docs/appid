@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-10-29"
+lastupdated: "2019-10-30"
 
 keywords: Authentication, authorization, identity, app security, secure, development, identity provider, tokens, customization, lifetime
 
@@ -29,21 +29,22 @@ Identity providers (IdP's) add a level of security for your mobile and web apps,
 {: shortdesc}
 
 
-{{site.data.keyword.appid_short_notm}} interacts with identity providers by using multiple protocols such as OpenID Connect, SAML, and more. For example, OpenID Connect is the protocol that is used with many social providers such as Facebook, Google. Enterprise providers such as [Azure Active Directory](https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-azure-active-directory){: external}, or [Active Directory Federation Service](https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-active-directory-federation-service){: external}, generally use SAML as their identity protocol. For [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory), the service uses SCIM to verify identity information.
+{{site.data.keyword.appid_short_notm}} interacts with identity providers by using various protocols such as OpenID Connect, SAML, and more. For example, OpenID Connect is the protocol that is used with many social providers such as Facebook, Google. Enterprise providers such as [Azure Active Directory](https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-azure-active-directory){: external}, or [Active Directory Federation Service](https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-active-directory-federation-service){: external}, generally use SAML as their identity protocol. For [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory), the service uses SCIM to verify identity information.
 
-When you use social or enterprise identity providers, {{site.data.keyword.appid_short_notm}} has read access to a users account information. The service uses a token and the assertions that are returned by the identity provider to verify that a user is who they say that they are. Because the service never has write access to the information, users must go through their chosen identity provider to do actions, such as resetting their password. For example, if a user signs in to your app with Facebook, and then wanted to change their password, they must go to `www.facebook.com` to do so.
+When you use social or enterprise identity providers, {{site.data.keyword.appid_short_notm}} reads user account information. Because the service never has write access to the information, users must go through their chosen identity provider to do actions, such as resetting their password. For example, if a user signs in to your app with Facebook, and then wanted to change their password, they must go to `www.facebook.com` to do so.
+{: note}
 
-When you use [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory), {{site.data.keyword.appid_short_notm}} is the identity provider. The service uses your registry to verify your users identity. Because {{site.data.keyword.appid_short_notm}} is the provider, users can take advantage of advanced functionality, such as resetting their password, directly in your app.
+When you use [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory), {{site.data.keyword.appid_short_notm}} is the identity provider. The service uses your registry to verify your users identity. Because {{site.data.keyword.appid_short_notm}} is the identity provider, users can take advantage of advanced functionality, such as resetting their password, directly in your app.
 
 Working with application identity? Check out [Application identity](/docs/services/appid?topic=appid-app).
 {: tip}
 
-There are several providers that the service can be configured to use. Check out the following table to learn about your options.
+There are several identity providers that the service can be configured to use. Check out the following table to learn about your options.
 
 <table>
   <caption>Table 1. Identity provider options</caption>
   <tr>
-    <th>Provider</th>
+    <th>Identity provider</th>
     <th>Type</th>
     <th>Description</th>
   </tr>
@@ -77,7 +78,7 @@ There are several providers that the service can be configured to use. Check out
 ## Managing providers
 {: #managing-providers}
 
-An identity provider creates and manages information about an entity such as a user, a functional ID, or an application. The provider verifies the identity of the entity by using credentials, such as a password. Then, the IdP sends the identity information to another service provider. Because the identity provider authenticates the entity, {{site.data.keyword.appid_short_notm}} is able to authorize it and grant access to your apps.
+An identity provider creates and manages information about an entity such as a user, a functional ID, or an application. The provider verifies the identity of the entity by using credentials, such as a password. Then, the IdP sends the identity information back to {{site.data.keyword.appid_short_notm}}, which authorizes the user and then grants access to your app.
 {: shortdesc}
 
 1. Navigate to your service dashboard.
@@ -85,14 +86,14 @@ An identity provider creates and manages information about an entity such as a u
 3. On the **Identity Providers** tab, set the providers that you want to use, to **On**.
 4. Optional: Decide whether to turn off **Anonymous users**, or leave the default, which is **On**. When set to **On**, user attributes are associated with the user from the moment they begin interacting with your app. For more information about the path to becoming an identified user, see [Progressive authentication](/docs/services/appid?topic=appid-anonymous#progressive)
 
-{{site.data.keyword.appid_short_notm}} provides default credentials to help with your initial set-up of Facebook and Google+. You are limited to 100 uses of the credentials per instance, per day. Because they are IBM credentials, they are meant to be used only for development. Before you publish your app, update the configuration to your own credentials.
+{{site.data.keyword.appid_short_notm}} provides default credentials to help with your initial set-up of Facebook and Google+. You are limited to 20 uses of the credentials per instance, per day. Because they are IBM credentials, they are meant to be used only for development. Before you publish your app, update the configuration to your own credentials.
 {: tip}
 
 
 ## Adding redirect URIs
 {: #add-redirect-uri}
 
-A redirect URI is the callback endpoint of your app. During the sign in flow, {{site.data.keyword.appid_short_notm}} validates the URIs before allowing clients to participate in the authorization workflow which helps to prevent phishing attacks and grant code leakage. By registering your URI, you're telling {{site.data.keyword.appid_short_notm}} that the URI is trusted and it's OK to redirect your users.
+Your application redirects users to {{site.data.keyword.appid_short_notm}} for authentication. After authentication completes, {{site.data.keyword.appid_short_notm}} redirects users back to your application. In order for App ID to be able to redirect users back to your app, you need to register the redirect URI. During the sign in flow, {{site.data.keyword.appid_short_notm}} validates the URIs before allowing clients to participate in the authorization workflow which helps to prevent phishing attacks and grant code leakage. By registering your URI, you're telling {{site.data.keyword.appid_short_notm}} that the URI is trusted and it's OK to redirect your users.
 
 1. Click **Authentication Settings** to see your URI and token configuration options.
 
@@ -106,7 +107,7 @@ A redirect URI is the callback endpoint of your app. During the sign in flow, {{
     </tr>
     <tr>
       <td>Custom domain</td>
-      <td><code>http://mydomain.net/myapp2path/appid_callback</code></td>
+      <td><code>https://mydomain.net/myapp2path/appid_callback</code></td>
     </tr>
     <tr>
       <td>Ingress subdomain</td>
@@ -114,9 +115,16 @@ A redirect URI is the callback endpoint of your app. During the sign in flow, {{
     </tr>
     <tr>
       <td>Logout</td>
-      <td><code>http://mydomain.net/myapp2path/appid_logout</code></td>
+      <td><code>https://mydomain.net/myapp2path/appid_logout</code></td>
+    </tr>
+    <tr>
+      <td>Wildcard</td>
+      <td><code>https://mydomain.net/*</code> <br> Wilcards are not recommended for use in producton apps.</td>
     </tr>  
   </table>
+
+  It is recommended that you always use encryption and avoid HTTP.
+  {: note}
 
 3. Click the **+** symbol in the **Add web redirect URIs** box.
 
@@ -135,7 +143,7 @@ Not sure where your redirect URI comes from? Watch the following short video to 
 ## Configuring token lifetime
 {: #idp-token-lifetime}
 
-App ID uses tokens to identify users and secure your resources. You can adjust your configuration to fit your applications needs by setting the lifespan of the tokens. Token lifetimg begins again each time a user signs in. For example, you set your refresh token lifetime to 10 days. An access token and a refresh token are created when the user signs in for the first time. If the user returns to your app 3 days later, they wouldn't need to sign in again. But, if the user waited 12 days after their initial sign in, and then returned to your app, they would need to sign in again. With the second sign in, a new set of tokens is associated them. For more information about tokens, check out [Understanding tokens](/docs/services/appid?topic=appid-tokens#tokens).
+App ID uses tokens to identify users and secure your resources. You can adjust your configuration to fit your applications needs by setting the lifespan of the tokens. Token lifetime begins again each time a user signs in. For example, you set your refresh token lifetime to 10 days. An access token and a refresh token are created when the user signs in for the first time. If the user returns to your app 3 days later, they wouldn't need to sign in again. But, if the user waited 12 days after their initial sign in, and then returned to your app, they would need to sign in again. For more information about tokens, check out [Understanding tokens](/docs/services/appid?topic=appid-tokens#tokens).
 
 When you set a token expiration it applies to all providers that you have configured including both social and enterprise.
 {: tip}
