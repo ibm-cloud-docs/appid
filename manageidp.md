@@ -184,7 +184,7 @@ When you set token expiration, the values apply to all of the providers that you
     </tr>
   </table>
 
-  [Identity tokens](/docs/services/appid?topic=appid-tokens#identity) are automatically configured to match the length of time that you set for access tokens. These values cannot be different.
+  [Identity tokens](/docs/services/appid?topic=appid-tokens#identity) are automatically configured to match the length of time that you set for access tokens. The values cannot be different.
   {: tip}
 
 3. Click **Save**. 
