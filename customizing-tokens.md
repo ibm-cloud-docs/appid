@@ -191,23 +191,23 @@ If you want to configure the lifespan of your token, you can quickly make the ch
       <th>Description</th>
     </tr>
     <tr>
-      <td><code><em>access</em>: expires_in</code></td>
+      <td><code>access: expires_in</code></td>
       <td>The length of time for which access tokens are valid. The smaller the value, the more protection that you have in cases of token theft. The value is provided in seconds and can be any whole number in range <code>300</code> and <code>86400</code>. The default value is <code>3600</code>.
     </tr>
     <tr>
-      <td><code><em>refresh</em>: expires_in</code></td>
+      <td><code>refresh: expires_in</code></td>
       <td>The length of time for which refresh tokens are valid. The smaller the value, the more protection that you have in cases of token theft. The value is provided in seconds and can be any whole number in range <code>86400</code> and <code>7776000</code>. The default value is <code>2592000</code> (30 days).</td>
     </tr>
     <tr>
-      <td><code><em>anonymousAccess</em></code></td>
+      <td><code>anonymousAccess</code></td>
       <td>The length of time for which an anonymous token is valid. Anonymous tokens are assigned to users the moment they begin interacting with your app. When a user signs in, the information in the anonymous token is then transferred to the token associated with the user. The value is provided in seconds and can be any whole number in range <code>86400</code> and <code>7776000</code>. The default value is <code>2592000</code> (30 days).</td>
     </tr>
     <tr>
-      <td><code><em>accessTokenClaims</em></code></td>
+      <td><code>accessTokenClaims</code></td>
       <td>An array that contains the objects that are created when claims that are related to access tokens are mapped.</td>
     </tr>
     <tr>
-      <td><code><em>idTokenClaims</em></code></td>
+      <td><code>idTokenClaims</code></td>
       <td>An array that contains the objects that are created when claims that are related to identity tokens are mapped.</td>
     </tr>
   </table>
