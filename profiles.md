@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-10-09"
+lastupdated: "2019-10-25"
 
 keywords: authentication, authorization, identity, app security, secure, attributes, user information, storing, accessing
 
@@ -28,7 +28,7 @@ subcollection: appid
 
 
 
-# Storing and accessing profiles
+# Storing and accessing attributes
 {: #profiles}
 
 

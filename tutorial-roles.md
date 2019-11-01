@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-17"
+lastupdated: "2019-11-01"
 
 keywords: Authentication, authorization, identity, app security, secure, access management, roles, attributes, users
 
@@ -103,7 +103,7 @@ This process does not finish Cloud Directory registration. The user must still s
   https://us-south.appid.cloud.ibm.com/management/v4/{{APPID_TENANT_ID}}/users \
   --header 'Authorization: Bearer <iam-access-token>' \
   --header 'Content-Type: application/json' \
-  - d '{
+  -d '{
     "idp": "cloud_directory",
     "idp-identity": “user@email.com“,
     "profile": {
@@ -164,7 +164,7 @@ Cloud Land is growing! To keep up with the growth, your company is hiring new pe
   https://us-south.appid.cloud.ibm.com/management/v4/<tenant-id>/users/<user-id>/profile \
   --header 'Authorization: Bearer <iam-access-token>' \
   --header 'Content-Type: application/json' \
-  - d '{
+  -d '{
     "profile": {
       "attributes": {
         “role”: “manager”
@@ -216,7 +216,7 @@ Becoming more popular, the theme park continues to grow! With so many new visito
   https://us-south.appid.cloud.ibm.com/management/v4/{{APPID_TENANT_ID}}/config/tokens \
   --header 'Authorization: Bearer <iam-access-token>' \
   --header 'Content-Type: application/json' \
-  - d '{
+  -d '{
       "access": {
           "expires_in": 3601
       },
@@ -312,7 +312,7 @@ Optionally, you can verify that step 4 was successful by viewing an access token
   --header 'Authorization: Basic <encoded-clientID>:<encoded-client-secret>' \
   --header 'Content-Type: application/x-www-form-urlencoded' \
   --header `Accept: application/json`
-  - d 'grant_type=password&username=<user-email>%40<user-email-domain>&password=<user-password>
+  -d 'grant_type=password&username=<user-email>%40<user-email-domain>&password=<user-password>
   ```
   {: codeblock}
 
