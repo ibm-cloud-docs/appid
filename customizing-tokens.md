@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-10-30"
+lastupdated: "2019-11-01"
 
 keywords: Authentication, authorization, identity, app security, secure, custom, tokens, access, claim, attributes
 
@@ -26,7 +26,7 @@ subcollection: appid
 # Customizing tokens
 {: #customizing-tokens}
 
-With {{site.data.keyword.appid_short_notm}}, tokens are used to identify users and secure your resources. You can choose to customize the information that is injected in to the tokens by the service. By injecting the information into your tokens, it's available to your application at runtime without you having to configure extra network calls. For more information about tokens and how they're used in {{site.data.keyword.appid_short_notm}}, see [Understanding tokens](/docs/services/appid?topic=appid-tokens).
+With {{site.data.keyword.appid_short_notm}}, tokens are used to identify users and secure your resources. You can choose to customize the information that is injected in to the tokens by the service. By injecting the information into your tokens, it's available to your application at run time without you having to configure extra network calls. For more information about tokens and how they're used in {{site.data.keyword.appid_short_notm}}, see [Understanding tokens](/docs/services/appid?topic=appid-tokens).
 {: shortdesc}
 
 
@@ -54,14 +54,14 @@ The claims that are provided by {{site.data.keyword.appid_short_notm}} fall into
     <dd>Registered claims are present in your access and identity tokens and are defined by {{site.data.keyword.appid_short_notm}}. They <b>cannot</b> be overridden by custom mappings. These claims are ignored by the service and include <code>iss</code>, <code>aud</code>, <code>sub</code>, <code>iat</code>, <code>exp</code>, <code>amr</code>, and <code>tenant</code>.</dd>
 </dl>
 
-Defining a claim for your token does not change or eliminate [the attribute](/docs/services/appid?topic=appid-profiles). It changes the information that is present in the token at runtime.
+Defining a claim for your token does not change or eliminate [the attribute](/docs/services/appid?topic=appid-profiles). It changes the information that is present in the token at run time.
 {: note}
 
 
 ### How are claims mapped to tokens?
 {: #custom-claims-mapping}
 
-Each mapping is defined by a data source object and a key that is used to retrieve the claim. You can inject up to 100 claims into each token provided that the maximum payload remains less than 100KB. If you want to use nested claims, you can include them by using the dot syntax. For example, `nested.attribute`.
+Each mapping is defined by a data source object and a key that is used to retrieve the claim. You can inject up to 100 claims into each token if the maximum payload remains less than 100 KB. If you want to use nested claims, you can include them by using the dot syntax. For example, `nested.attribute`.
 
 The claims are set for each token separately and are sequentially applied as shown in the following example. 
 
@@ -120,7 +120,7 @@ The claims are set for each token separately and are sequentially applied as sho
 With the API, you can customize the information that is returned in your {{site.data.keyword.appid_short_notm}} tokens.
 {: shortdesc}
 
-If you just want to configure the lifespan of your token, you can quickly make the changes through the service dashboard. For more information, see [Managing authentication](/docs/services/appid?topic=appid-managing-idp#idp-token-lifetime).
+If you want to configure the lifespan of your token, you can quickly make the changes through the service dashboard. For more information, see [Managing authentication](/docs/services/appid?topic=appid-managing-idp#idp-token-lifetime).
 {: tip}
 
 1. Obtain an IAM token. For more information, see the [IAM documentation](/docs/iam?topic=iam-getstarted#getstarted).
@@ -128,7 +128,7 @@ If you just want to configure the lifespan of your token, you can quickly make t
   1. In the IBM Cloud dashboard, click **Manage > Access (IAM)**.
   2. Select **IBM Cloud API keys**.
   3. Click **Create an IBM Cloud API key**.
-  4. Give your key a name and describe it. Click **Create**. A screen displays with your your key.
+  4. Give your key a name and describe it. Click **Create**. A screen displays with your key.
   5. Click **Copy** or download your key. When you close the screen, you can no longer access the key.
   6. Make the following cURL request with the API key that you created.
 
@@ -191,28 +191,28 @@ If you just want to configure the lifespan of your token, you can quickly make t
       <th>Description</th>
     </tr>
     <tr>
-      <td><code><em>access</em></code></td>
-      <td>Object containing expiration time, `expires_in`, in minutes of your access and identity tokens. </br> </br> The default expiration is 60 minutes.</td>
+      <td><code><em>access</em>: expires_in</code></td>
+      <td>The length of time for which access tokens are valid. The smaller the value, the more protection that you have in cases of token theft. The value is provided in seconds and can be any whole number in range <code>300</code> and <code>86400</code>. The default value is <code>3600</code>.
     </tr>
     <tr>
-      <td><code><em>refresh</em></code></td>
-      <td>Object that contains the expiration time, `expires_in`, in days of your refresh token. </br> </br> The default expiration is 30 days. </td>
+      <td><code><em>refresh</em>: expires_in</code></td>
+      <td>The length of time for which refresh tokens are valid. The smaller the value, the more protection that you have in cases of token theft. The value is provided in seconds and can be any whole number in range <code>86400</code> and <code>7776000</code>. The default value is <code>2592000</code> (30 days).</td>
     </tr>
     <tr>
       <td><code><em>anonymousAccess</em></code></td>
-      <td>Object that contains the expiration time, `expires_in`, in days of your anonymous access and identity tokens. </br> </br> The default expiration is 30 days.
+      <td>The length of time for which an anonymous token is valid. Anonymous tokens are assigned to users the moment they begin interacting with your app. When a user signs in, the information in the anonymous token is then transferred to the token associated with the user. The value is provided in seconds and can be any whole number in range <code>86400</code> and <code>7776000</code>. The default value is <code>2592000</code> (30 days).</td>
     </tr>
     <tr>
       <td><code><em>accessTokenClaims</em></code></td>
-      <td>An array that contains the objects that are created when claims related to access tokens are mapped.</td>
+      <td>An array that contains the objects that are created when claims that are related to access tokens are mapped.</td>
     </tr>
     <tr>
       <td><code><em>idTokenClaims</em></code></td>
-      <td>An array that contains the objects that are created when claims related to identity tokens are mapped.</td>
+      <td>An array that contains the objects that are created when claims that are related to identity tokens are mapped.</td>
     </tr>
   </table>
 
-  You must set the token values in each request that you make. If a value is not set then the default is used. Each customization request overwrites what is previously configured.
+  You must set the token lifetime in each request that you make. If a value is not set, then the default is used. Each customization request overwrites what is previously configured. Note that the lifetime configuration specifications are different in the API than they are in the service dashboard.
   {: note}
 
 

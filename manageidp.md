@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-10-31"
+lastupdated: "2019-11-01"
 
 keywords: Authentication, authorization, identity, app security, secure, development, identity provider, tokens, customization, lifetime
 
@@ -145,7 +145,7 @@ Not sure where your redirect URI comes from? Watch the following short video to 
 
 App ID uses tokens to identify users and secure your resources. You can adjust your configuration to fit your applications needs by setting the lifespan of the tokens. Token lifetime begins again each time a user signs in. For example, you set your refresh token lifetime to 10 days. An access token and a refresh token are created when the user signs in for the first time. If the user returns to your app 3 days later, they wouldn't need to sign in again. But, if the user waited 12 days after their initial sign-in, and then returned to your app, they would need to sign in again. For more information about tokens, check out [Understanding tokens](/docs/services/appid?topic=appid-tokens#tokens).
 
-When you set token expiration, the values apply to all of the providers that you have configured. If you want to customize your tokens further, try using the API to [map custom claims](/docs/services/appid?topic=appid-customizing-tokens) so that the user information is available at runtime.
+When you set token expiration, the values apply to all of the providers that you make available. If you want to customize your tokens further, try calling the API to [map custom claims](/docs/services/appid?topic=appid-customizing-tokens) so that the user information is available at run time. Note that when you work with the API the customization times are configured differently.
 {: tip}
 
 1. Go to the **Manage Authentication > Authentication settings** tab of the service dashboard.
@@ -157,29 +157,25 @@ When you set token expiration, the values apply to all of the providers that you
     <tr>
       <th>Token type</th>
       <th>Description</th>
-      <th>Time qualification</th>
       <th>Default</th>
       <th>Options</th>
     </tr>
     <tr>
       <td>[Access](/docs/services/appid?topic=appid-tokens#access)</td>
-      <td>The smaller the value, the more protection that you have in cases of token theft. This value also applies to identity tokens.</td>
-      <td>Minutes</td>
-      <td>60</td>
+      <td>The length of time for which access tokens are valid. The smaller the value, the more protection that you have in cases of token theft.</td>
+      <td>60 minutes</td>
       <td>Any value in the range 5 - 1440</td>
     </tr>
     <tr>
       <td>[Refresh](/docs/services/appid?topic=appid-tokens#refresh)</td>
-      <td>The smaller the number, the more frequently a user must sign themselves in.</td>
-      <td>Days</td>
-      <td>30</td>
+      <td>The length of time for which refresh tokens are valid. The smaller the number, the more frequently a user must sign themselves in.</td>
+      <td>30 days</td>
       <td>Any value in the range 1 - 90</td>
     </tr>
     <tr>
       <td>[Anonymous](/docs/services/appid?topic=appid-anonymous)</td>
-      <td>Anonymous tokens are assigned to users the moment they begin interacting with your app. When a user signs in, the information in the anonymous token is then transferred to the token associated with the user.</td>
-      <td>Days</td>
-      <td>30</td>
+      <td>The length of time for which anonymous tokens are valid. Anonymous tokens are assigned to users the moment they begin interacting with your app. When a user signs in, the information in the anonymous token is then transferred to the token associated with the user.</td>
+      <td>30 days</td>
       <td>Any value in the range 1 - 90</td>
     </tr>
   </table>
