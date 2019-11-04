@@ -61,7 +61,7 @@ Example:
 ```
 {: screen}
 
-Using this example, the URL would be `https://us-south.appid.cloud.ibm.com/oauth/v4/3x176051-a23x-40y4-9645-804943z660q0`. You would then append the endpoint that you wanted to make a request to. Check out the following table to see some example endpoints.
+Using this example, the URL would be `https://us-south.appid.cloud.ibm.com/oauth/v4/8f5aa500-357e-443a-aab6-bf878f852b5a`. You would then append the endpoint that you wanted to make a request to. Check out the following table to see some example endpoints.
 
 <table>
   <tr>
