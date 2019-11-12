@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-05"
+lastupdated: "2019-11-12"
 
 keywords: Authentication, authorization, identity, app security, secure, development, access management, liberty, backend, java, token
 
