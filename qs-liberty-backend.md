@@ -56,7 +56,7 @@ Before you get started with {{site.data.keyword.appid_short_notm}} in your Liber
 * An instance of [the {{site.data.keyword.appid_short_notm}} service](https://cloud.ibm.com/catalog/services/app-id){: external}
 * [The IBM Cloud CLI](/docs/cli?topic=cloud-cli-getting-started)
 * [Apache Maven 3.5+](https://maven.apache.org/download.cgi){: external}
-* [Java 8+](https://www.java.com/en/download){: external}
+* [Java 8+](https://www.java.com/en/download/){: external}
 * The [{{site.data.keyword.appid_short_notm}} Postman collection](https://github.com/ibm-cloud-security/appid-postman){: external} for testing
 
 ## Step 1: Obtain your credentials
