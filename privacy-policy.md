@@ -30,12 +30,12 @@ subcollection: appid
 {: #effective}
 {: notoc}
 
-Client, hereinafter referred to as “Developer”, performs development and testing of applications using the default configuration of {{site.data.keyword.appid_full}} (“{{site.data.keyword.appid_short_notm}}” or "Service") for Facebook or Google. Developer uses the default settings of {{site.data.keyword.appid_short_notm}} only for evaluation and testing purposes, and to determine whether to incorporate {{site.data.keyword.appid_short_notm}} into the application(s) being developed by Developer (“Permitted Uses”). Developer will not use the default settings of {{site.data.keyword.appid_short_notm}} for any uses or purposes other than the previously stated Permitted Uses.
+Client, hereinafter referred to as "Developer", performs development and testing of applications using the default configuration of {{site.data.keyword.appid_full}} ("{{site.data.keyword.appid_short_notm}}" or "Service") for Facebook or Google. Developer uses the default settings of {{site.data.keyword.appid_short_notm}} only for evaluation and testing purposes, and to determine whether to incorporate {{site.data.keyword.appid_short_notm}} into the application(s) being developed by Developer ("Permitted Uses"). Developer will not use the default settings of {{site.data.keyword.appid_short_notm}} for any uses or purposes other than the previously stated Permitted Uses.
 {: shortdesc}  
 
 Developer will implement a Privacy Policy, separate from this document, upon transition of applications from development to production.
 
-This document informs of: the policies regarding the collection, use, disclosure, or any other operations carried out (“Processing”) on personally identifiable information that can be used to contact or identify a person (“Personal Data”); and Developer’s responsibilities when engaging in the Permitted Uses of the Service, and the choices associated with the Processing of Personal Data.
+This document informs of: the policies regarding the collection, use, disclosure, or any other operations carried out ("Processing") on personally identifiable information that can be used to contact or identify a person ("Personal Data"); and Developer’s responsibilities when engaging in the Permitted Uses of the Service, and the choices associated with the Processing of Personal Data.
 
 Developer will Process Personal Data while engaging in the Permitted Uses of the Service. By using the Service, Developer confirms that it is Processing Personal Data in accordance with this policy and applicable laws.
 {: important}
@@ -115,7 +115,7 @@ Developer will strive to use appropriate means to protect all Personal Data used
 ## Service Providers
 {: #service-providers}
 
-Developer may employ third-party companies and individuals (“Service Providers”) to facilitate Permitted Uses of the Service, including to perform development and testing, or to analyze development and testing activities.
+Developer may employ third-party companies and individuals ("Service Providers") to facilitate Permitted Uses of the Service, including to perform development and testing, or to analyze development and testing activities.
 
 These Service Providers have access to Personal Data only to perform these tasks on Developer’s behalf and are obligated not to disclose or use it for any other purpose.
 
