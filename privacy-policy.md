@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-10-16"
+lastupdated: "2019-11-12"
 
 keywords: Authentication, authorization, identity, app security, secure, custom, proprietary, social, facebook, google, 
 
@@ -30,7 +30,8 @@ subcollection: appid
 {: #effective}
 {: notoc}
 
-Client, hereinafter referred to as “Developer”, performs development and testing of applications using the default configuration of {{site.data.keyword.appid_full}} (“{{site.data.keyword.appid_short_notm}}” or "Service") for Facebook or Google. Developer uses the default settings of {{site.data.keyword.appid_short_notm}} only for evaluation and testing purposes, and to determine whether to incorporate {{site.data.keyword.appid_short_notm}} into the application(s) being developed by Developer (“Permitted Uses”). Developer will not use the default settings of {{site.data.keyword.appid_short_notm}} for any uses or purposes other than the previously stated Permitted Uses.  
+Client, hereinafter referred to as “Developer”, performs development and testing of applications using the default configuration of {{site.data.keyword.appid_full}} (“{{site.data.keyword.appid_short_notm}}” or "Service") for Facebook or Google. Developer uses the default settings of {{site.data.keyword.appid_short_notm}} only for evaluation and testing purposes, and to determine whether to incorporate {{site.data.keyword.appid_short_notm}} into the application(s) being developed by Developer (“Permitted Uses”). Developer will not use the default settings of {{site.data.keyword.appid_short_notm}} for any uses or purposes other than the previously stated Permitted Uses.
+{: shortdesc}  
 
 Developer will implement a Privacy Policy, separate from this document, upon transition of applications from development to production.
 
