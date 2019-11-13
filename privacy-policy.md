@@ -26,6 +26,7 @@ subcollection: appid
 # Privacy policy: Default Facebook and Google settings
 {: #privacy-policy}
 
+
 **Effective: August 2019** Client, hereinafter referred to as "Developer", performs development and testing of applications using the default configuration of {{site.data.keyword.appid_full}} ("{{site.data.keyword.appid_short_notm}}" or "Service") for Facebook or Google. Developer uses the default settings of {{site.data.keyword.appid_short_notm}} only for evaluation and testing purposes, and to determine whether to incorporate {{site.data.keyword.appid_short_notm}} into the application(s) being developed by Developer ("Permitted Uses"). Developer will not use the default settings of {{site.data.keyword.appid_short_notm}} for any uses or purposes other than the previously stated Permitted Uses.
 {: shortdesc}  
 
