@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-11-12"
+lastupdated: "2019-11-13"
 
 keywords: Authentication, authorization, identity, app security, secure, custom, proprietary, social, facebook, google, 
 
@@ -21,6 +21,7 @@ subcollection: appid
 {:important: .important}
 {:deprecated: .deprecated}
 {:download: .download}
+{:notoc: .notoc}
 
 
 # Privacy policy: Default Facebook and Google settings
