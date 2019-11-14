@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-11-11"
+lastupdated: "2019-11-14"
 
 keywords: authentication, authorization, identity, app security, access, secure, development, any kube, kubernetes, icp, openshift, iks
 
@@ -112,7 +112,7 @@ To install the chart, initialize Helm in your cluster, define the options that y
   ```
   {: codeblock}
 
-  You might want to configure Helm to use `--tls` mode. For help with enabling TLS, check out the [Helm repository](https://helm.sh/docs/tiller_ssl/#using-ssl-between-helm-and-tiller){: external}. If you enable TLS, be sure to append `--tls` to every Helm command that you run. For more information about using Helm with IBM Cloud Kubernetes Service, see [Adding services by using Helm Charts](/docs/containers?topic=containers-helm#public_helm_install).
+  For more information about using Helm with IBM Cloud Kubernetes Service, see [Adding services by using Helm Charts](/docs/containers?topic=containers-helm#public_helm_install).
   {: tip}
 
 3. Add the repository.
@@ -120,6 +120,7 @@ To install the chart, initialize Helm in your cluster, define the options that y
   ```bash
   helm repo add appidentityandaccessadapter https://raw.githubusercontent.com/ibm-cloud-security/app-identity-and-access-adapter/master/helm/appidentityandaccessadapter
   ```
+  {: codeblock}
 
 4. Install the chart.
 
