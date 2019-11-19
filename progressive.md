@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-17"
+lastupdated: "2019-11-19"
 
-keywords: Authentication, authorization, identity, app security, secure, anonymous, progressive, profiles, sign in
+keywords: anonymous authentication, progressive authentication, profile, user profile, authorization, sign in, secure app, identity provider, authorization
 
 subcollection: appid
 
@@ -25,8 +25,10 @@ subcollection: appid
 # Anonymous authentication
 {: #anonymous}
 
-When developing apps, one of the biggest concerns is security. How can you ensure that only users with approved access, are using your app? You need to use an authorization process. In most processes authorization and authentication are coupled together, which can make changing your security policies and identity providers complicated. With {{site.data.keyword.appid_full}}, authorization and authentication are separate processes.
+When you develop an application, there might be times when you want to let a user interact with pieces of your app before they're signed in. By decoupling the authentication and authorization processes, {{site.data.keyword.appid_full}} allows you to provide a seamless experience between protected and open resources in your applications.
 {: shortdesc}
+
+For example, say you're an online retailer, you might want to let users browse your inventory and place items in a shopping cart. As the retailer, you don't know who the user is, so they're anonymous. A user might remain anonymous if they never choose to sign in. If they do choose to sign in, then the anonymous becomes a known user. If the user is a new known user, a profile is created. If the user has previously visited your app, then their anonymous profile is linked with their user profile.
 
 
 ![The path to becoming an identified user.](images/authenticationtrail.png){: caption="Figure 1. The path to becoming an identified user" caption-side="bottom"}

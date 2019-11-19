@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-17"
+lastupdated: "2019-11-19"
 
-keywords: authentication, authorization, identity, app security, secure, web apps, client, server
+keywords: web apps, authorization code, authentication, nodejs, javascript, app access, application credentials, login, redirect uri, protected endpoint, video
 
 subcollection: appid
 
@@ -26,24 +26,14 @@ subcollection: appid
 # Web apps
 {: #web-apps}
 
-With {{site.data.keyword.appid_full}}, you can quickly construct an authentication layer for your web applications.
+When you are developing a web application, you can use the {{site.data.keyword.appid_full}} web flow to securely authenticate users. Users are then able to access your server-side protected content in your web apps.
 {: shortdesc}
 
 ## Understanding the flow
-{: #web-understanding}
 
-### When would this flow be useful?
-{: #web-flow-useful}
-
-When you are developing a web application, you can use the {{site.data.keyword.appid_short_notm}} web flow to securely authenticate users. Users are then able to access your server-side protected content in your web apps.
-
-### What is the flow's technical basis?
-{: #web-flow-tech-basis}
 
 Web apps often require users to authenticate in order to access protected content. {{site.data.keyword.appid_short_notm}} uses the OIDC authorization code flow to securely authenticate users. With this flow, when the user is authenticated, the app receives an authorization code. The code is then exchanged for an access, identity, and refresh token. In code, exchange step the tokens are always sent via a secure backchannel between the app and the OIDC server. This provides an extra layer of security as the attacker is not able to intercept the tokens. These tokens can be sent directly to the web server hosting application for user authentication.
 
-### How does this flow work?
-{: #web-flow-work}
 
 ![{{site.data.keyword.appid_short_notm}} web app request flow](images/web-flow.png){: caption="Figure 1. {{site.data.keyword.appid_short_notm}} web app request flow" caption-side="bottom"}
 

@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-08-23"
+lastupdated: "2019-11-19"
 
-keywords: Authentication, authorization, identity, app security, secure, access management, roles, attributes, users
+keywords: obtain tokens, return tokens, authorized, authorization, access management, client id, secret, tenant id, app security, identity token
 
 subcollection: appid
 

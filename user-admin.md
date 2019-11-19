@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-10-21"
+lastupdated: "2019-11-19"
 
-keywords: authentication, authorization, identity, app security, secure, attributes, user information, storing, accessing, administration, admin, administering
+keywords: user information, add users, delete users, profile, access, attributes, admin, app security, authentication, authorization
 
 subcollection: appid
 

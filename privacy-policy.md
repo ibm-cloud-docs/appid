@@ -4,7 +4,7 @@ copyright:
   years: 2017, 2019
 lastupdated: "2019-11-19"
 
-keywords: personal data, app id permitted uses, privacy policy, usage data, user information, tracking technology, ip addresses, service providers, developers, client, testing, default configuration, cookies data, consent, legal, google, facebook, 
+keywords: personal data, app id permitted uses, privacy policy, usage data, user information, tracking technology, ip addresses, service providers, developers, client, testing, default configuration, cookies data, consent, legal, google, facebook 
 
 subcollection: appid
 

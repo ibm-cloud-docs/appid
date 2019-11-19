@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-17"
+lastupdated: "2019-11-19"
 
-keywords: Authentication, authorization, identity, app security, secure, discovery endpoint, oidc, public keys, tokens, well known endpoint
+keywords: well known endpoint, discovery endpoint, oidc, public keys, user information, claims, attributes, full profile, identity providers, app security, tokens
 
 subcollection: appid
 
@@ -192,5 +192,3 @@ The response that is returned looks similar to the following example:
     <td>The URL of the {{site.data.keyword.appid_short_notm}} user profile endpoint.</td>
   </tr>
 </table>
-
-

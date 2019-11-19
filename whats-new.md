@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-10-09"
+lastupdated: "2019-11-19"
 
-keywords: authentication, application identity, authorization, app security, single sign on, mfa, cloud directory
+keywords: new, spa, single sign on, mfa, cloud directory, saml, app security, application identity
 
 subcollection: appid
 

@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-05"
+lastupdated: "2019-11-19"
 
-keywords: Authentication, authorization, identity, app security, secure, development, cloud foundry, access management, iam, java, node.js
+keywords: cloud foundry, iam, java nodejs, identity, access management, user access, service access, permissions, bind service
 
 subcollection: appid
 
@@ -26,7 +26,7 @@ subcollection: appid
 # Tutorial: Configuring Cloud Foundry to use {{site.data.keyword.appid_short_notm}}
 {: #cloud-foundry}
 
-With {{site.data.keyword.cloud_notm}}, you can protect your apps with two different types of access management, Identity and Access Management (IAM) and Cloud Foundry. By default, all new instances of  {{site.data.keyword.appid_short_notm}} use IAM resource groups to manage access. If you are using Cloud Foundry to manage your application, you can bridge the management models by creating a service alias and binding the service to the app.
+With {{site.data.keyword.cloud_notm}}, you can protect your apps with two different types of access management, Identity and Access Management (IAM) and Cloud Foundry. By default, all new instances of {{site.data.keyword.appid_short_notm}} use IAM resource groups to manage access. If you are using Cloud Foundry to manage your application, you can bridge the management models by creating a service alias and binding the service to the app.
 {: shortdesc}
 
 
