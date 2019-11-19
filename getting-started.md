@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-16"
+lastupdated: "2019-11-19"
 
-keywords: Authentication, authorization, identity, app security, secure, development,
+keywords: sample app, authentication, sign in, log in, ios swift, android, node js, java, single page apps, authorization, app security, identity, sdk
 
 subcollection: appid
 
@@ -71,7 +71,7 @@ To build a sample app:
 2. Click on the language of your choice to download the sample.
   Don't see the language you're looking for? Don't worry! You can take advantage of {{site.data.keyword.appid_short_notm}} through the APIs.
   {: tip}
-3. Be sure that you have the pre-requisites installed or completed.
+3. Be sure that you have the prerequisites installed or completed.
 4. Follow the **Build & Run** steps to set up your sample with {{site.data.keyword.appid_short_notm}}.
 5. Click **Review Activity** to see any authentication events that occurred. Any type of sign in creates an event that is visible on this page.
 6. Customize the sign in widget.

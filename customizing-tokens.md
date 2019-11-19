@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-11-01"
+lastupdated: "2019-11-19"
 
-keywords: Authentication, authorization, identity, app security, secure, custom, tokens, access, claim, attributes
+keywords: user information, tokens, custom tokens, secure resources, authorization, identity, authentication, claims, oauth, claims mapping, attributes, app security, access, runtime
 
 subcollection: appid
 

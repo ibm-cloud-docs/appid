@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-12"
+lastupdated: "2019-11-19"
 
-keywords: Authentication, authorization, identity, app security, secure, access, platform, management, permissions
+keywords: Migrating users, multiple service instances, manage service, access, configuration, duplicate, export, app security, identity
 
 subcollection: appid
 

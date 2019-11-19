@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-05"
+lastupdated: "2019-11-19"
 
-keywords: Authentication, authorization, identity, app security, secure, access, platform, management, permissions
+keywords: user access, account settings, iam, user roles, platform roles, service roles, reader, writer, operator, editor, viewer, administrator, manager, permissions
 
 subcollection: appid
 
