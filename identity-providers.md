@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-06"
+lastupdated: "2019-11-19"
 
-keywords: Authentication, authorization, identity, app security, secure, custom, proprietary, social, facebook, google, 
+keywords: facebook, google, social, identity providers, single sign on, default configuration, authentication, authorization, identity, app security, idp, default credentials
 
 subcollection: appid
 

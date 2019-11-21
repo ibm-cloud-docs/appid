@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-11-17"
+lastupdated: "2019-11-19"
 
-keywords: Authentication, authorization, identity, app security, secure, custom, proprietary, social, facebook, google, 
+keywords: personal data, app id permitted uses, privacy policy, usage data, user information, tracking technology, ip addresses, service providers, developers, client, testing, default configuration, cookies data, consent, legal, google, facebook 
 
 subcollection: appid
 

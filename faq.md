@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-19"
+lastupdated: "2019-11-19"
 
-keywords: Authentication, authorization, identity, app security, secure
+keywords: pricing, advanced security, authentication events, authorized users, activity tracking, runtime activity, password policies, keycloak, whitelist redirect url, redirect uri 
 
 subcollection: appid
 

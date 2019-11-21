@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-26"
+lastupdated: "2019-11-19"
 
-keywords: Authentication, authorization, identity, app security, secure, development, user information, attributes, profiles, 
+keywords: user registration, new user, add user, custom attributes, profiles, user profile, user, user information, identity provider, authentication, authorization, personalize app, app security
 
 subcollection: appid
 

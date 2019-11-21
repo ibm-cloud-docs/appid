@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-11-01"
+lastupdated: "2019-11-19"
 
-keywords: Authentication, authorization, identity, app security, secure, access management, roles, attributes, users
+keywords: roles, access control, scopes, roles, app security, user profile, app access, identity
 
 subcollection: appid
 

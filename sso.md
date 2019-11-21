@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-10-21"
+lastupdated: "2019-11-19"
 
-keywords: Authentication, authorization, identity, app security, secure, development, sso, directory, users, registry, multiple apps
+keywords: sso, single sign on, cloud directory, saml, federated, sign in, log in, log out, authentication, app security, user registry, multiple apps
 
 subcollection: appid
 
@@ -27,6 +27,7 @@ subcollection: appid
 {: #cd-sso}
 
 With Single sign-on (SSO) for Cloud Directory, you can provide a smooth authentication experience between multiple web apps. If SSO is turned on when a user initially signs in, they are not required to reenter their credentials the next time they sign-in. Instead, they are automatically signed in to any of your apps that are protected by the same {{site.data.keyword.appid_short_notm}} instance.
+{: shortdesc}
 
 {{site.data.keyword.appid_short_notm}} provides SSO for Cloud Directory users. If you use a social or federated SAML identity provider SSO is managed by that provider and {{site.data.keyword.appid_short_notm}} respects it.
 {: note}
@@ -40,11 +41,11 @@ Check out the following diagram to see SSO in action.
 ![SSO diagram](images/sso.png){: caption="Figure 1. Cloud Directory SSO flow" caption-side="bottom"}
 
 1. A Cloud Directory user signs in to your app for the first time.
-2. They are asked to authenticate by providing either a user name or email and password.
+2. They are asked to authenticate by providing either a username or email and password.
 3. If the credentials are valid, a user is signed in to your app. At the same time, {{site.data.keyword.appid_short_notm}}, creates a session and sets a cookie on the user's browser.
 4. If a user attempts to sign in to one of your other applications, {{site.data.keyword.appid_short_notm}} detects the session cookie and automatically signs the user into your app. {{site.data.keyword.appid_short_notm}} session cookies are instance-specific and are signed by the instance's unique private key.
 
-At this time, Cloud Directory SSO is configured to work when Cloud Directory is the only enabled identity provider. If your instance of {{site.data.keyword.appid_short_notm}} is configured to use multiple identity providers, enabling SSO has no affect on the sign-in flow. Users are prompted to enter their Cloud Directory credentials or choose one of the other providers at every sign in.
+Currently, Cloud Directory SSO is configured to work when Cloud Directory is the only enabled identity provider. If your instance of {{site.data.keyword.appid_short_notm}} is configured to use multiple identity providers, enabling SSO has no effect on the sign-in flow. Users are prompted to enter their Cloud Directory credentials or choose one of the other providers at every sign-in.
 {: note}
 
 
@@ -65,7 +66,7 @@ You can configure the SSO through the GUI.
 
 2. Toggle **Enable single sign-on** to **Enabled**.
 
-3. Set the amount of time that a user can be inactive before the SSO session expires. When it expires, they must sign in again. The time is specified in minutes and the maximum allowed time for inactivity is 10,080 minutes (7 days). The default time is 1440 minutes which is the equivalent of 1 day.
+3. Set the amount of time that a user can be inactive before the SSO session expires. When it expires, they must sign in again. The time is specified in minutes and the maximum allowed time for inactivity is 10,080 minutes (7 days). The default time is 1440 minutes, which is the equivalent of 1 day.
 
 4. Add your redirect URIs to the **Logout redirect URI** box and click the **+** sign. Be sure to register only applications that you trust. By registering the URI, you're authorizing {{site.data.keyword.appid_short_notm}} to include it in the authorization workflow.
 
@@ -104,24 +105,24 @@ An example call:
   </tr>
   <tr>
     <td><code>inactivityTimeoutSeconds</code></td>
-    <td>The longest length of time that can pass without any user activity before the user is required to re-enter their credentials. This value is specified in seconds and can be a maximum of <code>604800 seconds</code> (7 days). The default setting is <code>86400 seconds</code> (1 day).</td>
+    <td>The longest length of time that can pass without any user activity before the user is required to reenter their credentials. This value is specified in seconds and can be a maximum of <code>604800 seconds</code> (7 days). The default setting is <code>86400 seconds</code> (1 day).</td>
   </tr>
   <tr>
     <td><code>logoutRedirectUris</code></td>
-    <td>A comma separated list of allowed URIs that {{site.data.keyword.appid_short_notm}} can redirect your users to after they sign out.</td>
+    <td>A comma-separated list of allowed URIs that {{site.data.keyword.appid_short_notm}} can redirect your users to after they sign out.</td>
   </tr>
 </table>
 
 
 
-## Configuring log out
+## Configuring logout
 {: #cd-sso-log-out}
 
-With {{site.data.keyword.appid_short_notm}} you can end a user's SSO session for their current browser. If the API endpoint is accessed by the user's browser, their session is terminated and the user is prompted to enter their credentials on their next sign in attempt in that browser - for any of your apps.
+With {{site.data.keyword.appid_short_notm}}, you can end a user's SSO session for their current browser. If the API endpoint is accessed by the user's browser, their session is terminated and the user is prompted to enter their credentials on their next sign-in attempt in that browser - for any of your apps.
 {: shortdesc}
 
 
-When one of the change, reset, or renew password flows is started, the sessions across all clients are automatically terminated for the user.
+When one of the changes, reset, or renew password flows is started, the sessions across all clients are automatically terminated for the user.
 {: note}
 
 
@@ -136,7 +137,7 @@ https://<region>.appid.cloud.ibm.com/oauth/v4/<tenant-id>/cloud_directory/sso/lo
 {: codeblock}
 
 <table>
-  <caption>Table 2. SSO sign out API call variables</caption>
+  <caption>Table 2. SSO sign-out API call variables</caption>
   <tr>
     <th>Variable</th>
     <th>Value</th>
@@ -155,7 +156,7 @@ https://<region>.appid.cloud.ibm.com/oauth/v4/<tenant-id>/cloud_directory/sso/lo
   </tr>
 </table>
 
-Even if the SSO session is ended, a user with a valid access token that is stored in their session might not be required to enter their credentials again until their token expires. By default the token expires after one hour.
+Even if the SSO session is ended, a user with a valid access token that is stored in their session might not be required to enter their credentials again until their token expires. By default the token expires after 1 hour.
 {: note}
 
 
@@ -178,7 +179,7 @@ app.get('/logoutSSO', (req, res) => {
 ## Ending all sessions for a user
 {: cd-sso-ending-all-sessions}
 
-As an administrator, you can end all SSO sessions for any given user by using the {{site.data.keyword.appid_short_notm}} admin APIs. The APIs are protected by a Cloud IAM token.
+As an administrator, you can end all SSO sessions for any user by using the {{site.data.keyword.appid_short_notm}} admin APIs. The APIs are protected by a Cloud IAM token.
 
 Example API request:
 
@@ -209,5 +210,5 @@ Authorization: <IAM TOKEN>
   </tr>
 </table>
 
-When you invoke this API, all of the specified user's SSO sessions are invalidated. This means that the next time that the user attempts to sign in to any of your apps, from any device or browser, they are required to re-enter their credentials.
+When you invoke this API, all of the specified user's SSO sessions are invalidated. This means that the next time that the user attempts to sign in to any of your apps, from any device or browser, they are required to reenter their credentials.
 

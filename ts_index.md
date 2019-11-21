@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-17"
+lastupdated: "2019-11-19"
 
-keywords: Authentication, authorization, identity, app security, secure, troubleshooting, help, support, requests, uri
+keywords: help, support, error, multiple users, attribute, ticket, identity provider, redirect uri, custom url, virtual user, idp, identity settings, user profile
 
 subcollection: appid
 

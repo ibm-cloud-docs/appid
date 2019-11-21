@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-06"
+lastupdated: "2019-11-19"
 
-keywords: authentication, authorization, identity, app security, secure, backend, back-end, oauth, 
+keywords: protected resource, backend apps, identity, tokens, identity provider, authentication, authorization, app security, oauth, 
 
 subcollection: appid
 

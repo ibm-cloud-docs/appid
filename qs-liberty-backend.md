@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-11-12"
+lastupdated: "2019-11-19"
 
-keywords: Authentication, authorization, identity, app security, secure, development, access management, liberty, backend, java, token
+keywords: backend apps, java, liberty for java, liberty, identity provider, access management, protected endpoints, access tokens, security, back end
 
 subcollection: appid
 

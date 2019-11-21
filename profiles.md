@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-10-25"
+lastupdated: "2019-11-19"
 
-keywords: authentication, authorization, identity, app security, secure, attributes, user information, storing, accessing
+keywords: profile, custom attributes, predefined attributes, attributes, app users, app interaction, personalized experience, access user info, identity provider information, access token, authentication, user sign in, android, java, node, swift, ios, user, preferences
 
 subcollection: appid
 
@@ -35,8 +35,6 @@ subcollection: appid
 With {{site.data.keyword.appid_full}}, you can compile information about the individual users of your application into a profile. The information in the profile can be learned about your users by the way that they interact with your app or added by you on their behalf. By storing the information, you can access it to help create personalized experiences of your app for your users.
 {: shortdesc}
 
-Looking for information about your Cloud Directory users? Check out [managing users](/docs/services/appid?topic=appid-cd-users).
-{: tip}
 
 ## Understanding profiles
 {: #profile-understand}

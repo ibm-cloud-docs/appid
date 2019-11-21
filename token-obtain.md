@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-08-23"
+lastupdated: "2019-11-21"
 
-keywords: Authentication, authorization, identity, app security, secure, access management, roles, attributes, users
+keywords: obtain tokens, return tokens, authorized, authorization, access management, client id, secret, tenant id, app security, identity token
 
 subcollection: appid
 
@@ -204,7 +204,7 @@ Server Swift:
 
 3. Make a request to the API to obtain a token. The data section of your request varies depending on the type of grant type that you're using. 
 
-  ```
+  ```sh
   curl -X POST https://<region>.appid.cloud.ibm.com/oauth/v4/<tenant_id>/token \
   -H 'Authorization: Basic base64Encoded{{client-ID}:{client-secret}}' \
   -H 'Content-Type: application/x-www-form-urlencoded' \

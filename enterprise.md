@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-10-25"
+lastupdated: "2019-11-19"
 
-keywords: Authentication, authorization, identity, app security, secure, custom, service provider, identity provider, enterprise, assertions
+keywords: saml, enterprise apps, assertions, single sign on, tokens, authorization, user authentication, key cloak, redhat, cloud identity, sso, single sign on, xml signature, service provider, identity provider, app security
 
 subcollection: appid
 

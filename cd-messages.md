@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-10-15"
+lastupdated: "2019-11-19"
 
-keywords: Authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
+keywords: emails, verification, templates, sendgrid, welcome, password reset, password change, change details, verification, supported languages, registry, cloud directory, 
 
 subcollection: appid
 

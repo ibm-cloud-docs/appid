@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-17"
+lastupdated: "2019-11-21"
 
-keywords: Authentication, authorization, identity, app security, secure, discovery endpoint, oidc, public keys, tokens, well known endpoint
+keywords: well known endpoint, discovery endpoint, oidc, public keys, user information, claims, attributes, full profile, identity providers, app security, tokens
 
 subcollection: appid
 
@@ -84,7 +84,7 @@ To make a call to the endpoint, you must have a valid tenant ID and you must har
 
 Check out the following sample cURL request:
 
-```bash
+```sh
 curl -X GET "https://{region}.appid.cloud.ibm.com/oauth/v4/{tenant-id}/.well-known/openid-configuration" -H "accept: application/json"
 ```
 {:codeblock}
@@ -94,7 +94,7 @@ curl -X GET "https://{region}.appid.cloud.ibm.com/oauth/v4/{tenant-id}/.well-kno
 
 The response that is returned looks similar to the following example:
 
-```bash
+```json
 {
   "issuer": "https://us-south.appid.cloud.ibm.com/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6060b61",
   "authorization_endpoint": "https://us-south.appid.cloud.ibm.com/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6060b61/authorization",
@@ -192,5 +192,3 @@ The response that is returned looks similar to the following example:
     <td>The URL of the {{site.data.keyword.appid_short_notm}} user profile endpoint.</td>
   </tr>
 </table>
-
-

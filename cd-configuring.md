@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-08-16"
+lastupdated: "2019-11-19"
 
-keywords: Authentication, authorization, identity, app security, secure, directory, registry, passwords, languages, lockout
+keywords: user registry, sign up, sign in, username, email, password, account settings, reset password, email sender, email verification, app security
 
 subcollection: appid
 

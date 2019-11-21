@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-19"
+lastupdated: "2019-11-19"
 
-keywords: Authentication, authorization, identity, app security, secure, custom, proprietary, 
+keywords: custom identity provider, authorization, bring your own idp, proprietary idp, legacy idp, oauth, oidc, authentication, oatuh, app security
 
 subcollection: appid
 

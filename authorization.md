@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-11-11"
+lastupdated: "2019-11-19"
 
-keywords: Authentication, authorization, identity, app security, secure, access, tokens
+keywords: authorization, authentication, oidc, oauth, jwks, app security, identity, tokens, redirect uris, api strategy, webapp strategy
 
 subcollection: appid
 

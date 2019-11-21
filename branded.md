@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-08-13"
+lastupdated: "2019-11-19"
 
-keywords: Authentication, authorization, identity, app security, secure, customizing apps, directory, registry, 
+keywords: bring your own screens, branded app, sign up, custom, directory, registry, app security, password, authorization flow, authentication,
 
 subcollection: appid
 

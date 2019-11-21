@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-05"
+lastupdated: "2019-11-19"
 
-keywords: Authentication, authorization, identity, app security, secure, development, sign in, sign up, password, social, enterprise
+keywords: app log in, login widget, sign in, default screen, forgot password, mfa, multi-factor authentication, sign up, reset password, facebook, google, identity provider, social log in, saml, authentication, authorization, cloud directory
 
 subcollection: appid
 

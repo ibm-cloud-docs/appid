@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-05"
+lastupdated: "2019-11-19"
 
-keywords: Authentication, authorization, identity, app security, secure, rates, cloud directory, rate limit, attempts
+keywords: rate limits, traffic control, limit request, lite instances, per minute, per instance, per user, limits
 
 subcollection: appid
 

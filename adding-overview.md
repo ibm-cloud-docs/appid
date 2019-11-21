@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-10-08"
+lastupdated: "2019-11-19"
 
-keywords: authentication, authorization, identity, app security, secure, application identity, app to app, access token
+keywords: authentication, authorization, identity, web flow, backend, identity management, anonymous auth, custom flow, mobile, app to app, kubernetes, ingress, istio, app security,
 
 subcollection: appid
 

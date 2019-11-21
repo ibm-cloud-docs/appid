@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-11-01"
+lastupdated: "2019-11-19"
 
-keywords: Authentication, authorization, identity, app security, secure, development, identity provider, tokens, customization, lifetime
+keywords: identity provider, idp, app security, mobile app, web app, authentication, authorization, oidc, saml, protocols, facebook, google, w3id, cloud directory, redirect url, redirect uri, token configuration, token lifetime, log in configuration
 
 subcollection: appid
 

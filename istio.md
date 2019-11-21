@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-11-14"
+lastupdated: "2019-11-19"
 
-keywords: authentication, authorization, identity, app security, access, secure, development, any kube, kubernetes, icp, openshift, iks
+keywords: adapter, access management, identity token, helm chart, backend apps, kube, any kube, icp, openshift, iks, service mesh, access, app identity, kube secret, tokens, authenticated, app endpoints, authorization, multicloud, no code change, no redeploy, authorization policies, multiple providers
 
 subcollection: appid
 

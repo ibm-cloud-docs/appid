@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-10-25"
+lastupdated: "2019-11-19"
 
-keywords: Authentication, authorization, identity, app security, secure, access, tokens
+keywords: tokens, refresh token, access token, identity token, configuration, authorization, authentication, app security, access, identity, refresh
 
 subcollection: appid
 
@@ -64,7 +64,7 @@ Example token:
   ```
   {: screen}
 
-## Identity tokens?
+## Identity tokens
 {: #identity}
 
 Identity tokens represent authentication and contain information about the user. It can give you information about their name, email, gender, and location. A token can also return a URL to an image of the user. The token is formatted as <a href="https://jwt.io/introduction/" target="blank">JSON Web Tokens <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> are signed with a JSON Web Key that uses the RS256 algorithm.
@@ -107,7 +107,7 @@ Example token:
 
 Identity tokens only contain partial user information. To see all of the information that is provided by the identity provider, you can use the [/userinfo endpoint](/docs/services/appid?topic=appid-profiles#profile-predefined-api).
 
-## Refresh tokens?
+## Refresh tokens
 {: #refresh}
 
 {{site.data.keyword.appid_short}} supports the ability to acquire new access and identity tokens without reauthentication, as defined in <a href="https://openid.net/specs/openid-connect-core-1_0.html#RefreshTokens" target="_blank">OIDC <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>. A refresh token can be used to renew the access token so a user doesn't have to take any action to sign in, such as providing credentials. Similar to access tokens, refresh tokens contain data allowing {{site.data.keyword.appid_short_notm}} to determine whether you authorized. However, these tokens are opaque.

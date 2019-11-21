@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-10-07"
+lastupdated: "2019-11-19"
 
-keywords: Authentication, authorization, identity, app security, secure, compliance, high availability, ha, disaster recovery, dr, protocols, oauth, oidc
+keywords: authentication, authorization, identity, app security, cloud directory, user data, identity provider, oauth, protocols, oauth, oidc, disaster recovery, dr, compliance, high availability, ha, secure,
 
 subcollection: appid
 
