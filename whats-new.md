@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-11-19"
+lastupdated: "2019-11-21"
 
 keywords: new, spa, single sign on, mfa, cloud directory, saml, app security, application identity
 
@@ -27,6 +27,14 @@ subcollection: appid
 
 The following features and changes to the {{site.data.keyword.appid_short_notm}} service are now available.
 
+
+
+## Novemeber 2019
+{: #November2019}
+
+- **Single-page applications: SDK**
+
+    Don't manage a backend for your app? You can now easily secure your browser applications by using the JavaScript SDK. For more information see the [SPA docs](/docs/services/appid?topic=appid-single-page).
 
 
 

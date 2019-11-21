@@ -32,6 +32,7 @@ IBM Cloud App ID
     Securing your apps
         adding-overview.md
         web-apps.md
+        spa.md
         mobile-apps.md
         backend-apps.md
         app-to-app.md

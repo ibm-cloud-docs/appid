@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-11-19"
+lastupdated: "2019-11-21"
 
 keywords: web apps, nodejs, node, javascript, protected resource, authorization flow, front end, frontend, app security, authentication
 
@@ -96,7 +96,7 @@ You can obtain your credentials in one of two ways.
   * By making a POST request to the [`/management/v4/{tenantId}/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Applications/registerApplication).
 
     Request format:
-    ```javascript
+    ```sh
     curl -X POST \  https://us-south.appid.cloud.ibm.com/management/v4/39a37f57-a227-4bfe-a044-93b6e6060b61/applications/ \
     -H 'Content-Type: application/json' \
     -H 'Authorization: Bearer IAM_TOKEN' \
@@ -105,7 +105,7 @@ You can obtain your credentials in one of two ways.
     {: codeblock}
 
     Example response:
-    ```javascript
+    ```json
     {
       "clientId": "xxxxx-34a4-4c5e-b34d-d12cc811c86d",
       "tenantId": "xxxxx-9b1f-433e-9d46-0a5521f2b1c4",
@@ -131,14 +131,14 @@ The easiest way to work with {{site.data.keyword.appid_short_notm}} is to take a
 
 2. Install the following NPM requirements.
 
-    ```javascript
+    ```npm
     npm install --save express express-session passport log4js pug
     ```
     {: codeblock}
 
 3. Install the {{site.data.keyword.appid_short_notm}} service.
 
-    ```javascript
+    ```npm
     npm install --save ibmcloud-appid
     ```
     {: codeblock}
