@@ -2,11 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-11-19"
+lastupdated: "2019-11-21"
 
-keywords: 
-
-Authentication, authorization, identity, app security, secure, application identity, app to app, access token
+keywords: management api, service management, service instance, devops automation, customize, permissions, iam, account owners, identity, app security, access tokens, video tutorial
 
 subcollection: appid
 
