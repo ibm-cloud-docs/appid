@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-11-19"
+lastupdated: "2019-11-22"
 
 keywords: authorization, authentication, oidc, oauth, jwks, app security, identity, tokens, redirect uris, api strategy, webapp strategy
 
@@ -47,12 +47,12 @@ Want to know more about some of the basic concepts of authorization and authenti
 
 Example:
 
-```
+```json
 {
   "clientId": "7eba72ef-b913-47b0-b3b6-54358bb69035",
   "tenantId": "8f5aa500-357e-443a-aab6-bf878f852b5a",
   "secret": "OWEzZGM4M2UtZjhlYS00MDI2LTkwNGItNDJmYzViMmU2YzIz",
-  "name":testing",
+  "name": "testing",
   "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v4/8f5aa500-357e-443a-aab6-bf878f852b5a",
   "profilesUrl": "https://us-south.appid.cloud.ibm.com",
   "discoveryEndpoint": "https://us-south.appid.ibm.cloud.com/oauth/v4/8f5aa500-357e-443a-aab6-bf878f852b5a/.well-known/openid-configuration"

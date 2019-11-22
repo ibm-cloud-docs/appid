@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-11-19"
+lastupdated: "2019-11-22"
 
 keywords: manage users, registry, cloud directory, add user, delete user, tokens, attributes, migrating users, identity provider, app security
 
@@ -101,7 +101,7 @@ You can use the {{site.data.keyword.appid_short_notm}} API to view details about
 
 2. Search your App ID users with an identifying query, such as an email address, to find the user ID.
 
-  ```
+  ```sh
   curl -X GET "https://<region>.appid.cloud.ibm.com/management/v4/<tenant-ID>/cloud_directory/Users?query=<identifying-search-query>" \
    -H "accept: application/json" \
    -H "authorization: Bearer <token>"
@@ -110,14 +110,14 @@ You can use the {{site.data.keyword.appid_short_notm}} API to view details about
 
   Example:
 
-  ```
+  ```sh
   curl -X GET https://us-south.appid.cloud.ibm.com/management/v4/e19a2778-3262-4986-8875-8khjafsdkhjsdafkjh/cloud_directory/Users?query=user@domain.com -H "accept: application/json" -H "authorization: Bearer eyJraWQiOiIyMDE3MTEyOSIsImFsZ...."
   ```
   {: screen}
 
 3. By using the ID that you obtained in the previous step, make a GET request to the `cloud_directory/users` endpoint to see their full user profile.
 
-  ```
+  ```sh
   curl -X GET "https://<region>.appid.cloud.ibm.com/management/v4/<tenant-ID>/cloud_directory/Users/<user-ID>" \
   -H "accept: application/json" \
   -H "authorization: Bearer <token>"
@@ -126,43 +126,43 @@ You can use the {{site.data.keyword.appid_short_notm}} API to view details about
 
   Example response:
 
-  ```
+  ```json
   {
-    sub: "c155c0ff-337a-46d3-a22a-a8f2cca08995",
-    name: "Test User",
-    email: "testuser@test.com",
-    identities: [
+    "sub": "c155c0ff-337a-46d3-a22a-a8f2cca08995",
+    "name": "Test User",
+    "email": "testuser@test.com",
+    "identities": [
       {
-        provider: "cloud_directory",
-        id: "f1772fcc-ff70-4d88-81a0-07dd7a3d988f",
-        idpUserInfo: {
-          displayName: "Test User",
-          active: true,
-          mfaContext: {},
-          emails: [
+        "provider": "cloud_directory",
+        "id": "f1772fcc-ff70-4d88-81a0-07dd7a3d988f",
+        "idpUserInfo": {
+          "displayName": "Test User",
+          "active": true,
+          "mfaContext": {},
+          "emails": [
             {
-              value: "testuser@test.com",
-              primary: true
+              "value": "testuser@test.com",
+              "primary": true
             }
           ],
-          meta: {
-            lastLogin: "2019-05-20T16:33:20.699Z",
-            created: "2019-05-20T16:25:13.019Z",
-            location: "/v1/6b8ab644-1d4a-4b3e-bcd9-777ba8430a51/Users/f1772fcc-ff70-4d88-81a0-07dd7a3d988f",
-            lastModified: "2019-05-20T16:33:20.707Z",
-            resourceType: "User"
+          "meta": {
+            "lastLogin": "2019-05-20T16:33:20.699Z",
+            "created": "2019-05-20T16:25:13.019Z",
+            "location": "/v1/6b8ab644-1d4a-4b3e-bcd9-777ba8430a51/Users/f1772fcc-ff70-4d88-81a0-07dd7a3d988f",
+            "lastModified": "2019-05-20T16:33:20.707Z",
+            "resourceType": "User"
           },
-          scemas: [
+          "scemas": [
             "urn:ietf:params:scim:schemas:core:2.0:User"
           ],
-          name: {
-            givenName: "Test",
-            familyName: "User",
-            formatted: "Test User"
+          "name": {
+            "givenName": "Test",
+            "familyName": "User",
+            "formatted": "Test User"
             },
-          id: "f1772fcc-ff70-4d88-81a0-07dd7a3d988f",
-          status: "CONFIRMED",
-          idpType: "cloud_directory"
+          "id": "f1772fcc-ff70-4d88-81a0-07dd7a3d988f",
+          "status": "CONFIRMED",
+          "idpType": "cloud_directory"
         }
       }
     ]
@@ -211,14 +211,14 @@ If you disable self-service sign-up or add a user on their behalf, the user does
 
 2. Obtain an {{site.data.keyword.cloud_notm}} IAM token.
 
-  ```
+  ```sh
   curl --X GET "https://iam.cloud.ibm.com/oidc/token" -H "accept: application/x-www-form-urlencoded"
   ```
   {: codeblock}
 
 3. Run the following command to create a new user and a profile at the same time.
 
-  ```
+  ```sh
   curl -X POST "https://<region>.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/sign_up?shouldCreateProfile=true&language=en" \
   -H "accept: application/json" \
   -H "Content-Type: application/json" \
@@ -255,7 +255,7 @@ If you want to remove a user from your directory, you can delete the user from t
 
 2. Obtain an {{site.data.keyword.cloud_notm}} IAM token.
 
-  ```
+  ```sh
   curl --X GET "https://iam.cloud.ibm.com/oidc/token" \
   -H "accept: application/x-www-form-urlencoded"
   ```
@@ -263,7 +263,7 @@ If you want to remove a user from your directory, you can delete the user from t
 
 3. By using the email that is attached to the user, search your directory to find the user's ID.
 
-  ```
+  ```sh
   curl -X GET "https://<region>.appid.cloud.ibm.com/management/v4/<tenant-ID>/users?email=<user@domain.com>" \
   -H "accept: application/json"
   ```
@@ -271,7 +271,7 @@ If you want to remove a user from your directory, you can delete the user from t
 
 4. Delete the user.
 
-  ```
+  ```sh
   curl -X DELETE "https://<region>.appid.test.cloud.ibm.com/management/v4/<tenant-ID>/cloud_directory/remove/<user-ID>" \
   -H "accept: application/json" \
   -H "authorization: Bearer <token>"
@@ -298,7 +298,7 @@ Before you can add your users to the new instance, you need to export them from 
 
 Example cURL command:
 
-```
+```sh
 curl -X GET ’https://<region>.appid.cloud.ibm.com/management/v4/<tenant-ID>/cloud_directory/export?encryption_secret=<mySecret>' \
 -H ‘Accept: application/json’ \
 -H ‘Authorization: Bearer <iam-token>'
@@ -332,7 +332,7 @@ Now that you have your users ready to go, you can import their information into 
 
 Example cURL command:
 
-```
+```sh
 curl -X POST --header ‘Content-Type: application/json’ --header ‘Accept: application/json’ --header ‘Authorization: Bearer <iam-token>’ -d ‘{“users”: [
     {
       “scimUser”: {
@@ -398,7 +398,7 @@ Before you get started, be sure that you have the following parameter informatio
 
 1. Clone the [repository](https://github.com/ibm-cloud-security/appid-sample-code-snippets/tree/master/export-import-cloud-directory-users){: external}.
 
-  ```
+  ```sh
   git clone https://github.com/ibm-cloud-security/appid-sample-code-snippets/tree/master/export-import-cloud-directory-users.git
   ```
   {: codeblock}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-11-19"
+lastupdated: "2019-11-22"
 
 keywords: app to app, protected resource, client secret, application identity, authorization, server, authentication, access tokens, app security
 
@@ -73,9 +73,7 @@ The client secret that is used to authenticate the client is highly sensitive an
 
 1. Make a POST request to the [`/management/v4/{tenantId}/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Applications/mgmt.registerApplication){: external}.
 
-  Request:
-
-  ```
+  ```sh
   curl -X POST \  https://<region>.appid.cloud.ibm.com/management/v4/<tenant-ID>/applications/ \
   -H 'Content-Type: application/json' \
   -H 'Authorization: Bearer <IAM-token>' \
@@ -85,7 +83,7 @@ The client secret that is used to authenticate the client is highly sensitive an
 
   Example response:
 
-  ```
+  ```json
   {
     "clientId": "c90830bf-11b0-4b44-bffe-9773f8703bad",
     "tenantId": "b42f7429-fc24-48fa-b4f9-616bcc31cfd5",
@@ -105,10 +103,8 @@ After your app is registered with {{site.data.keyword.appid_short_notm}} and you
 
 1. Make an HTTP POST request to the [`/token` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization%20Server%20-%20Authorization%20Server%20V4/oauth-server.token){: external}. The authorization for the request is `Basic auth` with the client ID and secret being used as the username and password which are base64 encoded.
 
-  Request :
-  ```
-  curl -X POST \
-    http://localhost:6002/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6060b61/token \
+  ```sh
+  curl -X POST http://localhost:6002/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6060b61/token \
     -H 'Authorization: Basic base64Encoded{clientId:secret}' \
     -H 'Content-Type: application/x-www-form-urlencoded' \
     -d grant_type=client_credentials
@@ -116,7 +112,7 @@ After your app is registered with {{site.data.keyword.appid_short_notm}} and you
   {: codeblock}
 
   Example response:
-  ```
+  ```json
   {
   "access_token": "eyJhbGciOiJS...F9A",
   "expires_in": "3600",
@@ -133,7 +129,7 @@ After your app is registered with {{site.data.keyword.appid_short_notm}} and you
 
   * From the {{site.data.keyword.appid_short_notm}} [Node.js server SDK](https://github.com/ibm-cloud-security/appid-serversdk-nodejs){: external} by using the token manager. Initialize the token manager with your app credentials and make a call to the `getApplicationIdentityToken()` method to obtain the token.
 
-    ```
+    ```javascript
     const TokenManager = require('ibmcloud-appid').TokenManager;
     const config = {
      clientId: "<client-ID>",
@@ -157,7 +153,7 @@ After your app is registered with {{site.data.keyword.appid_short_notm}} and you
     The `oauthServerUrl` in the request is obtained when you register your application. If you registered your app with the management APIs, the server URL is in the response body. If you registered your app by binding it with the IBM Cloud console, the URL can be found in your VCAP_SERVICES JSON object or through your Kubernetes secrets.
     {: note}
 
-    ```
+    ```javascript
     var request = require('request');
 
     function getAccessToken() {
@@ -192,7 +188,7 @@ After your app is registered with {{site.data.keyword.appid_short_notm}} and you
 
 2. Make a request to your protected resource by using the access token that you obtained in the previous step.
 
-  ```
+  ```javascript
   let options = {
       method: 'GET',
       url: 'http://localhost:8081/protected_resource',
@@ -213,7 +209,7 @@ After your app is registered with {{site.data.keyword.appid_short_notm}} and you
 
 3. Secure your protected resources by using the API strategy from the {{site.data.keyword.appid_short_notm}} Node.js SDK.
 
-  ```
+  ```javascript
   const express = require('express'),
     passport = require('passport');
     APIStrategy = require("ibmcloud-appid").APIStrategy;

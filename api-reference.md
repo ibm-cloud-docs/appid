@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-11-21"
+lastupdated: "2019-11-22"
 
 keywords: management api, service management, service instance, devops automation, customize, permissions, iam, account owners, identity, app security, access tokens, video tutorial
 
@@ -90,7 +90,7 @@ https://<region-endpoint>.appid.cloud.ibm.com/management
 
 In the following example, you can see how to use the API to change the {{site.data.keyword.appid_short_notm}} tenant logo with Python.
 
-```
+```python
 import requests
 import json
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-11-19"
+lastupdated: "2019-11-22"
 
 keywords: password policies, password strength, advanced, sign in, lock out, reset password, email, expiration, credentials, password reuse, wrong credentials, secure apps, registry, cloud directory, regex
 
@@ -180,7 +180,7 @@ If you're using a custom sign-in experience, an error is triggered when a user a
 
 The token endpoint response looks similar to the following:
 
-```javascript
+```json
 {
   "error" : "invalid_grant",
   "error_description" : "Password expired",

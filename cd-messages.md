@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-11-19"
+lastupdated: "2019-11-22"
 
 keywords: emails, verification, templates, sendgrid, welcome, password reset, password change, change details, verification, supported languages, registry, cloud directory, 
 
@@ -259,7 +259,7 @@ To configure your custom email sender, you must use the Cloud Directory [Managem
 1. Provide the URL. Additionally you can provide authorization information. The supported authorization types are: `Basic authorization` or `constant authorization header value`.
 
   Valid configuration examples:
-  ```
+  ```json
   {
     "custom": {
       "url": "https://example.com/send_mail"
@@ -268,7 +268,7 @@ To configure your custom email sender, you must use the Cloud Directory [Managem
   ```
   {: screen}
 
-  ```
+  ```json
   {
     "custom": {
       "url": "https://example.com/send_mail",
@@ -282,7 +282,7 @@ To configure your custom email sender, you must use the Cloud Directory [Managem
   ```
   {: screen}
 
-  ```
+  ```json
   {
     "custom": {
       "url": "https://example.com/send_mail",
@@ -299,7 +299,7 @@ To configure your custom email sender, you must use the Cloud Directory [Managem
 
 3. The body that is sent by {{site.data.keyword.appid_short_notm}} is in the following format: `{"jws": "jws-format-string"}`. After you decode and verify the payload, the content is a JSON string.
 
-  ```
+  ```json
   {
     "tenant": "tenant-id",
     "iss" : "https://us-south.appid.cloud.ibm.com/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6050a61", 
@@ -366,8 +366,9 @@ For every {{site.data.keyword.appid_short_notm}} instance, a private and a publi
 
 
 
-5. Example code for the extension point (JavaScript).
-  ```
+5. Example code for the extension point.
+
+  ```javascript
   const sgMail = require('@sendgrid/mail');
   const {promisify} = require('bluebird');
   const request = promisify(require('request'));

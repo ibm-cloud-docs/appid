@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-11-19"
+lastupdated: "2019-11-22"
 
 keywords: protected resource, backend apps, identity, tokens, identity provider, authentication, authorization, app security, oauth, 
 
@@ -55,8 +55,8 @@ For more information about how tokens are used in {{site.data.keyword.appid_shor
 
 1. A client makes a POST request to the {{site.data.keyword.appid_short_notm}} authorization server to obtain an access token. A POST request generally takes the following form:
 
-  ```
-  POST/oauth/v4/{tenantId}/token HTTP/1.1
+  ```sh
+  POST /oauth/v4/{tenantId}/token HTTP/1.1
   Content_type: application/x-www-form-urlencoded
   Authorization header = "Basic" + base64encode({clientId}:{secret})
   FormData = {grant_type}
@@ -67,7 +67,7 @@ For more information about how tokens are used in {{site.data.keyword.appid_shor
 
 3. The client sends a request to the protected resource. Requests can be sent in multiple ways, depending on which HTTP client library you're using but a request generally takes the following form:
 
-  ```
+  ```sh
   curl -H 'Authorization: Bearer {access_token}' {https://my-protected-resource.com}
   ```
   {: screen}

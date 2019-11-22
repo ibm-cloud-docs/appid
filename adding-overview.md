@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-11-19"
+lastupdated: "2019-11-22"
 
 keywords: authentication, authorization, identity, web flow, backend, identity management, anonymous auth, custom flow, mobile, app to app, kubernetes, ingress, istio, app security,
 
@@ -37,6 +37,10 @@ Check out the following table to see how {{site.data.keyword.appid_short_notm}} 
     <caption>Table 1. The different ways in which you can secure your applications with {{site.data.keyword.appid_short_notm}}</caption>
     <tr>
         <th colspan=2>Type of authentication flow</th>
+    </tr>
+    <tr>
+        <td><a href="/docs/services/appid?topic=appid-single-page" target="_blank">Single-page</a></td>
+        <td>You can use the single-page flow to securely authenticate users to your applications. An SPA runs entirely in your browser and does not require that the page be reloaded while the application is in use.</td>
     </tr>
     <tr>
         <td><a href="/docs/services/appid?topic=appid-web-apps" target="_blank">Web </a></td>
