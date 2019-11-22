@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-11-19"
+lastupdated: "2019-11-22"
 
 keywords: backend apps, java, liberty for java, liberty, identity provider, access management, protected endpoints, access tokens, security, back end
 
@@ -69,7 +69,7 @@ You can obtain your credentials in one of two ways.
   * By making a POST request to the [`/management/v4/{tenantId}/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Applications/registerApplication){: external}.
 
     Request format:
-    ```
+    ```sh
     curl -X POST \  https://us-south.appid.cloud.ibm.com/management/v4/<tenantID>/applications/ \
     -H 'Content-Type: application/json' \
     -H 'Authorization: Bearer IAM_TOKEN' \
@@ -78,7 +78,7 @@ You can obtain your credentials in one of two ways.
     {: codeblock}
 
     Example response:
-    ```
+    ```json
     {
       "clientId": "xxxxx-34a4-4c5e-b34d-d12cc811c86d",
       "tenantId": "xxxxx-9b1f-433e-9d46-0a5521f2b1c4",
@@ -193,7 +193,7 @@ In your `web.xml` file, define the areas of your application that you want to se
 
 1. Define a security role. This should be the same role that you defined in the `server.xml` file.
 
-    ```
+    ```xml
     <security-role>
 		<role-name>myrole</role-name>
 	</security-role>
@@ -202,7 +202,7 @@ In your `web.xml` file, define the areas of your application that you want to se
 
 2. Define a security constraint.
 
-    ```
+    ```xml
 	<security-constraint>
 		<display-name>Security Constraints</display-name>
 		<web-resource-collection>

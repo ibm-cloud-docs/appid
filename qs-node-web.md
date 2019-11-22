@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-11-21"
+lastupdated: "2019-11-22"
 
 keywords: web apps, nodejs, node, javascript, protected resource, authorization flow, front end, frontend, app security, authentication
 
@@ -131,14 +131,14 @@ The easiest way to work with {{site.data.keyword.appid_short_notm}} is to take a
 
 2. Install the following NPM requirements.
 
-    ```npm
+    ```bash
     npm install --save express express-session passport log4js pug
     ```
     {: codeblock}
 
 3. Install the {{site.data.keyword.appid_short_notm}} service.
 
-    ```npm
+    ```bash
     npm install --save ibmcloud-appid
     ```
     {: codeblock}

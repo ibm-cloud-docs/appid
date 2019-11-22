@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-11-19"
+lastupdated: "2019-11-22"
 
 keywords: custom identity provider, authorization, bring your own idp, proprietary idp, legacy idp, oauth, oidc, authentication, oatuh, app security
 
@@ -83,7 +83,7 @@ You can convert your verified user data to a custom identity JWT by generating a
 {: #jwts-example}
 
 Token header:
-  ```
+  ```json
   {
   "alg": "RS256",
   "typ": "JOSE"
@@ -92,20 +92,20 @@ Token header:
   {: screen}
 
 Token payload:
-  ```
+  ```json
   {
     // Required
-    iss: String, // Should reference your identity provider
-    aud: String, // Must be the OAuth server URL name
-    exp: Int,    // Should be a value with a short lifespan
-    sub: String, // Must be the unique user ID provided by your identity provider
+    "iss": "String", // Should reference your identity provider
+    "aud": "String", // Must be the OAuth server URL name
+    "exp": "Int",    // Should be a value with a short lifespan
+    "sub": "String", // Must be the unique user ID provided by your identity provider
 
     // Normalized claims (optional)
-    name: String
-    email: String
-    locale: String
-    picture: String
-    gender: String
+    "name": "String",
+    "email": "String",
+    "locale": "String",
+    "picture": "String",
+    "gender": "String"
 
     // Custom Scopes to add to access token (optional)
     scope="custom_scope1 custom_scope2"
