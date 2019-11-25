@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-11-19"
+lastupdated: "2019-11-25"
 
 keywords: saml, enterprise apps, assertions, single sign on, tokens, authorization, user authentication, key cloak, redhat, cloud identity, sso, single sign on, xml signature, service provider, identity provider, app security
 
@@ -238,7 +238,7 @@ Want to set an authentication context? You can do so through the API.
 1. View your current SAML configuration, including your authentication context and certificates, by making a GET request to the  [`/saml` API endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.get_saml_idp){: external}.
 
   Example code:
-  ```
+  ```sh
   curl --request GET \
   https://us-south.appid.cloud.ibm.com/management/v4/<tenant-ID>/config/idps/saml \
   --header `Accept: application/json`
@@ -246,7 +246,7 @@ Want to set an authentication context? You can do so through the API.
   {: codeblock}
 
   Example output:
-  ```
+  ```json
   {
     "isActive": true,
     "config": {
@@ -269,7 +269,7 @@ Want to set an authentication context? You can do so through the API.
 
 2. Create your SAML configuration by replacing the values in the following example with the information from your provider. The values shown in the example are required, but you can choose to include more information as shown in the table.
 
-  ```
+  ```json
   "config": {
     "authnContext": {
       "class": [
@@ -333,7 +333,7 @@ Want to set an authentication context? You can do so through the API.
 
 3. Make a PUT request to the [`/saml` API endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.set_saml_idp){: external} to provide the configuration that you created in step 2 to {{site.data.keyword.appid_short_notm}}. Check out the following example to see what your request might look like.
 
-  ```
+  ```sh
   curl --request PUT \
   https://us-south.appid.cloud.ibm.com/management/v4/<tenant-ID>/config/idps/saml \
   --header `Accept: application/json` \

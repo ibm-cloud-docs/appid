@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-11-19"
+lastupdated: "2019-11-25"
 
 keywords: user access, account settings, iam, user roles, platform roles, service roles, reader, writer, operator, editor, viewer, administrator, manager, permissions
 
@@ -300,7 +300,7 @@ To update access permissions, the admin completes the following steps:
 
 6. Verify that the team member cannot make changes.
 
-  ```
+  ```sh
   curl -X PUT --header 'Content-Type: application/json' \
   --header 'Accept: application/json' \
   --header 'Authorization: <IAM token value>' \
@@ -335,7 +335,7 @@ To view the {{site.data.keyword.appid_short_notm}} configurations from the CLI, 
 
 3. View the identity provider configuration for Facebook by using cURL.
 
-  ```
+  ```sh
   curl -X GET --header 'Accept: application/json' --header 'Authorization: <IAM token value>' \  'https://us-south.appid.cloud.ibm.com/management/v4/<tenant-ID>/config/idps/facebook'
   ```
   {: codeblock}
