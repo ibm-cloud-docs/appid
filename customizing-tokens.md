@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-11-19"
+lastupdated: "2019-11-25"
 
 keywords: user information, tokens, custom tokens, secure resources, authorization, identity, authentication, claims, oauth, claims mapping, attributes, app security, access, runtime
 
@@ -65,7 +65,7 @@ Each mapping is defined by a data source object and a key that is used to retrie
 
 The claims are set for each token separately and are sequentially applied as shown in the following example. 
 
-```
+```json
 {
   "accessTokenClaims": [
     {
@@ -132,7 +132,7 @@ If you want to configure the lifespan of your token, you can quickly make the ch
   5. Click **Copy** or download your key. When you close the screen, you can no longer access the key.
   6. Make the following cURL request with the API key that you created.
 
-    ```
+    ```sh
     curl -k -X POST \
     --header "Content-Type: application/x-www-form-urlencoded" \
     --header "Accept: application/json" \
@@ -147,7 +147,7 @@ If you want to configure the lifespan of your token, you can quickly make the ch
 3. Make a PUT request to the `/config/tokens` endpoint with your token configuration.
 
   Header:
-  ```
+  ```sh
   PUT -X "https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/tokens"
     -H Authorization: 'Bearer <IAM_Token>'
     -H Content-Type: application/json
@@ -155,7 +155,7 @@ If you want to configure the lifespan of your token, you can quickly make the ch
   {: codeblock}
 
   Body:
-  ```
+  ```json
   {
     "access": {
         "expires_in": 3600,

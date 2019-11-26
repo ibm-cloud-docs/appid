@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-11-19"
+lastupdated: "2019-11-25"
 
 keywords: Migrating users, multiple service instances, manage service, access, configuration, duplicate, export, app security, identity
 
@@ -48,7 +48,7 @@ You can migrate the information in one instance of {{site.data.keyword.appid_sho
   1. Ensure that you are assigned the `Manager` [IAM role](/docs/iam?topic=iam-getstarted#getstarted) for both instances of {{site.data.keyword.appid_short_notm}}.
   2. Export the users from your original instance of the service.
 
-    ```
+    ```sh
     curl -X GET https://us-south.appid.cloud.ibm.com/management/v4/{tenant-ID}/users/export \
     --header "Accept: application/json" \
     --header "Authorization: Bearer {IAM-token}"
@@ -73,7 +73,7 @@ You can migrate the information in one instance of {{site.data.keyword.appid_sho
 
     Example response:
 
-    ```
+    ```json
     {
       "itemsPerPage": 2,
       "totalResults": 2,
@@ -128,7 +128,7 @@ You can migrate the information in one instance of {{site.data.keyword.appid_sho
 
   3. Import the users to your new instance of the service.
 
-    ```
+    ```sh
     curl -X POST "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/users/import" \
     -H "accept: application/json" \
     -H "Authorization: Bearer {Bearer_Token}" \
