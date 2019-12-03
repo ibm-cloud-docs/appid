@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-11-19"
+lastupdated: "2019-12-03"
 
 keywords: pricing, advanced security, authentication events, authorized users, activity tracking, runtime activity, password policies, keycloak, whitelist redirect url, redirect uri 
 
@@ -51,6 +51,7 @@ Your first 1000 authentication events and first 1000 authorized users are free e
 An authentication event occurs when a new access token, regular or anonymous, is issued. Tokens can be issued as a response to a sign-in request that is initiated by a user, or on behalf of the user by an app. By default, access tokens are valid for one hour and anonymous tokens are valid for 30 days. After the token expires, you must create a new token to access protected resources. You can update the expiration time of your {{site.data.keyword.appid_short_notm}} tokens on the **Manage > Authentication > Authentication Settings** page of the service dashboard.
 
 #### Advanced security features
+{: #faq-advanced}
 
 Advanced security features give you the ability to strengthen the security of your application.
 {: shortdesc}
@@ -140,7 +141,7 @@ Check out the following table for answers to commonly asked questions about encr
 
 
 ## What is the difference between {{site.data.keyword.appid_short_notm}} and Keycloak?
-{:# faq-keycloak}
+{: #faq-keycloak}
 {: faq}
 
 Both {{site.data.keyword.appid_short_notm}} and Keycloak can be used to add authentication to applications and secure services. The main difference between the two offerings is how they're packaged.
