@@ -108,7 +108,7 @@ Check out the following table for answers to commonly asked questions about encr
 <table>
   <caption>Table 2. Frequently asked questions about how {{site.data.keyword.appid_short_notm}} handles encryption</caption>
   <thead>
-    <th colspan=2><img src="images/idea.png" alt="More information icon"/>  </th>
+    <th colspan=2><img src="images/idea.png" alt="More information icon"/> How does App ID handle encryption?</th>
   </thead>
   <tbody>
     <tr>
