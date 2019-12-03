@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-11-19"
+lastupdated: "2019-12-03"
 
 keywords: help, support, error, multiple users, attribute, ticket, identity provider, redirect uri, custom url, virtual user, idp, identity settings, user profile
 
@@ -142,4 +142,6 @@ You might receive a `too many requests` error if you are performing automated te
 
 {: tsResolve}
 To resolve the issue, you might want to use multiple virtual users when you perform testing.
-</br>
+
+
+
