@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-11-21"
+lastupdated: "2019-12-03"
 
 keywords: new, spa, single sign on, mfa, cloud directory, saml, app security, application identity
 
@@ -29,7 +29,7 @@ The following features and changes to the {{site.data.keyword.appid_short_notm}}
 
 
 
-## Novemeber 2019
+## November 2019
 {: #November2019}
 
 - **Single-page applications: SDK**
