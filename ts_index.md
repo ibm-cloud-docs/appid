@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-11-19"
+lastupdated: "2019-12-04"
 
 keywords: help, support, error, multiple users, attribute, ticket, identity provider, redirect uri, custom url, virtual user, idp, identity settings, user profile
 
@@ -82,6 +82,7 @@ The limitations are in place for security purposes.
 {: tsResolve}
 To resolve the issue, verify that the URL is correct. If your URL does not meet the requirements, you can create an HTTPS endpoint in your app to redirect the received grant code to your custom URL. Specify the created endpoint as your redirect URL in the {{site.data.keyword.appid_short_notm}} console. For more information about redirect URIs, see [Adding redirect URIs](/docs/services/appid?topic=appid-managing-idp#add-redirect-uri)
 
+
 ## A user is not redirected to the identity provider
 {: #ts-redirect}
 
@@ -91,7 +92,7 @@ A user tries to sign in to your application, but the sign-in page doesn't displa
 {: tsCauses}
 The identity provider can fail for several reasons:
 
-* Your configured redirect URL is incorrect.
+* The redirect URI that is listed in {{site.data.keyword.appid_short_notm}} is written incorrectly.
 * The identity provider doesn't recognize the authentication request.
 * The identity provider expects HTTP-POST binding.
 * The identity provider expects a signed AuthnRequest.
@@ -99,10 +100,10 @@ The identity provider can fail for several reasons:
 {: tsResolve}
 You can try some of these solutions:
 
-* Update your sign-in URL. This URL is sent as part of the AuthnRequest and must be exact.
+* Update your sign-in URL. This URL is sent as part of the `AuthnRequest` and must be exact.
 * Be sure that your {{site.data.keyword.appid_short_notm}} metadata is set correctly in your identity provider settings.
-* Configure your identity provider to accept the AuthnRequest in the HTTP-Redirect.
-* {{site.data.keyword.appid_short_notm}} does not support signing AuthnRequests.
+* Configure your identity provider to accept the `AuthnRequest` in the HTTP-Redirect.
+* {{site.data.keyword.appid_short_notm}} does not support signing `AuthnRequests`.
 
 If none of the solutions work, it is possible that you might have a connection issue.
 {: tip}
@@ -142,4 +143,26 @@ You might receive a `too many requests` error if you are performing automated te
 
 {: tsResolve}
 To resolve the issue, you might want to use multiple virtual users when you perform testing.
-</br>
+
+
+
+## Why didn't my user get an email?
+{: #ts-verification}
+
+{: tsSymptoms}
+Your users don't receive an email when the sign up, forgot their password, change their password or to verify their account.
+
+{: tsCauses}
+An email might not be received because the settings are misconfigured, the email is sent to spam, or an internal error.
+
+{: tsResolve}
+To resolve this issue, you can try the following solutions:
+
+* Verify with the user that the email was not sent to their spam folder. If it was, have them mark the sender as `not spam`. To avoid this, consider [bringing your own email sender](/docs/services/appid?topic=appid-cd-types#cd-custom-email).
+* Verify your [messaging configuration](/docs/services/appid?topic=appid-cd-types). 
+* Ensure that a resend option is present on your sign in screen so that your user can request that an email be resent if an internal error occurs.
+
+If you add a user through the {{site.data.keyword.appid_short_notm}} dashboard, the user is verified automatically and does not receive an email.
+{: note}
+
+
