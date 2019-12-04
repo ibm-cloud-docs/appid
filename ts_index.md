@@ -92,7 +92,7 @@ A user tries to sign in to your application, but the sign-in page doesn't displa
 {: tsCauses}
 The identity provider can fail for several reasons:
 
-* The redirect URI that is lissted in App ID is written incorrectly.
+* The redirect URI that is listed in {{site.data.keyword.appid_short_notm}} is written incorrectly.
 * The identity provider doesn't recognize the authentication request.
 * The identity provider expects HTTP-POST binding.
 * The identity provider expects a signed AuthnRequest.
@@ -144,5 +144,25 @@ You might receive a `too many requests` error if you are performing automated te
 {: tsResolve}
 To resolve the issue, you might want to use multiple virtual users when you perform testing.
 
+
+
+## Why didn't my user get an email?
+{: #ts-verification}
+
+{: tsSymptoms}
+Your users don't receive an email when the sign up, forgot their password, change their password or to verify their account.
+
+{: tsCauses}
+An email might not be received because the settings are misconfigured, the email is sent to spam, or an internal error.
+
+{: tsResolve}
+To resolve this issue, you can try the following solutions:
+
+* Verify with the user that the email was not sent to their spam folder. If it was, have them mark the sender as `not spam`. To avoid this, consider [bringing your own email sender](/docs/services/appid?topic=appid-cd-types#cd-custom-email).
+* Verify your [messaging configuration](/docs/services/appid?topic=appid-cd-types). 
+* Ensure that a resend option is present on your sign in screen so that your user can request that an email be resent if an internal error occurs.
+
+If you add a user through the {{site.data.keyword.appid_short_notm}} dashboard, the user is verified automatically and does not receive an email.
+{: note}
 
 
