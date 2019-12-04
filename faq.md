@@ -48,7 +48,7 @@ Your first 1000 authentication events and first 1000 authorized users are free e
 ### Authentication events
 {: #faq-authentication}
 
-An authentication event occurs when a new access token, whether regular or anonymous, is issued. Tokens can be issued as a response to a sign-in request that is initiated by a user, or on behalf of the user by an app. By default, access tokens are valid for one hour and anonymous tokens are valid for 30 days. After the token expires, you must create a new token to access protected resources. You can update the expiration time of your {{site.data.keyword.appid_short_notm}} tokens on the **Manage > Authentication > Authentication Settings** page of the service dashboard.
+An authentication event occurs when a new access token, whether regular or anonymous, is issued. Tokens can be issued as a response to a sign-in request that is initiated by a user, or on behalf of the user by an app. By default, access tokens are valid for one hour and anonymous tokens are valid for 30 days. After the token expires, you must create a new token to access protected resources. You can update the expiration time of your {{site.data.keyword.appid_short_notm}} tokens on the **Manage Authentication > Authentication Settings** page of the service dashboard.
 
 #### Advanced security features
 {: #faq-advanced}
