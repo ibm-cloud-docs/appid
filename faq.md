@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-12-03"
+lastupdated: "2019-12-04"
 
 keywords: pricing, advanced security, authentication events, authorized users, activity tracking, runtime activity, password policies, keycloak, whitelist redirect url, redirect uri 
 
@@ -35,7 +35,7 @@ This FAQ provides answers to common questions about the {{site.data.keyword.appi
 {: #faq-pricing}
 {: faq}
 
-With {{site.data.keyword.appid_short_notm}}, you pay less as you use more resources.
+With {{site.data.keyword.appid_short_notm}}, the more your users authenticate, the less you pay per authentication.
 {: shortdesc}
 
 For the most up-to-date pricing information, you can create a cost estimate by clicking **Add to estimate** in the {{site.data.keyword.appid_short_notm}} section of the [{{site.data.keyword.cloud_notm}} catalog](https://cloud.ibm.com/catalog/services/app-id).
@@ -48,7 +48,7 @@ Your first 1000 authentication events and first 1000 authorized users are free e
 ### Authentication events
 {: #faq-authentication}
 
-An authentication event occurs when a new access token, regular or anonymous, is issued. Tokens can be issued as a response to a sign-in request that is initiated by a user, or on behalf of the user by an app. By default, access tokens are valid for one hour and anonymous tokens are valid for 30 days. After the token expires, you must create a new token to access protected resources. You can update the expiration time of your {{site.data.keyword.appid_short_notm}} tokens on the **Manage > Authentication > Authentication Settings** page of the service dashboard.
+An authentication event occurs when a new access token, whether regular or anonymous, is issued. Tokens can be issued as a response to a sign-in request that is initiated by a user, or on behalf of the user by an app. By default, access tokens are valid for one hour and anonymous tokens are valid for 30 days. After the token expires, you must create a new token to access protected resources. You can update the expiration time of your {{site.data.keyword.appid_short_notm}} tokens on the **Manage > Authentication > Authentication Settings** page of the service dashboard.
 
 #### Advanced security features
 {: #faq-advanced}
@@ -66,11 +66,11 @@ By default, advanced security features are disabled. If you turn on MFA, runtime
   </tr>
   <tr>
     <td>Multi-factor authentication</td>
-    <td>[MFA for Cloud Directory](/docs/services/appid?topic=appid-cd-mfa#cd-mfa) confirms a user’s identity by requiring a user to enter a one time passcode that is sent to their email in addition to their entering their email and password.</td>
+    <td>[MFA for Cloud Directory](/docs/services/appid?topic=appid-cd-mfa#cd-mfa) confirms a user’s identity by requiring a user to enter a one time passcode that is sent to their email or SMS in addition to their entering their email and password.</td>
   </tr>
   <tr>
     <td>Runtime authentication activity tracking</td>
-    <td>By integrating {{site.data.keyword.at_short}} with {{site.data.keyword.appid_short_notm}} you can track two different types of authentication events at runtime. For example: A password reset request, authentication failures, or a user logout. For more information, see [Viewing runtime events](/docs/services/appid?topic=appid-at-events#at-monitor-runtime).</td>
+    <td>By integrating {{site.data.keyword.at_short}} with {{site.data.keyword.appid_short_notm}}, you can track different types of authentication events at runtime. For example: A password reset request, authentication failures, or a user logout. For more information, see [Viewing runtime events](/docs/services/appid?topic=appid-at-events#at-monitor-runtime).</td>
   </tr>
   <tr>
     <td>Password policy management</td>
@@ -92,7 +92,7 @@ An authorized user is a unique user that signs in with your service whether dire
 {: #faq-redirect}
 {: faq}
 
-A redirect URI is the callback endpoint of your app. To prevent phishing attacks, {{site.data.keyword.appid_short_notm}} validates the URI against the whitelist of redirect URIs. When phishing occurs, the possibility that an attacker can gain access to your user's tokens exists. For more information about redirect URIs, see [Adding redirect URIs](/docs/services/appid?topic=appid-managing-idp#add-redirect-uri).
+A redirect URI is the callback endpoint of your application. When you whitelist your URI, you're giving App ID the OK to send your users to that location. At runtime, App ID validates the URI against your whitelist before redirecting the user. This can help prevent phishing attacks and lessens the possibility that an attacker is able to gain access to your user's tokens. For more information about redirect URIs, see [Adding redirect URIs](/docs/services/appid?topic=appid-managing-idp#add-redirect-uri).
 
 Do not include any query parameters in your URL. They are ignored in the validation process. Example URL: `http://host:[port]/path`
 {: tip}
@@ -113,11 +113,11 @@ Check out the following table for answers to commonly asked questions about encr
   <tbody>
     <tr>
       <td>Why do you use encryption?</td>
-      <td>One way that we protect our users information is by encrypting customer data at rest. The service encrypts customer data at rest with per-tenant keys.</td>
+      <td>One way that we protect our users information is by encrypting customer data at rest and in transit. The service encrypts customer data at rest with per-tenant keys and enforces TLS 1.2+ in all network segments.</td>
     </tr>
     <tr>
-      <td>Did you build your own algorithms? Which ones do you use in your code?</td>
-      <td>We did not build our own, the service uses <code>AES</code> and <code>SHA-256</code> with salting.</td>
+      <td>Which algorithms are used in App ID?</td>
+      <td>The service uses <code>AES</code> and <code>SHA-256</code> with salting.</td>
     </tr>
     <tr>
       <td>Do you use public or open source encryption modules or providers? Do you ever expose encryption functions? </td>
@@ -125,7 +125,7 @@ Check out the following table for answers to commonly asked questions about encr
     </tr>
     <tr>
       <td>How do you store keys?</td>
-      <td>Keys are generated, encrypted with a master key that is specific to each region, and then stored locally. The master keys are stored in {{site.data.keyword.keymanagementserviceshort}}. At the storage and middleware levels, there is service level encryption, which means that there is one key for all customers. At the app level, each customer has their own encryption key.</td>
+      <td>Keys are generated, encrypted with a master key that is specific to each region, and then stored locally. The master keys are stored in [{{site.data.keyword.keymanagementserviceshort}}](/docs/services/key-protect?topic=key-protect-getting-started-tutorial). Each region has its own root-of-trust key that is stored in [{{site.data.keyword.keymanagementserviceshort}}](/docs/services/key-protect?topic=key-protect-getting-started-tutorial), which is backed up by HSM. Each service instance (tenant) has its own data encryption and token signature keys, which are encrypted by using the region's root-of-key trust.</td>
     </tr>
     <tr>
       <td>What is the key strength that you use?</td>
