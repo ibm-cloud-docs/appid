@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-11-19"
+lastupdated: "2019-12-05"
 
 keywords: ingress controller, ingress, istio, access, subdomain, custom domain, service, containerized apps, containers, kube, networking, policy, policies, secure apps, authentication, authorization
 
@@ -26,7 +26,7 @@ subcollection: appid
 # Containerized apps with Ingress
 {: #kube-auth}
 
-You can consistently enforce policy-driven security by using the Ingress networking capability in {{site.data.keyword.containerlong}} or {{site.data.keyword.openshiftshort}}. With this approach, you can enable authorization and authentication for all of the applications in your cluster at the same time, without ever changing your app code! With this step-by-step guide, you can learn how to configure your Ingress controller to use {{site.data.keyword.appid_short_notm}}.
+You can consistently enforce policy-driven security by using the Ingress networking capability in {{site.data.keyword.containerlong}} or {{site.data.keyword.openshiftshort}}. With this approach, you can enable authorization and authentication for all of the applications in your cluster at the same time, without ever changing your app code!
 {: shortdesc}
 
 Check out the following diagram to see the authentication flow:
@@ -40,8 +40,17 @@ Check out the following diagram to see the authentication flow:
 5. The Ingress controller obtains access and identity tokens from {{site.data.keyword.appid_short_notm}} for authorization.
 6. Every request that is validated and forwarded by the Ingress Controller to your apps has an authorization header that contains the tokens.
 
-The Ingress Controller integration with {{site.data.keyword.appid_short_notm}} currently does not support refresh tokens. When access and identity tokens expire, user's must reauthenticate.
+The {{site.data.keyword.appid_short_notm}} Ingress annotation does not currently support refresh tokens. When access and identity tokens expire, user's must reauthenticate.
 {: note}
+
+## Video tutorial
+{: #video-ingress}
+
+Updating your Ingress annotation works the same way in both {{site.data.keyword.containerlong}} or {{site.data.keyword.openshiftshort}}. To see how quickly you can be up and running with {{site.data.keyword.openshiftshort}} check out the following video.
+
+<div class="embed-responsive embed-responsive-16by9" data-hd-video="video">
+   <iframe class="embed-responsive-item" id="about-appid" title="Protecting IBM Kubernetes Service OpenShift Applications with {{site.data.keyword.appid_short_notm}}" type="text/html" width="640" height="390" src="//www.youtube.com/embed/sqGS7naTkoU?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
+</div>
 
 
 ## Before you begin
@@ -129,7 +138,7 @@ By binding your instance of {{site.data.keyword.appid_short_notm}} to your clust
 
   2. Copy the output beginning with `export` and paste it into your terminal to set the `KUBECONFIG` environment variable.
 
-3. Check to see whether you already have an Ingress controller in your default namespace. IBM Cloud Kubernetes Service supports one Ingress per namespace. If you already have one, you can update the existing Ingress configuration or use a different namespace.
+3. Check to see whether you already have an Ingress controller in your default namespace. {{site.data.keyword.containerlong}} supports one Ingress per namespace. If you already have one, you can update the existing Ingress configuration or use a different namespace.
 
   ```
   kubectl get ingress
@@ -139,7 +148,7 @@ By binding your instance of {{site.data.keyword.appid_short_notm}} to your clust
 4. Bind your instance of {{site.data.keyword.appid_short_notm}}. Binding creates a service key for the service instance. You can specify an existing service key by using the `-key` flag.
 
   ```
-  ibmcloud ks cluster-service-bind --cluster <cluster_name_or_ID> --namespace <namespace> --service <App-ID_instance_name> [--key <service_instance_key>]
+  ibmcloud ks cluster-service-bind --cluster <cluster_name_or_ID> --namespace <namespace> --service <App_ID_instance_name> [--key <service_instance_key>]
   ```
   {: codeblock}
 
@@ -156,36 +165,6 @@ By binding your instance of {{site.data.keyword.appid_short_notm}} to your clust
   Secret name:  binding-appid1
   ```
   {: screen}
-
-
-## Pushing your app to Container Registry
-{: #kube-registry}
-
-In order for your application to run in Kubernetes, you must host it in a registry.
-{: shortdesc}
-
-
-1. Sign in to the Container Registry CLI plug-in.
-
-  ```
-  ibmcloud cr login
-  ```
-  {: codeblock}
-
-2. Create a Container Registry namespace.
-
-  ```
-  ibmcloud cr namespace-add <my_namespace>
-  ```
-  {: codeblock}
-
-3. Build, tag, and push the app as an image to your namespace in Container Registry. Be sure to include the period (.) at the end of the command.
-
-  ```
-  ibmcloud cr build -t registry.{region}.icr.io.net/{namespace}/{app-name}:{tag} .
-  ```
-  {: codeblock}
-
 
 
 ## Configuring Ingress
@@ -280,8 +259,6 @@ To ensure the best performance of the integration, it is recommended that you al
   {: codeblock}
 
 
-
-
 ## Adding your redirect URLs
 {: #kube-add-redirect}
 
@@ -306,9 +283,6 @@ A redirect URL is the URL for the site that you want {{site.data.keyword.appid_s
 
 {{site.data.keyword.appid_short_notm}} offers a logout function: If `/logout` exists in your {{site.data.keyword.appid_short_notm}} path, cookies are removed and the user is sent back to the login page. To use this function, append `/appid_logout` to your domain in the format `https://mycluster.us-south.containers.appdomain.cloud/myapp1path/appid_logout` and include it in your redirect URLs.
 {: note}
-
-
-Excellent! Now, you can verify that the deployment was successful by navigating to your Ingress subdomain or custom domain to try it out.
 
 
 ## Next steps

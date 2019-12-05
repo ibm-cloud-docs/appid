@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-11-19"
+lastupdated: "2019-12-05"
 
 keywords: rate limits, traffic control, limit request, lite instances, per minute, per instance, per user, limits
 
@@ -59,7 +59,7 @@ The following table lists the maximum per user limits for {{site.data.keyword.ap
 <table>
     <caption>Table 2. General rate limits</caption>
     <tr>
-        <th>API</th>
+        <th>Action</th>
         <th>Limit</th>
         <th>When Exceeded</th>
     </tr>
@@ -122,3 +122,4 @@ Review the following table to see limits that are associated with Cloud Director
 </table>
 
 For more information, see the [rate limit management API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateRateLimitConfig){: external}.
+
