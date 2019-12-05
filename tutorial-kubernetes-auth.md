@@ -280,9 +280,6 @@ A redirect URL is the URL for the site that you want {{site.data.keyword.appid_s
 
     If your app is registered with an IBM Ingress subdomain, your callback URL might look like: `https://mycluster.us-south.containers.appdomain.cloud/myapp1path/appid_callback`
 
-{{site.data.keyword.appid_short_notm}} offers a logout function: If `/logout` exists in your {{site.data.keyword.appid_short_notm}} path, cookies are removed and the user is sent back to the login page. To use this function, append `/appid_logout` to your domain in the format `https://mycluster.us-south.containers.appdomain.cloud/myapp1path/appid_logout` and include it in your redirect URLs.
-{: note}
-
 
 ## Next steps
 {: #kube-next}
