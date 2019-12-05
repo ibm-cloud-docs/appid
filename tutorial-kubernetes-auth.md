@@ -49,9 +49,8 @@ The {{site.data.keyword.appid_short_notm}} Ingress annotation does not currently
 Updating your Ingress annotation works the same way in both {{site.data.keyword.containerlong}} or {{site.data.keyword.openshiftshort}}. To see how quickly you can be up and running with {{site.data.keyword.openshiftshort}} check out the following video.
 
 <div class="embed-responsive embed-responsive-16by9" data-hd-video="video">
-   <iframe class="embed-responsive-item" id="about-appid" title="Protecting IBM Kubernetes Service OpenShift Applications with {{site.data.keyword.appid_short_notm}}" type="text/html" width="640" height="390" src="//www.youtube.com/embed/sqGS7naTkoU?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
+  <iframe class="embed-responsive-item" id="kube-video" title="Protecting IBM Kubernetes Service OpenShift Applications with {{site.data.keyword.appid_short_notm}}" type="text/html" width="640" height="390" src="//www.youtube.com/embed/sqGS7naTkoU?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
 </div>
-
 
 ## Before you begin
 {: #kube-prereqs}
