@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-12-05"
+lastupdated: "2019-12-09"
 
 keywords: ingress controller, ingress, istio, access, subdomain, custom domain, service, containerized apps, containers, kube, networking, policy, policies, secure apps, authentication, authorization
 
@@ -278,6 +278,11 @@ A redirect URL is the URL for the site that you want {{site.data.keyword.appid_s
 
     If your app is registered with an IBM Ingress subdomain, your callback URL might look like: `https://mycluster.us-south.containers.appdomain.cloud/myapp1path/appid_callback`
 
+
+## Configuring log out
+{: #kube-logout}
+
+When you configure your application to use the Ingress Controller annotation, an SSO session with the user's browser is established. To end the SSO session, call the `/appid_logout` endpoint and then redirect your users to a home or sign in page. Be sure that the log out code is called as a reaction to the user clicking `Logout` in your app. Be sure that you add your log out URI to your [whitelisted redirect URIs](/docs/services/appid?topic=appid-managing-idp#add-redirect-uri). Your URI will look similar to `https://mycluster.us-south.containers.appdomain.cloud/myapp1path/appid_logout`.
 
 
 ## Next steps

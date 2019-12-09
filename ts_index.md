@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-12-04"
+lastupdated: "2019-12-09"
 
 keywords: help, support, error, multiple users, attribute, ticket, identity provider, redirect uri, custom url, virtual user, idp, identity settings, user profile
 
@@ -39,17 +39,17 @@ You can get help by searching for information or by asking questions through a f
   * For questions about the service and getting started instructions, use the <a href="https://developer.ibm.com/" target="_blank">IBM Developer Answers <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> forum. Include the `appid` tag.
   * Reach out directly to the development team on [Slack](https://www.ibm.com/cloud/blog/announcements/get-help-with-ibm-cloud-app-id-related-questions-on-slack)! 
 
-For more information about getting support, see [how do I get the support that I need](/docs/get-support?topic=get-support-getting-customer-support#getting-customer-support).
+For more information about getting support, see [how do I get the support that I need](/docs/get-support?topic=get-support-getting-customer-support).
 
 
-## A user is not redirected to the app after sign in
+## A user is not redirected to the app after sign-in
 {: #ts-signin-fail}
 
 {: tsSymptoms}
 A user signs in to your application through an identity provider's sign in page, and either nothing happens or the sign-in fails.
 
 {: tsCauses}
-Sign in might fail for the following reasons:
+Sign-in might fail for the following reasons:
 
 * Your redirect URL was not properly added to [the whitelist](/docs/services/appid?topic=appid-faq#faq-redirect).
 * The user is not authorized.
@@ -68,7 +68,7 @@ For a redirect to occur:
 {: #ts-custom-uri}
 
 {: tsSymptoms}
-When you enter a web redirect URL that uses a custom URL Scheme it is rejected by the {{site.data.keyword.appid_short_notm}} console.
+When you enter a web redirect URL that uses a custom URL Scheme, it is rejected by the {{site.data.keyword.appid_short_notm}} console.
 
 {: tsCauses}
 Your URL might be rejected for the following reasons:
@@ -139,7 +139,7 @@ You attempt to view the home page of your app but receive the following error:
 {: screen}
 
 {: tsCauses}
-You might receive a `too many requests` error if you are performing automated testing with only one virtual user. Each user is limited to five sign in attempts in a one-minute time span. Sign in attempts are limited in order to prevent brute force DDoS and other types of similar attacks.
+You might receive a `too many requests` error if you are performing automated testing with only one virtual user. Each user is limited to five sign-in attempts in a 1-minute time span. Sign-in attempts are limited in order to prevent brute force DDoS and other types of similar attacks.
 
 {: tsResolve}
 To resolve the issue, you might want to use multiple virtual users when you perform testing.
@@ -150,17 +150,17 @@ To resolve the issue, you might want to use multiple virtual users when you perf
 {: #ts-verification}
 
 {: tsSymptoms}
-Your users don't receive an email when the sign up, forgot their password, change their password or to verify their account.
+Your users don't receive an email when the sign-up, forgot their password, change their password or to verify their account.
 
 {: tsCauses}
-An email might not be received because the settings are misconfigured, the email is sent to spam, or an internal error.
+A user might not receive their requested email because it is sent to spam, there is a misconfiguration, or an internal error.
 
 {: tsResolve}
 To resolve this issue, you can try the following solutions:
 
 * Verify with the user that the email was not sent to their spam folder. If it was, have them mark the sender as `not spam`. To avoid this, consider [bringing your own email sender](/docs/services/appid?topic=appid-cd-types#cd-custom-email).
 * Verify your [messaging configuration](/docs/services/appid?topic=appid-cd-types). 
-* Ensure that a resend option is present on your sign in screen so that your user can request that an email be resent if an internal error occurs.
+* Ensure that a resend option is present on your sign-in screen so that your user can request that an email is resent if an internal error occurs.
 
 If you add a user through the {{site.data.keyword.appid_short_notm}} dashboard, the user is verified automatically and does not receive an email.
 {: note}

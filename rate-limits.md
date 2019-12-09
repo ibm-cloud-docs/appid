@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-12-05"
+lastupdated: "2019-12-09"
 
 keywords: rate limits, traffic control, limit request, lite instances, per minute, per instance, per user, limits
 
@@ -76,6 +76,18 @@ The following table lists the maximum per user limits for {{site.data.keyword.ap
         <td>Delete user profile attributes</td>
         <td>5 per minute</td>
         <td>User unable to update profile for 1 minute.</td>
+    </tr>
+    <tr>
+      <td>Roles per {{site.data.keyword.appid_short_notm}} instance</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <td>Scopes per application</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <td>Applications per {{site.data.keyword.appid_short_notm}} instance</td>
+      <td>50</td>
     </tr>
 </table>
 
