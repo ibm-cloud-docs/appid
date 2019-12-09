@@ -136,8 +136,8 @@ Review the following table to see limits that are associated with Cloud Director
 For more information, see the [rate limit management API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateRateLimitConfig){: external}.
 
 
-## Ingress Annotation
-{: #annoation-limits}
+## Ingress annotation
+{: #annotation-limits}
 
 Be sure to review the following limitations before you configure your annotation.
 
