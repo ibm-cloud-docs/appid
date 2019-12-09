@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-11-19"
+lastupdated: "2019-12-09"
 
 keywords: identity provider, idp, app security, mobile app, web app, authentication, authorization, oidc, saml, protocols, facebook, google, w3id, cloud directory, redirect url, redirect uri, token configuration, token lifetime, log in configuration
 
@@ -21,8 +21,10 @@ subcollection: appid
 {:important: .important}
 {:deprecated: .deprecated}
 {:download: .download}
+{:help: data-hd-content-type='help'} 
+{:support: data-reuse='support'}
 
-# Managing authentications
+# Managing authentication
 {: #managing-idp}
 
 Identity providers (IdP's) add a level of security for your mobile and web apps, through authentication. With {{site.data.keyword.appid_full}}, you can configure one or several identity providers to create a custom sign-in experience for your users.
@@ -77,6 +79,8 @@ There are several identity providers that the service can be configured to use. 
 
 ## Managing providers
 {: #managing-providers}
+{: help}
+{: support}
 
 An identity provider creates and manages information about an entity such as a user, a functional ID, or an application. The provider verifies the identity of the entity by using credentials, such as a password. Then, the IdP sends the identity information back to {{site.data.keyword.appid_short_notm}}, which authorizes the user and then grants access to your app.
 {: shortdesc}
@@ -142,6 +146,8 @@ Not sure where your redirect URI comes from? Watch the following short video to 
 
 ## Configuring token lifetime
 {: #idp-token-lifetime}
+{: help}
+{: support}
 
 App ID uses tokens to identify users and secure your resources. You can adjust your configuration to fit your applications needs by setting the lifespan of the tokens. Token lifetime begins again each time a user signs in. For example, you set your refresh token lifetime to 10 days. An access token and a refresh token are created when the user signs in for the first time. If the user returns to your app 3 days later, they wouldn't need to sign in again. But, if the user waited 12 days after their initial sign-in, and then returned to your app, they would need to sign in again. For more information about tokens, check out [Understanding tokens](/docs/services/appid?topic=appid-tokens#tokens).
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-11-19"
+lastupdated: "2019-12-09"
 
 keywords: rate limits, traffic control, limit request, lite instances, per minute, per instance, per user, limits
 
@@ -59,7 +59,7 @@ The following table lists the maximum per user limits for {{site.data.keyword.ap
 <table>
     <caption>Table 2. General rate limits</caption>
     <tr>
-        <th>API</th>
+        <th>Action</th>
         <th>Limit</th>
         <th>When Exceeded</th>
     </tr>
@@ -76,6 +76,10 @@ The following table lists the maximum per user limits for {{site.data.keyword.ap
         <td>Delete user profile attributes</td>
         <td>5 per minute</td>
         <td>User unable to update profile for 1 minute.</td>
+    </tr>
+    <tr>
+      <td>Applications per {{site.data.keyword.appid_short_notm}} instance</td>
+      <td>50</td>
     </tr>
 </table>
 
@@ -122,3 +126,14 @@ Review the following table to see limits that are associated with Cloud Director
 </table>
 
 For more information, see the [rate limit management API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateRateLimitConfig){: external}.
+
+
+## Ingress annotation
+{: #annotation-limits}
+
+Be sure to review the following limitations before you configure your annotation.
+
+
+* Refresh tokens are not currently supported.
+* {{site.data.keyword.containerlong}} supports one Ingress per namespace. If you already have one, you can update the existing Ingress configuration or use a different namespace.
+

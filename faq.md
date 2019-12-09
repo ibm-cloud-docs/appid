@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-12-04"
+lastupdated: "2019-12-09"
 
 keywords: pricing, advanced security, authentication events, authorized users, activity tracking, runtime activity, password policies, keycloak, whitelist redirect url, redirect uri 
 
@@ -22,6 +22,7 @@ subcollection: appid
 {:deprecated: .deprecated}
 {:download: .download}
 {:faq: data-hd-content-type='faq'}
+{:support: data-reuse='support'}
 
 
 # FAQ
@@ -91,6 +92,7 @@ An authorized user is a unique user that signs in with your service whether dire
 ## Why do I need to whitelist my redirect URI?
 {: #faq-redirect}
 {: faq}
+{: support}
 
 A redirect URI is the callback endpoint of your application. When you whitelist your URI, you're giving {{site.data.keyword.appid_short_notm}} the OK to send your users to that location. At runtime, {{site.data.keyword.appid_short_notm}} validates the URI against your whitelist before redirecting the user. This can help prevent phishing attacks and lessens the possibility that an attacker is able to gain access to your user's tokens. For more information about redirect URIs, see [Adding redirect URIs](/docs/services/appid?topic=appid-managing-idp#add-redirect-uri).
 
@@ -154,8 +156,9 @@ Keycloak is packaged as software, which means that you, as the developer, are re
 
 
 ## Can I use the same client ID in more than one application?
-{: #faq-multiple apps}
+{: #faq-multiple-apps}
 {: faq}
+{: support}
 
 While you technically _can_ use the same credentials in more than one application, it is highly recommended that you do not for several reasons. Foremost, because when you're sharing your ID across applications any type of attack or compromise then affects your entire ecosystem rather than one application. For example, if you're using your ID across three applications and one of them becomes compromised - all three are then compromised because an attacker is able to impersonate any of your apps. Second, because when you're using the same client ID in multiple apps, there is no way to differentiate between applications. For example, you're unable to tell which app was used to generate a token.
 
