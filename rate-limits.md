@@ -135,3 +135,13 @@ Review the following table to see limits that are associated with Cloud Director
 
 For more information, see the [rate limit management API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateRateLimitConfig){: external}.
 
+
+## Ingress Annotation
+{: #annoation-limits}
+
+Be sure to review the following limitations before you configure your annotation.
+
+
+* Refresh tokens are not currently supported.
+* {{site.data.keyword.containerlong}} supports one Ingress per namespace. If you already have one, you can update the existing Ingress configuration or use a different namespace.
+
