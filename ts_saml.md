@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-11-19"
+lastupdated: "2019-12-09"
 
 keywords: saml, help, authentication request, error message, signing algorithm, xml file, signing certificate, valid email, error code, saml message signature, 
 
@@ -24,6 +24,8 @@ subcollection: appid
 {:tsSymptoms: .tsSymptoms}
 {:tsCauses: .tsCauses}
 {:tsResolve: .tsResolve}
+{:troubleshoot: data-hd-content-type='troubleshoot'} 
+{:support: data-reuse='support'}
 
 # Troubleshooting: SAML
 {: #troubleshooting-idp}
@@ -45,6 +47,8 @@ For specific error codes and messages from your identity provider that you don't
 
 ### SAML message signature could not be validated
 {: #ts-saml-w3id}
+{: troubleshoot} 
+{: support}
 
 
 **What's happening**
@@ -224,6 +228,8 @@ To resolve the issue, you can update your authentication context. By default, {{
 
 ### SAML request signing failure
 {: #ts-saml-request-sign-fail}
+{: troubleshoot} 
+{: support}
 
 **What's happening**
 
