@@ -78,14 +78,6 @@ The following table lists the maximum per user limits for {{site.data.keyword.ap
         <td>User unable to update profile for 1 minute.</td>
     </tr>
     <tr>
-      <td>Roles per {{site.data.keyword.appid_short_notm}} instance</td>
-      <td>50</td>
-    </tr>
-    <tr>
-      <td>Scopes per application</td>
-      <td>50</td>
-    </tr>
-    <tr>
       <td>Applications per {{site.data.keyword.appid_short_notm}} instance</td>
       <td>50</td>
     </tr>
