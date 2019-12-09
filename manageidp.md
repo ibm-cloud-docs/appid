@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-11-19"
+lastupdated: "2019-12-09"
 
 keywords: identity provider, idp, app security, mobile app, web app, authentication, authorization, oidc, saml, protocols, facebook, google, w3id, cloud directory, redirect url, redirect uri, token configuration, token lifetime, log in configuration
 
@@ -22,7 +22,7 @@ subcollection: appid
 {:deprecated: .deprecated}
 {:download: .download}
 
-# Managing authentications
+# Managing authentication
 {: #managing-idp}
 
 Identity providers (IdP's) add a level of security for your mobile and web apps, through authentication. With {{site.data.keyword.appid_full}}, you can configure one or several identity providers to create a custom sign-in experience for your users.
