@@ -24,6 +24,8 @@ subcollection: appid
 {:tsSymptoms: .tsSymptoms}
 {:tsCauses: .tsCauses}
 {:tsResolve: .tsResolve}
+{:troubleshoot: data-hd-content-type='troubleshoot'}
+{:support: data-reuse='support'}
 
 # Troubleshooting: General
 {: #troubleshooting}
@@ -44,6 +46,8 @@ For more information about getting support, see [how do I get the support that I
 
 ## A user is not redirected to the app after sign-in
 {: #ts-signin-fail}
+{: troubleshoot} 
+{: support}
 
 {: tsSymptoms}
 A user signs in to your application through an identity provider's sign in page, and either nothing happens or the sign-in fails.
@@ -129,6 +133,8 @@ Map the attribute in your identity provider settings. {{site.data.keyword.appid_
 
 ## Error: Too many requests
 {: #ts-requests}
+{: troubleshoot} 
+{: support}
 
 {: tsSymptoms}
 You attempt to view the home page of your app but receive the following error:
