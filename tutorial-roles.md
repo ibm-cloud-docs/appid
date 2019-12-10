@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-11-19"
+lastupdated: "2019-12-10"
 
 keywords: roles, access control, scopes, roles, app security, user profile, app access, identity
 
@@ -29,8 +29,7 @@ subcollection: appid
 Ensuring that the correct people, have the approved access, when they need it can be difficult when you are coding your application. To help with that process, you can use {{site.data.keyword.appid_full}} to define a custom attribute such as `role`, which allows you to assign different types of users. Then, you can use your application to enforce varying levels of permissions for each type of user. By using this step-by-step guide that you can learn to set user attributes, update them, and then inject them in to a token by using the {{site.data.keyword.appid_short_notm}} APIs.
 {: shortdesc}
 
-New to the APIs? Try them out with this [Postman collection](https://github.com/ibm-cloud-security/appid-postman).
-{: tip}
+
 
 ## Scenario
 {: #roles-scenario}
@@ -53,6 +52,9 @@ Be sure that you have the following prerequisites before you begin:
 - An instance of the {{site.data.keyword.appid_short_notm}} service
 - A set of service credentials
 - An email address that you can access and validate
+
+New to the APIs? Try them out with this [Postman collection](https://github.com/ibm-cloud-security/appid-postman).
+{: tip}
 
 
 ## Step 1: Configuring your {{site.data.keyword.appid_short_notm}} instance

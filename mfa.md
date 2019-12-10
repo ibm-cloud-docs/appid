@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-12-04"
+lastupdated: "2019-12-10"
 
 keywords: mfa, multifactor, authentication, cloud directory, login widget, second factor, two factor, identity, mulitple factors, advanced security event, cloud directory user, sender id, phone number, email, nexmo
 
@@ -29,8 +29,7 @@ subcollection: appid
 By requiring multiple factors during sign-in, you can increase the security of user authentication to your apps. With Cloud Directory for {{site.data.keyword.appid_full}}, the first factor is the Cloud Directory user's password, which they normally use to sign in. The second authentication factor is a one-time code that {{site.data.keyword.appid_short_notm}} sends to the user either as an SMS or email. {{site.data.keyword.appid_short_notm}} uses a combination of both factors to verify the identity of a user.
 {: shortdesc}
 
-{{site.data.keyword.appid_short_notm}} MFA is supported as part of the OAuth 2.0 authorization code flow for Cloud Directory users through the Login Widget. If you're using enterprise sign-in with SAML 2.0 or social login,
-you can enable MFA through that identity provider.
+{{site.data.keyword.appid_short_notm}} MFA is supported as part of the OAuth 2.0 authorization code flow for Cloud Directory users through the Login Widget. If you're using enterprise sign-in with SAML 2.0 or social login, you can enable MFA through that identity provider.
 {: note}
 
 When MFA is enabled, the {{site.data.keyword.appid_short_notm}} Login Widget requires a second form of verification (second authentication factor) every time a user attempts to sign in. After a user successfully enters their credentials, a one-time code is sent to the email or phone number that is registered to their account.
