@@ -4,7 +4,7 @@ copyright:
   years: 2017, 2019
 lastupdated: "2019-12-10"
 
-keywords: roles, access control, scopes, roles, app security, user profile, app access, identity
+keywords: attributes, cloud directory, user registry, user management, roles, access control, roles, app security, user profile, app access, identity
 
 subcollection: appid
 
