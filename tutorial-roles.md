@@ -30,6 +30,9 @@ Ensuring that the correct people, have the approved access, when they need it ca
 {: shortdesc}
 
 
+This tutorial shows you how to use custom attributes to create user roles. Custom attributes allow for maxmimum flexibility, but can be difficult to maintain. Now, you can control access by [creating role-based permissions for runtime actions](/docs/services/appid?topic=appid-access-control).
+{: tip}
+
 
 ## Scenario
 {: #roles-scenario}
