@@ -27,13 +27,6 @@ subcollection: appid
 
 The following features and changes to the {{site.data.keyword.appid_short_notm}} service are now available.
 
-## December 2019
-{: #December2019}
-
-- **Access control**
-
-    You can now define which users are able to access your app data, use specific features, or perform specific actions in your apps by using role-based access control. For more information, see the [access control docs](/docs/services/appid?topic=appid-access-control).
-
 
 
 ## November 2019
