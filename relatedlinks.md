@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-11-19"
+lastupdated: "2019-12-10"
 
 keywords: related links, blogs, sample apps, kube, code changes, programming guide, white paper, vuejs apps, serverless applications, enterprise user directory, custom experience, slack, stack overflow, secure iot, solution, finance app, multicloud, video tutorials
 
@@ -35,7 +35,8 @@ Getting started? Try walking through our [video tutorials](https://www.youtube.c
 ## Contact us
 {: #rellinks-contact}
 
-We’d love to hear from you with feedback and questions! To get started with {{site.data.keyword.appid_short}}, check out the {{site.data.keyword.cloud_notm}} catalog.
+We’d love to hear from you with feedback and questions!
+
 * If you have technical questions about {{site.data.keyword.appid_short_notm}}, post your question on [Stack Overflow](https://stackoverflow.com){: external} and tag your question with "ibm-appid".
 * For questions about the service and getting started instructions, use the [IBM Developer Answers](https://developer.ibm.com){: external} forum. Include the `appid` tag.
 
