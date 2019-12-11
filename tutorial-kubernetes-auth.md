@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-12-09"
+lastupdated: "2019-12-11"
 
 keywords: ingress controller, ingress, istio, access, subdomain, custom domain, service, containerized apps, containers, kube, networking, policy, policies, secure apps, authentication, authorization
 
@@ -85,8 +85,7 @@ For help with getting the CLIs and plug-ins downloaded and your Kubernetes Servi
 ## Binding {{site.data.keyword.appid_short_notm}} to your cluster
 {: #kube-create-appid}
 
-By binding your instance of {{site.data.keyword.appid_short_notm}} to your cluster, all instances of your app that are located in that cluster can be controlled by the same instance of {{site.data.keyword.appid_short_notm}} . Also,your {{site.data.keyword.appid_short_notm}} metadata and credentials are available as soon as your application starts as Kubernetes secrets.
-{: shortdesc}
+By binding your instance of {{site.data.keyword.appid_short_notm}} to your cluster, you can enforce protection for all of the apps that run in your cluster.
 
 
 1. Log in to the {{site.data.keyword.cloud_notm}} CLI. Follow the prompts in the CLI to complete logging in. If you're using a federated ID, be sure to append the `--sso` flag to the end of the command.
@@ -167,14 +166,13 @@ By binding your instance of {{site.data.keyword.appid_short_notm}} to your clust
 ## Configuring Ingress
 {: kube-ingress}
 
-During cluster creation, both a private and a public IBM Kubernetes Service Application Load Balancer (ALB) are created for you. To deploy your application and take advantage of your Ingress controller, create a deployment script.
-{: shortdesc}
+During cluster creation, both a private and a public IBM Kubernetes Service Application Load Balancer (ALB) are created for you. To add application protection for apps that run in your cluster, update your Ingress resource YAML.
 
 
 To ensure the best performance of the integration, it is recommended that you always use the latest version of IBM Kubernetes Service Application Load Balancer (ALB). By default, auto-update is enabled for your cluster. For more information about auto-updates, see [On-demand ALB update feature on {{site.data.keyword.containershort}}](https://www.ibm.com/cloud/blog/on-demand-alb-update-feature-on-ibm-cloud-kubernetes-service).
 {: tip}
 
-1. Get the secret that was created in your cluster namespace when you bound {{site.data.keyword.appid_short_notm}} to your cluster. Note: this is **not** your Container Registry namespace.
+1. Get the secret that was created in your cluster namespace when you bound {{site.data.keyword.appid_short_notm}} to your cluster. Your binding will look similar to the following: `binding-<appid_instance_name>`.
 
   ```
   kubectl get secrets --namespace=<namespace>
@@ -190,6 +188,9 @@ To ensure the best performance of the integration, it is recommended that you al
   default-token-kf97z        kubernetes.io/service-account-token   3         1h
   ```
   {: screen}
+
+  This is **not** your Container Registry namespace.
+  {: tip}
 
 2. Use the following example `yaml` file to create your Ingress configuration. For help with defining the rest of your deployment, check out [Deploying apps with the CLI](/docs/containers?topic=containers-app#app_cli).
 
@@ -256,11 +257,10 @@ To ensure the best performance of the integration, it is recommended that you al
   {: codeblock}
 
 
-## Adding your redirect URLs
+## Adding your redirect URIs
 {: #kube-add-redirect}
 
-A redirect URL is the URL for the site that you want {{site.data.keyword.appid_short_notm}} to send your users to after successful authentication.
-{: shortdesc}
+A redirect URL is the location that your user is sent to after they successfully sign in to or out of your app. By adding the redirect URI to your whitelist, you are telling {{site.data.keyword.appid_short_notm}} that it is okay to send your users to that location. [Learn more about redirect URIs](/docs/services/appid?topic=appid-managing-idp#add-redirect-uri).
 
 1. Navigate to the {{site.data.keyword.cloud_notm}} GUI and open your {{site.data.keyword.appid_short_notm}} dashboard.
 
@@ -277,6 +277,13 @@ A redirect URL is the URL for the site that you want {{site.data.keyword.appid_s
   * Ingress subdomain:
 
     If your app is registered with an IBM Ingress subdomain, your callback URL might look like: `https://mycluster.us-south.containers.appdomain.cloud/myapp1path/appid_callback`
+
+
+
+## Configuring log out
+{: #kube-logout}
+
+When you configure your application to use the Ingress Controller annotation, an SSO session with the user's browser is established. To end the SSO session, call the `/appid_logout` endpoint and then redirect your users to a home or sign in page. Be sure that the log out code is called as a reaction to the user clicking `Logout` in your app. Be sure that you add your log out URI to your [whitelisted redirect URIs](/docs/services/appid?topic=appid-managing-idp#add-redirect-uri). Your URI will look similar to `https://mycluster.us-south.containers.appdomain.cloud/myapp1path/appid_logout`.
 
 
 
