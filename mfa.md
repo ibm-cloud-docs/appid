@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-12-10"
+lastupdated: "2019-12-11"
 
 keywords: mfa, multifactor, authentication, cloud directory, login widget, second factor, two factor, identity, mulitple factors, advanced security event, cloud directory user, sender id, phone number, email, nexmo
 
@@ -43,6 +43,7 @@ Check out the following diagram to see how the MFA flow works.
 2. The credentials are validated and the MFA screen for second factor verification is returned. Based on the second factor configuration, the user receives either an email or an SMS with a one-time code and enters it into the verification screen.
 
 3. If the MFA code is validated, the user is redirected back to the application and is signed in.
+
 
 
 ## Understanding MFA
