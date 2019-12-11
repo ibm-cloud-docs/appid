@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-12-10"
+lastupdated: "2019-12-11"
 
 keywords: attributes, cloud directory, user registry, user management, roles, access control, roles, app security, user profile, app access, identity
 
@@ -34,7 +34,7 @@ Ensuring that the correct people, have the approved access, when they need it ca
 ## Scenario
 {: #roles-scenario}
 
-You are a developer for a fictional theme park. You're tasked with managing access for the [web application](/docs/services/appid?topic=appid-web-apps), and you feel the easiest way to do so is by setting roles for each type of user. You have several different types of roles such as park staff and visitors that all need different levels of permissions. You want to be able to streamline the process and ensure that your users are assigned the correct role from the first time they sign in to your application.  
+You're a developer for a fictional theme park. You're tasked with managing access for the [web application](/docs/services/appid?topic=appid-web-apps), and you feel the easiest way to do so is by setting roles for each type of user. You have several different types of roles such as park staff and visitors that all need different levels of permissions. You want to be able to streamline the process and ensure that your users are assigned the correct role from the first time they sign in to your application.  
 {: shortdesc}
 
 No problem! You can use the [custom attributes feature](/docs/services/appid?topic=appid-profiles) of {{site.data.keyword.appid_short_notm}} to store any type of user-related information. So, because you're working with role-based access control, you can create an attribute that is called `role` and assign different values to specify a type of role. For instance, the theme park might have `visitors` or `staff` that can each be different values for the `role` attribute. Then, you can ensure that your application code enforces the access policies and privileges that you assigned.
