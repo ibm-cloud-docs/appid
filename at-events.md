@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-12-10"
+lastupdated: "2019-12-11"
 
 keywords: user events, track activity, manage events, analyze, administrative, runtime, sign in, settings, app security
 
@@ -67,198 +67,187 @@ Check out the following table for a list of the events that are sent to {{site.d
     <th>GUI action</th>
   </tr>
   <tr>
-    <td><code>appid.recentActivity.read</code></td>
+    <td><code>read.recentActivity</code></td>
     <td>View recent activity.</td>
     <td>Can be found in the <strong>Activity Log</strong> box on the <strong>Overview</strong> tab.</td>
   </tr>
   <tr>
-    <td><code>appid.idpConfig.read</code></td>
+    <td><code>read.idpConfig</code></td>
     <td>View the identity provider configuration.</td>
     <td>Can be found in the <strong>Manage authentication > Identity Providers</strong> tab.</td>
   </tr>
   <tr>
-    <td><code>appid.idpConfig.update</code></td>
+    <td><code>update.idpConfig</code></td>
     <td>Update the identity provider configuration.</td>
     <td>Can be updated in the <strong>Manage authentication > Identity Providers</strong> tab.</td>
   </tr>
   <tr>
-    <td><code>appid.tokensConfig.read</code></td>
+    <td><code>read.tokensConfig</code></td>
     <td>View the token expiration configuration.</td>
     <td>Can be found in the <strong>Manage authentication > Authentication Settings</strong> tab.</td>
   </tr>
   <tr>
-    <td><code>appid.isProfilesActive.read</code></td>
+    <td><code>read.isProfilesActive</code></td>
     <td>View the user profile storage configuration.</td>
     <td>Can be found in the <strong>User Profiles</strong> tab.</td>
   </tr>
   <tr>
-    <td><code>appid.isProfilesActive.update</code></td>
+    <td><code>update.isProfilesActive</code></td>
     <td>Update your user profile storage configuration.</td>
     <td>Can be found in the <strong> User Profiles</strong> tab.</td>
   </tr>
   <tr>
-    <td><code>appid.themeColor.read</code></td>
+    <td><code>read.themeColor</code></td>
     <td>View the theme color of the login widget header.</td>
     <td>Can be found in the <strong>Login Customization</strong> tab.</td>
   </tr>
   <tr>
-    <td><code>appid.themeColor.update</code></td>
+    <td><code>update.themeColor</code></td>
     <td>Update the theme color of the login widget header.</td>
     <td>Can be Updated in the <strong>Login Customization</strong> tab.</td>
   </tr>
   <tr>
-    <td><code>appid.media.read</code></td>
+    <td><code>read.media</code></td>
     <td>View the image that is shown in the login widget.</td>
     <td>Can be found in the <strong>Login Customization</strong> tab.</td>
   </tr>
   <tr>
-    <td><code>appid.media.update</code></td>
+    <td><code>update.media</code></td>
     <td>Update the image that is shown in the login widget.</td>
     <td>Can be updated in the <strong>Login Customization</strong> tab.</td>
   </tr>
   <tr>
-    <td><code>appid.uiConfiguration.read</code></td>
+    <td><code>read.uiConfiguration</code></td>
     <td>View the login widget UI configuration which includes header color and image.</td>
     <td>Can be found in the <strong>Login Customization</strong> tab.</td>
   </tr>
   <tr>
-    <td><code>appid.uiLanguages.read</code></td>
+    <td><code>read.uiLanguages</code></td>
     <td>View a list of supported languages.</td>
     <td>Must be viewed from the API.</td>
   </tr>
   <tr>
-    <td><code>appid.uiLanguages.update</code></td>
+    <td><code>update.uiLanguages</code></td>
     <td>Update your supported languages.</td>
     <td>Must be updated through the API.</td>
   </tr>
   <tr>
-    <td><code>appid.samlMetadata.read</code></td>
+    <td><code>read.samlMetadata</code></td>
     <td>View the {{site.data.keyword.appid_short_notm}} SAML metadata.</td>
     <td>Can be found in the <strong>Identity Providers > SAML 2.0 Federation</strong> tab.</td>
   </tr>
   <tr>
-    <td><code>appid.cloudDirectoryUser.read</code></td>
+    <td><code>read.cloudDirectoryUser</code></td>
     <td>View a Cloud Directory user.</td>
     <td>Can be found in the <strong>Cloud Directory > Users > View user details</strong> tab.</td>
   </tr>
   <tr>
-    <td><code>appid.cloudDirectoryUser.update</code></td>
+    <td><code>update.cloudDirectoryUser</code></td>
     <td>Update a Cloud Directory User.</td>
     <td>Can be updated in the <strong>Users</strong> tab.</td>
   </tr>
   <tr>
-    <td><code>appid.user.remove</code></td>
-    <td>Delete a Cloud Directory user and profile.</td>
-    <td>Must be deleted through the API.</td>
-  </tr>
-  <tr>
-  <tr>
-    <td><code>appid.cloudDirectoryUser.delete</code></td>
+    <td><code>delete.cloudDirectoryUser</code></td>
     <td>Delete a Cloud Directory user.</td>
-    <td>Must be deleted through the API.</td>
+    <td>Can be deleted in the <strong>Users</strong> tab.</td>
   </tr>
   <tr>
-    <td><code>appid.cloudDirectoryUsers.read</code></td>
+    <td><code>read.cloudDirectoryUsers</code></td>
     <td>View a list of your Cloud Directory users.</td>
     <td>Can be found in the <strong>Users</strong> tab.</td>
   </tr>
   <tr>
-    <td><code>appid.cloudDirectoryUsers.update</code></td>
+    <td><code>update.cloudDirectoryUsers</code></td>
     <td>Update your list of Cloud Directory users.</td>
     <td>Can be updated in the <strong>Users</strong> tab.</td>
   </tr>
   <tr>
-    <td><code>appid.users.remove</code></td>
-    <td>Delete a list of Cloud Directory users and profiles.</td>
+    <td><code>delete.cloudDirectoryUsers</code></td>
+    <td>Delete a list of Cloud Directory users.</td>
     <td>Can be deleted in the <strong>Users</strong> tab.</td>
   </tr>
   <tr>
-    <td><code>appid.cloudDirectoryUsers.delete</code></td>
-    <td>Delete a list of Cloud Directory users.</td>
-    <td>Must be deleted through the API.</td>
-  </tr>
-  <tr>
-    <td><code>appid.emailTemplate.read</code></td>
+    <td><code>read.emailTemplate</code></td>
     <td>View an email template.</td>
     <td>Can be found in the <strong>Identity Providers > Cloud Directory > Templates</strong> tab.</td>
   </tr>
   <tr>
-    <td><code>appid.emailTemplate.update</code></td>
+    <td><code>update.emailTemplate</code></td>
     <td>Update an email template.</td>
     <td>Can be found in the <strong>Identity Providers > Cloud Directory > Templates</strong> tab.</td>
   </tr>
   <tr>
-    <td><code>appid.emailTemplate.delete</code></td>
+    <td><code>delete.emailTemplate</code></td>
     <td>Delete an email template to reset to the default.</td>
     <td>Can be found in the <strong>Identity Providers > Cloud Directory > Templates</strong> tab.</td>
   </tr>
   <tr>
-    <td><code>appid.senderDetails.read</code></td>
+    <td><code>read.senderDetails</code></td>
     <td>View the sender details.</td>
     <td>Can be found in the <strong>Identity Providers > Cloud Directory > Settings</strong> tab.</td>
   </tr>
   <tr>
-    <td><code>appid.senderDetails.update</code></td>
+    <td><code>update.senderDetails</code></td>
     <td>Update the sender details</td>
     <td>Can be found in the <strong>Identity Providers > Cloud Directory > Settings</strong> tab.</td>
   </tr>
   <tr>
-    <td><code>appid.resendNotification.update</code></td>
+    <td><code>update.resendNotification</code></td>
     <td>Resend user notifications.</td>
     <td>Can be found in the <strong>Identity Providers > Cloud Directory > Settings</strong> tab.</td>
   </tr>
   <tr>
-    <td><code>appid.selfForgotPassword.update</code></td>
+    <td><code>update.selfForgotPassword</code></td>
     <td>Update the forgot password process.</td>
     <td>Can be found in the <strong>Identity Providers > Cloud Directory > Settings</strong> tab.</td>
   </tr>
   <tr>
-    <td><code>appid.forgotPasswordResult.update</code></td>
+    <td><code>update.forgotPasswordResult</code></td>
     <td>View the forgot password confirmation result.</td>
     <td>Must be done through the API.</td>
   </tr>
   <tr>
-    <td><code>appid.selfSignUp.update</code></td>
+    <td><code>update.selfSignUp</code></td>
     <td>Update the sign-up process.</td>
     <td>Can be found in the <strong>Identity Providers > Cloud Directory > Settings</strong> tab.</td>
   </tr>
   <tr>
-    <td><code>appid.signUpResult.update</code></td>
+    <td><code>update.signUpResult</code></td>
     <td>View the sign-up result confirmation.</td>
     <td>Must be done through the API.</td>
   </tr>
   <tr>
-    <td><code>appid.action_url.read</code></td>
+    <td><code>read.action_url</code></td>
     <td>View the custom URL that is called when an action is performed.</td>
     <td>Can be found in the <strong>Identity Providers > Cloud Directory > Custom Landing Pages</strong> tab.</td>
   </tr>
   <tr>
-    <td><code>appid.action_url.update</code></td>
+    <td><code>update.action_url</code></td>
     <td>Update the custom URL that is called when an action is performed.</td>
     <td>Can be found in the <strong>Identity Providers > Cloud Directory > Settings</strong> tab.</td>
   </tr>
   <tr>
-    <td><code>appid.changePassword.update</code></td>
+    <td><code>update.changePassword</code></td>
     <td>Change the Cloud Directory user password.</td>
     <td>Can be found in the <strong>Identity Providers > Cloud Directory > Settings</strong> tab.</td>
   </tr>
   <tr>
-    <td><code>appid.loginWidgetConfig.read</code></td>
+    <td><code>read.loginWidgetConfig</code></td>
     <td>View your login widget configuration.</td>
     <td>Can be found in the <strong>Login Customization</strong> tab.</td>
   </tr>
   <tr>
-    <td><code>appid.loginWidgetConfig.update</code></td>
+    <td><code>update.loginWidgetConfig</code></td>
     <td>Update your login widget configuration.</td>
     <td>Can be updated in the <strong>Login Customization</strong> tab.</td>
   </tr>
   <tr>
-    <td><code>appid.captureRuntimeActivity.read</code></td>
+    <td><code>read.captureRuntimeActivity</code></td>
     <td>View runtime activity toggle.</td>
     <td>Can be viewed in the <strong>Identity Providers > Manage > Authentication Settings</strong> tab.</td>
   </tr>
   <tr>
-    <td><code>appid.captureRuntimeActivity.update</code></td>
+    <td><code>update.captureRuntimeActivity</code></td>
     <td>Toggle runtime activity monitoring.</td>
     <td>Can be updated in the <strong>Identity Providers > Manage > Authentication Settings</strong> tab.</td>
   </tr>
@@ -629,3 +618,5 @@ You can track the events of specific Cloud Directory users in {{site.data.keywor
   {: screen}
 
 3. Search for a **cloud_directory:id** value in the **target.name_str** field in the {{site.data.keyword.at_short}} console.
+
+
