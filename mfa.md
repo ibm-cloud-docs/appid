@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-12-11"
+lastupdated: "2019-12-12"
 
 keywords: mfa, multifactor, authentication, cloud directory, login widget, second factor, two factor, identity, mulitple factors, advanced security event, cloud directory user, sender id, phone number, email, nexmo
 
@@ -246,45 +246,44 @@ To enable MFA:
 
 1. Enable MFA, by making a PUT request to the `/config/mfa` endpoint with your MFA configuration to set `isActive` to `true`.
 
-    ```
-    cURL -X PUT https://<region>.appid.cloud.ibm.com/management/v4/{tenantId}/config/mfa \
-    --header 'Content-Type: application/json' \
-    --header 'Accept: application/json' \
-    --header 'Authorization: Bearer <IAM_TOKEN>' \
-    -d '{"isActive": true}'
-    ```
-    {: codeblock}
+  ```
+  cURL -X PUT https://<region>.appid.cloud.ibm.com/management/v4/{tenantId}/config/mfa \
+  --header 'Content-Type: application/json' \
+  --header 'Accept: application/json' \
+  --header 'Authorization: Bearer <IAM_TOKEN>' \
+  -d '{"isActive": true}'
+  ```
+  {: codeblock}
 
 2. Enable your MFA channel by making a PUT request to the `/mfa/channels/{channel}` endpoint with your MFA configuration. When `isActive` is set to `true`, your MFA channel is enabled.
 The `config` takes in the Nexmo API key and secret as well as the `from` number.
 
-    ```
-    cURL -X PUT https://<region>.appid.cloud.ibm.com/management/v4/{tenantId}/mfa/channels/nexmo' \
-    --header 'Content-Type: application/json' \ 
-    --header 'Accept: application/json' \ 
-    --header 'Authorization: Bearer <IAM_TOKEN>' \
-    -d '{
-        "isActive": true,
-        "config": {
-          "key": "nexmo key",
-          "secret": "nexmo secret",
-          "from": sender-phoneNumber
-        }
-    }'
-    ```
-    {: codeblock}
+  ```
+  cURL -X PUT https://<region>.appid.cloud.ibm.com/management/v4/{tenantId}/mfa/channels/nexmo' \
+  --header 'Content-Type: application/json' \ 
+  --header 'Accept: application/json' \ 
+  --header 'Authorization: Bearer <IAM_TOKEN>' \
+  -d '{
+      "isActive": true,
+      "config": {
+        "key": "nexmo key",
+        "secret": "nexmo secret",
+        "from": sender-phoneNumber
+      }
+  }'
+  ```
+  {: codeblock}
 
 3. Once the channel is successfully configured, verify that your Nexmo configuration and connection is set up
 correctly by using the test button on the UI or by using the management API.
 
-    ```
-    cURL -X PUT https://<region>.appid.cloud.ibm.com/management/v4/{tenantId}/config/cloud_directory/sms_dispatcher/test \
-    --header 'Content-Type: application/json' \
-    --header 'Accept: application/json' \ 
-    --header 'Authorization: Bearer <IAM_TOKEN>' \
-    -d '{"phone_number": "+1 999 999 9999"}'
-    ```
-    {: codeblock}
-
+  ```
+  cURL -X PUT https://<region>.appid.cloud.ibm.com/management/v4/{tenantId}/config/cloud_directory/sms_dispatcher/test \
+  --header 'Content-Type: application/json' \
+  --header 'Accept: application/json' \ 
+  --header 'Authorization: Bearer <IAM_TOKEN>' \
+  -d '{"phone_number": "+1 999 999 9999"}'
+  ```
+  {: codeblock}
 
 
