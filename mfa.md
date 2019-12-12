@@ -45,6 +45,9 @@ Check out the following diagram to see how the MFA flow works.
 3. If the MFA code is validated, the user is redirected back to the application and is signed in.
 
 
+If email verification is not configured, {{site.data.keyword.appid_short_notm}} validates the MFA channel in the background. For example, if you configure the email channel for MFA and don't have email verification configured, {{site.data.keyword.appid_short_notm}} validates the email on the first successful MFA log in. But, if you configure the SMS channel, {{site.data.keyword.appid_short_notm}} validates the user's phone number on the first successful log in. If you're using the SMS channel and want the email to be validated, be sure to enable email verification.
+{: tip}
+
 
 ## Understanding MFA
 {: #cd-mfa-understanding}
