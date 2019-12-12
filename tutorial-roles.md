@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-12-11"
+lastupdated: "2019-12-12"
 
 keywords: attributes, cloud directory, user registry, user management, roles, access control, roles, app security, user profile, app access, identity
 
@@ -28,6 +28,11 @@ subcollection: appid
 
 Ensuring that the correct people, have the approved access, when they need it can be difficult when you are coding your application. To help with that process, you can use {{site.data.keyword.appid_full}} to define a custom attribute such as `role`, which allows you to assign different types of users. Then, you can use your application to enforce varying levels of permissions for each type of user. By using this step-by-step guide that you can learn to set user attributes, update them, and then inject them in to a token by using the {{site.data.keyword.appid_short_notm}} APIs.
 {: shortdesc}
+
+
+
+This tutorial shows you how to use custom attributes to create user roles. Custom attributes allow for maxmimum flexibility, but can be difficult to maintain. Now, you can control access by [creating role-based permissions for runtime actions](/docs/services/appid?topic=appid-access-control).
+{: tip}
 
 
 
