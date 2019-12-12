@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-12-09"
+lastupdated: "2019-12-12"
 
 keywords: rate limits, traffic control, limit request, lite instances, per minute, per instance, per user, limits
 
@@ -122,6 +122,18 @@ Review the following table to see limits that are associated with Cloud Director
         <td>No</td>
         <td>10 SMS in 5 minutes per user</td>
         <td>SMS requests for the user are blocked for 30 minutes.</td>
+    </tr>
+    <tr>
+        <td>MFA code characters</td>
+        <td>No</td>
+        <td>6 numeric characters</td>
+        <td>The code automatically has 6 characters that must be input by the user.</td>
+    </tr>
+    <tr>
+        <td>MFA code expiration</td>
+        <td>No</td>
+        <td>15 Minutes</td>
+        <td>If a user does not validate their code within 15 minutes, they can request that another code is sent as long as the authentication session is not expired. Within the authentication session, the code can be sent multiple times. Once the authentication session expires, the user must repeat the login process from the beginning.</td>
     </tr>
 </table>
 

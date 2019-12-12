@@ -53,30 +53,15 @@ Check out the following diagram to see how the MFA flow works.
 MFA is a method of confirming a user's identity by requiring them to use multiple factors to prove that they are who they say that they are. These factors can be something that they have in addition to something that they know or something that they are.
 {: shortdesc}
 
-The first time that MFA is enabled, it is set to use email by default. You can change the setting to use SMS, but you cannot configure both at the same time. For both email and SMS, there are a few settings that are configured for you and cannot be changed.
+The first time that MFA is enabled, it is set to use email by default. You can change the setting to use SMS, but you cannot configure both at the same time. 
+{: note}
 
+Defined in SCIM as a [multi-valued attribute](https://tools.ietf.org/html/rfc7643#section-2.4){: external}, a Cloud Directory user's email or phone number can contain the following:
 
-<table>
-  <caption>Table 1. MFA limits</caption>
-  <tr>
-    <th>Setting</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>Code characters</td>
-    <td>Six numeric characters</td>
-  </tr>
-  <tr>
-    <td>Code expiration</td>
-    <td>Fifteen minutes <br> If a user does not validate their code within 15 minutes, they can request that another code is sent as long as the authentication session is not expired. Within the authentication session, the code can be sent multiple times. Once the authentication session expires, the user must repeat the login process from the beginning.</td>
-  </tr>
-</table>
+* Value: The actual attribute value such as email address or phone number.
+* Primary: A Boolean value that indicates the preferred value for the attribute. The primary attribute value `true` can occur once and only once. If not specified, the value of `primary` is assumed to be `false`.
 
-<p>Defined in SCIM as a <a href="https://tools.ietf.org/html/rfc7643#section-2.4" target="_blank">multi-valued attribute <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>, a Cloud Directory user's email or phone number can contain the following:
-<ul>
-  <li>Value: The actual attribute value such as email address or phone number.</li>
-  <li>Primary: A Boolean value that indicates the preferred value for the attribute. The primary attribute value <code>true</code> can occur once and only once. If not specified, the value of <code>primary</code> is assumed to be <code>false</code>.</li>
-</ul>For more information, check out the [Cloud Directory docs](/docs/services/appid?topic=appid-cloud-directory#cloud-directory).</p>
+For more information, check out the [Cloud Directory docs](/docs/services/appid?topic=appid-cloud-directory#cloud-directory).
 {: note}
 
 
