@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-12-10"
+lastupdated: "2019-12-12"
 
 keywords: new, spa, single sign on, mfa, cloud directory, saml, app security, application identity
 
@@ -26,6 +26,15 @@ subcollection: appid
 {: #release-notes}
 
 The following features and changes to the {{site.data.keyword.appid_short_notm}} service are now available.
+
+
+
+## December 2019
+{: #December2019}
+
+- **Access control**
+
+    You can now define which users are able to access your app data, use specific features, or perform specific actions in your apps by using role-based access control. For more information, see the [access control docs](/docs/services/appid?topic=appid-access-control).
 
 
 
