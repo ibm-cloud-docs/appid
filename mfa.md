@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-12-12"
+lastupdated: "2019-12-13"
 
 keywords: mfa, multifactor, authentication, cloud directory, login widget, second factor, two factor, identity, mulitple factors, advanced security event, cloud directory user, sender id, phone number, email, nexmo
 
@@ -63,9 +63,6 @@ Defined in SCIM as a [multi-valued attribute](https://tools.ietf.org/html/rfc764
 
 * Value: The actual attribute value such as email address or phone number.
 * Primary: A Boolean value that indicates the preferred value for the attribute. The primary attribute value `true` can occur once and only once. If not specified, the value of `primary` is assumed to be `false`.
-
-For more information, check out the [Cloud Directory docs](/docs/services/appid?topic=appid-cloud-directory#cloud-directory).
-{: note}
 
 
 
