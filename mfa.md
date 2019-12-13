@@ -175,7 +175,7 @@ If your {{site.data.keyword.appid_short_notm}} Cloud Directory instance is confi
 
 
 
-## Configuring MFA to work with SMS
+## Configuring the MFA SMS channel
 {: #cd-mfa-configure-sms}
 
 You can send an SMS message to your users as a second form of verification. When you enable SMS, {{site.data.keyword.appid_short_notm}} automatically tries to register the first [valid](https://en.wikipedia.org/wiki/E.164){: external} primary phone number that is found in a Cloud Directory user's profile. If the number is invalid or no phone number is found on the user's profile, then a registration widget is displayed for the user to add a number. Then, the number is part of the user's profile and after validation, becomes the default number that is used for MFA.
@@ -226,10 +226,7 @@ Before you get started with the API, be sure that you have the following prerequ
 * Your Identity and Access Management (IAM) token. For help with obtaining an IAM token, check out the [IAM docs](/docs/iam?topic=iam-iamtoken_from_apikey).
 
 
-To enable MFA:
-
-
-1. Enable MFA, by making a PUT request to the `/config/mfa` endpoint with your MFA configuration to set `isActive` to `true`.
+1. Enable MFA by making a PUT request to the `/config/mfa` endpoint with your MFA configuration to set `isActive` to `true`.
 
   ```
   cURL -X PUT https://<region>.appid.cloud.ibm.com/management/v4/{tenantId}/config/mfa \
@@ -270,5 +267,6 @@ correctly by using the test button on the UI or by using the management API.
   -d '{"phone_number": "+1 999 999 9999"}'
   ```
   {: codeblock}
+
 
 
