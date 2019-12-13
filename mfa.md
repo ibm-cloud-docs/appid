@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-12-12"
+lastupdated: "2019-12-13"
 
 keywords: mfa, multifactor, authentication, cloud directory, login widget, second factor, two factor, identity, mulitple factors, advanced security event, cloud directory user, sender id, phone number, email, nexmo
 
@@ -45,6 +45,9 @@ Check out the following diagram to see how the MFA flow works.
 3. If the MFA code is validated, the user is redirected back to the application and is signed in.
 
 
+If email verification is not configured, {{site.data.keyword.appid_short_notm}} validates the MFA channel in the background. For example, if you configure the email channel for MFA and don't have email verification configured, {{site.data.keyword.appid_short_notm}} validates the email on the first successful MFA log in. But, if you configure the SMS channel, {{site.data.keyword.appid_short_notm}} validates the user's phone number on the first successful log in. If you're using the SMS channel and want the email to be validated, be sure to enable email verification.
+{: tip}
+
 
 ## Understanding MFA
 {: #cd-mfa-understanding}
@@ -53,31 +56,13 @@ Check out the following diagram to see how the MFA flow works.
 MFA is a method of confirming a user's identity by requiring them to use multiple factors to prove that they are who they say that they are. These factors can be something that they have in addition to something that they know or something that they are.
 {: shortdesc}
 
-The first time that MFA is enabled, it is set to use email by default. You can change the setting to use SMS, but you cannot configure both at the same time. For both email and SMS, there are a few settings that are configured for you and cannot be changed.
-
-
-<table>
-  <caption>Table 1. MFA limits</caption>
-  <tr>
-    <th>Setting</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>Code characters</td>
-    <td>Six numeric characters</td>
-  </tr>
-  <tr>
-    <td>Code expiration</td>
-    <td>Fifteen minutes <br> If a user does not validate their code within 15 minutes, they can request that another code is sent as long as the authentication session is not expired. Within the authentication session, the code can be sent multiple times. Once the authentication session expires, the user must repeat the login process from the beginning.</td>
-  </tr>
-</table>
-
-<p>Defined in SCIM as a <a href="https://tools.ietf.org/html/rfc7643#section-2.4" target="_blank">multi-valued attribute <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>, a Cloud Directory user's email or phone number can contain the following:
-<ul>
-  <li>Value: The actual attribute value such as email address or phone number.</li>
-  <li>Primary: A Boolean value that indicates the preferred value for the attribute. The primary attribute value <code>true</code> can occur once and only once. If not specified, the value of <code>primary</code> is assumed to be <code>false</code>.</li>
-</ul>For more information, check out the [Cloud Directory docs](/docs/services/appid?topic=appid-cloud-directory#cloud-directory).</p>
+The first time that MFA is enabled, it is set to use email by default. You can change the setting to use SMS, but you cannot configure both at the same time. 
 {: note}
+
+Defined in SCIM as a [multi-valued attribute](https://tools.ietf.org/html/rfc7643#section-2.4){: external}, a Cloud Directory user's email or phone number can contain the following:
+
+* Value: The actual attribute value such as email address or phone number.
+* Primary: A Boolean value that indicates the preferred value for the attribute. The primary attribute value `true` can occur once and only once. If not specified, the value of `primary` is assumed to be `false`.
 
 
 

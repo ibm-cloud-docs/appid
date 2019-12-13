@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-12-12"
+lastupdated: "2019-12-13"
 
 keywords: user access, control access, permissions, roles, scopes, runtime, access token, authentication, identity, app security
 
@@ -326,7 +326,7 @@ You can use [WebAppStrategy](/docs/services/appid?topic=appid-key-concepts#term-
  
 ```javascript
 app.get("/protected", passport.authenticate(WebAppStrategy.STRATEGY_NAME), function(req, res){
-    if(WeAppStrategy.hasScope(req, "read write")){
+    if(WebAppStrategy.hasScope(req, "read write")){
               res.json(req.user);
     }
     else {

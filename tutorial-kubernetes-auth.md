@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-12-11"
+lastupdated: "2019-12-12"
 
 keywords: ingress controller, ingress, istio, access, subdomain, custom domain, service, containerized apps, containers, kube, networking, policy, policies, secure apps, authentication, authorization
 
@@ -218,7 +218,7 @@ To ensure the best performance of the integration, it is recommended that you al
   {: screen}
 
   <table>
-    <caption>Table 2. Understanding YAML file components</caption>
+    <caption>Table 2. Understanding annotation components</caption>
     <tr>
       <th>Variable</th>
       <th>Description</th>
@@ -243,11 +243,10 @@ To ensure the best performance of the integration, it is recommended that you al
       <td><code>idToken</code></td>
       <td>Optional: The Liberty OIDC client is unable to parse both the access and the identity token at the same time. When working with Liberty, set this value to <code>false</code> so that the identity token is not sent to the Liberty server.</td>
     </tr>
-    <tr>
-      <td><code>secretName</code></td>
-      <td>The TLS secret that is associated with your TLS certificate. If your certificate is hosted in IBM Cloud Certificate Manager, you can run <code>ibmcloud ks alb-cert-deploy --secret-name <secret_name> --cluster <cluster_name_or_ID> --cert-crn <certificate_crn></code> to deploy it to your cluster. If you do not have a certificate, complete step 3 of [Exposing apps with Ingress](/docs/containers?topic=containers-ingress#ingress_expose_public).</td>
-    </tr>
   </table>
+
+  You can add more instance of {{site.data.keyword.appid_short_notm}} to your annotation by adding two `bindSecret` lines, separated by a semicolon (;).
+  {: tip}
 
 3. Run the configuration file.
 
@@ -261,6 +260,7 @@ To ensure the best performance of the integration, it is recommended that you al
 {: #kube-add-redirect}
 
 A redirect URL is the location that your user is sent to after they successfully sign in to or out of your app. By adding the redirect URI to your whitelist, you are telling {{site.data.keyword.appid_short_notm}} that it is okay to send your users to that location. [Learn more about redirect URIs](/docs/services/appid?topic=appid-managing-idp#add-redirect-uri).
+
 
 1. Navigate to the {{site.data.keyword.cloud_notm}} GUI and open your {{site.data.keyword.appid_short_notm}} dashboard.
 
@@ -283,7 +283,7 @@ A redirect URL is the location that your user is sent to after they successfully
 ## Configuring log out
 {: #kube-logout}
 
-When you configure your application to use the Ingress Controller annotation, an SSO session with the user's browser is established. To end the SSO session, call the `/appid_logout` endpoint and then redirect your users to a home or sign in page. Be sure that the log out code is called as a reaction to the user clicking `Logout` in your app. Be sure that you add your log out URI to your [whitelisted redirect URIs](/docs/services/appid?topic=appid-managing-idp#add-redirect-uri). Your URI will look similar to `https://mycluster.us-south.containers.appdomain.cloud/myapp1path/appid_logout`.
+When you configure your application to use the Ingress Controller annotation, a session with the user's browser is established. To end the Ingress session, call the `/appid_logout` endpoint and then redirect your users to a home or sign in page. Be sure that the log out code is called as a reaction to the user clicking `Logout` in your app. Be sure that you add your log out URI to your [whitelisted redirect URIs](/docs/services/appid?topic=appid-managing-idp#add-redirect-uri). Your URI will look similar to `https://mycluster.us-south.containers.appdomain.cloud/myapp1path/appid_logout`.
 
 
 
