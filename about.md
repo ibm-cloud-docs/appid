@@ -29,7 +29,7 @@ subcollection: appid
 Application security can be incredibly complicated. For most developers, it's one of the hardest parts of creating an app. How can you be sure that you are protecting your user's information? By integrating {{site.data.keyword.appid_full}} into your apps, you can secure resources and add authentication - even when you don't have much security experience.
 {: shortdesc}
 
-What can {{site.data.keyword.appid_short_notm}} do for you? Check out this video to learn more!
+What can {{site.data.keyword.appid_short_notm}} do for you? Check out this video to learn more.
 
 <div class="embed-responsive embed-responsive-16by9" data-hd-video="video">
    <iframe class="embed-responsive-item" id="about-appid" title="About {{site.data.keyword.appid_short_notm}}" type="text/html" width="640" height="390" src="//www.youtube.com/embed/XlrCjHdK43Q?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
