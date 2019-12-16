@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-12-13"
+lastupdated: "2019-12-16"
 
 keywords: mfa, multifactor, authentication, cloud directory, login widget, second factor, two factor, identity, mulitple factors, advanced security event, cloud directory user, sender id, phone number, email, nexmo
 
@@ -56,7 +56,7 @@ If email verification is not configured, {{site.data.keyword.appid_short_notm}} 
 MFA is a method of confirming a user's identity by requiring them to use multiple factors to prove that they are who they say that they are. These factors can be something that they have in addition to something that they know or something that they are.
 {: shortdesc}
 
-The first time that MFA is enabled, it is set to use email by default. You can change the setting to use SMS, but you cannot configure both at the same time. 
+The first time that MFA is enabled, it is set to use email by default. You can change the setting to use SMS, but you cannot configure both at the same time.
 {: note}
 
 Defined in SCIM as a [multi-valued attribute](https://tools.ietf.org/html/rfc7643#section-2.4){: external}, a Cloud Directory user's email or phone number can contain the following:
@@ -70,7 +70,7 @@ Defined in SCIM as a [multi-valued attribute](https://tools.ietf.org/html/rfc764
 {: #cd-mfa-configure-email}
 
 You can configure {{site.data.keyword.appid_short_notm}} to send the MFA code to your users through email.
-{: shortdesc} 
+{: shortdesc}
 
 When you enable MFA for the first time, the following two things happen:
 
@@ -150,7 +150,7 @@ To enable MFA:
 1. Enable MFA by making a PUT request to the `/config/mfa` endpoint with your MFA configuration to set `isActive` to `true`.
 
   ```
-  cURL -X PUT https://<region>.appid.cloud.ibm.com/management/v4/{tenantId}/config/mfa \
+  curl -X PUT https://<region>.appid.cloud.ibm.com/management/v4/{tenant_ID}/config/mfa \
     --header 'Content-Type: application/json' \
     --header 'Accept: application/json' \
     --header 'Authorization: Bearer <IAM_TOKEN>' \
@@ -161,7 +161,7 @@ To enable MFA:
 2. Enable your MFA channel by making a PUT request to the `/mfa/channels/{channel}` endpoint with your MFA configuration. When `isActive` is set to `true`, your MFA channel is enabled.
 
   ```
-  $ cURL -X PUT https://<region>.appid.cloud.ibm.com/management/v4/{tenantId}/mfa/channels/email \
+  $ curl -X PUT https://<region>.appid.cloud.ibm.com/management/v4/{tenant_ID}/mfa/channels/email \
     --header 'Content-Type: application/json' \
     --header 'Accept: application/json' \
     --header 'Authorization: Bearer <IAM_TOKEN>' \
@@ -229,7 +229,7 @@ Before you get started with the API, be sure that you have the following prerequ
 1. Enable MFA by making a PUT request to the `/config/mfa` endpoint with your MFA configuration to set `isActive` to `true`.
 
   ```
-  cURL -X PUT https://<region>.appid.cloud.ibm.com/management/v4/{tenantId}/config/mfa \
+  curl -X PUT https://<region>.appid.cloud.ibm.com/management/v4/{tenant_ID}/config/mfa \
   --header 'Content-Type: application/json' \
   --header 'Accept: application/json' \
   --header 'Authorization: Bearer <IAM_TOKEN>' \
@@ -241,9 +241,9 @@ Before you get started with the API, be sure that you have the following prerequ
 The `config` takes in the Nexmo API key and secret as well as the `from` number.
 
   ```
-  cURL -X PUT https://<region>.appid.cloud.ibm.com/management/v4/{tenantId}/mfa/channels/nexmo' \
-  --header 'Content-Type: application/json' \ 
-  --header 'Accept: application/json' \ 
+  curl -X PUT https://<region>.appid.cloud.ibm.com/management/v4/{tenant_ID}/mfa/channels/nexmo' \
+  --header 'Content-Type: application/json' \
+  --header 'Accept: application/json' \
   --header 'Authorization: Bearer <IAM_TOKEN>' \
   -d '{
       "isActive": true,
@@ -260,9 +260,9 @@ The `config` takes in the Nexmo API key and secret as well as the `from` number.
 correctly by using the test button on the UI or by using the management API.
 
   ```
-  cURL -X PUT https://<region>.appid.cloud.ibm.com/management/v4/{tenantId}/config/cloud_directory/sms_dispatcher/test \
+  curl -X PUT https://<region>.appid.cloud.ibm.com/management/v4/{tenant_ID}/config/cloud_directory/sms_dispatcher/test \
   --header 'Content-Type: application/json' \
-  --header 'Accept: application/json' \ 
+  --header 'Accept: application/json' \
   --header 'Authorization: Bearer <IAM_TOKEN>' \
   -d '{"phone_number": "+1 999 999 9999"}'
   ```

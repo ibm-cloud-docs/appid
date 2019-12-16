@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-12-12"
+lastupdated: "2019-12-16"
 
 keywords: rate limits, traffic control, limit request, lite instances, per minute, per instance, per user, limits
 
@@ -29,10 +29,10 @@ subcollection: appid
 Rate limiting is used to control the amount of traffic that is coming and going through your instance of {{site.data.keyword.appid_full}}. By limiting requests or resources, you can protect your applications.
 {: shortdesc}
 
-## {{site.data.keyword.appid_short_notm}} lite plan 
+## {{site.data.keyword.appid_short_notm}} lite plan
 {: #lite-limits}
 
-Review the following table to see the limits that are in place for lite instances of {{site.data.keyword.appid_short_notm}}. 
+Review the following table to see the limits that are in place for lite instances of {{site.data.keyword.appid_short_notm}}.
 
 <table>
     <caption>Table 1. Limits for lite instances</caption>
@@ -148,4 +148,5 @@ Be sure to review the following limitations before you configure your annotation
 
 * Refresh tokens are not currently supported.
 * {{site.data.keyword.containerlong}} supports one Ingress per namespace. If you already have one, you can update the existing Ingress configuration or use a different namespace.
+
 
