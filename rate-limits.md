@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-12-16"
+lastupdated: "2019-12-18"
 
 keywords: rate limits, traffic control, limit request, lite instances, per minute, per instance, per user, limits
 
@@ -150,3 +150,11 @@ Be sure to review the following limitations before you configure your annotation
 * {{site.data.keyword.containerlong}} supports one Ingress per namespace. If you already have one, you can update the existing Ingress configuration or use a different namespace.
 
 
+## Extensions
+{: #limits-extensions}
+
+### Pre-MFA
+{: #limits-premfa}
+
+* The response from your extension point must not exceed 10KB. If it does, the request is aborted and the user is required to complete MFA.
+* If it takes {{site.data.keyword.appid_short_notm}} longer than 5 seconds to establish a connection to your extension point, or if the request takes longer than 7 seconds to complete, the request is aborted and the user is required to complete MFA.
