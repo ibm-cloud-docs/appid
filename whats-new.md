@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-12-12"
+lastupdated: "2019-12-18"
 
 keywords: new, spa, single sign on, mfa, cloud directory, saml, app security, application identity
 
@@ -36,6 +36,10 @@ The following features and changes to the {{site.data.keyword.appid_short_notm}}
 
     You can now define which users are able to access your app data, use specific features, or perform specific actions in your apps by using role-based access control. For more information, see the [access control docs](/docs/services/appid?topic=appid-access-control).
 
+
+- **Cloud Directory: Custom MFA flows**
+
+    You can now make custom decisions about who must complete the MFA flow by configuring your own extension and registering it with {{site.data.keyword.appid_short_notm}}. For more information, see [Customizing MFA](/docs/services/appid?topic=appid-cd-mfa#cd-mfa-premfa).
 
 
 ## November 2019
@@ -106,7 +110,7 @@ The following features and changes to the {{site.data.keyword.appid_short_notm}}
 
 - **Version 4 of the runtime APIs**  
 
-    Update your apps! To further the standards on which {{site.data.keyword.appid_short_notm}} is based, we've made a few changes. With those changes, we were able to tighten interoperability within the OIDC workflow and broaden the frameworks that are able to use the service. For more information about the changes that you must make before September 2019, see the blog [{{site.data.keyword.cloud_notm}} {{site.data.keyword.appid_short_notm}}: Updated runtime APIs](https://www.ibm.com/cloud/blog/ibm-cloud-app-id-v4-runtime-apis-update){: external}. 
+    Update your apps! To further the standards on which {{site.data.keyword.appid_short_notm}} is based, we've made a few changes. With those changes, we were able to tighten interoperability within the OIDC workflow and broaden the frameworks that are able to use the service. For more information about the changes that you must make before September 2019, see the blog [{{site.data.keyword.cloud_notm}} {{site.data.keyword.appid_short_notm}}: Updated runtime APIs](https://www.ibm.com/cloud/blog/ibm-cloud-app-id-v4-runtime-apis-update){: external}.
 
 - **Cloud Directory: Single sign on**  
 
@@ -122,7 +126,7 @@ The following features and changes to the {{site.data.keyword.appid_short_notm}}
 {: #February2019}
 
 - **Cloud Directory: Multi-factor authentication - SMS**    
-    
+
     Require users to enter a second form of authentication during sign in to increase the security of your app. With Cloud Directory, the first factor is the user's password that they would normally use. Then, the service sends the user a one-time code through SMS that the user must enter before they can gain access to your app. For more information, see [Multi-factor authentication](/docs/services/appid?topic=appid-cd-mfa).
 
 
@@ -131,7 +135,7 @@ The following features and changes to the {{site.data.keyword.appid_short_notm}}
 {: #December2018}
 
 - **Cloud Directory: Multi-factor authentication - Email**    
-    
+
     Require users to enter a second form of authentication during sign in to increase the security of your app. With Cloud Directory, the first factor is the user's password that they would normally use. Then, the service sends the user a one-time code through the email that is registered that the user must enter before they can gain access to your app. For more information, see [Multi-factor authentication](/docs/services/appid?topic=appid-cd-mfa).
 
 - **Cloud Directory: Password policies**  

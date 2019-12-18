@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-12-11"
+lastupdated: "2019-12-18"
 
 keywords: user events, track activity, manage events, analyze, administrative, runtime, sign in, settings, app security
 
@@ -250,6 +250,16 @@ Check out the following table for a list of the events that are sent to {{site.d
     <td><code>update.captureRuntimeActivity</code></td>
     <td>Toggle runtime activity monitoring.</td>
     <td>Can be updated in the <strong>Identity Providers > Manage > Authentication Settings</strong> tab.</td>
+  </tr>
+  <tr>
+    <td><code>read.mfaExtension.premfa</code></td>
+    <td>View your premfa extension configuration.</td>
+    <td>Must be done through the API.</td>
+  </tr>
+  <tr>
+    <td><code>update.mfaExtension.premfa</code></td>
+    <td>Update your premfa extension configuration.</td>
+    <td>Must be done through the API.</td>
   </tr>
 </table>
 
@@ -618,5 +628,3 @@ You can track the events of specific Cloud Directory users in {{site.data.keywor
   {: screen}
 
 3. Search for a **cloud_directory:id** value in the **target.name_str** field in the {{site.data.keyword.at_short}} console.
-
-
