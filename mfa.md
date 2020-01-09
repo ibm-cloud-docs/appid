@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-12-18"
+  years: 2017, 2020
+lastupdated: "2020-01-08"
 
 keywords: mfa, multifactor, authentication, cloud directory, login widget, second factor, two factor, identity, mulitple factors, advanced security event, cloud directory user, sender id, phone number, email, nexmo
 
@@ -269,6 +269,7 @@ correctly by using the test button on the UI or by using the management API.
   {: codeblock}
 
 
+
 ## Customizing MFA
 {: #cd-mfa-premfa}
 
@@ -282,7 +283,6 @@ Before you register your custom extension, be sure that you have the following p
 
 * Your {{site.data.keyword.appid_short_notm}} instance's tenant ID. This ID can be found in the **Applications** section of the dashboard.
 * Your Identity and Access Management (IAM) token. For help with obtaining an IAM token, check out the [IAM docs](/docs/iam?topic=iam-iamtoken_from_apikey).
-
 
 For more information about the restrictions and limitations of working with extensions, see [{{site.data.keyword.appid_short_notm}} limits](/docs/services/appid?topic=appid-limits#limits-extension).
 
@@ -414,3 +414,7 @@ To configure and test your pre-MFA extension, you can use the following cURL com
   -d '{"isActive": true}'
   ```
   {: codeblock}
+
+
+
+
