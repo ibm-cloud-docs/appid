@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-01-08"
+lastupdated: "2020-01-09"
 
 keywords: user events, track activity, manage events, analyze, administrative, runtime, sign in, settings, app security
 
@@ -275,7 +275,6 @@ Check out the following table for a list of the events that are sent to {{site.d
 
 
 
-
 ## Viewing runtime events
 {: #at-monitor-runtime}
 
@@ -287,7 +286,6 @@ The reported events are per account, but there are limitations on the data rate 
 This feature is available only for instances on graduated tier payment plan that were created after March 15, 2018. Using this feature incurs an extra charge. For more information on graduated tier pricing, see the [{{site.data.keyword.cloud_notm}} pricing docs](/docs/services/appid?topic=appid-faq#faq-pricing).
 {: note}
 
-</br>
 
 ### Monitoring runtime activity
 {: #at-monitor-runtime-activity}
@@ -300,7 +298,7 @@ This feature is available only for instances on graduated tier payment plan that
 6. Click **View LogDNA**. When the dashboard loads, you see an overall view of all of the activity in your account. You can use the search operators to filter your results by tags, sources, apps or levels. You can also search for specific events or jump to a specific timeframe.
 7. From the **All Apps** drop-down, select the instance of {{site.data.keyword.appid_short_notm}} that you want to track events for.
 
-</br>
+
 
 
 ## List of runtime events
