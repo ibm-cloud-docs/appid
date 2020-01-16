@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-11-25"
+  years: 2017, 2020
+lastupdated: "2020-01-16"
 
 keywords: Migrating users, multiple service instances, manage service, access, configuration, duplicate, export, app security, identity
 
