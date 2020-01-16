@@ -369,9 +369,9 @@ Now that you have a list of exported Cloud Directory users, you can import them 
       },
       “roles”: []
     }
-]}’ ‘https://us-south.appid.cloud.ibm.com/management/v4/111c9bj3-xxxx-4b5b-zzzz-24ad9440k8j9/cloud_directory/import?encryption_secret=mySecret’
-```
-{: codeblock}
+  ]}’ ‘https://us-south.appid.cloud.ibm.com/management/v4/111c9bj3-xxxx-4b5b-zzzz-24ad9440k8j9/cloud_directory/import?encryption_secret=mySecret’
+  ```
+  {: codeblock}
 
 
 
@@ -397,18 +397,18 @@ Before you get started, be sure that you have the following parameter informatio
     <td>The tenant ID of the instance of {{site.data.keyword.appid_short_notm}} that you plan to import users to.</td>
   </tr>
   <tr>
-    <td>Region</td>
+    <td><code>region</code></td>
     <td>Region options include: <code>au-syd</code>, <code>eu-de</code>, <code>eu-gb</code>, <code>jp-tok</code>, and <code>us-south</code>.</td>
   </tr>
   <tr>
-    <td>IAM token</td>
+    <td><code>IAM token</code></td>
     <td>Be sure that you have <code>manager</code> permissions before you obtain the token. For help with obtaining an IAM token, check out <a href="/docs/iam?topic=iam-iamtoken_from_apikey#iamtoken_from_apikey" target="_blank">the docs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.</td>
   </tr>
 </table>
 
-</br>
 
-1. Clone the [repository](https://github.com/ibm-cloud-security/appid-sample-code-snippets/tree/master/export-import-cloud-directory-users){: external}.
+
+1.  Clone the [repository](https://github.com/ibm-cloud-security/appid-sample-code-snippets/tree/master/export-import-cloud-directory-users){: external}.
 
   ```sh
   git clone https://github.com/ibm-cloud-security/appid-sample-code-snippets/tree/master/export-import-cloud-directory-users.git
