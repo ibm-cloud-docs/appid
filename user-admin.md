@@ -223,7 +223,7 @@ If you're an administrator, you can use the `/users` endpoint. To set custom att
       -H "accept: application/json" \
       -H "Content-Type: application/json" \
       -H "authorization: Bearer <token>"
-      -d "{ \"attributes\": { \"points\": \"150\" } { \"roles\": \"admin\" }}"
+      -d "{ \"attributes\": { \"points\": \"150\" } { \"role\": \"admin\" }}"
     ```
     {: codeblock}
 
