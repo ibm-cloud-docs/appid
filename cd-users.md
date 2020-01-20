@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-01-16"
+lastupdated: "2020-01-20"
 
 keywords: manage users, registry, cloud directory, add user, delete user, tokens, attributes, migrating users, identity provider, app security
 
@@ -26,10 +26,10 @@ subcollection: appid
 # Managing users
 {: #cd-users}
 
-With Cloud Directory, you can manage your users in a scalable registry by using pre-built functionality that enhances security and self-service.
+With Cloud Directory, you can manage your users in a scalable registry by using a pre-built functionality that enhances security and self-service.
 {: shortdesc}
 
-A Cloud Directory user is not the same thing as an {{site.data.keyword.appid_short_notm}} user. Users can sign up for your app by using different the identity provider options that you configured, or you can add them to your directory. The users that are mentioned on this page are those that are associated with Cloud Directory as an identity provider.
+A Cloud Directory user is not the same thing as an {{site.data.keyword.appid_short_notm}} user. Users can sign up for your app by using the different identity provider options that you configured, or you can add them to your directory. The users that are mentioned on this page are those that are associated with Cloud Directory as an identity provider.
 {: note}
 
 ## Viewing user information
@@ -44,7 +44,7 @@ You can see all of the information that is known about all of your Cloud Directo
 
 You can use the {{site.data.keyword.appid_short_notm}} dashboard to view details about your app users. 
 
-1. Navigate to the **Cloud Directory > Users** tab of your {{site.data.keyword.appid_short_notm}} instance.
+1. Go to the **Cloud Directory > Users** tab of your {{site.data.keyword.appid_short_notm}} instance.
 
 2. Look through the table or search by using an email address to find the user that you want to see the information for. The search term must be exact.
 
@@ -58,7 +58,7 @@ You can use the {{site.data.keyword.appid_short_notm}} dashboard to view details
   </tr>
   <tr>
     <td>User identifier</td>
-    <td>The user identifier is dependant upon the type of user sign-up that you configured. If you have an email and password flow configured, the identifier is the user's email. If you use the user name and password flow, the identifier is the user name that is given at sign-up.</td>
+    <td>The user identifier is dependant upon the type of user sign-up that you configured. For example, if you have an email and password flow, the identifier is the user's email. If you use the username and password flow, the identitfier is the username that is given at sign-up.</td>
   </tr>
   <tr>
     <td>Email</td>
@@ -70,7 +70,7 @@ You can use the {{site.data.keyword.appid_short_notm}} dashboard to view details
   </tr>
   <tr>
     <td>Last Login</td>
-    <td>The time stamp of the last time that the user logged in to your application. Note: If you added your user through the dashboard, the login is blank until the user themselves signs in to your app. When sign-in occurs, they also become an App ID user.</td>
+    <td>The time stamp of the last time that the user logged in to your application. Note: If you added your user through the dashboard, the login is blank until the user themselves signs in to your app. When sign-in occurs, they also become an {{site.data.keyword.appid_short_notm}} user.</td>
   </tr>
   <tr>
     <td>ID</td>
@@ -99,7 +99,7 @@ You can use the {{site.data.keyword.appid_short_notm}} API to view details about
 
 1. Obtain your tenant ID from your instance of the service.
 
-2. Search your App ID users with an identifying query, such as an email address, to find the user ID.
+2. Search your {{site.data.keyword.appid_short_notm}} users with an identifying query, such as an email address, to find the user ID.
 
   ```sh
   curl -X GET "https://<region>.appid.cloud.ibm.com/management/v4/<tenant-ID>/cloud_directory/Users?query=<identifying-search-query>" \
@@ -182,7 +182,7 @@ You can use the {{site.data.keyword.appid_short_notm}} API to view details about
 When a user signs up for your application, they are added as a user. For test purposes, you can add a user through the {{site.data.keyword.appid_short_notm}} dashboard or by using the API.
 {: shortdesc}
 
-When a user signs up for your application, they do so through a self-service workflow that automatically triggers emails such as a welcome or verification request. When you, as an administrator, add a user to your app a self-service workflow is not initiated, which means that users do not receive any emails from your application. If you want your users to still be notified that they're added, you can trigger the messaging flows through the [App ID management API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.set_cloud_directory_email_dispatcher){: external}.
+When a user signs up for your application, they do so through a self-service workflow that automatically triggers emails such as a welcome or verification request. When you, as an administrator, add a user to your app a self-service workflow is not initiated, which means that users do not receive any emails from your application. If you want your users to still be notified that they're added, you can trigger the messaging flows through the [{{site.data.keyword.appid_short_notm}} management API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.set_cloud_directory_email_dispatcher){: external}.
 
 If you disable self-service sign-up or add a user on their behalf, the user does not receive a welcome or verification email when they're added.
 {: tip}
@@ -240,7 +240,7 @@ If you want to remove a user from your directory, you can delete the user from t
 
 1. Go to the **Cloud Directory > Users** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
 
-2. Click the check box next to the user that you want to delete. A box opens.
+2. Click the checkbox next to the user that you want to delete. A box opens.
 
 3. In the box, click **Delete**. A screen opens.
 
@@ -363,7 +363,7 @@ Now that you have a list of exported Cloud Directory users, you can import them 
         “status”: “PENDING”
       },
       “passwordHash”: “<password hash here>“,
-      “passwordHashAlg”: “<password hash algorithm>",
+      “passwordHashAlg”: <password hash algorithm>,
       “profile”: {
         “attributes”: {}
       },

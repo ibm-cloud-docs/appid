@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-01-16"
+lastupdated: "2020-01-20"
 
 keywords: user information, add users, delete users, profile, access, attributes, admin, app security, authentication, authorization
 
@@ -223,7 +223,7 @@ If you're an administrator, you can use the `/users` endpoint. To set custom att
       -H "accept: application/json" \
       -H "Content-Type: application/json" \
       -H "authorization: Bearer <token>"
-      -d "{ \"attributes\": { \"points\": \"150\" }}"
+      -d "{ \"attributes\": { \"points\": \"150\" } { \"roles\": \"admin\" }}"
     ```
     {: codeblock}
 
