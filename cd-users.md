@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-11-22"
+  years: 2017, 2020
+lastupdated: "2020-01-16"
 
 keywords: manage users, registry, cloud directory, add user, delete user, tokens, attributes, migrating users, identity provider, app security
 
@@ -282,65 +282,76 @@ If you want to remove a user from your directory, you can delete the user from t
 ## Migrating users
 {: #user-migration}
 
-Occasionally, you might need to add an instance of {{site.data.keyword.appid_short_notm}}. When you're working with Cloud Directory, your users must be migrated to the new instance. To help with the migration, you can use the management APIs.
-{: shortdesc}
-
+Occasionally, you might need to add an instance of {{site.data.keyword.appid_short_notm}}. To help with migrating to the new instance, you can use the export and import APIs.
 
 You must be assigned the `Manager` [IAM role](/docs/iam?topic=iam-getstarted#getstarted) for both instances of {{site.data.keyword.appid_short_notm}}.
 {: note}
 
 
-### Exporting
-{: #cd-export}
+### Exporting user profiles
+{: #exporting-profiles}
 
-Before you can add your users to the new instance, you need to export them from your current instance. To do so, you can use the [export management API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.cloudDirectoryExport){: external}.
+Before you can import your profiles to your new instance, you need to export them from your original instance of the service.
+
+1. Export the users from your original instance of the service.
+
+  ```sh
+  curl -X GET ’https://<region>.appid.cloud.ibm.com/management/v4/<tenant-ID>/cloud_directory/export?encryption_secret=<mySecret>' \
+  -H ‘Accept: application/json’ \
+  -H ‘Authorization: Bearer <iam-token>'
+  ```
+  {: codeblock}
+
+  <table>
+    <caption>Table 2. Descriptions of the parameters that need to be provided in the export request</caption>
+    <tr>
+      <th>Parameters</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td><code>encryption_secret</code></td>
+      <td>A custom string that is used to encrypt and decrypt a user's hashed password.</td>
+    </tr>
+    <tr>
+      <td><code>tenantID</code></td>
+      <td>The service tenant ID can be found in your service credentials. You can find your service credentials in the {{site.data.keyword.appid_short_notm}} dashboard.</td>
+    </tr>
+  </table>
+
+  Only your Cloud Directory users and their profiles are returned. Users from other identity providers are not.
+  {: note}
 
 
-Example cURL command:
-
-```sh
-curl -X GET ’https://<region>.appid.cloud.ibm.com/management/v4/<tenant-ID>/cloud_directory/export?encryption_secret=<mySecret>' \
--H ‘Accept: application/json’ \
--H ‘Authorization: Bearer <iam-token>'
-```
-{: codeblock}
-
-<table>
-  <caption>Table 2. Descriptions of the parameters that need to be provided in the export request</caption>
-  <tr>
-    <th>Parameters</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td><code>encryption_secret</code></td>
-    <td>A custom string that is used to encrypt and decrypt a user's hashed password.</td>
-  </tr>
-  <tr>
-    <td><code>tenantID</code></td>
-    <td>The service tenant ID can be found in your service credentials. You can find your service credentials in the {{site.data.keyword.appid_short_notm}} dashboard.</td>
-  </tr>
-</table>
-
-Only your Cloud Directory users and their profiles are returned. Users from other identity providers are not.
-{: note}
-
-
-### Importing
+### Importing users
 {: #cd-import}
 
-Now that you have your users ready to go, you can import their information into the new instance. To do so, you can use the [import management API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.cloudDirectoryImport){: external}.
+Now that you have a list of exported Cloud Directory users, you can import them into the new instance.
 
-Example cURL command:
 
-```sh
-curl -X POST --header ‘Content-Type: application/json’ --header ‘Accept: application/json’ --header ‘Authorization: Bearer <iam-token>’ -d ‘{“users”: [
-    {
-      “scimUser”: {
-        “originalId”: “3f3f6779-7978-4383-926f-a43aef3b724b”,
-        “name”: {
-          “givenName”: “<first-name>”,
-          “familyName”: “<last-name>”,
-          “formatted”: “<first-name> <last-name>”
+1. If your users are [assigned roles](/docs/services/appid?topic=appid-access-control), be sure to create the roles and scopes in your new instance of {{site.data.keyword.appid_short_notm}}.
+
+2. Optional: Users are imported with a new Cloud Directory identifier. If your app references the Cloud Directory identifier in any way, you can choose to create a custom attribute and adjust your application to call the attribute instead of the identifier directly. 
+
+2. Import the users to your new instance of the service.
+
+  ```sh
+  curl -X POST --header ‘Content-Type: application/json’ --header ‘Accept: application/json’ --header ‘Authorization: Bearer <iam-token>’ -d ‘{“users”: [
+      {
+        “scimUser”: {
+          “originalId”: “3f3f6779-7978-4383-926f-a43aef3b724b”,
+          “name”: {
+            “givenName”: “<first-name>”,
+            “familyName”: “<last-name>”,
+            “formatted”: “<first-name> <last-name>”
+          },
+          “displayName”: “<first-name>”,
+          “emails”: [
+            {
+              “value”: “<user>@gmail.com”,
+              “primary”: true
+            }
+          ],
+          “status”: “PENDING”
         },
         “displayName”: “<first-name>”,
         “emails”: [
@@ -355,11 +366,12 @@ curl -X POST --header ‘Content-Type: application/json’ --header ‘Accept: a
       “passwordHashAlg”: “<password hash algorithm>",
       “profile”: {
         “attributes”: {}
-      }
+      },
+      “roles”: []
     }
-]}’ ‘https://us-south.appid.cloud.ibm.com/management/v4/111c9bj3-xxxx-4b5b-zzzz-24ad9440k8j9/cloud_directory/import?encryption_secret=mySecret’
-```
-{: codeblock}
+  ]}’ ‘https://us-south.appid.cloud.ibm.com/management/v4/111c9bj3-xxxx-4b5b-zzzz-24ad9440k8j9/cloud_directory/import?encryption_secret=mySecret’
+  ```
+  {: codeblock}
 
 
 
@@ -385,18 +397,18 @@ Before you get started, be sure that you have the following parameter informatio
     <td>The tenant ID of the instance of {{site.data.keyword.appid_short_notm}} that you plan to import users to.</td>
   </tr>
   <tr>
-    <td>Region</td>
+    <td><code>region</code></td>
     <td>Region options include: <code>au-syd</code>, <code>eu-de</code>, <code>eu-gb</code>, <code>jp-tok</code>, and <code>us-south</code>.</td>
   </tr>
   <tr>
-    <td>IAM token</td>
+    <td><code>IAM token</code></td>
     <td>Be sure that you have <code>manager</code> permissions before you obtain the token. For help with obtaining an IAM token, check out <a href="/docs/iam?topic=iam-iamtoken_from_apikey#iamtoken_from_apikey" target="_blank">the docs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.</td>
   </tr>
 </table>
 
-</br>
 
-1. Clone the [repository](https://github.com/ibm-cloud-security/appid-sample-code-snippets/tree/master/export-import-cloud-directory-users){: external}.
+
+1.  Clone the [repository](https://github.com/ibm-cloud-security/appid-sample-code-snippets/tree/master/export-import-cloud-directory-users){: external}.
 
   ```sh
   git clone https://github.com/ibm-cloud-security/appid-sample-code-snippets/tree/master/export-import-cloud-directory-users.git

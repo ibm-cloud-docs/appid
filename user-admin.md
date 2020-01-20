@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-11-19"
+  years: 2017, 2020
+lastupdated: "2020-01-16"
 
 keywords: user information, add users, delete users, profile, access, attributes, admin, app security, authentication, authorization
 
@@ -275,4 +275,7 @@ To completely delete a profile and remove someone as a user of your application,
     -H "authorization: Bearer <token>"
     ```
     {: codeblock}
+
+
+
 
