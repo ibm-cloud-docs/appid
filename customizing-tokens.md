@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-01-20"
+lastupdated: "2020-01-21"
 
 keywords: user information, tokens, custom tokens, secure resources, authorization, identity, authentication, claims, oauth, claims mapping, attributes, app security, access, runtime
 
@@ -75,7 +75,6 @@ The claims are set for each token separately and are sequentially applied as sho
     {
       "source": "saml",
       "sourceClaim": "viewer",
-      "destinationClaim": "reader"
     }
   ],
   "idTokenClaims": [
@@ -86,7 +85,6 @@ The claims are set for each token separately and are sequentially applied as sho
     {
       "source": "saml",
       "sourceClaim": "Name",
-      "destinationClaim": "firstName"
     },
     {
       "source": "saml",
@@ -111,10 +109,6 @@ The claims are set for each token separately and are sequentially applied as sho
     <tr>
       <td><code><em>sourceClaim</em></code></td>
       <td>Defines the claim as provided by the source. It can refer to the identity provider's user information or the user's {{site.data.keyword.appid_short_notm}} custom attributes.</td>
-    </tr>
-    <tr>
-      <td><code><em>destinationClaim</em></code></td>
-      <td>Optinal. custom name that will be the claim in token.</td>
     </tr>
 </table>
 
