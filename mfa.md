@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-01-22"
+lastupdated: "2020-01-23"
 
 keywords: mfa, multifactor, authentication, cloud directory, login widget, second factor, two factor, identity, mulitple factors, advanced security event, cloud directory user, sender id, phone number, email, nexmo
 
@@ -38,14 +38,14 @@ Check out the following diagram to see how the MFA flow works.
 
 ![MFA flow](images/mfa.png){: caption="Figure 1. Cloud Directory MFA flow" caption-side="bottom"}
 
-1. A user is shown {{site.data.keyword.appid_short_notm}}'s Login Widget and inputs their Cloud Directory user credentials. The credentials can be either their email or user name and their password. The Cloud Directory user credentials form the first authentication factor.
+1. A user is shown {{site.data.keyword.appid_short_notm}}'s Login Widget and inputs their Cloud Directory user credentials. The credentials can be either their email or username and their password. The Cloud Directory user credentials form the first authentication factor.
 
 2. The credentials are validated and the MFA screen for second factor verification is returned. Based on the second factor configuration, the user receives either an email or an SMS with a one-time code and enters it into the verification screen.
 
 3. If the MFA code is validated, the user is redirected back to the application and is signed in.
 
 
-If email verification is not configured, {{site.data.keyword.appid_short_notm}} validates the MFA channel in the background. For example, if you configure the email channel for MFA and don't have email verification configured, {{site.data.keyword.appid_short_notm}} validates the email on the first successful MFA log in. But, if you configure the SMS channel, {{site.data.keyword.appid_short_notm}} validates the user's phone number on the first successful log in. If you're using the SMS channel and want the email to be validated, be sure to enable email verification.
+If email verification is not configured, {{site.data.keyword.appid_short_notm}} validates the MFA channel in the background. For example, if you configure the email channel for MFA and do not configure email verification, {{site.data.keyword.appid_short_notm}} validates the email on the first successful MFA login. But, if you configure the SMS channel, {{site.data.keyword.appid_short_notm}} validates the user's phone number on the first successful login. If you're using the SMS channel and want the email to be validated, be sure to enable email verification.
 {: tip}
 
 
@@ -91,10 +91,10 @@ You can configure the MFA email channel through the GUI.
 
 2. In the **Enable multi-factor authentication** box, on the **settings tab**, toggle MFA to **Enabled**. Acknowledge that you understand that MFA is charged as an [advanced security event](/docs/services/appid?topic=appid-faq#faq-pricing). By default, **Email** is selected as the **Authentication method**.
 
-3. In the **Email channel** tab, review the **Email template**. You can choose to send the template with the provided wording or write your own message. Be sure to use the correct HTML tagging. In the GUI you can add parameters and insert images. To change the [language](/docs/services/appid?topic=appid-cd-messages#cd-languages) of the message, you can use <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization" target="_blank">the APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to set the language. However, you are responsible for the content and translation of the message. Check out the following table to see the list of tables that you can use in this message and all of the other messages that you can send. If a user does not supply the information that is pulled by the parameter, it appears blank.
+3. In the **Email channel** tab, review the **Email template**. You can choose to send the template with the provided wording or write your own message. Be sure to use the correct HTML tagging. In the GUI, you can add parameters and insert images. To change the [language](/docs/services/appid?topic=appid-cd-messages#cd-languages) of the message, you can use <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization" target="_blank">the APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to set the language. However, you are responsible for the content and conversion of the message. Check out the following table to see the list of tables that you can use in this message and all of the other messages that you can send. If a user does not supply the information that is pulled by the parameter, it appears blank.
 
   <table>
-    <caption>Table 2. MFA message parameters</caption>
+    <caption>Table 1. MFA message parameters</caption>
     <tr>
       <th>Parameter</th>
       <th>Description</th>
@@ -133,8 +133,8 @@ You can configure the MFA email channel through the GUI.
     </tr>
   </table>
 
-  If a user does not supply the information pulled by the parameter, it appears blank.
-  {: tip}
+  If a user does not supply the information that is pulled by the parameter, it appears blank.
+  {: note}
 
 
 ### With the APIs
@@ -149,7 +149,7 @@ To enable MFA:
 
 1. Enable MFA by making a PUT request to the `/config/cloud_directory/mfa` endpoint with your MFA configuration to set `isActive` to `true`.
 
-  ```
+  ```sh
   curl -X PUT https://<region>.appid.cloud.ibm.com/management/v4/{tenant_ID}/config/cloud_directory/mfa \
     --header 'Content-Type: application/json' \
     --header 'Accept: application/json' \
@@ -160,7 +160,7 @@ To enable MFA:
 
 2. Enable your MFA channel by making a PUT request to the `/mfa/channels/{channel}` endpoint with your MFA configuration. When `isActive` is set to `true`, your MFA channel is enabled.
 
-  ```
+  ```sh
   $ curl -X PUT https://<region>.appid.cloud.ibm.com/management/v4/{tenant_ID}/mfa/channels/email \
     --header 'Content-Type: application/json' \
     --header 'Accept: application/json' \
@@ -228,7 +228,7 @@ Before you get started with the API, be sure that you have the following prerequ
 
 1. Enable MFA by making a PUT request to the `/config/cloud_directory/mfa` endpoint with your MFA configuration to set `isActive` to `true`.
 
-  ```
+  ```sh
   curl -X PUT https://<region>.appid.cloud.ibm.com/management/v4/{tenant_ID}/config/cloud_directory/mfa \
   --header 'Content-Type: application/json' \
   --header 'Accept: application/json' \
@@ -240,7 +240,7 @@ Before you get started with the API, be sure that you have the following prerequ
 2. Enable your MFA channel by making a PUT request to the `/mfa/channels/{channel}` endpoint with your MFA configuration. When `isActive` is set to `true`, your MFA channel is enabled.
 The `config` takes in the Nexmo API key and secret as well as the `from` number.
 
-  ```
+  ```sh
   curl -X PUT https://<region>.appid.cloud.ibm.com/management/v4/{tenant_ID}/mfa/channels/nexmo' \
   --header 'Content-Type: application/json' \
   --header 'Accept: application/json' \
@@ -259,7 +259,7 @@ The `config` takes in the Nexmo API key and secret as well as the `from` number.
 3. Once the channel is successfully configured, verify that your Nexmo configuration and connection is set up
 correctly by using the test button on the UI or by using the management API.
 
-  ```
+  ```sh
   curl -X PUT https://<region>.appid.cloud.ibm.com/management/v4/{tenant_ID}/config/cloud_directory/sms_dispatcher/test \
   --header 'Content-Type: application/json' \
   --header 'Accept: application/json' \
@@ -273,7 +273,7 @@ correctly by using the test button on the UI or by using the management API.
 ## Customizing MFA
 {: #cd-mfa-premfa}
 
-You can make custom decisions about who can skip the MFA flow by configuring your own extension and registering it with {{site.data.keyword.appid_short_notm}}. {{site.data.keyword.appid_short_notm}} will call your extension with information about the user before starting the MFA flow. You can then choose whether or not to proceed with MFA. For example, if the user's IP address is within your whitelist, you can skip the MFA flow for that user. By default, if an error occurs during the request to your extension point, {{site.data.keyword.appid_short_notm}} requires that the user completes MFA.
+You can make custom decisions about who can skip the MFA flow by configuring your own extension and registering it with {{site.data.keyword.appid_short_notm}}. {{site.data.keyword.appid_short_notm}} calls your extension with information about the user before starting the MFA flow. You can then choose whether to proceed with MFA. For example, if the user's IP address is within your whitelist, you can skip the MFA flow for that user. By default, if an error occurs during the request to your extension point, {{site.data.keyword.appid_short_notm}} requires that the user completes MFA.
 
 
 ### Before you begin
@@ -292,9 +292,9 @@ For more information about the restrictions and limitations of working with exte
 
 To configure and test your pre-MFA extension, you can use the following cURL commands or see [Swagger](https://us-south.appid.cloud.ibm.com/swagger-ui/#/){: external}.
 
-1. Configure an extension that can listen to a POST request. This endpoint should be able to read the payload that comes from {{site.data.keyword.appid_short_notm}} and send a JSON response with the following schema: `{"skipMfa": Boolean }`.
+1. Configure an extension that can listen to a POST request. This endpoint must be able to read the payload that comes from {{site.data.keyword.appid_short_notm}} and send a JSON response with the following schema: `{"skipMfa": Boolean }`.
 
-2. Configure your {{site.data.keyword.appid_short_notm}} instance by making a PUT request to `config/cloud_directory/mfa/extensions/premfa` with your extension configuration. For development purposes, `isActive` is set to `false`. Be sure to test your configuration before enabling it.
+2. Configure your {{site.data.keyword.appid_short_notm}} instance by making a PUT request to `config/cloud_directory/mfa/extensions/premfa` with your extension configuration. For development purposes, `isActive` is set to `false`. Be sure to test your configuration before you enable it.
 
   ```
   curl -X PUT https://<region>.appid.cloud.ibm.com/management/v4/<tenant_ID>/config/cloud_directory/mfa/extensions/premfa' \
@@ -313,13 +313,13 @@ To configure and test your pre-MFA extension, you can use the following cURL com
   ```
   {: codeblock}
 
-  The `config` takes in your extension's URL and any headers you want to configure, e.g. Authorization.
+  The `config` takes in your extension's URL and any headers you want to configure. For example: Authorization.
   {: tip}
 
 3. The body that is sent by {{site.data.keyword.appid_short_notm}} before starting the MFA flow is in the following format: `{"jws": "jws-format-string"}`. After you decode and [verify](https://cloud.ibm.com/docs/services/appid?topic=appid-token-validation#local-validation) the payload, the content is a JSON with following schema:
 
   <table>
-    <caption>Table 1. The information that {{site.data.keyword.appid_short_notm}} forwards to your extension point.</caption>
+    <caption>Table 2. The information that {{site.data.keyword.appid_short_notm}} forwards to your extension point.</caption>
     <tr>
       <th>Information</th>
       <th>Description</th>
@@ -381,12 +381,12 @@ To configure and test your pre-MFA extension, you can use the following cURL com
     </tr>
     <tr>
       <td><code>first_name</code></td>
-      <td>The user's first name.</td>
+      <td>The user's given name.</td>
       <td><code>Test</code></td>
     </tr>
     <tr>
       <td><code>last_name</code></td>
-      <td>The user's last name.</td>
+      <td>The user's surname.</td>
       <td><code>User</code></td>
     </tr>
   </table>
@@ -394,9 +394,9 @@ To configure and test your pre-MFA extension, you can use the following cURL com
   For an example of implementing a pre-MFA extension, see the [sample](https://github.com/ibm-cloud-security/appid-sample-code-snippets/blob/master/premfa-extension-point/index.js).
   {: note}
 
-4. Once the extension is successfully configured, verify that your endpoint works correctly by using the test API. {{site.data.keyword.appid_short_notm}} will make a POST request to your configured extension with the example values.
+4. After the extension is successfully configured, verify that your endpoint works correctly by using the test API. {{site.data.keyword.appid_short_notm}} will make a POST request to your configured extension with the example values.
 
-  ```
+  ```sh
   curl -X POST https://<region>.appid.cloud.ibm.com/management/v4/<tenant_ID>/config/cloud_directory/mfa/extensions/premfa/test \
   --header 'Content-Type: application/json' \
   --header 'Accept: application/json' \
@@ -406,7 +406,7 @@ To configure and test your pre-MFA extension, you can use the following cURL com
 
 5. Enable or disable your pre-MFA extension by making a PUT request to `config/cloud_directory/mfa/extensions/premfa/active` to set `isActive` to `true` or `false`.
 
-  ```
+  ```sh
   curl -X PUT https://<region>.appid.cloud.ibm.com/management/v4/<tenant_ID>/config/cloud_directory/mfa/extensions/premfa \
   --header 'Content-Type: application/json' \
   --header 'Accept: application/json' \
