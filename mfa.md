@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-01-23"
+lastupdated: "2020-01-24"
 
 keywords: mfa, multifactor, authentication, cloud directory, login widget, second factor, two factor, identity, mulitple factors, advanced security event, cloud directory user, sender id, phone number, email, nexmo
 
@@ -27,23 +27,26 @@ subcollection: appid
 {: #cd-mfa}
 
 By requiring multiple factors during sign-in, you can increase the security of user authentication to your apps. With Cloud Directory for {{site.data.keyword.appid_full}}, the first factor is the Cloud Directory user's password, which they normally use to sign in. The second authentication factor is a one-time code that {{site.data.keyword.appid_short_notm}} sends to the user either as an SMS or email. {{site.data.keyword.appid_short_notm}} uses a combination of both factors to verify the identity of a user. 
+
+
+
 {: shortdesc}
 
 {{site.data.keyword.appid_short_notm}} MFA is supported as part of the OAuth 2.0 authorization code flow for Cloud Directory users through the Login Widget. If you're using enterprise sign-in with SAML 2.0 or social login, you can enable MFA through that identity provider.
 {: note}
 
-When MFA is enabled, the {{site.data.keyword.appid_short_notm}} Login Widget requires a second form of verification (second authentication factor) every time a user attempts to sign in. After a user successfully enters their credentials, a one-time code is sent to the email or phone number that is registered to their account.
-
 Check out the following diagram to see how the MFA flow works.
 
 ![MFA flow](images/mfa.png){: caption="Figure 1. Cloud Directory MFA flow" caption-side="bottom"}
 
-1. A user is shown {{site.data.keyword.appid_short_notm}}'s Login Widget and inputs their Cloud Directory user credentials. The credentials can be either their email or username and their password. The Cloud Directory user credentials form the first authentication factor.
+1. When a user successfully signs in to your application, they complete the first authentication factor. Then, based on your MFA configuration, the user is sent either an email or SMS that contains a 6-digit code.
 
-2. The credentials are validated and the MFA screen for second factor verification is returned. Based on the second factor configuration, the user receives either an email or an SMS with a one-time code and enters it into the verification screen.
+  When MFA is enabled, the {{site.data.keyword.appid_short_notm}} Login Widget requires a second form of verification (second authentication factor) every time a user attempts to sign in.
+  {: tip}
 
-3. If the MFA code is validated, the user is redirected back to the application and is signed in.
+2. A user is expected to look in their phone or email to obtain the code and then enter it into the provided screen. 
 
+3. If the code they input matches the code that they were sent, the user is redirected back to your application and is signed in. If they enter the code incorrectly, the second authentication factor fails and users are not able to access your resources.
 
 If email verification is not configured, {{site.data.keyword.appid_short_notm}} validates the MFA channel in the background. For example, if you configure the email channel for MFA and do not configure email verification, {{site.data.keyword.appid_short_notm}} validates the email on the first successful MFA login. But, if you configure the SMS channel, {{site.data.keyword.appid_short_notm}} validates the user's phone number on the first successful login. If you're using the SMS channel and want the email to be validated, be sure to enable email verification.
 {: tip}
