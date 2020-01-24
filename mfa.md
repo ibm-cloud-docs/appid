@@ -172,7 +172,7 @@ To enable MFA:
   ```
   {: codeblock}
 
-If your {{site.data.keyword.appid_short_notm}} Cloud Directory instance is configured to work with a custom email dispatcher, then MFA uses the same dispatcher to send the one-time code. For more information on setting up a custom dispatcher, refer to the [Cloud Directory](/docs/services/appid?topic=appid-cd-messages#cd-custom-email) docs.
+If your {{site.data.keyword.appid_short_notm}} Cloud Directory instance is configured to work with a custom email sender, then MFA uses the same sender to deliver the one-time code. For more information, see the [Cloud Directory docs](/docs/services/appid?topic=appid-cd-messages#cd-custom-email).
 {: note}
 
 
