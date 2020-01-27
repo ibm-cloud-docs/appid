@@ -328,10 +328,6 @@ Before you can import your profiles to your new instance, you need to export the
 Now that you have a list of exported Cloud Directory users, you can import them into the new instance.
 
 
-1. If your users are [assigned roles](/docs/services/appid?topic=appid-access-control), be sure to create the roles and scopes in your new instance of {{site.data.keyword.appid_short_notm}}.
-
-  The roles and scopes must be created exactly as they were in the previous instance with the same spellings.
-  {: tip}
 
 2. Optional: Users are imported with a new Cloud Directory identifier. If your app references the Cloud Directory identifier in any way, you can choose to create a custom attribute and adjust your application to call the attribute instead of the identifier directly. 
 
@@ -370,8 +366,6 @@ Now that you have a list of exported Cloud Directory users, you can import them 
       “profile”: {
         “attributes”: {}
       },
-      “roles”: []
-    }
   ]}’ ‘https://us-south.appid.cloud.ibm.com/management/v4/111c9bj3-xxxx-4b5b-zzzz-24ad9440k8j9/cloud_directory/import?encryption_secret=mySecret’
   ```
   {: codeblock}
