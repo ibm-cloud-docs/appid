@@ -322,10 +322,6 @@ To configure a pre-MFA extension:
       <th>Description</th>
     </tr>
     <tr>
-      <td><code>correlation_id</code></td>
-      <td>A random number that is generated for each MFA session. If you have both a pre-mfa and a post-mfa extension, the number is the same for each for the same session. For example: <code>3bb9236c-792f-4cca-8ae1-ada754cc4555</code></td>
-    </tr>
-    <tr>
       <td><code>extension</code></td>
       <td>The name of your extension. For this usecase, the extension is named <code>premfa</code>.</td>
     </tr>
@@ -382,7 +378,7 @@ To configure a pre-MFA extension:
   To see an example extension, check out [the sample](https://github.com/ibm-cloud-security/appid-sample-code-snippets/blob/master/premfa-extension-point/index.js).
   {: tip}
 
-3. Register your extension with your instance of {{site.data.keyword.appid_short_notm}} by making a PUT request to `config/cloud_directory/mfa/extensions/<name>`. The configuration might include your extension's URL and any headers that you want to configure such as your authorization header. For development purposes, `isActive` is set to `false`. Be sure to test your configuration before enabling it.
+3. Register your extension with your instance of {{site.data.keyword.appid_short_notm}} by making a PUT request to `config/cloud_directory/mfa/extensions/premfa`. The configuration includes your extension's URL and any authorization information that is needed to access the endpoint. For development purposes, `isActive` is set to `false`. Be sure to test your configuration before enabling it.
 
   ```sh
   curl -X PUT https://<region>.appid.cloud.ibm.com/management/v4/<tenant_ID>/config/cloud_directory/mfa/extensions/premfa' \
