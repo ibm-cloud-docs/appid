@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-01-21"
+lastupdated: "2020-01-27"
 
 keywords: user information, tokens, custom tokens, secure resources, authorization, identity, authentication, claims, oauth, claims mapping, attributes, app security, access, runtime
 
@@ -74,7 +74,7 @@ The claims are set for each token separately and are sequentially applied as sho
     },
     {
       "source": "saml",
-      "sourceClaim": "viewer",
+      "sourceClaim": "viewer"
     }
   ],
   "idTokenClaims": [
@@ -84,7 +84,7 @@ The claims are set for each token separately and are sequentially applied as sho
     },
     {
       "source": "saml",
-      "sourceClaim": "Name",
+      "sourceClaim": "Name"
     },
     {
       "source": "saml",
@@ -171,8 +171,7 @@ If you want to configure the lifespan of your token, you can quickly make the ch
     "accessTokenClaims": [
         {
           "source": "saml",
-          "sourceClaim": "name_id",
-          "destinationClaim": "id"
+          "sourceClaim": "name_id"
         }
     ],
     "idTokenClaims": [
