@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-01-09"
+lastupdated: "2020-01-22"
 
 keywords: user events, track activity, manage events, analyze, administrative, runtime, sign in, settings, app security
 
@@ -388,6 +388,24 @@ Check out the following table for a list of the runtime events that are sent to 
     <td><code>crn:unknown</code></td>
     <td><code>SAML:unknown</code></td>
     <td><code>appid/user</code></td>
+  </tr>
+  <tr>
+    <td>Client Credentials authentication success</td>
+    <td><code>appid.application.authentication</code></td>
+    <td><code>success</code></td>
+    <td><code>200</code></td>
+    <td><code>[appid application CRN]</code></td>
+    <td><code>client_credentials:client_id</code></td>
+    <td><code>appid/application</code></td>
+  </tr>
+  <tr>
+    <td>Client Credentials authentication failure</td>
+    <td><code>appid.application.authentication</code></td>
+    <td><code>failure</code></td>
+    <td><code>401</code></td>
+    <td><code>crn:undefined</code></td>
+    <td><code>client_credentials:undefined</code></td>
+    <td><code>appid/application</code></td>
   </tr>
   <tr>
     <td>Cloud Directory sign up</td>

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-01-13"
+lastupdated: "2020-01-27"
 
 keywords: emails, verification, templates, sendgrid, welcome, password reset, password change, change details, verification, supported languages, registry, cloud directory, 
 
@@ -39,7 +39,7 @@ When a user interacts with your application, you might want to send a reply or a
 When you send messages to your users, you can use any combination of the following templates. Or, you can edit the templates to customize your message.
 {: shortdesc}
 
-In addition to the following message types, you can also take advantage of the [SSO](/docs/services/appid?topic=appid-cd-sso) and [MFA](/docs/services/appid?topic=appid-cd-mfa) templates.
+In addition to the following message types, you can also take advantage of the [MFA](/docs/services/appid?topic=appid-cd-mfa) templates.
 {: tip}
 
 For further customization, you can use parameters in your messages. Check out the following table to see the parameters that you can use in all of the message types.
@@ -64,7 +64,7 @@ For further customization, you can use parameters in your messages. Check out th
   </tr>
   <tr>
     <td><code>%{user.username}</code></td>
-    <td> Displays the user's specified user name when the authentication method is set to user name and password. </td>
+    <td> Displays the user's specified username when the authentication method is set to username and password. </td>
   </tr>
   <tr>
     <td><code>%{user.firstName}</code></td>
@@ -91,7 +91,7 @@ When a user signs up for your application, you might want to send them a message
 
 2. Set **Welcome email** to **Enabled**.
 
-3. Customize the content of your message. You can add parameters and insert images by using the UI. To change the [language](/docs/services/appid?topic=appid-cd-messages#cd-languages) of the message, you can use [the APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization){: external} to set the language. However, you are responsible for the content and translation of the message. Check out the following table to see the list of tables that you can use in this message and all of the other messages that you can send. If a user does not supply the information that is pulled by the parameter, it appears blank.
+3. Customize the content of your message. You can add parameters and insert images by using the UI. To change the [language](/docs/services/appid?topic=appid-cd-messages#cd-languages) of the message, you can use [the APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization){: external} to set the language. However, you are responsible for the content and conversion of the message. Check out the following table to see the list of tables that you can use in this message and all of the other messages that you can send. If a user does not supply the information that is pulled by the parameter, it appears blank.
 
 4. Click **Save**.
 
@@ -112,7 +112,7 @@ Users who are manually added via the {{site.data.keyword.appid_short_notm}} dash
 
 3. Set **Allow users to sign in to your app without first verifying their email address** to **Yes**. When set to yes, users are able to interact with your application after they sign up, but before they verify their email address. The default setting is no.
 
-4. Customize the content of your message. You can add parameters and insert images by using the UI. To change the [language](/docs/services/appid?topic=appid-cd-messages#cd-languages) of the message, you can use [the APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization){: external} to set the language. However, you are responsible for the content and translation of the message. Check out the following table to see the different parameters that you can use in your message. If a user does not supply the information that is pulled by the parameter, it appears blank.
+4. Customize the content of your message. You can add parameters and insert images by using the UI. To change the [language](/docs/services/appid?topic=appid-cd-messages#cd-languages) of the message, you can use [the APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization){: external} to set the language. However, you are responsible for the content and conversion of the message. Check out the following table to see the different parameters that you can use in your message. If a user does not supply the information that is pulled by the parameter, it appears blank.
 
   <table>
     <caption>Table 2. Parameters that you can use in messages that are related to verification</caption>
@@ -159,7 +159,7 @@ When a user interacts with your app, they might forget their password or need to
 
 2. Set **Forgot password email** to **Enabled**.
 
-3. Customize the content of your message. You can add parameters and insert images by using the UI. To change the [language](/docs/services/appid?topic=appid-cd-messages#cd-languages) of the message, you can use <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization" target="_blank">the APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to set the language. However, you are responsible for the content and translation of the message. Check out the following table to see the different parameters that you can use in your message. If a user does not supply the information that is pulled by the parameter, it appears blank.
+3. Customize the content of your message. You can add parameters and insert images by using the UI. To change the [language](/docs/services/appid?topic=appid-cd-messages#cd-languages) of the message, you can use <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization" target="_blank">the APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to set the language. However, you are responsible for the content and conversion of the message. Check out the following table to see the different parameters that you can use in your message. If a user does not supply the information that is pulled by the parameter, it appears blank.
 
   <table>
     <caption>Table 3. Parameters that you can use in messages that are related to forgotten passwords</caption>
@@ -205,7 +205,7 @@ You can notify a user when their password is updated. The notification can be he
 
 2. Set **Password changed email** to **Enabled**.
 
-3. Customize the content of your message. You can add parameters and insert images by using the UI. To change the [language](/docs/services/appid?topic=appid-cd-messages#cd-languages) of the message, you can use [the APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization){: external} to set the language. However, you are responsible for the content and translation of the message. Check out the following table to see the different parameters that you can use in your message. If a user does not supply the information that is pulled by the parameter, it appears blank.
+3. Customize the content of your message. You can add parameters and insert images by using the UI. To change the [language](/docs/services/appid?topic=appid-cd-messages#cd-languages) of the message, you can use [the APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization){: external} to set the language. However, you are responsible for the content and conversion of the message. Check out the following table to see the different parameters that you can use in your message. If a user does not supply the information that is pulled by the parameter, it appears blank.
 
   <table>
     <caption>Table 4. Parameters that you can use in messages that are related to changing a password</caption>
@@ -355,7 +355,7 @@ To configure your custom email sender, you must use the Cloud Directory [Managem
     </tr>
     <tr>
       <td><code>Optional: message: reply to</code></br><code>name</code></br><code>address</code></td>
-      <td></br>The name that is attached to the reply email address.</br>The email address that a user can reply to.</td>
+      <td></br>The name that is attached to the reply email address. </br>The email address that a user can reply to.</td>
     </tr>
   </table>
 
@@ -441,7 +441,7 @@ For full working example, see <a href="https://www.ibm.com/cloud/blog/use-ibm-cl
 ## Supported languages
 {: #cd-languages}
 
-You can use [the language management APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization){: external} to set the language in which your user communication can be written. However, only English is available out of the box. You are responsible for the translation of the messages. After you set the configuration with the API, the GUI updates so that you are able to change the template text.
+You can use [the language management APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization){: external} to set the language in which your user communication can be written. However, only English is available out of the box. You are responsible for the conversion of the messages. After you set the configuration with the API, the GUI updates so that you are able to change the template text.
 {: shortdesc}
 
 <table>

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-11-25"
+  years: 2017, 2020
+lastupdated: "2020-01-27"
 
 keywords: user information, tokens, custom tokens, secure resources, authorization, identity, authentication, claims, oauth, claims mapping, attributes, app security, access, runtime
 
@@ -71,7 +71,7 @@ The claims are set for each token separately and are sequentially applied as sho
     {
       "source": "saml",
       "sourceClaim": "moderator"
-    }
+    },
     {
       "source": "saml",
       "sourceClaim": "viewer"
@@ -81,11 +81,11 @@ The claims are set for each token separately and are sequentially applied as sho
     {
       "source": "saml",
       "sourceClaim": "attributes.uid"
-    }
+    },
     {
       "source": "saml",
       "sourceClaim": "Name"
-    }
+    },
     {
       "source": "saml",
       "sourceClaim": "Country"
