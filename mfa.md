@@ -165,8 +165,7 @@ If your {{site.data.keyword.appid_short_notm}} Cloud Directory instance is confi
 You can send an SMS message to your users as a second form of verification. When you enable SMS, {{site.data.keyword.appid_short_notm}} automatically tries to register the first [valid](https://en.wikipedia.org/wiki/E.164){: external} primary phone number that is found in a Cloud Directory user's profile. If the number is invalid or no phone number is found on the user's profile, then a registration widget is displayed for the user to add a number. Then, the number is part of the user's profile and after validation, becomes the default number that is used for MFA.
 {: shortdesc}
 
-
-The first time that MFA is enabled, it is set to use email by default. You can change the setting to use SMS, but you cannot configure both at the same time.
+When MFA is initially enabled, it is set to use email by default. You can change the setting to use SMS, but you cannot configure both at the same time.
 {: note}
 
 ### Before you begin
@@ -243,8 +242,7 @@ Before you get started with the API, be sure that you have the following prerequ
   ```
   {: codeblock}
 
-3. Once the channel is successfully configured, verify that your Nexmo configuration and connection is set up
-correctly by using the test button on the UI or by using the management API.
+3. Once the channel is successfully configured, verify that your Nexmo configuration and connection is set up correctly by using the test button on the UI or by using the management API.
 
   ```sh
   curl -X PUT https://<region>.appid.cloud.ibm.com/management/v4/{tenant_ID}/config/cloud_directory/sms_dispatcher/test \
@@ -325,7 +323,7 @@ To configure a pre-MFA extension:
     </tr>
     <tr>
       <td><code>correlation_id</code></td>
-      <td>A random number that is generated for each MFA session. If you have both a pre-mfa and a post-mfa extension, the number is the same for each for the same session. For example: <code>11345222-3354-4422-1232-555987256986</code></td>
+      <td>A random number that is generated for each MFA session. If you have both a pre-mfa and a post-mfa extension, the number is the same for each for the same session. For example: <code>3bb9236c-792f-4cca-8ae1-ada754cc4555</code></td>
     </tr>
     <tr>
       <td><code>extension</code></td>
