@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-01-23"
+lastupdated: "2020-01-27"
 
 keywords: emails, verification, templates, sendgrid, welcome, password reset, password change, change details, verification, supported languages, registry, cloud directory, 
 
@@ -39,7 +39,7 @@ When a user interacts with your application, you might want to send a reply or a
 When you send messages to your users, you can use any combination of the following templates. Or, you can edit the templates to customize your message.
 {: shortdesc}
 
-In addition to the following message types, you can also take advantage of the [SSO](/docs/services/appid?topic=appid-cd-sso) and [MFA](/docs/services/appid?topic=appid-cd-mfa) templates.
+In addition to the following message types, you can also take advantage of the [MFA](/docs/services/appid?topic=appid-cd-mfa) templates.
 {: tip}
 
 For further customization, you can use parameters in your messages. Check out the following table to see the parameters that you can use in all of the message types.
