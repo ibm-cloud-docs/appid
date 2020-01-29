@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-01-15"
+lastupdated: "2020-01-29"
 
 keywords: user registry, sign up, sign in, username, email, password, account settings, reset password, email sender, email verification, app security
 
@@ -50,17 +50,5 @@ You can configure the level of self-service that is allowed in your application 
 5. Set **Allow users to sign up to your app** to **Yes**. If you choose not to allow users to sign up, you can add users through the dashboard or the management API for development purposes.
 
 6. To provide the highest level of self-service, set **Allow users to manage their account from your app** to **Yes**. When set to yes, users are able to reset or change their password, or reset their details. If you want to limit your user's self-service ability, set the value to **No**.
-
-
-
-7. Configure your email settings. Click **Edit** in the **Sender details** row to update your email settings. The email settings apply for all of the communication that is sent through {{site.data.keyword.appid_short_notm}}.
-
-    1. Specify the email address that should send the email. If you choose to change the default, the email might be sent to a user's spam folder.
-
-    2. Add a name for the Sender.
-
-    3. Enter an email that can be used to send a response.
-
-    4. Click **Save**.
 
 

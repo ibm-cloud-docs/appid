@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-01-27"
+lastupdated: "2020-01-29"
 
 keywords: mfa, multifactor, authentication, cloud directory, login widget, second factor, two factor, identity, mulitple factors, advanced security event, cloud directory user, sender id, phone number, email, nexmo
 
@@ -322,6 +322,10 @@ To configure a pre-MFA extension:
       <th>Description</th>
     </tr>
     <tr>
+      <td><code>correlation_id</code></td>
+      <td>A random number that is generated for each MFA session. If you have both a pre-mfa and a post-mfa extension, the number is the same for each for the same session. For example: <code>3bb9236c-792f-4cca-8ae1-ada754cc4555</code></td>
+    </tr>
+    <tr>
       <td><code>extension</code></td>
       <td>The name of your extension. For this usecase, the extension is named <code>premfa</code>.</td>
     </tr>
@@ -421,4 +425,132 @@ To configure a pre-MFA extension:
   To disable your extension, set `isActive` to `false`.
   {: tip}
 
+
+### Configuring post-mfa
+{: #cd-postmfa}
+
+When you configure an extension and register it with {{site.data.keyword.appid_short_notm}}, the service calls your extension after every authentication attempt in which there was a second-factor of identification. You can use that information in order to make smarter decisions for your users. For example, you can use post-mfa extension collection information for your heuristics and rules and then enforce these using pre-mfa extension.
+
+![post-MFA flow](images/mfa-post.png){: caption="Figure 3. Cloud Directory post-MFA flow" caption-side="bottom"}
+
+1. When a user successfully signs in to your application, they are prompted to enter their second authentication factor.
+
+2. When the second authentication factor is completed successfully, there are two simultaneous actions that occur:
+
+  1. {{site.data.keyword.appid_short_notm}} sends information about the sign in to your configured extension.
+
+  2. The user is redirected to your application.
+
+</br>
+
+To configure a post-MFA extension:
+
+1. Configure an extension point that can listen for a POST request. The endpoint must be able to read the payload that is sent by {{site.data.keyword.appid_short_notm}}. Optionally, it can also [decode and validate](/docs/services/appid?topic=appid-token-validation#local-validation) the JSON payload that is returned by {{site.data.keyword.appid_short_notm}} has not been altered by a third party in any way. A string that is formatted as `{"jws": "jws-format-string"}` is returned that contains the following information:
+  
+  <table>
+    <caption>Table 3. The information that {{site.data.keyword.appid_short_notm}} forwards to your extension point.</caption>
+    <tr>
+      <th>Information</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td><code>correlation_id</code></td>
+      <td>A random number that is generated for each MFA session. If you have both a pre-mfa and a post-mfa extension, the number is the same for each. For example: <code>3bb9236c-792f-4cca-8ae1-ada754cc4555</code></td>
+    </tr>
+    <tr>
+      <td><code>extension</code></td>
+      <td>The name of your extension. For this usecase, the extension is named <code>postmfa</code>.</td>
+    </tr>
+    <tr>
+      <td><code>status</code></td>
+      <td>The MFA status. Options include: <code>success</code> and <code>failed</code>.</td>
+    </tr>
+    <tr>
+      <td><code>reason</code></td>
+      <td>The reason for an MFA failure. For example: <code>user locked out - exceeded maximum number of verification attempts</code>.</td>
+    </tr>
+    <tr>
+      <td><code>device_type</code></td>
+      <td>The type of device with which your user accesses your application. Options include: <code>web</code>, <code>mobile</code>.</td>
+    </tr>
+    <tr>
+      <td><code>source_ip</code></td>
+      <td>The IP address of the device that makes the request to your app. For example: <code>127.0.0.1</code>.</td>
+    </tr>
+    <tr>
+      <td><code>headers</code></td>
+      <td>The information that is returned by the browser when a user attempts to sign in to your app. </br> The header looks similar to the following:<code>{"user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X x.y; rv:42.0) Gecko/20100101 Firefox/42.0"}</code></td>
+    </tr>
+    <tr>
+      <td><code>tenant_id</code></td>
+      <td>Your application's tenant ID.</td>
+    </tr>
+    <tr>
+      <td><code>client_id</code></td>
+      <td>Your application's client ID.</td>
+    </tr>
+    <tr>
+      <td><code>user_id</code></td>
+      <td>The ID of the user that makes the authentication request.</td>
+    </tr>
+    <tr>
+      <td><code>username</code></td>
+      <td>The username of the user that makes the authentication request. For example: <code>testuser@email.com</code>.</td>
+    </tr>
+    <tr>
+      <td><code>application_type</code></td>
+      <td>The type of your application. For example, if your application is a single page JavaScript web app, <code>browserapp</code> is returned. Options include: <code>browserapp</code>, <code>serverapp</code>, and <code>mobileapp</code>.</td>
+    </tr>
+    <tr>
+      <td><code>first_name</code></td>
+      <td>The user's given name.</td>
+    </tr>
+    <tr>
+      <td><code>last_name</code></td>
+      <td>The user's surname.</td>
+    </tr>
+  </table>
+
+2. Register your extension with your instance of {{site.data.keyword.appid_short_notm}} by making a PUT request to `config/cloud_directory/mfa/extensions/postmfa`. The configuration includes your extension's URL and any authorization information that is needed to access the endpoint. For development purposes, `isActive` is set to `false`. Be sure to test your configuration before you enable it.
+
+  ```sh
+  curl -X PUT https://<region>.appid.cloud.ibm.com/management/v4/<tenant_ID>/config/cloud_directory/mfa/extensions/postmfa' \
+  --header 'Content-Type: application/json' \
+  --header 'Accept: application/json' \
+  --header 'Authorization: Bearer <IAM_token>' \
+  -d '{
+      "isActive": false,
+      "config": {
+        "url": "<extensions_URL>",
+        "headers": {
+              "Authorization": "<custom_extension_authorization_header>"
+          }
+      }
+  }'
+  ```
+  {: codeblock}
+
+3. Once the extension is successfully configured, verify that your endpoint works correctly by using the test API. {{site.data.keyword.appid_short_notm}} makes a POST request to your configured extension with the example values.
+
+  ```sh
+  curl -X POST https://<region>.appid.cloud.ibm.com/management/v4/<tenant_ID>/config/cloud_directory/mfa/extensions/postmfa/test \
+  --header 'Content-Type: application/json' \
+  --header 'Accept: application/json' \
+  --header 'Authorization: Bearer <IAM_token>'
+  ```
+  {: codeblock}
+
+4. Enable your extension by setting `isActive` to `true`.
+
+  ```sh
+  curl -X PUT https://<region>.appid.cloud.ibm.com/management/v4/<tenant_ID>/config/cloud_directory/mfa/extensions/postmfa \
+  --header 'Content-Type: application/json' \
+  --header 'Accept: application/json' \
+  --header 'Authorization: Bearer <IAM_TOKEN>' \
+  -d '{"isActive": true}'
+  ```
+  {: codeblock}
+
+  To disable your extension, set `isActive` to `false`.
+  {: tip}
 
