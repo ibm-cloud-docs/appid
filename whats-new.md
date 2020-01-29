@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-12-18"
+  years: 2017, 2020
+lastupdated: "2020-01-29"
 
 keywords: new, spa, single sign on, mfa, cloud directory, saml, app security, application identity
 
@@ -27,6 +27,21 @@ subcollection: appid
 
 The following features and changes to the {{site.data.keyword.appid_short_notm}} service are now available.
 
+
+## January 2020
+{: #January2020}
+
+- **Cloud Directory: Email provider connections**
+
+    you can now bring your own custom email provider or connect your SendGrid account to have more control over your email communication with your users. For more information, see the [configuring email settings docs](/docs/services/appid?topic=appid-cd-types#cd-email-settings).
+
+- **Import and export user roles**
+
+    You can now include any roles that are assigned to a user as part of using the export and import APIs. For more informaiton, see the [migrating profiles](/docs/services/appid?topic=appid-cd-users#user-migration) or Cloud Directory users documentation.
+
+- **Post MFA extension**
+
+    You can now create post MFA extensions to help you to monitor and improve your users MFA experiences. For more information, see the [extending MFA docs](/docs/services/appid?topic=appid-cd-mfa#cd-mfa-extensions).
 
 
 ## December 2019
