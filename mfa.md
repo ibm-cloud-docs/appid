@@ -4,7 +4,7 @@ copyright:
   years: 2017, 2020
 lastupdated: "2020-01-29"
 
-keywords: mfa, multifactor, authentication, cloud directory, login widget, second factor, two factor, identity, mulitple factors, advanced security event, cloud directory user, sender id, phone number, email, nexmo
+keywords: mfa, multifactor, authentication, cloud directory, login widget, second factor, two factor, identity, mulitple factors, advanced security event, cloud directory user, sender id, phone number, email, nexmo, mfa descision, extension
 
 subcollection: appid
 
@@ -26,7 +26,7 @@ subcollection: appid
 # Multi-factor authentication (MFA)
 {: #cd-mfa}
 
-With Cloud Directory for {{site.data.keyword.appid_full}}, you can require multiple authentication factors during your application sign-in flow. A second authentication factor increases the security of your application by confirming that a user possesses the knowledge of their credentials but also have access to their registered email or phone number. You can also enable extensions that give you the ability to make custom decisions at run time about which users must complete the second factor and provide you analytical information about your MFA flow.
+With Cloud Directory for {{site.data.keyword.appid_full}}, you can require multiple authentication factors during your application sign-in flow. A second authentication factor increases the security of your application by not only confirming that a user possesses the knowledge of their credentials but also has access to their registered email or phone number. Extending the MFA flow a bit, you can configure pre and post-MFA extensions to make custom decisions at run time about which users must complete the second factor or provide you analytical information about your sign-in flow.
 {: shortdesc}
 
 {{site.data.keyword.appid_short_notm}} MFA is supported as part of the OAuth 2.0 authorization code flow for Cloud Directory users through the Login Widget. If you're using enterprise sign-in with SAML 2.0 or social login, you can enable MFA through that identity provider.
@@ -327,7 +327,7 @@ To configure a pre-MFA extension:
     </tr>
     <tr>
       <td><code>extension</code></td>
-      <td>The name of your extension. For this usecase, the extension is named <code>premfa</code>.</td>
+      <td>The name of your extension. For this use case, the extension is named <code>premfa</code>.</td>
     </tr>
     <tr>
       <td><code>device_type</code></td>
@@ -459,7 +459,7 @@ To configure a post-MFA extension:
     </tr>
     <tr>
       <td><code>extension</code></td>
-      <td>The name of your extension. For this usecase, the extension is named <code>postmfa</code>.</td>
+      <td>The name of your extension. For this use case, the extension is named <code>postmfa</code>.</td>
     </tr>
     <tr>
       <td><code>status</code></td>
