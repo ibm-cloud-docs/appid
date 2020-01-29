@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-12-10"
+  years: 2017, 2020
+lastupdated: "2020-01-29"
 
 keywords: related links, blogs, sample apps, kube, code changes, programming guide, white paper, vuejs apps, serverless applications, enterprise user directory, custom experience, slack, stack overflow, secure iot, solution, finance app, multicloud, video tutorials
 
@@ -96,6 +96,11 @@ Just getting started? Try walking through some of our tutorials and blogs for he
 * <img src="images/blog-code.svg" alt="Icon indicating that this blog contains sample code" width="20" style="width:20px; border-style: none"/> [User Authorization in Serverless Web Applications](http://heidloff.net/article/user-authorization-serverless-web-applications-openwhisk){: external}
 * <img src="images/blog-code.svg" alt="Icon indicating that this blog contains sample code" width="20" style="width:20px; border-style: none"/> [Authentication of users in serverless applications](http://heidloff.net/article/user-authentication-serverless-openwhisk){: external}
 
+## Controling access
+{: #rellinks-access}
+
+* <img src="images/blog-code.svg" alt="Icon indicating that this blog contains sample code" width="20" style="width:20px; border-style: none"/> [Using App ID to Manage Access to Your App's Sensitive Data](https://www.ibm.com/cloud/blog/using-app-id-to-manage-access-to-your-apps-sensitive-data){: external}
+
 
 
 ## Market examples
@@ -130,6 +135,8 @@ Want to have a custom experience for your users? Not a problem.
 * <img src="images/blog-code.svg" alt="Icon indicating that this blog contains sample code" width="20" style="width:20px; border-style: none"/> [Use your own UI and flows for user sign-up and sign-in with {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/use-ui-flows-user-sign-sign-app-id){: external}
 * <img src="images/blog-code.svg" alt="Icon indicating that this blog contains sample code" width="20" style="width:20px; border-style: none"/> [Use a custom login page with  {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/custom-login-page-app-id-integration){: external}
 * <img src="images/blog-code.svg" alt="Icon indicating that this blog contains sample code" width="20" style="width:20px; border-style: none"/> [Use your own provider for mail sent with {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/use-ibm-cloud-app-id-and-your-email-provider-to-brand-mails-sent-to-app-users){: external}
+* <img src="images/blog-code.svg" alt="Icon indicating that this blog contains sample code" width="20" style="width:20px; border-style: none"/> [Using your own SendGrid account With {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/using-your-own-sendgrid-account-with-app-id){: external}
+
 
 
 ## Programming guides
