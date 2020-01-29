@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-01-20"
+lastupdated: "2020-01-29"
 
 keywords: user information, add users, delete users, profile, access, attributes, admin, app security, authentication, authorization
 
@@ -275,6 +275,125 @@ To completely delete a profile and remove someone as a user of your application,
     -H "authorization: Bearer <token>"
     ```
     {: codeblock}
+
+
+## Migrating user profiles
+{: #migrating-profiles}
+
+Occasionally, you might need to add an instance of {{site.data.keyword.appid_short_notm}}. To help with migrating to the new instance, you can use the export and import APIs.
+
+You must be assigned the `Manager` [IAM role](/docs/iam?topic=iam-getstarted#getstarted) for both instances of {{site.data.keyword.appid_short_notm}}.
+{: note}
+
+
+### Exporting user profiles
+{: #exporting-profiles}
+
+Before you can import your profiles to your new instance, you need to export them from your original instance of the service.
+
+1. Export the profiles from your original instance of the service.
+
+  ```sh
+  curl -X GET https://us-south.appid.cloud.ibm.com/management/v4/{tenant-ID}/users/export \
+  --header "Accept: application/json" \
+  --header "Authorization: Bearer {IAM-token}"
+  ```
+  {: codeblock}
+
+  <table>
+    <caption>User import command variables</caption>
+    <tr>
+      <th>Variable</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td><code>tenantID</code></td>
+      <td>The service tenant ID can be found in your service credentials. You can find your service or application credentials in the {{site.data.keyword.appid_short_notm}} dashboard.</td>
+    </tr>
+    <tr>
+      <td><code>iam-token</code></td>
+      <td>Your IAM token.</td>
+    </tr>
+  </table>
+
+  Example response:
+
+  ```json
+  {
+    "itemsPerPage": 2,
+    "totalResults": 2,
+    "requestOptions": {},
+    "users": [
+      {
+        "id": "7ae804f3-0ed3-45f0-bc6b-1c6af868e6d6",
+        "name": "{{site.data.keyword.appid_short_notm}} Google User profile",
+        "email": "your@mail.com",
+        "identities": [
+          {
+            "provider": "google",
+            "id": "105646725068605084546",
+            "idpUserInfo": {
+              "id": "105646725068605084546",
+              "email": "your@mail.com",
+              "picture": "profilePic.jpg"
+            }
+          }
+        ],
+        "attributes": {
+          "points": 150
+        },
+        "roles": ["admin"]
+      {
+        "id": "1439d777-185d-4be1-8f4a-c4e8142b87ea",
+        "name": "{{site.data.keyword.appid_short_notm}} Facebook User profile",
+        "email": "mail@mail.com",
+        "identities": [
+          {
+            "provider": "facebook",
+            "id": "100195207128541",
+            "picture": {
+              "data": {
+                "height": 50,
+                "width": 50,
+                "url": "https://url-to-idp-profile-picture.com"
+              }
+            },
+            "first_name": "AppID",
+            "last_name": "Development"
+          }
+        ],
+        "attributes": {
+          "points": 250
+        },
+        "roles": ["admin"]
+      }
+  }
+  ```
+  {: screen}
+
+### Importing user profiles
+{: #importing-profiles}
+
+Now that you have a list of exported user profiles, you can import them into the new instance.
+
+1. If your users are [assigned roles](/docs/services/appid?topic=appid-access-control), be sure to create the roles and scopes in your new instance of {{site.data.keyword.appid_short_notm}}.
+
+  The roles and scopes must be created exactly as they were in the previous instance with the same spellings.
+  {: tip}
+
+2. Import the users to your new instance of the service.
+
+  ```sh
+  curl -X POST "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/users/import" \
+  -H "accept: application/json" \
+  -H "Authorization: Bearer {Bearer_Token}" \
+  -H "Content-Type: application/json" \
+  -d "{ \"itemsPerPage\": 2, \"totalResults\": 2, \"requestOptions\": {}, \"users\": [ { \"id\": \"7ae804f3-0ed3-45f0-bc6b-1c6af868e6d6\", \"name\": \"{{site.data.keyword.appid_short_notm}} Google User profile\", \"email\": \"your@mail.com\", \"identities\": [ { \"provider\": \"google\", \"id\": \"105646725068605084546\", \"idpUserInfo\": { \"id\": \"{ID}\", \"email\": \"your@mail.com\", \"picture\": \"{profile.jpg}\" } } ], \"attributes\": { \"points\": 150 } { \"role\": admin } }, { \"id\": \"{userinfo}\", \"name\": \"{{site.data.keyword.appid_short_notm}} Facebook User profile\", \"email\": \"mail@mail.com\", \"identities\": [ { \"provider\": \"facebook\", \"id\": \"{id}\", \"picture\": { \"data\": { \"height\": 50, \"width\": 50, \"url\": \"https://{url}.com\" } }, \"first_name\": \"AppID\", \"last_name\": \"Development\" } ], \"attributes\": { \"points\": 250 } { \"role\": admin } } ]}"
+  ```
+  {: codeblock}
+  
+  When you import users to an instance of {{site.data.keyword.appid_short_notm}}, their Identity Provider identifier remains the same.
+  {: note}
 
 
 

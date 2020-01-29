@@ -37,7 +37,7 @@ The following features and changes to the {{site.data.keyword.appid_short_notm}}
 
 - **Import and export user roles**
 
-    You can now include any roles that are assigned to a user as part of using the export and import APIs. For more informaiton, see the [migrating profiles](/docs/services/appid?topic=appid-cd-users#user-migration) or Cloud Directory users documentation.
+    You can now include any roles that are assigned to a user as part of using the export and import APIs. For more informaiton, see the [migrating profiles](/docs/services/appid?topic=appid-user-admin#migrating-profiles) or [managing Cloud Directory users](/docs/services/appid?topic=appid-cd-users#user-migration) documentation.
 
 - **Post MFA extension**
 
