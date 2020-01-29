@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-01-27"
+lastupdated: "2020-01-29"
 
 keywords: emails, verification, templates, sendgrid, welcome, password reset, password change, change details, verification, supported languages, registry, cloud directory, 
 
@@ -30,6 +30,212 @@ When a user interacts with your application, you might want to send a reply or a
 
 {{site.data.keyword.appid_short_notm}} uses [SendGrid](https://sendgrid.com/){: external} as a mail delivery service. All emails are sent with a single SendGrid account.
 {: note}
+
+
+
+## Configuring email settings
+{: #cd-email-settings}
+
+With {{site.data.keyword.appid_short_notm}}, you can choose to use {{site.data.keyword.appid_short_notm}} default [SendGrid](https://sendgrid.com/){: external} credentials, add your own SendGrid account, or configure your own custom webhook to send email messages in Cloud Directory.
+{: shortdesc}
+
+
+### Using the IBM default email provider
+{: #cd-default-email}
+
+By default, {{site.data.keyword.appid_short_notm}} uses [SendGrid](https://sendgrid.com/){: external} as an email delivery service for Cloud Directory.
+
+As of 30 April 2020, email content and sender details are no longer editable if you’re using the {{site.data.keyword.appid_short_notm}} default email provider. To customize your user communication, add your own SendGrid account or custom email provider.
+{: important}
+
+1. Go to the **Cloud Directory > Email templates > Email settings** page of the service dashboard.
+
+2. Select **Default**. The information that you need to input appears.
+
+3. Configure your **Sender details**.
+
+  1. In **From**, enter the email address that you want users to receive your emails from.
+
+  2. In **Sender name**, enter the name that you want associated with the "From" email.
+
+  3. In **Reply-to**, enter the email address where you want to receive any replies that someone might have to the email.
+
+4. Click **Test** to try your configuration with a test email.
+
+5. Click **Save** to enable your configuration.
+
+
+### Adding your own SendGrid account
+{: #cd-add-sendgrid-account}
+
+By using your own SendGrid account to send your Cloud Directory emails, you have full control. You can decide how the emails are sent, use your own domain name, and define your sender details. With custom email settings, you can reduce the chances of an email getting filtered as spam while also furthering brand recognition for your application.
+
+A direct connection to your email provider can help you to get information about individual messages such as the number of people that open the emails and which messages were not delivered. You can also see overall statistics that you can use to better manage your email campaigns.
+
+
+Don't have a SendGrid account? [Sign up](https://signup.sendgrid.com/){: external}.
+{: tip}
+
+1. Go to the **Cloud Directory > Email templates > Email settings** page of the service dashboard.
+
+2. Select **SendGrid**. The information that you need to input appears.
+
+3. In **SendGrid API key**, enter your API key.
+
+4. Configure your **Sender details**.
+
+  1. In **From**, enter the email address that you want users to receive your emails from.
+
+  2. In **Sender name**, enter the name that you want associated with the "From" email.
+
+  3. In **Reply-to**, enter the email address where you want to receive any replies that someone might have to the email.
+
+5. Click **Test** to try your configuration with a test email.
+
+6. Click **Save** to enable your configuration.
+
+
+### Customizing your email provider
+{: #cd-custom-email}
+
+By defining your own custom extension point to send your Cloud Directory emails, you have full control. You can decide how the emails are sent, use your own domain name, and define your sender details. With custom email settings, you can reduce the chances of an email getting filtered as spam while also furthering brand recognition for your application.
+
+A direct connection to your email provider can help you to get information about individual messages such as the number of people that open the emails and which messages were not delivered. You can also see overall statistics that you can use to better manage your email campaigns.
+
+
+#### Configuring a custom provider with the GUI
+{: #cd-messages-configure-custom-gui}
+
+You can use the service dashboard to configure your custom provider.
+
+1. Go to the **Cloud Directory > Email templates > Email settings** page of the service dashboard.
+
+2. Select **Custom**. The information that you need to input appears.
+
+3. In **Webhook**, enter your custom extension URL.
+
+4. Select an **Authorization type**. You can choose from the following options:
+
+  * **None**: The webhook endpoint or URL, does not require an authorization header.
+
+  * **Basic**: The webhook endpoint requires an HTTP authorization header with every request in the form of a username and password.
+  
+  * **Authorization headers**: The webhook request requires that you pass the authorization information for your endpoint in an HTTP authorization. For example, you might pass an OAuth 2.0 token: `Authorization: Bearer eyJraWQiOiIyMDIwMDEyNTE2MzMiLCJhbGciOiJSUzI1NiJ9.eyJpYW1faWQiOiJJ`.
+
+5. Configure your **Sender details**.
+
+  1. In **From**, enter the email address that you want users to receive your emails from.
+
+  2. In **Sender name**, enter the name that you want associated with the "From" email.
+
+  3. In **Reply-to**, enter the email address where you want to receive any replies to the email.
+
+6. Click **Test** to try your configuration with a test email.
+
+6. Click **Save** to enable your configuration.
+
+
+#### Configuring a custom provider with the API
+{: #cd-messages-configure-custom-api}
+
+You can use the Cloud Directory [management APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.set_cloud_directory_email_dispatcher){: external} to configure your custom email sender.
+
+To see an example, check out the blog <a href="https://www.ibm.com/cloud/blog/use-ibm-cloud-app-id-and-your-email-provider-to-brand-mails-sent-to-app-users" target="_blank">Using your own provider for mail that is sent with {{site.data.keyword.appid_full}}</a>.
+{: tip}
+
+1. Configure an extension point that can listen for a POST request. The endpoint must be able to:
+  * Read the payload that comes from {{site.data.keyword.appid_short_notm}}.
+  * Send the email from your custom provider.
+  * Optionally, [validate](/docs/services/appid?topic=appid-token-validation#local-validation) the JSON payload that is returned by {{site.data.keyword.appid_short_notm}} has not been altered by a third party in any way. A string that is formatted as `{"jws": "jws-format-string"}` is returned that contains your tenant ID, the issuer of your JWS token, the time stamp of when the message was sent, a unique transaction ID, and the actual message information including your sender details and email body content. 
+
+  Your extension point might look similar to the following example:
+
+  ```javascript
+  const sgMail = require('@sendgrid/mail');
+  const {promisify} = require('bluebird');
+  const request = promisify(require('request'));
+  const jwtVerify = promisify(require('jsonwebtoken').verify);
+  const jwtDecode = require('jsonwebtoken').decode;
+  const jwkToPem = require('jwk-to-pem');
+
+  async function obtainPublicKeys() {
+    // Your {{site.data.keyword.appid_short_notm}} instance tenant ID
+    const tenantId = '<TENANT-ID>';
+
+    // Send request to {{site.data.keyword.appid_short_notm}}'s public keys endpoint
+    const keysOptions = {
+      method: 'GET',
+      url: `https://<REGION>.appid.cloud.ibm.com/oauth/v4/${tenantId}/publickeys`
+    };
+    const keysResponse = await request(keysOptions);
+    return JSON.parse(keysResponse.body).keys;
+  }
+
+  async function verifySignature(keysArray, kid, jws) {
+    const keyJson = keysArray.find(key => key.kid === kid);
+    if (keyJson) {
+      const pem = jwkToPem(keyJson);
+      await jwtVerify(jws, pem);
+      return;
+    }
+    throw new Error ("Unable to verify signature");
+  }
+
+  async function verifyAndSendMail(jws) {
+    // The API key for Sendgrid
+    const sgApiKey = '<SENDGRID-API-KEY>';
+
+    // Init Sendgrind
+    sgMail.setApiKey(sgApiKey);
+
+    // Decode message to get information
+    const data = jwtDecode(jws, {complete: true});
+
+    // Extract kid from header
+    const kid = data.header.kid;
+
+    const keysArray = await obtainPublicKeys();
+
+    // Verify the signature of the payload with the public keys
+    await verifySignature(keysArray, kid ,jws);
+
+    // Send the email with Your Sendgrid account
+    const message = data.payload.message;
+    const msg = {
+      to: message.to,
+      from: message.from.address,
+      subject: message.subject,
+      html: message.body,
+    };
+    console.log(`Sending email to ${message.to}`);
+    let sendgridResponse = await sgMail.send(msg);
+
+    return {result : 'email_sent',sendgridResponse};
+  }
+  ```
+  {: screen}
+
+2. Make a PUT request to the `/management/v4/{tenantId}/config/cloud_directory/email_dispatcher` to provide your webhook URL. Optionally, you can provide authorization information. Supported authorization types include: `Basic authorization` and `constant authorization header value`.
+
+  ```sh
+  curl -X PUT https://<region>.appid.cloud.ibm.com/management/v4/<tenant_ID>/config/cloud_directory/email_dispatcher' \
+  --header 'Accept: application/json' \
+  --header 'Authorization: Bearer <IAM_token>' \
+  -d '{
+    "provider": "custom",
+    "custom": {
+      "url": "https://example.com/send_mail",
+      "authorization": {
+        "type": "basic",
+        "username": "username",
+        "password": "password"
+        }
+      }
+    }'
+  ```
+  {: codeblock}
+
+3. Verify that your configuration is correctly set up by testing your email dispatcher. Use the <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/post_email_dispatcher_test" target="_blank">test API</a> to trigger a request to your configured custom email sender.
 
 
 
@@ -87,7 +293,7 @@ For further customization, you can use parameters in your messages. Check out th
 When a user signs up for your application, you might want to send them a message that welcomes them to your app. 
 {: shortdesc}
 
-1. Go to the **Cloud Directory > Workflow templates > Welcome email** tab of the service dashboard.
+1. Go to the **Cloud Directory > Email templates > Welcome email** tab of the service dashboard.
 
 2. Set **Welcome email** to **Enabled**.
 
@@ -106,7 +312,7 @@ Users who are manually added via the {{site.data.keyword.appid_short_notm}} dash
 {: note}
 
 
-1. Go to the **Cloud Directory > Workflow templates > Email verification** tab of the service dashboard.
+1. Go to the **Cloud Directory > Email templates > Email verification** tab of the service dashboard.
 
 2. Set **Email verification** to **Enabled**.
 
@@ -155,7 +361,7 @@ When a user interacts with your app, they might forget their password or need to
 {: shortdesc}
 
 
-1. Go to the **Cloud Directory > Workflow templates > Reset password** tab of the service dashboard.
+1. Go to the **Cloud Directory > Email templates > Reset password** tab of the service dashboard.
 
 2. Set **Forgot password email** to **Enabled**.
 
@@ -201,7 +407,7 @@ When a user interacts with your app, they might forget their password or need to
 You can notify a user when their password is updated. The notification can be helpful if they did not request that their password be changed. They can take the proper steps to resecure their account.
 {: shortdesc}
 
-1. Go to the **Cloud Directory > Workflow templates > Password change** tab of the service dashboard.
+1. Go to the **Cloud Directory > Email templates > Password change** tab of the service dashboard.
 
 2. Set **Password changed email** to **Enabled**.
 
@@ -227,214 +433,6 @@ You can notify a user when their password is updated. The notification can be he
   {: tip}
 
 4. Click **Save**.
-
-
-
-
-## Configuring a custom email provider
-{: #cd-custom-email}
-
-With {{site.data.keyword.appid_short_notm}}, you can define a custom extension point to send your Cloud Directory email messages. By defining an extension point, you have full control of how the emails are sent and you can use your own domain name. By default, {{site.data.keyword.appid_short_notm}} uses [SendGrid](https://sendgrid.com/){: external} as a mail delivery service.
- {: shortdesc}
-
-You might want to use a custom email sender for the following reasons:
-
-- **Personalized domain**
-
-By configuring a custom email dispatcher, you have full control over how the email messages are sent. Most notably, you can customize the email domain, which can reduce the chances of an email being filtered as spam. You can also further enhance the branded experience for your app users.
-
-
-- **Insights and troubleshooting**
-
-Gain insights from your email provider, such as: the number of people that opened the emails or which messages were not delivered. Because you can track individual messages, and see overall statistics, this can help solve issues.
-
-After the extension point is configured, it is called by {{site.data.keyword.appid_short_notm}} whenever an email message needs to be sent. The extension point contains all of the information about the message, including the final content of the email body.
-
-
-### Configuring a custom provider with the API
-{: #cd-messages-configure-custom-api}
-
-To configure your custom email sender, you must use the Cloud Directory [Management APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.set_cloud_directory_email_dispatcher){: external}.
-
-
-1. Provide the URL. Additionally you can provide authorization information. The supported authorization types are: `Basic authorization` or `constant authorization header value`.
-
-  Valid configuration examples:
-  ```json
-  {
-    "custom": {
-      "url": "https://example.com/send_mail"
-    }
-  }
-  ```
-  {: screen}
-
-  ```json
-  {
-    "custom": {
-      "url": "https://example.com/send_mail",
-      "authorization": {
-        "type": "basic",
-        "username": "username",
-        "password": "password"
-      }
-    }
-  }
-  ```
-  {: screen}
-
-  ```json
-  {
-    "custom": {
-      "url": "https://example.com/send_mail",
-      "authorization": {
-        "type": "value",
-        "value": "myApiKey"
-      }
-    }
-  }
-  ```
-  {: screen}
-
-2. Configure an extension point that can listen to post request. This endpoint should be able to read the payload that comes from {{site.data.keyword.appid_short_notm}} and send the email with your custom email sender.
-
-3. The body that is sent by {{site.data.keyword.appid_short_notm}} is in the following format: `{"jws": "jws-format-string"}`. After you decode and verify the payload, the content is a JSON string.
-
-  ```json
-  {
-    "tenant": "tenant-id",
-    "iss" : "https://us-south.appid.cloud.ibm.com/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6050a61", 
-    "iat": 1539173126,
-    "jti": "uniq-id",
-    "message": {
-        "to": "your@mail.com",
-        "from": {
-            "name": "My Awesome Service",
-            "address": "no-reply@company.com"
-        },
-        "replyTo": {
-            "name": "My Awesome Service",
-            "address": "yes-reply@company.com"
-        },
-        "subject": "Welcome to My Awesome Service",
-        "body": "<p>Hello<p><br/><p>Thanks for signing up John Doe</p>"
-    }
-  }
-  ```
-  {: screen}
-
-  <table>
-    <caption>Table 5. The components of the email that is sent by {{site.data.keyword.appid_short_notm}}</caption>
-    <tr>
-      <th>Variable</th>
-      <th>Description</th>
-    </tr>
-    <tr>
-      <td><code>tenant</code></td>
-      <td>The tenant ID of your {{site.data.keyword.appid_short_notm}} instance.</td>
-    </tr>
-    <tr>
-      <td><code>iat</code></td>
-      <td>The time stamp of when the sent message.</td>
-    </tr>
-    <tr>
-      <td><code>iss</code></td>
-      <td>The principle, or {{site.data.keyword.appid_short_notm}} instance, that issued the JWS token.</td>
-    </tr>
-    <tr>
-      <td><code>jti</code></td>
-      <td>The unique transaction ID.</td>
-    </tr>
-    <tr>
-      <td><code>message: to</code></td>
-      <td>The email address of the recipient of the message.</td>
-    </tr>
-    <tr>
-      <td><code>message: from</code> </br><code>name</code> </br><code>address</code></td>
-      <td></br>The name of the sender of the message. </br>The email address of the sender.</td>
-    </tr>
-    <tr>
-      <td><code>Optional: message: reply to</code></br><code>name</code></br><code>address</code></td>
-      <td></br>The name that is attached to the reply email address. </br>The email address that a user can reply to.</td>
-    </tr>
-  </table>
-
-  You can verify that your request was successful by checking the response status code. Anything in range 200 - 299 is considered a success. If you receive any other response, try to make your request again.
-  {: tip}
-
-4. Every HTTP payload that is sent from {{site.data.keyword.appid_short_notm}} is automatically signed according to the JWS standard by using an asymmetric key pair.
-For every {{site.data.keyword.appid_short_notm}} instance, a private and a public key is generated that are not shared across other instances. The private key is used to sign the HTTP payload, and you can use the public key to verify that the payload is generated by {{site.data.keyword.appid_short_notm}} and is not altered by a third party, [public keys endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Authorization_Server_V4/publicKeys){: external}.
-
-5. Example code for the extension point.
-
-  ```javascript
-  const sgMail = require('@sendgrid/mail');
-  const {promisify} = require('bluebird');
-  const request = promisify(require('request'));
-  const jwtVerify = promisify(require('jsonwebtoken').verify);
-  const jwtDecode = require('jsonwebtoken').decode;
-  const jwkToPem = require('jwk-to-pem');
-
-  async function obtainPublicKeys() {
-  	// Your {{site.data.keyword.appid_short_notm}} instance tenant ID
-  	const tenantId = '<TENANT-ID>';
-
-  	// Send request to {{site.data.keyword.appid_short_notm}}'s public keys endpoint
-  	const keysOptions = {
-  		method: 'GET',
-  		url: `https://<REGION>.appid.cloud.ibm.com/oauth/v4/${tenantId}/publickeys`
-  	};
-  	const keysResponse = await request(keysOptions);
-  	return JSON.parse(keysResponse.body).keys;
-  }
-
-  async function verifySignature(keysArray, kid, jws) {
-  	const keyJson = keysArray.find(key => key.kid === kid);
-  	if (keyJson) {
-  		const pem = jwkToPem(keyJson);
-  		await jwtVerify(jws, pem);
-  		return;
-  	}
-  	throw new Error ("Unable to verify signature");
-  }
-
-  async function verifyAndSendMail(jws) {
-  	// The API key for Sendgrid
-  	const sgApiKey = '<SENDGRID-API-KEY>';
-
-  	// Init Sendgrind
-  	sgMail.setApiKey(sgApiKey);
-
-  	// Decode message to get information
-  	const data = jwtDecode(jws, {complete: true});
-
-  	// Extract kid from header
-  	const kid = data.header.kid;
-
-  	const keysArray = await obtainPublicKeys();
-
-  	// Verify the signature of the payload with the public keys
-  	await verifySignature(keysArray, kid ,jws);
-
-  	// Send the email with Your Sendgrid account
-  	const message = data.payload.message;
-  	const msg = {
-  		to: message.to,
-  		from: message.from.address,
-  		subject: message.subject,
-  		html: message.body,
-  	};
-  	console.log(`Sending email to ${message.to}`);
-  	let sendgridResponse = await sgMail.send(msg);
-
-  	return {result : 'email_sent',sendgridResponse};
-  }
-  ```
-  {: screen}
-
-6. Verify that your configuration is correctly set up by testing your email dispatcher. Use the <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/post_email_dispatcher_test" target="_blank">test API</a> to trigger a request to your configured custom email sender.
-
-For full working example, see <a href="https://www.ibm.com/cloud/blog/use-ibm-cloud-app-id-and-your-email-provider-to-brand-mails-sent-to-app-users" target="_blank">Use your own provider for mail that is sent with {{site.data.keyword.appid_full}}</a>.
 
 
 
