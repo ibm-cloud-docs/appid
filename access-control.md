@@ -261,8 +261,6 @@ You can use the {{site.data.keyword.appid_short_notm}} APIs to create roles.
 
 After you create roles, you can assign them to your user's profile. You can also assign roles when you create a future user.
 
-By default, roles are not returned in a users token. It is recommended that your runtime decisions are configured based on scopes. But, if you would like to use roles, you can map them to your tokens by using [custom claims mapping](/docs/services/appid?topic=appid-customizing-tokens).
-{: note}
 
 
 ### Assigning roles in the UI
@@ -321,8 +319,6 @@ To remove a role from a user, make the PUT request again, but remove the role ID
 
 When a user attempts to access one of your protected resources, tokens are created and returned by {{site.data.keyword.appid_short_notm}}. Any scopes that a user is assigned are retuned in the access token. You can use the access token to make decisions at runtime. Depending on the strategy that you're using to protect your applications, the way in which you verify scopes can differ.
 
-By default, roles are not returned in a users token. It is recommended that your runtime decisions are configured based on scopes. But, if you would like to use roles, you can map them to your tokens by using [custom claims mapping](/docs/services/appid?topic=appid-customizing-tokens).
-{: note}
 
 
 ### When using WebAppStrategy
