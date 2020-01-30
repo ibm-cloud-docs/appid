@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-01-22"
+lastupdated: "2020-01-30"
 
 keywords: user events, track activity, manage events, analyze, administrative, runtime, sign in, settings, app security
 
@@ -263,12 +263,12 @@ Check out the following table for a list of the events that are sent to {{site.d
   </tr>
   <tr>
     <td><code>read.mfaExtension.premfa</code></td>
-    <td>View your premfa extension configuration.</td>
+    <td>View your pre-mfa extension configuration.</td>
     <td>Must be done through the API.</td>
   </tr>
   <tr>
     <td><code>update.mfaExtension.premfa</code></td>
-    <td>Update your premfa extension configuration.</td>
+    <td>Update your pre-mfa extension configuration.</td>
     <td>Must be done through the API.</td>
   </tr>
 </table>

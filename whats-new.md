@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-01-29"
+lastupdated: "2020-01-30"
 
 keywords: new, spa, single sign on, mfa, cloud directory, saml, app security, application identity
 
@@ -37,7 +37,7 @@ The following features and changes to the {{site.data.keyword.appid_short_notm}}
 
 - **Import and export user roles**
 
-    You can now include any roles that are assigned to a user as part of using the export and import APIs. For more informaiton, see the [migrating profiles](/docs/services/appid?topic=appid-user-admin#migrating-profiles) or [managing Cloud Directory users](/docs/services/appid?topic=appid-cd-users#user-migration) documentation.
+    You can now include any roles that are assigned to a user as part of using the export and import APIs. For more information, see the [migrating profiles](/docs/services/appid?topic=appid-user-admin#migrating-profiles) or [managing Cloud Directory users](/docs/services/appid?topic=appid-cd-users#user-migration) documentation.
 
 - **Post MFA extension**
 
