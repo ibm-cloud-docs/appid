@@ -130,7 +130,7 @@ If you want to configure the lifespan of your token, you can quickly make the ch
   {: codeblock}
 
   <table>
-    <caption>Table 4. Understanding the creating an API key command options</caption>
+    <caption>Table 2. Understanding the creating an API key command options</caption>
     <tr>
       <th>Option</th>
       <th>Description</th>
@@ -149,8 +149,7 @@ If you want to configure the lifespan of your token, you can quickly make the ch
     </tr>
   </table>
 
-
-3. Obtain an IAM token by using the API key that you got in the previous step.
+2. Obtain an IAM token by using the API key that you got in the previous step.
 
   ```
   curl -k -X POST \
@@ -199,7 +198,7 @@ If you want to configure the lifespan of your token, you can quickly make the ch
   {: codeblock}
 
   <table>
-    <caption>Table 2. Understanding the token configuration</caption>
+    <caption>Table 3. Understanding the token configuration</caption>
     <tr>
       <th>Variable</th>
       <th>Description</th>
