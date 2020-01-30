@@ -155,7 +155,7 @@ The following features and changes to the {{site.data.keyword.appid_short_notm}}
 
 - **Cloud Directory: Multi-factor authentication - Email**    
 
-    Require users to enter a second form of authentication during sign -n to increase the security of your app. With Cloud Directory, the first factor is the user's password that they would normally use. Then, the service sends the user a one-time code through the email that is registered that the user must enter before they can gain access to your app. For more information, see [Multi-factor authentication](/docs/services/appid?topic=appid-cd-mfa).
+    Require users to enter a second form of authentication during sign-in to increase the security of your app. With Cloud Directory, the first factor is the user's password that they would normally use. Then, the service sends the user a one-time code through the email that is registered that the user must enter before they can gain access to your app. For more information, see [Multi-factor authentication](/docs/services/appid?topic=appid-cd-mfa).
 
 - **Cloud Directory: Password policies**  
 
