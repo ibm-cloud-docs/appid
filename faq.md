@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-12-09"
+  years: 2017, 2020
+lastupdated: "2020-01-30"
 
 keywords: pricing, advanced security, authentication events, authorized users, activity tracking, runtime activity, password policies, keycloak, whitelist redirect url, redirect uri 
 
@@ -60,7 +60,7 @@ Advanced security features give you the ability to strengthen the security of yo
 By default, advanced security features are disabled. If you turn on MFA, runtime activity tracking, or password policy management you incur an extra charge. For example, if you obtained 10,000 access tokens. Then, you turned on password policy management and obtained 10,000 more. You would pay for 20,000 authentication events and 10,000 advanced security events. If you disable all of the advanced features, your account reverts to the original-cost policy.
 
 <table>
-  <caption>Table 1. Description of the benefits that are gained with advanced authentication events</caption>
+  <caption>Table 1. Description of the benefits that are gained with advanced authentication events.</caption>
   <tr>
     <th>Feature</th>
     <th>Benefit</th>
