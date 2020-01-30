@@ -31,7 +31,7 @@ The following features and changes to the {{site.data.keyword.appid_short_notm}}
 ## January 2020
 {: #January2020}
 
-- **Cloud Directory: Connect your own**
+- **Cloud Directory: Connect your own email provider**
 
     You can now bring your own custom email provider or connect your SendGrid account to have more control over your email communication with your users. For more information, see the [configuring email settings docs](/docs/services/appid?topic=appid-cd-types#cd-email-settings).
 
