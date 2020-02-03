@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-01-31"
+lastupdated: "2020-02-03"
 
 keywords: adapter, access management, identity token, helm chart, backend apps, kube, any kube, icp, openshift, iks, service mesh, access, app identity, kube secret, tokens, authenticated, app endpoints, authorization, multicloud, no code change, no redeploy, authorization policies, multiple providers
 
@@ -117,14 +117,14 @@ To install the chart, initialize Helm in your cluster, define the options that y
 
 3. Verify that you have [Istio policy enforcement enabled](https://istio.io/docs/tasks/policy-enforcement/enabling-policy/){: external}. If not, turn it on. 
 
-3. Add the repository.
+4. Add the repository.
 
   ```bash
   helm repo add appidentityandaccessadapter https://raw.githubusercontent.com/ibm-cloud-security/app-identity-and-access-adapter/master/helm/appidentityandaccessadapter
   ```
   {: codeblock}
 
-4. Install the chart.
+5. Install the chart.
 
   ```bash
   helm install --name appidentityandaccessadapter appidentityandaccessadapter/appidentityandaccessadapter
