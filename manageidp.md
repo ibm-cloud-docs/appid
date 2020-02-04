@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-12-09"
+  years: 2017, 2020
+lastupdated: "2020-02-04"
 
 keywords: identity provider, idp, app security, mobile app, web app, authentication, authorization, oidc, saml, protocols, facebook, google, w3id, cloud directory, redirect url, redirect uri, token configuration, token lifetime, log in configuration
 
@@ -88,7 +88,7 @@ An identity provider creates and manages information about an entity such as a u
 1. Navigate to your service dashboard.
 2. In the **Identity Providers** section of the navigation, select the **Manage** page.
 3. On the **Identity Providers** tab, set the providers that you want to use, to **On**.
-4. Optional: Decide whether to turn off **Anonymous users**, or leave the default, which is **On**. When set to **On**, user attributes are associated with the user from the moment they begin interacting with your app. For more information about the path to becoming an identified user, see [Progressive authentication](/docs/services/appid?topic=appid-anonymous#progressive)
+4. Optional: Decide whether to turn off **Anonymous users**, or leave the default, which is **On**. When set to **On**, user attributes are associated with the user from the moment they begin interacting with your app. For more information about the path to becoming an identified user, see [Progressive authentication](/docs/services/appid?topic=appid-anonymous#progressive).
 
 {{site.data.keyword.appid_short_notm}} provides default credentials to help with your initial setup of Facebook and Google+. You are limited to 20 uses of the credentials per instance, per day. Because they are IBM credentials, they are meant to be used only for development. Before you publish your app, update the configuration to your own credentials.
 {: tip}
