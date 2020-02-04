@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-02-03"
+lastupdated: "2020-02-04"
 
 keywords: user access, control access, permissions, roles, scopes, runtime, access token, authentication, identity, app security
 
@@ -450,4 +450,10 @@ You can delete roles by using the APIs.
   ```
   {: codeblock}
 
+
+
+## Adding user roles to tokens
+{: #role-tokens}
+
+By default, roles are not returned in a users token. It is recommended that your runtime decisions are configured based on scopes. But, if you would like to use roles, you can map them to your tokens by using [custom claims mapping](/docs/services/appid?topic=appid-customizing-tokens).
 

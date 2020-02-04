@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-02-03"
+lastupdated: "2020-02-04"
 
 keywords: adapter, access management, identity token, helm chart, backend apps, kube, any kube, icp, openshift, iks, service mesh, access, app identity, kube secret, tokens, authenticated, app endpoints, authorization, multicloud, no code change, no redeploy, authorization policies, multiple providers
 
@@ -131,7 +131,7 @@ To install the chart, initialize Helm in your cluster, define the options that y
   ```
   {: codeblock}
 
-  You can specify an image tag during installation by setting the `image.tag` flag. For example `--set image.tag=0.4.0`. You can also install the chart locally. To do so, clone the repo by running `git clone git@github.com:ibm-cloud-security/app-identity-and-access-adapter.git` before you run the installation command.
+  You can specify an image tag during installation by setting the `image.tag` flag. For example `--set image.tag=0.5.0`. You can also install the chart locally. To do so, clone the repo by running `git clone git@github.com:ibm-cloud-security/app-identity-and-access-adapter.git` before you run the installation command.
   {: tip}
 
 ## Applying an authorization and authentication policy

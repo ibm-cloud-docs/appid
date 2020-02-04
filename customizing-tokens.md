@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-01-30"
+lastupdated: "2020-02-04"
 
 keywords: user information, tokens, custom tokens, secure resources, authorization, identity, authentication, claims, oauth, claims mapping, attributes, app security, access, runtime
 
@@ -74,7 +74,8 @@ The claims are set for each token separately and are sequentially applied as sho
     },
     {
       "source": "saml",
-      "sourceClaim": "viewer"
+      "sourceClaim": "viewer",
+      "destinationClaim": "reader"
     }
   ],
   "idTokenClaims": [
@@ -84,7 +85,8 @@ The claims are set for each token separately and are sequentially applied as sho
     },
     {
       "source": "saml",
-      "sourceClaim": "Name"
+      "sourceClaim": "Name",
+      "destinationClaim": "firstName"
     },
     {
       "source": "saml",
@@ -108,6 +110,10 @@ The claims are set for each token separately and are sequentially applied as sho
     <tr>
       <td><code><em>sourceClaim</em></code></td>
       <td>Defines the claim as provided by the source. It can refer to the identity provider's user information or the user's {{site.data.keyword.appid_short_notm}} custom attributes.</td>
+    </tr>
+    <tr>
+      <td><code><em>destinationClaim</em></code></td>
+      <td>Optional: Defines the custom attribute that can override the current claim in token.</td>
     </tr>
 </table>
 
@@ -183,8 +189,12 @@ If you want to configure the lifespan of your token, you can quickly make the ch
           },
           "accessTokenClaims": [
             {
+              "source": "roles"
+            }
+            {
               "source": "saml",
-              "sourceClaim": "name_id"
+              "sourceClaim": "name_id",
+              "destinationClaim": "id"
             }
           ],
           "idTokenClaims": [
@@ -217,14 +227,29 @@ If you want to configure the lifespan of your token, you can quickly make the ch
     </tr>
     <tr>
       <td><code>accessTokenClaims</code></td>
-      <td>An array that contains the objects that are created when claims that are related to access tokens are mapped.</td>
+      <td>An array that contains the objects that are created when claims that are related to access tokens are mapped. You might want to include information about roles or specific attributes that are returned by a user's identity provider of choice. Note: If you're already using a custom claim with the title "roles" from your identity provider, be sure to use a destination claim in order to see both values.</td>
     </tr>
     <tr>
       <td><code>idTokenClaims</code></td>
-      <td>An array that contains the information that is present in tokens when you map claims to identity tokens.</td>
+      <td>An array that contains the information that is present in tokens when you map claims to identity tokens. Depending on your configuration, you might also choose to have "roles" be present in your identity token.</td>
     </tr>
   </table>
 
   You must set the token lifetime in each request that you make. If a value is not set, then the default is used. Each customization request overwrites what is previously configured. Note that the lifetime configuration specifications are different in the API than they are in the service dashboard.
   {: note}
+
+5. After the token is returned and you [decode](/docs/services/appid?topic=appid-token-validation) it, you see a result similar to the following example:
+
+  ```
+  {
+    "sub" : "1234567890",
+    "name" : "John Doe",
+    "exp" : 1564566,
+    "roles" : ["admin", "manager"],
+    "id": "name_id_from_saml",
+    "attributes.uid": "uid_from_saml"
+    ...
+  }
+  ```
+  {: screen}
 
