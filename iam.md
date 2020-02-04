@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-11-25"
+  years: 2017, 2020
+lastupdated: "2020-02-04"
 
 keywords: user access, account settings, iam, user roles, platform roles, service roles, reader, writer, operator, editor, viewer, administrator, manager, permissions
 
@@ -115,6 +115,9 @@ Every user that accesses the {{site.data.keyword.appid_short_notm}} service in y
 {: shortdesc}
 
 The actions are customized and defined by the {{site.data.keyword.cloud_notm}} service as operations that are allowed to be performed in the service. The actions are then mapped to IAM user roles. Some of the actions taken you can track with the {{site.data.keyword.cloudaccesstrailshort}} service. In the following table, the actions and required permissions for {{site.data.keyword.appid_short_notm}} are mapped.
+
+
+
 
 <table>
   <caption>Table 3. {{site.data.keyword.appid_short_notm}} access policies</caption>
@@ -235,110 +238,4 @@ The actions are customized and defined by the {{site.data.keyword.cloud_notm}} s
     <td>Writer, Manager</td>
   </tr>
 </table>
-
-</br>
-
-## Example: Giving another user access to an instance of {{site.data.keyword.appid_short_notm}}
-{: #iam-example}
-
-In this scenario, an administrator created an instance of {{site.data.keyword.appid_short_notm}} and needs to grant viewer access to another team member.
-{: shortdesc}
-
-Before you begin:
-
-* Install the [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started).
-
-To update access permissions, the admin completes the following steps:
-
-1. Log in to the {{site.data.keyword.cloud_notm}} console.
-
-2. Give the employee view access by following the steps that are laid out in the [IAM documentation](/docs/iam?topic=iam-iammanidaccser).
-
-3. Navigate to the **Service credentials** tab of the {{site.data.keyword.appid_short_notm}} dashboard. Click **View credentials** and copy the **tentantID**.
-
-4. Sign in with the {{site.data.keyword.cloud_notm}} CLI in your terminal.
-
-  ```
-  ibmcloud login -api -a https://api.{region}.cloud.ibm.com
-  ```
-  {: codeblock}
-
-  <table>
-    <caption>Table 4. Region options that you can use to work with {{site.data.keyword.cloud_notm}} and {{site.data.keyword.appid_short_notm}}</caption>
-    <tr>
-      <th>Region</th>
-      <th>Endpoint</th>
-    </tr>
-    <tr>
-      <td>Dallas</td>
-      <td><code>us-south</code></td>
-    </tr>
-    <tr>
-      <td>Frankfurt</td>
-      <td><code>eu-de</code></td>
-    </tr>
-    <tr>
-      <td>Sydney</td>
-      <td><code>au-syd</code></td>
-    </tr>
-    <tr>
-      <td>London</td>
-      <td><code>eu-gb</code></td>
-    </tr>
-    <tr>
-      <td>Tokyo</td>
-      <td><code>jp-tok</code></td>
-    </tr>
-  </table>
-
-5. Get an IAM token and make a note of it.
-
-  ```
-  ibmcloud iam oauth-tokens
-  ```
-  {: codeblock}
-
-6. Verify that the team member cannot make changes.
-
-  ```sh
-  curl -X PUT --header 'Content-Type: application/json' \
-  --header 'Accept: application/json' \
-  --header 'Authorization: <IAM token value>' \
-  -d '{
-    "isActive": false,
-    "config": {
-      "idpId": "appID",
-      "secret": "appsecret"
-    }
-  }' \
-  'https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/config/idps/facebook'
-  ```
-  {: codeblock}
-
-  The result is a 403 unauthorized message.
-
-To view the {{site.data.keyword.appid_short_notm}} configurations from the CLI, the team member completes the following steps:
-
-1. Using the {{site.data.keyword.cloud_notm}} CLI in your terminal, sign in.
-
-  ```
-  ibmcloud login -a api.<region>.console.cloud.ibm.com
-  ```
-  {: codeblock}
-
-2. Get an IAM token and make a note of it.
-
-  ```
-  ibmcloud iam oauth-tokens
-  ```
-  {: codeblock}
-
-3. View the identity provider configuration for Facebook by using cURL.
-
-  ```sh
-  curl -X GET --header 'Accept: application/json' --header 'Authorization: <IAM token value>' \  'https://us-south.appid.cloud.ibm.com/management/v4/<tenant-ID>/config/idps/facebook'
-  ```
-  {: codeblock}
-
-  The result is a 200 message that contains the identity provider information.
 
