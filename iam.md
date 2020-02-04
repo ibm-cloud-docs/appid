@@ -40,12 +40,12 @@ The scope of an access policy is based on a users assigned role.
 {: shortdesc}
 
 Policies enable access to be granted at different levels. Some of the options include:
-<ul><ul>
-  <li>Access across all instances of the service in your account</li>
-  <li>Access to an individual service instances in your account</li>
-  <li>Access to a specific resource within an instance</li>
-  <li>Access to all IAM-enabled services in your account</li>
-</ul></ul>
+
+* Access across all instances of the service in your account
+* Access to an individual service instances in your account
+* Access to a specific resource within an instance
+* Access to all IAM-enabled services in your account
+
 
 ### Platform roles
 {: #iam-platform-roles}
