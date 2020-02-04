@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-01-29"
+lastupdated: "2020-01-30"
 
-keywords: new, spa, single sign on, mfa, cloud directory, saml, app security, application identity
+keywords: release notes, new, spa, single sign on, mfa, cloud directory, saml, app security, application identity
 
 subcollection: appid
 
@@ -31,17 +31,21 @@ The following features and changes to the {{site.data.keyword.appid_short_notm}}
 ## January 2020
 {: #January2020}
 
-- **Cloud Directory: Email provider connections**
+- **Cloud Directory: Connect your own email provider**
 
-    you can now bring your own custom email provider or connect your SendGrid account to have more control over your email communication with your users. For more information, see the [configuring email settings docs](/docs/services/appid?topic=appid-cd-types#cd-email-settings).
+    You can now bring your own custom email provider or connect your SendGrid account to have more control over your email communication with your users. For more information, see the [configuring email settings docs](/docs/services/appid?topic=appid-cd-types#cd-email-settings).
 
 - **Import and export user roles**
 
-    You can now include any roles that are assigned to a user as part of using the export and import APIs. For more informaiton, see the [migrating profiles](/docs/services/appid?topic=appid-user-admin#migrating-profiles) or [managing Cloud Directory users](/docs/services/appid?topic=appid-cd-users#user-migration) documentation.
+    You can now include any roles that are assigned to a user as part of using the export and import APIs. For more information, see the [migrating profiles](/docs/services/appid?topic=appid-user-admin#migrating-profiles) or [managing Cloud Directory users](/docs/services/appid?topic=appid-cd-users#user-migration) documentation.
 
-- **Post MFA extension**
+- **Post-MFA extensions**
 
-    You can now create post MFA extensions to help you to monitor and improve your users MFA experiences. For more information, see the [extending MFA docs](/docs/services/appid?topic=appid-cd-mfa#cd-mfa-extensions).
+    You can now create post-MFA extensions to help you to monitor and improve your users MFA experiences. For more information, see the [extending MFA docs](/docs/services/appid?topic=appid-cd-mfa#cd-mfa-extensions).
+
+- **Pre-MFA extensions**
+
+    You can now create pre-MFA extensions that allow you to make custom decisions at runtime about which users must complete your MFA flow. For more information, see the [extending MFA docs](/docs/services/appid?topic=appid-cd-mfa#cd-mfa-extensions).
 
 
 ## December 2019
@@ -127,7 +131,7 @@ The following features and changes to the {{site.data.keyword.appid_short_notm}}
 
     Update your apps! To further the standards on which {{site.data.keyword.appid_short_notm}} is based, we've made a few changes. With those changes, we were able to tighten interoperability within the OIDC workflow and broaden the frameworks that are able to use the service. For more information about the changes that you must make before September 2019, see the blog [{{site.data.keyword.cloud_notm}} {{site.data.keyword.appid_short_notm}}: Updated runtime APIs](https://www.ibm.com/cloud/blog/ibm-cloud-app-id-v4-runtime-apis-update){: external}.
 
-- **Cloud Directory: Single sign on**  
+- **Cloud Directory: Single sign-on**  
 
     Provide smooth authentication experiences between multiple web apps with single sign-on (SSO) for Cloud Directory. With SSO enabled, user's are not prompted to reenter their credentials the next time they attempt to access your app. Instead, they are automatically signed in to any of your apps that are protected by the same {{site.data.keyword.appid_short_notm}} instance. For more information, see [Single sign-on](/docs/services/appid?topic=appid-cd-sso).
 
@@ -142,7 +146,7 @@ The following features and changes to the {{site.data.keyword.appid_short_notm}}
 
 - **Cloud Directory: Multi-factor authentication - SMS**    
 
-    Require users to enter a second form of authentication during sign in to increase the security of your app. With Cloud Directory, the first factor is the user's password that they would normally use. Then, the service sends the user a one-time code through SMS that the user must enter before they can gain access to your app. For more information, see [Multi-factor authentication](/docs/services/appid?topic=appid-cd-mfa).
+    Require users to enter a second form of authentication during sign-in to increase the security of your app. With Cloud Directory, the first factor is the user's password that they would normally use. Then, the service sends the user a one-time code through SMS that the user must enter before they can gain access to your app. For more information, see [Multi-factor authentication](/docs/services/appid?topic=appid-cd-mfa).
 
 
 
@@ -151,7 +155,7 @@ The following features and changes to the {{site.data.keyword.appid_short_notm}}
 
 - **Cloud Directory: Multi-factor authentication - Email**    
 
-    Require users to enter a second form of authentication during sign in to increase the security of your app. With Cloud Directory, the first factor is the user's password that they would normally use. Then, the service sends the user a one-time code through the email that is registered that the user must enter before they can gain access to your app. For more information, see [Multi-factor authentication](/docs/services/appid?topic=appid-cd-mfa).
+    Require users to enter a second form of authentication during sign-in to increase the security of your app. With Cloud Directory, the first factor is the user's password that they would normally use. Then, the service sends the user a one-time code through the email that is registered that the user must enter before they can gain access to your app. For more information, see [Multi-factor authentication](/docs/services/appid?topic=appid-cd-mfa).
 
 - **Cloud Directory: Password policies**  
 

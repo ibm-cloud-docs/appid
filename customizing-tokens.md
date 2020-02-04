@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-01-27"
+lastupdated: "2020-02-04"
 
 keywords: user information, tokens, custom tokens, secure resources, authorization, identity, authentication, claims, oauth, claims mapping, attributes, app security, access, runtime
 
@@ -74,7 +74,8 @@ The claims are set for each token separately and are sequentially applied as sho
     },
     {
       "source": "saml",
-      "sourceClaim": "viewer"
+      "sourceClaim": "viewer",
+      "destinationClaim": "reader"
     }
   ],
   "idTokenClaims": [
@@ -84,7 +85,8 @@ The claims are set for each token separately and are sequentially applied as sho
     },
     {
       "source": "saml",
-      "sourceClaim": "Name"
+      "sourceClaim": "Name",
+      "destinationClaim": "firstName"
     },
     {
       "source": "saml",
@@ -94,7 +96,6 @@ The claims are set for each token separately and are sequentially applied as sho
 }
 ```
 {: screen}
-
 
 <table>
   <caption>Table 1. Claims mapping variables explained</caption>
@@ -110,6 +111,10 @@ The claims are set for each token separately and are sequentially applied as sho
       <td><code><em>sourceClaim</em></code></td>
       <td>Defines the claim as provided by the source. It can refer to the identity provider's user information or the user's {{site.data.keyword.appid_short_notm}} custom attributes.</td>
     </tr>
+    <tr>
+      <td><code><em>destinationClaim</em></code></td>
+      <td>Optional: Defines the custom attribute that can override the current claim in token.</td>
+    </tr>
 </table>
 
 
@@ -123,69 +128,87 @@ With the API, you can customize the information that is returned in your {{site.
 If you want to configure the lifespan of your token, you can quickly make the changes through the service dashboard. For more information, see [Managing authentication](/docs/services/appid?topic=appid-managing-idp#idp-token-lifetime).
 {: tip}
 
-1. Obtain an IAM token. For more information, see the [IAM documentation](/docs/iam?topic=iam-getstarted#getstarted).
+1. In terminal, run the following command to obtain an API key.
 
-  1. In the IBM Cloud dashboard, click **Manage > Access (IAM)**.
-  2. Select **IBM Cloud API keys**.
-  3. Click **Create an IBM Cloud API key**.
-  4. Give your key a name and describe it. Click **Create**. A screen displays with your key.
-  5. Click **Copy** or download your key. When you close the screen, you can no longer access the key.
-  6. Make the following cURL request with the API key that you created.
-
-    ```sh
-    curl -k -X POST \
-    --header "Content-Type: application/x-www-form-urlencoded" \
-    --header "Accept: application/json" \
-    --data-urlencode "grant_type=urn:ibm:params:oauth:grant-type:apikey" \
-    --data-urlencode "apikey=<api_key>" \
-    "https://iam.cloud.ibm.com/identity/token"
-    ```
-    {: codeblock}
-
-2. Get the tenant ID for your instance of the service. You can find the value in either your service or application credentials.
-
-3. Make a PUT request to the `/config/tokens` endpoint with your token configuration.
-
-  Header:
-  ```sh
-  PUT -X "https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/tokens"
-    -H Authorization: 'Bearer <IAM_Token>'
-    -H Content-Type: application/json
   ```
-  {: codeblock}
-
-  Body:
-  ```json
-  {
-    "access": {
-        "expires_in": 3600,
-    },
-    "refresh": {
-        "expires_in": 2592000,
-        "enabled": true
-    },
-    "anonymous": {
-        "expires_in": 2592000,
-        "enabled": true
-    },
-    "accessTokenClaims": [
-        {
-          "source": "saml",
-          "sourceClaim": "name_id"
-        }
-    ],
-    "idTokenClaims": [
-        {
-          "source": "saml",
-          "sourceClaim": "attributes.uid"
-        }
-    ]
-  }
+  ibmcloud iam api-key-create NAME [-d DESCRIPTION] [-f, --file FILE]
   ```
   {: codeblock}
 
   <table>
-    <caption>Table 2. Understanding the token configuration</caption>
+    <caption>Table 2. Understanding the creating an API key command options</caption>
+    <tr>
+      <th>Option</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+     <td><code>NAME</code></td>
+     <td>The name that you want to give your key. For example, <code>myKey</code>.</td>
+    </tr>
+    <tr>
+     <td><code>DESCRIPTION</code></td>
+     <td>A description of the key or its use. For example, <code>"This is my App ID API key"</code>.</td>
+    </tr>
+    <tr>
+     <td><code>FILE</code></td>
+     <td>The location where you want to store your key. For example, <code>key_file</code>.</td>
+    </tr>
+  </table>
+
+2. Obtain an IAM token by using the API key that you got in the previous step.
+
+  ```
+  curl -k -X POST \
+  --header "Content-Type: application/x-www-form-urlencoded" \
+  --header "Accept: application/json" \
+  --data-urlencode "grant_type=urn:ibm:params:oauth:grant-type:apikey" \
+  --data-urlencode "apikey=<api_key>" \
+  "https://iam.cloud.ibm.com/identity/token"
+  ```
+  {: codeblock}
+
+3. Get the tenant ID for your instance of the service. You can find the value in either your service or application credentials.
+
+4. Make a PUT request to the `/config/tokens` endpoint with your token configuration.
+
+  ```sh
+  PUT -X "https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/tokens"
+    -H Authorization: 'Bearer <IAM_Token>'
+    -H Content-Type: application/json
+    -d {
+          "access": {
+            "expires_in": 3600,
+          },
+          "refresh": {
+            "expires_in": 2592000,
+            "enabled": true
+          },
+          "anonymous": {
+            "expires_in": 2592000,
+            "enabled": true
+          },
+          "accessTokenClaims": [
+            {
+              "source": "roles"
+            }
+            {
+              "source": "saml",
+              "sourceClaim": "name_id",
+              "destinationClaim": "id"
+            }
+          ],
+          "idTokenClaims": [
+            {
+              "source": "saml",
+              "sourceClaim": "attributes.uid"
+            }
+          ]
+        }
+  ```
+  {: codeblock}
+
+  <table>
+    <caption>Table 3. Understanding the token configuration</caption>
     <tr>
       <th>Variable</th>
       <th>Description</th>
@@ -204,15 +227,29 @@ If you want to configure the lifespan of your token, you can quickly make the ch
     </tr>
     <tr>
       <td><code>accessTokenClaims</code></td>
-      <td>An array that contains the objects that are created when claims that are related to access tokens are mapped.</td>
+      <td>An array that contains the objects that are created when claims that are related to access tokens are mapped. You might want to include information about roles or specific attributes that are returned by a user's identity provider of choice. Note: If you're already using a custom claim with the title "roles" from your identity provider, be sure to use a destination claim in order to see both values.</td>
     </tr>
     <tr>
       <td><code>idTokenClaims</code></td>
-      <td>An array that contains the objects that are created when claims that are related to identity tokens are mapped.</td>
+      <td>An array that contains the information that is present in tokens when you map claims to identity tokens. Depending on your configuration, you might also choose to have "roles" be present in your identity token.</td>
     </tr>
   </table>
 
   You must set the token lifetime in each request that you make. If a value is not set, then the default is used. Each customization request overwrites what is previously configured. Note that the lifetime configuration specifications are different in the API than they are in the service dashboard.
   {: note}
 
+5. After the token is returned and you [decode](/docs/services/appid?topic=appid-token-validation) it, you see a result similar to the following example:
+
+  ```
+  {
+    "sub" : "1234567890",
+    "name" : "John Doe",
+    "exp" : 1564566,
+    "roles" : ["admin", "manager"],
+    "id": "name_id_from_saml",
+    "attributes.uid": "uid_from_saml"
+    ...
+  }
+  ```
+  {: screen}
 

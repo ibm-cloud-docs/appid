@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-11-19"
+  years: 2017, 2020
+lastupdated: "2020-02-04"
 
 keywords: adapter, access management, identity token, helm chart, backend apps, kube, any kube, icp, openshift, iks, service mesh, access, app identity, kube secret, tokens, authenticated, app endpoints, authorization, multicloud, no code change, no redeploy, authorization policies, multiple providers
 
@@ -92,9 +92,10 @@ Before you get started, be sure that you have installed the following prerequisi
 - A paid [Kubernetes Cluster](https://kubernetes.io/){: external}
 - [Helm](https://helm.sh/){: external}
 - [Istio v1.1+](https://istio.io/docs/setup/install/){: external}
-  
-  You can also use [IBM Cloud Kubernetes Service Managed Istio](/docs/containers?topic=containers-istio).
+
+  Currently, [IBM Cloud Kubernetes Service Managed Istio](/docs/containers?topic=containers-istio) does not support policy enforcement. To use the adapter you must use manually installed Istio.
   {: note}
+
 
 
 
@@ -115,21 +116,23 @@ To install the chart, initialize Helm in your cluster, define the options that y
   For more information about using Helm with IBM Cloud Kubernetes Service, see [Adding services by using Helm Charts](/docs/containers?topic=containers-helm#public_helm_install).
   {: tip}
 
-3. Add the repository.
+3. Verify that you have [Istio policy enforcement enabled](https://istio.io/docs/tasks/policy-enforcement/enabling-policy/){: external}. If not, turn it on. 
+
+4. Add the repository.
 
   ```bash
   helm repo add appidentityandaccessadapter https://raw.githubusercontent.com/ibm-cloud-security/app-identity-and-access-adapter/master/helm/appidentityandaccessadapter
   ```
   {: codeblock}
 
-4. Install the chart.
+5. Install the chart.
 
   ```bash
   helm install --name appidentityandaccessadapter appidentityandaccessadapter/appidentityandaccessadapter
   ```
   {: codeblock}
 
-  You can specify an image tag during installation by setting the `image.tag` flag. For example `--set image.tag=0.4.0`. You can also install the chart locally. To do so, clone the repo by running `git clone git@github.com:ibm-cloud-security/app-identity-and-access-adapter.git` before you run the installation command.
+  You can specify an image tag during installation by setting the `image.tag` flag. For example `--set image.tag=0.5.0`. You can also install the chart locally. To do so, clone the repo by running `git clone git@github.com:ibm-cloud-security/app-identity-and-access-adapter.git` before you run the installation command.
   {: tip}
 
 ## Applying an authorization and authentication policy

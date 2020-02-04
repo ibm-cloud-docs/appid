@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-01-20"
+lastupdated: "2020-02-04"
 
 keywords: user access, control access, permissions, roles, scopes, runtime, access token, authentication, identity, app security
 
@@ -106,7 +106,7 @@ You can use the {{site.data.keyword.appid_short_notm}} APIs to create scopes.
     </tr>
     <tr>
       <td><code>scopes_object</code></td>
-      <td>A JSON object of all of the scopes that you want to create for your application. For example: </br> <pre class="screen"><code class="hljs">
+      <td>A JSON object of all of the scopes that you want to create for your application. For example, </br> <pre class="screen"><code class="hljs">
         {
           "scopes": [
             "read",
@@ -197,7 +197,7 @@ You can use the {{site.data.keyword.appid_short_notm}} APIs to create roles.
     </tr>
     <tr>
       <td><code>scopes</code></td>
-      <td>A JSON object of all of the scopes that you want to apply to a role. For example: </br> <pre class="screen"><code class="hljs">
+      <td>A JSON object of all of the scopes that you want to apply to a role. For example, </br> <pre class="screen"><code class="hljs">
         {
           "scopes": [
             "create",
@@ -316,7 +316,7 @@ To remove a role from a user, make the PUT request again, but remove the role ID
 ## Controlling access at runtime
 {: #control-acesss-runtime}
 
-When a user attempts to access one of your protected resources, tokens are created and returned by {{site.data.keyword.appid_short_notm}}. Any scopes that a user is assigned are retuned in the access token. You can use the access token to make decisions at runtime. Depending on the strategy that you're using to protect your applications, the way in which you verify scopes can differ. 
+When a user attempts to access one of your protected resources, tokens are created and returned by {{site.data.keyword.appid_short_notm}}. Any scopes that a user is assigned are retuned in the access token. You can use the access token to make decisions at runtime. Depending on the strategy that you're using to protect your applications, how you verify scopes can differ.
 
 
 ### When using WebAppStrategy
@@ -364,7 +364,7 @@ app.get("/api/protected",
     </tr>
     <tr>
       <td><code>scope</code></td>
-      <td>The required scopes, separated by a space.</td>
+      <td>The required scopes, which are separated by a space.</td>
     </tr>
     <tr>
       <td><code>audience</code></td>
@@ -381,7 +381,7 @@ You can delete any scope or role that's no longer needed.
 ### Deleting scopes
 {: #delete-scope}
 
-If you no longer have a need for a scope, you can delete it.
+If you no longer need a scope, you can delete it.
 
 When you delete a scope, it is removed from all of the roles that it is associated with.
 {: important}
@@ -450,4 +450,10 @@ You can delete roles by using the APIs.
   ```
   {: codeblock}
 
+
+
+## Adding user roles to tokens
+{: #role-tokens}
+
+By default, roles are not returned in a users token. It is recommended that your runtime decisions are configured based on scopes. But, if you would like to use roles, you can map them to your tokens by using [custom claims mapping](/docs/services/appid?topic=appid-customizing-tokens).
 
