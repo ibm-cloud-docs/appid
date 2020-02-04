@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-11-25"
+  years: 2017, 2020
+lastupdated: "2020-02-04"
 
 keywords: custom identity provider, authorization, bring your own idp, proprietary idp, legacy idp, oauth, oidc, authentication, oatuh, app security, public key, jwt
 
@@ -93,7 +93,7 @@ After you configure your {{site.data.keyword.appid_short_notm}} instance with a 
 
 1. From the **Custom Identity Provider** tab, click **Test** to open the test application.
 
-2. Create an [example JWT](https://jwt.io/) following the custom identity [protocol](/docs/services/appid?topic=appid-custom-auth#generating-jwts).
+2. Create an [example JWT](https://jwt.io/) following the custom identity [protocol](/docs/appid?topic=appid-custom-auth#generating-jwts).
 
 3. Paste your JWT into the box that is labeled **JSON Web Token** and click **Test** to execute a sample authentication.
 
@@ -102,4 +102,4 @@ If successful, you can now see the decoded {{site.data.keyword.appid_short_notm}
 ## Next steps
 {: #custom-identity-next}
 
-Now that your custom identity provider is configured, [add it to your application](/docs/services/appid?topic=appid-custom-auth#custom-auth)!
+Now that your custom identity provider is configured, [add it to your application](/docs/appid?topic=appid-custom-auth#custom-auth)!

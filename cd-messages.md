@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-01-29"
+lastupdated: "2020-02-04"
 
 keywords: emails, verification, templates, sendgrid, welcome, password reset, password change, change details, verification, supported languages, registry, cloud directory, 
 
@@ -146,7 +146,7 @@ To see an example, check out the blog <a href="https://www.ibm.com/cloud/blog/us
 1. Configure an extension point that can listen for a POST request. The endpoint must be able to:
   * Read the payload that comes from {{site.data.keyword.appid_short_notm}}.
   * Send the email from your custom provider.
-  * Optionally, [validate](/docs/services/appid?topic=appid-token-validation#local-validation) the JSON payload that is returned by {{site.data.keyword.appid_short_notm}} has not been altered by a third party in any way. A string that is formatted as `{"jws": "jws-format-string"}` is returned that contains your tenant ID, the issuer of your JWS token, the time stamp of when the message was sent, a unique transaction ID, and the actual message information including your sender details and email body content. 
+  * Optionally, [validate](/docs/appid?topic=appid-token-validation#local-validation) the JSON payload that is returned by {{site.data.keyword.appid_short_notm}} has not been altered by a third party in any way. A string that is formatted as `{"jws": "jws-format-string"}` is returned that contains your tenant ID, the issuer of your JWS token, the time stamp of when the message was sent, a unique transaction ID, and the actual message information including your sender details and email body content. 
 
   Your extension point might look similar to the following example:
 
@@ -245,7 +245,7 @@ To see an example, check out the blog <a href="https://www.ibm.com/cloud/blog/us
 When you send messages to your users, you can use any combination of the following templates. Or, you can edit the templates to customize your message.
 {: shortdesc}
 
-In addition to the following message types, you can also take advantage of the [MFA](/docs/services/appid?topic=appid-cd-mfa) templates.
+In addition to the following message types, you can also take advantage of the [MFA](/docs/appid?topic=appid-cd-mfa) templates.
 {: tip}
 
 For further customization, you can use parameters in your messages. Check out the following table to see the parameters that you can use in all of the message types.
@@ -297,7 +297,7 @@ When a user signs up for your application, you might want to send them a message
 
 2. Set **Welcome email** to **Enabled**.
 
-3. Customize the content of your message. You can add parameters and insert images by using the UI. To change the [language](/docs/services/appid?topic=appid-cd-messages#cd-languages) of the message, you can use [the APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization){: external} to set the language. However, you are responsible for the content and conversion of the message. Check out the following table to see the list of tables that you can use in this message and all of the other messages that you can send. If a user does not supply the information that is pulled by the parameter, it appears blank.
+3. Customize the content of your message. You can add parameters and insert images by using the UI. To change the [language](/docs/appid?topic=appid-cd-messages#cd-languages) of the message, you can use [the APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization){: external} to set the language. However, you are responsible for the content and conversion of the message. Check out the following table to see the list of tables that you can use in this message and all of the other messages that you can send. If a user does not supply the information that is pulled by the parameter, it appears blank.
 
 4. Click **Save**.
 
@@ -318,7 +318,7 @@ Users who are manually added via the {{site.data.keyword.appid_short_notm}} dash
 
 3. Set **Allow users to sign in to your app without first verifying their email address** to **Yes**. When set to yes, users are able to interact with your application after they sign up, but before they verify their email address. The default setting is no.
 
-4. Customize the content of your message. You can add parameters and insert images by using the UI. To change the [language](/docs/services/appid?topic=appid-cd-messages#cd-languages) of the message, you can use [the APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization){: external} to set the language. However, you are responsible for the content and conversion of the message. Check out the following table to see the different parameters that you can use in your message. If a user does not supply the information that is pulled by the parameter, it appears blank.
+4. Customize the content of your message. You can add parameters and insert images by using the UI. To change the [language](/docs/appid?topic=appid-cd-messages#cd-languages) of the message, you can use [the APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization){: external} to set the language. However, you are responsible for the content and conversion of the message. Check out the following table to see the different parameters that you can use in your message. If a user does not supply the information that is pulled by the parameter, it appears blank.
 
   <table>
     <caption>Table 2. Parameters that you can use in messages that are related to verification</caption>
@@ -344,7 +344,7 @@ Users who are manually added via the {{site.data.keyword.appid_short_notm}} dash
     </tr>
   </table>
 
-  You can also use the message parameters that are listed in the [Welcome message](/docs/services/appid?topic=appid-cd-messages#cd-messages-welcome) section.
+  You can also use the message parameters that are listed in the [Welcome message](/docs/appid?topic=appid-cd-messages#cd-messages-welcome) section.
   {: tip}
 
 5. Define an expiration time for the action URL. The URL expiration is the amount of time, in minutes, that a user must complete the action before the verification link expires. This setting also affects the amount of time that your reset password link is valid.
@@ -365,7 +365,7 @@ When a user interacts with your app, they might forget their password or need to
 
 2. Set **Forgot password email** to **Enabled**.
 
-3. Customize the content of your message. You can add parameters and insert images by using the UI. To change the [language](/docs/services/appid?topic=appid-cd-messages#cd-languages) of the message, you can use <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization" target="_blank">the APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to set the language. However, you are responsible for the content and conversion of the message. Check out the following table to see the different parameters that you can use in your message. If a user does not supply the information that is pulled by the parameter, it appears blank.
+3. Customize the content of your message. You can add parameters and insert images by using the UI. To change the [language](/docs/appid?topic=appid-cd-messages#cd-languages) of the message, you can use <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization" target="_blank">the APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to set the language. However, you are responsible for the content and conversion of the message. Check out the following table to see the different parameters that you can use in your message. If a user does not supply the information that is pulled by the parameter, it appears blank.
 
   <table>
     <caption>Table 3. Parameters that you can use in messages that are related to forgotten passwords</caption>
@@ -391,7 +391,7 @@ When a user interacts with your app, they might forget their password or need to
     </tr>
   </table>
 
-  You can also use the message parameters that are listed in the [Welcome message](/docs/services/appid?topic=appid-cd-messages#cd-messages-welcome) section.
+  You can also use the message parameters that are listed in the [Welcome message](/docs/appid?topic=appid-cd-messages#cd-messages-welcome) section.
   {: tip}
 
 4. Define an expiration time for the action URL. The URL expiration is the amount of time, in minutes, that a user must complete the action before the verification link expires. This setting also affects the amount of time that your reset password link is valid.
@@ -411,7 +411,7 @@ You can notify a user when their password is updated. The notification can be he
 
 2. Set **Password changed email** to **Enabled**.
 
-3. Customize the content of your message. You can add parameters and insert images by using the UI. To change the [language](/docs/services/appid?topic=appid-cd-messages#cd-languages) of the message, you can use [the APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization){: external} to set the language. However, you are responsible for the content and conversion of the message. Check out the following table to see the different parameters that you can use in your message. If a user does not supply the information that is pulled by the parameter, it appears blank.
+3. Customize the content of your message. You can add parameters and insert images by using the UI. To change the [language](/docs/appid?topic=appid-cd-messages#cd-languages) of the message, you can use [the APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization){: external} to set the language. However, you are responsible for the content and conversion of the message. Check out the following table to see the different parameters that you can use in your message. If a user does not supply the information that is pulled by the parameter, it appears blank.
 
   <table>
     <caption>Table 4. Parameters that you can use in messages that are related to changing a password</caption>
@@ -429,7 +429,7 @@ You can notify a user when their password is updated. The notification can be he
     </tr>
   </table>
 
-  You can also use the message parameters that are listed in the [Welcome message](/docs/services/appid?topic=appid-cd-messages#cd-messages-welcome) section.
+  You can also use the message parameters that are listed in the [Welcome message](/docs/appid?topic=appid-cd-messages#cd-messages-welcome) section.
   {: tip}
 
 4. Click **Save**.

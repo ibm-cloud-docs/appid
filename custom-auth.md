@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-11-22"
+  years: 2017, 2020
+lastupdated: "2020-02-04"
 
 keywords: custom identity provider, authorization, bring your own idp, proprietary idp, legacy idp, oauth, oidc, authentication, oatuh, app security
 
@@ -34,7 +34,7 @@ You can use your own custom identity provider when you are authenticating. Your 
 By bringing your own identity provider, you can create a custom authentication flow that uses your own protocols. You have more control, such as information that you want to share or information that is stored.
 {: shortdesc}
 
-Be sure to [configure your custom provider](/docs/services/appid?topic=appid-custom-identity) before you add it to your application.
+Be sure to [configure your custom provider](/docs/appid?topic=appid-custom-identity) before you add it to your application.
 {: tip}
 
 ### When would I want to use this flow?
@@ -140,7 +140,7 @@ Token payload:
     </tr>
     <tr>
       <td>Normalized claims</td>
-      <td>All [normalized claims](/docs/services/appid?topic=appid-tokens) are provided in the identity token that is returned in response to this request. More custom claims can be found by using the [`/userinfo` endpoint](/docs/services/appid?topic=appid-profiles).</td>
+      <td>All [normalized claims](/docs/appid?topic=appid-tokens) are provided in the identity token that is returned in response to this request. More custom claims can be found by using the [`/userinfo` endpoint](/docs/appid?topic=appid-profiles).</td>
     </tr>
     <tr>
       <td>Scope</td>

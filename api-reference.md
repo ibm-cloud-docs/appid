@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-11-22"
+  years: 2017, 2020
+lastupdated: "2020-02-04"
 
 keywords: management api, service management, service instance, devops automation, customize, permissions, iam, account owners, identity, app security, access tokens, video tutorial
 
@@ -28,7 +28,7 @@ subcollection: appid
 You can use the management API for DevOps automation, customization, and management of your instances of {{site.data.keyword.appid_full}}.
 {: shortdesc}
 
-The management API is secured with Identity and Access Management (IAM) generated tokens. With IAM, account owners can specify who on their team has which level of access for each service instance. For more information about how IAM and {{site.data.keyword.appid_short_notm}} work together, see [Service Access Management](/docs/services/appid?topic=appid-service-access-management).
+The management API is secured with Identity and Access Management (IAM) generated tokens. With IAM, account owners can specify who on their team has which level of access for each service instance. For more information about how IAM and {{site.data.keyword.appid_short_notm}} work together, see [Service Access Management](/docs/appid?topic=appid-service-access-management).
 
 
 Want to see the API in action? Check out the following video tutorial!

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-12-09"
+  years: 2017, 2020
+lastupdated: "2020-02-04"
 
 keywords: help, support, error, multiple users, attribute, ticket, identity provider, redirect uri, custom url, virtual user, idp, identity settings, user profile
 
@@ -55,7 +55,7 @@ A user signs in to your application through an identity provider's sign in page,
 {: tsCauses}
 Sign-in might fail for the following reasons:
 
-* Your redirect URL was not properly added to [the whitelist](/docs/services/appid?topic=appid-faq#faq-redirect).
+* Your redirect URL was not properly added to [the whitelist](/docs/appid?topic=appid-faq#faq-redirect).
 * The user is not authorized.
 * The user tried to sign in with the wrong credentials.
 
@@ -84,7 +84,7 @@ Your URL might be rejected for the following reasons:
 The limitations are in place for security purposes.
 
 {: tsResolve}
-To resolve the issue, verify that the URL is correct. If your URL does not meet the requirements, you can create an HTTPS endpoint in your app to redirect the received grant code to your custom URL. Specify the created endpoint as your redirect URL in the {{site.data.keyword.appid_short_notm}} console. For more information about redirect URIs, see [Adding redirect URIs](/docs/services/appid?topic=appid-managing-idp#add-redirect-uri)
+To resolve the issue, verify that the URL is correct. If your URL does not meet the requirements, you can create an HTTPS endpoint in your app to redirect the received grant code to your custom URL. Specify the created endpoint as your redirect URL in the {{site.data.keyword.appid_short_notm}} console. For more information about redirect URIs, see [Adding redirect URIs](/docs/appid?topic=appid-managing-idp#add-redirect-uri)
 
 
 ## A user is not redirected to the identity provider
@@ -164,8 +164,8 @@ A user might not receive their requested email because it is sent to spam, there
 {: tsResolve}
 To resolve this issue, you can try the following solutions:
 
-* Verify with the user that the email was not sent to their spam folder. If it was, have them mark the sender as `not spam`. To avoid this, consider [bringing your own email sender](/docs/services/appid?topic=appid-cd-types#cd-custom-email).
-* Verify your [messaging configuration](/docs/services/appid?topic=appid-cd-types). 
+* Verify with the user that the email was not sent to their spam folder. If it was, have them mark the sender as `not spam`. To avoid this, consider [bringing your own email sender](/docs/appid?topic=appid-cd-types#cd-custom-email).
+* Verify your [messaging configuration](/docs/appid?topic=appid-cd-types). 
 * Ensure that a resend option is present on your sign-in screen so that your user can request that an email is resent if an internal error occurs.
 
 If you add a user through the {{site.data.keyword.appid_short_notm}} dashboard, the user is verified automatically and does not receive an email.

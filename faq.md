@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-01-30"
+lastupdated: "2020-02-04"
 
 keywords: pricing, advanced security, authentication events, authorized users, activity tracking, runtime activity, password policies, keycloak, whitelist redirect url, redirect uri 
 
@@ -39,7 +39,7 @@ This FAQ provides answers to common questions about the {{site.data.keyword.appi
 With {{site.data.keyword.appid_short_notm}}, the more your users authenticate, the less you pay per authentication.
 {: shortdesc}
 
-For the most up-to-date pricing information, you can create a cost estimate by clicking **Add to estimate** in the {{site.data.keyword.appid_short_notm}} section of the [{{site.data.keyword.cloud_notm}} catalog](https://cloud.ibm.com/catalog/services/app-id).
+For the most up-to-date pricing information, you can create a cost estimate by clicking **Add to estimate** in the {{site.data.keyword.appid_short_notm}} section of the [{{site.data.keyword.cloud_notm}} catalog](https://cloud.ibm.com/catalog/app-id).
 {: tip}
 
 The graduated tier plan consists of three parts: the number of authentication events, both regular and advanced security, and the number of authorized users. You are charged each month, based on the summary of the two parts. The total price is the cumulative charge for each level of usage, consisting of your quantity multiplied by the unit price at that tier.
@@ -67,15 +67,15 @@ By default, advanced security features are disabled. If you turn on MFA, runtime
   </tr>
   <tr>
     <td>Multi-factor authentication</td>
-    <td>[MFA for Cloud Directory](/docs/services/appid?topic=appid-cd-mfa#cd-mfa) confirms a user’s identity by requiring a user to enter a one time passcode that is sent to their email or SMS in addition to their entering their email and password.</td>
+    <td>[MFA for Cloud Directory](/docs/appid?topic=appid-cd-mfa#cd-mfa) confirms a user’s identity by requiring a user to enter a one time passcode that is sent to their email or SMS in addition to their entering their email and password.</td>
   </tr>
   <tr>
     <td>Runtime authentication activity tracking</td>
-    <td>By integrating {{site.data.keyword.at_short}} with {{site.data.keyword.appid_short_notm}}, you can track different types of authentication events at runtime. For example: A password reset request, authentication failures, or a user logout. For more information, see [Viewing runtime events](/docs/services/appid?topic=appid-at-events#at-monitor-runtime).</td>
+    <td>By integrating {{site.data.keyword.at_short}} with {{site.data.keyword.appid_short_notm}}, you can track different types of authentication events at runtime. For example: A password reset request, authentication failures, or a user logout. For more information, see [Viewing runtime events](/docs/appid?topic=appid-at-events#at-monitor-runtime).</td>
   </tr>
   <tr>
     <td>Password policy management</td>
-    <td>As an account owner, you can enforce more secure passwords for Cloud Directory by configuring a set of rules that user passwords must conform to. Examples include, the number of attempted sign-ins before lockout, expiration times, minimum time span between password updates, or the number of times that a password can't be repeated. For a complete list of the options and set-up information, see [Advanced password management](/docs/services/appid?topic=appid-cd-strength#cd-advanced-password).</td>
+    <td>As an account owner, you can enforce more secure passwords for Cloud Directory by configuring a set of rules that user passwords must conform to. Examples include, the number of attempted sign-ins before lockout, expiration times, minimum time span between password updates, or the number of times that a password can't be repeated. For a complete list of the options and set-up information, see [Advanced password management](/docs/appid?topic=appid-cd-strength#cd-advanced-password).</td>
   </tr>
 </table>
 
@@ -94,7 +94,7 @@ An authorized user is a unique user that signs in with your service whether dire
 {: faq}
 {: support}
 
-A redirect URI is the callback endpoint of your application. When you whitelist your URI, you're giving {{site.data.keyword.appid_short_notm}} the OK to send your users to that location. At runtime, {{site.data.keyword.appid_short_notm}} validates the URI against your whitelist before redirecting the user. This can help prevent phishing attacks and lessens the possibility that an attacker is able to gain access to your user's tokens. For more information about redirect URIs, see [Adding redirect URIs](/docs/services/appid?topic=appid-managing-idp#add-redirect-uri).
+A redirect URI is the callback endpoint of your application. When you whitelist your URI, you're giving {{site.data.keyword.appid_short_notm}} the OK to send your users to that location. At runtime, {{site.data.keyword.appid_short_notm}} validates the URI against your whitelist before redirecting the user. This can help prevent phishing attacks and lessens the possibility that an attacker is able to gain access to your user's tokens. For more information about redirect URIs, see [Adding redirect URIs](/docs/appid?topic=appid-managing-idp#add-redirect-uri).
 
 Do not include any query parameters in your URL. They are ignored in the validation process. Example URL: `http://host:[port]/path`
 {: tip}
@@ -127,7 +127,7 @@ Check out the following table for answers to commonly asked questions about encr
     </tr>
     <tr>
       <td>How are keys stored?</td>
-      <td>Keys are generated, encrypted with a master key that is specific to each region, and then stored locally. The master keys are stored in [{{site.data.keyword.keymanagementserviceshort}}](/docs/services/key-protect?topic=key-protect-getting-started-tutorial). Each region has its own root-of-trust key that is stored in [{{site.data.keyword.keymanagementserviceshort}}](/docs/services/key-protect?topic=key-protect-getting-started-tutorial), which is backed up by HSM. Each service instance (tenant) has its own data encryption and token signature keys, which are encrypted by using the region's root-of-key trust.</td>
+      <td>Keys are generated, encrypted with a master key that is specific to each region, and then stored locally. The master keys are stored in [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-getting-started-tutorial). Each region has its own root-of-trust key that is stored in [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-getting-started-tutorial), which is backed up by HSM. Each service instance (tenant) has its own data encryption and token signature keys, which are encrypted by using the region's root-of-key trust.</td>
     </tr>
     <tr>
       <td>What is the key strength that you use?</td>

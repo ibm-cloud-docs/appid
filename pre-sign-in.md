@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-11-19"
+  years: 2017, 2020
+lastupdated: "2020-02-04"
 
 keywords: user registration, new user, add user, custom attributes, profiles, user profile, user, user information, identity provider, authentication, authorization, personalize app, app security
 
@@ -28,7 +28,7 @@ subcollection: appid
 With {{site.data.keyword.appid_full}}, you can start building a profile for users that you know are going to need access to your app before their initial sign-in.
 {: shortdesc}
 
-To learn more about the security considerations that might apply when you work with custom attributes, see [Storing and accessing user profiles](/docs/services/appid?topic=appid-profiles).
+To learn more about the security considerations that might apply when you work with custom attributes, see [Storing and accessing user profiles](/docs/appid?topic=appid-profiles).
 {: tip}
 
 
@@ -37,9 +37,9 @@ To learn more about the security considerations that might apply when you work w
 
 There might be times when you are developing an application that you already know who your app users are going to be. These users are known as "future users". You might know ahead of time that certain users need specific permission levels or a specific food preference before they ever start interacting with your app. For example, you work for a development company and you hire a new person to function as a team lead. You might want to assign that user `admin` access to your app before they start so that when they sign in the first time, they can immediately start working without any further interaction on your part. Say that same person is a vegetarian. By noting it as a custom attribute in their profile, the preference can be pulled for all team lunches without them having to remind you.
 
-By default, the ability for users to change their own custom attributes through the application is set to off. You can give your users that ability, but before you do be sure that you understand and have considered the [security issues](/docs/services/appid?topic=appid-profiles#profile-set-custom) that can arise.
+By default, the ability for users to change their own custom attributes through the application is set to off. You can give your users that ability, but before you do be sure that you understand and have considered the [security issues](/docs/appid?topic=appid-profiles#profile-set-custom) that can arise.
 
-To assign custom attributes for future users, you can use either [the GUI](/docs/services/appid?topic=appid-preregister#preregister-gui) or the [preregistration endpoint](/docs/services/appid?topic=appid-preregister#preregister-api).
+To assign custom attributes for future users, you can use either [the GUI](/docs/appid?topic=appid-preregister#preregister-gui) or the [preregistration endpoint](/docs/appid?topic=appid-preregister#preregister-api).
 
 
 ### How are users identified?
@@ -137,8 +137,8 @@ A user's predefined attributes are empty until their first authentication. Altho
 Before you get started, you must have the following information:
 
 * Which identity provider that the user will sign in with.
-* The email of the user that you want to add or their [unique identifier](/docs/services/appid?topic=appid-preregister#preregister-idp-provide).
-* The [custom attribute](/docs/services/appid?topic=appid-profiles) information that you want to assign.
+* The email of the user that you want to add or their [unique identifier](/docs/appid?topic=appid-preregister#preregister-idp-provide).
+* The [custom attribute](/docs/appid?topic=appid-profiles) information that you want to assign.
 
 
 ### With the GUI
@@ -274,7 +274,7 @@ You can add a future user and their custom attributes by using the API.
 ## Next steps
 {: #preregister-next}
 
-Now that you associated a future user with specific attributes, try [accessing or updating attributes](/docs/services/appid?topic=appid-profiles)!
+Now that you associated a future user with specific attributes, try [accessing or updating attributes](/docs/appid?topic=appid-profiles)!
 
 
 </br>

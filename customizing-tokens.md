@@ -26,7 +26,7 @@ subcollection: appid
 # Customizing tokens
 {: #customizing-tokens}
 
-With {{site.data.keyword.appid_short_notm}}, tokens are used to identify users and secure your resources. You can choose to customize the information that is injected in to the tokens by the service. By injecting the information into your tokens, it's available to your application at run time without you having to configure extra network calls. For more information about tokens and how they're used in {{site.data.keyword.appid_short_notm}}, see [Understanding tokens](/docs/services/appid?topic=appid-tokens).
+With {{site.data.keyword.appid_short_notm}}, tokens are used to identify users and secure your resources. You can choose to customize the information that is injected in to the tokens by the service. By injecting the information into your tokens, it's available to your application at run time without you having to configure extra network calls. For more information about tokens and how they're used in {{site.data.keyword.appid_short_notm}}, see [Understanding tokens](/docs/appid?topic=appid-tokens).
 {: shortdesc}
 
 
@@ -54,7 +54,7 @@ The claims that are provided by {{site.data.keyword.appid_short_notm}} fall into
     <dd>Registered claims are present in your access and identity tokens and are defined by {{site.data.keyword.appid_short_notm}}. They <b>cannot</b> be overridden by custom mappings. These claims are ignored by the service and include <code>iss</code>, <code>aud</code>, <code>sub</code>, <code>iat</code>, <code>exp</code>, <code>amr</code>, and <code>tenant</code>.</dd>
 </dl>
 
-Defining a claim for your token does not change or eliminate [the attribute](/docs/services/appid?topic=appid-profiles). It changes the information that is present in the token at run time.
+Defining a claim for your token does not change or eliminate [the attribute](/docs/appid?topic=appid-profiles). It changes the information that is present in the token at run time.
 {: note}
 
 
@@ -125,7 +125,7 @@ The claims are set for each token separately and are sequentially applied as sho
 With the API, you can customize the information that is returned in your {{site.data.keyword.appid_short_notm}} tokens.
 {: shortdesc}
 
-If you want to configure the lifespan of your token, you can quickly make the changes through the service dashboard. For more information, see [Managing authentication](/docs/services/appid?topic=appid-managing-idp#idp-token-lifetime).
+If you want to configure the lifespan of your token, you can quickly make the changes through the service dashboard. For more information, see [Managing authentication](/docs/appid?topic=appid-managing-idp#idp-token-lifetime).
 {: tip}
 
 1. In terminal, run the following command to obtain an API key.
@@ -238,7 +238,7 @@ If you want to configure the lifespan of your token, you can quickly make the ch
   You must set the token lifetime in each request that you make. If a value is not set, then the default is used. Each customization request overwrites what is previously configured. Note that the lifetime configuration specifications are different in the API than they are in the service dashboard.
   {: note}
 
-5. After the token is returned and you [decode](/docs/services/appid?topic=appid-token-validation) it, you see a result similar to the following example:
+5. After the token is returned and you [decode](/docs/appid?topic=appid-token-validation) it, you see a result similar to the following example:
 
   ```
   {

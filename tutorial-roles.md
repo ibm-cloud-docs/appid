@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-12-12"
+  years: 2017, 2020
+lastupdated: "2020-02-04"
 
 keywords: attributes, cloud directory, user registry, user management, roles, access control, roles, app security, user profile, app access, identity
 
@@ -31,7 +31,7 @@ Ensuring that the correct people, have the approved access, when they need it ca
 
 
 
-This tutorial shows you how to use custom attributes to create user roles. Custom attributes allow for maxmimum flexibility, but can be difficult to maintain. Now, you can control access by [creating role-based permissions for runtime actions](/docs/services/appid?topic=appid-access-control).
+This tutorial shows you how to use custom attributes to create user roles. Custom attributes allow for maxmimum flexibility, but can be difficult to maintain. Now, you can control access by [creating role-based permissions for runtime actions](/docs/appid?topic=appid-access-control).
 {: tip}
 
 
@@ -39,10 +39,10 @@ This tutorial shows you how to use custom attributes to create user roles. Custo
 ## Scenario
 {: #roles-scenario}
 
-You're a developer for a fictional theme park. You're tasked with managing access for the [web application](/docs/services/appid?topic=appid-web-apps), and you feel the easiest way to do so is by setting roles for each type of user. You have several different types of roles such as park staff and visitors that all need different levels of permissions. You want to be able to streamline the process and ensure that your users are assigned the correct role from the first time they sign in to your application.  
+You're a developer for a fictional theme park. You're tasked with managing access for the [web application](/docs/appid?topic=appid-web-apps), and you feel the easiest way to do so is by setting roles for each type of user. You have several different types of roles such as park staff and visitors that all need different levels of permissions. You want to be able to streamline the process and ensure that your users are assigned the correct role from the first time they sign in to your application.  
 {: shortdesc}
 
-No problem! You can use the [custom attributes feature](/docs/services/appid?topic=appid-profiles) of {{site.data.keyword.appid_short_notm}} to store any type of user-related information. So, because you're working with role-based access control, you can create an attribute that is called `role` and assign different values to specify a type of role. For instance, the theme park might have `visitors` or `staff` that can each be different values for the `role` attribute. Then, you can ensure that your application code enforces the access policies and privileges that you assigned.
+No problem! You can use the [custom attributes feature](/docs/appid?topic=appid-profiles) of {{site.data.keyword.appid_short_notm}} to store any type of user-related information. So, because you're working with role-based access control, you can create an attribute that is called `role` and assign different values to specify a type of role. For instance, the theme park might have `visitors` or `staff` that can each be different values for the `role` attribute. Then, you can ensure that your application code enforces the access policies and privileges that you assigned.
 
 Although this tutorial is written specifically with web apps and Cloud Directory in mind, attributes can be used in a much broader sense. Custom attributes can be anything that you want them to be. As long as you stay under 100k attributes and you format them as a plain JSON object, you can store all types of information!
 {: note}
@@ -68,7 +68,7 @@ New to the APIs? Try them out with this [Postman collection](https://github.com/
 Before you can start adding attributes for your Cloud Land users, you need to configure your instance of {{site.data.keyword.appid_short_notm}}.
 {: shortdesc}
 
-1. In the **Identity Providers** tab of the service dashboard, enable **Cloud Directory**. Although this tutorial uses [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory), you might also choose to use any of the other IdP's such as [SAML](/docs/services/appid?topic=appid-enterprise), [Facebook](/docs/services/appid?topic=appid-social#facebook), [Google](/docs/services/appid?topic=appid-social#google), or a [custom provider](/docs/services/appid?topic=appid-custom-identity).
+1. In the **Identity Providers** tab of the service dashboard, enable **Cloud Directory**. Although this tutorial uses [Cloud Directory](/docs/appid?topic=appid-cloud-directory), you might also choose to use any of the other IdP's such as [SAML](/docs/appid?topic=appid-enterprise), [Facebook](/docs/appid?topic=appid-social#facebook), [Google](/docs/appid?topic=appid-social#google), or a [custom provider](/docs/appid?topic=appid-custom-identity).
 
 2. In the **Cloud Directory > Email Verification** tab, enable verification and set **Allow users to sign-in to your app without first verifying their email address** to **No**. When you use custom attributes to set permissions-related roles, be sure that users must validate their identity before they assume the attributes that you set.
 
@@ -83,7 +83,7 @@ Excellent! Your dashboard is configured and you're ready to start setting roles.
 ## Step 2: Setting roles on behalf of another user before sign in
 {: #roles-set-before}
 
-Cloud Land has a new staff member! You know all of their information, but they don't start for several days. You can [preregister them](/docs/services/appid?topic=appid-preregister) by creating an {{site.data.keyword.appid_short_notm}} user and profile that contains the attributes such as the `staff` role.
+Cloud Land has a new staff member! You know all of their information, but they don't start for several days. You can [preregister them](/docs/appid?topic=appid-preregister) by creating an {{site.data.keyword.appid_short_notm}} user and profile that contains the attributes such as the `staff` role.
 {: shortdesc}
 
 This process does not finish Cloud Directory registration. The user must still sign up for the app to inherit the attribute in the profile that you create.
@@ -161,7 +161,7 @@ Great job! You preregistered a user for your application. Now, when they sign in
 ## Step 3: Updating user attributes
 {: #roles-update-attributes}
 
-Cloud Land is growing! To keep up with the growth, your company is hiring new people. The `staff` user from step two is now a manager. You can update their profile by [assigning a new role](/docs/services/appid?topic=appid-profiles#profile-set-custom).
+Cloud Land is growing! To keep up with the growth, your company is hiring new people. The `staff` user from step two is now a manager. You can update their profile by [assigning a new role](/docs/appid?topic=appid-profiles#profile-set-custom).
 {: shortdesc}
 
 1. Update the profile.
@@ -212,7 +212,7 @@ Great work!
 Becoming more popular, the theme park continues to grow! With so many new visitors and staff, you want to limit the number of requests that are made. For better performance, you can map user profile attributes to your access and identity token claims. By mapping custom claims, you're able to store the custom attributes in the tokens themselves.
 {: shortdesc}
 
-[Token configuration](/docs/services/appid?topic=appid-customizing-tokens#customizing-tokens) is global, which means that it applies to every user with a `role` attribute, regardless of the actual role they are assigned.
+[Token configuration](/docs/appid?topic=appid-customizing-tokens#customizing-tokens) is global, which means that it applies to every user with a `role` attribute, regardless of the actual role they are assigned.
 {: tip}
 
 
@@ -355,4 +355,4 @@ Optionally, you can verify that step 4 was successful by viewing an access token
 ## Next steps
 {: #roles-next}
 
-Nice work! You completed the tutorial. Next, you can try configuring [multi-factor authentication](/docs/services/appid?topic=appid-cd-mfa) or setting up [your own branded GUI](/docs/services/appid?topic=appid-branded).
+Nice work! You completed the tutorial. Next, you can try configuring [multi-factor authentication](/docs/appid?topic=appid-cd-mfa) or setting up [your own branded GUI](/docs/appid?topic=appid-branded).

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-11-25"
+  years: 2017, 2020
+lastupdated: "2020-02-04"
 
 keywords: saml, enterprise apps, assertions, single sign on, tokens, authorization, user authentication, key cloak, redhat, cloud identity, sso, single sign on, xml signature, service provider, identity provider, app security
 
@@ -78,7 +78,7 @@ The workflow for SSO is similar. The only deviation from the described workflow 
 ## Understanding assertions
 {: #saml-assertions}
 
-When the SAML assertion is returned to {{site.data.keyword.appid_short_notm}}, the service federates the user identity and generates the appropriate tokens. If the SAML assertion corresponds to one of the standard OIDC claims, it's automatically added to the identity token. The assertions that don't have a match, are ignored by default. If your SAML provider returns other assertions, it's possible configure {{site.data.keyword.appid_short_notm}} to [inject the information into your tokens](/docs/services/appid?topic=appid-customizing-tokens#customizing-tokens). But, be sure not to add more information than necessary to your tokens as they're typically sent in HTTP headers and limited in size.
+When the SAML assertion is returned to {{site.data.keyword.appid_short_notm}}, the service federates the user identity and generates the appropriate tokens. If the SAML assertion corresponds to one of the standard OIDC claims, it's automatically added to the identity token. The assertions that don't have a match, are ignored by default. If your SAML provider returns other assertions, it's possible configure {{site.data.keyword.appid_short_notm}} to [inject the information into your tokens](/docs/appid?topic=appid-customizing-tokens#customizing-tokens). But, be sure not to add more information than necessary to your tokens as they're typically sent in HTTP headers and limited in size.
 
 The standard OIDC claims that {{site.data.keyword.appid_short_notm}} attempts to map to your assertion: 
 
@@ -362,10 +362,10 @@ You can test the configuration between your SAML Identity Provider and {{site.da
 2. Navigate to the **SAML 2.0** tab of the {{site.data.keyword.appid_short_notm}} dashboard and click **Test**. A new tab opens.
 3. Login in with a user that your identity provider has already authenticated.
 4. After you complete the form, you are redirected to another page.
-  * Successful authentication: The connection between {{site.data.keyword.appid_short_notm}} and the Identity Provider is working correctly. The page displays valid [access and identity tokens](/docs/services/appid?topic=appid-tokens#tokens).
+  * Successful authentication: The connection between {{site.data.keyword.appid_short_notm}} and the Identity Provider is working correctly. The page displays valid [access and identity tokens](/docs/appid?topic=appid-tokens#tokens).
   * Failed authentication: The connection is broken. The page displays the errors and the SAML response XML file.
 
 
-Having trouble? Check out [Troubleshooting: SAML](/docs/services/appid?topic=appid-troubleshooting-idp#troubleshooting-idp).
+Having trouble? Check out [Troubleshooting: SAML](/docs/appid?topic=appid-troubleshooting-idp#troubleshooting-idp).
 {: tip}
 

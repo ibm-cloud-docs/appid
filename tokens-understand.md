@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-11-19"
+  years: 2017, 2020
+lastupdated: "2020-02-04"
 
 keywords: tokens, refresh token, access token, identity token, configuration, authorization, authentication, app security, access, identity, refresh
 
@@ -34,7 +34,7 @@ When a user is successfully authenticated, the application receives tokens from 
 ## Access tokens
 {: #access}
 
-Access tokens represent authorization and enable communication with [back-end resources](/docs/services/appid?topic=appid-backend) that are protected by authorization filters that are set by {{site.data.keyword.appid_short}}. The token conforms to JavaScript Object Signing and Encryption (JOSE) specifications. The token is formatted as <a href="https://jwt.io/introduction/" target="blank">JSON Web Tokens <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> are signed with a JSON Web Key that uses the RS256 algorithm.
+Access tokens represent authorization and enable communication with [back-end resources](/docs/appid?topic=appid-backend) that are protected by authorization filters that are set by {{site.data.keyword.appid_short}}. The token conforms to JavaScript Object Signing and Encryption (JOSE) specifications. The token is formatted as <a href="https://jwt.io/introduction/" target="blank">JSON Web Tokens <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> are signed with a JSON Web Key that uses the RS256 algorithm.
 
 Example token:
   ```
@@ -105,7 +105,7 @@ Example token:
   {: screen}
 
 
-Identity tokens only contain partial user information. To see all of the information that is provided by the identity provider, you can use the [/userinfo endpoint](/docs/services/appid?topic=appid-profiles#profile-predefined-api).
+Identity tokens only contain partial user information. To see all of the information that is provided by the identity provider, you can use the [/userinfo endpoint](/docs/appid?topic=appid-profiles#profile-predefined-api).
 
 ## Refresh tokens
 {: #refresh}
@@ -117,9 +117,9 @@ Refresh tokens are configured to have a longer life span than a regular access t
 For added convenience, {{site.data.keyword.appid_short_notm}} also renews its refresh token — and its expiration date — when the access token is renewed, allowing the user to remain logged in as long as they are active at some point before the current refresh token expires. On the other hand, if you would like to use refresh tokens yet force the user to log in periodically, your app could only use the refresh tokens returned when the user logs in by entering their credentials. However, we recommend always using the latest refresh token received from {{site.data.keyword.appid_short_notm}}, as described by the <a href="https://tools.ietf.org/html/rfc6749#page-47" target="_blank">OAuth 2.0 specifications <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
 
 
-Although these tokens can streamline the login process, your app should not depend on them, as they can be revoked at any time, such as when you believe your refresh tokens have been compromised. If you need to revoke a refresh token, there are two methods of revoking a refresh token. If you have the refresh token, you can revoke it based on <a href="https://tools.ietf.org/html/rfc7009#section-2" target="_blank">RFC7009 <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>. Alternatively, if you have the user ID, you can revoke the refresh token by using <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/" target="_blank">the Management API <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>. For more information about accessing the management API see [managing service access](/docs/services/appid?topic=appid-service-access-management#service-access-management).
+Although these tokens can streamline the login process, your app should not depend on them, as they can be revoked at any time, such as when you believe your refresh tokens have been compromised. If you need to revoke a refresh token, there are two methods of revoking a refresh token. If you have the refresh token, you can revoke it based on <a href="https://tools.ietf.org/html/rfc7009#section-2" target="_blank">RFC7009 <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>. Alternatively, if you have the user ID, you can revoke the refresh token by using <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/" target="_blank">the Management API <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>. For more information about accessing the management API see [managing service access](/docs/appid?topic=appid-service-access-management#service-access-management).
 
-For examples of working with refresh tokens and how to use them to implement a remember-me functionality, check out the [getting started samples](/docs/services/appid?topic=appid-getting-started#getting-started).
+For examples of working with refresh tokens and how to use them to implement a remember-me functionality, check out the [getting started samples](/docs/appid?topic=appid-getting-started#getting-started).
 
 
 ## Where do the tokens come from?
@@ -130,7 +130,7 @@ Tokens are issued through the {{site.data.keyword.appid_short_notm}} OAuth Serve
 ## What happens to the information that the token contains?
 {: #contains}
 
-The access token contains a set of standard JWT claims and a set of {{site.data.keyword.appid_short_notm}} specific claims such as a tenant ID. The identity token contains user specific information. The information in the tokens is stored as claims as part of a [user's profile](/docs/services/appid?topic=appid-profiles).
+The access token contains a set of standard JWT claims and a set of {{site.data.keyword.appid_short_notm}} specific claims such as a tenant ID. The identity token contains user specific information. The information in the tokens is stored as claims as part of a [user's profile](/docs/appid?topic=appid-profiles).
 
 ## How are tokens received?
 {: #received}
@@ -149,4 +149,4 @@ Example request:
 ## How are tokens configured?
 {: #set}
 
-You can customize tokens by using custom claims mapping. For more information, see [Customizing tokens](/docs/services/appid?topic=appid-customizing-tokens).
+You can customize tokens by using custom claims mapping. For more information, see [Customizing tokens](/docs/appid?topic=appid-customizing-tokens).

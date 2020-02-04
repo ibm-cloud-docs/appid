@@ -33,6 +33,8 @@ As an account owner, you can set policies within your account to create differen
 
 For more information about IAM, see [IAM Access](/docs/iam?topic=iam-userroles).
 
+
+
 ## User roles
 {: #iam-roles}
 
@@ -106,6 +108,8 @@ The following table details actions that are mapped to service access roles. Ser
 </table>
 
 For more information about assigning user roles in the UI, see [Managing IAM access](/docs/iam?topic=iam-iammanidaccser#iammanidaccser).
+
+
 
 
 ## {{site.data.keyword.appid_short_notm}} access policies

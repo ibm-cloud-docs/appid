@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-01-29"
+lastupdated: "2020-02-04"
 
 keywords: manage users, registry, cloud directory, add user, delete user, tokens, attributes, migrating users, identity provider, app security
 
@@ -86,7 +86,7 @@ You can use the {{site.data.keyword.appid_short_notm}} dashboard to view details
   </tr>
   <tr>
     <td>Summary</td>
-    <td>All of the attributes are compiled to form one profile that gives you a complete overview of your Cloud Directory user. For more information, see [user profiles](/docs/services/appid?topic=appid-profiles).</td>
+    <td>All of the attributes are compiled to form one profile that gives you a complete overview of your Cloud Directory user. For more information, see [user profiles](/docs/appid?topic=appid-profiles).</td>
   </tr>
 </table>
 
@@ -328,7 +328,7 @@ Before you can import your profiles to your new instance, you need to export the
 Now that you have a list of exported Cloud Directory users, you can import them into the new instance.
 
 
-1. If your users are [assigned roles](/docs/services/appid?topic=appid-access-control), be sure to create the roles and scopes in your new instance of {{site.data.keyword.appid_short_notm}}.
+1. If your users are [assigned roles](/docs/appid?topic=appid-access-control), be sure to create the roles and scopes in your new instance of {{site.data.keyword.appid_short_notm}}.
 
   The roles and scopes must be created exactly as they were in the previous instance with the same spellings.
   {: tip}

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-11-19"
+  years: 2017, 2020
+lastupdated: "2020-02-04"
 
 keywords: secure mobile app, android, ios, authenticate users,  authorization grant, client sdk, trusted client, native app, personalized, custom app, devices, identity flow, app security
 
@@ -368,7 +368,7 @@ Example request format:
 
 With {{site.data.keyword.appid_short}} installed in your application, you're almost ready to start authenticating users! Try doing one of the following activities next:
 
-* Configure your [identity providers](/docs/services/appid?topic=appid-social)
-* Customize and configure [the Login Widget](/docs/services/appid?topic=appid-login-widget)
+* Configure your [identity providers](/docs/appid?topic=appid-social)
+* Customize and configure [the Login Widget](/docs/appid?topic=appid-login-widget)
 * Learn more about the <a href="https://github.com/ibm-cloud-security/appid-clientsdk-android" target="_blank">Android SDK<img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
 * Learn more about the <a href="https://github.com/ibm-cloud-security/appid-clientsdk-swift" target="_blank">iOS SDK<img src="../../icons/launch-glyph.svg" alt="External link icon"></a>

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-12-13"
+  years: 2017, 2020
+lastupdated: "2020-02-04"
 
 keywords: authentication, authorization, identity, app security, cloud directory, user data, identity provider, oauth, protocols, oauth, oidc, disaster recovery, dr, compliance, high availability, ha, secure, HA, DR
 
@@ -61,7 +61,7 @@ To make the sign-in experience easy for your users, with {{site.data.keyword.app
     <th>Solution</th>
   </tr>
   <tr>
-    <td>You need to add [authorization and authentication](/docs/services/appid?topic=appid-key-concepts) to your mobile and web apps but don't have a background in security.</td>
+    <td>You need to add [authorization and authentication](/docs/appid?topic=appid-key-concepts) to your mobile and web apps but don't have a background in security.</td>
     <td>{{site.data.keyword.appid_short_notm}} makes it easy to add an authentication step to your apps. You can add email or user name, social, or enterprise sign-in to your apps with APIs, SDKs, prebuilt UIs, or your own branded UIs.</td>
   </tr>
   <tr>
@@ -70,11 +70,11 @@ To make the sign-in experience easy for your users, with {{site.data.keyword.app
   </tr>
   <tr>
     <td>You want to build personalized app experiences for your users.</td>
-    <td>With {{site.data.keyword.appid_short_notm}}, you can [store user data](/docs/services/appid?topic=appid-profiles) such as app preferences or information from their public social profiles, and then use that data to customize each experience of your app.</td>
+    <td>With {{site.data.keyword.appid_short_notm}}, you can [store user data](/docs/appid?topic=appid-profiles) such as app preferences or information from their public social profiles, and then use that data to customize each experience of your app.</td>
   </tr>
   <tr>
     <td>You want to manage users in a scalable way.</td>
-    <td> With {{site.data.keyword.appid_short_notm}} you can create a [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory), which makes it possible for you to add user sign-up and sign-in to your apps. Cloud Directory provides you with the framework to maintain a user registry that can scale with your user base. With the pre-built functionality for self-service, such as email verification and password resets, you can be sure that your app is authenticating users securely.</td>
+    <td> With {{site.data.keyword.appid_short_notm}} you can create a [Cloud Directory](/docs/appid?topic=appid-cloud-directory), which makes it possible for you to add user sign-up and sign-in to your apps. Cloud Directory provides you with the framework to maintain a user registry that can scale with your user base. With the pre-built functionality for self-service, such as email verification and password resets, you can be sure that your app is authenticating users securely.</td>
   </tr>
 </table>
 
@@ -109,11 +109,11 @@ You can use {{site.data.keyword.appid_short_notm}} with other {{site.data.keywor
   <dt>{{site.data.keyword.containershort_notm}}</dt>
     <dd>By configuring Ingress in a standard cluster you can secure your apps at the cluster level. Check out the <a href="/docs/containers?topic=containers-ingress_annotation#appid-auth">{{site.data.keyword.appid_short_notm}} authentication Ingress annotation</a> or the <a href="https://www.ibm.com/cloud/blog/announcing-app-id-integration-ibm-cloud-kubernetes-service">Announcing {{site.data.keyword.appid_short_notm}} integration to {{site.data.keyword.containerlong_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> blog post to get started.</dd>
   <dt>{{site.data.keyword.openwhisk_short}} and {{site.data.keyword.apiconnect_short}}</dt>
-    <dd>When you create your APIs with [{{site.data.keyword.openwhisk_short}}](/docs/openwhisk?topic=cloud-functions-getting-started) and [API Connect](/docs/services/apiconnect?topic=apiconnect-getting-started), you can secure your applications at the gateway rather than in your app code. To see the integration in action, watch <a href="https://www.youtube.com/watch?v=Fa9YD2NGZiE" target="_blank">Simple and fast social login OAuth with API Connect and {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.</dd>
+    <dd>When you create your APIs with [{{site.data.keyword.openwhisk_short}}](/docs/openwhisk?topic=cloud-functions-getting-started) and [API Connect](/docs/apiconnect?topic=apiconnect-getting-started), you can secure your applications at the gateway rather than in your app code. To see the integration in action, watch <a href="https://www.youtube.com/watch?v=Fa9YD2NGZiE" target="_blank">Simple and fast social login OAuth with API Connect and {{site.data.keyword.appid_short_notm}} <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.</dd>
   <dt>Cloud Foundry</dt>
     <dd>Try out one of the provided sample Cloud Foundry apps to see how you can integrate {{site.data.keyword.appid_short_notm}} into your apps.</dd>
   <dt>{{site.data.keyword.at_short}}</dt>
-    <dd>You can monitor administrative activity that is made in {{site.data.keyword.appid_short_notm}} such as changes to the dashboard configuration, by using the [{{site.data.keyword.at_short}} service](/docs/services/Activity-Tracker-with-LogDNA?topic=logdnaat-getting-started).</dd>
+    <dd>You can monitor administrative activity that is made in {{site.data.keyword.appid_short_notm}} such as changes to the dashboard configuration, by using the [{{site.data.keyword.at_short}} service](/docs/Activity-Tracker-with-LogDNA?topic=logdnaat-getting-started).</dd>
   <dt>iOS Programming Guide</dt>
     <dd>Do you develop apps for Apple? Try out the [iOS programming guide](/docs/swift?topic=swift-getting-started) to learn, experiment, and enhance your existing iOS apps with {{site.data.keyword.cloud_notm}}.</dd>
   <dt>Node.js programming guide</dt>
