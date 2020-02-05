@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-02-04"
+lastupdated: "2020-02-05"
 
 keywords: user events, track activity, manage events, analyze, administrative, runtime, sign in, settings, app security
 
@@ -575,7 +575,7 @@ To find the user information that aligns with the event GUID, use the following 
 5. Insert the IAM token, the tenant ID, and the user ID, into the following command to obtain the user information.
 
   ```
-  curl -X GET --header 'Accept: application/json' --header 'Authorization: Bearer THE_IAM_TOKEN' \
+  curl -X GET --header 'Accept: application/json' --header 'Authorization: Bearer <IAM_TOKEN>' \
   'https://REGION.appid.cloud.ibm.com/TENANT_ID/cloud_directory/Users/THE_USER_ID'
   ```
   {: codeblock}
@@ -628,7 +628,7 @@ You can track the events of specific Cloud Directory users in {{site.data.keywor
 2. Insert the IAM token, the tenant ID, and the email into the following command to obtain the user information.
 
   ```
-  curl -X GET --header 'Accept: application/json' --header 'Authorization: Bearer THE_IAM_TOKEN' 'https://REGION.appid.cloud.ibm.com/TENANT_ID/users?email=EMAIL_ADDRESS'
+  curl -X GET --header 'Accept: application/json' --header 'Authorization: Bearer <IAM_TOKEN>' 'https://REGION.appid.cloud.ibm.com/TENANT_ID/users?email=EMAIL_ADDRESS'
   ```
   {: codeblock}
 

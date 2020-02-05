@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-02-04"
+lastupdated: "2020-02-05"
 
 keywords: web apps, authorization code, authentication, nodejs, javascript, app access, application credentials, login, redirect uri, protected endpoint, video
 
@@ -130,7 +130,7 @@ Check out the following video to learn about protecting Node applications with {
     ```
     curl -X POST \  https://us-south.appid.cloud.ibm.com/management/v4/39a37f57-a227-4bfe-a044-93b6e6060b61/applications/ \
     -H 'Content-Type: application/json' \
-    -H 'Authorization: Bearer IAM_TOKEN' \
+    -H 'Authorization: Bearer <IAM_TOKEN>' \
     -d '{"name": "ApplicationName"}'
     ```
     {: codeblock}

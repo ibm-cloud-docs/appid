@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-02-04"
+lastupdated: "2020-02-05"
 
 keywords: user registration, new user, add user, custom attributes, profiles, user profile, user, user information, identity provider, authentication, authorization, personalize app, app security
 
@@ -239,7 +239,7 @@ You can add a future user and their custom attributes by using the API.
   ```
   $ curl --request POST \
        --url 'https://{Management_URI}/users \
-       --header 'Authorization: Bearer {IAM_TOKEN}' \
+       --header 'Authorization: Bearer <IAM_TOKEN>' \
        --header 'Content-Type: application/json' \
        --data '{"idp": "saml", "idp-identity": "user@ibm.com", "profile": { "attributes": { "role": "admin",
        "frequent_flyer_points": 1000 }}}'
@@ -252,7 +252,7 @@ You can add a future user and their custom attributes by using the API.
 
     ```
     curl --request GET https://us-south.appid.cloud.ibm.com/management/v4/{{APPID_TENANT_ID}}/users/{{user_profile_id}}/profile \
-    --header 'Authorization: Bearer <iam-access-token>' \
+    --header 'Authorization: Bearer <IAM_TOKEN>' \
     --header 'Content-Type: application/json' \
     ```
     {: codeblock}

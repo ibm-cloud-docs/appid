@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-02-04"
+lastupdated: "2020-02-05"
 
 keywords: user information, add users, delete users, profile, access, attributes, admin, app security, authentication, authorization
 
@@ -296,7 +296,7 @@ Before you can import your profiles to your new instance, you need to export the
   ```sh
   curl -X GET https://us-south.appid.cloud.ibm.com/management/v4/{tenant-ID}/users/export \
   --header "Accept: application/json" \
-  --header "Authorization: Bearer {IAM-token}"
+  --header "Authorization: Bearer <IAM-token>"
   ```
   {: codeblock}
 

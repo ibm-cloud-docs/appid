@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-02-04"
+lastupdated: "2020-02-05"
 
 keywords: attributes, cloud directory, user registry, user management, roles, access control, roles, app security, user profile, app access, identity
 
@@ -108,7 +108,7 @@ This process does not finish Cloud Directory registration. The user must still s
   ```
   curl --request POST \
   https://us-south.appid.cloud.ibm.com/management/v4/{{APPID_TENANT_ID}}/users \
-  --header 'Authorization: Bearer <iam-access-token>' \
+  --header 'Authorization: Bearer <IAM_token>' \
   --header 'Content-Type: application/json' \
   -d '{
     "idp": "cloud_directory",
