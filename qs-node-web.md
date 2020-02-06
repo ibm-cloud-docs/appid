@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-02-04"
+lastupdated: "2020-02-06"
 
 keywords: web apps, nodejs, node, javascript, protected resource, authorization flow, front end, frontend, app security, authentication
 
@@ -60,7 +60,7 @@ Don't have an app that you can try out the flow with? No problem! {{site.data.ke
 Before you get started with {{site.data.keyword.appid_short_notm}} in your Node.js web applications you must have the following prerequisites.
 {: shortdesc}
 
-* An instance of [the {{site.data.keyword.appid_short_notm}} service](https://cloud.ibm.com/catalog/app-id){: external}
+* An instance of [the {{site.data.keyword.appid_short_notm}} service](https://cloud.ibm.com/catalog/services/app-id){: external}
 * [The IBM Cloud CLI](/docs/cli?topic=cloud-cli-getting-started)
 * [NPM version 4+](https://www.npmjs.com/get-npm){: external}
 * [Node version 6+](https://nodejs.org/en/download/){: external}

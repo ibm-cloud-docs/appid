@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-02-04"
+lastupdated: "2020-02-06"
 
 keywords: pricing, advanced security, authentication events, authorized users, activity tracking, runtime activity, password policies, keycloak, whitelist redirect url, redirect uri 
 
@@ -39,7 +39,7 @@ This FAQ provides answers to common questions about the {{site.data.keyword.appi
 With {{site.data.keyword.appid_short_notm}}, the more your users authenticate, the less you pay per authentication.
 {: shortdesc}
 
-For the most up-to-date pricing information, you can create a cost estimate by clicking **Add to estimate** in the {{site.data.keyword.appid_short_notm}} section of the [{{site.data.keyword.cloud_notm}} catalog](https://cloud.ibm.com/catalog/app-id).
+For the most up-to-date pricing information, you can create a cost estimate by clicking **Add to estimate** in the {{site.data.keyword.appid_short_notm}} section of the [{{site.data.keyword.cloud_notm}} catalog](https://cloud.ibm.com/catalog/services/app-id).
 {: tip}
 
 The graduated tier plan consists of three parts: the number of authentication events, both regular and advanced security, and the number of authorized users. You are charged each month, based on the summary of the two parts. The total price is the cumulative charge for each level of usage, consisting of your quantity multiplied by the unit price at that tier.

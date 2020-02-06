@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-02-04"
+lastupdated: "2020-02-06"
 
 keywords: backend apps, java, liberty for java, liberty, identity provider, access management, protected endpoints, access tokens, security, back end
 
@@ -53,7 +53,7 @@ Don't have an app that you can try out the flow with? No problem! {{site.data.ke
 
 Before you get started with {{site.data.keyword.appid_short_notm}} in your Liberty for Java backend application you must have the following prerequisites:
 
-* An instance of [the {{site.data.keyword.appid_short_notm}} service](https://cloud.ibm.com/catalog/app-id){: external}
+* An instance of [the {{site.data.keyword.appid_short_notm}} service](https://cloud.ibm.com/catalog/services/app-id){: external}
 * [The IBM Cloud CLI](/docs/cli?topic=cloud-cli-getting-started)
 * [Apache Maven 3.5+](https://maven.apache.org/download.cgi){: external}
 * [Java 8+](https://www.java.com/en/download/){: external}

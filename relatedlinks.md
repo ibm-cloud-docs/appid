@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-02-05"
+lastupdated: "2020-02-06"
 
 keywords: related links, blogs, sample apps, kube, code changes, programming guide, white paper, vuejs apps, serverless applications, enterprise user directory, custom experience, slack, stack overflow, secure iot, solution, finance app, multicloud, video tutorials
 
@@ -51,7 +51,7 @@ Get to know more about {{site.data.keyword.appid_short_notm}} by reading through
 
 * <img src="images/video.svg" alt="Video icon" width="20" style="width:20px; border-style: none"/> [Introducing {{site.data.keyword.appid_short_notm}}](https://www.youtube.com/watch?v=XlrCjHdK43Q){: external}
 * <img src="images/blog.svg" alt="General blog icon" width="20" style="width:20px; border-style: none"/> [Cloud app security - What makes a secure app?](https://www.ibm.com/blogs/cloud-archive/2017/08/cloud-app-security-makes-secure-app/){: external}
-* <img src="images/garage-article.svg" alt="Cloud Garage icon" width="20" style="width:20px; border-style: none"/> [Security to safeguard and monitor your apps](https://www.ibm.com/cloud/garage/architectures/securityArchitecture/security-for-application){: external}
+* <img src="images/garage-article.svg" alt="Cloud Garage icon" width="20" style="width:20px; border-style: none"/> [Security to safeguard and monitor your apps](https://www.ibm.com/cloud/architecture/architectures/securityArchitecture/security-for-application){: external}
 * <img src="images/video.svg" alt="Video icon" width="20" style="width:20px; border-style: none"/> [Add sign up and sign in to your apps with {{site.data.keyword.appid_short_notm}}](https://www.youtube.com/watch?v=cDSYNFn4rX8){: external}
 * <img src="images/whitepaper-icon.svg" alt="White paper icon" width="20" style="width:20px; border-style: none"/> [Technical white paper](https://www.ibm.com/cloud/blog/ibm-cloud-app-id-technical-white-paper-now-available){: external}
 
