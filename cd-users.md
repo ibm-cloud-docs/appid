@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-02-04"
+lastupdated: "2020-02-06"
 
 keywords: manage users, registry, cloud directory, add user, delete user, tokens, attributes, migrating users, identity provider, app security
 
@@ -289,7 +289,7 @@ You must be assigned the `Manager` [IAM role](/docs/iam?topic=iam-getstarted#get
 
 
 ### Exporting user profiles
-{: #exporting-profiles}
+{: #cd-exporting-profiles}
 
 Before you can import your profiles to your new instance, you need to export them from your original instance of the service.
 
