@@ -187,7 +187,7 @@ The following table details actions that are mapped to service access roles. Ser
     <td>Manager</td>
     <td>
       <ul>
-        </li>All Writer actions.</li>
+        <li>All Writer actions.</li>
         <li>Export your Cloud Directory users and their data from your App ID instance.</li>
         <li>Import your Cloud Directory users into a new instance of App ID.</li>
         <li>Export all of the user profiles in an instance of App ID.</li>
