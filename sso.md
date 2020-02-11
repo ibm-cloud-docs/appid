@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-02-05"
+lastupdated: "2020-02-11"
 
 keywords: sso, single sign on, cloud directory, saml, federated, sign in, log in, log out, authentication, app security, user registry, multiple apps
 
@@ -186,7 +186,7 @@ Example API request:
 ```
 POST https://<region>.appid.cloud.ibm.com/management/v4/{tenant-id}/cloud_directory/Users/{user-id}/sso/logout
 Headers:
-Authorization: <IAM_TOKEN>
+Authorization: Bearer <IAM_token>
 ```
 {: codeblock}
 
