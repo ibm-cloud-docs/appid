@@ -91,7 +91,6 @@ The following table details actions that are mapped to service access roles. Ser
   <caption>Table 2. Service roles, permissions, and the actions that each role can take</caption>
   <tr>
     <th>Service role</th>
-    <th>Permissions</th>
     <th>Example actions</th>
   </tr>
   <tr>
@@ -131,7 +130,6 @@ The following table details actions that are mapped to service access roles. Ser
   </tr>
   <tr>
     <td>Writer</td>
-    <td>View and change an {{site.data.keyword.appid_short_notm}} instance.</td>
     <td>
       <ul>
         <li>All Reader actions.</li>
