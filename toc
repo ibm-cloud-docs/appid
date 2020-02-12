@@ -24,9 +24,9 @@ IBM Cloud App ID
         qs-liberty-backend.md
 
     {: .topicgroup}
-    Tutorials<prod>
-        tutorial-roles.md</prod>
-        tutorial-cf.md<staging>
+    Tutorials
+        tutorial-cf.md<prod>
+        tutorial-roles.md</prod><staging>
         tutorial-attributes.md
         tutorial-app-to-app.md</staging>
 
