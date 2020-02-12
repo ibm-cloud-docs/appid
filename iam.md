@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-02-11"
+lastupdated: "2020-02-12"
 
 keywords: user access, account settings, iam, user roles, platform roles, service roles, reader, writer, operator, editor, viewer, administrator, manager, permissions
 
@@ -88,7 +88,7 @@ Platform management roles enable users to perform tasks on service resources at 
 The following table details actions that are mapped to service access roles. Service access roles enable users to access {{site.data.keyword.appid_short_notm}} as well as the ability to call the {{site.data.keyword.appid_short_notm}} API.
 
 <table>
-  <caption>Table 2. Service roles, permissions, and the actions that each role can take</caption>
+  <caption>Table 2. Service roles and the actions that the role can take</caption>
   <tr>
     <th>Service role</th>
     <th>Example actions</th>
