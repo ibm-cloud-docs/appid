@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-11-22"
+  years: 2017, 2020
+lastupdated: "2020-02-04"
 
 keywords: protected resource, backend apps, identity, tokens, identity provider, authentication, authorization, app security, oauth, 
 
@@ -44,7 +44,7 @@ Part of developing backend apps is verifying that your APIs are protected from u
 
 {{site.data.keyword.appid_short_notm}} implements the [OAuth 2.0](https://tools.ietf.org/html/rfc6749){: external} and the OIDC spec, which uses bearer tokens for authentication and authorization. These tokens are formatted as  [JSON Web Tokens](https://tools.ietf.org/html/rfc7519){: external}, which are digitally signed and contain claims that describe the subject that is being authenticated and the identity provider. The APIs of your application are protected by access and identity tokens. Clients that need access to your APIs can authenticate with the identity provider through {{site.data.keyword.appid_short_notm}} in exchange for these tokens. The claims in the tokens have to be validated in order to grant access to the protected APIs.
 
-For more information about how tokens are used in {{site.data.keyword.appid_short_notm}}, see [Understanding tokens](/docs/services/appid?topic=appid-tokens#).
+For more information about how tokens are used in {{site.data.keyword.appid_short_notm}}, see [Understanding tokens](/docs/appid?topic=appid-tokens#).
 {: tip}
 
 
@@ -249,7 +249,7 @@ When the tokens are valid, the next middleware in the request chain is called an
 ## Protecting resources manually
 {: #backend-secure-api}
 
-To secure your backend apps and protected resources, you need to validate a token. When a client sends a request to your resource you can verify that the token meets the defined specifications. The token might include identifying information, scope, or any other configuration that you have in place. You can validate {{site.data.keyword.appid_short_notm}} access and identity tokens in several ways. For help, check out [Validating tokens](/docs/services/appid?topic=appid-token-validation).
+To secure your backend apps and protected resources, you need to validate a token. When a client sends a request to your resource you can verify that the token meets the defined specifications. The token might include identifying information, scope, or any other configuration that you have in place. You can validate {{site.data.keyword.appid_short_notm}} access and identity tokens in several ways. For help, check out [Validating tokens](/docs/appid?topic=appid-token-validation).
 
 
 ## Next steps
@@ -257,8 +257,8 @@ To secure your backend apps and protected resources, you need to validate a toke
 
 With {{site.data.keyword.appid_short_notm}} installed in your application, you're almost ready to start authenticating users! Try doing one of the following activities next:
 
-* Configure your [identity providers](/docs/services/appid?topic=appid-social)
-* Customize and configure [the Login Widget](/docs/services/appid?topic=appid-login-widget)
+* Configure your [identity providers](/docs/appid?topic=appid-social)
+* Customize and configure [the Login Widget](/docs/appid?topic=appid-login-widget)
 * Learn more about the [Node.js SDK](https://github.com/ibm-cloud-security/appid-serversdk-nodejs){: external}
 * Learn more about the [Swift SDK](https://github.com/ibm-cloud-security/appid-serversdk-swift){: external}
 

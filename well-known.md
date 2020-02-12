@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-11-21"
+  years: 2017, 2020
+lastupdated: "2020-02-04"
 
 keywords: well known endpoint, discovery endpoint, oidc, public keys, user information, claims, attributes, full profile, identity providers, app security, tokens
 
@@ -133,7 +133,7 @@ The response that is returned looks similar to the following example:
   ],
   "profiles_endpoint": "https://us-south.appid.cloud.ibm.com",
   "management_endpoint": "https://us-south.appid.cloud.ibm.com/management/v4/39a37f57-a227-4bfe-a044-93b6e6060b61",
-  "service_documentation": "https://cloud.ibm.com/docs/services/appid?topic=appid-getting-started#getting-started"
+  "service_documentation": "https://cloud.ibm.com/docs/appid?topic=appid-getting-started"
 }
 ```
 {: screen}

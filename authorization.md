@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-11-22"
+  years: 2017, 2020
+lastupdated: "2020-02-04"
 
 keywords: authorization, authentication, oidc, oauth, jwks, app security, identity, tokens, redirect uris, api strategy, webapp strategy
 
@@ -91,9 +91,9 @@ When you use the SDK, the endpoint URLs are built automatically.
 ## Tokens
 {: #term-token}
 
-The service uses three different types of tokens. Tokens are set in the **Identity Providers > Manage** of the {{site.data.keyword.appid_short}} dashboard. For more information about tokens and how they're used in {{site.data.keyword.appid_short}}, check out [Managing tokens](/docs/services/appid?topic=appid-tokens).
+The service uses three different types of tokens. Tokens are set in the **Identity Providers > Manage** of the {{site.data.keyword.appid_short}} dashboard. For more information about tokens and how they're used in {{site.data.keyword.appid_short}}, check out [Managing tokens](/docs/appid?topic=appid-tokens).
 
-* Access tokens: Represent authorization and enable communication with protected [back-end resources](/docs/services/appid?topic=appid-backend). The resources are protected by authorization filters that are set by {{site.data.keyword.appid_short}}.
+* Access tokens: Represent authorization and enable communication with protected [back-end resources](/docs/appid?topic=appid-backend). The resources are protected by authorization filters that are set by {{site.data.keyword.appid_short}}.
 
 * Identity tokens: Represent authentication and contain information about the user.
 
@@ -132,7 +132,7 @@ When the web app strategy detects unauthorized attempts to access a protected re
 ## Redirect URIs
 {: #term-redirect}
 
-{{site.data.keyword.appid_short_notm}} uses a list of fully qualified, approved URIs to redirect your users after an interaction with your app. For example, if the user successfully signs in, {{site.data.keyword.appid_short_notm}} redirects the user to the home page of your app or to another page that you specify. The format of your URI might change depending on your application. Check out [Adding redirect URIs](/docs/services/appid?topic=appid-managing-idp#add-redirect-uri) for more information.
+{{site.data.keyword.appid_short_notm}} uses a list of fully qualified, approved URIs to redirect your users after an interaction with your app. For example, if the user successfully signs in, {{site.data.keyword.appid_short_notm}} redirects the user to the home page of your app or to another page that you specify. The format of your URI might change depending on your application. Check out [Adding redirect URIs](/docs/appid?topic=appid-managing-idp#add-redirect-uri) for more information.
 
 
 ## JSON Web Key Set (JWKS)

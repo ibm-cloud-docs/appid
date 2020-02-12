@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-11-22"
+  years: 2017, 2020
+lastupdated: "2020-02-06"
 
 keywords: backend apps, java, liberty for java, liberty, identity provider, access management, protected endpoints, access tokens, security, back end
 
@@ -32,7 +32,7 @@ With {{site.data.keyword.appid_short_notm}}, you can easily protect your API end
 
 ![Backend Liberty for Java apps](images/backend_liberty.png){: caption="Figure 1. Backend Liberty for Java flow" caption-side="bottom"}
 
-1. To make a request to a protected resource, a client must have an access token. In step 1, the client makes a request to {{site.data.keyword.appid_short_notm}} for a token. For more information about obtaining access tokens, see [Obtaining tokens](/docs/services/appid?topic=appid-obtain-tokens).
+1. To make a request to a protected resource, a client must have an access token. In step 1, the client makes a request to {{site.data.keyword.appid_short_notm}} for a token. For more information about obtaining access tokens, see [Obtaining tokens](/docs/appid?topic=appid-obtain-tokens).
 2. {{site.data.keyword.appid_short_notm}} returns the tokens.
 3. Using the access token, the client makes a request to access the protected resource.
 4. The resource validates the token including the structure, expiration, signature, audience, and any other present fields. If the token is not valid, the resource server denies access. If the token validation is successful, it returns the data.
@@ -236,7 +236,7 @@ Now that you've finished the initial installation, build the app and test your c
 
 3. Make a request to the protected endpoint. An error is returned.
 
-4. [Obtain an access token](/docs/services/appid?topic=appid-obtain-tokens).
+4. [Obtain an access token](/docs/appid?topic=appid-obtain-tokens).
 
 5. With the access token that you obtained in the previous step, make a request to the endpoint. You should now be able to access the protected endpoint. Verify that the response contains what you expect.
 
@@ -244,6 +244,6 @@ Now that you've finished the initial installation, build the app and test your c
 ## Next steps
 {: #liberty-next}
 
-Ready to start perfecting your authentication experience? Try walking through [this blog](https://www.ibm.com/cloud/blog/perfecting-the-login-experience-with-liberty-oauth2-and-appid){: external} or learning more about [app-to-app communication](/docs/services/appid?topic=appid-app).
+Ready to start perfecting your authentication experience? Try walking through [this blog](https://www.ibm.com/cloud/blog/perfecting-the-login-experience-with-liberty-oauth2-and-appid){: external} or learning more about [app-to-app communication](/docs/appid?topic=appid-app).
 
 

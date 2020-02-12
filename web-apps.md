@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-11-19"
+  years: 2017, 2020
+lastupdated: "2020-02-05"
 
 keywords: web apps, authorization code, authentication, nodejs, javascript, app access, application credentials, login, redirect uri, protected endpoint, video
 
@@ -130,7 +130,7 @@ Check out the following video to learn about protecting Node applications with {
     ```
     curl -X POST \  https://us-south.appid.cloud.ibm.com/management/v4/39a37f57-a227-4bfe-a044-93b6e6060b61/applications/ \
     -H 'Content-Type: application/json' \
-    -H 'Authorization: Bearer IAM_TOKEN' \
+    -H 'Authorization: Bearer <IAM_TOKEN>' \
     -d '{"name": "ApplicationName"}'
     ```
     {: codeblock}
@@ -515,6 +515,6 @@ With an OIDC-compliant client SDK, you can use {{site.data.keyword.appid_short_n
 
 With {{site.data.keyword.appid_short_notm}} installed in your application, you're almost ready to start authenticating users! Try doing one of the following activities next:
 
-* Configure your [identity providers](/docs/services/appid?topic=appid-social)
-* Customize and configure [the Login Widget](/docs/services/appid?topic=appid-login-widget)
+* Configure your [identity providers](/docs/appid?topic=appid-social)
+* Customize and configure [the Login Widget](/docs/appid?topic=appid-login-widget)
 * Learn more about the <a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs" target="_blank">Node.js SDK<img src="../../icons/launch-glyph.svg" alt="External link icon"></a>

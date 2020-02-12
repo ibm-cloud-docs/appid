@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-11-21"
+  years: 2017, 2020
+lastupdated: "2020-02-04"
 
 keywords: single page application, SPA, single-page, angular, react, native apps, javascript, js, sdk, authentication, authorization, identity, app security, secure, protocols, oauth, oidc,
 
@@ -30,7 +30,7 @@ subcollection: appid
 With {{site.data.keyword.appid_full}}, you can quickly add authorization and authentication to your single-page applications (SPA). An SPA runs entirely in your browser, doesn't have a backend that you manage, and does not require that the page reload while the application is in use. Some of the common frameworks that are used with SPAs are [Angular](https://angular.io/){: external} and [React](https://reactjs.org/){: external}.
 {: shortdesc}
 
-Does your app have a backend that you control? SPA is not the flow for you. Try the [web app flow](/docs/services/appid?topic=appid-web-apps)!
+Does your app have a backend that you control? SPA is not the flow for you. Try the [web app flow](/docs/appid?topic=appid-web-apps)!
 {: tip}
 
 ## Understanding the flow
@@ -49,7 +49,7 @@ Although it is the current industry standard for SPAs, the OAuth working group n
 5. The {{site.data.keyword.appid_short_notm}} SDK on the application receives the grant code
 6. The SDK then makes an XHR request to the {{site.data.keyword.appid_short_notm}} token endpoint along with the grant code and the code verifier to obtain access and identity tokens.
 
-Are you using SSO for Cloud Directory? You can use the {{site.data.keyword.appid_short_notm}} client SDK to automatically obtain a new pair of tokens without requiring that the user explicitly sign in. For more information, see [Silent login](/docs/services/appid?topic=appid-single-page#spa-silent-login).
+Are you using SSO for Cloud Directory? You can use the {{site.data.keyword.appid_short_notm}} client SDK to automatically obtain a new pair of tokens without requiring that the user explicitly sign in. For more information, see [Silent login](/docs/appid?topic=appid-single-page#spa-silent-login).
 {: tip}
 
 ### Why Authorization Code + PKCE?
@@ -74,7 +74,7 @@ The previous examples are just a few of the important issues. For more informati
 Before you get started, be sure that you have the following prerequisites. 
 
   * An instance of the {{site.data.keyword.appid_short_notm}} service.
-  * Your [redirect URIs](/docs/services/appid?topic=appid-managing-idp#add-redirect-uri) set in the {{site.data.keyword.appid_short_notm}} service dashboard.
+  * Your [redirect URIs](/docs/appid?topic=appid-managing-idp#add-redirect-uri) set in the {{site.data.keyword.appid_short_notm}} service dashboard.
   * A single-page application. If you don't have one and you want to try out the flow, try downloading the sample application from the overview page of the {{site.data.keyword.appid_short_notm}} dashboard.
 
 ## Creating application credentials
@@ -173,7 +173,7 @@ To install the SDK in your application, use the following steps as a guide.
 ## Configuring silent login
 {: #spa-silent-login}
 
-When [SSO for Cloud Directory](/docs/services/appid?topic=appid-cd-sso#cd-sso) is enabled, you can automatically obtain new tokens for a user without them having to reauthenticate by using silent login. To enable silent login, use the following steps as a guide.
+When [SSO for Cloud Directory](/docs/appid?topic=appid-cd-sso#cd-sso) is enabled, you can automatically obtain new tokens for a user without them having to reauthenticate by using silent login. To enable silent login, use the following steps as a guide.
 
 Refresh tokens are not returned in the SPA flow.
 {: tip}

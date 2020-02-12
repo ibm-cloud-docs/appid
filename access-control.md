@@ -39,14 +39,14 @@ A scope is a runtime action in your application that you register with {{site.da
 3. Control access permissions by assigning roles to your users.
 4. Configure your application to verify the scopes that are returned in your users access token at runtime.
 
-For more information about applications, see [Application identity and authorization](/docs/services/appid?topic=appid-app).
+For more information about applications, see [Application identity and authorization](/docs/appid?topic=appid-app).
 
 ## Before you begin
 {: #before-access}
 
 * You must have an application.
 * Make sure you have an understanding of the way in which each type of role and scope can impact your application. Because you're granting access, you want to be sure that you're granting it to only the people that need it. 
-* Be aware of the [limits](/docs/services/appid?topic=appid-limits) that are in place. 
+* Be aware of the [limits](/docs/appid?topic=appid-limits) that are in place. 
 
 
 ## Creating scopes
@@ -322,7 +322,7 @@ When a user attempts to access one of your protected resources, tokens are creat
 ### When using WebAppStrategy
 {: #access-webapp-strategy}
 
-You can use [WebAppStrategy](/docs/services/appid?topic=appid-key-concepts#term-web-strategy) to check whether a request contains any scopes by using the `hasScope` method. When a user with an assigned role signs in, they are granted access by an {{site.data.keyword.appid_short_notm}} token that contains all of the scopes that are defined in the role. For example, if you're working with the Node.js SDK, your code snippet would look similar to the following:
+You can use [WebAppStrategy](/docs/appid?topic=appid-key-concepts#term-web-strategy) to check whether a request contains any scopes by using the `hasScope` method. When a user with an assigned role signs in, they are granted access by an {{site.data.keyword.appid_short_notm}} token that contains all of the scopes that are defined in the role. For example, if you're working with the Node.js SDK, your code snippet would look similar to the following:
  
 ```javascript
 app.get("/protected", passport.authenticate(WebAppStrategy.STRATEGY_NAME), function(req, res){
@@ -341,7 +341,7 @@ app.get("/protected", passport.authenticate(WebAppStrategy.STRATEGY_NAME), funct
 ### When using APIStrategy
 {: #access-api-strategy}
 
-You can define the scopes that are required to access a specific endpoint by adding a scope variable to your [APIstrategy](/docs/services/appid?topic=appid-key-concepts#term-api-strategy) code. For instance, if you have an application that is written in Node.js and you're working with the Node.js SDK, your code snippet might look similar to the following.
+You can define the scopes that are required to access a specific endpoint by adding a scope variable to your [APIstrategy](/docs/appid?topic=appid-key-concepts#term-api-strategy) code. For instance, if you have an application that is written in Node.js and you're working with the Node.js SDK, your code snippet might look similar to the following.
 
 ```javascript
 app.get("/api/protected",
@@ -455,5 +455,5 @@ You can delete roles by using the APIs.
 ## Adding user roles to tokens
 {: #role-tokens}
 
-By default, roles are not returned in a users token. It is recommended that your runtime decisions are configured based on scopes. But, if you would like to use roles, you can map them to your tokens by using [custom claims mapping](/docs/services/appid?topic=appid-customizing-tokens).
+By default, roles are not returned in a users token. It is recommended that your runtime decisions are configured based on scopes. But, if you would like to use roles, you can map them to your tokens by using [custom claims mapping](/docs/appid?topic=appid-customizing-tokens).
 

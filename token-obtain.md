@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-11-21"
+  years: 2017, 2020
+lastupdated: "2020-02-05"
 
 keywords: obtain tokens, return tokens, authorized, authorization, access management, client id, secret, tenant id, app security, identity token
 
@@ -66,7 +66,7 @@ In order to obtain tokens, you must have your client ID and secret. The credenti
   ```
   curl -X POST https://us-south.appid.cloud.ibm.com/management/v4/39a37f57-a227-4bfe-a044-93b6e6060b61/applications/ \
   -H 'Content-Type: application/json' \
-  -H 'Authorization: Bearer IAM_TOKEN' \
+  -H 'Authorization: Bearer <IAM_TOKEN>' \
   -d '{"name": "ApplicationName"}'
   ```
   {: codeblock}

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-11-19"
+  years: 2017, 2020
+lastupdated: "2020-02-04"
 
 keywords: bring your own screens, branded app, sign up, custom, directory, registry, app security, password, authorization flow, authentication,
 
@@ -35,7 +35,7 @@ With {{site.data.keyword.appid_full}}, you can customize the entire sign-up expe
 When you reuse your existing UIs, you can create a cohesive sign-in flow for your app. By using the same imagery, colors, and branding, your users are more likely to recognize your brand, even when not directly interacting with your app.
 
 
-Want to use a [language](/docs/services/appid?topic=appid-cd-messages#cd-languages) other than English? You can choose another language by using the [language management APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/updateLocalization){: external}, to display your own translated content.
+Want to use a [language](/docs/appid?topic=appid-cd-messages#cd-languages) other than English? You can choose another language by using the [language management APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/updateLocalization){: external}, to display your own translated content.
 {: tip}
 
 
@@ -78,7 +78,7 @@ With Cloud Directory enabled, you can call customized screens with the Android S
 ### Sign in
 {: #branded-android-sign-in}
 
-1. Configure your Cloud Directory [settings](/docs/services/appid?topic=appid-cloud-directory#cd-settings) in the GUI.
+1. Configure your Cloud Directory [settings](/docs/appid?topic=appid-cloud-directory#cd-settings) in the GUI.
 2. Add the following code to your application. The sign-in flow is triggered when a user clicks sign in on your custom screen. You get access, identity, and refresh tokens by supplying the user's user name and password.
 
   ```java
@@ -109,7 +109,7 @@ With Cloud Directory enabled, you can call your own branded screens with the [iO
 ### Sign in
 {: #branded-ios-sign-in}
 
-1. Configure your Cloud Directory [settings](/docs/services/appid?topic=appid-cloud-directory#cd-settings) in the GUI.
+1. Configure your Cloud Directory [settings](/docs/appid?topic=appid-cloud-directory#cd-settings) in the GUI.
 2. Place the following code in your application. When a user attempts to sign in, your customized screen is called and the authorization and authentication process starts with your customized sign-in page.
 
   ```swift
@@ -140,7 +140,7 @@ With Cloud Directory enabled, you can call customized screens with the Node.js S
 By using `WebAppStrategy`, users can sign in to your web apps with their user name and a password. After a user successfully signs in to your app, their access token is persisted in an HTTP session as long as it is kept alive. After the HTTP session is closed or expired, the access token is also destroyed.
 
 
-1. Configure your Cloud Directory [settings](/docs/services/appid?topic=appid-cloud-directory#cd-settings) in the GUI.
+1. Configure your Cloud Directory [settings](/docs/appid?topic=appid-cloud-directory#cd-settings) in the GUI.
 2. Place the following code in your application. When a user attempts to sign in, your customized screen is called and the authorization and authentication process starts.
 
   ```javascript
@@ -184,9 +184,9 @@ You can display your own customized screens and take advantage of the authentica
 
 To make this possible, {{site.data.keyword.appid_short_notm}} exposes REST APIs. You can use the REST APIs to build a back-end server that serves your web apps, or to interact with a mobile app with your own custom screens.
 
-The management API is secured with IBM Cloud Identity and Access Management generated tokens, which means that account owners can specify who on their team has which level of access for each service instance. For more information about how IAM and {{site.data.keyword.appid_short_notm}} work together, see [Service access management](/docs/services/appid?topic=appid-service-access-management).
+The management API is secured with IBM Cloud Identity and Access Management generated tokens, which means that account owners can specify who on their team has which level of access for each service instance. For more information about how IAM and {{site.data.keyword.appid_short_notm}} work together, see [Service access management](/docs/appid?topic=appid-service-access-management).
 
-After you configure your [settings](/docs/services/appid?topic=appid-cloud-directory#cd-settings), you can call the following endpoints to display each screen.
+After you configure your [settings](/docs/appid?topic=appid-cloud-directory#cd-settings), you can call the following endpoints to display each screen.
 
 ### Sign up
 {: #branded-api-signup}
@@ -198,7 +198,7 @@ Supply the following data in the request body:
     * A `password` attribute.
     * In the email array with a `primary` attribute that is set to `true`, you must have at least one email address.
 
-Depending on your [email configuration](/docs/services/appid?topic=appid-cd-messages), a user might receive a request for verification, an email that welcomes them when they sign up for your app, or both. Both types of emails are triggered when a user signs up for your app. The verification email contains a link that the user can click to confirm their identity; a screen is displayed, that thanks them for verifying or confirms that their verification is complete.  
+Depending on your [email configuration](/docs/appid?topic=appid-cd-messages), a user might receive a request for verification, an email that welcomes them when they sign up for your app, or both. Both types of emails are triggered when a user signs up for your app. The verification email contains a link that the user can click to confirm their identity; a screen is displayed, that thanks them for verifying or confirms that their verification is complete.  
 
 To present your own post verification page:
 
@@ -222,7 +222,7 @@ When the endpoint is called, a reset password email is sent to the user. The ema
 
 You can present your own post reset password page:
 
-1. Configure your Cloud Directory [settings](/docs/services/appid?topic=appid-cloud-directory#cd-settings) in the GUI. **Allow users to manage their account from your app** must be set to **On**.
+1. Configure your Cloud Directory [settings](/docs/appid?topic=appid-cloud-directory#cd-settings) in the GUI. **Allow users to manage their account from your app** must be set to **On**.
 2. In the **Reset Password** tab of the service dashboard, be sure that **Forgot password email** is set to **On**.
 3. Enter the URL for your landing page in the **URL for your custom reset password page**  
 

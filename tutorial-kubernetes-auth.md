@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-12-12"
+  years: 2017, 2020
+lastupdated: "2020-02-04"
 
 keywords: ingress controller, ingress, istio, access, subdomain, custom domain, service, containerized apps, containers, kube, networking, policy, policies, secure apps, authentication, authorization
 
@@ -259,7 +259,7 @@ To ensure the best performance of the integration, it is recommended that you al
 ## Adding your redirect URIs
 {: #kube-add-redirect}
 
-A redirect URL is the location that your user is sent to after they successfully sign in to or out of your app. By adding the redirect URI to your whitelist, you are telling {{site.data.keyword.appid_short_notm}} that it is okay to send your users to that location. [Learn more about redirect URIs](/docs/services/appid?topic=appid-managing-idp#add-redirect-uri).
+A redirect URL is the location that your user is sent to after they successfully sign in to or out of your app. By adding the redirect URI to your whitelist, you are telling {{site.data.keyword.appid_short_notm}} that it is okay to send your users to that location. [Learn more about redirect URIs](/docs/appid?topic=appid-managing-idp#add-redirect-uri).
 
 
 1. Navigate to the {{site.data.keyword.cloud_notm}} GUI and open your {{site.data.keyword.appid_short_notm}} dashboard.
@@ -283,7 +283,7 @@ A redirect URL is the location that your user is sent to after they successfully
 ## Configuring log out
 {: #kube-logout}
 
-When you configure your application to use the Ingress Controller annotation, a session with the user's browser is established. To end the Ingress session, call the `/appid_logout` endpoint and then redirect your users to a home or sign in page. Be sure that the log out code is called as a reaction to the user clicking `Logout` in your app. Be sure that you add your log out URI to your [whitelisted redirect URIs](/docs/services/appid?topic=appid-managing-idp#add-redirect-uri). Your URI will look similar to `https://mycluster.us-south.containers.appdomain.cloud/myapp1path/appid_logout`.
+When you configure your application to use the Ingress Controller annotation, a session with the user's browser is established. To end the Ingress session, call the `/appid_logout` endpoint and then redirect your users to a home or sign in page. Be sure that the log out code is called as a reaction to the user clicking `Logout` in your app. Be sure that you add your log out URI to your [whitelisted redirect URIs](/docs/appid?topic=appid-managing-idp#add-redirect-uri). Your URI will look similar to `https://mycluster.us-south.containers.appdomain.cloud/myapp1path/appid_logout`.
 
 
 
@@ -292,9 +292,9 @@ When you configure your application to use the Ingress Controller annotation, a 
 
 Now that your application is running in a Kubernetes cluster and Ingress is configured, you can try:
 
-* Using custom attributes to [set roles](/docs/services/appid?topic=appid-tutorial-roles)
-* Configuring [multi-factor authentication](/docs/services/appid?topic=appid-cd-mfa)
-* Customizing the [Login Widget](/docs/services/appid?topic=appid-login-widget)
+* Using custom attributes to [set roles](/docs/appid?topic=appid-tutorial-roles)
+* Configuring [multi-factor authentication](/docs/appid?topic=appid-cd-mfa)
+* Customizing the [Login Widget](/docs/appid?topic=appid-login-widget)
 
 
 

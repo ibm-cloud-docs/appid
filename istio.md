@@ -80,7 +80,7 @@ If needed, a refresh token can be used to automatically acquire new access and i
 The adapter can be used in collaboration with the OAuth 2.0 [JWT Bearer flow](https://tools.ietf.org/html/rfc6750){: external} to protect service APIs by validating JWT Bearer tokens. The Bearer authorization flow expects a request to contain an Authorization header with a valid access token and an optional identity token. The expected header structure is `Authorization=Bearer {access_token} [{id_token}]`. Unauthenticated clients are returned an HTTP 401 response status with a list of the scopes that are needed to obtain authorization. If the tokens are invalid or expired, the API strategy returns an HTTP 401 response with an optional error component that says `Www-Authenticate=Bearer scope="{scope}" error="{error}"`.
 
 
-For more information about tokens and how they're used, see [understanding tokens](/docs/services/appid?topic=appid-tokens).
+For more information about tokens and how they're used, see [understanding tokens](/docs/appid?topic=appid-tokens).
 
 
 

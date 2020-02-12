@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-11-19"
+  years: 2017, 2020
+lastupdated: "2020-02-04"
 
 keywords: facebook, google, social, identity providers, single sign on, default configuration, authentication, authorization, identity, app security, idp, default credentials
 
@@ -35,7 +35,7 @@ With {{site.data.keyword.appid_full}}, you can configure social identity provide
 {{site.data.keyword.appid_short_notm}} provides a default configuration to help you get up and running quickly with the service.
 {: shortdesc}
 
-Data is used when you engage in the Permitted Uses of the Service. By using the Service, you agree to adopting the policy for the collection and use of information in accordance with the outlined [privacy policy](/docs/services/appid?topic=appid-privacy-policy).
+Data is used when you engage in the Permitted Uses of the Service. By using the Service, you agree to adopting the policy for the collection and use of information in accordance with the outlined [privacy policy](/docs/appid?topic=appid-privacy-policy).
 {: important}
 
 

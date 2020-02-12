@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-11-25"
+  years: 2017, 2020
+lastupdated: "2020-02-12"
 
 keywords: user access, account settings, iam, user roles, platform roles, service roles, reader, writer, operator, editor, viewer, administrator, manager, permissions
 
@@ -23,7 +23,7 @@ subcollection: appid
 {:download: .download}
 
 
-# Managing service access
+# IAM access for {{site.data.keyword.appid_short_notm}}
 {: #service-access-management}
 
 With {{site.data.keyword.appid_full}} and {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM), account owners can manage user access in your account.
@@ -33,6 +33,7 @@ As an account owner, you can set policies within your account to create differen
 
 For more information about IAM, see [IAM Access](/docs/iam?topic=iam-userroles).
 
+
 ## User roles
 {: #iam-roles}
 
@@ -40,12 +41,12 @@ The scope of an access policy is based on a users assigned role.
 {: shortdesc}
 
 Policies enable access to be granted at different levels. Some of the options include:
-<ul><ul>
-  <li>Access across all instances of the service in your account</li>
-  <li>Access to an individual service instances in your account</li>
-  <li>Access to a specific resource within an instance</li>
-  <li>Access to all IAM-enabled services in your account</li>
-</ul></ul>
+
+* Access across all instances of the service in your account
+* Access to an individual service instances in your account
+* Access to a specific resource within an instance
+* Access to all IAM-enabled services in your account
+
 
 ### Platform roles
 {: #iam-platform-roles}
@@ -83,262 +84,121 @@ Platform management roles enable users to perform tasks on service resources at 
 
 ### Service access roles
 {: #iam-service-roles}
+
 The following table details actions that are mapped to service access roles. Service access roles enable users to access {{site.data.keyword.appid_short_notm}} as well as the ability to call the {{site.data.keyword.appid_short_notm}} API.
 
-
 <table>
-  <caption>Table 2. Service roles, permissions, and the example actions that each role can take</caption>
+  <caption>Table 2. Service roles and the actions that the role can take</caption>
   <tr>
     <th>Service role</th>
-    <th>Permissions</th>
     <th>Example actions</th>
   </tr>
   <tr>
-    <td><i>Reader</i></td>
-    <td>View {{site.data.keyword.appid_short_notm}} instance data.</td>
-    <td>Can view the details of the service instance such as user data or identity provider information.</td>
+    <td>Reader</td>
+    <td>
+      <ul>
+        <li>View the post-authentication redirect URLs that are configured in your instance.</li>
+        <li>View the identity provider configuration or a view the configuration for a single identity provider.</li>
+        <li>View recent authentication activity for your app.</li>
+        <li>View the current configuration of the Login Widget including the logo, color, and language.</li>
+        <li>View the current configuration of your tokens.</li>
+        <li>View the action URLs that are configured for Cloud Directory.</li>
+        <li>View a single action URL that is configured for Cloud Directory.</li>
+        <li>View advanced password policy configurations.</li>
+        <li>View a Cloud Directory password policy in regex form.</li>
+        <li>View the current email template configuration.</li>
+        <li>View Cloud Directory email sender details.</li>
+        <li>View user information from your app configuration.</li>
+        <li>View your Cloud Directory users and their data.</li>
+        <li>View a user profile.</li>
+        <li>Search all of your user profiles and get a count of any anonymous users.</li>
+        <li>View all of the apps that are registered with your instance of App ID.</li>
+        <li>View a specific app that is registered with App ID.</li>
+        <li>View the email provider configuration.</li>
+        <li>View a JSON object that contains the auditing status of the tenant.</li>
+        <li>View all of the MFA channels.</li>
+        <li>View an MFA channel.</li>
+        <li>View the current MFA configuration.</li>
+        <li>View the Cloud Directory SSO configuration.</li>
+        <li>View a Cloud Directory user and their information.</li>
+        <li>View your rate limit configuration.</li>
+        <li>View the roles that are associated with a scope.</li>
+        <li>View the roles that are assigned to a specific user.</li>
+        <li>View a registered extension's configuration.</li>
+      </ul>
+    </td>
   </tr>
   <tr>
-    <td><i>Writer or Manager</i></td>
-    <td>View and change an {{site.data.keyword.appid_short_notm}} instance.</td>
-    <td>Can perform all Reader actions and edit the service instance, such as editing the identity provider configuration. </li></ul></td>
+    <td>Writer</td>
+    <td>
+      <ul>
+        <li>All Reader actions.</li>
+        <li>Add or update post-authentication redirection URLs.</li>
+        <li>Configure your identity provider options.</li>
+        <li>Configure your Login Widget appearance including the logo, color and language.</li>
+        <li>Configure your tokens.</li>
+        <li>Delete an action URL that is configured for Cloud Directory.</li>
+        <li>Configure advanced password policies.</li>
+        <li>Update a Cloud Directory password policy in regex form.</li>
+        <li>Get the metadata that is used to link your SAML provider.</li>
+        <li>Start the sign up process for a new Cloud Directory user.</li>
+        <li>View the result of a new user sign up.</li>
+        <li>Start the forgot password email flow for a Cloud Directory user.</li>
+        <li>Check whether the forgot password email was successfully sent.</li>
+        <li>Resend an email to a Cloud Directory user.</li>
+        <li>Start the change password email flow for a Cloud Directory user.</li>
+        <li>Update your email template configuration.</li>
+        <li>Delete an email template configuration.</li>
+        <li>Set Cloud Directory email sender details configuration.</li>
+        <li>Update a user profile with the information from your application.</li>
+        <li>Create a new Cloud Directory user.</li>
+        <li>Update a Cloud Directory user's information.</li>
+        <li>Delete a user from Cloud Directory.</li>
+        <li>Update a user profile.</li>
+        <li>Create a future user.</li>
+        <li>Revoke a users refresh token.</li>
+        <li>Register a new app with App ID.</li>
+        <li>Update an app that is registered with App ID.</li>
+        <li>Delete an app that is registered with App ID.</li>
+        <li>Configure or update your own email provider.</li>
+        <li>Test your email provider configuration.</li>
+        <li>Update your auditing status.</li>
+        <li>Update an MFA channel.</li>
+        <li>Update your MFA configuration.</li>
+        <li>Update your Cloud Directory SSO configuration.</li>
+        <li>Initiate SSO logout for Cloud Directory.</li>
+        <li>Test your MFA configuration for SMS.</li>
+        <li>Remove Cloud Directory users and their profiles.</li>
+        <li>Update your rate limit configuration.</li>
+        <li>Add a scope to an application.</li>
+        <li>Get the scopes that are associated with an application.</li>
+        <li>Delete a scope that is associated with an application.</li>
+        <li>Add a role.</li>
+        <li>Update the roles in your instance of App ID.</li>
+        <li>Delete a role.</li>
+        <li>Update the roles that are assigned to a specific user.</li>
+        <li>Update the status of a registered extension for an instance of App ID to enabled or disabled.</li>
+        <li>Update a registered extension's configuration.</li>
+        <li>Test a registered extensions configuration.</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>Manager</td>
+    <td>
+      <ul>
+        <li>All Writer actions.</li>
+        <li>Export your Cloud Directory users and their data from your App ID instance.</li>
+        <li>Import your Cloud Directory users into a new instance of App ID.</li>
+        <li>Export all of the user profiles in an instance of App ID.</li>
+        <li>Import all of the user profiles that you exported into a new instance of App ID.</li>
+      </ul>
+    </td>
   </tr>
 </table>
 
-For more information about assigning user roles in the UI, see [Managing IAM access](/docs/iam?topic=iam-iammanidaccser#iammanidaccser).
+For more information about assigning user roles in the UI, see [Managing access to resources](/docs/iam?topic=iam-iammanidaccser#iammanidaccser).
 
 
-## {{site.data.keyword.appid_short_notm}} access policies
-{: #iam-access}
 
-Every user that accesses the {{site.data.keyword.appid_short_notm}} service in your account must be assigned an access policy with an IAM user role defined. That policy determines what actions the user can perform within the context of the service or instance you select.
-{: shortdesc}
-
-The actions are customized and defined by the {{site.data.keyword.cloud_notm}} service as operations that are allowed to be performed in the service. The actions are then mapped to IAM user roles. Some of the actions taken you can track with the {{site.data.keyword.cloudaccesstrailshort}} service. In the following table, the actions and required permissions for {{site.data.keyword.appid_short_notm}} are mapped.
-
-<table>
-  <caption>Table 3. {{site.data.keyword.appid_short_notm}} access policies</caption>
-  <tr>
-    <th>Action</th>
-    <th>Explanation</th>
-    <th>Required role</th>
-  </tr>
-  <tr>
-    <td><code>appid-mgmt-get-redirect-uris</code></td>
-    <td>View the post-authentication redirect URLs.</td>
-    <td>Reader, Writer, Manager</td>
-  </tr>
-  </tr>
-  <tr>
-    <td><code>appid-mgmt-set-redirect-uris</code></td>
-    <td>Add or update post-authentication redirection URLs.</td>
-    <td>Writer, Manager</td>
-  </tr>
-  <tr>
-    <td><code>appid-mgmt-set-idps</code></td>
-    <td>Update your identity provider configuration.</td>
-    <td>Writer, Manager</td>
-  </tr>
-  <tr>
-    <td><code>appid-mgmt-get-idps</code></td>
-    <td>View your identity provider configuration.</td>
-    <td>Reader, Writer, Manager</td>
-  </tr>
-  <tr>
-    <td><code>appid-mgmt-get-recent-activities</code></td>
-    <td>View any recent authentication events as a list.</td>
-    <td>Reader, Writer, Manager</td>
-  </tr>
-  <tr>
-    <td><code>appid-mgmt-get-ui-config</code></td>
-    <td>View the login widget configuration, such as logo and colors.</td>
-    <td>Reader, Writer, Manager</td>
-  </tr>
-  <tr>
-    <td><code>appid-mgmt-set-ui-config</code></td>
-    <td>Update the login widget configuration.</td>
-    <td>Writer, Manager</td>
-  </tr>
-  <tr>
-    <td><code>appid-mgmt-get-user-profile-config</code></td>
-    <td>View the user profile configuration.</td>
-    <td>Reader, Writer, Manager</td>
-  </tr>
-  <tr>
-    <td><code>appid-mgmt-set-user-profile-config</code></td>
-    <td>Change the user profile configuration.</td>
-    <td>Writer, Manager</td>
-  </tr>
-  <tr>
-    <td><code>appid-mgmt-get-cd-users</code></td>
-    <td>View the user profile configuration.</td>
-    <td>Reader, Writer, Manager</td>
-  </tr>
-  <tr>
-    <td><code>appid-mgmt-add-cd-user</code></td>
-    <td>Add new users to cloud directory.</td>
-    <td>Writer, Manager</td>
-  </tr>
-  <tr>
-    <td><code>appid-mgmt-set-cd-user</code></td>
-    <td>Update a cloud directory user's details.</td>
-    <td>Writer, Manager</td>
-  </tr>
-  <tr>
-    <td><code>appid-mgmt-delete-cd-user</code></td>
-    <td>Delete a user from cloud directory.</td>
-    <td>Writer, Manager</td>
-  </tr>
-  <tr>
-    <td><code>appid-mgmt-get-email-template</code></td>
-    <td>View the cloud directory email templates.</td>
-    <td>Reader, Writer, Manager</td>
-  </tr>
-  <tr>
-    <td><code>appid-mgmt-update-email-template</code></td>
-    <td>Update the email template with your own content.</td>
-    <td>Writer, Manager</td>
-  </tr>
-  <tr>
-    <td><code>appid-mgmt-delete-email-template</code></td>
-    <td>Delete a cloud directory email template.</td>
-    <td>Writer, Manager</td>
-  </tr>
-  <tr>
-    <td><code>appid-mgmt-get-saml-metadata</code></td>
-    <td>View cloud directory's SAML service provider (SP) metadata.</td>
-    <td>Reader, Writer, Manager</td>
-  </tr>
-  <tr>
-    <td><code>appid-mgmt-post-saml-logo</code></td>
-    <td>Set or update the image in the login widget for the SAML identity provider.</td>
-    <td>Writer, Manager</td>
-  </tr>
-  <tr>
-    <td><code>appid-mgmt-send-email-cd</code></td>
-    <td>Send an email to a user based on a template.</td>
-    <td>Writer, Manager</td>
-  </tr>
-  <tr>
-    <td><code>appid-mgmt-get-sender-details-cd</code></td>
-    <td>View the sender details for the email.</td>
-    <td>Reader, Writer, Manager</td>
-  </tr>
-  <tr>
-    <td><code>appid-mgmt-set-sender-details-cd</code></td>
-    <td>Update the sender details.</td>
-    <td>Writer, Manager</td>
-  </tr>
-  <tr>
-    <td><code>appid-mgmt-revoke-refresh-token</code></td>
-    <td>Revoke a user's refresh token with their user ID.</td>
-    <td>Writer, Manager</td>
-  </tr>
-</table>
-
-</br>
-
-## Example: Giving another user access to an instance of {{site.data.keyword.appid_short_notm}}
-{: #iam-example}
-
-In this scenario, an administrator created an instance of {{site.data.keyword.appid_short_notm}} and needs to grant viewer access to another team member.
-{: shortdesc}
-
-Before you begin:
-
-* Install the [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started).
-
-To update access permissions, the admin completes the following steps:
-
-1. Log in to the {{site.data.keyword.cloud_notm}} console.
-
-2. Give the employee view access by following the steps that are laid out in the [IAM documentation](/docs/iam?topic=iam-iammanidaccser).
-
-3. Navigate to the **Service credentials** tab of the {{site.data.keyword.appid_short_notm}} dashboard. Click **View credentials** and copy the **tentantID**.
-
-4. Sign in with the {{site.data.keyword.cloud_notm}} CLI in your terminal.
-
-  ```
-  ibmcloud login -api -a https://api.{region}.cloud.ibm.com
-  ```
-  {: codeblock}
-
-  <table>
-    <caption>Table 4. Region options that you can use to work with {{site.data.keyword.cloud_notm}} and {{site.data.keyword.appid_short_notm}}</caption>
-    <tr>
-      <th>Region</th>
-      <th>Endpoint</th>
-    </tr>
-    <tr>
-      <td>Dallas</td>
-      <td><code>us-south</code></td>
-    </tr>
-    <tr>
-      <td>Frankfurt</td>
-      <td><code>eu-de</code></td>
-    </tr>
-    <tr>
-      <td>Sydney</td>
-      <td><code>au-syd</code></td>
-    </tr>
-    <tr>
-      <td>London</td>
-      <td><code>eu-gb</code></td>
-    </tr>
-    <tr>
-      <td>Tokyo</td>
-      <td><code>jp-tok</code></td>
-    </tr>
-  </table>
-
-5. Get an IAM token and make a note of it.
-
-  ```
-  ibmcloud iam oauth-tokens
-  ```
-  {: codeblock}
-
-6. Verify that the team member cannot make changes.
-
-  ```sh
-  curl -X PUT --header 'Content-Type: application/json' \
-  --header 'Accept: application/json' \
-  --header 'Authorization: <IAM token value>' \
-  -d '{
-    "isActive": false,
-    "config": {
-      "idpId": "appID",
-      "secret": "appsecret"
-    }
-  }' \
-  'https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/config/idps/facebook'
-  ```
-  {: codeblock}
-
-  The result is a 403 unauthorized message.
-
-To view the {{site.data.keyword.appid_short_notm}} configurations from the CLI, the team member completes the following steps:
-
-1. Using the {{site.data.keyword.cloud_notm}} CLI in your terminal, sign in.
-
-  ```
-  ibmcloud login -a api.<region>.console.cloud.ibm.com
-  ```
-  {: codeblock}
-
-2. Get an IAM token and make a note of it.
-
-  ```
-  ibmcloud iam oauth-tokens
-  ```
-  {: codeblock}
-
-3. View the identity provider configuration for Facebook by using cURL.
-
-  ```sh
-  curl -X GET --header 'Accept: application/json' --header 'Authorization: <IAM token value>' \  'https://us-south.appid.cloud.ibm.com/management/v4/<tenant-ID>/config/idps/facebook'
-  ```
-  {: codeblock}
-
-  The result is a 200 message that contains the identity provider information.
 

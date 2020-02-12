@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-11-19"
+  years: 2017, 2020
+lastupdated: "2020-02-04"
 
 keywords: app log in, login widget, sign in, default screen, forgot password, mfa, multi-factor authentication, sign up, reset password, facebook, google, identity provider, social log in, saml, authentication, authorization, cloud directory
 
@@ -102,7 +102,7 @@ After a successful authentication, App ID creates a session cookie with encrypte
 The Login Widget is dynamic. You can customize the look and feel or identity provider configuration, and the changes are applied immedicately. You do not need to update your application code or redeploy your app in any way!
 {: shortdesc}
 
-Do you need more customization than the Login Widget provides? You can implement your own, fully customized UI for user sign in, sign up, reset password, and other flows to create an experience that's unique to your app. To get started, check out [branding your app](/docs/services/appid?topic=appid-branded).
+Do you need more customization than the Login Widget provides? You can implement your own, fully customized UI for user sign in, sign up, reset password, and other flows to create an experience that's unique to your app. To get started, check out [branding your app](/docs/appid?topic=appid-branded).
 {: tip}
 
 To customize the screen:
@@ -149,7 +149,7 @@ Place the following command in your code.
 ### Sign up
 {: #widget-android-signup}
 
-1. Configure your Cloud Directory [settings](/docs/services/appid?topic=appid-cloud-directory#cd-settings) in the GUI. Both **Allow users to sign up to your app** and **Allow users to manage their account from your app** must be set to **On**.
+1. Configure your Cloud Directory [settings](/docs/appid?topic=appid-cloud-directory#cd-settings) in the GUI. Both **Allow users to sign up to your app** and **Allow users to manage their account from your app** must be set to **On**.
 2. Add the following code to your app. When a user signs up for your app from your custom screen, the sign up flow is started. The following call not only registers the user, but can also send a verification email to complete the registration, depending on your Cloud Directory configurations.
 
   ```java
@@ -182,7 +182,7 @@ Place the following command in your code.
 ### Forgot password
 {: #widget-android-forgot-password}
 
-1. Configure your Cloud Directory [settings](/docs/services/appid?topic=appid-cloud-directory#cd-settings) in the GUI. **Allow users to manage their account from your app** must be set to **On**.
+1. Configure your Cloud Directory [settings](/docs/appid?topic=appid-cloud-directory#cd-settings) in the GUI. **Allow users to manage their account from your app** must be set to **On**.
 2. In the **Reset Password** tab of the service dashboard, be sure that **Forgot password email** is set to **On**.
 3. Add the following code to your app. When a user clicks "forgot password" in your application, the SDK calls the forgot_password API to send an email to the user that allows them to reset their password.
 
@@ -212,7 +212,7 @@ Place the following command in your code.
 ### Change details
 {: #widget-android-change-details}
 
-1. Configure your Cloud Directory [settings](/docs/services/appid?topic=appid-cloud-directory#cd-settings) in the GUI. Both **Allow users to sign up to your app** and **Allow users to manage their account from your app** must be set to **On**.
+1. Configure your Cloud Directory [settings](/docs/appid?topic=appid-cloud-directory#cd-settings) in the GUI. Both **Allow users to sign up to your app** and **Allow users to manage their account from your app** must be set to **On**.
 2. In the **Password changed** tab of the service dashboard, set **Password changed email** to
 3. Call the login widget to start the change details flow.
 
@@ -242,7 +242,7 @@ Place the following command in your code.
 ### Change password
 {: #widget-android-change-password}
 
-1. Configure your Cloud Directory [settings](/docs/services/appid?topic=appid-cloud-directory#cd-settings) in the GUI. Both **Allow users to sign up to your app** and **Allow users to manage their account from your app** must be set to **On**.
+1. Configure your Cloud Directory [settings](/docs/appid?topic=appid-cloud-directory#cd-settings) in the GUI. Both **Allow users to sign up to your app** and **Allow users to manage their account from your app** must be set to **On**.
 2. Place the following code in your app to start the change password flow.
 
   ```java
@@ -301,7 +301,7 @@ Place the following command in your code.
 ### Sign up
 {: #widget-ios-signup}
 
-1. Configure your Cloud Directory [settings](/docs/services/appid?topic=appid-cloud-directory#cd-settings) in the GUI. Both **Allow users to sign up to your app** and **Allow users to manage their account from your app** must be set to **On**.
+1. Configure your Cloud Directory [settings](/docs/appid?topic=appid-cloud-directory#cd-settings) in the GUI. Both **Allow users to sign up to your app** and **Allow users to manage their account from your app** must be set to **On**.
 2. Place the following code in your application. When a user attempts to sign up for your application, the login widget is called and displays your custom sign up page.
 
   ```swift
@@ -332,7 +332,7 @@ Place the following command in your code.
 ### Forgot password
 {: #widget-ios-forgot-password}
 
-1. Configure your Cloud Directory [settings](/docs/services/appid?topic=appid-cloud-directory#cd-settings) in the GUI. **Allow users to manage their account from your app** must be set to **On**.
+1. Configure your Cloud Directory [settings](/docs/appid?topic=appid-cloud-directory#cd-settings) in the GUI. **Allow users to manage their account from your app** must be set to **On**.
 2. In the **Reset Password** tab of the service dashboard, be sure that **Forgot password email** is set to **On**.
 3. Place the following code in your application. When one of your app users requests that their password is updated, the login widget is called and the process starts.
 
@@ -360,7 +360,7 @@ Place the following command in your code.
 ### Change details
 {: #widget-ios-change-details}
 
-1. Configure your Cloud Directory [settings](/docs/services/appid?topic=appid-cloud-directory#cd-settings) in the GUI. Both **Allow users to sign up to your app** and **Allow users to manage their account from your app** must be set to **On**.
+1. Configure your Cloud Directory [settings](/docs/appid?topic=appid-cloud-directory#cd-settings) in the GUI. Both **Allow users to sign up to your app** and **Allow users to manage their account from your app** must be set to **On**.
 2. In the **Password changed** tab of the service dashboard, set **Password changed email** to
 3. Call the login widget to start the change details flow.
 
@@ -388,7 +388,7 @@ Place the following command in your code.
 ### Change password
 {: #widget-ios-change-password}
 
-1. Configure your Cloud Directory [settings](/docs/services/appid?topic=appid-cloud-directory#cd-settings) in the GUI. Both **Allow users to sign up to your app** and **Allow users to manage their account from your app** must be set to **On**.
+1. Configure your Cloud Directory [settings](/docs/appid?topic=appid-cloud-directory#cd-settings) in the GUI. Both **Allow users to sign up to your app** and **Allow users to manage their account from your app** must be set to **On**.
 2. Place the following code in your app to start the change password flow.
 
   ```swift
@@ -436,7 +436,7 @@ Add a post route to your app that can be called with the username and password p
 ### Sign up
 {: #widget-nodejs-signup}
 
-1. Configure your Cloud Directory [settings](/docs/services/appid?topic=appid-cloud-directory#cd-settings) in the GUI. Both **Allow users to sign up to your app** and **Allow users to manage their account from your app** must be set to **On**.
+1. Configure your Cloud Directory [settings](/docs/appid?topic=appid-cloud-directory#cd-settings) in the GUI. Both **Allow users to sign up to your app** and **Allow users to manage their account from your app** must be set to **On**.
 2. Place the following code in your application. When a user attempts to sign up for your application, the login widget is called and displays your custom sign up page.
 
   ```javascript
@@ -452,7 +452,7 @@ Add a post route to your app that can be called with the username and password p
 ### Forgot password
 {: #widget-nodejs-forgot-password}
 
-1. Configure your Cloud Directory [settings](/docs/services/appid?topic=appid-cloud-directory#cd-settings) in the GUI. **Allow users to manage their account from your app** must be set to **On**.
+1. Configure your Cloud Directory [settings](/docs/appid?topic=appid-cloud-directory#cd-settings) in the GUI. **Allow users to manage their account from your app** must be set to **On**.
 2. In the **Reset Password** tab of the service dashboard, be sure that **Forgot password email** is set to **On**.
 3. Place the following code in your application to pass the *show* property to `WebAppStrategy.FORGOT_PASSWORD`. When a user requests that their password to your app be updated, the login widget is called and the  process starts.
 
@@ -469,7 +469,7 @@ Add a post route to your app that can be called with the username and password p
 ### Change details
 {: #widget-nodejs-change-details}
 
-1. Configure your Cloud Directory [settings](/docs/services/appid?topic=appid-cloud-directory#cd-settings) in the GUI. Both **Allow users to sign up to your app** and **Allow users to manage their account from your app** must be set to **On**.
+1. Configure your Cloud Directory [settings](/docs/appid?topic=appid-cloud-directory#cd-settings) in the GUI. Both **Allow users to sign up to your app** and **Allow users to manage their account from your app** must be set to **On**.
 2. In the **Password changed** tab of the service dashboard, set **Password changed email** to
 3. Place the following code in your application to pass the *show* property to `WebAppStrategy.FORGOT_PASSWORD` to launch the change details form.
 
@@ -486,7 +486,7 @@ Add a post route to your app that can be called with the username and password p
 ### Change password
 {: #widget-nodejs-change-password}
 
-1. Configure your Cloud Directory [settings](/docs/services/appid?topic=appid-cloud-directory#cd-settings) in the GUI. Both **Allow users to sign up to your app** and **Allow users to manage their account from your app** must be set to **On**.
+1. Configure your Cloud Directory [settings](/docs/appid?topic=appid-cloud-directory#cd-settings) in the GUI. Both **Allow users to sign up to your app** and **Allow users to manage their account from your app** must be set to **On**.
 2. In the **Password changed** tab of the service dashboard, set **Password changed email** to
 3. Place the following code in your application to pass the *show* property to `WebAppStrategy.FORGOT_PASSWORD` to launch the change details form.
 

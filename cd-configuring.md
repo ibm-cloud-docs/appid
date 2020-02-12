@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-01-29"
+lastupdated: "2020-02-06"
 
 keywords: user registry, sign up, sign in, username, email, password, account settings, reset password, email sender, email verification, app security
 
@@ -38,7 +38,7 @@ You can configure the level of self-service that is allowed in your application 
 
 1. Go to the **Manage authentication** tab of the {{site.data.keyword.appid_short_notm}} dashboard and toggle **Cloud Directory** to **Enabled**. You can also enable other providers but to offer Cloud Directory as an option in the Login Widget, it must be enabled.
 
-2. Go to the **Authentication Settings** tab and configure your redirect URIs and sign in expiration settings. For more information about the settings, see [Managing authentication](/docs/services/appid??topic=appid-managing-idp)
+2. Go to the **Authentication Settings** tab and configure your redirect URIs and sign in expiration settings. For more information about the settings, see [Managing authentication](/docs/appid?topic=appid-managing-idp)
 
 3. Go to **Cloud Directory > Settings**.
 

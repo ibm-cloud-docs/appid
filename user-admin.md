@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-01-29"
+lastupdated: "2020-02-05"
 
 keywords: user information, add users, delete users, profile, access, attributes, admin, app security, authentication, authorization
 
@@ -29,7 +29,7 @@ subcollection: appid
 With {{site.data.keyword.appid_full}}, you can compile information about the individual users of your application into a profile. The information in the profile can be learned about your users by the way that they interact with your app or added by you on their behalf. By storing the information, you can access it to help create personalized experiences of your app for your users.
 {: shortdesc}
 
-Looking for information about your Cloud Directory users? Check out [managing users](/docs/services/appid?topic=appid-cd-users).
+Looking for information about your Cloud Directory users? Check out [managing users](/docs/appid?topic=appid-cd-users).
 {: tip}
 
 
@@ -191,7 +191,7 @@ You can set and update custom attributes for your users in the {{site.data.keywo
 ### With the API
 {: #admin-attribute-api}
 
-If you're an administrator, you can use the `/users` endpoint. To set custom attributes before a user signs in to your application for the first time, see [preregistering future users](/docs/services/appid?topic=appid-preregister).
+If you're an administrator, you can use the `/users` endpoint. To set custom attributes before a user signs in to your application for the first time, see [preregistering future users](/docs/appid?topic=appid-preregister).
 
 1. Go to the **User profiles > Settings** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
 
@@ -296,7 +296,7 @@ Before you can import your profiles to your new instance, you need to export the
   ```sh
   curl -X GET https://us-south.appid.cloud.ibm.com/management/v4/{tenant-ID}/users/export \
   --header "Accept: application/json" \
-  --header "Authorization: Bearer {IAM-token}"
+  --header "Authorization: Bearer <IAM-token>"
   ```
   {: codeblock}
 
@@ -376,7 +376,7 @@ Before you can import your profiles to your new instance, you need to export the
 
 Now that you have a list of exported user profiles, you can import them into the new instance.
 
-1. If your users are [assigned roles](/docs/services/appid?topic=appid-access-control), be sure to create the roles and scopes in your new instance of {{site.data.keyword.appid_short_notm}}.
+1. If your users are [assigned roles](/docs/appid?topic=appid-access-control), be sure to create the roles and scopes in your new instance of {{site.data.keyword.appid_short_notm}}.
 
   The roles and scopes must be created exactly as they were in the previous instance with the same spellings.
   {: tip}

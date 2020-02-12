@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-01-30"
+lastupdated: "2020-02-05"
 
 keywords: user events, track activity, manage events, analyze, administrative, runtime, sign in, settings, app security
 
@@ -34,7 +34,7 @@ You can view, manage, and analyze user-initiated activities made in your {{site.
 By integrating {{site.data.keyword.at_short}} with {{site.data.keyword.appid_short_notm}} you can track two different types of events, administrative and runtime. Administrative events are those that are specific to your instance of the service. Administrative events cover configuration changes such as updating your identity providers or changing the theme of your login widget. Runtime events are those activities that occur at runtime by the app user. A password reset request, authentication failures, or a user log out would all fall into the runtime category.
 
 
-For more information about how the service works, see the [{{site.data.keyword.at_short}} docs](/docs/services/Activity-Tracker-with-LogDNA?topic=logdnaat-cloud_services).
+For more information about how the service works, see the [{{site.data.keyword.at_short}} docs](/docs/Activity-Tracker-with-LogDNA?topic=logdnaat-cloud_services).
 
 
 
@@ -281,9 +281,9 @@ Check out the following table for a list of the events that are sent to {{site.d
 With {{site.data.keyword.at_short}}, you can review runtime activity made by an app user, such as logins, password resets, and authentications.
 {: shortdesc}
 
-The reported events are per account, but there are limitations on the data rate and retention period of the collected runtime events. Increasing the limits might require an upgrade of the {{site.data.keyword.at_short}} service. For more information about the service limits, see the [{{site.data.keyword.at_short}} docs](/docs/services/Activity-Tracker-with-LogDNA?topic=logdnaat-service_plan).
+The reported events are per account, but there are limitations on the data rate and retention period of the collected runtime events. Increasing the limits might require an upgrade of the {{site.data.keyword.at_short}} service. For more information about the service limits, see the [{{site.data.keyword.at_short}} docs](/docs/Activity-Tracker-with-LogDNA?topic=logdnaat-service_plan).
 
-This feature is available only for instances on graduated tier payment plan that were created after March 15, 2018. Using this feature incurs an extra charge. For more information on graduated tier pricing, see the [{{site.data.keyword.cloud_notm}} pricing docs](/docs/services/appid?topic=appid-faq#faq-pricing).
+This feature is available only for instances on graduated tier payment plan that were created after March 15, 2018. Using this feature incurs an extra charge. For more information on graduated tier pricing, see the [{{site.data.keyword.cloud_notm}} pricing docs](/docs/appid?topic=appid-faq#faq-pricing).
 {: note}
 
 
@@ -293,7 +293,7 @@ This feature is available only for instances on graduated tier payment plan that
 1. Log in to your {{site.data.keyword.cloud_notm}} account.
 2. From the catalog, provision an instance of the {{site.data.keyword.at_short}} service in the same account as your {{site.data.keyword.appid_short_notm}} instance.
 3. In the {{site.data.keyword.appid_short_notm}} dashboard, click **Manage authentication > Authentication settings**.
-4. Scroll to the **Runtime Activity** panel and toggle the switch to enable tracking of runtime authentication activity. A message displays that notifies you that the feature is enabled and that you are charged differently. For more information, see [How does App ID calculate pricing](/docs/services/appid?topic=appid-faq#faq-pricing).
+4. Scroll to the **Runtime Activity** panel and toggle the switch to enable tracking of runtime authentication activity. A message displays that notifies you that the feature is enabled and that you are charged differently. For more information, see [How does App ID calculate pricing](/docs/appid?topic=appid-faq#faq-pricing).
 5. From the **Observability > Activity Tracker** tab in the console navigation, verify the information for the instance that you created.
 6. Click **View LogDNA**. When the dashboard loads, you see an overall view of all of the activity in your account. You can use the search operators to filter your results by tags, sources, apps or levels. You can also search for specific events or jump to a specific timeframe.
 7. From the **All Apps** drop-down, select the instance of {{site.data.keyword.appid_short_notm}} that you want to track events for.
@@ -575,7 +575,7 @@ To find the user information that aligns with the event GUID, use the following 
 5. Insert the IAM token, the tenant ID, and the user ID, into the following command to obtain the user information.
 
   ```
-  curl -X GET --header 'Accept: application/json' --header 'Authorization: Bearer THE_IAM_TOKEN' \
+  curl -X GET --header 'Accept: application/json' --header 'Authorization: Bearer <IAM_TOKEN>' \
   'https://REGION.appid.cloud.ibm.com/TENANT_ID/cloud_directory/Users/THE_USER_ID'
   ```
   {: codeblock}
@@ -628,7 +628,7 @@ You can track the events of specific Cloud Directory users in {{site.data.keywor
 2. Insert the IAM token, the tenant ID, and the email into the following command to obtain the user information.
 
   ```
-  curl -X GET --header 'Accept: application/json' --header 'Authorization: Bearer THE_IAM_TOKEN' 'https://REGION.appid.cloud.ibm.com/TENANT_ID/users?email=EMAIL_ADDRESS'
+  curl -X GET --header 'Accept: application/json' --header 'Authorization: Bearer <IAM_TOKEN>' 'https://REGION.appid.cloud.ibm.com/TENANT_ID/users?email=EMAIL_ADDRESS'
   ```
   {: codeblock}
 

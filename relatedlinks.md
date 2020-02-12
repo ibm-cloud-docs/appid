@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-01-29"
+lastupdated: "2020-02-06"
 
 keywords: related links, blogs, sample apps, kube, code changes, programming guide, white paper, vuejs apps, serverless applications, enterprise user directory, custom experience, slack, stack overflow, secure iot, solution, finance app, multicloud, video tutorials
 
@@ -51,7 +51,7 @@ Get to know more about {{site.data.keyword.appid_short_notm}} by reading through
 
 * <img src="images/video.svg" alt="Video icon" width="20" style="width:20px; border-style: none"/> [Introducing {{site.data.keyword.appid_short_notm}}](https://www.youtube.com/watch?v=XlrCjHdK43Q){: external}
 * <img src="images/blog.svg" alt="General blog icon" width="20" style="width:20px; border-style: none"/> [Cloud app security - What makes a secure app?](https://www.ibm.com/blogs/cloud-archive/2017/08/cloud-app-security-makes-secure-app/){: external}
-* <img src="images/garage-article.svg" alt="Cloud Garage icon" width="20" style="width:20px; border-style: none"/> [Security to safeguard and monitor your apps](https://www.ibm.com/cloud/garage/architectures/securityArchitecture/security-for-application){: external}
+* <img src="images/garage-article.svg" alt="Cloud Garage icon" width="20" style="width:20px; border-style: none"/> [Security to safeguard and monitor your apps](https://www.ibm.com/cloud/architecture/architectures/securityArchitecture/security-for-application){: external}
 * <img src="images/video.svg" alt="Video icon" width="20" style="width:20px; border-style: none"/> [Add sign up and sign in to your apps with {{site.data.keyword.appid_short_notm}}](https://www.youtube.com/watch?v=cDSYNFn4rX8){: external}
 * <img src="images/whitepaper-icon.svg" alt="White paper icon" width="20" style="width:20px; border-style: none"/> [Technical white paper](https://www.ibm.com/cloud/blog/ibm-cloud-app-id-technical-white-paper-now-available){: external}
 
@@ -75,6 +75,7 @@ Interested in securing your applications? Check out the blogs and samples here t
 * <img src="images/blog-code.svg" alt="Icon indicating that this blog contains sample code" width="20" style="width:20px; border-style: none"/> [Authenticating web users with OpenID and JWT](http://heidloff.net/article/authenticating-web-users-openid-connect-jwt/){: external}
 * <img src="images/blog-code.svg" alt="Icon indicating that this blog contains sample code" width="20" style="width:20px; border-style: none"/> [Authorization in cloud-native apps in Istio via OpenID](http://heidloff.net/article/authentication-authorization-openid-connect-istio){: external}
 * <img src="images/blog.svg" alt="General blog icon" width="20" style="width:20px; border-style: none"/> [Adding sign in to multicloud applications without code changes](https://www.ibm.com/cloud/blog/adding-sign-in-to-multicloud-applications-without-code-changes)
+* <img src="images/blog-code.svg" alt="Icon indicating that this blog contains sample code" width="20" style="width:20px; border-style: none"/> [Using App ID to Manage Access to Your App's Sensitive Data](https://www.ibm.com/cloud/blog/using-app-id-to-manage-access-to-your-apps-sensitive-data){: external}
 
 
 Using multiple cloud providers? Check out the blog [Using Istio to secure your multicloud Kubernetes applications with zero code changes](https://www.ibm.com/cloud/blog/using-istio-to-secure-your-multicloud-kubernetes-applications-with-zero-code-change){: external}.
@@ -95,12 +96,6 @@ Just getting started? Try walking through some of our tutorials and blogs for he
 * <img src="images/blog.svg" alt="General blog icon" width="20" style="width:20px; border-style: none"/> [Configuring {{site.data.keyword.appid_short_notm}} From the Toolchain](https://www.ibm.com/cloud/blog/how-to-configure-ibm-cloud-app-id-from-the-toolchain){: external}
 * <img src="images/blog-code.svg" alt="Icon indicating that this blog contains sample code" width="20" style="width:20px; border-style: none"/> [User Authorization in Serverless Web Applications](http://heidloff.net/article/user-authorization-serverless-web-applications-openwhisk){: external}
 * <img src="images/blog-code.svg" alt="Icon indicating that this blog contains sample code" width="20" style="width:20px; border-style: none"/> [Authentication of users in serverless applications](http://heidloff.net/article/user-authentication-serverless-openwhisk){: external}
-
-## Controling access
-{: #rellinks-access}
-
-* <img src="images/blog-code.svg" alt="Icon indicating that this blog contains sample code" width="20" style="width:20px; border-style: none"/> [Using App ID to Manage Access to Your App's Sensitive Data](https://www.ibm.com/cloud/blog/using-app-id-to-manage-access-to-your-apps-sensitive-data){: external}
-
 
 
 ## Market examples

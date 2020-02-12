@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-12-09"
+  years: 2017, 2020
+lastupdated: "2020-02-04"
 
 keywords: identity provider, idp, app security, mobile app, web app, authentication, authorization, oidc, saml, protocols, facebook, google, w3id, cloud directory, redirect url, redirect uri, token configuration, token lifetime, log in configuration
 
@@ -31,14 +31,14 @@ Identity providers (IdP's) add a level of security for your mobile and web apps,
 {: shortdesc}
 
 
-{{site.data.keyword.appid_short_notm}} interacts with identity providers by using various protocols such as OpenID Connect, SAML, and more. For example, OpenID Connect is the protocol that is used with many social providers such as Facebook, Google. Enterprise providers such as [Azure Active Directory](https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-azure-active-directory){: external}, or [Active Directory Federation Service](https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-active-directory-federation-service){: external}, generally use SAML as their identity protocol. For [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory), the service uses SCIM to verify identity information.
+{{site.data.keyword.appid_short_notm}} interacts with identity providers by using various protocols such as OpenID Connect, SAML, and more. For example, OpenID Connect is the protocol that is used with many social providers such as Facebook, Google. Enterprise providers such as [Azure Active Directory](https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-azure-active-directory){: external}, or [Active Directory Federation Service](https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-active-directory-federation-service){: external}, generally use SAML as their identity protocol. For [Cloud Directory](/docs/appid?topic=appid-cloud-directory), the service uses SCIM to verify identity information.
 
 When you use social or enterprise identity providers, {{site.data.keyword.appid_short_notm}} reads user account information. Because the service never has write access to the information, users must go through their chosen identity provider to do actions, such as resetting their password. For example, if a user signs in to your app with Facebook, and then wanted to change their password, they must go to `www.facebook.com` to do so.
 {: note}
 
-When you use [Cloud Directory](/docs/services/appid?topic=appid-cloud-directory), {{site.data.keyword.appid_short_notm}} is the identity provider. The service uses your registry to verify your users identity. Because {{site.data.keyword.appid_short_notm}} is the identity provider, users can take advantage of advanced functionality, such as resetting their password, directly in your app.
+When you use [Cloud Directory](/docs/appid?topic=appid-cloud-directory), {{site.data.keyword.appid_short_notm}} is the identity provider. The service uses your registry to verify your users identity. Because {{site.data.keyword.appid_short_notm}} is the identity provider, users can take advantage of advanced functionality, such as resetting their password, directly in your app.
 
-Working with application identity? Check out [Application identity](/docs/services/appid?topic=appid-app).
+Working with application identity? Check out [Application identity](/docs/appid?topic=appid-app).
 {: tip}
 
 There are several identity providers that the service can be configured to use. Check out the following table to learn about your options.
@@ -51,27 +51,27 @@ There are several identity providers that the service can be configured to use. 
     <th>Description</th>
   </tr>
   <tr>
-    <td>[Cloud Directory](/docs/services/appid?topic=appid-cloud-directory)</td>
+    <td>[Cloud Directory](/docs/appid?topic=appid-cloud-directory)</td>
     <td>Managed registry</td>
     <td>You can maintain your own user registry in the cloud. When a user signs up for your app, they are added to your directory of users. This option gives your users more freedom to manage their own account within your app.</td>
   </tr>
   <tr>
-    <td>[SAML](/docs/services/appid?topic=appid-enterprise#enterprise)</td>
+    <td>[SAML](/docs/appid?topic=appid-enterprise#enterprise)</td>
     <td>Enterprise</td>
     <td>You can create a single sign-on experience for your users.</td>
   </tr>
   <tr>
-    <td>[Facebook](/docs/services/appid?topic=appid-social#facebook)</td>
+    <td>[Facebook](/docs/appid?topic=appid-social#facebook)</td>
     <td>Social</td>
     <td>Users can sign in to your app by using their Facebook credentials.</td>
   </tr>
   <tr>
-    <td>[Google+](/docs/services/appid?topic=appid-social#google)</td>
+    <td>[Google+](/docs/appid?topic=appid-social#google)</td>
     <td>Social</td>
     <td>Users can sign in to your app by using their Google credentials.</td>
   </tr>
   <tr>
-    <td>[Custom](/docs/services/appid?topic=appid-custom-identity#custom-identity)</td>
+    <td>[Custom](/docs/appid?topic=appid-custom-identity#custom-identity)</td>
     <td> </td>
     <td>If none of the provided options fit your specific need, you can configure your own identity flow to work with {{site.data.keyword.appid_short_notm}}.</td> 
   </tr>
@@ -88,7 +88,7 @@ An identity provider creates and manages information about an entity such as a u
 1. Navigate to your service dashboard.
 2. In the **Identity Providers** section of the navigation, select the **Manage** page.
 3. On the **Identity Providers** tab, set the providers that you want to use, to **On**.
-4. Optional: Decide whether to turn off **Anonymous users**, or leave the default, which is **On**. When set to **On**, user attributes are associated with the user from the moment they begin interacting with your app. For more information about the path to becoming an identified user, see [Progressive authentication](/docs/services/appid?topic=appid-anonymous#progressive)
+4. Optional: Decide whether to turn off **Anonymous users**, or leave the default, which is **On**. When set to **On**, user attributes are associated with the user from the moment they begin interacting with your app. For more information about the path to becoming an identified user, see [Progressive authentication](/docs/appid?topic=appid-anonymous#progressive).
 
 {{site.data.keyword.appid_short_notm}} provides default credentials to help with your initial setup of Facebook and Google+. You are limited to 20 uses of the credentials per instance, per day. Because they are IBM credentials, they are meant to be used only for development. Before you publish your app, update the configuration to your own credentials.
 {: tip}
@@ -149,9 +149,9 @@ Not sure where your redirect URI comes from? Watch the following short video to 
 {: help}
 {: support}
 
-App ID uses tokens to identify users and secure your resources. You can adjust your configuration to fit your applications needs by setting the lifespan of the tokens. Token lifetime begins again each time a user signs in. For example, you set your refresh token lifetime to 10 days. An access token and a refresh token are created when the user signs in for the first time. If the user returns to your app 3 days later, they wouldn't need to sign in again. But, if the user waited 12 days after their initial sign-in, and then returned to your app, they would need to sign in again. For more information about tokens, check out [Understanding tokens](/docs/services/appid?topic=appid-tokens#tokens).
+App ID uses tokens to identify users and secure your resources. You can adjust your configuration to fit your applications needs by setting the lifespan of the tokens. Token lifetime begins again each time a user signs in. For example, you set your refresh token lifetime to 10 days. An access token and a refresh token are created when the user signs in for the first time. If the user returns to your app 3 days later, they wouldn't need to sign in again. But, if the user waited 12 days after their initial sign-in, and then returned to your app, they would need to sign in again. For more information about tokens, check out [Understanding tokens](/docs/appid?topic=appid-tokens#tokens).
 
-When you set token expiration, the values apply to all of the providers that you make available. If you want to customize your tokens further, try calling the API to [map custom claims](/docs/services/appid?topic=appid-customizing-tokens) so that the user information is available at run time. Note that when you work with the API the customization times are configured differently.
+When you set token expiration, the values apply to all of the providers that you make available. If you want to customize your tokens further, try calling the API to [map custom claims](/docs/appid?topic=appid-customizing-tokens) so that the user information is available at run time. Note that when you work with the API the customization times are configured differently.
 {: tip}
 
 1. Go to the **Manage Authentication > Authentication settings** tab of the service dashboard.
@@ -167,26 +167,26 @@ When you set token expiration, the values apply to all of the providers that you
       <th>Options</th>
     </tr>
     <tr>
-      <td>[Access](/docs/services/appid?topic=appid-tokens#access)</td>
+      <td>[Access](/docs/appid?topic=appid-tokens#access)</td>
       <td>The length of time for which access tokens are valid. The smaller the value, the more protection that you have in cases of token theft.</td>
       <td>60 minutes</td>
       <td>Any value in the range 5 - 1440</td>
     </tr>
     <tr>
-      <td>[Refresh](/docs/services/appid?topic=appid-tokens#refresh)</td>
+      <td>[Refresh](/docs/appid?topic=appid-tokens#refresh)</td>
       <td>The length of time for which refresh tokens are valid. The smaller the number, the more frequently a user must sign themselves in.</td>
       <td>30 days</td>
       <td>Any value in the range 1 - 90</td>
     </tr>
     <tr>
-      <td>[Anonymous](/docs/services/appid?topic=appid-anonymous)</td>
+      <td>[Anonymous](/docs/appid?topic=appid-anonymous)</td>
       <td>The length of time for which anonymous tokens are valid. Anonymous tokens are assigned to users the moment they begin interacting with your app. When a user signs in, the information in the anonymous token is then transferred to the token associated with the user.</td>
       <td>30 days</td>
       <td>Any value in the range 1 - 90</td>
     </tr>
   </table>
 
-  [Identity tokens](/docs/services/appid?topic=appid-tokens#identity) are automatically configured to match the length of time that you set for access tokens. The values cannot be different.
+  [Identity tokens](/docs/appid?topic=appid-tokens#identity) are automatically configured to match the length of time that you set for access tokens. The values cannot be different.
   {: tip}
 
 3. Click **Save**. 

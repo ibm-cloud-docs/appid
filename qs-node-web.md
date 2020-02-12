@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-12-09"
+  years: 2017, 2020
+lastupdated: "2020-02-06"
 
 keywords: web apps, nodejs, node, javascript, protected resource, authorization flow, front end, frontend, app security, authentication
 
@@ -38,7 +38,7 @@ Check out the following diagram to see the Authorization Code OAuth 2.0 workflow
 3. {{site.data.keyword.appid_short_notm}} shows a sign in screen that the user can use to authenticate.
 4. They input their credentials such as a username and password. App  ID validates the credentials.
 5. {{site.data.keyword.appid_short_notm}} redirects the user back to your application with a grant code.
-6. By using the grant code, your application makes a request to {{site.data.keyword.appid_short_notm}} to ensure that the user is validated. For more information about obtaining access tokens, see [Obtaining tokens](/docs/services/appid?topic=appid-obtain-tokens).
+6. By using the grant code, your application makes a request to {{site.data.keyword.appid_short_notm}} to ensure that the user is validated. For more information about obtaining access tokens, see [Obtaining tokens](/docs/appid?topic=appid-obtain-tokens).
 7. {{site.data.keyword.appid_short_notm}} returns access and identity tokens for the validated user.
 8. The user is then granted access to your application.
 
@@ -250,6 +250,6 @@ You can pull information that is provided by your identity providers to personal
 
 To test your authorization configuration, navigate to the URL that your server is listening on as defined in your application. Try signing in, try signing out. Ensure that the configuration is working as you expected. 
 
-When you're ready to move to the next step, you can try enabling [multifactor authentication for Cloud Directory](/docs/services/appid?topic=appid-cd-mfa) or adding [custom attributes](/docs/services/appid?topic=appid-profiles) to further personalize your app.
+When you're ready to move to the next step, you can try enabling [multifactor authentication for Cloud Directory](/docs/appid?topic=appid-cd-mfa) or adding [custom attributes](/docs/appid?topic=appid-profiles) to further personalize your app.
 
 

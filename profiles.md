@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-11-19"
+  years: 2017, 2020
+lastupdated: "2020-02-04"
 
 keywords: profile, custom attributes, predefined attributes, attributes, app users, app interaction, personalized experience, access user info, identity provider information, access token, authentication, user sign in, android, java, node, swift, ios, user, preferences
 
@@ -61,7 +61,7 @@ If you need to work with an API, check out the following image and corresponding
 
 <dl>
   <dt><code>/oauth/v4/{tenantId}/token</code></dt>
-    <dd>After a successful authentication, you receive access and identity tokens that contain the most common user information - a name, picture, or email for example. If you want to add additional information, you can use [custom claims-mapping](/docs/services/appid?topic=appid-customizing-tokens) to configure App ID to inject the information to the token before it is returned to you.</dd>
+    <dd>After a successful authentication, you receive access and identity tokens that contain the most common user information - a name, picture, or email for example. If you want to add additional information, you can use [custom claims-mapping](/docs/appid?topic=appid-customizing-tokens) to configure App ID to inject the information to the token before it is returned to you.</dd>
   <dt><code>/oauth/v4/{tenantId}/userinfo</code></dt>
     <dd>If you need to see an in-depth view of the user profile information that is returned by an identity provider, you can call the [<code>/userinfo</code> endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization_Server_V4/userInfo). It's recommended to use this endpoint only if the information cannot be mapped to the token as it requires extra network round trips.</dd>
   <dt><code>/api/v1/attributes</code></dt>
@@ -453,7 +453,7 @@ You can add the following code to your application to allow a user to update the
 {: #profile-attribute-api}
 
 
-If you want to configure self-service for your users at runtime, use the `/attributes` endpoint. To set custom attributes before a user signs in to your application, see [preregistering future users](/docs/services/appid?topic=appid-preregister).
+If you want to configure self-service for your users at runtime, use the `/attributes` endpoint. To set custom attributes before a user signs in to your application, see [preregistering future users](/docs/appid?topic=appid-preregister).
 
 1. Go to the **User profiles > Settings** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
 
