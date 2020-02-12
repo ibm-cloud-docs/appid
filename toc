@@ -25,9 +25,9 @@ IBM Cloud App ID
 
     {: .topicgroup}
     Tutorials<prod>
-        tutorial-roles.md</prod><staging>
-        tutorial-attributes.md</staging>
+        tutorial-roles.md</prod>
         tutorial-cf.md<staging>
+        tutorial-attributes.md
         tutorial-app-to-app.md</staging>
 
     {: .topicgroup}
