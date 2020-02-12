@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-02-05"
+lastupdated: "2020-02-12"
 
 keywords: attributes, cloud directory, user registry, user management, roles, access control, roles, app security, user profile, app access, identity
 
@@ -356,3 +356,4 @@ Optionally, you can verify that step 4 was successful by viewing an access token
 {: #roles-next}
 
 Nice work! You completed the tutorial. Next, you can try configuring [multi-factor authentication](/docs/appid?topic=appid-cd-mfa) or setting up [your own branded GUI](/docs/appid?topic=appid-branded).
+

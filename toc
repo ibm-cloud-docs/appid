@@ -24,9 +24,11 @@ IBM Cloud App ID
         qs-liberty-backend.md
 
     {: .topicgroup}
-    Tutorials
-        tutorial-roles.md
-        tutorial-cf.md
+    Tutorials<prod>
+        tutorial-roles.md</prod><staging>
+        tutorial-attributes.md</staging>
+        tutorial-cf.md<staging>
+        tutorial-app-to-app.md</staging>
 
     {: .topicgroup}
     Securing your apps
@@ -47,7 +49,9 @@ IBM Cloud App ID
     Configuring federated identity providers
         enterprise.md
         identity-providers.md
-        custom.md
+        custom.md<staging>
+        ibmid.md
+        w3.md</staging>
 
     {: .topicgroup}
     Hosting your own user registry
