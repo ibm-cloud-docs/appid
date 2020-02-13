@@ -25,8 +25,8 @@ IBM Cloud App ID
 
     {: .topicgroup}
     Tutorials
-        tutorial-roles.md
         tutorial-cf.md
+        tutorial-roles.md
 
     {: .topicgroup}
     Securing your apps
