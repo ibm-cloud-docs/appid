@@ -25,10 +25,8 @@ IBM Cloud App ID
 
     {: .topicgroup}
     Tutorials
-        tutorial-cf.md<prod>
-        tutorial-roles.md</prod><staging>
-        tutorial-attributes.md
-        tutorial-app-to-app.md</staging>
+        tutorial-cf.md
+        tutorial-roles.md
 
     {: .topicgroup}
     Securing your apps
@@ -49,9 +47,7 @@ IBM Cloud App ID
     Configuring federated identity providers
         enterprise.md
         identity-providers.md
-        custom.md<staging>
-        ibmid.md
-        w3.md</staging>
+        custom.md
 
     {: .topicgroup}
     Hosting your own user registry
