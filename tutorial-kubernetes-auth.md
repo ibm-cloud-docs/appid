@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-02-04"
+lastupdated: "2020-02-14"
 
 keywords: ingress controller, ingress, istio, access, subdomain, custom domain, service, containerized apps, containers, kube, networking, policy, policies, secure apps, authentication, authorization
 
@@ -292,9 +292,9 @@ When you configure your application to use the Ingress Controller annotation, a 
 
 Now that your application is running in a Kubernetes cluster and Ingress is configured, you can try:
 
-* Using custom attributes to [set roles](/docs/appid?topic=appid-tutorial-roles)
-* Configuring [multi-factor authentication](/docs/appid?topic=appid-cd-mfa)
 * Customizing the [Login Widget](/docs/appid?topic=appid-login-widget)
+* Configuring [multi-factor authentication](/docs/appid?topic=appid-cd-mfa)
+* Assigning [access](/docs/appid?topic=appid-access-control)
 
 
 
