@@ -271,7 +271,6 @@ Check out the following table for a list of the events that are sent to {{site.d
     <td>Update your pre-mfa extension configuration.</td>
     <td>Must be done through the API.</td>
   </tr>
-  <tr>
 </table>
 
 
