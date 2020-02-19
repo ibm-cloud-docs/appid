@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-02-04"
+lastupdated: "2020-02-19"
 
 keywords: authentication, authorization, identity, app security, cloud directory, user data, identity provider, oauth, protocols, oauth, oidc, disaster recovery, dr, compliance, high availability, ha, secure, HA, DR
 
@@ -22,6 +22,7 @@ subcollection: appid
 {:deprecated: .deprecated}
 {:download: .download}
 {:script: data-hd-video='script'}
+
 
 # About {{site.data.keyword.appid_short_notm}}
 {: #about}

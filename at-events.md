@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-02-05"
+lastupdated: "2020-02-19"
 
 keywords: user events, track activity, manage events, analyze, administrative, runtime, sign in, settings, app security
 
@@ -262,13 +262,23 @@ Check out the following table for a list of the events that are sent to {{site.d
     <td>Can be updated in the <strong>Identity Providers > Manage > Authentication Settings</strong> tab.</td>
   </tr>
   <tr>
-    <td><code>read.mfaExtension.premfa</code></td>
-    <td>View your pre-mfa extension configuration.</td>
+    <td><code>appid.mfaextension.premfa.read</code></td>
+    <td>View your prem-fa extension configuration.</td>
     <td>Must be done through the API.</td>
   </tr>
   <tr>
-    <td><code>update.mfaExtension.premfa</code></td>
+    <td><code>appid.mfaextension.premfa.update</code></td>
     <td>Update your pre-mfa extension configuration.</td>
+    <td>Must be done through the API.</td>
+  </tr>
+  <tr>
+    <td><code>appid.mfaextension.postmfa.read</code></td>
+    <td>View your post mfa extension configuration.</td>
+    <td>Must be done through the API.</td>
+  </tr>
+  <tr>
+    <td><code>appid.mfaextension.postmfa.update</code></td>
+    <td>Update your post mfa extension configuration.</td>
     <td>Must be done through the API.</td>
   </tr>
 </table>
