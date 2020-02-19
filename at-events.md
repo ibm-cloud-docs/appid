@@ -271,6 +271,16 @@ Check out the following table for a list of the events that are sent to {{site.d
     <td>Update your pre-mfa extension configuration.</td>
     <td>Must be done through the API.</td>
   </tr>
+  <tr>
+    <td><code>appid.mfaextension.postmfa.read</code></td>
+    <td>View your post mfa extension configuration.</td>
+    <td>Must be done through the API.</td>
+  </tr>
+  <tr>
+    <td><code>appid.mfaextension.postmfa.update</code></td>
+    <td>Update your post mfa extension configuration.</td>
+    <td>Must be done through the API.</td>
+  </tr>
 </table>
 
 
