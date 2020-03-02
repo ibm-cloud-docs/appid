@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-02-04"
+lastupdated: "2020-03-02"
 
 keywords: mfa, multifactor, authentication, cloud directory, login widget, second factor, two factor, identity, mulitple factors, advanced security event, cloud directory user, sender id, phone number, email, nexmo, mfa descision, extension
 
@@ -38,10 +38,10 @@ Check out the following diagram to see how the MFA flow works.
 
 1. When a user successfully signs in to your application, they complete the first authentication factor. Then, based on your MFA configuration, the user is sent either an email or SMS that contains a 6-digit code.
 
-  When MFA is enabled, the {{site.data.keyword.appid_short_notm}} Login Widget requires a second form of verification (second authentication factor) every time a user attempts to sign in, unless an [extension is configured](/docs/appid?topic=appid-cd-mfa#cd-mfa-extensions).
+  When MFA is enabled, the {{site.data.keyword.appid_short_notm}} Login Widget requires a second form of verification every time a user attempts to sign in, unless an [extension is configured](/docs/appid?topic=appid-cd-mfa#cd-mfa-extensions).
   {: tip}
 
-2. A user is expected to look in their phone or email to obtain the code and then enter it into the provided screen. 
+2. A user is expected to look in their phone or email to obtain the code and then enter it into the provided screen.
 
 3. If the code they input matches the code that they were sent, the user is redirected back to your application and is signed in. If they enter the code incorrectly, the second authentication factor fails and users are not able to access your resources.
 
@@ -254,6 +254,10 @@ Before you get started with the API, be sure that you have the following prerequ
   {: codeblock}
 
 
+
+
+
+
 ## Extending MFA
 {: #cd-mfa-extensions}
 
@@ -294,7 +298,7 @@ To configure a pre-MFA extension:
 1. Define the criteria that you want a user to meet before them being able to skip the second factor of authentication. Check out the following examples to get some ideas if you're unsure.
 
   <table>
-    <caption>Table 2. Example criteria for skipping MFA</caption>
+    <caption>Table 3. Example criteria for skipping MFA</caption>
     <tr>
       <th>Example use case</th>
       <th>Example validation</th>
@@ -316,7 +320,7 @@ To configure a pre-MFA extension:
 2. When you know your criteria, configure an extension that can listen for a POST request. The endpoint must be able to read the payload that comes from {{site.data.keyword.appid_short_notm}}. The body that is sent by {{site.data.keyword.appid_short_notm}} before starting the MFA flow is in the format: `{"jws": "jws-format-string"}`. Your extension might also [decode and validate](/docs/appid?topic=appid-token-validation#local-validation) the payload, the content is a JSON object and return a JSON response with the following schema: `{"skipMfa": Boolean }`. For example: `{'skipMfa': true}`. 
 
   <table>
-    <caption>Table 3. The information that {{site.data.keyword.appid_short_notm}} forwards to your extension point.</caption>
+    <caption>Table 4. The information that {{site.data.keyword.appid_short_notm}} forwards to your extension point.</caption>
     <tr>
       <th>Information</th>
       <th>Description</th>
@@ -448,7 +452,7 @@ To configure a post-MFA extension:
 1. Configure an extension point that can listen for a POST request. The endpoint must be able to read the payload that is sent by {{site.data.keyword.appid_short_notm}}. Optionally, it can also [decode and validate](/docs/appid?topic=appid-token-validation#local-validation) the JSON payload that is returned by {{site.data.keyword.appid_short_notm}} has not been altered by a third party in any way. A string that is formatted as `{"jws": "jws-format-string"}` is returned that contains the following information:
   
   <table>
-    <caption>Table 3. The information that {{site.data.keyword.appid_short_notm}} forwards to your extension point.</caption>
+    <caption>Table 5. The information that {{site.data.keyword.appid_short_notm}} forwards to your extension point.</caption>
     <tr>
       <th>Information</th>
       <th>Description</th>
