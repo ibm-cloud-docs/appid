@@ -2,7 +2,7 @@
 {:topicgroup: .topicgroup}
 
 {: .toc subcollection="appid" audience="service" category="mobile,security" href="/docs/appid?topic=appid-getting-started" path="appid"}
-IBM Cloud App ID
+App ID
 
     {: .navgroup id="learn"}
     getting-started.md
