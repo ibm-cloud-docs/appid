@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-02-04"
+lastupdated: "2020-03-13"
 
 keywords: release notes, new, spa, single sign on, mfa, cloud directory, saml, app security, application identity
 
@@ -26,6 +26,7 @@ subcollection: appid
 {: #release-notes}
 
 The following features and changes to the {{site.data.keyword.appid_short_notm}} service are now available.
+
 
 
 ## January 2020
