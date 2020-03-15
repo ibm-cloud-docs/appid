@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-13"
+lastupdated: "2020-03-15"
 
 keywords: mfa, multifactor, authentication, cloud directory, login widget, second factor, two factor, identity, mulitple factors, advanced security event, cloud directory user, sender id, phone number, email, nexmo, mfa descision, extension
 
@@ -272,7 +272,7 @@ Before you register your extension, be sure that you have the following prerequi
 * Your {{site.data.keyword.appid_short_notm}} instance's tenant ID. This ID can be found in the **Applications** section of the dashboard.
 * Your Identity and Access Management (IAM) token. For help with obtaining an IAM token, check out the [IAM docs](/docs/iam?topic=iam-iamtoken_from_apikey).
 
-For more information about the restrictions and limitations of working with extensions, see [{{site.data.keyword.appid_short_notm}} limits](/docs/appid?topic=appid-limits#limits-extension).
+For more information about the restrictions and limitations of working with extensions, see [{{site.data.keyword.appid_short_notm}} limits](/docs/appid?topic=appid-limits#limits-extensions).
 {: important}
 
 

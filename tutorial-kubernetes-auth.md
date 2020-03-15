@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-02-14"
+lastupdated: "2020-03-15"
 
 keywords: ingress controller, ingress, istio, access, subdomain, custom domain, service, containerized apps, containers, kube, networking, policy, policies, secure apps, authentication, authorization
 
@@ -192,7 +192,7 @@ To ensure the best performance of the integration, it is recommended that you al
   This is **not** your Container Registry namespace.
   {: tip}
 
-2. Use the following example `yaml` file to create your Ingress configuration. For help with defining the rest of your deployment, check out [Deploying apps with the CLI](/docs/containers?topic=containers-app#app_cli).
+2. Use the following example `yaml` file to create your Ingress configuration. For help with defining the rest of your deployment, check out [Deploying apps with the CLI](/docs/containers?topic=containers-deploy_app#app_cli).
 
   ```
   apiVersion: extensions/v1beta1
