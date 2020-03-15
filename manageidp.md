@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-02-04"
+lastupdated: "2020-03-15"
 
 keywords: identity provider, idp, app security, mobile app, web app, authentication, authorization, oidc, saml, protocols, facebook, google, w3id, cloud directory, redirect url, redirect uri, token configuration, token lifetime, log in configuration
 
@@ -31,7 +31,7 @@ Identity providers (IdP's) add a level of security for your mobile and web apps,
 {: shortdesc}
 
 
-{{site.data.keyword.appid_short_notm}} interacts with identity providers by using various protocols such as OpenID Connect, SAML, and more. For example, OpenID Connect is the protocol that is used with many social providers such as Facebook, Google. Enterprise providers such as [Azure Active Directory](https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-azure-active-directory){: external}, or [Active Directory Federation Service](https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-active-directory-federation-service){: external}, generally use SAML as their identity protocol. For [Cloud Directory](/docs/appid?topic=appid-cloud-directory), the service uses SCIM to verify identity information.
+{{site.data.keyword.appid_short_notm}} interacts with identity providers by using various protocols such as OpenID Connect, SAML, and more. For example, OpenID Connect is the protocol that is used with many social providers such as Facebook, Google. Enterprise providers such as [Azure Active Directory](https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-azure-active-directory){: external} or [Active Directory Federation Service](https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-active-directory-federation-service){: external}, generally use SAML as their identity protocol. For [Cloud Directory](/docs/appid?topic=appid-cloud-directory), the service uses SCIM to verify identity information.
 
 When you use social or enterprise identity providers, {{site.data.keyword.appid_short_notm}} reads user account information. Because the service never has write access to the information, users must go through their chosen identity provider to do actions, such as resetting their password. For example, if a user signs in to your app with Facebook, and then wanted to change their password, they must go to `www.facebook.com` to do so.
 {: note}
@@ -72,7 +72,7 @@ There are several identity providers that the service can be configured to use. 
   </tr>
   <tr>
     <td>[Custom](/docs/appid?topic=appid-custom-identity#custom-identity)</td>
-    <td> </td>
+    <td>Custom</td>
     <td>If none of the provided options fit your specific need, you can configure your own identity flow to work with {{site.data.keyword.appid_short_notm}}.</td> 
   </tr>
 </table>
@@ -111,19 +111,19 @@ Your application redirects users to {{site.data.keyword.appid_short_notm}} for a
     </tr>
     <tr>
       <td>Custom domain</td>
-      <td><code>https://mydomain.net/myapp2path/appid_callback</code></td>
+      <td><pre class="screen"><code>https://mydomain.net/myapp2path/appid_callback</code></pre></td>
     </tr>
     <tr>
       <td>Ingress subdomain</td>
-      <td><code>https://mycluster.us-south.containers.appdomain.cloud/myapp1path/appid_callback</code></td>
+      <td><pre class="screen"><code>https://mycluster.us-south.containers.appdomain.cloud/myapp1path/appid_callback</code></pre></td>
     </tr>
     <tr>
       <td>Logout</td>
-      <td><code>https://mydomain.net/myapp2path/appid_logout</code></td>
+      <td><pre class="screen"><code>https://mydomain.net/myapp2path/appid_logout</code></pre></td>
     </tr>
     <tr>
       <td>Wildcard</td>
-      <td><code>https://mydomain.net/*</code> <br> Wildcards are not recommended for use in production apps.</td>
+      <td><pre class="screen"><code>https://mydomain.net/*</code></pre> <br> Wildcards are not recommended for use in production apps.</td>
     </tr>  
   </table>
 
