@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-02"
+lastupdated: "2020-03-15"
 
 keywords: mfa, multifactor, authentication, cloud directory, login widget, second factor, two factor, identity, mulitple factors, advanced security event, cloud directory user, sender id, phone number, email, nexmo, mfa descision, extension
 
@@ -26,7 +26,7 @@ subcollection: appid
 # Multi-factor authentication (MFA)
 {: #cd-mfa}
 
-With Cloud Directory for {{site.data.keyword.appid_full}}, you can require multiple authentication factors during your application sign-in flow. A second authentication factor increases the security of your application by not only confirming that a user possesses the knowledge of their credentials but also has access to their registered email or phone number. Extending the MFA flow a bit, you can configure pre and post-MFA extensions to make custom decisions at run time about which users must complete the second factor or provide you analytical information about your sign-in flow.
+With Cloud Directory for {{site.data.keyword.appid_full}}, you can require multiple authentication factors during your application sign-in flow. A second authentication factor increases the security of your application by not only confirming that a user possesses the knowledge of their credentials but also has access to their registered email or phone number. Extending the MFA flow a bit, you can configure pre-MFA and post-MFA extensions to make custom decisions at run time about which users must complete the second factor or provide you analytical information about your sign-in flow.
 {: shortdesc}
 
 {{site.data.keyword.appid_short_notm}} MFA is supported as part of the OAuth 2.0 authorization code flow for Cloud Directory users through the Login Widget. If you're using enterprise sign-in with SAML 2.0 or social login, you can enable MFA through that identity provider.
@@ -242,7 +242,7 @@ Before you get started with the API, be sure that you have the following prerequ
   ```
   {: codeblock}
 
-3. Once the channel is successfully configured, verify that your Nexmo configuration and connection is set up correctly by using the test button on the UI or by using the management API.
+3. After the channel is successfully configured, verify that your Nexmo configuration and connection is set up correctly by using the test button on the UI or by using the management API.
 
   ```sh
   curl -X PUT https://<region>.appid.cloud.ibm.com/management/v4/{tenant_ID}/config/cloud_directory/sms_dispatcher/test \
@@ -272,7 +272,7 @@ Before you register your extension, be sure that you have the following prerequi
 * Your {{site.data.keyword.appid_short_notm}} instance's tenant ID. This ID can be found in the **Applications** section of the dashboard.
 * Your Identity and Access Management (IAM) token. For help with obtaining an IAM token, check out the [IAM docs](/docs/iam?topic=iam-iamtoken_from_apikey).
 
-For more information about the restrictions and limitations of working with extensions, see [{{site.data.keyword.appid_short_notm}} limits](/docs/appid?topic=appid-limits#limits-extension).
+For more information about the restrictions and limitations of working with extensions, see [{{site.data.keyword.appid_short_notm}} limits](/docs/appid?topic=appid-limits#limits-extensions).
 {: important}
 
 
@@ -317,7 +317,7 @@ To configure a pre-MFA extension:
     </tr>
   </table>
 
-2. When you know your criteria, configure an extension that can listen for a POST request. The endpoint must be able to read the payload that comes from {{site.data.keyword.appid_short_notm}}. The body that is sent by {{site.data.keyword.appid_short_notm}} before starting the MFA flow is in the format: `{"jws": "jws-format-string"}`. Your extension might also [decode and validate](/docs/appid?topic=appid-token-validation#local-validation) the payload, the content is a JSON object and return a JSON response with the following schema: `{"skipMfa": Boolean }`. For example: `{'skipMfa': true}`. 
+2. When you know your criteria, configure an extension that can listen for a POST request. The endpoint must be able to read the payload that comes from {{site.data.keyword.appid_short_notm}}. The body that is sent by {{site.data.keyword.appid_short_notm}} before starting the MFA flow is in the format: `{"jws": "jws-format-string"}`. Your extension might also [decode and validate](/docs/appid?topic=appid-token-validation#local-validation) the payload, the content is a JSON object and return a JSON response with the following schema: `{"skipMfa": Boolean }`. For example,: `{'skipMfa': true}`. 
 
   <table>
     <caption>Table 4. The information that {{site.data.keyword.appid_short_notm}} forwards to your extension point.</caption>
@@ -327,7 +327,7 @@ To configure a pre-MFA extension:
     </tr>
     <tr>
       <td><code>correlation_id</code></td>
-      <td>A random number that is generated for each MFA session. If you have both a pre-mfa and a post-mfa extension, the number is the same for each for the same session. For example: <code>3bb9236c-792f-4cca-8ae1-ada754cc4555</code></td>
+      <td>A random number that is generated for each MFA session. If you have both a pre-mfa and a post-mfa extension, the number is the same for each for the same session. For example, <code>3bb9236c-792f-4cca-8ae1-ada754cc4555</code></td>
     </tr>
     <tr>
       <td><code>extension</code></td>
@@ -339,11 +339,11 @@ To configure a pre-MFA extension:
     </tr>
     <tr>
       <td><code>source_ip</code></td>
-      <td>The IP address of the device that makes the request to your app. For example: <code>127.0.0.1</code></td>
+      <td>The IP address of the device that makes the request to your app. For example, <code>127.0.0.1</code></td>
     </tr>
     <tr>
       <td><code>headers</code></td>
-      <td>The information that is returned by the browser when a user attempts to sign in to your app. </br> The header looks similar to the following:<code>{"user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X x.y; rv:42.0) Gecko/20100101 Firefox/42.0"}</code></td>
+      <td>The information that is returned by the browser when a user attempts to sign in to your app. </br> The header looks similar to: <code>{"user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X x.y; rv:42.0) Gecko/20100101 Firefox/42.0"}</code></td>
     </tr>
     <tr>
       <td><code>tenant_id</code></td>
@@ -355,11 +355,11 @@ To configure a pre-MFA extension:
     </tr>
     <tr>
       <td><code>user_id</code></td>
-      <td>The ID of the user that makes the authentication request. For example: <code>11112222-3333-4444-2222-555522226666</code></td>
+      <td>The ID of the user that makes the authentication request. For example, <code>11112222-3333-4444-2222-555522226666</code></td>
     </tr>
     <tr>
       <td><code>username</code></td>
-      <td>The username of the user that makes the authentication request. For example: <code>testuser@email.com</code>.</td>
+      <td>The username of the user that makes the authentication request. For example, <code>testuser@email.com</code>.</td>
     </tr>
     <tr>
       <td><code>application_type</code></td>
@@ -367,26 +367,26 @@ To configure a pre-MFA extension:
     </tr>
     <tr>
       <td><code>first_name</code></td>
-      <td>The user's given name.</td>
+      <td>The users given name.</td>
     </tr>
     <tr>
       <td><code>last_name</code></td>
-      <td>The user's surname.</td>
+      <td>The users surname.</td>
     </tr>
     <tr>
       <td><code>last_successful_first_factor</code></td>
-      <td>The date of the last time the user correctly entered their credentials. For example: <code>2000-01-01T16:44:01.226Z</code></td>
+      <td>The date of the last time the user correctly entered their credentials. For example, <code>2000-01-01T16:44:01.226Z</code></td>
     </tr>
     <tr>
       <td><code>last_successful_mfa</code></td>
-      <td>The date of the last time the user completed the full MFA flow. For example: <code>2000-01-01T16:44:01.226Z</code></td>
+      <td>The date of the last time the user completed the full MFA flow. For example, <code>2000-01-01T16:44:01.226Z</code></td>
     </tr>
   </table>
 
   To see an example extension, check out [the sample](https://github.com/ibm-cloud-security/appid-sample-code-snippets/blob/master/premfa-extension-point/index.js).
   {: tip}
 
-3. Register your extension with your instance of {{site.data.keyword.appid_short_notm}} by making a PUT request to `config/cloud_directory/mfa/extensions/premfa`. The configuration includes your extension's URL and any authorization information that is needed to access the endpoint. For development purposes, `isActive` is set to `false`. Be sure to test your configuration before enabling it.
+3. Register your extension with your instance of {{site.data.keyword.appid_short_notm}} by making a PUT request to `config/cloud_directory/mfa/extensions/premfa`. The configuration includes your extension's URL and any authorization information that is needed to access the endpoint. For development purposes, `isActive` is set to `false`. Be sure to test your configuration before you enable it.
 
   ```sh
   curl -X PUT https://<region>.appid.cloud.ibm.com/management/v4/<tenant_ID>/config/cloud_directory/mfa/extensions/premfa' \
@@ -433,15 +433,15 @@ To configure a pre-MFA extension:
 ### Configuring post-mfa
 {: #cd-postmfa}
 
-When you configure an extension and register it with {{site.data.keyword.appid_short_notm}}, the service calls your extension after every authentication attempt in which there was a second-factor of identification. You can use that information in order to make smarter decisions for your users. For example, you can use post-mfa extension collection information for your heuristics and rules and then enforce these using pre-mfa extension.
+When you configure an extension and register it with {{site.data.keyword.appid_short_notm}}, the service calls your extension after every authentication attempt in which there is a second-factor of identification. You can use that information in order to make smarter decisions for your users. For example, you can use post-mfa extension collection information for your heuristics and rules and then enforce these using pre-mfa extension.
 
 ![post-MFA flow](images/mfa-post.png){: caption="Figure 3. Cloud Directory post-MFA flow" caption-side="bottom"}
 
 1. When a user successfully signs in to your application, they are prompted to enter their second authentication factor.
 
-2. When the second authentication factor is completed successfully, there are two simultaneous actions that occur:
+2. When the second authentication factor is completed successfully, two simultaneous actions occur:
 
-  1. {{site.data.keyword.appid_short_notm}} sends information about the sign in to your configured extension.
+  1. {{site.data.keyword.appid_short_notm}} sends information about the sign-in to your configured extension.
 
   2. The user is redirected to your application.
 
@@ -449,7 +449,7 @@ When you configure an extension and register it with {{site.data.keyword.appid_s
 
 To configure a post-MFA extension:
 
-1. Configure an extension point that can listen for a POST request. The endpoint must be able to read the payload that is sent by {{site.data.keyword.appid_short_notm}}. Optionally, it can also [decode and validate](/docs/appid?topic=appid-token-validation#local-validation) the JSON payload that is returned by {{site.data.keyword.appid_short_notm}} has not been altered by a third party in any way. A string that is formatted as `{"jws": "jws-format-string"}` is returned that contains the following information:
+1. Configure an extension point that can listen for a POST request. The endpoint must be able to read the payload that is sent by {{site.data.keyword.appid_short_notm}}. Optionally, it can also [decode and validate](/docs/appid?topic=appid-token-validation#local-validation) the JSON payload that is returned by {{site.data.keyword.appid_short_notm}} is not altered by a third party in any way. A string that is formatted as `{"jws": "jws-format-string"}` is returned that contains the following information:
   
   <table>
     <caption>Table 5. The information that {{site.data.keyword.appid_short_notm}} forwards to your extension point.</caption>
@@ -459,7 +459,7 @@ To configure a post-MFA extension:
     </tr>
     <tr>
       <td><code>correlation_id</code></td>
-      <td>A random number that is generated for each MFA session. If you have both a pre-mfa and a post-mfa extension, the number is the same for each. For example: <code>3bb9236c-792f-4cca-8ae1-ada754cc4555</code></td>
+      <td>A random number that is generated for each MFA session. If you have both a pre-mfa and a post-mfa extension, the number is the same for each. For example, <code>3bb9236c-792f-4cca-8ae1-ada754cc4555</code></td>
     </tr>
     <tr>
       <td><code>extension</code></td>
@@ -471,7 +471,7 @@ To configure a post-MFA extension:
     </tr>
     <tr>
       <td><code>reason</code></td>
-      <td>The reason for an MFA failure. For example: <code>user locked out - exceeded maximum number of verification attempts</code>.</td>
+      <td>The reason for an MFA failure. For example, <code>user locked out - exceeded maximum number of verification attempts</code>.</td>
     </tr>
     <tr>
       <td><code>device_type</code></td>
@@ -479,11 +479,11 @@ To configure a post-MFA extension:
     </tr>
     <tr>
       <td><code>source_ip</code></td>
-      <td>The IP address of the device that makes the request to your app. For example: <code>127.0.0.1</code>.</td>
+      <td>The IP address of the device that makes the request to your app. For example, <code>127.0.0.1</code>.</td>
     </tr>
     <tr>
       <td><code>headers</code></td>
-      <td>The information that is returned by the browser when a user attempts to sign in to your app. </br> The header looks similar to the following:<code>{"user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X x.y; rv:42.0) Gecko/20100101 Firefox/42.0"}</code></td>
+      <td>The information that is returned by the browser when a user attempts to sign in to your app. </br> The header looks similar to <code>{"user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X x.y; rv:42.0) Gecko/20100101 Firefox/42.0"}</code></td>
     </tr>
     <tr>
       <td><code>tenant_id</code></td>
@@ -499,7 +499,7 @@ To configure a post-MFA extension:
     </tr>
     <tr>
       <td><code>username</code></td>
-      <td>The username of the user that makes the authentication request. For example: <code>testuser@email.com</code>.</td>
+      <td>The username of the user that makes the authentication request. For example, <code>testuser@email.com</code>.</td>
     </tr>
     <tr>
       <td><code>application_type</code></td>
@@ -507,11 +507,11 @@ To configure a post-MFA extension:
     </tr>
     <tr>
       <td><code>first_name</code></td>
-      <td>The user's given name.</td>
+      <td>The users given name.</td>
     </tr>
     <tr>
       <td><code>last_name</code></td>
-      <td>The user's surname.</td>
+      <td>The users surname.</td>
     </tr>
   </table>
 

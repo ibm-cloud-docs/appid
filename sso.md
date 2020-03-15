@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-02-11"
+lastupdated: "2020-03-15"
 
 keywords: sso, single sign on, cloud directory, saml, federated, sign in, log in, log out, authentication, app security, user registry, multiple apps
 
@@ -170,7 +170,7 @@ Example:
 ```javascript
 app.get('/logoutSSO', (req, res) => {
   res.clearCookie("refreshToken");
-  webAppStrategy.logoutSSO(req,res, { "redirect_uri": "https://my-app.com/after_logout" });
+  WebAppStrategy.logoutSSO(req,res, { "redirect_uri": "https://my-app.com/after_logout" });
   });
 ```
 {: screen}
