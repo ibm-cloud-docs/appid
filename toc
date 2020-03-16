@@ -1,7 +1,7 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="appid" audience="service" category="mobile,security" href="/docs/appid?topic=appid-getting-started" path="appid"}
+{: .toc subcollection="appid" audience="service" category="mobile,security" href="/docs/appid?topic=appid-getting-started" product-page="https://www.ibm.com/cloud/app-id" console-page="/catalog/services/app-id" path="appid"}
 App ID
 
     {: .navgroup id="learn"}
