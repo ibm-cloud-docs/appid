@@ -50,7 +50,7 @@ With {{site.data.keyword.appid_full}}, you can customize the entire sign-up expe
 When you reuse your existing UIs, you can create a cohesive sign-in flow for your app. By using the same imagery, colors, and branding, your users are more likely to recognize your brand, even when not directly interacting with your app.
 
 
-Want to use a [language](/docs/appid?topic=appid-cd-messages#cd-languages) other than English? You can choose another language by using the [language management APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/updateLocalization){: external}, to display your own translated content.
+Want to use a [language](/docs/appid?topic=appid-cd-types#cd-languages) other than English? You can choose another language by using the [language management APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/updateLocalization){: external}, to display your own translated content.
 {: tip}
 
 
@@ -213,7 +213,7 @@ Supply the following data in the request body:
     * A `password` attribute.
     * In the email array with a `primary` attribute that is set to `true`, you must have at least one email address.
 
-Depending on your [email configuration](/docs/appid?topic=appid-cd-messages), a user might receive a request for verification, an email that welcomes them when they sign up for your app, or both. Both types of emails are triggered when a user signs up for your app. The verification email contains a link that the user can click to confirm their identity; a screen is displayed, that thanks them for verifying or confirms that their verification is complete.  
+Depending on your [email configuration](/docs/appid?topic=appid-cd-types), a user might receive a request for verification, an email that welcomes them when they sign up for your app, or both. Both types of emails are triggered when a user signs up for your app. The verification email contains a link that the user can click to confirm their identity; a screen is displayed, that thanks them for verifying or confirms that their verification is complete.  
 
 To present your own post verification page:
 
