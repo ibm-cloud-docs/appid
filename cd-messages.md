@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-02-04"
+lastupdated: "2020-03-16"
 
 keywords: emails, verification, templates, sendgrid, welcome, password reset, password change, change details, verification, supported languages, registry, cloud directory, 
 
@@ -30,7 +30,6 @@ When a user interacts with your application, you might want to send a reply or a
 
 {{site.data.keyword.appid_short_notm}} uses [SendGrid](https://sendgrid.com/){: external} as a mail delivery service. All emails are sent with a single SendGrid account.
 {: note}
-
 
 
 ## Configuring email settings
