@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-02-06"
+lastupdated: "2020-03-16"
 
 keywords: token validation, validate token, protect app, public key, token header, base64, decode payload, authorized, access permissions, app security, identity, jwt 
 
@@ -10,18 +10,32 @@ subcollection: appid
 
 ---
 
+{:codeblock: .codeblock}
+{:screen: .screen}
+{:download: .download}
 {:external: target="_blank" .external}
 {:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
-{:codeblock: .codeblock}
-{:tip: .tip}
-{:note: .note}
+{:faq: data-hd-content-type='faq'}
+{:gif: data-image-type='gif'}
 {:important: .important}
+{:note: .note}
+{:pre: .pre}
+{:tip: .tip}
+{:preview: .preview}
 {:deprecated: .deprecated}
-{:download: .download}
+{:shortdesc: .shortdesc}
+{:support: data-reuse='support'}
+{:table: .aria-labeledby="caption"}
+{:troubleshoot: data-hd-content-type='troubleshoot'}
+{:help: data-hd-content-type='help'}
+{:tsCauses: .tsCauses}
+{:tsResolve: .tsResolve}
+{:tsSymptoms: .tsSymptoms}
+{:java: .ph data-hd-programlang='java'}
+{:javascript: .ph data-hd-programlang='javascript'}
+{:swift: .ph data-hd-programlang='swift'}
+{:curl: .ph data-hd-programlang='curl'}
+
 
 
 # Validating tokens

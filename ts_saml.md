@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-12-09"
+  years: 2017, 2020
+lastupdated: "2020-03-16"
 
 keywords: saml, help, authentication request, error message, signing algorithm, xml file, signing certificate, valid email, error code, saml message signature, 
 
@@ -10,22 +10,32 @@ subcollection: appid
 
 ---
 
-{:external: target="_blank" .external}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:pre: .pre}
-{:table: .aria-labeledby="caption"}
 {:codeblock: .codeblock}
-{:tip: .tip}
-{:note: .note}
-{:important: .important}
-{:deprecated: .deprecated}
+{:screen: .screen}
 {:download: .download}
-{:tsSymptoms: .tsSymptoms}
+{:external: target="_blank" .external}
+{:new_window: target="_blank"}
+{:faq: data-hd-content-type='faq'}
+{:gif: data-image-type='gif'}
+{:important: .important}
+{:note: .note}
+{:pre: .pre}
+{:tip: .tip}
+{:preview: .preview}
+{:deprecated: .deprecated}
+{:shortdesc: .shortdesc}
+{:support: data-reuse='support'}
+{:table: .aria-labeledby="caption"}
+{:troubleshoot: data-hd-content-type='troubleshoot'}
+{:help: data-hd-content-type='help'}
 {:tsCauses: .tsCauses}
 {:tsResolve: .tsResolve}
-{:troubleshoot: data-hd-content-type='troubleshoot'} 
-{:support: data-reuse='support'}
+{:tsSymptoms: .tsSymptoms}
+{:java: .ph data-hd-programlang='java'}
+{:javascript: .ph data-hd-programlang='javascript'}
+{:swift: .ph data-hd-programlang='swift'}
+{:curl: .ph data-hd-programlang='curl'}
+
 
 # Troubleshooting: SAML
 {: #troubleshooting-idp}
