@@ -124,19 +124,19 @@ Your application redirects users to {{site.data.keyword.appid_short_notm}} for a
     </tr>
     <tr>
       <td>Custom domain</td>
-      <td><pre class="screen"><code>https://mydomain.net/myapp2path/appid_callback</code></pre></td>
+      <td><code>https://mydomain.net/myapp2path/appid_callback</code></td>
     </tr>
     <tr>
       <td>Ingress subdomain</td>
-      <td><pre class="screen"><code>https://mycluster.us-south.containers.appdomain.cloud/myapp1path/appid_callback</code></pre></td>
+      <td><code>https://mycluster.us-south.containers.appdomain.cloud/myapp1path/appid_callback</code></td>
     </tr>
     <tr>
       <td>Logout</td>
-      <td><pre class="screen"><code>https://mydomain.net/myapp2path/appid_logout</code></pre></td>
+      <td><code>https://mydomain.net/myapp2path/appid_logout</code></td>
     </tr>
     <tr>
       <td>Wildcard</td>
-      <td><pre class="screen"><code>https://mydomain.net/*</code></pre> <br> Wildcards are not recommended for use in production apps.</td>
+      <td><code>https://mydomain.net/*</code><br>Wildcards are not recommended for use in production apps.</td>
     </tr>  
   </table>
 

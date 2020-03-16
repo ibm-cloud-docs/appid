@@ -332,7 +332,7 @@ Users who are manually added via the {{site.data.keyword.appid_short_notm}} dash
 
 3. Set **Allow users to sign in to your app without first verifying their email address** to **Yes**. When set to yes, users are able to interact with your application after they sign up, but before they verify their email address. The default setting is no.
 
-4. Customize the content of your message. You can add parameters and insert images by using the UI. To change the [language](/docs/appid?topic=appid-cd-messages#cd-languages) of the message, you can use [the APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization){: external} to set the language. However, you are responsible for the content and conversion of the message. Check out the following table to see the different parameters that you can use in your message. If a user does not supply the information that is pulled by the parameter, it appears blank.
+4. Customize the content of your message. You can add parameters and insert images by using the UI. To change the [language](/docs/appid?topic=appid-cd-types#cd-languages) of the message, you can use [the APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization){: external} to set the language. However, you are responsible for the content and conversion of the message. Check out the following table to see the different parameters that you can use in your message. If a user does not supply the information that is pulled by the parameter, it appears blank.
 
   <table>
     <caption>Table 2. Parameters that you can use in messages that are related to verification</caption>
@@ -358,7 +358,7 @@ Users who are manually added via the {{site.data.keyword.appid_short_notm}} dash
     </tr>
   </table>
 
-  You can also use the message parameters that are listed in the [Welcome message](/docs/appid?topic=appid-cd-messages#cd-messages-welcome) section.
+  You can also use the message parameters that are listed in the [Welcome message](/docs/appid?topic=appid-cd-types#cd-messages-welcome) section.
   {: tip}
 
 5. Define an expiration time for the action URL. The URL expiration is the amount of time, in minutes, that a user must complete the action before the verification link expires. This setting also affects the amount of time that your reset password link is valid.
@@ -405,7 +405,7 @@ When a user interacts with your app, they might forget their password or need to
     </tr>
   </table>
 
-  You can also use the message parameters that are listed in the [Welcome message](/docs/appid?topic=appid-cd-messages#cd-messages-welcome) section.
+  You can also use the message parameters that are listed in the [Welcome message](/docs/appid?topic=appid-cd-types#cd-messages-welcome) section.
   {: tip}
 
 4. Define an expiration time for the action URL. The URL expiration is the amount of time, in minutes, that a user must complete the action before the verification link expires. This setting also affects the amount of time that your reset password link is valid.
@@ -443,7 +443,7 @@ You can notify a user when their password is updated. The notification can be he
     </tr>
   </table>
 
-  You can also use the message parameters that are listed in the [Welcome message](/docs/appid?topic=appid-cd-messages#cd-messages-welcome) section.
+  You can also use the message parameters that are listed in the [Welcome message](/docs/appid?topic=appid-cd-types#cd-messages-welcome) section.
   {: tip}
 
 4. Click **Save**.

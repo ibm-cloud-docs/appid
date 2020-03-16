@@ -74,7 +74,7 @@ The following features and changes to the {{site.data.keyword.appid_short_notm}}
 
 - **Cloud Directory: Custom MFA flows**
 
-    You can now make custom decisions about who must complete the MFA flow by configuring your own extension and registering it with {{site.data.keyword.appid_short_notm}}. For more information, see [Customizing MFA](/docs/appid?topic=appid-cd-mfa#cd-mfa-premfa).
+    You can now make custom decisions about who must complete the MFA flow by configuring your own extension and registering it with {{site.data.keyword.appid_short_notm}}. For more information, see [Customizing MFA](/docs/appid?topic=appid-cd-mfa#cd-premfa).
 
 
 ## November 2019
@@ -127,7 +127,7 @@ The following features and changes to the {{site.data.keyword.appid_short_notm}}
 
 - **Cloud Directory: Automatically associate users with a profile**
 
-    Automatically associate Cloud Directory users with an {{site.data.keyword.appid_short_notm}} profile as you create them. For more information, see [Adding and deleting users](/docs/appid?topic=appid-cd-users#add-delete-users).
+    Automatically associate Cloud Directory users with an {{site.data.keyword.appid_short_notm}} profile as you create them. For more information, see [Adding and deleting users](/docs/appid?topic=appid-cd-users#delete-users).
 
 
 
