@@ -38,7 +38,7 @@ subcollection: appid
 
 
 
-# Multifactor authentication (MFA)
+# Multi-factor authentication (MFA)
 {: #cd-mfa}
 
 With Cloud Directory for {{site.data.keyword.appid_full}}, you can require multiple authentication factors during your application sign-in flow. A second authentication factor increases the security of your application by not only confirming that a user possesses the knowledge of their credentials but also has access to their registered email or phone number. Extending the MFA flow a bit, you can configure pre-MFA and post-MFA extensions to make custom decisions at run time about which users must complete the second factor or provide you analytical information about your sign-in flow.
@@ -88,7 +88,7 @@ You can configure the MFA email channel through the GUI.
 
 1. Navigate to the **Cloud Directory > multi-factor authentication** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
 
-2. In the **Enable multi-factor authentication** box, on the **settings tab**, toggle MFA to **Enabled**. Acknowledge that you understand that MFA is charged as an [advanced security event](/docs/appid?topic=appid-faq#faq-pricing). By default, **Email** is selected as the **Authentication method**.
+2. In the **Enable Multi-factor authentication** box, on the **settings tab**, toggle MFA to **Enabled**. Acknowledge that you understand that MFA is charged as an [advanced security event](/docs/appid?topic=appid-faq#faq-pricing). By default, **Email** is selected as the **Authentication method**.
 
 3. In the **Email channel** tab, review the **Email template**. You can choose to send the template with the provided wording or write your own message. Be sure to use the correct HTML tagging. In the GUI, you can add parameters and insert images. To change the [language](/docs/appid?topic=appid-cd-types#cd-languages) of the message, you can use <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization" target="_blank">the APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to set the language. However, you are responsible for the content and conversion of the message. Check out the following table to see the list of tables that you can use in this message and all of the other messages that you can send. If a user does not supply the information that is pulled by the parameter, it appears blank.
 
