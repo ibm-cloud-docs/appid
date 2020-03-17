@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-16"
+lastupdated: "2020-03-17"
 
 keywords: mfa, multifactor, authentication, cloud directory, login widget, second factor, two factor, identity, mulitple factors, advanced security event, cloud directory user, sender id, phone number, email, nexmo, mfa descision, extension
 
@@ -38,7 +38,7 @@ subcollection: appid
 
 
 
-# Multifactor authentication (MFA)
+# Multi-factor authentication (MFA)
 {: #cd-mfa}
 
 With Cloud Directory for {{site.data.keyword.appid_full}}, you can require multiple authentication factors during your application sign-in flow. A second authentication factor increases the security of your application by not only confirming that a user possesses the knowledge of their credentials but also has access to their registered email or phone number. Extending the MFA flow a bit, you can configure pre-MFA and post-MFA extensions to make custom decisions at run time about which users must complete the second factor or provide you analytical information about your sign-in flow.
@@ -86,9 +86,9 @@ The first time that MFA is enabled, it is set to use email by default. You can c
 
 You can configure the MFA email channel through the GUI.
 
-1. Navigate to the **Cloud Directory > Multifactor authentication** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
+1. Navigate to the **Cloud Directory > Multi-factor authentication** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
 
-2. In the **Enable Multifactor authentication** box, on the **settings tab**, toggle MFA to **Enabled**. Acknowledge that you understand that MFA is charged as an [advanced security event](/docs/appid?topic=appid-faq#faq-pricing). By default, **Email** is selected as the **Authentication method**.
+2. In the **Enable Multi-factor authentication** box, on the **settings tab**, toggle MFA to **Enabled**. Acknowledge that you understand that MFA is charged as an [advanced security event](/docs/appid?topic=appid-faq#faq-pricing). By default, **Email** is selected as the **Authentication method**.
 
 3. In the **Email channel** tab, review the **Email template**. You can choose to send the template with the provided wording or write your own message. Be sure to use the correct HTML tagging. In the GUI, you can add parameters and insert images. To change the [language](/docs/appid?topic=appid-cd-types#cd-languages) of the message, you can use <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization" target="_blank">the APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to set the language. However, you are responsible for the content and conversion of the message. Check out the following table to see the list of tables that you can use in this message and all of the other messages that you can send. If a user does not supply the information that is pulled by the parameter, it appears blank.
 
@@ -199,9 +199,9 @@ When MFA is initially enabled, it is set to use email by default. You can change
 To configure MFA with the GUI, check out [Cloud Directory](/docs/appid?topic=appid-cloud-directory).
 {: note}
 
-1. Navigate to the **Cloud Directory > Multifactor authentication** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
+1. Navigate to the **Cloud Directory > Multi-factor authentication** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
 
-2. In the **Enable multifactor authentication** box, on the **settings tab**, toggle MFA to **Enabled**. Acknowledge that you understand that MFA is charged as an [advanced security event](/docs/appid?topic=appid-faq#faq-pricing).
+2. In the **Enable multi-factor authentication** box, on the **settings tab**, toggle MFA to **Enabled**. Acknowledge that you understand that MFA is charged as an [advanced security event](/docs/appid?topic=appid-faq#faq-pricing).
 
 3. Select **SMS** as your **Authentication method**.
 
@@ -271,10 +271,12 @@ Before you get started with the API, be sure that you have the following prerequ
 
 
 
+
+
 ## Extending MFA
 {: #cd-mfa-extensions}
 
-With extensions, you can take the security of multifactor authentication to the next level. By making custom decisions about who is required to provide a second form of authentication, you can provide a more personal experience of your app for your users. You can also use extensions to audit MFA behaviors such as the number of failed second form authentications.
+With extensions, you can take the security of multi-factor authentication to the next level. By making custom decisions about who is required to provide a second form of authentication, you can provide a more personal experience of your app for your users. You can also use extensions to audit MFA behaviors such as the number of failed second form authentications.
 
 
 ### Before you begin
