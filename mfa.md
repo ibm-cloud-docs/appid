@@ -168,7 +168,7 @@ To enable MFA:
   ```
   {: codeblock}
 
-If your {{site.data.keyword.appid_short_notm}} Cloud Directory instance is configured to work with a custom email sender, then MFA uses the same sender to deliver the one-time code. For more information, see the [Cloud Directory docs](/docs/appid?topic=appid-cd-messages#cd-custom-email).
+If your {{site.data.keyword.appid_short_notm}} Cloud Directory instance is configured to work with a custom email sender, then MFA uses the same sender to deliver the one-time code. For more information, see the [Cloud Directory docs](/docs/appid?topic=appid-cd-types#cd-custom-email).
 {: note}
 
 
