@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-16"
+lastupdated: "2020-03-19"
 
 keywords: identity provider, idp, app security, mobile app, web app, authentication, authorization, oidc, saml, protocols, facebook, google, w3id, cloud directory, redirect url, redirect uri, token configuration, token lifetime, log in configuration
 
@@ -136,7 +136,7 @@ Your application redirects users to {{site.data.keyword.appid_short_notm}} for a
     </tr>
     <tr>
       <td>Wildcard</td>
-      <td><code>https://mydomain.net/*</code><br>Wildcards are not recommended for use in production apps.</td>
+      <td>`https://mydomain.net/*`<br>Wildcards are not recommended for use in production apps.</td>
     </tr>  
   </table>
 
