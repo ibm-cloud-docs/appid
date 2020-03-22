@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-19"
+lastupdated: "2020-03-22"
 
 keywords: mfa, multifactor, authentication, cloud directory, login widget, second factor, two factor, identity, mulitple factors, advanced security event, cloud directory user, sender id, phone number, email, nexmo, mfa descision, extension
 
@@ -48,7 +48,7 @@ With Cloud Directory for {{site.data.keyword.appid_full}}, you can require multi
 {{site.data.keyword.appid_short_notm}} MFA is supported as part of the OAuth 2.0 authorization code flow for Cloud Directory users through the Login Widget. If you're using enterprise sign-in with SAML 2.0 or social login, you can enable MFA through that identity provider.
 {: note}
 
-Check out the following diagram to see how the MFA flow works.
+Check out the following diagram to see how the MFA flow works for email or SMS.
 
 ![MFA flow](images/mfa.png){: caption="Figure 1. Cloud Directory MFA flow" caption-side="bottom"}
 
