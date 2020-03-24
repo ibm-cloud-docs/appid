@@ -38,16 +38,13 @@ subcollection: appid
 {:curl: .ph data-hd-programlang='curl'}
 
 
-
 # Activity Tracker events
 {: #at-events}
 
 You can view, manage, and analyze user-initiated activities made in your {{site.data.keyword.appid_full}} service instance by using the {{site.data.keyword.at_short}} service.
 {: shortdesc}
 
-
 By integrating {{site.data.keyword.at_short}} with {{site.data.keyword.appid_short_notm}} you can track two different types of events, administrative and runtime. Administrative events are those that are specific to your instance of the service. Administrative events cover configuration changes such as updating your identity providers or changing the theme of your login widget. Runtime events are those activities that occur at runtime by the app user. A password reset request, authentication failures, or a user log out would all fall into the runtime category.
-
 
 For more information about how the service works, see the [{{site.data.keyword.at_short}} docs](/docs/Activity-Tracker-with-LogDNA?topic=logdnaat-cloud_services).
 
@@ -74,7 +71,7 @@ You can view, manage, and analyze configuration activity that is made in your {{
 
 Check out the following table for a list of the events that are sent to {{site.data.keyword.at_short}}.
 
-Some of the action names were changed as part of an alignment to new guidelines.[{{site.data.keyword.cloud_notm}} Learn more. ](https://cloud.ibm.com/docs/services/Activity-Tracker-with-LogDNA?topic=logdnaat-event#action_field).
+Some of the action names were changed as part of an alignment to new guidelines.[Learn more](https://cloud.ibm.com/docs/services/Activity-Tracker-with-LogDNA?topic=logdnaat-event#action_field).
 {: important} 
 
 <table>
