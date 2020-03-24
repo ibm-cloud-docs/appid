@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-19"
+lastupdated: "2020-03-24"
 
 keywords: user events, track activity, manage events, analyze, administrative, runtime, sign in, settings, app security
 
@@ -63,7 +63,7 @@ You can view, manage, and analyze configuration activity that is made in your {{
 {: #at-monitor-admin-activity}
 
 1. Log in to your {{site.data.keyword.cloud_notm}} account.
-2. From the catalog, provision an instance of the {{site.data.keyword.at_short}} service in the same account as your {{site.data.keyword.appid_short_notm}} instance.
+2. From the catalog, provision an instance of the {{site.data.keyword.at_short}} service in the same account and region as your {{site.data.keyword.appid_short_notm}} instance.
 3. From the **Observability > Activity Tracker** tab, verify the information for the instance that you created.
 4. Click **View LogDNA** and make sure you're on the **Everything** dashboard. Any events that meet the qualifications for your {{site.data.keyword.at_short}} payment plan are visible. You can filter your results by tags, sources, apps or levels. You can also search for specific events or jump to a specific timeframe.
 
@@ -73,6 +73,9 @@ You can view, manage, and analyze configuration activity that is made in your {{
 {: #at-events-admin}
 
 Check out the following table for a list of the events that are sent to {{site.data.keyword.at_short}}.
+
+Some of the action names were changed as part of an alignment to new guidelines.[{{site.data.keyword.cloud_notm}} Learn more. ](https://cloud.ibm.com/docs/services/Activity-Tracker-with-LogDNA?topic=logdnaat-event#action_field).
+{: important} 
 
 <table>
   <caption>Table 1. Actions that you can take that are tracked by {{site.data.keyword.at_short}}</caption>
@@ -549,12 +552,13 @@ This feature is available only for instances on graduated tier payment plan that
 7. From the **All Apps** drop-down, select the instance of {{site.data.keyword.appid_short_notm}} that you want to track events for.
 
 
-
-
 ## List of runtime events
 {: #at-runtime-events}
 
 Check out the following table for a list of the runtime events that are sent to {{site.data.keyword.at_short}}.
+
+Be sure that you have turn ON the **Runtime Activity** in order to see this events.
+{: important} 
 
 <table>
   <caption>Table 2. Actions that can be tracked as authentication events at runtime</caption>
@@ -793,31 +797,6 @@ Check out the following table for a list of the runtime events that are sent to 
     <td><code>appid-user-profiles/attribute/[Attribute-name]</code></td>
   </tr>
 </table>
-
-</br>
-Additional field names that appear in the {{site.data.keyword.at_short}} console have these values:
-<table>
-  <tr>
-    <th>Field</th>
-    <th>Value</th>
-  </tr>
-  <tr>
-    <td><code>eventTime</code></td>
-    <td>The timestamp of the event.</td>
-  </tr>
-    <td><code>requestData</code></td>
-    <td>The instance's client ID.</td>
-  <tr>
-    <td><code>initiator.id</code></td>
-    <td>The account ID.</td>
-  </tr>
-  <tr>
-    <td><code>initiator.typeURI</code></td>
-    <td><code>service/security/account/user</code></td>
-  </tr>
-</table>
-
-
 
 ## Analyzing runtime events
 {: #at-runtime-analyze}
