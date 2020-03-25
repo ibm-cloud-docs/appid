@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-24"
+lastupdated: "2020-03-25"
 
 keywords: user events, track activity, manage events, analyze, administrative, runtime, sign in, settings, app security
 
@@ -99,6 +99,11 @@ Some of the action names were changed as part of an alignment to new guidelines.
   <tr>
     <td><code>appid.tokens-config.read</code></td>
     <td>View the token expiration configuration.</td>
+    <td>Can be found in the <strong>Manage authentication > Authentication Settings</strong> tab.</td>
+  </tr>
+  <tr>
+    <td><code>appid.tokens-config.update</code></td>
+    <td>Update the token expiration configuration.</td>
     <td>Can be found in the <strong>Manage authentication > Authentication Settings</strong> tab.</td>
   </tr>
   <tr>
