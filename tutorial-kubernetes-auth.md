@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-16"
+lastupdated: "2020-03-19"
 
 keywords: ingress controller, ingress, istio, access, subdomain, custom domain, service, containerized apps, containers, kube, networking, policy, policies, secure apps, authentication, authorization
 
@@ -24,6 +24,7 @@ subcollection: appid
 {:preview: .preview}
 {:deprecated: .deprecated}
 {:shortdesc: .shortdesc}
+{:script: data-hd-video='script'}
 {:support: data-reuse='support'}
 {:table: .aria-labeledby="caption"}
 {:troubleshoot: data-hd-content-type='troubleshoot'}
@@ -274,7 +275,7 @@ To ensure the best performance of the integration, it is recommended that you al
 ## Adding your redirect URIs
 {: #kube-add-redirect}
 
-A redirect URL is the location that your user is sent to after they successfully sign in to or out of your app. By adding the redirect URI to your whitelist, you are telling {{site.data.keyword.appid_short_notm}} that it is okay to send your users to that location. [Learn more about redirect URIs](/docs/appid?topic=appid-managing-idp#add-redirect-uri).
+A redirect URL is the location that your user is sent to after they successfully sign in to or out of your app. By adding the redirect URI to your whitelist, you are telling {{site.data.keyword.appid_short_notm}} that it is ok to send your users to that location. [Learn more about redirect URIs](/docs/appid?topic=appid-managing-idp#add-redirect-uri).
 
 
 1. Navigate to the {{site.data.keyword.cloud_notm}} GUI and open your {{site.data.keyword.appid_short_notm}} dashboard.

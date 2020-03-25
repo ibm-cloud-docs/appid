@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-16"
+lastupdated: "2020-03-19"
 
 keywords: token validation, validate token, protect app, public key, token header, base64, decode payload, authorized, access permissions, app security, identity, jwt 
 
@@ -24,6 +24,7 @@ subcollection: appid
 {:preview: .preview}
 {:deprecated: .deprecated}
 {:shortdesc: .shortdesc}
+{:script: data-hd-video='script'}
 {:support: data-reuse='support'}
 {:table: .aria-labeledby="caption"}
 {:troubleshoot: data-hd-content-type='troubleshoot'}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-16"
+lastupdated: "2020-03-19"
 
 keywords: user access, control access, permissions, roles, scopes, runtime, access token, authentication, identity, app security
 
@@ -24,6 +24,7 @@ subcollection: appid
 {:preview: .preview}
 {:deprecated: .deprecated}
 {:shortdesc: .shortdesc}
+{:script: data-hd-video='script'}
 {:support: data-reuse='support'}
 {:table: .aria-labeledby="caption"}
 {:troubleshoot: data-hd-content-type='troubleshoot'}
@@ -334,10 +335,10 @@ To remove a role from a user, make the PUT request again, but remove the role ID
 When a user attempts to access one of your protected resources, tokens are created and returned by {{site.data.keyword.appid_short_notm}}. Any scopes that a user is assigned are retuned in the access token. You can use the access token to make decisions at runtime. Depending on the strategy that you're using to protect your applications, how you verify scopes can differ.
 
 
-### When using WebAppStrategy
+### When using web app strategy
 {: #access-webapp-strategy}
 
-You can use [WebAppStrategy](/docs/appid?topic=appid-key-concepts#term-web-strategy) to check whether a request contains any scopes by using the `hasScope` method. When a user with an assigned role signs in, they are granted access by an {{site.data.keyword.appid_short_notm}} token that contains all of the scopes that are defined in the role. For example, if you're working with the Node.js SDK, your code snippet would look similar to the following:
+You can use [web app strategy](/docs/appid?topic=appid-key-concepts#term-web-strategy) to check whether a request contains any scopes by using the `hasScope` method. When a user with an assigned role signs in, they are granted access by an {{site.data.keyword.appid_short_notm}} token that contains all of the scopes that are defined in the role. For example, if you're working with the Node.js SDK, your code snippet would look similar to the following:
  
 ```javascript
 app.get("/protected", passport.authenticate(WebAppStrategy.STRATEGY_NAME), function(req, res){
@@ -353,10 +354,10 @@ app.get("/protected", passport.authenticate(WebAppStrategy.STRATEGY_NAME), funct
 
 
 
-### When using APIStrategy
+### When using API strategy
 {: #access-api-strategy}
 
-You can define the scopes that are required to access a specific endpoint by adding a scope variable to your [APIstrategy](/docs/appid?topic=appid-key-concepts#term-api-strategy) code. For instance, if you have an application that is written in Node.js and you're working with the Node.js SDK, your code snippet might look similar to the following.
+You can define the scopes that are required to access a specific endpoint by adding a scope variable to your [API strategy](/docs/appid?topic=appid-key-concepts#term-api-strategy) code. For instance, if you have an application that is written in Node.js and you're working with the Node.js SDK, your code snippet might look similar to the following.
 
 ```javascript
 app.get("/api/protected",
@@ -372,7 +373,7 @@ app.get("/api/protected",
 {: codeblock}
 
 <table>
-    <caption>Table 3. Understanding the variables used with APIStrategy</caption>
+    <caption>Table 3. Understanding the variables used with API strategy</caption>
     <tr>
       <th>Variable</th>
       <th>Description</th>

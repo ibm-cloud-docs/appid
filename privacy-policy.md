@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-16"
+lastupdated: "2020-03-19"
 
 keywords: personal data, app id permitted uses, privacy policy, usage data, user information, tracking technology, ip addresses, service providers, developers, client, testing, default configuration, cookies data, consent, legal, google, facebook 
 
@@ -24,6 +24,7 @@ subcollection: appid
 {:preview: .preview}
 {:deprecated: .deprecated}
 {:shortdesc: .shortdesc}
+{:script: data-hd-video='script'}
 {:support: data-reuse='support'}
 {:table: .aria-labeledby="caption"}
 {:troubleshoot: data-hd-content-type='troubleshoot'}

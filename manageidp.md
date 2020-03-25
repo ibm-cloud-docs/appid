@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-16"
+lastupdated: "2020-03-19"
 
 keywords: identity provider, idp, app security, mobile app, web app, authentication, authorization, oidc, saml, protocols, facebook, google, w3id, cloud directory, redirect url, redirect uri, token configuration, token lifetime, log in configuration
 
@@ -24,6 +24,7 @@ subcollection: appid
 {:preview: .preview}
 {:deprecated: .deprecated}
 {:shortdesc: .shortdesc}
+{:script: data-hd-video='script'}
 {:support: data-reuse='support'}
 {:table: .aria-labeledby="caption"}
 {:troubleshoot: data-hd-content-type='troubleshoot'}
@@ -136,7 +137,7 @@ Your application redirects users to {{site.data.keyword.appid_short_notm}} for a
     </tr>
     <tr>
       <td>Wildcard</td>
-      <td><code>https://mydomain.net/*</code><br>Wildcards are not recommended for use in production apps.</td>
+      <td>`https://mydomain.net/*`<br>Wildcards are not recommended for use in production apps.</td>
     </tr>  
   </table>
 
@@ -153,7 +154,7 @@ Your application redirects users to {{site.data.keyword.appid_short_notm}} for a
 
 Not sure where your redirect URI comes from? Watch the following short video to see where to get it and how to add it to your list.
 
-<iframe class="embed-responsive-item" id="redirecturi" title="{{site.data.keyword.appid_short_notm}}: How to fix invalid redirect URI" type="text/html" width="640" height="390" src="//www.youtube.com/embed/6hxqbvpc054?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
+<iframe class="embed-responsive-item" id="redirecturi" title="{{site.data.keyword.appid_short_notm}}: How to fix invalid redirect URI" type="text/html" width="640" height="390" src="//www.youtube.com/embed/6hxqbvpc054?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
 
 

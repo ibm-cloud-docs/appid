@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-16"
+lastupdated: "2020-03-19"
 
 keywords: single page application, SPA, single-page, angular, react, native apps, javascript, js, sdk, authentication, authorization, identity, app security, secure, protocols, oauth, oidc,
 
@@ -24,6 +24,7 @@ subcollection: appid
 {:preview: .preview}
 {:deprecated: .deprecated}
 {:shortdesc: .shortdesc}
+{:script: data-hd-video='script'}
 {:support: data-reuse='support'}
 {:table: .aria-labeledby="caption"}
 {:troubleshoot: data-hd-content-type='troubleshoot'}
@@ -151,19 +152,21 @@ To create your credentials, register your app with {{site.data.keyword.appid_sho
 To install the SDK in your application, use the following steps as a guide.
 
 1. By using the command prompt, change in to the directory that contains your application.
-2. Install the {{site.data.keyword.appid_short_notm}} service by using NPM.
+2. Install the {{site.data.keyword.appid_short_notm}} service by using NPM or by linking the CDN in your main HTML file.
 
-  ```
-  npm install ibmcloud-appid-js
-  ```
-  {: codeblock}
+  * To use NPM, run the following command.
+
+    ```
+    npm install ibmcloud-appid-js
+    ```
+    {: codeblock}
   
-   Or add the CDN link to your main html file.
+  * To add the CDN, add the following link to your main HTML file.
     
-   ```
-   <script src="https://cdn.appid.cloud.ibm.com/appid-0.3.0.min.js"></script>
-   ```
-   {: codeblock}
+    ```
+    <script src="https://cdn.appid.cloud.ibm.com/appid-0.3.0.min.js"></script>
+    ```
+    {: codeblock}
 
 3. Add your client ID and discovery endpoint to your app to initialize the SDK.
 
