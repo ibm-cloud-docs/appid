@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-19"
+lastupdated: "2020-04-06"
 
 keywords: pricing, advanced security, authentication events, authorized users, activity tracking, runtime activity, password policies, keycloak, whitelist redirect url, redirect uri 
 
@@ -44,6 +44,7 @@ subcollection: appid
 
 This FAQ provides answers to common questions about the {{site.data.keyword.appid_full}} service.
 {: shortdesc}
+
 
 
 ## How does {{site.data.keyword.appid_short_notm}} calculate pricing?
