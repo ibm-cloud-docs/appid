@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-04-06"
+lastupdated: "2020-04-07"
 
 keywords: pricing, advanced security, authentication events, authorized users, activity tracking, runtime activity, password policies, keycloak, whitelist redirect url, redirect uri 
 
@@ -45,6 +45,26 @@ subcollection: appid
 This FAQ provides answers to common questions about the {{site.data.keyword.appid_full}} service.
 {: shortdesc}
 
+
+
+## Can I interact directly with the development team?
+{: #faq-slack}
+{: faq}
+{: support}
+
+Yes! Our development team would love to learn more about you and your use case. To get in touch you can join us on Slack.
+
+1. [Request an invitation](https://cloud.ibm.com/kubernetes/slack){: external} to the workspace by entering your email.
+2. Check your email for an invitation.
+3. Click **Join now** to go to the sign in page.
+4. Create an account by entering your name and a password.
+5. When you're in, search for the channel `#appid-at-ibm`.
+6. Join the channel.
+
+Welcome! Now that you're up and running, feel free to ask questions, give feedback, and help others. 
+
+This is not a replacement for opening a support ticket. If you encounter a more serious issue, issues with IBM Cloud that don't relate to {{site.data.keyword.appid_short_notm}}, or need to share more information than you are comfortable sharing in a public forum, please open a support ticket.
+{: note}
 
 
 ## How does {{site.data.keyword.appid_short_notm}} calculate pricing?
