@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-27"
+lastupdated: "2020-04-14"
 
 keywords: user events, track activity, manage events, analyze, administrative, runtime, sign in, settings, app security
 
@@ -38,8 +38,12 @@ subcollection: appid
 {:curl: .ph data-hd-programlang='curl'}
 
 
+
 # Activity Tracker events
 {: #at-events}
+
+
+
 
 You can view, manage, and analyze user-initiated activities made in your {{site.data.keyword.appid_full}} service instance by using the {{site.data.keyword.at_short}} service.
 {: shortdesc}
