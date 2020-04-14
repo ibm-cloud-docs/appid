@@ -43,10 +43,7 @@ subcollection: appid
 {: #service-access-management}
 
 
-<stage>
-# Managing access for {{site.data.keyword.appid_short_notm}}
-{: #service-access-management}
-</stage>
+
 
 With {{site.data.keyword.appid_full}} and {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM), account owners can manage user access in your account.
 {: shortdesc}
