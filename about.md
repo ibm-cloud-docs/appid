@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-04-06"
+lastupdated: "2020-04-15"
 
 keywords: authentication, authorization, identity, app security, cloud directory, user data, identity provider, oauth, protocols, oauth, oidc, disaster recovery, dr, compliance, high availability, ha, secure, HA, DR
 
@@ -160,7 +160,8 @@ In each supported multizone region, every zone has its own {{site.data.keyword.c
 
 Data that is stored in {{site.data.keyword.appid_short_notm}} is encrypted and persisted in a database cluster that is spread across availability zones. The data is also back up in a separate encrypted object storage.
 
-Because {{site.data.keyword.appid_short_notm}} is a regional service, it does not provide automated cross-regional failover or cross-regional disaster recovery. However, {{site.data.keyword.appid_short_notm}} does provide an [extensive API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/){: external} that developers can use to manually synchronize their service configuration with another instance or instances of {{site.data.keyword.appid_short_notm}}.
+Because {{site.data.keyword.appid_short_notm}} is a regional service, it does not provide automated cross-regional failover or cross-regional disaster recovery. If a regional disaster occurs, all data might not be available to be recovered. However, if the recovery of a location is necessary, the available data can be restored. To ensure high availability and disaster recovery, it’s recommended that you create and maintain backup instances in other regions. To synchronize a service instance in one region with an instance in a different region, you can use [the APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/){: external}.
+
 
 ## Data separation and encryption
 {: #data-encryption}
