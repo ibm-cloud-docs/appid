@@ -76,9 +76,13 @@ App ID
 
     {: .topicgroup}
     Managing App ID
-        iam.md
         api-reference.md
         instances.md
+
+    {: .topicgroup}
+    Enhancing security for App ID
+        iam.md
+        at-events.md
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
@@ -97,7 +101,6 @@ App ID
         token-obtain.md
         tokens.md
 
-    at-events.md
     well-known.md
     rate-limits.md
     privacy-policy.md

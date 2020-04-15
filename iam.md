@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-04-14"
+lastupdated: "2020-04-15"
 
 keywords: user access, account settings, iam, user roles, platform roles, service roles, reader, writer, operator, editor, viewer, administrator, manager, permissions
 
@@ -38,12 +38,8 @@ subcollection: appid
 {:curl: .ph data-hd-programlang='curl'}
 
 
-
-# IAM access for {{site.data.keyword.appid_short_notm}}
+# Managing access for {{site.data.keyword.appid_short_notm}}
 {: #service-access-management}
-
-
-
 
 With {{site.data.keyword.appid_full}} and {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM), account owners can manage user access in your account.
 {: shortdesc}
