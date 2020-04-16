@@ -216,7 +216,7 @@ To ensure the best performance of the integration, it is recommended that you al
   metadata:
     name: myingress
     annotations:
-      ingress.bluemix.net/appid-auth: "bindSecret=<bind_secret> namespace=<namespace> requestType=<request_type> serviceName=<myservice> [idToken=false]"
+      ingress.bluemix.net/appid-auth: "bindSecret=<bind_secret> namespace=<namespace> requestType=<request_type> serviceName=<myservice> idToken=false"
   spec:
     tls:
     - hosts:
@@ -257,11 +257,11 @@ To ensure the best performance of the integration, it is recommended that you al
     </tr>
     <tr>
       <td><code>idToken</code></td>
-      <td>Optional: The Liberty OIDC client is unable to parse both the access and the identity token at the same time. When working with Liberty, set this value to <code>false</code> so that the identity token is not sent to the Liberty server.</td>
+      <td>Required: The Liberty OIDC client is unable to parse both the access and the identity token at the same time. When working with Liberty, set this value to <code>false</code> so that the identity token is not sent to the Liberty server.</td>
     </tr>
   </table>
 
-  You can add more instance of {{site.data.keyword.appid_short_notm}} to your annotation by adding two `bindSecret` lines, separated by a semicolon (;).
+  You can add more instance of {{site.data.keyword.appid_short_notm}} to your annotation by adding two `bindSecret` lines, separated by a semicolon (;). For example: </br> `bindSecret=binding-appid-5-may-19-dallas-grad namespace=default requestType=web serviceName=idfabric-proto-login-server; bindSecret=binding-app-id-wdc-nov-7-19-grad namespace=default requestType=web serviceName=idfabric-proto-oidc`
   {: tip}
 
 3. Run the configuration file.
