@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-19"
+lastupdated: "2020-04-16"
 
 keywords: ingress controller, ingress, istio, access, subdomain, custom domain, service, containerized apps, containers, kube, networking, policy, policies, secure apps, authentication, authorization
 
@@ -253,7 +253,7 @@ To ensure the best performance of the integration, it is recommended that you al
     </tr>
     <tr>
       <td><code>serviceName</code></td>
-      <td><p>Required: The name of the Kubernetes service that you created for your app. If a service name is not included, the annotation is enabled for all services.</p> <p>To use multiple request types in the same cluster, configure an instance of {{site.data.keyword.appid_short_notm}} to use <code>web</code> and another to use <code>api</code>.</p></td>
+      <td><p>Required: The name of the Kubernetes service that you created for your app.</p> <p>To use multiple request types in the same cluster, configure an instance of {{site.data.keyword.appid_short_notm}} to use <code>web</code> and another to use <code>api</code>.</p></td>
     </tr>
     <tr>
       <td><code>idToken</code></td>
