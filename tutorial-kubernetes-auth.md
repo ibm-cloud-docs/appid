@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-04-16"
+lastupdated: "2020-04-20"
 
 keywords: ingress controller, ingress, istio, access, subdomain, custom domain, service, containerized apps, containers, kube, networking, policy, policies, secure apps, authentication, authorization
 
@@ -42,7 +42,7 @@ subcollection: appid
 # Containerized apps with Ingress
 {: #kube-auth}
 
-You can consistently enforce policy-driven security by using the Ingress networking capability in {{site.data.keyword.containerlong}} or {{site.data.keyword.openshiftshort}}. With this approach, you can enable authorization and authentication for all of the applications in your cluster at the same time, without ever changing your app code!
+With {{site.data.keyword.appid_full}}, you can consistently enforce policy-driven security by using the Ingress networking capability in {{site.data.keyword.containerlong}} or {{site.data.keyword.openshiftshort}}. With this approach, you can enable authorization and authentication for all of the applications in your cluster at the same time, without ever changing your app code!
 {: shortdesc}
 
 Check out the following diagram to see the authentication flow.
@@ -104,6 +104,7 @@ For help with getting the CLIs and plug-ins downloaded and your Kubernetes Servi
 By binding your instance of {{site.data.keyword.appid_short_notm}} to your cluster, you can enforce protection for all of the apps that run in your cluster.
 
 
+
 1. Log in to the {{site.data.keyword.cloud_notm}} CLI. Follow the prompts in the CLI to complete logging in. If you're using a federated ID, be sure to append the `--sso` flag to the end of the command.
 
   ```
@@ -141,14 +142,10 @@ By binding your instance of {{site.data.keyword.appid_short_notm}} to your clust
 
 2. Set the context for your cluster.
 
-  1. Get the command to set the environment variable and download the Kubernetes configuration files.
-
     ```
-    ibmcloud ks cluster-config <cluster_name_or_ID>
+    ibmcloud ks cluster config --cluster <cluster_name_or_ID>
     ```
     {: codeblock}
-
-  2. Copy the output beginning with `export` and paste it into your terminal to set the `KUBECONFIG` environment variable.
 
 3. Check to see whether you already have an Ingress controller in your default namespace. {{site.data.keyword.containerlong}} supports one Ingress per namespace. If you already have one, you can update the existing Ingress configuration or use a different namespace.
 
@@ -216,7 +213,7 @@ To ensure the best performance of the integration, it is recommended that you al
   metadata:
     name: myingress
     annotations:
-      ingress.bluemix.net/appid-auth: "bindSecret=<bind_secret> namespace=<namespace> requestType=<request_type> serviceName=<myservice> [idToken=false]"
+      ingress.bluemix.net/appid-auth: "bindSecret=<bind_secret> namespace=<namespace> requestType=<request_type> serviceName=<myservice> idToken=true"
   spec:
     tls:
     - hosts:
@@ -257,11 +254,11 @@ To ensure the best performance of the integration, it is recommended that you al
     </tr>
     <tr>
       <td><code>idToken</code></td>
-      <td>Optional: The Liberty OIDC client is unable to parse both the access and the identity token at the same time. When working with Liberty, set this value to <code>false</code> so that the identity token is not sent to the Liberty server.</td>
+      <td>Required: The Liberty OIDC client is unable to parse both the access and the identity token at the same time. When working with Liberty, set this value to <code>false</code> so that the identity token is not sent to the Liberty server.</td>
     </tr>
   </table>
 
-  You can add more instance of {{site.data.keyword.appid_short_notm}} to your annotation by adding two `bindSecret` lines, separated by a semicolon (;).
+  You can add more instance of {{site.data.keyword.appid_short_notm}} to your annotation by adding two `bindSecret` lines, separated by a semicolon (;). For example: </br> `bindSecret=binding-app-id-instance namespace=default requestType=web serviceName=web-application; bindSecret=binding-another-app-id namespace=default requestType=web serviceName=another-web-application`
   {: tip}
 
 3. Run the configuration file.
