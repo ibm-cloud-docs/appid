@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-04-16"
+lastupdated: "2020-04-20"
 
 keywords: ingress controller, ingress, istio, access, subdomain, custom domain, service, containerized apps, containers, kube, networking, policy, policies, secure apps, authentication, authorization
 
@@ -141,14 +141,10 @@ By binding your instance of {{site.data.keyword.appid_short_notm}} to your clust
 
 2. Set the context for your cluster.
 
-  1. Get the command to set the environment variable and download the Kubernetes configuration files.
-
     ```
-    ibmcloud ks cluster-config <cluster_name_or_ID>
+    ibmcloud ks cluster config --cluster <cluster_name_or_ID>
     ```
     {: codeblock}
-
-  2. Copy the output beginning with `export` and paste it into your terminal to set the `KUBECONFIG` environment variable.
 
 3. Check to see whether you already have an Ingress controller in your default namespace. {{site.data.keyword.containerlong}} supports one Ingress per namespace. If you already have one, you can update the existing Ingress configuration or use a different namespace.
 
