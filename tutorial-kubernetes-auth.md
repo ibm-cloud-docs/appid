@@ -42,7 +42,7 @@ subcollection: appid
 # Containerized apps with Ingress
 {: #kube-auth}
 
-You can consistently enforce policy-driven security by using the Ingress networking capability in {{site.data.keyword.containerlong}} or {{site.data.keyword.openshiftshort}}. With this approach, you can enable authorization and authentication for all of the applications in your cluster at the same time, without ever changing your app code!
+With {{site.data.keyword.appid_full}}, you can consistently enforce policy-driven security by using the Ingress networking capability in {{site.data.keyword.containerlong}} or {{site.data.keyword.openshiftshort}}. With this approach, you can enable authorization and authentication for all of the applications in your cluster at the same time, without ever changing your app code!
 {: shortdesc}
 
 Check out the following diagram to see the authentication flow.
@@ -102,6 +102,7 @@ For help with getting the CLIs and plug-ins downloaded and your Kubernetes Servi
 {: #kube-create-appid}
 
 By binding your instance of {{site.data.keyword.appid_short_notm}} to your cluster, you can enforce protection for all of the apps that run in your cluster.
+
 
 
 1. Log in to the {{site.data.keyword.cloud_notm}} CLI. Follow the prompts in the CLI to complete logging in. If you're using a federated ID, be sure to append the `--sso` flag to the end of the command.
@@ -212,7 +213,7 @@ To ensure the best performance of the integration, it is recommended that you al
   metadata:
     name: myingress
     annotations:
-      ingress.bluemix.net/appid-auth: "bindSecret=<bind_secret> namespace=<namespace> requestType=<request_type> serviceName=<myservice> idToken=false"
+      ingress.bluemix.net/appid-auth: "bindSecret=<bind_secret> namespace=<namespace> requestType=<request_type> serviceName=<myservice> idToken=true"
   spec:
     tls:
     - hosts:
@@ -257,7 +258,7 @@ To ensure the best performance of the integration, it is recommended that you al
     </tr>
   </table>
 
-  You can add more instance of {{site.data.keyword.appid_short_notm}} to your annotation by adding two `bindSecret` lines, separated by a semicolon (;). For example: </br> `bindSecret=binding-appid-5-may-19-dallas-grad namespace=default requestType=web serviceName=idfabric-proto-login-server; bindSecret=binding-app-id-wdc-nov-7-19-grad namespace=default requestType=web serviceName=idfabric-proto-oidc`
+  You can add more instance of {{site.data.keyword.appid_short_notm}} to your annotation by adding two `bindSecret` lines, separated by a semicolon (;). For example: </br> `bindSecret=binding-app-id-instance namespace=default requestType=web serviceName=web-application; bindSecret=binding-another-app-id namespace=default requestType=web serviceName=another-web-application`
   {: tip}
 
 3. Run the configuration file.
