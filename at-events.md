@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-04-15"
+lastupdated: "2020-04-27"
 
 keywords: user events, track activity, manage events, analyze, administrative, runtime, sign in, settings, app security
 
@@ -71,7 +71,7 @@ You can view, manage, and analyze configuration activity that is made in your {{
 
 Check out the following table for a list of the events that are sent to {{site.data.keyword.at_short}}.
 
-Some of the action names were changed as part of an alignment to new guidelines. [Learn more](/docs/services/Activity-Tracker-with-LogDNA?topic=logdnaat-event#action_field).
+Some of the action names were changed as part of an alignment to new guidelines. [Learn more](/docs/Activity-Tracker-with-LogDNA?topic=logdnaat-event#action_field).
 {: important} 
 
 <table>
