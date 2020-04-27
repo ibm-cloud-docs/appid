@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-19"
+lastupdated: "2020-04-27"
 
 keywords: user information, tokens, custom tokens, secure resources, authorization, identity, authentication, claims, oauth, claims mapping, attributes, app security, access, runtime
 
@@ -174,12 +174,11 @@ If you want to configure the lifespan of your token, you can quickly make the ch
 2. Obtain an IAM token by using the API key that you got in the previous step.
 
   ```
-  curl -k -X POST \
+  curl -k -X POST "https://iam.cloud.ibm.com/identity/token" \
   --header "Content-Type: application/x-www-form-urlencoded" \
   --header "Accept: application/json" \
   --data-urlencode "grant_type=urn:ibm:params:oauth:grant-type:apikey" \
-  --data-urlencode "apikey=<api_key>" \
-  "https://iam.cloud.ibm.com/identity/token"
+  --data-urlencode "apikey=<api_key>"
   ```
   {: codeblock}
 
@@ -188,9 +187,9 @@ If you want to configure the lifespan of your token, you can quickly make the ch
 4. Make a PUT request to the `/config/tokens` endpoint with your token configuration.
 
   ```sh
-  PUT -X "https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/tokens"
-    -H Authorization: 'Bearer <IAM_Token>'
-    -H Content-Type: application/json
+  curl -k -X POST "https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/config/tokens" \
+    -H Authorization: 'Bearer <IAM_Token>' \
+    -H Content-Type: application/json \
     -d {
           "access": {
             "expires_in": 3600,
