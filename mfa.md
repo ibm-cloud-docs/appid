@@ -252,7 +252,7 @@ Before you get started with the API, be sure that you have the following prerequ
       "config": {
         "key": "nexmo_key",
         "secret": "nexmo_secret",
-        "from": sender_phoneNumber
+        "from": sender_phone_number
       }
   }'
   ```
