@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-22"
+lastupdated: "2020-04-30"
 
 keywords: mfa, multifactor, authentication, cloud directory, login widget, second factor, two factor, identity, mulitple factors, advanced security event, cloud directory user, sender id, phone number, email, nexmo, mfa descision, extension
 
@@ -187,11 +187,11 @@ When MFA is initially enabled, it is set to use email by default. You can change
 ### Before you begin
 {: #cd-mfa-configure-sms-before}
 
-{{site.data.keyword.appid_short_notm}} uses [Nexmo](https://www.nexmo.com/products/sms){: external} to send MFA SMS one-time codes. Before you get started, be sure that you have an instance of {{site.data.keyword.appid_short_notm}} that is on the [graduated tier pricing plan](/docs/appid?topic=appid-faq#faq-pricing) and the following Nexmo information.
+{{site.data.keyword.appid_short_notm}} uses [Vonage](https://www.vonage.com/communications-apis/sms/){: external} to send MFA SMS one-time codes. Before you get started, be sure that you have an instance of {{site.data.keyword.appid_short_notm}} that is on the [graduated tier pricing plan](/docs/appid?topic=appid-faq#faq-pricing) and the following Vonage information.
 
- - Obtain your Nexmo API key and secret. You can find the Nexmo API key and secret in your account settings page on the Nexmo dashboard. Check out the [Nexmo documentation](https://developer.nexmo.com/concepts/guides/authentication#api-key-and-secret){: external} for further information on how to obtain your credentials.
+ - Obtain your Vonage API key and secret. You can find the Vonage API key and secret in your account settings page on the Vonage dashboard. Check out the [Vonage documentation](https://developer.nexmo.com/messaging/sms/overview#sms-api-features){: external} for further information on how to obtain your credentials.
 
- - Register your sender ID or the `from` number with Nexmo. This `from` number is what appears on your user's phone to show who the SMS is from. In some countries, Nexmo supports alpha-numeric sender IDs. {{site.data.keyword.appid_short_notm}} uses the value that you enter as Nexmo's sender ID. So, if they are supported by Nexmo, you can use the IDs with {{site.data.keyword.appid_short_notm}}. For more information, check out the [Nexmo documentation](https://help.nexmo.com/hc/en-us/articles/217571017-What-is-a-Sender-ID){: external}.
+ - Register your sender ID or the `from` number with Vonage. This `from` number is what appears on your user's phone to show who the SMS is from. In some countries, Vonage supports alpha-numeric sender IDs. {{site.data.keyword.appid_short_notm}} uses the value that you enter as Vonage's sender ID. So, if they are supported by Vonage, you can use the IDs with {{site.data.keyword.appid_short_notm}}. For more information, check out the [Vonage documentation](https://help.nexmo.com/hc/en-us/articles/217571017-What-is-a-Sender-ID){: external}.
 
 
 ### With the GUI
@@ -206,17 +206,17 @@ To configure MFA with the GUI, check out [Cloud Directory](/docs/appid?topic=app
 
 3. Select **SMS** as your **Authentication method**.
 
-4. In the **SMS channel** tab, configure your Nexmo account information.
+4. In the **SMS channel** tab, configure your Vonage account information.
 
-    1. If you don't already have an account with Nexmo. Create one.
+    1. If you don't already have an account with Vonage. Create one.
 
-    2. From the Nexmo dashboard, click **SMS**.
+    2. From the Vonage dashboard, click **SMS**.
 
     3. In the **Code it yourself** section, copy your API key and paste it in the **key** box in the {{site.data.keyword.appid_short_notm}} dashboard.
 
-    4. Copy the **API secret** in the Nexmo dashboard and paste it in the **Secret** box in the {{site.data.keyword.appid_short_notm}} dashboard.
+    4. Copy the **API secret** in the Vonage dashboard and paste it in the **Secret** box in the {{site.data.keyword.appid_short_notm}} dashboard.
 
-    5. Enter [the ID](https://help.nexmo.com/hc/en-us/articles/217571017-What-is-a-Sender-ID) that you want to send messages from. A valid number format follows the [E.164 international numbering format](https://en.wikipedia.org/wiki/E.164). For example, a US number takes the form `+1 999 888 7777 `. You must specify both the country code, starting with a `+` symbol and the national subscriber number. In some countries, Nexmo supports alpha-numeric sender IDs. {{site.data.keyword.appid_short_notm}} uses the value that you enter as Nexmo's sender ID. So, if they are supported by Nexmo, you can use the IDs with {{site.data.keyword.appid_short_notm}}.
+    5. Enter [the ID](https://help.nexmo.com/hc/en-us/articles/217571017-What-is-a-Sender-ID) that you want to send messages from. A valid number format follows the [E.164 international numbering format](https://en.wikipedia.org/wiki/E.164). For example, a US number takes the form `+1 999 888 7777 `. You must specify both the country code, starting with a `+` symbol and the national subscriber number. In some countries, Vonage supports alpha-numeric sender IDs. {{site.data.keyword.appid_short_notm}} uses the value that you enter as Vonage's sender ID. So, if they are supported by Vonage, you can use the IDs with {{site.data.keyword.appid_short_notm}}.
 
 
 
@@ -243,16 +243,16 @@ Before you get started with the API, be sure that you have the following prerequ
 2. Enable your MFA channel by making a PUT request to the `/mfa/channels/{channel}` endpoint with your MFA configuration. When `isActive` is set to `true`, your MFA channel is enabled. The `config` takes in the Nexmo API key and secret as well as the `from` number.
 
   ```sh
-  curl -X PUT https://<region>.appid.cloud.ibm.com/management/v4/{tenant_ID}/mfa/channels/nexmo' \
+  curl -X PUT https://<region>.appid.cloud.ibm.com/management/v4/<tenant_ID>/mfa/channels/nexmo' \
   --header 'Content-Type: application/json' \
   --header 'Accept: application/json' \
   --header 'Authorization: Bearer <IAM_TOKEN>' \
   -d '{
       "isActive": true,
       "config": {
-        "key": "nexmo key",
-        "secret": "nexmo secret",
-        "from": sender-phoneNumber
+        "key": "nexmo_key",
+        "secret": "nexmo_secret",
+        "from": sender_phoneNumber
       }
   }'
   ```
