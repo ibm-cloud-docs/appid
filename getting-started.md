@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-04-02"
+lastupdated: "2020-05-06"
 
-keywords: sample app, authentication, sign in, log in, ios swift, android, node js, java, single page apps, authorization, app security, identity, sdk
+keywords: getting started tutorial, getting started, App ID, sample app, authentication, sign in flow, authorization, app security, identity
 
 subcollection: appid
 
@@ -38,7 +38,7 @@ subcollection: appid
 {:curl: .ph data-hd-programlang='curl'}
 
 
-# Getting started tutorial
+# Getting started with {{site.data.keyword.appid_short_notm}}
 {: #getting-started}
 
 Application security can be incredibly complicated. For most developers, it's one of the hardest parts of creating an app. How can you be sure that you are protecting your users information? By integrating {{site.data.keyword.appid_full}} into your apps, you can secure resources and add authentication; even when you don't have a lot of security experience.
@@ -55,7 +55,7 @@ Getting started? Try walking through our [video tutorials](https://www.youtube.c
 {: note}
 
 
-## Creating a service instance
+## Step 1: Create a service instance
 {: #create}
 
 Create and bind an instance of {{site.data.keyword.appid_short_notm}} to your app to get started.
@@ -65,21 +65,16 @@ Create and bind an instance of {{site.data.keyword.appid_short_notm}} to your ap
 2. In the {{site.data.keyword.cloud_notm}} catalog, select {{site.data.keyword.appid_short_notm}}. The service configuration screen opens.
 3. Give your service instance a name, or use the preset name.
 4. Select your pricing plan and click **Create**.
-5. Bind your instance of {{site.data.keyword.appid_short_notm}}.
-    1. To see a list of apps that you can bind to your service instance, click **Connections**.
-    2. Click **Create connection**. A page opens with all of the apps that you have the option to bind.
-    3. Click **Connect** on the app that you want to bind.
-    4. Click **Re-stage** to apply the change.
 
 That's it! You're ready to start configuring your application settings.
 
-## Configuring a sample app
+## Step 2: Configure a sample app
 {: #sample-app}
 
 You can use one of the preconfigured sample apps to get familiar with working with the service.
 {: shortdesc}
 
-Out of the box, the sample apps are configured with two identity providers and the ability to review authentication. Sample apps are offered in `iOS Swift`, `Android`, `Node.js`, and `Java`. If you don't see a language in which you feel comfortable working, don't worry! You can integrate {{site.data.keyword.appid_short_notm}} into your own application by using the provided APIs.
+Out of the box, the sample apps are configured with two identity providers and the ability to review authentication. Sample apps are offered in `iOS Swift`, `Android`, `Node.js`, `Java` and `Single-page application`. If you don't see a language in which you feel comfortable working, don't worry! You can integrate {{site.data.keyword.appid_short_notm}} into your own application by using the provided APIs.
 
 To build a sample app:
 
