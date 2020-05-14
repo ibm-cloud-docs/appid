@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-05-13"
+lastupdated: "2020-05-14"
 
 keywords: data encryption in app id, data storage for app id, personal data in app id, data deletion for app id, data in app id, data security in app id
 
@@ -60,7 +60,7 @@ To ensure that you can securely manage your data when you use {{site.data.keywor
 
 When you delete an instance of {{site.data.keyword.appid_short_notm}}, all of the user associated data is also deleted. When the service instance is deleted, a 7 day reclamation period begins. During that time, you are able to restore the instance and all of the associated user data. However, if the instance and data are permanently deleted, it cannot be restored. {{site.data.keyword.appid_short_notm}} does not store any data from permanently deleted instances.
 
-The {{site.data.keyword.appid_short_notm}}data retention policy describes how long your data is stored after you delete the service. The data retention policy is included in the {{site.data.keyword.appid_short_notm}} service description, which you can find in the [{{site.data.keyword.cloud_notm}} Terms and Notices](/docs/overview?topic=overview-terms).
+The {{site.data.keyword.appid_short_notm}} data retention policy describes how long your data is stored after you delete the service. The data retention policy is included in the {{site.data.keyword.appid_short_notm}} service description, which you can find in the [{{site.data.keyword.cloud_notm}} Terms and Notices](/docs/overview?topic=overview-terms).
 
 
 ### Deleting an instance
@@ -112,7 +112,7 @@ If you haven't permanently deleted your instance, you can restore it during the 
 2. Restore the reclamation.
 
   ```
-  ibmcloud resource reclamations --resource-instance-id <tenantId>
+  ibmcloud resource reclamation-restore <reclamationId>
   ```
   {: codeblock}
 
