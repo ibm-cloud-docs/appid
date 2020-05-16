@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-05-14"
+lastupdated: "2020-05-16"
 
 keywords: data encryption in app id, data storage for app id, personal data in app id, data deletion for app id, data in app id, data security in app id
 
@@ -53,66 +53,4 @@ To ensure that you can securely manage your data when you use {{site.data.keywor
 
 
 
-
-
-## Deleting your data in {{site.data.keyword.appid_short_notm}}
-{: #data-delete}
-
-When you delete an instance of {{site.data.keyword.appid_short_notm}}, all of the user associated data is also deleted. When the service instance is deleted, a 7 day reclamation period begins. During that time, you are able to restore the instance and all of the associated user data. However, if the instance and data are permanently deleted, it cannot be restored. {{site.data.keyword.appid_short_notm}} does not store any data from permanently deleted instances.
-
-The {{site.data.keyword.appid_short_notm}} data retention policy describes how long your data is stored after you delete the service. The data retention policy is included in the {{site.data.keyword.appid_short_notm}} service description, which you can find in the [{{site.data.keyword.cloud_notm}} Terms and Notices](/docs/overview?topic=overview-terms).
-
-
-### Deleting an instance
-{: #service-delete}
-
-If you no longer need an instance of {{site.data.keyword.appid_short_notm}}, you can delete the service instance and any data that is stored. You can also choose to delete your service instance by using the console.
-
-1. Delete the service and place it in a reclamation period of 7 days.
-
-  ```
-  ibmcloud resource service-instance-delete <service_name>
-  ```
-  {: codeblock}
-
-2. Optional: To permanently delete your instance get the reclamation ID.
-
-  ```
-  ibmcloud resource reclamations --resource-instance-id <tenantId>
-  ```
-  {: codeblock}
-
-  If you choose not to permanently delete the instance, the instance and data are still deleted at the end of the 7 day reclamation period.
-  {: tip}
-
-3. Optional: Permanently delete the reclamation instance.
-
-  ```
-  ibmcloud resource reclamation-delete <reclamationId>
-  ```
-  {: codeblock}
-
-  If you permanently delete the instance, you cannot restore your data. 
-  {: important}
-
-
-
-### Restoring a deleted instance
-{: #data-restore}
-
-If you haven't permanently deleted your instance, you can restore it during the reclamation period.
-
-1. Get the reclamation ID.
-
-  ```
-  ibmcloud resource reclamations --resource-instance-id <tenantId>
-  ```
-  {: codeblock}
-
-2. Restore the reclamation.
-
-  ```
-  ibmcloud resource reclamation-restore <reclamationId>
-  ```
-  {: codeblock}
 
