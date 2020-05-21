@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-04-15"
+lastupdated: "2020-05-17"
 
 keywords: authentication, authorization, identity, app security, cloud directory, user data, identity provider, oauth, protocols, oauth, oidc, disaster recovery, dr, compliance, high availability, ha, secure, HA, DR
 
@@ -162,9 +162,4 @@ Data that is stored in {{site.data.keyword.appid_short_notm}} is encrypted and p
 
 Because {{site.data.keyword.appid_short_notm}} is a regional service, it does not provide automated cross-regional failover or cross-regional disaster recovery. If a regional disaster occurs, all data might not be available to be recovered. However, if the recovery of a location is necessary, the available data can be restored. To ensure high availability and disaster recovery, it’s recommended that you create and maintain backup instances in other regions. To synchronize a service instance in one region with an instance in a different region, you can use [the APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/){: external}.
 
-
-## Data separation and encryption
-{: #data-encryption}
-
-{{site.data.keyword.appid_short_notm}} stores and encrypts user profile attributes. As a multi-tenant service, every tenant has a designated encryption key and user data in each tenant is encrypted with only that tenant's key. {{site.data.keyword.appid_short_notm}} ensures that private information is encrypted before it is stored.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-04-30"
+lastupdated: "2020-05-17"
 
 keywords: mfa, multifactor, authentication, cloud directory, login widget, second factor, two factor, identity, mulitple factors, advanced security event, cloud directory user, sender id, phone number, email, nexmo, mfa descision, extension
 
@@ -268,8 +268,6 @@ Before you get started with the API, be sure that you have the following prerequ
   -d '{"phone_number": "+1 999 999 9999"}'
   ```
   {: codeblock}
-
-
 
 
 

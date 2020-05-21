@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-04-20"
+lastupdated: "2020-05-21"
 
 keywords: ingress controller, ingress, istio, access, subdomain, custom domain, service, containerized apps, containers, kube, networking, policy, policies, secure apps, authentication, authorization
 
@@ -157,7 +157,7 @@ By binding your instance of {{site.data.keyword.appid_short_notm}} to your clust
 4. Bind your instance of {{site.data.keyword.appid_short_notm}}. Binding creates a service key for the service instance. You can specify an existing service key by using the `-key` flag.
 
   ```
-  ibmcloud ks cluster-service-bind --cluster <cluster_name_or_ID> --namespace <namespace> --service <App_ID_instance_name> [--key <service_instance_key>]
+  ibmcloud ks cluster service bind --cluster <cluster_name_or_ID> --namespace <namespace> --service <App_ID_instance_name> [--key <service_instance_key>]
   ```
   {: codeblock}
 
@@ -167,7 +167,7 @@ By binding your instance of {{site.data.keyword.appid_short_notm}} to your clust
   Example output:
 
   ```
-  ibmcloud ks cluster-service-bind --cluster mycluster --namespace default --service appid1
+  ibmcloud ks cluster service bind --cluster mycluster --namespace default --service appid1
   Binding service instance to namespace...
   OK
   Namespace:    default
