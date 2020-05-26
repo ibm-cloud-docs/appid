@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-19"
+lastupdated: "2020-05-26"
 
 keywords: web apps, nodejs, node, javascript, protected resource, authorization flow, front end, frontend, app security, authentication
 
@@ -77,7 +77,7 @@ Before you get started with {{site.data.keyword.appid_short_notm}} in your Node.
 {: shortdesc}
 
 * An instance of [the {{site.data.keyword.appid_short_notm}} service](https://cloud.ibm.com/catalog/services/app-id){: external}
-* [The IBM Cloud CLI](/docs/cli?topic=cloud-cli-getting-started)
+* [The IBM Cloud CLI](/docs/cli?topic=cli-getting-started)
 * [NPM version 4+](https://www.npmjs.com/get-npm){: external}
 * [Node version 6+](https://nodejs.org/en/download/){: external}
 

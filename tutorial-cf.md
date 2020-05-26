@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-19"
+lastupdated: "2020-05-26"
 
 keywords: cloud foundry, iam, java nodejs, identity, access management, user access, service access, permissions, bind service
 
@@ -69,7 +69,7 @@ Before you get started, be sure that you have the following prerequisites:
 
 * An {{site.data.keyword.cloud_notm}} account
 * An instance of {{site.data.keyword.appid_short_notm}}
-* The [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cloud-cli-getting-started) installed locally
+* The [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-getting-started) installed locally
 
 ## Deploying a Node.js app
 {: #cf-node}

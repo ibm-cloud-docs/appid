@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-04-02"
+lastupdated: "2020-05-26"
 
 keywords: related links, blogs, sample apps, kube, code changes, programming guide, white paper, vuejs apps, serverless applications, enterprise user directory, custom experience, slack, stack overflow, secure iot, solution, finance app, multicloud, video tutorials
 
@@ -154,7 +154,7 @@ Want to have a custom experience for your users? Not a problem.
 Are you working in a specific language and want to see how {{site.data.keyword.appid_short_notm}} fits in with other {{site.data.keyword.cloud_notm}} services? Check out one of the programming guides.
 
 * <img src="images/tutorial.svg" alt="Tutorial icon" width="20" style="width:20px; border-style: none"/> [Programming with Swift on {{site.data.keyword.cloud_notm}}](/docs/swift?topic=swift-getting-started){: external}
-* <img src="images/tutorial.svg" alt="Tutorial icon" width="20" style="width:20px; border-style: none"/> [Programming with Node.js on {{site.data.keyword.cloud_notm}}](/docs/node?topic=nodejs-getting-started){: external}
+* <img src="images/tutorial.svg" alt="Tutorial icon" width="20" style="width:20px; border-style: none"/> [Programming with Node.js on {{site.data.keyword.cloud_notm}}](/docs/node?topic=node-getting-started){: external}
 
 
 ## Testing
