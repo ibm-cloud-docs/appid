@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-04-27"
+lastupdated: "2020-05-26"
 
 keywords: user events, track activity, manage events, analyze, administrative, runtime, sign in, settings, app security
 
@@ -46,7 +46,7 @@ You can view, manage, and analyze user-initiated activities made in your {{site.
 
 By integrating {{site.data.keyword.at_short}} with {{site.data.keyword.appid_short_notm}} you can track two different types of events, administrative and runtime. Administrative events are those that are specific to your instance of the service. Administrative events cover configuration changes such as updating your identity providers or changing the theme of your login widget. Runtime events are those activities that occur at runtime by the app user. A password reset request, authentication failures, or a user log out would all fall into the runtime category.
 
-For more information about how the service works, see the [{{site.data.keyword.at_short}} docs](/docs/Activity-Tracker-with-LogDNA?topic=logdnaat-cloud_services).
+For more information about how the service works, see the [{{site.data.keyword.at_short}} docs](/docs/Activity-Tracker-with-LogDNA?topic=Activity-Tracker-with-LogDNA-cloud_services).
 
 
 
@@ -71,7 +71,7 @@ You can view, manage, and analyze configuration activity that is made in your {{
 
 Check out the following table for a list of the events that are sent to {{site.data.keyword.at_short}}.
 
-Some of the action names were changed as part of an alignment to new guidelines. [Learn more](/docs/Activity-Tracker-with-LogDNA?topic=logdnaat-event#action_field).
+Some of the action names were changed as part of an alignment to new guidelines. [Learn more](/docs/Activity-Tracker-with-LogDNA?topic=Activity-Tracker-with-LogDNA-event#action_field).
 {: important} 
 
 <table>
@@ -536,7 +536,7 @@ Some of the action names were changed as part of an alignment to new guidelines.
 With {{site.data.keyword.at_short}}, you can review runtime activity made by an app user, such as logins, password resets, and authentications.
 {: shortdesc}
 
-The reported events are per account, but there are limitations on the data rate and retention period of the collected runtime events. Increasing the limits might require an upgrade of the {{site.data.keyword.at_short}} service. For more information about the service limits, see the [{{site.data.keyword.at_short}} docs](/docs/Activity-Tracker-with-LogDNA?topic=logdnaat-service_plan).
+The reported events are per account, but there are limitations on the data rate and retention period of the collected runtime events. Increasing the limits might require an upgrade of the {{site.data.keyword.at_short}} service. For more information about the service limits, see the [{{site.data.keyword.at_short}} docs](/docs/Activity-Tracker-with-LogDNA?topic=Activity-Tracker-with-LogDNA-service_plan).
 
 This feature is available only for instances on graduated tier payment plan that were created after March 15, 2018. Using this feature incurs an extra charge. For more information on graduated tier pricing, see the [{{site.data.keyword.cloud_notm}} pricing docs](/docs/appid?topic=appid-faq#faq-pricing).
 {: note}

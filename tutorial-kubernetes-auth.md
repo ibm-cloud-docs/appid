@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-05-21"
+lastupdated: "2020-05-26"
 
 keywords: ingress controller, ingress, istio, access, subdomain, custom domain, service, containerized apps, containers, kube, networking, policy, policies, secure apps, authentication, authorization
 
@@ -85,11 +85,11 @@ Before you can get started, ensure that you have the following prerequisites.
 
 * The following CLIs:
 
-  * [{{site.data.keyword.cloud_notm}}](/docs/cli?topic=cloud-cli-getting-started)
+  * [{{site.data.keyword.cloud_notm}}](/docs/cli?topic=cli-getting-started)
   * [Kubernetes](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
   * [Docker](https://www.docker.com/products/container-runtime#/download)
 
-* The following [CLI plug-ins](/docs/cli?topic=cloud-cli-install-devtools-manually#idt-install-kubernetes-cli-plugin):
+* The following [CLI plug-ins](/docs/cli?topic=cli-install-devtools-manually#idt-install-kubernetes-cli-plugin):
 
   * {{site.data.keyword.containershort}}
   * {{site.data.keyword.registryshort_notm}}
