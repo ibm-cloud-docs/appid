@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-19"
+lastupdated: "2020-06-03"
 
 keywords: secure mobile app, android, ios, authenticate users,  authorization grant, client sdk, trusted client, native app, personalized, custom app, devices, identity flow, app security
 
@@ -376,8 +376,6 @@ Example request format:
   ```
   {: screen}
 
-</br>
-</br>
 
 ## Next steps
 {: #mobile-next}

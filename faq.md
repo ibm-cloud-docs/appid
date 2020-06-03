@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-04-07"
+lastupdated: "2020-06-03"
 
 keywords: pricing, advanced security, authentication events, authorized users, activity tracking, runtime activity, password policies, keycloak, whitelist redirect url, redirect uri 
 
@@ -144,35 +144,34 @@ Check out the following table for answers to commonly asked questions about encr
 
 <table>
   <caption>Table 2. Frequently asked questions about how {{site.data.keyword.appid_short_notm}} handles encryption</caption>
-  <thead>
-    <th colspan=2><img src="images/idea.png" alt="More information icon"/> How does {{site.data.keyword.appid_short_notm}} handle encryption?</th>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Why do you use encryption?</td>
-      <td>One way that we protect our users information is by encrypting customer data at rest and in transit. The service encrypts customer data at rest with per-tenant keys and enforces TLS 1.2+ in all network segments.</td>
-    </tr>
-    <tr>
-      <td>Which algorithms are used in {{site.data.keyword.appid_short_notm}}?</td>
-      <td>The service uses <code>AES</code> and <code>SHA-256</code> with salting.</td>
-    </tr>
-    <tr>
-      <td>Do you use public or open source encryption modules or providers? Do you ever expose encryption functions? </td>
-      <td>The service uses <code>javax.crypto</code> Java libraries, but never exposes an encryption function.</td>
-    </tr>
-    <tr>
-      <td>How are keys stored?</td>
-      <td>Keys are generated, encrypted with a master key that is specific to each region, and then stored locally. The master keys are stored in [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-getting-started-tutorial). Each region has its own root-of-trust key that is stored in [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-getting-started-tutorial), which is backed up by HSM. Each service instance (tenant) has its own data encryption and token signature keys, which are encrypted by using the region's root-of-key trust.</td>
-    </tr>
-    <tr>
-      <td>What is the key strength that you use?</td>
-      <td>The service uses 16 bytes.</td>
-    </tr>
-    <tr>
-      <td>Do you invoke any remote APIs that expose encryption capabilities?</td>
-      <td>No, we do not.</td>
-    </tr>
-  </tbody>
+  <tr>
+    <th>Question</th>
+    <th>Answer</th>
+  </tr>
+  <tr>
+    <td>Why do you use encryption?</td>
+    <td>One way that we protect our users information is by encrypting customer data at rest and in transit. The service encrypts customer data at rest with per-tenant keys and enforces TLS 1.2+ in all network segments.</td>
+  </tr>
+  <tr>
+    <td>Which algorithms are used in {{site.data.keyword.appid_short_notm}}?</td>
+    <td>The service uses <code>AES</code> and <code>SHA-256</code> with salting.</td>
+  </tr>
+  <tr>
+    <td>Do you use public or open source encryption modules or providers? Do you ever expose encryption functions? </td>
+    <td>The service uses <code>javax.crypto</code> Java libraries, but never exposes an encryption function.</td>
+  </tr>
+  <tr>
+    <td>How are keys stored?</td>
+    <td>Keys are generated, encrypted with a master key that is specific to each region, and then stored locally. The master keys are stored in [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-getting-started-tutorial). Each region has its own root-of-trust key that is stored in [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-getting-started-tutorial), which is backed up by HSM. Each service instance (tenant) has its own data encryption and token signature keys, which are encrypted by using the region's root-of-key trust.</td>
+  </tr>
+  <tr>
+    <td>What is the key strength that you use?</td>
+    <td>The service uses 16 bytes.</td>
+  </tr>
+  <tr>
+    <td>Do you invoke any remote APIs that expose encryption capabilities?</td>
+    <td>No, we do not.</td>
+  </tr>
 </table>
 
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-19"
+lastupdated: "2020-06-03"
 
 keywords: authentication, authorization, identity, web flow, backend, identity management, anonymous auth, custom flow, mobile, app to app, kubernetes, ingress, istio, app security,
 
@@ -52,7 +52,8 @@ Check out the following table to see how {{site.data.keyword.appid_short_notm}} 
 <table>
     <caption>Table 1. The different ways in which you can secure your applications with {{site.data.keyword.appid_short_notm}}</caption>
     <tr>
-        <th colspan=2>Type of authentication flow</th>
+        <th>Type of authentication flow</th>
+        <th>Description</th>
     </tr>
     <tr>
         <td><a href="/docs/appid?topic=appid-single-page" target="_blank">Single-page</a></td>
