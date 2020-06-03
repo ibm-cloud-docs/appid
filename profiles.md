@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-19"
+lastupdated: "2020-06-03"
 
 keywords: profile, custom attributes, predefined attributes, attributes, app users, app interaction, personalized experience, access user info, identity provider information, access token, authentication, user sign in, android, java, node, swift, ios, user, preferences
 
@@ -104,7 +104,7 @@ iOS Swift
 If new tokens are not explicitly passed to the SDK, {{site.data.keyword.appid_short_notm}} uses the last received tokens to retrieve and validate the response. For example, you can run the following code after a successful authentication and the SDK retrieves additional information about the user.
 {: ph data-hd-programlang='swift'}
 
-```
+```swift
 AppID.sharedInstance.userProfileManager.getUserInfo { (error: Error?, userInfo: [String: Any]?) in
 	guard let userInfo = userInfo, err == nil {
 		return // an error has occurred
@@ -118,7 +118,7 @@ AppID.sharedInstance.userProfileManager.getUserInfo { (error: Error?, userInfo: 
 Alternatively, you can explicitly pass access and identity tokens. The identity token is optional, but when passed, it is used to validate the response.
 {: ph data-hd-programlang='swift'}
 
-```
+```swift
 AppID.sharedInstance.userProfileManager.getUserInfo(accessToken: String, identityToken: String?) { (error: Error?, userInfo: [String: Any]?) in
 	guard let userInfo = userInfo, err == nil {
 		return // an error has occurred
@@ -135,7 +135,7 @@ Android Java
 If new tokens are not explicitly passed to the SDK, {{site.data.keyword.appid_short_notm}} uses the last received tokens to retrieve and validate the response. For example, you can run the following code after a successful authentication and the SDK retrieves additional information about the user.
 {: ph data-hd-programlang='java'}
 
-```
+```java
 AppID appId = AppID.getInstance();
 
 appId.getUserProfileManager().getUserInfo(new UserProfileResponseListener() {
@@ -156,7 +156,7 @@ appId.getUserProfileManager().getUserInfo(new UserProfileResponseListener() {
 Alternatively, you can explicitly pass access and identity tokens. The identity token is optional. But when passed, it is used to validate the response.
 {: ph data-hd-programlang='java'}
 
-```
+```java
 AppID appId = AppID.getInstance();
 
 appId.getUserProfileManager().getUserInfo(accessToken, identityToken, new UserProfileResponseListener() {
@@ -295,7 +295,7 @@ Depending on your configuration, attributes are encrypted and saved as part of a
   iOS Swift
   {: ph data-hd-programlang='swift'}
 
-  ```
+  ```swift
   func setAttribute(key: String, value: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
   func setAttribute(key: String, value: String, accessTokenString: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
 
@@ -314,7 +314,7 @@ Depending on your configuration, attributes are encrypted and saved as part of a
   Server-side swift
   {: ph data-hd-programlang='swift'}
 
-  ```
+  ```swift
   func getAllAttributes(accessToken: String, completionHandler: (Swift.Error?, [String: Any]?) -> Void)
   func getAttribute(accessToken: String, attributeName: String, completionHandler: (Swift.Error?, [String: Any]?) -> Void)
   func setAttribute(accessToken: String, attributeName: String, attributeValue : "abc", completionHandler: (Swift.Error?, [String: Any]?) -> Void)
@@ -326,7 +326,7 @@ Depending on your configuration, attributes are encrypted and saved as part of a
   Android Java
   {: ph data-hd-programlang='java'}
 
-  ```
+  ```java
   void setAttribute(@NonNull String name, @NonNull String value, UserAttributeResponseListener listener);
   void setAttribute(@NonNull String name, @NonNull String value, @NonNull AccessToken accessToken, UserAttributeResponseListener listener);
 
@@ -345,7 +345,7 @@ Depending on your configuration, attributes are encrypted and saved as part of a
   Node.js
   {: ph data-hd-programlang='javascript'}
 
-  ```
+  ```javascript
   function getAllAttributes(accessTokenString) {}
   function getAttribute(accessTokenString, key) {}
   function setAttribute(accessTokenString, key, value) {}
@@ -383,7 +383,7 @@ You can add the following code to your application to allow a user to update the
   5. Click **Copy** or **Download** your key. When you close the screen, you can no longer access the key.
   6. Make the following cURL request with the API key that you created.
 
-    ```
+    ```sh
     curl -k -X POST \
     --header "Content-Type: application/x-www-form-urlencoded" \
     --header "Accept: application/json" \
@@ -398,7 +398,7 @@ You can add the following code to your application to allow a user to update the
     iOS Swift
     {: ph data-hd-programlang='swift'}
 
-    ```
+    ```swift
     AppID.sharedInstance.userProfileManager?.setAttribute("key", "value") { (error, result) in
       guard let result = result, error == nil else {
           return // an error has occurred
@@ -412,7 +412,7 @@ You can add the following code to your application to allow a user to update the
     Android Java
     {: ph data-hd-programlang='java'}
 
-    ```
+    ```java
     appId.getUserProfileManager().setAttribute(name, value, useThisToken, new UserProfileResponseListener() {
       @Override
       public void onSuccess(JSONObject attributes) {
@@ -431,7 +431,7 @@ You can add the following code to your application to allow a user to update the
     Node.js
     {: ph data-hd-programlang='javascript'}
 
-    ```
+    ```javascript
     const userProfileManager = require("ibmcloud-appid").UserProfileManager;
     userProfileManager.init();
 
@@ -447,7 +447,7 @@ You can add the following code to your application to allow a user to update the
     Server-side Swift
     {: ph data-hd-programlang='swift'}
 
-    ```
+    ```swift
     let userProfileManager = UserProfileManager(options: options)
     let accesstoken = "access token"
 
@@ -480,7 +480,7 @@ If you want to configure self-service for your users at runtime, use the `/attri
   5. Click **Copy** or **Download** your key. When you close the screen, you can no longer access the key.
   6. Make the following cURL request with the API key that you created.
 
-    ```
+    ```sh
     curl -k -X POST \
     --header "Content-Type: application/x-www-form-urlencoded" \
     --header "Accept: application/json" \
@@ -492,7 +492,7 @@ If you want to configure self-service for your users at runtime, use the `/attri
 
 4. Make a PUT request to either the  `/attributes` endpoint.
 
-    ```
+    ```sh
     curl -X PUT "https://<region>.appid.cloud.ibm.com/api/v1/attributes/<attribute_name>" \
     -H "Authorization: Bearer <token>" \
     -d "<attribute_value>" 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-19"
+lastupdated: "2020-06-03"
 
 keywords: obtain tokens, return tokens, authorized, authorization, access management, client id, secret, tenant id, app security, identity token
 
@@ -75,7 +75,7 @@ In order to obtain tokens, you must have your client ID and secret. The credenti
 
   Request:
 
-  ```
+  ```sh
   curl -X POST https://us-south.appid.cloud.ibm.com/management/v4/39a37f57-a227-4bfe-a044-93b6e6060b61/applications/ \
   -H 'Content-Type: application/json' \
   -H 'Authorization: Bearer <IAM_TOKEN>' \
@@ -85,7 +85,7 @@ In order to obtain tokens, you must have your client ID and secret. The credenti
 
   Example response:
 
-  ```
+  ```json
   {
     "clientId": "c90830bf-11b0-4b65-bffe-9773f8703bad",
     "tenantId": "b42f7429-fc24-48ds-b4f9-616bcc31cfd5",
@@ -119,7 +119,7 @@ With a client ID and secret, you can obtain access and identity tokens by using 
   Node:
   {: ph data-hd-programlang='javascript'}
 
-  ```
+  ```javascript
   const config = {
     tenantId: "{tenant-id}",
     clientId: "{client-id}",
@@ -147,7 +147,8 @@ With a client ID and secret, you can obtain access and identity tokens by using 
 
   Java:
   {: ph data-hd-programlang='java'}
-  ```
+
+  ```java
   AppID.getInstance().signinWithResourceOwnerPassword(getApplicationContext(), username, password, new TokenResponseListener() {
     @Override
     public void onAuthorizationFailure (AuthorizationException exception) {
@@ -166,7 +167,7 @@ With a client ID and secret, you can obtain access and identity tokens by using 
 iOS Swift:
 {: ph data-hd-programlang='swift'}
 
-  ```
+  ```swift
   class delegate : TokenResponseDelegate {
     public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, refreshToken: RefreshToken?, response:Response?) {
     //User authenticated
@@ -185,7 +186,7 @@ iOS Swift:
 Server Swift:
 {: ph data-hd-programlang='swift'}
 
-  ```
+  ```swift
   let options = [
     "clientId": "{client-id}",
     "secret": "{secret}",

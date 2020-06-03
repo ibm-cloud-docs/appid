@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-19"
+lastupdated: "2020-06-03"
 
 keywords: tokens, refresh token, access token, identity token, configuration, authorization, authentication, app security, access, identity, refresh
 
@@ -52,7 +52,7 @@ When a user is successfully authenticated, the application receives tokens from 
 Access tokens represent authorization and enable communication with [back-end resources](/docs/appid?topic=appid-backend) that are protected by authorization filters that are set by {{site.data.keyword.appid_short}}. The token conforms to JavaScript Object Signing and Encryption (JOSE) specifications. The token is formatted as <a href="https://jwt.io/introduction/" target="blank">JSON Web Tokens <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> are signed with a JSON Web Key that uses the RS256 algorithm.
 
 Example token:
-  ```
+  ```json
   Header:
   {
     "alg": "RS256",
@@ -85,7 +85,7 @@ Example token:
 Identity tokens represent authentication and contain information about the user. It can give you information about their name, email, gender, and location. A token can also return a URL to an image of the user. The token is formatted as <a href="https://jwt.io/introduction/" target="blank">JSON Web Tokens <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> are signed with a JSON Web Key that uses the RS256 algorithm.
 
 Example token:
-  ```
+  ```json
   Header:
   {
     "alg": "RS256",

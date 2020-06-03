@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-19"
+lastupdated: "2020-06-03"
 
 keywords: token validation, validate token, protect app, public key, token header, base64, decode payload, authorized, access permissions, app security, identity, jwt 
 
@@ -87,7 +87,7 @@ By using introspection, you can use {{site.data.keyword.appid_short_notm}} to va
 
   Example response:
 
-    ```
+    ```json
     {
       "active": true
     }
@@ -115,21 +115,13 @@ You can validate your tokens locally by parsing the token, verifying the token s
     ```
     {: screen}
 
-  Example decoded header:
+  Example decoded token:
 
-    ```
+    ```json
     {
       "alg": "RS256",
       "typ": "JOSE",
-      "kid": "a2k3"
-    }
-    ```
-    {: screen}
-
-  Decoded payload:
-
-    ```
-    {
+      "kid": "a2k3",
       "iss": "https://us-south.appid.cloud.ibm.com/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6050a61",
       "aud": "abc123",
       "exp": 1564566
@@ -154,7 +146,7 @@ You can validate your tokens locally by parsing the token, verifying the token s
 
   Example response:
 
-    ```
+    ```json
     {
       "keys": [
         {

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-05-26"
+lastupdated: "2020-06-03"
 
 keywords: backend apps, java, liberty for java, liberty, identity provider, access management, protected endpoints, access tokens, security, back end
 
@@ -151,7 +151,8 @@ You can obtain your credentials in one of two ways.
     <table>
     <caption>Table. OIDC element variables for Liberty for Java apps</caption>
         <tr>
-            <th colspan="2"> Understanding the OIDC element variables </th>
+            <th>Variable</th>
+            <th>Description</th>
         </tr>
         <tr>
             <td><code>id</code></td>

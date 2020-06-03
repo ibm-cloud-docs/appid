@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-19"
+lastupdated: "2020-06-03"
 
 keywords: bring your own screens, branded app, sign up, custom, directory, registry, app security, password, authorization flow, authentication,
 
@@ -169,23 +169,22 @@ By using `WebAppStrategy`, users can sign in to your web apps with their user na
   {: codeblock}
 
   <table>
-    <thead>
-      <th colspan=2><img src="images/idea.png" alt="More information icon"/> Command parameters </th>
-    </thead>
-    <tbody>
-      <tr>
-        <td><code>successRedirect</code></td>
-        <td>The URL that you want to redirect the user after a successful authentication.</td>
-      </tr>
-      <tr>
-        <td><code>failureRedirect</code></td>
-        <td>The URL that you want to redirect the user to if authentication fails.</td>
-      </tr>
-      <tr>
-        <td><code>failureFlash</code></td>
-        <td>When set to <code>true</code> an error message is returned from the Cloud Directory service. By default, the value is set to <code>false</code>.</td>
-      </tr>
-    </tbody>
+    <tr>
+      <th>Parameter</th>
+      <th>Description</th>
+    <tr>
+    <tr>
+      <td><code>successRedirect</code></td>
+      <td>The URL that you want to redirect the user after a successful authentication.</td>
+    </tr>
+    <tr>
+      <td><code>failureRedirect</code></td>
+      <td>The URL that you want to redirect the user to if authentication fails.</td>
+    </tr>
+    <tr>
+      <td><code>failureFlash</code></td>
+      <td>When set to <code>true</code> an error message is returned from the Cloud Directory service. By default, the value is set to <code>false</code>.</td>
+    </tr>
   </table>
 
 **Note**: If you submit the request in HTML, you can use [body parser](https://www.npmjs.com/package/body-parser){: external} middleware. To see the returned error message, you can use [connect-flash](https://www.npmjs.com/package/connect-flash){: external}. To see it in action, check out the [web app sample](https://github.com/ibm-cloud-security/appid-serversdk-nodejs/blob/master/samples/web-app-sample.js){: external}.
