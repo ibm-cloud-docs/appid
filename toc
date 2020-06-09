@@ -14,11 +14,8 @@ App ID
         tokens-understand.md
 
     relatedlinks.md
-    whats-new.md
-    {: .navgroup-end}
-
-    {: .navgroup id="howto"}
-    {: .topicgroup}
+    
+        {: .topicgroup}
     Quick start guides
         qs-node-web.md
         qs-liberty-backend.md
@@ -27,7 +24,9 @@ App ID
     Tutorials
         tutorial-cf.md
         tutorial-attributes.md
+    {: .navgroup-end}
 
+    {: .navgroup id="howto"}
     {: .topicgroup}
     Securing your apps
         adding-overview.md
@@ -114,5 +113,7 @@ App ID
     Troubleshooting
         ts_index.md
         ts_saml.md
+
+    whats-new.md
     {: .navgroup-end}
     
