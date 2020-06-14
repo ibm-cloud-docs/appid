@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-05-17"
+lastupdated: "2020-06-12"
 
 keywords: mfa, multifactor, authentication, cloud directory, login widget, second factor, two factor, identity, mulitple factors, advanced security event, cloud directory user, sender id, phone number, email, nexmo, mfa descision, extension
 
@@ -419,6 +419,9 @@ To configure a pre-MFA extension:
   ```
   {: codeblock}
 
+  It is highly recommended that you always use HTTPS instead of HTTP for the `extensions_URL` to ensure that your connection is encrypted.
+  {: note}
+
 4. After the extension is successfully configured, verify that your endpoint works correctly by using the test API. {{site.data.keyword.appid_short_notm}} makes a POST request to your configured extension with the example values.
 
   ```sh
@@ -547,6 +550,9 @@ To configure a post-MFA extension:
   }'
   ```
   {: codeblock}
+
+  It is highly recommended that you always use HTTPS instead of HTTP for the extensions_URL to ensure that your connection is encrypted.
+  {: note}
 
 3. Once the extension is successfully configured, verify that your endpoint works correctly by using the test API. {{site.data.keyword.appid_short_notm}} makes a POST request to your configured extension with the example values.
 
