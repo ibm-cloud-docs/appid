@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-04-15"
+lastupdated: "2020-06-19"
 
 keywords: user access, account settings, iam, user roles, platform roles, service roles, reader, writer, operator, editor, viewer, administrator, manager, permissions
 
@@ -78,7 +78,7 @@ Platform management roles enable users to perform tasks on service resources at 
   <tr>
     <td><i>Viewer</i></td>
     <td>View {{site.data.keyword.appid_short_notm}} instances.</td>
-    <td>You can see a Cloud Directory user's data or the identity provider configuration.</td>
+    <td>You can see that instances of the service exist, but not the information that is contained within them.</td>
   </tr>
   <tr>
     <td><i>Editor</i></td>

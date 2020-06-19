@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-06-03"
+lastupdated: "2020-06-19"
 
 keywords: obtain tokens, return tokens, authorized, authorization, access management, client id, secret, tenant id, app security, identity token
 
@@ -218,7 +218,7 @@ Server Swift:
 3. Make a request to the API to obtain a token. The data section of your request varies depending on the type of grant type that you're using. 
 
   ```sh
-  curl -X POST https://<region>.appid.cloud.ibm.com/oauth/v4/<tenant_id>/token \
+  curl -X GET https://<region>.appid.cloud.ibm.com/oauth/v4/<tenant_id>/token \
   -H 'Authorization: Basic base64Encoded{{client-ID}:{client-secret}}' \
   -H 'Content-Type: application/x-www-form-urlencoded' \
   -H 'Accept: application/json' \
@@ -227,5 +227,8 @@ Server Swift:
   -F password=testuser
   ```
   {: codeblock}
+
+  If you don't have an application, you can use the same command but replace `GET` with `POST`.
+  {: tip}
 
 The type of grant type that you use to obtain your token can differ depending on the type of authorization that you're working with. For a detailed list of options, check out the [swagger documentation](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization%20Server%20-%20Authorization%20Server%20V4/oauth-server.token).
