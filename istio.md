@@ -122,26 +122,16 @@ To install the chart, initialize Helm in your cluster, define the options that y
 
 1. If you're working with IBM Cloud Kubernetes Service, be sure to log in and set the context for your cluster.
 
-2. Install Helm in your cluster.
+2. Verify that you have [Istio policy enforcement enabled](https://istio.io/latest/docs/tasks/policy-enforcement/enabling-policy/){: external}. If not, turn it on. 
 
-  ```bash
-  helm init
-  ```
-  {: codeblock}
-
-  For more information about using Helm with IBM Cloud Kubernetes Service, see [Adding services by using Helm Charts](/docs/containers?topic=containers-helm#public_helm_install).
-  {: tip}
-
-3. Verify that you have [Istio policy enforcement enabled](https://istio.io/latest/docs/tasks/policy-enforcement/enabling-policy/){: external}. If not, turn it on. 
-
-4. Add the repository.
+3. Add the repository.
 
   ```bash
   helm repo add appidentityandaccessadapter https://raw.githubusercontent.com/ibm-cloud-security/app-identity-and-access-adapter/master/helm/appidentityandaccessadapter
   ```
   {: codeblock}
 
-5. Install the chart.
+4. Install the chart.
 
   ```bash
   helm install --name appidentityandaccessadapter appidentityandaccessadapter/appidentityandaccessadapter
