@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-19"
+lastupdated: "2020-06-19"
 
 keywords: adapter, access management, identity token, helm chart, backend apps, kube, any kube, icp, openshift, iks, service mesh, access, app identity, kube secret, tokens, authenticated, app endpoints, authorization, multicloud, no code change, no redeploy, authorization policies, multiple providers
 
@@ -63,7 +63,7 @@ A multicloud computing environment combines multiple cloud and/ or private compu
 
 [Istio](https://istio.io) is an open source service mesh that layers transparently onto existing distributed applications that can integrate with Kubernetes. To reduce the complexity of deployments Istio provides behavioral insights and operational control over the service mesh as a whole. When {{site.data.keyword.appid_short_notm}} is combined with Istio, it becomes a scalable, integrated identity solution for multicloud architectures that does not require any custom application code changes. For more information, check out [What is Istio](https://www.ibm.com/cloud/learn/istio){: external}.
 
-Istio uses an Envoy proxy sidecar to mediate all inbound and outbound traffic for all services in the service mesh. By using the proxy, Istio extracts information about traffic, also known as telemetry, that is sent to the Istio component called Mixer to enforce policy decisions. The App Identity and Access adapter extends the Mixer functionality by analyzing the telemetry (attributes) against custom policies to control identity and access management into and across the service mesh. The access management policies are linked to particular Kubernetes services and can be finely tuned to specific service endpoints. For more information about policies and telemetry, see the [Istio documentation](https://istio.io/docs/concepts/observability/){: external}. 
+Istio uses an Envoy proxy sidecar to mediate all inbound and outbound traffic for all services in the service mesh. By using the proxy, Istio extracts information about traffic, also known as telemetry, that is sent to the Istio component called Mixer to enforce policy decisions. The App Identity and Access adapter extends the Mixer functionality by analyzing the telemetry (attributes) against custom policies to control identity and access management into and across the service mesh. The access management policies are linked to particular Kubernetes services and can be finely tuned to specific service endpoints. For more information about policies and telemetry, see the [Istio documentation](https://istio.io/latest/docs/concepts/observability/){: external}. 
 
 Due to an Istio limitation, the App Identity and Access adapter currently stores user session information internally and does *not* persist the information across replicas or over failover configurations. When you use the adapter, limit your workloads to a single replica until the limitation is addressed.
 {: note}
@@ -107,7 +107,7 @@ Before you get started, be sure that you have installed the following prerequisi
 
 - A paid [Kubernetes Cluster](https://kubernetes.io/){: external}
 - [Helm](https://helm.sh/){: external}
-- [Istio v1.1+](https://istio.io/docs/setup/install/){: external}
+- [Istio v1.1+](https://istio.io/latest/docs/setup/install/){: external}
 
   Currently, [IBM Cloud Kubernetes Service Managed Istio](/docs/containers?topic=containers-istio) does not support policy enforcement. To use the adapter you must use manually installed Istio.
   {: note}
@@ -132,7 +132,7 @@ To install the chart, initialize Helm in your cluster, define the options that y
   For more information about using Helm with IBM Cloud Kubernetes Service, see [Adding services by using Helm Charts](/docs/containers?topic=containers-helm#public_helm_install).
   {: tip}
 
-3. Verify that you have [Istio policy enforcement enabled](https://istio.io/docs/tasks/policy-enforcement/enabling-policy/){: external}. If not, turn it on. 
+3. Verify that you have [Istio policy enforcement enabled](https://istio.io/latest/docs/tasks/policy-enforcement/enabling-policy/){: external}. If not, turn it on. 
 
 4. Add the repository.
 
