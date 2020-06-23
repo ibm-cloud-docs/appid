@@ -258,7 +258,7 @@ Optionally, you can verify that step 4 was successful by viewing an access token
   ```
   curl --request PUT \
   https://appid.cloud.ibm.com/oauth/v4/<tenant-ID>/token \
-  --header 'Authorization: Basic <encoded-clientID>:<encoded-client-secret>' \
+  --header 'Authorization: Basic <encoded_client:secret>' \
   --header 'Content-Type: application/x-www-form-urlencoded' \
   --header `Accept: application/json`
   -d 'grant_type=password&username=<user-email>%40<user-email-domain>&password=<user-password>
