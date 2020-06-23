@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-05-26"
+lastupdated: "2020-06-23"
 
 keywords: user events, track activity, manage events, analyze, administrative, runtime, sign in, settings, app security
 
@@ -72,7 +72,7 @@ You can view, manage, and analyze configuration activity that is made in your {{
 Check out the following table for a list of the events that are sent to {{site.data.keyword.at_short}}.
 
 Some of the action names were changed as part of an alignment to new guidelines. [Learn more](/docs/Activity-Tracker-with-LogDNA?topic=Activity-Tracker-with-LogDNA-event#action_field).
-{: important} 
+{: important}
 
 <table>
   <caption>Table 1. Actions that you can take that are tracked by {{site.data.keyword.at_short}}</caption>
@@ -302,12 +302,12 @@ Some of the action names were changed as part of an alignment to new guidelines.
     <td>Can be found in the <strong>Cloud Directory > Users</strong> tab.</td>
   </tr>
   <tr>
-    <td><code>appid.cloud-directory-users.update</code></td>
+    <td><code>appid.cloud-directory-user.update</code></td>
     <td>Update your list of Cloud Directory users.</td>
     <td>Can be updated in the <strong>Cloud Directory > Users</strong> tab.</td>
   </tr>
   <tr>
-    <td><code>appid.cloud-directory-users.delete</code></td>
+    <td><code>appid.cloud-directory-user.delete</code></td>
     <td>Delete a list of Cloud Directory users.</td>
     <td>Must be deleted through the API.</td>
   </tr>
@@ -437,16 +437,6 @@ Some of the action names were changed as part of an alignment to new guidelines.
     <td>Must be done through the API.</td>
   </tr>
   <tr>
-    <td><code>appid.login-widget-config.read</code></td>
-    <td>View your login widget configuration.</td>
-    <td>Can be found in the <strong>Login Customization</strong> tab.</td>
-  </tr>
-  <tr>
-    <td><code>appid.login-widget-config.update</code></td>
-    <td>Update your login widget configuration.</td>
-    <td>Can be updated in the <strong>Login Customization</strong> tab.</td>
-  </tr>
-  <tr>
     <td><code>appid.capture-runtime-activity.read</code></td>
     <td>View runtime activity toggle.</td>
     <td>Can be viewed in the <strong>Manage Authentication> Authentication Settings</strong> tab.</td>
@@ -465,7 +455,7 @@ Some of the action names were changed as part of an alignment to new guidelines.
     <td><code>appid.mfa.update</code></td>
     <td>Update your MFA configurations.</td>
     <td>Can be found in the <strong>Cloud Directory > Multi-factor Authentication</strong> tab.</td>
-  </tr> 
+  </tr>
   <tr>
     <td><code>appid.mfa-channels.read</code></td>
     <td>View your MFA channels.</td>
@@ -560,7 +550,7 @@ This feature is available only for instances on graduated tier payment plan that
 Check out the following table for a list of the runtime events that are sent to {{site.data.keyword.at_short}}.
 
 Be sure that you have turn ON the **Runtime Activity** in order to see this events.
-{: important} 
+{: important}
 
 <table>
   <caption>Table 2. Actions that can be tracked as authentication events at runtime</caption>
@@ -763,22 +753,13 @@ Be sure that you have turn ON the **Runtime Activity** in order to see this even
     <td><code>appid/user</code></td>
   </tr>
     <tr>
-    <td>Get user profile attributes</td>
-    <td><code>appid.user-profile-attributes.get</code></td>
+    <td>View user profile attributes</td>
+    <td><code>appid.user-profile-attributes.read</code></td>
     <td><code>success</code></td>
     <td><code>200</code></td>
     <td><code>crn:profiles:[User-ID]</code></td>
     <td><code>profiles:[User-ID]</code></td>
     <td><code>appid-user-profiles/attributes</code></td>
-  </tr>
-    <tr>
-    <td>Get user profile attribute</td>
-    <td><code>appid.user-profile-attributes.get</code></td>
-    <td><code>success</code></td>
-    <td><code>200</code></td>
-    <td><code>crn:profiles:[User-ID]</code></td>
-    <td><code>profiles:[User-ID]</code></td>
-    <td><code>appid-user-profiles/attribute/[Attribute-name]</code></td>
   </tr>
     <tr>
     <td>Update user profile attribute</td>
