@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-19"
+lastupdated: "2020-06-23"
 
 keywords: attributes, cloud directory, user registry, user management, personalization, customize app, user information, profiles, app security, user profile, app access, identity
 
@@ -250,6 +250,9 @@ Optionally, you can verify that step 4 was successful by viewing an access token
   2. Use a base64 encoder to encode your authorization information.
   3. Copy the output to use in the following command.
 
+  It is not recommended to use a browser-based encoder in production applications.
+  {: tip}
+
 4. Sign in by using the APIs to obtain your access token information. The token that is returned is encoded.
 
   ```
@@ -266,6 +269,9 @@ Optionally, you can verify that step 4 was successful by viewing an access token
   1. Copy the token in the response output from the previous command.
   2. In a browser, navigate to https://jwt.io/.
   3. Paste the token into the box labeled **Encoded**.
+
+  It is not recommended to use a browser-based decoder in production applications.
+  {: tip}
 
 6. In the **Decoded** section, verify that you can see the food preference.
 
