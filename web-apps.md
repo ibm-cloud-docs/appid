@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-06-03"
+lastupdated: "2020-07-09"
 
 keywords: web apps, authorization code, authentication, nodejs, javascript, app access, application credentials, login, redirect uri, protected endpoint, video
 
@@ -14,7 +14,6 @@ subcollection: appid
 {:screen: .screen}
 {:download: .download}
 {:external: target="_blank" .external}
-{:new_window: target="_blank"}
 {:faq: data-hd-content-type='faq'}
 {:gif: data-image-type='gif'}
 {:important: .important}
@@ -346,7 +345,9 @@ Check out the following video to learn about protecting Liberty for Java applica
 ### Initializing the Liberty for Java SDK
 {: #web-liberty-initialize}
 
-1. In your `server.xml` file, define an authorization filter to specify protected resources. If a filter is not <a href="https://www.ibm.com/support/knowledgecenter/en/SSD28V_liberty/com.ibm.websphere.wlp.core.doc/ae/rwlp_auth_filter.html" target="_blank">defined <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>, the service protects all resources.
+1. In your `server.xml` file, define an authorization filter to specify protected resources. If a filter is not [defined](https://www.ibm.com/support/knowledgecenter/en/SSD28V_liberty/com.ibm.websphere.wlp.core.doc/ae/rwlp_auth_filter.html){: external}, the service protects all resources.
+
+
 
   ```xml
   <authFilter id="myAuthFilter">
@@ -368,7 +369,7 @@ Check out the following video to learn about protecting Liberty for Java applica
   ```
   {: codeblock}
 
-3. Download the `libertySample-1.0.0.war` file from <a href="https://github.com/ibm-cloud-security/appid-sample-code-snippets/tree/master/liberty-for-java" target="_blank">GitHub <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> and place it in your server's apps folder. For example, if your server is named `defaultServer`, the war file would go here `target/liberty/wlp/usr/servers/defaultServer/apps/`.
+3. Download the `libertySample-1.0.0.war` file from [GitHub](https://github.com/ibm-cloud-security/appid-sample-code-snippets/tree/master/liberty-for-java){: external} and place it in your server's apps folder. For example, if your server is named `defaultServer`, the war file would go here `target/liberty/wlp/usr/servers/defaultServer/apps/`.
 
 4. Configure SSL by adding the following to your `server.xml` file. You also need to create a truststore.
 
@@ -379,7 +380,7 @@ Check out the following video to learn about protecting Liberty for Java applica
   ```
   {: codeblock}
 
-By default SSL configuration requires the truststore be configured for OpenID Connect. Learn more about <a href="https://www.ibm.com/support/knowledgecenter/en/SSEQTP_liberty/com.ibm.websphere.wlp.doc/ae/twlp_config_oidc_rp.html" target="_blank">configuring an OpenID Connect Client in Liberty <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
+By default SSL configuration requires the truststore be configured for OpenID Connect. Learn more about [configuring an OpenID Connect Client in Liberty](https://www.ibm.com/support/knowledgecenter/en/SSEQTP_liberty/com.ibm.websphere.wlp.doc/ae/twlp_config_oidc_rp.html){: external}.
 {: tip}
 
 
@@ -534,4 +535,5 @@ With {{site.data.keyword.appid_short_notm}} installed in your application, you'r
 
 * Configure your [identity providers](/docs/appid?topic=appid-social)
 * Customize and configure [the Login Widget](/docs/appid?topic=appid-login-widget)
-* Learn more about the <a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs" target="_blank">Node.js SDK<img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
+* Learn more about the [Node.js SDK](https://github.com/ibm-cloud-security/appid-serversdk-nodejs){: external}
+

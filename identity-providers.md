@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-19"
+lastupdated: "2020-07-09"
 
 keywords: facebook, google, social, identity providers, single sign on, default configuration, authentication, authorization, identity, app security, idp, default credentials
 
@@ -14,7 +14,6 @@ subcollection: appid
 {:screen: .screen}
 {:download: .download}
 {:external: target="_blank" .external}
-{:new_window: target="_blank"}
 {:faq: data-hd-content-type='faq'}
 {:gif: data-image-type='gif'}
 {:important: .important}
@@ -72,7 +71,7 @@ You can configure the {{site.data.keyword.appid_short}} service to use Facebook 
 
 To use Facebook as an identity provider, you must add and configure the website platform on your Facebook application.
 
-1. Log in to your account on the <a href="https://developers.facebook.com/docs/apps#register" target="_blank">Facebook for Developers site <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.
+1. Log in to your account on the <a href="https://developers.facebook.com/docs/apps#register" target="_blank">Facebook for Developers site <img src="../icons/launch-glyph.svg" alt="External link icon"></a>.
 2. Make note of the Facebook app ID and secret. These values are needed to configure your web project for authentication in your service dashboard.
 3. Add the web platform and enter the site URL.
 4. From the products list, select **Facebook Login**.
@@ -101,7 +100,7 @@ You can configure the {{site.data.keyword.appid_short}} service to use Google as
 ### Getting a client ID and secret
 {: #google-clientid-secret}
 
-Create a project in the <a href="https://developers.google.com/" target="_blank">Google Developers Console <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>, configure the project to serve web clients, and obtain a client ID and secret.
+Create a project in the <a href="https://developers.google.com/" target="_blank">Google Developers Console <img src="../icons/launch-glyph.svg" alt="External link icon"></a>, configure the project to serve web clients, and obtain a client ID and secret.
 
 1. Create a project.
 2. Add the Google+ API to your Google project.
