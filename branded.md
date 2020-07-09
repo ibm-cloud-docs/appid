@@ -40,7 +40,7 @@ subcollection: appid
 # Branding your app
 {: #branded}
 
-With {{site.data.keyword.appid_full}}, you can customize the entire sign-up experience of your application by using your own branded screens. You can replace the provided sign in widget with your own, add extra fields, validate password strength and verify email addresses against a black list!
+With {{site.data.keyword.appid_full}}, you can customize the entire sign-up experience of your application by using your own branded screens. You can replace the provided sign in widget with your own, add extra fields, validate password strength and verify email addresses against a blocklist!
 {: shortdesc}
 
 
