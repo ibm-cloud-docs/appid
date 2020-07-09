@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-05-26"
+lastupdated: "2020-07-09"
 
 keywords: management api, service management, service instance, devops automation, customize, permissions, iam, account owners, identity, app security, access tokens, video tutorial
 
@@ -14,7 +14,6 @@ subcollection: appid
 {:screen: .screen}
 {:download: .download}
 {:external: target="_blank" .external}
-{:new_window: target="_blank"}
 {:faq: data-hd-content-type='faq'}
 {:gif: data-image-type='gif'}
 {:important: .important}

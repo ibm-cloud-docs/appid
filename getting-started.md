@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-05-06"
+lastupdated: "2020-07-09"
 
 keywords: getting started tutorial, getting started, App ID, sample app, authentication, sign in flow, authorization, app security, identity
 
@@ -14,7 +14,6 @@ subcollection: appid
 {:screen: .screen}
 {:download: .download}
 {:external: target="_blank" .external}
-{:new_window: target="_blank"}
 {:faq: data-hd-content-type='faq'}
 {:gif: data-image-type='gif'}
 {:important: .important}
@@ -48,7 +47,7 @@ By requiring users to sign in to your app, you can store user data such as app p
 
 We’d love to hear from you with feedback and questions!
 
-* If you have technical questions about {{site.data.keyword.appid_short_notm}}, post your question on <a href="https://stackoverflow.com" target="_blank">Stack Overflow <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> and tag your question with `ibm-appid`.
+* If you have technical questions about {{site.data.keyword.appid_short_notm}}, post your question on <a href="https://stackoverflow.com" target="_blank">Stack Overflow <img src="../icons/launch-glyph.svg" alt="External link icon"></a> and tag your question with `ibm-appid`.
 * Reach out directly to the development team on [Slack](https://www.ibm.com/cloud/blog/announcements/get-help-with-ibm-cloud-app-id-related-questions-on-slack){: external}! 
 
 Getting started? Try walking through our [video tutorials](https://www.youtube.com/playlist?list=PLzpeuWUENMK2tmzSRRx7W_mplw1x4h7ch){: external}. 

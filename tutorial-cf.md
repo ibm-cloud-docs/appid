@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-05-26"
+lastupdated: "2020-07-09"
 
 keywords: cloud foundry, iam, java nodejs, identity, access management, user access, service access, permissions, bind service
 
@@ -14,7 +14,6 @@ subcollection: appid
 {:screen: .screen}
 {:download: .download}
 {:external: target="_blank" .external}
-{:new_window: target="_blank"}
 {:faq: data-hd-content-type='faq'}
 {:gif: data-image-type='gif'}
 {:important: .important}

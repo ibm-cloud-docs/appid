@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-06-03"
+lastupdated: "2020-07-09"
 
 keywords: bring your own screens, branded app, sign up, custom, directory, registry, app security, password, authorization flow, authentication,
 
@@ -14,7 +14,6 @@ subcollection: appid
 {:screen: .screen}
 {:download: .download}
 {:external: target="_blank" .external}
-{:new_window: target="_blank"}
 {:faq: data-hd-content-type='faq'}
 {:gif: data-image-type='gif'}
 {:important: .important}
@@ -41,7 +40,7 @@ subcollection: appid
 # Branding your app
 {: #branded}
 
-With {{site.data.keyword.appid_full}}, you can customize the entire sign-up experience of your application by using your own branded screens. You can replace the provided sign in widget with your own, add extra fields, validate password strength and verify email addresses against a black list!
+With {{site.data.keyword.appid_full}}, you can customize the entire sign-up experience of your application by using your own branded screens. You can replace the provided sign in widget with your own, add extra fields, validate password strength and verify email addresses against a blocklist!
 {: shortdesc}
 
 

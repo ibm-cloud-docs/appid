@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-06-03"
+lastupdated: "2020-07-09"
 
 keywords: authentication, authorization, identity, web flow, backend, identity management, anonymous auth, custom flow, mobile, app to app, kubernetes, ingress, istio, app security,
 
@@ -14,7 +14,6 @@ subcollection: appid
 {:screen: .screen}
 {:download: .download}
 {:external: target="_blank" .external}
-{:new_window: target="_blank"}
 {:faq: data-hd-content-type='faq'}
 {:gif: data-image-type='gif'}
 {:important: .important}

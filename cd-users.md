@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-19"
+lastupdated: "2020-07-09"
 
 keywords: manage users, registry, cloud directory, add user, delete user, tokens, attributes, migrating users, identity provider, app security
 
@@ -14,7 +14,6 @@ subcollection: appid
 {:screen: .screen}
 {:download: .download}
 {:external: target="_blank" .external}
-{:new_window: target="_blank"}
 {:faq: data-hd-content-type='faq'}
 {:gif: data-image-type='gif'}
 {:important: .important}
@@ -421,7 +420,7 @@ Before you get started, be sure that you have the following parameter informatio
   </tr>
   <tr>
     <td><code>IAM token</code></td>
-    <td>Be sure that you have <code>manager</code> permissions before you obtain the token. For help with obtaining an IAM token, check out <a href="/docs/iam?topic=iam-iamtoken_from_apikey#iamtoken_from_apikey" target="_blank">the docs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a>.</td>
+    <td>Be sure that you have <code>manager</code> permissions before you obtain the token. For help with obtaining an IAM token, check out <a href="/docs/iam?topic=iam-iamtoken_from_apikey#iamtoken_from_apikey" target="_blank">the docs <img src="../icons/launch-glyph.svg" alt="External link icon"></a>.</td>
   </tr>
 </table>
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-04-02"
+lastupdated: "2020-07-09"
 
 keywords: help, support, error, multiple users, attribute, ticket, identity provider, redirect uri, custom url, virtual user, idp, identity settings, user profile
 
@@ -14,7 +14,6 @@ subcollection: appid
 {:screen: .screen}
 {:download: .download}
 {:external: target="_blank" .external}
-{:new_window: target="_blank"}
 {:faq: data-hd-content-type='faq'}
 {:gif: data-image-type='gif'}
 {:important: .important}
@@ -48,8 +47,9 @@ If you have problems while you're working with {{site.data.keyword.appid_full}},
 {: #ts-gettinghelp}
 
 You can get help by searching for information or by asking questions through a forum. You can also open a support ticket. When you are using the forums to ask a question, tag your question so that it is seen by the {{site.data.keyword.cloud_notm}} development teams.
-  * If you have technical questions about {{site.data.keyword.appid_short_notm}}, post your question on <a href="https://stackoverflow.com/" target="_blank">Stack Overflow <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> and tag your question with "ibm-appid".
+  * If you have technical questions about {{site.data.keyword.appid_short_notm}}, post your question on [Stack Overflow](https://stackoverflow.com/){: external} and tag your question with "ibm-appid".
   * Reach out directly to the development team on [Slack](https://www.ibm.com/cloud/blog/announcements/get-help-with-ibm-cloud-app-id-related-questions-on-slack)! 
+
 
 For more information about getting support, see [how do I get the support that I need](/docs/get-support?topic=get-support-getting-customer-support).
 

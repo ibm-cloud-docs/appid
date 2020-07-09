@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-07-03"
+lastupdated: "2020-07-09"
 
 keywords: user information, tokens, custom tokens, secure resources, authorization, identity, authentication, claims, oauth, claims mapping, attributes, app security, access, runtime
 
@@ -14,7 +14,6 @@ subcollection: appid
 {:screen: .screen}
 {:download: .download}
 {:external: target="_blank" .external}
-{:new_window: target="_blank"}
 {:faq: data-hd-content-type='faq'}
 {:gif: data-image-type='gif'}
 {:important: .important}

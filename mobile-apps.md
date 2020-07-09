@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-06-03"
+lastupdated: "2020-07-09"
 
 keywords: secure mobile app, android, ios, authenticate users,  authorization grant, client sdk, trusted client, native app, personalized, custom app, devices, identity flow, app security
 
@@ -14,7 +14,6 @@ subcollection: appid
 {:screen: .screen}
 {:download: .download}
 {:external: target="_blank" .external}
-{:new_window: target="_blank"}
 {:faq: data-hd-content-type='faq'}
 {:gif: data-image-type='gif'}
 {:important: .important}
@@ -384,5 +383,7 @@ With {{site.data.keyword.appid_short}} installed in your application, you're alm
 
 * Configure your [identity providers](/docs/appid?topic=appid-social)
 * Customize and configure [the Login Widget](/docs/appid?topic=appid-login-widget)
-* Learn more about the <a href="https://github.com/ibm-cloud-security/appid-clientsdk-android" target="_blank">Android SDK<img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
-* Learn more about the <a href="https://github.com/ibm-cloud-security/appid-clientsdk-swift" target="_blank">iOS SDK<img src="../../icons/launch-glyph.svg" alt="External link icon"></a>
+* Learn more about the [Android SDK](https://github.com/ibm-cloud-security/appid-clientsdk-android){: external}
+* Learn more about the [iOS Swift SDK](https://github.com/ibm-cloud-security/appid-clientsdk-swift){: external}
+
+
