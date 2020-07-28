@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-07-09"
+lastupdated: "2020-07-28"
 
 keywords: bring your own screens, branded app, sign up, custom, directory, registry, app security, password, authorization flow, authentication,
 
@@ -208,15 +208,15 @@ After you configure your [settings](/docs/appid?topic=appid-cloud-directory#cd-s
 You can use the `/sign_up` endpoint to allow users to sign themselves up for your app.
 Supply the following data in the request body:
   * Your tenantID.
-  * Cloud Directory user data. See [SCIM Full User Representation](https://tools.ietf.org/html/rfc7643#section-8.2){: external} for more details.
+  * Cloud Directory user data with the following required attributes. See [SCIM Full User Representation](https://tools.ietf.org/html/rfc7643#section-8.2){: external} for more details.
     * A `password` attribute.
-    * In the email array with a `primary` attribute that is set to `true`, you must have at least one email address.
+    * An `emails` array with at least one email address and a `primary` attribute that is set to `true`.
 
 Depending on your [email configuration](/docs/appid?topic=appid-cd-types), a user might receive a request for verification, an email that welcomes them when they sign up for your app, or both. Both types of emails are triggered when a user signs up for your app. The verification email contains a link that the user can click to confirm their identity; a screen is displayed, that thanks them for verifying or confirms that their verification is complete.  
 
 To present your own post verification page:
 
-1. Navigate to the Cloud Directory identity provider in the {site.data.keyword.appid_short_notm}} dashboard.
+1. Navigate to the Cloud Directory identity provider in the {{site.data.keyword.appid_short_notm}} dashboard.
 2. Click the **Email verification** tab.
 3. In the **custom verification page URL**, enter the URL for your landing page.
 
