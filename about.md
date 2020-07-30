@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-07-09"
+lastupdated: "2020-07-30"
 
 keywords: authentication, authorization, identity, app security, cloud directory, user data, identity provider, oauth, protocols, oauth, oidc, disaster recovery, dr, compliance, high availability, ha, secure, HA, DR
 
@@ -155,10 +155,8 @@ See section 5.4 of the {{site.data.keyword.appid_short_notm}} software product c
 {{site.data.keyword.appid_short_notm}} is a highly available, regional service that runs in multiple zones.
 {: shortdesc}
 
-In each supported multizone region, every zone has its own {{site.data.keyword.containerlong_notm}} cluster with several worker nodes. Each worker node runs several instances of {{site.data.keyword.appid_short_notm}} components. Each region is fronted by a global load balancer and a web application firewall.
+{{site.data.keyword.appid_short_notm}} is a highly available, regional service that runs in multiple availability zones.
 
-Data that is stored in {{site.data.keyword.appid_short_notm}} is encrypted and persisted in a database cluster that is spread across availability zones. The data is also backed up in a separate encrypted object storage.
+In each region, a highly available database contains multiple copies of the data. The data is backed up on a daily basis.
 
-Because {{site.data.keyword.appid_short_notm}} is a regional service, it does not provide automated cross-regional failover or cross-regional disaster recovery. If a regional disaster occurs, all data might not be available to be recovered. However, if the recovery of a location is necessary, the available data can be restored. To ensure high availability and disaster recovery, it’s recommended that you create and maintain backup instances in other regions. To synchronize a service instance in one region with an instance in a different region, you can use [the APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/){: external}.
-
-
+Because {{site.data.keyword.appid_short_notm}} is a regional service, it does not provide automatic cross-regional failover or cross-regional disaster recovery. In the event that the recovery of a location is required, any available data is restored. To ensure that there is minimal loss of data in a disaster scenario, establish high availability and a recovery plan by creating and maintaining backup instances in multiple regions. To synchronize a service instance in one region with an instance in another location, you can use [the APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/){: external}.
