@@ -152,9 +152,6 @@ See section 5.4 of the {{site.data.keyword.appid_short_notm}} software product c
 ## Regional high-availability
 {: #ha-dr}
 
-{{site.data.keyword.appid_short_notm}} is a highly available, regional service that runs in multiple zones.
-{: shortdesc}
-
 {{site.data.keyword.appid_short_notm}} is a highly available, regional service that runs in multiple availability zones.
 
 In each region, a highly available database contains multiple copies of the data. The data is backed up on a daily basis.
