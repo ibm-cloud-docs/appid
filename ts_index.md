@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-07-09"
+lastupdated: "2020-08-03"
 
 keywords: help, support, error, multiple users, attribute, ticket, identity provider, redirect uri, custom url, virtual user, idp, identity settings, user profile
 
@@ -46,12 +46,9 @@ If you have problems while you're working with {{site.data.keyword.appid_full}},
 ## Getting help and support
 {: #ts-gettinghelp}
 
-You can get help by searching for information or by asking questions through a forum. You can also open a support ticket. When you are using the forums to ask a question, tag your question so that it is seen by the {{site.data.keyword.cloud_notm}} development teams.
-  * If you have technical questions about {{site.data.keyword.appid_short_notm}}, post your question on [Stack Overflow](https://stackoverflow.com/){: external} and tag your question with "ibm-appid".
-  * Reach out directly to the development team on [Slack](https://www.ibm.com/cloud/blog/announcements/get-help-with-ibm-cloud-app-id-related-questions-on-slack)! 
+You can get help with {{site.data.keyword.appid_short}} by opening a support ticket. For more information about getting support, see [How do I get the support that I need](/docs/get-support?topic=get-support-getting-customer-support).
 
-
-For more information about getting support, see [how do I get the support that I need](/docs/get-support?topic=get-support-getting-customer-support).
+To join the community and interact with other developers who use {{site.data.keyword.appid_short}}, you can find us on [Slack](https://www.ibm.com/cloud/blog/announcements/get-help-with-ibm-cloud-app-id-related-questions-on-slack){: external} or [Stack Overflow](https://stackoverflow.com/){: external} with the `ibm-appid` tag.
 
 
 ## A user is not redirected to the app after sign-in
