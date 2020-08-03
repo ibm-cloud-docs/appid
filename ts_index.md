@@ -46,9 +46,7 @@ If you have problems while you're working with {{site.data.keyword.appid_full}},
 ## Getting help and support
 {: #ts-gettinghelp}
 
-You can get help with {{site.data.keyword.appid_short}} by [opening a support ticket](https://{DomainName}/unifiedsupport/cases/form). For more information about getting support, see [How do I get the support that I need](/docs/get-support?topic=get-support-getting-customer-support).
-
-To join the community and interact with other developers who use {{site.data.keyword.appid_short}}, you can find us on [Slack](https://www.ibm.com/cloud/blog/announcements/get-help-with-ibm-cloud-app-id-related-questions-on-slack){: external} or [Stack Overflow](https://stackoverflow.com/){: external} with the `ibm-appid` tag.
+You can get help with {{site.data.keyword.appid_short}} by [opening a support ticket](https://{DomainName}/unifiedsupport/cases/form). For more information about getting support, see [How do I get the support that I need](/docs/get-support?topic=get-support-getting-customer-support). To join the community and interact with other developers who use {{site.data.keyword.appid_short}}, you can find us on [Slack](https://www.ibm.com/cloud/blog/announcements/get-help-with-ibm-cloud-app-id-related-questions-on-slack){: external} or [Stack Overflow](https://stackoverflow.com/){: external} with the `ibm-appid` tag.
 
 
 ## A user is not redirected to the app after sign-in
