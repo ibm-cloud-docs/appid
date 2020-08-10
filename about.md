@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-07-30"
+lastupdated: "2020-08-10"
 
 keywords: authentication, authorization, identity, app security, cloud directory, user data, identity provider, oauth, protocols, oauth, oidc, disaster recovery, dr, compliance, high availability, ha, secure, HA, DR
 
@@ -156,4 +156,4 @@ See section 5.4 of the {{site.data.keyword.appid_short_notm}} software product c
 
 In each region, a highly available database contains multiple copies of the data. The data is backed up on a daily basis.
 
-Because {{site.data.keyword.appid_short_notm}} is a regional service, it does not provide automatic cross-regional failover or cross-regional disaster recovery. In the event that the recovery of a location is required, any available data is restored. To ensure that there is minimal loss of data in a disaster scenario, establish high availability and a recovery plan by creating and maintaining backup instances in multiple regions. To synchronize a service instance in one region with an instance in another location, you can use [the APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/){: external}.
+Because {{site.data.keyword.appid_short_notm}} is a regional service, it does not provide automatic cross-regional failover or cross-regional disaster recovery. To establish cross-region high availability and have a recovery plan, you need to create and maintain backup instances in multiple regions. To synchronize a service instance in one region with an instance in another region, you can use [the APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/){: external}.
