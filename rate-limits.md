@@ -98,17 +98,17 @@ The following table lists the maximum per user limits for {{site.data.keyword.ap
     <tr>
         <td>Roles per {{site.data.keyword.appid_short_notm}} instance</td>
         <td>50</td>
-        <td>User receives an HTTP <code>429 Too Many Requests</code> response status code to indicate that the maximum number of roles was reached.</td>
+        <td></td>
     </tr>
     <tr>
         <td>Scopes per application</td>
         <td>50</td>
-        <td>User receives an HTTP <code>429 Too Many Requests</code> response status code to indicate that the maximum number of scopes was reached.</td>
+        <td></td>
     </tr>
     <tr>
         <td>Applications per {{site.data.keyword.appid_short_notm}} instance</td>
         <td>50</td>
-        <td>User receives an HTTP <code>429 Too Many Requests</code> response status code to indicate that the maximum number of applications was reached.</td>
+        <td></td>
     </tr>
 </table>
 
