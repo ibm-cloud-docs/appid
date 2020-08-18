@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-07-09"
+lastupdated: "2020-08-18"
 
 keywords: rate limits, traffic control, limit request, lite instances, per minute, per instance, per user, limits
 
@@ -96,8 +96,19 @@ The following table lists the maximum per user limits for {{site.data.keyword.ap
         <td>User unable to update profile for 1 minute.</td>
     </tr>
     <tr>
-      <td>Applications per {{site.data.keyword.appid_short_notm}} instance</td>
-      <td>50</td>
+        <td>Roles per {{site.data.keyword.appid_short_notm}} instance</td>
+        <td>50</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Scopes per application</td>
+        <td>50</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Applications per {{site.data.keyword.appid_short_notm}} instance</td>
+        <td>50</td>
+        <td></td>
     </tr>
 </table>
 
@@ -166,6 +177,7 @@ Be sure to review the following limitations before you configure your annotation
 
 * Refresh tokens are not currently supported.
 * {{site.data.keyword.containerlong}} supports one Ingress per namespace. If you already have one, you can update the existing Ingress configuration or use a different namespace.
+* The annotation does not work behind a proxy.
 
 
 ## Extensions
