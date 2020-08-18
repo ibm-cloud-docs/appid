@@ -161,7 +161,7 @@ Review the following table to see limits that are associated with Cloud Director
     <tr>
         <td>MFA code expiration</td>
         <td>No</td>
-        <td>15 Minutes</td>
+        <td>15 minutes</td>
         <td>If a user does not validate their code within 15 minutes, they can request that another code is sent as long as the authentication session is not expired. Within the authentication session, the code can be sent multiple times. Once the authentication session expires, the user must repeat the login process from the beginning.</td>
     </tr>
 </table>
