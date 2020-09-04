@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-07-28"
+lastupdated: "2020-09-04"
 
 keywords: bring your own screens, branded app, sign up, custom, directory, registry, app security, password, authorization flow, authentication,
 
@@ -256,6 +256,8 @@ Supply the following data in the request body to update their password after a r
   * The users new password
   * The Cloud Directory user UUID.
   * Optional: the IP address from which the password reset was performed. If you choose to pass the IP address, then the placeholder `%{passwordChangeInfo.ipAddress}` is available for the change password email template.
+
+Before you call the `/change_password` API to allow a user to reset their password, it is highly recommended to check whether the `context` has a successful result by using the `/forgot_password/confirmation_result` endpoint. This operation adds a higher level of security to your backend reset password process and ensures that a user can modify their password only if the `context` is still valid.
 
 Depending on your configuration, when a password is changed {{site.data.keyword.appid_short_notm}} sends an email to the user that lets them know that a change was made.
 
