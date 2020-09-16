@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-07-09"
+lastupdated: "2020-09-16"
 
 keywords: user access, account settings, iam, user roles, platform roles, service roles, reader, writer, operator, editor, viewer, administrator, manager, permissions
 
@@ -211,7 +211,7 @@ The following table details actions that are mapped to service access roles. Ser
   </tr>
 </table>
 
-For more information about assigning user roles in the UI, see [Managing access to resources](/docs/iam?topic=iam-iammanidaccser#iammanidaccser).
+For more information about assigning user roles in the UI, see [Managing access to resources](/docs/account?topic=account-assign-access-resources#iammanidaccser).
 
 
 

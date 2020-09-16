@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-07-09"
+lastupdated: "2020-09-16"
 
 keywords: identity provider, idp, app security, mobile app, web app, authentication, authorization, oidc, saml, protocols, facebook, google, w3id, cloud directory, redirect url, redirect uri, token configuration, token lifetime, log in configuration
 
@@ -124,15 +124,15 @@ Your application redirects users to {{site.data.keyword.appid_short_notm}} for a
     </tr>
     <tr>
       <td>Custom domain</td>
-      <td><code>https://mydomain.net/myapp2path/appid_callback</code></td>
+      <td>`https://mydomain.net/myapp2path/appid_callback`</td>
     </tr>
     <tr>
       <td>Ingress subdomain</td>
-      <td><code>https://mycluster.us-south.containers.appdomain.cloud/myapp1path/appid_callback</code></td>
+      <td>`https://mycluster.us-south.containers.appdomain.cloud/myapp1path/appid_callback`</td>
     </tr>
     <tr>
       <td>Logout</td>
-      <td><code>https://mydomain.net/myapp2path/appid_logout</code></td>
+      <td>`https://mydomain.net/myapp2path/appid_logout`</td>
     </tr>
     <tr>
       <td>Wildcard</td>

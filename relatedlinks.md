@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-07-09"
+lastupdated: "2020-09-16"
 
 keywords: related links, blogs, sample apps, kube, code changes, programming guide, white paper, vuejs apps, serverless applications, enterprise user directory, custom experience, slack, stack overflow, secure iot, solution, finance app, multicloud, video tutorials
 
@@ -104,8 +104,8 @@ Just getting started? Try walking through some of our tutorials and blogs for he
 * <img src="images/blog.svg" alt="General blog icon" width="20" style="width:20px; border-style: none"/> [Announcing {{site.data.keyword.appid_short_notm}} integration to {{site.data.keyword.containerlong}}](https://www.ibm.com/cloud/blog/announcing-app-id-integration-ibm-cloud-kubernetes-service){: external}
 * <img src="images/blog-code.svg" alt="Icon indicating that this blog contains sample code" width="20" style="width:20px; border-style: none"/> [Using {{site.data.keyword.appid_short_notm}} to secure Docker and Kubernetes applications](https://www.ibm.com/cloud/blog/using-app-id-secure-docker-kubernetes-applications){: external}
 * <img src="images/blog-code.svg" alt="Icon indicating that this blog contains sample code" width="20" style="width:20px; border-style: none"/> [Authenticating users with Cloud Functions, API Gateway, and {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/authenticating-users-with-cloud-functions-api-gateway-and-app-id){: external}
-* <img src="images/tutorial.svg" alt="Tutorial icon" width="20" style="width:20px; border-style: none"/> [Mobile application with a serverless back-end](/docs/tutorials?topic=tutorials-serverless-mobile-backend#serverless-mobile-backend)
-* <img src="images/tutorial.svg" alt="Tutorial icon" width="20" style="width:20px; border-style: none"/> [Combining serverless and Cloud Foundry for data retrieval and analytics](/docs/tutorials?topic=tutorials-serverless-github-traffic-analytics#serverless-github-traffic-analytics)
+* <img src="images/tutorial.svg" alt="Tutorial icon" width="20" style="width:20px; border-style: none"/> [Mobile application with a serverless back-end](/docs/solution-tutorials?topic=solution-tutorials-serverless-mobile-backend#serverless-mobile-backend)
+* <img src="images/tutorial.svg" alt="Tutorial icon" width="20" style="width:20px; border-style: none"/> [Combining serverless and Cloud Foundry for data retrieval and analytics](/docs/solution-tutorials?topic=solution-tutorials-serverless-github-traffic-analytics#serverless-github-traffic-analytics)
 * <img src="images/blog.svg" alt="General blog icon" width="20" style="width:20px; border-style: none"/> [Configuring {{site.data.keyword.appid_short_notm}} From the Toolchain](https://www.ibm.com/cloud/blog/how-to-configure-ibm-cloud-app-id-from-the-toolchain){: external}
 * <img src="images/blog-code.svg" alt="Icon indicating that this blog contains sample code" width="20" style="width:20px; border-style: none"/> [User Authorization in Serverless Web Applications](http://heidloff.net/article/user-authorization-serverless-web-applications-openwhisk){: external}
 * <img src="images/blog-code.svg" alt="Icon indicating that this blog contains sample code" width="20" style="width:20px; border-style: none"/> [Authentication of users in serverless applications](http://heidloff.net/article/user-authentication-serverless-openwhisk){: external}
@@ -119,7 +119,7 @@ See {{site.data.keyword.appid_short_notm}} in action in these market examples.
 * <img src="images/tutorial.svg" alt="Tutorial icon" width="20" style="width:20px; border-style: none"/> [{{site.data.keyword.appid_short_notm}} authentication for Watson IoT Platform (Beta)](https://www.ibm.com/support/knowledgecenter/SSQP8H/iot/platform/reference/security/app_id.html){: external}
 * <img src="images/blog-code.svg" alt="Icon indicating that this blog contains sample code" width="20" style="width:20px; border-style: none"/> [Design and build secure IoT solutions, part 3: Securing IoT applications](https://developer.ibm.com/articles/iot-trs-secure-iot-solutions3/){: external}
 * <img src="images/blog-code.svg" alt="Icon indicating that this blog contains sample code" width="20" style="width:20px; border-style: none"/> [Developing a finance application by using {{site.data.keyword.cloud_notm}}](https://www.ibm.com/cloud/blog/developing-finance-application-using-ibm-cloud){: external}
-* <img src="images/tutorial.svg" alt="Tutorial icon" width="20" style="width:20px; border-style: none"/> [Apply end-to-end security to a cloud application](/docs/tutorials?topic=tutorials-cloud-e2e-security#cloud-e2e-security)
+* <img src="images/tutorial.svg" alt="Tutorial icon" width="20" style="width:20px; border-style: none"/> [Apply end-to-end security to a cloud application](/docs/solution-tutorials?topic=solution-tutorials-cloud-e2e-security#cloud-e2e-security)
 
 
 
