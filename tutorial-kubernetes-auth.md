@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-07-09"
+lastupdated: "2020-09-16"
 
 keywords: ingress controller, ingress, istio, access, subdomain, custom domain, service, containerized apps, containers, kube, networking, policy, policies, secure apps, authentication, authorization
 
@@ -35,6 +35,7 @@ subcollection: appid
 {:javascript: .ph data-hd-programlang='javascript'}
 {:swift: .ph data-hd-programlang='swift'}
 {:curl: .ph data-hd-programlang='curl'}
+{:video: .video}
 
 
 
@@ -63,7 +64,7 @@ The {{site.data.keyword.appid_short_notm}} Ingress annotation does not currently
 
 Updating your Ingress annotation works the same way in both {{site.data.keyword.containerlong}} or {{site.data.keyword.openshiftshort}}. To see how quickly you can be up and running with {{site.data.keyword.openshiftshort}} check out the following video.
 
-<iframe class="embed-responsive-item" id="kube-video" title="Protecting IBM Kubernetes Service OpenShift Applications with {{site.data.keyword.appid_short_notm}}" type="text/html" width="640" height="390" src="//www.youtube.com/embed/sqGS7naTkoU?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>
+![Protecting IBM Kubernetes Service OpenShift Applications with {{site.data.keyword.appid_short_notm}}](https://www.youtube.com/embed/sqGS7naTkoU){: video output="iframe" data-script="none" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ## Before you begin
 {: #kube-prereqs}

@@ -35,6 +35,7 @@ subcollection: appid
 {:javascript: .ph data-hd-programlang='javascript'}
 {:swift: .ph data-hd-programlang='swift'}
 {:curl: .ph data-hd-programlang='curl'}
+{:video: .video}
 
 
 # Managing authentication
@@ -153,8 +154,7 @@ Your application redirects users to {{site.data.keyword.appid_short_notm}} for a
 
 Not sure where your redirect URI comes from? Watch the following short video to see where to get it and how to add it to your list.
 
-<iframe class="embed-responsive-item" id="redirecturi" title="{{site.data.keyword.appid_short_notm}}: How to fix invalid redirect URI" type="text/html" width="640" height="390" src="//www.youtube.com/embed/6hxqbvpc054?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-
+![{{site.data.keyword.appid_short_notm}}: How to fix invalid redirect URI](https://www.youtube.com/embed/6hxqbvpc054){: video output="iframe" data-script="none" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 
 ## Configuring token lifetime
