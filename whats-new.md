@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-09-16"
+lastupdated: "2020-09-17"
 
 keywords: release notes, new, spa, single sign on, mfa, cloud directory, saml, app security, application identity
 
@@ -46,7 +46,7 @@ The following features and changes to the {{site.data.keyword.appid_short_notm}}
 ## June 2020
 {: #June2020}
 
-- **Securing your data in App ID**
+- **Securing your data in {{site.data.keyword.appid_short_notm}}**
 
     You can now restore deleted instances of {{site.data.keyword.appid_short_notm}} during the data retention period. [Learn more](/docs/appid?topic=appid-mng-data).
 
