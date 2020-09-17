@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-07-09"
+lastupdated: "2020-09-16"
 
 keywords: adapter, access management, identity token, helm chart, backend apps, kube, any kube, icp, openshift, iks, service mesh, access, app identity, kube secret, tokens, authenticated, app endpoints, authorization, multicloud, no code change, no redeploy, authorization policies, multiple providers
 
@@ -35,6 +35,7 @@ subcollection: appid
 {:javascript: .ph data-hd-programlang='javascript'}
 {:swift: .ph data-hd-programlang='swift'}
 {:curl: .ph data-hd-programlang='curl'}
+{:video: .video}
 
 
 # Multicloud apps with Istio
@@ -43,9 +44,9 @@ subcollection: appid
 By using the App Identity and Access adapter, you can centralize all of your identity management in a single place. Because enterprises use clouds from multiple providers or a combination of on and off-premise solutions, heterogeneous deployment models can help you to preserve existing infrastructure and avoid vendor lock-in. The adapter can be configured to work with any OIDC-compliant identity provider, such as {{site.data.keyword.appid_short_notm}}, which enables it to control authentication and authorization policies in all environments including front end and backend applications. And, **it does it all without any change to your code or the need to redeploy your application**.
 {: shortdesc}
 
-What can the App Identity and Access adapter do for you? Check out this video and the following table to learn more.
+What can the App Identity and Access adapter do for you? Check out the following video to learn more.
 
-<iframe class="embed-responsive-item" id="about-app-identity-access-adapter" title="Using Istio to Secure Your Multicloud Kubernetes Applications with Zero Code Change" type="text/html" width="640" height="390" src="//www.youtube.com/embed/z1kCjxOw9Vs?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen> </iframe>{: caption="Video 1. Using Istio to secure your Multicloud Kubernetes Applications" caption-side="bottom"}
+![Using Istio to Secure Your Multicloud Kubernetes Applications with Zero Code Change](https://www.youtube.com/embed/z1kCjxOw9Vs){: video output="iframe" data-script="none" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 
 ## Multicloud architecture

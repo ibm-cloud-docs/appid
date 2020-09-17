@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-07-09"
+lastupdated: "2020-09-17"
 
 keywords: user access, account settings, iam, user roles, platform roles, service roles, reader, writer, operator, editor, viewer, administrator, manager, permissions
 
@@ -35,6 +35,7 @@ subcollection: appid
 {:javascript: .ph data-hd-programlang='javascript'}
 {:swift: .ph data-hd-programlang='swift'}
 {:curl: .ph data-hd-programlang='curl'}
+{:video: .video}
 
 
 # Managing access for {{site.data.keyword.appid_short_notm}}
@@ -45,7 +46,7 @@ With {{site.data.keyword.appid_full}} and {{site.data.keyword.cloud_notm}} Ident
 
 As an account owner, you can set policies within your account to create different levels of access for different users. For example, certain users can have **Read only** access to one instance, but **Write** access to another. You can decide who is allowed to create, update, and delete instances of {{site.data.keyword.appid_short_notm}}.
 
-For more information about IAM, see [IAM Access](/docs/iam?topic=iam-userroles).
+For more information about IAM, see [IAM Access](/docs/account?topic=account-userroles).
 
 
 ## User roles
@@ -211,7 +212,7 @@ The following table details actions that are mapped to service access roles. Ser
   </tr>
 </table>
 
-For more information about assigning user roles in the UI, see [Managing access to resources](/docs/iam?topic=iam-iammanidaccser#iammanidaccser).
+For more information about assigning user roles in the UI, see [Managing access to resources](/docs/account?topic=account-assign-access-resources).
 
 
 

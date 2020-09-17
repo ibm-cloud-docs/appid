@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-07-09"
+lastupdated: "2020-09-16"
 
 keywords: identity provider, idp, app security, mobile app, web app, authentication, authorization, oidc, saml, protocols, facebook, google, w3id, cloud directory, redirect url, redirect uri, token configuration, token lifetime, log in configuration
 
@@ -35,6 +35,7 @@ subcollection: appid
 {:javascript: .ph data-hd-programlang='javascript'}
 {:swift: .ph data-hd-programlang='swift'}
 {:curl: .ph data-hd-programlang='curl'}
+{:video: .video}
 
 
 # Managing authentication
@@ -124,15 +125,15 @@ Your application redirects users to {{site.data.keyword.appid_short_notm}} for a
     </tr>
     <tr>
       <td>Custom domain</td>
-      <td><code>https://mydomain.net/myapp2path/appid_callback</code></td>
+      <td>`https://mydomain.net/myapp2path/appid_callback`</td>
     </tr>
     <tr>
       <td>Ingress subdomain</td>
-      <td><code>https://mycluster.us-south.containers.appdomain.cloud/myapp1path/appid_callback</code></td>
+      <td>`https://mycluster.us-south.containers.appdomain.cloud/myapp1path/appid_callback`</td>
     </tr>
     <tr>
       <td>Logout</td>
-      <td><code>https://mydomain.net/myapp2path/appid_logout</code></td>
+      <td>`https://mydomain.net/myapp2path/appid_logout`</td>
     </tr>
     <tr>
       <td>Wildcard</td>
@@ -153,8 +154,7 @@ Your application redirects users to {{site.data.keyword.appid_short_notm}} for a
 
 Not sure where your redirect URI comes from? Watch the following short video to see where to get it and how to add it to your list.
 
-<iframe class="embed-responsive-item" id="redirecturi" title="{{site.data.keyword.appid_short_notm}}: How to fix invalid redirect URI" type="text/html" width="640" height="390" src="//www.youtube.com/embed/6hxqbvpc054?rel=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-
+![{{site.data.keyword.appid_short_notm}}: How to fix invalid redirect URI](https://www.youtube.com/embed/6hxqbvpc054){: video output="iframe" data-script="none" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 
 ## Configuring token lifetime
