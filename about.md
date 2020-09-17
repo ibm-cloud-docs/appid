@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-09-16"
+lastupdated: "2020-09-17"
 
 keywords: authentication, authorization, identity, app security, cloud directory, user data, identity provider, oauth, protocols, oauth, oidc, disaster recovery, dr, compliance, high availability, ha, secure, HA, DR
 
@@ -47,7 +47,7 @@ Application security can be incredibly complicated. For most developers, it's on
 
 What can {{site.data.keyword.appid_short_notm}} do for you? Check out the following video to learn more.
 
-![About {{site.data.keyword.appid_short_notm}}](https://www.youtube.com/embed/XlrCjHdK43Q){: video output="iframe" data-script="none" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![About {{site.data.keyword.appid_short_notm}}](https://www.youtube.com/embed/XlrCjHdK43Q){: video output="iframe" data-script="transcript-about-appid" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ## Video transcript
 {: #transcript-about-appid}
