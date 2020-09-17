@@ -212,7 +212,7 @@ The following table details actions that are mapped to service access roles. Ser
   </tr>
 </table>
 
-For more information about assigning user roles in the UI, see [Managing access to resources](/docs/account?topic=account-assign-access-resources#iammanidaccser).
+For more information about assigning user roles in the UI, see [Managing access to resources](/docs/account?topic=account-assign-access-resources).
 
 
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-09-16"
+lastupdated: "2020-09-17"
 
 keywords: user information, add users, delete users, profile, access, attributes, admin, app security, authentication, authorization
 
@@ -298,7 +298,7 @@ To completely delete a profile and remove someone as a user of your application,
 
 Occasionally, you might need to add an instance of {{site.data.keyword.appid_short_notm}}. To help with migrating to the new instance, you can use the export and import APIs.
 
-You must be assigned the `Manager` [IAM role](/docs/account?topic=account-access-getstarted#getstarted) for both instances of {{site.data.keyword.appid_short_notm}}.
+You must be assigned the `Manager` [IAM role](/docs/account?topic=account-access-getstarted) for both instances of {{site.data.keyword.appid_short_notm}}.
 {: note}
 
 
