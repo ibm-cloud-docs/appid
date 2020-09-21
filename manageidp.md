@@ -113,7 +113,7 @@ An identity provider creates and manages information about an entity such as a u
 ## Adding redirect URIs
 {: #add-redirect-uri}
 
-Your application redirects users to {{site.data.keyword.appid_short_notm}} for authentication. After authentication completes, {{site.data.keyword.appid_short_notm}} redirects users back to your application. In order for App ID to be able to redirect users back to your app, you need to register the redirect URI. During the sign-in flow, {{site.data.keyword.appid_short_notm}} validates the URIs before it allows clients to participate in the authorization workflow, which helps to prevent phishing attacks and grant code leakage. By registering your URI, you're telling {{site.data.keyword.appid_short_notm}} that the URI is trusted and it's OK to redirect your users.
+Your application redirects users to {{site.data.keyword.appid_short_notm}} for authentication. After authentication completes, {{site.data.keyword.appid_short_notm}} redirects users back to your application. In order for {{site.data.keyword.appid_short_notm}} to be able to redirect users back to your app, you need to register the redirect URI. During the sign-in flow, {{site.data.keyword.appid_short_notm}} validates the URIs before it allows clients to participate in the authorization workflow, which helps to prevent phishing attacks and grant code leakage. By registering your URI, you're telling {{site.data.keyword.appid_short_notm}} that the URI is trusted and it's OK to redirect your users.
 
 1. Click **Authentication Settings** to see your URI and token configuration options.
 
@@ -154,17 +154,12 @@ Your application redirects users to {{site.data.keyword.appid_short_notm}} for a
 4. Repeat steps one through three until all possible URIs are added to your list.
 
 
-Not sure where your redirect URI comes from? Watch the following short video to see where to get it and how to add it to your list.
-
-![{{site.data.keyword.appid_short_notm}}: How to fix invalid redirect URI](https://www.youtube.com/embed/6hxqbvpc054){: video output="iframe" data-script="none" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
-
-
 ## Configuring token lifetime
 {: #idp-token-lifetime}
 {: help}
 {: support}
 
-App ID uses tokens to identify users and secure your resources. You can adjust your configuration to fit your applications needs by setting the lifespan of the tokens. Token lifetime begins again each time a user signs in. For example, you set your refresh token lifetime to 10 days. An access token and a refresh token are created when the user signs in for the first time. If the user returns to your app 3 days later, they wouldn't need to sign in again. But, if the user waited 12 days after their initial sign-in, and then returned to your app, they would need to sign in again. For more information about tokens, check out [Understanding tokens](/docs/appid?topic=appid-tokens#tokens).
+{{site.data.keyword.appid_short_notm}} uses tokens to identify users and secure your resources. You can adjust your configuration to fit your applications needs by setting the lifespan of the tokens. Token lifetime begins again each time a user signs in. For example, you set your refresh token lifetime to 10 days. An access token and a refresh token are created when the user signs in for the first time. If the user returns to your app 3 days later, they wouldn't need to sign in again. But, if the user waited 12 days after their initial sign-in, and then returned to your app, they would need to sign in again. For more information about tokens, check out [Understanding tokens](/docs/appid?topic=appid-tokens#tokens).
 
 When you set token expiration, the values apply to all of the providers that you make available. If you want to customize your tokens further, try calling the API to [map custom claims](/docs/appid?topic=appid-customizing-tokens) so that the user information is available at run time. Note that when you work with the API the customization times are configured differently.
 {: tip}
