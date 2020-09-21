@@ -10,7 +10,7 @@ subcollection: appid
 
 content-type: tutorial
 account-plan: lite
-completion-time: 1h
+completion-time: 20m
 
 ---
 
@@ -40,13 +40,13 @@ completion-time: 1h
 {:swift: .ph data-hd-programlang='swift'}
 {:curl: .ph data-hd-programlang='curl'}
 {:video: .video}
-
 {:step: data-tutorial-type='step'}
+
 
 # Tutorial: Customizing your user experience
 {: #tutorial-attributes}
 {: toc-content-type="tutorial"}
-{: toc-completion-time="1h"}
+{: toc-completion-time="20m"}
 
 
 In a world with everything at our finger tips, people expect their experiences to be tailored to them. Whether we're having an in-person conversation or shopping online, we want to see only the things that apply to us. By using this step-by-step guide, you can learn how to harness the power of user attributes and really capture your users attention with {{site.data.keyword.appid_short_notm}}.

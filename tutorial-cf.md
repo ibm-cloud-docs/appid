@@ -11,7 +11,7 @@ subcollection: appid
 content-type: tutorial
 services: cloud-foundry-public
 account-plan: lite
-completion-time: 1h
+completion-time: 10m
 
 ---
 
@@ -41,7 +41,6 @@ completion-time: 1h
 {:swift: .ph data-hd-programlang='swift'}
 {:curl: .ph data-hd-programlang='curl'}
 {:video: .video}
-
 {:step: data-tutorial-type='step'}
 
 
@@ -49,7 +48,7 @@ completion-time: 1h
 {: #cloud-foundry}
 {: toc-content-type="tutorial"}
 {: toc-services="cloud-foundry-public"}
-{: toc-completion-time="1h"}
+{: toc-completion-time="10m"}
 
 With {{site.data.keyword.cloud_notm}}, you can protect your apps with two different types of access management, Identity and Access Management (IAM) and Cloud Foundry. By default, all new instances of {{site.data.keyword.appid_short_notm}} use IAM resource groups to manage access. If you are using Cloud Foundry to manage your application, you can bridge the management models by creating a service alias and binding the service to the app.
 {: shortdesc}

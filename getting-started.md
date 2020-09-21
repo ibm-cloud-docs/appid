@@ -40,6 +40,7 @@ completion-time: 10m
 {:swift: .ph data-hd-programlang='swift'}
 {:curl: .ph data-hd-programlang='curl'}
 {:video: .video}
+{:step: data-tutorial-type='step'}
 
 {:step: data-tutorial-type='step'}
 

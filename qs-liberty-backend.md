@@ -10,7 +10,7 @@ subcollection: appid
 
 content-type: tutorial
 account-plan: lite
-completion-time: 1h
+completion-time: 30m
 
 ---
 
@@ -40,14 +40,13 @@ completion-time: 1h
 {:swift: .ph data-hd-programlang='swift'}
 {:curl: .ph data-hd-programlang='curl'}
 {:video: .video}
-
 {:step: data-tutorial-type='step'}
 
 
 # Backend: Liberty for Java
 {: #backend-liberty}
 {: toc-content-type="tutorial"}
-{: toc-completion-time="1h"}
+{: toc-completion-time="30m"}
 
 With {{site.data.keyword.appid_short_notm}}, you can easily protect your API endpoints and ensure the security of your Liberty for Java backend applications. With this guide, you can quickly get a simple authentication flow up and running in less than 20 minutes.
 {: shortdesc}
