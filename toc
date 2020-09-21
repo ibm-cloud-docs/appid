@@ -17,10 +17,10 @@ App ID
     {: .navgroup-end}
 
     {: .navgroup id="tutorial"}
-        tutorial-cf.md
-        tutorial-attributes.md
-        qs-node-web.md
-        qs-liberty-backend.md
+    tutorial-cf.md
+    tutorial-attributes.md
+    qs-node-web.md
+    qs-liberty-backend.md
     {: .navgroup-end}
     
     {: .navgroup id="howto"}
