@@ -43,7 +43,6 @@ completion-time: 10m
 {:step: data-tutorial-type='step'}
 {:tutorial: data-hd-content-type='tutorial'}
 
-{:step: data-tutorial-type='step'}
 
 # Getting started with {{site.data.keyword.appid_short_notm}}
 {: #getting-started}
