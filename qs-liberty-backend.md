@@ -41,9 +41,10 @@ completion-time: 30m
 {:curl: .ph data-hd-programlang='curl'}
 {:video: .video}
 {:step: data-tutorial-type='step'}
+{:tutorial: data-hd-content-type='tutorial'}
 
 
-# Backend: Liberty for Java
+# Quick start: Liberty for Java backend apps
 {: #backend-liberty}
 {: toc-content-type="tutorial"}
 {: toc-completion-time="30m"}

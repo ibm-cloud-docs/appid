@@ -41,6 +41,7 @@ completion-time: 10m
 {:curl: .ph data-hd-programlang='curl'}
 {:video: .video}
 {:step: data-tutorial-type='step'}
+{:tutorial: data-hd-content-type='tutorial'}
 
 {:step: data-tutorial-type='step'}
 

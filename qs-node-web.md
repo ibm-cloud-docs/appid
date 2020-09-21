@@ -41,9 +41,10 @@ completion-time: 20m
 {:curl: .ph data-hd-programlang='curl'}
 {:video: .video}
 {:step: data-tutorial-type='step'}
+{:tutorial: data-hd-content-type='tutorial'}
 
 
-# Web: Node.js
+# Quick start: Node.js web apps
 {: #web-node}
 {: toc-content-type="tutorial"}
 {: toc-completion-time="20m"}

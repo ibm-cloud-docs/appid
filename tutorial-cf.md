@@ -42,9 +42,10 @@ completion-time: 10m
 {:curl: .ph data-hd-programlang='curl'}
 {:video: .video}
 {:step: data-tutorial-type='step'}
+{:tutorial: data-hd-content-type='tutorial'}
 
 
-# Tutorial: Configuring Cloud Foundry to use {{site.data.keyword.appid_short_notm}}
+# Configuring Cloud Foundry to use {{site.data.keyword.appid_short_notm}}
 {: #cloud-foundry}
 {: toc-content-type="tutorial"}
 {: toc-services="cloud-foundry-public"}

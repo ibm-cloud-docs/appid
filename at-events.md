@@ -37,6 +37,7 @@ subcollection: appid
 {:curl: .ph data-hd-programlang='curl'}
 {:video: .video}
 {:step: data-tutorial-type='step'}
+{:tutorial: data-hd-content-type='tutorial'}
 
 
 # Auditing events for {{site.data.keyword.appid_short_notm}}
