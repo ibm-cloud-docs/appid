@@ -27,6 +27,8 @@ completion-time: 10m
 {:tip: .tip}
 {:preview: .preview}
 {:deprecated: .deprecated}
+{:beta: .beta}
+{:term: .term}
 {:shortdesc: .shortdesc}
 {:script: data-hd-video='script'}
 {:support: data-reuse='support'}
@@ -43,6 +45,7 @@ completion-time: 10m
 {:video: .video}
 {:step: data-tutorial-type='step'}
 {:tutorial: data-hd-content-type='tutorial'}
+
 
 
 # Configuring Cloud Foundry to use {{site.data.keyword.appid_short_notm}}

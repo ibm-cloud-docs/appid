@@ -22,6 +22,8 @@ subcollection: appid
 {:tip: .tip}
 {:preview: .preview}
 {:deprecated: .deprecated}
+{:beta: .beta}
+{:term: .term}
 {:shortdesc: .shortdesc}
 {:script: data-hd-video='script'}
 {:support: data-reuse='support'}
@@ -38,6 +40,7 @@ subcollection: appid
 {:video: .video}
 {:step: data-tutorial-type='step'}
 {:tutorial: data-hd-content-type='tutorial'}
+
 
 
 # Managing access for {{site.data.keyword.appid_short_notm}}
