@@ -2,11 +2,15 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-09-16"
+lastupdated: "2020-09-21"
 
 keywords: getting started tutorial, getting started, App ID, sample app, authentication, sign in flow, authorization, app security, identity
 
 subcollection: appid
+
+content-type: tutorial
+account-plan: lite
+completion-time: 10m
 
 ---
 
@@ -37,9 +41,12 @@ subcollection: appid
 {:curl: .ph data-hd-programlang='curl'}
 {:video: .video}
 
+{:step: data-tutorial-type='step'}
 
 # Getting started with {{site.data.keyword.appid_short_notm}}
 {: #getting-started}
+{: toc-content-type="tutorial"}
+{: toc-completion-time="10m"}
 
 Application security can be incredibly complicated. For most developers, it's one of the hardest parts of creating an app. How can you be sure that you are protecting your users information? By integrating {{site.data.keyword.appid_full}} into your apps, you can secure resources and add authentication; even when you don't have a lot of security experience.
 {: shortdesc}
@@ -55,8 +62,9 @@ Getting started? Try walking through our [video tutorials](https://www.youtube.c
 {: note}
 
 
-## Step 1: Create a service instance
+## Create a service instance
 {: #create}
+{: step}
 
 Create and bind an instance of {{site.data.keyword.appid_short_notm}} to your app to get started.
 {: shortdesc}
@@ -68,8 +76,9 @@ Create and bind an instance of {{site.data.keyword.appid_short_notm}} to your ap
 
 That's it! You're ready to start configuring your application settings.
 
-## Step 2: Configure a sample app
+## Configure a sample app
 {: #sample-app}
+{: step}
 
 You can use one of the preconfigured sample apps to get familiar with working with the service.
 {: shortdesc}

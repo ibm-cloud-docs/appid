@@ -14,18 +14,15 @@ App ID
         tokens-understand.md
 
     relatedlinks.md
-    
-        {: .topicgroup}
-    Quick start guides
-        qs-node-web.md
-        qs-liberty-backend.md
-
-    {: .topicgroup}
-    Tutorials
-        tutorial-cf.md
-        tutorial-attributes.md
     {: .navgroup-end}
 
+    {: .navgroup id="tutorial"}
+        tutorial-cf.md
+        tutorial-attributes.md
+        qs-node-web.md
+        qs-liberty-backend.md
+    {: .navgroup-end}
+    
     {: .navgroup id="howto"}
     {: .topicgroup}
     Securing your apps
