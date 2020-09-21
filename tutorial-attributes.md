@@ -2,11 +2,15 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-09-16"
+lastupdated: "2020-09-21"
 
 keywords: attributes, cloud directory, user registry, user management, personalization, customize app, user information, profiles, app security, user profile, app access, identity
 
 subcollection: appid
+
+content-type: tutorial
+account-plan: lite
+completion-time: 20m
 
 ---
 
@@ -36,11 +40,14 @@ subcollection: appid
 {:swift: .ph data-hd-programlang='swift'}
 {:curl: .ph data-hd-programlang='curl'}
 {:video: .video}
+{:step: data-tutorial-type='step'}
+{:tutorial: data-hd-content-type='tutorial'}
 
 
-
-# Tutorial: Customizing your user experience
+# Customizing your user experience
 {: #tutorial-attributes}
+{: toc-content-type="tutorial"}
+{: toc-completion-time="20m"}
 
 
 In a world with everything at our finger tips, people expect their experiences to be tailored to them. Whether we're having an in-person conversation or shopping online, we want to see only the things that apply to us. By using this step-by-step guide, you can learn how to harness the power of user attributes and really capture your users attention with {{site.data.keyword.appid_short_notm}}.
@@ -79,8 +86,9 @@ New to the APIs? Try them out with this [Postman collection](https://github.com/
 {: tip}
 
 
-## Step 1: Configuring your {{site.data.keyword.appid_short_notm}} instance
+## Configuring your {{site.data.keyword.appid_short_notm}} instance
 {: #attributes-configure-app}
+{: step}
 
 Before you can start adding attributes for your users, you need to configure your instance of {{site.data.keyword.appid_short_notm}}.
 {: shortdesc}
@@ -94,8 +102,9 @@ Before you can start adding attributes for your users, you need to configure you
 Excellent! Your dashboard is configured and you're ready to start setting attributes.
 
 
-## Step 2: Creating user attributes
+## Creating user attributes
 {: #attributes-set}
+{: step}
 
 When your users interact with your questionnaire, you can map their answers to specific attributes and then add those attributes to their file. 
 
@@ -145,8 +154,9 @@ Your application is responsible for mapping the answers to the specific attribut
 Great work!
 
 
-## Step 3: Injecting attributes into tokens
+## Injecting attributes into tokens
 {: #attributes-tokens}
+{: step}
 
 Becoming more popular, you decide to implement a "deal-of-the-day". You want the first thing that the user sees when they sign in to your application to be a coupon for something that matches their dietary preferences. You can achieve this by injecting the attributes that are stored in their profiles into their tokens. By having the information available at runtime, you can have your application make a custom decision on the spot about which deal to show. 
 {: shortdesc}
@@ -232,8 +242,9 @@ Becoming more popular, you decide to implement a "deal-of-the-day". You want the
   {: screen}
 
 
-## Step 5: Viewing the access token
+## Viewing the access token
 {: #attributes-view-token}
+{: step}
 
 Optionally, you can verify that step 4 was successful by viewing an access token.
 {: shortdesc}

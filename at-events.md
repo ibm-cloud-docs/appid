@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-09-16"
+lastupdated: "2020-09-21"
 
 keywords: user events, track activity, manage events, analyze, administrative, runtime, sign in, settings, app security
 
@@ -36,6 +36,8 @@ subcollection: appid
 {:swift: .ph data-hd-programlang='swift'}
 {:curl: .ph data-hd-programlang='curl'}
 {:video: .video}
+{:step: data-tutorial-type='step'}
+{:tutorial: data-hd-content-type='tutorial'}
 
 
 # Auditing events for {{site.data.keyword.appid_short_notm}}

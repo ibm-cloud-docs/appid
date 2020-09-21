@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-09-16"
+lastupdated: "2020-09-21"
 
 keywords: management api, service management, service instance, devops automation, customize, permissions, iam, account owners, identity, app security, access tokens, video tutorial
 
@@ -36,6 +36,8 @@ subcollection: appid
 {:swift: .ph data-hd-programlang='swift'}
 {:curl: .ph data-hd-programlang='curl'}
 {:video: .video}
+{:step: data-tutorial-type='step'}
+{:tutorial: data-hd-content-type='tutorial'}
 
 
 # Managing {{site.data.keyword.appid_short_notm}} with the API

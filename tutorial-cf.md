@@ -2,11 +2,16 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-09-16"
+lastupdated: "2020-09-21"
 
 keywords: cloud foundry, iam, java nodejs, identity, access management, user access, service access, permissions, bind service
 
 subcollection: appid
+
+content-type: tutorial
+services: cloud-foundry-public
+account-plan: lite
+completion-time: 10m
 
 ---
 
@@ -36,11 +41,15 @@ subcollection: appid
 {:swift: .ph data-hd-programlang='swift'}
 {:curl: .ph data-hd-programlang='curl'}
 {:video: .video}
+{:step: data-tutorial-type='step'}
+{:tutorial: data-hd-content-type='tutorial'}
 
 
-
-# Tutorial: Configuring Cloud Foundry to use {{site.data.keyword.appid_short_notm}}
+# Configuring Cloud Foundry to use {{site.data.keyword.appid_short_notm}}
 {: #cloud-foundry}
+{: toc-content-type="tutorial"}
+{: toc-services="cloud-foundry-public"}
+{: toc-completion-time="10m"}
 
 With {{site.data.keyword.cloud_notm}}, you can protect your apps with two different types of access management, Identity and Access Management (IAM) and Cloud Foundry. By default, all new instances of {{site.data.keyword.appid_short_notm}} use IAM resource groups to manage access. If you are using Cloud Foundry to manage your application, you can bridge the management models by creating a service alias and binding the service to the app.
 {: shortdesc}
@@ -71,20 +80,20 @@ Before you get started, be sure that you have the following prerequisites:
 * An instance of {{site.data.keyword.appid_short_notm}}
 * The [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-getting-started) installed locally
 
-## Deploying a Node.js app
+## Deploy the app
+{: #cf-deploy-app}
+{: step}
+
+The following step includes instructions for deploying a Node.js app or a Java app.
+
+### Deploying a Node.js app
 {: #cf-node}
 
-
 1. Navigate to your instance of {{site.data.keyword.appid_short_notm}}.
-
 2. Click **Download Sample** on the **Overview** tab of the service dashboard.
-
 3. Click **Node.js**. Download and extract the sample app.
-
 4. Verify that you have all of the Node.js prerequisites.
-
 5. Open terminal and change into the sample folder.
-
 6. Log in to the {{site.data.keyword.cloud_notm}} CLI. The CLI prompts you to select an account and region if you do not specify one.
 
   ```
@@ -135,7 +144,6 @@ Before you get started, be sure that you have the following prerequisites:
   {: codeblock}
 
 9. Add the alias that you created to your services in the `manifest.yml`.
-
 10. Bind the services that are listed in the `manifest.yml` file by deploying the sample app.
 
   ```
@@ -143,19 +151,14 @@ Before you get started, be sure that you have the following prerequisites:
   ```
   {: codeblock}
 
-## Deploying a Java app
+### Deploying a Java app
 {: #java}
 
 1. Navigate to your instance of {{site.data.keyword.appid_short_notm}}.
-
 2. Click **Download Sample** on the **Overview** tab of the service dashboard.
-
 3. Click **Java**. Download and extract the sample app.
-
 4. Verify that you have all of the Java prerequisites.
-
 5. Open terminal and change into the sample folder.
-
 6. Generate your `war` file and upload it.
 
   ```
@@ -164,7 +167,6 @@ Before you get started, be sure that you have the following prerequisites:
   {: codeblock}
 
 7. Change into the Liberty folder.
-
 8. Log in to the {{site.data.keyword.cloud_notm}} CLI. The CLI prompts you to select an account and region if you do not specify one.
 
   ```

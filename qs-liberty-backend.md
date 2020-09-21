@@ -2,11 +2,15 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-09-16"
+lastupdated: "2020-09-21"
 
 keywords: backend apps, java, liberty for java, liberty, identity provider, access management, protected endpoints, access tokens, security, back end
 
 subcollection: appid
+
+content-type: tutorial
+account-plan: lite
+completion-time: 30m
 
 ---
 
@@ -36,11 +40,14 @@ subcollection: appid
 {:swift: .ph data-hd-programlang='swift'}
 {:curl: .ph data-hd-programlang='curl'}
 {:video: .video}
+{:step: data-tutorial-type='step'}
+{:tutorial: data-hd-content-type='tutorial'}
 
 
-
-# Backend: Liberty for Java
+# Quick start: Liberty for Java backend apps
 {: #backend-liberty}
+{: toc-content-type="tutorial"}
+{: toc-completion-time="30m"}
 
 With {{site.data.keyword.appid_short_notm}}, you can easily protect your API endpoints and ensure the security of your Liberty for Java backend applications. With this guide, you can quickly get a simple authentication flow up and running in less than 20 minutes.
 {: shortdesc}
@@ -75,8 +82,9 @@ Before you get started with {{site.data.keyword.appid_short_notm}} in your Liber
 * [Java 8+](https://www.java.com/en/download/){: external}
 * The [{{site.data.keyword.appid_short_notm}} Postman collection](https://github.com/ibm-cloud-security/appid-postman){: external} for testing
 
-## Step 1: Obtain your credentials
+## Obtain your credentials
 {: #liberty-obtain-credentials}
+{: step}
 
 You can obtain your credentials in one of two ways.
 
@@ -108,8 +116,9 @@ You can obtain your credentials in one of two ways.
     {: screen}
 
 
-## Step 2: Configure your `server.xml` file
+## Configure your `server.xml` file
 {: #liberty-configure-server}
+{: step}
  
 1. Open your `server.xml` file.
 2. Add the following features to the `featureManager` section. Some features might come built in with Liberty. If you receive an error when you run your server, you can install them by running `.installUtility install <name_of_server>` from the bin directory of your Liberty installation.
@@ -203,8 +212,9 @@ You can obtain your credentials in one of two ways.
     {: codeblock}
 
 
-## Step 3: Configure your `web.xml` file
+## Configure your `web.xml` file
 {: #liberty-configure-web}
+{: step}
 
 In your `web.xml` file, define the areas of your application that you want to secure.
 
@@ -237,8 +247,9 @@ In your `web.xml` file, define the areas of your application that you want to se
     {: codeblock}
 
 
-## Step 4: Test your configuration
+## Test your configuration
 {: #liberty-test}
+{: step}
 
 Now that you've finished the initial installation, build the app and test your configuration to ensure that everything is working as expected.
 

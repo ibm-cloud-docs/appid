@@ -2,11 +2,15 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-09-16"
+lastupdated: "2020-09-21"
 
 keywords: web apps, nodejs, node, javascript, protected resource, authorization flow, front end, frontend, app security, authentication
 
 subcollection: appid
+
+content-type: tutorial
+account-plan: lite
+completion-time: 20m
 
 ---
 
@@ -36,11 +40,14 @@ subcollection: appid
 {:swift: .ph data-hd-programlang='swift'}
 {:curl: .ph data-hd-programlang='curl'}
 {:video: .video}
+{:step: data-tutorial-type='step'}
+{:tutorial: data-hd-content-type='tutorial'}
 
 
-
-# Web: Node.js
+# Quick start: Node.js web apps
 {: #web-node}
+{: toc-content-type="tutorial"}
+{: toc-completion-time="20m"}
 
 With {{site.data.keyword.appid_short_notm}}, you can easily protect your Node.js front-end web applications. With this guide, you can quickly get a simple authentication flow up and running in less than 20 minutes.
 {: shortdesc}
@@ -85,8 +92,9 @@ This SDK uses the `log4js` package for logging. By default, the logging level is
 {: note}
 
 
-## Step 1: Register your redirect URI
+## Register your redirect URI
 {: #node-web-redirect-uri}
+{: step}
 
 A redirect URI is the callback endpoint of your app. During the sign in flow, {{site.data.keyword.appid_short_notm}} validates the URIs before allowing clients to participate in the authorization workflow which helps to prevent phishing attacks and grant code leakage. By registering your URI, you're telling {{site.data.keyword.appid_short_notm}} that the URI is trusted and it's OK to redirect your users.
 {: shortdesc}
@@ -101,8 +109,9 @@ A redirect URI is the callback endpoint of your app. During the sign in flow, {{
 
 
 
-## Step 2: Obtain your credentials
+## Obtain your credentials
 {: #node-web-credentials}
+{: step}
 
 You can obtain your credentials in one of two ways.
 {: shortdesc}
@@ -136,8 +145,9 @@ You can obtain your credentials in one of two ways.
 
 
 
-## Step 3: Initialize the SDK
+## Initialize the SDK
 {: #web-node-install}
+{: step}
 
 The easiest way to work with {{site.data.keyword.appid_short_notm}} is to take advantage of the Node.JS SDK.
 {: shortdesc}
@@ -198,8 +208,9 @@ The easiest way to work with {{site.data.keyword.appid_short_notm}} is to take a
     {: note}
 
 
-## Step 4: Protect your application
+## Protect your application
 {: #node-web-protect}
+{: step}
 
 Now that you have {{site.data.keyword.appid_short_notm}} installed, you're ready to protect your application. You can choose to protect your entire application or only specific resources by defining a web app strategy.
 {: shortdesc}
@@ -232,8 +243,9 @@ Now that you have {{site.data.keyword.appid_short_notm}} installed, you're ready
     ```
     {: shortdesc}
 
-## Step 5: Personalize your app
+## Personalize your app
 {: #node-web-user-info}
+{: step}
 
 You can pull information that is provided by your identity providers to personalize your app experience.
 {: shortdesc}
@@ -261,8 +273,9 @@ You can pull information that is provided by your identity providers to personal
     {: codeblock}
 
 
-## Step 6: Test your configuration
+## Test your configuration
 {: #node-web-test}
+{: step}
 
 To test your authorization configuration, navigate to the URL that your server is listening on as defined in your application. Try signing in, try signing out. Ensure that the configuration is working as you expected. 
 
