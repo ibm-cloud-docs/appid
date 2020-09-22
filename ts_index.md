@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-09-21"
+lastupdated: "2020-09-22"
 
 keywords: help, support, error, multiple users, attribute, ticket, identity provider, redirect uri, custom url, virtual user, idp, identity settings, user profile
 
@@ -66,7 +66,7 @@ A user signs in to your application through an identity provider's sign in page,
 {: tsCauses}
 Sign-in might fail for the following reasons:
 
-* Your redirect URL was not properly added to [the whitelist](/docs/appid?topic=appid-faq#faq-redirect).
+* Your redirect URL was not properly added to [the allow list](/docs/appid?topic=appid-faq#faq-redirect).
 * The user is not authorized.
 * The user tried to sign in with the wrong credentials.
 

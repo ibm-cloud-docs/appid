@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-09-21"
+lastupdated: "2020-09-22"
 
 keywords: mfa, multifactor, authentication, cloud directory, login widget, second factor, two factor, identity, mulitple factors, advanced security event, cloud directory user, sender id, phone number, email, nexmo, mfa descision, extension
 
@@ -327,8 +327,8 @@ To configure a pre-MFA extension:
       <td>Configure your extension to validate the <code>last_successful_first_factor</code> is within the same day.</td>
     </tr>
     <tr>
-      <td>You have a whitelist of approved users that don't need to provide the second factor every time.</td>
-      <td>Configure your extension to validate that the <code>username</code> or <code>user_id</code> is in the whitelist.</td>
+      <td>You have a allow list of approved users that don't need to provide the second factor every time.</td>
+      <td>Configure your extension to validate that the <code>username</code> or <code>user_id</code> is in the allow list.</td>
     </tr>
     <tr>
       <td>You don't want users who access your app on a desktop to provide the second factor every time.</td>

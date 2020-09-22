@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-09-21"
+lastupdated: "2020-09-22"
 
-keywords: pricing, advanced security, authentication events, authorized users, activity tracking, runtime activity, password policies, keycloak, whitelist redirect url, redirect uri 
+keywords: pricing, advanced security, authentication events, authorized users, activity tracking, runtime activity, password policies, keycloak, allow list redirect url, redirect uri 
 
 subcollection: appid
 
@@ -129,12 +129,12 @@ An authorized user is a unique user that signs in with your service whether dire
 
 
 
-## Why do I need to whitelist my redirect URI?
+## Why do I need to allow list my redirect URI?
 {: #faq-redirect}
 {: faq}
 {: support}
 
-A redirect URI is the callback endpoint of your application. When you whitelist your URI, you're giving {{site.data.keyword.appid_short_notm}} the OK to send your users to that location. At runtime, {{site.data.keyword.appid_short_notm}} validates the URI against your whitelist before redirecting the user. This can help prevent phishing attacks and lessens the possibility that an attacker is able to gain access to your user's tokens. For more information about redirect URIs, see [Adding redirect URIs](/docs/appid?topic=appid-managing-idp#add-redirect-uri).
+A redirect URI is the callback endpoint of your application. When you allow list your URI, you're giving {{site.data.keyword.appid_short_notm}} the OK to send your users to that location. At runtime, {{site.data.keyword.appid_short_notm}} validates the URI against your allow list before redirecting the user. This can help prevent phishing attacks and lessens the possibility that an attacker is able to gain access to your user's tokens. For more information about redirect URIs, see [Adding redirect URIs](/docs/appid?topic=appid-managing-idp#add-redirect-uri).
 
 Do not include any query parameters in your URL. They are ignored in the validation process. Example URL: `http://host:[port]/path`
 {: tip}

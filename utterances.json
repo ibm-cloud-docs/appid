@@ -24,14 +24,14 @@
         "charge for mfa in appid"
     ],
     "faq-redirect": [
-        "whitelist url app id",
+        "allow list url app id",
         "add a redirect URI in app id",
         "app id redirect uri",
-        "how to whitelist uri in appid",
+        "how to allow list uri in appid",
         "allowlist for uri in appid",
         "URI in appid for allowlist",
         "use app id to redirect url",
-        "whitelist runtime app id",
+        "allow list runtime app id",
         "stop phising in appid",
         "prevent phishing appid"
     ],
@@ -80,7 +80,7 @@
         "redirect not working appid",
         "redirecting not working in Appid",
         "redirect URL not working for app id",
-        "fix whitelist appid",
+        "fix allow list appid",
         "app id sign in fail"
     ],
     "ts-custom-uri": [
@@ -88,7 +88,7 @@
         "custom redirect url appid",
         "custom redirect failing for appid",
         "custom URL failing in App ID",
-        "whitelist custom scheme app id",
+        "allow list custom scheme app id",
         "app id console reject custom scheme",
         "reject custom security redirect appid"
     ],
