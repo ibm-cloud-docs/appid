@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-09-21"
+lastupdated: "2020-10-06"
 
 keywords: user access, account settings, iam, user roles, platform roles, service roles, reader, writer, operator, editor, viewer, administrator, manager, permissions
 
@@ -57,7 +57,7 @@ For more information about IAM, see [IAM Access](/docs/account?topic=account-use
 ## User roles
 {: #iam-roles}
 
-The scope of an access policy is based on a users assigned role.
+The scope of an access policy is based on a user's assigned role.
 {: shortdesc}
 
 Policies enable access to be granted at different levels. Some of the options include:
@@ -93,7 +93,7 @@ Platform management roles enable users to perform tasks on service resources at 
   <tr>
     <td><i>Operator</i></td>
     <td>Create, delete, edit, suspend, resume, view, or bind {{site.data.keyword.appid_short_notm}} instances.</td>
-    <td>You can create or delete an {{site.data.keyword.appid_short_notm}} instance from the catalog.</td>
+    <td>You can create or delete an {{site.data.keyword.appid_short_notm}} instance.</td>
   </tr>
   <tr>
     <td><i>Administrator</i></td>

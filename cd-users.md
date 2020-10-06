@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-09-21"
+lastupdated: "2020-10-06"
 
 keywords: manage users, registry, cloud directory, add user, delete user, tokens, attributes, migrating users, identity provider, app security
 
@@ -173,7 +173,7 @@ You can use the {{site.data.keyword.appid_short_notm}} API to view details about
             "lastModified": "2019-05-20T16:33:20.707Z",
             "resourceType": "User"
           },
-          "scemas": [
+          "schemas": [
             "urn:ietf:params:scim:schemas:core:2.0:User"
           ],
           "name": {
