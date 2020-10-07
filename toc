@@ -75,11 +75,12 @@ App ID
         api-reference.md
         instances.md
 
+    ha-dr.md
+
     {: .topicgroup}
     Enhancing security for App ID
         iam.md
         at-events.md
-        ha-dr.md
         data-security.md
     {: .navgroup-end}
 
