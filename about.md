@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-09-21"
+lastupdated: "2020-10-07"
 
 keywords: authentication, authorization, identity, app security, cloud directory, user data, identity provider, oauth, protocols, oauth, oidc, disaster recovery, dr, compliance, high availability, ha, secure, HA, DR
 
@@ -142,8 +142,8 @@ You can use {{site.data.keyword.appid_short_notm}} with other {{site.data.keywor
 </dl>
 
 
-## Compliance and standards
-{: #about-compliance}
+## Standards and certifications
+{: #about-standards}
 
 {{site.data.keyword.appid_short_notm}} has successfully completed several certifications, audits, and standards. 
 {: shortdesc}
@@ -153,11 +153,4 @@ You can use {{site.data.keyword.appid_short_notm}} with other {{site.data.keywor
 See section 5.4 of the {{site.data.keyword.appid_short_notm}} software product compatibility report to review a complete list of [certifications](https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=BF31C8008D7C11E59F9AD7336D7D0FFB){: external}. In addition to the certifications, {{site.data.keyword.appid_short_notm}} is also compliant in the following specifications: OAuth 2.0, OpenID Connect, JSON Web Token (JWT), JSON Web Signature (JWS), System for Cross-domain Identity Management (SCIM). 
 
 
-## Regional high-availability
-{: #ha-dr}
 
-{{site.data.keyword.appid_short_notm}} is a highly available, regional service that runs in multiple availability zones.
-
-In each region, a highly available database contains multiple copies of the data. The data is backed up on a daily basis.
-
-Because {{site.data.keyword.appid_short_notm}} is a regional service, it does not provide automatic cross-regional failover or cross-regional disaster recovery. To establish cross-region high availability and have a recovery plan, you need to create and maintain backup instances in multiple regions. To synchronize a service instance in one region with an instance in another region, you can use [the APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/){: external}.

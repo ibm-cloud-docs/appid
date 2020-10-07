@@ -79,6 +79,7 @@ App ID
     Enhancing security for App ID
         iam.md
         at-events.md
+        ha-dr.md
         data-security.md
     {: .navgroup-end}
 
