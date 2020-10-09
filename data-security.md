@@ -90,12 +90,12 @@ If you choose to work with a key that you manage, you must ensure that valid IAM
 ### Rotating your keys
 {: #rotate-key}
 
-When you [rotate your KEK](/docs/key-protect?topic=key-protect-key-rotation), App ID rerwraps the DEKs associated with the rotated key, ensuring your user data is always protected with your up to date encryption key.
+When you [rotate your KEK](/docs/key-protect?topic=key-protect-key-rotation), {{site.data.keyword.appid_short_notm}} rewraps the DEKs associated with the rotated key, ensuring that your user data is always protected with your up-to-date encryption key.
 
 ### Deleting your keys
 {: #delete-key}
 
-When you [delete your KEK](/docs/key-protect?topic=key-protect-delete-keys), user data becomes inaccessible within 4 hours of deletion. Although user data is not destroyed when a key is deleted, App ID is no longer able to decrypt the user data, making it inaccessible.
+When you [delete your KEK](/docs/key-protect?topic=key-protect-delete-keys), user data becomes inaccessible within 4 hours of deletion. Although user data is not destroyed when a key is deleted, {{site.data.keyword.appid_short_notm}} is no longer able to decrypt the user data, making it inaccessible.
 
 
 
