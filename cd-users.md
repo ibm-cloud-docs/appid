@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-10-06"
+lastupdated: "2020-10-09"
 
 keywords: manage users, registry, cloud directory, add user, delete user, tokens, attributes, migrating users, identity provider, app security
 
@@ -233,7 +233,8 @@ If you disable self-service sign-up or add a user on their behalf, the user does
 2. Obtain an {{site.data.keyword.cloud_notm}} IAM token.
 
   ```sh
-  curl --X GET "https://iam.cloud.ibm.com/oidc/token" -H "accept: application/x-www-form-urlencoded"
+  curl -X GET "https://iam.cloud.ibm.com/oidc/token" \
+  -H "accept: application/x-www-form-urlencoded"
   ```
   {: codeblock}
 
@@ -277,7 +278,7 @@ If you want to remove a user from your directory, you can delete the user from t
 2. Obtain an {{site.data.keyword.cloud_notm}} IAM token.
 
   ```sh
-  curl --X GET "https://iam.cloud.ibm.com/oidc/token" \
+  curl -X GET "https://iam.cloud.ibm.com/oidc/token" \
   -H "accept: application/x-www-form-urlencoded"
   ```
   {: codeblock}
