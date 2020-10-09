@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-10-07"
+lastupdated: "2020-10-09"
 
 keywords: data encryption in app id, data storage for app id, personal data in app id, data deletion for app id, data in app id, data security in app id
 
@@ -56,6 +56,46 @@ To ensure that you can securely manage your data when you use {{site.data.keywor
 
 {{site.data.keyword.appid_short_notm}} stores and encrypts user profile attributes. As a multi-tenant service, every tenant has a designated encryption key and user data in each tenant is encrypted with only that tenant's key. {{site.data.keyword.appid_short_notm}} ensures that private information is encrypted before it is stored.
 
+You can add a higher level of encryption control to your data at rest (when it is stored) by enabling integration with {{site.data.keyword.keymanagementservicelong_notm}}. The data that you store in {{site.data.keyword.cloud_notm}} is encrypted at rest by using _envelope encryption_. If you need to control the encryption keys, you can integrate {{site.data.keyword.keymanagementserviceshort}}. This process is commonly referred to as Bring Your Own Key (BYOK). With {{site.data.keyword.keymanagementserviceshort}} you can create, import, and manage encryption keys. You can assign access policies to the keys, assign users or service IDs to the keys, or give the key access only to a specific service.   
+
+## Managing your own keys
+{: #customer-keys}
+
+{{site.data.keyword.appid_short_notm}} uses envelope encryption to implement both provider-managed and customer-managed keys. Envelope encryption describes encrypting one encryption key with another encryption key. The key used to encrypt the actual data is known as a data encryption key (DEK). The DEK itself is never stored but is wrapped by a second key that is known as the key encryption key (KEK) to create a wrapped DEK. To decrypt data, the wrapped DEK is unwrapped to get the DEK. This process is possible only by accessing the KEK, which in this case is your root key that is stored in {{site.data.keyword.keymanagementserviceshort}}. {{site.data.keyword.keymanagementserviceshort}} keys are secured by FIPS 140-2 Level 3 certified cloud-based hardware security modules (HSMs).
+
+### Enabling customer-managed keys for {{site.data.keyword.appid_short_notm}}
+{: #enable-customer-keys}
+
+If you choose to work with a key that you manage, you must ensure that valid IAM authorization is assigned to the {{site.data.keyword.appid_short_notm}} service. 
+
+1. [Create an instance of {{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-provision#provision-gui)
+2. [Generate or import your own root key](/docs/key-protect?topic=key-protect-create-root-keys) to your instance of {{site.data.keyword.keymanagementserviceshort}}.  When you use {{site.data.keyword.keymanagementserviceshort}} to create a root key, the service generates cryptographic key material that is rooted in cloud-based HSMs. Be sure that the name of your key does not contain any personal information such as your name or location. 
+3. Grant service access to {{site.data.keyword.keymanagementserviceshort}}.  You must be the account owner or an administrator for the instance of {{site.data.keyword.keymanagementserviceshort}} that you're working with. You must also have at least Viewer access for the {{site.data.keyword.appid_short_notm}} service. 
+    1. Go to **Manage > Access IAM > Authorizations**.
+    2. Select the {{site.data.keyword.appid_short_notm}} service as the source service.
+    3. Select the instance of the {{site.data.keyword.keymanagementserviceshort}} as the target service.
+    4. Select the key that you created in the previous steps.
+    5. Assign the Reader role.
+    6. Click **Authorize** to confirm the delegated authorization.
+4. Create an instance of the {{site.data.keyword.appid_short_notm}} service.
+    1. Select your {{site.data.keyword.keymanagementserviceshort}} instance.
+    2. Select the root key that you previously authorized.
+    3. Click **Create**.
+
+
+{{site.data.keyword.appid_short_notm}} supports state changes to your key.
+{: note}
+
+
+### Rotating your keys
+{: #rotate-key}
+
+When you [rotate your KEK](/docs/key-protect?topic=key-protect-key-rotation), {{site.data.keyword.appid_short_notm}} rewraps the DEKs associated with the rotated key, ensuring that your user data is always protected with your up-to-date encryption key.
+
+### Deleting your keys
+{: #delete-key}
+
+When you [delete your KEK](/docs/key-protect?topic=key-protect-delete-keys), user data becomes inaccessible within 4 hours of deletion. Although user data is not destroyed when a key is deleted, {{site.data.keyword.appid_short_notm}} is no longer able to decrypt the user data, making it inaccessible.
 
 
 
