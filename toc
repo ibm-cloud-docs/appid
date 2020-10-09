@@ -71,12 +71,14 @@ App ID
         access-control.md
 
     {: .topicgroup}
-    Managing App ID
+    Managing the service
         api-reference.md
         instances.md
 
+    ha-dr.md
+
     {: .topicgroup}
-    Enhancing security for App ID
+    Enhancing security
         iam.md
         at-events.md
         data-security.md
