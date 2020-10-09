@@ -68,19 +68,19 @@ You can add a higher level of encryption control to your data at rest (when it i
 
 If you choose to work with a key that you manage, you must ensure that valid IAM authorization is assigned to the {{site.data.keyword.appid_short_notm}} service. 
 
-1. [Create an instance of {{site.data.keyword.keymanagementserviceshort}}](https://test.cloud.ibm.com/docs/key-protect?topic=key-protect-provision#provision-gui)
-2. [Generate or import your own root key](https://test.cloud.ibm.com/docs/key-protect?topic=key-protect-create-root-keys) to your instance of {{site.data.keyword.keymanagementserviceshort}}.  When you use {{site.data.keyword.keymanagementserviceshort}} to create a root key, the service generates cryptographic key material that is rooted in cloud-based HSMs. Be sure that the name of your key does not contain any personal information such as your name or location. 
+1. [Create an instance of {{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-provision#provision-gui)
+2. [Generate or import your own root key](/docs/key-protect?topic=key-protect-create-root-keys) to your instance of {{site.data.keyword.keymanagementserviceshort}}.  When you use {{site.data.keyword.keymanagementserviceshort}} to create a root key, the service generates cryptographic key material that is rooted in cloud-based HSMs. Be sure that the name of your key does not contain any personal information such as your name or location. 
 3. Grant service access to {{site.data.keyword.keymanagementserviceshort}}.  You must be the account owner or an administrator for the instance of {{site.data.keyword.keymanagementserviceshort}} that you're working with. You must also have at least Viewer access for the {{site.data.keyword.appid_short_notm}} service. 
-    1. Go to Manage > Access IAM > Authorizations.
+    1. Go to **Manage > Access IAM > Authorizations**.
     2. Select the {{site.data.keyword.appid_short_notm}} service as the source service.
     3. Select the instance of the {{site.data.keyword.keymanagementserviceshort}} as the target service.
     4. Select the key that you created in the previous steps.
     5. Assign the Reader role.
-    6. Click Authorize to confirm the delegated authorization.
+    6. Click **Authorize** to confirm the delegated authorization.
 4. Create an instance of the {{site.data.keyword.appid_short_notm}} service.
     1. Select your {{site.data.keyword.keymanagementserviceshort}} instance.
-    2. Select the Root key that you previously authorized.
-    3. Click Create.
+    2. Select the root key that you previously authorized.
+    3. Click **Create**.
 
 
 {{site.data.keyword.appid_short_notm}} supports state changes to your key.
@@ -90,12 +90,12 @@ If you choose to work with a key that you manage, you must ensure that valid IAM
 ### Rotating your keys
 {: #rotate-key}
 
-When you [rotate your KEK](https://cloud.ibm.com/docs/key-protect?topic=key-protect-key-rotation), App ID rerwraps the DEKs associated with the rotated key, ensuring your user data is always protected with your up to date encryption key.
+When you [rotate your KEK](/docs/key-protect?topic=key-protect-key-rotation), App ID rerwraps the DEKs associated with the rotated key, ensuring your user data is always protected with your up to date encryption key.
 
 ### Deleting your keys
 {: #delete-key}
 
-When you [delete your KEK](https://cloud.ibm.com/docs/key-protect?topic=key-protect-delete-keys), user data becomes inaccessible within 4 hours of deletion. Although user data is not destroyed when a key is deleted, App ID is no longer able to decrypt the user data, making it inaccessible.
+When you [delete your KEK](/docs/key-protect?topic=key-protect-delete-keys), user data becomes inaccessible within 4 hours of deletion. Although user data is not destroyed when a key is deleted, App ID is no longer able to decrypt the user data, making it inaccessible.
 
 
 
