@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-09-21"
+lastupdated: "2020-10-23"
 
 keywords: app log in, login widget, sign in, default screen, forgot password, mfa, multi-factor authentication, sign up, reset password, facebook, google, identity provider, social log in, saml, authentication, authorization, cloud directory
 
@@ -40,7 +40,6 @@ subcollection: appid
 {:video: .video}
 {:step: data-tutorial-type='step'}
 {:tutorial: data-hd-content-type='tutorial'}
-
 
 
 
@@ -120,7 +119,7 @@ After a successful authentication, App ID creates a session cookie with encrypte
 ## Customizing the Login Widget
 {: #widget-customize}
 
-The Login Widget is dynamic. You can customize the look and feel or identity provider configuration, and the changes are applied immedicately. You do not need to update your application code or redeploy your app in any way!
+The Login Widget is dynamic. You can customize the look and feel or identity provider configuration, and the changes are applied immediately. You do not need to update your application code or redeploy your app in any way!
 {: shortdesc}
 
 Do you need more customization than the Login Widget provides? You can implement your own, fully customized UI for user sign in, sign up, reset password, and other flows to create an experience that's unique to your app. To get started, check out [branding your app](/docs/appid?topic=appid-branded).

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-10-09"
+lastupdated: "2020-10-23"
 
 keywords: manage users, registry, cloud directory, add user, delete user, tokens, attributes, migrating users, identity provider, app security
 
@@ -43,7 +43,6 @@ subcollection: appid
 
 
 
-
 # Managing users
 {: #cd-users}
 
@@ -79,7 +78,7 @@ You can use the {{site.data.keyword.appid_short_notm}} dashboard to view details
   </tr>
   <tr>
     <td>User identifier</td>
-    <td>The user identifier is dependant upon the type of user sign-up that you configured. For example, if you have an email and password flow, the identifier is the user's email. If you use the username and password flow, the identitfier is the username that is given at sign-up.</td>
+    <td>The user identifier is dependant upon the type of user sign-up that you configured. For example, if you have an email and password flow, the identifier is the user's email. If you use the username and password flow, the identifier is the username that is given at sign-up.</td>
   </tr>
   <tr>
     <td>Email</td>
