@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-09-21"
+lastupdated: "2020-10-26"
 
 keywords: user events, track activity, manage events, analyze, administrative, runtime, sign in, settings, app security
 
@@ -40,7 +40,6 @@ subcollection: appid
 {:video: .video}
 {:step: data-tutorial-type='step'}
 {:tutorial: data-hd-content-type='tutorial'}
-
 
 
 # Auditing events for {{site.data.keyword.appid_short_notm}}
@@ -582,8 +581,8 @@ Be sure that you have turn ON the **Runtime Activity** in order to see this even
     <td><code>appid.user.authenticate</code></td>
     <td><code>failure</code></td>
     <td><code>401</code></td>
-    <td><code>crn:unknown</code></td>
-    <td><code>cloud_directory:unknown</code></td>
+    <td><code>[appid user CRN]</code></td>
+    <td><code>cloud_directory:[GUID]</code></td>
     <td><code>appid/user</code></td>
   </tr>
   <tr>
