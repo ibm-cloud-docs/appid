@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-10-20"
+lastupdated: "2020-10-26"
 
 keywords: data encryption in app id, data storage for app id, personal data in app id, data deletion for app id, data in app id, data security in app id
 
@@ -43,7 +43,6 @@ subcollection: appid
 
 
 
-
 # Securing your data in {{site.data.keyword.appid_short_notm}}
 {: #mng-data}
 
@@ -64,7 +63,7 @@ You can add a higher level of encryption control to your data at rest (when it i
 {{site.data.keyword.appid_short_notm}} uses envelope encryption to implement both provider-managed and customer-managed keys. Envelope encryption describes encrypting one encryption key with another encryption key. The key used to encrypt the actual data is known as a data encryption key (DEK). The DEK itself is never stored but is wrapped by a second key that is known as the key encryption key (KEK) to create a wrapped DEK. To decrypt data, the wrapped DEK is unwrapped to get the DEK. This process is possible only by accessing the KEK, which in this case is your root key that is stored in your KMS. {{site.data.keyword.keymanagementserviceshort}} and {{site.data.keyword.hscrypto}} keys are secured by FIPS 140-2 Level 3 certified cloud-based hardware security modules (HSMs).
 
 ### Enabling customer-managed keys for {{site.data.keyword.appid_short_notm}} by using {{site.data.keyword.keymanagementserviceshort}}
-{: #enable-customer-keys}
+{: #enable-customer-keys-kp}
 
 If you choose to work with a key that you manage, you must ensure that valid IAM authorization is assigned to the {{site.data.keyword.appid_short_notm}} service. 
 
@@ -88,12 +87,12 @@ If you choose to work with a key that you manage, you must ensure that valid IAM
 
 
 #### Rotating your keys
-{: #rotate-key}
+{: #rotate-key-kp}
 
 When you [rotate your KEK](/docs/key-protect?topic=key-protect-key-rotation), {{site.data.keyword.appid_short_notm}} rewraps the DEKs associated with the rotated key, ensuring that your user data is always protected with your up-to-date encryption key.
 
 #### Deleting your keys
-{: #delete-key}
+{: #delete-key-kp}
 
 When you [delete your KEK](/docs/key-protect?topic=key-protect-delete-keys), user data becomes inaccessible within 4 hours of deletion. Although user data is not destroyed when a key is deleted, {{site.data.keyword.appid_short_notm}} is no longer able to decrypt the user data, making it inaccessible.
 
