@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-09-21"
+lastupdated: "2020-10-26"
 
 keywords: release notes, new, spa, single sign on, mfa, cloud directory, saml, app security, application identity
 
@@ -40,7 +40,6 @@ subcollection: appid
 {:video: .video}
 {:step: data-tutorial-type='step'}
 {:tutorial: data-hd-content-type='tutorial'}
-
 
 
 # What's new
@@ -112,7 +111,7 @@ The following features and changes to the {{site.data.keyword.appid_short_notm}}
 
 - **Track runtime authentication events with {{site.data.keyword.at_short}}**
 
-    Now you can track, manage, and analyze authentication events that are performed by your app users at runtime by [integrating {{site.data.keyword.at_short}} and {{site.data.keyword.appid_short_notm}}](/docs/appid?topic=appid-at-monitor-runtime). Releasing your secured custom, mobile, or web app to your users is only the beginning of your journey toward adoption. After your app is deployed, you need to have insights into how your users are interacting with your app. For example, the number and trends of active users. In regulatory markets, such as with HIPAA, you must have a way to share the detailed records of both successful and failed authentication events with auditors. With {{site.data.keyword.appid_short_notm}}, you can now have a very detailed view of runtime events that are related to user authentication.
+    Now you can track, manage, and analyze authentication events that are performed by your app users at runtime by [integrating {{site.data.keyword.at_short}} and {{site.data.keyword.appid_short_notm}}](/docs/appid?topic=appid-at-events#at-monitor-runtime). Releasing your secured custom, mobile, or web app to your users is only the beginning of your journey toward adoption. After your app is deployed, you need to have insights into how your users are interacting with your app. For example, the number and trends of active users. In regulatory markets, such as with HIPAA, you must have a way to share the detailed records of both successful and failed authentication events with auditors. With {{site.data.keyword.appid_short_notm}}, you can now have a very detailed view of runtime events that are related to user authentication.
 
 - **Edit user profile information directly in the dashboard**
 

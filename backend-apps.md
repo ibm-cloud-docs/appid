@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-09-21"
+lastupdated: "2020-10-26"
 
 keywords: protected resource, backend apps, identity, tokens, identity provider, authentication, authorization, app security, oauth, 
 
@@ -40,7 +40,6 @@ subcollection: appid
 {:video: .video}
 {:step: data-tutorial-type='step'}
 {:tutorial: data-hd-content-type='tutorial'}
-
 
 
 # Backend apps
@@ -175,7 +174,7 @@ Check out the following video to learn about protecting backend Liberty for Java
 {: ph data-hd-programlang='java'}
 
 
-![About {{site.data.keyword.appid_short_notm}}](https://www.youtube.com/embed/QA6DY2qqLaw){: video output="iframe" data-script="none" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![About {{site.data.keyword.appid_short_notm}}](https://www.youtube.com/embed/QA6DY2qqLaw){: video output="iframe" data-script="none" id="about-appid" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 {: ph data-hd-programlang='java'}
 
 
