@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-11-03"
+lastupdated: "2020-11-04"
 
 keywords: pricing, advanced security, authentication events, authorized users, activity tracking, runtime activity, password policies, keycloak, allow list redirect url, redirect uri 
 
@@ -178,6 +178,18 @@ Check out the following table for answers to commonly asked questions about encr
   </tr>
 </table>
 
+
+## What clock synchronization does {{site.data.keyword.appid_short_notm}} use?
+{: #faq-ntp}
+{: faq}
+
+{{site.data.keyword.appid_short_notm}} runs in {{site.data.keyword.cloud_notm}}, which uses an internal NTP server: `servertime.service.softlayer.com`.
+
+Synchronizing your application with {{site.data.keyword.appid_short_notm}}'s time source depends on which environment that you're using to run your application.
+
+* If your application is running in IBM Cloud Classic Infrastructure, set your NTP servers to `servertime.service.softlayer.com`.
+* If your aplication is running in IBM Cloud VPC Infrastructure, set your NTP servers to `time.adn.networklayer.com`.
+* If you application is not running in IBM Cloud, you do not have access to these time servers. In this case, set your NTP servers to `time-a.nist.gov` or `time-b.nist.gov`.
 
 
 
