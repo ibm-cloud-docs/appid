@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-09-22"
+lastupdated: "2020-11-03"
 
 keywords: pricing, advanced security, authentication events, authorized users, activity tracking, runtime activity, password policies, keycloak, allow list redirect url, redirect uri 
 
@@ -40,7 +40,6 @@ subcollection: appid
 {:video: .video}
 {:step: data-tutorial-type='step'}
 {:tutorial: data-hd-content-type='tutorial'}
-
 
 
 
@@ -178,6 +177,7 @@ Check out the following table for answers to commonly asked questions about encr
     <td>No, we do not.</td>
   </tr>
 </table>
+
 
 
 

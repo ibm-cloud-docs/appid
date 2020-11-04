@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-09-21"
+lastupdated: "2020-10-26"
 
 keywords: rate limits, traffic control, limit request, lite instances, per minute, per instance, per user, limits
 
@@ -40,7 +40,6 @@ subcollection: appid
 {:video: .video}
 {:step: data-tutorial-type='step'}
 {:tutorial: data-hd-content-type='tutorial'}
-
 
 
 
@@ -113,7 +112,7 @@ The following table lists the maximum per user limits for {{site.data.keyword.ap
     </tr>
     <tr>
         <td>Applications per {{site.data.keyword.appid_short_notm}} instance</td>
-        <td>50</td>
+        <td>200</td>
         <td></td>
     </tr>
 </table>

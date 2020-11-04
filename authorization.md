@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-09-21"
+lastupdated: "2020-10-23"
 
 keywords: authorization, authentication, oidc, oauth, jwks, app security, identity, tokens, redirect uris, api strategy, webapp strategy
 
@@ -40,7 +40,6 @@ subcollection: appid
 {:video: .video}
 {:step: data-tutorial-type='step'}
 {:tutorial: data-hd-content-type='tutorial'}
-
 
 
 # Technologies
@@ -89,19 +88,19 @@ Using this example, the URL would be `https://us-south.appid.cloud.ibm.com/oauth
   </tr>
   <tr>
     <td>Authorization</td>
-    <td>{oauthServerUrl}/authorization</td>
+    <td><code>{oauthServerUrl}/authorization</code></td>
   </tr>
   <tr>
     <td>Token</td>
-    <td>{oauthServerUrl}/token</td>
+    <td><code>{oauthServerUrl}/token</code></td>
   </tr>
   <tr>
     <td>User information</td>
-    <td>{oauthServerUrl}/userinfo</td>
+    <td><code>{oauthServerUrl}/userinfo</code></td>
   </tr>
   <tr>
     <td>JWKS</td>
-    <td>{oauthServerUrl}/publickeys</td>
+    <td><code>{oauthServerUrl}/publickeys</code></td>
   </tr>
 </table>
 

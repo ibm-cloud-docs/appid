@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-09-21"
+lastupdated: "2020-11-04"
 
 keywords: user access, control access, permissions, roles, scopes, runtime, access token, authentication, identity, app security
 
@@ -43,22 +43,21 @@ subcollection: appid
 
 
 
-
 # Controlling access
 {: #access-control}
 
 
-With {{site.data.keyword.appid_full}}, you can define which users can access specific features or perform specific actions in your apps. To control access, you can create scopes and group them into a role. Then, assign the role to one or more of your app users.
+With {{site.data.keyword.appid_full}}, you can define which users and applications can access specific features or perform specific actions in your apps. To control access, you can create scopes and group them into a role. Then, assign the role to one or more of your app users and applications.
 {: shortdesc}
 
-A scope is a runtime action in your application that you register with {{site.data.keyword.appid_short_notm}} to create an access permission. A role is a collection of scopes that assigns varying permissions to different types of app users. For example, if your company employs developers, they might create a role that allows them to read and write to the code. If you employ auditors, you might have a view only role as shown in the following image.
+A scope is a runtime action in your application that you register with {{site.data.keyword.appid_short_notm}} to create an access permission. A role is a collection of scopes that assigns varying permissions to different types of app users and applications. For example, if your company employs developers, they might create a role that allows them to read and write to the code. If you employ auditors, you might have a view only role as shown in the following image.
 
 ![{{site.data.keyword.appid_short_notm}} access control](images/access-control.png){: caption="Figure 1. How {{site.data.keyword.appid_short_notm}} access control works" caption-side="bottom"}
 
 1. Register runtime actions that can occur in your application with {{site.data.keyword.appid_short_notm}}.
 2. Compile scopes into groups to form roles.
-3. Control access permissions by assigning roles to your users.
-4. Configure your application to verify the scopes that are returned in your users access token at runtime.
+3. Control access permissions by assigning roles to your users or applications.
+4. Configure your application to verify the scopes that are returned in your users access token at runtime (or in your applications token in the case of client credentials flow).
 
 For more information about applications, see [Application identity and authorization](/docs/appid?topic=appid-app).
 
@@ -318,14 +317,16 @@ You can assign a role to a user with the API.
 2. Optional: Get the role ID or role name. If you already know your role ID or name, skip to the next step.
 
   ```sh
-  curl -X GET "https://<region>.appid.cloud.ibm.com/management/v4/<tenant_ID>/roles" -H "accept: application/json"
+  curl -X GET "https://<region>.appid.cloud.ibm.com/management/v4/<tenant_ID>/roles" \
+  -H "accept: application/json" \
+  -H "authorization: Bearer <token>"
   ```
   {: codeblock}
 
 3. Make a request to the `/roles` endpoint that contains a JSON object of the roles that you want to assign.
 
   ```sh
-  curl -X PUT "https://<region>.appid.cloud.ibm.com/management/v4/<tenant_ID>/users/<user_ID>/roles" -H "accept: application/json" -H "Content-Type: application/json" -d "{ \"roles\": { \"ids\": [ \"<role_IDs>\" ] }}"
+  curl -X PUT "https://<region>.appid.cloud.ibm.com/management/v4/<tenant_ID>/users/<user_ID>/roles" -H "accept: application/json" -H "Content-Type: application/json" -d "{ \"roles\": { \"ids\": [ \"<role_IDs>\" ] }}" -H "authorization: Bearer <token>"
   ```
   {: codeblock}
 
@@ -333,11 +334,60 @@ To remove a role from a user, make the PUT request again, but remove the role ID
 {: tip}
 
 
+## Assigning roles to an application
+{: #assign-roles-app}
+
+After you create roles, you can assign them to your applications.
+
+Application roles are only valid in the client credentials flow.
+{: note}
+
+
+### Assigning roles by using the API
+{: #assign-roles-app-api}
+
+You can assign a role to an application by using the API.
+
+1. Get your application client ID by querying the list of applications. You can also get this value from the **Applications** tab of the {{site.data.keyword.appid_short_notm}} UI.
+
+  ```sh
+  curl -X GET "https://<region>.appid.cloud.ibm.com/management/v4/<tenant_ID>/applications" \
+  -H "accept: application/json" \
+  -H "authorization: Bearer <token>"
+  ```
+  {: codeblock}
+
+  Example:
+
+  ```sh
+  curl -X GET https://us-south.appid.cloud.ibm.com/management/v4/e19a2778-3262-4986-8875-8khjafsdkhjsdafkjh/applications -H "accept: application/json" -H "authorization: Bearer eyJraWQiOiIyMDE3MTEyOSIsImFsZ...."
+  ```
+  {: screen}
+
+2. Get the role ID.
+
+  ```sh
+  curl -X GET "https://<region>.appid.cloud.ibm.com/management/v4/<tenant_ID>/roles" \
+  -H "accept: application/json" \
+  -H "authorization: Bearer <token>"
+  ```
+  {: codeblock}
+
+3. Make a request to the `/roles` endpoint that contains a JSON object of the roles that you want to assign. This request replaces current roles with the provided role IDs. Be sure that you're assigning the correct roles.
+
+  ```sh
+  curl -X PUT "https://<region>.appid.cloud.ibm.com/management/v4/<tenant_ID>/applications/<client_ID>/roles" -H "accept: application/json" -H "Content-Type: application/json" -d "{ \"roles\": { \"ids\": [ \"<role_IDs>\" ] }}" -H "authorization: Bearer <token>"
+  ```
+  {: codeblock}
+
+To remove a role from a user, make the PUT request again, but remove the role ID.
+{: tip}
+
 
 ## Controlling access at runtime
 {: #control-acesss-runtime}
 
-When a user attempts to access one of your protected resources, tokens are created and returned by {{site.data.keyword.appid_short_notm}}. Any scopes that a user is assigned are retuned in the access token. You can use the access token to make decisions at runtime. Depending on the strategy that you're using to protect your applications, how you verify scopes can differ.
+When a user or application attempts to access one of your protected resources, tokens are created and returned by {{site.data.keyword.appid_short_notm}}. Any scopes that a user or application is assigned are retuned in the access token. You can use the access token to make decisions at runtime. Depending on the strategy that you're using to protect your applications, how you verify scopes can differ.
 
 
 ### When using web app strategy
@@ -477,4 +527,5 @@ You can delete roles by using the APIs.
 {: #role-tokens}
 
 By default, roles are not returned in a users token. It is recommended that your runtime decisions are configured based on scopes. But, if you would like to use roles, you can map them to your tokens by using [custom claims mapping](/docs/appid?topic=appid-customizing-tokens).
+
 

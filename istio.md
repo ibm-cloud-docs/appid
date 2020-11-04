@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-09-21"
+lastupdated: "2020-10-23"
 
 keywords: adapter, access management, identity token, helm chart, backend apps, kube, any kube, icp, openshift, iks, service mesh, access, app identity, kube secret, tokens, authenticated, app endpoints, authorization, multicloud, no code change, no redeploy, authorization policies, multiple providers
 
@@ -42,7 +42,6 @@ subcollection: appid
 {:tutorial: data-hd-content-type='tutorial'}
 
 
-
 # Multicloud apps with Istio
 {: #istio-adapter}
 
@@ -57,7 +56,7 @@ What can the App Identity and Access adapter do for you? Check out the following
 ## Multicloud architecture
 {: #istio-multicloud}
 
-A multicloud computing environment combines multiple cloud and/ or private computing environments into a single network architecture. By distributing workloads across multiple environments, you might find improved resiliency, flexibility, and greater cost-effificiency. To achieve the benefits, it's common to use a container-based application with an orchestration layer, such as Kubernetes.
+A multicloud computing environment combines multiple cloud and/ or private computing environments into a single network architecture. By distributing workloads across multiple environments, you might find improved resiliency, flexibility, and greater cost-efficiency. To achieve the benefits, it's common to use a container-based application with an orchestration layer, such as Kubernetes.
 
 ![App Identity and Access adapter architecture diagram](images/istio-adapter.png){: caption="Figure 1. Multicloud deployment - achieved with the App Identity and Access adapter" caption-side="bottom"}
 

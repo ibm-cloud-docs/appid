@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-09-21"
+lastupdated: "2020-10-26"
 
 keywords: web apps, authorization code, authentication, nodejs, javascript, app access, application credentials, login, redirect uri, protected endpoint, video
 
@@ -40,7 +40,6 @@ subcollection: appid
 {:video: .video}
 {:step: data-tutorial-type='step'}
 {:tutorial: data-hd-content-type='tutorial'}
-
 
 
 
@@ -96,7 +95,7 @@ You must have the following prerequisites:
 
 Check out the following video to learn about protecting Node applications with {{site.data.keyword.appid_short_notm}}. Then, try it out yourself by using a [simple Node sample app](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02a-simple-node-web-app){: external}.
 
-![About {{site.data.keyword.appid_short_notm}}](https://www.youtube.com/embed/6roa1ZOvwtw){: video output="iframe" data-script="none" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![About {{site.data.keyword.appid_short_notm}}](https://www.youtube.com/embed/6roa1ZOvwtw){: video output="iframe" data-script="none" id="about-appid" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### Installing the Node.js SDK
 {: #web-nodejs-install}
