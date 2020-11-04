@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-10-26"
+lastupdated: "2020-11-04"
 
 keywords: release notes, new, spa, single sign on, mfa, cloud directory, saml, app security, application identity
 
@@ -46,6 +46,13 @@ subcollection: appid
 {: #release-notes}
 
 The following features and changes to the {{site.data.keyword.appid_short_notm}} service are now available.
+
+## November 2020
+{: #November2020}
+
+- **App to app access control**
+
+    You can now control which actions that an application is able to perform in your apps by using role-based app-to-app access control. For more information, see the [access control docs](/docs/appid?topic=appid-access-control).
 
 ## June 2020
 {: #June2020}
