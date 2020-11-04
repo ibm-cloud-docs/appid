@@ -335,7 +335,7 @@ To remove a role from a user, make the PUT request again, but remove the role ID
 
 
 ## Assigning roles to an application
-{: #assign-roles}
+{: #assign-roles-app}
 
 After you create roles, you can assign them to your applications.
 
@@ -344,7 +344,7 @@ Application roles are only valid in the client credentials flow.
 
 
 ### Assigning roles by using the API
-{: #assign-roles-api}
+{: #assign-roles-app-api}
 
 You can assign a role to an application by using the API.
 
