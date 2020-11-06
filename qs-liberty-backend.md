@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-09-21"
+lastupdated: "2020-11-06"
 
-keywords: backend apps, java, liberty for java, liberty, identity provider, access management, protected endpoints, access tokens, security, back end
+keywords: back-end apps, java, liberty for java, liberty, identity provider, access management, protected endpoints, access tokens, security, back end
 
 subcollection: appid
 
@@ -46,13 +46,12 @@ completion-time: 30m
 {:tutorial: data-hd-content-type='tutorial'}
 
 
-
-# Quick start: Liberty for Java backend apps
+# Quick start: Liberty for Java back-end apps
 {: #backend-liberty}
 {: toc-content-type="tutorial"}
 {: toc-completion-time="30m"}
 
-With {{site.data.keyword.appid_short_notm}}, you can easily protect your API endpoints and ensure the security of your Liberty for Java backend applications. With this guide, you can quickly get a simple authentication flow up and running in less than 20 minutes.
+With {{site.data.keyword.appid_short_notm}}, you can easily protect your API endpoints and ensure the security of your Liberty for Java back-end applications. With this guide, you can quickly get a simple authentication flow up and running in less than 20 minutes.
 {: shortdesc}
 
 
@@ -77,7 +76,7 @@ Don't have an app that you can try out the flow with? No problem! {{site.data.ke
 ## Before you begin
 {: #liberty-before}
 
-Before you get started with {{site.data.keyword.appid_short_notm}} in your Liberty for Java backend application you must have the following prerequisites:
+Before you get started with {{site.data.keyword.appid_short_notm}} in your Liberty for Java back-end application you must have the following prerequisites:
 
 * An instance of [the {{site.data.keyword.appid_short_notm}} service](https://cloud.ibm.com/catalog/services/app-id){: external}
 * [The IBM Cloud CLI](/docs/cli?topic=cli-getting-started)
