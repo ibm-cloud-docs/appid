@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-10-23"
+lastupdated: "2020-12-10"
 
 keywords: adapter, access management, identity token, helm chart, backend apps, kube, any kube, icp, openshift, iks, service mesh, access, app identity, kube secret, tokens, authenticated, app endpoints, authorization, multicloud, no code change, no redeploy, authorization policies, multiple providers
 
@@ -126,7 +126,7 @@ To install the chart, initialize Helm in your cluster, define the options that y
 
 1. If you're working with IBM Cloud Kubernetes Service, be sure to log in and set the context for your cluster.
 
-2. Verify that you have [Istio policy enforcement enabled](https://istio.io/latest/docs/tasks/policy-enforcement/enabling-policy/){: external}. If not, turn it on. 
+2. Verify that you have [Istio policy enforcement enabled](https://istio.io/v1.4/docs/tasks/policy-enforcement/enabling-policy/){: external}. If not, turn it on. 
 
 3. Add the repository.
 
