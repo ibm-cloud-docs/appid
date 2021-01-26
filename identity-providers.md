@@ -76,7 +76,7 @@ You can configure the {{site.data.keyword.appid_short}} service to use Facebook 
 
 To use Facebook as an identity provider, you must add and configure the website platform on your Facebook application.
 
-1. Log in to your account on the [Facebook for Developers site](https://developers.facebook.com/docs/apps#register){: external}.
+1. Log in to your account on the [Facebook for Developers site](https://developers.facebook.com/docs/development){: external}.
 2. Make note of the Facebook app ID and secret. These values are needed to configure your web project for authentication in your service dashboard.
 3. Add the web platform and enter the site URL.
 4. From the products list, select **Facebook Login**.
