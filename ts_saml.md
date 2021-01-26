@@ -60,7 +60,7 @@ For specific error codes and messages from your identity provider that you don't
 {: note}
 
 
-### SAML message signature could not be validated
+## SAML message signature could not be validated
 {: #ts-saml-w3id}
 {: troubleshoot} 
 {: support}
@@ -82,7 +82,7 @@ To resolve the issue, verify that you have **Inbound Signature** set to **None**
 
 
 
-### Missing `RelayState` parameter
+## Missing `RelayState` parameter
 {: #ts-saml-relaystate}
 
 The `RelayState` parameter is missing from your authentication response.
@@ -101,7 +101,7 @@ Verify that your SAML provider is configured to return the `RelayState` paramete
 {: tsResolve}
 
 
-### Missing or incorrect Name ID
+## Missing or incorrect Name ID
 {: #ts-saml-nameid}
 
 When you send an authentication request, you receive an error that regards the `NameID`.
@@ -120,7 +120,7 @@ To resolve the issue, be sure that your identity provider `NameID` is formatted 
 
 
 
-### Response signing failure
+## Response signing failure
 {: #ts-saml-response-sign-fail}
 
 When you send an authentication request, you receive the following error message:
@@ -144,7 +144,7 @@ To resolve the issue, be sure that:
 
 
 
-### Failure to decrypt the response
+## Failure to decrypt the response
 {: #ts-saml-decrypt-fail}
 
 You receive one of the following error messages in response to your authentication request.
@@ -178,7 +178,7 @@ If you receive error message 1, verify that your SAML configuration is set to ex
 If you receive error message 2, ensure that your certificate is correct. You can obtain the signing certificate from the {{site.data.keyword.appid_short_notm}} metadata XML file. Be sure that you use the key with `<KeyDescriptor use="signing">`. Verify that your identity provider is configured to use `` as the signature signing algorithm. 
 
 
-### Responder error code
+## Responder error code
 {: #ts-saml-responder}
 
 When you send an authentication request you receive the following generic error message:
