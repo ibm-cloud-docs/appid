@@ -205,7 +205,7 @@ To resolve the issue, verify your configuration and username. Verify that you ha
 
 
 
-### Unsupported authentication request
+## Unsupported authentication request
 {: #ts-saml-unsupported-request}
 
 You receive a message regarding an unsupported authentication request.
@@ -220,7 +220,7 @@ To resolve the issue, you can update your authentication context. By default, {{
 
 
 
-### SAML request signing failure
+## SAML request signing failure
 {: #ts-saml-request-sign-fail}
 {: troubleshoot} 
 {: support}
