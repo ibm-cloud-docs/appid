@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-09-21"
+  years: 2017, 2021
+lastupdated: "2021-01-26"
 
 keywords: password policies, password strength, advanced, sign in, lock out, reset password, email, expiration, credentials, password reuse, wrong credentials, secure apps, registry, cloud directory, regex
 
@@ -40,7 +40,6 @@ subcollection: appid
 {:video: .video}
 {:step: data-tutorial-type='step'}
 {:tutorial: data-hd-content-type='tutorial'}
-
 
 
 # Defining password policies
@@ -195,7 +194,8 @@ To set this configuration by using the GUI:
 When this option is first set to on, any existing user passwords do not have an expiration date. To ensure that all of your users are limited by the password rotation policy, you might encourage users to update their password after you configure this feature.
 {: note}
 
-**Custom sign in experience**
+#### Custom sign-in experience
+{: #cd-custom-sign-in}
 
 If you're using a custom sign-in experience, an error is triggered when a user attempts to sign in with an expired password. It is your responsibility to configure your application to provide the necessary user experience. You can call the change password API to set the new password.
 
