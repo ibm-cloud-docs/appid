@@ -56,11 +56,11 @@ The Kubernetes Service custom Ingress image is [deprecated as of 01 December 202
 ![{{site.data.keyword.appid_short_notm}} Kubernetes integration architecture](images/kube-integration.png){: caption="Figure 1. {{site.data.keyword.appid_short_notm}} Kubernetes integration architecture" caption-side="bottom"}
 
 1. A user opens your application and triggers a request to the web app or API.
-2. In the API flow, the Ingress controller attempts to validate the supplied tokens. If the web flow is used, it kicks off a three-leg OIDC authentication process.
-3. {{site.data.keyword.appid_short_notm}} begins the authentication process by displaying the Login Widget.
+2. In the API flow, the Ingress controller attempts to validate the supplied tokens. If the web flow is used, it starts a three-leg OIDC authentication process.
+3. {{site.data.keyword.appid_short_notm}} begins the authentication process by displaying the login widget.
 4. The user provides a username or email and password.
 5. The Ingress controller obtains access and identity tokens from {{site.data.keyword.appid_short_notm}} for authorization.
-6. Every request that is validated and forwarded by the Ingress Controller to your apps has an authorization header that contains the tokens.
+6. Every request that is validated and forwarded by the Ingress controller to your apps has an authorization header that contains the tokens.
 
 The {{site.data.keyword.appid_short_notm}} Ingress annotation does not currently support refresh tokens. When access and identity tokens expire, user's must reauthenticate.
 {: note}
@@ -73,7 +73,7 @@ Before you can get started, ensure that you have the following prerequisites.
 {: shortdesc}
 
 * An instance of App ID that is provisioned in the same region in which your cluster is deployed. The service name must contain only alphanumeric characters or hyphens (-), and cannot contain spaces.
-* A standard Kubernetes Service cluster with at least 2 worker nodes in each available zone. For help configuring Ingress resouce for your cluster, see [Setting up Kubernetes Ingress](/docs/containers?topic=containers-ingress-types).
+* A standard Kubernetes Service cluster with at least two worker nodes in each available zone. For help with configuring Ingress resource for your cluster, see [Setting up Kubernetes Ingress](/docs/containers?topic=containers-ingress-types).
 
 * The following {{site.data.keyword.cloud_notm}} IAM roles:
   * Cluster: **Administrator** platform role
@@ -85,7 +85,7 @@ Before you can get started, ensure that you have the following prerequisites.
   * [Docker](https://www.docker.com/products/container-runtime#/download)
 * The {{site.data.keyword.containershort}} and {{site.data.keyword.registryshort_notm}} [CLI plug-ins](/docs/cli?topic=cli-install-devtools-manually#idt-install-kubernetes-cli-plugin)
 
-To ensure the best performance of the integration, it is recommended that you always use the latest version of IBM Cloud Kubernetes Service Application Load Balancer (ALB). By default, auto-update is enabled for your cluster. For more information about auto-updates, see [On-demand ALB update feature on {{site.data.keyword.containershort}}](https://www.ibm.com/cloud/blog/on-demand-alb-update-feature-on-ibm-cloud-kubernetes-service).
+To ensure the best performance of the integration, it is recommended that you always use the latest version of IBM Cloud Kubernetes Service Application Load Balancer (ALB). By default, auto-update is enabled for your cluster. For more information about auto-updates, see [OnDemand ALB update feature on {{site.data.keyword.containershort}}](https://www.ibm.com/cloud/blog/on-demand-alb-update-feature-on-ibm-cloud-kubernetes-service).
 {: tip}
 
 ## Adding redirect URLs
@@ -96,8 +96,8 @@ A redirect URL is the callback endpoint of your app. To prevent phishing attacks
 A redirect URL is the callback endpoint of your app; the location a user is sent after successfully signing in or out of your app. To prevent phishing attacks, App ID validates requested URLs against an allowlist of redirect URLs that you add to the service. By adding a URL to your allowlist, you give App ID permission to forward your users to that location. [Learn more about redirect URIs](/docs/appid?topic=appid-managing-idp#add-redirect-uri).
 
 1. In the IBM Cloud console, select your instance of App ID from your resource list.
-2. Navigate to the **Manage authentication** tab of your instance of App ID.
-3. In the **Identity providers** tab, be sure that you've selected an identity provider.
+2. Navigate to the **Manage authentication** page of your instance of App ID.
+3. In the **Identity providers** tab, be sure that an identity provider is set to on.
 
   If no provider is selected, the user is not authenticated, but is still issued an access token for anonymous access to the app.
   {: note}
@@ -106,22 +106,22 @@ A redirect URL is the callback endpoint of your app; the location a user is sent
 
   * Custom domain:
 
-    A URL that is registered with a custom domain might look like: `http://mydomain.net/myapp2path/appid_callback`. If the apps that you want to expose are within the same cluster but in different namespaces, you can use a wildcard to specify all of the apps in the cluster at once. This can be helpful during development, but you should exercise caution if you use wildcards in production. For example: `https://custom_domain.net/*`
+    A URL that is registered with a custom domain might look like: `http://mydomain.net/myapp2path/appid_callback`. If the apps that you want to expose are within the same cluster but in different namespaces, you can use a wildcard to specify all of them. This can be helpful during development, but it is recommended that you do not use wildcards in production without exercising caution. For example: `https://custom_domain.net/*`
 
   * Ingress subdomain:
 
     If your app is registered with an IBM Ingress subdomain, your callback URL might look like: `https://mycluster.us-south.containers.appdomain.cloud/myapp1path/appid_callback`
 
-  * Log out functionality:
+  * Log out:
 
-    If `/logout` or `/sign out` exist in your path, cookies are removed and the user is sent back to the login page. To redirect users after they sign out, append `/sign_out` to your domain in the format `http://<hostname>/oauth2-<App_ID_service_instance_name>/sign_out` or `https://<hostname>/oauth2-<App_ID_service_instance_name>/sign_out`. Be sure that the log out code in your application is is called as a reaction to the user clicking **Sign out** or **Log out** in your app.
+    If `/logout` exists in your path, cookies are removed and the user is sent back to the login page. To redirect users after they sign out, append `/sign_out` to your domain in the format `http://<hostname>/oauth2-<App_ID_service_instance_name>/sign_out` or `https://<hostname>/oauth2-<App_ID_service_instance_name>/sign_out`. Be sure that the log out code in your application is called as a reaction to the user clicking **Sign out** or **Log out** in your app.
 
     
 
 ## Binding {{site.data.keyword.appid_short_notm}} to your cluster
 {: #kube-create-appid}
 
-By binding your instance of {{site.data.keyword.appid_short_notm}} to your cluster, you create the connection between the Kubernetes Service and App ID that allows you to enforce authentication for all of the apps that run in your cluster at the same time.
+By binding your instance of {{site.data.keyword.appid_short_notm}} to your cluster, you create the connection between the Kubernetes Service and App ID that allows the enforcement of authentication for all of the apps that run in your cluster at the same time.
 
 
 
@@ -139,7 +139,7 @@ By binding your instance of {{site.data.keyword.appid_short_notm}} to your clust
   ```
   {: codeblock}
 
-3. Bind the App ID service instance to your cluster. The command creates a service key for the service instance, or you can include the `--key` flag to use existing service key credentials. Be sure to bind the service instance to the same namespace that your Ingress resources exist in. Note that all letters in the service instance name must specified as lowercase.
+3. Bind the App ID service instance to your cluster. The command creates a service key for the service instance, or you can include the `--key` flag to use existing service key credentials. Be sure to bind the service instance to the same namespace that your Ingress resources exist in. All of the letters in the service instance name must specified as lowercase.
 
   ```
   ibmcloud ks cluster service bind --cluster <cluster_name_or_ID> --namespace <namespace> --service <App_ID_instance_name> [--key <service_instance_key>]
@@ -161,10 +161,10 @@ By binding your instance of {{site.data.keyword.appid_short_notm}} to your clust
 ## Updating your Ingress resource
 {: #define-annotation}
 
-Your Ingress resource is used to define the way in which you want to expose your applications. The resource contains the rules that define how to route incoming requests to your applications. To add App ID authenticaton to your apps, add the following annotations to the `metadata.annotations` section of your resource.
+Your Ingress resource is used to define how you want to expose your applications. The resource contains the rules that define how to route incoming requests to your applications. To add App ID authentication to your apps, add the following annotations to the `metadata.annotations` section of your resource.
 
 
-1. Add the following `auth-url` annotation. Change only the placeholder for your App ID service instance name. Note that all letters in the service instance name must specified as lowercase.
+1. Add the following `auth-url` annotation. Change only the placeholder for your App ID service instance name. 
 
   ```
   ...
@@ -174,8 +174,8 @@ Your Ingress resource is used to define the way in which you want to expose your
   ```
   {: codeblock}
 
-  You can add more instance of {{site.data.keyword.appid_short_notm}} to your annotation by using a semicolon (;). 
-  {: tip}
+  All letters in the service instance name must specified as lowercase characters.
+  {: note}
 
 2. Choose which tokens to send in the authorization header to your app.
 
@@ -212,9 +212,6 @@ Your Ingress resource is used to define the way in which you want to expose your
 
 3. Optional: If your app supports the web app strategy in addition to, or instead of, the API strategy, add the `nginx.ingress.kubernetes.io/auth-signin: https://$host/oauth2-<App_ID_service_instance_name>/start?rd=$escaped_request_uri` annotation. 
 
-  All letters in the service instance name must specified as lowercase.
-  {: note}
-
 
 
 
@@ -237,21 +234,21 @@ Now that your Ingress resource is updated with the annotation, you can start enf
   ```
   {: codeblock}
 
-2. Re-apply your Ingress resources to enforce App ID authentication. 
+2. Reapply your Ingress resources to enforce App ID authentication. 
 
   ```
   kubectl apply -f <app_ingress_resource>.yaml -n namespace
   ```
   {: codeblock}
 
-  After an Ingress resource with the appropriate annotations is re-applied, the ALB OAuth Proxy add-on deploys an OAuth2-Proxy deployment, creates a service for the deployment, and creates a separate Ingress resource to configure routing for the OAuth2-Proxy deployment messages. Do not delete these add-on resources.
+  <p>After an Ingress resource with the appropriate annotations is reapplied, the ALB OAuth Proxy add-on: <ul><li>Deploys an OAuth2-Proxy</li><li>Creates a service for the deployment</li><li>Creates a separate Ingress resource to configure routing for the OAuth2-Proxy deployment messages.</li></ul> Do not delete these add-on resources.</p>
   {: note}
 
-3. Optional: You can customize the default behavior of the OAuth2-Proxy by creating a Kubernetes ConfigMap. For more information on customization, see the [Kubernetes Service annotation docs](/docs/containers?topic=containers-comm-ingress-annotations#app-id).
+3. Optional: You can customize the default behavior of the OAuth2-Proxy by creating a Kubernetes configmap. For more information about customization, see the [Kubernetes Service annotation docs](/docs/containers?topic=containers-comm-ingress-annotations#app-id).
 
 4. Verify that App ID authentication is enforced for your apps.
 
-  * If your app supports the web app strategy: Access your app's URL in a web browser. If App ID is correctly applied, you are redirected to an App ID authentication log-in page.
+  * If your app supports the web app strategy: Access your app's URL in a web browser. If App ID is correctly applied, you are redirected to an App ID authentication login page.
   * If your app supports the API strategy: Specify your bearer access token in the Authorization header of requests to the apps. To get your access token, see [Obtaining tokens](/docs/appid?topic=appid-obtain-tokens). If App ID is correctly applied, the request is successfully authenticated and is routed to your app. If you send requests to your apps without an access token in the authorization header, or if the access token is not accepted by App ID, then the request is rejected.
 
 
