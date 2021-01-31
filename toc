@@ -12,8 +12,6 @@ App ID
     Key concepts
         authorization.md
         tokens-understand.md
-
-    relatedlinks.md
     {: .navgroup-end}
 
     {: .navgroup id="tutorial"}
@@ -92,6 +90,11 @@ App ID
         [Node.js server SDK](https://github.com/ibm-cloud-security/appid-serversdk-nodejs)
         [JavaScript SDK](https://github.com/ibm-cloud-security/appid-clientsdk-js)
         [Swift server SDK](https://github.com/ibm-cloud-security/appid-serversdk-swift)
+
+    {: .topicgroup}
+    Related links
+        relatedlinks.md
+        [IBM Developer: Security](https://developer.ibm.com/solutions/security/)
 
     {: .topicgroup}
     Managing tokens
