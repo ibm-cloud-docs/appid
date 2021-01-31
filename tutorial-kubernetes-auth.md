@@ -46,10 +46,10 @@ subcollection: appid
 # Containerized apps with Ingress
 {: #kube-auth}
 
-With {{site.data.keyword.appid_full}}, you can consistently enforce policy-driven security by using the Ingress networking capability in {{site.data.keyword.containerlong}} or {{site.data.keyword.openshiftshort}}. With this approach, you can enforce authentication and authorization policies for all of the applications in your cluster at the same time, without ever changing your app code!
+With {{site.data.keyword.appid_full}}, you can consistently enforce policy-driven security by using the Ingress networking capability in {{site.data.keyword.containerlong_notm}} or {{site.data.keyword.openshiftshort}}. With this approach, you can enforce authentication and authorization policies for all of the applications in your cluster at the same time, without ever changing your app code!
 {: shortdesc}
 
-The Kubernetes Service custom Ingress image is [deprecated as of 01 December 2020](/docs/containers?topic=containers-ingress-types). This tutorial is updated to use the community Kubernetes Ingress image. To see the previous version of this documentation, see the [Kubernetes Service documentation](/docs/containers?topic=containers-ingress_annotation#appid-auth).
+The {{site.data.keyword.containershort_notm}} custom Ingress image is [deprecated as of 01 December 2020](/docs/containers?topic=containers-ingress-types). This tutorial is updated to use the community Kubernetes Ingress image. To see the previous version of this documentation, see the [{{site.data.keyword.containershort_notm}} documentation](/docs/containers?topic=containers-ingress_annotation#appid-auth).
 {: note}
 
 
@@ -72,31 +72,31 @@ The {{site.data.keyword.appid_short_notm}} Ingress annotation does not currently
 Before you can get started, ensure that you have the following prerequisites.
 {: shortdesc}
 
-* An instance of App ID that is provisioned in the same region in which your cluster is deployed. The service name must contain only alphanumeric characters or hyphens (-), and cannot contain spaces.
-* A standard Kubernetes Service cluster with at least two worker nodes in each available zone. For help with configuring Ingress resource for your cluster, see [Setting up Kubernetes Ingress](/docs/containers?topic=containers-ingress-types).
+* An instance of {{site.data.keyword.appid_short_notm}} that is provisioned in the same region in which your cluster is deployed. The service name must contain only alphanumeric characters or hyphens (-), and cannot contain spaces.
+* A standard {{site.data.keyword.containershort_notm}} cluster with at least two worker nodes in each available zone. For help with configuring Ingress resource for your cluster, see [Setting up Kubernetes Ingress](/docs/containers?topic=containers-ingress-types).
 
 * The following {{site.data.keyword.cloud_notm}} IAM roles:
   * Cluster: **Administrator** platform role
   * Kubernetes namespaces: **Manager** service role
-  * App ID: **Editor** platform role and **Writer** Service role
+  * {{site.data.keyword.appid_short_notm}}: **Editor** platform role and **Writer** Service role
 * The following CLIs:
   * [{{site.data.keyword.cloud_notm}}](/docs/cli?topic=cli-getting-started)
   * [Kubernetes](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
   * [Docker](https://www.docker.com/products/container-runtime#/download)
 * The {{site.data.keyword.containershort}} and {{site.data.keyword.registryshort_notm}} [CLI plug-ins](/docs/cli?topic=cli-install-devtools-manually#idt-install-kubernetes-cli-plugin)
 
-To ensure the best performance of the integration, it is recommended that you always use the latest version of IBM Cloud Kubernetes Service Application Load Balancer (ALB). By default, auto-update is enabled for your cluster. For more information about auto-updates, see [OnDemand ALB update feature on {{site.data.keyword.containershort}}](https://www.ibm.com/cloud/blog/on-demand-alb-update-feature-on-ibm-cloud-kubernetes-service).
+To ensure the best performance of the integration, it is recommended that you always use the latest version of IBM Cloud {{site.data.keyword.containershort_notm}} Application Load Balancer (ALB). By default, auto-update is enabled for your cluster. For more information about auto-updates, see [OnDemand ALB update feature on {{site.data.keyword.containershort}}](https://www.ibm.com/cloud/blog/on-demand-alb-update-feature-on-ibm-cloud-kubernetes-service).
 {: tip}
 
 ## Adding redirect URLs
 {: #ingress-redirect}
 
-A redirect URL is the callback endpoint of your app. To prevent phishing attacks, App ID validates requested URLs against an allowlist of redirect URLs that you add to the service.
+A redirect URL is the callback endpoint of your app. To prevent phishing attacks, {{site.data.keyword.appid_short_notm}} validates requested URLs against an allowlist of redirect URLs that you add to the service.
 
-A redirect URL is the callback endpoint of your app; the location a user is sent after successfully signing in or out of your app. To prevent phishing attacks, App ID validates requested URLs against an allowlist of redirect URLs that you add to the service. By adding a URL to your allowlist, you give App ID permission to forward your users to that location. [Learn more about redirect URIs](/docs/appid?topic=appid-managing-idp#add-redirect-uri).
+A redirect URL is the callback endpoint of your app; the location a user is sent after successfully signing in or out of your app. To prevent phishing attacks, {{site.data.keyword.appid_short_notm}} validates requested URLs against an allowlist of redirect URLs that you add to the service. By adding a URL to your allowlist, you give {{site.data.keyword.appid_short_notm}} permission to forward your users to that location. [Learn more about redirect URIs](/docs/appid?topic=appid-managing-idp#add-redirect-uri).
 
-1. In the IBM Cloud console, select your instance of App ID from your resource list.
-2. Navigate to the **Manage authentication** page of your instance of App ID.
+1. In the IBM Cloud console, select your instance of {{site.data.keyword.appid_short_notm}} from your resource list.
+2. Navigate to the **Manage authentication** page of your instance of {{site.data.keyword.appid_short_notm}}.
 3. In the **Identity providers** tab, be sure that an identity provider is set to on.
 
   If no provider is selected, the user is not authenticated, but is still issued an access token for anonymous access to the app.
@@ -121,7 +121,7 @@ A redirect URL is the callback endpoint of your app; the location a user is sent
 ## Binding {{site.data.keyword.appid_short_notm}} to your cluster
 {: #kube-create-appid}
 
-By binding your instance of {{site.data.keyword.appid_short_notm}} to your cluster, you create the connection between the Kubernetes Service and App ID that allows the enforcement of authentication for all of the apps that run in your cluster at the same time.
+By binding your instance of {{site.data.keyword.appid_short_notm}} to your cluster, you create the connection between the {{site.data.keyword.containershort_notm}} and {{site.data.keyword.appid_short_notm}} that allows the enforcement of authentication for all of the apps that run in your cluster at the same time.
 
 
 
@@ -139,7 +139,7 @@ By binding your instance of {{site.data.keyword.appid_short_notm}} to your clust
   ```
   {: codeblock}
 
-3. Bind the App ID service instance to your cluster. The command creates a service key for the service instance, or you can include the `--key` flag to use existing service key credentials. Be sure to bind the service instance to the same namespace that your Ingress resources exist in. All of the letters in the service instance name must specified as lowercase.
+3. Bind the {{site.data.keyword.appid_short_notm}} service instance to your cluster. The command creates a service key for the service instance, or you can include the `--key` flag to use existing service key credentials. Be sure to bind the service instance to the same namespace that your Ingress resources exist in. All of the letters in the service instance name must specified as lowercase.
 
   ```
   ibmcloud ks cluster service bind --cluster <cluster_name_or_ID> --namespace <namespace> --service <App_ID_instance_name> [--key <service_instance_key>]
@@ -161,10 +161,10 @@ By binding your instance of {{site.data.keyword.appid_short_notm}} to your clust
 ## Updating your Ingress resource
 {: #define-annotation}
 
-Your Ingress resource is used to define how you want to expose your applications. The resource contains the rules that define how to route incoming requests to your applications. To add App ID authentication to your apps, add the following annotations to the `metadata.annotations` section of your resource.
+Your Ingress resource is used to define how you want to expose your applications. The resource contains the rules that define how to route incoming requests to your applications. To add {{site.data.keyword.appid_short_notm}} authentication to your apps, add the following annotations to the `metadata.annotations` section of your resource.
 
 
-1. Add the following `auth-url` annotation. Change only the placeholder for your App ID service instance name. 
+1. Add the following `auth-url` annotation. Change only the placeholder for your {{site.data.keyword.appid_short_notm}} service instance name. 
 
   ```
   ...
@@ -234,7 +234,7 @@ Now that your Ingress resource is updated with the annotation, you can start enf
   ```
   {: codeblock}
 
-2. Reapply your Ingress resources to enforce App ID authentication. 
+2. Reapply your Ingress resources to enforce {{site.data.keyword.appid_short_notm}} authentication. 
 
   ```
   kubectl apply -f <app_ingress_resource>.yaml -n namespace
@@ -244,12 +244,12 @@ Now that your Ingress resource is updated with the annotation, you can start enf
   <p>After an Ingress resource with the appropriate annotations is reapplied, the ALB OAuth Proxy add-on: <ul><li>Deploys an OAuth2-Proxy</li><li>Creates a service for the deployment</li><li>Creates a separate Ingress resource to configure routing for the OAuth2-Proxy deployment messages.</li></ul> Do not delete these add-on resources.</p>
   {: note}
 
-3. Optional: You can customize the default behavior of the OAuth2-Proxy by creating a Kubernetes configmap. For more information about customization, see the [Kubernetes Service annotation docs](/docs/containers?topic=containers-comm-ingress-annotations#app-id).
+3. Optional: You can customize the default behavior of the OAuth2-Proxy by creating a Kubernetes configmap. For more information about customization, see the [{{site.data.keyword.containershort_notm}} annotation docs](/docs/containers?topic=containers-comm-ingress-annotations#app-id).
 
-4. Verify that App ID authentication is enforced for your apps.
+4. Verify that {{site.data.keyword.appid_short_notm}} authentication is enforced for your apps.
 
-  * If your app supports the web app strategy: Access your app's URL in a web browser. If App ID is correctly applied, you are redirected to an App ID authentication login page.
-  * If your app supports the API strategy: Specify your bearer access token in the Authorization header of requests to the apps. To get your access token, see [Obtaining tokens](/docs/appid?topic=appid-obtain-tokens). If App ID is correctly applied, the request is successfully authenticated and is routed to your app. If you send requests to your apps without an access token in the authorization header, or if the access token is not accepted by App ID, then the request is rejected.
+  * If your app supports the web app strategy: Access your app's URL in a web browser. If {{site.data.keyword.appid_short_notm}} is correctly applied, you are redirected to an {{site.data.keyword.appid_short_notm}} authentication login page.
+  * If your app supports the API strategy: Specify your bearer access token in the Authorization header of requests to the apps. To get your access token, see [Obtaining tokens](/docs/appid?topic=appid-obtain-tokens). If {{site.data.keyword.appid_short_notm}} is correctly applied, the request is successfully authenticated and is routed to your app. If you send requests to your apps without an access token in the authorization header, or if the access token is not accepted by {{site.data.keyword.appid_short_notm}}, then the request is rejected.
 
 
 
