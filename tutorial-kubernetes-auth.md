@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-01-31"
+lastupdated: "2021-02-01"
 
 keywords: ingress controller, ingress, istio, access, subdomain, custom domain, service, containerized apps, containers, kube, networking, policy, policies, secure apps, authentication, authorization
 
@@ -241,7 +241,7 @@ Now that your Ingress resource is updated with the annotation, you can start enf
   ```
   {: codeblock}
 
-  <p>After an Ingress resource with the appropriate annotations is reapplied, the ALB OAuth Proxy add-on: <ul><li>Deploys an OAuth2-Proxy</li><li>Creates a service for the deployment</li><li>Creates a separate Ingress resource to configure routing for the OAuth2-Proxy deployment messages.</li></ul> Do not delete these add-on resources.</p>
+  After an Ingress resource with the appropriate annotations is reapplied, the ALB OAuth Proxy add-on: (1) Deploys an OAuth2-Proxy. (2) Creates a service for the deployment. (3) Creates a separate Ingress resource to configure routing for the OAuth2-Proxy deployment messages. **Do not delete these add-on resources.**
   {: note}
 
 3. Optional: You can customize the default behavior of the OAuth2-Proxy by creating a Kubernetes configmap. For more information about customization, see the [{{site.data.keyword.containershort_notm}} annotation docs](/docs/containers?topic=containers-comm-ingress-annotations#app-id).
