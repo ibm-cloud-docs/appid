@@ -208,6 +208,7 @@ Your Ingress resource is used to define how you want to expose your applications
         end
       }
     ...
+    ```
     {: codeblock}
 
 3. Optional: If your app supports the web app strategy in addition to, or instead of, the API strategy, add the `nginx.ingress.kubernetes.io/auth-signin: https://$host/oauth2-<App_ID_service_instance_name>/start?rd=$escaped_request_uri` annotation. 
