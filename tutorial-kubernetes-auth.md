@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-01"
+lastupdated: "2021-02-04"
 
 keywords: ingress controller, ingress, istio, access, subdomain, custom domain, service, containerized apps, containers, kube, networking, policy, policies, secure apps, authentication, authorization
 
@@ -112,11 +112,7 @@ A redirect URL is the callback endpoint of your app; the location a user is sent
 
     If your app is registered with an IBM Ingress subdomain, your callback URL might look like: `https://mycluster.us-south.containers.appdomain.cloud/myapp1path/appid_callback`
 
-  * Log out:
-
-    If `/logout` exists in your path, cookies are removed and the user is sent back to the login page. To redirect users after they sign out, append `/sign_out` to your domain in the format `http://<hostname>/oauth2-<App_ID_service_instance_name>/sign_out` or `https://<hostname>/oauth2-<App_ID_service_instance_name>/sign_out`. Be sure that the log out code in your application is called as a reaction to the user clicking **Sign out** or **Log out** in your app.
-
-    
+ 
 
 ## Binding {{site.data.keyword.appid_short_notm}} to your cluster
 {: #kube-create-appid}
