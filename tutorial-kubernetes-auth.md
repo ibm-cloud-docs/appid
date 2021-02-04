@@ -110,7 +110,7 @@ A redirect URL is the callback endpoint of your app; the location a user is sent
 
   * Ingress subdomain:
 
-    If your app is registered with an IBM Ingress subdomain, your callback URL might look like: `https://mycluster.us-south.containers.appdomain.cloud/myapp1path`
+    If your app is registered with an IBM Kubernetes Ingress subdomain, your callback URL might look like: `https://mycluster.us-south.containers.appdomain.cloud/myapp1path`
 
  
 
