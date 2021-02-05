@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-04"
+lastupdated: "2021-02-05"
 
 keywords: ingress controller, ingress, istio, access, subdomain, custom domain, service, containerized apps, containers, kube, networking, policy, policies, secure apps, authentication, authorization
 
@@ -82,7 +82,6 @@ Before you can get started, ensure that you have the following prerequisites.
 * The following CLIs:
   * [{{site.data.keyword.cloud_notm}}](/docs/cli?topic=cli-getting-started)
   * [Kubernetes](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
-  * [Docker](https://www.docker.com/products/container-runtime#/download)
 * The {{site.data.keyword.containershort}} and {{site.data.keyword.registryshort_notm}} [CLI plug-ins](/docs/cli?topic=cli-install-devtools-manually#idt-install-kubernetes-cli-plugin)
 
 To ensure the best performance of the integration, it is recommended that you always use the latest version of IBM Cloud {{site.data.keyword.containershort_notm}} Application Load Balancer (ALB). By default, auto-update is enabled for your cluster. For more information about auto-updates, see [OnDemand ALB update feature on {{site.data.keyword.containershort}}](https://www.ibm.com/cloud/blog/on-demand-alb-update-feature-on-ibm-cloud-kubernetes-service).
@@ -102,15 +101,20 @@ A redirect URL is the callback endpoint of your app; the location a user is sent
   If no provider is selected, the user is not authenticated, but is still issued an access token for anonymous access to the app.
   {: note}
 
-4. In the **Authentication settings** tab, add your redirect URLs and click the `+` symbol to save your changes.
+4. In the **Authentication settings** tab, add your redirect URLs and click the `+` symbol to save your changes. Your redirect URL should be formatted similarly to the following example:
+
+  ```
+  https://<hostname>/oauth2-<App_ID_service_instance_name>/callback
+  ```
+  {: screen}
 
   * Custom domain:
 
-    A URL that is registered with a custom domain might look like: `http://mydomain.net/myapp2path`. If the apps that you want to expose are within the same cluster but in different namespaces, you can use a wildcard to specify all of them. This can be helpful during development, but it is recommended that you do not use wildcards in production without exercising caution. For example: `https://custom_domain.net/*`
+    A URL that is registered with a custom domain might look like: `http://mydomain.net/myapp2path/oauth2-myappid/callback`. If the apps that you want to expose are within the same cluster but in different namespaces, you can use a wildcard to specify all of them. This can be helpful during development, but it is recommended that you do not use wildcards in production without exercising caution. For example: `https://custom_domain.net/*/oauth2-myappid/callback`
 
   * Ingress subdomain:
 
-    If your app is registered with an IBM Kubernetes Ingress subdomain, your callback URL might look like: `https://mycluster.us-south.containers.appdomain.cloud/myapp1path`
+    If your app is registered with an IBM Kubernetes Ingress subdomain, your callback URL might look like: `https://mycluster.us-south.containers.appdomain.cloud/myapp1path/oauth2-myappid/callback`
 
  
 
@@ -160,12 +164,13 @@ By binding your instance of {{site.data.keyword.appid_short_notm}} to your clust
 Your Ingress resource is used to define how you want to expose your applications. The resource contains the rules that define how to route incoming requests to your applications. To add {{site.data.keyword.appid_short_notm}} authentication to your apps, add the following annotations to the `metadata.annotations` section of your resource.
 
 
-1. Add the following `auth-url` annotation. Change only the placeholder for your {{site.data.keyword.appid_short_notm}} service instance name. 
+1. Add the following `auth-url` annotation. Update the placeholder variable for your {{site.data.keyword.appid_short_notm}} service instance name and the namespace of your Ingress resource. 
 
   ```
   ...
   annotations:
-  nginx.ingress.kubernetes.io/auth-url: https://oauth2-<App_ID_service_instance_name>.<namespace of the Ingress resource>.svc.cluster.local/oauth2-<App_ID_service_instance_name>/auth
+  nginx.ingress.kubernetes.io/auth-url: https://oauth2-
+  <App_ID_service_instance_name>.<namespace of the Ingress resource>.svc.cluster.local/oauth2-<App_ID_service_instance_name>/auth
   ...
   ```
   {: codeblock}
