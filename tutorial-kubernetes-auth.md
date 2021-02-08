@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-05"
+lastupdated: "2021-02-08"
 
 keywords: ingress controller, ingress, istio, access, subdomain, custom domain, service, containerized apps, containers, kube, networking, policy, policies, secure apps, authentication, authorization
 
@@ -61,9 +61,6 @@ The {{site.data.keyword.containershort_notm}} custom Ingress image is [deprecate
 4. The user provides a username or email and password.
 5. The Ingress controller obtains access and identity tokens from {{site.data.keyword.appid_short_notm}} for authorization.
 6. Every request that is validated and forwarded by the Ingress controller to your apps has an authorization header that contains the tokens.
-
-The {{site.data.keyword.appid_short_notm}} Ingress annotation does not currently support refresh tokens. When access and identity tokens expire, user's must reauthenticate.
-{: note}
 
 
 ## Before you begin
