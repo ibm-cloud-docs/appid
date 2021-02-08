@@ -118,8 +118,6 @@ A redirect URL is the callback endpoint of your app; the location a user is sent
 
 By binding your instance of {{site.data.keyword.appid_short_notm}} to your cluster, you create the connection between the {{site.data.keyword.containershort_notm}} and {{site.data.keyword.appid_short_notm}} that allows the enforcement of authentication for all of the apps that run in your cluster at the same time.
 
-
-
 1. Log in to the {{site.data.keyword.cloud_notm}} CLI. Follow the prompts in the CLI to complete logging in. If you're using a federated ID, be sure to append the `--sso` flag to the end of the command.
 
   ```
