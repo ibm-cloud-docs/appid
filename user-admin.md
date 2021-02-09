@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-09-21"
+  years: 2017, 2021
+lastupdated: "2021-02-09"
 
 keywords: user information, add users, delete users, profile, access, attributes, admin, app security, authentication, authorization
 
@@ -40,8 +40,9 @@ subcollection: appid
 {:video: .video}
 {:step: data-tutorial-type='step'}
 {:tutorial: data-hd-content-type='tutorial'}
-
-
+{:ui: .ph data-hd-interface='ui'}
+{:cli: .ph data-hd-interface='cli'}
+{:api: .ph data-hd-interface='api'}
 
 
 # Managing profiles
@@ -54,17 +55,11 @@ Looking for information about your Cloud Directory users? Check out [managing us
 {: tip}
 
 
-## Viewing user profiles
-{: #profile-view}
-
-You can see all of the information that is known about all of your users as a JSON object by using the APIs or by using the dashboard. 
-{: shortdesc}
-
-
-### With the GUI
+## Viewing user profiles with the UI
 {: #profile-gui}
+{: ui}
 
-You can use the {{site.data.keyword.appid_short_notm}} dashboard to view details about your app users. 
+To see the data that is available for your app users, you can use the {{site.data.keyword.appid_short_notm}} UI.
 
 1. Navigate to the **User Profiles > Profiles** tab of your {{site.data.keyword.appid_short_notm}} instance.
 
@@ -108,10 +103,11 @@ You can use the {{site.data.keyword.appid_short_notm}} dashboard to view details
     </tr>
   </table>
 
-</br>
 
-### With the API
+
+## Viewing user profiles with the API
 {: #profile-api}
+{: api}
 
 You can use the {{site.data.keyword.appid_short_notm}} API to view details about your app users. 
 
@@ -119,7 +115,7 @@ You can use the {{site.data.keyword.appid_short_notm}} API to view details about
 
 2. Search your {{site.data.keyword.appid_short_notm}} users with an identifying query, such as an email address, to find the user ID.
 
-  ```
+  ```sh
   curl -X GET "https://<region>.appid.cloud.ibm.com/management/v4/<tenant-ID>/Users?query=<identifying-search-query>" \
   -H "accept: application/json" \
   -H "authorization: Bearer <token>"
@@ -128,14 +124,14 @@ You can use the {{site.data.keyword.appid_short_notm}} API to view details about
 
   Example:
 
-  ```
+  ```sh
   curl -X GET https://us-south.appid.cloud.ibm.com/management/v4/e19a2778-3262-4986-8875-8khjafsdkhjsdafkjh/cloud_directory/Users?query=example@domain.com -H "accept: application/json" -H "authorization: Bearer eyJraWQiOiIyMDE3MTEyOSIsImFsZ...."
   ```
   {: screen}
 
 3. By using the ID that you obtained in the previous step, make a GET request to the `/users` endpoint to see their full user profile.
 
-    ```
+    ```sh
     curl -X GET "https://<region>.appid.cloud.ibm.com/management/v4/<tenant-ID>/users/<user-id>/profile" \
     -H "accept: application/json" \
     -H "authorization: Bearer <token>"
@@ -144,7 +140,7 @@ You can use the {{site.data.keyword.appid_short_notm}} API to view details about
 
     Example response:
 
-    ```
+    ```json
     {
         "id": "a0791903-ed4c-41cf-bd0e-a37957dad820",
         "name": "David Test-user",
@@ -161,7 +157,7 @@ You can use the {{site.data.keyword.appid_short_notm}} API to view details about
                 "data": {
                     "height": 50,
                     "is_silhouette": false,
-                    "url": "https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=11122233344455566&height=50&width=50&ext=1569429199&hash=AaAaAAAAAaAAAaaA"",
+                    "url": "https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=11122233344455566&height=50&width=50&ext=1569429199&hash=AaAaAAAAAaAAAaaA",
                     "width": 50
                 }
                 },
@@ -184,19 +180,15 @@ You can use the {{site.data.keyword.appid_short_notm}} API to view details about
 
 
 
-## Setting custom attributes
-{: #admin-set-custom}
 
-You can add information about your users to their profile such as a role or preference, by setting a custom attribute.
-{: shortdesc}
+## Setting custom attributes with the UI
+{: #admin-attribute-gui}
+{: ui}
+
+You can add custom information about your users to their profile such a role that they hold or preference that they have by setting a custom attribute. To set an attribute, you can use the {{site.data.keyword.appid_short_notm}} UI.
 
 By default, custom attributes are modifiable and can be updated by using an {{site.data.keyword.appid_short_notm}} access token from a client application. This means that without taking proper precautions either the user or the application can update custom attributes immediately following the first user sign-in, if they have an access token. This can potentially lead to unintended consequences. For example, a user might change their role from user to admin, which might expose administrative privileges to malicious users.
 {: important}
-
-### With the GUI
-{: #admin-attribute-gui}
-
-You can set and update custom attributes for your users in the {{site.data.keyword.appid_short_notm}} dashboard.
 
 1. Go to the **User profiles > Settings** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
 
@@ -209,10 +201,15 @@ You can set and update custom attributes for your users in the {{site.data.keywo
 5. Enter the attributes that you want to add as a JSON object. For example: `{"role":"admin"}`.
 
 
-### With the API
+## Setting custom attributes with the API
 {: #admin-attribute-api}
+{: api}
 
-If you're an administrator, you can use the `/users` endpoint. To set custom attributes before a user signs in to your application for the first time, see [preregistering future users](/docs/appid?topic=appid-preregister).
+As an administrator, you can add custom information about your users to their profile such a role that they hold or preference that they have by setting a custom attribute. To set an attribute, you can use the {{site.data.keyword.appid_short_notm}} API to call the `/users` endpoint. To set custom attributes before a user signs in to your application for the first time, see [preregistering future users](/docs/appid?topic=appid-preregister).
+
+By default, custom attributes are modifiable and can be updated by using an {{site.data.keyword.appid_short_notm}} access token from a client application. This means that without taking proper precautions either the user or the application can update custom attributes immediately following the first user sign-in, if they have an access token. This can potentially lead to unintended consequences. For example, a user might change their role from user to admin, which might expose administrative privileges to malicious users.
+{: important}
+
 
 1. Go to the **User profiles > Settings** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
 
@@ -227,7 +224,7 @@ If you're an administrator, you can use the `/users` endpoint. To set custom att
   5. Click **Copy** or **Download** your key. When you close the screen, you can no longer access the key.
   6. Make the following cURL request with the API key that you created.
 
-    ```
+    ```sh
     curl -k -X POST \
     --header "Content-Type: application/x-www-form-urlencoded" \
     --header "Accept: application/json" \
@@ -239,7 +236,7 @@ If you're an administrator, you can use the `/users` endpoint. To set custom att
 
 4. Make a PUT request to either the `/users` endpoint.
 
-    ```
+    ```sh
     curl -X GET "https://<region>.appid.cloud.ibm.com/management/v4/<tenant-ID>/users/<user-id>/profile" \
       -H "accept: application/json" \
       -H "Content-Type: application/json" \
@@ -250,14 +247,13 @@ If you're an administrator, you can use the `/users` endpoint. To set custom att
 
 
 
-## Deleting a profile
-{: #profile-delete}
-
-To completely delete a profile and remove someone as a user of your application, you must be an administrator.
 
 
-### With the GUI
+## Deleting a profile with the UI
 {: #profile-delete-gui}
+{: ui}
+
+As an administrator, you can remove someone as a user of your application by deleting their profile.
 
 1. Navigate to the **User Profiles > Profiles** tab of your {{site.data.keyword.appid_short_notm}} instance.
 
@@ -267,14 +263,17 @@ To completely delete a profile and remove someone as a user of your application,
 
 4. Verify that you're deleting the correct user by checking their email against the one displayed. If it is the correct user, click **Delete**. This action cannot be undone. The user can be readded but their profile shows that they are a new user as of the date that they're readded.
 
-### With the API
+## Deleting a profile with the API
 {: #profile-delete-api}
+{: api}
+
+As an administrator, you can remove someone as a user of your application by deleting their profile.
 
 1. Obtain your tenant ID from your instance of the service. You can find the ID in your service or application credentials. 
 
 2. Search your {{site.data.keyword.appid_short_notm}} users with an identifying query, such as an email address, to find the user ID.
 
-  ```
+  ```sh
   curl -X GET "https://<region>.appid.cloud.ibm.com/management/v4/<tenant-ID>/Users?query=<identifying-search-query>" \
   -H "accept: application/json" \
   -H "authorization: Bearer <token>"
@@ -283,14 +282,14 @@ To completely delete a profile and remove someone as a user of your application,
 
   Example:
 
-  ```
+  ```sh
   curl -X GET https://us-south.appid.cloud.ibm.com/management/v4/e19a2778-3262-4986-8875-8khjafsdkhjsdafkjh/cloud_directory/Users?query=example@domain.com -H "accept: application/json" -H "authorization: Bearer eyJraWQiOiIyMDE3MTEyOSIsImFsZ...."
   ```
   {: screen}
 
 3. By using the ID that you obtained in the previous step, make a `DELETE` request to the `/users` endpoint to see their full user profile.
 
-    ```
+    ```sh
     curl -X DELETE "https://<region>.appid.cloud.ibm.com/management/v4/<tenant-ID>/users/<user-id>/profile" \
     -H "accept: application/json" \
     -H "authorization: Bearer <token>"

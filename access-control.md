@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-11-04"
+  years: 2017, 2021
+lastupdated: "2021-02-09"
 
 keywords: user access, control access, permissions, roles, scopes, runtime, access token, authentication, identity, app security
 
@@ -40,7 +40,9 @@ subcollection: appid
 {:video: .video}
 {:step: data-tutorial-type='step'}
 {:tutorial: data-hd-content-type='tutorial'}
-
+{:ui: .ph data-hd-interface='ui'}
+{:cli: .ph data-hd-interface='cli'}
+{:api: .ph data-hd-interface='api'}
 
 
 # Controlling access
@@ -69,8 +71,10 @@ For more information about applications, see [Application identity and authoriza
 * Be aware of the [limits](/docs/appid?topic=appid-limits) that are in place. 
 
 
-## Creating scopes
-{: #create-scopes}
+
+## Creating scopes in the UI
+{: #create-scopes-gui}
+{: ui}
 
 A scope is a runtime action in your application that can be taken by users who are granted the required permissions to complete them. Scopes are created when you register your application with {{site.data.keyword.appid_short_notm}}. If your app is already registered, you can edit it to include scopes. 
 
@@ -82,10 +86,7 @@ The values of scope names must meet the following requirements:
 * Not contain special characters other than periods (`.`) or underscores (`_`)
 * Be fewer than 50 characters.
 
-### Creating scopes in the UI
-{: #create-scopes-gui}
-
-You can use the {{site.data.keyword.appid_short_notm}} service dashboard to create scopes. 
+To create a scope, you can use the {{site.data.keyword.appid_short_notm}} UI.
 
 1. Go to **Applications** in the {{site.data.keyword.appid_short_notm}} dashboard.
 2. Click **Add application** to open the configuration screen. If you already have credentials that you want to use, click **Edit** from the Actions menu in the row that you want to update.
@@ -94,10 +95,21 @@ You can use the {{site.data.keyword.appid_short_notm}} service dashboard to crea
 5. Repeat the previous step until you add all of your scopes to the app.
 6. Click **Save**.
 
-### Creating scopes by using the API
+## Creating scopes by using the API
 {: #create-scopes-api}
+{: api}
 
-You can use the {{site.data.keyword.appid_short_notm}} APIs to create scopes.
+A scope is a runtime action in your application that can be taken by users who are granted the required permissions to complete them. Scopes are created when you register your application with {{site.data.keyword.appid_short_notm}}. If your app is already registered, you can edit it to include scopes. 
+
+The values of scope names must meet the following requirements:
+
+* Be alphanumeric
+* Be lowercase
+* Not start with `appid` or `openid`
+* Not contain special characters other than periods (`.`) or underscores (`_`)
+* Be fewer than 50 characters.
+
+To create a scope, you can use the {{site.data.keyword.appid_short_notm}} UI.
 
 1. Create the scopes by making the following request to the `/scopes` endpoint.
 
@@ -146,15 +158,12 @@ You can use the {{site.data.keyword.appid_short_notm}} APIs to create scopes.
   {: codeblock}
 
 
-## Creating roles
-{: #create-roles}
-
-A role is a group of scopes that apply to the same type of user. For example, if you create an admin role, the scopes section might allow for that role to perform read, write, or create actions. But, if you were to create another role called `viewer`, those assigned that role would have read only access.
-
-### Creating roles in the UI
+## Creating roles in the UI
 {: #create-roles-gui}
+{: ui}
 
-You can use the {{site.data.keyword.appid_short_notm}} service dashboard to create roles.
+A role is a group of scopes that apply to the same type of user. For example, if you create an admin role, the scopes section might allow for that role to perform read, write, or create actions. But, if you were to create another role called `viewer`, those assigned that role would have read only access. To create a role, you can use the {{site.data.keyword.appid_short_notm}} UI.
+
 
 1. Go to **Profiles and roles > Roles** in the {{site.data.keyword.appid_short_notm}} dashboard. 
 2. Click **Create role** to open the configuration screen.
@@ -173,12 +182,13 @@ You can use the {{site.data.keyword.appid_short_notm}} service dashboard to crea
 6. Click **Save**.
 
 
-### Creating roles by using the API
+## Creating roles by using the API
 {: #create-roles-api}
+{: api}
 
-You can use the {{site.data.keyword.appid_short_notm}} APIs to create roles.
+A role is a group of scopes that apply to the same type of user. For example, if you create an admin role, the scopes section might allow for that role to perform read, write, or create actions. But, if you were to create another role called `viewer`, those assigned that role would have read only access. To create a role, you can use the {{site.data.keyword.appid_short_notm}} APIs.
 
-1. Make a request to the /roles endpoint to create the role.
+1. Make a request to the `/roles` endpoint to create the role.
 
   ```sh
   curl -X POST "https://<region>.appid.cloud.ibm.com/management/v4/<tenant_ID>/roles" -H "accept: application/json" -H "Content-Type: application/json" -d { \"name\": \"<role_name>\", \"description\": \"<role_description>\", \"access\": [ { \"application_id\": \"<application_ID>\", \"scopes\": [ \"<scopes>" ] } ]}"
@@ -276,14 +286,12 @@ You can use the {{site.data.keyword.appid_short_notm}} APIs to create roles.
   {: screen}
 
 
-## Assigning roles to a user
-{: #assign-roles}
+
+## Assigning roles in the UI
+{: #assign-roles-gui}
+{: ui}
 
 After you create roles, you can assign them to your user's profile. You can also assign roles when you create a future user.
-
-
-### Assigning roles in the UI
-{: #assign-roles-gui}
 
 1. Go to **Profiles and roles > User profiles** in your {{site.data.keyword.appid_short_notm}} dashboard.
 2. From the Actions menu in the row of the specific user you're assigning a role to, click **Assign role**.
@@ -293,10 +301,13 @@ After you create roles, you can assign them to your user's profile. You can also
 
 
 
-### Assigning roles by using the API
+## Assigning roles by using the API
 {: #assign-roles-api}
+{: api}
 
-You can assign a role to a user with the API.
+After you create roles, you can assign them to your user's profile. You can also assign roles when you create a future user.
+
+
 
 1. Get your user ID by searching your {{site.data.keyword.appid_short_notm}} users with an identifying query, such as an email address.
 
@@ -449,17 +460,15 @@ app.get("/api/protected",
 
 You can delete any scope or role that's no longer needed. 
 
-### Deleting scopes
-{: #delete-scope}
 
-If you no longer need a scope, you can delete it.
+### Deleting scopes with the UI
+{: #delete-scope-gui}
+{: ui}
+
+If you no longer need a scope, you can delete it by using the {{site.data.keyword.appid_short_notm}} UI.
 
 When you delete a scope, it is removed from all of the roles that it is associated with.
 {: important}
-
-
-#### Deleting scopes in the UI
-{: #delete-scope-gui}
 
 You can use the {{site.data.keyword.appid_short_notm}} service dashboard to delete scopes. 
 
@@ -470,10 +479,15 @@ You can use the {{site.data.keyword.appid_short_notm}} service dashboard to dele
 
 
 
-#### Deleting scopes by using the API
+### Deleting scopes with the API
 {: #delete-scope-api}
+{: api}
 
-You can delete a scope by removing it from your JSON object and making a new PUT request to the `/scopes` endpoint.
+If you no longer need a scope, you can delete it by using the {{site.data.keyword.appid_short_notm}} API. To delete a scope, remove it from your JSON object and make a new PUT request to the `/scopes` endpoint.
+
+When you delete a scope, it is removed from all of the roles that it is associated with.
+{: important}
+
 
 1. Change or delete a scope by the following request to the `/scopes` endpoint. Be sure to update your scopes JSON object to contain only the scopes that you want to allow.
 
@@ -484,28 +498,29 @@ You can delete a scope by removing it from your JSON object and making a new PUT
 
 
 
-### Deleting roles
-{: #deleting-roles}
-
-If you no longer have a need for a specific role, you can delete it. 
-
-Be aware that deleting a role removes access from all of the users and applications that are currently using the role.
-{: note}
-
-#### Deleting roles in the UI
+### Deleting roles in the UI
 {: #delete-role-gui}
+{: ui}
 
-You can delete roles by using the App ID dashboard.
+If you no longer have a need for a specific role, you can delete it by using the {{site.data.keyword.appid_short_notm}} UI. 
+
+Deleting a role removes access from all of the users and applications that are currently using the role.
+{: note}
 
 1. Go to **Profiles and roles > Roles** in the service dashboard.
 2. In the row for the role that you want to delete, select **Delete** from the Actions menu.
 3. Confirm you understand that deleting the role affects all users and applications that are currently using the role.
 4. Click **Delete**.
 
-#### Deleting roles by using the API
-{: #delete-role-API}
+### Deleting roles with the API
+{: #delete-role-api}
+{: api}
 
-You can delete roles by using the APIs.
+
+If you no longer have a need for a specific role, you can delete it by using the {{site.data.keyword.appid_short_notm}} APIs. 
+
+Deleting a role removes access from all of the users and applications that are currently using the role.
+{: note}
 
 1. Get the role ID or role name. If you already know your role ID or name, skip to the next step.
 

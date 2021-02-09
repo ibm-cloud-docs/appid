@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-09-21"
+  years: 2017, 2021
+lastupdated: "2021-02-09"
 
 keywords: cloud foundry, iam, java nodejs, identity, access management, user access, service access, permissions, bind service
 
@@ -45,8 +45,9 @@ completion-time: 10m
 {:video: .video}
 {:step: data-tutorial-type='step'}
 {:tutorial: data-hd-content-type='tutorial'}
-
-
+{:ui: .ph data-hd-interface='ui'}
+{:cli: .ph data-hd-interface='cli'}
+{:api: .ph data-hd-interface='api'}
 
 # Configuring Cloud Foundry to use {{site.data.keyword.appid_short_notm}}
 {: #cloud-foundry}
