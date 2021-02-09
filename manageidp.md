@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-09-21"
+  years: 2017, 2021
+lastupdated: "2021-02-09"
 
 keywords: identity provider, idp, app security, mobile app, web app, authentication, authorization, oidc, saml, protocols, facebook, google, w3id, cloud directory, redirect url, redirect uri, token configuration, token lifetime, log in configuration
 
@@ -40,7 +40,6 @@ subcollection: appid
 {:video: .video}
 {:step: data-tutorial-type='step'}
 {:tutorial: data-hd-content-type='tutorial'}
-
 
 
 # Managing authentication
@@ -137,12 +136,8 @@ Your application redirects users to {{site.data.keyword.appid_short_notm}} for a
       <td>`https://mycluster.us-south.containers.appdomain.cloud/myapp1path/appid_callback`</td>
     </tr>
     <tr>
-      <td>Logout</td>
-      <td>`https://mydomain.net/myapp2path/appid_logout`</td>
-    </tr>
-    <tr>
       <td>Wildcard</td>
-      <td>`https://mydomain.net/*`<br>Wildcards are not recommended for use in production apps.</td>
+      <td>`https://mydomain.net/*`<br>*<i>Note: Wildcards are not recommended for use in production apps.</i></td>
     </tr>  
   </table>
 

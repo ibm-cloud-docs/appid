@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-09-21"
+  years: 2017, 2021
+lastupdated: "2021-02-09"
 
 keywords: web apps, nodejs, node, javascript, protected resource, authorization flow, front end, frontend, app security, authentication
 
@@ -46,7 +46,6 @@ completion-time: 20m
 {:tutorial: data-hd-content-type='tutorial'}
 
 
-
 # Quick start: Node.js web apps
 {: #web-node}
 {: toc-content-type="tutorial"}
@@ -87,7 +86,6 @@ Before you get started with {{site.data.keyword.appid_short_notm}} in your Node.
 {: shortdesc}
 
 * An instance of [the {{site.data.keyword.appid_short_notm}} service](https://cloud.ibm.com/catalog/services/app-id){: external}
-* [The IBM Cloud CLI](/docs/cli?topic=cli-getting-started)
 * [NPM version 4+](https://www.npmjs.com/get-npm){: external}
 * [Node version 6+](https://nodejs.org/en/download/){: external}
 
@@ -100,7 +98,6 @@ This SDK uses the `log4js` package for logging. By default, the logging level is
 {: step}
 
 A redirect URI is the callback endpoint of your app. During the sign in flow, {{site.data.keyword.appid_short_notm}} validates the URIs before allowing clients to participate in the authorization workflow which helps to prevent phishing attacks and grant code leakage. By registering your URI, you're telling {{site.data.keyword.appid_short_notm}} that the URI is trusted and it's OK to redirect your users.
-{: shortdesc}
 
 1. Click **Manage Authentications > Authentication Settings**.
 
@@ -117,7 +114,6 @@ A redirect URI is the callback endpoint of your app. During the sign in flow, {{
 {: step}
 
 You can obtain your credentials in one of two ways.
-{: shortdesc}
 
   * By navigating to the **Applications** tab of the {{site.data.keyword.appid_short_notm}} dashboard. If you don't already have one, you can click **Add application** to create a new one.
 
@@ -153,7 +149,7 @@ You can obtain your credentials in one of two ways.
 {: step}
 
 The easiest way to work with {{site.data.keyword.appid_short_notm}} is to take advantage of the Node.JS SDK.
-{: shortdesc}
+
 
 
 1. By using the command line, change into the directory that contains your Node.js application.
@@ -216,7 +212,7 @@ The easiest way to work with {{site.data.keyword.appid_short_notm}} is to take a
 {: step}
 
 Now that you have {{site.data.keyword.appid_short_notm}} installed, you're ready to protect your application. You can choose to protect your entire application or only specific resources by defining a web app strategy.
-{: shortdesc}
+
 
 
 1. Configure the callback endpoint. The callback finishes the authorization process by retrieving access and identity tokens from App ID and redirecting the user to one of the following locations:<ul><li>The original URL of the request that triggered the authentication, as persisted in the HTTP session as `WebAppStrategy.ORIGINAL_URL`.</li><li>Specifying a redirect in the event of a successful authentication.</li><li>The application root (`/`) as shown in the next step.</li></ul>
@@ -236,15 +232,6 @@ Now that you have {{site.data.keyword.appid_short_notm}} installed, you're ready
     ```
     {: codeblock}
 
-3. Configure sign out. When a user signs out of your application, all of their authentication information is cleared from that session. In order to interact with your application they will need to sign in again.
-
-    ```javascript
-    app.get('/appid/logout', function(req, res){
-        webappstrategy.logout(req);
-        res.redirect('/');
-    });
-    ```
-    {: shortdesc}
 
 ## Personalize your app
 {: #node-web-user-info}

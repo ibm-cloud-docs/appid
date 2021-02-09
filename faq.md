@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-11-06"
+  years: 2017, 2021
+lastupdated: "2021-02-09"
 
 keywords: pricing, advanced security, authentication events, authorized users, activity tracking, runtime activity, password policies, keycloak, allow list redirect url, redirect uri 
 
@@ -212,4 +212,39 @@ Keycloak is packaged as software, which means that you, as the developer, are re
 {: support}
 
 While you technically _can_ use the same credentials in more than one application, it is highly recommended that you do not for several reasons. Foremost, because when you're sharing your ID across applications any type of attack or compromise then affects your entire ecosystem rather than one application. For example, if you're using your ID across three applications and one of them becomes compromised - all three are then compromised because an attacker is able to impersonate any of your apps. Second, because when you're using the same client ID in multiple apps, there is no way to differentiate between applications. For example, you're unable to tell which app was used to generate a token.
+
+
+## Can App ID help configure log out?
+{: #faq-logout}
+
+
+Depending on how you configure your application, {{site.data.keyword.appid_short_notm}} can help to facilitate a log out functionality for your users. Check out the following table to see where built in functionality for log out is available.
+
+| Use-case | Description |
+|---------|-------------|
+| {{site.data.keyword.appid_short_notm}} SDKs | The {{site.data.keyword.appid_short_notm}} SDKs have a built in log out functionality.  |
+| Cloud Directory SSO[^sso] | {{site.data.keyword.appid_short_notm}} provides built in log out functionality for the Cloud Directory SSO feature. |
+| Ingress | Ingress provides a built in log out functionality. |
+| Istio | The Istio adapter is configured to provide log out functionality through OIDC. | 
+| IBMid | IBMid SSO provides built in log out functionality. |
+| w3id | w3id SSO provides built in log out functionality. |
+{: caption="Table 3. Log out functionality use-cases." caption-side="top"}
+
+[^sso]: All redirect URLs that are used with the Cloud Directory SSO feature must be added to the log out URL allowlist in the {{site.data.keyword.appid_short_notm}} UI.
+
+### Configuring log out
+{: #faq-logout-how}
+
+To configure log out, you must configure your application to send a log out request to your identity provider and then redirect the user to an area of your application that does not require authentication. The following example codesnippet is configured to use the Ingress annotation with IBMid as an identity provider. If you use another solution - you can use the snippet as a guide and update it to be more specific to your needs. 
+
+```html
+<script>var ticker = setInterval(tick, 1000); var counter = 5; function tick() { var timerDiv = document.getElementById("timer"); 
+if (counter > 0) { timerDiv.innerText = "Logged out. Redirecting back in " + (counter--) + " seconds."; } else { 
+document.location = "./appid_logout"; } } </script>
+<iframe height="0" width="0" src="https://idaas.iam.ibm.com/pkmslogout"></iframe> 
+<iframe height="0" width="0" src="https://www-304.ibm.com/pkmslogout?_logrand=0.5632884121202146"></iframe> 
+<iframe height="0" width="0" src="https://www-947.ibm.com/pkmslogout?_logrand=0.5623708715014116"></iframe> 
+<iframe height="0" width="0" src="https://prepiam.toronto.ca.ibm.com/pkmslogout"></iframe>
+```
+{: screen}
 
