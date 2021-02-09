@@ -544,3 +544,5 @@ Deleting a role removes access from all of the users and applications that are c
 By default, roles are not returned in a users token. It is recommended that your runtime decisions are configured based on scopes. But, if you would like to use roles, you can map them to your tokens by using [custom claims mapping](/docs/appid?topic=appid-customizing-tokens).
 
 
+When you authenticate, be sure that you use `username : client ID` and `password : secret` for the application and user that you configured controls for. 
+
