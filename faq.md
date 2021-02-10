@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-09"
+lastupdated: "2021-02-10"
 
 keywords: pricing, advanced security, authentication events, authorized users, activity tracking, runtime activity, password policies, keycloak, allow list redirect url, redirect uri 
 
@@ -219,25 +219,25 @@ While you technically _can_ use the same credentials in more than one applicatio
 ## Can App ID help configure log out?
 {: #faq-logout}
 
+Depending on how you configure your application, {{site.data.keyword.appid_short_notm}} can help to facilitate a log out functionality for your users. Check out the following table to see where functionality for log out is available.
 
-Depending on how you configure your application, {{site.data.keyword.appid_short_notm}} can help to facilitate a log out functionality for your users. Check out the following table to see where built in functionality for log out is available.
-
-| Use-case | Description |
+|  | Description |
 |---------|-------------|
 | {{site.data.keyword.appid_short_notm}} SDKs | The {{site.data.keyword.appid_short_notm}} SDKs have a built in log out functionality.  |
 | Cloud Directory SSO[^sso] | {{site.data.keyword.appid_short_notm}} provides built in log out functionality for the Cloud Directory SSO feature. |
 | Ingress | Ingress provides a built in log out functionality. |
-| Istio | The Istio adapter is configured to provide log out functionality through OIDC. | 
-| IBMid | IBMid SSO provides built in log out functionality. |
-| w3id | w3id SSO provides built in log out functionality. |
-{: caption="Table 3. Log out functionality use-cases." caption-side="top"}
+| Istio | The Istio adapter is configured to provide log out functionality through OIDC. |
+{: caption="Table 3. Log out functionality options" caption-side="top"}
+{: row-headers}
 
 [^sso]: All redirect URLs that are used with the Cloud Directory SSO feature must be added to the log out URL allowlist in the {{site.data.keyword.appid_short_notm}} UI.
 
 ### Configuring log out
 {: #faq-logout-how}
 
-To configure log out, you must configure your application to send a log out request to your identity provider and then redirect the user to an area of your application that does not require authentication. The following example codesnippet is configured to use the Ingress annotation with IBMid as an identity provider. If you use another solution - you can use the snippet as a guide and update it to be more specific to your needs. 
+To configure log out, you must configure your application to send a log out request to your identity provider and then redirect the user to an area of your application that does not require authentication. In most use-cases, there is an application server session - that might be set by the {{site.data.keyword.appid_short_notm}} SDKs, Ingress, or Istio that works in partnership with a federated identity provider such as SAML or Cloud Directory to enable authentication and authorization. 
+
+In the following HTML example, the {{site.data.keyword.appid_short_notm}} SDK is used to configure log out. But, if you are working with another option, you can use this snippet as a guide and update it to fit your needs.
 
 ```html
 <script>var ticker = setInterval(tick, 1000); var counter = 5; function tick() { var timerDiv = document.getElementById("timer"); 
