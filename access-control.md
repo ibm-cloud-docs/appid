@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-09"
+lastupdated: "2021-02-10"
 
 keywords: user access, control access, permissions, roles, scopes, runtime, access token, authentication, identity, app security
 
@@ -158,7 +158,7 @@ To create a scope, you can use the {{site.data.keyword.appid_short_notm}} UI.
   {: codeblock}
 
 
-## Creating roles in the UI
+## Creating roles
 {: #create-roles-gui}
 {: ui}
 
@@ -182,7 +182,7 @@ A role is a group of scopes that apply to the same type of user. For example, if
 6. Click **Save**.
 
 
-## Creating roles by using the API
+## Creating roles
 {: #create-roles-api}
 {: api}
 
@@ -287,7 +287,7 @@ A role is a group of scopes that apply to the same type of user. For example, if
 
 
 
-## Assigning roles in the UI
+## Assigning roles to users
 {: #assign-roles-gui}
 {: ui}
 
@@ -301,12 +301,11 @@ After you create roles, you can assign them to your user's profile. You can also
 
 
 
-## Assigning roles by using the API
+## Assigning roles to users
 {: #assign-roles-api}
 {: api}
 
 After you create roles, you can assign them to your user's profile. You can also assign roles when you create a future user.
-
 
 
 1. Get your user ID by searching your {{site.data.keyword.appid_short_notm}} users with an identifying query, such as an email address.
@@ -344,20 +343,22 @@ After you create roles, you can assign them to your user's profile. You can also
 To remove a role from a user, make the PUT request again, but remove the role ID.
 {: tip}
 
+## Adding user roles to tokens
+{: #role-tokens}
+
+By default, roles are not returned in a users token. It is recommended that your runtime decisions are configured based on scopes. But, if you would like to use roles, you can map them to your tokens by using [custom claims mapping](/docs/appid?topic=appid-customizing-tokens).
+
+
+When you authenticate, be sure that you use `username : client ID` and `password : secret` for the application and user that you configured controls for. 
+
 
 ## Assigning roles to an application
 {: #assign-roles-app}
 
-After you create roles, you can assign them to your applications.
+After you create roles, you can assign them to your applications by using the {{site.data.keyword.appid_short_notm}} APIs.
 
 Application roles are only valid in the client credentials flow.
 {: note}
-
-
-### Assigning roles by using the API
-{: #assign-roles-app-api}
-
-You can assign a role to an application by using the API.
 
 1. Get your application client ID by querying the list of applications. You can also get this value from the **Applications** tab of the {{site.data.keyword.appid_short_notm}} UI.
 
@@ -393,6 +394,9 @@ You can assign a role to an application by using the API.
 
 To remove a role from a user, make the PUT request again, but remove the role ID.
 {: tip}
+
+
+
 
 
 ## Controlling access at runtime
@@ -461,7 +465,7 @@ app.get("/api/protected",
 You can delete any scope or role that's no longer needed. 
 
 
-### Deleting scopes with the UI
+### Deleting scopes
 {: #delete-scope-gui}
 {: ui}
 
@@ -479,7 +483,7 @@ You can use the {{site.data.keyword.appid_short_notm}} service dashboard to dele
 
 
 
-### Deleting scopes with the API
+### Deleting scopes
 {: #delete-scope-api}
 {: api}
 
@@ -498,7 +502,7 @@ When you delete a scope, it is removed from all of the roles that it is associat
 
 
 
-### Deleting roles in the UI
+### Deleting roles
 {: #delete-role-gui}
 {: ui}
 
@@ -512,7 +516,7 @@ Deleting a role removes access from all of the users and applications that are c
 3. Confirm you understand that deleting the role affects all users and applications that are currently using the role.
 4. Click **Delete**.
 
-### Deleting roles with the API
+### Deleting roles
 {: #delete-role-api}
 {: api}
 
@@ -538,11 +542,4 @@ Deleting a role removes access from all of the users and applications that are c
 
 
 
-## Adding user roles to tokens
-{: #role-tokens}
-
-By default, roles are not returned in a users token. It is recommended that your runtime decisions are configured based on scopes. But, if you would like to use roles, you can map them to your tokens by using [custom claims mapping](/docs/appid?topic=appid-customizing-tokens).
-
-
-When you authenticate, be sure that you use `username : client ID` and `password : secret` for the application and user that you configured controls for. 
 
