@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-10"
+lastupdated: "2021-02-11"
 
 keywords: user access, control access, permissions, roles, scopes, runtime, access token, authentication, identity, app security
 
@@ -72,7 +72,7 @@ For more information about applications, see [Application identity and authoriza
 
 
 
-## Creating scopes in the UI
+## Creating scopes with the UI
 {: #create-scopes-gui}
 {: ui}
 
@@ -95,7 +95,7 @@ To create a scope, you can use the {{site.data.keyword.appid_short_notm}} UI.
 5. Repeat the previous step until you add all of your scopes to the app.
 6. Click **Save**.
 
-## Creating scopes by using the API
+## Creating scopes with the API
 {: #create-scopes-api}
 {: api}
 
@@ -158,7 +158,7 @@ To create a scope, you can use the {{site.data.keyword.appid_short_notm}} UI.
   {: codeblock}
 
 
-## Creating roles
+## Creating roles with the UI
 {: #create-roles-gui}
 {: ui}
 
@@ -182,7 +182,7 @@ A role is a group of scopes that apply to the same type of user. For example, if
 6. Click **Save**.
 
 
-## Creating roles
+## Creating roles with the API
 {: #create-roles-api}
 {: api}
 
@@ -287,7 +287,7 @@ A role is a group of scopes that apply to the same type of user. For example, if
 
 
 
-## Assigning roles to users
+## Assigning roles to users with the UI
 {: #assign-roles-gui}
 {: ui}
 
@@ -301,7 +301,7 @@ After you create roles, you can assign them to your user's profile. You can also
 
 
 
-## Assigning roles to users
+## Assigning roles to users with the API
 {: #assign-roles-api}
 {: api}
 
@@ -465,7 +465,7 @@ app.get("/api/protected",
 You can delete any scope or role that's no longer needed. 
 
 
-### Deleting scopes
+### Deleting scopes with the UI
 {: #delete-scope-gui}
 {: ui}
 
@@ -483,7 +483,7 @@ You can use the {{site.data.keyword.appid_short_notm}} service dashboard to dele
 
 
 
-### Deleting scopes
+### Deleting scopes with the API
 {: #delete-scope-api}
 {: api}
 
@@ -502,7 +502,7 @@ When you delete a scope, it is removed from all of the roles that it is associat
 
 
 
-### Deleting roles
+### Deleting roles with the UI
 {: #delete-role-gui}
 {: ui}
 
@@ -516,7 +516,7 @@ Deleting a role removes access from all of the users and applications that are c
 3. Confirm you understand that deleting the role affects all users and applications that are currently using the role.
 4. Click **Delete**.
 
-### Deleting roles
+### Deleting roles with the API
 {: #delete-role-api}
 {: api}
 

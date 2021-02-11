@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-09"
+lastupdated: "2021-02-11"
 
 keywords: user information, add users, delete users, profile, access, attributes, admin, app security, authentication, authorization
 
@@ -300,18 +300,21 @@ As an administrator, you can remove someone as a user of your application by del
 ## Migrating user profiles
 {: #migrating-profiles}
 
-Occasionally, you might need to add an instance of {{site.data.keyword.appid_short_notm}}. To help with migrating to the new instance, you can use the export and import APIs.
+Occasionally, you might need to add an instance of {{site.data.keyword.appid_short_notm}} to your account to help ensure high availability or disaster recovery. Or, you might need to deprecate an instance of the service all together. To migrate the user information, you can export the user profiles from one instance of {{site.data.keyword.appid_short_notm}} and import them into another.
 
-You must be assigned the `Manager` [IAM role](/docs/account?topic=account-access-getstarted) for both instances of {{site.data.keyword.appid_short_notm}}.
+This action can be done through the API only. To see the steps, switch to the **API** instructions.
 {: note}
+
 
 
 ### Exporting user profiles
 {: #exporting-profiles}
+{: api}
 
 Before you can import your profiles to your new instance, you need to export them from your original instance of the service.
 
-1. Export the profiles from your original instance of the service.
+1. Be sure that you are assigned the *Manager* [IAM role](/docs/account?topic=account-access-getstarted) for both the instance of {{site.data.keyword.appid_short_notm}}.
+2. Export the profiles from your original instance of the service.
 
   ```sh
   curl -X GET https://us-south.appid.cloud.ibm.com/management/v4/{tenant-ID}/users/export \
@@ -393,15 +396,17 @@ Before you can import your profiles to your new instance, you need to export the
 
 ### Importing user profiles
 {: #importing-profiles}
+{: api}
 
 Now that you have a list of exported user profiles, you can import them into the new instance.
 
-1. If your users are [assigned roles](/docs/appid?topic=appid-access-control), be sure to create the roles and scopes in your new instance of {{site.data.keyword.appid_short_notm}}.
+1. Be sure that you are assigned the *Manager* [IAM role](/docs/account?topic=account-access-getstarted) for both the instance of {{site.data.keyword.appid_short_notm}}.
+2. If your users are [assigned roles](/docs/appid?topic=appid-access-control), be sure to create the roles and scopes in your new instance of {{site.data.keyword.appid_short_notm}}.
 
   The roles and scopes must be created exactly as they were in the previous instance with the same spellings.
   {: tip}
 
-2. Import the users to your new instance of the service.
+3. Import the users to your new instance of the service.
 
   ```sh
   curl -X POST "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/users/import" \
