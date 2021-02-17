@@ -228,13 +228,13 @@ appId.getUserProfileManager().getUserInfo(accessToken, identityToken, new UserPr
 {: java}
 
 ```
-There is no additional step for Node.js
+There is no alternative option for Node.js.
 ```
 {: codeblock}
 {: javascript}
 
 ```
-There is no additional step for server-side Swift
+There is no alternative option for server-side Swift.
 ```
 {: codeblock}
 {: swift}
