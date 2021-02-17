@@ -106,13 +106,7 @@ To see the information about your users that is provided by your configured iden
 
 1. Be sure that you have a valid access token with an `openid` scope. You can verify that your token is valid by using the `/introspect` endpoint.
 
-2. Make a request to the [`/userinfo` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization_Server_V4/userInfo){: external}.
-  
-  If new tokens are not explicitly passed to the SDK, {{site.data.keyword.appid_short_notm}} uses the last received tokens to retrieve and validate the response. For example, you can run the following code after a successful authentication and the SDK retrieves additional information about the user.
-  {: ph data-hd-programlang='swift java'}
-  
-  By using a server-side SDK, you can retrieve additional information about your users. You can call the following method by using the stored access and identity tokens, or you can explicitly pass the tokens. The identity token is optional, but when passed, it's used to validate the response.
-  {: ph data-hd-programlang='javascript swift'}
+2. Make a request to the [`/userinfo` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization_Server_V4/userInfo){: external}. If new tokens are not explicitly passed to the SDK, {{site.data.keyword.appid_short_notm}} uses the last received tokens to retreieve and validate the response. Passing an identity token is optional, but passed is used to validate the response.
 
   
   ```sh
@@ -123,9 +117,9 @@ To see the information about your users that is provided by your configured iden
 
   
   ```swift
-  AppID.sharedInstance.userProfileManager.getUserInfo { (error: Error?, userInfo: [String: Any]?) in
-    guard let userInfo = userInfo, err == nil {
-      return // an error has occurred
+  AppID.sharedInstance.userProfileManager.getUserInfo(accessToken: String, identityToken: String?) { (error: Error?, userInfo: [String: Any]?) in guard 
+    let userInfo = userInfo, err == nil {
+        return // an error has occurred
     }
     // retrieved user info successfully
   }
@@ -137,10 +131,10 @@ To see the information about your users that is provided by your configured iden
   ```java
   AppID appId = AppID.getInstance();
 
-  appId.getUserProfileManager().getUserInfo(new UserProfileResponseListener() {
+  appId.getUserProfileManager().getUserInfo(accessToken, identityToken, new UserProfileResponseListener() {
     @Override
     public void onSuccess(JSONObject userInfo) {
-      // retrieved user info successfully
+      // retrieved attribute "name" successfully
     }
 
     @Override
@@ -153,7 +147,6 @@ To see the information about your users that is provided by your configured iden
   {: java}
 
   
-
   ```javascript
   let userProfileManager = UserProfileManager(options: options)
 
@@ -174,80 +167,30 @@ To see the information about your users that is provided by your configured iden
   {:codeblock}
   {: javascript}
 
+  
   ```swift
+  // Server-side Swift
+
   let userProfileManager = UserProfileManager(options: options)
 
   let accessToken = "<access_token>"
   let identityToken = "<identity_token>"
 
   // If identity token is provided (recommended approach), response is validated against the identity token
-  userProfileManager.getUserInfo(accessToken: accessToken, identityToken: identityToken) { (err, userInfo) in
-    guard let userInfo = userInfo, err == nil {
-      return // an error has occurred
+
+  userProfileManager.getUserInfo(accessToken: accessToken, identityToken: identityToken) { (err, userInfo) in guard 
+    let userInfo = userInfo, err == nil {
+      return
     }
-    // retrieved user info successfully
   }
 
   // Retrieve the UserInfo without any validation
-  userProfileManager.getUserInfo(accessToken: accessToken) { (err, userInfo) in
-    guard let userInfo = userInfo, err == nil {
-      return // an error has occurred
+
+  userProfileManager.getUserInfo(accessToken: accessToken) { (err, userInfo) in guard 
+    let userInfo = userInfo, err == nil {
+      return
     }
-    // retrieved user info successfully
   }
-  ```
-  {: codeblock}
-  {: swift}
-
-  
-  Alternatively, you can explicitly pass access and identity tokens. The identity token is optional, but when passed, it is used to validate the response.
-  {: ph data-hd-programlang='swift java'}
-
-  
-  ```
-  There is no alternative option for a curl request.
-  ```
-  {: codeblock}
-  {: curl}
-
-  
-  ```swift
-  AppID.sharedInstance.userProfileManager.getUserInfo(accessToken: String, identityToken: String?) { (error: Error?, userInfo: [String: Any]?) in
-    guard let userInfo = userInfo, err == nil {
-      return // an error has occurred
-    }
-    // retrieved user info successfully
-  }
-  ```
-  {: codeblock}
-  {: swift}
-
-  ```java
-  AppID appId = AppID.getInstance();
-
-  appId.getUserProfileManager().getUserInfo(accessToken, identityToken, new UserProfileResponseListener() {
-    @Override
-    public void onSuccess(JSONObject userInfo) {
-      // retrieved attribute "name" successfully
-    }
-
-    @Override
-    public void onFailure(UserInfoException e) {
-      // exception occurred
-    }
-  });
-  ```
-  {: codeblock}
-  {: java}
-
-  ```
-  There is no alternative option for Node.js.
-  ```
-  {: codeblock}
-  {: javascript}
-
-  ```
-  There is no alternative option for server-side Swift.
   ```
   {: codeblock}
   {: swift}
@@ -293,6 +236,13 @@ If changes are made by an external identity provider, you can get the updated in
 
 Depending on your configuration, attributes are encrypted and saved as part of a user profile when a user interacts with your application. The interaction might be a user signing in or setting a preference in your app. To access the attributes, pass an access token through an API method.
 {: shortdesc}
+
+
+```
+Shawna to get example.
+```
+{: codeblock}
+{: curl}
 
 
 
