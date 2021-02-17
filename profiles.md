@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-09"
+lastupdated: "2021-02-17"
 
 keywords: profile, custom attributes, predefined attributes, attributes, app users, app interaction, personalized experience, access user info, identity provider information, access token, authentication, user sign in, android, java, node, swift, ios, user, preferences
 
@@ -104,11 +104,16 @@ After successful user authentication, your app receives access and identity toke
 To see the information about your users that is provided by your configured identity providers, you can access your predefined attributes.
 {: shortdesc}
 
-iOS Swift
-{: ph data-hd-programlang='swift'}
+
 
 If new tokens are not explicitly passed to the SDK, {{site.data.keyword.appid_short_notm}} uses the last received tokens to retrieve and validate the response. For example, you can run the following code after a successful authentication and the SDK retrieves additional information about the user.
-{: ph data-hd-programlang='swift'}
+{: ph data-hd-programlang='swift java'}
+
+
+By using a server-side SDK, you can retrieve additional information about your users. You can call the following method by using the stored access and identity tokens, or you can explicitly pass the tokens. The identity token is optional, but when passed, it's used to validate the response.
+{: ph data-hd-programlang='javascript swift'}
+
+
 
 ```swift
 AppID.sharedInstance.userProfileManager.getUserInfo { (error: Error?, userInfo: [String: Any]?) in
@@ -119,27 +124,8 @@ AppID.sharedInstance.userProfileManager.getUserInfo { (error: Error?, userInfo: 
 }
 ```
 {: codeblock}
-{: ph data-hd-programlang='swift'}
+{: swift}
 
-Alternatively, you can explicitly pass access and identity tokens. The identity token is optional, but when passed, it is used to validate the response.
-{: ph data-hd-programlang='swift'}
-
-```swift
-AppID.sharedInstance.userProfileManager.getUserInfo(accessToken: String, identityToken: String?) { (error: Error?, userInfo: [String: Any]?) in
-	guard let userInfo = userInfo, err == nil {
-		return // an error has occurred
-	}
-	// retrieved user info successfully
-}
-```
-{: codeblock}
-{: ph data-hd-programlang='swift'}
-
-Android Java
-{: ph data-hd-programlang='java'}
-
-If new tokens are not explicitly passed to the SDK, {{site.data.keyword.appid_short_notm}} uses the last received tokens to retrieve and validate the response. For example, you can run the following code after a successful authentication and the SDK retrieves additional information about the user.
-{: ph data-hd-programlang='java'}
 
 ```java
 AppID appId = AppID.getInstance();
@@ -157,34 +143,9 @@ appId.getUserProfileManager().getUserInfo(new UserProfileResponseListener() {
 });
 ```
 {: codeblock}
-{: ph data-hd-programlang='java'}
+{: java}
 
-Alternatively, you can explicitly pass access and identity tokens. The identity token is optional. But when passed, it is used to validate the response.
-{: ph data-hd-programlang='java'}
 
-```java
-AppID appId = AppID.getInstance();
-
-appId.getUserProfileManager().getUserInfo(accessToken, identityToken, new UserProfileResponseListener() {
-	@Override
-	public void onSuccess(JSONObject userInfo) {
-		// retrieved attribute "name" successfully
-	}
-
-	@Override
-	public void onFailure(UserInfoException e) {
-		// exception occurred
-	}
-});
-```
-{: codeblock}
-{: ph data-hd-programlang='java'}
-
-Node.js
-{: ph data-hd-programlang='javascript'}
-
-By using a server-side SDK, you can retrieve additional information about your users. You can call the following method by using the stored access and identity tokens, or you can explicitly pass the tokens. The identity token is optional, but when passed, it's used to validate the response.
-{: ph data-hd-programlang='javascript'}
 
 ```javascript
 let userProfileManager = UserProfileManager(options: options)
@@ -203,16 +164,8 @@ userProfileManager.getUserInfo(accessToken).then(function (profile) {
 	// retrieved user info successfully
 });
 ```
-{: codeblock}
-{: ph data-hd-programlang='javascript'}
-
-
-Server-side Swift
-{: ph data-hd-programlang='swift'}
-
-By using a server-side SDK, you can retrieve additional information about your users. You can call the following method by using the stored access and identity tokens, or you can explicitly pass the tokens. The identity token is optional, but when passed, it's used to validate the response.
-{: ph data-hd-programlang='swift'}
-
+{:codeblock}
+{: javascript}
 
 ```swift
 let userProfileManager = UserProfileManager(options: options)
@@ -237,7 +190,55 @@ userProfileManager.getUserInfo(accessToken: accessToken) { (err, userInfo) in
 }
 ```
 {: codeblock}
-{: ph data-hd-programlang='swift'}
+{: swift}
+
+
+Alternatively, you can explicitly pass access and identity tokens. The identity token is optional, but when passed, it is used to validate the response.
+{: ph data-hd-programlang='swift java'}
+
+
+```swift
+AppID.sharedInstance.userProfileManager.getUserInfo(accessToken: String, identityToken: String?) { (error: Error?, userInfo: [String: Any]?) in
+	guard let userInfo = userInfo, err == nil {
+		return // an error has occurred
+	}
+	// retrieved user info successfully
+}
+```
+{: codeblock}
+{: swift}
+
+
+```java
+AppID appId = AppID.getInstance();
+
+appId.getUserProfileManager().getUserInfo(accessToken, identityToken, new UserProfileResponseListener() {
+	@Override
+	public void onSuccess(JSONObject userInfo) {
+		// retrieved attribute "name" successfully
+	}
+
+	@Override
+	public void onFailure(UserInfoException e) {
+		// exception occurred
+	}
+});
+```
+{: codeblock}
+{: java}
+
+```
+There is no additional step for Node.js
+```
+{: codeblock}
+{: javascript}
+
+```
+There is no additional step for server-side Swift
+```
+{: codeblock}
+{: swift}
+
 
 
 ### Accessing the `/userinfo` endpoint with the API
