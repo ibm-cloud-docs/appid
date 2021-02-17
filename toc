@@ -17,8 +17,11 @@ App ID
     {: .navgroup id="tutorial"}
     tutorial-cf.md
     tutorial-attributes.md
-    qs-node-web.md
-    qs-liberty-backend.md
+
+    {: .topicgroup}
+    Quick start guides
+        qs-node-web.md
+        qs-liberty-backend.md
     {: .navgroup-end}
     
     {: .navgroup id="howto"}
@@ -76,6 +79,7 @@ App ID
     {: .topicgroup}
     Enhancing security
         iam.md
+        manage-scc.md
         at-events.md
         data-security.md
     {: .navgroup-end}
