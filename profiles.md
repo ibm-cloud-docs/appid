@@ -98,163 +98,159 @@ The easiest ways to work with user information are by using the GUI or an SDK. W
 
 After successful user authentication, your app receives access and identity tokens from {{site.data.keyword.appid_short_notm}}. The service automatically injects a subset of attributes into your access and identity tokens. If the information isn't in the token, you can use any of the following endpoints to find the information. 
 
-### Accessing the `/userinfo` endpoint with an SDK
+### Accessing the `/userinfo` endpoint
 {: #profile-predefined-access}
 
 To see the information about your users that is provided by your configured identity providers, you can access your predefined attributes.
 {: shortdesc}
 
-
-
-If new tokens are not explicitly passed to the SDK, {{site.data.keyword.appid_short_notm}} uses the last received tokens to retrieve and validate the response. For example, you can run the following code after a successful authentication and the SDK retrieves additional information about the user.
-{: ph data-hd-programlang='swift java'}
-
-
-By using a server-side SDK, you can retrieve additional information about your users. You can call the following method by using the stored access and identity tokens, or you can explicitly pass the tokens. The identity token is optional, but when passed, it's used to validate the response.
-{: ph data-hd-programlang='javascript swift'}
-
-
-
-```swift
-AppID.sharedInstance.userProfileManager.getUserInfo { (error: Error?, userInfo: [String: Any]?) in
-	guard let userInfo = userInfo, err == nil {
-		return // an error has occurred
-	}
-	// retrieved user info successfully
-}
-```
-{: codeblock}
-{: swift}
-
-
-```java
-AppID appId = AppID.getInstance();
-
-appId.getUserProfileManager().getUserInfo(new UserProfileResponseListener() {
-	@Override
-	public void onSuccess(JSONObject userInfo) {
-		// retrieved user info successfully
-	}
-
-	@Override
-	public void onFailure(UserInfoException e) {
-		// exception occurred
-	}
-});
-```
-{: codeblock}
-{: java}
-
-
-
-```javascript
-let userProfileManager = UserProfileManager(options: options)
-
-let accessToken = req.session[WebAppStrategy.AUTH_CONTEXT].accessToken;
-let identityToken = req.session[WebAppStrategy.AUTH_CONTEXT].identityToken;
-
-
-// Retrieve user info and validate against the given identity token
-userProfileManager.getUserInfo(accessToken, identityToken).then(function (profile) {
-	// retrieved user info successfully
-});
-
-// Retrieve user info without validation
-userProfileManager.getUserInfo(accessToken).then(function (profile) {
-	// retrieved user info successfully
-});
-```
-{:codeblock}
-{: javascript}
-
-```swift
-let userProfileManager = UserProfileManager(options: options)
-
-let accessToken = "<access_token>"
-let identityToken = "<identity_token>"
-
-// If identity token is provided (recommended approach), response is validated against the identity token
-userProfileManager.getUserInfo(accessToken: accessToken, identityToken: identityToken) { (err, userInfo) in
-	guard let userInfo = userInfo, err == nil {
-		return // an error has occurred
-	}
-	// retrieved user info successfully
-}
-
-// Retrieve the UserInfo without any validation
-userProfileManager.getUserInfo(accessToken: accessToken) { (err, userInfo) in
-	guard let userInfo = userInfo, err == nil {
-		return // an error has occurred
-	}
-	// retrieved user info successfully
-}
-```
-{: codeblock}
-{: swift}
-
-
-Alternatively, you can explicitly pass access and identity tokens. The identity token is optional, but when passed, it is used to validate the response.
-{: ph data-hd-programlang='swift java'}
-
-
-```swift
-AppID.sharedInstance.userProfileManager.getUserInfo(accessToken: String, identityToken: String?) { (error: Error?, userInfo: [String: Any]?) in
-	guard let userInfo = userInfo, err == nil {
-		return // an error has occurred
-	}
-	// retrieved user info successfully
-}
-```
-{: codeblock}
-{: swift}
-
-
-```java
-AppID appId = AppID.getInstance();
-
-appId.getUserProfileManager().getUserInfo(accessToken, identityToken, new UserProfileResponseListener() {
-	@Override
-	public void onSuccess(JSONObject userInfo) {
-		// retrieved attribute "name" successfully
-	}
-
-	@Override
-	public void onFailure(UserInfoException e) {
-		// exception occurred
-	}
-});
-```
-{: codeblock}
-{: java}
-
-```
-There is no alternative option for Node.js.
-```
-{: codeblock}
-{: javascript}
-
-```
-There is no alternative option for server-side Swift.
-```
-{: codeblock}
-{: swift}
-
-
-
-### Accessing the `/userinfo` endpoint with the API
-{: #profile-predefined-api}
-
-
-You can view additional information through the `/userinfo` endpoint.
-
 1. Be sure that you have a valid access token with an `openid` scope. You can verify that your token is valid by using the `/introspect` endpoint.
 
 2. Make a request to the [`/userinfo` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization_Server_V4/userInfo){: external}.
-  ```
-  GET https://<region>.appid.cloud.ibm.com/v4/<tenant_ID>/userinfo
-  Authorization: 'Bearer <access_token>'
+  
+  If new tokens are not explicitly passed to the SDK, {{site.data.keyword.appid_short_notm}} uses the last received tokens to retrieve and validate the response. For example, you can run the following code after a successful authentication and the SDK retrieves additional information about the user.
+  {: ph data-hd-programlang='swift java'}
+  
+  By using a server-side SDK, you can retrieve additional information about your users. You can call the following method by using the stored access and identity tokens, or you can explicitly pass the tokens. The identity token is optional, but when passed, it's used to validate the response.
+  {: ph data-hd-programlang='javascript swift'}
+
+  
+  ```sh
+    GET https://<region>.appid.cloud.ibm.com/v4/<tenant_ID>/userinfo
+    Authorization: 'Bearer <access_token>'
+    ```
+    {: codeblock}
+
+  
+  ```swift
+  AppID.sharedInstance.userProfileManager.getUserInfo { (error: Error?, userInfo: [String: Any]?) in
+    guard let userInfo = userInfo, err == nil {
+      return // an error has occurred
+    }
+    // retrieved user info successfully
+  }
   ```
   {: codeblock}
+  {: swift}
+
+  
+  ```java
+  AppID appId = AppID.getInstance();
+
+  appId.getUserProfileManager().getUserInfo(new UserProfileResponseListener() {
+    @Override
+    public void onSuccess(JSONObject userInfo) {
+      // retrieved user info successfully
+    }
+
+    @Override
+    public void onFailure(UserInfoException e) {
+      // exception occurred
+    }
+  });
+  ```
+  {: codeblock}
+  {: java}
+
+  
+
+  ```javascript
+  let userProfileManager = UserProfileManager(options: options)
+
+  let accessToken = req.session[WebAppStrategy.AUTH_CONTEXT].accessToken;
+  let identityToken = req.session[WebAppStrategy.AUTH_CONTEXT].identityToken;
+
+
+  // Retrieve user info and validate against the given identity token
+  userProfileManager.getUserInfo(accessToken, identityToken).then(function (profile) {
+    // retrieved user info successfully
+  });
+
+  // Retrieve user info without validation
+  userProfileManager.getUserInfo(accessToken).then(function (profile) {
+    // retrieved user info successfully
+  });
+  ```
+  {:codeblock}
+  {: javascript}
+
+  ```swift
+  let userProfileManager = UserProfileManager(options: options)
+
+  let accessToken = "<access_token>"
+  let identityToken = "<identity_token>"
+
+  // If identity token is provided (recommended approach), response is validated against the identity token
+  userProfileManager.getUserInfo(accessToken: accessToken, identityToken: identityToken) { (err, userInfo) in
+    guard let userInfo = userInfo, err == nil {
+      return // an error has occurred
+    }
+    // retrieved user info successfully
+  }
+
+  // Retrieve the UserInfo without any validation
+  userProfileManager.getUserInfo(accessToken: accessToken) { (err, userInfo) in
+    guard let userInfo = userInfo, err == nil {
+      return // an error has occurred
+    }
+    // retrieved user info successfully
+  }
+  ```
+  {: codeblock}
+  {: swift}
+
+  
+  Alternatively, you can explicitly pass access and identity tokens. The identity token is optional, but when passed, it is used to validate the response.
+  {: ph data-hd-programlang='swift java'}
+
+  
+  ```
+  There is no alternative option for a curl request.
+  ```
+  {: codeblock}
+  {: curl}
+
+  
+  ```swift
+  AppID.sharedInstance.userProfileManager.getUserInfo(accessToken: String, identityToken: String?) { (error: Error?, userInfo: [String: Any]?) in
+    guard let userInfo = userInfo, err == nil {
+      return // an error has occurred
+    }
+    // retrieved user info successfully
+  }
+  ```
+  {: codeblock}
+  {: swift}
+
+  ```java
+  AppID appId = AppID.getInstance();
+
+  appId.getUserProfileManager().getUserInfo(accessToken, identityToken, new UserProfileResponseListener() {
+    @Override
+    public void onSuccess(JSONObject userInfo) {
+      // retrieved attribute "name" successfully
+    }
+
+    @Override
+    public void onFailure(UserInfoException e) {
+      // exception occurred
+    }
+  });
+  ```
+  {: codeblock}
+  {: java}
+
+  ```
+  There is no alternative option for Node.js.
+  ```
+  {: codeblock}
+  {: javascript}
+
+  ```
+  There is no alternative option for server-side Swift.
+  ```
+  {: codeblock}
+  {: swift}
 
   Example output:
   ```
@@ -288,10 +284,8 @@ You can view additional information through the `/userinfo` endpoint.
 
 3. Verify that the `sub` claim exactly matches the `sub` claim in the identity token. If these do not match, do not use the returned information. To learn more about token substitution, see the [OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#TokenSubstitution){: external}.
 
-
 If changes are made by an external identity provider, you can get the updated information when your users log in again. Your new tokens retrieve the most up-to-date data.
 {: tip}
-
 
 
 ### Accessing the `/attributes` endpoint
@@ -300,83 +294,75 @@ If changes are made by an external identity provider, you can get the updated in
 Depending on your configuration, attributes are encrypted and saved as part of a user profile when a user interacts with your application. The interaction might be a user signing in or setting a preference in your app. To access the attributes, pass an access token through an API method.
 {: shortdesc}
 
-  iOS Swift
-  {: ph data-hd-programlang='swift'}
 
-  ```swift
-  func setAttribute(key: String, value: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
-  func setAttribute(key: String, value: String, accessTokenString: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
 
-  func getAttribute(key: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
-  func getAttribute(key: String, accessTokenString: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
+```swift
+//iOS Swift example
+func setAttribute(key: String, value: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
+func setAttribute(key: String, value: String, accessTokenString: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
 
-  func getAttributes(completionHandler: @escaping(Error?, [String:Any]?) -> Void)
-  func getAttributes(accessTokenString: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
+func getAttribute(key: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
+func getAttribute(key: String, accessTokenString: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
 
-  func deleteAttribute(key: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
-  func deleteAttribute(key: String, accessTokenString: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
-  ```
-  {: codeblock}
-  {: ph data-hd-programlang='swift'}
+func getAttributes(completionHandler: @escaping(Error?, [String:Any]?) -> Void)
+func getAttributes(accessTokenString: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
 
-  Server-side swift
-  {: ph data-hd-programlang='swift'}
+func deleteAttribute(key: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
+func deleteAttribute(key: String, accessTokenString: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
+```
+{: codeblock}
+{: swift}
 
-  ```swift
-  func getAllAttributes(accessToken: String, completionHandler: (Swift.Error?, [String: Any]?) -> Void)
-  func getAttribute(accessToken: String, attributeName: String, completionHandler: (Swift.Error?, [String: Any]?) -> Void)
-  func setAttribute(accessToken: String, attributeName: String, attributeValue : "abc", completionHandler: (Swift.Error?, [String: Any]?) -> Void)
-  func deleteAllAttributes(accessToken: String, completionHandler: (Swift.Error?, [String: Any]?) -> Void)
-  ```
-  {: codeblock}
-  {: ph data-hd-programlang='swift'}
 
-  Android Java
-  {: ph data-hd-programlang='java'}
 
-  ```java
-  void setAttribute(@NonNull String name, @NonNull String value, UserAttributeResponseListener listener);
-  void setAttribute(@NonNull String name, @NonNull String value, @NonNull AccessToken accessToken, UserAttributeResponseListener listener);
+```java
+void setAttribute(@NonNull String name, @NonNull String value, UserAttributeResponseListener listener);
+void setAttribute(@NonNull String name, @NonNull String value, @NonNull AccessToken accessToken, UserAttributeResponseListener listener);
 
-  void getAttribute(@NonNull String name, UserAttributeResponseListener listener);
-  void getAttribute(@NonNull String name, @NonNull AccessToken accessToken, UserAttributeResponseListener listener);
+void getAttribute(@NonNull String name, UserAttributeResponseListener listener);
+void getAttribute(@NonNull String name, @NonNull AccessToken accessToken, UserAttributeResponseListener listener);
 
-  void deleteAttribute(@NonNull String name, UserAttributeResponseListener listener);
-  void deleteAttribute(@NonNull String name, @NonNull AccessToken accessToken, UserAttributeResponseListener listener);
+void deleteAttribute(@NonNull String name, UserAttributeResponseListener listener);
+void deleteAttribute(@NonNull String name, @NonNull AccessToken accessToken, UserAttributeResponseListener listener);
 
-  void getAllAttributes(@NonNull UserAttributeResponseListener listener);
-  void getAllAttributes(@NonNull AccessToken accessToken, @NonNull UserAttributeResponseListener listener);
-  ```
-  {: codeblock}
-  {: ph data-hd-programlang='java'}
+void getAllAttributes(@NonNull UserAttributeResponseListener listener);
+void getAllAttributes(@NonNull AccessToken accessToken, @NonNull UserAttributeResponseListener listener);
+```
+{: codeblock}
+{: java}
 
-  Node.js
-  {: ph data-hd-programlang='javascript'}
 
-  ```javascript
-  function getAllAttributes(accessTokenString) {}
-  function getAttribute(accessTokenString, key) {}
-  function setAttribute(accessTokenString, key, value) {}
-  function deleteAttribute(accessTokenString, name) {}
-  ```
-  {: codeblock}
-  {: ph data-hd-programlang='javascript'}
+
+```javascript
+function getAllAttributes(accessTokenString) {}
+function getAttribute(accessTokenString, key) {}
+function setAttribute(accessTokenString, key, value) {}
+function deleteAttribute(accessTokenString, name) {}
+```
+{: codeblock}
+{: javascript}
+
+
+
+```swift
+//Server-side Swift example
+func getAllAttributes(accessToken: String, completionHandler: (Swift.Error?, [String: Any]?) -> Void)
+func getAttribute(accessToken: String, attributeName: String, completionHandler: (Swift.Error?, [String: Any]?) -> Void)
+func setAttribute(accessToken: String, attributeName: String, attributeValue : "abc", completionHandler: (Swift.Error?, [String: Any]?) -> Void)
+func deleteAllAttributes(accessToken: String, completionHandler: (Swift.Error?, [String: Any]?) -> Void)
+```
+{: codeblock}
+{: swift}
 
 
 ## Setting custom attributes
 {: #profile-set-custom}
 
-You can add information about your users to their profile such as a role or preference, by setting a custom attribute.
+You can add information about your users to their profile such as a role or preference, by setting a custom attribute. To set custom attributes before a user signs in to your application, see [preregistering future users](/docs/appid?topic=appid-preregister).
 {: shortdesc}
 
 By default, custom attributes are modifiable and can be updated by using an {{site.data.keyword.appid_short_notm}} access token from a client application. This means that without taking proper precautions either the user or the application can update custom attributes immediately following the first user sign-in, if they have an access token. This can potentially lead to unintended consequences. For example, a user might change their role from user to admin, which might expose administrative privileges to malicious users.
 {: important}
-
-
-### With an SDK
-{: #profile-attribute-sdk}
-
-You can add the following code to your application to allow a user to update their attributes from your app.
 
 1. Go to the **User profiles > Settings** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
 
@@ -403,107 +389,76 @@ You can add the following code to your application to allow a user to update the
 
 4. By using the `attributes` endpoint, make a PUT request.
 
-    iOS Swift
-    {: ph data-hd-programlang='swift'}
+  
+  ```sh
+  curl -X PUT "https://<region>.appid.cloud.ibm.com/api/v1/attributes/<attribute_name>" \
+  -H "Authorization: Bearer <token>" \
+  -d "<attribute_value>" 
+  ```
+  {: codeblock}
+  {: cURL}
 
-    ```swift
-    AppID.sharedInstance.userProfileManager?.setAttribute("key", "value") { (error, result) in
-      guard let result = result, error == nil else {
-          return // an error has occurred
-      }
-      // attributes recieved as a Dictionary
-    })
-    ```
-    {: codeblock}
-    {: ph data-hd-programlang='swift'}
+  
+  ```swift
+  // iOS Swift example
 
-    Android Java
-    {: ph data-hd-programlang='java'}
-
-    ```java
-    appId.getUserProfileManager().setAttribute(name, value, useThisToken, new UserProfileResponseListener() {
-      @Override
-      public void onSuccess(JSONObject attributes) {
-        // attributes received in JSON format on successful response
-      }
-
-      @Override
-      public void onFailure(UserAttributesException e) {
-        // exception occurred
-      }
-    });
-    ```
-    {: codeblock}
-    {: ph data-hd-programlang='java'}
-
-    Node.js
-    {: ph data-hd-programlang='javascript'}
-
-    ```javascript
-    const userProfileManager = require("ibmcloud-appid").UserProfileManager;
-    userProfileManager.init();
-
-    var accessToken = req.session[WebAppStrategy.AUTH_CONTEXT].accessToken;
-
-    userProfileManager.setAttribute(accessToken, name, value).then(function (attributes) {
-      // attributes returned as dictionary
-    });
-    ```
-    {: codeblock}
-    {: ph data-hd-programlang='javascript'}
-
-    Server-side Swift
-    {: ph data-hd-programlang='swift'}
-
-    ```swift
-    let userProfileManager = UserProfileManager(options: options)
-    let accesstoken = "access token"
-
-    userProfileManager.setAttribute(accessToken: accessToken, attributeName: "name", attributeValue : "abc") { (error, response) in
-      guard let response = response, error == error else {
+  AppID.sharedInstance.userProfileManager?.setAttribute("key", "value") { (error, result) in
+    guard let result = result, error == nil else {
         return // an error has occurred
-      }
-      // attributes received as a Dictionary
     }
-    ```
-    {: codeblock}
-    {: ph data-hd-programlang='swift'}
+  // attributes recieved as a Dictionary
+  })
+  ```
+  {: codeblock}
+  {: swift}
 
-### With the API
-{: #profile-attribute-api}
+  
+  ```java
+  appId.getUserProfileManager().setAttribute(name, value, useThisToken, new UserProfileResponseListener() {
+    @Override
+    public void onSuccess(JSONObject attributes) {
+      // attributes received in JSON format on successful response
+    }
 
+    @Override
+    public void onFailure(UserAttributesException e) {
+      // exception occurred
+    }
+  });
+  ```
+  {: codeblock}
+  {: java}
 
-If you want to configure self-service for your users at runtime, use the `/attributes` endpoint. To set custom attributes before a user signs in to your application, see [preregistering future users](/docs/appid?topic=appid-preregister).
+  
 
-1. Go to the **User profiles > Settings** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
+  ```javascript
+  const userProfileManager = require("ibmcloud-appid").UserProfileManager;
+  userProfileManager.init();
 
-2. Toggle custom attributes to **Enabled**.
+  var accessToken = req.session[WebAppStrategy.AUTH_CONTEXT].accessToken;
 
-3. Obtain an IAM token.
+  userProfileManager.setAttribute(accessToken, name, value).then(function (attributes) {
+    // attributes returned as dictionary
+  });
+  ```
+  {: codeblock}
+  {: javascript}
 
-  1. In the {{site.data.keyword.cloud_notm}} dashboard, click **Manage > Access (IAM)**.
-  2. Select **{{site.data.keyword.cloud_notm}} API keys**.
-  3. Click **Create an {{site.data.keyword.cloud_notm}} API key**.
-  4. Give your key a name and describe it. Click Create. A screen displays with your key.
-  5. Click **Copy** or **Download** your key. When you close the screen, you can no longer access the key.
-  6. Make the following cURL request with the API key that you created.
+  
 
-    ```sh
-    curl -k -X POST \
-    --header "Content-Type: application/x-www-form-urlencoded" \
-    --header "Accept: application/json" \
-    --data-urlencode "grant_type=urn:ibm:params:oauth:grant-type:apikey" \
-    --data-urlencode "apikey={apikey}" \
-    "https://iam.cloud.ibm.com/identity/token"
-    ```
-    {: codeblock}
+  ```swift
+  //Server-side Swift
 
-4. Make a PUT request to either the  `/attributes` endpoint.
+  let userProfileManager = UserProfileManager(options: options)
+  let accesstoken = "access token"
 
-    ```sh
-    curl -X PUT "https://<region>.appid.cloud.ibm.com/api/v1/attributes/<attribute_name>" \
-    -H "Authorization: Bearer <token>" \
-    -d "<attribute_value>" 
-    ```
-    {: codeblock}
+  userProfileManager.setAttribute(accessToken: accessToken, attributeName: "name", attributeValue : "abc") { (error, response) in
+    guard let response = response, error == error else {
+      return // an error has occurred
+    }
+    // attributes received as a Dictionary
+  }
+  ```
+  {: codeblock}
+  {: swift}
 
