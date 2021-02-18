@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-11"
+lastupdated: "2021-02-18"
 
 keywords: pricing, advanced security, authentication events, authorized users, activity tracking, runtime activity, password policies, keycloak, allow list redirect url, redirect uri 
 
@@ -215,38 +215,21 @@ Keycloak is packaged as software, which means that you, as the developer, are re
 
 While you technically _can_ use the same credentials in more than one application, it is highly recommended that you do not for several reasons. Foremost, because when you're sharing your ID across applications any type of attack or compromise then affects your entire ecosystem rather than one application. For example, if you're using your ID across three applications and one of them becomes compromised - all three are then compromised because an attacker is able to impersonate any of your apps. Second, because when you're using the same client ID in multiple apps, there is no way to differentiate between applications. For example, you're unable to tell which app was used to generate a token.
 
+## How can I update my application to use a new service instance without losing any data
+{: #migrate-service}
 
-## Can {{site.data.keyword.appid_short_notm}} help configure log out?
-{: #faq-logout}
+You can migrate the information in one instance of {{site.data.keyword.appid_short_notm}} to another.
+{: shortdesc}
 
-Depending on how you configure your application, {{site.data.keyword.appid_short_notm}} can help to facilitate a log out functionality for your users. Check out the following table to see where functionality for log out is available.
+1. Create a new instance of the service.
+2. Duplicate your identity provider configuration by using the GUI.
+3. [Migrate your user profiles](/docs/appid?topic=appid-user-admin). Known users are exported as a JSON object. Anonymous user's cannot be migrated. You can choose to import the entire object into the new instance or break it up and divide the users as you see fit if you have more than one instance. For Cloud Directory, see [Migrating users](/docs/appid?topic=appid-cd-users#user-migration). For federated identity providers, use the following steps.
+4. Create application credentials to invoke the new service instance.
+  1. In the service dashboard navigate to the **Applications** tab.
+  2. Click **Add Application** and give your application a name. Then, click **Save**.
+  3. Click **View credentials** in the table and copy the output.
+  4. Paste your new credentials into your application.
+5. Update your application to use the new credentials including any URLs. 
+6. Depending on your configuration, you might need to redeploy or unbind and rebind your application.
 
-|  | Description |
-|---------|-------------|
-| {{site.data.keyword.appid_short_notm}} SDKs | The {{site.data.keyword.appid_short_notm}} SDKs have a built in log out functionality.  |
-| Cloud Directory SSO[^sso] | {{site.data.keyword.appid_short_notm}} provides built in log out functionality for the Cloud Directory SSO feature. |
-| Ingress | Ingress provides a built in log out functionality. |
-| Istio | The Istio adapter is configured to provide log out functionality through OIDC. |
-{: caption="Table 3. Log out functionality options" caption-side="top"}
-{: row-headers}
-
-[^sso]: All redirect URLs that are used with the Cloud Directory SSO feature must be added to the log out URL allowlist in the {{site.data.keyword.appid_short_notm}} UI.
-
-### Configuring log out
-{: #faq-logout-how}
-
-To configure log out, you must configure your application to send a log out request to your identity provider and then redirect the user to an area of your application that does not require authentication. In most use-cases, there is an application server session - that might be set by the {{site.data.keyword.appid_short_notm}} SDKs, Ingress, or Istio that works in partnership with a federated identity provider such as SAML or Cloud Directory to enable authentication and authorization. 
-
-In the following HTML example, the {{site.data.keyword.appid_short_notm}} SDK is used to configure log out. But, if you are working with another option, you can use this snippet as a guide and update it to fit your needs.
-
-```html
-<script>var ticker = setInterval(tick, 1000); var counter = 5; function tick() { var timerDiv = document.getElementById("timer"); 
-if (counter > 0) { timerDiv.innerText = "Logged out. Redirecting back in " + (counter--) + " seconds."; } else { 
-document.location = "./appid_logout"; } } </script>
-<iframe height="0" width="0" src="https://idaas.iam.ibm.com/pkmslogout"></iframe> 
-<iframe height="0" width="0" src="https://www-304.ibm.com/pkmslogout?_logrand=0.5632884121202146"></iframe> 
-<iframe height="0" width="0" src="https://www-947.ibm.com/pkmslogout?_logrand=0.5623708715014116"></iframe> 
-<iframe height="0" width="0" src="https://prepiam.toronto.ca.ibm.com/pkmslogout"></iframe>
-```
-{: screen}
 

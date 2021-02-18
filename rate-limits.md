@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-09"
+lastupdated: "2021-02-18"
 
 keywords: rate limits, traffic control, limit request, lite instances, per minute, per instance, per user, limits
 
@@ -45,13 +45,20 @@ subcollection: appid
 {:api: .ph data-hd-interface='api'}
 
 
-# {{site.data.keyword.appid_short_notm}} limits
+# Known issues and limitations
+{: #known-issues-limits}
+
+{{site.data.keyword.compliance_full}} includes the following known issues and limits that might impact your experience.
+{: shortdesc}
+
+
+## Limits
 {: #limits}
 
 Rate limiting is used to control the amount of traffic that is coming and going through your instance of {{site.data.keyword.appid_full}}. By limiting requests or resources, you can protect your applications.
-{: shortdesc}
 
-## {{site.data.keyword.appid_short_notm}} lite plan
+
+### {{site.data.keyword.appid_short_notm}} lite plan
 {: #lite-limits}
 
 Review the following table to see the limits that are in place for lite instances of {{site.data.keyword.appid_short_notm}}.
@@ -75,7 +82,7 @@ You can have 1 lite instance of {{site.data.keyword.appid_short_notm}} per accou
     </tr>
 </table>
 
-## General
+### General
 {: #general-limits}
 
 The following table lists the maximum per user limits for {{site.data.keyword.appid_short_notm}} resources and the blocking period when the limits are exceeded. These limits apply to any user who can create {{site.data.keyword.appid_short_notm}} resources.
@@ -121,7 +128,7 @@ The following table lists the maximum per user limits for {{site.data.keyword.ap
 
 
 
-## Cloud Directory
+### Cloud Directory
 {: #limits-cd}
 
 Review the following table to see limits that are associated with Cloud Directory.
@@ -176,22 +183,18 @@ Review the following table to see limits that are associated with Cloud Director
 For more information, see the [rate limit management API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateRateLimitConfig){: external}.
 
 
-## Ingress annotation
+### Ingress annotation
 {: #annotation-limits}
 
 Be sure to review the following limitations before you configure your annotation.
-
 
 * Refresh tokens are not currently supported.
 * {{site.data.keyword.containerlong}} supports one Ingress per namespace. If you already have one, you can update the existing Ingress configuration or use a different namespace.
 * The annotation does not work behind a proxy.
 
 
-## Extensions
+### Extensions
 {: #limits-extensions}
 
-### Pre-MFA
-{: #limits-premfa}
-
-* The response from your extension point must not exceed 10KB. If it does, the request is aborted and the user is required to complete MFA.
-* If it takes {{site.data.keyword.appid_short_notm}} longer than 5 seconds to establish a connection to your extension point, or if the request takes longer than 7 seconds to complete, the request is aborted and the user is required to complete MFA.
+* The response from your pre-mfa extension point must not exceed 10KB. If it does, the request is aborted and the user is required to complete MFA.
+* If it takes {{site.data.keyword.appid_short_notm}} longer than 5 seconds to establish a connection to your pre-mfa extension point, or if the request takes longer than 7 seconds to complete, the request is aborted and the user is required to complete MFA.

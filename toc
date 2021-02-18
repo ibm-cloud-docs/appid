@@ -12,6 +12,8 @@ App ID
     Key concepts
         authorization.md
         tokens-understand.md
+
+    whats-new.md
     {: .navgroup-end}
 
     {: .navgroup id="tutorial"}
@@ -85,15 +87,14 @@ App ID
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
-    [App ID APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/)
-
     {: .topicgroup}
-    SDKs
+    APIs and SDKs
+        [APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/)
         [Android client SDK](https://github.com/ibm-cloud-security/appid-clientsdk-android)
         [iOS Swift client SDK](https://github.com/ibm-cloud-security/appid-clientsdk-swift)
         [Node.js server SDK](https://github.com/ibm-cloud-security/appid-serversdk-nodejs)
-        [JavaScript SDK](https://github.com/ibm-cloud-security/appid-clientsdk-js)
         [Swift server SDK](https://github.com/ibm-cloud-security/appid-serversdk-swift)
+        [JavaScript SDK](https://github.com/ibm-cloud-security/appid-clientsdk-js)
 
     {: .topicgroup}
     Related links
@@ -106,7 +107,6 @@ App ID
         tokens.md
 
     well-known.md
-    rate-limits.md
     ha-dr.md
     privacy-policy.md
     {: .navgroup-end}
@@ -119,6 +119,6 @@ App ID
         ts_index.md
         ts_saml.md
 
-    whats-new.md
+    rate-limits.md
     {: .navgroup-end}
     
