@@ -74,11 +74,6 @@ App ID
         access-control.md
 
     {: .topicgroup}
-    Managing the service
-        api-reference.md
-        instances.md
-
-    {: .topicgroup}
     Enhancing security
         iam.md
         manage-scc.md
@@ -106,6 +101,7 @@ App ID
         token-obtain.md
         tokens.md
 
+    api-reference.md
     well-known.md
     ha-dr.md
     privacy-policy.md
