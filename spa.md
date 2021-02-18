@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-09"
+lastupdated: "2021-02-18"
 
 keywords: single page application, SPA, single-page, angular, react, native apps, javascript, js, sdk, authentication, authorization, identity, app security, secure, protocols, oauth, oidc,
 
@@ -98,35 +98,32 @@ Before you get started, be sure that you have the following prerequisites.
   * Your [redirect URIs](/docs/appid?topic=appid-managing-idp#add-redirect-uri) set in the {{site.data.keyword.appid_short_notm}} service dashboard.
   * A single-page application. If you don't have one and you want to try out the flow, try downloading the sample application from the overview page of the {{site.data.keyword.appid_short_notm}} dashboard.
 
-## Creating application credentials
-{: #create-spa-credentials}
 
-Your credentials are used to connect your application to {{site.data.keyword.appid_short_notm}}. You can choose whether to create the credentials through the service dashboard or by using the API.
-{: shortdesc}
+## Creating application credentials with the GUI
+{: #spa-credentials-gui}
+{: ui}
+
+Your credentials are used to connect your application to {{site.data.keyword.appid_short_notm}}. To create your credentials, register your app with {{site.data.keyword.appid_short_notm}}.
 
 There is no client secret that is returned in your SPA credentials. There is no need for a secret in the Authorization + PKCE flow. You are not able to use regular web app credentials in your SPA flow. 
 {: note}
 
-### With the GUI
-{: #spa-credentials-gui}
-
-To create your credentials, register your app with {{site.data.keyword.appid_short_notm}}.
-
 1. Sign in to the {{site.data.keyword.cloud_notm}} dashboard in the region in which you want to work.
-
 2. Navigate to the **Applications** tab and click **Add application**.
-
 3. Give your application a name.
-
 4. Select **Single-page application** from the **Type** drop-down.
-
 5. Click **Save**.
-
 6. In the table, click **View credentials** to see the information that is needed in the following configuration.
 
 
-### With the API
+## Creating application credentials with the API
 {: #spa-credentials-api}
+{: api}
+
+Your credentials are used to connect your application to {{site.data.keyword.appid_short_notm}}. To create your credentials, register your app with {{site.data.keyword.appid_short_notm}}.
+
+There is no client secret that is returned in your SPA credentials. There is no need for a secret in the Authorization + PKCE flow. You are not able to use regular web app credentials in your SPA flow. 
+{: note}
 
 1. Make the following post request to the [/management/v4/{tenantId}/applications](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Applications/mgmt.registerApplication){: external} endpoint.
 
@@ -143,8 +140,8 @@ To create your credentials, register your app with {{site.data.keyword.appid_sho
   Example response:
   ```json
   {
-    "clientId": <CLIENT_ID>,
-    "tenantId": <TENANT_ID>,
+    "clientId": "<CLIENT_ID>",
+    "tenantId": "<TENANT_ID>",
     "name": "MySampleSPA",
     "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v4/<TENANT_ID>",
     "type": "singlepageapp"
@@ -202,11 +199,8 @@ Refresh tokens are not returned in the SPA flow.
 {: tip}
 
 1. In the {{site.data.keyword.appid_short_notm}} dashboard, navigate to **Cloud Directory > Single Sign-on**.
-
 2. Toggle **Enable single sign-on** to **Enabled**.
-
 3. Click **Save**.
-
 4. Add the following code to your application. Be sure to configure your application to show the login button if silent login fails.
   
   ```

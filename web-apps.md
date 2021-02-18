@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-09"
+lastupdated: "2021-02-18"
 
 keywords: web apps, authorization code, authentication, nodejs, javascript, app access, application credentials, login, redirect uri, protected endpoint, video
 
@@ -350,8 +350,6 @@ Check out the following video to learn about protecting Liberty for Java applica
 {: #web-liberty-initialize}
 
 1. In your `server.xml` file, define an authorization filter to specify protected resources. If a filter is not [defined](https://www.ibm.com/support/knowledgecenter/en/SSD28V_liberty/com.ibm.websphere.wlp.core.doc/ae/rwlp_auth_filter.html){: external}, the service protects all resources.
-
-
 
   ```xml
   <authFilter id="myAuthFilter">
