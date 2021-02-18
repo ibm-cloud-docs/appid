@@ -114,6 +114,7 @@ To see the information about your users that is provided by your configured iden
   Authorization: 'Bearer <access_token>'
   ```
   {: codeblock}
+  {: curl}
 
   
   ```swift
@@ -340,7 +341,7 @@ By default, custom attributes are modifiable and can be updated by using an {{si
   -d "<attribute_value>" 
   ```
   {: codeblock}
-  {: cURL}
+  {: curl}
 
   
   ```swift
