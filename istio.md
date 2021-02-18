@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-09"
+lastupdated: "2021-02-18"
 
 keywords: adapter, access management, identity token, helm chart, backend apps, kube, any kube, icp, openshift, iks, service mesh, access, app identity, kube secret, tokens, authenticated, app endpoints, authorization, multicloud, no code change, no redeploy, authorization policies, multiple providers
 
@@ -47,8 +47,13 @@ subcollection: appid
 # Multicloud apps with Istio
 {: #istio-adapter}
 
-By using the App Identity and Access adapter, you can centralize all of your identity management in a single place. Because enterprises use clouds from multiple providers or a combination of on and off-premise solutions, heterogeneous deployment models can help you to preserve existing infrastructure and avoid vendor lock-in. The adapter can be configured to work with any OIDC-compliant identity provider, such as {{site.data.keyword.appid_short_notm}}, which enables it to control authentication and authorization policies in all environments including front end and backend applications. And, **it does it all without any change to your code or the need to redeploy your application**.
+By using the App Identity and Access adapter, you can centralize all of your identity management in a single place.
 {: shortdesc}
+
+The App Identity and Access adapter is not currently supported.
+{: deprecated}
+
+Because enterprises use clouds from multiple providers or a combination of on and off-premise solutions, heterogeneous deployment models can help you to preserve existing infrastructure and avoid vendor lock-in. The adapter can be configured to work with any OIDC-compliant identity provider, such as {{site.data.keyword.appid_short_notm}}, which enables it to control authentication and authorization policies in all environments including front end and backend applications. And, it does it all without any change to your code or the need to redeploy your application.
 
 What can the App Identity and Access adapter do for you? Check out the following video to learn more.
 

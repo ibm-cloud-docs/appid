@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-17"
+lastupdated: "2021-02-18"
 
 keywords: profile, custom attributes, predefined attributes, attributes, app users, app interaction, personalized experience, access user info, identity provider information, access token, authentication, user sign in, android, java, node, swift, ios, user, preferences
 
@@ -110,10 +110,10 @@ To see the information about your users that is provided by your configured iden
 
   
   ```sh
-    GET https://<region>.appid.cloud.ibm.com/v4/<tenant_ID>/userinfo
-    Authorization: 'Bearer <access_token>'
-    ```
-    {: codeblock}
+  GET https://<region>.appid.cloud.ibm.com/v4/<tenant_ID>/userinfo
+  Authorization: 'Bearer <access_token>'
+  ```
+  {: codeblock}
 
   
   ```swift
@@ -153,7 +153,6 @@ To see the information about your users that is provided by your configured iden
   let accessToken = req.session[WebAppStrategy.AUTH_CONTEXT].accessToken;
   let identityToken = req.session[WebAppStrategy.AUTH_CONTEXT].identityToken;
 
-
   // Retrieve user info and validate against the given identity token
   userProfileManager.getUserInfo(accessToken, identityToken).then(function (profile) {
     // retrieved user info successfully
@@ -161,7 +160,7 @@ To see the information about your users that is provided by your configured iden
 
   // Retrieve user info without validation
   userProfileManager.getUserInfo(accessToken).then(function (profile) {
-    // retrieved user info successfully
+  // retrieved user info successfully
   });
   ```
   {:codeblock}
@@ -169,10 +168,9 @@ To see the information about your users that is provided by your configured iden
 
   
   ```swift
-  // Server-side Swift
+  // Server-side Swift example
 
   let userProfileManager = UserProfileManager(options: options)
-
   let accessToken = "<access_token>"
   let identityToken = "<identity_token>"
 
@@ -245,7 +243,6 @@ Shawna to get example.
 {: curl}
 
 
-
 ```swift
 //iOS Swift example
 func setAttribute(key: String, value: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
@@ -262,7 +259,6 @@ func deleteAttribute(key: String, accessTokenString: String, completionHandler: 
 ```
 {: codeblock}
 {: swift}
-
 
 
 ```java
@@ -282,7 +278,6 @@ void getAllAttributes(@NonNull AccessToken accessToken, @NonNull UserAttributeRe
 {: java}
 
 
-
 ```javascript
 function getAllAttributes(accessTokenString) {}
 function getAttribute(accessTokenString, key) {}
@@ -291,7 +286,6 @@ function deleteAttribute(accessTokenString, name) {}
 ```
 {: codeblock}
 {: javascript}
-
 
 
 ```swift
@@ -380,7 +374,6 @@ By default, custom attributes are modifiable and can be updated by using an {{si
   {: java}
 
   
-
   ```javascript
   const userProfileManager = require("ibmcloud-appid").UserProfileManager;
   userProfileManager.init();
@@ -395,9 +388,8 @@ By default, custom attributes are modifiable and can be updated by using an {{si
   {: javascript}
 
   
-
   ```swift
-  //Server-side Swift
+  // Server-side Swift
 
   let userProfileManager = UserProfileManager(options: options)
   let accesstoken = "access token"
