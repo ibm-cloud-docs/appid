@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-18"
+lastupdated: "2021-02-19"
 
 keywords: profile, custom attributes, predefined attributes, attributes, app users, app interaction, personalized experience, access user info, identity provider information, access token, authentication, user sign in, android, java, node, swift, ios, user, preferences
 
@@ -55,7 +55,7 @@ With {{site.data.keyword.appid_full}}, you can compile information about the ind
 
 
 ## Understanding profiles
-{: #profile-understand}
+{: #profile-understand} 
 
 A user profile is all of the information that is known about a specific user - compiled into one JSON object and stored by {{site.data.keyword.appid_short_notm}}. There are two types of information, or attributes, that can be obtained and stored in a profile: `predefined` and `custom`. Predefined attributes are specific to the identity of your user and are returned by an identity provider when your user signs in to your app and can include information such as their name or age. Custom attributes are used to store additional information about your users. They can be set by you or learned about the user as they interact with your app. Custom attributes might include an assigned role, a food preference, or a preferred aisle seat on an airplane.
 
@@ -118,6 +118,8 @@ To see the information about your users that is provided by your configured iden
 
   
   ```swift
+  // iOS Swift example
+
   AppID.sharedInstance.userProfileManager.getUserInfo(accessToken: String, identityToken: String?) { (error: Error?, userInfo: [String: Any]?) in guard 
     let userInfo = userInfo, err == nil {
         return // an error has occurred
@@ -238,7 +240,7 @@ Depending on your configuration, attributes are encrypted and saved as part of a
 
 
 ```
-Shawna to get example.
+curl -X GET 'https://<region>.appid.cloud.ibm.com/api/v1/attributes' -H 'Authorization: Bearer <token>' -H 'Accept: application/json'
 ```
 {: codeblock}
 {: curl}
