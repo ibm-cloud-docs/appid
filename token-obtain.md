@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-17"
+lastupdated: "2021-02-23"
 
 keywords: obtain tokens, return tokens, authorized, authorization, access management, client id, secret, tenant id, app security, identity token
 
@@ -112,7 +112,7 @@ In order to obtain tokens, you must have your client ID and secret. The credenti
 ## Obtaining access and identity tokens
 {: #obtain-access-id-tokens}
 
-With a client ID and secret, you can obtain access and identity tokens by using the API or an SDK.
+With a client ID and secret, you can obtain access and identity tokens by using the API or an SDK. The following examples show how to obtain a token by using the Resource Owner Password (ROP) flow.
 {: shortdesc}
 
 
@@ -173,27 +173,52 @@ With a client ID and secret, you can obtain access and identity tokens by using 
   
 
   ```javascript
-  const config = {
-    tenantId: "{tenant-id}",
-    clientId: "{client-id}",
-    secret: "{secret}",
+  const express = require('express');
+  const log4js = require('log4js');
+  const passport = require('passport');
+  const APIStrategy = require("ibmcloud-appid").APIStrategy;
+
+  const app = express();
+  const logger = log4js.getLogger("testApp");
+
+  app.use(passport.initialize());
+
+  // The oauthServerUrl value can be obtained from Service Credentials
+  // tab in the App ID Dashboard. You're not required to provide this argument if
+  // your node.js application runs on IBM Cloud and is bound to the
+  // App ID service instance. In this case App ID configuration will be obtained
+  // using VCAP_SERVICES environment variable.
+  passport.use(new APIStrategy({
     oauthServerUrl: "{oauth-server-url}"
-  };
+  }));
 
-  const TokenManager = require('ibmcloud-appid').TokenManager;
+  // Declare the API you want to protect
+  app.get("/api/protected",
 
-  const tokenManager = new TokenManager(config);
+    passport.authenticate(APIStrategy.STRATEGY_NAME, {
+      session: false
+    }),
+    function(req, res) {
+      // Get full appIdAuthorizationContext from request object
+      var appIdAuthContext = req.appIdAuthorizationContext;
 
-  async function getAppIdentityToken() {
-    try {
-        const tokenResponse = await tokenManager.getApplicationIdentityToken();
-        console.log('Token response : ' + JSON.stringify(tokenResponse));
+      appIdAuthContext.accessToken; // Raw access_token
+      appIdAuthContext.accessTokenPayload; // Decoded access_token JSON
+      appIdAuthContext.identityToken; // Raw identity_token
+      appIdAuthContext.identityTokenPayload; // Decoded identity_token JSON
+      appIdAuthContext.refreshToken // Raw refresh_token
 
-        //the token response contains the access_token, expires_in, token_type
-    } catch (err) {
-        console.log('err obtained : ' + err);
+      // Or use user object provided by passport.js
+      var username = req.user.name || "Anonymous";
+      res.send("Hello from protected resource " + username);
     }
-  }
+  );
+
+  var port = process.env.PORT || 1234;
+
+  app.listen(port, function(){
+    logger.info("Send GET request to http://localhost:" + port + "/api/protected");
+  });
   ```
   {: codeblock}
   {: javascript}

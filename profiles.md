@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-19"
+lastupdated: "2021-02-23"
 
 keywords: profile, custom attributes, predefined attributes, attributes, app users, app interaction, personalized experience, access user info, identity provider information, access token, authentication, user sign in, android, java, node, swift, ios, user, preferences
 
@@ -239,8 +239,8 @@ Depending on your configuration, attributes are encrypted and saved as part of a
 {: shortdesc}
 
 
-```
-curl -X GET 'https://<region>.appid.cloud.ibm.com/api/v1/attributes' -H 'Authorization: Bearer <token>' -H 'Accept: application/json'
+```sh
+curl -X GET 'https://<region>.appid.cloud.ibm.com/api/v1/attributes' -H 'Accept: application/json' -H 'Authorization: Bearer <access_token>' 
 ```
 {: codeblock}
 {: curl}
@@ -248,6 +248,7 @@ curl -X GET 'https://<region>.appid.cloud.ibm.com/api/v1/attributes' -H 'Authori
 
 ```swift
 //iOS Swift example
+
 func setAttribute(key: String, value: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
 func setAttribute(key: String, value: String, accessTokenString: String, completionHandler: @escaping(Error?, [String:Any]?) -> Void)
 
@@ -282,10 +283,39 @@ void getAllAttributes(@NonNull AccessToken accessToken, @NonNull UserAttributeRe
 
 
 ```javascript
-function getAllAttributes(accessTokenString) {}
-function getAttribute(accessTokenString, key) {}
-function setAttribute(accessTokenString, key, value) {}
-function deleteAttribute(accessTokenString, name) {}
+const userProfileManager = require("ibmcloud-appid").UserProfileManager;
+userProfileManager.init();
+var accessToken = req.session[WebAppStrategy.AUTH_CONTEXT].accessToken;
+
+// get all attributes
+userProfileManager.getAllAttributes(accessToken).then(function (attributes) {
+
+        });
+
+// get single attribute
+userProfileManager.getAttribute(accessToken, name).then(function (attributes) {
+
+        });
+
+// set attribute value
+userProfileManager.setAttribute(accessToken, name, value).then(function (attributes) {
+
+        });
+
+// delete attribute
+userProfileManager.deleteAttribute(accessToken, name).then(function () {
+
+        });
+
+// retrieve user info
+userProfileManager.getUserInfo(accessToken).then(function (userInfo) {
+
+        });
+
+// (recommended approach) retrieve user info and validate against the given identity token
+userProfileManager.getUserInfo(accessToken, identityToken).then(function (userInfo) {
+
+        });
 ```
 {: codeblock}
 {: javascript}
@@ -293,6 +323,7 @@ function deleteAttribute(accessTokenString, name) {}
 
 ```swift
 //Server-side Swift example
+
 func getAllAttributes(accessToken: String, completionHandler: (Swift.Error?, [String: Any]?) -> Void)
 func getAttribute(accessToken: String, attributeName: String, completionHandler: (Swift.Error?, [String: Any]?) -> Void)
 func setAttribute(accessToken: String, attributeName: String, attributeValue : "abc", completionHandler: (Swift.Error?, [String: Any]?) -> Void)
