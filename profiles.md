@@ -306,16 +306,6 @@ userProfileManager.setAttribute(accessToken, name, value).then(function (attribu
 userProfileManager.deleteAttribute(accessToken, name).then(function () {
 
         });
-
-// retrieve user info
-userProfileManager.getUserInfo(accessToken).then(function (userInfo) {
-
-        });
-
-// (recommended approach) retrieve user info and validate against the given identity token
-userProfileManager.getUserInfo(accessToken, identityToken).then(function (userInfo) {
-
-        });
 ```
 {: codeblock}
 {: javascript}

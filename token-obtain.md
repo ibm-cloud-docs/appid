@@ -173,25 +173,6 @@ With a client ID and secret, you can obtain access and identity tokens by using 
   
 
   ```javascript
-  const express = require('express');
-  const log4js = require('log4js');
-  const passport = require('passport');
-  const APIStrategy = require("ibmcloud-appid").APIStrategy;
-
-  const app = express();
-  const logger = log4js.getLogger("testApp");
-
-  app.use(passport.initialize());
-
-  // The oauthServerUrl value can be obtained from Service Credentials
-  // tab in the App ID Dashboard. You're not required to provide this argument if
-  // your node.js application runs on IBM Cloud and is bound to the
-  // App ID service instance. In this case App ID configuration will be obtained
-  // using VCAP_SERVICES environment variable.
-  passport.use(new APIStrategy({
-    oauthServerUrl: "{oauth-server-url}"
-  }));
-
   // Declare the API you want to protect
   app.get("/api/protected",
 
@@ -206,19 +187,10 @@ With a client ID and secret, you can obtain access and identity tokens by using 
       appIdAuthContext.accessTokenPayload; // Decoded access_token JSON
       appIdAuthContext.identityToken; // Raw identity_token
       appIdAuthContext.identityTokenPayload; // Decoded identity_token JSON
-      appIdAuthContext.refreshToken // Raw refresh_token
-
-      // Or use user object provided by passport.js
-      var username = req.user.name || "Anonymous";
-      res.send("Hello from protected resource " + username);
+      appIdAuthContext.refreshToken; // Raw refresh_token
+      ...
     }
   );
-
-  var port = process.env.PORT || 1234;
-
-  app.listen(port, function(){
-    logger.info("Send GET request to http://localhost:" + port + "/api/protected");
-  });
   ```
   {: codeblock}
   {: javascript}
