@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-08"
+lastupdated: "2021-02-24"
 
 keywords: ingress controller, ingress, istio, access, subdomain, custom domain, service, containerized apps, containers, kube, networking, policy, policies, secure apps, authentication, authorization
 
@@ -40,7 +40,9 @@ subcollection: appid
 {:video: .video}
 {:step: data-tutorial-type='step'}
 {:tutorial: data-hd-content-type='tutorial'}
-
+{:ui: .ph data-hd-interface='ui'}
+{:cli: .ph data-hd-interface='cli'}
+{:api: .ph data-hd-interface='api'}
 
 
 # Containerized apps with Ingress
@@ -222,7 +224,7 @@ Now that your Ingress resource is updated with the annotation, you can start enf
   ```
   {: codeblock}
 
-  To verify that your addon is ready, you can run the following command.
+  To verify that your add on is ready, you can run the following command.
 
   ```
   ibmcloud ks cluster addon ls --cluster <cluster_name_or_ID>

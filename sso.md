@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-09-21"
+  years: 2017, 2021
+lastupdated: "2021-02-09"
 
 keywords: sso, single sign on, cloud directory, saml, federated, sign in, log in, log out, authentication, app security, user registry, multiple apps
 
@@ -40,8 +40,9 @@ subcollection: appid
 {:video: .video}
 {:step: data-tutorial-type='step'}
 {:tutorial: data-hd-content-type='tutorial'}
-
-
+{:ui: .ph data-hd-interface='ui'}
+{:cli: .ph data-hd-interface='cli'}
+{:api: .ph data-hd-interface='api'}
 
 
 # Single sign-on (SSO)
@@ -143,7 +144,7 @@ With {{site.data.keyword.appid_short_notm}}, you can end a user's SSO session fo
 {: shortdesc}
 
 
-When one of the changes, reset, or renew password flows is started, the sessions across all clients are automatically terminated for the user.
+When one of the flows related to changing, resetting, or renewing a password is started, the sessions across all clients are automatically terminated for the user.
 {: note}
 
 

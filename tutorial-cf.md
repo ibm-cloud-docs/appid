@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-09-21"
+  years: 2017, 2021
+lastupdated: "2021-02-18"
 
 keywords: cloud foundry, iam, java nodejs, identity, access management, user access, service access, permissions, bind service
 
@@ -45,8 +45,9 @@ completion-time: 10m
 {:video: .video}
 {:step: data-tutorial-type='step'}
 {:tutorial: data-hd-content-type='tutorial'}
-
-
+{:ui: .ph data-hd-interface='ui'}
+{:cli: .ph data-hd-interface='cli'}
+{:api: .ph data-hd-interface='api'}
 
 # Configuring Cloud Foundry to use {{site.data.keyword.appid_short_notm}}
 {: #cloud-foundry}
@@ -103,34 +104,6 @@ The following step includes instructions for deploying a Node.js app or a Java a
   ibmcloud login -a cloud.ibm.com -r <region>
   ```
   {: codeblock}
-
-  <table>
-    <caption>Table 1. Available regions</caption>
-    <tr>
-      <th>Region</th>
-      <th>Endpoint</th>
-    </tr>
-    <tr>
-      <td>Dallas</td>
-      <td><code>us-south</code></td>
-    </tr>
-    <tr>
-      <td>Frankfurt</td>
-      <td><code>eu-de</code></td>
-    </tr>
-    <tr>
-      <td>Sydney</td>
-      <td><code>au-syd</code></td>
-    </tr>
-    <tr>
-      <td>London</td>
-      <td><code>eu-gb</code></td>
-    </tr>
-    <tr>
-      <td>Tokyo</td>
-      <td><code>jp-tok</code></td>
-    </tr>
-  </table>
 
 7. Target the Cloud Foundry organization and space that you want to work in and follow the prompts to target an org and space.
 

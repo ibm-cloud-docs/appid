@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-09-21"
+  years: 2017, 2021
+lastupdated: "2021-02-24"
 
 keywords: obtain tokens, return tokens, authorized, authorization, access management, client id, secret, tenant id, app security, identity token
 
@@ -40,8 +40,9 @@ subcollection: appid
 {:video: .video}
 {:step: data-tutorial-type='step'}
 {:tutorial: data-hd-content-type='tutorial'}
-
-
+{:ui: .ph data-hd-interface='ui'}
+{:cli: .ph data-hd-interface='cli'}
+{:api: .ph data-hd-interface='api'}
 
 
 
@@ -52,15 +53,12 @@ When users or backend services interact with your app, they might need to be aut
 {: shortdesc}
 
 
-## Getting your client ID and secret
+## Getting your client ID and secret with the GUI
 {: #obtain-clientid-secret}
+{: ui}
 
 In order to obtain tokens, you must have your client ID and secret. The credentials are specific to every application and are used to help identify and validate the users that a token might be assigned to. 
 {: shortdesc}
-
-
-### By using the GUI
-{: #credentials-gui}
 
 1. Navigate to the **Applications** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
 
@@ -73,8 +71,12 @@ In order to obtain tokens, you must have your client ID and secret. The credenti
 4. Copy your client ID and secret.
 
 
-### By using the API
+## Getting your client ID and secret with the API
 {: #credentials-api}
+{: api}
+
+In order to obtain tokens, you must have your client ID and secret. The credentials are specific to every application and are used to help identify and validate the users that a token might be assigned to. 
+{: shortdesc}
 
 1.  Make a POST request to the [`/management/v4/{tenantId}/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Applications/mgmt.registerApplication).
 
@@ -106,53 +108,60 @@ In order to obtain tokens, you must have your client ID and secret. The credenti
 2. Copy the client ID and secret.
 
 
-
-## Obtaining access and identity tokens
+## Obtaining access and identity tokens with the GUI
 {: #obtain-access-id-tokens}
+{: #ui}
 
-With a client ID and secret, you can obtain access and identity tokens by using the following steps.
-{: shortdesc}
+With a client ID and secret, you can obtain access and identity tokens by using the API or an SDK. The following examples show how to obtain a token by using the Resource Owner Password (ROP) flow.
 
+This action can be done through the API only. To see the steps, switch to the API instructions.
+{: note}
 
-### Obtaining tokens by using an SDK
-{: obtain-token-sdk}
+## Obtaining access and identity tokens with the API
+{: #obtain-access-id-tokens}
+{: api}
+
+With a client ID and secret, you can obtain access and identity tokens by using the API or an SDK. The following examples show how to obtain a token by using the Resource Owner Password (ROP) flow.
+
 
 1. Obtain your tenant ID, client ID, secret, and OAuth Server URL from your credentials.
 
-2. Using the information from step 1, update the following code snippet and add it into your application. The default code is for Node.js. If you're working with another language, you can choose the one that applies to you at the beginning of this topic.
+2. Encode your client ID and secret by using a base64 encoder.
 
-  Node:
-  {: ph data-hd-programlang='javascript'}
+3. Use the following code examples to retrieve your tokens. The grant type that you use to obtain your token can differ depending on the type of authorization that you're working with. For a detailed list of options, check out the [swagger documentation](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization%20Server%20-%20Authorization%20Server%20V4/oauth-server.token){: external}.
 
-  ```javascript
-  const config = {
-    tenantId: "{tenant-id}",
-    clientId: "{client-id}",
-    secret: "{secret}",
-    oauthServerUrl: "{oauth-server-url}"
-  };
-
-  const TokenManager = require('ibmcloud-appid').TokenManager;
-
-  const tokenManager = new TokenManager(config);
-
-  async function getAppIdentityToken() {
-    try {
-        const tokenResponse = await tokenManager.getApplicationIdentityToken();
-        console.log('Token response : ' + JSON.stringify(tokenResponse));
-
-        //the token response contains the access_token, expires_in, token_type
-    } catch (err) {
-        console.log('err obtained : ' + err);
-    }
-  }
+  
+  ```sh
+  curl -X POST 'https://<region>.appid.cloud.ibm.com/oauth/v4/<tenant_id>/token' \
+  -H 'Authorization: Basic base64Encoded{{client-ID}:{client-secret}}' \
+  -H 'Accept: application/json' \
+  -F 'grant_type=password' \
+  -F 'username=testuser@test.com' \
+  -F 'password=testuser'
   ```
   {: codeblock}
-  {: ph data-hd-programlang='javascript'}
+  {: curl}
 
-  Java:
-  {: ph data-hd-programlang='java'}
+  
+  ```swift
+  // iOS Swift example
 
+  class delegate : TokenResponseDelegate {
+    public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, refreshToken: RefreshToken?, response:Response?) {
+    //User authenticated
+    }
+
+    public func onAuthorizationFailure(error: AuthorizationError) {
+    //Exception occurred
+    }
+  }
+
+  AppID.sharedInstance.signinWithResourceOwnerPassword(username: username, password: password, delegate: delegate())
+  ```
+  {: codeblock}
+  {: swift}
+
+  
   ```java
   AppID.getInstance().signinWithResourceOwnerPassword(getApplicationContext(), username, password, new TokenResponseListener() {
     @Override
@@ -167,31 +176,37 @@ With a client ID and secret, you can obtain access and identity tokens by using 
   });
   ```
   {: codeblock}
-  {: ph data-hd-programlang='java'}
+  {: java}
 
-iOS Swift:
-{: ph data-hd-programlang='swift'}
+  
 
-  ```swift
-  class delegate : TokenResponseDelegate {
-    public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, refreshToken: RefreshToken?, response:Response?) {
-    //User authenticated
+  ```javascript
+  // Declare the API you want to protect
+  app.get("/api/protected",
+
+    passport.authenticate(APIStrategy.STRATEGY_NAME, {
+      session: false
+    }),
+    function(req, res) {
+      // Get full appIdAuthorizationContext from request object
+      var appIdAuthContext = req.appIdAuthorizationContext;
+
+      appIdAuthContext.accessToken; // Raw access_token
+      appIdAuthContext.accessTokenPayload; // Decoded access_token JSON
+      appIdAuthContext.identityToken; // Raw identity_token
+      appIdAuthContext.identityTokenPayload; // Decoded identity_token JSON
+      appIdAuthContext.refreshToken; // Raw refresh_token
+      ...
     }
-
-    public func onAuthorizationFailure(error: AuthorizationError) {
-    //Exception occurred
-    }
-  }
-
-  AppID.sharedInstance.signinWithResourceOwnerPassword(username: username, password: password, delegate: delegate())
+  );
   ```
   {: codeblock}
-  {: ph data-hd-programlang='swift'}
+  {: javascript}
 
-Server Swift:
-{: ph data-hd-programlang='swift'}
-
+  
   ```swift
+  // Server-side swift example
+
   let options = [
     "clientId": "{client-id}",
     "secret": "{secret}",
@@ -204,35 +219,6 @@ Server Swift:
   kituraCredentials.register(plugin: webappKituraCredentialsPlugin)
   ```
   {: codeblock}
-  {: ph data-hd-programlang='swift'}
+  {: swift}
 
 
-</br>
-
-### Obtaining tokens by using the API
-{: #obtain-tokens-api}
-
-1. Obtain your tenant ID, client ID, secret, and OAuth Server URL from your credentials.
-
-2. Encode your client ID and secret.
-
-    1. Copy your client ID and secret using the steps from the previous section.
-    2. Use a base64 encoder to encode your authorization information.
-    3. Copy the output.
-
-3. Make a request to the API to obtain a token. The data section of your request varies depending on the type of grant type that you're using. 
-
-  ```sh
-  curl -X POST 'https://<region>.appid.cloud.ibm.com/oauth/v4/<tenant_id>/token' \
-  -H 'Authorization: Basic base64Encoded{{client-ID}:{client-secret}}' \
-  -H 'Accept: application/json' \
-  -F 'grant_type=password' \
-  -F 'username=testuser@test.com' \
-  -F 'password=testuser'
-  ```
-  {: codeblock}
-
-  If you don't have an application, you can use the same command but replace `GET` with `POST`.
-  {: tip}
-
-The type of grant type that you use to obtain your token can differ depending on the type of authorization that you're working with. For a detailed list of options, check out the [swagger documentation](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization%20Server%20-%20Authorization%20Server%20V4/oauth-server.token).

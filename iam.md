@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2020-10-06"
+  years: 2017, 2021
+lastupdated: "2021-02-11"
 
 keywords: user access, account settings, iam, user roles, platform roles, service roles, reader, writer, operator, editor, viewer, administrator, manager, permissions
 
@@ -40,8 +40,9 @@ subcollection: appid
 {:video: .video}
 {:step: data-tutorial-type='step'}
 {:tutorial: data-hd-content-type='tutorial'}
-
-
+{:ui: .ph data-hd-interface='ui'}
+{:cli: .ph data-hd-interface='cli'}
+{:api: .ph data-hd-interface='api'}
 
 # Managing access for {{site.data.keyword.appid_short_notm}}
 {: #service-access-management}
@@ -132,8 +133,8 @@ The following table details actions that are mapped to service access roles. Ser
         <li>View your Cloud Directory users and their data.</li>
         <li>View a user profile.</li>
         <li>Search all of your user profiles and get a count of any anonymous users.</li>
-        <li>View all of the apps that are registered with your instance of App ID.</li>
-        <li>View a specific app that is registered with App ID.</li>
+        <li>View all of the apps that are registered with your instance of {{site.data.keyword.appid_short_notm}}.</li>
+        <li>View a specific app that is registered with {{site.data.keyword.appid_short_notm}}.</li>
         <li>View the email provider configuration.</li>
         <li>View a JSON object that contains the auditing status of the tenant.</li>
         <li>View all of the MFA channels.</li>
@@ -177,9 +178,9 @@ The following table details actions that are mapped to service access roles. Ser
         <li>Update a user profile.</li>
         <li>Create a future user.</li>
         <li>Revoke a users refresh token.</li>
-        <li>Register a new app with App ID.</li>
-        <li>Update an app that is registered with App ID.</li>
-        <li>Delete an app that is registered with App ID.</li>
+        <li>Register a new app with {{site.data.keyword.appid_short_notm}}.</li>
+        <li>Update an app that is registered with {{site.data.keyword.appid_short_notm}}.</li>
+        <li>Delete an app that is registered with {{site.data.keyword.appid_short_notm}}.</li>
         <li>Configure or update your own email provider.</li>
         <li>Test your email provider configuration.</li>
         <li>Update your auditing status.</li>
@@ -194,10 +195,10 @@ The following table details actions that are mapped to service access roles. Ser
         <li>Get the scopes that are associated with an application.</li>
         <li>Delete a scope that is associated with an application.</li>
         <li>Add a role.</li>
-        <li>Update the roles in your instance of App ID.</li>
+        <li>Update the roles in your instance of {{site.data.keyword.appid_short_notm}}.</li>
         <li>Delete a role.</li>
         <li>Update the roles that are assigned to a specific user.</li>
-        <li>Update the status of a registered extension for an instance of App ID to enabled or disabled.</li>
+        <li>Update the status of a registered extension for an instance of {{site.data.keyword.appid_short_notm}} to enabled or disabled.</li>
         <li>Update a registered extension's configuration.</li>
         <li>Test a registered extensions configuration.</li>
       </ul>
@@ -208,10 +209,10 @@ The following table details actions that are mapped to service access roles. Ser
     <td>
       <ul>
         <li>All Writer actions.</li>
-        <li>Export your Cloud Directory users and their data from your App ID instance.</li>
-        <li>Import your Cloud Directory users into a new instance of App ID.</li>
-        <li>Export all of the user profiles in an instance of App ID.</li>
-        <li>Import all of the user profiles that you exported into a new instance of App ID.</li>
+        <li>Export your Cloud Directory users and their data from your {{site.data.keyword.appid_short_notm}} instance.</li>
+        <li>Import your Cloud Directory users into a new instance of {{site.data.keyword.appid_short_notm}}.</li>
+        <li>Export all of the user profiles in an instance of {{site.data.keyword.appid_short_notm}}.</li>
+        <li>Import all of the user profiles that you exported into a new instance of {{site.data.keyword.appid_short_notm}}.</li>
       </ul>
     </td>
   </tr>
