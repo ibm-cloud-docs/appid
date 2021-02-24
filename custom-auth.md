@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-09"
+lastupdated: "2021-02-24"
 
 keywords: custom identity provider, authorization, bring your own idp, proprietary idp, legacy idp, oauth, oidc, authentication, oatuh, app security
 
@@ -104,71 +104,65 @@ You can convert your verified user data to a custom identity JWT by generating a
 ### Example JWT format
 {: #jwts-example}
 
-Token header:
-  ```json
-  {
+```json
+{
+  // Header
   "alg": "RS256",
-  "typ": "JOSE"
-  }
-  ```
-  {: screen}
+  "typ": "JOSE",
+  // Payload
+  // Required
+  "iss": "String", // Should reference your identity provider
+  "aud": "String", // Must be the OAuth server URL name
+  "exp": "Int",    // Should be a value with a short lifespan
+  "sub": "String", // Must be the unique user ID provided by your identity provider
 
-Token payload:
-  ```json
-  {
-    // Required
-    "iss": "String", // Should reference your identity provider
-    "aud": "String", // Must be the OAuth server URL name
-    "exp": "Int",    // Should be a value with a short lifespan
-    "sub": "String", // Must be the unique user ID provided by your identity provider
+  // Normalized claims (optional)
+  "name": "String",
+  "email": "String",
+  "locale": "String",
+  "picture": "String",
+  "gender": "String",
 
-    // Normalized claims (optional)
-    "name": "String",
-    "email": "String",
-    "locale": "String",
-    "picture": "String",
-    "gender": "String"
+  // Custom Scopes to add to access token (optional)
+  scope="custom_scope1 custom_scope2"
 
-    // Custom Scopes to add to access token (optional)
-    scope="custom_scope1 custom_scope2"
+  // Other custom claims (optional)
+  role="admin"
+}
+```
+{: screen}
 
-    // Other custom claims (optional)
-    role="admin"
-  }
-  ```
-  {: screen}
-
-  <table>
-    <caption>Table 1. JWS fields</caption>
-    <tr>
-      <th>Field</th>
-      <th>Description</th>
-    </tr>
-    <tr>
-      <td><code>iss</code></td>
-      <td>Should contain a reference to your identity provider.</td>
-    </tr>
-    <tr>
-      <td><code>aud</code></td>
-      <td>The OAuth server URL. Format: `https://{region}.appid.cloud.ibm.com/oauth/v4/{tenantId}`.</td>
-    </tr>
-    <tr>
-      <td><code>exp</code></td>
-      <td>The length of time that the token is valid. For security reasons, it should have a short life span and be specific.</td>
-    </tr>
-    <tr>
-      <td><code>sub</code></td>
-      <td>The unique user ID that is provided by the identity provider.</td>
-    </tr>
-    <tr>
-      <td>Normalized claims</td>
-      <td>All [normalized claims](/docs/appid?topic=appid-tokens) are provided in the identity token that is returned in response to this request. More custom claims can be found by using the [`/userinfo` endpoint](/docs/appid?topic=appid-profiles).</td>
-    </tr>
-    <tr>
-      <td>Scope</td>
-      <td>By default, all {{site.data.keyword.appid_short_notm}} tokens contain a group of preset scopes. You can request extra scopes by doing one of the following:<ul><li> Specify the scope in the scope field of your JWS token.</li> <li>Specify the scope through the URL-form scopes parameter of the `/token` request.</li></ul></td>
-    </tr>
-  </table>
+<table>
+  <caption>Table 1. JWS fields</caption>
+  <tr>
+    <th>Field</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><code>iss</code></td>
+    <td>Should contain a reference to your identity provider.</td>
+  </tr>
+  <tr>
+    <td><code>aud</code></td>
+    <td>The OAuth server URL. Format: `https://{region}.appid.cloud.ibm.com/oauth/v4/{tenantId}`.</td>
+  </tr>
+  <tr>
+    <td><code>exp</code></td>
+    <td>The length of time that the token is valid. For security reasons, it should have a short life span and be specific.</td>
+  </tr>
+  <tr>
+    <td><code>sub</code></td>
+    <td>The unique user ID that is provided by the identity provider.</td>
+  </tr>
+  <tr>
+    <td>Normalized claims</td>
+    <td>All [normalized claims](/docs/appid?topic=appid-tokens) are provided in the identity token that is returned in response to this request. More custom claims can be found by using the [`/userinfo` endpoint](/docs/appid?topic=appid-profiles).</td>
+  </tr>
+  <tr>
+    <td>Scope</td>
+    <td>By default, all {{site.data.keyword.appid_short_notm}} tokens contain a group of preset scopes. You can request extra scopes by doing one of the following:<ul><li> Specify the scope in the scope field of your JWS token.</li> <li>Specify the scope through the URL-form scopes parameter of the `/token` request.</li></ul></td>
+  </tr>
+</table>
 
 ## Retrieving {{site.data.keyword.appid_short_notm}} tokens
 {: #exchanging-jwts}
