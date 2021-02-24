@@ -74,6 +74,11 @@ App ID
         access-control.md
 
     {: .topicgroup}
+    Managing tokens
+        token-obtain.md
+        tokens.md
+
+    {: .topicgroup}
     Enhancing security
         iam.md
         manage-scc.md
@@ -95,11 +100,6 @@ App ID
     Related links
         relatedlinks.md
         [IBM Developer: Security](https://developer.ibm.com/solutions/security/)
-
-    {: .topicgroup}
-    Managing tokens
-        token-obtain.md
-        tokens.md
 
     api-reference.md
     well-known.md
