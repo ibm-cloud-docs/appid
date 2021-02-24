@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-11"
+lastupdated: "2021-02-24"
 
 keywords: user access, control access, permissions, roles, scopes, runtime, access token, authentication, identity, app security
 
@@ -68,7 +68,7 @@ For more information about applications, see [Application identity and authoriza
 
 * You must have an application.
 * Make sure you have an understanding of the way in which each type of role and scope can impact your application. Because you're granting access, you want to be sure that you're granting it to only the people that need it. 
-* Be aware of the [limits](/docs/appid?topic=appid-limits) that are in place. 
+* Be aware of the [limits](/docs/appid?topic=appid-known-issues-limits) that are in place. 
 
 
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-17"
+lastupdated: "2021-02-24"
 
 keywords: protected resource, back-end apps, identity, tokens, identity provider, authentication, authorization, app security, oauth, 
 
@@ -92,7 +92,7 @@ For more information about how tokens are used in {{site.data.keyword.appid_shor
 
 4. The protected resource or API validates the token. If the token is valid, access to the resource is granted for the client. If the token cannot be validated, access is denied.
 
-For information about how to configure your app to use Liberty for Java, see the [Quick start: Liberty for Java back-end apps tutorial](/docs/services/appid?topic=appid-backend-liberty).
+For information about how to configure your app to use Liberty for Java, see the [Quick start: Liberty for Java back-end apps tutorial](/docs/appid?topic=appid-backend-liberty).
 
 ## Protecting resources by using the Node.js SDK
 {: #backend-secure}
