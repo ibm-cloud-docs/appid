@@ -119,7 +119,7 @@ This action can be done through the API only. To see the steps, switch to the AP
 
 ## Obtaining access and identity tokens with the API
 {: #obtain-access-id-tokens}
-{: #api}
+{: api}
 
 With a client ID and secret, you can obtain access and identity tokens by using the API or an SDK. The following examples show how to obtain a token by using the Resource Owner Password (ROP) flow.
 
