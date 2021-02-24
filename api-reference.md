@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-23"
+lastupdated: "2021-02-24"
 
 keywords: management api, service management, service instance, devops automation, customize, permissions, iam, account owners, identity, app security, access tokens, video tutorial
 
@@ -47,7 +47,7 @@ subcollection: appid
 # Regions and endpoints
 {: #regions-endpoints}
 
-You can use the {{site.data.keyword.appid_short_notm}} APIs for DevOps automation, customization, and management of your service instances. To understand availablility of the service, you can review the following connectivity options.
+You can use the {{site.data.keyword.appid_short_notm}} APIs for DevOps automation, customization, and management of your service instances. To understand availability of the service, you can review the following connectivity options.
 {: shortdesc}
 
 
@@ -61,7 +61,7 @@ You can use the {{site.data.keyword.appid_short_notm}} APIs for DevOps automatio
 ## Service endpoints
 {: #service-endpoints}
 
-If you're managing your service instances of {{site.data.keyword.appid_short_notm}} programatically, see the following table to determine which API endpoints to use when you connect to the APIs.
+If you're managing your service instances of {{site.data.keyword.appid_short_notm}} programmatically, see the following table to determine which API endpoints to use when you connect to the APIs.
 
 | Region | Endpoint  |
 |--------|-----------|

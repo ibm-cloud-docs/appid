@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-23"
+lastupdated: "2021-02-24"
 
 keywords: obtain tokens, return tokens, authorized, authorization, access management, client id, secret, tenant id, app security, identity token
 
@@ -118,7 +118,7 @@ With a client ID and secret, you can obtain access and identity tokens by using 
 
 1. Obtain your tenant ID, client ID, secret, and OAuth Server URL from your credentials.
 
-2. Encode your client ID and secret by usinga  base64 endcoder.
+2. Encode your client ID and secret by using a base64 encoder.
 
 3. Use the following code examples to retrieve your tokens. The grant type that you use to obtain your token can differ depending on the type of authorization that you're working with. For a detailed list of options, check out the [swagger documentation](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization%20Server%20-%20Authorization%20Server%20V4/oauth-server.token){: external}.
 
