@@ -108,12 +108,20 @@ In order to obtain tokens, you must have your client ID and secret. The credenti
 2. Copy the client ID and secret.
 
 
-
-## Obtaining access and identity tokens
+## Obtaining access and identity tokens with the GUI
 {: #obtain-access-id-tokens}
+{: #ui}
 
 With a client ID and secret, you can obtain access and identity tokens by using the API or an SDK. The following examples show how to obtain a token by using the Resource Owner Password (ROP) flow.
-{: shortdesc}
+
+This action can be done through the API only. To see the steps, switch to the API instructions.
+{: note}
+
+## Obtaining access and identity tokens with the API
+{: #obtain-access-id-tokens}
+{: #api}
+
+With a client ID and secret, you can obtain access and identity tokens by using the API or an SDK. The following examples show how to obtain a token by using the Resource Owner Password (ROP) flow.
 
 
 1. Obtain your tenant ID, client ID, secret, and OAuth Server URL from your credentials.
