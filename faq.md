@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-18"
+lastupdated: "2021-03-01"
 
 keywords: pricing, advanced security, authentication events, authorized users, activity tracking, runtime activity, password policies, keycloak, allow list redirect url, redirect uri 
 
@@ -233,3 +233,41 @@ You can migrate the information in one instance of {{site.data.keyword.appid_sho
 6. Depending on your configuration, you might need to redeploy or unbind and rebind your application.
 
 
+## Can {{site.data.keyword.appid_short_notm}} help configure log out?
+{: #faq-logout}
+
+Depending on how you configure your application, {{site.data.keyword.appid_short_notm}} can help to facilitate a log out functionality for your users. Check out the following table to see where functionality for log out is available.
+
+|  | Description |
+|---------|-------------|
+| {{site.data.keyword.appid_short_notm}} SDKs | The {{site.data.keyword.appid_short_notm}} SDKs have a built in log out functionality.  |
+| Cloud Directory SSO[^sso] | {{site.data.keyword.appid_short_notm}} provides built in log out functionality for the Cloud Directory SSO feature. |
+| Ingress | Ingress provides a built in log out functionality. |
+| Istio | The Istio adapter is configured to provide log out functionality through OIDC. |
+{: caption="Table 3. Log out functionality options" caption-side="top"}
+{: row-headers}
+
+[^sso]: All redirect URLs that are used with the Cloud Directory SSO feature must be added to the log out URL allowlist in the {{site.data.keyword.appid_short_notm}} UI.
+
+### Configuring log out
+{: #faq-logout-how}
+
+To configure log out, you must configure your application to send a request to your identity provider and then redirect the user to an area of your application that does not require authentication. In most use-cases, there is an application server session - that might be set by the {{site.data.keyword.appid_short_notm}} SDKs, Ingress, or Istio that works in partnership with a federated identity provider such as SAML or Cloud Directory to enable authentication and authorization. 
+
+In the following HTML example, an {{site.data.keyword.appid_short_notm}} SDK is used to configure log out. But, if you are working with another option, you can use this snippet as a guide and update it to fit your needs.
+
+```html
+<script>
+  var ticker = setInterval(tick, 1000);
+  var counter = 5;
+  function tick() {
+    var timerDiv = document.getElementById("timer");
+    if (counter > 0) {
+      timerDiv.innerText = "Logged out. Redirecting back in " + (counter--) + " seconds.";
+    } else {
+      document.location = "./appid_logout";
+    }
+  } </script>
+<iframe height="0" width="0" src="https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0"></iframe>
+```
+{: screen}
