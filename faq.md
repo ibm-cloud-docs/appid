@@ -83,7 +83,7 @@ With {{site.data.keyword.appid_short_notm}}, the more your users authenticate, t
 For the most up-to-date pricing information, you can create a cost estimate by clicking **Add to estimate** in the {{site.data.keyword.appid_short_notm}} section of the [{{site.data.keyword.cloud_notm}} catalog](https://cloud.ibm.com/catalog/services/app-id).
 {: tip}
 
-The graduated tier plan consists of three parts: the number of authentication events, both regular and advanced security, and the number of authorized users. You are charged each month, based on the summary of the two parts. The total price is the cumulative charge for each level of usage, consisting of your quantity multiplied by the unit price at that tier.
+The graduated tier plan consists of three parts: the number of authentication events, both regular and advanced security, and the number of authorized users. You are charged each month, based on the summary of the three parts. The total price is the cumulative charge for each level of usage, consisting of your quantity multiplied by the unit price at that tier.
 
 Your first 1000 authentication events and first 1000 authorized users are free each month, except for any advanced security events. Any advanced security events incur an extra charge.
 
