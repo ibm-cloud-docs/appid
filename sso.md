@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-09"
+lastupdated: "2021-03-01"
 
 keywords: sso, single sign on, cloud directory, saml, federated, sign in, log in, log out, authentication, app security, user registry, multiple apps
 
@@ -176,6 +176,10 @@ https://<region>.appid.cloud.ibm.com/oauth/v4/<tenant-id>/cloud_directory/sso/lo
     <td><code>redirect_uri</code></td>
     <td>A URI that you specified in your SSO configuration through the {{site.data.keyword.appid_short_notm}} dashboard. For security reasons, if you do not specify a value redirection cannot occur and an error is displayed.</td>
   </tr>
+  <tr>
+    <td><code>client_id</code></td>
+    <td>Your application's client ID.</td>
+  </tr>
 </table>
 
 Even if the SSO session is ended, a user with a valid access token that is stored in their session might not be required to enter their credentials again until their token expires. By default the token expires after 1 hour.
@@ -187,18 +191,24 @@ Even if the SSO session is ended, a user with a valid access token that is store
 
 You can also use the {{site.data.keyword.appid_short_notm}} Node.js server SDK to automatically handle the redirection for you. 
 
+1. Set `logoutSSO` as a method. For example:
 
-Example:
+  ```
+  let webAppStrategy = new WebAppStrategy(.....);
+  ....
+  webAppStrategy.logoutSSO();
+  ```
+  {: codeblock}
 
-```javascript
-app.get('/logoutSSO', (req, res) => {
-  res.clearCookie("refreshToken");
-  webAppStrategy.logoutSSO(req,res, { "redirect_uri": "https://my-app.com/after_logout" });
-  });
-```
-{: screen}
+2. Configure logout.
 
-
+  ```javascript
+  app.get('/logoutSSO', (req, res) => {
+    res.clearCookie("refreshToken");
+    webAppStrategy.logoutSSO(req,res, { "redirect_uri": "https://my-app.com/after_logout" });
+    });
+  ```
+  {: codeblock}
 
 
 ## Ending all sessions for a user
