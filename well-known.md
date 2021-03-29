@@ -65,7 +65,7 @@ You can obtain the discovery document and the information that it contains by ca
 You can find the endpoint at the following URL:
 
 ```
-https://{region}.appid.ibm.cloud.com/oauth/v4/{tenantId}/.well-known/openid-configuration
+https://{region}.appid.cloud.ibm.com/oauth/v4/{tenantId}/.well-known/openid-configuration
 ```
 {: codeblock}
 
