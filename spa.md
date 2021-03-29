@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-18"
+lastupdated: "2021-03-04"
 
 keywords: single page application, SPA, single-page, angular, react, native apps, javascript, js, sdk, authentication, authorization, identity, app security, secure, protocols, oauth, oidc,
 
@@ -208,7 +208,7 @@ Refresh tokens are not returned in the SPA flow.
   if (!tokens) {
     document.getElementById('login').addEventListener('click', async () => {
       const tokens = await appID.signin();
-    }
+    });
   }
   ```
   {: codeblock}
