@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-09"
+lastupdated: "2021-03-30"
 
 keywords: user events, track activity, manage events, analyze, administrative, runtime, sign in, settings, app security
 
@@ -68,7 +68,7 @@ You can view, manage, and analyze configuration activity that is made in your {{
 1. Log in to your {{site.data.keyword.cloud_notm}} account.
 2. From the catalog, provision an instance of the {{site.data.keyword.at_short}} service in the same account and region as your {{site.data.keyword.appid_short_notm}} instance.
 3. From the **Observability > Activity Tracker** tab, verify the information for the instance that you created.
-4. Click **View LogDNA** and make sure you're on the **Everything** dashboard. Any events that meet the qualifications for your {{site.data.keyword.at_short}} payment plan are visible. You can filter your results by tags, sources, apps or levels. You can also search for specific events or jump to a specific timeframe.
+4. Click **View Open Dashboard** and make sure you're on the **Everything** dashboard. Any events that meet the qualifications for your {{site.data.keyword.at_short}} payment plan are visible. You can filter your results by tags, sources, apps or levels. You can also search for specific events or jump to a specific timeframe.
 
 
 
@@ -121,7 +121,7 @@ Some of the action names were changed as part of an alignment to new guidelines.
     <td><code>appid.redirect-uris.update</code></td>
     <td>Update the redirect URIs configuration.</td>
     <td>Can be updated in the <strong>Manage authentication > Identity Providers</strong> tab.</td>
-  </tr>  
+  </tr>
   <tr>
     <td><code>appid.is-profiles-active.read</code></td>
     <td>View the user profile storage configuration.</td>
@@ -476,7 +476,7 @@ Some of the action names were changed as part of an alignment to new guidelines.
     <td><code>appid.mfa-channel.update</code></td>
     <td>Update your channels.</td>
     <td>Can be found in the <strong>Cloud Directory > Multi-factor Authentication</strong> tab.</td>
-  </tr>  
+  </tr>
   <tr>
     <td><code>appid.sms-dispatcher-test.send</code></td>
     <td>Test the SMS dispatcher configurations.</td>
@@ -521,7 +521,7 @@ Some of the action names were changed as part of an alignment to new guidelines.
     <td><code>appid.rate-limit.update</code></td>
     <td>Update your rate limit configurations.</td>
     <td>Must be done through the API.</td>
-  </tr>  
+  </tr>
 </table>
 
 
@@ -546,7 +546,7 @@ This feature is available only for instances on graduated tier payment plan that
 3. In the {{site.data.keyword.appid_short_notm}} dashboard, click **Manage authentication > Authentication settings**.
 4. Scroll to the **Runtime Activity** panel and toggle the switch to enable tracking of runtime authentication activity. A message displays that notifies you that the feature is enabled and that you are charged differently. For more information, see [How does App ID calculate pricing](/docs/appid?topic=appid-faq#faq-pricing).
 5. From the **Observability > Activity Tracker** tab in the console navigation, verify the information for the instance that you created.
-6. Click **View LogDNA**. When the dashboard loads, you see an overall view of all of the activity in your account. You can use the search operators to filter your results by tags, sources, apps or levels. You can also search for specific events or jump to a specific timeframe.
+6. Click **Open Dashboard**. When the dashboard loads, you see an overall view of all of the activity in your account. You can use the search operators to filter your results by tags, sources, apps or levels. You can also search for specific events or jump to a specific timeframe.
 7. From the **All Apps** drop-down, select the instance of {{site.data.keyword.appid_short_notm}} that you want to track events for.
 
 
