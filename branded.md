@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-09"
+lastupdated: "2021-04-05"
 
 keywords: bring your own screens, branded app, sign up, custom, directory, registry, app security, password, authorization flow, authentication,
 
@@ -185,7 +185,12 @@ By using `WebAppStrategy`, users can sign in to your web apps with their user na
     </tr>
     <tr>
       <td><code>failureRedirect</code></td>
-      <td>The URL that you want to redirect the user to if authentication fails.</td>
+      <td>The URL that you want to redirect the user to if authentication fails. Users are redirected to the specified URL when the following authentication failures occur:
+        <ul>
+          <li>The user inputs an incorrect username or password.</li>
+          <li>The plan limit for the {{site.data.keyword.appid_short_notm}} instance has been reached.</li>
+        </ul>
+      </td>
     </tr>
     <tr>
       <td><code>failureFlash</code></td>
@@ -193,7 +198,8 @@ By using `WebAppStrategy`, users can sign in to your web apps with their user na
     </tr>
   </table>
 
-**Note**: If you submit the request in HTML, you can use [body parser](https://www.npmjs.com/package/body-parser){: external} middleware. To see the returned error message, you can use [connect-flash](https://www.npmjs.com/package/connect-flash){: external}. To see it in action, check out the [web app sample](https://github.com/ibm-cloud-security/appid-serversdk-nodejs/blob/master/samples/web-app-sample.js){: external}.
+If you submit the request in HTML, you can use [body parser](https://www.npmjs.com/package/body-parser){: external} middleware. To see the returned error message, you can use [connect-flash](https://www.npmjs.com/package/connect-flash){: external}. To see it in action, check out the [web app sample](https://github.com/ibm-cloud-security/appid-serversdk-nodejs/blob/master/samples/web-app-sample.js){: external}.
+{: note}
 
 
 
@@ -219,7 +225,7 @@ Supply the following data in the request body:
     * A `password` attribute.
     * An `emails` array with at least one email address and a `primary` attribute that is set to `true`.
 
-Depending on your [email configuration](/docs/appid?topic=appid-cd-types), a user might receive a request for verification, an email that welcomes them when they sign up for your app, or both. Both types of emails are triggered when a user signs up for your app. The verification email contains a link that the user can click to confirm their identity; a screen is displayed, that thanks them for verifying or confirms that their verification is complete.  
+Depending on your [email configuration](/docs/appid?topic=appid-cd-types), a user might receive a request for verification, an email that welcomes them when they sign up for your app, or both. Both types of emails are triggered when a user signs up for your app. The verification email contains a link that the user can click to confirm their identity; a screen is displayed, that thanks them for verifying or confirms that their verification is complete.
 
 To present your own post verification page:
 
@@ -245,7 +251,7 @@ You can present your own post reset password page:
 
 1. Configure your Cloud Directory [settings](/docs/appid?topic=appid-cloud-directory#cd-settings) in the GUI. **Allow users to manage their account from your app** must be set to **On**.
 2. In the **Reset Password** tab of the service dashboard, be sure that **Forgot password email** is set to **On**.
-3. Enter the URL for your landing page in the **URL for your custom reset password page**  
+3. Enter the URL for your landing page in the **URL for your custom reset password page**
 
 When this value is provided, {{site.data.keyword.appid_short_notm}} calls the URL along with a `context` query. The `context` parameter is used to receive the result when `/forgot_password/confirmation_result` is called. If the result is successful, then you can display your custom page.
 
