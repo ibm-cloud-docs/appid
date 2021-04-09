@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-09"
+lastupdated: "2021-04-09"
 
 keywords: related links, blogs, sample apps, kube, code changes, programming guide, white paper, vuejs apps, serverless applications, enterprise user directory, custom experience, slack, stack overflow, secure iot, solution, finance app, multicloud, video tutorials
 
@@ -51,7 +51,7 @@ subcollection: appid
 You can use the following related links and samples to learn more about and interact with {{site.data.keyword.appid_full}}.
 {: shortdesc}
 
-Getting started? Try walking through our [video tutorials](https://www.youtube.com/playlist?list=PLzpeuWUENMK2tmzSRRx7W_mplw1x4h7ch){: external}. 
+Getting started? Try walking through our [video tutorials](https://www.youtube.com/playlist?list=PLzpeuWUENMK2tmzSRRx7W_mplw1x4h7ch){: external}.
 {: note}
 
 ## Contact us
@@ -123,7 +123,7 @@ Just getting started? Try walking through some of our tutorials and blogs for he
 
 See {{site.data.keyword.appid_short_notm}} in action in these market examples.
 
-* <img src="images/tutorial.svg" alt="Tutorial icon" width="20" style="width:20px; border-style: none"/> [{{site.data.keyword.appid_short_notm}} authentication for Watson IoT Platform (Beta)](https://www.ibm.com/support/knowledgecenter/SSQP8H/iot/platform/reference/security/app_id.html){: external}
+* <img src="images/tutorial.svg" alt="Tutorial icon" width="20" style="width:20px; border-style: none"/> [{{site.data.keyword.appid_short_notm}} authentication for Watson IoT Platform (Beta)](https://www.ibm.com/docs/en/watson-iot-platform?topic=security-app-id-authentication){: external}
 * <img src="images/blog-code.svg" alt="Icon indicating that this blog contains sample code" width="20" style="width:20px; border-style: none"/> [Design and build secure IoT solutions, part 3: Securing IoT applications](https://developer.ibm.com/articles/iot-trs-secure-iot-solutions3/){: external}
 * <img src="images/blog-code.svg" alt="Icon indicating that this blog contains sample code" width="20" style="width:20px; border-style: none"/> [Developing a finance application by using {{site.data.keyword.cloud_notm}}](https://www.ibm.com/cloud/blog/developing-finance-application-using-ibm-cloud){: external}
 * <img src="images/tutorial.svg" alt="Tutorial icon" width="20" style="width:20px; border-style: none"/> [Apply end-to-end security to a cloud application](/docs/solution-tutorials?topic=solution-tutorials-cloud-e2e-security#cloud-e2e-security)

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-18"
+lastupdated: "2021-04-09"
 
 keywords: web apps, authorization code, authentication, nodejs, javascript, app access, application credentials, login, redirect uri, protected endpoint, video
 
@@ -349,7 +349,7 @@ Check out the following video to learn about protecting Liberty for Java applica
 ### Initializing the Liberty for Java SDK
 {: #web-liberty-initialize}
 
-1. In your `server.xml` file, define an authorization filter to specify protected resources. If a filter is not [defined](https://www.ibm.com/support/knowledgecenter/en/SSD28V_liberty/com.ibm.websphere.wlp.core.doc/ae/rwlp_auth_filter.html){: external}, the service protects all resources.
+1. In your `server.xml` file, define an authorization filter to specify protected resources. If a filter is not [defined](https://www.ibm.com/docs/en/was-liberty/core?topic=liberty-authentication-filters){: external}, the service protects all resources.
 
   ```xml
   <authFilter id="myAuthFilter">
@@ -382,7 +382,7 @@ Check out the following video to learn about protecting Liberty for Java applica
   ```
   {: codeblock}
 
-By default SSL configuration requires the truststore be configured for OpenID Connect. Learn more about [configuring an OpenID Connect Client in Liberty](https://www.ibm.com/support/knowledgecenter/en/SSEQTP_liberty/com.ibm.websphere.wlp.doc/ae/twlp_config_oidc_rp.html){: external}.
+By default SSL configuration requires the truststore be configured for OpenID Connect. Learn more about [configuring an OpenID Connect Client in Liberty](https://www.ibm.com/docs/en/was-liberty/base?topic=connect-configuring-openid-client-in-liberty){: external}.
 {: tip}
 
 
