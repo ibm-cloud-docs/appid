@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-09"
+lastupdated: "2021-04-23"
 
 keywords: attributes, cloud directory, user registry, user management, personalization, customize app, user information, profiles, app security, user profile, app access, identity
 
@@ -138,7 +138,7 @@ Your application is responsible for mapping the answers to the specific attribut
   ```
   curl --request GET https://<region>.appid.cloud.ibm.com/management/v4/<tenant-id>/users/<user_id>/profile \
   --header 'Authorization: Bearer <iam-access-token>' \
-  --header 'Content-Type: application/json' \
+  --header 'Content-Type: application/json'
   ```
   {: codeblock}
 
