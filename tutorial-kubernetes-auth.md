@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-24"
+lastupdated: "2021-05-17"
 
 keywords: ingress controller, ingress, istio, access, subdomain, custom domain, service, containerized apps, containers, kube, networking, policy, policies, secure apps, authentication, authorization
 
@@ -173,7 +173,9 @@ Your Ingress resource is used to define how you want to expose your applications
   All letters in the service instance name must specified as lowercase characters.
   {: note}
 
-2. Choose which tokens to send in the authorization header to your app.
+2. Optional: If your app is a web app, in addition to or instead of, providing APIs, add the `nginx.ingress.kubernetes.io/auth-signin: https://$host/oauth2-<App_ID_service_instance_name>/start?rd=$escaped_request_uri` annotation. 
+
+3. Choose which tokens to send in the authorization header to your app.
 
   * To send only the ID token, add the `nginx.ingress.kubernetes.io/auth-response-headers: Authorization` annotation.
   * To send only the access token, add the following information to the `access_by_lua_block{}` in the `configuration-snippet` annotation.
@@ -207,7 +209,7 @@ Your Ingress resource is used to define how you want to expose your applications
     ```
     {: codeblock}
 
-3. Optional: If your app supports the web app strategy in addition to, or instead of, the API strategy, add the `nginx.ingress.kubernetes.io/auth-signin: https://$host/oauth2-<App_ID_service_instance_name>/start?rd=$escaped_request_uri` annotation. 
+
 
 
 
@@ -245,8 +247,8 @@ Now that your Ingress resource is updated with the annotation, you can start enf
 
 4. Verify that {{site.data.keyword.appid_short_notm}} authentication is enforced for your apps.
 
-  * If your app supports the web app strategy: Access your app's URL in a web browser. If {{site.data.keyword.appid_short_notm}} is correctly applied, you are redirected to an {{site.data.keyword.appid_short_notm}} authentication login page.
-  * If your app supports the API strategy: Specify your bearer access token in the Authorization header of requests to the apps. To get your access token, see [Obtaining tokens](/docs/appid?topic=appid-obtain-tokens). If {{site.data.keyword.appid_short_notm}} is correctly applied, the request is successfully authenticated and is routed to your app. If you send requests to your apps without an access token in the authorization header, or if the access token is not accepted by {{site.data.keyword.appid_short_notm}}, then the request is rejected.
+  * If your app is a web app: Access your app's URL in a web browser. If {{site.data.keyword.appid_short_notm}} is correctly applied, you are redirected to an {{site.data.keyword.appid_short_notm}} authentication login page.
+  * If you are providing APIs: Specify your bearer access token in the Authorization header of requests to the apps. To get your access token, see [Obtaining tokens](/docs/appid?topic=appid-obtain-tokens). If {{site.data.keyword.appid_short_notm}} is correctly applied, the request is successfully authenticated and is routed to your app. If you send requests to your apps without an access token in the authorization header, or if the access token is not accepted by {{site.data.keyword.appid_short_notm}}, then the request is rejected.
 
 
 
