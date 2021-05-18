@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-03-04"
+lastupdated: "2021-05-18"
 
 keywords: single page application, SPA, single-page, angular, react, native apps, javascript, js, sdk, authentication, authorization, identity, app security, secure, protocols, oauth, oidc,
 
@@ -57,7 +57,7 @@ Does your app have a backend that you control? SPA is not the flow for you. Try 
 ## Understanding the flow
 {: #spa-understanding}
 
-Although it is the current industry standard for SPAs, the OAuth working group no longer recommends the use of the implicit flow due to several security concerns. Based on their advice, {{site.data.keyword.appid_short_notm}} is configured to use the [Authorization Code flow with PKCE](https://tools.ietf.org/html/draft-ietf-oauth-browser-based-apps-04#section-4){: external}.
+Although it is the current industry standard for SPAs, the OAuth working group no longer recommends the use of the implicit flow due to several security concerns. Based on their advice, {{site.data.keyword.appid_short_notm}} is configured to use the [Authorization Code flow with PKCE](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-browser-based-apps-04){: external}.
 {: shortdesc}
 
 ![SPA authorization flow](images/spa.png){: caption="Figure 1. The authorization flow of single-page applications" caption-side="bottom"}
@@ -82,9 +82,9 @@ Although the Implicit flow is the current industry standard, there are several s
 
   * The Implicit flow returns tokens as part of the URL - as a query param or in the hash fragment. By doing so, the tokens can be intercepted and tokens can be accessed. The tokens might be saved in a user's browser history or logs. The history or logs might be stored in a cloud service and sent to multiple devices, which also heightens the risk.
 
-  * The Implicit flow is susceptible to a [redirect URI attack](https://tools.ietf.org/html/rfc6749#section-10.6){: external}, which means that an attacker might replace an approved redirect URI with a destination of their choice. If there is a redirect URI attack, users follow the changed link to authorize their client. After authorization, they are redirected to the attackers URI, which gives the attacker access to the user's legitimate tokens. 
+  * The Implicit flow is susceptible to a [redirect URI attack](https://datatracker.ietf.org/doc/html/rfc6749){: external}, which means that an attacker might replace an approved redirect URI with a destination of their choice. If there is a redirect URI attack, users follow the changed link to authorize their client. After authorization, they are redirected to the attackers URI, which gives the attacker access to the user's legitimate tokens. 
 
-The previous examples are just a few of the important issues. For more information, see [OAuth 2.0 security best current practice](https://tools.ietf.org/html/draft-ietf-oauth-security-topics-13){: external}.
+The previous examples are just a few of the important issues. For more information, see [OAuth 2.0 security best current practice](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics-13.){: external}.
 {: note}
 
 

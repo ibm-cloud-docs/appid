@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-09"
+lastupdated: "2021-05-18"
 
 keywords: authorization, authentication, oidc, oauth, jwks, app security, identity, tokens, redirect uris, api strategy, webapp strategy
 
@@ -58,7 +58,7 @@ Want to know more about some of the basic concepts of authorization and authenti
 
 ## OAuth 2
 {: #term-oauth}
-[OAuth 2.0](https://tools.ietf.org/html/rfc6749){: external} is open standard protocol that is used to provide app authorization.
+[OAuth 2.0](https://datatracker.ietf.org/doc/html/rfc6749){: external} is open standard protocol that is used to provide app authorization.
 
 
 ## Open ID Connect (OIDC)
@@ -123,7 +123,7 @@ The service uses three different types of tokens. Tokens are set in the **Identi
 ## Authorization headers
 {: #term-auth-header}
 
-{{site.data.keyword.appid_short}} complies with the [Bearer token specification](https://tools.ietf.org/html/rfc6750){: external} and uses a combination of access and identity tokens that are sent as an HTTP Authorization header. The Authorization header has three different parts that are separated by white space. The tokens are base64 encoded. The identity token is optional.
+{{site.data.keyword.appid_short}} complies with the [Bearer token specification](https://datatracker.ietf.org/doc/html/rfc6750){: external} and uses a combination of access and identity tokens that are sent as an HTTP Authorization header. The Authorization header has three different parts that are separated by white space. The tokens are base64 encoded. The identity token is optional.
 
 Example:
 
