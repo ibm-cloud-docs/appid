@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-17"
+lastupdated: "2021-05-19"
 
 keywords: security for {{site.data.keyword.appid_short_notm}}, compliance for {{site.data.keyword.appid_short_notm}}, security and compliance for {{site.data.keyword.appid_short_notm}}, rules for {{site.data.keyword.appid_short_notm}}, 
 
@@ -48,7 +48,7 @@ subcollection: appid
 # Managing security and compliance with {{site.data.keyword.appid_short_notm}}
 {: #manage-security-compliance}
 
-{{site.data.keyword.appid_short_notm}} is integrated with the {{site.data.keyword.compliance_short}} to help you manage security and compliance for your organization.
+{{site.data.keyword.appid_short_notm}} is integrated with the {{{site.data.keyword.compliance_short}} to help you manage security and compliance for your organization.
 {: shortdesc}
 
 With the {{site.data.keyword.compliance_short}}, you can:
@@ -66,30 +66,30 @@ All of the goals for {{site.data.keyword.appid_short_notm}} are added to the {{s
 
 To start monitoring your resources, check out [Getting started with {{site.data.keyword.compliance_short}}](/docs/security-compliance?topic=security-compliance-getting-started).
 
-### Available goals for {{site.data.keyword.appid_short_notm}}
+### Available goals for {{site.data.keyword.appid_short_notm}} 
 {: #certificate-manager-available-goals}
 
-* Ensure webhooks use HTTPS only
-* Ensure email dispatcher uses HTTPS
-* Ensure redirect URIs use HTTPS only
-* Ensure redirect URIs do not use local host or 127.0.0.1
-* Ensure user data that is stored in App ID is encrypted
-* Ensure the ability to update user profiles from a client app is disabled
-* Ensure Cloud Directory users can not update their own account
-* Ensure Cloud Directory users can not sign up for an application themselves
-* Ensure runtime activity capture is enabled
-* Ensure social identity providers are disabled
-* Ensure anonymous authentication is disabled
-* Ensure password strength regex is set up
-* Ensure strong password policies are enabled
-* Ensure strong password policies prevents password reuse is enabled
-* Ensure strong password policies failed login lockout is enabled
-* Ensure strong password policies failed login lockout time is enabled
-* Ensure strong password policies time between password changes is enabled
-* Ensure strong password policies password expiration is enabled
-* Ensure strong password policies no userid in password is enabled
-* Ensure email verification is enabled for Cloud Directory users
-* Ensure customer-provided email service is used
-* Ensure MFA is enabled for Cloud Directory users
-* Ensure access tokens are configured to expire in under X minutes
-
+* Check whether {{site.data.keyword.appid_short_notm}} webhooks are using HTTPS only
+* Check whether {{site.data.keyword.appid_short_notm}} email dispatchers are using HTTPS only
+* Check whether {{site.data.keyword.appid_short_notm}} redirect URIs are using HTTPS only
+* Check whether {{site.data.keyword.appid_short_notm}} redirect URIs are not using localhost or 127.0.0.1
+* Check whether {{site.data.keyword.appid_short_notm}} redirect URIs are not using wildcards (*)
+* Check whether {{site.data.keyword.appid_short_notm}} user data is encrypted
+* Check whether {{site.data.keyword.appid_short_notm}} user profile updates from client apps is disabled
+* Check whether {{site.data.keyword.appid_short_notm}} Cloud Directory users aren't able to update their own accounts
+* Check whether {{site.data.keyword.appid_short_notm}} Cloud Directory users aren't able to self-sign up to applications
+* Check whether {{site.data.keyword.appid_short_notm}} runtime activity capture is enabled
+* Check whether {{site.data.keyword.appid_short_notm}} social identity providers are disabled
+* Check whether {{site.data.keyword.appid_short_notm}} anonymous authentication is disabled
+* Check whether {{site.data.keyword.appid_short_notm}} password strength regex is configured
+* Check whether {{site.data.keyword.appid_short_notm}} advanced password policies are enabled
+* Check whether {{site.data.keyword.appid_short_notm}} avoid password reuse policy is enabled
+* Check whether {{site.data.keyword.appid_short_notm}} lockout policy after failed # of sign-in attempts is enabled
+* Check whether {{site.data.keyword.appid_short_notm}} lockout policy after a maximum specified time is enabled
+* Check whether {{site.data.keyword.appid_short_notm}} minimum period between password changes policy is enabled
+* Check whether {{site.data.keyword.appid_short_notm}} password expiration policy is enabled
+* Check whether {{site.data.keyword.appid_short_notm}} prevent username in password policy is enabled
+* Check whether {{site.data.keyword.appid_short_notm}} email verification is enabled for Cloud Directory users
+* Check whether {{site.data.keyword.appid_short_notm}} customer-provided email service is used
+* Check whether {{site.data.keyword.appid_short_notm}} multifactor authentication (MFA) is enabled for Cloud Directory users
+* Check whether {{site.data.keyword.appid_short_notm}} access tokens are configured to expire within # minutes
