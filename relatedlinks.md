@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-04-09"
+lastupdated: "2021-05-18"
 
 keywords: related links, blogs, sample apps, kube, code changes, programming guide, white paper, vuejs apps, serverless applications, enterprise user directory, custom experience, slack, stack overflow, secure iot, solution, finance app, multicloud, video tutorials
 
@@ -71,7 +71,7 @@ Get to know more about {{site.data.keyword.appid_short_notm}} by reading through
 
 * <img src="images/video.svg" alt="Video icon" width="20" style="width:20px; border-style: none"/> [Introducing {{site.data.keyword.appid_short_notm}}](https://www.youtube.com/watch?v=XlrCjHdK43Q){: external}
 * <img src="images/blog.svg" alt="General blog icon" width="20" style="width:20px; border-style: none"/> [Cloud app security - What makes a secure app?](https://www.ibm.com/blogs/cloud-archive/2017/08/cloud-app-security-makes-secure-app/){: external}
-* <img src="images/garage-article.svg" alt="Cloud Garage icon" width="20" style="width:20px; border-style: none"/> [Security to safeguard and monitor your apps](https://www.ibm.com/cloud/architecture/architectures/securityArchitecture/security-for-application){: external}
+* <img src="images/garage-article.svg" alt="Cloud Garage icon" width="20" style="width:20px; border-style: none"/> [Security to safeguard and monitor your apps](https://www.ibm.com/cloud/architecture/architectures/application-security-arch){: external}
 * <img src="images/video.svg" alt="Video icon" width="20" style="width:20px; border-style: none"/> [Add sign up and sign in to your apps with {{site.data.keyword.appid_short_notm}}](https://www.youtube.com/watch?v=cDSYNFn4rX8){: external}
 * <img src="images/whitepaper-icon.svg" alt="White paper icon" width="20" style="width:20px; border-style: none"/> [Technical white paper](https://www.ibm.com/cloud/blog/ibm-cloud-app-id-technical-white-paper-now-available){: external}
 
@@ -111,7 +111,6 @@ Just getting started? Try walking through some of our tutorials and blogs for he
 * <img src="images/blog.svg" alt="General blog icon" width="20" style="width:20px; border-style: none"/> [Announcing {{site.data.keyword.appid_short_notm}} integration to {{site.data.keyword.containerlong}}](https://www.ibm.com/cloud/blog/announcing-app-id-integration-ibm-cloud-kubernetes-service){: external}
 * <img src="images/blog-code.svg" alt="Icon indicating that this blog contains sample code" width="20" style="width:20px; border-style: none"/> [Using {{site.data.keyword.appid_short_notm}} to secure Docker and Kubernetes applications](https://www.ibm.com/cloud/blog/using-app-id-secure-docker-kubernetes-applications){: external}
 * <img src="images/blog-code.svg" alt="Icon indicating that this blog contains sample code" width="20" style="width:20px; border-style: none"/> [Authenticating users with Cloud Functions, API Gateway, and {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/authenticating-users-with-cloud-functions-api-gateway-and-app-id){: external}
-* <img src="images/tutorial.svg" alt="Tutorial icon" width="20" style="width:20px; border-style: none"/> [Mobile application with a serverless back-end](/docs/solution-tutorials?topic=solution-tutorials-serverless-mobile-backend#serverless-mobile-backend)
 * <img src="images/tutorial.svg" alt="Tutorial icon" width="20" style="width:20px; border-style: none"/> [Combining serverless and Cloud Foundry for data retrieval and analytics](/docs/solution-tutorials?topic=solution-tutorials-serverless-github-traffic-analytics#serverless-github-traffic-analytics)
 * <img src="images/blog.svg" alt="General blog icon" width="20" style="width:20px; border-style: none"/> [Configuring {{site.data.keyword.appid_short_notm}} From the Toolchain](https://www.ibm.com/cloud/blog/how-to-configure-ibm-cloud-app-id-from-the-toolchain){: external}
 * <img src="images/blog-code.svg" alt="Icon indicating that this blog contains sample code" width="20" style="width:20px; border-style: none"/> [User Authorization in Serverless Web Applications](http://heidloff.net/article/user-authorization-serverless-web-applications-openwhisk){: external}

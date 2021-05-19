@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-24"
+lastupdated: "2021-05-19"
 
 keywords: custom identity provider, authorization, bring your own idp, proprietary idp, legacy idp, oauth, oidc, authentication, oatuh, app security
 
@@ -77,7 +77,7 @@ Occasionally, a legacy provider might use their own custom authentication protoc
 ### Technically, how does this flow work?
 {: #custom-auth-tech}
 
-The custom identity workflow is built on the JWT-Bearer extension grant type that is defined in Assertion Framework for OAuth 2.0 Authorization Grants [[RFC7521]](https://tools.ietf.org/html/rfc7523#section-2.1). In order to exchange user information for {{site.data.keyword.appid_short_notm}} tokens, your authentication architecture creates a trust relationship with {{site.data.keyword.appid_short_notm}} by using an asymmetric RSA key pair. Once trust is established, you can use the JWT-Bearer grant type to exchange verified user information within a signed JWT for {{site.data.keyword.appid_short_notm}} tokens.
+The custom identity workflow is built on the JWT-Bearer extension grant type that is defined in Assertion Framework for OAuth 2.0 Authorization Grants [[RFC7521]](https://datatracker.ietf.org/doc/html/rfc7523#section-2.1){: external}. In order to exchange user information for {{site.data.keyword.appid_short_notm}} tokens, your authentication architecture creates a trust relationship with {{site.data.keyword.appid_short_notm}} by using an asymmetric RSA key pair. Once trust is established, you can use the JWT-Bearer grant type to exchange verified user information within a signed JWT for {{site.data.keyword.appid_short_notm}} tokens.
 
 ### What does the flow look like?
 {: #custom-auth-flow}
@@ -86,18 +86,28 @@ As with all authentication flows, custom identity requires that the application 
 
 ![Custom authentication request flow](images/customauth.png){: caption="Figure 1. The request flows for custom authentication" caption-side="bottom"}
 
-<dl>
-  <dt>1. Identity provider signed</dt>
-    <dd>Just as with traditional OAuth 2.0 flows, the most secure trust model creates a relationship between your identity provider and authorization server; in this case {{site.data.keyword.appid_short_notm}}) directly. Under this model, your identity provider is responsible for storing the private key and signing JWT assertions. When passed to {{site.data.keyword.appid_short_notm}}, these assertions are validated with the matching public key, which ensures that the user information from your identity provider was not maliciously altered during transport.</dd>
-  <dt>2. Application signed</dt>
-    <dd>Alternatively, you can base your trust model on the relationship between your app and {{site.data.keyword.appid_short_notm}}. In this workflow, your private key is stored in your server-side application. After a successful authentication, your app is responsible for converting the identity providers response into a JWT and signing it with its private key before the app sends the token to {{site.data.keyword.appid_short_notm}}. Since this identity provider has no relationship with {{site.data.keyword.appid_short_notm}}, this architecture creates a weaker trust model. Although {{site.data.keyword.appid_short_notm}} can trust the information that is sent by the server-side application, it cannot be certain the data was the original sent by the identity provider.</dd>
-</dl>
+| 1. Identity provider signed |
+|:-----------|
+| Just as with traditional OAuth 2.0 flows, the most secure trust model creates a relationship between your identity provider and authorization server; in this case {{site.data.keyword.appid_short_notm}}) directly. Under this model, your identity provider is responsible for storing the private key and signing JWT assertions. When passed to {{site.data.keyword.appid_short_notm}}, these assertions are validated with the matching public key, which ensures that the user information from your identity provider was not maliciously altered during transport. |
+{: caption="Table 1. Identity provider signed flow" caption-side="top"}
+{: #idp-signed}
+{: tab-title="1. Identity provider signed"}
+{: tab-group="signed-flows"}
+{: class="simple-tab-table"}
 
+| 2. Application signed |
+|:-----------|
+| Alternatively, you can base your trust model on the relationship between your app and {{site.data.keyword.appid_short_notm}}. In this workflow, your private key is stored in your server-side application. After a successful authentication, your app is responsible for converting the identity providers response into a JWT and signing it with its private key before the app sends the token to {{site.data.keyword.appid_short_notm}}. Since this identity provider has no relationship with {{site.data.keyword.appid_short_notm}}, this architecture creates a weaker trust model. Although {{site.data.keyword.appid_short_notm}} can trust the information that is sent by the server-side application, it cannot be certain the data was the original sent by the identity provider. |
+{: caption="Table 1. Application signed flow" caption-side="top"}
+{: #app-signed}
+{: tab-title="2. Application signed"}
+{: tab-group="signed-flows"}
+{: class="simple-tab-table"}
 
 ## Generating a JSON web token
 {: #generating-jwts}
 
-You can convert your verified user data to a custom identity JWT by generating a [JSON web token](https://tools.ietf.org/html/rfc7515){: external}. The token must be signed with the private key that matches your preconfigured public key. For a list of token signing libraries, check out [https://jwt.io/](https://jwt.io/){: external}.
+You can convert your verified user data to a custom identity JWT by generating a [JSON web token](https://datatracker.ietf.org/doc/html/rfc7515){: external}. The token must be signed with the private key that matches your preconfigured public key. For a list of token signing libraries, check out [https://jwt.io/](https://jwt.io/){: external}.
 {: shortdesc}
 
 

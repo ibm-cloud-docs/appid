@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-11"
+lastupdated: "2021-05-18"
 
 keywords: user information, add users, delete users, profile, access, attributes, admin, app security, authentication, authorization
 
@@ -175,7 +175,7 @@ You can use the {{site.data.keyword.appid_short_notm}} API to view details about
     ```
     {: screen}
 
-  To see the full user data set that {{site.data.keyword.appid_short_notm}} supports, check out [the SCIM core schema](https://tools.ietf.org/html/rfc7643#section-8.2){: external}.
+  To see the full user data set that {{site.data.keyword.appid_short_notm}} supports, check out [the SCIM core schema](https://datatracker.ietf.org/doc/html/rfc7643#section-8.2){: external}.
   {: tip}
 
 

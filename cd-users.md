@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-09"
+lastupdated: "2021-05-18"
 
 keywords: manage users, registry, cloud directory, add user, delete user, tokens, attributes, migrating users, identity provider, app security
 
@@ -192,7 +192,7 @@ You can use the {{site.data.keyword.appid_short_notm}} API to view details about
   ```
   {: screen}
 
-  To see the full user data set that {{site.data.keyword.appid_short_notm}} supports, check out [the SCIM core schema](https://tools.ietf.org/html/rfc7643#section-8.2).
+  To see the full user data set that {{site.data.keyword.appid_short_notm}} supports, check out [the SCIM core schema](https://datatracker.ietf.org/doc/html/rfc7643#section-8.2).
   {: tip}
 
 

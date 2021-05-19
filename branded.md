@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-04-09"
+lastupdated: "2021-05-18"
 
 keywords: bring your own screens, branded app, sign up, custom, directory, registry, app security, password, authorization flow, authentication,
 
@@ -217,7 +217,7 @@ After you configure your [settings](/docs/appid?topic=appid-cloud-directory#cd-s
 You can use the `/sign_up` endpoint to allow users to sign themselves up for your app.
 Supply the following data in the request body:
   * Your tenantID.
-  * Cloud Directory user data with the following required attributes. See [SCIM Full User Representation](https://tools.ietf.org/html/rfc7643#section-8.2){: external} for more details.
+  * Cloud Directory user data with the following required attributes. See [SCIM Full User Representation](https://datatracker.ietf.org/doc/html/rfc7643.#section-8.2){: external} for more details.
     * A `password` attribute.
     * An `emails` array with at least one email address and a `primary` attribute that is set to `true`.
 
@@ -298,7 +298,7 @@ Supply the following data in the request body:
 
 When a user is signed in to your app, they can update some of their information. You can use the `/Users/{userId}` to get and update their information.
 
-When the user details are updated, the endpoint gets the updated user data in the request body in [SCIM format](https://tools.ietf.org/html/rfc7643#section-8.2){: external}. Be sure that you change only the relevant details.
+When the user details are updated, the endpoint gets the updated user data in the request body in [SCIM format](https://datatracker.ietf.org/doc/html/rfc7628){: external}. Be sure that you change only the relevant details.
 
 Their email address cannot be changed.
 {: tip}

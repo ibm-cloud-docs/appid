@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-09"
+lastupdated: "2021-05-18"
 
 keywords: token validation, validate token, protect app, public key, token header, base64, decode payload, authorized, access permissions, app security, identity, jwt 
 
@@ -108,7 +108,7 @@ You can validate your tokens locally by parsing the token, verifying the token s
 {: shortdesc}
 
 
-1. Parse the tokens. The [JSON Web Token (JWT)](https://tools.ietf.org/html/rfc7519) is a standard way of securely passing information. It consists of three main parts: Header, Payload, and Signature. They are base64URL encoded and separated by a dot(.). You can use any base64URL decoder available to parse the token. Alternatively, you can use any of the [libraries that are listed](https://jwt.io/#libraries-io) to parse the token.
+1. Parse the tokens. The [JSON Web Token (JWT)](https://datatracker.ietf.org/doc/html/rfc7519){: external} is a standard way of securely passing information. It consists of three main parts: Header, Payload, and Signature. They are base64URL encoded and separated by a dot(.). You can use any base64URL decoder available to parse the token. Alternatively, you can use any of the [libraries that are listed](https://jwt.io/#libraries-io){: external} to parse the token.
 
   Example encoded token:
 
@@ -135,7 +135,7 @@ You can validate your tokens locally by parsing the token, verifying the token s
     ```
     {: screen}
 
-2. Make a call to the [/publickeys endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Authorization_Server_V4/publicKeys) to retrieve your public keys. The public keys that are returned are formatted as [JSON Web Keys (JWK)](https://tools.ietf.org/html/rfc7517).
+2. Make a call to the [/publickeys endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Authorization_Server_V4/publicKeys){: external} to retrieve your public keys. The public keys that are returned are formatted as [JSON Web Keys (JWK)](https://datatracker.ietf.org/doc/html/rfc7517){: external}.
 
   Example request:
 
