@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-04-09"
+lastupdated: "2021-05-24"
 
 keywords: user events, track activity, manage events, analyze, administrative, runtime, sign in, settings, app security
 
@@ -500,6 +500,16 @@ Some of the action names were changed as part of an alignment to new guidelines.
   <tr>
     <td><code>appid.mfa-extension-postmfa.update</code></td>
     <td>Update your post MFA extension configuration.</td>
+    <td>Must be done through the API.</td>
+  </tr>
+  <tr>
+    <td><code>appid.is-mfa-extension-active.update</code></td>
+    <td>Update the status of your registered extension.</td>
+    <td>Must be done through the API.</td>
+  </tr>
+  <tr>
+    <td><code>appid.mfa-extension-test.send</code></td>
+    <td>Test your registered extension configuration.</td>
     <td>Must be done through the API.</td>
   </tr>
   <tr>

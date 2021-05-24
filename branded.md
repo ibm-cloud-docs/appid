@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-05-18"
+lastupdated: "2021-05-24"
 
 keywords: bring your own screens, branded app, sign up, custom, directory, registry, app security, password, authorization flow, authentication,
 
@@ -185,7 +185,7 @@ By using `WebAppStrategy`, users can sign in to your web apps with their user na
     </tr>
     <tr>
       <td><code>failureRedirect</code></td>
-      <td>The URL that you want to redirect the user to if authentication fails. 
+      <td>The URL that you want to redirect the user to if authentication fails. Users are redirected to the specified URL when the following authentication failures occur:<ul><li>The user inputs an incorrect username or password.</li><li>The plan limit for the {{site.data.keyword.appid_short_notm}} instance has been reached.</li></ul>
       </td>
     </tr>
     <tr>

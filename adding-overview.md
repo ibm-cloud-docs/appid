@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-09"
+lastupdated: "2021-05-24"
 
 keywords: authentication, authorization, identity, web flow, backend, identity management, anonymous auth, custom flow, mobile, app to app, kubernetes, ingress, istio, app security,
 
@@ -67,7 +67,7 @@ Check out the following table to see how {{site.data.keyword.appid_short_notm}} 
     </tr>
     <tr>
         <td><a href="/docs/appid?topic=appid-web-apps" target="_blank">Web </a></td>
-        <td>You can use the web flow to securely authenticate users to your application and protect your server-side resources.</td>
+        <td>You can use the web flow to securely authenticate users to your application and protect your server-side resources. If your application has a backend that you manage, it's recommended that you use the web flow.</td>
     </tr>
     <tr>
         <td><a href="/docs/appid?topic=appid-mobile-apps" target="_blank">Mobile </a></td>

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-05-19"
+lastupdated: "2021-05-24"
 
 keywords: security for {{site.data.keyword.appid_short_notm}}, compliance for {{site.data.keyword.appid_short_notm}}, security and compliance for {{site.data.keyword.appid_short_notm}}, rules for {{site.data.keyword.appid_short_notm}}, 
 
@@ -48,7 +48,7 @@ subcollection: appid
 # Managing security and compliance with {{site.data.keyword.appid_short_notm}}
 {: #manage-security-compliance}
 
-{{site.data.keyword.appid_short_notm}} is integrated with the {{{site.data.keyword.compliance_short}} to help you manage security and compliance for your organization.
+{{site.data.keyword.appid_short_notm}} is integrated with the {{site.data.keyword.compliance_short}} to help you manage security and compliance for your organization.
 {: shortdesc}
 
 With the {{site.data.keyword.compliance_short}}, you can:
@@ -57,7 +57,7 @@ With the {{site.data.keyword.compliance_short}}, you can:
 * Define rules for {{site.data.keyword.appid_short_notm}} that can help to standardize resource configuration
 
 ## Monitoring security and compliance posture with {{site.data.keyword.appid_short_notm}}
-{: #monitor-certificate-manager}
+{: #monitor-app-id}
 
 As a security or compliance focal, you can use the {{site.data.keyword.appid_short_notm}} [goals](#x2117978){: term} to help ensure that your organization is adhering to the external and internal standards for your industry. By using the {{site.data.keyword.compliance_short}} to validate the resource configurations in your account against a [profile](#x2034950){: term}, you can identify potential issues as they arise.
 
@@ -67,7 +67,7 @@ All of the goals for {{site.data.keyword.appid_short_notm}} are added to the {{s
 To start monitoring your resources, check out [Getting started with {{site.data.keyword.compliance_short}}](/docs/security-compliance?topic=security-compliance-getting-started).
 
 ### Available goals for {{site.data.keyword.appid_short_notm}} 
-{: #certificate-manager-available-goals}
+{: #app-id-available-goals}
 
 * Check whether {{site.data.keyword.appid_short_notm}} webhooks are using HTTPS only
 * Check whether {{site.data.keyword.appid_short_notm}} email dispatchers are using HTTPS only
