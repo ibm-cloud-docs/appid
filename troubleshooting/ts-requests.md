@@ -4,9 +4,11 @@ copyright:
   years: 2017, 2021
 lastupdated: "2021-05-24"
 
-keywords: saml, help, authentication request, error message, signing algorithm, xml file, signing certificate, valid email, error code, saml message signature, 
+keywords: help, support, error, multiple users, attribute, ticket, identity provider, redirect uri, custom url, virtual user, idp, identity settings, user profile
 
 subcollection: appid
+
+content-type: troubleshoot
 
 ---
 
@@ -44,13 +46,24 @@ subcollection: appid
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
 
-# Why is my SAML configuration not working?
-{: #ts-common-saml}
+# Why am I receiving an error about too many requests?
+{: #ts-requests}
 {: troubleshoot} 
+{: support}
 
-The SAML framework supports multiple profiles, flows, and configurations, which means that it is essential that your identity provider configuration is done correctly. Check out the following topics for with help resolving some of the common issues that you might encounter when working with SAML.
-{: shortdesc}
+You receive an error about too many requests. 
+{:shortdesc}
 
+You attempt to view the home page of your app but receive the following error:
+{: tsSymptoms}
 
-For specific error codes and messages from your identity provider that you don't see on this page, it can be helpful to search the [SAML specification](http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0.html) for detailed explanations. If you don't find what you're looking for, you can reach out to your identity providers admin for more information.
-{: note}
+```
+{"error_code":"too many requests","error_description":"too many requests"}
+```
+{: screen}
+
+You might receive a `too many requests` error if you are performing automated testing with only one virtual user. Sign-in attempts are limited in order to prevent brute force DDoS and other types of similar attacks. For more information, see [{{site.data.keyword.appid_short_notm}} limits](/docs/appid?topic=appid-known-issues-limits#general-limits).
+{: tsCauses}
+
+To resolve the issue, you might want to use multiple virtual users when you perform testing.
+{: tsResolve}
