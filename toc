@@ -112,8 +112,12 @@ App ID
 
     {: .topicgroup}
     Troubleshooting
-        ts_index.md
-        ts_saml.md
+        troubleshooting/ts-redirect.md
+        troubleshooting/ts-attributes.md
+        troubleshooting/ts-requests.md
+        troubleshooting/ts-saml-config.md
+        troubleshooting/ts-saml-authentication.md
+        troubleshooting/ts-saml-debug.md
 
     rate-limits.md
     {: .navgroup-end}
