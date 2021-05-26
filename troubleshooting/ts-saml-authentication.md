@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-05-24"
+lastupdated: "2021-05-26"
 
 keywords: saml, help, authentication request, error message, signing algorithm, xml file, signing certificate, valid email, error code, saml message signature, 
 
@@ -175,8 +175,6 @@ To resolve the issue, you can update your authentication context. By default, {{
 
 ## SAML request signing failure
 {: #ts-saml-request-sign-fail}
-{: troubleshoot} 
-{: support}
 
 You receive an error that states that an authentication request cannot be verified.
 {: tsSymptoms}
