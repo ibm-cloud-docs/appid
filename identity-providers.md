@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-09"
+lastupdated: "2021-05-27"
 
 keywords: facebook, google, social, identity providers, single sign on, default configuration, authentication, authorization, identity, app security, idp, default credentials
 
@@ -107,16 +107,17 @@ You can configure the {{site.data.keyword.appid_short}} service to use Google as
 ### Getting a client ID and secret
 {: #google-clientid-secret}
 
-Create a project in the [Google Developers Console](https://developers.google.com/){: external}, configure the project to serve web clients, and obtain a client ID and secret.
+Google documentation [link](https://developers.google.com/identity/gsi/web/guides/get-google-api-clientid){: external}
+
+Create a project in the [Google Developers Console](https://console.cloud.google.com/home/dashboard?project=app-id-login&folder=&organizationId=){: external}, configure the project to serve web clients, and obtain a client ID and secret.
 
 1. Create a project.
-2. Add the Google+ API to your Google project.
-3. Add credentials to the Google+ API.
-    1. Select Google+ API as the type of API.
-    2. Select **Web Browser** as where you are calling the API.
-    3. Choose **User data**.
-    4. Complete the required fields to create a client ID. A secret is created at the same time.
-4. Make note of the Google client ID and secret. In the credentials tab, select the ID that you created to obtain your secret and client ID.
+2. Open [credentials page](https://console.developers.google.com/apis){: external} of the Google APIs console.
+3. If your project doesn't have a Web application-type client ID, click **Create credentials > OAuth client ID**.
+4. Configure your level of consent.
+5. In the **Authorized JavaScript Origins** field, input your site's domain.
+6. Click **Create**.
+7. Copy **Your Client ID** and **Your Client Secret**
 
 ### Configuring {{site.data.keyword.appid_short}} for Google authentication
 {: #google-configure}
