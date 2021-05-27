@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-24"
+lastupdated: "2021-05-27"
 
 keywords: user access, control access, permissions, roles, scopes, runtime, access token, authentication, identity, app security
 
@@ -118,37 +118,22 @@ To create a scope, you can use the {{site.data.keyword.appid_short_notm}} UI.
   ```
   {: codeblock}
 
-  <table>
-    <caption>Table 2. Required variables to call the /scopes endpoint</caption>
-    <tr>
-      <th>Variable</th>
-      <th>Description</th>
-    </tr>
-    <tr>
-      <td><code>region</code></td>
-      <td>The region in which your instance of {{site.data.keyword.appid_short_notm}} is provisioned. Options include <code>au-syd</code>, <code>eu-de</code>, <code>eu-gb</code>, <code>jp-tok</code>, and <code>us-south</code>.</td>
-    </tr>
-    <tr>
-      <td><code>tenant_ID</code></td>
-      <td>The unique identifier for your instance of {{site.data.keyword.appid_short_notm}}. You can find this value in the credentials for your app as they're listed in the <b>Applications</b> tab of the service dashboard.</td>
-    </tr>
-    <tr>
-      <td><code>client_ID</code></td>
-      <td>The unique identifier for your application. You can find this value in the credentials for your app as they're listed in your <b>Applications</b> in the service dashboard.</td>
-    </tr>
-    <tr>
-      <td><code>scopes_object</code></td>
-      <td>A JSON object of all of the scopes that you want to create for your application. For example, </br> <pre class="screen"><code class="hljs">
-        {
+| Variable | Description |
+|-----|----|
+| `region` | The region in which your instance of {{site.data.keyword.appid_short_notm}} is provisioned. Options include `au-syd`, `eu-de`, `eu-gb`, `jp-tok`, and `us-south`. |
+| `tenant_ID` | The unique identifier for your instance of {{site.data.keyword.appid_short_notm}}. You can find this value in the credentials for your app as they're listed in the **Applications** tab of the service dashboard. | 
+| `client_ID` | The unique identifier for your application. You can find this value in the credentials for your app as they're listed in your **Applications** in the service dashboard. |
+| `scopes_object` | A JSON object of all of the scopes that you want to create for your application. For example, 
+```
+{
           "scopes": [
             "read",
             "write",
             "delete"
           ]
         }
-      </code></pre></td>
-    </tr>
-  </table>
+``` |
+{: caption="Table 2. Required variables to call the /scopes endpoint" caption-side="top"}
 
 2. Optional: Confirm that the scopes were created.
 
@@ -195,49 +180,25 @@ A role is a group of scopes that apply to the same type of user. For example, if
   ```
   {: codeblock}
 
-  <table>
-    <caption>Table 1. Required variables to call the <code>/scopes</code> endpoint</caption>
-    <tr>
-      <th>Variable</th>
-      <th>Description</th>
-    </tr>
-    <tr>
-      <td><code>region</code></td>
-      <td>The region in which your instance of {{site.data.keyword.appid_short_notm}} is provisioned. Options include <code>au-syd</code>, <code>eu-de</code>, <code>eu-gb</code>, <code>jp-tok</code>, and <code>us-south</code>.</td>
-    </tr>
-    <tr>
-      <td><code>tenant_ID</code></td>
-      <td>The unique identifier for your instance of {{site.data.keyword.appid_short_notm}}. You can find this value in the credentials for your app as they're listed in the <b>Applications</b> tab of the service dashboard.</td>
-    </tr>
-    <tr>
-      <td><code>client_ID</code></td>
-      <td>The unique identifier for your application. You can find this value in the credentials for your app as they're listed in <b>Applications</b>.</td>
-    </tr>
-    <tr>
-      <td><code>role_name</code></td>
-      <td>The name that you want to assign to your role.</td>
-    </tr>
-    <tr>
-      <td><code>role_description</code></td>
-      <td>A short phrase that describes what your role is meant to do. </td>
-    </tr>
-    <tr>
-      <td><code>application_ID</code></td>
-      <td>The unique identifier for your application. You can find this value in the credentials for your app as they're listed in <b>Applications</b></td>
-    </tr>
-    <tr>
-      <td><code>scopes</code></td>
-      <td>A JSON object of all of the scopes that you want to apply to a role. For example, </br> <pre class="screen"><code class="hljs">
-        {
+| Variable | Description |
+|-----|----|
+| `region` | The region in which your instance of {{site.data.keyword.appid_short_notm}} is provisioned. Options include `au-syd`, `eu-de`, `eu-gb`, `jp-tok`, and `us-south`. |
+| `tenant_ID` | The unique identifier for your instance of {{site.data.keyword.appid_short_notm}}. You can find this value in the credentials for your app as they're listed in the **Applications** tab of the service dashboard. |
+| `client_ID` | The unique identifier for your application. You can find this value in the credentials for your app as they're listed in **Applications**. |
+| `role_name` | The name that you want to assign to your role. | 
+| `role_description` | A short phrase that describes what your role is meant to do. |
+| `application_ID` | The unique identifier for your application. You can find this value in the credentials for your app as they're listed in **Applications**. |
+| `scopes` | A JSON object of all of the scopes that you want to apply to a role. For example,
+```
+ {
           "scopes": [
             "create",
             "update",
             "read"
           ]
         }
-      </code></pre></td>
-    </tr>
-  </table>
+``` |
+{: caption="Table 1. Required variables to call the `/scopes` endpoint<" caption-side="top"}
 
 2. Optional: Confirm that the roles were created.
 
@@ -442,21 +403,11 @@ app.get("/api/protected",
 ```
 {: codeblock}
 
-<table>
-    <caption>Table 3. Understanding the variables used with API strategy</caption>
-    <tr>
-      <th>Variable</th>
-      <th>Description</th>
-    </tr>
-    <tr>
-      <td><code>scope</code></td>
-      <td>The required scopes, which are separated by a space.</td>
-    </tr>
-    <tr>
-      <td><code>audience</code></td>
-      <td>The application client ID.</td>
-    </tr>
-  </table>
+| Variable | Description |
+|-----|----|
+| `scope` | The required scopes, which are separated by a space. |
+| `audience` | The application client ID. |
+{: caption="Table 3. Understanding the variables used with API strategy" caption-side="top"}
 
 
 ## Removing access
