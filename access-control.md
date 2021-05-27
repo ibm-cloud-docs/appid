@@ -118,22 +118,37 @@ To create a scope, you can use the {{site.data.keyword.appid_short_notm}} UI.
   ```
   {: codeblock}
 
-| Variable | Description |
-|-----|----|
-| `region` | The region in which your instance of {{site.data.keyword.appid_short_notm}} is provisioned. Options include `au-syd`, `eu-de`, `eu-gb`, `jp-tok`, and `us-south`. |
-| `tenant_ID` | The unique identifier for your instance of {{site.data.keyword.appid_short_notm}}. You can find this value in the credentials for your app as they're listed in the **Applications** tab of the service dashboard. | 
-| `client_ID` | The unique identifier for your application. You can find this value in the credentials for your app as they're listed in your **Applications** in the service dashboard. |
-| `scopes_object` | A JSON object of all of the scopes that you want to create for your application. For example, 
-```
-{
+  <table>
+    <caption>Table 2. Required variables to call the /scopes endpoint</caption>
+    <tr>
+      <th>Variable</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td><code>region</code></td>
+      <td>The region in which your instance of {{site.data.keyword.appid_short_notm}} is provisioned. Options include <code>au-syd</code>, <code>eu-de</code>, <code>eu-gb</code>, <code>jp-tok</code>, and <code>us-south</code>.</td>
+    </tr>
+    <tr>
+      <td><code>tenant_ID</code></td>
+      <td>The unique identifier for your instance of {{site.data.keyword.appid_short_notm}}. You can find this value in the credentials for your app as they're listed in the <b>Applications</b> tab of the service dashboard.</td>
+    </tr>
+    <tr>
+      <td><code>client_ID</code></td>
+      <td>The unique identifier for your application. You can find this value in the credentials for your app as they're listed in your <b>Applications</b> in the service dashboard.</td>
+    </tr>
+    <tr>
+      <td><code>scopes_object</code></td>
+      <td>A JSON object of all of the scopes that you want to create for your application. For example, </br> <pre class="screen"><code class="hljs">
+        {
           "scopes": [
             "read",
             "write",
             "delete"
           ]
         }
-``` |
-{: caption="Table 2. Required variables to call the /scopes endpoint" caption-side="top"}
+      </code></pre></td>
+    </tr>
+  </table> 
 
 2. Optional: Confirm that the scopes were created.
 
@@ -180,25 +195,49 @@ A role is a group of scopes that apply to the same type of user. For example, if
   ```
   {: codeblock}
 
-| Variable | Description |
-|-----|----|
-| `region` | The region in which your instance of {{site.data.keyword.appid_short_notm}} is provisioned. Options include `au-syd`, `eu-de`, `eu-gb`, `jp-tok`, and `us-south`. |
-| `tenant_ID` | The unique identifier for your instance of {{site.data.keyword.appid_short_notm}}. You can find this value in the credentials for your app as they're listed in the **Applications** tab of the service dashboard. |
-| `client_ID` | The unique identifier for your application. You can find this value in the credentials for your app as they're listed in **Applications**. |
-| `role_name` | The name that you want to assign to your role. | 
-| `role_description` | A short phrase that describes what your role is meant to do. |
-| `application_ID` | The unique identifier for your application. You can find this value in the credentials for your app as they're listed in **Applications**. |
-| `scopes` | A JSON object of all of the scopes that you want to apply to a role. For example,
-```
- {
+<table>
+    <caption>Table 1. Required variables to call the <code>/scopes</code> endpoint</caption>
+    <tr>
+      <th>Variable</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td><code>region</code></td>
+      <td>The region in which your instance of {{site.data.keyword.appid_short_notm}} is provisioned. Options include <code>au-syd</code>, <code>eu-de</code>, <code>eu-gb</code>, <code>jp-tok</code>, and <code>us-south</code>.</td>
+    </tr>
+    <tr>
+      <td><code>tenant_ID</code></td>
+      <td>The unique identifier for your instance of {{site.data.keyword.appid_short_notm}}. You can find this value in the credentials for your app as they're listed in the <b>Applications</b> tab of the service dashboard.</td>
+    </tr>
+    <tr>
+      <td><code>client_ID</code></td>
+      <td>The unique identifier for your application. You can find this value in the credentials for your app as they're listed in <b>Applications</b>.</td>
+    </tr>
+    <tr>
+      <td><code>role_name</code></td>
+      <td>The name that you want to assign to your role.</td>
+    </tr>
+    <tr>
+      <td><code>role_description</code></td>
+      <td>A short phrase that describes what your role is meant to do. </td>
+    </tr>
+    <tr>
+      <td><code>application_ID</code></td>
+      <td>The unique identifier for your application. You can find this value in the credentials for your app as they're listed in <b>Applications</b></td>
+    </tr>
+    <tr>
+      <td><code>scopes</code></td>
+      <td>A JSON object of all of the scopes that you want to apply to a role. For example, </br> <pre class="screen"><code class="hljs">
+        {
           "scopes": [
             "create",
             "update",
             "read"
           ]
         }
-``` |
-{: caption="Table 1. Required variables to call the `/scopes` endpoint<" caption-side="top"}
+      </code></pre></td>
+    </tr>
+  </table>
 
 2. Optional: Confirm that the roles were created.
 
