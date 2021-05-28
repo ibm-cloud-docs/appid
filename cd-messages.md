@@ -66,7 +66,7 @@ With {{site.data.keyword.appid_short_notm}}, you can choose to use {{site.data.k
 
 By default, {{site.data.keyword.appid_short_notm}} uses [SendGrid](https://sendgrid.com/){: external} as an email delivery service for Cloud Directory.
 
-As of 30 April 2020, email content and sender details are no longer editable if you’re using the {{site.data.keyword.appid_short_notm}} default email provider. To customize your user communication, add your own SendGrid account or custom email provider.
+As of 30 April 2020, email content and sender details are no longer editable if you’re using the {{{site.data.keyword.appid_short_notm}} default email provider. To customize your user communication, add your own SendGrid account or custom email provider.
 {: important}
 
 1. Go to the **Cloud Directory > Email templates > Email settings** page of the service dashboard.
@@ -161,7 +161,7 @@ You can use the service dashboard to configure your custom provider.
 
 You can use the Cloud Directory [management APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.set_cloud_directory_email_dispatcher){: external} to configure your custom email sender.
 
-To see an example, check out the blog <a href="https://www.ibm.com/cloud/blog/use-ibm-cloud-app-id-and-your-email-provider-to-brand-mails-sent-to-app-users" target="_blank">Using your own provider for mail that is sent with {{site.data.keyword.appid_full}}</a>.
+To see an example, check out the blog <a href="https://www.ibm.com/cloud/blog/use-ibm-cloud-app-id-and-your-email-provider-to-brand-mails-sent-to-app-users" target="_blank">Using your own provider for mail that is sent with {{site.data.keyword.appid_short_notm}}</a>.
 {: tip}
 
 1. Configure an extension point that can listen for a POST request. The endpoint must be able to:

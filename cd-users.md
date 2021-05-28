@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-05-18"
+lastupdated: "2021-05-28"
 
 keywords: manage users, registry, cloud directory, add user, delete user, tokens, attributes, migrating users, identity provider, app security
 
@@ -72,47 +72,18 @@ You can use the {{site.data.keyword.appid_short_notm}} dashboard to view details
 
 3. In the overflow menu in the user's row, click **View user details**. A page opens that contains the user's information. Check out the following table to see what information you can see.
 
-<table>
-  <caption>Table 1. The details that you can see about your users by looking in the {{site.data.keyword.appid_short_notm}} dashboard</caption>
-  <tr>
-    <th>Detail</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>User identifier</td>
-    <td>The user identifier is dependant upon the type of user sign-up that you configured. For example, if you have an email and password flow, the identifier is the user's email. If you use the username and password flow, the identifier is the username that is given at sign-up.</td>
-  </tr>
-  <tr>
-    <td>Email</td>
-    <td>The primary email address that is attached to the user.</td>
-  </tr>
-    <tr>
-    <td>First and surname</td>
-    <td>Your user's first and surname as they provided during the sign-up process.</td>
-  </tr>
-  <tr>
-    <td>Last Login</td>
-    <td>The time stamp of the last time that the user logged in to your application. Note: If you added your user through the dashboard, the login is blank until the user themselves signs in to your app. When sign-in occurs, they also become an {{site.data.keyword.appid_short_notm}} user.</td>
-  </tr>
-  <tr>
-    <td>ID</td>
-    <td>The ID that is assigned to the user by {{site.data.keyword.appid_short_notm}}. In the UI, it isn't shown but you can copy the value and paste it in a text editor to see the value.</td>
-  </tr>
-  <tr>
-    <td>Predefined attributes</td>
-    <td>Predefined attributes are things that are known about a user based on SCIM.</td>
-  </tr>
-  <tr>
-    <td>Custom attributes</td>
-    <td>Custom attributes are additional information that is added to their profile or that is learned about the user's as they interact with your application.</td>
-  </tr>
-  <tr>
-    <td>Summary</td>
-    <td>All of the attributes are compiled to form one profile that gives you a complete overview of your Cloud Directory user. For more information, see [user profiles](/docs/appid?topic=appid-profiles).</td>
-  </tr>
-</table>
+| Detail | Description | 
+|-----|----| 
+|User identifier | The user identifier is dependant upon the type of user sign-up that you configured. For example, if you have an email and password flow, the identifier is the user's email. If you use the username and password flow, the identifier is the username that is given at sign-up. | 
+| Email | The primary email address that is attached to the user. |
+| First and surname | Your user's first and surname as they provided during the sign-up process. |
+| Last Login | The time stamp of the last time that the user logged in to your application. Note: If you added your user through the dashboard, the login is blank until the user themselves signs in to your app. When sign-in occurs, they also become an {{site.data.keyword.appid_short_notm}} user. | 
+| ID | The ID that is assigned to the user by {{site.data.keyword.appid_short_notm}}. In the UI, it isn't shown but you can copy the value and paste it in a text editor to see the value. |
+| Predefined attributes | Predefined attributes are things that are known about a user based on SCIM. |
+| Custom attributes | Custom attributes are additional information that is added to their profile or that is learned about the user's as they interact with your application. |
+| Summary | All of the attributes are compiled to form one profile that gives you a complete overview of your Cloud Directory user. For more information, see [user profiles](/docs/appid?topic=appid-profiles). |
+{: caption="Table 1. The details that you can see about your users by looking in the {{site.data.keyword.appid_short_notm}} dashboard" caption-side="top"}
 
-</br>
 
 ### With the API
 {: #cd-view-api}
@@ -408,29 +379,13 @@ Now that you have a list of exported Cloud Directory users, you can import them 
 
 Before you get started, be sure that you have the following parameter information:
 
-<table>
-  <caption>Table 3. Descriptions of the parameters that need to be provided to run the migration script</caption>
-  <tr>
-    <th>Parameter</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td><code>sourceTenantId</code></td>
-    <td>The tenant ID of the instance of {{site.data.keyword.appid_short_notm}} that you plan to export users from.</td>
-  </tr>
-  <tr>
-    <td><code>destinationTenantId</code></td>
-    <td>The tenant ID of the instance of {{site.data.keyword.appid_short_notm}} that you plan to import users to.</td>
-  </tr>
-  <tr>
-    <td><code>region</code></td>
-    <td>Region options include: <code>au-syd</code>, <code>eu-de</code>, <code>eu-gb</code>, <code>jp-tok</code>, and <code>us-south</code>.</td>
-  </tr>
-  <tr>
-    <td><code>IAM token</code></td>
-    <td>Be sure that you have <code>manager</code> permissions before you obtain the token. For help with obtaining an IAM token, check out <a href="/docs/account?topic=account-iamtoken_from_apikey#iamtoken_from_apikey" target="_blank">the docs <img src="../icons/launch-glyph.svg" alt="External link icon"></a>.</td>
-  </tr>
-</table>
+| Parameter| Description | 
+|-----|----| 
+| `sourceTenantId` | The tenant ID of the instance of {{site.data.keyword.appid_short_notm}} that you plan to export users from. | 
+| `destinationTenantId` | The tenant ID of the instance of {{site.data.keyword.appid_short_notm}} that you plan to import users to. | 
+| `region` | Region options include: `au-syd`, `eu-de`, `u-gb`, `jp-tok`, and `us-south`. |
+| `IAM token` | Be sure that you have <code>manager</code> permissions before you obtain the token. For help with obtaining an IAM token, check out [the docs](/docs/account?topic=account-iamtoken_from_apikey#iamtoken_from_apikey). ![](../icons/launch-glyph.svg "Alt-Text: " "alt="External link icon")
+{: caption="Table 3. Descriptions of the parameters that need to be provided to run the migration script" caption-side="top"}
 
 
 
