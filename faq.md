@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-03-01"
+lastupdated: "2021-05-28"
 
 keywords: pricing, advanced security, authentication events, authorized users, activity tracking, runtime activity, password policies, keycloak, allow list redirect url, redirect uri 
 
@@ -100,25 +100,12 @@ Advanced security features give you the ability to strengthen the security of yo
 
 By default, advanced security features are disabled. If you turn on MFA, runtime activity tracking, or password policy management you incur an extra charge. For example, if you obtained 10,000 access tokens. Then, you turned on password policy management and obtained 10,000 more. You would pay for 20,000 authentication events and 10,000 advanced security events. If you disable all of the advanced features, your account reverts to the original-cost policy.
 
-<table>
-  <caption>Table 1. Description of the benefits that are gained with advanced authentication events.</caption>
-  <tr>
-    <th>Feature</th>
-    <th>Benefit</th>
-  </tr>
-  <tr>
-    <td>Multi-factor authentication</td>
-    <td>[MFA for Cloud Directory](/docs/appid?topic=appid-cd-mfa#cd-mfa) confirms a user’s identity by requiring a user to enter a one time passcode that is sent to their email or SMS in addition to their entering their email and password.</td>
-  </tr>
-  <tr>
-    <td>Runtime authentication activity tracking</td>
-    <td>By integrating {{site.data.keyword.at_short}} with {{site.data.keyword.appid_short_notm}}, you can track different types of authentication events at runtime. For example: A password reset request, authentication failures, or a user logout. For more information, see [Viewing runtime events](/docs/appid?topic=appid-at-events#at-monitor-runtime).</td>
-  </tr>
-  <tr>
-    <td>Password policy management</td>
-    <td>As an account owner, you can enforce more secure passwords for Cloud Directory by configuring a set of rules that user passwords must conform to. Examples include, the number of attempted sign-ins before lockout, expiration times, minimum time span between password updates, or the number of times that a password can't be repeated. For a complete list of the options and set-up information, see [Advanced password management](/docs/appid?topic=appid-cd-strength#cd-advanced-password).</td>
-  </tr>
-</table>
+| Feature | Benefit | 
+|-----|----| 
+|Multi-factor authentication | [MFA for Cloud Directory](/docs/appid?topic=appid-cd-mfa#cd-mfa) confirms a user’s identity by requiring a user to enter a one time passcode that is sent to their email or SMS in addition to their entering their email and password. |
+| Runtime authentication activity tracking | By integrating {{site.data.keyword.at_short}} with {{site.data.keyword.appid_short_notm}}, you can track different types of authentication events at runtime. For example: A password reset request, authentication failures, or a user logout. For more information, see [Viewing runtime events](/docs/appid?topic=appid-at-events#at-monitor-runtime). | 
+| Password policy management | As an account owner, you can enforce more secure passwords for Cloud Directory by configuring a set of rules that user passwords must conform to. Examples include, the number of attempted sign-ins before lockout, expiration times, minimum time span between password updates, or the number of times that a password can't be repeated. For a complete list of the options and set-up information, see [Advanced password management](/docs/appid?topic=appid-cd-strength#cd-advanced-password). | 
+{: caption="Table 1. Description of the benefits that are gained with advanced authentication events" caption-side="top"}
 
 These features are available only to those instances that are on the graduated tier pricing plan and that were created after 15 March 2018.
 {: note}
@@ -148,37 +135,15 @@ Do not include any query parameters in your URL. They are ignored in the validat
 
 Check out the following table for answers to commonly asked questions about encryption.
 
-<table>
-  <caption>Table 2. Frequently asked questions about how {{site.data.keyword.appid_short_notm}} handles encryption</caption>
-  <tr>
-    <th>Question</th>
-    <th>Answer</th>
-  </tr>
-  <tr>
-    <td>Why do you use encryption?</td>
-    <td>One way that we protect our users information is by encrypting customer data at rest and in transit. The service encrypts customer data at rest with per-tenant keys and enforces TLS 1.2+ in all network segments.</td>
-  </tr>
-  <tr>
-    <td>Which algorithms are used in {{site.data.keyword.appid_short_notm}}?</td>
-    <td>The service uses <code>AES</code> and <code>SHA-256</code> with salting.</td>
-  </tr>
-  <tr>
-    <td>Do you use public or open source encryption modules or providers? Do you ever expose encryption functions? </td>
-    <td>The service uses <code>javax.crypto</code> Java libraries, but never exposes an encryption function.</td>
-  </tr>
-  <tr>
-    <td>How are keys stored?</td>
-    <td>Keys are generated, encrypted with a master key that is specific to each region, and then stored locally. The master keys are stored in [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-getting-started-tutorial). Each region has its own root-of-trust key that is stored in [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-getting-started-tutorial), which is backed up by HSM. Each service instance (tenant) has its own data encryption and token signature keys, which are encrypted by using the region's root-of-key trust.</td>
-  </tr>
-  <tr>
-    <td>What is the key strength that you use?</td>
-    <td>The service uses 16 bytes.</td>
-  </tr>
-  <tr>
-    <td>Do you invoke any remote APIs that expose encryption capabilities?</td>
-    <td>No, we do not.</td>
-  </tr>
-</table>
+| Question | Answer | 
+|-----|----| 
+| Why do you use encryption? | One way that we protect our users information is by encrypting customer data at rest and in transit. The service encrypts customer data at rest with per-tenant keys and enforces TLS 1.2+ in all network segments. |
+| Which algorithms are used in {{site.data.keyword.appid_short_notm}}? | The service uses `AES` and `SHA-256` with salting. | 
+| Do you use public or open source encryption modules or providers? Do you ever expose encryption functions?  | The service uses `avax.crypto` Java libraries, but never exposes an encryption function. | 
+| How are keys stored? | Keys are generated, encrypted with a master key that is specific to each region, and then stored locally. The master keys are stored in [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-getting-started-tutorial). Each region has its own root-of-trust key that is stored in [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-getting-started-tutorial), which is backed up by HSM. Each service instance (tenant) has its own data encryption and token signature keys, which are encrypted by using the region's root-of-key trust. | 
+| What is the key strength that you use? | The service uses 16 bytes. | 
+| Do you invoke any remote APIs that expose encryption capabilities | No, we do not. |
+{: caption="Table 2. Frequently asked questions about how {{site.data.keyword.appid_short_notm}}handles encryption" caption-side="top"}
 
 
 ## What clock synchronization does {{site.data.keyword.appid_short_notm}} use?

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-11"
+lastupdated: "2021-05-28"
 
 keywords: user access, account settings, iam, user roles, platform roles, service roles, reader, writer, operator, editor, viewer, administrator, manager, permissions
 
@@ -74,34 +74,13 @@ Policies enable access to be granted at different levels. Some of the options in
 
 Platform management roles enable users to perform tasks on service resources at the platform level. For example, roles can be assigned to determine who can create or delete IDs, create instances, and bind instances to apps. The following table details the actions as they correlate to platform management roles.
 
-<table>
-  <caption>Table 1. Platform roles, permissions, and the example actions that each role can take</caption>
-  <tr>
-    <th>Platform role</th>
-    <th>Permissions</th>
-    <th>Example actions</th>
-  </tr>
-  <tr>
-    <td><i>Viewer</i></td>
-    <td>View {{site.data.keyword.appid_short_notm}} instances.</td>
-    <td>You can see that instances of the service exist, but not the information that is contained within them.</td>
-  </tr>
-  <tr>
-    <td><i>Editor</i></td>
-    <td>View and bind {{site.data.keyword.appid_short_notm}} instances.</td>
-    <td>You can bind applications to an instance of {{site.data.keyword.appid_short_notm}}.</td>
-  </tr>
-  <tr>
-    <td><i>Operator</i></td>
-    <td>Create, delete, edit, suspend, resume, view, or bind {{site.data.keyword.appid_short_notm}} instances.</td>
-    <td>You can create or delete an {{site.data.keyword.appid_short_notm}} instance.</td>
-  </tr>
-  <tr>
-    <td><i>Administrator</i></td>
-    <td>All management actions for all services in the account.</td>
-    <td>You can perform all operator actions and the ability to assign policies to other users.</td>
-  </tr>
-</table>
+| Platform role | Permissions | Example actions |
+|-----|----| ----- |
+| ***Viewer*** | View {{site.data.keyword.appid_short_notm}} instances. | You can see that instances of the service exist, but not the information that is contained within them. | 
+| ***Editor*** | View and bind {{site.data.keyword.appid_short_notm}} instances. | You can bind applications to an instance of {{site.data.keyword.appid_short_notm}}. |
+| ***Operator*** | Create, delete, edit, suspend, resume, view, or bind {{site.data.keyword.appid_short_notm}} instances. | You can create or delete an {{site.data.keyword.appid_short_notm}} instance. |
+| ***Administrator*** | All management actions for all services in the account. | You can perform all operator actions and the ability to assign policies to other users. |
+{: caption="Table 1. Platform roles, permissions, and the example actions that each role can take" caption-side="top"}
 
 ### Service access roles
 {: #iam-service-roles}
