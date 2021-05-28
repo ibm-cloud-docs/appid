@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-05-27"
+lastupdated: "2021-05-28"
 
 keywords: user events, track activity, manage events, analyze, administrative, runtime, sign in, settings, app security
 
@@ -206,234 +206,33 @@ Check out the following table for a list of the runtime events that are sent to 
 Be sure that you have turn ON the **Runtime Activity** in order to see this events.
 {: important}
 
-<table>
-  <caption>Table 2. Actions that can be tracked as authentication events at runtime</caption>
-  <tr>
-    <th>Description</th>
-    <th>Action</th>
-    <th>Outcome</th>
-    <th><code>reason. reasonCode</code></th>
-    <th><code>target.id</code></th>
-    <th><code>target.name</code></th>
-    <th><code>target.typeURI</code></th>
-  </tr>
-  <tr>
-    <td>Cloud Directory authentication success</td>
-    <td><code>appid.user.authenticate</code></td>
-    <td><code>success</code></td>
-    <td><code>200</code></td>
-    <td><code>[appid user CRN]</code></td>
-    <td><code>cloud_directory:[GUID]</code></td>
-    <td><code>appid/user</code></td>
-  </tr>
-  <tr>
-    <td>Cloud Directory authentication failure</td>
-    <td><code>appid.user.authenticate</code></td>
-    <td><code>failure</code></td>
-    <td><code>401</code></td>
-    <td><code>[appid user CRN]</code></td>
-    <td><code>cloud_directory:[GUID]</code></td>
-    <td><code>appid/user</code></td>
-  </tr>
-  <tr>
-    <td>Facebook authentication success</td>
-    <td><code>appid.user.authenticate</code></td>
-    <td><code>success</code></td>
-    <td><code>200</code></td>
-    <td><code>[appid user CRN]</code></td>
-    <td><code>facebook:[GUID]</code></td>
-    <td><code>appid/user</code></td>
-  </tr>
-  <tr>
-    <td>Facebook authentication failure</td>
-    <td><code>appid.user.authenticate</code></td>
-    <td><code>failure</code></td>
-    <td><code>401</code></td>
-    <td><code>crn:unknown</code></td>
-    <td><code>facebook:unknown</code></td>
-    <td><code>appid/user</code></td>
-  </tr>
-  <tr>
-    <td>Google authentication success</td>
-    <td><code>appid.user.authenticate</code></td>
-    <td><code>success</code></td>
-    <td><code>200</code></td>
-    <td><code>[appid user CRN]</code></td>
-    <td><code>google:[GUID]</code></td>
-    <td><code>appid/user</code></td>
-  </tr>
-  <tr>
-    <td>Google authentication failure</td>
-    <td><code>appid.user.authenticate</code></td>
-    <td><code>failure</code></td>
-    <td><code>401</code></td>
-    <td><code>crn:unknown</code></td>
-    <td><code>google:unknown</code></td>
-    <td><code>appid/user</code></td>
-  </tr>
-  <tr>
-    <td>SAML authentication success</td>
-    <td><code>appid.user.authenticate</code></td>
-    <td><code>success</code></td>
-    <td><code>200</code></td>
-    <td><code>[appid user CRN]</code></td>
-    <td><code>SAML:[GUID]</code></td>
-    <td><code>appid/user</code></td>
-  </tr>
-  <tr>
-    <td>SAML authentication failure</td>
-    <td><code>appid.user.authenticate</code></td>
-    <td><code>failure</code></td>
-    <td><code>401</code></td>
-    <td><code>crn:unknown</code></td>
-    <td><code>SAML:unknown</code></td>
-    <td><code>appid/user</code></td>
-  </tr>
-  <tr>
-    <td>Client Credentials authentication success</td>
-    <td><code>appid.application.authenticate</code></td>
-    <td><code>success</code></td>
-    <td><code>200</code></td>
-    <td><code>[appid application CRN]</code></td>
-    <td><code>client_credentials:client_id</code></td>
-    <td><code>appid/application</code></td>
-  </tr>
-  <tr>
-    <td>Client Credentials authentication failure</td>
-    <td><code>appid.application.authenticate</code></td>
-    <td><code>failure</code></td>
-    <td><code>401</code></td>
-    <td><code>crn:undefined</code></td>
-    <td><code>client_credentials:undefined</code></td>
-    <td><code>appid/application</code></td>
-  </tr>
-  <tr>
-    <td>Cloud Directory sign up</td>
-    <td><code>appid.cloud-dir-user.create</code></td>
-    <td><code>success</code></td>
-    <td><code>200</code></td>
-    <td><code>[appid user CRN]</code></td>
-    <td><code>cloud_directory:[GUID]</code></td>
-    <td><code>appid/cloud_dir/user</code></td>
-  </tr>
-  <tr>
-    <td>Cloud Directory signup failure</td>
-    <td><code>appid.cloud-dir-user.create</code></td>
-    <td><code>failure</code></td>
-    <td><code>400</code></td>
-    <td><code>crn:unknown</code></td>
-    <td><code>cloud_directory:unknown</code></td>
-    <td><code>appid/cloud_dir/user</code></td>
-  </tr>
-  <tr>
-    <td>Cloud Directory signup confirmation</td>
-    <td><code>appid.cloud-dir-user.allow</code></td>
-    <td><code>success</code></td>
-    <td><code>200</code></td>
-    <td><code>[appid user CRN]</code></td>
-    <td><code>cloud_directory:[GUID]</code></td>
-    <td><code>appid/cloud_dir/user</code></td>
-  </tr>
-  <tr>
-    <td>Cloud Directory signup confirmation failure</td>
-    <td><code>appid.cloud-dir-user.allow</code></td>
-    <td><code>failure</code></td>
-    <td><code>400</code></td>
-    <td><code>crn:unknown</code></td>
-    <td><code>cloud_directory:unknown</code></td>
-    <td><code>appid/cloud_dir/user</code></td>
-  </tr>
-  <tr>
-    <td>Cloud Directory reset or renew password</td>
-    <td><code>appid.cloud-dir-user-credentials.renew</code></td>
-    <td><code>success</code></td>
-    <td><code>200</code></td>
-    <td><code>[appid user CRN]</code></td>
-    <td><code>cloud_directory:[GUID]</code></td>
-    <td><code>appid/cloud_dir/user</code></td>
-  </tr>
-  <tr>
-    <td>Cloud Directory reset or renew password failure</td>
-    <td><code>appid.cloud-dir-user-credentials.renew</code></td>
-    <td><code>failure</code></td>
-    <td><code>400</code></td>
-    <td><code>crn:unknown</code></td>
-    <td><code>cloud_directory:unknown</code></td>
-    <td><code>appid/cloud_dir/user</code></td>
-  </tr>
-  <tr>
-    <td>Cloud Directory change password</td>
-    <td><code>appid.cloud-dir-user-credentials.update</code></td>
-    <td><code>success</code></td>
-    <td><code>200</code></td>
-    <td><code>[appid user CRN]</code></td>
-    <td><code>cloud_directory:[GUID]</code></td>
-    <td><code>appid/cloud_dir/user</code></td>
-  </tr>
-  <tr>
-    <td>Cloud Directory change password failure</td>
-    <td><code>appid.cloud-dir-user-credentials.update</code></td>
-    <td><code>failure</code></td>
-    <td><code>400</code></td>
-    <td><code>crn:unknown</code></td>
-    <td><code>cloud_directory:unknown</code></td>
-    <td><code>appid/cloud_dir/user</code></td>
-  </tr>
-  <tr>
-    <td>Revoke user tokens</td>
-    <td><code>appid.user-tokens.revoke</code></td>
-    <td><code>success</code></td>
-    <td><code>200</code></td>
-    <td><code>appid user CRN</code></td>
-    <td><code>idp:[GUID]</code></td>
-    <td><code>appid/user</code></td>
-  </tr>
-  <tr>
-    <td>Revoke user tokens failure</td>
-    <td><code>appid.user-tokens.revoke</code></td>
-    <td><code>failure</code></td>
-    <td><code>400</code></td>
-    <td><code>appid user CRN</code></td>
-    <td><code>idp:[GUID]</code></td>
-    <td><code>appid/user</code></td>
-  </tr>
-  <tr>
-    <td>Cloud Directory user SSO logout</td>
-    <td><code>appid.cloud-dir-user.set-off</code></td>
-    <td><code>success</code></td>
-    <td><code>200</code></td>
-    <td><code>appid user CRN</code></td>
-    <td><code>idp:[GUID]</code></td>
-    <td><code>appid/user</code></td>
-  </tr>
-    <tr>
-    <td>View user profile attributes</td>
-    <td><code>appid.user-profile-attributes.read</code></td>
-    <td><code>success</code></td>
-    <td><code>200</code></td>
-    <td><code>crn:profiles:[User-ID]</code></td>
-    <td><code>profiles:[User-ID]</code></td>
-    <td><code>appid-user-profiles/attributes</code></td>
-  </tr>
-    <tr>
-    <td>Update user profile attribute</td>
-    <td><code>appid.user-profile-attributes.update</code></td>
-    <td><code>success</code></td>
-    <td><code>200</code></td>
-    <td><code>crn:profiles:[User-ID]</code></td>
-    <td><code>profiles:[User-ID]</code></td>
-    <td><code>appid-user-profiles/attribute/[Attribute-name]</code></td>
-  </tr>
-    <tr>
-    <td>Delete user profile attribute</td>
-    <td><code>appid.user-profile-attributes.delete</code></td>
-    <td><code>success</code></td>
-    <td><code>200</code></td>
-    <td><code>crn:profiles:[User-ID]</code></td>
-    <td><code>profiles:[User-ID]</code></td>
-    <td><code>appid-user-profiles/attribute/[Attribute-name]</code></td>
-  </tr>
-</table>
+| Description | Action | Outcome | `reason. reasonCode` | `target.id` | `target.name` | `target.typeURI` |
+|-----|----| ----- | ------- | ------- | ------- | ------ |
+| Cloud Directory authentication success | `appid.user.authenticate` | `success` | `200` | `[appid user CRN]` |  `cloud_directory:[GUID]` | `appid/user` |
+| Cloud Directory authentication failure | `appid.user.authenticate` | `failure` | `401` | `[appid user CRN]` | `cloud_directory:[GUID]` | `appid/user` |
+| Facebook authentication success | `appid.user.authenticate` | `success` | `200` | `[appid user CRN]` | `facebook:[GUID]` | `appid/user` |
+| Facebook authentication failure | `appid.user.authenticate` | `failure` | `401` | `crn:unknown` | `facebook:unknown` | `appid/user` |
+| Google authentication success | `appid.user.authenticate` | `success` | `200` | `[appid user CRN]` | `google:[GUID]` | `appid/user` |
+| Google authentication failure | `appid.user.authenticate` | `failure` | `401` | `crn:unknown` | `google:unknown` | `appid/user` |
+| SAML authentication success | `appid.user.authenticate` |  `success` | `200` | `[appid user CRN]` | `SAML:[GUID]` | `appid/user` |
+| SAML authentication failure | `appid.user.authenticate` | `failure` | `401` | `crn:unknown` | `SAML:unknown` | `appid/user` |
+| Client Credentials authentication success | `appid.application.authenticate` | `success` | `200` | `[appid application CRN]` | `client_credentials:client_id` | `appid/application` |
+| Client Credentials authentication failure | `appid.application.authenticate` | `failure` | `401` | `crn:undefined` | client_credentials:undefined | `appid/application` |
+| Cloud Directory sign up | `appid.cloud-dir-user.create` | `success` | `200` | `[appid user CRN]` | `cloud_directory:[GUID]` | `appid/cloud_dir/user` |
+|Cloud Directory signup failure | `appid.cloud-dir-user.create` | `failure` | `400` | `crn:unknown` | `cloud_directory:unknown` | `appid/cloud_dir/user`|
+| Cloud Directory signup confirmation | `appid.cloud-dir-user.allow` | `success` | `200` | `[appid user CRN]` | `cloud_directory:[GUID]` | `appid/cloud_dir/user` | 
+| Cloud Directory signup confirmation failure | `appid.cloud-dir-user.allow` | `failure` | `400` | `crn:unknown` | `cloud_directory:unknown`| `appid/cloud_dir/user` |
+| Cloud Directory reset or renew password | `appid.cloud-dir-user-credentials.renew` | `success` | `200` | `[appid user CRN]` | `cloud_directory:[GUID]` | `appid/cloud_dir/user`|
+| Cloud Directory reset or renew password failure | `appid.cloud-dir-user-credentials.renew` | `failure` | `400` | `crn:unknown` | `cloud_directory:unknown` | `appid/cloud_dir/user` |
+| Cloud Directory change password | `appid.cloud-dir-user-credentials.update` | `success` | `200` | `[appid user CRN]` | `cloud_directory:[GUID]` | `appid/cloud_dir/user`|
+| Cloud Directory change password failure | `appid.cloud-dir-user-credentials.update` | | `failure` | `400` | `crn:unknown` | `cloud_directory:unknown` | `appid/cloud_dir/user` |
+| Revoke user tokens | `appid.user-tokens.revoke` | `success` | `200` | `appid user CRN` | `idp:[GUID]` | `appid/user` |
+| Revoke user tokens failure | `appid.user-tokens.revoke` | `failure` | `400` | `appid user CRN` | `idp:[GUID]` | `appid/user` |
+| Cloud Directory user SSO logout | `appid.cloud-dir-user.set-off` | `success` | `200` | `appid user CRN` | `idp:[GUID]` | `appid/user` | 
+| View user profile attributes | `appid.user-profile-attributes.read` | `success` | `200` | `crn:profiles:[User-ID]` | `profiles:[User-ID]` | `appid-user-profiles/attributes` |
+| Update user profile attribute | `appid.user-profile-attributes.update` | `success` | `200` | `crn:profiles:[User-ID]` | `profiles:[User-ID]` | `appid-user-profiles/attribute/[Attribute-name]` |
+| Delete user profile attribute | `appid.user-profile-attributes.delete` | `success` | `200` | `crn:profiles:[User-ID]` | `profiles:[User-ID]` | `appid-user-profiles/attribute/[Attribute-name]` |
+{: caption="Table 2. Actions that can be tracked as authentication events at runtime" caption-side="top"}
 
 ## Analyzing runtime events
 {: #at-runtime-analyze}
@@ -451,26 +250,12 @@ The following scenario works only for Cloud Directory users. If the user is defi
 
 An event in the {{site.data.keyword.at_short}} console contains the following fields.
 
-<table>
-  <caption>Table 3. Example fields that can be found in an event from the {{site.data.keyword.at_short}} console</caption>
-  <tr>
-    <th>Field</th>
-    <th>Value</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>initiator.id</td>
-    <td>cb967e0d-43c1-454a-968d-0efa24766846</td>
-    <td>The tenant ID.</td>
-  </tr>
-  <tr>
-    <td>target.name</td>
-    <td>cloud_directory:34e1ea6d-cc02-4941-9462-7e9c5a40b360</td>
-    <td>The user ID.</td>
-  </tr>
-</table>
+| Field | Value | Description |
+|-----|----| ----- |
+| initiator.id | cb967e0d-43c1-454a-968d-0efa24766846 | The tenant ID. |
+| target.name | cloud_directory:34e1ea6d-cc02-4941-9462-7e9c5a40b360 | The user ID. |
+{: caption="Table 3. Example fields that can be found in an event from the {{site.data.keyword.at_short}} console caption-side="top"}
 
-</br>
 
 To find the user information that aligns with the event GUID, use the following steps.
 

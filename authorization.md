@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-05-18"
+lastupdated: "2021-05-28"
 
 keywords: authorization, authentication, oidc, oauth, jwks, app security, identity, tokens, redirect uris, api strategy, webapp strategy
 
@@ -83,28 +83,13 @@ Example:
 
 Using this example, the URL would be `https://us-south.appid.cloud.ibm.com/oauth/v4/8f5aa500-357e-443a-aab6-bf878f852b5a`. You would then append the endpoint that you wanted to make a request to. Check out the following table to see some example endpoints.
 
-<table>
-  <tr>
-    <th>Endpoint</th>
-    <th>Format</th>
-  </tr>
-  <tr>
-    <td>Authorization</td>
-    <td><code>{oauthServerUrl}/authorization</code></td>
-  </tr>
-  <tr>
-    <td>Token</td>
-    <td><code>{oauthServerUrl}/token</code></td>
-  </tr>
-  <tr>
-    <td>User information</td>
-    <td><code>{oauthServerUrl}/userinfo</code></td>
-  </tr>
-  <tr>
-    <td>JWKS</td>
-    <td><code>{oauthServerUrl}/publickeys</code></td>
-  </tr>
-</table>
+| Endpoint | Format |
+|-----|----| 
+| Authorization | `{oauthServerUrl}/authorization` |
+| Token | `{oauthServerUrl}/token` |
+| User information | `{oauthServerUrl}/userinfo` |
+| JWKS | `{oauthServerUrl}/publickeys` |
+{: caption="Table 1. Examples of endpoints" caption-side="top"}
 
 When you use the SDK, the endpoint URLs are built automatically.
 {: note}
