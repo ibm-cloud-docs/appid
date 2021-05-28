@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-09"
+lastupdated: "2021-05-28"
 
 keywords: user information, tokens, custom tokens, secure resources, authorization, identity, authentication, claims, oauth, claims mapping, attributes, app security, access, runtime
 
@@ -119,26 +119,12 @@ The claims are set for each token separately and are sequentially applied as sho
 ```
 {: screen}
 
-<table>
-  <caption>Table 1. Claims mapping variables explained</caption>
-    <tr>
-      <th>Object</th>
-      <th>Description</th>
-    </tr>
-    <tr>
-      <td><code><em>source</em></code></td>
-      <td>Defines the source of the claim. Options include: <code>saml</code>, <code>cloud_directory</code>, <code>facebook</code>, <code>google</code>, <code>appid_custom</code>, and <code>attributes</code>.</td>
-    </tr>
-    <tr>
-      <td><code><em>sourceClaim</em></code></td>
-      <td>Defines the claim as provided by the source. It can refer to the identity provider's user information or the user's {{site.data.keyword.appid_short_notm}} custom attributes.</td>
-    </tr>
-    <tr>
-      <td><code><em>destinationClaim</em></code></td>
-      <td>Optional: Defines the custom attribute that can override the current claim in token.</td>
-    </tr>
-</table>
-
+| Object | Description | 
+|-----|----| 
+| `source` | Defines the source of the claim. Options include: `saml`, `cloud_directory`, `facebook`, `google`, `appid_custom`, and `attributes`. |
+| `sourceClaim` | Defines the claim as provided by the source. It can refer to the identity provider's user information or the user's {{site.data.keyword.appid_short_notm}} custom attributes. |
+| `destinationClaim` | Optional: Defines the custom attribute that can override the current claim in token. |
+{: caption="Table 1. Claims mapping variables explained" caption-side="top"}
 
 
 ## Configuring tokens
