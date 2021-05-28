@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-05-19"
+lastupdated: "2021-05-28"
 
 keywords: custom identity provider, authorization, bring your own idp, proprietary idp, legacy idp, oauth, oidc, authentication, oatuh, app security
 
@@ -77,7 +77,7 @@ Occasionally, a legacy provider might use their own custom authentication protoc
 ### Technically, how does this flow work?
 {: #custom-auth-tech}
 
-The custom identity workflow is built on the JWT-Bearer extension grant type that is defined in Assertion Framework for OAuth 2.0 Authorization Grants [[RFC7521]](https://datatracker.ietf.org/doc/html/rfc7523#section-2.1){: external}. In order to exchange user information for {{site.data.keyword.appid_short_notm}} tokens, your authentication architecture creates a trust relationship with {{site.data.keyword.appid_short_notm}} by using an asymmetric RSA key pair. Once trust is established, you can use the JWT-Bearer grant type to exchange verified user information within a signed JWT for {{site.data.keyword.appid_short_notm}} tokens.
+The custom identity workflow is built on the JWT-Bearer extension grant type that is defined in Assertion Framework for OAuth 2.0 Authorization Grants [[RFC7521]](https://datatracker.ietf.org/doc/html/rfc7523#section-2.1){: external}. In order to exchange user information for {{{site.data.keyword.appid_short_notm}} tokens, your authentication architecture creates a trust relationship with {{site.data.keyword.appid_short_notm}} by using an asymmetric RSA key pair. Once trust is established, you can use the JWT-Bearer grant type to exchange verified user information within a signed JWT for {{site.data.keyword.appid_short_notm}} tokens.
 
 ### What does the flow look like?
 {: #custom-auth-flow}
@@ -142,37 +142,17 @@ You can convert your verified user data to a custom identity JWT by generating a
 ```
 {: screen}
 
-<table>
-  <caption>Table 1. JWS fields</caption>
-  <tr>
-    <th>Field</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td><code>iss</code></td>
-    <td>Should contain a reference to your identity provider.</td>
-  </tr>
-  <tr>
-    <td><code>aud</code></td>
-    <td>The OAuth server URL. Format: `https://{region}.appid.cloud.ibm.com/oauth/v4/{tenantId}`.</td>
-  </tr>
-  <tr>
-    <td><code>exp</code></td>
-    <td>The length of time that the token is valid. For security reasons, it should have a short life span and be specific.</td>
-  </tr>
-  <tr>
-    <td><code>sub</code></td>
-    <td>The unique user ID that is provided by the identity provider.</td>
-  </tr>
-  <tr>
-    <td>Normalized claims</td>
-    <td>All [normalized claims](/docs/appid?topic=appid-tokens) are provided in the identity token that is returned in response to this request. More custom claims can be found by using the [`/userinfo` endpoint](/docs/appid?topic=appid-profiles).</td>
-  </tr>
-  <tr>
-    <td>Scope</td>
-    <td>By default, all {{site.data.keyword.appid_short_notm}} tokens contain a group of preset scopes. You can request extra scopes by doing one of the following:<ul><li> Specify the scope in the scope field of your JWS token.</li> <li>Specify the scope through the URL-form scopes parameter of the `/token` request.</li></ul></td>
-  </tr>
-</table>
+| Field | Description | 
+|-----|----| 
+|`iss` | Should contain a reference to your identity provider. |
+| `aud` | The OAuth server URL. Format: `https://{region}.appid.cloud.ibm.com/oauth/v4/{tenantId}`. | 
+| `exp` | The length of time that the token is valid. For security reasons, it should have a short life span and be specific. | 
+| `sub` | The unique user ID that is provided by the identity provider.| 
+| Normalized claims | All [normalized claims](/docs/appid?topic=appid-tokens) are provided in the identity token that is returned in response to this request. More custom claims can be found by using the [`/userinfo` endpoint](/docs/appid?topic=appid-profiles). | 
+| Scope | By default, all {{site.data.keyword.appid_short_notm}} tokens contain a group of preset scopes. You can request extra scopes by doing one of the following:
+* Specify the scope in the scope field of your JWS token.
+* Specify the scope through the URL-form scopes parameter of the `/token` request. | 
+{: caption="Table 1. JWS fields" caption-side="top"}
 
 ## Retrieving {{site.data.keyword.appid_short_notm}} tokens
 {: #exchanging-jwts}
@@ -189,26 +169,11 @@ To create the bridge between your custom provider and {{site.data.keyword.appid_
   ```
   {: codeblock}
 
-  <table>
-    <caption>Table 2. Required request variables</caption>
-    <tr>
-      <th>Variable</th>
-      <th>Description</th>
-    </tr>
-    <tr>
-      <td>Content-type</td>
-      <td><code>applications/x-www-from-urlencoded</code></td>
-    </tr>
-    <tr>
-      <td>grant_type</td>
-      <td><code>urn:ietf:params:oauth:grant-type:jwt-bearer</code></td>
-    </tr>
-    <tr>
-      <td>assertion</td>
-      <td>A JWS payload string.</td>
-    </tr>
-    <tr>
-      <td>scope</td>
-      <td>A white space separated list of your custom scopes.</td>
-    </tr>
-  </table>
+| Variable | Description | 
+|-----|----| 
+| Content-type | `applications/x-www-from-urlencoded` |
+| grant_type | `urn:ietf:params:oauth:grant-type:jwt-bearer` | 
+| assertion | A JWS payload string. |
+| scope | A white space separated list of your custom scopes. | 
+{: caption="Table 2. Required request variables" caption-side="top"}
+

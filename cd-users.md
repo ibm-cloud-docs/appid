@@ -384,7 +384,7 @@ Before you get started, be sure that you have the following parameter informatio
 | `sourceTenantId` | The tenant ID of the instance of {{site.data.keyword.appid_short_notm}} that you plan to export users from. | 
 | `destinationTenantId` | The tenant ID of the instance of {{site.data.keyword.appid_short_notm}} that you plan to import users to. | 
 | `region` | Region options include: `au-syd`, `eu-de`, `u-gb`, `jp-tok`, and `us-south`. |
-| `IAM token` | Be sure that you have <code>manager</code> permissions before you obtain the token. For help with obtaining an IAM token, check out [the docs](/docs/account?topic=account-iamtoken_from_apikey#iamtoken_from_apikey). ![](../icons/launch-glyph.svg "Alt-Text: " "alt="External link icon")
+| `IAM token` | Be sure that you have `manager` permissions before you obtain the token. For help with obtaining an IAM token, check out [the docs](/docs/account?topic=account-iamtoken_from_apikey#iamtoken_from_apikey). ![](../icons/launch-glyph.svg "Alt-Text: " "alt="External link icon")
 {: caption="Table 3. Descriptions of the parameters that need to be provided to run the migration script" caption-side="top"}
 
 
