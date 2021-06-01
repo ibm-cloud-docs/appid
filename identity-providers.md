@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-05-27"
+lastupdated: "2021-06-01"
 
 keywords: facebook, google, social, identity providers, single sign on, default configuration, authentication, authorization, identity, app security, idp, default credentials
 
@@ -70,7 +70,7 @@ You are limited to 20 authentications with the default credentials per instance,
 ## Configuring Facebook
 {: #facebook}
 
-You can configure the {{site.data.keyword.appid_short}} service to use Facebook as an identity provider.
+You can configure the {{site.data.keyword.appid_short_notm}} service to use Facebook as an identity provider.
 {: shortdesc}
 
 ### Getting an app ID and secret from Facebook
@@ -101,7 +101,7 @@ When you have your Facebook app ID and secret, and your Facebook for Developers 
 ## Configuring Google
 {: #google}
 
-You can configure the {{site.data.keyword.appid_short}} service to use Google as an identity provider.
+You can configure the {{site.data.keyword.appid_short_notm}} service to use Google as an identity provider.
 {: shortdesc}
 
 ### Getting a client ID and secret
@@ -126,11 +126,11 @@ After you configure your Google project and have your client ID and secret, you 
 
 1. From the **Manage** page of your service dashboard, select **Google** and click **Edit**.
 2. Enter the client ID and secret that you obtained from the Google Developers Console.
-3. Authorize the {{site.data.keyword.appid_short}} URL.
+3. Authorize the {{site.data.keyword.appid_short_notm}} URL.
     1. Copy the **Redirect URL for Google Developer Console** from the Google identity provider details.
     2. On the credentials page of your Google project, select the client ID that you created for this integration.
     3. Paste the URL from {{site.data.keyword.appid_short}} into the **Authorized redirect URIs** field and click **Save**.
-4. Click **Save** to update your Google configuration in {{site.data.keyword.appid_short}}.
+4. Click **Save** to update your Google configuration in {{site.data.keyword.appid_short_notm}}.
 5. For web apps, enter a redirect URL in the **Manage** tab. After the authorization process completes, a user is sent to this URL. The URL must follow an `http` or `https` scheme. For a higher level of security, use an `https` scheme.
 
 

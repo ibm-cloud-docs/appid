@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-09"
+lastupdated: "2021-06-01"
 
 keywords: app log in, login widget, sign in, default screen, forgot password, mfa, multi-factor authentication, sign up, reset password, facebook, google, identity provider, social log in, saml, authentication, authorization, cloud directory
 
@@ -71,45 +71,14 @@ For example, if you're using the default - Facebook, Google, and Cloud Directory
 
 When you use Cloud Directory, {{site.data.keyword.appid_short_notm}} is able to provide you with the extended functionality of user management. The extended functionality also applies to the Login Widgets capabilities. User's that are stored in Cloud Directory can take advantage of the functionality such as signing up or resetting their password directly in the Login Widget. Check out the following table to see which screens you can display for each type of identity provider.
 
-<table>
-  <caption>Table 1. The Login Widget screens that each identity provider can display</caption>
-  <tr>
-    <th>Login Widget screen</th>
-    <th>Social identity provider</th>
-    <th>Enterprise identity provider</th>
-    <th>Cloud Directory</th>
-  </tr>
-  <tr>
-    <td>Sign in</td>
-    <td><img src="images/confirm.png" width="32" alt="Feature available" style="width:32px;" /></td>
-    <td><img src="images/confirm.png" width="32" alt="Feature available" style="width:32px;" /></td>
-    <td><img src="images/confirm.png" width="32" alt="Feature available" style="width:32px;" /></td>
-  </tr>
-  <tr>
-    <td>Sign up</td>
-    <td> </td>
-    <td> </td>
-    <td><img src="images/confirm.png" width="32" alt="Feature available" style="width:32px;" /></td>
-  </tr>
-  <tr>
-    <td>Forgot password</td>
-    <td> </td>
-    <td> </td>
-    <td><img src="images/confirm.png" width="32" alt="Feature available" style="width:32px;" /></td>
-  </tr>
-  <tr>
-    <td>Change password</td>
-    <td> </td>
-    <td> </td>
-    <td><img src="images/confirm.png" width="32" alt="Feature available" style="width:32px;" /></td>
-  </tr>
-  <tr>
-    <td>Account details</td>
-    <td> </td>
-    <td> </td>
-    <td><img src="images/confirm.png" width="32" alt="Feature available" style="width:32px;" /></td>
-  </tr>
-</table>
+| Login Widget screen | Social identity provider | Enterprise identity provider | Cloud Directory |
+|-----|----| -----| ------ |
+| Sign in | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) |
+| Sign up | | | ![Checkmark icon](../../icons/checkmark-icon.svg) |
+| Forgot password | | | ![Checkmark icon](../../icons/checkmark-icon.svg) |
+| Change password | | | ![Checkmark icon](../../icons/checkmark-icon.svg) |
+| Account details | | | ![Checkmark icon](../../icons/checkmark-icon.svg) |
+{: caption="Table 1. The Login Widget screens that each identity provider can display" caption-side="top"}
 
 
 ### Customizing an SSO login flow
