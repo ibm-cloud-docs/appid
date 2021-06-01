@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-05-28"
+lastupdated: "2021-06-01"
 
 keywords: saml, enterprise apps, assertions, single sign on, tokens, authorization, user authentication, key cloak, redhat, cloud identity, sso, single sign on, xml signature, service provider, identity provider, app security
 
@@ -77,6 +77,7 @@ Although the SAML framework is used to authenticate the user, {{site.data.keywor
 
 ![SAML enterprise authentication flow](/images/ibmid-flow.png){: caption="Figure 1. How an enterprise SAML authentication flow works" caption-side="bottom"}
 
+
 1. A user access the login page or restricted resource on their application, which initiates a request to the {{site.data.keyword.appid_short_notm}} `/authorization` endpoint through either an {{site.data.keyword.appid_short_notm}} SDK or API. If the user is unauthorized, the authentication flow begins with a redirect to {{site.data.keyword.appid_short_notm}}.
 2. {{site.data.keyword.appid_short_notm}} generates a SAML authentication request (`AuthNRequest`) and the browser automatically redirects the user to the SAML identity provider.
 3. The identity provider parses the SAML request, authenticates the user, and generates a SAML response with its assertions.
@@ -100,7 +101,7 @@ The workflow for SSO is similar. The only deviation from the described workflow 
 ## Understanding assertions
 {: #saml-assertions}
 
-When the SAML assertion is returned to {{site.data.keyword.appid_short_notm}}, the service federates the user identity and generates the appropriate tokens. If the SAML assertion corresponds to one of the standard OIDC claims, it's automatically added to the identity token. The assertions that don't have a match, are ignored by default. If your SAML provider returns other assertions, it's possible configure {{site.data.keyword.appid_short_notm}} to [inject the information into your tokens](/docs/appid?topic=appid-customizing-tokens#customizing-tokens). But, be sure not to add more information than necessary to your tokens as they're typically sent in HTTP headers and limited in size.
+When the SAML assertion is returned to {{site.data.keyword.appid_short_notm}}, the service federates the user identity and generates the appropriate tokens. If the SAML assertion corresponds to one of the standard OIDC claims, it's automatically added to the identity token. The assertions that don't have a match, are ignored by default. If your SAML provider returns other assertions, it's possible to configure {{site.data.keyword.appid_short_notm}} to [inject the information into your tokens](/docs/appid?topic=appid-customizing-tokens#customizing-tokens). But, be sure not to add more information than necessary to your tokens as they're typically sent in HTTP headers and limited in size.
 
 The standard OIDC claims that {{site.data.keyword.appid_short_notm}} attempts to map to your assertion: 
 
@@ -197,7 +198,7 @@ You cannot enable SAML until after you have configured it as an identity provide
     </tr>
     <tr>
       <td><code>NameID Format</code></td>
-      <td>The way in which the identity provider knows which identifier format it needs to send in the subject of an assertion and how {{site.data.keyword.appid_short_notm}} identifies users. The ID should take the following form: <code><saml:NameID Format="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"/></code></td>
+      <td>The way in which the identity provider knows which identifier format it needs to send in the subject of an assertion and how {{site.data.keyword.appid_short_notm}} identifies users. The ID should take the following form: <code>&lt;saml:NameID Format="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"&gt;</code></td>
     </tr>
     <tr>
       <td><code>WantAssertionsSigned</code></td>
