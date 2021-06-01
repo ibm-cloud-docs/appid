@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-09"
+lastupdated: "2021-06-01"
 
 keywords: identity provider, idp, app security, mobile app, web app, authentication, authorization, oidc, saml, protocols, facebook, google, w3id, cloud directory, redirect url, redirect uri, token configuration, token lifetime, log in configuration
 
@@ -63,39 +63,15 @@ Working with application identity? Check out [Application identity](/docs/appid?
 
 There are several identity providers that the service can be configured to use. Check out the following table to learn about your options.
 
-<table>
-  <caption>Table 1. Identity provider options</caption>
-  <tr>
-    <th>Identity provider</th>
-    <th>Type</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>[Cloud Directory](/docs/appid?topic=appid-cloud-directory)</td>
-    <td>Managed registry</td>
-    <td>You can maintain your own user registry in the cloud. When a user signs up for your app, they are added to your directory of users. This option gives your users more freedom to manage their own account within your app.</td>
-  </tr>
-  <tr>
-    <td>[SAML](/docs/appid?topic=appid-enterprise#enterprise)</td>
-    <td>Enterprise</td>
-    <td>You can create a single sign-on experience for your users.</td>
-  </tr>
-  <tr>
-    <td>[Facebook](/docs/appid?topic=appid-social#facebook)</td>
-    <td>Social</td>
-    <td>Users can sign in to your app by using their Facebook credentials.</td>
-  </tr>
-  <tr>
-    <td>[Google+](/docs/appid?topic=appid-social#google)</td>
-    <td>Social</td>
-    <td>Users can sign in to your app by using their Google credentials.</td>
-  </tr>
-  <tr>
-    <td>[Custom](/docs/appid?topic=appid-custom-identity#custom-identity)</td>
-    <td>Custom</td>
-    <td>If none of the provided options fit your specific need, you can configure your own identity flow to work with {{site.data.keyword.appid_short_notm}}.</td> 
-  </tr>
-</table>
+| Identity provider | Type | Description | 
+|-----|----| -----| 
+| [Cloud Directory](/docs/appid?topic=appid-cloud-directory) | Managed registry | You can maintain your own user registry in the cloud. When a user signs up for your app, they are added to your directory of users. This option gives your users more freedom to manage their own account within your app. | 
+| [SAML](/docs/appid?topic=appid-enterprise#enterprise) | Enterprise | You can create a single sign-on experience for your users. |
+| [Facebook](/docs/appid?topic=appid-social#facebook) | Social | Users can sign in to your app by using their Facebook credentials. |
+| [Google+](/docs/appid?topic=appid-social#google) | Social | Users can sign in to your app by using their Google credentials. | 
+| [Custom](/docs/appid?topic=appid-custom-identity#custom-identity) | Custom | If none of the provided options fit your specific need, you can configure your own identity flow to work with {{site.data.keyword.appid_short_notm}}. |
+
+{: caption="Table 1. Identity provider options" caption-side="top"}
 
 ## Managing providers
 {: #managing-providers}
