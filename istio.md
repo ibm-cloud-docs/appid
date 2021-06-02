@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-05-18"
+lastupdated: "2021-06-02"
 
 keywords: adapter, access management, identity token, helm chart, backend apps, kube, any kube, icp, openshift, iks, service mesh, access, app identity, kube secret, tokens, authenticated, app endpoints, authorization, multicloud, no code change, no redeploy, authorization policies, multiple providers
 
@@ -311,7 +311,7 @@ spec:
 | `method` | `enum` | No | The HTTP method protected. Valid options ALL, GET, PUT, POST, DELETE, PATCH - Defaults to ALL:  |
 | `policies` | `array[Policy]` | No | The OIDC/JWT policies that you want to apply.  |
 {: class="simple-tab-table"}
-{: caption="Table 3. Understanding the path object components" caption-side="top"}
+{: caption="Table 2. Understanding the path object components" caption-side="top"}
 {: #path-object}
 {: tab-title="Path object"}
 {: tab-group="objects"}
@@ -323,7 +323,7 @@ spec:
 | `redirectUri` | `string` | No | The URL that you want the user to be redirected after successful authentication, default: the original request URL. |
 | `rules` | `array[Rule]` | No | The set of rules that you want to use for token validation. |
 {: class="simple-tab-table"}
-{: caption="Table 4. Understanding the policy object components" caption-side="top"}
+{: caption="Table 2. Understanding the policy object components" caption-side="top"}
 {: #policy-object}
 {: tab-title="Policy object"}
 {: tab-group="objects"}
@@ -335,7 +335,7 @@ spec:
 | `source` | `enum` | No | The token where you want to apply the rule. Options include: `access_token` or `id_token`. The default is set to `access_token`. |
 | `values` | `array[string]` | Yes | The required set of values for validation. |
 {: class="simple-tab-table"}
-{: caption="Table 5. Understanding the policy object components" caption-side="top"}
+{: caption="Table 2. Understanding the policy object components" caption-side="top"}
 {: #rule-object}
 {: tab-title="Rule object"}
 {: tab-group="objects"}
