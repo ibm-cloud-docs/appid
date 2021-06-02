@@ -115,7 +115,6 @@ App ID
         troubleshooting/ts-redirect.md
         troubleshooting/ts-attributes.md
         troubleshooting/ts-requests.md
-        troubleshooting/ts-saml-config.md
         troubleshooting/ts-saml-authentication.md
         troubleshooting/ts-saml-debug.md
 

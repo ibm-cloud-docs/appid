@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-06-01"
+lastupdated: "2021-06-02"
 
 keywords: saml, enterprise apps, assertions, single sign on, tokens, authorization, user authentication, key cloak, redhat, cloud identity, sso, single sign on, xml signature, service provider, identity provider, app security
 
@@ -388,7 +388,6 @@ You can test the configuration between your SAML Identity Provider and {{site.da
   * Successful authentication: The connection between {{site.data.keyword.appid_short_notm}} and the Identity Provider is working correctly. The page displays valid [access and identity tokens](/docs/appid?topic=appid-tokens#tokens).
   * Failed authentication: The connection is broken. The page displays the errors and the SAML response XML file.
 
-
-Having trouble? Check out [Troubleshooting: SAML](/docs/appid?topic=appid-troubleshooting-idp#troubleshooting-idp).
+The SAML framework supports multiple profiles, flows, and configurations, which means that it is essential that your identity provider is configured correctly. If you run into issues, check out some of the common reasons that your [authentication request might fail](/docs/appid?topic=appid-ts-saml) or review the [SAML specification](https://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0.html){: external} for detailed error codes.
 {: tip}
 

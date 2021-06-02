@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-05-26"
+lastupdated: "2021-06-02"
 
 keywords: saml, help, authentication request, error message, signing algorithm, xml file, signing certificate, valid email, error code, saml message signature, 
 
@@ -45,7 +45,7 @@ subcollection: appid
 {:api: .ph data-hd-interface='api'}
 
 # Why did my SAML authentication request fail?
-{: #ts-saml-w3id}
+{: #ts-saml}
 {: troubleshoot} 
 {: support}
 
@@ -53,7 +53,7 @@ You encounter issues with your SAML authentication.
 {:shortdesc}
 
 ## Why can't my SAML message signature be validated?
-{: #ts-saml-w3id}
+{: #ts-saml-validated}
 
 When you test your application, you receive the following error message:
 {: tsSymptoms}
