@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-06-01"
+lastupdated: "2021-06-02"
 
 keywords: facebook, google, social, identity providers, single sign on, default configuration, authentication, authorization, identity, app security, idp, default credentials
 
@@ -119,7 +119,7 @@ Create a project in the [Google Developers Console](https://console.cloud.google
 6. Click **Create**.
 7. Copy **Your Client ID** and **Your Client Secret**
 
-### Configuring {{site.data.keyword.appid_short}} for Google authentication
+### Configuring {{site.data.keyword.appid_short_notm}} for Google authentication
 {: #google-configure}
 
 After you configure your Google project and have your client ID and secret, you can edit your service dashboard for Google authentication.

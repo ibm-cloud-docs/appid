@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-05-28"
+lastupdated: "2021-06-02"
 
 keywords: user events, track activity, manage events, analyze, administrative, runtime, sign in, settings, app security
 
@@ -254,7 +254,7 @@ An event in the {{site.data.keyword.at_short}} console contains the following fi
 |-----|----| ----- |
 | initiator.id | cb967e0d-43c1-454a-968d-0efa24766846 | The tenant ID. |
 | target.name | cloud_directory:34e1ea6d-cc02-4941-9462-7e9c5a40b360 | The user ID. |
-{: caption="Table 3. Example fields that can be found in an event from the {{site.data.keyword.at_short}} console caption-side="top"}
+{: caption="Table 3. Example fields that can be found in an event from the {{site.data.keyword.at_short}} console" caption-side="top"}
 
 
 To find the user information that aligns with the event GUID, use the following steps.
