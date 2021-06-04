@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-05-17"
+lastupdated: "2021-06-01"
 
 keywords: well known endpoint, discovery endpoint, oidc, public keys, user information, claims, attributes, full profile, identity providers, app security, tokens
 
@@ -69,33 +69,14 @@ https://{region}.appid.cloud.ibm.com/oauth/v4/{tenantId}/.well-known/openid-conf
 ```
 {: codeblock}
 
-<table>
-  <caption>Table 1. IBM Cloud regions</caption>
-  <tr>
-    <th>Region</th>
-    <th>Endpoint</th>
-  </tr>
-  <tr>
-    <td>Dallas</td>
-    <td><code>us-south</code></td>
-  </tr>
-  <tr>
-    <td>Frankfurt</td>
-    <td><code>eu-de</code></td>
-  </tr>
-  <tr>
-    <td>Sydney</td>
-    <td><code>au-syd</code></td>
-  </tr>
-  <tr>
-    <td>London</td>
-    <td><code>eu-gb</code></td>
-  </tr>
-  <tr>
-    <td>Tokyo</td>
-    <td><code>jp-tok</code></td>
-  </tr>
-</table>
+| Region | Endpoint | 
+|-----|----| 
+| Dallas | `us-south` |
+| Frankfurt | `eu-de` |
+| Sydney | `au-syd` |
+| London | `eu-gb` |
+| Tokyo | `jp-tok` |
+{: caption="Table 1. IBM Cloud regions" caption-side="top"}
 
 
 
@@ -160,57 +141,17 @@ The response that is returned looks similar to the following example:
 ```
 {: screen}
 
-<table>
-  <tr>
-    <th> Component </th>
-    <th> Description </th>
-  </tr>
-  <tr>
-  <td><code>issuer</code></td>
-  <td>The location of the OIDC provider.</td>
-  </tr>
-  <tr>
-    <td><code>authorization_endpoint</code></td>
-    <td>The URL of the {{site.data.keyword.appid_short_notm}} OAuth 2.0 authorization endpoint.</td>
-  </tr>
-  <tr>
-    <td><code>token_endpoint</code></td>
-    <td>The URL of the {{site.data.keyword.appid_short_notm}} OAuth 2.0 token endpoint.</td>
-  </tr>
-  <tr>
-    <td><code>jwks_uri</code></td>
-    <td>The URL of the {{site.data.keyword.appid_short_notm}} web key set document.</td>
-  </tr>
-  <tr>
-    <td><code>subject_types_supported</code></td>
-    <td>A JSON array that contains a list of the subject identifier types that {{site.data.keyword.appid_short_notm}} supports.</td>
-  </tr>
-  <tr>
-    <td><code>id_token_signing_alg_values_supported</code></td>
-    <td>A JSON array that contains a list of the JWS signing algorithms that the {{site.data.keyword.appid_short_notm}} server supports.</td>
-  </tr>
-  <tr>
-    <td><code>userinfo_endpoint</code></td>
-    <td>The URL of the {{site.data.keyword.appid_short_notm}} <code>/userinfo</code> endpoint.</td>
-  </tr>
-  <tr>
-    <td><code>scopes_supported</code></td>
-    <td>A JSON array that contains a list of the OAuth 2.0 scope values that {{site.data.keyword.appid_short_notm}} supports.</td>
-  </tr>
-  <tr>
-    <td><code>response_types_supported</code></td>
-    <td>A JSON array that contains a list of the OAuth 2.0 response_type values that {{site.data.keyword.appid_short_notm}} supports.</td>
-  </tr>
-  <tr>
-    <td><code>claims_supported</code></td>
-    <td>A JSON array that contains a list of the claim names.</td>
-  </tr>
-  <tr>
-    <td><code>grant_types_supported</code></td>
-    <td>A JSON array that contains a list of the OAuth 2.0 grant type values that {{site.data.keyword.appid_short_notm}} supports.</td>
-  </tr>
-  <tr>
-    <td><code>profiles_endpoint</code></td>
-    <td>The URL of the {{site.data.keyword.appid_short_notm}} user profile endpoint.</td>
-  </tr>
-</table>
+| Component | Description | 
+|-----|----| 
+| `issuer` | The location of the OIDC provider. |
+| `authorization_endpoint` | The URL of the {{site.data.keyword.appid_short_notm}} OAuth 2.0 authorization endpoint. |
+| `token_endpoint` | The URL of the {{site.data.keyword.appid_short_notm}} OAuth 2.0 token endpoint. |
+| `jwks_uri` | The URL of the {{site.data.keyword.appid_short_notm}} web key set document. |
+| `subject_types_supported` | A JSON array that contains a list of the subject identifier types that {{site.data.keyword.appid_short_notm}} supports. |
+| `id_token_signing_alg_values_supported` | A JSON array that contains a list of the JWS signing algorithms that the {{site.data.keyword.appid_short_notm}} server supports. |
+| `userinfo_endpoint` | The URL of the {{site.data.keyword.appid_short_notm}} `/userinfo` endpoint. |
+| `scopes_supported` | A JSON array that contains a list of the OAuth 2.0 scope values that {{site.data.keyword.appid_short_notm}} supports. |
+| `response_types_supported` | A JSON array that contains a list of the OAuth 2.0 response_type values that {{site.data.keyword.appid_short_notm}} supports. |
+| `claims_supported` | A JSON array that contains a list of the claim names. |
+| `grant_types_supported` | A JSON array that contains a list of the OAuth 2.0 grant type values that {{site.data.keyword.appid_short_notm}} supports. |
+| `profiles_endpoint` | The URL of the {{site.data.keyword.appid_short_notm}} user profile endpoint. | 

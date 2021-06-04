@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-05-18"
+lastupdated: "2021-06-01"
 
 keywords: user information, add users, delete users, profile, access, attributes, admin, app security, authentication, authorization
 
@@ -187,7 +187,7 @@ You can use the {{site.data.keyword.appid_short_notm}} API to view details about
 
 You can add custom information about your users to their profile such a role that they hold or preference that they have by setting a custom attribute. To set an attribute, you can use the {{site.data.keyword.appid_short_notm}} UI.
 
-By default, custom attributes are modifiable and can be updated by using an {{site.data.keyword.appid_short_notm}} access token from a client application. This means that without taking proper precautions either the user or the application can update custom attributes immediately following the first user sign-in, if they have an access token. This can potentially lead to unintended consequences. For example, a user might change their role from user to admin, which might expose administrative privileges to malicious users.
+By default, custom attributes are modifiable and can be updated by using an {{site.data.keyword.appid_short_notm}}access token from a client application. This means that without taking proper precautions either the user or the application can update custom attributes immediately following the first user sign-in, if they have an access token. This can potentially lead to unintended consequences. For example, a user might change their role from user to admin, which might expose administrative privileges to malicious users.
 {: important}
 
 1. Go to the **User profiles > Settings** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
@@ -255,7 +255,7 @@ By default, custom attributes are modifiable and can be updated by using an {{si
 
 As an administrator, you can remove someone as a user of your application by deleting their profile.
 
-1. Navigate to the **User Profiles > Profiles** tab of your {{site.data.keyword.appid_short_notm}} instance.
+1. Navigate to the **User Profiles > Profiles** tab of your {{site.data.keyword.appid_short_notm}}instance.
 
 2. Look through the table or search by using an email address to find the user that you want to see the information for. The search term must be exact.
 

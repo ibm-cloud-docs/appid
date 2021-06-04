@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-03-29"
+lastupdated: "2021-06-04"
 
 keywords: management api, service management, service instance, devops automation, customize, permissions, iam, account owners, identity, app security, access tokens, video tutorial
 
@@ -47,7 +47,7 @@ subcollection: appid
 # Regions and endpoints
 {: #regions-endpoints}
 
-You can use the {{site.data.keyword.appid_short_notm}} APIs for DevOps automation, customization, and management of your service instances. To understand availability of the service, you can review the following connectivity options.
+You can use the {{site.data.keyword.appid_full}} APIs for DevOps automation, customization, and management of your service instances. To understand availability of the service, you can review the following connectivity options.
 {: shortdesc}
 
 
@@ -97,3 +97,4 @@ https://<region-endpoint>.appid.cloud.ibm.com/management
 If you run in to trouble while working with the APIs, try watching this tutorial video or using the {{site.data.keyword.appid_short_notm}} Postman collection.
 
 ![About the {{site.data.keyword.appid_short_notm}} APIs](https://www.youtube.com/embed/b2ABxvAdGg0){: video output="iframe" data-script="none" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+

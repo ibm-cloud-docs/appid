@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-05-18"
+lastupdated: "2021-06-01"
 
 keywords: related links, blogs, sample apps, kube, code changes, programming guide, white paper, vuejs apps, serverless applications, enterprise user directory, custom experience, slack, stack overflow, secure iot, solution, finance app, multicloud, video tutorials
 
@@ -86,7 +86,7 @@ Interested in securing your applications? Check out the blogs and samples here t
 
 * <img src="images/blog-code.svg" alt="Icon indicating that this blog contains sample code" width="20" style="width:20px; border-style: none"/> [Securing Angular + Node.js applications by using {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/securing-angularnode-js-applications-using-app-id){: external}
 * <img src="images/blog.svg" alt="General blog icon" width="20" style="width:20px; border-style: none"/> [Securing single page apps with {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/securing-single-page-apps-app-id-service){: external}
-* <img src="images/blog-code.svg" alt="Icon indicating that this blog contains sample code" width="20" style="width:20px; border-style: none"/> [Creating Spring Boot applications with {{site.data.keyword.appid_long}}](https://www.ibm.com/cloud/blog/creating-spring-boot-applications-app-id){: external}
+* <img src="images/blog-code.svg" alt="Icon indicating that this blog contains sample code" width="20" style="width:20px; border-style: none"/> [Creating Spring Boot applications with {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/creating-spring-boot-applications-app-id){: external}
 * <img src="images/logo--github.svg" alt="GitHub logo" width="20" style="width:20px; border-style: none"/> [Using {{site.data.keyword.appid_short_notm}} with Python](https://github.com/mnsn/appid-python-flask-example){: external}
 * <img src="images/logo--github.svg" alt="GitHub icon" width="20" style="width:20px; border-style: none"/> [Using Python Flask-pyoidc with {{site.data.keyword.appid_short_notm}}](https://github.com/IBM-Cloud/github-traffic-stats){: external}
 * <img src="images/logo--github.svg" alt="GitHub icon" width="20" style="width:20px; border-style: none"/> [Securing a VueJS app by using {{site.data.keyword.appid_short_notm}}](https://github.com/ibmets/appid-vue-client){: external}

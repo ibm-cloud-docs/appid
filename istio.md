@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-05-18"
+lastupdated: "2021-06-04"
 
-keywords: adapter, access management, identity token, helm chart, backend apps, kube, any kube, icp, openshift, iks, service mesh, access, app identity, kube secret, tokens, authenticated, app endpoints, authorization, multicloud, no code change, no redeploy, authorization policies, multiple providers
+keywords: Adapter, access management, identity token, helm chart, backend apps, kube, any kube, icp, openshift, iks, service mesh, access, app identity, kube secret, tokens, authenticated, app endpoints, authorization, multicloud, no code change, no redeploy, authorization policies, multiple providers
 
 subcollection: appid
 
@@ -47,15 +47,15 @@ subcollection: appid
 # Multicloud apps with Istio
 {: #istio-adapter}
 
-By using the App Identity and Access adapter, you can centralize all of your identity management in a single place.
+By using the App Identity and Access Adapter, you can centralize all of your identity management in a single place.
 {: shortdesc}
 
-The App Identity and Access adapter is not currently supported.
+The App Identity and Access Adapter is not currently supported.
 {: deprecated}
 
-Because enterprises use clouds from multiple providers or a combination of on and off-premise solutions, heterogeneous deployment models can help you to preserve existing infrastructure and avoid vendor lock-in. The adapter can be configured to work with any OIDC-compliant identity provider, such as {{site.data.keyword.appid_short_notm}}, which enables it to control authentication and authorization policies in all environments including front end and backend applications. And, it does it all without any change to your code or the need to redeploy your application.
+Because enterprises use clouds from multiple providers or a combination of on and off-premise solutions, heterogeneous deployment models can help you to preserve existing infrastructure and avoid vendor lock-in. The Adapter can be configured to work with any OIDC-compliant identity provider, such as {{site.data.keyword.appid_short_notm}}, which enables it to control authentication and authorization policies in all environments including front end and backend applications. And, it does it all without any change to your code or the need to redeploy your application.
 
-What can the App Identity and Access adapter do for you? Check out the following video to learn more.
+What can the App Identity and Access Adapter do for you? Check out the following video to learn more.
 
 ![Using Istio to Secure Your Multicloud Kubernetes Applications with Zero Code Change](https://www.youtube.com/embed/z1kCjxOw9Vs){: video output="iframe" data-script="none" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
@@ -65,24 +65,24 @@ What can the App Identity and Access adapter do for you? Check out the following
 
 A multicloud computing environment combines multiple cloud and/ or private computing environments into a single network architecture. By distributing workloads across multiple environments, you might find improved resiliency, flexibility, and greater cost-efficiency. To achieve the benefits, it's common to use a container-based application with an orchestration layer, such as Kubernetes.
 
-![App Identity and Access adapter architecture diagram](images/istio-adapter.png){: caption="Figure 1. Multicloud deployment - achieved with the App Identity and Access adapter" caption-side="bottom"}
+![App Identity and Access Adapter architecture diagram](images/istio-Adapter.png){: caption="Figure 1. Multicloud deployment - achieved with the App Identity and Access Adapter" caption-side="bottom"}
 
 
 
-## Understanding Istio and the adapter
+## Understanding Istio and the Adapter
 {: #istio-architecure}
 
 [Istio](https://istio.io) is an open source service mesh that layers transparently onto existing distributed applications that can integrate with Kubernetes. To reduce the complexity of deployments Istio provides behavioral insights and operational control over the service mesh as a whole. When {{site.data.keyword.appid_short_notm}} is combined with Istio, it becomes a scalable, integrated identity solution for multicloud architectures that does not require any custom application code changes. For more information, check out [What is Istio](https://www.ibm.com/cloud/learn/istio){: external}.
 
-Istio uses an Envoy proxy sidecar to mediate all inbound and outbound traffic for all services in the service mesh. By using the proxy, Istio extracts information about traffic, also known as telemetry, that is sent to the Istio component called Mixer to enforce policy decisions. The App Identity and Access adapter extends the Mixer functionality by analyzing the telemetry (attributes) against custom policies to control identity and access management into and across the service mesh. The access management policies are linked to particular Kubernetes services and can be finely tuned to specific service endpoints. For more information about policies and telemetry, see the [Istio documentation](https://istio.io/latest/docs/concepts/observability/){: external}. 
+Istio uses an Envoy proxy sidecar to mediate all inbound and outbound traffic for all services in the service mesh. By using the proxy, Istio extracts information about traffic, also known as telemetry, that is sent to the Istio component called Mixer to enforce policy decisions. The App Identity and Access Adapter extends the Mixer functionality by analyzing the telemetry (attributes) against custom policies to control identity and access management into and across the service mesh. The access management policies are linked to particular Kubernetes services and can be finely tuned to specific service endpoints. For more information about policies and telemetry, see the [Istio documentation](https://istio.io/latest/docs/concepts/observability/){: external}. 
 
-Due to an Istio limitation, the App Identity and Access adapter currently stores user session information internally and does *not* persist the information across replicas or over failover configurations. When you use the adapter, limit your workloads to a single replica until the limitation is addressed.
+Due to an Istio limitation, the App Identity and Access Adapter currently stores user session information internally and does *not* persist the information across replicas or over failover configurations. When you use the Adapter, limit your workloads to a single replica until the limitation is addressed.
 {: note}
 
 ### Protecting front-end apps
 {: #istio-frontend}
 
-If you're using a browser-based application, you can use the [Open ID Connect (OIDC)](https://openid.net/specs/openid-connect-core-1_0.html){: external} / OAuth 2.0 `authorization_grant` flow to authenticate your users. When an unauthenticated user is detected, they are automatically redirected to the authentication page. When the authentication completes, the browser is redirected to an implicit `/oidc/callback` endpoint where the adapter intercepts the request. At this point, the adapter obtains tokens from the identity provider and then redirects the user back to their originally requested URL.
+If you're using a browser-based application, you can use the [Open ID Connect (OIDC)](https://openid.net/specs/openid-connect-core-1_0.html){: external} / OAuth 2.0 `authorization_grant` flow to authenticate your users. When an unauthenticated user is detected, they are automatically redirected to the authentication page. When the authentication completes, the browser is redirected to an implicit `/oidc/callback` endpoint where the Adapter intercepts the request. At this point, the Adapter obtains tokens from the identity provider and then redirects the user back to their originally requested URL.
 
 To view the user session information, including the session tokens, you can look in the `Authorization` header.
 
@@ -104,7 +104,7 @@ If needed, a refresh token can be used to automatically acquire new access and i
 ### Protecting backend apps
 {: #istio-backend}
 
-The adapter can be used in collaboration with the OAuth 2.0 [JWT Bearer flow](https://datatracker.ietf.org/doc/html/rfc6750){: external} to protect service APIs by validating JWT Bearer tokens. The Bearer authorization flow expects a request to contain an Authorization header with a valid access token and an optional identity token. The expected header structure is `Authorization=Bearer {access_token} [{id_token}]`. Unauthenticated clients are returned an HTTP 401 response status with a list of the scopes that are needed to obtain authorization. If the tokens are invalid or expired, the API strategy returns an HTTP 401 response with an optional error component that says `Www-Authenticate=Bearer scope="{scope}" error="{error}"`.
+The Adapter can be used in collaboration with the OAuth 2.0 [JWT Bearer flow](https://datatracker.ietf.org/doc/html/rfc6750){: external} to protect service APIs by validating JWT Bearer tokens. The Bearer authorization flow expects a request to contain an Authorization header with a valid access token and an optional identity token. The expected header structure is `Authorization=Bearer {access_token} [{id_token}]`. Unauthenticated clients are returned an HTTP 401 response status with a list of the scopes that are needed to obtain authorization. If the tokens are invalid or expired, the API strategy returns an HTTP 401 response with an optional error component that says `Www-Authenticate=Bearer scope="{scope}" error="{error}"`.
 
 
 For more information about tokens and how they're used, see [understanding tokens](/docs/appid?topic=appid-tokens).
@@ -120,13 +120,13 @@ Before you get started, be sure that you have installed the following prerequisi
 - [Helm](https://helm.sh/){: external}
 - [Istio v1.1+](https://istio.io/latest/docs/setup/install/){: external}
 
-  Currently, [IBM Cloud Kubernetes Service Managed Istio](/docs/containers?topic=containers-istio) does not support policy enforcement. To use the adapter you must use manually installed Istio.
+  Currently, [IBM Cloud Kubernetes Service Managed Istio](/docs/containers?topic=containers-istio) does not support policy enforcement. To use the Adapter you must use manually installed Istio.
   {: note}
 
 
 
 
-## Installing the adapter
+## Installing the Adapter
 {: #istio-install-adapter}
 
 To install the chart, initialize Helm in your cluster, define the options that you want to use, and then run the installation command.
@@ -138,24 +138,24 @@ To install the chart, initialize Helm in your cluster, define the options that y
 3. Add the repository.
 
   ```bash
-  helm repo add appidentityandaccessadapter https://raw.githubusercontent.com/ibm-cloud-security/app-identity-and-access-adapter/master/helm/appidentityandaccessadapter
+  helm repo add appidentityandaccessAdapter https://raw.githubusercontent.com/ibm-cloud-security/app-identity-and-access-Adapter/master/helm/appidentityandaccessAdapter
   ```
   {: codeblock}
 
 4. Install the chart.
 
   ```bash
-  helm install --name appidentityandaccessadapter appidentityandaccessadapter/appidentityandaccessadapter
+  helm install --name appidentityandaccessAdapter appidentityandaccessAdapter/appidentityandaccessAdapter
   ```
   {: codeblock}
 
-  You can specify an image tag during installation by setting the `image.tag` flag. For example `--set image.tag=0.5.0`. You can also install the chart locally. To do so, clone the repo by running `git clone git@github.com:ibm-cloud-security/app-identity-and-access-adapter.git` before you run the installation command.
+  You can specify an image tag during installation by setting the `image.tag` flag. For example `--set image.tag=0.5.0`. You can also install the chart locally. To do so, clone the repo by running `git clone git@github.com:ibm-cloud-security/app-identity-and-access-Adapter.git` before you run the installation command.
   {: tip}
 
 ## Applying an authorization and authentication policy
 {: #istio-apply-policy}
 
-An authentication or authorization policy is a set of conditions that must be met before a request can access a resource access. By defining an identity provider's service configuration and a policy that outlines when a particular flow should be used, you can control access to any resource in your service mesh. To see example CRDs, check out the [samples directory](https://github.com/ibm-cloud-security/app-identity-and-access-adapter/tree/master/samples/crds){: external}.
+An authentication or authorization policy is a set of conditions that must be met before a request can access a resource access. By defining an identity provider's service configuration and a policy that outlines when a particular flow should be used, you can control access to any resource in your service mesh. To see example CRDs, check out the [samples directory](https://github.com/ibm-cloud-security/app-identity-and-access-Adapter/tree/master/samples/crds){: external}.
 
 To create a policy:
 
@@ -233,16 +233,16 @@ Depending on whether you're protecting front end or backend applications, create
 
 * For backend applications: The OAuth 2.0 Bearer token spec defines a pattern for protecting APIs by using [JSON Web Tokens (JWTs)](https://datatracker.ietf.org/doc/html/rfc7519){: external}. By using the following configuration as an example, define a `JwtConfig` CRD that contains the public key resource, which is used to validate token signatures.
 
-    ```yaml
-    apiVersion: "security.cloud.ibm.com/v1"
-    kind: JwtConfig
-    metadata:
-      name:      jwt-config
-      namespace: sample-app
-    spec:
-        jwksUrl: https://us-south.appid.cloud.ibm.com/oauth/v4/<tenant-ID>/publickeys
-    ```
-    {: screen}
+  ```yaml
+  apiVersion: "security.cloud.ibm.com/v1"
+  kind: JwtConfig
+  metadata:
+    name:      jwt-config
+    namespace: sample-app
+  spec:
+      jwksUrl: https://us-south.appid.cloud.ibm.com/oauth/v4/<tenant-ID>/publickeys
+  ```
+  {: screen}
 
 ### Registering application endpoints
 {: #istio-register-endpoints}
@@ -284,7 +284,7 @@ spec:
           policies:
             - policyType: oidc
               config: <oidc-provider-config>
-              redirectUri: https://github.com/ibm-cloud-security/app-identity-and-access-adapter
+              redirectUri: https://github.com/ibm-cloud-security/app-identity-and-access-Adapter
         - prefix: /
           method: ALL
           policies:
@@ -311,7 +311,7 @@ spec:
 | `method` | `enum` | No | The HTTP method protected. Valid options ALL, GET, PUT, POST, DELETE, PATCH - Defaults to ALL:  |
 | `policies` | `array[Policy]` | No | The OIDC/JWT policies that you want to apply.  |
 {: class="simple-tab-table"}
-{: caption="Table 3. Understanding the path object components" caption-side="top"}
+{: caption="Table 2. Understanding the path object components" caption-side="top"}
 {: #path-object}
 {: tab-title="Path object"}
 {: tab-group="objects"}
@@ -323,7 +323,7 @@ spec:
 | `redirectUri` | `string` | No | The URL that you want the user to be redirected after successful authentication, default: the original request URL. |
 | `rules` | `array[Rule]` | No | The set of rules that you want to use for token validation. |
 {: class="simple-tab-table"}
-{: caption="Table 4. Understanding the policy object components" caption-side="top"}
+{: caption="Table 2. Understanding the policy object components" caption-side="top"}
 {: #policy-object}
 {: tab-title="Policy object"}
 {: tab-group="objects"}
@@ -335,20 +335,20 @@ spec:
 | `source` | `enum` | No | The token where you want to apply the rule. Options include: `access_token` or `id_token`. The default is set to `access_token`. |
 | `values` | `array[string]` | Yes | The required set of values for validation. |
 {: class="simple-tab-table"}
-{: caption="Table 5. Understanding the policy object components" caption-side="top"}
+{: caption="Table 2. Understanding the policy object components" caption-side="top"}
 {: #rule-object}
 {: tab-title="Rule object"}
 {: tab-group="objects"}
 
 
-## Deleting the adapter
+## Deleting the Adapter
 {: #istio-remove}
 
-To remove the adapter and all of the associated CRDs, you must delete the Helm chart and the associated signing and encryption keys.
+To remove the Adapter and all of the associated CRDs, you must delete the Helm chart and the associated signing and encryption keys.
 
 ```bash
-helm delete --purge appidentityandaccessadapter
-kubectl delete secret appidentityandaccessadapter-keys -n istio-system
+helm delete --purge appidentityandaccessAdapter
+kubectl delete secret appidentityandaccessAdapter-keys -n istio-system
 ```
 {: codeblock}
 
@@ -364,20 +364,20 @@ When you're manually viewing JSON logs, you might want to tail the logs and "pre
 {: note}
 
 ### Adapter
-{: #istio-logging-adapter}
+{: #istio-logging-Adapter}
 
-To see the adapter logs, you can use `kubectl` or access the pod from the `appidentityandaccessadapter` pod from the Kubernetes console.
+To see the Adapter logs, you can use `kubectl` or access the pod from the `appidentityandaccessAdapter` pod from the Kubernetes console.
 
 ```bash
-$ alias adapter_logs="kubectl -n istio-system logs -f $(kubectl -n istio-system get pods -lapp=appidentityandaccessadapter -o jsonpath='{.items[0].metadata.name}')"
-$ adapter_logs | jq
+$ alias Adapter_logs="kubectl -n istio-system logs -f $(kubectl -n istio-system get pods -lapp=appidentityandaccessAdapter -o jsonpath='{.items[0].metadata.name}')"
+$ Adapter_logs | jq
 ```
 {: codeblock}
 
 ### Mixer
 {: #istio-logging-mixer}
 
-If the adapter does not appear to receive requests, check the Mixer logs to ensure that it's successfully connected to the adapter.
+If the Adapter does not appear to receive requests, check the Mixer logs to ensure that it's successfully connected to the Adapter.
 
 ```bash
 $ alias mixer_logs="kubectl -n istio-system logs -f $(kubectl -n istio-system get pods -lapp=telemetry -o jsonpath='{.items[0].metadata.name}') -c mixer"

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-03-01"
+lastupdated: "2021-06-01"
 
 keywords: sso, single sign on, cloud directory, saml, federated, sign in, log in, log out, authentication, app security, user registry, multiple apps
 
@@ -115,26 +115,12 @@ An example call:
 ```
 {: screen}
 
-<table>
-  <caption>Table 1. SSO configuration settings</caption>
-  <tr>
-    <th>Setting</th>
-    <th>Definition</th>
-  </tr>
-  <tr>
-    <td><code>isActive</code></td>
-    <td>To enable SSO, set this value to <code>true</code>. The default setting is <code>false</code>.</td>
-  </tr>
-  <tr>
-    <td><code>inactivityTimeoutSeconds</code></td>
-    <td>The longest length of time that can pass without any user activity before the user is required to reenter their credentials. This value is specified in seconds and can be a maximum of <code>604800 seconds</code> (7 days). The default setting is <code>86400 seconds</code> (1 day).</td>
-  </tr>
-  <tr>
-    <td><code>logoutRedirectUris</code></td>
-    <td>A comma-separated list of allowed URIs that {{site.data.keyword.appid_short_notm}} can redirect your users to after they sign out.</td>
-  </tr>
-</table>
-
+| Setting | Definition | 
+|-----|----| 
+| `isActive` | To enable SSO, set this value to `true`. The default setting is `false`. |
+| `inactivityTimeoutSeconds` | The longest length of time that can pass without any user activity before the user is required to reenter their credentials. This value is specified in seconds and can be a maximum of `604800 seconds` (7 days). The default setting is `86400 seconds` (1 day). |
+| `logoutRedirectUris` | A comma-separated list of allowed URIs that {{site.data.keyword.appid_short_notm}} can redirect your users to after they sign out. | 
+{: caption="Table 1. SSO configuration settings" caption-side="top"}
 
 
 ## Configuring logout
@@ -158,29 +144,13 @@ https://<region>.appid.cloud.ibm.com/oauth/v4/<tenant-id>/cloud_directory/sso/lo
 ```
 {: codeblock}
 
-<table>
-  <caption>Table 2. SSO sign-out API call variables</caption>
-  <tr>
-    <th>Variable</th>
-    <th>Value</th>
-  </tr>
-  <tr>
-    <td><code>region</code></td>
-    <td>The region in which your instance of {{site.data.keyword.appid_short_notm}} is provisioned. Options include: <code>au-syd</code>, <code>eu-de</code>, <code>eu-gb</code>, <code>jp-tok</code>, and <code>us-south</code>.</td>
-  </tr>
-  <tr>
-    <td><code>tenant-id</code></td>
-    <td>The unique identifier for your instance of {{site.data.keyword.appid_short_notm}}. You can find this value in the <em>Service Credentials</em> tab of the {{site.data.keyword.appid_short_notm}} dashboard. If you do not have a set of service credentials, you can create one and take the value from there.</td>
-  </tr>
-  <tr>
-    <td><code>redirect_uri</code></td>
-    <td>A URI that you specified in your SSO configuration through the {{site.data.keyword.appid_short_notm}} dashboard. For security reasons, if you do not specify a value redirection cannot occur and an error is displayed.</td>
-  </tr>
-  <tr>
-    <td><code>client_id</code></td>
-    <td>Your application's client ID.</td>
-  </tr>
-</table>
+| Variable | Value | 
+|-----|----| 
+| `region` | The region in which your instance of {{site.data.keyword.appid_short_notm}} is provisioned. Options include: `au-syd`, `eu-de`, `eu-gb`, `jp-tok`, and `us-south`.|
+| `tenant-id` | The unique identifier for your instance of {{site.data.keyword.appid_short_notm}}. You can find this value in the ***Service Credentials*** tab of the {{site.data.keyword.appid_short_notm}} dashboard. If you do not have a set of service credentials, you can create one and take the value from there. |
+| `redirect_uri` | A URI that you specified in your SSO configuration through the {{site.data.keyword.appid_short_notm}} dashboard. For security reasons, if you do not specify a value redirection cannot occur and an error is displayed. |
+| `client_id` | Your application's client ID. | 
+{: caption="Table 2. SSO sign-out API call variables" caption-side="top"}
 
 Even if the SSO session is ended, a user with a valid access token that is stored in their session might not be required to enter their credentials again until their token expires. By default the token expires after 1 hour.
 {: note}
@@ -225,25 +195,12 @@ Authorization: Bearer <IAM_token>
 ```
 {: codeblock}
 
-<table>
-  <caption>Table 3. Variables that are needed to end all SSO sessions for a user</caption>
-  <tr>
-    <th>Variable</th>
-    <th>Value</th>
-  </tr>
-  <tr>
-    <td><code>region</code></td>
-    <td>The region in which your instance of {{site.data.keyword.appid_short_notm}} is provisioned. Options include: <code>us-south</code>, <code>eu-gb</code>, and <code>eu-de</code>.</td>
-  </tr>
-  <tr>
-    <td><code>tenant-id</code></td>
-    <td>The unique identifier for your instance of {{site.data.keyword.appid_short_notm}}. You can find this value in the <em>Service Credentials</em> tab of the {{site.data.keyword.appid_short_notm}} dashboard. If you do not have a set of service credentials, you can create one and take the value from there.</td>
-  </tr>
-  <tr>
-    <td><code>user-id</code></td>
-    <td>The unique identifier for a Cloud Directory user. You can obtain the ID by using the [Cloud Directory Users APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/), or by viewing the user's identity token.</td>
-  </tr>
-</table>
+| Variable | Value | 
+|-----|----| 
+| `region` | The region in which your instance of {{site.data.keyword.appid_short_notm}} is provisioned. Options include: `us-south`, `eu-gb`, and `eu-de`. |
+| `tenant-id` | The unique identifier for your instance of {{site.data.keyword.appid_short_notm}}. You can find this value in the ***Service Credentials*** tab of the {{site.data.keyword.appid_short_notm}} dashboard. If you do not have a set of service credentials, you can create one and take the value from there. |
+| `user-id` | The unique identifier for a Cloud Directory user. You can obtain the ID by using the [Cloud Directory Users APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/), or by viewing the user's identity token. |
+{: caption="Table 3. Variables that are needed to end all SSO sessions for a user" caption-side="top"}
 
 When you invoke this API, all of the specified user's SSO sessions are invalidated. This means that the next time that the user attempts to sign in to any of your apps, from any device or browser, they are required to reenter their credentials.
 

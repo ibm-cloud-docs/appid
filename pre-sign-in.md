@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-09"
+lastupdated: "2021-06-04"
 
 keywords: user registration, new user, add user, custom attributes, profiles, user profile, user, user information, identity provider, authentication, authorization, personalize app, app security
 
@@ -78,49 +78,15 @@ You can identify your users by using one of the following:
 
 Check out the following table to see which type of identity information that you can use.
 
-<table>
-  <caption>Table 1. Types of identity information that can be used with each provider</caption>
-  <thead>
-    <tr>
-      <th>Identity provider</th>
-      <th>GUID</th>
-      <th>Email</th>
-      <th>Sub</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Cloud Directory</td>
-      <td><img src="images/confirm.png" width="32" alt="Feature available" style="width:32px;" /></td>
-      <td><img src="images/confirm.png" width="32" alt="Feature available" style="width:32px;" /></td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Facebook</td>
-      <td><img src="images/confirm.png" width="32" alt="Feature available" style="width:32px;" /></td>
-      <td><img src="images/confirm.png" width="32" alt="Feature available" style="width:32px;" /></td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Google</td>
-      <td><img src="images/confirm.png" width="32" alt="Feature available" style="width:32px;" /></td>
-      <td><img src="images/confirm.png" width="32" alt="Feature available" style="width:32px;" /></td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>SAML</td>
-      <td></td>
-      <td><img src="images/confirm.png" width="32" alt="Feature available" style="width:32px;" /></td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Custom</td>
-      <td> </td>
-      <td> </td>
-      <td><img src="images/confirm.png" width="32" alt="Feature available" style="width:32px;" /></td>
-    </tr>
-  </tbody>
-</table>
+| Identity provider | GUID | Email | Sub | 
+|-----|----| -----| ---|
+| Cloud Directory | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | |
+| Facebook | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | | 
+| Google | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | | 
+| SAML | | ![Checkmark icon](../../icons/checkmark-icon.svg) | | 
+| Custom | | | ![Checkmark icon](../../icons/checkmark-icon.svg) |
+{: caption="Table 1. Types of identity information that can be used with each provider" caption-side="top"}
+
 
 ### How is Cloud Directory handled?
 {: #preregister-cd}

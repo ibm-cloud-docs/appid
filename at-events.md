@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-05-24"
+lastupdated: "2021-06-04"
 
 keywords: user events, track activity, manage events, analyze, administrative, runtime, sign in, settings, app security
 
@@ -80,460 +80,98 @@ Check out the following table for a list of the events that are sent to {{site.d
 Some of the action names were changed as part of an alignment to new guidelines. [Learn more](/docs/activity-tracker?topic=activity-tracker-event#action_field).
 {: important}
 
-<table>
-  <caption>Table 1. Actions that you can take that are tracked by {{site.data.keyword.at_short}}</caption>
-  <tr>
-    <th>Action</th>
-    <th>Description</th>
-    <th>GUI action</th>
-  </tr>
-  <tr>
-    <td><code>appid.recent-activity.read</code></td>
-    <td>View recent activity.</td>
-    <td>Can be found in the <strong>Activity Log</strong> box on the <strong>Overview</strong> tab.</td>
-  </tr>
-  <tr>
-    <td><code>appid.idp-config.read</code></td>
-    <td>View the identity provider configuration.</td>
-    <td>Can be found in the <strong>Manage authentication > Identity Providers</strong> tab.</td>
-  </tr>
-  <tr>
-    <td><code>appid.idp-config.update</code></td>
-    <td>Update the identity provider configuration.</td>
-    <td>Can be updated in the <strong>Manage authentication > Identity Providers</strong> tab.</td>
-  </tr>
-  <tr>
-    <td><code>appid.tokens-config.read</code></td>
-    <td>View the token expiration configuration.</td>
-    <td>Can be found in the <strong>Manage authentication > Authentication Settings</strong> tab.</td>
-  </tr>
-  <tr>
-    <td><code>appid.tokens-config.update</code></td>
-    <td>Update the token expiration configuration.</td>
-    <td>Can be found in the <strong>Manage authentication > Authentication Settings</strong> tab.</td>
-  </tr>
-  <tr>
-    <td><code>appid.redirect-uris.read</code></td>
-    <td>View the current redirect URI configuration.</td>
-    <td>Can be found in the <strong>Manage authentication > Authentication Settings</strong> tab.</td>
-  </tr>
-  <tr>
-    <td><code>appid.redirect-uris.update</code></td>
-    <td>Update the redirect URIs configuration.</td>
-    <td>Can be updated in the <strong>Manage authentication > Identity Providers</strong> tab.</td>
-  </tr>
-  <tr>
-    <td><code>appid.is-profiles-active.read</code></td>
-    <td>View the user profile storage configuration.</td>
-    <td>Can be found in the <strong>Profiles and roles > User Profiles</strong> tab.</td>
-  </tr>
-  <tr>
-    <td><code>appid.is-profiles-active.update</code></td>
-    <td>Update your user profile storage configuration.</td>
-    <td>Can be found in the <strong>Profiles and roles > User Profiles</strong> tab.</td>
-  </tr>
-  <tr>
-    <td><code>appid.users.read</code></td>
-    <td>Search user profiles.</td>
-    <td>Can be found in the <strong>Profiles and roles > User Profiles</strong> tab.</td>
-  </tr>
-  <tr>
-    <td><code>appid.users.create</code></td>
-    <td>Create pre-registered user profile.</td>
-    <td>Can be found in the <strong>Profiles and roles > User Profiles</strong> tab.</td>
-  </tr>
-  <tr>
-    <td><code>appid.users.get</code></td>
-    <td>Export user profiles.</td>
-    <td>Must be done through the API.</td>
-  </tr>
-  <tr>
-    <td><code>appid.refresh-token.revoke</code></td>
-    <td>Revoke all the refresh tokens issued for the given user.</td>
-    <td>Must be done through the API.</td>
-  </tr>
-  <tr>
-    <td><code>appid.users.import</code></td>
-    <td>Import user profiles.</td>
-    <td>Must be done through the API.</td>
-  </tr>
-  <tr>
-    <td><code>appid.user-profile.read</code></td>
-    <td>View a user profile.</td>
-    <td>Can be found in the <strong>Profiles and roles > User Profiles</strong> tab.</td>
-  </tr>
-  <tr>
-    <td><code>appid.user-profile.update</code></td>
-    <td>Update a user profile.</td>
-    <td>Can be found in the <strong>Profiles and roles > User Profiles</strong> tab.</td>
-  </tr>
-  <tr>
-    <td><code>appid.user-profile.bulkdelete</code></td>
-    <td>Delete a list of user profiles.</td>
-    <td>Can be found in the <strong>Profiles and roles > User Profiles</strong> tab.</td>
-  </tr>
-  <tr>
-    <td><code>appid.user-roles.read</code></td>
-    <td>View the user roles.</td>
-    <td>Can be found in the <strong>Profiles and roles > User Profiles</strong> tab.</td>
-  </tr>
-  <tr>
-    <td><code>appid.user-roles.update</code></td>
-    <td>Update the user roles.</td>
-    <td>Can be found in the <strong>Profiles and roles > User Profiles</strong> tab.</td>
-  </tr>
-  <tr>
-    <td><code>appid.roles.read</code></td>
-    <td>View the roles list.</td>
-    <td>Can be found in the <strong>Profiles and roles > Roles</strong> tab.</td>
-  </tr>
-  <tr>
-    <td><code>appid.roles.create</code></td>
-    <td>Create a role.</td>
-    <td>Can be found in the <strong>Profiles and roles > Roles</strong> tab.</td>
-  </tr>
-  <tr>
-    <td><code>appid.role.read</code></td>
-    <td>View the role.</td>
-    <td>Can be found in the <strong>Profiles and roles > Roles</strong> tab.</td>
-  </tr>
-  <tr>
-    <td><code>appid.role.update</code></td>
-    <td>Update the role.</td>
-    <td>Can be found in the <strong>Profiles and roles > Roles</strong> tab.</td>
-  </tr>
-  <tr>
-    <td><code>appid.applications.read</code></td>
-    <td>View the applications list.</td>
-    <td>Can be found in the <strong>Applications</strong> tab.</td>
-  </tr>
-  <tr>
-    <td><code>appid.applications.create</code></td>
-    <td>Create an application.</td>
-    <td>Can be found in the <strong>Applications</strong> tab.</td>
-  </tr>
-  <tr>
-    <td><code>appid.application.read</code></td>
-    <td>View the application.</td>
-    <td>Can be found in the <strong>Applications</strong> tab.</td>
-  </tr>
-  <tr>
-    <td><code>appid.application.update</code></td>
-    <td>Update the application.</td>
-    <td>Can be found in the <strong>Applications</strong> tab.</td>
-  </tr>
-  <tr>
-    <td><code>appid.application-scopes.read</code></td>
-    <td>View the application scopes.</td>
-    <td>Can be found in the <strong>Applications</strong> tab.</td>
-  </tr>
-  <tr>
-    <td><code>appid.application-scopes.update</code></td>
-    <td>Update the application scopes.</td>
-    <td>Can be found in the <strong>Applications</strong> tab.</td>
-  </tr>
-  <tr>
-    <td><code>appid.theme-text.read</code></td>
-    <td>View the theme texts of the login widget.</td>
-    <td>Can be found in the <strong>Login Customization</strong> tab.</td>
-  </tr>
-  <tr>
-    <td><code>appid.theme-text.update</code></td>
-    <td>Update the theme texts of the login widget footnote.</td>
-    <td>Can be updated in the <strong>Login Customization</strong> tab.</td>
-  </tr>
-  <tr>
-    <td><code>appid.theme-color.read</code></td>
-    <td>View the theme color of the login widget header.</td>
-    <td>Can be found in the <strong>Login Customization</strong> tab.</td>
-  </tr>
-  <tr>
-    <td><code>appid.theme-color.update</code></td>
-    <td>Update the theme color of the login widget header.</td>
-    <td>Can be Updated in the <strong>Login Customization</strong> tab.</td>
-  </tr>
-  <tr>
-    <td><code>appid.media.read</code></td>
-    <td>View the image that is shown in the login widget.</td>
-    <td>Can be found in the <strong>Login Customization</strong> tab.</td>
-  </tr>
-  <tr>
-    <td><code>appid.media.update</code></td>
-    <td>Update the image that is shown in the login widget.</td>
-    <td>Can be updated in the <strong>Login Customization</strong> tab.</td>
-  </tr>
-  <tr>
-    <td><code>appid.ui-configuration.read</code></td>
-    <td>View the login widget UI configuration which includes header color and image.</td>
-    <td>Can be found in the <strong>Login Customization</strong> tab.</td>
-  </tr>
-  <tr>
-    <td><code>appid.ui-languages.read</code></td>
-    <td>View a list of supported languages.</td>
-    <td>Must be viewed from the API.</td>
-  </tr>
-  <tr>
-    <td><code>appid.ui-languages.update</code></td>
-    <td>Update your supported languages.</td>
-    <td>Must be updated through the API.</td>
-  </tr>
-  <tr>
-    <td><code>appid.saml-metadata.read</code></td>
-    <td>View the {{site.data.keyword.appid_short_notm}} SAML metadata.</td>
-    <td>Can be found in the <strong>Identity Providers > SAML 2.0 Federation</strong> tab.</td>
-  </tr>
-  <tr>
-    <td><code>appid.cloud-directory-user.read</code></td>
-    <td>View a Cloud Directory user.</td>
-    <td>Can be found in the <strong>Cloud Directory > Users > View user details</strong> tab.</td>
-  </tr>
-  <tr>
-    <td><code>appid.cloud-directory-user.update</code></td>
-    <td>Update a Cloud Directory User.</td>
-    <td>Can be updated in the <strong>Users</strong> tab.</td>
-  </tr>
-  <tr>
-    <td><code>appid.cloud-directory-user.delete</code></td>
-    <td>Delete a Cloud Directory user.</td>
-    <td>Must be deleted through the API.</td>
-  </tr>
-  <tr>
-    <td><code>appid.user.delete</code></td>
-    <td>Delete a Cloud Directory user and profile.</td>
-    <td>Must be deleted through the API.</td>
-  </tr>
-  <tr>
-    <td><code>appid.cloud-directory-users.read</code></td>
-    <td>View a list of your Cloud Directory users.</td>
-    <td>Can be found in the <strong>Cloud Directory > Users</strong> tab.</td>
-  </tr>
-  <tr>
-    <td><code>appid.cloud-directory-user.update</code></td>
-    <td>Update your list of Cloud Directory users.</td>
-    <td>Can be updated in the <strong>Cloud Directory > Users</strong> tab.</td>
-  </tr>
-  <tr>
-    <td><code>appid.cloud-directory-user.delete</code></td>
-    <td>Delete a list of Cloud Directory users.</td>
-    <td>Must be deleted through the API.</td>
-  </tr>
-  <tr>
-    <td><code>appid.users.bulkdelete</code></td>
-    <td>Delete a list of Cloud Directory users and profiles.</td>
-    <td>Must be deleted through the API.</td>
-  </tr>
-  <tr>
-    <td><code>appid.cloud-directory-users.get</code></td>
-    <td>Export Cloud Directory users.</td>
-    <td>Must be done through the API.</td>
-  </tr>
-  <tr>
-    <td><code>appid.cloud-directory-users.import</code></td>
-    <td>Import Cloud Directory users.</td>
-    <td>Must be done through the API.</td>
-  </tr>
-  <tr>
-    <td><code>appid.cloud-directory-user-sso.set-off</code></td>
-    <td>Invalidate all SSO sessions of the user.</td>
-    <td>Must be done through the API.</td>
-  </tr>
-  <tr>
-    <td><code>appid.email-dispatcher.read</code></td>
-    <td>View the email dispatcher configurations.</td>
-    <td>Can be found in the <strong>Cloud Directory > Email Templates</strong> tab.</td>
-  </tr>
-  <tr>
-    <td><code>appid.email-dispatcher.update</code></td>
-    <td>Update the email dispatcher configurations.</td>
-    <td>Can be found in the <strong>Cloud Directory > Email Templates</strong> tab.</td>
-  </tr>
-  <tr>
-    <td><code>appid.email-dispatcher-test.send</code></td>
-    <td>Test the email dispatcher.</td>
-    <td>Can be found in the <strong>Cloud Directory > Email Templates</strong> tab.</td>
-  </tr>
-  <tr>
-    <td><code>appid.email-settings-test.send</code></td>
-    <td>Test the email settings configurations.</td>
-    <td>Can be found in the <strong>Cloud Directory > Email Templates</strong> tab.</td>
-  </tr>
-  <tr>
-    <td><code>appid.email-template.read</code></td>
-    <td>View an email template.</td>
-    <td>Can be found in the <strong>Cloud Directory > Email Templates</strong> tab.</td>
-  </tr>
-  <tr>
-    <td><code>appid.email-template.update</code></td>
-    <td>Update an email template.</td>
-    <td>Can be found in the <strong>Cloud Directory > Email Templates</strong> tab.</td>
-  </tr>
-  <tr>
-    <td><code>appid.email-template.delete</code></td>
-    <td>Delete an email template to reset to the default.</td>
-    <td>Can be found in the <strong>Cloud Directory > Email Templates</strong> tab.</td>
-  </tr>
-  <tr>
-    <td><code>appid.sender-details.read</code></td>
-    <td>View the sender details.</td>
-    <td>Can be found in the <strong>Cloud Directory > Email Templates</strong> tab.</td>
-  </tr>
-  <tr>
-    <td><code>appid.sender-details.update</code></td>
-    <td>Update the sender details.</td>
-    <td>Can be found in the <strong>Cloud Directory > Email Templates</strong> tab.</td>
-  </tr>
-  <tr>
-    <td><code>appid.resend-notification.send</code></td>
-    <td>Resend user notifications.</td>
-    <td>Must be done through the API.</td>
-  </tr>
-  <tr>
-    <td><code>appid.self-forgot-password.start</code></td>
-    <td>Starts the forgot password process.</td>
-    <td>Can be found in the <strong>Cloud Directory > Email Templates</strong> tab.</td>
-  </tr>
-  <tr>
-    <td><code>appid.forgot-password-result.read</code></td>
-    <td>View the forgot password confirmation result.</td>
-    <td>Must be done through the API.</td>
-  </tr>
-  <tr>
-    <td><code>appid.self-sign-up.start</code></td>
-    <td>Starts the sign-up process.</td>
-    <td>Can be found in the <strong>Cloud Directory > Settings</strong> tab.</td>
-  </tr>
-  <tr>
-    <td><code>appid.sign-up-result.read</code></td>
-    <td>View the sign-up result confirmation.</td>
-    <td>Must be done through the API.</td>
-  </tr>
-  <tr>
-    <td><code>appid.action_url.read</code></td>
-    <td>View the custom URL that is called when an action is performed.</td>
-    <td>Can be found in the <strong>Cloud Directory > Email Templates</strong> tab.</td>
-  </tr>
-  <tr>
-    <td><code>appid.action-url.update</code></td>
-    <td>Update the custom URL that is called when an action is performed.</td>
-    <td>Can be found in the <strong>Cloud Directory > Email Templates</strong> tab.</td>
-  </tr>
-  <tr>
-    <td><code>appid.password-regex.read</code></td>
-    <td>View the password regex.</td>
-    <td>Can be found in the <strong>Cloud Directory > Password Policies</strong> tab.</td>
-  </tr>
-  <tr>
-    <td><code>appid.password-regex.update</code></td>
-    <td>Update the password regex.</td>
-    <td>Can be found in the <strong>Cloud Directory > Password Policies</strong> tab.</td>
-  </tr>
-  <tr>
-    <td><code>appid.advanced-password-management.read</code></td>
-    <td>View the advanced password policy configurations.</td>
-    <td>Can be found in the <strong>Cloud Directory > Password Policies</strong> tab.</td>
-  </tr>
-  <tr>
-    <td><code>appid.advanced-password-management.update</code></td>
-    <td>Update the advanced password policy configurations.</td>
-    <td>Can be found in the <strong>Cloud Directory > Password Policies</strong> tab.</td>
-  </tr>
-  <tr>
-    <td><code>appid.user-password.update</code></td>
-    <td>Set a new password for the Cloud Directory user.</td>
-    <td>Must be done through the API.</td>
-  </tr>
-  <tr>
-    <td><code>appid.capture-runtime-activity.read</code></td>
-    <td>View runtime activity toggle.</td>
-    <td>Can be viewed in the <strong>Manage Authentication> Authentication Settings</strong> tab.</td>
-  </tr>
-  <tr>
-    <td><code>appid.capture-runtime-activity.update</code></td>
-    <td>Toggle runtime activity monitoring.</td>
-    <td>Can be updated in the <strong>Manage Authentication> Authentication Settings</strong> tab.</td>
-  </tr>
-  <tr>
-    <td><code>appid.mfa.read</code></td>
-    <td>View your MFA configurations.</td>
-    <td>Can be found in the <strong>Cloud Directory > Multi-factor Authentication</strong> tab.</td>
-  </tr>
-    <tr>
-    <td><code>appid.mfa.update</code></td>
-    <td>Update your MFA configurations.</td>
-    <td>Can be found in the <strong>Cloud Directory > Multi-factor Authentication</strong> tab.</td>
-  </tr>
-  <tr>
-    <td><code>appid.mfa-channels.read</code></td>
-    <td>View your MFA channels.</td>
-    <td>Can be found in the <strong>Cloud Directory > Multi-factor Authentication</strong> tab.</td>
-  </tr>
-  <tr>
-    <td><code>appid.mfa-channel.read</code></td>
-    <td>View your MFA channels configurations.</td>
-    <td>Can be found in the <strong>Cloud Directory > Multi-factor Authentication</strong> tab.</td>
-  </tr>
-    <tr>
-    <td><code>appid.mfa-channel.update</code></td>
-    <td>Update your channels.</td>
-    <td>Can be found in the <strong>Cloud Directory > Multi-factor Authentication</strong> tab.</td>
-  </tr>
-  <tr>
-    <td><code>appid.sms-dispatcher-test.send</code></td>
-    <td>Test the SMS dispatcher configurations.</td>
-    <td>Can be found in the <strong>Cloud Directory > Multi-factor Authentication > SMS Provider</strong> tab.</td>
-  </tr>
-  <tr>
-    <td><code>appid.mfa-extension-premfa.read</code></td>
-    <td>View your pre-MFA extension configuration.</td>
-    <td>Must be done through the API.</td>
-  </tr>
-  <tr>
-    <td><code>appid.mfa-extension-premfa.update</code></td>
-    <td>Update your pre-MFA extension configuration.</td>
-    <td>Must be done through the API.</td>
-  </tr>
-  <tr>
-    <td><code>appid.mfa-extension-postmfa.read</code></td>
-    <td>View your post MFA extension configuration.</td>
-    <td>Must be done through the API.</td>
-  </tr>
-  <tr>
-    <td><code>appid.mfa-extension-postmfa.update</code></td>
-    <td>Update your post MFA extension configuration.</td>
-    <td>Must be done through the API.</td>
-  </tr>
-  <tr>
-    <td><code>appid.is-mfa-extension-active.update</code></td>
-    <td>Update the status of your registered extension.</td>
-    <td>Must be done through the API.</td>
-  </tr>
-  <tr>
-    <td><code>appid.mfa-extension-test.send</code></td>
-    <td>Test your registered extension configuration.</td>
-    <td>Must be done through the API.</td>
-  </tr>
-  <tr>
-    <td><code>appid.sso.read</code></td>
-    <td>View your SSO configuration.</td>
-    <td>Can be found in the <strong>Identity Providers > Cloud Directory > Single Sign-On</strong> tab.</td>
-  </tr>
-  <tr>
-    <td><code>appid.sso.update</code></td>
-    <td>Update your SSO configuration.</td>
-    <td>Can be found in the <strong>Identity Providers > Cloud Directory > Single Sign-On</strong> tab.</td>
-  </tr>
-  <tr>
-    <td><code>appid.rate-limit.read</code></td>
-    <td>View your rate limit configurations.</td>
-    <td>Must be done through the API.</td>
-  </tr>
-  <tr>
-    <td><code>appid.rate-limit.update</code></td>
-    <td>Update your rate limit configurations.</td>
-    <td>Must be done through the API.</td>
-  </tr>
-</table>
-
+| Action | Description | GUI action | 
+|-----|----| ---- |
+| `appid.recent-activity.read` | View recent activity. | Can be found in the **Activity Log** box on the **Overview** tab. |
+| `appid.idp-config.read` | View the identity provider configuration. | Can be found in the **Manage authentication > Identity Providers** tab. |
+| `appid.idp-config.update` | Update the identity provider configuration. | Can be updated in the **Manage authentication > Identity Providers** tab. |
+| `appid.tokens-config.read` | View the token expiration configuration. | Can be found in the **Manage authentication > Authentication Settings** tab. |
+| `appid.tokens-config.update` | Update the token expiration configuration. | Can be found in the **Manage authentication > Authentication Settings** tab. | 
+| `appid.redirect-uris.read` |  View the current redirect URI configuration. | Can be found in the **Manage authentication > Authentication Settings** tab. | 
+| `appid.redirect-uris.update` | Update the redirect URIs configuration. | Can be updated in the **Manage authentication > Identity Providers** tab. |
+| `appid.is-profiles-active.read` | View the user profile storage configuration. | Can be found in the **Profiles and roles > User Profiles** tab. |
+| `appid.is-profiles-active.update` | Update your user profile storage configuration. | Can be found in the **Profiles and roles > User Profiles** tab. | 
+| `appid.users.read` | Search user profiles. | Can be found in the **Profiles and roles > User Profiles** tab. |
+| `appid.users.create` | Create pre-registered user profile. | Can be found in the **Profiles and roles > User Profiles** tab. |       
+| `appid.users.get` | Export user profiles. | Must be done through the API. | 
+| `appid.refresh-token.revoke` | Revoke all the refresh tokens issued for the given user. | Must be done through the API. | 
+| `appid.users.import` | Import user profiles. | Must be done through the API. | 
+| `appid.user-profile.read` | View a user profile. | Can be found in the **Profiles and roles > User Profiles** tab. |
+| `appid.user-profile.update` | Update a user profile. | Can be found in the **Profiles and roles > User Profiles** tab. | 
+| `appid.user-profile.bulkdelete` | Delete a list of user profiles. | Can be found in the **Profiles and roles > User Profiles** tab. | 
+| `appid.user-roles.read` | View the user roles. | Can be found in the **Profiles and roles > User Profiles** tab. |
+| `appid.user-roles.update` | Update the user roles. | Can be found in the **Profiles and roles > User Profiles** tab. |
+| `appid.roles.read` | View the roles list. | Can be found in the **Profiles and roles > Roles** tab. | 
+| `appid.roles.create` | Create a role. | Can be found in the **Profiles and roles > Roles** tab. | 
+| `appid.role.read` | View the role. | Can be found in the **Profiles and roles > Roles** tab. | 
+| `appid.role.update` | Update the role. | Can be found in the **Profiles and roles > Roles** tab. | 
+| `appid.applications.read` | View the applications list. | Can be found in the **Applications**tab. | 
+| `appid.applications.create` | Create an application. | Can be found in the **Applications** tab. |
+| `appid.application.read` | View the application. | Can be found in the **Applications** tab. | 
+| `appid.application.update` | Update the application. | Can be found in the **Applications** tab. | 
+|  `appid.application-scopes.read` | View the application scopes. | Can be found in the **Applications** tab. | 
+| `appid.application-scopes.update` | Update the application scopes. | Can be found in the **Applications** tab. | 
+| `appid.theme-text.read` | View the theme texts of the login widget. | Can be found in the **Login Customization** tab. | 
+| `appid.theme-text.update` | Update the theme texts of the login widget footnote. | Can be updated in the **Login Customization** tab. |
+| `appid.theme-color.read` | View the theme color of the login widget header. | Can be found in the **Login Customization** tab. |
+| `appid.theme-color.update` | Update the theme color of the login widget header. | Can be Updated in the **Login Customization** tab. | 
+| `appid.media.read` | View the image that is shown in the login widget. | Can be found in the **Login Customization** tab. |
+| `appid.media.update` | Update the image that is shown in the login widget. | Can be updated in the **Login Customization** tab. | 
+| `appid.ui-configuration.read` | View the login widget UI configuration which includes header color and image. | Can be found in the **Login Customization** tab. |
+| `appid.ui-languages.read` | View a list of supported languages. | Must be viewed from the API. | 
+| `appid.ui-languages.update` | Update your supported languages. | Must be updated through the API. | 
+| `appid.saml-metadata.read` | View the {{site.data.keyword.appid_short_notm}} SAML metadata. | Can be found in the **Identity Providers > SAML 2.0 Federation** tab. |
+| `ppid.cloud-directory-user.read` | View a Cloud Directory user. | Can be found in the **Cloud Directory > Users > View user details** tab. |
+| `appid.cloud-directory-user.update` | Update a Cloud Directory User. | Can be updated in the **Users** tab. |
+| `appid.cloud-directory-user.delete` | Delete a Cloud Directory user. | Must be deleted through the API. | 
+| `appid.user.delete` | Delete a Cloud Directory user and profile. | Must be deleted through the API. |
+| `appid.cloud-directory-users.read` | View a list of your Cloud Directory users. | Can be found in the **Cloud Directory > Users** tab. |
+| `appid.cloud-directory-user.update` | Update your list of Cloud Directory users. | Can be updated in the **Cloud Directory > Users** tab. | 
+| `appid.cloud-directory-user.delete` | Delete a list of Cloud Directory users. | Must be deleted through the API. |
+| `appid.users.bulkdelete` | Delete a list of Cloud Directory users and profiles. | Must be deleted through the API. |
+| `appid.cloud-directory-users.get` |Export Cloud Directory users. | Must be done through the API. |
+| `appid.cloud-directory-users.import` | Import Cloud Directory users. | Must be done through the API. | 
+| `appid.cloud-directory-user-sso.set-off` | Invalidate all SSO sessions of the user. | Must be done through the API. | 
+|  `appid.email-dispatcher.read` | View the email dispatcher configurations. | Can be found in the **Cloud Directory > Email Templates** tab. | 
+| `appid.email-dispatcher.update` | Update the email dispatcher configurations. | Can be found in the **Cloud Directory > Email Templates** tab. |
+| `appid.email-dispatcher-test.send` | Test the email dispatcher. | Can be found in the **Cloud Directory > Email Templates** tab. | 
+| `appid.email-settings-test.send` | Test the email settings configurations. | Can be found in the **Cloud Directory > Email Templates** tab. |
+| `appid.email-template.read` | View an email template. | Can be found in the **Cloud Directory > Email Templates** tab. |
+| `appid.email-template.update` | Update an email template. | Can be found in the **Cloud Directory > Email Templates** tab. |
+| `appid.email-template.delete` | Delete an email template to reset to the default. | Can be found in the **Cloud Directory > Email Templates** tab. | 
+| `appid.sender-details.read` | View the sender details. | Can be found in the **Cloud Directory > Email Templates** tab. |
+| `appid.sender-details.update` | Update the sender details. | Can be found in the **Cloud Directory > Email Templates** tab. |
+| `appid.resend-notification.send` | Resend user notifications. | Must be done through the API. |
+| `appid.self-forgot-password.start` | Starts the forgot password process. | Can be found in the **Cloud Directory > Email Templates** tab. |
+| `appid.forgot-password-result.read` | View the forgot password confirmation result. | Must be done through the API. |
+| `appid.self-sign-up.start` | Starts the sign-up process. | Can be found in the **Cloud Directory > Settings** tab. |
+| `appid.sign-up-result.read` | View the sign-up result confirmation. | Must be done through the API. |
+| `appid.action_url.read` | View the custom URL that is called when an action is performed. | Can be found in the **Cloud Directory > Email Templates** tab. |
+| `appid.action-url.update` | Update the custom URL that is called when an action is performed. | Can be found in the **Cloud Directory > Email Templates** tab. |
+| `appid.password-regex.read` | View the password regex. | Can be found in the **Cloud Directory > Password Policies** tab. |
+| `appid.password-regex.update` | Update the password regex. | Can be found in the **Cloud Directory > Password Policies** tab. |
+| `appid.advanced-password-management.read` | View the advanced password policy configurations. | Can be found in the **Cloud Directory > Password Policies** tab. |
+| `appid.advanced-password-management.update` | Update the advanced password policy configurations. | Can be found in the **Cloud Directory > Password Policies** tab. |
+| `appid.user-password.update` | Set a new password for the Cloud Directory user. | Must be done through the API. | 
+| `appid.capture-runtime-activity.read` | iew runtime activity toggle. | Can be viewed in the **Manage Authentication> Authentication Settings** tab. |
+| `appid.capture-runtime-activity.update` | Toggle runtime activity monitoring. | Can be updated in the **Manage Authentication> Authentication Settings** tab. |
+| `appid.mfa.read` | View your MFA configurations. | Can be found in the <strong>Cloud Directory > Multi-factor Authentication</strong> tab. | 
+| `appid.mfa.update` | Update your MFA configurations. | Can be found in the **Cloud Directory > Multi-factor Authentication** tab. |
+| `appid.mfa-channels.read` | View your MFA channels. | Can be found in the **Cloud Directory > Multi-factor Authentication** tab. |
+| `appid.mfa-channel.read` | View your MFA channels configurations. | Can be found in the **Cloud Directory > Multi-factor Authentication</strong> tab. |
+| `appid.mfa-channel.update` | Update your channels. | Can be found in the **Cloud Directory > Multi-factor Authentication** tab. |
+| `appid.sms-dispatcher-test.send` | Test the SMS dispatcher configurations. | Can be found in the **Cloud Directory > Multi-factor Authentication > SMS Provider** tab. |
+| `appid.mfa-extension-premfa.read` | View your pre-MFA extension configuration. | Must be done through the API. |
+| `appid.mfa-extension-premfa.update` | Update your pre-MFA extension configuration. | Must be done through the API. |
+| `appid.mfa-extension-postmfa.read` | View your post MFA extension configuration. | Must be done through the API. |
+| `appid.mfa-extension-postmfa.update` | Update your post MFA extension configuration. | Must be done through the API. | 
+| `appid.is-mfa-extension-active.update` | Update the status of your registered extension. | Must be done through the API. | 
+| `appid.mfa-extension-test.send` | Test your registered extension configuration. | Must be done through the API. |
+| `ppid.sso.read` | View your SSO configuration. | Can be found in the **Identity Providers > Cloud Directory > Single Sign-On** tab. |
+| `appid.sso.update` | Update your SSO configuration. | Can be found in the **Identity Providers > Cloud Directory > Single Sign-On** tab. |
+|`appid.rate-limit.read` | View your rate limit configurations. | Must be done through the API. |
+| `appid.rate-limit.update` | Update your rate limit configurations. | Must be done through the API. |
+{: caption="Table 1. Actions that you can take that are tracked by {{site.data.keyword.at_short}}" caption-side="top"}
 
 
 ## Viewing runtime events
@@ -568,234 +206,33 @@ Check out the following table for a list of the runtime events that are sent to 
 Be sure that you have turn ON the **Runtime Activity** in order to see this events.
 {: important}
 
-<table>
-  <caption>Table 2. Actions that can be tracked as authentication events at runtime</caption>
-  <tr>
-    <th>Description</th>
-    <th>Action</th>
-    <th>Outcome</th>
-    <th><code>reason. reasonCode</code></th>
-    <th><code>target.id</code></th>
-    <th><code>target.name</code></th>
-    <th><code>target.typeURI</code></th>
-  </tr>
-  <tr>
-    <td>Cloud Directory authentication success</td>
-    <td><code>appid.user.authenticate</code></td>
-    <td><code>success</code></td>
-    <td><code>200</code></td>
-    <td><code>[appid user CRN]</code></td>
-    <td><code>cloud_directory:[GUID]</code></td>
-    <td><code>appid/user</code></td>
-  </tr>
-  <tr>
-    <td>Cloud Directory authentication failure</td>
-    <td><code>appid.user.authenticate</code></td>
-    <td><code>failure</code></td>
-    <td><code>401</code></td>
-    <td><code>[appid user CRN]</code></td>
-    <td><code>cloud_directory:[GUID]</code></td>
-    <td><code>appid/user</code></td>
-  </tr>
-  <tr>
-    <td>Facebook authentication success</td>
-    <td><code>appid.user.authenticate</code></td>
-    <td><code>success</code></td>
-    <td><code>200</code></td>
-    <td><code>[appid user CRN]</code></td>
-    <td><code>facebook:[GUID]</code></td>
-    <td><code>appid/user</code></td>
-  </tr>
-  <tr>
-    <td>Facebook authentication failure</td>
-    <td><code>appid.user.authenticate</code></td>
-    <td><code>failure</code></td>
-    <td><code>401</code></td>
-    <td><code>crn:unknown</code></td>
-    <td><code>facebook:unknown</code></td>
-    <td><code>appid/user</code></td>
-  </tr>
-  <tr>
-    <td>Google authentication success</td>
-    <td><code>appid.user.authenticate</code></td>
-    <td><code>success</code></td>
-    <td><code>200</code></td>
-    <td><code>[appid user CRN]</code></td>
-    <td><code>google:[GUID]</code></td>
-    <td><code>appid/user</code></td>
-  </tr>
-  <tr>
-    <td>Google authentication failure</td>
-    <td><code>appid.user.authenticate</code></td>
-    <td><code>failure</code></td>
-    <td><code>401</code></td>
-    <td><code>crn:unknown</code></td>
-    <td><code>google:unknown</code></td>
-    <td><code>appid/user</code></td>
-  </tr>
-  <tr>
-    <td>SAML authentication success</td>
-    <td><code>appid.user.authenticate</code></td>
-    <td><code>success</code></td>
-    <td><code>200</code></td>
-    <td><code>[appid user CRN]</code></td>
-    <td><code>SAML:[GUID]</code></td>
-    <td><code>appid/user</code></td>
-  </tr>
-  <tr>
-    <td>SAML authentication failure</td>
-    <td><code>appid.user.authenticate</code></td>
-    <td><code>failure</code></td>
-    <td><code>401</code></td>
-    <td><code>crn:unknown</code></td>
-    <td><code>SAML:unknown</code></td>
-    <td><code>appid/user</code></td>
-  </tr>
-  <tr>
-    <td>Client Credentials authentication success</td>
-    <td><code>appid.application.authenticate</code></td>
-    <td><code>success</code></td>
-    <td><code>200</code></td>
-    <td><code>[appid application CRN]</code></td>
-    <td><code>client_credentials:client_id</code></td>
-    <td><code>appid/application</code></td>
-  </tr>
-  <tr>
-    <td>Client Credentials authentication failure</td>
-    <td><code>appid.application.authenticate</code></td>
-    <td><code>failure</code></td>
-    <td><code>401</code></td>
-    <td><code>crn:undefined</code></td>
-    <td><code>client_credentials:undefined</code></td>
-    <td><code>appid/application</code></td>
-  </tr>
-  <tr>
-    <td>Cloud Directory sign up</td>
-    <td><code>appid.cloud-dir-user.create</code></td>
-    <td><code>success</code></td>
-    <td><code>200</code></td>
-    <td><code>[appid user CRN]</code></td>
-    <td><code>cloud_directory:[GUID]</code></td>
-    <td><code>appid/cloud_dir/user</code></td>
-  </tr>
-  <tr>
-    <td>Cloud Directory signup failure</td>
-    <td><code>appid.cloud-dir-user.create</code></td>
-    <td><code>failure</code></td>
-    <td><code>400</code></td>
-    <td><code>crn:unknown</code></td>
-    <td><code>cloud_directory:unknown</code></td>
-    <td><code>appid/cloud_dir/user</code></td>
-  </tr>
-  <tr>
-    <td>Cloud Directory signup confirmation</td>
-    <td><code>appid.cloud-dir-user.allow</code></td>
-    <td><code>success</code></td>
-    <td><code>200</code></td>
-    <td><code>[appid user CRN]</code></td>
-    <td><code>cloud_directory:[GUID]</code></td>
-    <td><code>appid/cloud_dir/user</code></td>
-  </tr>
-  <tr>
-    <td>Cloud Directory signup confirmation failure</td>
-    <td><code>appid.cloud-dir-user.allow</code></td>
-    <td><code>failure</code></td>
-    <td><code>400</code></td>
-    <td><code>crn:unknown</code></td>
-    <td><code>cloud_directory:unknown</code></td>
-    <td><code>appid/cloud_dir/user</code></td>
-  </tr>
-  <tr>
-    <td>Cloud Directory reset or renew password</td>
-    <td><code>appid.cloud-dir-user-credentials.renew</code></td>
-    <td><code>success</code></td>
-    <td><code>200</code></td>
-    <td><code>[appid user CRN]</code></td>
-    <td><code>cloud_directory:[GUID]</code></td>
-    <td><code>appid/cloud_dir/user</code></td>
-  </tr>
-  <tr>
-    <td>Cloud Directory reset or renew password failure</td>
-    <td><code>appid.cloud-dir-user-credentials.renew</code></td>
-    <td><code>failure</code></td>
-    <td><code>400</code></td>
-    <td><code>crn:unknown</code></td>
-    <td><code>cloud_directory:unknown</code></td>
-    <td><code>appid/cloud_dir/user</code></td>
-  </tr>
-  <tr>
-    <td>Cloud Directory change password</td>
-    <td><code>appid.cloud-dir-user-credentials.update</code></td>
-    <td><code>success</code></td>
-    <td><code>200</code></td>
-    <td><code>[appid user CRN]</code></td>
-    <td><code>cloud_directory:[GUID]</code></td>
-    <td><code>appid/cloud_dir/user</code></td>
-  </tr>
-  <tr>
-    <td>Cloud Directory change password failure</td>
-    <td><code>appid.cloud-dir-user-credentials.update</code></td>
-    <td><code>failure</code></td>
-    <td><code>400</code></td>
-    <td><code>crn:unknown</code></td>
-    <td><code>cloud_directory:unknown</code></td>
-    <td><code>appid/cloud_dir/user</code></td>
-  </tr>
-  <tr>
-    <td>Revoke user tokens</td>
-    <td><code>appid.user-tokens.revoke</code></td>
-    <td><code>success</code></td>
-    <td><code>200</code></td>
-    <td><code>appid user CRN</code></td>
-    <td><code>idp:[GUID]</code></td>
-    <td><code>appid/user</code></td>
-  </tr>
-  <tr>
-    <td>Revoke user tokens failure</td>
-    <td><code>appid.user-tokens.revoke</code></td>
-    <td><code>failure</code></td>
-    <td><code>400</code></td>
-    <td><code>appid user CRN</code></td>
-    <td><code>idp:[GUID]</code></td>
-    <td><code>appid/user</code></td>
-  </tr>
-  <tr>
-    <td>Cloud Directory user SSO logout</td>
-    <td><code>appid.cloud-dir-user.set-off</code></td>
-    <td><code>success</code></td>
-    <td><code>200</code></td>
-    <td><code>appid user CRN</code></td>
-    <td><code>idp:[GUID]</code></td>
-    <td><code>appid/user</code></td>
-  </tr>
-    <tr>
-    <td>View user profile attributes</td>
-    <td><code>appid.user-profile-attributes.read</code></td>
-    <td><code>success</code></td>
-    <td><code>200</code></td>
-    <td><code>crn:profiles:[User-ID]</code></td>
-    <td><code>profiles:[User-ID]</code></td>
-    <td><code>appid-user-profiles/attributes</code></td>
-  </tr>
-    <tr>
-    <td>Update user profile attribute</td>
-    <td><code>appid.user-profile-attributes.update</code></td>
-    <td><code>success</code></td>
-    <td><code>200</code></td>
-    <td><code>crn:profiles:[User-ID]</code></td>
-    <td><code>profiles:[User-ID]</code></td>
-    <td><code>appid-user-profiles/attribute/[Attribute-name]</code></td>
-  </tr>
-    <tr>
-    <td>Delete user profile attribute</td>
-    <td><code>appid.user-profile-attributes.delete</code></td>
-    <td><code>success</code></td>
-    <td><code>200</code></td>
-    <td><code>crn:profiles:[User-ID]</code></td>
-    <td><code>profiles:[User-ID]</code></td>
-    <td><code>appid-user-profiles/attribute/[Attribute-name]</code></td>
-  </tr>
-</table>
+| Description | Action | Outcome | `reason. reasonCode` | `target.id` | `target.name` | `target.typeURI` |
+|-----|----| ----- | ------- | ------- | ------- | ------ |
+| Cloud Directory authentication success | `appid.user.authenticate` | `success` | `200` | `[appid user CRN]` |  `cloud_directory:[GUID]` | `appid/user` |
+| Cloud Directory authentication failure | `appid.user.authenticate` | `failure` | `401` | `[appid user CRN]` | `cloud_directory:[GUID]` | `appid/user` |
+| Facebook authentication success | `appid.user.authenticate` | `success` | `200` | `[appid user CRN]` | `facebook:[GUID]` | `appid/user` |
+| Facebook authentication failure | `appid.user.authenticate` | `failure` | `401` | `crn:unknown` | `facebook:unknown` | `appid/user` |
+| Google authentication success | `appid.user.authenticate` | `success` | `200` | `[appid user CRN]` | `google:[GUID]` | `appid/user` |
+| Google authentication failure | `appid.user.authenticate` | `failure` | `401` | `crn:unknown` | `google:unknown` | `appid/user` |
+| SAML authentication success | `appid.user.authenticate` |  `success` | `200` | `[appid user CRN]` | `SAML:[GUID]` | `appid/user` |
+| SAML authentication failure | `appid.user.authenticate` | `failure` | `401` | `crn:unknown` | `SAML:unknown` | `appid/user` |
+| Client Credentials authentication success | `appid.application.authenticate` | `success` | `200` | `[appid application CRN]` | `client_credentials:client_id` | `appid/application` |
+| Client Credentials authentication failure | `appid.application.authenticate` | `failure` | `401` | `crn:undefined` | client_credentials:undefined | `appid/application` |
+| Cloud Directory sign up | `appid.cloud-dir-user.create` | `success` | `200` | `[appid user CRN]` | `cloud_directory:[GUID]` | `appid/cloud_dir/user` |
+|Cloud Directory signup failure | `appid.cloud-dir-user.create` | `failure` | `400` | `crn:unknown` | `cloud_directory:unknown` | `appid/cloud_dir/user`|
+| Cloud Directory signup confirmation | `appid.cloud-dir-user.allow` | `success` | `200` | `[appid user CRN]` | `cloud_directory:[GUID]` | `appid/cloud_dir/user` | 
+| Cloud Directory signup confirmation failure | `appid.cloud-dir-user.allow` | `failure` | `400` | `crn:unknown` | `cloud_directory:unknown`| `appid/cloud_dir/user` |
+| Cloud Directory reset or renew password | `appid.cloud-dir-user-credentials.renew` | `success` | `200` | `[appid user CRN]` | `cloud_directory:[GUID]` | `appid/cloud_dir/user`|
+| Cloud Directory reset or renew password failure | `appid.cloud-dir-user-credentials.renew` | `failure` | `400` | `crn:unknown` | `cloud_directory:unknown` | `appid/cloud_dir/user` |
+| Cloud Directory change password | `appid.cloud-dir-user-credentials.update` | `success` | `200` | `[appid user CRN]` | `cloud_directory:[GUID]` | `appid/cloud_dir/user`|
+| Cloud Directory change password failure | `appid.cloud-dir-user-credentials.update` | | `failure` | `400` | `crn:unknown` | `cloud_directory:unknown` | `appid/cloud_dir/user` |
+| Revoke user tokens | `appid.user-tokens.revoke` | `success` | `200` | `appid user CRN` | `idp:[GUID]` | `appid/user` |
+| Revoke user tokens failure | `appid.user-tokens.revoke` | `failure` | `400` | `appid user CRN` | `idp:[GUID]` | `appid/user` |
+| Cloud Directory user SSO logout | `appid.cloud-dir-user.set-off` | `success` | `200` | `appid user CRN` | `idp:[GUID]` | `appid/user` | 
+| View user profile attributes | `appid.user-profile-attributes.read` | `success` | `200` | `crn:profiles:[User-ID]` | `profiles:[User-ID]` | `appid-user-profiles/attributes` |
+| Update user profile attribute | `appid.user-profile-attributes.update` | `success` | `200` | `crn:profiles:[User-ID]` | `profiles:[User-ID]` | `appid-user-profiles/attribute/[Attribute-name]` |
+| Delete user profile attribute | `appid.user-profile-attributes.delete` | `success` | `200` | `crn:profiles:[User-ID]` | `profiles:[User-ID]` | `appid-user-profiles/attribute/[Attribute-name]` |
+{: caption="Table 2. Actions that can be tracked as authentication events at runtime" caption-side="top"}
 
 ## Analyzing runtime events
 {: #at-runtime-analyze}
@@ -813,26 +250,12 @@ The following scenario works only for Cloud Directory users. If the user is defi
 
 An event in the {{site.data.keyword.at_short}} console contains the following fields.
 
-<table>
-  <caption>Table 3. Example fields that can be found in an event from the {{site.data.keyword.at_short}} console</caption>
-  <tr>
-    <th>Field</th>
-    <th>Value</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>initiator.id</td>
-    <td>cb967e0d-43c1-454a-968d-0efa24766846</td>
-    <td>The tenant ID.</td>
-  </tr>
-  <tr>
-    <td>target.name</td>
-    <td>cloud_directory:34e1ea6d-cc02-4941-9462-7e9c5a40b360</td>
-    <td>The user ID.</td>
-  </tr>
-</table>
+| Field | Value | Description |
+|-----|----| ----- |
+| initiator.id | cb967e0d-43c1-454a-968d-0efa24766846 | The tenant ID. |
+| target.name | cloud_directory:34e1ea6d-cc02-4941-9462-7e9c5a40b360 | The user ID. |
+{: caption="Table 3. Example fields that can be found in an event from the {{site.data.keyword.at_short}} console" caption-side="top"}
 
-</br>
 
 To find the user information that aligns with the event GUID, use the following steps.
 
@@ -840,7 +263,7 @@ To find the user information that aligns with the event GUID, use the following 
 
 2. Obtain an IAM token for the `apiKey` by inserting the key into the following command:
 
-  ```
+  ```sh
   curl -k -X POST \
       --header "Content-Type: application/x-www-form-urlencoded" \
       --header "Accept: application/json" \
@@ -856,7 +279,7 @@ To find the user information that aligns with the event GUID, use the following 
 
 5. Insert the IAM token, the tenant ID, and the user ID, into the following command to obtain the user information.
 
-  ```
+  ```sh
   curl -X GET --header 'Accept: application/json' --header 'Authorization: Bearer <IAM_TOKEN>' \
   'https://REGION.appid.cloud.ibm.com/TENANT_ID/cloud_directory/Users/THE_USER_ID'
   ```
@@ -864,7 +287,7 @@ To find the user information that aligns with the event GUID, use the following 
 
   You can also run this command by using the [management APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/getAuditStatus){: external}. Your output would look similar to the following:
 
-  ```
+  ```json
     {
     "displayName": "test test",
     "active": true,
@@ -909,7 +332,7 @@ You can track the events of specific Cloud Directory users in {{site.data.keywor
 1. Obtain an IAM token, a tenant ID and a region as described in the previous section.
 2. Insert the IAM token, the tenant ID, and the email into the following command to obtain the user information.
 
-  ```
+  ```sh
   curl -X GET --header 'Accept: application/json' --header 'Authorization: Bearer <IAM_TOKEN>' 'https://REGION.appid.cloud.ibm.com/TENANT_ID/users?email=EMAIL_ADDRESS'
   ```
   {: codeblock}
@@ -919,7 +342,7 @@ You can track the events of specific Cloud Directory users in {{site.data.keywor
 
   Alternatively, you can use the [Management APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/getAuditStatus){: external}. Your output would look similar to the following:
 
-  ```
+  ```json
   {
     "users": [
       {

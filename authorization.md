@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-05-18"
+lastupdated: "2021-06-02"
 
 keywords: authorization, authentication, oidc, oauth, jwks, app security, identity, tokens, redirect uris, api strategy, webapp strategy
 
@@ -83,28 +83,13 @@ Example:
 
 Using this example, the URL would be `https://us-south.appid.cloud.ibm.com/oauth/v4/8f5aa500-357e-443a-aab6-bf878f852b5a`. You would then append the endpoint that you wanted to make a request to. Check out the following table to see some example endpoints.
 
-<table>
-  <tr>
-    <th>Endpoint</th>
-    <th>Format</th>
-  </tr>
-  <tr>
-    <td>Authorization</td>
-    <td><code>{oauthServerUrl}/authorization</code></td>
-  </tr>
-  <tr>
-    <td>Token</td>
-    <td><code>{oauthServerUrl}/token</code></td>
-  </tr>
-  <tr>
-    <td>User information</td>
-    <td><code>{oauthServerUrl}/userinfo</code></td>
-  </tr>
-  <tr>
-    <td>JWKS</td>
-    <td><code>{oauthServerUrl}/publickeys</code></td>
-  </tr>
-</table>
+| Endpoint | Format |
+|-----|----| 
+| Authorization | `{oauthServerUrl}/authorization` |
+| Token | `{oauthServerUrl}/token` |
+| User information | `{oauthServerUrl}/userinfo` |
+| JWKS | `{oauthServerUrl}/publickeys` |
+{: caption="Table 1. Examples of endpoints" caption-side="top"}
 
 When you use the SDK, the endpoint URLs are built automatically.
 {: note}
@@ -112,9 +97,9 @@ When you use the SDK, the endpoint URLs are built automatically.
 ## Tokens
 {: #term-token}
 
-The service uses three different types of tokens. Tokens are set in the **Identity Providers > Manage** of the {{site.data.keyword.appid_short}} dashboard. For more information about tokens and how they're used in {{site.data.keyword.appid_short}}, check out [Managing tokens](/docs/appid?topic=appid-tokens).
+The service uses three different types of tokens. Tokens are set in the **Identity Providers > Manage** of the {{site.data.keyword.appid_short_notm}} dashboard. For more information about tokens and how they're used in {{site.data.keyword.appid_short_notm}}, check out [Managing tokens](/docs/appid?topic=appid-tokens).
 
-* Access tokens: Represent authorization and enable communication with protected [back-end resources](/docs/appid?topic=appid-backend). The resources are protected by authorization filters that are set by {{site.data.keyword.appid_short}}.
+* Access tokens: Represent authorization and enable communication with protected [back-end resources](/docs/appid?topic=appid-backend). The resources are protected by authorization filters that are set by {{site.data.keyword.appid_short_notm}}.
 
 * Identity tokens: Represent authentication and contain information about the user.
 
@@ -123,7 +108,7 @@ The service uses three different types of tokens. Tokens are set in the **Identi
 ## Authorization headers
 {: #term-auth-header}
 
-{{site.data.keyword.appid_short}} complies with the [Bearer token specification](https://datatracker.ietf.org/doc/html/rfc6750){: external} and uses a combination of access and identity tokens that are sent as an HTTP Authorization header. The Authorization header has three different parts that are separated by white space. The tokens are base64 encoded. The identity token is optional.
+{{site.data.keyword.appid_short_notm}} complies with the [Bearer token specification](https://datatracker.ietf.org/doc/html/rfc6750){: external} and uses a combination of access and identity tokens that are sent as an HTTP Authorization header. The Authorization header has three different parts that are separated by white space. The tokens are base64 encoded. The identity token is optional.
 
 Example:
 
@@ -147,7 +132,7 @@ If the request returns a valid token, control is passed to the next middleware a
 ## Web app strategy
 {: #term-web-strategy}
 
-When the web app strategy detects unauthorized attempts to access a protected resource, it automatically redirects a user's browser to the authentication page, which can be provided by {{site.data.keyword.appid_short}}. After successful authentication, the user is returned to the web app's callback URL. The web app strategy obtains access and identity tokens and stores them in an HTTP session under `WebAppStrategy.AUTH_CONTEXT`. It is up to the user to decide whether to store access and identity tokens in the app database.
+When the web app strategy detects unauthorized attempts to access a protected resource, it automatically redirects a user's browser to the authentication page, which can be provided by {{site.data.keyword.appid_short_notm}}. After successful authentication, the user is returned to the web app's callback URL. The web app strategy obtains access and identity tokens and stores them in an HTTP session under `WebAppStrategy.AUTH_CONTEXT`. It is up to the user to decide whether to store access and identity tokens in the app database.
 
 
 ## Redirect URIs
