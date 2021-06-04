@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-09"
+lastupdated: "2021-06-04"
 
 keywords: custom identity provider, authorization, bring your own idp, proprietary idp, legacy idp, oauth, oidc, authentication, oatuh, app security, public key, jwt
 
@@ -76,7 +76,7 @@ $ openssl rsa -pubout -in private_key.pem -out public_key.pem
 ```
 {: codeblock}
 
-</br>
+
 
 ### Configuring with the GUI
 {: #custom-identity-configure-gui}

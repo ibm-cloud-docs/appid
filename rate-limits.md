@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-06-01"
+lastupdated: "2021-06-04"
 
 keywords: rate limits, traffic control, limit request, lite instances, per minute, per instance, per user, limits
 
@@ -61,13 +61,13 @@ Rate limiting is used to control the amount of traffic that is coming and going 
 ### {{site.data.keyword.appid_short_notm}} lite plan
 {: #lite-limits}
 
-Review the following table to see the limits that are in place for lite instances of {{site.data.keyword.appid_short_notm}}.
+Review the following table to see the maxmimum limits that are in place for lite instances of {{site.data.keyword.appid_short_notm}}.
 
 You can have 1 lite instance of {{site.data.keyword.appid_short_notm}} per account at a time.
 {: note}
 
-| Resource | Maximum |  
-|-----|----| 
+| Resource | Limit |  
+|:---------|:---s---| 
 | Users | 1000 |
 | Authentications | 1000 per month |
 {: caption="Table 1. Limits for lite instances" caption-side="top"}
@@ -78,14 +78,14 @@ You can have 1 lite instance of {{site.data.keyword.appid_short_notm}} per accou
 The following table lists the maximum per user limits for {{site.data.keyword.appid_short_notm}} resources and the blocking period when the limits are exceeded. These limits apply to any user who can create {{site.data.keyword.appid_short_notm}} resources.
 {: shortdesc}
 
-| Action | Limit | When Exceeded |
-|-----|----| ----|
+| Action | Limit | When exceeded |
+|:-------|:------|:--------------|
 | Sign in attempts by one user | 11 per minute | User unable to sign in for 1 minute. |
 | Update user profile attributes | 5 per minute | User unable to update profile for 1 minute. |
 | Delete user profile attributes | 5 per minute | User unable to update profile for 1 minute. |
-| Roles per {{site.data.keyword.appid_short_notm}} instance | 50 | |
-| Scopes per application | 50 | |
-| Applications per {{site.data.keyword.appid_short_notm}} instance | 200 | | 
+| Roles per {{site.data.keyword.appid_short_notm}} instance | 50 |   |
+| Scopes per application | 50 |   |
+| Applications per {{site.data.keyword.appid_short_notm}} instance | 200 |   | 
 {: caption="Table 2. General rate limits" caption-side="top"}
 
 
@@ -96,8 +96,8 @@ The following table lists the maximum per user limits for {{site.data.keyword.ap
 Review the following table to see limits that are associated with Cloud Directory.
 {: shortdesc}
 
-| API | Configurable | Limit | When Exceeded |
-|-----|----| ----| ---- | 
+| API | Configurable | Limit | When exceeded |
+|:----|:-------------|:------|:------------- | 
 | Sign in attempts per account | Yes | Unlimited | All sign-in attempts for the instance are blocked for one minute. |
 | Sign up attempts per account | Yes | Unlimited | All sign-up attempts for the instance are blocked for one minute. |
 | Email sending request | No | 10 emails in 5 minutes per user | Email requests for the user are blocked for 30 minutes. |

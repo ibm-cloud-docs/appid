@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-06-01"
+lastupdated: "2021-06-04"
 
 keywords: user registration, new user, add user, custom attributes, profiles, user profile, user, user information, identity provider, authentication, authorization, personalize app, app security
 
@@ -85,7 +85,6 @@ Check out the following table to see which type of identity information that you
 | Google | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | | 
 | SAML | | ![Checkmark icon](../../icons/checkmark-icon.svg) | | 
 | Custom | | | ![Checkmark icon](../../icons/checkmark-icon.svg) |
-
 {: caption="Table 1. Types of identity information that can be used with each provider" caption-side="top"}
 
 

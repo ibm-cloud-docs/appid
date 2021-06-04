@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-09"
+lastupdated: "2021-06-04"
 
 keywords: app to app, protected resource, client secret, application identity, authorization, server, authentication, access tokens, app security
 
@@ -47,7 +47,7 @@ subcollection: appid
 # Application identity and authorization
 {: #app}
 
-With {{site.data.keyword.appid_short_notm}}, you can secure applications using the application identity and authorization flow by leveraging OAuth2.0 capabilities.
+With {{site.data.keyword.appid_full}}, you can secure applications using the application identity and authorization flow by leveraging OAuth2.0 capabilities.
 {: shortdesc}
 
 ## Understanding the communication flow

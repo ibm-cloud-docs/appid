@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-05-28"
+lastupdated: "2021-06-04"
 
 keywords: user information, tokens, custom tokens, secure resources, authorization, identity, authentication, claims, oauth, claims mapping, attributes, app security, access, runtime
 
@@ -179,37 +179,37 @@ If you want to configure the lifespan of your token, you can quickly make the ch
 4. Make a PUT request to the `/config/tokens` endpoint with your token configuration.
 
   ```sh
-curl -X PUT "https://$REGION.appid.cloud.ibm.com/management/v4/$TENANT_ID/config/tokens" \
--H 'Content-Type: application/json' \
--H "Authorization: Bearer $IAM_TOKEN" \
--d '{
-    "access": {
-        "expires_in": 3600
-    },
-    "refresh": {
-        "enabled": true,
-        "expires_in": 2592001
-    },
-    "anonymousAccess": {
-        "enabled": false
-    },
-    "accessTokenClaims": [
-         {
-           "source": "roles"
-         },
-         {
-           "source": "saml",
-           "sourceClaim": "name_id",
-           "destinationClaim": "id"
-         }
-    ],
-    "idTokenClaims": [
-         {
-           "source": "saml",
-           "sourceClaim": "attributes.uid"
-         }
-    ]
-}'
+  curl -X PUT "https://$REGION.appid.cloud.ibm.com/management/v4/$TENANT_ID/config/tokens" \
+  -H 'Content-Type: application/json' \
+  -H "Authorization: Bearer $IAM_TOKEN" \
+  -d '{
+      "access": {
+          "expires_in": 3600
+      },
+      "refresh": {
+          "enabled": true,
+          "expires_in": 2592001
+      },
+      "anonymousAccess": {
+          "enabled": false
+      },
+      "accessTokenClaims": [
+          {
+            "source": "roles"
+          },
+          {
+            "source": "saml",
+            "sourceClaim": "name_id",
+            "destinationClaim": "id"
+          }
+      ],
+      "idTokenClaims": [
+          {
+            "source": "saml",
+            "sourceClaim": "attributes.uid"
+          }
+      ]
+  }'
   ```
   {: codeblock}
 

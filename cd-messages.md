@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-05-28"
+lastupdated: "2021-06-04"
 
 keywords: emails, verification, templates, sendgrid, welcome, password reset, password change, change details, verification, supported languages, registry, cloud directory, 
 
@@ -66,7 +66,7 @@ With {{site.data.keyword.appid_short_notm}}, you can choose to use {{site.data.k
 
 By default, {{site.data.keyword.appid_short_notm}} uses [SendGrid](https://sendgrid.com/){: external} as an email delivery service for Cloud Directory.
 
-As of 30 April 2020, email content and sender details are no longer editable if you’re using the {{{site.data.keyword.appid_short_notm}} default email provider. To customize your user communication, add your own SendGrid account or custom email provider.
+As of 30 April 2020, email content and sender details are no longer editable if you’re using the {{site.data.keyword.appid_short_notm}} default email provider. To customize your user communication, add your own SendGrid account or custom email provider.
 {: important}
 
 1. Go to the **Cloud Directory > Email templates > Email settings** page of the service dashboard.

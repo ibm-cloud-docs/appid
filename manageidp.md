@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-06-01"
+lastupdated: "2021-06-04"
 
 keywords: identity provider, idp, app security, mobile app, web app, authentication, authorization, oidc, saml, protocols, facebook, google, w3id, cloud directory, redirect url, redirect uri, token configuration, token lifetime, log in configuration
 
@@ -70,7 +70,6 @@ There are several identity providers that the service can be configured to use. 
 | [Facebook](/docs/appid?topic=appid-social#facebook) | Social | Users can sign in to your app by using their Facebook credentials. |
 | [Google+](/docs/appid?topic=appid-social#google) | Social | Users can sign in to your app by using their Google credentials. | 
 | [Custom](/docs/appid?topic=appid-custom-identity#custom-identity) | Custom | If none of the provided options fit your specific need, you can configure your own identity flow to work with {{site.data.keyword.appid_short_notm}}. |
-
 {: caption="Table 1. Identity provider options" caption-side="top"}
 
 ## Managing providers

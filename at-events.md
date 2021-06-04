@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-06-02"
+lastupdated: "2021-06-04"
 
 keywords: user events, track activity, manage events, analyze, administrative, runtime, sign in, settings, app security
 
@@ -263,7 +263,7 @@ To find the user information that aligns with the event GUID, use the following 
 
 2. Obtain an IAM token for the `apiKey` by inserting the key into the following command:
 
-  ```
+  ```sh
   curl -k -X POST \
       --header "Content-Type: application/x-www-form-urlencoded" \
       --header "Accept: application/json" \
@@ -279,7 +279,7 @@ To find the user information that aligns with the event GUID, use the following 
 
 5. Insert the IAM token, the tenant ID, and the user ID, into the following command to obtain the user information.
 
-  ```
+  ```sh
   curl -X GET --header 'Accept: application/json' --header 'Authorization: Bearer <IAM_TOKEN>' \
   'https://REGION.appid.cloud.ibm.com/TENANT_ID/cloud_directory/Users/THE_USER_ID'
   ```
@@ -287,7 +287,7 @@ To find the user information that aligns with the event GUID, use the following 
 
   You can also run this command by using the [management APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/getAuditStatus){: external}. Your output would look similar to the following:
 
-  ```
+  ```json
     {
     "displayName": "test test",
     "active": true,
@@ -332,7 +332,7 @@ You can track the events of specific Cloud Directory users in {{site.data.keywor
 1. Obtain an IAM token, a tenant ID and a region as described in the previous section.
 2. Insert the IAM token, the tenant ID, and the email into the following command to obtain the user information.
 
-  ```
+  ```sh
   curl -X GET --header 'Accept: application/json' --header 'Authorization: Bearer <IAM_TOKEN>' 'https://REGION.appid.cloud.ibm.com/TENANT_ID/users?email=EMAIL_ADDRESS'
   ```
   {: codeblock}
@@ -342,7 +342,7 @@ You can track the events of specific Cloud Directory users in {{site.data.keywor
 
   Alternatively, you can use the [Management APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/getAuditStatus){: external}. Your output would look similar to the following:
 
-  ```
+  ```json
   {
     "users": [
       {

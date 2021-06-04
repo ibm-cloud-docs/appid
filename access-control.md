@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-05-27"
+lastupdated: "2021-06-04"
 
 keywords: user access, control access, permissions, roles, scopes, runtime, access token, authentication, identity, app security
 
@@ -195,7 +195,7 @@ A role is a group of scopes that apply to the same type of user. For example, if
   ```
   {: codeblock}
 
-<table>
+  <table>
     <caption>Table 1. Required variables to call the <code>/scopes</code> endpoint</caption>
     <tr>
       <th>Variable</th>
@@ -250,37 +250,38 @@ A role is a group of scopes that apply to the same type of user. For example, if
 
   ```json
   {
-    "roles": [
-      {
-        "id": "12345678-1234-1234-1234-123456789012",
-        "name": "admin",
-        "description": "Can perform administrative tasks.",
-        "access": [
-          {
-            "application_id": "de33d272-f8a7-4406-8fe8-ab28fd457be5",
-            "scopes": [
-              "create",
-              "update",
-              "read"
-            ]
-          }
-        ]
-      }
-      {
-        "id": "12345678-1234-1234-1234-123456789012",
-        "name": "developer",
-        "description": "Can perform day to day coding tasks.",
-        "access": [
-          {
-            "application_id": "de33d272-f8a7-4406-8fe8-ab28fd457be5",
-            "scopes": [
-              "write",
+    "roles": [
+      {
+        "id": "12345678-1234-1234-1234-123456789012",
+        "name": "admin",
+        "description": "Can perform administrative tasks.",
+        "access": [
+          {
+            "application_id": "de33d272-f8a7-4406-8fe8-ab28fd457be5",
+            "scopes": [
+              "create",
+              "update",
+              "write",
               "read"
-            ]
-          }
-        ]
-      }
-    ]
+            ]
+          }
+        ]
+      }
+      {
+        "id": "123454231-1234-1234-3334-12345687012",
+        "name": "developer",
+        "description": "Can perform administrative tasks.",
+        "access": [
+          {
+            "application_id": "de33d272-f8a7-4406-8fe8-ab28fd457be5",
+            "scopes": [
+              "write",
+              "read"
+            ]
+          }
+        ]
+      }
+    ]
   }
   ```
   {: screen}
@@ -349,7 +350,8 @@ To remove a role from a user, make the PUT request again, but remove the role ID
 By default, roles are not returned in a users token. It is recommended that your runtime decisions are configured based on scopes. But, if you would like to use roles, you can map them to your tokens by using [custom claims mapping](/docs/appid?topic=appid-customizing-tokens).
 
 
-When you authenticate, be sure that you use `username : client ID` and `password : secret` for the application and user that you configured controls for. 
+When you authenticate, be sure that you use `username : client ID` and `password : secret` for the application and user that you configured controls for.
+{: tip} 
 
 
 ## Assigning roles to an application
