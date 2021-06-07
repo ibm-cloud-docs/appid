@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-06-01"
+lastupdated: "2021-06-07"
 
 keywords: app log in, login widget, sign in, default screen, forgot password, mfa, multi-factor authentication, sign up, reset password, facebook, google, identity provider, social log in, saml, authentication, authorization, cloud directory
 
@@ -73,7 +73,7 @@ When you use Cloud Directory, {{site.data.keyword.appid_short_notm}} is able to 
 
 | Login Widget screen | Social identity provider | Enterprise identity provider | Cloud Directory |
 |-----|----| -----| ------ |
-| Sign in | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) |
+| Sign in | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) |
 | Sign up | | | ![Checkmark icon](../../icons/checkmark-icon.svg) |
 | Forgot password | | | ![Checkmark icon](../../icons/checkmark-icon.svg) |
 | Change password | | | ![Checkmark icon](../../icons/checkmark-icon.svg) |
