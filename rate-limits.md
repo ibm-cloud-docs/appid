@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-06-04"
+lastupdated: "2021-06-07"
 
 keywords: rate limits, traffic control, limit request, lite instances, per minute, per instance, per user, limits
 
@@ -61,7 +61,7 @@ Rate limiting is used to control the amount of traffic that is coming and going 
 ### {{site.data.keyword.appid_short_notm}} lite plan
 {: #lite-limits}
 
-Review the following table to see the maxmimum limits that are in place for lite instances of {{site.data.keyword.appid_short_notm}}.
+Review the following table to see the maximum limits that are in place for lite instances of {{site.data.keyword.appid_short_notm}}.
 
 You can have 1 lite instance of {{site.data.keyword.appid_short_notm}} per account at a time.
 {: note}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-06-02"
+lastupdated: "2021-06-07"
 
 keywords: ingress controller, ingress, istio, access, subdomain, custom domain, service, containerized apps, containers, kube, networking, policy, policies, secure apps, authentication, authorization
 
@@ -51,7 +51,7 @@ subcollection: appid
 With {{site.data.keyword.appid_full}}, you can consistently enforce policy-driven security by using the Ingress networking capability in {{site.data.keyword.containerlong_notm}} or {{site.data.keyword.openshiftshort}}. With this approach, you can enforce authentication and authorization policies for all of the applications in your cluster at the same time, without ever changing your app code!
 {: shortdesc}
 
-The {{site.data.keyword.containershort_notm}} custom Ingress image is [deprecated as of 01 December 2020](/docs/containers?topic=containers-ingress-types). This tutorial is updated to use the community Kubernetes Ingress image. To see the previous version of this documentation, see the [{{site.data.keyword.containershort_notm}} documentation](/docs/containers?topic=containers-ingress_annotation#user-authentication).
+The {{site.data.keyword.containershort_notm}} custom Ingress image is [deprecated as of 01 December 2020](/docs/containers?topic=containers-ingress-types). This tutorial is updated to use the community Kubernetes Ingress image. To see the previous version of this documentation, see the [{{site.data.keyword.containershort_notm}} documentation](/docs/containers?topic=containers-comm-ingress-annotations#app-id).
 {: note}
 
 

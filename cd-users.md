@@ -1,13 +1,11 @@
 ---
-
 copyright:
   years: 2017, 2021
-lastupdated: "2021-05-28"
+lastupdated: "2021-06-07"
 
 keywords: manage users, registry, cloud directory, add user, delete user, tokens, attributes, migrating users, identity provider, app security
 
 subcollection: appid
-
 ---
  
 {:codeblock: .codeblock}
@@ -43,7 +41,6 @@ subcollection: appid
 {:ui: .ph data-hd-interface='ui'}
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
-
 
 # Managing users
 {: #cd-users}
@@ -377,18 +374,6 @@ Now that you have a list of exported Cloud Directory users, you can import them 
 
 {{site.data.keyword.appid_short_notm}} provides a migration script that you can use through the CLI that can help speed up the migration process.
 
-Before you get started, be sure that you have the following parameter information:
-
-| Parameter| Description | 
-|-----|----| 
-| `sourceTenantId` | The tenant ID of the instance of {{site.data.keyword.appid_short_notm}} that you plan to export users from. | 
-| `destinationTenantId` | The tenant ID of the instance of {{site.data.keyword.appid_short_notm}} that you plan to import users to. | 
-| `region` | Region options include: `au-syd`, `eu-de`, `u-gb`, `jp-tok`, and `us-south`. |
-| `IAM token` | Be sure that you have `manager` permissions before you obtain the token. For help with obtaining an IAM token, check out [the docs](/docs/account?topic=account-iamtoken_from_apikey#iamtoken_from_apikey). ![](../icons/launch-glyph.svg "Alt-Text: " "alt="External link icon")
-{: caption="Table 3. Descriptions of the parameters that need to be provided to run the migration script" caption-side="top"}
-
-
-
 1.  Clone the [repository](https://github.com/ibm-cloud-security/appid-sample-code-snippets/tree/master/export-import-cloud-directory-users){: external}.
 
   ```sh
@@ -410,6 +395,30 @@ Before you get started, be sure that you have the following parameter informatio
   users_export_import 'sourceTenantId' 'destinationTenantId' 'region' 'iamToken'
   ```
   {: codeblock}
+
+  <table>
+    <caption>Table 3. Parameter descriptions</caption>
+    <tr>
+      <th>Parameter</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td><code>sourceTenantId</code></td>
+      <td>The tenant ID of the instance of {{site.data.keyword.appid_short_notm}} that you plan to export users from.</td>
+    </tr>
+    <tr>
+      <td><code>destinationTenantId</code></td>
+      <td>The tenant ID of the instance of {{site.data.keyword.appid_short_notm}} that you plan to import users to. </td>
+    </tr>
+    <tr>
+      <td><code>region</code></td>
+      <td>Region options include: <code>au-syd</code>, <code>eu-de</code>, <code>eu-gb</code>, <code>jp-tok</code>, and <code>us-south</code>.</td>
+    </tr>
+    <tr>
+      <td><code>IAM token</code></td>
+      <td>For help with obtaining an IAM token, check out [the docs](/docs/account?topic=account-iamtoken_from_apikey#iamtoken_from_apikey).</td>
+    </tr>
+  </table>
 
   Example command:
 

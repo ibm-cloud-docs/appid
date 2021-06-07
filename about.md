@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-06-04"
+lastupdated: "2021-06-07"
 
 keywords: authentication, authorization, identity, app security, cloud directory, user data, identity provider, oauth, protocols, oauth, oidc, disaster recovery, dr, compliance, high availability, ha, secure, HA, DR
 
@@ -113,7 +113,7 @@ You can use {{site.data.keyword.appid_short_notm}} with other {{site.data.keywor
 
 <dl>
   <dt>{{site.data.keyword.containershort_notm}}</dt>
-    <dd>By configuring Ingress in a standard cluster you can secure your apps at the cluster level. Check out the <a href="/docs/containers?topic=containers-ingress_annotation#user-authentication">{{site.data.keyword.appid_short_notm}} authentication Ingress annotation</a> or the <a href="https://www.ibm.com/cloud/blog/announcing-app-id-integration-ibm-cloud-kubernetes-service">Announcing {{site.data.keyword.appid_short_notm}} integration to {{site.data.keyword.containerlong_notm}} <img src="../icons/launch-glyph.svg" alt="External link icon"></a> blog post to get started.</dd>
+    <dd>By configuring Ingress in a standard cluster you can secure your apps at the cluster level. Check out the <a href="/docs/containers?topic=containers-comm-ingress-annotations#app-id">{{site.data.keyword.appid_short_notm}} authentication Ingress annotation</a> or the <a href="https://www.ibm.com/cloud/blog/announcing-app-id-integration-ibm-cloud-kubernetes-service">Announcing {{site.data.keyword.appid_short_notm}} integration to {{site.data.keyword.containerlong_notm}} <img src="../icons/launch-glyph.svg" alt="External link icon"></a> blog post to get started.</dd>
   <dt>{{site.data.keyword.openwhisk_short}} and {{site.data.keyword.apiconnect_short}}</dt>
     <dd>When you create your APIs with [{{site.data.keyword.openwhisk_short}}](/docs/openwhisk?topic=openwhisk-getting-started) and [API Connect](/docs/apiconnect?topic=apiconnect-getting-started), you can secure your applications at the gateway rather than in your app code.</dd>
   <dt>Cloud Foundry</dt>
