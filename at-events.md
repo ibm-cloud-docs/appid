@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-06-04"
+lastupdated: "2021-06-07"
 
 keywords: user events, track activity, manage events, analyze, administrative, runtime, sign in, settings, app security
 
@@ -105,7 +105,7 @@ Some of the action names were changed as part of an alignment to new guidelines.
 | `appid.roles.create` | Create a role. | Can be found in the **Profiles and roles > Roles** tab. | 
 | `appid.role.read` | View the role. | Can be found in the **Profiles and roles > Roles** tab. | 
 | `appid.role.update` | Update the role. | Can be found in the **Profiles and roles > Roles** tab. | 
-| `appid.applications.read` | View the applications list. | Can be found in the **Applications**tab. | 
+| `appid.applications.read` | View the applications list. | Can be found in the **Applications** tab. | 
 | `appid.applications.create` | Create an application. | Can be found in the **Applications** tab. |
 | `appid.application.read` | View the application. | Can be found in the **Applications** tab. | 
 | `appid.application.update` | Update the application. | Can be found in the **Applications** tab. | 
@@ -153,7 +153,7 @@ Some of the action names were changed as part of an alignment to new guidelines.
 | `appid.advanced-password-management.read` | View the advanced password policy configurations. | Can be found in the **Cloud Directory > Password Policies** tab. |
 | `appid.advanced-password-management.update` | Update the advanced password policy configurations. | Can be found in the **Cloud Directory > Password Policies** tab. |
 | `appid.user-password.update` | Set a new password for the Cloud Directory user. | Must be done through the API. | 
-| `appid.capture-runtime-activity.read` | iew runtime activity toggle. | Can be viewed in the **Manage Authentication> Authentication Settings** tab. |
+| `appid.capture-runtime-activity.read` | View runtime activity toggle. | Can be viewed in the **Manage Authentication> Authentication Settings** tab. |
 | `appid.capture-runtime-activity.update` | Toggle runtime activity monitoring. | Can be updated in the **Manage Authentication> Authentication Settings** tab. |
 | `appid.mfa.read` | View your MFA configurations. | Can be found in the <strong>Cloud Directory > Multi-factor Authentication</strong> tab. | 
 | `appid.mfa.update` | Update your MFA configurations. | Can be found in the **Cloud Directory > Multi-factor Authentication** tab. |

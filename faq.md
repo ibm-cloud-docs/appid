@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-05-28"
+lastupdated: "2021-06-07"
 
 keywords: pricing, advanced security, authentication events, authorized users, activity tracking, runtime activity, password policies, keycloak, allow list redirect url, redirect uri 
 
@@ -143,7 +143,7 @@ Check out the following table for answers to commonly asked questions about encr
 | How are keys stored? | Keys are generated, encrypted with a master key that is specific to each region, and then stored locally. The master keys are stored in [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-getting-started-tutorial). Each region has its own root-of-trust key that is stored in [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-getting-started-tutorial), which is backed up by HSM. Each service instance (tenant) has its own data encryption and token signature keys, which are encrypted by using the region's root-of-key trust. | 
 | What is the key strength that you use? | The service uses 16 bytes. | 
 | Do you invoke any remote APIs that expose encryption capabilities | No, we do not. |
-{: caption="Table 2. Frequently asked questions about how {{site.data.keyword.appid_short_notm}}handles encryption" caption-side="top"}
+{: caption="Table 2. Frequently asked questions about how {{site.data.keyword.appid_short_notm}} handles encryption" caption-side="top"}
 
 
 ## What clock synchronization does {{site.data.keyword.appid_short_notm}} use?

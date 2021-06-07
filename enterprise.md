@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-06-02"
+lastupdated: "2021-06-07"
 
 keywords: saml, enterprise apps, assertions, single sign on, tokens, authorization, user authentication, key cloak, redhat, cloud identity, sso, single sign on, xml signature, service provider, identity provider, app security
 
@@ -162,7 +162,7 @@ The service expects a SAML assertion to look like the following example.
 ## Configuring SAML identity providers to work with {{site.data.keyword.appid_short_notm}}
 {: #saml-configure}
 
-You can configure SAML identity providers to work with {{site.data.keyword.appid_short_notm}}by providing metadata from {{site.data.keyword.appid_short_notm}} to your identity provider and metadata from your identity provider to {{site.data.keyword.appid_short_notm}}.
+You can configure SAML identity providers to work with {{site.data.keyword.appid_short_notm}} by providing metadata from {{site.data.keyword.appid_short_notm}} to your identity provider and metadata from your identity provider to {{site.data.keyword.appid_short_notm}}.
 
 
 
@@ -249,7 +249,7 @@ You can obtain data from your identity provider and provide it to {{site.data.ke
     </tr>
   </table>
 
-2. Optional: Provide a **Secondary certificate** that is used if signature validation fails on the primary certificate. If the signing key remains the same, {{site.data.keyword.appid_short_notm}}does not block authentication for expired certificates.
+2. Optional: Provide a **Secondary certificate** that is used if signature validation fails on the primary certificate. If the signing key remains the same, {{site.data.keyword.appid_short_notm}} does not block authentication for expired certificates.
 3. Update the **Provider Name**, and click **Save**. The default name is SAML.
 
 Want to set an authentication context? You can do so through the API.
