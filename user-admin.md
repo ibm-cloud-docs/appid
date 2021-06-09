@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-06-07"
+lastupdated: "2021-06-09"
 
 keywords: user information, add users, delete users, profile, access, attributes, admin, app security, authentication, authorization
 
@@ -287,7 +287,7 @@ As an administrator, you can remove someone as a user of your application by del
   ```
   {: screen}
 
-3. By using the ID that you obtained in the previous step, make a `DELETE` request to the `/users` endpoint to see their full user profile.
+3. By using the ID that you obtained in the previous step, make a `DELETE` request to the `/users` endpoint to delete the profile.
 
     ```sh
     curl -X DELETE "https://<region>.appid.cloud.ibm.com/management/v4/<tenant-ID>/users/<user-id>/profile" \
