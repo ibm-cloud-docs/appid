@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-06-07"
+lastupdated: "2021-06-11"
 
 keywords: user events, track activity, manage events, analyze, administrative, runtime, sign in, settings, app security
 
@@ -155,10 +155,10 @@ Some of the action names were changed as part of an alignment to new guidelines.
 | `appid.user-password.update` | Set a new password for the Cloud Directory user. | Must be done through the API. | 
 | `appid.capture-runtime-activity.read` | View runtime activity toggle. | Can be viewed in the **Manage Authentication> Authentication Settings** tab. |
 | `appid.capture-runtime-activity.update` | Toggle runtime activity monitoring. | Can be updated in the **Manage Authentication> Authentication Settings** tab. |
-| `appid.mfa.read` | View your MFA configurations. | Can be found in the <strong>Cloud Directory > Multi-factor Authentication</strong> tab. | 
+| `appid.mfa.read` | View your MFA configurations. | Can be found in the **Cloud Directory > Multi-factor Authentication** tab. | 
 | `appid.mfa.update` | Update your MFA configurations. | Can be found in the **Cloud Directory > Multi-factor Authentication** tab. |
 | `appid.mfa-channels.read` | View your MFA channels. | Can be found in the **Cloud Directory > Multi-factor Authentication** tab. |
-| `appid.mfa-channel.read` | View your MFA channels configurations. | Can be found in the **Cloud Directory > Multi-factor Authentication</strong> tab. |
+| `appid.mfa-channel.read` | View your MFA channels configurations. | Can be found in the **Cloud Directory > Multi-factor Authentication** tab. |
 | `appid.mfa-channel.update` | Update your channels. | Can be found in the **Cloud Directory > Multi-factor Authentication** tab. |
 | `appid.sms-dispatcher-test.send` | Test the SMS dispatcher configurations. | Can be found in the **Cloud Directory > Multi-factor Authentication > SMS Provider** tab. |
 | `appid.mfa-extension-premfa.read` | View your pre-MFA extension configuration. | Must be done through the API. |
