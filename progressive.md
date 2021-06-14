@@ -83,6 +83,7 @@ In the following image, you can see the direction of communication that defines 
 
 ![The path to becoming an identified user when they start as anonymous](images/auth-anon-user.svg){: caption="Figure 2. Progressive authentication flow of anonymous user" caption-side="bottom"}
 
+
 1. The user chooses not to sign in .  
 2. The client notifies {{site.data.keyword.appid_short_notm}} that the user wants to interact with your app as an anonymous user. 
 3. {{site.data.keyword.appid_short_notm}} creates an ad hoc user profile and calls the OAuth login that issues anonymous access identity tokens for the anonymous user. 
