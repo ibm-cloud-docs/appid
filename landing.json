@@ -1,0 +1,68 @@
+{
+    "title": "App ID docs",
+    "lastupdated": "2021-06-18",
+    "introduction": "With IBM Cloud App ID, you can easily add authentication to your web and mobile apps with few lines of code.",
+    "section_devtools": {
+      "api": "/apidocs/app-id/management"
+    },
+    "section_recommended": [
+      {
+        "title": "Add App ID",
+        "description": "Choose the type of application and authentication flow that you want to work with.",
+        "href": "/docs/appid?topic=appid-adding-overview"
+      },
+      {
+        "title": "Configure Cloud Directory",
+        "description": "Set up your own user registry to allow users to sign in with an email and password.",
+        "href": "/docs/appid?topic=appid-cloud-directory"
+      },
+      {
+        "title": "Controlling access",
+        "description": "Define which users and applications can access specific features or perform specific actions in your apps.",
+        "href": "/docs/appid?topic=appid-access-control"
+      }
+    ],
+    "section_videos": [
+      {
+        "title": "Title of video",
+        "href": "/docs/account?topic=account-enterprise-video", 
+        "thumbnail": "/images/enterprise-video-thumbnail.png" 
+      },
+      {
+        "title": "Title of video",
+        "href": "/docs/account?topic=account-enterprise-video",
+        "thumbnail": "/images/enterprise-video-thumbnail.png"
+      },
+      {
+        "title": "Title of video",
+        "href": "/docs/account?topic=account-enterprise-video",
+        "thumbnail": "/images/enterprise-video-thumbnail.png"
+      }
+    ],
+    "section_learn": {
+      "developer": "https://developer.ibm.com/depmodels/cloud/",
+      "architecture": "https://www.ibm.com/cloud/architecture/security",
+      "training": "https://www.ibm.com/training/cloud",
+      "community": "https://community.ibm.com/community/user/publiccloud/home"
+    },
+    "section_updates": {
+      "view_more": "/docs/appid?topic=appid-release-notes",
+      "tiles": [
+        {
+          "date": "February 2021",
+          "title": "Ingress annotation is updated",
+          "description": "The custom Kubernetes Service Ingress annotation is deprecated. So, the App ID annotation has been updated to use the community Kubernetes image."
+        },
+        {
+          "date": "November 2020",
+          "title": "App to app access control",
+          "description": "You can now control which actions that an application is able to perform in your apps through role-based app-to-app access control."
+        },
+        {
+          "date": "June 2020",
+          "title": "Securing your App ID data",
+          "description": "You can now restore deleted instances of App ID during the data retention period."
+        }
+      ]
+    }
+  }
