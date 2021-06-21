@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-06-17"
+lastupdated: "2021-06-21"
 
 keywords: anonymous authentication, progressive authentication, profile, user profile, authorization, sign in, secure app, identity provider, authorization
 
@@ -69,14 +69,14 @@ In the following image, you can see the direction of communication that defines 
 ![The path to becoming an identified user when they start as anonymous](images/auth-anon-user.svg){: caption="Figure 1. Progressive authentication flow of anonymous user" caption-side="bottom"}
 
 1. The user interacts with areas of your app that do not require authentication. 
-2. The client notifies {{site.data.keyword.appid_short_notm}} that the user wants to interact with your app as an anonymous user. 
+2. Your application notifies {{site.data.keyword.appid_short_notm}} that the user wants to interact with your app as an anonymous user. 
 3. {{site.data.keyword.appid_short_notm}} creates an ad hoc user profile and calls the OAuth login that issues anonymous access identity tokens for the anonymous user. 
 4. Using the tokens from {{site.data.keyword.appid_short_notm}}, you can create, read, update, and delete the attributes that are store in the user profile. 
-5. A user may choose to sign in at a later stage in the progressive authentication flow.
-6. The client notifies {{site.data.keyword.appid_short_notm}} that the user wants to interact with your app as an identified user. 
+5. The user may choose to sign in to access additional features of your app.
+6. Your application notifies {{site.data.keyword.appid_short_notm}} that the user wants to interact with your app as an identified user. 
 7. {{site.data.keyword.appid_short_notm}} returns the login widget to your app. 
 8. The user selects their preferred identity provider. 
-9. The client informs {{site.data.keyword.appid_short_notm}} that the user has selected an identity provider.
+9. Your application informs {{site.data.keyword.appid_short_notm}} that the user has selected an identity provider.
 10. {{site.data.keyword.appid_short_notm}} authenticates the call with the identity provider. 
 11. The identity provider confirms whether the login was successful. 
 12. {{site.data.keyword.appid_short_notm}} uses the anonymous access token to find the anonymous profile and attaches the user's identity to it.
