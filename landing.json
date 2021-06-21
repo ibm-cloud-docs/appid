@@ -1,13 +1,13 @@
 {
-    "title": "App ID docs",
-    "lastupdated": "2021-06-18",
-    "introduction": "With IBM Cloud App ID, you can easily add authentication to your web and mobile apps with few lines of code.",
+    "title": "{{site.data.keyword.appid_short_notm}} docs",
+    "lastupdated": "2021-06-21",
+    "introduction": "With {{site.data.keyword.cloud_notm}} {{site.data.keyword.appid_short_notm}}, you can easily add authentication to your web and mobile apps with few lines of code.",
     "section_devtools": {
       "api": "/apidocs/app-id/management"
     },
     "section_recommended": [
       {
-        "title": "Add App ID",
+        "title": "Add {{site.data.keyword.appid_short_notm}}",
         "description": "Choose the type of application and authentication flow that you want to work with.",
         "href": "/docs/appid?topic=appid-adding-overview"
       },
@@ -24,19 +24,19 @@
     ],
     "section_videos": [
       {
-        "title": "Title of video",
-        "href": "/docs/account?topic=account-enterprise-video", 
-        "thumbnail": "/images/enterprise-video-thumbnail.png" 
+        "title": "About {{site.data.keyword.appid_short_notm}}",
+        "href": "/docs/appid?topic=appid-about", 
+        "thumbnail": "/images/appid-about-video-thumbnail.png" 
       },
       {
-        "title": "Title of video",
-        "href": "/docs/account?topic=account-enterprise-video",
-        "thumbnail": "/images/enterprise-video-thumbnail.png"
+        "title": "Protecting Node.js Backend Applications",
+        "href": "/docs/appid?topic=appid-backend",
+        "thumbnail": "/images/appid-nodejs-video-thumbnail.png"
       },
       {
-        "title": "Title of video",
-        "href": "/docs/account?topic=account-enterprise-video",
-        "thumbnail": "/images/enterprise-video-thumbnail.png"
+        "title": "Using the {{site.data.keyword.appid_short_notm}} Management API",
+        "href": "/docs/appid?topic=appid-regions-endpoints#api-try",
+        "thumbnail": "/images/appid-mng-api-video-thumbnail.png"
       }
     ],
     "section_learn": {
@@ -51,7 +51,7 @@
         {
           "date": "February 2021",
           "title": "Ingress annotation is updated",
-          "description": "The custom Kubernetes Service Ingress annotation is deprecated. So, the App ID annotation has been updated to use the community Kubernetes image."
+          "description": "The custom Kubernetes Service Ingress annotation is deprecated. So, the {{site.data.keyword.appid_short_notm}} annotation has been updated to use the community Kubernetes image."
         },
         {
           "date": "November 2020",
@@ -60,8 +60,8 @@
         },
         {
           "date": "June 2020",
-          "title": "Securing your App ID data",
-          "description": "You can now restore deleted instances of App ID during the data retention period."
+          "title": "Securing your {{site.data.keyword.appid_short_notm}} data",
+          "description": "You can now restore deleted instances of {{site.data.keyword.appid_short_notm}} during the data retention period."
         }
       ]
     }
