@@ -71,7 +71,7 @@ In the following image, you can see the direction of communication that defines 
 1. The user interacts with areas of your app that do not require authentication. 
 2. Your application notifies {{site.data.keyword.appid_short_notm}} that the user wants to interact with your app as an anonymous user. 
 3. {{site.data.keyword.appid_short_notm}} creates an ad hoc user profile and calls the OAuth login that issues anonymous access identity tokens for the anonymous user. 
-4. Using the tokens from {{site.data.keyword.appid_short_notm}}, you can create, read, update, and delete the attributes that are store in the user profile. 
+4. Using the tokens from {{site.data.keyword.appid_short_notm}}, you can create, read, update, and delete the attributes that are stored in the user profile. 
 5. The user may choose to sign in to access additional features of your app.
 6. Your application notifies {{site.data.keyword.appid_short_notm}} that the user wants to interact with your app as an identified user. 
 7. {{site.data.keyword.appid_short_notm}} returns the login widget to your app. 
