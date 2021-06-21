@@ -44,42 +44,33 @@ subcollection: appid
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
 
+
+
 # Anonymous authentication
 {: #anonymous}
 
-With {{site.data.keyword.appid_full}}, you can allow users to anonymously browse your application under an anonymous user profile. If the user chooses to sign in, you can allow them to still access their anonymous attributes by attaching their anonymous profile to their user identity with {{site.data.keyword.appid_short_notm}}.
+When you develop an application, there might be times when you want to let a user interact with pieces of your app before they're signed in. By decoupling the authentication and authorization processes, {{site.data.keyword.appid_full}} allows you to provide a seamless experience between protected and open resources in your applications.
 {: shortdesc}
 
-## Understanding the progressive authentication flow
+For example, say you're an online retailer, you might want to let users browse your inventory and place items in a shopping cart. As the retailer, you don't know who the user is, so they're anonymous. A user might remain anonymous if they never choose to sign in. If they do choose to sign in, then the anonymous becomes a known user. If the user is a new known user, a profile is created. If the user has previously visited your app, then their anonymous profile is linked with their user profile.
+
+
+![The path to becoming an identified user.](images/authenticationtrail.png){: caption="Figure 1. The path to becoming an identified user" caption-side="bottom"}
+
+When a user successfully signs in, they become an identified user. The identity provider returns access and identity tokens that contain information about the user to {{site.data.keyword.appid_short_notm}}. The service takes the provided tokens and determines whether a user has the proper credentials to access an app. If the tokens are validated, then the service authorizes the users access to the app. The authentication information is associated with the user's profile after they are authorized. The profile and its attributes can be accessed again from any client that authenticates with the same identity provider.
+
+## Progressive authentication
 {: #progressive}
 
-When a user chooses not to sign in immediately, they are considered an anonymous user. In an example of you as an online retailer, an anonymous user can have limited interactions with your app such as adding objects to a shopping cart. However, you might require users to sign in to check out the items in the shopping cart. When a user chooses to sign in, you can allow users to access the same objects that are placed in their shopping carts before they sign in. 
+With {{site.data.keyword.appid_short_notm}}, an anonymous user can choose to become an identified user.
 
-You can use {{site.data.keyword.appid_short_notm}} to create a user profile and issue anonymous access and identity tokens for anonymous users. Using these tokens, you can customize the user's experience of your app by managing the attributes that are stored in the anonymous user profile. When the user signs in, you can link their anonymous profile with their user profile. 
+When a user chooses not to sign in immediately, they are considered an anonymous user. For example, a user might immediately start adding items to a shopping cart without signing in. For anonymous users, {{site.data.keyword.appid_short_notm}} creates an ad hoc user profile and calls the OAuth login API that returns anonymous access and identity tokens. By using these tokens, the app can create, read, update, and delete the attributes that are stored in the user profile.
 
-You can assign an identity to an anonymous profile only if it is not already assigned to another user.
+![The path to becoming an identified user when they start as anonymous](images/anon-authenticationtrail.png){: caption="Figure 2. The path to becoming an identified user from anonymous" caption-side="bottom"}
+
+When an anonymous user signs in, their access token is passed to the login API. The service authenticates the call with an identity provider. The service uses the access token to find the anonymous profile and attaches the user's identity to it. The new access and identity tokens contain the public information that is shared by the identity provider. After a user is identified, their anonymous token becomes invalid. However, a user is still able to access their attributes because they're accessible with the new token.
+
+An identity can be assigned to an anonymous profile only if it is not already assigned to another user.
 {: tip}
 
-If the identity is already associated with another {{site.data.keyword.appid_short_notm}} user, the tokens contain information of that user profile and provide access to their attributes. The previously anonymous user's attributes are not accessible through the new token. Until the token expires, the user can still access information through the anonymous access token. While you develop your app, you can choose how to merge the anonymous attributes to the known user.
-
-### What does the progressive authentication flow look like? 
-
-In the following image, you can see the direction of communication that defines the progressive authentication flow between the user, your application, {{site.data.keyword.appid_short_notm}}, and the identity provider.
-
-![The path to becoming an identified user when they start as anonymous](images/auth-anon-user.svg){: caption="Figure 1. Progressive authentication flow of anonymous user" caption-side="bottom"}
-
-1. The user interacts with areas of your app that do not require authentication. 
-2. Your application notifies {{site.data.keyword.appid_short_notm}} that the user wants to interact with your app as an anonymous user. 
-3. {{site.data.keyword.appid_short_notm}} creates an ad hoc user profile and calls the OAuth login that issues anonymous access identity tokens for the anonymous user. 
-4. Using the tokens from {{site.data.keyword.appid_short_notm}}, you can create, read, update, and delete the attributes that are stored in the user profile. 
-5. The user might choose to sign in to access more features of your app.
-6. Your application notifies {{site.data.keyword.appid_short_notm}} that the user wants to interact with your app as an identified user. 
-7. {{site.data.keyword.appid_short_notm}} returns the login widget to your app. 
-8. The user selects their preferred identity provider. 
-9. Your application informs {{site.data.keyword.appid_short_notm}} that the user selected an identity provider.
-10. {{site.data.keyword.appid_short_notm}} authenticates the call with the identity provider. 
-11. The identity provider confirms whether the login was successful. 
-12. {{site.data.keyword.appid_short_notm}} uses the anonymous access token to find the anonymous profile and attaches the user's identity to it.
-13. After {{site.data.keyword.appid_short_notm}} creates the new tokens, the service invalidates the user's anonymous token. 
-14. {{site.data.keyword.appid_short_notm}} returns the new access and identity tokens. The new tokens contain the public information that is shared by the identity provider and the attributes of the user's former anonymous profile. 
-15. When the user successfully signs in, they become an identified user. 
+If the identity is already associated with another {{site.data.keyword.appid_short_notm}} user, the tokens contain information of that user profile and provide access to their attributes. The previous anonymous user's attributes are not accessible through the new token. Until the token expires, the information can still be accessed through the anonymous access token. While you develop your app, you can choose how to merge the anonymous attributes to the known user.
