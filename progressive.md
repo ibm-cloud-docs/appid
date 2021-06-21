@@ -53,7 +53,7 @@ With {{site.data.keyword.appid_full}}, you can allow users to anonymously browse
 ## Understanding the progressive authentication flow
 {: #progressive}
 
-When a user chooses not to sign in immediately, they are considered an anonymous user. In an example of you as an online retailer, an anonymous user can have limited interactions with your app such as adding objects to a shopping cart. However, you may require users to sign in to check out the items in the shopping cart. When a user chooses to sign in, you can ensure a positive user experience by letting users access the same objects placed in their shopping carts before they signed in. 
+When a user chooses not to sign in immediately, they are considered an anonymous user. In an example of you as an online retailer, an anonymous user can have limited interactions with your app such as adding objects to a shopping cart. However, you might require users to sign in to check out the items in the shopping cart. When a user chooses to sign in, you can allow users to access the same objects that are placed in their shopping carts before they sign in. 
 
 You can use {{site.data.keyword.appid_short_notm}} to create a user profile and issue anonymous access and identity tokens for anonymous users. Using these tokens, you can customize the user's experience of your app by managing the attributes that are stored in the anonymous user profile. When the user signs in, you can link their anonymous profile with their user profile. 
 
@@ -72,11 +72,11 @@ In the following image, you can see the direction of communication that defines 
 2. Your application notifies {{site.data.keyword.appid_short_notm}} that the user wants to interact with your app as an anonymous user. 
 3. {{site.data.keyword.appid_short_notm}} creates an ad hoc user profile and calls the OAuth login that issues anonymous access identity tokens for the anonymous user. 
 4. Using the tokens from {{site.data.keyword.appid_short_notm}}, you can create, read, update, and delete the attributes that are stored in the user profile. 
-5. The user may choose to sign in to access additional features of your app.
+5. The user might choose to sign in to access more features of your app.
 6. Your application notifies {{site.data.keyword.appid_short_notm}} that the user wants to interact with your app as an identified user. 
 7. {{site.data.keyword.appid_short_notm}} returns the login widget to your app. 
 8. The user selects their preferred identity provider. 
-9. Your application informs {{site.data.keyword.appid_short_notm}} that the user has selected an identity provider.
+9. Your application informs {{site.data.keyword.appid_short_notm}} that the user selected an identity provider.
 10. {{site.data.keyword.appid_short_notm}} authenticates the call with the identity provider. 
 11. The identity provider confirms whether the login was successful. 
 12. {{site.data.keyword.appid_short_notm}} uses the anonymous access token to find the anonymous profile and attaches the user's identity to it.
