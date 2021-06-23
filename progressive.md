@@ -57,9 +57,9 @@ When a user chooses not to sign in immediately, they are considered an anonymous
 
 You can use {{site.data.keyword.appid_short_notm}} to create an anonymous user profile and issue anonymous tokens for users who browse your app anonymously. Using these anonymous tokens, you can customize the user's experience of your app by managing the attributes that are stored in the anonymous user profile. If the user signs in, you can link their anonymous profile with their existing identified user profile until the anonymous tokens expire. For more information about configuring token lifetime, check out [Managing authentication](/docs/appid?topic=appid-managing-idp#idp-token-lifetime).
 
-If an existing identified user profile does not exist, you can create a new identified user profile. You can only assign one anonymous profile to an identified user profile.
+If an existing identified user profile does not exist, you can create a new identified user profile. You can assign only one anonymous profile to an identified user profile.
 
-If the existing identified user profile is already associated with an existing anonymous user, the access and identity tokens will only provide access to that existing anonymous profile's attributes. The access and identity tokens will not provide access to a new anonymous profile. However, until the new anonymous token expires, the user can still access information available through the new anonymous token. While you develop your app, you can choose how to merge new anonymous attributes to existing identified user profiles.
+If the existing identified user profile is already associated with an existing anonymous user, the access and identity tokens provide access only to that existing anonymous profile's attributes. The access and identity tokens do not provide access to a new anonymous profile. However, until the new anonymous token expires, the user can still access information available through the new anonymous token. While you develop your app, you can choose how to merge new anonymous attributes to existing identified user profiles.
 
 ### What does the progressive authentication flow look like? 
 
