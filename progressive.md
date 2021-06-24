@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-06-23"
+lastupdated: "2021-06-24"
 
 keywords: anonymous authentication, progressive authentication, profile, user profile, authorization, sign in, secure app, identity provider, authorization
 
@@ -50,16 +50,18 @@ subcollection: appid
 With {{site.data.keyword.appid_full}}, you can allow users to anonymously browse your application under an anonymous user profile. If the user chooses to sign in, you can allow them to still access their anonymous attributes by attaching their anonymous profile to their user identity with {{site.data.keyword.appid_short_notm}}.
 {: shortdesc}
 
-## Understanding the progressive authentication flow
+## Understanding progressive authentication 
 {: #progressive}
 
-When a user chooses not to sign in immediately, they are considered an anonymous user. In an example of you as an online retailer, an anonymous user can have limited interactions with your app such as adding objects to a shopping cart. However, you might require users to sign in to check out the items in the shopping cart. If a user chooses to sign in, you can allow them to access the same objects that are placed in their shopping carts before they sign in. 
+When a user chooses not to sign in immediately, they are considered an anonymous user. For example, say you're an online retailer and you want to allow users to add objects to their shopping cart without signing in. However, you ask them to sign in to complete their purchase. If a user chooses to sign in, you can allow them to access the same objects that were in their shopping carts before they signed in. 
 
-You can use {{site.data.keyword.appid_short_notm}} to create an anonymous user profile and issue anonymous tokens for users who browse your app anonymously. Using these anonymous tokens, you can customize the user's experience of your app by managing the attributes that are stored in the anonymous user profile. If the user signs in and the anonymous tokens did not expire, you can link their anonymous profile with their existing identified user profile. For more information about configuring token lifetime, check out [Managing authentication](/docs/appid?topic=appid-managing-idp#idp-token-lifetime).
+You can use {{site.data.keyword.appid_short_notm}} to gather information about anonymous users into an anonymous user profile, which you can use to help personalize their experience of your application. If the user chooses to signs in, you can attach the user attributes that are part of the anonymous profile to their user identity that is stored in {{site.data.keyword.appid_short_notm}}. Anonymous profiles are temporarily valid. While you develop your app, you can [configure the lifetime](/docs/appid?topic=appid-managing-idp#idp-token-lifetime) of anonymous tokens. 
 
-If an existing identified user profile does not exist, you can create a new identified user profile. After a user is identified, {{site.data.keyword.appid_short_notm}} issues new access and identity tokens and their anonymous token becomes invalid. However, an identified user can still access the attributes of their anonymous profile because they are accessible with the new access and identity tokens. 
+When a user signs in, they become an identified user. If an existing identified user profile does not exist, you can create a new identified user profile. After a user is identified, {{site.data.keyword.appid_short_notm}} issues new access and identity tokens and their anonymous token becomes invalid. However, an identified user can still access the attributes of their anonymous profile because they are accessible with the new access and identity tokens. 
 
-You can assign only one anonymous profile to an identified user profile. If an existing identified user profile is already associated with an existing anonymous user, the associated access and identity tokens provide access only to that existing anonymous profile's attributes. The access and identity tokens do not provide access to a new anonymous profile created in a different session. However, until a new anonymous token expires or is invalidated by {{site.data.keyword.appid_short_notm}}, a user can still access information available through the new anonymous token. While you develop your app, you can choose how to merge new anonymous attributes to existing identified user profiles.
+You can attach the attributes of only one anonymous profile to the user's identity that is stored in {{site.data.keyword.appid_short_notm}}. For example, say that a user browses your application anonymously in two separate browser tabs. The user adds a t-shirt to the shopping cart on the first tab and a pair of shorts to the cart on the second tab. {{site.data.keyword.appid_short_notm}} creates two separate anonymous profiles to track the interactions of the user with your application on each tab. 
+
+If the user chooses to sign in from the first tab, then they have access only to the t-shirt they added to their cart before they signed in. In this case, {{site.data.keyword.appid_short_notm}} attaches only the attributes of the anonymous profile on the first tab to the user's identity. The service does not merge the anonymous profile that is created on the second tab to the user's identity stored in App ID. But the user can still access the shorts anonymously on the second tab because they are still accessible with the anonymous profile that was created on the second tab. While you develop your app, you can configure how to attach anonymous attributes to identified user profiles.
 
 ### What does the progressive authentication flow look like? 
 
