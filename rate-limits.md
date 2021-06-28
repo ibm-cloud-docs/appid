@@ -86,9 +86,9 @@ The following table lists the maximum per user limits for {{site.data.keyword.ap
 | Roles per {{site.data.keyword.appid_short_notm}} instance | 50 |   |
 | Scopes per application | 50 |   |
 | Applications per {{site.data.keyword.appid_short_notm}} instance | 200 |   | 
-| Users per instance | 100,000 | User receives error message |
-| User changes per day | 10,000 | User receives error message |
-| Users per instance | 500,000 | User receives error message |
+| Users per instance | 100,000 | |
+| User changes per day | 10,000 | |
+| Users per instance | 500,000 | |
 {: caption="Table 2. General rate limits" caption-side="top"}
 
 
