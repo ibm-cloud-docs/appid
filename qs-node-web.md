@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-09"
+lastupdated: "2021-06-30"
 
 keywords: web apps, nodejs, node, javascript, protected resource, authorization flow, front end, frontend, app security, authentication
 
@@ -88,7 +88,7 @@ Before you get started with {{site.data.keyword.appid_short_notm}} in your Node.
 {: shortdesc}
 
 * An instance of [the {{site.data.keyword.appid_short_notm}} service](https://cloud.ibm.com/catalog/services/app-id){: external}
-* [NPM version 4+](https://www.npmjs.com/get-npm){: external}
+* [NPM version 4+](https://docs.npmjs.com/getting-started){: external}
 * [Node version 6+](https://nodejs.org/en/download/){: external}
 
 This SDK uses the `log4js` package for logging. By default, the logging level is set to `info`. To create your own logging configuration, add a `log4js.json` file and set the `process.env.LOG4JS_CONFIG` environment variable to your JSON file.
