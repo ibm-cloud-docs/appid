@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-06-07"
+lastupdated: "2021-07-06"
 
 keywords: rate limits, traffic control, limit request, lite instances, per minute, per instance, per user, limits
 
@@ -67,7 +67,7 @@ You can have 1 lite instance of {{site.data.keyword.appid_short_notm}} per accou
 {: note}
 
 | Resource | Limit |  
-|:---------|:---s---| 
+|:---------|:------| 
 | Users | 1000 |
 | Authentications | 1000 per month |
 {: caption="Table 1. Limits for lite instances" caption-side="top"}
@@ -85,7 +85,8 @@ The following table lists the maximum per user limits for {{site.data.keyword.ap
 | Delete user profile attributes | 5 per minute | User unable to update profile for 1 minute. |
 | Roles per {{site.data.keyword.appid_short_notm}} instance | 50 |   |
 | Scopes per application | 50 |   |
-| Applications per {{site.data.keyword.appid_short_notm}} instance | 200 |   | 
+| Applications per {{site.data.keyword.appid_short_notm}} instance | 200 |   |
+| Users per instance | 100,000 | |
 {: caption="Table 2. General rate limits" caption-side="top"}
 
 

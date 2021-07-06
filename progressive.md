@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-06-21"
+lastupdated: "2021-07-06"
 
 keywords: anonymous authentication, progressive authentication, profile, user profile, authorization, sign in, secure app, identity provider, authorization
 
@@ -44,10 +44,10 @@ subcollection: appid
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
 
-
-
 # Anonymous authentication
 {: #anonymous}
+
+
 
 When you develop an application, there might be times when you want to let a user interact with pieces of your app before they're signed in. By decoupling the authentication and authorization processes, {{site.data.keyword.appid_full}} allows you to provide a seamless experience between protected and open resources in your applications.
 {: shortdesc}
@@ -74,3 +74,4 @@ An identity can be assigned to an anonymous profile only if it is not already as
 {: tip}
 
 If the identity is already associated with another {{site.data.keyword.appid_short_notm}} user, the tokens contain information of that user profile and provide access to their attributes. The previous anonymous user's attributes are not accessible through the new token. Until the token expires, the information can still be accessed through the anonymous access token. While you develop your app, you can choose how to merge the anonymous attributes to the known user.
+
