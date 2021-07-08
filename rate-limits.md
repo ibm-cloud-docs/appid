@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-07-06"
+lastupdated: "2021-07-08"
 
 keywords: rate limits, traffic control, limit request, lite instances, per minute, per instance, per user, limits
 
@@ -87,6 +87,8 @@ The following table lists the maximum per user limits for {{site.data.keyword.ap
 | Scopes per application | 50 |   |
 | Applications per {{site.data.keyword.appid_short_notm}} instance | 200 |   |
 | Users per instance | 100,000 | |
+| Management APIs requests per second | 50 per second | Requests will be blocked for 30 seconds |
+| All other APIs requests per second | 200 per second | Requests will be blocked for 30 seconds |
 {: caption="Table 2. General rate limits" caption-side="top"}
 
 
