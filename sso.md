@@ -197,7 +197,7 @@ Authorization: Bearer <IAM_token>
 
 | Variable | Value | 
 |-----|----| 
-| `region` | The region in which your instance of {{site.data.keyword.appid_short_notm}} is provisioned. Learn more about the [available regions](/docs/appid?topic=appid-regions-endpoints)|
+| `region` | The region in which your instance of {{site.data.keyword.appid_short_notm}} is provisioned. Learn more about the [available regions](/docs/appid?topic=appid-regions-endpoints).|
 | `tenant-id` | The unique identifier for your instance of {{site.data.keyword.appid_short_notm}}. You can find this value in the ***Service Credentials*** tab of the {{site.data.keyword.appid_short_notm}} dashboard. If you do not have a set of service credentials, you can create one and take the value from there. |
 | `user-id` | The unique identifier for a Cloud Directory user. You can obtain the ID by using the [Cloud Directory Users APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/), or by viewing the user's identity token. |
 {: caption="Table 3. Variables that are needed to end all SSO sessions for a user" caption-side="top"}

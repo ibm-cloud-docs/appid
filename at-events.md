@@ -275,7 +275,7 @@ To find the user information that aligns with the event GUID, use the following 
 
 3. Copy the IAM token from the **access_token** field in the response.
 
-4. Select a region. Learn more about the <a href="/docs/appid?topic=appid-regions-endpoints">available regions.</a>
+4. Select a region. Learn more about the [available regions](/docs/appid?topic=appid-regions-endpoints).
 
 5. Insert the IAM token, the tenant ID, and the user ID, into the following command to obtain the user information.
 
