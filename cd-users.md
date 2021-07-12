@@ -412,7 +412,7 @@ Now that you have a list of exported Cloud Directory users, you can import them 
     </tr>
     <tr>
       <td><code>region</code></td>
-      <td>Learn more about the <a href="/docs/appid?topic=appid-ha-dr">available regions</a>.</td>
+      <td>Learn more about the <a href="/docs/appid?topic=appid-regions-endpoints">available regions</a>.</td>
     </tr>
     <tr>
       <td><code>IAM token</code></td>

@@ -69,7 +69,7 @@ https://{region}.appid.cloud.ibm.com/oauth/v4/{tenantId}/.well-known/openid-conf
 ```
 {: codeblock}
 
-Learn more about the [available regions](/docs/appid?topic=appid-ha-dr).
+Learn more about the [available regions](/docs/appid?topic=appid-regions-endpoints).
 {: tip}
 
 

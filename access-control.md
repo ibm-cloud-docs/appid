@@ -126,7 +126,7 @@ To create a scope, you can use the {{site.data.keyword.appid_short_notm}} UI.
     </tr>
     <tr>
       <td><code>region</code></td>
-      <td>The region in which your instance of {{site.data.keyword.appid_short_notm}} is provisioned. Learn more about the <a href="/docs/appid?topic=appid-ha-dr">available regions.</a></td>
+      <td>The region in which your instance of {{site.data.keyword.appid_short_notm}} is provisioned. Learn more about the <a href="/docs/appid?topic=appid-regions-endpoints">available regions.</a></td>
     </tr>
     <tr>
       <td><code>tenant_ID</code></td>
@@ -203,7 +203,7 @@ A role is a group of scopes that apply to the same type of user. For example, if
     </tr>
     <tr>
       <td><code>region</code></td>
-      <td>The region in which your instance of {{site.data.keyword.appid_short_notm}} is provisioned. Learn more about the <a href="/docs/appid?topic=appid-ha-dr">available regions.</a></td>
+      <td>The region in which your instance of {{site.data.keyword.appid_short_notm}} is provisioned. Learn more about the <a href="/docs/appid?topic=appid-regions-endpoints">available regions.</a></td>
     </tr>
     <tr>
       <td><code>tenant_ID</code></td>

@@ -177,11 +177,11 @@ You can obtain your credentials in one of two ways.
         </tr>
         <tr>
             <td><code>jwkEndpointUrl</code></td>
-            <td>The endpoint that is used to obtain keys in order to validate the token. Learn more about the <a href="/docs/appid?topic=appid-ha-dr">available regions.</a> You can find your tenant ID in the credentials that you previously created.</td>
+            <td>The endpoint that is used to obtain keys in order to validate the token. Learn more about the <a href="/docs/appid?topic=appid-regions-endpoints">available regions.</a> You can find your tenant ID in the credentials that you previously created.</td>
         </tr>
         <tr>
             <td><code>issuerIdentifier</code></td>
-            <td>The issuer identifier defines your authorization server. Learn more about the <a href="/docs/appid?topic=appid-ha-dr">available regions.</a> You can find your tenant ID in the credentials that you previously created.</td>
+            <td>The issuer identifier defines your authorization server. Learn more about the <a href="/docs/appid?topic=appid-regions-endpoints">available regions.</a> You can find your tenant ID in the credentials that you previously created.</td>
         </tr>
         <tr>
             <td><code>signatureAlgorithm</code></td>
