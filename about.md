@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-06-07"
+lastupdated: "2021-07-09"
 
 keywords: authentication, authorization, identity, app security, cloud directory, user data, identity provider, oauth, protocols, oauth, oidc, disaster recovery, dr, compliance, high availability, ha, secure, HA, DR
 
@@ -79,7 +79,7 @@ To make the sign-in experience easy for your users, with {{site.data.keyword.app
 | Scenario | Solution |
 |-----|----|
 | You need to add [authorization and authentication](/docs/appid?topic=appid-key-concepts) to your mobile and web apps but don't have a background in security. | {{site.data.keyword.appid_short_notm}} makes it easy to add an authentication step to your apps. You can add email or user name, social, or enterprise sign-in to your apps with APIs, SDKs, prebuilt UIs, or your own branded UIs. |
-| ou want to limit access to your apps and back-end resources. | You can secure your apps, back-end resources, and APIs easily by using the standards-based authentication provided by {{site.data.keyword.appid_short_notm}}. |
+| You want to limit access to your apps and back-end resources. | You can secure your apps, back-end resources, and APIs easily by using the standards-based authentication provided by {{site.data.keyword.appid_short_notm}}. |
 | You want to build personalized app experiences for your users. | With {{site.data.keyword.appid_short_notm}}, you can [store user data](/docs/appid?topic=appid-profiles) such as app preferences or information from their public social profiles, and then use that data to customize each experience of your app. |
 | You want to manage users in a scalable way. | With {{site.data.keyword.appid_short_notm}} you can create a [Cloud Directory](/docs/appid?topic=appid-cloud-directory), which makes it possible for you to add user sign-up and sign-in to your apps. Cloud Directory provides you with the framework to maintain a user registry that can scale with your user base. With the pre-built functionality for self-service, such as email verification and password resets, you can be sure that your app is authenticating users securely. |
 {: caption="Table 1. Reasons to use the {{site.data.keyword.appid_short_notm}} service" caption-side="top"}
