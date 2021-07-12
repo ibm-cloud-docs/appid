@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-06-01"
+lastupdated: "2021-07-12"
 
 keywords: sso, single sign on, cloud directory, saml, federated, sign in, log in, log out, authentication, app security, user registry, multiple apps
 
@@ -146,7 +146,7 @@ https://<region>.appid.cloud.ibm.com/oauth/v4/<tenant-id>/cloud_directory/sso/lo
 
 | Variable | Value | 
 |-----|----| 
-| `region` | The region in which your instance of {{site.data.keyword.appid_short_notm}} is provisioned. Options include: `au-syd`, `eu-de`, `eu-gb`, `jp-tok`, and `us-south`.|
+| `region` | The region in which your instance of {{site.data.keyword.appid_short_notm}} is provisioned. Learn more about the [available regions](/docs/appid?topic=appid-regions-endpoints).|
 | `tenant-id` | The unique identifier for your instance of {{site.data.keyword.appid_short_notm}}. You can find this value in the ***Service Credentials*** tab of the {{site.data.keyword.appid_short_notm}} dashboard. If you do not have a set of service credentials, you can create one and take the value from there. |
 | `redirect_uri` | A URI that you specified in your SSO configuration through the {{site.data.keyword.appid_short_notm}} dashboard. For security reasons, if you do not specify a value redirection cannot occur and an error is displayed. |
 | `client_id` | Your application's client ID. | 
@@ -197,7 +197,7 @@ Authorization: Bearer <IAM_token>
 
 | Variable | Value | 
 |-----|----| 
-| `region` | The region in which your instance of {{site.data.keyword.appid_short_notm}} is provisioned. Options include: `us-south`, `eu-gb`, and `eu-de`. |
+| `region` | The region in which your instance of {{site.data.keyword.appid_short_notm}} is provisioned. Learn more about the [available regions](/docs/appid?topic=appid-regions-endpoints).|
 | `tenant-id` | The unique identifier for your instance of {{site.data.keyword.appid_short_notm}}. You can find this value in the ***Service Credentials*** tab of the {{site.data.keyword.appid_short_notm}} dashboard. If you do not have a set of service credentials, you can create one and take the value from there. |
 | `user-id` | The unique identifier for a Cloud Directory user. You can obtain the ID by using the [Cloud Directory Users APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/), or by viewing the user's identity token. |
 {: caption="Table 3. Variables that are needed to end all SSO sessions for a user" caption-side="top"}

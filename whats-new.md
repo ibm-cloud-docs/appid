@@ -2,7 +2,7 @@
 
 copyright:
 years: 2017, 2021
-lastupdated: "2021-06-07"
+lastupdated: "2021-07-12"
 
 keywords: release notes, new, spa, single sign on, mfa, cloud directory, saml, app security, application identity
 
@@ -48,6 +48,16 @@ subcollection: appid
 {: #release-notes}
 
 The following features and changes to the {{site.data.keyword.appid_short_notm}} service are now available.
+
+## July 2021
+{: #February2021}
+
+### New region availability
+{: #july-12-regions}
+
+  As of 12 July 2021, {{site.data.keyword.appid_short_notm}} is now available in the Toronto and Osaka regions. For a detailed list of the regions in which the service is available, see [Regions and endpoints](/docs/appid?topic=appid-regions-endpoints).
+
+
 
 ## February 2021
 {: #February2021}

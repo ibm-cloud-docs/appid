@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2017, 2021
-lastupdated: "2021-06-07"
+lastupdated: "2021-07-12"
 
 keywords: manage users, registry, cloud directory, add user, delete user, tokens, attributes, migrating users, identity provider, app security
 
@@ -412,7 +412,7 @@ Now that you have a list of exported Cloud Directory users, you can import them 
     </tr>
     <tr>
       <td><code>region</code></td>
-      <td>Region options include: <code>au-syd</code>, <code>eu-de</code>, <code>eu-gb</code>, <code>jp-tok</code>, and <code>us-south</code>.</td>
+      <td>Learn more about the <a href="/docs/appid?topic=appid-regions-endpoints">available regions</a>.</td>
     </tr>
     <tr>
       <td><code>IAM token</code></td>
