@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-06-11"
+lastupdated: "2021-07-12"
 
 keywords: user events, track activity, manage events, analyze, administrative, runtime, sign in, settings, app security
 
@@ -275,7 +275,7 @@ To find the user information that aligns with the event GUID, use the following 
 
 3. Copy the IAM token from the **access_token** field in the response.
 
-4. Select a region. Region options include: `au-syd`, `eu-de`, `eu-gb`, `jp-tok`, and `us-south`.
+4. Select a region. Learn more about the <a href="/docs/appid?topic=appid-ha-dr">available regions.</a>
 
 5. Insert the IAM token, the tenant ID, and the user ID, into the following command to obtain the user information.
 

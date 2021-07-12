@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-09"
+lastupdated: "2021-07-12"
 
 keywords: HA for {{site.data.keyword.appid_short_notm}}, DR for {{site.data.keyword.appid_short_notm}}, high availability for {{site.data.keyword.appid_short_notm}}, disaster recovery for {{site.data.keyword.appid_short_notm}}, failover for {{site.data.keyword.appid_short_notm}}
 
@@ -52,8 +52,10 @@ subcollection: appid
 * Dallas (`us-south`)
 * Frankfurt (`eu-de`)
 * London (`eu-gb`)
+* Osaka (`jp-osa`)
 * Sydney (`au-syd`)
 * Tokyo (`jp-tok`)
+* Toronto (`ca-tor`)
 * Washington (`us-east`)
 
 In each supported region, the service exists in multiple availability zones with no single point of failure. However, because {{site.data.keyword.appid_short_notm}} is a regional service, there is no automatic cross-regional failover or cross-regional disaster recovery. If all of the availability zones in a region fail, {{site.data.keyword.appid_short_notm}} becomes unavailable in that location. To establish cross-region high availability and implement a recovery plan, you need to create and maintain backup instances in multiple regions. To synchronize a service instance in one region with an instance in another region, you can use [the APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/){: external}.

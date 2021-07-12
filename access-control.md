@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-06-04"
+lastupdated: "2021-07-12"
 
 keywords: user access, control access, permissions, roles, scopes, runtime, access token, authentication, identity, app security
 
@@ -119,14 +119,14 @@ To create a scope, you can use the {{site.data.keyword.appid_short_notm}} UI.
   {: codeblock}
 
   <table>
-    <caption>Table 2. Required variables to call the /scopes endpoint</caption>
+    <caption>Table 2. Required variables to call the `/scopes` endpoint</caption>
     <tr>
       <th>Variable</th>
       <th>Description</th>
     </tr>
     <tr>
       <td><code>region</code></td>
-      <td>The region in which your instance of {{site.data.keyword.appid_short_notm}} is provisioned. Options include <code>au-syd</code>, <code>eu-de</code>, <code>eu-gb</code>, <code>jp-tok</code>, and <code>us-south</code>.</td>
+      <td>The region in which your instance of {{site.data.keyword.appid_short_notm}} is provisioned. Learn more about the <a href="/docs/appid?topic=appid-ha-dr">available regions.</a></td>
     </tr>
     <tr>
       <td><code>tenant_ID</code></td>
@@ -203,7 +203,7 @@ A role is a group of scopes that apply to the same type of user. For example, if
     </tr>
     <tr>
       <td><code>region</code></td>
-      <td>The region in which your instance of {{site.data.keyword.appid_short_notm}} is provisioned. Options include <code>au-syd</code>, <code>eu-de</code>, <code>eu-gb</code>, <code>jp-tok</code>, and <code>us-south</code>.</td>
+      <td>The region in which your instance of {{site.data.keyword.appid_short_notm}} is provisioned. Learn more about the <a href="/docs/appid?topic=appid-ha-dr">available regions.</a></td>
     </tr>
     <tr>
       <td><code>tenant_ID</code></td>

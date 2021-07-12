@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-04-09"
+lastupdated: "2021-07-12"
 
 keywords: web apps, authorization code, authentication, nodejs, javascript, app access, application credentials, login, redirect uri, protected endpoint, video
 
@@ -326,7 +326,7 @@ Check out the following video to learn about protecting Liberty for Java applica
     </tr>
     <tr>
       <td><code>issuerIdentifier</code></td>
-      <td>The issuer identifier takes the following form: <code>&lt;region>&gt;.cloud.ibm.com</code>. Region options include: <code>au-syd</code>, <code>eu-de</code>, <code>eu-gb</code>, <code>jp-tok</code>, and <code>us-south</code>.</td>
+      <td>The issuer identifier takes the following form: <code>&lt;region>&gt;.cloud.ibm.com</code>. Learn more about the <a href="/docs/appid?topic=appid-ha-dr">available regions.</a></td>
     </tr>
     <tr>
       <td><code>tokenEndpointAuthMethod</code></td>

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-09"
+lastupdated: "2021-07-12"
 
 keywords: back-end apps, java, liberty for java, liberty, identity provider, access management, protected endpoints, access tokens, security, back end
 
@@ -177,11 +177,11 @@ You can obtain your credentials in one of two ways.
         </tr>
         <tr>
             <td><code>jwkEndpointUrl</code></td>
-            <td>The endpoint that is used to obtain keys in order to validate the token. Region options include: <code>au-syd</code>, <code>eu-de</code>, <code>eu-gb</code>, <code>jp-tok</code>, and <code>us-south</code>. You can find your tenant ID in the credentials that you previously created.</td>
+            <td>The endpoint that is used to obtain keys in order to validate the token. Learn more about the <a href="/docs/appid?topic=appid-ha-dr">available regions.</a> You can find your tenant ID in the credentials that you previously created.</td>
         </tr>
         <tr>
             <td><code>issuerIdentifier</code></td>
-            <td>The issuer identifier defines your authorization server. Region options include: <code>au-syd</code>, <code>eu-de</code>, <code>eu-gb</code>, <code>jp-tok</code>, and <code>us-south</code>. You can find your tenant ID in the credentials that you previously created.</td>
+            <td>The issuer identifier defines your authorization server. Learn more about the <a href="/docs/appid?topic=appid-ha-dr">available regions.</a> You can find your tenant ID in the credentials that you previously created.</td>
         </tr>
         <tr>
             <td><code>signatureAlgorithm</code></td>

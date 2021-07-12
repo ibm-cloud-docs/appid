@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-06-01"
+lastupdated: "2021-07-12"
 
 keywords: well known endpoint, discovery endpoint, oidc, public keys, user information, claims, attributes, full profile, identity providers, app security, tokens
 
@@ -69,14 +69,8 @@ https://{region}.appid.cloud.ibm.com/oauth/v4/{tenantId}/.well-known/openid-conf
 ```
 {: codeblock}
 
-| Region | Endpoint | 
-|-----|----| 
-| Dallas | `us-south` |
-| Frankfurt | `eu-de` |
-| Sydney | `au-syd` |
-| London | `eu-gb` |
-| Tokyo | `jp-tok` |
-{: caption="Table 1. IBM Cloud regions" caption-side="top"}
+Learn more about the [available regions](/docs/appid?topic=appid-ha-dr).
+{: tip}
 
 
 

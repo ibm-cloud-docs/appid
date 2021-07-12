@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-06-04"
+lastupdated: "2021-07-12"
 
 keywords: management api, service management, service instance, devops automation, customize, permissions, iam, account owners, identity, app security, access tokens, video tutorial
 
@@ -69,9 +69,14 @@ If you're managing your service instances of {{site.data.keyword.appid_short_not
 | Dallas | `us-south`|
 | Frankfurt | `eu-de` |
 | London | `eu-gb` |
-| Tokyo | `jp-tok` |
+| Osaka | `jp-osa` |
 | Sydney | `au-syd` |
+| Tokyo | `jp-tok` |
+| Toronto | `ca-tor` |
+| Washington | `us-east` |
 {: caption="Table 1. Lists public endpoints for interacting with {{site.data.keyword.appid_short_notm}} APIs" caption-side="top"}
+
+
 
 ## Formatting your API call
 {: #format-call}
