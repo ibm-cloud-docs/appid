@@ -12,6 +12,7 @@ App ID
     Key concepts
         authorization.md
         tokens-understand.md
+        cd-concept.md
 
     whats-new.md
     {: .navgroup-end}
