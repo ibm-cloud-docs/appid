@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-09"
+lastupdated: "2021-07-13"
 
 keywords: password policies, password strength, advanced, sign in, lock out, reset password, email, expiration, credentials, password reuse, wrong credentials, secure apps, registry, cloud directory, regex
 
@@ -117,7 +117,7 @@ To set this configuration by using the GUI:
 
 2. Toggle **Advanced password policy** to **Enabled**.
 
-3. Specify **The number of times that a password can't be repeated**. You can use any whole value in range 1 - 10.
+3. Specify **The number of times that a password can't be repeated**. You can use any whole value in range 1 - 8.
 
 4. Toggle **The number of times that a password can't be repeated** to **Enabled**.
 
