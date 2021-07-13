@@ -50,7 +50,6 @@ App ID
 
     {: .topicgroup}
     Hosting your own user registry
-        cd-concept.md
         cd-configuring.md
         cd-passwords.md
         cd-messages.md
