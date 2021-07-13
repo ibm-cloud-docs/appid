@@ -44,7 +44,7 @@ subcollection: appid
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
 
-# What is Cloud Directory?
+# Cloud Directory
 {: #cd-concept}
 
 With {{site.data.keyword.appid_full}}, you can let your users sign up directly from your mobile or web app and sign in with their email and password. You can use Cloud Directory to create a scalable user registry that leverages a pre-built functionality to enhance security and self-service. (Short desc)
