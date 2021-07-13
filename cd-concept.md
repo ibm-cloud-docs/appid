@@ -82,6 +82,7 @@ You can customize the sign-in flow by [configuring the forgot password process](
 With {{site.data.keyword.appid_short_notm}} Cloud Directory, you can make the sign-in flow more secure by requiring [multiple authentication factors](/docs/appid?topic=appid-cd-mfa). With a second authentication factor, you can increase the security of your application by not only confirming that a user possesses the knowledge of their credentials, but also can access their registered email or phone number.
 
 ### Integrate {{site.data.keyword.appid_short_notm}} with your own mail provider
+{: #cd-custom-mail}
 
 With Cloud Directory, you can send email messages to your users to verify their email address, allow them to reset their password, and more. By default, you can use {{site.data.keyword.appid_short_notm}} to deliver the email messages, but there are some benefits if you choose to define a custom extension point to be invoked when an email needs to be sent. 
 
