@@ -12,7 +12,7 @@ App ID
     Key concepts
         authorization.md
         tokens-understand.md
-
+     
     whats-new.md
     {: .navgroup-end}
 
