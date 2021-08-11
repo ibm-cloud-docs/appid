@@ -110,7 +110,7 @@ To see the information about your users that is provided by your configured iden
 
   
   ```sh
-  GET https://<region>.appid.cloud.ibm.com/v4/<tenant_ID>/userinfo
+  GET https://<region>.appid.cloud.ibm.com/oauth/v4/<tenant_ID>/userinfo
   Authorization: 'Bearer <access_token>'
   ```
   {: codeblock}
