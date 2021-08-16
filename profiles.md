@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-24"
+lastupdated: "2021-08-16"
 
 keywords: profile, custom attributes, predefined attributes, attributes, app users, app interaction, personalized experience, access user info, identity provider information, access token, authentication, user sign in, android, java, node, swift, ios, user, preferences
 
@@ -110,7 +110,7 @@ To see the information about your users that is provided by your configured iden
 
   
   ```sh
-  GET https://<region>.appid.cloud.ibm.com/v4/<tenant_ID>/userinfo
+  GET https://<region>.appid.cloud.ibm.com/oauth/v4/<tenant_ID>/userinfo
   Authorization: 'Bearer <access_token>'
   ```
   {: codeblock}
