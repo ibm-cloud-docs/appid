@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-07-08"
+lastupdated: "2021-08-16"
 
 keywords: rate limits, traffic control, limit request, lite instances, per minute, per instance, per user, limits
 
@@ -86,9 +86,10 @@ The following table lists the maximum per user limits for {{site.data.keyword.ap
 | Roles per {{site.data.keyword.appid_short_notm}} instance | 50 |   |
 | Scopes per application | 50 |   |
 | Applications per {{site.data.keyword.appid_short_notm}} instance | 200 |   |
+| Changes to instance by users within 24 hours | 10,000 | |
 | Users per instance | 100,000 | |
-| Management APIs requests per second | 50 per second | Requests will be blocked for 30 seconds |
-| All other APIs requests per second | 200 per second | Requests will be blocked for 30 seconds |
+| Management APIs requests per second | 50 per second | Requests are blocked for 30 seconds |
+| All other APIs requests per second | 200 per second | Requests are blocked for 30 seconds |
 {: caption="Table 2. General rate limits" caption-side="top"}
 
 
@@ -101,8 +102,8 @@ Review the following table to see limits that are associated with Cloud Director
 
 | API | Configurable | Limit | When exceeded |
 |:----|:-------------|:------|:------------- | 
-| Sign in attempts per account | Yes | Unlimited | All sign-in attempts for the instance are blocked for one minute. |
-| Sign up attempts per account | Yes | Unlimited | All sign-up attempts for the instance are blocked for one minute. |
+| Sign in attempts per account | Yes | Unlimited | All sign-in attempts for the instance are blocked for 1 minute. |
+| Sign up attempts per account | Yes | Unlimited | All sign-up attempts for the instance are blocked for 1 minute. |
 | Email sending request | No | 10 emails in 5 minutes per user | Email requests for the user are blocked for 30 minutes. |
 | SMS sending request | No | 10 SMS in 5 minutes per user | SMS requests for the user are blocked for 30 minutes. | 
 | MFA code characters | No | 6 numeric characters | The code automatically has 6 characters that must be input by the user. | 
@@ -125,5 +126,5 @@ Be sure to review the following limitations before you configure your annotation
 ### Extensions
 {: #limits-extensions}
 
-* The response from your pre-mfa extension point must not exceed 10KB. If it does, the request is aborted and the user is required to complete MFA.
-* If it takes {{site.data.keyword.appid_short_notm}} longer than 5 seconds to establish a connection to your pre-mfa extension point, or if the request takes longer than 7 seconds to complete, the request is aborted and the user is required to complete MFA.
+* The response from your pre-mfa extension point must not exceed 10 KB. If it does, the request is canceled and the user is required to complete MFA.
+* If it takes {{site.data.keyword.appid_short_notm}} longer than 5 seconds to establish a connection to your pre-mfa extension point, or if the request takes longer than 7 seconds to complete, the request is canceled and the user is required to complete MFA.
