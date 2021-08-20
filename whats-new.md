@@ -2,7 +2,7 @@
 
 copyright:
 years: 2017, 2021
-lastupdated: "2021-07-12"
+lastupdated: "2021-08-20"
 
 keywords: release notes, new, spa, single sign on, mfa, cloud directory, saml, app security, application identity
 
@@ -50,7 +50,7 @@ subcollection: appid
 The following features and changes to the {{site.data.keyword.appid_short_notm}} service are now available.
 
 ## July 2021
-{: #February2021}
+{: #July2021}
 
 ### New region availability
 {: #july-12-regions}
