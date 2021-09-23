@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-06-09"
+lastupdated: "2021-09-23"
 
 keywords: user information, add users, delete users, profile, access, attributes, admin, app security, authentication, authorization
 
@@ -66,42 +66,17 @@ To see the data that is available for your app users, you can use the {{site.dat
 2. Look through the table or search by using an email address to find the user that you want to see the information for. The search term must be exact.
 
 3. In the overflow menu of the user's row, click **View user profile**. A page opens that contains the user's information. Check out the following table to see what information you can see.
-
-  <table>
-    <caption>Table 1. User details as shown in the {{site.data.keyword.appid_short_notm}} dashboard</caption>
-    <tr>
-      <th>Detail</th>
-      <th>Description</th>
-    </tr>
-    <tr>
-      <td>IdP identifier</td>
-      <td>The IdP identifier is issued by the provider that your user chose to sign in to your application with.</td>
-    </tr>
-    <tr>
-      <td>Email</td>
-      <td>The primary email address that is attached to the user.</td>
-    </tr>
-      <tr>
-      <td>Name</td>
-      <td>Your user's first and surname as issued by the identity provider.</td>
-    </tr>
-    <tr>
-      <td>Identity provider</td>
-      <td>The provider that your user chose to sign in with.</td>
-    </tr>
-    <tr>
-      <td>ID</td>
-      <td>The ID that is assigned to the user by {{site.data.keyword.appid_short_notm}}.</td>
-    </tr>
-    <tr>
-      <td>Custom attributes</td>
-      <td>Custom attributes are additional information that is added to their profile or that is learned about the user's as they interact with your application.</td>
-    </tr>
-    <tr>
-      <td>Summary</td>
-      <td>All of the information that is associated with that user shown as a JSON object.</td>
-    </tr>
-  </table>
+  
+  | Detail | Description |
+  | ------ | ----------- |
+  | IdP identifier | The IdP identifier is issued by the provider that your user chose to sign in to your application with. |
+  | Email | The primary email address that is attached to the user. | 
+  | Name | Your user's first and surname as issued by the identity provider. |
+  | Identity provider | The provider that your user chose to sign in with. | 
+  | ID | The ID that is assigned to the user by {{site.data.keyword.appid_short_notm}}. |
+  | Custom attributes | Custom attributes are additional information that is added to their profile or that is learned about the user's as they interact with your application. | 
+  | Summary | All of the information that is associated with that user shown as a JSON object. |
+  {: caption="Table 1. User details as shown in the {{site.data.keyword.appid_short_notm}} dashboard" caption-side="top"}
 
 
 
@@ -116,9 +91,9 @@ You can use the {{site.data.keyword.appid_short_notm}} API to view details about
 2. Search your {{site.data.keyword.appid_short_notm}} users with an identifying query, such as an email address, to find the user ID.
 
   ```sh
-  curl -X GET "https://<region>.appid.cloud.ibm.com/management/v4/<tenant-ID>/Users?query=<identifying-search-query>" \
+  curl -X GET "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/Users?query={identifying-search-query}" \
   -H "accept: application/json" \
-  -H "authorization: Bearer <token>"
+  -H "authorization: Bearer {token}"
   ```
   {: codeblock}
 
@@ -132,9 +107,9 @@ You can use the {{site.data.keyword.appid_short_notm}} API to view details about
 3. By using the ID that you obtained in the previous step, make a GET request to the `/users` endpoint to see their full user profile.
 
     ```sh
-    curl -X GET "https://<region>.appid.cloud.ibm.com/management/v4/<tenant-ID>/users/<user-id>/profile" \
+    curl -X GET "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/users/{user-id}/profile" \
     -H "accept: application/json" \
-    -H "authorization: Bearer <token>"
+    -H "authorization: Bearer {token}"
     ```
     {: codeblock}
 
@@ -237,10 +212,10 @@ By default, custom attributes are modifiable and can be updated by using an {{si
 4. Make a PUT request to either the `/users` endpoint.
 
     ```sh
-    curl -X GET "https://<region>.appid.cloud.ibm.com/management/v4/<tenant-ID>/users/<user-id>/profile" \
+    curl -X GET "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/users/{user-id}/profile" \
       -H "accept: application/json" \
       -H "Content-Type: application/json" \
-      -H "authorization: Bearer <token>"
+      -H "authorization: Bearer {token}"
       -d "{ \"attributes\": { \"points\": \"150\" } { \"role\": \"admin\" }}"
     ```
     {: codeblock}
@@ -274,9 +249,9 @@ As an administrator, you can remove someone as a user of your application by del
 2. Search your {{site.data.keyword.appid_short_notm}} users with an identifying query, such as an email address, to find the user ID.
 
   ```sh
-  curl -X GET "https://<region>.appid.cloud.ibm.com/management/v4/<tenant-ID>/Users?query=<identifying-search-query>" \
+  curl -X GET "https://{region}>.appid.cloud.ibm.com/management/v4/{tenant-ID}/Users?query={identifying-search-query}" \
   -H "accept: application/json" \
-  -H "authorization: Bearer <token>"
+  -H "authorization: Bearer {token}"
   ```
   {: codeblock}
 
@@ -290,9 +265,9 @@ As an administrator, you can remove someone as a user of your application by del
 3. By using the ID that you obtained in the previous step, make a `DELETE` request to the `/users` endpoint to delete the profile.
 
     ```sh
-    curl -X DELETE "https://<region>.appid.cloud.ibm.com/management/v4/<tenant-ID>/users/<user-id>/profile" \
+    curl -X DELETE "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/users/{user-id}/profile" \
     -H "accept: application/json" \
-    -H "authorization: Bearer <token>"
+    -H "authorization: Bearer {token}"
     ```
     {: codeblock}
 
@@ -319,25 +294,15 @@ Before you can import your profiles to your new instance, you need to export the
   ```sh
   curl -X GET https://us-south.appid.cloud.ibm.com/management/v4/{tenant-ID}/users/export \
   --header "Accept: application/json" \
-  --header "Authorization: Bearer <IAM-token>"
+  --header "Authorization: Bearer {IAM-token}"
   ```
   {: codeblock}
-
-  <table>
-    <caption>User import command variables</caption>
-    <tr>
-      <th>Variable</th>
-      <th>Description</th>
-    </tr>
-    <tr>
-      <td><code>tenantID</code></td>
-      <td>The service tenant ID can be found in your service credentials. You can find your service or application credentials in the {{site.data.keyword.appid_short_notm}} dashboard.</td>
-    </tr>
-    <tr>
-      <td><code>iam-token</code></td>
-      <td>Your IAM token.</td>
-    </tr>
-  </table>
+  
+  | Variable | Description |
+  | -------- | ----------- |
+  | `tenantID` | The service tenant ID can be found in your service credentials. You can find your service or application credentials in the {{site.data.keyword.appid_short_notm}} dashboard. |
+  | `iam-token` | Your IAM token. | 
+  {: caption="User import command variables" caption-side="top"}
 
   Example response:
 

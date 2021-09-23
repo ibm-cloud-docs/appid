@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-06-04"
+lastupdated: "2021-09-23"
 
 keywords: app to app, protected resource, client secret, application identity, authorization, server, authentication, access tokens, app security
 
@@ -96,10 +96,10 @@ The client secret that is used to authenticate the client is highly sensitive an
 1. Make a POST request to the [`/management/v4/{tenantId}/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Applications/mgmt.registerApplication){: external}.
 
   ```sh
-  curl -X POST \  https://<region>.appid.cloud.ibm.com/management/v4/<tenant-ID>/applications/ \
+  curl -X POST \  https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/applications/ \
   -H 'Content-Type: application/json' \
-  -H 'Authorization: Bearer <IAM-token>' \
-  -d '{"name": "<Application-Name>"}'
+  -H 'Authorization: Bearer {IAM-token}' \
+  -d '{"name": "{Application-Name}"}'
   ```
   {: codeblock}
 
@@ -154,10 +154,10 @@ After your app is registered with {{site.data.keyword.appid_short_notm}} and you
     ```javascript
     const TokenManager = require('ibmcloud-appid').TokenManager;
     const config = {
-     clientId: "<client-ID>",
-     tenantId: "<tenant-ID>",
-     secret: "<secret>",
-     oauthServerUrl: "https://<region>.appid.cloud.ibm.com/oauth/v4/<tenant-ID>"
+     clientId: "{client-ID}",
+     tenantId: "{tenant-ID}",
+     secret: "{secret}",
+     oauthServerUrl: "https://{region}.appid.cloud.ibm.com/oauth/v4/{tenant-ID}"
     };
 
     const tokenManager = new TokenManager(config);
@@ -240,8 +240,8 @@ After your app is registered with {{site.data.keyword.appid_short_notm}} and you
   app.use(passport.initialize());
 
   passport.use(new APIStrategy({
-      oauthServerUrl: "https://<region>.appid.cloud.ibm.com/oauth/v4/<tenant-ID>",
-      tenantId:"<tenant-ID>"
+      oauthServerUrl: "https://{region}.appid.cloud.ibm.com/oauth/v4/{tenant-ID}",
+      tenantId:"{tenant-ID}"
   }));
 
   app.get('/protected_resource',

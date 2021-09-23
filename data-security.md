@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-09"
+lastupdated: "2021-09-23"
 
 keywords: data encryption in app id, data storage for app id, personal data in app id, data deletion for app id, data in app id, data security in app id
 
@@ -150,14 +150,14 @@ If you no longer need an instance of {{site.data.keyword.appid_short_notm}}, you
 1. Delete the service and place it in a reclamation period of 7 days.
 
   ```
-  ibmcloud resource service-instance-delete <service_name>
+  ibmcloud resource service-instance-delete {service_name}
   ```
   {: codeblock}
 
 2. Optional: To permanently delete your instance get the reclamation ID.
 
   ```
-  ibmcloud resource reclamations --resource-instance-id <tenantId>
+  ibmcloud resource reclamations --resource-instance-id {tenantId}
   ```
   {: codeblock}
 
@@ -167,7 +167,7 @@ If you no longer need an instance of {{site.data.keyword.appid_short_notm}}, you
 3. Optional: Permanently delete the reclamation instance.
 
   ```
-  ibmcloud resource reclamation-delete <reclamationId>
+  ibmcloud resource reclamation-delete {reclamationId}
   ```
   {: codeblock}
 
@@ -184,14 +184,14 @@ If you haven't permanently deleted your instance, you can restore it during the 
 1. Get the reclamation ID.
 
   ```
-  ibmcloud resource reclamations --resource-instance-id <tenantId>
+  ibmcloud resource reclamations --resource-instance-id {tenantId}
   ```
   {: codeblock}
 
 2. Restore the reclamation.
 
   ```
-  ibmcloud resource reclamation-restore <reclamationId>
+  ibmcloud resource reclamation-restore {reclamationId}
   ```
   {: codeblock}
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-06-07"
+lastupdated: "2021-09-23"
 
 keywords: saml, enterprise apps, assertions, single sign on, tokens, authorization, user authentication, key cloak, redhat, cloud identity, sso, single sign on, xml signature, service provider, identity provider, app security
 
@@ -178,37 +178,15 @@ You cannot enable SAML until after you have configured it as an identity provide
 1. In the **Manage** tab of the {{site.data.keyword.appid_short_notm}} dashboard, click **Edit** in the **SAML** row to configure your settings.
 2. Click **Download SAML Metadata file**. Your identity provider expects the following information from the file.
 
-  <table>
-    <caption>Table 1. The information that is found in your metadata file</caption>
-    <tr>
-      <th> Variable </th>
-      <th> Description </th>
-    </tr>
-    <tr>
-      <td><code>EntityID</code></td>
-      <td>The identifier that lets the identity provider know that {{site.data.keyword.appid_short_notm}} has issued the SAML request.</td>
-    </tr>
-    <tr>
-      <td><code>Location URL</code></td>
-      <td>The location that the identity provider sends the SAML assertions after successfully authenticating a user.</td>
-    </tr>
-    <tr>
-      <td><code>Binding</code></td>
-      <td>The instructions on how the identity provider should send the SAML response.</td>
-    </tr>
-    <tr>
-      <td><code>NameID Format</code></td>
-      <td>The way in which the identity provider knows which identifier format it needs to send in the subject of an assertion and how {{site.data.keyword.appid_short_notm}} identifies users. The ID should take the following form: <code>&lt;saml:NameID Format="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"&gt;</code></td>
-    </tr>
-    <tr>
-      <td><code>WantAssertionsSigned</code></td>
-      <td>The way that an identity provider checks to see if it needs to sign the assertion. The service expects that the assertion is signed, but does not support encrypted assertions.</td>
-    </tr>
-    <tr>
-      <td><code>KeyDescriptor</code></td>
-      <td>The SAML signing and encryption certificates that can be used to configure your identity provider to verify the signed SAML request and encrypt the response.</td>
-    </tr>
-  </table>
+  | Variable | Description |
+  | -------- | ----------- |
+  | `EntityID` | The identifier that lets the identity provider know that {{site.data.keyword.appid_short_notm}} has issued the SAML request. |
+  | `Location URL` | The location that the identity provider sends the SAML assertions after successfully authenticating a user. |
+  | `Binding` | The instructions on how the identity provider should send the SAML response. |
+  | `NameID Format` | The way in which the identity provider knows which identifier format it needs to send in the subject of an assertion and how {{site.data.keyword.appid_short_notm}} identifies users. The ID should take the following form: `&lt;saml:NameID Format="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"&gt;`. |
+  | `WantAssertionsSigned` | The way that an identity provider checks to see if it needs to sign the assertion. The service expects that the assertion is signed, but does not support encrypted assertions. | 
+  | `KeyDescriptor` | The SAML signing and encryption certificates that can be used to configure your identity provider to verify the signed SAML request and encrypt the response. |
+  {: caption="Table 1. The information that is found in your metadata file" caption-side="top"}
 
 3. Provide the data to your identity provider. If your identity provider supports uploading the metadata file, you can do so. If it doesn't, configure the properties manually. Not every identity provider uses the same properties, so you might not use all of them.
 
@@ -229,25 +207,13 @@ You can obtain data from your identity provider and provide it to {{site.data.ke
 {: #saml-provide-appid-gui}
 
 1. Navigate to the **SAML 2.0** tab of the {{site.data.keyword.appid_short_notm}} dashboard. Enter the following metadata that you obtained from the identity provider in the **Provide Metadata from SAML IdP** section.
-  <table>
-    <caption>Table 2. The information that must be provided to {{site.data.keyword.appid_short_notm}}</caption>
-    <tr>
-      <th> Variable </th>
-      <th> Description </th>
-    </tr>
-    <tr>
-      <td><code>Sign-in URL</code></td>
-      <td>The URL that the user is redirected to for authentication. It is hosted by your SAML identity provider.</td>
-    </tr>
-    <tr>
-      <td><code>Entity ID</code></td>
-      <td>The globally unique name for a SAML identity provider.</td>
-    </tr>
-    <tr>
-      <td><code>Signing certificate</code></td>
-      <td>The certificate issued by your SAML identity provider. It is used for signing and validating SAML assertions. All providers are different, but you might be able to download the signing certificate from your identity provider. The certificate must be in <code>.pem</code> format.</td>
-    </tr>
-  </table>
+ 
+  | Variable |  Description |
+  | -------- | ------------ |
+  | `Sign-in URL` | The URL that the user is redirected to for authentication. It is hosted by your SAML identity provider. |
+  | `Entity ID` | The globally unique name for a SAML identity provider. | 
+  | `Signing certificate` | The certificate issued by your SAML identity provider. It is used for signing and validating SAML assertions. All providers are different, but you might be able to download the signing certificate from your identity provider. The certificate must be in `.pem` format. | 
+  {: caption="Table 2. The information that must be provided to {{site.data.keyword.appid_short_notm}}" caption-side="top"}
 
 2. Optional: Provide a **Secondary certificate** that is used if signature validation fails on the primary certificate. If the signing key remains the same, {{site.data.keyword.appid_short_notm}} does not block authentication for expired certificates.
 3. Update the **Provider Name**, and click **Save**. The default name is SAML.
@@ -263,7 +229,7 @@ Want to set an authentication context? You can do so through the API.
   Example code:
   ```sh
   curl --request GET \
-  https://us-south.appid.cloud.ibm.com/management/v4/<tenant-ID>/config/idps/saml \
+  https://us-south.appid.cloud.ibm.com/management/v4/{tenant-ID}/config/idps/saml \
   --header `Accept: application/json`
   ```
   {: codeblock}
@@ -313,52 +279,24 @@ Want to set an authentication context? You can do so through the API.
   ```
   {: codeblock}
   {: #configuring-saml-new}
-
-  <table>
-    <caption>Table 3. SAML configuration variables</caption>
-    <tr>
-      <th> Variable </th>
-      <th> Description </th>
-    </tr>
-    <tr>
-      <td><code>signInUrl</code></td>
-      <td>The URL that the user is redirected to for authentication. It is hosted by your SAML identity provider.</td>
-    </tr>
-    <tr>
-      <td><code>entityID</code></td>
-      <td>The globally unique name for a SAML identity provider.</td>
-    </tr>
-    <tr>
-      <td><code>displayName</code></td>
-      <td>The name that you assign to your SAML configuration.</td>
-    </tr>
-    <tr>
-      <td><code>primary-certificate-example-pem-format</code></td>
-      <td>The certificate that is issued by your SAML identity provider. It is used for signing and validating SAML assertions. All providers are different, but you might be able to download the signing certificate from your identity provider. The certificate must be in <code>.pem</code> format.</td>
-    </tr>
-    <tr>
-      <td>Optional: <code>secondary-certificate-example-pem-format</code></td>
-      <td>The back up certificate that is issued by your SAML identity provider. It is used if signature validation fails with the primary certificate. <strong>Note</strong>: If the signing key remains the same, {{site.data.keyword.appid_short_notm}} does not block authentication for expired certificates.</td>
-    </tr>
-    <tr>
-      <td>Optional: <code>authnContext</code></td>
-      <td>The authentication context is used to verify the quality of the authentication and SAML assertions. You can add an authentication context by adding a class array and comparison string to your code. BE sure to update both the <code>class</code> and <code>comparison</code> parameters with your values. For example, a <code>class</code> parameter might look similar to <code>urn:oasis:names:tc:SAML:2.0:ac:classes:YourChosenClassValue</code>.</td>
-    </tr>
-    <tr>
-      <td>Optional: <code>signRequest</code></td>
-      <td>The <code>signRequest</code> flag provides the capability to send a signed SAML request to an identity provider that is signed by using the tenant's SAML signing private key. To configure your SAML identity provider to receive a signed request you need the signing certificate from the metadata file that you can download in the <code>KeyDescriptor use="signing"</code> field. By default, request signing is set to `off`.</td>
-    </tr>
-    <tr>
-      <td>Optional: <code>encryptResponse</code></td>
-      <td>The <code>encryptResponse</code> flag allows for you to receive an encrypted response from your identity provider as part of the authentication request. To configure your SAML identity provider to send an encrypted response, you need the encryption certificate that can be found in the metadata file in the <code>KeyDescriptor use="encryption"</code> field. By default, response encryption is set to `off`.</td>
-    </tr>
-  </table>
+  
+  | Variable | Description |
+  | -------- | ----------- |
+  | `signInUrl` | The URL that the user is redirected to for authentication. It is hosted by your SAML identity provider. | 
+  | `entityID` | The globally unique name for a SAML identity provider. | 
+  | `displayName` | The name that you assign to your SAML configuration. | 
+  | `primary-certificate-example-pem-format` | The certificate that is issued by your SAML identity provider. It is used for signing and validating SAML assertions. All providers are different, but you might be able to download the signing certificate from your identity provider. The certificate must be in `.pem` format. | 
+  | Optional: `secondary-certificate-example-pem-format` | The back up certificate that is issued by your SAML identity provider. It is used if signature validation fails with the primary certificate. **Note**: If the signing key remains the same, {{site.data.keyword.appid_short_notm}} does not block authentication for expired certificates. |
+  | Optional: `authnContext` | The authentication context is used to verify the quality of the authentication and SAML assertions. You can add an authentication context by adding a class array and comparison string to your code. BE sure to update both the `class` and `comparison` parameters with your values. For example, a `class` parameter might look similar to `urn:oasis:names:tc:SAML:2.0:ac:classes:YourChosenClassValue`. |
+  | Optional: `signRequest` | The `signRequest` flag provides the capability to send a signed SAML request to an identity provider that is signed by using the tenant's SAML signing private key. To configure your SAML identity provider to receive a signed request you need the signing certificate from the metadata file that you can download in the `KeyDescriptor use="signing"` field. By default, request signing is set to `off`. |
+  | Optional: `encryptResponse` | The `encryptResponse` flag allows for you to receive an encrypted response from your identity provider as part of the authentication request. To configure your SAML identity provider to send an encrypted response, you need the encryption certificate that can be found in the metadata file in the `KeyDescriptor use="encryption"` field. By default, response encryption is set to `off`.
+  {: caption="Table 3. SAML configuration variables" caption-side="top"}
 
 3. Make a PUT request to the [`/saml` API endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.set_saml_idp){: external} to provide the configuration that you created in step 2 to {{site.data.keyword.appid_short_notm}}. Check out the following example to see what your request might look like.
 
   ```sh
   curl --request PUT \
-  https://us-south.appid.cloud.ibm.com/management/v4/<tenant-ID>/config/idps/saml \
+  https://us-south.appid.cloud.ibm.com/management/v4/{tenant-ID}/config/idps/saml \
   --header `Accept: application/json` \
   --data \
   {

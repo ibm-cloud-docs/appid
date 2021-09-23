@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-18"
+lastupdated: "2021-09-23"
 
 keywords: cloud foundry, iam, java nodejs, identity, access management, user access, service access, permissions, bind service
 
@@ -101,7 +101,7 @@ The following step includes instructions for deploying a Node.js app or a Java a
 6. Log in to the {{site.data.keyword.cloud_notm}} CLI. The CLI prompts you to select an account and region if you do not specify one.
 
   ```
-  ibmcloud login -a cloud.ibm.com -r <region>
+  ibmcloud login -a cloud.ibm.com -r {region}
   ```
   {: codeblock}
 
@@ -146,7 +146,7 @@ The following step includes instructions for deploying a Node.js app or a Java a
 8. Log in to the {{site.data.keyword.cloud_notm}} CLI. The CLI prompts you to select an account and region if you do not specify one.
 
   ```
-  ibmcloud login -a cloud.ibm.com -r <region>
+  ibmcloud login -a cloud.ibm.com -r {region}
   ```
   {: codeblock}
 

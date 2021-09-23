@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-07-12"
+lastupdated: "2021-09-23"
 
 keywords: web apps, authorization code, authentication, nodejs, javascript, app access, application credentials, login, redirect uri, protected endpoint, video
 
@@ -152,7 +152,7 @@ Check out the following video to learn about protecting Node applications with {
     ```
     curl -X POST \  https://us-south.appid.cloud.ibm.com/management/v4/39a37f57-a227-4bfe-a044-93b6e6060b61/applications/ \
     -H 'Content-Type: application/json' \
-    -H 'Authorization: Bearer <IAM_TOKEN>' \
+    -H 'Authorization: Bearer {IAM_TOKEN}' \
     -d '{"name": "ApplicationName"}'
     ```
     {: codeblock}
@@ -301,50 +301,21 @@ Check out the following video to learn about protecting Liberty for Java applica
   />
   ```
   {: codeblock}
-
-  <table>
-  <caption>Table. OIDC element variables for Liberty for Java apps</caption>
-    <tr>
-      <th> Component </th>
-      <th> Description </th>
-    </tr>
-    <tr>
-    <td><code>clientID</code> </br> <code>secret</code> </br> <code>oauth-server-url</code> </br></td>
-    <td>Complete step two to obtain your service credentials.</td>
-    </tr>
-    <tr>
-      <td><code>authorizationEndpointURL</code></td>
-      <td> Add <code>/authorization</code> to the end of your <code>oauthServerURL</code>.</td>
-    </tr>
-    <tr>
-      <td><code>tokenEndpointUrl</code></td>
-      <td>Add <code>/token</code> to the end of your <code>oauthServerURL</code>.</td>
-    </tr>
-    <tr>
-      <td><code>jwkEndpointUrl</code></td>
-      <td>Add <code>/publickeys</code> to the end of your <code>oauthServerURL</code>.</td>
-    </tr>
-    <tr>
-      <td><code>issuerIdentifier</code></td>
-      <td>The issuer identifier takes the following form: <code>&lt;region>&gt;.cloud.ibm.com</code>. Learn more about the <a href="/docs/appid?topic=appid-regions-endpoints">available regions</a>.</td>
-    </tr>
-    <tr>
-      <td><code>tokenEndpointAuthMethod</code></td>
-      <td>Specified as "basic".</td>
-    </tr>
-    <tr>
-      <td><code>signatureAlgorithm</code></td>
-      <td>Specified as "RS256".</td>
-    </tr>
-    <tr>
-      <td><code>authFilterid</code></td>
-      <td>The list of resources to protect.</td>
-    </tr>
-    <tr>
-      <td><code>trustAliasName</code></td>
-      <td>The name of your certificate within your truststore.</td>
-    </tr>
-  </table>
+  
+  |  Component | Description |
+  | ---------- | ----------- |
+  | `clientID`
+    `secret` 
+    `oauth-server-url`| Complete step two to obtain your service credentials. |
+  | `authorizationEndpointURL` | Add `/authorization` to the end of your `oauthServerURL`. |
+  | `tokenEndpointUrl` | >Add `/token` to the end of your `oauthServerURL`. |
+  | `jwkEndpointUrl` | Add `/publickeys` to the end of your `oauthServerURL`. |
+  | `issuerIdentifier` | The issuer identifier takes the following form: `&lt;region>&gt;.cloud.ibm.com`. Learn more about the [available regions](/docs/appid?topic=appid-regions-endpoints). |
+  | `tokenEndpointAuthMethod` | Specified as "basic". |
+  | `signatureAlgorithm` | Specified as "RS256". | 
+  | `authFilterid` | The list of resources to protect. |
+  | `trustAliasName` | The name of your certificate within your truststore. |
+  {: caption="Table. OIDC element variables for Liberty for Java apps" caption-side="top"}
 
 ### Initializing the Liberty for Java SDK
 {: #web-liberty-initialize}

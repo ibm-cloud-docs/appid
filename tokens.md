@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-05-18"
+lastupdated: "2021-09-23"
 
 keywords: token validation, validate token, protect app, public key, token header, base64, decode payload, authorized, access permissions, app security, identity, jwt 
 
@@ -167,31 +167,13 @@ You can validate your tokens locally by parsing the token, verifying the token s
     ```
     {: screen}
 
-  <table>
-    <caption>Table 1. Public key parameters</caption>
-    <thead>
-      <th>Parameter</th>
-      <th>Description</th>
-    </thead>
-    <tbody>
-      <tr>
-        <td><code>kty</code></td>
-        <td>Defines the algorithm that is used.</td>
-      </tr>
-      <tr>
-        <td><code>use</code></td>
-        <td>Defines the purpose of the key.</td>
-      </tr>
-      <tr>
-        <td><code>kid</code></td>
-        <td>Defines the unique ID of the key.</td>
-      </tr>
-      <tr>
-        <td>Other</td>
-        <td>There might be other remaining parameters that are specific to your algorithm that must also be imported.</td>
-      </tr>
-    </tbody>
-  </table>
+  | Parameter | Description |
+  | --------- | ----------- |
+  | `kty` | Defines the algorithm that is used. |
+  | `use` | Defines the purpose of the key. |
+  | `kid` | Defines the unique ID of the key. | 
+  | Other | There might be other remaining parameters that are specific to your algorithm that must also be imported. | 
+  {: caption="Table 1. Public key parameters" caption-side="top"}
 
 5. Verify the token's signature. The token header contains the algorithm that was used to sign the token and the Key ID or `kid` claim of the matching public key. Because public keys do not frequently change, you can cache public keys in your app and occasionally refresh them. If your cached key is missing the `kid` claim, you can validate the tokens locally.
 
@@ -200,30 +182,12 @@ You can validate your tokens locally by parsing the token, verifying the token s
   3. Ensure that your hash value is the same as the signature of the PEM form of the public key. Your hash value can be obtained by combining and hashing the header of the payload of the token. Because this process can be complex to manually implement, it might be helpful to use one of the [listed libraries](https://jwt.io/) to validate the signature.
 
 6. Validate the claims that are stored in the tokens. To verify future checks, you can use [this list](https://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation).
-  <table>
-    <caption>Table 2. Claims that must be validated</caption>
-    <tr>
-      <th>Claim</th>
-      <th>Description</th>
-    </tr>
-    <tr>
-      <td><code>iss</code></td>
-      <td>The issuer must be the same as the {{site.data.keyword.appid_short_notm}} OAuth server.</td>
-    </tr>
-    <tr>
-      <td><code>exp</code></td>
-      <td>The current time must be less than the expiry time.</td>
-    </tr>
-    <tr>
-      <td><code>aud</code></td>
-      <td>The audience must contain the client ID of your app.</td>
-    </tr>
-    <tr>
-      <td><code>tenant</code></td>
-      <td>The tenant must contain the tenant ID of your app.</td>
-    </tr>
-    <tr>
-      <td><code>scope</code></td>
-      <td>The scope of permissions that is granted to the user. This is specific to the access token.</td>
-    </tr>
-  </table>
+  
+  | Claim | Description |
+  | ----- | ----------- |
+  | `iss` | The issuer must be the same as the {{site.data.keyword.appid_short_notm}} OAuth server. |
+  | `exp` | The current time must be less than the expiry time. |
+  | `aud` | The audience must contain the client ID of your app. |
+  | `tenant` | The tenant must contain the tenant ID of your app. |
+  | `scope` | The scope of permissions that is granted to the user. This is specific to the access token. | 
+  {: caption="Table 2. Claims that must be validated" caption-side="top"}

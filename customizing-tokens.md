@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-06-04"
+lastupdated: "2021-09-23"
 
 keywords: user information, tokens, custom tokens, secure resources, authorization, identity, authentication, claims, oauth, claims mapping, attributes, app security, access, runtime
 
@@ -67,14 +67,14 @@ A claim is a statement that an entity makes about itself or on behalf of someone
 
 The claims that are provided by {{site.data.keyword.appid_short_notm}} fall into several categories that are differentiated by their level of customization.
 
-<dl>
-  <dt>Normalized claims</dt>
-    <dd>In each identity token, there is a set of claims that is recognized by {{site.data.keyword.appid_short_notm}} as normalized. When available, the claims are mapped directly from your identity provider to the token by default. The claims can't be explicitly omitted but they can be overwritten in your token by custom claims. The claims include <code>name</code>, <code>email</code>, <code>picture</code>, and <code>locale</code>.</dd>
-  <dt>Restricted claims</dt>
-    <dd>Restricted claims are those that have limited customization possibilities and cannot be overwritten by custom mappings. For an access token, <code>scope</code> is the only restricted claim. Although it cannot be overwritten, it can be extended with your own scope. When a scope is mapped to an access token, the value must be a string and cannot be prefixed by <code>appid_</code> or it is ignored. In identity tokens, the claims <code>identities</code> and <code>oauth_clients</code> cannot be modified or overwritten.</dd>
-  <dt>Registered claims</dt>
-    <dd>Registered claims are present in your access and identity tokens and are defined by {{site.data.keyword.appid_short_notm}}. They <b>cannot</b> be overridden by custom mappings. These claims are ignored by the service and include <code>iss</code>, <code>aud</code>, <code>sub</code>, <code>iat</code>, <code>exp</code>, <code>amr</code>, and <code>tenant</code>.</dd>
-</dl>
+Normalized claims
+:   In each identity token, there is a set of claims that is recognized by {{site.data.keyword.appid_short_notm}} as normalized. When available, the claims are mapped directly from your identity provider to the token by default. The claims can't be explicitly omitted but they can be overwritten in your token by custom claims. The claims include `name`, `email`, `picture`, and `locale`.
+
+Restricted claims
+:   Restricted claims are those that have limited customization possibilities and cannot be overwritten by custom mappings. For an access token, `scope` is the only restricted claim. Although it cannot be overwritten, it can be extended with your own scope. When a scope is mapped to an access token, the value must be a string and cannot be prefixed by `appid_` or it is ignored. In identity tokens, the claims `identities` and `oauth_clients` cannot be modified or overwritten.
+
+Registered claims
+:   Registered claims are present in your access and identity tokens and are defined by {{site.data.keyword.appid_short_notm}}. They **cannot** be overridden by custom mappings. These claims are ignored by the service and include `iss`, `aud`, `sub`, `iat`, `exp`, `amr`, and `tenant`.
 
 Defining a claim for your token does not change or eliminate [the attribute](/docs/appid?topic=appid-profiles). It changes the information that is present in the token at run time.
 {: note}
@@ -143,25 +143,12 @@ If you want to configure the lifespan of your token, you can quickly make the ch
   ```
   {: codeblock}
 
-  <table>
-    <caption>Table 2. Understanding the creating an API key command options</caption>
-    <tr>
-      <th>Option</th>
-      <th>Description</th>
-    </tr>
-    <tr>
-     <td><code>NAME</code></td>
-     <td>The name that you want to give your key. For example, <code>myKey</code>.</td>
-    </tr>
-    <tr>
-     <td><code>DESCRIPTION</code></td>
-     <td>A description of the key or its use. For example, <code>"This is my App ID API key"</code>.</td>
-    </tr>
-    <tr>
-     <td><code>FILE</code></td>
-     <td>The location where you want to store your key. For example, <code>key_file</code>.</td>
-    </tr>
-  </table>
+  | Option | Description |
+  | ------ | ----------- |
+  | `NAME` | The name that you want to give your key. For example, `myKey`. | 
+  | `DESCRIPTION` | A description of the key or its use. For example, `"This is my App ID API key"`. |
+  | `FILE` | The location where you want to store your key. For example, `key_file`. | 
+  {: caption="Table 2. Understanding the creating an API key command options" caption-side="top"}
 
 2. Obtain an IAM token by using the API key that you got in the previous step.
 
@@ -170,7 +157,7 @@ If you want to configure the lifespan of your token, you can quickly make the ch
   --header "Content-Type: application/x-www-form-urlencoded" \
   --header "Accept: application/json" \
   --data-urlencode "grant_type=urn:ibm:params:oauth:grant-type:apikey" \
-  --data-urlencode "apikey=<api_key>"
+  --data-urlencode "apikey={api_key}"
   ```
   {: codeblock}
 
@@ -213,33 +200,14 @@ If you want to configure the lifespan of your token, you can quickly make the ch
   ```
   {: codeblock}
 
-  <table>
-    <caption>Table 3. Understanding the token configuration</caption>
-    <tr>
-      <th>Variable</th>
-      <th>Description</th>
-    </tr>
-    <tr>
-      <td><code>access: expires_in</code></td>
-      <td>The length of time for which access tokens are valid. The smaller the value, the more protection that you have in cases of token theft. The value is provided in seconds and can be any whole number in range <code>300</code> and <code>86400</code>. The default value is <code>3600</code>.
-    </tr>
-    <tr>
-      <td><code>refresh: expires_in</code></td>
-      <td>The length of time for which refresh tokens are valid. The smaller the value, the more protection that you have in cases of token theft. The value is provided in seconds and can be any whole number in range <code>86400</code> and <code>7776000</code>. The default value is <code>2592000</code> (30 days).</td>
-    </tr>
-    <tr>
-      <td><code>anonymousAccess</code></td>
-      <td>The length of time for which an anonymous token is valid. Anonymous tokens are assigned to users the moment they begin interacting with your app. When a user signs in, the information in the anonymous token is then transferred to the token associated with the user. The value is provided in seconds and can be any whole number in range <code>86400</code> and <code>7776000</code>. The default value is <code>2592000</code> (30 days).</td>
-    </tr>
-    <tr>
-      <td><code>accessTokenClaims</code></td>
-      <td>An array that contains the objects that are created when claims that are related to access tokens are mapped. You might want to include information about roles or specific attributes that are returned by a user's identity provider of choice. Note: If you're already using a custom claim with the title "roles" from your identity provider, be sure to use a destination claim in order to see both values.</td>
-    </tr>
-    <tr>
-      <td><code>idTokenClaims</code></td>
-      <td>An array that contains the information that is present in tokens when you map claims to identity tokens. Depending on your configuration, you might also choose to have "roles" be present in your identity token.</td>
-    </tr>
-  </table>
+  | Variable | Description |
+  | -------- | ----------- |
+  | `access: expires_in` | The length of time for which access tokens are valid. The smaller the value, the more protection that you have in cases of token theft. The value is provided in seconds and can be any whole number in range `300` and `86400`. The default value is `3600`. |
+  | `refresh: expires_in` | The length of time for which refresh tokens are valid. The smaller the value, the more protection that you have in cases of token theft. The value is provided in seconds and can be any whole number in range `86400` and `7776000`. The default value is `2592000` (30 days). |
+  | `anonymousAccess` | The length of time for which an anonymous token is valid. Anonymous tokens are assigned to users the moment they begin interacting with your app. When a user signs in, the information in the anonymous token is then transferred to the token associated with the user. The value is provided in seconds and can be any whole number in range `86400` and `7776000`. The default value is `2592000` (30 days). |
+  | `accessTokenClaims` | An array that contains the objects that are created when claims that are related to access tokens are mapped. You might want to include information about roles or specific attributes that are returned by a user's identity provider of choice. Note: If you're already using a custom claim with the title "roles" from your identity provider, be sure to use a destination claim in order to see both values. |
+  | `idTokenClaims` | An array that contains the information that is present in tokens when you map claims to identity tokens. Depending on your configuration, you might also choose to have "roles" be present in your identity token. |
+  {: caption="Table 3. Understanding the token configuration" caption-side="top"}
 
   You must set the token lifetime in each request that you make. If a value is not set, then the default is used. Each customization request overwrites what is previously configured. Note that the lifetime configuration specifications are different in the API than they are in the service dashboard.
   {: note}

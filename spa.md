@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-05-18"
+lastupdated: "2021-09-23"
 
 keywords: single page application, SPA, single-page, angular, react, native apps, javascript, js, sdk, authentication, authorization, identity, app security, secure, protocols, oauth, oidc,
 
@@ -129,9 +129,9 @@ There is no client secret that is returned in your SPA credentials. There is no 
 
   ```sh
   curl -X POST \
-  https://us-south.appid.cloud.ibm.com/management/v4/<TENANT_ID>/applications/ \
+  https://us-south.appid.cloud.ibm.com/management/v4/{TENANT_ID}/applications/ \
   -H 'accept: application/json' \
-  -H 'Authorization: Bearer <IAM_TOKEN>' \
+  -H 'Authorization: Bearer {IAM_TOKEN}' \
   -H 'Content-Type: application/json' \
   -d '{"name": "MySampleSPA", "type": "singlepageapp"}'
   ```
@@ -140,10 +140,10 @@ There is no client secret that is returned in your SPA credentials. There is no 
   Example response:
   ```json
   {
-    "clientId": "<CLIENT_ID>",
-    "tenantId": "<TENANT_ID>",
+    "clientId": "{CLIENT_ID}",
+    "tenantId": "{TENANT_ID}",
     "name": "MySampleSPA",
-    "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v4/<TENANT_ID>",
+    "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v4/{TENANT_ID}",
     "type": "singlepageapp"
   }
   ```
@@ -176,8 +176,8 @@ To install the SDK in your application, use the following steps as a guide.
   ```
   const appID = new AppID();
   await appID.init({
-    clientId: '<SPA_CLIENT_ID>',
-    discoveryEndpoint: '<WELL_KNOWN_ENDPOINT>'
+    clientId: '{SPA_CLIENT_ID}',
+    discoveryEndpoint: '{WELL_KNOWN_ENDPOINT}'
   });
   ```
   {: codeblock}

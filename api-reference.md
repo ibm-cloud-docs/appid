@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-07-12"
+lastupdated: "2021-09-23"
 
 keywords: management api, service management, service instance, devops automation, customize, permissions, iam, account owners, identity, app security, access tokens, video tutorial
 
@@ -84,15 +84,15 @@ If you're managing your service instances of {{site.data.keyword.appid_short_not
 Calls to the management API endpoint take the following structure:
 
 ```
-https://<region-endpoint>.appid.cloud.ibm.com/management
+https://{region-endpoint}.appid.cloud.ibm.com/management
 ```
 {: codeblock}
 
 | API | Endpoint  |
 |--------|-----------|
-| Authorization | `https://<region>.appid.cloud.ibm.com/oauth/v4`|
-| Management | `https://<region>.appid.cloud.ibm.com/management/v4`|
-| Profiles | `https://<region>.appid.cloud.ibm.com/api/v1` |
+| Authorization | `https://{region}.appid.cloud.ibm.com/oauth/v4`|
+| Management | `https://{region}.appid.cloud.ibm.com/management/v4`|
+| Profiles | `https://{region}.appid.cloud.ibm.com/api/v1` |
 {: caption="Table 2. Formatting for the available APIs" caption-side="top"}
 
 

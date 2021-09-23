@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-07-09"
+lastupdated: "2021-09-23"
 
 keywords: authentication, authorization, identity, app security, cloud directory, user data, identity provider, oauth, protocols, oauth, oidc, disaster recovery, dr, compliance, high availability, ha, secure, HA, DR
 
@@ -93,16 +93,16 @@ With {{site.data.keyword.appid_short_notm}}, you can add a level of security to 
 
 ![{{site.data.keyword.appid_short_notm}} architecture diagram](images/appid_architecture1.png){: caption="Figure 1. How {{site.data.keyword.appid_short_notm}} works" caption-side="bottom"}
 
-<dl>
-  <dt>Application</dt>
-    <dd><strong>Server SDK</strong>: You can protect your back-end resources that are hosted on {{site.data.keyword.cloud_notm}} and your web apps by using the server SDK. It extracts the access token from a request and validates it with {{site.data.keyword.appid_short_notm}}. </br>
-    <strong>Client SDK</strong>: You can protect your mobile apps with the Android or iOS client SDK. The client SDK communicates with your cloud resources to start the authentication process when it detects an authorization challenge.</dd>
-  <dt>{{site.data.keyword.cloud_notm}}</dt>
-    <dd><strong>{{site.data.keyword.appid_short_notm}}</strong>: After successful authentication, {{site.data.keyword.appid_short_notm}} returns access and identity tokens to your app.</br>
-    <strong>Cloud Directory</strong>: Users can sign up for your service with their email and a password. You can then manage your users in a list view through the UI. With Cloud Directory, {{site.data.keyword.appid_short_notm}} functions as your identity provider.</dd>
-  <dt>External (third party)</dt>
-    <dd><strong>Social and enterprise identity providers</strong>: {{site.data.keyword.appid_short_notm}} supports Facebook, Google+, and  SAML 2.0 Federation as identity provider options. The service arranges a redirect to the identity provider and verifies the returned authentication tokens. If the tokens are valid, the service grants access to your app without ever having access to the actual passphrase.</dd>
-</dl>
+Application
+:   **Server SDK**: You can protect your back-end resources that are hosted on {{site.data.keyword.cloud_notm}} and your web apps by using the server SDK. It extracts the access token from a request and validates it with {{site.data.keyword.appid_short_notm}}.
+    **Client SDK**: You can protect your mobile apps with the Android or iOS client SDK. The client SDK communicates with your cloud resources to start the authentication process when it detects an authorization challenge.
+
+{{site.data.keyword.cloud_notm}}
+:   **{{site.data.keyword.appid_short_notm}}**: After successful authentication, {{site.data.keyword.appid_short_notm}} returns access and identity tokens to your app.
+    **Cloud Directory**: Users can sign up for your service with their email and a password. You can then manage your users in a list view through the UI. With Cloud Directory, {{site.data.keyword.appid_short_notm}} functions as your identity provider.
+
+External (third party)
+:   **Social and enterprise identity providers**: {{site.data.keyword.appid_short_notm}} supports Facebook, Google+, and  SAML 2.0 Federation as identity provider options. The service arranges a redirect to the identity provider and verifies the returned authentication tokens. If the tokens are valid, the service grants access to your app without ever having access to the actual passphrase.
 
 
 ## Integrations
@@ -111,20 +111,24 @@ With {{site.data.keyword.appid_short_notm}}, you can add a level of security to 
 You can use {{site.data.keyword.appid_short_notm}} with other {{site.data.keyword.cloud_notm}} offerings.
 {:shortdesc}
 
-<dl>
-  <dt>{{site.data.keyword.containershort_notm}}</dt>
-    <dd>By configuring Ingress in a standard cluster you can secure your apps at the cluster level. Check out the <a href="/docs/containers?topic=containers-comm-ingress-annotations#app-id">{{site.data.keyword.appid_short_notm}} authentication Ingress annotation</a> or the <a href="https://www.ibm.com/cloud/blog/announcing-app-id-integration-ibm-cloud-kubernetes-service">Announcing {{site.data.keyword.appid_short_notm}} integration to {{site.data.keyword.containerlong_notm}} <img src="../icons/launch-glyph.svg" alt="External link icon"></a> blog post to get started.</dd>
-  <dt>{{site.data.keyword.openwhisk_short}} and {{site.data.keyword.apiconnect_short}}</dt>
-    <dd>When you create your APIs with [{{site.data.keyword.openwhisk_short}}](/docs/openwhisk?topic=openwhisk-getting-started) and [API Connect](/docs/apiconnect?topic=apiconnect-getting-started), you can secure your applications at the gateway rather than in your app code.</dd>
-  <dt>Cloud Foundry</dt>
-    <dd>Try out one of the provided sample Cloud Foundry apps to see how you can integrate {{site.data.keyword.appid_short_notm}} into your apps.</dd>
-  <dt>{{site.data.keyword.at_short}}</dt>
-    <dd>You can monitor administrative activity that is made in {{site.data.keyword.appid_short_notm}} such as changes to the dashboard configuration, by using the [{{site.data.keyword.at_short}} service](/docs/activity-tracker?topic=activity-tracker-getting-started).</dd>
-  <dt>iOS Programming Guide</dt>
-    <dd>Do you develop apps for Apple? Try out the [iOS programming guide](/docs/swift?topic=swift-getting-started) to learn, experiment, and enhance your existing iOS apps with {{site.data.keyword.cloud_notm}}.</dd>
-  <dt>Node.js programming guide</dt>
-    <dd>Do you develop apps in Node.js? Try out the [Node.js programming guide](/docs/node?topic=node-getting-started) to learn, experiment, and enhance your existing Node.js apps with {{site.data.keyword.cloud_notm}}.</dd>
-</dl>
+
+{{site.data.keyword.containershort_notm}}
+:   By configuring Ingress in a standard cluster you can secure your apps at the cluster level. Check out the [{{site.data.keyword.appid_short_notm}} authentication Ingress annotation](/docs/containers?topic=containers-comm-ingress-annotations#app-id) or the [Announcing {{site.data.keyword.appid_short_notm}} integration to {{site.data.keyword.containerlong_notm}}](https://www.ibm.com/cloud/blog/announcing-app-id-integration-ibm-cloud-kubernetes-service){: external} blog post to get started.
+
+{{site.data.keyword.openwhisk_short}} and {{site.data.keyword.apiconnect_short}}
+:   When you create your APIs with [{{site.data.keyword.openwhisk_short}}](/docs/openwhisk?topic=openwhisk-getting-started) and [API Connect](/docs/apiconnect?topic=apiconnect-getting-started), you can secure your applications at the gateway rather than in your app code.
+
+Cloud Foundry
+:   Try out one of the provided sample Cloud Foundry apps to see how you can integrate {{site.data.keyword.appid_short_notm}} into your apps.
+
+[at]}
+:   You can monitor administrative activity that is made in {{site.data.keyword.appid_short_notm}} such as changes to the dashboard configuration, by using the [{{site.data.keyword.at_short}} service](/docs/activity-tracker?topic=activity-tracker-getting-started).
+
+iOS Programming Guide
+:   Do you develop apps for Apple? Try out the [iOS programming guide](/docs/swift?topic=swift-getting-started) to learn, experiment, and enhance your existing iOS apps with {{site.data.keyword.cloud_notm}}.
+
+Node.js programming guide
+:   Do you develop apps in Node.js? Try out the [Node.js programming guide](/docs/node?topic=node-getting-started) to learn, experiment, and enhance your existing Node.js apps with {{site.data.keyword.cloud_notm}}.
 
 
 ## Standards and certifications

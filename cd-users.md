@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2017, 2021
-lastupdated: "2021-07-12"
+lastupdated: "2021-09-23"
 
 keywords: manage users, registry, cloud directory, add user, delete user, tokens, attributes, migrating users, identity provider, app security
 
@@ -92,9 +92,9 @@ You can use the {{site.data.keyword.appid_short_notm}} API to view details about
 2. Search your {{site.data.keyword.appid_short_notm}} users with an identifying query, such as an email address, to find the user ID.
 
   ```sh
-  curl -X GET "https://<region>.appid.cloud.ibm.com/management/v4/<tenant-ID>/cloud_directory/Users?query=<identifying-search-query>" \
+  curl -X GET "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/Users?query={identifying-search-query}" \
    -H "accept: application/json" \
-   -H "authorization: Bearer <token>"
+   -H "authorization: Bearer {token}"
   ```
   {: codeblock}
 
@@ -108,9 +108,9 @@ You can use the {{site.data.keyword.appid_short_notm}} API to view details about
 3. By using the ID that you obtained in the previous step, make a GET request to the `cloud_directory/users` endpoint to see their full user profile.
 
   ```sh
-  curl -X GET "https://<region>.appid.cloud.ibm.com/management/v4/<tenant-ID>/cloud_directory/Users/<user-ID>" \
+  curl -X GET "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/Users/{user-ID}" \
   -H "accept: application/json" \
-  -H "authorization: Bearer <token>"
+  -H "authorization: Bearer {token}"
   ```
   {: codeblock}
 
@@ -210,11 +210,11 @@ If you disable self-service sign-up or add a user on their behalf, the user does
 3. Run the following command to create a new user and a profile at the same time.
 
   ```sh
-  curl -X POST "https://<region>.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/sign_up?shouldCreateProfile=true&language=en" \
+  curl -X POST "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/sign_up?shouldCreateProfile=true&language=en" \
   -H "accept: application/json" \
   -H "Content-Type: application/json" \
-  -H "authorization: Bearer <token>" \
-  -d "{ \"active\": true, \"emails\": [ { \"value\": \"<user@domain.com>\", \"primary\": true } ], \"userName\": \"<myUserName>\", \"password\": \"<userPassword>\"}"
+  -H "authorization: Bearer {token}" \
+  -d "{ \"active\": true, \"emails\": [ { \"value\": \"{user@domain.com}\", \"primary\": true } ], \"userName\": \"{myUserName}\", \"password\": \"{userPassword}\"}"
   ```
   {: codeblock}
 
@@ -255,7 +255,7 @@ If you want to remove a user from your directory, you can delete the user from t
 3. By using the email that is attached to the user, search your directory to find the user's ID.
 
   ```sh
-  curl -X GET "https://<region>.appid.cloud.ibm.com/management/v4/<tenant-ID>/users?email=<user@domain.com>" \
+  curl -X GET "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/users?email={user@domain.com}" \
   -H "accept: application/json"
   ```
   {: codeblock}
@@ -263,9 +263,9 @@ If you want to remove a user from your directory, you can delete the user from t
 4. Delete the user.
 
   ```sh
-  curl -X DELETE "https://<region>.appid.test.cloud.ibm.com/management/v4/<tenant-ID>/cloud_directory/remove/<user-ID>" \
+  curl -X DELETE "https://{region}.appid.test.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/remove/{user-ID}" \
   -H "accept: application/json" \
-  -H "authorization: Bearer <token>"
+  -H "authorization: Bearer {token}"
   ```
   {: codeblock}
 
@@ -287,27 +287,17 @@ Before you can import your profiles to your new instance, you need to export the
 1. Export the users from your original instance of the service.
 
   ```sh
-  curl -X GET ’https://<region>.appid.cloud.ibm.com/management/v4/<tenant-ID>/cloud_directory/export?encryption_secret=<mySecret>' \
+  curl -X GET ’https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/export?encryption_secret={mySecret}' \
   -H ‘Accept: application/json’ \
-  -H ‘Authorization: Bearer <iam-token>'
+  -H ‘Authorization: Bearer {iam-token}'
   ```
   {: codeblock}
 
-  <table>
-    <caption>Table 2. Descriptions of the parameters that need to be provided in the export request</caption>
-    <tr>
-      <th>Parameters</th>
-      <th>Description</th>
-    </tr>
-    <tr>
-      <td><code>encryption_secret</code></td>
-      <td>A custom string that is used to encrypt and decrypt a user's hashed password.</td>
-    </tr>
-    <tr>
-      <td><code>tenantID</code></td>
-      <td>The service tenant ID can be found in your service credentials. You can find your service credentials in the {{site.data.keyword.appid_short_notm}} dashboard.</td>
-    </tr>
-  </table>
+  | Parameters | Description |
+  | ---------- | ----------- |
+  | `encryption_secret` | A custom string that is used to encrypt and decrypt a user's hashed password. |
+  | `tenantID` | The service tenant ID can be found in your service credentials. You can find your service credentials in the {{site.data.keyword.appid_short_notm}} dashboard. |
+  {: caption="Table 2. Descriptions of the parameters that need to be provided in the export request" caption-side="top"}
 
   Only your Cloud Directory users and their profiles are returned. Users from other identity providers are not.
   {: note}
@@ -329,35 +319,35 @@ Now that you have a list of exported Cloud Directory users, you can import them 
 2. Import the users to your new instance of the service.
 
   ```sh
-  curl -X POST --header ‘Content-Type: application/json’ --header ‘Accept: application/json’ --header ‘Authorization: Bearer <iam-token>’ -d ‘{“users”: [
+  curl -X POST --header ‘Content-Type: application/json’ --header ‘Accept: application/json’ --header ‘Authorization: Bearer {iam-token}’ -d ‘{“users”: [
       {
         “scimUser”: {
           “originalId”: “3f3f6779-7978-4383-926f-a43aef3b724b”,
           “name”: {
-            “givenName”: “<first-name>”,
-            “familyName”: “<last-name>”,
-            “formatted”: “<first-name> <last-name>”
+            “givenName”: “{first-name}”,
+            “familyName”: “{last-name}”,
+            “formatted”: “{first-name} {last-name}”
           },
-          “displayName”: “<first-name>”,
+          “displayName”: “{first-name}”,
           “emails”: [
             {
-              “value”: “<user>@gmail.com”,
+              “value”: “{user@gmail.com}”,
               “primary”: true
             }
           ],
           “status”: “PENDING”
         },
-        “displayName”: “<first-name>”,
+        “displayName”: “{first-name}”,
         “emails”: [
           {
-            “value”: “<user>@gmail.com”,
+            “value”: “{user@gmail.com}”,
             “primary”: true
           }
         ],
         “status”: “PENDING”
       },
-      “passwordHash”: “<password hash here>“,
-      “passwordHashAlg”: <password hash algorithm>,
+      “passwordHash”: “{password hash here}“,
+      “passwordHashAlg”: {password hash algorithm},
       “profile”: {
         “attributes”: {}
       },
@@ -396,29 +386,13 @@ Now that you have a list of exported Cloud Directory users, you can import them 
   ```
   {: codeblock}
 
-  <table>
-    <caption>Table 3. Parameter descriptions</caption>
-    <tr>
-      <th>Parameter</th>
-      <th>Description</th>
-    </tr>
-    <tr>
-      <td><code>sourceTenantId</code></td>
-      <td>The tenant ID of the instance of {{site.data.keyword.appid_short_notm}} that you plan to export users from.</td>
-    </tr>
-    <tr>
-      <td><code>destinationTenantId</code></td>
-      <td>The tenant ID of the instance of {{site.data.keyword.appid_short_notm}} that you plan to import users to. </td>
-    </tr>
-    <tr>
-      <td><code>region</code></td>
-      <td>Learn more about the <a href="/docs/appid?topic=appid-regions-endpoints">available regions</a>.</td>
-    </tr>
-    <tr>
-      <td><code>IAM token</code></td>
-      <td>For help with obtaining an IAM token, check out [the docs](/docs/account?topic=account-iamtoken_from_apikey#iamtoken_from_apikey).</td>
-    </tr>
-  </table>
+  | Parameter | Description |
+  | --------- | ----------- |
+  | `sourceTenantId` | The tenant ID of the instance of {{site.data.keyword.appid_short_notm}} that you plan to export users from. |
+  | `destinationTenantId` | The tenant ID of the instance of {{site.data.keyword.appid_short_notm}} that you plan to import users to. |
+  | `region` | Learn more about the [available regions](/docs/appid?topic=appid-regions-endpoints). | 
+  | `IAM token` | For help with obtaining an IAM token, check out [the docs](/docs/account?topic=account-iamtoken_from_apikey#iamtoken_from_apikey). | 
+  {: caption="Table 3. Parameter descriptions" caption-side="top"}
 
   Example command:
 

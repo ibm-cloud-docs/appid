@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-06-04"
+lastupdated: "2021-09-23"
 
 keywords: user registration, new user, add user, custom attributes, profiles, user profile, user, user information, identity provider, authentication, authorization, personalize app, app security
 
@@ -180,8 +180,8 @@ You can add a future user and their custom attributes by using the API.
 
   ```
   POST {management-url}/management/v4/{tenantId}/users
-       Host: <management-server-url>
-       Authorization: 'Bearer <IAM_TOKEN>'
+       Host: {management-server-url}
+       Authorization: 'Bearer {IAM_TOKEN}'
        Content-Type: application/json
   ```
   {: codeblock}
@@ -190,8 +190,8 @@ You can add a future user and their custom attributes by using the API.
 
   ```
    {
-       "idp": "<Identity Provider>",
-       "idp-identity": "<User's unique identifier>",
+       "idp": "{Identity Provider}",
+       "idp-identity": "{User's unique identifier}",
        "profile": {
            "attributes": {
              "mealPreference":"vegeterian"
@@ -201,33 +201,18 @@ You can add a future user and their custom attributes by using the API.
   ```
   {: codeblock}
 
-  <table>
-    <caption>Table 2. The components of the POST request</caption>
-    <thead>
-      <th>Components</th>
-      <th>Description</th>
-    </thead>
-    <tbody>
-      <tr>
-        <td><code><em>idp</em></code></td>
-        <td>The identity provider that the user authenticates with. Options include: `saml`, `cloud_directory`, `facebook`, `google`, `appid_custom`, `ibmid`.</td>
-      </tr>
-      <tr>
-        <td><code><em>idp-identity</em></code></td>
-        <td>The unique identifier provided by the identity provider.</td>
-      </tr>
-      <tr>
-        <td><code><em>profile</em></code></td>
-        <td>The user's profile that contains the custom attribute JSON mapping.</td>
-      </tr>
-    </tbody>
-  </table>
+  | Components | Description |
+  | ---------- | ----------- |
+  | `idp` | The identity provider that the user authenticates with. Options include: `saml`, `cloud_directory`, `facebook`, `google`, `appid_custom`, `ibmid`. |
+  | `idp-identity` | The unique identifier provided by the identity provider. |
+  | `profile` | The user's profile that contains the custom attribute JSON mapping. |
+  {: caption="Table 2. The components of the POST request" caption-side="top"}
 
   Example request:
   ```
   $ curl --request POST \
        --url 'https://{Management_URI}/users \
-       --header 'Authorization: Bearer <IAM_TOKEN>' \
+       --header 'Authorization: Bearer {IAM_TOKEN}' \
        --header 'Content-Type: application/json' \
        --data '{"idp": "saml", "idp-identity": "user@ibm.com", "profile": { "attributes": { "role": "admin",
        "frequent_flyer_points": 1000 }}}'
@@ -240,7 +225,7 @@ You can add a future user and their custom attributes by using the API.
 
     ```
     curl --request GET https://us-south.appid.cloud.ibm.com/management/v4/{{APPID_TENANT_ID}}/users/{{user_profile_id}}/profile \
-    --header 'Authorization: Bearer <IAM_TOKEN>' \
+    --header 'Authorization: Bearer {IAM_TOKEN}' \
     --header 'Content-Type: application/json' \
     ```
     {: codeblock}

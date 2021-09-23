@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-07-12"
+lastupdated: "2021-09-23"
 
 keywords: back-end apps, java, liberty for java, liberty, identity provider, access management, protected endpoints, access tokens, security, back end
 
@@ -98,7 +98,7 @@ You can obtain your credentials in one of two ways.
 
     Request format:
     ```sh
-    curl -X POST \  https://us-south.appid.cloud.ibm.com/management/v4/<tenantID>/applications/ \
+    curl -X POST \  https://us-south.appid.cloud.ibm.com/management/v4/{tenantID}/applications/ \
     -H 'Content-Type: application/json' \
     -H 'Authorization: Bearer IAM_TOKEN' \
     -d '{"name": "ApplicationName"}'
@@ -125,7 +125,7 @@ You can obtain your credentials in one of two ways.
 {: step}
  
 1. Open your `server.xml` file.
-2. Add the following features to the `featureManager` section. Some features might come built in with Liberty. If you receive an error when you run your server, you can install them by running `.installUtility install <name_of_server>` from the bin directory of your Liberty installation.
+2. Add the following features to the `featureManager` section. Some features might come built in with Liberty. If you receive an error when you run your server, you can install them by running `.installUtility install {name_of_server}` from the bin directory of your Liberty installation.
 
   ```xml
   <featureManager>
@@ -160,42 +160,17 @@ You can obtain your credentials in one of two ways.
   /> 	
   ```
   {: codeblock}
-
-  <table>
-  <caption>Table. OIDC element variables for Liberty for Java apps</caption>
-    <tr>
-      <th>Variable</th>
-      <th>Description</th>
-    </tr>
-    <tr>
-      <td><code>id</code></td>
-      <td>The name of your application.</td>
-    </tr>
-    <tr>
-      <td><code>inboundPropagation</code></td>
-      <td>In order to propagate the information received in the token, the value must be set to "required".</td>
-    </tr>
-    <tr>
-      <td><code>jwkEndpointUrl</code></td>
-      <td>The endpoint that is used to obtain keys in order to validate the token. Learn more about the <a href="/docs/appid?topic=appid-regions-endpoints">available regions</a>. You can find your tenant ID in the credentials that you previously created.</td>
-    </tr>
-    <tr>
-      <td><code>issuerIdentifier</code></td>
-      <td>The issuer identifier defines your authorization server. Learn more about the <a href="/docs/appid?topic=appid-regions-endpoints">available regions</a>. You can find your tenant ID in the credentials that you previously created.</td>
-    </tr>
-    <tr>
-      <td><code>signatureAlgorithm</code></td>
-      <td>Specified as "RS256".</td>
-    </tr>
-    <tr>
-      <td><code>audiences</code></td>
-      <td>By default, the token is issued for your {{site.data.keyword.appid_short_notm}} client ID that can be found in your application credentials.</td>
-    </tr>
-    <tr>
-      <td><code>sslRef</code></td>
-      <td>The name of the SSL configuration that you want to use.</td>
-    </tr>
-  </table>
+  
+  | Variable | Description |
+  | -------- | ----------- |
+  | `id` | The name of your application. |
+  | `inboundPropagation` | In order to propagate the information received in the token, the value must be set to "required". |
+  | `jwkEndpointUrl` | The endpoint that is used to obtain keys in order to validate the token. Learn more about the [available regions](/docs/appid?topic=appid-regions-endpoints). You can find your tenant ID in the credentials that you previously created. | 
+  | `issuerIdentifier` | The issuer identifier defines your authorization server. Learn more about the [available regions](/docs/appid?topic=appid-regions-endpoints). You can find your tenant ID in the credentials that you previously created. | 
+  | `signatureAlgorithm` | Specified as "RS256". |
+  | `audiences` | By default, the token is issued for your {{site.data.keyword.appid_short_notm}} client ID that can be found in your application credentials. | 
+  | `sslRef` | The name of the SSL configuration that you want to use. |
+  {: caption="Table 1. OIDC element variables for Liberty for Java apps" caption-side="top"}
 
 5. Define your special subject type as `ALL_AUTHENTICATED_USERS`.
 
