@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-24"
+lastupdated: "2021-09-23"
 
 keywords: obtain tokens, return tokens, authorized, authorization, access management, client id, secret, tenant id, app security, identity token
 
@@ -85,7 +85,7 @@ In order to obtain tokens, you must have your client ID and secret. The credenti
   ```sh
   curl -X POST https://us-south.appid.cloud.ibm.com/management/v4/39a37f57-a227-4bfe-a044-93b6e6060b61/applications/ \
   -H 'Content-Type: application/json' \
-  -H 'Authorization: Bearer <IAM_TOKEN>' \
+  -H 'Authorization: Bearer {IAM_TOKEN}' \
   -d '{"name": "ApplicationName"}'
   ```
   {: codeblock}
@@ -132,7 +132,7 @@ With a client ID and secret, you can obtain access and identity tokens by using 
 
   
   ```sh
-  curl -X POST 'https://<region>.appid.cloud.ibm.com/oauth/v4/<tenant_id>/token' \
+  curl -X POST 'https://{region}.appid.cloud.ibm.com/oauth/v4/{tenant_id}/token' \
   -H 'Authorization: Basic base64Encoded{{client-ID}:{client-secret}}' \
   -H 'Accept: application/json' \
   -F 'grant_type=password' \

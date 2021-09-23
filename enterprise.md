@@ -229,7 +229,7 @@ Want to set an authentication context? You can do so through the API.
   Example code:
   ```sh
   curl --request GET \
-  https://us-south.appid.cloud.ibm.com/management/v4/<tenant-ID>/config/idps/saml \
+  https://us-south.appid.cloud.ibm.com/management/v4/{tenant-ID}/config/idps/saml \
   --header `Accept: application/json`
   ```
   {: codeblock}
@@ -296,7 +296,7 @@ Want to set an authentication context? You can do so through the API.
 
   ```sh
   curl --request PUT \
-  https://us-south.appid.cloud.ibm.com/management/v4/<tenant-ID>/config/idps/saml \
+  https://us-south.appid.cloud.ibm.com/management/v4/{tenant-ID}/config/idps/saml \
   --header `Accept: application/json` \
   --data \
   {

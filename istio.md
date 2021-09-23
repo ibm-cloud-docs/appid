@@ -87,7 +87,7 @@ If you're using a browser-based application, you can use the [Open ID Connect (O
 To view the user session information, including the session tokens, you can look in the `Authorization` header.
 
 ```
-Authorization: Bearer <access_token> <id_token>
+Authorization: Bearer {access_token} {id_token}
 ```
 {: screen}
 
@@ -176,12 +176,12 @@ Depending on whether you're protecting front end or backend applications, create
       name:      oidc-provider-config
       namespace: sample-namespace
   spec:
-      discoveryUrl: https://us-south.appid.cloud.ibm.com/oauth/v4/<tenant_ID>/.well-known/openid-configuration
-      clientId:     <client-ID>
-      clientSecret: <randomlyGeneratedClientSecret>
+      discoveryUrl: https://us-south.appid.cloud.ibm.com/oauth/v4/{tenant_ID}/.well-known/openid-configuration
+      clientId:     {client-ID}
+      clientSecret: {randomlyGeneratedClientSecret}
       clientSecretRef:
-          name: <name-of-my-kube-secret>
-          key: <key-in-my-kube-secret>
+          name: {name-of-my-kube-secret}
+          key: {key-in-my-kube-secret}
   ```
   {: screen}
 
@@ -204,7 +204,7 @@ Depending on whether you're protecting front end or backend applications, create
     name:      jwt-config
     namespace: sample-app
   spec:
-      jwksUrl: https://us-south.appid.cloud.ibm.com/oauth/v4/<tenant-ID>/publickeys
+      jwksUrl: https://us-south.appid.cloud.ibm.com/oauth/v4/{tenant-ID}/publickeys
   ```
   {: screen}
 
@@ -222,13 +222,13 @@ metadata:
 spec:
   targets:
     -
-      serviceName: <svc-sample-app>
+      serviceName: {svc-sample-app}
       paths:
         - exact: /web/home
           method: ALL
           policies:
             - policyType: oidc
-              config: <oidc-provider-config>
+              config: {oidc-provider-config}
               rules:
                 - claim: scope
                   match: ALL
@@ -247,14 +247,14 @@ spec:
           method: GET
           policies:
             - policyType: oidc
-              config: <oidc-provider-config>
+              config: {oidc-provider-config}
               redirectUri: https://github.com/ibm-cloud-security/app-identity-and-access-Adapter
         - prefix: /
           method: ALL
           policies:
             -
               policyType: jwt
-              config: <jwt-config>
+              config: {jwt-config}
 ```
 {: screen}
 

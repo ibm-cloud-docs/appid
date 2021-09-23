@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-07-12"
+lastupdated: "2021-09-23"
 
 keywords: sso, single sign on, cloud directory, saml, federated, sign in, log in, log out, authentication, app security, user registry, multiple apps
 
@@ -140,7 +140,7 @@ When one of the flows related to changing, resetting, or renewing a password is 
 To sign out a user, redirect their browser by using your information to complete the following API call.
 
 ```
-https://<region>.appid.cloud.ibm.com/oauth/v4/<tenant-id>/cloud_directory/sso/logout?redirect_uri=<redirect_uri>&client_id=<clientId>
+https://{region}.appid.cloud.ibm.com/oauth/v4/{tenant-id}/cloud_directory/sso/logout?redirect_uri={redirect_uri}&client_id={clientId}
 ```
 {: codeblock}
 
@@ -189,9 +189,9 @@ As an administrator, you can end all SSO sessions for any user by using the {{si
 Example API request:
 
 ```
-POST https://<region>.appid.cloud.ibm.com/management/v4/{tenant-id}/cloud_directory/Users/{user-id}/sso/logout
+POST https://{region}.appid.cloud.ibm.com/management/v4/{tenant-id}/cloud_directory/Users/{user-id}/sso/logout
 Headers:
-Authorization: Bearer <IAM_token>
+Authorization: Bearer {IAM_token}
 ```
 {: codeblock}
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-05-28"
+lastupdated: "2021-09-23"
 
 keywords: custom identity provider, authorization, bring your own idp, proprietary idp, legacy idp, oauth, oidc, authentication, oatuh, app security
 
@@ -164,8 +164,8 @@ To create the bridge between your custom provider and {{site.data.keyword.appid_
   Post /token
   Content-Type: application/x-www-from-urlencoded
   grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer
-  assertion=<payload>
-  scope="<space separated scope array>"
+  assertion={payload}
+  scope="{space separated scope array}"
   ```
   {: codeblock}
 

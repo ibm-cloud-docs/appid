@@ -120,8 +120,8 @@ Your application is responsible for mapping the answers to the specific attribut
 
   ```
   curl --request PUT \
-  https://<region>.appid.cloud.ibm.com/management/v4/<tenant-id>/users/<user_id>/profile \
-  --header 'Authorization: Bearer <iam-access-token>' \
+  https://{region}.appid.cloud.ibm.com/management/v4/{tenant-id}/users/{user_id}/profile \
+  --header 'Authorization: Bearer {iam-access-token}' \
   --header 'Content-Type: application/json' \
   -d '{
     "profile": {
@@ -136,8 +136,8 @@ Your application is responsible for mapping the answers to the specific attribut
 2. View the profile to verify that it was updated correctly.
 
   ```
-  curl --request GET https://<region>.appid.cloud.ibm.com/management/v4/<tenant-id>/users/<user_id>/profile \
-  --header 'Authorization: Bearer <iam-access-token>' \
+  curl --request GET https://{region}.appid.cloud.ibm.com/management/v4/{tenant-id}/users/{user_id}/profile \
+  --header 'Authorization: Bearer {iam-access-token}' \
   --header 'Content-Type: application/json'
   ```
   {: codeblock}
@@ -173,8 +173,8 @@ Becoming more popular, you decide to implement a "deal-of-the-day". You want the
 
   ```
   curl --request PUT \
-  https://<region>.appid.cloud.ibm.com/management/v4/<tenant-id>/config/tokens \
-  --header 'Authorization: Bearer <iam-access-token>' \
+  https://{region}.appid.cloud.ibm.com/management/v4/{tenant-id}/config/tokens \
+  --header 'Authorization: Bearer {iam-access-token}' \
   --header 'Content-Type: application/json' \
   -d '{
       "access": {
@@ -257,11 +257,11 @@ Optionally, you can verify that step 4 was successful by viewing an access token
 
   ```
   curl --request PUT \
-  https://appid.cloud.ibm.com/oauth/v4/<tenant-ID>/token \
-  --header 'Authorization: Basic <encoded_client:secret>' \
+  https://appid.cloud.ibm.com/oauth/v4/{tenant-ID}/token \
+  --header 'Authorization: Basic {encoded_client:secret}' \
   --header 'Content-Type: application/x-www-form-urlencoded' \
   --header `Accept: application/json`
-  -d 'grant_type=password&username=<user-email>%40<user-email-domain>&password=<user-password>
+  -d 'grant_type=password&username={user-email}%40{user-email-domain}&password={user-password}
   ```
   {: codeblock}
 

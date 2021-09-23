@@ -276,9 +276,9 @@ After you create roles, you can assign them to your user's profile. You can also
 1. Get your user ID by searching your {{site.data.keyword.appid_short_notm}} users with an identifying query, such as an email address.
 
   ```sh
-  curl -X GET "https://<region>.appid.cloud.ibm.com/management/v4/<tenant_ID>/Users?query=<identifying-search-query>" \
+  curl -X GET "https://{region}.appid.cloud.ibm.com/management/v4/{tenant_ID}/Users?query={identifying-search-query}" \
   -H "accept: application/json" \
-  -H "authorization: Bearer <token>"
+  -H "authorization: Bearer {token}"
   ```
   {: codeblock}
 
@@ -292,16 +292,16 @@ After you create roles, you can assign them to your user's profile. You can also
 2. Optional: Get the role ID or role name. If you already know your role ID or name, skip to the next step.
 
   ```sh
-  curl -X GET "https://<region>.appid.cloud.ibm.com/management/v4/<tenant_ID>/roles" \
+  curl -X GET "https://{region}.appid.cloud.ibm.com/management/v4/{tenant_ID}/roles" \
   -H "accept: application/json" \
-  -H "authorization: Bearer <token>"
+  -H "authorization: Bearer {token}"
   ```
   {: codeblock}
 
 3. Make a request to the `/roles` endpoint that contains a JSON object of the roles that you want to assign.
 
   ```sh
-  curl -X PUT "https://<region>.appid.cloud.ibm.com/management/v4/<tenant_ID>/users/<user_ID>/roles" -H "accept: application/json" -H "Content-Type: application/json" -d "{ \"roles\": { \"ids\": [ \"<role_IDs>\" ] }}" -H "authorization: Bearer <token>"
+  curl -X PUT "https://{region}.appid.cloud.ibm.com/management/v4/{tenant_ID}>/users/{user_ID}/roles" -H "accept: application/json" -H "Content-Type: application/json" -d "{ \"roles\": { \"ids\": [ \"{role_IDs}\" ] }}" -H "authorization: Bearer {token}"
   ```
   {: codeblock}
 
@@ -329,9 +329,9 @@ Application roles are only valid in the client credentials flow.
 1. Get your application client ID by querying the list of applications. You can also get this value from the **Applications** tab of the {{site.data.keyword.appid_short_notm}} UI.
 
   ```sh
-  curl -X GET "https://<region>.appid.cloud.ibm.com/management/v4/<tenant_ID>/applications" \
+  curl -X GET "https://{region}.appid.cloud.ibm.com/management/v4/{tenant_ID}/applications" \
   -H "accept: application/json" \
-  -H "authorization: Bearer <token>"
+  -H "authorization: Bearer {token}"
   ```
   {: codeblock}
 
@@ -345,16 +345,16 @@ Application roles are only valid in the client credentials flow.
 2. Get the role ID.
 
   ```sh
-  curl -X GET "https://<region>.appid.cloud.ibm.com/management/v4/<tenant_ID>/roles" \
+  curl -X GET "https://{region}.appid.cloud.ibm.com/management/v4/{tenant_ID}/roles" \
   -H "accept: application/json" \
-  -H "authorization: Bearer <token>"
+  -H "authorization: Bearer {token}"
   ```
   {: codeblock}
 
 3. Make a request to the `/roles` endpoint that contains a JSON object of the roles that you want to assign. This request replaces current roles with the provided role IDs. Be sure that you're assigning the correct roles.
 
   ```sh
-  curl -X PUT "https://<region>.appid.cloud.ibm.com/management/v4/<tenant_ID>/applications/<client_ID>/roles" -H "accept: application/json" -H "Content-Type: application/json" -d "{ \"roles\": { \"ids\": [ \"<role_IDs>\" ] }}" -H "authorization: Bearer <token>"
+  curl -X PUT "https://{region}.appid.cloud.ibm.com/management/v4/{tenant_ID}/applications/{client_ID}/roles" -H "accept: application/json" -H "Content-Type: application/json" -d "{ \"roles\": { \"ids\": [ \"{role_IDs}\" ] }}" -H "authorization: Bearer {token}"
   ```
   {: codeblock}
 
@@ -452,7 +452,7 @@ When you delete a scope, it is removed from all of the roles that it is associat
 1. Change or delete a scope by the following request to the `/scopes` endpoint. Be sure to update your scopes JSON object to contain only the scopes that you want to allow.
 
   ```sh
-  curl -X PUT "https://<region>.appid.cloud.ibm.com/management/v4/<tenant_ID>/applications/<client_ID>/scopes" -H "accept: application/json" -H "Content-Type: application/json" -d "{\ "scopes":\ [\ <scopes_object>" ]}"
+  curl -X PUT "https://{region}.appid.cloud.ibm.com/management/v4/{tenant_ID}/applications/{client_ID}/scopes" -H "accept: application/json" -H "Content-Type: application/json" -d "{\ "scopes":\ [\ {scopes_object}" ]}"
   ```
   {: codeblock}
 
@@ -485,14 +485,14 @@ Deleting a role removes access from all of the users and applications that are c
 1. Get the role ID or role name. If you already know your role ID or name, skip to the next step.
 
   ```sh
-  curl -X GET "https://<region>.appid.cloud.ibm.com/management/v4/<tenant_ID>/roles" -H "accept: application/json"
+  curl -X GET "https://{region}.appid.cloud.ibm.com/management/v4/{tenant_ID}/roles" -H "accept: application/json"
   ```
   {: codeblock}
 
 2. Make a request to the `/roles` endpoint that contains a JSON object of the roles that you want to assign.
 
   ```sh
-  curl -X DELETE "https://<region>.appid.cloud.ibm.com/management/v4/<tenant_ID>/roles/<role_ID>" -H "accept: application/json"
+  curl -X DELETE "https://{region}.appid.cloud.ibm.com/management/v4/{tenant_ID}/roles/{role_ID}" -H "accept: application/json"
   ```
   {: codeblock}
 

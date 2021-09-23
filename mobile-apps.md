@@ -179,7 +179,7 @@ You must have the following prerequisites before getting started:
     {: tip}
 
     ```java
-    AppID.getInstance().initialize(getApplicationContext(), <tenantId>, <region>);
+    AppID.getInstance().initialize(getApplicationContext(), {tenantId}, {region});
     ```
     {: codeblock}
 
@@ -214,7 +214,7 @@ The {{site.data.keyword.appid_short_notm}} client SDK is distributed with CocoaP
 3. Add the `IBMCloudAppID` pod and `use_frameworks!` command to your target's dependencies
 
   ```swift
-  target '<yourTarget>' do
+  target '{yourTarget}' do
      use_frameworks!
      pod 'IBMCloudAppID'
   end
@@ -228,7 +228,7 @@ The {{site.data.keyword.appid_short_notm}} client SDK is distributed with CocoaP
   ```
   {: codeblock}
 
-5. After installation, open the `<your app>.xcworkspace` file that contains your Xcode project and your linked dependencies
+5. After installation, open the `{your app}.xcworkspace` file that contains your Xcode project and your linked dependencies
 
 6. Enable keychain sharing in your Xcode project. Navigate to **Project Settings > Capabilities > Keychain Sharing** and select **Enable keychain sharing**.
 
@@ -247,7 +247,7 @@ The {{site.data.keyword.appid_short_notm}} client SDK is distributed with CocoaP
 1. Initialize the client SDK by passing the tenant ID and region parameters to the initialize method.
 
   ```swift
-    AppID.sharedInstance.initialize(tenantId: <tenantId>, region: <region>)
+    AppID.sharedInstance.initialize(tenantId: {tenantId}, region: {region})
   ```
   {: codeblock}
 
@@ -292,10 +292,10 @@ After a successful login flow, you can use your access and identity tokens to in
 2. Invoke your protected resource
 
    ```swift
-  BMSClient.sharedInstance.initialize(region: <region>)
+  BMSClient.sharedInstance.initialize(region: {region})
   BMSClient.sharedInstance.authorizationManager = AppIDAuthorizationManager(appid: AppID.sharedInstance)
 
-  let request =  Request(url: "<your protected resource url>")
+  let request =  Request(url: "{your protected resource url}")
 
   request.send { (response: Response?, error: Error?) in
 
@@ -324,12 +324,12 @@ After a successful login flow, you can use your access and identity tokens to in
 
    ```java
    BMSClient bmsClient = BMSClient.getInstance();
-   bmsClient.initialize(getApplicationContext(), <region>);
+   bmsClient.initialize(getApplicationContext(), {region});
 
    AppIDAuthorizationManager appIdAuthMgr = new AppIDAuthorizationManager(AppID.getInstance())
    bmsClient.setAuthorizationManager(appIdAuthMgr);
 
-   Request request = new Request("<your protected resource url>", Request.GET);
+   Request request = new Request("{your protected resource url}", Request.GET);
    request.send(this, new ResponseListener() {
 
    @Override
@@ -363,7 +363,7 @@ Example request format:
   ```
   GET /resource HTTP/1.1
   Host: server.example.com
-  Authorization: Bearer <access token> <optional identity token>
+  Authorization: Bearer {access token} {optional identity token}
   ```
   {: screen}
 

@@ -91,9 +91,9 @@ You can use the {{site.data.keyword.appid_short_notm}} API to view details about
 2. Search your {{site.data.keyword.appid_short_notm}} users with an identifying query, such as an email address, to find the user ID.
 
   ```sh
-  curl -X GET "https://<region>.appid.cloud.ibm.com/management/v4/<tenant-ID>/Users?query=<identifying-search-query>" \
+  curl -X GET "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/Users?query={identifying-search-query}" \
   -H "accept: application/json" \
-  -H "authorization: Bearer <token>"
+  -H "authorization: Bearer {token}"
   ```
   {: codeblock}
 
@@ -107,9 +107,9 @@ You can use the {{site.data.keyword.appid_short_notm}} API to view details about
 3. By using the ID that you obtained in the previous step, make a GET request to the `/users` endpoint to see their full user profile.
 
     ```sh
-    curl -X GET "https://<region>.appid.cloud.ibm.com/management/v4/<tenant-ID>/users/<user-id>/profile" \
+    curl -X GET "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/users/{user-id}/profile" \
     -H "accept: application/json" \
-    -H "authorization: Bearer <token>"
+    -H "authorization: Bearer {token}"
     ```
     {: codeblock}
 
@@ -212,10 +212,10 @@ By default, custom attributes are modifiable and can be updated by using an {{si
 4. Make a PUT request to either the `/users` endpoint.
 
     ```sh
-    curl -X GET "https://<region>.appid.cloud.ibm.com/management/v4/<tenant-ID>/users/<user-id>/profile" \
+    curl -X GET "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/users/{user-id}/profile" \
       -H "accept: application/json" \
       -H "Content-Type: application/json" \
-      -H "authorization: Bearer <token>"
+      -H "authorization: Bearer {token}"
       -d "{ \"attributes\": { \"points\": \"150\" } { \"role\": \"admin\" }}"
     ```
     {: codeblock}
@@ -249,9 +249,9 @@ As an administrator, you can remove someone as a user of your application by del
 2. Search your {{site.data.keyword.appid_short_notm}} users with an identifying query, such as an email address, to find the user ID.
 
   ```sh
-  curl -X GET "https://<region>.appid.cloud.ibm.com/management/v4/<tenant-ID>/Users?query=<identifying-search-query>" \
+  curl -X GET "https://{region}>.appid.cloud.ibm.com/management/v4/{tenant-ID}/Users?query={identifying-search-query}" \
   -H "accept: application/json" \
-  -H "authorization: Bearer <token>"
+  -H "authorization: Bearer {token}"
   ```
   {: codeblock}
 
@@ -265,9 +265,9 @@ As an administrator, you can remove someone as a user of your application by del
 3. By using the ID that you obtained in the previous step, make a `DELETE` request to the `/users` endpoint to delete the profile.
 
     ```sh
-    curl -X DELETE "https://<region>.appid.cloud.ibm.com/management/v4/<tenant-ID>/users/<user-id>/profile" \
+    curl -X DELETE "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/users/{user-id}/profile" \
     -H "accept: application/json" \
-    -H "authorization: Bearer <token>"
+    -H "authorization: Bearer {token}"
     ```
     {: codeblock}
 
@@ -294,7 +294,7 @@ Before you can import your profiles to your new instance, you need to export the
   ```sh
   curl -X GET https://us-south.appid.cloud.ibm.com/management/v4/{tenant-ID}/users/export \
   --header "Accept: application/json" \
-  --header "Authorization: Bearer <IAM-token>"
+  --header "Authorization: Bearer {IAM-token}"
   ```
   {: codeblock}
   

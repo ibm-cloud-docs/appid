@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-06-04"
+lastupdated: "2021-09-23"
 
 keywords: custom identity provider, authorization, bring your own idp, proprietary idp, legacy idp, oauth, oidc, authentication, oatuh, app security, public key, jwt
 
@@ -102,7 +102,7 @@ Content-Type: application/json
 {
     isActive: true,
     config: {
-        publicKey: <Your newline separated (\n) PEM public key>
+        publicKey: {Your newline separated (\n) PEM public key}
     }
 }
 ```

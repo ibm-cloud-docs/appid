@@ -180,8 +180,8 @@ You can add a future user and their custom attributes by using the API.
 
   ```
   POST {management-url}/management/v4/{tenantId}/users
-       Host: <management-server-url>
-       Authorization: 'Bearer <IAM_TOKEN>'
+       Host: {management-server-url}
+       Authorization: 'Bearer {IAM_TOKEN}'
        Content-Type: application/json
   ```
   {: codeblock}
@@ -190,8 +190,8 @@ You can add a future user and their custom attributes by using the API.
 
   ```
    {
-       "idp": "<Identity Provider>",
-       "idp-identity": "<User's unique identifier>",
+       "idp": "{Identity Provider}",
+       "idp-identity": "{User's unique identifier}",
        "profile": {
            "attributes": {
              "mealPreference":"vegeterian"
@@ -212,7 +212,7 @@ You can add a future user and their custom attributes by using the API.
   ```
   $ curl --request POST \
        --url 'https://{Management_URI}/users \
-       --header 'Authorization: Bearer <IAM_TOKEN>' \
+       --header 'Authorization: Bearer {IAM_TOKEN}' \
        --header 'Content-Type: application/json' \
        --data '{"idp": "saml", "idp-identity": "user@ibm.com", "profile": { "attributes": { "role": "admin",
        "frequent_flyer_points": 1000 }}}'
@@ -225,7 +225,7 @@ You can add a future user and their custom attributes by using the API.
 
     ```
     curl --request GET https://us-south.appid.cloud.ibm.com/management/v4/{{APPID_TENANT_ID}}/users/{{user_profile_id}}/profile \
-    --header 'Authorization: Bearer <IAM_TOKEN>' \
+    --header 'Authorization: Bearer {IAM_TOKEN}' \
     --header 'Content-Type: application/json' \
     ```
     {: codeblock}

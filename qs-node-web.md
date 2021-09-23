@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-06-30"
+lastupdated: "2021-09-23"
 
 keywords: web apps, nodejs, node, javascript, protected resource, authorization flow, front end, frontend, app security, authentication
 
@@ -196,11 +196,11 @@ The easiest way to work with {{site.data.keyword.appid_short_notm}} is to take a
     passport.serializeUser((user, cb) => cb(null, user));
     passport.deserializeUser((user, cb) => cb(null, user));
     passport.use(new WebAppStrategy({
-        tenantId: "<tenant_ID>",
-        clientId: "<client_ID>",
-        secret: "<secret>",
-        oauthServerUrl: "<OAuth_Server_URL>",
-        redirectUri: "<redirect_URI>"
+        tenantId: "{tenant_ID}",
+        clientId: "{client_ID}",
+        secret: "{secret}",
+        oauthServerUrl: "{OAuth_Server_URL}",
+        redirectUri: "{redirect_URI}"
     }));
     ```
     {: codeblock}

@@ -98,7 +98,7 @@ You can obtain your credentials in one of two ways.
 
     Request format:
     ```sh
-    curl -X POST \  https://us-south.appid.cloud.ibm.com/management/v4/<tenantID>/applications/ \
+    curl -X POST \  https://us-south.appid.cloud.ibm.com/management/v4/{tenantID}/applications/ \
     -H 'Content-Type: application/json' \
     -H 'Authorization: Bearer IAM_TOKEN' \
     -d '{"name": "ApplicationName"}'
@@ -125,7 +125,7 @@ You can obtain your credentials in one of two ways.
 {: step}
  
 1. Open your `server.xml` file.
-2. Add the following features to the `featureManager` section. Some features might come built in with Liberty. If you receive an error when you run your server, you can install them by running `.installUtility install <name_of_server>` from the bin directory of your Liberty installation.
+2. Add the following features to the `featureManager` section. Some features might come built in with Liberty. If you receive an error when you run your server, you can install them by running `.installUtility install {name_of_server}` from the bin directory of your Liberty installation.
 
   ```xml
   <featureManager>

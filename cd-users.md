@@ -92,9 +92,9 @@ You can use the {{site.data.keyword.appid_short_notm}} API to view details about
 2. Search your {{site.data.keyword.appid_short_notm}} users with an identifying query, such as an email address, to find the user ID.
 
   ```sh
-  curl -X GET "https://<region>.appid.cloud.ibm.com/management/v4/<tenant-ID>/cloud_directory/Users?query=<identifying-search-query>" \
+  curl -X GET "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/Users?query={identifying-search-query}" \
    -H "accept: application/json" \
-   -H "authorization: Bearer <token>"
+   -H "authorization: Bearer {token}"
   ```
   {: codeblock}
 
@@ -108,9 +108,9 @@ You can use the {{site.data.keyword.appid_short_notm}} API to view details about
 3. By using the ID that you obtained in the previous step, make a GET request to the `cloud_directory/users` endpoint to see their full user profile.
 
   ```sh
-  curl -X GET "https://<region>.appid.cloud.ibm.com/management/v4/<tenant-ID>/cloud_directory/Users/<user-ID>" \
+  curl -X GET "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/Users/{user-ID}" \
   -H "accept: application/json" \
-  -H "authorization: Bearer <token>"
+  -H "authorization: Bearer {token}"
   ```
   {: codeblock}
 
@@ -210,11 +210,11 @@ If you disable self-service sign-up or add a user on their behalf, the user does
 3. Run the following command to create a new user and a profile at the same time.
 
   ```sh
-  curl -X POST "https://<region>.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/sign_up?shouldCreateProfile=true&language=en" \
+  curl -X POST "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/sign_up?shouldCreateProfile=true&language=en" \
   -H "accept: application/json" \
   -H "Content-Type: application/json" \
-  -H "authorization: Bearer <token>" \
-  -d "{ \"active\": true, \"emails\": [ { \"value\": \"<user@domain.com>\", \"primary\": true } ], \"userName\": \"<myUserName>\", \"password\": \"<userPassword>\"}"
+  -H "authorization: Bearer {token}" \
+  -d "{ \"active\": true, \"emails\": [ { \"value\": \"{user@domain.com}\", \"primary\": true } ], \"userName\": \"{myUserName}\", \"password\": \"{userPassword}\"}"
   ```
   {: codeblock}
 
@@ -255,7 +255,7 @@ If you want to remove a user from your directory, you can delete the user from t
 3. By using the email that is attached to the user, search your directory to find the user's ID.
 
   ```sh
-  curl -X GET "https://<region>.appid.cloud.ibm.com/management/v4/<tenant-ID>/users?email=<user@domain.com>" \
+  curl -X GET "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/users?email={user@domain.com}" \
   -H "accept: application/json"
   ```
   {: codeblock}
@@ -263,9 +263,9 @@ If you want to remove a user from your directory, you can delete the user from t
 4. Delete the user.
 
   ```sh
-  curl -X DELETE "https://<region>.appid.test.cloud.ibm.com/management/v4/<tenant-ID>/cloud_directory/remove/<user-ID>" \
+  curl -X DELETE "https://{region}.appid.test.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/remove/{user-ID}" \
   -H "accept: application/json" \
-  -H "authorization: Bearer <token>"
+  -H "authorization: Bearer {token}"
   ```
   {: codeblock}
 
@@ -287,9 +287,9 @@ Before you can import your profiles to your new instance, you need to export the
 1. Export the users from your original instance of the service.
 
   ```sh
-  curl -X GET ’https://<region>.appid.cloud.ibm.com/management/v4/<tenant-ID>/cloud_directory/export?encryption_secret=<mySecret>' \
+  curl -X GET ’https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/export?encryption_secret={mySecret}' \
   -H ‘Accept: application/json’ \
-  -H ‘Authorization: Bearer <iam-token>'
+  -H ‘Authorization: Bearer {iam-token}'
   ```
   {: codeblock}
 

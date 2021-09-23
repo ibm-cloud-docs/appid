@@ -181,12 +181,12 @@ To see an example, check out the blog <a href="https://www.ibm.com/cloud/blog/us
 
   async function obtainPublicKeys() {
     // Your {{site.data.keyword.appid_short_notm}} instance tenant ID
-    const tenantId = '<TENANT-ID>';
+    const tenantId = '{TENANT-ID}';
 
     // Send request to {{site.data.keyword.appid_short_notm}}'s public keys endpoint
     const keysOptions = {
       method: 'GET',
-      url: `https://<REGION>.appid.cloud.ibm.com/oauth/v4/${tenantId}/publickeys`
+      url: `https://{REGION}.appid.cloud.ibm.com/oauth/v4/${tenantId}/publickeys`
     };
     const keysResponse = await request(keysOptions);
     return JSON.parse(keysResponse.body).keys;
@@ -239,9 +239,9 @@ To see an example, check out the blog <a href="https://www.ibm.com/cloud/blog/us
 2. Make a PUT request to the `/management/v4/{tenantId}/config/cloud_directory/email_dispatcher` to provide your webhook URL. Optionally, you can provide authorization information. Supported authorization types include: `Basic authorization` and `constant authorization header value`.
 
   ```sh
-  curl -X PUT https://<region>.appid.cloud.ibm.com/management/v4/<tenant_ID>/config/cloud_directory/email_dispatcher' \
+  curl -X PUT https://{region}.appid.cloud.ibm.com/management/v4/{tenant_ID}/config/cloud_directory/email_dispatcher' \
   --header 'Accept: application/json' \
-  --header 'Authorization: Bearer <IAM_token>' \
+  --header 'Authorization: Bearer {IAM_token}' \
   -d '{
     "provider": "custom",
     "custom": {
