@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-08-16"
+lastupdated: "2021-09-23"
 
 keywords: profile, custom attributes, predefined attributes, attributes, app users, app interaction, personalized experience, access user info, identity provider information, access token, authentication, user sign in, android, java, node, swift, ios, user, preferences
 
@@ -77,16 +77,17 @@ If you need to work with an API, check out the following image and corresponding
 
 ![{{site.data.keyword.appid_short_notm}} user profile endpoint options](images/user-profile-endpoints.png){: caption="Figure 2. Endpoint options that can be used to access user information" caption-side="bottom"}
 
-<dl>
-  <dt><code>/oauth/v4/{tenantId}/token</code></dt>
-    <dd>After a successful authentication, you receive access and identity tokens that contain the most common user information - a name, picture, or email for example. If you want to add additional information, you can use [custom claims-mapping](/docs/appid?topic=appid-customizing-tokens) to configure App ID to inject the information to the token before it is returned to you.</dd>
-  <dt><code>/oauth/v4/{tenantId}/userinfo</code></dt>
-    <dd>If you need to see an in-depth view of the user profile information that is returned by an identity provider, you can call the [<code>/userinfo</code> endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization_Server_V4/userInfo). It's recommended to use this endpoint only if the information cannot be mapped to the token as it requires extra network calls.</dd>
-  <dt><code>/api/v1/attributes</code></dt>
-    <dd>If your application requires reading and updating custom profile attributes for a currently logged in user, then you can use the /attributes endpoint. For example, the user wants to update a food preference.</dd>
-  <dt><code>/management/v4/{tenantId}/users</code></dt>
-    <dd>If you're building administrative interfaces or processes that might apply to multiple users, you can use the App ID management API. Specifically, you can use the <code>/users</code> endpoint.</dd>
-</dl>
+`/oauth/v4/{tenantId}/token`
+:   After a successful authentication, you receive access and identity tokens that contain the most common user information - a name, picture, or email for example. If you want to add additional information, you can use [custom claims-mapping](/docs/appid?topic=appid-customizing-tokens) to configure App ID to inject the information to the token before it is returned to you.
+
+`/oauth/v4/{tenantId}/userinfo`
+:   If you need to see an in-depth view of the user profile information that is returned by an identity provider, you can call the [<code>/userinfo</code> endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization_Server_V4/userInfo). It's recommended to use this endpoint only if the information cannot be mapped to the token as it requires extra network calls.
+
+`/api/v1/attributes`
+:   If your application requires reading and updating custom profile attributes for a currently logged in user, then you can use the /attributes endpoint. For example, the user wants to update a food preference.
+
+`/management/v4/{tenantId}/users`
+:   If you're building administrative interfaces or processes that might apply to multiple users, you can use the App ID management API. Specifically, you can use the `/users` endpoint.
 
 The easiest ways to work with user information are by using the GUI or an SDK. With those options, all of the API calls are done behind the scenes for you.
 {: tip}

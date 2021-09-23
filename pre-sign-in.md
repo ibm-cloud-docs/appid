@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-06-04"
+lastupdated: "2021-09-23"
 
 keywords: user registration, new user, add user, custom attributes, profiles, user profile, user, user information, identity provider, authentication, authorization, personalize app, app security
 
@@ -201,27 +201,12 @@ You can add a future user and their custom attributes by using the API.
   ```
   {: codeblock}
 
-  <table>
-    <caption>Table 2. The components of the POST request</caption>
-    <thead>
-      <th>Components</th>
-      <th>Description</th>
-    </thead>
-    <tbody>
-      <tr>
-        <td><code><em>idp</em></code></td>
-        <td>The identity provider that the user authenticates with. Options include: `saml`, `cloud_directory`, `facebook`, `google`, `appid_custom`, `ibmid`.</td>
-      </tr>
-      <tr>
-        <td><code><em>idp-identity</em></code></td>
-        <td>The unique identifier provided by the identity provider.</td>
-      </tr>
-      <tr>
-        <td><code><em>profile</em></code></td>
-        <td>The user's profile that contains the custom attribute JSON mapping.</td>
-      </tr>
-    </tbody>
-  </table>
+  | Components | Description |
+  | ---------- | ----------- |
+  | `idp` | The identity provider that the user authenticates with. Options include: `saml`, `cloud_directory`, `facebook`, `google`, `appid_custom`, `ibmid`. |
+  | `idp-identity` | The unique identifier provided by the identity provider. |
+  | `profile` | The user's profile that contains the custom attribute JSON mapping. |
+  {: caption="Table 2. The components of the POST request" caption-side="top"}
 
   Example request:
   ```

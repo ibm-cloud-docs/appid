@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-06-01"
+lastupdated: "2021-09-23"
 
 keywords: secure mobile app, android, ios, authenticate users,  authorization grant, client sdk, trusted client, native app, personalized, custom app, devices, identity flow, app security
 
@@ -101,28 +101,13 @@ You need the following information:
 
 * Your instance's deployment {{site.data.keyword.cloud_notm}} region. You can find your region by looking at the console.
 
-  <table><caption> Table 1. {{site.data.keyword.cloud_notm}} regions and corresponding SDK values</caption>
-  <tr>
-    <th>{{site.data.keyword.cloud_notm}} Region</th>
-    <th>SDK value</th>
-  </tr>
-  <tr>
-    <td>US South</td>
-    <td><code>AppID.REGION_US_SOUTH</code> </td>
-  </tr>
-  <tr>
-    <td>Sydney</td>
-    <td><code>AppID.REGION_SYDNEY</code></td>
-  </tr>
-  <tr>
-    <td>United Kingdom</td>
-    <td><code>AppID.REGION_UK</code></td>
-  </tr>
-  <tr>
-    <td>Germany</td>
-    <td><code>AppID.REGION_GERMANY</code></td>
-  </tr>
-</table>
+  | {{site.data.keyword.cloud_notm}} Region | SDK value |
+  | ---------------- | --------- |
+  | US South | `AppID.REGION_US_SOUTH` |
+  | Sydney | `AppID.REGION_SYDNEY` |
+  | United Kingdom | `AppID.REGION_UK` |
+  | Germany | `AppID.REGION_GERMANY` |
+  {: caption="Table 1. {{site.data.keyword.cloud_notm}} regions and corresponding SDK values" caption-side="top"}
 
 ## Authenticating with the Android SDK
 {: #mobile-android}

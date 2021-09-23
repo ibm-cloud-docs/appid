@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-06-04"
+lastupdated: "2021-09-23"
 
 keywords: bring your own screens, branded app, sign up, custom, directory, registry, app security, password, authorization flow, authentication,
 
@@ -174,25 +174,15 @@ By using `WebAppStrategy`, users can sign in to your web apps with their user na
   ```
   {: codeblock}
 
-  <table>
-    <tr>
-      <th>Parameter</th>
-      <th>Description</th>
-    <tr>
-    <tr>
-      <td><code>successRedirect</code></td>
-      <td>The URL that you want to redirect the user after a successful authentication.</td>
-    </tr>
-    <tr>
-      <td><code>failureRedirect</code></td>
-      <td>The URL that you want to redirect the user to if authentication fails. Users are redirected to the specified URL when the following authentication failures occur:<ul><li>The user inputs an incorrect username or password.</li><li>The plan limit for the {{site.data.keyword.appid_short_notm}} instance has been reached.</li></ul>
-      </td>
-    </tr>
-    <tr>
-      <td><code>failureFlash</code></td>
-      <td>When set to <code>true</code> an error message is returned from the Cloud Directory service. By default, the value is set to <code>false</code>.</td>
-    </tr>
-  </table>
+  | Parameter | Description |
+  | --------- | ----------- |
+  | `successRedirect` | The URL that you want to redirect the user after a successful authentication. |
+  | `failureRedirect` | The URL that you want to redirect the user to if authentication fails. Users are redirected to the specified URL when the following authentication failures occur:
+   * The user inputs an incorrect username or password.
+   * The plan limit for the {{site.data.keyword.appid_short_notm}} instance has been reached. | 
+  | `failureFlash` | When set to `true` an error message is returned from the Cloud Directory service. By default, the value is set to `false`.|
+  {: caption="Table 1. Sign-in parameters" caption-side="top"}
+
 
   If you submit the request in HTML, you can use [body parser](https://www.npmjs.com/package/body-parser){: external} middleware. To see the returned error message, you can use [connect-flash](https://www.npmjs.com/package/connect-flash){: external}. To see it in action, check out the [web app sample](https://github.com/ibm-cloud-security/appid-serversdk-nodejs/blob/master/samples/web-app-sample.js){: external}.
   {: note}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-06-04"
+lastupdated: "2021-09-23"
 
 keywords: emails, verification, templates, sendgrid, welcome, password reset, password change, change details, verification, supported languages, registry, cloud directory, 
 
@@ -316,29 +316,13 @@ Users who are manually added via the {{site.data.keyword.appid_short_notm}} dash
 
 4. Customize the content of your message. You can add parameters and insert images by using the UI. To change the [language](/docs/appid?topic=appid-cd-types#cd-languages) of the message, you can use [the APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization){: external} to set the language. However, you are responsible for the content and conversion of the message. Check out the following table to see the different parameters that you can use in your message. If a user does not supply the information that is pulled by the parameter, it appears blank.
 
-  <table>
-    <caption>Table 2. Parameters that you can use in messages that are related to verification</caption>
-    <tr>
-      <th>Parameter</th>
-      <th>Description</th>
-    </tr>
-    <tr>
-      <td><code>%{linkExpiration.hours}</code></td>
-      <td> Displays the number of hours the link is valid. </td>
-    </tr>
-    <tr>
-      <td><code>%{linkExpiration.minutes}</code></td>
-      <td> Displays the number of minutes the link is valid. </td>
-    </tr>
-    <tr>
-      <td><code>%{verify.code}</code></td>
-      <td> Displays a one-time verification URL. </td>
-    </tr>
-    <tr>
-      <td><code>%{verify.link}</code></td>
-      <td> Displays the action URL that you specified in settings. </td>
-    </tr>
-  </table>
+  | Parameter | Description | 
+  | --------- | ----------- |
+  | `%{linkExpiration.hours}` | Displays the number of hours the link is valid. |
+  | `%{linkExpiration.minutes}` |  Displays the number of minutes the link is valid. |
+  | `%{verify.code}` | Displays a one-time verification URL. |
+  | `%{verify.link}` | Displays the action URL that you specified in settings. |
+  {: caption="Table 2. Parameters that you can use in messages that are related to verification" caption-side="top"}
 
   You can also use the message parameters that are listed in the [Welcome message](/docs/appid?topic=appid-cd-types#cd-messages-welcome) section.
   {: tip}
@@ -363,29 +347,13 @@ When a user interacts with your app, they might forget their password or need to
 
 3. Customize the content of your message. You can add parameters and insert images by using the UI. To change the [language](/docs/appid?topic=appid-cd-types#cd-languages) of the message, you can use <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization" target="_blank">the APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to set the language. However, you are responsible for the content and conversion of the message. Check out the following table to see the different parameters that you can use in your message. If a user does not supply the information that is pulled by the parameter, it appears blank.
 
-  <table>
-    <caption>Table 3. Parameters that you can use in messages that are related to forgotten passwords</caption>
-    <tr>
-      <th>Parameter</th>
-      <th>Description</th>
-    </tr>
-    <tr>
-      <td><code>%{linkExpiration.hours}</code></td>
-      <td> Displays the number of hours that the link is valid.</td>
-    </tr>
-    <tr>
-      <td><code>%{linkExpiration.minutes}</code></td>
-      <td>Displays the number of minutes that the link is valid.</td>
-    </tr>
-    <tr>
-      <td><code>%{resetPassword.code}</code></td>
-      <td> Displays a one-time passcode as part of the URL. This means that each person would have a different code. Example: `https://us-south.appid.cloud.ibm.com/wfm/verify/6574839563478`</td>
-    </tr>
-    <tr>
-      <td><code>%{resetPassword.link}</code></td>
-      <td> Displays the link that a user clicks to reset their password.</td>
-    </tr>
-  </table>
+  | Parameter | Description |
+  | --------- | ----------- |
+  | `%{linkExpiration.hours}` | Displays the number of hours that the link is valid. |
+  | `%{linkExpiration.minutes}` | Displays the number of minutes that the link is valid. |
+  | `%{resetPassword.code}` | Displays a one-time passcode as part of the URL. This means that each person would have a different code. Example: `https://us-south.appid.cloud.ibm.com/wfm/verify/6574839563478` |
+  | `%{resetPassword.link}` | Displays the link that a user clicks to reset their password. | 
+  {: caption="Table 3. Parameters that you can use in messages that are related to forgotten passwords" caption-side="top"}
 
   You can also use the message parameters that are listed in the [Welcome message](/docs/appid?topic=appid-cd-types#cd-messages-welcome) section.
   {: tip}
@@ -409,27 +377,16 @@ You can notify a user when their password is updated. The notification can be he
 
 3. Customize the content of your message. You can add parameters and insert images by using the UI. To change the [language](/docs/appid?topic=appid-cd-types#cd-languages) of the message, you can use [the APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization){: external} to set the language. However, you are responsible for the content and conversion of the message. Check out the following table to see the different parameters that you can use in your message. If a user does not supply the information that is pulled by the parameter, it appears blank.
 
-  <table>
-    <caption>Table 4. Parameters that you can use in messages that are related to changing a password</caption>
-    <tr>
-      <th>Parameter</th>
-      <th>Description</th>
-    </tr>
-    <tr>
-      <td><code>%{passwordChangeInfo.time}</code></td>
-      <td> Displays the time at which a new password went into effect. </td>
-    </tr>
-    <tr>
-      <td><code>%{passwordChangeInfo.ipAddress}</code></td>
-      <td> Displays the IP address from which the password change was requested. </td>
-    </tr>
-  </table>
+  | Parameter | Description |
+  | --------- | ----------- |
+  | `%{passwordChangeInfo.time}` | Displays the time at which a new password went into effect. |
+  | `%{passwordChangeInfo.ipAddress}` | Displays the IP address from which the password change was requested. |
+  {: caption="Table 4. Parameters that you can use in messages that are related to changing a password" caption-side="top"}
 
   You can also use the message parameters that are listed in the [Welcome message](/docs/appid?topic=appid-cd-types#cd-messages-welcome) section.
   {: tip}
 
 4. Click **Save**.
-
 
 
 ## Supported languages

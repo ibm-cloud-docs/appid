@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-06-04"
+lastupdated: "2021-09-23"
 
 keywords: Adapter, access management, identity token, helm chart, backend apps, kube, any kube, icp, openshift, iks, service mesh, access, app identity, kube secret, tokens, authenticated, app endpoints, authorization, multicloud, no code change, no redeploy, authorization policies, multiple providers
 
@@ -185,51 +185,15 @@ Depending on whether you're protecting front end or backend applications, create
   ```
   {: screen}
 
-  <table>
-    <caption>Table 1. YAML configuration file components explained</caption>
-    <tr>
-      <th>Field</th>
-      <th style="text-align:center">Type</th>
-      <th style="text-align:center">Required</th>
-      <th style="text-align:center">Description</th>
-    </tr>
-    <tr>
-      <td><code>discoveryUrl</code></td>
-      <td style="text-align:center">string</td>
-      <td style="text-align:center">Yes</td>
-      <td style="text-align:center">A well-known endpoint that provides a JSON document of OIDC/OAuth 2.0 configuration information.</td>
-    </tr>
-    <tr>
-      <td><code>clientId</code></td>
-      <td style="text-align:center">string</td>
-      <td style="text-align:center">Yes</td>
-      <td style="text-align:center">An identifier for the client that is used for authentication.</td>
-    </tr>
-    <tr>
-      <td><code>clientSecret</code></td>
-      <td style="text-align:center">string</td>
-      <td style="text-align:center">*No</td>
-      <td style="text-align:center">A plain text secret that is used to authenticate the client. If not provided, a <code>clientSecretRef</code> must exist.</td>
-    </tr>
-    <tr>
-      <td><code>clientSecretRef</code></td>
-      <td style="text-align:center">object</td>
-      <td style="text-align:center">No</td>
-      <td style="text-align:center">A reference secret that is used to authenticate the client. The reference can be used in place of the <code>clientSecret</code>.</td>
-    </tr>
-    <tr>
-      <td><code>clientSecretRef.name</code></td>
-      <td style="text-align:center">string</td>
-      <td style="text-align:center">Yes</td>
-      <td style="text-align:center">The name of the Kubernetes Secret that contains the <code>clientSecret</code>.</td>
-    </tr>
-    <tr>
-      <td><code>clientSecretRef.key</code></td>
-      <td style="text-align:center">string</td>
-      <td style="text-align:center">Yes</td>
-      <td style="text-align:center">The field within the Kubernetes Secret that holds the <code>clientSecret</code>.</td>
-    </tr>
-  </table>
+  | Field | Type | Required | Description | 
+  | ----- | ---- | -------- | ----------- |
+  | `discoveryUrl` | string | Yes | A well-known endpoint that provides a JSON document of OIDC/OAuth 2.0 configuration information. | 
+  | `clientId` | string | Yes | An identifier for the client that is used for authentication. |
+  | `clientSecret` | string | *No | A plain text secret that is used to authenticate the client. If not provided, a `clientSecretRef` must exist. |
+  | `clientSecretRef` | object | No | A reference secret that is used to authenticate the client. The reference can be used in place of the `clientSecret`. | 
+  | `clientSecretRef.name` | string | Yes | The name of the Kubernetes Secret that contains the `clientSecret`. | 
+  | `clientSecretRef.key` | string | Yes | The field within the Kubernetes Secret that holds the `clientSecret`. |
+  {: caption="Table 1. YAML configuration file components explained" caption-side="top"}
 
 * For backend applications: The OAuth 2.0 Bearer token spec defines a pattern for protecting APIs by using [JSON Web Tokens (JWTs)](https://datatracker.ietf.org/doc/html/rfc7519){: external}. By using the following configuration as an example, define a `JwtConfig` CRD that contains the public key resource, which is used to validate token signatures.
 

@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2017, 2021
-lastupdated: "2021-07-12"
+lastupdated: "2021-09-23"
 
 keywords: manage users, registry, cloud directory, add user, delete user, tokens, attributes, migrating users, identity provider, app security
 
@@ -293,21 +293,11 @@ Before you can import your profiles to your new instance, you need to export the
   ```
   {: codeblock}
 
-  <table>
-    <caption>Table 2. Descriptions of the parameters that need to be provided in the export request</caption>
-    <tr>
-      <th>Parameters</th>
-      <th>Description</th>
-    </tr>
-    <tr>
-      <td><code>encryption_secret</code></td>
-      <td>A custom string that is used to encrypt and decrypt a user's hashed password.</td>
-    </tr>
-    <tr>
-      <td><code>tenantID</code></td>
-      <td>The service tenant ID can be found in your service credentials. You can find your service credentials in the {{site.data.keyword.appid_short_notm}} dashboard.</td>
-    </tr>
-  </table>
+  | Parameters | Description |
+  | ---------- | ----------- |
+  | `encryption_secret` | A custom string that is used to encrypt and decrypt a user's hashed password. |
+  | `tenantID` | The service tenant ID can be found in your service credentials. You can find your service credentials in the {{site.data.keyword.appid_short_notm}} dashboard. |
+  {: caption="Table 2. Descriptions of the parameters that need to be provided in the export request" caption-side="top"}
 
   Only your Cloud Directory users and their profiles are returned. Users from other identity providers are not.
   {: note}
@@ -396,29 +386,13 @@ Now that you have a list of exported Cloud Directory users, you can import them 
   ```
   {: codeblock}
 
-  <table>
-    <caption>Table 3. Parameter descriptions</caption>
-    <tr>
-      <th>Parameter</th>
-      <th>Description</th>
-    </tr>
-    <tr>
-      <td><code>sourceTenantId</code></td>
-      <td>The tenant ID of the instance of {{site.data.keyword.appid_short_notm}} that you plan to export users from.</td>
-    </tr>
-    <tr>
-      <td><code>destinationTenantId</code></td>
-      <td>The tenant ID of the instance of {{site.data.keyword.appid_short_notm}} that you plan to import users to. </td>
-    </tr>
-    <tr>
-      <td><code>region</code></td>
-      <td>Learn more about the <a href="/docs/appid?topic=appid-regions-endpoints">available regions</a>.</td>
-    </tr>
-    <tr>
-      <td><code>IAM token</code></td>
-      <td>For help with obtaining an IAM token, check out [the docs](/docs/account?topic=account-iamtoken_from_apikey#iamtoken_from_apikey).</td>
-    </tr>
-  </table>
+  | Parameter | Description |
+  | --------- | ----------- |
+  | `sourceTenantId` | The tenant ID of the instance of {{site.data.keyword.appid_short_notm}} that you plan to export users from. |
+  | `destinationTenantId` | The tenant ID of the instance of {{site.data.keyword.appid_short_notm}} that you plan to import users to. |
+  | `region` | Learn more about the [available regions](/docs/appid?topic=appid-regions-endpoints). | 
+  | `IAM token` | For help with obtaining an IAM token, check out [the docs](/docs/account?topic=account-iamtoken_from_apikey#iamtoken_from_apikey). | 
+  {: caption="Table 3. Parameter descriptions" caption-side="top"}
 
   Example command:
 

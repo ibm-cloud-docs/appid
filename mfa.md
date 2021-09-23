@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-24"
+lastupdated: "2021-09-23"
 
 keywords: mfa, multifactor, authentication, cloud directory, login widget, second factor, two factor, identity, mulitple factors, advanced security event, cloud directory user, sender id, phone number, email, nexmo, mfa descision, extension
 
@@ -99,45 +99,17 @@ You can configure the MFA email channel through the GUI.
 
 3. In the **Email channel** tab, review the **Email template**. You can choose to send the template with the provided wording or write your own message. Be sure to use the correct HTML tagging. In the GUI, you can add parameters and insert images. To change the [language](/docs/appid?topic=appid-cd-types#cd-languages) of the message, you can use [the APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization){: external} to set the language. However, you are responsible for the content and conversion of the message. Check out the following table to see the list of tables that you can use in this message and all of the other messages that you can send. If a user does not supply the information that is pulled by the parameter, it appears blank.
 
-  <table>
-    <caption>Table 1. MFA message parameters</caption>
-    <tr>
-      <th>Parameter</th>
-      <th>Description</th>
-    </tr>
-    <tr>
-      <td><code>%{display.logo}</code></td>
-      <td> Displays the image that you configured for your Login Widget. </td>
-    </tr>
-    <tr>
-      <td><code>%{user.displayName}</code></td>
-      <td> Displays the screen name a user chose to use when interacting with the app. </td>
-    </tr>
-    <tr>
-      <td><code>%{user.email}</code></td>
-      <td> Displays the user's registered email address. </td>
-    </tr>
-    <tr>
-      <td><code>%{user.username}</code></td>
-      <td> Displays the user's specified username when the authentication method is set to username and password. </td>
-    </tr>
-    <tr>
-      <td><code>%{user.firstName}</code></td>
-      <td> Displays the user's specified given name. </td>
-    </tr>
-    <tr>
-      <td><code>%{user.formattedName}</code></td>
-      <td> Displays the user's full name. </td>
-    </tr>
-    <tr>
-      <td><code>%{user.lastName}</code></td>
-      <td> Displays the user's specified surname. </td>
-    </tr>
-    <tr>
-      <td><code>%{mfa.code}</code></td>
-      <td> Displays a one-time MFA verification code. </td>
-    </tr>
-  </table>
+  | Parameter | Description |
+  | --------- | ----------- |
+  | `%{display.logo}` |  Displays the image that you configured for your Login Widget. |
+  | `%{user.displayName}` | Displays the screen name a user chose to use when interacting with the app. |
+  | `%{user.email}` | Displays the user's registered email address. |
+  | `%{user.username}` | Displays the user's specified username when the authentication method is set to username and password. |
+  | `%{user.firstName}` | Displays the user's specified given name. |
+  | `%{user.formattedName}` | Displays the user's full name. |
+  | `%{user.lastName}` | Displays the user's specified surname. |
+  | `%{mfa.code}` | Displays a one-time MFA verification code. |
+  {: caption="Table 1. MFA message parameters" caption-side="top"}
 
   If a user does not supply the information that is pulled by the parameter, it appears blank.
   {: note}
@@ -317,91 +289,33 @@ To configure a pre-MFA extension:
 
 1. Define the criteria that you want a user to meet before them being able to skip the second factor of authentication. Check out the following examples to get some ideas if you're unsure.
 
-  <table>
-    <caption>Table 3. Example criteria for skipping MFA</caption>
-    <tr>
-      <th>Example use case</th>
-      <th>Example validation</th>
-    </tr>
-    <tr>
-      <td>You want users to provide a second authentication factor only once a day.</td>
-      <td>Configure your extension to validate the <code>last_successful_first_factor</code> is within the same day.</td>
-    </tr>
-    <tr>
-      <td>You have a allow list of approved users that don't need to provide the second factor every time.</td>
-      <td>Configure your extension to validate that the <code>username</code> or <code>user_id</code> is in the allow list.</td>
-    </tr>
-    <tr>
-      <td>You don't want users who access your app on a desktop to provide the second factor every time.</td>
-      <td>Configure your extension to validate that <code>device_type</code> is set to <code>web</code>.</td>
-    </tr>
-  </table>
+  | Example use case | Example validation |
+  | ---------------- | ------------------ |
+  | You want users to provide a second authentication factor only once a day. | Configure your extension to validate the `last_successful_first_factor` is within the same day. |
+  | You have a allow list of approved users that don't need to provide the second factor every time. | Configure your extension to validate that the `username` or `user_id` is in the allow list. |
+  | You don't want users who access your app on a desktop to provide the second factor every time. | Configure your extension to validate that `device_type` is set to `web`. |
+  {: caption="Table 3. Example criteria for skipping MFA" caption-side="top"}
 
 2. When you know your criteria, configure an extension that can listen for a POST request. The endpoint must be able to read the payload that comes from {{site.data.keyword.appid_short_notm}}. The body that is sent by {{site.data.keyword.appid_short_notm}} before starting the MFA flow is in the format: `{"jws": "jws-format-string"}`. Your extension might also [decode and validate](/docs/appid?topic=appid-token-validation#local-validation) the payload, the content is a JSON object and return a JSON response with the following schema: `{"skipMfa": Boolean }`. For example,: `{'skipMfa': true}`. 
 
-  <table>
-    <caption>Table 4. The information that {{site.data.keyword.appid_short_notm}} forwards to your extension point.</caption>
-    <tr>
-      <th>Information</th>
-      <th>Description</th>
-    </tr>
-    <tr>
-      <td><code>correlation_id</code></td>
-      <td>A random number that is generated for each MFA session. If you have both a pre-mfa and a post-mfa extension, the number is the same for each for the same session. For example, <code>3bb9236c-792f-4cca-8ae1-ada754cc4555</code></td>
-    </tr>
-    <tr>
-      <td><code>extension</code></td>
-      <td>The name of your extension. For this use case, the extension is named <code>premfa</code>.</td>
-    </tr>
-    <tr>
-      <td><code>device_type</code></td>
-      <td>The type of device with which your user is accessing your application. Options include: <code>web</code> and <code>mobile</code>.</td>
-    </tr>
-    <tr>
-      <td><code>source_ip</code></td>
-      <td>The IP address of the device that makes the request to your app. For example, <code>127.0.0.1</code></td>
-    </tr>
-    <tr>
-      <td><code>headers</code></td>
-      <td>The information that is returned by the browser when a user attempts to sign in to your app. </br> The header looks similar to: <code>{"user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X x.y; rv:42.0) Gecko/20100101 Firefox/42.0"}</code></td>
-    </tr>
-    <tr>
-      <td><code>tenant_id</code></td>
-      <td>Your application's tenant ID.</td>
-    </tr>
-    <tr>
-      <td><code>client_id</code></td>
-      <td>Your application's client ID.</td>
-    </tr>
-    <tr>
-      <td><code>user_id</code></td>
-      <td>The ID of the user that makes the authentication request. For example, <code>11112222-3333-4444-2222-555522226666</code></td>
-    </tr>
-    <tr>
-      <td><code>username</code></td>
-      <td>The username of the user that makes the authentication request. For example, <code>testuser@email.com</code>.</td>
-    </tr>
-    <tr>
-      <td><code>application_type</code></td>
-      <td>The type of your application. For example, if your application is a single page JavaScript web app, <code>browserapp</code> is returned. Options include: <code>browserapp</code>, <code>serverapp</code>, and <code>mobileapp</code>.</td>
-    </tr>
-    <tr>
-      <td><code>first_name</code></td>
-      <td>The users given name.</td>
-    </tr>
-    <tr>
-      <td><code>last_name</code></td>
-      <td>The users surname.</td>
-    </tr>
-    <tr>
-      <td><code>last_successful_first_factor</code></td>
-      <td>The date of the last time the user correctly entered their credentials. For example, <code>2000-01-01T16:44:01.226Z</code></td>
-    </tr>
-    <tr>
-      <td><code>last_successful_mfa</code></td>
-      <td>The date of the last time the user completed the full MFA flow. For example, <code>2000-01-01T16:44:01.226Z</code></td>
-    </tr>
-  </table>
+  | Information | Description |
+  | ----------- | ----------- |
+  | `correlation_id` | A random number that is generated for each MFA session. If you have both a pre-mfa and a post-mfa extension, the number is the same for each for the same session. For example, `3bb9236c-792f-4cca-8ae1-ada754cc4555`. |
+  | `extension` | The name of your extension. For this use case, the extension is named `premfa`. |
+  | `device_type` | The type of device with which your user is accessing your application. Options include: `web` and `mobile`. |
+  | `source_ip` | The IP address of the device that makes the request to your app. For example, `127.0.0.1`. |
+  | `headers` | The information that is returned by the browser when a user attempts to sign in to your app. 
+   The header looks similar to: `{"user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X x.y; rv:42.0) Gecko/20100101 Firefox/42.0"}`. | 
+  | `tenant_id` | Your application's tenant ID. |
+  | `client_id` | Your application's client ID. | 
+  | `user_id` | The ID of the user that makes the authentication request. For example, `11112222-3333-4444-2222-555522226666`. |
+  | `username` | The username of the user that makes the authentication request. For example, `testuser@email.com`. |
+  | `application_type` | The type of your application. For example, if your application is a single page JavaScript web app, `browserapp` is returned. Options include: `browserapp`, `serverapp`, and `mobileapp`. |
+  | `first_name` | The users given name. |
+  | `last_name` | The users surname. |
+  | `last_successful_first_factor` | The date of the last time the user correctly entered their credentials. For example, `2000-01-01T16:44:01.226Z`. |
+  | `last_successful_mfa` | The date of the last time the user completed the full MFA flow. For example, `2000-01-01T16:44:01.226Z`. |
+  {: caption="Table 4. The information that {{site.data.keyword.appid_short_notm}} forwards to your extension point." caption-side="top"}
 
   To see an example extension, check out [the sample](https://github.com/ibm-cloud-security/appid-sample-code-snippets/blob/master/premfa-extension-point/index.js).
   {: tip}
@@ -474,69 +388,25 @@ To configure a post-MFA extension:
 
 1. Configure an extension point that can listen for a POST request. The endpoint must be able to read the payload that is sent by {{site.data.keyword.appid_short_notm}}. Optionally, it can also [decode and validate](/docs/appid?topic=appid-token-validation#local-validation) the JSON payload that is returned by {{site.data.keyword.appid_short_notm}} is not altered by a third party in any way. A string that is formatted as `{"jws": "jws-format-string"}` is returned that contains the following information:
   
-  <table>
-    <caption>Table 5. The information that {{site.data.keyword.appid_short_notm}} forwards to your extension point.</caption>
-    <tr>
-      <th>Information</th>
-      <th>Description</th>
-    </tr>
-    <tr>
-      <td><code>correlation_id</code></td>
-      <td>A random number that is generated for each MFA session. If you have both a pre-mfa and a post-mfa extension, the number is the same for each. For example, <code>3bb9236c-792f-4cca-8ae1-ada754cc4555</code></td>
-    </tr>
-    <tr>
-      <td><code>extension</code></td>
-      <td>The name of your extension. For this use case, the extension is named <code>postmfa</code>.</td>
-    </tr>
-    <tr>
-      <td><code>status</code></td>
-      <td>The MFA status. Options include: <code>success</code> and <code>failed</code>.</td>
-    </tr>
-    <tr>
-      <td><code>reason</code></td>
-      <td>The reason for an MFA failure. For example, <code>user locked out - exceeded maximum number of verification attempts</code>.</td>
-    </tr>
-    <tr>
-      <td><code>device_type</code></td>
-      <td>The type of device with which your user accesses your application. Options include: <code>web</code>, <code>mobile</code>.</td>
-    </tr>
-    <tr>
-      <td><code>source_ip</code></td>
-      <td>The IP address of the device that makes the request to your app. For example, <code>127.0.0.1</code>.</td>
-    </tr>
-    <tr>
-      <td><code>headers</code></td>
-      <td>The information that is returned by the browser when a user attempts to sign in to your app. </br> The header looks similar to <code>{"user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X x.y; rv:42.0) Gecko/20100101 Firefox/42.0"}</code></td>
-    </tr>
-    <tr>
-      <td><code>tenant_id</code></td>
-      <td>Your application's tenant ID.</td>
-    </tr>
-    <tr>
-      <td><code>client_id</code></td>
-      <td>Your application's client ID.</td>
-    </tr>
-    <tr>
-      <td><code>user_id</code></td>
-      <td>The ID of the user that makes the authentication request.</td>
-    </tr>
-    <tr>
-      <td><code>username</code></td>
-      <td>The username of the user that makes the authentication request. For example, <code>testuser@email.com</code>.</td>
-    </tr>
-    <tr>
-      <td><code>application_type</code></td>
-      <td>The type of your application. For example, if your application is a single page JavaScript web app, <code>browserapp</code> is returned. Options include: <code>browserapp</code>, <code>serverapp</code>, and <code>mobileapp</code>.</td>
-    </tr>
-    <tr>
-      <td><code>first_name</code></td>
-      <td>The users given name.</td>
-    </tr>
-    <tr>
-      <td><code>last_name</code></td>
-      <td>The users surname.</td>
-    </tr>
-  </table>
+  | Information | Description |
+  | ----------- | ----------- |
+  | `correlation_id` | A random number that is generated for each MFA session. If you have both a pre-mfa and a post-mfa extension, the number is the same for each. For example, `3bb9236c-792f-4cca-8ae1-ada754cc4555`. |
+  | `extension` | The name of your extension. For this use case, the extension is named `postmfa`. |
+  | `status` | The MFA status. Options include: `success` and `failed`. |
+  | `reason` | The reason for an MFA failure. For example, `user locked out - exceeded maximum number of verification attempts`. |
+  | `device_type` | The type of device with which your user accesses your application. Options include: `web`, `mobile`. |
+  | `source_ip` | The IP address of the device that makes the request to your app. For example, `127.0.0.1`. |
+  | `headers` | The information that is returned by the browser when a user attempts to sign in to your app. 
+  The header looks similar to `{"user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X x.y; rv:42.0) Gecko/20100101 Firefox/42.0"}`. |
+  | `tenant_id` | Your application's tenant ID. | 
+  | `client_id` | Your application's client ID. |
+  | `user_id` | The ID of the user that makes the authentication request. |
+  | `username` | The username of the user that makes the authentication request. For example, `testuser@email.com`. |
+  | `application_type` | The type of your application. For example, if your application is a single page JavaScript web app, `browserapp` is returned. Options include: `browserapp`, `serverapp`, and `mobileapp`. |
+  | `first_name` | The users given name. |
+  | `last_name` | The users surname. |
+  {: caption="Table 5. The information that {{site.data.keyword.appid_short_notm}} forwards to your extension point." caption-side="top"}
+
 
 2. Register your extension with your instance of {{site.data.keyword.appid_short_notm}} by making a PUT request to `config/cloud_directory/mfa/extensions/postmfa`. The configuration includes your extension's URL and any authorization information that is needed to access the endpoint. For development purposes, `isActive` is set to `false`. Be sure to test your configuration before you enable it.
 

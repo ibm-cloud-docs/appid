@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-04-23"
+lastupdated: "2021-09-23"
 
 keywords: attributes, cloud directory, user registry, user management, personalization, customize app, user information, profiles, app security, user profile, app access, identity
 
@@ -196,30 +196,15 @@ Becoming more popular, you decide to implement a "deal-of-the-day". You want the
   }'
   ```
   {: codeblock}
-
-  <table>
-    <caption>Table 1. Token configuration variables</caption>
-    <tr>
-      <th>Variable</th>
-      <th>Description</th>
-    </tr>
-    <tr>
-      <td><code>tenant-id</code></td>
-      <td>A tenant ID is how your instance of {{site.data.keyword.appid_short_notm}} is identified in the request. You can find your ID in the <em>Service credentials</em> tab of the dashboard. If you don't have a set, you can follow the steps in the GUI to create credentials.</td>
-    </tr>
-    <tr>
-      <td><code>source</code></td>
-      <td>For both <code>accessTokenClaim</code> and <code>idTokenClaims</code> set the source to <code>attribute</code>.</td>
-    </tr>
-    <tr>
-      <td><code>sourceClaim</code></td>
-      <td>The specific attribute that you want to map to your token. In this case, <code>food-preference</code></td>
-    </tr>
-    <tr>
-      <td><code>expires_in</code></td>
-      <td>This value applies to each token type and must be set in each request. If you previously set the value in the GUI, and then run this request, then the values in the request override the previously set values. Be sure to set the expiration to the correct value for your configuration.</td>
-    </tr>
-  </table>
+  
+  
+  | Variable | Description | 
+  | -------- | ----------- |
+  | `tenant-id` | A tenant ID is how your instance of {{site.data.keyword.appid_short_notm}} is identified in the request. You can find your ID in the **Service credentials** tab of the dashboard. If you don't have a set, you can follow the steps in the GUI to create credentials. |
+  | `source` | For both `accessTokenClaim` and `idTokenClaims` set the source to `attribute`. |
+  | `sourceClaim` | The specific attribute that you want to map to your token. In this case, `food-preference`. |
+  | `expires_in` | This value applies to each token type and must be set in each request. If you previously set the value in the GUI, and then run this request, then the values in the request override the previously set values. Be sure to set the expiration to the correct value for your configuration. |
+  {: caption="Table 1. Token configuration variables" caption-side="top"}
 
   Successful response output:
 
