@@ -114,7 +114,7 @@ To create a scope, you can use the {{site.data.keyword.appid_short_notm}} UI.
 1. Create the scopes by making the following request to the `/scopes` endpoint.
 
   ```sh
-  curl -X PUT "https://<region>.appid.cloud.ibm.com/management/v4/<tenant_ID>/applications/<client_ID>/scopes" -H "accept: application/json" -H "Content-Type: application/json" -d "{\ "scopes":\ [\ <scopes_object>" ]}"
+  curl -X PUT "https://{region}.appid.cloud.ibm.com/management/v4/{tenant_ID}/applications/{client_ID}/scopes" -H "accept: application/json" -H "Content-Type: application/json" -d "{\ "scopes":\ [\ {scopes_object}" ]}"
   ```
   {: codeblock}
 
@@ -140,7 +140,7 @@ To create a scope, you can use the {{site.data.keyword.appid_short_notm}} UI.
 2. Optional: Confirm that the scopes were created.
 
   ```sh
-  curl -X GET "https://<region>.appid.cloud.ibm.com/management/v4/<tenant_ID>/applications/<client_ID>/scopes" -H "accept: application/json" -H "Content-Type: application/json"
+  curl -X GET "https://{region}.appid.cloud.ibm.com/management/v4/{tenant_ID}/applications/{client_ID}/scopes" -H "accept: application/json" -H "Content-Type: application/json"
   ```
   {: codeblock}
 
@@ -158,7 +158,7 @@ A role is a group of scopes that apply to the same type of user. For example, if
 4. By using the scopes that you created in the previous section, assign the scopes to a role by using the following format. Click the **+** to add the scope.
 
   ```
-  <app_name>/<scope>
+  {app_name}/{scope}
   ```
   {: screen}
 
@@ -178,7 +178,7 @@ A role is a group of scopes that apply to the same type of user. For example, if
 1. Make a request to the `/roles` endpoint to create the role.
 
   ```sh
-  curl -X POST "https://<region>.appid.cloud.ibm.com/management/v4/<tenant_ID>/roles" -H "accept: application/json" -H "Content-Type: application/json" -d { \"name\": \"<role_name>\", \"description\": \"<role_description>\", \"access\": [ { \"application_id\": \"<application_ID>\", \"scopes\": [ \"<scopes>" ] } ]}"
+  curl -X POST "https://{region}.appid.cloud.ibm.com/management/v4/{tenant_ID}/roles" -H "accept: application/json" -H "Content-Type: application/json" -d { \"name\": \"{role_name}\", \"description\": \"{role_description}\", \"access\": [ { \"application_id\": \"{application_ID}\", \"scopes\": [ \"{scopes}" ] } ]}"
   ```
   {: codeblock}
 
@@ -206,7 +206,7 @@ A role is a group of scopes that apply to the same type of user. For example, if
 2. Optional: Confirm that the roles were created.
 
   ```sh
-  curl -X GET "https://<region>.appid.cloud.ibm.com/management/v4/<tenant_ID>/roles -H "accept: application/json"
+  curl -X GET "https://{region}.appid.cloud.ibm.com/management/v4/{tenant_ID}/roles -H "accept: application/json"
   ```
   {: codeblock}
 
