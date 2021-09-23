@@ -70,7 +70,6 @@ If you're managing your service instances of {{site.data.keyword.appid_short_not
 | Frankfurt | `eu-de` |
 | London | `eu-gb` |
 | Osaka | `jp-osa` |
-| Sao Paulo | `br-sao` |
 | Sydney | `au-syd` |
 | Tokyo | `jp-tok` |
 | Toronto | `ca-tor` |

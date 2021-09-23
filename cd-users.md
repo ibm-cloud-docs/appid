@@ -319,35 +319,35 @@ Now that you have a list of exported Cloud Directory users, you can import them 
 2. Import the users to your new instance of the service.
 
   ```sh
-  curl -X POST --header ‘Content-Type: application/json’ --header ‘Accept: application/json’ --header ‘Authorization: Bearer <iam-token>’ -d ‘{“users”: [
+  curl -X POST --header ‘Content-Type: application/json’ --header ‘Accept: application/json’ --header ‘Authorization: Bearer {iam-token}’ -d ‘{“users”: [
       {
         “scimUser”: {
           “originalId”: “3f3f6779-7978-4383-926f-a43aef3b724b”,
           “name”: {
-            “givenName”: “<first-name>”,
-            “familyName”: “<last-name>”,
-            “formatted”: “<first-name> <last-name>”
+            “givenName”: “{first-name}”,
+            “familyName”: “{last-name}”,
+            “formatted”: “{first-name} {last-name}”
           },
-          “displayName”: “<first-name>”,
+          “displayName”: “{first-name}”,
           “emails”: [
             {
-              “value”: “<user>@gmail.com”,
+              “value”: “{user@gmail.com}”,
               “primary”: true
             }
           ],
           “status”: “PENDING”
         },
-        “displayName”: “<first-name>”,
+        “displayName”: “{first-name}”,
         “emails”: [
           {
-            “value”: “<user>@gmail.com”,
+            “value”: “{user@gmail.com}”,
             “primary”: true
           }
         ],
         “status”: “PENDING”
       },
-      “passwordHash”: “<password hash here>“,
-      “passwordHashAlg”: <password hash algorithm>,
+      “passwordHash”: “{password hash here}“,
+      “passwordHashAlg”: {password hash algorithm},
       “profile”: {
         “attributes”: {}
       },

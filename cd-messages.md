@@ -517,7 +517,7 @@ You can use [the language management APIs](https://us-south.appid.cloud.ibm.com/
 | `nb-NO` | Norwegian Bokmål | Norway | 
 | `nn-NO` | Norwegian Nynorsk | Norway | 
 | `or-IN` | Oriya (Odia) | India | 
-| `om-ET` | Oromo | Ethiopia< | 
+| `om-ET` | Oromo | Ethiopia | 
 | `pl-PL` | Polish | Poland | 
 | `pt-AO` | Portuguese | Angola | 
 | `pt-BR` | Portuguese | Brazil |

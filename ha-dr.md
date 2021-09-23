@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-09-21"
+lastupdated: "2021-09-23"
 
 keywords: HA for {{site.data.keyword.appid_short_notm}}, DR for {{site.data.keyword.appid_short_notm}}, high availability for {{site.data.keyword.appid_short_notm}}, disaster recovery for {{site.data.keyword.appid_short_notm}}, failover for {{site.data.keyword.appid_short_notm}}
 
@@ -53,7 +53,6 @@ subcollection: appid
 * Frankfurt (`eu-de`)
 * London (`eu-gb`)
 * Osaka (`jp-osa`)
-* Sao Paulo (`br-sao`)
 * Sydney (`au-syd`)
 * Tokyo (`jp-tok`)
 * Toronto (`ca-tor`)

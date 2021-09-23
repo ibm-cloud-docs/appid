@@ -2,7 +2,7 @@
 
 copyright:
 years: 2017, 2021
-lastupdated: "2021-09-21"
+lastupdated: "2021-09-23"
 
 keywords: release notes, new, spa, single sign on, mfa, cloud directory, saml, app security, application identity
 
@@ -49,13 +49,7 @@ subcollection: appid
 
 The following features and changes to the {{site.data.keyword.appid_short_notm}} service are now available.
 
-## September 2021
-{: #September2021}
 
-### New region availability
-{: #september-27-regions}
-
-  As of 27 September 2021, {{site.data.keyword.appid_short_notm}} is now available in the Sao Paulo region. For a detailed list of the regions in which the service is available, see [Regions and endpoints](/docs/appid?topic=appid-regions-endpoints).
 
 ## July 2021
 {: #July2021}
