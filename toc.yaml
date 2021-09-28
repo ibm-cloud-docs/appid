@@ -51,11 +51,11 @@ toc:
           - tutorial-kubernetes-auth.md
       - manageidp.md
       - topicgroup:
-              label: Configuring federated identity providers
-              topics:
-              - enterprise.md
-              - identity-providers.md
-              - custom.md
+          label: Configuring federated identity providers
+          topics:
+          - enterprise.md
+          - identity-providers.md
+          - custom.md
       - topicgroup:
           label: Hosting your own user registry
           topics:
