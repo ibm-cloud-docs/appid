@@ -20,7 +20,7 @@ toc:
           topics: 
           - authorization.md
           - tokens-understand.md
-      - whats-new.md
+      - releases.md
   - navgroup: 
       id: tutorial
       topics: 
@@ -56,6 +56,8 @@ toc:
               - custom.md
       - topicgroup:
           label: Hosting your own user registry
+          topics:
+          - cd-concept.md
           - cd-configuring.md
           - cd-passwords.md
           - cd-messages.md
