@@ -203,4 +203,3 @@ Authorization: Bearer {IAM_token}
 {: caption="Table 3. Variables that are needed to end all SSO sessions for a user" caption-side="top"}
 
 When you invoke this API, all of the specified user's SSO sessions are invalidated. This means that the next time that the user attempts to sign in to any of your apps, from any device or browser, they are required to reenter their credentials.
-
