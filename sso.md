@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-09-23"
+years: 2017, 2021
+lastupdated: "2021-09-28"
 
-keywords: sso, single sign on, cloud directory, saml, federated, sign in, log in, log out, authentication, app security, user registry, multiple apps
+keywords: single sign on, cloud directory, saml, app security, application identity
 
 subcollection: appid
 

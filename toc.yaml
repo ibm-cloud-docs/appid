@@ -9,7 +9,6 @@ toc:
     path: appid
     label: App ID
 
-
   entries: 
   - navgroup: 
       id: learn
@@ -21,8 +20,7 @@ toc:
           topics: 
           - authorization.md
           - tokens-understand.md
-      - whats-new.md     
-
+      - whats-new.md
   - navgroup: 
       id: tutorial
       topics: 
@@ -33,7 +31,6 @@ toc:
           topics:
           - qs-node-web.md
           - qs-liberty-backend.md
-
   - navgroup: 
       id: howto
       topics:
@@ -93,7 +90,6 @@ toc:
           - manage-scc.md
           - at-events.md
           - data-security.md
-  
   - navgroup:
       id: reference
       topics: 
@@ -129,8 +125,7 @@ toc:
       - api-reference.md
       - well-known.md
       - ha-dr.md
-      - privacy-policy.md 
-          
+      - privacy-policy.md
 
   - navgroup:
       id: help
@@ -144,4 +139,4 @@ toc:
           - troubleshooting/ts-requests.md
           - troubleshooting/ts-saml-authentication.md
           - troubleshooting/ts-saml-debug.md    
-      - rate-limits.md
+      - rate-limits.md  
