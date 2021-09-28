@@ -20,7 +20,7 @@ toc:
           topics: 
           - authorization.md
           - tokens-understand.md
-      - whats-new.md
+      - releases.md
   - navgroup: 
       id: tutorial
       topics: 
