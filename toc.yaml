@@ -21,6 +21,7 @@ toc:
           - authorization.md
           - tokens-understand.md
       - releases.md
+
   - navgroup: 
       id: tutorial
       topics: 
@@ -31,6 +32,7 @@ toc:
           topics:
           - qs-node-web.md
           - qs-liberty-backend.md
+
   - navgroup: 
       id: howto
       topics:
@@ -49,11 +51,11 @@ toc:
           - tutorial-kubernetes-auth.md
       - manageidp.md
       - topicgroup:
-              label: Configuring federated identity providers
-              topics:
-              - enterprise.md
-              - identity-providers.md
-              - custom.md
+          label: Configuring federated identity providers
+          topics:
+          - enterprise.md
+          - identity-providers.md
+          - custom.md
       - topicgroup:
           label: Hosting your own user registry
           topics:
@@ -92,6 +94,7 @@ toc:
           - manage-scc.md
           - at-events.md
           - data-security.md
+
   - navgroup:
       id: reference
       topics: 
