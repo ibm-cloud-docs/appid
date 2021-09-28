@@ -7,7 +7,7 @@ toc:
     console-page: /catalog/services/app-id
     product-page: https://www.ibm.com/cloud/app-id
     path: appid
-    label: appid
+    label: App ID
 
 
   entries: 
