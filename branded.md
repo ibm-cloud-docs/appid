@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-09-23"
+lastupdated: "2021-09-28"
 
 keywords: bring your own screens, branded app, sign up, custom, directory, registry, app security, password, authorization flow, authentication,
 
@@ -103,20 +103,20 @@ With Cloud Directory enabled, you can call customized screens with the Android S
 1. Configure your Cloud Directory [settings](/docs/appid?topic=appid-cloud-directory#cd-settings) in the GUI.
 2. Add the following code to your application. The sign-in flow is triggered when a user clicks sign in on your custom screen. You get access, identity, and refresh tokens by supplying the user's user name and password.
 
-  ```java
-  AppID.getInstance().signinWithResourceOwnerPassword(getApplicationContext(), username, password, new TokenResponseListener() {
+   ```java
+   AppID.getInstance().signinWithResourceOwnerPassword(getApplicationContext(), username, password, new TokenResponseListener() {
       @Override
       public void onAuthorizationFailure (AuthorizationException exception) {
-          //Exception occurred
+            //Exception occurred
       }
 
       @Override
       public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, RefreshToken refreshToken) {
-          //User authenticated
+            //User authenticated
       }
-  });
-  ```
-  {: codeblock}
+   });
+   ```
+   {: codeblock}
 
 
 
@@ -134,8 +134,8 @@ With Cloud Directory enabled, you can call your own branded screens with the [iO
 1. Configure your Cloud Directory [settings](/docs/appid?topic=appid-cloud-directory#cd-settings) in the GUI.
 2. Place the following code in your application. When a user attempts to sign in, your customized screen is called and the authorization and authentication process starts with your customized sign-in page.
 
-  ```swift
-  class delegate : TokenResponseDelegate {
+   ```swift
+   class delegate : TokenResponseDelegate {
       public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, response:Response?) {
       //User authenticated
       }
@@ -143,11 +143,11 @@ With Cloud Directory enabled, you can call your own branded screens with the [iO
       public func onAuthorizationFailure(error: AuthorizationError) {
       //Exception occurred
       }
-  }
+   }
 
-  AppID.sharedInstance.signinWithResourceOwnerPassword(username: username, password: password, delegate: delegate())
-  ```
-  {: codeblock}
+   AppID.sharedInstance.signinWithResourceOwnerPassword(username: username, password: password, delegate: delegate())
+   ```
+   {: codeblock}
 
 
 ## Branding your app with the Node.js SDK
@@ -165,27 +165,27 @@ By using `WebAppStrategy`, users can sign in to your web apps with their user na
 1. Configure your Cloud Directory [settings](/docs/appid?topic=appid-cloud-directory#cd-settings) in the GUI.
 2. Place the following code in your application. When a user attempts to sign in, your customized screen is called and the authorization and authentication process starts.
 
-  ```javascript
-  app.post("/form/submit", bodyParser.urlencoded({extended: false}), passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
-  	successRedirect: LANDING_PAGE_URL,
-  	failureRedirect: ROP_LOGIN_PAGE_URL,
-  	failureFlash : true // allow flash messages
-  }));
-  ```
-  {: codeblock}
+   ```javascript
+   app.post("/form/submit", bodyParser.urlencoded({extended: false}), passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
+   successRedirect: LANDING_PAGE_URL,
+   failureRedirect: ROP_LOGIN_PAGE_URL,
+   failureFlash : true // allow flash messages
+   }));
+   ```
+   {: codeblock}
 
-  | Parameter | Description |
-  | --------- | ----------- |
-  | `successRedirect` | The URL that you want to redirect the user after a successful authentication. |
-  | `failureRedirect` | The URL that you want to redirect the user to if authentication fails. Users are redirected to the specified URL when the following authentication failures occur:
+   | Parameter | Description |
+   | --------- | ----------- |
+   | `successRedirect` | The URL that you want to redirect the user after a successful authentication. |
+   | `failureRedirect` | The URL that you want to redirect the user to if authentication fails. Users are redirected to the specified URL when the following authentication failures occur:
    * The user inputs an incorrect username or password.
    * The plan limit for the {{site.data.keyword.appid_short_notm}} instance has been reached. | 
-  | `failureFlash` | When set to `true` an error message is returned from the Cloud Directory service. By default, the value is set to `false`.|
-  {: caption="Table 1. Sign-in parameters" caption-side="top"}
+   | `failureFlash` | When set to `true` an error message is returned from the Cloud Directory service. By default, the value is set to `false`.|
+   {: caption="Table 1. Sign-in parameters" caption-side="top"}
 
 
-  If you submit the request in HTML, you can use [body parser](https://www.npmjs.com/package/body-parser){: external} middleware. To see the returned error message, you can use [connect-flash](https://www.npmjs.com/package/connect-flash){: external}. To see it in action, check out the [web app sample](https://github.com/ibm-cloud-security/appid-serversdk-nodejs/blob/master/samples/web-app-sample.js){: external}.
-  {: note}
+   If you submit the request in HTML, you can use [body parser](https://www.npmjs.com/package/body-parser){: external} middleware. To see the returned error message, you can use [connect-flash](https://www.npmjs.com/package/connect-flash){: external}. To see it in action, check out the [web app sample](https://github.com/ibm-cloud-security/appid-serversdk-nodejs/blob/master/samples/web-app-sample.js){: external}.
+   {: note}
 
 
 
@@ -206,10 +206,10 @@ After you configure your [settings](/docs/appid?topic=appid-cloud-directory#cd-s
 
 You can use the `/sign_up` endpoint to allow users to sign themselves up for your app.
 Supply the following data in the request body:
-  * Your tenantID.
-  * Cloud Directory user data with the following required attributes. See [SCIM Full User Representation](https://datatracker.ietf.org/doc/html/rfc7643.#section-8.2){: external} for more details.
-    * A `password` attribute.
-    * An `emails` array with at least one email address and a `primary` attribute that is set to `true`.
+   * Your tenantID.
+   * Cloud Directory user data with the following required attributes. See [SCIM Full User Representation](https://datatracker.ietf.org/doc/html/rfc7643.#section-8.2){: external} for more details.
+      * A `password` attribute.
+      * An `emails` array with at least one email address and a `primary` attribute that is set to `true`.
 
 Depending on your [email configuration](/docs/appid?topic=appid-cd-types), a user might receive a request for verification, an email that welcomes them when they sign up for your app, or both. Both types of emails are triggered when a user signs up for your app. The verification email contains a link that the user can click to confirm their identity; a screen is displayed, that thanks them for verifying or confirms that their verification is complete.
 
@@ -228,8 +228,8 @@ When this value is provided, {{site.data.keyword.appid_short_notm}} calls the UR
 You can use the `/forgot_password` endpoint to allow users to recover their password if they forget it.
 
 Supply the following data in the request body:
-  * Your tenant ID.
-  * The email of the Cloud Directory user.
+   * Your tenant ID.
+   * The email of the Cloud Directory user.
 
 When the endpoint is called, a reset password email is sent to the user. The email contains a **Reset** button. After they press the button, a screen is displayed by {{site.data.keyword.appid_short_notm}} where they can reset their password.
 
@@ -254,18 +254,18 @@ Before you call the `/change_password` API to allow a user to reset their passwo
 {: note}
 
 To update a user's password after a reset request, supply the following data in the request body:
-  * Your tenantID.
-  * The user's new password.
-  * The Cloud Directory user UUID.
-  * Optional: The IP address from which the password reset was performed. If you choose to pass the IP address, then the placeholder `%{passwordChangeInfo.ipAddress}` is available for the change password email template.
+   * Your tenantID.
+   * The user's new password.
+   * The Cloud Directory user UUID.
+   * Optional: The IP address from which the password reset was performed. If you choose to pass the IP address, then the placeholder `%{passwordChangeInfo.ipAddress}` is available for the change password email template.
 
 Depending on your configuration, when a password is changed {{site.data.keyword.appid_short_notm}} sends an email to the user that lets them know that a change was made.
 
 To allow users to change their password while they are signed in to your app, supply the following data in the request body:
 
-  * Your tenantID.
-  * The user's new password.
-  * The Cloud Directory user UUID.
+   * Your tenantID.
+   * The user's new password.
+   * The Cloud Directory user UUID.
 
 Your change password page must prompt the user to enter their current password and their new password.
 {: tip}
@@ -279,9 +279,9 @@ Your back-end validates the user's current password with the ROP API, and if val
 You can use the `/resend/{templateName}` to resend an email when a user does not receive it for some reason.
 
 Supply the following data in the request body:
-  * The tenantID.
-  * The template name
-  * The Cloud Directory user UUID.
+   * The tenantID.
+   * The template name
+   * The Cloud Directory user UUID.
 
 ### Change details
 {: #branded-api-change-details}

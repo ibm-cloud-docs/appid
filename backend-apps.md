@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-06-04"
+lastupdated: "2021-09-28"
 
 keywords: protected resource, back-end apps, identity, tokens, identity provider, authentication, authorization, app security, oauth, 
 
@@ -73,22 +73,22 @@ For more information about how tokens are used in {{site.data.keyword.appid_shor
 
 1. A client makes a POST request to the {{site.data.keyword.appid_short_notm}} authorization server to obtain an access token. A POST request generally takes the following form:
 
-  ```sh
-  POST /oauth/v4/{tenantId}/token HTTP/1.1
-  Content_type: application/x-www-form-urlencoded
-  Authorization header = "Basic" + base64encode({clientId}:{secret})
-  FormData = {grant_type}
-  ```
-  {: screen}
+   ```sh
+   POST /oauth/v4/{tenantId}/token HTTP/1.1
+   Content_type: application/x-www-form-urlencoded
+   Authorization header = "Basic" + base64encode({clientId}:{secret})
+   FormData = {grant_type}
+   ```
+   {: screen}
 
 2. If the client meets the qualifications, the authorization server returns an access token.
 
 3. The client sends a request to the protected resource. Requests can be sent in multiple ways, depending on which HTTP client library you're using but a request generally takes the following form:
 
-  ```sh
-  curl -H 'Authorization: Bearer {access_token}' {https://my-protected-resource.com}
-  ```
-  {: screen}
+   ```sh
+   curl -H 'Authorization: Bearer {access_token}' {https://my-protected-resource.com}
+   ```
+   {: screen}
 
 4. The protected resource or API validates the token. If the token is valid, access to the resource is granted for the client. If the token cannot be validated, access is denied.
 
@@ -118,40 +118,40 @@ Before you get started with the Node.js SDK, you must have the following prerequ
 
 1. Add the {{site.data.keyword.appid_short_notm}} Node.js SDK to your app's `package.json` file.
 
-  ```
-  "dependencies": {
+   ```
+   "dependencies": {
       "ibmcloud-appid": "^6.0.0"
-  }
-  ```
-  {: codeblock}
+   }
+   ```
+   {: codeblock}
 
 2. Run the following command.
 
-  ```
-  npm install
-  ```
-  {: codeblock}
+   ```
+   npm install
+   ```
+   {: codeblock}
 
 ### Initializing the Node.js SDK
 {: #backend-secure-initialize-node}
 
 1. Obtain your `oauth server url`.
-  1. Navigate to the **Service Credentials** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
-  2. If you don't already have a set of credentials, click **New credential** and then click **Add** to create a new set. If you do, skip this step.
-  3. Click the **View credentials** toggle to see your information.
-  4. Copy your `oauth server url` to use in the next step.
+   1. Navigate to the **Service Credentials** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
+   2. If you don't already have a set of credentials, click **New credential** and then click **Add** to create a new set. If you do, skip this step.
+   3. Click the **View credentials** toggle to see your information.
+   4. Copy your `oauth server url` to use in the next step.
 
 2. Initialize the {{site.data.keyword.appid_short_notm}} passport strategy as shown in the following example.
 
-  ```javascript
-  var express = require('express'); 
-  var passport = require('passport');
-  var APIStrategy = require('ibmcloud-appid').APIStrategy; 
-  passport.use(new APIStrategy({ oauthServerUrl: "{oauth-server-url}" })); 
-  var app = express();
-  app.use(passport.initialize());
-  ```
-  {: codeblock}
+   ```javascript
+   var express = require('express'); 
+   var passport = require('passport');
+   var APIStrategy = require('ibmcloud-appid').APIStrategy; 
+   passport.use(new APIStrategy({ oauthServerUrl: "{oauth-server-url}" })); 
+   var app = express();
+   app.use(passport.initialize());
+   ```
+   {: codeblock}
 
 
 ### Securing the API with the API Strategy
@@ -162,14 +162,14 @@ The following snippet demonstrates how to use `ApiStrategy` in an Express app to
 If your Node.js app runs on {{site.data.keyword.cloud_notm}} and is bound to your instance of {{site.data.keyword.appid_short_notm}}, there's no need to provide the API strategy configuration. The {{site.data.keyword.appid_short_notm}} configuration obtains the information by using the VCAP_SERVICES environment variable.
 {: tip}
 
-  ```javascript
-   app.get('/protected_resource', passport.authenticate('APIStrategy.STRATEGY_NAME', { session: false }), function(request, response){
+   ```javascript
+    app.get('/protected_resource', passport.authenticate('APIStrategy.STRATEGY_NAME', { session: false }), function(request, response){
       console.log("Security context", request.appIdAuthorizationContext);
       response.send(200, "Success!");
       }
    );
    ```
-  {: codeblock}
+   {: codeblock}
 
 
 When the tokens are valid, the next middleware in the request chain is called and the `appIdAuthorizationContext` property is added to the request object. The property contains the original access and identity tokens and the decoded payload information of the tokens.

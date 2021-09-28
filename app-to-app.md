@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-09-23"
+lastupdated: "2021-09-28"
 
 keywords: app to app, protected resource, client secret, application identity, authorization, server, authentication, access tokens, app security
 
@@ -95,28 +95,28 @@ The client secret that is used to authenticate the client is highly sensitive an
 
 1. Make a POST request to the [`/management/v4/{tenantId}/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Applications/mgmt.registerApplication){: external}.
 
-  ```sh
-  curl -X POST \  https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/applications/ \
-  -H 'Content-Type: application/json' \
-  -H 'Authorization: Bearer {IAM-token}' \
-  -d '{"name": "{Application-Name}"}'
-  ```
-  {: codeblock}
+   ```sh
+   curl -X POST \  https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/applications/ \
+   -H 'Content-Type: application/json' \
+   -H 'Authorization: Bearer {IAM-token}' \
+   -d '{"name": "{Application-Name}"}'
+   ```
+   {: codeblock}
 
-  Example response:
+   Example response:
 
-  ```json
-  {
-    "clientId": "c90830bf-11b0-4b44-bffe-9773f8703bad",
-    "tenantId": "b42f7429-fc24-48fa-b4f9-616bcc31cfd5",
-    "secret": "YWQyNjdkZjMtMGRhZC00ZWRkLThiOTQtN2E3ODEyZjhkOWQz",
-    "name": "testing",
-    "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v4/b42f7429-fc24-48fa-b4f9-616bcb31cfd5",
-    "profilesUrl": "https://us-south.appid.cloud.ibm.com",
-    "discoveryEndpoint": "https://us-south.appid.cloud.ibm.com/oauth/v4/b42f7429-fc24-48fa-b4f9-616bcb31cfd5/.well-known/openid-configuration"
-  }
-  ```
-  {: screen}
+   ```json
+   {
+   "clientId": "c90830bf-11b0-4b44-bffe-9773f8703bad",
+   "tenantId": "b42f7429-fc24-48fa-b4f9-616bcc31cfd5",
+   "secret": "YWQyNjdkZjMtMGRhZC00ZWRkLThiOTQtN2E3ODEyZjhkOWQz",
+   "name": "testing",
+   "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v4/b42f7429-fc24-48fa-b4f9-616bcb31cfd5",
+   "profilesUrl": "https://us-south.appid.cloud.ibm.com",
+   "discoveryEndpoint": "https://us-south.appid.cloud.ibm.com/oauth/v4/b42f7429-fc24-48fa-b4f9-616bcb31cfd5/.well-known/openid-configuration"
+   }
+   ```
+   {: screen}
 
 ## Obtaining an access token
 {: #obtain-token}
@@ -125,23 +125,23 @@ After your app is registered with {{site.data.keyword.appid_short_notm}} and you
 
 1. Make an HTTP POST request to the [`/token` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization%20Server%20-%20Authorization%20Server%20V4/oauth-server.token){: external}. The authorization for the request is `Basic auth` with the client ID and secret being used as the username and password which are base64 encoded.
 
-  ```sh
-  curl -X POST http://localhost:6002/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6060b61/token \
-    -H 'Authorization: Basic base64Encoded{clientId:secret}' \
-    -H 'Content-Type: application/x-www-form-urlencoded' \
-    -d grant_type=client_credentials
-  ```
-  {: codeblock}
+   ```sh
+   curl -X POST http://localhost:6002/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6060b61/token \
+      -H 'Authorization: Basic base64Encoded{clientId:secret}' \
+      -H 'Content-Type: application/x-www-form-urlencoded' \
+      -d grant_type=client_credentials
+   ```
+   {: codeblock}
 
-  Example response:
-  ```json
-  {
-  "access_token": "eyJhbGciOiJS...F9A",
-  "expires_in": "3600",
-  "token_type": "Bearer"
-  }
-  ```
-  {: codeblock}
+   Example response:
+   ```json
+   {
+   "access_token": "eyJhbGciOiJS...F9A",
+   "expires_in": "3600",
+   "token_type": "Bearer"
+   }
+   ```
+   {: codeblock}
 
 
 ## Tutorial: End-to-end flow with the Node.js SDK
@@ -149,105 +149,105 @@ After your app is registered with {{site.data.keyword.appid_short_notm}} and you
 
 1. Obtain an [access token](/docs/appid?topic=appid-tokens) in one of the following ways:
 
-  * From the {{site.data.keyword.appid_short_notm}} [Node.js server SDK](https://github.com/ibm-cloud-security/appid-serversdk-nodejs){: external} by using the token manager. Initialize the token manager with your app credentials and make a call to the `getApplicationIdentityToken()` method to obtain the token.
+   * From the {{site.data.keyword.appid_short_notm}} [Node.js server SDK](https://github.com/ibm-cloud-security/appid-serversdk-nodejs){: external} by using the token manager. Initialize the token manager with your app credentials and make a call to the `getApplicationIdentityToken()` method to obtain the token.
 
-    ```javascript
-    const TokenManager = require('ibmcloud-appid').TokenManager;
-    const config = {
-     clientId: "{client-ID}",
-     tenantId: "{tenant-ID}",
-     secret: "{secret}",
-     oauthServerUrl: "https://{region}.appid.cloud.ibm.com/oauth/v4/{tenant-ID}"
-    };
+      ```javascript
+      const TokenManager = require('ibmcloud-appid').TokenManager;
+      const config = {
+      clientId: "{client-ID}",
+      tenantId: "{tenant-ID}",
+      secret: "{secret}",
+      oauthServerUrl: "https://{region}.appid.cloud.ibm.com/oauth/v4/{tenant-ID}"
+      };
 
-    const tokenManager = new TokenManager(config);
+      const tokenManager = new TokenManager(config);
 
-    tokenManager.getApplicationIdentityToken().then((appIdAuthContext) => {
-     console.log(' Access tokens from SDK : ' + JSON.stringify(appIdAuthContext));
-    }).catch((err) => {
-     //console.error('Error retrieving tokens : ' + err);
-    });
-    ```
-    {: codeblock}
+      tokenManager.getApplicationIdentityToken().then((appIdAuthContext) => {
+      console.log(' Access tokens from SDK : ' + JSON.stringify(appIdAuthContext));
+      }).catch((err) => {
+      //console.error('Error retrieving tokens : ' + err);
+      });
+      ```
+      {: codeblock}
 
-  * From the {{site.data.keyword.appid_short_notm}} authorization server.
-  
-    The `oauthServerUrl` in the request is obtained when you register your application. If you registered your app with the management APIs, the server URL is in the response body. If you registered your app by binding it with the IBM Cloud console, the URL can be found in your VCAP_SERVICES JSON object or through your Kubernetes secrets.
-    {: note}
+   * From the {{site.data.keyword.appid_short_notm}} authorization server.
 
-    ```javascript
-    var request = require('request');
+      The `oauthServerUrl` in the request is obtained when you register your application. If you registered your app with the management APIs, the server URL is in the response body. If you registered your app by binding it with the IBM Cloud console, the URL can be found in your VCAP_SERVICES JSON object or through your Kubernetes secrets.
+      {: note}
 
-    function getAccessToken() {
+      ```javascript
+      var request = require('request');
+
+      function getAccessToken() {
       let options = {
-          method: 'POST',
-          url: oauthServerUrl + '/token',
-          headers: { 'content-type': 'application/x-www-form-urlencoded',
-              'Authorization': 'Basic ' +Buffer.from('clientId: secret').toString('base64')
-          },
-          form: {
-              grant_type: 'client_credentials'
-          }
+            method: 'POST',
+            url: oauthServerUrl + '/token',
+            headers: { 'content-type': 'application/x-www-form-urlencoded',
+               'Authorization': 'Basic ' +Buffer.from('clientId: secret').toString('base64')
+            },
+            form: {
+               grant_type: 'client_credentials'
+            }
       };
 
       return new Promise((resolve, reject) => {
-          request(options, function (error, response, body) {
-              if (error) {
+            request(options, function (error, response, body) {
+               if (error) {
                   return reject(error);
-              }
+               }
 
-              let data = JSON.parse(body);
-              if(data.access_token) {
+               let data = JSON.parse(body);
+               if(data.access_token) {
                   resolve(data.access_token);
-              } else {
+               } else {
                   reject(data);
-              }
-          })
+               }
+            })
       });
-    }
-    ```
-    {: codeblock}
+      }
+      ```
+      {: codeblock}
 
 2. Make a request to your protected resource by using the access token that you obtained in the previous step.
 
-  ```javascript
-  let options = {
+   ```javascript
+   let options = {
       method: 'GET',
       url: 'http://localhost:8081/protected_resource',
       headers: { authorization : 'Bearer ' + accessToken}
-  }
+   }
 
-  request(options, function (error, response, body) {
+   request(options, function (error, response, body) {
       if (error) {
-       console.log(error)
+         console.log(error)
       } else {
-          res.status(response.statusCode).send({
+            res.status(response.statusCode).send({
       console.log(JSON.stringify(body));
-          });
+            });
       }
-  });
-  ```
-  {: codeblock}
+   });
+   ```
+   {: codeblock}
 
 3. Secure your protected resources by using the API strategy from the {{site.data.keyword.appid_short_notm}} Node.js SDK.
 
-  ```javascript
-  const express = require('express'),
-    passport = require('passport');
-    APIStrategy = require("ibmcloud-appid").APIStrategy;
+   ```javascript
+   const express = require('express'),
+      passport = require('passport');
+      APIStrategy = require("ibmcloud-appid").APIStrategy;
 
-  var app = express();
-  app.use(passport.initialize());
+   var app = express();
+   app.use(passport.initialize());
 
-  passport.use(new APIStrategy({
+   passport.use(new APIStrategy({
       oauthServerUrl: "https://{region}.appid.cloud.ibm.com/oauth/v4/{tenant-ID}",
       tenantId:"{tenant-ID}"
-  }));
+   }));
 
-  app.get('/protected_resource',
+   app.get('/protected_resource',
       passport.authenticate(APIStrategy.STRATEGY_NAME, {session: false}),
       (req, res) => {
-          res.send("Hello from protected resource");
-  });
-  ```
-  {: codeblock}
+            res.send("Hello from protected resource");
+   });
+   ```
+   {: codeblock}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-07-13"
+lastupdated: "2021-09-28"
 
 keywords: password policies, password strength, advanced, sign in, lock out, reset password, email, expiration, credentials, password reuse, wrong credentials, secure apps, registry, cloud directory, regex
 
@@ -65,11 +65,11 @@ To set this configuration by using the GUI:
 
 3. Enter a valid regex string in the **Password strength** box.
 
-  Examples:
-    - Must be at least 8 characters. (`^.{8,}$`)
-    - Must have one number, one lowercase letter, and one capital letter. (`^(?:(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).*)$`)
-    - Must have only English letters and numbers. (`^[A-Za-z0-9]*$`)
-    - Must have at least one unique character. (`^(\w)\w*?(?!\1)\w+$`)
+   Examples:
+      - Must be at least 8 characters. (`^.{8,}$`)
+      - Must have one number, one lowercase letter, and one capital letter. (`^(?:(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).*)$`)
+      - Must have only English letters and numbers. (`^[A-Za-z0-9]*$`)
+      - Must have at least one unique character. (`^(\w)\w*?(?!\1)\w+$`)
 
 4. Click **Save**.
 

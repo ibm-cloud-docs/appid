@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-09-23"
+lastupdated: "2021-09-28"
 
 keywords: emails, verification, templates, sendgrid, welcome, password reset, password change, change details, verification, supported languages, registry, cloud directory, 
 
@@ -75,11 +75,11 @@ As of 30 April 2020, email content and sender details are no longer editable if 
 
 3. Configure your **Sender details**.
 
-  1. In **From**, enter the email address that you want users to receive your emails from.
+   1. In **From**, enter the email address that you want users to receive your emails from.
 
-  2. In **Sender name**, enter the name that you want associated with the "From" email.
+   2. In **Sender name**, enter the name that you want associated with the "From" email.
 
-  3. In **Reply-to**, enter the email address where you want to receive any replies that someone might have to the email.
+   3. In **Reply-to**, enter the email address where you want to receive any replies that someone might have to the email.
 
 4. Click **Test** to try your configuration with a test email.
 
@@ -105,11 +105,11 @@ Don't have a SendGrid account? [Sign up](https://signup.sendgrid.com/){: externa
 
 4. Configure your **Sender details**.
 
-  1. In **From**, enter the email address that you want users to receive your emails from.
+   1. In **From**, enter the email address that you want users to receive your emails from.
 
-  2. In **Sender name**, enter the name that you want associated with the "From" email.
+   2. In **Sender name**, enter the name that you want associated with the "From" email.
 
-  3. In **Reply-to**, enter the email address where you want to receive any replies that someone might have to the email.
+   3. In **Reply-to**, enter the email address where you want to receive any replies that someone might have to the email.
 
 5. Click **Test** to try your configuration with a test email.
 
@@ -137,19 +137,19 @@ You can use the service dashboard to configure your custom provider.
 
 4. Select an **Authorization type**. You can choose from the following options:
 
-  * **None**: The webhook endpoint or URL, does not require an authorization header.
+   * **None**: The webhook endpoint or URL, does not require an authorization header.
 
-  * **Basic**: The webhook endpoint requires an HTTP authorization header with every request in the form of a username and password.
-  
-  * **Authorization headers**: The webhook request requires that you pass the authorization information for your endpoint in an HTTP authorization. For example, you might pass an OAuth 2.0 token: `Authorization: Bearer eyJraWQiOiIyMDIwMDEyNTE2MzMiLCJhbGciOiJSUzI1NiJ9.eyJpYW1faWQiOiJJ`.
+   * **Basic**: The webhook endpoint requires an HTTP authorization header with every request in the form of a username and password.
+
+   * **Authorization headers**: The webhook request requires that you pass the authorization information for your endpoint in an HTTP authorization. For example, you might pass an OAuth 2.0 token: `Authorization: Bearer eyJraWQiOiIyMDIwMDEyNTE2MzMiLCJhbGciOiJSUzI1NiJ9.eyJpYW1faWQiOiJJ`.
 
 5. Configure your **Sender details**.
 
-  1. In **From**, enter the email address that you want users to receive your emails from.
+   1. In **From**, enter the email address that you want users to receive your emails from.
 
-  2. In **Sender name**, enter the name that you want associated with the "From" email.
+   2. In **Sender name**, enter the name that you want associated with the "From" email.
 
-  3. In **Reply-to**, enter the email address where you want to receive any replies to the email.
+   3. In **Reply-to**, enter the email address where you want to receive any replies to the email.
 
 6. Click **Test** to try your configuration with a test email.
 
@@ -165,96 +165,96 @@ To see an example, check out the blog <a href="https://www.ibm.com/cloud/blog/us
 {: tip}
 
 1. Configure an extension point that can listen for a POST request. The endpoint must be able to:
-  * Read the payload that comes from {{site.data.keyword.appid_short_notm}}.
-  * Send the email from your custom provider.
-  * Optionally, [validate](/docs/appid?topic=appid-token-validation#local-validation) the JSON payload that is returned by {{site.data.keyword.appid_short_notm}} has not been altered by a third party in any way. A string that is formatted as `{"jws": "jws-format-string"}` is returned that contains your tenant ID, the issuer of your JWS token, the time stamp of when the message was sent, a unique transaction ID, and the actual message information including your sender details and email body content. 
+   * Read the payload that comes from {{site.data.keyword.appid_short_notm}}.
+   * Send the email from your custom provider.
+   * Optionally, [validate](/docs/appid?topic=appid-token-validation#local-validation) the JSON payload that is returned by {{site.data.keyword.appid_short_notm}} has not been altered by a third party in any way. A string that is formatted as `{"jws": "jws-format-string"}` is returned that contains your tenant ID, the issuer of your JWS token, the time stamp of when the message was sent, a unique transaction ID, and the actual message information including your sender details and email body content. 
 
-  Your extension point might look similar to the following example:
+   Your extension point might look similar to the following example:
 
-  ```javascript
-  const sgMail = require('@sendgrid/mail');
-  const {promisify} = require('bluebird');
-  const request = promisify(require('request'));
-  const jwtVerify = promisify(require('jsonwebtoken').verify);
-  const jwtDecode = require('jsonwebtoken').decode;
-  const jwkToPem = require('jwk-to-pem');
+   ```javascript
+   const sgMail = require('@sendgrid/mail');
+   const {promisify} = require('bluebird');
+   const request = promisify(require('request'));
+   const jwtVerify = promisify(require('jsonwebtoken').verify);
+   const jwtDecode = require('jsonwebtoken').decode;
+   const jwkToPem = require('jwk-to-pem');
 
-  async function obtainPublicKeys() {
-    // Your {{site.data.keyword.appid_short_notm}} instance tenant ID
-    const tenantId = '{TENANT-ID}';
+   async function obtainPublicKeys() {
+      // Your {{site.data.keyword.appid_short_notm}} instance tenant ID
+      const tenantId = '{TENANT-ID}';
 
-    // Send request to {{site.data.keyword.appid_short_notm}}'s public keys endpoint
-    const keysOptions = {
+      // Send request to {{site.data.keyword.appid_short_notm}}'s public keys endpoint
+      const keysOptions = {
       method: 'GET',
       url: `https://{REGION}.appid.cloud.ibm.com/oauth/v4/${tenantId}/publickeys`
-    };
-    const keysResponse = await request(keysOptions);
-    return JSON.parse(keysResponse.body).keys;
-  }
+      };
+      const keysResponse = await request(keysOptions);
+      return JSON.parse(keysResponse.body).keys;
+   }
 
-  async function verifySignature(keysArray, kid, jws) {
-    const keyJson = keysArray.find(key => key.kid === kid);
-    if (keyJson) {
+   async function verifySignature(keysArray, kid, jws) {
+      const keyJson = keysArray.find(key => key.kid === kid);
+      if (keyJson) {
       const pem = jwkToPem(keyJson);
       await jwtVerify(jws, pem);
       return;
-    }
-    throw new Error ("Unable to verify signature");
-  }
+      }
+      throw new Error ("Unable to verify signature");
+   }
 
-  async function verifyAndSendMail(jws) {
-    // The API key for Sendgrid
-    const sgApiKey = '<SENDGRID-API-KEY>';
+   async function verifyAndSendMail(jws) {
+      // The API key for Sendgrid
+      const sgApiKey = '<SENDGRID-API-KEY>';
 
-    // Init Sendgrind
-    sgMail.setApiKey(sgApiKey);
+      // Init Sendgrind
+      sgMail.setApiKey(sgApiKey);
 
-    // Decode message to get information
-    const data = jwtDecode(jws, {complete: true});
+      // Decode message to get information
+      const data = jwtDecode(jws, {complete: true});
 
-    // Extract kid from header
-    const kid = data.header.kid;
+      // Extract kid from header
+      const kid = data.header.kid;
 
-    const keysArray = await obtainPublicKeys();
+      const keysArray = await obtainPublicKeys();
 
-    // Verify the signature of the payload with the public keys
-    await verifySignature(keysArray, kid ,jws);
+      // Verify the signature of the payload with the public keys
+      await verifySignature(keysArray, kid ,jws);
 
-    // Send the email with Your Sendgrid account
-    const message = data.payload.message;
-    const msg = {
+      // Send the email with Your Sendgrid account
+      const message = data.payload.message;
+      const msg = {
       to: message.to,
       from: message.from.address,
       subject: message.subject,
       html: message.body,
-    };
-    console.log(`Sending email to ${message.to}`);
-    let sendgridResponse = await sgMail.send(msg);
+      };
+      console.log(`Sending email to ${message.to}`);
+      let sendgridResponse = await sgMail.send(msg);
 
-    return {result : 'email_sent',sendgridResponse};
-  }
-  ```
-  {: screen}
+      return {result : 'email_sent',sendgridResponse};
+   }
+   ```
+   {: screen}
 
 2. Make a PUT request to the `/management/v4/{tenantId}/config/cloud_directory/email_dispatcher` to provide your webhook URL. Optionally, you can provide authorization information. Supported authorization types include: `Basic authorization` and `constant authorization header value`.
 
-  ```sh
-  curl -X PUT https://{region}.appid.cloud.ibm.com/management/v4/{tenant_ID}/config/cloud_directory/email_dispatcher' \
-  --header 'Accept: application/json' \
-  --header 'Authorization: Bearer {IAM_token}' \
-  -d '{
-    "provider": "custom",
-    "custom": {
+   ```sh
+   curl -X PUT https://{region}.appid.cloud.ibm.com/management/v4/{tenant_ID}/config/cloud_directory/email_dispatcher' \
+   --header 'Accept: application/json' \
+   --header 'Authorization: Bearer {IAM_token}' \
+   -d '{
+      "provider": "custom",
+      "custom": {
       "url": "https://example.com/send_mail",
       "authorization": {
-        "type": "basic",
-        "username": "username",
-        "password": "password"
-        }
+         "type": "basic",
+         "username": "username",
+         "password": "password"
+         }
       }
-    }'
-  ```
-  {: codeblock}
+      }'
+   ```
+   {: codeblock}
 
 3. Verify that your configuration is correctly set up by testing your email dispatcher. Use the <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/post_email_dispatcher_test" target="_blank">test API</a> to trigger a request to your configured custom email sender.
 
@@ -316,16 +316,16 @@ Users who are manually added via the {{site.data.keyword.appid_short_notm}} dash
 
 4. Customize the content of your message. You can add parameters and insert images by using the UI. To change the [language](/docs/appid?topic=appid-cd-types#cd-languages) of the message, you can use [the APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization){: external} to set the language. However, you are responsible for the content and conversion of the message. Check out the following table to see the different parameters that you can use in your message. If a user does not supply the information that is pulled by the parameter, it appears blank.
 
-  | Parameter | Description | 
-  | --------- | ----------- |
-  | `%{linkExpiration.hours}` | Displays the number of hours the link is valid. |
-  | `%{linkExpiration.minutes}` |  Displays the number of minutes the link is valid. |
-  | `%{verify.code}` | Displays a one-time verification URL. |
-  | `%{verify.link}` | Displays the action URL that you specified in settings. |
-  {: caption="Table 2. Parameters that you can use in messages that are related to verification" caption-side="top"}
+   | Parameter | Description | 
+   | --------- | ----------- |
+   | `%{linkExpiration.hours}` | Displays the number of hours the link is valid. |
+   | `%{linkExpiration.minutes}` |  Displays the number of minutes the link is valid. |
+   | `%{verify.code}` | Displays a one-time verification URL. |
+   | `%{verify.link}` | Displays the action URL that you specified in settings. |
+   {: caption="Table 2. Parameters that you can use in messages that are related to verification" caption-side="top"}
 
-  You can also use the message parameters that are listed in the [Welcome message](/docs/appid?topic=appid-cd-types#cd-messages-welcome) section.
-  {: tip}
+   You can also use the message parameters that are listed in the [Welcome message](/docs/appid?topic=appid-cd-types#cd-messages-welcome) section.
+   {: tip}
 
 5. Define an expiration time for the action URL. The URL expiration is the amount of time, in minutes, that a user must complete the action before the verification link expires. This setting also affects the amount of time that your reset password link is valid.
  
@@ -347,16 +347,16 @@ When a user interacts with your app, they might forget their password or need to
 
 3. Customize the content of your message. You can add parameters and insert images by using the UI. To change the [language](/docs/appid?topic=appid-cd-types#cd-languages) of the message, you can use <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization" target="_blank">the APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to set the language. However, you are responsible for the content and conversion of the message. Check out the following table to see the different parameters that you can use in your message. If a user does not supply the information that is pulled by the parameter, it appears blank.
 
-  | Parameter | Description |
-  | --------- | ----------- |
-  | `%{linkExpiration.hours}` | Displays the number of hours that the link is valid. |
-  | `%{linkExpiration.minutes}` | Displays the number of minutes that the link is valid. |
-  | `%{resetPassword.code}` | Displays a one-time passcode as part of the URL. This means that each person would have a different code. Example: `https://us-south.appid.cloud.ibm.com/wfm/verify/6574839563478` |
-  | `%{resetPassword.link}` | Displays the link that a user clicks to reset their password. | 
-  {: caption="Table 3. Parameters that you can use in messages that are related to forgotten passwords" caption-side="top"}
+   | Parameter | Description |
+   | --------- | ----------- |
+   | `%{linkExpiration.hours}` | Displays the number of hours that the link is valid. |
+   | `%{linkExpiration.minutes}` | Displays the number of minutes that the link is valid. |
+   | `%{resetPassword.code}` | Displays a one-time passcode as part of the URL. This means that each person would have a different code. Example: `https://us-south.appid.cloud.ibm.com/wfm/verify/6574839563478` |
+   | `%{resetPassword.link}` | Displays the link that a user clicks to reset their password. | 
+   {: caption="Table 3. Parameters that you can use in messages that are related to forgotten passwords" caption-side="top"}
 
-  You can also use the message parameters that are listed in the [Welcome message](/docs/appid?topic=appid-cd-types#cd-messages-welcome) section.
-  {: tip}
+   You can also use the message parameters that are listed in the [Welcome message](/docs/appid?topic=appid-cd-types#cd-messages-welcome) section.
+   {: tip}
 
 4. Define an expiration time for the action URL. The URL expiration is the amount of time, in minutes, that a user must complete the action before the verification link expires. This setting also affects the amount of time that your reset password link is valid.
  
@@ -377,14 +377,14 @@ You can notify a user when their password is updated. The notification can be he
 
 3. Customize the content of your message. You can add parameters and insert images by using the UI. To change the [language](/docs/appid?topic=appid-cd-types#cd-languages) of the message, you can use [the APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization){: external} to set the language. However, you are responsible for the content and conversion of the message. Check out the following table to see the different parameters that you can use in your message. If a user does not supply the information that is pulled by the parameter, it appears blank.
 
-  | Parameter | Description |
-  | --------- | ----------- |
-  | `%{passwordChangeInfo.time}` | Displays the time at which a new password went into effect. |
-  | `%{passwordChangeInfo.ipAddress}` | Displays the IP address from which the password change was requested. |
-  {: caption="Table 4. Parameters that you can use in messages that are related to changing a password" caption-side="top"}
+   | Parameter | Description |
+   | --------- | ----------- |
+   | `%{passwordChangeInfo.time}` | Displays the time at which a new password went into effect. |
+   | `%{passwordChangeInfo.ipAddress}` | Displays the IP address from which the password change was requested. |
+   {: caption="Table 4. Parameters that you can use in messages that are related to changing a password" caption-side="top"}
 
-  You can also use the message parameters that are listed in the [Welcome message](/docs/appid?topic=appid-cd-types#cd-messages-welcome) section.
-  {: tip}
+   You can also use the message parameters that are listed in the [Welcome message](/docs/appid?topic=appid-cd-types#cd-messages-welcome) section.
+   {: tip}
 
 4. Click **Save**.
 
