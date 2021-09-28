@@ -1,7 +1,7 @@
 ---
 
 copyright:
-years: 2017, 2021
+  years: 2017, 2021
 lastupdated: "2021-09-28"
 
 keywords: release notes, new, spa, single sign on, mfa, cloud directory, saml, app security, application identity
