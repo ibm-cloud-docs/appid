@@ -21,6 +21,7 @@ toc:
           - authorization.md
           - tokens-understand.md
       - releases.md
+
   - navgroup: 
       id: tutorial
       topics: 
@@ -31,6 +32,7 @@ toc:
           topics:
           - qs-node-web.md
           - qs-liberty-backend.md
+
   - navgroup: 
       id: howto
       topics:
@@ -92,6 +94,7 @@ toc:
           - manage-scc.md
           - at-events.md
           - data-security.md
+
   - navgroup:
       id: reference
       topics: 
