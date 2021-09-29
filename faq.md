@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-06-07"
+lastupdated: "2021-09-29"
 
 keywords: pricing, advanced security, authentication events, authorized users, activity tracking, runtime activity, password policies, keycloak, allow list redirect url, redirect uri 
 
@@ -190,10 +190,10 @@ You can migrate the information in one instance of {{site.data.keyword.appid_sho
 2. Duplicate your identity provider configuration by using the GUI.
 3. [Migrate your user profiles](/docs/appid?topic=appid-user-admin). Known users are exported as a JSON object. Anonymous user's cannot be migrated. You can choose to import the entire object into the new instance or break it up and divide the users as you see fit if you have more than one instance. For Cloud Directory, see [Migrating users](/docs/appid?topic=appid-cd-users#user-migration). For federated identity providers, use the following steps.
 4. Create application credentials to invoke the new service instance.
-  1. In the service dashboard navigate to the **Applications** tab.
-  2. Click **Add Application** and give your application a name. Then, click **Save**.
-  3. Click **View credentials** in the table and copy the output.
-  4. Paste your new credentials into your application.
+   1. In the service dashboard navigate to the **Applications** tab.
+   2. Click **Add Application** and give your application a name. Then, click **Save**.
+   3. Click **View credentials** in the table and copy the output.
+   4. Paste your new credentials into your application.
 5. Update your application to use the new credentials including any URLs. 
 6. Depending on your configuration, you might need to redeploy or unbind and rebind your application.
 

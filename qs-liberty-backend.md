@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-09-23"
+lastupdated: "2021-09-29"
 
 keywords: back-end apps, java, liberty for java, liberty, identity provider, access management, protected endpoints, access tokens, security, back end
 
@@ -92,32 +92,32 @@ Before you get started with {{site.data.keyword.appid_short_notm}} in your Liber
 
 You can obtain your credentials in one of two ways.
 
-  * By navigating to the **Applications** tab of the {{site.data.keyword.appid_short_notm}} dashboard. If you don't already have one, you can click **Add application** to create a new one.
+   * By navigating to the **Applications** tab of the {{site.data.keyword.appid_short_notm}} dashboard. If you don't already have one, you can click **Add application** to create a new one.
 
-  * By making a POST request to the [`/management/v4/{tenantId}/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Applications/registerApplication){: external}.
+   * By making a POST request to the [`/management/v4/{tenantId}/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Applications/registerApplication){: external}.
 
-    Request format:
-    ```sh
-    curl -X POST \  https://us-south.appid.cloud.ibm.com/management/v4/{tenantID}/applications/ \
-    -H 'Content-Type: application/json' \
-    -H 'Authorization: Bearer IAM_TOKEN' \
-    -d '{"name": "ApplicationName"}'
-    ```
-    {: codeblock}
+      Request format:
+      ```sh
+      curl -X POST \  https://us-south.appid.cloud.ibm.com/management/v4/{tenantID}/applications/ \
+      -H 'Content-Type: application/json' \
+      -H 'Authorization: Bearer IAM_TOKEN' \
+      -d '{"name": "ApplicationName"}'
+      ```
+      {: codeblock}
 
-    Example response:
-    ```json
-    {
-      "clientId": "xxxxx-34a4-4c5e-b34d-d12cc811c86d",
-      "tenantId": "xxxxx-9b1f-433e-9d46-0a5521f2b1c4",
-      "secret": "ZDk5YWZkYmYt*******",
-      "name": "app1",
-      "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v4/xxxxx-9b1f-433e-9d46-0a5521f2b1c4",
-      "profilesUrl": "https://us-south.appid.cloud.ibm.com",
-      "discoveryEndpoint": "https://us-south.appid.cloud.ibm.com/oauth/v4/xxxxxx-9b1f-433e-9d46-0a5521f2b1c4/.well-known/openid-configuration"
-    }
-    ```
-    {: screen}
+      Example response:
+      ```json
+      {
+        "clientId": "xxxxx-34a4-4c5e-b34d-d12cc811c86d",
+        "tenantId": "xxxxx-9b1f-433e-9d46-0a5521f2b1c4",
+        "secret": "ZDk5YWZkYmYt*******",
+        "name": "app1",
+        "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v4/xxxxx-9b1f-433e-9d46-0a5521f2b1c4",
+        "profilesUrl": "https://us-south.appid.cloud.ibm.com",
+        "discoveryEndpoint": "https://us-south.appid.cloud.ibm.com/oauth/v4/xxxxxx-9b1f-433e-9d46-0a5521f2b1c4/.well-known/openid-configuration"
+      }
+      ```
+      {: screen}
 
 
 ## Configure your `server.xml` file
@@ -127,29 +127,29 @@ You can obtain your credentials in one of two ways.
 1. Open your `server.xml` file.
 2. Add the following features to the `featureManager` section. Some features might come built in with Liberty. If you receive an error when you run your server, you can install them by running `.installUtility install {name_of_server}` from the bin directory of your Liberty installation.
 
-  ```xml
-  <featureManager>
-    <feature>appSecurity-2.0</feature>
-    <feature>openidConnectClient-1.0</feature>
-    <feature>ssl-1.0</feature>
-    <feature>servlet-3.1</feature>
-  </featureManager>
-  ```
-  {: codeblock}
+   ```xml
+   <featureManager>
+      <feature>appSecurity-2.0</feature>
+      <feature>openidConnectClient-1.0</feature>
+      <feature>ssl-1.0</feature>
+      <feature>servlet-3.1</feature>
+   </featureManager>
+   ```
+   {: codeblock}
 
 3. Configure SSL by adding the following to your `server.xml` file. 
 
-  ```xml
-  <keyStore id="defaultKeyStore" password="{password}"/>
-  <keyStore id="RootCA" password="{password}" location="${server.config.dir}/resources/security/{myTrustStore}"/>
-  <ssl id="{sslID}" keyStoreRef="defaultKeyStore" trustStoreRef="{truststore-ref}"/>
-  ```
-  {: codeblock}
+   ```xml
+   <keyStore id="defaultKeyStore" password="{password}"/>
+   <keyStore id="RootCA" password="{password}" location="${server.config.dir}/resources/security/{myTrustStore}"/>
+   <ssl id="{sslID}" keyStoreRef="defaultKeyStore" trustStoreRef="{truststore-ref}"/>
+   ```
+   {: codeblock}
 
 4. Create an Open ID Connect Client feature and define the following placeholders. With the credentials that you obtained, fill the placeholders.
 
-  ```xml
-  <openidConnectClient 
+   ```xml
+   <openidConnectClient 
       id="oidc-client-simple-liberty-backend-app" 		
       inboundPropagation="required"
       jwkEndpointUrl="{region}.appid.cloud.ibm.com/oauth/v4/{tenantID}/publickeys"
@@ -157,38 +157,38 @@ You can obtain your credentials in one of two ways.
       signatureAlgorithm="RS256"
       audiences="{client-id}"
       sslRef="oidcClientSSL"
-  /> 	
-  ```
-  {: codeblock}
-  
-  | Variable | Description |
-  | -------- | ----------- |
-  | `id` | The name of your application. |
-  | `inboundPropagation` | In order to propagate the information received in the token, the value must be set to "required". |
-  | `jwkEndpointUrl` | The endpoint that is used to obtain keys in order to validate the token. Learn more about the [available regions](/docs/appid?topic=appid-regions-endpoints). You can find your tenant ID in the credentials that you previously created. | 
-  | `issuerIdentifier` | The issuer identifier defines your authorization server. Learn more about the [available regions](/docs/appid?topic=appid-regions-endpoints). You can find your tenant ID in the credentials that you previously created. | 
-  | `signatureAlgorithm` | Specified as "RS256". |
-  | `audiences` | By default, the token is issued for your {{site.data.keyword.appid_short_notm}} client ID that can be found in your application credentials. | 
-  | `sslRef` | The name of the SSL configuration that you want to use. |
-  {: caption="Table 1. OIDC element variables for Liberty for Java apps" caption-side="top"}
+   /> 	
+   ```
+   {: codeblock}
+
+   | Variable | Description |
+   | -------- | ----------- |
+   | `id` | The name of your application. |
+   | `inboundPropagation` | In order to propagate the information received in the token, the value must be set to "required". |
+   | `jwkEndpointUrl` | The endpoint that is used to obtain keys in order to validate the token. Learn more about the [available regions](/docs/appid?topic=appid-regions-endpoints). You can find your tenant ID in the credentials that you previously created. | 
+   | `issuerIdentifier` | The issuer identifier defines your authorization server. Learn more about the [available regions](/docs/appid?topic=appid-regions-endpoints). You can find your tenant ID in the credentials that you previously created. | 
+   | `signatureAlgorithm` | Specified as "RS256". |
+   | `audiences` | By default, the token is issued for your {{site.data.keyword.appid_short_notm}} client ID that can be found in your application credentials. | 
+   | `sslRef` | The name of the SSL configuration that you want to use. |
+   {: caption="Table 1. OIDC element variables for Liberty for Java apps" caption-side="top"}
 
 5. Define your special subject type as `ALL_AUTHENTICATED_USERS`.
 
-    ```xml
-    <application 
-        id="simple-liberty-backend-app" 
-        location="location-of-your-war-file" 
-        name="simple-liberty-backend-app" 
-        type="war">
+   ```xml
+   <application 
+      id="simple-liberty-backend-app" 
+      location="location-of-your-war-file" 
+      name="simple-liberty-backend-app" 
+      type="war">
 
-        <application-bnd>
-            <security-role name="myrole">
-                <special-subject type="ALL_AUTHENTICATED_USERS"/>
-            </security-role>
-        </application-bnd>
-    </application>
-    ```
-    {: codeblock}
+      <application-bnd>
+         <security-role name="myrole">
+               <special-subject type="ALL_AUTHENTICATED_USERS"/>
+         </security-role>
+      </application-bnd>
+   </application>
+   ```
+   {: codeblock}
 
 
 ## Configure your `web.xml` file
@@ -199,31 +199,31 @@ In your `web.xml` file, define the areas of your application that you want to se
 
 1. Define a security role. This should be the same role that you defined in the `server.xml` file.
 
-  ```xml
-  <security-role>
-  <role-name>myrole</role-name>
-  </security-role>
-  ```
-  {: codeblock}
+   ```xml
+   <security-role>
+   <role-name>myrole</role-name>
+   </security-role>
+   ```
+   {: codeblock}
 
 2. Define a security constraint.
 
-  ```xml
-	<security-constraint>
-		<display-name>Security Constraints</display-name>
-		<web-resource-collection>
-			<web-resource-name>ProtectedArea</web-resource-name>
-			<url-pattern>/api/*</url-pattern>
-		</web-resource-collection>
-		<auth-constraint>
-			<role-name>myrole</role-name>
-		</auth-constraint>
-		<user-data-constraint>
-			<transport-guarantee>NONE</transport-guarantee>
-		</user-data-constraint>
-	</security-constraint>
-  ```
-  {: codeblock}
+   ```xml
+   <security-constraint>
+      <display-name>Security Constraints</display-name>
+      <web-resource-collection>
+         <web-resource-name>ProtectedArea</web-resource-name>
+         <url-pattern>/api/*</url-pattern>
+      </web-resource-collection>
+      <auth-constraint>
+         <role-name>myrole</role-name>
+      </auth-constraint>
+      <user-data-constraint>
+         <transport-guarantee>NONE</transport-guarantee>
+      </user-data-constraint>
+   </security-constraint>
+   ```
+   {: codeblock}
 
 
 ## Test your configuration
@@ -236,10 +236,10 @@ Now that you've finished the initial installation, build the app and test your c
 
 2. Build your application.
 
-  ```
-  server run
-  ```
-  {: codeblock}
+   ```
+   server run
+   ```
+   {: codeblock}
 
 3. Make a request to the protected endpoint. An error is returned.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-09"
+lastupdated: "2021-09-29"
 
 keywords: getting started tutorial, getting started, App ID, sample app, authentication, sign in flow, authorization, app security, identity
 
@@ -94,16 +94,16 @@ To build a sample app:
 
 1. Click **Download Sample**.
 2. Click on the language of your choice to download the sample.
-  Don't see the language you're looking for? Don't worry! You can take advantage of {{site.data.keyword.appid_short_notm}} through the APIs.
-  {: tip}
+   Don't see the language you're looking for? Don't worry! You can take advantage of {{site.data.keyword.appid_short_notm}} through the APIs.
+   {: tip}
 3. Be sure that you have the prerequisites installed or completed.
 4. Follow the **Build & Run** steps to set up your sample with {{site.data.keyword.appid_short_notm}}.
 5. Click **Review Activity** to see any authentication events that occurred. Any type of sign in creates an event that is visible on this page.
 6. Customize the sign in widget.
-  1. Add an image such as a brand logo by clicking **Select** and browsing your local system for an image to upload.
-  2. Choose a color scheme by either selecting one of the color options or specifying in a hex value.
-  3. Change between web and mobile to see how the color scheme looks on each type of device.
-  4. When you're happy with your choices, click **Save Changes**.
+   1. Add an image such as a brand logo by clicking **Select** and browsing your local system for an image to upload.
+   2. Choose a color scheme by either selecting one of the color options or specifying in a hex value.
+   3. Change between web and mobile to see how the color scheme looks on each type of device.
+   4. When you're happy with your choices, click **Save Changes**.
 7. In a browser, refresh your login page. The changes that you made in the previous step are already visible.
 
 

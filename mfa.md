@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-09-23"
+lastupdated: "2021-09-29"
 
 keywords: mfa, multifactor, authentication, cloud directory, login widget, second factor, two factor, identity, mulitple factors, advanced security event, cloud directory user, sender id, phone number, email, nexmo, mfa descision, extension
 
@@ -60,8 +60,8 @@ Check out the following diagram to see how the MFA flow works for email or SMS.
 
 1. When a user successfully signs in to your application, they complete the first authentication factor. Then, based on your MFA configuration, the user is sent either an email or SMS that contains a 6-digit code.
 
-  When MFA is enabled, the {{site.data.keyword.appid_short_notm}} Login Widget requires a second form of verification every time a user attempts to sign in, unless an [extension is configured](/docs/appid?topic=appid-cd-mfa#cd-mfa-extensions).
-  {: tip}
+   When MFA is enabled, the {{site.data.keyword.appid_short_notm}} Login Widget requires a second form of verification every time a user attempts to sign in, unless an [extension is configured](/docs/appid?topic=appid-cd-mfa#cd-mfa-extensions).
+   {: tip}
 
 2. A user is expected to look in their phone or email to obtain the code and then enter it into the provided screen.
 
@@ -99,20 +99,20 @@ You can configure the MFA email channel through the GUI.
 
 3. In the **Email channel** tab, review the **Email template**. You can choose to send the template with the provided wording or write your own message. Be sure to use the correct HTML tagging. In the GUI, you can add parameters and insert images. To change the [language](/docs/appid?topic=appid-cd-types#cd-languages) of the message, you can use [the APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization){: external} to set the language. However, you are responsible for the content and conversion of the message. Check out the following table to see the list of tables that you can use in this message and all of the other messages that you can send. If a user does not supply the information that is pulled by the parameter, it appears blank.
 
-  | Parameter | Description |
-  | --------- | ----------- |
-  | `%{display.logo}` |  Displays the image that you configured for your Login Widget. |
-  | `%{user.displayName}` | Displays the screen name a user chose to use when interacting with the app. |
-  | `%{user.email}` | Displays the user's registered email address. |
-  | `%{user.username}` | Displays the user's specified username when the authentication method is set to username and password. |
-  | `%{user.firstName}` | Displays the user's specified given name. |
-  | `%{user.formattedName}` | Displays the user's full name. |
-  | `%{user.lastName}` | Displays the user's specified surname. |
-  | `%{mfa.code}` | Displays a one-time MFA verification code. |
-  {: caption="Table 1. MFA message parameters" caption-side="top"}
+   | Parameter | Description |
+   | --------- | ----------- |
+   | `%{display.logo}` |  Displays the image that you configured for your Login Widget. |
+   | `%{user.displayName}` | Displays the screen name a user chose to use when interacting with the app. |
+   | `%{user.email}` | Displays the user's registered email address. |
+   | `%{user.username}` | Displays the user's specified username when the authentication method is set to username and password. |
+   | `%{user.firstName}` | Displays the user's specified given name. |
+   | `%{user.formattedName}` | Displays the user's full name. |
+   | `%{user.lastName}` | Displays the user's specified surname. |
+   | `%{mfa.code}` | Displays a one-time MFA verification code. |
+   {: caption="Table 1. MFA message parameters" caption-side="top"}
 
-  If a user does not supply the information that is pulled by the parameter, it appears blank.
-  {: note}
+   If a user does not supply the information that is pulled by the parameter, it appears blank.
+   {: note}
 
 
 ### With the APIs
@@ -127,25 +127,25 @@ To enable MFA:
 
 1. Enable MFA by making a PUT request to the `/config/cloud_directory/mfa` endpoint with your MFA configuration to set `isActive` to `true`.
 
-  ```sh
-  curl -X PUT https://{region}.appid.cloud.ibm.com/management/v4/{tenant_ID}/config/cloud_directory/mfa \
-    --header 'Content-Type: application/json' \
-    --header 'Accept: application/json' \
-    --header 'Authorization: Bearer {IAM_TOKEN}' \
-    -d '{"isActive": true}'
-  ```
-  {: codeblock}
+   ```sh
+   curl -X PUT https://{region}.appid.cloud.ibm.com/management/v4/{tenant_ID}/config/cloud_directory/mfa \
+      --header 'Content-Type: application/json' \
+      --header 'Accept: application/json' \
+      --header 'Authorization: Bearer {IAM_TOKEN}' \
+      -d '{"isActive": true}'
+   ```
+   {: codeblock}
 
 2. Enable your MFA channel by making a PUT request to the `/mfa/channels/{channel}` endpoint with your MFA configuration. When `isActive` is set to `true`, your MFA channel is enabled.
 
-  ```sh
-  $ curl -X PUT https://{region}.appid.cloud.ibm.com/management/v4/{tenant_ID}/mfa/channels/email \
-    --header 'Content-Type: application/json' \
-    --header 'Accept: application/json' \
-    --header 'Authorization: Bearer {IAM_TOKEN}' \
-    -d '{"isActive": true}'
-  ```
-  {: codeblock}
+   ```sh
+   $ curl -X PUT https://{region}.appid.cloud.ibm.com/management/v4/{tenant_ID}/mfa/channels/email \
+      --header 'Content-Type: application/json' \
+      --header 'Accept: application/json' \
+      --header 'Authorization: Bearer {IAM_TOKEN}' \
+      -d '{"isActive": true}'
+   ```
+   {: codeblock}
 
 If your {{site.data.keyword.appid_short_notm}} Cloud Directory instance is configured to work with a custom email sender, then MFA uses the same sender to deliver the one-time code. For more information, see the [Cloud Directory docs](/docs/appid?topic=appid-cd-types#cd-custom-email).
 {: note}
@@ -186,15 +186,15 @@ To configure MFA with the GUI, check out [Cloud Directory](/docs/appid?topic=app
 
 4. In the **SMS channel** tab, configure your Vonage account information.
 
-    1. If you don't already have an account with Vonage. Create one.
+   1. If you don't already have an account with Vonage. Create one.
 
-    2. From the Vonage dashboard, click **SMS**.
+   2. From the Vonage dashboard, click **SMS**.
 
-    3. In the **Code it yourself** section, copy your API key and paste it in the **key** box in the {{site.data.keyword.appid_short_notm}} dashboard.
+   3. In the **Code it yourself** section, copy your API key and paste it in the **key** box in the {{site.data.keyword.appid_short_notm}} dashboard.
 
-    4. Copy the **API secret** in the Vonage dashboard and paste it in the **Secret** box in the {{site.data.keyword.appid_short_notm}} dashboard.
+   4. Copy the **API secret** in the Vonage dashboard and paste it in the **Secret** box in the {{site.data.keyword.appid_short_notm}} dashboard.
 
-    5. Enter [the ID](https://help.nexmo.com/hc/en-us/articles/217571017-What-is-a-Sender-ID) that you want to send messages from. A valid number format follows the [E.164 international numbering format](https://en.wikipedia.org/wiki/E.164). For example, a US number takes the form `+1 999 888 7777 `. You must specify both the country code, starting with a `+` symbol and the national subscriber number. In some countries, Vonage supports alpha-numeric sender IDs. {{site.data.keyword.appid_short_notm}} uses the value that you enter as Vonage's sender ID. So, if they are supported by Vonage, you can use the IDs with {{site.data.keyword.appid_short_notm}}.
+   5. Enter [the ID](https://help.nexmo.com/hc/en-us/articles/217571017-What-is-a-Sender-ID) that you want to send messages from. A valid number format follows the [E.164 international numbering format](https://en.wikipedia.org/wiki/E.164). For example, a US number takes the form `+1 999 888 7777 `. You must specify both the country code, starting with a `+` symbol and the national subscriber number. In some countries, Vonage supports alpha-numeric sender IDs. {{site.data.keyword.appid_short_notm}} uses the value that you enter as Vonage's sender ID. So, if they are supported by Vonage, you can use the IDs with {{site.data.keyword.appid_short_notm}}.
 
 
 
@@ -209,43 +209,43 @@ Before you get started with the API, be sure that you have the following prerequ
 
 1. Enable MFA by making a PUT request to the `/config/cloud_directory/mfa` endpoint with your MFA configuration to set `isActive` to `true`.
 
-  ```sh
-  curl -X PUT https://{region}.appid.cloud.ibm.com/management/v4/{tenant_ID}/config/cloud_directory/mfa \
-  --header 'Content-Type: application/json' \
-  --header 'Accept: application/json' \
-  --header 'Authorization: Bearer {IAM_TOKEN}' \
-  -d '{"isActive": true}'
-  ```
-  {: codeblock}
+   ```sh
+   curl -X PUT https://{region}.appid.cloud.ibm.com/management/v4/{tenant_ID}/config/cloud_directory/mfa \
+   --header 'Content-Type: application/json' \
+   --header 'Accept: application/json' \
+   --header 'Authorization: Bearer {IAM_TOKEN}' \
+   -d '{"isActive": true}'
+   ```
+   {: codeblock}
 
 2. Enable your MFA channel by making a PUT request to the `/mfa/channels/{channel}` endpoint with your MFA configuration. When `isActive` is set to `true`, your MFA channel is enabled. The `config` takes in the Nexmo API key and secret as well as the `from` number.
 
-  ```sh
-  curl -X PUT https://{region}.appid.cloud.ibm.com/management/v4/{tenant_ID}/mfa/channels/nexmo' \
-  --header 'Content-Type: application/json' \
-  --header 'Accept: application/json' \
-  --header 'Authorization: Bearer {IAM_TOKEN}' \
-  -d '{
+   ```sh
+   curl -X PUT https://{region}.appid.cloud.ibm.com/management/v4/{tenant_ID}/mfa/channels/nexmo' \
+   --header 'Content-Type: application/json' \
+   --header 'Accept: application/json' \
+   --header 'Authorization: Bearer {IAM_TOKEN}' \
+   -d '{
       "isActive": true,
       "config": {
-        "key": "nexmo_key",
-        "secret": "nexmo_secret",
-        "from": sender_phone_number
+         "key": "nexmo_key",
+         "secret": "nexmo_secret",
+         "from": sender_phone_number
       }
-  }'
-  ```
-  {: codeblock}
+   }'
+   ```
+   {: codeblock}
 
 3. After the channel is successfully configured, verify that your Nexmo configuration and connection is set up correctly by using the test button on the UI or by using the management API.
 
-  ```sh
-  curl -X PUT https://{region}.appid.cloud.ibm.com/management/v4/{tenant_ID}/config/cloud_directory/sms_dispatcher/test \
-  --header 'Content-Type: application/json' \
-  --header 'Accept: application/json' \
-  --header 'Authorization: Bearer {IAM_TOKEN}' \
-  -d '{"phone_number": "+1 999 999 9999"}'
-  ```
-  {: codeblock}
+   ```sh
+   curl -X PUT https://{region}.appid.cloud.ibm.com/management/v4/{tenant_ID}/config/cloud_directory/sms_dispatcher/test \
+   --header 'Content-Type: application/json' \
+   --header 'Accept: application/json' \
+   --header 'Authorization: Bearer {IAM_TOKEN}' \
+   -d '{"phone_number": "+1 999 999 9999"}'
+   ```
+   {: codeblock}
 
 
 
@@ -289,82 +289,82 @@ To configure a pre-MFA extension:
 
 1. Define the criteria that you want a user to meet before them being able to skip the second factor of authentication. Check out the following examples to get some ideas if you're unsure.
 
-  | Example use case | Example validation |
-  | ---------------- | ------------------ |
-  | You want users to provide a second authentication factor only once a day. | Configure your extension to validate the `last_successful_first_factor` is within the same day. |
-  | You have a allow list of approved users that don't need to provide the second factor every time. | Configure your extension to validate that the `username` or `user_id` is in the allow list. |
-  | You don't want users who access your app on a desktop to provide the second factor every time. | Configure your extension to validate that `device_type` is set to `web`. |
-  {: caption="Table 3. Example criteria for skipping MFA" caption-side="top"}
+   | Example use case | Example validation |
+   | ---------------- | ------------------ |
+   | You want users to provide a second authentication factor only once a day. | Configure your extension to validate the `last_successful_first_factor` is within the same day. |
+   | You have a allow list of approved users that don't need to provide the second factor every time. | Configure your extension to validate that the `username` or `user_id` is in the allow list. |
+   | You don't want users who access your app on a desktop to provide the second factor every time. | Configure your extension to validate that `device_type` is set to `web`. |
+   {: caption="Table 3. Example criteria for skipping MFA" caption-side="top"}
 
 2. When you know your criteria, configure an extension that can listen for a POST request. The endpoint must be able to read the payload that comes from {{site.data.keyword.appid_short_notm}}. The body that is sent by {{site.data.keyword.appid_short_notm}} before starting the MFA flow is in the format: `{"jws": "jws-format-string"}`. Your extension might also [decode and validate](/docs/appid?topic=appid-token-validation#local-validation) the payload, the content is a JSON object and return a JSON response with the following schema: `{"skipMfa": Boolean }`. For example,: `{'skipMfa': true}`. 
 
-  | Information | Description |
-  | ----------- | ----------- |
-  | `correlation_id` | A random number that is generated for each MFA session. If you have both a pre-mfa and a post-mfa extension, the number is the same for each for the same session. For example, `3bb9236c-792f-4cca-8ae1-ada754cc4555`. |
-  | `extension` | The name of your extension. For this use case, the extension is named `premfa`. |
-  | `device_type` | The type of device with which your user is accessing your application. Options include: `web` and `mobile`. |
-  | `source_ip` | The IP address of the device that makes the request to your app. For example, `127.0.0.1`. |
-  | `headers` | The information that is returned by the browser when a user attempts to sign in to your app. 
+   | Information | Description |
+   | ----------- | ----------- |
+   | `correlation_id` | A random number that is generated for each MFA session. If you have both a pre-mfa and a post-mfa extension, the number is the same for each for the same session. For example, `3bb9236c-792f-4cca-8ae1-ada754cc4555`. |
+   | `extension` | The name of your extension. For this use case, the extension is named `premfa`. |
+   | `device_type` | The type of device with which your user is accessing your application. Options include: `web` and `mobile`. |
+   | `source_ip` | The IP address of the device that makes the request to your app. For example, `127.0.0.1`. |
+   | `headers` | The information that is returned by the browser when a user attempts to sign in to your app. 
    The header looks similar to: `{"user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X x.y; rv:42.0) Gecko/20100101 Firefox/42.0"}`. | 
-  | `tenant_id` | Your application's tenant ID. |
-  | `client_id` | Your application's client ID. | 
-  | `user_id` | The ID of the user that makes the authentication request. For example, `11112222-3333-4444-2222-555522226666`. |
-  | `username` | The username of the user that makes the authentication request. For example, `testuser@email.com`. |
-  | `application_type` | The type of your application. For example, if your application is a single page JavaScript web app, `browserapp` is returned. Options include: `browserapp`, `serverapp`, and `mobileapp`. |
-  | `first_name` | The users given name. |
-  | `last_name` | The users surname. |
-  | `last_successful_first_factor` | The date of the last time the user correctly entered their credentials. For example, `2000-01-01T16:44:01.226Z`. |
-  | `last_successful_mfa` | The date of the last time the user completed the full MFA flow. For example, `2000-01-01T16:44:01.226Z`. |
-  {: caption="Table 4. The information that {{site.data.keyword.appid_short_notm}} forwards to your extension point." caption-side="top"}
+   | `tenant_id` | Your application's tenant ID. |
+   | `client_id` | Your application's client ID. | 
+   | `user_id` | The ID of the user that makes the authentication request. For example, `11112222-3333-4444-2222-555522226666`. |
+   | `username` | The username of the user that makes the authentication request. For example, `testuser@email.com`. |
+   | `application_type` | The type of your application. For example, if your application is a single page JavaScript web app, `browserapp` is returned. Options include: `browserapp`, `serverapp`, and `mobileapp`. |
+   | `first_name` | The users given name. |
+   | `last_name` | The users surname. |
+   | `last_successful_first_factor` | The date of the last time the user correctly entered their credentials. For example, `2000-01-01T16:44:01.226Z`. |
+   | `last_successful_mfa` | The date of the last time the user completed the full MFA flow. For example, `2000-01-01T16:44:01.226Z`. |
+   {: caption="Table 4. The information that {{site.data.keyword.appid_short_notm}} forwards to your extension point." caption-side="top"}
 
-  To see an example extension, check out [the sample](https://github.com/ibm-cloud-security/appid-sample-code-snippets/blob/master/premfa-extension-point/index.js).
-  {: tip}
+   To see an example extension, check out [the sample](https://github.com/ibm-cloud-security/appid-sample-code-snippets/blob/master/premfa-extension-point/index.js).
+   {: tip}
 
 3. Register your extension with your instance of {{site.data.keyword.appid_short_notm}} by making a PUT request to `config/cloud_directory/mfa/extensions/premfa`. The configuration includes your extension's URL and any authorization information that is needed to access the endpoint. For development purposes, `isActive` is set to `false`. Be sure to test your configuration before you enable it.
 
-  ```sh
-  curl -X PUT https://{region}.appid.cloud.ibm.com/management/v4/{tenant_ID}/config/cloud_directory/mfa/extensions/premfa' \
-  --header 'Content-Type: application/json' \
-  --header 'Accept: application/json' \
-  --header 'Authorization: Bearer {IAM_token}' \
-  -d '{
+   ```sh
+   curl -X PUT https://{region}.appid.cloud.ibm.com/management/v4/{tenant_ID}/config/cloud_directory/mfa/extensions/premfa' \
+   --header 'Content-Type: application/json' \
+   --header 'Accept: application/json' \
+   --header 'Authorization: Bearer {IAM_token}' \
+   -d '{
       "isActive": false,
       "config": {
-        "url": "{extensions_URL}",
-        "headers": {
-              "Authorization": "{custom_extension_authorization_header}"
-          }
+         "url": "{extensions_URL}",
+         "headers": {
+               "Authorization": "{custom_extension_authorization_header}"
+            }
       }
-  }'
-  ```
-  {: codeblock}
+   }'
+   ```
+   {: codeblock}
 
-  It is highly recommended that you always use HTTPS instead of HTTP for the `extensions_URL` to ensure that your connection is encrypted.
-  {: note}
+   It is highly recommended that you always use HTTPS instead of HTTP for the `extensions_URL` to ensure that your connection is encrypted.
+   {: note}
 
 4. After the extension is successfully configured, verify that your endpoint works correctly by using the test API. {{site.data.keyword.appid_short_notm}} makes a POST request to your configured extension with the example values.
 
-  ```sh
-  curl -X POST https://{region}.appid.cloud.ibm.com/management/v4/{tenant_ID}/config/cloud_directory/mfa/extensions/premfa/test \
-  --header 'Content-Type: application/json' \
-  --header 'Accept: application/json' \
-  --header 'Authorization: Bearer {IAM_token}'
-  ```
-  {: codeblock}
+   ```sh
+   curl -X POST https://{region}.appid.cloud.ibm.com/management/v4/{tenant_ID}/config/cloud_directory/mfa/extensions/premfa/test \
+   --header 'Content-Type: application/json' \
+   --header 'Accept: application/json' \
+   --header 'Authorization: Bearer {IAM_token}'
+   ```
+   {: codeblock}
 
 5. Enable your extension by making a PUT request that sets `isActive` to `true`.
 
-  ```sh
-  curl -X PUT https://{region}.appid.cloud.ibm.com/management/v4/{tenant_ID}/config/cloud_directory/mfa/extensions/premfa \
-  --header 'Content-Type: application/json' \
-  --header 'Accept: application/json' \
-  --header 'Authorization: Bearer {IAM_TOKEN}' \
-  -d '{"isActive": true}'
-  ```
-  {: codeblock}
+   ```sh
+   curl -X PUT https://{region}.appid.cloud.ibm.com/management/v4/{tenant_ID}/config/cloud_directory/mfa/extensions/premfa \
+   --header 'Content-Type: application/json' \
+   --header 'Accept: application/json' \
+   --header 'Authorization: Bearer {IAM_TOKEN}' \
+   -d '{"isActive": true}'
+   ```
+   {: codeblock}
 
-  To disable your extension, set `isActive` to `false`.
-  {: tip}
+   To disable your extension, set `isActive` to `false`.
+   {: tip}
 
 
 ### Configuring post-mfa
@@ -378,9 +378,9 @@ When you configure an extension and register it with {{site.data.keyword.appid_s
 
 2. When the second authentication factor is completed successfully, two simultaneous actions occur:
 
-  1. {{site.data.keyword.appid_short_notm}} sends information about the sign-in to your configured extension.
+   1. {{site.data.keyword.appid_short_notm}} sends information about the sign-in to your configured extension.
 
-  2. The user is redirected to your application.
+   2. The user is redirected to your application.
 
 </br>
 
@@ -388,69 +388,69 @@ To configure a post-MFA extension:
 
 1. Configure an extension point that can listen for a POST request. The endpoint must be able to read the payload that is sent by {{site.data.keyword.appid_short_notm}}. Optionally, it can also [decode and validate](/docs/appid?topic=appid-token-validation#local-validation) the JSON payload that is returned by {{site.data.keyword.appid_short_notm}} is not altered by a third party in any way. A string that is formatted as `{"jws": "jws-format-string"}` is returned that contains the following information:
   
-  | Information | Description |
-  | ----------- | ----------- |
-  | `correlation_id` | A random number that is generated for each MFA session. If you have both a pre-mfa and a post-mfa extension, the number is the same for each. For example, `3bb9236c-792f-4cca-8ae1-ada754cc4555`. |
-  | `extension` | The name of your extension. For this use case, the extension is named `postmfa`. |
-  | `status` | The MFA status. Options include: `success` and `failed`. |
-  | `reason` | The reason for an MFA failure. For example, `user locked out - exceeded maximum number of verification attempts`. |
-  | `device_type` | The type of device with which your user accesses your application. Options include: `web`, `mobile`. |
-  | `source_ip` | The IP address of the device that makes the request to your app. For example, `127.0.0.1`. |
-  | `headers` | The information that is returned by the browser when a user attempts to sign in to your app. 
-  The header looks similar to `{"user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X x.y; rv:42.0) Gecko/20100101 Firefox/42.0"}`. |
-  | `tenant_id` | Your application's tenant ID. | 
-  | `client_id` | Your application's client ID. |
-  | `user_id` | The ID of the user that makes the authentication request. |
-  | `username` | The username of the user that makes the authentication request. For example, `testuser@email.com`. |
-  | `application_type` | The type of your application. For example, if your application is a single page JavaScript web app, `browserapp` is returned. Options include: `browserapp`, `serverapp`, and `mobileapp`. |
-  | `first_name` | The users given name. |
-  | `last_name` | The users surname. |
-  {: caption="Table 5. The information that {{site.data.keyword.appid_short_notm}} forwards to your extension point." caption-side="top"}
+   | Information | Description |
+   | ----------- | ----------- |
+   | `correlation_id` | A random number that is generated for each MFA session. If you have both a pre-mfa and a post-mfa extension, the number is the same for each. For example, `3bb9236c-792f-4cca-8ae1-ada754cc4555`. |
+   | `extension` | The name of your extension. For this use case, the extension is named `postmfa`. |
+   | `status` | The MFA status. Options include: `success` and `failed`. |
+   | `reason` | The reason for an MFA failure. For example, `user locked out - exceeded maximum number of verification attempts`. |
+   | `device_type` | The type of device with which your user accesses your application. Options include: `web`, `mobile`. |
+   | `source_ip` | The IP address of the device that makes the request to your app. For example, `127.0.0.1`. |
+   | `headers` | The information that is returned by the browser when a user attempts to sign in to your app. 
+   The header looks similar to `{"user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X x.y; rv:42.0) Gecko/20100101 Firefox/42.0"}`. |
+   | `tenant_id` | Your application's tenant ID. | 
+   | `client_id` | Your application's client ID. |
+   | `user_id` | The ID of the user that makes the authentication request. |
+   | `username` | The username of the user that makes the authentication request. For example, `testuser@email.com`. |
+   | `application_type` | The type of your application. For example, if your application is a single page JavaScript web app, `browserapp` is returned. Options include: `browserapp`, `serverapp`, and `mobileapp`. |
+   | `first_name` | The users given name. |
+   | `last_name` | The users surname. |
+   {: caption="Table 5. The information that {{site.data.keyword.appid_short_notm}} forwards to your extension point." caption-side="top"}
 
 
 2. Register your extension with your instance of {{site.data.keyword.appid_short_notm}} by making a PUT request to `config/cloud_directory/mfa/extensions/postmfa`. The configuration includes your extension's URL and any authorization information that is needed to access the endpoint. For development purposes, `isActive` is set to `false`. Be sure to test your configuration before you enable it.
 
-  ```sh
-  curl -X PUT https://{region}.appid.cloud.ibm.com/management/v4/{tenant_ID}/config/cloud_directory/mfa/extensions/postmfa' \
-  --header 'Content-Type: application/json' \
-  --header 'Accept: application/json' \
-  --header 'Authorization: Bearer {IAM_token}' \
-  -d '{
+   ```sh
+   curl -X PUT https://{region}.appid.cloud.ibm.com/management/v4/{tenant_ID}/config/cloud_directory/mfa/extensions/postmfa' \
+   --header 'Content-Type: application/json' \
+   --header 'Accept: application/json' \
+   --header 'Authorization: Bearer {IAM_token}' \
+   -d '{
       "isActive": false,
       "config": {
-        "url": "{extensions_URL}",
-        "headers": {
-              "Authorization": "{custom_extension_authorization_header}"
-          }
+         "url": "{extensions_URL}",
+         "headers": {
+               "Authorization": "{custom_extension_authorization_header}"
+            }
       }
-  }'
-  ```
-  {: codeblock}
+   }'
+   ```
+   {: codeblock}
 
-  It is highly recommended that you always use HTTPS instead of HTTP for the extensions_URL to ensure that your connection is encrypted.
-  {: note}
+   It is highly recommended that you always use HTTPS instead of HTTP for the extensions_URL to ensure that your connection is encrypted.
+   {: note}
 
 3. Once the extension is successfully configured, verify that your endpoint works correctly by using the test API. {{site.data.keyword.appid_short_notm}} makes a POST request to your configured extension with the example values.
 
-  ```sh
-  curl -X POST https://{region}.appid.cloud.ibm.com/management/v4/{tenant_ID}/config/cloud_directory/mfa/extensions/postmfa/test \
-  --header 'Content-Type: application/json' \
-  --header 'Accept: application/json' \
-  --header 'Authorization: Bearer {IAM_token}'
-  ```
-  {: codeblock}
+   ```sh
+   curl -X POST https://{region}.appid.cloud.ibm.com/management/v4/{tenant_ID}/config/cloud_directory/mfa/extensions/postmfa/test \
+   --header 'Content-Type: application/json' \
+   --header 'Accept: application/json' \
+   --header 'Authorization: Bearer {IAM_token}'
+   ```
+   {: codeblock}
 
 4. Enable your extension by setting `isActive` to `true`.
 
-  ```sh
-  curl -X PUT https://{region}.appid.cloud.ibm.com/management/v4/{tenant_ID}/config/cloud_directory/mfa/extensions/postmfa \
-  --header 'Content-Type: application/json' \
-  --header 'Accept: application/json' \
-  --header 'Authorization: Bearer {IAM_TOKEN}' \
-  -d '{"isActive": true}'
-  ```
-  {: codeblock}
+   ```sh
+   curl -X PUT https://{region}.appid.cloud.ibm.com/management/v4/{tenant_ID}/config/cloud_directory/mfa/extensions/postmfa \
+   --header 'Content-Type: application/json' \
+   --header 'Accept: application/json' \
+   --header 'Authorization: Bearer {IAM_TOKEN}' \
+   -d '{"isActive": true}'
+   ```
+   {: codeblock}
 
-  To disable your extension, set `isActive` to `false`.
-  {: tip}
+   To disable your extension, set `isActive` to `false`.
+   {: tip}
 

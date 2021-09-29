@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-02-09"
+lastupdated: "2021-09-28"
 
 keywords: user registry, sign up, sign in, username, email, password, account settings, reset password, email sender, email verification, app security
 
@@ -66,8 +66,8 @@ You can configure the level of self-service that is allowed in your application 
 
 4. Select the way that your want to **Allow users to sign-up and sign-in** to your app. Options include **Email and password** or **Username and password**. User's can sign in with either an email that they already possess or they can create a username to use when they interact with your app.
 
-  You can toggle between the options before users are added to your directory. After the first user is added, future users must also use the same configuration. To add future users to your application, you must use the **Email and password** configuration.
-  {: note}
+   You can toggle between the options before users are added to your directory. After the first user is added, future users must also use the same configuration. To add future users to your application, you must use the **Email and password** configuration.
+   {: note}
 
 5. Set **Allow users to sign up to your app** to **Yes**. If you choose not to allow users to sign up, you can add users through the dashboard or the management API for development purposes.
 

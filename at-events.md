@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-09-23"
+lastupdated: "2021-09-28"
 
 keywords: user events, track activity, manage events, analyze, administrative, runtime, sign in, settings, app security
 
@@ -263,15 +263,15 @@ To find the user information that aligns with the event GUID, use the following 
 
 2. Obtain an IAM token for the `apiKey` by inserting the key into the following command:
 
-  ```sh
-  curl -k -X POST \
+   ```sh
+   curl -k -X POST \
       --header "Content-Type: application/x-www-form-urlencoded" \
       --header "Accept: application/json" \
       --data-urlencode "grant_type=urn:ibm:params:oauth:grant-type:apikey" \
       --data-urlencode "apikey=THE_API_KEY" \
       "https://iam.cloud.ibm.com/identity/token"
-  ```
-  {: codeblock}
+   ```
+   {: codeblock}
 
 3. Copy the IAM token from the **access_token** field in the response.
 
@@ -279,45 +279,45 @@ To find the user information that aligns with the event GUID, use the following 
 
 5. Insert the IAM token, the tenant ID, and the user ID, into the following command to obtain the user information.
 
-  ```sh
-  curl -X GET --header 'Accept: application/json' --header 'Authorization: Bearer {IAM_TOKEN}' \
-  'https://REGION.appid.cloud.ibm.com/TENANT_ID/cloud_directory/Users/THE_USER_ID'
-  ```
-  {: codeblock}
+   ```sh
+   curl -X GET --header 'Accept: application/json' --header 'Authorization: Bearer {IAM_TOKEN}' \
+   'https://REGION.appid.cloud.ibm.com/TENANT_ID/cloud_directory/Users/THE_USER_ID'
+   ```
+   {: codeblock}
 
-  You can also run this command by using the [management APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/getAuditStatus){: external}. Your output would look similar to the following:
+   You can also run this command by using the [management APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/getAuditStatus){: external}. Your output would look similar to the following:
 
-  ```json
-    {
-    "displayName": "test test",
-    "active": true,
-    "userName": "test0001",
-    "mfaContext": {},
-    "emails": [
+   ```json
       {
-        "value": "mytest@yahoo.com",
-        "primary": true
+      "displayName": "test test",
+      "active": true,
+      "userName": "test0001",
+      "mfaContext": {},
+      "emails": [
+      {
+         "value": "mytest@yahoo.com",
+         "primary": true
       }
-    ],
-    "meta": {
+      ],
+      "meta": {
       "lastLogin": "2018-12-10T16:05:36.665Z",
       "created": "2018-08-21T08:55:50.643Z",
       "location": "/v1/cb967e0d-43c1-454a-968d-0efa24766846/Users/34e1ea6d-cc02-4941-9462-7e9c5a40b360",
       "lastModified": "2018-12-10T16:05:36.675Z",
       "resourceType": "User"
-    },
-    "schemas": [
+      },
+      "schemas": [
       "urn:ietf:params:scim:schemas:core:2.0:User"
-    ],
-    "name": {
+      ],
+      "name": {
       "givenName": "test",
       "familyName": "test",
       "formatted": "test test"
-    },
-    "id": "34e1ea6d-cc02-4941-9462-7e9c5a40b360"
-  }
-  ```
-  {: screen}
+      },
+      "id": "34e1ea6d-cc02-4941-9462-7e9c5a40b360"
+   }
+   ```
+   {: screen}
 
 
 
@@ -332,30 +332,30 @@ You can track the events of specific Cloud Directory users in {{site.data.keywor
 1. Obtain an IAM token, a tenant ID and a region as described in the previous section.
 2. Insert the IAM token, the tenant ID, and the email into the following command to obtain the user information.
 
-  ```sh
-  curl -X GET --header 'Accept: application/json' --header 'Authorization: Bearer {IAM_TOKEN}' 'https://REGION.appid.cloud.ibm.com/TENANT_ID/users?email=EMAIL_ADDRESS'
-  ```
-  {: codeblock}
+   ```sh
+   curl -X GET --header 'Accept: application/json' --header 'Authorization: Bearer {IAM_TOKEN}' 'https://REGION.appid.cloud.ibm.com/TENANT_ID/users?email=EMAIL_ADDRESS'
+   ```
+   {: codeblock}
 
-  The email address should be escaped. For example `myTest%40yahoo.com` instead of `myTest@yahoo.com`.
-  {: note}
+   The email address should be escaped. For example `myTest%40yahoo.com` instead of `myTest@yahoo.com`.
+   {: note}
 
-  Alternatively, you can use the [Management APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/getAuditStatus){: external}. Your output would look similar to the following:
+   Alternatively, you can use the [Management APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/getAuditStatus){: external}. Your output would look similar to the following:
 
-  ```json
-  {
-    "users": [
+   ```json
+   {
+      "users": [
       {
-        "idp": "cloud_directory",
-        "id": "1e123399-3499-4a5c-b5a9-93843a91dc80"
+         "idp": "cloud_directory",
+         "id": "1e123399-3499-4a5c-b5a9-93843a91dc80"
       },
       {
-        "idp": "cloud_directory",
-        "id": "2a7abbe5-0fce-402e-9ddf-265246b415c8"
+         "idp": "cloud_directory",
+         "id": "2a7abbe5-0fce-402e-9ddf-265246b415c8"
       }
-    ]
-  }
-  ```
-  {: screen}
+      ]
+   }
+   ```
+   {: screen}
 
 3. Search for a **cloud_directory:id** value in the **target.name_str** field in the {{site.data.keyword.at_short}} console.

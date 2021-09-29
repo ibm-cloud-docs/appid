@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-09-23"
+lastupdated: "2021-09-29"
 
 keywords: web apps, nodejs, node, javascript, protected resource, authorization flow, front end, frontend, app security, authentication
 
@@ -117,32 +117,32 @@ A redirect URI is the callback endpoint of your app. During the sign in flow, {{
 
 You can obtain your credentials in one of two ways.
 
-  * By navigating to the **Applications** tab of the {{site.data.keyword.appid_short_notm}} dashboard. If you don't already have one, you can click **Add application** to create a new one.
+   * By navigating to the **Applications** tab of the {{site.data.keyword.appid_short_notm}} dashboard. If you don't already have one, you can click **Add application** to create a new one.
 
-  * By making a POST request to the [`/management/v4/{tenantId}/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Applications/registerApplication).
+   * By making a POST request to the [`/management/v4/{tenantId}/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Applications/registerApplication).
 
-    Request format:
-    ```sh
-    curl -X POST \  https://us-south.appid.cloud.ibm.com/management/v4/39a37f57-a227-4bfe-a044-93b6e6060b61/applications/ \
-    -H 'Content-Type: application/json' \
-    -H 'Authorization: Bearer IAM_TOKEN' \
-    -d '{"name": "ApplicationName"}'
-    ```
-    {: codeblock}
+      Request format:
+      ```sh
+      curl -X POST \  https://us-south.appid.cloud.ibm.com/management/v4/39a37f57-a227-4bfe-a044-93b6e6060b61/applications/ \
+      -H 'Content-Type: application/json' \
+      -H 'Authorization: Bearer IAM_TOKEN' \
+      -d '{"name": "ApplicationName"}'
+      ```
+      {: codeblock}
 
-    Example response:
-    ```json
-    {
-      "clientId": "xxxxx-34a4-4c5e-b34d-d12cc811c86d",
-      "tenantId": "xxxxx-9b1f-433e-9d46-0a5521f2b1c4",
-      "secret": "ZDk5YWZkYmYt*******",
-      "name": "app1",
-      "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v4/xxxxx-9b1f-433e-9d46-0a5521f2b1c4",
-      "profilesUrl": "https://us-south.appid.cloud.ibm.com",
-      "discoveryEndpoint": "https://us-south.appid.cloud.ibm.com/oauth/v4/xxxxxx-9b1f-433e-9d46-0a5521f2b1c4/.well-known/openid-configuration"
-    }
-    ```
-    {: screen}
+      Example response:
+      ```json
+      {
+        "clientId": "xxxxx-34a4-4c5e-b34d-d12cc811c86d",
+        "tenantId": "xxxxx-9b1f-433e-9d46-0a5521f2b1c4",
+        "secret": "ZDk5YWZkYmYt*******",
+        "name": "app1",
+        "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v4/xxxxx-9b1f-433e-9d46-0a5521f2b1c4",
+        "profilesUrl": "https://us-south.appid.cloud.ibm.com",
+        "discoveryEndpoint": "https://us-south.appid.cloud.ibm.com/oauth/v4/xxxxxx-9b1f-433e-9d46-0a5521f2b1c4/.well-known/openid-configuration"
+      }
+      ```
+      {: screen}
 
 
 
@@ -158,55 +158,55 @@ The easiest way to work with {{site.data.keyword.appid_short_notm}} is to take a
 
 2. Install the following NPM requirements.
 
-    ```bash
-    npm install --save express express-session passport log4js pug
-    ```
-    {: codeblock}
+   ```bash
+   npm install --save express express-session passport log4js pug
+   ```
+   {: codeblock}
 
 3. Install the {{site.data.keyword.appid_short_notm}} service.
 
-    ```bash
-    npm install --save ibmcloud-appid
-    ```
-    {: codeblock}
+   ```bash
+   npm install --save ibmcloud-appid
+   ```
+   {: codeblock}
 
 4. Add the following requirements to your `server.js` file.
 
-    ```javascript
-    const express = require('express'); 								// https://www.npmjs.com/package/express
-    const log4js = require('log4js');                                   // https://www.npmjs.com/package/log4js
-    const session = require('express-session');							// https://www.npmjs.com/package/express-session
-    const passport = require('passport');								// https://www.npmjs.com/package/passport
-    const WebAppStrategy = require('ibmcloud-appid').WebAppStrategy;	// https://www.npmjs.com/package/ibmcloud-appid
-    ```
-    {: shortdesc}
+   ```javascript
+   const express = require('express'); 								// https://www.npmjs.com/package/express
+   const log4js = require('log4js');                                   // https://www.npmjs.com/package/log4js
+   const session = require('express-session');							// https://www.npmjs.com/package/express-session
+   const passport = require('passport');								// https://www.npmjs.com/package/passport
+   const WebAppStrategy = require('ibmcloud-appid').WebAppStrategy;	// https://www.npmjs.com/package/ibmcloud-appid
+   ```
+   {: shortdesc}
 
 5. Set up your application to use express-session middleware by using the credentials that you obtained in step 1. You can choose to format your redirect URI in one of two ways. Manually, by using a new `WebAppStrategy({redirectUri: "...."})` or by setting the value as an environment variable as shown in the example code.
 
-    ```javascript
-    const app = express();
-    const logger = log4js.getLogger("testApp");
-    app.use(session({
-        secret: '123456',
-        resave: true,
-        saveUninitialized: true
-    }));
-    app.use(passport.initialize());
-    app.use(passport.session());
-    passport.serializeUser((user, cb) => cb(null, user));
-    passport.deserializeUser((user, cb) => cb(null, user));
-    passport.use(new WebAppStrategy({
-        tenantId: "{tenant_ID}",
-        clientId: "{client_ID}",
-        secret: "{secret}",
-        oauthServerUrl: "{OAuth_Server_URL}",
-        redirectUri: "{redirect_URI}"
-    }));
-    ```
-    {: codeblock}
+   ```javascript
+   const app = express();
+   const logger = log4js.getLogger("testApp");
+   app.use(session({
+      secret: '123456',
+      resave: true,
+      saveUninitialized: true
+   }));
+   app.use(passport.initialize());
+   app.use(passport.session());
+   passport.serializeUser((user, cb) => cb(null, user));
+   passport.deserializeUser((user, cb) => cb(null, user));
+   passport.use(new WebAppStrategy({
+      tenantId: "{tenant_ID}",
+      clientId: "{client_ID}",
+      secret: "{secret}",
+      oauthServerUrl: "{OAuth_Server_URL}",
+      redirectUri: "{redirect_URI}"
+   }));
+   ```
+   {: codeblock}
 
-    You must configure the middleware with the proper session storage for production environments. For more information see the <a href="https://github.com/expressjs/session" target="_blank"> express.js docs<img src="../icons/launch-glyph.svg" alt="External link icon"></a>.
-    {: note}
+   You must configure the middleware with the proper session storage for production environments. For more information see the <a href="https://github.com/expressjs/session" target="_blank"> express.js docs<img src="../icons/launch-glyph.svg" alt="External link icon"></a>.
+   {: note}
 
 
 ## Protect your application
@@ -219,20 +219,20 @@ Now that you have {{site.data.keyword.appid_short_notm}} installed, you're ready
 
 1. Configure the callback endpoint. The callback finishes the authorization process by retrieving access and identity tokens from App ID and redirecting the user to one of the following locations:<ul><li>The original URL of the request that triggered the authentication, as persisted in the HTTP session as `WebAppStrategy.ORIGINAL_URL`.</li><li>Specifying a redirect in the event of a successful authentication.</li><li>The application root (`/`) as shown in the next step.</li></ul>
 
-    ```javascript
-    app.get(CALLBACK_URL, passport.authenticate(WebAppStrategy.STRATEGY_NAME));
-    ```
-    {: codeblock}
+   ```javascript
+   app.get(CALLBACK_URL, passport.authenticate(WebAppStrategy.STRATEGY_NAME));
+   ```
+   {: codeblock}
 
 2. Set a sign in endpoint that always redirects a browser to the Login Widget. Be sure to add a success redirect option so that you don't end up in an endless authentication loop.
 
-    ```javascript
-    app.get('/appid/login', passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
-        successRedirect: '/',
-        forceLogin: true
-    }));
-    ```
-    {: codeblock}
+   ```javascript
+   app.get('/appid/login', passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
+      successRedirect: '/',
+      forceLogin: true
+   }));
+   ```
+   {: codeblock}
 
 
 ## Personalize your app
@@ -244,25 +244,25 @@ You can pull information that is provided by your identity providers to personal
 
 1. Configure your application to obtain user information. `protected` is a place holder variable that you can change to match the endpoint for your application.
 
-    ```javascript
-    app.get("/protected_resource", passport.authenticate(WebAppStrategy.STRATEGY_NAME), function(req, res){
-        res.json(req.user);
-    });
-    ```
-    {: codeblock}
+   ```javascript
+   app.get("/protected_resource", passport.authenticate(WebAppStrategy.STRATEGY_NAME), function(req, res){
+      res.json(req.user);
+   });
+   ```
+   {: codeblock}
 
-    For example, in the sample application you can see how to obtain the users name to personalize your application.
-    ```javascript
-    app.get('/api/user', (req, res) => {
-        // console.log(req.session[WebAppStrategy.AUTH_CONTEXT]);
-        res.json({
-            user: {
-                name: req.user.name
-            }
-        });
-    });
-    ```
-    {: codeblock}
+   For example, in the sample application you can see how to obtain the users name to personalize your application.
+   ```javascript
+   app.get('/api/user', (req, res) => {
+      // console.log(req.session[WebAppStrategy.AUTH_CONTEXT]);
+      res.json({
+         user: {
+               name: req.user.name
+         }
+      });
+   });
+   ```
+   {: codeblock}
 
 
 ## Test your configuration

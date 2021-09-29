@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-06-01"
+lastupdated: "2021-09-29"
 
 keywords: tokens, refresh token, access token, identity token, configuration, authorization, authentication, app security, access, identity, refresh
 
@@ -59,32 +59,32 @@ Access tokens represent authorization and enable communication with [back-end re
 
 
 Example token:
-  ```json
-  Header:
-  {
-    "alg": "RS256",
-    "typ": "JWT",
-    "kid": "appId-39a37f57-a227-4bfe-a044-93b6e6050a61-2018-08-02T11:57:43.401",
-    "ver": 4
-  }
-  Payload:
-  {
-    "iss": "https://us-south.appid.cloud.ibm.com/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6050a61",
-    "exp": 1551903163,
-    "aud": [
+   ```json
+   Header:
+   {
+      "alg": "RS256",
+      "typ": "JWT",
+      "kid": "appId-39a37f57-a227-4bfe-a044-93b6e6050a61-2018-08-02T11:57:43.401",
+      "ver": 4
+   }
+   Payload:
+   {
+      "iss": "https://us-south.appid.cloud.ibm.com/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6050a61",
+      "exp": 1551903163,
+      "aud": [
       "968c2306-9aef-4109-bc06-4f5ed6axi24a"
-    ],
-    "sub": "2b96cc04-eca5-4122-a8de-6e07d14c13a5",
-    "email_verified": true,
-    "amr": [
+      ],
+      "sub": "2b96cc04-eca5-4122-a8de-6e07d14c13a5",
+      "email_verified": true,
+      "amr": [
       "cloud_directory"
-    ],
-    "iat": 1551899553,
-    "tenant": "39a37f57-a227-4bfe-a044-93b6e6050a61",
-    "scope": "openid appid_default appid_readprofile appid_readuserattr appid_writeuserattr appid_authenticated"
-  }
-  ```
-  {: screen}
+      ],
+      "iat": 1551899553,
+      "tenant": "39a37f57-a227-4bfe-a044-93b6e6050a61",
+      "scope": "openid appid_default appid_readprofile appid_readuserattr appid_writeuserattr appid_authenticated"
+   }
+   ```
+   {: screen}
 
 ## Identity tokens
 {: #identity}
@@ -93,39 +93,39 @@ Identity tokens represent authentication and contain information about the user.
 
 
 Example token:
-  ```json
-  Header:
-  {
-    "alg": "RS256",
-    "typ": "JWT",
-    "kid": "appId-39a37f57-a227-4bfe-a044-93b6e6050a61-2018-08-02T11:57:43.401",
-    "ver": 4
-  }
-  Payload:
-  {
-    "iss": "https://us-south.appid.cloud.ibm.com/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6050a61",
-    "aud": [
+   ```json
+   Header:
+   {
+      "alg": "RS256",
+      "typ": "JWT",
+      "kid": "appId-39a37f57-a227-4bfe-a044-93b6e6050a61-2018-08-02T11:57:43.401",
+      "ver": 4
+   }
+   Payload:
+   {
+      "iss": "https://us-south.appid.cloud.ibm.com/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6050a61",
+      "aud": [
       "968c2306-9aef-4109-bc06-4f5ed6axi24a"
-    ],
-    "exp": 1551903163,
-    "tenant": "39a37f57-a227-4bfe-a044-93b6e6050a61",
-    "iat": 1551899553,
-    "email": "appid155@mailinator.com",
-    "name": "appid155@mailinator.com",
-    "sub": "2b96cc04-eca5-4122-a8de-6e07d14c13a5",
-    "email_verified": true,
-    "identities": [
+      ],
+      "exp": 1551903163,
+      "tenant": "39a37f57-a227-4bfe-a044-93b6e6050a61",
+      "iat": 1551899553,
+      "email": "appid155@mailinator.com",
+      "name": "appid155@mailinator.com",
+      "sub": "2b96cc04-eca5-4122-a8de-6e07d14c13a5",
+      "email_verified": true,
+      "identities": [
       {
-        "provider": "cloud_directory",
-        "id": "118c0278-3526-4954-876b-cf70eb88efa2"
+         "provider": "cloud_directory",
+         "id": "118c0278-3526-4954-876b-cf70eb88efa2"
       }
-    ],
-    "amr": [
+      ],
+      "amr": [
       "cloud_directory"
-    ]
-  }
-  ```
-  {: screen}
+      ]
+   }
+   ```
+   {: screen}
 
 
 Identity tokens only contain partial user information. To see all of the information that is provided by the identity provider, you can use the [/userinfo endpoint](/docs/appid?topic=appid-profiles#profile-predefined-access).
@@ -163,12 +163,12 @@ The tokens are received by your app after a successful authentication. You app c
 
 Example request:
 
-  ```
-  GET /resource HTTP/1.1
-  Host: server.example.com
-  Authorization: Bearer  mF_9.B5f-4.1JqM mF_9.B5f-4.1JqM
-  ```
-  {: screen}
+   ```
+   GET /resource HTTP/1.1
+   Host: server.example.com
+   Authorization: Bearer  mF_9.B5f-4.1JqM mF_9.B5f-4.1JqM
+   ```
+   {: screen}
 
 ## How are tokens configured?
 {: #set}

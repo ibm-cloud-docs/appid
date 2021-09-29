@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-09-23"
+lastupdated: "2021-09-29"
 
 keywords: attributes, cloud directory, user registry, user management, personalization, customize app, user information, profiles, app security, user profile, app access, identity
 
@@ -65,11 +65,11 @@ You're a developer for an online retailer, with a specialization in food. You're
 
 Do you have any dietary preferences?
 
-  * I'm a vegetarian.
-  * I'm a pescatarian.
-  * I'm dairy-free.
-  * I'm gluten-free.
-  * I'm low carb.
+   * I'm a vegetarian.
+   * I'm a pescatarian.
+   * I'm dairy-free.
+   * I'm gluten-free.
+   * I'm low carb.
 
 You can then map their answers to [specific attributes](/docs/appid?topic=appid-profiles) that you can use to target the advertising that they're shown. 
 
@@ -118,42 +118,42 @@ Your application is responsible for mapping the answers to the specific attribut
 
 1. Update the profile with the attribute.
 
-  ```
-  curl --request PUT \
-  https://{region}.appid.cloud.ibm.com/management/v4/{tenant-id}/users/{user_id}/profile \
-  --header 'Authorization: Bearer {iam-access-token}' \
-  --header 'Content-Type: application/json' \
-  -d '{
-    "profile": {
+   ```
+   curl --request PUT \
+   https://{region}.appid.cloud.ibm.com/management/v4/{tenant-id}/users/{user_id}/profile \
+   --header 'Authorization: Bearer {iam-access-token}' \
+   --header 'Content-Type: application/json' \
+   -d '{
+      "profile": {
       "attributes": {
-        “food-preference”: “vegetarian, glutten-free”
+         “food-preference”: “vegetarian, glutten-free”
       }
-    }
-  }'
-  ```
-  {: codeblock}
+      }
+   }'
+   ```
+   {: codeblock}
 
 2. View the profile to verify that it was updated correctly.
 
-  ```
-  curl --request GET https://{region}.appid.cloud.ibm.com/management/v4/{tenant-id}/users/{user_id}/profile \
-  --header 'Authorization: Bearer {iam-access-token}' \
-  --header 'Content-Type: application/json'
-  ```
-  {: codeblock}
+   ```
+   curl --request GET https://{region}.appid.cloud.ibm.com/management/v4/{tenant-id}/users/{user_id}/profile \
+   --header 'Authorization: Bearer {iam-access-token}' \
+   --header 'Content-Type: application/json'
+   ```
+   {: codeblock}
 
-  Successful response output:
+   Successful response output:
 
-  ```
-  {
+   ```
+   {
       "id": "5ce78e09-1356-4ef8-a45d-808b633101db",
       "identities": [],
       "attributes": {
-        "food-preference": "vegetarian, gluten-free"
+         "food-preference": "vegetarian, gluten-free"
       }
-  }
-  ```
-  {: screen}
+   }
+   ```
+   {: screen}
 
 Great work!
 
@@ -171,64 +171,64 @@ Becoming more popular, you decide to implement a "deal-of-the-day". You want the
 
 1. Make a request to the token configuration endpoint.
 
-  ```
-  curl --request PUT \
-  https://{region}.appid.cloud.ibm.com/management/v4/{tenant-id}/config/tokens \
-  --header 'Authorization: Bearer {iam-access-token}' \
-  --header 'Content-Type: application/json' \
-  -d '{
+   ```
+   curl --request PUT \
+   https://{region}.appid.cloud.ibm.com/management/v4/{tenant-id}/config/tokens \
+   --header 'Authorization: Bearer {iam-access-token}' \
+   --header 'Content-Type: application/json' \
+   -d '{
       "access": {
-          "expires_in": 3601
+            "expires_in": 3601
       },
       "refresh": {
-          "enabled": false,
-          "expires_in": 2592001
+            "enabled": false,
+            "expires_in": 2592001
       },
       "anonymousAccess": {
-          "expires_in": 2592001
+            "expires_in": 2592001
       },
       "accessTokenClaims": [
-        {
-        "source": "attributes",
-        "sourceClaim": "food-preference"
-        }
+         {
+         "source": "attributes",
+         "sourceClaim": "food-preference"
+         }
       ]
-  }'
-  ```
-  {: codeblock}
+   }'
+   ```
+   {: codeblock}
   
   
-  | Variable | Description | 
-  | -------- | ----------- |
-  | `tenant-id` | A tenant ID is how your instance of {{site.data.keyword.appid_short_notm}} is identified in the request. You can find your ID in the **Service credentials** tab of the dashboard. If you don't have a set, you can follow the steps in the GUI to create credentials. |
-  | `source` | For both `accessTokenClaim` and `idTokenClaims` set the source to `attribute`. |
-  | `sourceClaim` | The specific attribute that you want to map to your token. In this case, `food-preference`. |
-  | `expires_in` | This value applies to each token type and must be set in each request. If you previously set the value in the GUI, and then run this request, then the values in the request override the previously set values. Be sure to set the expiration to the correct value for your configuration. |
-  {: caption="Table 1. Token configuration variables" caption-side="top"}
+   | Variable | Description | 
+   | -------- | ----------- |
+   | `tenant-id` | A tenant ID is how your instance of {{site.data.keyword.appid_short_notm}} is identified in the request. You can find your ID in the **Service credentials** tab of the dashboard. If you don't have a set, you can follow the steps in the GUI to create credentials. |
+   | `source` | For both `accessTokenClaim` and `idTokenClaims` set the source to `attribute`. |
+   | `sourceClaim` | The specific attribute that you want to map to your token. In this case, `food-preference`. |
+   | `expires_in` | This value applies to each token type and must be set in each request. If you previously set the value in the GUI, and then run this request, then the values in the request override the previously set values. Be sure to set the expiration to the correct value for your configuration. |
+   {: caption="Table 1. Token configuration variables" caption-side="top"}
 
-  Successful response output:
+   Successful response output:
 
-  ```
-  {
+   ```
+   {
       "access": {
-          "expires_in": 3601
+            "expires_in": 3601
       },
       "refresh": {
-          "enabled": false,
-          "expires_in": 2592001
+            "enabled": false,
+            "expires_in": 2592001
       },
       "anonymousAccess": {
-          "expires_in": 2592001
+            "expires_in": 2592001
       },
       "accessTokenClaims": [
-        {
-        "source": "attributes",
-        "sourceClaim": "food-preference"
-        }
+         {
+         "source": "attributes",
+         "sourceClaim": "food-preference"
+         }
       ]
-  }
-  ```
-  {: screen}
+   }
+   ```
+   {: screen}
 
 
 ## Viewing the access token
@@ -240,60 +240,60 @@ Optionally, you can verify that step 4 was successful by viewing an access token
 
 1. For testing purposes, create a Cloud Directory user by using the {{site.data.keyword.appid_short_notm}} GUI.
 
-  1. In the **Users** tab, click **Add User**. A form displays.
-  2. Enter a first and surname, an email, and password.
-  3. Click **Save**.
+   1. In the **Users** tab, click **Add User**. A form displays.
+   2. Enter a first and surname, an email, and password.
+   3. Click **Save**.
 
 2. Encode your client ID and secret.
 
-  1. In the **Service Credentials** tab of the {{site.data.keyword.appid_short_notm}} GUI, copy your client ID and Secret.
-  2. Use a base64 encoder to encode your authorization information.
-  3. Copy the output to use in the following command.
+   1. In the **Service Credentials** tab of the {{site.data.keyword.appid_short_notm}} GUI, copy your client ID and Secret.
+   2. Use a base64 encoder to encode your authorization information.
+   3. Copy the output to use in the following command.
 
-  It is not recommended to use a browser-based encoder in production applications.
-  {: tip}
+   It is not recommended to use a browser-based encoder in production applications.
+   {: tip}
 
 4. Sign in by using the APIs to obtain your access token information. The token that is returned is encoded.
 
-  ```
-  curl --request PUT \
-  https://appid.cloud.ibm.com/oauth/v4/{tenant-ID}/token \
-  --header 'Authorization: Basic {encoded_client:secret}' \
-  --header 'Content-Type: application/x-www-form-urlencoded' \
-  --header `Accept: application/json`
-  -d 'grant_type=password&username={user-email}%40{user-email-domain}&password={user-password}
-  ```
-  {: codeblock}
+   ```
+   curl --request PUT \
+   https://appid.cloud.ibm.com/oauth/v4/{tenant-ID}/token \
+   --header 'Authorization: Basic {encoded_client:secret}' \
+   --header 'Content-Type: application/x-www-form-urlencoded' \
+   --header `Accept: application/json`
+   -d 'grant_type=password&username={user-email}%40{user-email-domain}&password={user-password}
+   ```
+   {: codeblock}
 
 5. Decode your access token.
-  1. Copy the token in the response output from the previous command.
-  2. In a browser, navigate to https://jwt.io/.
-  3. Paste the token into the box labeled **Encoded**.
+   1. Copy the token in the response output from the previous command.
+   2. In a browser, navigate to https://jwt.io/.
+   3. Paste the token into the box labeled **Encoded**.
 
-  It is not recommended to use a browser-based decoder in production applications.
-  {: tip}
+   It is not recommended to use a browser-based decoder in production applications.
+   {: tip}
 
 6. In the **Decoded** section, verify that you can see the food preference.
 
-  ```
-  {
-    "iss": "https://us-south.appid.cloud.ibm.com/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6050a61",
-    "exp": 1551903163,
-    "aud": [
+   ```
+   {
+      "iss": "https://us-south.appid.cloud.ibm.com/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6050a61",
+      "exp": 1551903163,
+      "aud": [
       "968c2306-9aef-4109-bc06-4f5ed6axi24a"
-    ],
-    "sub": "2b96cc04-eca5-4122-a8de-6e07d14c13a5",
-    "email_verified": true,
-    "amr": [
+      ],
+      "sub": "2b96cc04-eca5-4122-a8de-6e07d14c13a5",
+      "email_verified": true,
+      "amr": [
       "cloud_directory"
-    ],
-    "iat": 1551899553,
-    "tenant": "39a37f57-a227-4bfe-a044-93b6e6050a61",
-    "scope": "openid appid_default appid_readprofile appid_readuserattr appid_writeuserattr appid_authenticated"
-    "food-preference": "vegetarian, gluten-free"
-  }
-  ```
-  {: screen}
+      ],
+      "iat": 1551899553,
+      "tenant": "39a37f57-a227-4bfe-a044-93b6e6050a61",
+      "scope": "openid appid_default appid_readprofile appid_readuserattr appid_writeuserattr appid_authenticated"
+      "food-preference": "vegetarian, gluten-free"
+   }
+   ```
+   {: screen}
 
 
 

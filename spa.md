@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-09-23"
+lastupdated: "2021-09-29"
 
 keywords: single page application, SPA, single-page, angular, react, native apps, javascript, js, sdk, authentication, authorization, identity, app security, secure, protocols, oauth, oidc,
 
@@ -80,9 +80,9 @@ Due to their nature, single-page applications are unable to store secrets secure
 
 Although the Implicit flow is the current industry standard, there are several security flaws that can be found. For example, the Implicit flow uses redirect URIs to obtain tokens, which the Authorization + PKCE flow circumvents by using an XHR request instead. Because of the security flaws, the Implicit flow is no longer recommended or considered safe due to the following reasons:
 
-  * The Implicit flow returns tokens as part of the URL - as a query param or in the hash fragment. By doing so, the tokens can be intercepted and tokens can be accessed. The tokens might be saved in a user's browser history or logs. The history or logs might be stored in a cloud service and sent to multiple devices, which also heightens the risk.
+   * The Implicit flow returns tokens as part of the URL - as a query param or in the hash fragment. By doing so, the tokens can be intercepted and tokens can be accessed. The tokens might be saved in a user's browser history or logs. The history or logs might be stored in a cloud service and sent to multiple devices, which also heightens the risk.
 
-  * The Implicit flow is susceptible to a [redirect URI attack](https://datatracker.ietf.org/doc/html/rfc6749){: external}, which means that an attacker might replace an approved redirect URI with a destination of their choice. If there is a redirect URI attack, users follow the changed link to authorize their client. After authorization, they are redirected to the attackers URI, which gives the attacker access to the user's legitimate tokens. 
+   * The Implicit flow is susceptible to a [redirect URI attack](https://datatracker.ietf.org/doc/html/rfc6749){: external}, which means that an attacker might replace an approved redirect URI with a destination of their choice. If there is a redirect URI attack, users follow the changed link to authorize their client. After authorization, they are redirected to the attackers URI, which gives the attacker access to the user's legitimate tokens. 
 
 The previous examples are just a few of the important issues. For more information, see [OAuth 2.0 security best current practice](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics-13.){: external}.
 {: note}
@@ -94,9 +94,9 @@ The previous examples are just a few of the important issues. For more informati
 
 Before you get started, be sure that you have the following prerequisites. 
 
-  * An instance of the {{site.data.keyword.appid_short_notm}} service.
-  * Your [redirect URIs](/docs/appid?topic=appid-managing-idp#add-redirect-uri) set in the {{site.data.keyword.appid_short_notm}} service dashboard.
-  * A single-page application. If you don't have one and you want to try out the flow, try downloading the sample application from the overview page of the {{site.data.keyword.appid_short_notm}} dashboard.
+   * An instance of the {{site.data.keyword.appid_short_notm}} service.
+   * Your [redirect URIs](/docs/appid?topic=appid-managing-idp#add-redirect-uri) set in the {{site.data.keyword.appid_short_notm}} service dashboard.
+   * A single-page application. If you don't have one and you want to try out the flow, try downloading the sample application from the overview page of the {{site.data.keyword.appid_short_notm}} dashboard.
 
 
 ## Creating application credentials with the GUI
@@ -127,27 +127,27 @@ There is no client secret that is returned in your SPA credentials. There is no 
 
 1. Make the following post request to the [/management/v4/{tenantId}/applications](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Applications/mgmt.registerApplication){: external} endpoint.
 
-  ```sh
-  curl -X POST \
-  https://us-south.appid.cloud.ibm.com/management/v4/{TENANT_ID}/applications/ \
-  -H 'accept: application/json' \
-  -H 'Authorization: Bearer {IAM_TOKEN}' \
-  -H 'Content-Type: application/json' \
-  -d '{"name": "MySampleSPA", "type": "singlepageapp"}'
-  ```
-  {: codeblock}
+   ```sh
+   curl -X POST \
+   https://us-south.appid.cloud.ibm.com/management/v4/{TENANT_ID}/applications/ \
+   -H 'accept: application/json' \
+   -H 'Authorization: Bearer {IAM_TOKEN}' \
+   -H 'Content-Type: application/json' \
+   -d '{"name": "MySampleSPA", "type": "singlepageapp"}'
+   ```
+   {: codeblock}
 
-  Example response:
-  ```json
-  {
-    "clientId": "{CLIENT_ID}",
-    "tenantId": "{TENANT_ID}",
-    "name": "MySampleSPA",
-    "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v4/{TENANT_ID}",
-    "type": "singlepageapp"
-  }
-  ```
-  {: screen}
+   Example response:
+   ```json
+   {
+      "clientId": "{CLIENT_ID}",
+      "tenantId": "{TENANT_ID}",
+      "name": "MySampleSPA",
+      "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v4/{TENANT_ID}",
+      "type": "singlepageapp"
+   }
+   ```
+   {: screen}
 
 ## Configuring the JavaScript SDK
 {: #configuring-js}
@@ -157,37 +157,37 @@ To install the SDK in your application, use the following steps as a guide.
 1. By using the command prompt, change in to the directory that contains your application.
 2. Install the {{site.data.keyword.appid_short_notm}} service by using NPM or by linking the CDN in your main HTML file.
 
-  * To use NPM, run the following command.
+   * To use NPM, run the following command.
 
-    ```
-    npm install ibmcloud-appid-js
-    ```
-    {: codeblock}
-  
-  * To add the CDN, add the following link to your main HTML file.
-    
-    ```
-    <script src="https://cdn.appid.cloud.ibm.com/appid-0.3.0.min.js"></script>
-    ```
-    {: codeblock}
+      ```
+      npm install ibmcloud-appid-js
+      ```
+      {: codeblock}
+
+   * To add the CDN, add the following link to your main HTML file.
+      
+      ```
+      <script src="https://cdn.appid.cloud.ibm.com/appid-0.3.0.min.js"></script>
+      ```
+      {: codeblock}
 
 3. Add your client ID and discovery endpoint to your app to initialize the SDK.
 
-  ```
-  const appID = new AppID();
-  await appID.init({
-    clientId: '{SPA_CLIENT_ID}',
-    discoveryEndpoint: '{WELL_KNOWN_ENDPOINT}'
-  });
-  ```
-  {: codeblock}
+   ```
+   const appID = new AppID();
+   await appID.init({
+      clientId: '{SPA_CLIENT_ID}',
+      discoveryEndpoint: '{WELL_KNOWN_ENDPOINT}'
+   });
+   ```
+   {: codeblock}
 
 4. In your application code, after your login button configuration, add a call to `signin`. A pop-up window opens where a user is prompted to enter their credentials. After a successful authentication, the screen closes and they are authenticated.
 
-  ```
-  const tokens = await appID.signin();
-  ```
-  {: codeblock}
+   ```
+   const tokens = await appID.signin();
+   ```
+   {: codeblock}
 
 
 ## Configuring silent login
@@ -203,14 +203,14 @@ Refresh tokens are not returned in the SPA flow.
 3. Click **Save**.
 4. Add the following code to your application. Be sure to configure your application to show the login button if silent login fails.
   
-  ```
-  const tokens = await appID.silentSignin();
-  if (!tokens) {
-    document.getElementById('login').addEventListener('click', async () => {
+   ```
+   const tokens = await appID.silentSignin();
+   if (!tokens) {
+      document.getElementById('login').addEventListener('click', async () => {
       const tokens = await appID.signin();
-    });
-  }
-  ```
-  {: codeblock}
+      });
+   }
+   ```
+   {: codeblock}
 
 

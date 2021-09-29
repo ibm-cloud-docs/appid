@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-09-23"
+lastupdated: "2021-09-29"
 
 keywords: Adapter, access management, identity token, helm chart, backend apps, kube, any kube, icp, openshift, iks, service mesh, access, app identity, kube secret, tokens, authenticated, app endpoints, authorization, multicloud, no code change, no redeploy, authorization policies, multiple providers
 
@@ -137,20 +137,20 @@ To install the chart, initialize Helm in your cluster, define the options that y
 
 3. Add the repository.
 
-  ```bash
-  helm repo add appidentityandaccessAdapter https://raw.githubusercontent.com/ibm-cloud-security/app-identity-and-access-Adapter/master/helm/appidentityandaccessAdapter
-  ```
-  {: codeblock}
+   ```bash
+   helm repo add appidentityandaccessAdapter https://raw.githubusercontent.com/ibm-cloud-security/app-identity-and-access-Adapter/master/helm/appidentityandaccessAdapter
+   ```
+   {: codeblock}
 
 4. Install the chart.
 
-  ```bash
-  helm install --name appidentityandaccessAdapter appidentityandaccessAdapter/appidentityandaccessAdapter
-  ```
-  {: codeblock}
+   ```bash
+   helm install --name appidentityandaccessAdapter appidentityandaccessAdapter/appidentityandaccessAdapter
+   ```
+   {: codeblock}
 
-  You can specify an image tag during installation by setting the `image.tag` flag. For example `--set image.tag=0.5.0`. You can also install the chart locally. To do so, clone the repo by running `git clone git@github.com:ibm-cloud-security/app-identity-and-access-Adapter.git` before you run the installation command.
-  {: tip}
+   You can specify an image tag during installation by setting the `image.tag` flag. For example `--set image.tag=0.5.0`. You can also install the chart locally. To do so, clone the repo by running `git clone git@github.com:ibm-cloud-security/app-identity-and-access-Adapter.git` before you run the installation command.
+   {: tip}
 
 ## Applying an authorization and authentication policy
 {: #istio-apply-policy}
@@ -169,44 +169,44 @@ Depending on whether you're protecting front end or backend applications, create
 
 * For front-end applications: Browser-based applications that require user authentication can be configured to use the OIDC / OAuth 2.0 authentication flow. To define an `OidcConfig` CRD containing the client used to facilitate the authentication flow with the Identity provider, use the following example as a guide.
 
-  ```yaml
-  apiVersion: "security.cloud.ibm.com/v1"
-  kind: OidcConfig
-  metadata:
+   ```yaml
+   apiVersion: "security.cloud.ibm.com/v1"
+   kind: OidcConfig
+   metadata:
       name:      oidc-provider-config
       namespace: sample-namespace
-  spec:
+   spec:
       discoveryUrl: https://us-south.appid.cloud.ibm.com/oauth/v4/{tenant_ID}/.well-known/openid-configuration
       clientId:     {client-ID}
       clientSecret: {randomlyGeneratedClientSecret}
       clientSecretRef:
-          name: {name-of-my-kube-secret}
-          key: {key-in-my-kube-secret}
-  ```
-  {: screen}
+            name: {name-of-my-kube-secret}
+            key: {key-in-my-kube-secret}
+   ```
+   {: screen}
 
-  | Field | Type | Required | Description | 
-  | ----- | ---- | -------- | ----------- |
-  | `discoveryUrl` | string | Yes | A well-known endpoint that provides a JSON document of OIDC/OAuth 2.0 configuration information. | 
-  | `clientId` | string | Yes | An identifier for the client that is used for authentication. |
-  | `clientSecret` | string | *No | A plain text secret that is used to authenticate the client. If not provided, a `clientSecretRef` must exist. |
-  | `clientSecretRef` | object | No | A reference secret that is used to authenticate the client. The reference can be used in place of the `clientSecret`. | 
-  | `clientSecretRef.name` | string | Yes | The name of the Kubernetes Secret that contains the `clientSecret`. | 
-  | `clientSecretRef.key` | string | Yes | The field within the Kubernetes Secret that holds the `clientSecret`. |
-  {: caption="Table 1. YAML configuration file components explained" caption-side="top"}
+   | Field | Type | Required | Description | 
+   | ----- | ---- | -------- | ----------- |
+   | `discoveryUrl` | string | Yes | A well-known endpoint that provides a JSON document of OIDC/OAuth 2.0 configuration information. | 
+   | `clientId` | string | Yes | An identifier for the client that is used for authentication. |
+   | `clientSecret` | string | *No | A plain text secret that is used to authenticate the client. If not provided, a `clientSecretRef` must exist. |
+   | `clientSecretRef` | object | No | A reference secret that is used to authenticate the client. The reference can be used in place of the `clientSecret`. | 
+   | `clientSecretRef.name` | string | Yes | The name of the Kubernetes Secret that contains the `clientSecret`. | 
+   | `clientSecretRef.key` | string | Yes | The field within the Kubernetes Secret that holds the `clientSecret`. |
+   {: caption="Table 1. YAML configuration file components explained" caption-side="top"}
 
 * For backend applications: The OAuth 2.0 Bearer token spec defines a pattern for protecting APIs by using [JSON Web Tokens (JWTs)](https://datatracker.ietf.org/doc/html/rfc7519){: external}. By using the following configuration as an example, define a `JwtConfig` CRD that contains the public key resource, which is used to validate token signatures.
 
-  ```yaml
-  apiVersion: "security.cloud.ibm.com/v1"
-  kind: JwtConfig
-  metadata:
-    name:      jwt-config
-    namespace: sample-app
-  spec:
+   ```yaml
+   apiVersion: "security.cloud.ibm.com/v1"
+   kind: JwtConfig
+   metadata:
+      name:      jwt-config
+      namespace: sample-app
+   spec:
       jwksUrl: https://us-south.appid.cloud.ibm.com/oauth/v4/{tenant-ID}/publickeys
-  ```
-  {: screen}
+   ```
+   {: screen}
 
 ### Registering application endpoints
 {: #istio-register-endpoints}

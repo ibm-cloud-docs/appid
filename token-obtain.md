@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-09-23"
+lastupdated: "2021-09-29"
 
 keywords: obtain tokens, return tokens, authorized, authorization, access management, client id, secret, tenant id, app security, identity token
 
@@ -63,8 +63,8 @@ In order to obtain tokens, you must have your client ID and secret. The credenti
 1. Navigate to the **Applications** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
 
 2. If you already have a set of credentials listed, you can skip to step 3. If you do not, create one.
-    1. On the **Applications** tab, click **Add application**.
-    2. Give your application a name and click **Save** to return to a list of your registered apps. The name of your application cannot exceed 50 characters.
+   1. On the **Applications** tab, click **Add application**.
+   2. Give your application a name and click **Save** to return to a list of your registered apps. The name of your application cannot exceed 50 characters.
 
 3. From the list of registered apps, select the application that you want to work with. The row expands to show your credentials.
 
@@ -78,32 +78,32 @@ In order to obtain tokens, you must have your client ID and secret. The credenti
 In order to obtain tokens, you must have your client ID and secret. The credentials are specific to every application and are used to help identify and validate the users that a token might be assigned to. 
 {: shortdesc}
 
-1.  Make a POST request to the [`/management/v4/{tenantId}/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Applications/mgmt.registerApplication).
+1. Make a POST request to the [`/management/v4/{tenantId}/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Applications/mgmt.registerApplication).
 
-  Request:
+   Request:
 
-  ```sh
-  curl -X POST https://us-south.appid.cloud.ibm.com/management/v4/39a37f57-a227-4bfe-a044-93b6e6060b61/applications/ \
-  -H 'Content-Type: application/json' \
-  -H 'Authorization: Bearer {IAM_TOKEN}' \
-  -d '{"name": "ApplicationName"}'
-  ```
-  {: codeblock}
+   ```sh
+   curl -X POST https://us-south.appid.cloud.ibm.com/management/v4/39a37f57-a227-4bfe-a044-93b6e6060b61/applications/ \
+   -H 'Content-Type: application/json' \
+   -H 'Authorization: Bearer {IAM_TOKEN}' \
+   -d '{"name": "ApplicationName"}'
+   ```
+   {: codeblock}
 
-  Example response:
+   Example response:
 
-  ```json
-  {
-    "clientId": "c90830bf-11b0-4b65-bffe-9773f8703bad",
-    "tenantId": "b42f7429-fc24-48ds-b4f9-616bcc31cfd5",
-    "secret": "YWQyNjdkZjMtMGRhZC00ZWRkLThiOTQtN2E3ODEyZjhkOWQz",
-    "name": "testing",
-    "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v4/b42f7429-fc24-48ds-b4f9-616bcb31cfd5",
-    "profilesUrl": "https://us-south.appid.cloud.ibm.com",
-    "discoveryEndpoint": "https://us-south.appid.cloud.ibm.com/oauth/v4/b42f7429-fc24-48ds-b4f9-616bcb31cfd5/.well-known/openid-configuration"
-  }
-  ```
-  {: screen}
+   ```json
+   {
+      "clientId": "c90830bf-11b0-4b65-bffe-9773f8703bad",
+      "tenantId": "b42f7429-fc24-48ds-b4f9-616bcc31cfd5",
+      "secret": "YWQyNjdkZjMtMGRhZC00ZWRkLThiOTQtN2E3ODEyZjhkOWQz",
+      "name": "testing",
+      "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v4/b42f7429-fc24-48ds-b4f9-616bcb31cfd5",
+      "profilesUrl": "https://us-south.appid.cloud.ibm.com",
+      "discoveryEndpoint": "https://us-south.appid.cloud.ibm.com/oauth/v4/b42f7429-fc24-48ds-b4f9-616bcb31cfd5/.well-known/openid-configuration"
+   }
+   ```
+   {: screen}
 
 2. Copy the client ID and secret.
 
@@ -130,64 +130,64 @@ With a client ID and secret, you can obtain access and identity tokens by using 
 
 3. Use the following code examples to retrieve your tokens. The grant type that you use to obtain your token can differ depending on the type of authorization that you're working with. For a detailed list of options, check out the [swagger documentation](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization%20Server%20-%20Authorization%20Server%20V4/oauth-server.token){: external}.
 
-  
-  ```sh
-  curl -X POST 'https://{region}.appid.cloud.ibm.com/oauth/v4/{tenant_id}/token' \
-  -H 'Authorization: Basic base64Encoded{{client-ID}:{client-secret}}' \
-  -H 'Accept: application/json' \
-  -F 'grant_type=password' \
-  -F 'username=testuser@test.com' \
-  -F 'password=testuser'
-  ```
-  {: codeblock}
-  {: curl}
+   
+   ```sh
+   curl -X POST 'https://{region}.appid.cloud.ibm.com/oauth/v4/{tenant_id}/token' \
+   -H 'Authorization: Basic base64Encoded{{client-ID}:{client-secret}}' \
+   -H 'Accept: application/json' \
+   -F 'grant_type=password' \
+   -F 'username=testuser@test.com' \
+   -F 'password=testuser'
+   ```
+   {: codeblock}
+   {: curl}
 
-  
-  ```swift
-  // iOS Swift example
+   
+   ```swift
+   // iOS Swift example
 
-  class delegate : TokenResponseDelegate {
-    public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, refreshToken: RefreshToken?, response:Response?) {
-    //User authenticated
-    }
+   class delegate : TokenResponseDelegate {
+      public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, refreshToken: RefreshToken?, response:Response?) {
+      //User authenticated
+      }
 
-    public func onAuthorizationFailure(error: AuthorizationError) {
-    //Exception occurred
-    }
-  }
+      public func onAuthorizationFailure(error: AuthorizationError) {
+      //Exception occurred
+      }
+   }
 
-  AppID.sharedInstance.signinWithResourceOwnerPassword(username: username, password: password, delegate: delegate())
-  ```
-  {: codeblock}
-  {: swift}
+   AppID.sharedInstance.signinWithResourceOwnerPassword(username: username, password: password, delegate: delegate())
+   ```
+   {: codeblock}
+   {: swift}
 
-  
-  ```java
-  AppID.getInstance().signinWithResourceOwnerPassword(getApplicationContext(), username, password, new TokenResponseListener() {
-    @Override
-    public void onAuthorizationFailure (AuthorizationException exception) {
-        //Exception occurred
-    }
+   
+   ```java
+   AppID.getInstance().signinWithResourceOwnerPassword(getApplicationContext(), username, password, new TokenResponseListener() {
+      @Override
+      public void onAuthorizationFailure (AuthorizationException exception) {
+         //Exception occurred
+      }
 
-    @Override
-    public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, RefreshToken refreshToken) {
-        //User authenticated
-    }
-  });
-  ```
-  {: codeblock}
-  {: java}
+      @Override
+      public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, RefreshToken refreshToken) {
+         //User authenticated
+      }
+   });
+   ```
+   {: codeblock}
+   {: java}
 
-  
+   
 
-  ```javascript
-  // Declare the API you want to protect
-  app.get("/api/protected",
+   ```javascript
+   // Declare the API you want to protect
+   app.get("/api/protected",
 
-    passport.authenticate(APIStrategy.STRATEGY_NAME, {
+      passport.authenticate(APIStrategy.STRATEGY_NAME, {
       session: false
-    }),
-    function(req, res) {
+      }),
+      function(req, res) {
       // Get full appIdAuthorizationContext from request object
       var appIdAuthContext = req.appIdAuthorizationContext;
 
@@ -197,28 +197,28 @@ With a client ID and secret, you can obtain access and identity tokens by using 
       appIdAuthContext.identityTokenPayload; // Decoded identity_token JSON
       appIdAuthContext.refreshToken; // Raw refresh_token
       ...
-    }
-  );
-  ```
-  {: codeblock}
-  {: javascript}
+      }
+   );
+   ```
+   {: codeblock}
+   {: javascript}
 
-  
-  ```swift
-  // Server-side swift example
+   
+   ```swift
+   // Server-side swift example
 
-  let options = [
-    "clientId": "{client-id}",
-    "secret": "{secret}",
-    "tenantId": "{tenant-id}",
-    "oauthServerUrl": "{oauth-server-url}",
-    "redirectUri": "{app-url}" + CALLBACK_URL
-  ]
-  let webappKituraCredentialsPlugin = WebAppKituraCredentialsPlugin(options: options)
-  let kituraCredentials = Credentials()
-  kituraCredentials.register(plugin: webappKituraCredentialsPlugin)
-  ```
-  {: codeblock}
-  {: swift}
+   let options = [
+      "clientId": "{client-id}",
+      "secret": "{secret}",
+      "tenantId": "{tenant-id}",
+      "oauthServerUrl": "{oauth-server-url}",
+      "redirectUri": "{app-url}" + CALLBACK_URL
+   ]
+   let webappKituraCredentialsPlugin = WebAppKituraCredentialsPlugin(options: options)
+   let kituraCredentials = Credentials()
+   kituraCredentials.register(plugin: webappKituraCredentialsPlugin)
+   ```
+   {: codeblock}
+   {: swift}
 
 

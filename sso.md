@@ -2,7 +2,7 @@
 
 copyright:
 years: 2017, 2021
-lastupdated: "2021-09-28"
+lastupdated: "2021-09-29"
 
 keywords: single sign on, cloud directory, saml, app security, application identity
 
@@ -163,22 +163,22 @@ You can also use the {{site.data.keyword.appid_short_notm}} Node.js server SDK t
 
 1. Set `logoutSSO` as a method. For example:
 
-  ```
-  let webAppStrategy = new WebAppStrategy(.....);
-  ....
-  webAppStrategy.logoutSSO();
-  ```
-  {: codeblock}
+   ```
+   let webAppStrategy = new WebAppStrategy(.....);
+   ....
+   webAppStrategy.logoutSSO();
+   ```
+   {: codeblock}
 
 2. Configure logout.
 
-  ```javascript
-  app.get('/logoutSSO', (req, res) => {
-    res.clearCookie("refreshToken");
-    webAppStrategy.logoutSSO(req,res, { "redirect_uri": "https://my-app.com/after_logout" });
-    });
-  ```
-  {: codeblock}
+   ```javascript
+   app.get('/logoutSSO', (req, res) => {
+      res.clearCookie("refreshToken");
+      webAppStrategy.logoutSSO(req,res, { "redirect_uri": "https://my-app.com/after_logout" });
+      });
+   ```
+   {: codeblock}
 
 
 ## Ending all sessions for a user

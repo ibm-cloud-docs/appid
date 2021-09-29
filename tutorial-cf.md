@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-09-23"
+lastupdated: "2021-09-29"
 
 keywords: cloud foundry, iam, java nodejs, identity, access management, user access, service access, permissions, bind service
 
@@ -100,32 +100,32 @@ The following step includes instructions for deploying a Node.js app or a Java a
 5. Open terminal and change into the sample folder.
 6. Log in to the {{site.data.keyword.cloud_notm}} CLI. The CLI prompts you to select an account and region if you do not specify one.
 
-  ```
-  ibmcloud login -a cloud.ibm.com -r {region}
-  ```
-  {: codeblock}
+   ```
+   ibmcloud login -a cloud.ibm.com -r {region}
+   ```
+   {: codeblock}
 
 7. Target the Cloud Foundry organization and space that you want to work in and follow the prompts to target an org and space.
 
-  ```
-  ibmcloud target --cf
-  ```
-  {: codeblock}
+   ```
+   ibmcloud target --cf
+   ```
+   {: codeblock}
 
 8. Create an alias of the {{site.data.keyword.appid_short_notm}} service instance.
 
-  ```
-  ibmcloud resource service-alias-create {ALIAS_NAME} --instance-name {SERVICE_INSTANCE_NAME}
-  ```
-  {: codeblock}
+   ```
+   ibmcloud resource service-alias-create {ALIAS_NAME} --instance-name {SERVICE_INSTANCE_NAME}
+   ```
+   {: codeblock}
 
 9. Add the alias that you created to your services in the `manifest.yml`.
 10. Bind the services that are listed in the `manifest.yml` file by deploying the sample app.
 
-  ```
-  ibmcloud app push
-  ```
-  {: codeblock}
+   ```
+   ibmcloud app push
+   ```
+   {: codeblock}
 
 ### Deploying a Java app
 {: #java}
@@ -137,49 +137,49 @@ The following step includes instructions for deploying a Node.js app or a Java a
 5. Open terminal and change into the sample folder.
 6. Generate your `war` file and upload it.
 
-  ```
-  mvn clean install
-  ```
-  {: codeblock}
+   ```
+   mvn clean install
+   ```
+   {: codeblock}
 
 7. Change into the Liberty folder.
 8. Log in to the {{site.data.keyword.cloud_notm}} CLI. The CLI prompts you to select an account and region if you do not specify one.
 
-  ```
-  ibmcloud login -a cloud.ibm.com -r {region}
-  ```
-  {: codeblock}
+   ```
+   ibmcloud login -a cloud.ibm.com -r {region}
+   ```
+   {: codeblock}
 
 8. Target the Cloud Foundry organization and space that you want to work in and follow the prompts to target an org and space.
 
-  ```
-  ibmcloud target --cf
-  ```
-  {: codeblock}
+   ```
+   ibmcloud target --cf
+   ```
+   {: codeblock}
 
 10. Create an alias of the {{site.data.keyword.appid_short_notm}} service instance.
 
-  ```
-  ibmcloud resource service-alias-create {ALIAS_NAME} --instance-name {SERVICE_INSTANCE_NAME}
-  ```
-  {: codeblock}
+   ```
+   ibmcloud resource service-alias-create {ALIAS_NAME} --instance-name {SERVICE_INSTANCE_NAME}
+   ```
+   {: codeblock}
 
 11. Add the alias that you created to your services in the `manifest.yml`.
 
-  Example:
-  ```
-    applications:
-  - name: ApplicationName
-    memory: 512M
-    services:
-    - AppID-alias
-  ```
-  {: screen}
+   Example:
+   ```
+      applications:
+   - name: ApplicationName
+      memory: 512M
+      services:
+      - AppID-alias
+   ```
+   {: screen}
 
 13. Bind the services that are listed in the `manifest.yml` file by deploying the sample app.
 
-  ```
-  ibmcloud app push
-  ```
-  {: codeblock}
+   ```
+   ibmcloud app push
+   ```
+   {: codeblock}
 

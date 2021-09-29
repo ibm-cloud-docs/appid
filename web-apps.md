@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-09-23"
+lastupdated: "2021-09-29"
 
 keywords: web apps, authorization code, authentication, nodejs, javascript, app access, application credentials, login, redirect uri, protected endpoint, video
 
@@ -106,101 +106,101 @@ Check out the following video to learn about protecting Node applications with {
 
 2. Install the {{site.data.keyword.appid_short_notm}} service.
 
-  ```bash
-  npm install --save ibmcloud-appid
-  ```
-  {: codeblock}
+   ```bash
+   npm install --save ibmcloud-appid
+   ```
+   {: codeblock}
 
 ### Initializing the Node.js SDK
 {: #web-nodejs-initialize}
 
 1. Add the following `require` definitions to your `server.js` file.
 
-  ```javascript
-  const express = require('express');
-  const session = require('express-session')
-  const passport = require('passport');
-  const WebAppStrategy = require("ibmcloud-appid").WebAppStrategy;
-  const CALLBACK_URL = "/ibm/cloud/appid/callback";
-  ```
-  {: codeblock}
+   ```javascript
+   const express = require('express');
+   const session = require('express-session')
+   const passport = require('passport');
+   const WebAppStrategy = require("ibmcloud-appid").WebAppStrategy;
+   const CALLBACK_URL = "/ibm/cloud/appid/callback";
+   ```
+   {: codeblock}
 
 2. Set up your express app to use express-session middleware.
 
-  ```javascript
-  const app = express();
-  app.use(session({
+   ```javascript
+   const app = express();
+   app.use(session({
       secret: "123456",
       resave: true,
       saveUninitialized: true
-  }));
-  app.use(passport.initialize());
-  app.use(passport.session());
-  ```
-  {: codeblock}
+   }));
+   app.use(passport.initialize());
+   app.use(passport.session());
+   ```
+   {: codeblock}
 
-  You must configure the middleware with the proper session storage for production environments. For more information, see the [express.js](https://expressjs.com/){: external}.
-  {: note}
+   You must configure the middleware with the proper session storage for production environments. For more information, see the [express.js](https://expressjs.com/){: external}.
+   {: note}
 
 3. Obtain your credentials in one of the following ways.
 
-  * By navigating to the **Applications** tab of the {{site.data.keyword.appid_short_notm}} dashboard. If you don't have an application in the list, you can click **Add application** to create a one.
+   * By navigating to the **Applications** tab of the {{site.data.keyword.appid_short_notm}} dashboard. If you don't have an application in the list, you can click **Add application** to create a one.
 
-  * By making a POST request to the [`/management/v4/{tenantId}/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Applications/mgmt.registerApplication){: external}.
+   * By making a POST request to the [`/management/v4/{tenantId}/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Applications/mgmt.registerApplication){: external}.
 
-    Request format:
-    ```
-    curl -X POST \  https://us-south.appid.cloud.ibm.com/management/v4/39a37f57-a227-4bfe-a044-93b6e6060b61/applications/ \
-    -H 'Content-Type: application/json' \
-    -H 'Authorization: Bearer {IAM_TOKEN}' \
-    -d '{"name": "ApplicationName"}'
-    ```
-    {: codeblock}
+      Request format:
+      ```
+      curl -X POST \  https://us-south.appid.cloud.ibm.com/management/v4/39a37f57-a227-4bfe-a044-93b6e6060b61/applications/ \
+      -H 'Content-Type: application/json' \
+      -H 'Authorization: Bearer {IAM_TOKEN}' \
+      -d '{"name": "ApplicationName"}'
+      ```
+      {: codeblock}
 
-    Example response:
-    ```
-    {
-    "clientId": "111c22c3-38ea-4de8-b5d4-338744d83b0f",
-    "tenantId": "39a37f57-a227-4bfe-a044-93b6e6060b61",
-    "secret": "ZmE5ZDQ5ODctMmA1ZS00OGRiLWExZDMtZTA1MjkyZTc4MDB4",
-    "name": "ApplicationName",
-    "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6060b61"
-    }
-    ```
-    {: screen}
+      Example response:
+      ```
+      {
+      "clientId": "111c22c3-38ea-4de8-b5d4-338744d83b0f",
+      "tenantId": "39a37f57-a227-4bfe-a044-93b6e6060b61",
+      "secret": "ZmE5ZDQ5ODctMmA1ZS00OGRiLWExZDMtZTA1MjkyZTc4MDB4",
+      "name": "ApplicationName",
+      "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6060b61"
+      }
+      ```
+      {: screen}
 
 4. Optional: Decide how to format your redirect URI. The redirect can be formatted in two different ways.
 
-  * Manually in a new `WebAppStrategy({redirectUri: "...."})`
-  * As an environment variable named `redirectUri`
+   * Manually in a new `WebAppStrategy({redirectUri: "...."})`
+   * As an environment variable named `redirectUri`
 
-  If neither are provided, the {{site.data.keyword.appid_short_notm}} SDK tries to retrieve the `application_uri` of the app that is running on {{site.data.keyword.cloud_notm}} and append a default suffix `/ibm/cloud/appid/callback`.
+   If neither are provided, the {{site.data.keyword.appid_short_notm}} SDK tries to retrieve the `application_uri` of the app that is running on {{site.data.keyword.cloud_notm}} and append a default suffix `/ibm/cloud/appid/callback`.
 
 5. By using the information obtained in the previous steps, initialize the SDK.
 
-  ```javascript
-    passport.use(new WebAppStrategy({
+   ```javascript
+      passport.use(new WebAppStrategy({
       tenantId: "{tenant-id}",
       clientId: "{client-id}",
       secret: "{secret}",
       oauthServerUrl: "{oauth-server-url}",
       redirectUri: "{app-url}" + CALLBACK_URL
-    }));
-  ```
-  {: codeblock}
+      }));
+   ```
+   {: codeblock}
 
 6. Configure passport with serialization and deserialization. This configuration step is required for authenticated session persistence across HTTP requests. For more information, see the <a href="http://www.passportjs.org/docs/" target="_blank">passport docs <img src="../icons/launch-glyph.svg" alt="External link icon"></a>.
 
-  ```javascript
-  passport.serializeUser(function(user, cb) {
-    cb(null, user);
-    });
+   ```javascript
+   passport.serializeUser(function(user, cb) {
+      cb(null, user);
+      });
 
-  passport.deserializeUser(function(obj, cb) {
-    cb(null, obj);
-    });
-  ```
-  {: codeblock}
+   passport.deserializeUser(function(obj, cb) {
+      cb(null, obj);
+      });
+   ```
+   {: codeblock}
 
 5. Add the following code to your `server.js` file to issue the service redirects.
 
@@ -248,110 +248,110 @@ Check out the following video to learn about protecting Liberty for Java applica
 
 1. Add an OpenID Connect feature to your `server.xml`.
 
-  ```xml
-  <featureManager>
+   ```xml
+   <featureManager>
       <feature>ssl-1.0</feature>
       <feature>appSecurity-2.0</feature>
       <feature>openidConnectClient-1.0</feature>
-  </featureManager>
-  ```
-  {: codeblock}
+   </featureManager>
+   ```
+   {: codeblock}
 
 2. Obtain your credentials in one of two ways.
 
-  * By navigating to the **Applications** tab of the {{site.data.keyword.appid_short_notm}} dashboard. If you don't already have one, you can click **Add application** to create a new one.
+   * By navigating to the **Applications** tab of the {{site.data.keyword.appid_short_notm}} dashboard. If you don't already have one, you can click **Add application** to create a new one.
 
-  * By making a POST request to the [`/management/v4/{tenantId}/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Applications/registerApplication){: external}.
+   * By making a POST request to the [`/management/v4/{tenantId}/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Applications/registerApplication){: external}.
 
-    Request format:
-    ```
-    curl -X POST \  https://us-south.appid.cloud.ibm.com/management/v4/39a37f57-a227-4bfe-a044-93b6e6060b61/applications/ \
-    -H 'Content-Type: application/json' \
-    -H 'Authorization: Bearer IAM_TOKEN' \
-    -d '{"name": "ApplicationName"}'
-    ```
-    {: codeblock}
+      Request format:
+      ```
+      curl -X POST \  https://us-south.appid.cloud.ibm.com/management/v4/39a37f57-a227-4bfe-a044-93b6e6060b61/applications/ \
+      -H 'Content-Type: application/json' \
+      -H 'Authorization: Bearer IAM_TOKEN' \
+      -d '{"name": "ApplicationName"}'
+      ```
+      {: codeblock}
 
-    Example response:
-    ```
-    {
-    "clientId": "111c22c3-38ea-4de8-b5d4-338744d83b0f",
-    "tenantId": "39a37f57-a227-4bfe-a044-93b6e6060b61",
-    "secret": "ZmE5ZDQ5ODctMmA1ZS00OGRiLWExZDMtZTA1MjkyZTc4MDB4",
-    "name": "ApplicationName",
-    "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6060b61"
-    }
-    ```
-    {: screen}
+      Example response:
+      ```
+      {
+      "clientId": "111c22c3-38ea-4de8-b5d4-338744d83b0f",
+      "tenantId": "39a37f57-a227-4bfe-a044-93b6e6060b61",
+      "secret": "ZmE5ZDQ5ODctMmA1ZS00OGRiLWExZDMtZTA1MjkyZTc4MDB4",
+      "name": "ApplicationName",
+      "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6060b61"
+      }
+      ```
+      {: screen}
 
 3. Create an Open ID Connect Client feature and define the following placeholders. Use the service credentials to fill the placeholders.
 
-  ```xml
-  <openidConnectClient
-    clientId='{{site.data.keyword.appid_short_notm}} client_ID'
-    clientSecret='{{site.data.keyword.appid_short_notm}} Secret'
-    authorizationEndpointUrl='oauthServerUrl/authorization'
-    tokenEndpointUrl='oauthServerUrl/token'
-    jwkEndpointUrl='oauthServerUrl/publickeys'
-    issuerIdentifier='Changed according to the region'
-    tokenEndpointAuthMethod="basic"
-    signatureAlgorithm="RS256"
-    authFilterid="myAuthFilter"
-    trustAliasName="ibm.com"
-  />
-  ```
-  {: codeblock}
-  
-  |  Component | Description |
-  | ---------- | ----------- |
-  | `clientID`
-    `secret` 
-    `oauth-server-url`| Complete step two to obtain your service credentials. |
-  | `authorizationEndpointURL` | Add `/authorization` to the end of your `oauthServerURL`. |
-  | `tokenEndpointUrl` | >Add `/token` to the end of your `oauthServerURL`. |
-  | `jwkEndpointUrl` | Add `/publickeys` to the end of your `oauthServerURL`. |
-  | `issuerIdentifier` | The issuer identifier takes the following form: `&lt;region>&gt;.cloud.ibm.com`. Learn more about the [available regions](/docs/appid?topic=appid-regions-endpoints). |
-  | `tokenEndpointAuthMethod` | Specified as "basic". |
-  | `signatureAlgorithm` | Specified as "RS256". | 
-  | `authFilterid` | The list of resources to protect. |
-  | `trustAliasName` | The name of your certificate within your truststore. |
-  {: caption="Table. OIDC element variables for Liberty for Java apps" caption-side="top"}
+   ```xml
+   <openidConnectClient
+      clientId='{{site.data.keyword.appid_short_notm}} client_ID'
+      clientSecret='{{site.data.keyword.appid_short_notm}} Secret'
+      authorizationEndpointUrl='oauthServerUrl/authorization'
+      tokenEndpointUrl='oauthServerUrl/token'
+      jwkEndpointUrl='oauthServerUrl/publickeys'
+      issuerIdentifier='Changed according to the region'
+      tokenEndpointAuthMethod="basic"
+      signatureAlgorithm="RS256"
+      authFilterid="myAuthFilter"
+      trustAliasName="ibm.com"
+   />
+   ```
+   {: codeblock}
+
+   |  Component | Description |
+   | ---------- | ----------- |
+   | `clientID`
+      `secret` 
+      `oauth-server-url`| Complete step two to obtain your service credentials. |
+   | `authorizationEndpointURL` | Add `/authorization` to the end of your `oauthServerURL`. |
+   | `tokenEndpointUrl` | >Add `/token` to the end of your `oauthServerURL`. |
+   | `jwkEndpointUrl` | Add `/publickeys` to the end of your `oauthServerURL`. |
+   | `issuerIdentifier` | The issuer identifier takes the following form: `&lt;region>&gt;.cloud.ibm.com`. Learn more about the [available regions](/docs/appid?topic=appid-regions-endpoints). |
+   | `tokenEndpointAuthMethod` | Specified as "basic". |
+   | `signatureAlgorithm` | Specified as "RS256". | 
+   | `authFilterid` | The list of resources to protect. |
+   | `trustAliasName` | The name of your certificate within your truststore. |
+   {: caption="Table. OIDC element variables for Liberty for Java apps" caption-side="top"}
 
 ### Initializing the Liberty for Java SDK
 {: #web-liberty-initialize}
 
 1. In your `server.xml` file, define an authorization filter to specify protected resources. If a filter is not [defined](https://www.ibm.com/docs/en/was-liberty/core?topic=liberty-authentication-filters){: external}, the service protects all resources.
 
-  ```xml
-  <authFilter id="myAuthFilter">
+   ```xml
+   <authFilter id="myAuthFilter">
       <requestUrl id="myRequestUrl" urlPattern="/protected_resource" matchType="contains"/>
-  </authFilter>
-  ```
-  {: codeblock}
+   </authFilter>
+   ```
+   {: codeblock}
 
 2. Define your special subject type as `ALL_AUTHENTICATED_USERS`.
 
-  ```xml
-  <application type="war" id="ProtectedServlet" context-root="/appidSample" location="${server.config.dir}/apps/libertySample-1.0.0.war">
+   ```xml
+   <application type="war" id="ProtectedServlet" context-root="/appidSample" location="${server.config.dir}/apps/libertySample-1.0.0.war">
       <application-bnd>
-          <security-role name="myrole">
-              <special-subject type="ALL_AUTHENTICATED_USERS"/>
-          </security-role>
+            <security-role name="myrole">
+               <special-subject type="ALL_AUTHENTICATED_USERS"/>
+            </security-role>
       </application-bnd>
-  </application>
-  ```
-  {: codeblock}
+   </application>
+   ```
+   {: codeblock}
 
 3. Download the `libertySample-1.0.0.war` file from [GitHub](https://github.com/ibm-cloud-security/appid-sample-code-snippets/tree/master/liberty-for-java){: external} and place it in your server's apps folder. For example, if your server is named `defaultServer`, the war file would go here `target/liberty/wlp/usr/servers/defaultServer/apps/`.
 
 4. Configure SSL by adding the following to your `server.xml` file. You also need to create a truststore.
 
-  ```xml
-    <keyStore id="defaultKeyStore" password="myPassword"/>
-    <keyStore id="appidtruststore" password="Liberty" location="${server.config.dir}/mytruststore.jks"/>
-    <ssl id="defaultSSLConfig" keyStoreRef="defaultKeyStore" trustStoreRef="appidtruststore"/>
-  ```
-  {: codeblock}
+   ```xml
+      <keyStore id="defaultKeyStore" password="myPassword"/>
+      <keyStore id="appidtruststore" password="Liberty" location="${server.config.dir}/mytruststore.jks"/>
+      <ssl id="defaultSSLConfig" keyStoreRef="defaultKeyStore" trustStoreRef="appidtruststore"/>
+   ```
+   {: codeblock}
 
 By default SSL configuration requires the truststore be configured for OpenID Connect. Learn more about [configuring an OpenID Connect Client in Liberty](https://www.ibm.com/docs/en/was-liberty/base?topic=connect-configuring-openid-client-in-liberty){: external}.
 {: tip}
@@ -382,70 +382,70 @@ You must have the following prerequisites:
 
 1. Add the following between the `<project> </project>` tags in your Maven `pom.xml` file.
 
-  ```xml
-  <parent>
+   ```xml
+   <parent>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-parent</artifactId>
       <version>2.0.2.RELEASE</version>
       <relativePath/>
-  </parent>
-  ```
-  {: codeblock}
+   </parent>
+   ```
+   {: codeblock}
 
 2. Add the following dependencies to your Maven `pom.xml` file.
 
-  ```xml
-  <dependencies>
+   ```xml
+   <dependencies>
       <dependency>
-          <groupId>org.springframework.boot</groupId>
-          <artifactId>spring-boot-starter-web</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
       </dependency>
       <dependency>
-          <groupId>org.springframework.boot</groupId>
-          <artifactId>spring-boot-starter-security</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
       </dependency>
       <dependency>
-          <groupId>org.springframework.security.oauth.boot</groupId>
-          <artifactId>spring-security-oauth2-autoconfigure</artifactId>
-          <version>2.0.0.RELEASE</version>
+            <groupId>org.springframework.security.oauth.boot</groupId>
+            <artifactId>spring-security-oauth2-autoconfigure</artifactId>
+            <version>2.0.0.RELEASE</version>
       </dependency>
-  </dependencies>
-  ```
-  {: codeblock}
+   </dependencies>
+   ```
+   {: codeblock}
 
 3. In the same file, include the Maven plug-in.
 
-  ```xml
-  <plugin>
+   ```xml
+   <plugin>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-maven-plugin</artifactId>
-  </plugin>
-  ```
-  {: codeblock}
+   </plugin>
+   ```
+   {: codeblock}
 
 ### Initializing OAuth2
 {: #web-oauth-initialize}
 
 1. Add the following annotations to your Java file.
 
-  ```java
-  @SpringBootApplication
-  @EnableOAuth2Sso
-  ```
-  {: codeblock}
+   ```java
+   @SpringBootApplication
+   @EnableOAuth2Sso
+   ```
+   {: codeblock}
 
 2. Extend the class with `WebSecurityConfigurerAdapter`.
 3. Override any security configuration and register your protected endpoint.
 
-  ```java
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-                .antMatchers("/protected_Resource").authenticated()
-                .and().logout().logoutSuccessUrl("/").permitAll();
-    }
-  ```
-  {: codeblock}
+   ```java
+      @Override
+      protected void configure(HttpSecurity http) throws Exception {
+         http.authorizeRequests()
+                  .antMatchers("/protected_Resource").authenticated()
+                  .and().logout().logoutSuccessUrl("/").permitAll();
+      }
+   ```
+   {: codeblock}
 
 
 ### Adding credentials
@@ -453,45 +453,45 @@ You must have the following prerequisites:
 
 1. Obtain your credentials in one of the following ways.
 
-  * By navigating to the **Applications** tab of the {{site.data.keyword.appid_short_notm}} dashboard. If you don't already have one, you can click **Add application** to create a new one.
+   * By navigating to the **Applications** tab of the {{site.data.keyword.appid_short_notm}} dashboard. If you don't already have one, you can click **Add application** to create a new one.
 
-  * By making a POST request to the [`/management/v4/{tenantId}/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Applications/registerApplication).
+   * By making a POST request to the [`/management/v4/{tenantId}/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Applications/registerApplication).
 
-    Request format:
-    ```
-    curl -X POST \  https://us-south.appid.cloud.ibm.com/management/v4/39a37f57-a227-4bfe-a044-93b6e6060b61/applications/ \
-    -H 'Content-Type: application/json' \
-    -H 'Authorization: Bearer IAM_TOKEN' \
-    -d '{"name": "ApplicationName"}'
-    ```
-    {: codeblock}
+      Request format:
+      ```
+      curl -X POST \  https://us-south.appid.cloud.ibm.com/management/v4/39a37f57-a227-4bfe-a044-93b6e6060b61/applications/ \
+      -H 'Content-Type: application/json' \
+      -H 'Authorization: Bearer IAM_TOKEN' \
+      -d '{"name": "ApplicationName"}'
+      ```
+      {: codeblock}
 
-    Example response:
-    ```
-    {
-    "clientId": "111c22c3-38ea-4de8-b5d4-338744d83b0f",
-    "tenantId": "39a37f57-a227-4bfe-a044-93b6e6060b61",
-    "secret": "ZmE5ZDQ5ODctMmA1ZS00OGRiLWExZDMtZTA1MjkyZTc4MDB4",
-    "name": "ApplicationName",
-    "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6060b61"
-    }
-    ```
-    {: screen}
+      Example response:
+      ```
+      {
+      "clientId": "111c22c3-38ea-4de8-b5d4-338744d83b0f",
+      "tenantId": "39a37f57-a227-4bfe-a044-93b6e6060b61",
+      "secret": "ZmE5ZDQ5ODctMmA1ZS00OGRiLWExZDMtZTA1MjkyZTc4MDB4",
+      "name": "ApplicationName",
+      "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6060b61"
+      }
+      ```
+      {: screen}
 
 2. Add an `application.yml` configuration file to the `/springbootsample/src/main/resources/` directory. You can complete your configuration with the information from your service credentials.
 
-  ```
-  security:
-  oauth2:
-    client:
+   ```
+   security:
+   oauth2:
+      client:
       clientId: {client ID}
       clientSecret: {client Secret}
       accessTokenUri: {oauthServerUrl}/token
       userAuthorizationUri: {oauthServerUrl}/authorization
-    resource:
+      resource:
       userInfoUri: {oauthServerUrl}/userinfo
-  ```
-  {: codeblock}
+   ```
+   {: codeblock}
 
 For a step-by-step example, check out <a href="https://www.ibm.com/cloud/blog/creating-spring-boot-applications-app-id" target="_blank">this blog</a>!
 
