@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-09-23"
+lastupdated: "2021-09-29"
 
 keywords: profile, custom attributes, predefined attributes, attributes, app users, app interaction, personalized experience, access user info, identity provider information, access token, authentication, user sign in, android, java, node, swift, ios, user, preferences
 
@@ -109,123 +109,123 @@ To see the information about your users that is provided by your configured iden
 
 2. Make a request to the [`/userinfo` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization_Server_V4/userInfo){: external}. If new tokens are not explicitly passed to the SDK, {{site.data.keyword.appid_short_notm}} uses the last received tokens to retrieve and validate the response. Passing an identity token is optional, but passed is used to validate the response.
 
-  
-  ```sh
-  GET https://{region}.appid.cloud.ibm.com/oauth/v4/{tenant_ID}/userinfo
-  Authorization: 'Bearer {access_token}'
-  ```
-  {: codeblock}
-  {: curl}
+   
+   ```sh
+   GET https://{region}.appid.cloud.ibm.com/oauth/v4/{tenant_ID}/userinfo
+   Authorization: 'Bearer {access_token}'
+   ```
+   {: codeblock}
+   {: curl}
 
-  
-  ```swift
-  // iOS Swift example
+   
+   ```swift
+   // iOS Swift example
 
-  AppID.sharedInstance.userProfileManager.getUserInfo(accessToken: String, identityToken: String?) { (error: Error?, userInfo: [String: Any]?) in guard 
-    let userInfo = userInfo, err == nil {
-        return // an error has occurred
-    }
-    // retrieved user info successfully
-  }
-  ```
-  {: codeblock}
-  {: swift}
-
-  
-  ```java
-  AppID appId = AppID.getInstance();
-
-  appId.getUserProfileManager().getUserInfo(accessToken, identityToken, new UserProfileResponseListener() {
-    @Override
-    public void onSuccess(JSONObject userInfo) {
-      // retrieved attribute "name" successfully
-    }
-
-    @Override
-    public void onFailure(UserInfoException e) {
-      // exception occurred
-    }
-  });
-  ```
-  {: codeblock}
-  {: java}
-
-  
-  ```javascript
-  let userProfileManager = UserProfileManager(options: options)
-
-  let accessToken = req.session[WebAppStrategy.AUTH_CONTEXT].accessToken;
-  let identityToken = req.session[WebAppStrategy.AUTH_CONTEXT].identityToken;
-
-  // Retrieve user info and validate against the given identity token
-  userProfileManager.getUserInfo(accessToken, identityToken).then(function (profile) {
-    // retrieved user info successfully
-  });
-
-  // Retrieve user info without validation
-  userProfileManager.getUserInfo(accessToken).then(function (profile) {
-  // retrieved user info successfully
-  });
-  ```
-  {:codeblock}
-  {: javascript}
-
-  
-  ```swift
-  // Server-side Swift example
-
-  let userProfileManager = UserProfileManager(options: options)
-  let accessToken = "{access_token}"
-  let identityToken = "{identity_token}"
-
-  // If identity token is provided (recommended approach), response is validated against the identity token
-
-  userProfileManager.getUserInfo(accessToken: accessToken, identityToken: identityToken) { (err, userInfo) in guard 
-    let userInfo = userInfo, err == nil {
-      return
-    }
-  }
-
-  // Retrieve the UserInfo without any validation
-
-  userProfileManager.getUserInfo(accessToken: accessToken) { (err, userInfo) in guard 
-    let userInfo = userInfo, err == nil {
-      return
-    }
-  }
-  ```
-  {: codeblock}
-  {: swift}
-
-  Example output:
-  ```
-  "sub": "cad9f1d4-e23b-3683-b81b-d1c4c4fd7d4c",
-  "name": "John Doe",
-  "email": "john.doe@gmail.com",
-  "picture": "https://lh3.googleusercontent.com/-XdUIqdbhg/AAAAAAAAI/AAAAAAA/42rbcbv5M/photo.jpg",
-  "gender": "male",
-  "locale": "en",
-  "identities": [
-      {
-          "provider": "google",
-          "id": "104560903311317789798",
-          "profile": {
-              "id": "104560903311317789798",
-              "email": "john.doe@gmail.com",
-              "verified_email": true,
-              "name": "John Doe",
-              "given_name": "John",
-              "family_name": "Doe",
-              "link": "https://plus.google.com/104560903311317789798",
-              "picture": "https://lh3.googleusercontent.com/-XdUIqdbhg/AAAAAAAAI/AAAAAAA/42rbcbv5M/photo.jpg",
-              "gender": "male",
-              "locale": "en",
-              "idpType": "google"
-          }
+   AppID.sharedInstance.userProfileManager.getUserInfo(accessToken: String, identityToken: String?) { (error: Error?, userInfo: [String: Any]?) in guard 
+      let userInfo = userInfo, err == nil {
+         return // an error has occurred
       }
-  ]
-  ```
-  {: screen}
+      // retrieved user info successfully
+   }
+   ```
+   {: codeblock}
+   {: swift}
+
+   
+   ```java
+   AppID appId = AppID.getInstance();
+
+   appId.getUserProfileManager().getUserInfo(accessToken, identityToken, new UserProfileResponseListener() {
+      @Override
+      public void onSuccess(JSONObject userInfo) {
+      // retrieved attribute "name" successfully
+      }
+
+      @Override
+      public void onFailure(UserInfoException e) {
+      // exception occurred
+      }
+   });
+   ```
+   {: codeblock}
+   {: java}
+
+   
+   ```javascript
+   let userProfileManager = UserProfileManager(options: options)
+
+   let accessToken = req.session[WebAppStrategy.AUTH_CONTEXT].accessToken;
+   let identityToken = req.session[WebAppStrategy.AUTH_CONTEXT].identityToken;
+
+   // Retrieve user info and validate against the given identity token
+   userProfileManager.getUserInfo(accessToken, identityToken).then(function (profile) {
+      // retrieved user info successfully
+   });
+
+   // Retrieve user info without validation
+   userProfileManager.getUserInfo(accessToken).then(function (profile) {
+   // retrieved user info successfully
+   });
+   ```
+   {:codeblock}
+   {: javascript}
+
+   
+   ```swift
+   // Server-side Swift example
+
+   let userProfileManager = UserProfileManager(options: options)
+   let accessToken = "{access_token}"
+   let identityToken = "{identity_token}"
+
+   // If identity token is provided (recommended approach), response is validated against the identity token
+
+   userProfileManager.getUserInfo(accessToken: accessToken, identityToken: identityToken) { (err, userInfo) in guard 
+      let userInfo = userInfo, err == nil {
+      return
+      }
+   }
+
+   // Retrieve the UserInfo without any validation
+
+   userProfileManager.getUserInfo(accessToken: accessToken) { (err, userInfo) in guard 
+      let userInfo = userInfo, err == nil {
+      return
+      }
+   }
+   ```
+   {: codeblock}
+   {: swift}
+
+   Example output:
+   ```
+   "sub": "cad9f1d4-e23b-3683-b81b-d1c4c4fd7d4c",
+   "name": "John Doe",
+   "email": "john.doe@gmail.com",
+   "picture": "https://lh3.googleusercontent.com/-XdUIqdbhg/AAAAAAAAI/AAAAAAA/42rbcbv5M/photo.jpg",
+   "gender": "male",
+   "locale": "en",
+   "identities": [
+      {
+            "provider": "google",
+            "id": "104560903311317789798",
+            "profile": {
+               "id": "104560903311317789798",
+               "email": "john.doe@gmail.com",
+               "verified_email": true,
+               "name": "John Doe",
+               "given_name": "John",
+               "family_name": "Doe",
+               "link": "https://plus.google.com/104560903311317789798",
+               "picture": "https://lh3.googleusercontent.com/-XdUIqdbhg/AAAAAAAAI/AAAAAAA/42rbcbv5M/photo.jpg",
+               "gender": "male",
+               "locale": "en",
+               "idpType": "google"
+            }
+      }
+   ]
+   ```
+   {: screen}
 
 3. Verify that the `sub` claim exactly matches the `sub` claim in the identity token. If these do not match, do not use the returned information. To learn more about token substitution, see the [OIDC specification](https://openid.net/specs/openid-connect-core-1_0.html#TokenSubstitution){: external}.
 
@@ -339,93 +339,93 @@ By default, custom attributes are modifiable and can be updated by using an {{si
 
 3. Obtain an IAM token.
 
-  1. In the {{site.data.keyword.cloud_notm}} dashboard, click **Manage > Access (IAM)**.
-  2. Select **{{site.data.keyword.cloud_notm}} API keys**.
-  3. Click **Create an {{site.data.keyword.cloud_notm}} API key**.
-  4. Give your key a name and describe it. Click Create. A screen displays with your key.
-  5. Click **Copy** or **Download** your key. When you close the screen, you can no longer access the key.
-  6. Make the following cURL request with the API key that you created.
+   1. In the {{site.data.keyword.cloud_notm}} dashboard, click **Manage > Access (IAM)**.
+   2. Select **{{site.data.keyword.cloud_notm}} API keys**.
+   3. Click **Create an {{site.data.keyword.cloud_notm}} API key**.
+   4. Give your key a name and describe it. Click Create. A screen displays with your key.
+   5. Click **Copy** or **Download** your key. When you close the screen, you can no longer access the key.
+   6. Make the following cURL request with the API key that you created.
 
-    ```sh
-    curl -k -X POST \
-    --header "Content-Type: application/x-www-form-urlencoded" \
-    --header "Accept: application/json" \
-    --data-urlencode "grant_type=urn:ibm:params:oauth:grant-type:apikey" \
-    --data-urlencode "apikey={apikey}" \
-    "https://iam.cloud.ibm.com/identity/token"
-    ```
-    {: codeblock}
+      ```sh
+      curl -k -X POST \
+      --header "Content-Type: application/x-www-form-urlencoded" \
+      --header "Accept: application/json" \
+      --data-urlencode "grant_type=urn:ibm:params:oauth:grant-type:apikey" \
+      --data-urlencode "apikey={apikey}" \
+      "https://iam.cloud.ibm.com/identity/token"
+      ```
+      {: codeblock}
 
 4. By using the `attributes` endpoint, make a PUT request.
 
-  
-  ```sh
-  curl -X PUT "https://{region}.appid.cloud.ibm.com/api/v1/attributes/{attribute_name}" \
-  -H "Authorization: Bearer {token}" \
-  -d "{attribute_value}" 
-  ```
-  {: codeblock}
-  {: curl}
+   
+   ```sh
+   curl -X PUT "https://{region}.appid.cloud.ibm.com/api/v1/attributes/{attribute_name}" \
+   -H "Authorization: Bearer {token}" \
+   -d "{attribute_value}" 
+   ```
+   {: codeblock}
+   {: curl}
 
-  
-  ```swift
-  // iOS Swift example
+   
+   ```swift
+   // iOS Swift example
 
-  AppID.sharedInstance.userProfileManager?.setAttribute("key", "value") { (error, result) in
-    guard let result = result, error == nil else {
-        return // an error has occurred
-    }
-  // attributes recieved as a Dictionary
-  })
-  ```
-  {: codeblock}
-  {: swift}
+   AppID.sharedInstance.userProfileManager?.setAttribute("key", "value") { (error, result) in
+      guard let result = result, error == nil else {
+         return // an error has occurred
+      }
+   // attributes recieved as a Dictionary
+   })
+   ```
+   {: codeblock}
+   {: swift}
 
-  
-  ```java
-  appId.getUserProfileManager().setAttribute(name, value, useThisToken, new UserProfileResponseListener() {
-    @Override
-    public void onSuccess(JSONObject attributes) {
+   
+   ```java
+   appId.getUserProfileManager().setAttribute(name, value, useThisToken, new UserProfileResponseListener() {
+      @Override
+      public void onSuccess(JSONObject attributes) {
       // attributes received in JSON format on successful response
-    }
+      }
 
-    @Override
-    public void onFailure(UserAttributesException e) {
+      @Override
+      public void onFailure(UserAttributesException e) {
       // exception occurred
-    }
-  });
-  ```
-  {: codeblock}
-  {: java}
+      }
+   });
+   ```
+   {: codeblock}
+   {: java}
 
-  
-  ```javascript
-  const userProfileManager = require("ibmcloud-appid").UserProfileManager;
-  userProfileManager.init();
+   
+   ```javascript
+   const userProfileManager = require("ibmcloud-appid").UserProfileManager;
+   userProfileManager.init();
 
-  var accessToken = req.session[WebAppStrategy.AUTH_CONTEXT].accessToken;
+   var accessToken = req.session[WebAppStrategy.AUTH_CONTEXT].accessToken;
 
-  userProfileManager.setAttribute(accessToken, name, value).then(function (attributes) {
-    // attributes returned as dictionary
-  });
-  ```
-  {: codeblock}
-  {: javascript}
+   userProfileManager.setAttribute(accessToken, name, value).then(function (attributes) {
+      // attributes returned as dictionary
+   });
+   ```
+   {: codeblock}
+   {: javascript}
 
-  
-  ```swift
-  // Server-side Swift
+   
+   ```swift
+   // Server-side Swift
 
-  let userProfileManager = UserProfileManager(options: options)
-  let accesstoken = "access token"
+   let userProfileManager = UserProfileManager(options: options)
+   let accesstoken = "access token"
 
-  userProfileManager.setAttribute(accessToken: accessToken, attributeName: "name", attributeValue : "abc") { (error, response) in
-    guard let response = response, error == error else {
+   userProfileManager.setAttribute(accessToken: accessToken, attributeName: "name", attributeValue : "abc") { (error, response) in
+      guard let response = response, error == error else {
       return // an error has occurred
-    }
-    // attributes received as a Dictionary
-  }
-  ```
-  {: codeblock}
-  {: swift}
+      }
+      // attributes received as a Dictionary
+   }
+   ```
+   {: codeblock}
+   {: swift}
 

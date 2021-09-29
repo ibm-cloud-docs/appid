@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-09-23"
+lastupdated: "2021-09-29"
 
 keywords: user information, tokens, custom tokens, secure resources, authorization, identity, authentication, claims, oauth, claims mapping, attributes, app security, access, runtime
 
@@ -138,92 +138,92 @@ If you want to configure the lifespan of your token, you can quickly make the ch
 
 1. In terminal, run the following command to obtain an API key.
 
-  ```
-  ibmcloud iam api-key-create NAME [-d DESCRIPTION] [-f, --file FILE]
-  ```
-  {: codeblock}
+   ```
+   ibmcloud iam api-key-create NAME [-d DESCRIPTION] [-f, --file FILE]
+   ```
+   {: codeblock}
 
-  | Option | Description |
-  | ------ | ----------- |
-  | `NAME` | The name that you want to give your key. For example, `myKey`. | 
-  | `DESCRIPTION` | A description of the key or its use. For example, `"This is my App ID API key"`. |
-  | `FILE` | The location where you want to store your key. For example, `key_file`. | 
-  {: caption="Table 2. Understanding the creating an API key command options" caption-side="top"}
+   | Option | Description |
+   | ------ | ----------- |
+   | `NAME` | The name that you want to give your key. For example, `myKey`. | 
+   | `DESCRIPTION` | A description of the key or its use. For example, `"This is my App ID API key"`. |
+   | `FILE` | The location where you want to store your key. For example, `key_file`. | 
+   {: caption="Table 2. Understanding the creating an API key command options" caption-side="top"}
 
 2. Obtain an IAM token by using the API key that you got in the previous step.
 
-  ```
-  curl -k -X POST "https://iam.cloud.ibm.com/identity/token" \
-  --header "Content-Type: application/x-www-form-urlencoded" \
-  --header "Accept: application/json" \
-  --data-urlencode "grant_type=urn:ibm:params:oauth:grant-type:apikey" \
-  --data-urlencode "apikey={api_key}"
-  ```
-  {: codeblock}
+   ```
+   curl -k -X POST "https://iam.cloud.ibm.com/identity/token" \
+   --header "Content-Type: application/x-www-form-urlencoded" \
+   --header "Accept: application/json" \
+   --data-urlencode "grant_type=urn:ibm:params:oauth:grant-type:apikey" \
+   --data-urlencode "apikey={api_key}"
+   ```
+   {: codeblock}
 
 3. Get the tenant ID for your instance of the service. You can find the value in either your service or application credentials.
 
 4. Make a PUT request to the `/config/tokens` endpoint with your token configuration.
 
-  ```sh
-  curl -X PUT "https://$REGION.appid.cloud.ibm.com/management/v4/$TENANT_ID/config/tokens" \
-  -H 'Content-Type: application/json' \
-  -H "Authorization: Bearer $IAM_TOKEN" \
-  -d '{
+   ```sh
+   curl -X PUT "https://$REGION.appid.cloud.ibm.com/management/v4/$TENANT_ID/config/tokens" \
+   -H 'Content-Type: application/json' \
+   -H "Authorization: Bearer $IAM_TOKEN" \
+   -d '{
       "access": {
-          "expires_in": 3600
+            "expires_in": 3600
       },
       "refresh": {
-          "enabled": true,
-          "expires_in": 2592001
+            "enabled": true,
+            "expires_in": 2592001
       },
       "anonymousAccess": {
-          "enabled": false
+            "enabled": false
       },
       "accessTokenClaims": [
-          {
+            {
             "source": "roles"
-          },
-          {
+            },
+            {
             "source": "saml",
             "sourceClaim": "name_id",
             "destinationClaim": "id"
-          }
+            }
       ],
       "idTokenClaims": [
-          {
+            {
             "source": "saml",
             "sourceClaim": "attributes.uid"
-          }
+            }
       ]
-  }'
-  ```
-  {: codeblock}
+   }'
+   ```
+   {: codeblock}
 
-  | Variable | Description |
-  | -------- | ----------- |
-  | `access: expires_in` | The length of time for which access tokens are valid. The smaller the value, the more protection that you have in cases of token theft. The value is provided in seconds and can be any whole number in range `300` and `86400`. The default value is `3600`. |
-  | `refresh: expires_in` | The length of time for which refresh tokens are valid. The smaller the value, the more protection that you have in cases of token theft. The value is provided in seconds and can be any whole number in range `86400` and `7776000`. The default value is `2592000` (30 days). |
-  | `anonymousAccess` | The length of time for which an anonymous token is valid. Anonymous tokens are assigned to users the moment they begin interacting with your app. When a user signs in, the information in the anonymous token is then transferred to the token associated with the user. The value is provided in seconds and can be any whole number in range `86400` and `7776000`. The default value is `2592000` (30 days). |
-  | `accessTokenClaims` | An array that contains the objects that are created when claims that are related to access tokens are mapped. You might want to include information about roles or specific attributes that are returned by a user's identity provider of choice. Note: If you're already using a custom claim with the title "roles" from your identity provider, be sure to use a destination claim in order to see both values. |
-  | `idTokenClaims` | An array that contains the information that is present in tokens when you map claims to identity tokens. Depending on your configuration, you might also choose to have "roles" be present in your identity token. |
-  {: caption="Table 3. Understanding the token configuration" caption-side="top"}
+   | Variable | Description |
+   | -------- | ----------- |
+   | `access: expires_in` | The length of time for which access tokens are valid. The smaller the value, the more protection that you have in cases of token theft. The value is provided in seconds and can be any whole number in range `300` and `86400`. The default value is `3600`. |
+   | `refresh: expires_in` | The length of time for which refresh tokens are valid. The smaller the value, the more protection that you have in cases of token theft. The value is provided in seconds and can be any whole number in range `86400` and `7776000`. The default value is `2592000` (30 days). |
+   | `anonymousAccess` | The length of time for which an anonymous token is valid. Anonymous tokens are assigned to users the moment they begin interacting with your app. When a user signs in, the information in the anonymous token is then transferred to the token associated with the user. The value is provided in seconds and can be any whole number in range `86400` and `7776000`. The default value is `2592000` (30 days). |
+   | `accessTokenClaims` | An array that contains the objects that are created when claims that are related to access tokens are mapped. You might want to include information about roles or specific attributes that are returned by a user's identity provider of choice. Note: If you're already using a custom claim with the title "roles" from your identity provider, be sure to use a destination claim in order to see both values. |
+   | `idTokenClaims` | An array that contains the information that is present in tokens when you map claims to identity tokens. Depending on your configuration, you might also choose to have "roles" be present in your identity token. |
+   {: caption="Table 3. Understanding the token configuration" caption-side="top"}
 
-  You must set the token lifetime in each request that you make. If a value is not set, then the default is used. Each customization request overwrites what is previously configured. Note that the lifetime configuration specifications are different in the API than they are in the service dashboard.
-  {: note}
+   You must set the token lifetime in each request that you make. If a value is not set, then the default is used. Each customization request overwrites what is previously configured. Note that the lifetime configuration specifications are different in the API than they are in the service dashboard.
+   {: note}
 
 5. After the token is returned and you [decode](/docs/appid?topic=appid-token-validation) it, you see a result similar to the following example:
 
-  ```
-  {
-    "sub" : "1234567890",
-    "name" : "John Doe",
-    "exp" : 1564566,
-    "roles" : ["admin", "manager"],
-    "id": "name_id_from_saml",
-    "attributes.uid": "uid_from_saml"
-    ...
-  }
-  ```
-  {: screen}
+   ```
+   {
+      "sub" : "1234567890",
+      "name" : "John Doe",
+      "exp" : 1564566,
+      "roles" : ["admin", "manager"],
+      "id": "name_id_from_saml",
+      "attributes.uid": "uid_from_saml"
+      ...
+   }
+   ```
+   {: screen}
 

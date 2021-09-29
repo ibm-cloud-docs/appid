@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2017, 2021
-lastupdated: "2021-09-27"
+lastupdated: "2021-09-29"
 
 keywords: manage users, registry, cloud directory, add user, delete user, tokens, attributes, migrating users, identity provider, app security
 
@@ -69,17 +69,17 @@ You can use the {{site.data.keyword.appid_short_notm}} dashboard to view details
 
 3. In the overflow menu in the user's row, click **View user details**. A page opens that contains the user's information. Check out the following table to see what information you can see.
 
-| Detail | Description | 
-|-----|----| 
-|User identifier | The user identifier is dependant upon the type of user sign-up that you configured. For example, if you have an email and password flow, the identifier is the user's email. If you use the username and password flow, the identifier is the username that is given at sign-up. | 
-| Email | The primary email address that is attached to the user. |
-| First and surname | Your user's first and surname as they provided during the sign-up process. |
-| Last Login | The time stamp of the last time that the user logged in to your application. Note: If you added your user through the dashboard, the login is blank until the user themselves signs in to your app. When sign-in occurs, they also become an {{site.data.keyword.appid_short_notm}} user. | 
-| ID | The ID that is assigned to the user by {{site.data.keyword.appid_short_notm}}. In the UI, it isn't shown but you can copy the value and paste it in a text editor to see the value. |
-| Predefined attributes | Predefined attributes are things that are known about a user based on SCIM. |
-| Custom attributes | Custom attributes are additional information that is added to their profile or that is learned about the user's as they interact with your application. |
-| Summary | All of the attributes are compiled to form one profile that gives you a complete overview of your Cloud Directory user. For more information, see [user profiles](/docs/appid?topic=appid-profiles). |
-{: caption="Table 1. The details that you can see about your users by looking in the {{site.data.keyword.appid_short_notm}} dashboard" caption-side="top"}
+   | Detail | Description | 
+   |-----|----| 
+   |User identifier | The user identifier is dependant upon the type of user sign-up that you configured. For example, if you have an email and password flow, the identifier is the user's email. If you use the username and password flow, the identifier is the username that is given at sign-up. | 
+   | Email | The primary email address that is attached to the user. |
+   | First and surname | Your user's first and surname as they provided during the sign-up process. |
+   | Last Login | The time stamp of the last time that the user logged in to your application. Note: If you added your user through the dashboard, the login is blank until the user themselves signs in to your app. When sign-in occurs, they also become an {{site.data.keyword.appid_short_notm}} user. | 
+   | ID | The ID that is assigned to the user by {{site.data.keyword.appid_short_notm}}. In the UI, it isn't shown but you can copy the value and paste it in a text editor to see the value. |
+   | Predefined attributes | Predefined attributes are things that are known about a user based on SCIM. |
+   | Custom attributes | Custom attributes are additional information that is added to their profile or that is learned about the user's as they interact with your application. |
+   | Summary | All of the attributes are compiled to form one profile that gives you a complete overview of your Cloud Directory user. For more information, see [user profiles](/docs/appid?topic=appid-profiles). |
+   {: caption="Table 1. The details that you can see about your users by looking in the {{site.data.keyword.appid_short_notm}} dashboard" caption-side="top"}
 
 
 ### With the API
@@ -91,77 +91,77 @@ You can use the {{site.data.keyword.appid_short_notm}} API to view details about
 
 2. Search your {{site.data.keyword.appid_short_notm}} users with an identifying query, such as an email address, to find the user ID.
 
-  ```sh
-  curl -X GET "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/Users?query={identifying-search-query}" \
+   ```sh
+   curl -X GET "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/Users?query={identifying-search-query}" \
    -H "accept: application/json" \
    -H "authorization: Bearer {token}"
-  ```
-  {: codeblock}
+   ```
+   {: codeblock}
 
-  Example:
+   Example:
 
-  ```sh
-  curl -X GET https://us-south.appid.cloud.ibm.com/management/v4/e19a2778-3262-4986-8875-8khjafsdkhjsdafkjh/cloud_directory/Users?query=user@domain.com -H "accept: application/json" -H "authorization: Bearer eyJraWQiOiIyMDE3MTEyOSIsImFsZ...."
-  ```
-  {: screen}
+   ```sh
+   curl -X GET https://us-south.appid.cloud.ibm.com/management/v4/e19a2778-3262-4986-8875-8khjafsdkhjsdafkjh/cloud_directory/Users?query=user@domain.com -H "accept: application/json" -H "authorization: Bearer eyJraWQiOiIyMDE3MTEyOSIsImFsZ...."
+   ```
+   {: screen}
 
 3. By using the ID that you obtained in the previous step, make a GET request to the `cloud_directory/users` endpoint to see their full user profile.
 
-  ```sh
-  curl -X GET "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/Users/{user-ID}" \
-  -H "accept: application/json" \
-  -H "authorization: Bearer {token}"
-  ```
-  {: codeblock}
+   ```sh
+   curl -X GET "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/Users/{user-ID}" \
+   -H "accept: application/json" \
+   -H "authorization: Bearer {token}"
+   ```
+   {: codeblock}
 
-  Example response:
+   Example response:
 
-  ```json
-  {
-    "sub": "c155c0ff-337a-46d3-a22a-a8f2cca08995",
-    "name": "Test User",
-    "email": "testuser@test.com",
-    "identities": [
+   ```json
+   {
+      "sub": "c155c0ff-337a-46d3-a22a-a8f2cca08995",
+      "name": "Test User",
+      "email": "testuser@test.com",
+      "identities": [
       {
-        "provider": "cloud_directory",
-        "id": "f1772fcc-ff70-4d88-81a0-07dd7a3d988f",
-        "idpUserInfo": {
-          "displayName": "Test User",
-          "active": true,
-          "mfaContext": {},
-          "emails": [
+         "provider": "cloud_directory",
+         "id": "f1772fcc-ff70-4d88-81a0-07dd7a3d988f",
+         "idpUserInfo": {
+            "displayName": "Test User",
+            "active": true,
+            "mfaContext": {},
+            "emails": [
             {
-              "value": "testuser@test.com",
-              "primary": true
+               "value": "testuser@test.com",
+               "primary": true
             }
-          ],
-          "meta": {
+            ],
+            "meta": {
             "lastLogin": "2019-05-20T16:33:20.699Z",
             "created": "2019-05-20T16:25:13.019Z",
             "location": "/v1/6b8ab644-1d4a-4b3e-bcd9-777ba8430a51/Users/f1772fcc-ff70-4d88-81a0-07dd7a3d988f",
             "lastModified": "2019-05-20T16:33:20.707Z",
             "resourceType": "User"
-          },
-          "schemas": [
+            },
+            "schemas": [
             "urn:ietf:params:scim:schemas:core:2.0:User"
-          ],
-          "name": {
+            ],
+            "name": {
             "givenName": "Test",
             "familyName": "User",
             "formatted": "Test User"
             },
-          "id": "f1772fcc-ff70-4d88-81a0-07dd7a3d988f",
-          "status": "CONFIRMED",
-          "idpType": "cloud_directory"
-        }
+            "id": "f1772fcc-ff70-4d88-81a0-07dd7a3d988f",
+            "status": "CONFIRMED",
+            "idpType": "cloud_directory"
+         }
       }
-    ]
-  }
-  ```
-  {: screen}
+      ]
+   }
+   ```
+   {: screen}
 
-  To see the full user data set that {{site.data.keyword.appid_short_notm}} supports, check out [the SCIM core schema](https://datatracker.ietf.org/doc/html/rfc7643#section-8.2).
-  {: tip}
+   To see the full user data set that {{site.data.keyword.appid_short_notm}} supports, check out [the SCIM core schema](https://datatracker.ietf.org/doc/html/rfc7643#section-8.2).
+   {: tip}
 
 
 
@@ -201,22 +201,22 @@ If you disable self-service sign-up or add a user on their behalf, the user does
 
 2. Obtain an {{site.data.keyword.cloud_notm}} IAM token.
 
-  ```sh
-  curl -X GET "https://iam.cloud.ibm.com/oidc/token" \
-  -H "accept: application/x-www-form-urlencoded"
-  ```
-  {: codeblock}
+   ```sh
+   curl -X GET "https://iam.cloud.ibm.com/oidc/token" \
+   -H "accept: application/x-www-form-urlencoded"
+   ```
+   {: codeblock}
 
 3. Run the following command to create a new user and a profile at the same time.
 
-  ```sh
-  curl -X POST "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/sign_up?shouldCreateProfile=true&language=en" \
-  -H "accept: application/json" \
-  -H "Content-Type: application/json" \
-  -H "authorization: Bearer {token}" \
-  -d "{ \"active\": true, \"emails\": [ { \"value\": \"{user@domain.com}\", \"primary\": true } ], \"userName\": \"{myUserName}\", \"password\": \"{userPassword}\"}"
-  ```
-  {: codeblock}
+   ```sh
+   curl -X POST "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/sign_up?shouldCreateProfile=true&language=en" \
+   -H "accept: application/json" \
+   -H "Content-Type: application/json" \
+   -H "authorization: Bearer {token}" \
+   -d "{ \"active\": true, \"emails\": [ { \"value\": \"{user@domain.com}\", \"primary\": true } ], \"userName\": \"{myUserName}\", \"password\": \"{userPassword}\"}"
+   ```
+   {: codeblock}
 
 
 
@@ -246,28 +246,28 @@ If you want to remove a user from your directory, you can delete the user from t
 
 2. Obtain an {{site.data.keyword.cloud_notm}} IAM token.
 
-  ```sh
-  curl -X GET "https://iam.cloud.ibm.com/oidc/token" \
-  -H "accept: application/x-www-form-urlencoded"
-  ```
-  {: codeblock}
+   ```sh
+   curl -X GET "https://iam.cloud.ibm.com/oidc/token" \
+   -H "accept: application/x-www-form-urlencoded"
+   ```
+   {: codeblock}
 
 3. By using the email that is attached to the user, search your directory to find the user's ID.
 
-  ```sh
-  curl -X GET "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/users?email={user@domain.com}" \
-  -H "accept: application/json"
-  ```
-  {: codeblock}
+   ```sh
+   curl -X GET "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/users?email={user@domain.com}" \
+   -H "accept: application/json"
+   ```
+   {: codeblock}
 
 4. Delete the user.
 
-  ```sh
-  curl -X DELETE "https://{region}.appid.test.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/remove/{user-ID}" \
-  -H "accept: application/json" \
-  -H "authorization: Bearer {token}"
-  ```
-  {: codeblock}
+   ```sh
+   curl -X DELETE "https://{region}.appid.test.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/remove/{user-ID}" \
+   -H "accept: application/json" \
+   -H "authorization: Bearer {token}"
+   ```
+   {: codeblock}
 
 
 ## Migrating users
@@ -289,21 +289,21 @@ Before you can import your profiles to your new instance, you need to export the
 
 1. Export the users from your original instance of the service.
 
-  ```sh
-  curl -X GET ’https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/export?encryption_secret={mySecret}' \
-  -H ‘Accept: application/json’ \
-  -H ‘Authorization: Bearer {iam-token}'
-  ```
-  {: codeblock}
+   ```sh
+   curl -X GET ’https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/export?encryption_secret={mySecret}' \
+   -H ‘Accept: application/json’ \
+   -H ‘Authorization: Bearer {iam-token}'
+   ```
+   {: codeblock}
 
-  | Parameters | Description |
-  | ---------- | ----------- |
-  | `encryption_secret` | A custom string that is used to encrypt and decrypt a user's hashed password. |
-  | `tenantID` | The service tenant ID can be found in your service credentials. You can find your service credentials in the {{site.data.keyword.appid_short_notm}} dashboard. |
-  {: caption="Table 2. Descriptions of the parameters that need to be provided in the export request" caption-side="top"}
+   | Parameters | Description |
+   | ---------- | ----------- |
+   | `encryption_secret` | A custom string that is used to encrypt and decrypt a user's hashed password. |
+   | `tenantID` | The service tenant ID can be found in your service credentials. You can find your service credentials in the {{site.data.keyword.appid_short_notm}} dashboard. |
+   {: caption="Table 2. Descriptions of the parameters that need to be provided in the export request" caption-side="top"}
 
-  Only your Cloud Directory users and their profiles are returned. Users from other identity providers are not.
-  {: note}
+   Only your Cloud Directory users and their profiles are returned. Users from other identity providers are not.
+   {: note}
 
 
 ### Importing users
@@ -316,51 +316,51 @@ Now that you have a list of exported Cloud Directory users, you can import them 
 
 1. If your users are [assigned roles](/docs/appid?topic=appid-access-control), be sure to create the roles and scopes in your new instance of {{site.data.keyword.appid_short_notm}}.
 
-  The roles and scopes must be created exactly as they were in the previous instance with the same spellings.
-  {: tip}
+   The roles and scopes must be created exactly as they were in the previous instance with the same spellings.
+   {: tip}
 
 2. Optional: Users are imported with a new Cloud Directory identifier. If your app references the Cloud Directory identifier in any way, you can choose to create a custom attribute and adjust your application to call the attribute instead of the identifier directly. 
 
 2. Import the users to your new instance of the service.
 
-  ```sh
-  curl -X POST --header ‘Content-Type: application/json’ --header ‘Accept: application/json’ --header ‘Authorization: Bearer {iam-token}’ -d ‘{“users”: [
+   ```sh
+   curl -X POST --header ‘Content-Type: application/json’ --header ‘Accept: application/json’ --header ‘Authorization: Bearer {iam-token}’ -d ‘{“users”: [
       {
-        “scimUser”: {
-          “originalId”: “3f3f6779-7978-4383-926f-a43aef3b724b”,
-          “name”: {
+         “scimUser”: {
+            “originalId”: “3f3f6779-7978-4383-926f-a43aef3b724b”,
+            “name”: {
             “givenName”: “{first-name}”,
             “familyName”: “{last-name}”,
             “formatted”: “{first-name} {last-name}”
-          },
-          “displayName”: “{first-name}”,
-          “emails”: [
+            },
+            “displayName”: “{first-name}”,
+            “emails”: [
             {
-              “value”: “{user@gmail.com}”,
-              “primary”: true
+               “value”: “{user@gmail.com}”,
+               “primary”: true
             }
-          ],
-          “status”: “PENDING”
-        },
-        “displayName”: “{first-name}”,
-        “emails”: [
-          {
+            ],
+            “status”: “PENDING”
+         },
+         “displayName”: “{first-name}”,
+         “emails”: [
+            {
             “value”: “{user@gmail.com}”,
             “primary”: true
-          }
-        ],
-        “status”: “PENDING”
+            }
+         ],
+         “status”: “PENDING”
       },
       “passwordHash”: “{password hash here}“,
       “passwordHashAlg”: {password hash algorithm},
       “profile”: {
-        “attributes”: {}
+         “attributes”: {}
       },
       “roles”: []
-    }
-  ]}’ ‘https://us-south.appid.cloud.ibm.com/management/v4/111c9bj3-xxxx-4b5b-zzzz-24ad9440k8j9/cloud_directory/import?encryption_secret=mySecret’
-  ```
-  {: codeblock}
+      }
+   ]}’ ‘https://us-south.appid.cloud.ibm.com/management/v4/111c9bj3-xxxx-4b5b-zzzz-24ad9440k8j9/cloud_directory/import?encryption_secret=mySecret’
+   ```
+   {: codeblock}
 
 
 ### Migration script
@@ -370,40 +370,40 @@ Now that you have a list of exported Cloud Directory users, you can import them 
 
 1.  Clone the [repository](https://github.com/ibm-cloud-security/appid-sample-code-snippets/tree/master/export-import-cloud-directory-users){: external}.
 
-  ```sh
-  git clone https://github.com/ibm-cloud-security/appid-sample-code-snippets/tree/master/export-import-cloud-directory-users.git
-  ```
-  {: codeblock}
+   ```sh
+   git clone https://github.com/ibm-cloud-security/appid-sample-code-snippets/tree/master/export-import-cloud-directory-users.git
+   ```
+   {: codeblock}
 
 2. In terminal, change to the folder that you cloned the repo into.
 3. Run the following command.
 
-  ```
-  npm install
-  ```
-  {: codeblock}
+   ```
+   npm install
+   ```
+   {: codeblock}
 
 4. With your parameters, run the following command.
 
-  ```
-  users_export_import 'sourceTenantId' 'destinationTenantId' 'region' 'iamToken'
-  ```
-  {: codeblock}
+   ```
+   users_export_import 'sourceTenantId' 'destinationTenantId' 'region' 'iamToken'
+   ```
+   {: codeblock}
 
-  | Parameter | Description |
-  | --------- | ----------- |
-  | `sourceTenantId` | The tenant ID of the instance of {{site.data.keyword.appid_short_notm}} that you plan to export users from. |
-  | `destinationTenantId` | The tenant ID of the instance of {{site.data.keyword.appid_short_notm}} that you plan to import users to. |
-  | `region` | Learn more about the [available regions](/docs/appid?topic=appid-regions-endpoints). | 
-  | `IAM token` | For help with obtaining an IAM token, check out [the docs](/docs/account?topic=account-iamtoken_from_apikey#iamtoken_from_apikey). | 
-  {: caption="Table 3. Parameter descriptions" caption-side="top"}
+   | Parameter | Description |
+   | --------- | ----------- |
+   | `sourceTenantId` | The tenant ID of the instance of {{site.data.keyword.appid_short_notm}} that you plan to export users from. |
+   | `destinationTenantId` | The tenant ID of the instance of {{site.data.keyword.appid_short_notm}} that you plan to import users to. |
+   | `region` | Learn more about the [available regions](/docs/appid?topic=appid-regions-endpoints). | 
+   | `IAM token` | For help with obtaining an IAM token, check out [the docs](/docs/account?topic=account-iamtoken_from_apikey#iamtoken_from_apikey). | 
+   {: caption="Table 3. Parameter descriptions" caption-side="top"}
 
-  Example command:
+   Example command:
 
-  ```
-  users_export_import e00a0366-53c5-4fcf-8fef-ab3e66b2ced8 73321c2b-d35a-497a-9845-15c580fdf58c ng eyJraWQiOiIyMDE3MTAyNS0xNjoyNzoxMCIsImFsZyI6IlJTMjU2In0.eyJpYW1faWQiOiJJQk1pZC0zMTAwMDBUNkZTIiwiaWQiOiJJQk1pZC0zMTAwMDBUNkZTIiwicmVhbG1pZCI6IklCTWlkIiwiaWRlbnRpZmllciI6IjMxMDAwIFQ2RlMiPCJnaXZlbl9uYW1lIjoiUm90ZW0iLCJmYW1pbHlfbmFtZSI6IkJyb3NoIiwibmFtZSI6IlJvdGVtIEJyb3NoIiwiZW1haWwiOiJyb3RlbWJyQGlsLmlibS5jb20iLCJzdWIiOiJyb3RlbWJyQGlsLmlibS5jb20iLCJhY2NvdW50Ijp7ImJzcyI6ImQ3OWM5YTk5NjJkYzc2Y2JkMDZlYTVhNzhjMjY0YzE5In0sImlhdCI6MTUzNrE3Mjg4NCwiZXhwIjoxNTM3MTc2NDg0LCJpc3MiOiJodHRwczovL2lhbS5zdGFnZTEuYmx1ZW1peC5uZXQvaWRlbnRpdHkiLCJncmFudF90eXBlIjoidXJuOmlibTpwYXJhbXM6b2F1dGg6Z3JhbnQtdHlwZTpwYXNzY29kZSIsInNjb3BlIjoiaWJtIG9wZW5pZCIsImNsaWVudF9pZCI6ImJ4IiwiYWNyIjoxLCJhbXIiOlsicHdkIl19.c4vLPzhvvNZLjaLy7znDa37qV4o-yuGmSKmJoQKrEQNZU8IC0NIjxwSo7W9kb0pDi3Yf_03_9ufTTGNfjtltzNWycSXjkNgoL-b9_nU61oHdgn0stY1KmNicqyBWfgUU--4xa904QN_QjRHBaUBeJf3XWEphPIMoF7mZeOxEZLnCMcQXSz9pImCMiP4SNT38cHLiI90Yx01rM7hpteepWULh5MYh-B2V03Gkgxfqvv951HF1LDg6eT4Q9in11laTQKtKuomripUju_4GIIjORVYw9NaAVKIJ9lKrPX0SKPhStsa59qGsC_7Uersms5EY1W1VbZVqOZPJbtp6tVf-Lw
-  ```
-  {: screen}
+   ```
+   users_export_import e00a0366-53c5-4fcf-8fef-ab3e66b2ced8 73321c2b-d35a-497a-9845-15c580fdf58c ng eyJraWQiOiIyMDE3MTAyNS0xNjoyNzoxMCIsImFsZyI6IlJTMjU2In0.eyJpYW1faWQiOiJJQk1pZC0zMTAwMDBUNkZTIiwiaWQiOiJJQk1pZC0zMTAwMDBUNkZTIiwicmVhbG1pZCI6IklCTWlkIiwiaWRlbnRpZmllciI6IjMxMDAwIFQ2RlMiPCJnaXZlbl9uYW1lIjoiUm90ZW0iLCJmYW1pbHlfbmFtZSI6IkJyb3NoIiwibmFtZSI6IlJvdGVtIEJyb3NoIiwiZW1haWwiOiJyb3RlbWJyQGlsLmlibS5jb20iLCJzdWIiOiJyb3RlbWJyQGlsLmlibS5jb20iLCJhY2NvdW50Ijp7ImJzcyI6ImQ3OWM5YTk5NjJkYzc2Y2JkMDZlYTVhNzhjMjY0YzE5In0sImlhdCI6MTUzNrE3Mjg4NCwiZXhwIjoxNTM3MTc2NDg0LCJpc3MiOiJodHRwczovL2lhbS5zdGFnZTEuYmx1ZW1peC5uZXQvaWRlbnRpdHkiLCJncmFudF90eXBlIjoidXJuOmlibTpwYXJhbXM6b2F1dGg6Z3JhbnQtdHlwZTpwYXNzY29kZSIsInNjb3BlIjoiaWJtIG9wZW5pZCIsImNsaWVudF9pZCI6ImJ4IiwiYWNyIjoxLCJhbXIiOlsicHdkIl19.c4vLPzhvvNZLjaLy7znDa37qV4o-yuGmSKmJoQKrEQNZU8IC0NIjxwSo7W9kb0pDi3Yf_03_9ufTTGNfjtltzNWycSXjkNgoL-b9_nU61oHdgn0stY1KmNicqyBWfgUU--4xa904QN_QjRHBaUBeJf3XWEphPIMoF7mZeOxEZLnCMcQXSz9pImCMiP4SNT38cHLiI90Yx01rM7hpteepWULh5MYh-B2V03Gkgxfqvv951HF1LDg6eT4Q9in11laTQKtKuomripUju_4GIIjORVYw9NaAVKIJ9lKrPX0SKPhStsa59qGsC_7Uersms5EY1W1VbZVqOZPJbtp6tVf-Lw
+   ```
+   {: screen}
 
 
 

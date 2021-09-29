@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-09-23"
+lastupdated: "2021-09-29"
 
 keywords: secure mobile app, android, ios, authenticate users,  authorization grant, client sdk, trusted client, native app, personalized, custom app, devices, identity flow, app security
 
@@ -101,13 +101,13 @@ You need the following information:
 
 * Your instance's deployment {{site.data.keyword.cloud_notm}} region. You can find your region by looking at the console.
 
-  | {{site.data.keyword.cloud_notm}} Region | SDK value |
-  | ---------------- | --------- |
-  | US South | `AppID.REGION_US_SOUTH` |
-  | Sydney | `AppID.REGION_SYDNEY` |
-  | United Kingdom | `AppID.REGION_UK` |
-  | Germany | `AppID.REGION_GERMANY` |
-  {: caption="Table 1. {{site.data.keyword.cloud_notm}} regions and corresponding SDK values" caption-side="top"}
+   | {{site.data.keyword.cloud_notm}} Region | SDK value |
+   | ---------------- | --------- |
+   | US South | `AppID.REGION_US_SOUTH` |
+   | Sydney | `AppID.REGION_SYDNEY` |
+   | United Kingdom | `AppID.REGION_UK` |
+   | Germany | `AppID.REGION_GERMANY` |
+   {: caption="Table 1. {{site.data.keyword.cloud_notm}} regions and corresponding SDK values" caption-side="top"}
 
 ## Authenticating with the Android SDK
 {: #mobile-android}
@@ -120,11 +120,11 @@ Protect your mobile applications using the {{site.data.keyword.appid_short_notm}
 
 You must have the following prerequisites before getting started:
 
-  * API 27 or higher
-  * Java 8.x
-  * Android SDK Tools 26.1.1+
-  * Android SDK Platform Tools 27.0.1+
-  * Android Build Tools version 27.0.0+
+   * API 27 or higher
+   * Java 8.x
+   * Android SDK Tools 26.1.1+
+   * Android SDK Platform Tools 27.0.1+
+   * Android Build Tools version 27.0.0+
 
 
 ### Installing the SDK
@@ -134,36 +134,36 @@ You must have the following prerequisites before getting started:
 
 2. Add the JitPack repository to your root `build.gradle` file.
 
-  ```gradle
-    allprojects {
-	    repositories {
-		    ...
-		    maven { url 'https://jitpack.io' }
-	    }
-    }
-  ```
-  {: codeblock}
+   ```gradle
+      allprojects {
+         repositories {
+            ...
+            maven { url 'https://jitpack.io' }
+         }
+      }
+   ```
+   {: codeblock}
 
 3. Find your application's `build.gradle` file. **Note**: Be sure to open the file for your app, not the project `build.gradle` file.
 
   1. Add the {{site.data.keyword.appid_short_notm}} client SDK to the dependencies section.
 
-    ```gradle
-    dependencies {
-       compile group: 'com.github.ibm-cloud-security:appid-clientsdk-android:4.+'
-    }
-    ```
-    {: codeblock}
+      ```gradle
+      dependencies {
+         compile group: 'com.github.ibm-cloud-security:appid-clientsdk-android:4.+'
+      }
+      ```
+      {: codeblock}
 
   2. In the `defaultConfig` section, configure the redirect scheme.
 
-    ```gradle
-    defaultConfig {
+      ```gradle
+      defaultConfig {
       ...
       manifestPlaceholders = ['appIdRedirectScheme': android.defaultConfig.applicationId]
-    }
-    ```
-    {: codeblock}
+      }
+      ```
+      {: codeblock}
 
 6. Synchronize your project with Gradle. Click **Tools > Android > Sync Project with Gradle Files**.
 
@@ -175,13 +175,13 @@ You must have the following prerequisites before getting started:
 
 1. Pass the context, tenant ID, and region parameters to the initialize method to configure the SDK.
 
-    A common, though not mandatory, place to put the initialization code is in the `onCreate` method of the main activity in your Android application.
-    {: tip}
+   A common, though not mandatory, place to put the initialization code is in the `onCreate` method of the main activity in your Android application.
+   {: tip}
 
-    ```java
-    AppID.getInstance().initialize(getApplicationContext(), {tenantId}, {region});
-    ```
-    {: codeblock}
+   ```java
+   AppID.getInstance().initialize(getApplicationContext(), {tenantId}, {region});
+   ```
+   {: codeblock}
 
 
 
@@ -196,9 +196,9 @@ Protect your mobile applications using the {{site.data.keyword.appid_short_notm}
 
 You must have the following prerequisites before getting started:
 
-  * Xcode 9.0 or higher
-  * CocoaPods 1.1.0 or higher
-  * iOS 10.0 or higher
+   * Xcode 9.0 or higher
+   * CocoaPods 1.1.0 or higher
+   * iOS 10.0 or higher
 
 
 
@@ -213,20 +213,20 @@ The {{site.data.keyword.appid_short_notm}} client SDK is distributed with CocoaP
 
 3. Add the `IBMCloudAppID` pod and `use_frameworks!` command to your target's dependencies
 
-  ```swift
-  target '{yourTarget}' do
-     use_frameworks!
-     pod 'IBMCloudAppID'
-  end
-  ```
-  {: codeblock}
+   ```swift
+   target '{yourTarget}' do
+      use_frameworks!
+      pod 'IBMCloudAppID'
+   end
+   ```
+   {: codeblock}
 
 4. Install your dependencies from the command line within your project directory.
 
-  ```swift
-  $ pod install --repo-update
-  ```
-  {: codeblock}
+   ```swift
+   $ pod install --repo-update
+   ```
+   {: codeblock}
 
 5. After installation, open the `{your app}.xcworkspace` file that contains your Xcode project and your linked dependencies
 
@@ -234,10 +234,10 @@ The {{site.data.keyword.appid_short_notm}} client SDK is distributed with CocoaP
 
 7. Open **Project Settings > Info > URL Types**, and add a **URL Type**. Place the following value in both the **Identifier** and the **URL Scheme** text boxes.
 
-  ```
-  $(PRODUCT_BUNDLE_IDENTIFIER)
-  ```
-  {: codeblock}
+   ```
+   $(PRODUCT_BUNDLE_IDENTIFIER)
+   ```
+   {: codeblock}
 
 </br>
 
@@ -246,29 +246,29 @@ The {{site.data.keyword.appid_short_notm}} client SDK is distributed with CocoaP
 
 1. Initialize the client SDK by passing the tenant ID and region parameters to the initialize method.
 
-  ```swift
-    AppID.sharedInstance.initialize(tenantId: {tenantId}, region: {region})
-  ```
-  {: codeblock}
+   ```swift
+      AppID.sharedInstance.initialize(tenantId: {tenantId}, region: {region})
+   ```
+   {: codeblock}
 
-  A common, though not mandatory, place to put the initialization code is in the `application:didFinishLaunchingWithOptions` method of the AppDelegate file of your Swift application.
-  {: tip}
+   A common, though not mandatory, place to put the initialization code is in the `application:didFinishLaunchingWithOptions` method of the AppDelegate file of your Swift application.
+   {: tip}
 
 2. Import the {{site.data.keyword.appid_short_notm}} SDK to your `AppDelegate` file.
 
-  ```swift
-  import IBMCloudAppID
-  ```
-  {: codeblock}
+   ```swift
+   import IBMCloudAppID
+   ```
+   {: codeblock}
 
 3. Configure your application to process redirects through {{site.data.keyword.appid_short_notm}}.
 
-  ```swift
-  func application(_ application: UIApplication, open url: URL, options :[UIApplication.OpenURLOptionsKey : Any]) -> Bool {
-        return AppID.sharedInstance.application(application, open: url, options: options)
-    }
-  ```
-  {: codeblock}
+   ```swift
+   func application(_ application: UIApplication, open url: URL, options :[UIApplication.OpenURLOptionsKey : Any]) -> Bool {
+         return AppID.sharedInstance.application(application, open: url, options: options)
+      }
+   ```
+   {: codeblock}
 
 
 ## Accessing protected APIs
@@ -283,30 +283,30 @@ After a successful login flow, you can use your access and identity tokens to in
 
 1.  Add the following imports to the file in which you want to invoke a protected resource request:
 
-  ```swift
-  import BMSCore
-  import IBMCloudAppID
-  ```
-  {: codeblock}
+   ```swift
+   import BMSCore
+   import IBMCloudAppID
+   ```
+   {: codeblock}
 
 2. Invoke your protected resource
 
    ```swift
-  BMSClient.sharedInstance.initialize(region: {region})
-  BMSClient.sharedInstance.authorizationManager = AppIDAuthorizationManager(appid: AppID.sharedInstance)
+   BMSClient.sharedInstance.initialize(region: {region})
+   BMSClient.sharedInstance.authorizationManager = AppIDAuthorizationManager(appid: AppID.sharedInstance)
 
-  let request =  Request(url: "{your protected resource url}")
+   let request =  Request(url: "{your protected resource url}")
 
-  request.send { (response: Response?, error: Error?) in
+   request.send { (response: Response?, error: Error?) in
 
       guard let response = response, error == null else {
-          print("An error occurred invoking a protected resources", error?.localizedDescription ?? "No response was received")
-          return;
+            print("An error occurred invoking a protected resources", error?.localizedDescription ?? "No response was received")
+            return;
       }
       // use your response object
-  })
-  ```
-  {: codeblock}
+   })
+   ```
+   {: codeblock}
 
 </br>
 
@@ -315,10 +315,10 @@ After a successful login flow, you can use your access and identity tokens to in
 
 1. Add the following imports to the file in which you want to invoke a protected resource request:
 
-  ```java
-  import com.ibm.mobilefirstplatform.clientsdk.android.core.api.BMSClient;
-  import com.ibm.cloud.appid.android.api.AppIDAuthorizationManager;
-  ```
+   ```java
+   import com.ibm.mobilefirstplatform.clientsdk.android.core.api.BMSClient;
+   import com.ibm.cloud.appid.android.api.AppIDAuthorizationManager;
+   ```
 
 2. Invoke your protected resource
 
@@ -334,22 +334,22 @@ After a successful login flow, you can use your access and identity tokens to in
 
    @Override
    public void onSuccess (Response response) {
-       Log.d("My app", "onSuccess :: " + response.getResponseText());
+         Log.d("My app", "onSuccess :: " + response.getResponseText());
    }
 
    @Override
    public void onFailure (Response response, Throwable t, JSONObject extendedInfo) {
-       if (null != t) {
-           Log.d("My app", "onFailure :: " + t.getMessage());
-       } else if (null != extendedInfo) {
-           Log.d("My app", "onFailure :: " + extendedInfo.toString());
-       } else {
-           Log.d("My app", "onFailure :: " + response.getResponseText());
-           }
-       }
+         if (null != t) {
+            Log.d("My app", "onFailure :: " + t.getMessage());
+         } else if (null != extendedInfo) {
+            Log.d("My app", "onFailure :: " + extendedInfo.toString());
+         } else {
+            Log.d("My app", "onFailure :: " + response.getResponseText());
+            }
+         }
    });
-  ```
-  {: codeblock}
+   ```
+   {: codeblock}
 
 </br>
 
@@ -360,12 +360,12 @@ With the library of your choice, set your `Authorization` request header to use 
 
 Example request format:
 
-  ```
-  GET /resource HTTP/1.1
-  Host: server.example.com
-  Authorization: Bearer {access token} {optional identity token}
-  ```
-  {: screen}
+   ```
+   GET /resource HTTP/1.1
+   Host: server.example.com
+   Authorization: Bearer {access token} {optional identity token}
+   ```
+   {: screen}
 
 
 ## Next steps

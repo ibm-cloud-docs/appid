@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-09-23"
+lastupdated: "2021-09-29"
 
 keywords: custom identity provider, authorization, bring your own idp, proprietary idp, legacy idp, oauth, oidc, authentication, oatuh, app security, public key, jwt
 
@@ -86,8 +86,8 @@ $ openssl rsa -pubout -in private_key.pem -out public_key.pem
 2. In the **Manage** tab, set **Custom Identity Provider** to **On**.
 
 3. Register your public key with {{site.data.keyword.appid_short_notm}}.
-  1. Navigate to the **Custom Identity Provider** tab
-  2. Paste your public key in the **Public Key** box and click **Save**.
+   1. Navigate to the **Custom Identity Provider** tab
+   2. Paste your public key in the **Public Key** box and click **Save**.
 
 
 

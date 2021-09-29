@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-09-23"
+lastupdated: "2021-09-29"
 
 keywords: ingress controller, ingress, istio, access, subdomain, custom domain, service, containerized apps, containers, kube, networking, policy, policies, secure apps, authentication, authorization
 
@@ -75,12 +75,12 @@ Before you can get started, ensure that you have the following prerequisites.
 * A standard {{site.data.keyword.containershort_notm}} cluster with at least two worker nodes in each available zone. For help with configuring Ingress resource for your cluster, see [Setting up Kubernetes Ingress](/docs/containers?topic=containers-ingress-types).
 
 * The following {{site.data.keyword.cloud_notm}} IAM roles:
-  * Cluster: **Administrator** platform role
-  * Kubernetes namespaces: **Manager** service role
-  * {{site.data.keyword.appid_short_notm}}: **Editor** platform role and **Writer** Service role
+   * Cluster: **Administrator** platform role
+   * Kubernetes namespaces: **Manager** service role
+   * {{site.data.keyword.appid_short_notm}}: **Editor** platform role and **Writer** Service role
 * The following CLIs:
-  * [{{site.data.keyword.cloud_notm}}](/docs/cli?topic=cli-getting-started)
-  * [Kubernetes](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
+   * [{{site.data.keyword.cloud_notm}}](/docs/cli?topic=cli-getting-started)
+   * [Kubernetes](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 * The {{site.data.keyword.containershort}} and {{site.data.keyword.registryshort_notm}} [CLI plug-ins](/docs/cli?topic=cli-install-devtools-manually#idt-install-kubernetes-cli-plugin)
 
 To ensure the best performance of the integration, it is recommended that you always use the latest version of IBM Cloud {{site.data.keyword.containershort_notm}} Application Load Balancer (ALB). By default, auto-update is enabled for your cluster. For more information about auto-updates, see [OnDemand ALB update feature on {{site.data.keyword.containershort}}](https://www.ibm.com/cloud/blog/on-demand-alb-update-feature-on-ibm-cloud-kubernetes-service).
@@ -95,23 +95,23 @@ A redirect URL is the callback endpoint of your app; the location a user is sent
 2. Navigate to the **Manage authentication** page of your instance of {{site.data.keyword.appid_short_notm}}.
 3. In the **Identity providers** tab, be sure that an identity provider is set to on.
 
-  If no provider is selected, the user is not authenticated, but is still issued an access token for anonymous access to the app.
-  {: note}
+   If no provider is selected, the user is not authenticated, but is still issued an access token for anonymous access to the app.
+   {: note}
 
 4. In the **Authentication settings** tab, add your redirect URLs and click the `+` symbol to save your changes. Your redirect URL should be formatted similarly to the following example:
 
-  ```
-  https://{hostname}/oauth2-{App_ID_service_instance_name}/callback
-  ```
-  {: screen}
+   ```
+   https://{hostname}/oauth2-{App_ID_service_instance_name}/callback
+   ```
+   {: screen}
 
-  * Custom domain:
+   * Custom domain:
 
-    A URL that is registered with a custom domain might look like: `http://mydomain.net/myapp2path/oauth2-myappid/callback`. If the apps that you want to expose are within the same cluster but in different namespaces, you can use a wildcard to specify all of them. This can be helpful during development, but it is recommended that you do not use wildcards in production without exercising caution. For example: `https://custom_domain.net/*/oauth2-myappid/callback`
+      A URL that is registered with a custom domain might look like: `http://mydomain.net/myapp2path/oauth2-myappid/callback`. If the apps that you want to expose are within the same cluster but in different namespaces, you can use a wildcard to specify all of them. This can be helpful during development, but it is recommended that you do not use wildcards in production without exercising caution. For example: `https://custom_domain.net/*/oauth2-myappid/callback`
 
-  * Ingress subdomain:
+   * Ingress subdomain:
 
-    If your app is registered with an IBM Kubernetes Ingress subdomain, your callback URL might look like: `https://mycluster.us-south.containers.appdomain.cloud/myapp1path/oauth2-myappid/callback`
+      If your app is registered with an IBM Kubernetes Ingress subdomain, your callback URL might look like: `https://mycluster.us-south.containers.appdomain.cloud/myapp1path/oauth2-myappid/callback`
 
  
 
@@ -122,35 +122,35 @@ By binding your instance of {{site.data.keyword.appid_short_notm}} to your clust
 
 1. Log in to the {{site.data.keyword.cloud_notm}} CLI. Follow the prompts in the CLI to complete logging in. If you're using a federated ID, be sure to append the `--sso` flag to the end of the command.
 
-  ```
-  ibmcloud login -a cloud.ibm.com -r {region}
-  ```
-  {: codeblock}
+   ```
+   ibmcloud login -a cloud.ibm.com -r {region}
+   ```
+   {: codeblock}
 
 2. Set the context for your cluster.
 
-  ```
-  ibmcloud ks cluster config --cluster {cluster_name_or_ID}
-  ```
-  {: codeblock}
+   ```
+   ibmcloud ks cluster config --cluster {cluster_name_or_ID}
+   ```
+   {: codeblock}
 
 3. Bind the {{site.data.keyword.appid_short_notm}} service instance to your cluster. The command creates a service key for the service instance, or you can include the `--key` flag to use existing service key credentials. Be sure to bind the service instance to the same namespace that your Ingress resources exist in. All of the letters in the service instance name must specified as lowercase.
 
-  ```
-  ibmcloud ks cluster service bind --cluster {cluster_name_or_ID} --namespace {namespace} --service {App_ID_instance_name} [--key {service_instance_key}]
-  ```
-  {: codeblock}
+   ```
+   ibmcloud ks cluster service bind --cluster {cluster_name_or_ID} --namespace {namespace} --service {App_ID_instance_name} [--key {service_instance_key}]
+   ```
+   {: codeblock}
 
-  Example output:
+   Example output:
 
-  ```
-  ibmcloud ks cluster service bind --cluster mycluster --namespace default --service appid1
-  Binding service instance to namespace...
-  OK
-  Namespace:    default
-  Secret name:  binding-appid1
-  ```
-  {: screen}
+   ```
+   ibmcloud ks cluster service bind --cluster mycluster --namespace default --service appid1
+   Binding service instance to namespace...
+   OK
+   Namespace:    default
+   Secret name:  binding-appid1
+   ```
+   {: screen}
 
 
 ## Updating your Ingress resource
@@ -161,53 +161,53 @@ Your Ingress resource is used to define how you want to expose your applications
 
 1. Add the following `auth-url` annotation. Update the placeholder variable for your {{site.data.keyword.appid_short_notm}} service instance name and the namespace of your Ingress resource. 
 
-  ```
-  ...
-  annotations:
-  nginx.ingress.kubernetes.io/auth-url: https://oauth2-
-  {App_ID_service_instance_name}.{namespace of the Ingress resource}.svc.cluster.local/oauth2-{App_ID_service_instance_name}/auth
-  ...
-  ```
-  {: codeblock}
+   ```
+   ...
+   annotations:
+   nginx.ingress.kubernetes.io/auth-url: https://oauth2-
+   {App_ID_service_instance_name}.{namespace of the Ingress resource}.svc.cluster.local/oauth2-{App_ID_service_instance_name}/auth
+   ...
+   ```
+   {: codeblock}
 
-  All letters in the service instance name must specified as lowercase characters.
-  {: note}
+   All letters in the service instance name must specified as lowercase characters.
+   {: note}
 
 2. Optional: If your app is a web app, in addition to or instead of, providing APIs, add the `nginx.ingress.kubernetes.io/auth-signin: https://$host/oauth2-{App_ID_service_instance_name}/start?rd=$escaped_request_uri` annotation. 
 
 3. Choose which tokens to send in the authorization header to your app.
 
-  * To send only the ID token, add the `nginx.ingress.kubernetes.io/auth-response-headers: Authorization` annotation.
-  * To send only the access token, add the following information to the `access_by_lua_block{}` in the `configuration-snippet` annotation.
-    ```
-    ...
-    annotations:
-    nginx.ingress.kubernetes.io/configuration-snippet: |
+   * To send only the ID token, add the `nginx.ingress.kubernetes.io/auth-response-headers: Authorization` annotation.
+   * To send only the access token, add the following information to the `access_by_lua_block{}` in the `configuration-snippet` annotation.
+      ```
+      ...
+      annotations:
+      nginx.ingress.kubernetes.io/configuration-snippet: |
       auth_request_set $access_token $upstream_http_x_auth_request_access_token;
       access_by_lua_block {
-        if ngx.var.access_token ~= "" then
-          ngx.req.set_header("Authorization", "Bearer " .. ngx.var.access_token)
-        end
+         if ngx.var.access_token ~= "" then
+            ngx.req.set_header("Authorization", "Bearer " .. ngx.var.access_token)
+         end
       }
-    ...
-    ```
-    {: codeblock}
+      ...
+      ```
+      {: codeblock}
 
-  * To send both the access token and the ID token, add the following information to `the access_by_lua_block{}` in the `configuration-snippet` annotation.
-    ```
-    ...
-    annotations:
-    nginx.ingress.kubernetes.io/configuration-snippet: |
+   * To send both the access token and the ID token, add the following information to `the access_by_lua_block{}` in the `configuration-snippet` annotation.
+      ```
+      ...
+      annotations:
+      nginx.ingress.kubernetes.io/configuration-snippet: |
       auth_request_set $access_token $upstream_http_x_auth_request_access_token;
       auth_request_set $id_token $upstream_http_authorization;
       access_by_lua_block {
-        if ngx.var.id_token ~= "" and ngx.var.access_token ~= "" then
-          ngx.req.set_header("Authorization", "Bearer " .. ngx.var.access_token .. " " .. ngx.var.id_token:match("%s*Bearer%s*(.*)"))
-        end
+         if ngx.var.id_token ~= "" and ngx.var.access_token ~= "" then
+            ngx.req.set_header("Authorization", "Bearer " .. ngx.var.access_token .. " " .. ngx.var.id_token:match("%s*Bearer%s*(.*)"))
+         end
       }
-    ...
-    ```
-    {: codeblock}
+      ...
+      ```
+      {: codeblock}
 
 
 
@@ -221,34 +221,34 @@ Now that your Ingress resource is updated with the annotation, you can start enf
 
 1. Enable the ALB OAuth Proxy add-on in your cluster.
 
-  ```
-  ibmcloud ks cluster addon enable alb-oauth-proxy --cluster {cluster_name_or_ID}
-  ```
-  {: codeblock}
+   ```
+   ibmcloud ks cluster addon enable alb-oauth-proxy --cluster {cluster_name_or_ID}
+   ```
+   {: codeblock}
 
-  To verify that your add on is ready, you can run the following command.
+   To verify that your add on is ready, you can run the following command.
 
-  ```
-  ibmcloud ks cluster addon ls --cluster {cluster_name_or_ID}
-  ```
-  {: codeblock}
+   ```
+   ibmcloud ks cluster addon ls --cluster {cluster_name_or_ID}
+   ```
+   {: codeblock}
 
 2. Reapply your Ingress resources to enforce {{site.data.keyword.appid_short_notm}} authentication. 
 
-  ```
-  kubectl apply -f {app_ingress_resource}.yaml -n namespace
-  ```
-  {: codeblock}
+   ```
+   kubectl apply -f {app_ingress_resource}.yaml -n namespace
+   ```
+   {: codeblock}
 
-  After an Ingress resource with the appropriate annotations is reapplied, the ALB OAuth Proxy add-on: (1) Deploys an OAuth2-Proxy. (2) Creates a service for the deployment. (3) Creates a separate Ingress resource to configure routing for the OAuth2-Proxy deployment messages. **Do not delete these add-on resources.**
-  {: note}
+   After an Ingress resource with the appropriate annotations is reapplied, the ALB OAuth Proxy add-on: (1) Deploys an OAuth2-Proxy. (2) Creates a service for the deployment. (3) Creates a separate Ingress resource to configure routing for the OAuth2-Proxy deployment messages. **Do not delete these add-on resources.**
+   {: note}
 
 3. Optional: You can customize the default behavior of the OAuth2-Proxy by creating a Kubernetes configmap. For more information about customization, see the [{{site.data.keyword.containershort_notm}} annotation docs](/docs/containers?topic=containers-comm-ingress-annotations#app-id).
 
 4. Verify that {{site.data.keyword.appid_short_notm}} authentication is enforced for your apps.
 
-  * If your app is a web app: Access your app's URL in a web browser. If {{site.data.keyword.appid_short_notm}} is correctly applied, you are redirected to an {{site.data.keyword.appid_short_notm}} authentication login page.
-  * If you are providing APIs: Specify your bearer access token in the Authorization header of requests to the apps. To get your access token, see [Obtaining tokens](/docs/appid?topic=appid-obtain-tokens). If {{site.data.keyword.appid_short_notm}} is correctly applied, the request is successfully authenticated and is routed to your app. If you send requests to your apps without an access token in the authorization header, or if the access token is not accepted by {{site.data.keyword.appid_short_notm}}, then the request is rejected.
+   * If your app is a web app: Access your app's URL in a web browser. If {{site.data.keyword.appid_short_notm}} is correctly applied, you are redirected to an {{site.data.keyword.appid_short_notm}} authentication login page.
+   * If you are providing APIs: Specify your bearer access token in the Authorization header of requests to the apps. To get your access token, see [Obtaining tokens](/docs/appid?topic=appid-obtain-tokens). If {{site.data.keyword.appid_short_notm}} is correctly applied, the request is successfully authenticated and is routed to your app. If you send requests to your apps without an access token in the authorization header, or if the access token is not accepted by {{site.data.keyword.appid_short_notm}}, then the request is rejected.
 
 
 

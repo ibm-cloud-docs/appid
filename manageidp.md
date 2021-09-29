@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-09-23"
+lastupdated: "2021-09-29"
 
 keywords: identity provider, idp, app security, mobile app, web app, authentication, authorization, oidc, saml, protocols, facebook, google, w3id, cloud directory, redirect url, redirect uri, token configuration, token lifetime, log in configuration
 
@@ -98,21 +98,21 @@ Your application redirects users to {{site.data.keyword.appid_short_notm}} for a
 
 2. In the **Add web redirect URI** field, type the URI. Each URI should begin with `http://` or `https://` and must include the full path, including any query parameters for the redirect to be successful. Need help formatting your URI? Check out the following table for some examples.
 
-  | Type | Example URI |
-  | ---- | ----------- |
-  | Custom domain | `https://mydomain.net/myapp2path/appid_callback` |
-  | Ingress subdomain | `https://mycluster.us-south.containers.appdomain.cloud/myapp1path/appid_callback` |
-  | Wildcard | `https://mydomain.net/*`
-  ***Note: Wildcards are not recommended for use in production apps.*** | 
-  {: caption="Table 2. Example web redirect URIs" caption-side="top"}
+   | Type | Example URI |
+   | ---- | ----------- |
+   | Custom domain | `https://mydomain.net/myapp2path/appid_callback` |
+   | Ingress subdomain | `https://mycluster.us-south.containers.appdomain.cloud/myapp1path/appid_callback` |
+   | Wildcard | `https://mydomain.net/*`
+   ***Note: Wildcards are not recommended for use in production apps.*** | 
+   {: caption="Table 2. Example web redirect URIs" caption-side="top"}
 
-  It is recommended that you always use encryption and avoid HTTP.
-  {: note}
+   It is recommended that you always use encryption and avoid HTTP.
+   {: note}
 
 3. Click the **+** symbol in the **Add web redirect URI's** box.
 
-    Be sure to register only URIs of applications that you trust.
-    {: important}
+   Be sure to register only URIs of applications that you trust.
+   {: important}
 
 4. Repeat steps one through three until all possible URIs are added to your list.
 
@@ -131,15 +131,15 @@ When you set token expiration, the values apply to all of the providers that you
 2. In the **Sign-in Expiration** tab, toggle refresh token to **Enabled**.
 3. For each token type, add a value for each token type as described in the following table.
 
-  | Token type | Description | Default | Options |
-  | ---------- | ----------- | ------- | ------- |
-  | [Access](/docs/appid?topic=appid-tokens#access) | The length of time for which access tokens are valid. The smaller the value, the more protection that you have in cases of token theft. | 60 minutes | Any value in the range 5 - 1440 |
-  | [Refresh](/docs/appid?topic=appid-tokens#refresh) | The length of time for which refresh tokens are valid. The smaller the number, the more frequently a user must sign themselves in. | 30 days | Any value in the range 1 - 90 | 
-  | [Anonymous](/docs/appid?topic=appid-anonymous) | The length of time for which anonymous tokens are valid. Anonymous tokens are assigned to users the moment they begin interacting with your app. When a user signs in, the information in the anonymous token is then transferred to the token associated with the user. | 30 days | Any value in the range 1 - 90 | 
-  {: caption="Table 3. Token types and customization options" caption-side="top"}
+   | Token type | Description | Default | Options |
+   | ---------- | ----------- | ------- | ------- |
+   | [Access](/docs/appid?topic=appid-tokens#access) | The length of time for which access tokens are valid. The smaller the value, the more protection that you have in cases of token theft. | 60 minutes | Any value in the range 5 - 1440 |
+   | [Refresh](/docs/appid?topic=appid-tokens#refresh) | The length of time for which refresh tokens are valid. The smaller the number, the more frequently a user must sign themselves in. | 30 days | Any value in the range 1 - 90 | 
+   | [Anonymous](/docs/appid?topic=appid-anonymous) | The length of time for which anonymous tokens are valid. Anonymous tokens are assigned to users the moment they begin interacting with your app. When a user signs in, the information in the anonymous token is then transferred to the token associated with the user. | 30 days | Any value in the range 1 - 90 | 
+   {: caption="Table 3. Token types and customization options" caption-side="top"}
 
-  [Identity tokens](/docs/appid?topic=appid-tokens#identity) are automatically configured to match the length of time that you set for access tokens. The values cannot be different.
-  {: tip}
+   [Identity tokens](/docs/appid?topic=appid-tokens#identity) are automatically configured to match the length of time that you set for access tokens. The values cannot be different.
+   {: tip}
 
 3. Click **Save**. 
 

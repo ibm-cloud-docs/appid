@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-06-01"
+lastupdated: "2021-09-29"
 
 keywords: Migrating users, multiple service instances, manage service, access, configuration, duplicate, export, app security, identity
 
@@ -64,18 +64,18 @@ You can migrate the information in one instance of {{site.data.keyword.appid_sho
 
 3. [Migrate your user profiles](/docs/appid?topic=appid-user-admin). Known users are exported as a JSON object. Anonymous user's cannot be migrated. You can choose to import the entire object into the new instance or break it up and divide the users as you see fit if you have more than one instance.
 
-  For Cloud Directory, see [Migrating users](/docs/appid?topic=appid-cd-users#user-migration). For federated identity providers, use the following steps.
-  {: note}
+   For Cloud Directory, see [Migrating users](/docs/appid?topic=appid-cd-users#user-migration). For federated identity providers, use the following steps.
+   {: note}
 
 4. Create application credentials to invoke the new service instance.
 
-  1. In the service dashboard navigate to the **Applications** tab.
+   1. In the service dashboard navigate to the **Applications** tab.
 
-  2. Click **Add Application** and give your application a name. Then, click **Save**.
+   2. Click **Add Application** and give your application a name. Then, click **Save**.
 
-  3. Click **View credentials** in the table and copy the output.
+   3. Click **View credentials** in the table and copy the output.
 
-  4. Paste your new credentials into your application.
+   4. Paste your new credentials into your application.
 
 5. Update your application to use the new credentials including any URLs. 
 

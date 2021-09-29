@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-09-23"
+lastupdated: "2021-09-29"
 
 keywords: user registration, new user, add user, custom attributes, profiles, user profile, user, user information, identity provider, authentication, authorization, personalize app, app security
 
@@ -143,14 +143,14 @@ The ability to add future users is disabled for the user name and password confi
 4. Select the identity provider that they sign in with from the **Identity Provider** drop down.
 5. Add custom attributes by entering the information in a JSON object as shown in the following example.
 
-  ```
-  { 
-    "food": "Pizza", 
-    "preference": "Vegetarian",
-    "points": "37"
-  }
-  ```
-  {: screen}
+   ```
+   { 
+      "food": "Pizza", 
+      "preference": "Vegetarian",
+      "points": "37"
+   }
+   ```
+   {: screen}
 
 6. Click **Save**. The table displays and the user is assigned an identifier.
 
@@ -162,84 +162,84 @@ You can add a future user and their custom attributes by using the API.
 
 1. Log in to IBM Cloud.
 
-  ```
-  ibmcloud login
-  ```
-  {: codeblock}
+   ```
+   ibmcloud login
+   ```
+   {: codeblock}
 
 2. Find your IAM token by running the following command.
 
-  ```
-  ibmcloud iam oauth-tokens
-  ```
-  {: codeblock}
+   ```
+   ibmcloud iam oauth-tokens
+   ```
+   {: codeblock}
 
 3. Make a POST request to the `/users` endpoint that contains a description of the user and the attributes that you want to set as a JSON object.
 
-  Header:
+   Header:
 
-  ```
-  POST {management-url}/management/v4/{tenantId}/users
-       Host: {management-server-url}
-       Authorization: 'Bearer {IAM_TOKEN}'
-       Content-Type: application/json
-  ```
-  {: codeblock}
+   ```
+   POST {management-url}/management/v4/{tenantId}/users
+         Host: {management-server-url}
+         Authorization: 'Bearer {IAM_TOKEN}'
+         Content-Type: application/json
+   ```
+   {: codeblock}
 
-  Body:
+   Body:
 
-  ```
+   ```
    {
-       "idp": "{Identity Provider}",
-       "idp-identity": "{User's unique identifier}",
-       "profile": {
-           "attributes": {
-             "mealPreference":"vegeterian"
-           }
-       }
+         "idp": "{Identity Provider}",
+         "idp-identity": "{User's unique identifier}",
+         "profile": {
+            "attributes": {
+               "mealPreference":"vegeterian"
+            }
+         }
    }
-  ```
-  {: codeblock}
+   ```
+   {: codeblock}
 
-  | Components | Description |
-  | ---------- | ----------- |
-  | `idp` | The identity provider that the user authenticates with. Options include: `saml`, `cloud_directory`, `facebook`, `google`, `appid_custom`, `ibmid`. |
-  | `idp-identity` | The unique identifier provided by the identity provider. |
-  | `profile` | The user's profile that contains the custom attribute JSON mapping. |
-  {: caption="Table 2. The components of the POST request" caption-side="top"}
+   | Components | Description |
+   | ---------- | ----------- |
+   | `idp` | The identity provider that the user authenticates with. Options include: `saml`, `cloud_directory`, `facebook`, `google`, `appid_custom`, `ibmid`. |
+   | `idp-identity` | The unique identifier provided by the identity provider. |
+   | `profile` | The user's profile that contains the custom attribute JSON mapping. |
+   {: caption="Table 2. The components of the POST request" caption-side="top"}
 
-  Example request:
-  ```
-  $ curl --request POST \
-       --url 'https://{Management_URI}/users \
-       --header 'Authorization: Bearer {IAM_TOKEN}' \
-       --header 'Content-Type: application/json' \
-       --data '{"idp": "saml", "idp-identity": "user@ibm.com", "profile": { "attributes": { "role": "admin",
-       "frequent_flyer_points": 1000 }}}'
-  ```
-  {: screen}
+   Example request:
+   ```
+   $ curl --request POST \
+         --url 'https://{Management_URI}/users \
+         --header 'Authorization: Bearer {IAM_TOKEN}' \
+         --header 'Content-Type: application/json' \
+         --data '{"idp": "saml", "idp-identity": "user@ibm.com", "profile": { "attributes": { "role": "admin",
+         "frequent_flyer_points": 1000 }}}'
+   ```
+   {: screen}
 
 3. Verify that registration was successful.
 
-  * Check for the user profile that was created.
+   * Check for the user profile that was created.
 
-    ```
-    curl --request GET https://us-south.appid.cloud.ibm.com/management/v4/{{APPID_TENANT_ID}}/users/{{user_profile_id}}/profile \
-    --header 'Authorization: Bearer {IAM_TOKEN}' \
-    --header 'Content-Type: application/json' \
-    ```
-    {: codeblock}
-  * Check for the user ID in the response.
-    ```
-    {
-        "id": "5ce78e09-1356-4ef8-a45d-808b633101db",
-        "identities": [],
-        "attributes": {
+      ```
+      curl --request GET https://us-south.appid.cloud.ibm.com/management/v4/{{APPID_TENANT_ID}}/users/{{user_profile_id}}/profile \
+      --header 'Authorization: Bearer {IAM_TOKEN}' \
+      --header 'Content-Type: application/json' \
+      ```
+      {: codeblock}
+   * Check for the user ID in the response.
+      ```
+      {
+         "id": "5ce78e09-1356-4ef8-a45d-808b633101db",
+         "identities": [],
+         "attributes": {
             "role": "manager"
-        }
-    }
-    ```
-    {: screen}
+         }
+      }
+      ```
+      {: screen}
   
 
 

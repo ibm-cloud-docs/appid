@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-05-28"
+lastupdated: "2021-09-29"
 
 keywords: user access, account settings, iam, user roles, platform roles, service roles, reader, writer, operator, editor, viewer, administrator, manager, permissions
 
@@ -87,115 +87,12 @@ Platform management roles enable users to perform tasks on service resources at 
 
 The following table details actions that are mapped to service access roles. Service access roles enable users to access {{site.data.keyword.appid_short_notm}} as well as the ability to call the {{site.data.keyword.appid_short_notm}} API.
 
-<table>
-  <caption>Table 2. Service roles and the actions that the role can take</caption>
-  <tr>
-    <th>Service role</th>
-    <th>Example actions</th>
-  </tr>
-  <tr>
-    <td>Reader</td>
-    <td>
-      <ul>
-        <li>View the post-authentication redirect URLs that are configured in your instance.</li>
-        <li>View the identity provider configuration or a view the configuration for a single identity provider.</li>
-        <li>View recent authentication activity for your app.</li>
-        <li>View the current configuration of the Login Widget including the logo, color, and language.</li>
-        <li>View the current configuration of your tokens.</li>
-        <li>View the action URLs that are configured for Cloud Directory.</li>
-        <li>View a single action URL that is configured for Cloud Directory.</li>
-        <li>View advanced password policy configurations.</li>
-        <li>View a Cloud Directory password policy in regex form.</li>
-        <li>View the current email template configuration.</li>
-        <li>View Cloud Directory email sender details.</li>
-        <li>View user information from your app configuration.</li>
-        <li>View your Cloud Directory users and their data.</li>
-        <li>View a user profile.</li>
-        <li>Search all of your user profiles and get a count of any anonymous users.</li>
-        <li>View all of the apps that are registered with your instance of {{site.data.keyword.appid_short_notm}}.</li>
-        <li>View a specific app that is registered with {{site.data.keyword.appid_short_notm}}.</li>
-        <li>View the email provider configuration.</li>
-        <li>View a JSON object that contains the auditing status of the tenant.</li>
-        <li>View all of the MFA channels.</li>
-        <li>View an MFA channel.</li>
-        <li>View the current MFA configuration.</li>
-        <li>View the Cloud Directory SSO configuration.</li>
-        <li>View a Cloud Directory user and their information.</li>
-        <li>View your rate limit configuration.</li>
-        <li>View the roles that are associated with a scope.</li>
-        <li>View the roles that are assigned to a specific user.</li>
-        <li>View a registered extension's configuration.</li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td>Writer</td>
-    <td>
-      <ul>
-        <li>All Reader actions.</li>
-        <li>Add or update post-authentication redirection URLs.</li>
-        <li>Configure your identity provider options.</li>
-        <li>Configure your Login Widget appearance including the logo, color and language.</li>
-        <li>Configure your tokens.</li>
-        <li>Delete an action URL that is configured for Cloud Directory.</li>
-        <li>Configure advanced password policies.</li>
-        <li>Update a Cloud Directory password policy in regex form.</li>
-        <li>Get the metadata that is used to link your SAML provider.</li>
-        <li>Start the sign up process for a new Cloud Directory user.</li>
-        <li>View the result of a new user sign up.</li>
-        <li>Start the forgot password email flow for a Cloud Directory user.</li>
-        <li>Check whether the forgot password email was successfully sent.</li>
-        <li>Resend an email to a Cloud Directory user.</li>
-        <li>Start the change password email flow for a Cloud Directory user.</li>
-        <li>Update your email template configuration.</li>
-        <li>Delete an email template configuration.</li>
-        <li>Set Cloud Directory email sender details configuration.</li>
-        <li>Update a user profile with the information from your application.</li>
-        <li>Create a new Cloud Directory user.</li>
-        <li>Update a Cloud Directory user's information.</li>
-        <li>Delete a user from Cloud Directory.</li>
-        <li>Update a user profile.</li>
-        <li>Create a future user.</li>
-        <li>Revoke a users refresh token.</li>
-        <li>Register a new app with {{site.data.keyword.appid_short_notm}}.</li>
-        <li>Update an app that is registered with {{site.data.keyword.appid_short_notm}}.</li>
-        <li>Delete an app that is registered with {{site.data.keyword.appid_short_notm}}.</li>
-        <li>Configure or update your own email provider.</li>
-        <li>Test your email provider configuration.</li>
-        <li>Update your auditing status.</li>
-        <li>Update an MFA channel.</li>
-        <li>Update your MFA configuration.</li>
-        <li>Update your Cloud Directory SSO configuration.</li>
-        <li>Initiate SSO logout for Cloud Directory.</li>
-        <li>Test your MFA configuration for SMS.</li>
-        <li>Remove Cloud Directory users and their profiles.</li>
-        <li>Update your rate limit configuration.</li>
-        <li>Add a scope to an application.</li>
-        <li>Get the scopes that are associated with an application.</li>
-        <li>Delete a scope that is associated with an application.</li>
-        <li>Add a role.</li>
-        <li>Update the roles in your instance of {{site.data.keyword.appid_short_notm}}.</li>
-        <li>Delete a role.</li>
-        <li>Update the roles that are assigned to a specific user.</li>
-        <li>Update the status of a registered extension for an instance of {{site.data.keyword.appid_short_notm}} to enabled or disabled.</li>
-        <li>Update a registered extension's configuration.</li>
-        <li>Test a registered extensions configuration.</li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td>Manager</td>
-    <td>
-      <ul>
-        <li>All Writer actions.</li>
-        <li>Export your Cloud Directory users and their data from your {{site.data.keyword.appid_short_notm}} instance.</li>
-        <li>Import your Cloud Directory users into a new instance of {{site.data.keyword.appid_short_notm}}.</li>
-        <li>Export all of the user profiles in an instance of {{site.data.keyword.appid_short_notm}}.</li>
-        <li>Import all of the user profiles that you exported into a new instance of {{site.data.keyword.appid_short_notm}}.</li>
-      </ul>
-    </td>
-  </tr>
-</table>
+| Service role | Example actions |
+| ------------ | --------------- |
+| Reader | * View the post-authentication redirect URLs that are configured in your instance. \n * View the identity provider configuration or a view the configuration for a single identity provider. \n * View recent authentication activity for your app. \n * View the current configuration of the Login Widget including the logo, color, and language. \n * View the current configuration of your tokens. \n * View the action URLs that are configured for Cloud Directory. \n * View a single action URL that is configured for Cloud Directory. \n * View advanced password policy configurations. \n * View a Cloud Directory password policy in regex form. \n * View the current email template configuration. \n * View Cloud Directory email sender details. \n * View user information from your app configuration. \n * View your Cloud Directory users and their data. \n * View a user profile. \n * Search all of your user profiles and get a count of any anonymous users. \n * View all of the apps that are registered with your instance of {{site.data.keyword.appid_short_notm}}. \n * View a specific app that is registered with {{site.data.keyword.appid_short_notm}}. \n * View the email provider configuration. \n * View a JSON object that contains the auditing status of the tenant. \n * View all of the MFA channels. \n * View an MFA channel. \n * View the current MFA configuration. \n * View the Cloud Directory SSO configuration. \n * View a Cloud Directory user and their information. \n * View your rate limit configuration. \n * View the roles that are associated with a scope. \n * View the roles that are assigned to a specific user. \n * View a registered extension's configuration. | 
+| Writer | * All Reader actions. \n * Add or update post-authentication redirection URLs. \n * Configure your identity provider options. \n * Configure your Login Widget appearance including the logo, color and language. \n * Configure your tokens. \n * Delete an action URL that is configured for Cloud Directory. \n * Configure advanced password policies. \n * Update a Cloud Directory password policy in regex form. \n * Get the metadata that is used to link your SAML provider. \n * Start the sign up process for a new Cloud Directory user. \n * View the result of a new user sign up. \n Start the forgot password email flow for a Cloud Directory user. \n * Check whether the forgot password email was successfully sent. \n * Resend an email to a Cloud Directory user. \n * Start the change password email flow for a Cloud Directory user. \n * Update your email template configuration. \n * Delete an email template configuration. \n * Set Cloud Directory email sender details configuration. \n * Update a user profile with the information from your application. \n * Create a new Cloud Directory user. \n * Update a Cloud Directory user's information. \n * Delete a user from Cloud Directory. \n * Update a user profile. \n * Create a future user. \n * Revoke a users refresh token. \n * Register a new app with {{site.data.keyword.appid_short_notm}}. \n * Update an app that is registered with {{site.data.keyword.appid_short_notm}}. \n * Delete an app that is registered with {{site.data.keyword.appid_short_notm}}. \n * Configure or update your own email provider. \n * Test your email provider configuration. \n * Update your auditing status. \n * Update an MFA channel. \n * Update your MFA configuration. \n * Update your Cloud Directory SSO configuration. \n * Initiate SSO logout for Cloud Directory. \n * Test your MFA configuration for SMS. \n * Remove Cloud Directory users and their profiles. \n * Update your rate limit configuration. \n * Add a scope to an application. \n * Get the scopes that are associated with an application. \n * Delete a scope that is associated with an application. \n * Add a role. \n * Update the roles in your instance of {{site.data.keyword.appid_short_notm}}. \n * Delete a role. \n * Update the roles that are assigned to a specific user. \n * Update the status of a registered extension for an instance of {{site.data.keyword.appid_short_notm}} to enabled or disabled. \n * Update a registered extension's configuration. \n * Test a registered extensions configuration. | 
+| Manager | * All Writer actions. \n * Export your Cloud Directory users and their data from your {{site.data.keyword.appid_short_notm}} instance. \n * Import your Cloud Directory users into a new instance of {{site.data.keyword.appid_short_notm}}. \n * Export all of the user profiles in an instance of {{site.data.keyword.appid_short_notm}}. \n * Import all of the user profiles that you exported into a new instance of {{site.data.keyword.appid_short_notm}}. |
+{: caption="Table 2. Service roles and the actions that the role can take" caption-side="top"}
 
 For more information about assigning user roles in the UI, see [Managing access to resources](/docs/account?topic=account-assign-access-resources).
 

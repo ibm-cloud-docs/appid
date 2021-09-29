@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-09-23"
+lastupdated: "2021-09-29"
 
 keywords: data encryption in app id, data storage for app id, personal data in app id, data deletion for app id, data in app id, data security in app id
 
@@ -72,16 +72,16 @@ If you choose to work with a key that you manage, you must ensure that valid IAM
 1. [Create an instance of {{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-provision#provision-gui).
 2. [Generate or import your own root key](/docs/key-protect?topic=key-protect-create-root-keys) to your instance of {{site.data.keyword.keymanagementserviceshort}}.  When you use {{site.data.keyword.keymanagementserviceshort}} to create a root key, the service generates cryptographic key material that is rooted in cloud-based HSMs. Be sure that the name of your key does not contain any personal information such as your name or location. 
 3. Grant service access to {{site.data.keyword.keymanagementserviceshort}}.  You must be the account owner or an administrator for the instance of {{site.data.keyword.keymanagementserviceshort}} that you're working with. You must also have at least Viewer access for the {{site.data.keyword.appid_short_notm}} service. 
-    1. Go to **Manage > Access IAM > Authorizations**.
-    2. Select the {{site.data.keyword.appid_short_notm}} service as your source service.
-    3. Select an instance of {{site.data.keyword.keymanagementserviceshort}} as your target service.
-    4. Select the key that you created in the previous steps.
-    5. Assign the Reader role.
-    6. Click **Authorize** to confirm the delegated authorization.
+   1. Go to **Manage > Access IAM > Authorizations**.
+   2. Select the {{site.data.keyword.appid_short_notm}} service as your source service.
+   3. Select an instance of {{site.data.keyword.keymanagementserviceshort}} as your target service.
+   4. Select the key that you created in the previous steps.
+   5. Assign the Reader role.
+   6. Click **Authorize** to confirm the delegated authorization.
 4. Create an instance of the {{site.data.keyword.appid_short_notm}} service.
-    1. Select your {{site.data.keyword.keymanagementserviceshort}} instance.
-    2. Select the root key that you previously authorized.
-    3. Click **Create**.
+   1. Select your {{site.data.keyword.keymanagementserviceshort}} instance.
+   2. Select the root key that you previously authorized.
+   3. Click **Create**.
 
 
 {{site.data.keyword.appid_short_notm}} supports state changes to your key.
@@ -107,16 +107,16 @@ If you choose to work with a key that you manage, you must ensure that valid IAM
 2. [Initialize your instance](/docs/hs-crypto?topic=hs-crypto-initialize-hsm) by loading a master key from smart cards or from your workstation.
 3. [Generate or import your own root key](/docs/hs-crypto?topic=hs-crypto-create-root-keys) to your instance of {{site.data.keyword.hscrypto}}.  When you use {{site.data.keyword.hscrypto}} to create a root key, the service generates cryptographic key material that is rooted in cloud-based HSMs. Be sure that the name of your key does not contain any personal information such as your name or location. 
 4. Grant service access to {{site.data.keyword.keymanagementserviceshort}}.  You must be the account owner or an administrator for the instance of {{site.data.keyword.keymanagementserviceshort}} that you're working with. You must also have at least Viewer access for the {{site.data.keyword.appid_short_notm}} service. 
-    1. Go to **Manage > Access IAM > Authorizations**.
-    2. Select the {{site.data.keyword.hscrypto}} service as your source service.
-    3. Select an instance of {{site.data.keyword.hscrypto}} as your target service.
-    4. Select the key that you created in the previous steps.
-    5. Assign the Reader role.
-    6. Click **Authorize** to confirm the delegated authorization.
+   1. Go to **Manage > Access IAM > Authorizations**.
+   2. Select the {{site.data.keyword.hscrypto}} service as your source service.
+   3. Select an instance of {{site.data.keyword.hscrypto}} as your target service.
+   4. Select the key that you created in the previous steps.
+   5. Assign the Reader role.
+   6. Click **Authorize** to confirm the delegated authorization.
 4. Create an instance of the {{site.data.keyword.appid_short_notm}} service.
-    1. Select your {{site.data.keyword.hscrypto}} instance.
-    2. Select the root key that you previously authorized.
-    3. Click **Create**.
+   1. Select your {{site.data.keyword.hscrypto}} instance.
+   2. Select the root key that you previously authorized.
+   3. Click **Create**.
 
 {{site.data.keyword.appid_short_notm}} supports state changes to your key.
 {: note}
@@ -149,30 +149,30 @@ If you no longer need an instance of {{site.data.keyword.appid_short_notm}}, you
 
 1. Delete the service and place it in a reclamation period of 7 days.
 
-  ```
-  ibmcloud resource service-instance-delete {service_name}
-  ```
-  {: codeblock}
+   ```
+   ibmcloud resource service-instance-delete {service_name}
+   ```
+   {: codeblock}
 
 2. Optional: To permanently delete your instance get the reclamation ID.
 
-  ```
-  ibmcloud resource reclamations --resource-instance-id {tenantId}
-  ```
-  {: codeblock}
+   ```
+   ibmcloud resource reclamations --resource-instance-id {tenantId}
+   ```
+   {: codeblock}
 
-  If you choose not to permanently delete the instance, the instance and data are still deleted at the end of the 7 day reclamation period.
-  {: tip}
+   If you choose not to permanently delete the instance, the instance and data are still deleted at the end of the 7 day reclamation period.
+   {: tip}
 
 3. Optional: Permanently delete the reclamation instance.
 
-  ```
-  ibmcloud resource reclamation-delete {reclamationId}
-  ```
-  {: codeblock}
+   ```
+   ibmcloud resource reclamation-delete {reclamationId}
+   ```
+   {: codeblock}
 
-  If you permanently delete the instance, you cannot restore your data. 
-  {: important}
+   If you permanently delete the instance, you cannot restore your data. 
+   {: important}
 
 
 
@@ -183,15 +183,15 @@ If you haven't permanently deleted your instance, you can restore it during the 
 
 1. Get the reclamation ID.
 
-  ```
-  ibmcloud resource reclamations --resource-instance-id {tenantId}
-  ```
-  {: codeblock}
+   ```
+   ibmcloud resource reclamations --resource-instance-id {tenantId}
+   ```
+   {: codeblock}
 
 2. Restore the reclamation.
 
-  ```
-  ibmcloud resource reclamation-restore {reclamationId}
-  ```
-  {: codeblock}
+   ```
+   ibmcloud resource reclamation-restore {reclamationId}
+   ```
+   {: codeblock}
 
