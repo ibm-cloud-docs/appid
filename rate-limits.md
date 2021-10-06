@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-08-16"
+lastupdated: "2021-10-06"
 
 keywords: rate limits, traffic control, limit request, lite instances, per minute, per instance, per user, limits
 
@@ -102,8 +102,8 @@ Review the following table to see limits that are associated with Cloud Director
 
 | API | Configurable | Limit | When exceeded |
 |:----|:-------------|:------|:------------- | 
-| Sign in attempts per account | Yes | Unlimited | All sign-in attempts for the instance are blocked for 1 minute. |
-| Sign up attempts per account | Yes | Unlimited | All sign-up attempts for the instance are blocked for 1 minute. |
+| Sign in attempts per account | Yes | 200 per second | All sign-in attempts for the instance are blocked for 1 minute. |
+| Sign up attempts per account | Yes | 200 per second | All sign-up attempts for the instance are blocked for 1 minute. |
 | Email sending request | No | 10 emails in 5 minutes per user | Email requests for the user are blocked for 30 minutes. |
 | SMS sending request | No | 10 SMS in 5 minutes per user | SMS requests for the user are blocked for 30 minutes. | 
 | MFA code characters | No | 6 numeric characters | The code automatically has 6 characters that must be input by the user. | 
