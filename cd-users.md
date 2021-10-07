@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2017, 2021
-lastupdated: "2021-09-29"
+lastupdated: "2021-10-07"
 
 keywords: manage users, registry, cloud directory, add user, delete user, tokens, attributes, migrating users, identity provider, app security
 
@@ -48,7 +48,7 @@ subcollection: appid
 With Cloud Directory, you can manage your users in a scalable registry by using a pre-built functionality that enhances security and self-service.
 {: shortdesc}
 
-A Cloud Directory user is not the same thing as an {{site.data.keyword.appid_short_notm}} user. Users can sign up for your app by using the different identity provider options that you configured, or you can add them to your directory. The users that are mentioned on this page are those that are associated with Cloud Directory as an identity provider.
+A Cloud Directory user is not the same thing as an {{site.data.keyword.appid_short_notm}} user. Users can sign up for your app by using the different identity provider options that you configured, or you can add them to your directory. The users that are mentioned in the following sections are the users who are associated with Cloud Directory as an identity provider.
 {: note}
 
 ## Viewing user information
@@ -73,8 +73,8 @@ You can use the {{site.data.keyword.appid_short_notm}} dashboard to view details
    |-----|----| 
    |User identifier | The user identifier is dependant upon the type of user sign-up that you configured. For example, if you have an email and password flow, the identifier is the user's email. If you use the username and password flow, the identifier is the username that is given at sign-up. | 
    | Email | The primary email address that is attached to the user. |
-   | First and surname | Your user's first and surname as they provided during the sign-up process. |
-   | Last Login | The time stamp of the last time that the user logged in to your application. Note: If you added your user through the dashboard, the login is blank until the user themselves signs in to your app. When sign-in occurs, they also become an {{site.data.keyword.appid_short_notm}} user. | 
+   | First name and surname | Your user's first name and surname as they provided during the sign-up process. |
+   | Last Login | The timestamp of the last time that the user logged in to your application. Note: If you added your user through the dashboard, the login is blank until the user themselves signs in to your app. When sign-in occurs, they also become an {{site.data.keyword.appid_short_notm}} user. | 
    | ID | The ID that is assigned to the user by {{site.data.keyword.appid_short_notm}}. In the UI, it isn't shown but you can copy the value and paste it in a text editor to see the value. |
    | Predefined attributes | Predefined attributes are things that are known about a user based on SCIM. |
    | Custom attributes | Custom attributes are additional information that is added to their profile or that is learned about the user's as they interact with your application. |
@@ -279,6 +279,8 @@ You must be assigned the `Manager` [IAM role](/docs/account?topic=account-access
 {: note}
 
 
+
+
 ### Exporting users 
 {: #cd-exporting-profiles}
 
@@ -287,12 +289,13 @@ Before you can import your profiles to your new instance, you need to export the
 
 
 
+
 1. Export the users from your original instance of the service.
 
    ```sh
-   curl -X GET ’https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/export?encryption_secret={mySecret}' \
-   -H ‘Accept: application/json’ \
-   -H ‘Authorization: Bearer {iam-token}'
+   curl -X GET 'https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/export?encryption_secret=mySecret' \
+   -H 'Accept: application/json' \
+   -H 'Authorization: Bearer {IAM-token}'
    ```
    {: codeblock}
 
@@ -306,11 +309,16 @@ Before you can import your profiles to your new instance, you need to export the
    {: note}
 
 
-### Importing users
+
+
+
+
+
+
+### Importing users in smaller batches
 {: #cd-import}
 
 Now that you have a list of exported Cloud Directory users, you can import them into the new instance.
-
 
 
 
@@ -319,54 +327,58 @@ Now that you have a list of exported Cloud Directory users, you can import them 
    The roles and scopes must be created exactly as they were in the previous instance with the same spellings.
    {: tip}
 
-2. Optional: Users are imported with a new Cloud Directory identifier. If your app references the Cloud Directory identifier in any way, you can choose to create a custom attribute and adjust your application to call the attribute instead of the identifier directly. 
+2. Users are imported with a new Cloud Directory identifier. If your app references the Cloud Directory identifier in any way, you can choose to create a custom attribute and adjust your application to call the attribute instead of the identifier directly. 
 
 2. Import the users to your new instance of the service.
 
    ```sh
-   curl -X POST --header ‘Content-Type: application/json’ --header ‘Accept: application/json’ --header ‘Authorization: Bearer {iam-token}’ -d ‘{“users”: [
+   curl -X POST 'https://{region}.appid.cloud.ibm.com/management/v4/{tenant_ID}/cloud_directory/import?encryption_secret=mySecret'
+   --header 'Content-Type: application/json' 
+   --header 'Accept: application/json' 
+   --header 'Authorization: Bearer {iam-token}' 
+   -d '{"users": [
       {
-         “scimUser”: {
-            “originalId”: “3f3f6779-7978-4383-926f-a43aef3b724b”,
-            “name”: {
-            “givenName”: “{first-name}”,
-            “familyName”: “{last-name}”,
-            “formatted”: “{first-name} {last-name}”
+         "scimUser": {
+            "originalId": "3f3f6779-7978-4383-926f-a43aef3b724b",
+            "name": {
+            "givenName": "John",
+            "familyName": "Doe",
+            "formatted": "John Doe"
             },
-            “displayName”: “{first-name}”,
-            “emails”: [
+            "displayName": "John Doe",
+            "emails": [
             {
-               “value”: “{user@gmail.com}”,
-               “primary”: true
+               "value": "user@example.com",
+               "primary": true
             }
             ],
-            “status”: “PENDING”
+            "status": "PENDING"
          },
-         “displayName”: “{first-name}”,
-         “emails”: [
+         "displayName": "Jane-Doe",
+         "emails": [
             {
-            “value”: “{user@gmail.com}”,
-            “primary”: true
+            "value": "jdoe@example.com",
+            "primary": true
             }
          ],
-         “status”: “PENDING”
+         "status": "PENDING"
       },
-      “passwordHash”: “{password hash here}“,
-      “passwordHashAlg”: {password hash algorithm},
-      “profile”: {
-         “attributes”: {}
+      "passwordHash": "<password_hash_here>",
+      "passwordHashAlg": <password_hash_algorithm>,
+      "profile": {
+         "attributes": {}
       },
-      “roles”: []
+      "roles": []
       }
-   ]}’ ‘https://us-south.appid.cloud.ibm.com/management/v4/111c9bj3-xxxx-4b5b-zzzz-24ad9440k8j9/cloud_directory/import?encryption_secret=mySecret’
+   ]}' 
    ```
    {: codeblock}
 
 
-### Migration script
+### Migration script for smaller exports and imports
 {: #cd-migration-script}
 
-{{site.data.keyword.appid_short_notm}} provides a migration script that you can use through the CLI that can help speed up the migration process.  
+{{site.data.keyword.appid_short_notm}} provides a migration script that you can use through the CLI that can help speed up the migration process when you use the export or import API endpoints.  
 
 1.  Clone the [repository](https://github.com/ibm-cloud-security/appid-sample-code-snippets/tree/master/export-import-cloud-directory-users){: external}.
 
@@ -404,6 +416,4 @@ Now that you have a list of exported Cloud Directory users, you can import them 
    users_export_import e00a0366-53c5-4fcf-8fef-ab3e66b2ced8 73321c2b-d35a-497a-9845-15c580fdf58c ng eyJraWQiOiIyMDE3MTAyNS0xNjoyNzoxMCIsImFsZyI6IlJTMjU2In0.eyJpYW1faWQiOiJJQk1pZC0zMTAwMDBUNkZTIiwiaWQiOiJJQk1pZC0zMTAwMDBUNkZTIiwicmVhbG1pZCI6IklCTWlkIiwiaWRlbnRpZmllciI6IjMxMDAwIFQ2RlMiPCJnaXZlbl9uYW1lIjoiUm90ZW0iLCJmYW1pbHlfbmFtZSI6IkJyb3NoIiwibmFtZSI6IlJvdGVtIEJyb3NoIiwiZW1haWwiOiJyb3RlbWJyQGlsLmlibS5jb20iLCJzdWIiOiJyb3RlbWJyQGlsLmlibS5jb20iLCJhY2NvdW50Ijp7ImJzcyI6ImQ3OWM5YTk5NjJkYzc2Y2JkMDZlYTVhNzhjMjY0YzE5In0sImlhdCI6MTUzNrE3Mjg4NCwiZXhwIjoxNTM3MTc2NDg0LCJpc3MiOiJodHRwczovL2lhbS5zdGFnZTEuYmx1ZW1peC5uZXQvaWRlbnRpdHkiLCJncmFudF90eXBlIjoidXJuOmlibTpwYXJhbXM6b2F1dGg6Z3JhbnQtdHlwZTpwYXNzY29kZSIsInNjb3BlIjoiaWJtIG9wZW5pZCIsImNsaWVudF9pZCI6ImJ4IiwiYWNyIjoxLCJhbXIiOlsicHdkIl19.c4vLPzhvvNZLjaLy7znDa37qV4o-yuGmSKmJoQKrEQNZU8IC0NIjxwSo7W9kb0pDi3Yf_03_9ufTTGNfjtltzNWycSXjkNgoL-b9_nU61oHdgn0stY1KmNicqyBWfgUU--4xa904QN_QjRHBaUBeJf3XWEphPIMoF7mZeOxEZLnCMcQXSz9pImCMiP4SNT38cHLiI90Yx01rM7hpteepWULh5MYh-B2V03Gkgxfqvv951HF1LDg6eT4Q9in11laTQKtKuomripUju_4GIIjORVYw9NaAVKIJ9lKrPX0SKPhStsa59qGsC_7Uersms5EY1W1VbZVqOZPJbtp6tVf-Lw
    ```
    {: screen}
-
-
 
