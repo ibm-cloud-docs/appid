@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-09-28"
+lastupdated: "2021-10-11"
 
 keywords: bring your own screens, branded app, sign up, custom, directory, registry, app security, password, authorization flow, authentication,
 
@@ -206,10 +206,10 @@ After you configure your [settings](/docs/appid?topic=appid-cloud-directory#cd-s
 
 You can use the `/sign_up` endpoint to allow users to sign themselves up for your app.
 Supply the following data in the request body:
-   * Your tenantID.
-   * Cloud Directory user data with the following required attributes. See [SCIM Full User Representation](https://datatracker.ietf.org/doc/html/rfc7643.#section-8.2){: external} for more details.
-      * A `password` attribute.
-      * An `emails` array with at least one email address and a `primary` attribute that is set to `true`.
+* Your tenantID.
+* Cloud Directory user data with the following required attributes. See [SCIM Full User Representation](https://datatracker.ietf.org/doc/html/rfc7643.#section-8.2){: external} for more details.
+   * A `password` attribute.
+   * An `emails` array with at least one email address and a `primary` attribute that is set to `true`.
 
 Depending on your [email configuration](/docs/appid?topic=appid-cd-types), a user might receive a request for verification, an email that welcomes them when they sign up for your app, or both. Both types of emails are triggered when a user signs up for your app. The verification email contains a link that the user can click to confirm their identity; a screen is displayed, that thanks them for verifying or confirms that their verification is complete.
 
@@ -228,8 +228,8 @@ When this value is provided, {{site.data.keyword.appid_short_notm}} calls the UR
 You can use the `/forgot_password` endpoint to allow users to recover their password if they forget it.
 
 Supply the following data in the request body:
-   * Your tenant ID.
-   * The email of the Cloud Directory user.
+* Your tenant ID.
+* The email of the Cloud Directory user.
 
 When the endpoint is called, a reset password email is sent to the user. The email contains a **Reset** button. After they press the button, a screen is displayed by {{site.data.keyword.appid_short_notm}} where they can reset their password.
 
@@ -254,18 +254,18 @@ Before you call the `/change_password` API to allow a user to reset their passwo
 {: note}
 
 To update a user's password after a reset request, supply the following data in the request body:
-   * Your tenantID.
-   * The user's new password.
-   * The Cloud Directory user UUID.
-   * Optional: The IP address from which the password reset was performed. If you choose to pass the IP address, then the placeholder `%{passwordChangeInfo.ipAddress}` is available for the change password email template.
+* Your tenantID.
+* The user's new password.
+* The Cloud Directory user UUID.
+* Optional: The IP address from which the password reset was performed. If you choose to pass the IP address, then the placeholder `%{passwordChangeInfo.ipAddress}` is available for the change password email template.
 
 Depending on your configuration, when a password is changed {{site.data.keyword.appid_short_notm}} sends an email to the user that lets them know that a change was made.
 
 To allow users to change their password while they are signed in to your app, supply the following data in the request body:
 
-   * Your tenantID.
-   * The user's new password.
-   * The Cloud Directory user UUID.
+* Your tenantID.
+* The user's new password.
+* The Cloud Directory user UUID.
 
 Your change password page must prompt the user to enter their current password and their new password.
 {: tip}
@@ -279,9 +279,9 @@ Your back-end validates the user's current password with the ROP API, and if val
 You can use the `/resend/{templateName}` to resend an email when a user does not receive it for some reason.
 
 Supply the following data in the request body:
-   * The tenantID.
-   * The template name
-   * The Cloud Directory user UUID.
+* The tenantID.
+* The template name
+* The Cloud Directory user UUID.
 
 ### Change details
 {: #branded-api-change-details}

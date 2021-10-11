@@ -223,7 +223,7 @@ For more information, see the [{{site.data.keyword.appid_short_notm}} Node.js Gi
 {: #web-configuring-liberty}
 
 You can configure {{site.data.keyword.appid_short_notm}} to work with your Liberty for Java web applications.
-{:shortdesc}
+{: shortdesc}
 
 ### Before you begin
 {: #web-configure-liberty-before}

@@ -66,10 +66,10 @@ To set this configuration by using the GUI:
 3. Enter a valid regex string in the **Password strength** box.
 
    Examples:
-      - Must be at least 8 characters. (`^.{8,}$`)
-      - Must have one number, one lowercase letter, and one capital letter. (`^(?:(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).*)$`)
-      - Must have only English letters and numbers. (`^[A-Za-z0-9]*$`)
-      - Must have at least one unique character. (`^(\w)\w*?(?!\1)\w+$`)
+   - Must be at least 8 characters. (`^.{8,}$`)
+   - Must have one number, one lowercase letter, and one capital letter. (`^(?:(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).*)$`)
+   - Must have only English letters and numbers. (`^[A-Za-z0-9]*$`)
+   - Must have at least one unique character. (`^(\w)\w*?(?!\1)\w+$`)
 
 4. Click **Save**.
 
@@ -87,22 +87,19 @@ If you set your own password regex policy and a user chooses a password that doe
 ## Advanced password policies
 {: #cd-advanced-password}
 
-
 You can enhance the security of your application by enforcing password constraints.
 {: shortdesc}
 
-
 You can create an advanced password policy that consists of any combination of the following five features:
 
- - Lockout after repeated wrong credentials
- - Avoid password reuse
- - Password expiration
- - Minimum period between password changes
- - Ensure that the password does not include user name
+- Lockout after repeated wrong credentials
+- Avoid password reuse
+- Password expiration
+- Minimum period between password changes
+- Ensure that the password does not include user name
 
-
- When you enable this feature, extra billing for advanced security capabilities is activated. For more information, see [how does {{site.data.keyword.appid_short_notm}} calculate pricing](/docs/appid?topic=appid-faq#faq-pricing).
- {: important}
+When you enable this feature, extra billing for advanced security capabilities is activated. For more information, see [how does {{site.data.keyword.appid_short_notm}} calculate pricing](/docs/appid?topic=appid-faq#faq-pricing).
+{: important}
 
 
 ### Policy: Avoid Password Reuse

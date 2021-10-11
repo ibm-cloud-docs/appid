@@ -58,7 +58,7 @@ You encounter issues with your SAML authentication.
 When you test your application, you receive the following error message:
 {: tsSymptoms}
 
-```
+```sh
 The SAML message signature could not be validated
 ```
 {: screen}

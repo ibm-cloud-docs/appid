@@ -51,7 +51,7 @@ content-type: troubleshoot
 {: troubleshoot}
 
 You encounter issues with the values your attributes.
-{:shortdesc}
+{: shortdesc}
 
 An attribute value exists in a user profile, but it's not associated with the correct attribute.
 {: tsSymptoms}

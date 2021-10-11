@@ -120,8 +120,8 @@ Before you get started, be sure that you have installed the following prerequisi
 - [Helm](https://helm.sh/){: external}
 - [Istio v1.1+](https://istio.io/latest/docs/setup/install/){: external}
 
-  Currently, [IBM Cloud Kubernetes Service Managed Istio](/docs/containers?topic=containers-istio) does not support policy enforcement. To use the Adapter you must use manually installed Istio.
-  {: note}
+   Currently, [IBM Cloud Kubernetes Service Managed Istio](/docs/containers?topic=containers-istio) does not support policy enforcement. To use the Adapter you must use manually installed Istio.
+   {: note}
 
 
 

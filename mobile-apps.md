@@ -96,9 +96,7 @@ Get started with {{site.data.keyword.appid_short_notm}} with our SDKs.
 You need the following information:
 
 * An {{site.data.keyword.appid_short_notm}} instance
-
 * Your instance's tenant ID. This can be found in the **Service Credentials** tab of your service dashboard.
-
 * Your instance's deployment {{site.data.keyword.cloud_notm}} region. You can find your region by looking at the console.
 
    | {{site.data.keyword.cloud_notm}} Region | SDK value |
@@ -360,7 +358,7 @@ With the library of your choice, set your `Authorization` request header to use 
 
 Example request format:
 
-   ```
+   ```sh
    GET /resource HTTP/1.1
    Host: server.example.com
    Authorization: Bearer {access token} {optional identity token}
