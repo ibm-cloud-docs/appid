@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-09-28"
+lastupdated: "2021-10-11"
 
 keywords: protected resource, back-end apps, identity, tokens, identity provider, authentication, authorization, app security, oauth, 
 
@@ -118,7 +118,7 @@ Before you get started with the Node.js SDK, you must have the following prerequ
 
 1. Add the {{site.data.keyword.appid_short_notm}} Node.js SDK to your app's `package.json` file.
 
-   ```
+   ```sh
    "dependencies": {
       "ibmcloud-appid": "^6.0.0"
    }
@@ -127,7 +127,7 @@ Before you get started with the Node.js SDK, you must have the following prerequ
 
 2. Run the following command.
 
-   ```
+   ```sh
    npm install
    ```
    {: codeblock}

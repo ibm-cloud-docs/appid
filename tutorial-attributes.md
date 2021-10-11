@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-09-29"
+lastupdated: "2021-10-11"
 
 keywords: attributes, cloud directory, user registry, user management, personalization, customize app, user information, profiles, app security, user profile, app access, identity
 
@@ -65,11 +65,11 @@ You're a developer for an online retailer, with a specialization in food. You're
 
 Do you have any dietary preferences?
 
-   * I'm a vegetarian.
-   * I'm a pescatarian.
-   * I'm dairy-free.
-   * I'm gluten-free.
-   * I'm low carb.
+* I'm a vegetarian.
+* I'm a pescatarian.
+* I'm dairy-free.
+* I'm gluten-free.
+* I'm low carb.
 
 You can then map their answers to [specific attributes](/docs/appid?topic=appid-profiles) that you can use to target the advertising that they're shown. 
 
@@ -118,7 +118,7 @@ Your application is responsible for mapping the answers to the specific attribut
 
 1. Update the profile with the attribute.
 
-   ```
+   ```sh
    curl --request PUT \
    https://{region}.appid.cloud.ibm.com/management/v4/{tenant-id}/users/{user_id}/profile \
    --header 'Authorization: Bearer {iam-access-token}' \
@@ -135,7 +135,7 @@ Your application is responsible for mapping the answers to the specific attribut
 
 2. View the profile to verify that it was updated correctly.
 
-   ```
+   ```sh
    curl --request GET https://{region}.appid.cloud.ibm.com/management/v4/{tenant-id}/users/{user_id}/profile \
    --header 'Authorization: Bearer {iam-access-token}' \
    --header 'Content-Type: application/json'
@@ -171,7 +171,7 @@ Becoming more popular, you decide to implement a "deal-of-the-day". You want the
 
 1. Make a request to the token configuration endpoint.
 
-   ```
+   ```sh
    curl --request PUT \
    https://{region}.appid.cloud.ibm.com/management/v4/{tenant-id}/config/tokens \
    --header 'Authorization: Bearer {iam-access-token}' \
@@ -208,7 +208,7 @@ Becoming more popular, you decide to implement a "deal-of-the-day". You want the
 
    Successful response output:
 
-   ```
+   ```sh
    {
       "access": {
             "expires_in": 3601
@@ -253,9 +253,9 @@ Optionally, you can verify that step 4 was successful by viewing an access token
    It is not recommended to use a browser-based encoder in production applications.
    {: tip}
 
-4. Sign in by using the APIs to obtain your access token information. The token that is returned is encoded.
+3. Sign in by using the APIs to obtain your access token information. The token that is returned is encoded.
 
-   ```
+   ```sh
    curl --request PUT \
    https://appid.cloud.ibm.com/oauth/v4/{tenant-ID}/token \
    --header 'Authorization: Basic {encoded_client:secret}' \
@@ -265,7 +265,7 @@ Optionally, you can verify that step 4 was successful by viewing an access token
    ```
    {: codeblock}
 
-5. Decode your access token.
+4. Decode your access token.
    1. Copy the token in the response output from the previous command.
    2. In a browser, navigate to https://jwt.io/.
    3. Paste the token into the box labeled **Encoded**.
@@ -273,9 +273,9 @@ Optionally, you can verify that step 4 was successful by viewing an access token
    It is not recommended to use a browser-based decoder in production applications.
    {: tip}
 
-6. In the **Decoded** section, verify that you can see the food preference.
+5. In the **Decoded** section, verify that you can see the food preference.
 
-   ```
+   ```sh
    {
       "iss": "https://us-south.appid.cloud.ibm.com/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6050a61",
       "exp": 1551903163,

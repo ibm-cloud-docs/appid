@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-06-02"
+lastupdated: "2021-10-11"
 
 keywords: saml, help, authentication request, error message, signing algorithm, xml file, signing certificate, valid email, error code, saml message signature, 
 
@@ -50,7 +50,7 @@ subcollection: appid
 {: support}
 
 You encounter issues with your SAML authentication.
-{:shortdesc}
+{: shortdesc}
 
 ## Why can't my SAML message signature be validated?
 {: #ts-saml-validated}
@@ -75,11 +75,10 @@ To resolve the issue, verify that you have **Inbound Signature** set to **None**
 The `RelayState` parameter is missing from your authentication response.
 {: tsSymptoms}
 
-
 {{site.data.keyword.appid_short_notm}} sends an opaque parameter that is known as `RelayState` as part of the authentication request. If you do not see the parameter in your response, your identity provider might not be configured to return it correctly. The `RelayState` takes the following form.
 {: tsCauses}
 
-```
+```sh
 https://idp.example.org/SAML2/SSO/Redirect?SAMLRequest=request&RelayState=token
 ```
 {: screen}
@@ -96,7 +95,7 @@ When you send an authentication request, you receive an error that regards the `
 {{site.data.keyword.appid_short_notm}}, as the service provider, defines the way that users are identified by the service and by the identity provider. With {{site.data.keyword.appid_short_notm}}, users are identified in the `NameID` authentication request in the `NameID` field as shown in the following example.
 {: tsCauses}
 
-```
+```sh
 <NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</NameIDFormat>
 ```
 {: screen}
@@ -112,14 +111,14 @@ You receive one of the following error messages in response to your authenticati
 
 Error message 1:
 
-```
+```sh
 Unexpectedly received an encrypted assertion. Please enable response encryption in your {{site.data.keyword.appid_short_notm}} SAML configuration.
 ```
 {: screen}
 
 Error message 2: 
 
-```
+```sh
 Could not decrypt SAML assertion. Ensure your SAML provider is configured with the {{site.data.keyword.appid_short_notm}} encryption. 
 ```
 {: screen}
@@ -143,7 +142,7 @@ If you receive error message 2, ensure that your certificate is correct. You can
 When you send an authentication request you receive the following generic error message:
 {: tsSymptoms}
 
-```
+```sh
 urn:oasis:names:tc:SAML:2.0:status:Responder
 ```
 {: screen}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-09-29"
+lastupdated: "2021-10-11"
 
 keywords: Adapter, access management, identity token, helm chart, backend apps, kube, any kube, icp, openshift, iks, service mesh, access, app identity, kube secret, tokens, authenticated, app endpoints, authorization, multicloud, no code change, no redeploy, authorization policies, multiple providers
 
@@ -86,14 +86,14 @@ If you're using a browser-based application, you can use the [Open ID Connect (O
 
 To view the user session information, including the session tokens, you can look in the `Authorization` header.
 
-```
+```sh
 Authorization: Bearer {access_token} {id_token}
 ```
 {: screen}
 
 You can also log out authenticated users. When an authenticated user accesses any protected endpoint with `oidc/logout` appended as shown in the following example, they are logged out.
 
-```
+```sh
 https://myhost/path/oidc/logout
 ```
 {: screen}

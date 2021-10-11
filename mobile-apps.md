@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-09-29"
+lastupdated: "2021-10-11"
 
 keywords: secure mobile app, android, ios, authenticate users,  authorization grant, client sdk, trusted client, native app, personalized, custom app, devices, identity flow, app security
 
@@ -120,11 +120,11 @@ Protect your mobile applications using the {{site.data.keyword.appid_short_notm}
 
 You must have the following prerequisites before getting started:
 
-   * API 27 or higher
-   * Java 8.x
-   * Android SDK Tools 26.1.1+
-   * Android SDK Platform Tools 27.0.1+
-   * Android Build Tools version 27.0.0+
+* API 27 or higher
+* Java 8.x
+* Android SDK Tools 26.1.1+
+* Android SDK Platform Tools 27.0.1+
+* Android Build Tools version 27.0.0+
 
 
 ### Installing the SDK
@@ -165,7 +165,7 @@ You must have the following prerequisites before getting started:
       ```
       {: codeblock}
 
-6. Synchronize your project with Gradle. Click **Tools > Android > Sync Project with Gradle Files**.
+4. Synchronize your project with Gradle. Click **Tools > Android > Sync Project with Gradle Files**.
 
 </br>
 
@@ -189,16 +189,16 @@ You must have the following prerequisites before getting started:
 {: #mobile-ios}
 
 Protect your mobile applications using the {{site.data.keyword.appid_short_notm}} client SDK.
-{:shortdesc}
+{: shortdesc}
 
 ### Before you begin
 {: #mobile-ios-before}
 
 You must have the following prerequisites before getting started:
 
-   * Xcode 9.0 or higher
-   * CocoaPods 1.1.0 or higher
-   * iOS 10.0 or higher
+* Xcode 9.0 or higher
+* CocoaPods 1.1.0 or higher
+* iOS 10.0 or higher
 
 
 
@@ -234,7 +234,7 @@ The {{site.data.keyword.appid_short_notm}} client SDK is distributed with CocoaP
 
 7. Open **Project Settings > Info > URL Types**, and add a **URL Type**. Place the following value in both the **Identifier** and the **URL Scheme** text boxes.
 
-   ```
+   ```swift
    $(PRODUCT_BUNDLE_IDENTIFIER)
    ```
    {: codeblock}

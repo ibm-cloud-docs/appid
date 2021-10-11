@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-06-02"
+lastupdated: "2021-10-11"
 
 keywords: authorization, authentication, oidc, oauth, jwks, app security, identity, tokens, redirect uris, api strategy, webapp strategy
 
@@ -58,6 +58,7 @@ Want to know more about some of the basic concepts of authorization and authenti
 
 ## OAuth 2
 {: #term-oauth}
+
 [OAuth 2.0](https://datatracker.ietf.org/doc/html/rfc6749){: external} is open standard protocol that is used to provide app authorization.
 
 
@@ -112,7 +113,7 @@ The service uses three different types of tokens. Tokens are set in the **Identi
 
 Example:
 
-```
+```sh
 Authorization=Bearer {access_token} [{id_token}]
 ```
 {: screen}
@@ -122,7 +123,7 @@ Authorization=Bearer {access_token} [{id_token}]
 {: #term-api-strategy}
 
 The API strategy expects requests to contain an authorization header with a valid access token. The request can also include an identity token, but it is not required. If a token is invalid or expired, the API strategy returns an HTTP 401 error that contains the following HTTP header:
-```
+```sh
 Www-Authenticate=Bearer scope="{scope}" error="{error}"
 ```
 {: screen}

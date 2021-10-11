@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-09-29"
+lastupdated: "2021-10-11"
 
 keywords: user registration, new user, add user, custom attributes, profiles, user profile, user, user information, identity provider, authentication, authorization, personalize app, app security
 
@@ -143,7 +143,7 @@ The ability to add future users is disabled for the user name and password confi
 4. Select the identity provider that they sign in with from the **Identity Provider** drop down.
 5. Add custom attributes by entering the information in a JSON object as shown in the following example.
 
-   ```
+   ```json
    { 
       "food": "Pizza", 
       "preference": "Vegetarian",
@@ -162,14 +162,14 @@ You can add a future user and their custom attributes by using the API.
 
 1. Log in to IBM Cloud.
 
-   ```
+   ```sh
    ibmcloud login
    ```
    {: codeblock}
 
 2. Find your IAM token by running the following command.
 
-   ```
+   ```sh
    ibmcloud iam oauth-tokens
    ```
    {: codeblock}
@@ -178,7 +178,7 @@ You can add a future user and their custom attributes by using the API.
 
    Header:
 
-   ```
+   ```sh
    POST {management-url}/management/v4/{tenantId}/users
          Host: {management-server-url}
          Authorization: 'Bearer {IAM_TOKEN}'
@@ -188,7 +188,7 @@ You can add a future user and their custom attributes by using the API.
 
    Body:
 
-   ```
+   ```json
    {
          "idp": "{Identity Provider}",
          "idp-identity": "{User's unique identifier}",
@@ -209,7 +209,7 @@ You can add a future user and their custom attributes by using the API.
    {: caption="Table 2. The components of the POST request" caption-side="top"}
 
    Example request:
-   ```
+   ```sh
    $ curl --request POST \
          --url 'https://{Management_URI}/users \
          --header 'Authorization: Bearer {IAM_TOKEN}' \
@@ -219,18 +219,20 @@ You can add a future user and their custom attributes by using the API.
    ```
    {: screen}
 
-3. Verify that registration was successful.
+4. Verify that registration was successful.
 
    * Check for the user profile that was created.
 
-      ```
+      ```sh
       curl --request GET https://us-south.appid.cloud.ibm.com/management/v4/{{APPID_TENANT_ID}}/users/{{user_profile_id}}/profile \
       --header 'Authorization: Bearer {IAM_TOKEN}' \
       --header 'Content-Type: application/json' \
       ```
       {: codeblock}
+      
    * Check for the user ID in the response.
-      ```
+
+      ```sh
       {
          "id": "5ce78e09-1356-4ef8-a45d-808b633101db",
          "identities": [],

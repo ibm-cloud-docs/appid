@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-09-29"
+lastupdated: "2021-10-11"
 
 keywords: identity provider, idp, app security, mobile app, web app, authentication, authorization, oidc, saml, protocols, facebook, google, w3id, cloud directory, redirect url, redirect uri, token configuration, token lifetime, log in configuration
 
@@ -50,11 +50,11 @@ subcollection: appid
 Identity providers (IdP's) add a level of security for your mobile and web apps, through authentication. With {{site.data.keyword.appid_full}}, you can configure one or several identity providers to create a custom sign-in experience for your users.
 {: shortdesc}
 
-
 {{site.data.keyword.appid_short_notm}} interacts with identity providers by using various protocols such as OpenID Connect, SAML, and more. For example, OpenID Connect is the protocol that is used with many social providers such as Facebook, Google. Enterprise providers such as [Azure Active Directory](https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-azure-active-directory){: external} or [Active Directory Federation Service](https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-active-directory-federation-service){: external}, generally use SAML as their identity protocol. For [Cloud Directory](/docs/appid?topic=appid-cloud-directory), the service uses SCIM to verify identity information.
 
 When you use social or enterprise identity providers, {{site.data.keyword.appid_short_notm}} reads user account information. Because the service never has write access to the information, users must go through their chosen identity provider to do actions, such as resetting their password. For example, if a user signs in to your app with Facebook, and then wanted to change their password, they must go to `www.facebook.com` to do so.
 {: note}
+
 
 When you use [Cloud Directory](/docs/appid?topic=appid-cloud-directory), {{site.data.keyword.appid_short_notm}} is the identity provider. The service uses your registry to verify your users identity. Because {{site.data.keyword.appid_short_notm}} is the identity provider, users can take advantage of advanced functionality, such as resetting their password, directly in your app.
 
@@ -141,7 +141,7 @@ When you set token expiration, the values apply to all of the providers that you
    [Identity tokens](/docs/appid?topic=appid-tokens#identity) are automatically configured to match the length of time that you set for access tokens. The values cannot be different.
    {: tip}
 
-3. Click **Save**. 
+4. Click **Save**. 
 
 
 

@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2017, 2021
-lastupdated: "2021-10-07"
+lastupdated: "2021-10-11"
 
 keywords: manage users, registry, cloud directory, add user, delete user, tokens, attributes, migrating users, identity provider, app security
 
@@ -329,7 +329,7 @@ Now that you have a list of exported Cloud Directory users, you can import them 
 
 2. Users are imported with a new Cloud Directory identifier. If your app references the Cloud Directory identifier in any way, you can choose to create a custom attribute and adjust your application to call the attribute instead of the identifier directly. 
 
-2. Import the users to your new instance of the service.
+3. Import the users to your new instance of the service.
 
    ```sh
    curl -X POST 'https://{region}.appid.cloud.ibm.com/management/v4/{tenant_ID}/cloud_directory/import?encryption_secret=mySecret'

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-09-29"
+lastupdated: "2021-10-11"
 
 keywords: custom identity provider, authorization, bring your own idp, proprietary idp, legacy idp, oauth, oidc, authentication, oatuh, app security
 
@@ -160,7 +160,7 @@ You can convert your verified user data to a custom identity JWT by generating a
 To create the bridge between your custom provider and {{site.data.keyword.appid_short_notm}}, you need to have {{site.data.keyword.appid_short_notm}} tokens. To obtain service tokens, exchange your verified user information by using the [`/token` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization_Server_V4/token){: external}.
 {: shortdesc}
 
-   ```
+   ```sh
    Post /token
    Content-Type: application/x-www-from-urlencoded
    grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer
