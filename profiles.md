@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-09-29"
+lastupdated: "2021-10-11"
 
 keywords: profile, custom attributes, predefined attributes, attributes, app users, app interaction, personalized experience, access user info, identity provider information, access token, authentication, user sign in, android, java, node, swift, ios, user, preferences
 
@@ -167,7 +167,7 @@ To see the information about your users that is provided by your configured iden
    // retrieved user info successfully
    });
    ```
-   {:codeblock}
+   {: codeblock}
    {: javascript}
 
    
@@ -198,7 +198,7 @@ To see the information about your users that is provided by your configured iden
    {: swift}
 
    Example output:
-   ```
+   ```json
    "sub": "cad9f1d4-e23b-3683-b81b-d1c4c4fd7d4c",
    "name": "John Doe",
    "email": "john.doe@gmail.com",

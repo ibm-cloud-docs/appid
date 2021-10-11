@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-09-29"
+lastupdated: "2021-10-11"
 
 keywords: custom identity provider, authorization, bring your own idp, proprietary idp, legacy idp, oauth, oidc, authentication, oatuh, app security, public key, jwt
 
@@ -70,7 +70,7 @@ How are the keys used?
 
 To generate an RSA PEM key pair by using Open SSL, run the following command:
 
-```
+```sh
 $ openssl genpkey -algorithm RSA -out private_key.pem -pkeyopt rsa_keygen_bits:2048
 $ openssl rsa -pubout -in private_key.pem -out public_key.pem
 ```

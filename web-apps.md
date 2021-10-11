@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-09-29"
+lastupdated: "2021-10-11"
 
 keywords: web apps, authorization code, authentication, nodejs, javascript, app access, application credentials, login, redirect uri, protected endpoint, video
 
@@ -149,7 +149,7 @@ Check out the following video to learn about protecting Node applications with {
    * By making a POST request to the [`/management/v4/{tenantId}/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Applications/mgmt.registerApplication){: external}.
 
       Request format:
-      ```
+      ```sh
       curl -X POST \  https://us-south.appid.cloud.ibm.com/management/v4/39a37f57-a227-4bfe-a044-93b6e6060b61/applications/ \
       -H 'Content-Type: application/json' \
       -H 'Authorization: Bearer {IAM_TOKEN}' \
@@ -158,7 +158,7 @@ Check out the following video to learn about protecting Node applications with {
       {: codeblock}
 
       Example response:
-      ```
+      ```json
       {
       "clientId": "111c22c3-38ea-4de8-b5d4-338744d83b0f",
       "tenantId": "39a37f57-a227-4bfe-a044-93b6e6060b61",
@@ -189,7 +189,7 @@ Check out the following video to learn about protecting Node applications with {
    ```
    {: codeblock}
 
-6. Configure passport with serialization and deserialization. This configuration step is required for authenticated session persistence across HTTP requests. For more information, see the <a href="http://www.passportjs.org/docs/" target="_blank">passport docs <img src="../icons/launch-glyph.svg" alt="External link icon"></a>.
+6. Configure passport with serialization and deserialization. This configuration step is required for authenticated session persistence across HTTP requests. For more information, see the [passport docs](http://www.passportjs.org/docs/){: external}.
 
    ```javascript
    passport.serializeUser(function(user, cb) {
@@ -202,22 +202,21 @@ Check out the following video to learn about protecting Node applications with {
    ```
    {: codeblock}
 
-5. Add the following code to your `server.js` file to issue the service redirects.
+7. Add the following code to your `server.js` file to issue the service redirects.
 
    ```javascript
    app.get(CALLBACK_URL, passport.authenticate(WebAppStrategy.STRATEGY_NAME));
    ```
    {: codeblock}
 
-6. Register your protected endpoint by adding the following code snippet into your `app.js` file.
+8. Register your protected endpoint by adding the following code snippet into your `app.js` file.
 
    ```javascript
    app.get(‘/protected_resource’, passport.authenticate(WebAppStrategy.STRATEGY_NAME), function(req, res) {res.json(req.user); });
    ```
    {: codeblock}
 
-For more information, see the <a href="https://github.com/ibm-cloud-security/appid-serversdk-nodejs" target="_blank">{{site.data.keyword.appid_short_notm}} Node.js GitHub repository <img src="../icons/launch-glyph.svg" alt="External link icon"></a>.
-
+For more information, see the [{{site.data.keyword.appid_short_notm}} Node.js GitHub repository](https://github.com/ibm-cloud-security/appid-serversdk-nodejs){: external}.
 
 
 ## Configuring the Liberty for Java SDK
@@ -264,7 +263,7 @@ Check out the following video to learn about protecting Liberty for Java applica
    * By making a POST request to the [`/management/v4/{tenantId}/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Applications/registerApplication){: external}.
 
       Request format:
-      ```
+      ```sh
       curl -X POST \  https://us-south.appid.cloud.ibm.com/management/v4/39a37f57-a227-4bfe-a044-93b6e6060b61/applications/ \
       -H 'Content-Type: application/json' \
       -H 'Authorization: Bearer IAM_TOKEN' \
@@ -273,7 +272,7 @@ Check out the following video to learn about protecting Liberty for Java applica
       {: codeblock}
 
       Example response:
-      ```
+      ```json
       {
       "clientId": "111c22c3-38ea-4de8-b5d4-338744d83b0f",
       "tenantId": "39a37f57-a227-4bfe-a044-93b6e6060b61",
@@ -362,7 +361,7 @@ By default SSL configuration requires the truststore be configured for OpenID Co
 {: #web-configuring-spring-boot}
 
 You can configure {{site.data.keyword.appid_short_notm}} to work with your Spring Boot applications.
-{:shortdesc}
+{: shortdesc}
 
 ### Before you begin
 {: #web-configure-spring-boot-before}
@@ -458,7 +457,7 @@ You must have the following prerequisites:
    * By making a POST request to the [`/management/v4/{tenantId}/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Applications/registerApplication).
 
       Request format:
-      ```
+      ```sh
       curl -X POST \  https://us-south.appid.cloud.ibm.com/management/v4/39a37f57-a227-4bfe-a044-93b6e6060b61/applications/ \
       -H 'Content-Type: application/json' \
       -H 'Authorization: Bearer IAM_TOKEN' \
@@ -467,7 +466,7 @@ You must have the following prerequisites:
       {: codeblock}
 
       Example response:
-      ```
+      ```json
       {
       "clientId": "111c22c3-38ea-4de8-b5d4-338744d83b0f",
       "tenantId": "39a37f57-a227-4bfe-a044-93b6e6060b61",
@@ -480,7 +479,7 @@ You must have the following prerequisites:
 
 2. Add an `application.yml` configuration file to the `/springbootsample/src/main/resources/` directory. You can complete your configuration with the information from your service credentials.
 
-   ```
+   ```sh
    security:
    oauth2:
       client:
@@ -493,13 +492,13 @@ You must have the following prerequisites:
    ```
    {: codeblock}
 
-For a step-by-step example, check out <a href="https://www.ibm.com/cloud/blog/creating-spring-boot-applications-app-id" target="_blank">this blog</a>!
+For a step-by-step example, check out [this blog](https://www.ibm.com/cloud/blog/creating-spring-boot-applications-app-id){: external!
 
 
 ## Using {{site.data.keyword.appid_short_notm}} with other languages
 {: #web-other-languages}
 
-With an OIDC-compliant client SDK, you can use {{site.data.keyword.appid_short_notm}} with other languages. Check out the list of <a href="https://openid.net/developers/certified/">certified libraries</a> for more information.
+With an OIDC-compliant client SDK, you can use {{site.data.keyword.appid_short_notm}} with other languages. Check out the list of [certified libraries](https://openid.net/developers/certified/){: external} for more information.
 
 ## Next steps
 {: #web-next}

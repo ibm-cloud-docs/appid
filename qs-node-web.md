@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-09-29"
+lastupdated: "2021-10-11"
 
 keywords: web apps, nodejs, node, javascript, protected resource, authorization flow, front end, frontend, app security, authentication
 
@@ -117,9 +117,9 @@ A redirect URI is the callback endpoint of your app. During the sign in flow, {{
 
 You can obtain your credentials in one of two ways.
 
-   * By navigating to the **Applications** tab of the {{site.data.keyword.appid_short_notm}} dashboard. If you don't already have one, you can click **Add application** to create a new one.
+* By navigating to the **Applications** tab of the {{site.data.keyword.appid_short_notm}} dashboard. If you don't already have one, you can click **Add application** to create a new one.
 
-   * By making a POST request to the [`/management/v4/{tenantId}/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Applications/registerApplication).
+* By making a POST request to the [`/management/v4/{tenantId}/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Applications/registerApplication).
 
       Request format:
       ```sh
@@ -151,8 +151,6 @@ You can obtain your credentials in one of two ways.
 {: step}
 
 The easiest way to work with {{site.data.keyword.appid_short_notm}} is to take advantage of the Node.JS SDK.
-
-
 
 1. By using the command line, change into the directory that contains your Node.js application.
 
@@ -205,7 +203,7 @@ The easiest way to work with {{site.data.keyword.appid_short_notm}} is to take a
    ```
    {: codeblock}
 
-   You must configure the middleware with the proper session storage for production environments. For more information see the <a href="https://github.com/expressjs/session" target="_blank"> express.js docs<img src="../icons/launch-glyph.svg" alt="External link icon"></a>.
+   You must configure the middleware with the proper session storage for production environments. For more information see the [express.js docs](https://github.com/expressjs/session){: external}.
    {: note}
 
 
@@ -217,7 +215,10 @@ Now that you have {{site.data.keyword.appid_short_notm}} installed, you're ready
 
 
 
-1. Configure the callback endpoint. The callback finishes the authorization process by retrieving access and identity tokens from App ID and redirecting the user to one of the following locations:<ul><li>The original URL of the request that triggered the authentication, as persisted in the HTTP session as `WebAppStrategy.ORIGINAL_URL`.</li><li>Specifying a redirect in the event of a successful authentication.</li><li>The application root (`/`) as shown in the next step.</li></ul>
+1. Configure the callback endpoint. The callback finishes the authorization process by retrieving access and identity tokens from App ID and redirecting the user to one of the following locations:
+   * The original URL of the request that triggered the authentication, as persisted in the HTTP session as `WebAppStrategy.ORIGINAL_URL`.
+   * Specifying a redirect in the event of a successful authentication.
+   * The application root (`/`) as shown in the next step.
 
    ```javascript
    app.get(CALLBACK_URL, passport.authenticate(WebAppStrategy.STRATEGY_NAME));
@@ -252,6 +253,7 @@ You can pull information that is provided by your identity providers to personal
    {: codeblock}
 
    For example, in the sample application you can see how to obtain the users name to personalize your application.
+
    ```javascript
    app.get('/api/user', (req, res) => {
       // console.log(req.session[WebAppStrategy.AUTH_CONTEXT]);

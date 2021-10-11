@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-09-28"
+lastupdated: "2021-10-11"
 
 keywords: user access, control access, permissions, roles, scopes, runtime, access token, authentication, identity, app security
 
@@ -157,7 +157,7 @@ A role is a group of scopes that apply to the same type of user. For example, if
 3. Give the role a name and description.
 4. By using the scopes that you created in the previous section, assign the scopes to a role by using the following format. Click the **+** to add the scope.
 
-   ```
+   ```sh
    {app_name}/{scope}
    ```
    {: screen}
@@ -191,7 +191,7 @@ A role is a group of scopes that apply to the same type of user. For example, if
    | `role_description` | A short phrase that describes what your role is meant to do. | 
    | `application_ID` | The unique identifier for your application. You can find this value in the credentials for your app as they're listed in **Applications**. |
    | `scopes` | A JSON object of all of the scopes that you want to apply to a role. For example,
-   ```
+   ```sh
          {
            "scopes": [
              "create",
@@ -272,7 +272,6 @@ After you create roles, you can assign them to your user's profile. You can also
 
 After you create roles, you can assign them to your user's profile. You can also assign roles when you create a future user.
 
-
 1. Get your user ID by searching your {{site.data.keyword.appid_short_notm}} users with an identifying query, such as an email address.
 
    ```sh
@@ -307,6 +306,7 @@ After you create roles, you can assign them to your user's profile. You can also
 
 To remove a role from a user, make the PUT request again, but remove the role ID.
 {: tip}
+
 
 ## Adding user roles to tokens
 {: #role-tokens}
@@ -481,6 +481,7 @@ If you no longer have a need for a specific role, you can delete it by using the
 
 Deleting a role removes access from all of the users and applications that are currently using the role.
 {: note}
+
 
 1. Get the role ID or role name. If you already know your role ID or name, skip to the next step.
 

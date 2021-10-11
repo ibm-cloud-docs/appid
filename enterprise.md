@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-09-29"
+lastupdated: "2021-10-11"
 
 keywords: saml, enterprise apps, assertions, single sign on, tokens, authorization, user authentication, key cloak, redhat, cloud identity, sso, single sign on, xml signature, service provider, identity provider, app security
 
@@ -105,10 +105,10 @@ When the SAML assertion is returned to {{site.data.keyword.appid_short_notm}}, t
 
 The standard OIDC claims that {{site.data.keyword.appid_short_notm}} attempts to map to your assertion: 
 
- * `name`
- * `email`
- * `locale`
- * `picture`
+* `name`
+* `email`
+* `locale`
+* `picture`
 
 If one or more of those values change on the identity provider's side, the new values are available after the user logs in again.
 {: note}
@@ -119,7 +119,7 @@ If one or more of those values change on the identity provider's side, the new v
 
 The service expects a SAML assertion to look like the following example.
 
-```
+```sh
 <samlp:Response xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol" ID="s2202bbbbafa9d270d1c15990b738f4ab36139d463" InResponseTo="_e4a78780-35da-012e-8ea7-0050569200d8" Version="2.0" IssueInstant="2011-03-21T11:22:02Z" Destination="https://example.example.com/">
   <saml:Issuer xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion">idp_entityId</saml:Issuer>
   <samlp:Status xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">

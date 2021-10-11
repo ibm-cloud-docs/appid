@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-09-28"
+lastupdated: "2021-10-11"
 
 keywords: password policies, password strength, advanced, sign in, lock out, reset password, email, expiration, credentials, password reuse, wrong credentials, secure apps, registry, cloud directory, regex
 
@@ -195,6 +195,7 @@ To set this configuration by using the GUI:
 
 When this option is first set to on, any existing user passwords do not have an expiration date. To ensure that all of your users are limited by the password rotation policy, you might encourage users to update their password after you configure this feature.
 {: note}
+
 
 #### Custom sign-in experience
 {: #cd-custom-sign-in}

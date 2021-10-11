@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-09-29"
+lastupdated: "2021-10-11"
 
 keywords: user information, tokens, custom tokens, secure resources, authorization, identity, authentication, claims, oauth, claims mapping, attributes, app security, access, runtime
 
@@ -138,7 +138,7 @@ If you want to configure the lifespan of your token, you can quickly make the ch
 
 1. In terminal, run the following command to obtain an API key.
 
-   ```
+   ```sh
    ibmcloud iam api-key-create NAME [-d DESCRIPTION] [-f, --file FILE]
    ```
    {: codeblock}
@@ -152,7 +152,7 @@ If you want to configure the lifespan of your token, you can quickly make the ch
 
 2. Obtain an IAM token by using the API key that you got in the previous step.
 
-   ```
+   ```sh
    curl -k -X POST "https://iam.cloud.ibm.com/identity/token" \
    --header "Content-Type: application/x-www-form-urlencoded" \
    --header "Accept: application/json" \
@@ -214,7 +214,7 @@ If you want to configure the lifespan of your token, you can quickly make the ch
 
 5. After the token is returned and you [decode](/docs/appid?topic=appid-token-validation) it, you see a result similar to the following example:
 
-   ```
+   ```json
    {
       "sub" : "1234567890",
       "name" : "John Doe",

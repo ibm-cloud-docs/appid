@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-09-28"
+lastupdated: "2021-10-11"
 
 keywords: emails, verification, templates, sendgrid, welcome, password reset, password change, change details, verification, supported languages, registry, cloud directory, 
 
@@ -153,7 +153,7 @@ You can use the service dashboard to configure your custom provider.
 
 6. Click **Test** to try your configuration with a test email.
 
-6. Click **Save** to enable your configuration.
+7. Click **Save** to enable your configuration.
 
 
 #### Configuring a custom provider with the API

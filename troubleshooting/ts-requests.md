@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-05-24"
+lastupdated: "2021-10-11"
 
 keywords: help, support, error, multiple users, attribute, ticket, identity provider, redirect uri, custom url, virtual user, idp, identity settings, user profile
 
@@ -52,12 +52,12 @@ content-type: troubleshoot
 {: support}
 
 You receive an error about too many requests. 
-{:shortdesc}
+{: shortdesc}
 
 You attempt to view the home page of your app but receive the following error:
 {: tsSymptoms}
 
-```
+```sh
 {"error_code":"too many requests","error_description":"too many requests"}
 ```
 {: screen}

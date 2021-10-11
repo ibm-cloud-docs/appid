@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-09-29"
+lastupdated: "2021-10-11"
 
 keywords: single page application, SPA, single-page, angular, react, native apps, javascript, js, sdk, authentication, authorization, identity, app security, secure, protocols, oauth, oidc,
 
@@ -80,9 +80,9 @@ Due to their nature, single-page applications are unable to store secrets secure
 
 Although the Implicit flow is the current industry standard, there are several security flaws that can be found. For example, the Implicit flow uses redirect URIs to obtain tokens, which the Authorization + PKCE flow circumvents by using an XHR request instead. Because of the security flaws, the Implicit flow is no longer recommended or considered safe due to the following reasons:
 
-   * The Implicit flow returns tokens as part of the URL - as a query param or in the hash fragment. By doing so, the tokens can be intercepted and tokens can be accessed. The tokens might be saved in a user's browser history or logs. The history or logs might be stored in a cloud service and sent to multiple devices, which also heightens the risk.
+* The Implicit flow returns tokens as part of the URL - as a query param or in the hash fragment. By doing so, the tokens can be intercepted and tokens can be accessed. The tokens might be saved in a user's browser history or logs. The history or logs might be stored in a cloud service and sent to multiple devices, which also heightens the risk.
 
-   * The Implicit flow is susceptible to a [redirect URI attack](https://datatracker.ietf.org/doc/html/rfc6749){: external}, which means that an attacker might replace an approved redirect URI with a destination of their choice. If there is a redirect URI attack, users follow the changed link to authorize their client. After authorization, they are redirected to the attackers URI, which gives the attacker access to the user's legitimate tokens. 
+* The Implicit flow is susceptible to a [redirect URI attack](https://datatracker.ietf.org/doc/html/rfc6749){: external}, which means that an attacker might replace an approved redirect URI with a destination of their choice. If there is a redirect URI attack, users follow the changed link to authorize their client. After authorization, they are redirected to the attackers URI, which gives the attacker access to the user's legitimate tokens. 
 
 The previous examples are just a few of the important issues. For more information, see [OAuth 2.0 security best current practice](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics-13.){: external}.
 {: note}
@@ -94,9 +94,9 @@ The previous examples are just a few of the important issues. For more informati
 
 Before you get started, be sure that you have the following prerequisites. 
 
-   * An instance of the {{site.data.keyword.appid_short_notm}} service.
-   * Your [redirect URIs](/docs/appid?topic=appid-managing-idp#add-redirect-uri) set in the {{site.data.keyword.appid_short_notm}} service dashboard.
-   * A single-page application. If you don't have one and you want to try out the flow, try downloading the sample application from the overview page of the {{site.data.keyword.appid_short_notm}} dashboard.
+* An instance of the {{site.data.keyword.appid_short_notm}} service.
+* Your [redirect URIs](/docs/appid?topic=appid-managing-idp#add-redirect-uri) set in the {{site.data.keyword.appid_short_notm}} service dashboard.
+* A single-page application. If you don't have one and you want to try out the flow, try downloading the sample application from the overview page of the {{site.data.keyword.appid_short_notm}} dashboard.
 
 
 ## Creating application credentials with the GUI
@@ -159,21 +159,21 @@ To install the SDK in your application, use the following steps as a guide.
 
    * To use NPM, run the following command.
 
-      ```
+      ```sh
       npm install ibmcloud-appid-js
       ```
       {: codeblock}
 
    * To add the CDN, add the following link to your main HTML file.
       
-      ```
+      ```sh
       <script src="https://cdn.appid.cloud.ibm.com/appid-0.3.0.min.js"></script>
       ```
       {: codeblock}
 
 3. Add your client ID and discovery endpoint to your app to initialize the SDK.
 
-   ```
+   ```sh
    const appID = new AppID();
    await appID.init({
       clientId: '{SPA_CLIENT_ID}',
@@ -184,7 +184,7 @@ To install the SDK in your application, use the following steps as a guide.
 
 4. In your application code, after your login button configuration, add a call to `signin`. A pop-up window opens where a user is prompted to enter their credentials. After a successful authentication, the screen closes and they are authenticated.
 
-   ```
+   ```sh
    const tokens = await appID.signin();
    ```
    {: codeblock}
@@ -203,7 +203,7 @@ Refresh tokens are not returned in the SPA flow.
 3. Click **Save**.
 4. Add the following code to your application. Be sure to configure your application to show the login button if silent login fails.
   
-   ```
+   ```sh
    const tokens = await appID.silentSignin();
    if (!tokens) {
       document.getElementById('login').addEventListener('click', async () => {

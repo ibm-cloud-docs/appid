@@ -2,7 +2,7 @@
 
 copyright:
 years: 2017, 2021
-lastupdated: "2021-09-29"
+lastupdated: "2021-10-11"
 
 keywords: single sign on, cloud directory, saml, app security, application identity
 
@@ -139,7 +139,7 @@ When one of the flows related to changing, resetting, or renewing a password is 
 
 To sign out a user, redirect their browser by using your information to complete the following API call.
 
-```
+```sh
 https://{region}.appid.cloud.ibm.com/oauth/v4/{tenant-id}/cloud_directory/sso/logout?redirect_uri={redirect_uri}&client_id={clientId}
 ```
 {: codeblock}
@@ -163,7 +163,7 @@ You can also use the {{site.data.keyword.appid_short_notm}} Node.js server SDK t
 
 1. Set `logoutSSO` as a method. For example:
 
-   ```
+   ```sh
    let webAppStrategy = new WebAppStrategy(.....);
    ....
    webAppStrategy.logoutSSO();
@@ -188,7 +188,7 @@ As an administrator, you can end all SSO sessions for any user by using the {{si
 
 Example API request:
 
-```
+```sh
 POST https://{region}.appid.cloud.ibm.com/management/v4/{tenant-id}/cloud_directory/Users/{user-id}/sso/logout
 Headers:
 Authorization: Bearer {IAM_token}

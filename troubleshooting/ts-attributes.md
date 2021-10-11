@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-05-24"
+lastupdated: "2021-10-11"
 
 keywords: help, support, error, multiple users, attribute, ticket, identity provider, redirect uri, custom url, virtual user, idp, identity settings, user profile
 
@@ -61,6 +61,7 @@ The user profile attribute is not mapped correctly.
 
 Map the attribute in your identity provider settings. {{site.data.keyword.appid_short_notm}} expects the following attributes:
 {: tsResolve}
+
 * `name`
 * `email`
 * `locale`

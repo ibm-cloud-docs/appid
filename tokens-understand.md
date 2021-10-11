@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-09-29"
+lastupdated: "2021-10-11"
 
 keywords: tokens, refresh token, access token, identity token, configuration, authorization, authentication, app security, access, identity, refresh
 
@@ -163,7 +163,7 @@ The tokens are received by your app after a successful authentication. You app c
 
 Example request:
 
-   ```
+   ```sh
    GET /resource HTTP/1.1
    Host: server.example.com
    Authorization: Bearer  mF_9.B5f-4.1JqM mF_9.B5f-4.1JqM
