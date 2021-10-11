@@ -109,9 +109,9 @@ Check out the following video to learn about protecting back-end Node applicatio
 {: #backend-secure-before}
 
 Before you get started with the Node.js SDK, you must have the following prerequisites.
-  * An instance of {{site.data.keyword.appid_short_notm}}
-  * NPM version 4 or higher
-  * Node version 6 or higher
+* An instance of {{site.data.keyword.appid_short_notm}}
+* NPM version 4 or higher
+* Node version 6 or higher
 
 ### Installing the Node.js SDK
 {: #backend-secure-install}

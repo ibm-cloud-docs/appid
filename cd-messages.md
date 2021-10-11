@@ -138,9 +138,7 @@ You can use the service dashboard to configure your custom provider.
 4. Select an **Authorization type**. You can choose from the following options:
 
    * **None**: The webhook endpoint or URL, does not require an authorization header.
-
    * **Basic**: The webhook endpoint requires an HTTP authorization header with every request in the form of a username and password.
-
    * **Authorization headers**: The webhook request requires that you pass the authorization information for your endpoint in an HTTP authorization. For example, you might pass an OAuth 2.0 token: `Authorization: Bearer eyJraWQiOiIyMDIwMDEyNTE2MzMiLCJhbGciOiJSUzI1NiJ9.eyJpYW1faWQiOiJJ`.
 
 5. Configure your **Sender details**.
@@ -161,8 +159,9 @@ You can use the service dashboard to configure your custom provider.
 
 You can use the Cloud Directory [management APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.set_cloud_directory_email_dispatcher){: external} to configure your custom email sender.
 
-To see an example, check out the blog <a href="https://www.ibm.com/cloud/blog/use-ibm-cloud-app-id-and-your-email-provider-to-brand-mails-sent-to-app-users" target="_blank">Using your own provider for mail that is sent with {{site.data.keyword.appid_short_notm}}</a>.
+To see an example, check out the blog [Using your own provider for mail that is sent with {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/use-ibm-cloud-app-id-and-your-email-provider-to-brand-mails-sent-to-app-users){: external}.
 {: tip}
+
 
 1. Configure an extension point that can listen for a POST request. The endpoint must be able to:
    * Read the payload that comes from {{site.data.keyword.appid_short_notm}}.
@@ -256,8 +255,7 @@ To see an example, check out the blog <a href="https://www.ibm.com/cloud/blog/us
    ```
    {: codeblock}
 
-3. Verify that your configuration is correctly set up by testing your email dispatcher. Use the <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/post_email_dispatcher_test" target="_blank">test API</a> to trigger a request to your configured custom email sender.
-
+3. Verify that your configuration is correctly set up by testing your email dispatcher. Use the [test API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/post_email_dispatcher_test){: external} to trigger a request to your configured custom email sender.
 
 
 ## Email templates
@@ -345,7 +343,7 @@ When a user interacts with your app, they might forget their password or need to
 
 2. Set **Forgot password email** to **Enabled**.
 
-3. Customize the content of your message. You can add parameters and insert images by using the UI. To change the [language](/docs/appid?topic=appid-cd-types#cd-languages) of the message, you can use <a href="https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization" target="_blank">the APIs <img src="../../icons/launch-glyph.svg" alt="External link icon"></a> to set the language. However, you are responsible for the content and conversion of the message. Check out the following table to see the different parameters that you can use in your message. If a user does not supply the information that is pulled by the parameter, it appears blank.
+3. Customize the content of your message. You can add parameters and insert images by using the UI. To change the [language](/docs/appid?topic=appid-cd-types#cd-languages) of the message, you can use [the APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization){: external} to set the language. However, you are responsible for the content and conversion of the message. Check out the following table to see the different parameters that you can use in your message. If a user does not supply the information that is pulled by the parameter, it appears blank.
 
    | Parameter | Description |
    | --------- | ----------- |

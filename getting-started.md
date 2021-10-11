@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-09-29"
+lastupdated: "2021-10-11"
 
 keywords: getting started tutorial, getting started, App ID, sample app, authentication, sign in flow, authorization, app security, identity
 
@@ -60,7 +60,7 @@ By requiring users to sign in to your app, you can store user data such as app p
 
 We’d love to hear from you with feedback and questions!
 
-* If you have technical questions about {{site.data.keyword.appid_short_notm}}, post your question on <a href="https://stackoverflow.com" target="_blank">Stack Overflow <img src="../icons/launch-glyph.svg" alt="External link icon"></a> and tag your question with `ibm-appid`.
+* If you have technical questions about {{site.data.keyword.appid_short_notm}}, post your question on [Stack Overflow](https://stackoverflow.com){: external} and tag your question with `ibm-appid`.
 * Reach out directly to the development team on [Slack](https://www.ibm.com/cloud/blog/announcements/get-help-with-ibm-cloud-app-id-related-questions-on-slack){: external}! 
 
 Getting started? Try walking through our [video tutorials](https://www.youtube.com/playlist?list=PLzpeuWUENMK2tmzSRRx7W_mplw1x4h7ch){: external}. 
@@ -96,6 +96,8 @@ To build a sample app:
 2. Click on the language of your choice to download the sample.
    Don't see the language you're looking for? Don't worry! You can take advantage of {{site.data.keyword.appid_short_notm}} through the APIs.
    {: tip}
+
+   
 3. Be sure that you have the prerequisites installed or completed.
 4. Follow the **Build & Run** steps to set up your sample with {{site.data.keyword.appid_short_notm}}.
 5. Click **Review Activity** to see any authentication events that occurred. Any type of sign in creates an event that is visible on this page.
