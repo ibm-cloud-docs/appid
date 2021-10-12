@@ -104,7 +104,7 @@ As a security or compliance focal, you can use the {{site.data.keyword.complianc
 
 | Resource kind | Property | Operator | Value | Description |
 |---------------|----------|---------------|-------|-------------|
-| instance | capture_runtime_activity |  is_true <br> is_false | - | Enables or disables runtime activity capture. |
+| instance | capture_runtime_activity |  is_true <br> is_false | - | Enables or disables the monitoring of runtime activity made by app users. |
 {: caption="Table 1. Rule properties for {{site.data.keyword.appid_short_notm}}" caption-side="bottom"}
 
 To learn more about config rules, check out [What is a config rule?](/docs/security-compliance?topic=security-compliance-what-is-rule).
