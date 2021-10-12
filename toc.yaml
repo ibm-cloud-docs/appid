@@ -20,7 +20,8 @@ toc:
           topics: 
           - authorization.md
           - tokens-understand.md
-      - releases.md
+      - topic: releases.md
+        navtitle: Release notes
 
   - navgroup: 
       id: tutorial

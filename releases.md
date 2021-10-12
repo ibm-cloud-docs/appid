@@ -50,6 +50,13 @@ content-type: release-note
 # Release notes for {{site.data.keyword.appid_short_notm}}
 {: #release-notes}
 
+## 17 March 2017
+{: #subcollection-march2017}
+{: release-note}
+
+Introducing {{site.data.keyword.appid_short_notm}}
+:   IBM Cloud App ID allows you to easily add authentication to web and mobile apps. You no longer have to worry about setting up infrastructure for identity, ensuring geo-availability, and confirming compliance regulations. Instead, you can enhance your apps with advanced security capabilities like multifactor authentication and single sign-on.
+
 The following features and changes to the {{site.data.keyword.appid_short_notm}} service are now available.
 
 ## 27 September 2021
