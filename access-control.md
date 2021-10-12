@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-10-11"
+lastupdated: "2021-10-12"
 
 keywords: user access, control access, permissions, roles, scopes, runtime, access token, authentication, identity, app security
 
@@ -124,7 +124,7 @@ To create a scope, you can use the {{site.data.keyword.appid_short_notm}} UI.
    | `tenant_ID` | The unique identifier for your instance of {{site.data.keyword.appid_short_notm}}. You can find this value in the credentials for your app as they're listed in the **Applications** tab of the service dashboard. |
    | `client_ID` | The unique identifier for your application. You can find this value in the credentials for your app as they're listed in your **Applications** in the service dashboard. |
    | `scopes_object` | A JSON object of all of the scopes that you want to create for your application. For example, 
-      ```
+      ```json
          {
            "scopes": [
              "read",
@@ -360,8 +360,6 @@ Application roles are only valid in the client credentials flow.
 
 To remove a role from a user, make the PUT request again, but remove the role ID.
 {: tip}
-
-
 
 
 

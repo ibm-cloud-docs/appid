@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-05-24"
+lastupdated: "2021-10-12"
 
 keywords: security for {{site.data.keyword.appid_short_notm}}, compliance for {{site.data.keyword.appid_short_notm}}, security and compliance for {{site.data.keyword.appid_short_notm}}, rules for {{site.data.keyword.appid_short_notm}}, 
 
@@ -93,3 +93,18 @@ To start monitoring your resources, check out [Getting started with {{site.data.
 * Check whether {{site.data.keyword.appid_short_notm}} customer-provided email service is used
 * Check whether {{site.data.keyword.appid_short_notm}} multifactor authentication (MFA) is enabled for Cloud Directory users
 * Check whether {{site.data.keyword.appid_short_notm}} access tokens are configured to expire within # minutes
+
+
+## Governing {{site.data.keyword.appid_short_notm}} resource configuration
+{: #govern-appid}
+
+As a security or compliance focal, you can use the {{site.data.keyword.compliance_short}} to define configuration rules for the instances of {{site.data.keyword.appid_short_notm}} that you create.
+
+[Config rules](#x3084914){: term} are used to enforce the configuration standards that you want to implement across your accounts. To learn more about the about the data that you can use to create a rule for {{site.data.keyword.appid_short_notm}}, review the following table.
+
+| Resource kind | Property | Operator | Value | Description |
+|---------------|----------|---------------|-------|-------------|
+| instance | capture_runtime_activity |  is_true <br> is_false | - | Enables or disables runtime activity capture. |
+{: caption="Table 1. Rule properties for {{site.data.keyword.appid_short_notm}}" caption-side="bottom"}
+
+To learn more about config rules, check out [What is a config rule?](/docs/security-compliance?topic=security-compliance-what-is-rule).
