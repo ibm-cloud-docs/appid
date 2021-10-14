@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-10-12"
+lastupdated: "2021-10-14"
 
 keywords: release notes, new, spa, single sign on, mfa, cloud directory, saml, app security, application identity
 
@@ -51,30 +51,28 @@ content-type: release-note
 {: #release-notes}
 
 ## 17 March 2017
-{: #subcollection-march2017}
+{: #subcollection-march1717}
 {: release-note}
 
 Introducing {{site.data.keyword.appid_short_notm}}
 :   IBM Cloud App ID allows you to easily add authentication to web and mobile apps. You no longer have to worry about setting up infrastructure for identity, ensuring geo-availability, and confirming compliance regulations. Instead, you can enhance your apps with advanced security capabilities like multifactor authentication and single sign-on.
 
-The following features and changes to the {{site.data.keyword.appid_short_notm}} service are now available.
-
 ## 27 September 2021
-{: #subcollection-sept2021}
+{: #subcollection-sept2721}
 {: release-note}
 
 New region availability
 :   As of 27 September 2021, {{site.data.keyword.appid_short_notm}} is now available in the Sao Paulo region. For a detailed list of the regions in which the service is available, see [Regions and endpoints](/docs/appid?topic=appid-regions-endpoints).
 
 ## 12 July 2021
-{: #subcollection-jul2021}
+{: #subcollection-jul1221}
 {: release-note}
 
 New region availability
 :   As of 12 July 2021, {{site.data.keyword.appid_short_notm}} is now available in the Toronto and Osaka regions. For a detailed list of the regions in which the service is available, see [Regions and endpoints](/docs/appid?topic=appid-regions-endpoints).
 
 ## 21 February 2021
-{: #subcollection-feb2021}
+{: #subcollection-feb2121}
 {: release-note}
 
 Kubernetes Ingress annotation
@@ -88,14 +86,14 @@ App to app access control
 :   You can now control which actions that an application is able to perform in your apps by using role-based app-to-app access control. For more information, see the [access control docs](/docs/appid?topic=appid-access-control).
 
 ## 18 June 2020
-{: #subcollection-jun2020}
+{: #subcollection-jun1820}
 {: release-note}
 
 Securing your data in {{site.data.keyword.appid_short_notm}}
 :   You can now restore deleted instances of {{site.data.keyword.appid_short_notm}} during the data retention period. [Learn more](/docs/appid?topic=appid-mng-data).
 
 ## 27 January 2020
-{: #subcollection-jan2020}
+{: #subcollection-jan2720}
 {: release-note}
 
 Cloud Directory: Connect your own email provider
@@ -111,7 +109,7 @@ Pre-MFA extensions
 :   You can now create pre-MFA extensions that allow you to make custom decisions at runtime about which users must complete your MFA flow. For more information, see the [extending MFA docs](/docs/appid?topic=appid-cd-mfa#cd-mfa-extensions).
 
 ## 15 December 2019
-{: #subcollection-dec2019}
+{: #subcollection-dec1519}
 {: release-note}
 
 Access control
@@ -122,21 +120,21 @@ Cloud Directory: Custom MFA flows
 
 
 ## 22 November 2019
-{: #subcollection-nov2019}
+{: #subcollection-nov2219}
 {: release-note}
 
 Single-page applications: SDK
 :   Don't manage a backend for your app? You can now easily secure your browser applications by using the JavaScript SDK. For more information, see the [SPA docs](/docs/appid?topic=appid-single-page).
 
 ## 12 September 2019
-{: #subcollection-sept2019}
+{: #subcollection-sept1219}
 {: release-note}
 
 Increase the security of your SAML flow
 :   You can now increase the security of your SAML work flows by enabling request signing and response encryption. For more information, see [SAML](/docs/appid?topic=appid-enterprise).
 
 ## 08 August 2019
-{: #subcollection-aug2019}
+{: #subcollection-aug0819}
 {: release-note}
 
 Track runtime authentication events with {{site.data.keyword.at_short}}
@@ -146,7 +144,7 @@ Edit user profile information directly in the dashboard
 :   You can now update profiles for users of your application through the {{site.data.keyword.appid_short_notm}} dashboard. Then, you can use that information to personalize their experience of your app. For more information, see [user profiles](/docs/appid?topic=appid-profiles).
 
 ## 30 July 2019
-{: #subcollection-jul2019}
+{: #subcollection-jul3019}
 {: release-note}
 
 Create future user profiles through the dashboard
@@ -165,14 +163,14 @@ Cloud Directory: Automatically associate users with a profile
 :   Automatically associate Cloud Directory users with an {{site.data.keyword.appid_short_notm}} profile as you create them. For more information, see [Adding and deleting users](/docs/appid?topic=appid-cd-users#delete-users).
 
 ## 18 May 2019
-{: #subcollection-may2019}
+{: #subcollection-may1819}
 {: release-note}
 
 Cloud Directory: View user information
 :   View information about your Cloud Directory users that you can leverage to build personalized app experiences. For more information, see [Viewing user information](/docs/appid?topic=appid-cd-users#cd-user-info).
 
 ## 24 April 2019
-{: #subcollection-april2019}
+{: #subcollection-april2419}
 {: release-note}
 
 Version 4 of the runtime APIs
@@ -184,15 +182,15 @@ Cloud Directory: Single sign-on
 Updated dashboard
 :   Navigate through your Cloud Directory information quickly! Using [IBM Design Thinking](https://www.ibm.com/design/thinking/){: external}, the {{site.data.keyword.appid_short_notm}} dashboard has been redesigned to give you an even better user experience.
 
-### 07 February 2019
-{: #subcollection-feb2019}
+## 07 February 2019
+{: #subcollection-feb0719}
 {: release-note}
 
 Cloud Directory: Multi-factor authentication - SMS
 :   Require users to enter a second form of authentication during sign-in to increase the security of your app. With Cloud Directory, the first factor is the user's password that they would normally use. Then, the service sends the user a one-time code through SMS that the user must enter before they can gain access to your app. For more information, see [Multi-factor authentication](/docs/appid?topic=appid-cd-mfa).
 
 ## 11 December 2018
-{: #subcollection-dec2018}
+{: #subcollection-dec1118}
 {: release-note}
 
 Cloud Directory: Multi-factor authentication - Email
