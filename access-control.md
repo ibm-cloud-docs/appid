@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-10-12"
+lastupdated: "2021-10-15"
 
 keywords: user access, control access, permissions, roles, scopes, runtime, access token, authentication, identity, app security
 
@@ -291,12 +291,12 @@ After you create roles, you can assign them to your user's profile. You can also
 
 2. Optional: Get the role ID or role name. If you already know your role ID or name, skip to the next step.
 
-  ```sh
-  curl -X GET "https://{region}.appid.cloud.ibm.com/management/v4/{tenant_ID}/roles" \
-  -H "accept: application/json" \
-  -H "authorization: Bearer {token}"
-  ```
-  {: codeblock}
+   ```sh
+   curl -X GET "https://{region}.appid.cloud.ibm.com/management/v4/{tenant_ID}/roles" \
+   -H "accept: application/json" \
+   -H "authorization: Bearer {token}"
+   ```
+   {: codeblock}
 
 3. Make a request to the `/roles` endpoint that contains a JSON object of the roles that you want to assign.
 

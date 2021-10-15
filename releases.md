@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-10-14"
+lastupdated: "2021-10-15"
 
 keywords: release notes, new, spa, single sign on, mfa, cloud directory, saml, app security, application identity
 
@@ -49,13 +49,6 @@ content-type: release-note
 
 # Release notes for {{site.data.keyword.appid_short_notm}}
 {: #release-notes}
-
-## 17 March 2017
-{: #subcollection-march1717}
-{: release-note}
-
-Introducing {{site.data.keyword.appid_short_notm}}
-:   IBM Cloud App ID allows you to easily add authentication to web and mobile apps. You no longer have to worry about setting up infrastructure for identity, ensuring geo-availability, and confirming compliance regulations. Instead, you can enhance your apps with advanced security capabilities like multifactor authentication and single sign-on.
 
 ## 27 September 2021
 {: #subcollection-sept2721}
@@ -198,3 +191,10 @@ Cloud Directory: Multi-factor authentication - Email
 
 Cloud Directory: Password policies
 :   Further enforce app security by specifying rules that users must adhere to when they create the password that they use to sign in. For example, you can set an advanced policy that dictates the number of times a password must change before a user can reuse a previous password. Or, you can prevent users from creating a password that contains their username or email address. For more information, see [Defining password policies](/docs/appid?topic=appid-cd-strength).
+
+## 17 March 2017
+{: #subcollection-march1717}
+{: release-note}
+
+Introducing {{site.data.keyword.appid_short_notm}}
+:   IBM Cloud App ID allows you to easily add authentication to web and mobile apps. You no longer have to worry about setting up infrastructure for identity, ensuring geo-availability, and confirming compliance regulations. Instead, you can enhance your apps with advanced security capabilities like multifactor authentication and single sign-on.
