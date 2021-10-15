@@ -51,42 +51,42 @@ content-type: release-note
 {: #release-notes}
 
 ## 27 September 2021
-{: #subcollection-sept2721}
+{: #appid-sept2721}
 {: release-note}
 
 New region availability
 :   As of 27 September 2021, {{site.data.keyword.appid_short_notm}} is now available in the Sao Paulo region. For a detailed list of the regions in which the service is available, see [Regions and endpoints](/docs/appid?topic=appid-regions-endpoints).
 
 ## 12 July 2021
-{: #subcollection-jul1221}
+{: #appid-jul1221}
 {: release-note}
 
 New region availability
 :   As of 12 July 2021, {{site.data.keyword.appid_short_notm}} is now available in the Toronto and Osaka regions. For a detailed list of the regions in which the service is available, see [Regions and endpoints](/docs/appid?topic=appid-regions-endpoints).
 
 ## 21 February 2021
-{: #subcollection-feb2121}
+{: #appid-feb2121}
 {: release-note}
 
 Kubernetes Ingress annotation
 :   As of 21 February 2021, the custom Kubernetes Service Ingress image is [deprecated](/docs/containers?topic=containers-ingress-types). The {{site.data.keyword.appid_short_notm}} docs are now updated to include information for integrating with the community Kubernetes image. To get started, see [Containerized apps with Ingress](/docs/appid?topic=appid-kube-auth). For more detailed deployment information, see the [{{site.data.keyword.containershort_notm}} documentation](/docs/containers?topic=containers-comm-ingress-annotations#app-id).
 
 ## 20 November 2020
-{: #subcollection-nov2020}
+{: #appid-nov2020}
 {: release-note}
 
 App to app access control
 :   You can now control which actions that an application is able to perform in your apps by using role-based app-to-app access control. For more information, see the [access control docs](/docs/appid?topic=appid-access-control).
 
 ## 18 June 2020
-{: #subcollection-jun1820}
+{: #appid-jun1820}
 {: release-note}
 
 Securing your data in {{site.data.keyword.appid_short_notm}}
 :   You can now restore deleted instances of {{site.data.keyword.appid_short_notm}} during the data retention period. [Learn more](/docs/appid?topic=appid-mng-data).
 
 ## 27 January 2020
-{: #subcollection-jan2720}
+{: #appid-jan2720}
 {: release-note}
 
 Cloud Directory: Connect your own email provider
@@ -102,7 +102,7 @@ Pre-MFA extensions
 :   You can now create pre-MFA extensions that allow you to make custom decisions at runtime about which users must complete your MFA flow. For more information, see the [extending MFA docs](/docs/appid?topic=appid-cd-mfa#cd-mfa-extensions).
 
 ## 15 December 2019
-{: #subcollection-dec1519}
+{: #appid-dec1519}
 {: release-note}
 
 Access control
@@ -113,21 +113,21 @@ Cloud Directory: Custom MFA flows
 
 
 ## 22 November 2019
-{: #subcollection-nov2219}
+{: #appid-nov2219}
 {: release-note}
 
 Single-page applications: SDK
 :   Don't manage a backend for your app? You can now easily secure your browser applications by using the JavaScript SDK. For more information, see the [SPA docs](/docs/appid?topic=appid-single-page).
 
 ## 12 September 2019
-{: #subcollection-sept1219}
+{: #appid-sept1219}
 {: release-note}
 
 Increase the security of your SAML flow
 :   You can now increase the security of your SAML work flows by enabling request signing and response encryption. For more information, see [SAML](/docs/appid?topic=appid-enterprise).
 
 ## 08 August 2019
-{: #subcollection-aug0819}
+{: #appid-aug0819}
 {: release-note}
 
 Track runtime authentication events with {{site.data.keyword.at_short}}
@@ -137,7 +137,7 @@ Edit user profile information directly in the dashboard
 :   You can now update profiles for users of your application through the {{site.data.keyword.appid_short_notm}} dashboard. Then, you can use that information to personalize their experience of your app. For more information, see [user profiles](/docs/appid?topic=appid-profiles).
 
 ## 30 July 2019
-{: #subcollection-jul3019}
+{: #appid-jul3019}
 {: release-note}
 
 Create future user profiles through the dashboard
@@ -156,14 +156,14 @@ Cloud Directory: Automatically associate users with a profile
 :   Automatically associate Cloud Directory users with an {{site.data.keyword.appid_short_notm}} profile as you create them. For more information, see [Adding and deleting users](/docs/appid?topic=appid-cd-users#delete-users).
 
 ## 18 May 2019
-{: #subcollection-may1819}
+{: #appid-may1819}
 {: release-note}
 
 Cloud Directory: View user information
 :   View information about your Cloud Directory users that you can leverage to build personalized app experiences. For more information, see [Viewing user information](/docs/appid?topic=appid-cd-users#cd-user-info).
 
 ## 24 April 2019
-{: #subcollection-april2419}
+{: #appid-april2419}
 {: release-note}
 
 Version 4 of the runtime APIs
@@ -176,14 +176,14 @@ Updated dashboard
 :   Navigate through your Cloud Directory information quickly! Using [IBM Design Thinking](https://www.ibm.com/design/thinking/){: external}, the {{site.data.keyword.appid_short_notm}} dashboard has been redesigned to give you an even better user experience.
 
 ## 07 February 2019
-{: #subcollection-feb0719}
+{: #appid-feb0719}
 {: release-note}
 
 Cloud Directory: Multi-factor authentication - SMS
 :   Require users to enter a second form of authentication during sign-in to increase the security of your app. With Cloud Directory, the first factor is the user's password that they would normally use. Then, the service sends the user a one-time code through SMS that the user must enter before they can gain access to your app. For more information, see [Multi-factor authentication](/docs/appid?topic=appid-cd-mfa).
 
 ## 11 December 2018
-{: #subcollection-dec1118}
+{: #appid-dec1118}
 {: release-note}
 
 Cloud Directory: Multi-factor authentication - Email
@@ -193,7 +193,7 @@ Cloud Directory: Password policies
 :   Further enforce app security by specifying rules that users must adhere to when they create the password that they use to sign in. For example, you can set an advanced policy that dictates the number of times a password must change before a user can reuse a previous password. Or, you can prevent users from creating a password that contains their username or email address. For more information, see [Defining password policies](/docs/appid?topic=appid-cd-strength).
 
 ## 17 March 2017
-{: #subcollection-march1717}
+{: #appid-march1717}
 {: release-note}
 
 Introducing {{site.data.keyword.appid_short_notm}}
