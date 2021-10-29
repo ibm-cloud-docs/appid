@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-05-24"
+lastupdated: "2021-10-12"
 
 keywords: security for {{site.data.keyword.appid_short_notm}}, compliance for {{site.data.keyword.appid_short_notm}}, security and compliance for {{site.data.keyword.appid_short_notm}}, rules for {{site.data.keyword.appid_short_notm}}, 
 
@@ -43,6 +43,7 @@ subcollection: appid
 {:ui: .ph data-hd-interface='ui'}
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
+{:release-note: data-hd-content-type='release-note'}
 
 
 # Managing security and compliance with {{site.data.keyword.appid_short_notm}}
@@ -93,3 +94,6 @@ To start monitoring your resources, check out [Getting started with {{site.data.
 * Check whether {{site.data.keyword.appid_short_notm}} customer-provided email service is used
 * Check whether {{site.data.keyword.appid_short_notm}} multifactor authentication (MFA) is enabled for Cloud Directory users
 * Check whether {{site.data.keyword.appid_short_notm}} access tokens are configured to expire within # minutes
+
+
+

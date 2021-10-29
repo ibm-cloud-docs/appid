@@ -20,7 +20,8 @@ toc:
           topics: 
           - authorization.md
           - tokens-understand.md
-      - releases.md
+      - topic: releases.md
+        navtitle: Release notes
 
   - navgroup: 
       id: tutorial
@@ -30,8 +31,12 @@ toc:
       - topicgroup: 
           label: Quick start guides
           topics:
-          - qs-node-web.md
-          - qs-liberty-backend.md
+           - qs-node-web.md
+           - qs-liberty-backend.md
+      links:
+      - link:
+         label: Configuring serverless web app and eventing for data retrieval and analytics
+         href: https://cloud.ibm.com/docs/solution-tutorials?topic=solution-tutorials-serverless-github-traffic-analytics
 
   - navgroup: 
       id: howto
