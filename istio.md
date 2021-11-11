@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-10-12"
+lastupdated: "2021-11-11"
 
 keywords: Adapter, access management, identity token, helm chart, backend apps, kube, any kube, icp, openshift, iks, service mesh, access, app identity, kube secret, tokens, authenticated, app endpoints, authorization, multicloud, no code change, no redeploy, authorization policies, multiple providers
 
@@ -54,7 +54,7 @@ By using the App Identity and Access Adapter, you can centralize all of your ide
 The App Identity and Access Adapter is not currently supported.
 {: deprecated}
 
-Because enterprises use clouds from multiple providers or a combination of on and off-premise solutions, heterogeneous deployment models can help you to preserve existing infrastructure and avoid vendor lock-in. The Adapter can be configured to work with any OIDC-compliant identity provider, such as {{site.data.keyword.appid_short_notm}}, which enables it to control authentication and authorization policies in all environments including front end and backend applications. And, it does it all without any change to your code or the need to redeploy your application.
+Because enterprises use clouds from multiple providers or a combination of on and off-premise solutions, heterogeneous deployment models can help you to preserve existing infrastructure and avoid vendor lock-in. The Adapter can be configured to work with any OIDC-compliant identity provider, such as {{site.data.keyword.appid_short_notm}}.  The service enables the Adapter to control authentication and authorization policies in all environments, including front end and backend applications. And, it does it all without any change to your code or the need to redeploy your application.
 
 What can the App Identity and Access Adapter do for you? Check out the following video to learn more.
 
@@ -64,7 +64,7 @@ What can the App Identity and Access Adapter do for you? Check out the following
 ## Multicloud architecture
 {: #istio-multicloud}
 
-A multicloud computing environment combines multiple cloud and/ or private computing environments into a single network architecture. By distributing workloads across multiple environments, you might find improved resiliency, flexibility, and greater cost-efficiency. To achieve the benefits, it's common to use a container-based application with an orchestration layer, such as Kubernetes.
+A multicloud computing environment combines multiple cloud and / or private computing environments into a single network architecture. By distributing workloads across multiple environments, you might find improved resiliency, flexibility, and greater cost-efficiency. To achieve the benefits, it's common to use a container-based application with an orchestration layer, such as Kubernetes.
 
 ![App Identity and Access Adapter architecture diagram](images/istio-adapter.png){: caption="Figure 1. Multicloud deployment - achieved with the App Identity and Access Adapter" caption-side="bottom"}
 
@@ -73,7 +73,7 @@ A multicloud computing environment combines multiple cloud and/ or private compu
 ## Understanding Istio and the Adapter
 {: #istio-architecure}
 
-[Istio](https://istio.io) is an open source service mesh that layers transparently onto existing distributed applications that can integrate with Kubernetes. To reduce the complexity of deployments Istio provides behavioral insights and operational control over the service mesh as a whole. When {{site.data.keyword.appid_short_notm}} is combined with Istio, it becomes a scalable, integrated identity solution for multicloud architectures that does not require any custom application code changes. For more information, check out [What is Istio](https://www.ibm.com/cloud/learn/istio){: external}.
+[Istio](https://istio.io) is an open source service mesh that layers transparently onto existing distributed applications that can integrate with Kubernetes. To reduce the complexity of deployments, Istio provides behavioral insights and operational control over the service mesh as a whole. When {{site.data.keyword.appid_short_notm}} is combined with Istio, it becomes a scalable, integrated identity solution for multicloud architectures that does not require any custom application code changes. For more information, check out [What is Istio](https://www.ibm.com/cloud/learn/istio){: external}.
 
 Istio uses an Envoy proxy sidecar to mediate all inbound and outbound traffic for all services in the service mesh. By using the proxy, Istio extracts information about traffic, also known as telemetry, that is sent to the Istio component called Mixer to enforce policy decisions. The App Identity and Access Adapter extends the Mixer functionality by analyzing the telemetry (attributes) against custom policies to control identity and access management into and across the service mesh. The access management policies are linked to particular Kubernetes services and can be finely tuned to specific service endpoints. For more information about policies and telemetry, see the [Istio documentation](https://istio.io/latest/docs/concepts/observability/){: external}. 
 
@@ -115,7 +115,7 @@ For more information about tokens and how they're used, see [understanding token
 ## Before you begin
 {: #istio-before}
 
-Before you get started, be sure that you have installed the following prerequisites.
+Before you get started, be sure that you installed the following prerequisites.
 
 - A paid [Kubernetes Cluster](https://kubernetes.io/){: external}
 - [Helm](https://helm.sh/){: external}
@@ -134,7 +134,7 @@ To install the chart, initialize Helm in your cluster, define the options that y
 
 1. If you're working with IBM Cloud Kubernetes Service, be sure to log in and set the context for your cluster.
 
-2. Verify that you have [Istio policy enforcement enabled](https://istio.io/v1.4/docs/tasks/policy-enforcement/enabling-policy/){: external}. If not, turn it on. 
+2. Verify that you enabled [Istio policy enforcement](https://istio.io/v1.4/docs/tasks/policy-enforcement/enabling-policy/){: external}. If not, turn it on. 
 
 3. Add the repository.
 
@@ -150,13 +150,13 @@ To install the chart, initialize Helm in your cluster, define the options that y
    ```
    {: codeblock}
 
-   You can specify an image tag during installation by setting the `image.tag` flag. For example `--set image.tag=0.5.0`. You can also install the chart locally. To do so, clone the repo by running `git clone git@github.com:ibm-cloud-security/app-identity-and-access-Adapter.git` before you run the installation command.
+   You can specify an image tag during installation by setting the `image.tag` flag. For example, `--set image.tag=0.5.0`. You can also install the chart locally. To do so, clone the repo by running `git clone git@github.com:ibm-cloud-security/app-identity-and-access-Adapter.git` before you run the installation command.
    {: tip}
 
 ## Applying an authorization and authentication policy
 {: #istio-apply-policy}
 
-An authentication or authorization policy is a set of conditions that must be met before a request can access a resource access. By defining an identity provider's service configuration and a policy that outlines when a particular flow should be used, you can control access to any resource in your service mesh. To see example CRDs, check out the [samples directory](https://github.com/ibm-cloud-security/app-identity-and-access-Adapter/tree/master/samples/crds){: external}.
+An authentication or authorization policy is a set of conditions that must be met before a request can access a resource access. By defining an identity provider's service configuration and a policy that outlines when a particular flow must be used, you can control access to any resource in your service mesh. To see example CRDs, check out the [samples directory](https://github.com/ibm-cloud-security/app-identity-and-access-Adapter/tree/master/samples/crds){: external}.
 
 To create a policy:
 
@@ -342,7 +342,7 @@ $ Adapter_logs | jq
 ### Mixer
 {: #istio-logging-mixer}
 
-If the Adapter does not appear to receive requests, check the Mixer logs to ensure that it's successfully connected to the Adapter.
+If the Adapter does not appear to receive requests, check the Mixer logs to ensure that it successfully connected to the Adapter.
 
 ```bash
 $ alias mixer_logs="kubectl -n istio-system logs -f $(kubectl -n istio-system get pods -lapp=telemetry -o jsonpath='{.items[0].metadata.name}') -c mixer"
