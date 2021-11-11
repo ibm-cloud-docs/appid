@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-10-12"
+lastupdated: "2021-11-11"
 
 keywords: web apps, authorization code, authentication, nodejs, javascript, app access, application credentials, login, redirect uri, protected endpoint, video
 
@@ -237,7 +237,7 @@ You must have the following prerequisites:
 * A Liberty for Java web application
 
 
-Check out the following video to learn about protecting Liberty for Java applications with {{site.data.keyword.appid_short_notm}}. Then, try it out yourself by using a [simple Liberty for Java sample app](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02c-simple-liberty-web-app).
+Check out the following video to learn about protecting Liberty for Java applications with {{site.data.keyword.appid_short_notm}}. Then, try it out yourself by using a [simple Liberty for Java sample app](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02c-simple-liberty-web-app){: external}.
 
 
 ![About {{site.data.keyword.appid_short_notm}}](https://www.youtube.com/embed/o_Er69YUsMQ){: video output="iframe" data-script="none" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
