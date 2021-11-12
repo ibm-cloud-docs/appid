@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-10-12"
+lastupdated: "2021-11-12"
 
 keywords: app to app, protected resource, client secret, application identity, authorization, server, authentication, access tokens, app security
 
@@ -44,6 +44,7 @@ subcollection: appid
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
 {:release-note: data-hd-content-type='release-note'}
+
 
 # Application identity and authorization
 {: #app}
@@ -146,7 +147,7 @@ After your app is registered with {{site.data.keyword.appid_short_notm}} and you
 
 
 ## Tutorial: End-to-end flow with the Node.js SDK
-{: tutorial-node}
+{: #tutorial-node}
 
 1. Obtain an [access token](/docs/appid?topic=appid-tokens) in one of the following ways:
 
