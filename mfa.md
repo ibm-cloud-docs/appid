@@ -195,7 +195,7 @@ To configure MFA with the GUI, check out [Cloud Directory](/docs/appid?topic=app
 
    4. Copy the **API secret** in the Vonage dashboard and paste it in the **Secret** box in the {{site.data.keyword.appid_short_notm}} dashboard.
 
-   5. Enter [the ID](https://help.nexmo.com/hc/en-us/articles/217571017-What-is-a-Sender-ID) that you want to send messages from. A valid number format follows the [E.164 international numbering format](https://en.wikipedia.org/wiki/E.164). For example, a US number takes the form `+1 999 888 7777 `. You must specify both the country code, starting with a `+` symbol and the national subscriber number. In some countries, Vonage supports alpha-numeric sender IDs. {{site.data.keyword.appid_short_notm}} uses the value that you enter as Vonage's sender ID. So, if they are supported by Vonage, you can use the IDs with {{site.data.keyword.appid_short_notm}}.
+   5. Enter [the ID](https://help.nexmo.com/hc/en-us/articles/217571017-What-is-a-Sender-ID) that you want to send messages from. A valid number format follows the [E.164 international numbering format](https://en.wikipedia.org/wiki/E.164). For example, a US number takes the form `+19998887777`. You must specify both the country code, starting with a `+` symbol and the national subscriber number. In some countries, Vonage supports alpha-numeric sender IDs. {{site.data.keyword.appid_short_notm}} uses the value that you enter as Vonage's sender ID. So, if they are supported by Vonage, you can use the IDs with {{site.data.keyword.appid_short_notm}}.
 
 
 

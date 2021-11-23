@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-10-12"
+lastupdated: "2021-11-23"
 
 keywords: secure mobile app, android, ios, authenticate users,  authorization grant, client sdk, trusted client, native app, personalized, custom app, devices, identity flow, app security
 
@@ -145,7 +145,7 @@ You must have the following prerequisites before getting started:
 
 3. Find your application's `build.gradle` file. **Note**: Be sure to open the file for your app, not the project `build.gradle` file.
 
-  1. Add the {{site.data.keyword.appid_short_notm}} client SDK to the dependencies section.
+   1. Add the {{site.data.keyword.appid_short_notm}} client SDK to the dependencies section.
 
       ```gradle
       dependencies {
@@ -154,7 +154,7 @@ You must have the following prerequisites before getting started:
       ```
       {: codeblock}
 
-  2. In the `defaultConfig` section, configure the redirect scheme.
+   2. In the `defaultConfig` section, configure the redirect scheme.
 
       ```gradle
       defaultConfig {
