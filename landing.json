@@ -1,9 +1,10 @@
 {
     "title": "App ID docs",
-    "lastupdated": "2021-06-21",
+    "lastupdated": "2021-11-23",
     "introduction": "With IBM Cloud App ID, you can easily add authentication to your web and mobile apps with few lines of code.",
     "section_devtools": {
-      "api": "/apidocs/app-id/management"
+      "api": "/apidocs/app-id/management",
+      "terraform": "https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/appid_action_url"
     },
     "section_recommended": [
       {
@@ -73,6 +74,16 @@
     "section_updates": {
       "view_more": "/docs/appid?topic=appid-release-notes",
       "tiles": [
+        {
+          "date": "September 2021",
+          "title": "New Region Availability",
+          "description": "App ID is now available in the Sao Paulo region."
+        },
+        {
+          "date": "July 2021",
+          "title": "New Region Availability",
+          "description": "App ID is now available in the Toronto and Osaka regions."
+        },
         {
           "date": "February 2021",
           "title": "Ingress annotation is updated",
