@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2017, 2021
-lastupdated: "2021-10-12"
+lastupdated: "2021-11-23"
 
 keywords: manage users, registry, cloud directory, add user, delete user, tokens, attributes, migrating users, identity provider, app security
 
@@ -190,8 +190,6 @@ If you disable self-service sign-up or add a user on their behalf, the user does
 
 4. Click **Save**. A Cloud Directory user is created.
 
-</br>
-
 
 
 ### With the API
@@ -282,6 +280,8 @@ You must be assigned the `Manager` [IAM role](/docs/account?topic=account-access
 
 
 
+
+
 ### Exporting users 
 {: #cd-exporting-profiles}
 
@@ -308,6 +308,8 @@ Before you can import your profiles to your new instance, you need to export the
 
    Only your Cloud Directory users and their profiles are returned. Users from other identity providers are not.
    {: note}
+
+
 
 
 
@@ -388,15 +390,15 @@ Now that you have a list of exported Cloud Directory users, you can import them 
    ```
    {: codeblock}
 
-2. In terminal, change to the folder that you cloned the repo into.
-3. Run the following command.
+1. In terminal, change to the folder that you cloned the repo into.
+1. Run the following command.
 
    ```sh
    npm install
    ```
    {: codeblock}
 
-4. With your parameters, run the following command.
+1. With your parameters, run the following command.
 
    ```sh
    users_export_import 'sourceTenantId' 'destinationTenantId' 'region' 'iamToken'
