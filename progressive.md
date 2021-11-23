@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-10-12"
+lastupdated: "2021-11-23"
 
 keywords: anonymous authentication, progressive authentication, profile, user profile, authorization, sign in, secure app, identity provider, authorization
 
@@ -65,6 +65,7 @@ You can attach the attributes of only one anonymous profile to the user's identi
 If the user chooses to sign in from the first tab, then they have access only to the t-shirt they added to their cart before they signed in. In this case, {{site.data.keyword.appid_short_notm}} attaches only the attributes of the anonymous profile on the first tab to the user's identity. The service does not merge the anonymous profile that is created on the second tab to the user's identity stored in App ID. But the user can still access the shorts anonymously on the second tab because they are still accessible with the anonymous profile that was created on the second tab. While you develop your app, you can configure how to attach anonymous attributes to identified user profiles.
 
 ### What does the progressive authentication flow look like? 
+{: #progressive-flow}
 
 In the following image, you can see the direction of communication that defines the progressive authentication flow between the user, your application, {{site.data.keyword.appid_short_notm}}, and the identity provider.
 

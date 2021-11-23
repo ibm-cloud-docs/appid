@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-10-27"
+lastupdated: "2021-11-23"
 
 keywords: related links, blogs, sample apps, kube, code changes, programming guide, white paper, vuejs apps, serverless applications, enterprise user directory, custom experience, slack, stack overflow, secure iot, solution, finance app, multicloud, video tutorials
 
@@ -184,3 +184,4 @@ Check out the following explanations to see how each icon listed in this topic c
 | ![Tutorial icon](images/tutorial.svg) | This icon indicates that the link correlates to a tutorial that exists outside of a blog. |
 | ![Video icon](images/video.svg) | This icon indicates that the link correlates to a video that is hosted on YouTube. |
 | ![White paper icon](images/whitepaper-icon.svg) | This icon indicates that the link correlates to the white paper.|
+{: caption="Table 1. Icon legend" caption-side="top"}

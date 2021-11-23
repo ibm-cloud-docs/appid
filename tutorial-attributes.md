@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-10-12"
+lastupdated: "2021-11-23"
 
 keywords: attributes, cloud directory, user registry, user management, personalization, customize app, user information, profiles, app security, user profile, app access, identity
 
@@ -145,7 +145,7 @@ Your application is responsible for mapping the answers to the specific attribut
 
    Successful response output:
 
-   ```
+   ```json
    {
       "id": "5ce78e09-1356-4ef8-a45d-808b633101db",
       "identities": [],
