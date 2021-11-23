@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-11-11"
+lastupdated: "2021-11-23"
 
 keywords: web apps, authorization code, authentication, nodejs, javascript, app access, application credentials, login, redirect uri, protected endpoint, video
 
@@ -180,13 +180,13 @@ Check out the following video to learn about protecting Node applications with {
 5. By using the information obtained in the previous steps, initialize the SDK.
 
    ```javascript
-      passport.use(new WebAppStrategy({
-      tenantId: "{tenant-id}",
-      clientId: "{client-id}",
-      secret: "{secret}",
-      oauthServerUrl: "{oauth-server-url}",
-      redirectUri: "{app-url}" + CALLBACK_URL
-      }));
+   passport.use(new WebAppStrategy({
+   tenantId: "{tenant-id}",
+   clientId: "{client-id}",
+   secret: "{secret}",
+   oauthServerUrl: "{oauth-server-url}",
+   redirectUri: "{app-url}" + CALLBACK_URL
+   }));
    ```
    {: codeblock}
 
@@ -304,9 +304,7 @@ Check out the following video to learn about protecting Liberty for Java applica
 
    |  Component | Description |
    | ---------- | ----------- |
-   | `clientID`
-      `secret` 
-      `oauth-server-url`| Complete step two to obtain your service credentials. |
+   | `clientID`  \n `secret`  \n `oauth-server-url`| Complete step two to obtain your service credentials. |
    | `authorizationEndpointURL` | Add `/authorization` to the end of your `oauthServerURL`. |
    | `tokenEndpointUrl` | >Add `/token` to the end of your `oauthServerURL`. |
    | `jwkEndpointUrl` | Add `/publickeys` to the end of your `oauthServerURL`. |
@@ -315,7 +313,7 @@ Check out the following video to learn about protecting Liberty for Java applica
    | `signatureAlgorithm` | Specified as "RS256". | 
    | `authFilterid` | The list of resources to protect. |
    | `trustAliasName` | The name of your certificate within your truststore. |
-   {: caption="Table. OIDC element variables for Liberty for Java apps" caption-side="top"}
+   {: caption="Table 1. OIDC element variables for Liberty for Java apps" caption-side="top"}
 
 ### Initializing the Liberty for Java SDK
 {: #web-liberty-initialize}
