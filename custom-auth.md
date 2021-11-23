@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-10-12"
+lastupdated: "2021-11-23"
 
 keywords: custom identity provider, authorization, bring your own idp, proprietary idp, legacy idp, oauth, oidc, authentication, oatuh, app security
 
@@ -73,7 +73,6 @@ There are many scenarios where a different authentication flow is necessary:
 
 Occasionally, a legacy provider might use their own custom authentication protocol. Because the custom identity flow completely decouples authentication from authorization, you can adopt any authentication mechanism of your choice and then provide the resulting authentication information to {{site.data.keyword.appid_short_notm}}. All without exposing user credentials.
 
-</br>
 
 ### Technically, how does this flow work?
 {: #custom-auth-tech}
@@ -150,9 +149,7 @@ You can convert your verified user data to a custom identity JWT by generating a
 | `exp` | The length of time that the token is valid. For security reasons, it should have a short life span and be specific. | 
 | `sub` | The unique user ID that is provided by the identity provider.| 
 | Normalized claims | All [normalized claims](/docs/appid?topic=appid-tokens) are provided in the identity token that is returned in response to this request. More custom claims can be found by using the [`/userinfo` endpoint](/docs/appid?topic=appid-profiles). | 
-| Scope | By default, all {{site.data.keyword.appid_short_notm}} tokens contain a group of preset scopes. You can request extra scopes by doing one of the following:
-* Specify the scope in the scope field of your JWS token.
-* Specify the scope through the URL-form scopes parameter of the `/token` request. | 
+| Scope | By default, all {{site.data.keyword.appid_short_notm}} tokens contain a group of preset scopes. You can request extra scopes by doing one of the following:  \n * Specify the scope in the scope field of your JWS token.  \n * Specify the scope through the URL-form scopes parameter of the `/token` request. | 
 {: caption="Table 1. JWS fields" caption-side="top"}
 
 ## Retrieving {{site.data.keyword.appid_short_notm}} tokens
