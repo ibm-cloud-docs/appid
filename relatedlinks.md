@@ -185,3 +185,4 @@ Check out the following explanations to see how each icon listed in this topic c
 | ![Video icon](images/video.svg) | This icon indicates that the link correlates to a video that is hosted on YouTube. |
 | ![White paper icon](images/whitepaper-icon.svg) | This icon indicates that the link correlates to the white paper.|
 {: caption="Table 1. Icon legend" caption-side="top"}
+

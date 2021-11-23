@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-10-12"
+lastupdated: "2021-11-23"
 
 keywords: identity provider, idp, app security, mobile app, web app, authentication, authorization, oidc, saml, protocols, facebook, google, w3id, cloud directory, redirect url, redirect uri, token configuration, token lifetime, log in configuration
 
@@ -103,8 +103,7 @@ Your application redirects users to {{site.data.keyword.appid_short_notm}} for a
    | ---- | ----------- |
    | Custom domain | `https://mydomain.net/myapp2path/appid_callback` |
    | Ingress subdomain | `https://mycluster.us-south.containers.appdomain.cloud/myapp1path/appid_callback` |
-   | Wildcard | `https://mydomain.net/*`
-   ***Note: Wildcards are not recommended for use in production apps.*** | 
+   | Wildcard | `https://mydomain.net/*`  \n ***Note: Wildcards are not recommended for use in production apps.*** | 
    {: caption="Table 2. Example web redirect URIs" caption-side="top"}
 
    It is recommended that you always use encryption and avoid HTTP.

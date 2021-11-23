@@ -223,7 +223,7 @@ The {{site.data.keyword.appid_short_notm}} client SDK is distributed with CocoaP
 4. Install your dependencies from the command line within your project directory.
 
    ```swift
-   $ pod install --repo-update
+   pod install --repo-update
    ```
    {: codeblock}
 
@@ -234,11 +234,11 @@ The {{site.data.keyword.appid_short_notm}} client SDK is distributed with CocoaP
 7. Open **Project Settings > Info > URL Types**, and add a **URL Type**. Place the following value in both the **Identifier** and the **URL Scheme** text boxes.
 
    ```swift
-   $(PRODUCT_BUNDLE_IDENTIFIER)
+   (PRODUCT_BUNDLE_IDENTIFIER)
    ```
    {: codeblock}
 
-</br>
+
 
 ### Initializing the SDK
 {: #mobile-ios-initialize}
@@ -275,12 +275,11 @@ The {{site.data.keyword.appid_short_notm}} client SDK is distributed with CocoaP
 
 After a successful login flow, you can use your access and identity tokens to invoke protected backend resources that use the SDK or a networking library of your choice.
 
-</br>
 
 ### With the Swift SDK
 {: #mobile-access-api-swift}
 
-1.  Add the following imports to the file in which you want to invoke a protected resource request:
+1. Add the following imports to the file in which you want to invoke a protected resource request:
 
    ```swift
    import BMSCore
@@ -307,7 +306,6 @@ After a successful login flow, you can use your access and identity tokens to in
    ```
    {: codeblock}
 
-</br>
 
 ### With the Android SDK
 {: #mobile-access-api-android}
@@ -350,7 +348,6 @@ After a successful login flow, you can use your access and identity tokens to in
    ```
    {: codeblock}
 
-</br>
 
 ### Without an SDK
 {: #mobile-access-api-nosdk}

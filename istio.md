@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-11-11"
+lastupdated: "2021-11-23"
 
 keywords: Adapter, access management, identity token, helm chart, backend apps, kube, any kube, icp, openshift, iks, service mesh, access, app identity, kube secret, tokens, authenticated, app endpoints, authorization, multicloud, no code change, no redeploy, authorization policies, multiple providers
 
@@ -334,8 +334,8 @@ When you're manually viewing JSON logs, you might want to tail the logs and "pre
 To see the Adapter logs, you can use `kubectl` or access the pod from the `appidentityandaccessAdapter` pod from the Kubernetes console.
 
 ```bash
-$ alias Adapter_logs="kubectl -n istio-system logs -f $(kubectl -n istio-system get pods -lapp=appidentityandaccessAdapter -o jsonpath='{.items[0].metadata.name}')"
-$ Adapter_logs | jq
+alias Adapter_logs="kubectl -n istio-system logs -f $(kubectl -n istio-system get pods -lapp=appidentityandaccessAdapter -o jsonpath='{.items[0].metadata.name}')"
+Adapter_logs | jq
 ```
 {: codeblock}
 
@@ -345,8 +345,8 @@ $ Adapter_logs | jq
 If the Adapter does not appear to receive requests, check the Mixer logs to ensure that it successfully connected to the Adapter.
 
 ```bash
-$ alias mixer_logs="kubectl -n istio-system logs -f $(kubectl -n istio-system get pods -lapp=telemetry -o jsonpath='{.items[0].metadata.name}') -c mixer"
-$ mixer_logs | jq
+alias mixer_logs="kubectl -n istio-system logs -f $(kubectl -n istio-system get pods -lapp=telemetry -o jsonpath='{.items[0].metadata.name}') -c mixer"
+mixer_logs | jq
 ```
 {: codeblock}
 

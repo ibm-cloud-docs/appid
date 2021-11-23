@@ -284,7 +284,6 @@ With a pre-mfa extension, you can define the criteria that allows users to avoid
 By default, if an error occurs during the request to your extension point, {{site.data.keyword.appid_short_notm}} requires that the user completes MFA.
 {: note}
 
-</br>
 
 To configure a pre-MFA extension:
 
@@ -305,8 +304,7 @@ To configure a pre-MFA extension:
    | `extension` | The name of your extension. For this use case, the extension is named `premfa`. |
    | `device_type` | The type of device with which your user is accessing your application. Options include: `web` and `mobile`. |
    | `source_ip` | The IP address of the device that makes the request to your app. For example, `127.0.0.1`. |
-   | `headers` | The information that is returned by the browser when a user attempts to sign in to your app. 
-   The header looks similar to: `{"user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X x.y; rv:42.0) Gecko/20100101 Firefox/42.0"}`. | 
+   | `headers` | The information that is returned by the browser when a user attempts to sign in to your app. The header looks similar to: `{"user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X x.y; rv:42.0) Gecko/20100101 Firefox/42.0"}`. | 
    | `tenant_id` | Your application's tenant ID. |
    | `client_id` | Your application's client ID. | 
    | `user_id` | The ID of the user that makes the authentication request. For example, `11112222-3333-4444-2222-555522226666`. |
@@ -383,7 +381,6 @@ When you configure an extension and register it with {{site.data.keyword.appid_s
 
    2. The user is redirected to your application.
 
-</br>
 
 To configure a post-MFA extension:
 
@@ -397,8 +394,7 @@ To configure a post-MFA extension:
    | `reason` | The reason for an MFA failure. For example, `user locked out - exceeded maximum number of verification attempts`. |
    | `device_type` | The type of device with which your user accesses your application. Options include: `web`, `mobile`. |
    | `source_ip` | The IP address of the device that makes the request to your app. For example, `127.0.0.1`. |
-   | `headers` | The information that is returned by the browser when a user attempts to sign in to your app. 
-   The header looks similar to `{"user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X x.y; rv:42.0) Gecko/20100101 Firefox/42.0"}`. |
+   | `headers` | The information that is returned by the browser when a user attempts to sign in to your app. The header looks similar to `{"user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X x.y; rv:42.0) Gecko/20100101 Firefox/42.0"}`. |
    | `tenant_id` | Your application's tenant ID. | 
    | `client_id` | Your application's client ID. |
    | `user_id` | The ID of the user that makes the authentication request. |
