@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-10-15"
+lastupdated: "2021-11-23"
 
 keywords: user access, control access, permissions, roles, scopes, runtime, access token, authentication, identity, app security
 
@@ -124,18 +124,8 @@ To create a scope, you can use the {{site.data.keyword.appid_short_notm}} UI.
    | `region` | The region in which your instance of {{site.data.keyword.appid_short_notm}} is provisioned. Learn more about the [available regions](/docs/appid?topic=appid-regions-endpoints). |
    | `tenant_ID` | The unique identifier for your instance of {{site.data.keyword.appid_short_notm}}. You can find this value in the credentials for your app as they're listed in the **Applications** tab of the service dashboard. |
    | `client_ID` | The unique identifier for your application. You can find this value in the credentials for your app as they're listed in your **Applications** in the service dashboard. |
-   | `scopes_object` | A JSON object of all of the scopes that you want to create for your application. For example, 
-      ```json
-         {
-           "scopes": [
-             "read",
-             "write",
-             "delete"
-           ]
-         }
-      ```
-   {: codeblock}
- {: caption="Table 1. Required variables to call the `/scopes` endpoint" caption-side="top"}
+   | `scopes_object` | A JSON object of all of the scopes that you want to create for your application. |
+   {: caption="Table 1. Required variables to call the `/scopes` endpoint" caption-side="top"}
 
 
 2. Optional: Confirm that the scopes were created.
@@ -191,17 +181,7 @@ A role is a group of scopes that apply to the same type of user. For example, if
    | `role_name` | The name that you want to assign to your role. |
    | `role_description` | A short phrase that describes what your role is meant to do. | 
    | `application_ID` | The unique identifier for your application. You can find this value in the credentials for your app as they're listed in **Applications**. |
-   | `scopes` | A JSON object of all of the scopes that you want to apply to a role. For example,
-   ```sh
-         {
-           "scopes": [
-             "create",
-             "update",
-             "read"
-           ]
-         }
-   ```
-   {: codeblock}
+   | `scopes` | A JSON object of all of the scopes that you want to apply to a role.|
    {: caption="Table 2. Required variables to call the `/scopes` endpoint" caption-side="top"}
  
 2. Optional: Confirm that the roles were created.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-10-12"
+lastupdated: "2021-11-23"
 
 keywords: secure mobile app, android, ios, authenticate users,  authorization grant, client sdk, trusted client, native app, personalized, custom app, devices, identity flow, app security
 
@@ -145,7 +145,7 @@ You must have the following prerequisites before getting started:
 
 3. Find your application's `build.gradle` file. **Note**: Be sure to open the file for your app, not the project `build.gradle` file.
 
-  1. Add the {{site.data.keyword.appid_short_notm}} client SDK to the dependencies section.
+   1. Add the {{site.data.keyword.appid_short_notm}} client SDK to the dependencies section.
 
       ```gradle
       dependencies {
@@ -154,7 +154,7 @@ You must have the following prerequisites before getting started:
       ```
       {: codeblock}
 
-  2. In the `defaultConfig` section, configure the redirect scheme.
+   2. In the `defaultConfig` section, configure the redirect scheme.
 
       ```gradle
       defaultConfig {
@@ -223,7 +223,7 @@ The {{site.data.keyword.appid_short_notm}} client SDK is distributed with CocoaP
 4. Install your dependencies from the command line within your project directory.
 
    ```swift
-   $ pod install --repo-update
+   pod install --repo-update
    ```
    {: codeblock}
 
@@ -234,11 +234,11 @@ The {{site.data.keyword.appid_short_notm}} client SDK is distributed with CocoaP
 7. Open **Project Settings > Info > URL Types**, and add a **URL Type**. Place the following value in both the **Identifier** and the **URL Scheme** text boxes.
 
    ```swift
-   $(PRODUCT_BUNDLE_IDENTIFIER)
+   (PRODUCT_BUNDLE_IDENTIFIER)
    ```
    {: codeblock}
 
-</br>
+
 
 ### Initializing the SDK
 {: #mobile-ios-initialize}
@@ -275,12 +275,11 @@ The {{site.data.keyword.appid_short_notm}} client SDK is distributed with CocoaP
 
 After a successful login flow, you can use your access and identity tokens to invoke protected backend resources that use the SDK or a networking library of your choice.
 
-</br>
 
 ### With the Swift SDK
 {: #mobile-access-api-swift}
 
-1.  Add the following imports to the file in which you want to invoke a protected resource request:
+1. Add the following imports to the file in which you want to invoke a protected resource request:
 
    ```swift
    import BMSCore
@@ -307,7 +306,6 @@ After a successful login flow, you can use your access and identity tokens to in
    ```
    {: codeblock}
 
-</br>
 
 ### With the Android SDK
 {: #mobile-access-api-android}
@@ -350,7 +348,6 @@ After a successful login flow, you can use your access and identity tokens to in
    ```
    {: codeblock}
 
-</br>
 
 ### Without an SDK
 {: #mobile-access-api-nosdk}

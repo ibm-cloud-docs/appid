@@ -1,8 +1,8 @@
 ---
 
 copyright:
-years: 2017, 2021
-lastupdated: "2021-10-12"
+  years: 2017, 2021
+lastupdated: "2021-11-23"
 
 keywords: single sign on, cloud directory, saml, app security, application identity
 
@@ -183,7 +183,7 @@ You can also use the {{site.data.keyword.appid_short_notm}} Node.js server SDK t
 
 
 ## Ending all sessions for a user
-{: cd-sso-ending-all-sessions}
+{: #cd-sso-ending-all-sessions}
 
 As an administrator, you can end all SSO sessions for any user by using the {{site.data.keyword.appid_short_notm}} admin APIs. The APIs are protected by a Cloud IAM token.
 

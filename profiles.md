@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-10-12"
+lastupdated: "2021-11-23"
 
 keywords: profile, custom attributes, predefined attributes, attributes, app users, app interaction, personalized experience, access user info, identity provider information, access token, authentication, user sign in, android, java, node, swift, ios, user, preferences
 
@@ -96,7 +96,7 @@ The easiest ways to work with user information are by using the GUI or an SDK. W
 
 
 ## Accessing attributes at runtime
-{: profile-access-runtime}
+{: #profile-access-runtime}
 
 After successful user authentication, your app receives access and identity tokens from {{site.data.keyword.appid_short_notm}}. The service automatically injects a subset of attributes into your access and identity tokens. If the information isn't in the token, you can use any of the following endpoints to find the information. 
 
@@ -110,7 +110,6 @@ To see the information about your users that is provided by your configured iden
 
 2. Make a request to the [`/userinfo` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization_Server_V4/userInfo){: external}. If new tokens are not explicitly passed to the SDK, {{site.data.keyword.appid_short_notm}} uses the last received tokens to retrieve and validate the response. Passing an identity token is optional, but passed is used to validate the response.
 
-   
    ```sh
    GET https://{region}.appid.cloud.ibm.com/oauth/v4/{tenant_ID}/userinfo
    Authorization: 'Bearer {access_token}'
@@ -118,7 +117,6 @@ To see the information about your users that is provided by your configured iden
    {: codeblock}
    {: curl}
 
-   
    ```swift
    // iOS Swift example
 
@@ -132,7 +130,6 @@ To see the information about your users that is provided by your configured iden
    {: codeblock}
    {: swift}
 
-   
    ```java
    AppID appId = AppID.getInstance();
 
@@ -151,7 +148,6 @@ To see the information about your users that is provided by your configured iden
    {: codeblock}
    {: java}
 
-   
    ```javascript
    let userProfileManager = UserProfileManager(options: options)
 
@@ -171,7 +167,6 @@ To see the information about your users that is provided by your configured iden
    {: codeblock}
    {: javascript}
 
-   
    ```swift
    // Server-side Swift example
 
@@ -240,13 +235,11 @@ If changes are made by an external identity provider, you can get the updated in
 Depending on your configuration, attributes are encrypted and saved as part of a user profile when a user interacts with your application. The interaction might be a user signing in or setting a preference in your app. To access the attributes, pass an access token through an API method.
 {: shortdesc}
 
-
 ```sh
 curl -X GET 'https://{region}.appid.cloud.ibm.com/api/v1/attributes' -H 'Accept: application/json' -H 'Authorization: Bearer {access_token}' 
 ```
 {: codeblock}
 {: curl}
-
 
 ```swift
 //iOS Swift example
@@ -266,7 +259,6 @@ func deleteAttribute(key: String, accessTokenString: String, completionHandler: 
 {: codeblock}
 {: swift}
 
-
 ```java
 void setAttribute(@NonNull String name, @NonNull String value, UserAttributeResponseListener listener);
 void setAttribute(@NonNull String name, @NonNull String value, @NonNull AccessToken accessToken, UserAttributeResponseListener listener);
@@ -282,7 +274,6 @@ void getAllAttributes(@NonNull AccessToken accessToken, @NonNull UserAttributeRe
 ```
 {: codeblock}
 {: java}
-
 
 ```javascript
 const userProfileManager = require("ibmcloud-appid").UserProfileManager;
@@ -311,7 +302,6 @@ userProfileManager.deleteAttribute(accessToken, name).then(function () {
 ```
 {: codeblock}
 {: javascript}
-
 
 ```swift
 //Server-side Swift example
@@ -359,7 +349,6 @@ By default, custom attributes are modifiable and can be updated by using an {{si
 
 4. By using the `attributes` endpoint, make a PUT request.
 
-   
    ```sh
    curl -X PUT "https://{region}.appid.cloud.ibm.com/api/v1/attributes/{attribute_name}" \
    -H "Authorization: Bearer {token}" \
@@ -368,7 +357,6 @@ By default, custom attributes are modifiable and can be updated by using an {{si
    {: codeblock}
    {: curl}
 
-   
    ```swift
    // iOS Swift example
 
@@ -382,7 +370,6 @@ By default, custom attributes are modifiable and can be updated by using an {{si
    {: codeblock}
    {: swift}
 
-   
    ```java
    appId.getUserProfileManager().setAttribute(name, value, useThisToken, new UserProfileResponseListener() {
       @Override
@@ -399,7 +386,6 @@ By default, custom attributes are modifiable and can be updated by using an {{si
    {: codeblock}
    {: java}
 
-   
    ```javascript
    const userProfileManager = require("ibmcloud-appid").UserProfileManager;
    userProfileManager.init();
@@ -413,7 +399,6 @@ By default, custom attributes are modifiable and can be updated by using an {{si
    {: codeblock}
    {: javascript}
 
-   
    ```swift
    // Server-side Swift
 

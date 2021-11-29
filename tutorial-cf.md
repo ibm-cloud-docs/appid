@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-10-12"
+lastupdated: "2021-11-23"
 
 keywords: cloud foundry, iam, java nodejs, identity, access management, user access, service access, permissions, bind service
 
@@ -94,11 +94,52 @@ The following step includes instructions for deploying a Node.js app or a Java a
 ### Deploying a Node.js app
 {: #cf-node}
 
-1. Navigate to your instance of {{site.data.keyword.appid_short_notm}}.
-2. Click **Download Sample** on the **Overview** tab of the service dashboard.
-3. Click **Node.js**. Download and extract the sample app.
-4. Verify that you have all of the Node.js prerequisites.
-5. Open terminal and change into the sample folder.
+1. Navigate to your instance of {{site.data.keyword.appid_short_notm}} and click **Download Sample** on the **Overview** tab of the service dashboard.
+2. Click **Node.js**. Download and extract the sample app. Be sure that you have all of the prerequistes.
+3. Open terminal and change into the sample folder.
+4. Log in to the {{site.data.keyword.cloud_notm}} CLI. The CLI prompts you to select an account and region if you do not specify one.
+
+   ```sh
+   ibmcloud login -a cloud.ibm.com -r {region}
+   ```
+   {: codeblock}
+
+5. Target the Cloud Foundry organization and space that you want to work in and follow the prompts to target an org and space.
+
+   ```sh
+   ibmcloud target --cf
+   ```
+   {: codeblock}
+
+6. Create an alias of the {{site.data.keyword.appid_short_notm}} service instance.
+
+   ```sh
+   ibmcloud resource service-alias-create {ALIAS_NAME} --instance-name {SERVICE_INSTANCE_NAME}
+   ```
+   {: codeblock}
+
+7. Add the alias that you created to your services in the `manifest.yml`.
+8. Bind the services that are listed in the `manifest.yml` file by deploying the sample app.
+
+   ```sh
+   ibmcloud app push
+   ```
+   {: codeblock}
+
+### Deploying a Java app
+{: #java}
+
+1. Navigate to your instance of {{site.data.keyword.appid_short_notm}} and click **Download Sample** on the **Overview** tab of the service dashboard.
+2. Click **Java**. Download and extract the sample app. Be sure that you have all of the prerequistes.
+3. Open terminal and change into the sample folder.
+4. Generate your `war` file and upload it.
+
+   ```sh
+   mvn clean install
+   ```
+   {: codeblock}
+
+5. Change into the Liberty folder.
 6. Log in to the {{site.data.keyword.cloud_notm}} CLI. The CLI prompts you to select an account and region if you do not specify one.
 
    ```sh
@@ -121,51 +162,6 @@ The following step includes instructions for deploying a Node.js app or a Java a
    {: codeblock}
 
 9. Add the alias that you created to your services in the `manifest.yml`.
-10. Bind the services that are listed in the `manifest.yml` file by deploying the sample app.
-
-   ```sh
-   ibmcloud app push
-   ```
-   {: codeblock}
-
-### Deploying a Java app
-{: #java}
-
-1. Navigate to your instance of {{site.data.keyword.appid_short_notm}}.
-2. Click **Download Sample** on the **Overview** tab of the service dashboard.
-3. Click **Java**. Download and extract the sample app.
-4. Verify that you have all of the Java prerequisites.
-5. Open terminal and change into the sample folder.
-6. Generate your `war` file and upload it.
-
-   ```sh
-   mvn clean install
-   ```
-   {: codeblock}
-
-7. Change into the Liberty folder.
-8. Log in to the {{site.data.keyword.cloud_notm}} CLI. The CLI prompts you to select an account and region if you do not specify one.
-
-   ```sh
-   ibmcloud login -a cloud.ibm.com -r {region}
-   ```
-   {: codeblock}
-
-9. Target the Cloud Foundry organization and space that you want to work in and follow the prompts to target an org and space.
-
-   ```sh
-   ibmcloud target --cf
-   ```
-   {: codeblock}
-
-10. Create an alias of the {{site.data.keyword.appid_short_notm}} service instance.
-
-   ```sh
-   ibmcloud resource service-alias-create {ALIAS_NAME} --instance-name {SERVICE_INSTANCE_NAME}
-   ```
-   {: codeblock}
-
-11. Add the alias that you created to your services in the `manifest.yml`.
 
    Example:
    ```sh
@@ -177,7 +173,7 @@ The following step includes instructions for deploying a Node.js app or a Java a
    ```
    {: screen}
 
-12. Bind the services that are listed in the `manifest.yml` file by deploying the sample app.
+10. Bind the services that are listed in the `manifest.yml` file by deploying the sample app.
 
    ```sh
    ibmcloud app push

@@ -104,7 +104,7 @@ toc:
       id: reference
       topics: 
       - topicgroup: 
-          label: APIs and SDKs
+          label: API and SDK references
           links:
           - link:
              label: APIs
@@ -124,6 +124,9 @@ toc:
           - link:
              label: JavaScript SDK
              href: https://github.com/ibm-cloud-security/appid-clientsdk-js
+      - link:
+          label: Terraform
+          href: https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/appid_action_url
       - topicgroup:
           label: Related links
           topics:

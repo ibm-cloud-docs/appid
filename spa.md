@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-10-12"
+lastupdated: "2021-11-23"
 
 keywords: single page application, SPA, single-page, angular, react, native apps, javascript, js, sdk, authentication, authorization, identity, app security, secure, protocols, oauth, oidc,
 
@@ -75,7 +75,7 @@ Are you using SSO for Cloud Directory? You can use the {{site.data.keyword.appid
 {: tip}
 
 ### Why Authorization Code + PKCE?
-{: spa-code-why}
+{: #spa-code-why}
 
 Due to their nature, single-page applications are unable to store secrets securely. The Authorization + PKCE flow, a variation of the OAuth 2.0 Authorization Code flow, uses a one-time code verifier and challenge instead of a secret to address the concern. The verifier and the challenge ensure that the entity that calls the authorization and token endpoints are the same, which means that an attacker would not be able to request tokens from the authorization server without also knowing the code verifier.
 

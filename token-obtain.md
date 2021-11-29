@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-10-12"
+lastupdated: "2021-11-23"
 
 keywords: obtain tokens, return tokens, authorized, authorization, access management, client id, secret, tenant id, app security, identity token
 
@@ -131,7 +131,6 @@ With a client ID and secret, you can obtain access and identity tokens by using 
 
 3. Use the following code examples to retrieve your tokens. The grant type that you use to obtain your token can differ depending on the type of authorization that you're working with. For a detailed list of options, check out the [swagger documentation](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization%20Server%20-%20Authorization%20Server%20V4/oauth-server.token){: external}.
 
-   
    ```sh
    curl -X POST 'https://{region}.appid.cloud.ibm.com/oauth/v4/{tenant_id}/token' \
    -H 'Authorization: Basic base64Encoded{{client-ID}:{client-secret}}' \
@@ -143,7 +142,6 @@ With a client ID and secret, you can obtain access and identity tokens by using 
    {: codeblock}
    {: curl}
 
-   
    ```swift
    // iOS Swift example
 
@@ -162,7 +160,6 @@ With a client ID and secret, you can obtain access and identity tokens by using 
    {: codeblock}
    {: swift}
 
-   
    ```java
    AppID.getInstance().signinWithResourceOwnerPassword(getApplicationContext(), username, password, new TokenResponseListener() {
       @Override
@@ -178,8 +175,6 @@ With a client ID and secret, you can obtain access and identity tokens by using 
    ```
    {: codeblock}
    {: java}
-
-   
 
    ```javascript
    // Declare the API you want to protect
@@ -204,7 +199,6 @@ With a client ID and secret, you can obtain access and identity tokens by using 
    {: codeblock}
    {: javascript}
 
-   
    ```swift
    // Server-side swift example
 

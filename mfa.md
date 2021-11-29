@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-10-12"
+lastupdated: "2021-11-23"
 
 keywords: mfa, multifactor, authentication, cloud directory, login widget, second factor, two factor, identity, mulitple factors, advanced security event, cloud directory user, sender id, phone number, email, nexmo, mfa descision, extension
 
@@ -168,7 +168,7 @@ When MFA is initially enabled, it is set to use email by default. You can change
 
 {{site.data.keyword.appid_short_notm}} uses [Vonage](https://www.vonage.com/communications-apis/sms/){: external} (formally Nexmo) to send MFA SMS one-time codes. Before you get started, be sure that you have an instance of {{site.data.keyword.appid_short_notm}} that is on the [graduated tier pricing plan](/docs/appid?topic=appid-faq#faq-pricing) and the following Vonage information.
 
-- Obtain your Vonage API key and secret. You can find the Vonage API key and secret in your account settings page on the Vonage dashboard. Check out the [Vonage documentation](https://developer.nexmo.com/concepts/guides/authentication#api-key-and-secret){: external} for further information on how to obtain your credentials.
+- Obtain your Vonage API key and secret. You can find the Vonage API key and secret in your account settings page on the Vonage dashboard. Check out the [Vonage documentation](https://developer.vonage.com/concepts/guides/authentication#api-key-and-secret){: external} for further information on how to obtain your credentials.
 
 - Register your sender ID or the `from` number with Vonage. This `from` number is what appears on your user's phone to show who the SMS is from. In some countries, Vonage supports alpha-numeric sender IDs. {{site.data.keyword.appid_short_notm}} uses the value that you enter as Vonage's sender ID. So, if they are supported by Vonage, you can use the IDs with {{site.data.keyword.appid_short_notm}}. For more information, check out the [Vonage documentation](https://help.nexmo.com/hc/en-us/articles/217571017-What-is-a-Sender-ID){: external}.
 
@@ -195,7 +195,7 @@ To configure MFA with the GUI, check out [Cloud Directory](/docs/appid?topic=app
 
    4. Copy the **API secret** in the Vonage dashboard and paste it in the **Secret** box in the {{site.data.keyword.appid_short_notm}} dashboard.
 
-   5. Enter [the ID](https://help.nexmo.com/hc/en-us/articles/217571017-What-is-a-Sender-ID) that you want to send messages from. A valid number format follows the [E.164 international numbering format](https://en.wikipedia.org/wiki/E.164). For example, a US number takes the form `+1 999 888 7777 `. You must specify both the country code, starting with a `+` symbol and the national subscriber number. In some countries, Vonage supports alpha-numeric sender IDs. {{site.data.keyword.appid_short_notm}} uses the value that you enter as Vonage's sender ID. So, if they are supported by Vonage, you can use the IDs with {{site.data.keyword.appid_short_notm}}.
+   5. Enter [the ID](https://help.nexmo.com/hc/en-us/articles/217571017-What-is-a-Sender-ID) that you want to send messages from. A valid number format follows the [E.164 international numbering format](https://en.wikipedia.org/wiki/E.164). For example, a US number takes the form `+19998887777`. You must specify both the country code, starting with a `+` symbol and the national subscriber number. In some countries, Vonage supports alpha-numeric sender IDs. {{site.data.keyword.appid_short_notm}} uses the value that you enter as Vonage's sender ID. So, if they are supported by Vonage, you can use the IDs with {{site.data.keyword.appid_short_notm}}.
 
 
 
@@ -284,7 +284,6 @@ With a pre-mfa extension, you can define the criteria that allows users to avoid
 By default, if an error occurs during the request to your extension point, {{site.data.keyword.appid_short_notm}} requires that the user completes MFA.
 {: note}
 
-</br>
 
 To configure a pre-MFA extension:
 
@@ -305,8 +304,7 @@ To configure a pre-MFA extension:
    | `extension` | The name of your extension. For this use case, the extension is named `premfa`. |
    | `device_type` | The type of device with which your user is accessing your application. Options include: `web` and `mobile`. |
    | `source_ip` | The IP address of the device that makes the request to your app. For example, `127.0.0.1`. |
-   | `headers` | The information that is returned by the browser when a user attempts to sign in to your app. 
-   The header looks similar to: `{"user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X x.y; rv:42.0) Gecko/20100101 Firefox/42.0"}`. | 
+   | `headers` | The information that is returned by the browser when a user attempts to sign in to your app. The header looks similar to: `{"user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X x.y; rv:42.0) Gecko/20100101 Firefox/42.0"}`. | 
    | `tenant_id` | Your application's tenant ID. |
    | `client_id` | Your application's client ID. | 
    | `user_id` | The ID of the user that makes the authentication request. For example, `11112222-3333-4444-2222-555522226666`. |
@@ -383,7 +381,6 @@ When you configure an extension and register it with {{site.data.keyword.appid_s
 
    2. The user is redirected to your application.
 
-</br>
 
 To configure a post-MFA extension:
 
@@ -397,8 +394,7 @@ To configure a post-MFA extension:
    | `reason` | The reason for an MFA failure. For example, `user locked out - exceeded maximum number of verification attempts`. |
    | `device_type` | The type of device with which your user accesses your application. Options include: `web`, `mobile`. |
    | `source_ip` | The IP address of the device that makes the request to your app. For example, `127.0.0.1`. |
-   | `headers` | The information that is returned by the browser when a user attempts to sign in to your app. 
-   The header looks similar to `{"user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X x.y; rv:42.0) Gecko/20100101 Firefox/42.0"}`. |
+   | `headers` | The information that is returned by the browser when a user attempts to sign in to your app. The header looks similar to `{"user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X x.y; rv:42.0) Gecko/20100101 Firefox/42.0"}`. |
    | `tenant_id` | Your application's tenant ID. | 
    | `client_id` | Your application's client ID. |
    | `user_id` | The ID of the user that makes the authentication request. |

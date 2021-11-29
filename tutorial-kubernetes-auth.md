@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-10-12"
+lastupdated: "2021-11-23"
 
 keywords: ingress controller, ingress, istio, access, subdomain, custom domain, service, containerized apps, containers, kube, networking, policy, policies, secure apps, authentication, authorization
 
@@ -216,7 +216,7 @@ Your Ingress resource is used to define how you want to expose your applications
 
 
 ## Applying your resource with authentication enabled
-{: kube-ingress}
+{: #kube-ingress}
 
 Now that your Ingress resource is updated with the annotation, you can start enforcing authentication by reapplying it.
 
