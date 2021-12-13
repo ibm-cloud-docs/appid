@@ -1,9 +1,9 @@
 {
     "title": "App ID docs",
-    "lastupdated": "2021-11-23",
+    "lastupdated": "2021-11-29",
     "introduction": "With IBM Cloud App ID, you can easily add authentication to your web and mobile apps with few lines of code.",
     "section_devtools": {
-      "api": "/apidocs/app-id/management",
+      "api": "https://us-south.appid.cloud.ibm.com/swagger-ui/#/",
       "terraform": "https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/appid_action_url"
     },
     "section_recommended": [

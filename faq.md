@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-10-12"
+lastupdated: "2021-12-10"
 
 keywords: pricing, advanced security, authentication events, authorized users, activity tracking, runtime activity, password policies, keycloak, allow list redirect url, redirect uri 
 
@@ -86,7 +86,7 @@ For the most up-to-date pricing information, you can create a cost estimate by c
 
 The graduated tier plan consists of three parts: the number of authentication events, both regular and advanced security, and the number of authorized users. You are charged each month, based on the summary of the three parts. The total price is the cumulative charge for each level of usage, consisting of your quantity multiplied by the unit price at that tier.
 
-Your first 1000 authentication events and first 1000 authorized users are free each month, except for any advanced security events. Any advanced security events incur an extra charge.
+Your first 1000 authentication events and first 1000 authorized users per service instance are free each month, except for any advanced security events. Any advanced security events incur an extra charge.
 
 ### Authentication events
 {: #faq-authentication}
