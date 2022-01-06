@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-10-12"
+  years: 2017, 2022
+lastupdated: "2022-01-06"
 
 keywords: facebook, google, social, identity providers, single sign on, default configuration, authentication, authorization, identity, app security, idp, default credentials
 
@@ -79,22 +79,22 @@ You can configure the {{site.data.keyword.appid_short_notm}} service to use Face
 
 To use Facebook as an identity provider, you must add and configure the website platform on your Facebook application.
 
-1. Log in to your account on the [Facebook for Developers site](https://developers.facebook.com/docs/development){: external}.
-2. Make note of the Facebook app ID and secret. These values are needed to configure your web project for authentication in your service dashboard.
-3. Add the web platform and enter the site URL.
+1. Log in to your account on the [Meta for Developers site](https://developers.facebook.com/docs/development){: external}.
+2. Make note of the Facebook application ID and secret in the **Basic** section of the **Settings** menu. These values are needed to configure your web project for authentication in your service dashboard.
 4. From the products list, select **Facebook Login**.
-5. In the **Valid OAuth redirect URLs** field, enter the authorization server callback endpoint URL.
+3. Select the platform and enter the site URL.
+5. On the Facebook Login settings page, enter the authorization server callback endpoint URL in the **Valid OAuth redirect URIs** field.
 6. Click **Save Changes**.
 
 
 ### Configuring {{site.data.keyword.appid_short_notm}} for Facebook authentication
 {: #facebook-configure}
 
-When you have your Facebook app ID and secret, and your Facebook for Developers app is configured to serve web clients, you can edit the Facebook authentication in your service dashboard.
+When you have your Facebook app ID and secret, and your Meta for Developers app is configured to serve web clients, you can edit the Facebook authentication in your service dashboard.
 
 1. From the **Manage** tab of your service dashboard, select **Facebook** and click **Edit**.
-2. Enter the Facebook app ID and secret that you obtained from the Facebook for Developers website.
-3. Copy the URI that is in the **Redirect URI for Facebook for Developers** field. Paste the URI into the **Valid OAuth redirect URIs** field in the **Facebook Login** section of the Facebook Developers Portal.
+2. Enter the Facebook application ID and secret that you obtained from the Meta for Developers website.
+3. Copy the URI that is in the **Redirect URI for Meta for Developers** field. Paste the URI into the **Valid OAuth redirect URIs** field in the Facebook Login **Settings** section of the Meta for Developers site.
 4. Click **Save**.
 5. Optional: For web apps, enter the redirect URL in the **Web Application Redirect URLs** field. This value is determined by the developer and used to access the redirect URL after the authorization process is completed. The URL must follow an `http` or `https` scheme. For a higher level of security, use an `https` scheme.
 
@@ -110,7 +110,7 @@ You can configure the {{site.data.keyword.appid_short_notm}} service to use Goog
 
 Google documentation [link](https://developers.google.com/identity/gsi/web/guides/get-google-api-clientid){: external}
 
-Create a project in the [Google Developers Console](https://console.cloud.google.com/home/dashboard?project=app-id-login&folder=&organizationId=){: external}, configure the project to serve web clients, and obtain a client ID and secret.
+Create a project in the [Google Cloud Platform](https://console.cloud.google.com/home/dashboard?project=app-id-login&folder=&organizationId=){: external}, configure the project to serve web clients, and obtain a client ID and secret.
 
 1. Create a project.
 2. Open [credentials page](https://console.developers.google.com/apis){: external} of the Google APIs console.
@@ -126,9 +126,9 @@ Create a project in the [Google Developers Console](https://console.cloud.google
 After you configure your Google project and have your client ID and secret, you can edit your service dashboard for Google authentication.
 
 1. From the **Manage** page of your service dashboard, select **Google** and click **Edit**.
-2. Enter the client ID and secret that you obtained from the Google Developers Console.
+2. Enter the client ID and secret that you obtained from the Google Cloud Platform.
 3. Authorize the {{site.data.keyword.appid_short_notm}} URL.
-   1. Copy the **Redirect URL for Google Developer Console** from the Google identity provider details.
+   1. Copy the **Redirect URL for Google Cloud Platform** from the Google identity provider details.
    2. On the credentials page of your Google project, select the client ID that you created for this integration.
    3. Paste the URL from {{site.data.keyword.appid_short}} into the **Authorized redirect URIs** field and click **Save**.
 4. Click **Save** to update your Google configuration in {{site.data.keyword.appid_short_notm}}.
