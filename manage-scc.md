@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-10-12"
+  years: 2017, 2022
+lastupdated: "2022-01-20"
 
 keywords: security for {{site.data.keyword.appid_short_notm}}, compliance for {{site.data.keyword.appid_short_notm}}, security and compliance for {{site.data.keyword.appid_short_notm}}, rules for {{site.data.keyword.appid_short_notm}}, 
 
@@ -97,3 +97,16 @@ To start monitoring your resources, check out [Getting started with {{site.data.
 
 
 
+## Governing {{site.data.keyword.appid_short_notm}} resource configuration
+{: #govern-appid}
+
+As a security or compliance focal, you can use the {{site.data.keyword.compliance_short}} to define configuration rules for the instances of {{site.data.keyword.appid_short_notm}} that you create.
+
+[Config rules](#x3084914){: term} are used to enforce the configuration standards that you want to implement across your accounts. To learn more about the about the data that you can use to create a rule for {{site.data.keyword.appid_short_notm}}, review the following table.
+
+| Resource kind | Property | Operator | Value | Description |
+|---------------|----------|---------------|-------|-------------|
+| instance | capture_runtime_activity |  is_true  \n is_false | - | Enables or disables the monitoring of runtime activity made by app users. |
+{: caption="Table 1. Rule properties for {{site.data.keyword.appid_short_notm}}" caption-side="bottom"}
+
+To learn more about config rules, check out [Available config rule properties](/docs/security-compliance?topic=security-compliance-available-rule-properties).
