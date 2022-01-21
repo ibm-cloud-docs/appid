@@ -55,7 +55,7 @@ content-type: release-note
 {: release-note}
 
 {{site.data.keyword.appid_short_notm}} availability in Configuration Governance
-:   {{site.data.keyword.cloud_notm}} {{site.data.keyword.appid_short_notm}} is now available as part of the Configuration Governance component of the {[scc-full]}. You can create guardrails for {{site.data.keyword.appid_short_notm}} such as enforcing whether monitoring of runtime activity made by application users is tracked. For more information about the integration, see [Managing security and compliance with {{site.data.keyword.appid_short_notm}}](/docs/appid?topic=appid-manage-security-compliance).
+:   {{site.data.keyword.cloud_notm}} {{site.data.keyword.appid_short_notm}} is now available as part of the Configuration Governance component of the Security and Compliance Center. You can create guardrails for {{site.data.keyword.appid_short_notm}} such as enforcing whether monitoring of runtime activity made by application users is tracked. For more information about the integration, see [Managing security and compliance with {{site.data.keyword.appid_short_notm}}](/docs/appid?topic=appid-manage-security-compliance).
 
 
 
