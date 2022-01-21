@@ -54,8 +54,8 @@ content-type: release-note
 {: #appid-Jan2122}
 {: release-note}
 
-{{site.data.keyword.compliance_short}} integration
-:   You can now manage security and compliance for your organization with {{site.data.keyword.appid_short_notm}}. With the {{site.data.keyword.compliance_short}}, you can monitor controls and goals and define rules for {{site.data.keyword.appid_short_notm}}.
+{{site.data.keyword.appid_short_notm}} availability in Configuration Governance
+:   {{site.data.keyword.cloud_notm}} {{site.data.keyword.appid_short_notm}} is now available as part of the Configuration Governance component of the {[scc-full]}. You can create guardrails for {{site.data.keyword.appid_short_notm}} such as enforcing whether monitoring of runtime activity made by application users is tracked. For more information about the integration, see [Managing security and compliance with {{site.data.keyword.appid_short_notm}}](/docs/appid?topic=appid-manage-security-compliance).
 
 
 
