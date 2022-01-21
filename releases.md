@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-10-15"
+  years: 2017, 2022
+lastupdated: "2022-01-21"
 
 keywords: release notes, new, spa, single sign on, mfa, cloud directory, saml, app security, application identity
 
@@ -49,6 +49,15 @@ content-type: release-note
 
 # Release notes for {{site.data.keyword.appid_short_notm}}
 {: #release-notes}
+
+## 21 January 2022
+{: #appid-Jan2122}
+{: release-note}
+
+{{site.data.keyword.appid_short_notm}} availability in Configuration Governance
+:   {{site.data.keyword.cloud_notm}} {{site.data.keyword.appid_short_notm}} is now available as part of the Configuration Governance component of the {[scc-full]}. You can create guardrails for {{site.data.keyword.appid_short_notm}} such as enforcing whether monitoring of runtime activity made by application users is tracked. For more information about the integration, see [Managing security and compliance with {{site.data.keyword.appid_short_notm}}](/docs/appid?topic=appid-manage-security-compliance).
+
+
 
 ## 27 September 2021
 {: #appid-sept2721}
