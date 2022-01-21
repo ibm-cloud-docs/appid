@@ -54,8 +54,8 @@ content-type: release-note
 {: #appid-Jan2122}
 {: release-note}
 
-Security and Compliance Center Integration
-:   You can now manage security and compliance for your organization with {{site.data.keyword.appid_short_notm}}. With the Security and Compliance Center, you can monitor controls and goals and define rules for {{site.data.keyword.appid_short_notm}}.
+{{site.data.keyword.compliance_short}} integration
+:   You can now manage security and compliance for your organization with {{site.data.keyword.appid_short_notm}}. With the {{site.data.keyword.compliance_short}}, you can monitor controls and goals and define rules for {{site.data.keyword.appid_short_notm}}.
 
 
 
