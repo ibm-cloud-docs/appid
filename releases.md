@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-01-11"
+lastupdated: "2022-01-21"
 
 keywords: release notes, new, spa, single sign on, mfa, cloud directory, saml, app security, application identity
 
@@ -49,6 +49,13 @@ content-type: release-note
 
 # Release notes for {{site.data.keyword.appid_short_notm}}
 {: #release-notes}
+
+## 21 January 2022
+{: #appid-Jan2122}
+{: release-note}
+
+Security and Compliance Center Integration
+:   You can now manage security and compliance for your organization with {{site.data.keyword.appid_short_notm}}. With the Security and Compliance Center, you can monitor controls and goals and define rules for {{site.data.keyword.appid_short_notm}}.
 
 
 
