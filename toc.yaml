@@ -35,7 +35,7 @@ toc:
            - qs-liberty-backend.md
       links:
       - link:
-         label: Configuring serverless web app and eventing for data retrieval and analytics
+         label: Serverless web app and eventing for data retrieval and analytics
          href: https://cloud.ibm.com/docs/solution-tutorials?topic=solution-tutorials-serverless-github-traffic-analytics
 
   - navgroup: 
