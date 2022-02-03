@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-10-12"
+  years: 2017, 2022
+lastupdated: "2022-02-03"
 
 keywords: back-end apps, java, liberty for java, liberty, identity provider, access management, protected endpoints, access tokens, security, back end
 
@@ -85,7 +85,6 @@ Before you get started with {{site.data.keyword.appid_short_notm}} in your Liber
 * [The IBM Cloud CLI](/docs/cli?topic=cli-getting-started)
 * [Apache Maven 3.5+](https://maven.apache.org/download.cgi){: external}
 * [Java 8+](https://www.java.com/en/download/){: external}
-* The [{{site.data.keyword.appid_short_notm}} Postman collection](https://github.com/ibm-cloud-security/appid-postman){: external} for testing
 
 ## Obtain your credentials
 {: #liberty-obtain-credentials}

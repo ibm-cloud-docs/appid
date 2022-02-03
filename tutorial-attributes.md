@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-11-23"
+  years: 2017, 2022
+lastupdated: "2022-02-03"
 
 keywords: attributes, cloud directory, user registry, user management, personalization, customize app, user information, profiles, app security, user profile, app access, identity
 
@@ -86,10 +86,6 @@ Ready? Let's get started!
 Be sure that you have the following prerequisites before you begin:
 - An instance of the {{site.data.keyword.appid_short_notm}} service
 - A set of service credentials
-
-New to the APIs? Try them out with this [Postman collection](https://github.com/ibm-cloud-security/appid-postman).
-{: tip}
-
 
 ## Configuring your {{site.data.keyword.appid_short_notm}} instance
 {: #attributes-configure-app}
