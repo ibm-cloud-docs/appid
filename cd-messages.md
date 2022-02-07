@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-10-12"
+  years: 2017, 2022
+lastupdated: "2022-02-07"
 
 keywords: emails, verification, templates, sendgrid, welcome, password reset, password change, change details, verification, supported languages, registry, cloud directory, 
 
@@ -167,7 +167,7 @@ To see an example, check out the blog [Using your own provider for mail that is 
 1. Configure an extension point that can listen for a POST request. The endpoint must be able to:
    * Read the payload that comes from {{site.data.keyword.appid_short_notm}}.
    * Send the email from your custom provider.
-   * Optionally, [validate](/docs/appid?topic=appid-token-validation#local-validation) the JSON payload that is returned by {{site.data.keyword.appid_short_notm}} has not been altered by a third party in any way. A string that is formatted as `{"jws": "jws-format-string"}` is returned that contains your tenant ID, the issuer of your JWS token, the time stamp of when the message was sent, a unique transaction ID, and the actual message information including your sender details and email body content. 
+   * Optionally, [validate](/docs/appid?topic=appid-token-validation#local-validation) the JSON payload that is returned by {{site.data.keyword.appid_short_notm}} was not altered by a third party in any way. A string that is formatted as `{"jws": "jws-format-string"}` is returned that contains your tenant ID, the issuer of your JWS token, the timestamp of when the message was sent, a unique transaction ID, and the actual message information that includes your sender details and email body content. 
 
    Your extension point might look similar to the following example:
 
@@ -268,7 +268,7 @@ When you send messages to your users, you can use any combination of the followi
 In addition to the following message types, you can also take advantage of the [MFA](/docs/appid?topic=appid-cd-mfa) templates.
 {: tip}
 
-For further customization, you can use parameters in your messages. Check out the following table to see the parameters that you can use in all of the message types.
+For further customization, you can use parameters in your messages. Check out the following table to see the parameters that you can use in all the message types.
 
 | Parameter | Description | 
 |-----|----| 
@@ -292,7 +292,7 @@ When a user signs up for your application, you might want to send them a message
 
 2. Set **Welcome email** to **Enabled**.
 
-3. Customize the content of your message. You can add parameters and insert images by using the UI. To change the [language](/docs/appid?topic=appid-cd-types#cd-languages) of the message, you can use [the APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization){: external} to set the language. However, you are responsible for the content and conversion of the message. Check out the following table to see the list of tables that you can use in this message and all of the other messages that you can send. If a user does not supply the information that is pulled by the parameter, it appears blank.
+3. Customize the content of your message. You can add parameters and insert images by using the UI. To change the [language](/docs/appid?topic=appid-cd-types#cd-languages) of the message, you can use [the APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization){: external} to set the language. However, you are responsible for the content and conversion of the message. Check out the following table to see the list of tables that you can use in this message and all the other messages that you can send. If a user does not supply the information that is pulled by the parameter, it appears blank.
 
 4. Click **Save**.
 

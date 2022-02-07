@@ -58,7 +58,7 @@ When users or backend services interact with your app, they might need to be aut
 {: #obtain-clientid-secret}
 {: ui}
 
-In order to obtain tokens, you must have your client ID and secret. The credentials are specific to every application and are used to help identify and validate the users that a token might be assigned to. 
+To obtain tokens, you must have your client ID and secret. The credentials are specific to every application and are used to help identify and validate the users that a token might be assigned to. 
 {: shortdesc}
 
 1. Navigate to the **Applications** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
@@ -76,7 +76,7 @@ In order to obtain tokens, you must have your client ID and secret. The credenti
 {: #credentials-api}
 {: api}
 
-In order to obtain tokens, you must have your client ID and secret. The credentials are specific to every application and are used to help identify and validate the users that a token might be assigned to. 
+To obtain tokens, you must have your client ID and secret. The credentials are specific to every application and are used to help identify and validate the users that a token might be assigned to. 
 {: shortdesc}
 
 1. Make a POST request to the [`/management/v4/{tenantId}/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Applications/mgmt.registerApplication).
