@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-11-23"
+  years: 2017, 2022
+lastupdated: "2022-02-07"
 
 keywords: profile, custom attributes, predefined attributes, attributes, app users, app interaction, personalized experience, access user info, identity provider information, access token, authentication, user sign in, android, java, node, swift, ios, user, preferences
 
@@ -58,7 +58,7 @@ With {{site.data.keyword.appid_full}}, you can compile information about the ind
 ## Understanding profiles
 {: #profile-understand} 
 
-A user profile is all of the information that is known about a specific user - compiled into one JSON object and stored by {{site.data.keyword.appid_short_notm}}. There are two types of information, or attributes, that can be obtained and stored in a profile: `predefined` and `custom`. Predefined attributes are specific to the identity of your user and are returned by an identity provider when your user signs in to your app and can include information such as their name or age. Custom attributes are used to store additional information about your users. They can be set by you or learned about the user as they interact with your app. Custom attributes might include an assigned role, a food preference, or a preferred aisle seat on an airplane.
+A user profile is all the information that is known about a specific user - compiled into one JSON object and stored by {{site.data.keyword.appid_short_notm}}. There are two types of information, or attributes, that can be obtained and stored in a profile: `predefined` and `custom`. Predefined attributes are specific to the identity of your user and are returned by an identity provider when your user signs in to your app and can include information such as their name or age. Custom attributes are used to store additional information about your users. They can be set by you or learned about the user as they interact with your app. Custom attributes might include an assigned role, a food preference, or a preferred aisle seat on an airplane.
 
 ![{{site.data.keyword.appid_short_notm}} user profiles](images/user-profile-makeup.png){: caption="Figure 1. User profile information flow" caption-side="bottom"}
 
@@ -69,7 +69,7 @@ You can store up to 100 KB of information for each user.
 ### How do I get the user profile information?
 {: #profile-endpoint}
 
-There are several different ways in which you can access user information, as well as several different reasons why you would want to. The endpoint that you choose to call can vary depending on your use case.
+Several different ways exist in which you can access user information, and several different reasons why you would want to. The endpoint that you choose to call can vary depending on your use case.
 
 Not sure which one works best? Join our [Slack channel](https://www.ibm.com/cloud/blog/announcements/get-help-with-ibm-cloud-app-id-related-questions-on-slack){: external} and get advice directly from our development team.
 {: tip}
@@ -90,12 +90,12 @@ If you need to work with an API, check out the following image and corresponding
 `/management/v4/{tenantId}/users`
 :   If you're building administrative interfaces or processes that might apply to multiple users, you can use the App ID management API. Specifically, you can use the `/users` endpoint.
 
-The easiest ways to work with user information are by using the GUI or an SDK. With those options, all of the API calls are done behind the scenes for you.
+The easiest ways to work with user information are by using the GUI or an SDK. With those options, all the API calls are done behind the scenes for you.
 {: tip}
 
 
 
-## Accessing attributes at runtime
+## Accessing attributes at run time
 {: #profile-access-runtime}
 
 After successful user authentication, your app receives access and identity tokens from {{site.data.keyword.appid_short_notm}}. The service automatically injects a subset of attributes into your access and identity tokens. If the information isn't in the token, you can use any of the following endpoints to find the information. 
@@ -321,7 +321,7 @@ func deleteAllAttributes(accessToken: String, completionHandler: (Swift.Error?, 
 You can add information about your users to their profile such as a role or preference, by setting a custom attribute. To set custom attributes before a user signs in to your application, see [preregistering future users](/docs/appid?topic=appid-preregister).
 {: shortdesc}
 
-By default, custom attributes are modifiable and can be updated by using an {{site.data.keyword.appid_short_notm}} access token from a client application. This means that without taking proper precautions either the user or the application can update custom attributes immediately following the first user sign-in, if they have an access token. This can potentially lead to unintended consequences. For example, a user might change their role from user to admin, which might expose administrative privileges to malicious users.
+By default, custom attributes are modifiable and can be updated by using an {{site.data.keyword.appid_short_notm}} access token from a client application. Without taking proper precautions, either the user or the application can update custom attributes immediately following the first user sign-in, if they have an access token. Doing so can potentially lead to unintended consequences. For example, a user might change their role from user to admin, which might expose administrative privileges to malicious users.
 {: important}
 
 1. Go to the **User profiles > Settings** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
@@ -333,7 +333,7 @@ By default, custom attributes are modifiable and can be updated by using an {{si
    1. In the {{site.data.keyword.cloud_notm}} dashboard, click **Manage > Access (IAM)**.
    2. Select **{{site.data.keyword.cloud_notm}} API keys**.
    3. Click **Create an {{site.data.keyword.cloud_notm}} API key**.
-   4. Give your key a name and describe it. Click Create. A screen displays with your key.
+   4. Give a name and description to your key. Click **Create**. A screen displays your key.
    5. Click **Copy** or **Download** your key. When you close the screen, you can no longer access the key.
    6. Make the following cURL request with the API key that you created.
 

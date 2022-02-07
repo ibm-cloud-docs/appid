@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-11-23"
+  years: 2017, 2022
+lastupdated: "2022-02-07"
 
 keywords: Adapter, access management, identity token, helm chart, backend apps, kube, any kube, icp, openshift, iks, service mesh, access, app identity, kube secret, tokens, authenticated, app endpoints, authorization, multicloud, no code change, no redeploy, authorization policies, multiple providers
 
@@ -48,7 +48,7 @@ subcollection: appid
 # Multicloud apps with Istio
 {: #istio-adapter}
 
-By using the App Identity and Access Adapter, you can centralize all of your identity management in a single place.
+By using the App Identity and Access Adapter, you can centralize all your identity management in a single place.
 {: shortdesc}
 
 The App Identity and Access Adapter is not currently supported.
@@ -121,7 +121,7 @@ Before you get started, be sure that you installed the following prerequisites.
 - [Helm](https://helm.sh/){: external}
 - [Istio v1.1+](https://istio.io/latest/docs/setup/install/){: external}
 
-   Currently, [IBM Cloud Kubernetes Service Managed Istio](/docs/containers?topic=containers-istio) does not support policy enforcement. To use the Adapter you must use manually installed Istio.
+   Currently, [IBM Cloud Kubernetes Service Managed Istio](/docs/containers?topic=containers-istio) does not support policy enforcement. To use the Adapter, you must use manually installed Istio.
    {: note}
 
 
@@ -309,7 +309,7 @@ spec:
 ## Deleting the Adapter
 {: #istio-remove}
 
-To remove the Adapter and all of the associated CRDs, you must delete the Helm chart and the associated signing and encryption keys.
+To remove the Adapter and all associated CRDs, you must delete the Helm chart and the associated signing and encryption keys.
 
 ```bash
 helm delete --purge appidentityandaccessAdapter
@@ -342,7 +342,7 @@ Adapter_logs | jq
 ### Mixer
 {: #istio-logging-mixer}
 
-If the Adapter does not appear to receive requests, check the Mixer logs to ensure that it successfully connected to the Adapter.
+If the Adapter does not appear to receive requests, check the Mixer logs to ensure that it connected successfully to the Adapter.
 
 ```bash
 alias mixer_logs="kubectl -n istio-system logs -f $(kubectl -n istio-system get pods -lapp=telemetry -o jsonpath='{.items[0].metadata.name}') -c mixer"

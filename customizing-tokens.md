@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-10-12"
+  years: 2017, 2022
+lastupdated: "2022-02-07"
 
 keywords: user information, tokens, custom tokens, secure resources, authorization, identity, authentication, claims, oauth, claims mapping, attributes, app security, access, runtime
 
@@ -206,7 +206,7 @@ If you want to configure the lifespan of your token, you can quickly make the ch
    | `access: expires_in` | The length of time for which access tokens are valid. The smaller the value, the more protection that you have in cases of token theft. The value is provided in seconds and can be any whole number in range `300` and `86400`. The default value is `3600`. |
    | `refresh: expires_in` | The length of time for which refresh tokens are valid. The smaller the value, the more protection that you have in cases of token theft. The value is provided in seconds and can be any whole number in range `86400` and `7776000`. The default value is `2592000` (30 days). |
    | `anonymousAccess` | The length of time for which an anonymous token is valid. Anonymous tokens are assigned to users the moment they begin interacting with your app. When a user signs in, the information in the anonymous token is then transferred to the token associated with the user. The value is provided in seconds and can be any whole number in range `86400` and `7776000`. The default value is `2592000` (30 days). |
-   | `accessTokenClaims` | An array that contains the objects that are created when claims that are related to access tokens are mapped. You might want to include information about roles or specific attributes that are returned by a user's identity provider of choice. Note: If you're already using a custom claim with the title "roles" from your identity provider, be sure to use a destination claim in order to see both values. |
+   | `accessTokenClaims` | An array that contains the objects that are created when claims that are related to access tokens are mapped. You might want to include information about roles or specific attributes that are returned by a user's identity provider of choice. Note: If you're already using a custom claim with the title "roles" from your identity provider, be sure to use a destination claim to see both values. |
    | `idTokenClaims` | An array that contains the information that is present in tokens when you map claims to identity tokens. Depending on your configuration, you might also choose to have "roles" be present in your identity token. |
    {: caption="Table 3. Understanding the token configuration" caption-side="top"}
 

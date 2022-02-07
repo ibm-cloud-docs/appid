@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-11-23"
+  years: 2017, 2022
+lastupdated: "2022-02-07"
 
 keywords: identity provider, idp, app security, mobile app, web app, authentication, authorization, oidc, saml, protocols, facebook, google, w3id, cloud directory, redirect url, redirect uri, token configuration, token lifetime, log in configuration
 
@@ -62,7 +62,7 @@ When you use [Cloud Directory](/docs/appid?topic=appid-cloud-directory), {{site.
 Working with application identity? Check out [Application identity](/docs/appid?topic=appid-app).
 {: tip}
 
-There are several identity providers that the service can be configured to use. Check out the following table to learn about your options.
+Several identity providers can be configured to be used by {{site.data.keyword.appid_short_notm}}. Check out the following table to learn about your options.
 
 | Identity provider | Type | Description | 
 |-----|----| -----| 
@@ -97,7 +97,7 @@ Your application redirects users to {{site.data.keyword.appid_short_notm}} for a
 
 1. Click **Authentication Settings** to see your URI and token configuration options.
 
-2. In the **Add web redirect URI** field, type the URI. Each URI should begin with `http://` or `https://` and must include the full path, including any query parameters for the redirect to be successful. Need help formatting your URI? Check out the following table for some examples.
+2. In the **Add web redirect URI** field, type the URI. Each URI must begin with `http://` or `https://` and must include the full path, including any query parameters for the redirect to be successful. Need help formatting your URI? Check out the following table for some examples.
 
    | Type | Example URI |
    | ---- | ----------- |
@@ -124,7 +124,7 @@ Your application redirects users to {{site.data.keyword.appid_short_notm}} for a
 
 {{site.data.keyword.appid_short_notm}} uses tokens to identify users and secure your resources. You can adjust your configuration to fit your applications needs by setting the lifespan of the tokens. Token lifetime begins again each time a user signs in. For example, you set your refresh token lifetime to 10 days. An access token and a refresh token are created when the user signs in for the first time. If the user returns to your app 3 days later, they wouldn't need to sign in again. But, if the user waited 12 days after their initial sign-in, and then returned to your app, they would need to sign in again. For more information about tokens, check out [Understanding tokens](/docs/appid?topic=appid-tokens#tokens).
 
-When you set token expiration, the values apply to all of the providers that you make available. If you want to customize your tokens further, try calling the API to [map custom claims](/docs/appid?topic=appid-customizing-tokens) so that the user information is available at run time. Note that when you work with the API the customization times are configured differently.
+When you set token expiration, the values apply to all the providers that you make available. If you want to customize your tokens further, try calling the API to [map custom claims](/docs/appid?topic=appid-customizing-tokens) so that the user information is available at run time. When you work with the API, the customization times are configured differently.
 {: tip}
 
 1. Go to the **Manage Authentication > Authentication settings** tab of the service dashboard.

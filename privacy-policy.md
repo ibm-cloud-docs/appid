@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-10-12"
+  years: 2017, 2022
+lastupdated: "2022-02-07"
 
 keywords: personal data, app id permitted uses, privacy policy, usage data, user information, tracking technology, ip addresses, service providers, developers, client, testing, default configuration, cookies data, consent, legal, google, facebook 
 
@@ -50,7 +50,7 @@ subcollection: appid
 {: #privacy-policy}
 
 
-**Effective: August 2019** Client, hereinafter referred to as "Developer", performs development and testing of applications using the default configuration of {{site.data.keyword.appid_full}} ("{{site.data.keyword.appid_short_notm}}" or "Service") for Facebook or Google. Developer uses the default settings of {{site.data.keyword.appid_short_notm}} only for evaluation and testing purposes, and to determine whether to incorporate {{site.data.keyword.appid_short_notm}} into the application(s) being developed by Developer ("Permitted Uses"). Developer will not use the default settings of {{site.data.keyword.appid_short_notm}} for any uses or purposes other than the previously stated Permitted Uses.
+**Effective: August 2019** Client, hereinafter referred to as "Developer", performs development and testing of applications by using the default configuration of {{site.data.keyword.appid_full}} ("{{site.data.keyword.appid_short_notm}}" or "Service") for Facebook or Google. Developer uses the default settings of {{site.data.keyword.appid_short_notm}} only for evaluation and testing purposes, and to determine whether to incorporate {{site.data.keyword.appid_short_notm}} into the applications being developed by Developer ("Permitted Uses"). Developer will not use the default settings of {{site.data.keyword.appid_short_notm}} for any uses or purposes other than the previously stated Permitted Uses.
 {: shortdesc}
 
 Developer will implement a Privacy Policy, separate from this document, upon transition of applications from development to production.
@@ -71,8 +71,8 @@ Developer collects several different types of information for the Permitted Uses
 While engaging in the Permitted Uses of the Service, Developer may collect certain personally identifiable information that can be used to contact or identify a person ("Personal Data"). Personally identifiable information may include, but is not limited to:
 
 * Cookies and Usage Data
-* Basic Personal Information (such as name, address, phone number, email, etc.)
-* Technically Identifiable Personal Information (such as device IDs, usage-based identifiers, static IP address, etc. - when linked to an individual)
+* Basic Personal Information (such as name, address, phone number, email, and so on.)
+* Technically Identifiable Personal Information (such as device IDs, usage-based identifiers, static IP address, and so on. - when linked to an individual)
 * Healthcare Information (data related to physical or mental health of an individual, or which otherwise reveals information about his or her health status)
 
 ### Usage Data
@@ -149,7 +149,7 @@ Developer does not knowingly collect Personal Data from anyone under the age of 
 ## Changes To This Privacy Policy
 {: #policy-changes}
 
-This Privacy Policy may be updated from time to time and any changes will be reflected by posting the new Privacy Policy on this page. Prior to the change becoming effective and updated, notification will be made via prominent notice on our Service.
+This Privacy Policy may be updated from time to time and any changes will be reflected by posting the new Privacy Policy on this page. Before the change becomes effective and updated, notification is made via prominent notice on our Service.
 
 This Privacy Policy should be reviewed periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.
 

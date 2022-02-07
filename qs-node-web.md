@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-10-12"
+  years: 2017, 2022
+lastupdated: "2022-02-07"
 
 keywords: web apps, nodejs, node, javascript, protected resource, authorization flow, front end, frontend, app security, authentication
 
@@ -63,7 +63,7 @@ Check out the following diagram to see the Authorization Code OAuth 2.0 workflow
 
 1. A user attempts to gain access to your protected web application but they are unauthorized.
 2. Your application redirects the user to {{site.data.keyword.appid_short_notm}}.
-3. {{site.data.keyword.appid_short_notm}} shows a sign in screen that the user can use to authenticate.
+3. {{site.data.keyword.appid_short_notm}} shows a sign-in screen that the user can use to authenticate.
 4. They input their credentials such as a username and password. App  ID validates the credentials.
 5. {{site.data.keyword.appid_short_notm}} redirects the user back to your application with a grant code.
 6. By using the grant code, your application makes a request to {{site.data.keyword.appid_short_notm}} to ensure that the user is validated. For more information about obtaining access tokens, see [Obtaining tokens](/docs/appid?topic=appid-obtain-tokens).
@@ -75,7 +75,7 @@ Check out the following diagram to see the Authorization Code OAuth 2.0 workflow
 ## Video tutorial
 {: #web-node-video}
 
-Check out the following video to see how you can use {{site.data.keyword.appid_short_notm}} to protect a simple Node.js web application. All of the information that is covered in the video can also be found in written form on this page.
+Check out the following video to see how you can use {{site.data.keyword.appid_short_notm}} to protect a simple Node.js web application. All the information that is covered in the video can also be found in written form on this page.
 
 Don't have an app that you can try out the flow with? No problem! {{site.data.keyword.appid_short_notm}} provides a [simple Node.js web sample app](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02a-simple-node-web-app){: external}.
 
@@ -85,7 +85,7 @@ Don't have an app that you can try out the flow with? No problem! {{site.data.ke
 ## Before you begin
 {: #web-node-before}
 
-Before you get started with {{site.data.keyword.appid_short_notm}} in your Node.js web applications you must have the following prerequisites.
+Before you get started with {{site.data.keyword.appid_short_notm}} in your Node.js web applications, you must have the following prerequisites.
 {: shortdesc}
 
 * An instance of [the {{site.data.keyword.appid_short_notm}} service](https://cloud.ibm.com/catalog/services/app-id){: external}
@@ -100,11 +100,11 @@ This SDK uses the `log4js` package for logging. By default, the logging level is
 {: #node-web-redirect-uri}
 {: step}
 
-A redirect URI is the callback endpoint of your app. During the sign in flow, {{site.data.keyword.appid_short_notm}} validates the URIs before allowing clients to participate in the authorization workflow which helps to prevent phishing attacks and grant code leakage. By registering your URI, you're telling {{site.data.keyword.appid_short_notm}} that the URI is trusted and it's OK to redirect your users.
+A redirect URI is the callback endpoint of your app. During the sign-in flow, {{site.data.keyword.appid_short_notm}} validates the URIs before clients are allowed to participate in the authorization workflow, which helps to prevent phishing attacks and grant code leakage. By registering your URI, you're telling {{site.data.keyword.appid_short_notm}} that the URI is trusted and it's OK to redirect your users.
 
 1. Click **Manage Authentications > Authentication Settings**.
 
-2. In the **Add web redirect URI** field, type the URI. Each URI should begin with `http://` or `https://` and must include the full path, including any query parameters for the redirect to be successful.
+2. In the **Add web redirect URI** field, type the URI. Each URI must begin with `http://` or `https://` and must include the full path, including any query parameters for the redirect to be successful.
 
 3. Click the **+** symbol in the **Add web redirect URIs** box.
 
@@ -204,7 +204,7 @@ The easiest way to work with {{site.data.keyword.appid_short_notm}} is to take a
    ```
    {: codeblock}
 
-   You must configure the middleware with the proper session storage for production environments. For more information see the [express.js docs](https://github.com/expressjs/session){: external}.
+   You must configure the middleware with the proper session storage for production environments. For more information, see the [express.js docs](https://github.com/expressjs/session){: external}.
    {: note}
 
 
@@ -226,7 +226,7 @@ Now that you have {{site.data.keyword.appid_short_notm}} installed, you're ready
    ```
    {: codeblock}
 
-2. Set a sign in endpoint that always redirects a browser to the Login Widget. Be sure to add a success redirect option so that you don't end up in an endless authentication loop.
+2. Set a sign-in endpoint that always redirects a browser to the Login Widget. Be sure to add a success redirect option so that you don't end up in an endless authentication loop.
 
    ```javascript
    app.get('/appid/login', passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
