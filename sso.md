@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-11-23"
+  years: 2017, 2022
+lastupdated: "2022-02-07"
 
 keywords: single sign on, cloud directory, saml, app security, application identity
 
@@ -131,7 +131,7 @@ With {{site.data.keyword.appid_short_notm}}, you can end a user's SSO session fo
 {: shortdesc}
 
 
-When one of the flows related to changing, resetting, or renewing a password is started, the sessions across all clients are automatically terminated for the user.
+When one of the flows that are related to changing, resetting, or renewing a password is started, the sessions across all clients are automatically terminated for the user.
 {: note}
 
 
@@ -203,4 +203,4 @@ Authorization: Bearer {IAM_token}
 | `user-id` | The unique identifier for a Cloud Directory user. You can obtain the ID by using the [Cloud Directory Users APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/), or by viewing the user's identity token. |
 {: caption="Table 3. Variables that are needed to end all SSO sessions for a user" caption-side="top"}
 
-When you invoke this API, all of the specified user's SSO sessions are invalidated. This means that the next time that the user attempts to sign in to any of your apps, from any device or browser, they are required to reenter their credentials.
+When you invoke this API, all the specified user's SSO sessions are invalidated. This means that the next time that the user attempts to sign in to any of your apps, from any device or browser, they are required to reenter their credentials.

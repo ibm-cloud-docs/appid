@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-10-12"
+  years: 2017, 2022
+lastupdated: "2022-02-07"
 
 keywords: saml, help, authentication request, error message, signing algorithm, xml file, signing certificate, valid email, error code, saml message signature, 
 
@@ -101,7 +101,7 @@ When you send an authentication request, you receive an error that regards the `
 ```
 {: screen}
 
-To resolve the issue, be sure that your identity provider `NameID` is formatted as an email address. Verify that all of the users in your identity provider registry have a valid email address format. Then, verify that the `NameID` field is appropriately defined so that a valid email is always returned - even if users in your registry have multiple emails.
+To resolve the issue, be sure that your identity provider `NameID` is formatted as an email address. Verify that all the users in your identity provider registry have a valid email address format. Then, verify that the `NameID` field is correctly defined so that a valid email is always returned - even if users in your registry have multiple emails.
 {: tsResolve}
 
 ## Failure to decrypt the response
@@ -140,7 +140,7 @@ If you receive error message 2, ensure that your certificate is correct. You can
 ## Responder error code
 {: #ts-saml-responder}
 
-When you send an authentication request you receive the following generic error message:
+When you send an authentication request, you receive the following generic error message:
 {: tsSymptoms}
 
 ```sh
@@ -148,7 +148,7 @@ urn:oasis:names:tc:SAML:2.0:status:Responder
 ```
 {: screen}
 
-Although {{site.data.keyword.appid_short_notm}} sends the initial authentication request, the identity provider must perform the user authentication and return the response. There are several reasons that might cause your identity provider to throw this error message.
+Although {{site.data.keyword.appid_short_notm}} sends the initial authentication request, the identity provider must perform the user authentication and return the response. There are several reasons that might cause your identity provider to produce this error message.
 {: tsCauses}
 
 You might see the message if your identity provider: 
@@ -158,13 +158,13 @@ You might see the message if your identity provider:
 * Does not support the authentication context.
 * Requires the authentication request to be signed or use a specific algorithm in the signature.
 
-To resolve the issue, verify your configuration and username. Verify that you have the correct authentication context and variables defined. Check to see if your request needs to be signed in a specific way.
+To resolve the issue, verify your configuration and username. Verify that you have the correct authentication context and variables defined. Check to see whether your request needs to be signed in a specific way.
 {: tsResolve}
 
 ## Unsupported authentication request
 {: #ts-saml-unsupported-request}
 
-You receive a message regarding an unsupported authentication request.
+You receive a message about an unsupported authentication request.
 {: tsSymptoms}
 
 When {{site.data.keyword.appid_short_notm}} generates an authentication request, it can use the authentication context to request the quality of the authentication and SAML assertions.
@@ -185,8 +185,8 @@ You receive an error that states that an authentication request cannot be verifi
 To resolve the issue:
 {: tsResolve}
 
-* Verify that {{site.data.keyword.cloud_notm}} is configured to sign the authentication request by setting the `signRequest` parameter to `true` by using the [set SAML IdP API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.set_saml_idp). You can check to see if your authentication request is signed by looking at the request URL. The signature is included as a query parameter. For example: `https://idp.example.org/SAML2/SSO/Redirect?SAMLRequest=request&SigAlg=value&Signature=value&RelayState=token`
+* Verify that {{site.data.keyword.cloud_notm}} is configured to sign the authentication request by setting the `signRequest` parameter to `true` by using the [set SAML IdP API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.set_saml_idp). You can check to see whether your authentication request is signed by looking at the request URL. The signature is included as a query parameter. For example, `https://idp.example.org/SAML2/SSO/Redirect?SAMLRequest=request&SigAlg=value&Signature=value&RelayState=token`
 
-* Verify that your identity provider is configured with the correct certificate. To obtain the signing certificate check the {{site.data.keyword.cloud_notm}} metadata XML file that you downloaded from the {{site.data.keyword.cloud_notm}} dashboard. Ensure that you use the key with `<KeyDescriptor use="signing">`.
+* Verify that your identity provider is configured with the correct certificate. To obtain the signing certificate, check the {{site.data.keyword.cloud_notm}} metadata XML file that you downloaded from the {{site.data.keyword.cloud_notm}} dashboard. Ensure that you use the key with `<KeyDescriptor use="signing">`.
 
 * Verify that your identity provider is configured to use `` as the signing algorithm.

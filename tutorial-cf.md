@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-11-23"
+  years: 2017, 2022
+lastupdated: "2022-02-07"
 
 keywords: cloud foundry, iam, java nodejs, identity, access management, user access, service access, permissions, bind service
 
@@ -65,9 +65,9 @@ With {{site.data.keyword.cloud_notm}}, you can protect your apps with two differ
 
 An alias creates a connection between your IAM-managed service such as {{site.data.keyword.appid_short_notm}} and your Cloud Foundry application. When you bind an application, service credentials are created and automatically passed to the app. Although binding is a required step in the configuration, it has the following benefits:
 
-* Automation: With the service credentials stored in the VCAP_SERVICES environment variable, you no longer need to manually copy them to the app. It's all done behind the scenes on your behalf with the {{site.data.keyword.appid_short_notm}} SDKs.
+* Automation: With the service credentials stored in the VCAP_SERVICES environment variable, you no longer need to manually copy them to the app. This process happens behind the scenes on your behalf with the {{site.data.keyword.appid_short_notm}} SDKs.
 * Safety: Configuration becomes error-proof because the process is automatic.
-* Security: Nothing that is access related is hard-coded into your application as the service credentials exist in the environment variables only.
+* Security: Nothing that is access-related is hardcoded into your application as the service credentials exist in the environment variables only.
 
 Is your Cloud Foundry app hosted on another platform? No problem. You can define application credentials in your app to bind it to the service. You can find your application credentials through the {{site.data.keyword.appid_short_notm}} dashboard, or by making a request to the [/applications endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Applications/registerApplication).
 {: tip}
@@ -95,7 +95,7 @@ The following step includes instructions for deploying a Node.js app or a Java a
 {: #cf-node}
 
 1. Navigate to your instance of {{site.data.keyword.appid_short_notm}} and click **Download Sample** on the **Overview** tab of the service dashboard.
-2. Click **Node.js**. Download and extract the sample app. Be sure that you have all of the prerequistes.
+2. Click **Node.js**. Download and extract the sample app. Be sure that you have all the prerequisites.
 3. Open terminal and change into the sample folder.
 4. Log in to the {{site.data.keyword.cloud_notm}} CLI. The CLI prompts you to select an account and region if you do not specify one.
 
@@ -130,7 +130,7 @@ The following step includes instructions for deploying a Node.js app or a Java a
 {: #java}
 
 1. Navigate to your instance of {{site.data.keyword.appid_short_notm}} and click **Download Sample** on the **Overview** tab of the service dashboard.
-2. Click **Java**. Download and extract the sample app. Be sure that you have all of the prerequistes.
+2. Click **Java**. Download and extract the sample app. Be sure that you have all the prerequisites.
 3. Open terminal and change into the sample folder.
 4. Generate your `war` file and upload it.
 

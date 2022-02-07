@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-01-21"
+lastupdated: "2022-02-07"
 
 keywords: release notes, new, spa, single sign on, mfa, cloud directory, saml, app security, application identity
 
@@ -156,10 +156,10 @@ Slack channel
 :   Have questions while working with {{site.data.keyword.appid_short_notm}}? Get in touch directly with the development team on [Slack](https://www.ibm.com/cloud/blog/announcements/get-help-with-ibm-cloud-app-id-related-questions-on-slack){: external}!
 
 The {{site.data.keyword.appid_short_notm}} Identity and Access Istio adapter
-:   Centralize all of your identity management in a single place with the App Identity and Access adapter. The adapter can be configured to work with any OIDC-compliant identity provider, which enables it to control authentication and authorization policies in all environments including both front and backend apps. And, it does it all without any change to your code or the need to redeploy your application. For more information, see [Securing multicloud apps with Istio](/docs/appid?topic=appid-istio-adapter).
+:   Centralize all your identity management in a single place with the App Identity and Access adapter. The adapter can be configured to work with any OIDC-compliant identity provider, which enables it to control authentication and authorization policies in all environments including both front and backend apps. And, it does it all without any change to your code or the need to redeploy your application. For more information, see [Securing multicloud apps with Istio](/docs/appid?topic=appid-istio-adapter).
 
 Access user profile information through the GUI
-:   View information about all of your users that you can leverage to build personalized app experiences. For more information, see [Storing and accessing profiles](/docs/appid?topic=appid-profiles).
+:   View information about all your users that you can leverage to build personalized app experiences. For more information, see [Storing and accessing profiles](/docs/appid?topic=appid-profiles).
 
 Cloud Directory: Automatically associate users with a profile
 :   Automatically associate Cloud Directory users with an {{site.data.keyword.appid_short_notm}} profile as you create them. For more information, see [Adding and deleting users](/docs/appid?topic=appid-cd-users#delete-users).
