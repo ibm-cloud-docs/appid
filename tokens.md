@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-02-07"
+lastupdated: "2022-02-10"
 
 keywords: token validation, validate token, protect app, public key, token header, base64, decode payload, authorized, access permissions, app security, identity, jwt 
 
@@ -75,7 +75,7 @@ Don't worry! You have three options:
 By using introspection, you can use {{site.data.keyword.appid_short_notm}} to validate your tokens.
 {: shortdesc}
 
-1. Send a POST request to the [/introspect](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization%20Server%20-%20Authorization%20Server%20V4/oauth-server.token) API endpoint to validate your token. The request must provide the token and a basic authorization header that contains the client ID and secret.
+1. Send a POST request to the [/introspect](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization%20Server%20-%20Authorization%20Server%20V4/oauth-server.introspect) API endpoint to validate your token. The request must provide the token and a basic authorization header that contains the client ID and secret.
 
    Example request:
 
@@ -136,7 +136,7 @@ You can validate your tokens locally by parsing the token, verifying the token s
       ```
       {: screen}
 
-2. Make a call to the [/publickeys endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Authorization_Server_V4/publicKeys){: external} to retrieve your public keys. The public keys that are returned are formatted as [JSON Web Keys (JWK)](https://datatracker.ietf.org/doc/html/rfc7517){: external}.
+2. Make a call to the [/publickeys endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Authorization%20Server%20-%20Authorization%20Server%20V4/oauth-server.publicKeys){: external} to retrieve your public keys. The public keys that are returned are formatted as [JSON Web Keys (JWK)](https://datatracker.ietf.org/doc/html/rfc7517){: external}.
 
    Example request:
 
