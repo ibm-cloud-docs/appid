@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-11-23"
+  years: 2017, 2022
+lastupdated: "2022-02-07"
 
 keywords: attributes, cloud directory, user registry, user management, personalization, customize app, user information, profiles, app security, user profile, app access, identity
 
@@ -74,7 +74,7 @@ Do you have any dietary preferences?
 
 You can then map their answers to [specific attributes](/docs/appid?topic=appid-profiles) that you can use to target the advertising that they're shown. 
 
-Although this tutorial is written for web apps that use Cloud Directory, attributes can be used in a much broader sense. Custom attributes can be anything that you want them to be! As long as you stay under 100k attributes and you format them as a plain JSON object, you can store all types of information.
+Although this tutorial is written for web apps that use Cloud Directory, attributes can be used in a much broader sense. Custom attributes can be anything that you want them to be! If you stay under 100k attributes and you format them as a plain JSON object, you can store all types of information.
 {: note}
 
 
@@ -86,10 +86,6 @@ Ready? Let's get started!
 Be sure that you have the following prerequisites before you begin:
 - An instance of the {{site.data.keyword.appid_short_notm}} service
 - A set of service credentials
-
-New to the APIs? Try them out with this [Postman collection](https://github.com/ibm-cloud-security/appid-postman).
-{: tip}
-
 
 ## Configuring your {{site.data.keyword.appid_short_notm}} instance
 {: #attributes-configure-app}
@@ -163,7 +159,7 @@ Great work!
 {: #attributes-tokens}
 {: step}
 
-Becoming more popular, you decide to implement a "deal-of-the-day". You want the first thing that the user sees when they sign in to your application to be a coupon for something that matches their dietary preferences. You can achieve this by injecting the attributes that are stored in their profiles into their tokens. By having the information available at runtime, you can have your application make a custom decision on the spot about which deal to show. 
+Becoming more popular, you decide to implement a "deal-of-the-day". You want the first thing that the user sees when they sign in to your application to be a coupon for something that matches their dietary preferences. You can achieve this by injecting the attributes that are stored in their profiles into their tokens. By having the information available at run time, you can have your application make a custom decision on the spot about which deal to show. 
 {: shortdesc}
 
 [Token configuration](/docs/appid?topic=appid-customizing-tokens#customizing-tokens) is global, which means that it applies to every user with the same attribute.

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-11-23"
+  years: 2017, 2022
+lastupdated: "2022-02-07"
 
 keywords: obtain tokens, return tokens, authorized, authorization, access management, client id, secret, tenant id, app security, identity token
 
@@ -58,7 +58,7 @@ When users or backend services interact with your app, they might need to be aut
 {: #obtain-clientid-secret}
 {: ui}
 
-In order to obtain tokens, you must have your client ID and secret. The credentials are specific to every application and are used to help identify and validate the users that a token might be assigned to. 
+To obtain tokens, you must have your client ID and secret. The credentials are specific to every application and are used to help identify and validate the users that a token might be assigned to. 
 {: shortdesc}
 
 1. Navigate to the **Applications** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
@@ -76,7 +76,7 @@ In order to obtain tokens, you must have your client ID and secret. The credenti
 {: #credentials-api}
 {: api}
 
-In order to obtain tokens, you must have your client ID and secret. The credentials are specific to every application and are used to help identify and validate the users that a token might be assigned to. 
+To obtain tokens, you must have your client ID and secret. The credentials are specific to every application and are used to help identify and validate the users that a token might be assigned to. 
 {: shortdesc}
 
 1. Make a POST request to the [`/management/v4/{tenantId}/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Applications/mgmt.registerApplication).
@@ -119,7 +119,7 @@ This action can be done through the API only. To see the steps, switch to the AP
 {: note}
 
 ## Obtaining access and identity tokens with the API
-{: #obtain-access-id-tokens}
+{: #obtain-access-id-tokens-api}
 {: api}
 
 With a client ID and secret, you can obtain access and identity tokens by using the API or an SDK. The following examples show how to obtain a token by using the Resource Owner Password (ROP) flow.

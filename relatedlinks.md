@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-11-23"
+  years: 2017, 2022
+lastupdated: "2022-02-03"
 
 keywords: related links, blogs, sample apps, kube, code changes, programming guide, white paper, vuejs apps, serverless applications, enterprise user directory, custom experience, slack, stack overflow, secure iot, solution, finance app, multicloud, video tutorials
 
@@ -161,13 +161,6 @@ Are you working in a specific language and want to see how {{site.data.keyword.a
 
 * ![Tutorial icon](images/tutorial.svg) [Programming with Swift on {{site.data.keyword.cloud_notm}}](/docs/swift?topic=swift-getting-started){: external}
 * ![Tutorial icon](images/tutorial.svg) [Programming with Node.js on {{site.data.keyword.cloud_notm}}](/docs/node?topic=node-getting-started){: external}
-
-
-## Testing
-{: #rellinks-test}
-
-Ready to start trying out the service? The easiest way to try out the APIs is by using the [App ID Postman collection](https://github.com/ibm-cloud-security/appid-postman){: external}.
-
 
 ## Icon legend
 {: #icons}

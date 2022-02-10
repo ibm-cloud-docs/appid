@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-11-23"
+  years: 2017, 2022
+lastupdated: "2022-02-07"
 
 keywords: single page application, SPA, single-page, angular, react, native apps, javascript, js, sdk, authentication, authorization, identity, app security, secure, protocols, oauth, oidc,
 
@@ -49,7 +49,7 @@ subcollection: appid
 # Single-page apps
 {: #single-page}
 
-With {{site.data.keyword.appid_full}}, you can quickly add authorization and authentication to your single-page applications (SPA). An SPA runs entirely in your browser, doesn't have a backend that you manage, and does not require that the page reload while the application is in use. Some of the common frameworks that are used with SPAs are [Angular](https://angular.io/){: external} and [React](https://reactjs.org/){: external}.
+With {{site.data.keyword.appid_full}}, you can quickly add authorization and authentication to your single-page applications (SPA). An SPA runs entirely in your browser, doesn't have a backend that you manage, and does not require that the page reload while the application is in use. Some common frameworks that are used with SPAs are [Angular](https://angular.io/){: external} and [React](https://reactjs.org/){: external}.
 {: shortdesc}
 
 Does your app have a backend that you control? SPA is not the flow for you. Try the [web app flow](/docs/appid?topic=appid-web-apps)!
@@ -71,17 +71,17 @@ Although it is the current industry standard for SPAs, the OAuth working group n
 5. The {{site.data.keyword.appid_short_notm}} SDK on the application receives the grant code
 6. The SDK then makes an XHR request to the {{site.data.keyword.appid_short_notm}} token endpoint along with the grant code and the code verifier to obtain access and identity tokens.
 
-Are you using SSO for Cloud Directory? You can use the {{site.data.keyword.appid_short_notm}} client SDK to automatically obtain a new pair of tokens without requiring that the user explicitly sign in. For more information, see [Silent login](/docs/appid?topic=appid-single-page#spa-silent-login).
+Are you using SSO for Cloud Directory? You can use the {{site.data.keyword.appid_short_notm}} client SDK to automatically obtain a new pair of tokens without requiring that the user explicitly sign-in. For more information, see [Silent login](/docs/appid?topic=appid-single-page#spa-silent-login).
 {: tip}
 
 ### Why Authorization Code + PKCE?
 {: #spa-code-why}
 
-Due to their nature, single-page applications are unable to store secrets securely. The Authorization + PKCE flow, a variation of the OAuth 2.0 Authorization Code flow, uses a one-time code verifier and challenge instead of a secret to address the concern. The verifier and the challenge ensure that the entity that calls the authorization and token endpoints are the same, which means that an attacker would not be able to request tokens from the authorization server without also knowing the code verifier.
+Due to their nature, single-page applications are unable to store secrets securely. The Authorization + PKCE flow, a variation of the OAuth 2.0 Authorization Code flow, uses a one-time code verifier and challenge instead of a secret to address the concern. The verifier and the challenge ensure that the entity that calls the authorization and token endpoints are the same. This process means that an attacker would not be able to request tokens from the authorization server without also knowing the code verifier.
 
-Although the Implicit flow is the current industry standard, there are several security flaws that can be found. For example, the Implicit flow uses redirect URIs to obtain tokens, which the Authorization + PKCE flow circumvents by using an XHR request instead. Because of the security flaws, the Implicit flow is no longer recommended or considered safe due to the following reasons:
+Although the Implicit flow is the current industry standard, several security flaws can be found. For example, the Implicit flow uses redirect URIs to obtain tokens, which the Authorization + PKCE flow circumvents by using an XHR request instead. Because of the security flaws, the Implicit flow is no longer recommended or considered safe due to the following reasons:
 
-* The Implicit flow returns tokens as part of the URL - as a query param or in the hash fragment. By doing so, the tokens can be intercepted and tokens can be accessed. The tokens might be saved in a user's browser history or logs. The history or logs might be stored in a cloud service and sent to multiple devices, which also heightens the risk.
+* The Implicit flow returns tokens as part of the URL - as a query parameter or in the hash fragment. By doing so, the tokens can be intercepted and tokens can be accessed. The tokens might be saved in a user's browser history or logs. The history or logs might be stored in a cloud service and sent to multiple devices, which also heightens the risk.
 
 * The Implicit flow is susceptible to a [redirect URI attack](https://datatracker.ietf.org/doc/html/rfc6749){: external}, which means that an attacker might replace an approved redirect URI with a destination of their choice. If there is a redirect URI attack, users follow the changed link to authorize their client. After authorization, they are redirected to the attackers URI, which gives the attacker access to the user's legitimate tokens. 
 
@@ -106,7 +106,7 @@ Before you get started, be sure that you have the following prerequisites.
 
 Your credentials are used to connect your application to {{site.data.keyword.appid_short_notm}}. To create your credentials, register your app with {{site.data.keyword.appid_short_notm}}.
 
-There is no client secret that is returned in your SPA credentials. There is no need for a secret in the Authorization + PKCE flow. You are not able to use regular web app credentials in your SPA flow. 
+No client secret is returned in your SPA credentials. A secret in the Authorization + PKCE flow is not needed. You are not able to use regular web app credentials in your SPA flow. 
 {: note}
 
 1. Sign in to the {{site.data.keyword.cloud_notm}} dashboard in the region in which you want to work.
@@ -123,7 +123,7 @@ There is no client secret that is returned in your SPA credentials. There is no 
 
 Your credentials are used to connect your application to {{site.data.keyword.appid_short_notm}}. To create your credentials, register your app with {{site.data.keyword.appid_short_notm}}.
 
-There is no client secret that is returned in your SPA credentials. There is no need for a secret in the Authorization + PKCE flow. You are not able to use regular web app credentials in your SPA flow. 
+No client secret is returned in your SPA credentials. A secret in the Authorization + PKCE flow is not needed. You are not able to use regular web app credentials in your SPA flow. 
 {: note}
 
 1. Make the following post request to the [/management/v4/{tenantId}/applications](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Applications/mgmt.registerApplication){: external} endpoint.

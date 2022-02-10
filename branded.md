@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-11-23"
+  years: 2017, 2022
+lastupdated: "2022-02-07"
 
 keywords: bring your own screens, branded app, sign up, custom, directory, registry, app security, password, authorization flow, authentication,
 
@@ -48,7 +48,7 @@ subcollection: appid
 # Branding your app
 {: #branded}
 
-With {{site.data.keyword.appid_full}}, you can customize the entire sign-up experience of your application by using your own branded screens. You can replace the provided sign in widget with your own, add extra fields, validate password strength and verify email addresses against a blocklist!
+With {{site.data.keyword.appid_full}}, you can customize the entire sign-up experience of your application by using your own branded screens. You can replace the provided sign-in widget with your own, add extra fields, validate password strength, and verify email addresses against a blocklist!
 {: shortdesc}
 
 
@@ -58,20 +58,20 @@ With {{site.data.keyword.appid_full}}, you can customize the entire sign-up expe
 When you reuse your existing UIs, you can create a cohesive sign-in flow for your app. By using the same imagery, colors, and branding, your users are more likely to recognize your brand, even when not directly interacting with your app.
 
 
-Want to use a [language](/docs/appid?topic=appid-cd-types#cd-languages) other than English? You can choose another language by using the [language management APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/updateLocalization){: external}, to display your own translated content.
+Want to use a [language](/docs/appid?topic=appid-cd-types#cd-languages) other than English? You can choose another language by using the [language management APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/updateLocalization){: external} to display your own translated content.
 {: tip}
 
 
 ## What information do I need to obtain with my sign in or sign up screen?
 {: #branded-form-submit}
 
-When you make the request to submit your sign-in form, it must contain both username and password parameters in your request body. This means that your sign in or sign up page must ask that information from your users.
+When you make the request to submit your sign-in form, it must contain both username and password parameters in your request body. Your sign-in or sign-up page must ask that information from your users.
 
 
-### Can I use some of my own and some of the default screens?
+### Can I use some of my own and some default screens?
 {: #branded-hybrid}
 
-Yes! You can create a hybrid flow that uses some of your screens and some of the default screens. However, you can use only one option per flow. As an example, you can use your own sign-in screen and also use the default sign-up screen. But, if you choose to use the default sign-up screen, then you must continue to use the default through entire sign-up flow, including sign-up verification.
+Yes! You can create a hybrid flow that uses some of your screens and some default screens. However, you can use only one option per flow. As an example, you can use your own sign-in screen and also use the default sign-up screen. But, if you choose to use the default sign-up screen, then you must continue to use the default through entire sign-up flow, including sign-up verification.
 
 ### How are the flows technically different?
 {: #branded-technically}
@@ -102,7 +102,7 @@ With Cloud Directory enabled, you can call customized screens with the Android S
 {: #branded-android-sign-in}
 
 1. Configure your Cloud Directory [settings](/docs/appid?topic=appid-cloud-directory#cd-settings) in the GUI.
-2. Add the following code to your application. The sign-in flow is triggered when a user clicks sign in on your custom screen. You get access, identity, and refresh tokens by supplying the user's user name and password.
+2. Add the following code to your application. The sign-in flow is triggered when a user clicks sign in on your custom screen. You get access, identity, and refresh tokens by supplying the user's username and password.
 
    ```java
    AppID.getInstance().signinWithResourceOwnerPassword(getApplicationContext(), username, password, new TokenResponseListener() {
@@ -160,7 +160,7 @@ With Cloud Directory enabled, you can call customized screens with the Node.js S
 ### Sign in
 {: #branded-node-sign-in}
 
-By using `WebAppStrategy`, users can sign in to your web apps with their user name and a password. After a user successfully signs in to your app, their access token is persisted in an HTTP session as long as it is kept alive. After the HTTP session is closed or expired, the access token is also destroyed.
+By using `WebAppStrategy`, users can sign in to your web apps with their username and a password. After a user successfully signs in to your app, their access token is persisted in an HTTP session while it is kept alive. After the HTTP session is closed or expired, the access token is also destroyed.
 
 
 1. Configure your Cloud Directory [settings](/docs/appid?topic=appid-cloud-directory#cd-settings) in the GUI.
@@ -178,7 +178,7 @@ By using `WebAppStrategy`, users can sign in to your web apps with their user na
    | Parameter | Description |
    | --------- | ----------- |
    | `successRedirect` | The URL that you want to redirect the user after a successful authentication. |
-   | `failureRedirect` | The URL that you want to redirect the user to if authentication fails. Users are redirected to the specified URL when the following authentication failures occur:  \n * The user inputs an incorrect username or password.  \n * The plan limit for the {{site.data.keyword.appid_short_notm}} instance has been reached. | 
+   | `failureRedirect` | The URL that you want to redirect the user to if authentication fails. Users are redirected to the specified URL when the following authentication failures occur:  \n * The user inputs an incorrect username or password.  \n * The plan limit for the {{site.data.keyword.appid_short_notm}} instance was reached. | 
    | `failureFlash` | When set to `true` an error message is returned from the Cloud Directory service. By default, the value is set to `false`.|
    {: caption="Table 1. Sign-in parameters" caption-side="top"}
 
@@ -194,7 +194,7 @@ By using `WebAppStrategy`, users can sign in to your web apps with their user na
 You can display your own customized screens and take advantage of the authentication and authorization capabilities of {{site.data.keyword.appid_short_notm}}. With Cloud Directory as your identity provider, your users are able to interact with your app with less help from you. They're able to sign in, sign up, reset their password, and more without asking for help.
 {: shortdesc}
 
-To make this possible, {{site.data.keyword.appid_short_notm}} exposes REST APIs. You can use the REST APIs to build a back-end server that serves your web apps, or to interact with a mobile app with your own custom screens.
+To make this experience possible, {{site.data.keyword.appid_short_notm}} exposes REST APIs. You can use the REST APIs to build a backend server that serves your web apps, or to interact with a mobile app with your own custom screens.
 
 The management API is secured with IBM Cloud Identity and Access Management generated tokens, which means that account owners can specify who on their team has which level of access for each service instance. For more information about how IAM and {{site.data.keyword.appid_short_notm}} work together, see [Service access management](/docs/appid?topic=appid-service-access-management).
 

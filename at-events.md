@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-10-12"
+  years: 2017, 2022
+lastupdated: "2022-02-07"
 
 keywords: user events, track activity, manage events, analyze, administrative, runtime, sign in, settings, app security
 
@@ -48,10 +48,10 @@ subcollection: appid
 # Auditing events for {{site.data.keyword.appid_short_notm}}
 {: #at-events}
 
-You can view, manage, and analyze user-initiated activities made in your {{site.data.keyword.appid_full}} service instance by using the {{site.data.keyword.at_short}} service.
+You can view, manage, and analyze user-initiated activities that are made in your {{site.data.keyword.appid_full}} service instance by using the {{site.data.keyword.at_short}} service.
 {: shortdesc}
 
-By integrating {{site.data.keyword.at_short}} with {{site.data.keyword.appid_short_notm}} you can track two different types of events, administrative and runtime. Administrative events are those that are specific to your instance of the service. Administrative events cover configuration changes such as updating your identity providers or changing the theme of your login widget. Runtime events are those activities that occur at runtime by the app user. A password reset request, authentication failures, or a user log out would all fall into the runtime category.
+By integrating {{site.data.keyword.at_short}} with {{site.data.keyword.appid_short_notm}}, you can track two different types of events, administrative and runtime. Administrative events are specific to your instance of the service. Administrative events cover configuration changes such as updating your identity providers or changing the theme of your login widget. Runtime events are those activities that occur at run time by the app user. A password reset request, authentication failures, or a user logout would all fall into the runtime category.
 
 For more information about how the service works, see the [{{site.data.keyword.at_short}} docs](/docs/activity-tracker?topic=activity-tracker-getting-started).
 
@@ -69,7 +69,7 @@ You can view, manage, and analyze configuration activity that is made in your {{
 1. Log in to your {{site.data.keyword.cloud_notm}} account.
 2. From the catalog, provision an instance of the {{site.data.keyword.at_short}} service in the same account and region as your {{site.data.keyword.appid_short_notm}} instance.
 3. From the **Observability > Activity Tracker** tab, verify the information for the instance that you created.
-4. Click **View Open Dashboard** and make sure you're on the **Everything** dashboard. Any events that meet the qualifications for your {{site.data.keyword.at_short}} payment plan are visible. You can filter your results by tags, sources, apps or levels. You can also search for specific events or jump to a specific timeframe.
+4. Click **View Open Dashboard** and make sure you're on the **Everything** dashboard. Any events that meet the qualifications for your {{site.data.keyword.at_short}} payment plan are visible. You can filter your results by tags, sources, apps, or levels. You can also search for specific events or jump to a specific timeframe.
 
 
 
@@ -78,7 +78,7 @@ You can view, manage, and analyze configuration activity that is made in your {{
 
 Check out the following table for a list of the events that are sent to {{site.data.keyword.at_short}}.
 
-Some of the action names were changed as part of an alignment to new guidelines. [Learn more](/docs/activity-tracker?topic=activity-tracker-event#action_field).
+Some action names were changed as part of an alignment to new guidelines. [Learn more](/docs/activity-tracker?topic=activity-tracker-event#action_field).
 {: important}
 
 | Action | Description | GUI action | 
@@ -89,13 +89,13 @@ Some of the action names were changed as part of an alignment to new guidelines.
 | `appid.tokens-config.read` | View the token expiration configuration. | Can be found in the **Manage authentication > Authentication Settings** tab. |
 | `appid.tokens-config.update` | Update the token expiration configuration. | Can be found in the **Manage authentication > Authentication Settings** tab. | 
 | `appid.redirect-uris.read` |  View the current redirect URI configuration. | Can be found in the **Manage authentication > Authentication Settings** tab. | 
-| `appid.redirect-uris.update` | Update the redirect URIs configuration. | Can be updated in the **Manage authentication > Identity Providers** tab. |
+| `appid.redirect-uris.update` | Update the redirect URI configuration. | Can be updated in the **Manage authentication > Identity Providers** tab. |
 | `appid.is-profiles-active.read` | View the user profile storage configuration. | Can be found in the **Profiles and roles > User Profiles** tab. |
 | `appid.is-profiles-active.update` | Update your user profile storage configuration. | Can be found in the **Profiles and roles > User Profiles** tab. | 
 | `appid.users.read` | Search user profiles. | Can be found in the **Profiles and roles > User Profiles** tab. |
 | `appid.users.create` | Create pre-registered user profile. | Can be found in the **Profiles and roles > User Profiles** tab. |       
 | `appid.users.get` | Export user profiles. | Must be done through the API. | 
-| `appid.refresh-token.revoke` | Revoke all the refresh tokens issued for the given user. | Must be done through the API. | 
+| `appid.refresh-token.revoke` | Revoke all the refresh tokens that are issued for the user. | Must be done through the API. | 
 | `appid.users.import` | Import user profiles. | Must be done through the API. | 
 | `appid.user-profile.read` | View a user profile. | Can be found in the **Profiles and roles > User Profiles** tab. |
 | `appid.user-profile.update` | Update a user profile. | Can be found in the **Profiles and roles > User Profiles** tab. | 
@@ -118,7 +118,7 @@ Some of the action names were changed as part of an alignment to new guidelines.
 | `appid.theme-color.update` | Update the theme color of the login widget header. | Can be Updated in the **Login Customization** tab. | 
 | `appid.media.read` | View the image that is shown in the login widget. | Can be found in the **Login Customization** tab. |
 | `appid.media.update` | Update the image that is shown in the login widget. | Can be updated in the **Login Customization** tab. | 
-| `appid.ui-configuration.read` | View the login widget UI configuration which includes header color and image. | Can be found in the **Login Customization** tab. |
+| `appid.ui-configuration.read` | View the login widget UI configuration, which includes header color and image. | Can be found in the **Login Customization** tab. |
 | `appid.ui-languages.read` | View a list of supported languages. | Must be viewed from the API. | 
 | `appid.ui-languages.update` | Update your supported languages. | Must be updated through the API. | 
 | `appid.saml-metadata.read` | View the {{site.data.keyword.appid_short_notm}} SAML metadata. | Can be found in the **Identity Providers > SAML 2.0 Federation** tab. |
@@ -178,12 +178,12 @@ Some of the action names were changed as part of an alignment to new guidelines.
 ## Viewing runtime events
 {: #at-monitor-runtime}
 
-With {{site.data.keyword.at_short}}, you can review runtime activity made by an app user, such as logins, password resets, and authentications.
+With {{site.data.keyword.at_short}}, you can review runtime activity that is made by an app user, such as logins, password resets, and authentications.
 {: shortdesc}
 
-The reported events are per account, but there are limitations on the data rate and retention period of the collected runtime events. Increasing the limits might require an upgrade of the {{site.data.keyword.at_short}} service. For more information about the service limits, see the [{{site.data.keyword.at_short}} docs](/docs/activity-tracker?topic=activity-tracker-service_plan).
+The reported events are per account, but the data rate and retention period of the collected runtime events have limitations. Increasing the limits might require an upgrade of the {{site.data.keyword.at_short}} service. For more information about the service limits, see the [{{site.data.keyword.at_short}} docs](/docs/activity-tracker?topic=activity-tracker-service_plan).
 
-This feature is available only for instances on graduated tier payment plan that were created after March 15, 2018. Using this feature incurs an extra charge. For more information on graduated tier pricing, see the [{{site.data.keyword.cloud_notm}} pricing docs](/docs/appid?topic=appid-faq#faq-pricing).
+This feature is available only for instances on graduated tier payment plan that were created after March 15, 2018. Using this feature incurs an extra charge. For more information about graduated tier pricing, see the [{{site.data.keyword.cloud_notm}} pricing docs](/docs/appid?topic=appid-faq#faq-pricing).
 {: note}
 
 
@@ -195,7 +195,7 @@ This feature is available only for instances on graduated tier payment plan that
 3. In the {{site.data.keyword.appid_short_notm}} dashboard, click **Manage authentication > Authentication settings**.
 4. Scroll to the **Runtime Activity** panel and toggle the switch to enable tracking of runtime authentication activity. A message displays that notifies you that the feature is enabled and that you are charged differently. For more information, see [How does App ID calculate pricing](/docs/appid?topic=appid-faq#faq-pricing).
 5. From the **Observability > Activity Tracker** tab in the console navigation, verify the information for the instance that you created.
-6. Click **Open Dashboard**. When the dashboard loads, you see an overall view of all of the activity in your account. You can use the search operators to filter your results by tags, sources, apps or levels. You can also search for specific events or jump to a specific timeframe.
+6. Click **Open Dashboard**. When the dashboard loads, you see an overall view of all the activity in your account. You can use the search operators to filter your results by tags, sources, apps, or levels. You can also search for specific events or jump to a specific timeframe.
 7. From the **All Apps** drop-down, select the instance of {{site.data.keyword.appid_short_notm}} that you want to track events for.
 
 
@@ -204,7 +204,7 @@ This feature is available only for instances on graduated tier payment plan that
 
 Check out the following table for a list of the runtime events that are sent to {{site.data.keyword.at_short}}.
 
-Be sure that you have turn ON the **Runtime Activity** in order to see this events.
+Be sure that you turned on **Runtime Activity** to see these events.
 {: important}
 
 | Description | Action | Outcome | `reason. reasonCode` | `target.id` | `target.name` | `target.typeURI` |
@@ -218,7 +218,7 @@ Be sure that you have turn ON the **Runtime Activity** in order to see this even
 | SAML authentication success | `appid.user.authenticate` |  `success` | `200` | `[appid user CRN]` | `SAML:[GUID]` | `appid/user` |
 | SAML authentication failure | `appid.user.authenticate` | `failure` | `401` | `crn:unknown` | `SAML:unknown` | `appid/user` |
 | Client Credentials authentication success | `appid.application.authenticate` | `success` | `200` | `[appid application CRN]` | `client_credentials:client_id` | `appid/application` |
-| Client Credentials authentication failure | `appid.application.authenticate` | `failure` | `401` | `crn:undefined` | client_credentials:undefined | `appid/application` |
+| Client Credentials authentication failure | `appid.application.authenticate` | `failure` | `401` | `crn:undefined` | `client_credentials:undefined` | `appid/application` |
 | Cloud Directory sign up | `appid.cloud-dir-user.create` | `success` | `200` | `[appid user CRN]` | `cloud_directory:[GUID]` | `appid/cloud_dir/user` |
 |Cloud Directory signup failure | `appid.cloud-dir-user.create` | `failure` | `400` | `crn:unknown` | `cloud_directory:unknown` | `appid/cloud_dir/user`|
 | Cloud Directory signup confirmation | `appid.cloud-dir-user.allow` | `success` | `200` | `[appid user CRN]` | `cloud_directory:[GUID]` | `appid/cloud_dir/user` | 
@@ -238,7 +238,7 @@ Be sure that you have turn ON the **Runtime Activity** in order to see this even
 ## Analyzing runtime events
 {: #at-runtime-analyze}
 
-A user that generates a runtime event is identified as a GUID rather than by name or email. As the account owner, you can use the GUID to identify a specific user and then you can search to see all of the events that the user has triggered.
+A user that generates a runtime event is identified as a GUID rather than by name or email. As the account owner, you can use the GUID to identify a specific user and then you can search to see all the events that the user triggered.
 {: shortdesc}
 
 
@@ -260,7 +260,7 @@ An event in the {{site.data.keyword.at_short}} console contains the following fi
 
 To find the user information that aligns with the event GUID, use the following steps.
 
-1. In the **Credentials** tab of the {{site.data.keyword.appid_short_notm}} dashboard, copy and save the information in the `apiKey` and `tenantID` fields. The tenant ID should match the ID of the event. If no credentials exist, create a set.
+1. In the **Credentials** tab of the {{site.data.keyword.appid_short_notm}} dashboard, copy, and save the information in the `apiKey` and `tenantID` fields. The tenant ID should match the ID of the event. If no credentials exist, create a set.
 
 2. Obtain an IAM token for the `apiKey` by inserting the key into the following command:
 
@@ -286,7 +286,7 @@ To find the user information that aligns with the event GUID, use the following 
    ```
    {: codeblock}
 
-   You can also run this command by using the [management APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/getAuditStatus){: external}. Your output would look similar to the following:
+   You can also run this command by using the [management APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/getAuditStatus){: external}. Your output would look similar to the following JSON object:
 
    ```json
       {
@@ -324,13 +324,13 @@ To find the user information that aligns with the event GUID, use the following 
 
 
 
-### Finding user related events
+### Finding user-related events
 {: #at-finding-user-events}
 
 You can track the events of specific Cloud Directory users in {{site.data.keyword.at_short}} by using their email. Before you can begin tracking, the email must be mapped to a Cloud Directory GUID.
 
 
-1. Obtain an IAM token, a tenant ID and a region as described in the previous section.
+1. Obtain an IAM token, a tenant ID, and a region as described in the previous section.
 2. Insert the IAM token, the tenant ID, and the email into the following command to obtain the user information.
 
    ```sh
@@ -338,10 +338,10 @@ You can track the events of specific Cloud Directory users in {{site.data.keywor
    ```
    {: codeblock}
 
-   The email address should be escaped. For example `myTest%40yahoo.com` instead of `myTest@yahoo.com`.
+   The email address must be escaped. For example, `myTest%40yahoo.com` instead of `myTest@yahoo.com`.
    {: note}
 
-   Alternatively, you can use the [Management APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/getAuditStatus){: external}. Your output would look similar to the following:
+   Alternatively, you can use the [Management APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Config/getAuditStatus){: external}. Your output would look similar to the following JSON object:
 
    ```json
    {

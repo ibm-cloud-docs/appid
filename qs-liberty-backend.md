@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-10-12"
+  years: 2017, 2022
+lastupdated: "2022-02-07"
 
 keywords: back-end apps, java, liberty for java, liberty, identity provider, access management, protected endpoints, access tokens, security, back end
 
@@ -49,12 +49,12 @@ completion-time: 30m
 {:api: .ph data-hd-interface='api'}
 {:release-note: data-hd-content-type='release-note'}
 
-# Quick start: Liberty for Java back-end apps
+# Quick start: Liberty for Java backend apps
 {: #backend-liberty}
 {: toc-content-type="tutorial"}
 {: toc-completion-time="30m"}
 
-With {{site.data.keyword.appid_short_notm}}, you can easily protect your API endpoints and ensure the security of your Liberty for Java back-end applications. With this guide, you can quickly get a simple authentication flow up and running in less than 20 minutes.
+With {{site.data.keyword.appid_short_notm}}, you can easily protect your API endpoints and ensure the security of your Liberty for Java backend applications. With the guide, you can quickly get a simple authentication flow up and running in less than 20 minutes.
 {: shortdesc}
 
 
@@ -63,13 +63,13 @@ With {{site.data.keyword.appid_short_notm}}, you can easily protect your API end
 1. To make a request to a protected resource, a client must have an access token. In step 1, the client makes a request to {{site.data.keyword.appid_short_notm}} for a token. For more information about obtaining access tokens, see [Obtaining tokens](/docs/appid?topic=appid-obtain-tokens).
 2. {{site.data.keyword.appid_short_notm}} returns the tokens.
 3. Using the access token, the client makes a request to access the protected resource.
-4. The resource validates the token including the structure, expiration, signature, audience, and any other present fields. If the token is not valid, the resource server denies access. If the token validation is successful, it returns the data.
+4. The resource validates the token that includes the structure, expiration, signature, audience, and any other present fields. If the token is not valid, the resource server denies access. If the token validation is successful, it returns the data.
 
 
 ## Video tutorial
 {: #backend-liberty-video}
 
-Check out the following video to see how you can use {{site.data.keyword.appid_short_notm}} to protect a simple Liberty for Java application. All of the information that is covered in the video can also be found in written form on this page.
+Check out the following video to see how you can use {{site.data.keyword.appid_short_notm}} to protect a simple Liberty for Java application. All the information that is covered in the video can also be found in written form on this page.
 
 ![About {{site.data.keyword.appid_short_notm}}](https://www.youtube.com/embed/QA6DY2qqLaw){: video output="iframe" data-script="none" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
@@ -79,13 +79,12 @@ Don't have an app that you can try out the flow with? No problem! {{site.data.ke
 ## Before you begin
 {: #liberty-before}
 
-Before you get started with {{site.data.keyword.appid_short_notm}} in your Liberty for Java back-end application you must have the following prerequisites:
+Before you get started with {{site.data.keyword.appid_short_notm}} in your Liberty for Java back-end application, you must have the following prerequisites:
 
 * An instance of [the {{site.data.keyword.appid_short_notm}} service](https://cloud.ibm.com/catalog/services/app-id){: external}
 * [The IBM Cloud CLI](/docs/cli?topic=cli-getting-started)
 * [Apache Maven 3.5+](https://maven.apache.org/download.cgi){: external}
 * [Java 8+](https://www.java.com/en/download/){: external}
-* The [{{site.data.keyword.appid_short_notm}} Postman collection](https://github.com/ibm-cloud-security/appid-postman){: external} for testing
 
 ## Obtain your credentials
 {: #liberty-obtain-credentials}
@@ -165,8 +164,8 @@ You can obtain your credentials in one of two ways.
    | Variable | Description |
    | -------- | ----------- |
    | `id` | The name of your application. |
-   | `inboundPropagation` | In order to propagate the information received in the token, the value must be set to "required". |
-   | `jwkEndpointUrl` | The endpoint that is used to obtain keys in order to validate the token. Learn more about the [available regions](/docs/appid?topic=appid-regions-endpoints). You can find your tenant ID in the credentials that you previously created. | 
+   | `inboundPropagation` | To propagate the information received in the token, the value must be set to "required". |
+   | `jwkEndpointUrl` | The endpoint that is used to obtain keys in to validate the token. Learn more about the [available regions](/docs/appid?topic=appid-regions-endpoints). You can find your tenant ID in the credentials that you previously created. | 
    | `issuerIdentifier` | The issuer identifier defines your authorization server. Learn more about the [available regions](/docs/appid?topic=appid-regions-endpoints). You can find your tenant ID in the credentials that you previously created. | 
    | `signatureAlgorithm` | Specified as "RS256". |
    | `audiences` | By default, the token is issued for your {{site.data.keyword.appid_short_notm}} client ID that can be found in your application credentials. | 
@@ -198,7 +197,7 @@ You can obtain your credentials in one of two ways.
 
 In your `web.xml` file, define the areas of your application that you want to secure.
 
-1. Define a security role. This should be the same role that you defined in the `server.xml` file.
+1. Define a security role. This role must be the same role that you defined in the `server.xml` file.
 
    ```xml
    <security-role>
@@ -231,7 +230,7 @@ In your `web.xml` file, define the areas of your application that you want to se
 {: #liberty-test}
 {: step}
 
-Now that you've finished the initial installation, build the app and test your configuration to ensure that everything is working as expected.
+Now that you finished the initial installation, build the app and test your configuration to ensure that everything is working as expected.
 
 1. Change into your application directory.
 
@@ -246,7 +245,7 @@ Now that you've finished the initial installation, build the app and test your c
 
 4. [Obtain an access token](/docs/appid?topic=appid-obtain-tokens).
 
-5. With the access token that you obtained in the previous step, make a request to the endpoint. You should now be able to access the protected endpoint. Verify that the response contains what you expect.
+5. With the access token that you obtained in the previous step, make a request to the endpoint. You are now be able to access the protected endpoint. Verify that the response contains what you expect.
 
 
 ## Next steps

@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-11-23"
+  years: 2017, 2022
+lastupdated: "2022-02-07"
 
 keywords: manage users, registry, cloud directory, add user, delete user, tokens, attributes, migrating users, identity provider, app security
 
@@ -55,7 +55,7 @@ A Cloud Directory user is not the same thing as an {{site.data.keyword.appid_sho
 ## Viewing user information
 {: #cd-user-info}
 
-You can see all of the information that is known about all of your Cloud Directory users as a JSON object by using the APIs or by using the dashboard. 
+You can see all the information that is known about all your Cloud Directory users as a JSON object by using the APIs or by using the dashboard. 
 {: shortdesc}
 
 
@@ -79,7 +79,7 @@ You can use the {{site.data.keyword.appid_short_notm}} dashboard to view details
    | ID | The ID that is assigned to the user by {{site.data.keyword.appid_short_notm}}. In the UI, it isn't shown but you can copy the value and paste it in a text editor to see the value. |
    | Predefined attributes | Predefined attributes are things that are known about a user based on SCIM. |
    | Custom attributes | Custom attributes are additional information that is added to their profile or that is learned about the user's as they interact with your application. |
-   | Summary | All of the attributes are compiled to form one profile that gives you a complete overview of your Cloud Directory user. For more information, see [user profiles](/docs/appid?topic=appid-profiles). |
+   | Summary | All the attributes are compiled to form one profile that gives you a complete overview of your Cloud Directory user. For more information, see [user profiles](/docs/appid?topic=appid-profiles). |
    {: caption="Table 1. The details that you can see about your users by looking in the {{site.data.keyword.appid_short_notm}} dashboard" caption-side="top"}
 
 

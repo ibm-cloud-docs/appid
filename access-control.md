@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-11-23"
+  years: 2017, 2022
+lastupdated: "2022-02-07"
 
 keywords: user access, control access, permissions, roles, scopes, runtime, access token, authentication, identity, app security
 
@@ -60,7 +60,7 @@ A scope is a runtime action in your application that you register with {{site.da
 1. Register runtime actions that can occur in your application with {{site.data.keyword.appid_short_notm}}.
 2. Compile scopes into groups to form roles.
 3. Control access permissions by assigning roles to your users or applications.
-4. Configure your application to verify the scopes that are returned in your users access token at runtime (or in your applications token in the case of client credentials flow).
+4. Configure your application to verify the scopes that are returned in your users access token at run time (or in your applications token if client credentials flow).
 
 For more information about applications, see [Application identity and authorization](/docs/appid?topic=appid-app).
 
@@ -68,7 +68,7 @@ For more information about applications, see [Application identity and authoriza
 {: #before-access}
 
 * You must have an application.
-* Make sure you have an understanding of the way in which each type of role and scope can impact your application. Because you're granting access, you want to be sure that you're granting it to only the people that need it. 
+* Make sure you have an understanding of how each type of role and scope can impact your application. Because you're granting access, you want to be sure that you're granting it to only the people that need it. 
 * Be aware of the [limits](/docs/appid?topic=appid-known-issues-limits) that are in place. 
 
 
@@ -93,7 +93,7 @@ To create a scope, you can use the {{site.data.keyword.appid_short_notm}} UI.
 2. Click **Add application** to open the configuration screen. If you already have credentials that you want to use, click **Edit** from the Actions menu in the row that you want to update.
 3. Give your app a name, and select the type of application that you have.
 4. Enter a value for your custom scope, and click the plus symbol (**+**). An example scope value might be `read` or `write`.
-5. Repeat the previous step until you add all of your scopes to the app.
+5. Repeat the previous step until you add all your scopes to the app.
 6. Click **Save**.
 
 ## Creating scopes with the API
@@ -124,7 +124,7 @@ To create a scope, you can use the {{site.data.keyword.appid_short_notm}} UI.
    | `region` | The region in which your instance of {{site.data.keyword.appid_short_notm}} is provisioned. Learn more about the [available regions](/docs/appid?topic=appid-regions-endpoints). |
    | `tenant_ID` | The unique identifier for your instance of {{site.data.keyword.appid_short_notm}}. You can find this value in the credentials for your app as they're listed in the **Applications** tab of the service dashboard. |
    | `client_ID` | The unique identifier for your application. You can find this value in the credentials for your app as they're listed in your **Applications** in the service dashboard. |
-   | `scopes_object` | A JSON object of all of the scopes that you want to create for your application. |
+   | `scopes_object` | A JSON object of all the scopes that you want to create for your application. |
    {: caption="Table 1. Required variables to call the `/scopes` endpoint" caption-side="top"}
 
 
@@ -140,7 +140,7 @@ To create a scope, you can use the {{site.data.keyword.appid_short_notm}} UI.
 {: #create-roles-gui}
 {: ui}
 
-A role is a group of scopes that apply to the same type of user. For example, if you create an admin role, the scopes section might allow for that role to perform read, write, or create actions. But, if you were to create another role called `viewer`, those assigned that role would have read only access. To create a role, you can use the {{site.data.keyword.appid_short_notm}} UI.
+A role is a group of scopes that apply to the same type of user. For example, if you create an admin role, the scopes section might allow for that role to perform read, write, or create actions. But, if you create another role that is called `viewer`, the users who are assigned that role have read only access. To create a role, you can use the {{site.data.keyword.appid_short_notm}} UI.
 
 
 1. Go to **Profiles and roles > Roles** in the {{site.data.keyword.appid_short_notm}} dashboard. 
@@ -164,7 +164,7 @@ A role is a group of scopes that apply to the same type of user. For example, if
 {: #create-roles-api}
 {: api}
 
-A role is a group of scopes that apply to the same type of user. For example, if you create an admin role, the scopes section might allow for that role to perform read, write, or create actions. But, if you were to create another role called `viewer`, those assigned that role would have read only access. To create a role, you can use the {{site.data.keyword.appid_short_notm}} APIs.
+A role is a group of scopes that apply to the same type of user. For example, if you create an admin role, the scopes section might allow for that role to perform read, write, or create actions. But, if you create another role that is called `viewer`, the users who are assigned that role would have read only access. To create a role, you can use the {{site.data.keyword.appid_short_notm}} APIs.
 
 1. Make a request to the `/roles` endpoint to create the role.
 
@@ -181,7 +181,7 @@ A role is a group of scopes that apply to the same type of user. For example, if
    | `role_name` | The name that you want to assign to your role. |
    | `role_description` | A short phrase that describes what your role is meant to do. | 
    | `application_ID` | The unique identifier for your application. You can find this value in the credentials for your app as they're listed in **Applications**. |
-   | `scopes` | A JSON object of all of the scopes that you want to apply to a role.|
+   | `scopes` | A JSON object of all the scopes that you want to apply to a role.|
    {: caption="Table 2. Required variables to call the `/scopes` endpoint" caption-side="top"}
  
 2. Optional: Confirm that the roles were created.
@@ -344,16 +344,16 @@ To remove a role from a user, make the PUT request again, but remove the role ID
 
 
 
-## Controlling access at runtime
+## Controlling access at run time
 {: #control-acesss-runtime}
 
-When a user or application attempts to access one of your protected resources, tokens are created and returned by {{site.data.keyword.appid_short_notm}}. Any scopes that a user or application is assigned are retuned in the access token. You can use the access token to make decisions at runtime. Depending on the strategy that you're using to protect your applications, how you verify scopes can differ.
+When a user or application attempts to access one of your protected resources, tokens are created and returned by {{site.data.keyword.appid_short_notm}}. Any scopes that a user or application is assigned are retuned in the access token. You can use the access token to make decisions at run time. Depending on the strategy that you're using to protect your applications, how you verify scopes can differ.
 
 
 ### When using web app strategy
 {: #access-webapp-strategy}
 
-You can use [web app strategy](/docs/appid?topic=appid-key-concepts#term-web-strategy) to check whether a request contains any scopes by using the `hasScope` method. When a user with an assigned role signs in, they are granted access by an {{site.data.keyword.appid_short_notm}} token that contains all of the scopes that are defined in the role. For example, if you're working with the Node.js SDK, your code snippet would look similar to the following:
+You can use [web app strategy](/docs/appid?topic=appid-key-concepts#term-web-strategy) to check whether a request contains any scopes by using the `hasScope` method. When a user with an assigned role signs in, they are granted access by an {{site.data.keyword.appid_short_notm}} token that contains all the scopes that are defined in the role. For example, if you're working with the Node.js SDK, your code snippet would look similar to the following:
  
 ```javascript
 app.get("/protected", passport.authenticate(WebAppStrategy.STRATEGY_NAME), function(req, res){
@@ -406,7 +406,7 @@ You can delete any scope or role that's no longer needed.
 
 If you no longer need a scope, you can delete it by using the {{site.data.keyword.appid_short_notm}} UI.
 
-When you delete a scope, it is removed from all of the roles that it is associated with.
+When you delete a scope, it is removed from all the roles that it is associated with.
 {: important}
 
 You can use the {{site.data.keyword.appid_short_notm}} service dashboard to delete scopes. 
@@ -424,7 +424,7 @@ You can use the {{site.data.keyword.appid_short_notm}} service dashboard to dele
 
 If you no longer need a scope, you can delete it by using the {{site.data.keyword.appid_short_notm}} API. To delete a scope, remove it from your JSON object and make a new PUT request to the `/scopes` endpoint.
 
-When you delete a scope, it is removed from all of the roles that it is associated with.
+When you delete a scope, it is removed from all the roles that it is associated with.
 {: important}
 
 
@@ -441,9 +441,9 @@ When you delete a scope, it is removed from all of the roles that it is associat
 {: #delete-role-gui}
 {: ui}
 
-If you no longer have a need for a specific role, you can delete it by using the {{site.data.keyword.appid_short_notm}} UI. 
+If you no longer need a specific role, you can delete it by using the {{site.data.keyword.appid_short_notm}} UI. 
 
-Deleting a role removes access from all of the users and applications that are currently using the role.
+Deleting a role removes access from all the users and applications that are currently using the role.
 {: note}
 
 1. Go to **Profiles and roles > Roles** in the service dashboard.
@@ -456,9 +456,9 @@ Deleting a role removes access from all of the users and applications that are c
 {: api}
 
 
-If you no longer have a need for a specific role, you can delete it by using the {{site.data.keyword.appid_short_notm}} APIs. 
+If you no longer need a specific role, you can delete it by using the {{site.data.keyword.appid_short_notm}} APIs. 
 
-Deleting a role removes access from all of the users and applications that are currently using the role.
+Deleting a role removes access from all the users and applications that are currently using the role.
 {: note}
 
 

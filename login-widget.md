@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-10-12"
+  years: 2017, 2022
+lastupdated: "2022-02-07"
 
 keywords: app log in, login widget, sign in, default screen, forgot password, mfa, multi-factor authentication, sign up, reset password, facebook, google, identity provider, social log in, saml, authentication, authorization, cloud directory
 
@@ -49,7 +49,7 @@ subcollection: appid
 # Using the Login Widget
 {: #login-widget}
 
-With {{site.data.keyword.appid_full}} you can use a default UI, called a Login Widget, to allow application users the ability to choose the identity provider that they want to sign in with. If you're using Cloud Directory, the Login Widget also provides additional UI's for extra functionalities such as sign up, forgot password, multi-factor authentication, and more.
+With {{site.data.keyword.appid_full}} you can use a default UI, called a Login Widget, to allow application users the ability to choose the identity provider that they want to sign in with. If you're using Cloud Directory, the Login Widget also provides additional UI's for extra functionalities such as sign-up, forgot password, multi-factor authentication, and more.
 {: shortdesc}
 
 
@@ -61,7 +61,7 @@ One of the best parts of the Login Widget is that you can start using {{site.dat
 ### What is the default Login Widget behavior?
 {: #widget-default}
 
-By default, the Login Widget is enabled to use Facebook, Google, and Cloud Directory. You can change the behavior at any time by choosing which identity providers that you want to configure as an option. When more than one identity provider is enabled, the Login Widget presents a screen where the user can make their identity provider selection. But, if you have a single provider enabled, user's do not see the aforementioned selection screen. They are taken directly to the identity provider to begin the sign in process.
+By default, the Login Widget is enabled to use Facebook, Google, and Cloud Directory. You can change the behavior at any time by choosing which identity providers that you want to configure as an option. When more than one identity provider is enabled, the Login Widget presents a screen where the user can make their identity provider selection. But, if you have a single provider that is enabled, users do not see the previously mentioned selection screen. They are taken directly to the identity provider to begin the sign-in process.
 
 For example, if you're using the default - Facebook, Google, and Cloud Directory - users see the screen. If you enable Facebook only, user's are taken directly to Facebook for authentication.
 
@@ -70,7 +70,7 @@ For example, if you're using the default - Facebook, Google, and Cloud Directory
 ### Which screens can be displayed for each provider?
 {: #widget-options}
 
-When you use Cloud Directory, {{site.data.keyword.appid_short_notm}} is able to provide you with the extended functionality of user management. The extended functionality also applies to the Login Widgets capabilities. User's that are stored in Cloud Directory can take advantage of the functionality such as signing up or resetting their password directly in the Login Widget. Check out the following table to see which screens you can display for each type of identity provider.
+When you use Cloud Directory, {{site.data.keyword.appid_short_notm}} is able to provide you with the extended functionality of user management. The extended functionality also applies to the Login Widget's capabilities. User's that are stored in Cloud Directory can take advantage of the functionality such as signing up or resetting their password directly in the Login Widget. Check out the following table to see which screens you can display for each type of identity provider.
 
 | Login Widget screen | Social identity provider | Enterprise identity provider | Cloud Directory |
 |-----|----| -----| ------ |
@@ -85,7 +85,7 @@ When you use Cloud Directory, {{site.data.keyword.appid_short_notm}} is able to 
 ### Customizing an SSO login flow
 {: #widget-custom-sso}
 
-After a successful authentication, App ID creates a session cookie with encrypted access and identity tokens that your apps can use for authentication. Another way to customize the flow is to send an access token to your browser so that any browser app can use the token in its AJAX request.
+After a successful authentication, App ID creates a session cookie with encrypted access and identity tokens that your apps can use for authentication. Another way to customize the flow is to send an access token to your browser so that any browser app can use the token in its Ajax request.
 
 
 ## Customizing the Login Widget
@@ -142,7 +142,7 @@ Place the following command in your code.
 {: #widget-android-signup}
 
 1. Configure your Cloud Directory [settings](/docs/appid?topic=appid-cloud-directory#cd-settings) in the GUI. Both **Allow users to sign up to your app** and **Allow users to manage their account from your app** must be set to **On**.
-2. Add the following code to your app. When a user signs up for your app from your custom screen, the sign up flow is started. The following call not only registers the user, but can also send a verification email to complete the registration, depending on your Cloud Directory configurations.
+2. Add the following code to your app. When a user signs up for your app from your custom screen, the sign-up flow is started. The following call not only registers the user, but can also send a verification email to complete the registration, depending on your Cloud Directory configurations.
 
    ```java
    LoginWidget loginWidget = AppID.getInstance().getLoginWidget();
@@ -294,7 +294,7 @@ Place the following command in your code.
 {: #widget-ios-signup}
 
 1. Configure your Cloud Directory [settings](/docs/appid?topic=appid-cloud-directory#cd-settings) in the GUI. Both **Allow users to sign up to your app** and **Allow users to manage their account from your app** must be set to **On**.
-2. Place the following code in your application. When a user attempts to sign up for your application, the login widget is called and displays your custom sign up page.
+2. Place the following code in your application. When a user attempts to sign up for your application, the login widget is called and displays your custom sign-up page.
 
    ```swift
    class delegate : AuthorizationDelegate {
@@ -429,7 +429,7 @@ Add a post route to your app that can be called with the username and password p
 {: #widget-nodejs-signup}
 
 1. Configure your Cloud Directory [settings](/docs/appid?topic=appid-cloud-directory#cd-settings) in the GUI. Both **Allow users to sign up to your app** and **Allow users to manage their account from your app** must be set to **On**.
-2. Place the following code in your application. When a user attempts to sign up for your application, the login widget is called and displays your custom sign up page.
+2. Place the following code in your application. When a user attempts to sign up for your application, the login widget is called and displays your custom sign-up page.
 
    ```javascript
    app.get("/sign_up", passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
@@ -446,7 +446,7 @@ Add a post route to your app that can be called with the username and password p
 
 1. Configure your Cloud Directory [settings](/docs/appid?topic=appid-cloud-directory#cd-settings) in the GUI. **Allow users to manage their account from your app** must be set to **On**.
 2. In the **Reset Password** tab of the service dashboard, be sure that **Forgot password email** is set to **On**.
-3. Place the following code in your application to pass the *show* property to `WebAppStrategy.FORGOT_PASSWORD`. When a user requests that their password to your app be updated, the login widget is called and the  process starts.
+3. Place the following code in your application to pass the *show* property to `WebAppStrategy.FORGOT_PASSWORD`. When a user requests that their password to your app be updated, the login widget is called and the process starts.
 
    ```javascript
    app.get("/forgot_password", passport.authenticate(WebAppStrategy.STRATEGY_NAME, {

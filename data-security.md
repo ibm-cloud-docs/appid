@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-01-25"
+lastupdated: "2022-02-07"
 
 keywords: data encryption in app id, data storage for app id, personal data in app id, data deletion for app id, data in app id, data security in app id
 
@@ -58,7 +58,7 @@ To ensure that you can securely manage your data when you use {{site.data.keywor
 
 {{site.data.keyword.appid_short_notm}} stores and encrypts user profile attributes. As a multi-tenant service, every tenant has a designated encryption key and user data in each tenant is encrypted with only that tenant's key. {{site.data.keyword.appid_short_notm}} ensures that private information is encrypted before it is stored.
 
-You can add a higher level of encryption control to your data at rest (when it is stored) by enabling integration with a _Key Management Service_ (KMS). The data that you store in {{site.data.keyword.cloud_notm}} is encrypted at rest by using _envelope encryption_. If you need to control the encryption keys, you can integrate {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}. This process is commonly referred to as Bring Your Own Key (BYOK). With {{site.data.keyword.keymanagementserviceshort}} and {{site.data.keyword.hscrypto}}, you can create, import, and manage encryption keys. You can assign access policies to the keys, assign users or service IDs to the keys, or give the key access only to a specific service.
+You can add a higher level of encryption control to your data at rest (when it is stored) by enabling integration with a `_Key Management Service_` (KMS). The data that you store in {{site.data.keyword.cloud_notm}} is encrypted at rest by using `_envelope encryption_`. If you need to control the encryption keys, you can integrate {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}. This process is commonly referred to as Bring Your Own Key (BYOK). With {{site.data.keyword.keymanagementserviceshort}} and {{site.data.keyword.hscrypto}}, you can create, import, and manage encryption keys. You can assign access policies to the keys, assign users or service IDs to the keys, or give the key access only to a specific service.
 
 ## Managing your own keys
 {: #customer-keys}
@@ -125,7 +125,7 @@ If you choose to work with a key that you manage, you must ensure that valid IAM
 #### Rotating your keys
 {: #rotate-key-hpcs}
 
-When you [rotate your KEK](/docs/hs-crypto?topic=hs-crypto-rotate-keys), {{site.data.keyword.appid_short_notm}} rewraps the DEKs associated with the rotated key, ensuring your user data is always protected with your up to date encryption key.
+When you [rotate your KEK](/docs/hs-crypto?topic=hs-crypto-rotate-keys), {{site.data.keyword.appid_short_notm}} rewraps the DEKs associated with the rotated key, ensuring your user data is always protected with your up-to-date encryption key.
 
 #### Deleting your keys
 {: #delete-key-hpcs}
@@ -138,7 +138,7 @@ When you [delete your KEK](/docs/hs-crypto?topic=hs-crypto-delete-keys), user da
 ## Deleting your data in {{site.data.keyword.appid_short_notm}}
 {: #data-delete}
 
-When you delete an instance of {{site.data.keyword.appid_short_notm}}, all of the user associated data is also deleted. When the service instance is deleted, a 7 day reclamation period begins. During that time, you are able to restore the instance and all of the associated user data. However, if the instance and data are permanently deleted, it cannot be restored. {{site.data.keyword.appid_short_notm}} does not store any data from permanently deleted instances.
+When you delete an instance of {{site.data.keyword.appid_short_notm}}, all the user-associated data is also deleted. When the service instance is deleted, a 7-day reclamation period begins. During that time, you are able to restore the instance and all the user-associated data. However, if the instance and data are permanently deleted, it cannot be restored. {{site.data.keyword.appid_short_notm}} does not store any data from permanently deleted instances.
 
 The {{site.data.keyword.appid_short_notm}} data retention policy describes how long your data is stored after you delete the service. The data retention policy is included in the {{site.data.keyword.appid_short_notm}} service description, which you can find in the [{{site.data.keyword.cloud_notm}} Terms and Notices](/docs/overview?topic=overview-terms).
 
@@ -155,7 +155,7 @@ If you no longer need an instance of {{site.data.keyword.appid_short_notm}}, you
    ```
    {: codeblock}
 
-2. Optional: To permanently delete your instance get the reclamation ID.
+2. Optional: To permanently delete your instance, get the reclamation ID.
 
    ```sh
    ibmcloud resource reclamations --resource-instance-id {tenantId}
@@ -180,7 +180,7 @@ If you no longer need an instance of {{site.data.keyword.appid_short_notm}}, you
 ### Restoring a deleted instance
 {: #data-restore}
 
-If you haven't permanently deleted your instance, you can restore it during the reclamation period.
+If you didn't permanently delete your instance, you can restore it during the reclamation period.
 
 1. Get the reclamation ID.
 

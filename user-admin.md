@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-10-12"
+  years: 2017, 2022
+lastupdated: "2022-02-07"
 
 keywords: user information, add users, delete users, profile, access, attributes, admin, app security, authentication, authorization
 
@@ -76,7 +76,7 @@ To see the data that is available for your app users, you can use the {{site.dat
    | Identity provider | The provider that your user chose to sign in with. | 
    | ID | The ID that is assigned to the user by {{site.data.keyword.appid_short_notm}}. |
    | Custom attributes | Custom attributes are additional information that is added to their profile or that is learned about the user's as they interact with your application. | 
-   | Summary | All of the information that is associated with that user shown as a JSON object. |
+   | Summary | All the information that is associated with that user shown as a JSON object. |
    {: caption="Table 1. User details as shown in the {{site.data.keyword.appid_short_notm}} dashboard" caption-side="top"}
 
 
@@ -163,7 +163,7 @@ You can use the {{site.data.keyword.appid_short_notm}} API to view details about
 
 You can add custom information about your users to their profile such a role that they hold or preference that they have by setting a custom attribute. To set an attribute, you can use the {{site.data.keyword.appid_short_notm}} UI.
 
-By default, custom attributes are modifiable and can be updated by using an {{site.data.keyword.appid_short_notm}} access token from a client application. This means that without taking proper precautions either the user or the application can update custom attributes immediately following the first user sign-in, if they have an access token. This can potentially lead to unintended consequences. For example, a user might change their role from user to admin, which might expose administrative privileges to malicious users.
+By default, custom attributes are modifiable and can be updated by using an {{site.data.keyword.appid_short_notm}} access token from a client application. Without taking proper precautions, either the user or the application can update custom attributes immediately following the first user sign-in, if they have an access token. This can potentially lead to unintended consequences. For example, a user might change their role from user to admin, which might expose administrative privileges to malicious users.
 {: important}
 
 1. Go to the **User profiles > Settings** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
@@ -174,7 +174,7 @@ By default, custom attributes are modifiable and can be updated by using an {{si
 
 4. In the **Custom attributes** section, click **Edit**.
 
-5. Enter the attributes that you want to add as a JSON object. For example: `{"role":"admin"}`.
+5. Enter the attributes that you want to add as a JSON object. For example, `{"role":"admin"}`.
 
 
 ## Setting custom attributes with the API

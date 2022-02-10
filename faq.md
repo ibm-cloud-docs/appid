@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-12-10"
+  years: 2017, 2022
+lastupdated: "2022-02-07"
 
 keywords: pricing, advanced security, authentication events, authorized users, activity tracking, runtime activity, password policies, keycloak, allow list redirect url, redirect uri 
 
@@ -59,18 +59,18 @@ This FAQ provides answers to common questions about the {{site.data.keyword.appi
 {: faq}
 {: support}
 
-Yes! Our development team would love to learn more about you and your use case. To get in touch you can join us on Slack.
+Yes! Our development team would love to learn more about you and your use case. To get in touch, you can join us on Slack.
 
 1. [Request an invitation](https://cloud.ibm.com/kubernetes/slack){: external} to the workspace by entering your email.
 2. Check your email for an invitation.
-3. Click **Join now** to go to the sign in page.
+3. Click **Join now** to go to the sign-in page.
 4. Create an account by entering your name and a password.
 5. When you're in, search for the channel `#appid-at-ibm`.
 6. Join the channel.
 
 Welcome! Now that you're up and running, feel free to ask questions, give feedback, and help others. 
 
-This is not a replacement for opening a support ticket. If you encounter a more serious issue, issues with IBM Cloud that don't relate to {{site.data.keyword.appid_short_notm}}, or need to share more information than you are comfortable sharing in a public forum, please open a support ticket.
+Using the Slack channel is not a replacement for opening a support ticket. If you encounter a more serious issue, issues with IBM Cloud that don't relate to {{site.data.keyword.appid_short_notm}}, or need to share more information than you are comfortable sharing in a public forum, open a support ticket.
 {: note}
 
 
@@ -99,13 +99,13 @@ An authentication event occurs when a new access token, whether regular or anony
 Advanced security features give you the ability to strengthen the security of your application.
 {: shortdesc}
 
-By default, advanced security features are disabled. If you turn on MFA, runtime activity tracking, or password policy management you incur an extra charge. For example, if you obtained 10,000 access tokens. Then, you turned on password policy management and obtained 10,000 more. You would pay for 20,000 authentication events and 10,000 advanced security events. If you disable all of the advanced features, your account reverts to the original-cost policy.
+By default, advanced security features are disabled. If you turn on MFA, runtime activity tracking, or password policy management you incur an extra charge. For example, if you obtained 10,000 access tokens. Then, you turned on password policy management and obtained 10,000 more. You would pay for 20,000 authentication events and 10,000 advanced security events. If you disable all the advanced features, your account reverts to the original-cost policy.
 
 | Feature | Benefit | 
 |-----|----| 
 |Multi-factor authentication | [MFA for Cloud Directory](/docs/appid?topic=appid-cd-mfa#cd-mfa) confirms a user’s identity by requiring a user to enter a one time passcode that is sent to their email or SMS in addition to their entering their email and password. |
-| Runtime authentication activity tracking | By integrating {{site.data.keyword.at_short}} with {{site.data.keyword.appid_short_notm}}, you can track different types of authentication events at runtime. For example: A password reset request, authentication failures, or a user logout. For more information, see [Viewing runtime events](/docs/appid?topic=appid-at-events#at-monitor-runtime). | 
-| Password policy management | As an account owner, you can enforce more secure passwords for Cloud Directory by configuring a set of rules that user passwords must conform to. Examples include, the number of attempted sign-ins before lockout, expiration times, minimum time span between password updates, or the number of times that a password can't be repeated. For a complete list of the options and set-up information, see [Advanced password management](/docs/appid?topic=appid-cd-strength#cd-advanced-password). | 
+| Runtime authentication activity tracking | By integrating {{site.data.keyword.at_short}} with {{site.data.keyword.appid_short_notm}}, you can track different types of authentication events at run time. For example, a password reset request, authentication failures, or a user logout. For more information, see [Viewing runtime events](/docs/appid?topic=appid-at-events#at-monitor-runtime). | 
+| Password policy management | As an account owner, you can enforce more secure passwords for Cloud Directory by configuring a set of rules that user passwords must conform to. Examples include, the number of attempted sign-ins before lockout, expiration times, minimum time span between password updates, or the number of times that a password can't be repeated. For a complete list of the options and setup information, see [Advanced password management](/docs/appid?topic=appid-cd-strength#cd-advanced-password). | 
 {: caption="Table 1. Description of the benefits that are gained with advanced authentication events" caption-side="top"}
 
 These features are available only to those instances that are on the graduated tier pricing plan and that were created after 15 March 2018.
@@ -118,12 +118,12 @@ An authorized user is a unique user that signs in with your service whether dire
 
 
 
-## Why do I need to allow list my redirect URI?
+## Why do I need to allowlist my redirect URI?
 {: #faq-redirect}
 {: faq}
 {: support}
 
-A redirect URI is the callback endpoint of your application. When you allow list your URI, you're giving {{site.data.keyword.appid_short_notm}} the OK to send your users to that location. At runtime, {{site.data.keyword.appid_short_notm}} validates the URI against your allow list before redirecting the user. This can help prevent phishing attacks and lessens the possibility that an attacker is able to gain access to your user's tokens. For more information about redirect URIs, see [Adding redirect URIs](/docs/appid?topic=appid-managing-idp#add-redirect-uri).
+A redirect URI is the callback endpoint of your application. When you allowlist your URI, you're giving {{site.data.keyword.appid_short_notm}} the OK to send your users to that location. At runtime, {{site.data.keyword.appid_short_notm}} validates the URI against your allowlist before it redirects the user. This process can help prevent phishing attacks and lessens the possibility that an attacker is able to gain access to your user's tokens. For more information about redirect URIs, see [Adding redirect URIs](/docs/appid?topic=appid-managing-idp#add-redirect-uri).
 
 Do not include any query parameters in your URL. They are ignored in the validation process. Example URL: `http://host:[port]/path`
 {: tip}
@@ -138,7 +138,7 @@ Check out the following table for answers to commonly asked questions about encr
 
 | Question | Answer | 
 |-----|----| 
-| Why do you use encryption? | One way that we protect our users information is by encrypting customer data at rest and in transit. The service encrypts customer data at rest with per-tenant keys and enforces TLS 1.2+ in all network segments. |
+| Why do you use encryption? | One way that we protect our users' information is by encrypting customer data at rest and in transit. The service encrypts customer data at rest with per-tenant keys and enforces TLS 1.2+ in all network segments. |
 | Which algorithms are used in {{site.data.keyword.appid_short_notm}}? | The service uses `AES` and `SHA-256` with salting. | 
 | Do you use public or open source encryption modules or providers? Do you ever expose encryption functions?  | The service uses `avax.crypto` Java libraries, but never exposes an encryption function. | 
 | How are keys stored? | Keys are generated, encrypted with a master key that is specific to each region, and then stored locally. The master keys are stored in [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-getting-started-tutorial). Each region has its own root-of-trust key that is stored in [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-getting-started-tutorial), which is backed up by HSM. Each service instance (tenant) has its own data encryption and token signature keys, which are encrypted by using the region's root-of-key trust. | 
@@ -157,7 +157,7 @@ Synchronizing your application with {{site.data.keyword.appid_short_notm}}'s tim
 
 * If your application is running in IBM Cloud Classic Infrastructure, set your NTP servers to `servertime.service.softlayer.com`.
 * If your application is running in IBM Cloud VPC Infrastructure, set your NTP servers to `time.adn.networklayer.com`.
-* If you application is not running in IBM Cloud, you do not have access to these time servers. In this case, set your NTP servers to `time-a.nist.gov` or `time-b.nist.gov`.
+* If your application is not running in IBM Cloud, you do not have access to these time servers. In this case, set your NTP servers to `time-a.nist.gov` or `time-b.nist.gov`.
 
 
 
@@ -170,7 +170,7 @@ Both {{site.data.keyword.appid_short_notm}} and Keycloak can be used to add auth
 
 Keycloak is packaged as software, which means that you, as the developer, are responsible for maintaining functionality of the product after you download it. You're responsible for hosting, high-availability, compliance, backups, DDoS protection, load balancing, web firewalls, databases, and more.
 
-{{site.data.keyword.appid_short_notm}} is a fully managed offering that is provided "as-a-service". This means that IBM takes care of the operation of the service, handles compliancy, availability in multiple zones, SLA, and more. {{site.data.keyword.appid_short_notm}} also has an out-of-the-box integrated experience with the {{site.data.keyword.cloud_notm}} Platform that includes native runtimes and services such as the {{site.data.keyword.containershort_notm}}, {{site.data.keyword.openwhisk_short}}, and {{site.data.keyword.cloudaccesstrailshort}}.
+{{site.data.keyword.appid_short_notm}} is a fully managed offering that is provided "as-a-service". This means that IBM takes care of the operation of the service, handles compliancy, availability in multiple zones, SLA, and more. {{site.data.keyword.appid_short_notm}} also has an integrated experience with the {{site.data.keyword.cloud_notm}} Platform that includes native runtimes and services such as the {{site.data.keyword.containershort_notm}}, {{site.data.keyword.openwhisk_short}}, and {{site.data.keyword.cloudaccesstrailshort}}.
 
 
 
@@ -179,7 +179,7 @@ Keycloak is packaged as software, which means that you, as the developer, are re
 {: faq}
 {: support}
 
-While you technically _can_ use the same credentials in more than one application, it is highly recommended that you do not for several reasons. Foremost, because when you're sharing your ID across applications any type of attack or compromise then affects your entire ecosystem rather than one application. For example, if you're using your ID across three applications and one of them becomes compromised - all three are then compromised because an attacker is able to impersonate any of your apps. Second, because when you're using the same client ID in multiple apps, there is no way to differentiate between applications. For example, you're unable to tell which app was used to generate a token.
+While you technically `_can_` use the same credentials in more than one application, it is highly recommended that you do not for several reasons. Foremost, because when you're sharing your ID across applications any type of attack or compromise then affects your entire environment rather than one application. For example, if you're using your ID across three applications and one of them becomes compromised, all three are then compromised.  An attacker is able to impersonate any of your apps. The second reason is that when you're using the same client ID in multiple apps, there is no way to differentiate between applications. For example, you're unable to tell which app was used to generate a token.
 
 ## How can I update my application to use a new service instance without losing any data
 {: #migrate-service}
@@ -187,11 +187,11 @@ While you technically _can_ use the same credentials in more than one applicatio
 You can migrate the information in one instance of {{site.data.keyword.appid_short_notm}} to another.
 {: shortdesc}
 
-1. Create a new instance of the service.
+1. Create an instance of the service.
 2. Duplicate your identity provider configuration by using the GUI.
 3. [Migrate your user profiles](/docs/appid?topic=appid-user-admin). Known users are exported as a JSON object. Anonymous user's cannot be migrated. You can choose to import the entire object into the new instance or break it up and divide the users as you see fit if you have more than one instance. For Cloud Directory, see [Migrating users](/docs/appid?topic=appid-cd-users#user-migration). For federated identity providers, use the following steps.
 4. Create application credentials to invoke the new service instance.
-   1. In the service dashboard navigate to the **Applications** tab.
+   1. In the service dashboard, navigate to the **Applications** tab.
    2. Click **Add Application** and give your application a name. Then, click **Save**.
    3. Click **View credentials** in the table and copy the output.
    4. Paste your new credentials into your application.
@@ -199,26 +199,26 @@ You can migrate the information in one instance of {{site.data.keyword.appid_sho
 6. Depending on your configuration, you might need to redeploy or unbind and rebind your application.
 
 
-## Can {{site.data.keyword.appid_short_notm}} help configure log out?
+## Can {{site.data.keyword.appid_short_notm}} help configure logout?
 {: #faq-logout}
 
-Depending on how you configure your application, {{site.data.keyword.appid_short_notm}} can help to facilitate a log out functionality for your users. Check out the following table to see where functionality for log out is available.
+Depending on how you configure your application, {{site.data.keyword.appid_short_notm}} can help to facilitate a log out functionality for your users. Check out the following table to see where functionality for logout is available.
 
 |  | Description |
 |---------|-------------|
-| {{site.data.keyword.appid_short_notm}} SDKs | The {{site.data.keyword.appid_short_notm}} SDKs have a built in log out functionality.  |
-| Cloud Directory SSO[^sso] | {{site.data.keyword.appid_short_notm}} provides built in log out functionality for the Cloud Directory SSO feature. |
-| Ingress | Ingress provides a built in log out functionality. |
+| {{site.data.keyword.appid_short_notm}} SDKs | The {{site.data.keyword.appid_short_notm}} SDKs have a built-in logout functionality.  |
+| Cloud Directory SSO[^sso] | {{site.data.keyword.appid_short_notm}} provides built in logout functionality for the Cloud Directory SSO feature. |
+| Ingress | Ingress provides a built in logout functionality. |
 | Istio | The Istio adapter is configured to provide log out functionality through OIDC. |
 {: caption="Table 3. Log out functionality options" caption-side="top"}
 {: row-headers}
 
 [^sso]: All redirect URLs that are used with the Cloud Directory SSO feature must be added to the log out URL allowlist in the {{site.data.keyword.appid_short_notm}} UI.
 
-### Configuring log out
+### Configuring logout
 {: #faq-logout-how}
 
-To configure log out, you must configure your application to send a request to your identity provider and then redirect the user to an area of your application that does not require authentication. In most use-cases, there is an application server session - that might be set by the {{site.data.keyword.appid_short_notm}} SDKs, Ingress, or Istio that works in partnership with a federated identity provider such as SAML or Cloud Directory to enable authentication and authorization. 
+To configure logout, you must configure your application to send a request to your identity provider. Then, to redirect the user to an area of your application that does not require authentication. In most use-cases, an application server session might be set by the {{site.data.keyword.appid_short_notm}} SDKs, Ingress, or Istio that works in partnership with a federated identity provider such as SAML or Cloud Directory to enable authentication and authorization. 
 
 In the following HTML example, an {{site.data.keyword.appid_short_notm}} SDK is used to configure log out. But, if you are working with another option, you can use this snippet as a guide and update it to fit your needs.
 

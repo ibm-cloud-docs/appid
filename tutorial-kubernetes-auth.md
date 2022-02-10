@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-11-23"
+  years: 2017, 2022
+lastupdated: "2022-02-07"
 
 keywords: ingress controller, ingress, istio, access, subdomain, custom domain, service, containerized apps, containers, kube, networking, policy, policies, secure apps, authentication, authorization
 
@@ -49,7 +49,7 @@ subcollection: appid
 # Containerized apps with Ingress
 {: #kube-auth}
 
-With {{site.data.keyword.appid_full}}, you can consistently enforce policy-driven security by using the Ingress networking capability in {{site.data.keyword.containerlong_notm}} or {{site.data.keyword.openshiftshort}}. With this approach, you can enforce authentication and authorization policies for all of the applications in your cluster at the same time, without ever changing your app code!
+With {{site.data.keyword.appid_full}}, you can consistently enforce policy-driven security by using the Ingress networking capability in {{site.data.keyword.containerlong_notm}} or {{site.data.keyword.openshiftshort}}. With this approach, you can enforce authentication and authorization policies for all the applications in your cluster at the same time, without ever changing your app code!
 {: shortdesc}
 
 The {{site.data.keyword.containershort_notm}} custom Ingress image is [deprecated as of 01 December 2020](/docs/containers?topic=containers-ingress-types). This tutorial is updated to use the community Kubernetes Ingress image. To see the previous version of this documentation, see the [{{site.data.keyword.containershort_notm}} documentation](/docs/containers?topic=containers-comm-ingress-annotations#app-id).
@@ -84,7 +84,7 @@ Before you can get started, ensure that you have the following prerequisites.
    * [Kubernetes](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 * The {{site.data.keyword.containershort}} and {{site.data.keyword.registryshort_notm}} [CLI plug-ins](/docs/cli?topic=cli-install-devtools-manually#idt-install-kubernetes-cli-plugin)
 
-To ensure the best performance of the integration, it is recommended that you always use the latest version of IBM Cloud {{site.data.keyword.containershort_notm}} Application Load Balancer (ALB). By default, auto-update is enabled for your cluster. For more information about auto-updates, see [OnDemand ALB update feature on {{site.data.keyword.containershort}}](https://www.ibm.com/cloud/blog/on-demand-alb-update-feature-on-ibm-cloud-kubernetes-service).
+To ensure the best performance of the integration, it is recommended that you always use the latest version of IBM Cloud {{site.data.keyword.containershort_notm}} Application Load Balancer (ALB). By default, autoupdate is enabled for your cluster. For more information about autoupdates, see [OnDemand ALB update feature on {{site.data.keyword.containershort}}](https://www.ibm.com/cloud/blog/on-demand-alb-update-feature-on-ibm-cloud-kubernetes-service).
 {: tip}
 
 ## Adding redirect URLs
@@ -108,7 +108,7 @@ A redirect URL is the callback endpoint of your app; the location a user is sent
 
    * Custom domain:
 
-      A URL that is registered with a custom domain might look like: `http://mydomain.net/myapp2path/oauth2-myappid/callback`. If the apps that you want to expose are within the same cluster but in different namespaces, you can use a wildcard to specify all of them. This can be helpful during development, but it is recommended that you do not use wildcards in production without exercising caution. For example: `https://custom_domain.net/*/oauth2-myappid/callback`
+      A URL that is registered with a custom domain might look like: `http://mydomain.net/myapp2path/oauth2-myappid/callback`. If the apps that you want to expose are within the same cluster but in different namespaces, you can use a wildcard to specify all of them. This can be helpful during development, but it is recommended that you do not use wildcards in production without exercising caution. For example, `https://custom_domain.net/*/oauth2-myappid/callback`
 
    * Ingress subdomain:
 
@@ -119,7 +119,7 @@ A redirect URL is the callback endpoint of your app; the location a user is sent
 ## Binding {{site.data.keyword.appid_short_notm}} to your cluster
 {: #kube-create-appid}
 
-By binding your instance of {{site.data.keyword.appid_short_notm}} to your cluster, you create the connection between the {{site.data.keyword.containershort_notm}} and {{site.data.keyword.appid_short_notm}} that allows the enforcement of authentication for all of the apps that run in your cluster at the same time.
+By binding your instance of {{site.data.keyword.appid_short_notm}} to your cluster, you create the connection between the {{site.data.keyword.containershort_notm}} and {{site.data.keyword.appid_short_notm}} that allows the enforcement of authentication for all the apps that run in your cluster at the same time.
 
 1. Log in to the {{site.data.keyword.cloud_notm}} CLI. Follow the prompts in the CLI to complete logging in. If you're using a federated ID, be sure to append the `--sso` flag to the end of the command.
 
@@ -135,7 +135,7 @@ By binding your instance of {{site.data.keyword.appid_short_notm}} to your clust
    ```
    {: codeblock}
 
-3. Bind the {{site.data.keyword.appid_short_notm}} service instance to your cluster. The command creates a service key for the service instance, or you can include the `--key` flag to use existing service key credentials. Be sure to bind the service instance to the same namespace that your Ingress resources exist in. All of the letters in the service instance name must specified as lowercase.
+3. Bind the {{site.data.keyword.appid_short_notm}} service instance to your cluster. The command creates a service key for the service instance, or you can include the `--key` flag to use existing service key credentials. Be sure to bind the service instance to the same namespace that your Ingress resources exist in. All the letters in the service instance name must specified as lowercase.
 
    ```sh
    ibmcloud ks cluster service bind --cluster {cluster_name_or_ID} --namespace {namespace} --service {App_ID_instance_name} [--key {service_instance_key}]
@@ -171,7 +171,7 @@ Your Ingress resource is used to define how you want to expose your applications
    ```
    {: codeblock}
 
-   All letters in the service instance name must specified as lowercase characters.
+   All letters in the service instance name must be specified as lowercase characters.
    {: note}
 
 2. Optional: If your app is a web app, in addition to or instead of, providing APIs, add the `nginx.ingress.kubernetes.io/auth-signin: https://$host/oauth2-{App_ID_service_instance_name}/start?rd=$escaped_request_uri` annotation. 
@@ -227,7 +227,7 @@ Now that your Ingress resource is updated with the annotation, you can start enf
    ```
    {: codeblock}
 
-   To verify that your add on is ready, you can run the following command.
+   To verify that your add-on is ready, you can run the following command.
 
    ```sh
    ibmcloud ks cluster addon ls --cluster {cluster_name_or_ID}

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-11-23"
+  years: 2017, 2022
+lastupdated: "2022-02-07"
 
 keywords: mfa, multifactor, authentication, cloud directory, login widget, second factor, two factor, identity, mulitple factors, advanced security event, cloud directory user, sender id, phone number, email, nexmo, mfa descision, extension
 
@@ -96,9 +96,9 @@ You can configure the MFA email channel through the GUI.
 
 1. Navigate to the **Cloud Directory > Multifactor authentication** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
 
-2. In the **Enable Multifactor authentication** box, on the **settings tab**, toggle MFA to **Enabled**. Acknowledge that you understand that MFA is charged as an [advanced security event](/docs/appid?topic=appid-faq#faq-pricing). By default, **Email** is selected as the **Authentication method**.
+2. In the **Enable Multifactor authentication** box, on the **Settings** tab, toggle MFA to **Enabled**. Acknowledge that you understand that MFA is charged as an [advanced security event](/docs/appid?topic=appid-faq#faq-pricing). By default, **Email** is selected as the **Authentication method**.
 
-3. In the **Email channel** tab, review the **Email template**. You can choose to send the template with the provided wording or write your own message. Be sure to use the correct HTML tagging. In the GUI, you can add parameters and insert images. To change the [language](/docs/appid?topic=appid-cd-types#cd-languages) of the message, you can use [the APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization){: external} to set the language. However, you are responsible for the content and conversion of the message. Check out the following table to see the list of tables that you can use in this message and all of the other messages that you can send. If a user does not supply the information that is pulled by the parameter, it appears blank.
+3. In the **Email channel** tab, review the **Email template**. You can choose to send the template with the provided wording or write your own message. Be sure to use the correct HTML tagging. In the GUI, you can add parameters and insert images. To change the [language](/docs/appid?topic=appid-cd-types#cd-languages) of the message, you can use [the APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization){: external} to set the language. However, you are responsible for the content and conversion of the message. Check out the following table to see the list of tables that you can use in this message and all the other messages that you can send. If a user does not supply the information that is pulled by the parameter, it appears blank.
 
    | Parameter | Description |
    | --------- | ----------- |
@@ -292,11 +292,11 @@ To configure a pre-MFA extension:
    | Example use case | Example validation |
    | ---------------- | ------------------ |
    | You want users to provide a second authentication factor only once a day. | Configure your extension to validate the `last_successful_first_factor` is within the same day. |
-   | You have a allow list of approved users that don't need to provide the second factor every time. | Configure your extension to validate that the `username` or `user_id` is in the allow list. |
+   | You have an allowlist of approved users that don't need to provide the second factor every time. | Configure your extension to validate that the `username` or `user_id` is in the allowlist. |
    | You don't want users who access your app on a desktop to provide the second factor every time. | Configure your extension to validate that `device_type` is set to `web`. |
    {: caption="Table 3. Example criteria for skipping MFA" caption-side="top"}
 
-2. When you know your criteria, configure an extension that can listen for a POST request. The endpoint must be able to read the payload that comes from {{site.data.keyword.appid_short_notm}}. The body that is sent by {{site.data.keyword.appid_short_notm}} before starting the MFA flow is in the format: `{"jws": "jws-format-string"}`. Your extension might also [decode and validate](/docs/appid?topic=appid-token-validation#local-validation) the payload, the content is a JSON object and return a JSON response with the following schema: `{"skipMfa": Boolean }`. For example,: `{'skipMfa': true}`. 
+2. When you know your criteria, configure an extension that can listen for a POST request. The endpoint must be able to read the payload that comes from {{site.data.keyword.appid_short_notm}}. The body that is sent by {{site.data.keyword.appid_short_notm}} before the MFA flow starts is in the format: `{"jws": "jws-format-string"}`. Your extension might also [decode and validate](/docs/appid?topic=appid-token-validation#local-validation) the payload, the content is a JSON object and return a JSON response with the following schema: `{"skipMfa": Boolean }`. For example,: `{'skipMfa': true}`. 
 
    | Information | Description |
    | ----------- | ----------- |
@@ -369,7 +369,7 @@ To configure a pre-MFA extension:
 ### Configuring post-mfa
 {: #cd-postmfa}
 
-When you configure an extension and register it with {{site.data.keyword.appid_short_notm}}, the service calls your extension after every authentication attempt in which there is a second-factor of identification. You can use that information in order to make smarter decisions for your users. For example, you can use post-mfa extension collection information for your heuristics and rules and then enforce these using pre-mfa extension.
+When you configure an extension and register it with {{site.data.keyword.appid_short_notm}}, the service calls your extension after every authentication attempt in which a second-factor of identification is present. You can use that information to make better decisions for your users. For example, you can use post-mfa extension collection information for your heuristics and rules and then enforce these using pre-mfa extension.
 
 ![post-MFA flow](images/mfa-post.png){: caption="Figure 3. Cloud Directory post-MFA flow" caption-side="bottom"}
 

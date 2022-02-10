@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-10-12"
+  years: 2017, 2022
+lastupdated: "2022-02-07"
 
 keywords: authentication, authorization, identity, web flow, backend, identity management, anonymous auth, custom flow, mobile, app to app, kubernetes, ingress, istio, app security,
 
@@ -63,8 +63,8 @@ Check out the following table to see how {{site.data.keyword.appid_short_notm}} 
 | [Mobile](/docs/appid?topic=appid-mobile-apps) | The {{site.data.keyword.appid_short_notm}} mobile flow is most helpful when you're developing applications that are made to be installed on a user's device as a native application.|
 | [Backend](/docs/appid?topic=appid-backend) | You can protect your development resources and API endpoints from unauthorized access and ensure the security of your app by using the backend flow. |
 | [Custom](/docs/appid?topic=appid-custom-auth) | Already have your own custom flow? No problem. You can use the custom identity flow to integrate {{site.data.keyword.appid_short_notm}}  with your app. |
-| [Anonymous](/docs/appid?topic=appid-anonymous) | With {{site.data.keyword.appid_short_notm}}, you can begin tracking a users activity before their initial sign in to your app by using anonymous authentication. |
+| [Anonymous](/docs/appid?topic=appid-anonymous) | With {{site.data.keyword.appid_short_notm}}, you can begin tracking a users activity before their initial sign-in to your app by using anonymous authentication. |
 | [Ingress](/docs/appid?topic=appid-kube-auth) | With {{site.data.keyword.appid_short_notm}}, you can consistently enforce policy-driven security by using the Ingress networking capability in {{site.data.keyword.containerlong_notm}}. |
-| [Istio](/docs/appid?topic=appid-istio-adapter) | By using the App Identity and Access adapter, you can centralize all of your identity management in a single place. Because enterprises use clouds from multiple providers or a combination of on and off-premise solutions, heterogeneous deployment models can help you to preserve existing infrastructure and avoid vendor lock-in. |
+| [Istio](/docs/appid?topic=appid-istio-adapter) | By using the App Identity and Access adapter, you can centralize all your identity management in a single place. Because enterprises use clouds from multiple providers or a combination of on and off-premise solutions, heterogeneous deployment models can help you to preserve existing infrastructure and avoid vendor lock-in. |
 {: caption="Table 1. The different ways in which you can secure your applications with {{site.data.keyword.appid_short_notm}}" caption-side="top"}
 

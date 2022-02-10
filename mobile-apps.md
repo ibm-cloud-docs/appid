@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-11-23"
+  years: 2017, 2022
+lastupdated: "2022-02-07"
 
 keywords: secure mobile app, android, ios, authenticate users,  authorization grant, client sdk, trusted client, native app, personalized, custom app, devices, identity flow, app security
 
@@ -54,16 +54,16 @@ With {{site.data.keyword.appid_full}}, you can quickly construct an authenticati
 ## Understanding the flow
 {: #understanding-mobile}
 
-A mobile flow is useful when you are developing an app that is to be installed on a user's device (a native application). By using this flow, you can securely authenticate users on your app in order to provide personalized user experiences across devices.
+A mobile flow is useful when you are developing an app that is to be installed on a user's device (a native application). By using this flow, you can securely authenticate users on your app to provide personalized user experiences across devices.
 
 ### What is the flow's technical basis?
 {: #mobile-technical-flow}
 
 Since native applications are installed directly on a user's device, private user information and application credentials can be extracted by third-parties with relative ease. By default, these types of applications are known as untrusted clients as they cannot store global credentials or user refresh tokens. As a result, untrusted clients require users to input their credentials every time their access tokens expire.
 
-In order to convert your application into a trusted client, {{site.data.keyword.appid_short_notm}} leverages [Dynamic Client Registration](https://datatracker.ietf.org/doc/html/rfc6749){: external}. Before an application instance begins authenticating users, it first registers as an OAuth2 client with {{site.data.keyword.appid_short_notm}}. As a result of client registration, your application receives an installation-specific client ID that can be digitally signed and used to authorize requests with {{site.data.keyword.appid_short_notm}}. Since {{site.data.keyword.appid_short_notm}} stores your application's corresponding public key, it can validate your request signature that allows your application to be viewed as a confidential client. This process minimizes your application's risk of exposing credentials indefinitely and greatly improves the user experience by allowing automatic token refresh.
+To convert your application into a trusted client, {{site.data.keyword.appid_short_notm}} uses [Dynamic Client Registration](https://datatracker.ietf.org/doc/html/rfc6749){: external}. Before an application instance begins authenticating users, it first registers as an OAuth2 client with {{site.data.keyword.appid_short_notm}}. As a result of client registration, your application receives an installation-specific client ID that can be digitally signed and used to authorize requests with {{site.data.keyword.appid_short_notm}}. Since {{site.data.keyword.appid_short_notm}} stores your application's corresponding public key, it can validate your request signature that allows your application to be viewed as a confidential client. This process minimizes your application's risk of exposing credentials indefinitely and greatly improves the user experience by allowing automatic token refresh.
 
-Following registration, your users authenticate using either the OAuth2 `authorization code` or `resource owner password` [authorization grant](https://datatracker.ietf.org/doc/html/rfc6749#section-1.3){: external} flows to authenticate users.
+Following registration, your users authenticate by using either the OAuth2 `authorization code` or `resource owner password` [authorization grant](https://datatracker.ietf.org/doc/html/rfc6749#section-1.3){: external} flows to authenticate users.
 
 
 ### Dynamic client registration
@@ -78,7 +78,7 @@ Following registration, your users authenticate using either the OAuth2 `authori
 
 ![{{site.data.keyword.appid_short_notm}} mobile request flow](images/mobile-flow.png){: caption="Figure 1. {{site.data.keyword.appid_short_notm}} mobile request flow" caption-side="bottom"}
 
-1. The {{site.data.keyword.appid_short_notm}} SDK starts the authorization process using the {{site.data.keyword.appid_short_notm}} `/authorization` endpoint.
+1. The {{site.data.keyword.appid_short_notm}} SDK starts the authorization process by using the {{site.data.keyword.appid_short_notm}} `/authorization` endpoint.
 2. The login widget is displayed to the user.
 3. The user authenticates by using one of the configured identity providers.
 4. {{site.data.keyword.appid_short_notm}} returns an authorization grant.
@@ -88,7 +88,7 @@ Following registration, your users authenticate using either the OAuth2 `authori
 ## Configuring your mobile app with the {{site.data.keyword.appid_short}} SDKs
 {: #configuring-mobile}
 
-Get started with {{site.data.keyword.appid_short_notm}} with our SDKs.
+Get started with the {{site.data.keyword.appid_short_notm}} SDKs.
 {: shortdesc}
 
 ### Before you begin
@@ -111,13 +111,13 @@ You need the following information:
 ## Authenticating with the Android SDK
 {: #mobile-android}
 
-Protect your mobile applications using the {{site.data.keyword.appid_short_notm}} client SDK.
+Protect your mobile applications by using the {{site.data.keyword.appid_short_notm}} client SDK.
 {: shortdesc}
 
 ### Before you begin
 {: #mobile-android-before}
 
-You must have the following prerequisites before getting started:
+You must have the following prerequisites before you can get started:
 
 * API 27 or higher
 * Java 8.x
@@ -187,13 +187,13 @@ You must have the following prerequisites before getting started:
 ## Authenticating with the iOS Swift SDK
 {: #mobile-ios}
 
-Protect your mobile applications using the {{site.data.keyword.appid_short_notm}} client SDK.
+Protect your mobile applications by using the {{site.data.keyword.appid_short_notm}} client SDK.
 {: shortdesc}
 
 ### Before you begin
 {: #mobile-ios-before}
 
-You must have the following prerequisites before getting started:
+You must have the following prerequisites before you get started:
 
 * Xcode 9.0 or higher
 * CocoaPods 1.1.0 or higher
