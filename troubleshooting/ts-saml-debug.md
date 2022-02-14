@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-02-07"
+lastupdated: "2022-02-14"
 
 keywords: saml, help, authentication request, error message, signing algorithm, xml file, signing certificate, valid email, error code, saml message signature, 
 
@@ -49,7 +49,7 @@ subcollection: appid
 {: #ts-saml-debug-connection}
 {: troubleshoot} 
 
-You encounter bugs in your SAML connection. Check out some of the following helpful tips for debugging your SAML connection.
+You encounter bugs in your SAML connection. Check out some following helpful tips for debugging your SAML connection.
 {: shortdesc}
 
 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-11-29"
+  years: 2017, 2022
+lastupdated: "2022-02-14"
 
 keywords: custom identity provider, authorization, bring your own idp, proprietary idp, legacy idp, oauth, oidc, authentication, oatuh, app security
 
@@ -77,7 +77,7 @@ Occasionally, a legacy provider might use their own custom authentication protoc
 ### Technically, how does this flow work?
 {: #custom-auth-tech}
 
-The custom identity workflow is built on the JWT-Bearer extension grant type that is defined in Assertion Framework for OAuth 2.0 Authorization Grants [[RFC7521]](https://datatracker.ietf.org/doc/html/rfc7523#section-2.1){: external}. In order to exchange user information for {{site.data.keyword.appid_short_notm}} tokens, your authentication architecture creates a trust relationship with {{site.data.keyword.appid_short_notm}} by using an asymmetric RSA key pair. Once trust is established, you can use the JWT-Bearer grant type to exchange verified user information within a signed JWT for {{site.data.keyword.appid_short_notm}} tokens.
+The custom identity workflow is built on the JWT-Bearer extension grant type that is defined in Assertion Framework for OAuth 2.0 Authorization Grants [[RFC7521]](https://datatracker.ietf.org/doc/html/rfc7523#section-2.1){: external}. To exchange user information for {{site.data.keyword.appid_short_notm}} tokens, your authentication architecture creates a trust relationship with {{site.data.keyword.appid_short_notm}} by using an asymmetric RSA key pair. Once trust is established, you can use the JWT-Bearer grant type to exchange verified user information within a signed JWT for {{site.data.keyword.appid_short_notm}} tokens.
 
 ### What does the flow look like?
 {: #custom-auth-flow}

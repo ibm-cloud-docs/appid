@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-10-12"
+  years: 2017, 2022
+lastupdated: "2022-02-14"
 
 keywords: help, support, error, multiple users, attribute, ticket, identity provider, redirect uri, custom url, virtual user, idp, identity settings, user profile
 
@@ -63,7 +63,7 @@ You attempt to view the home page of your app but receive the following error:
 ```
 {: screen}
 
-You might receive a `too many requests` error if you are performing automated testing with only one virtual user. Sign-in attempts are limited in order to prevent brute force DDoS and other types of similar attacks. For more information, see [{{site.data.keyword.appid_short_notm}} limits](/docs/appid?topic=appid-known-issues-limits#general-limits).
+You might receive a `too many requests` error if you are performing automated testing with only one virtual user. Sign-in attempts are limited to prevent brute force DDoS and other types of similar attacks. For more information, see [{{site.data.keyword.appid_short_notm}} limits](/docs/appid?topic=appid-known-issues-limits#general-limits).
 {: tsCauses}
 
 To resolve the issue, you might want to use multiple virtual users when you perform testing.

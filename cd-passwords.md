@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-10-12"
+  years: 2017, 2022
+lastupdated: "2022-02-14"
 
 keywords: password policies, password strength, advanced, sign in, lock out, reset password, email, expiration, credentials, password reuse, wrong credentials, secure apps, registry, cloud directory, regex
 
@@ -176,7 +176,7 @@ To set this configuration by using the GUI:
 ### Policy: Password expiration
 {: #cd-expiration}
 
-For security reasons, you might want to enforce a password rotation policy. By setting an expiration for your users password, they are forced to update their password in order to retain access to your application. This lessens the chance that a user's credentials can cause long term damage to your application. When their password expires, your users are forced to reset it on their next sign-in attempt.
+For security reasons, you might want to enforce a password rotation policy. By setting an expiration for your users password, they are forced to update their password to retain access to your application. This lessens the chance that a user's credentials can cause long term damage to your application. When their password expires, your users are forced to reset it on their next sign-in attempt.
 {: shortdesc}
 
 To set this configuration by using the GUI:
@@ -191,7 +191,7 @@ To set this configuration by using the GUI:
 
 5. Click **Save**.
 
-When this option is first set to on, any existing user passwords do not have an expiration date. To ensure that all of your users are limited by the password rotation policy, you might encourage users to update their password after you configure this feature.
+When this option is first set to on, any existing user passwords do not have an expiration date. To ensure that all your users are limited by the password rotation policy, you might encourage users to update their password after you configure this feature.
 {: note}
 
 
@@ -229,6 +229,6 @@ To set this configuration by using the GUI:
 
 4. Click **Save**.
 
-This constraint is not case-sensitive. Users are not able to alter the case of some or all of the characters in order to use the personal information. To configure this option, toggle the switch to **on**.
+This constraint is not case-sensitive. Users are not able to alter the case of some or all the characters to use the personal information. To configure this option, toggle the switch to **on**.
 {: note}
 
