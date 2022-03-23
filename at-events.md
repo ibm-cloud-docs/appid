@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-02-07"
+lastupdated: "2022-03-10"
 
 keywords: user events, track activity, manage events, analyze, administrative, runtime, sign in, settings, app security
 
@@ -151,7 +151,7 @@ Some action names were changed as part of an alignment to new guidelines. [Learn
 | `appid.action-url.update` | Update the custom URL that is called when an action is performed. | Can be found in the **Cloud Directory > Email Templates** tab. |
 | `appid.password-regex.read` | View the password regex. | Can be found in the **Cloud Directory > Password Policies** tab. |
 | `appid.password-regex.update` | Update the password regex. | Can be found in the **Cloud Directory > Password Policies** tab. |
-| `appid.advanced-password-management.read` | View the advanced password policy configurations. | Can be found in the **Cloud Directory > Password Policies** tab. |
+| `appid.advanced-password-management.read` | View the advanced password policy configurations. | Can be found in the **Cloud Directory > Password policies** tab. |
 | `appid.advanced-password-management.update` | Update the advanced password policy configurations. | Can be found in the **Cloud Directory > Password Policies** tab. |
 | `appid.user-password.update` | Set a new password for the Cloud Directory user. | Must be done through the API. | 
 | `appid.capture-runtime-activity.read` | View runtime activity toggle. | Can be viewed in the **Manage Authentication> Authentication Settings** tab. |

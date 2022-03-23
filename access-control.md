@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-02-07"
+lastupdated: "2022-02-14"
 
 keywords: user access, control access, permissions, roles, scopes, runtime, access token, authentication, identity, app security
 
@@ -347,7 +347,7 @@ To remove a role from a user, make the PUT request again, but remove the role ID
 ## Controlling access at run time
 {: #control-acesss-runtime}
 
-When a user or application attempts to access one of your protected resources, tokens are created and returned by {{site.data.keyword.appid_short_notm}}. Any scopes that a user or application is assigned are retuned in the access token. You can use the access token to make decisions at run time. Depending on the strategy that you're using to protect your applications, how you verify scopes can differ.
+When a user or application attempts to access one of your protected resources, tokens are created and returned by {{site.data.keyword.appid_short_notm}}. Any scopes that a user or application is assigned are returned in the access token. You can use the access token to make decisions at run time. Depending on the strategy that you're using to protect your applications, how you verify that scopes can differ.
 
 
 ### When using web app strategy

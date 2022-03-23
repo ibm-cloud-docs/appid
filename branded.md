@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-02-07"
+lastupdated: "2022-02-14"
 
 keywords: bring your own screens, branded app, sign up, custom, directory, registry, app security, password, authorization flow, authentication,
 
@@ -206,7 +206,7 @@ After you configure your [settings](/docs/appid?topic=appid-cloud-directory#cd-s
 You can use the `/sign_up` endpoint to allow users to sign themselves up for your app.
 Supply the following data in the request body:
 * Your tenantID.
-* Cloud Directory user data with the following required attributes. See [SCIM Full User Representation](https://datatracker.ietf.org/doc/html/rfc7643.#section-8.2){: external} for more details.
+* Cloud Directory user data with the following required attributes. See [SCIM Full User Representation](https://datatracker.ietf.org/doc/html/rfc7643#section-8.2){: external} for more details.
    * A `password` attribute.
    * An `emails` array with at least one email address and a `primary` attribute that is set to `true`.
 

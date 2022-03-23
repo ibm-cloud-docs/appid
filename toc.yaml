@@ -1,6 +1,7 @@
 toc:
   properties:
     subcollection: appid
+    service-name: appid
     category: security
     audience: service
     href: /docs/appid
