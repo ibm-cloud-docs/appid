@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-11-12"
+  years: 2017, 2022
+lastupdated: "2022-05-05"
 
 keywords: app to app, protected resource, client secret, application identity, authorization, server, authentication, access tokens, app security
 
@@ -63,7 +63,7 @@ There are several reasons that you might want one application to communicate wit
 
 {{site.data.keyword.appid_short_notm}} leverages the OAuth 2.0 client credentials flow to protect communication. After an app registers with {{site.data.keyword.appid_short_notm}}, the app obtains a client ID and secret. With this information, the app can request an access token from {{site.data.keyword.appid_short_notm}} and be authorized to access a protected resource or API. In the application identity and authorization flow, the application is granted only an access token. It does not obtain an identity token or a refresh token. For more information about tokens, see [Understanding tokens](/docs/appid?topic=appid-tokens).
 
-This work flow is meant to be used only with trusted applications where there is no risk of the secret being misused or leaked. The application always holds the client secret. It will not work for mobile apps.
+This workflow is meant to be used only with trusted applications where there is no risk of the secret being misused or leaked. The application always holds the client secret. It will not work for mobile apps.
 {: tip}
 
 ### What does the flow look like?
@@ -79,7 +79,7 @@ In the following image, you can see the direction of communication between the s
 4. {{site.data.keyword.appid_short_notm}} validates the request, authenticates the app, and returns a response to Application A that contains an access token.
 5. Application A is now able to use the valid access token to send requests to protected resources such as Application B.
 
-The client secret that is used to authenticate the client is highly sensitive and must be kept confidential. Because the application uses the client secret in-app, this work flow must be used with trusted applications only. Using a trusted application ensures that the client secret is not leaked or misused.
+The client secret that is used to authenticate the client is highly sensitive and must be kept confidential. Because the application uses the client secret in-app, this workflow must be used with trusted applications only. Using a trusted application ensures that the client secret is not leaked or misused.
 {: important}
 
 ## Registering your app

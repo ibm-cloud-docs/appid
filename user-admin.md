@@ -237,7 +237,7 @@ As an administrator, you can remove someone as a user of your application by del
 
 3. In the overflow menu of the user's row, click **Delete**. A confirmation screen opens.
 
-4. Verify that you're deleting the correct user by checking their email against the one displayed. If it is the correct user, click **Delete**. This action cannot be undone. The user can be readded but their profile shows that they are a new user as of the date that they're readded.
+4. Verify that you're deleting the correct user by checking their email against the one displayed. If it is the correct user, click **Delete**. This action cannot be undone. The user can be re-added but their profile shows that they are a new user as of the date that they're re-added.
 
 ## Deleting a profile with the API
 {: #profile-delete-api}
