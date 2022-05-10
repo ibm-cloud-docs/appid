@@ -76,7 +76,7 @@ Following registration, your users authenticate by using either the OAuth2 `auth
 ### Authorization flow
 {: #mobile-auth-flow}
 
-![{{site.data.keyword.appid_short_notm}} mobile request flow](images/mobile-flow.png){: caption="Figure 1. {{site.data.keyword.appid_short_notm}} mobile request flow" caption-side="bottom"}
+![{{site.data.keyword.appid_short_notm}} mobile request flow](images/mobile-flow.svg){: caption="Figure 1. {{site.data.keyword.appid_short_notm}} mobile request flow" caption-side="bottom"}
 
 1. The {{site.data.keyword.appid_short_notm}} SDK starts the authorization process by using the {{site.data.keyword.appid_short_notm}} `/authorization` endpoint.
 2. The login widget is displayed to the user.
