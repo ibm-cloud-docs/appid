@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-05-05"
+lastupdated: "2022-05-17"
 
 keywords: app to app, protected resource, client secret, application identity, authorization, server, authentication, access tokens, app security
 
@@ -95,13 +95,13 @@ The client secret that is used to authenticate the client is highly sensitive an
 ### With the API
 {: #app-register-api}
 
-1. Make a POST request to the [`/management/v4/{tenantId}/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Applications/mgmt.registerApplication){: external}.
+1. Make a POST request to the [`/management/v4/<tenantID>/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Applications/mgmt.registerApplication){: external}.
 
    ```sh
-   curl -X POST \  https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/applications/ \
+   curl -X POST \  https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/applications/ \
    -H 'Content-Type: application/json' \
-   -H 'Authorization: Bearer {IAM-token}' \
-   -d '{"name": "{Application-Name}"}'
+   -H 'Authorization: Bearer <IAMToken>' \
+   -d '{"name": "<applicationName>"}'
    ```
    {: codeblock}
 
@@ -156,10 +156,10 @@ After your app is registered with {{site.data.keyword.appid_short_notm}} and you
       ```javascript
       const TokenManager = require('ibmcloud-appid').TokenManager;
       const config = {
-      clientId: "{client-ID}",
-      tenantId: "{tenant-ID}",
+      clientId: "<clientID>",
+      tenantId: "<tenantID>",
       secret: "{secret}",
-      oauthServerUrl: "https://{region}.appid.cloud.ibm.com/oauth/v4/{tenant-ID}"
+      oauthServerUrl: "https://<region>.appid.cloud.ibm.com/oauth/v4/<tenantID>"
       };
 
       const tokenManager = new TokenManager(config);

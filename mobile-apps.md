@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-02-07"
+lastupdated: "2022-05-17"
 
 keywords: secure mobile app, android, ios, authenticate users,  authorization grant, client sdk, trusted client, native app, personalized, custom app, devices, identity flow, app security
 
@@ -178,7 +178,7 @@ You must have the following prerequisites before you can get started:
    {: tip}
 
    ```java
-   AppID.getInstance().initialize(getApplicationContext(), {tenantId}, {region});
+   AppID.getInstance().initialize(getApplicationContext(), <tenantID>, <region>);
    ```
    {: codeblock}
 
@@ -213,7 +213,7 @@ The {{site.data.keyword.appid_short_notm}} client SDK is distributed with CocoaP
 3. Add the `IBMCloudAppID` pod and `use_frameworks!` command to your target's dependencies
 
    ```swift
-   target '{yourTarget}' do
+   target '<yourTarget>' do
       use_frameworks!
       pod 'IBMCloudAppID'
    end
@@ -246,7 +246,7 @@ The {{site.data.keyword.appid_short_notm}} client SDK is distributed with CocoaP
 1. Initialize the client SDK by passing the tenant ID and region parameters to the initialize method.
 
    ```swift
-      AppID.sharedInstance.initialize(tenantId: {tenantId}, region: {region})
+      AppID.sharedInstance.initialize(tenantId: <tenantID>, region: <region>)
    ```
    {: codeblock}
 
@@ -290,7 +290,7 @@ After a successful login flow, you can use your access and identity tokens to in
 2. Invoke your protected resource
 
    ```swift
-   BMSClient.sharedInstance.initialize(region: {region})
+   BMSClient.sharedInstance.initialize(region: <region>)
    BMSClient.sharedInstance.authorizationManager = AppIDAuthorizationManager(appid: AppID.sharedInstance)
 
    let request =  Request(url: "{your protected resource url}")
@@ -321,7 +321,7 @@ After a successful login flow, you can use your access and identity tokens to in
 
    ```java
    BMSClient bmsClient = BMSClient.getInstance();
-   bmsClient.initialize(getApplicationContext(), {region});
+   bmsClient.initialize(getApplicationContext(), <region>);
 
    AppIDAuthorizationManager appIdAuthMgr = new AppIDAuthorizationManager(AppID.getInstance())
    bmsClient.setAuthorizationManager(appIdAuthMgr);
@@ -359,7 +359,7 @@ Example request format:
    ```sh
    GET /resource HTTP/1.1
    Host: server.example.com
-   Authorization: Bearer {access token} {optional identity token}
+   Authorization: Bearer <accessToken> <optionalIdentityToken>
    ```
    {: screen}
 

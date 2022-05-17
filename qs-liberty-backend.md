@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-02-07"
+lastupdated: "2022-05-17"
 
 keywords: back-end apps, java, liberty for java, liberty, identity provider, access management, protected endpoints, access tokens, security, back end
 
@@ -94,13 +94,13 @@ You can obtain your credentials in one of two ways.
 
 * By navigating to the **Applications** tab of the {{site.data.keyword.appid_short_notm}} dashboard. If you don't already have one, you can click **Add application** to create a new one.
 
-* By making a POST request to the [`/management/v4/{tenantId}/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Applications/registerApplication){: external}.
+* By making a POST request to the [`/management/v4/<tenantID>/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Applications/registerApplication){: external}.
 
       Request format:
       ```sh
-      curl -X POST \  https://us-south.appid.cloud.ibm.com/management/v4/{tenantID}/applications/ \
+      curl -X POST \  https://us-south.appid.cloud.ibm.com/management/v4/<tenantID>/applications/ \
       -H 'Content-Type: application/json' \
-      -H 'Authorization: Bearer IAM_TOKEN' \
+      -H 'Authorization: Bearer <IAMToken>' \
       -d '{"name": "ApplicationName"}'
       ```
       {: codeblock}
@@ -152,8 +152,8 @@ You can obtain your credentials in one of two ways.
    <openidConnectClient 
       id="oidc-client-simple-liberty-backend-app" 		
       inboundPropagation="required"
-      jwkEndpointUrl="{region}.appid.cloud.ibm.com/oauth/v4/{tenantID}/publickeys"
-      issuerIdentifier="{region).appid.cloud.ibm.com/oauth/v4/{tenantID}"
+      jwkEndpointUrl="<region>.appid.cloud.ibm.com/oauth/v4/<tenantID>/publickeys"
+      issuerIdentifier="<region>.appid.cloud.ibm.com/oauth/v4/<tenantID>"
       signatureAlgorithm="RS256"
       audiences="{client-id}"
       sslRef="oidcClientSSL"

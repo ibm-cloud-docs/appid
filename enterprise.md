@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-02-07"
+lastupdated: "2022-05-17"
 
 keywords: saml, enterprise apps, assertions, single sign on, tokens, authorization, user authentication, key cloak, redhat, cloud identity, sso, single sign on, xml signature, service provider, identity provider, app security
 
@@ -230,7 +230,7 @@ Want to set an authentication context? You can do so through the API.
    Example code:
    ```sh
    curl --request GET \
-   https://us-south.appid.cloud.ibm.com/management/v4/{tenant-ID}/config/idps/saml \
+   https://us-south.appid.cloud.ibm.com/management/v4/<tenantID>/config/idps/saml \
    --header `Accept: application/json`
    ```
    {: codeblock}
@@ -297,7 +297,7 @@ Want to set an authentication context? You can do so through the API.
 
    ```sh
    curl --request PUT \
-   https://us-south.appid.cloud.ibm.com/management/v4/{tenant-ID}/config/idps/saml \
+   https://us-south.appid.cloud.ibm.com/management/v4/<tenantID>/config/idps/saml \
    --header `Accept: application/json` \
    --data \
    {

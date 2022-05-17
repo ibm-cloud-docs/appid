@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-02-07"
+lastupdated: "2022-05-17"
 
 keywords: authorization, authentication, oidc, oauth, jwks, app security, identity, tokens, redirect uris, api strategy, webapp strategy
 
@@ -87,10 +87,10 @@ Using this example, the URL would be `https://us-south.appid.cloud.ibm.com/oauth
 
 | Endpoint | Format |
 |-----|----| 
-| Authorization | `{oauthServerUrl}/authorization` |
-| Token | `{oauthServerUrl}/token` |
-| User information | `{oauthServerUrl}/userinfo` |
-| JWKS | `{oauthServerUrl}/publickeys` |
+| Authorization | `<oauthServerUrl>/authorization` |
+| Token | `<oauthServerUrl>/token` |
+| User information | `<oauthServerUrl>/userinfo` |
+| JWKS | `<oauthServerUrl>/publickeys` |
 {: caption="Table 1. Examples of endpoints" caption-side="top"}
 
 When you use the SDK, the endpoint URLs are built automatically.
@@ -115,7 +115,7 @@ The service uses three different types of tokens. Tokens are set in the **Identi
 Example:
 
 ```sh
-Authorization=Bearer {access_token} [{id_token}]
+Authorization=Bearer <accessToken> [<idToken>]
 ```
 {: screen}
 
@@ -125,7 +125,7 @@ Authorization=Bearer {access_token} [{id_token}]
 
 The API strategy expects requests to contain an authorization header with a valid access token. The request can also include an identity token, but it is not required. If a token is invalid or expired, the API strategy returns an HTTP 401 error that contains the following HTTP header:
 ```sh
-Www-Authenticate=Bearer scope="{scope}" error="{error}"
+Www-Authenticate=Bearer scope="<scope>" error="<error>"
 ```
 {: screen}
 

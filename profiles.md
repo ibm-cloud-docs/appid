@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-02-07"
+lastupdated: "2022-05-17"
 
 keywords: profile, custom attributes, predefined attributes, attributes, app users, app interaction, personalized experience, access user info, identity provider information, access token, authentication, user sign in, android, java, node, swift, ios, user, preferences
 
@@ -78,16 +78,16 @@ If you need to work with an API, check out the following image and corresponding
 
 ![{{site.data.keyword.appid_short_notm}} user profile endpoint options](images/user-profile-endpoints.png){: caption="Figure 2. Endpoint options that can be used to access user information" caption-side="bottom"}
 
-`/oauth/v4/{tenantId}/token`
+`/oauth/v4/<tenantID>/token`
 :   After a successful authentication, you receive access and identity tokens that contain the most common user information - a name, picture, or email for example. If you want to add additional information, you can use [custom claims-mapping](/docs/appid?topic=appid-customizing-tokens) to configure App ID to inject the information to the token before it is returned to you.
 
-`/oauth/v4/{tenantId}/userinfo`
+`/oauth/v4/<tenantID>/userinfo`
 :   If you need to see an in-depth view of the user profile information that is returned by an identity provider, you can call the [`/userinfo` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization_Server_V4/userInfo). It's recommended to use this endpoint only if the information cannot be mapped to the token as it requires extra network calls.
 
 `/api/v1/attributes`
 :   If your application requires reading and updating custom profile attributes for a currently logged in user, then you can use the /attributes endpoint. For example, the user wants to update a food preference.
 
-`/management/v4/{tenantId}/users`
+`/management/v4/<tenantID>/users`
 :   If you're building administrative interfaces or processes that might apply to multiple users, you can use the App ID management API. Specifically, you can use the `/users` endpoint.
 
 The easiest ways to work with user information are by using the GUI or an SDK. With those options, all the API calls are done behind the scenes for you.
@@ -111,8 +111,8 @@ To see the information about your users that is provided by your configured iden
 2. Make a request to the [`/userinfo` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization_Server_V4/userInfo){: external}. If new tokens are not explicitly passed to the SDK, {{site.data.keyword.appid_short_notm}} uses the last received tokens to retrieve and validate the response. Passing an identity token is optional, but passed is used to validate the response.
 
    ```sh
-   GET https://{region}.appid.cloud.ibm.com/oauth/v4/{tenant_ID}/userinfo
-   Authorization: 'Bearer {access_token}'
+   GET https://<region>.appid.cloud.ibm.com/oauth/v4/<tenantID>/userinfo
+   Authorization: 'Bearer <accessToken>'
    ```
    {: codeblock}
    {: curl}
@@ -171,8 +171,8 @@ To see the information about your users that is provided by your configured iden
    // Server-side Swift example
 
    let userProfileManager = UserProfileManager(options: options)
-   let accessToken = "{access_token}"
-   let identityToken = "{identity_token}"
+   let accessToken = "<accessToken>"
+   let identityToken = "<identityToken>"
 
    // If identity token is provided (recommended approach), response is validated against the identity token
 
@@ -236,7 +236,9 @@ Depending on your configuration, attributes are encrypted and saved as part of a
 {: shortdesc}
 
 ```sh
-curl -X GET 'https://{region}.appid.cloud.ibm.com/api/v1/attributes' -H 'Accept: application/json' -H 'Authorization: Bearer {access_token}' 
+curl -X GET 'https://<region>.appid.cloud.ibm.com/api/v1/attributes' 
+-H 'Accept: application/json' 
+-H 'Authorization: Bearer <accessToken>' 
 ```
 {: codeblock}
 {: curl}
@@ -342,7 +344,7 @@ By default, custom attributes are modifiable and can be updated by using an {{si
       --header "Content-Type: application/x-www-form-urlencoded" \
       --header "Accept: application/json" \
       --data-urlencode "grant_type=urn:ibm:params:oauth:grant-type:apikey" \
-      --data-urlencode "apikey={apikey}" \
+      --data-urlencode "apikey=<apiKey>" \
       "https://iam.cloud.ibm.com/identity/token"
       ```
       {: codeblock}
@@ -350,9 +352,9 @@ By default, custom attributes are modifiable and can be updated by using an {{si
 4. By using the `attributes` endpoint, make a PUT request.
 
    ```sh
-   curl -X PUT "https://{region}.appid.cloud.ibm.com/api/v1/attributes/{attribute_name}" \
-   -H "Authorization: Bearer {token}" \
-   -d "{attribute_value}" 
+   curl -X PUT "https://<region>.appid.cloud.ibm.com/api/v1/attributes/<attributeName>" \
+   -H "Authorization: Bearer <token>" \
+   -d "<attributeValue>" 
    ```
    {: codeblock}
    {: curl}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-02-07"
+lastupdated: "2022-05-17"
 
 keywords: attributes, cloud directory, user registry, user management, personalization, customize app, user information, profiles, app security, user profile, app access, identity
 
@@ -117,8 +117,8 @@ Your application is responsible for mapping the answers to the specific attribut
 
    ```sh
    curl --request PUT \
-   https://{region}.appid.cloud.ibm.com/management/v4/{tenant-id}/users/{user_id}/profile \
-   --header 'Authorization: Bearer {iam-access-token}' \
+   https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/users/<userID>/profile \
+   --header 'Authorization: Bearer <IAMToken>' \
    --header 'Content-Type: application/json' \
    -d '{
       "profile": {
@@ -133,8 +133,8 @@ Your application is responsible for mapping the answers to the specific attribut
 2. View the profile to verify that it was updated correctly.
 
    ```sh
-   curl --request GET https://{region}.appid.cloud.ibm.com/management/v4/{tenant-id}/users/{user_id}/profile \
-   --header 'Authorization: Bearer {iam-access-token}' \
+   curl --request GET https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/users/<userID>/profile \
+   --header 'Authorization: Bearer <IAMToken>' \
    --header 'Content-Type: application/json'
    ```
    {: codeblock}
@@ -170,8 +170,8 @@ Becoming more popular, you decide to implement a "deal-of-the-day". You want the
 
    ```sh
    curl --request PUT \
-   https://{region}.appid.cloud.ibm.com/management/v4/{tenant-id}/config/tokens \
-   --header 'Authorization: Bearer {iam-access-token}' \
+   https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/config/tokens \
+   --header 'Authorization: Bearer <IAMToken>' \
    --header 'Content-Type: application/json' \
    -d '{
       "access": {
@@ -197,7 +197,7 @@ Becoming more popular, you decide to implement a "deal-of-the-day". You want the
   
    | Variable | Description | 
    | -------- | ----------- |
-   | `tenant-id` | A tenant ID is how your instance of {{site.data.keyword.appid_short_notm}} is identified in the request. You can find your ID in the **Service credentials** tab of the dashboard. If you don't have a set, you can follow the steps in the GUI to create credentials. |
+   | `tenantID` | A tenant ID is how your instance of {{site.data.keyword.appid_short_notm}} is identified in the request. You can find your ID in the **Service credentials** tab of the dashboard. If you don't have a set, you can follow the steps in the GUI to create credentials. |
    | `source` | For both `accessTokenClaim` and `idTokenClaims` set the source to `attribute`. |
    | `sourceClaim` | The specific attribute that you want to map to your token. In this case, `food-preference`. |
    | `expires_in` | This value applies to each token type and must be set in each request. If you previously set the value in the GUI, and then run this request, then the values in the request override the previously set values. Be sure to set the expiration to the correct value for your configuration. |
@@ -254,11 +254,11 @@ Optionally, you can verify that step 4 was successful by viewing an access token
 
    ```sh
    curl --request PUT \
-   https://appid.cloud.ibm.com/oauth/v4/{tenant-ID}/token \
-   --header 'Authorization: Basic {encoded_client:secret}' \
+   https://appid.cloud.ibm.com/oauth/v4/<tenantID>/token \
+   --header 'Authorization: Basic {<encodedClient>:<secret>}' \
    --header 'Content-Type: application/x-www-form-urlencoded' \
    --header `Accept: application/json`
-   -d 'grant_type=password&username={user-email}%40{user-email-domain}&password={user-password}
+   -d 'grant_type=password&username=<userEmail>%40<userEmailDomain>&password=<userPassword>
    ```
    {: codeblock}
 

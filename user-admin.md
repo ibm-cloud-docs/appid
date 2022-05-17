@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-02-07"
+lastupdated: "2022-05-17"
 
 keywords: user information, add users, delete users, profile, access, attributes, admin, app security, authentication, authorization
 
@@ -92,9 +92,9 @@ You can use the {{site.data.keyword.appid_short_notm}} API to view details about
 2. Search your {{site.data.keyword.appid_short_notm}} users with an identifying query, such as an email address, to find the user ID.
 
    ```sh
-   curl -X GET "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/Users?query={identifying-search-query}" \
+   curl -X GET "https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/Users?query=<identifyingSearchQuery>" \
    -H "accept: application/json" \
-   -H "authorization: Bearer {token}"
+   -H "authorization: Bearer <token>"
    ```
    {: codeblock}
 
@@ -108,9 +108,9 @@ You can use the {{site.data.keyword.appid_short_notm}} API to view details about
 3. By using the ID that you obtained in the previous step, make a GET request to the `/users` endpoint to see their full user profile.
 
    ```sh
-   curl -X GET "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/users/{user-id}/profile" \
+   curl -X GET "https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/users/<userID>/profile" \
    -H "accept: application/json" \
-   -H "authorization: Bearer {token}"
+   -H "authorization: Bearer <token>"
    ```
    {: codeblock}
 
@@ -205,7 +205,7 @@ By default, custom attributes are modifiable and can be updated by using an {{si
       --header "Content-Type: application/x-www-form-urlencoded" \
       --header "Accept: application/json" \
       --data-urlencode "grant_type=urn:ibm:params:oauth:grant-type:apikey" \
-      --data-urlencode "apikey={apikey}" \
+      --data-urlencode "apikey=<apikey>" \
       "https://iam.cloud.ibm.com/identity/token"
       ```
       {: codeblock}
@@ -213,10 +213,10 @@ By default, custom attributes are modifiable and can be updated by using an {{si
 4. Make a PUT request to either the `/users` endpoint.
 
    ```sh
-   curl -X GET "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/users/{user-id}/profile" \
+   curl -X GET "https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/users/<userID>/profile" \
    -H "accept: application/json" \
    -H "Content-Type: application/json" \
-   -H "authorization: Bearer {token}"
+   -H "authorization: Bearer <token>"
    -d "{ \"attributes\": { \"points\": \"150\" } { \"role\": \"admin\" }}"
    ```
    {: codeblock}
@@ -250,9 +250,9 @@ As an administrator, you can remove someone as a user of your application by del
 2. Search your {{site.data.keyword.appid_short_notm}} users with an identifying query, such as an email address, to find the user ID.
 
    ```sh
-   curl -X GET "https://{region}>.appid.cloud.ibm.com/management/v4/{tenant-ID}/Users?query={identifying-search-query}" \
+   curl -X GET "https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/Users?query=<identifyingSearchQuery>" \
    -H "accept: application/json" \
-   -H "authorization: Bearer {token}"
+   -H "authorization: Bearer <token>"
    ```
    {: codeblock}
 
@@ -266,9 +266,9 @@ As an administrator, you can remove someone as a user of your application by del
 3. By using the ID that you obtained in the previous step, make a `DELETE` request to the `/users` endpoint to delete the profile.
 
    ```sh
-   curl -X DELETE "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/users/{user-id}/profile" \
+   curl -X DELETE "https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/users/<userID>/profile" \
    -H "accept: application/json" \
-   -H "authorization: Bearer {token}"
+   -H "authorization: Bearer <token>"
    ```
    {: codeblock}
 
@@ -293,9 +293,9 @@ Before you can import your profiles to your new instance, you need to export the
 2. Export the profiles from your original instance of the service.
 
    ```sh
-   curl -X GET https://us-south.appid.cloud.ibm.com/management/v4/{tenant-ID}/users/export \
+   curl -X GET https://us-south.appid.cloud.ibm.com/management/v4/<tenantID>/users/export \
    --header "Accept: application/json" \
-   --header "Authorization: Bearer {IAM-token}"
+   --header "Authorization: Bearer <IAMToken>"
    ```
    {: codeblock}
 
@@ -375,9 +375,9 @@ Now that you have a list of exported user profiles, you can import them into the
 3. Import the users to your new instance of the service.
 
    ```sh
-   curl -X POST "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/users/import" \
+   curl -X POST "https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/users/import" \
    -H "accept: application/json" \
-   -H "Authorization: Bearer {Bearer_Token}" \
+   -H "Authorization: Bearer <bearerToken>" \
    -H "Content-Type: application/json" \
    -d "{ \"itemsPerPage\": 2, \"totalResults\": 2, \"requestOptions\": {}, \"users\": [ { \"id\": \"7ae804f3-0ed3-45f0-bc6b-1c6af868e6d6\", \"name\": \"{{site.data.keyword.appid_short_notm}} Google User profile\", \"email\": \"your@mail.com\", \"identities\": [ { \"provider\": \"google\", \"id\": \"105646725068605084546\", \"idpUserInfo\": { \"id\": \"{ID}\", \"email\": \"your@mail.com\", \"picture\": \"{profile.jpg}\" } } ], \"attributes\": { \"points\": 150 } { \"role\": admin } }, { \"id\": \"{userinfo}\", \"name\": \"{{site.data.keyword.appid_short_notm}} Facebook User profile\", \"email\": \"mail@mail.com\", \"identities\": [ { \"provider\": \"facebook\", \"id\": \"{id}\", \"picture\": { \"data\": { \"height\": 50, \"width\": 50, \"url\": \"https://{url}.com\" } }, \"first_name\": \"AppID\", \"last_name\": \"Development\" } ], \"attributes\": { \"points\": 250 } { \"role\": admin } } ]}"
    ```

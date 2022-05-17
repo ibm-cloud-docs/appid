@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-02-07"
+lastupdated: "2022-05-17"
 
 keywords: cloud foundry, iam, java nodejs, identity, access management, user access, service access, permissions, bind service
 
@@ -100,7 +100,7 @@ The following step includes instructions for deploying a Node.js app or a Java a
 4. Log in to the {{site.data.keyword.cloud_notm}} CLI. The CLI prompts you to select an account and region if you do not specify one.
 
    ```sh
-   ibmcloud login -a cloud.ibm.com -r {region}
+   ibmcloud login -a cloud.ibm.com -r REGION
    ```
    {: codeblock}
 
@@ -114,7 +114,7 @@ The following step includes instructions for deploying a Node.js app or a Java a
 6. Create an alias of the {{site.data.keyword.appid_short_notm}} service instance.
 
    ```sh
-   ibmcloud resource service-alias-create {ALIAS_NAME} --instance-name {SERVICE_INSTANCE_NAME}
+   ibmcloud resource service-alias-create ALIAS_NAME --instance-name SERVICE_INSTANCE_NAME
    ```
    {: codeblock}
 
@@ -143,7 +143,7 @@ The following step includes instructions for deploying a Node.js app or a Java a
 6. Log in to the {{site.data.keyword.cloud_notm}} CLI. The CLI prompts you to select an account and region if you do not specify one.
 
    ```sh
-   ibmcloud login -a cloud.ibm.com -r {region}
+   ibmcloud login -a cloud.ibm.com -r REGION
    ```
    {: codeblock}
 
@@ -157,7 +157,7 @@ The following step includes instructions for deploying a Node.js app or a Java a
 8. Create an alias of the {{site.data.keyword.appid_short_notm}} service instance.
 
    ```sh
-   ibmcloud resource service-alias-create {ALIAS_NAME} --instance-name {SERVICE_INSTANCE_NAME}
+   ibmcloud resource service-alias-create ALIAS_NAME --instance-name SERVICE_INSTANCE_NAME
    ```
    {: codeblock}
 

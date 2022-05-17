@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-10-12"
+  years: 2017, 2022
+lastupdated: "2022-05-17"
 
 keywords: user registration, new user, add user, custom attributes, profiles, user profile, user, user information, identity provider, authentication, authorization, personalize app, app security
 
@@ -180,9 +180,9 @@ You can add a future user and their custom attributes by using the API.
    Header:
 
    ```sh
-   POST {management-url}/management/v4/{tenantId}/users
-         Host: {management-server-url}
-         Authorization: 'Bearer {IAM_TOKEN}'
+   POST <managementUrl>/management/v4/<tenantID>/users
+         Host: <managementServerURL>
+         Authorization: 'Bearer <IAMToken>'
          Content-Type: application/json
    ```
    {: codeblock}
@@ -191,8 +191,8 @@ You can add a future user and their custom attributes by using the API.
 
    ```json
    {
-         "idp": "{Identity Provider}",
-         "idp-identity": "{User's unique identifier}",
+         "idp": "<identityProvider>",
+         "idp-identity": "<userUniqueIdentifier>",
          "profile": {
             "attributes": {
                "mealPreference":"vegeterian"
@@ -212,8 +212,8 @@ You can add a future user and their custom attributes by using the API.
    Example request:
    ```sh
    $ curl --request POST \
-         --url 'https://{Management_URI}/users \
-         --header 'Authorization: Bearer {IAM_TOKEN}' \
+         --url 'https://<managementURI>/users \
+         --header 'Authorization: Bearer <IAMToken>' \
          --header 'Content-Type: application/json' \
          --data '{"idp": "saml", "idp-identity": "user@ibm.com", "profile": { "attributes": { "role": "admin",
          "frequent_flyer_points": 1000 }}}'
@@ -225,8 +225,8 @@ You can add a future user and their custom attributes by using the API.
    * Check for the user profile that was created.
 
       ```sh
-      curl --request GET https://us-south.appid.cloud.ibm.com/management/v4/{{APPID_TENANT_ID}}/users/{{user_profile_id}}/profile \
-      --header 'Authorization: Bearer {IAM_TOKEN}' \
+      curl --request GET https://us-south.appid.cloud.ibm.com/management/v4/<tenantID>/users/<userProfileId>/profile \
+      --header 'Authorization: Bearer <IAMToken>' \
       --header 'Content-Type: application/json' \
       ```
       {: codeblock}

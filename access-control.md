@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-02-14"
+lastupdated: "2022-05-17"
 
 keywords: user access, control access, permissions, roles, scopes, runtime, access token, authentication, identity, app security
 
@@ -115,23 +115,28 @@ To create a scope, you can use the {{site.data.keyword.appid_short_notm}} UI.
 1. Create the scopes by making the following request to the `/scopes` endpoint.
 
    ```sh
-   curl -X PUT "https://{region}.appid.cloud.ibm.com/management/v4/{tenant_ID}/applications/{client_ID}/scopes" -H "accept: application/json" -H "Content-Type: application/json" -d "{\ "scopes":\ [\ {scopes_object}" ]}"
+   curl -X PUT "https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/applications/<clientID>/scopes" 
+   -H "accept: application/json" 
+   -H "Content-Type: application/json" 
+   -d "{\ "scopes":\ [\ <scopesObject>}" ]}"
    ```
    {: codeblock}
 
    | Variable | Description |
    | -------- | ----------- |
    | `region` | The region in which your instance of {{site.data.keyword.appid_short_notm}} is provisioned. Learn more about the [available regions](/docs/appid?topic=appid-regions-endpoints). |
-   | `tenant_ID` | The unique identifier for your instance of {{site.data.keyword.appid_short_notm}}. You can find this value in the credentials for your app as they're listed in the **Applications** tab of the service dashboard. |
-   | `client_ID` | The unique identifier for your application. You can find this value in the credentials for your app as they're listed in your **Applications** in the service dashboard. |
-   | `scopes_object` | A JSON object of all the scopes that you want to create for your application. |
+   | `tenantID` | The unique identifier for your instance of {{site.data.keyword.appid_short_notm}}. You can find this value in the credentials for your app as they're listed in the **Applications** tab of the service dashboard. |
+   | `clientID` | The unique identifier for your application. You can find this value in the credentials for your app as they're listed in your **Applications** in the service dashboard. |
+   | `scopesObject` | A JSON object of all the scopes that you want to create for your application. |
    {: caption="Table 1. Required variables to call the `/scopes` endpoint" caption-side="top"}
 
 
 2. Optional: Confirm that the scopes were created.
 
    ```sh
-   curl -X GET "https://{region}.appid.cloud.ibm.com/management/v4/{tenant_ID}/applications/{client_ID}/scopes" -H "accept: application/json" -H "Content-Type: application/json"
+   curl -X GET "https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/applications/<clientID>/scopes" 
+   -H "accept: application/json" 
+   -H "Content-Type: application/json"
    ```
    {: codeblock}
 
@@ -149,7 +154,7 @@ A role is a group of scopes that apply to the same type of user. For example, if
 4. By using the scopes that you created in the previous section, assign the scopes to a role by using the following format. Click the **+** to add the scope.
 
    ```sh
-   {app_name}/{scope}
+   <appName>/<scope>
    ```
    {: screen}
 
@@ -169,25 +174,28 @@ A role is a group of scopes that apply to the same type of user. For example, if
 1. Make a request to the `/roles` endpoint to create the role.
 
    ```sh
-   curl -X POST "https://{region}.appid.cloud.ibm.com/management/v4/{tenant_ID}/roles" -H "accept: application/json" -H "Content-Type: application/json" -d { \"name\": \"{role_name}\", \"description\": \"{role_description}\", \"access\": [ { \"application_id\": \"{application_ID}\", \"scopes\": [ \"{scopes}" ] } ]}"
+   curl -X POST "https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/roles" 
+   -H "accept: application/json" 
+   -H "Content-Type: application/json" 
+   -d { \"name\": \"<roleName>\", \"description\": \"<roleDescription>\", \"access\": [ { \"application_id\": \"<applicationID>\", \"scopes\": [ \"<scopes>" ] } ]}"
    ```
    {: codeblock}
 
    | Variable | Description |
    | -------- | ----------- |
    | `region` | The region in which your instance of {{site.data.keyword.appid_short_notm}} is provisioned. Learn more about the [available regions](/docs/appid?topic=appid-regions-endpoints). |
-   | `tenant_ID` | The unique identifier for your instance of {{site.data.keyword.appid_short_notm}}. You can find this value in the credentials for your app as they're listed in the **Applications** tab of the service dashboard. |
-   | `client_ID` | The unique identifier for your application. You can find this value in the credentials for your app as they're listed in **Applications**. |
-   | `role_name` | The name that you want to assign to your role. |
-   | `role_description` | A short phrase that describes what your role is meant to do. | 
-   | `application_ID` | The unique identifier for your application. You can find this value in the credentials for your app as they're listed in **Applications**. |
+   | `tenantID` | The unique identifier for your instance of {{site.data.keyword.appid_short_notm}}. You can find this value in the credentials for your app as they're listed in the **Applications** tab of the service dashboard. |
+   | `clientID` | The unique identifier for your application. You can find this value in the credentials for your app as they're listed in **Applications**. |
+   | `roleName` | The name that you want to assign to your role. |
+   | `roleDescription` | A short phrase that describes what your role is meant to do. | 
+   | `applicationID` | The unique identifier for your application. You can find this value in the credentials for your app as they're listed in **Applications**. |
    | `scopes` | A JSON object of all the scopes that you want to apply to a role.|
    {: caption="Table 2. Required variables to call the `/scopes` endpoint" caption-side="top"}
  
 2. Optional: Confirm that the roles were created.
 
    ```sh
-   curl -X GET "https://{region}.appid.cloud.ibm.com/management/v4/{tenant_ID}/roles -H "accept: application/json"
+   curl -X GET "https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/roles -H "accept: application/json"
    ```
    {: codeblock}
 
@@ -256,32 +264,38 @@ After you create roles, you can assign them to your user's profile. You can also
 1. Get your user ID by searching your {{site.data.keyword.appid_short_notm}} users with an identifying query, such as an email address.
 
    ```sh
-   curl -X GET "https://{region}.appid.cloud.ibm.com/management/v4/{tenant_ID}/Users?query={identifying-search-query}" \
+   curl -X GET "https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/Users?query=<identifyingSearchQuery>" \
    -H "accept: application/json" \
-   -H "authorization: Bearer {token}"
+   -H "authorization: Bearer <token>"
    ```
    {: codeblock}
 
    Example:
 
    ```sh
-   curl -X GET https://us-south.appid.cloud.ibm.com/management/v4/e19a2778-3262-4986-8875-8khjafsdkhjsdafkjh/cloud_directory/Users?query=example@domain.com -H "accept: application/json" -H "authorization: Bearer eyJraWQiOiIyMDE3MTEyOSIsImFsZ...."
+   curl -X GET https://us-south.appid.cloud.ibm.com/management/v4/e19a2778-3262-4986-8875-8khjafsdkhjsdafkjh/cloud_directory/Users?query=example@domain.com 
+   -H "accept: application/json" 
+   -H "authorization: Bearer eyJraWQiOiIyMDE3MTEyOSIsImFsZ...."
    ```
    {: screen}
 
 2. Optional: Get the role ID or role name. If you already know your role ID or name, skip to the next step.
 
    ```sh
-   curl -X GET "https://{region}.appid.cloud.ibm.com/management/v4/{tenant_ID}/roles" \
+   curl -X GET "https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/roles" \
    -H "accept: application/json" \
-   -H "authorization: Bearer {token}"
+   -H "authorization: Bearer <token>"
    ```
    {: codeblock}
 
 3. Make a request to the `/roles` endpoint that contains a JSON object of the roles that you want to assign.
 
    ```sh
-   curl -X PUT "https://{region}.appid.cloud.ibm.com/management/v4/{tenant_ID}/users/{user_ID}/roles" -H "accept: application/json" -H "Content-Type: application/json" -d "{ \"roles\": { \"ids\": [ \"{role_IDs}\" ] }}" -H "authorization: Bearer {token}"
+   curl -X PUT "https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/users/<userID>/roles" 
+   -H "accept: application/json" 
+   -H "Content-Type: application/json" 
+   -d "{ \"roles\": { \"ids\": [ \"<roleIDs>\" ] }}" 
+   -H "authorization: Bearer <token>"
    ```
    {: codeblock}
 
@@ -310,32 +324,38 @@ Application roles are only valid in the client credentials flow.
 1. Get your application client ID by querying the list of applications. You can also get this value from the **Applications** tab of the {{site.data.keyword.appid_short_notm}} UI.
 
    ```sh
-   curl -X GET "https://{region}.appid.cloud.ibm.com/management/v4/{tenant_ID}/applications" \
+   curl -X GET "https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/applications" \
    -H "accept: application/json" \
-   -H "authorization: Bearer {token}"
+   -H "authorization: Bearer <token>"
    ```
    {: codeblock}
 
    Example:
 
    ```sh
-   curl -X GET https://us-south.appid.cloud.ibm.com/management/v4/e19a2778-3262-4986-8875-8khjafsdkhjsdafkjh/applications -H "accept: application/json" -H "authorization: Bearer eyJraWQiOiIyMDE3MTEyOSIsImFsZ...."
+   curl -X GET https://us-south.appid.cloud.ibm.com/management/v4/e19a2778-3262-4986-8875-8khjafsdkhjsdafkjh/applications 
+   -H "accept: application/json" 
+   -H "authorization: Bearer eyJraWQiOiIyMDE3MTEyOSIsImFsZ...."
    ```
    {: screen}
 
 2. Get the role ID.
 
    ```sh
-   curl -X GET "https://{region}.appid.cloud.ibm.com/management/v4/{tenant_ID}/roles" \
+   curl -X GET "https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/roles" \
    -H "accept: application/json" \
-   -H "authorization: Bearer {token}"
+   -H "authorization: Bearer <token>"
    ```
    {: codeblock}
 
 3. Make a request to the `/roles` endpoint that contains a JSON object of the roles that you want to assign. This request replaces current roles with the provided role IDs. Be sure that you're assigning the correct roles.
 
    ```sh
-   curl -X PUT "https://{region}.appid.cloud.ibm.com/management/v4/{tenant_ID}/applications/{client_ID}/roles" -H "accept: application/json" -H "Content-Type: application/json" -d "{ \"roles\": { \"ids\": [ \"{role_IDs}\" ] }}" -H "authorization: Bearer {token}"
+   curl -X PUT "https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/applications/<clientID>/roles" 
+   -H "accept: application/json" 
+   -H "Content-Type: application/json" 
+   -d "{ \"roles\": { \"ids\": [ \"<roleIDs>\" ] }}" 
+   -H "authorization: Bearer <token>"
    ```
    {: codeblock}
 
@@ -431,7 +451,10 @@ When you delete a scope, it is removed from all the roles that it is associated 
 1. Change or delete a scope by the following request to the `/scopes` endpoint. Be sure to update your scopes JSON object to contain only the scopes that you want to allow.
 
    ```sh
-   curl -X PUT "https://{region}.appid.cloud.ibm.com/management/v4/{tenant_ID}/applications/{client_ID}/scopes" -H "accept: application/json" -H "Content-Type: application/json" -d "{\ "scopes":\ [\ {scopes_object}" ]}"
+   curl -X PUT "https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/applications/<clientID>/scopes" 
+   -H "accept: application/json" 
+   -H "Content-Type: application/json" 
+   -d "{\ "scopes":\ [\ <scopesObject>" ]}"
    ```
    {: codeblock}
 
@@ -465,14 +488,16 @@ Deleting a role removes access from all the users and applications that are curr
 1. Get the role ID or role name. If you already know your role ID or name, skip to the next step.
 
    ```sh
-   curl -X GET "https://{region}.appid.cloud.ibm.com/management/v4/{tenant_ID}/roles" -H "accept: application/json"
+   curl -X GET "https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/roles" 
+   -H "accept: application/json"
    ```
    {: codeblock}
 
 2. Make a request to the `/roles` endpoint that contains a JSON object of the roles that you want to assign.
 
    ```sh
-   curl -X DELETE "https://{region}.appid.cloud.ibm.com/management/v4/{tenant_ID}/roles/{role_ID}" -H "accept: application/json"
+   curl -X DELETE "https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/roles/<roleID>" 
+   -H "accept: application/json"
    ```
    {: codeblock}
 
