@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-05-17"
+lastupdated: "2022-07-11"
 
 keywords: single page application, SPA, single-page, angular, react, native apps, javascript, js, sdk, authentication, authorization, identity, app security, secure, protocols, oauth, oidc,
 
@@ -177,7 +177,7 @@ To install the SDK in your application, use the following steps as a guide.
    ```sh
    const appID = new AppID();
    await appID.init({
-      clientId: '<SpaClientID>',
+      clientId: '<spaClientID>',
       discoveryEndpoint: '<wellKnownEndpoint>'
    });
    ```

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-05-17"
+lastupdated: "2022-07-11"
 
 keywords: emails, verification, templates, sendgrid, welcome, password reset, password change, change details, verification, supported languages, registry, cloud directory, 
 
@@ -204,7 +204,7 @@ To see an example, check out the blog [Using your own provider for mail that is 
 
    async function verifyAndSendMail(jws) {
       // The API key for Sendgrid
-      const sgApiKey = '<sengridApiKey>';
+      const sgApiKey = '<SengridApiKey>';
 
       // Init Sendgrind
       sgMail.setApiKey(sgApiKey);
