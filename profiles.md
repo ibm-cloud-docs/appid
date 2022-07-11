@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-05-17"
+lastupdated: "2022-07-11"
 
 keywords: profile, custom attributes, predefined attributes, attributes, app users, app interaction, personalized experience, access user info, identity provider information, access token, authentication, user sign in, android, java, node, swift, ios, user, preferences
 
@@ -348,6 +348,8 @@ By default, custom attributes are modifiable and can be updated by using an {{si
       "https://iam.cloud.ibm.com/identity/token"
       ```
       {: codeblock}
+
+
 
 4. By using the `attributes` endpoint, make a PUT request.
 
