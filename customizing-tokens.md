@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-02-07"
+lastupdated: "2022-05-17"
 
 keywords: user information, tokens, custom tokens, secure resources, authorization, identity, authentication, claims, oauth, claims mapping, attributes, app security, access, runtime
 
@@ -158,7 +158,7 @@ If you want to configure the lifespan of your token, you can quickly make the ch
    --header "Content-Type: application/x-www-form-urlencoded" \
    --header "Accept: application/json" \
    --data-urlencode "grant_type=urn:ibm:params:oauth:grant-type:apikey" \
-   --data-urlencode "apikey={api_key}"
+   --data-urlencode "apikey=<apiKey>"
    ```
    {: codeblock}
 
@@ -167,9 +167,9 @@ If you want to configure the lifespan of your token, you can quickly make the ch
 4. Make a PUT request to the `/config/tokens` endpoint with your token configuration.
 
    ```sh
-   curl -X PUT "https://$REGION.appid.cloud.ibm.com/management/v4/$TENANT_ID/config/tokens" \
+   curl -X PUT "https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/config/tokens" \
    -H 'Content-Type: application/json' \
-   -H "Authorization: Bearer $IAM_TOKEN" \
+   -H "Authorization: Bearer <IAMToken>" \
    -d '{
       "access": {
             "expires_in": 3600
@@ -221,8 +221,8 @@ If you want to configure the lifespan of your token, you can quickly make the ch
       "name" : "John Doe",
       "exp" : 1564566,
       "roles" : ["admin", "manager"],
-      "id": "name_id_from_saml",
-      "attributes.uid": "uid_from_saml"
+      "id": "<nameIDFromSaml>",
+      "attributes.uid": "<uidFromSaml>"
       ...
    }
    ```

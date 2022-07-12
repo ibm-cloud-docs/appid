@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-03-10"
+lastupdated: "2022-05-17"
 
 keywords: user events, track activity, manage events, analyze, administrative, runtime, sign in, settings, app security
 
@@ -269,7 +269,7 @@ To find the user information that aligns with the event GUID, use the following 
       --header "Content-Type: application/x-www-form-urlencoded" \
       --header "Accept: application/json" \
       --data-urlencode "grant_type=urn:ibm:params:oauth:grant-type:apikey" \
-      --data-urlencode "apikey=THE_API_KEY" \
+      --data-urlencode "apikey=<apiKey>" \
       "https://iam.cloud.ibm.com/identity/token"
    ```
    {: codeblock}
@@ -281,8 +281,10 @@ To find the user information that aligns with the event GUID, use the following 
 5. Insert the IAM token, the tenant ID, and the user ID, into the following command to obtain the user information.
 
    ```sh
-   curl -X GET --header 'Accept: application/json' --header 'Authorization: Bearer {IAM_TOKEN}' \
-   'https://REGION.appid.cloud.ibm.com/TENANT_ID/cloud_directory/Users/THE_USER_ID'
+   curl -X GET 
+   --header 'Accept: application/json' 
+   --header 'Authorization: Bearer <IAMToken>' \
+   'https://<region>.appid.cloud.ibm.com/<tenantID>/cloud_directory/Users/<userID>'
    ```
    {: codeblock}
 
@@ -334,7 +336,10 @@ You can track the events of specific Cloud Directory users in {{site.data.keywor
 2. Insert the IAM token, the tenant ID, and the email into the following command to obtain the user information.
 
    ```sh
-   curl -X GET --header 'Accept: application/json' --header 'Authorization: Bearer {IAM_TOKEN}' 'https://REGION.appid.cloud.ibm.com/TENANT_ID/users?email=EMAIL_ADDRESS'
+   curl -X GET 
+   --header 'Accept: application/json' 
+   --header 'Authorization: Bearer <IAMToken>' 
+   'https://<region>.appid.cloud.ibm.com/<tenantID>/users?email=<emailAddress>'
    ```
    {: codeblock}
 

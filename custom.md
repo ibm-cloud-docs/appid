@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-11-23"
+  years: 2017, 2022
+lastupdated: "2022-05-17"
 
 keywords: custom identity provider, authorization, bring your own idp, proprietary idp, legacy idp, oauth, oidc, authentication, oatuh, app security, public key, jwt
 
@@ -98,12 +98,12 @@ openssl rsa -pubout -in private_key.pem -out public_key.pem
 Register your key by making a PUT request to the [Management API endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.set_custom_idp).
 
 ```sh
-Put {Management URI}/config/idps/custom
+Put <managementURI>/config/idps/custom
 Content-Type: application/json
 {
     isActive: true,
     config: {
-        publicKey: {Your newline separated (\n) PEM public key}
+        publicKey: Your newline separated (\n) PEM public key
     }
 }
 ```

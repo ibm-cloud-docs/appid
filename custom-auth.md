@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-02-14"
+lastupdated: "2022-05-17"
 
 keywords: custom identity provider, authorization, bring your own idp, proprietary idp, legacy idp, oauth, oidc, authentication, oatuh, app security
 
@@ -145,7 +145,7 @@ You can convert your verified user data to a custom identity JWT by generating a
 | Field | Description | 
 |-----|----| 
 |`iss` | Should contain a reference to your identity provider. |
-| `aud` | The OAuth server URL. Format: `https://{region}.appid.cloud.ibm.com/oauth/v4/{tenantId}`. | 
+| `aud` | The OAuth server URL. Format: `https://<region>.appid.cloud.ibm.com/oauth/v4/<tenantID>`. | 
 | `exp` | The length of time that the token is valid. For security reasons, it should have a short life span and be specific. | 
 | `sub` | The unique user ID that is provided by the identity provider.| 
 | Normalized claims | All [normalized claims](/docs/appid?topic=appid-tokens) are provided in the identity token that is returned in response to this request. More custom claims can be found by using the [`/userinfo` endpoint](/docs/appid?topic=appid-profiles). | 
@@ -162,8 +162,8 @@ To create the bridge between your custom provider and {{site.data.keyword.appid_
    Post /token
    Content-Type: application/x-www-from-urlencoded
    grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer
-   assertion={payload}
-   scope="{space separated scope array}"
+   assertion=<payload>
+   scope="<spaceSeparatedScopeArray>"
    ```
    {: codeblock}
 

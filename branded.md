@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-02-14"
+lastupdated: "2022-05-17"
 
 keywords: bring your own screens, branded app, sign up, custom, directory, registry, app security, password, authorization flow, authentication,
 
@@ -76,7 +76,7 @@ Yes! You can create a hybrid flow that uses some of your screens and some defaul
 ### How are the flows technically different?
 {: #branded-technically}
 
-The service uses OAuth 2.0 grant flows to map the authorization process. When you configure social identity providers such as Facebook, the [Authorization Grant flow](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/authcode.html){: external} is used to call the Login Widget. When you use your own screens, the [Resource Owner Password Credentials flow](https://oauthlib.readthedocs.io/en/stable/oauth2/grants/password.html){: external} is used to provide access and identity tokens that you can use to call your screens.
+The service uses OAuth 2.0 grant flows to map the authorization process. When you configure social identity providers such as Facebook, the [Authorization Grant flow](https://oauthlib.readthedocs.io/en/latest/oauth2/grants/authcode.html){: external} is used to call the Login Widget. When you use your own screens, the [Resource Owner Password Credentials flow](https://oauthlib.readthedocs.io/en/latest/oauth2/grants/password.html){: external} is used to provide access and identity tokens that you can use to call your screens.
 
 
 
@@ -275,7 +275,7 @@ Your back-end validates the user's current password with the ROP API, and if val
 ### Resend
 {: #branded-api-resend}
 
-You can use the `/resend/{templateName}` to resend an email when a user does not receive it for some reason.
+You can use the `/resend/<templateName>` to resend an email when a user does not receive it for some reason.
 
 Supply the following data in the request body:
 * The tenantID.
@@ -285,7 +285,7 @@ Supply the following data in the request body:
 ### Change details
 {: #branded-api-change-details}
 
-When a user is signed in to your app, they can update some of their information. You can use the `/Users/{userId}` to get and update their information.
+When a user is signed in to your app, they can update some of their information. You can use the `/Users/<userID>` to get and update their information.
 
 When the user details are updated, the endpoint gets the updated user data in the request body in [SCIM format](https://datatracker.ietf.org/doc/html/rfc7628){: external}. Be sure that you change only the relevant details.
 

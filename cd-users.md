@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2017, 2022
-lastupdated: "2022-02-07"
+lastupdated: "2022-05-17"
 
 keywords: manage users, registry, cloud directory, add user, delete user, tokens, attributes, migrating users, identity provider, app security
 
@@ -93,25 +93,27 @@ You can use the {{site.data.keyword.appid_short_notm}} API to view details about
 2. Search your {{site.data.keyword.appid_short_notm}} users with an identifying query, such as an email address, to find the user ID.
 
    ```sh
-   curl -X GET "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/Users?query={identifying-search-query}" \
+   curl -X GET "https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/cloud_directory/Users?query=<identifyingSearchQuery>" \
    -H "accept: application/json" \
-   -H "authorization: Bearer {token}"
+   -H "authorization: Bearer <token>"
    ```
    {: codeblock}
 
    Example:
 
    ```sh
-   curl -X GET https://us-south.appid.cloud.ibm.com/management/v4/e19a2778-3262-4986-8875-8khjafsdkhjsdafkjh/cloud_directory/Users?query=user@domain.com -H "accept: application/json" -H "authorization: Bearer eyJraWQiOiIyMDE3MTEyOSIsImFsZ...."
+   curl -X GET https://us-south.appid.cloud.ibm.com/management/v4/e19a2778-3262-4986-8875-8khjafsdkhjsdafkjh/cloud_directory/Users?query=user@domain.com 
+   -H "accept: application/json" 
+   -H "authorization: Bearer eyJraWQiOiIyMDE3MTEyOSIsImFsZ...."
    ```
    {: screen}
 
 3. By using the ID that you obtained in the previous step, make a GET request to the `cloud_directory/users` endpoint to see their full user profile.
 
    ```sh
-   curl -X GET "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/Users/{user-ID}" \
+   curl -X GET "https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/cloud_directory/Users/<userID>" \
    -H "accept: application/json" \
-   -H "authorization: Bearer {token}"
+   -H "authorization: Bearer <token>"
    ```
    {: codeblock}
 
@@ -209,11 +211,11 @@ If you disable self-service sign-up or add a user on their behalf, the user does
 3. Run the following command to create a new user and a profile at the same time.
 
    ```sh
-   curl -X POST "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/sign_up?shouldCreateProfile=true&language=en" \
+   curl -X POST "https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/cloud_directory/sign_up?shouldCreateProfile=true&language=en" \
    -H "accept: application/json" \
    -H "Content-Type: application/json" \
-   -H "authorization: Bearer {token}" \
-   -d "{ \"active\": true, \"emails\": [ { \"value\": \"{user@domain.com}\", \"primary\": true } ], \"userName\": \"{myUserName}\", \"password\": \"{userPassword}\"}"
+   -H "authorization: Bearer <token>" \
+   -d "{ \"active\": true, \"emails\": [ { \"value\": \"<user@domain.com>\", \"primary\": true } ], \"userName\": \"<userName>\", \"password\": \"<userPassword>\"}"
    ```
    {: codeblock}
 
@@ -254,7 +256,7 @@ If you want to remove a user from your directory, you can delete the user from t
 3. By using the email that is attached to the user, search your directory to find the user's ID.
 
    ```sh
-   curl -X GET "https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/users?email={user@domain.com}" \
+   curl -X GET "https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/users?email=<user@domain.com>" \
    -H "accept: application/json"
    ```
    {: codeblock}
@@ -262,9 +264,9 @@ If you want to remove a user from your directory, you can delete the user from t
 4. Delete the user.
 
    ```sh
-   curl -X DELETE "https://{region}.appid.test.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/remove/{user-ID}" \
+   curl -X DELETE "https://<region>.appid.test.cloud.ibm.com/management/v4/<tenantID>/cloud_directory/remove/<userID>" \
    -H "accept: application/json" \
-   -H "authorization: Bearer {token}"
+   -H "authorization: Bearer <token>"
    ```
    {: codeblock}
 
@@ -294,9 +296,9 @@ Before you can import your profiles to your new instance, you need to export the
 1. Export the users from your original instance of the service.
 
    ```sh
-   curl -X GET 'https://{region}.appid.cloud.ibm.com/management/v4/{tenant-ID}/cloud_directory/export?encryption_secret=mySecret' \
+   curl -X GET 'https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/cloud_directory/export?encryption_secret=mySecret' \
    -H 'Accept: application/json' \
-   -H 'Authorization: Bearer {IAM-token}'
+   -H 'Authorization: Bearer <IAMToken>'
    ```
    {: codeblock}
 
@@ -335,10 +337,10 @@ Now that you have a list of exported Cloud Directory users, you can import them 
 3. Import the users to your new instance of the service.
 
    ```sh
-   curl -X POST 'https://{region}.appid.cloud.ibm.com/management/v4/{tenant_ID}/cloud_directory/import?encryption_secret=mySecret'
+   curl -X POST 'https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/cloud_directory/import?encryption_secret=mySecret'
    --header 'Content-Type: application/json' 
    --header 'Accept: application/json' 
-   --header 'Authorization: Bearer {iam-token}' 
+   --header 'Authorization: Bearer <IAMToken>' 
    -d '{"users": [
       {
          "scimUser": {
@@ -366,8 +368,8 @@ Now that you have a list of exported Cloud Directory users, you can import them 
          ],
          "status": "PENDING"
       },
-      "passwordHash": "<password_hash_here>",
-      "passwordHashAlg": <password_hash_algorithm>,
+      "passwordHash": "<passwordHashHere>",
+      "passwordHashAlg": <passwordHashAlgorithm>,
       "profile": {
          "attributes": {}
       },

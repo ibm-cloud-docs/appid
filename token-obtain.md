@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-02-07"
+lastupdated: "2022-05-17"
 
 keywords: obtain tokens, return tokens, authorized, authorization, access management, client id, secret, tenant id, app security, identity token
 
@@ -79,14 +79,14 @@ To obtain tokens, you must have your client ID and secret. The credentials are s
 To obtain tokens, you must have your client ID and secret. The credentials are specific to every application and are used to help identify and validate the users that a token might be assigned to. 
 {: shortdesc}
 
-1. Make a POST request to the [`/management/v4/{tenantId}/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Applications/mgmt.registerApplication).
+1. Make a POST request to the [`/management/v4/<tenantID>/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Applications/mgmt.registerApplication).
 
    Request:
 
    ```sh
    curl -X POST https://us-south.appid.cloud.ibm.com/management/v4/39a37f57-a227-4bfe-a044-93b6e6060b61/applications/ \
    -H 'Content-Type: application/json' \
-   -H 'Authorization: Bearer {IAM_TOKEN}' \
+   -H 'Authorization: Bearer <IAMToken>' \
    -d '{"name": "ApplicationName"}'
    ```
    {: codeblock}
@@ -132,8 +132,8 @@ With a client ID and secret, you can obtain access and identity tokens by using 
 3. Use the following code examples to retrieve your tokens. The grant type that you use to obtain your token can differ depending on the type of authorization that you're working with. For a detailed list of options, check out the [swagger documentation](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization%20Server%20-%20Authorization%20Server%20V4/oauth-server.token){: external}.
 
    ```sh
-   curl -X POST 'https://{region}.appid.cloud.ibm.com/oauth/v4/{tenant_id}/token' \
-   -H 'Authorization: Basic base64Encoded{{client-ID}:{client-secret}}' \
+   curl -X POST 'https://<region>.appid.cloud.ibm.com/oauth/v4/<tenantID>/token' \
+   -H 'Authorization: Basic base64Encoded{<clientID>:<clientSecret>}' \
    -H 'Accept: application/json' \
    -F 'grant_type=password' \
    -F 'username=testuser@test.com' \
@@ -203,11 +203,11 @@ With a client ID and secret, you can obtain access and identity tokens by using 
    // Server-side swift example
 
    let options = [
-      "clientId": "{client-id}",
-      "secret": "{secret}",
-      "tenantId": "{tenant-id}",
-      "oauthServerUrl": "{oauth-server-url}",
-      "redirectUri": "{app-url}" + CALLBACK_URL
+      "clientId": "<clientID>",
+      "secret": "<secret>",
+      "tenantId": "<tenantID>",
+      "oauthServerUrl": "<oauthServerURL>",
+      "redirectUri": "<appURL>" + CALLBACK_URL
    ]
    let webappKituraCredentialsPlugin = WebAppKituraCredentialsPlugin(options: options)
    let kituraCredentials = Credentials()

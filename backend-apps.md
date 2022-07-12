@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-02-07"
+lastupdated: "2022-05-17"
 
 keywords: protected resource, backend apps, identity, tokens, identity provider, authentication, authorization, app security, oauth, 
 
@@ -70,15 +70,15 @@ For more information about how tokens are used in {{site.data.keyword.appid_shor
 ### What does the flow look like?
 {: #backend-flow}
 
-![{{site.data.keyword.appid_short_notm}} backend flow](images/backend-flow.png){: caption="Figure 1. Backend application flow" caption-side="bottom"}
+![{{site.data.keyword.appid_short_notm}} backend flow](images/backend-flow.svg){: caption="Figure 1. Backend application flow" caption-side="bottom"}
 
 1. A client makes a POST request to the {{site.data.keyword.appid_short_notm}} authorization server to obtain an access token. A POST request generally takes the following form:
 
    ```sh
-   POST /oauth/v4/{tenantId}/token HTTP/1.1
+   POST /oauth/v4/<tenantID>/token HTTP/1.1
    Content_type: application/x-www-form-urlencoded
-   Authorization header = "Basic" + base64encode({clientId}:{secret})
-   FormData = {grant_type}
+   Authorization header = "Basic" + base64encode(<clientID>:<secret>)
+   FormData = <grantType>
    ```
    {: screen}
 
@@ -87,7 +87,8 @@ For more information about how tokens are used in {{site.data.keyword.appid_shor
 3. The client sends a request to the protected resource. Requests can be sent in multiple ways, depending on which HTTP client library you're using but a request generally takes the following form:
 
    ```sh
-   curl -H 'Authorization: Bearer {access_token}' {https://my-protected-resource.com}
+   curl -H 'Authorization: Bearer <accessToken>' 
+   <https://my-protected-resource.com>
    ```
    {: screen}
 
@@ -148,7 +149,7 @@ Before you get started with the Node.js SDK, you must have the following prerequ
    var express = require('express'); 
    var passport = require('passport');
    var APIStrategy = require('ibmcloud-appid').APIStrategy; 
-   passport.use(new APIStrategy({ oauthServerUrl: "{oauth-server-url}" })); 
+   passport.use(new APIStrategy({ oauthServerUrl: "<oauthServerUrl>" })); 
    var app = express();
    app.use(passport.initialize());
    ```

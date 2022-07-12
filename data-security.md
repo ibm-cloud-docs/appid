@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-02-07"
+lastupdated: "2022-05-23"
 
 keywords: data encryption in app id, data storage for app id, personal data in app id, data deletion for app id, data in app id, data security in app id
 
@@ -107,7 +107,7 @@ If you choose to work with a key that you manage, you must ensure that valid IAM
 1. [Create an instance of {{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-get-started#provision-service).
 2. [Initialize your instance](/docs/hs-crypto?topic=hs-crypto-initialize-hsm) by loading a master key from smart cards or from your workstation.
 3. [Generate or import your own root key](/docs/hs-crypto?topic=hs-crypto-create-root-keys) to your instance of {{site.data.keyword.hscrypto}}. When you use {{site.data.keyword.hscrypto}} to create a root key, the service generates cryptographic key material that is rooted in cloud-based HSMs. Be sure that the name of your key does not contain any personal information such as your name or location.
-4. Grant service access to {{site.data.keyword.keymanagementserviceshort}}. You must be the account owner or an administrator for the instance of {{site.data.keyword.keymanagementserviceshort}} that you're working with. You must also have at least Viewer access for the {{site.data.keyword.appid_short_notm}} service. 
+4. Grant service access to {{site.data.keyword.hscrypto}}. You must be the account owner or an administrator for the instance of {{site.data.keyword.hscrypto}} that you're working with. You must also have at least Viewer access for the {{site.data.keyword.appid_short_notm}} service. 
    1. Go to **Manage > Access IAM > Authorizations**.
    2. Select the {{site.data.keyword.appid_short_notm}} service as your source service.
    3. Select an instance of {{site.data.keyword.hscrypto}} as your target service.
@@ -151,14 +151,14 @@ If you no longer need an instance of {{site.data.keyword.appid_short_notm}}, you
 1. Delete the service and place it in a reclamation period of 7 days.
 
    ```sh
-   ibmcloud resource service-instance-delete {service_name}
+   ibmcloud resource service-instance-delete <serviceName>
    ```
    {: codeblock}
 
 2. Optional: To permanently delete your instance, get the reclamation ID.
 
    ```sh
-   ibmcloud resource reclamations --resource-instance-id {tenantId}
+   ibmcloud resource reclamations --resource-instance-id <tenantID>
    ```
    {: codeblock}
 
@@ -168,7 +168,7 @@ If you no longer need an instance of {{site.data.keyword.appid_short_notm}}, you
 3. Optional: Permanently delete the reclamation instance.
 
    ```sh
-   ibmcloud resource reclamation-delete {reclamationId}
+   ibmcloud resource reclamation-delete <reclamationId>
    ```
    {: codeblock}
 
@@ -185,14 +185,14 @@ If you didn't permanently delete your instance, you can restore it during the re
 1. Get the reclamation ID.
 
    ```sh
-   ibmcloud resource reclamations --resource-instance-id {tenantId}
+   ibmcloud resource reclamations --resource-instance-id <tenantID>
    ```
    {: codeblock}
 
 2. Restore the reclamation.
 
    ```sh
-   ibmcloud resource reclamation-restore {reclamationId}
+   ibmcloud resource reclamation-restore <reclamationID>
    ```
    {: codeblock}
 

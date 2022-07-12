@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-02-07"
+lastupdated: "2022-05-17"
 
 keywords: single sign on, cloud directory, saml, app security, application identity
 
@@ -141,16 +141,16 @@ When one of the flows that are related to changing, resetting, or renewing a pas
 To sign out a user, redirect their browser by using your information to complete the following API call.
 
 ```sh
-https://{region}.appid.cloud.ibm.com/oauth/v4/{tenant-id}/cloud_directory/sso/logout?redirect_uri={redirect_uri}&client_id={clientId}
+https://<region>.appid.cloud.ibm.com/oauth/v4/<tenantID>/cloud_directory/sso/logout?redirect_uri=<redirectURI>&client_id=<clientID>
 ```
 {: codeblock}
 
 | Variable | Value | 
 |-----|----| 
 | `region` | The region in which your instance of {{site.data.keyword.appid_short_notm}} is provisioned. Learn more about the [available regions](/docs/appid?topic=appid-regions-endpoints).|
-| `tenant-id` | The unique identifier for your instance of {{site.data.keyword.appid_short_notm}}. You can find this value in the ***Service Credentials*** tab of the {{site.data.keyword.appid_short_notm}} dashboard. If you do not have a set of service credentials, you can create one and take the value from there. |
-| `redirect_uri` | A URI that you specified in your SSO configuration through the {{site.data.keyword.appid_short_notm}} dashboard. For security reasons, if you do not specify a value redirection cannot occur and an error is displayed. |
-| `client_id` | Your application's client ID. | 
+| `tenantID` | The unique identifier for your instance of {{site.data.keyword.appid_short_notm}}. You can find this value in the ***Service Credentials*** tab of the {{site.data.keyword.appid_short_notm}} dashboard. If you do not have a set of service credentials, you can create one and take the value from there. |
+| `redirectURI` | A URI that you specified in your SSO configuration through the {{site.data.keyword.appid_short_notm}} dashboard. For security reasons, if you do not specify a value redirection cannot occur and an error is displayed. |
+| `clientID` | Your application's client ID. | 
 {: caption="Table 2. SSO sign-out API call variables" caption-side="top"}
 
 Even if the SSO session is ended, a user with a valid access token that is stored in their session might not be required to enter their credentials again until their token expires. By default the token expires after 1 hour.
@@ -190,17 +190,17 @@ As an administrator, you can end all SSO sessions for any user by using the {{si
 Example API request:
 
 ```sh
-POST https://{region}.appid.cloud.ibm.com/management/v4/{tenant-id}/cloud_directory/Users/{user-id}/sso/logout
+POST https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/cloud_directory/Users/<userID>/sso/logout
 Headers:
-Authorization: Bearer {IAM_token}
+Authorization: Bearer <IAMToken>
 ```
 {: codeblock}
 
 | Variable | Value | 
 |-----|----| 
 | `region` | The region in which your instance of {{site.data.keyword.appid_short_notm}} is provisioned. Learn more about the [available regions](/docs/appid?topic=appid-regions-endpoints).|
-| `tenant-id` | The unique identifier for your instance of {{site.data.keyword.appid_short_notm}}. You can find this value in the ***Service Credentials*** tab of the {{site.data.keyword.appid_short_notm}} dashboard. If you do not have a set of service credentials, you can create one and take the value from there. |
-| `user-id` | The unique identifier for a Cloud Directory user. You can obtain the ID by using the [Cloud Directory Users APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/), or by viewing the user's identity token. |
+| `tenantID` | The unique identifier for your instance of {{site.data.keyword.appid_short_notm}}. You can find this value in the ***Service Credentials*** tab of the {{site.data.keyword.appid_short_notm}} dashboard. If you do not have a set of service credentials, you can create one and take the value from there. |
+| `userID` | The unique identifier for a Cloud Directory user. You can obtain the ID by using the [Cloud Directory Users APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/), or by viewing the user's identity token. |
 {: caption="Table 3. Variables that are needed to end all SSO sessions for a user" caption-side="top"}
 
 When you invoke this API, all the specified user's SSO sessions are invalidated. This means that the next time that the user attempts to sign in to any of your apps, from any device or browser, they are required to reenter their credentials.

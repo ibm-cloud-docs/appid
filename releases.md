@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-02-07"
+lastupdated: "2022-04-07"
 
 keywords: release notes, new, spa, single sign on, mfa, cloud directory, saml, app security, application identity
 
@@ -135,7 +135,7 @@ Single-page applications: SDK
 Increase the security of your SAML flow
 :   You can now increase the security of your SAML work flows by enabling request signing and response encryption. For more information, see [SAML](/docs/appid?topic=appid-enterprise).
 
-## 08 August 2019
+## 8 August 2019
 {: #appid-aug0819}
 {: release-note}
 
@@ -172,7 +172,7 @@ Cloud Directory: View user information
 :   View information about your Cloud Directory users that you can leverage to build personalized app experiences. For more information, see [Viewing user information](/docs/appid?topic=appid-cd-users#cd-user-info).
 
 ## 24 April 2019
-{: #appid-april2419}
+{: #appid-apr2419}
 {: release-note}
 
 Version 4 of the runtime APIs
@@ -184,7 +184,7 @@ Cloud Directory: Single sign-on
 Updated dashboard
 :   Navigate through your Cloud Directory information quickly! Using [IBM Design Thinking](https://www.ibm.com/design/thinking/){: external}, the {{site.data.keyword.appid_short_notm}} dashboard has been redesigned to give you an even better user experience.
 
-## 07 February 2019
+## 7 February 2019
 {: #appid-feb0719}
 {: release-note}
 
@@ -202,7 +202,7 @@ Cloud Directory: Password policies
 :   Further enforce app security by specifying rules that users must adhere to when they create the password that they use to sign in. For example, you can set an advanced policy that dictates the number of times a password must change before a user can reuse a previous password. Or, you can prevent users from creating a password that contains their username or email address. For more information, see [Defining password policies](/docs/appid?topic=appid-cd-strength).
 
 ## 17 March 2017
-{: #appid-march1717}
+{: #appid-mar1717}
 {: release-note}
 
 Introducing {{site.data.keyword.appid_short_notm}}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-02-07"
+lastupdated: "2022-05-17"
 
 keywords: web apps, nodejs, node, javascript, protected resource, authorization flow, front end, frontend, app security, authentication
 
@@ -120,13 +120,13 @@ You can obtain your credentials in one of two ways.
 
 * By navigating to the **Applications** tab of the {{site.data.keyword.appid_short_notm}} dashboard. If you don't already have one, you can click **Add application** to create a new one.
 
-* By making a POST request to the [`/management/v4/{tenantId}/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Applications/registerApplication).
+* By making a POST request to the [`/management/v4/<tenantID>/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Applications/registerApplication).
 
       Request format:
       ```sh
       curl -X POST \  https://us-south.appid.cloud.ibm.com/management/v4/39a37f57-a227-4bfe-a044-93b6e6060b61/applications/ \
       -H 'Content-Type: application/json' \
-      -H 'Authorization: Bearer IAM_TOKEN' \
+      -H 'Authorization: Bearer <IAMToken>' \
       -d '{"name": "ApplicationName"}'
       ```
       {: codeblock}
@@ -195,11 +195,11 @@ The easiest way to work with {{site.data.keyword.appid_short_notm}} is to take a
    passport.serializeUser((user, cb) => cb(null, user));
    passport.deserializeUser((user, cb) => cb(null, user));
    passport.use(new WebAppStrategy({
-      tenantId: "{tenant_ID}",
-      clientId: "{client_ID}",
-      secret: "{secret}",
-      oauthServerUrl: "{OAuth_Server_URL}",
-      redirectUri: "{redirect_URI}"
+      tenantId: "<tenantID>",
+      clientId: "<clientID>",
+      secret: "<secret>",
+      oauthServerUrl: "<oauthServerURL>",
+      redirectUri: "<redirectURI>"
    }));
    ```
    {: codeblock}

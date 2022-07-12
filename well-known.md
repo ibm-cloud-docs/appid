@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-11-23"
+  years: 2017, 2022
+lastupdated: "2022-05-17"
 
 keywords: well known endpoint, discovery endpoint, oidc, public keys, user information, claims, attributes, full profile, identity providers, app security, tokens
 
@@ -66,7 +66,7 @@ You can obtain the discovery document and the information that it contains by ca
 You can find the endpoint at the following URL:
 
 ```sh
-https://{region}.appid.cloud.ibm.com/oauth/v4/{tenantId}/.well-known/openid-configuration
+https://<region>.appid.cloud.ibm.com/oauth/v4/<tenantID>/.well-known/openid-configuration
 ```
 {: codeblock}
 
@@ -83,7 +83,7 @@ To make a call to the endpoint, you must have a valid tenant ID and you must har
 Check out the following sample cURL request:
 
 ```sh
-curl -X GET "https://{region}.appid.cloud.ibm.com/oauth/v4/{tenant-id}/.well-known/openid-configuration" -H "accept: application/json"
+curl -X GET "https://<region>.appid.cloud.ibm.com/oauth/v4/<tenantID>/.well-known/openid-configuration" -H "accept: application/json"
 ```
 {: codeblock}
 

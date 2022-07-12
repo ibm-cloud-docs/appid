@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-02-03"
+lastupdated: "2022-05-18"
 
 keywords: related links, blogs, sample apps, kube, code changes, programming guide, white paper, vuejs apps, serverless applications, enterprise user directory, custom experience, slack, stack overflow, secure iot, solution, finance app, multicloud, video tutorials
 
@@ -90,7 +90,7 @@ Have a specific use case? Check out the available blogs and samples to find out 
 * ![Icon indicating that this blog contains sample code](images/blog-code.svg) [Creating Spring Boot applications with {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/creating-spring-boot-applications-app-id){: external}
 * ![GitHub logo](images/logo--github.svg) [Using {{site.data.keyword.appid_short_notm}} with Python](https://github.com/mnsn/appid-python-flask-example){: external}
 * ![GitHub icon](images/logo--github.svg) [Using Python Flask-pyoidc with {{site.data.keyword.appid_short_notm}}](https://github.com/IBM-Cloud/github-traffic-stats){: external}
-* ![GitHub icon](images/logo--github.svg) [Securing a VueJS app by using {{site.data.keyword.appid_short_notm}}](https://github.com/ibmets/appid-vue-client){: external}
+* ![GitHub icon](images/logo--github.svg) [Securing a VueJS app by using {{site.data.keyword.appid_short_notm}}](https://github.com/ibmresearchuk/appid-vue-client){: external}
 * ![Icon indicating that this blog contains sample code](images/blog-code.svg) [Creating Go applications with {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/creating-go-applications-with-app-id){: external}
 * ![Icon indicating that this blog contains sample code](images/blog-code.svg) [Sign in your app users with any identity provider by using {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/app-id-integrate-custom-identity){: external}
 * ![Icon indicating that this blog contains sample code](images/blog-code.svg) [Authenticating web users with OpenID and JWT](http://heidloff.net/article/authenticating-web-users-openid-connect-jwt/){: external}

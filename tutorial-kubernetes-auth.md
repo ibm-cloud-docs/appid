@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-03-14"
+lastupdated: "2022-05-17"
 
 keywords: ingress controller, ingress, istio, access, subdomain, custom domain, service, containerized apps, containers, kube, networking, policy, policies, secure apps, authentication, authorization
 
@@ -102,7 +102,7 @@ A redirect URL is the callback endpoint of your app; the location a user is sent
 4. In the **Authentication settings** tab, add your redirect URLs and click the `+` symbol to save your changes. Your redirect URL should be formatted similarly to the following example:
 
    ```sh
-   https://{hostname}/oauth2-{App_ID_service_instance_name}/callback
+   https://<hostname>/oauth2-<AppIDServiceInstanceName>/callback
    ```
    {: screen}
 
@@ -124,21 +124,21 @@ By binding your instance of {{site.data.keyword.appid_short_notm}} to your clust
 1. Log in to the {{site.data.keyword.cloud_notm}} CLI. Follow the prompts in the CLI to complete logging in. If you're using a federated ID, be sure to append the `--sso` flag to the end of the command.
 
    ```sh
-   ibmcloud login -a cloud.ibm.com -r {region}
+   ibmcloud login -a cloud.ibm.com -r REGION
    ```
    {: codeblock}
 
 2. Set the context for your cluster.
 
    ```sh
-   ibmcloud ks cluster config --cluster {cluster_name_or_ID}
+   ibmcloud ks cluster config --cluster CLUSTER_NAME_OR_ID
    ```
    {: codeblock}
 
 3. Bind the {{site.data.keyword.appid_short_notm}} service instance to your cluster. The command creates a service key for the service instance, or you can include the `--key` flag to use existing service key credentials. Be sure to bind the service instance to the same namespace that your Ingress resources exist in. All the letters in the service instance name must specified as lowercase.
 
    ```sh
-   ibmcloud ks cluster service bind --cluster {cluster_name_or_ID} --namespace {namespace} --service {App_ID_instance_name} [--key {service_instance_key}]
+   ibmcloud ks cluster service bind --cluster CLUSTER_NAME_OR_ID --namespace NAMESPACE --service APPIDINSTANCENAME [--key SERVICEINSTANCEKEY]
    ```
    {: codeblock}
 
@@ -166,7 +166,7 @@ Your Ingress resource is used to define how you want to expose your applications
    ...
    annotations:
    nginx.ingress.kubernetes.io/auth-url: https://oauth2-
-   {App_ID_service_instance_name}.{namespace of the Ingress resource}.svc.cluster.local/oauth2-{App_ID_service_instance_name}/auth
+   <AppIDServiceInstanceName>.<namespaceOfIngressResource>.svc.cluster.local/oauth2-<AppIDServiceInstanceName>/auth
    ...
    ```
    {: codeblock}
@@ -174,7 +174,7 @@ Your Ingress resource is used to define how you want to expose your applications
    All letters in the service instance name must be specified as lowercase characters.
    {: note}
 
-2. Optional: If your app is a web app, in addition to or instead of, providing APIs, add the `nginx.ingress.kubernetes.io/auth-signin: https://$host/oauth2-{App_ID_service_instance_name}/start?rd=$escaped_request_uri` annotation. 
+2. Optional: If your app is a web app, in addition to or instead of, providing APIs, add the `nginx.ingress.kubernetes.io/auth-signin: https://$host/oauth2-<AppIDServiceInstanceName>/start?rd=$escaped_request_uri` annotation. 
 
 3. Choose which tokens to send in the authorization header to your app.
 
@@ -228,21 +228,21 @@ Now that your Ingress resource is updated with the annotation, you can start enf
 1. Enable the ALB OAuth Proxy add-on in your cluster.
 
    ```sh
-   ibmcloud ks cluster addon enable alb-oauth-proxy --cluster {cluster_name_or_ID}
+   ibmcloud ks cluster addon enable alb-oauth-proxy --cluster CLUSTER_NAME_OR_ID
    ```
    {: codeblock}
 
    To verify that your add-on is ready, you can run the following command.
 
    ```sh
-   ibmcloud ks cluster addon ls --cluster {cluster_name_or_ID}
+   ibmcloud ks cluster addon ls --cluster CLUSTER_NAME_OR_ID
    ```
    {: codeblock}
 
 2. Reapply your Ingress resources to enforce {{site.data.keyword.appid_short_notm}} authentication. 
 
    ```sh
-   kubectl apply -f {app_ingress_resource}.yaml -n namespace
+   kubectl apply -f APP_INGRESS_RESOURCE.yaml -n namespace
    ```
    {: codeblock}
 

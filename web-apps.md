@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-02-07"
+lastupdated: "2022-05-17"
 
 keywords: web apps, authorization code, authentication, nodejs, javascript, app access, application credentials, login, redirect uri, protected endpoint, video
 
@@ -59,7 +59,7 @@ When you are developing a web application, you can use the {{site.data.keyword.a
 Web apps often require users to authenticate to access protected content. {{site.data.keyword.appid_short_notm}} uses the OIDC authorization code flow to securely authenticate users. With this flow, when the user is authenticated, the app receives an authorization code. The code is then exchanged for an access, identity, and refresh token. In code, exchange step the tokens are always sent via a secure backchannel between the app and the OIDC server. This provides an extra layer of security as the attacker is not able to intercept the tokens. These tokens can be sent directly to the web server hosting application for user authentication.
 
 
-![{{site.data.keyword.appid_short_notm}} web app request flow](images/web-flow.png){: caption="Figure 1. {{site.data.keyword.appid_short_notm}} web app request flow" caption-side="bottom"}
+![{{site.data.keyword.appid_short_notm}} web app request flow](images/web-flow.svg){: caption="Figure 1. {{site.data.keyword.appid_short_notm}} web app request flow" caption-side="bottom"}
 
 1. A user initiates the authorization flow by sending a request to the `/authorization` endpoint via the {{site.data.keyword.appid_short_notm}} SDK or API.
 
@@ -147,13 +147,13 @@ Check out the following video to learn about protecting Node applications with {
 
    * By navigating to the **Applications** tab of the {{site.data.keyword.appid_short_notm}} dashboard. If you don't have an application in the list, you can click **Add application** to create a one.
 
-   * By making a POST request to the [`/management/v4/{tenantId}/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Applications/mgmt.registerApplication){: external}.
+   * By making a POST request to the [`/management/v4/<tenantId>/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Applications/mgmt.registerApplication){: external}.
 
       Request format:
       ```sh
       curl -X POST \  https://us-south.appid.cloud.ibm.com/management/v4/39a37f57-a227-4bfe-a044-93b6e6060b61/applications/ \
       -H 'Content-Type: application/json' \
-      -H 'Authorization: Bearer {IAM_TOKEN}' \
+      -H 'Authorization: Bearer <IAMToken>' \
       -d '{"name": "ApplicationName"}'
       ```
       {: codeblock}
@@ -181,11 +181,11 @@ Check out the following video to learn about protecting Node applications with {
 
    ```javascript
    passport.use(new WebAppStrategy({
-   tenantId: "{tenant-id}",
-   clientId: "{client-id}",
-   secret: "{secret}",
-   oauthServerUrl: "{oauth-server-url}",
-   redirectUri: "{app-url}" + CALLBACK_URL
+   tenantId: "<tenantID>",
+   clientId: "<clientID>",
+   secret: "<secret>",
+   oauthServerUrl: "<oauthServerURL>",
+   redirectUri: "<appURL>" + CALLBACK_URL
    }));
    ```
    {: codeblock}
@@ -261,13 +261,13 @@ Check out the following video to learn about protecting Liberty for Java applica
 
    * By navigating to the **Applications** tab of the {{site.data.keyword.appid_short_notm}} dashboard. If you don't already have one, you can click **Add application** to create a new one.
 
-   * By making a POST request to the [`/management/v4/{tenantId}/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Applications/registerApplication){: external}.
+   * By making a POST request to the [`/management/v4/<tenantID>/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Applications/registerApplication){: external}.
 
       Request format:
       ```sh
       curl -X POST \  https://us-south.appid.cloud.ibm.com/management/v4/39a37f57-a227-4bfe-a044-93b6e6060b61/applications/ \
       -H 'Content-Type: application/json' \
-      -H 'Authorization: Bearer IAM_TOKEN' \
+      -H 'Authorization: Bearer <IAMToken>' \
       -d '{"name": "ApplicationName"}'
       ```
       {: codeblock}
@@ -453,13 +453,13 @@ You must have the following prerequisites:
 
    * By navigating to the **Applications** tab of the {{site.data.keyword.appid_short_notm}} dashboard. If you don't already have one, you can click **Add application** to create a new one.
 
-   * By making a POST request to the [`/management/v4/{tenantId}/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Applications/registerApplication).
+   * By making a POST request to the [`/management/v4/<tenantID>/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Applications/registerApplication).
 
       Request format:
       ```sh
       curl -X POST \  https://us-south.appid.cloud.ibm.com/management/v4/39a37f57-a227-4bfe-a044-93b6e6060b61/applications/ \
       -H 'Content-Type: application/json' \
-      -H 'Authorization: Bearer IAM_TOKEN' \
+      -H 'Authorization: Bearer <IAMToken>' \
       -d '{"name": "ApplicationName"}'
       ```
       {: codeblock}
@@ -482,12 +482,12 @@ You must have the following prerequisites:
    security:
    oauth2:
       client:
-      clientId: {client ID}
-      clientSecret: {client Secret}
-      accessTokenUri: {oauthServerUrl}/token
-      userAuthorizationUri: {oauthServerUrl}/authorization
+      clientId: <clientID>
+      clientSecret: <clientSecret>
+      accessTokenUri: <oauthServerURL>/token
+      userAuthorizationUri: <oauthServerURL>/authorization
       resource:
-      userInfoUri: {oauthServerUrl}/userinfo
+      userInfoUri: <oauthServerURL>/userinfo
    ```
    {: codeblock}
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-02-07"
+lastupdated: "2022-05-17"
 
 keywords: secure mobile app, android, ios, authenticate users,  authorization grant, client sdk, trusted client, native app, personalized, custom app, devices, identity flow, app security
 
@@ -61,7 +61,7 @@ A mobile flow is useful when you are developing an app that is to be installed o
 
 Since native applications are installed directly on a user's device, private user information and application credentials can be extracted by third-parties with relative ease. By default, these types of applications are known as untrusted clients as they cannot store global credentials or user refresh tokens. As a result, untrusted clients require users to input their credentials every time their access tokens expire.
 
-To convert your application into a trusted client, {{site.data.keyword.appid_short_notm}} uses [Dynamic Client Registration](https://datatracker.ietf.org/doc/html/rfc6749){: external}. Before an application instance begins authenticating users, it first registers as an OAuth2 client with {{site.data.keyword.appid_short_notm}}. As a result of client registration, your application receives an installation-specific client ID that can be digitally signed and used to authorize requests with {{site.data.keyword.appid_short_notm}}. Since {{site.data.keyword.appid_short_notm}} stores your application's corresponding public key, it can validate your request signature that allows your application to be viewed as a confidential client. This process minimizes your application's risk of exposing credentials indefinitely and greatly improves the user experience by allowing automatic token refresh.
+To convert your application into a trusted client, {{site.data.keyword.appid_short_notm}} uses [Dynamic Client Registration](https://datatracker.ietf.org/doc/html/rfc6749){: external}. Before an application instance begins authenticating users, it first registers as an OAuth2 client with {{site.data.keyword.appid_short_notm}}. Because of client registration, your application receives an installation-specific client ID that can be digitally signed and used to authorize requests with {{site.data.keyword.appid_short_notm}}. Since {{site.data.keyword.appid_short_notm}} stores your application's corresponding public key, it can validate your request signature that allows your application to be viewed as a confidential client. This process minimizes your application's risk of exposing credentials indefinitely and greatly improves the user experience by allowing automatic token refresh.
 
 Following registration, your users authenticate by using either the OAuth2 `authorization code` or `resource owner password` [authorization grant](https://datatracker.ietf.org/doc/html/rfc6749#section-1.3){: external} flows to authenticate users.
 
@@ -76,7 +76,7 @@ Following registration, your users authenticate by using either the OAuth2 `auth
 ### Authorization flow
 {: #mobile-auth-flow}
 
-![{{site.data.keyword.appid_short_notm}} mobile request flow](images/mobile-flow.png){: caption="Figure 1. {{site.data.keyword.appid_short_notm}} mobile request flow" caption-side="bottom"}
+![{{site.data.keyword.appid_short_notm}} mobile request flow](images/mobile-flow.svg){: caption="Figure 1. {{site.data.keyword.appid_short_notm}} mobile request flow" caption-side="bottom"}
 
 1. The {{site.data.keyword.appid_short_notm}} SDK starts the authorization process by using the {{site.data.keyword.appid_short_notm}} `/authorization` endpoint.
 2. The login widget is displayed to the user.
@@ -178,7 +178,7 @@ You must have the following prerequisites before you can get started:
    {: tip}
 
    ```java
-   AppID.getInstance().initialize(getApplicationContext(), {tenantId}, {region});
+   AppID.getInstance().initialize(getApplicationContext(), <tenantID>, <region>);
    ```
    {: codeblock}
 
@@ -213,7 +213,7 @@ The {{site.data.keyword.appid_short_notm}} client SDK is distributed with CocoaP
 3. Add the `IBMCloudAppID` pod and `use_frameworks!` command to your target's dependencies
 
    ```swift
-   target '{yourTarget}' do
+   target '<yourTarget>' do
       use_frameworks!
       pod 'IBMCloudAppID'
    end
@@ -246,7 +246,7 @@ The {{site.data.keyword.appid_short_notm}} client SDK is distributed with CocoaP
 1. Initialize the client SDK by passing the tenant ID and region parameters to the initialize method.
 
    ```swift
-      AppID.sharedInstance.initialize(tenantId: {tenantId}, region: {region})
+      AppID.sharedInstance.initialize(tenantId: <tenantID>, region: <region>)
    ```
    {: codeblock}
 
@@ -290,7 +290,7 @@ After a successful login flow, you can use your access and identity tokens to in
 2. Invoke your protected resource
 
    ```swift
-   BMSClient.sharedInstance.initialize(region: {region})
+   BMSClient.sharedInstance.initialize(region: <region>)
    BMSClient.sharedInstance.authorizationManager = AppIDAuthorizationManager(appid: AppID.sharedInstance)
 
    let request =  Request(url: "{your protected resource url}")
@@ -321,7 +321,7 @@ After a successful login flow, you can use your access and identity tokens to in
 
    ```java
    BMSClient bmsClient = BMSClient.getInstance();
-   bmsClient.initialize(getApplicationContext(), {region});
+   bmsClient.initialize(getApplicationContext(), <region>);
 
    AppIDAuthorizationManager appIdAuthMgr = new AppIDAuthorizationManager(AppID.getInstance())
    bmsClient.setAuthorizationManager(appIdAuthMgr);
@@ -359,7 +359,7 @@ Example request format:
    ```sh
    GET /resource HTTP/1.1
    Host: server.example.com
-   Authorization: Bearer {access token} {optional identity token}
+   Authorization: Bearer <accessToken> <optionalIdentityToken>
    ```
    {: screen}
 

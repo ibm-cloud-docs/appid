@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-02-07"
+lastupdated: "2022-05-18"
 
 keywords: mfa, multifactor, authentication, cloud directory, login widget, second factor, two factor, identity, mulitple factors, advanced security event, cloud directory user, sender id, phone number, email, nexmo, mfa descision, extension
 
@@ -129,21 +129,21 @@ To enable MFA:
 1. Enable MFA by making a PUT request to the `/config/cloud_directory/mfa` endpoint with your MFA configuration to set `isActive` to `true`.
 
    ```sh
-   curl -X PUT https://{region}.appid.cloud.ibm.com/management/v4/{tenant_ID}/config/cloud_directory/mfa \
+   curl -X PUT https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/config/cloud_directory/mfa \
       --header 'Content-Type: application/json' \
       --header 'Accept: application/json' \
-      --header 'Authorization: Bearer {IAM_TOKEN}' \
+      --header 'Authorization: Bearer <IAMToken>' \
       -d '"isActive": true'
    ```
    {: codeblock}
 
-2. Enable your MFA channel by making a PUT request to the `/mfa/channels/{channel}` endpoint with your MFA configuration. When `isActive` is set to `true`, your MFA channel is enabled.
+2. Enable your MFA channel by making a PUT request to the `/mfa/channels/<channel>` endpoint with your MFA configuration. When `isActive` is set to `true`, your MFA channel is enabled.
 
    ```sh
-   $ curl -X PUT https://{region}.appid.cloud.ibm.com/management/v4/{tenant_ID}/mfa/channels/email \
+   $ curl -X PUT https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/mfa/channels/email \
       --header 'Content-Type: application/json' \
       --header 'Accept: application/json' \
-      --header 'Authorization: Bearer {IAM_TOKEN}' \
+      --header 'Authorization: Bearer <IAMToken>' \
       -d '"isActive": true'
    ```
    {: codeblock}
@@ -170,7 +170,7 @@ When MFA is initially enabled, it is set to use email by default. You can change
 
 - Obtain your Vonage API key and secret. You can find the Vonage API key and secret in your account settings page on the Vonage dashboard. Check out the [Vonage documentation](https://developer.vonage.com/concepts/guides/authentication#api-key-and-secret){: external} for further information on how to obtain your credentials.
 
-- Register your sender ID or the `from` number with Vonage. This `from` number is what appears on your user's phone to show who the SMS is from. In some countries, Vonage supports alpha-numeric sender IDs. {{site.data.keyword.appid_short_notm}} uses the value that you enter as Vonage's sender ID. So, if they are supported by Vonage, you can use the IDs with {{site.data.keyword.appid_short_notm}}. For more information, check out the [Vonage documentation](https://help.nexmo.com/hc/en-us/articles/217571017-What-is-a-Sender-ID){: external}.
+- Register your sender ID or the `from` number with Vonage. This `from` number is what appears on your user's phone to show who the SMS is from. In some countries, Vonage supports alpha-numeric sender IDs. {{site.data.keyword.appid_short_notm}} uses the value that you enter as Vonage's sender ID. So, if they are supported by Vonage, you can use the IDs with {{site.data.keyword.appid_short_notm}}. For more information, check out the [Vonage documentation](https://api.support.vonage.com/hc/en-us/articles/217571017-What-is-a-Sender-ID){: external}.
 
 
 ### With the GUI
@@ -195,7 +195,7 @@ To configure MFA with the GUI, check out [Cloud Directory](/docs/appid?topic=app
 
    4. Copy the **API secret** in the Vonage dashboard and paste it in the **Secret** box in the {{site.data.keyword.appid_short_notm}} dashboard.
 
-   5. Enter [the ID](https://help.nexmo.com/hc/en-us/articles/217571017-What-is-a-Sender-ID) that you want to send messages from. A valid number format follows the [E.164 international numbering format](https://en.wikipedia.org/wiki/E.164). For example, a US number takes the form `+19998887777`. You must specify both the country code, starting with a `+` symbol and the national subscriber number. In some countries, Vonage supports alpha-numeric sender IDs. {{site.data.keyword.appid_short_notm}} uses the value that you enter as Vonage's sender ID. So, if they are supported by Vonage, you can use the IDs with {{site.data.keyword.appid_short_notm}}.
+   5. Enter [the ID](https://api.support.vonage.com/hc/en-us/articles/217571017-What-is-a-Sender-ID) that you want to send messages from. A valid number format follows the [E.164 international numbering format](https://en.wikipedia.org/wiki/E.164). For example, a US number takes the form `+19998887777`. You must specify both the country code, starting with a `+` symbol and the national subscriber number. In some countries, Vonage supports alpha-numeric sender IDs. {{site.data.keyword.appid_short_notm}} uses the value that you enter as Vonage's sender ID. So, if they are supported by Vonage, you can use the IDs with {{site.data.keyword.appid_short_notm}}.
 
 
 
@@ -211,27 +211,27 @@ Before you get started with the API, be sure that you have the following prerequ
 1. Enable MFA by making a PUT request to the `/config/cloud_directory/mfa` endpoint with your MFA configuration to set `isActive` to `true`.
 
    ```sh
-   curl -X PUT https://{region}.appid.cloud.ibm.com/management/v4/{tenant_ID}/config/cloud_directory/mfa \
+   curl -X PUT https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/config/cloud_directory/mfa \
    --header 'Content-Type: application/json' \
    --header 'Accept: application/json' \
-   --header 'Authorization: Bearer {IAM_TOKEN}' \
+   --header 'Authorization: Bearer <IAMToken>' \
    -d '{"isActive": true}'
    ```
    {: codeblock}
 
-2. Enable your MFA channel by making a PUT request to the `/mfa/channels/{channel}` endpoint with your MFA configuration. When `isActive` is set to `true`, your MFA channel is enabled. The `config` takes in the Nexmo API key and secret as well as the `from` number.
+2. Enable your MFA channel by making a PUT request to the `/mfa/channels/<channel>` endpoint with your MFA configuration. When `isActive` is set to `true`, your MFA channel is enabled. The `config` takes in the Nexmo API key and secret as well as the `from` number.
 
    ```sh
-   curl -X PUT https://{region}.appid.cloud.ibm.com/management/v4/{tenant_ID}/mfa/channels/nexmo' \
+   curl -X PUT https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/mfa/channels/nexmo' \
    --header 'Content-Type: application/json' \
    --header 'Accept: application/json' \
-   --header 'Authorization: Bearer {IAM_TOKEN}' \
+   --header 'Authorization: Bearer <IAMToken>' \
    -d '{
       "isActive": true,
       "config": {
-         "key": "nexmo_key",
-         "secret": "nexmo_secret",
-         "from": sender_phone_number
+         "key": "<nexmoKey>",
+         "secret": "<nexmoSecret>",
+         "from": <senderPhoneNumber>
       }
    }'
    ```
@@ -240,10 +240,10 @@ Before you get started with the API, be sure that you have the following prerequ
 3. After the channel is successfully configured, verify that your Nexmo configuration and connection is set up correctly by using the test button on the UI or by using the management API.
 
    ```sh
-   curl -X PUT https://{region}.appid.cloud.ibm.com/management/v4/{tenant_ID}/config/cloud_directory/sms_dispatcher/test \
+   curl -X PUT https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/config/cloud_directory/sms_dispatcher/test \
    --header 'Content-Type: application/json' \
    --header 'Accept: application/json' \
-   --header 'Authorization: Bearer {IAM_TOKEN}' \
+   --header 'Authorization: Bearer <IAMToken>' \
    -d '{"phone_number": "+1 999 999 9999"}'
    ```
    {: codeblock}
@@ -322,16 +322,16 @@ To configure a pre-MFA extension:
 3. Register your extension with your instance of {{site.data.keyword.appid_short_notm}} by making a PUT request to `config/cloud_directory/mfa/extensions/premfa`. The configuration includes your extension's URL and any authorization information that is needed to access the endpoint. For development purposes, `isActive` is set to `false`. Be sure to test your configuration before you enable it.
 
    ```sh
-   curl -X PUT https://{region}.appid.cloud.ibm.com/management/v4/{tenant_ID}/config/cloud_directory/mfa/extensions/premfa' \
+   curl -X PUT https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/config/cloud_directory/mfa/extensions/premfa' \
    --header 'Content-Type: application/json' \
    --header 'Accept: application/json' \
-   --header 'Authorization: Bearer {IAM_token}' \
+   --header 'Authorization: Bearer <IAMToken>' \
    -d '{
       "isActive": false,
       "config": {
-         "url": "{extensions_URL}",
+         "url": "<extensionsURL>",
          "headers": {
-               "Authorization": "{custom_extension_authorization_header}"
+               "Authorization": "<customExtensionAuthorizationHeader>"
             }
       }
    }'
@@ -344,20 +344,20 @@ To configure a pre-MFA extension:
 4. After the extension is successfully configured, verify that your endpoint works correctly by using the test API. {{site.data.keyword.appid_short_notm}} makes a POST request to your configured extension with the example values.
 
    ```sh
-   curl -X POST https://{region}.appid.cloud.ibm.com/management/v4/{tenant_ID}/config/cloud_directory/mfa/extensions/premfa/test \
+   curl -X POST https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/config/cloud_directory/mfa/extensions/premfa/test \
    --header 'Content-Type: application/json' \
    --header 'Accept: application/json' \
-   --header 'Authorization: Bearer {IAM_token}'
+   --header 'Authorization: Bearer <IAMToken>'
    ```
    {: codeblock}
 
 5. Enable your extension by making a PUT request that sets `isActive` to `true`.
 
    ```sh
-   curl -X PUT https://{region}.appid.cloud.ibm.com/management/v4/{tenant_ID}/config/cloud_directory/mfa/extensions/premfa \
+   curl -X PUT https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/config/cloud_directory/mfa/extensions/premfa \
    --header 'Content-Type: application/json' \
    --header 'Accept: application/json' \
-   --header 'Authorization: Bearer {IAM_TOKEN}' \
+   --header 'Authorization: Bearer <IAMToken>' \
    -d '{"isActive": true}'
    ```
    {: codeblock}
@@ -408,16 +408,16 @@ To configure a post-MFA extension:
 2. Register your extension with your instance of {{site.data.keyword.appid_short_notm}} by making a PUT request to `config/cloud_directory/mfa/extensions/postmfa`. The configuration includes your extension's URL and any authorization information that is needed to access the endpoint. For development purposes, `isActive` is set to `false`. Be sure to test your configuration before you enable it.
 
    ```sh
-   curl -X PUT https://{region}.appid.cloud.ibm.com/management/v4/{tenant_ID}/config/cloud_directory/mfa/extensions/postmfa' \
+   curl -X PUT https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/config/cloud_directory/mfa/extensions/postmfa' \
    --header 'Content-Type: application/json' \
    --header 'Accept: application/json' \
-   --header 'Authorization: Bearer {IAM_token}' \
+   --header 'Authorization: Bearer <IAMToken>' \
    -d '{
       "isActive": false,
       "config": {
-         "url": "{extensions_URL}",
+         "url": "<extensionsURL>",
          "headers": {
-               "Authorization": "{custom_extension_authorization_header}"
+               "Authorization": "<customExtensionAuthorizationHeader>"
             }
       }
    }'
@@ -430,20 +430,20 @@ To configure a post-MFA extension:
 3. Once the extension is successfully configured, verify that your endpoint works correctly by using the test API. {{site.data.keyword.appid_short_notm}} makes a POST request to your configured extension with the example values.
 
    ```sh
-   curl -X POST https://{region}.appid.cloud.ibm.com/management/v4/{tenant_ID}/config/cloud_directory/mfa/extensions/postmfa/test \
+   curl -X POST https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/config/cloud_directory/mfa/extensions/postmfa/test \
    --header 'Content-Type: application/json' \
    --header 'Accept: application/json' \
-   --header 'Authorization: Bearer {IAM_token}'
+   --header 'Authorization: Bearer <IAMToken>'
    ```
    {: codeblock}
 
 4. Enable your extension by setting `isActive` to `true`.
 
    ```sh
-   curl -X PUT https://{region}.appid.cloud.ibm.com/management/v4/{tenant_ID}/config/cloud_directory/mfa/extensions/postmfa \
+   curl -X PUT https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/config/cloud_directory/mfa/extensions/postmfa \
    --header 'Content-Type: application/json' \
    --header 'Accept: application/json' \
-   --header 'Authorization: Bearer {IAM_TOKEN}' \
+   --header 'Authorization: Bearer <IAMToken>' \
    -d '{"isActive": true}'
    ```
    {: codeblock}

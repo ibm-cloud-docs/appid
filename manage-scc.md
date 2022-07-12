@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-02-07"
+lastupdated: "2022-06-01"
 
 keywords: security for {{site.data.keyword.appid_short_notm}}, compliance for {{site.data.keyword.appid_short_notm}}, security and compliance for {{site.data.keyword.appid_short_notm}}, rules for {{site.data.keyword.appid_short_notm}}, 
 
@@ -62,7 +62,7 @@ With the {{site.data.keyword.compliance_short}}, you can:
 
 As a security or compliance focal, you can use the {{site.data.keyword.appid_short_notm}} [goals](#x2117978){: term} to help ensure that your organization is adhering to the external and internal standards for your industry. By using the {{site.data.keyword.compliance_short}} to validate the resource configurations in your account against a [profile](#x2034950){: term}, you can identify potential issues as they arise.
 
-All the goals for {{site.data.keyword.appid_short_notm}} are added to the {{site.data.keyword.cloud_notm}} Best Practices Controls 1.0 profile but can also be mapped to other profiles.
+All the goals for {{site.data.keyword.appid_short_notm}} are added to the {{site.data.keyword.cloud_notm}} Control Library profile but might also be mapped to other profiles.
 {: note}
 
 To start monitoring your resources, check out [Getting started with {{site.data.keyword.compliance_short}}](/docs/security-compliance?topic=security-compliance-getting-started).

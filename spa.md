@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-02-07"
+lastupdated: "2022-07-11"
 
 keywords: single page application, SPA, single-page, angular, react, native apps, javascript, js, sdk, authentication, authorization, identity, app security, secure, protocols, oauth, oidc,
 
@@ -126,13 +126,13 @@ Your credentials are used to connect your application to {{site.data.keyword.app
 No client secret is returned in your SPA credentials. A secret in the Authorization + PKCE flow is not needed. You are not able to use regular web app credentials in your SPA flow. 
 {: note}
 
-1. Make the following post request to the [/management/v4/{tenantId}/applications](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Applications/mgmt.registerApplication){: external} endpoint.
+1. Make the following post request to the [/management/v4/<tenantID>/applications](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Applications/mgmt.registerApplication){: external} endpoint.
 
    ```sh
    curl -X POST \
-   https://us-south.appid.cloud.ibm.com/management/v4/{TENANT_ID}/applications/ \
+   https://us-south.appid.cloud.ibm.com/management/v4/<tenantID>/applications/ \
    -H 'accept: application/json' \
-   -H 'Authorization: Bearer {IAM_TOKEN}' \
+   -H 'Authorization: Bearer <IAMToken>' \
    -H 'Content-Type: application/json' \
    -d '{"name": "MySampleSPA", "type": "singlepageapp"}'
    ```
@@ -141,10 +141,10 @@ No client secret is returned in your SPA credentials. A secret in the Authorizat
    Example response:
    ```json
    {
-      "clientId": "{CLIENT_ID}",
-      "tenantId": "{TENANT_ID}",
+      "clientId": "<clientID>",
+      "tenantId": "<tenantID>",
       "name": "MySampleSPA",
-      "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v4/{TENANT_ID}",
+      "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v4/<tenantID>",
       "type": "singlepageapp"
    }
    ```
@@ -177,8 +177,8 @@ To install the SDK in your application, use the following steps as a guide.
    ```sh
    const appID = new AppID();
    await appID.init({
-      clientId: '{SPA_CLIENT_ID}',
-      discoveryEndpoint: '{WELL_KNOWN_ENDPOINT}'
+      clientId: '<spaClientID>',
+      discoveryEndpoint: '<wellKnownEndpoint>'
    });
    ```
    {: codeblock}

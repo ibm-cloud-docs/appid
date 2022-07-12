@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-02-10"
+lastupdated: "2022-05-17"
 
 keywords: token validation, validate token, protect app, public key, token header, base64, decode payload, authorized, access permissions, app security, identity, jwt 
 
@@ -80,7 +80,7 @@ By using introspection, you can use {{site.data.keyword.appid_short_notm}} to va
    Example request:
 
       ```sh
-      POST /oauth/v4/{tenant_id}/introspect HTTP/1.1
+      POST /oauth/v4/<tenantID>/introspect HTTP/1.1
       Host: us-south.appid.cloud.ibm.com
       Content-Type: application/x-www-form-urlencoded
       Authorization: Basic jdFlUaGlZUzAwTW0Tjk15TmpFMw==
@@ -141,7 +141,7 @@ You can validate your tokens locally by parsing the token, verifying the token s
    Example request:
 
       ```sh
-      GET /oauth/v4/{tenant_id}/publickeys HTTP/1.1
+      GET /oauth/v4/<tenantID>/publickeys HTTP/1.1
       Host: us-south.appid.cloud.ibm.com
       Cache-Control: no-cache
       ```

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-01-06"
+lastupdated: "2022-05-18"
 
 keywords: facebook, google, social, identity providers, single sign on, default configuration, authentication, authorization, identity, app security, idp, default credentials
 
@@ -110,10 +110,10 @@ You can configure the {{site.data.keyword.appid_short_notm}} service to use Goog
 
 Google documentation [link](https://developers.google.com/identity/gsi/web/guides/get-google-api-clientid){: external}
 
-Create a project in the [Google Cloud Platform](https://console.cloud.google.com/home/dashboard?project=app-id-login&folder=&organizationId=){: external}, configure the project to serve web clients, and obtain a client ID and secret.
+Create a project in the [Google Cloud Platform](https://cloud.google.com){: external}, configure the project to serve web clients, and obtain a client ID and secret.
 
 1. Create a project.
-2. Open [credentials page](https://console.developers.google.com/apis){: external} of the Google APIs console.
+2. Open [credentials page](https://console.cloud.google.com/apis/credentials){: external} of the Google APIs console.
 3. If your project doesn't have a Web application-type client ID, click **Create credentials > OAuth client ID**.
 4. Configure your level of consent.
 5. In the **Authorized JavaScript Origins** field, input your site's domain.
