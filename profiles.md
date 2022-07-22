@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-07-11"
+lastupdated: "2022-07-22"
 
 keywords: profile, custom attributes, predefined attributes, attributes, app users, app interaction, personalized experience, access user info, identity provider information, access token, authentication, user sign in, android, java, node, swift, ios, user, preferences
 
@@ -333,7 +333,7 @@ By default, custom attributes are modifiable and can be updated by using an {{si
 3. Obtain an IAM token.
 
    1. In the {{site.data.keyword.cloud_notm}} dashboard, click **Manage > Access (IAM)**.
-   2. Select **{{site.data.keyword.cloud_notm}} API keys**.
+   2. Select **API keys**.
    3. Click **Create an {{site.data.keyword.cloud_notm}} API key**.
    4. Give a name and description to your key. Click **Create**. A screen displays your key.
    5. Click **Copy** or **Download** your key. When you close the screen, you can no longer access the key.
