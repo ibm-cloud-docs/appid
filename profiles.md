@@ -329,25 +329,98 @@ By default, custom attributes are modifiable and can be updated by using an {{si
 1. Go to the **User profiles > Settings** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
 
 2. Toggle custom attributes to **Enabled**.
+3. Obtain access and identity tokens with the API.
 
-3. Obtain an IAM token.
+   1. Obtain your tenant ID, client ID, secret, and OAuth Server URL from your credentials.
 
-   1. In the {{site.data.keyword.cloud_notm}} dashboard, click **Manage > Access (IAM)**.
-   2. Select **API keys**.
-   3. Click **Create an {{site.data.keyword.cloud_notm}} API key**.
-   4. Give a name and description to your key. Click **Create**. A screen displays your key.
-   5. Click **Copy** or **Download** your key. When you close the screen, you can no longer access the key.
-   6. Make the following cURL request with the API key that you created.
+   2. Encode your client ID and secret by using a base64 encoder.
+
+   3. Use the following code examples to retrieve your tokens. The grant type that you use to obtain your token can differ depending on the type of authorization that you're working with. For a detailed list of options, check out the [swagger documentation](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization%20Server%20-%20Authorization%20Server%20V4/oauth-server.token){: external}.
 
       ```sh
-      curl -k -X POST \
-      --header "Content-Type: application/x-www-form-urlencoded" \
-      --header "Accept: application/json" \
-      --data-urlencode "grant_type=urn:ibm:params:oauth:grant-type:apikey" \
-      --data-urlencode "apikey=<apiKey>" \
-      "https://iam.cloud.ibm.com/identity/token"
+      curl -X POST 'https://<region>.appid.cloud.ibm.com/oauth/v4/<tenantID>/token' \
+      -H 'Authorization: Basic base64Encoded{<clientID>:<clientSecret>}' \
+      -H 'Accept: application/json' \
+      -F 'grant_type=password' \
+      -F 'username=testuser@test.com' \
+      -F 'password=testuser'
       ```
       {: codeblock}
+      {: curl}
+
+      ```swift
+      // iOS Swift example
+
+      class delegate : TokenResponseDelegate {
+         public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, refreshToken: RefreshToken?, response:Response?) {
+         //User authenticated
+         }
+
+         public func onAuthorizationFailure(error: AuthorizationError) {
+         //Exception occurred
+         }
+      }
+
+      AppID.sharedInstance.signinWithResourceOwnerPassword(username: username, password: password, delegate: delegate())
+      ```
+      {: codeblock}
+      {: swift}
+
+      ```java
+      AppID.getInstance().signinWithResourceOwnerPassword(getApplicationContext(), username, password, new TokenResponseListener() {
+         @Override
+         public void onAuthorizationFailure (AuthorizationException exception) {
+            //Exception occurred
+         }
+
+         @Override
+         public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, RefreshToken refreshToken) {
+            //User authenticated
+         }
+      });
+      ```
+      {: codeblock}
+      {: java}
+
+      ```javascript
+      // Declare the API you want to protect
+      app.get("/api/protected",
+
+         passport.authenticate(APIStrategy.STRATEGY_NAME, {
+         session: false
+         }),
+         function(req, res) {
+         // Get full appIdAuthorizationContext from request object
+         var appIdAuthContext = req.appIdAuthorizationContext;
+
+         appIdAuthContext.accessToken; // Raw access_token
+         appIdAuthContext.accessTokenPayload; // Decoded access_token JSON
+         appIdAuthContext.identityToken; // Raw identity_token
+         appIdAuthContext.identityTokenPayload; // Decoded identity_token JSON
+         appIdAuthContext.refreshToken; // Raw refresh_token
+         ...
+         }
+      );
+      ```
+      {: codeblock}
+      {: javascript}
+
+      ```swift
+      // Server-side swift example
+
+      let options = [
+         "clientId": "<clientID>",
+         "secret": "<secret>",
+         "tenantId": "<tenantID>",
+         "oauthServerUrl": "<oauthServerURL>",
+         "redirectUri": "<appURL>" + CALLBACK_URL
+      ]
+      let webappKituraCredentialsPlugin = WebAppKituraCredentialsPlugin(options: options)
+      let kituraCredentials = Credentials()
+      kituraCredentials.register(plugin: webappKituraCredentialsPlugin)
+      ```
+      {: codeblock}
+      {: swift}
 
 
 
