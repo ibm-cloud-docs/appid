@@ -108,4 +108,3 @@ Your first 1000 authentication events and 1000 authorized users per service inst
 
 If you no longer want to be charged for authentication events and authorized users, you need to ensure that no user can authenticate by using {{site.data.keyword.appid_short_notm}}. You must remove the {{site.data.keyword.appid_short_notm}} configuration from your app code or confirm that your users are not able to use the configuration to log in to your app. To stop getting charged for advance security features, you must disable them on the **Manage Authentication > Authentication Settings** page of the service dashboard.
 
-
