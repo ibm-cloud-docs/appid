@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-02-07"
+lastupdated: "2022-07-22"
 
 keywords: pricing, advanced security, authentication events, authorized users, activity tracking, runtime activity, password policies, keycloak, allow list redirect url, redirect uri 
 
@@ -72,49 +72,6 @@ Welcome! Now that you're up and running, feel free to ask questions, give feedba
 
 Using the Slack channel is not a replacement for opening a support ticket. If you encounter a more serious issue, issues with IBM Cloud that don't relate to {{site.data.keyword.appid_short_notm}}, or need to share more information than you are comfortable sharing in a public forum, open a support ticket.
 {: note}
-
-
-## How does {{site.data.keyword.appid_short_notm}} calculate pricing?
-{: #faq-pricing}
-{: faq}
-
-With {{site.data.keyword.appid_short_notm}}, the more your users authenticate, the less you pay per authentication.
-{: shortdesc}
-
-For the most up-to-date pricing information, you can create a cost estimate by clicking **Add to estimate** in the {{site.data.keyword.appid_short_notm}} section of the [{{site.data.keyword.cloud_notm}} catalog](https://cloud.ibm.com/catalog/services/app-id).
-{: tip}
-
-The graduated tier plan consists of three parts: the number of authentication events, both regular and advanced security, and the number of authorized users. You are charged each month, based on the summary of the three parts. The total price is the cumulative charge for each level of usage, consisting of your quantity multiplied by the unit price at that tier.
-
-Your first 1000 authentication events and first 1000 authorized users per service instance are free each month, except for any advanced security events. Any advanced security events incur an extra charge.
-
-### Authentication events
-{: #faq-authentication}
-
-An authentication event occurs when a new access token, whether regular or anonymous, is issued. Tokens can be issued as a response to a sign-in request that is initiated by a user, or on behalf of the user by an app. By default, access tokens are valid for one hour and anonymous tokens are valid for 30 days. After the token expires, you must create a new token to access protected resources. You can update the expiration time of your {{site.data.keyword.appid_short_notm}} tokens on the **Manage Authentication > Authentication Settings** page of the service dashboard.
-
-#### Advanced security features
-{: #faq-advanced}
-
-Advanced security features give you the ability to strengthen the security of your application.
-{: shortdesc}
-
-By default, advanced security features are disabled. If you turn on MFA, runtime activity tracking, or password policy management you incur an extra charge. For example, if you obtained 10,000 access tokens. Then, you turned on password policy management and obtained 10,000 more. You would pay for 20,000 authentication events and 10,000 advanced security events. If you disable all the advanced features, your account reverts to the original-cost policy.
-
-| Feature | Benefit | 
-|-----|----| 
-|Multi-factor authentication | [MFA for Cloud Directory](/docs/appid?topic=appid-cd-mfa#cd-mfa) confirms a user’s identity by requiring a user to enter a one time passcode that is sent to their email or SMS in addition to their entering their email and password. |
-| Runtime authentication activity tracking | By integrating {{site.data.keyword.at_short}} with {{site.data.keyword.appid_short_notm}}, you can track different types of authentication events at run time. For example, a password reset request, authentication failures, or a user logout. For more information, see [Viewing runtime events](/docs/appid?topic=appid-at-events#at-monitor-runtime). | 
-| Password policy management | As an account owner, you can enforce more secure passwords for Cloud Directory by configuring a set of rules that user passwords must conform to. Examples include, the number of attempted sign-ins before lockout, expiration times, minimum time span between password updates, or the number of times that a password can't be repeated. For a complete list of the options and setup information, see [Advanced password management](/docs/appid?topic=appid-cd-strength#cd-advanced-password). | 
-{: caption="Table 1. Description of the benefits that are gained with advanced authentication events" caption-side="top"}
-
-These features are available only to those instances that are on the graduated tier pricing plan and that were created after 15 March 2018.
-{: note}
-
-### Authorized users
-{: #faq-authorized}
-
-An authorized user is a unique user that signs in with your service whether directly or indirectly, including anonymous users. You are charged for one authorized user each time a new user signs in to your application, including anonymous users. For example, if a user signs in with Facebook and later signs in by using Google, they are considered two separate authorized users.
 
 
 

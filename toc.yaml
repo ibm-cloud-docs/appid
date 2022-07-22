@@ -15,7 +15,12 @@ toc:
       id: learn
       topics:
       - getting-started.md
-      - about.md
+      - topicgroup: 
+          label: About
+          topics: 
+          - about.md
+          - topic: about-pricing.md
+            navtitle: Pricing
       - topicgroup: 
           label: Key concepts
           topics: 

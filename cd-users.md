@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2017, 2022
-lastupdated: "2022-05-17"
+lastupdated: "2022-07-19"
 
 keywords: manage users, registry, cloud directory, add user, delete user, tokens, attributes, migrating users, identity provider, app security
 
@@ -264,7 +264,7 @@ If you want to remove a user from your directory, you can delete the user from t
 4. Delete the user.
 
    ```sh
-   curl -X DELETE "https://<region>.appid.test.cloud.ibm.com/management/v4/<tenantID>/cloud_directory/remove/<userID>" \
+   curl -X DELETE "https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/cloud_directory/remove/<userID>" \
    -H "accept: application/json" \
    -H "authorization: Bearer <token>"
    ```
