@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-05-18"
+lastupdated: "2022-08-09"
 
 keywords: mfa, multifactor, authentication, cloud directory, login widget, second factor, two factor, identity, mulitple factors, advanced security event, cloud directory user, sender id, phone number, email, nexmo, mfa descision, extension
 
@@ -312,8 +312,8 @@ To configure a pre-MFA extension:
    | `application_type` | The type of your application. For example, if your application is a single page JavaScript web app, `browserapp` is returned. Options include: `browserapp`, `serverapp`, and `mobileapp`. |
    | `first_name` | The users given name. |
    | `last_name` | The users surname. |
-   | `last_successful_first_factor` | The date of the last time the user correctly entered their credentials. For example, `2000-01-01T16:44:01.226Z`. |
-   | `last_successful_mfa` | The date of the last time the user completed the full MFA flow. For example, `2000-01-01T16:44:01.226Z`. |
+   | `last_successful_first_factor` | The date of the last time the user correctly entered their credentials. For example, `1660032586651`. |
+   | `last_successful_mfa` | The date of the last time the user completed the full MFA flow. For example, `1660032586651`. |
    {: caption="Table 4. The information that {{site.data.keyword.appid_short_notm}} forwards to your extension point." caption-side="top"}
 
    To see an example extension, check out [the sample](https://github.com/ibm-cloud-security/appid-sample-code-snippets/blob/master/premfa-extension-point/index.js).
