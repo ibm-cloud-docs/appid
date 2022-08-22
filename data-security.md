@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-07-22"
+lastupdated: "2022-08-22"
 
 keywords: data encryption in app id, data storage for app id, personal data in app id, data deletion for app id, data in app id, data security in app id
 
@@ -58,7 +58,7 @@ To ensure that you can securely manage your data when you use {{site.data.keywor
 
 {{site.data.keyword.appid_short_notm}} stores and encrypts user profile attributes. As a multi-tenant service, every tenant has a designated encryption key and user data in each tenant is encrypted with only that tenant's key. {{site.data.keyword.appid_short_notm}} ensures that private information is encrypted before it is stored.
 
-You can add a higher level of encryption control to your data at rest (when it is stored) by enabling integration with a `_Key Management Service_` (KMS). The data that you store in {{site.data.keyword.cloud_notm}} is encrypted at rest by using `_envelope encryption_`. If you need to control the encryption keys, you can integrate {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}. This process is commonly referred to as Bring Your Own Key (BYOK). With {{site.data.keyword.keymanagementserviceshort}} and {{site.data.keyword.hscrypto}}, you can create, import, and manage encryption keys. You can assign access policies to the keys, assign users or service IDs to the keys, or give the key access only to a specific service.
+You can add a higher level of encryption control to your data at rest (when it is stored) by enabling integration with a Key Management Service (KMS). The data that you store in {{site.data.keyword.cloud_notm}} is encrypted at rest by using envelope encryption. If you need to control the encryption keys, you can integrate {{site.data.keyword.keymanagementserviceshort}} or {{site.data.keyword.hscrypto}}. This process is commonly referred to as Bring Your Own Key (BYOK). With {{site.data.keyword.keymanagementserviceshort}} and {{site.data.keyword.hscrypto}}, you can create, import, and manage encryption keys. You can assign access policies to the keys, assign users or service IDs to the keys, or give the key access only to a specific service.
 
 ## Managing your own keys
 {: #customer-keys}
