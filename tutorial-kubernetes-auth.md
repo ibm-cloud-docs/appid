@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-05-17"
+lastupdated: "2022-09-14"
 
 keywords: ingress controller, ingress, istio, access, subdomain, custom domain, service, containerized apps, containers, kube, networking, policy, policies, secure apps, authentication, authorization
 
@@ -52,7 +52,7 @@ subcollection: appid
 With {{site.data.keyword.appid_full}}, you can consistently enforce policy-driven security by using the Ingress networking capability in {{site.data.keyword.containerlong_notm}} or {{site.data.keyword.openshiftshort}}. With this approach, you can enforce authentication and authorization policies for all the applications in your cluster at the same time, without ever changing your app code!
 {: shortdesc}
 
-The {{site.data.keyword.containershort_notm}} custom Ingress image is [deprecated as of 01 December 2020](/docs/containers?topic=containers-ingress-types). This tutorial is updated to use the community Kubernetes Ingress image. To see the previous version of this documentation, see the [{{site.data.keyword.containershort_notm}} documentation](/docs/containers?topic=containers-comm-ingress-annotations#app-id).
+The {{site.data.keyword.containershort_notm}} custom Ingress image is [deprecated as of 01 December 2020](/docs/containers?topic=containers-ingress-types). This tutorial is updated to use the community Kubernetes Ingress image. To see the previous version of this documentation, see the [{{site.data.keyword.containershort_notm}} documentation](/docs/containers?topic=containers-comm-ingress-annotations#app-id-authentication).
 {: note}
 
 
@@ -248,7 +248,7 @@ Now that your Ingress resource is updated with the annotation, you can start enf
 
    
 
-3. Optional: You can customize the default behavior of the OAuth2-Proxy by creating a Kubernetes configmap. For more information about customization, see the [{{site.data.keyword.containershort_notm}} annotation docs](/docs/containers?topic=containers-comm-ingress-annotations#app-id).
+3. Optional: You can customize the default behavior of the OAuth2-Proxy by creating a Kubernetes configmap. For more information about customization, see the [{{site.data.keyword.containershort_notm}} annotation docs](/docs/containers?topic=containers-comm-ingress-annotations#app-id-authentication).
 
 4. Verify that {{site.data.keyword.appid_short_notm}} authentication is enforced for your apps.
 
