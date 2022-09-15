@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-09-14"
+lastupdated: "2022-09-15"
 
 keywords: ingress controller, ingress, istio, access, subdomain, custom domain, service, containerized apps, containers, kube, networking, policy, policies, secure apps, authentication, authorization
 
@@ -90,7 +90,7 @@ To ensure the best performance of the integration, it is recommended that you al
 ## Adding redirect URLs
 {: #ingress-redirect}
 
-A redirect URL is the callback endpoint of your app; the location a user is sent after successfully signing in or out of your app. To prevent phishing attacks, {{site.data.keyword.appid_short_notm}} validates requested URLs against an allowlist of redirect URLs that you add to the service. By adding a URL to your allowlist, you give {{site.data.keyword.appid_short_notm}} permission to forward your users to that location. [Learn more about redirect URIs](/docs/appid?topic=appid-managing-idp#add-redirect-uri).
+A redirect URL is the callback endpoint of your app; the location where a user is sent after successfully signing in or out of your app. To prevent phishing attacks, {{site.data.keyword.appid_short_notm}} validates requested URLs against an allowlist of redirect URLs that you add to the service. By adding a URL to your allowlist, you give {{site.data.keyword.appid_short_notm}} permission to forward your users to that location. [Learn more about redirect URIs](/docs/appid?topic=appid-managing-idp#add-redirect-uri).
 
 1. In the IBM Cloud console, select your instance of {{site.data.keyword.appid_short_notm}} from your resource list.
 2. Navigate to the **Manage authentication** page of your instance of {{site.data.keyword.appid_short_notm}}.
