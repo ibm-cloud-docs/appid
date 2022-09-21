@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-05-17"
+lastupdated: "2022-09-21"
 
 keywords: web apps, nodejs, node, javascript, protected resource, authorization flow, front end, frontend, app security, authentication
 
@@ -123,6 +123,7 @@ You can obtain your credentials in one of two ways.
 * By making a POST request to the [`/management/v4/<tenantID>/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Applications/registerApplication).
 
       Request format:
+
       ```sh
       curl -X POST \  https://us-south.appid.cloud.ibm.com/management/v4/39a37f57-a227-4bfe-a044-93b6e6060b61/applications/ \
       -H 'Content-Type: application/json' \
@@ -132,6 +133,7 @@ You can obtain your credentials in one of two ways.
       {: codeblock}
 
       Example response:
+      
       ```json
       {
         "clientId": "xxxxx-34a4-4c5e-b34d-d12cc811c86d",
