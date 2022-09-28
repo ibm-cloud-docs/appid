@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-07-11"
+lastupdated: "2022-09-28"
 
 keywords: management api, service management, service instance, devops automation, customize, permissions, iam, account owners, identity, app security, access tokens, video tutorial
 
@@ -58,6 +58,9 @@ You can use the {{site.data.keyword.appid_full}} APIs for DevOps automation, cus
 {{site.data.keyword.appid_short_notm}} is available in the following regions:
 
 ![Visual representation of the availability of the service. The image is a map with pin points in the locations in which the service is available. If you are unable to view this image, see the table in the service endpoints section for a complete list.](images/regions.svg){: caption="Figure 1. {{site.data.keyword.appid_short_notm}} availability" caption-side="bottom"}
+
+This image is an artistic representation and does not reflect actual political or geographic boundaries.
+{: note}
 
 
 ## Service endpoints
