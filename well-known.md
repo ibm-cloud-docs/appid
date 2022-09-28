@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-05-17"
+lastupdated: "2022-09-15"
 
 keywords: well known endpoint, discovery endpoint, oidc, public keys, user information, claims, attributes, full profile, identity providers, app security, tokens
 
@@ -78,7 +78,7 @@ Learn more about the [available regions](/docs/appid?topic=appid-regions-endpoin
 ### How do I call the endpoint?
 {: #wellknown-endpoint-call}
 
-To make a call to the endpoint, you must have a valid tenant ID and you must hardcode the discovery document URI into your application code.
+To call the endpoint, you must have a valid tenant ID and you must hardcode the discovery document URI into your application code.
 
 Check out the following sample cURL request:
 

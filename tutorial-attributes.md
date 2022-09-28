@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-05-17"
+lastupdated: "2022-09-15"
 
 keywords: attributes, cloud directory, user registry, user management, personalization, customize app, user information, profiles, app security, user profile, app access, identity
 
@@ -98,7 +98,7 @@ Before you can start adding attributes for your users, you need to configure you
 
 2. In the **Cloud Directory > Email Verification** tab, enable verification and set **Allow users to sign-in to your app without first verifying their email address** to **Yes**.
 
-3. Optionally, in the **Profiles** tab, set **Change custom attributes from the app** to **Enabled**. This allows users to update their attributes after they've answered your initial questionnaire.
+3. Optionally, in the **Profiles** tab, set **Change custom attributes from the app** to **Enabled**. This action allows users to update their attributes after they answer your initial questionnaire.
 
 Excellent! Your dashboard is configured and you're ready to start setting attributes.
 
@@ -107,7 +107,7 @@ Excellent! Your dashboard is configured and you're ready to start setting attrib
 {: #attributes-set}
 {: step}
 
-When your users interact with your questionnaire, you can map their answers to specific attributes and then add those attributes to their file. 
+When your users interact with your questionnaire, you can map their answers to specific attributes, then add those attributes to their file. 
 
 Your application is responsible for mapping the answers to the specific attributes that you want to add to the profile.
 {: note}
@@ -159,7 +159,7 @@ Great work!
 {: #attributes-tokens}
 {: step}
 
-Becoming more popular, you decide to implement a "deal-of-the-day". You want the first thing that the user sees when they sign in to your application to be a coupon for something that matches their dietary preferences. You can achieve this by injecting the attributes that are stored in their profiles into their tokens. By having the information available at run time, you can have your application make a custom decision on the spot about which deal to show. 
+Becoming more popular, you decide to implement a "deal-of-the-day". You want the first thing that the user sees when they sign in to your application to be a coupon for something that matches their dietary preferences. You can achieve this goal by injecting the attributes that are stored in their profiles into their tokens. By having the information available at run time, you can have your application make a custom decision on the spot about which deal to show. 
 {: shortdesc}
 
 [Token configuration](/docs/appid?topic=appid-customizing-tokens#customizing-tokens) is global, which means that it applies to every user with the same attribute.

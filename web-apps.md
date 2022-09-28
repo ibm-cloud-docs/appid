@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-05-17"
+lastupdated: "2022-09-15"
 
 keywords: web apps, authorization code, authentication, nodejs, javascript, app access, application credentials, login, redirect uri, protected endpoint, video
 
@@ -56,7 +56,7 @@ When you are developing a web application, you can use the {{site.data.keyword.a
 {: #understanding-web-flow}
 
 
-Web apps often require users to authenticate to access protected content. {{site.data.keyword.appid_short_notm}} uses the OIDC authorization code flow to securely authenticate users. With this flow, when the user is authenticated, the app receives an authorization code. The code is then exchanged for an access, identity, and refresh token. In code, exchange step the tokens are always sent via a secure backchannel between the app and the OIDC server. This provides an extra layer of security as the attacker is not able to intercept the tokens. These tokens can be sent directly to the web server hosting application for user authentication.
+Web apps often require users to authenticate to access protected content. {{site.data.keyword.appid_short_notm}} uses the OIDC authorization code flow to securely authenticate users. With this flow, when the user is authenticated, the app receives an authorization code. The code is then exchanged for an access, identity, and refresh token. In code, exchange step the tokens are always sent by using a secure backchannel between the app and the OIDC server. This process provides an extra layer of security as the attacker is not able to intercept the tokens. These tokens can be sent directly to the web server hosting application for user authentication.
 
 
 ![{{site.data.keyword.appid_short_notm}} web app request flow](images/web-flow.svg){: caption="Figure 1. {{site.data.keyword.appid_short_notm}} web app request flow" caption-side="bottom"}
@@ -378,7 +378,7 @@ You must have the following prerequisites:
 ### Initializing the Spring Boot framework
 {: #web-spring-boot-initialize}
 
-1. Add the following between the `<project> </project>` tags in your Maven `pom.xml` file.
+1. Add the following code between the `<project> </project>` tags in your Maven `pom.xml` file.
 
    ```xml
    <parent>

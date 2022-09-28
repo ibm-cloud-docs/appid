@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-05-17"
+lastupdated: "2022-09-15"
 
 keywords: secure mobile app, android, ios, authenticate users,  authorization grant, client sdk, trusted client, native app, personalized, custom app, devices, identity flow, app security
 
@@ -69,7 +69,7 @@ Following registration, your users authenticate by using either the OAuth2 `auth
 ### Dynamic client registration
 {: #mobile-dynamic}
 
-1. A user performs an action that triggers a request by the client application to the {{site.data.keyword.appid_short_notm}} SDK.
+1. A user triggers a request by the client application to the {{site.data.keyword.appid_short_notm}} SDK.
 2. If your app is not registered as a mobile client yet, the SDK initiates a dynamic registration flow.
 3. On a successful registration, {{site.data.keyword.appid_short_notm}} returns your installation-specific client ID.
 

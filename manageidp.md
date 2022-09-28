@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-02-07"
+lastupdated: "2022-09-15"
 
 keywords: identity provider, idp, app security, mobile app, web app, authentication, authorization, oidc, saml, protocols, facebook, google, w3id, cloud directory, redirect url, redirect uri, token configuration, token lifetime, log in configuration
 
@@ -135,7 +135,7 @@ When you set token expiration, the values apply to all the providers that you ma
    | ---------- | ----------- | ------- | ------- |
    | [Access](/docs/appid?topic=appid-tokens#access) | The length of time for which access tokens are valid. The smaller the value, the more protection that you have in cases of token theft. | 60 minutes | Any value in the range 5 - 1440 |
    | [Refresh](/docs/appid?topic=appid-tokens#refresh) | The length of time for which refresh tokens are valid. The smaller the number, the more frequently a user must sign themselves in. | 30 days | Any value in the range 1 - 90 | 
-   | [Anonymous](/docs/appid?topic=appid-anonymous) | The length of time for which anonymous tokens are valid. Anonymous tokens are assigned to users the moment they begin interacting with your app. When a user signs in, the information in the anonymous token is then transferred to the token associated with the user. | 30 days | Any value in the range 1 - 90 | 
+   | [Anonymous](/docs/appid?topic=appid-anonymous) | The length of time for which anonymous tokens are valid. Anonymous tokens are assigned to users the moment that they begin interacting with your app. When a user signs in, the information in the anonymous token is then transferred to the token associated with the user. | 30 days | Any value in the range 1 - 90 | 
    {: caption="Table 3. Token types and customization options" caption-side="top"}
 
    [Identity tokens](/docs/appid?topic=appid-tokens#identity) are automatically configured to match the length of time that you set for access tokens. The values cannot be different.

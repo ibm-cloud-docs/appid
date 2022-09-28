@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-01-31"
+lastupdated: "2022-09-14"
 
 keywords: authentication, authorization, identity, app security, cloud directory, user data, identity provider, oauth, protocols, oauth, oidc, disaster recovery, dr, compliance, high availability, ha, secure, HA, DR
 
@@ -103,7 +103,7 @@ Application
     **Cloud Directory**: Users can sign up for your service with their email and a password. You can then manage your users in a list view through the UI. With Cloud Directory, {{site.data.keyword.appid_short_notm}} functions as your identity provider.
 
 External (third party)
-:   **Social and enterprise identity providers**: {{site.data.keyword.appid_short_notm}} supports Facebook, Google+, and  SAML 2.0 Federation as identity provider options. The service arranges a redirect to the identity provider and verifies the returned authentication tokens. If the tokens are valid, the service grants access to your app without ever having access to the actual passphrase.
+:   **Social and enterprise identity providers**: {{site.data.keyword.appid_short_notm}} supports Facebook, Google+, and  SAML 2.0 Federation as identity provider options. The service arranges a redirect to the identity provider and verifies the returned authentication tokens. If the tokens are valid, the service grants access to your app.
 
 
 ## Integrations
@@ -114,7 +114,7 @@ You can use {{site.data.keyword.appid_short_notm}} with other {{site.data.keywor
 
 
 {{site.data.keyword.containershort_notm}}
-:   By configuring Ingress in a standard cluster you can secure your apps at the cluster level. Check out the [{{site.data.keyword.appid_short_notm}} authentication Ingress annotation](/docs/containers?topic=containers-comm-ingress-annotations#app-id) or the [Announcing {{site.data.keyword.appid_short_notm}} integration to {{site.data.keyword.containerlong_notm}}](https://www.ibm.com/cloud/blog/announcing-app-id-integration-ibm-cloud-kubernetes-service){: external} blog post to get started.
+:   By configuring Ingress in a standard cluster you can secure your apps at the cluster level. Check out the [{{site.data.keyword.appid_short_notm}} authentication Ingress annotation](/docs/containers?topic=containers-comm-ingress-annotations#app-id-authentication) or the [Announcing {{site.data.keyword.appid_short_notm}} integration to {{site.data.keyword.containerlong_notm}}](https://www.ibm.com/cloud/blog/announcing-app-id-integration-ibm-cloud-kubernetes-service){: external} blog post to get started.
 
 {{site.data.keyword.openwhisk_short}} and {{site.data.keyword.apiconnect_short}}
 :   When you create your APIs with [{{site.data.keyword.openwhisk_short}}](/docs/openwhisk?topic=openwhisk-getting-started) and [API Connect](/docs/apiconnect?topic=apiconnect-getting-started), you can secure your applications at the gateway rather than in your app code.
