@@ -213,7 +213,7 @@ By default, custom attributes are modifiable and can be updated by using an {{si
 4. Make a PUT request to either the `/users` endpoint.
 
    ```sh
-   curl -X GET "https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/users/<userID>/profile" \
+   curl -X PUT "https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/users/<userID>/profile" \
    -H "accept: application/json" \
    -H "Content-Type: application/json" \
    -H "authorization: Bearer <token>"
