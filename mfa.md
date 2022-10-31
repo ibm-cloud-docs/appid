@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-08-09"
+lastupdated: "2022-10-31"
 
 keywords: mfa, multifactor, authentication, cloud directory, login widget, second factor, two factor, identity, mulitple factors, advanced security event, cloud directory user, sender id, phone number, email, nexmo, mfa descision, extension
 
@@ -96,7 +96,7 @@ You can configure the MFA email channel through the GUI.
 
 1. Navigate to the **Cloud Directory > Multifactor authentication** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
 
-2. In the **Enable Multifactor authentication** box, on the **Settings** tab, toggle MFA to **Enabled**. Acknowledge that you understand that MFA is charged as an [advanced security event](/docs/appid?topic=appid-faq#faq-pricing). By default, **Email** is selected as the **Authentication method**.
+2. In the **Enable Multifactor authentication** box, on the **Settings** tab, toggle MFA to **Enabled**. Acknowledge that you understand that MFA is charged as an [advanced security event](/docs/appid?topic=appid-pricing). By default, **Email** is selected as the **Authentication method**.
 
 3. In the **Email channel** tab, review the **Email template**. You can choose to send the template with the provided wording or write your own message. Be sure to use the correct HTML tagging. In the GUI, you can add parameters and insert images. To change the [language](/docs/appid?topic=appid-cd-types#cd-languages) of the message, you can use [the APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateLocalization){: external} to set the language. However, you are responsible for the content and conversion of the message. Check out the following table to see the list of tables that you can use in this message and all the other messages that you can send. If a user does not supply the information that is pulled by the parameter, it appears blank.
 
@@ -166,7 +166,7 @@ When MFA is initially enabled, it is set to use email by default. You can change
 ### Before you begin
 {: #cd-mfa-configure-sms-before}
 
-{{site.data.keyword.appid_short_notm}} uses [Vonage](https://www.vonage.com/communications-apis/sms/){: external} (formally Nexmo) to send MFA SMS one-time codes. Before you get started, be sure that you have an instance of {{site.data.keyword.appid_short_notm}} that is on the [graduated tier pricing plan](/docs/appid?topic=appid-faq#faq-pricing) and the following Vonage information.
+{{site.data.keyword.appid_short_notm}} uses [Vonage](https://www.vonage.com/communications-apis/sms/){: external} (formally Nexmo) to send MFA SMS one-time codes. Before you get started, be sure that you have an instance of {{site.data.keyword.appid_short_notm}} that is on the [graduated tier pricing plan](/docs/appid?topic=appid-pricing) and the following Vonage information.
 
 - Obtain your Vonage API key and secret. You can find the Vonage API key and secret in your account settings page on the Vonage dashboard. Check out the [Vonage documentation](https://developer.vonage.com/concepts/guides/authentication#api-key-and-secret){: external} for further information on how to obtain your credentials.
 
@@ -181,7 +181,7 @@ To configure MFA with the GUI, check out [Cloud Directory](/docs/appid?topic=app
 
 1. Navigate to the **Cloud Directory > Multifactor authentication** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
 
-2. In the **Enable multifactor authentication** box, on the **settings tab**, toggle MFA to **Enabled**. Acknowledge that you understand that MFA is charged as an [advanced security event](/docs/appid?topic=appid-faq#faq-pricing).
+2. In the **Enable multifactor authentication** box, on the **settings tab**, toggle MFA to **Enabled**. Acknowledge that you understand that MFA is charged as an [advanced security event](/docs/appid?topic=appid-pricing).
 
 3. Select **SMS** as your **Authentication method**.
 
