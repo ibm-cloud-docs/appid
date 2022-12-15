@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-09-14"
+lastupdated: "2022-12-15"
 
 keywords: release notes, new, spa, single sign on, mfa, cloud directory, saml, app security, application identity
 
@@ -49,6 +49,16 @@ content-type: release-note
 
 # Release notes for {{site.data.keyword.appid_short_notm}}
 {: #release-notes}
+
+
+## 15 December 2022
+{: #appid-Dec1522}
+{: release-note}
+
+New {{site.data.keyword.appid_short_notm}} API endpoints
+:   {{site.data.keyword.appid_short_notm}} added options to make it more efficient for you to migrate your users from one service instance to another. You can now use the [`export_all`](/docs/appid?topic=appid-cd-users#cd-export-all) or [`import_all`](/docs/appid?topic=appid-cd-users#cd-import-all) API endpoints to migrate all of your users (up to approximately 16,000).
+
+
 
 ## 21 January 2022
 {: #appid-Jan2122}
