@@ -324,7 +324,7 @@ If you are exporting many users (16,000 or less), you can use the `export/all` A
 
    | Parameters | Description |
    | ---------- | ----------- |
-   | `encryption_secret` | A custom string that is used to encrypt and decrypt a user's hashed password. Retain the encryption secret as you need it to use the [import all](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.cloudDirectoryImportAll) {:external} API. IBM does not store the secret so if the secret is lost, you can't access the exported data. |
+   | `encryptionSecret` | A custom string that is used to encrypt and decrypt a user's hashed password. Retain the encryption secret as you need it to use the [import/all](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.cloudDirectoryImportAll) {:external} API. IBM does not store the secret so if the secret is lost, you can't access the exported data. |
    | `emailAddress` | An email address to which an email is sent when the export is ready or if the request fails. |
    | `expires` | An integer that you can set (1 ≤ value ≤ 30) to specify the number of days after which the export must be deleted. The default value is 7. |
    | `tenantID` | The service tenant ID can be found in your service credentials. You can find or create your service credentials in the {{site.data.keyword.appid_short_notm}} dashboard. |
@@ -335,7 +335,7 @@ If you are exporting many users (16,000 or less), you can use the `export/all` A
 #### Exporting users in smaller batches
 {: #cd-exporting-profiles}
 
-The export endpoint is reserved for smaller exports of approximately less than 16,000 users. To export all your Cloud Directory users who are associated with a specific tenant ID, use the [export all](/docs/appid?topic=appid-cd-users#cd-export-all) API endpoint.
+The export endpoint is reserved for smaller exports of approximately less than 16,000 users. To export all your Cloud Directory users who are associated with a specific tenant ID, use the [export/all](/docs/appid?topic=appid-cd-users#cd-export-all) API endpoint.
 
 1. Export the users from your original instance of the service.
 
@@ -348,7 +348,7 @@ The export endpoint is reserved for smaller exports of approximately less than 1
 
    | Parameters | Description |
    | ---------- | ----------- |
-   | `encryption_secret` | A custom string that is used to encrypt and decrypt a user's hashed password. |
+   | `encryptionSecret` | A custom string that is used to encrypt and decrypt a user's hashed password. |
    | `tenantID` | The service tenant ID can be found in your service credentials. You can find your service credentials in the {{site.data.keyword.appid_short_notm}} dashboard. |
    {: caption="Table 2. Descriptions of the parameters that need to be provided in the export request" caption-side="top"}
 
@@ -385,17 +385,17 @@ Now that you have a list of exported Cloud Directory users, you can import them 
 
    | Parameters | Description |
    | ---------- | ----------- |
-   | `encryption_secret` | A custom string that is used to encrypt and decrypt a user's hashed password. The encryption secret is the same secret that you attached to the [export all](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.cloudDirectoryExportAll){: external} API. IBM does not store the secret so if the secret is lost, you can't access the exported data. |
+   | `encryptionSecret` | A custom string that is used to encrypt and decrypt a user's hashed password. The encryption secret is the same secret that you attached to the [export/all](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.cloudDirectoryExportAll){: external} API. IBM does not store the secret so if the secret is lost, you can't access the exported data. |
    | `emailAddress` | An email address to which an email is sent when the export is ready or if the request fails. |
    | `tenantID` | The service tenant ID can be found in your service credentials. You can find or create your service credentials in the {{site.data.keyword.appid_short_notm}} dashboard. |
-   | `file`| The output from the [export download](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.cloudDirectoryDownloadExport){: external} endpoint. |
+   | `file`| The output from the [export/download](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.cloudDirectoryDownloadExport){: external} endpoint. |
    {: caption="Table 4. Descriptions of the parameters that need to be provided in the import/all request" caption-side="top"}
 
 
 #### Importing users
 {: #cd-import}
 
-You can use the import API endpoint to import small groups of users. You can add up to only 50 users per request with the import API endpoint. To add all your users through a single request, use the [import all](/docs/appid?topic=appid-cd-users#cd-import-all) API endpoint.
+You can use the import API endpoint to import small groups of users. You can add up to only 50 users per request with the import API endpoint. To add all your users through a single request, use the [import/all](/docs/appid?topic=appid-cd-users#cd-import-all) API endpoint.
 
 1. If your users are [assigned roles](/docs/appid?topic=appid-access-control), be sure to create the roles and scopes in your new instance of {{site.data.keyword.appid_short_notm}}.
 
@@ -453,7 +453,7 @@ You can use the import API endpoint to import small groups of users. You can add
 ### Migration script for smaller exports and imports
 {: #cd-migration-script}
 
-{{site.data.keyword.appid_short_notm}} provides a migration script that you can use through the CLI that can help speed up the migration process when you use the export or import API endpoints. Alternatively, to make the migration process even more efficient, you can use the [export all](/docs/appid?topic=appid-cd-users#cd-export-all) and [import all](/docs/appid?topic=appid-cd-users#cd-import-all) API endpoints.
+{{site.data.keyword.appid_short_notm}} provides a migration script that you can use through the CLI that can help speed up the migration process when you use the export or import API endpoints. Alternatively, to make the migration process even more efficient, you can use the [export/all](/docs/appid?topic=appid-cd-users#cd-export-all) and [import/all](/docs/appid?topic=appid-cd-users#cd-import-all) API endpoints.
 
 1.  Clone the [repository](https://github.com/ibm-cloud-security/appid-sample-code-snippets/tree/master/export-import-cloud-directory-users){: external}.
 
