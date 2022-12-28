@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2017, 2022
-lastupdated: "2022-12-15"
+lastupdated: "2022-12-28"
 
 keywords: manage users, registry, cloud directory, add user, delete user, tokens, attributes, migrating users, identity provider, app security
 
@@ -227,7 +227,7 @@ If you disable self-service sign-up or add a user on their behalf, the user does
 If you want to remove a user from your directory, you can delete the user from the GUI or by using the APIs.
 {: shortdesc}
 
-### With the GUI
+### Deleting a single user with the GUI
 {: #delete-user-gui}
 
 1. Go to the **Cloud Directory > Users** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
@@ -239,8 +239,7 @@ If you want to remove a user from your directory, you can delete the user from t
 4. Confirm that you understand that deleting a user cannot be undone by clicking **Delete**. If the action was a mistake, you can add the user to your directory again, but any information about that user is no longer available.
 
 
-
-### With the API
+### Deleting a single user with the API
 {: #delete-user-api}
 
 1. Obtain your tenant ID.
@@ -269,6 +268,7 @@ If you want to remove a user from your directory, you can delete the user from t
    -H "authorization: Bearer <token>"
    ```
    {: codeblock}
+   
 
 
 ## Migrating users
@@ -332,7 +332,7 @@ If you are exporting many users (16,000 or less), you can use the `export/all` A
 
 
 
-#### Exporting users in smaller batches
+### Exporting users in smaller batches
 {: #cd-exporting-profiles}
 
 The export endpoint is reserved for smaller exports of approximately less than 16,000 users. To export all your Cloud Directory users who are associated with a specific tenant ID, use the [export/all](/docs/appid?topic=appid-cd-users#cd-export-all) API endpoint.
@@ -392,7 +392,7 @@ Now that you have a list of exported Cloud Directory users, you can import them 
    {: caption="Table 4. Descriptions of the parameters that need to be provided in the import/all request" caption-side="top"}
 
 
-#### Importing users
+### Importing users in smaller batches
 {: #cd-import}
 
 You can use the import API endpoint to import small groups of users. You can add up to only 50 users per request with the import API endpoint. To add all your users through a single request, use the [import/all](/docs/appid?topic=appid-cd-users#cd-import-all) API endpoint.
