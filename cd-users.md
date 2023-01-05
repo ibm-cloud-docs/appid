@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2017, 2022
-lastupdated: "2022-12-28"
+  years: 2017, 2023
+lastupdated: "2023-01-05"
 
 keywords: manage users, registry, cloud directory, add user, delete user, tokens, attributes, migrating users, identity provider, app security
 
@@ -240,7 +240,7 @@ If you want to remove a user from your directory, you can delete the user from t
 
 
 ### Deleting a single user with the API
-{: #delete-user-api}
+{: #delete-single-user-api}
 
 1. Obtain your tenant ID.
 
@@ -271,6 +271,7 @@ If you want to remove a user from your directory, you can delete the user from t
    
 
 
+
 ## Migrating users
 {: #user-migration}
 
@@ -278,6 +279,7 @@ Occasionally, you might need to add an instance of {{site.data.keyword.appid_sho
 
 You must be assigned the `Manager` [IAM role](/docs/account?topic=account-access-getstarted) for both instances of {{site.data.keyword.appid_short_notm}}.
 {: note}
+
 
 
 ### Exporting all users
