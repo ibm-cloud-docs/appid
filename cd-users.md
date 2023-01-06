@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2017, 2023
-lastupdated: "2023-01-05"
+lastupdated: "2023-01-06"
 
 keywords: manage users, registry, cloud directory, add user, delete user, tokens, attributes, migrating users, identity provider, app security
 
@@ -59,8 +59,9 @@ You can see all the information that is known about all your Cloud Directory use
 {: shortdesc}
 
 
-### With the GUI
+### Viewing user information with the UI
 {: #cd-view-gui}
+{: ui}
 
 You can use the {{site.data.keyword.appid_short_notm}} dashboard to view details about your app users. 
 
@@ -83,8 +84,9 @@ You can use the {{site.data.keyword.appid_short_notm}} dashboard to view details
    {: caption="Table 1. The details that you can see about your users by looking in the {{site.data.keyword.appid_short_notm}} dashboard" caption-side="top"}
 
 
-### With the API
+### Viewing user information with the API
 {: #cd-view-api}
+{: api}
 
 You can use the {{site.data.keyword.appid_short_notm}} API to view details about your app users. 
 
@@ -181,8 +183,9 @@ If you disable self-service sign-up or add a user on their behalf, the user does
 {: tip}
 
 
-### With the GUI
+### Adding users with the UI
 {: #add-user-gui}
+{: ui}
 
 1. Go to the **Cloud Directory > Users** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
 
@@ -194,8 +197,9 @@ If you disable self-service sign-up or add a user on their behalf, the user does
 
 
 
-### With the API
+### Adding users with the API
 {: #add-user-api}
+{: api}
 
 
 1. Obtain your tenant ID from your application or service credentials.
@@ -227,8 +231,9 @@ If you disable self-service sign-up or add a user on their behalf, the user does
 If you want to remove a user from your directory, you can delete the user from the GUI or by using the APIs.
 {: shortdesc}
 
-### Deleting a single user with the GUI
+### Deleting a single user with the UI
 {: #delete-user-gui}
+{: ui}
 
 1. Go to the **Cloud Directory > Users** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
 
@@ -241,6 +246,7 @@ If you want to remove a user from your directory, you can delete the user from t
 
 ### Deleting a single user with the API
 {: #delete-single-user-api}
+{: api}
 
 1. Obtain your tenant ID.
 
@@ -269,6 +275,7 @@ If you want to remove a user from your directory, you can delete the user from t
    ```
    {: codeblock}
    
+
 
 
 
