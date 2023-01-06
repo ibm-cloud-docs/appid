@@ -228,7 +228,7 @@ If you disable self-service sign-up or add a user on their behalf, the user does
 ## Deleting users
 {: #delete-users}
 
-If you want to remove a user from your directory, you can delete the user from the GUI or by using the APIs.
+If you want to remove a user from your directory, you can delete the user from the UI or by using the APIs.
 {: shortdesc}
 
 ### Deleting a single user with the UI
@@ -278,7 +278,6 @@ If you want to remove a user from your directory, you can delete the user from t
 
 
 
-
 ## Migrating users
 {: #user-migration}
 
@@ -286,7 +285,6 @@ Occasionally, you might need to add an instance of {{site.data.keyword.appid_sho
 
 You must be assigned the `Manager` [IAM role](/docs/account?topic=account-access-getstarted) for both instances of {{site.data.keyword.appid_short_notm}}.
 {: note}
-
 
 
 ### Exporting all users
