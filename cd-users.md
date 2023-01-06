@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2017, 2022
-lastupdated: "2022-07-19"
+  years: 2017, 2023
+lastupdated: "2023-01-06"
 
 keywords: manage users, registry, cloud directory, add user, delete user, tokens, attributes, migrating users, identity provider, app security
 
@@ -59,8 +59,9 @@ You can see all the information that is known about all your Cloud Directory use
 {: shortdesc}
 
 
-### With the GUI
+### Viewing user information with the UI
 {: #cd-view-gui}
+{: ui}
 
 You can use the {{site.data.keyword.appid_short_notm}} dashboard to view details about your app users. 
 
@@ -83,8 +84,9 @@ You can use the {{site.data.keyword.appid_short_notm}} dashboard to view details
    {: caption="Table 1. The details that you can see about your users by looking in the {{site.data.keyword.appid_short_notm}} dashboard" caption-side="top"}
 
 
-### With the API
+### Viewing user information with the API
 {: #cd-view-api}
+{: api}
 
 You can use the {{site.data.keyword.appid_short_notm}} API to view details about your app users. 
 
@@ -181,8 +183,9 @@ If you disable self-service sign-up or add a user on their behalf, the user does
 {: tip}
 
 
-### With the GUI
+### Adding users with the UI
 {: #add-user-gui}
+{: ui}
 
 1. Go to the **Cloud Directory > Users** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
 
@@ -194,8 +197,9 @@ If you disable self-service sign-up or add a user on their behalf, the user does
 
 
 
-### With the API
+### Adding users with the API
 {: #add-user-api}
+{: api}
 
 
 1. Obtain your tenant ID from your application or service credentials.
@@ -224,11 +228,12 @@ If you disable self-service sign-up or add a user on their behalf, the user does
 ## Deleting users
 {: #delete-users}
 
-If you want to remove a user from your directory, you can delete the user from the GUI or by using the APIs.
+If you want to remove a user from your directory, you can delete the user from the UI or by using the APIs.
 {: shortdesc}
 
-### With the GUI
+### Deleting a single user with the UI
 {: #delete-user-gui}
+{: ui}
 
 1. Go to the **Cloud Directory > Users** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
 
@@ -239,9 +244,9 @@ If you want to remove a user from your directory, you can delete the user from t
 4. Confirm that you understand that deleting a user cannot be undone by clicking **Delete**. If the action was a mistake, you can add the user to your directory again, but any information about that user is no longer available.
 
 
-
-### With the API
-{: #delete-user-api}
+### Deleting a single user with the API
+{: #delete-single-user-api}
+{: api}
 
 1. Obtain your tenant ID.
 
@@ -269,29 +274,75 @@ If you want to remove a user from your directory, you can delete the user from t
    -H "authorization: Bearer <token>"
    ```
    {: codeblock}
+   
+
 
 
 ## Migrating users
 {: #user-migration}
 
-Occasionally, you might need to add an instance of {{site.data.keyword.appid_short_notm}}. To help with migrating to the new instance, you can use the export and import APIs 
+Occasionally, you might need to add an instance of {{site.data.keyword.appid_short_notm}}. To help with migrating to the new instance, you can use the export and import APIs for smaller migrations. If you are migrating a large number of users (16,000 or less), you can [export all of them](/docs/appid?topic=appid-cd-users#cd-export-all) or [import all of them](/docs/appid?topic=appid-cd-users#cd-import-all) with a single API request to improve your efficiency.
 
 You must be assigned the `Manager` [IAM role](/docs/account?topic=account-access-getstarted) for both instances of {{site.data.keyword.appid_short_notm}}.
 {: note}
 
 
-
-
-
-
-### Exporting users 
-{: #cd-exporting-profiles}
+### Exporting all users
+{: #cd-export-all}
 
 Before you can import your profiles to your new instance, you need to export them from your original instance of the service.
 
+If you are exporting many users (16,000 or less), you can use the `export/all` API endpoint. 
+
+1. Export all the users from your original instance of the service.
+
+   ```sh
+   curl -X POST 'https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/export/all' \ 
+   --header 'Content-Type: application/json' \ 
+   --header 'Authorization: Bearer <IAMToken>' \ 
+   --data-raw '{"encryptionSecret" : <encryptionSecret>",  
+   "emailAddress" : "jdoe@example.com"}'
+   ```
+   {: codeblock}
+
+2. Get the status of your request, as needed. 
+
+   ```sh
+   curl -X GET 'https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/export/status?id=<id>' \
+   --header 'Accept: application/json' \ 
+   --header 'Content-Type: application/json' \ 
+   --header 'Authorization: Bearer <IAMToken>'
+   ```
+   {: codeblock}
+
+3. When the export is ready or if the request fails, an email is sent to the email address provided. To download the export, use the [export/download](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.cloudDirectoryDownloadExport){: external} API. 
+
+   ```sh
+   curl -X GET 'https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/export/download?id=<id>' \ 
+   --header 'Content-Type: application/json' \ 
+   --header 'Authorization: Bearer <IAMToken>'
+   ```
+   {: codeblock}
+
+   An export file is created only when the export request is successful. If the request fails, to reduce your vulnerability risk, the data that is gathered is deleted. 
+   The export is automatically deleted after 7 days or the number of days that you specify in the body of the request (in the range of 1 - 30 days). You can choose to manually delete the export by sending a request to the [delete](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.cloudDirectoryDownloadExportDelete){: external} API.
+   {: note}
+
+
+   | Parameters | Description |
+   | ---------- | ----------- |
+   | `encryptionSecret` | A custom string that is used to encrypt and decrypt a user's hashed password. Retain the encryption secret as you need it to use the [import/all](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.cloudDirectoryImportAll) {:external} API. IBM does not store the secret so if the secret is lost, you can't access the exported data. |
+   | `emailAddress` | An email address to which an email is sent when the export is ready or if the request fails. |
+   | `expires` | An integer that you can set (1 ≤ value ≤ 30) to specify the number of days after which the export must be deleted. The default value is 7. |
+   | `tenantID` | The service tenant ID can be found in your service credentials. You can find or create your service credentials in the {{site.data.keyword.appid_short_notm}} dashboard. |
+   {: caption="Table 3. Descriptions of the parameters that need to be provided in the export/all request" caption-side="top"}
 
 
 
+### Exporting users in smaller batches
+{: #cd-exporting-profiles}
+
+The export endpoint is reserved for smaller exports of approximately less than 16,000 users. To export all your Cloud Directory users who are associated with a specific tenant ID, use the [export/all](/docs/appid?topic=appid-cd-users#cd-export-all) API endpoint.
 
 1. Export the users from your original instance of the service.
 
@@ -304,7 +355,7 @@ Before you can import your profiles to your new instance, you need to export the
 
    | Parameters | Description |
    | ---------- | ----------- |
-   | `encryption_secret` | A custom string that is used to encrypt and decrypt a user's hashed password. |
+   | `encryptionSecret` | A custom string that is used to encrypt and decrypt a user's hashed password. |
    | `tenantID` | The service tenant ID can be found in your service credentials. You can find your service credentials in the {{site.data.keyword.appid_short_notm}} dashboard. |
    {: caption="Table 2. Descriptions of the parameters that need to be provided in the export request" caption-side="top"}
 
@@ -312,20 +363,46 @@ Before you can import your profiles to your new instance, you need to export the
    {: note}
 
 
+### Importing all users
+{: #cd-import-all}
 
+Now that you have a list of exported Cloud Directory users, you can import them into the new instance. You can use the import-all API endpoint to import a large number of users (16,000 or more) with a single request. 
 
+1. Import the list of exported users that you downloaded. 
 
+   ```sh
+   curl -X POST 'https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/import/all' \ 
+   --header 'Content-Type: application/json' \ 
+   --header 'Authorization: Bearer <IAMToken>' \ 
+   --form 'file=@"<User/desktop/myfolder/user_list.json>"' \ 
+   --form 'encryption_secret="mySecret"' \ 
+   --form 'emailAddress="jdoe@example.com"'
+   ```
+   {: codeblock}
 
+2. Get the status of your request, as needed.
 
+   ```sh
+   curl -X GET 'https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/import/status?id=<id>' \ 
+   --header 'Accept: application/json' \ 
+   --header 'Content-Type: application/json' \ 
+   --header 'Authorization: Bearer <IAMToken>'
+   ```
+   {: codeblock}
 
+   | Parameters | Description |
+   | ---------- | ----------- |
+   | `encryptionSecret` | A custom string that is used to encrypt and decrypt a user's hashed password. The encryption secret is the same secret that you attached to the [export/all](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.cloudDirectoryExportAll){: external} API. IBM does not store the secret so if the secret is lost, you can't access the exported data. |
+   | `emailAddress` | An email address to which an email is sent when the export is ready or if the request fails. |
+   | `tenantID` | The service tenant ID can be found in your service credentials. You can find or create your service credentials in the {{site.data.keyword.appid_short_notm}} dashboard. |
+   | `file`| The output from the [export/download](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.cloudDirectoryDownloadExport){: external} endpoint. |
+   {: caption="Table 4. Descriptions of the parameters that need to be provided in the import/all request" caption-side="top"}
 
 
 ### Importing users in smaller batches
 {: #cd-import}
 
-Now that you have a list of exported Cloud Directory users, you can import them into the new instance.
-
-
+You can use the import API endpoint to import small groups of users. You can add up to only 50 users per request with the import API endpoint. To add all your users through a single request, use the [import/all](/docs/appid?topic=appid-cd-users#cd-import-all) API endpoint.
 
 1. If your users are [assigned roles](/docs/appid?topic=appid-access-control), be sure to create the roles and scopes in your new instance of {{site.data.keyword.appid_short_notm}}.
 
@@ -383,7 +460,7 @@ Now that you have a list of exported Cloud Directory users, you can import them 
 ### Migration script for smaller exports and imports
 {: #cd-migration-script}
 
-{{site.data.keyword.appid_short_notm}} provides a migration script that you can use through the CLI that can help speed up the migration process when you use the export or import API endpoints.  
+{{site.data.keyword.appid_short_notm}} provides a migration script that you can use through the CLI that can help speed up the migration process when you use the export or import API endpoints. Alternatively, to make the migration process even more efficient, you can use the [export/all](/docs/appid?topic=appid-cd-users#cd-export-all) and [import/all](/docs/appid?topic=appid-cd-users#cd-import-all) API endpoints.
 
 1.  Clone the [repository](https://github.com/ibm-cloud-security/appid-sample-code-snippets/tree/master/export-import-cloud-directory-users){: external}.
 

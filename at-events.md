@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-05-17"
+lastupdated: "2022-10-31"
 
 keywords: user events, track activity, manage events, analyze, administrative, runtime, sign in, settings, app security
 
@@ -183,7 +183,7 @@ With {{site.data.keyword.at_short}}, you can review runtime activity that is mad
 
 The reported events are per account, but the data rate and retention period of the collected runtime events have limitations. Increasing the limits might require an upgrade of the {{site.data.keyword.at_short}} service. For more information about the service limits, see the [{{site.data.keyword.at_short}} docs](/docs/activity-tracker?topic=activity-tracker-service_plan).
 
-This feature is available only for instances on graduated tier payment plan that were created after March 15, 2018. Using this feature incurs an extra charge. For more information about graduated tier pricing, see the [{{site.data.keyword.cloud_notm}} pricing docs](/docs/appid?topic=appid-faq#faq-pricing).
+This feature is available only for instances on graduated tier payment plan that were created after March 15, 2018. Using this feature incurs an extra charge. For more information about graduated tier pricing, see the [{{site.data.keyword.cloud_notm}} pricing docs](/docs/appid?topic=appid-pricing).
 {: note}
 
 
@@ -193,7 +193,7 @@ This feature is available only for instances on graduated tier payment plan that
 1. Log in to your {{site.data.keyword.cloud_notm}} account.
 2. From the catalog, provision an instance of the {{site.data.keyword.at_short}} service in the same account as your {{site.data.keyword.appid_short_notm}} instance.
 3. In the {{site.data.keyword.appid_short_notm}} dashboard, click **Manage authentication > Authentication settings**.
-4. Scroll to the **Runtime Activity** panel and toggle the switch to enable tracking of runtime authentication activity. A message displays that notifies you that the feature is enabled and that you are charged differently. For more information, see [How does App ID calculate pricing](/docs/appid?topic=appid-faq#faq-pricing).
+4. Scroll to the **Runtime Activity** panel and toggle the switch to enable tracking of runtime authentication activity. A message displays that notifies you that the feature is enabled and that you are charged differently. For more information, see [How does App ID calculate pricing](/docs/appid?topic=appid-pricing).
 5. From the **Observability > Activity Tracker** tab in the console navigation, verify the information for the instance that you created.
 6. Click **Open Dashboard**. When the dashboard loads, you see an overall view of all the activity in your account. You can use the search operators to filter your results by tags, sources, apps, or levels. You can also search for specific events or jump to a specific timeframe.
 7. From the **All Apps** drop-down, select the instance of {{site.data.keyword.appid_short_notm}} that you want to track events for.

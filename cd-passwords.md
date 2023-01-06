@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-02-14"
+lastupdated: "2022-10-31"
 
 keywords: password policies, password strength, advanced, sign in, lock out, reset password, email, expiration, credentials, password reuse, wrong credentials, secure apps, registry, cloud directory, regex
 
@@ -99,7 +99,7 @@ You can create an advanced password policy that consists of any combination of t
 - Minimum period between password changes
 - Ensure that the password does not include user name
 
-When you enable this feature, extra billing for advanced security capabilities is activated. For more information, see [how does {{site.data.keyword.appid_short_notm}} calculate pricing](/docs/appid?topic=appid-faq#faq-pricing).
+When you enable this feature, extra billing for advanced security capabilities is activated. For more information, see [how does {{site.data.keyword.appid_short_notm}} calculate pricing](/docs/appid?topic=appid-pricing).
 {: important}
 
 
