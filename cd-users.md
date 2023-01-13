@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2017, 2023
-lastupdated: "2023-01-06"
+lastupdated: "2023-01-09"
 
 keywords: manage users, registry, cloud directory, add user, delete user, tokens, attributes, migrating users, identity provider, app security
 
@@ -499,3 +499,4 @@ You can use the import API endpoint to import small groups of users. You can add
    ```
    {: screen}
 
+   
