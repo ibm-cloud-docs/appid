@@ -102,7 +102,6 @@ toc:
           label: Enhancing security
           topics:
           - iam.md
-          - manage-scc.md
           - at-events.md
           - data-security.md
 
