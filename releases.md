@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2022
-lastupdated: "2022-12-15"
+  years: 2017, 2023
+lastupdated: "2023-01-18"
 
 keywords: release notes, new, spa, single sign on, mfa, cloud directory, saml, app security, application identity
 
@@ -65,7 +65,7 @@ New {{site.data.keyword.appid_short_notm}} API endpoints
 {: release-note}
 
 {{site.data.keyword.appid_short_notm}} availability in Configuration Governance
-:   {{site.data.keyword.cloud_notm}} {{site.data.keyword.appid_short_notm}} is now available as part of the Configuration Governance component of the Security and Compliance Center. You can create guardrails for {{site.data.keyword.appid_short_notm}} such as enforcing whether monitoring of runtime activity made by application users is tracked. For more information about the integration, see [Managing security and compliance with {{site.data.keyword.appid_short_notm}}](/docs/appid?topic=appid-manage-security-compliance).
+:   {{site.data.keyword.cloud_notm}} {{site.data.keyword.appid_short_notm}} is now available as part of the Configuration Governance component of the Security and Compliance Center. You can create guardrails for {{site.data.keyword.appid_short_notm}} such as enforcing whether monitoring of runtime activity made by application users is tracked. 
 
 
 

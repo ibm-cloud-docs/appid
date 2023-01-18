@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-10-12"
+  years: 2017, 2023
+lastupdated: "2023-01-18"
 
 keywords: rate limits, traffic control, limit request, lite instances, per minute, per instance, per user, limits
 
@@ -71,6 +71,7 @@ You can have 1 lite instance of {{site.data.keyword.appid_short_notm}} per accou
 |:---------|:------| 
 | Users | 1000 |
 | Authentications | 1000 per month |
+| Size of profile attributes | 100 KB |
 {: caption="Table 1. Limits for lite instances" caption-side="top"}
 
 ### General
