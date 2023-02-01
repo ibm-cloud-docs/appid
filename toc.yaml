@@ -37,12 +37,12 @@ toc:
       - topicgroup: 
           label: Quick start guides
           topics:
-           - qs-node-web.md
-           - qs-liberty-backend.md
+          - qs-node-web.md
+          - qs-liberty-backend.md
       links:
       - link:
-         label: Serverless web app and eventing for data retrieval and analytics
-         href: https://cloud.ibm.com/docs/solution-tutorials?topic=solution-tutorials-serverless-github-traffic-analytics
+          label: Serverless web app and eventing for data retrieval and analytics
+          href: https://cloud.ibm.com/docs/solution-tutorials?topic=solution-tutorials-serverless-github-traffic-analytics
 
   - navgroup: 
       id: howto
@@ -112,17 +112,17 @@ toc:
           label: API and SDK references
           links:
           - link:
-             label: APIs
-             href: https://us-south.appid.cloud.ibm.com/swagger-ui/#/
+              label: APIs
+              href: https://us-south.appid.cloud.ibm.com/swagger-ui/#/
           - link:
-             label: Android client SDK
-             href: https://github.com/ibm-cloud-security/appid-clientsdk-android
+              label: Android client SDK
+              href: https://github.com/ibm-cloud-security/appid-clientsdk-android
           - link:
-             label: iOS Swift client SDK
-             href: https://github.com/ibm-cloud-security/appid-clientsdk-swift
+              label: iOS Swift client SDK
+              href: https://github.com/ibm-cloud-security/appid-clientsdk-swift
           - link: 
-             label: Node.js server SDK
-             href: https://github.com/ibm-cloud-security/appid-serversdk-nodejs
+              label: Node.js server SDK
+              href: https://github.com/ibm-cloud-security/appid-serversdk-nodejs
           - link:
              label: JavaScript SDK
              href: https://github.com/ibm-cloud-security/appid-clientsdk-js
