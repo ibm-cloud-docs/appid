@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2017, 2023
-lastupdated: "2023-01-13"
+lastupdated: "2023-02-01"
 
 keywords: manage users, registry, cloud directory, add user, delete user, tokens, attributes, migrating users, identity provider, app security
 
@@ -276,6 +276,39 @@ If you want to remove a user from your directory, you can delete the user from t
    {: codeblock}
    
 
+### Deleting multiple users with the API
+{: #delete-multiple-user-api}
+{: api}
+
+You can also bulk delete cloud directory users and their corresponding profiles by using the bulk delete API.
+You can delete up to 100 users per request.
+{: note}
+
+1. Obtain your tenant ID.
+
+2. Obtain an {{site.data.keyword.cloud_notm}} IAM token.
+
+   ```sh
+   curl -X GET "https://iam.cloud.ibm.com/oidc/token" \
+   -H "accept: application/x-www-form-urlencoded"
+   ```
+   {: codeblock}
+
+3. Delete the users by running the following command with a list of user ID's.
+
+   ```sh
+   curl -X POST "https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/cloud_directory/bulk_remove" \
+   -H "accept: application/json" \
+   -H "authorization: Bearer <token>"
+   -d '{
+  "ids": [
+    "fed2634a-7a6c-4f6a-855d-8e3c73a5b5cc",
+    "9380158c-19c9-4303-9111-a91743f4bad8"
+    ]
+  }'
+   ```
+   {: codeblock}
+   
 
 
 ## Migrating users

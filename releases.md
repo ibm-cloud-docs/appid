@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-01-18"
+lastupdated: "2023-02-01"
 
 keywords: release notes, new, spa, single sign on, mfa, cloud directory, saml, app security, application identity
 
@@ -50,6 +50,12 @@ content-type: release-note
 # Release notes for {{site.data.keyword.appid_short_notm}}
 {: #release-notes}
 
+## 1 February 2023
+{: #appid-feb0123}
+
+Ability to bulk delete Cloud Directory users
+:   It's now more efficient for users to clean up {{site.data.keyword.appid_short_notm}} instances. You can now use the `bulk_remove` API endpoint to remove multiple users from an {{site.data.keyword.appid_short_notm}} instance at once. [Learn more](/docs/appid?topic=appid-cd-users#delete-user-api).
+
 
 ## 15 December 2022
 {: #appid-Dec1522}
@@ -58,6 +64,12 @@ content-type: release-note
 New {{site.data.keyword.appid_short_notm}} API endpoints
 :   {{site.data.keyword.appid_short_notm}} added options to make it more efficient for you to migrate your users from one service instance to another. You can now use the [`export_all`](/docs/appid?topic=appid-cd-users#cd-export-all) or [`import_all`](/docs/appid?topic=appid-cd-users#cd-import-all) API endpoints to migrate all of your users (up to approximately 16,000).
 
+## 27 June 2022
+{: #appid-Jun2722}
+{: release-note}
+
+Swift Server SDK unsupported 
+:   {{site.data.keyword.cloud_notm}} no longer supports the Swift Server SDK for {{site.data.keyword.appid_short_notm}}. To continue to receive support for your App ID integration, you can move to directly calling the APIs.
 
 
 ## 21 January 2022
@@ -67,6 +79,14 @@ New {{site.data.keyword.appid_short_notm}} API endpoints
 {{site.data.keyword.appid_short_notm}} availability in Configuration Governance
 :   {{site.data.keyword.cloud_notm}} {{site.data.keyword.appid_short_notm}} is now available as part of the Configuration Governance component of the Security and Compliance Center. You can create guardrails for {{site.data.keyword.appid_short_notm}} such as enforcing whether monitoring of runtime activity made by application users is tracked. 
 
+
+
+## 15 December 2021
+{: #appid-dec1521}
+{: release-note}
+
+Logging enhancement
+:   As of 15 December 2021, {{site.data.keyword.appid_short_notm}} now logs email addresses from login attempts even if the user is unknown to the service. Previously, email addresses were logged only if the user was known to {{site.data.keyword.appid_short_notm}}.
 
 
 ## 27 September 2021
