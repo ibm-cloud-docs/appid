@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2017, 2023
-lastupdated: "2023-02-01"
+lastupdated: "2023-02-14"
 
 keywords: manage users, registry, cloud directory, add user, delete user, tokens, attributes, migrating users, identity provider, app security
 
@@ -305,7 +305,7 @@ You can delete up to 100 users per request.
     "fed2634a-7a6c-4f6a-855d-8e3c73a5b5cc",
     "9380158c-19c9-4303-9111-a91743f4bad8"
     ]
-  }'
+   }'
    ```
    {: codeblock}
    
