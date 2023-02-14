@@ -301,10 +301,10 @@ You can delete up to 100 users per request.
    -H "accept: application/json" \
    -H "authorization: Bearer <token>"
    -d '{
-  "ids": [
-    "fed2634a-7a6c-4f6a-855d-8e3c73a5b5cc",
-    "9380158c-19c9-4303-9111-a91743f4bad8"
-    ]
+   "ids": [
+     "fed2634a-7a6c-4f6a-855d-8e3c73a5b5cc",
+     "9380158c-19c9-4303-9111-a91743f4bad8"
+     ]
    }'
    ```
    {: codeblock}
