@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2017, 2023
-lastupdated: "2023-02-14"
+lastupdated: "2023-02-15"
 
 keywords: manage users, registry, cloud directory, add user, delete user, tokens, attributes, migrating users, identity provider, app security
 
@@ -281,6 +281,7 @@ If you want to remove a user from your directory, you can delete the user from t
 {: api}
 
 You can also bulk delete cloud directory users and their corresponding profiles by using the bulk delete API.
+
 You can delete up to 100 users per request.
 {: note}
 
@@ -502,15 +503,15 @@ You can use the import API endpoint to import small groups of users. You can add
    ```
    {: codeblock}
 
-1. In terminal, change to the folder that you cloned the repo into.
-1. Run the following command.
+2. In terminal, change to the folder that you cloned the repo into.
+3. Run the following command.
 
    ```sh
    npm install
    ```
    {: codeblock}
 
-1. With your parameters, run the following command.
+4. With your parameters, run the following command.
 
    ```sh
    users_export_import 'sourceTenantId' 'destinationTenantId' 'region' 'iamToken'
