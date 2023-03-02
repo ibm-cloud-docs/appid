@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-10-12"
+  years: 2017, 2023
+lastupdated: "2023-03-02"
 
 keywords: getting started tutorial, getting started, App ID, sample app, authentication, sign in flow, authorization, app security, identity
 
@@ -64,10 +64,6 @@ We’d love to hear from you with feedback and questions!
 * If you have technical questions about {{site.data.keyword.appid_short_notm}}, post your question on [Stack Overflow](https://stackoverflow.com){: external} and tag your question with `ibm-appid`.
 * Reach out directly to the development team on [Slack](https://www.ibm.com/cloud/blog/announcements/get-help-with-ibm-cloud-app-id-related-questions-on-slack){: external}! 
 
-Getting started? Try walking through our [video tutorials](https://www.youtube.com/playlist?list=PLzpeuWUENMK2tmzSRRx7W_mplw1x4h7ch){: external}. 
-{: note}
-
-
 ## Create a service instance
 {: #create}
 {: step}
@@ -82,35 +78,8 @@ Create and bind an instance of {{site.data.keyword.appid_short_notm}} to your ap
 
 That's it! You're ready to start configuring your application settings.
 
-## Configure a sample app
-{: #sample-app}
-{: step}
-
-You can use one of the preconfigured sample apps to get familiar with working with the service.
-{: shortdesc}
-
-Out of the box, the sample apps are configured with two identity providers and the ability to review authentication. Sample apps are offered in `iOS Swift`, `Android`, `Node.js`, `Java` and `Single-page application`. If you don't see a language in which you feel comfortable working, don't worry! You can integrate {{site.data.keyword.appid_short_notm}} into your own application by using the provided APIs.
-
-To build a sample app:
-
-1. Click **Download Sample**.
-2. Click on the language of your choice to download the sample.
-   Don't see the language you're looking for? Don't worry! You can take advantage of {{site.data.keyword.appid_short_notm}} through the APIs.
-   {: tip}
-
-   
-3. Be sure that you have the prerequisites installed or completed.
-4. Follow the **Build & Run** steps to set up your sample with {{site.data.keyword.appid_short_notm}}.
-5. Click **Review Activity** to see any authentication events that occurred. Any type of sign in creates an event that is visible on this page.
-6. Customize the sign in widget.
-   1. Add an image such as a brand logo by clicking **Select** and browsing your local system for an image to upload.
-   2. Choose a color scheme by either selecting one of the color options or specifying in a hex value.
-   3. Change between web and mobile to see how the color scheme looks on each type of device.
-   4. When you're happy with your choices, click **Save Changes**.
-7. In a browser, refresh your login page. The changes that you made in the previous step are already visible.
-
 
 ## Next steps
 {: #next}
 
-Ready to jump in and get started with your own apps? Start by [adding the service to your app](/docs/appid?topic=appid-web-apps#web-apps). The service provides SDKs for the most used languages, but if you don't see an SDK for the language that your app is written in, you can still take advantage of {{site.data.keyword.appid_short_notm}} by using the APIs.
+Ready to jump in and get started with your own apps? Start taking advantage of {{site.data.keyword.appid_short_notm}} by using the [APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/){: external}.
