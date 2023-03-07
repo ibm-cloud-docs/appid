@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-02-06"
+lastupdated: "2023-03-07"
 
 keywords: release notes, new, spa, single sign on, mfa, cloud directory, saml, app security, application identity
 
@@ -192,7 +192,7 @@ Access user profile information through the GUI
 :   View information about all your users that you can leverage to build personalized app experiences. For more information, see [Storing and accessing profiles](/docs/appid?topic=appid-profiles).
 
 Cloud Directory: Automatically associate users with a profile
-:   Automatically associate Cloud Directory users with an {{site.data.keyword.appid_short_notm}} profile as you create them. For more information, see [Adding and deleting users](/docs/appid?topic=appid-cd-users#delete-users).
+:   Automatically associate Cloud Directory users with an {{site.data.keyword.appid_short_notm}} profile as you create them. For more information, see [Managing users](/docs/appid?topic=appid-cd-users).
 
 ## 18 May 2019
 {: #appid-may1819}
