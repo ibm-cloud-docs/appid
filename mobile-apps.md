@@ -100,5 +100,7 @@ With {{site.data.keyword.appid_short_notm}} installed in your application, you'r
 
 * Configure your [identity providers](/docs/appid?topic=appid-social)
 * Customize and configure [the Login Widget](/docs/appid?topic=appid-login-widget)
+* Learn more about the [Android SDK](https://github.com/ibm-cloud-security/appid-clientsdk-android){: external}
+* Learn more about the [iOS Swift SDK](https://github.com/ibm-cloud-security/appid-clientsdk-swift){: external}
 
 
