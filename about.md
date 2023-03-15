@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2022
-lastupdated: "2022-09-14"
+  years: 2017, 2023
+lastupdated: "2023-02-13"
 
 keywords: authentication, authorization, identity, app security, cloud directory, user data, identity provider, oauth, protocols, oauth, oidc, disaster recovery, dr, compliance, high availability, ha, secure, HA, DR
 
@@ -130,7 +130,6 @@ iOS Programming Guide
 
 Node.js programming guide
 :   Do you develop apps in Node.js? Try out the [Node.js programming guide](/docs/node?topic=node-getting-started) to learn, experiment, and enhance your existing Node.js apps with {{site.data.keyword.cloud_notm}}.
-
 
 ## Standards and certifications
 {: #about-standards}

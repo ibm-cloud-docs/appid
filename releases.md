@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-02-01"
+lastupdated: "2023-01-18"
 
 keywords: release notes, new, spa, single sign on, mfa, cloud directory, saml, app security, application identity
 
@@ -64,12 +64,6 @@ Ability to bulk delete Cloud Directory users
 New {{site.data.keyword.appid_short_notm}} API endpoints
 :   {{site.data.keyword.appid_short_notm}} added options to make it more efficient for you to migrate your users from one service instance to another. You can now use the [`export_all`](/docs/appid?topic=appid-cd-users#cd-export-all) or [`import_all`](/docs/appid?topic=appid-cd-users#cd-import-all) API endpoints to migrate all of your users (up to approximately 16,000).
 
-## 27 June 2022
-{: #appid-Jun2722}
-{: release-note}
-
-Swift Server SDK unsupported 
-:   {{site.data.keyword.cloud_notm}} no longer supports the Swift Server SDK for {{site.data.keyword.appid_short_notm}}. To continue to receive support for your App ID integration, you can move to directly calling the APIs.
 
 
 ## 21 January 2022
@@ -108,7 +102,7 @@ New region availability
 {: release-note}
 
 Kubernetes Ingress annotation
-:   As of 21 February 2021, the custom Kubernetes Service Ingress image is [deprecated](/docs/containers?topic=containers-ingress-types). The {{site.data.keyword.appid_short_notm}} docs are now updated to include information for integrating with the community Kubernetes image. To get started, see [Containerized apps with Ingress](/docs/appid?topic=appid-kube-auth). For more detailed deployment information, see the [{{site.data.keyword.containershort_notm}} documentation](/docs/containers?topic=containers-comm-ingress-annotations#app-id-authentication).
+:   As of 21 February 2021, the custom Kubernetes Service Ingress image is deprecated. The {{site.data.keyword.appid_short_notm}} docs are now updated to include information for integrating with the community Kubernetes image. To get started, see [Containerized apps with Ingress](/docs/appid?topic=appid-kube-auth). For more detailed deployment information, see the [{{site.data.keyword.containershort_notm}} documentation](/docs/containers?topic=containers-comm-ingress-annotations#app-id-authentication).
 
 ## 20 November 2020
 {: #appid-nov2020}
@@ -192,7 +186,7 @@ Access user profile information through the GUI
 :   View information about all your users that you can leverage to build personalized app experiences. For more information, see [Storing and accessing profiles](/docs/appid?topic=appid-profiles).
 
 Cloud Directory: Automatically associate users with a profile
-:   Automatically associate Cloud Directory users with an {{site.data.keyword.appid_short_notm}} profile as you create them. For more information, see [Adding and deleting users](/docs/appid?topic=appid-cd-users#delete-users).
+:   Automatically associate Cloud Directory users with an {{site.data.keyword.appid_short_notm}} profile as you create them. For more information, see [Managing users](/docs/appid?topic=appid-cd-users).
 
 ## 18 May 2019
 {: #appid-may1819}

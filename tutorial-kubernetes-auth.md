@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2022
-lastupdated: "2022-09-15"
+  years: 2017, 2023
+lastupdated: "2023-02-06"
 
 keywords: ingress controller, ingress, istio, access, subdomain, custom domain, service, containerized apps, containers, kube, networking, policy, policies, secure apps, authentication, authorization
 
@@ -52,7 +52,7 @@ subcollection: appid
 With {{site.data.keyword.appid_full}}, you can consistently enforce policy-driven security by using the Ingress networking capability in {{site.data.keyword.containerlong_notm}} or {{site.data.keyword.openshiftshort}}. With this approach, you can enforce authentication and authorization policies for all the applications in your cluster at the same time, without ever changing your app code!
 {: shortdesc}
 
-The {{site.data.keyword.containershort_notm}} custom Ingress image is [deprecated as of 01 December 2020](/docs/containers?topic=containers-ingress-types). This tutorial is updated to use the community Kubernetes Ingress image. To see the previous version of this documentation, see the [{{site.data.keyword.containershort_notm}} documentation](/docs/containers?topic=containers-comm-ingress-annotations#app-id-authentication).
+The {{site.data.keyword.containershort_notm}} custom Ingress image is deprecated as of 01 December 2020. This tutorial is updated to use the community Kubernetes Ingress image. To see the previous version of this documentation, see the [{{site.data.keyword.containershort_notm}} documentation](/docs/containers?topic=containers-comm-ingress-annotations#app-id-authentication).
 {: note}
 
 
@@ -73,7 +73,7 @@ Before you can get started, ensure that you have the following prerequisites.
 {: shortdesc}
 
 * An instance of {{site.data.keyword.appid_short_notm}} that is provisioned in the same region in which your cluster is deployed. The service name must contain only alphanumeric characters or hyphens (-), and cannot contain spaces.
-* A standard {{site.data.keyword.containershort_notm}} cluster with at least two worker nodes in each available zone. For help with configuring Ingress resource for your cluster, see [Setting up Kubernetes Ingress](/docs/containers?topic=containers-ingress-types).
+* A standard {{site.data.keyword.containershort_notm}} cluster with at least two worker nodes in each available zone.
 
 * The following {{site.data.keyword.cloud_notm}} IAM roles:
    * Cluster: **Administrator** platform role
