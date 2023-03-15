@@ -1,6 +1,6 @@
 {
     "title": "App ID docs",
-    "lastupdated": "2023-03-02",
+    "lastupdated": "2021-11-29",
     "introduction": "With IBM Cloud App ID, you can easily add authentication to your web and mobile apps with few lines of code.",
     "section_devtools": {
       "api": "https://us-south.appid.cloud.ibm.com/swagger-ui/#/",
@@ -30,9 +30,39 @@
         "thumbnail": "/images/appid-about-video-thumbnail.png" 
       },
       {
+        "title": "Technologies Under the Hood",
+        "href": "/docs/appid?topic=appid-key-concepts",
+        "thumbnail": "/images/appid-nodejs-video-thumbnail.png"
+      },
+      {
         "title": "Using the App ID Management API",
         "href": "/docs/appid?topic=appid-regions-endpoints#api-try",
         "thumbnail": "/images/appid-mng-api-video-thumbnail.png"
+      },
+      {
+        "title": "Protecting Node.js Backend Applications",
+        "href": "/docs/appid?topic=appid-backend",
+        "thumbnail": "/images/appid-nodejs-video-thumbnail.png"
+      },
+      {
+        "title": "Protecting Node.js Web Applications",
+        "href": "/docs/appid?topic=appid-web-node",
+        "thumbnail": "/images/appid-node-web-video-thumbnail.png"
+      },
+      {
+        "title": "Protecting Liberty for Java Backend Applications",
+        "href": "/docs/appid?topic=appid-backend-liberty",
+        "thumbnail": "/images/appid-lib-java-video-thumbnail.png"
+      },
+      {
+        "title": "Protecting Liberty for Java Web Applications",
+        "href": "/docs/appid?topic=appid-web-apps#web-configuring-liberty",
+        "thumbnail": "/images/appid-lib-java-web-video-thumbnail.png"
+      },
+      {
+        "title": "Protecting Liberty for Java Web Applications",
+        "href": "https://www.youtube.com/watch?v=cDSYNFn4rX8",
+        "thumbnail": "/images/appid-signup-video-thumbnail.png"
       }
     ],
     "section_learn": {
@@ -45,19 +75,29 @@
       "view_more": "/docs/appid?topic=appid-release-notes",
       "tiles": [
         {
-          "date": "1 February 2023",
-          "title": "Bulk delete Cloud Directory users",
-          "description": "You can now remove multiple users from an App ID instance at once."
+          "date": "September 2021",
+          "title": "New Region Availability",
+          "description": "App ID is now available in the Sao Paulo region."
         },
         {
-          "date": "15 December 2022",
-          "title": "New App ID API endpoints",
-          "description": "App ID added options to make it more efficient for you to migrate your users from one service instance to another. "
+          "date": "July 2021",
+          "title": "New Region Availability",
+          "description": "App ID is now available in the Toronto and Osaka regions."
         },
         {
-          "date": "27 June 2022",
-          "title": "Swift Server SDK unsupported",
-          "description": "IBM Cloud no longer supports the Swift Server SDK for App ID."
+          "date": "February 2021",
+          "title": "Ingress annotation is updated",
+          "description": "The custom Kubernetes Service Ingress annotation is deprecated. So, the App ID annotation has been updated to use the community Kubernetes image."
+        },
+        {
+          "date": "November 2020",
+          "title": "App to app access control",
+          "description": "You can now control which actions that an application is able to perform in your apps through role-based app-to-app access control."
+        },
+        {
+          "date": "June 2020",
+          "title": "Securing your App ID data",
+          "description": "You can now restore deleted instances of App ID during the data retention period."
         }
       ]
     }
