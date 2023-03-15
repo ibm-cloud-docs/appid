@@ -106,7 +106,7 @@ toc:
           label: API and SDK references
           links:
           - link:
-              label: App ID API
+              label: APIs
               href: https://us-south.appid.cloud.ibm.com/swagger-ui/#/
       - link:
           label: Terraform

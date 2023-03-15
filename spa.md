@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2023
-lastupdated: "2023-02-22"
+  years: 2017, 2022
+lastupdated: "2022-07-11"
 
 keywords: single page application, SPA, single-page, angular, react, native apps, javascript, js, sdk, authentication, authorization, identity, app security, secure, protocols, oauth, oidc,
 
@@ -149,6 +149,46 @@ No client secret is returned in your SPA credentials. A secret in the Authorizat
    }
    ```
    {: screen}
+
+## Configuring the JavaScript SDK
+{: #configuring-js}
+
+To install the SDK in your application, use the following steps as a guide.
+
+1. By using the command prompt, change in to the directory that contains your application.
+2. Install the {{site.data.keyword.appid_short_notm}} service by using NPM or by linking the CDN in your main HTML file.
+
+   * To use NPM, run the following command.
+
+      ```sh
+      npm install ibmcloud-appid-js
+      ```
+      {: codeblock}
+
+   * To add the CDN, add the following link to your main HTML file.
+      
+      ```sh
+      <script src="https://cdn.appid.cloud.ibm.com/appid-0.3.0.min.js"></script>
+      ```
+      {: codeblock}
+
+3. Add your client ID and discovery endpoint to your app to initialize the SDK.
+
+   ```sh
+   const appID = new AppID();
+   await appID.init({
+      clientId: '<spaClientID>',
+      discoveryEndpoint: '<wellKnownEndpoint>'
+   });
+   ```
+   {: codeblock}
+
+4. In your application code, after your login button configuration, add a call to `signin`. A pop-up window opens where a user is prompted to enter their credentials. After a successful authentication, the screen closes and they are authenticated.
+
+   ```sh
+   const tokens = await appID.signin();
+   ```
+   {: codeblock}
 
 
 ## Configuring silent login
