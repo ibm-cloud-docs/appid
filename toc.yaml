@@ -124,6 +124,9 @@ toc:
               label: Node.js server SDK
               href: https://github.com/ibm-cloud-security/appid-serversdk-nodejs
           - link:
+             label: Swift server SDK
+             href: https://github.com/ibm-cloud-security/appid-serversdk-swift
+          - link:
              label: JavaScript SDK
              href: https://github.com/ibm-cloud-security/appid-clientsdk-js
       - link:
