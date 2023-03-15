@@ -2,11 +2,7 @@
 
 copyright:
   years: 2017, 2023
-<<<<<<< HEAD
-lastupdated: "2023-03-07"
-=======
 lastupdated: "2023-01-18"
->>>>>>> parent of e49a2eb5 (remove swift server sdk link and add release)
 
 keywords: release notes, new, spa, single sign on, mfa, cloud directory, saml, app security, application identity
 
