@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2022
-lastupdated: "2022-05-17"
+lastupdated: "2023-03-30"
 
 keywords: protected resource, backend apps, identity, tokens, identity provider, authentication, authorization, app security, oauth, 
 
@@ -122,7 +122,7 @@ Before you get started with the Node.js SDK, you must have the following prerequ
 
    ```sh
    "dependencies": {
-      "ibmcloud-appid": "^6.0.0"
+      "ibmcloud-appid": "^7.0.0"
    }
    ```
    {: codeblock}
