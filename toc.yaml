@@ -32,6 +32,7 @@ toc:
   - navgroup: 
       id: tutorial
       topics: 
+      - tutorial-cf.md
       - tutorial-attributes.md
       - topicgroup: 
           label: Quick start guides
