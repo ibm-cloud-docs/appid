@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-01-18"
+lastupdated: "2023-04-12"
 
 keywords: release notes, new, spa, single sign on, mfa, cloud directory, saml, app security, application identity
 
@@ -54,7 +54,7 @@ content-type: release-note
 {: #appid-feb0123}
 
 Ability to bulk delete Cloud Directory users
-:   It's now more efficient for users to clean up {{site.data.keyword.appid_short_notm}} instances. You can now use the `bulk_remove` API endpoint to remove multiple users from an {{site.data.keyword.appid_short_notm}} instance at once. [Learn more](/docs/appid?topic=appid-cd-users#delete-user-api).
+:   It's now more efficient for users to clean up {{site.data.keyword.appid_short_notm}} instances. You can now use the `bulk_remove` API endpoint to remove multiple users from an {{site.data.keyword.appid_short_notm}} instance at once. [Learn more](/docs/appid?topic=appid-cd-users#delete-users).
 
 
 ## 15 December 2022
@@ -64,6 +64,12 @@ Ability to bulk delete Cloud Directory users
 New {{site.data.keyword.appid_short_notm}} API endpoints
 :   {{site.data.keyword.appid_short_notm}} added options to make it more efficient for you to migrate your users from one service instance to another. You can now use the [`export_all`](/docs/appid?topic=appid-cd-users#cd-export-all) or [`import_all`](/docs/appid?topic=appid-cd-users#cd-import-all) API endpoints to migrate all of your users (up to approximately 16,000).
 
+## 27 June 2022
+{: #appid-Jun2722}
+{: release-note}
+
+Swift Server SDK unsupported 
+:   {{site.data.keyword.cloud_notm}} no longer supports the Swift Server SDK for {{site.data.keyword.appid_short_notm}}. To continue to receive support for your App ID integration, you can move to directly calling the APIs.
 
 
 ## 21 January 2022

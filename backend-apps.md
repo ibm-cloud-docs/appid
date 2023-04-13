@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2022
-lastupdated: "2022-05-17"
+  years: 2017, 2023
+lastupdated: "2023-04-12"
 
 keywords: protected resource, backend apps, identity, tokens, identity provider, authentication, authorization, app security, oauth, 
 
@@ -122,7 +122,7 @@ Before you get started with the Node.js SDK, you must have the following prerequ
 
    ```sh
    "dependencies": {
-      "ibmcloud-appid": "^6.0.0"
+      "ibmcloud-appid": "^7.0.0"
    }
    ```
    {: codeblock}
@@ -253,5 +253,3 @@ With {{site.data.keyword.appid_short_notm}} installed in your application, you'r
 * Customize and configure [the Login Widget](/docs/appid?topic=appid-login-widget)
 * Learn more about the [Node.js SDK](https://github.com/ibm-cloud-security/appid-serversdk-nodejs){: external}
 * Learn more about the [Swift SDK](https://github.com/ibm-cloud-security/appid-serversdk-swift){: external}
-
-
