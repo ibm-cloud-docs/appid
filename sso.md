@@ -157,6 +157,31 @@ Even if the SSO session is ended, a user with a valid access token that is store
 {: note}
 
 
+### By using the Node.JS server SDK
+{: #cd-sso-log-out-nodejs}
+
+You can also use the {{site.data.keyword.appid_short_notm}} Node.js server SDK to automatically handle the redirection for you. 
+
+1. Set `logoutSSO` as a method. For example:
+
+   ```sh
+   let webAppStrategy = new WebAppStrategy(.....);
+   ....
+   webAppStrategy.logoutSSO();
+   ```
+   {: codeblock}
+
+2. Configure logout.
+
+   ```javascript
+   app.get('/logoutSSO', (req, res) => {
+      res.clearCookie("refreshToken");
+      webAppStrategy.logoutSSO(req,res, { "redirect_uri": "https://my-app.com/after_logout" });
+      });
+   ```
+   {: codeblock}
+
+
 ## Ending all sessions for a user
 {: #cd-sso-ending-all-sessions}
 

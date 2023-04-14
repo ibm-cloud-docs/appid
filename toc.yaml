@@ -33,6 +33,11 @@ toc:
       id: tutorial
       topics: 
       - tutorial-attributes.md
+      - topicgroup: 
+          label: Quick start guides
+          topics:
+          - qs-node-web.md
+          - qs-liberty-backend.md
       links:
       - link:
           label: Serverless web app and eventing for data retrieval and analytics
@@ -108,6 +113,21 @@ toc:
           - link:
               label: App ID API
               href: https://us-south.appid.cloud.ibm.com/swagger-ui/#/
+          - link:
+              label: Android client SDK
+              href: https://github.com/ibm-cloud-security/appid-clientsdk-android
+          - link:
+              label: iOS Swift client SDK
+              href: https://github.com/ibm-cloud-security/appid-clientsdk-swift
+          - link: 
+              label: Node.js server SDK
+              href: https://github.com/ibm-cloud-security/appid-serversdk-nodejs
+          - link:
+             label: Swift server SDK
+             href: https://github.com/ibm-cloud-security/appid-serversdk-swift
+          - link:
+             label: JavaScript SDK
+             href: https://github.com/ibm-cloud-security/appid-clientsdk-js
       - link:
           label: Terraform
           href: https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/appid_action_url
