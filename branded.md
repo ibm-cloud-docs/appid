@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2022
-lastupdated: "2022-05-17"
+  years: 2017, 2023
+lastupdated: "2023-04-14"
 
 keywords: bring your own screens, branded app, sign up, custom, directory, registry, app security, password, authorization flow, authentication,
 
@@ -79,7 +79,6 @@ Yes! You can create a hybrid flow that uses some of your screens and some defaul
 The service uses OAuth 2.0 grant flows to map the authorization process. When you configure social identity providers such as Facebook, the [Authorization Grant flow](https://oauthlib.readthedocs.io/en/latest/oauth2/grants/authcode.html){: external} is used to call the Login Widget. When you use your own screens, the [Resource Owner Password Credentials flow](https://oauthlib.readthedocs.io/en/latest/oauth2/grants/password.html){: external} is used to provide access and identity tokens that you can use to call your screens.
 
 
-
 ### Examples
 {: #branded-examples}
 
@@ -88,104 +87,6 @@ Yes! Check out any of the following examples to see Cloud Directory in action:
 * [Use your own branded UI for user sign-in with {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/use-branded-ui-user-sign-app-id){: external}
 * [Use your own UI and Flows for User Sign-Up and Sign-in with {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/use-ui-flows-user-sign-sign-app-id){: external}
 * [Use a custom login page with {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/custom-login-page-app-id-integration){: external}
-
-
-## Branding your app with the Android SDK
-{: #branded-ui-android}
-
-With Cloud Directory enabled, you can call customized screens with the Android SDK. You can choose the combination of the screens that you'd like your users to be able to interact with. For a detailed example, [check out this blog](https://www.ibm.com/cloud/blog/use-branded-ui-user-sign-app-id){: external}.
-{: shortdesc}
-
-
-
-### Sign in
-{: #branded-android-sign-in}
-
-1. Configure your Cloud Directory [settings](/docs/appid?topic=appid-cloud-directory#cd-settings) in the GUI.
-2. Add the following code to your application. The sign-in flow is triggered when a user clicks sign in on your custom screen. You get access, identity, and refresh tokens by supplying the user's username and password.
-
-   ```java
-   AppID.getInstance().signinWithResourceOwnerPassword(getApplicationContext(), username, password, new TokenResponseListener() {
-      @Override
-      public void onAuthorizationFailure (AuthorizationException exception) {
-            //Exception occurred
-      }
-
-      @Override
-      public void onAuthorizationSuccess (AccessToken accessToken, IdentityToken identityToken, RefreshToken refreshToken) {
-            //User authenticated
-      }
-   });
-   ```
-   {: codeblock}
-
-
-
-## Branding your app with the iOS Swift SDK
-{: #branded-ui-ios-swift}
-
-With Cloud Directory enabled, you can call your own branded screens with the [iOS Swift SDK](https://github.com/ibm-cloud-security/appid-clientsdk-swift){: external}.
-{: shortdesc}
-
-
-
-### Sign in
-{: #branded-ios-sign-in}
-
-1. Configure your Cloud Directory [settings](/docs/appid?topic=appid-cloud-directory#cd-settings) in the GUI.
-2. Place the following code in your application. When a user attempts to sign in, your customized screen is called and the authorization and authentication process starts with your customized sign-in page.
-
-   ```swift
-   class delegate : TokenResponseDelegate {
-      public func onAuthorizationSuccess(accessToken: AccessToken?, identityToken: IdentityToken?, response:Response?) {
-      //User authenticated
-      }
-
-      public func onAuthorizationFailure(error: AuthorizationError) {
-      //Exception occurred
-      }
-   }
-
-   AppID.sharedInstance.signinWithResourceOwnerPassword(username: username, password: password, delegate: delegate())
-   ```
-   {: codeblock}
-
-
-## Branding your app with the Node.js SDK
-{: #branding-ui-nodejs}
-
-With Cloud Directory enabled, you can call customized screens with the Node.js SDK.
-{: shortdesc}
-
-### Sign in
-{: #branded-node-sign-in}
-
-By using `WebAppStrategy`, users can sign in to your web apps with their username and a password. After a user successfully signs in to your app, their access token is persisted in an HTTP session while it is kept alive. After the HTTP session is closed or expired, the access token is also destroyed.
-
-
-1. Configure your Cloud Directory [settings](/docs/appid?topic=appid-cloud-directory#cd-settings) in the GUI.
-2. Place the following code in your application. When a user attempts to sign in, your customized screen is called and the authorization and authentication process starts.
-
-   ```javascript
-   app.post("/form/submit", bodyParser.urlencoded({extended: false}), passport.authenticate(WebAppStrategy.STRATEGY_NAME, {
-   successRedirect: LANDING_PAGE_URL,
-   failureRedirect: ROP_LOGIN_PAGE_URL,
-   failureFlash : true // allow flash messages
-   }));
-   ```
-   {: codeblock}
-
-   | Parameter | Description |
-   | --------- | ----------- |
-   | `successRedirect` | The URL that you want to redirect the user after a successful authentication. |
-   | `failureRedirect` | The URL that you want to redirect the user to if authentication fails. Users are redirected to the specified URL when the following authentication failures occur:  \n * The user inputs an incorrect username or password.  \n * The plan limit for the {{site.data.keyword.appid_short_notm}} instance was reached. | 
-   | `failureFlash` | When set to `true` an error message is returned from the Cloud Directory service. By default, the value is set to `false`.|
-   {: caption="Table 1. Sign-in parameters" caption-side="top"}
-
-
-   If you submit the request in HTML, you can use [body parser](https://www.npmjs.com/package/body-parser){: external} middleware. To see the returned error message, you can use [connect-flash](https://www.npmjs.com/package/connect-flash){: external}. To see it in action, check out the [web app sample](https://github.com/ibm-cloud-security/appid-serversdk-nodejs/blob/master/samples/web-app-sample.js){: external}.
-   {: note}
-
 
 
 ## Branding your app with the API

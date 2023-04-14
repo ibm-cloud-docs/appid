@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2022
-lastupdated: "2022-05-17"
+  years: 2017, 2023
+lastupdated: "2023-04-14"
 
 keywords: single sign on, cloud directory, saml, app security, application identity
 
@@ -155,31 +155,6 @@ https://<region>.appid.cloud.ibm.com/oauth/v4/<tenantID>/cloud_directory/sso/log
 
 Even if the SSO session is ended, a user with a valid access token that is stored in their session might not be required to enter their credentials again until their token expires. By default the token expires after 1 hour.
 {: note}
-
-
-### By using the Node.JS server SDK
-{: #cd-sso-log-out-nodejs}
-
-You can also use the {{site.data.keyword.appid_short_notm}} Node.js server SDK to automatically handle the redirection for you. 
-
-1. Set `logoutSSO` as a method. For example:
-
-   ```sh
-   let webAppStrategy = new WebAppStrategy(.....);
-   ....
-   webAppStrategy.logoutSSO();
-   ```
-   {: codeblock}
-
-2. Configure logout.
-
-   ```javascript
-   app.get('/logoutSSO', (req, res) => {
-      res.clearCookie("refreshToken");
-      webAppStrategy.logoutSSO(req,res, { "redirect_uri": "https://my-app.com/after_logout" });
-      });
-   ```
-   {: codeblock}
 
 
 ## Ending all sessions for a user
