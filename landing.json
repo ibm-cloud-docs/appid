@@ -30,10 +30,40 @@
         "thumbnail": "/images/appid-about-video-thumbnail.png" 
       },
       {
+        "title": "Technologies Under the Hood",
+        "href": "/docs/appid?topic=appid-key-concepts",
+        "thumbnail": "/images/appid-nodejs-video-thumbnail.png"
+      },
+      {
         "title": "Using the App ID Management API",
         "href": "/docs/appid?topic=appid-regions-endpoints#api-try",
         "thumbnail": "/images/appid-mng-api-video-thumbnail.png"
-      }
+      },
+      {
+        "title": "Protecting Node.js Backend Applications",
+        "href": "/docs/appid?topic=appid-backend",
+        "thumbnail": "/images/appid-nodejs-video-thumbnail.png"
+      },
+      {
+        "title": "Protecting Node.js Web Applications",
+        "href": "/docs/appid?topic=appid-web-node",
+        "thumbnail": "/images/appid-node-web-video-thumbnail.png"
+      },
+      {
+        "title": "Protecting Liberty for Java Backend Applications",
+        "href": "/docs/appid?topic=appid-backend-liberty",
+        "thumbnail": "/images/appid-lib-java-video-thumbnail.png"
+      },
+      {
+        "title": "Protecting Liberty for Java Web Applications",
+        "href": "/docs/appid?topic=appid-web-apps#web-configuring-liberty",
+        "thumbnail": "/images/appid-lib-java-web-video-thumbnail.png"
+      },
+      {
+        "title": "Protecting Liberty for Java Web Applications",
+        "href": "https://www.youtube.com/watch?v=cDSYNFn4rX8",
+        "thumbnail": "/images/appid-signup-video-thumbnail.png"
+      }      
     ],
     "section_learn": {
       "developer": "https://developer.ibm.com/depmodels/cloud/",
