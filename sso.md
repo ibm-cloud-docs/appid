@@ -193,6 +193,7 @@ Example API request:
 POST https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/cloud_directory/Users/<userID>/sso/logout
 Headers:
 Authorization: Bearer <IAMToken>
+Content-Type: application/json
 ```
 {: codeblock}
 
