@@ -57,11 +57,35 @@ content-type: release-note
 IBM Cloud Foundry service broker unsupported
 :   The underlying technology deployment infrastructure for {{site.data.keyword.appid_short_notm}} is changing. If your account has a version of {{site.data.keyword.appid_short_notm}} that uses the IBM Cloud Foundry service broker, you must migrate your instances to the resource controller service broker. 
 
-   Not sure if your service instance is using the Cloud Foundry service broker? Check whether your {{site.data.keyword.appid_short_notm}} instance is listed in the [Cloud Foundry services](https://cloud.ibm.com/cloudfoundry/public){: external} section. If your instance is listed, then it is still using the Cloud Foundry service broker, and you must migrate it. To learn more about the process you must follow, see [Migrating Cloud Foundry instances and apps to a resource group](/docs/account?topic=account-migrate).
+  **Does this affect me?**
 
-   After you complete the process, you can double-check whether you successfully migrated your {{site.data.keyword.appid_short_notm}} instance. In the Cloud Foundry services section, the icon for each service that is listed changes from an arrow to a link to signify that the migration was completed. You can also check the status of the migration by reviewing the [resource list](https://cloud.ibm.com/resources){: external}. If your service instance shows up, then you can confirm that you successfully migrated it from the Cloud Foundry service to the resource controller service list. 
+  Not sure if your {{site.data.keyword.appid_short_notm}} instance is using the Cloud Foundry service broker? Check whether your {{site.data.keyword.appid_short_notm}} instance is listed in the [Cloud Foundry services](https://cloud.ibm.com/cloudfoundry/public){: external} section. 
+  
+  If your instance is listed, then it is still using the Cloud Foundry service broker, and you must migrate it. To learn more about the process you must follow, see [Migrating Cloud Foundry instances and apps to a resource group](/docs/account?topic=account-migrate).
 
-   All services that use the Cloud Foundry service broker will stop working on 1 June 2023, when Cloud Foundry enters the [End-of-Support stage](/docs/cloud-foundry-public?topic=cloud-foundry-public-deprecation). To keep using your {{site.data.keyword.appid_short_notm}} instance, you must migrate it to the new service broker before that date.
+  **Who can migrate?** 
+
+  To migrate your {{site.data.keyword.appid_short_notm}} instances that use the Cloud Foundry service broker, you must have the following permissions:
+  - The Developer role on the Cloud Foundry space or the Organization manager Cloud Foundry role on the instance's organization.
+  - At least the Viewer IAM role to manage the resource group to which you're migrating the instance. 
+  - At least the Editor IAM role on {{site.data.keyword.appid_short_notm}}. 
+   
+  **How do I migrate my {{site.data.keyword.appid_short_notm}} instance?**
+
+  When you have an {{site.data.keyword.appid_short_notm}} instance that is using the Cloud Foundry service broker and needs to be migrated, an arrow icon is displayed next to the Cloud Foundry service instance. 
+
+  1. Open the **More actions** menu.
+  2. Select **Migrate to a resource group** to get started. 
+  3. Select a resource group. 
+  4. Click **Migrate** and the instance is migrated for you. 
+  
+  You can migrate only one of your {{site.data.keyword.appid_short_notm}} instancesat a time. Repeat these steps to migrate all your eligible {{site.data.keyword.appid_short_notm}} instances.
+
+  **How do I make sure that my {{site.data.keyword.appid_short_notm}} instance was migrated?**
+
+  After you complete the process, you can double-check whether you successfully migrated your {{site.data.keyword.appid_short_notm}} instance. In the Cloud Foundry services section, the icon for each service that is listed changes from an arrow to a link to signify that the migration was completed. You can also check the status of the migration by reviewing the [resource list](https://cloud.ibm.com/resources){: external}. If your service instance shows up, then you can confirm that you successfully migrated it from the Cloud Foundry service to the resource controller service list. 
+
+  All services that use the Cloud Foundry service broker will stop working on 1 June 2023, when Cloud Foundry enters the [End-of-Support stage](/docs/cloud-foundry-public?topic=cloud-foundry-public-deprecation). To keep using your {{site.data.keyword.appid_short_notm}} instance, you must migrate it to the new service broker before that date.
 
 
 
