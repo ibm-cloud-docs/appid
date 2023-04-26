@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-04-14"
+lastupdated: "2023-04-26"
 
 keywords: related links, blogs, sample apps, kube, code changes, programming guide, white paper, vuejs apps, serverless applications, enterprise user directory, custom experience, slack, stack overflow, secure iot, solution, finance app, multicloud, video tutorials
 
@@ -112,7 +112,6 @@ Just getting started? Try walking through some of our tutorials and blogs for he
 * [Announcing {{site.data.keyword.appid_short_notm}} integration to {{site.data.keyword.containerlong}}](https://www.ibm.com/cloud/blog/announcing-app-id-integration-ibm-cloud-kubernetes-service){: external}
 * [Using {{site.data.keyword.appid_short_notm}} to secure Docker and Kubernetes applications](https://www.ibm.com/cloud/blog/using-app-id-secure-docker-kubernetes-applications){: external}
 * [Authenticating users with Cloud Functions, API Gateway, and {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/authenticating-users-with-cloud-functions-api-gateway-and-app-id){: external}
-* [Combining serverless and Cloud Foundry for data retrieval and analytics](/docs/solution-tutorials?topic=solution-tutorials-serverless-github-traffic-analytics#serverless-github-traffic-analytics)
 * [Configuring {{site.data.keyword.appid_short_notm}} From the Toolchain](https://www.ibm.com/cloud/blog/how-to-configure-ibm-cloud-app-id-from-the-toolchain){: external}
 * [User Authorization in Serverless Web Applications](http://heidloff.net/article/user-authorization-serverless-web-applications-openwhisk){: external}
 * [Authentication of users in serverless applications](http://heidloff.net/article/user-authentication-serverless-openwhisk){: external}
