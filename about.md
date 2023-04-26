@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-04-14"
+lastupdated: "2023-04-26"
 
 keywords: authentication, authorization, identity, app security, cloud directory, user data, identity provider, oauth, protocols, oauth, oidc, disaster recovery, dr, compliance, high availability, ha, secure, HA, DR
 
@@ -118,9 +118,6 @@ You can use {{site.data.keyword.appid_short_notm}} with other {{site.data.keywor
 
 {{site.data.keyword.openwhisk_short}} and {{site.data.keyword.apiconnect_short}}
 :   When you create your APIs with [{{site.data.keyword.openwhisk_short}}](/docs/openwhisk?topic=openwhisk-getting-started) and [API Connect](/docs/apiconnect?topic=apiconnect-getting-started), you can secure your applications at the gateway rather than in your app code.
-
-Cloud Foundry
-:   Try out one of the provided sample Cloud Foundry apps to see how you can integrate {{site.data.keyword.appid_short_notm}} into your apps.
 
 {{site.data.keyword.at_short}}
 :   You can monitor administrative activity that is made in {{site.data.keyword.appid_short_notm}} such as changes to the dashboard configuration, by using the [{{site.data.keyword.at_short}} service](/docs/activity-tracker?topic=activity-tracker-getting-started).
