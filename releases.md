@@ -51,8 +51,8 @@ content-type: release-note
 {: #release-notes}
 
 
-## XX May 2023
-{: #appid-mayXX23}
+## 3 May 2023
+{: #appid-may0323}
 
 IBM Cloud Foundry service broker unsupported
 :   The underlying technology deployment infrastructure for {{site.data.keyword.appid_short_notm}} is changing. If your account has a version of {{site.data.keyword.appid_short_notm}} that uses the IBM Cloud Foundry service broker, you must migrate your instances to the resource controller service list. 
