@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-04-25"
+lastupdated: "2023-04-27"
 
 keywords: release notes, new, spa, single sign on, mfa, cloud directory, saml, app security, application identity
 
@@ -79,20 +79,13 @@ IBM Cloud Foundry service broker unsupported
    3. Select a resource group. 
    4. Click **Migrate** and the instance is migrated for you. 
 
-
-
-   ***EXAMPLES***
-
-
-
-
    You can migrate only one of your {{site.data.keyword.appid_short_notm}} instances at a time. Repeat these steps to migrate all your eligible {{site.data.keyword.appid_short_notm}} instances.
 
    **How do I make sure that my {{site.data.keyword.appid_short_notm}} instance was migrated?**
 
    After you complete the process, you can double-check whether you successfully migrated your {{site.data.keyword.appid_short_notm}} instance. 
    - In the public Cloud Foundry services [section](https://cloud.ibm.com/cloudfoundry/public){: external}, the icon for each service that is listed changes from an arrow to a link to signify that the migration was completed. 
-   - You can also check the status of the migration by reviewing the [resource list](https://cloud.ibm.com/resources){: external}. If your {{site.data.keyword.appid_short_notm}} instance shows up in the services section, then you can confirm that you successfully migrated it from the Cloud Foundry service to the resource controller service list. 
+   - You can also check the status of the migration by reviewing the [resource list](https://cloud.ibm.com/resources){: external}. If your {{site.data.keyword.appid_short_notm}} instance shows up in the services section, then you can confirm that you successfully migrated it from the Cloud Foundry service to the resource controller service. 
 
    **What's next?**
 
