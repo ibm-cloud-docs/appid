@@ -61,7 +61,7 @@ IBM Cloud Foundry service broker unsupported
 
    Not sure if your {{site.data.keyword.appid_short_notm}} instance is using the Cloud Foundry service broker? Check whether your {{site.data.keyword.appid_short_notm}} instance is listed in the [Cloud Foundry services](https://cloud.ibm.com/cloudfoundry/public){: external} section. 
    
-   If you are still actively using the instance and want to keep it, please contact [IBM Cloud support](https://cloud.ibm.com/unifiedsupport/supportcenter){: external} to discuss the next steps to take.
+   If you no longer want to keep the instance, you don't have to take any action. If you're still actively using the instance and want to keep it, please contact [IBM Cloud support](https://cloud.ibm.com/unifiedsupport/supportcenter){: external} to discuss the next steps to take.
 
 
 ## 1 February 2023
