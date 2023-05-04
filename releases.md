@@ -57,7 +57,7 @@ content-type: release-note
 IBM Cloud Foundry service broker unsupported
 :   All services that use the Cloud Foundry service broker will stop working on 1 June 2023, when Cloud Foundry enters the [End-of-Support stage](/docs/cloud-foundry-public?topic=cloud-foundry-public-deprecation). 
 
-   **Does this migration affect me?**
+   **Does this change affect me?**
 
    Not sure if your {{site.data.keyword.appid_short_notm}} instance is using the Cloud Foundry service broker? In the [Cloud Foundry services](https://cloud.ibm.com/cloudfoundry/public){: external} section, check whether your {{site.data.keyword.appid_short_notm}} instance is listed as an alias. If your instance is already an alias, as shown in the following screen capture, you do not need to take any action.  
 
