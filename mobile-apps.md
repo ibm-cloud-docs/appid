@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2022
-lastupdated: "2022-09-15"
+  years: 2017, 2023
+lastupdated: "2023-04-14"
 
 keywords: secure mobile app, android, ios, authenticate users,  authorization grant, client sdk, trusted client, native app, personalized, custom app, devices, identity flow, app security
 
@@ -73,6 +73,7 @@ Following registration, your users authenticate by using either the OAuth2 `auth
 2. If your app is not registered as a mobile client yet, the SDK initiates a dynamic registration flow.
 3. On a successful registration, {{site.data.keyword.appid_short_notm}} returns your installation-specific client ID.
 
+
 ### Authorization flow
 {: #mobile-auth-flow}
 
@@ -89,7 +90,6 @@ Following registration, your users authenticate by using either the OAuth2 `auth
 {: #configuring-mobile}
 
 Get started with the {{site.data.keyword.appid_short_notm}} SDKs.
-{: shortdesc}
 
 ### Before you begin
 {: #mobile-before-begin}
@@ -292,11 +292,8 @@ After a successful login flow, you can use your access and identity tokens to in
    ```swift
    BMSClient.sharedInstance.initialize(region: <region>)
    BMSClient.sharedInstance.authorizationManager = AppIDAuthorizationManager(appid: AppID.sharedInstance)
-
    let request =  Request(url: "{your protected resource url}")
-
    request.send { (response: Response?, error: Error?) in
-
       guard let response = response, error == null else {
             print("An error occurred invoking a protected resources", error?.localizedDescription ?? "No response was received")
             return;
@@ -322,18 +319,14 @@ After a successful login flow, you can use your access and identity tokens to in
    ```java
    BMSClient bmsClient = BMSClient.getInstance();
    bmsClient.initialize(getApplicationContext(), <region>);
-
    AppIDAuthorizationManager appIdAuthMgr = new AppIDAuthorizationManager(AppID.getInstance())
    bmsClient.setAuthorizationManager(appIdAuthMgr);
-
    Request request = new Request("{your protected resource url}", Request.GET);
    request.send(this, new ResponseListener() {
-
    @Override
    public void onSuccess (Response response) {
          Log.d("My app", "onSuccess :: " + response.getResponseText());
    }
-
    @Override
    public void onFailure (Response response, Throwable t, JSONObject extendedInfo) {
          if (null != t) {

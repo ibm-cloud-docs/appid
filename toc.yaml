@@ -111,7 +111,7 @@ toc:
           label: API and SDK references
           links:
           - link:
-              label: APIs
+              label: App ID API
               href: https://us-south.appid.cloud.ibm.com/swagger-ui/#/
           - link:
               label: Android client SDK

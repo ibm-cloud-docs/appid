@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2022
-lastupdated: "2022-09-15"
+  years: 2017, 2023
+lastupdated: "2023-04-14"
 
 keywords: web apps, authorization code, authentication, nodejs, javascript, app access, application credentials, login, redirect uri, protected endpoint, video
 
@@ -76,7 +76,6 @@ Web apps often require users to authenticate to access protected content. {{site
 7. The tokens are saved by the {{site.data.keyword.appid_short_notm}} SDK and a redirect to the client application occurs.
 
 8. The user is granted access to the app.
-
 
 ## Configuring the Node.js SDK
 {: #web-configuring-nodejs}
@@ -196,7 +195,6 @@ Check out the following video to learn about protecting Node applications with {
    passport.serializeUser(function(user, cb) {
       cb(null, user);
       });
-
    passport.deserializeUser(function(obj, cb) {
       cb(null, obj);
       });
@@ -420,6 +418,7 @@ You must have the following prerequisites:
    </plugin>
    ```
    {: codeblock}
+
 
 ### Initializing OAuth2
 {: #web-oauth-initialize}

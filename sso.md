@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2022
-lastupdated: "2022-05-17"
+  years: 2017, 2023
+lastupdated: "2023-04-25"
 
 keywords: single sign on, cloud directory, saml, app security, application identity
 
@@ -193,6 +193,7 @@ Example API request:
 POST https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/cloud_directory/Users/<userID>/sso/logout
 Headers:
 Authorization: Bearer <IAMToken>
+Content-Type: application/json
 ```
 {: codeblock}
 

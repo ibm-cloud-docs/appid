@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2022
-lastupdated: "2022-05-17"
+  years: 2017, 2023
+lastupdated: "2023-04-14"
 
 keywords: app to app, protected resource, client secret, application identity, authorization, server, authentication, access tokens, app security
 
@@ -161,9 +161,7 @@ After your app is registered with {{site.data.keyword.appid_short_notm}} and you
       secret: "{secret}",
       oauthServerUrl: "https://<region>.appid.cloud.ibm.com/oauth/v4/<tenantID>"
       };
-
       const tokenManager = new TokenManager(config);
-
       tokenManager.getApplicationIdentityToken().then((appIdAuthContext) => {
       console.log(' Access tokens from SDK : ' + JSON.stringify(appIdAuthContext));
       }).catch((err) => {
@@ -179,7 +177,6 @@ After your app is registered with {{site.data.keyword.appid_short_notm}} and you
 
       ```javascript
       var request = require('request');
-
       function getAccessToken() {
       let options = {
             method: 'POST',
@@ -191,13 +188,11 @@ After your app is registered with {{site.data.keyword.appid_short_notm}} and you
                grant_type: 'client_credentials'
             }
       };
-
       return new Promise((resolve, reject) => {
             request(options, function (error, response, body) {
                if (error) {
                   return reject(error);
                }
-
                let data = JSON.parse(body);
                if(data.access_token) {
                   resolve(data.access_token);
@@ -218,7 +213,6 @@ After your app is registered with {{site.data.keyword.appid_short_notm}} and you
       url: 'http://localhost:8081/protected_resource',
       headers: { authorization : 'Bearer ' + accessToken}
    }
-
    request(options, function (error, response, body) {
       if (error) {
          console.log(error)
@@ -237,15 +231,12 @@ After your app is registered with {{site.data.keyword.appid_short_notm}} and you
    const express = require('express'),
       passport = require('passport');
       APIStrategy = require("ibmcloud-appid").APIStrategy;
-
    var app = express();
    app.use(passport.initialize());
-
    passport.use(new APIStrategy({
       oauthServerUrl: "https://{region}.appid.cloud.ibm.com/oauth/v4/{tenant-ID}",
       tenantId:"{tenant-ID}"
    }));
-
    app.get('/protected_resource',
       passport.authenticate(APIStrategy.STRATEGY_NAME, {session: false}),
       (req, res) => {

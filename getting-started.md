@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2021
-lastupdated: "2021-10-12"
+  years: 2017, 2023
+lastupdated: "2023-04-14"
 
 keywords: getting started tutorial, getting started, App ID, sample app, authentication, sign in flow, authorization, app security, identity
 
@@ -98,7 +98,7 @@ To build a sample app:
    Don't see the language you're looking for? Don't worry! You can take advantage of {{site.data.keyword.appid_short_notm}} through the APIs.
    {: tip}
 
-   
+
 3. Be sure that you have the prerequisites installed or completed.
 4. Follow the **Build & Run** steps to set up your sample with {{site.data.keyword.appid_short_notm}}.
 5. Click **Review Activity** to see any authentication events that occurred. Any type of sign in creates an event that is visible on this page.

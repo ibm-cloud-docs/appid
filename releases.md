@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-04-12"
+lastupdated: "2023-05-04"
 
 keywords: release notes, new, spa, single sign on, mfa, cloud directory, saml, app security, application identity
 
@@ -49,6 +49,22 @@ content-type: release-note
 
 # Release notes for {{site.data.keyword.appid_short_notm}}
 {: #release-notes}
+
+
+## 4 May 2023
+{: #appid-may0423}
+
+IBM Cloud Foundry service broker unsupported
+:   All services that use the Cloud Foundry service broker will stop working on 1 June 2023, when Cloud Foundry enters the [End-of-Support stage](/docs/cloud-foundry-public?topic=cloud-foundry-public-deprecation). 
+
+   **Does this change affect me?**
+
+   Not sure if your {{site.data.keyword.appid_short_notm}} instance is using the Cloud Foundry service broker? In the [Cloud Foundry services](https://cloud.ibm.com/cloudfoundry/public){: external} section, check whether your {{site.data.keyword.appid_short_notm}} instance is listed as an alias. If your instance is already an alias, as shown in the following screen capture, you do not need to take any action.  
+
+   ![Screenshot showing how to identify instances with aliases.](images/cf-alias-screenshot.svg "How to identify alias instances"){: caption="Figure 1. Identifying instances with aliases." caption-side="bottom"}
+   
+   If your instance is not an alias and you want to keep it, please contact [IBM Cloud support](https://cloud.ibm.com/unifiedsupport/supportcenter){: external} to discuss next steps.
+
 
 ## 1 February 2023
 {: #appid-feb0123}

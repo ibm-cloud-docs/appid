@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2022
-lastupdated: "2022-07-11"
+  years: 2017, 2023
+lastupdated: "2023-04-14"
 
 keywords: single page application, SPA, single-page, angular, react, native apps, javascript, js, sdk, authentication, authorization, identity, app security, secure, protocols, oauth, oidc,
 
@@ -166,7 +166,7 @@ To install the SDK in your application, use the following steps as a guide.
       {: codeblock}
 
    * To add the CDN, add the following link to your main HTML file.
-      
+
       ```sh
       <script src="https://cdn.appid.cloud.ibm.com/appid-0.3.0.min.js"></script>
       ```
