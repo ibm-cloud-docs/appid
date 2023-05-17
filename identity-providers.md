@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2022
-lastupdated: "2022-05-18"
+  years: 2017, 2023
+lastupdated: "2023-05-12"
 
 keywords: facebook, google, social, identity providers, single sign on, default configuration, authentication, authorization, identity, app security, idp, default credentials
 
@@ -64,7 +64,7 @@ Data is used when you engage in the Permitted Uses of the Service. By using the 
 
 When you configure {{site.data.keyword.appid_short_notm}}, Facebook, Google, and Cloud Directory are automatically enabled as identity providers. You can change the configuration at anytime. There are default credentials in place for Facebook and Google, but they are IBM credentials and should be used for testing whether to use the service only. Before you publish your app, update the configuration to your own credentials.
 
-You are limited to 20 authentications with the default credentials per instance, per day.
+You are limited to 20 authentications with the default credentials per instance, per day. If you exceed this limit, `error_description=MaxNumberOfDefaultKeysUsageExceeded` appears at the end of the authentication process. 
 {: note}
 
 
