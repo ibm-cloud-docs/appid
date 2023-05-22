@@ -108,7 +108,7 @@ A redirect URL is the callback endpoint of your app; the location where a user i
 
    * Custom domain:
 
-      A URL that is registered with a custom domain might look like: `http://mydomain.net/myapp2path/oauth2-myappid/callback`. If the apps that you want to expose are within the same cluster but in different namespaces, you can use a wildcard to specify all of them. This can be helpful during development, but it is recommended that you do not use wildcards in production without exercising caution. For example, `https://custom_domain.net/*/oauth2-myappid/callback`
+      A URL that is registered with a custom domain might look like: `http://mydomain.net/myapp2path/oauth2-myappid/callback`. If the apps that you want to expose are within the same cluster but in different namespaces, you can use a wildcard to specify all of them. This can be helpful during development, but it is recommended that you exercise caution when you use wildcards in production. For example, `https://custom_domain.net/*/oauth2-myappid/callback`
 
    * Ingress subdomain:
 
@@ -176,7 +176,7 @@ Your Ingress resource is used to define how you want to expose your applications
 
 2. Optional: If your app is a web app, in addition to or instead of, providing APIs, add the `nginx.ingress.kubernetes.io/auth-signin: https://$host/oauth2-<AppIDServiceInstanceName>/start?rd=$escaped_request_uri` annotation. 
 
-3. Sometimes the authentication cookie used by `OAuth2-Proxy` exceeds 4 KB. Therefore it is split into two parts. The following snippet must be added to ensure that both cookies could be properly updated by `OAuth2-Proxy`.
+3. Sometimes the authentication cookie that is used by `OAuth2-Proxy` exceeds 4 KB. In this case, the cookie is split into two parts. The following snippet must be added to ensure that `OAuth2-Proxy` properly updates both cookies .
     
     ```yaml
         ...
@@ -193,7 +193,7 @@ Your Ingress resource is used to define how you want to expose your applications
     {: codeblock}
 
 
-    Kubernetes Ingress Controllers (ALBs) on clusters created on or after 31 January 2022 do not process Ingress resources that have snippet annotations (for example, `nginx.ingress.kubernetes.io/configuration-snippet`) by default as all new clusters are deployed with `allow-snippet-annotations: "false"` configuration in the ALB's ConfigMap. If you want to customize the `Authorization` header using the previous configuration snippets, you need to edit the ALB's ConfigMap (`kube-system/ibm-k8s-controller-config`) and change `allow-snippet-annotations: "false"` to `allow-snippet-annotations: "true"`.
+    Kubernetes Ingress Controllers (ALBs) on clusters that are created on or after 31 January 2022 do not process Ingress resources that have snippet annotations (for example, `nginx.ingress.kubernetes.io/configuration-snippet`) by default because all new clusters are deployed with `allow-snippet-annotations: "false"` configuration in the ALB's ConfigMap. If you want to customize the `Authorization` header by using the previous configuration snippets, you need to edit the ALB's ConfigMap (`kube-system/ibm-k8s-controller-config`) and change `allow-snippet-annotations: "false"` to `allow-snippet-annotations: "true"`.
     {: note}
 
 4. Choose which tokens to send in the `Authorization` header to your app. For more information about ID and access tokens, see the [{{site.data.keyword.appid_short_notm}} documentation](/docs/appid?topic=appid-tokens){: external}.
@@ -209,7 +209,7 @@ Your Ingress resource is used to define how you want to expose your applications
         {: codeblock}
 
 
-    * To send only the `Access Token`, add the following information to the `configuration-snippet` annotation. (This extends the snippet from Step 5.2.)
+    * To send only the `Access Token`, add the following information to the `configuration-snippet` annotation. 
 
     ```yaml
     ...
@@ -229,7 +229,7 @@ Your Ingress resource is used to define how you want to expose your applications
     {: codeblock}
 
 
-    * To send the `Access Token` and the `ID Token`, add the following information to the `configuration-snippet` annotation. (This extends the snippet from Step 5.2.)
+    * To send the `Access Token` and the `ID Token`, add the following information to the `configuration-snippet` annotation. 
     
     ```yaml
     ...
@@ -249,9 +249,9 @@ Your Ingress resource is used to define how you want to expose your applications
     ```
     {: codeblock}
 
-5. Optional: If your app supports the [web app strategy](/docs/appid?topic=appid-key-concepts#term-web-strategy) in addition to or instead of the [API strategy](/docs/appid?topic=appid-key-concepts#term-api-strategy), add the `nginx.ingress.kubernetes.io/auth-signin: https://$host/oauth2-<App_ID_service_instance_name>/start?rd=$escaped_request_uri` annotation. Note that all letters in the service instance name must be in lowercase.
-        * If you specify this annotation, and the authentication for a client fails, the client is redirected to the URL of the OAuth2-Proxy for your {{site.data.keyword.appid_short_notm}} instance. This OAuth2-Proxy, which acts as the OIDC Relying Party (RP) for {{site.data.keyword.appid_short_notm}}, redirects the client to your {{site.data.keyword.appid_short_notm}} login page for authentication.
-        * If you don't specify this annotation, a client must authenticate with a valid bearer token. If the authentication for a client fails, the client's request is rejected with a `401 Unauthorized` error message.
+5. Optional: If your app supports the [web app strategy](/docs/appid?topic=appid-key-concepts#term-web-strategy) in addition to or instead of the [API strategy](/docs/appid?topic=appid-key-concepts#term-api-strategy), add the `nginx.ingress.kubernetes.io/auth-signin: https://$host/oauth2-<App_ID_service_instance_name>/start?rd=$escaped_request_uri` annotation. All letters in the service instance name must be in lowercase.
+    * If you specify this annotation, and the authentication for a client fails, the client is redirected to the URL of the OAuth2-Proxy for your {{site.data.keyword.appid_short_notm}} instance. This OAuth2-Proxy, which acts as the OIDC Relying Party (RP) for {{site.data.keyword.appid_short_notm}}, redirects the client to your {{site.data.keyword.appid_short_notm}} login page for authentication.
+    * If you don't specify this annotation, a client must authenticate with a valid bearer token. If the authentication for a client fails, the client's request is rejected with a `401 Unauthorized` error message.
 
 ## Applying your resource with authentication enabled
 {: #kube-ingress}
@@ -286,7 +286,7 @@ Now that your Ingress resource is updated with the annotation, you can start enf
 4. Verify that {{site.data.keyword.appid_short_notm}} authentication is enforced for your apps.
 
    * If your app is a web app: Access your app's URL in a web browser. If {{site.data.keyword.appid_short_notm}} is correctly applied, you are redirected to an {{site.data.keyword.appid_short_notm}} authentication login page.
-   * If you are providing APIs: Specify your bearer access token in the Authorization header of requests to the apps. To get your access token, see [Obtaining tokens](/docs/appid?topic=appid-obtain-tokens). If {{site.data.keyword.appid_short_notm}} is correctly applied, the request is successfully authenticated and is routed to your app. If you send requests to your apps without an access token in the authorization header, or if the access token is not accepted by {{site.data.keyword.appid_short_notm}}, then the request is rejected.
+   * If you are providing APIs: Specify your bearer access token in the Authorization header of requests to the apps. To get your access token, see [Obtaining tokens](/docs/appid?topic=appid-obtain-tokens). If {{site.data.keyword.appid_short_notm}} is correctly applied, the request is successfully authenticated and is routed to your app. If you send requests to your apps without an access token in the authorization header, or if {{site.data.keyword.appid_short_notm}} does not accept the access token, then the request is rejected.
 
 
 
