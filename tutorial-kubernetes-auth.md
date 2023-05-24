@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-05-22"
+lastupdated: "2023-05-24"
 
 keywords: ingress controller, ingress, istio, access, subdomain, custom domain, service, containerized apps, containers, kube, networking, policy, policies, secure apps, authentication, authorization
 
@@ -157,103 +157,9 @@ By binding your instance of {{site.data.keyword.appid_short_notm}} to your clust
 ## Updating your Ingress resource
 {: #define-annotation}
 
-Your Ingress resource is used to define how you want to expose your applications. The resource contains the rules that define how to route incoming requests to your applications. To add {{site.data.keyword.appid_short_notm}} authentication to your apps, add the following annotations to the `metadata.annotations` section of your resource.
+Your Ingress resource is used to define how you want to expose your applications. The resource contains the rules that define how to route incoming requests to your applications. To add {{site.data.keyword.appid_short_notm}} authentication to your apps, follow the steps in the [Kubernetes docs](/docs/containers?topic=containers-comm-ingress-annotations#app-id-auth).
 
-
-1. Add the following `auth-url` annotation. Update the placeholder variable for your {{site.data.keyword.appid_short_notm}} service instance name and the namespace of your Ingress resource. 
-
-   ```sh
-   ...
-   annotations:
-   nginx.ingress.kubernetes.io/auth-url: https://oauth2-
-   <AppIDServiceInstanceName>.<namespaceOfIngressResource>.svc.cluster.local/oauth2-<AppIDServiceInstanceName>/auth
-   ...
-   ```
-   {: codeblock}
-
-   All letters in the service instance name must be specified as lowercase characters.
-   {: note}
-
-2. Optional: If your app is a web app, in addition to or instead of, providing APIs, add the `nginx.ingress.kubernetes.io/auth-signin: https://$host/oauth2-<AppIDServiceInstanceName>/start?rd=$escaped_request_uri` annotation. 
-
-3. Sometimes the authentication cookie that is used by `OAuth2-Proxy` exceeds 4 KB. In this case, the cookie is split into two parts. The following snippet must be added to ensure that `OAuth2-Proxy` properly updates both cookies .
     
-    ```yaml
-        ...
-        annotations:
-            nginx.ingress.kubernetes.io/configuration-snippet: |
-            auth_request_set $_oauth2_<App_ID_service_instance_name>_upstream_1 $upstream_cookie__oauth2_<App_ID_service_instance_name>_1;
-            access_by_lua_block {
-                if ngx.var._oauth2_<App_ID_service_instance_name>_upstream_1 ~= "" then
-                ngx.header["Set-Cookie"] = "_oauth2_<App_ID_service_instance_name>_1=" .. ngx.var._oauth2_<App_ID_service_instance_name>_upstream_1 .. ngx.var.auth_cookie:match("(; .*)")
-                end
-            }
-        ...
-    ```
-    {: codeblock}
-
-
-    Kubernetes Ingress Controllers (ALBs) on clusters that are created on or after 31 January 2022 do not process Ingress resources that have snippet annotations (for example, `nginx.ingress.kubernetes.io/configuration-snippet`) by default because all new clusters are deployed with `allow-snippet-annotations: "false"` configuration in the ALB's ConfigMap. If you want to customize the `Authorization` header by using the previous configuration snippets, you need to edit the ALB's ConfigMap (`kube-system/ibm-k8s-controller-config`) and change `allow-snippet-annotations: "false"` to `allow-snippet-annotations: "true"`.
-    {: note}
-
-4. Choose which tokens to send in the `Authorization` header to your app. For more information about ID and access tokens, see the [{{site.data.keyword.appid_short_notm}} documentation](/docs/appid?topic=appid-tokens){: external}.
-    
-    * To send only the `ID Token`, add the following annotation:
-
-        ```yaml
-        ...
-        annotations:
-            nginx.ingress.kubernetes.io/auth-response-headers: Authorization
-        ...
-        ```
-        {: codeblock}
-
-
-    * To send only the `Access Token`, add the following information to the `configuration-snippet` annotation. 
-
-    ```yaml
-    ...
-    annotations:
-        nginx.ingress.kubernetes.io/configuration-snippet: |
-        auth_request_set $_oauth2_<App_ID_service_instance_name>_upstream_1 $upstream_cookie__oauth2_<App_ID_service_instance_name>_1;
-        auth_request_set $access_token $upstream_http_x_auth_request_access_token;
-        access_by_lua_block {
-            if ngx.var._oauth2_<App_ID_service_instance_name>_upstream_1 ~= "" then
-            ngx.header["Set-Cookie"] = "_oauth2_<App_ID_service_instance_name>_1=" .. ngx.var._oauth2_<App_ID_service_instance_name>_upstream_1 .. ngx.var.auth_cookie:match("(; .*)")
-            end
-            if ngx.var.access_token ~= "" then
-            ngx.req.set_header("Authorization", "Bearer " .. ngx.var.access_token)
-            end
-    @@ -653,14 +684,18 @@ ALB OAuth Proxy add-on version 1.0.0 uses configuration snippet annotations (`ng
-    ```
-    {: codeblock}
-
-
-    * To send the `Access Token` and the `ID Token`, add the following information to the `configuration-snippet` annotation. 
-    
-    ```yaml
-    ...
-        annotations:
-        nginx.ingress.kubernetes.io/configuration-snippet: |
-        auth_request_set $_oauth2_<App_ID_service_instance_name>_upstream_1 $upstream_cookie__oauth2_<App_ID_service_instance_name>_1;
-        auth_request_set $access_token $upstream_http_x_auth_request_access_token;
-        auth_request_set $id_token $upstream_http_authorization;
-        access_by_lua_block {
-            if ngx.var._oauth2_<App_ID_service_instance_name>_upstream_1 ~= "" then
-            ngx.header["Set-Cookie"] = "_oauth2_<App_ID_service_instance_name>_1=" .. ngx.var._oauth2_<App_ID_service_instance_name>_upstream_1 .. ngx.var.auth_cookie:match("(; .*)")
-            end
-            if ngx.var.id_token ~= "" and ngx.var.access_token ~= "" then
-            ngx.req.set_header("Authorization", "Bearer " .. ngx.var.access_token .. " " .. ngx.var.id_token:match("%s*Bearer%s*(.*)"))
-            end
-    @@ -669,10 +704,7 @@ ALB OAuth Proxy add-on version 1.0.0 uses configuration snippet annotations (`ng
-    ```
-    {: codeblock}
-
-5. Optional: If your app supports the [web app strategy](/docs/appid?topic=appid-key-concepts#term-web-strategy) in addition to or instead of the [API strategy](/docs/appid?topic=appid-key-concepts#term-api-strategy), add the `nginx.ingress.kubernetes.io/auth-signin: https://$host/oauth2-<App_ID_service_instance_name>/start?rd=$escaped_request_uri` annotation. All letters in the service instance name must be in lowercase.
-
-    * If you specify this annotation, and the authentication for a client fails, the client is redirected to the URL of the OAuth2-Proxy for your {{site.data.keyword.appid_short_notm}} instance. This OAuth2-Proxy, which acts as the OIDC Relying Party (RP) for {{site.data.keyword.appid_short_notm}}, redirects the client to your {{site.data.keyword.appid_short_notm}} login page for authentication.
-    
-    * If you don't specify this annotation, a client must authenticate with a valid bearer token. If the authentication for a client fails, the client's request is rejected with a `401 Unauthorized` error message.
 
 ## Applying your resource with authentication enabled
 {: #kube-ingress}
