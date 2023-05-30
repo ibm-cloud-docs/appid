@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-05-25"
+lastupdated: "2023-05-30"
 
 keywords: ingress controller, ingress, istio, access, subdomain, custom domain, service, containerized apps, containers, kube, networking, policy, policies, secure apps, authentication, authorization
 
@@ -120,7 +120,7 @@ A redirect URL is the callback endpoint of your app; the location where a user i
 ## Updating your Ingress resource
 {: #define-annotation}
 
-Your Ingress resource is used to define how you want to expose your applications. The resource contains the rules that define how to route incoming requests to your applications. To add {{site.data.keyword.appid_short_notm}} authentication to your apps, follow the steps in the [Kubernetes docs](/docs/containers?topic=containers-comm-ingress-annotations#app-id-auth).
+Your Ingress resource is used to define how you want to expose your applications. The resource contains the rules that define how to route incoming requests to your applications. To add {{site.data.keyword.appid_short_notm}} authentication to your apps, follow the steps in the [IBM Cloud Kubernetes Service documentation](/docs/containers?topic=containers-comm-ingress-annotations#app-id-auth).
 
    
 
