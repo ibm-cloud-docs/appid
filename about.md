@@ -122,9 +122,6 @@ You can use {{site.data.keyword.appid_short_notm}} with other {{site.data.keywor
 {{site.data.keyword.at_short}}
 :   You can monitor administrative activity that is made in {{site.data.keyword.appid_short_notm}} such as changes to the dashboard configuration, by using the [{{site.data.keyword.at_short}} service](/docs/activity-tracker?topic=activity-tracker-getting-started).
 
-iOS Programming Guide
-:   Do you develop apps for Apple? Try out the [iOS programming guide](/docs/swift?topic=swift-getting-started) to learn, experiment, and enhance your existing iOS apps with {{site.data.keyword.cloud_notm}}.
-
 
 ## Standards and certifications
 {: #about-standards}

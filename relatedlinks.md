@@ -153,12 +153,3 @@ Want to have a custom experience for your users? Not a problem.
 
 
 
-## Programming guides
-{: #rellinks-guide}
-
-Are you working in a specific language and want to see how {{site.data.keyword.appid_short_notm}} fits in with other {{site.data.keyword.cloud_notm}} services? Check out one of the programming guides.
-
-* [Programming with Swift on {{site.data.keyword.cloud_notm}}](/docs/swift?topic=swift-getting-started){: external}
-
-
-
