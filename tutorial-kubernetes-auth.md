@@ -120,7 +120,7 @@ A redirect URL is the callback endpoint of your app; the location where a user i
 ## Updating your Ingress resource
 {: #define-annotation}
 
-Your Ingress resource is used to define how you want to expose your applications. The resource contains the rules that define how to route incoming requests to your applications. To add {{site.data.keyword.appid_short_notm}} authentication to your apps, follow the steps in the [IBM Cloud Kubernetes Service documentation](/docs/containers?topic=containers-comm-ingress-annotations#app-id-auth).
+Your Ingress resource is used to define how you want to expose your applications. The resource contains the rules that define how to route incoming requests to your applications. To add {{site.data.keyword.appid_short_notm}} authentication to your apps, follow the steps in the [{{site.data.keyword.containerlong_notm}} documentation](/docs/containers?topic=containers-comm-ingress-annotations#app-id-auth).
 
    
 
