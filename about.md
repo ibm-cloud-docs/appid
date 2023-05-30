@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-04-26"
+lastupdated: "2023-05-30"
 
 keywords: authentication, authorization, identity, app security, cloud directory, user data, identity provider, oauth, protocols, oauth, oidc, disaster recovery, dr, compliance, high availability, ha, secure, HA, DR
 
@@ -124,9 +124,6 @@ You can use {{site.data.keyword.appid_short_notm}} with other {{site.data.keywor
 
 iOS Programming Guide
 :   Do you develop apps for Apple? Try out the [iOS programming guide](/docs/swift?topic=swift-getting-started) to learn, experiment, and enhance your existing iOS apps with {{site.data.keyword.cloud_notm}}.
-
-Node.js programming guide
-:   Do you develop apps in Node.js? Try out the [Node.js programming guide](/docs/node?topic=node-getting-started) to learn, experiment, and enhance your existing Node.js apps with {{site.data.keyword.cloud_notm}}.
 
 
 ## Standards and certifications
