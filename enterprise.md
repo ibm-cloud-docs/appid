@@ -176,6 +176,9 @@ To configure your app, you need to provide information to a SAML compatible iden
 You cannot enable SAML until after you configure it as an identity provider.
 {: tip}
 
+
+
+
 1. In the **Manage** tab of the {{site.data.keyword.appid_short_notm}} dashboard, click **Edit** in the **SAML** row to configure your settings.
 2. Click **Download SAML Metadata file**. Your identity provider expects the following information from the file.
 
@@ -196,29 +199,31 @@ You cannot enable SAML until after you configure it as an identity provider.
 
 4. Toggle **SAML 2.0 Federation** to **Enabled**.
 
-
-
 ### Providing metadata to {{site.data.keyword.appid_short_notm}}
 {: #saml-provide-appid}
 
 You can obtain data from your identity provider and provide it to {{site.data.keyword.appid_short_notm}}.
 {: shortdesc}
 
+
+
 #### Providing metadata with the UI
 {: #saml-provide-appid-gui}
 {: ui}
 
-1. Navigate to the **SAML 2.0** tab of the {{site.data.keyword.appid_short_notm}} dashboard. Enter the following metadata that you obtained from the identity provider in the **Provide Metadata from SAML IdP** section.
+1. Navigate to the **SAML 2.0** tab of the {{site.data.keyword.appid_short_notm}} dashboard. 
+2. Add the **Provider name**. The default name is SAML.
+3. Enter the following metadata that you obtained from the identity provider in the **Provide Metadata from SAML IdP** section.
  
    | Variable |  Description |
    | -------- | ------------ |
    | `Sign-in URL` | The URL that the user is redirected to for authentication. It is hosted by your SAML identity provider. |
    | `Entity ID` | The globally unique name for a SAML identity provider. | 
-   | `Signing certificate` | The certificate issued by your SAML identity provider. It is used for signing and validating SAML assertions. All providers are different, but you might be able to download the signing certificate from your identity provider. The certificate must be in `.pem` format. | 
+   | `Primary certificate` | The certificate issued by your SAML identity provider. It is used for signing and validating SAML assertions. All providers are different, but you might be able to download the signing certificate from your identity provider. The certificate must be in `.pem` format. | 
    {: caption="Table 2. The information that must be provided to {{site.data.keyword.appid_short_notm}}" caption-side="top"}
 
-2. Optional: Provide a **Secondary certificate** that is used if signature validation fails on the primary certificate. If the signing key remains the same, {{site.data.keyword.appid_short_notm}} does not block authentication for expired certificates.
-3. Update the **Provider Name**, and click **Save**. The default name is SAML.
+4. Optional: Provide a **Secondary certificate** that is used if signature validation fails on the primary certificate. If the signing key remains the same, {{site.data.keyword.appid_short_notm}} does not block authentication for expired certificates.
+5. Click **Save**. 
 
 Want to set an authentication context? You can do so through the API.
 {: tip}
