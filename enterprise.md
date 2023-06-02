@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2022
-lastupdated: "2022-05-17"
+  years: 2017, 2023
+lastupdated: "2023-06-02"
 
 keywords: saml, enterprise apps, assertions, single sign on, tokens, authorization, user authentication, key cloak, redhat, cloud identity, sso, single sign on, xml signature, service provider, identity provider, app security
 
@@ -204,8 +204,9 @@ You cannot enable SAML until after you configure it as an identity provider.
 You can obtain data from your identity provider and provide it to {{site.data.keyword.appid_short_notm}}.
 {: shortdesc}
 
-#### Providing metadata with the GUI
+#### Providing metadata with the UI
 {: #saml-provide-appid-gui}
+{: ui}
 
 1. Navigate to the **SAML 2.0** tab of the {{site.data.keyword.appid_short_notm}} dashboard. Enter the following metadata that you obtained from the identity provider in the **Provide Metadata from SAML IdP** section.
  
@@ -224,6 +225,7 @@ Want to set an authentication context? You can do so through the API.
 
 #### Providing metadata with the API**
 {: #saml-provide-appid-api}
+{: api}
 
 1. View your current SAML configuration, including your authentication context and certificates, by making a GET request to the  [`/saml` API endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.get_saml_idp){: external}.
 
@@ -313,6 +315,9 @@ Want to set an authentication context? You can do so through the API.
    }
    ```
    {: screen}
+
+
+
 
 
 ### Testing your configuration
