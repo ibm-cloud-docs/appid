@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-06-02"
+lastupdated: "2023-06-12"
 
 keywords: saml, enterprise apps, assertions, single sign on, tokens, authorization, user authentication, key cloak, redhat, cloud identity, sso, single sign on, xml signature, service provider, identity provider, app security
 
@@ -165,8 +165,6 @@ The service expects a SAML assertion to look like the following example.
 
 You can configure SAML identity providers to work with {{site.data.keyword.appid_short_notm}} by providing metadata from {{site.data.keyword.appid_short_notm}} to your identity provider and metadata from your identity provider to {{site.data.keyword.appid_short_notm}}.
 
-
-
 ### Providing metadata to your identity provider
 {: #saml-provide-idp}
 
@@ -175,9 +173,6 @@ To configure your app, you need to provide information to a SAML compatible iden
 
 You cannot enable SAML until after you configure it as an identity provider.
 {: tip}
-
-
-
 
 1. In the **Manage** tab of the {{site.data.keyword.appid_short_notm}} dashboard, click **Edit** in the **SAML** row to configure your settings.
 2. Click **Download SAML Metadata file**. Your identity provider expects the following information from the file.
@@ -202,14 +197,14 @@ You cannot enable SAML until after you configure it as an identity provider.
 ### Providing metadata to {{site.data.keyword.appid_short_notm}}
 {: #saml-provide-appid}
 
-You can obtain data from your identity provider and provide it to {{site.data.keyword.appid_short_notm}}.
-{: shortdesc}
-
+You can obtain data from your identity provider and provide it to {{site.data.keyword.appid_short_notm}}. 
 
 
 #### Providing metadata with the UI
 {: #saml-provide-appid-gui}
 {: ui}
+
+
 
 1. Navigate to the **SAML 2.0** tab of the {{site.data.keyword.appid_short_notm}} dashboard. 
 2. Add the **Provider name**. The default name is SAML.
@@ -228,9 +223,10 @@ You can obtain data from your identity provider and provide it to {{site.data.ke
 Want to set an authentication context? You can do so through the API.
 {: tip}
 
-#### Providing metadata with the API**
+#### Providing metadata with the API
 {: #saml-provide-appid-api}
 {: api}
+
 
 1. View your current SAML configuration, including your authentication context and certificates, by making a GET request to the  [`/saml` API endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.get_saml_idp){: external}.
 
