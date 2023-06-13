@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-06-12"
+lastupdated: "2023-06-13"
 
 keywords: saml, enterprise apps, assertions, single sign on, tokens, authorization, user authentication, key cloak, redhat, cloud identity, sso, single sign on, xml signature, service provider, identity provider, app security
 
@@ -59,7 +59,7 @@ Working with a specific SAML identity provider? Try out one of the following blo
 ## Understanding SAML
 {: #saml-understanding}
 
-Security Assertion Markup Language (SAML) is an open standard that is used to exchange authentication and authorization data between the provider that asserts an identity and a provider that consumes the identity information. SAML 2.0 is based in XML and is a well established framework for authentication and authorization standards. 
+Security Assertion Markup Language (SAML) is an open standard that is used to exchange authentication and authorization data between the provider that asserts an identity and a provider that consumes the identity information. SAML 2.0 is based in XML and is a well-established framework for authentication and authorization standards. 
 
 The SAML protocol provides a bridge between {{site.data.keyword.appid_short_notm}} (service provider) and your identity provider. When the identity provider authenticates a user, it creates SAML tokens that contain information about the user such as how they authenticated, attributes that are associated with them, or authorization parameters. Check out the following table for examples.
 
@@ -79,16 +79,12 @@ Although the SAML framework is used to authenticate the user, {{site.data.keywor
 ![SAML enterprise authentication flow](/images/ibmid-flow.png){: caption="Figure 1. How an enterprise SAML authentication flow works" caption-side="bottom"}
 
 
-1. A user access the login page or restricted resource on their application, which initiates a request to the {{site.data.keyword.appid_short_notm}} `/authorization` endpoint through either an {{site.data.keyword.appid_short_notm}} SDK or API. If the user is unauthorized, the authentication flow begins with a redirect to {{site.data.keyword.appid_short_notm}}.
+1. A user accesses the login page or restricted resource on their application, which initiates a request to the {{site.data.keyword.appid_short_notm}} `/authorization` endpoint through either an {{site.data.keyword.appid_short_notm}} SDK or API. If the user is unauthorized, the authentication flow begins with a redirect to {{site.data.keyword.appid_short_notm}}.
 2. {{site.data.keyword.appid_short_notm}} generates a SAML authentication request (`AuthNRequest`) and the browser automatically redirects the user to the SAML identity provider.
 3. The identity provider parses the SAML request, authenticates the user, and generates a SAML response with its assertions.
 4. The identity provider redirects the user and the response back to {{site.data.keyword.appid_short_notm}} with the SAML response.
 5. If the authentication is successful, {{site.data.keyword.appid_short_notm}} creates access and identity tokens that represent a user's authorization and authentication and returns them to the app. If the authentication fails, {{site.data.keyword.appid_short_notm}} returns the identity provider error code to the app.
 6. The user is granted access to the app or the protected resources.
-
-
-{{site.data.keyword.appid_short_notm}} initiates a service provider SSO profile through a web browser, which means that {{site.data.keyword.appid_short_notm}} sends a SAML request to the identity provider. Currently, identity provider initiated flows are not supported.
-{: note}
 
 
 ### How does SSO change the flow?
@@ -163,10 +159,11 @@ The service expects a SAML assertion to look like the following example.
 ## Configuring SAML identity providers to work with {{site.data.keyword.appid_short_notm}}
 {: #saml-configure}
 
-You can configure SAML identity providers to work with {{site.data.keyword.appid_short_notm}} by providing metadata from {{site.data.keyword.appid_short_notm}} to your identity provider and metadata from your identity provider to {{site.data.keyword.appid_short_notm}}.
+You can configure SAML identity providers to work with {{site.data.keyword.appid_short_notm}} by providing metadata from {{site.data.keyword.appid_short_notm}} to your identity provider, and metadata from your identity provider to {{site.data.keyword.appid_short_notm}}.
 
 ### Providing metadata to your identity provider
 {: #saml-provide-idp}
+{: ui}
 
 To configure your app, you need to provide information to a SAML compatible identity provider. The information is exchanged through a metadata XML file that also contains configuration data that is used to establish trust.
 {: shortdesc}
@@ -182,7 +179,7 @@ You cannot enable SAML until after you configure it as an identity provider.
    | `EntityID` | The identifier that lets the identity provider know that {{site.data.keyword.appid_short_notm}} issued the SAML request. |
    | `Location URL` | The location that the identity provider sends the SAML assertions after successfully authenticating a user. |
    | `Binding` | The instructions on how the identity provider must send the SAML response. |
-   | `NameID Format` | How the identity provider knows which identifier format it needs to send in the subject of an assertion and how {{site.data.keyword.appid_short_notm}} identifies users. The ID must take the following form: `&lt;saml:NameID Format="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"&gt;`. |
+   | `NameID Format` | How the identity provider knows that which identifier format it needs to send in the subject of an assertion and how {{site.data.keyword.appid_short_notm}} identifies users. The ID must take the following form: `&lt;saml:NameID Format="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"&gt;`. |
    | `WantAssertionsSigned` | The way that an identity provider checks to see whether it needs to sign the assertion. The service expects that the assertion is signed, but does not support encrypted assertions. | 
    | `KeyDescriptor` | The SAML signing and encryption certificates that can be used to configure your identity provider to verify the signed SAML request and encrypt the response. |
    {: caption="Table 1. The information that is found in your metadata file" caption-side="top"}
@@ -228,7 +225,7 @@ Want to set an authentication context? You can do so through the API.
 {: api}
 
 
-1. View your current SAML configuration, including your authentication context and certificates, by making a GET request to the  [`/saml` API endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.get_saml_idp){: external}.
+1. View your current SAML configuration, including your authentication context and certificates, by making a GET request to the [`/saml` API endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.get_saml_idp){: external}.
 
    Example code:
    ```sh
