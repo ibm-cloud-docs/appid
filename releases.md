@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-06-13"
+lastupdated: "2023-06-21"
 
 keywords: release notes, new, spa, single sign on, mfa, cloud directory, saml, app security, application identity
 
@@ -55,6 +55,7 @@ content-type: release-note
 
 ## 4 May 2023
 {: #appid-may0423}
+{: release-note}
 
 IBM Cloud Foundry service broker unsupported
 :   All services that use the Cloud Foundry service broker will stop working on 1 June 2023, when Cloud Foundry enters the [End-of-Support stage](/docs/cloud-foundry-public?topic=cloud-foundry-public-deprecation). 
@@ -70,6 +71,7 @@ IBM Cloud Foundry service broker unsupported
 
 ## 1 February 2023
 {: #appid-feb0123}
+{: release-note}
 
 Ability to bulk delete Cloud Directory users
 :   It's now more efficient for users to clean up {{site.data.keyword.appid_short_notm}} instances. You can now use the `bulk_remove` API endpoint to remove multiple users from an {{site.data.keyword.appid_short_notm}} instance at once. [Learn more](/docs/appid?topic=appid-cd-users#delete-users).
