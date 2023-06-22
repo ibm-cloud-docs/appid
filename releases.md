@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-06-21"
+lastupdated: "2023-06-22"
 
 keywords: release notes, new, spa, single sign on, mfa, cloud directory, saml, app security, application identity
 
@@ -62,9 +62,7 @@ IBM Cloud Foundry service broker unsupported
 
    **Does this change affect me?**
 
-   Not sure if your {{site.data.keyword.appid_short_notm}} instance is using the Cloud Foundry service broker? In the [Cloud Foundry services](https://cloud.ibm.com/cloudfoundry/public){: external} section, check whether your {{site.data.keyword.appid_short_notm}} instance is listed as an alias. If your instance is already an alias, as shown in the following screen capture, you do not need to take any action.  
-
-   ![Screenshot showing how to identify instances with aliases.](images/cf-alias-screenshot.svg "How to identify alias instances"){: caption="Figure 1. Identifying instances with aliases." caption-side="bottom"}
+   Not sure if your {{site.data.keyword.appid_short_notm}} instance is using the Cloud Foundry service broker? In the [Cloud Foundry services](https://cloud.ibm.com/cloudfoundry/public){: external} section, check whether your {{site.data.keyword.appid_short_notm}} instance is listed as an alias. If your instance is already an alias, you do not need to take any action.  
    
    If your instance is not an alias and you want to keep it, please contact [IBM Cloud support](https://cloud.ibm.com/unifiedsupport/supportcenter){: external} to discuss next steps.
 
