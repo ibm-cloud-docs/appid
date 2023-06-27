@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2022
-lastupdated: "2022-05-17"
+  years: 2017, 2023
+lastupdated: "2023-06-27"
 
 keywords: saml, enterprise apps, assertions, single sign on, tokens, authorization, user authentication, key cloak, redhat, cloud identity, sso, single sign on, xml signature, service provider, identity provider, app security
 
@@ -59,7 +59,7 @@ Working with a specific SAML identity provider? Try out one of the following blo
 ## Understanding SAML
 {: #saml-understanding}
 
-Security Assertion Markup Language (SAML) is an open standard that is used to exchange authentication and authorization data between the provider that asserts an identity and a provider that consumes the identity information. SAML 2.0 is based in XML and is a well established framework for authentication and authorization standards. 
+Security Assertion Markup Language (SAML) is an open standard that is used to exchange authentication and authorization data between the provider that asserts an identity and a provider that consumes the identity information. SAML 2.0 is based in XML and is a well-established framework for authentication and authorization standards. 
 
 The SAML protocol provides a bridge between {{site.data.keyword.appid_short_notm}} (service provider) and your identity provider. When the identity provider authenticates a user, it creates SAML tokens that contain information about the user such as how they authenticated, attributes that are associated with them, or authorization parameters. Check out the following table for examples.
 
@@ -79,16 +79,12 @@ Although the SAML framework is used to authenticate the user, {{site.data.keywor
 ![SAML enterprise authentication flow](/images/ibmid-flow.png){: caption="Figure 1. How an enterprise SAML authentication flow works" caption-side="bottom"}
 
 
-1. A user access the login page or restricted resource on their application, which initiates a request to the {{site.data.keyword.appid_short_notm}} `/authorization` endpoint through either an {{site.data.keyword.appid_short_notm}} SDK or API. If the user is unauthorized, the authentication flow begins with a redirect to {{site.data.keyword.appid_short_notm}}.
+1. A user accesses the login page or restricted resource on their application, which initiates a request to the {{site.data.keyword.appid_short_notm}} `/authorization` endpoint through either an {{site.data.keyword.appid_short_notm}} SDK or API. If the user is unauthorized, the authentication flow begins with a redirect to {{site.data.keyword.appid_short_notm}}.
 2. {{site.data.keyword.appid_short_notm}} generates a SAML authentication request (`AuthNRequest`) and the browser automatically redirects the user to the SAML identity provider.
 3. The identity provider parses the SAML request, authenticates the user, and generates a SAML response with its assertions.
 4. The identity provider redirects the user and the response back to {{site.data.keyword.appid_short_notm}} with the SAML response.
 5. If the authentication is successful, {{site.data.keyword.appid_short_notm}} creates access and identity tokens that represent a user's authorization and authentication and returns them to the app. If the authentication fails, {{site.data.keyword.appid_short_notm}} returns the identity provider error code to the app.
 6. The user is granted access to the app or the protected resources.
-
-
-{{site.data.keyword.appid_short_notm}} initiates a service provider SSO profile through a web browser, which means that {{site.data.keyword.appid_short_notm}} sends a SAML request to the identity provider. Currently, identity provider initiated flows are not supported.
-{: note}
 
 
 ### How does SSO change the flow?
@@ -163,12 +159,11 @@ The service expects a SAML assertion to look like the following example.
 ## Configuring SAML identity providers to work with {{site.data.keyword.appid_short_notm}}
 {: #saml-configure}
 
-You can configure SAML identity providers to work with {{site.data.keyword.appid_short_notm}} by providing metadata from {{site.data.keyword.appid_short_notm}} to your identity provider and metadata from your identity provider to {{site.data.keyword.appid_short_notm}}.
-
-
+You can configure SAML identity providers to work with {{site.data.keyword.appid_short_notm}} by providing metadata from {{site.data.keyword.appid_short_notm}} to your identity provider, and metadata from your identity provider to {{site.data.keyword.appid_short_notm}}.
 
 ### Providing metadata to your identity provider
 {: #saml-provide-idp}
+{: ui}
 
 To configure your app, you need to provide information to a SAML compatible identity provider. The information is exchanged through a metadata XML file that also contains configuration data that is used to establish trust.
 {: shortdesc}
@@ -184,7 +179,7 @@ You cannot enable SAML until after you configure it as an identity provider.
    | `EntityID` | The identifier that lets the identity provider know that {{site.data.keyword.appid_short_notm}} issued the SAML request. |
    | `Location URL` | The location that the identity provider sends the SAML assertions after successfully authenticating a user. |
    | `Binding` | The instructions on how the identity provider must send the SAML response. |
-   | `NameID Format` | How the identity provider knows which identifier format it needs to send in the subject of an assertion and how {{site.data.keyword.appid_short_notm}} identifies users. The ID must take the following form: `&lt;saml:NameID Format="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"&gt;`. |
+   | `NameID Format` | How the identity provider knows that which identifier format it needs to send in the subject of an assertion and how {{site.data.keyword.appid_short_notm}} identifies users. The ID must take the following form: `&lt;saml:NameID Format="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"&gt;`. |
    | `WantAssertionsSigned` | The way that an identity provider checks to see whether it needs to sign the assertion. The service expects that the assertion is signed, but does not support encrypted assertions. | 
    | `KeyDescriptor` | The SAML signing and encryption certificates that can be used to configure your identity provider to verify the signed SAML request and encrypt the response. |
    {: caption="Table 1. The information that is found in your metadata file" caption-side="top"}
@@ -196,36 +191,56 @@ You cannot enable SAML until after you configure it as an identity provider.
 
 4. Toggle **SAML 2.0 Federation** to **Enabled**.
 
-
-
 ### Providing metadata to {{site.data.keyword.appid_short_notm}}
 {: #saml-provide-appid}
 
-You can obtain data from your identity provider and provide it to {{site.data.keyword.appid_short_notm}}.
-{: shortdesc}
+You can obtain data from your identity provider and provide it to {{site.data.keyword.appid_short_notm}}. You can initiate login to your applications from IBM Cloud or your identity provider.
 
-#### Providing metadata with the GUI
+
+#### Providing metadata with the UI
 {: #saml-provide-appid-gui}
+{: ui}
 
-1. Navigate to the **SAML 2.0** tab of the {{site.data.keyword.appid_short_notm}} dashboard. Enter the following metadata that you obtained from the identity provider in the **Provide Metadata from SAML IdP** section.
+To log in to your applications from the IBM Cloud UI, follow these steps.
+
+1. Navigate to the **SAML 2.0** tab of the {{site.data.keyword.appid_short_notm}} dashboard. 
+2. Add the **Provider name**. The default name is SAML.
+3. Enter the following metadata that you obtained from the identity provider in the **Provide Metadata from SAML IdP** section.
  
    | Variable |  Description |
    | -------- | ------------ |
    | `Sign-in URL` | The URL that the user is redirected to for authentication. It is hosted by your SAML identity provider. |
    | `Entity ID` | The globally unique name for a SAML identity provider. | 
-   | `Signing certificate` | The certificate issued by your SAML identity provider. It is used for signing and validating SAML assertions. All providers are different, but you might be able to download the signing certificate from your identity provider. The certificate must be in `.pem` format. | 
+   | `Primary certificate` | The certificate issued by your SAML identity provider. It is used for signing and validating SAML assertions. All providers are different, but you might be able to download the signing certificate from your identity provider. The certificate must be in `.pem` format. | 
    {: caption="Table 2. The information that must be provided to {{site.data.keyword.appid_short_notm}}" caption-side="top"}
 
-2. Optional: Provide a **Secondary certificate** that is used if signature validation fails on the primary certificate. If the signing key remains the same, {{site.data.keyword.appid_short_notm}} does not block authentication for expired certificates.
-3. Update the **Provider Name**, and click **Save**. The default name is SAML.
+4. Optional: Provide a **Secondary certificate** that is used if signature validation fails on the primary certificate. If the signing key remains the same, {{site.data.keyword.appid_short_notm}} does not block authentication for expired certificates.
+5. Click **Save**. 
 
 Want to set an authentication context? You can do so through the API.
 {: tip}
 
-#### Providing metadata with the API**
-{: #saml-provide-appid-api}
 
-1. View your current SAML configuration, including your authentication context and certificates, by making a GET request to the  [`/saml` API endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.get_saml_idp){: external}.
+#### Configuring IdP-initiated login with the UI
+{: #idp-login-ui}
+{: ui}
+
+Optionally, if you want to log in to your applications on IBM Cloud from your identity provider's UI, you can enable IdP-initiated login. 
+
+Follow steps 1 - 4 in the [Providing metadata with the UI](/docs/appid?topic=appid-enterprise#saml-provide-appid-gui) section. Then, complete the following process.
+
+5. Enable the **IdP initiated login**.
+6. Enter the **IdP redirect URL**.
+7. Click **Save**.
+
+
+
+#### Providing metadata with the API
+{: #saml-provide-appid-api}
+{: api}
+
+
+1. View your current SAML configuration, including your authentication context and certificates, by making a GET request to the [`/saml` API endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.get_saml_idp){: external}.
 
    Example code:
    ```sh
@@ -313,6 +328,121 @@ Want to set an authentication context? You can do so through the API.
    }
    ```
    {: screen}
+
+
+
+
+#### Configuring IdP-initiated login with the API
+{: #idp-login-api}
+{: api}
+
+To configure IdP-initiated login, complete the following steps.
+
+1. View your current SAML configuration, including your authentication context and certificates, by making a GET request to the  [`/saml` API endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.get_saml_idp){: external}.
+
+   Example code:
+   ```sh
+   curl --request GET \
+   https://us-south.appid.cloud.ibm.com/management/v4/<tenantID>/config/idps/saml \
+   --header `Accept: application/json`
+   ```
+   {: codeblock}
+
+   Example output:
+   ```json
+   {
+      "isActive": true,
+      "config": {
+      "entityID": "https://example.com/saml2/metadata/706634",
+      "signInUrl": "https://example.com/saml2/sso-redirect/706634",
+      "certificates": [
+         "certificate-example-pem-format"
+      ],
+      "displayName": "my saml example",
+      "authnContext": {
+         "class": [
+            "urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport"
+         ],
+         "comparison": "exact"
+      }
+      }
+   }
+   ```
+   {: screen}
+
+2. Create your SAML configuration by replacing the values in the following example with the information from your provider. The values that are shown in the example are required, but you can choose to include more information as shown in the table.
+
+   ```json
+   "config": {
+      "authnContext": {
+      "class": [
+         "urn:oasis:names:tc:SAML:2.0:ac:classes:YourChosenClassValue",
+         "urn:oasis:names:tc:SAML:2.0:ac:classes:YourOtherChosenClassValue"
+      ],
+      "comparison": "sampleComparisonValue"
+      },
+      "idpInitEnabled": true,
+      "idpRedirectUrl": "https://example.com/redirect/endpoint",
+      "entityID": "https://example.com/saml2/metadata/706634",
+      "signInUrl": "https://example.com/saml2/sso-redirect/706634",
+      "certificates": [
+      "primary-certificate-example-pem-format"
+      "secondary-certificate-example-pem-format"
+      ],
+      "displayName": "my saml example",
+      "signRequest": true ,
+      "encryptResponse": true
+   }
+   ```
+   {: codeblock}
+   {: #configuring-saml-new}
+  
+   | Variable | Description |
+   | -------- | ----------- |
+   | `signInUrl` | The URL that the user is redirected to for authentication. It is hosted by your SAML identity provider. | 
+   | `entityID` | The globally unique name for a SAML identity provider. | 
+   | `displayName` | The name that you assign to your SAML configuration. | 
+   | `primary-certificate-example-pem-format` | The certificate that is issued by your SAML identity provider. It is used for signing and validating SAML assertions. All providers are different, but you might be able to download the signing certificate from your identity provider. The certificate must be in `.pem` format. | 
+   | `DefaultRelayState` | The initial value for `RelayState`. This variable is configured in your identity provider's settings. This variable can be used for the redirect URL instead of `idpRedirectUrl` during SAML requests from your identity provider. If you set both variables, the value of `DefaultRelayState` takes precedence. IdP-initiated login fails if you don't set one of these variables.  | 
+   | `idpInitEnabled` | A boolean to indicate whether you want to enable IdP initiated login. |
+   | `idpRedirectUrl`|  This field's value can be `null`, a string that is empty, or a valid http or https redirect URL. **Note**: If this field's value is null, then you must set the `DefaultRelayState` as the redirect URL. If you set both variables, the value of `DefaultRelayState` takes precedence. IdP-initiated login fails if you don't set one of these variables. |
+   | Optional: `secondary-certificate-example-pem-format` | The backup certificate that is issued by your SAML identity provider. It is used if signature validation fails with the primary certificate. **Note**: If the signing key remains the same, {{site.data.keyword.appid_short_notm}} does not block authentication for expired certificates. |
+   | Optional: `authnContext` | The authentication context is used to verify the quality of the authentication and SAML assertions. You can add an authentication context by adding a class array and comparison string to your code. BE sure to update both the `class` and `comparison` parameters with your values. For example, a `class` parameter might look similar to `urn:oasis:names:tc:SAML:2.0:ac:classes:YourChosenClassValue`. |
+   | Optional: `signRequest` | The `signRequest` flag provides the capability to send a signed SAML request to an identity provider that is signed by using the tenant's SAML signing private key. To configure your SAML identity provider to receive a signed request, you need the signing certificate from the metadata file that you can download in the `KeyDescriptor use="signing"` field. By default, request signing is set to `off`. |
+   | Optional: `encryptResponse` | The `encryptResponse` flag allows for you to receive an encrypted response from your identity provider as part of the authentication request. To configure your SAML identity provider to send an encrypted response, you need the encryption certificate that can be found in the metadata file in the `KeyDescriptor use="encryption"` field. By default, response encryption is set to `off`.
+   {: caption="Table 3. SAML configuration variables" caption-side="top"}
+
+3. Make a PUT request to the [`/saml` API endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.set_saml_idp){: external} to provide the configuration that you created in step 2 to {{site.data.keyword.appid_short_notm}}. Check out the following example to see what your request might look like.
+
+   ```sh
+   curl --request PUT \
+   https://us-south.appid.cloud.ibm.com/management/v4/<tenantID>/config/idps/saml \
+   --header `Accept: application/json` \
+   --data \
+      {
+        "isActive": true,
+        "config": {
+            "entityID": "https://example.com/saml2/metadata/706634",
+            "signInUrl": "https://example.com/saml2/sso-redirect/706634",
+            "certificates": [
+            "certificate-example-pem-format"
+            ],
+            "displayName": "my saml example",
+            "authnContext": {
+                "class": [
+                    "urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport"
+                ],
+            "comparison": "exact"
+            },
+            "idpInitEnabled": true,
+            "idpRedirectUrl": "https://example.com/redirect/endpoint",
+        }
+   }
+   ```
+   {: screen}
+
+
+
 
 
 ### Testing your configuration

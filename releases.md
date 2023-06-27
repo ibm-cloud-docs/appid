@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-05-04"
+lastupdated: "2023-06-27"
 
 keywords: release notes, new, spa, single sign on, mfa, cloud directory, saml, app security, application identity
 
@@ -51,23 +51,34 @@ content-type: release-note
 {: #release-notes}
 
 
+
+## 22 June 2023
+{: #appid-jun2223}
+{: release-note}
+
+IdP-initiated login is now available
+:   If you want to log in to your applications on IBM Cloud from your identity provider's UI, you can enable IdP-initiated login. [Learn more](/docs/appid?topic=appid-enterprise&interface=ui#saml-configure).
+
+
+
+
 ## 4 May 2023
 {: #appid-may0423}
+{: release-note}
 
 IBM Cloud Foundry service broker unsupported
 :   All services that use the Cloud Foundry service broker will stop working on 1 June 2023, when Cloud Foundry enters the [End-of-Support stage](/docs/cloud-foundry-public?topic=cloud-foundry-public-deprecation). 
 
    **Does this change affect me?**
 
-   Not sure if your {{site.data.keyword.appid_short_notm}} instance is using the Cloud Foundry service broker? In the [Cloud Foundry services](https://cloud.ibm.com/cloudfoundry/public){: external} section, check whether your {{site.data.keyword.appid_short_notm}} instance is listed as an alias. If your instance is already an alias, as shown in the following screen capture, you do not need to take any action.  
-
-   ![Screenshot showing how to identify instances with aliases.](images/cf-alias-screenshot.svg "How to identify alias instances"){: caption="Figure 1. Identifying instances with aliases." caption-side="bottom"}
+   Not sure if your {{site.data.keyword.appid_short_notm}} instance is using the Cloud Foundry service broker? In the [Cloud Foundry services](https://cloud.ibm.com/cloudfoundry/public){: external} section, check whether your {{site.data.keyword.appid_short_notm}} instance is listed as an alias. If your instance is already an alias, you do not need to take any action.  
    
    If your instance is not an alias and you want to keep it, please contact [IBM Cloud support](https://cloud.ibm.com/unifiedsupport/supportcenter){: external} to discuss next steps.
 
 
 ## 1 February 2023
 {: #appid-feb0123}
+{: release-note}
 
 Ability to bulk delete Cloud Directory users
 :   It's now more efficient for users to clean up {{site.data.keyword.appid_short_notm}} instances. You can now use the `bulk_remove` API endpoint to remove multiple users from an {{site.data.keyword.appid_short_notm}} instance at once. [Learn more](/docs/appid?topic=appid-cd-users#delete-users).
