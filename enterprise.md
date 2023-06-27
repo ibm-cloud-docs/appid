@@ -329,7 +329,7 @@ Follow steps 1 - 4 in the [Providing metadata with the UI](/docs/appid?topic=app
    ```
    {: screen}
 
-<idp>
+
 
 
 #### Configuring IdP-initiated login with the API
@@ -441,7 +441,6 @@ To configure IdP-initiated login, complete the following steps.
    ```
    {: screen}
 
-</idp>
 
 
 
