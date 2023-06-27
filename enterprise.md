@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-06-13"
+lastupdated: "2023-06-27"
 
 keywords: saml, enterprise apps, assertions, single sign on, tokens, authorization, user authentication, key cloak, redhat, cloud identity, sso, single sign on, xml signature, service provider, identity provider, app security
 
@@ -194,14 +194,14 @@ You cannot enable SAML until after you configure it as an identity provider.
 ### Providing metadata to {{site.data.keyword.appid_short_notm}}
 {: #saml-provide-appid}
 
-You can obtain data from your identity provider and provide it to {{site.data.keyword.appid_short_notm}}. 
+You can obtain data from your identity provider and provide it to {{site.data.keyword.appid_short_notm}}. You can initiate login to your applications from IBM Cloud or your identity provider.
 
 
 #### Providing metadata with the UI
 {: #saml-provide-appid-gui}
 {: ui}
 
-
+To log in to your applications from the IBM Cloud UI, follow these steps.
 
 1. Navigate to the **SAML 2.0** tab of the {{site.data.keyword.appid_short_notm}} dashboard. 
 2. Add the **Provider name**. The default name is SAML.
@@ -219,6 +219,21 @@ You can obtain data from your identity provider and provide it to {{site.data.ke
 
 Want to set an authentication context? You can do so through the API.
 {: tip}
+
+
+#### Configuring IdP-initiated login with the UI
+{: #idp-login-ui}
+{: ui}
+
+Optionally, if you want to log in to your applications on IBM Cloud from your identity provider's UI, you can enable IdP-initiated login. 
+
+Follow steps 1 - 4 in the [Providing metadata with the UI](/docs/appid?topic=appid-enterprise#saml-provide-appid-gui) section. Then, complete the following process.
+
+5. Enable the **IdP initiated login**.
+6. Enter the **IdP redirect URL**.
+7. Click **Save**.
+
+
 
 #### Providing metadata with the API
 {: #saml-provide-appid-api}
@@ -310,6 +325,118 @@ Want to set an authentication context? You can do so through the API.
       ],
       "displayName": "my saml example",
       }
+   }
+   ```
+   {: screen}
+
+
+
+
+#### Configuring IdP-initiated login with the API
+{: #idp-login-api}
+{: api}
+
+To configure IdP-initiated login, complete the following steps.
+
+1. View your current SAML configuration, including your authentication context and certificates, by making a GET request to the  [`/saml` API endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.get_saml_idp){: external}.
+
+   Example code:
+   ```sh
+   curl --request GET \
+   https://us-south.appid.cloud.ibm.com/management/v4/<tenantID>/config/idps/saml \
+   --header `Accept: application/json`
+   ```
+   {: codeblock}
+
+   Example output:
+   ```json
+   {
+      "isActive": true,
+      "config": {
+      "entityID": "https://example.com/saml2/metadata/706634",
+      "signInUrl": "https://example.com/saml2/sso-redirect/706634",
+      "certificates": [
+         "certificate-example-pem-format"
+      ],
+      "displayName": "my saml example",
+      "authnContext": {
+         "class": [
+            "urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport"
+         ],
+         "comparison": "exact"
+      }
+      }
+   }
+   ```
+   {: screen}
+
+2. Create your SAML configuration by replacing the values in the following example with the information from your provider. The values that are shown in the example are required, but you can choose to include more information as shown in the table.
+
+   ```json
+   "config": {
+      "authnContext": {
+      "class": [
+         "urn:oasis:names:tc:SAML:2.0:ac:classes:YourChosenClassValue",
+         "urn:oasis:names:tc:SAML:2.0:ac:classes:YourOtherChosenClassValue"
+      ],
+      "comparison": "sampleComparisonValue"
+      },
+      "idpInitEnabled": true,
+      "idpRedirectUrl": "https://example.com/redirect/endpoint",
+      "entityID": "https://example.com/saml2/metadata/706634",
+      "signInUrl": "https://example.com/saml2/sso-redirect/706634",
+      "certificates": [
+      "primary-certificate-example-pem-format"
+      "secondary-certificate-example-pem-format"
+      ],
+      "displayName": "my saml example",
+      "signRequest": true ,
+      "encryptResponse": true
+   }
+   ```
+   {: codeblock}
+   {: #configuring-saml-new}
+  
+   | Variable | Description |
+   | -------- | ----------- |
+   | `signInUrl` | The URL that the user is redirected to for authentication. It is hosted by your SAML identity provider. | 
+   | `entityID` | The globally unique name for a SAML identity provider. | 
+   | `displayName` | The name that you assign to your SAML configuration. | 
+   | `primary-certificate-example-pem-format` | The certificate that is issued by your SAML identity provider. It is used for signing and validating SAML assertions. All providers are different, but you might be able to download the signing certificate from your identity provider. The certificate must be in `.pem` format. | 
+   | `DefaultRelayState` | The initial value for `RelayState`. This variable is configured in your identity provider's settings. This variable can be used for the redirect URL instead of `idpRedirectUrl` during SAML requests from your identity provider. If you set both variables, the value of `DefaultRelayState` takes precedence. IdP-initiated login fails if you don't set one of these variables.  | 
+   | `idpInitEnabled` | A boolean to indicate whether you want to enable IdP initiated login. |
+   | `idpRedirectUrl`|  This field's value can be `null`, a string that is empty, or a valid http or https redirect URL. **Note**: If this field's value is null, then you must set the `DefaultRelayState` as the redirect URL. If you set both variables, the value of `DefaultRelayState` takes precedence. IdP-initiated login fails if you don't set one of these variables. |
+   | Optional: `secondary-certificate-example-pem-format` | The backup certificate that is issued by your SAML identity provider. It is used if signature validation fails with the primary certificate. **Note**: If the signing key remains the same, {{site.data.keyword.appid_short_notm}} does not block authentication for expired certificates. |
+   | Optional: `authnContext` | The authentication context is used to verify the quality of the authentication and SAML assertions. You can add an authentication context by adding a class array and comparison string to your code. BE sure to update both the `class` and `comparison` parameters with your values. For example, a `class` parameter might look similar to `urn:oasis:names:tc:SAML:2.0:ac:classes:YourChosenClassValue`. |
+   | Optional: `signRequest` | The `signRequest` flag provides the capability to send a signed SAML request to an identity provider that is signed by using the tenant's SAML signing private key. To configure your SAML identity provider to receive a signed request, you need the signing certificate from the metadata file that you can download in the `KeyDescriptor use="signing"` field. By default, request signing is set to `off`. |
+   | Optional: `encryptResponse` | The `encryptResponse` flag allows for you to receive an encrypted response from your identity provider as part of the authentication request. To configure your SAML identity provider to send an encrypted response, you need the encryption certificate that can be found in the metadata file in the `KeyDescriptor use="encryption"` field. By default, response encryption is set to `off`.
+   {: caption="Table 3. SAML configuration variables" caption-side="top"}
+
+3. Make a PUT request to the [`/saml` API endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.set_saml_idp){: external} to provide the configuration that you created in step 2 to {{site.data.keyword.appid_short_notm}}. Check out the following example to see what your request might look like.
+
+   ```sh
+   curl --request PUT \
+   https://us-south.appid.cloud.ibm.com/management/v4/<tenantID>/config/idps/saml \
+   --header `Accept: application/json` \
+   --data \
+      {
+        "isActive": true,
+        "config": {
+            "entityID": "https://example.com/saml2/metadata/706634",
+            "signInUrl": "https://example.com/saml2/sso-redirect/706634",
+            "certificates": [
+            "certificate-example-pem-format"
+            ],
+            "displayName": "my saml example",
+            "authnContext": {
+                "class": [
+                    "urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport"
+                ],
+            "comparison": "exact"
+            },
+            "idpInitEnabled": true,
+            "idpRedirectUrl": "https://example.com/redirect/endpoint",
+        }
    }
    ```
    {: screen}
