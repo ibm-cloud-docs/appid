@@ -444,7 +444,6 @@ To configure IdP-initiated login, complete the following steps.
 
 
 
-
 ### Testing your configuration
 {: #saml-testing}
 

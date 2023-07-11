@@ -51,14 +51,12 @@ content-type: release-note
 {: #release-notes}
 
 
-
 ## 22 June 2023
 {: #appid-jun2223}
 {: release-note}
 
 IdP-initiated login is now available
 :   If you want to log in to your applications on IBM Cloud from your identity provider's UI, you can enable IdP-initiated login. [Learn more](/docs/appid?topic=appid-enterprise&interface=ui#saml-configure).
-
 
 
 
