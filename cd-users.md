@@ -351,9 +351,10 @@ If you are exporting many users (16,000 or less), you can use the `export/all` A
 3. When the export is ready or if the request fails, an email is sent to the email address provided. To download the export, use the [export/download](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.cloudDirectoryDownloadExport){: external} API. 
 
    ```sh
-   curl -X GET 'https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/export/download?id=<id>' \ 
-   --header 'Content-Type: application/json' \ 
-   --header 'Authorization: Bearer <IAMToken>'
+   curl -X GET 'https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/cloud_directory/export/download?id=<id>' \
+      --header 'Content-Type: application/json' \
+      --header 'Authorization: Bearer <IAMToken>'
+
    ```
    {: codeblock}
 
