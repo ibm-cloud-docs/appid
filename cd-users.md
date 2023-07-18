@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2017, 2023
-lastupdated: "2023-02-15"
+lastupdated: "2023-07-18"
 
 keywords: manage users, registry, cloud directory, add user, delete user, tokens, attributes, migrating users, identity provider, app security
 
@@ -331,10 +331,10 @@ If you are exporting many users (16,000 or less), you can use the `export/all` A
 1. Export all the users from your original instance of the service.
 
    ```sh
-   curl -X POST 'https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/export/all' \ 
-   --header 'Content-Type: application/json' \ 
-   --header 'Authorization: Bearer <IAMToken>' \ 
-   --data-raw '{"encryptionSecret" : <encryptionSecret>",  
+   curl -X POST 'https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/cloud_directory/export/all' \
+      --header 'Content-Type: application/json' \
+      --header 'Authorization: Bearer <IAMToken>' \
+      --data-raw '{"encryptionSecret" : "<encryptionSecret>",  
    "emailAddress" : "jdoe@example.com"}'
    ```
    {: codeblock}
@@ -342,19 +342,19 @@ If you are exporting many users (16,000 or less), you can use the `export/all` A
 2. Get the status of your request, as needed. 
 
    ```sh
-   curl -X GET 'https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/export/status?id=<id>' \
-   --header 'Accept: application/json' \ 
-   --header 'Content-Type: application/json' \ 
-   --header 'Authorization: Bearer <IAMToken>'
+   curl -X GET 'https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/cloud_directory/export/status?id=<id>' --header 'Accept: application/json' \
+      --header 'Content-Type: application/json' \
+      --header 'Authorization: Bearer <IAMToken>'
    ```
    {: codeblock}
 
 3. When the export is ready or if the request fails, an email is sent to the email address provided. To download the export, use the [export/download](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.cloudDirectoryDownloadExport){: external} API. 
 
    ```sh
-   curl -X GET 'https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/export/download?id=<id>' \ 
-   --header 'Content-Type: application/json' \ 
-   --header 'Authorization: Bearer <IAMToken>'
+   curl -X GET 'https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/cloud_directory/export/download?id=<id>' \
+      --header 'Content-Type: application/json' \
+      --header 'Authorization: Bearer <IAMToken>'
+
    ```
    {: codeblock}
 
