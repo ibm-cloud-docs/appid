@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-05-30"
+lastupdated: "2023-08-07"
 
 keywords: related links, blogs, sample apps, kube, code changes, programming guide, white paper, vuejs apps, serverless applications, enterprise user directory, custom experience, slack, stack overflow, secure iot, solution, finance app, multicloud, video tutorials
 
@@ -96,10 +96,9 @@ Have a specific use case? Check out the available blogs and samples to find out 
 * [Authenticating web users with OpenID and JWT](http://heidloff.net/article/authenticating-web-users-openid-connect-jwt/){: external}
 * [Authorization in cloud-native apps in Istio via OpenID](http://heidloff.net/article/authentication-authorization-openid-connect-istio){: external}
 * [Adding sign in to multicloud applications without code changes](https://www.ibm.com/cloud/blog/adding-sign-in-to-multicloud-applications-without-code-changes)
-* [Using App ID to Manage Access to Your App's Sensitive Data](https://www.ibm.com/cloud/blog/using-app-id-to-manage-access-to-your-apps-sensitive-data){: external}
 
 
-Using multiple cloud providers? Check out the blog [Using Istio to secure your multicloud Kubernetes applications with zero code changes](https://www.ibm.com/cloud/blog/using-istio-to-secure-your-multicloud-kubernetes-applications-with-zero-code-change){: external}.
+Using multiple cloud providers? Check out the blog [Using Istio to secure your multicloud Kubernetes applications with zero code changes](https://www.ibm.com/blog/using-istio-to-secure-your-multicloud-kubernetes-applications-with-zero-code-change/){: external}.
 {: tip}
 
 
@@ -110,7 +109,6 @@ Using multiple cloud providers? Check out the blog [Using Istio to secure your m
 Just getting started? Try walking through some of our tutorials and blogs for help integrating {{site.data.keyword.appid_short_notm}} into your apps!
 
 * [Announcing {{site.data.keyword.appid_short_notm}} integration to {{site.data.keyword.containerlong}}](https://www.ibm.com/cloud/blog/announcing-app-id-integration-ibm-cloud-kubernetes-service){: external}
-* [Using {{site.data.keyword.appid_short_notm}} to secure Docker and Kubernetes applications](https://www.ibm.com/cloud/blog/using-app-id-secure-docker-kubernetes-applications){: external}
 * [Authenticating users with Cloud Functions, API Gateway, and {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/authenticating-users-with-cloud-functions-api-gateway-and-app-id){: external}
 * [Configuring {{site.data.keyword.appid_short_notm}} From the Toolchain](https://www.ibm.com/cloud/blog/how-to-configure-ibm-cloud-app-id-from-the-toolchain){: external}
 * [User Authorization in Serverless Web Applications](http://heidloff.net/article/user-authorization-serverless-web-applications-openwhisk){: external}
@@ -134,8 +132,6 @@ See {{site.data.keyword.appid_short_notm}} in action in these market examples.
 
 Need help integrating with your enterprise apps? Don't worry! {{site.data.keyword.appid_short_notm}} can do that too.
 
-* [Setting up {{site.data.keyword.appid_long}} with your Azure Active Directory](https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-azure-active-directory){: external}
-* [Setting up {{site.data.keyword.appid_long}} with Ping One](https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-ping-one){: external}
 * [Setting up {{site.data.keyword.appid_long}} with your Active Directory Federation service](https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-active-directory-federation-service){: external}
 
 
@@ -145,10 +141,7 @@ Need help integrating with your enterprise apps? Don't worry! {{site.data.keywor
 
 Want to have a custom experience for your users? Not a problem.
 
-* [Use your own branded UI for user sign-in with {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/use-branded-ui-user-sign-app-id){: external}
-* [Use your own UI and flows for user sign-up and sign-in with {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/use-ui-flows-user-sign-sign-app-id){: external}
 * [Use a custom login page with  {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/custom-login-page-app-id-integration){: external}
-* [Use your own provider for mail sent with {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/use-ibm-cloud-app-id-and-your-email-provider-to-brand-mails-sent-to-app-users){: external}
 * [Using your own SendGrid account With {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/using-your-own-sendgrid-account-with-app-id){: external}
 
 

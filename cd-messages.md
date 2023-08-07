@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-01-06"
+lastupdated: "2023-08-07"
 
 keywords: emails, verification, templates, sendgrid, welcome, password reset, password change, change details, verification, supported languages, registry, cloud directory, 
 
@@ -156,9 +156,6 @@ You can use the service dashboard to configure your custom provider.
 {: #cd-messages-configure-custom-api}
 
 You can use the Cloud Directory [management APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.set_cloud_directory_email_dispatcher){: external} to configure your custom email sender.
-
-To see an example, check out the blog [Using your own provider for mail that is sent with {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/use-ibm-cloud-app-id-and-your-email-provider-to-brand-mails-sent-to-app-users){: external}.
-{: tip}
 
 
 1. Configure an extension point that can listen for a POST request. The endpoint must be able to:
