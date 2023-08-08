@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-08-07"
+lastupdated: "2023-08-08"
 
 keywords: saml, enterprise apps, assertions, single sign on, tokens, authorization, user authentication, key cloak, redhat, cloud identity, sso, single sign on, xml signature, service provider, identity provider, app security
 
@@ -294,7 +294,7 @@ Follow steps 1 - 4 in the [Providing metadata with the UI](/docs/appid?topic=app
    }
    ```
    {: codeblock}
-   {: #configuring-saml-new}
+   {: #configuring-saml-new-values}
   
    | Variable | Description |
    | -------- | ----------- |
