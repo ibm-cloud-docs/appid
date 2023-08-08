@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-04-14"
+lastupdated: "2023-08-08"
 
 keywords: single page application, SPA, single-page, angular, react, native apps, javascript, js, sdk, authentication, authorization, identity, app security, secure, protocols, oauth, oidc,
 
@@ -49,7 +49,7 @@ subcollection: appid
 # Single-page apps
 {: #single-page}
 
-With {{site.data.keyword.appid_full}}, you can quickly add authorization and authentication to your single-page applications (SPA). An SPA runs entirely in your browser, doesn't have a backend that you manage, and does not require that the page reload while the application is in use. Some common frameworks that are used with SPAs are [Angular](https://angular.io/){: external} and [React](https://reactjs.org/){: external}.
+With {{site.data.keyword.appid_full}}, you can quickly add authorization and authentication to your single-page applications (SPA). An SPA runs entirely in your browser, doesn't have a backend that you manage, and does not require that the page reload while the application is in use. Some common frameworks that are used with SPAs are [Angular](https://angular.io/){: external} and [React](https://react.dev/){: external}.
 {: shortdesc}
 
 Does your app have a backend that you control? SPA is not the flow for you. Try the [web app flow](/docs/appid?topic=appid-web-apps)!

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-06-27"
+lastupdated: "2023-08-08"
 
 keywords: saml, enterprise apps, assertions, single sign on, tokens, authorization, user authentication, key cloak, redhat, cloud identity, sso, single sign on, xml signature, service provider, identity provider, app security
 
@@ -52,7 +52,7 @@ If you're using a SAML-based identity provider, you can configure {{site.data.ke
 {: shortdesc}
 
  
-Working with a specific SAML identity provider? Try out one of the following blogs to help you set up {{site.data.keyword.appid_short_notm}} with [Reusing Existing Red Hat SSO and Keycloak for Applications That Run on IBM Cloud with App ID](https://www.ibm.com/cloud/blog/reusing-existing-red-hat-sso-and-keycloak-for-applications-that-run-on-ibm-cloud-with-app-id){: external}, [an Azure Active Directory](https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-azure-active-directory){: external}, or [Protecting Your Cloud Applications with App ID and an Existing IBM Cloud Identity User Repository](https://www.ibm.com/cloud/blog/protecting-your-cloud-applications-with-app-id-and-existing-ibm-cloud-identity-user-repository){: external}.
+Working with a specific SAML identity provider? Try out one of the following blogs to help you set up {{site.data.keyword.appid_short_notm}} with [Reusing Existing Red Hat SSO and Keycloak for Applications That Run on IBM Cloud with App ID](https://www.ibm.com/cloud/blog/reusing-existing-red-hat-sso-and-keycloak-for-applications-that-run-on-ibm-cloud-with-app-id){: external}, or [Protecting Your Cloud Applications with App ID and an Existing IBM Cloud Identity User Repository](https://www.ibm.com/cloud/blog/protecting-your-cloud-applications-with-app-id-and-existing-ibm-cloud-identity-user-repository){: external}.
 {: tip}
 
 
@@ -294,7 +294,7 @@ Follow steps 1 - 4 in the [Providing metadata with the UI](/docs/appid?topic=app
    }
    ```
    {: codeblock}
-   {: #configuring-saml-new}
+   {: #configuring-saml-new-values}
   
    | Variable | Description |
    | -------- | ----------- |
