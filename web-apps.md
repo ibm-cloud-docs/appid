@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-04-14"
+lastupdated: "2023-08-08"
 
 keywords: web apps, authorization code, authentication, nodejs, javascript, app access, application credentials, login, redirect uri, protected endpoint, video
 
@@ -490,13 +490,13 @@ You must have the following prerequisites:
    ```
    {: codeblock}
 
-For a step-by-step example, check out [this blog](https://www.ibm.com/cloud/blog/creating-spring-boot-applications-app-id){: external!
+
 
 
 ## Using {{site.data.keyword.appid_short_notm}} with other languages
 {: #web-other-languages}
 
-With an OIDC-compliant client SDK, you can use {{site.data.keyword.appid_short_notm}} with other languages. Check out the list of [certified libraries](https://openid.net/developers/certified/){: external} for more information.
+With an OIDC-compliant client SDK, you can use {{site.data.keyword.appid_short_notm}} with other languages. Check out the list of [certified libraries](https://openid.net/certified-open-id-developer-tools/){: external} for more information.
 
 ## Next steps
 {: #web-next}

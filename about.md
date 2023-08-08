@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-05-30"
+lastupdated: "2023-08-08"
 
 keywords: authentication, authorization, identity, app security, cloud directory, user data, identity provider, oauth, protocols, oauth, oidc, disaster recovery, dr, compliance, high availability, ha, secure, HA, DR
 
@@ -114,7 +114,7 @@ You can use {{site.data.keyword.appid_short_notm}} with other {{site.data.keywor
 
 
 {{site.data.keyword.containershort_notm}}
-:   By configuring Ingress in a standard cluster you can secure your apps at the cluster level. Check out the [{{site.data.keyword.appid_short_notm}} authentication Ingress annotation](/docs/containers?topic=containers-comm-ingress-annotations#app-id-authentication) or the [Announcing {{site.data.keyword.appid_short_notm}} integration to {{site.data.keyword.containerlong_notm}}](https://www.ibm.com/cloud/blog/announcing-app-id-integration-ibm-cloud-kubernetes-service){: external} blog post to get started.
+:   By configuring Ingress in a standard cluster you can secure your apps at the cluster level. Check out the [{{site.data.keyword.appid_short_notm}} authentication Ingress annotation](/docs/containers?topic=containers-comm-ingress-annotations#app-id-authentication) or the [Announcing {{site.data.keyword.appid_short_notm}} integration to {{site.data.keyword.containerlong_notm}}](https://www.ibm.com/blog/announcing-app-id-integration-ibm-cloud-kubernetes-service/){: external} blog post to get started.
 
 {{site.data.keyword.openwhisk_short}} and {{site.data.keyword.apiconnect_short}}
 :   When you create your APIs with [{{site.data.keyword.openwhisk_short}}](/docs/openwhisk?topic=openwhisk-getting-started) and [API Connect](/docs/apiconnect?topic=apiconnect-getting-started), you can secure your applications at the gateway rather than in your app code.

@@ -9,7 +9,6 @@ toc:
     product-page: https://www.ibm.com/cloud/app-id
     path: appid
     label: App ID
-
   entries: 
   - navgroup: 
       id: learn
@@ -28,7 +27,6 @@ toc:
           - tokens-understand.md
       - topic: releases.md
         navtitle: Release notes
-
   - navgroup: 
       id: tutorial
       topics: 
@@ -42,7 +40,6 @@ toc:
       - link:
           label: Serverless web app and eventing for data retrieval and analytics
           href: https://cloud.ibm.com/docs/solution-tutorials?topic=solution-tutorials-serverless-github-traffic-analytics
-
   - navgroup: 
       id: howto
       topics:
@@ -103,7 +100,6 @@ toc:
           - iam.md
           - at-events.md
           - data-security.md
-
   - navgroup:
       id: reference
       topics: 
@@ -138,12 +134,11 @@ toc:
           links:
            - link:
               label: IBM Developer - Security 
-              href: https://developer.ibm.com/solutions/security/
+              href: https://developer.ibm.com/devpractices/security/
       - api-reference.md
       - well-known.md
       - ha-dr.md
       - privacy-policy.md
-
   - navgroup:
       id: help
       topics: 
