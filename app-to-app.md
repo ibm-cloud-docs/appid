@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-04-14"
+lastupdated: "2023-08-21"
 
 keywords: app to app, protected resource, client secret, application identity, authorization, server, authentication, access tokens, app security
 
@@ -128,10 +128,10 @@ After your app is registered with {{site.data.keyword.appid_short_notm}} and you
 1. Make an HTTP POST request to the [`/token` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Authorization%20Server%20-%20Authorization%20Server%20V4/oauth-server.token){: external}. The authorization for the request is `Basic auth` with the client ID and secret being used as the username and password which are base64 encoded.
 
    ```sh
-   curl -X POST http://localhost:6002/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6060b61/token \
+   curl -X POST https://<region>.appid.cloud.ibm.com/oauth/v4/<tenantID>/token \
       -H 'Authorization: Basic base64Encoded{clientId:secret}' \
       -H 'Content-Type: application/x-www-form-urlencoded' \
-      -d grant_type=client_credentials
+      -d 'grant_type=client_credentials'
    ```
    {: codeblock}
 
