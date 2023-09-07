@@ -365,7 +365,7 @@ If you are exporting many users (16,000 or more), you can use the `export/all` A
 
    | Parameters | Description |
    | ---------- | ----------- |
-   | `encryptionSecret` | A custom string that is used to encrypt and decrypt a user's hashed password. Retain the encryption secret as you need it to use the [import/all](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.cloudDirectoryImportAll) {:external} API. IBM does not store the secret so if the secret is lost, you can't access the exported data. |
+   | `encryptionSecret` | A custom string that is used to encrypt and decrypt a user's hashed password. Retain the encryption secret as you need it to use the [import/all](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.cloudDirectoryImportAll){:external} API. IBM does not store the secret so if the secret is lost, you can't access the exported data. |
    | `emailAddress` | An email address to which an email is sent when the export is ready or if the request fails. |
    | `expires` | An integer that you can set (1 ≤ value ≤ 30) to specify the number of days after which the export must be deleted. The default value is 7. |
    | `tenantID` | The service tenant ID can be found in your service credentials. You can find or create your service credentials in the {{site.data.keyword.appid_short_notm}} dashboard. |
