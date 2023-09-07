@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2017, 2023
-lastupdated: "2023-07-18"
+lastupdated: "2023-09-07"
 
 keywords: manage users, registry, cloud directory, add user, delete user, tokens, attributes, migrating users, identity provider, app security
 
@@ -315,7 +315,7 @@ You can delete up to 100 users per request.
 ## Migrating users
 {: #user-migration}
 
-Occasionally, you might need to add an instance of {{site.data.keyword.appid_short_notm}}. To help with migrating to the new instance, you can use the export and import APIs for smaller migrations. If you are migrating a large number of users (16,000 or less), you can [export all of them](/docs/appid?topic=appid-cd-users#cd-export-all) or [import all of them](/docs/appid?topic=appid-cd-users#cd-import-all) with a single API request to improve your efficiency.
+Occasionally, you might need to add an instance of {{site.data.keyword.appid_short_notm}}. To help with migrating to the new instance, you can use the export and import APIs for smaller migrations. If you are migrating a large number of users (16,000 or more), you can [export all of them](/docs/appid?topic=appid-cd-users#cd-export-all) or [import all of them](/docs/appid?topic=appid-cd-users#cd-import-all) with a single API request to improve your efficiency.
 
 You must be assigned the `Manager` [IAM role](/docs/account?topic=account-access-getstarted) for both instances of {{site.data.keyword.appid_short_notm}}.
 {: note}
@@ -326,7 +326,7 @@ You must be assigned the `Manager` [IAM role](/docs/account?topic=account-access
 
 Before you can import your profiles to your new instance, you need to export them from your original instance of the service.
 
-If you are exporting many users (16,000 or less), you can use the `export/all` API endpoint. 
+If you are exporting many users (16,000 or more), you can use the `export/all` API endpoint. 
 
 1. Export all the users from your original instance of the service.
 
