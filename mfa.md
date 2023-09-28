@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2022
-lastupdated: "2022-10-31"
+  years: 2017, 2023
+lastupdated: "2023-09-26"
 
 keywords: mfa, multifactor, authentication, cloud directory, login widget, second factor, two factor, identity, mulitple factors, advanced security event, cloud directory user, sender id, phone number, email, nexmo, mfa descision, extension
 
@@ -10,46 +10,12 @@ subcollection: appid
 
 ---
 
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:download: .download}
-{:external: target="_blank" .external}
-{:faq: data-hd-content-type='faq'}
-{:gif: data-image-type='gif'}
-{:important: .important}
-{:note: .note}
-{:pre: .pre}
-{:tip: .tip}
-{:preview: .preview}
-{:deprecated: .deprecated}
-{:beta: .beta}
-{:term: .term}
-{:shortdesc: .shortdesc}
-{:script: data-hd-video='script'}
-{:support: data-reuse='support'}
-{:table: .aria-labeledby="caption"}
-{:troubleshoot: data-hd-content-type='troubleshoot'}
-{:help: data-hd-content-type='help'}
-{:tsCauses: .tsCauses}
-{:tsResolve: .tsResolve}
-{:tsSymptoms: .tsSymptoms}
-{:java: .ph data-hd-programlang='java'}
-{:javascript: .ph data-hd-programlang='javascript'}
-{:swift: .ph data-hd-programlang='swift'}
-{:curl: .ph data-hd-programlang='curl'}
-{:video: .video}
-{:step: data-tutorial-type='step'}
-{:tutorial: data-hd-content-type='tutorial'}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
-{:release-note: data-hd-content-type='release-note'}
-
+{{site.data.keyword.attribute-definition-list}}
 
 # Multifactor authentication (MFA)
 {: #cd-mfa}
 
-With Cloud Directory for {{site.data.keyword.appid_full}}, you can require multiple authentication factors during your application sign-in flow. A second authentication factor increases the security of your application by not only confirming that a user possesses the knowledge of their credentials but also has access to their registered email or phone number. Extending the MFA flow, you can configure pre-MFA and post-MFA extensions to make custom decisions at run time about which users must complete the second factor or provide you analytical information about your sign-in flow.
+With Cloud Directory for {{site.data.keyword.appid_full}}, you can require multiple authentication factors during your application sign-in flow. A second authentication factor increases the security of your application by not only confirming that a user possesses the knowledge of their credentials but also has access to their registered email, phone number, or authenticator application. Extending the MFA flow, you can configure pre-MFA and post-MFA extensions to make custom decisions at run time about which users must complete the second factor or provide you analytical information about your sign-in flow.
 {: shortdesc}
 
 {{site.data.keyword.appid_short_notm}} MFA is supported as part of the OAuth 2.0 authorization code flow for Cloud Directory users through the Login Widget. If you're using enterprise sign-in with SAML 2.0 or social login, you can enable MFA through that identity provider.
@@ -166,7 +132,7 @@ When MFA is initially enabled, it is set to use email by default. You can change
 ### Before you begin
 {: #cd-mfa-configure-sms-before}
 
-{{site.data.keyword.appid_short_notm}} uses [Vonage](https://www.vonage.com/communications-apis/sms/){: external} (formally Nexmo) to send MFA SMS one-time codes. Before you get started, be sure that you have an instance of {{site.data.keyword.appid_short_notm}} that is on the [graduated tier pricing plan](/docs/appid?topic=appid-pricing) and the following Vonage information.
+{{site.data.keyword.appid_short_notm}} uses [Vonage](https://www.vonage.com/communications-apis/sms/){: external} (formally Nexmo) to send MFA SMS one-time codes.
 
 - Obtain your Vonage API key and secret. You can find the Vonage API key and secret in your account settings page on the Vonage dashboard. Check out the [Vonage documentation](https://developer.vonage.com/getting-started/concepts/authentication#api-key-and-secret){: external} for further information on how to obtain your credentials.
 
@@ -251,6 +217,105 @@ Before you get started with the API, be sure that you have the following prerequ
 
 
 
+## Configuring a TOTP channel
+{: #cd-mfa-configure-totp}
+
+By enabling a time-based one-time passcode (TOTP), powered by Cloud Identity, you allow your users to verify their identity by using an authenticator app such as IBM Verify, Google Authenticator, or LastPass. For more advanced IAM workflows, see [IBM Cloud Identity](https://www.ibm.com/products/verify-identity/cloud){: external}.
+
+![{{site.data.keyword.appid_short_notm}} TOTP flow](images/mfa-totp.png){: caption="Figure 1. How the TOTP authentication flow works for a user" caption-side="bottom"}
+
+
+1. The first time a user attempts to sign in to your application, a registration widget is shown that contains a QR code. The user scans the QR code with their authenticator app. If they are unable to scan the QR code, they can opt to view a textual code that they can enter directly into their app.
+2. In their authenticator app, the user is shown a passcode that expires quickly. In that time, they must input the six-digit number into the MFA challenge screen to complete the sign-in process.
+3. The user is granted access to your application.
+4. Every following sign-in attempt the user is prompted to enter the code that is showing in their app, but are not shown the QR code again.
+
+When MFA is initially enabled, it is set to use email by default. You can change the setting to use TOTP, but you cannot configure both at the same time.
+{: note}
+
+
+### Before you begin
+{: #cd-mfa-configure-totp-before}
+
+Cloud Identity is used as part of the TOTP sign-in flow. Be sure that you understand the way that data is stored and how it can affect compliance requirements. [Learn more](/docs/appid?topic=appid-mng-data#data-cloud-identity).
+{: important}
+
+
+### With the GUI
+{: #cd-mfa-configure-totp-gui}
+
+You can configure the TOTP flow with in the {{site.data.keyword.appid_short_notm}} dashboard.
+
+1. Go to the **Cloud Directory > Multifactor authentication > Settings** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
+
+2. Enable authentication by toggling MFA to **Enabled**. Verify that you understand that MFA is charged as an [advanced security event](/docs/appid?topic=appid-pricing).
+
+3. Select **Authenticator app (TOTP)** as your authentication method.
+
+4. Optional: Customize the way that your application appears in a users authenticator app.
+
+   1. Go to the **TOTP** tab.
+
+   2. Provide an application name. This name must be fewer than 50 characters but can be anything that you want it to be. Most people choose to use the name of their application.
+
+
+### With the APIs
+{: #cd-mfa-configure-totp-api}
+
+Before you get started with the API, be sure that you have the following prerequisites:
+
+* Your {{site.data.keyword.appid_short_notm}} instance's tenant ID. This ID can be found in the **Service credentials** or **Application credentials** section of the dashboard.
+* Your Identity and Access Management (IAM) token. For help with obtaining an IAM token, check out the [IAM docs](/docs/account?topic=account-iamtoken_from_apikey).
+
+
+1. Enable MFA by making a PUT request to the `/config/cloud_directory/mfa` endpoint with `isActive` set to `true`.
+
+   ```sh
+   curl -X PUT https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/config/cloud_directory/mfa \
+   --header 'Content-Type: application/json' \
+   --header 'Accept: application/json' \
+   --header 'Authorization: Bearer <IAMToken>' \
+   -d '{"isActive": true}'
+   ```
+   {: codeblock}
+
+2. Enable your MFA channel by making a PUT request to the `/mfa/channels/<channel>` endpoint with your MFA configuration. When `isActive` is set to `true`, your MFA channel is enabled. Optionally, you an add an application name to your configuration.
+
+   ```sh
+   curl -X PUT https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/mfa/channels/totp' \
+   --header 'Content-Type: application/json' \
+   --header 'Accept: application/json' \
+   --header 'Authorization: Bearer <IAMToken>' \
+   -d '{
+      "isActive": true,
+      "config": {
+         "appname": "My App"
+      }
+   }'
+   ```
+   {: codeblock}
+
+### Deleting a user's TOTP enrollment
+{: #cd-mfa-delete-totp-api}
+
+When a user manages their MFA codes through an authenticator app, there are times when they no longer have access to the app. For example, they might have deleted it or lost their phone. If this scenario occurs, they must contact you to delete their enrollment before they can register for your app again.
+
+1. Before you make the API call, be sure that you have the following information:
+
+   * An IAM token. For help with obtaining a token, check out the [IAM docs](/docs/account?topic=account-iamtoken_from_apikey).
+   * The tenant ID for your instance of App ID. This ID can be found in the **Service Credentials** or **Application Credentials** section of the dashboard.
+   * The user ID for the person who's TOTP enrollment status needs to be reset. [Learn more](/docs/appid?topic=appid-cd-users).
+
+2. Delete the user's enrollment status by making a delete request to the TOTP endpoint.
+
+   ```sh
+   curl -X DELETE https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/cloud_directory/Users/<userID>/mfa/totp' \
+   --header 'Authorization: Bearer <IAMToken>'
+   ```
+   {: codeblock}
+
+
+
 ## Extending MFA
 {: #cd-mfa-extensions}
 
@@ -272,7 +337,7 @@ For more information about the restrictions and limitations of working with exte
 ### Configuring pre-mfa
 {: #cd-premfa}
 
-With a pre-mfa extension, you can define the criteria that allows users to avoid having to enter a second form of authentication when they interact with your application. 
+With a pre-mfa extension, you can define the criteria that allows users to avoid having to enter a second form of authentication when they interact with your application.
 
 ![pre-MFA flow](images/mfa-pre.png){: caption="Figure 2. Cloud Directory pre-MFA flow" caption-side="bottom"}
 
@@ -296,7 +361,7 @@ To configure a pre-MFA extension:
    | You don't want users who access your app on a desktop to provide the second factor every time. | Configure your extension to validate that `device_type` is set to `web`. |
    {: caption="Table 3. Example criteria for skipping MFA" caption-side="top"}
 
-2. When you know your criteria, configure an extension that can listen for a POST request. The endpoint must be able to read the payload that comes from {{site.data.keyword.appid_short_notm}}. The body that is sent by {{site.data.keyword.appid_short_notm}} before the MFA flow starts is in the format: `{"jws": "jws-format-string"}`. Your extension might also [decode and validate](/docs/appid?topic=appid-token-validation#local-validation) the payload, the content is a JSON object and return a JSON response with the following schema: `{"skipMfa": Boolean }`. For example,: `{'skipMfa': true}`. 
+2. When you know your criteria, configure an extension that can listen for a POST request. The endpoint must be able to read the payload that comes from {{site.data.keyword.appid_short_notm}}. The body that is sent by {{site.data.keyword.appid_short_notm}} before the MFA flow starts is in the format: `{"jws": "jws-format-string"}`. Your extension might also [decode and validate](/docs/appid?topic=appid-token-validation#local-validation) the payload, the content is a JSON object and return a JSON response with the following schema: `{"skipMfa": Boolean }`. For example,: `{'skipMfa': true}`.
 
    | Information | Description |
    | ----------- | ----------- |
@@ -304,9 +369,9 @@ To configure a pre-MFA extension:
    | `extension` | The name of your extension. For this use case, the extension is named `premfa`. |
    | `device_type` | The type of device with which your user is accessing your application. Options include: `web` and `mobile`. |
    | `source_ip` | The IP address of the device that makes the request to your app. For example, `127.0.0.1`. |
-   | `headers` | The information that is returned by the browser when a user attempts to sign in to your app. The header looks similar to: `{"user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X x.y; rv:42.0) Gecko/20100101 Firefox/42.0"}`. | 
+   | `headers` | The information that is returned by the browser when a user attempts to sign in to your app. The header looks similar to: `{"user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X x.y; rv:42.0) Gecko/20100101 Firefox/42.0"}`. |
    | `tenant_id` | Your application's tenant ID. |
-   | `client_id` | Your application's client ID. | 
+   | `client_id` | Your application's client ID. |
    | `user_id` | The ID of the user that makes the authentication request. For example, `11112222-3333-4444-2222-555522226666`. |
    | `username` | The username of the user that makes the authentication request. For example, `testuser@email.com`. |
    | `application_type` | The type of your application. For example, if your application is a single page JavaScript web app, `browserapp` is returned. Options include: `browserapp`, `serverapp`, and `mobileapp`. |
@@ -385,7 +450,7 @@ When you configure an extension and register it with {{site.data.keyword.appid_s
 To configure a post-MFA extension:
 
 1. Configure an extension point that can listen for a POST request. The endpoint must be able to read the payload that is sent by {{site.data.keyword.appid_short_notm}}. Optionally, it can also [decode and validate](/docs/appid?topic=appid-token-validation#local-validation) the JSON payload that is returned by {{site.data.keyword.appid_short_notm}} is not altered by a third party in any way. A string that is formatted as `{"jws": "jws-format-string"}` is returned that contains the following information:
-  
+
    | Information | Description |
    | ----------- | ----------- |
    | `correlation_id` | A random number that is generated for each MFA session. If you have both a pre-mfa and a post-mfa extension, the number is the same for each. For example, `3bb9236c-792f-4cca-8ae1-ada754cc4555`. |
@@ -395,7 +460,7 @@ To configure a post-MFA extension:
    | `device_type` | The type of device with which your user accesses your application. Options include: `web`, `mobile`. |
    | `source_ip` | The IP address of the device that makes the request to your app. For example, `127.0.0.1`. |
    | `headers` | The information that is returned by the browser when a user attempts to sign in to your app. The header looks similar to `{"user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X x.y; rv:42.0) Gecko/20100101 Firefox/42.0"}`. |
-   | `tenant_id` | Your application's tenant ID. | 
+   | `tenant_id` | Your application's tenant ID. |
    | `client_id` | Your application's client ID. |
    | `user_id` | The ID of the user that makes the authentication request. |
    | `username` | The username of the user that makes the authentication request. For example, `testuser@email.com`. |
@@ -450,4 +515,3 @@ To configure a post-MFA extension:
 
    To disable your extension, set `isActive` to `false`.
    {: tip}
-

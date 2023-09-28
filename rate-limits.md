@@ -10,41 +10,7 @@ subcollection: appid
 
 ---
 
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:download: .download}
-{:external: target="_blank" .external}
-{:faq: data-hd-content-type='faq'}
-{:gif: data-image-type='gif'}
-{:important: .important}
-{:note: .note}
-{:pre: .pre}
-{:tip: .tip}
-{:preview: .preview}
-{:deprecated: .deprecated}
-{:beta: .beta}
-{:term: .term}
-{:shortdesc: .shortdesc}
-{:script: data-hd-video='script'}
-{:support: data-reuse='support'}
-{:table: .aria-labeledby="caption"}
-{:troubleshoot: data-hd-content-type='troubleshoot'}
-{:help: data-hd-content-type='help'}
-{:tsCauses: .tsCauses}
-{:tsResolve: .tsResolve}
-{:tsSymptoms: .tsSymptoms}
-{:java: .ph data-hd-programlang='java'}
-{:javascript: .ph data-hd-programlang='javascript'}
-{:swift: .ph data-hd-programlang='swift'}
-{:curl: .ph data-hd-programlang='curl'}
-{:video: .video}
-{:step: data-tutorial-type='step'}
-{:tutorial: data-hd-content-type='tutorial'}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
-{:release-note: data-hd-content-type='release-note'}
-
+{{site.data.keyword.attribute-definition-list}}
 
 # Known issues and limitations
 {: #known-issues-limits}
@@ -59,20 +25,6 @@ subcollection: appid
 Rate limiting is used to control the amount of traffic that is coming and going through your instance of {{site.data.keyword.appid_full}}. By limiting requests or resources, you can protect your applications.
 
 
-### {{site.data.keyword.appid_short_notm}} lite plan
-{: #lite-limits}
-
-Review the following table to see the maximum limits that are in place for lite instances of {{site.data.keyword.appid_short_notm}}.
-
-You can have 1 lite instance of {{site.data.keyword.appid_short_notm}} per account at a time.
-{: note}
-
-| Resource | Limit |  
-|:---------|:------| 
-| Users | 1000 |
-| Authentications | 1000 per month |
-| Size of profile attributes | 100 KB |
-{: caption="Table 1. Limits for lite instances" caption-side="top"}
 
 ### General
 {: #general-limits}
@@ -103,12 +55,12 @@ Review the following table to see limits that are associated with Cloud Director
 {: shortdesc}
 
 | API | Configurable | Limit | When exceeded |
-|:----|:-------------|:------|:------------- | 
+|:----|:-------------|:------|:------------- |
 | Sign in attempts per account | Yes | 200 per second | All sign-in attempts for the instance are blocked for 1 minute. |
 | Sign up attempts per account | Yes | 200 per second | All sign-up attempts for the instance are blocked for 1 minute. |
 | Email sending request | No | 10 emails in 5 minutes per user | Email requests for the user are blocked for 30 minutes. |
-| SMS sending request | No | 10 SMS in 5 minutes per user | SMS requests for the user are blocked for 30 minutes. | 
-| MFA code characters | No | 6 numeric characters | The code automatically has 6 characters that must be input by the user. | 
+| SMS sending request | No | 10 SMS in 5 minutes per user | SMS requests for the user are blocked for 30 minutes. |
+| MFA code characters | No | 6 numeric characters | The code automatically has 6 characters that must be input by the user. |
 | MFA code expiration | No | 15 minutes | If a user does not validate their code within 15 minutes, they can request that another code is sent as long as the authentication session is not expired. Within the authentication session, the code can be sent multiple times. Once the authentication session expires, the user must repeat the login process from the beginning. |
 {: caption="Table 3. Cloud Directory limits" caption-side="top"}
 

@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2017, 2022
-lastupdated: "2022-07-22"
+  years: 2017, 2023
+lastupdated: "2023-09-26"
 
-keywords: pricing, advanced security, authentication events, authorized users, activity tracking, runtime activity, password policies, keycloak, allow list redirect url, redirect uri 
+keywords: pricing, advanced security, authentication events, activity tracking, runtime activity, password policies, keycloak, allow list redirect url, redirect uri
 
 subcollection: appid
 
@@ -93,13 +93,13 @@ Do not include any query parameters in your URL. They are ignored in the validat
 
 Check out the following table for answers to commonly asked questions about encryption.
 
-| Question | Answer | 
-|-----|----| 
+| Question | Answer |
+|-----|----|
 | Why do you use encryption? | One way that we protect our users' information is by encrypting customer data at rest and in transit. The service encrypts customer data at rest with per-tenant keys and enforces TLS 1.2+ in all network segments. |
-| Which algorithms are used in {{site.data.keyword.appid_short_notm}}? | The service uses `AES` and `SHA-256` with salting. | 
-| Do you use public or open source encryption modules or providers? Do you ever expose encryption functions?  | The service uses `avax.crypto` Java libraries, but never exposes an encryption function. | 
-| How are keys stored? | Keys are generated, encrypted with a master key that is specific to each region, and then stored locally. The master keys are stored in [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-getting-started-tutorial). Each region has its own root-of-trust key that is stored in [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-getting-started-tutorial), which is backed up by HSM. Each service instance (tenant) has its own data encryption and token signature keys, which are encrypted by using the region's root-of-key trust. | 
-| What is the key strength that you use? | The service uses 16 bytes. | 
+| Which algorithms are used in {{site.data.keyword.appid_short_notm}}? | The service uses `AES` and `SHA-256` with salting. |
+| Do you use public or open source encryption modules or providers? Do you ever expose encryption functions?  | The service uses `avax.crypto` Java libraries, but never exposes an encryption function. |
+| How are keys stored? | Keys are generated, encrypted with a master key that is specific to each region, and then stored locally. The master keys are stored in [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-getting-started-tutorial). Each region has its own root-of-trust key that is stored in [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-getting-started-tutorial), which is backed up by HSM. Each service instance (tenant) has its own data encryption and token signature keys, which are encrypted by using the region's root-of-key trust. |
+| What is the key strength that you use? | The service uses 16 bytes. |
 | Do you invoke any remote APIs that expose encryption capabilities | No, we do not. |
 {: caption="Table 2. Frequently asked questions about how {{site.data.keyword.appid_short_notm}} handles encryption" caption-side="top"}
 
@@ -152,7 +152,7 @@ You can migrate the information in one instance of {{site.data.keyword.appid_sho
    2. Click **Add Application** and give your application a name. Then, click **Save**.
    3. Click **View credentials** in the table and copy the output.
    4. Paste your new credentials into your application.
-5. Update your application to use the new credentials including any URLs. 
+5. Update your application to use the new credentials including any URLs.
 6. Depending on your configuration, you might need to redeploy or unbind and rebind your application.
 
 
@@ -175,7 +175,7 @@ Depending on how you configure your application, {{site.data.keyword.appid_short
 ### Configuring logout
 {: #faq-logout-how}
 
-To configure logout, you must configure your application to send a request to your identity provider. Then, to redirect the user to an area of your application that does not require authentication. In most use-cases, an application server session might be set by the {{site.data.keyword.appid_short_notm}} SDKs, Ingress, or Istio that works in partnership with a federated identity provider such as SAML or Cloud Directory to enable authentication and authorization. 
+To configure logout, you must configure your application to send a request to your identity provider. Then, to redirect the user to an area of your application that does not require authentication. In most use-cases, an application server session might be set by the {{site.data.keyword.appid_short_notm}} SDKs, Ingress, or Istio that works in partnership with a federated identity provider such as SAML or Cloud Directory to enable authentication and authorization.
 
 In the following HTML example, an {{site.data.keyword.appid_short_notm}} SDK is used to configure log out. But, if you are working with another option, you can use this snippet as a guide and update it to fit your needs.
 
