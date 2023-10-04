@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2017, 2022
-lastupdated: "2022-05-17"
+  years: 2017, 2023
+lastupdated: "2023-09-28"
 
-keywords: token validation, validate token, protect app, public key, token header, base64, decode payload, authorized, access permissions, app security, identity, jwt 
+keywords: token validation, validate token, protect app, public key, token header, base64, decode payload, authorized, access permissions, app security, identity, jwt
 
 subcollection: appid
 
@@ -172,8 +172,8 @@ You can validate your tokens locally by parsing the token, verifying the token s
    | --------- | ----------- |
    | `kty` | Defines the algorithm that is used. |
    | `use` | Defines the purpose of the key. |
-   | `kid` | Defines the unique ID of the key. | 
-   | Other | There might be other remaining parameters that are specific to your algorithm that must also be imported. | 
+   | `kid` | Defines the unique ID of the key. |
+   | Other | There might be other remaining parameters that are specific to your algorithm that must also be imported. |
    {: caption="Table 1. Public key parameters" caption-side="top"}
 
 5. Verify the token's signature. The token header contains the algorithm that was used to sign the token and the Key ID or `kid` claim of the matching public key. Because public keys do not frequently change, you can cache public keys in your app and occasionally refresh them. If your cached key is missing the `kid` claim, you can validate the tokens locally.
@@ -183,12 +183,12 @@ You can validate your tokens locally by parsing the token, verifying the token s
    3. Ensure that your hash value is the same as the signature of the PEM form of the public key. Your hash value can be obtained by combining and hashing the header of the payload of the token. Because this process can be complex to manually implement, it might be helpful to use one of the [listed libraries](https://jwt.io/) to validate the signature.
 
 6. Validate the claims that are stored in the tokens. To verify future checks, you can use [this list](https://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation).
-  
+
    | Claim | Description |
    | ----- | ----------- |
    | `iss` | The issuer must be the same as the {{site.data.keyword.appid_short_notm}} OAuth server. |
    | `exp` | The current time must be less than the expiry time. |
    | `aud` | The audience must contain the client ID of your app. |
    | `tenant` | The tenant must contain the tenant ID of your app. |
-   | `scope` | The scope of permissions that is granted to the user. This is specific to the access token. | 
+   | `scope` | The scope of permissions that is granted to the user. This is specific to the access token. |
    {: caption="Table 2. Claims that must be validated" caption-side="top"}

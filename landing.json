@@ -1,6 +1,6 @@
 {
     "title": "App ID docs",
-    "lastupdated": "2023-06-27",
+    "lastupdated": "2023-09-28",
     "introduction": "With IBM Cloud App ID, you can easily add authentication to your web and mobile apps with few lines of code.",
     "section_devtools": {
       "api": "https://us-south.appid.cloud.ibm.com/swagger-ui/#/",
@@ -26,8 +26,8 @@
     "section_videos": [
       {
         "title": "About App ID",
-        "href": "/docs/appid?topic=appid-about", 
-        "thumbnail": "/images/appid-about-video-thumbnail.png" 
+        "href": "/docs/appid?topic=appid-about",
+        "thumbnail": "/images/appid-about-video-thumbnail.png"
       },
       {
         "title": "Technologies Under the Hood",
@@ -63,7 +63,7 @@
         "title": "Protecting Liberty for Java Web Applications",
         "href": "https://www.youtube.com/watch?v=cDSYNFn4rX8",
         "thumbnail": "/images/appid-signup-video-thumbnail.png"
-      }      
+      }
     ],
     "section_learn": {
       "developer": "https://developer.ibm.com/depmodels/cloud/",
@@ -75,6 +75,11 @@
       "view_more": "/docs/appid?topic=appid-release-notes",
       "tiles": [
         {
+          "date": "22 September 2023",
+          "title": "App ID pricing change",
+          "description": "App ID has updated how you're charged by removing the Lite and Graduated tier plans and now having on Standard plan."
+        },
+        {
           "date": "22 June 2023",
           "title": "IdP-initiated login is now available",
           "description": "Log in to your applications on IBM Cloud from your identity provider's UI by using IdP-initiated login."
@@ -83,11 +88,6 @@
           "date": "4 May 2023",
           "title": "IBM Cloud Foundry service broker unsupported",
           "description": "All services that use the Cloud Foundry service broker will stop working on 1 June 2023, when Cloud Foundry enters the End-of-Support stage."
-        },
-        {
-          "date": "1 February 2023",
-          "title": "Bulk delete Cloud Directory users",
-          "description": "You can now remove multiple users from an App ID instance at once."
         }
       ]
     }
