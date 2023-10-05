@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-09-26"
+lastupdated: "2023-10-02"
 
 keywords: authentication, authorization, app id cost, identity, app security, cloud directory, app id pricing
 
@@ -44,7 +44,7 @@ The following table shows the pricing tiers for a Standard plan.
 {: class="simple-tab-table"}
 {: caption="Table 1. Standard pricing plan for business-to-consumer monthly active user (B2C MAU)" caption-side="bottom"}
 {: #B2C}
-{: tab-title="Business-to-consumer monthly active user (B2C MAU)"}
+{: tab-title="B2C MAU"}
 {: tab-group="standard-pricing-plan"}
 
 | Tiers   | Pricing  |
@@ -54,7 +54,7 @@ The following table shows the pricing tiers for a Standard plan.
 {: class="simple-tab-table"}
 {: caption="Table 1. Standard pricing plan for business to employee monthly active user (B2E MAU)" caption-side="bottom"}
 {: #B2E}
-{: tab-title="Business-to-employee monthly active user (B2E MAU)"}
+{: tab-title="B2E MAU"}
 {: tab-group="standard-pricing-plan"}
 
 | Tiers               | Pricing  |
@@ -65,9 +65,9 @@ The following table shows the pricing tiers for a Standard plan.
 | 100,001 - 1,000,000 | $0.012 USD           |
 | 1,000,001+          | $0.01 USD            |
 {: class="simple-tab-table"}
-{: caption="Table 1. Standard pricing plan for advanced monthly active user" caption-side="bottom"}
+{: caption="Table 1. Standard pricing plan for advanced monthly active user (MAU)" caption-side="bottom"}
 {: #advanced-MAU}
-{: tab-title="Advanced monthly active user"}
+{: tab-title="Advanced MAU"}
 {: tab-group="standard-pricing-plan"}
 
 ## What are monthly active users (MAU)?
