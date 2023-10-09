@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-10-05"
+lastupdated: "2023-10-09"
 
 keywords: HA for {{site.data.keyword.appid_short_notm}}, DR for {{site.data.keyword.appid_short_notm}}, high availability for {{site.data.keyword.appid_short_notm}}, disaster recovery for {{site.data.keyword.appid_short_notm}}, failover for {{site.data.keyword.appid_short_notm}}
 
@@ -60,7 +60,7 @@ subcollection: appid
 * Toronto (`ca-tor`)
 * Washington (`us-east`)
 
-In each supported region, {{site.data.keyword.appid_short_notm}} exists in multiple availability zones with no single point of failure. In additions to the zones, you can set up policies for cross-regional failover or cross-regional disaster recovery. However, this process is not automatic. 
+In each supported region, {{site.data.keyword.appid_short_notm}} exists in multiple availability zones with no single point of failure. In addition to the zones, you can set up policies for cross-regional failover or cross-regional disaster recovery. However, this process is not automatic. 
 
 To establish cross-region high availability and implement a recovery plan, you must create and maintain backup instances in multiple regions. To synchronize a service instance in one region with an instance in another region, you can use only the [Management API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/){: external} or a combination of the [Management API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/) and the [{{site.data.keyword.cloud_notm}} Terraform](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs){: external} provider. 
 
