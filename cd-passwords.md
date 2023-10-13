@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-10-09"
+lastupdated: "2023-10-13"
 
 keywords: password policies, password strength, advanced, sign in, lock out, reset password, email, expiration, credentials, password reuse, wrong credentials, secure apps, registry, cloud directory, regex
 
@@ -82,7 +82,7 @@ Password strength can be set in the Cloud Directory settings page in the {{site.
 ### Setting a custom error message
 {: #cd-custom-error}
 
-If you set your own password regex policy and a user chooses a password that does not meet your requirements, the default message is `The password doesn't meet the strength requirements.` You can also choose to set your own message by using the [`/management/v4/{tenantId}/config/cloud_directory/password_regex` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.set_cloud_directory_password_regex){: external}. 
+If you set your own password regex policy and a user chooses a password that does not meet your requirements, the default message is `The password doesn't meet the strength requirements.` You can also choose to set your own message by using the [`/management/v4/<tenantId>/config/cloud_directory/password_regex` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.set_cloud_directory_password_regex){: external}. 
 
 
 
