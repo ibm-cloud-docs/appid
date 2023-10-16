@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2022
-lastupdated: "2022-09-15"
+  years: 2017, 2023
+lastupdated: "2023-10-09"
 
 keywords: well known endpoint, discovery endpoint, oidc, public keys, user information, claims, attributes, full profile, identity providers, app security, tokens
 
@@ -43,6 +43,7 @@ subcollection: appid
 {:ui: .ph data-hd-interface='ui'}
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
+{:terraform: .ph data-hd-interface='terraform'}
 {:release-note: data-hd-content-type='release-note'}
 
 

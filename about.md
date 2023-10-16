@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-08-08"
+lastupdated: "2023-10-09"
 
 keywords: authentication, authorization, identity, app security, cloud directory, user data, identity provider, oauth, protocols, oauth, oidc, disaster recovery, dr, compliance, high availability, ha, secure, HA, DR
 
@@ -43,6 +43,7 @@ subcollection: appid
 {:ui: .ph data-hd-interface='ui'}
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
+{:terraform: .ph data-hd-interface='terraform'}
 {:release-note: data-hd-content-type='release-note'}
 
 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2022
-lastupdated: "2022-07-22"
+  years: 2017, 2023
+lastupdated: "2023-10-09"
 
 keywords: profile, custom attributes, predefined attributes, attributes, app users, app interaction, personalized experience, access user info, identity provider information, access token, authentication, user sign in, android, java, node, swift, ios, user, preferences
 
@@ -43,6 +43,7 @@ subcollection: appid
 {:ui: .ph data-hd-interface='ui'}
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
+{:terraform: .ph data-hd-interface='terraform'}
 {:release-note: data-hd-content-type='release-note'}
 
 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2022
-lastupdated: "2022-08-22"
+  years: 2017, 2023
+lastupdated: "2023-10-09"
 
 keywords: user access, account settings, iam, user roles, platform roles, service roles, reader, writer, operator, editor, viewer, administrator, manager, permissions
 
@@ -43,6 +43,7 @@ subcollection: appid
 {:ui: .ph data-hd-interface='ui'}
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
+{:terraform: .ph data-hd-interface='terraform'}
 {:release-note: data-hd-content-type='release-note'}
 
 # Managing access for {{site.data.keyword.appid_short_notm}}

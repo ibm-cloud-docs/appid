@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-04-12"
+lastupdated: "2023-10-09"
 
 keywords: protected resource, backend apps, identity, tokens, identity provider, authentication, authorization, app security, oauth, 
 
@@ -43,6 +43,7 @@ subcollection: appid
 {:ui: .ph data-hd-interface='ui'}
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
+{:terraform: .ph data-hd-interface='terraform'}
 {:release-note: data-hd-content-type='release-note'}
 
 # Backend apps

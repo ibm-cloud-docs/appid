@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-10-12"
+  years: 2023
+lastupdated: "2023-10-09"
 
 keywords: user registry, sign up, sign in, username, email, password, account settings, reset password, email sender, email verification, app security
 
@@ -43,6 +43,7 @@ subcollection: appid
 {:ui: .ph data-hd-interface='ui'}
 {:cli: .ph data-hd-interface='cli'}
 {:api: .ph data-hd-interface='api'}
+{:terraform: .ph data-hd-interface='terraform'}
 {:release-note: data-hd-content-type='release-note'}
 
 # What is Cloud Directory?
