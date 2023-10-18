@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-10-13"
+lastupdated: "2023-10-16"
 
 keywords: HA for {{site.data.keyword.appid_short_notm}}, DR for {{site.data.keyword.appid_short_notm}}, high availability for {{site.data.keyword.appid_short_notm}}, disaster recovery for {{site.data.keyword.appid_short_notm}}, failover for {{site.data.keyword.appid_short_notm}}
 
@@ -82,7 +82,7 @@ To learn more about the high availability and disaster recovery standards in {{s
 
 You can create backups of an {{site.data.keyword.appid_short_notm}} instance in a primary region. Then, you can restore these backups in another {{site.data.keyword.appid_short_notm}} instance that is configured in a secondary region. You can do so by using only the management API, or a combination of {{site.data.keyword.cloud_notm}} Terraform provider and the {{site.data.keyword.appid_short_notm}} management API. 
 
-With this method, you can use Terraform to backup and restore the {{site.data.keyword.appid_short_notm}} instance configurations. However, to backup and restore the Cloud Directory users and user profiles data, you must use the management API. Using both Terraform and the management API to backup and restore your {{site.data.keyword.appid_short_notm}} is a combined process because you can't use Terraform to export Cloud Directory users and their profiles.
+With the second method, you can use Terraform to backup and restore the {{site.data.keyword.appid_short_notm}} instance configurations. However, to backup and restore the Cloud Directory users and user profiles data, you must use the management API. Using both Terraform and the management API to backup and restore your {{site.data.keyword.appid_short_notm}} is a combined process because you can't use Terraform to export Cloud Directory users and their profiles.
 
 ### Backing up your instance by using the API
 {: #backup-api}
