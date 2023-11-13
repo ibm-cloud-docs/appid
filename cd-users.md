@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2017, 2023
-lastupdated: "2023-10-09"
+lastupdated: "2023-11-13"
 
 keywords: manage users, registry, cloud directory, add user, delete user, tokens, attributes, migrating users, identity provider, app security
 
@@ -406,7 +406,7 @@ Now that you have a list of exported Cloud Directory users, you can import them 
 1. Import the list of exported users that you downloaded. 
 
    ```sh
-   curl -X POST 'https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/import/all' \ 
+   curl -X POST 'https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/cloud_directory/import/all' \ 
    --header 'Content-Type: application/json' \ 
    --header 'Authorization: Bearer <IAMToken>' \ 
    --form 'file=@"<User/desktop/myfolder/user_list.json>"' \ 
@@ -418,7 +418,7 @@ Now that you have a list of exported Cloud Directory users, you can import them 
 2. Get the status of your request, as needed.
 
    ```sh
-   curl -X GET 'https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/import/status?id=<id>' \ 
+   curl -X GET 'https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/cloud_directory/import/status?id=<id>' \ 
    --header 'Accept: application/json' \ 
    --header 'Content-Type: application/json' \ 
    --header 'Authorization: Bearer <IAMToken>'
