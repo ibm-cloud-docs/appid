@@ -355,7 +355,6 @@ If you are exporting many users (16,000 or more), you can use the `export/all` A
    curl -X GET 'https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/cloud_directory/export/download?id=<id>' \
       --header 'Content-Type: application/json' \
       --header 'Authorization: Bearer <IAMToken>'
-
    ```
    {: codeblock}
 
