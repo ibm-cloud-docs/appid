@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2022, 2024
+  years: 2017, 2024
 lastupdated: "2024-01-31"
 
 keywords: authentication, authorization, app id cost, identity, app security, cloud directory, app id pricing
@@ -12,16 +12,16 @@ subcollection: appid
 
 {{site.data.keyword.attribute-definition-list}}
 
-# How does {{site.data.keyword.appid_short_notm}} calculate pricing?
+# How does  {{site.data.keyword.appid_short_notm}} calculate pricing?
 {: #pricing}
 
-When you work with {{site.data.keyword.appid_short_notm}}, you are charged based on the number of authentication events, the number of authorized users, and the number of advanced security events.
+When you work with  {{site.data.keyword.appid_short_notm}}, you are charged based on the number of authentication events, the number of authorized users, and the number of advanced security events.
 {: shortdesc}
 
-For the most up-to-date pricing information, you can create a cost estimate by clicking **Add to estimate** in the {{site.data.keyword.appid_short_notm}} section of the [{{site.data.keyword.cloud_notm}} catalog](https://cloud.ibm.com/catalog/services/app-id).
+For the most up-to-date pricing information, you can create a cost estimate by clicking **Add to estimate** in the  {{site.data.keyword.appid_short_notm}} section of the [{{site.data.keyword.cloud_notm}}} catalog](https://cloud.ibm.com/catalog/services/app-id).
 {: tip}
 
-## Pricing plans
+## Pricing plans 
 {: #pricing-plans}
 
 The service offers two pricing plans.
@@ -42,7 +42,7 @@ An authorized user is a unique user that signs in with your service whether dire
 ## What are authentication events?
 {: #authentication-events-pricing}
 
-An authentication event happens when you issue a new regular or anonymous access token. Tokens can be issued in response to a sign-in request that is initiated by the user, or by an app on behalf of the user. By default, your users' access tokens are valid for 1 hour and anonymous tokens are valid for 30 days. After the tokens expire, your users must create a new token to access protected resources. You can manage the expiration time of your {{site.data.keyword.appid_short_notm}} tokens on the **Manage Authentication > Authentication Settings** page of the service dashboard.
+An authentication event happens when you issue a new regular or anonymous access token. Tokens can be issued in response to a sign-in request that is initiated by the user, or by an app on behalf of the user. By default, your users' access tokens are valid for 1 hour and anonymous tokens are valid for 30 days. After the tokens expire, your users must create a new token to access protected resources. You can manage the expiration time of your  {{site.data.keyword.appid_short_notm}} tokens on the **Manage Authentication > Authentication Settings** page of the service dashboard.
 
 
 ## What are advanced security features?
@@ -55,7 +55,7 @@ By default, advanced features are disabled. You incur an extra charge when you e
 | Feature | Benefit |
 |-----|----|
 |Multi-factor authentication | With [MFA for Cloud Directory](/docs/appid?topic=appid-cd-mfa#cd-mfa), you can confirm a user’s identity by requiring them to enter a one time passcode that is sent to their email or SMS after they enter their email and password. |
-| Runtime authentication activity tracking | By integrating {{site.data.keyword.at_short}} with {{site.data.keyword.appid_short_notm}}, you can track different types of authentication events at run time. For example, a password reset request, authentication failures, or a user logout. For more information, see [Viewing runtime events](/docs/appid?topic=appid-at-events#at-monitor-runtime). |
+| Runtime authentication activity tracking | By integrating {{site.data.keyword.at_short}} with  {{site.data.keyword.appid_short_notm}}, you can track different types of authentication events at run time. For example, a password reset request, authentication failures, or a user logout. For more information, see [Viewing runtime events](/docs/appid?topic=appid-at-events#at-monitor-runtime). |
 | Password policy management | As an account owner, you can enforce more secure passwords for Cloud Directory by configuring a set of rules that user passwords must conform to. Examples include, the number of attempted sign-ins before lockout, expiration times, minimum time span between password updates, or the number of times that a password can't be repeated. For a complete list of the options and setup information, see [Advanced password management](/docs/appid?topic=appid-cd-strength#cd-advanced-password). |
 {: caption="Table 1. Description of the benefits that are gained with advanced authentication events" caption-side="top"}
 
@@ -67,7 +67,7 @@ These features are available only to those instances that are on the graduated t
 
 Your first 1000 authentication events and 1000 authorized users per service instance are free of charge. You are charged monthly for any additional authentication events and authorized users, as well as any advanced security features that are enabled for each service instance.
 
-## How do I stop getting charged for {{site.data.keyword.appid_short_notm}}?
+## How do I stop getting charged for  {{site.data.keyword.appid_short_notm}}?
 {: #stop-charge}
 
-If you no longer want to be charged for authentication events and authorized users, you need to ensure that no user can authenticate by using {{site.data.keyword.appid_short_notm}}. You must remove the {{site.data.keyword.appid_short_notm}} configuration from your app code or confirm that your users are not able to use the configuration to log in to your app. To stop getting charged for advance security features, you must disable them on the **Manage Authentication > Authentication Settings** page of the service dashboard.
+If you no longer want to be charged for authentication events and authorized users, you need to ensure that no user can authenticate by using  {{site.data.keyword.appid_short_notm}}. You must remove the  {{site.data.keyword.appid_short_notm}} configuration from your app code or confirm that your users are not able to use the configuration to log in to your app. To stop getting charged for advance security features, you must disable them on the **Manage Authentication > Authentication Settings** page of the service dashboard.
