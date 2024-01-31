@@ -18,7 +18,7 @@ subcollection: appid
 When you work with  {{site.data.keyword.appid_short_notm}}, you are charged based on the number of authentication events, the number of authorized users, and the number of advanced security events.
 {: shortdesc}
 
-For the most up-to-date pricing information, you can create a cost estimate by clicking **Add to estimate** in the  {{site.data.keyword.appid_short_notm}} section of the [{{site.data.keyword.cloud_notm}}} catalog](https://cloud.ibm.com/catalog/services/app-id).
+For the most up-to-date pricing information, you can create a cost estimate by clicking **Add to estimate** in the  {{site.data.keyword.appid_short_notm}} section of the [{{site.data.keyword.cloud_notm}} catalog](https://cloud.ibm.com/catalog/services/app-id).
 {: tip}
 
 ## Pricing plans 
