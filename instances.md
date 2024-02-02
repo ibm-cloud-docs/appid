@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2023
-lastupdated: "2023-10-09"
+  years: 2017, 2024
+lastupdated: "2024-01-31"
 
 keywords: Migrating users, multiple service instances, manage service, access, configuration, duplicate, export, app security, identity
 
@@ -50,7 +50,7 @@ subcollection: appid
 # Managing service instances
 {: #service-instance-management}
 
-There are times when you might need to have more than one instance of {{site.data.keyword.appid_short_notm}} or migrate to a new instance. You might need to have an instance of {{site.data.keyword.appid_short_notm}}in multiple regions or different versions for different types of users. No problem! You can easily export your identity provider configuration. 
+There are times when you might need to have more than one instance of {{site.data.keyword.appid_short_notm}} or migrate to a new instance. You might need to have an instance of {{site.data.keyword.appid_short_notm}} in multiple regions or different versions for different types of users. No problem! You can easily export your identity provider configuration. 
 {: shortdesc}
 
 
@@ -82,4 +82,5 @@ You can migrate the information in one instance of {{site.data.keyword.appid_sho
 5. Update your application to use the new credentials including any URLs. 
 
 6. Depending on your configuration, you might need to redeploy or unbind and rebind your application.
+
 
