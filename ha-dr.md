@@ -189,7 +189,7 @@ resource "local_file" "saml_config" {
 ```
 {: codeblock}
 
-In the previous scenario, the files that contain the backups are stored locally. But, you can store them in any other storage location that you prefer, such as [IBM Cloud Object Storage](https://www.ibm.com/cloud/object-storage).
+In the previous scenario, the files that contain the backups are stored locally. But, you can store them in any other storage location that you prefer, such as [IBM Cloud Object Storage](https://www.ibm.com/products/cloud-object-storage).
 
 To generate a backup of Cloud Directory users and user profiles, it is recommended that you use the management API.
 

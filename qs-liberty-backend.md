@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2023
-lastupdated: "2023-10-09"
+  years: 2017, 2024
+lastupdated: "2024-02-19"
 
 keywords: back-end apps, java, liberty for java, liberty, identity provider, access management, protected endpoints, access tokens, security, back end
 
@@ -252,6 +252,6 @@ Now that you finished the initial installation, build the app and test your conf
 ## Next steps
 {: #liberty-next}
 
-Ready to start perfecting your authentication experience? Try walking through [this blog](https://www.ibm.com/cloud/blog/perfecting-the-login-experience-with-liberty-oauth2-and-appid){: external} or learning more about [app-to-app communication](/docs/appid?topic=appid-app).
+Ready to start perfecting your authentication experience? Try walking through [this blog](https://www.ibm.com/blog/perfecting-the-login-experience-with-liberty-oauth2-and-appid/){: external} or learning more about [app-to-app communication](/docs/appid?topic=appid-app).
 
 

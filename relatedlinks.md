@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2023
-lastupdated: "2023-10-09"
+  years: 2017, 2024
+lastupdated: "2024-02-19"
 
 keywords: related links, blogs, sample apps, kube, code changes, programming guide, white paper, vuejs apps, serverless applications, enterprise user directory, custom experience, slack, stack overflow, secure iot, solution, finance app, multicloud, video tutorials
 
@@ -62,7 +62,7 @@ Getting started? Try walking through our [video tutorials](https://www.youtube.c
 We’d love to hear from you with feedback and questions!
 
 * If you have technical questions about {{site.data.keyword.appid_short_notm}}, post your question on [Stack Overflow](https://stackoverflow.com){: external} and tag your question with "ibm-appid".
-* You can reach out directly to the development team on [Slack](https://www.ibm.com/cloud/blog/announcements/get-help-with-ibm-cloud-app-id-related-questions-on-slack){: external}!
+* You can reach out directly to the development team on [Slack](https://www.ibm.com/blog/announcement/get-help-with-ibm-cloud-app-id-related-questions-on-slack/){: external}!
 
 
 
@@ -72,7 +72,7 @@ We’d love to hear from you with feedback and questions!
 Get to know more about {{site.data.keyword.appid_short_notm}} by reading through some blogs and watching some videos!
 
 * [Introducing {{site.data.keyword.appid_short_notm}}](https://www.youtube.com/watch?v=XlrCjHdK43Q){: external}
-* [Security to safeguard and monitor your apps](https://www.ibm.com/cloud/architecture/architectures/application-security-arch){: external}
+* [Security to safeguard and monitor your apps](https://www.ibm.com/services/application-security){: external}
 * [Add sign up and sign in to your apps with {{site.data.keyword.appid_short_notm}}](https://www.youtube.com/watch?v=cDSYNFn4rX8){: external}
 
 Be sure that you're using version 4 of the [runtime APIs](https://www.ibm.com/blogs/cloud-archive/2019/04/ibm-cloud-app-id-v4-runtime-apis-update/){: external}.
@@ -84,7 +84,7 @@ Be sure that you're using version 4 of the [runtime APIs](https://www.ibm.com/bl
 
 Have a specific use case? Check out the available blogs and samples to find out how to get started.
 
-* [Securing Angular + Node.js applications by using {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/securing-angularnode-js-applications-using-app-id){: external}
+* [Securing Angular + Node.js applications by using {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/blog/securing-angularnode-js-applications-using-app-id/){: external}
 * [Securing single page apps with {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/securing-single-page-apps-app-id-service){: external}
 * [Using {{site.data.keyword.appid_short_notm}} with Python](https://github.com/mnsn/appid-python-flask-example){: external}
 * [Using Python Flask-pyoidc with {{site.data.keyword.appid_short_notm}}](https://github.com/IBM-Cloud/github-traffic-stats){: external}
@@ -114,7 +114,7 @@ Just getting started? Try walking through some of our tutorials and blogs for he
 
 See {{site.data.keyword.appid_short_notm}} in action in these market examples.
 
-* [{{site.data.keyword.appid_short_notm}} authentication for Watson IoT Platform (Beta)](https://www.ibm.com/docs/en/watson-iot-platform?topic=security-app-id-authentication){: external}
+* [{{site.data.keyword.appid_short_notm}} authentication for Watson IoT Platform (Beta)](https://www.ibm.com/docs/en/watson-iot-platform){: external}
 * [Design and build secure IoT solutions, part 3: Securing IoT applications](https://developer.ibm.com/articles/iot-top-10-iot-security-challenges){: external}
 * [Apply end-to-end security to a cloud application](/docs/solution-tutorials?topic=solution-tutorials-cloud-e2e-security#cloud-e2e-security)
 

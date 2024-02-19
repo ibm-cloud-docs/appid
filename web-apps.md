@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2023
-lastupdated: "2023-10-09"
+  years: 2017, 2024
+lastupdated: "2024-02-19"
 
 keywords: web apps, authorization code, authentication, nodejs, javascript, app access, application credentials, login, redirect uri, protected endpoint, video
 
@@ -497,7 +497,7 @@ You must have the following prerequisites:
 ## Using {{site.data.keyword.appid_short_notm}} with other languages
 {: #web-other-languages}
 
-With an OIDC-compliant client SDK, you can use {{site.data.keyword.appid_short_notm}} with other languages. Check out the list of [certified libraries](https://openid.net/certified-open-id-developer-tools/){: external} for more information.
+With an OIDC-compliant client SDK, you can use {{site.data.keyword.appid_short_notm}} with other languages. Check out the list of [certified libraries](https://openid.net/developers/certified-openid-connect-implementations/){: external} for more information.
 
 ## Next steps
 {: #web-next}
