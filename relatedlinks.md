@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-02-19"
+lastupdated: "2024-03-05"
 
 keywords: related links, blogs, sample apps, kube, code changes, programming guide, white paper, vuejs apps, serverless applications, enterprise user directory, custom experience, slack, stack overflow, secure iot, solution, finance app, multicloud, video tutorials
 
@@ -126,16 +126,4 @@ See {{site.data.keyword.appid_short_notm}} in action in these market examples.
 Need help integrating with your enterprise apps? Don't worry! {{site.data.keyword.appid_short_notm}} can do that too.
 
 * [Setting up {{site.data.keyword.appid_long}} with your Active Directory Federation service](https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-active-directory-federation-service){: external}
-
-
-
-## Custom sign-in experience
-{: #rellinks-custom}
-
-Want to have a custom experience for your users? Not a problem.
-
-* [Use a custom login page with  {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/custom-login-page-app-id-integration){: external}
-* [Using your own SendGrid account With {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/using-your-own-sendgrid-account-with-app-id){: external}
-
-
 
