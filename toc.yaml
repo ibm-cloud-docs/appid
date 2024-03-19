@@ -13,6 +13,7 @@ toc:
   - navgroup: 
       id: learn
       topics:
+      - deprecation.md
       - getting-started.md
       - topicgroup: 
           label: About

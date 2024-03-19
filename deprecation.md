@@ -54,7 +54,7 @@ If you have any further questions about this deprecation, you can contact {{site
 ### Migrating to {{site.data.keyword.IBM_notm}} Security Verify
 {: #migrate-security-verify}
 
-{{site.data.keyword.IBM_notm}} Security Verify is the recommended solution for authentication to your workloads, including SAML Federation and App ID identities managed with App IDs Cloud Directory. Fpr more information about  IBM Security Verify, see [](). You can register for a 90-day free trial. To learn more about onboarding to IBM Security Verify, see [Security Verify Summary](https://docs.verify.ibm.com/verify/docs/use-cases#summary){: external}.
+{{site.data.keyword.IBM_notm}} Security Verify is the recommended solution for authentication to your workloads, including SAML Federation and App ID identities managed with App IDs Cloud Directory. Fpr more information about see [IBM Security Verify](https://www.ibm.com/verify) and register for a 90-day free trial. To learn more about onboarding to IBM Security Verify, see [Security Verify Summary](https://docs.verify.ibm.com/verify/docs/use-cases#summary){: external}.
 
 {{site.data.keyword.IBM_notm}} recommends using IBMid Federation if you require Federated access to {{site.data.keyword.cloud_notm}}. For more information see the section on Enabling authentication from an external identity provider. You can also learn more about IBMid Federation with the {{site.data.keyword.cloud_notm}} SAML Federation Guide.
 

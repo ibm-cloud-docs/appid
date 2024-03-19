@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-02-19"
+lastupdated: "2024-03-19"
 
 keywords: release notes, new, spa, single sign on, mfa, cloud directory, saml, app security, application identity
 
@@ -51,6 +51,14 @@ content-type: release-note
 # Release notes for {{site.data.keyword.appid_short_notm}}
 {: #release-notes}
 
+## 21 March 2023
+
+
+IBM Cloud App ID deprecation
+{: #appid-march2123}
+{: release-note}
+
+:   Effective 31 March 2025 App ID will be deprecated. Starting on 1 May 2024, no new instances of App ID can be provisioned in any regions. You can continue to use your existing App ID instances until 31 March 2025. Any instances that still exist on that date will be deleted. It's recommended to migrate to {{site.data.keyword.IBM_notm}} Security Verify for authentication to your workloads, including SAML Federation and App ID identities managed with App IDs Cloud Directory. For more information, see the deprecation details. 
 
 ## 22 June 2023
 {: #appid-jun2223}
