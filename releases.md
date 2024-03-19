@@ -54,10 +54,11 @@ content-type: release-note
 ## 21 March 2023
 
 
-IBM Cloud App ID deprecation
+## 21 March 2023
 {: #appid-march2123}
 {: release-note}
 
+App ID deprecation
 :   Effective 31 March 2025 App ID will be deprecated. Starting on 1 May 2024, no new instances of App ID can be provisioned in any regions. You can continue to use your existing App ID instances until 31 March 2025. Any instances that still exist on that date will be deleted. It's recommended to migrate to {{site.data.keyword.IBM_notm}} Security Verify for authentication to your workloads, including SAML Federation and App ID identities managed with App IDs Cloud Directory. For more information, see the deprecation details. 
 
 ## 22 June 2023

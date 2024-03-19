@@ -18,7 +18,7 @@ subcollection: appid
 Starting on 28 March 2024, App ID is deprecated and no new instances can be created or purchased starting on 01 May 2023. The service will no longer be supported by {{site.data.keyword.cloud}} as of 31 March 2025. At the end-of-life date, any instances of App ID that are still running will be permanently disabled and deprovisioned.
 {: shortdesc}
 
-If you are an existing customer, you can continue to use your App ID instance until 31 March 2025. However, it's strongly recommended that you immediately assess your workloads and plan your migration to {{site.data.keyword.IBM_notm}} Security Verify. For more information about IBM Security Verify, see [{{site.data.keyword.IBM_notm}} Security Verify: IAM solutions ](https://www.ibm.com/verify){: external}.
+If you are an existing customer, you can continue to use your App ID instance until 31 March 2025. However, it's recommended that you immediately assess your workloads and plan your migration to {{site.data.keyword.IBM_notm}} Security Verify. For more information about IBM Security Verify, see [{{site.data.keyword.IBM_notm}} Security Verify: IAM solutions ](https://www.ibm.com/verify){: external}.
 
 
 ## Important dates
@@ -26,7 +26,7 @@ If you are an existing customer, you can continue to use your App ID instance un
 
 | Stage | Date | Description |
 | ---------------- | ----------------- | ------------------------------------------------------------ |
-| Deprecation announcement | 28 March 2024  | Announcement of the App ID deprecation. Existing instances will continue to run. |
+| Deprecation announcement | 28 March 2024  | Announcement of the App ID deprecation. Existing instances continue to run. |
 | End of marketing | 01 May 2024 | No new instances of App ID can be created or purchased. Existing instances will continue to run. |
 | End of support   | 31 March 2025 | You can continue to use any existing instances of App ID, but support is no longer available.  |
 | End of life | 01 October 2025   | Running instances of App ID are permanently disabled and deprovisioned. |
@@ -54,16 +54,16 @@ If you have any further questions about this deprecation, you can contact {{site
 ### Migrating to {{site.data.keyword.IBM_notm}} Security Verify
 {: #migrate-security-verify}
 
-{{site.data.keyword.IBM_notm}} Security Verify is the recommended solution for authentication to your workloads, including SAML Federation and App ID identities managed with App IDs Cloud Directory. Fpr more information about see [IBM Security Verify](https://www.ibm.com/verify) and register for a 90-day free trial. To learn more about onboarding to IBM Security Verify, see [Security Verify Summary](https://docs.verify.ibm.com/verify/docs/use-cases#summary){: external}.
+{{site.data.keyword.IBM_notm}} Security Verify is the recommended solution for authentication to your workloads, including SAML Federation and App ID identities managed with App IDs Cloud Directory. For more information, see [IBM Security Verify](https://www.ibm.com/verify) and register for a 90-day free trial. To learn more about onboarding to IBM Security Verify, see [Security Verify Summary](https://docs.verify.ibm.com/verify/docs/use-cases#summary){: external}.
 
-{{site.data.keyword.IBM_notm}} recommends using IBMid Federation if you require Federated access to {{site.data.keyword.cloud_notm}}. For more information see the section on Enabling authentication from an external identity provider. You can also learn more about IBMid Federation with the {{site.data.keyword.cloud_notm}} SAML Federation Guide.
+{{site.data.keyword.IBM_notm}} recommends using IBMid Federation if you require Federated access to {{site.data.keyword.cloud_notm}}. For more information, see the section on Enabling authentication from an external identity provider. You can also learn more about IBMid Federation with the {{site.data.keyword.cloud_notm}} SAML Federation Guide.
 
 If you are an existing customer, you can continue to use your App ID instance until 31 March 2025. However, {{site.data.keyword.IBM_notm}} strongly recommends that you immediately assess your workloads and plan your migration to {{site.data.keyword.IBM_notm}} Security Verify. 
 
 ### Deleting App ID instances and data
 {: #service-delete}
 
-Existing instances of App ID can continue to be used until 01 October 2025. You can start deleting your service instances and the associated data by using the following steps when you're ready. Following this process ensures that all instances and user information stored in the service is permanently deleted.
+Existing instances of App ID can continue to be used until 01 October 2025. You can start deleting your service instances and the associated data by using the following steps when you're ready. Following this process ensures that all instances and user information that is stored in the service is permanently deleted.
 
 If you don't manually delete your instances and data before 01 October 2025, it will be done for you on this date.
 {: note}
@@ -88,7 +88,7 @@ If you no longer need an instance of {{site.data.keyword.appid_short_notm}}, you
    ```
    {: codeblock}
 
-   If you choose not to permanently delete the instance, the instance and data are still deleted at the end of the 7 day reclamation period.
+   If you choose not to permanently delete the instance, the instance and data are still deleted at the end of the 7-day reclamation period.
    {: tip}
 
 3. Optional: Permanently delete the reclamation instance.
@@ -101,7 +101,7 @@ If you no longer need an instance of {{site.data.keyword.appid_short_notm}}, you
    If you permanently delete the instance, you cannot restore your data. 
    {: important}
 
-For more details about data deletion policies, see [Deleting your data in App ID](/docs/appid?topic=appid-mng-data#service-delete).
+For more information, see [Deleting your data in App ID](/docs/appid?topic=appid-mng-data#service-delete).
 
 
 
