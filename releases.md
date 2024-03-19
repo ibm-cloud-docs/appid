@@ -52,9 +52,6 @@ content-type: release-note
 {: #release-notes}
 
 ## 21 March 2023
-
-
-## 21 March 2023
 {: #appid-march2123}
 {: release-note}
 
