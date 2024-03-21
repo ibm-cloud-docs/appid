@@ -15,7 +15,7 @@ subcollection: appid
 # Deprecation of App ID 
 {: #appid-deprecation}
 
-Starting on 28 March 2024, App ID is deprecated and no new instances can be created or purchased starting on 01 May 2023. The service will no longer be supported by {{site.data.keyword.cloud}} as of 31 March 2025. At the end-of-life date, any instances of App ID that are still running will be permanently disabled and deprovisioned.
+Starting on 28 March 2024, App ID is deprecated and no new instances can be created or purchased starting on 01 May 2024. The service will no longer be supported by {{site.data.keyword.cloud}} as of 31 March 2025. At the end-of-life date, any instances of App ID that are still running will be permanently disabled and deprovisioned.
 {: shortdesc}
 
 If you are an existing customer, you can continue to use your App ID instance until 31 March 2025. However, it's recommended that you immediately assess your workloads and plan your migration to {{site.data.keyword.IBM_notm}} Security Verify. For more information about IBM Security Verify, see [{{site.data.keyword.IBM_notm}} Security Verify: IAM solutions ](https://www.ibm.com/verify){: external}.
