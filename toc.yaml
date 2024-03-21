@@ -5,6 +5,7 @@ toc:
     category: security
     audience: service
     href: /docs/appid
+    release-level: deprecated
     console-page: /catalog/services/app-id
     product-page: https://www.ibm.com/products/app-id
     path: appid
