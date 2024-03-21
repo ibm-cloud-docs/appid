@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-03-05"
+lastupdated: "2024-03-21"
 
 keywords: related links, blogs, sample apps, kube, code changes, programming guide, white paper, vuejs apps, serverless applications, enterprise user directory, custom experience, slack, stack overflow, secure iot, solution, finance app, multicloud, video tutorials
 
@@ -49,6 +49,8 @@ subcollection: appid
 
 # Explore related content
 {: #rellinks}
+
+{{site.data.keyword.appid_full}} is deprecated. As of 01 May 2024, you can't create new instances, and access to free instances will be removed. Existing instances are supported until 01 October 2025. Any instances that still exist on that date will be deleted. {: deprecated}
 
 You can use the following related links and samples to learn more about and interact with {{site.data.keyword.appid_full}}.
 {: shortdesc}

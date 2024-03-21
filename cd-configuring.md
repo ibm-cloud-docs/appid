@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2023
-lastupdated: "2023-10-09"
+  years: 2017, 2024
+lastupdated: "2024-03-21"
 
 keywords: user registry, sign up, sign in, username, email, password, account settings, reset password, email sender, email verification, app security
 
@@ -49,6 +49,8 @@ subcollection: appid
 
 # Configuring Cloud Directory
 {: #cloud-directory}
+
+{{site.data.keyword.appid_full}} is deprecated. As of 01 May 2024, you can't create new instances, and access to free instances will be removed. Existing instances are supported until 01 October 2025. Any instances that still exist on that date will be deleted. {: deprecated}
 
 With {{site.data.keyword.appid_full}}, you can create a scalable user registry for your apps so that users can sign up and sign in with either a username or email and a password. You can decide the level of self-service that you want your users to have. For example, users can sign up for your app independently or you can allow them to manage their account settings, such as a password reset, from your app. 
 {: shortdesc}

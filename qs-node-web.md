@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2023
-lastupdated: "2023-10-09"
+  years: 2017, 2024
+lastupdated: "2024-03-21"
 
 keywords: web apps, nodejs, node, javascript, protected resource, authorization flow, front end, frontend, app security, authentication
 
@@ -54,6 +54,8 @@ completion-time: 20m
 {: #web-node}
 {: toc-content-type="tutorial"}
 {: toc-completion-time="20m"}
+
+{{site.data.keyword.appid_full}} is deprecated. As of 01 May 2024, you can't create new instances, and access to free instances will be removed. Existing instances are supported until 01 October 2025. Any instances that still exist on that date will be deleted. {: deprecated}
 
 With {{site.data.keyword.appid_short_notm}}, you can easily protect your Node.js front-end web applications. With this guide, you can quickly get a simple authentication flow up and running in less than 20 minutes.
 {: shortdesc}

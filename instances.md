@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-01-31"
+lastupdated: "2024-03-21"
 
 keywords: Migrating users, multiple service instances, manage service, access, configuration, duplicate, export, app security, identity
 
@@ -50,9 +50,10 @@ subcollection: appid
 # Managing service instances
 {: #service-instance-management}
 
+{{site.data.keyword.appid_full}} is deprecated. As of 01 May 2024, you can't create new instances, and access to free instances will be removed. Existing instances are supported until 01 October 2025. Any instances that still exist on that date will be deleted. {: deprecated}
+
 There are times when you might need to have more than one instance of {{site.data.keyword.appid_short_notm}} or migrate to a new instance. You might need to have an instance of {{site.data.keyword.appid_short_notm}} in multiple regions or different versions for different types of users. No problem! You can easily export your identity provider configuration. 
 {: shortdesc}
-
 
 ## Migrating to another instance
 {: #migrate-service}

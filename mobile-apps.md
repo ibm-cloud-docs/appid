@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2023
-lastupdated: "2023-10-09"
+  years: 2017, 2024
+lastupdated: "2024-03-21"
 
 keywords: secure mobile app, android, ios, authenticate users,  authorization grant, client sdk, trusted client, native app, personalized, custom app, devices, identity flow, app security
 
@@ -48,6 +48,8 @@ subcollection: appid
 
 # Mobile apps
 {: #mobile-apps}
+
+{{site.data.keyword.appid_full}} is deprecated. As of 01 May 2024, you can't create new instances, and access to free instances will be removed. Existing instances are supported until 01 October 2025. Any instances that still exist on that date will be deleted. {: deprecated}
 
 With {{site.data.keyword.appid_full}}, you can quickly construct an authentication layer for your native or hybrid mobile app.
 {: shortdesc}

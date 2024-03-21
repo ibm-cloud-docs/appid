@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2023
-lastupdated: "2023-10-09"
+  years: 2017, 2024
+lastupdated: "2024-03-21"
 
 keywords: user information, tokens, custom tokens, secure resources, authorization, identity, authentication, claims, oauth, claims mapping, attributes, app security, access, runtime
 
@@ -49,6 +49,8 @@ subcollection: appid
 
 # Customizing tokens
 {: #customizing-tokens}
+
+{{site.data.keyword.appid_full}} is deprecated. As of 01 May 2024, you can't create new instances, and access to free instances will be removed. Existing instances are supported until 01 October 2025. Any instances that still exist on that date will be deleted. {: deprecated}
 
 With {{site.data.keyword.appid_short_notm}}, tokens are used to identify users and secure your resources. You can choose to customize the information that is injected in to the tokens by the service. By injecting the information into your tokens, it's available to your application at run time without you having to configure extra network calls. For more information about tokens and how they're used in {{site.data.keyword.appid_short_notm}}, see [Understanding tokens](/docs/appid?topic=appid-tokens).
 {: shortdesc}

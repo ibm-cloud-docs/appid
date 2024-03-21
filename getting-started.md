@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-02-19"
+lastupdated: "2024-03-21"
 
 keywords: getting started tutorial, getting started, App ID, sample app, authentication, sign in flow, authorization, app security, identity
 
@@ -54,6 +54,9 @@ completion-time: 10m
 {: #getting-started}
 {: toc-content-type="tutorial"}
 {: toc-completion-time="10m"}
+
+{{site.data.keyword.appid_full}} is deprecated. As of 01 May 2024, you can't create new instances, and access to free instances will be removed. Existing instances are supported until 01 October 2025. Any instances that still exist on that date will be deleted. {: deprecated}
+
 
 Application security can be incredibly complicated. For most developers, it's one of the hardest parts of creating an app. How can you be sure that you are protecting your users information? By integrating {{site.data.keyword.appid_full}} into your apps, you can secure resources and add authentication; even when you don't have a lot of security experience.
 {: shortdesc}

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2023
-lastupdated: "2023-10-09"
+  years: 2017, 2024
+lastupdated: "2024-03-21"
 
 keywords: emails, verification, templates, sendgrid, welcome, password reset, password change, change details, verification, supported languages, registry, cloud directory, 
 
@@ -48,6 +48,8 @@ subcollection: appid
 
 # Customizing emails
 {: #cd-types}
+
+{{site.data.keyword.appid_full}} is deprecated. As of 01 May 2024, you can't create new instances, and access to free instances will be removed. Existing instances are supported until 01 October 2025. Any instances that still exist on that date will be deleted. {: deprecated}
 
 When a user interacts with your application, you might want to send a reply or ask for verification. {{site.data.keyword.appid_short_notm}} provides default templates that you can use for the interactions. You can also use the templates as a guide and customize your messaging to fit your brand.
 {: shortdesc}

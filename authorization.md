@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2023
-lastupdated: "2023-10-09"
+  years: 2017, 2024
+lastupdated: "2024-03-21"
 
 keywords: authorization, authentication, oidc, oauth, jwks, app security, identity, tokens, redirect uris, api strategy, webapp strategy
 
@@ -48,6 +48,8 @@ subcollection: appid
 
 # Technologies
 {: #key-concepts}
+
+{{site.data.keyword.appid_full}} is deprecated. As of 01 May 2024, you can't create new instances, and access to free instances will be removed. Existing instances are supported until 01 October 2025. Any instances that still exist on that date will be deleted. {: deprecated}
 
 Confused about the differences between authorization and authentication? You're not alone. Check out the following information to learn about specific terminology, processes, and the technologies that are used when you work with {{site.data.keyword.appid_full}}.
 {: shortdesc}

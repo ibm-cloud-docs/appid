@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-02-19"
+lastupdated: "2024-03-21"
 
 keywords: back-end apps, java, liberty for java, liberty, identity provider, access management, protected endpoints, access tokens, security, back end
 
@@ -54,6 +54,8 @@ completion-time: 30m
 {: #backend-liberty}
 {: toc-content-type="tutorial"}
 {: toc-completion-time="30m"}
+
+{{site.data.keyword.appid_full}} is deprecated. As of 01 May 2024, you can't create new instances, and access to free instances will be removed. Existing instances are supported until 01 October 2025. Any instances that still exist on that date will be deleted. {: deprecated}
 
 With {{site.data.keyword.appid_short_notm}}, you can easily protect your API endpoints and ensure the security of your Liberty for Java backend applications. With the guide, you can quickly get a simple authentication flow up and running in less than 20 minutes.
 {: shortdesc}

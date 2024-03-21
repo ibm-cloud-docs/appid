@@ -50,6 +50,8 @@ subcollection: appid
 # FAQ
 {: #faq}
 
+{{site.data.keyword.appid_full}} is deprecated. As of 01 May 2024, you can't create new instances, and access to free instances will be removed. Existing instances are supported until 01 October 2025. Any instances that still exist on that date will be deleted. {: deprecated}
+
 This FAQ provides answers to common questions about the {{site.data.keyword.appid_full}} service.
 {: shortdesc}
 

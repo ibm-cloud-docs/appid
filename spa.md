@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2023
-lastupdated: "2023-10-09"
+  years: 2017, 2024
+lastupdated: "2024-03-21"
 
 keywords: single page application, SPA, single-page, angular, react, native apps, javascript, js, sdk, authentication, authorization, identity, app security, secure, protocols, oauth, oidc,
 
@@ -49,6 +49,8 @@ subcollection: appid
 
 # Single-page apps
 {: #single-page}
+
+{{site.data.keyword.appid_full}} is deprecated. As of 01 May 2024, you can't create new instances, and access to free instances will be removed. Existing instances are supported until 01 October 2025. Any instances that still exist on that date will be deleted. {: deprecated}
 
 With {{site.data.keyword.appid_full}}, you can quickly add authorization and authentication to your single-page applications (SPA). An SPA runs entirely in your browser, doesn't have a backend that you manage, and does not require that the page reload while the application is in use. Some common frameworks that are used with SPAs are [Angular](https://angular.io/){: external} and [React](https://react.dev/){: external}.
 {: shortdesc}

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2023
-lastupdated: "2023-10-09"
+  years: 2017, 2024
+lastupdated: "2024-03-21"
 
 keywords: bring your own screens, branded app, sign up, custom, directory, registry, app security, password, authorization flow, authentication,
 
@@ -48,6 +48,8 @@ subcollection: appid
 
 # Branding your app
 {: #branded}
+
+{{site.data.keyword.appid_full}} is deprecated. As of 01 May 2024, you can't create new instances, and access to free instances will be removed. Existing instances are supported until 01 October 2025. Any instances that still exist on that date will be deleted. {: deprecated}
 
 With {{site.data.keyword.appid_full}}, you can customize the entire sign-up experience of your application by using your own branded screens. You can replace the provided sign-in widget with your own, add extra fields, validate password strength, and verify email addresses against a blocklist!
 {: shortdesc}

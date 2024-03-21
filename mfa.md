@@ -15,6 +15,8 @@ subcollection: appid
 # Multifactor authentication (MFA)
 {: #cd-mfa}
 
+{{site.data.keyword.appid_full}} is deprecated. As of 01 May 2024, you can't create new instances, and access to free instances will be removed. Existing instances are supported until 01 October 2025. Any instances that still exist on that date will be deleted. {: deprecated}
+
 With Cloud Directory for {{site.data.keyword.appid_full}}, you can require multiple authentication factors during your application sign-in flow. A second authentication factor increases the security of your application by not only confirming that a user possesses the knowledge of their credentials but also has access to their registered email, phone number, or authenticator application. Extending the MFA flow, you can configure pre-MFA and post-MFA extensions to make custom decisions at run time about which users must complete the second factor or provide you analytical information about your sign-in flow.
 {: shortdesc}
 

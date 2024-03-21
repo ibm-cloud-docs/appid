@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2023
-lastupdated: "2023-10-09"
+  years: 2017, 2024
+lastupdated: "2024-03-21"
 
 keywords: token validation, validate token, protect app, public key, token header, base64, decode payload, authorized, access permissions, app security, identity, jwt
 
@@ -49,6 +49,8 @@ subcollection: appid
 
 # Validating tokens
 {: #token-validation}
+
+{{site.data.keyword.appid_full}} is deprecated. As of 01 May 2024, you can't create new instances, and access to free instances will be removed. Existing instances are supported until 01 October 2025. Any instances that still exist on that date will be deleted. {: deprecated}
 
 Token validation is an important part of modern app development. By validating tokens, you can protect your app or APIs from unauthorized users. {{site.data.keyword.appid_full}} uses access and identity tokens to ensure that a user or app is authenticated before they are granted access. If you're using one of the SDKs provided by {{site.data.keyword.appid_short_notm}}, both obtaining and validating your tokens is done for you!
 {: shortdesc}
