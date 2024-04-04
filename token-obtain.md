@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-03-21"
+lastupdated: "2024-04-04"
 
 keywords: obtain tokens, return tokens, authorized, authorization, access management, client id, secret, tenant id, app security, identity token
 
@@ -50,8 +50,6 @@ subcollection: appid
 
 # Obtaining tokens
 {: #obtain-tokens}
-
-{{site.data.keyword.appid_full}} is deprecated. As of 01 May 2024, you can't create new instances, and access to free instances will be removed. Existing instances are supported until 01 October 2025. Any instances that still exist on that date will be deleted. {: deprecated}
 
 When users or backend services interact with your app, they might need to be authorized to perform specific actions. {{site.data.keyword.appid_short_notm}} verifies that the entity that makes the request is authorized and returns access and identity tokens to your app. If the entity making the request is an end user, the tokens might contain information about the user such as the scope of their permissions and their name. If it is a backend service, then only an access token is returned.
 {: shortdesc}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-03-21"
+lastupdated: "2024-04-04"
 
 keywords: help, support, error, multiple users, attribute, ticket, identity provider, redirect uri, custom url, virtual user, idp, identity settings, user profile
 
@@ -51,8 +51,6 @@ content-type: troubleshoot
 # Why is my user not redirected to my app? 
 {: #ts-redirect}
 {: troubleshoot}
-
-{{site.data.keyword.appid_full}} is deprecated. As of 01 May 2024, you can't create new instances, and access to free instances will be removed. Existing instances are supported until 01 October 2025. Any instances that still exist on that date will be deleted. {: deprecated}
 
 When a user signs into your app by using {{site.data.keyword.appid_full}}, they are redirected back to your application, but occasionally a redirect might fail.
 {: shortdesc}

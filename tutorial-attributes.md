@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-03-21"
+lastupdated: "2024-04-04"
 
 keywords: attributes, cloud directory, user registry, user management, personalization, customize app, user information, profiles, app security, user profile, app access, identity
 
@@ -54,8 +54,6 @@ completion-time: 20m
 {: #tutorial-attributes}
 {: toc-content-type="tutorial"}
 {: toc-completion-time="20m"}
-
-{{site.data.keyword.appid_full}} is deprecated. As of 01 May 2024, you can't create new instances, and access to free instances will be removed. Existing instances are supported until 01 October 2025. Any instances that still exist on that date will be deleted. {: deprecated}
 
 In a world with everything at our finger tips, people expect their experiences to be tailored to them. Whether we're having an in-person conversation or shopping online, we want to see only the things that apply to us. By using this step-by-step guide, you can learn how to harness the power of user attributes and really capture your users attention with {{site.data.keyword.appid_short_notm}}.
 {: shortdesc}

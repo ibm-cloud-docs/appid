@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-03-21"
+lastupdated: "2024-04-04"
 
 keywords: user registry, sign up, sign in, username, email, password, account settings, reset password, email sender, email verification, app security
 
@@ -48,8 +48,6 @@ subcollection: appid
 
 # What is Cloud Directory?
 {: #cd-concept}
-
-{{site.data.keyword.appid_full}} is deprecated. As of 01 May 2024, you can't create new instances, and access to free instances will be removed. Existing instances are supported until 01 October 2025. Any instances that still exist on that date will be deleted. {: deprecated}
 
 With {{site.data.keyword.appid_full}}, you can allow your users to sign up directly from your mobile or web app and sign in with their email and password. You can use Cloud Directory to create a scalable user registry that uses pre-built functions to enhance security and self-service. 
 {: shortdesc}

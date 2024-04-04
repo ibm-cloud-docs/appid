@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-03-21"
+lastupdated: "2024-04-04"
 
 keywords: user access, control access, permissions, roles, scopes, runtime, access token, authentication, identity, app security
 
@@ -49,8 +49,6 @@ subcollection: appid
 
 # Controlling access
 {: #access-control}
-
-{{site.data.keyword.appid_full}} is deprecated. As of 01 May 2024, you can't create new instances, and access to free instances will be removed. Existing instances are supported until 01 October 2025. Any instances that still exist on that date will be deleted. {: deprecated}
 
 With {{site.data.keyword.appid_full}}, you can define which users and applications can access specific features or perform specific actions in your apps. To control access, you can create scopes and group them into a role. Then, assign the role to one or more of your app users and applications.
 {: shortdesc}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-03-21"
+lastupdated: "2024-04-04"
 
 keywords: authentication, authorization, identity, app security, cloud directory, user data, identity provider, oauth, protocols, oauth, oidc, disaster recovery, dr, compliance, high availability, ha, secure, HA, DR
 
@@ -50,7 +50,6 @@ subcollection: appid
 # About {{site.data.keyword.appid_short_notm}}
 {: #about}
 
-{{site.data.keyword.appid_full}} is deprecated. As of 01 May 2024, you can't create new instances, and access to free instances will be removed. Existing instances are supported until 01 October 2025. Any instances that still exist on that date will be deleted. Use {{site.data.keyword.IBM_notm}} Security Verify for authentication to your workloads, including SAML Federation and App ID identities managed with App IDs Cloud Directory on {{site.data.keyword.Bluemix_notm}}. For migration information, see[IBM Security Verify](https://www.ibm.com/verify). {: deprecated}
 
 Application security can be incredibly complicated. For most developers, it's one of the hardest parts of creating an app. How can you be sure that you are protecting your user's information? By integrating {{site.data.keyword.appid_full}} into your apps, you can secure resources and add authentication - even when you don't have much security experience.
 {: shortdesc}
