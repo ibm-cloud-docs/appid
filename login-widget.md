@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2023
-lastupdated: "2023-10-09"
+  years: 2017, 2024
+lastupdated: "2024-04-04"
 
 keywords: app log in, login widget, sign in, default screen, forgot password, mfa, multi-factor authentication, sign up, reset password, facebook, google, identity provider, social log in, saml, authentication, authorization, cloud directory
 
@@ -50,9 +50,10 @@ subcollection: appid
 # Using the Login Widget
 {: #login-widget}
 
+{{site.data.keyword.appid_full}} is deprecated. As of 01 May 2024, you can't create new instances, and access to free instances will be removed. Existing instances are supported until 01 October 2025. Any instances that still exist on that date will be deleted. {: deprecated}
+
 With {{site.data.keyword.appid_full}} you can use a default UI, called a Login Widget, to allow application users the ability to choose the identity provider that they want to sign in with. If you're using Cloud Directory, the Login Widget also provides additional UI's for extra functionalities such as sign-up, forgot password, multi-factor authentication, and more.
 {: shortdesc}
-
 
 ## Understanding the Login Widget
 {: #widget-understanding}

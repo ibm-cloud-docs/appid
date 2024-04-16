@@ -1,6 +1,6 @@
 {
     "title": "App ID docs",
-    "lastupdated": "2023-09-28",
+    "lastupdated": "2024-02-19",
     "introduction": "With IBM Cloud App ID, you can easily add authentication to your web and mobile apps with few lines of code.",
     "section_devtools": {
       "api": "https://us-south.appid.cloud.ibm.com/swagger-ui/#/",
@@ -67,9 +67,9 @@
     ],
     "section_learn": {
       "developer": "https://developer.ibm.com/depmodels/cloud/",
-      "architecture": "https://www.ibm.com/cloud/architecture/security",
+      "architecture": "https://www.ibm.com/think/security",
       "training": "https://www.ibm.com/training/cloud",
-      "community": "https://community.ibm.com/community/user/publiccloud/home"
+      "community": "https://community.ibm.com/community/user/cloud/home"
     },
     "section_updates": {
       "view_more": "/docs/appid?topic=appid-release-notes",

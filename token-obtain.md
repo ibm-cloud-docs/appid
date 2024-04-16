@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2023
-lastupdated: "2023-10-09"
+  years: 2017, 2024
+lastupdated: "2024-04-04"
 
 keywords: obtain tokens, return tokens, authorized, authorization, access management, client id, secret, tenant id, app security, identity token
 

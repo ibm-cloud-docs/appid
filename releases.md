@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2023
-lastupdated: "2023-10-09"
+  years: 2017, 2024
+lastupdated: "2024-04-16"
 
 keywords: release notes, new, spa, single sign on, mfa, cloud directory, saml, app security, application identity
 
@@ -50,6 +50,7 @@ content-type: release-note
 
 # Release notes for {{site.data.keyword.appid_short_notm}}
 {: #release-notes}
+
 
 
 ## 22 June 2023
@@ -209,7 +210,7 @@ Create future user profiles through the dashboard
 :   You can now start building profiles for users that you know will use your application in the future through the {{site.data.keyword.appid_short_notm}} dashboard. For more information, see [Preregistering future users](/docs/appid?topic=appid-preregister).
 
 Slack channel
-:   Have questions while working with {{site.data.keyword.appid_short_notm}}? Get in touch directly with the development team on [Slack](https://www.ibm.com/cloud/blog/announcements/get-help-with-ibm-cloud-app-id-related-questions-on-slack){: external}!
+:   Have questions while working with {{site.data.keyword.appid_short_notm}}? Get in touch directly with the development team on [Slack](https://www.ibm.com/blog/announcement/get-help-with-ibm-cloud-app-id-related-questions-on-slack/){: external}!
 
 The {{site.data.keyword.appid_short_notm}} Identity and Access Istio adapter
 :   Centralize all your identity management in a single place with the App Identity and Access adapter. The adapter can be configured to work with any OIDC-compliant identity provider, which enables it to control authentication and authorization policies in all environments including both front and backend apps. And, it does it all without any change to your code or the need to redeploy your application. For more information, see [Securing multicloud apps with Istio](/docs/appid?topic=appid-istio-adapter).

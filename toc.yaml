@@ -5,8 +5,9 @@ toc:
     category: security
     audience: service
     href: /docs/appid
+    release-level:
     console-page: /catalog/services/app-id
-    product-page: https://www.ibm.com/cloud/app-id
+    product-page: https://www.ibm.com/products/app-id
     path: appid
     label: App ID
   entries: 

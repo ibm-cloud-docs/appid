@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2023
-lastupdated: "2023-10-16"
+  years: 2017, 2024
+lastupdated: "2024-04-04"
 
 keywords: HA for {{site.data.keyword.appid_short_notm}}, DR for {{site.data.keyword.appid_short_notm}}, high availability for {{site.data.keyword.appid_short_notm}}, disaster recovery for {{site.data.keyword.appid_short_notm}}, failover for {{site.data.keyword.appid_short_notm}}
 
@@ -120,13 +120,13 @@ curl -X 'GET' \
 
 In addition to keeping a backup of the configuration settings of your {{site.data.keyword.appid_short_notm}} instance, you must generate a backup of your Cloud Directory users and user profiles. To achieve this task, it is recommended that you use the management API.
 
--	To export Cloud Directory users, use the [cloud_directory/export/all](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.cloudDirectoryExportAll){: external} API endpoint. To download the export, use the [cloud_directory/export/download](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.cloudDirectoryDownloadExport){: external} API. For more details about how to export Cloud Directory users with the Management API, read the [Exporting all users](/docs/appid?topic=appid-cd-users&interface=api&locale=en#cd-export-all) documentation.
+-	To export Cloud Directory users, use the [cloud_directory/export/all](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.cloudDirectoryExportAll){: external} API endpoint. To download the export, use the [cloud_directory/export/download](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.cloudDirectoryDownloadExport){: external} API. For more details about how to export Cloud Directory users with the Management API, read the [Exporting all users](/docs/appid?topic=appid-cd-users&interface=api&en#cd-export-all) documentation.
 -	To export users profiles, use the [users/export](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Users/mgmt.userProfilesExport) endpoint.
 -	These two export APIs generate two backup files, which you must store securely to use later in the restore process.
 
 
 ### Backing up your instance by using Terraform and the API
-{: backup-terraform-management-api}
+{: #backup-terraform-management-api}
 {: terraform}
 
 To backup your {{site.data.keyword.appid_short_notm}} settings with Terraform, you can write Terraform scripts to generate files that contain the setup information for your {{site.data.keyword.appid_short_notm}} instance. Store these files in a secure location because you must use them to restore the {{site.data.keyword.appid_short_notm}} instance in a secondary region.
@@ -189,11 +189,11 @@ resource "local_file" "saml_config" {
 ```
 {: codeblock}
 
-In the previous scenario, the files that contain the backups are stored locally. But, you can store them in any other storage location that you prefer, such as [IBM Cloud Object Storage](https://www.ibm.com/cloud/object-storage).
+In the previous scenario, the files that contain the backups are stored locally. But, you can store them in any other storage location that you prefer, such as [IBM Cloud Object Storage](https://www.ibm.com/products/cloud-object-storage).
 
 To generate a backup of Cloud Directory users and user profiles, it is recommended that you use the management API.
 
--	To export Cloud Directory users, use the [cloud_directory/export/all](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.cloudDirectoryExportAll){: external} API endpoint. To download the export, use the [cloud_directory/export/download](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.cloudDirectoryDownloadExport){: external} API. For more details about how to export Cloud Directory users with the Management API see [Exporting all users](/docs/appid?topic=appid-cd-users&interface=api&locale=en#cd-export-all).
+-	To export Cloud Directory users, use the [cloud_directory/export/all](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.cloudDirectoryExportAll){: external} API endpoint. To download the export, use the [cloud_directory/export/download](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.cloudDirectoryDownloadExport){: external} API. For more details about how to export Cloud Directory users with the Management API see [Exporting all users](/docs/appid?topic=appid-cd-users&interface=api&en#cd-export-all).
 -	To export users profiles, use the [users/export](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Users/mgmt.userProfilesExport){: external} endpoint.
 -	These two export APIs generate two backup files, which you must store to use later in the restore process.
 
@@ -243,12 +243,12 @@ To restore the backups of your Cloud Directory users and their profiles, if avai
 
 
 ### Restoring your {{site.data.keyword.appid_short_notm}} instance by using Terraform and the API
-{: backup-restore-terraform-api}
+{: #backup-restore-terraform-api}
 {: terraform}
 
 When you are using a combination of the Terraform and the management API to restore your {{site.data.keyword.appid_short_notm}} instance, the first step is to write your Terraform script to provision a new instance of {{site.data.keyword.appid_short_notm}} in the secondary region. Then, you can restore your {{site.data.keyword.appid_short_notm}} settings by reading the backup files and by using the terraform commands to setup the {{site.data.keyword.appid_short_notm}} instance in the secondary region.
 
-Continuing with the scenario that is included in the [backup](/docs/appid?topic=appid-ha-dr&interface=terraform#backing-up-your-instance-by-using-terraform-and-the-api) section, you can restore the SAML configuration and the password policies with the following script:
+Continuing with the scenario that is included in the [backup](/docs/appid?topic=appid-ha-dr&interface=terraform#backup-terraform-management-api) section, you can restore the SAML configuration and the password policies with the following script:
 
 ```terraform
 terraform {

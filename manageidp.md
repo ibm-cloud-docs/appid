@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2023
-lastupdated: "2023-10-09"
+  years: 2017, 2024
+lastupdated: "2024-04-04"
 
 keywords: identity provider, idp, app security, mobile app, web app, authentication, authorization, oidc, saml, protocols, facebook, google, w3id, cloud directory, redirect url, redirect uri, token configuration, token lifetime, log in configuration
 
@@ -56,7 +56,6 @@ Identity providers (IdP's) add a level of security for your mobile and web apps,
 
 When you use social or enterprise identity providers, {{site.data.keyword.appid_short_notm}} reads user account information. Because the service never has write access to the information, users must go through their chosen identity provider to do actions, such as resetting their password. For example, if a user signs in to your app with Facebook, and then wanted to change their password, they must go to `www.facebook.com` to do so.
 {: note}
-
 
 When you use [Cloud Directory](/docs/appid?topic=appid-cloud-directory), {{site.data.keyword.appid_short_notm}} is the identity provider. The service uses your registry to verify your users identity. Because {{site.data.keyword.appid_short_notm}} is the identity provider, users can take advantage of advanced functionality, such as resetting their password, directly in your app.
 

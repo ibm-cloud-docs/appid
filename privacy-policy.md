@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2023
-lastupdated: "2023-10-09"
+  years: 2017, 2024
+lastupdated: "2024-04-04"
 
 keywords: personal data, app id permitted uses, privacy policy, usage data, user information, tracking technology, ip addresses, service providers, developers, client, testing, default configuration, cookies data, consent, legal, google, facebook 
 
@@ -49,7 +49,6 @@ subcollection: appid
 
 # Privacy policy: Default Facebook and Google settings
 {: #privacy-policy}
-
 
 **Effective: August 2019** Client, hereinafter referred to as "Developer", performs development and testing of applications by using the default configuration of {{site.data.keyword.appid_full}} ("{{site.data.keyword.appid_short_notm}}" or "Service") for Facebook or Google. Developer uses the default settings of {{site.data.keyword.appid_short_notm}} only for evaluation and testing purposes, and to determine whether to incorporate {{site.data.keyword.appid_short_notm}} into the applications being developed by Developer ("Permitted Uses"). Developer will not use the default settings of {{site.data.keyword.appid_short_notm}} for any uses or purposes other than the previously stated Permitted Uses.
 {: shortdesc}

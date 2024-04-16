@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-01-31"
+lastupdated: "2024-04-04"
 
 keywords: authentication, authorization, app id cost, identity, app security, cloud directory, app id pricing
 
