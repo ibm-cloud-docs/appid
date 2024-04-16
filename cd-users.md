@@ -1,6 +1,7 @@
 ---
 copyright:
   years: 2017, 2024
+
 lastupdated: "2024-04-04"
 
 keywords: manage users, registry, cloud directory, add user, delete user, tokens, attributes, migrating users, identity provider, app security
@@ -359,7 +360,7 @@ If you are exporting many users (16,000 or more), you can use the `export/all` A
    {: codeblock}
 
    An export file is created only when the export request is successful. If the request fails, to reduce your vulnerability risk, the data that is gathered is deleted. 
-   The export is automatically deleted after 7 days or the number of days that you specify in the body of the request (in the range of 1 - 30 days). You can choose to manually delete the export by sending a request to the [delete](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.cloudDirectoryDownloadExportDelete){: external} API.
+   The export is automatically deleted after 7 days or the number of days that you specify in the body of the request (in the range of 1 - 7 days). You can choose to manually delete the export by sending a request to the [delete](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.cloudDirectoryDownloadExportDelete){: external} API.
    {: note}
 
 
@@ -367,7 +368,7 @@ If you are exporting many users (16,000 or more), you can use the `export/all` A
    | ---------- | ----------- |
    | `encryptionSecret` | A custom string that is used to encrypt and decrypt a user's hashed password. Retain the encryption secret as you need it to use the [import/all](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.cloudDirectoryImportAll){:external} API. IBM does not store the secret so if the secret is lost, you can't access the exported data. |
    | `emailAddress` | An email address to which an email is sent when the export is ready or if the request fails. |
-   | `expires` | An integer that you can set (1 ≤ value ≤ 30) to specify the number of days after which the export must be deleted. The default value is 7. |
+   | `expires` | An integer that you can set (1 ≤ value ≤ 7) to specify the number of days after which the export must be deleted. The default value is 7. |
    | `tenantID` | The service tenant ID can be found in your service credentials. You can find or create your service credentials in the {{site.data.keyword.appid_short_notm}} dashboard. |
    {: caption="Table 3. Descriptions of the parameters that need to be provided in the export/all request" caption-side="top"}
 
