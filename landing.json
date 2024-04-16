@@ -1,6 +1,6 @@
 {
     "title": "App ID docs",
-    "lastupdated": "2024-02-19",
+    "lastupdated": "2024-04-16",
     "introduction": "With IBM Cloud App ID, you can easily add authentication to your web and mobile apps with few lines of code.",
     "section_devtools": {
       "api": "https://us-south.appid.cloud.ibm.com/swagger-ui/#/",
@@ -53,11 +53,6 @@
         "title": "Protecting Liberty for Java Backend Applications",
         "href": "/docs/appid?topic=appid-backend-liberty",
         "thumbnail": "/images/appid-lib-java-video-thumbnail.png"
-      },
-      {
-        "title": "Protecting Liberty for Java Web Applications",
-        "href": "/docs/appid?topic=appid-web-apps#web-configuring-liberty",
-        "thumbnail": "/images/appid-lib-java-web-video-thumbnail.png"
       },
       {
         "title": "Protecting Liberty for Java Web Applications",

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-04-04"
+lastupdated: "2024-04-16"
 
 keywords: ingress controller, ingress, istio, access, subdomain, custom domain, service, containerized apps, containers, kube, networking, policy, policies, secure apps, authentication, authorization
 
@@ -83,9 +83,9 @@ Before you can get started, ensure that you have the following prerequisites.
 * The following CLIs:
    * [{{site.data.keyword.cloud_notm}}](/docs/cli?topic=cli-getting-started)
    * [Kubernetes](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
-* The {{site.data.keyword.containershort}} and {{site.data.keyword.registryshort_notm}} [CLI plug-ins](/docs/cli?topic=cli-plug-ins#idt-install-kubernetes-cli-plugin)
+* The {{site.data.keyword.containershort}} and {{site.data.keyword.registryshort_notm}} [CLI plug-ins](/docs/cli?topic=cli-plug-ins)
 
-To ensure the best performance of the integration, it is recommended that you always use the latest version of IBM Cloud {{site.data.keyword.containershort_notm}} Application Load Balancer (ALB). By default, autoupdate is enabled for your cluster. For more information about autoupdates, see [OnDemand ALB update feature on {{site.data.keyword.containershort}}](https://www.ibm.com/cloud/blog/on-demand-alb-update-feature-on-ibm-cloud-kubernetes-service).
+To ensure the best performance of the integration, it is recommended that you always use the latest version of IBM Cloud {{site.data.keyword.containershort_notm}} Application Load Balancer (ALB). By default, autoupdate is enabled for your cluster.
 {: tip}
 
 ## Adding redirect URLs

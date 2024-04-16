@@ -67,11 +67,11 @@ IdP-initiated login is now available
 {: release-note}
 
 IBM Cloud Foundry service broker unsupported
-:   All services that use the Cloud Foundry service broker will stop working on 1 June 2023, when Cloud Foundry enters the [End-of-Support stage](/docs/cloud-foundry-public?topic=cloud-foundry-public-deprecation). 
+:   All services that use the Cloud Foundry service broker will stop working on 1 June 2023, when Cloud Foundry enters the End-of-Support stage. 
 
    **Does this change affect me?**
 
-   Not sure if your {{site.data.keyword.appid_short_notm}} instance is using the Cloud Foundry service broker? In the [Cloud Foundry services](https://cloud.ibm.com/cloudfoundry/public){: external} section, check whether your {{site.data.keyword.appid_short_notm}} instance is listed as an alias. If your instance is already an alias, you do not need to take any action.  
+   Not sure if your {{site.data.keyword.appid_short_notm}} instance is using the Cloud Foundry service broker? In the Cloud Foundry services section, check whether your {{site.data.keyword.appid_short_notm}} instance is listed as an alias. If your instance is already an alias, you do not need to take any action.  
    
    If your instance is not an alias and you want to keep it, please contact [IBM Cloud support](https://cloud.ibm.com/unifiedsupport/supportcenter){: external} to discuss next steps.
 
@@ -233,7 +233,7 @@ Cloud Directory: View user information
 {: release-note}
 
 Version 4 of the runtime APIs
-:   Update your apps! To further the standards on which {{site.data.keyword.appid_short_notm}} is based, we've made a few changes. With those changes, we were able to tighten interoperability within the OIDC workflow and broaden the frameworks that are able to use the service. For more information about the changes that you must make before September 2019, see the blog [{{site.data.keyword.cloud_notm}} {{site.data.keyword.appid_short_notm}}: Updated runtime APIs](https://www.ibm.com/cloud/blog/ibm-cloud-app-id-v4-runtime-apis-update){: external}.
+:   Update your apps! To further the standards on which {{site.data.keyword.appid_short_notm}} is based, we've made a few changes. With those changes, we were able to tighten interoperability within the OIDC workflow and broaden the frameworks that are able to use the service.
 
 Cloud Directory: Single sign-on
 :   Provide smooth authentication experiences between multiple web apps with single sign-on (SSO) for Cloud Directory. With SSO enabled, user's are not prompted to reenter their credentials the next time they attempt to access your app. Instead, they are automatically signed in to any of your apps that are protected by the same {{site.data.keyword.appid_short_notm}} instance. For more information, see [Single sign-on](/docs/appid?topic=appid-cd-sso).

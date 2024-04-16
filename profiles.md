@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-04-04"
+lastupdated: "2024-04-16"
 
 keywords: profile, custom attributes, predefined attributes, attributes, app users, app interaction, personalized experience, access user info, identity provider information, access token, authentication, user sign in, android, java, node, swift, ios, user, preferences
 
@@ -70,9 +70,6 @@ You can store up to 100 KB of information for each user.
 {: #profile-endpoint}
 
 Several different ways exist in which you can access user information, and several different reasons why you would want to. The endpoint that you choose to call can vary depending on your use case.
-
-Not sure which one works best? Join our [Slack channel](https://www.ibm.com/cloud/blog/announcements/get-help-with-ibm-cloud-app-id-related-questions-on-slack){: external} and get advice directly from our development team.
-{: tip}
 
 If you need to work with an API, check out the following image and corresponding information to see how the information is pulled.
 

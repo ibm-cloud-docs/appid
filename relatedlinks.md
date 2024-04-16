@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-04-04"
+lastupdated: "2024-04-16"
 
 keywords: related links, blogs, sample apps, kube, code changes, programming guide, white paper, vuejs apps, serverless applications, enterprise user directory, custom experience, slack, stack overflow, secure iot, solution, finance app, multicloud, video tutorials
 
@@ -75,8 +75,6 @@ Get to know more about {{site.data.keyword.appid_short_notm}} by reading through
 * [Security to safeguard and monitor your apps](https://www.ibm.com/services/application-security){: external}
 * [Add sign up and sign in to your apps with {{site.data.keyword.appid_short_notm}}](https://www.youtube.com/watch?v=cDSYNFn4rX8){: external}
 
-Be sure that you're using version 4 of the [runtime APIs](https://www.ibm.com/blogs/cloud-archive/2019/04/ibm-cloud-app-id-v4-runtime-apis-update/){: external}.
-{: tip}
 
 
 ## Securing apps
@@ -85,7 +83,6 @@ Be sure that you're using version 4 of the [runtime APIs](https://www.ibm.com/bl
 Have a specific use case? Check out the available blogs and samples to find out how to get started.
 
 * [Securing Angular + Node.js applications by using {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/blog/securing-angularnode-js-applications-using-app-id/){: external}
-* [Securing single page apps with {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/securing-single-page-apps-app-id-service){: external}
 * [Using {{site.data.keyword.appid_short_notm}} with Python](https://github.com/mnsn/appid-python-flask-example){: external}
 * [Using Python Flask-pyoidc with {{site.data.keyword.appid_short_notm}}](https://github.com/IBM-Cloud/github-traffic-stats){: external}
 * [Securing a VueJS app by using {{site.data.keyword.appid_short_notm}}](https://github.com/ibmresearchuk/appid-vue-client){: external}
@@ -119,11 +116,4 @@ See {{site.data.keyword.appid_short_notm}} in action in these market examples.
 * [Apply end-to-end security to a cloud application](/docs/solution-tutorials?topic=solution-tutorials-cloud-e2e-security#cloud-e2e-security)
 
 
-
-## Integrating with your enterprise user directory
-{: #rellinks-enterprise}
-
-Need help integrating with your enterprise apps? Don't worry! {{site.data.keyword.appid_short_notm}} can do that too.
-
-* [Setting up {{site.data.keyword.appid_long}} with your Active Directory Federation service](https://www.ibm.com/cloud/blog/setting-ibm-cloud-app-id-active-directory-federation-service){: external}
 

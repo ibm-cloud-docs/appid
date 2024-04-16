@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-04-04"
+lastupdated: "2024-04-16"
 
 keywords: HA for {{site.data.keyword.appid_short_notm}}, DR for {{site.data.keyword.appid_short_notm}}, high availability for {{site.data.keyword.appid_short_notm}}, disaster recovery for {{site.data.keyword.appid_short_notm}}, failover for {{site.data.keyword.appid_short_notm}}
 
@@ -120,7 +120,7 @@ curl -X 'GET' \
 
 In addition to keeping a backup of the configuration settings of your {{site.data.keyword.appid_short_notm}} instance, you must generate a backup of your Cloud Directory users and user profiles. To achieve this task, it is recommended that you use the management API.
 
--	To export Cloud Directory users, use the [cloud_directory/export/all](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.cloudDirectoryExportAll){: external} API endpoint. To download the export, use the [cloud_directory/export/download](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.cloudDirectoryDownloadExport){: external} API. For more details about how to export Cloud Directory users with the Management API, read the [Exporting all users](/docs/appid?topic=appid-cd-users&interface=api&en#cd-export-all) documentation.
+-	To export Cloud Directory users, use the [cloud_directory/export/all](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.cloudDirectoryExportAll){: external} API endpoint. To download the export, use the [cloud_directory/export/download](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.cloudDirectoryDownloadExport){: external} API. For more details about how to export Cloud Directory users with the Management API, read the [Exporting all users](/docs/appid?topic=appid-cd-users&interface=api#cd-export-all) documentation.
 -	To export users profiles, use the [users/export](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Users/mgmt.userProfilesExport) endpoint.
 -	These two export APIs generate two backup files, which you must store securely to use later in the restore process.
 
