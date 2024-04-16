@@ -193,7 +193,7 @@ In the previous scenario, the files that contain the backups are stored locally.
 
 To generate a backup of Cloud Directory users and user profiles, it is recommended that you use the management API.
 
--	To export Cloud Directory users, use the [cloud_directory/export/all](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.cloudDirectoryExportAll){: external} API endpoint. To download the export, use the [cloud_directory/export/download](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.cloudDirectoryDownloadExport){: external} API. For more details about how to export Cloud Directory users with the Management API see [Exporting all users](/docs/appid?topic=appid-cd-users&interface=api&en#cd-export-all).
+-	To export Cloud Directory users, use the [cloud_directory/export/all](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.cloudDirectoryExportAll){: external} API endpoint. To download the export, use the [cloud_directory/export/download](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.cloudDirectoryDownloadExport){: external} API. For more details about how to export Cloud Directory users with the Management API see [Exporting all users](/docs/appid?topic=appid-cd-users&interface=api#cd-export-all).
 -	To export users profiles, use the [users/export](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Users/mgmt.userProfilesExport){: external} endpoint.
 -	These two export APIs generate two backup files, which you must store to use later in the restore process.
 
@@ -238,7 +238,7 @@ curl -X 'PUT' \
 
 To restore the backups of your Cloud Directory users and their profiles, if available, it is recommended that you use the management API:
 
--	To import Cloud Directory users, use the [cloud_directory/import/all](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.cloudDirectoryImportAll){: external} API endpoint. For more details about how to import Cloud Directory users with the Management API read the [Importing all users](/docs/appid?topic=appid-cd-users&interface=api&locale=en#cd-import-all) documentation.
+-	To import Cloud Directory users, use the [cloud_directory/import/all](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.cloudDirectoryImportAll){: external} API endpoint. For more details about how to import Cloud Directory users with the Management API read the [Importing all users](/docs/appid?topic=appid-cd-users&interface=api#cd-import-all) documentation.
 -	To import the users profiles, use the [users/import](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Users/mgmt.userProfilesImport){: external} endpoint.
 
 
@@ -348,7 +348,7 @@ resource "ibm_appid_apm" "apm" {
 
 
 To restore Cloud Directory users and user profiles, it is recommended that you use the management API:
--	To import Cloud Directory users, use the [cloud_directory/import/all](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.cloudDirectoryImportAll){: external} API endpoint. For more details about how to import Cloud Directory users with the management API, see [Importing all users](/docs/appid?topic=appid-cd-users&interface=api&locale=en#cd-import-all).
+-	To import Cloud Directory users, use the [cloud_directory/import/all](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.cloudDirectoryImportAll){: external} API endpoint. For more details about how to import Cloud Directory users with the management API, see [Importing all users](/docs/appid?topic=appid-cd-users&interface=api#cd-import-all).
 -	To import the users profiles, use the [users/import](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Users/mgmt.userProfilesImport){: external} endpoint.
 
 

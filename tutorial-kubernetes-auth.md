@@ -82,7 +82,7 @@ Before you can get started, ensure that you have the following prerequisites.
    * {{site.data.keyword.appid_short_notm}}: **Editor** platform role and **Writer** Service role
 * The following CLIs:
    * [{{site.data.keyword.cloud_notm}}](/docs/cli?topic=cli-getting-started)
-   * [Kubernetes](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
+   * [Kubernetes](https://kubernetes.io/docs/tasks/tools/)
 * The {{site.data.keyword.containershort}} and {{site.data.keyword.registryshort_notm}} [CLI plug-ins](/docs/cli?topic=cli-plug-ins)
 
 To ensure the best performance of the integration, it is recommended that you always use the latest version of IBM Cloud {{site.data.keyword.containershort_notm}} Application Load Balancer (ALB). By default, autoupdate is enabled for your cluster.

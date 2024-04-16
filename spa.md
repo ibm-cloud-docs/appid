@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-04-04"
+lastupdated: "2024-04-16"
 
 keywords: single page application, SPA, single-page, angular, react, native apps, javascript, js, sdk, authentication, authorization, identity, app security, secure, protocols, oauth, oidc,
 
@@ -86,7 +86,7 @@ Although the Implicit flow is the current industry standard, several security fl
 
 * The Implicit flow is susceptible to a [redirect URI attack](https://datatracker.ietf.org/doc/html/rfc6749){: external}, which means that an attacker might replace an approved redirect URI with a destination of their choice. If there is a redirect URI attack, users follow the changed link to authorize their client. After authorization, they are redirected to the attackers URI, which gives the attacker access to the user's legitimate tokens. 
 
-The previous examples are just a few of the important issues. For more information, see [OAuth 2.0 security best current practice](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics-13.){: external}.
+The previous examples are just a few of the important issues. For more information, see [OAuth 2.0 security best current practice](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics-13){: external}.
 {: note}
 
 
