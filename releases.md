@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-04-16"
+lastupdated: "2024-05-13"
 
 keywords: release notes, new, spa, single sign on, mfa, cloud directory, saml, app security, application identity
 
@@ -50,8 +50,6 @@ content-type: release-note
 
 # Release notes for {{site.data.keyword.appid_short_notm}}
 {: #release-notes}
-
-
 
 ## 22 June 2023
 {: #appid-jun2223}
