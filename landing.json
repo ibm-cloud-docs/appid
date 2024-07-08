@@ -1,6 +1,6 @@
 {
     "title": "App ID docs",
-    "lastupdated": "2024-04-17",
+    "lastupdated": "2024-07-08",
     "introduction": "With IBM Cloud App ID, you can easily add authentication to your web and mobile apps with few lines of code.",
     "section_devtools": {
       "api": "https://us-south.appid.cloud.ibm.com/swagger-ui/#/",
@@ -78,11 +78,6 @@
           "date": "22 June 2023",
           "title": "IdP-initiated login is now available",
           "description": "Log in to your applications on IBM Cloud from your identity provider's UI by using IdP-initiated login."
-        },
-        {
-          "date": "4 May 2023",
-          "title": "IBM Cloud Foundry service broker unsupported",
-          "description": "All services that use the Cloud Foundry service broker will stop working on 1 June 2023, when Cloud Foundry enters the End-of-Support stage."
         }
       ]
     }

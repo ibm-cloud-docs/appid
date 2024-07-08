@@ -15,14 +15,14 @@ subcollection: appid
 # Known issues and limitations
 {: #known-issues-limits}
 
-{{site.data.keyword.compliance_full}} includes the following known issues and limits that might impact your experience.
+{{site.data.keyword.appid_full}} includes the following known issues and limits that might impact your experience.
 {: shortdesc}
 
 
 ## Limits
 {: #limits}
 
-Rate limiting is used to control the amount of traffic that is coming and going through your instance of {{site.data.keyword.appid_full}}. By limiting requests or resources, you can protect your applications.
+Rate limiting is used to control the amount of traffic that is coming and going through your instance of {{site.data.keyword.appid_short_notm}}. By limiting requests or resources, you can protect your applications.
 
 
 
