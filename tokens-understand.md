@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-04-04"
+lastupdated: "2024-04-16"
 
 keywords: tokens, refresh token, access token, identity token, configuration, authorization, authentication, app security, access, identity, refresh
 
@@ -139,13 +139,13 @@ Identity tokens contain only partial user information. To see all the informatio
 
 Refresh tokens are configured to have a longer life span than a regular access token. When an access token expires, the refresh token is still valid and can be used to renew the access token. {{site.data.keyword.appid_short_notm}}’s refresh tokens can be configured to last 1 - 90 days. To take full advantage of refresh tokens, persist the tokens for their full life span, or until they are renewed. A user cannot directly access resources with just a refresh token, which makes them much safer to persist than an access token. As best practice, refresh tokens should be securely stored by the client that received them and sent only to the authorization server that issued them.
 
-For added convenience, {{site.data.keyword.appid_short_notm}} also renews its refresh token — and its expiration date — when the access token is renewed, allowing the user to remain logged in while they are active at some point before the current refresh token expires. Alternatively, if you would like to use refresh tokens yet force the user to log in periodically, your app might use only the refresh tokens that are returned when the user logs in by entering their credentials. However, we recommend always using the latest refresh token that is received from {{site.data.keyword.appid_short_notm}}, as described by the [OAuth 2.0 specifications](https://datatracker.ietf.org/doc/html/rfc6749.){: external}.
+For added convenience, {{site.data.keyword.appid_short_notm}} also renews its refresh token — and its expiration date — when the access token is renewed, allowing the user to remain logged in while they are active at some point before the current refresh token expires. Alternatively, if you would like to use refresh tokens yet force the user to log in periodically, your app might use only the refresh tokens that are returned when the user logs in by entering their credentials. However, we recommend always using the latest refresh token that is received from {{site.data.keyword.appid_short_notm}}, as described by the [OAuth 2.0 specifications](https://datatracker.ietf.org/doc/html/rfc6749){: external}.
 
 
 Although these tokens can streamline the login process, your app must not depend on them. They can be revoked at any time, such as when you believe that your refresh tokens were compromised. You can use two methods of revoking a refresh token, if needed. If you have the refresh token, you can revoke it based on [RFC7009](https://datatracker.ietf.org/doc/html/rfc7009#section-2){: external}. Alternatively, if you have the user ID, you can revoke the refresh token by using [the Management API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/){: external}. For more information about accessing the management API, see [managing service access](/docs/appid?topic=appid-service-access-management#service-access-management).
 
 
-For examples of working with refresh tokens and how to use them to implement a remember-me functionality, check out the [getting started samples](/docs/appid?topic=appid-getting-started#getting-started).
+For examples of working with refresh tokens and how to use them to implement a remember-me functionality, check out the [getting started samples](/docs/appid?topic=appid-getting-started).
 
 
 ## Where do the tokens come from?

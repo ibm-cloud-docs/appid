@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-04-04"
+lastupdated: "2024-04-16"
 
 keywords: Adapter, access management, identity token, helm chart, backend apps, kube, any kube, icp, openshift, iks, service mesh, access, app identity, kube secret, tokens, authenticated, app endpoints, authorization, multicloud, no code change, no redeploy, authorization policies, multiple providers
 
@@ -326,8 +326,6 @@ kubectl delete secret appidentityandaccessAdapter-keys -n istio-system
 
 By default, logs are styled as JSON and provided at an `info` visibility level to provide for ease of integration with external logging systems. To update the logging configuration, you can use the Helm chart. Supported logging levels include range [-1, 7] as shown in Zap core. For more information about the levels, see the [Zap core documentation](https://pkg.go.dev/go.uber.org/zap/zapcore#Level){: external}.
 
-When you're manually viewing JSON logs, you might want to tail the logs and "pretty print" them by using [`jq`](https://brewinstall.org/install-jq-on-mac-with-brew/){: external}.
-{: note}
 
 ### Adapter
 {: #istio-logging-Adapter}

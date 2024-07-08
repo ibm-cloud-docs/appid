@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-04-04"
+lastupdated: "2024-04-16"
 
 keywords: user registry, sign up, sign in, username, email, password, account settings, reset password, email sender, email verification, app security
 
@@ -77,7 +77,7 @@ In the Cloud Directory dashboard, you can [configure the level of self-service](
 ### Brand your app with custom UIs and flows
 {: #cd-custom-ui}
 
-You can [replace the default {{site.data.keyword.appid_short_notm}} sign-in](https://www.ibm.com/blogs/cloud-archive/2018/06/custom-login-page-app-id-integration/){: external} and sign-up UIs and flows with customized options to support your brand recognition and policies. For more information, see [Branding your app](/docs/appid?topic=appid-branded). When a user signs up to use your app, you can customize the flow in various ways. For example, you can add extra fields to the flow (for example, phone number), validate the [password length by policy](/docs/appid?topic=appid-cd-strength), and accept only specific email addresses or check emails against a blocklist. 
+You can replace the default {{site.data.keyword.appid_short_notm}} sign-in and sign-up UIs and flows with customized options to support your brand recognition and policies. For more information, see [Branding your app](/docs/appid?topic=appid-branded). When a user signs up to use your app, you can customize the flow in various ways. For example, you can add extra fields to the flow (for example, phone number), validate the [password length by policy](/docs/appid?topic=appid-cd-strength), and accept only specific email addresses or check emails against a blocklist. 
 
 You can customize the sign-in flow by [configuring the forgot password process](/docs/appid?topic=appid-cd-strength).  Additionally, you can [enable single sign-on (SSO)](/docs/appid?topic=appid-cd-sso) to provide your users a smooth authentication experience between multiple web apps. {{site.data.keyword.appid_short_notm}} provides SSO for Cloud Directory users. Therefore, if enabled, your users do not need to reenter their credentials every time they sign-in. Instead, users are automatically signed in to any of your apps that are protected by the same {{site.data.keyword.appid_short_notm}} instance. 
 
@@ -88,4 +88,4 @@ With {{site.data.keyword.appid_short_notm}} Cloud Directory, you can make the si
 
 With Cloud Directory, you can send email messages to your users to verify their email address, allow them to reset their password, and more. By default, you can use {{site.data.keyword.appid_short_notm}} to deliver the email messages. However, if you choose to define a custom extension point to be called when an email needs to be sent, you can provide a better experience to your users. 
 
-For example, [by using your own mail provider](/docs/appid?topic=appid-cd-types), you can reduce the chance that your emails get filtered as spam by replacing the default domain with your own recognizable domain. Additionally, you can gain deeper insights directly from your email provider, such as whether your email was delivered and opened. The email insights can help you identify and solve issues since you can track individual messages and see overall statistics. For more information about the custom mail feature, see [Use Your Own Provider for Mail Sent with IBM Cloud App ID](https://www.ibm.com/blogs/cloud-archive/2018/10/use-ibm-cloud-app-id-and-your-email-provider-to-brand-mails-sent-to-app-users/){: external}.  
+For example, [by using your own mail provider](/docs/appid?topic=appid-cd-types), you can reduce the chance that your emails get filtered as spam by replacing the default domain with your own recognizable domain. Additionally, you can gain deeper insights directly from your email provider, such as whether your email was delivered and opened. The email insights can help you identify and solve issues since you can track individual messages and see overall statistics.

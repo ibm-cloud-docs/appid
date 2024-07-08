@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-04-04"
+lastupdated: "2024-04-16"
 
 keywords: bring your own screens, branded app, sign up, custom, directory, registry, app security, password, authorization flow, authentication,
 
@@ -79,14 +79,6 @@ Yes! You can create a hybrid flow that uses some of your screens and some defaul
 
 The service uses OAuth 2.0 grant flows to map the authorization process. When you configure social identity providers such as Facebook, the [Authorization Grant flow](https://oauthlib.readthedocs.io/en/latest/oauth2/grants/authcode.html){: external} is used to call the Login Widget. When you use your own screens, the [Resource Owner Password Credentials flow](https://oauthlib.readthedocs.io/en/latest/oauth2/grants/password.html){: external} is used to provide access and identity tokens that you can use to call your screens.
 
-
-
-### Examples
-{: #branded-examples}
-
-Yes! Check out any of the following examples to see Cloud Directory in action:
-
-* [Use a custom login page with {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/cloud/blog/custom-login-page-app-id-integration){: external}
 
 
 ## Branding your app with the Android SDK

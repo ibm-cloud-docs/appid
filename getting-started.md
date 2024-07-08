@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-04-04"
+lastupdated: "2024-05-13"
 
 keywords: getting started tutorial, getting started, App ID, sample app, authentication, sign in flow, authorization, app security, identity
 
@@ -63,7 +63,6 @@ By requiring users to sign in to your app, you can store user data such as app p
 We’d love to hear from you with feedback and questions!
 
 * If you have technical questions about {{site.data.keyword.appid_short_notm}}, post your question on [Stack Overflow](https://stackoverflow.com){: external} and tag your question with `ibm-appid`.
-* Reach out directly to the development team on [Slack](https://www.ibm.com/blog/announcement/get-help-with-ibm-cloud-app-id-related-questions-on-slack/){: external}! 
 
 Getting started? Try walking through our [video tutorials](https://www.youtube.com/playlist?list=PLzpeuWUENMK2tmzSRRx7W_mplw1x4h7ch){: external}. 
 {: note}
@@ -109,18 +108,6 @@ To build a sample app:
    3. Change between web and mobile to see how the color scheme looks on each type of device.
    4. When you're happy with your choices, click **Save Changes**.
 7. In a browser, refresh your login page. The changes that you made in the previous step are already visible.
-
-
-## Support for Cloud Foundry service broker
-{: cf-broker-unsupported}
-
-The IBM Cloud Foundry service broker is unsupported. All services that use the Cloud Foundry service broker will stop working on 1 June 2023, when Cloud Foundry enters the [End-of-Support stage](/docs/cloud-foundry-public?topic=cloud-foundry-public-deprecation). 
-
-Not sure if your {{site.data.keyword.appid_short_notm}} instance is using the Cloud Foundry service broker? In the [Cloud Foundry services](https://cloud.ibm.com/cloudfoundry/public){: external} section, check whether your {{site.data.keyword.appid_short_notm}} instance is listed as an alias. If your instance is already an alias, as shown in the following screen capture, you do not need to take any action.  
-
-![Screenshot showing how to identify instances with aliases.](images/cf-alias-screenshot.svg "How to identify alias instances"){: caption="Figure 1. Identifying instances with aliases." caption-side="bottom"}
-   
-If your instance is not an alias and you want to keep it, please contact [IBM Cloud support](https://cloud.ibm.com/unifiedsupport/supportcenter){: external} to discuss next steps.
 
 
 ## Next steps

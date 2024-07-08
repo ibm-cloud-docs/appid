@@ -136,7 +136,7 @@ When MFA is initially enabled, it is set to use email by default. You can change
 
 - Obtain your Vonage API key and secret. You can find the Vonage API key and secret in your account settings page on the Vonage dashboard. Check out the [Vonage documentation](https://developer.vonage.com/getting-started/concepts/authentication#api-key-and-secret){: external} for further information on how to obtain your credentials.
 
-- Register your sender ID or the `from` number with Vonage. This `from` number is what appears on your user's phone to show who the SMS is from. In some countries, Vonage supports alpha-numeric sender IDs. {{site.data.keyword.appid_short_notm}} uses the value that you enter as Vonage's sender ID. So, if they are supported by Vonage, you can use the IDs with {{site.data.keyword.appid_short_notm}}. For more information, check out the [Vonage documentation](https://api.support.vonage.com/hc/en-us/articles/217571017-What-types-of-Sender-IDs-are-there){: external}.
+- Register your sender ID or the `from` number with Vonage. This `from` number is what appears on your user's phone to show who the SMS is from. In some countries, Vonage supports alpha-numeric sender IDs. {{site.data.keyword.appid_short_notm}} uses the value that you enter as Vonage's sender ID. So, if they are supported by Vonage, you can use the IDs with {{site.data.keyword.appid_short_notm}}.
 
 
 ### With the GUI
@@ -161,7 +161,7 @@ To configure MFA with the GUI, check out [Cloud Directory](/docs/appid?topic=app
 
    4. Copy the **API secret** in the Vonage dashboard and paste it in the **Secret** box in the {{site.data.keyword.appid_short_notm}} dashboard.
 
-   5. Enter [the ID](https://api.support.vonage.com/hc/en-us/articles/217571017-What-types-of-Sender-IDs-are-there) that you want to send messages from. A valid number format follows the [E.164 international numbering format](https://en.wikipedia.org/wiki/E.164). For example, a US number takes the form `+19998887777`. You must specify both the country code, starting with a `+` symbol and the national subscriber number. In some countries, Vonage supports alpha-numeric sender IDs. {{site.data.keyword.appid_short_notm}} uses the value that you enter as Vonage's sender ID. So, if they are supported by Vonage, you can use the IDs with {{site.data.keyword.appid_short_notm}}.
+   5. Enter the ID that you want to send messages from. A valid number format follows the [E.164 international numbering format](https://en.wikipedia.org/wiki/E.164){: external}. For example, a US number takes the form `+19998887777`. You must specify both the country code, starting with a `+` symbol and the national subscriber number. In some countries, Vonage supports alpha-numeric sender IDs. {{site.data.keyword.appid_short_notm}} uses the value that you enter as Vonage's sender ID. So, if they are supported by Vonage, you can use the IDs with {{site.data.keyword.appid_short_notm}}.
 
 
 
@@ -281,7 +281,7 @@ To configure a pre-MFA extension:
    | `last_successful_mfa` | The date of the last time the user completed the full MFA flow. For example, `1660032586651`. |
    {: caption="Table 4. The information that {{site.data.keyword.appid_short_notm}} forwards to your extension point." caption-side="top"}
 
-   To see an example extension, check out [the sample](https://github.com/ibm-cloud-security/appid-sample-code-snippets/blob/master/premfa-extension-point/index.js).
+   To see an example extension, check out [the sample](https://github.com/ibm-cloud-security/appid-sample-code-snippets/blob/master/premfa-extension-point/index.js){: external}.
    {: tip}
 
 3. Register your extension with your instance of {{site.data.keyword.appid_short_notm}} by making a PUT request to `config/cloud_directory/mfa/extensions/premfa`. The configuration includes your extension's URL and any authorization information that is needed to access the endpoint. For development purposes, `isActive` is set to `false`. Be sure to test your configuration before you enable it.
