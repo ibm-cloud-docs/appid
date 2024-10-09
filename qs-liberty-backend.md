@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-04-04"
+lastupdated: "2024-10-09"
 
 keywords: back-end apps, java, liberty for java, liberty, identity provider, access management, protected endpoints, access tokens, security, back end
 
@@ -59,7 +59,7 @@ With {{site.data.keyword.appid_short_notm}}, you can easily protect your API end
 {: shortdesc}
 
 
-![Backend Liberty for Java apps](images/backend_liberty.png){: caption="Figure 1. Backend Liberty for Java flow" caption-side="bottom"}
+![Backend Liberty for Java apps](images/backend_liberty.png){: caption="Backend Liberty for Java flow" caption-side="bottom"}
 
 1. To make a request to a protected resource, a client must have an access token. In step 1, the client makes a request to {{site.data.keyword.appid_short_notm}} for a token. For more information about obtaining access tokens, see [Obtaining tokens](/docs/appid?topic=appid-obtain-tokens).
 2. {{site.data.keyword.appid_short_notm}} returns the tokens.
@@ -171,7 +171,7 @@ You can obtain your credentials in one of two ways.
    | `signatureAlgorithm` | Specified as "RS256". |
    | `audiences` | By default, the token is issued for your {{site.data.keyword.appid_short_notm}} client ID that can be found in your application credentials. | 
    | `sslRef` | The name of the SSL configuration that you want to use. |
-   {: caption="Table 1. OIDC element variables for Liberty for Java apps" caption-side="top"}
+   {: caption="OIDC element variables for Liberty for Java apps" caption-side="top"}
 
 5. Define your special subject type as `ALL_AUTHENTICATED_USERS`.
 
@@ -253,5 +253,3 @@ Now that you finished the initial installation, build the app and test your conf
 {: #liberty-next}
 
 Ready to start perfecting your authentication experience? Try walking through [this blog](https://www.ibm.com/blog/perfecting-the-login-experience-with-liberty-oauth2-and-appid/){: external} or learning more about [app-to-app communication](/docs/appid?topic=appid-app).
-
-

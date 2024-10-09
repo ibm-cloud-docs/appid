@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-04-04"
+lastupdated: "2024-10-09"
 
 keywords: emails, verification, templates, sendgrid, welcome, password reset, password change, change details, verification, supported languages, registry, cloud directory, 
 
@@ -274,7 +274,7 @@ For further customization, you can use parameters in your messages. Check out th
 | `%{user.firstName}` | Displays the user's specified given name. | 
 | `%{user.formattedName}` | Displays the user's full name. |
 | `%{user.lastName}` | Displays the user's specified surname. |
-{: caption="Table 1. The parameters that you can use in your messages to users" caption-side="top"}
+{: caption="The parameters that you can use in your messages to users" caption-side="top"}
 
 
 ### Email: Welcome
@@ -316,7 +316,7 @@ Users who are manually added via the {{site.data.keyword.appid_short_notm}} dash
    | `%{linkExpiration.minutes}` |  Displays the number of minutes the link is valid. |
    | `%{verify.code}` | Displays a one-time verification URL. |
    | `%{verify.link}` | Displays the action URL that you specified in settings. |
-   {: caption="Table 2. Parameters that you can use in messages that are related to verification" caption-side="top"}
+   {: caption="Parameters that you can use in messages that are related to verification" caption-side="top"}
 
    You can also use the message parameters that are listed in the [Welcome message](/docs/appid?topic=appid-cd-types#cd-messages-welcome) section.
    {: tip}
@@ -347,7 +347,7 @@ When a user interacts with your app, they might forget their password or need to
    | `%{linkExpiration.minutes}` | Displays the number of minutes that the link is valid. |
    | `%{resetPassword.code}` | Displays a one-time passcode as part of the URL. This means that each person would have a different code. Example: `https://us-south.appid.cloud.ibm.com/wfm/verify/6574839563478` |
    | `%{resetPassword.link}` | Displays the link that a user clicks to reset their password. | 
-   {: caption="Table 3. Parameters that you can use in messages that are related to forgotten passwords" caption-side="top"}
+   {: caption="Parameters that you can use in messages that are related to forgotten passwords" caption-side="top"}
 
    You can also use the message parameters that are listed in the [Welcome message](/docs/appid?topic=appid-cd-types#cd-messages-welcome) section.
    {: tip}
@@ -375,7 +375,7 @@ You can notify a user when their password is updated. The notification can be he
    | --------- | ----------- |
    | `%{passwordChangeInfo.time}` | Displays the time at which a new password went into effect. |
    | `%{passwordChangeInfo.ipAddress}` | Displays the IP address from which the password change was requested. |
-   {: caption="Table 4. Parameters that you can use in messages that are related to changing a password" caption-side="top"}
+   {: caption="Parameters that you can use in messages that are related to changing a password" caption-side="top"}
 
    You can also use the message parameters that are listed in the [Welcome message](/docs/appid?topic=appid-cd-types#cd-messages-welcome) section.
    {: tip}
@@ -563,5 +563,4 @@ You can use [the language management APIs](https://us-south.appid.cloud.ibm.com/
 | `cy-GB` | Welsh | United Kingdom |
 | `yo-NG` | Yoruba | Nigeria | 
 | `zu-ZA` | Zulu | South Africa |
-{: caption="Table 6. Languages that are supported" caption-side="top"}
-
+{: caption="Languages that are supported" caption-side="top"}

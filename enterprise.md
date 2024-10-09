@@ -69,7 +69,7 @@ The SAML protocol provides a bridge between {{site.data.keyword.appid_short_notm
 | Authentication | Users might authenticate with a password, by using MFA, or another way. |
 | Attributes | Any attributes such as groups that they belong to or a preference of some kind. |
 | Authorization decisions | Occasionally users might be granted more or less permissions than others. |
-{: caption="Table 1. Understanding the types of information returned in a SAML token" caption-side="top"}
+{: caption="Understanding the types of information returned in a SAML token" caption-side="top"}
 
 
 ### What does the flow look like?
@@ -77,7 +77,7 @@ The SAML protocol provides a bridge between {{site.data.keyword.appid_short_notm
 
 Although the SAML framework is used to authenticate the user, {{site.data.keyword.appid_short_notm}} still uses a more modern OIDC protocol to exchange security tokens with your application. Check out the following image to see a detailed flow of information.
 
-![SAML enterprise authentication flow](/images/ibmid-flow.png){: caption="Figure 1. How an enterprise SAML authentication flow works" caption-side="bottom"}
+![SAML enterprise authentication flow](/images/ibmid-flow.png){: caption="How an enterprise SAML authentication flow works" caption-side="bottom"}
 
 
 1. A user accesses the login page or restricted resource on their application, which initiates a request to the {{site.data.keyword.appid_short_notm}} `/authorization` endpoint through either an {{site.data.keyword.appid_short_notm}} SDK or API. If the user is unauthorized, the authentication flow begins with a redirect to {{site.data.keyword.appid_short_notm}}.
@@ -183,7 +183,7 @@ You cannot enable SAML until after you configure it as an identity provider.
    | `NameID Format` | How the identity provider knows that which identifier format it needs to send in the subject of an assertion and how {{site.data.keyword.appid_short_notm}} identifies users. The ID must take the following form: `&lt;saml:NameID Format="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"&gt;`. |
    | `WantAssertionsSigned` | The way that an identity provider checks to see whether it needs to sign the assertion. The service expects that the assertion is signed, but does not support encrypted assertions. |
    | `KeyDescriptor` | The SAML signing and encryption certificates that can be used to configure your identity provider to verify the signed SAML request and encrypt the response. |
-   {: caption="Table 1. The information that is found in your metadata file" caption-side="top"}
+   {: caption="The information that is found in your metadata file" caption-side="top"}
 
 3. Provide the data to your identity provider. If your identity provider supports uploading the metadata file, you can do so. If it doesn't, configure the properties manually. Not every identity provider uses the same properties, so you might not use all of them.
 
@@ -213,7 +213,7 @@ To log in to your applications from the IBM Cloud UI, follow these steps.
    | `Sign-in URL` | The URL that the user is redirected to for authentication. It is hosted by your SAML identity provider. |
    | `Entity ID` | The globally unique name for a SAML identity provider. |
    | `Primary certificate` | The certificate issued by your SAML identity provider. It is used for signing and validating SAML assertions. All providers are different, but you might be able to download the signing certificate from your identity provider. The certificate must be in `.pem` format. |
-   {: caption="Table 2. The information that must be provided to {{site.data.keyword.appid_short_notm}}" caption-side="top"}
+   {: caption="The information that must be provided to {{site.data.keyword.appid_short_notm}}" caption-side="top"}
 
 4. Optional: Provide a **Secondary certificate** that is used if signature validation fails on the primary certificate. If the signing key remains the same, {{site.data.keyword.appid_short_notm}} does not block authentication for expired certificates.
 5. Click **Save**.
@@ -307,7 +307,7 @@ Follow steps 1 - 4 in the [Providing metadata with the UI](/docs/appid?topic=app
    | Optional: `authnContext` | The authentication context is used to verify the quality of the authentication and SAML assertions. You can add an authentication context by adding a class array and comparison string to your code. BE sure to update both the `class` and `comparison` parameters with your values. For example, a `class` parameter might look similar to `urn:oasis:names:tc:SAML:2.0:ac:classes:YourChosenClassValue`. |
    | Optional: `signRequest` | The `signRequest` flag provides the capability to send a signed SAML request to an identity provider that is signed by using the tenant's SAML signing private key. To configure your SAML identity provider to receive a signed request, you need the signing certificate from the metadata file that you can download in the `KeyDescriptor use="signing"` field. By default, request signing is set to `off`. |
    | Optional: `encryptResponse` | The `encryptResponse` flag allows for you to receive an encrypted response from your identity provider as part of the authentication request. To configure your SAML identity provider to send an encrypted response, you need the encryption certificate that can be found in the metadata file in the `KeyDescriptor use="encryption"` field. By default, response encryption is set to `off`.
-   {: caption="Table 3. SAML configuration variables" caption-side="top"}
+   {: caption="SAML configuration variables" caption-side="top"}
 
 3. Make a PUT request to the [`/saml` API endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.set_saml_idp){: external} to provide the configuration that you created in step 2 to {{site.data.keyword.appid_short_notm}}. Check out the following example to see what your request might look like.
 
@@ -411,7 +411,7 @@ To configure IdP-initiated login, complete the following steps.
    | Optional: `authnContext` | The authentication context is used to verify the quality of the authentication and SAML assertions. You can add an authentication context by adding a class array and comparison string to your code. BE sure to update both the `class` and `comparison` parameters with your values. For example, a `class` parameter might look similar to `urn:oasis:names:tc:SAML:2.0:ac:classes:YourChosenClassValue`. |
    | Optional: `signRequest` | The `signRequest` flag provides the capability to send a signed SAML request to an identity provider that is signed by using the tenant's SAML signing private key. To configure your SAML identity provider to receive a signed request, you need the signing certificate from the metadata file that you can download in the `KeyDescriptor use="signing"` field. By default, request signing is set to `off`. |
    | Optional: `encryptResponse` | The `encryptResponse` flag allows for you to receive an encrypted response from your identity provider as part of the authentication request. To configure your SAML identity provider to send an encrypted response, you need the encryption certificate that can be found in the metadata file in the `KeyDescriptor use="encryption"` field. By default, response encryption is set to `off`.
-   {: caption="Table 3. SAML configuration variables" caption-side="top"}
+   {: caption="SAML configuration variables" caption-side="top"}
 
 3. Make a PUT request to the [`/saml` API endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.set_saml_idp){: external} to provide the configuration that you created in step 2 to {{site.data.keyword.appid_short_notm}}. Check out the following example to see what your request might look like.
 

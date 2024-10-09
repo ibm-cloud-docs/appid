@@ -44,7 +44,7 @@ The following table lists the maximum per user limits for {{site.data.keyword.ap
 | Users per instance | 100,000 | |
 | Management APIs requests per second | 50 per second | Requests are blocked for 30 seconds |
 | All other APIs requests per second | 200 per second | Requests are blocked for 30 seconds |
-{: caption="Table 2. General rate limits" caption-side="top"}
+{: caption="General rate limits" caption-side="top"}
 
 
 
@@ -62,7 +62,7 @@ Review the following table to see limits that are associated with Cloud Director
 | SMS sending request | No | 10 SMS in 5 minutes per user | SMS requests for the user are blocked for 30 minutes. |
 | MFA code characters | No | 6 numeric characters | The code automatically has 6 characters that must be input by the user. |
 | MFA code expiration | No | 15 minutes | If a user does not validate their code within 15 minutes, they can request that another code is sent as long as the authentication session is not expired. Within the authentication session, the code can be sent multiple times. Once the authentication session expires, the user must repeat the login process from the beginning. |
-{: caption="Table 3. Cloud Directory limits" caption-side="top"}
+{: caption="Cloud Directory limits" caption-side="top"}
 
 For more information, see the [rate limit management API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.updateRateLimitConfig){: external}.
 

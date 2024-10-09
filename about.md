@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-04-04"
+lastupdated: "2024-10-09"
 
 keywords: authentication, authorization, identity, app security, cloud directory, user data, identity provider, oauth, protocols, oauth, oidc, disaster recovery, dr, compliance, high availability, ha, secure, HA, DR
 
@@ -85,7 +85,7 @@ To make the sign-in experience easy for your users, with {{site.data.keyword.app
 | You want to limit access to your apps and back-end resources. | You can secure your apps, back-end resources, and APIs easily by using the standards-based authentication provided by {{site.data.keyword.appid_short_notm}}. |
 | You want to build personalized app experiences for your users. | With {{site.data.keyword.appid_short_notm}}, you can [store user data](/docs/appid?topic=appid-profiles) such as app preferences or information from their public social profiles, and then use that data to customize each experience of your app. |
 | You want to manage users in a scalable way. | With {{site.data.keyword.appid_short_notm}} you can create a [Cloud Directory](/docs/appid?topic=appid-cloud-directory), which makes it possible for you to add user sign-up and sign-in to your apps. Cloud Directory provides you with the framework to maintain a user registry that can scale with your user base. With the pre-built functionality for self-service, such as email verification and password resets, you can be sure that your app is authenticating users securely. |
-{: caption="Table 1. Reasons to use the {{site.data.keyword.appid_short_notm}} service" caption-side="top"}
+{: caption="Reasons to use the {{site.data.keyword.appid_short_notm}} service" caption-side="top"}
 
 
 ## How it works
@@ -94,7 +94,7 @@ To make the sign-in experience easy for your users, with {{site.data.keyword.app
 With {{site.data.keyword.appid_short_notm}}, you can add a level of security to your apps by requiring users to sign in. You can also use the server SDK or APIs to protect your back-end resources.
 {: shortdesc}
 
-![{{site.data.keyword.appid_short_notm}} architecture diagram](images/appid_architecture1.png){: caption="Figure 1. How {{site.data.keyword.appid_short_notm}} works" caption-side="bottom"}
+![{{site.data.keyword.appid_short_notm}} architecture diagram](images/appid_architecture1.png){: caption="How {{site.data.keyword.appid_short_notm}} works" caption-side="bottom"}
 
 Application
 :   **Server SDK**: You can protect your back-end resources that are hosted on {{site.data.keyword.cloud_notm}} and your web apps by using the server SDK. It extracts the access token from a request and validates it with {{site.data.keyword.appid_short_notm}}.
@@ -134,6 +134,3 @@ You can use {{site.data.keyword.appid_short_notm}} with other {{site.data.keywor
 {{site.data.keyword.appid_short_notm}} is based on a set of well-known, industry standard protocols and specifications that are frequently found in both enterprise and consumer facing applications, the OAuth 2.0 Authorization Framework and Open ID Connect. OAuth 2.0 is used to obtain and verify authorization for accessing protected resources. Open ID Connect then adds a layer of authentication and identity protection to your application.
 
 See section 5.4 of the {{site.data.keyword.appid_short_notm}} software product compatibility report to review a complete list of [certifications](https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=BF31C8008D7C11E59F9AD7336D7D0FFB){: external}. In addition to the certifications, {{site.data.keyword.appid_short_notm}} is also compliant in the following specifications: OAuth 2.0, OpenID Connect, JSON Web Token (JWT), JSON Web Signature (JWS), System for Cross-domain Identity Management (SCIM).
-
-
-

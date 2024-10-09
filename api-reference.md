@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-04-04"
+lastupdated: "2024-10-09"
 
 keywords: management api, service management, service instance, devops automation, customize, permissions, iam, account owners, identity, app security, access tokens, video tutorial
 
@@ -58,7 +58,7 @@ You can use the {{site.data.keyword.appid_full}} APIs for DevOps automation, cus
 
 {{site.data.keyword.appid_short_notm}} is available in the following regions:
 
-![Visual representation of the availability of the service. The image is a map with pin points in the locations in which the service is available. If you are unable to view this image, see the table in the service endpoints section for a complete list.](images/regions.svg){: caption="Figure 1. {{site.data.keyword.appid_short_notm}} availability" caption-side="bottom"}
+![Visual representation of the availability of the service. The image is a map with pin points in the locations in which the service is available. If you are unable to view this image, see the table in the service endpoints section for a complete list.](images/regions.svg){: caption="{{site.data.keyword.appid_short_notm}} availability" caption-side="bottom"}
 
 This image is an artistic representation and does not reflect actual political or geographic boundaries.
 {: note}
@@ -80,7 +80,7 @@ If you're managing your service instances of {{site.data.keyword.appid_short_not
 | Tokyo | `jp-tok` |
 | Toronto | `ca-tor` |
 | Washington | `us-east` |
-{: caption="Table 1. Lists public endpoints for interacting with {{site.data.keyword.appid_short_notm}} APIs" caption-side="top"}
+{: caption="Lists public endpoints for interacting with {{site.data.keyword.appid_short_notm}} APIs" caption-side="top"}
 
 
 
@@ -99,7 +99,7 @@ https://<regionEndpoint>.appid.cloud.ibm.com/management
 | Authorization | `https://<region>.appid.cloud.ibm.com/oauth/v4`|
 | Management | `https://<region>.appid.cloud.ibm.com/management/v4`|
 | Profiles | `https://<region>.appid.cloud.ibm.com/api/v1` |
-{: caption="Table 2. Formatting for the available APIs" caption-side="top"}
+{: caption="Formatting for the available APIs" caption-side="top"}
 
 
 ## Need help?
@@ -108,4 +108,3 @@ https://<regionEndpoint>.appid.cloud.ibm.com/management
 If you run in to trouble while working with the APIs, try watching this tutorial video.
 
 ![About the {{site.data.keyword.appid_short_notm}} APIs](https://www.youtube.com/embed/b2ABxvAdGg0){: video output="iframe" data-script="none" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
-

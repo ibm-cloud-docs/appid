@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-04-16"
+lastupdated: "2024-10-09"
 
 keywords: Adapter, access management, identity token, helm chart, backend apps, kube, any kube, icp, openshift, iks, service mesh, access, app identity, kube secret, tokens, authenticated, app endpoints, authorization, multicloud, no code change, no redeploy, authorization policies, multiple providers
 
@@ -67,7 +67,7 @@ What can the App Identity and Access Adapter do for you? Check out the following
 
 A multicloud computing environment combines multiple cloud and / or private computing environments into a single network architecture. By distributing workloads across multiple environments, you might find improved resiliency, flexibility, and greater cost-efficiency. To achieve the benefits, it's common to use a container-based application with an orchestration layer, such as Kubernetes.
 
-![App Identity and Access Adapter architecture diagram](images/istio-adapter.png){: caption="Figure 1. Multicloud deployment - achieved with the App Identity and Access Adapter" caption-side="bottom"}
+![App Identity and Access Adapter architecture diagram](images/istio-adapter.png){: caption="Multicloud deployment - achieved with the App Identity and Access Adapter" caption-side="bottom"}
 
 
 
@@ -195,7 +195,7 @@ Depending on whether you're protecting front end or backend applications, create
    | `clientSecretRef` | object | No | A reference secret that is used to authenticate the client. The reference can be used in place of the `clientSecret`. | 
    | `clientSecretRef.name` | string | Yes | The name of the Kubernetes Secret that contains the `clientSecret`. | 
    | `clientSecretRef.key` | string | Yes | The field within the Kubernetes Secret that holds the `clientSecret`. |
-   {: caption="Table 1. YAML configuration file components explained" caption-side="top"}
+   {: caption="YAML configuration file components explained" caption-side="top"}
 
 * For backend applications: The OAuth 2.0 Bearer token spec defines a pattern for protecting APIs by using [JSON Web Tokens (JWTs)](https://datatracker.ietf.org/doc/html/rfc7519){: external}. By using the following configuration as an example, define a `JwtConfig` CRD that contains the public key resource, which is used to validate token signatures.
 
@@ -266,7 +266,7 @@ spec:
 | `serviceName` | `string` | Yes | The name of Kubernetes service in the Policy namespace that you want to protect. |
 | `paths` | `array[Path Object]` | Yes | A list of path objects that define the endpoints that you want to protect. If not specified, all paths are protected. |
 {: class="simple-tab-table"}
-{: caption="Table 2. Understanding the service object components" caption-side="top"}
+{: caption="Understanding the service object components" caption-side="top"}
 {: #service-object}
 {: tab-title="Service object"}
 {: tab-group="objects"}
@@ -277,7 +277,7 @@ spec:
 | `method` | `enum` | No | The HTTP method protected. Valid options ALL, GET, PUT, POST, DELETE, PATCH - Defaults to ALL:  |
 | `policies` | `array[Policy]` | No | The OIDC/JWT policies that you want to apply.  |
 {: class="simple-tab-table"}
-{: caption="Table 2. Understanding the path object components" caption-side="top"}
+{: caption="Understanding the path object components" caption-side="top"}
 {: #path-object}
 {: tab-title="Path object"}
 {: tab-group="objects"}
@@ -289,7 +289,7 @@ spec:
 | `redirectUri` | `string` | No | The URL that you want the user to be redirected after successful authentication, default: the original request URL. |
 | `rules` | `array[Rule]` | No | The set of rules that you want to use for token validation. |
 {: class="simple-tab-table"}
-{: caption="Table 2. Understanding the policy object components" caption-side="top"}
+{: caption="Understanding the policy object components" caption-side="top"}
 {: #policy-object}
 {: tab-title="Policy object"}
 {: tab-group="objects"}
@@ -301,7 +301,7 @@ spec:
 | `source` | `enum` | No | The token where you want to apply the rule. Options include: `access_token` or `id_token`. The default is set to `access_token`. |
 | `values` | `array[string]` | Yes | The required set of values for validation. |
 {: class="simple-tab-table"}
-{: caption="Table 2. Understanding the policy object components" caption-side="top"}
+{: caption="Understanding the policy object components" caption-side="top"}
 {: #rule-object}
 {: tab-title="Rule object"}
 {: tab-group="objects"}
@@ -348,4 +348,3 @@ alias mixer_logs="kubectl -n istio-system logs -f $(kubectl -n istio-system get 
 mixer_logs | jq
 ```
 {: codeblock}
-

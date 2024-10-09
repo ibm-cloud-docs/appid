@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-04-16"
+lastupdated: "2024-10-09"
 
 keywords: identity provider, idp, app security, mobile app, web app, authentication, authorization, oidc, saml, protocols, facebook, google, w3id, cloud directory, redirect url, redirect uri, token configuration, token lifetime, log in configuration
 
@@ -71,7 +71,7 @@ Several identity providers can be configured to be used by {{site.data.keyword.a
 | [Facebook](/docs/appid?topic=appid-social#facebook) | Social | Users can sign in to your app by using their Facebook credentials. |
 | [Google+](/docs/appid?topic=appid-social#google) | Social | Users can sign in to your app by using their Google credentials. | 
 | [Custom](/docs/appid?topic=appid-custom-identity#custom-identity) | Custom | If none of the provided options fit your specific need, you can configure your own identity flow to work with {{site.data.keyword.appid_short_notm}}. |
-{: caption="Table 1. Identity provider options" caption-side="top"}
+{: caption="Identity provider options" caption-side="top"}
 
 ## Managing providers
 {: #managing-providers}
@@ -104,7 +104,7 @@ Your application redirects users to {{site.data.keyword.appid_short_notm}} for a
    | Custom domain | `https://mydomain.net/myapp2path/appid_callback` |
    | Ingress subdomain | `https://mycluster.us-south.containers.appdomain.cloud/myapp1path/appid_callback` |
    | Wildcard | `https://mydomain.net/*`  \n ***Note: Wildcards are not recommended for use in production apps.*** | 
-   {: caption="Table 2. Example web redirect URIs" caption-side="top"}
+   {: caption="Example web redirect URIs" caption-side="top"}
 
    It is recommended that you always use encryption and avoid HTTP.
    {: note}
@@ -136,13 +136,9 @@ When you set token expiration, the values apply to all the providers that you ma
    | [Access](/docs/appid?topic=appid-tokens#access) | The length of time for which access tokens are valid. The smaller the value, the more protection that you have in cases of token theft. | 60 minutes | Any value in the range 5 - 1440 |
    | [Refresh](/docs/appid?topic=appid-tokens#refresh) | The length of time for which refresh tokens are valid. The smaller the number, the more frequently a user must sign themselves in. | 30 days | Any value in the range 1 - 90 | 
    | [Anonymous](/docs/appid?topic=appid-anonymous) | The length of time for which anonymous tokens are valid. Anonymous tokens are assigned to users the moment that they begin interacting with your app. When a user signs in, the information in the anonymous token is then transferred to the token associated with the user. | 30 days | Any value in the range 1 - 90 | 
-   {: caption="Table 3. Token types and customization options" caption-side="top"}
+   {: caption="Token types and customization options" caption-side="top"}
 
    [Identity tokens](/docs/appid?topic=appid-tokens#identity) are automatically configured to match the length of time that you set for access tokens. The values cannot be different.
    {: tip}
 
 4. Click **Save**. 
-
-
-
-

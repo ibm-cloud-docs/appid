@@ -102,7 +102,7 @@ Check out the following table for answers to commonly asked questions about encr
 | How are keys stored? | Keys are generated, encrypted with a master key that is specific to each region, and then stored locally. The master keys are stored in [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-getting-started-tutorial). Each region has its own root-of-trust key that is stored in [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-getting-started-tutorial), which is backed up by HSM. Each service instance (tenant) has its own data encryption and token signature keys, which are encrypted by using the region's root-of-key trust. |
 | What is the key strength that you use? | The service uses 16 bytes. |
 | Do you invoke any remote APIs that expose encryption capabilities | No, we do not. |
-{: caption="Table 2. Frequently asked questions about how {{site.data.keyword.appid_short_notm}} handles encryption" caption-side="top"}
+{: caption="Frequently asked questions about how {{site.data.keyword.appid_short_notm}} handles encryption" caption-side="top"}
 
 
 ## What clock synchronization does {{site.data.keyword.appid_short_notm}} use?
@@ -168,7 +168,7 @@ Depending on how you configure your application, {{site.data.keyword.appid_short
 | Cloud Directory SSO[^sso] | {{site.data.keyword.appid_short_notm}} provides built in logout functionality for the Cloud Directory SSO feature. |
 | Ingress | Ingress provides a built in logout functionality. |
 | Istio | The Istio adapter is configured to provide log out functionality through OIDC. |
-{: caption="Table 3. Log out functionality options" caption-side="top"}
+{: caption="Log out functionality options" caption-side="top"}
 {: row-headers}
 
 [^sso]: All redirect URLs that are used with the Cloud Directory SSO feature must be added to the log out URL allowlist in the {{site.data.keyword.appid_short_notm}} UI.

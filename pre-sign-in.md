@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-04-04"
+lastupdated: "2024-10-09"
 
 keywords: user registration, new user, add user, custom attributes, profiles, user profile, user, user information, identity provider, authentication, authorization, personalize app, app security
 
@@ -87,7 +87,7 @@ Check out the following table to see which type of identity information that you
 | Google | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | | 
 | SAML | | ![Checkmark icon](../../icons/checkmark-icon.svg) | | 
 | Custom | | | ![Checkmark icon](../../icons/checkmark-icon.svg) |
-{: caption="Table 1. Types of identity information that can be used with each provider" caption-side="top"}
+{: caption="Types of identity information that can be used with each provider" caption-side="top"}
 
 
 ### How is Cloud Directory handled?
@@ -208,7 +208,7 @@ You can add a future user and their custom attributes by using the API.
    | `idp` | The identity provider that the user authenticates with. Options include: `saml`, `cloud_directory`, `facebook`, `google`, `appid_custom`, `ibmid`. |
    | `idp-identity` | The unique identifier provided by the identity provider. |
    | `profile` | The user's profile that contains the custom attribute JSON mapping. |
-   {: caption="Table 2. The components of the POST request" caption-side="top"}
+   {: caption="The components of the POST request" caption-side="top"}
 
    Example request:
    ```sh

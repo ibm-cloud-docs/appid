@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-04-04"
+lastupdated: "2024-10-09"
 
 keywords: token validation, validate token, protect app, public key, token header, base64, decode payload, authorized, access permissions, app security, identity, jwt
 
@@ -175,7 +175,7 @@ You can validate your tokens locally by parsing the token, verifying the token s
    | `use` | Defines the purpose of the key. |
    | `kid` | Defines the unique ID of the key. |
    | Other | There might be other remaining parameters that are specific to your algorithm that must also be imported. |
-   {: caption="Table 1. Public key parameters" caption-side="top"}
+   {: caption="Public key parameters" caption-side="top"}
 
 5. Verify the token's signature. The token header contains the algorithm that was used to sign the token and the Key ID or `kid` claim of the matching public key. Because public keys do not frequently change, you can cache public keys in your app and occasionally refresh them. If your cached key is missing the `kid` claim, you can validate the tokens locally.
 
@@ -192,4 +192,4 @@ You can validate your tokens locally by parsing the token, verifying the token s
    | `aud` | The audience must contain the client ID of your app. |
    | `tenant` | The tenant must contain the tenant ID of your app. |
    | `scope` | The scope of permissions that is granted to the user. This is specific to the access token. |
-   {: caption="Table 2. Claims that must be validated" caption-side="top"}
+   {: caption="Claims that must be validated" caption-side="top"}

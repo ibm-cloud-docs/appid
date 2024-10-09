@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-04-04"
+lastupdated: "2024-10-09"
 
 keywords: user information, tokens, custom tokens, secure resources, authorization, identity, authentication, claims, oauth, claims mapping, attributes, app security, access, runtime
 
@@ -126,7 +126,7 @@ The claims are set for each token separately and are sequentially applied as sho
 | `source` | Defines the source of the claim. Options include: `saml`, `cloud_directory`, `facebook`, `google`, `appid_custom`, and `attributes`. |
 | `sourceClaim` | Defines the claim as provided by the source. It can refer to the identity provider's user information or the user's {{site.data.keyword.appid_short_notm}} custom attributes. |
 | `destinationClaim` | Optional: Defines the custom attribute that can override the current claim in token. |
-{: caption="Table 1. Claims mapping variables explained" caption-side="top"}
+{: caption="Claims mapping variables explained" caption-side="top"}
 
 
 ## Configuring tokens
@@ -150,7 +150,7 @@ If you want to configure the lifespan of your token, you can quickly make the ch
    | `NAME` | The name that you want to give your key. For example, `myKey`. | 
    | `DESCRIPTION` | A description of the key or its use. For example, `"This is my App ID API key"`. |
    | `FILE` | The location where you want to store your key. For example, `key_file`. | 
-   {: caption="Table 2. Understanding the creating an API key command options" caption-side="top"}
+   {: caption="Understanding the creating an API key command options" caption-side="top"}
 
 2. Obtain an IAM token by using the API key that you got in the previous step.
 
@@ -209,7 +209,7 @@ If you want to configure the lifespan of your token, you can quickly make the ch
    | `anonymousAccess` | The length of time for which an anonymous token is valid. Anonymous tokens are assigned to users the moment they begin interacting with your app. When a user signs in, the information in the anonymous token is then transferred to the token associated with the user. The value is provided in seconds and can be any whole number in range `86400` and `7776000`. The default value is `2592000` (30 days). |
    | `accessTokenClaims` | An array that contains the objects that are created when claims that are related to access tokens are mapped. You might want to include information about roles or specific attributes that are returned by a user's identity provider of choice. Note: If you're already using a custom claim with the title "roles" from your identity provider, be sure to use a destination claim to see both values. |
    | `idTokenClaims` | An array that contains the information that is present in tokens when you map claims to identity tokens. Depending on your configuration, you might also choose to have "roles" be present in your identity token. |
-   {: caption="Table 3. Understanding the token configuration" caption-side="top"}
+   {: caption="Understanding the token configuration" caption-side="top"}
 
    You must set the token lifetime in each request that you make. If a value is not set, then the default is used. Each customization request overwrites what is previously configured. Note that the lifetime configuration specifications are different in the API than they are in the service dashboard.
    {: note}
@@ -228,4 +228,3 @@ If you want to configure the lifespan of your token, you can quickly make the ch
    }
    ```
    {: screen}
-

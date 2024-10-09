@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-04-04"
+lastupdated: "2024-10-09"
 
 keywords: web apps, nodejs, node, javascript, protected resource, authorization flow, front end, frontend, app security, authentication
 
@@ -60,7 +60,7 @@ With {{site.data.keyword.appid_short_notm}}, you can easily protect your Node.js
 
 Check out the following diagram to see the Authorization Code OAuth 2.0 workflow.
 
-![Node.js application authorization flow](images/node_web.png){: caption="Figure 1. Node.js application flow" caption-side="bottom"}
+![Node.js application authorization flow](images/node_web.png){: caption="Node.js application flow" caption-side="bottom"}
 
 1. A user attempts to gain access to your protected web application but they are unauthorized.
 2. Your application redirects the user to {{site.data.keyword.appid_short_notm}}.
@@ -278,5 +278,3 @@ You can pull information that is provided by your identity providers to personal
 To test your authorization configuration, navigate to the URL that your server is listening on as defined in your application. Try signing in, try signing out. Ensure that the configuration is working as you expected. 
 
 When you're ready to move to the next step, you can try enabling [multifactor authentication for Cloud Directory](/docs/appid?topic=appid-cd-mfa) or adding [custom attributes](/docs/appid?topic=appid-profiles) to further personalize your app.
-
-
