@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2017, 2024
-lastupdated: "2024-04-16"
+lastupdated: "2024-10-09"
 
 keywords: manage users, registry, cloud directory, add user, delete user, tokens, attributes, migrating users, identity provider, app security
 
@@ -82,7 +82,7 @@ You can use the {{site.data.keyword.appid_short_notm}} dashboard to view details
    | Predefined attributes | Predefined attributes are things that are known about a user based on SCIM. |
    | Custom attributes | Custom attributes are additional information that is added to their profile or that is learned about the user's as they interact with your application. |
    | Summary | All the attributes are compiled to form one profile that gives you a complete overview of your Cloud Directory user. For more information, see [user profiles](/docs/appid?topic=appid-profiles). |
-   {: caption="Table 1. The details that you can see about your users by looking in the {{site.data.keyword.appid_short_notm}} dashboard" caption-side="top"}
+   {: caption="The details that you can see about your users by looking in the {{site.data.keyword.appid_short_notm}} dashboard" caption-side="top"}
 
 
 ### Viewing user information with the API
@@ -369,7 +369,7 @@ If you are exporting many users (16,000 or more), you can use the `export/all` A
    | `emailAddress` | An email address to which an email is sent when the export is ready or if the request fails. |
    | `expires` | An integer that you can set (1 ≤ value ≤ 30) to specify the number of days after which the export must be deleted. The default value is 7. |
    | `tenantID` | The service tenant ID can be found in your service credentials. You can find or create your service credentials in the {{site.data.keyword.appid_short_notm}} dashboard. |
-   {: caption="Table 3. Descriptions of the parameters that need to be provided in the export/all request" caption-side="top"}
+   {: caption="Descriptions of the parameters that need to be provided in the export/all request" caption-side="top"}
 
 
 
@@ -391,7 +391,7 @@ The export endpoint is reserved for smaller exports of approximately less than 1
    | ---------- | ----------- |
    | `encryptionSecret` | A custom string that is used to encrypt and decrypt a user's hashed password. |
    | `tenantID` | The service tenant ID can be found in your service credentials. You can find your service credentials in the {{site.data.keyword.appid_short_notm}} dashboard. |
-   {: caption="Table 2. Descriptions of the parameters that need to be provided in the export request" caption-side="top"}
+   {: caption="Descriptions of the parameters that need to be provided in the export request" caption-side="top"}
 
    Only your Cloud Directory users and their profiles are returned. Users from other identity providers are not.
    {: note}
@@ -430,7 +430,7 @@ Now that you have a list of exported Cloud Directory users, you can import them 
    | `emailAddress` | An email address to which an email is sent when the export is ready or if the request fails. |
    | `tenantID` | The service tenant ID can be found in your service credentials. You can find or create your service credentials in the {{site.data.keyword.appid_short_notm}} dashboard. |
    | `file`| The output from the [export/download](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.cloudDirectoryDownloadExport){: external} endpoint. |
-   {: caption="Table 4. Descriptions of the parameters that need to be provided in the import/all request" caption-side="top"}
+   {: caption="Descriptions of the parameters that need to be provided in the import/all request" caption-side="top"}
 
 
 ### Importing users in smaller batches
@@ -524,7 +524,7 @@ You can use the import API endpoint to import small groups of users. You can add
    | `destinationTenantId` | The tenant ID of the instance of {{site.data.keyword.appid_short_notm}} that you plan to import users to. |
    | `region` | Learn more about the [available regions](/docs/appid?topic=appid-regions-endpoints). | 
    | `IAM token` | For help with obtaining an IAM token, check out [the docs](/docs/account?topic=account-iamtoken_from_apikey#iamtoken_from_apikey). | 
-   {: caption="Table 3. Parameter descriptions" caption-side="top"}
+   {: caption="Parameter descriptions" caption-side="top"}
 
    Example command:
 

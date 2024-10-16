@@ -23,7 +23,7 @@ With Cloud Directory for {{site.data.keyword.appid_full}}, you can require multi
 
 Check out the following diagram to see how the MFA flow works for email or SMS.
 
-![MFA flow](images/mfa.png){: caption="Figure 1. Cloud Directory MFA flow" caption-side="bottom"}
+![MFA flow](images/mfa.png){: caption="Cloud Directory MFA flow" caption-side="bottom"}
 
 1. When a user successfully signs in to your application, they complete the first authentication factor. Then, based on your MFA configuration, the user is sent either an email or SMS that contains a 6-digit code.
 
@@ -76,7 +76,7 @@ You can configure the MFA email channel through the GUI.
    | `%{user.formattedName}` | Displays the user's full name. |
    | `%{user.lastName}` | Displays the user's specified surname. |
    | `%{mfa.code}` | Displays a one-time MFA verification code. |
-   {: caption="Table 1. MFA message parameters" caption-side="top"}
+   {: caption="MFA message parameters" caption-side="top"}
 
    If a user does not supply the information that is pulled by the parameter, it appears blank.
    {: note}
@@ -239,7 +239,7 @@ For more information about the restrictions and limitations of working with exte
 
 With a pre-mfa extension, you can define the criteria that allows users to avoid having to enter a second form of authentication when they interact with your application.
 
-![pre-MFA flow](images/mfa-pre.png){: caption="Figure 2. Cloud Directory pre-MFA flow" caption-side="bottom"}
+![pre-MFA flow](images/mfa-pre.png){: caption="Cloud Directory pre-MFA flow" caption-side="bottom"}
 
 1. When a user successfully signs in to your application, {{site.data.keyword.appid_short_notm}} sends a POST request to your extension.
 2. Your extension uses the information from the POST request to determine whether that particular user can skip the second authentication factor requirement based on the criteria that you defined.
@@ -259,7 +259,7 @@ To configure a pre-MFA extension:
    | You want users to provide a second authentication factor only once a day. | Configure your extension to validate the `last_successful_first_factor` is within the same day. |
    | You have an allowlist of approved users that don't need to provide the second factor every time. | Configure your extension to validate that the `username` or `user_id` is in the allowlist. |
    | You don't want users who access your app on a desktop to provide the second factor every time. | Configure your extension to validate that `device_type` is set to `web`. |
-   {: caption="Table 3. Example criteria for skipping MFA" caption-side="top"}
+   {: caption="Example criteria for skipping MFA" caption-side="top"}
 
 2. When you know your criteria, configure an extension that can listen for a POST request. The endpoint must be able to read the payload that comes from {{site.data.keyword.appid_short_notm}}. The body that is sent by {{site.data.keyword.appid_short_notm}} before the MFA flow starts is in the format: `{"jws": "jws-format-string"}`. Your extension might also [decode and validate](/docs/appid?topic=appid-token-validation#local-validation) the payload, the content is a JSON object and return a JSON response with the following schema: `{"skipMfa": Boolean }`. For example,: `{'skipMfa': true}`.
 
@@ -279,7 +279,7 @@ To configure a pre-MFA extension:
    | `last_name` | The users surname. |
    | `last_successful_first_factor` | The date of the last time the user correctly entered their credentials. For example, `1660032586651`. |
    | `last_successful_mfa` | The date of the last time the user completed the full MFA flow. For example, `1660032586651`. |
-   {: caption="Table 4. The information that {{site.data.keyword.appid_short_notm}} forwards to your extension point." caption-side="top"}
+   {: caption="The information that {{site.data.keyword.appid_short_notm}} forwards to your extension point." caption-side="top"}
 
    To see an example extension, check out [the sample](https://github.com/ibm-cloud-security/appid-sample-code-snippets/blob/master/premfa-extension-point/index.js){: external}.
    {: tip}
@@ -336,7 +336,7 @@ To configure a pre-MFA extension:
 
 When you configure an extension and register it with {{site.data.keyword.appid_short_notm}}, the service calls your extension after every authentication attempt in which a second-factor of identification is present. You can use that information to make better decisions for your users. For example, you can use post-mfa extension collection information for your heuristics and rules and then enforce these using pre-mfa extension.
 
-![post-MFA flow](images/mfa-post.png){: caption="Figure 3. Cloud Directory post-MFA flow" caption-side="bottom"}
+![post-MFA flow](images/mfa-post.png){: caption="Cloud Directory post-MFA flow" caption-side="bottom"}
 
 1. When a user successfully signs in to your application, they are prompted to enter their second authentication factor.
 
@@ -367,7 +367,7 @@ To configure a post-MFA extension:
    | `application_type` | The type of your application. For example, if your application is a single page JavaScript web app, `browserapp` is returned. Options include: `browserapp`, `serverapp`, and `mobileapp`. |
    | `first_name` | The users given name. |
    | `last_name` | The users surname. |
-   {: caption="Table 5. The information that {{site.data.keyword.appid_short_notm}} forwards to your extension point." caption-side="top"}
+   {: caption="The information that {{site.data.keyword.appid_short_notm}} forwards to your extension point." caption-side="top"}
 
 
 2. Register your extension with your instance of {{site.data.keyword.appid_short_notm}} by making a PUT request to `config/cloud_directory/mfa/extensions/postmfa`. The configuration includes your extension's URL and any authorization information that is needed to access the endpoint. For development purposes, `isActive` is set to `false`. Be sure to test your configuration before you enable it.

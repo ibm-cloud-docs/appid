@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-04-04"
+lastupdated: "2024-10-09"
 
 keywords: single sign on, cloud directory, saml, app security, application identity
 
@@ -62,7 +62,7 @@ With Single sign-on (SSO) for Cloud Directory, you can provide a smooth authenti
 
 Check out the following diagram to see SSO in action.
 
-![SSO diagram](images/sso.png){: caption="Figure 1. Cloud Directory SSO flow" caption-side="bottom"}
+![SSO diagram](images/sso.png){: caption="Cloud Directory SSO flow" caption-side="bottom"}
 
 1. A Cloud Directory user signs in to your app for the first time.
 2. They are asked to authenticate by providing either a username or email and password.
@@ -122,7 +122,7 @@ An example call:
 | `isActive` | To enable SSO, set this value to `true`. The default setting is `false`. |
 | `inactivityTimeoutSeconds` | The longest length of time that can pass without any user activity before the user is required to reenter their credentials. This value is specified in seconds and can be a maximum of `604800 seconds` (7 days). The default setting is `86400 seconds` (1 day). |
 | `logoutRedirectUris` | A comma-separated list of allowed URIs that {{site.data.keyword.appid_short_notm}} can redirect your users to after they sign out. | 
-{: caption="Table 1. SSO configuration settings" caption-side="top"}
+{: caption="SSO configuration settings" caption-side="top"}
 
 
 ## Configuring logout
@@ -152,7 +152,7 @@ https://<region>.appid.cloud.ibm.com/oauth/v4/<tenantID>/cloud_directory/sso/log
 | `tenantID` | The unique identifier for your instance of {{site.data.keyword.appid_short_notm}}. You can find this value in the ***Service Credentials*** tab of the {{site.data.keyword.appid_short_notm}} dashboard. If you do not have a set of service credentials, you can create one and take the value from there. |
 | `redirectURI` | A URI that you specified in your SSO configuration through the {{site.data.keyword.appid_short_notm}} dashboard. For security reasons, if you do not specify a value redirection cannot occur and an error is displayed. |
 | `clientID` | Your application's client ID. | 
-{: caption="Table 2. SSO sign-out API call variables" caption-side="top"}
+{: caption="SSO sign-out API call variables" caption-side="top"}
 
 Even if the SSO session is ended, a user with a valid access token that is stored in their session might not be required to enter their credentials again until their token expires. By default the token expires after 1 hour.
 {: note}
@@ -204,6 +204,6 @@ Content-Type: application/json
 | `region` | The region in which your instance of {{site.data.keyword.appid_short_notm}} is provisioned. Learn more about the [available regions](/docs/appid?topic=appid-regions-endpoints).|
 | `tenantID` | The unique identifier for your instance of {{site.data.keyword.appid_short_notm}}. You can find this value in the ***Service Credentials*** tab of the {{site.data.keyword.appid_short_notm}} dashboard. If you do not have a set of service credentials, you can create one and take the value from there. |
 | `userID` | The unique identifier for a Cloud Directory user. You can obtain the ID by using the [Cloud Directory Users APIs](https://us-south.appid.cloud.ibm.com/swagger-ui/#/), or by viewing the user's identity token. |
-{: caption="Table 3. Variables that are needed to end all SSO sessions for a user" caption-side="top"}
+{: caption="Variables that are needed to end all SSO sessions for a user" caption-side="top"}
 
 When you invoke this API, all the specified user's SSO sessions are invalidated. This means that the next time that the user attempts to sign in to any of your apps, from any device or browser, they are required to reenter their credentials.

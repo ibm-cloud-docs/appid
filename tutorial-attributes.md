@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-04-04"
+lastupdated: "2024-10-09"
 
 keywords: attributes, cloud directory, user registry, user management, personalization, customize app, user information, profiles, app security, user profile, app access, identity
 
@@ -201,7 +201,7 @@ Becoming more popular, you decide to implement a "deal-of-the-day". You want the
    | `source` | For both `accessTokenClaim` and `idTokenClaims` set the source to `attribute`. |
    | `sourceClaim` | The specific attribute that you want to map to your token. In this case, `food-preference`. |
    | `expires_in` | This value applies to each token type and must be set in each request. If you previously set the value in the GUI, and then run this request, then the values in the request override the previously set values. Be sure to set the expiration to the correct value for your configuration. |
-   {: caption="Table 1. Token configuration variables" caption-side="top"}
+   {: caption="Token configuration variables" caption-side="top"}
 
    Successful response output:
 
@@ -298,4 +298,3 @@ Optionally, you can verify that step 4 was successful by viewing an access token
 {: #attributes-next}
 
 Nice work! You completed the tutorial. Next, you can try configuring [multi-factor authentication](/docs/appid?topic=appid-cd-mfa) or setting up [your own branded GUI](/docs/appid?topic=appid-branded).
-

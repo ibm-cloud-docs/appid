@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-04-04"
+lastupdated: "2024-10-09"
 
 keywords: custom identity provider, authorization, bring your own idp, proprietary idp, legacy idp, oauth, oidc, authentication, oatuh, app security
 
@@ -85,12 +85,12 @@ The custom identity workflow is built on the JWT-Bearer extension grant type tha
 
 As with all authentication flows, custom identity requires that the application is able to establish a degree of trust with {{site.data.keyword.appid_short_notm}} to ensure the integrity of identity provider user information. Custom identity employs an asymmetric RSA public and private key pair to establish its trust relationship. Depending on your architectural requirements, custom identity supports two trust models that differ only in the storage location and usage of the private key.
 
-![Custom authentication request flow](images/customauth.png){: caption="Figure 1. The request flows for custom authentication" caption-side="bottom"}
+![Custom authentication request flow](images/customauth.png){: caption="The request flows for custom authentication" caption-side="bottom"}
 
 | 1. Identity provider signed |
 |:-----------|
 | Just as with traditional OAuth 2.0 flows, the most secure trust model creates a relationship between your identity provider and authorization server; in this case {{site.data.keyword.appid_short_notm}}) directly. Under this model, your identity provider is responsible for storing the private key and signing JWT assertions. When passed to {{site.data.keyword.appid_short_notm}}, these assertions are validated with the matching public key, which ensures that the user information from your identity provider was not maliciously altered during transport. |
-{: caption="Table 1. Identity provider signed flow" caption-side="top"}
+{: caption="Identity provider signed flow" caption-side="top"}
 {: #idp-signed}
 {: tab-title="1. Identity provider signed"}
 {: tab-group="signed-flows"}
@@ -99,7 +99,7 @@ As with all authentication flows, custom identity requires that the application 
 | 2. Application signed |
 |:-----------|
 | Alternatively, you can base your trust model on the relationship between your app and {{site.data.keyword.appid_short_notm}}. In this workflow, your private key is stored in your server-side application. After a successful authentication, your app is responsible for converting the identity providers response into a JWT and signing it with its private key before the app sends the token to {{site.data.keyword.appid_short_notm}}. Since this identity provider has no relationship with {{site.data.keyword.appid_short_notm}}, this architecture creates a weaker trust model. Although {{site.data.keyword.appid_short_notm}} can trust the information that is sent by the server-side application, it cannot be certain the data was the original sent by the identity provider. |
-{: caption="Table 1. Application signed flow" caption-side="top"}
+{: caption="Application signed flow" caption-side="top"}
 {: #app-signed}
 {: tab-title="2. Application signed"}
 {: tab-group="signed-flows"}
@@ -151,7 +151,7 @@ You can convert your verified user data to a custom identity JWT by generating a
 | `sub` | The unique user ID that is provided by the identity provider.| 
 | Normalized claims | All [normalized claims](/docs/appid?topic=appid-tokens) are provided in the identity token that is returned in response to this request. More custom claims can be found by using the [`/userinfo` endpoint](/docs/appid?topic=appid-profiles). | 
 | Scope | By default, all {{site.data.keyword.appid_short_notm}} tokens contain a group of preset scopes. You can request extra scopes by doing one of the following:  \n * Specify the scope in the scope field of your JWS token.  \n * Specify the scope through the URL-form scopes parameter of the `/token` request. | 
-{: caption="Table 1. JWS fields" caption-side="top"}
+{: caption="JWS fields" caption-side="top"}
 
 ## Retrieving {{site.data.keyword.appid_short_notm}} tokens
 {: #exchanging-jwts}
@@ -174,5 +174,4 @@ To create the bridge between your custom provider and {{site.data.keyword.appid_
    | grant_type | `urn:ietf:params:oauth:grant-type:jwt-bearer` | 
    | assertion | A JWS payload string. |
    | scope | A white space separated list of your custom scopes. | 
-   {: caption="Table 2. Required request variables" caption-side="top"}
-
+   {: caption="Required request variables" caption-side="top"}

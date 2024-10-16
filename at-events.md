@@ -139,7 +139,7 @@ Some action names were changed as part of an alignment to new guidelines. [Learn
 | `appid.sso.update` | Update your SSO configuration. | Can be found in the **Identity Providers > Cloud Directory > Single Sign-On** tab. |
 |`appid.rate-limit.read` | View your rate limit configurations. | Must be done through the API. |
 | `appid.rate-limit.update` | Update your rate limit configurations. | Must be done through the API. |
-{: caption="Table 1. Actions that you can take that are tracked by {{site.data.keyword.at_short}}" caption-side="top"}
+{: caption="Actions that you can take that are tracked by {{site.data.keyword.at_short}}" caption-side="top"}
 
 
 ## Viewing runtime events
@@ -197,7 +197,7 @@ Be sure that you turned on **Runtime Activity** to see these events.
 | View user profile attributes | `appid.user-profile-attributes.read` | `success` | `200` | `crn:profiles:[User-ID]` | `profiles:[User-ID]` | `appid-user-profiles/attributes` |
 | Update user profile attribute | `appid.user-profile-attributes.update` | `success` | `200` | `crn:profiles:[User-ID]` | `profiles:[User-ID]` | `appid-user-profiles/attribute/[Attribute-name]` |
 | Delete user profile attribute | `appid.user-profile-attributes.delete` | `success` | `200` | `crn:profiles:[User-ID]` | `profiles:[User-ID]` | `appid-user-profiles/attribute/[Attribute-name]` |
-{: caption="Table 2. Actions that can be tracked as authentication events at runtime" caption-side="top"}
+{: caption="Actions that can be tracked as authentication events at runtime" caption-side="top"}
 
 ## Analyzing runtime events
 {: #at-runtime-analyze}
@@ -219,7 +219,7 @@ An event in the {{site.data.keyword.at_short}} console contains the following fi
 |-----|----| ----- |
 | initiator.id | cb967e0d-43c1-454a-968d-0efa24766846 | The tenant ID. |
 | target.name | cloud_directory:34e1ea6d-cc02-4941-9462-7e9c5a40b360 | The user ID. |
-{: caption="Table 3. Example fields that can be found in an event from the {{site.data.keyword.at_short}} console" caption-side="top"}
+{: caption="Example fields that can be found in an event from the {{site.data.keyword.at_short}} console" caption-side="top"}
 
 
 To find the user information that aligns with the event GUID, use the following steps.

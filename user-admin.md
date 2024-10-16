@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-04-04"
+lastupdated: "2024-10-09"
 
 keywords: user information, add users, delete users, profile, access, attributes, admin, app security, authentication, authorization
 
@@ -78,7 +78,7 @@ To see the data that is available for your app users, you can use the {{site.dat
    | ID | The ID that is assigned to the user by {{site.data.keyword.appid_short_notm}}. |
    | Custom attributes | Custom attributes are additional information that is added to their profile or that is learned about the user's as they interact with your application. | 
    | Summary | All the information that is associated with that user shown as a JSON object. |
-   {: caption="Table 1. User details as shown in the {{site.data.keyword.appid_short_notm}} dashboard" caption-side="top"}
+   {: caption="User details as shown in the {{site.data.keyword.appid_short_notm}} dashboard" caption-side="top"}
 
 
 
@@ -386,7 +386,3 @@ Now that you have a list of exported user profiles, you can import them into the
 
    When you import users to an instance of {{site.data.keyword.appid_short_notm}}, their Identity Provider identifier remains the same.
    {: note}
-
-
-
-

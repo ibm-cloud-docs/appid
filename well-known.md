@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-04-04"
+lastupdated: "2024-10-09"
 
 keywords: well known endpoint, discovery endpoint, oidc, public keys, user information, claims, attributes, full profile, identity providers, app security, tokens
 
@@ -151,5 +151,4 @@ The response that is returned looks similar to the following example:
 | `claims_supported` | A JSON array that contains a list of the claim names. |
 | `grant_types_supported` | A JSON array that contains a list of the OAuth 2.0 grant type values that {{site.data.keyword.appid_short_notm}} supports. |
 | `profiles_endpoint` | The URL of the {{site.data.keyword.appid_short_notm}} user profile endpoint. | 
-   {: caption="Table 1. The descriptions of components" caption-side="top"}
-
+   {: caption="The descriptions of components" caption-side="top"}

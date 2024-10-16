@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-04-04"
+lastupdated: "2024-10-09"
 
 keywords: user access, control access, permissions, roles, scopes, runtime, access token, authentication, identity, app security
 
@@ -55,7 +55,7 @@ With {{site.data.keyword.appid_full}}, you can define which users and applicatio
 
 A scope is a runtime action in your application that you register with {{site.data.keyword.appid_short_notm}} to create an access permission. A role is a collection of scopes that assigns varying permissions to different types of app users and applications. For example, if your company employs developers, they might create a role that allows them to read and write to the code. If you employ auditors, you might have a view only role as shown in the following image.
 
-![{{site.data.keyword.appid_short_notm}} access control](images/access-control.png){: caption="Figure 1. How {{site.data.keyword.appid_short_notm}} access control works" caption-side="bottom"}
+![{{site.data.keyword.appid_short_notm}} access control](images/access-control.png){: caption="How {{site.data.keyword.appid_short_notm}} access control works" caption-side="bottom"}
 
 1. Register runtime actions that can occur in your application with {{site.data.keyword.appid_short_notm}}.
 2. Compile scopes into groups to form roles.
@@ -128,7 +128,7 @@ To create a scope, you can use the {{site.data.keyword.appid_short_notm}} UI.
    | `tenantID` | The unique identifier for your instance of {{site.data.keyword.appid_short_notm}}. You can find this value in the credentials for your app as they're listed in the **Applications** tab of the service dashboard. |
    | `clientID` | The unique identifier for your application. You can find this value in the credentials for your app as they're listed in your **Applications** in the service dashboard. |
    | `scopesObject` | A JSON object of all the scopes that you want to create for your application. |
-   {: caption="Table 1. Required variables to call the `/scopes` endpoint" caption-side="top"}
+   {: caption="Required variables to call the `/scopes` endpoint" caption-side="top"}
 
 
 2. Optional: Confirm that the scopes were created.
@@ -190,7 +190,7 @@ A role is a group of scopes that apply to the same type of user. For example, if
    | `roleDescription` | A short phrase that describes what your role is meant to do. | 
    | `applicationID` | The unique identifier for your application. You can find this value in the credentials for your app as they're listed in **Applications**. |
    | `scopes` | A JSON object of all the scopes that you want to apply to a role.|
-   {: caption="Table 2. Required variables to call the `/scopes` endpoint" caption-side="top"}
+   {: caption="Required variables to call the `/scopes` endpoint" caption-side="top"}
  
 2. Optional: Confirm that the roles were created.
 
@@ -411,7 +411,7 @@ app.get("/api/protected",
 |-----|----|
 | `scope` | The required scopes, which are separated by a space. |
 | `audience` | The application client ID. |
-{: caption="Table 3. Understanding the variables used with API strategy" caption-side="top"}
+{: caption="Understanding the variables used with API strategy" caption-side="top"}
 
 
 ## Removing access
@@ -500,7 +500,3 @@ Deleting a role removes access from all the users and applications that are curr
    -H "accept: application/json"
    ```
    {: codeblock}
-
-
-
-

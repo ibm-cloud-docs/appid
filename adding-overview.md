@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-04-04"
+lastupdated: "2024-10-09"
 
 keywords: authentication, authorization, identity, web flow, backend, identity management, anonymous auth, custom flow, mobile, app to app, kubernetes, ingress, istio, app security,
 
@@ -66,5 +66,4 @@ Check out the following table to see how {{site.data.keyword.appid_short_notm}} 
 | [Anonymous](/docs/appid?topic=appid-anonymous) | With {{site.data.keyword.appid_short_notm}}, you can begin tracking a users activity before their initial sign-in to your app by using anonymous authentication. |
 | [Ingress](/docs/appid?topic=appid-kube-auth) | With {{site.data.keyword.appid_short_notm}}, you can consistently enforce policy-driven security by using the Ingress networking capability in {{site.data.keyword.containerlong_notm}}. |
 | [Istio](/docs/appid?topic=appid-istio-adapter) | By using the App Identity and Access adapter, you can centralize all your identity management in a single place. Because enterprises use clouds from multiple providers or a combination of on and off-premise solutions, heterogeneous deployment models can help you to preserve existing infrastructure and avoid vendor lock-in. |
-{: caption="Table 1. The different ways in which you can secure your applications with {{site.data.keyword.appid_short_notm}}" caption-side="top"}
-
+{: caption="The different ways in which you can secure your applications with {{site.data.keyword.appid_short_notm}}" caption-side="top"}

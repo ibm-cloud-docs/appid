@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-04-04"
+lastupdated: "2024-10-09"
 
 keywords: anonymous authentication, progressive authentication, profile, user profile, authorization, sign in, secure app, identity provider, authorization
 
@@ -70,7 +70,7 @@ If the user chooses to sign in from the first tab, then they have access only to
 
 In the following image, you can see the direction of communication that defines the progressive authentication flow between the user, your application, {{site.data.keyword.appid_short_notm}}, and the identity provider.
 
-![The path to becoming an identified user when they start as anonymous](images/auth-anon-user.svg){: caption="Figure 1. Progressive authentication flow of anonymous user" caption-side="bottom"}
+![The path to becoming an identified user when they start as anonymous](images/auth-anon-user.svg){: caption="Progressive authentication flow of anonymous user" caption-side="bottom"}
 
 1. The user interacts with areas of your app that do not require authentication. 
 2. Your application notifies {{site.data.keyword.appid_short_notm}} that the user wants to interact with your app as an anonymous user. 
@@ -87,4 +87,3 @@ In the following image, you can see the direction of communication that defines 
 13. After {{site.data.keyword.appid_short_notm}} creates the new tokens, the service invalidates the user's anonymous token. 
 14. {{site.data.keyword.appid_short_notm}} returns the new access and identity tokens. The new tokens contain the public information that is shared by the identity provider and the attributes of the user's formerly anonymous profile. 
 15. The user is granted access to your app.
-

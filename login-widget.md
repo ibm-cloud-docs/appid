@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-05-13"
+lastupdated: "2024-10-09"
 
 keywords: app log in, login widget, sign in, default screen, forgot password, mfa, multi-factor authentication, sign up, reset password, facebook, google, identity provider, social log in, saml, authentication, authorization, cloud directory
 
@@ -79,7 +79,7 @@ When you use Cloud Directory, {{site.data.keyword.appid_short_notm}} is able to 
 | Forgot password | | | ![Checkmark icon](../../icons/checkmark-icon.svg) |
 | Change password | | | ![Checkmark icon](../../icons/checkmark-icon.svg) |
 | Account details | | | ![Checkmark icon](../../icons/checkmark-icon.svg) |
-{: caption="Table 1. The Login Widget screens that each identity provider can display" caption-side="top"}
+{: caption="The Login Widget screens that each identity provider can display" caption-side="top"}
 
 
 ### Customizing an SSO login flow

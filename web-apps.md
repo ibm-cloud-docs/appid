@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-04-04"
+lastupdated: "2024-10-09"
 
 keywords: web apps, authorization code, authentication, nodejs, javascript, app access, application credentials, login, redirect uri, protected endpoint, video
 
@@ -60,7 +60,7 @@ When you are developing a web application, you can use the {{site.data.keyword.a
 Web apps often require users to authenticate to access protected content. {{site.data.keyword.appid_short_notm}} uses the OIDC authorization code flow to securely authenticate users. With this flow, when the user is authenticated, the app receives an authorization code. The code is then exchanged for an access, identity, and refresh token. In code, exchange step the tokens are always sent by using a secure backchannel between the app and the OIDC server. This process provides an extra layer of security as the attacker is not able to intercept the tokens. These tokens can be sent directly to the web server hosting application for user authentication.
 
 
-![{{site.data.keyword.appid_short_notm}} web app request flow](images/web-flow.svg){: caption="Figure 1. {{site.data.keyword.appid_short_notm}} web app request flow" caption-side="bottom"}
+![{{site.data.keyword.appid_short_notm}} web app request flow](images/web-flow.svg){: caption="{{site.data.keyword.appid_short_notm}} web app request flow" caption-side="bottom"}
 
 1. A user initiates the authorization flow by sending a request to the `/authorization` endpoint via the {{site.data.keyword.appid_short_notm}} SDK or API.
 
@@ -312,7 +312,7 @@ Check out the following video to learn about protecting Liberty for Java applica
    | `signatureAlgorithm` | Specified as "RS256". | 
    | `authFilterid` | The list of resources to protect. |
    | `trustAliasName` | The name of your certificate within your truststore. |
-   {: caption="Table 1. OIDC element variables for Liberty for Java apps" caption-side="top"}
+   {: caption="OIDC element variables for Liberty for Java apps" caption-side="top"}
 
 ### Initializing the Liberty for Java SDK
 {: #web-liberty-initialize}
@@ -507,4 +507,3 @@ With {{site.data.keyword.appid_short_notm}} installed in your application, you'r
 * Configure your [identity providers](/docs/appid?topic=appid-social)
 * Customize and configure [the Login Widget](/docs/appid?topic=appid-login-widget)
 * Learn more about the [Node.js SDK](https://github.com/ibm-cloud-security/appid-serversdk-nodejs){: external}
-

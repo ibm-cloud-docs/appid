@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-05-23"
+lastupdated: "2024-10-09"
 
 keywords: single page application, SPA, single-page, angular, react, native apps, javascript, js, sdk, authentication, authorization, identity, app security, secure, protocols, oauth, oidc,
 
@@ -62,7 +62,7 @@ Does your app have a backend that you control? SPA is not the flow for you. Try 
 Although it is the current industry standard for SPAs, the OAuth working group no longer recommends the use of the implicit flow due to several security concerns. Based on their advice, {{site.data.keyword.appid_short_notm}} is configured to use the [Authorization Code flow with PKCE](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-browser-based-apps-04){: external}.
 {: shortdesc}
 
-![SPA authorization flow](images/spa.png){: caption="Figure 1. The authorization flow of single-page applications" caption-side="bottom"}
+![SPA authorization flow](images/spa.png){: caption="The authorization flow of single-page applications" caption-side="bottom"}
 
 
 1. A user attempts to log in to your single-page application.
@@ -214,5 +214,3 @@ Refresh tokens are not returned in the SPA flow.
    }
    ```
    {: codeblock}
-
-

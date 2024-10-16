@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-04-04"
+lastupdated: "2024-10-09"
 
 keywords: protected resource, backend apps, identity, tokens, identity provider, authentication, authorization, app security, oauth, 
 
@@ -71,7 +71,7 @@ For more information about how tokens are used in {{site.data.keyword.appid_shor
 ### What does the flow look like?
 {: #backend-flow}
 
-![{{site.data.keyword.appid_short_notm}} backend flow](images/backend-flow.svg){: caption="Figure 1. Backend application flow" caption-side="bottom"}
+![{{site.data.keyword.appid_short_notm}} backend flow](images/backend-flow.svg){: caption="Backend application flow" caption-side="bottom"}
 
 1. A client makes a POST request to the {{site.data.keyword.appid_short_notm}} authorization server to obtain an access token. A POST request generally takes the following form:
 
