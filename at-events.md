@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2023
-lastupdated: "2023-09-26"
+  years: 2017, 2024
+lastupdated: "2024-10-28"
 
 keywords: user events, track activity, manage events, analyze, administrative, runtime, sign in, settings, app security
 
@@ -12,41 +12,117 @@ subcollection: appid
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Auditing events for {{site.data.keyword.appid_short_notm}}
-{: #at-events}
 
-You can view, manage, and analyze user-initiated activities that are made in your {{site.data.keyword.appid_full}} service instance by using the {{site.data.keyword.at_short}} service.
+# Activity tracking events for {{site.data.keyword.appid_short_notm}} 
+{: #at_events}
+
+{{site.data.keyword.cloud_notm}} services, such as {{site.data.keyword.appid_short_notm}}, generate activity tracking events.
 {: shortdesc}
 
-By integrating {{site.data.keyword.at_short}} with {{site.data.keyword.appid_short_notm}}, you can track two different types of events, administrative and runtime. Administrative events are specific to your instance of the service. Administrative events cover configuration changes such as updating your identity providers or changing the theme of your login widget. Runtime events are those activities that occur at run time by the app user. A password reset request, authentication failures, or a user logout would all fall into the runtime category.
+Activity tracking events report on activities that change the state of a service in {{site.data.keyword.cloud_notm}}. You can use the events to investigate abnormal activity and critical actions and to comply with regulatory audit requirements.
 
-For more information about how the service works, see the [{{site.data.keyword.at_short}} docs](/docs/activity-tracker?topic=activity-tracker-getting-started).
+You can use {{site.data.keyword.atracker_full_notm}}, a platform service, to route auditing events in your account to destinations of your choice by configuring targets and routes that define where activity tracking events are sent. For more information, see [About {{site.data.keyword.atracker_full_notm}}](/docs/atracker?topic=atracker-about).
 
+You can use {{site.data.keyword.logs_full_notm}} to visualize and alert on events that are generated in your account and routed by {{site.data.keyword.atracker_full_notm}} to an {{site.data.keyword.logs_full_notm}} instance.
 
-
-## Viewing administrative events
-{: #at-monitor-admin}
-
-You can view, manage, and analyze configuration activity that is made in your {{site.data.keyword.appid_short_notm}} instance by using the {{site.data.keyword.at_short}} service.
-{: shortdesc}
-
-### Monitoring administrative activity
-{: #at-monitor-admin-activity}
-
-1. Log in to your {{site.data.keyword.cloud_notm}} account.
-2. From the catalog, provision an instance of the {{site.data.keyword.at_short}} service in the same account and region as your {{site.data.keyword.appid_short_notm}} instance.
-3. From the **Observability > Activity Tracker** tab, verify the information for the instance that you created.
-4. Click **View Open Dashboard** and make sure you're on the **Everything** dashboard. Any events that meet the qualifications for your {{site.data.keyword.at_short}} payment plan are visible. You can filter your results by tags, sources, apps, or levels. You can also search for specific events or jump to a specific timeframe.
-
-
-
-## List of administrative events
-{: #at-events-admin}
-
-Check out the following table for a list of the events that are sent to {{site.data.keyword.at_short}}.
-
-Some action names were changed as part of an alignment to new guidelines. [Learn more](/docs/activity-tracker?topic=activity-tracker-event#action_field).
+As of 28 March 2024, the {{site.data.keyword.at_full_notm}} service is deprecated and will no longer be supported as of 30 March 2025. Customers will need to migrate to {{site.data.keyword.logs_full_notm}} before 30 March 2025. During the migration period, customers can use {{site.data.keyword.at_full_notm}} along with {{site.data.keyword.logs_full_notm}}. Activity tracking events are the same for both services. For information about migrating from {{site.data.keyword.at_full_notm}} to {{site.data.keyword.logs_full_notm}} and running the services in parallel, see [migration planning](/docs/cloud-logs?topic=cloud-logs-migration-intro).
 {: important}
+
+## Locations where activity tracking events are generated
+{: #at-locations}
+
+
+### Locations where activity tracking events are sent to {{site.data.keyword.at_full_notm}} hosted event search
+{: #at-legacy-locations}
+
+
+
+{{site.data.keyword.appid_short_notm}} sends activity tracking events to {{site.data.keyword.at_full_notm}} hosted event search in the regions that are indicated in the following table.
+
+| Dallas (`us-south`) | Washington (`us-east`)  | Toronto (`ca-tor`) | Sao Paulo (`br-sao`) |
+|---------------------|-------------------------|-------------------|----------------------|
+| [Yes]{: tag-green} | [No]{: tag-red} | [No]{: tag-red} | [No]{: tag-red} |
+{: caption="Regions where activity tracking events are sent in Americas locations" caption-side="top"}
+{: #at-table-1}
+{: tab-title="Americas"}
+{: tab-group="at"}
+{: class="simple-tab-table"}
+{: row-headers}
+
+| Tokyo (`jp-tok`)    | Sydney (`au-syd`) |  Osaka (`jp-osa`) | Chennai (`in-che`) |
+|---------------------|------------------|------------------|--------------------|
+| [No]{: tag-red} | [No]{: tag-red} | [No]{: tag-red} | [No]{: tag-red} |
+{: caption="Regions where activity tracking events are sent in Asia Pacific locations" caption-side="top"}
+{: #at-table-2}
+{: tab-title="Asia Pacific"}
+{: tab-group="at"}
+{: class="simple-tab-table"}
+{: row-headers}
+
+| Frankfurt (`eu-de`)  | London (`eu-gb`) | Madrid (`eu-es`) |
+|---------------------------------------------------------------|---------------------|------------------|
+| [No]{: tag-red} | [Yes]{: tag-green} | [No]{: tag-red} |
+{: caption="Regions where activity tracking events are sent in Europe locations" caption-side="top"}
+{: #at-table-3}
+{: tab-title="Europe"}
+{: tab-group="at"}
+{: class="simple-tab-table"}
+{: row-headers}
+
+### Locations where activity tracking events are sent by {{site.data.keyword.atracker_full_notm}}
+{: #atracker-locations}
+
+{{site.data.keyword.appid_short_notm}} sends activity tracking events by {{site.data.keyword.atracker_full_notm}} in the regions that are indicated in the following table.
+
+| Dallas (`us-south`) | Washington (`us-east`)  | Toronto (`ca-tor`) | Sao Paulo (`br-sao`) |
+|---------------------|-------------------------|-------------------|----------------------|
+| [Yes]{: tag-green} | [No]{: tag-red} | [No]{: tag-red} | [No]{: tag-red} |
+{: caption="Regions where activity tracking events are sent in Americas locations" caption-side="top"}
+{: #atracker-table-1}
+{: tab-title="Americas"}
+{: tab-group="atracker"}
+{: class="simple-tab-table"}
+{: row-headers}
+
+| Tokyo (`jp-tok`)    | Sydney (`au-syd`) |  Osaka (`jp-osa`) | Chennai (`in-che`) |
+|---------------------|------------------|------------------|--------------------|
+| [No]{: tag-red} | [No]{: tag-red} | [No]{: tag-red} | [No]{: tag-red} |
+{: caption="Regions where activity tracking events are sent in Asia Pacific locations" caption-side="top"}
+{: #atracker-table-2}
+{: tab-title="Asia Pacific"}
+{: tab-group="atracker"}
+{: class="simple-tab-table"}
+{: row-headers}
+
+| Frankfurt (`eu-de`)  | London (`eu-gb`) | Madrid (`eu-es`) |
+|---------------------------------------------------------------|---------------------|------------------|
+| [No]{: tag-red} | [Yes]{: tag-green} | [No]{: tag-red} |
+{: caption="Regions where activity tracking events are sent in Europe locations" caption-side="top"}
+{: #atracker-table-3}
+{: tab-title="Europe"}
+{: tab-group="atracker"}
+{: class="simple-tab-table"}
+{: row-headers}
+
+
+
+
+## Viewing activity tracking events for {{site.data.keyword.appid_short_notm}}
+{: #at-viewing}
+
+You can use {{site.data.keyword.logs_full_notm}} to visualize and alert on events that are generated in your account and routed by {{site.data.keyword.atracker_full_notm}} to an {{site.data.keyword.logs_full_notm}} instance.
+
+
+### Launching {{site.data.keyword.logs_full_notm}} from the Observability page
+{: #log-launch-standalone}
+
+For information on launching the {{site.data.keyword.logs_full_notm}} UI, see [Launching the UI in the {{site.data.keyword.logs_full_notm}} documentation.](/docs/cloud-logs?topic=cloud-logs-instance-launch)
+
+
+## List of management events
+{: #at_actions}
+
+The following table conveys information regarding the actions that a user can take through the service GUI.
 
 | Action | Description | GUI action |
 |-----|----| ---- |
@@ -137,39 +213,15 @@ Some action names were changed as part of an alignment to new guidelines. [Learn
 | `appid.mfa-extension-test.send` | Test your registered extension configuration. | Must be done through the API. |
 | `ppid.sso.read` | View your SSO configuration. | Can be found in the **Identity Providers > Cloud Directory > Single Sign-On** tab. |
 | `appid.sso.update` | Update your SSO configuration. | Can be found in the **Identity Providers > Cloud Directory > Single Sign-On** tab. |
-|`appid.rate-limit.read` | View your rate limit configurations. | Must be done through the API. |
+| `appid.rate-limit.read` | View your rate limit configurations. | Must be done through the API. |
 | `appid.rate-limit.update` | Update your rate limit configurations. | Must be done through the API. |
-{: caption="Actions that you can take that are tracked by {{site.data.keyword.at_short}}" caption-side="top"}
+{: caption="Actions that generate management events" caption-side="bottom"}
 
 
 ## Viewing runtime events
 {: #at-monitor-runtime}
 
-With {{site.data.keyword.at_short}}, you can review runtime activity that is made by an app user, such as logins, password resets, and authentications.
-{: shortdesc}
-
-The reported events are per account, but the data rate and retention period of the collected runtime events have limitations. Increasing the limits might require an upgrade of the {{site.data.keyword.at_short}} service. For more information about the service limits, see the [{{site.data.keyword.at_short}} docs](/docs/activity-tracker?topic=activity-tracker-service_plan).
-
-
-### Monitoring runtime activity
-{: #at-monitor-runtime-activity}
-
-1. Log in to your {{site.data.keyword.cloud_notm}} account.
-2. From the catalog, provision an instance of the {{site.data.keyword.at_short}} service in the same account as your {{site.data.keyword.appid_short_notm}} instance.
-3. In the {{site.data.keyword.appid_short_notm}} dashboard, click **Manage authentication > Authentication settings**.
-4. Scroll to the **Runtime Activity** panel and toggle the switch to enable tracking of runtime authentication activity. A message displays that notifies you that the feature is enabled and that you are charged differently. For more information, see [How does App ID calculate pricing](/docs/appid?topic=appid-pricing).
-5. From the **Observability > Activity Tracker** tab in the console navigation, verify the information for the instance that you created.
-6. Click **Open Dashboard**. When the dashboard loads, you see an overall view of all the activity in your account. You can use the search operators to filter your results by tags, sources, apps, or levels. You can also search for specific events or jump to a specific timeframe.
-7. From the **All Apps** drop-down, select the instance of {{site.data.keyword.appid_short_notm}} that you want to track events for.
-
-
-## List of runtime events
-{: #at-runtime-events}
-
-Check out the following table for a list of the runtime events that are sent to {{site.data.keyword.at_short}}.
-
-Be sure that you turned on **Runtime Activity** to see these events.
-{: important}
+Runtime events allow you to track activity that is made by user's to your application, such as logins, password resets, and authentication requests.
 
 | Description | Action | Outcome | `reason. reasonCode` | `target.id` | `target.name` | `target.typeURI` |
 |-----|----| ----- | ------- | ------- | ------- | ------ |
@@ -199,12 +251,12 @@ Be sure that you turned on **Runtime Activity** to see these events.
 | Delete user profile attribute | `appid.user-profile-attributes.delete` | `success` | `200` | `crn:profiles:[User-ID]` | `profiles:[User-ID]` | `appid-user-profiles/attribute/[Attribute-name]` |
 {: caption="Actions that can be tracked as authentication events at runtime" caption-side="top"}
 
-## Analyzing runtime events
-{: #at-runtime-analyze}
+
+
+## Analyzing {{site.data.keyword.appid_short_notm}} activity tracking events
+{: #at_events_iam_analyze}
 
 A user that generates a runtime event is identified as a GUID rather than by name or email. As the account owner, you can use the GUID to identify a specific user and then you can search to see all the events that the user triggered.
-{: shortdesc}
-
 
 The following scenario works only for Cloud Directory users. If the user is defined by an external IdP such as Google or Facebook, only that identity provider can interpret the GUID.
 {: note}
@@ -219,7 +271,7 @@ An event in the {{site.data.keyword.at_short}} console contains the following fi
 |-----|----| ----- |
 | initiator.id | cb967e0d-43c1-454a-968d-0efa24766846 | The tenant ID. |
 | target.name | cloud_directory:34e1ea6d-cc02-4941-9462-7e9c5a40b360 | The user ID. |
-{: caption="Example fields that can be found in an event from the {{site.data.keyword.at_short}} console" caption-side="top"}
+{: caption="Example fields that can be found in an event" caption-side="top"}
 
 
 To find the user information that aligns with the event GUID, use the following steps.
