@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-10-28"
+lastupdated: "2024-11-01"
 
 keywords: user events, track activity, manage events, analyze, administrative, runtime, sign in, settings, app security
 
@@ -34,7 +34,6 @@ As of 28 March 2024, the {{site.data.keyword.at_full_notm}} service is deprecate
 
 ### Locations where activity tracking events are sent to {{site.data.keyword.at_full_notm}} hosted event search
 {: #at-legacy-locations}
-
 
 
 {{site.data.keyword.appid_short_notm}} sends activity tracking events to {{site.data.keyword.at_full_notm}} hosted event search in the regions that are indicated in the following table.
@@ -337,9 +336,6 @@ To find the user information that aligns with the event GUID, use the following 
    }
    ```
    {: screen}
-
-
-
 
 
 ### Finding user-related events
