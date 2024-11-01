@@ -95,10 +95,13 @@ toc:
           - token-obtain.md
           - tokens.md
       - topicgroup:
+          label: Observability
+          topics:
+          - at-events.md
+      - topicgroup:
           label: Enhancing security
           topics:
           - iam.md
-          - at-events.md
           - data-security.md
   - navgroup:
       id: reference
