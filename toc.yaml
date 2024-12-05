@@ -141,6 +141,7 @@ toc:
       - api-reference.md
       - well-known.md
       - ha-dr.md
+      - data-portability.md
       - privacy-policy.md
   - navgroup:
       id: help
