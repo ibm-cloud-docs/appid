@@ -37,7 +37,7 @@ To find out more about responsibility ownership for using {{site.data.keyword.cl
 
 {{site.data.keyword.appid_short_notm}} provides the mechanisms to export your content that's uploaded, stored, and processed when you use the service.
 
-* To export users that authenticate through Cloud Directory, use the `export/all` API to retrieve all of your Cloud Directory profiles. Then, downoad the content with the `export/download` API. For help exporting Cloud Directory users, see [Migrating users](/docs/appid?topic=appid-cd-users#user-migration).
+* To export users that authenticate through Cloud Directory, use the `export/all` API to retrieve all of your Cloud Directory profiles. Then, download the content with the `export/download` API. For help with exporting Cloud Directory users, see [Migrating users](/docs/appid?topic=appid-cd-users#user-migration).
 
 * To export user profiles that are authenticated through social media integration, use the [users/export API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Users/mgmt.userProfilesExport){: external} or the following CURL command:
 
@@ -56,7 +56,7 @@ In addition, {{site.data.keyword.appid_short_notm}} provides mechanisms to expor
 
 {{site.data.keyword.appid_short_notm}} supports the following data format and schema of the exported data, configuration, and application: 
 
-* Users added through Cloud Directory.
+* Users that are added through Cloud Directory.
 
    ```json
    [
@@ -121,65 +121,65 @@ In addition, {{site.data.keyword.appid_short_notm}} provides mechanisms to expor
    {: codeblock}
 
 
-* Users added through social media integration.
+* Users that are added through social media integration.
 
-```json
-{
-   "itemsPerPage": 2,
-   "requestOptions": {},
-   "totalResults": 2,
-   "users": [
-      {
-         "attributes": {
-            "points": 150
-         },
-         "email": "your@mail.com",
-         "id": "7ae804f3-0ed3-45f0-bc6b-1c6af868e6d6",
-         "identities": [
-            {
-               "id": "105646725068605084546",
-               "idpUserInfo": {
-                  "email": "your@mail.com",
+   ```json
+   {
+      "itemsPerPage": 2,
+      "requestOptions": {},
+      "totalResults": 2,
+      "users": [
+         {
+            "attributes": {
+               "points": 150
+            },
+            "email": "your@mail.com",
+            "id": "7ae804f3-0ed3-45f0-bc6b-1c6af868e6d6",
+            "identities": [
+               {
                   "id": "105646725068605084546",
-                  "picture": "profilePic.jpg"
-               },
-               "provider": "google"
-            }
-         ],
-         "name": "App ID Google User Profile",
-         "roles": []
-      },
-      {
-         "attributes": {
-            "points": 250
+                  "idpUserInfo": {
+                     "email": "your@mail.com",
+                     "id": "105646725068605084546",
+                     "picture": "profilePic.jpg"
+                  },
+                  "provider": "google"
+               }
+            ],
+            "name": "App ID Google User Profile",
+            "roles": []
          },
-         "email": "mail@mail.com",
-         "id": "1439d777-185d-4be1-8f4a-c4e8142b87ea",
-         "identities": [
-            {
-               "first_name": "AppID",
-               "id": "100195207128541",
-               "last_name": "Development",
-               "picture": {
-                  "data": {
-                     "height": 50,
-                     "url": "https://example-profile-picture.com",
-                     "width": 50
-                  }
-               },
-               "provider": "facebook"
-            }
-         ],
-         "name": "App ID Facebook user profile",
-         "roles": [
-            "adult",
-            "child"
-         ]
-      }
-   ]
-}
-```
-{: codeblock}
+         {
+            "attributes": {
+               "points": 250
+            },
+            "email": "mail@mail.com",
+            "id": "1439d777-185d-4be1-8f4a-c4e8142b87ea",
+            "identities": [
+               {
+                  "first_name": "AppID",
+                  "id": "100195207128541",
+                  "last_name": "Development",
+                  "picture": {
+                     "data": {
+                        "height": 50,
+                        "url": "https://example-profile-picture.com",
+                        "width": 50
+                     }
+                  },
+                  "provider": "facebook"
+               }
+            ],
+            "name": "App ID Facebook user profile",
+            "roles": [
+               "adult",
+               "child"
+            ]
+         }
+      ]
+   }
+   ```
+   {: codeblock}
 
 {{site.data.keyword.appid_short_notm}} doesn't support the export of the following data format and schema of the exported data, configuration, and application:
 
