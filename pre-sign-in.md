@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2024
-lastupdated: "2024-10-09"
+lastupdated: "2024-12-05"
 
 keywords: user registration, new user, add user, custom attributes, profiles, user profile, user, user information, identity provider, authentication, authorization, personalize app, app security
 
@@ -205,7 +205,7 @@ You can add a future user and their custom attributes by using the API.
 
    | Components | Description |
    | ---------- | ----------- |
-   | `idp` | The identity provider that the user authenticates with. Options include: `saml`, `cloud_directory`, `facebook`, `google`, `appid_custom`, `ibmid`. |
+   | `idp` | The identity provider that the user authenticates with. Options include: `saml`, `cloud_directory`, `facebook`, `google`, `appid_custom`. |
    | `idp-identity` | The unique identifier provided by the identity provider. |
    | `profile` | The user's profile that contains the custom attribute JSON mapping. |
    {: caption="The components of the POST request" caption-side="top"}
