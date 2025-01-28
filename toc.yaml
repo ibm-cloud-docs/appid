@@ -146,7 +146,8 @@ toc:
   - navgroup:
       id: help
       topics: 
-      - faq.md
+      - topic: faq.md
+        navtitle: FAQ
       - topicgroup: 
           label: Troubleshooting
           topics: 
