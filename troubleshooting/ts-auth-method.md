@@ -48,7 +48,7 @@ content-type: troubleshoot
 {:terraform: .ph data-hd-interface='terraform'}
 {:release-note: data-hd-content-type='release-note'}
 
-# Why am I being told that my authentication method doesn't match?
+# Why doesn't my authentication method match?
 {: #ts-auth-method}
 {: troubleshoot}
 
@@ -79,4 +79,3 @@ Alternatively, you can also set a blank `authnContext` in your SAML configuratio
   "authnContext": { }
 ```
 {: codeblock}
-
