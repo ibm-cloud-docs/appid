@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2024
-lastupdated: "2024-04-04"
+  years: 2017, 2025
+lastupdated: "2025-04-03"
 
 keywords: saml, help, authentication request, error message, signing algorithm, xml file, signing certificate, valid email, error code, saml message signature, 
 
@@ -191,3 +191,33 @@ To resolve the issue:
 * Verify that your identity provider is configured with the correct certificate. To obtain the signing certificate, check the {{site.data.keyword.cloud_notm}} metadata XML file that you downloaded from the {{site.data.keyword.cloud_notm}} dashboard. Ensure that you use the key with `<KeyDescriptor use="signing">`.
 
 * Verify that your identity provider is configured to use `` as the signing algorithm.
+
+
+## Why doesn't my authentication method match?
+{: #ts-auth-method}
+{: troubleshoot}
+
+You recieve a message that the provided authentication method doesn't match the requested authentication method.
+{: tsSymptoms}
+
+For example:
+
+```txt
+AADSTS75011: Authentication method ‘X509, Multifactor, X509Device’ by which the user authenticated with the service doesn't match requested authentication method 'Password, ProtectedTransport'.
+```
+{: screen}
+
+When {{site.data.keyword.appid_short_notm}} generates an authentication request, the authenciation context is used to request the quality of the authentication and SAML assertions.
+{: tsCauses}
+
+By default, {{site.data.keyword.appid_short_notm}} uses `urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport` and `exact` comparison in the `authnContext` as documented in [Understanding SAML](/docs/appid?topic=appid-enterprise), while you're trying to use a different authentication method. In the provided example the `X509, Multifactor` authentication method is used.
+
+To resolve the issue, you can update your authentication context setting for both `class` and `comparison` values in the SAML `authnContext`. To update the context parameter to fit your use case, you can use [the API](/docs/appid?topic=appid-enterprise&interface=api).
+{: tsResolve}
+
+Alternatively, you can also set a blank `authnContext` in your SAML configuration as shown in the following example.
+
+```json
+  "authnContext": { }
+```
+{: codeblock}
