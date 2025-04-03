@@ -70,7 +70,7 @@ When {{site.data.keyword.appid_short_notm}} generates an authentication request,
 
 By default, {{site.data.keyword.appid_short_notm}} uses `urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport` and `exact` comparison in the `authnContext` as documented in [Understanding SAML](/docs/appid?topic=appid-enterprise), while you're trying to use a different authentication method. In the provided example the `X509, Multifactor` authentication method is used.
 
-To resolve the issue, you can update your authentication context setting for both `class` and `comparison` values in the SAML `authnContext`. To update the context parameter to fit your use case, you can use the API.
+To resolve the issue, you can update your authentication context setting for both `class` and `comparison` values in the SAML `authnContext`. To update the context parameter to fit your use case, you can use [the API](/docs/appid?topic=appid-enterprise&interface=api).
 {: tsResolve}
 
 Alternatively, you can also set a blank `authnContext` in your SAML configuration as shown in the following example.
