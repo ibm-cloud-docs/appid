@@ -155,5 +155,6 @@ toc:
           - troubleshooting/ts-attributes.md
           - troubleshooting/ts-requests.md
           - troubleshooting/ts-saml-authentication.md
-          - troubleshooting/ts-saml-debug.md    
+          - troubleshooting/ts-saml-debug.md
+          - troubleshooting/ts-auth-method.md  
       - rate-limits.md  
