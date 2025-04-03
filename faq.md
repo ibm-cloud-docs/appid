@@ -47,7 +47,7 @@ subcollection: appid
 {:release-note: data-hd-content-type='release-note'}
 
 
-# FAQ
+# FAQ for {{site.data.keyword.appid_short_notm}}
 {: #faq}
 
 This FAQ provides answers to common questions about the {{site.data.keyword.appid_full}} service.
