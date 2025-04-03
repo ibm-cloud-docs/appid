@@ -200,8 +200,6 @@ To resolve the issue:
 You recieve a message that the provided authentication method doesn't match the requested authentication method.
 {: tsSymptoms}
 
-For example:
-
 ```txt
 AADSTS75011: Authentication method ‘X509, Multifactor, X509Device’ by which the user authenticated with the service doesn't match requested authentication method 'Password, ProtectedTransport'.
 ```
