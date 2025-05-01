@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2023-01-18"
+lastupdated: "2025-05-01"
 
 keywords: rate limits, traffic control, limit request, lite instances, per minute, per instance, per user, limits
 
@@ -23,7 +23,6 @@ subcollection: appid
 {: #limits}
 
 Rate limiting is used to control the amount of traffic that is coming and going through your instance of {{site.data.keyword.appid_short_notm}}. By limiting requests or resources, you can protect your applications.
-
 
 
 ### General

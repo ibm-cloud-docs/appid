@@ -1,6 +1,5 @@
 https://brewinstall.org/install-jq-on-mac-with-brew/,
 https://expressjs.com,
-https://www.vonage.com/communications-apis/sms/,
 https://help.nexmo.com/hc/en-us/articles/217571017-What-is-a-Sender-ID,
 https://www.java.com/en/download/
 https://api.support.vonage.com/hc/en-us/articles/217571017-What-is-a-Sender-ID

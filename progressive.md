@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2024
-lastupdated: "2024-10-09"
+  years: 2017, 2025
+lastupdated: "2025-05-01"
 
 keywords: anonymous authentication, progressive authentication, profile, user profile, authorization, sign in, secure app, identity provider, authorization
 
@@ -49,7 +49,7 @@ subcollection: appid
 # Anonymous authentication
 {: #anonymous}
 
-With {{site.data.keyword.appid_full}}, you can allow users to anonymously browse your application under an anonymous user profile. If the user chooses to sign in, you can allow them to still access their anonymous attributes by attaching their anonymous profile to their user identity with {{site.data.keyword.appid_short_notm}}.
+With {{site.data.keyword.appid_full}}, you can allow users to anonymously browse your application through a guest profile. If the user chooses to sign in, you can allow them to still access their anonymous attributes by attaching their anonymous guest profile to their user identity with {{site.data.keyword.appid_short_notm}}.
 {: shortdesc}
 
 ## Understanding progressive authentication 
