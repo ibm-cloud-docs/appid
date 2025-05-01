@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2024
-lastupdated: "2024-10-09"
+  years: 2017, 2025
+lastupdated: "2025-05-01"
 
 keywords: user access, account settings, iam, user roles, platform roles, service roles, reader, writer, operator, editor, viewer, administrator, manager, permissions
 
@@ -96,4 +96,4 @@ The following table details actions that are mapped to service access roles. Ser
 | Manager | * All Writer actions. \n * Export your Cloud Directory users and their data from your {{site.data.keyword.appid_short_notm}} instance. \n * Import your Cloud Directory users into a new instance of {{site.data.keyword.appid_short_notm}}. \n * Export all the user profiles in an instance of {{site.data.keyword.appid_short_notm}}. \n * Import all the user profiles that you exported into a new instance of {{site.data.keyword.appid_short_notm}}. |
 {: caption="Service roles and the actions that the role can take" caption-side="top"}
 
-For more information about assigning user roles in the UI, see [Managing access to resources](/docs/account?topic=account-assign-access-resources).
+For more information about assigning user roles in the console, see [Managing access to resources](/docs/account?topic=account-assign-access-resources).

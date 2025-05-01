@@ -57,7 +57,7 @@ Looking for information about your Cloud Directory users? Check out [managing us
 {: tip}
 
 
-## Viewing user profiles with the UI
+## Viewing user profiles in the console
 {: #profile-gui}
 {: ui}
 
@@ -158,7 +158,7 @@ You can use the {{site.data.keyword.appid_short_notm}} API to view details about
 
 
 
-## Setting custom attributes with the UI
+## Setting custom attributes in the console
 {: #admin-attribute-gui}
 {: ui}
 
@@ -226,7 +226,7 @@ By default, custom attributes are modifiable and can be updated by using an {{si
 
 
 
-## Deleting a profile with the UI
+## Deleting a profile in the console
 {: #profile-delete-gui}
 {: ui}
 

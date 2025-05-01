@@ -60,7 +60,7 @@ You can see all the information that is known about all your Cloud Directory use
 {: shortdesc}
 
 
-### Viewing user information with the UI
+### Viewing user information in the console
 {: #cd-view-gui}
 {: ui}
 
@@ -78,7 +78,7 @@ You can use the {{site.data.keyword.appid_short_notm}} dashboard to view details
    | Email | The primary email address that is attached to the user. |
    | First name and surname | Your user's first name and surname as they provided during the sign-up process. |
    | Last Login | The timestamp of the last time that the user logged in to your application. Note: If you added your user through the dashboard, the login is blank until the user themselves signs in to your app. When sign-in occurs, they also become an {{site.data.keyword.appid_short_notm}} user. | 
-   | ID | The ID that is assigned to the user by {{site.data.keyword.appid_short_notm}}. In the UI, it isn't shown but you can copy the value and paste it in a text editor to see the value. |
+   | ID | The ID that is assigned to the user by {{site.data.keyword.appid_short_notm}}. In the console, it isn't shown but you can copy the value and paste it in a text editor to see the value. |
    | Predefined attributes | Predefined attributes are things that are known about a user based on SCIM. |
    | Custom attributes | Custom attributes are additional information that is added to their profile or that is learned about the user's as they interact with your application. |
    | Summary | All the attributes are compiled to form one profile that gives you a complete overview of your Cloud Directory user. For more information, see [user profiles](/docs/appid?topic=appid-profiles). |
@@ -184,7 +184,7 @@ If you disable self-service sign-up or add a user on their behalf, the user does
 {: tip}
 
 
-### Adding users with the UI
+### Adding users in the console
 {: #add-user-gui}
 {: ui}
 
@@ -229,10 +229,10 @@ If you disable self-service sign-up or add a user on their behalf, the user does
 ## Deleting users
 {: #delete-users}
 
-If you want to remove a user from your directory, you can delete the user from the UI or by using the APIs.
+If you want to remove a user from your directory, you can delete the user from the console or by using the APIs.
 {: shortdesc}
 
-### Deleting a single user with the UI
+### Deleting a single user in the console
 {: #delete-user-gui}
 {: ui}
 

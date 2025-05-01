@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2024
-lastupdated: "2024-10-09"
+  years: 2017, 2025
+lastupdated: "2025-05-01"
 
 keywords: attributes, cloud directory, user registry, user management, personalization, customize app, user information, profiles, app security, user profile, app access, identity
 
@@ -197,10 +197,10 @@ Becoming more popular, you decide to implement a "deal-of-the-day". You want the
   
    | Variable | Description | 
    | -------- | ----------- |
-   | `tenantID` | A tenant ID is how your instance of {{site.data.keyword.appid_short_notm}} is identified in the request. You can find your ID in the **Service credentials** tab of the dashboard. If you don't have a set, you can follow the steps in the GUI to create credentials. |
+   | `tenantID` | A tenant ID is how your instance of {{site.data.keyword.appid_short_notm}} is identified in the request. You can find your ID in the **Service credentials** tab of the dashboard. If you don't have a set, you can follow the steps in the console to create credentials. |
    | `source` | For both `accessTokenClaim` and `idTokenClaims` set the source to `attribute`. |
    | `sourceClaim` | The specific attribute that you want to map to your token. In this case, `food-preference`. |
-   | `expires_in` | This value applies to each token type and must be set in each request. If you previously set the value in the GUI, and then run this request, then the values in the request override the previously set values. Be sure to set the expiration to the correct value for your configuration. |
+   | `expires_in` | This value applies to each token type and must be set in each request. If you previously set the value in the console, and then run this request, then the values in the request override the previously set values. Be sure to set the expiration to the correct value for your configuration. |
    {: caption="Token configuration variables" caption-side="top"}
 
    Successful response output:

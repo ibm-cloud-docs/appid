@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2024
-lastupdated: "2024-10-09"
+  years: 2017, 2025
+lastupdated: "2025-05-01"
 
 keywords: user access, control access, permissions, roles, scopes, runtime, access token, authentication, identity, app security
 
@@ -73,7 +73,7 @@ For more information about applications, see [Application identity and authoriza
 
 
 
-## Creating scopes with the UI
+## Creating scopes in the console
 {: #create-scopes-gui}
 {: ui}
 
@@ -141,8 +141,8 @@ To create a scope, you can use the {{site.data.keyword.appid_short_notm}} UI.
    {: codeblock}
 
 
-## Creating roles with the UI
-{: #create-roles-gui}
+## Creating roles in the console
+{: #create-roles-in the console}
 {: ui}
 
 A role is a group of scopes that apply to the same type of user. For example, if you create an admin role, the scopes section might allow for that role to perform read, write, or create actions. But, if you create another role that is called `viewer`, the users who are assigned that role have read only access. To create a role, you can use the {{site.data.keyword.appid_short_notm}} UI.
@@ -241,7 +241,7 @@ A role is a group of scopes that apply to the same type of user. For example, if
 
 
 
-## Assigning roles to users with the UI
+## Assigning roles to users in the console
 {: #assign-roles-gui}
 {: ui}
 
@@ -420,7 +420,7 @@ app.get("/api/protected",
 You can delete any scope or role that's no longer needed. 
 
 
-### Deleting scopes with the UI
+### Deleting scopes in the console
 {: #delete-scope-gui}
 {: ui}
 
@@ -460,7 +460,7 @@ When you delete a scope, it is removed from all the roles that it is associated 
 
 
 
-### Deleting roles with the UI
+### Deleting roles in the console
 {: #delete-role-gui}
 {: ui}
 
