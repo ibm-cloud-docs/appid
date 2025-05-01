@@ -142,7 +142,7 @@ To create a scope, you can use the {{site.data.keyword.appid_short_notm}} UI.
 
 
 ## Creating roles in the console
-{: #create-roles-in the console}
+{: #create-roles-in-the-gui}
 {: ui}
 
 A role is a group of scopes that apply to the same type of user. For example, if you create an admin role, the scopes section might allow for that role to perform read, write, or create actions. But, if you create another role that is called `viewer`, the users who are assigned that role have read only access. To create a role, you can use the {{site.data.keyword.appid_short_notm}} UI.
