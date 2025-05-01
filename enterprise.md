@@ -72,7 +72,7 @@ The SAML protocol provides a bridge between {{site.data.keyword.appid_short_notm
 
 Although the SAML framework is used to authenticate the user, {{site.data.keyword.appid_short_notm}} still uses a more modern OIDC protocol to exchange security tokens with your application. Check out the following image to see a detailed flow of information.
 
-![SAML enterprise authentication flow](/images/ibmid-flow.png){: caption="How an enterprise SAML authentication flow works" caption-side="bottom"}
+![SAML enterprise authentication flow](/images/ibmid-flow.svg){: caption="How an enterprise SAML authentication flow works" caption-side="bottom"}
 
 
 1. A user accesses the login page or restricted resource on their application, which initiates a request to the {{site.data.keyword.appid_short_notm}} `/authorization` endpoint through either an {{site.data.keyword.appid_short_notm}} SDK or API. If the user is unauthorized, the authentication flow begins with a redirect to {{site.data.keyword.appid_short_notm}}.

@@ -60,7 +60,7 @@ With {{site.data.keyword.appid_short_notm}}, you can easily protect your Node.js
 
 Check out the following diagram to see the Authorization Code OAuth 2.0 workflow.
 
-![Node.js application authorization flow](images/node_web.png){: caption="Node.js application flow" caption-side="bottom"}
+![Node.js application authorization flow](images/node_web.svg){: caption="Node.js application flow" caption-side="bottom"}
 
 1. A user attempts to gain access to your protected web application but they are unauthorized.
 2. Your application redirects the user to {{site.data.keyword.appid_short_notm}}.

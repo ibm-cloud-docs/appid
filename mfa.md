@@ -23,7 +23,7 @@ With Cloud Directory for {{site.data.keyword.appid_full}}, you can require multi
 
 Check out the following diagram to see how the MFA flow works for email or SMS.
 
-![MFA flow](images/mfa.png){: caption="Cloud Directory MFA flow" caption-side="bottom"}
+![MFA flow](images/mfa.svg){: caption="Cloud Directory MFA flow" caption-side="bottom"}
 
 1. When a user successfully signs in to your application, they complete the first authentication factor. Then, based on your MFA configuration, the user is sent either an email or SMS that contains a 6-digit code.
 
@@ -239,7 +239,7 @@ For more information about the restrictions and limitations of working with exte
 
 With a pre-mfa extension, you can define the criteria that allows users to avoid having to enter a second form of authentication when they interact with your application.
 
-![pre-MFA flow](images/mfa-pre.png){: caption="Cloud Directory pre-MFA flow" caption-side="bottom"}
+![pre-MFA flow](images/mfa-pre.svg){: caption="Cloud Directory pre-MFA flow" caption-side="bottom"}
 
 1. When a user successfully signs in to your application, {{site.data.keyword.appid_short_notm}} sends a POST request to your extension.
 2. Your extension uses the information from the POST request to determine whether that particular user can skip the second authentication factor requirement based on the criteria that you defined.
@@ -336,7 +336,7 @@ To configure a pre-MFA extension:
 
 When you configure an extension and register it with {{site.data.keyword.appid_short_notm}}, the service calls your extension after every authentication attempt in which a second-factor of identification is present. You can use that information to make better decisions for your users. For example, you can use post-mfa extension collection information for your heuristics and rules and then enforce these using pre-mfa extension.
 
-![post-MFA flow](images/mfa-post.png){: caption="Cloud Directory post-MFA flow" caption-side="bottom"}
+![post-MFA flow](images/mfa-post.svg){: caption="Cloud Directory post-MFA flow" caption-side="bottom"}
 
 1. When a user successfully signs in to your application, they are prompted to enter their second authentication factor.
 

@@ -62,7 +62,7 @@ With Single sign-on (SSO) for Cloud Directory, you can provide a smooth authenti
 
 Check out the following diagram to see SSO in action.
 
-![SSO diagram](images/sso.png){: caption="Cloud Directory SSO flow" caption-side="bottom"}
+![SSO diagram](images/sso.svg){: caption="Cloud Directory SSO flow" caption-side="bottom"}
 
 1. A Cloud Directory user signs in to your app for the first time.
 2. They are asked to authenticate by providing either a username or email and password.
