@@ -145,7 +145,9 @@ toc:
       - privacy-policy.md
   - navgroup:
       id: help
-      topics: 
+      topics:
+      - topic: troubleshooting/ts-support.md
+        navtitle: Getting help and support
       - topic: faq.md
         navtitle: FAQ
       - topicgroup: 
