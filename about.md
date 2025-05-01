@@ -102,7 +102,7 @@ Application
 
 {{site.data.keyword.cloud_notm}}
 :   **{{site.data.keyword.appid_short_notm}}**: After successful authentication, {{site.data.keyword.appid_short_notm}} returns access and identity tokens to your app.
-    **Cloud Directory**: Users can sign up for your service with their email and a password. You can then manage your users in a list view through the UI. With Cloud Directory, {{site.data.keyword.appid_short_notm}} functions as your identity provider.
+    **Cloud Directory**: Users can sign up for your service with their email and a password. You can then manage your users in a list view through the console. With Cloud Directory, {{site.data.keyword.appid_short_notm}} functions as your identity provider.
 
 External (third party)
 :   **Social and enterprise identity providers**: {{site.data.keyword.appid_short_notm}} supports Facebook, Google+, and  SAML 2.0 Federation as identity provider options. The service arranges a redirect to the identity provider and verifies the returned authentication tokens. If the tokens are valid, the service grants access to your app.

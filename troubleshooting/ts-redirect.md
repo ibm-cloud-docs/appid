@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2024
-lastupdated: "2024-04-04"
+  years: 2017, 2025
+lastupdated: "2025-05-01"
 
 keywords: help, support, error, multiple users, attribute, ticket, identity provider, redirect uri, custom url, virtual user, idp, identity settings, user profile
 
@@ -56,7 +56,7 @@ When a user signs into your app by using {{site.data.keyword.appid_full}}, they 
 {: shortdesc}
 
 
-If your redirect URL is rejected by the service when you enter it in the UI, be sure that it is a valid URL that is formatted correctly. [Learn more](/docs/appid?topic=appid-managing-idp#add-redirect-uri).
+If your redirect URL is rejected by the service when you enter it in the console, be sure that it is a valid URL that is formatted correctly. [Learn more](/docs/appid?topic=appid-managing-idp#add-redirect-uri).
 {: tip}
 
 
@@ -106,4 +106,3 @@ You can try some of these solutions:
 
 If none of these solutions work, it is possible that they might have a connection issue.
 {: tip}
-

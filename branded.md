@@ -92,7 +92,7 @@ With Cloud Directory enabled, you can call customized screens with the Android S
 ### Sign in
 {: #branded-android-sign-in}
 
-1. Configure your Cloud Directory [settings](/docs/appid?topic=appid-cloud-directory#cd-settings) in the GUI.
+1. Configure your Cloud Directory [settings](/docs/appid?topic=appid-cloud-directory#cd-settings) in the console.
 2. Add the following code to your application. The sign-in flow is triggered when a user clicks sign in on your custom screen. You get access, identity, and refresh tokens by supplying the user's username and password.
 
    ```java
@@ -123,7 +123,7 @@ With Cloud Directory enabled, you can call your own branded screens with the [iO
 ### Sign in
 {: #branded-ios-sign-in}
 
-1. Configure your Cloud Directory [settings](/docs/appid?topic=appid-cloud-directory#cd-settings) in the GUI.
+1. Configure your Cloud Directory [settings](/docs/appid?topic=appid-cloud-directory#cd-settings) in the console.
 2. Place the following code in your application. When a user attempts to sign in, your customized screen is called and the authorization and authentication process starts with your customized sign-in page.
 
    ```swift
@@ -154,7 +154,7 @@ With Cloud Directory enabled, you can call customized screens with the Node.js S
 By using `WebAppStrategy`, users can sign in to your web apps with their username and a password. After a user successfully signs in to your app, their access token is persisted in an HTTP session while it is kept alive. After the HTTP session is closed or expired, the access token is also destroyed.
 
 
-1. Configure your Cloud Directory [settings](/docs/appid?topic=appid-cloud-directory#cd-settings) in the GUI.
+1. Configure your Cloud Directory [settings](/docs/appid?topic=appid-cloud-directory#cd-settings) in the console.
 2. Place the following code in your application. When a user attempts to sign in, your customized screen is called and the authorization and authentication process starts.
 
    ```javascript
@@ -225,7 +225,7 @@ When the endpoint is called, a reset password email is sent to the user. The ema
 
 You can present your own post reset password page:
 
-1. Configure your Cloud Directory [settings](/docs/appid?topic=appid-cloud-directory#cd-settings) in the GUI. **Allow users to manage their account from your app** must be set to **On**.
+1. Configure your Cloud Directory [settings](/docs/appid?topic=appid-cloud-directory#cd-settings) in the console. **Allow users to manage their account from your app** must be set to **On**.
 2. In the **Reset Password** tab of the service dashboard, be sure that **Forgot password email** is set to **On**.
 3. Enter the URL for your landing page in the **URL for your custom reset password page**
 

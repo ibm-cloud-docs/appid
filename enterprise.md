@@ -193,7 +193,7 @@ You cannot enable SAML until after you configure it as an identity provider.
 You can obtain data from your identity provider and provide it to {{site.data.keyword.appid_short_notm}}. You can initiate login to your applications from IBM Cloud or your identity provider.
 
 
-#### Providing metadata with the UI
+#### Providing metadata in the console
 {: #saml-provide-appid-gui}
 {: ui}
 
@@ -217,13 +217,13 @@ Want to set an authentication context? You can do so through the API.
 {: tip}
 
 
-#### Configuring IdP-initiated login with the UI
+#### Configuring IdP-initiated login in the console
 {: #idp-login-ui}
 {: ui}
 
 Optionally, if you want to log in to your applications on IBM Cloud from your identity provider's UI, you can enable IdP-initiated login.
 
-Follow steps 1 - 4 in the [Providing metadata with the UI](/docs/appid?topic=appid-enterprise#saml-provide-appid-gui) section. Then, complete the following process.
+Follow steps 1 - 4 in the [Providing metadata in the console](/docs/appid?topic=appid-enterprise#saml-provide-appid-gui) section. Then, complete the following process.
 
 5. Enable the **IdP initiated login**.
 6. Enter the **IdP redirect URL**.
