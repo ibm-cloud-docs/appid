@@ -94,7 +94,7 @@ To make the sign-in experience easy for your users, with {{site.data.keyword.app
 With {{site.data.keyword.appid_short_notm}}, you can add a level of security to your apps by requiring users to sign in. You can also use the server SDK or APIs to protect your back-end resources.
 {: shortdesc}
 
-![{{site.data.keyword.appid_short_notm}} architecture diagram](images/appid_architecture1.png){: caption="How {{site.data.keyword.appid_short_notm}} works" caption-side="bottom"}
+![{{site.data.keyword.appid_short_notm}} architecture diagram](images/appid_architecture1.svg){: caption="How {{site.data.keyword.appid_short_notm}} works" caption-side="bottom"}
 
 Application
 :   **Server SDK**: You can protect your back-end resources that are hosted on {{site.data.keyword.cloud_notm}} and your web apps by using the server SDK. It extracts the access token from a request and validates it with {{site.data.keyword.appid_short_notm}}.

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2024
-lastupdated: "2024-10-09"
+  years: 2017, 2025
+lastupdated: "2025-05-01"
 
 keywords: token validation, validate token, protect app, public key, token header, base64, decode payload, authorized, access permissions, app security, identity, jwt
 
@@ -62,7 +62,7 @@ Tokens are used to verify that a person is who they say that they are. They conf
 
 **What if I'm working in a language that {{site.data.keyword.appid_short_notm}} doesn't have an SDK for?**
 
-Don't worry! You have three options:
+You have three options:
 
 * Work with the {{site.data.keyword.appid_short_notm}} APIs
 * Implement your own validation logic

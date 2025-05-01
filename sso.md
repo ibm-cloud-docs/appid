@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2024
-lastupdated: "2024-10-09"
+  years: 2017, 2025
+lastupdated: "2025-05-01"
 
 keywords: single sign on, cloud directory, saml, app security, application identity
 
@@ -53,7 +53,7 @@ subcollection: appid
 With Single sign-on (SSO) for Cloud Directory, you can provide a smooth authentication experience between multiple web apps. If SSO is turned on when a user initially signs in, they are not required to reenter their credentials the next time they sign-in. Instead, they are automatically signed in to any of your apps that are protected by the same {{site.data.keyword.appid_short_notm}} instance.
 {: shortdesc}
 
-{{site.data.keyword.appid_short_notm}} provides SSO for Cloud Directory users. If you use a social or federated SAML identity provider SSO is managed by that provider and {{site.data.keyword.appid_short_notm}} respects it.
+{{site.data.keyword.appid_short_notm}} provides SSO for Cloud Directory users. If you use a social or federated SAML identity provider, SSO is managed by that provider and {{site.data.keyword.appid_short_notm}} respects it.
 {: note}
 
 

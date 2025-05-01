@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2024
-lastupdated: "2024-10-09"
+  years: 2017, 2025
+lastupdated: "2025-05-01"
 
 keywords: custom identity provider, authorization, bring your own idp, proprietary idp, legacy idp, oauth, oidc, authentication, oatuh, app security
 
@@ -85,7 +85,7 @@ The custom identity workflow is built on the JWT-Bearer extension grant type tha
 
 As with all authentication flows, custom identity requires that the application is able to establish a degree of trust with {{site.data.keyword.appid_short_notm}} to ensure the integrity of identity provider user information. Custom identity employs an asymmetric RSA public and private key pair to establish its trust relationship. Depending on your architectural requirements, custom identity supports two trust models that differ only in the storage location and usage of the private key.
 
-![Custom authentication request flow](images/customauth.png){: caption="The request flows for custom authentication" caption-side="bottom"}
+![Custom authentication request flow](images/customauth.svg){: caption="The request flows for custom authentication" caption-side="bottom"}
 
 | 1. Identity provider signed |
 |:-----------|

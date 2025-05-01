@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2024
-lastupdated: "2024-04-04"
+  years: 2017, 2025
+lastupdated: "2025-05-01"
 
 keywords: obtain tokens, return tokens, authorized, authorization, access management, client id, secret, tenant id, app security, identity token
 
@@ -59,7 +59,7 @@ When users or backend services interact with your app, they might need to be aut
 {: #obtain-clientid-secret}
 {: ui}
 
-To obtain tokens, you must have your client ID and secret. The credentials are specific to every application and are used to help identify and validate the users that a token might be assigned to. 
+To obtain tokens, you must have your client ID and secret. The credentials are specific to each application and are used to help identify and validate the users that a token might be assigned to. 
 {: shortdesc}
 
 1. Navigate to the **Applications** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
@@ -216,5 +216,3 @@ With a client ID and secret, you can obtain access and identity tokens by using 
    ```
    {: codeblock}
    {: swift}
-
-

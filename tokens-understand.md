@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2024
-lastupdated: "2024-04-16"
+  years: 2017, 2025
+lastupdated: "2025-05-01"
 
 keywords: tokens, refresh token, access token, identity token, configuration, authorization, authentication, app security, access, identity, refresh
 
@@ -50,7 +50,7 @@ subcollection: appid
 # Tokens
 {: #tokens}
 
-When a user is successfully authenticated, the application receives tokens from {{site.data.keyword.appid_short_notm}}. The service uses three main types of tokens to complete the authentication process.
+When a user is successfully authenticated, the application receives tokens from {{site.data.keyword.appid_short_notm}}. The service uses three main types of tokens to complete the authentication process known as access, identity, and refresh tokens.
 {: shortdesc}
 
 

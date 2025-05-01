@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2024
-lastupdated: "2024-04-04"
+  years: 2017, 2025
+lastupdated: "2025-05-01"
 
 keywords: facebook, google, social, identity providers, single sign on, default configuration, authentication, authorization, identity, app security, idp, default credentials
 
@@ -71,7 +71,7 @@ You are limited to 20 authentications with the default credentials per instance,
 ## Configuring Facebook
 {: #facebook}
 
-You can configure the {{site.data.keyword.appid_short_notm}} service to use Facebook as an identity provider.
+You can configure {{site.data.keyword.appid_short_notm}}to use Facebook as an identity provider.
 {: shortdesc}
 
 ### Getting an app ID and secret from Facebook
@@ -133,8 +133,3 @@ After you configure your Google project and have your client ID and secret, you 
    3. Paste the URL from {{site.data.keyword.appid_short}} into the **Authorized redirect URIs** field and click **Save**.
 4. Click **Save** to update your Google configuration in {{site.data.keyword.appid_short_notm}}.
 5. For web apps, enter a redirect URL in the **Manage** tab. After the authorization process completes, a user is sent to this URL. The URL must follow an `http` or `https` scheme. For a higher level of security, use an `https` scheme.
-
-
-
-
-

@@ -112,7 +112,7 @@ You might want to prevent your users from choosing a recently used password when
 
 To set this configuration by using the GUI:
 
-1. Go to the **Cloud Directory > Password policies** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
+1. Go to the **Cloud Directory** > **Password policies** tab of the {{site.data.keyword.appid_short_notm}} dashboard.
 
 2. Toggle **Advanced password policy** to **Enabled**.
 
