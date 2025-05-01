@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2024
-lastupdated: "2024-10-09"
+  years: 2017, 2025
+lastupdated: "2025-05-01"
 
 keywords: ingress controller, ingress, istio, access, subdomain, custom domain, service, containerized apps, containers, kube, networking, policy, policies, secure apps, authentication, authorization
 
@@ -57,7 +57,7 @@ The {{site.data.keyword.containershort_notm}} custom Ingress image is deprecated
 {: note}
 
 
-![{{site.data.keyword.appid_short_notm}} Kubernetes integration architecture](images/kube-integration.png){: caption="{{site.data.keyword.appid_short_notm}} Kubernetes integration architecture" caption-side="bottom"}
+![{{site.data.keyword.appid_short_notm}} Kubernetes integration architecture](images/kube-integration.svg){: caption="{{site.data.keyword.appid_short_notm}} Kubernetes integration architecture" caption-side="bottom"}
 
 1. A user opens your application and triggers a request to the web app or API.
 2. In the API flow, the Ingress controller attempts to validate the supplied tokens. If the web flow is used, it starts a three-leg OIDC authentication process.

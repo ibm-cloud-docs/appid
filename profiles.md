@@ -60,7 +60,7 @@ With {{site.data.keyword.appid_full}}, you can compile information about the ind
 
 A user profile is all the information that is known about a specific user - compiled into one JSON object and stored by {{site.data.keyword.appid_short_notm}}. There are two types of information, or attributes, that can be obtained and stored in a profile: `predefined` and `custom`. Predefined attributes are specific to the identity of your user and are returned by an identity provider when your user signs in to your app and can include information such as their name or age. Custom attributes are used to store additional information about your users. They can be set by you or learned about the user as they interact with your app. Custom attributes might include an assigned role, a food preference, or a preferred aisle seat on an airplane.
 
-![{{site.data.keyword.appid_short_notm}} user profiles](images/user-profile-makeup.png){: caption="User profile information flow" caption-side="bottom"}
+![{{site.data.keyword.appid_short_notm}} user profiles](images/user-profile-makeup.svg){: caption="User profile information flow" caption-side="bottom"}
 
 
 You can store up to 100 KB of information for each user.
@@ -73,7 +73,7 @@ Several different ways exist in which you can access user information, and sever
 
 If you need to work with an API, check out the following image and corresponding information to see how the information is pulled.
 
-![{{site.data.keyword.appid_short_notm}} user profile endpoint options](images/user-profile-endpoints.png){: caption="Endpoint options that can be used to access user information" caption-side="bottom"}
+![{{site.data.keyword.appid_short_notm}} user profile endpoint options](images/user-profile-endpoints.svg){: caption="Endpoint options that can be used to access user information" caption-side="bottom"}
 
 `/oauth/v4/<tenantID>/token`
 :   After a successful authentication, you receive access and identity tokens that contain the most common user information - a name, picture, or email for example. If you want to add additional information, you can use [custom claims-mapping](/docs/appid?topic=appid-customizing-tokens) to configure App ID to inject the information to the token before it is returned to you.

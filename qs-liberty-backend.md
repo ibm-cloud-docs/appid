@@ -59,7 +59,7 @@ With {{site.data.keyword.appid_short_notm}}, you can easily protect your API end
 {: shortdesc}
 
 
-![Backend Liberty for Java apps](images/backend_liberty.png){: caption="Backend Liberty for Java flow" caption-side="bottom"}
+![Backend Liberty for Java apps](images/backend_liberty.svg){: caption="Backend Liberty for Java flow" caption-side="bottom"}
 
 1. To make a request to a protected resource, a client must have an access token. In step 1, the client makes a request to {{site.data.keyword.appid_short_notm}} for a token. For more information about obtaining access tokens, see [Obtaining tokens](/docs/appid?topic=appid-obtain-tokens).
 2. {{site.data.keyword.appid_short_notm}} returns the tokens.

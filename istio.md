@@ -67,7 +67,7 @@ What can the App Identity and Access Adapter do for you? Check out the following
 
 A multicloud computing environment combines multiple cloud and / or private computing environments into a single network architecture. By distributing workloads across multiple environments, you might find improved resiliency, flexibility, and greater cost-efficiency. To achieve the benefits, it's common to use a container-based application with an orchestration layer, such as Kubernetes.
 
-![App Identity and Access Adapter architecture diagram](images/istio-adapter.png){: caption="Multicloud deployment - achieved with the App Identity and Access Adapter" caption-side="bottom"}
+![App Identity and Access Adapter architecture diagram](images/istio-adapter.svg){: caption="Multicloud deployment - achieved with the App Identity and Access Adapter" caption-side="bottom"}
 
 
 
