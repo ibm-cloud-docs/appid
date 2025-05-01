@@ -55,7 +55,7 @@ content-type: release-note
 {: #appid-jun2223}
 {: release-note}
 
-IdP-initiated login is now available
+IdP-initiated login available
 :   If you want to log in to your applications on IBM Cloud from your identity provider's UI, you can enable IdP-initiated login. [Learn more](/docs/appid?topic=appid-enterprise&interface=ui#saml-configure).
 
 
@@ -202,9 +202,6 @@ Edit user profile information directly in the dashboard
 
 Create future user profiles through the dashboard
 :   You can now start building profiles for users that you know will use your application in the future through the {{site.data.keyword.appid_short_notm}} dashboard. For more information, see [Preregistering future users](/docs/appid?topic=appid-preregister).
-
-Slack channel
-:   Have questions while working with {{site.data.keyword.appid_short_notm}}? Get in touch directly with the development team on [Slack](https://www.ibm.com/blog/announcement/get-help-with-ibm-cloud-app-id-related-questions-on-slack/){: external}!
 
 The {{site.data.keyword.appid_short_notm}} Identity and Access Istio adapter
 :   Centralize all your identity management in a single place with the App Identity and Access adapter. The adapter can be configured to work with any OIDC-compliant identity provider, which enables it to control authentication and authorization policies in all environments including both front and backend apps. And, it does it all without any change to your code or the need to redeploy your application. For more information, see [Securing multicloud apps with Istio](/docs/appid?topic=appid-istio-adapter).

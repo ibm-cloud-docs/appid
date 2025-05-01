@@ -8,7 +8,7 @@ lastupdated: "2025-05-01"
 
 keywords: "get help, app id, support for app id"
 
-subcollection: repo-name
+subcollection: appid
 
 ---
 
@@ -29,4 +29,3 @@ If you experience an issue or have questions when using {{site.data.keyword.appi
 * Review [Stack Overflow](https://stackoverflow.com/questions/tagged/ibm-cloud){: external} to see whether other users experienced the same problem. When you ask a question, tag the question with `ibm-cloud` and `app-id`, so that it's seen by the {{site.data.keyword.cloud_notm}} development teams.
 
 If you still can't resolve the problem, you can open a support case. For more information, see [Creating support cases](/docs/account?topic=account-open-case). And if you're looking to provide feedback, see [Submitting feedback](/docs/overview?topic=overview-feedback).
-
