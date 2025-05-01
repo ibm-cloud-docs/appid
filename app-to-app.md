@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2024
-lastupdated: "2024-10-09"
+  years: 2017, 2025
+lastupdated: "2025-05-01"
 
 keywords: app to app, protected resource, client secret, application identity, authorization, server, authentication, access tokens, app security
 
@@ -72,7 +72,7 @@ This workflow is meant to be used only with trusted applications where there is 
 
 In the following image, you can see the direction of communication between the service and your application.
 
-![{{site.data.keyword.appid_short_notm}} application identity and authorization flow](images/app-to-app-flow.png){: caption="Application identity and authorization flow" caption-side="bottom"}
+![{{site.data.keyword.appid_short_notm}} application identity and authorization flow](images/app-to-app-flow.svg){: caption="Application identity and authorization flow" caption-side="bottom"}
 
 1. You register the application that needs to authenticate to access a protected resource with {{site.data.keyword.appid_short_notm}}. 
 2. Application A registers with {{site.data.keyword.appid_short_notm}} to obtain a client ID and secret.
