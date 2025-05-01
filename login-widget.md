@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2024
-lastupdated: "2024-10-09"
+  years: 2017, 2025
+lastupdated: "2025-05-01"
 
 keywords: app log in, login widget, sign in, default screen, forgot password, mfa, multi-factor authentication, sign up, reset password, facebook, google, identity provider, social log in, saml, authentication, authorization, cloud directory
 
@@ -50,7 +50,7 @@ subcollection: appid
 # Using the Login Widget
 {: #login-widget}
 
-With {{site.data.keyword.appid_full}} you can use a default UI, called a Login Widget, to allow application users the ability to choose the identity provider that they want to sign in with. If you're using Cloud Directory, the Login Widget also provides additional UI's for extra functionalities such as sign-up, forgot password, multi-factor authentication, and more.
+With {{site.data.keyword.appid_full}} you can use a default UI, called a Login Widget, to allow application users the ability to choose the identity provider that they want to sign in with. If you're using Cloud Directory, the Login Widget also provides additional UI's for functionalities such as sign-up, forgot password, multi-factor authentication, and more.
 {: shortdesc}
 
 ## Understanding the Login Widget

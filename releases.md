@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2025
-lastupdated: "2025-04-29"
+lastupdated: "2025-05-01"
 
 keywords: release notes, new, spa, single sign on, mfa, cloud directory, saml, app security, application identity
 
@@ -65,13 +65,9 @@ IdP-initiated login is now available
 {: release-note}
 
 IBM Cloud Foundry service broker unsupported
-:   All services that use the Cloud Foundry service broker will stop working on 1 June 2023, when Cloud Foundry enters the End-of-Support stage. 
+:   All services that use the Cloud Foundry service broker will stop working on 1 June 2023, when Cloud Foundry enters the End-of-Support stage.
 
-   **Does this change affect me?**
-
-   Not sure if your {{site.data.keyword.appid_short_notm}} instance is using the Cloud Foundry service broker? In the Cloud Foundry services section, check whether your {{site.data.keyword.appid_short_notm}} instance is listed as an alias. If your instance is already an alias, you do not need to take any action.  
-   
-   If your instance is not an alias and you want to keep it, please contact [IBM Cloud support](https://cloud.ibm.com/unifiedsupport/supportcenter){: external} to discuss next steps.
+   Not sure if your {{site.data.keyword.appid_short_notm}} instance is using the Cloud Foundry service broker? In the Cloud Foundry services section, check whether your {{site.data.keyword.appid_short_notm}} instance is listed as an alias. If your instance is already an alias, you do not need to take any action. If your instance is not an alias and you want to keep it, please contact [IBM Cloud support](https://cloud.ibm.com/unifiedsupport/supportcenter){: external} to discuss next steps.
 
 
 ## 1 February 2023

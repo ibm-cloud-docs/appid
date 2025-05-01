@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2024
-lastupdated: "2024-04-04"
+  years: 2017, 2025
+lastupdated: "2025-05-01"
 
 keywords: password policies, password strength, advanced, sign in, lock out, reset password, email, expiration, credentials, password reuse, wrong credentials, secure apps, registry, cloud directory, regex
 
@@ -100,7 +100,7 @@ You can create an advanced password policy that consists of any combination of t
 - Minimum period between password changes
 - Ensure that the password does not include user name
 
-When you enable this feature, extra billing for advanced security capabilities is activated. For more information, see [how does {{site.data.keyword.appid_short_notm}} calculate pricing](/docs/appid?topic=appid-pricing).
+When you enable this feature billing for advanced security capabilities is activated. For more information, see [how does {{site.data.keyword.appid_short_notm}} calculate pricing](/docs/appid?topic=appid-pricing).
 {: important}
 
 
@@ -232,4 +232,3 @@ To set this configuration by using the GUI:
 
 This constraint is not case-sensitive. Users are not able to alter the case of some or all the characters to use the personal information. To configure this option, toggle the switch to **on**.
 {: note}
-

@@ -27,7 +27,7 @@ For the most up-to-date pricing information, you can create a cost estimate by c
 The service offers two pricing plans.
 
 Lite
-:   Each month, your first 1000 authentication events and 1000 authorized users per service instance are free, except for any advanced security events. You incur an extra charge for any advanced security events. In this plan, you can issue access and anonymous tokens when a user or an app initiates a sign-in request.
+:   Each month, your first 1000 authentication events and 1000 authorized users per service instance are free, except for any advanced security events. You incur an additional charge for any advanced security events. In this plan, you can issue access and anonymous tokens when a user or an app initiates a sign-in request.
 
 Graduated tier
 :   In the graduated tier plan, you are charged each month after you reach the limits of the lite plan. The cost is based on the summary of three parts: the number of authentication events, the number of authorized users, and the number of advanced security events.
@@ -50,7 +50,7 @@ An authentication event happens when you issue a new regular or anonymous access
 
 You can strengthen the security of your application with advanced security features such as Multi-Factor authentication (MFA), runtime activity tracking, and password policy management. An advanced authentication event happens when you issue tokens for advanced security features.
 
-By default, advanced features are disabled. You incur an extra charge when you enable them. For example, if you obtain 10,000 access tokens, then you turn on password policy management and obtain 10,000 more. You would pay for 20,000 authentication events and 10,000 advanced security events. If you disable all the advanced features, your account reverts to the original-cost policy.
+By default, advanced features are disabled. You incur an additional charge when you enable them. For example, if you obtain 10,000 access tokens, then you turn on password policy management and obtain 10,000 more. You would pay for 20,000 authentication events and 10,000 advanced security events. If you disable all the advanced features, your account reverts to the original-cost policy.
 
 | Feature | Benefit |
 |-----|----|

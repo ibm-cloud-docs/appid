@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024
-lastupdated: "2024-04-16"
+  years: 2017, 2025
+lastupdated: "2025-05-01"
 
 keywords: user registry, sign up, sign in, username, email, password, account settings, reset password, email sender, email verification, app security
 
@@ -77,7 +77,7 @@ In the Cloud Directory dashboard, you can [configure the level of self-service](
 ### Brand your app with custom UIs and flows
 {: #cd-custom-ui}
 
-You can replace the default {{site.data.keyword.appid_short_notm}} sign-in and sign-up UIs and flows with customized options to support your brand recognition and policies. For more information, see [Branding your app](/docs/appid?topic=appid-branded). When a user signs up to use your app, you can customize the flow in various ways. For example, you can add extra fields to the flow (for example, phone number), validate the [password length by policy](/docs/appid?topic=appid-cd-strength), and accept only specific email addresses or check emails against a blocklist. 
+You can replace the default {{site.data.keyword.appid_short_notm}} sign-in and sign-up UIs and flows with customized options to support your brand recognition and policies. For more information, see [Branding your app](/docs/appid?topic=appid-branded). When a user signs up to use your app, you can customize the flow in various ways. For example, you can add more fields to the flow (for example, phone number), validate the [password length by policy](/docs/appid?topic=appid-cd-strength), and accept only specific email addresses or check emails against a blocklist. 
 
 You can customize the sign-in flow by [configuring the forgot password process](/docs/appid?topic=appid-cd-strength).  Additionally, you can [enable single sign-on (SSO)](/docs/appid?topic=appid-cd-sso) to provide your users a smooth authentication experience between multiple web apps. {{site.data.keyword.appid_short_notm}} provides SSO for Cloud Directory users. Therefore, if enabled, your users do not need to reenter their credentials every time they sign-in. Instead, users are automatically signed in to any of your apps that are protected by the same {{site.data.keyword.appid_short_notm}} instance. 
 
