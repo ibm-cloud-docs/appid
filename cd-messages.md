@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2024
-lastupdated: "2024-10-09"
+  years: 2017, 2025
+lastupdated: "2025-05-01"
 
 keywords: emails, verification, templates, sendgrid, welcome, password reset, password change, change details, verification, supported languages, registry, cloud directory, 
 
@@ -175,10 +175,10 @@ You can use the Cloud Directory [management APIs](https://us-south.appid.cloud.i
    const jwkToPem = require('jwk-to-pem');
 
    async function obtainPublicKeys() {
-      // Your {{site.data.keyword.appid_short_notm}} instance tenant ID
+      // Your instance tenant ID
       const tenantId = '<tenantID>';
 
-      // Send request to {{site.data.keyword.appid_short_notm}}'s public keys endpoint
+      // Send request to App ID's public keys endpoint
       const keysOptions = {
       method: 'GET',
       url: `https://<region>.appid.cloud.ibm.com/oauth/v4/$<tenantID>/publickeys`

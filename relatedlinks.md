@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2024
-lastupdated: "2024-04-16"
+  years: 2017, 2025
+lastupdated: "2025-05-01"
 
 keywords: related links, blogs, sample apps, kube, code changes, programming guide, white paper, vuejs apps, serverless applications, enterprise user directory, custom experience, slack, stack overflow, secure iot, solution, finance app, multicloud, video tutorials
 
@@ -61,7 +61,7 @@ Getting started? Try walking through our [video tutorials](https://www.youtube.c
 
 We’d love to hear from you with feedback and questions!
 
-* If you have technical questions about {{site.data.keyword.appid_short_notm}}, post your question on [Stack Overflow](https://stackoverflow.com){: external} and tag your question with "ibm-appid".
+* If you have technical questions about {{site.data.keyword.appid_short_notm}}, post your question on [Stack Overflow](https://stackoverflow.com/questions){: external} and tag your question with "ibm-appid".
 * You can reach out directly to the development team on [Slack](https://www.ibm.com/blog/announcement/get-help-with-ibm-cloud-app-id-related-questions-on-slack/){: external}!
 
 
@@ -82,26 +82,17 @@ Get to know more about {{site.data.keyword.appid_short_notm}} by reading through
 
 Have a specific use case? Check out the available blogs and samples to find out how to get started.
 
-* [Securing Angular + Node.js applications by using {{site.data.keyword.appid_short_notm}}](https://www.ibm.com/blog/securing-angularnode-js-applications-using-app-id/){: external}
 * [Using {{site.data.keyword.appid_short_notm}} with Python](https://github.com/mnsn/appid-python-flask-example){: external}
 * [Using Python Flask-pyoidc with {{site.data.keyword.appid_short_notm}}](https://github.com/IBM-Cloud/github-traffic-stats){: external}
 * [Securing a VueJS app by using {{site.data.keyword.appid_short_notm}}](https://github.com/ibmresearchuk/appid-vue-client){: external}
 * [Authenticating web users with OpenID and JWT](http://heidloff.net/article/authenticating-web-users-openid-connect-jwt/){: external}
 * [Authorization in cloud-native apps in Istio via OpenID](http://heidloff.net/article/authentication-authorization-openid-connect-istio){: external}
-* [Adding sign in to multicloud applications without code changes](https://www.ibm.com/blog/adding-sign-in-to-multicloud-applications-without-code-changes/)
-
-
-Using multiple cloud providers? Check out the blog [Using Istio to secure your multicloud Kubernetes applications with zero code changes](https://www.ibm.com/blog/using-istio-to-secure-your-multicloud-kubernetes-applications-with-zero-code-change/){: external}.
-{: tip}
-
-
 
 ## Securing Runtime, APIs, and back-ends
 {: #rellinks-secure}
 
 Just getting started? Try walking through some of our tutorials and blogs for help integrating {{site.data.keyword.appid_short_notm}} into your apps!
 
-* [Announcing {{site.data.keyword.appid_short_notm}} integration to {{site.data.keyword.containerlong}}](https://www.ibm.com/blog/announcing-app-id-integration-ibm-cloud-kubernetes-service/){: external}
 * [User Authorization in Serverless Web Applications](http://heidloff.net/article/user-authorization-serverless-web-applications-openwhisk){: external}
 * [Authentication of users in serverless applications](http://heidloff.net/article/user-authentication-serverless-openwhisk){: external}
 
@@ -114,6 +105,3 @@ See {{site.data.keyword.appid_short_notm}} in action in these market examples.
 * [{{site.data.keyword.appid_short_notm}} authentication for Watson IoT Platform (Beta)](https://www.ibm.com/docs/en/watson-iot-platform){: external}
 * [Design and build secure IoT solutions, part 3: Securing IoT applications](https://developer.ibm.com/articles/iot-top-10-iot-security-challenges){: external}
 * [Apply end-to-end security to a cloud application](/docs/solution-tutorials?topic=solution-tutorials-cloud-e2e-security#cloud-e2e-security)
-
-
-

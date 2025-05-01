@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2025
-lastupdated: "2025-04-03"
+lastupdated: "2025-05-01"
 
 keywords: saml, help, authentication request, error message, signing algorithm, xml file, signing certificate, valid email, error code, saml message signature, 
 
@@ -114,14 +114,14 @@ You receive one of the following error messages in response to your authenticati
 Error message 1:
 
 ```sh
-Unexpectedly received an encrypted assertion. Please enable response encryption in your {{site.data.keyword.appid_short_notm}} SAML configuration.
+Unexpectedly received an encrypted assertion. Please enable response encryption in your App ID SAML configuration.
 ```
 {: screen}
 
 Error message 2: 
 
 ```sh
-Could not decrypt SAML assertion. Ensure your SAML provider is configured with the {{site.data.keyword.appid_short_notm}} encryption. 
+Could not decrypt SAML assertion. Ensure your SAML provider is configured with the App ID encryption. 
 ```
 {: screen}
 
