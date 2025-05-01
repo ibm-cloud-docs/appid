@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2024
-lastupdated: "2024-04-16"
+  years: 2017, 2025
+lastupdated: "2025-05-01"
 
 keywords: HA for {{site.data.keyword.appid_short_notm}}, DR for {{site.data.keyword.appid_short_notm}}, high availability for {{site.data.keyword.appid_short_notm}}, disaster recovery for {{site.data.keyword.appid_short_notm}}, failover for {{site.data.keyword.appid_short_notm}}
 
@@ -69,13 +69,13 @@ Backing up and restoring your {{site.data.keyword.appid_short_notm}} instance to
 
 1. Define the policies for configuring the storage of the backup of your {{site.data.keyword.appid_short_notm}} instance. This configuration includes planning how the data, such as the user profiles and Cloud Directory users, is to be stored in your instance's backup. 
 
-  Create the backup system before an outage incident occurs in your primary location. To maintain continuous protection, as recommended, automate the process to generate the backup and run it periodically.
-  {: tip} 
+   Create the backup system before an outage incident occurs in your primary location. To maintain continuous protection, as recommended, automate the process to generate the backup and run it periodically.
+   {: tip} 
 
 2. Create and configure an instance of {{site.data.keyword.appid_short_notm}} in another region (for example, a secondary location).
 3. Set up a process to store the backup and restore it in the {{site.data.keyword.appid_short_notm}} instance that is in the secondary location.
 
-To learn more about the high availability and disaster recovery standards in {{site.data.keyword.cloud_notm}}, see [How do I ensure zero downtime?](/docs/overview?topic=overview-zero-downtime) or [Service Level Agreements](/docs/overview?topic=overview-slas).
+To learn more about the high availability and disaster recovery standards in {{site.data.keyword.cloud_notm}}, see [How {{site.data.keyword.cloud_notm}} ensures high availability and redundancy](/docs/resiliency?topic=resiliency-ha-redundancy) or [Service Level Agreements](/docs/overview?topic=overview-slas).
 
 ## Backing up your {{site.data.keyword.appid_short_notm}} instance
 {: #backup}
@@ -138,7 +138,7 @@ Define the settings of your backup based on the setup in your {{site.data.keywor
 
 With the following terraform script, you can retrieve your current configuration and store it into files.
 
-```
+```terraform
 terraform {
   required_providers {
     ibm = {
@@ -350,8 +350,3 @@ resource "ibm_appid_apm" "apm" {
 To restore Cloud Directory users and user profiles, it is recommended that you use the management API:
 -	To import Cloud Directory users, use the [cloud_directory/import/all](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.cloudDirectoryImportAll){: external} API endpoint. For more details about how to import Cloud Directory users with the management API, see [Importing all users](/docs/appid?topic=appid-cd-users&interface=api#cd-import-all).
 -	To import the users profiles, use the [users/import](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Users/mgmt.userProfilesImport){: external} endpoint.
-
-
-
-
-

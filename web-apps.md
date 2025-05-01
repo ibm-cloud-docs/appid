@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2024
-lastupdated: "2024-10-09"
+  years: 2017, 2025
+lastupdated: "2025-05-01"
 
 keywords: web apps, authorization code, authentication, nodejs, javascript, app access, application credentials, login, redirect uri, protected endpoint, video
 
@@ -57,10 +57,10 @@ When you are developing a web application, you can use the {{site.data.keyword.a
 {: #understanding-web-flow}
 
 
-Web apps often require users to authenticate to access protected content. {{site.data.keyword.appid_short_notm}} uses the OIDC authorization code flow to securely authenticate users. With this flow, when the user is authenticated, the app receives an authorization code. The code is then exchanged for an access, identity, and refresh token. In code, exchange step the tokens are always sent by using a secure backchannel between the app and the OIDC server. This process provides an extra layer of security as the attacker is not able to intercept the tokens. These tokens can be sent directly to the web server hosting application for user authentication.
+Web apps often require users to authenticate to access protected content. {{site.data.keyword.appid_short_notm}} uses the OIDC authorization code flow to securely authenticate users. With this flow, when the user is authenticated, the app receives an authorization code. The code is then exchanged for an access, identity, and refresh token. In code, exchange step the tokens are always sent by using a secure backchannel between the app and the OIDC server. This process provides another layer of security as the attacker is not able to intercept the tokens. These tokens can be sent directly to the web server hosting application for user authentication.
 
 
-![{{site.data.keyword.appid_short_notm}} web app request flow](images/web-flow.svg){: caption="{{site.data.keyword.appid_short_notm}} web app request flow" caption-side="bottom"}
+![Web app request flow](images/web-flow.svg){: caption="Web app request flow" caption-side="bottom"}
 
 1. A user initiates the authorization flow by sending a request to the `/authorization` endpoint via the {{site.data.keyword.appid_short_notm}} SDK or API.
 
@@ -98,7 +98,7 @@ You must have the following prerequisites:
 
 Check out the following video to learn about protecting Node applications with {{site.data.keyword.appid_short_notm}}. Then, try it out yourself by using a [simple Node sample app](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02a-simple-node-web-app){: external}.
 
-![About {{site.data.keyword.appid_short_notm}}](https://www.youtube.com/embed/6roa1ZOvwtw){: video output="iframe" data-script="none" id="about-appid" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![About the service](https://www.youtube.com/embed/6roa1ZOvwtw){: video output="iframe" data-script="none" id="about-appid" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ### Installing the Node.js SDK
 {: #web-nodejs-install}
@@ -150,6 +150,7 @@ Check out the following video to learn about protecting Node applications with {
    * By making a POST request to the [`/management/v4/<tenantId>/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Applications/mgmt.registerApplication){: external}.
 
       Request format:
+
       ```sh
       curl -X POST \  https://us-south.appid.cloud.ibm.com/management/v4/39a37f57-a227-4bfe-a044-93b6e6060b61/applications/ \
       -H 'Content-Type: application/json' \
@@ -159,6 +160,7 @@ Check out the following video to learn about protecting Node applications with {
       {: codeblock}
 
       Example response:
+
       ```json
       {
       "clientId": "111c22c3-38ea-4de8-b5d4-338744d83b0f",
@@ -170,12 +172,10 @@ Check out the following video to learn about protecting Node applications with {
       ```
       {: screen}
 
-4. Optional: Decide how to format your redirect URI. The redirect can be formatted in two different ways.
+4. Optional: Decide how to format your redirect URI. The redirect can be formatted in two different ways. If neither of the following options are provided, the {{site.data.keyword.appid_short_notm}} SDK tries to retrieve the `application_uri` of the app that is running on {{site.data.keyword.cloud_notm}} and append a default suffix `/ibm/cloud/appid/callback`.
 
    * Manually in a new `WebAppStrategy({redirectUri: "...."})`
    * As an environment variable named `redirectUri`
-
-   If neither are provided, the {{site.data.keyword.appid_short_notm}} SDK tries to retrieve the `application_uri` of the app that is running on {{site.data.keyword.cloud_notm}} and append a default suffix `/ibm/cloud/appid/callback`.
 
 5. By using the information obtained in the previous steps, initialize the SDK.
 
@@ -239,7 +239,7 @@ You must have the following prerequisites:
 Check out the following video to learn about protecting Liberty for Java applications with {{site.data.keyword.appid_short_notm}}. Then, try it out yourself by using a [simple Liberty for Java sample app](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02c-simple-liberty-web-app){: external}.
 
 
-![About {{site.data.keyword.appid_short_notm}}](https://www.youtube.com/embed/o_Er69YUsMQ){: video output="iframe" data-script="none" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![Protecting Liberty for Java apps](https://www.youtube.com/embed/o_Er69YUsMQ){: video output="iframe" data-script="none" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 
 ### Installing the Liberty for Java SDK
@@ -287,8 +287,8 @@ Check out the following video to learn about protecting Liberty for Java applica
 
    ```xml
    <openidConnectClient
-      clientId='{{site.data.keyword.appid_short_notm}} client_ID'
-      clientSecret='{{site.data.keyword.appid_short_notm}} Secret'
+      clientId='App ID client_ID'
+      clientSecret='App ID Secret'
       authorizationEndpointUrl='oauthServerUrl/authorization'
       tokenEndpointUrl='oauthServerUrl/token'
       jwkEndpointUrl='oauthServerUrl/publickeys'
@@ -313,6 +313,7 @@ Check out the following video to learn about protecting Liberty for Java applica
    | `authFilterid` | The list of resources to protect. |
    | `trustAliasName` | The name of your certificate within your truststore. |
    {: caption="OIDC element variables for Liberty for Java apps" caption-side="top"}
+
 
 ### Initializing the Liberty for Java SDK
 {: #web-liberty-initialize}

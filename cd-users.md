@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2017, 2024
-lastupdated: "2024-10-09"
+  years: 2017, 2025
+lastupdated: "2025-05-01"
 
 keywords: manage users, registry, cloud directory, add user, delete user, tokens, attributes, migrating users, identity provider, app security
 
@@ -316,7 +316,7 @@ You can delete up to 100 users per request.
 ## Migrating users
 {: #user-migration}
 
-Occasionally, you might need to add an instance of {{site.data.keyword.appid_short_notm}}. To help with migrating to the new instance, you can use the export and import APIs for smaller migrations. If you are migrating a large number of users (16,000 or more), you can [export all of them](/docs/appid?topic=appid-cd-users#cd-export-all) or [import all of them](/docs/appid?topic=appid-cd-users#cd-import-all) with a single API request to improve your efficiency.
+Occasionally, you might need to add an instance of {{site.data.keyword.appid_short_notm}}. To help with migrating to the new instance, you can use the export and import APIs for minor migrations. If you are migrating a substantial number of users (16,000 or more), you can [export all of them](/docs/appid?topic=appid-cd-users#cd-export-all) or [import all of them](/docs/appid?topic=appid-cd-users#cd-import-all) with a single API request to improve your efficiency.
 
 You must be assigned the `Manager` [IAM role](/docs/account?topic=account-access-getstarted) for both instances of {{site.data.keyword.appid_short_notm}}.
 {: note}
@@ -373,10 +373,10 @@ If you are exporting many users (16,000 or more), you can use the `export/all` A
 
 
 
-### Exporting users in smaller batches
+### Exporting users in batches
 {: #cd-exporting-profiles}
 
-The export endpoint is reserved for smaller exports of approximately less than 16,000 users. To export all your Cloud Directory users who are associated with a specific tenant ID, use the [export/all](/docs/appid?topic=appid-cd-users#cd-export-all) API endpoint.
+The export endpoint is reserved for minor exports of approximately less than 16,000 users. To export all your Cloud Directory users who are associated with a specific tenant ID, use the [export/all](/docs/appid?topic=appid-cd-users#cd-export-all) API endpoint.
 
 1. Export the users from your original instance of the service.
 
@@ -400,7 +400,7 @@ The export endpoint is reserved for smaller exports of approximately less than 1
 ### Importing all users
 {: #cd-import-all}
 
-Now that you have a list of exported Cloud Directory users, you can import them into the new instance. You can use the import-all API endpoint to import a large number of users (16,000 or more) with a single request. 
+Now that you have a list of exported Cloud Directory users, you can import them into the new instance. You can use the import-all API endpoint to import a substantial number of users (16,000 or more) with a single request. 
 
 1. Import the list of exported users that you downloaded. 
 
@@ -433,7 +433,7 @@ Now that you have a list of exported Cloud Directory users, you can import them 
    {: caption="Descriptions of the parameters that need to be provided in the import/all request" caption-side="top"}
 
 
-### Importing users in smaller batches
+### Importing users in batches
 {: #cd-import}
 
 You can use the import API endpoint to import small groups of users. You can add up to only 50 users per request with the import API endpoint. To add all your users through a single request, use the [import/all](/docs/appid?topic=appid-cd-users#cd-import-all) API endpoint.
@@ -491,7 +491,7 @@ You can use the import API endpoint to import small groups of users. You can add
    {: codeblock}
 
 
-### Migration script for smaller exports and imports
+### Migration script for minor exports and imports
 {: #cd-migration-script}
 
 {{site.data.keyword.appid_short_notm}} provides a migration script that you can use through the CLI that can help speed up the migration process when you use the export or import API endpoints. Alternatively, to make the migration process even more efficient, you can use the [export/all](/docs/appid?topic=appid-cd-users#cd-export-all) and [import/all](/docs/appid?topic=appid-cd-users#cd-import-all) API endpoints.

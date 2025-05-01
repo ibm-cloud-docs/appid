@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2024
-lastupdated: "2024-04-04"
+  years: 2017, 2025
+lastupdated: "2025-05-01"
 
 keywords: personal data, app id permitted uses, privacy policy, usage data, user information, tracking technology, ip addresses, service providers, developers, client, testing, default configuration, cookies data, consent, legal, google, facebook 
 
@@ -91,7 +91,7 @@ When engaging in the Permitted Uses of the Service, Developer may collect certai
 
 Developer may use cookies and similar tracking technologies in development activities.
 
-Cookies are files with small amount of data which may include a unique identifier. Cookies are sent to a user’s browser from a website and stored on the user’s device. Tracking technologies also used are beacons, tags, and scripts to collect and track information and to improve and analyze the Service.
+Cookies are files with data which may include a unique identifier. Cookies are sent to a user’s browser from a website and stored on the user’s device. Tracking technologies also used are beacons, tags, and scripts to collect and track information and to improve and analyze the Service.
 
 A user can instruct their browser to refuse all cookies or to indicate when a cookie is being sent. However, if a user does not accept cookies, it may not be feasible to use some portions of a provided service.
 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2024
-lastupdated: "2024-10-09"
+  years: 2017, 2025
+lastupdated: "2025-05-01"
 
 keywords: back-end apps, java, liberty for java, liberty, identity provider, access management, protected endpoints, access tokens, security, back end
 
@@ -72,7 +72,7 @@ With {{site.data.keyword.appid_short_notm}}, you can easily protect your API end
 
 Check out the following video to see how you can use {{site.data.keyword.appid_short_notm}} to protect a simple Liberty for Java application. All the information that is covered in the video can also be found in written form on this page.
 
-![About {{site.data.keyword.appid_short_notm}}](https://www.youtube.com/embed/QA6DY2qqLaw){: video output="iframe" data-script="none" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![Protecting a Liberty for Java app](https://www.youtube.com/embed/QA6DY2qqLaw){: video output="iframe" data-script="none" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 Don't have an app that you can try out the flow with? No problem! {{site.data.keyword.appid_short_notm}} provides a [simple Liberty for Java sample app](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02d-simple-liberty-backend-app){: external}.
 
@@ -247,9 +247,3 @@ Now that you finished the initial installation, build the app and test your conf
 4. [Obtain an access token](/docs/appid?topic=appid-obtain-tokens).
 
 5. With the access token that you obtained in the previous step, make a request to the endpoint. You are now be able to access the protected endpoint. Verify that the response contains what you expect.
-
-
-## Next steps
-{: #liberty-next}
-
-Ready to start perfecting your authentication experience? Try walking through [this blog](https://www.ibm.com/blog/perfecting-the-login-experience-with-liberty-oauth2-and-appid/){: external} or learning more about [app-to-app communication](/docs/appid?topic=appid-app).

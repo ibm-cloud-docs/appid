@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2024
-lastupdated: "2024-10-09"
+  years: 2017, 2025
+lastupdated: "2025-05-01"
 
 keywords: user information, add users, delete users, profile, access, attributes, admin, app security, authentication, authorization
 
@@ -316,7 +316,7 @@ Before you can import your profiles to your new instance, you need to export the
       "users": [
       {
          "id": "7ae804f3-0ed3-45f0-bc6b-1c6af868e6d6",
-         "name": "{{site.data.keyword.appid_short_notm}} Google User profile",
+         "name": "App ID Google User profile",
          "email": "your@mail.com",
          "identities": [
             {
@@ -335,7 +335,7 @@ Before you can import your profiles to your new instance, you need to export the
          "roles": ["admin"]
       {
          "id": "1439d777-185d-4be1-8f4a-c4e8142b87ea",
-         "name": "{{site.data.keyword.appid_short_notm}} Facebook User profile",
+         "name": "App ID Facebook User profile",
          "email": "mail@mail.com",
          "identities": [
             {
@@ -380,7 +380,7 @@ Now that you have a list of exported user profiles, you can import them into the
    -H "accept: application/json" \
    -H "Authorization: Bearer <bearerToken>" \
    -H "Content-Type: application/json" \
-   -d "{ \"itemsPerPage\": 2, \"totalResults\": 2, \"requestOptions\": {}, \"users\": [ { \"id\": \"7ae804f3-0ed3-45f0-bc6b-1c6af868e6d6\", \"name\": \"{{site.data.keyword.appid_short_notm}} Google User profile\", \"email\": \"your@mail.com\", \"identities\": [ { \"provider\": \"google\", \"id\": \"105646725068605084546\", \"idpUserInfo\": { \"id\": \"{ID}\", \"email\": \"your@mail.com\", \"picture\": \"{profile.jpg}\" } } ], \"attributes\": { \"points\": 150 } { \"role\": admin } }, { \"id\": \"{userinfo}\", \"name\": \"{{site.data.keyword.appid_short_notm}} Facebook User profile\", \"email\": \"mail@mail.com\", \"identities\": [ { \"provider\": \"facebook\", \"id\": \"{id}\", \"picture\": { \"data\": { \"height\": 50, \"width\": 50, \"url\": \"https://{url}.com\" } }, \"first_name\": \"AppID\", \"last_name\": \"Development\" } ], \"attributes\": { \"points\": 250 } { \"role\": admin } } ]}"
+   -d "{ \"itemsPerPage\": 2, \"totalResults\": 2, \"requestOptions\": {}, \"users\": [ { \"id\": \"7ae804f3-0ed3-45f0-bc6b-1c6af868e6d6\", \"name\": \"App ID Google User profile\", \"email\": \"your@mail.com\", \"identities\": [ { \"provider\": \"google\", \"id\": \"105646725068605084546\", \"idpUserInfo\": { \"id\": \"{ID}\", \"email\": \"your@mail.com\", \"picture\": \"{profile.jpg}\" } } ], \"attributes\": { \"points\": 150 } { \"role\": admin } }, { \"id\": \"{userinfo}\", \"name\": \"App ID Facebook User profile\", \"email\": \"mail@mail.com\", \"identities\": [ { \"provider\": \"facebook\", \"id\": \"{id}\", \"picture\": { \"data\": { \"height\": 50, \"width\": 50, \"url\": \"https://{url}.com\" } }, \"first_name\": \"AppID\", \"last_name\": \"Development\" } ], \"attributes\": { \"points\": 250 } { \"role\": admin } } ]}"
    ```
    {: codeblock}
 
