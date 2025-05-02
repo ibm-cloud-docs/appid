@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2024
-lastupdated: "2024-04-04"
+  years: 2017, 2025
+lastupdated: "2025-05-02"
 
 keywords: user registry, sign up, sign in, username, email, password, account settings, reset password, email sender, email verification, app security
 
@@ -60,9 +60,9 @@ With {{site.data.keyword.appid_full}}, you can create a scalable user registry f
 You can configure the level of self-service that is allowed in your application by using the service dashboard. The settings can be updated at any time and are reflected in your app without any required change to your code or redeploy of your application.
 {: shortdesc}
 
-1. Go to the **Manage authentication** tab of the {{site.data.keyword.appid_short_notm}} dashboard and toggle **Cloud Directory** to **Enabled**. You can also enable other providers but to offer Cloud Directory as an option in the Login Widget, it must be enabled.
+1. Go to **Manage authentication** in the {{site.data.keyword.appid_short_notm}} dashboard and toggle **Cloud Directory** to **Enabled**. You can also enable other providers but to offer Cloud Directory as an option in the Login Widget, it must be enabled.
 
-2. Go to the **Authentication Settings** tab and configure your redirect URIs and sign in expiration settings. For more information about the settings, see [Managing authentication](/docs/appid?topic=appid-managing-idp)
+2. Go to **Authentication Settings** and configure your redirect URIs and sign in expiration settings. For more information about the settings, see [Managing authentication](/docs/appid?topic=appid-managing-idp)
 
 3. Go to **Cloud Directory > Settings**.
 
@@ -74,5 +74,3 @@ You can configure the level of self-service that is allowed in your application 
 5. Set **Allow users to sign up to your app** to **Yes**. If you choose not to allow users to sign up, you can add users through the dashboard or the management API for development purposes.
 
 6. To provide the highest level of self-service, set **Allow users to manage their account from your app** to **Yes**. When set to yes, users are able to reset or change their password, or reset their details. If you want to limit your user's self-service ability, set the value to **No**.
-
-
