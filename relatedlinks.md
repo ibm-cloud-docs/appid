@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2025
-lastupdated: "2025-05-01"
+lastupdated: "2025-05-13"
 
 keywords: related links, blogs, sample apps, kube, code changes, programming guide, white paper, vuejs apps, serverless applications, enterprise user directory, custom experience, slack, stack overflow, secure iot, solution, finance app, multicloud, video tutorials
 
@@ -55,15 +55,6 @@ You can use the following related links and samples to learn more about and inte
 
 Getting started? Try walking through our [video tutorials](https://www.youtube.com/playlist?list=PLzpeuWUENMK2tmzSRRx7W_mplw1x4h7ch){: external}.
 {: note}
-
-## Contact us
-{: #rellinks-contact}
-
-We’d love to hear from you with feedback and questions!
-
-* If you have technical questions about {{site.data.keyword.appid_short_notm}}, post your question on [Stack Overflow](https://stackoverflow.com/questions){: external} and tag your question with "ibm-appid".
-* You can reach out directly to the development team on [Slack](https://www.ibm.com/blog/announcement/get-help-with-ibm-cloud-app-id-related-questions-on-slack/){: external}!
-
 
 
 ## Introduction
