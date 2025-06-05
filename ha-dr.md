@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2025
-lastupdated: "2025-05-01"
+lastupdated: "2025-06-05"
 
 keywords: HA for {{site.data.keyword.appid_short_notm}}, DR for {{site.data.keyword.appid_short_notm}}, high availability for {{site.data.keyword.appid_short_notm}}, disaster recovery for {{site.data.keyword.appid_short_notm}}, failover for {{site.data.keyword.appid_short_notm}}
 
@@ -49,21 +49,34 @@ subcollection: appid
 # Understanding high availability and disaster recovery for {{site.data.keyword.appid_short_notm}}
 {: #ha-dr}
 
-{{site.data.keyword.appid_full}} is a highly available, regional service that runs in the following regions:
+[High availability](#x2284708){: term} (HA) is the ability for a service to remain operational and accessible in the presence of unexpected failures. [Disaster recovery](#x2113280){: term} is the process of recovering the service instance to a working state.
+{: shortdesc}
 
-* Dallas (`us-south`)
-* Frankfurt (`eu-de`)
-* London (`eu-gb`)
-* Osaka (`jp-osa`)
-* Sao Paulo (`br-sao`)
-* Sydney (`au-syd`)
-* Tokyo (`jp-tok`)
-* Toronto (`ca-tor`)
-* Washington (`us-east`)
+{{site.data.keyword.appid_full}} is a regional service that fulfills the defined [Service Level Objectives (SLO)](/docs/resiliency?topic=resiliency-slo) with the Standard plan. For more information about the available {{site.data.keyword.cloud_notm}} regions and data centers for {{site.data.keyword.appid_short_notm}}, see [Service and infrastructure availability by location](/docs/overview?topic=overview-services_region).
 
-In each supported region, {{site.data.keyword.appid_short_notm}} exists in multiple availability zones with no single point of failure. In addition to the zones, you can set up policies for cross-regional failover or cross-regional disaster recovery. However, this process is not automatic. 
+## High availability architecture
+{: #id-ha-architecture}
 
-To establish cross-region high availability and implement a recovery plan, you must create and maintain backup instances in multiple regions. To synchronize a service instance in one region with an instance in another region, you can use only the [management API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/){: external} or a combination of the [management API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/) and the [{{site.data.keyword.cloud_notm}} Terraform](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs){: external} provider. 
+An {{site.data.keyword.appid_short_notm}} service instance is provisioned across multiple zones in a multi-zone region with no single point of failure. In the event of an instance node or availability zone failure, the service continues to run with API requests being routed through a global load balancer to the surviving highly available instance nodes. There may be a short period of time (seconds) between the outage and the global load balancer recognizing the failure, during which time, requests may be sent to the failed instance. Workloads that programmatically access the service instance should follow the [client availability retry logic](/docs/resiliency?topic=resiliency-high-availability-design#client-retry-logic-for-ha) to maintain availability. There is no noticeable degradation of service during a zonal failure.
+
+
+
+## Disaster recovery architecture
+{: #id-disaster-recovery-intro}
+
+
+To recover from a service instance outage, a recovery service instance should be craeted in a recovery region. In general, the recovery service instance should be configured with the same data as the source service instance. Be sure that you create backup instances in a recovery region prior to a potential disaster and that you regularly maintain them to ensure that they are in sync with the source instance. 
+
+### Disaster recovery features
+{: #id-dr-features}
+
+Plan for the recovery into a recovery region. The recovery instance should align with the workload [disaster recovery approaches within IBM Cloud.](/docs/resiliency?topic=resiliency-dr-approaches) The recovery instance should track data changes to primary service instance for data including password policies, users, and SAML configurations.
+
+If the disaster does not impact the production service instance, for example data corruption, it may be possible for you to repair the data in the service instance in place.
+
+
+## Backing up and restoring your instances
+{: #backup-restore}
 
 Backing up and restoring your {{site.data.keyword.appid_short_notm}} instance to ensure cross-regional availability requires a few basic steps. You must:
 
@@ -72,23 +85,20 @@ Backing up and restoring your {{site.data.keyword.appid_short_notm}} instance to
    Create the backup system before an outage incident occurs in your primary location. To maintain continuous protection, as recommended, automate the process to generate the backup and run it periodically.
    {: tip} 
 
-2. Create and configure an instance of {{site.data.keyword.appid_short_notm}} in another region (for example, a secondary location).
+2. Create and configure an instance of {{site.data.keyword.appid_short_notm}} in another region.
 3. Set up a process to store the backup and restore it in the {{site.data.keyword.appid_short_notm}} instance that is in the secondary location.
 
-To learn more about the high availability and disaster recovery standards in {{site.data.keyword.cloud_notm}}, see [How {{site.data.keyword.cloud_notm}} ensures high availability and redundancy](/docs/resiliency?topic=resiliency-ha-redundancy) or [Service Level Agreements](/docs/overview?topic=overview-slas).
-
-## Backing up your {{site.data.keyword.appid_short_notm}} instance
+### Backing up your {{site.data.keyword.appid_short_notm}} instance
 {: #backup}
 
-You can create backups of an {{site.data.keyword.appid_short_notm}} instance in a primary region. Then, you can restore these backups in another {{site.data.keyword.appid_short_notm}} instance that is configured in a secondary region. You can do so by using only the management API, or a combination of {{site.data.keyword.cloud_notm}} Terraform provider and the {{site.data.keyword.appid_short_notm}} management API. 
+You can create backups of an {{site.data.keyword.appid_short_notm}} instance in a primary region. Then, you can restore these backups in another {{site.data.keyword.appid_short_notm}} instance that is configured in a secondary region. You can do so by using the management API.
 
-With the second method, you can use Terraform to backup and restore the {{site.data.keyword.appid_short_notm}} instance configurations. However, to backup and restore the Cloud Directory users and user profiles data, you must use the management API. Using both Terraform and the management API to backup and restore your {{site.data.keyword.appid_short_notm}} is a combined process because you can't use Terraform to export Cloud Directory users and their profiles.
 
-### Backing up your instance by using the API
+#### Backing up your instance by using the API
 {: #backup-api}
 {: api}
 
-To backup your {{site.data.keyword.appid_short_notm}} instance by using only the [management API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/){: external}, write a script to send a request to the {{site.data.keyword.appid_short_notm}} API to generate files that contain the setup information for your {{site.data.keyword.appid_short_notm}} instance. Store these files in a secure location because they are required to restore the {{site.data.keyword.appid_short_notm}} instance in a secondary region.
+To backup your {{site.data.keyword.appid_short_notm}} instance by using the [management API](https://us-south.appid.cloud.ibm.com/swagger-ui/#/){: external}, write a script to send a request to the {{site.data.keyword.appid_short_notm}} API to generate files that contain the setup information for your {{site.data.keyword.appid_short_notm}} instance. Store these files in a secure location because they are required to restore the {{site.data.keyword.appid_short_notm}} instance in a secondary region.
 
 Define the settings of your backup based on the setup in your {{site.data.keyword.appid_short_notm}} instance, such as what is needed for your use case. For example, in the following scenario, you configure your {{site.data.keyword.appid_short_notm}} instance with the following settings:
 
@@ -125,87 +135,14 @@ In addition to keeping a backup of the configuration settings of your {{site.dat
 -	These two export APIs generate two backup files, which you must store securely to use later in the restore process.
 
 
-### Backing up your instance by using Terraform and the API
-{: #backup-terraform-management-api}
-{: terraform}
+### Restoring your {{site.data.keyword.appid_short_notm}} instance
+{: #restore}
 
-To backup your {{site.data.keyword.appid_short_notm}} settings with Terraform, you can write Terraform scripts to generate files that contain the setup information for your {{site.data.keyword.appid_short_notm}} instance. Store these files in a secure location because you must use them to restore the {{site.data.keyword.appid_short_notm}} instance in a secondary region.
-
-Define the settings of your backup based on the setup in your {{site.data.keyword.appid_short_notm}} instance, such as what is needed for your use case. For example, in the following scenario, you configure your {{site.data.keyword.appid_short_notm}} instance with the following settings:
-
--	password policies, such as locking the user profile for 60 minutes if the user inputs a wrong password for three times in a row
--	SAML configuration
-
-With the following terraform script, you can retrieve your current configuration and store it into files.
-
-```terraform
-terraform {
-  required_providers {
-    ibm = {
-      source = "IBM-Cloud/ibm"
-      version = ">= 1.12.0"
-    }
-  }
-}
-
-variable "tenant_id" {
-  type = string
-  default = "<<YOUR TENANT ID>>"
-}
-
-variable "region" {
-  type = string
-  default = "<<THE REGION YOUR TENANT IS LOCATED>>"
-}
-
-provider "ibm" {
-  region = var.region
-  ibmcloud_api_key = "<<API KEY TO ACCESS APP ID INSTANCE>>"
-}
-
-##### ---------- Getting the configuration from your App ID instance ---------- #####
-
-# Get Settigs about Password's rules
-data "ibm_appid_apm" "app" {
-    tenant_id = var.tenant_id   
-}
-
-# Get SAML config
-data "ibm_appid_idp_saml" "saml" {
-    tenant_id = var.tenant_id
-}
-
-##### ---------- Saving the App ID configuration to files ---------- #####
-
-resource "local_file" "app_config" {
-    content  = jsonencode(data.ibm_appid_apm.app)
-    filename = "${path.module}/backup_configurations/app_config.json"
-}
-
-resource "local_file" "saml_config" {
-    content  = jsonencode(data.ibm_appid_idp_saml.saml)
-    filename = "${path.module}/backup_configurations/saml_config.json"
-}
-```
-{: codeblock}
-
-In the previous scenario, the files that contain the backups are stored locally. But, you can store them in any other storage location that you prefer, such as [IBM Cloud Object Storage](https://www.ibm.com/products/cloud-object-storage).
-
-To generate a backup of Cloud Directory users and user profiles, it is recommended that you use the management API.
-
--	To export Cloud Directory users, use the [cloud_directory/export/all](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.cloudDirectoryExportAll){: external} API endpoint. To download the export, use the [cloud_directory/export/download](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.cloudDirectoryDownloadExport){: external} API. For more details about how to export Cloud Directory users with the Management API see [Exporting all users](/docs/appid?topic=appid-cd-users&interface=api#cd-export-all).
--	To export users profiles, use the [users/export](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Users/mgmt.userProfilesExport){: external} endpoint.
--	These two export APIs generate two backup files, which you must store to use later in the restore process.
+The process to restore an {{site.data.keyword.appid_short_notm}} instance in a secondary location is the opposite of the process of backing up of an {{site.data.keyword.appid_short_notm}} instance in a primary location. Similarly to the backup process, you can restore your {{site.data.keyword.appid_short_notm}} instance by using  the management API.
 
 
-## Restoring your {{site.data.keyword.appid_short_notm}} instance
-{: #backup-restore}
-
-The process to restore an {{site.data.keyword.appid_short_notm}} instance in a secondary location is the opposite of the process of backing up of an {{site.data.keyword.appid_short_notm}} instance in a primary location. Similarly to the backup process, you can restore your {{site.data.keyword.appid_short_notm}} instance by using only the management API, or combination of the Terraform provider and the management API. 
-
-
-### Restoring your {{site.data.keyword.appid_short_notm}} instance by using the API
-{: backup-restore-api}
+#### Restoring your {{site.data.keyword.appid_short_notm}} instance by using the API
+{: #restore-api}
 {: api}
 
 First, you must manually provision a new instance of {{site.data.keyword.appid_short_notm}} in the secondary region. Then, you can restore your {{site.data.keyword.appid_short_notm}} settings by reading the backup files and by using the management API request to setup the {{site.data.keyword.appid_short_notm}} instance in the secondary region.
@@ -242,111 +179,58 @@ To restore the backups of your Cloud Directory users and their profiles, if avai
 -	To import the users profiles, use the [users/import](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Users/mgmt.userProfilesImport){: external} endpoint.
 
 
-### Restoring your {{site.data.keyword.appid_short_notm}} instance by using Terraform and the API
-{: #backup-restore-terraform-api}
-{: terraform}
+## Your responsibilities for HA and DR
+{: #id-hadr-responsibilities}
 
-When you are using a combination of the Terraform and the management API to restore your {{site.data.keyword.appid_short_notm}} instance, the first step is to write your Terraform script to provision a new instance of {{site.data.keyword.appid_short_notm}} in the secondary region. Then, you can restore your {{site.data.keyword.appid_short_notm}} settings by reading the backup files and by using the terraform commands to setup the {{site.data.keyword.appid_short_notm}} instance in the secondary region.
+The following information can help you create and continuously practice your plan for HA and DR. Disaster recovery steps must be practiced on a regular basis. When building your plan consider the following failure scenarios and resolution.
 
-Continuing with the scenario that is included in the [backup](/docs/appid?topic=appid-ha-dr&interface=terraform#backup-terraform-management-api) section, you can restore the SAML configuration and the password policies with the following script:
+### Customer recovery from BYOK loss
+{: #id-byok-loss-recovery}
 
-```terraform
-terraform {
-  required_providers {
-    ibm = {
-      source = "IBM-Cloud/ibm"
-      version = ">= 1.12.0"
-    }
-  }
-}
+If your service instance was provisioned by using the root key from either {{site.data.keyword.keymanagementservicefull}} or {{site.data.keyword.hscrypto}} and you accidentally deleted the root key, open a support case for the respective service, and include the following information:
+- Your service instance's CRN
+- Your backup Key Protect or HPCS instance's CRN
+- The new Key Protect or HPCS root key ID
+- The original Key Protect or HPCS instance's CRN and key ID, if available
 
-variable "backup_region" {
-  type = string
-  default = "<<REGION WHERE TO CREATE THE NEW APPID INSTANCE>>"
-}
-
-variable "backup_appid_instance_name" {
-  type = string
-  default = "<<THE NAME OF THE NEW APPID INSTANCE>>"
-}
-
-provider "ibm" {
-  region = var.backup_region
-  ibmcloud_api_key = "<<API KEY TO ACCESS APP ID INSTANCE>>"
-}
-
-##### ---------- Creating an AppID instance in a secondary location ---------- #####
-
-data "ibm_resource_group" "group" {
-  name = "Default"
-}
-
-resource "ibm_resource_instance" "backup_appid_instance" {
-  name              = var.backup_appid_instance_name
-  service           = "appid"
-  plan              = "graduated-tier"
-  location          = var.backup_region
-  resource_group_id = data.ibm_resource_group.group.id
-  tags              = ["backup_instance", "backup_of_appid_from_primary_region"]
-}
-
-##### ---------- Getting the configuration from the local backups ---------- #####
-
-locals {
-	app_config = jsondecode(file("${path.module}/backup_configurations/app_config.json"))
-	saml_config = jsondecode(file("${path.module}/backup_configurations/saml_config.json"))
-}
+See Recovering from an accidental key loss for authorization in the Key Protect and HPCS docs.
 
 
-##### ---------- Restoring the App ID configuration into the new App ID instance ---------- #####
+## Change management
+{: #id-change-management}
+
+Change management includes tasks such as upgrades, configuration changes, and deletion.
+
+It is recommended that you grant users and processes the IAM roles and actions with the least privilage required for their work. For example, limit the ability to delete production resources.
 
 
-# Setting SAML config in the new App ID Instance
-resource "ibm_appid_idp_saml" "saml" {
-  tenant_id = resource.ibm_resource_instance.backup_appid_instance.guid
-  is_active = local.saml_config.is_active
-  config {
-    entity_id = local.saml_config.config[0].entity_id
-    sign_in_url = local.saml_config.config[0].sign_in_url
-    display_name = local.saml_config.config[0].display_name
-    encrypt_response = local.saml_config.config[0].encrypt_response
-    sign_request = local.saml_config.config[0].sign_request
-    certificates = [local.saml_config.config[0].certificates[0]]
-  }
-}
+## How {{site.data.keyword.IBM}} helps ensure disaster recovery
+{: #id-ibm-disaster-recovery}
 
-# Setting password policies config in the new App ID Instance
-resource "ibm_appid_apm" "apm" {
-  tenant_id = resource.ibm_resource_instance.backup_appid_instance.guid
-  enabled = local.app_config.enabled
-  prevent_password_with_username = local.app_config.prevent_password_with_username
+{{site.data.keyword.IBM}} takes specific recovery actions in the case of a disaster.
 
-  password_reuse {
-    enabled = local.app_config.password_reuse[0].enabled
-    max_password_reuse = local.app_config.password_reuse[0].max_password_reuse
-  }
+### How {{site.data.keyword.IBM}} recovers from zone failures
+{: #id-ibm-zone-failure}
 
-  password_expiration {
-    enabled = local.app_config.password_expiration[0].enabled
-    days_to_expire = local.app_config.password_expiration[0].days_to_expire
-  }
+In the event of a zone failure IBM Cloud will resolve the zone outage and when the zone comes back on-line, the global load balancer will resume sending API requests to the restored instance node without need for customer action.
 
-  lockout_policy {
-    enabled = local.app_config.lockout_policy[0].enabled
-    lockout_time_sec = local.app_config.lockout_policy[0].lockout_time_sec
-    num_of_attempts = local.app_config.lockout_policy[0].num_of_attempts
-  }
+### How {{site.data.keyword.IBM}} recovers from regional failures
+{: #id-ibm-regional-failure}
 
-  min_password_change_interval {
-    enabled = local.app_config.min_password_change_interval[0].enabled
-    min_hours_to_change_password = local.app_config.min_password_change_interval[0].min_hours_to_change_password
-  }
-}
+When a region is restored after a failure, IBM will attempt to restore the service instance from the regional state resulting in no loss of data and the service instance restored with the same connection strings.
 
-```
-{: codeblock}
+If regional state is corrupted the service will be restored to the state of the last internal backup.  All data associated with the service is backed up once daily by the service in a cross-region Cloud Object Storage bucket managed by the service. There is a potential for 24-hour’s worth of data loss. **These backups are not available for customer managed disaster recovery.** When a service is recovered from backups the instance ID will be restored as well so clients using the endpoint will not need to be updated with new connection strings.
 
+- RTO = 2 hours
+- RPO = 24 hours maximum
 
-To restore Cloud Directory users and user profiles, it is recommended that you use the management API:
--	To import Cloud Directory users, use the [cloud_directory/import/all](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.cloudDirectoryImportAll){: external} API endpoint. For more details about how to import Cloud Directory users with the management API, see [Importing all users](/docs/appid?topic=appid-cd-users&interface=api#cd-import-all).
--	To import the users profiles, use the [users/import](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Users/mgmt.userProfilesImport){: external} endpoint.
+In the event that IBM can not restore the service instance, the customer must restore as described in the disaster recovery section.
+
+## How {{site.data.keyword.IBM}} maintains services
+{: #id-ibm-service-maintenance}
+
+All upgrades follow the {{site.data.keyword.IBM}} service best practices and have a recovery plan and rollback process in-place. Regular upgrades for new features and maintenance occur as part of normal operations. Such maintenance can occasionally cause short interruption intervals that are handled by [client availability retry logic](/docs/resiliency?topic=resiliency-high-availability-design#client-retry-logic-for-ha). Changes are rolled out sequentially, region by region and zone by zone within a region. Updates are backed out at the first sign of a defect.
+
+Complex changes are enabled and disabled with feature flags to control exposure.
+
+Changes that impact customer workloads are detailed in notifications. For more information, see [monitoring notifications and status](/docs/account?topic=account-viewing-cloud-status) for planned maintenance, announcements, and release notes that impact this service.
