@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2025
-lastupdated: "2025-06-06"
+lastupdated: "2025-06-20"
 
 keywords: HA for {{site.data.keyword.appid_short_notm}}, DR for {{site.data.keyword.appid_short_notm}}, high availability for {{site.data.keyword.appid_short_notm}}, disaster recovery for {{site.data.keyword.appid_short_notm}}, failover for {{site.data.keyword.appid_short_notm}}
 
@@ -72,8 +72,6 @@ To recover from a service instance outage, a recovery service instance should be
 
 Plan for the recovery into a recovery region. The recovery instance should align with the workload [disaster recovery approaches within IBM Cloud.](/docs/resiliency?topic=resiliency-dr-approaches) The recovery instance should track data changes to primary service instance for data including password policies, users, and SAML configurations.
 
-If the disaster does not impact the production service instance, for example data corruption, it may be possible for you to repair the data in the service instance in place.
-
 
 ## Backing up and restoring your instances
 {: #backup-restore}
@@ -107,7 +105,7 @@ To retrieve these user settings with the management API, send:
 curl -X 'GET' \
   'https://<region>.appid.cloud.ibm.com/management/v4/<tenantId>/config/cloud_directory/advanced_password_management' \
   --header 'accept: application/json' \
-  --header 'Authorization: <IAM_Token>'
+  --header 'Authorization: Bearer <IAM_Token>'
 ```
 {: codeblock}
 
@@ -118,7 +116,7 @@ curl -X 'GET' \
 curl -X 'GET' \
   'https://<region>.appid.cloud.ibm.com/management/v4/<tenantId>/config/idps/saml' \
   --header 'accept: application/json' \
-  --header 'Authorization: <IAM_Token>'
+  --header 'Authorization: Bearer <IAM_Token>'
 ```
 {: codeblock}
 
@@ -217,7 +215,7 @@ curl -X 'PUT' \
   'https://<region>.appid.cloud.ibm.com/management/v4/<tenantId>/config/cloud_directory/advanced_password_management' \
   --header 'accept: application/json' \
   --header 'Content-Type: application/json' \
-  --header 'Authorization: <IAM_Token>' \
+  --header 'Authorization: Bearer <IAM_Token>' \
   -d '<Data_from_your_backup_file>'
 ```
 {: codeblock}
@@ -229,7 +227,7 @@ curl -X 'PUT' \
   'https://<region>.appid.cloud.ibm.com/management/v4/<tenantId>/config/idps/saml' \
   --header 'accept: application/json' \
   --header 'Content-Type: application/json' \
-  --header 'Authorization: <IAM_Token>' \
+  --header 'Authorization: Bearer <IAM_Token>' \
   -d '<Data_from_your_backup_file>'
 ```
 {: codeblock}
@@ -365,7 +363,7 @@ If your service instance was provisioned by using the root key from either {{sit
 - The new Key Protect or HPCS root key ID
 - The original Key Protect or HPCS instance's CRN and key ID, if available
 
-See Recovering from an accidental key loss for authorization in the Key Protect and HPCS docs.
+See Recovering from an accidental key loss for authorization in the [Key Protect](/docs/key-protect?topic=key-protect-restore-keys) and [HPCS docs](/docs/hs-crypto?topic=hs-crypto-restore-keys).
 
 
 ## Change management
@@ -391,10 +389,10 @@ In the event of a zone failure IBM Cloud will resolve the zone outage and when t
 
 When a region is restored after a failure, IBM will attempt to restore the service instance from the regional state resulting in no loss of data and the service instance restored with the same connection strings.
 
-If regional state is corrupted the service will be restored to the state of the last internal backup.  All data associated with the service is backed up once daily by the service in a cross-region Cloud Object Storage bucket managed by the service. There is a potential for 24-hour’s worth of data loss. **These backups are not available for customer managed disaster recovery.** When a service is recovered from backups the instance ID will be restored as well so clients using the endpoint will not need to be updated with new connection strings.
+If regional state is corrupted the service will be restored to the state of the last internal backup.  All data associated with the service is backed up twice daily by the service in a cross-region Cloud Object Storage bucket managed by the service. There is a potential for 24-hour’s worth of data loss. **These backups are not available for customer managed disaster recovery.** When a service is recovered from backups the instance ID will be restored as well so clients using the endpoint will not need to be updated with new connection strings.
 
-- RTO = 2 hours
-- RPO = 24 hours maximum
+- RTO = 4 hours
+- RPO = 12 hours maximum
 
 In the event that IBM can not restore the service instance, the customer must restore as described in the disaster recovery section.
 
