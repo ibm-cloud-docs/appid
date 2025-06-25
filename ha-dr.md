@@ -99,7 +99,7 @@ Define the settings of your backup based on the setup in your {{site.data.keywor
 -	SAML configuration
 
 To retrieve these user settings with the management API, send:
-- a GET request to the [/management/v4/`<tenantId>`/config/cloud_directory/advanced_password_management](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.get_cloud_directory_advanced_password_management){: external} endpoint to get the configuration of the advanced password management.
+- a GET request to the [`/management/v4/<tenantId>/config/cloud_directory/advanced_password_management`](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.get_cloud_directory_advanced_password_management){: external} endpoint to get the configuration of the advanced password management.
 
 ```sh
 curl -X 'GET' \
