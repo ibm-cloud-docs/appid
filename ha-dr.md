@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2025
-lastupdated: "2025-06-20"
+lastupdated: "2025-06-25"
 
 keywords: HA for {{site.data.keyword.appid_short_notm}}, DR for {{site.data.keyword.appid_short_notm}}, high availability for {{site.data.keyword.appid_short_notm}}, disaster recovery for {{site.data.keyword.appid_short_notm}}, failover for {{site.data.keyword.appid_short_notm}}
 
@@ -99,7 +99,7 @@ Define the settings of your backup based on the setup in your {{site.data.keywor
 -	SAML configuration
 
 To retrieve these user settings with the management API, send:
-- a GET request to the [/management/v4/<tenantId>/config/cloud_directory/advanced_password_management](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.get_cloud_directory_advanced_password_management){: external} endpoint to get the configuration of the advanced password management.
+- a GET request to the [/management/v4/`<tenantId>`/config/cloud_directory/advanced_password_management](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.get_cloud_directory_advanced_password_management){: external} endpoint to get the configuration of the advanced password management.
 
 ```sh
 curl -X 'GET' \
@@ -110,7 +110,7 @@ curl -X 'GET' \
 {: codeblock}
 
 
-- a GET request to the [/management/v4/<tenantId>/config/idps/saml](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.get_saml_idp){: external} endpoint to get the SAML identity provider configuration, which includes the status and credentials.
+- a GET request to the [`/management/v4/<tenantId>/config/idps/saml`](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.get_saml_idp){: external} endpoint to get the SAML identity provider configuration, which includes the status and credentials.
 
 ```sh
 curl -X 'GET' \
@@ -208,7 +208,7 @@ First, you must manually provision a new instance of {{site.data.keyword.appid_s
 
 Continuing with the scenario that is included in the backup section, you can restore the SAML configuration and the password policies by sending the following to the management API:
 
-- a PUT request to the [/management/v4/<tenantId>/config/cloud_directory/advanced_password_management](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.set_cloud_directory_advanced_password_management){: external} endpoint to update the advanced password management configuration. Pass the data that is stored in the backup as the HTTP request body.
+- a PUT request to the [`/management/v4/<tenantId>/config/cloud_directory/advanced_password_management`](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Config/mgmt.set_cloud_directory_advanced_password_management){: external} endpoint to update the advanced password management configuration. Pass the data that is stored in the backup as the HTTP request body.
 
 ```sh
 curl -X 'PUT' \
@@ -220,7 +220,7 @@ curl -X 'PUT' \
 ```
 {: codeblock}
 
-- a PUT request to the [/management/v4/<tenantId>/config/idps/saml](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.set_saml_idp){: external} endpoint to update the SAML IdP configuration. Pass the data that is stored in the backup as the HTTP request body.
+- a PUT request to the [`/management/v4/<tenantId>/config/idps/saml`](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Identity%20Providers/mgmt.set_saml_idp){: external} endpoint to update the SAML IdP configuration. Pass the data that is stored in the backup as the HTTP request body.
 
 ```sh
 curl -X 'PUT' \
