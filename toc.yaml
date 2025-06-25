@@ -13,7 +13,8 @@ toc:
   - navgroup: 
       id: learn
       topics:
-      - getting-started.md
+      - topic: getting-started.md
+        navtitle: Getting started
       - topicgroup: 
           label: About
           topics: 
@@ -97,12 +98,15 @@ toc:
       - topicgroup:
           label: Observability
           topics:
-          - at-events.md
+          - topic: at-events.md
+            navtitle: Activity tracking events
       - topicgroup:
           label: Enhancing security
           topics:
-          - iam.md
-          - data-security.md
+          - topic: iam.md
+            navtitle: Managing access
+          - topic: data-security.md
+            navtitle: Securing your data
   - navgroup:
       id: reference
       topics: 
@@ -140,8 +144,10 @@ toc:
               href: https://developer.ibm.com/devpractices/security/
       - api-reference.md
       - well-known.md
-      - ha-dr.md
-      - data-portability.md
+      - topic: ha-dr.md
+        navtitle: Understanding high availability and disaster recovery
+      - topic: data-portability.md
+        navtitle: Understanding data portability
       - privacy-policy.md
   - navgroup:
       id: help
