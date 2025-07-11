@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2025
-lastupdated: "2025-05-01"
+lastupdated: "2025-06-26"
 
 keywords: user events, track activity, manage events, analyze, administrative, runtime, sign in, settings, app security
 
@@ -16,7 +16,7 @@ subcollection: appid
 # Activity tracking events for {{site.data.keyword.appid_short_notm}} 
 {: #at_events}
 
-{{site.data.keyword.cloud_notm}} services, such as {{site.data.keyword.appid_short_notm}}, generate activity tracking events.
+{{site.data.keyword.cloud_notm}} services, such as {{site.data.keyword.appid_short_notm}}, generate activity tracking events for your account.
 {: shortdesc}
 
 Activity tracking events report on activities that change the state of a service in {{site.data.keyword.cloud_notm}}. You can use the events to investigate abnormal activity and critical actions and to comply with regulatory audit requirements.
