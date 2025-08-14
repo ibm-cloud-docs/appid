@@ -259,26 +259,26 @@ Check out the following video to learn about protecting Liberty for Java applica
 
    * By making a POST request to the [`/management/v4/<tenantID>/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Applications/registerApplication){: external}.
 
-      Request format:
-      ```sh
-      curl -X POST \  https://us-south.appid.cloud.ibm.com/management/v4/39a37f57-a227-4bfe-a044-93b6e6060b61/applications/ \
-      -H 'Content-Type: application/json' \
-      -H 'Authorization: Bearer <IAMToken>' \
-      -d '{"name": "ApplicationName"}'
-      ```
-      {: codeblock}
+      * Request format:
+         ```sh
+         curl -X POST \  https://us-south.appid.cloud.ibm.com/management/v4/39a37f57-a227-4bfe-a044-93b6e6060b61/applications/ \
+         -H 'Content-Type: application/json' \
+         -H 'Authorization: Bearer <IAMToken>' \
+         -d '{"name": "ApplicationName"}'
+         ```
+         {: codeblock}
 
-      Example response:
-      ```json
-      {
-      "clientId": "111c22c3-38ea-4de8-b5d4-338744d83b0f",
-      "tenantId": "39a37f57-a227-4bfe-a044-93b6e6060b61",
-      "secret": "ZmE5ZDQ5ODctMmA1ZS00OGRiLWExZDMtZTA1MjkyZTc4MDB4",
-      "name": "ApplicationName",
-      "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6060b61"
-      }
-      ```
-      {: screen}
+      * Example response:
+         ```json
+         {
+         "clientId": "111c22c3-38ea-4de8-b5d4-338744d83b0f",
+         "tenantId": "39a37f57-a227-4bfe-a044-93b6e6060b61",
+         "secret": "ZmE5ZDQ5ODctMmA1ZS00OGRiLWExZDMtZTA1MjkyZTc4MDB4",
+         "name": "ApplicationName",
+         "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6060b61"
+         }
+         ```
+         {: screen}
 
 3. Create an Open ID Connect Client feature and define the following placeholders. Use the service credentials to fill the placeholders.
 
@@ -453,26 +453,26 @@ You must have the following prerequisites:
 
    * By making a POST request to the [`/management/v4/<tenantID>/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Applications/registerApplication).
 
-      Request format:
-      ```sh
-      curl -X POST \  https://us-south.appid.cloud.ibm.com/management/v4/39a37f57-a227-4bfe-a044-93b6e6060b61/applications/ \
-      -H 'Content-Type: application/json' \
-      -H 'Authorization: Bearer <IAMToken>' \
-      -d '{"name": "ApplicationName"}'
-      ```
-      {: codeblock}
+      * Request format:
+         ```sh
+         curl -X POST \  https://us-south.appid.cloud.ibm.com/management/v4/39a37f57-a227-4bfe-a044-93b6e6060b61/applications/ \
+         -H 'Content-Type: application/json' \
+         -H 'Authorization: Bearer <IAMToken>' \
+         -d '{"name": "ApplicationName"}'
+         ```
+         {: codeblock}
 
-      Example response:
-      ```json
-      {
-      "clientId": "111c22c3-38ea-4de8-b5d4-338744d83b0f",
-      "tenantId": "39a37f57-a227-4bfe-a044-93b6e6060b61",
-      "secret": "ZmE5ZDQ5ODctMmA1ZS00OGRiLWExZDMtZTA1MjkyZTc4MDB4",
-      "name": "ApplicationName",
-      "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6060b61"
-      }
-      ```
-      {: screen}
+      * Example response:
+         ```json
+         {
+         "clientId": "111c22c3-38ea-4de8-b5d4-338744d83b0f",
+         "tenantId": "39a37f57-a227-4bfe-a044-93b6e6060b61",
+         "secret": "ZmE5ZDQ5ODctMmA1ZS00OGRiLWExZDMtZTA1MjkyZTc4MDB4",
+         "name": "ApplicationName",
+         "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6060b61"
+         }
+         ```
+         {: screen}
 
 2. Add an `application.yml` configuration file to the `/springbootsample/src/main/resources/` directory. You can complete your configuration with the information from your service credentials.
 
