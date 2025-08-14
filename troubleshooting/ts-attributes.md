@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2024
-lastupdated: "2024-04-04"
+  years: 2017, 2025
+lastupdated: "2025-08-14"
 
 keywords: help, support, error, multiple users, attribute, ticket, identity provider, redirect uri, custom url, virtual user, idp, identity settings, user profile
 
@@ -52,7 +52,7 @@ content-type: troubleshoot
 {: #ts-saml-attribute}
 {: troubleshoot}
 
-You encounter issues with the values your attributes.
+You encounter issues with your attributes.
 {: shortdesc}
 
 An attribute value exists in a user profile, but it's not associated with the correct attribute.
