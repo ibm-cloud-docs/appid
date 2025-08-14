@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2025
-lastupdated: "2025-05-01"
+lastupdated: "2025-08-14"
 
 keywords: tokens, refresh token, access token, identity token, configuration, authorization, authentication, app security, access, identity, refresh
 
@@ -57,7 +57,7 @@ When a user is successfully authenticated, the application receives tokens from 
 ## Access tokens
 {: #access}
 
-Access tokens represent authorization and enable communication with [backend resources](/docs/appid?topic=appid-backend) that are protected by authorization filters that are set by {{site.data.keyword.appid_short_notm}}. The token conforms to JavaScript Object Signing and Encryption (JOSE) specifications. The token is formatted as [JSON Web Tokens](https://jwt.io/introduction/){: external} are signed with a JSON Web Key that uses the RS256 algorithm.
+Access tokens represent authorization and enable communication with [backend resources](/docs/appid?topic=appid-backend) that are protected by authorization filters that are set by {{site.data.keyword.appid_short_notm}}. The token conforms to JavaScript Object Signing and Encryption (JOSE) specifications. The token is formatted as [JSON Web Tokens](https://jwt.io/introduction){: external} are signed with a JSON Web Key that uses the RS256 algorithm.
 
 
 Example token:
@@ -91,7 +91,7 @@ Example token:
 ## Identity tokens
 {: #identity}
 
-Identity tokens represent authentication and contain information about the user. It can give you information about their name, email, gender, and location. A token can also return a URL to an image of the user. The token is formatted as [JSON Web Tokens](https://jwt.io/introduction/){: external} are signed with a JSON Web Key that uses the RS256 algorithm.
+Identity tokens represent authentication and contain information about the user. It can give you information about their name, email, gender, and location. A token can also return a URL to an image of the user. The token is formatted as [JSON Web Tokens](https://jwt.io/introduction){: external} are signed with a JSON Web Key that uses the RS256 algorithm.
 
 
 Example token:
@@ -151,7 +151,7 @@ For examples of working with refresh tokens and how to use them to implement a r
 ## Where do the tokens come from?
 {: #where}
 
-Tokens are issued through the {{site.data.keyword.appid_short_notm}} OAuth Server and are formatted as [JSON Web Tokens (JWT)](https://jwt.io/introduction/){: external}. The tokens were signed with a [JSON Web Key (JWK)](https://datatracker.ietf.org/doc/html/rfc7517){: external} with the RS256 algorithm.
+Tokens are issued through the {{site.data.keyword.appid_short_notm}} OAuth Server and are formatted as [JSON Web Tokens (JWT)](https://jwt.io/introduction){: external}. The tokens were signed with a [JSON Web Key (JWK)](https://datatracker.ietf.org/doc/html/rfc7517){: external} with the RS256 algorithm.
 
 ## What happens to the information that the token contains?
 {: #contains}

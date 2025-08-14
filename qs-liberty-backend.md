@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2025
-lastupdated: "2025-05-01"
+lastupdated: "2025-08-14"
 
 keywords: back-end apps, java, liberty for java, liberty, identity provider, access management, protected endpoints, access tokens, security, back end
 
@@ -67,15 +67,6 @@ With {{site.data.keyword.appid_short_notm}}, you can easily protect your API end
 4. The resource validates the token that includes the structure, expiration, signature, audience, and any other present fields. If the token is not valid, the resource server denies access. If the token validation is successful, it returns the data.
 
 
-## Video tutorial
-{: #backend-liberty-video}
-
-Check out the following video to see how you can use {{site.data.keyword.appid_short_notm}} to protect a simple Liberty for Java application. All the information that is covered in the video can also be found in written form on this page.
-
-![Protecting a Liberty for Java app](https://www.youtube.com/embed/QA6DY2qqLaw){: video output="iframe" data-script="none" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
-
-Don't have an app that you can try out the flow with? No problem! {{site.data.keyword.appid_short_notm}} provides a [simple Liberty for Java sample app](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02d-simple-liberty-backend-app){: external}.
-
 
 ## Before you begin
 {: #liberty-before}
@@ -86,6 +77,8 @@ Before you get started with {{site.data.keyword.appid_short_notm}} in your Liber
 * [The IBM Cloud CLI](/docs/cli?topic=cli-getting-started)
 * [Apache Maven 3.5+](https://maven.apache.org/download.cgi){: external}
 * [Java 8+](https://www.java.com/en/download/){: external}
+
+Don't have an app that you can try out the flow with? No problem! {{site.data.keyword.appid_short_notm}} provides a [simple Liberty for Java sample app](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02d-simple-liberty-backend-app){: external}.
 
 ## Obtain your credentials
 {: #liberty-obtain-credentials}

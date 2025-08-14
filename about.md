@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2025
-lastupdated: "2025-05-01"
+lastupdated: "2025-08-14"
 
 keywords: authentication, authorization, identity, app security, cloud directory, user data, identity provider, oauth, protocols, oauth, oidc, disaster recovery, dr, compliance, high availability, ha, secure, HA, DR
 
@@ -50,27 +50,10 @@ subcollection: appid
 # About {{site.data.keyword.appid_short_notm}}
 {: #about}
 
-
-Application security can be incredibly complicated. For most developers, it's one of the hardest parts of creating an app. How can you be sure that you are protecting your user's information? By integrating {{site.data.keyword.appid_full}} into your apps, you can secure resources and add authentication - even when you don't have much security experience.
+Isn't is awesome when the barista at your local coffee shop remembers your name and usual order? When you're building an application, you might want include that kind of tailored experience to make your users feel special or save them time. But, no matter how tailored your experience, the success of your app depends on your ability to build trust with your users - which comes down to securing their data and protecting the systems that your app accesses. Knowing who is using your app is a key part and it starts with adding sign in functionality. But, as a lot of developers know, adding authentication and authorization to your app is both risky and complex. With {{site.data.keyword.appid_full}} you can easily add authentication to your applications and host user data in the cloud that can be used to tailor your user experiences.
 {: shortdesc}
 
-What can {{site.data.keyword.appid_short_notm}} do for you? Check out the following video to learn more.
-
-![About {{site.data.keyword.appid_short_notm}}](https://www.youtube.com/embed/XlrCjHdK43Q){: video output="iframe" data-script="#transcript-about-appid" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
-
-
-## Video transcript
-{: #transcript-about-appid}
-{: notoc}
-
-The following section provides the transcript for the introduction to {{site.data.keyword.appid_short_notm}} video for users who might need an alternative format or a translated version.
-
-Wouldn't it be awesome if the barista at your local coffee shop remembered your name and your usual brew. If you're building an application, you might want to build that kind of tailored experience for your users to make them feel special or save them time. Of course, no matter how great your idea is, the success of your app depends on your ability to build trust with your users - which comes down to securing your users data and protecting the systems that your app accesses. Knowing who is using your app is a key part of this. It starts with adding sign in functionality. But, as a lot of developers know, adding authentication and authorization to your app is both risky and complex. That's why we built {{site.data.keyword.appid_short_notm}} on {{site.data.keyword.cloud_notm}}. {{site.data.keyword.appid_short_notm}} helps developers to easily add authentication to their mobile and web apps and hosts user data in the cloud that developers can use to build custom app experiences.
-
-To make the sign-in experience easy for your users, with {{site.data.keyword.appid_short_notm}}, you can let users sign in directly from your app and then sign in with their email and password. Or, you can let users sign in through their Facebook or Google accounts with credentials they already know. Once your users authenticate, you can authorize access to backend resources that your app uses.
-
-{{site.data.keyword.appid_short_notm}} also helps you deliver tailored experiences for your users based on a variety of factors. In {{site.data.keyword.appid_short_notm}} you can store information about your users and let developers use this information for their apps. {{site.data.keyword.appid_short_notm}} is available for iOS, Android, and the web. And of course, it's built with open standards like OAuth 2.0 and OIDC. To get started, check out the {{site.data.keyword.appid_short_notm}} service in the {{site.data.keyword.cloud_notm}} catalog.
-
+With {{site.data.keyword.appid_short_notm}} configured for your application, your users can sign in directly from your app by using an email or password. Or you can allow the use of social media accounts so that they can use credentials that they are already familiar with. After your users authenticate, you can authorize access to the backend resources that your app uses to tailor their experience. In {{site.data.keyword.appid_short_notm}}, you can store information about your users and let your developers use this information as they build their apps. 
 
 
 ## Reasons to use the service

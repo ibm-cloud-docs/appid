@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2024
-lastupdated: "2024-10-09"
+  years: 2017, 2025
+lastupdated: "2025-08-14"
 
 keywords: authentication, authorization, identity, web flow, backend, identity management, anonymous auth, custom flow, mobile, app to app, kubernetes, ingress, istio, app security,
 
@@ -52,7 +52,6 @@ subcollection: appid
 
 You can quickly add authentication and authorization to your application by integrating {{site.data.keyword.appid_short_notm}}. Regardless of the type of flow that you use, you can securely authenticate users to your app. With authentication in place, you can provide personalized user experiences across all types of devices.
 {: shortdesc}
-
 
 Check out the following table to see how {{site.data.keyword.appid_short_notm}} fits into each type of application.
 

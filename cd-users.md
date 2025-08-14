@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2017, 2025
-lastupdated: "2025-05-01"
+lastupdated: "2025-08-14"
 
 keywords: manage users, registry, cloud directory, add user, delete user, tokens, attributes, migrating users, identity provider, app security
 
@@ -436,7 +436,7 @@ Now that you have a list of exported Cloud Directory users, you can import them 
 ### Importing users in batches
 {: #cd-import}
 
-You can use the import API endpoint to import small groups of users. You can add up to only 50 users per request with the import API endpoint. To add all your users through a single request, use the [import/all](/docs/appid?topic=appid-cd-users#cd-import-all) API endpoint.
+You can use the import API endpoint to import a few users at a time. You can add up to only 50 users per request with the import API endpoint. To add all your users through a single request, use the [import/all](/docs/appid?topic=appid-cd-users#cd-import-all) API endpoint.
 
 1. If your users are [assigned roles](/docs/appid?topic=appid-access-control), be sure to create the roles and scopes in your new instance of {{site.data.keyword.appid_short_notm}}.
 

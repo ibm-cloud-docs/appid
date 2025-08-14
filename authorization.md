@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2024
-lastupdated: "2024-10-09"
+  years: 2017, 2025
+lastupdated: "2025-08-14"
 
 keywords: authorization, authentication, oidc, oauth, jwks, app security, identity, tokens, redirect uris, api strategy, webapp strategy
 
@@ -51,11 +51,6 @@ subcollection: appid
 
 Confused about the differences between authorization and authentication? You're not alone. Check out the following information to learn about specific terminology, processes, and the technologies that are used when you work with {{site.data.keyword.appid_full}}.
 {: shortdesc}
-
-Want to know more about some basic concepts of authorization and authentication? Look no further. In the following video you can learn about OAuth 2.0, grant types, OIDC, and more.
-
-![About the {{site.data.keyword.appid_short_notm}} technologies](https://www.youtube.com/embed/ndlk-ZhKGXM){: video output="iframe" data-script="none" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
-
 
 
 ## OAuth 2

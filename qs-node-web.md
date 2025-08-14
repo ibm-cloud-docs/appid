@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2025
-lastupdated: "2025-05-01"
+lastupdated: "2025-08-14"
 
 keywords: web apps, nodejs, node, javascript, protected resource, authorization flow, front end, frontend, app security, authentication
 
@@ -71,16 +71,6 @@ Check out the following diagram to see the Authorization Code OAuth 2.0 workflow
 7. {{site.data.keyword.appid_short_notm}} returns access and identity tokens for the validated user.
 8. The user is then granted access to your application.
 
-
-
-## Video tutorial
-{: #web-node-video}
-
-Check out the following video to see how you can use {{site.data.keyword.appid_short_notm}} to protect a simple Node.js web application. All the information that is covered in the video can also be found in written form on this page.
-
-Don't have an app that you can try out the flow with? No problem! {{site.data.keyword.appid_short_notm}} provides a [simple Node.js web sample app](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02a-simple-node-web-app){: external}.
-
-![About {{site.data.keyword.appid_short_notm}} Node.js applications](https://www.youtube.com/embed/6roa1ZOvwtw){: video output="iframe" data-script="none" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
  
 
 ## Before you begin
@@ -92,9 +82,10 @@ Before you get started with {{site.data.keyword.appid_short_notm}} in your Node.
 * An instance of [the {{site.data.keyword.appid_short_notm}} service](https://cloud.ibm.com/catalog/services/app-id){: external}
 * [NPM version 4+](https://docs.npmjs.com/getting-started){: external}
 * [Node version 6+](https://nodejs.org/en/download/){: external}
+* This SDK uses the `log4js` package for logging. By default, the logging level is set to `info`. To create your own logging configuration, add a `log4js.json` file and set the `process.env.LOG4JS_CONFIG` environment variable to your JSON file.
 
-This SDK uses the `log4js` package for logging. By default, the logging level is set to `info`. To create your own logging configuration, add a `log4js.json` file and set the `process.env.LOG4JS_CONFIG` environment variable to your JSON file.
-{: note}
+Don't have an app that you can try out the flow with? No problem! {{site.data.keyword.appid_short_notm}} provides a [simple Node.js web sample app](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02a-simple-node-web-app){: external}.
+
 
 
 ## Register your redirect URI
