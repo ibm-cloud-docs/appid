@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2024
-lastupdated: "2024-10-09"
+  years: 2017, 2025
+lastupdated: "2025-08-14"
 
 keywords: protected resource, backend apps, identity, tokens, identity provider, authentication, authorization, app security, oauth, 
 
@@ -104,8 +104,6 @@ You can use the {{site.data.keyword.appid_short_notm}} SDKs to enforce authentic
 {: shortdesc}
 
 Check out the following video to learn about protecting backend Node applications with {{site.data.keyword.appid_short_notm}}. Then, try it out yourself by using a [simple Node sample app](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02b-simple-node-backend-app){: external}.
-
-![Configuring your app to use the {{site.data.keyword.appid_short_notm}} Node.js SDK](https://www.youtube.com/embed/jJLSgkHpZwA){: video output="iframe" data-script="none" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 
 ### Before you begin

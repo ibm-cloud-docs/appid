@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2025
-lastupdated: "2025-05-01"
+lastupdated: "2025-08-14"
 
 keywords: Adapter, access management, identity token, helm chart, backend apps, kube, any kube, icp, openshift, iks, service mesh, access, app identity, kube secret, tokens, authenticated, app endpoints, authorization, multicloud, no code change, no redeploy, authorization policies, multiple providers
 
@@ -56,10 +56,6 @@ The App Identity and Access Adapter is not currently supported.
 {: deprecated}
 
 Because enterprises use clouds from multiple providers or a combination of on and off-premise solutions, heterogeneous deployment models can help you to preserve existing infrastructure and avoid vendor lock-in. The Adapter can be configured to work with any OIDC-compliant identity provider, such as {{site.data.keyword.appid_short_notm}}.  The service enables the Adapter to control authentication and authorization policies in all environments, including front end and backend applications. And, it does it all without any change to your code or the need to redeploy your application.
-
-What can the App Identity and Access Adapter do for you? Check out the following video to learn more.
-
-![Using Istio to Secure Your Multicloud Kubernetes Applications with Zero Code Change](https://www.youtube.com/embed/z1kCjxOw9Vs){: video output="iframe" data-script="none" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 
 ## Multicloud architecture

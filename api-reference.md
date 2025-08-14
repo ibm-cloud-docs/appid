@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2024
-lastupdated: "2024-10-09"
+  years: 2017, 2025
+lastupdated: "2025-08-14"
 
 keywords: management api, service management, service instance, devops automation, customize, permissions, iam, account owners, identity, app security, access tokens, video tutorial
 
@@ -100,11 +100,3 @@ https://<regionEndpoint>.appid.cloud.ibm.com/management
 | Management | `https://<region>.appid.cloud.ibm.com/management/v4`|
 | Profiles | `https://<region>.appid.cloud.ibm.com/api/v1` |
 {: caption="Formatting for the available APIs" caption-side="top"}
-
-
-## Need help?
-{: #api-try}
-
-If you run in to trouble while working with the APIs, try watching this tutorial video.
-
-![About the {{site.data.keyword.appid_short_notm}} APIs](https://www.youtube.com/embed/b2ABxvAdGg0){: video output="iframe" data-script="none" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}

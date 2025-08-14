@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2025
-lastupdated: "2025-05-01"
+lastupdated: "2025-08-14"
 
 keywords: release notes, new, spa, single sign on, mfa, cloud directory, saml, app security, application identity
 
@@ -56,7 +56,7 @@ content-type: release-note
 {: release-note}
 
 IdP-initiated login available
-:   If you want to log in to your applications on IBM Cloud from your identity provider's UI, you can enable IdP-initiated login. [Learn more](/docs/appid?topic=appid-enterprise&interface=ui#saml-configure).
+:   If you want to log in to your applications on {{site.data.keyword.cloud_notm}} from your identity provider's UI, you can enable IdP-initiated login. [Learn more](/docs/appid?topic=appid-enterprise&interface=ui#saml-configure).
 
 
 
@@ -64,10 +64,10 @@ IdP-initiated login available
 {: #appid-may0423}
 {: release-note}
 
-IBM Cloud Foundry service broker unsupported
+{{site.data.keyword.cloud_notm}} Foundry service broker unsupported
 :   All services that use the Cloud Foundry service broker will stop working on 1 June 2023, when Cloud Foundry enters the End-of-Support stage.
 
-   Not sure if your {{site.data.keyword.appid_short_notm}} instance is using the Cloud Foundry service broker? In the Cloud Foundry services section, check whether your {{site.data.keyword.appid_short_notm}} instance is listed as an alias. If your instance is already an alias, you do not need to take any action. If your instance is not an alias and you want to keep it, please contact [IBM Cloud support](https://cloud.ibm.com/unifiedsupport/supportcenter){: external} to discuss next steps.
+   Not sure if your {{site.data.keyword.appid_short_notm}} instance is using the Cloud Foundry service broker? In the Cloud Foundry services section, check whether your {{site.data.keyword.appid_short_notm}} instance is listed as an alias. If your instance is already an alias, you do not need to take any action. If your instance is not an alias and you want to keep it, please contact [{{site.data.keyword.cloud_notm}} support](https://cloud.ibm.com/unifiedsupport/supportcenter){: external} to discuss next steps.
 
 
 ## 1 February 2023
@@ -230,7 +230,7 @@ Cloud Directory: Single sign-on
 :   Provide smooth authentication experiences between multiple web apps with single sign-on (SSO) for Cloud Directory. With SSO enabled, user's are not prompted to reenter their credentials the next time they attempt to access your app. Instead, they are automatically signed in to any of your apps that are protected by the same {{site.data.keyword.appid_short_notm}} instance. For more information, see [Single sign-on](/docs/appid?topic=appid-cd-sso).
 
 Updated dashboard
-:   Navigate through your Cloud Directory information quickly! Using [IBM Design Thinking](https://www.ibm.com/design/thinking/){: external}, the {{site.data.keyword.appid_short_notm}} dashboard has been redesigned to give you an even better user experience.
+:   Navigate through your Cloud Directory information quickly! Using [IBM Design Thinking](https://www.ibm.com/training/enterprise-design-thinking){: external}, the {{site.data.keyword.appid_short_notm}} dashboard has been redesigned to give you an even better user experience.
 
 ## 7 February 2019
 {: #appid-feb0719}
@@ -254,4 +254,4 @@ Cloud Directory: Password policies
 {: release-note}
 
 Introducing {{site.data.keyword.appid_short_notm}}
-:   IBM Cloud App ID allows you to easily add authentication to web and mobile apps. You no longer have to worry about setting up infrastructure for identity, ensuring geo-availability, and confirming compliance regulations. Instead, you can enhance your apps with advanced security capabilities like multifactor authentication and single sign-on.
+:   {{site.data.keyword.cloud_notm}} App ID allows you to easily add authentication to web and mobile apps. You no longer have to worry about setting up infrastructure for identity, ensuring geo-availability, and confirming compliance regulations. Instead, you can enhance your apps with advanced security capabilities like multifactor authentication and single sign-on.
