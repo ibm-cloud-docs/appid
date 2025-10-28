@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2025
-lastupdated: "2025-08-14"
+lastupdated: "2025-10-28"
 
 keywords: web apps, authorization code, authentication, nodejs, javascript, app access, application credentials, login, redirect uri, protected endpoint, video
 
@@ -82,7 +82,6 @@ Web apps often require users to authenticate to access protected content. {{site
 {: #web-configuring-nodejs}
 
 You can configure {{site.data.keyword.appid_short_notm}} to work with your Node.js web applications.
-{: shortdesc}
 
 ### Before you begin
 {: #web-configure-node-begin}
@@ -96,7 +95,7 @@ You must have the following prerequisites:
 * Your redirect URI set in the {{site.data.keyword.appid_short_notm}} service dashboard
 
 
-Check out the following video to learn about protecting Node applications with {{site.data.keyword.appid_short_notm}}. Then, try it out yourself by using a [simple Node sample app](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02a-simple-node-web-app){: external}.
+Try it out yourself by using a [simple Node sample app](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02a-simple-node-web-app){: external}.
 
 
 ### Installing the Node.js SDK
@@ -148,28 +147,28 @@ Check out the following video to learn about protecting Node applications with {
 
    * By making a POST request to the [`/management/v4/<tenantId>/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Applications/mgmt.registerApplication){: external}.
 
-      * Request format:
+      Request format:
 
-         ```sh
-         curl -X POST \  https://us-south.appid.cloud.ibm.com/management/v4/39a37f57-a227-4bfe-a044-93b6e6060b61/applications/ \
-         -H 'Content-Type: application/json' \
-         -H 'Authorization: Bearer <IAMToken>' \
-         -d '{"name": "ApplicationName"}'
-         ```
-         {: codeblock}
+      ```sh
+      curl -X POST \  https://us-south.appid.cloud.ibm.com/management/v4/39a37f57-a227-4bfe-a044-93b6e6060b61/applications/ \
+      -H 'Content-Type: application/json' \
+      -H 'Authorization: Bearer <IAMToken>' \
+      -d '{"name": "ApplicationName"}'
+      ```
+      {: codeblock}
 
-      * Example response:
+      Example response:
 
-         ```json
-         {
-         "clientId": "111c22c3-38ea-4de8-b5d4-338744d83b0f",
-         "tenantId": "39a37f57-a227-4bfe-a044-93b6e6060b61",
-         "secret": "ZmE5ZDQ5ODctMmA1ZS00OGRiLWExZDMtZTA1MjkyZTc4MDB4",
-         "name": "ApplicationName",
-         "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6060b61"
-         }
-         ```
-         {: screen}
+      ```json
+      {
+      "clientId": "111c22c3-38ea-4de8-b5d4-338744d83b0f",
+      "tenantId": "39a37f57-a227-4bfe-a044-93b6e6060b61",
+      "secret": "ZmE5ZDQ5ODctMmA1ZS00OGRiLWExZDMtZTA1MjkyZTc4MDB4",
+      "name": "ApplicationName",
+      "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6060b61"
+      }
+      ```
+      {: screen}
 
 4. Optional: Decide how to format your redirect URI. The redirect can be formatted in two different ways. If neither of the following options are provided, the {{site.data.keyword.appid_short_notm}} SDK tries to retrieve the `application_uri` of the app that is running on {{site.data.keyword.cloud_notm}} and append a default suffix `/ibm/cloud/appid/callback`.
 
@@ -235,7 +234,7 @@ You must have the following prerequisites:
 * A Liberty for Java web application
 
 
-Check out the following video to learn about protecting Liberty for Java applications with {{site.data.keyword.appid_short_notm}}. Then, try it out yourself by using a [simple Liberty for Java sample app](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02c-simple-liberty-web-app){: external}.
+Try it out yourself by using a [simple Liberty for Java sample app](https://github.com/ibm-cloud-security/appid-video-tutorials/tree/master/02c-simple-liberty-web-app){: external}.
 
 
 
@@ -259,26 +258,28 @@ Check out the following video to learn about protecting Liberty for Java applica
 
    * By making a POST request to the [`/management/v4/<tenantID>/applications` endpoint](https://us-south.appid.cloud.ibm.com/swagger-ui/#!/Applications/registerApplication){: external}.
 
-      * Request format:
-         ```sh
-         curl -X POST \  https://us-south.appid.cloud.ibm.com/management/v4/39a37f57-a227-4bfe-a044-93b6e6060b61/applications/ \
-         -H 'Content-Type: application/json' \
-         -H 'Authorization: Bearer <IAMToken>' \
-         -d '{"name": "ApplicationName"}'
-         ```
-         {: codeblock}
+      Request format:
+      
+      ```sh
+      curl -X POST \  https://us-south.appid.cloud.ibm.com/management/v4/39a37f57-a227-4bfe-a044-93b6e6060b61/applications/ \
+      -H 'Content-Type: application/json' \
+      -H 'Authorization: Bearer <IAMToken>' \
+      -d '{"name": "ApplicationName"}'
+      ```
+      {: codeblock}
 
-      * Example response:
-         ```json
-         {
-         "clientId": "111c22c3-38ea-4de8-b5d4-338744d83b0f",
-         "tenantId": "39a37f57-a227-4bfe-a044-93b6e6060b61",
-         "secret": "ZmE5ZDQ5ODctMmA1ZS00OGRiLWExZDMtZTA1MjkyZTc4MDB4",
-         "name": "ApplicationName",
-         "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6060b61"
-         }
-         ```
-         {: screen}
+      Example response:
+
+      ```json
+      {
+      "clientId": "111c22c3-38ea-4de8-b5d4-338744d83b0f",
+      "tenantId": "39a37f57-a227-4bfe-a044-93b6e6060b61",
+      "secret": "ZmE5ZDQ5ODctMmA1ZS00OGRiLWExZDMtZTA1MjkyZTc4MDB4",
+      "name": "ApplicationName",
+      "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6060b61"
+      }
+      ```
+      {: screen}
 
 3. Create an Open ID Connect Client feature and define the following placeholders. Use the service credentials to fill the placeholders.
 
