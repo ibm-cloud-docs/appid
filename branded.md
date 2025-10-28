@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2025
-lastupdated: "2025-05-01"
+lastupdated: "2025-10-28"
 
 keywords: bring your own screens, branded app, sign up, custom, directory, registry, app security, password, authorization flow, authentication,
 
@@ -174,7 +174,7 @@ By using `WebAppStrategy`, users can sign in to your web apps with their usernam
    {: caption="Sign-in parameters" caption-side="top"}
 
 
-   If you submit the request in HTML, you can use [body parser](https://www.npmjs.com/package/body-parser){: external} middleware. To see the returned error message, you can use [connect-flash](https://www.npmjs.com/package/connect-flash){: external}. To see it in action, check out the [web app sample](https://github.com/ibm-cloud-security/appid-serversdk-nodejs/blob/master/samples/web-app-sample.js){: external}.
+   To see it in action, check out the [web app sample](https://github.com/ibm-cloud-security/appid-serversdk-nodejs/blob/master/samples/web-app-sample.js){: external}.
    {: note}
 
 
