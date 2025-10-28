@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2025-08-14"
+lastupdated: "2025-10-28"
 
 keywords: saml, enterprise apps, assertions, single sign on, tokens, authorization, user authentication, key cloak, redhat, cloud identity, sso, single sign on, xml signature, service provider, identity provider, app security
 
@@ -148,7 +148,7 @@ The service expects a SAML assertion to look like the following example.
 ### What types of algorithms are supported by {{site.data.keyword.appid_short_notm}}?
 {: #saml-signatures}
 
-{{site.data.keyword.appid_short_notm}} uses the [RSA-SHA256](http://www.w3.org/2001/04/xmldsig-more#rsa-sha256){: external} algorithm to process XML digital signatures.
+{{site.data.keyword.appid_short_notm}} uses the [RSA-SHA256](https://www.w3.org/2001/04/xmldsig-more#rsa-sha256){: external} algorithm to process XML digital signatures.
 
 
 

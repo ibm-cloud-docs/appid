@@ -9,30 +9,30 @@ toc:
     product-page: https://www.ibm.com/products/app-id
     path: appid
     label: App ID
-  entries: 
-  - navgroup: 
+  entries:
+  - navgroup:
       id: learn
       topics:
       - topic: getting-started.md
         navtitle: Getting started
-      - topicgroup: 
+      - topicgroup:
           label: About
-          topics: 
+          topics:
           - about.md
           - topic: about-pricing.md
             navtitle: Pricing
-      - topicgroup: 
+      - topicgroup:
           label: Key concepts
-          topics: 
+          topics:
           - authorization.md
           - tokens-understand.md
       - topic: releases.md
         navtitle: Release notes
-  - navgroup: 
+  - navgroup:
       id: tutorial
-      topics: 
+      topics:
       - tutorial-attributes.md
-      - topicgroup: 
+      - topicgroup:
           label: Quick start guides
           topics:
           - qs-node-web.md
@@ -41,10 +41,10 @@ toc:
       - link:
           label: Serverless web app and eventing for data retrieval and analytics
           href: https://cloud.ibm.com/docs/solution-tutorials?topic=solution-tutorials-serverless-github-traffic-analytics
-  - navgroup: 
+  - navgroup:
       id: howto
       topics:
-      - topicgroup: 
+      - topicgroup:
           label: Securing your apps
           topics:
           - adding-overview.md
@@ -109,8 +109,8 @@ toc:
             navtitle: Securing your data
   - navgroup:
       id: reference
-      topics: 
-      - topicgroup: 
+      topics:
+      - topicgroup:
           label: API and SDK references
           links:
           - link:
@@ -122,15 +122,15 @@ toc:
           - link:
               label: iOS Swift client SDK
               href: https://github.com/ibm-cloud-security/appid-clientsdk-swift
-          - link: 
+          - link:
               label: Node.js server SDK
               href: https://github.com/ibm-cloud-security/appid-serversdk-nodejs
           - link:
-             label: Swift server SDK
-             href: https://github.com/ibm-cloud-security/appid-serversdk-swift
+              label: Swift server SDK
+              href: https://github.com/ibm-cloud-security/appid-serversdk-swift
           - link:
-             label: JavaScript SDK
-             href: https://github.com/ibm-cloud-security/appid-clientsdk-js
+              label: JavaScript SDK
+              href: https://github.com/ibm-cloud-security/appid-clientsdk-js
       - link:
           label: Terraform
           href: https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/appid_action_url
@@ -139,8 +139,8 @@ toc:
           topics:
           - relatedlinks.md
           links:
-           - link:
-              label: IBM Developer - Security 
+          - link:
+              label: IBM Developer - Security
               href: https://developer.ibm.com/devpractices/security/
       - api-reference.md
       - well-known.md
@@ -156,12 +156,12 @@ toc:
         navtitle: Getting help and support
       - topic: faq.md
         navtitle: FAQ
-      - topicgroup: 
+      - topicgroup:
           label: Troubleshooting
-          topics: 
+          topics:
           - troubleshooting/ts-redirect.md
           - troubleshooting/ts-attributes.md
           - troubleshooting/ts-requests.md
           - troubleshooting/ts-saml-authentication.md
           - troubleshooting/ts-saml-debug.md
-      - rate-limits.md  
+      - rate-limits.md
