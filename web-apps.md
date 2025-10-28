@@ -295,7 +295,7 @@ Try it out yourself by using a [simple Liberty for Java sample app](https://gith
       signatureAlgorithm="RS256"
       authFilterid="myAuthFilter"
       trustAliasName="ibm.com"
-   />
+   >
    ```
    {: codeblock}
 
@@ -303,7 +303,7 @@ Try it out yourself by using a [simple Liberty for Java sample app](https://gith
    | ---------- | ----------- |
    | `clientID`  \n `secret`  \n `oauth-server-url`| Complete step two to obtain your service credentials. |
    | `authorizationEndpointURL` | Add `/authorization` to the end of your `oauthServerURL`. |
-   | `tokenEndpointUrl` | >Add `/token` to the end of your `oauthServerURL`. |
+   | `tokenEndpointUrl` | Add `/token` to the end of your `oauthServerURL`. |
    | `jwkEndpointUrl` | Add `/publickeys` to the end of your `oauthServerURL`. |
    | `issuerIdentifier` | The issuer identifier takes the following form: `&lt;region>&gt;.cloud.ibm.com`. Learn more about the [available regions](/docs/appid?topic=appid-regions-endpoints). |
    | `tokenEndpointAuthMethod` | Specified as "basic". |
