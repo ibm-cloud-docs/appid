@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2025
-lastupdated: "2025-05-01"
+  years: 2017, 2026
+lastupdated: "2026-03-04"
 
 keywords: attributes, cloud directory, user registry, user management, personalization, customize app, user information, profiles, app security, user profile, app access, identity
 
@@ -80,8 +80,6 @@ Although this tutorial is written for web apps that use Cloud Directory, attribu
 
 ## Before you begin
 {: #attributes-before}
-
-Ready? Let's get started!
 
 Be sure that you have the following prerequisites before you begin:
 - An instance of the {{site.data.keyword.appid_short_notm}} service
@@ -297,4 +295,4 @@ Optionally, you can verify that step 4 was successful by viewing an access token
 ## Next steps
 {: #attributes-next}
 
-Nice work! You completed the tutorial. Next, you can try configuring [multi-factor authentication](/docs/appid?topic=appid-cd-mfa) or setting up [your own branded GUI](/docs/appid?topic=appid-branded).
+Nice work! You completed the tutorial. Next, you can try configuring [multi-factor authentication](/docs/appid?topic=appid-cd-mfa) or setting up [your own branded UI](/docs/appid?topic=appid-branded).
