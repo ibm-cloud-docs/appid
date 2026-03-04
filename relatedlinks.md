@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2025
-lastupdated: "2025-05-13"
+  years: 2017, 2026
+lastupdated: "2026-03-04"
 
 keywords: related links, blogs, sample apps, kube, code changes, programming guide, white paper, vuejs apps, serverless applications, enterprise user directory, custom experience, slack, stack overflow, secure iot, solution, finance app, multicloud, video tutorials
 
@@ -75,7 +75,6 @@ Have a specific use case? Check out the available blogs and samples to find out 
 
 * [Using {{site.data.keyword.appid_short_notm}} with Python](https://github.com/mnsn/appid-python-flask-example){: external}
 * [Using Python Flask-pyoidc with {{site.data.keyword.appid_short_notm}}](https://github.com/IBM-Cloud/github-traffic-stats){: external}
-* [Securing a VueJS app by using {{site.data.keyword.appid_short_notm}}](https://github.com/ibmresearchuk/appid-vue-client){: external}
 * [Authenticating web users with OpenID and JWT](http://heidloff.net/article/authenticating-web-users-openid-connect-jwt/){: external}
 * [Authorization in cloud-native apps in Istio via OpenID](http://heidloff.net/article/authentication-authorization-openid-connect-istio){: external}
 

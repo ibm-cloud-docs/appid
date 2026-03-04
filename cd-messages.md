@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2025
-lastupdated: "2025-05-01"
+  years: 2017, 2026
+lastupdated: "2026-03-04"
 
 keywords: emails, verification, templates, sendgrid, welcome, password reset, password change, change details, verification, supported languages, registry, cloud directory, 
 
@@ -52,7 +52,7 @@ subcollection: appid
 When a user interacts with your application, you might want to send a reply or ask for verification. {{site.data.keyword.appid_short_notm}} provides default templates that you can use for the interactions. You can also use the templates as a guide and customize your messaging to fit your brand.
 {: shortdesc}
 
-{{site.data.keyword.appid_short_notm}} uses [SendGrid](https://sendgrid.com/){: external} as a mail delivery service. All emails are sent with a single SendGrid account.
+{{site.data.keyword.appid_short_notm}} uses [SendGrid](https://www.twilio.com/en-us/sendgrid){: external} as a mail delivery service. All emails are sent with a single SendGrid account.
 {: note}
 
 
