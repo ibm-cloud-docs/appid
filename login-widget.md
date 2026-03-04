@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2025
-lastupdated: "2025-05-01"
+  years: 2017, 2026
+lastupdated: "2026-03-04"
 
 keywords: app log in, login widget, sign in, default screen, forgot password, mfa, multi-factor authentication, sign up, reset password, facebook, google, identity provider, social log in, saml, authentication, authorization, cloud directory
 
@@ -10,41 +10,7 @@ subcollection: appid
 
 ---
 
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:download: .download}
-{:external: target="_blank" .external}
-{:faq: data-hd-content-type='faq'}
-{:gif: data-image-type='gif'}
-{:important: .important}
-{:note: .note}
-{:pre: .pre}
-{:tip: .tip}
-{:preview: .preview}
-{:deprecated: .deprecated}
-{:beta: .beta}
-{:term: .term}
-{:shortdesc: .shortdesc}
-{:script: data-hd-video='script'}
-{:support: data-reuse='support'}
-{:table: .aria-labeledby="caption"}
-{:troubleshoot: data-hd-content-type='troubleshoot'}
-{:help: data-hd-content-type='help'}
-{:tsCauses: .tsCauses}
-{:tsResolve: .tsResolve}
-{:tsSymptoms: .tsSymptoms}
-{:java: .ph data-hd-programlang='java'}
-{:javascript: .ph data-hd-programlang='javascript'}
-{:swift: .ph data-hd-programlang='swift'}
-{:curl: .ph data-hd-programlang='curl'}
-{:video: .video}
-{:step: data-tutorial-type='step'}
-{:tutorial: data-hd-content-type='tutorial'}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
-{:terraform: .ph data-hd-interface='terraform'}
-{:release-note: data-hd-content-type='release-note'}
+{{site.data.keyword.attribute-definition-list}}
 
 
 # Using the Login Widget
@@ -73,7 +39,7 @@ For example, if you're using the default - Facebook, Google, and Cloud Directory
 When you use Cloud Directory, {{site.data.keyword.appid_short_notm}} is able to provide you with the extended functionality of user management. The extended functionality also applies to the Login Widget's capabilities. User's that are stored in Cloud Directory can take advantage of the functionality such as signing up or resetting their password directly in the Login Widget. Check out the following table to see which screens you can display for each type of identity provider.
 
 | Login Widget screen | Social identity provider | Enterprise identity provider | Cloud Directory |
-|-----|----| -----| ------ |
+| ------------------- | ------------------------ | ---------------------------- | --------------- |
 | Sign in | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) | ![Checkmark icon](../../icons/checkmark-icon.svg) |
 | Sign up | | | ![Checkmark icon](../../icons/checkmark-icon.svg) |
 | Forgot password | | | ![Checkmark icon](../../icons/checkmark-icon.svg) |
@@ -136,7 +102,7 @@ Place the following command in your code.
    ```
    {: codeblock}
 
-</br>
+
 
 ### Sign up
 {: #widget-android-signup}
@@ -169,7 +135,7 @@ Place the following command in your code.
    ```
    {: codeblock}
 
-</br>
+
 
 ### Forgot password
 {: #widget-android-forgot-password}
@@ -199,7 +165,7 @@ Place the following command in your code.
    ```
    {: codeblock}
 
-</br>
+
 
 ### Change details
 {: #widget-android-change-details}
@@ -229,7 +195,7 @@ Place the following command in your code.
    ```
    {: codeblock}
 
-</br>
+
 
 ### Change password
 {: #widget-android-change-password}
@@ -288,7 +254,7 @@ Place the following command in your code.
    ```
    {: codeblock}
 
-</br>
+
 
 ### Sign up
 {: #widget-ios-signup}
@@ -319,7 +285,7 @@ Place the following command in your code.
    ```
    {: codeblock}
 
-</br>
+
 
 ### Forgot password
 {: #widget-ios-forgot-password}
@@ -347,7 +313,6 @@ Place the following command in your code.
    ```
    {: codeblock}
 
-</br>
 
 ### Change details
 {: #widget-ios-change-details}
@@ -375,7 +340,7 @@ Place the following command in your code.
    ```
    {: codeblock}
 
-</br>
+
 
 ### Change password
 {: #widget-ios-change-password}
@@ -423,7 +388,7 @@ Add a post route to your app that can be called with the username and password p
 `WebAppStrategy` allows users to sign in to your web apps with a username and password. After a successful login, a user's access token is stored in the HTTP session and is available during the session. After the HTTP session is destroyed or expired, the token is invalid.
 {: tip}
 
-</br>
+
 
 ### Sign up
 {: #widget-nodejs-signup}
@@ -439,7 +404,7 @@ Add a post route to your app that can be called with the username and password p
    ```
    {: codeblock}
 
-</br>
+
 
 ### Forgot password
 {: #widget-nodejs-forgot-password}
@@ -456,7 +421,7 @@ Add a post route to your app that can be called with the username and password p
    ```
    {: codeblock}
 
-</br>
+
 
 ### Change details
 {: #widget-nodejs-change-details}
@@ -473,7 +438,7 @@ Add a post route to your app that can be called with the username and password p
    ```
    {: codeblock}
 
-</br>
+
 
 ### Change password
 {: #widget-nodejs-change-password}

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2025
-lastupdated: "2025-05-13"
+  years: 2017, 2026
+lastupdated: "2026-03-04"
 
 keywords: related links, blogs, sample apps, kube, code changes, programming guide, white paper, vuejs apps, serverless applications, enterprise user directory, custom experience, slack, stack overflow, secure iot, solution, finance app, multicloud, video tutorials
 
@@ -10,41 +10,7 @@ subcollection: appid
 
 ---
 
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:download: .download}
-{:external: target="_blank" .external}
-{:faq: data-hd-content-type='faq'}
-{:gif: data-image-type='gif'}
-{:important: .important}
-{:note: .note}
-{:pre: .pre}
-{:tip: .tip}
-{:preview: .preview}
-{:deprecated: .deprecated}
-{:beta: .beta}
-{:term: .term}
-{:shortdesc: .shortdesc}
-{:script: data-hd-video='script'}
-{:support: data-reuse='support'}
-{:table: .aria-labeledby="caption"}
-{:troubleshoot: data-hd-content-type='troubleshoot'}
-{:help: data-hd-content-type='help'}
-{:tsCauses: .tsCauses}
-{:tsResolve: .tsResolve}
-{:tsSymptoms: .tsSymptoms}
-{:java: .ph data-hd-programlang='java'}
-{:javascript: .ph data-hd-programlang='javascript'}
-{:swift: .ph data-hd-programlang='swift'}
-{:curl: .ph data-hd-programlang='curl'}
-{:video: .video}
-{:step: data-tutorial-type='step'}
-{:tutorial: data-hd-content-type='tutorial'}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
-{:terraform: .ph data-hd-interface='terraform'}
-{:release-note: data-hd-content-type='release-note'}
+{{site.data.keyword.attribute-definition-list}}
 
 
 # Explore related content
@@ -75,7 +41,6 @@ Have a specific use case? Check out the available blogs and samples to find out 
 
 * [Using {{site.data.keyword.appid_short_notm}} with Python](https://github.com/mnsn/appid-python-flask-example){: external}
 * [Using Python Flask-pyoidc with {{site.data.keyword.appid_short_notm}}](https://github.com/IBM-Cloud/github-traffic-stats){: external}
-* [Securing a VueJS app by using {{site.data.keyword.appid_short_notm}}](https://github.com/ibmresearchuk/appid-vue-client){: external}
 * [Authenticating web users with OpenID and JWT](http://heidloff.net/article/authenticating-web-users-openid-connect-jwt/){: external}
 * [Authorization in cloud-native apps in Istio via OpenID](http://heidloff.net/article/authentication-authorization-openid-connect-istio){: external}
 

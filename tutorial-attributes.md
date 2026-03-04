@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2025
-lastupdated: "2025-05-01"
+  years: 2017, 2026
+lastupdated: "2026-03-04"
 
 keywords: attributes, cloud directory, user registry, user management, personalization, customize app, user information, profiles, app security, user profile, app access, identity
 
@@ -14,41 +14,7 @@ completion-time: 20m
 
 ---
 
-{:codeblock: .codeblock}
-{:screen: .screen}
-{:download: .download}
-{:external: target="_blank" .external}
-{:faq: data-hd-content-type='faq'}
-{:gif: data-image-type='gif'}
-{:important: .important}
-{:note: .note}
-{:pre: .pre}
-{:tip: .tip}
-{:preview: .preview}
-{:deprecated: .deprecated}
-{:beta: .beta}
-{:term: .term}
-{:shortdesc: .shortdesc}
-{:script: data-hd-video='script'}
-{:support: data-reuse='support'}
-{:table: .aria-labeledby="caption"}
-{:troubleshoot: data-hd-content-type='troubleshoot'}
-{:help: data-hd-content-type='help'}
-{:tsCauses: .tsCauses}
-{:tsResolve: .tsResolve}
-{:tsSymptoms: .tsSymptoms}
-{:java: .ph data-hd-programlang='java'}
-{:javascript: .ph data-hd-programlang='javascript'}
-{:swift: .ph data-hd-programlang='swift'}
-{:curl: .ph data-hd-programlang='curl'}
-{:video: .video}
-{:step: data-tutorial-type='step'}
-{:tutorial: data-hd-content-type='tutorial'}
-{:ui: .ph data-hd-interface='ui'}
-{:cli: .ph data-hd-interface='cli'}
-{:api: .ph data-hd-interface='api'}
-{:terraform: .ph data-hd-interface='terraform'}
-{:release-note: data-hd-content-type='release-note'}
+{{site.data.keyword.attribute-definition-list}}
 
 # Customizing your user experience
 {: #tutorial-attributes}
@@ -80,8 +46,6 @@ Although this tutorial is written for web apps that use Cloud Directory, attribu
 
 ## Before you begin
 {: #attributes-before}
-
-Ready? Let's get started!
 
 Be sure that you have the following prerequisites before you begin:
 - An instance of the {{site.data.keyword.appid_short_notm}} service
@@ -297,4 +261,4 @@ Optionally, you can verify that step 4 was successful by viewing an access token
 ## Next steps
 {: #attributes-next}
 
-Nice work! You completed the tutorial. Next, you can try configuring [multi-factor authentication](/docs/appid?topic=appid-cd-mfa) or setting up [your own branded GUI](/docs/appid?topic=appid-branded).
+Nice work! You completed the tutorial. Next, you can try configuring [multi-factor authentication](/docs/appid?topic=appid-cd-mfa) or setting up [your own branded UI](/docs/appid?topic=appid-branded).
