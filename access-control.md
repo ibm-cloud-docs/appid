@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-03-04"
+lastupdated: "2026-03-16"
 
 keywords: user access, control access, permissions, roles, scopes, runtime, access token, authentication, identity, app security
 
@@ -21,7 +21,7 @@ With {{site.data.keyword.appid_full}}, you can define which users and applicatio
 
 A scope is a runtime action in your application that you register with {{site.data.keyword.appid_short_notm}} to create an access permission. A role is a collection of scopes that assigns varying permissions to different types of app users and applications. For example, if your company employs developers, they might create a role that allows them to read and write to the code. If you employ auditors, you might have a view only role as shown in the following image.
 
-![{{site.data.keyword.appid_short_notm}} access control](images/access-control.svg){: caption="How {{site.data.keyword.appid_short_notm}} access control works" caption-side="bottom"}
+![Diagram showing the four-step App ID access control workflow: register runtime actions as scopes, compile scopes into roles, assign roles to users or applications, and verify scopes in access tokens at runtime](images/access-control.svg){: caption="How App ID access control works" caption-side="bottom"}
 
 1. Register runtime actions that can occur in your application with {{site.data.keyword.appid_short_notm}}.
 2. Compile scopes into groups to form roles.
