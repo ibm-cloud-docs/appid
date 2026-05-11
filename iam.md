@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-03-04"
+lastupdated: "2026-05-11"
 
 keywords: user access, account settings, iam, user roles, platform roles, service roles, reader, writer, operator, editor, viewer, administrator, manager, permissions
 
@@ -20,7 +20,7 @@ With {{site.data.keyword.appid_full}} and {{site.data.keyword.cloud_notm}} Ident
 
 As an account owner, you can set policies within your account to create different levels of access for different users. For example, certain users can have **Read only** access to one instance, but **Write** access to another. You can decide who is allowed to create, update, and delete instances of {{site.data.keyword.appid_short_notm}}.
 
-For more information about IAM, see [IAM Access](/docs/account?topic=account-userroles).
+For more information about IAM, see [IAM Access](/docs/iam?topic=iam-userroles).
 
 
 ## User roles
@@ -62,4 +62,4 @@ The following table details actions that are mapped to service access roles. Ser
 | Manager | * All Writer actions. \n * Export your Cloud Directory users and their data from your {{site.data.keyword.appid_short_notm}} instance. \n * Import your Cloud Directory users into a new instance of {{site.data.keyword.appid_short_notm}}. \n * Export all the user profiles in an instance of {{site.data.keyword.appid_short_notm}}. \n * Import all the user profiles that you exported into a new instance of {{site.data.keyword.appid_short_notm}}. |
 {: caption="Service roles and the actions that the role can take" caption-side="top"}
 
-For more information about assigning user roles in the console, see [Managing access to resources](/docs/account?topic=account-assign-access-resources).
+For more information about assigning user roles in the console, see [Managing access to resources](/docs/iam?topic=iam-assign-access-resources&interface=ui).

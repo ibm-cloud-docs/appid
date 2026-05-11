@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2017, 2026
-lastupdated: "2026-03-04"
+lastupdated: "2026-05-11"
 
 keywords: manage users, registry, cloud directory, add user, delete user, tokens, attributes, migrating users, identity provider, app security
 
@@ -276,7 +276,7 @@ You can delete up to 100 users per request.
    }'
    ```
    {: codeblock}
-   
+
 
 
 ## Migrating users
@@ -284,7 +284,7 @@ You can delete up to 100 users per request.
 
 Occasionally, you might need to add an instance of {{site.data.keyword.appid_short_notm}}. To help with migrating to the new instance, you can use the export and import APIs for minor migrations. If you are migrating a substantial number of users (16,000 or more), you can [export all of them](/docs/appid?topic=appid-cd-users#cd-export-all) or [import all of them](/docs/appid?topic=appid-cd-users#cd-import-all) with a single API request to improve your efficiency.
 
-You must be assigned the `Manager` [IAM role](/docs/account?topic=account-access-getstarted) for both instances of {{site.data.keyword.appid_short_notm}}.
+You must be assigned the `Manager` [IAM role](/docs/account?topic=account-iam-manageaccess) for both instances of {{site.data.keyword.appid_short_notm}}.
 {: note}
 
 
@@ -293,7 +293,7 @@ You must be assigned the `Manager` [IAM role](/docs/account?topic=account-access
 
 Before you can import your profiles to your new instance, you need to export them from your original instance of the service.
 
-If you are exporting many users (16,000 or more), you can use the `export/all` API endpoint. 
+If you are exporting many users (16,000 or more), you can use the `export/all` API endpoint.
 
 1. Export all the users from your original instance of the service.
 
@@ -306,7 +306,7 @@ If you are exporting many users (16,000 or more), you can use the `export/all` A
    ```
    {: codeblock}
 
-2. Get the status of your request, as needed. 
+2. Get the status of your request, as needed.
 
    ```sh
    curl -X GET 'https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/cloud_directory/export/status?id=<id>' --header 'Accept: application/json' \
@@ -315,7 +315,7 @@ If you are exporting many users (16,000 or more), you can use the `export/all` A
    ```
    {: codeblock}
 
-3. When the export is ready or if the request fails, an email is sent to the email address provided. To download the export, use the [export/download](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.cloudDirectoryDownloadExport){: external} API. 
+3. When the export is ready or if the request fails, an email is sent to the email address provided. To download the export, use the [export/download](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.cloudDirectoryDownloadExport){: external} API.
 
    ```sh
    curl -X GET 'https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/cloud_directory/export/download?id=<id>' \
@@ -324,7 +324,7 @@ If you are exporting many users (16,000 or more), you can use the `export/all` A
    ```
    {: codeblock}
 
-   An export file is created only when the export request is successful. If the request fails, to reduce your vulnerability risk, the data that is gathered is deleted. 
+   An export file is created only when the export request is successful. If the request fails, to reduce your vulnerability risk, the data that is gathered is deleted.
    The export is automatically deleted after 7 days or the number of days that you specify in the body of the request (in the range of 1 - 30 days). You can choose to manually delete the export by sending a request to the [delete](https://us-south.appid.cloud.ibm.com/swagger-ui/#/Management%20API%20-%20Cloud%20Directory%20Users/mgmt.cloudDirectoryDownloadExportDelete){: external} API.
    {: note}
 
@@ -366,9 +366,9 @@ The export endpoint is reserved for minor exports of approximately less than 16,
 ### Importing all users
 {: #cd-import-all}
 
-Now that you have a list of exported Cloud Directory users, you can import them into the new instance. You can use the import-all API endpoint to import a substantial number of users (16,000 or more) with a single request. 
+Now that you have a list of exported Cloud Directory users, you can import them into the new instance. You can use the import-all API endpoint to import a substantial number of users (16,000 or more) with a single request.
 
-1. Import the list of exported users that you downloaded. 
+1. Import the list of exported users that you downloaded.
 
    ```sh
    curl -X POST 'https://<region>.appid.cloud.ibm.com/management/v4/<tenantID>/cloud_directory/import/all' \
@@ -489,7 +489,7 @@ You can use the import API endpoint to import a few users at a time. You can add
    | `sourceTenantId` | The tenant ID of the instance of {{site.data.keyword.appid_short_notm}} that you plan to export users from. |
    | `destinationTenantId` | The tenant ID of the instance of {{site.data.keyword.appid_short_notm}} that you plan to import users to. |
    | `region` | Learn more about the [available regions](/docs/appid?topic=appid-regions-endpoints). | 
-   | `IAM token` | For help with obtaining an IAM token, check out [the docs](/docs/account?topic=account-iamtoken_from_apikey#iamtoken_from_apikey). | 
+   | `IAM token` | For help with obtaining an IAM token, check out [the docs](/docs/iam?topic=iam-iamtoken_from_apikey#iamtoken_from_apikey). |
    {: caption="Parameter descriptions" caption-side="top"}
 
    Example command:

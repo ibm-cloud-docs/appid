@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-03-04"
+lastupdated: "2026-05-11"
 
 keywords: user information, add users, delete users, profile, access, attributes, admin, app security, authentication, authorization
 
@@ -256,7 +256,7 @@ This action can be done through the API only. To see the steps, switch to the **
 
 Before you can import your profiles to your new instance, you need to export them from your original instance of the service.
 
-1. Be sure that you are assigned the *Manager* [IAM role](/docs/account?topic=account-access-getstarted) for both the instance of {{site.data.keyword.appid_short_notm}}.
+1. Be sure that you are assigned the *Manager* [IAM role](/docs/iam?topic=iam-access-getstarted) for both the instance of {{site.data.keyword.appid_short_notm}}.
 2. Export the profiles from your original instance of the service.
 
    ```sh
@@ -269,7 +269,7 @@ Before you can import your profiles to your new instance, you need to export the
    | Variable | Description |
    | -------- | ----------- |
    | `tenantID` | The service tenant ID can be found in your service credentials. You can find your service or application credentials in the {{site.data.keyword.appid_short_notm}} dashboard. |
-   | `iam-token` | Your IAM token. | 
+   | `iam-token` | Your IAM token. |
    {: caption="User import command variables" caption-side="top"}
 
    Example response:
@@ -333,7 +333,7 @@ Before you can import your profiles to your new instance, you need to export the
 
 Now that you have a list of exported user profiles, you can import them into the new instance.
 
-1. Be sure that you are assigned the *Manager* [IAM role](/docs/account?topic=account-access-getstarted) for both the instance of {{site.data.keyword.appid_short_notm}}.
+1. Be sure that you are assigned the *Manager* [IAM role](/docs/iam?topic=iam-access-getstarted) for both the instance of {{site.data.keyword.appid_short_notm}}.
 2. If your users are [assigned roles](/docs/appid?topic=appid-access-control), be sure to create the roles and scopes in your new instance of {{site.data.keyword.appid_short_notm}}.
 
    The roles and scopes must be created exactly as they were in the previous instance with the same spellings.
