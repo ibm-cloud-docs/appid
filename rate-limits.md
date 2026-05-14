@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2025-05-01"
+lastupdated: "2026-05-14"
 
 keywords: rate limits, traffic control, limit request, lite instances, per minute, per instance, per user, limits
 
@@ -81,3 +81,12 @@ Be sure to review the following limitations before you configure your annotation
 
 * The response from your pre-mfa extension point must not exceed 10 KB. If it does, the request is canceled and the user is required to complete MFA.
 * If it takes {{site.data.keyword.appid_short_notm}} longer than 5 seconds to establish a connection to your pre-mfa extension point, or if the request takes longer than 7 seconds to complete, the request is canceled and the user is required to complete MFA.
+
+
+### HPCS integration limitations
+{: #hpcs-integration-limits}
+
+Review the following limitations when integrating {{site.data.keyword.appid_short_notm}} with {{site.data.keyword.hscrypto}}.
+
+* Integration with {{site.data.keyword.hscrypto}} is supported only for instances that are configured with `public-and-private` service endpoints.
+* Instances that are configured with private-only service endpoints are not supported.
