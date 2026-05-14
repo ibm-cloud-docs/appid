@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-03-04"
+lastupdated: "2026-05-11"
 
 keywords: emails, verification, templates, sendgrid, welcome, password reset, password change, change details, verification, supported languages, registry, cloud directory, 
 
@@ -25,14 +25,14 @@ When a user interacts with your application, you might want to send a reply or a
 ## Configuring email settings
 {: #cd-email-settings}
 
-With {{site.data.keyword.appid_short_notm}}, you can choose to use {{site.data.keyword.appid_short_notm}} default [SendGrid](https://sendgrid.com/){: external} credentials, add your own SendGrid account, or configure your own custom webhook to send email messages in Cloud Directory.
+With {{site.data.keyword.appid_short_notm}}, you can choose to use {{site.data.keyword.appid_short_notm}} default [SendGrid](https://www.twilio.com/en-us/sendgrid){: external} credentials, add your own SendGrid account, or configure your own custom webhook to send email messages in Cloud Directory.
 {: shortdesc}
 
 
 ### Using the IBM default email provider
 {: #cd-default-email}
 
-By default, {{site.data.keyword.appid_short_notm}} uses [SendGrid](https://sendgrid.com/){: external} as an email delivery service for Cloud Directory.
+By default, {{site.data.keyword.appid_short_notm}} uses [SendGrid](https://www.twilio.com/en-us/sendgrid){: external} as an email delivery service for Cloud Directory.
 
 1. Go to the **Cloud Directory > Email templates > Email settings** page of the service dashboard.
 
