@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-03-04"
+lastupdated: "2026-06-01"
 
 keywords: data encryption in app id, data storage for app id, personal data in app id, data deletion for app id, data in app id, data security in app id
 
@@ -21,7 +21,7 @@ To ensure that you can securely manage your data when you use {{site.data.keywor
 
 
 ## How your data is stored and encrypted in {{site.data.keyword.appid_short_notm}}
-{: #data-storage} 
+{: #data-storage}
 
 {{site.data.keyword.appid_short_notm}} stores and encrypts user profile attributes. As a multi-tenant service, every tenant has a designated encryption key and user data in each tenant is encrypted with only that tenant's key. {{site.data.keyword.appid_short_notm}} ensures that private information is encrypted before it is stored.
 
@@ -35,17 +35,17 @@ You can add a higher level of encryption control to your data at rest (when it i
 ### Enabling customer-managed keys for {{site.data.keyword.appid_short_notm}} by using {{site.data.keyword.keymanagementserviceshort}}
 {: #enable-customer-keys-kp}
 
-If you choose to work with a key that you manage, you must ensure that valid IAM authorization is assigned to the {{site.data.keyword.appid_short_notm}} service. 
+If you choose to work with a key that you manage, you must ensure that valid IAM authorization is assigned to the {{site.data.keyword.appid_short_notm}} service.
 
 1. [Create an instance of {{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-provision#provision-gui).
 2. [Generate or import your own root key](/docs/key-protect?topic=key-protect-create-root-keys) to your instance of {{site.data.keyword.keymanagementserviceshort}}. When you use {{site.data.keyword.keymanagementserviceshort}} to create a root key, the service generates cryptographic key material that is rooted in cloud-based HSMs. Be sure that the name of your key does not contain any personal information such as your name or location.
-3. Grant service access to {{site.data.keyword.keymanagementserviceshort}}. You must be the account owner or an administrator for the instance of {{site.data.keyword.keymanagementserviceshort}} that you're working with. You must also have at least Viewer access for the {{site.data.keyword.appid_short_notm}} service. 
+3. Grant service access to {{site.data.keyword.keymanagementserviceshort}}. You must be the account owner or an administrator for the instance of {{site.data.keyword.keymanagementserviceshort}} that you're working with. You must also have at least Viewer access for the {{site.data.keyword.appid_short_notm}} service.
    1. Go to **Manage > Access IAM > Authorizations**.
    2. Create an authorization to allow access to {{site.data.keyword.keymanagementserviceshort}}.
    3. Select the source account.
    4. Select {{site.data.keyword.appid_short_notm}} as your source service.
    5. Select {{site.data.keyword.keymanagementserviceshort}} as your target service.
-   6. Specify the scope of the access. 
+   6. Specify the scope of the access.
    7. Assign the Reader role.
    8. Click **Authorize**.
 4. Create an instance of the {{site.data.keyword.appid_short_notm}} service.
@@ -53,6 +53,8 @@ If you choose to work with a key that you manage, you must ensure that valid IAM
    2. Select the root key that you previously authorized.
    3. Click **Create**.
 
+Integration with {{site.data.keyword.keymanagementserviceshort}} is supported only for instances that are configured with `public-and-private` service endpoints. Instances that are configured with private-only service endpoints are not supported.
+{: note}
 
 {{site.data.keyword.appid_short_notm}} supports state changes to your key.
 {: note}
@@ -71,24 +73,27 @@ When you [delete your KEK](/docs/key-protect?topic=key-protect-delete-keys), use
 ### Enabling customer-managed keys for {{site.data.keyword.appid_short_notm}} by using {{site.data.keyword.hscrypto}}
 {: #enable-customer-keys-hpcs}
 
-If you choose to work with a key that you manage, you must ensure that valid IAM authorization is assigned to the {{site.data.keyword.appid_short_notm}} service. 
+If you choose to work with a key that you manage, you must ensure that valid IAM authorization is assigned to the {{site.data.keyword.appid_short_notm}} service.
 
 1. [Create an instance of {{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-get-started).
 2. [Initialize your instance](/docs/hs-crypto?topic=hs-crypto-initialize-hsm) by loading a master key from smart cards or from your workstation.
 3. [Generate or import your own root key](/docs/hs-crypto?topic=hs-crypto-create-root-keys) to your instance of {{site.data.keyword.hscrypto}}. When you use {{site.data.keyword.hscrypto}} to create a root key, the service generates cryptographic key material that is rooted in cloud-based HSMs. Be sure that the name of your key does not contain any personal information such as your name or location.
-4. Grant service access to {{site.data.keyword.hscrypto}}. You must be the account owner or an administrator for the instance of {{site.data.keyword.hscrypto}} that you're working with. You must also have at least Viewer access for the {{site.data.keyword.appid_short_notm}} service. 
-   1. Go to **Manage > Access IAM > Authorizations**. 
+4. Grant service access to {{site.data.keyword.hscrypto}}. You must be the account owner or an administrator for the instance of {{site.data.keyword.hscrypto}} that you're working with. You must also have at least Viewer access for the {{site.data.keyword.appid_short_notm}} service.
+   1. Go to **Manage > Access IAM > Authorizations**.
    2. Create an authorization to allow access to {{site.data.keyword.keymanagementserviceshort}}.
    3. Select the source account.
    4. Select {{site.data.keyword.appid_short_notm}} as your source service.
    5. Select {{site.data.keyword.hscrypto}} as your target service.
-   6. Specify the scope of the access. 
+   6. Specify the scope of the access.
    7. Assign the Reader role.
    8. Click **Authorize**.
 5. Create an instance of the {{site.data.keyword.appid_short_notm}} service.
    1. Select your {{site.data.keyword.hscrypto}} instance.
    2. Select the root key that you previously authorized.
    3. Click **Create**.
+
+Integration with {{site.data.keyword.hscrypto}} is supported only for instances that are configured with `public-and-private` service endpoints. Instances that are configured with private-only service endpoints are not supported.
+{: note}
 
 {{site.data.keyword.appid_short_notm}} supports state changes to your key.
 {: note}
