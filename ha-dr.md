@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-05-11"
+lastupdated: "2026-10-05"
 
 keywords: HA for {{site.data.keyword.appid_short_notm}}, DR for {{site.data.keyword.appid_short_notm}}, high availability for {{site.data.keyword.appid_short_notm}}, disaster recovery for {{site.data.keyword.appid_short_notm}}, failover for {{site.data.keyword.appid_short_notm}}
 
@@ -17,6 +17,11 @@ subcollection: appid
 
 [High availability](#x2284708){: term} (HA) is the ability for a service to remain operational and accessible in the presence of unexpected failures. [Disaster recovery](#x2113280){: term} is the process of recovering the service instance to a working state.
 {: shortdesc}
+
+
+This topic contains specific information about the high availability and disaster recovery strategies and configurations for _service-name_. For more information about how high availability and disaster recovery are handled for the {{site.data.keyword.cloud_notm}} platform, including concepts like cross regions, global services, and fault domains, check out the [Resiliency documentation](/docs/resiliency?topic=resiliency-ha-redundancy).
+{: tip}
+
 
 {{site.data.keyword.appid_full}} is a regional service that fulfills the defined [Service Level Objectives (SLO)](/docs/resiliency?topic=resiliency-slo) with the Standard plan. For more information about the available {{site.data.keyword.cloud_notm}} regions and data centers for {{site.data.keyword.appid_short_notm}}, see [Service and infrastructure availability by location](/docs/overview?topic=overview-services_region).
 
