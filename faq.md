@@ -13,7 +13,7 @@ subcollection: appid
 {{site.data.keyword.attribute-definition-list}}
 
 
-# FAQ for {{site.data.keyword.appid_short_notm}}
+# Frequently asked questions for {{site.data.keyword.appid_short_notm}}
 {: #faq}
 
 Get answers to common questions about {{site.data.keyword.appid_full}}, including how redirect URI allowlisting protects your users, how encryption and key management work, clock synchronization requirements, and the differences between {{site.data.keyword.appid_short_notm}} and Keycloak.

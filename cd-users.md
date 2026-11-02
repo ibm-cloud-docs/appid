@@ -10,7 +10,7 @@ subcollection: appid
  
 {{site.data.keyword.attribute-definition-list}}
 
-# Managing users
+# Managing Cloud Directory users in {{site.data.keyword.appid_short_notm}}
 {: #cd-users}
 
 {{site.data.keyword.appid_full}} Cloud Directory lets you manage users in a scalable registry with pre-built tools for viewing, adding, deleting, and migrating user accounts. You can also export user data and manage user tokens and attributes directly from the console or API.

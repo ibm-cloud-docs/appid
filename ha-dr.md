@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-10-05"
+lastupdated: "2026-11-02"
 
 keywords: HA for {{site.data.keyword.appid_short_notm}}, DR for {{site.data.keyword.appid_short_notm}}, high availability for {{site.data.keyword.appid_short_notm}}, disaster recovery for {{site.data.keyword.appid_short_notm}}, failover for {{site.data.keyword.appid_short_notm}}
 
@@ -12,10 +12,10 @@ subcollection: appid
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Understanding high availability and disaster recovery for {{site.data.keyword.appid_short_notm}}
+# High availability and disaster recovery for {{site.data.keyword.appid_short_notm}}
 {: #ha-dr}
 
-[High availability](#x2284708){: term} (HA) is the ability for a service to remain operational and accessible in the presence of unexpected failures. [Disaster recovery](#x2113280){: term} is the process of recovering the service instance to a working state.
+{{site.data.keyword.appid_full}} is a highly available, multi-zone service with built-in disaster recovery. Learn how the service handles failures, how regional configurations protect your data, and what steps you take to recover a service instance.
 {: shortdesc}
 
 
