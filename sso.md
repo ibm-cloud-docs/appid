@@ -13,7 +13,7 @@ subcollection: appid
 {{site.data.keyword.attribute-definition-list}}
 
 
-# Single sign-on (SSO)
+# Configuring single sign-on (SSO) with {{site.data.keyword.appid_short_notm}}
 {: #cd-sso}
 
 {{site.data.keyword.appid_full}} provides single sign-on (SSO) for Cloud Directory users, so that a user who signs in to one of your web apps is automatically authenticated across all apps that are protected by the same {{site.data.keyword.appid_short_notm}} instance, without needing to reenter their credentials.

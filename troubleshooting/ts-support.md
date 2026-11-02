@@ -16,7 +16,7 @@ subcollection: appid
 
 
 
-# Getting help and support for {{site.data.keyword.appid_short_notm}}
+# Getting help and support for {{site.data.keyword.appid_full}}
 {: #help-and-support}
 
 If you experience an issue with {{site.data.keyword.appid_full}}, use these resources to find answers before you open a support case. Resources include FAQs, troubleshooting docs, Stack Overflow, and IBM Support.

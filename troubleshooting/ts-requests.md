@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-03-04"
+lastupdated: "2026-11-02"
 
 keywords: help, support, error, multiple users, attribute, ticket, identity provider, redirect uri, custom url, virtual user, idp, identity settings, user profile
 
@@ -16,10 +16,10 @@ content-type: troubleshoot
 
 # Why am I receiving an error about too many requests?
 {: #ts-requests}
-{: troubleshoot} 
+{: troubleshoot}
 {: support}
 
-You receive an error about too many requests. 
+{{site.data.keyword.appid_short_notm}} enforces rate limits on authentication requests. If your app exceeds these limits, you receive a too-many-requests error. This topic explains the limits that apply and how to resolve the error.
 {: shortdesc}
 
 You attempt to view the home page of your app but receive the following error:
