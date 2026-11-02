@@ -14,7 +14,7 @@ content-type: troubleshoot
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Why is my user not redirected to my app?
+# Why is my user not redirected to my app after sign-in?
 {: #ts-redirect}
 {: troubleshoot}
 

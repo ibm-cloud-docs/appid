@@ -13,10 +13,10 @@ subcollection: appid
 {{site.data.keyword.attribute-definition-list}}
 
 
-# About {{site.data.keyword.appid_full}}
+# About {{site.data.keyword.appid_short_notm}}: authentication and authorization
 {: #about}
 
-{{site.data.keyword.appid_full}} helps you add authentication and authorization to your web and mobile apps with just a few lines of code. Users can sign in with an email and password, social media accounts, or a custom identity provider. After they authenticate, you can store user profile data and use it to tailor personalized experiences — all while keeping credentials secure and your Cloud-native apps protected on {{site.data.keyword.cloud_notm}}.
+{{site.data.keyword.appid_full}} helps you add authentication and authorization to your web and mobile apps with just a few lines of code. Users can sign in with an email and password, social media accounts, or a custom identity provider. After they authenticate, you can store user profile data and use it to tailor personalized experiences. Your credentials stay secure, and your cloud-native apps stay protected on {{site.data.keyword.cloud_notm}}.
 {: shortdesc}
 
 With {{site.data.keyword.appid_short_notm}} configured for your application, your users can sign in directly from your app by using an email or password. Or you can allow the use of social media accounts so that they can use credentials that they are already familiar with. After your users authenticate, you can authorize access to the backend resources that your app uses to tailor their experience. In {{site.data.keyword.appid_short_notm}}, you can store information about your users and let your developers use this information as they build their apps. 

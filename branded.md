@@ -15,7 +15,7 @@ subcollection: appid
 # Customizing sign-up and sign-in screens for {{site.data.keyword.appid_short_notm}}
 {: #branded}
 
-With {{site.data.keyword.appid_full}}, you can replace the default sign-in widget with your own branded screens for sign-in, sign-up, forgot password, and more. Customize fields, validate password strength, verify email addresses against a blocklist, and support multiple languages — using the Android SDK, iOS Swift SDK, Node.js SDK, or REST APIs.
+With {{site.data.keyword.appid_full}}, you can replace the default sign-in widget with your own branded screens for sign-in, sign-up, forgot password, and more. Customize fields, validate password strength, verify email addresses against a blocklist, and support multiple languages. You can do this by using the Android SDK, iOS Swift SDK, Node.js SDK, or REST APIs.
 {: shortdesc}
 
 

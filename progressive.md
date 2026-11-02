@@ -12,7 +12,7 @@ subcollection: appid
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Anonymous authentication
+# Enabling anonymous authentication in {{site.data.keyword.appid_short_notm}}
 {: #anonymous}
 
 {{site.data.keyword.appid_full}} supports anonymous authentication, letting users browse your app through a temporary guest profile without signing in. When a user later signs in, {{site.data.keyword.appid_short_notm}} can attach the guest profile to their authenticated identity, preserving any attributes and data they accumulated anonymously.

@@ -12,7 +12,7 @@ subcollection: appid
 
 {{site.data.keyword.attribute-definition-list}}
 
-# How can I debug my SAML connection?
+# How can I debug my {{site.data.keyword.appid_short_notm}} SAML connection?
 {: #ts-saml-debug-connection}
 {: troubleshoot}
 

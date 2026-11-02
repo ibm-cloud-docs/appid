@@ -16,10 +16,10 @@ subcollection: appid
 
 
 
-# Getting help and support for {{site.data.keyword.appid_full}}
+# Getting help and support for {{site.data.keyword.appid_short_notm}}
 {: #help-and-support}
 
-If you experience an issue with {{site.data.keyword.appid_full}}, use these resources to find answers before you open a support case. Resources include FAQs, troubleshooting docs, Stack Overflow, and IBM Support.
+If you experience an issue with {{site.data.keyword.appid_full}}, you can get help. Use these resources to find answers before you open a support case. Resources include FAQs, troubleshooting docs, Stack Overflow, and IBM Support.
 {: shortdesc}
 
 * Ask a question in the [AI assistant](/docs/overview?topic=overview-ask-ai-assistant) from the console or the {{site.data.keyword.cloud_notm}} CLI.

@@ -14,7 +14,7 @@ content-type: troubleshoot
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Why are my attributes showing the wrong values?
+# Why are my {{site.data.keyword.appid_short_notm}} attributes showing wrong values?
 {: #ts-saml-attribute}
 {: troubleshoot}
 

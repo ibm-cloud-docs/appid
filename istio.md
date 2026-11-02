@@ -12,7 +12,7 @@ subcollection: appid
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Multicloud apps with Istio
+# Securing multicloud apps with Istio and {{site.data.keyword.appid_short_notm}}
 {: #istio-adapter}
 
 {{site.data.keyword.appid_full}} integrates with Istio through the App Identity and Access Adapter to centralize authentication and authorization policy enforcement across multicloud and hybrid environments. The adapter works with any OIDC-compliant identity provider and applies policies to all apps in your service mesh without requiring code changes or redeployment.
