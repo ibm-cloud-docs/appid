@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-03-04"
+lastupdated: "2026-11-02"
 
 keywords: custom identity provider, authorization, bring your own idp, proprietary idp, legacy idp, oauth, oidc, authentication, oatuh, app security
 
@@ -12,10 +12,10 @@ subcollection: appid
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Custom identity
+# Adding a custom identity provider to {{site.data.keyword.appid_short_notm}}
 {: #custom-auth}
 
-You can use your own custom identity provider when you are authenticating. Your identity provider can conform to any authentication mechanism alternate to those supported by {{site.data.keyword.appid_full}}, including proprietary or legacy.
+{{site.data.keyword.appid_full}} lets you bring your own custom identity provider to authenticate users. Your identity provider can use any mechanism not natively supported by the service, including proprietary or legacy protocols.
 {: shortdesc}
 
 ## Overview

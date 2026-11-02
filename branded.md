@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-03-04"
+lastupdated: "2026-11-02"
 
 keywords: bring your own screens, branded app, sign up, custom, directory, registry, app security, password, authorization flow, authentication,
 
@@ -12,10 +12,10 @@ subcollection: appid
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Branding your app
+# Customizing sign-up and sign-in screens for {{site.data.keyword.appid_short_notm}}
 {: #branded}
 
-With {{site.data.keyword.appid_full}}, you can customize the entire sign-up experience of your application by using your own branded screens. You can replace the provided sign-in widget with your own, add more fields, validate password strength, and verify email addresses against a blocklist!
+With {{site.data.keyword.appid_full}}, you can replace the default sign-in widget with your own branded screens for sign-in, sign-up, forgot password, and more. Customize fields, validate password strength, verify email addresses against a blocklist, and support multiple languages — using the Android SDK, iOS Swift SDK, Node.js SDK, or REST APIs.
 {: shortdesc}
 
 

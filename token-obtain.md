@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-03-04"
+lastupdated: "2026-11-02"
 
 keywords: obtain tokens, return tokens, authorized, authorization, access management, client id, secret, tenant id, app security, identity token
 
@@ -14,10 +14,10 @@ subcollection: appid
 
 
 
-# Obtaining tokens
+# Obtaining access and identity tokens with {{site.data.keyword.appid_short_notm}}
 {: #obtain-tokens}
 
-When users or backend services interact with your app, they might need to be authorized to perform specific actions. {{site.data.keyword.appid_short_notm}} verifies that the entity that makes the request is authorized and returns access and identity tokens to your app. If the entity making the request is an end user, the tokens might contain information about the user such as the scope of their permissions and their name. If it is a backend service, then only an access token is returned.
+{{site.data.keyword.appid_full}} verifies that users and backend services are authorized before returning tokens to your app. End users receive both access and identity tokens, which can include claims like name and permission scopes. Backend services receive an access token only.
 {: shortdesc}
 
 
@@ -62,13 +62,13 @@ To obtain tokens, you must have your client ID and secret. The credentials are s
 
    ```json
    {
-      "clientId": "c90830bf-11b0-4b65-bffe-9773f8703bad",
-      "tenantId": "b42f7429-fc24-48ds-b4f9-616bcc31cfd5",
-      "secret": "YWQyNjdkZjMtMGRhZC00ZWRkLThiOTQtN2E3ODEyZjhkOWQz",
+      "clientId": "<client-id>",
+      "tenantId": "<tenant-id>",
+      "secret": "<secret>",
       "name": "testing",
-      "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v4/b42f7429-fc24-48ds-b4f9-616bcb31cfd5",
+      "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v4/<tenant-id>",
       "profilesUrl": "https://us-south.appid.cloud.ibm.com",
-      "discoveryEndpoint": "https://us-south.appid.cloud.ibm.com/oauth/v4/b42f7429-fc24-48ds-b4f9-616bcb31cfd5/.well-known/openid-configuration"
+      "discoveryEndpoint": "https://us-south.appid.cloud.ibm.com/oauth/v4/<tenant-id>/.well-known/openid-configuration"
    }
    ```
    {: screen}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2026-03-04"
+lastupdated: "2026-11-02"
 
 keywords: saml, enterprise apps, assertions, single sign on, tokens, authorization, user authentication, key cloak, redhat, cloud identity, sso, single sign on, xml signature, service provider, identity provider, app security
 
@@ -12,10 +12,10 @@ subcollection: appid
 
 {{site.data.keyword.attribute-definition-list}}
 
-# SAML
+# Configuring SAML single sign-on for {{site.data.keyword.appid_short_notm}}
 {: #enterprise}
 
-If you're using a SAML-based identity provider, you can configure {{site.data.keyword.appid_short_notm}} to initiate a single sign-on (SSO) experience. In this type of flow, {{site.data.keyword.appid_short_notm}} acts as a service provider and provides security tokens for your monthly active users (MAU).
+{{site.data.keyword.appid_full}} supports SAML 2.0 so you can configure single sign-on (SSO) with any SAML-based identity provider. {{site.data.keyword.appid_short_notm}} acts as the service provider, exchanges signed XML assertions with your identity provider, and issues security tokens for your monthly active users (MAU).
 {: shortdesc}
 
 ## Understanding SAML

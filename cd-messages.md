@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-05-11"
+lastupdated: "2026-11-02"
 
 keywords: emails, verification, templates, sendgrid, welcome, password reset, password change, change details, verification, supported languages, registry, cloud directory, 
 
@@ -12,10 +12,10 @@ subcollection: appid
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Customizing emails
+# Customizing Cloud Directory email templates in {{site.data.keyword.appid_short_notm}}
 {: #cd-types}
 
-When a user interacts with your application, you might want to send a reply or ask for verification. {{site.data.keyword.appid_short_notm}} provides default templates that you can use for the interactions. You can also use the templates as a guide and customize your messaging to fit your brand.
+{{site.data.keyword.appid_full}} provides default email templates for Cloud Directory interactions such as welcome messages, email verification, password reset, and password change notifications. You can use the defaults or customize the templates to match your brand.
 {: shortdesc}
 
 {{site.data.keyword.appid_short_notm}} uses [SendGrid](https://www.twilio.com/en-us/sendgrid){: external} as a mail delivery service. All emails are sent with a single SendGrid account.

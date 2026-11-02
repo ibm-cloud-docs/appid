@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2017, 2026
-lastupdated: "2026-05-11"
+lastupdated: "2026-11-02"
 
 keywords: manage users, registry, cloud directory, add user, delete user, tokens, attributes, migrating users, identity provider, app security
 
@@ -13,7 +13,7 @@ subcollection: appid
 # Managing users
 {: #cd-users}
 
-With Cloud Directory, you can manage your users in a scalable registry by using a pre-built functionality that enhances security and self-service.
+{{site.data.keyword.appid_full}} Cloud Directory lets you manage users in a scalable registry with pre-built tools for viewing, adding, deleting, and migrating user accounts. You can also export user data and manage user tokens and attributes directly from the console or API.
 {: shortdesc}
 
 A Cloud Directory user is not the same thing as an {{site.data.keyword.appid_short_notm}} user. Users can sign up for your app by using the different identity provider options that you configured, or you can add them to your directory. The users that are mentioned in the following sections are the users who are associated with Cloud Directory as an identity provider.

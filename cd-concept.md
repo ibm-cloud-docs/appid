@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-03-04"
+lastupdated: "2026-11-02"
 
 keywords: user registry, sign up, sign in, username, email, password, account settings, reset password, email sender, email verification, app security
 
@@ -15,7 +15,7 @@ subcollection: appid
 # What is Cloud Directory?
 {: #cd-concept}
 
-With {{site.data.keyword.appid_full}}, you can allow your users to sign up directly from your mobile or web app and sign in with their email and password. You can use Cloud Directory to create a scalable user registry that uses pre-built functions to enhance security and self-service. 
+{{site.data.keyword.appid_full}} Cloud Directory is a scalable user registry for your mobile and web apps. Users sign up and sign in with their email or username and password. Pre-built functions handle email verification, password reset, account lockout, and self-service account management.
 {: shortdesc}
 
 

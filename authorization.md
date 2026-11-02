@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-03-04"
+lastupdated: "2026-11-02"
 
 keywords: authorization, authentication, oidc, oauth, jwks, app security, identity, tokens, redirect uris, api strategy, webapp strategy
 
@@ -12,10 +12,10 @@ subcollection: appid
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Technologies
+# Authentication and authorization technologies in {{site.data.keyword.appid_short_notm}}
 {: #key-concepts}
 
-Confused about the differences between authorization and authentication? You're not alone. Check out the following information to learn about specific terminology, processes, and the technologies that are used when you work with {{site.data.keyword.appid_full}}.
+{{site.data.keyword.appid_full}} uses OAuth 2.0 and OpenID Connect (OIDC) to handle authentication and authorization. Learn about the core technologies, including access, identity, and refresh tokens, authorization headers, API strategy, web app strategy, redirect URIs, and JSON Web Key Sets (JWKS).
 {: shortdesc}
 
 
@@ -34,18 +34,18 @@ Example:
 
 ```json
 {
-  "clientId": "7eba72ef-b913-47b0-b3b6-54358bb69035",
-  "tenantId": "8f5aa500-357e-443a-aab6-bf878f852b5a",
-  "secret": "OWEzZGM4M2UtZjhlYS00MDI2LTkwNGItNDJmYzViMmU2YzIz",
+  "clientId": "<client-id>",
+  "tenantId": "<tenant-id>",
+  "secret": "<secret>",
   "name": "testing",
-  "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v4/8f5aa500-357e-443a-aab6-bf878f852b5a",
+  "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v4/<tenant-id>",
   "profilesUrl": "https://us-south.appid.cloud.ibm.com",
-  "discoveryEndpoint": "https://us-south.appid.ibm.cloud.com/oauth/v4/8f5aa500-357e-443a-aab6-bf878f852b5a/.well-known/openid-configuration"
+  "discoveryEndpoint": "https://us-south.appid.cloud.ibm.com/oauth/v4/<tenant-id>/.well-known/openid-configuration"
 }
 ```
 {: screen}
 
-Using this example, the URL would be `https://us-south.appid.cloud.ibm.com/oauth/v4/8f5aa500-357e-443a-aab6-bf878f852b5a`. You would then append the endpoint that you wanted to make a request to. Check out the following table to see some example endpoints.
+Using this example, the URL would be `https://us-south.appid.cloud.ibm.com/oauth/v4/<tenant-id>`. You would then append the endpoint that you wanted to make a request to. Check out the following table to see some example endpoints.
 
 | Endpoint | Format |
 |-----|----| 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-03-04"
+lastupdated: "2026-11-02"
 
 keywords: token validation, validate token, protect app, public key, token header, base64, decode payload, authorized, access permissions, app security, identity, jwt
 
@@ -13,10 +13,10 @@ subcollection: appid
 {{site.data.keyword.attribute-definition-list}}
 
 
-# Validating tokens
+# Validating tokens in {{site.data.keyword.appid_short_notm}}
 {: #token-validation}
 
-Token validation is an important part of modern app development. By validating tokens, you can protect your app or APIs from unauthorized users. {{site.data.keyword.appid_full}} uses access and identity tokens to ensure that a user or app is authenticated before they are granted access. If you're using one of the SDKs provided by {{site.data.keyword.appid_short_notm}}, both obtaining and validating your tokens is done for you!
+{{site.data.keyword.appid_full}} uses access and identity tokens to ensure that users and services are authenticated before they can access your protected resources. Token validation is a key step in securing your app and APIs. If you use an {{site.data.keyword.appid_short_notm}} SDK, obtaining and validating tokens is handled automatically.
 {: shortdesc}
 
 For more information about how tokens are used in {{site.data.keyword.appid_short_notm}}, see [Understanding tokens](/docs/appid?topic=appid-tokens).
@@ -81,11 +81,7 @@ You can validate your tokens locally by parsing the token, verifying the token s
    Example encoded token:
 
       ```sh
-      eyJhbGciOiJSUzI1NiIsInR5cCI6IkpPU0UiLCJraWQiOiJhMmszIn0
-      .eyJpc3MiOiJhcHBpZC1vYXV0aCIsImF1ZCI6ImFiYzEyMyIsImV4cCI6MTU2NDU2Nn0
-      .IycnAGUmMHzpTWbe-qaRsx0B4Zi-SVav710Fb_8CTCQvLrHX9d42WuCZ5bW
-      d-ikgEsf6waQxeBfhfwYxwHN87LZupApagVMZtylVAnXhG1pHu_32wbZsPvg6QjzNO
-      j6ys2Lfl3qfb5Qrp9u4IsZltKPEN8HdfeOcKXxpw6UqP-8
+      <header>.<payload>.<signature>
       ```
       {: screen}
 

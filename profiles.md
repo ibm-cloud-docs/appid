@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-03-04"
+lastupdated: "2026-11-02"
 
 keywords: profile, custom attributes, predefined attributes, attributes, app users, app interaction, personalized experience, access user info, identity provider information, access token, authentication, user sign in, android, java, node, swift, ios, user, preferences
 
@@ -14,10 +14,10 @@ subcollection: appid
 
 
 
-# Storing and accessing attributes
+# Storing and accessing user profile attributes in {{site.data.keyword.appid_short_notm}}
 {: #profiles}
 
-With {{site.data.keyword.appid_full}}, you can compile information about the individual users of your application into a profile. The information in the profile can be learned about your users by the way that they interact with your app or added by you on their behalf. By storing the information, you can access it to help create personalized experiences of your app for your users.
+{{site.data.keyword.appid_full}} lets you build user profiles that store attributes gathered from how users interact with your app, from identity providers, or added programmatically on their behalf. Access these profiles at runtime to deliver personalized experiences, with predefined attributes from identity tokens and custom attributes that you define.
 {: shortdesc}
 
 

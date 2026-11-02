@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-03-04"
+lastupdated: "2026-11-02"
 
 keywords: user information, tokens, custom tokens, secure resources, authorization, identity, authentication, claims, oauth, claims mapping, attributes, app security, access, runtime
 
@@ -13,10 +13,10 @@ subcollection: appid
 {{site.data.keyword.attribute-definition-list}}
 
 
-# Customizing tokens
+# Customizing token claims in {{site.data.keyword.appid_short_notm}}
 {: #customizing-tokens}
 
-With {{site.data.keyword.appid_short_notm}}, tokens are used to identify users and secure your resources. You can choose to customize the information that is injected in to the tokens by the service. By injecting the information into your tokens, it's available to your application at run time without you having to configure additional network calls. For more information about tokens and how they're used in {{site.data.keyword.appid_short_notm}}, see [Understanding tokens](/docs/appid?topic=appid-tokens).
+{{site.data.keyword.appid_full}} lets you customize the claims injected into your access, identity, and refresh tokens. Injecting user information directly into tokens makes it available to your app at runtime, without extra API calls. You can map custom attributes, adjust token expiration, and add role-based scopes to fit your authorization needs.
 {: shortdesc}
 
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-03-04"
+lastupdated: "2026-11-02"
 
 keywords: web apps, authorization code, authentication, nodejs, javascript, app access, application credentials, login, redirect uri, protected endpoint, video
 
@@ -13,10 +13,10 @@ subcollection: appid
 {{site.data.keyword.attribute-definition-list}}
 
 
-# Web apps
+# Authenticating users in web apps with {{site.data.keyword.appid_short_notm}}
 {: #web-apps}
 
-When you are developing a web application, you can use the {{site.data.keyword.appid_full}} web flow to securely authenticate users. Users are then able to access your server-side protected content in your web apps.
+{{site.data.keyword.appid_full}} provides a web app authentication flow based on the OAuth 2.0 authorization code grant. Users sign in through your identity provider and are redirected back to your app with access and identity tokens. You can this use to protect server-side content and personalize the user experience.
 {: shortdesc}
 
 ## Understanding the flow
@@ -127,11 +127,11 @@ Try it out yourself by using a [simple Node sample app](https://github.com/ibm-c
 
       ```json
       {
-      "clientId": "111c22c3-38ea-4de8-b5d4-338744d83b0f",
-      "tenantId": "39a37f57-a227-4bfe-a044-93b6e6060b61",
-      "secret": "ZmE5ZDQ5ODctMmA1ZS00OGRiLWExZDMtZTA1MjkyZTc4MDB4",
+      "clientId": "<client-id>",
+      "tenantId": "<tenant-id>",
+      "secret": "<secret>",
       "name": "ApplicationName",
-      "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6060b61"
+      "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v4/<tenant-id>"
       }
       ```
       {: screen}
@@ -238,11 +238,11 @@ Try it out yourself by using a [simple Liberty for Java sample app](https://gith
 
       ```json
       {
-      "clientId": "111c22c3-38ea-4de8-b5d4-338744d83b0f",
-      "tenantId": "39a37f57-a227-4bfe-a044-93b6e6060b61",
-      "secret": "ZmE5ZDQ5ODctMmA1ZS00OGRiLWExZDMtZTA1MjkyZTc4MDB4",
+      "clientId": "<client-id>",
+      "tenantId": "<tenant-id>",
+      "secret": "<secret>",
       "name": "ApplicationName",
-      "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6060b61"
+      "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v4/<tenant-id>"
       }
       ```
       {: screen}
@@ -432,11 +432,11 @@ You must have the following prerequisites:
       * Example response:
          ```json
          {
-         "clientId": "111c22c3-38ea-4de8-b5d4-338744d83b0f",
-         "tenantId": "39a37f57-a227-4bfe-a044-93b6e6060b61",
-         "secret": "ZmE5ZDQ5ODctMmA1ZS00OGRiLWExZDMtZTA1MjkyZTc4MDB4",
+         "clientId": "<client-id>",
+         "tenantId": "<tenant-id>",
+         "secret": "<secret>",
          "name": "ApplicationName",
-         "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v4/39a37f57-a227-4bfe-a044-93b6e6060b61"
+         "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v4/<tenant-id>"
          }
          ```
          {: screen}

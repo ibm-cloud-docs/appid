@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2026-03-04"
+lastupdated: "2026-11-02"
 
 keywords: pricing, advanced security, authentication events, activity tracking, runtime activity, password policies, keycloak, allow list redirect url, redirect uri
 
@@ -16,7 +16,7 @@ subcollection: appid
 # FAQ for {{site.data.keyword.appid_short_notm}}
 {: #faq}
 
-This FAQ provides answers to common questions about the {{site.data.keyword.appid_full}} service.
+Get answers to common questions about {{site.data.keyword.appid_full}}, including how redirect URI allowlisting protects your users, how encryption and key management work, clock synchronization requirements, and the differences between {{site.data.keyword.appid_short_notm}} and Keycloak.
 {: shortdesc}
 
 

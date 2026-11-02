@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-03-04"
+lastupdated: "2026-11-02"
 
 keywords: related links, blogs, sample apps, kube, code changes, programming guide, white paper, vuejs apps, serverless applications, enterprise user directory, custom experience, slack, stack overflow, secure iot, solution, finance app, multicloud, video tutorials
 
@@ -13,10 +13,10 @@ subcollection: appid
 {{site.data.keyword.attribute-definition-list}}
 
 
-# Explore related content
+# Related content and resources for {{site.data.keyword.appid_short_notm}}
 {: #rellinks}
 
-You can use the following related links and samples to learn more about and interact with {{site.data.keyword.appid_full}}.
+Explore related content for {{site.data.keyword.appid_full}}, including blog posts, video tutorials, sample apps, and solution guides. Find examples for securing Kubernetes, IoT, serverless, and multicloud applications, as well as code patterns for Vue.js, Node.js, and more.
 {: shortdesc}
 
 Getting started? Try walking through our [video tutorials](https://www.youtube.com/playlist?list=PLzpeuWUENMK2tmzSRRx7W_mplw1x4h7ch){: external}.

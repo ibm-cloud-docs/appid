@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-03-04"
+lastupdated: "2026-11-02"
 
 keywords: help, support, error, multiple users, attribute, ticket, identity provider, redirect uri, custom url, virtual user, idp, identity settings, user profile
 
@@ -18,7 +18,7 @@ content-type: troubleshoot
 {: #ts-saml-attribute}
 {: troubleshoot}
 
-You encounter issues with your attributes.
+When you encounter an issue where an attribute value exists in an {{site.data.keyword.appid_short_notm}} user profile but is not associated with the correct attribute, it is likely caused by how your identity provider maps user information during sign-in.
 {: shortdesc}
 
 An attribute value exists in a user profile, but it's not associated with the correct attribute.

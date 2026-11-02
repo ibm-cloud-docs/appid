@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-03-04"
+lastupdated: "2026-11-02"
 
 keywords: custom identity provider, authorization, bring your own idp, proprietary idp, legacy idp, oauth, oidc, authentication, oatuh, app security, public key, jwt
 
@@ -12,10 +12,10 @@ subcollection: appid
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Custom
+# Configuring a custom identity provider for {{site.data.keyword.appid_short_notm}}
 {: #custom-identity}
 
-You can use a custom identity provider when you authenticate. Your identity provider can conform to any authentication mechanism that is not specifically supported by {{site.data.keyword.appid_full}}, including proprietary.
+Use a custom identity provider with {{site.data.keyword.appid_full}} to authenticate users through any mechanism not natively supported by the service, including proprietary, legacy, and third-party providers such as GitHub or LinkedIn. The custom identity flow bridges your existing authentication protocol to {{site.data.keyword.appid_short_notm}} without exposing user credentials.
 {: shortdesc}
 
 When {{site.data.keyword.appid_short_notm}} does not provide direct support for a particular identity provider, you can use the custom identity flow to bridge the authentication protocol to {{site.data.keyword.appid_short_notm}}'s existing authentication flow. For example, you want to use GitHub or LinkedIn to allow your users to sign in. You can use the identity provider's existing SDK to facilitate user authentication information before packaging and exchanging it with {{site.data.keyword.appid_short_notm}}. In many enterprise scenarios, a legacy identity provider might use its own custom authentication protocol, but you still want to leverage the capabilities of {{site.data.keyword.appid_short_notm}}. For this type of scenario, the custom identity flow provides a decoupled means of securely authenticating your users without exposing their credentials.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-03-04"
+lastupdated: "2026-11-02"
 
 keywords: password policies, password strength, advanced, sign in, lock out, reset password, email, expiration, credentials, password reuse, wrong credentials, secure apps, registry, cloud directory, regex
 
@@ -15,7 +15,7 @@ subcollection: appid
 # Defining password policies
 {: #cd-strength}
 
-Password policies, such as strength requirements, help you to enforce more secure applications. By defining advanced policies, you can define the rules that a user must conform to when they set their password or attempt to sign in to your app. For example, you can set the number of times that a user can try to sign in before they are locked out of their account.
+{{site.data.keyword.appid_full}} lets you define Cloud Directory password policies to enforce stronger application security. Set rules for password strength, expiration, reuse restrictions, and lockout behavior after repeated failed sign-in attempts, giving you fine-grained control over how users authenticate.
 {: shortdesc}
 
 

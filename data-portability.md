@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2025
-lastupdated: "2025-08-14"
+  years: 2026
+lastupdated: "2026-11-02"
 
 keywords: app id data, app id data resiliency, app id data portability
 
@@ -15,7 +15,7 @@ subcollection: appid
 # Understanding data portability for {{site.data.keyword.appid_short_notm}}
 {: #data-portability}
 
-Data portability involves a set of tools and procedures that enable you to export the digital artifacts that are needed to implement similar workload and data processing on different service providers or on-premises software. It includes procedures for copying and storing the service customer content, including the related configuration that is used by the service to store and process the data, in your location.
+{{site.data.keyword.appid_full}} supports data portability so you can export your service configuration and user data to run equivalent workloads on a different provider or on-premises. This topic describes the tools, procedures, and responsibilities involved in copying and storing your {{site.data.keyword.appid_short_notm}} data in your own location.
 {: shortdesc}
 
 ## Responsibilities
@@ -61,7 +61,7 @@ In addition, {{site.data.keyword.appid_short_notm}} provides mechanisms to expor
    ```json
    [
       {
-         "passwordHash": "xveImwVxuO7jxRQlRveKgBXD4WoAG0aIHVTY0GLSuTQbfTIsTNy753LFE9kdReAnBTIbSOeQ69UKJdnIxBZZkm9oWf8wsmwWeZwU9njZDDdhxzJWfvAv6Y/XjAqvNdWvJfV3Tag/zwQtKaET6Sc2gSbFL8L1X1wRR/msNA+NSfg=",
+         "passwordHash": "<password-hash>",
          "passwordHashAlg": "PBKDF2WithHmacSHA512",
          "profile": {
             "attributes": {
@@ -87,7 +87,7 @@ In addition, {{site.data.keyword.appid_short_notm}} provides mechanisms to expor
          }
       },
       {
-         "passwordHash": "YKmBYObTprREAKqjl8F94ofE5lF5lr7Zuc/eJ0Sylvx6IOgI97M56n16U0aGWqBVTu2/P8xayrr6utoH/Uok5v/3Ct9jddXlxhkA1odqgQslJdXiCcBHn/49xU9iejCu6p3PL/81vBfcBGxTll2xeHzF+0qF4rxzn91H6TuNH4o=",
+         "passwordHash": "<password-hash>",
          "passwordHashAlg": "PBKDF2WithHmacSHA512",
          "profile": {
             "attributes": {

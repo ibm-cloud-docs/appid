@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-06-01"
+lastupdated: "2026-11-02"
 
 keywords: data encryption in app id, data storage for app id, personal data in app id, data deletion for app id, data in app id, data security in app id
 
@@ -16,7 +16,7 @@ subcollection: appid
 # Securing your data in {{site.data.keyword.appid_short_notm}}
 {: #mng-data}
 
-To ensure that you can securely manage your data when you use {{site.data.keyword.appid_full}}, it is important to know exactly what data is stored and encrypted and how you can delete any stored personal data.
+{{site.data.keyword.appid_full}} encrypts customer data at rest and in transit using per-tenant keys, and enforces TLS 1.2+ across all network segments. Learn what personal data the service stores, how key management works, and how to delete stored data to meet your compliance requirements.
 {: shortdesc}
 
 
