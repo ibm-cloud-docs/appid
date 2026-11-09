@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-03-04"
+lastupdated: "2026-11-02"
 
 keywords: saml, help, authentication request, error message, signing algorithm, xml file, signing certificate, valid email, error code, saml message signature, 
 
@@ -12,11 +12,11 @@ subcollection: appid
 
 {{site.data.keyword.attribute-definition-list}}
 
-# How can I debug my SAML connection?
+# How can I debug my {{site.data.keyword.appid_short_notm}} SAML connection?
 {: #ts-saml-debug-connection}
-{: troubleshoot} 
+{: troubleshoot}
 
-You encounter bugs in your SAML connection. Check out some following helpful tips for debugging your SAML connection.
+When your {{site.data.keyword.appid_short_notm}} SAML connection is not working as expected, use these debugging tips to identify the root cause, including checking your SAML assertion format, metadata, and identity provider configuration.
 {: shortdesc}
 
 

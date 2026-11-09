@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-03-04"
+lastupdated: "2026-11-02"
 
 keywords: user registry, sign up, sign in, username, email, password, account settings, reset password, email sender, email verification, app security
 
@@ -16,7 +16,7 @@ subcollection: appid
 # Configuring Cloud Directory
 {: #cloud-directory}
 
-With {{site.data.keyword.appid_full}}, you can create a scalable user registry for your apps so that users can sign up and sign in with either a username or email and a password. You can decide the level of self-service that you want your users to have. For example, users can sign up for your app independently or you can allow them to manage their account settings, such as a password reset, from your app. 
+{{site.data.keyword.appid_full}} Cloud Directory lets you create a scalable user registry where users sign up and sign in with a username or email and password. You control the level of self-service, from independent sign-up to full account management including password reset, directly from your app.
 {: shortdesc}
 
 

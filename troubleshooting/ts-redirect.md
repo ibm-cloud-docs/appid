@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-03-04"
+lastupdated: "2026-11-02"
 
 keywords: help, support, error, multiple users, attribute, ticket, identity provider, redirect uri, custom url, virtual user, idp, identity settings, user profile
 
@@ -14,11 +14,11 @@ content-type: troubleshoot
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Why is my user not redirected to my app? 
+# Why is my user not redirected to my app after sign-in?
 {: #ts-redirect}
 {: troubleshoot}
 
-When a user signs into your app by using {{site.data.keyword.appid_full}}, they are redirected back to your application, but occasionally a redirect might fail.
+After signing in with {{site.data.keyword.appid_full}}, users should be redirected back to your application. If the redirect fails, it is typically because the redirect URI is not allowlisted, is incorrectly formatted, or contains query parameters that are stripped during validation.
 {: shortdesc}
 
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-03-04"
+lastupdated: "2026-11-02"
 
 keywords: app to app, protected resource, client secret, application identity, authorization, server, authentication, access tokens, app security
 
@@ -76,13 +76,13 @@ The client secret that is used to authenticate the client is highly sensitive an
 
    ```json
    {
-   "clientId": "c90830bf-11b0-4b44-bffe-9773f8703bad",
-   "tenantId": "b42f7429-fc24-48fa-b4f9-616bcc31cfd5",
-   "secret": "YWQyNjdkZjMtMGRhZC00ZWRkLThiOTQtN2E3ODEyZjhkOWQz",
+   "clientId": "<client-id>",
+   "tenantId": "<tenant-id>",
+   "secret": "<secret>",
    "name": "testing",
-   "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v4/b42f7429-fc24-48fa-b4f9-616bcb31cfd5",
+   "oAuthServerUrl": "https://us-south.appid.cloud.ibm.com/oauth/v4/<tenant-id>",
    "profilesUrl": "https://us-south.appid.cloud.ibm.com",
-   "discoveryEndpoint": "https://us-south.appid.cloud.ibm.com/oauth/v4/b42f7429-fc24-48fa-b4f9-616bcb31cfd5/.well-known/openid-configuration"
+   "discoveryEndpoint": "https://us-south.appid.cloud.ibm.com/oauth/v4/<tenant-id>/.well-known/openid-configuration"
    }
    ```
    {: screen}
@@ -105,7 +105,7 @@ After your app is registered with {{site.data.keyword.appid_short_notm}} and you
    Example response:
    ```json
    {
-   "access_token": "eyJhbGciOiJS...F9A",
+   "access_token": "<access-token>",
    "expires_in": "3600",
    "token_type": "Bearer"
    }

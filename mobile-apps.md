@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-03-04"
+lastupdated: "2026-11-02"
 
 keywords: secure mobile app, android, ios, authenticate users,  authorization grant, client sdk, trusted client, native app, personalized, custom app, devices, identity flow, app security
 
@@ -12,10 +12,10 @@ subcollection: appid
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Mobile apps
+# Authenticating users in mobile apps with {{site.data.keyword.appid_short_notm}}
 {: #mobile-apps}
 
-With {{site.data.keyword.appid_full}}, you can quickly construct an authentication layer for your native or hybrid mobile app.
+{{site.data.keyword.appid_full}} lets you add authentication and authorization to native and hybrid mobile apps for Android and iOS. Using the mobile authorization grant flow, users authenticate securely on their device and receive access and identity tokens that you can use to provide personalized, protected experiences across devices.
 {: shortdesc}
 
 ## Understanding the flow

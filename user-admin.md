@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-05-11"
+lastupdated: "2026-11-02"
 
 keywords: user information, add users, delete users, profile, access, attributes, admin, app security, authentication, authorization
 
@@ -13,10 +13,10 @@ subcollection: appid
 {{site.data.keyword.attribute-definition-list}}
 
 
-# Managing profiles
+# Managing user profiles in {{site.data.keyword.appid_short_notm}}
 {: #user-admin}
 
-With {{site.data.keyword.appid_full}}, you can compile information about the individual users of your application into a profile. The information in the profile can be learned about your users by the way that they interact with your app or added by you on their behalf. By storing the information, you can access it to help create personalized experiences of your app for your users.
+{{site.data.keyword.appid_full}} lets you view and manage the profiles of your application users. A user profile stores attributes from identity providers and custom data you add. Use these profiles to personalize experiences, control access, and audit user activity.
 {: shortdesc}
 
 Looking for information about your Cloud Directory users? Check out [managing users](/docs/appid?topic=appid-cd-users).

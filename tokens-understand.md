@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-03-04"
+lastupdated: "2026-11-02"
 
 keywords: tokens, refresh token, access token, identity token, configuration, authorization, authentication, app security, access, identity, refresh
 
@@ -13,10 +13,10 @@ subcollection: appid
 {{site.data.keyword.attribute-definition-list}}
 
 
-# Tokens
+# Understanding tokens in {{site.data.keyword.appid_short_notm}}
 {: #tokens}
 
-When a user is successfully authenticated, the application receives tokens from {{site.data.keyword.appid_short_notm}}. The service uses three main types of tokens to complete the authentication process known as access, identity, and refresh tokens.
+{{site.data.keyword.appid_full}} uses three types of tokens to complete the authentication process. Access tokens represent authorization and enable communication with protected resources. Identity tokens represent authentication and contain user information. Refresh tokens allow users to stay signed in without reauthenticating.
 {: shortdesc}
 
 

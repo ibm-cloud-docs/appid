@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2023
-lastupdated: "2026-06-01"
+lastupdated: "2026-11-02"
 
 keywords: rate limits, traffic control, limit request, lite instances, per minute, per instance, per user, limits
 
@@ -12,10 +12,10 @@ subcollection: appid
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Known issues and limitations
+# Known issues and limits for {{site.data.keyword.appid_short_notm}}
 {: #known-issues-limits}
 
-{{site.data.keyword.appid_full}} includes the following known issues and limits that might impact your experience.
+{{site.data.keyword.appid_full}} has known issues and limits that might impact your experience, including rate limits on authentication requests, per-instance traffic controls, and limits specific to Lite plan instances. Review these constraints before you deploy your application.
 {: shortdesc}
 
 

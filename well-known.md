@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-03-04"
+lastupdated: "2026-11-02"
 
 keywords: well known endpoint, discovery endpoint, oidc, public keys, user information, claims, attributes, full profile, identity providers, app security, tokens
 
@@ -13,10 +13,10 @@ subcollection: appid
 {{site.data.keyword.attribute-definition-list}}
 
 
-# OIDC discovery document
+# Using the OIDC discovery document in {{site.data.keyword.appid_short_notm}}
 {: #discovery}
 
-OpenID Connect supports a discovery protocol that contains information that you can use to configure your apps and authenticate users such as tokens and public keys.
+{{site.data.keyword.appid_full}} exposes an OpenID Connect (OIDC) discovery document at a well-known endpoint. The document contains the configuration information your app needs to authenticate users, including OAuth endpoint URLs, supported scopes, token signing public keys, and claims.
 {: shortdesc}
 
 

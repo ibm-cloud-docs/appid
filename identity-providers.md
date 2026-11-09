@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-03-04"
+lastupdated: "2026-11-02"
 
 keywords: facebook, google, social, identity providers, single sign on, default configuration, authentication, authorization, identity, app security, idp, default credentials
 
@@ -12,10 +12,10 @@ subcollection: appid
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Social
+# Configuring social identity providers for {{site.data.keyword.appid_short_notm}}
 {: #social}
 
-With {{site.data.keyword.appid_full}}, you can configure social identity providers to set up a single sign-on experience for your app. By allowing a user to sign in with their social profiles, they no longer have to remember several different passwords for different applications.
+{{site.data.keyword.appid_full}} lets you configure social identity providers, including Facebook and Google, so users can sign in to your app with their existing social profiles. This single sign-on approach eliminates the need for users to manage separate passwords for each application they access.
 {: shortdesc}
 
 ## Default configuration

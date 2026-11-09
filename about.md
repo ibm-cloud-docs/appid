@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-03-04"
+lastupdated: "2026-11-02"
 
 keywords: authentication, authorization, identity, app security, cloud directory, user data, identity provider, oauth, protocols, oauth, oidc, disaster recovery, dr, compliance, high availability, ha, secure, HA, DR
 
@@ -13,10 +13,10 @@ subcollection: appid
 {{site.data.keyword.attribute-definition-list}}
 
 
-# About {{site.data.keyword.appid_short_notm}}
+# About {{site.data.keyword.appid_short_notm}}: authentication and authorization
 {: #about}
 
-Isn't is awesome when the barista at your local coffee shop remembers your name and usual order? When you're building an application, you might want include that kind of tailored experience to make your users feel special or save them time. But, no matter how tailored your experience, the success of your app depends on your ability to build trust with your users - which comes down to securing their data and protecting the systems that your app accesses. Knowing who is using your app is a key part and it starts with adding sign in functionality. But, as a lot of developers know, adding authentication and authorization to your app is both risky and complex. With {{site.data.keyword.appid_full}} you can easily add authentication to your applications and host user data in the cloud that can be used to tailor your user experiences.
+{{site.data.keyword.appid_full}} helps you add authentication and authorization to your web and mobile apps with just a few lines of code. Users can sign in with an email and password, social media accounts, or a custom identity provider. After they authenticate, you can store user profile data and use it to tailor personalized experiences. Your credentials stay secure, and your cloud-native apps stay protected on {{site.data.keyword.cloud_notm}}.
 {: shortdesc}
 
 With {{site.data.keyword.appid_short_notm}} configured for your application, your users can sign in directly from your app by using an email or password. Or you can allow the use of social media accounts so that they can use credentials that they are already familiar with. After your users authenticate, you can authorize access to the backend resources that your app uses to tailor their experience. In {{site.data.keyword.appid_short_notm}}, you can store information about your users and let your developers use this information as they build their apps. 

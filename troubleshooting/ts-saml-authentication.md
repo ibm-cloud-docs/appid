@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-03-04"
+lastupdated: "2026-11-02"
 
 keywords: saml, help, authentication request, error message, signing algorithm, xml file, signing certificate, valid email, error code, saml message signature, 
 
@@ -14,10 +14,10 @@ subcollection: appid
 
 # Why did my SAML authentication request fail?
 {: #ts-saml}
-{: troubleshoot} 
+{: troubleshoot}
 {: support}
 
-You encounter issues with your SAML authentication.
+Your {{site.data.keyword.appid_short_notm}} SAML authentication request fails and users cannot sign in. This is typically caused by a misconfigured assertion, an expired certificate, or a mismatch between your identity provider settings and the {{site.data.keyword.appid_short_notm}} configuration.
 {: shortdesc}
 
 ## Why can't my SAML message signature be validated?

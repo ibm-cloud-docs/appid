@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-03-04"
+lastupdated: "2026-11-02"
 
 keywords: user registration, new user, add user, custom attributes, profiles, user profile, user, user information, identity provider, authentication, authorization, personalize app, app security
 
@@ -15,7 +15,7 @@ subcollection: appid
 # Preregistering future users
 {: #preregister}
 
-With {{site.data.keyword.appid_full}}, you can start building a profile for users that you know are going to need access to your app before their initial sign-in.
+{{site.data.keyword.appid_full}} lets you preregister users and build their profiles before their first sign-in. You can set custom attributes in advance, so personalized experiences are ready the moment a user accesses your app for the first time.
 {: shortdesc}
 
 To learn more about the security considerations that might apply when you work with custom attributes, see [Storing and accessing user profiles](/docs/appid?topic=appid-profiles).

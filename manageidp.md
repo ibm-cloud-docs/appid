@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-03-04"
+lastupdated: "2026-11-02"
 
 keywords: identity provider, idp, app security, mobile app, web app, authentication, authorization, oidc, saml, protocols, facebook, google, w3id, cloud directory, redirect url, redirect uri, token configuration, token lifetime, log in configuration
 
@@ -12,10 +12,10 @@ subcollection: appid
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Managing authentication
+# Managing identity providers and authentication in {{site.data.keyword.appid_short_notm}}
 {: #managing-idp}
 
-Identity providers (IdP's) add a level of security for your mobile and web apps, through authentication. With {{site.data.keyword.appid_full}}, you can configure one or several identity providers to create a custom sign-in experience for your users.
+{{site.data.keyword.appid_full}} lets you configure one or more identity providers to create a custom sign-in experience for your users. Supported protocols include OpenID Connect (OIDC) for social providers like Facebook and Google, SAML 2.0 for enterprise providers, and SCIM for Cloud Directory.
 {: shortdesc}
 
 {{site.data.keyword.appid_short_notm}} interacts with identity providers by using various protocols such as OpenID Connect, SAML, and more. For example, OpenID Connect is the protocol that is used with many social providers such as Facebook, Google. Enterprise providers such as Azure Active Directory or Active Directory Federation Service, generally use SAML as their identity protocol. For Cloud Directory, SCIM to verify identity information.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-03-04"
+lastupdated: "2026-11-02"
 
 keywords: protected resource, backend apps, identity, tokens, identity provider, authentication, authorization, app security, oauth, 
 
@@ -12,10 +12,10 @@ subcollection: appid
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Backend apps
+# Protecting backend apps and APIs with {{site.data.keyword.appid_short_notm}}
 {: #backend}
 
-You can use the {{site.data.keyword.appid_full}} SDKs and APIs to protect your backend application endpoints and APIs.
+{{site.data.keyword.appid_full}} provides SDKs and APIs to protect your backend application endpoints from unauthorized access. Using the API strategy, {{site.data.keyword.appid_short_notm}} validates OAuth 2.0 access tokens on incoming requests, so only authenticated users and services can reach your protected resources.
 {: shortdesc}
 
 

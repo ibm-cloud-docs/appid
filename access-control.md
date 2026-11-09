@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-03-16"
+lastupdated: "2026-11-02"
 
 keywords: user access, control access, permissions, roles, scopes, runtime, access token, authentication, identity, app security
 
@@ -13,7 +13,7 @@ subcollection: appid
 {{site.data.keyword.attribute-definition-list}}
 
 
-# Controlling access
+# Controlling access with roles and scopes in {{site.data.keyword.appid_short_notm}}
 {: #access-control}
 
 With {{site.data.keyword.appid_full}}, you can define which users and applications can access specific features or perform specific actions in your apps. To control access, you can create scopes and group them into a role. Then, assign the role to one or more of your app users and applications.

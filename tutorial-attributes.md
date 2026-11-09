@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2026
-lastupdated: "2026-03-04"
+lastupdated: "2026-11-02"
 
 keywords: attributes, cloud directory, user registry, user management, personalization, customize app, user information, profiles, app security, user profile, app access, identity
 
@@ -16,7 +16,7 @@ completion-time: 20m
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Customizing your user experience
+# Customizing your user experience with {{site.data.keyword.appid_short_notm}} attributes
 {: #tutorial-attributes}
 {: toc-content-type="tutorial"}
 {: toc-completion-time="20m"}
