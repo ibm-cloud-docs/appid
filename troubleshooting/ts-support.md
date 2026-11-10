@@ -4,7 +4,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2026-11-09"
+lastupdated: "2026-11-10"
 
 keywords: "get help, app id, support for app id"
 
@@ -22,7 +22,7 @@ subcollection: appid
 If you experience an issue with {{site.data.keyword.appid_full}}, you can get help. Use these resources to find answers before you open a support case. Resources include FAQs, troubleshooting docs, Stack Overflow, and IBM Support.
 {: shortdesc}
 
-* Troubleshoot with [{{site.data.keyword.paver_full}}](http://cloud.paver.ibm.com){: external}. {{site.data.keyword.paver}} is an embedded AI operator that understands your account context, creates a resolution plan, and executes changes on your behalf, while always requiring your approval before touching your live environment.
+* Troubleshoot with [{{site.data.keyword.paver_full}}](http://paver.cloud.ibm.com){: external}. {{site.data.keyword.paver}} is an embedded AI operator that understands your account context, creates a resolution plan, and executes changes on your behalf, while always requiring your approval before touching your live environment.
 * Review the [FAQs](/docs/appid?topic=appid-faq) in the product documentation.
 * Review the [troubleshooting documentation](/docs/appid?topic=appid-ts-redirect) to troubleshoot and resolve common issues.
 * Check the status of the {{site.data.keyword.cloud_notm}} platform and resources by going to the [Status page](https://cloud.ibm.com/status){: external}.
